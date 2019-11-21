@@ -1,24 +1,20 @@
 ---
-title: Azure Functions 觸發程式和系結範例
-description: 瞭解如何設定 Azure 函數系結
-services: functions
-documentationcenter: na
+title: Azure Functions trigger and binding example
+description: Learn to configure Azure Function bindings
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: d1959792823e04cf34d65ab775ae8c51e741e293
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8685c0fe02ad6c68918736e857c2015e2bfb4595
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097475"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227234"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions 觸發程式和系結範例
+# <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions trigger and binding example
 
-本文示範如何在 Azure 函數中設定[觸發程式和](./functions-triggers-bindings.md)系結。
+This article demonstrates how to configure a [trigger and bindings](./functions-triggers-bindings.md) in an Azure Function.
 
 假設您想要每當新訊息出現在 Azure 佇列儲存體時，就在 Azure 表格儲存體寫入新的資料列。 此案例可以使用 Azure 佇列儲存體觸發程序和 Azure 表格儲存體輸出繫結來實作。 
 
@@ -86,7 +82,7 @@ public class Person
 
 ## <a name="javascript-example"></a>JavaScript 範例
 
-相同的*函數. json*檔案可以與 JavaScript 函式搭配使用:
+The same *function.json* file can be used with a JavaScript function:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -104,9 +100,9 @@ function generateRandomId() {
 }
 ```
 
-## <a name="class-library-example"></a>類別庫範例
+## <a name="class-library-example"></a>Class library example
 
-在類別庫中，會由屬性 (而非 function.json 檔案) 提供相同的觸發程序和繫結資訊 &mdash;佇列和資料表名稱、儲存體帳戶、輸入和輸出的函式參數&mdash;。 以下為範例：
+在類別庫中，會由屬性 (而非 function.json 檔案) 提供相同的觸發程序和繫結資訊 &mdash;佇列和資料表名稱、儲存體帳戶、輸入和輸出的函式參數&mdash;。 以下是範例：
 
 ```csharp
 public static class QueueTriggerTableOutput
@@ -134,9 +130,9 @@ public class Person
 }
 ```
 
-您現在有一個可運作的函式, 它會由 Azure 佇列觸發, 並將資料輸出到 Azure 資料表儲存體。
+You now have a working function that is triggered by an Azure Queue and outputs data to Azure Table storage.
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Azure Functions 系結運算式模式](./functions-bindings-expressions-patterns.md)
+> [Azure Functions binding expression patterns](./functions-bindings-expressions-patterns.md)

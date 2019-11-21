@@ -1,52 +1,51 @@
 ---
-title: 將資料指派給叢集：模組參考
+title: 'Assign Data to Cluster: Module Reference'
 titleSuffix: Azure Machine Learning
-description: 瞭解如何使用 Azure Machine Learning 中的 [將資料指派給叢集] 模組來評分群集模型。
+description: Learn how to use the Assign Data to Cluster module in Azure Machine Learning to score clustering model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
-ms.openlocfilehash: 75a547a26057ad05444753253666dceea160d714
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: dd8b23f92f5b24101a7d42ca65f5835a8d4e9ff2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493864"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214563"
 ---
-# <a name="module-assign-data-to-clusters"></a>模組：將資料指派給群集
+# <a name="module-assign-data-to-clusters"></a>Module: Assign Data to Clusters
 
-本文說明如何在 Azure Machine Learning 設計工具（預覽）中使用 [*將資料指派給*叢集] 模組。 此模組會透過以*K 表示*叢集演算法定型的群集模型來產生預測。
+This article describes how to use the *Assign Data to Clusters* module in Azure Machine Learning designer (preview). The module generates predictions through a clustering model that was trained with the *K-means clustering* algorithm.
 
-[將資料指派給叢集] 模組會傳回資料集，其中包含每個新資料點的可能指派。 
+The Assign Data to Clusters module returns a dataset that contains the probable assignments for each new data point. 
 
-
-## <a name="how-to-use-assign-data-to-clusters"></a>如何使用將資料指派給群集
+## <a name="how-to-use-assign-data-to-clusters"></a>How to use Assign Data to Clusters
   
-1. 在 Azure Machine Learning 設計工具中，找出先前定型的群集模型。 您可以使用下列其中一種方法來建立和定型群集模型：  
+1. In Azure Machine Learning designer, locate a previously trained clustering model. You can create and train a clustering model by using either of the following methods:  
   
-    - 使用[k 意指](k-means-clustering.md)叢集模組來設定 K 表示叢集演算法，並使用資料集和訓練叢集模型模組（本文）來定型模型。  
+    - Configure the K-means clustering algorithm by using the [K-Means Clustering](k-means-clustering.md) module, and train the model by using a dataset and the Train Clustering Model module (this article).  
   
-    - 您也可以從工作區中的 [**已儲存的模型**] 群組加入現有的定型群集模型。
+    - You can also add an existing trained clustering model from the **Saved Models** group in your workspace.
 
-2. 將定型的模型附加至**將資料指派給群集**的左側輸入埠。  
+2. Attach the trained model to the left input port of **Assign Data to Clusters**.  
 
-3. 附加新的資料集做為輸入。 
+3. Attach a new dataset as input. 
 
-   在此資料集中，標籤是選擇性的。 一般而言，叢集是不受監督學習方法。 您不應該事先知道這些類別。 不過，輸入資料行必須與用來定型群集模型的資料行相同，否則會發生錯誤。
+   In this dataset, labels are optional. Generally, clustering is an unsupervised learning method. You are not expected to know the categories in advance. However, the input columns must be the same as the columns that were used in training the clustering model, or an error occurs.
 
     > [!TIP]
-    > 若要減少從叢集預測寫入設計工具的資料行數目，請使用[[選取資料集中的資料行](select-columns-in-dataset.md)]，然後選取資料行的子集。 
+    > To reduce the number of columns that are written to the designer from the cluster predictions, use [Select columns in the dataset](select-columns-in-dataset.md), and select a subset of the columns. 
     
-4. 如果您想要讓結果包含完整輸入資料集，包括顯示結果（叢集指派）的資料行，請保留 [**檢查附加] 或 [取消核取僅結果**] 核取方塊。
+4. Leave the **Check for append or uncheck for result only** check box selected if you want the results to contain the full input dataset, including a column that displays the results (cluster assignments).
   
-    如果您清除此核取方塊，則只會傳回結果。 當您建立預測做為 web 服務的一部分時，這個選項可能會很有用。
+    If you clear this check box, only the results are returned. This option might be useful when you create predictions as part of a web service.
   
 5.  執行管道。  
   
 ### <a name="results"></a>結果
 
-+  若要查看資料集中的值，請以滑鼠右鍵按一下模組，選取 [**結果資料集**]，然後選取 [**視覺化**]。
++  To view the values in the dataset, right-click the module, select **Result datasets**, and then select **Visualize**.
 

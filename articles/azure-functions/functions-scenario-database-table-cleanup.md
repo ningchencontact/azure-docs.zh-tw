@@ -1,25 +1,19 @@
 ---
-title: 使用 Azure Functions 執行資料庫清除工作 | Microsoft Docs
+title: Use Azure Functions to perform a database clean up task
 description: 使用 Azure Functions 排程可連接到 Azure SQL Database 以定期清除資料列的工作。
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.author: glenga
-ms.openlocfilehash: 469e0149a3b9dce22f0590240a053ee3b183c7b9
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: f70b5b83561e7c580dd7192850c8eb50be5aac0a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815987"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230389"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>使用 Azure Functions 連接到 Azure SQL Database
 
-本文說明如何使用 Azure Functions 建立連接至 Azure SQL Database 或 Azure SQL 受控執行個體的排程工作。 函式程式碼會清除資料庫中資料表中的資料列。 新C#函數是根據 Visual Studio 2019 中預先定義的計時器觸發程式範本所建立。 若要支援此案例，您也必須在函式應用程式中設定資料庫連接字串以作為設定。 針對 Azure SQL 受控執行個體您必須[啟用公用端點](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)，才能從 Azure Functions 連接。 此案例會對資料庫使用大量作業。 
+This article shows you how to use Azure Functions to create a scheduled job that connects to an Azure SQL Database or Azure SQL Managed Instance. 函式程式碼會清除資料庫中資料表中的資料列。 The new C# function is created based on a pre-defined timer trigger template in Visual Studio 2019. 若要支援此案例，您也必須在函式應用程式中設定資料庫連接字串以作為設定。 For Azure SQL Managed Instance you need to [enable public endpoint](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) to be able to connect from Azure Functions. 此案例會對資料庫使用大量作業。 
 
 如果這是您第一次使用 C# Functions，則您應該先閱讀 [Azure Functions C# 開發人員參考資料](functions-dotnet-class-library.md)。
 
@@ -39,7 +33,7 @@ ms.locfileid: "71815987"
 
 1. 從左側功能表中選取 [SQL Database]，然後選取 [SQL 資料庫] 頁面上的資料庫。
 
-1. 選取 [設定] 下的 [連接字串]，然後複製完整的 **ADO.NET** 連接字串。 針對 Azure SQL 受控執行個體複製公用端點的連接字串。
+1. 選取 [設定] 下的 [連接字串]，然後複製完整的 **ADO.NET** 連接字串。 For Azure SQL Managed Instance copy connection string for public endpoint.
 
     ![複製 ADO.NET 連接字串。](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -49,7 +43,7 @@ ms.locfileid: "71815987"
 
 您必須先將應用程式發佈至 Azure。 如果您尚未這麼做，請[將您的函式應用程式發行至 Azure](functions-develop-vs.md#publish-to-azure)。
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下函數應用程式專案，然後選擇 [發佈]  >  [管理應用程式設定]。在 [新增應用程式設定名稱] 中選取 [新增設定]，輸入 `sqldb_connection`，然後選取 [確定]。
+1. In Solution Explorer, right-click the function app project and choose **Publish** > **Manage application settings...** . Select **Add setting**, in **New app setting name**, type `sqldb_connection`, and select **OK**.
 
     ![函數應用程式的應用程式設定。](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
@@ -63,7 +57,7 @@ ms.locfileid: "71815987"
 
 您需要新增包含 SqlClient 程式庫的 NuGet 套件。 連接到 SQL Database 需要此資料存取程式庫。
 
-1. 在 Visual Studio 2019 中開啟您的本機函數應用程式專案。
+1. Open your local function app project in Visual Studio 2019.
 
 1. 在 [方案總管] 中，於函數應用程式上按一下滑鼠右鍵，然後選擇 [管理 NuGet 套件]。
 

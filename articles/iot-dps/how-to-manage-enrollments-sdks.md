@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 裝置佈建服務 SDK 管理裝置註冊 | Microsoft Docs
+title: Manage device enrollments using Azure DPS SDKs
 description: 如何在 IoT 中樞裝置佈建服務中使用服務 SDK 管理裝置註冊
 author: robinsh
 ms.author: robinsh
@@ -7,17 +7,17 @@ ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 438cb579180458fcdeb75516a7c98b3ab2886366
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 75a24fd6b8cafe03ae8090e6f8bf71a27459c7eb
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883370"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228809"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>如何使用 Azure 裝置佈建服務 SDK 管理裝置註冊
 「裝置註冊」會建立單一裝置或裝置群組的記錄，這些裝置可能會在某個時間點向裝置佈建服務進行註冊。 註冊記錄包含屬於該註冊一部分之裝置一開始所需的設定，包括所需的 IoT 中樞。 本文會示範如何針對您的佈建服務使用 Azure IoT 佈建服務 SDK，以程式設計方式管理裝置註冊。  這些 SDK 可從 GitHub 上取得，其位在與 Azure IoT SDK 相同的存放庫中。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 從裝置佈建服務執行個體取得連接字串。
 * 取得所使用之[證明機制](concepts-security.md#attestation-mechanism)的裝置安全性構件：
     * [**信賴平台模組 (TPM)** ](/azure/iot-dps/concepts-security#trusted-platform-module)：
@@ -42,7 +42,7 @@ ms.locfileid: "68883370"
     1. 使用已建立的 ```attestation``` 及唯一的 ```enrollmentGroupId``` 建立新 ```EnrollmentGroup``` 變數。  (選擇性) 您可以設定參數如 ```Device ID```、```IoTHubHostName```、```ProvisioningStatus```。
     2. 使用 ```EnrollmentGroup``` 在後端應用程式中呼叫服務 SDK API ```createOrUpdateEnrollmentGroup```，以建立註冊群組。
 
-* **個別註冊**是可能會註冊之單一裝置的項目。 個別註冊可使用 X.509 憑證或 SAS 權杖 (從實際或虛擬的 TPM) 來作為證明機制。 對於需要唯一初始設定的裝置，或是只能透過 TPM 或虛擬 TPM 使用 SAS 權杖作為證明機制的裝置，建議您使用個別註冊。 個別申請可能會指定所需的 IoT 中樞裝置識別碼。
+* **個別註冊**是可能會註冊之單一裝置的項目。 個別註冊可使用 X.509 憑證或 SAS 權杖 (從實際或虛擬的 TPM) 來作為證明機制。 對於需要唯一初始設定的裝置，或是只能透過 TPM 或虛擬 TPM 使用 SAS 權杖作為證明機制的裝置，建議您使用個別註冊。 個別註冊可能會指定所需的 IoT 中樞裝置識別碼。
 
     您可以依照此工作流程使用 SDK 建立個別註冊：
     

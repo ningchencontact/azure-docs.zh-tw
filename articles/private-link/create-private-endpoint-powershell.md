@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure PowerShell 建立 Azure 私用端點 |Microsoft Docs
-description: 瞭解 Azure 私人連結
+title: Create an Azure Private Endpoint using Azure PowerShell| Microsoft Docs
+description: Learn about Azure Private Link
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: 91670d51328b3adb67ba8b2ed05d3b86f9bc0010
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.author: allensu
+ms.openlocfilehash: 83f1cbc3f8da61370c90744be3f0a7b230e016c3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053915"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229393"
 ---
-# <a name="create-a-private-endpoint-using-azure-powershell"></a>使用 Azure PowerShell 建立私人端點
+# <a name="create-a-private-endpoint-using-azure-powershell"></a>Create a private endpoint using Azure PowerShell
 私人端點是 Azure 中私人連結的基本要素。 其可讓 Azure 資源 (例如虛擬機器 (VM)) 與私人連結資源進行私密通訊。 
 
 在本快速入門中，您將了解如何使用 Azure PowerShell 在 Azure 虛擬網路上建立 VM，以及建立具有 Azure 私人端點的 SQL Database 伺服器。 然後，您就可以從 VM 安全地存取 SQL Database 伺服器。
@@ -23,7 +23,7 @@ ms.locfileid: "73053915"
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-建立資源之前，您必須先建立資源群組，以使用[remove-azresourcegroup](/powershell/module/az.resources/new-azresourcegroup)來裝載虛擬網路和私人端點。 下列範例會在*WestUS*位置中建立名為*myResourceGroup*的資源群組：
+Before you can create your resources, you must create a resource group that hosts the Virtual Network and the private endpoint with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *WestUS* location:
 
 ```azurepowershell
 
@@ -33,11 +33,11 @@ New-AzResourceGroup `
 ```
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
-在本節中，您會建立虛擬網路和子網。 接下來，將子閘道聯至您的虛擬網路。
+In this section, you create a virtual network and a subnet. Next, you associate the subnet to your Virtual Network.
 
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
 
-使用[new-azvirtualnetwork](/powershell/module/az.network/new-azvirtualnetwork)為您的私用端點建立虛擬網路。 下列範例會建立名為*MyVirtualNetwork*的虛擬網路：
+Create a Virtual network for your private endpoint with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a Virtual Network named *MyVirtualNetwork*:
  
 ```azurepowershell
 
@@ -48,9 +48,9 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-### <a name="add-a-subnet"></a>新增子網
+### <a name="add-a-subnet"></a>Add a Subnet
 
-Azure 會將資源部署到虛擬網路內的子網，因此您必須建立子網。 使用[new-azvirtualnetworksubnetconfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig)建立名為*mySubnet*的子網設定。 下列範例會建立名為*mySubnet*的子網，並將 [私人端點網路原則] 旗標設定為 [**停用**]。
+Azure deploys resources to a subnet within a Virtual Network, so you need to create a subnet. Create a subnet configuration named *mySubnet* with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). The following example creates a subnet named *mySubnet* with the private endpoint network policy flag set to **Disabled**.
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -60,9 +60,9 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-### <a name="associate-the-subnet-to-the-virtual-network"></a>將子閘道聯至虛擬網路
+### <a name="associate-the-subnet-to-the-virtual-network"></a>Associate the Subnet to the Virtual Network
 
-您可以使用[New-azvirtualnetwork 將](/powershell/module/az.network/Set-azVirtualNetwork)子網設定寫入至虛擬網路。 此命令會建立子網路：
+You can write the subnet configuration to the Virtual Network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). 此命令會建立子網路：
 
 ```azurepowershell
 $virtualNetwork | Set-AzVirtualNetwork
@@ -70,7 +70,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="create-a-virtual-machine"></a>建立虛擬機器
 
-在虛擬網路中使用[update-azvm](/powershell/module/az.compute/new-azvm)建立 VM。 當您執行下一個命令時，系統會提示您輸入認證。 輸入 VM 的使用者名稱和密碼：
+Create a VM in the Virtual Network with [New-AzVM](/powershell/module/az.compute/new-azvm). 當您執行下一個命令時，系統會提示您輸入認證。 輸入 VM 的使用者名稱和密碼：
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -95,9 +95,9 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
 ```
 
-## <a name="create-a-sql-database-server"></a>建立 SQL Database 伺服器 
+## <a name="create-a-sql-database-server"></a>Create a SQL Database Server 
 
-使用 AzSqlServer 命令來建立 SQL Database 伺服器。 請記住，您 SQL Database 伺服器的名稱在整個 Azure 中必須是唯一的，因此請以您自己唯一的值取代括弧中的預留位置值：
+Create a  SQL Database Server by using the New-AzSqlServer command. Remember that the name of your SQL Database server must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
 
 ```azurepowershell-interactive
 $adminSqlLogin = "SqlAdmin"
@@ -117,7 +117,7 @@ New-AzSqlDatabase  -ResourceGroupName "myResourceGroup" `
 
 ## <a name="create-a-private-endpoint"></a>建立私人端點
 
-具有[AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection)之虛擬網路中 SQL Database 伺服器的私用端點： 
+Private Endpoint for the SQL Database Server in your Virtual Network with [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection): 
 
 ```azurepowershell
 
@@ -138,8 +138,8 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
 
-## <a name="configure-the-private-dns-zone"></a>設定私人 DNS 區域 
-建立 SQL Database 伺服器網域的私人 DNS 區域，並建立與虛擬網路的關聯連結： 
+## <a name="configure-the-private-dns-zone"></a>Configure the Private DNS Zone 
+Create a private DNS zone for SQL Database Server domain and create an association link with the virtual network: 
 
 ```azurepowershell
 
@@ -167,7 +167,7 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
   
 ## <a name="connect-to-a-vm-from-the-internet"></a>從網際網路連線至 VM
 
-請使用 [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) 來傳回 VM 的公用 IP 位址。 這個範例會傳回*myVM* VM 的公用 IP 位址：
+請使用 [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) 來傳回 VM 的公用 IP 位址。 This example returns the public IP address of the *myVM* VM:
 
 ```azurepowershell
 Get-AzPublicIpAddress `
@@ -175,7 +175,7 @@ Get-AzPublicIpAddress `
   -ResourceGroupName myResourceGroup `
   | Select IpAddress 
 ```  
-在您的本機電腦上開啟命令提示字元。 執行 mstsc 命令。 將 <publicIpAddress> 取代為先前步驟傳回的公用 IP 位址： 
+在您的本機電腦上開啟命令提示字元。 Run the mstsc command. 將 <publicIpAddress> 取代為先前步驟傳回的公用 IP 位址： 
 
 
 > [!NOTE]
@@ -187,14 +187,14 @@ mstsc /v:<publicIpAddress>
 1. 如果出現提示，請選取 [連接]。 
 2. 輸入您在建立 VM 時指定的使用者名稱和密碼。
   > [!NOTE]
-  > 您可能需要選取 [更多選擇] > [使用不同的帳戶]，以指定您在建立 VM 時輸入的認證。 
+  > You may need to select More choices > Use a different account, to specify the credentials you entered when you created the VM. 
   
 3. 選取 [確定]。 
 4. 您可能會收到憑證警告。 如果如此，請選取 [是] 或 [繼續]。 
 
-## <a name="access-sql-database-server-privately-from-the-vm"></a>從 VM 私下存取 SQL Database Server
+## <a name="access-sql-database-server-privately-from-the-vm"></a>Access SQL Database Server privately from the VM
 
-1. 在 myVM 的遠端桌面中，開啟 PowerShell。
+1. In the Remote Desktop of myVM, open PowerShell.
 2. 輸入 `nslookup myserver.database.windows.net` 。 
 
     您將收到如下訊息：
@@ -206,22 +206,22 @@ mstsc /v:<publicIpAddress>
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
     ```
-3. 安裝 SQL Server Management Studio
-4. 在 [連線到伺服器] 中，輸入或選取這項資訊：設定值伺服器類型選取 [資料庫引擎]。
-      伺服器名稱選取 [myserver.database.windows.net Username] 輸入建立期間提供的使用者名稱。
-      密碼輸入在建立期間所提供的密碼。
-      記住密碼選取 [是]。
-5. 選取 [連線]。
-6. 流覽左側功能表中的 [資料庫]。 
-7. 也從 mydatabase 建立或查詢資訊
-8. 關閉對*myVM*的遠端桌面連線。 
+3. Install SQL Server Management Studio
+4. In Connect to server, enter or select this information: Setting Value Server type   Select Database Engine.
+      Server name   Select myserver.database.windows.net Username  Enter a username provided during creation.
+      Password  Enter a password provided during creation.
+      Remember password Select Yes.
+5. Select Connect.
+6. Browse Databases from left menu. 
+7. (Optionally) Create or query information from mydatabase
+8. Close the remote desktop connection to *myVM*. 
 
 ## <a name="clean-up-resources"></a>清除資源 
-當您使用私用端點（SQL Database 伺服器和 VM）完成時，請使用[remove-azresourcegroup](/powershell/module/az.resources/remove-azresourcegroup)移除資源群組及其擁有的所有資源：
+When you're done using the private endpoint, SQL Database server and the VM, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all the resources it has:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>後續步驟
-- 深入瞭解[Azure 私人連結](private-link-overview.md)
+- Learn more about [Azure Private Link](private-link-overview.md)

@@ -1,7 +1,7 @@
 ---
-title: 設計工具：預測航班延誤範例
+title: 'Designer: Predict flight delay example'
 titleSuffix: Azure Machine Learning
-description: 建立分類器，並使用自訂 R 程式碼來預測 Azure Machine Learning 設計工具的航班延誤。
+description: Build a classifier and use custom R code to predict flight delays with Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,119 +10,119 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 06d158fb228ea82e61e785407fc0c59d66c2de15
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
-ms.translationtype: HT
+ms.openlocfilehash: 23b763a69fc0ea3191150c6255cf358d69bc4b73
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196028"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214023"
 ---
-# <a name="build-a-classifier--use-r-to-predict-flight-delays-with-azure-machine-learning-designer"></a>建立分類器 & 使用 R 來預測 Azure Machine Learning 設計工具的飛行延遲
+# <a name="build-a-classifier--use-r-to-predict-flight-delays-with-azure-machine-learning-designer"></a>Build a classifier & use R to predict flight delays with Azure Machine Learning designer
 
-**設計工具（預覽）範例6**
+**Designer (preview) sample 6**
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-此管線會使用歷程記錄和天氣資料來預測排程的乘客航班是否會延遲超過15分鐘。 這個問題可以做為分類問題來進行，預測兩個類別：延遲或準時。
+This pipeline uses historical flight and weather data to predict if a scheduled passenger flight will be delayed by more than 15 minutes. This problem can be approached as a classification problem, predicting two classes: delayed, or on time.
 
-以下是此範例的最後一個管線圖形：
+Here's the final pipeline graph for this sample:
 
-[管線![圖形](media/how-to-ui-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph of the pipeline](media/how-to-designer-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. 按一下 [範例 6] 將其開啟。
+4. Click sample 6 to open it.
 
 ## <a name="get-the-data"></a>取得資料
 
-這個範例會使用**航班延遲資料**資料集。 這是美國運輸部門的 TranStats 資料收集的一部分。 此資料集包含從4月到2013年10月的航班延誤資訊。 此資料集已預先處理，如下所示：
+This sample uses the **Flight Delays Data** dataset. It's part of the TranStats data collection from the U.S. Department of Transportation. The dataset contains flight delay information from April to October 2013. The dataset has been pre-processed as follows:
 
-* 已篩選為包含美國大陸境內70最忙碌的機場。
-* 將已取消的航班重新標示為延遲超過15分鐘。
-* 已篩選掉轉向航班。
-* 選取了14個數據行。
+* Filtered to include the 70 busiest airports in the continental United States.
+* Relabeled canceled flights as delayed by more than 15 mins.
+* Filtered out diverted flights.
+* Selected 14 columns.
 
-若要補充航班資料，請使用**氣象資料集**。 天氣資料包含 NOAA 的每小時、以土地為基礎的氣象觀察，並代表機場氣象站的觀察，涵蓋與航班資料集相同的時間週期。 它已預先處理，如下所示：
+To supplement the flight data, the **Weather Dataset** is used. The weather data contains hourly, land-based weather observations from NOAA, and represents observations from airport weather stations, covering the same time period as the flights dataset. It has been pre-processed as follows:
 
-* 氣象站識別碼會對應至相對應的機場識別碼。
-* 未與70最忙碌的機場關聯的天氣電臺已移除。
-* 日期資料行已分割為不同的資料行： Year、Month 和 Day。
-* 選取的26個數據行。
+* Weather station IDs were mapped to corresponding airport IDs.
+* Weather stations not associated with the 70 busiest airports were removed.
+* The Date column was split into separate columns: Year, Month, and Day.
+* Selected 26 columns.
 
-## <a name="pre-process-the-data"></a>預先處理資料
+## <a name="pre-process-the-data"></a>Pre-process the data
 
-資料集通常需要進行一些前置處理，然後才能進行分析。
+A dataset usually requires some pre-processing before it can be analyzed.
 
-![資料-進程](media/how-to-ui-sample-classification-predict-flight-delay/data-process.png)
+![data-process](media/how-to-designer-sample-classification-predict-flight-delay/data-process.png)
 
-### <a name="flight-data"></a>航班資料
+### <a name="flight-data"></a>Flight data
 
-[**貨運公司]** 、[ **OriginAirportID**] 和 [ **DestAirportID** ] 資料行會儲存為整數。 不過，它們是類別屬性，使用 [**編輯中繼資料**] 模組將它們轉換成類別。
+The columns **Carrier**, **OriginAirportID**, and **DestAirportID** are saved as integers. However, they're  categorical attributes, use the **Edit Metadata** module to convert them to categorical.
 
-![編輯-中繼資料](media/how-to-ui-sample-classification-predict-flight-delay/edit-metadata.png)
+![edit-metadata](media/how-to-designer-sample-classification-predict-flight-delay/edit-metadata.png)
 
-然後使用 [**選取**資料集中的資料行] 模組，從可能為目標 leakers 的資料集資料行中排除： **DepDelay**、 **DepDel15**、 **ArrDelay**、**已取消**、**年**。 
+Then use the **Select Columns** in Dataset module to exclude from the dataset columns that are possible target leakers: **DepDelay**, **DepDel15**, **ArrDelay**, **Canceled**, **Year**. 
 
-若要將航班記錄與每小時氣象記錄聯結，請使用已排程的出發時間做為其中一個聯結索引鍵。 若要執行聯結，CSRDepTime 資料行必須向下舍入到最接近的小時，這是在**執行 R 腳本**模組中完成。 
+To join the flight records with the hourly weather records, use the scheduled departure time as one of the join keys. To do the join, the CSRDepTime column must be rounded down to the nearest hour, which is done by in the **Execute R Script** module. 
 
 ### <a name="weather-data"></a>天氣資料
 
-使用 [**專案資料行**] 模組會排除具有大量遺漏值的資料行。 這些資料行包含所有字串值資料行： **ValueForWindCharacter**、 **WetBulbFarenheit**、 **WetBulbCelsius**、 **PressureTendency**、 **PressureChange**、 **SeaLevelPressure**和**StationPressure**.
+Columns that have a large proportion of missing values are excluded using the **Project Columns** module. These columns include all string-valued columns: **ValueForWindCharacter**, **WetBulbFarenheit**, **WetBulbCelsius**, **PressureTendency**, **PressureChange**, **SeaLevelPressure**, and **StationPressure**.
 
-**清除遺漏的資料**模組接著會套用到其餘的資料行，以移除遺漏資料的資料列。
+The **Clean Missing Data** module is then applied to the remaining columns to remove rows with missing data.
 
-天氣觀察時間會無條件進位到最接近的完整時數。 排定航班時間和氣象觀察時間會以相反的方向舍入，以確保此模型只會在航班時間之前使用天氣。 
+Weather observation times are rounded up to the nearest full hour. Scheduled flight times and the weather observation times are rounded in opposite directions to ensure the model uses only weather before the flight time. 
 
-由於天氣資料會以當地時間回報，因此會藉由從排程出發時間和氣象觀察時間減去時區資料行的方式來考慮時區差異。 這些作業會使用 [**執行 R 腳本**] 模組來完成。
+Since weather data is reported in local time, time zone differences are accounted for by subtracting the time zone columns from the scheduled departure time and the weather observation time. These operations are done using the **Execute R Script** module.
 
-### <a name="joining-datasets"></a>聯結資料集
+### <a name="joining-datasets"></a>Joining Datasets
 
-航班記錄會使用**聯結資料**模組，與航班（**OriginAirportID**）來源的氣象資料聯結。
+Flight records are joined with weather data at origin of the flight (**OriginAirportID**) using the **Join Data** module.
 
- ![依來源加入航班和天氣](media/how-to-ui-sample-classification-predict-flight-delay/join-origin.png)
+ ![join flight and weather by origin](media/how-to-designer-sample-classification-predict-flight-delay/join-origin.png)
 
 
-航班記錄會使用航班的目的地（**DestAirportID**）與氣象資料聯結。
+Flight records are joined with weather data using the destination of the flight (**DestAirportID**).
 
- ![依目的地加入航班和天氣](media/how-to-ui-sample-classification-predict-flight-delay/join-destination.png)
+ ![Join flight and weather by destination](media/how-to-designer-sample-classification-predict-flight-delay/join-destination.png)
 
-### <a name="preparing-training-and-test-samples"></a>準備訓練和測試範例
+### <a name="preparing-training-and-test-samples"></a>Preparing Training and Test Samples
 
-[**分割資料**] 模組會將資料分割成四月份的記錄，以供定型，以及10月份記錄進行測試。
+The **Split Data** module splits the data into April through September records for training, and October records for test.
 
- ![分割定型和測試資料](media/how-to-ui-sample-classification-predict-flight-delay/split.png)
+ ![Split training and test data](media/how-to-designer-sample-classification-predict-flight-delay/split.png)
 
-[年]、[月] 和 [時區] 資料行會使用 [選取資料行] 模組從訓練資料集移除。
+Year, month, and timezone columns are removed from the training dataset using the Select Columns module.
 
 ## <a name="define-features"></a>定義功能
 
-在機器學習中，功能是您感興趣之某個專案的個別可測量屬性。 尋找一組強大的功能需要實驗和領域知識。 有些功能會比其他功能更適合用來預測目標。 此外，某些功能可能與其他功能具有強式相互關聯，而且不會將新資訊加入至模型。 這些功能可以移除。
+In machine learning, features are individual measurable properties of something you’re interested in. Finding a strong set of features requires experimentation and domain knowledge. 有些功能會比其他功能更適合用來預測目標。 Also, some features may have a strong correlation with other features, and won't add new information to the model. These features can be removed.
 
-若要建立模型，您可以使用所有可用的功能，或選取功能的子集。
+To build a model, you can use all the features available, or select a subset of the features.
 
 ## <a name="choose-and-apply-a-learning-algorithm"></a>選擇及套用學習演算法
 
-使用**兩個類別的羅吉斯回歸**模組建立模型，並在訓練資料集上定型。 
+Create a model using the **Two-Class Logistic Regression** module and train it on the training dataset. 
 
-**訓練模型**模組的結果是定型的分類模型，可用來對新的樣本進行評分以進行預測。 使用測試集從定型的模型產生分數。 然後使用 [**評估模型**] 模組來分析和比較模型的品質。
-管線：執行管線之後，您可以按一下輸出埠並選取 [**視覺化**]，以查看 [**評分模型**] 模組的輸出。 輸出會包含評分標籤和標籤的機率。
+The result of the **Train Model** module is a trained classification model that can be used to score new samples to make predictions. Use the test set to generate scores from the trained models. Then use the **Evaluate Model** module to analyze and compare the quality of the models.
+pipeline After you run the pipeline, you can view the output from the **Score Model** module by clicking the output port and selecting **Visualize**. The output includes the scored labels and the probabilities for the labels.
 
-最後，若要測試結果的品質，請將 [**評估模型**] 模組新增至管線畫布，然後將左側的輸入埠連接到 [評分模型] 模組的輸出。 執行管線並查看 [**評估模型**] 模組的輸出，方法是按一下輸出埠，然後選取 [**視覺化**]。
+Finally, to test the quality of the results, add the **Evaluate Model** module to the pipeline canvas, and connect the left input port to the output of the Score Model module. Run the pipeline and view the output of the **Evaluate Model** module, by clicking the output port and selecting **Visualize**.
 
 ## <a name="evaluate"></a>評估
-羅吉斯回歸模型在測試集上具有0.631 的 AUC。
+The logistic regression model has AUC of 0.631 on the test set.
 
- ![評估](media/how-to-ui-sample-classification-predict-flight-delay/evaluate.png)
+ ![評估](media/how-to-designer-sample-classification-predict-flight-delay/evaluate.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-探索適用于設計工具的其他範例：
+Explore the other samples available for the designer:
 
-- [範例 1-回歸：預測汽車的價格](how-to-designer-sample-regression-automobile-price-basic.md)
-- [範例 2-回歸：比較汽車價格預測的演算法](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [範例 3-使用特徵選取進行分類：收入預測](how-to-designer-sample-classification-predict-income.md)
-- [範例 4-分類：預測信用風險（區分成本）](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [範例 5-分類：預測流失](how-to-designer-sample-classification-churn.md)
-- [範例 7-文字分類：維琪百科 SP 500 資料集](how-to-designer-sample-text-classification.md)
+- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
+- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

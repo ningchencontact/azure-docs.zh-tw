@@ -1,22 +1,17 @@
 ---
 title: Azure Functions 的 Azure 服務匯流排繫結
 description: 瞭解如何在 Azure Functions 中使用「Azure 服務匯流排」觸發程序和繫結。
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: cf78712515ab91c66161d04dac0df601c5dcb625
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d27058ed0ff3044d98d8428b3065b02e2c24c451
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082777"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231054"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服務匯流排繫結
 
@@ -32,10 +27,10 @@ ms.locfileid: "74082777"
 
 ## <a name="packages---functions-2x"></a>套件 - Functions 2.x
 
-[Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet 套件 3.x 版會提供服務匯流排繫結。 套件的原始程式碼位於[azure 函式-](https://github.com/Azure/azure-functions-servicebus-extension)驗證程式延伸模組 GitHub 存放庫中。
+[Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet 套件 3.x 版會提供服務匯流排繫結。 Source code for the package is in the [azure-functions-servicebus-extension](https://github.com/Azure/azure-functions-servicebus-extension) GitHub repository.
 
 > [!NOTE]
-> 2\.x 版不會建立在 `ServiceBusTrigger` 實例中設定的主題或訂用帳戶。 2\.x 版是以[Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)為基礎，而且不會處理佇列管理。
+> Version 2.x does not create the topic or subscription configured in the `ServiceBusTrigger` instance. Version 2.x is based on [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) and does not handle queue management.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -145,7 +140,7 @@ let Run(myQueueItem: string, log: ILogger) =
 
 ### <a name="trigger---java-example"></a>觸發程序 - Java 範例
 
-下列 JAVA 函式會使用 JAVA 函式執行時間連結[庫](/java/api/overview/azure/functions/runtime)中的 `@ServiceBusQueueTrigger` 批註來描述服務匯流排佇列觸發程式的設定。 函式會抓取放在佇列上的訊息，並將它新增至記錄。
+The following Java function uses the `@ServiceBusQueueTrigger` annotation from the [Java functions runtime library](/java/api/overview/azure/functions/runtime) to describe the configuration for a Service Bus queue trigger. The  function grabs the message placed on the queue and adds it to the logs.
 
 ```java
 @FunctionName("sbprocessor")
@@ -159,7 +154,7 @@ let Run(myQueueItem: string, log: ILogger) =
  }
 ```
 
-當訊息新增至服務匯流排主題時，也會觸發 JAVA 函式。 下列範例會使用 `@ServiceBusTopicTrigger` 注釋來描述觸發程式設定。
+Java functions can also be triggered when a message is added to a Service Bus topic. The following example uses the `@ServiceBusTopicTrigger` annotation to describe the trigger configuration.
 
 ```java
 @FunctionName("sbtopicprocessor")
@@ -211,9 +206,9 @@ module.exports = function(context, myQueueItem) {
 
 ### <a name="trigger---python-example"></a>觸發程序 - Python 範例
 
-下列範例示範如何透過觸發程式來讀取「執行匯流排佇列」訊息。
+The following example demonstrates how to read a ServiceBus queue message via a trigger.
 
-在函*式中定義*了「匯流排系結」，其中*type*設為 `serviceBusTrigger`。
+A ServiceBus binding is defined in *function.json* where *type* is set to `serviceBusTrigger`.
 
 ```json
 {
@@ -230,7 +225,7 @@ module.exports = function(context, myQueueItem) {
 }
 ```
 
-*_\_init_\_* 中的程式碼會將參數宣告為 `func.ServiceBusMessage`，這可讓您讀取函數中的佇列訊息。
+The code in *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage` which allows you to read the queue message in your function.
 
 ```python
 import azure.functions as func
@@ -332,7 +327,7 @@ def main(msg: func.ServiceBusMessage):
 |**topicName**|**TopicName**|要監視的主題名稱。 只有在監視主題時設定 (不適用於佇列)。|
 |**subscriptionName**|**SubscriptionName**|要監視的訂用帳戶名稱。 只有在監視主題時設定 (不適用於佇列)。|
 |**連接**|**連接**|應用程式設定的名稱包含要用於此繫結的服務匯流排連接字串。 如果應用程式設定名稱是以 "AzureWebJobs" 開頭，您只能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為 "MyServiceBus"，則 Functions 執行階段會尋找名稱為 "AzureWebJobsMyServiceBus" 的應用程式設定。 如果您將 `connection` 保留空白，則 Functions 執行階段會使用應用程式設定中名稱為 "AzureWebJobsServiceBus" 的預設服務匯流排連接字串。<br><br>若要取得連接字串，請遵循[取得管理認證](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string)所示的步驟。 連接字串必須是用於服務匯流排命名空間，而不限於特定佇列或主題。 |
-|**accessRights**|**存取**|連接字串的存取權限。 可用值為 `manage` 和 `listen`。 預設值是 `manage`，這表示 `connection` 已具備**管理**權限。 如果您使用沒有**管理**權限的連接字串，請將 `accessRights` 設定為 "listen"。 否則，Functions 執行階段在嘗試執行需要管理權限的作業時可能會失敗。 在 Azure Functions 第 2.x 版中，這個屬性無法使用，因為最新版的儲存體 SDK 不支援管理作業。|
+|**accessRights**|**Access**|連接字串的存取權限。 可用值為 `manage` 和 `listen`。 預設值是 `manage`，這表示 `connection` 已具備**管理**權限。 如果您使用沒有**管理**權限的連接字串，請將 `accessRights` 設定為 "listen"。 否則，Functions 執行階段在嘗試執行需要管理權限的作業時可能會失敗。 在 Azure Functions 第 2.x 版中，這個屬性無法使用，因為最新版的儲存體 SDK 不支援管理作業。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -343,7 +338,7 @@ def main(msg: func.ServiceBusMessage):
 * `string` - 如果訊息是文字。
 * `byte[]` - 適用於二進位資料。
 * 自訂類型 - 如果訊息包含 JSON，Azure Functions 會嘗試將 JSON 資料還原序列化。
-* `BrokeredMessage`-提供已還原序列化的訊息，其中包含[BrokeredMessage. GetBody\<t > （）](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)方法。
+* `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) method.
 
 這些參數適用於 Azure Functions 版本 1.x；針對 2.x，請使用 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)，而不是使用 `BrokeredMessage`。
 
@@ -363,7 +358,7 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 
 服務匯流排觸發程序提供數個[中繼資料屬性](./functions-bindings-expressions-patterns.md#trigger-metadata)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 類別的屬性。
 
-|屬性|在系統提示您進行確認時，輸入|描述|
+|屬性|Type|描述|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|傳遞數目。|
 |`DeadLetterSource`|`string`|無效信件來源。|
@@ -378,7 +373,7 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 |`CorrelationId`|`string`|相互關連識別碼。|
 
 > [!NOTE]
-> 目前，服務匯流排觸發程式適用于已啟用會話的佇列和訂用帳戶。 請追蹤[此專案](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458)，以取得與此相關的任何進一步更新。 
+> Currently, Service bus trigger that works with session enabled queues and subscriptions is in preview. Please track [this item](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) for any further updates regarding this. 
 
 請參閱稍早在本文中使用這些屬性的[程式碼範例](#trigger---example)。
 
@@ -517,7 +512,7 @@ public String pushToQueue(
 
  在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值要寫入至服務匯流排佇列的函式參數使用 `@QueueOutput` 註釋。  參數類型應為 `OutputBinding<T>`，其中 T 是任何原生 Java 類型的 POJO。
 
-JAVA 函數也可以寫入服務匯流排主題。 下列範例會使用 `@ServiceBusTopicOutput` 注釋來描述輸出系結的設定。 
+Java functions can also write to a Service Bus topic. The following example uses the `@ServiceBusTopicOutput` annotation to describe the configuration for the output binding. 
 
 ```java
 @FunctionName("sbtopicsend")
@@ -588,9 +583,9 @@ module.exports = function (context, myTimer) {
 
 ### <a name="output---python-example"></a>輸出 - Python 範例
 
-下列範例示範如何寫出 Python 中的執行匯流排佇列。
+The following example demonstrates how to write out to a ServiceBus queue in Python.
 
-ServiceBue 系結定義定義于*function json*中，其中*type*設為 `serviceBus`。
+A ServiceBue binding definition is defined in *function.json* where *type* is set to `serviceBus`.
 
 ```json
 {
@@ -622,7 +617,7 @@ ServiceBue 系結定義定義于*function json*中，其中*type*設為 `service
 }
 ```
 
-在 *_\_init_\_. .py*中，您可以藉由將值傳遞給 `set` 方法，將訊息寫出到佇列中。
+In *_\_init_\_.py*, you can write out a message to the queue by passing a value to the `set` method.
 
 ```python
 import azure.functions as func
@@ -678,7 +673,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 |**queueName**|**QueueName**|佇列的名稱。  只有在傳送佇列訊息時設定 (不適用於主題)。
 |**topicName**|**TopicName**|要監視的主題名稱。 只有在傳送主題訊息時設定 (不適用於佇列)。|
 |**連接**|**連接**|應用程式設定的名稱包含要用於此繫結的服務匯流排連接字串。 如果應用程式設定名稱是以 "AzureWebJobs" 開頭，您只能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為 "MyServiceBus"，則 Functions 執行階段會尋找名稱為 "AzureWebJobsMyServiceBus" 的應用程式設定。 如果您將 `connection` 保留空白，則 Functions 執行階段會使用應用程式設定中名稱為 "AzureWebJobsServiceBus" 的預設服務匯流排連接字串。<br><br>若要取得連接字串，請遵循[取得管理認證](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string)所示的步驟。 連接字串必須是用於服務匯流排命名空間，而不限於特定佇列或主題。|
-|**accessRights**|**存取**|連接字串的存取權限。 可用值為 `manage` 和 `listen`。 預設值是 `manage`，這表示 `connection` 已具備**管理**權限。 如果您使用沒有**管理**權限的連接字串，請將 `accessRights` 設定為 "listen"。 否則，Functions 執行階段在嘗試執行需要管理權限的作業時可能會失敗。 在 Azure Functions 第 2.x 版中，這個屬性無法使用，因為最新版的儲存體 SDK 不支援管理作業。|
+|**accessRights**|**Access**|連接字串的存取權限。 可用值為 `manage` 和 `listen`。 預設值是 `manage`，這表示 `connection` 已具備**管理**權限。 如果您使用沒有**管理**權限的連接字串，請將 `accessRights` 設定為 "listen"。 否則，Functions 執行階段在嘗試執行需要管理權限的作業時可能會失敗。 在 Azure Functions 第 2.x 版中，這個屬性無法使用，因為最新版的儲存體 SDK 不支援管理作業。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -691,19 +686,19 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 * `out T paramName` - `T` 可以是任何可序列化 JSON 的類型。 當函式結束時，如果參數值為 Null，則 Functions 會使用 Null 物件建立訊息。
 * `out string` - 當函式結束時，如果參數值為 Null，則 Functions 不會建立一則訊息。
 * `out byte[]` - 當函式結束時，如果參數值為 Null，則 Functions 不會建立一則訊息。
-* `out BrokeredMessage`-當函式結束時，如果參數值為 null，函數不會建立訊息（針對函式1.x）
-* `out Message`-當函式結束時，如果參數值為 null，函數不會建立訊息（for 函數2.x）
+* `out BrokeredMessage` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 1.x)
+* `out Message` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 2.x)
 * `ICollector<T>` 或 `IAsyncCollector<T>` - 適用於建立多個訊息。 當您呼叫 `Add` 方法時，就會建立一則訊息。
 
-使用C#函數時：
+When working with C# functions:
 
-* 非同步函數需要傳回值或 `IAsyncCollector`，而不是 `out` 參數。
+* Async functions need a return value or `IAsyncCollector` instead of an `out` parameter.
 
-* 若要存取會話識別碼，請系結至[`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)型別，然後使用 `sessionId` 屬性。
+* To access the session ID, bind to a [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) type and use the `sessionId` property.
 
-在 JavaScript 中，使用 `context.bindings.<name from function.json>` 來存取佇列或主題。 您可以將字串、位元組陣列或 JavaScript 物件（還原序列化為 JSON）指派給 `context.binding.<name>`。
+在 JavaScript 中，使用 `context.bindings.<name from function.json>` 來存取佇列或主題。 You can assign a string, a byte array, or a JavaScript object (deserialized into JSON) to `context.binding.<name>`.
 
-若要以非C#語言將訊息傳送至啟用會話的佇列，請使用[Azure 服務匯流排 SDK](https://docs.microsoft.com/azure/service-bus-messaging) ，而不是內建的輸出系結。
+To send a message to a session-enabled queue in non-C# languages, use the [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) rather than the built-in output binding.
 
 ## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
 

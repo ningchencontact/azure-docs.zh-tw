@@ -1,38 +1,33 @@
 ---
 title: Durable Functions 中的計時器 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 擴充中實作永久性計時器。
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: a24d6e96df3abf385b0a64ec4bc7e1f1c248998b
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: c477a81801c1345d5be5f5f45419bb4776c875e0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614629"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231274"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的計時器
 
 [Durable Functions](durable-functions-overview.md) 提供「永久性計時器」，用於協調器函式中實作延遲，或在非同步動作上設定逾時。 永久性計時器應該用於協調器函式中，以代替 `Thread.Sleep` 和 `Task.Delay` (C#)，或 `setTimeout()` 和 `setInterval()` (JavaScript)。
 
-您可以藉由呼叫[協調流程觸發](durable-functions-bindings.md#orchestration-trigger)程式系結的 `CreateTimer` （.net）方法或 `createTimer` （JavaScript）方法來建立持久計時器。 方法會傳回在指定的日期和時間完成的工作。
+You create a durable timer by calling the `CreateTimer` (.NET) method or the `createTimer` (JavaScript) method of the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger). The method returns a task that completes on a specified date and time.
 
 ## <a name="timer-limitations"></a>計時器限制
 
-當您建立在下午4:30 到期的計時器時，基礎的長期工作架構會將只有在下午4:30 才會顯示的訊息。 在 Azure Functions 耗用量方案中執行時，新顯示的計時器訊息會確保函式應用程式會在適當的 VM 上啟用。
+When you create a timer that expires at 4:30 pm, the underlying Durable Task Framework enqueues a message that becomes visible only at 4:30 pm. When running in the Azure Functions Consumption plan, the newly visible timer message will ensure that the function app gets activated on an appropriate VM.
 
 > [!NOTE]
-> * 持久性計時器目前限制為7天。 如果需要較長的延遲，可以使用 `while` 迴圈中的計時器 Api 來進行模擬。
-> * 在計算持久計時器的觸發時間時，請一律使用 `CurrentUtcDateTime`，而不是在 .NET 或 `currentUtcDateTime` 中 `DateTime.UtcNow`，而不是在 JavaScript 中 `Date.now` 或 `Date.UTC`。 如需詳細資訊，請參閱協調器函式程式[代碼條件約束](durable-functions-code-constraints.md)一文。
+> * Durable timers are currently limited to 7 days. If longer delays are needed, they can be simulated using the timer APIs in a `while` loop.
+> * Always use `CurrentUtcDateTime` instead of `DateTime.UtcNow` in .NET or `currentUtcDateTime` instead of `Date.now` or `Date.UTC` in JavaScript when computing the fire time for durable timers. For more information, see the [orchestrator function code constraints](durable-functions-code-constraints.md) article.
 
 ## <a name="usage-for-delay"></a>延遲的使用方式
 
-下列範例說明如何使用永久性計時器來延遲執行。 此範例會每天發出帳單通知10天。
+下列範例說明如何使用永久性計時器來延遲執行。 The example is issuing a billing notification every day for 10 days.
 
 ### <a name="c"></a>C#
 
@@ -51,9 +46,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 先前C#的範例是以 Durable Functions 2.x 為目標。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous C# example targets Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
+### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
 
 ```js
 const df = require("durable-functions");
@@ -108,9 +103,9 @@ public static async Task<bool> Run(
 ```
 
 > [!NOTE]
-> 先前C#的範例是以 Durable Functions 2.x 為目標。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous C# example targets Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
+### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
 
 ```js
 const df = require("durable-functions");
@@ -137,11 +132,11 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> 如果您的程式碼不會等待其完成，請使用 `CancellationTokenSource` 來取消長期計時器（.NET），或在傳回的 `TimerTask` （JavaScript）上呼叫 `cancel()`。 長期工作架構在完成或取消所有未完成的工作之前，不會將協調流程的狀態變更為「已完成」。
+> Use a `CancellationTokenSource` to cancel a durable timer (.NET) or call `cancel()` on the returned `TimerTask` (JavaScript) if your code will not wait for it to complete. The Durable Task Framework will not change an orchestration's status to "completed" until all outstanding tasks are completed or canceled.
 
-此取消機制不會終止進行中的活動函數或子協調流程執行。 只是讓協調器函式略過結果並繼續執行。 如果您的函式應用程式使用取用方案，您仍需支付已放棄的活動功能所耗用的任何時間和記憶體。 根據預設，在取用量方案中執行的函式會在五分鐘後逾時。 如果超過此限制，Azure Functions 主機會重新開機來停止所有執行，以避免計費失控狀況發生。 [函式逾時可設定](../functions-host-json.md#functiontimeout)。
+This cancellation mechanism doesn't terminate in-progress activity function or sub-orchestration executions. 只是讓協調器函式略過結果並繼續執行。 If your function app uses the Consumption plan, you'll still be billed for any time and memory consumed by the abandoned activity function. 根據預設，在取用量方案中執行的函式會在五分鐘後逾時。 如果超過此限制，Azure Functions 主機會重新開機來停止所有執行，以避免計費失控狀況發生。 [函式逾時可設定](../functions-host-json.md#functiontimeout)。
 
-如需如何在協調器函式中執行超時的更深入範例，請參閱[人類互動 & 超時電話驗證一](durable-functions-phone-verification.md)文。
+For a more in-depth example of how to implement timeouts in orchestrator functions, see the [Human Interaction & Timeouts - Phone Verification](durable-functions-phone-verification.md) article.
 
 ## <a name="next-steps"></a>後續步驟
 

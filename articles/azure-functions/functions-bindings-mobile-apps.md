@@ -1,21 +1,16 @@
 ---
 title: 適用於 Azure Functions 的 Mobile Apps 繫結
 description: 了解如何在 Azure Functions 中使用 Azure Mobile Apps 繫結。
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 37192a25bff794ac019fd29b47e0e8ad161790c9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 474cdc52d34d3f5e00dee69b7cc9861042cbcc04
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097311"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231121"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Mobile Apps 繫結 
 
@@ -34,7 +29,7 @@ Mobile Apps 繫結可讓您讀取和更新行動裝置應用程式中的資料�
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="input"></a>Input
+## <a name="input"></a>輸入
 
 Mobile Apps 輸入繫結會從行動資料表端點載入記錄，並將它傳遞到您的函式。 在 C# 和 F# 函式中，當函式成功結束時，會將記錄所做的任何變更自動傳回資料表。
 
@@ -43,7 +38,7 @@ Mobile Apps 輸入繫結會從行動資料表端點載入記錄，並將它傳�
 請參閱特定語言的範例：
 
 * [C# 指令碼 (.csx)](#input---c-script-example)
-* JavaScript
+* Javascript
 
 ### <a name="input---c-script-example"></a>輸入 - C# 指令碼範例
 
@@ -162,7 +157,7 @@ module.exports = function (context, myQueueItem) {
 
 在 C# 和 F# 函式中，當函式成功結束時，會將對輸入記錄 (輸入參數) 所做的任何變更自動傳送回資料表。 您無法修改 JavaScript 函式中的記錄。
 
-## <a name="output"></a>Output
+## <a name="output"></a>輸出
 
 使用 Mobile Apps 輸出繫結將新記錄寫入至 Mobile Apps 資料表。  
 

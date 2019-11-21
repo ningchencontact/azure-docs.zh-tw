@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure CLI 設定負載平衡和輸出規則
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: 本文說明如何使用 Azure CLI 在 Standard Load Balancer 中設定負載平衡和輸出規則。
 services: load-balancer
 documentationcenter: na
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: allensu
-ms.openlocfilehash: 837df78ea76451c7dc5e16efde0e90b780b6ee50
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 7230b0c2b80137b068bbeacf43ab2133491a69b0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275697"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225477"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>使用 Azure CLI 在 Standard Load Balancer 中設定負載平衡和輸出規則
 
 本快速入門說明如何使用 Azure CLI 在 Standard Load Balancer 中設定輸出規則。  
 
-當您完成時，Load Balancer 資源會包含兩個前端以及與其相關聯的規則：一個用於輸入，另一個用於輸出。  每個前端都有公用 IP 位址的參考，本案例會對輸入與輸出使用不同的公用 IP 位址。   負載平衡規則只會提供輸入負載平衡，輸出規則則可控制提供給 VM 的輸出 NAT。  本快速入門會使用兩個不同的後端集區, 一個用於輸入, 另一個用於輸出, 以說明功能並允許此案例的彈性。
+當您完成時，Load Balancer 資源會包含兩個前端以及與其相關聯的規則：一個用於輸入，另一個用於輸出。  每個前端都有公用 IP 位址的參考，本案例會對輸入與輸出使用不同的公用 IP 位址。   負載平衡規則只會提供輸入負載平衡，輸出規則則可控制提供給 VM 的輸出 NAT。  This quickstart uses two separate backend pools, one for inbound and one for outbound, to illustrate capability and allow for flexibility for this scenario.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-如果您選擇在本機安裝和使用 CLI，在執行本教學課程時，您必須執行 Azure CLI 2.0.28 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.28 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 ## <a name="create-resource-group"></a>建立資源群組
 
@@ -49,7 +49,7 @@ ms.locfileid: "68275697"
     --resource-group myresourcegroupoutbound \
     --name myvnetoutbound \
     --address-prefix 192.168.0.0/16 \
-    --subnet-name mysubnetoutbound
+    --subnet-name mysubnetoutbound \
     --subnet-prefix 192.168.0.0/24
 ```
 
@@ -73,15 +73,15 @@ ms.locfileid: "68275697"
 
 本節將詳細說明如何建立及設定下列負載平衡器元件：
   - 前端 IP，可接收負載平衡器上的連入網路流量。
-  - 後端集區, 前端 IP 會在其中傳送負載平衡的網路流量。
-  - 輸出連線能力的後端集區。 
+  - A backend pool where the frontend IP sends the load balanced network traffic.
+  - A backend pool for outbound connectivity. 
   - 健康狀態探查，可判斷後端 VM 執行個體的健康狀態。
   - 負載平衡器輸入規則，可定義如何將流量分散至 VM。
   - 負載平衡器輸出規則，可定義如何從 VM 分散流量。
 
 ### <a name="create-load-balancer"></a>建立負載平衡器
 
-使用[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)命名*lb*建立具有輸入 ip 位址的 Load Balancer, 其中包含與公用 IP 位址 *相關聯的輸入前端 IP 設定和後端集區 bepoolinbound*您在上一個步驟中建立的 mypublicipinbound。
+Create a Load Balancer with the inbound IP address using [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named *lb* that includes an inbound frontend IP configuration and a backend pool *bepoolinbound* that is associated with the public IP address *mypublicipinbound* that you created in the preceding step.
 
 ```azurecli-interactive
   az network lb create \
@@ -94,9 +94,9 @@ ms.locfileid: "68275697"
     --public-ip-address mypublicipinbound   
   ```
 
-### <a name="create-outbound-pool"></a>建立輸出集區
+### <a name="create-outbound-pool"></a>Create outbound pool
 
-建立一個額外的後端位址集區, 以定義具有[az network lb 位址集區 create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)且名稱為*bepooloutbound*的 vm 集區的輸出連線能力。  建立個別的輸出集區可提供最大的彈性, 但您也可以省略此步驟, 也只能使用輸入*bepoolinbound* 。
+Create an additional backend address pool to define outbound connectivity for a pool of VMs with [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) with the name *bepooloutbound*.  Creating a separate outbound pool provides maximum flexibility, but you can omit this step and only use the inbound *bepoolinbound* as well.
 
 ```azurecli-interactive
   az network lb address-pool create \
@@ -167,9 +167,9 @@ az network lb outbound-rule create \
  --address-pool bepooloutbound
 ```
 
-如果您不想要使用個別的輸出集區, 您可以變更上述命令中的位址集區引數, 改為指定*bepoolinbound* 。  我們建議使用不同的集區, 以提供所產生設定的彈性和可讀性。
+If you do not want to use a separate outbound pool, you can change the address pool argument in the preceding command to specify *bepoolinbound* instead.  We recommend to use separate pools for flexibility and readability of the resulting configuration.
 
-此時, 您可以使用[az network NIC ip 設定位址集區新增](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest)來更新個別 NIC 資源的 IP 設定, 以繼續將 VM 新增至後端集區*bepoolinbound* __和__ *bepooloutbound* 。
+At this point, you can proceed with adding your VM's to the backend pool *bepoolinbound* __and__ *bepooloutbound* by updating the IP configuration of the respective NIC resources using [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
 ## <a name="clean-up-resources"></a>清除資源
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Container Registry 的常見問題
-description: Azure Container Registry 服務相關常見問題的解答
+title: Azure Container Registry - frequently asked questions
+description: Answers for frequently asked questions related to the Azure Container Registry service
 services: container-registry
 author: sajayantony
 manager: gwallace
@@ -8,66 +8,66 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 88c4b2065576bd5bdcb29a266bd564c60b0e537c
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
-ms.translationtype: MT
+ms.openlocfilehash: 450144d1e5a49aeb45633b05fc5ecdae986da297
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622695"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74220626"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>關於 Azure Container Registry 的常見問題集
 
-本文說明 Azure Container Registry 的常見問題和已知問題。
+This article addresses frequently asked questions and known issues about Azure Container Registry.
 
 ## <a name="resource-management"></a>資源管理
 
-- [我可以使用 Resource Manager 範本建立 Azure container registry 嗎？](#can-i-create-an-azure-container-registry-using-a-resource-manager-template)
-- [ACR 中的映射是否有安全性弱點掃描？](#is-there-security-vulnerability-scanning-for-images-in-acr)
-- [如何? 使用 Azure Container Registry 設定 Kubernetes 嗎？](#how-do-i-configure-kubernetes-with-azure-container-registry)
-- [如何? 取得容器登錄的系統管理員認證？](#how-do-i-get-admin-credentials-for-a-container-registry)
-- [如何? 取得 Resource Manager 範本中的管理員認證？](#how-do-i-get-admin-credentials-in-a-resource-manager-template)
-- [雖然複寫會使用 Azure CLI 或 Azure PowerShell 刪除，但是刪除複寫失敗，並出現「禁止」狀態](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
-- [已成功更新防火牆規則，但不會生效](#firewall-rules-are-updated-successfully-but-they-do-not-take-effect)
+- [Can I create an Azure container registry using a Resource Manager template?](#can-i-create-an-azure-container-registry-using-a-resource-manager-template)
+- [Is there security vulnerability scanning for images in ACR?](#is-there-security-vulnerability-scanning-for-images-in-acr)
+- [How do I configure Kubernetes with Azure Container Registry?](#how-do-i-configure-kubernetes-with-azure-container-registry)
+- [How do I get admin credentials for a container registry?](#how-do-i-get-admin-credentials-for-a-container-registry)
+- [How do I get admin credentials in a Resource Manager template?](#how-do-i-get-admin-credentials-in-a-resource-manager-template)
+- [Delete of replication fails with Forbidden status although the replication gets deleted using the Azure CLI or Azure PowerShell](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
+- [Firewall rules are updated successfully but they do not take effect](#firewall-rules-are-updated-successfully-but-they-do-not-take-effect)
 
-### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>我可以使用 Resource Manager 範本建立 Azure Container Registry 嗎？
+### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Can I create an Azure Container Registry using a Resource Manager template?
 
-是。 以下是您可以用來建立登錄的[範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry)。
+可以。 Here is [a template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) that you can use to create a registry.
 
-### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>ACR 中的映射是否有安全性弱點掃描？
+### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Is there security vulnerability scanning for images in ACR?
 
-是。 請參閱[Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/)和[淺綠色](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry)的檔。
+可以。 See the documentation from [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
-### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>如何? 使用 Azure Container Registry 設定 Kubernetes 嗎？
+### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>How do I configure Kubernetes with Azure Container Registry?
 
-請參閱[Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr)的檔和[Azure Kubernetes Service](../aks/cluster-container-registry-integration.md)的步驟。
+See the documentation for [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) and steps for [Azure Kubernetes Service](../aks/cluster-container-registry-integration.md).
 
-### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>如何? 取得容器登錄的系統管理員認證？
+### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>How do I get admin credentials for a container registry?
 
 > [!IMPORTANT]
-> 管理使用者帳戶是專為單一使用者存取登錄而設計的，主要是為了測試目的。 不建議將管理帳戶認證與其他使用者共用。 針對遠端控制案例的使用者和服務主體，建議使用個人身分識別。 請參閱[驗證總覽](container-registry-authentication.md)。
+> The admin user account is designed for a single user to access the registry, mainly for testing purposes. 不建議將管理帳戶認證與其他使用者共用。 針對遠端控制案例的使用者和服務主體，建議使用個人身分識別。 See [Authentication overview](container-registry-authentication.md).
 
-取得系統管理員認證之前，請確定已啟用登錄的系統管理員使用者。
+Before getting admin credentials, make sure the registry's admin user is enabled.
 
-若要使用 Azure CLI 取得認證：
+To get credentials using the Azure CLI:
 
 ```azurecli
 az acr credential show -n myRegistry
 ```
 
-使用 Azure Powershell：
+Using Azure Powershell:
 
 ```powershell
 Invoke-AzureRmResourceAction -Action listCredentials -ResourceType Microsoft.ContainerRegistry/registries -ResourceGroupName myResourceGroup -ResourceName myRegistry
 ```
 
-### <a name="how-do-i-get-admin-credentials-in-a-resource-manager-template"></a>如何? 取得 Resource Manager 範本中的管理員認證？
+### <a name="how-do-i-get-admin-credentials-in-a-resource-manager-template"></a>How do I get admin credentials in a Resource Manager template?
 
 > [!IMPORTANT]
-> 管理使用者帳戶是專為單一使用者存取登錄而設計的，主要是為了測試目的。 不建議將管理帳戶認證與其他使用者共用。 針對遠端控制案例的使用者和服務主體，建議使用個人身分識別。 請參閱[驗證總覽](container-registry-authentication.md)。
+> The admin user account is designed for a single user to access the registry, mainly for testing purposes. 不建議將管理帳戶認證與其他使用者共用。 針對遠端控制案例的使用者和服務主體，建議使用個人身分識別。 See [Authentication overview](container-registry-authentication.md).
 
-取得系統管理員認證之前，請確定已啟用登錄的系統管理員使用者。
+Before getting admin credentials, make sure the registry's admin user is enabled.
 
-若要取得第一個密碼：
+To get the first password:
 
 ```json
 {
@@ -75,7 +75,7 @@ Invoke-AzureRmResourceAction -Action listCredentials -ResourceType Microsoft.Con
 }
 ```
 
-若要取得第二個密碼：
+To get the second password:
 
 ```json
 {
@@ -83,61 +83,61 @@ Invoke-AzureRmResourceAction -Action listCredentials -ResourceType Microsoft.Con
 }
 ```
 
-### <a name="delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell"></a>雖然複寫會使用 Azure CLI 或 Azure PowerShell 刪除，但是刪除複寫失敗，並出現「禁止」狀態
+### <a name="delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell"></a>Delete of replication fails with Forbidden status although the replication gets deleted using the Azure CLI or Azure PowerShell
 
-當使用者具有登錄的許可權，但沒有訂用帳戶的讀取者層級許可權時，就會出現此錯誤。 若要解決此問題，請將訂用帳戶的讀者許可權指派給使用者：
+The error is seen when the user has permissions on a registry but doesn't have Reader-level permissions on the subscription. To resolve this issue, assign Reader permissions on the subscription to the user:
 
 
 ```azurecli  
 az role assignment create --role "Reader" --assignee user@contoso.com --scope /subscriptions/<subscription_id> 
 ```
 
-### <a name="firewall-rules-are-updated-successfully-but-they-do-not-take-effect"></a>已成功更新防火牆規則，但不會生效
+### <a name="firewall-rules-are-updated-successfully-but-they-do-not-take-effect"></a>Firewall rules are updated successfully but they do not take effect
 
-傳播防火牆規則變更需要一些時間。 變更防火牆設定後，請稍候幾分鐘，再確認此變更。
+It takes some time to propagate firewall rule changes. After you change firewall settings, please wait for a few minutes before verifying this change.
 
 
 ## <a name="registry-operations"></a>登錄作業
 
-- [如何? 存取 Docker Registry HTTP API V2？](#how-do-i-access-docker-registry-http-api-v2)
-- [如何? 刪除存放庫中的任何標記未參考的所有資訊清單嗎？](#how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository)
-- [為何在刪除映射之後，登錄配額使用量不會降低？](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
-- [如何? 驗證儲存體配額變更嗎？](#how-do-i-validate-storage-quota-changes)
-- [在容器中執行 CLI 時，如何? 向我的登錄進行驗證嗎？](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
-- [Azure Container Registry 是否只提供 TLS v 1.2 的設定，以及如何啟用 TLS 1.2 版？](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
-- [Azure Container Registry 支援內容信任嗎？](#does-azure-container-registry-support-content-trust)
-- [如何? 授與提取或推送映射的存取權，但沒有管理登錄資源的許可權？](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
-- [如何? 啟用登錄的自動映射隔離](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
+- [How do I access Docker Registry HTTP API V2?](#how-do-i-access-docker-registry-http-api-v2)
+- [How do I delete all manifests that are not referenced by any tag in a repository?](#how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository)
+- [Why does the registry quota usage not reduce after deleting images?](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
+- [How do I validate storage quota changes?](#how-do-i-validate-storage-quota-changes)
+- [How do I authenticate with my registry when running the CLI in a container?](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
+- [Does Azure Container Registry offer TLS v1.2 only configuration and how to enable TLS v1.2?](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
+- [Does Azure Container Registry support Content Trust?](#does-azure-container-registry-support-content-trust)
+- [How do I grant access to pull or push images without permission to manage the registry resource?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
+- [How do I enable automatic image quarantine for a registry](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 
-### <a name="how-do-i-access-docker-registry-http-api-v2"></a>如何? 存取 Docker Registry HTTP API V2？
+### <a name="how-do-i-access-docker-registry-http-api-v2"></a>How do I access Docker Registry HTTP API V2?
 
-ACR 支援 Docker Registry HTTP API V2。 Api 可以在 `https://<your registry login server>/v2/` 存取。 範例︰ `https://mycontainerregistry.azurecr.io/v2/`
+ACR supports Docker Registry HTTP API V2. The APIs can be accessed at `https://<your registry login server>/v2/`. 範例：`https://mycontainerregistry.azurecr.io/v2/`
 
-### <a name="how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository"></a>如何? 刪除存放庫中的任何標記未參考的所有資訊清單嗎？
+### <a name="how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository"></a>How do I delete all manifests that are not referenced by any tag in a repository?
 
-如果您在 bash 上：
+If you are on bash:
 
 ```bash
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
-針對 Powershell：
+For Powershell:
 
 ```powershell
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
-注意：您可以在 delete 命令中新增 `-y`，以略過確認。
+Note: You can add `-y` in the delete command to skip confirmation.
 
-如需詳細資訊，請參閱[在 Azure Container Registry 中刪除容器映射](container-registry-delete.md)。
+For more information, see [Delete container images in Azure Container Registry](container-registry-delete.md).
 
-### <a name="why-does-the-registry-quota-usage-not-reduce-after-deleting-images"></a>為何在刪除映射之後，登錄配額使用量不會降低？
+### <a name="why-does-the-registry-quota-usage-not-reduce-after-deleting-images"></a>Why does the registry quota usage not reduce after deleting images?
 
-如果基礎層仍被其他容器映射參考，就可能發生這種情況。 如果您刪除沒有參考的映射，登錄使用會在幾分鐘內更新。
+This situation can happen if the underlying layers are still being referenced by other container images. If you delete an image with no references, the registry usage updates in a few minutes.
 
-### <a name="how-do-i-validate-storage-quota-changes"></a>如何? 驗證儲存體配額變更嗎？
+### <a name="how-do-i-validate-storage-quota-changes"></a>How do I validate storage quota changes?
 
-使用下列 docker 檔案，建立具有1GB 層的映射。 這可確保映射具有未由登錄中任何其他映射共用的圖層。
+Create an image with a 1GB layer using the following docker file. This ensures that the image has a layer that is not shared by any other image in the registry.
 
 ```dockerfile
 FROM alpine
@@ -145,160 +145,161 @@ RUN dd if=/dev/urandom of=1GB.bin  bs=32M  count=32
 RUN ls -lh 1GB.bin
 ```
 
-使用 docker CLI 建立映射並將其推送至您的登錄。
+Build and push the image to your registry using the docker CLI.
 
 ```bash
 docker build -t myregistry.azurecr.io/1gb:latest .
 docker push myregistry.azurecr.io/1gb:latest
 ```
 
-您應該會看到 Azure 入口網站中的儲存體使用量已增加，或者您也可以使用 CLI 來查詢使用方式。
+You should be able to see that the storage usage has increased in the Azure portal, or you can query usage using the CLI.
 
 ```bash
 az acr show-usage -n myregistry
 ```
 
-使用 Azure CLI 或入口網站刪除映射，並在幾分鐘內檢查更新過的使用方式。
+Delete the image using the Azure CLI or portal and check the updated usage in a few minutes.
 
 ```bash
 az acr repository delete -n myregistry --image 1gb
 ```
 
-### <a name="how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container"></a>在容器中執行 CLI 時，如何? 向我的登錄進行驗證嗎？
+### <a name="how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container"></a>How do I authenticate with my registry when running the CLI in a container?
 
-您需要裝載 Docker 通訊端來執行 Azure CLI 容器：
+You need to run the Azure CLI container by mounting the Docker socket:
 
 ```bash
 docker run -it -v /var/run/docker.sock:/var/run/docker.sock azuresdk/azure-cli-python:dev
 ```
 
-在容器中，安裝 `docker`：
+In the container, install `docker`:
 
 ```bash
 apk --update add docker
 ```
 
-然後使用您的登錄進行驗證：
+Then authenticate with your registry:
 
 ```azurecli
 az acr login -n MyRegistry
 ```
 
-### <a name="does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12"></a>Azure Container Registry 是否只提供 TLS v 1.2 的設定，以及如何啟用 TLS 1.2 版？
+### <a name="does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12"></a>Does Azure Container Registry offer TLS v1.2 only configuration and how to enable TLS v1.2?
 
-是。 使用任何最近的 docker 用戶端（18.03.0 版和更新版本）來啟用 TLS。 
+可以。 Enable TLS by using any recent docker client (version 18.03.0 and above). 
 
 ### <a name="does-azure-container-registry-support-content-trust"></a>Azure Container Registry 是否支援內容信任？
 
-是，您可以在 Azure Container Registry 中使用受信任的映射，因為[Docker Notary](https://docs.docker.com/notary/getting_started/)已整合並可啟用。 如需詳細資訊，請參閱[Azure Container Registry 中的內容信任](container-registry-content-trust.md)。
+Yes, you can use trusted images in Azure Container Registry, since the [Docker Notary](https://docs.docker.com/notary/getting_started/) has been integrated and can be enabled. For details, see [Content Trust in Azure Container Registry](container-registry-content-trust.md).
 
 
-####  <a name="where-is-the-file-for-the-thumbprint-located"></a>指紋的檔案位於何處？
+####  <a name="where-is-the-file-for-the-thumbprint-located"></a>Where is the file for the thumbprint located?
 
-在 [`~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata`] 底下：
+Under `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata`:
 
-* 所有角色的公開金鑰和憑證（委派角色除外）都會儲存在 `root.json` 中。
-* 委派角色的公開金鑰和憑證會儲存在其父角色的 JSON 檔案中（例如，`targets/releases` 角色的 `targets.json`）。
+* Public keys and certificates of all roles (except delegation roles) are stored in the `root.json`.
+* Public keys and certificates of the delegation role are stored in the JSON file of its parent role (for example `targets.json` for the `targets/releases` role).
 
-建議在 Docker 和 Notary 用戶端完成整體 TUF 驗證之後，驗證這些公開金鑰和憑證。
+It is suggested to verify those public keys and certificates after the overall TUF verification done by the Docker and Notary client.
 
-### <a name="how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource"></a>如何? 授與提取或推送映射的存取權，但沒有管理登錄資源的許可權？
+### <a name="how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource"></a>How do I grant access to pull or push images without permission to manage the registry resource?
 
-ACR 支援提供不同許可權層級的[自訂角色](container-registry-roles.md)。 具體而言，`AcrPull` 和 `AcrPush` 角色可讓使用者提取和/或推送映射，而不需要在 Azure 中管理登錄資源。
+ACR supports [custom roles](container-registry-roles.md) that provide different levels of permissions. Specifically, `AcrPull` and `AcrPush` roles allow users to pull and/or push images without the permission to manage the registry resource in Azure.
 
-* Azure 入口網站：您的登錄 > 存取控制（IAM）-> 新增 （選取 `AcrPull` 或 `AcrPush` 角色）。
-* Azure CLI：執行下列命令來尋找登錄的資源識別碼：
+* Azure portal: Your registry -> Access Control (IAM) -> Add (Select `AcrPull` or `AcrPush` for the Role).
+* Azure CLI: Find the resource ID of the registry by running the following command:
 
   ```azurecli
   az acr show -n myRegistry
   ```
   
-  接著，您可以將 `AcrPull` 或 `AcrPush` 角色指派給使用者（下列範例會使用 `AcrPull`）：
+  Then you can assign the `AcrPull` or `AcrPush` role to a user (the following example uses `AcrPull`):
 
   ```azurecli
     az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
     ```
 
-  或者，將角色指派給其應用程式識別碼所識別的服務主體：
+  Or, assign the role to a service principle identified by its application ID:
 
   ```
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
   ```
 
-然後，該受託人就能夠驗證和存取登錄中的映射。
+The assignee is then able to authenticate and access images in the registry.
 
-* 若要向登錄進行驗證：
+* To authenticate to a registry:
     
   ```azurecli
   az acr login -n myRegistry 
   ```
 
-* 列出存放庫：
+* To list repositories:
 
   ```azurecli
   az acr repository list -n myRegistry
   ```
 
- 若要提取映射：
+ To pull an image:
     
   ```azurecli
   docker pull myregistry.azurecr.io/hello-world
   ```
 
-只要使用 `AcrPull` 或 `AcrPush` 角色，則受託人就沒有在 Azure 中管理登錄資源的許可權。 例如，`az acr list` 或 `az acr show -n myRegistry` 不會顯示登錄。
+With the use of only the `AcrPull` or `AcrPush` role, the assignee doesn't have the permission to manage the registry resource in Azure. For example, `az acr list` or `az acr show -n myRegistry` won't show the registry.
 
-### <a name="how-do-i-enable-automatic-image-quarantine-for-a-registry"></a>如何? 啟用登錄的自動映射隔離功能嗎？
+### <a name="how-do-i-enable-automatic-image-quarantine-for-a-registry"></a>How do I enable automatic image quarantine for a registry?
 
-映射隔離目前是 ACR 的預覽功能。 您可以啟用登錄的隔離模式，讓一般使用者只能看見已成功通過安全性掃描的映射。 如需詳細資訊，請參閱[ACR GitHub](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)存放庫。
+Image quarantine is currently a preview feature of ACR. You can enable the quarantine mode of a registry so that only those images which have successfully passed security scan are visible to normal users. For details, see the [ACR GitHub repo](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
-## <a name="diagnostics-and-health-checks"></a>診斷和健康狀態檢查
+## <a name="diagnostics-and-health-checks"></a>Diagnostics and health checks
 
-- [使用 `az acr check-health` 檢查健全狀況](#check-health-with-az-acr-check-health)
-- [docker pull 失敗，並出現錯誤： net/HTTP：要求在等候連接時取消（用戶端等待標頭時超過超時時間）](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
-- [docker push 成功，但 docker pull 失敗，發生錯誤：未經授權：需要驗證](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
-- [啟用並取得 docker daemon 的偵錯工具記錄檔](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
-- [新的使用者權限在更新之後可能不會立即生效](#new-user-permissions-may-not-be-effective-immediately-after-updating)
-- [未在直接 REST API 呼叫上以正確的格式提供驗證資訊](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
-- [為什麼 Azure 入口網站不會列出我的所有存放庫或標籤？](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
-- [為什麼 Azure 入口網站無法提取存放庫或標籤？](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
-- [如何? 在 Windows 上收集 HTTP 追蹤？](#how-do-i-collect-http-traces-on-windows)
+- [Check health with `az acr check-health`](#check-health-with-az-acr-check-health)
+- [docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
+- [docker push succeeds but docker pull fails with error: unauthorized: authentication required](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
+- [Enable and get the debug logs of the docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
+- [New user permissions may not be effective immediately after updating](#new-user-permissions-may-not-be-effective-immediately-after-updating)
+- [Authentication information is not given in the correct format on direct REST API calls](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
+- [Why does the Azure portal not list all my repositories or tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Why does the Azure portal fail to fetch repositories or tags?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
+- [Why does my pull or push request fail with disallowed operation?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
+- [How do I collect http traces on Windows?](#how-do-i-collect-http-traces-on-windows)
 
-### <a name="check-health-with-az-acr-check-health"></a>使用 `az acr check-health` 檢查健全狀況
+### <a name="check-health-with-az-acr-check-health"></a>Check health with `az acr check-health`
 
-若要針對常見的環境和登錄問題進行疑難排解，請參閱[檢查 Azure container registry 的健全狀況](container-registry-check-health.md)。
+To troubleshoot common environment and registry issues, see [Check the health of an Azure container registry](container-registry-check-health.md).
 
-### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>docker pull 失敗，並出現錯誤： net/HTTP：要求在等候連接時取消（用戶端等待標頭時超過超時時間）
+### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
 
- - 如果此錯誤是暫時性的問題，則重試將會成功。
- - 如果 `docker pull` 持續失敗，則 Docker daemon 可能會有問題。 藉由重新開機 Docker daemon，通常可以減輕問題。 
- - 如果您在重新開機 Docker daemon 之後繼續看到此問題，則問題可能是電腦的一些網路連線問題。 若要檢查電腦上的一般網路是否狀況良好，請執行下列命令來測試端點連線能力。 包含此連線檢查命令的最小 `az acr` 版本是2.2.9。 如果您使用的是較舊的版本，請升級您的 Azure CLI。
+ - If this error is a transient issue, then retry will succeed.
+ - If `docker pull` fails continuously, then there could be a problem with the Docker daemon. The problem can generally be mitigated by restarting the Docker daemon. 
+ - If you continue to see this issue after restarting Docker daemon, then the problem could be some network connectivity issues with the machine. To check if general network on the machine is healthy, run the following command to test endpoint connectivity. The minimum `az acr` version that contains this connectivity check command is 2.2.9. Upgrade your Azure CLI if you are using an older version.
  
    ```azurecli
     az acr check-health -n myRegistry
     ```
- - 在所有 Docker 用戶端操作上，您應該一律具有重試機制。
+ - You should always have a retry mechanism on all Docker client operations.
 
-### <a name="docker-pull-is-slow"></a>Docker pull 的速度很慢
-使用[此](http://www.azurespeed.com/Azure/Download)工具來測試電腦的網路下載速度。 如果電腦網路速度很慢，請考慮在與您的登錄相同的區域中使用 Azure VM。 這通常可為您提供更快的網路速度。
+### <a name="docker-pull-is-slow"></a>Docker pull is slow
+Use [this](http://www.azurespeed.com/Azure/Download) tool to test your machine network download speed. If machine network is slow, consider using Azure VM in the same region as your registry. This usually gives you faster network speed.
 
-### <a name="docker-push-is-slow"></a>Docker push 的速度很慢
-使用[此](http://www.azurespeed.com/Azure/Upload)工具來測試電腦的網路上傳速度。 如果電腦網路速度很慢，請考慮在與您的登錄相同的區域中使用 Azure VM。 這通常可為您提供更快的網路速度。
+### <a name="docker-push-is-slow"></a>Docker push is slow
+Use [this](http://www.azurespeed.com/Azure/Upload) tool to test your machine network upload speed. If machine network is slow, consider using Azure VM in the same region as your registry. This usually gives you faster network speed.
 
-### <a name="docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required"></a>Docker push 成功，但 docker pull 失敗，發生錯誤：未經授權：需要驗證
+### <a name="docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required"></a>Docker push succeeds but docker pull fails with error: unauthorized: authentication required
 
-此錯誤可能會隨著 Red Hat 版本的 Docker daemon 而發生，其中 `--signature-verification` 預設為啟用。 您可以執行下列命令來檢查 Red Hat Enterprise Linux （RHEL）或 Fedora 的 Docker daemon 選項：
+This error can happen with the Red Hat version of the Docker daemon, where `--signature-verification` is enabled by default. You can check the Docker daemon options for Red Hat Enterprise Linux (RHEL) or Fedora by running the following command:
 
 ```bash
 grep OPTIONS /etc/sysconfig/docker
 ```
 
-例如，Fedora 28 伺服器具有下列 docker daemon 選項：
+For instance, Fedora 28 Server has the following docker daemon options:
 
 ```
 OPTIONS='--selinux-enabled --log-driver=journald --live-restore'
 ```
 
-缺少 `--signature-verification=false` 時，`docker pull` 會失敗，並出現類似以下的錯誤：
+With `--signature-verification=false` missing, `docker pull` fails with an error similar to:
 
 ```bash
 Trying to pull repository myregistry.azurecr.io/myimage ...
@@ -306,22 +307,22 @@ unauthorized: authentication required
 ```
 
 若要解決此錯誤：
-1. 將選項 `--signature-verification=false` 新增至 Docker daemon 設定檔 `/etc/sysconfig/docker`。 例如：
+1. Add the option `--signature-verification=false` to the Docker daemon configuration file `/etc/sysconfig/docker`. 例如：
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
   ```
-2. 執行下列命令來重新開機 Docker daemon 服務：
+2. Restart the Docker daemon service by running the following command:
 
   ```bash
   sudo systemctl restart docker.service
   ```
 
-您可以藉由執行 `man dockerd`，找到 `--signature-verification` 的詳細資料。
+Details of `--signature-verification` can be found by running `man dockerd`.
 
-### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>啟用並取得 Docker daemon 的偵錯工具記錄檔  
+### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Enable and get the debug logs of the Docker daemon  
 
-使用 `debug` 選項啟動 `dockerd`。 首先，建立 Docker daemon 設定檔案（`/etc/docker/daemon.json`）（如果不存在），然後新增 `debug` 選項：
+Start `dockerd` with the `debug` option. First, create the Docker daemon configuration file (`/etc/docker/daemon.json`) if it doesn't exist, and add the `debug` option:
 
 ```json
 {   
@@ -329,20 +330,20 @@ unauthorized: authentication required
 }
 ```
 
-然後，重新開機此 daemon。 例如，使用 Ubuntu 14.04：
+Then, restart the daemon. For example, with Ubuntu 14.04:
 
 ```bash
 sudo service docker restart
 ```
 
-您可以在[Docker 檔](https://docs.docker.com/engine/admin/#enable-debugging)中找到詳細資料。 
+Details can be found in the [Docker documentation](https://docs.docker.com/engine/admin/#enable-debugging). 
 
- * 視您的系統而定，可能會在不同的位置產生記錄。 例如，針對 Ubuntu 14.04，它會 `/var/log/upstart/docker.log`。   
-如需詳細資訊，請參閱[Docker 檔](https://docs.docker.com/engine/admin/#read-the-logs)。    
+ * The logs may be generated at different locations, depending on your system. For example, for Ubuntu 14.04, it's `/var/log/upstart/docker.log`.   
+See [Docker documentation](https://docs.docker.com/engine/admin/#read-the-logs) for details.    
 
- * 針對適用於 Windows 的 Docker，記錄檔會在% LOCALAPPDATA%/docker/. 之下產生 不過，它可能尚未包含所有的調試資訊。   
+ * For Docker for Windows, the logs are generated under %LOCALAPPDATA%/docker/. However it may not contain all the debug information yet.   
 
-   若要存取完整的背景程式記錄檔，您可能需要一些額外的步驟：
+   In order to access the full daemon log, you may need some extra steps:
 
     ```console
     docker run --privileged -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v /usr/local/bin/docker:/usr/local/bin/docker alpine sh
@@ -350,21 +351,21 @@ sudo service docker restart
     docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh
     chroot /host
     ```
-    現在您可以存取執行 `dockerd` 的 VM 的所有檔案。 記錄檔位於 `/var/log/docker.log`。
+    Now you have access to all the files of the VM running `dockerd`. The log is at `/var/log/docker.log`.
 
-### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>新的使用者權限在更新之後可能不會立即生效
+### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>New user permissions may not be effective immediately after updating
 
-當您將新的許可權（新角色）授與服務主體時，變更可能不會立即生效。 有兩個可能的原因：
+When you grant new permissions (new roles) to a service principal, the change might not take effect immediately. There are two possible reasons:
 
-* Azure Active Directory 角色指派延遲。 一般來說，速度很快，但可能需要幾分鐘的時間，因為傳播延遲。
-* ACR token 伺服器上的許可權延遲。 這可能需要10分鐘的時間。 若要減輕問題，您可以 `docker logout`，然後在1分鐘後以相同的使用者重新驗證：
+* Azure Active Directory role assignment delay. Normally it's fast, but it could take minutes due to propagation delay.
+* Permission delay on ACR token server. This could take up to 10 minutes. To mitigate, you can `docker logout` and then authenticate again with the same user after 1 minute:
 
   ```bash
   docker logout myregistry.azurecr.io
   docker login myregistry.azurecr.io
   ```
 
-目前 ACR 不支援使用者刪除主要複寫。 因應措施是在範本中包含「主複寫建立」，但藉由新增 `"condition": false` 來略過建立，如下所示：
+Currently ACR doesn't support home replication deletion by the users. The workaround is to include the home replication create in the template but skip its creation by adding `"condition": false` as shown below:
 
 ```json
 {
@@ -380,16 +381,16 @@ sudo service docker restart
 },
 ```
 
-### <a name="authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls"></a>未在直接 REST API 呼叫上以正確的格式提供驗證資訊
+### <a name="authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls"></a>Authentication information is not given in the correct format on direct REST API calls
 
-您可能會遇到 `InvalidAuthenticationInfo` 錯誤，特別是使用 `curl` 工具搭配選項 `-L`、`--location` （以遵循重新導向）。
-例如，使用 `curl` 搭配 `-L` 選項和基本驗證來提取 blob：
+You may encounter an `InvalidAuthenticationInfo` error, especially using the `curl` tool with the option `-L`, `--location` (to follow redirects).
+For example, fetching the blob using `curl` with `-L` option and basic authentication:
 
 ```bash
 curl -L -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest
 ```
 
-可能會產生下列回應：
+may result in the following response:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -398,102 +399,109 @@ RequestId:00000000-0000-0000-0000-000000000000
 Time:2019-01-01T00:00:00.0000000Z</Message></Error>
 ```
 
-根本原因是某些 `curl` 的實施會遵循從原始要求的標頭重新導向。
+The root cause is that some `curl` implementations follow redirects with headers from the original request.
 
-若要解決這個問題，您需要以手動方式追蹤不含標頭的重新導向。 使用 `curl` 的 `-D -` 選項來列印回應標頭，然後解壓縮： `Location` 標頭：
+To resolve the problem, you need to follow redirects manually without the headers. Print the response headers with the `-D -` option of `curl` and then extract: the `Location` header:
 
 ```bash
 redirect_url=$(curl -s -D - -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest | grep "^Location: " | cut -d " " -f2 | tr -d '\r')
 curl $redirect_url
 ```
 
-### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>為什麼 Azure 入口網站不會列出我的所有存放庫或標籤？ 
+### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>Why does the Azure portal not list all my repositories or tags? 
 
-如果您使用 Microsoft Edge/IE 瀏覽器，您最多可以看到100存放庫或標籤。 如果您的登錄有100個以上的存放庫或標籤，建議您使用 Firefox 或 Chrome 瀏覽器來列出所有的儲存機制或標籤。
+If you are using the Microsoft Edge/IE browser, you can see at most 100 repositories or tags. If your registry has more than 100 repositories or tags, we recommend that you use either the Firefox or Chrome browser to list them all.
 
-### <a name="why-does-the-azure-portal-fail-to-fetch-repositories-or-tags"></a>為什麼 Azure 入口網站無法提取存放庫或標籤？
+### <a name="why-does-the-azure-portal-fail-to-fetch-repositories-or-tags"></a>Why does the Azure portal fail to fetch repositories or tags?
 
-瀏覽器可能無法將提取存放庫或標記的要求傳送至伺服器。 可能的原因有很多種，例如：
+The browser might not be able to send the request for fetching repositories or tags to the server. There could be various reasons such as:
 
-* 缺少網路連線能力
+* Lack of network connectivity
 * 防火牆
-* Ad 封鎖器
-* DNS 錯誤
+* Ad blockers
+* DNS errors
 
-請洽詢您的網路系統管理員，或檢查您的網路設定和連線能力。 請嘗試使用您的 Azure CLI 執行 `az acr check-health -n yourRegistry`，以檢查您的環境是否能夠連線至容器登錄。 此外，您也可以在瀏覽器中嘗試 incognito 或私用會話，以避免任何過時的瀏覽器快取或 cookie。
+Please contact your network administrator or check your network configuration and connectivity. Try running `az acr check-health -n yourRegistry` using your Azure CLI to check if your environment is able to connect to the Container Registry. In addition, you could also try an incognito or private session in your browser to avoid any stale browser cache or cookies.
 
-### <a name="how-do-i-collect-http-traces-on-windows"></a>如何? 在 Windows 上收集 HTTP 追蹤？
+### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Why does my pull or push request fail with disallowed operation?
+
+Here are some senarios where operations maybe disallowed:
+* Classic registries are no longer supported. Please upgrade to a supported [SKUs](https://aka.ms/acr/skus) using [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) or the azure portal.
+* The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) command to view current attributes.
+* Some operations are disallowed if the image is in quarantine. Learn more about [quarantine](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
+
+### <a name="how-do-i-collect-http-traces-on-windows"></a>How do I collect http traces on Windows?
 
 #### <a name="prerequisites"></a>必要條件
 
-- 在 fiddler 中啟用解密 HTTPs： <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
-- 啟用 Docker 以透過 Docker ui 使用 proxy： <https://docs.docker.com/docker-for-windows/#proxies>
-- 完成時，請務必還原。  Docker 無法使用此功能並 fiddler 未執行。
+- Enable decrypting https in fiddler:  <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- Enable Docker to use a proxy through the Docker ui: <https://docs.docker.com/docker-for-windows/#proxies>
+- Be sure to revert when complete.  Docker won't work with this enabled and fiddler not running.
 
 #### <a name="windows-containers"></a>Windows 容器
 
-將 Docker proxy 設定為127.0.0.1：8888
+Configure Docker proxy to 127.0.0.1:8888
 
 #### <a name="linux-containers"></a>Linux 容器
 
-尋找 Docker vm 虛擬交換器的 ip：
+Find the ip of the Docker vm virtual switch:
 
 ```powershell
 (Get-NetIPAddress -InterfaceAlias "*Docker*" -AddressFamily IPv4).IPAddress
 ```
 
-將 Docker proxy 設定為上一個命令和埠8888的輸出（例如為10.0.75.1：8888）
+Configure the Docker proxy to output of the previous command and the port 8888 (for example 10.0.75.1:8888)
 
 ## <a name="tasks"></a>工作
 
-- [如何? 批次取消執行？](#how-do-i-batch-cancel-runs)
-- [如何? 在 az acr build 命令中包含 git 資料夾嗎？](#how-do-i-include-the-git-folder-in-az-acr-build-command)
-- [工作是否支援來源觸發程式的 GitLab？](#does-tasks-support-gitlab-for-source-triggers)
-- [哪些 git 存放庫管理服務支援工作？](#what-git-repository-management-service-does-tasks-support)
+- [How do I batch cancel runs?](#how-do-i-batch-cancel-runs)
+- [How do I include the .git folder in az acr build command?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
+- [Does Tasks support GitLab for Source triggers?](#does-tasks-support-gitlab-for-source-triggers)
+- [What git repository management service does Tasks support?](#what-git-repository-management-service-does-tasks-support)
 
-### <a name="how-do-i-batch-cancel-runs"></a>如何? 批次取消執行？
+### <a name="how-do-i-batch-cancel-runs"></a>How do I batch cancel runs?
 
-下列命令會取消指定登錄中所有正在執行的工作。
+The following commands cancel all running tasks in the specified registry.
 
 ```azurecli
 az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o tsv \
 | xargs -I% az acr task cancel-run -r $myregistry --run-id %
 ```
 
-### <a name="how-do-i-include-the-git-folder-in-az-acr-build-command"></a>如何? 在 az acr build 命令中包含 git 資料夾嗎？
+### <a name="how-do-i-include-the-git-folder-in-az-acr-build-command"></a>How do I include the .git folder in az acr build command?
 
-如果您將本機源資料夾傳遞至 `az acr build` 命令，預設會從上傳的封裝中排除 `.git` 資料夾。 您可以使用下列設定來建立 `.dockerignore` 檔案。 它會指示命令還原已上傳套件中 `.git` 底下的所有檔案。 
+If you pass a local source folder to the `az acr build` command, the `.git` folder is excluded from the uploaded package by default. You can create a `.dockerignore` file with the following setting. It tells the command to restore all files under `.git` in the uploaded package. 
 
 ```sh
 !.git/**
 ```
 
-此設定也適用于 `az acr run` 命令。
+This setting also applies to the `az acr run` command.
 
-### <a name="does-tasks-support-gitlab-for-source-triggers"></a>工作是否支援來源觸發程式的 GitLab？
+### <a name="does-tasks-support-gitlab-for-source-triggers"></a>Does Tasks support GitLab for Source triggers?
 
-我們目前不支援來源觸發程式的 GitLab。
+We currently do not support GitLab for Source triggers.
 
-### <a name="what-git-repository-management-service-does-tasks-support"></a>哪些 git 存放庫管理服務支援工作？
+### <a name="what-git-repository-management-service-does-tasks-support"></a>What git repository management service does Tasks support?
 
-| Git 服務 | 來源內容 | 手動組建 | 透過認可觸發程式自動建立 |
+| Git service | Source context | Manual build | Auto build through commit trigger |
 |---|---|---|---|
 | GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | 是 | 是 |
 | Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | 是 | 是 |
 | GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | 是 | 否 |
 | BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | 是 | 否 |
 
-## <a name="run-error-message-troubleshooting"></a>執行錯誤訊息的疑難排解
+## <a name="run-error-message-troubleshooting"></a>Run Error Message Troubleshooting
 
 | 錯誤訊息 | 疑難排解指南 |
 |---|---|
-|未設定 VM 的存取權，因此找不到任何訂用帳戶|如果您在 ACR 工作中使用 `az login --identity`，就會發生這種情況。 這是暫時性錯誤，當您的受控識別的角色指派尚未傳播時，就會發生這種情況。 請稍候幾秒，再重試工作。|
+|No access was configured for the VM, hence no subscriptions were found|This could happen if you are using `az login --identity` in your ACR Task. This is a transient error and occurs when the role assignment of your Managed Identity hasn't propagated. Waiting a few seconds before retrying works.|
 
-## <a name="cicd-integration"></a>CI/CD 整合
+## <a name="cicd-integration"></a>CI/CD integration
 
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
-- [GitHub 動作](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
+- [GitHub Actions](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
 
 ## <a name="next-steps"></a>後續步驟
 
-* [深入瞭解](container-registry-intro.md)Azure Container Registry。
+* [Learn more](container-registry-intro.md) about Azure Container Registry.

@@ -1,36 +1,26 @@
 ---
 title: 適用於 Azure Functions 的 Python 開發人員參考
 description: 了解如何使用 Python 開發函式
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: cfowler
-keywords: azure functions, 函式, 事件處理, 動態計算, 無伺服器架構, Pythong
-ms.service: azure-functions
-ms.devlang: python
 ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 04/16/2018
-ms.author: glenga
-ms.openlocfilehash: 01d8560ee2752f21eb52c00f4c337d1dca59b8fb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 7c8ce87fdf396bc488a7deaf576eea28f989e0e4
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082705"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226653"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 開發人員指南
 
 本文是使用 Python 開發 Azure Functions 的簡介。 本文假設您已閱讀過下列 [Azure Functions 開發人員指南](functions-reference.md)。 
 
-如需 Python 中的獨立函式範例專案，請參閱 Python 函式[範例](/samples/browse/?products=azure-functions&languages=python)。 
+For standalone Function sample projects in Python, see the [Python Functions samples](/samples/browse/?products=azure-functions&languages=python). 
 
 ## <a name="programming-model"></a>程式設計模型
 
-Azure Functions 預期函式在 Python 腳本中是可處理輸入並產生輸出的無狀態方法。 根據預設，執行時間會預期方法會實作為在 `__init__.py` 檔案中稱為 `main()` 的全域方法。 您也可以[指定替代的進入點](#alternate-entry-point)。
+Azure Functions expects a function to be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method called `main()` in the `__init__.py` file. You can also [specify an alternate entry point](#alternate-entry-point).
 
-來自觸發程式和系結的資料，會使用函式*json*檔案中定義的 `name` 屬性，透過方法屬性系結至函式。 例如，下面的_函數. json_描述由名為 `req`的 HTTP 要求所觸發的簡單函式：
+Data from triggers and bindings is bound to the function via method attributes using the `name` property defined in the *function.json* file. For example, the  _function.json_ below describes a simple function triggered by an HTTP request named `req`:
 
 ```json
 {
@@ -58,7 +48,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-您也可以使用 Python 類型注釋，在函式中明確宣告屬性類型和傳回類型。 這可協助您使用許多 Python 程式碼編輯器所提供的 intellisense 和自動完成功能。
+you can also explicitly declare the attribute types and return type in the function using Python type annotations. This helps you use the intellisense and autocomplete features provided by many Python code editors.
 
 ```python
 import azure.functions
@@ -71,9 +61,9 @@ def main(req: azure.functions.HttpRequest) -> str:
 
 請使用 [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) 套件中所包含的 Python 註釋，以將輸入和輸出繫結至方法。
 
-## <a name="alternate-entry-point"></a>替代進入點
+## <a name="alternate-entry-point"></a>Alternate entry point
 
-您可以選擇性地在*函數. json*檔案中指定 `scriptFile` 和 `entryPoint` 屬性，以變更函式的預設行為。 例如 _，下列函_式會指示執行時間在_main.py_檔案中使用 `customentry()` 方法，做為您的 Azure 函式的進入點。
+You can change the default behavior of a function by optionally specifying the `scriptFile` and `entryPoint` properties in the *function.json* file. For example, the _function.json_ below tells the runtime to use the `customentry()` method in the _main.py_ file, as the entry point for your Azure Function.
 
 ```json
 {
@@ -87,7 +77,7 @@ def main(req: azure.functions.HttpRequest) -> str:
 
 ## <a name="folder-structure"></a>資料夾結構
 
-Python 函式專案的建議資料夾結構如下列範例所示：
+The recommended folder structure for a Python Functions project looks like the following example:
 
 ```
  __app__
@@ -105,35 +95,35 @@ Python 函式專案的建議資料夾結構如下列範例所示：
  | - requirements.txt
  tests
 ```
-主要專案資料夾（\_\_應用程式\_\_）可以包含下列檔案：
+The main project folder (\_\_app\_\_) can contain the following files:
 
-* 在*本機執行時*，用來儲存應用程式設定和連接字串的。 此檔案不會發行至 Azure。 若要深入瞭解，請參閱[local. settings. file](functions-run-local.md#local-settings-file)。
-* *需求 .txt*：包含在發佈至 Azure 時，系統所安裝的套件清單。
-* *host. json*：包含會影響函數應用程式中所有函式的全域設定選項。 此檔案會發行至 Azure。 在本機執行時，不支援所有選項。 若要深入瞭解，請參閱[host. json](functions-host-json.md)。
-* *funcignore*：（選擇性）宣告不應發行至 Azure 的檔案。
-* *.gitignore*：（選擇性）宣告從 git 存放庫排除的檔案，例如 local. settings. json。
+* *local.settings.json*: Used to store app settings and connection strings when running locally. 此檔案不會發行至 Azure。 To learn more, see [local.settings.file](functions-run-local.md#local-settings-file).
+* *requirements.txt*: Contains the list of packages the system installs when publishing to Azure.
+* *host.json*: Contains global configuration options that affect all functions in a function app. 此檔案會發行至 Azure。 Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
+* *funcignore*: (Optional) declares files that shouldn't get published to Azure.
+* *gitignore*: (Optional) declares files that are excluded from a git repo, such as local.settings.json.
 
 每個函式都具有本身的程式碼檔案和繫結設定檔 (function.json)。 
 
-共用程式碼應該保存在 \_\_應用程式\_\_的個別資料夾中。 若要參考 SharedCode 資料夾中的模組，您可以使用下列語法：
+Shared code should be kept in a separate folder in \_\_app\_\_. 若要參考 SharedCode 資料夾中的模組，您可以使用下列語法：
 
 ```python
 from __app__.SharedCode import myFirstHelperFunction
 ```
 
-若要參考函數的本機模組，您可以使用相對的匯入語法，如下所示：
+To reference modules local to a function, you can use the relative import syntax as follows:
 
 ```python
 from . import example
 ```
 
-將您的專案部署至 Azure 中的函式應用程式時， *FunctionApp*資料夾的完整內容應該包含在套件中，而不是資料夾本身。 我們建議您在與專案資料夾不同的資料夾中維護您的測試，在此範例中 `tests`。 這可讓您不需要將測試程式碼與應用程式一起部署。 如需詳細資訊，請參閱[單元測試](#unit-testing)。
+When deploying your project to a function app in Azure, the entire content of the *FunctionApp* folder should be included in the package, but not the folder itself. We recommend that you maintain your tests in a folder separate from the project folder, in this example `tests`. This keeps you from deploying test code with your app. For more information, see [Unit Testing](#unit-testing).
 
-## <a name="triggers-and-inputs"></a>觸發程式和輸入
+## <a name="triggers-and-inputs"></a>Triggers and Inputs
 
-在 Azure Functions 中輸入會分成兩個類別：觸發程序輸入和額外的輸入。 雖然它們在 `function.json` 檔案中不同，但在 Python 程式碼中的使用方式是相同的。  在本機執行時，觸發程式和輸入來源的連接字串或密碼會對應至 `local.settings.json` 檔案中的值，以及在 Azure 中執行時的應用程式設定。 
+在 Azure Functions 中輸入會分成兩個類別：觸發程序輸入和額外的輸入。 Although they are different in the `function.json` file, usage is identical in Python code.  Connection strings or secrets for trigger and input sources map to values in the `local.settings.json` file when running locally, and the application settings when running in Azure. 
 
-例如，下列程式碼示範兩者之間的差異：
+For example, the following code demonstrates the difference between the two:
 
 ```json
 // function.json
@@ -181,16 +171,16 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-叫用此函式時，HTTP 要求會以 `req` 形式傳遞至函式。 系統會根據路由 URL 中的_識別碼_從 Azure Blob 儲存體中抓取專案，並在函式主體中以 `obj` 的形式提供。  在這裡，指定的儲存體帳戶是在中找到的連接字串，這是函數應用程式所使用的相同儲存體帳戶。
+叫用此函式時，HTTP 要求會以 `req` 形式傳遞至函式。 An entry will be retrieved from the Azure Blob Storage based on the _ID_ in the route URL and made available as `obj` in the function body.  Here the storage account specified is the connection string found in  , which is the same storage account used by the function app.
 
 
-## <a name="outputs"></a>reference
+## <a name="outputs"></a>輸出
 
 輸出可以使用傳回值和輸出參數來表示。 如果只有一個輸出，我們建議使用傳回的值。 若為多個輸出，您必須使用輸出參數。
 
-若要使用函式的傳回值作為輸出繫結的值，應該將 `name` 中的繫結 `$return` 屬性設定為 `function.json`。
+若要使用函式的傳回值作為輸出繫結的值，應該將 `function.json` 中的繫結 `name` 屬性設定為 `$return`。
 
-若要產生多個輸出，請使用[`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python)介面提供的 `set()` 方法，將值指派給系結。 例如，下列函式可以將訊息推送至佇列，同時也會傳回 HTTP 回應。
+To produce multiple outputs, use the `set()` method provided by the [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python) interface to assign a value to the binding. 例如，下列函式可以將訊息推送至佇列，同時也會傳回 HTTP 回應。
 
 ```json
 {
@@ -254,15 +244,15 @@ def main(req):
 | **`info(_message_)`**    | 在根記錄器上寫入層級為 INFO (資訊) 的訊息。  |
 | **`debug(_message_)`** | 在根記錄器上寫入層級為 DEBUG (偵錯) 的訊息。  |
 
-若要深入瞭解記錄，請參閱[監視 Azure Functions](functions-monitoring.md)。
+To learn more about logging, see [Monitor Azure Functions](functions-monitoring.md).
 
-## <a name="http-trigger-and-bindings"></a>HTTP 觸發程式和系結
+## <a name="http-trigger-and-bindings"></a>HTTP Trigger and bindings
 
-HTTP 觸發程式定義于 function. jon 檔案中。 系結的 `name` 必須符合函式中的具名引數。 在先前的範例中，會使用 `req` 的系結名稱。 這個參數是[HttpRequest]物件，而且會傳回[HttpResponse]物件。
+The HTTP trigger is defined in the function.jon file. The `name` of the binding must match the named parameter in the function. In the previous examples, a binding name `req` is used. This parameter is an [HttpRequest] object, and an [HttpResponse] object is returned.
 
-您可以從[HttpRequest]物件取得要求標頭、查詢參數、路由參數和訊息內文。 
+From the [HttpRequest] object, you can get request headers, query parameters, route parameters, and the message body. 
 
-下列範例來自[Python 的 HTTP 觸發程式範本](https://github.com/Azure/azure-functions-templates/tree/dev/Functions.Templates/Templates/HttpTrigger-Python)。 
+The following example is from the [HTTP trigger template for Python](https://github.com/Azure/azure-functions-templates/tree/dev/Functions.Templates/Templates/HttpTrigger-Python). 
 
 ```python
 def main(req: func.HttpRequest) -> func.HttpResponse:
@@ -286,23 +276,23 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-在此函數中，會從[HttpRequest]物件的 `params` 參數取得 `name` 查詢參數的值。 JSON 編碼的訊息本文會使用 `get_json` 方法來讀取。 
+In this function, the value of the `name` query parameter is obtained from the `params` parameter of the [HttpRequest] object. The JSON-encoded message body is read using the `get_json` method. 
 
-同樣地，您可以在傳回的[HttpResponse]物件中設定回應訊息的 `status_code` 和 `headers`。
+Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
 
 ## <a name="concurrency"></a>並行
 
-根據預設，Python 執行時間一次只能處理一個函式的調用。 此並行層級可能不足以符合下列一或多個條件：
+By default, the Functions Python runtime can only process one invocation of a function at a time. This concurrency level might not be sufficient under one or more of the following conditions:
 
-+ 您正嘗試處理同時進行的多個調用。
-+ 您正在處理大量 i/o 事件。
-+ 您的應用程式與 i/o 系結。
++ You're trying to handle a number of invocations being made at the same time.
++ You're processing a large number of I/O events.
++ Your application is I/O bound.
 
-在這些情況下，您可以透過非同步方式執行，並使用多個語言背景工作進程來改善效能。  
+In these situations, you can improve performance by running asynchronously and by using multiple language worker processes.  
 
 ### <a name="async"></a>非同步處理
 
-建議您使用 `async def` 語句，讓函式以非同步協同程式的方式執行。
+We recommend that you use the `async def` statement to make your function run as an asynchronous coroutine.
 
 ```python
 # Runs with asyncio directly
@@ -311,7 +301,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-當 `main()` 函式是同步的（沒有 `async` 限定詞）時，函數會自動在 `asyncio` 執行緒集區中執行。
+When the `main()` function is synchronous (without the `async` qualifier), the function is automatically run in an `asyncio` thread-pool.
 
 ```python
 # Runs in an asyncio thread-pool
@@ -320,15 +310,15 @@ def main():
     some_blocking_socket_io()
 ```
 
-### <a name="use-multiple-language-worker-processes"></a>使用多個語言工作者進程
+### <a name="use-multiple-language-worker-processes"></a>Use multiple language worker processes
 
-根據預設，每個函式主控制項實例都有單一的語言工作者進程。 不過，支援每個主控制項實例有多個語言工作者進程。 接著，函式呼叫可以平均分散在這些語言工作者進程中。 請使用[FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count)應用程式設定來變更此值。 
+By default, every Functions host instance has a single language worker process. However there's support to have multiple language worker processes per host instance. Function invocations can then be evenly distributed among these language worker processes. Use the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting to change this value. 
 
 ## <a name="context"></a>Context
 
-若要在執行期間取得函數的調用內容，請在其簽章中包含[`context`](/python/api/azure-functions/azure.functions.context?view=azure-python)引數。 
+To get the invocation context of a function during execution, include the [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) argument in its signature. 
 
-例如︰
+例如：
 
 ```python
 import azure.functions
@@ -339,7 +329,7 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-[**內容**](/python/api/azure-functions/azure.functions.context?view=azure-python)類具有下列字串屬性：
+The [**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python) class has the following string attributes:
 
 `function_directory`  
 函式執行所在的目錄。
@@ -350,9 +340,9 @@ def main(req: azure.functions.HttpRequest,
 `invocation_id`  
 目前函式引動的識別碼。
 
-## <a name="global-variables"></a>全域變數
+## <a name="global-variables"></a>Global variables
 
-不保證會保留您應用程式的狀態，以供未來執行之用。 不過，Azure Functions 執行時間通常會針對相同應用程式的多個執行重複使用相同的進程。 為了快取昂貴計算的結果，請將它宣告為全域變數。 
+It is not guaranteed that the state of your app will be preserved for future executions. However, the Azure Functions runtime often reuses the same process for multiple executions of the same app. In order to cache the results of an expensive computation, declare it as a global variable. 
 
 ```python
 CACHED_DATA = None
@@ -368,9 +358,9 @@ def main(req):
 
 ## <a name="environment-variables"></a>環境變數
 
-在函數中，[應用程式設定](functions-app-settings.md)（例如服務連接字串）在執行期間會公開為環境變數。 您可以藉由宣告 `import os`，然後使用 `setting = os.environ["setting-name"]`，來存取這些設定。
+In Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings by declaring `import os` and then using, `setting = os.environ["setting-name"]`.
 
-下列範例會取得[應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)，並將金鑰命名為 `myAppSetting`：
+The following example gets the [application setting](functions-how-to-use-azure-function-app-settings.md#settings), with the key named `myAppSetting`:
 
 ```python
 import logging
@@ -384,13 +374,13 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info(f'My app setting value:{my_app_setting_value}')
 ```
 
-就本機開發而言，應用程式設定會[保留在本機的設定 json 檔案中](functions-run-local.md#local-settings-file)。  
+For local development, application settings are [maintained in the local.settings.json file](functions-run-local.md#local-settings-file).  
 
 ## <a name="python-version"></a>Python 版本 
 
-目前，Azure Functions 支援 Python 3.6. x 和 3.7. x （官方 CPython 散發套件）。 在本機執行時，執行時間會使用可用的 Python 版本。 若要在 Azure 中建立函數應用程式時要求特定的 Python 版本，請使用[`az functionapp create`](/cli/azure/functionapp#az-functionapp-create)命令的 `--runtime-version` 選項。  
+Currently, Azure Functions supports both Python 3.6.x and 3.7.x (official CPython distributions). When running locally, the runtime uses the available Python version. To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command.  
 
-## <a name="package-management"></a>封裝管理
+## <a name="package-management"></a>套件管理
 
 使用 Azure Functions Core Tools 或 Visual Studio Code 在本機進行開發時，將所需的套件名稱和版本新增到 `requirements.txt` 檔案，並使用 `pip` 進行安裝。 
 
@@ -406,21 +396,21 @@ pip install -r requirements.txt
 
 ## <a name="publishing-to-azure"></a>發行到 Azure
 
-當您準備好要發行時，請確定所有公開可用的相依性都列在 [需求 .txt] 檔案中，該檔案位於專案目錄的根目錄中。 
+When you're ready to publish, make sure that all your publicly available dependencies are listed in the requirements.txt file, which is located at the root of your project directory. 
 
-從發行排除的專案檔和資料夾（包括虛擬環境資料夾）會列在 funcignore 檔案中。
+Project files and folders that are excluded from publishing, including the virtual environment folder, are listed in the .funcignore file.
 
-有三個組建動作支援將 Python 專案發行至 Azure：
+There are three build actions supported for publishing your Python project to Azure:
 
-+ 遠端組建：根據需求 .txt 檔案的內容，從遠端取得相依性。 「[遠端組建](functions-deployment-technologies.md#remote-build)」是建議的組建方法。 [遠端] 也是 Azure 工具的預設組建選項。 
-+ 本機組建：根據需求 .txt 檔案的內容，在本機取得相依性。 
-+ 自訂相依性：您的專案使用我們的工具無法公開使用的套件。 （需要 Docker）。
++ Remote build: Dependencies are obtained remotely based on the contents of the requirements.txt file. [Remote build](functions-deployment-technologies.md#remote-build) is the recommended build method. Remote is also the default build option of Azure tooling. 
++ Local build: Dependencies are obtained locally based on the contents of the requirements.txt file. 
++ Custom dependencies: Your project uses packages not publicly available to our tools. (Requires Docker.)
 
-若要建立您的相依性，並使用持續傳遞（CD）系統發佈，請[使用 Azure Pipelines](functions-how-to-azure-devops.md)。
+To build your dependencies and publish using a continuous delivery (CD) system, [use Azure Pipelines](functions-how-to-azure-devops.md).
 
-### <a name="remote-build"></a>遠端組建
+### <a name="remote-build"></a>Remote build
 
-根據預設，當您使用下列[func Azure functionapp publish](functions-run-local.md#publish)命令將 Python 專案發佈至 Azure 時，Azure Functions Core Tools 會要求遠端組建。 
+By default, the Azure Functions Core Tools requests a remote build when you use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish your Python project to Azure. 
 
 ```bash
 func azure functionapp publish <APP_NAME>
@@ -428,11 +418,11 @@ func azure functionapp publish <APP_NAME>
 
 在 Azure 中，請記得以您的函式應用程式名稱取代 `<APP_NAME>`。
 
-[Visual Studio Code 的 Azure Functions 延伸](functions-create-first-function-vs-code.md#publish-the-project-to-azure)模組預設也會要求遠端組建。 
+The [Azure Functions Extension for Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) also requests a remote build by default. 
 
-### <a name="local-build"></a>本機組建
+### <a name="local-build"></a>Local build
 
-您可以使用下列[func azure functionapp publish](functions-run-local.md#publish)命令，以本機組建發行，以防止執行遠端組建。 
+You can prevent doing a remote build by using the following [func azure functionapp publish](functions-run-local.md#publish) command to publish with a local build. 
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
@@ -440,17 +430,17 @@ func azure functionapp publish <APP_NAME> --build local
 
 在 Azure 中，請記得以您的函式應用程式名稱取代 `<APP_NAME>`。 
 
-使用 [`--build local`] 選項，就會從需求 .txt 檔案讀取專案相依性，並在本機下載並安裝那些依存的套件。 專案檔和相依性會從您的本機電腦部署至 Azure。 這會導致將較大的部署套件上傳至 Azure。 如果基於某些原因，核心工具無法取得您的需求 .txt 檔案中的相依性，您必須使用 [自訂相依性] 選項來進行發佈。 
+Using the `--build local` option, project dependencies are read from the requirements.txt file and those dependent packages are downloaded and installed locally. Project files and dependencies are deployed from your local computer to Azure. This results in a larger deployment package being uploaded to Azure. If for some reason, dependencies in your requirements.txt file can't be acquired by Core Tools, you must use the custom dependencies option for publishing. 
 
-### <a name="custom-dependencies"></a>自訂相依性
+### <a name="custom-dependencies"></a>Custom dependencies
 
-如果您的專案使用我們的工具無法公開使用的套件，您可以將它們放在 \_\_應用程式\_\_/. python_packages 目錄中，讓它們可供您的應用程式使用。 在發佈之前，請執行下列命令以在本機安裝相依性：
+If your project uses packages not publicly available to our tools, you can make them available to your app by putting them in the \_\_app\_\_/.python_packages directory. Before publishing, run the following command to install the dependencies locally:
 
 ```command
 pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
 ```
 
-使用自訂相依性時，您應該使用 [`--no-build` 發佈] 選項，因為您已經安裝相依性。  
+When using custom dependencies, you should use the `--no-build` publishing option, since you have already installed the dependencies.  
 
 ```command
 func azure functionapp publish <APP_NAME> --no-build
@@ -458,11 +448,11 @@ func azure functionapp publish <APP_NAME> --no-build
 
 在 Azure 中，請記得以您的函式應用程式名稱取代 `<APP_NAME>`。
 
-## <a name="unit-testing"></a>單元測試
+## <a name="unit-testing"></a>Unit Testing
 
-以 Python 撰寫的函式可以使用標準測試架構來測試，就像其他 Python 程式碼一樣。 對於大部分的系結，您可以從 `azure.functions` 封裝建立適當類別的實例，以建立模擬輸入物件。 因為[`azure.functions`](https://pypi.org/project/azure-functions/)套件無法立即使用，請務必透過您的 `requirements.txt` 檔案加以安裝，如上面的[封裝管理](#package-management)一節中所述。 
+Functions written in Python can be tested like other Python code using standard testing frameworks. For most bindings, it's possible to create a mock input object by creating an instance of an appropriate class from the `azure.functions` package. Since the [`azure.functions`](https://pypi.org/project/azure-functions/) package is not immediately available, be sure to install it via your `requirements.txt` file as described in the [package management](#package-management) section above. 
 
-例如，下列是 HTTP 觸發函式的模擬測試：
+For example, following is a mock test of an HTTP triggered function:
 
 ```json
 {
@@ -540,7 +530,7 @@ class TestFunction(unittest.TestCase):
         )
 ```
 
-以下是另一個範例，其中包含已觸發佇列的函式：
+Here is another example, with a queue triggered function:
 
 ```json
 {
@@ -588,14 +578,14 @@ class TestFunction(unittest.TestCase):
             'msg body: test',
         )
 ```
-## <a name="temporary-files"></a>暫存檔案
+## <a name="temporary-files"></a>Temporary files
 
-`tempfile.gettempdir()` 方法會傳回在 Linux 上 `/tmp`的暫存資料夾。 您的應用程式可以使用此目錄來儲存您的函式在執行期間所產生及使用的暫存檔案。 
+The `tempfile.gettempdir()` method returns a temporary folder, which on Linux is `/tmp`. Your application can use this directory to store temporary files generated and used by your functions during execution. 
 
 > [!IMPORTANT]
-> 寫入臨時目錄的檔案不保證會在調用之間保存。 在相應放大期間，暫存檔案不會在實例之間共用。 
+> Files written to the temporary directory aren't guaranteed to persist across invocations. During scale out, temporary files aren't shared between instances. 
 
-下列範例會在臨時目錄中建立名為的暫存檔案（`/tmp`）：
+The following example creates a named temporary file in the temporary directory (`/tmp`):
 
 ```python
 import logging
@@ -610,7 +600,7 @@ from os import listdir
    filesDirListInTemp = listdir(tempFilePath)     
 ```   
 
-我們建議您將測試維護在與專案資料夾不同的資料夾中。 這可讓您不需要將測試程式碼與應用程式一起部署。 
+We recommend that you maintain your tests in a folder separate from the project folder. This keeps you from deploying test code with your app. 
 
 ## <a name="known-issues-and-faq"></a>已知問題和常見問題集
 
@@ -618,9 +608,9 @@ from os import listdir
 
 ### <a name="cross-origin-resource-sharing"></a>跨原始資源共用
 
-Azure Functions 支援跨原始來源資源分享（CORS）。 CORS 會[在入口網站中](functions-how-to-use-azure-function-app-settings.md#cors)以及透過[Azure CLI](/cli/azure/functionapp/cors)進行設定。 CORS 允許的原始來源清單適用于函數應用層級。 在啟用 CORS 的情況下，回應會包含 `Access-Control-Allow-Origin` 標頭。 如需詳細資訊，請參閱 [跨原始來源資源分享](functions-how-to-use-azure-function-app-settings.md#cors)(英文)。
+Azure Functions supports cross-origin resource sharing (CORS). CORS is configured [in the portal](functions-how-to-use-azure-function-app-settings.md#cors) and through the [Azure CLI](/cli/azure/functionapp/cors). The CORS allowed origins list applies at the function app level. With CORS enabled, responses include the `Access-Control-Allow-Origin` header. 如需詳細資訊，請參閱 [跨原始來源資源分享](functions-how-to-use-azure-function-app-settings.md#cors)(英文)。
 
-Python 函式應用程式[目前不支援](https://github.com/Azure/azure-functions-python-worker/issues/444)允許的原始來源清單。 由於這項限制，您必須在 HTTP 函式中明確設定 `Access-Control-Allow-Origin` 標頭，如下列範例所示：
+The allowed origins list [isn't currently supported](https://github.com/Azure/azure-functions-python-worker/issues/444) for Python function apps. Because of this limitation, you must expressly set the `Access-Control-Allow-Origin` header in your HTTP functions, as shown in the following example:
 
 ```python
 def main(req: func.HttpRequest) -> func.HttpResponse:
@@ -635,7 +625,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     )
 ``` 
 
-請確定您也更新了函數. json，以支援 OPTIONS HTTP 方法：
+Make sure that you also update your function.json to support the OPTIONS HTTP method:
 
 ```json
     ...
@@ -647,13 +637,13 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     ...
 ```
 
-Chrome 瀏覽器會使用這個方法來協調允許的原始來源清單。 
+This method is used by the Chrome browser to negotiate the allowed origins list. 
 
 ## <a name="next-steps"></a>後續步驟
 
 如需詳細資訊，請參閱下列資源：
 
-* [Azure Functions 套件 API 檔](/python/api/azure-functions/azure.functions?view=azure-python)
+* [Azure Functions package API documentation](/python/api/azure-functions/azure.functions?view=azure-python)
 * [Azure Functions 的最佳做法](functions-best-practices.md)
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 * [Blob 儲存體繫結](functions-bindings-storage-blob.md)

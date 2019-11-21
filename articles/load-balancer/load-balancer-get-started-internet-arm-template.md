@@ -1,6 +1,6 @@
 ---
 title: 建立公用負載平衡器 - Azure 範本
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: 了解如何使用範本在資源管理員中建立公用負載平衡器
 services: load-balancer
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: a94c7d1b5d1ecd11dd213eccf2354e943a96cabd
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4cfbbfb17e8be3ae78aad5aa5125020762f864c7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275281"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225352"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>使用範本建立公用負載平衡器
 
@@ -36,14 +36,14 @@ ms.locfileid: "68275281"
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>使用按一下即部署來部署範本
 
-公用儲存機制中可用的範例範本會使用一個包含預設值的參數檔案，這些預設值可用來產生上述案例。 若要使用「按一下即部署」來部署此範本，請依循[此連結](https://go.microsoft.com/fwlink/?LinkId=544801)，按一下 [部署至 Azure]  ，視情況取代預設參數值，再依循入口網站中的指示。
+公用儲存機制中可用的範例範本會使用一個包含預設值的參數檔案，這些預設值可用來產生上述案例。 若要使用「按一下即部署」來部署此範本，請依循[此連結](https://go.microsoft.com/fwlink/?LinkId=544801)，按一下 [部署至 Azure]，視情況取代預設參數值，再依循入口網站中的指示。
 
 ## <a name="deploy-the-template-by-using-powershell"></a>使用 PowerShell 部署範本
 
 若要使用 PowerShell 部署您下載的範本，請依照下列步驟執行。
 
 1. 如果您從未用過 Azure PowerShell，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) ，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
-2. 執行**new-azresourcegroupdeployment** Cmdlet, 以使用範本建立資源群組。
+2. Run the **New-AzResourceGroupDeployment** cmdlet to create a resource group using the template.
 
     ```powershell
     New-AzResourceGroupDeployment -Name TestRG -Location uswest `
@@ -56,7 +56,7 @@ ms.locfileid: "68275281"
 若要使用 Azure CLI 部署範本，請依照下列步驟執行。
 
 1. 如果您從未使用過 Azure CLI，請參閱 [安裝和設定 Azure CLI](../cli-install-nodejs.md) ，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
-2. 執行 **azure config mode** 命令，以切換為資源管理員模式，如下所示。
+2. 執行 **azure config mode** 命令，以切換為 Azure 資源管理員模式，如下所示。
 
     ```azurecli
     azure config mode arm

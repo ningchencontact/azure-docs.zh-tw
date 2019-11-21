@@ -1,7 +1,7 @@
 ---
-title: 適用于 .NET 的 Microsoft 驗證程式庫中的 AD FS 支援
+title: AD FS support in Microsoft Authentication Library for .NET
 titleSuffix: Microsoft identity platform
-description: 瞭解適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）中的 Active Directory 同盟服務（AD FS）支援。
+description: Learn about Active Directory Federation Services (AD FS) support in Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: TylerMSFT
@@ -18,49 +18,49 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d947645b45641b2604e20f18765fd0428a1336ec
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 374171cf04b1e6c953bcaa55af91f7d14905c2b3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721058"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208221"
 ---
-# <a name="active-directory-federation-services-support-in-msalnet"></a>MSAL.NET 中的 Active Directory 同盟服務支援
-Windows Server 中的 Active Directory 同盟服務（AD FS）可讓您將 OpenID Connect 和 OAuth 2.0 型驗證和授權新增至您正在開發的應用程式。 然後，這些應用程式就可以直接針對 AD FS 驗證使用者。 如需詳細資訊，請參閱[開發人員 AD FS 案例](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios)。
+# <a name="active-directory-federation-services-support-in-msalnet"></a>Active Directory Federation Services support in MSAL.NET
+Active Directory Federation Services (AD FS) in Windows Server enables you to add OpenID Connect and OAuth 2.0 based authentication and authorization to applications you are developing. Those applications can, then, authenticate users directly against AD FS. For more information, read [AD FS Scenarios for Developers](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios).
 
-適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）支援兩種針對 AD FS 進行驗證的案例：
+Microsoft Authentication Library for .NET (MSAL.NET) supports two scenarios for authenticating against AD FS:
 
-- MSAL.NET 會與 Azure Active Directory 交談，其本身*會與 AD FS*同盟。
-- MSAL.NET 會**直接**與 ADFS 授權單位交談。 只有 AD FS 2019 和更新版本才支援這種情況。 其中一個重點是[Azure Stack](https://azure.microsoft.com/overview/azure-stack/)支援的案例
+- MSAL.NET talks to Azure Active Directory, which itself is *federated* with AD FS.
+- MSAL.NET talks **directly** to an ADFS authority. This is only supported from AD FS 2019 and above. One of the scenarios this highlights is [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) support
 
 
-## <a name="msal-connects-to-azure-ad-which-is-federated-with-ad-fs"></a>MSAL 會連接到與同盟的 Azure AD AD FS
-MSAL.NET 支援連接到 Azure AD，以登入受管理使用者（在 Azure AD 中管理的使用者）或同盟使用者（由其他身分識別提供者所管理的使用者，例如 AD FS）。 MSAL.NET 並不知道使用者是聯盟的事實。 就這一點而言，它會與 Azure AD 交談。
+## <a name="msal-connects-to-azure-ad-which-is-federated-with-ad-fs"></a>MSAL connects to Azure AD, which is federated with AD FS
+MSAL.NET supports connecting to Azure AD, which signs in managed-users (users managed in Azure AD) or federated users (users managed by another identity provider such as AD FS). MSAL.NET does not know about the fact that users are federated. As far as it’s concerned, it talks to Azure AD.
 
-您在此案例中使用的[授權](msal-client-application-configuration.md#authority)單位是一般授權（授權主機名稱 + 租使用者、通用或組織）。
+The [authority](msal-client-application-configuration.md#authority) you use in this case is the usual authority (authority host name + tenant, common, or organizations).
 
-### <a name="acquiring-a-token-interactively"></a>以互動方式取得權杖
-當您呼叫 `AcquireTokenInteractive` 方法時，使用者體驗通常是：
+### <a name="acquiring-a-token-interactively"></a>Acquiring a token interactively
+When you call the `AcquireTokenInteractive` method, the user experience is typically:
 
-1. 使用者輸入其帳戶識別碼。
-2. Azure AD 會短暫顯示「帶您前往貴組織的頁面」的訊息。
-3. 使用者會重新導向至身分識別提供者的登入頁面。 登入頁面通常會以組織的標誌進行自訂。
+1. The user enters their account ID.
+2. Azure AD displays briefly the message "Taking you to your organization's page".
+3. The user is redirected to the sign-in page of the identity provider. The sign-in page is usually customized with the logo of the organization.
 
-此同盟案例中支援的 AD FS 版本包括 AD FS v2、AD FS v3 （Windows Server 2012 R2）和 AD FS v4 （AD FS 2016）。
+Supported AD FS versions in this federated scenario are AD FS v2, AD FS v3 (Windows Server 2012 R2), and AD FS v4 (AD FS 2016).
 
-### <a name="acquiring-a-token-using-acquiretokenbyintegratedauthentication-or-acquiretokenbyusernamepassword"></a>使用 AcquireTokenByIntegratedAuthentication 或 AcquireTokenByUsernamePassword 取得權杖
-使用 `AcquireTokenByIntegratedAuthentication` 或 `AcquireTokenByUsernamePassword` 方法取得權杖時，MSAL.NET 會根據使用者名稱取得身分識別提供者。  MSAL.NET 會在聯繫識別提供者之後收到[SAML 1.1 token](reference-saml-tokens.md) 。  然後，MSAL.NET 會將 SAML 權杖提供給 Azure AD 做為使用者判斷提示（類似于代理者[流程](msal-authentication-flows.md#on-behalf-of)）以取回 JWT。
+### <a name="acquiring-a-token-using-acquiretokenbyintegratedauthentication-or-acquiretokenbyusernamepassword"></a>Acquiring a token using AcquireTokenByIntegratedAuthentication or AcquireTokenByUsernamePassword
+When acquiring a token using the `AcquireTokenByIntegratedAuthentication` or `AcquireTokenByUsernamePassword` methods, MSAL.NET gets the identity provider to contact based on the username.  MSAL.NET receives a [SAML 1.1 token](reference-saml-tokens.md) after contacting the identity provider.  MSAL.NET then provides the SAML token to Azure AD as a user assertion (similar to the [on-behalf-of flow](msal-authentication-flows.md#on-behalf-of)) to get back a JWT.
 
-## <a name="msal-connects-directly-to-ad-fs"></a>MSAL 直接連接到 AD FS
-MSAL.NET 支援連接到 AD FS 2019，這是與 Open ID Connect 相容，並瞭解 PKCE 和範圍。 這種支援需要將 Service Pack [KB 4490481](https://support.microsoft.com/en-us/help/4490481/windows-10-update-kb4490481)套用到 Windows Server。 當直接連接到 AD FS 時，您要用來建立應用程式的授權單位與 `https://mysite.contoso.com/adfs/`類似。
+## <a name="msal-connects-directly-to-ad-fs"></a>MSAL connects directly to AD FS
+MSAL.NET supports connecting to AD FS 2019, which is Open ID Connect compliant and understands PKCE and scopes. This support requires that a service pack [KB 4490481](https://support.microsoft.com/en-us/help/4490481/windows-10-update-kb4490481) is applied to Windows Server. When connecting directly to AD FS, the authority you'll want to use to build your application is similar to `https://mysite.contoso.com/adfs/`.
 
-目前，沒有任何計畫可支援直接連接至：
+Currently, there are no plans to support a direct connection to:
 
-- AD FS 16，因為它不支援 PKCE，但仍使用資源，而非範圍
-- AD FS v2，這與 OIDC 不相容。
+- AD FS 16, as it doesn't support PKCE and still uses resources, not scope
+- AD FS v2, which is not OIDC-compliant.
 
- 如果您需要支援需要直接連線至 AD FS 2016 的案例，請使用最新版的[Azure Active Directory Authentication Library](active-directory-authentication-libraries.md#microsoft-supported-client-libraries)。 當您將內部部署系統升級至 AD FS 2019 時，您將能夠使用 MSAL.NET。
+ If you need to support scenarios requiring a direct connection to AD FS 2016, use the latest version of [Azure Active Directory Authentication Library](active-directory-authentication-libraries.md#microsoft-supported-client-libraries). When you have upgraded your on-premises system to AD FS 2019, you'll be able to use MSAL.NET.
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
-針對同盟案例，請參閱[使用主領域探索原則來設定應用程式的 Azure Active Directory 登入行為](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)
+For the federated case, see [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)

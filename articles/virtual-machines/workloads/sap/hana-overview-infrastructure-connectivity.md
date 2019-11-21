@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4fa0fe072fe98d565ad9d6f947540b7e1b039732
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 36f0b78f563bb4dda76f192259541d1c2b1fa060
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101164"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224679"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>SAP HANA (大型執行個體) 部署 
 
@@ -36,7 +36,7 @@ Microsoft 必須有下列資訊，才能部署 HANA 大型執行客體單位：
 - 針對每個 Azure 部署區域：
     - 將 Azure 虛擬網路連線到 HANA 大型執行個體的 ER-P2P 連線 /29 IP 位址範圍。
     - 用於 HANA 大型執行個體伺服器 IP 集區的 /24 CIDR 區塊。
-    - 選擇性使用[ExpressRoute Global](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach)觸達以啟用從內部部署到 Hana 大型實例單位的直接路由, 或在不同 Azure 區域中的 Hana 大型實例單位之間進行路由傳送時, 您必須保留另一個/29 個 IP 位址範圍。 此特定範圍不能與您之前定義的任何其他 IP 位址範圍重迭。
+    - Optional when using [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) to enable direct routing from on-premises to HANA Large Instance units or routing between HANA Large Instance units in different Azure regions, you need to reserve another /29 IP address range. This particular range may not overlap with any of the other IP address ranges you defined before.
 - 每個連線到 HANA 大型執行個體之 Azure 虛擬網路的虛擬網路位址空間屬性中所使用的 IP 位址範圍值。
 - 每個 HANA 大型執行個體系統的資料：
   - 所需的主機名稱 - 最好是完整的網域名稱。

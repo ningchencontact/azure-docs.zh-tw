@@ -9,33 +9,33 @@ ms.author: robreed
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d1ef652747dccdcb0e04ac8032dd47e2ebaa6bf2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 86eebf33f870780871e4c873936e491772c73b63
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886897"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231618"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure 自動化的 Runbook 和模組資源庫
 
 您可以存取已由 Microsoft 和社群建置的案例，而不是在 Azure 自動化中建立您自己的 Runbook 和模組。
 
-您可以從 [腳本中心資源庫] 的 PowerShell 資源庫和[Python runbook](#python-runbooks)取得 PowerShell runbook 和[模組](#modules-in-powershell-gallery)。 您也可以藉由共用您開發的案例來參與此社區，請參閱將 runbook 新增至資源庫
+You can get PowerShell runbooks and [modules](#modules-in-powershell-gallery) from the PowerShell Gallery and [Python runbooks](#python-runbooks) from the Script Center Gallery. You can also contribute to the community by sharing scenarios that you develop, see Adding a runbook to the gallery
 
-## <a name="runbooks-in-powershell-gallery"></a>PowerShell 資源庫中的 runbook
+## <a name="runbooks-in-powershell-gallery"></a>Runbooks in PowerShell Gallery
 
-[PowerShell 資源庫](https://www.powershellgallery.com/packages)提供來自 Microsoft 的各種 runbook，以及您可以匯入 Azure 自動化的「社區」。 若要使用，請從資源庫下載 runbook，或者您可以直接從資源庫或從 Azure 入口網站中的自動化帳戶匯入 runbook。
+The [PowerShell Gallery](https://www.powershellgallery.com/packages) provides a variety of runbooks from Microsoft and the community that you can import into Azure Automation. To use one, download a runbook from the gallery, or you can directly import runbooks from the gallery, or from your Automation Account in the Azure portal.
 
-您只能使用 Azure 入口網站直接從 PowerShell 資源庫匯入。 您無法使用 PowerShell 來執行此功能。
+You can only import directly from the PowerShell Gallery using the Azure portal. You cannot perform this function using PowerShell.
 
 > [!NOTE]
-> 您應該驗證從 PowerShell 資源庫取得的任何 runbook 的內容，並且在生產環境中安裝和執行它們時特別小心。
+> You should validate the contents of any runbooks that you get from the PowerShell Gallery and use extreme caution in installing and running them in a production environment.
 
-### <a name="to-import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>使用 Azure 入口網站從 Runbook 資源庫匯入 PowerShell runbook
+### <a name="to-import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>To import a PowerShell runbook from the Runbook Gallery with the Azure portal
 
 1. 在 Azure 入口網站中，開啟您的自動化帳戶。
 2. 在 [程序自動化] 底下，按一下 [Runbook 資源庫]
-3. 選取**來源： PowerShell 資源庫**。
+3. Select **Source: PowerShell Gallery**.
 4. 找出您想要的資源庫項目，並且選取以檢視其詳細資料。 您可以在左邊輸入發行者和類型的其他搜尋參數。
 
    ![瀏覽資源庫](media/automation-runbook-gallery/browse-gallery.png)
@@ -48,12 +48,12 @@ ms.locfileid: "73886897"
 7. 選擇性變更 Runbook 的名稱，然後按一下 [確定] 以匯入 Runbook。
 8. Runbook 會出現在自動化帳戶的 [Runbook] 索引標籤上。
 
-### <a name="adding-a-powershell-runbook-to-the-gallery"></a>將 PowerShell runbook 新增至資源庫
+### <a name="adding-a-powershell-runbook-to-the-gallery"></a>Adding a PowerShell runbook to the gallery
 
-Microsoft 鼓勵您將 runbook 新增至您認為對其他客戶很有用的 PowerShell 資源庫。 PowerShell 資源庫接受 PowerShell 模組和 PowerShell 腳本。 您可以藉由將 runbook[上傳至 PowerShell 資源庫](/powershell/gallery/how-to/publishing-packages/publishing-a-package)來新增它。
+Microsoft encourages you to add runbooks to the PowerShell Gallery that you think would be useful to other customers. The PowerShell Gallery accepts PowerShell modules and PowerShell scripts. You can add a runbook by [uploading it to the PowerShell Gallery](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package).
 
 > [!NOTE]
-> PowerShell 資源庫中不支援圖形化 runbook。
+> Graphical runbooks are not supported in PowerShell Gallery.
 
 ## <a name="modules-in-powershell-gallery"></a>PowerShell 資源庫中的模組
 
@@ -70,7 +70,7 @@ PowerShell 模組包含您可以在 Runbook 中使用的 Cmdlet，您可以安�
 4. 在 [瀏覽資源庫] 頁面上，您可以依下列欄位來搜尋：
 
    * 模組名稱
-   * 標籤
+   * Tags
    * 作者
    * Cmdlet/DSC 資源名稱
 
@@ -91,26 +91,26 @@ PowerShell 模組包含您可以在 Runbook 中使用的 Cmdlet，您可以安�
 
 ## <a name="python-runbooks"></a>Python Runbook
 
-[指令碼中心資源庫](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=)中提供 Python Runbook。 您可以按一下 **[上傳內容**]，將 Python runbook 提供給腳本中心資源庫。 當您這麼做時，請務必在上傳您的貢獻項目時新增標籤 **Python**。
+[指令碼中心資源庫](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=)中提供 Python Runbook。 You can contribute Python runbooks to the Script Center gallery by clicking **Upload a contribution**. 當您這麼做時，請務必在上傳您的貢獻項目時新增標籤 **Python**。
 
 > [!NOTE]
-> 若要將內容上傳至[腳本中心](https://gallery.technet.microsoft.com/scriptcenter)，至少需要100點。
+> In order to upload content to [Script Center](https://gallery.technet.microsoft.com/scriptcenter) a minimum of 100 points is required.
 
 ## <a name="requesting-a-runbook-or-module"></a>要求 Runbook 或模組
 
 您可以將要求傳送至 [使用者心聲](https://feedback.azure.com/forums/246290-azure-automation/)。  如果您需要協助撰寫 Runbook 或有關於 PowerShell 的問題，請將問題張貼至我們的[論壇](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc) \(英文\)。
 
-## <a name="common-solutions-available-in-the-runbook-gallery"></a>Runbook 資源庫中可用的一般解決方案
+## <a name="common-solutions-available-in-the-runbook-gallery"></a>Common solutions available in the runbook gallery
 
-下列清單包含一些 runbook，可提供常見案例的解決方案。 如需 Azure 自動化小組所建立之 runbook 的完整清單，請參閱[AzureAutomationTeam profile](https://www.powershellgallery.com/profiles/AzureAutomationTeam)。
+The list below contains a few runbooks that provide solutions to common scenarios. For a full list of runbooks created by the Azure Automation team, see [AzureAutomationTeam profile](https://www.powershellgallery.com/profiles/AzureAutomationTeam).
 
-* [Update-modulesinautomationtolatestversion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/) -匯入自動化帳戶中所有模組 PowerShell 資源庫上的最新版本。
-* [AzureDiagnostics](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/) -此腳本會將 Azure 診斷和 Log Analytics 設定為接收包含作業狀態和作業串流 Azure 自動化記錄。
-* [複製-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) -此 runbook 會從 Windows Azure 虛擬機器複製遠端檔案。
-* [複製-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) -此 runbook 會將本機檔案複製到 Azure 虛擬機器。
+* [Update-ModulesInAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/) - Imports the latest version on PowerShell Gallery of all modules in an Automation account.
+* [Enable-AzureDiagnostics](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/) - This script configures Azure Diagnostics and Log Analytics to receive Azure Automation logs containing job status and job streams.
+* [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) - This runbook copies a remote file from a Windows Azure virtual machine.
+* [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) - This runbook copies a local file to an Azure virtual machine.
 
 ## <a name="next-steps"></a>後續步驟
 
 * 若要開始使用 Runbook，請參閱[在 Azure 自動化中管理 Runbook](manage-runbooks.md)
 * 若要了解含有 Runbook 的 PowerShell 和 PowerShell 工作流程之間的差異，請參閱 [了解 PowerShell 工作流程](automation-powershell-workflow.md)
-* 如需 PowerShell 的詳細資訊（包括語言參考和學習模組），請參閱[powershell](https://docs.microsoft.com/powershell/scripting/overview)檔。
+* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).

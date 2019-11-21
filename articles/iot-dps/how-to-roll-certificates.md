@@ -1,5 +1,5 @@
 ---
-title: 如何在 Azure IoT 中樞裝置佈建服務中輪替 X.509 憑證 | Microsoft Docs
+title: Roll X.509 certificates in Azure IoT Hub Device Provisioning Service
 description: 如何使用裝置佈建服務執行個體輪替 X.509 憑證
 author: wesmc7777
 ms.author: wesmc
@@ -7,13 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 8cf5f262a758efe08ad73e2d8066ad4b736e76d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 55ed99c434028b9761ef53fc09a01481bbd184e1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626910"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228761"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>如何輪替 X.509 裝置憑證
 
@@ -52,7 +51,7 @@ ms.locfileid: "60626910"
 
 新的分葉憑證輪替至裝置後，便無法再連線到 IoT 中樞，因為它目前使用新的憑證進行連線。 IoT 中樞只會辨識使用舊憑證的裝置。 裝置的連線嘗試結果會是「未經授權」的連線錯誤。 若要解決這個錯誤，您必須更新裝置的註冊項目，以將裝置的新分葉憑證納入考量。 然後佈建服務可以在重新佈建裝置時，視需要更新 IoT 中樞裝置登錄資訊。 
 
-此連線失敗有一個可能的例外狀況：您已在佈建服務中為您的裝置建立[註冊群組](concepts-service.md#enrollment-group)。 在此情況下，如果您並未輪替裝置的信任鏈結中的根憑證或中繼憑證，只有新憑證屬於註冊群組中所定義的信任鏈結，就能辨識此裝置。 如果出現這種情況來反應安全性缺口，您應該至少將群組中被視為遭入侵的特定裝置憑證列入封鎖清單中。 如需詳細資訊，請參閱[將註冊群組中的特定裝置列入封鎖清單](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group)。
+此連線失敗有一個可能的例外狀況：您已在佈建服務中為您的裝置建立[註冊群組](concepts-service.md#enrollment-group)。 在此情況下，如果您並未輪替裝置的信任鏈結中的根憑證或中繼憑證，只有新憑證屬於註冊群組中所定義的信任鏈結，就能辨識此裝置。 如果出現這種情況來反應安全性缺口，您應該至少將群組中被視為遭入侵的特定裝置憑證列入黑名單中。 如需詳細資訊，請參閱[將註冊群組中的特定裝置列入黑名單](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group)。
 
 在 [管理註冊] 頁面上，可以完成已輪替憑證的註冊項目更新。 若要存取該頁面，請遵循下列步驟：
 
@@ -184,7 +183,7 @@ ms.locfileid: "60626910"
 
    ![使用次要憑證管理個別註冊](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
 
-3. 稍後當主要憑證到期時，返回並按一下 [刪除目前的憑證] 按鈕，即可刪除該主要憑證。
+3. 稍後當主要憑證到期時，返回並按一下 [刪除目前憑證] 按鈕，即可刪除該主要憑證。
 
 
 ## <a name="reprovision-the-device"></a>重新佈建裝置
@@ -198,9 +197,9 @@ ms.locfileid: "60626910"
 重新佈建完成後，裝置就能夠使用新憑證來連線到 IoT 中樞。
 
 
-## <a name="blacklist-certificates"></a>將憑證列入封鎖清單
+## <a name="blacklist-certificates"></a>將憑證列入黑名單
 
-為了回應安全性缺口，您可能需要將裝置憑證列入封鎖清單。 若要將裝置憑證列入封鎖清單，請停用目標裝置/憑證的註冊項目。 如需詳細資訊，請參閱[管理取消註冊](how-to-revoke-device-access-portal.md)一文中如何將裝置列入封鎖清單。
+為了回應安全性缺口，您可能需要將裝置憑證列入封鎖清單。 若要將裝置憑證列入封鎖清單，請停用目標裝置/憑證的註冊項目。 如需詳細資訊，請參閱[管理取消註冊](how-to-revoke-device-access-portal.md)一文中如何將裝置列入黑名單。
 
 一旦將憑證納入已停用的註冊項目中，任何使用該憑證向 IoT 中樞註冊的嘗試都會失敗，即使該憑證已作為其他註冊項目的一部分啟用亦然。
  

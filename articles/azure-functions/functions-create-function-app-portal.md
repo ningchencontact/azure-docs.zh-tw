@@ -1,23 +1,19 @@
 ---
-title: 從 Azure 入口網站建立函數應用程式 | Microsoft Docs
-description: 從入口網站在 Azure 中建立新的函數應用程式。
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
+title: Create a function app from the Azure Portal
+description: Create a new function app in Azure from the portal.
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 93bce0404c9b3bf630416557726dca0c856528c3
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 74eaa6837f362c849277a761da3ae79c3a8ac353
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170792"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230776"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>從 Azure 入口網站建立函數應用程式
 
-本主題說明如何使用 Azure Functions 在 Azure 入口網站中建立函數應用程式。 函數應用程式是裝載個別函式執行的容器。 
+This topic shows you how to use Azure Functions to create a function app in the Azure portal. 函數應用程式是裝載個別函式執行的容器。 
 
 ## <a name="create-a-function-app"></a>建立函數應用程式
 
@@ -31,15 +27,15 @@ ms.locfileid: "70170792"
 
 ## <a name="service-plans"></a>服務方案
 
-Azure Functions 有三個不同的服務方案:取用方案、Premium 方案和專用 (App Service) 方案。 您必須在函式應用程式建立時選擇您的服務方案, 之後就無法再變更。 如需詳細資訊，請參閱[選擇 Azure Functions 主控方案](functions-scale.md)。
+Azure Functions has three different service plans: Consumption plan, Premium plan, and Dedicated (App Service) plan. You must choose your service plan when your function app is created, and it cannot subsequently be changed. 如需詳細資訊，請參閱[選擇 Azure Functions 主控方案](functions-scale.md)。
 
-如果您打算在專用 (App Service) 方案上執行 JavaScript 函式, 您應該選擇較少核心的方案。 如需詳細資訊，請參閱 [JavaScript 函式參考資料](functions-reference-node.md#choose-single-vcpu-app-service-plans)。
+If you are planning to run JavaScript functions on a Dedicated (App Service) plan, you should choose a plan with fewer cores. 如需詳細資訊，請參閱 [JavaScript 函式參考資料](functions-reference-node.md#choose-single-vcpu-app-service-plans)。
 
 <a name="storage-account-requirements"></a>
 
-## <a name="storage-account-requirements"></a>儲存體帳戶的需求
+## <a name="storage-account-requirements"></a>儲存體帳戶需求
 
-建立函數應用程式時, 您必須建立或連結至支援 Blob、佇列和資料表儲存體的一般用途 Azure 儲存體帳戶。 Azure Functions 會在內部使用「Azure 儲存體」來進行作業，例如管理觸發程序和記錄函式執行。 有些儲存體帳戶並不支援佇列和表格，例如僅限 Blob 的儲存體帳戶、Azure 進階儲存體和搭配 ZRS 複寫的一般用途儲存體帳戶。 建立函數應用程式時，[儲存體帳戶] 刀鋒視窗中會過濾掉這些帳戶。
+When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. Azure Functions 會在內部使用「Azure 儲存體」來進行作業，例如管理觸發程序和記錄函式執行。 有些儲存體帳戶並不支援佇列和表格，例如僅限 Blob 的儲存體帳戶、Azure 進階儲存體和搭配 ZRS 複寫的一般用途儲存體帳戶。 建立函數應用程式時，[儲存體帳戶] 刀鋒視窗中會過濾掉這些帳戶。
 
 >[!NOTE]
 >當使用「使用情況主控方案」時，您的函式程式碼和繫結組態檔會儲存在主要儲存體帳戶中的 Azure 檔案儲存體中。 當您刪除主要儲存體帳戶時，會刪除此內容且無法復原。

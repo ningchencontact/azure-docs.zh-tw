@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b0b5e02009ddbb72bb062d341e7d233acfb0ceb3
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 5ed18f8a8bbd8bd323dec54ca3f700c7ce168dde
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429396"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231637"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration 概觀
 
@@ -37,17 +37,17 @@ Azure Automation State Configuration 為 [PowerShell Desired State Configuration
 
 ![Azure 自動化頁面的螢幕擷取畫面](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### <a name="import-reporting-data-into-azure-monitor-logs"></a>將報告資料匯入 Azure 監視器記錄檔
+### <a name="import-reporting-data-into-azure-monitor-logs"></a>Import reporting data into Azure Monitor logs
 
-使用 Azure Automation State Configuration 所管理的節點會將詳細報告狀態資料傳送至內建提取伺服器。 您可以設定 Azure Automation State Configuration，將此資料傳送至 Log Analytics 工作區。 若要瞭解如何將狀態設定狀態資料傳送至 Log Analytics 工作區，請參閱將[Azure 自動化狀態設定報告資料轉送至 Azure 監視器記錄](automation-dsc-diagnostics.md)。
+使用 Azure Automation State Configuration 所管理的節點會將詳細報告狀態資料傳送至內建提取伺服器。 您可以設定 Azure Automation State Configuration，將此資料傳送至 Log Analytics 工作區。 To learn how to send State Configuration status data to your Log Analytics workspace, see [Forward Azure Automation State Configuration reporting data to Azure Monitor logs](automation-dsc-diagnostics.md).
 
 ## <a name="prerequisites"></a>必要條件
 
-使用 Azure 自動化狀態設定（DSC）時，請考慮下列需求。
+Please consider the following requirements when using Azure Automation State Configuration (DSC).
 
-### <a name="operating-system-requirements"></a>作業系統需求
+### <a name="operating-system-requirements"></a>Operating System Requirements
 
-針對執行 Windows 的節點，支援下列版本：
+For nodes running Windows, the following versions are supported:
 
 - Windows Server 2019
 - Windows Server 2016
@@ -58,40 +58,40 @@ Azure Automation State Configuration 為 [PowerShell Desired State Configuration
 - Windows 8.1
 - Windows 7
 
-[Microsoft Hyper-v Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016)獨立產品 sku 不包含預期狀態組態的執行，因此無法由 PowerShell DSC 或 Azure 自動化狀態設定管理。
+The [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) standalone product sku does not contain an implementation of Desired State Configuraion so it cannot be managed by PowerShell DSC or Azure Automation State Configuration.
 
-針對執行 Linux 的節點，支援下列散發版本/版本：
+For nodes running Linux, the following distros/versions are supported:
 
-DSC Linux 延伸模組支援[支援的 Linux 發行](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions)版底下列出的所有 Linux 散發套件。
+The DSC Linux extension supports all the Linux distributions listed under [Supported Linux Distributions](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
 
-### <a name="dsc-requirements"></a>DSC 需求
+### <a name="dsc-requirements"></a>DSC requirements
 
-針對在 Azure 中執行的所有 Windows 節點，將會在上架期間安裝[WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) 。  對於執行 Windows Server 2012 和 Windows 7 的節點，[將會啟用 WinRM](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency)。
+For all Windows nodes running in Azure, [WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) will be installed during onboarding.  For nodes running Windows Server 2012 and Windows 7, [WinRM will be enabled](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
-針對在 Azure 中執行的所有 Linux 節點，將會在上架期間安裝[POWERSHELL DSC For linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) 。
+For all Linux nodes running in Azure, [PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) will be installed during onboarding.
 
-### <a name="network-planning"></a>設定私人網路
+### <a name="network-planning"></a>Configure private networks
 
-如果您的節點位於私人網路內，則需要下列埠和 Url，狀態設定（DSC）才能與自動化進行通訊：
+If your nodes are located within a private network, the following port and URLs are required for State Configuration (DSC) to communicate with Automation:
 
 * 連接埠︰只需要 TCP 443 以便進行傳出網際網路存取。
 * 全域 URL：*.azure-automation.net
 * US Gov 維吉尼亞州的全域 URL： *.azure automation.us
 * 代理程式服務： https://\<workspaceId\>.agentsvc.azure-automation.net
 
-這可讓受管理節點的網路連線與 Azure 自動化進行通訊。
-如果您使用在節點之間進行通訊的 DSC 資源（例如[WaitFor * 資源](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource)），您也必須允許節點之間的流量。
-請參閱每個 DSC 資源的檔，以瞭解這些網路需求。
+This provides network connectivity for the managed node to communicate with Azure Automation.
+If you are using DSC resources that communicate between nodes, such as the [WaitFor* resources](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), you will also need to allow traffic between nodes.
+See the documentation for each DSC resource to understand those network requirements.
 
-#### <a name="proxy-support"></a>Proxy 支援
+#### <a name="proxy-support"></a>Proxy Support
 
-DSC 代理程式的 Proxy 支援可在 Windows 1809 版和更新版本中取得。
-若要設定此選項，請在用來註冊節點的中繼配置[腳本](automation-dsc-onboarding.md#generating-dsc-metaconfigurations)中，設定**ProxyURL**和**ProxyCredential**的值。
-在舊版 Windows 中，DSC 無法使用 Proxy。
+Proxy support for the DSC agent is available in Windows version 1809 and later.
+To configure this option, set the value for **ProxyURL** and **ProxyCredential** in the [metaconfiguration script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) used to register nodes.
+Proxy is not available in DSC for previous versions of Windows.
 
-針對 Linux 節點，DSC 代理程式支援 proxy，並會利用 HTTP_proxy 變數來判斷 url。
+For Linux nodes, the DSC agent supports proxy and will utilize the http_proxy variable to determine the url.
 
-#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Azure 狀態設定網路範圍和命名空間
+#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Azure State Configuration network ranges and namespace
 
 建議使用定義例外狀況時所列出的位址。 針對 IP 位址，您可以下載 [Microsoft Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 此檔案會每週更新，並具有目前已部署的範圍及任何即將進行的 IP 範圍變更。
 
@@ -111,7 +111,7 @@ DSC 代理程式的 Proxy 支援可在 Windows 1809 版和更新版本中取得�
 | 日本東部 |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | 澳大利亞東南部 |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | 英國南部 | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| 美國政府機構維吉尼亞州 | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+| US Gov 維吉尼亞州 | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 如需區域 IP 位址 (而非名稱) 的清單，請從「Microsoft 下載中心」下載 [Azure 資料中心 IP 位址](https://www.microsoft.com/download/details.aspx?id=41653) XML 檔案。
 

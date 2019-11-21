@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 安全性預設值
-description: 安全性預設原則，可協助保護組織免于遭受常見的攻擊
+title: Azure Active Directory security defaults
+description: Security default policies that help protect organizations from common attacks
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,122 +11,123 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bde1741d12cc7ef181fb60bc7eecbec1fed8cbd0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 806447f788b7a394b29ee08e8b562662c2cc3e1b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151216"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208403"
 ---
-# <a name="what-are-security-defaults"></a>什麼是安全性預設值？
+# <a name="what-are-security-defaults"></a>What are security defaults?
 
-當常見的身分識別相關攻擊變得越來越普及時，管理安全性可能會很棘手。 這些攻擊包括密碼噴灑、重新執行和網路釣魚。
+Managing security can be difficult when common identity-related attacks are becoming more and more popular. These attacks include password spray, replay, and phishing.
 
-Azure Active Directory （Azure AD）中的安全性預設值可讓您更輕鬆地保護組織的安全並協助保護。 安全性預設值包含常見攻擊的預先設定安全性設定。 
+Security defaults in Azure Active Directory (Azure AD) make it easier to be secure and help protect your organization. Security defaults contain preconfigured security settings for common attacks. 
 
-Microsoft 將安全性預設值提供給所有人。 目標是要確保所有組織都已啟用基本層級的安全性，而不需要額外成本。 您會開啟 Azure 入口網站中的安全性預設值。
+Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security enabled at no extra cost. You turn on security defaults in the Azure portal.
 
-![Azure 入口網站的螢幕擷取畫面，具有切換以啟用安全性預設值](./media/concept-conditional-access-security-defaults/security-defaults-azure-ad-portal.png)
+![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-conditional-access-security-defaults/security-defaults-azure-ad-portal.png)
  
-系統會在您的租使用者中開啟下列安全性設定。 
+The following security configurations will be turned on in your tenant. 
 
-## <a name="unified-multi-factor-authentication-registration"></a>統一的多重要素驗證註冊
+## <a name="unified-multi-factor-authentication-registration"></a>Unified Multi-Factor Authentication registration
 
-您租使用者中的所有使用者都必須以 Azure 多因素驗證服務的形式註冊多重要素驗證（MFA）。 使用者有14天的時間，可以使用 Microsoft Authenticator 應用程式註冊多重要素驗證。 經過14天之後，使用者將無法登入，直到多重要素驗證註冊完成為止。
+All users in your tenant must register for multi-factor authentication (MFA) in the form of the Azure Multi-Factor Authentication service. Users have 14 days to register for Multi-Factor Authentication by using the Microsoft Authenticator app. After the 14 days have passed, the user won't be able to sign in until Multi-Factor Authentication registration is finished.
 
-我們瞭解某些使用者可能不在辦公室，也不會在啟用安全性預設值之後的14天內登入。 為確保每個使用者有充足的時間來註冊多重要素驗證，每個使用者的14天期間都是唯一的。 在您啟用安全性預設值之後，使用者的14天期間會開始第一次成功互動式登入。
+We understand that some users might be out of office or won't sign in during the 14 days immediately after enabling security defaults. To ensure that every user has ample time to register for Multi-Factor Authentication, the 14-day period is unique for each user. A user's 14-day period begins after their first successful interactive sign-in after you enable security defaults.
 
-## <a name="multi-factor-authentication-enforcement"></a>強制執行多重要素驗證
+## <a name="multi-factor-authentication-enforcement"></a>Multi-Factor Authentication enforcement
 
-### <a name="protecting-administrators"></a>保護系統管理員
+### <a name="protecting-administrators"></a>Protecting administrators
 
-具有特殊許可權帳戶存取權的使用者，可以提高您環境的存取權。 這些帳戶具有強大權力，您應特別小心處理。 有一種常見的方法可以改善特殊許可權帳戶的保護，就是需要更強的帳戶驗證形式來進行登入。 在 Azure AD 中，您可以藉由要求多重要素驗證，來取得更強的帳戶驗證。
+Users with access to privileged accounts have increased access to your environment. 這些帳戶具有強大權力，您應特別小心處理。 One common method to improve the protection of privileged accounts is to require a stronger form of account verification for sign-in. In Azure AD, you can get a stronger account verification by requiring Multi-Factor Authentication.
 
-完成多重要素驗證的註冊之後，下列九個 Azure AD 系統管理員角色將需要在每次登入時執行額外的驗證：
+After registration with Multi-Factor Authentication is finished, the following nine Azure AD administrator roles will be required to perform additional authentication every time they sign in:
 
 - 全域管理員
 - SharePoint 管理員
 - Exchange 系統管理員
 - 條件式存取系統管理員
 - 安全性系統管理員
-- 服務台管理員或密碼管理員
+- Helpdesk administrator or password administrator
 - 計費管理員
 - 使用者管理員
-- 驗證管理員
+- Authentication administrator
 
-### <a name="protecting-all-users"></a>保護所有使用者
+### <a name="protecting-all-users"></a>Protecting all users
 
-我們通常會將系統管理員帳戶視為唯一需要額外驗證層的帳戶。 系統管理員有廣泛的機密資訊存取權，而且可以對全訂用帳戶的設定進行變更。 但是攻擊者通常是以終端使用者為目標。 
+We tend to think that administrator accounts are the only accounts that need extra layers of authentication. Administrators have broad access to sensitive information and can make changes to subscription-wide settings. But attackers tend to target end users. 
 
-這些攻擊者取得存取權之後，就可以代表原始帳戶持有者要求存取授權資訊。 他們甚至可以下載整個目錄，在整個組織中執行網路釣魚攻擊。 
+After these attackers gain access, they can request access to privileged information on behalf of the original account holder. They can even download the entire directory to perform a phishing attack on your whole organization. 
 
-為所有使用者改善保護的其中一個常見方法，就是針對所有人都需要更強大的帳戶驗證形式，例如多重要素驗證。 使用者完成多重要素驗證註冊之後，系統會在必要時提示他們進行其他驗證。
+One common method to improve protection for all users is to require a stronger form of account verification, such as Multi-Factor Authentication, for everyone. After users finish Multi-Factor Authentication registration, they'll be prompted for additional authentication whenever necessary.
 
-### <a name="blocking-legacy-authentication"></a>封鎖舊版驗證
+### <a name="blocking-legacy-authentication"></a>Blocking legacy authentication
 
-為了讓您的使用者能夠輕鬆存取雲端應用程式，Azure AD 支援各種驗證通訊協定，包括舊版驗證。 *舊版驗證*是指由下列各項所提出的驗證要求：
+To give your users easy access to your cloud apps, Azure AD supports a variety of authentication protocols, including legacy authentication. *Legacy authentication* is a term that refers to an authentication request made by:
 
-- 不使用新式驗證的舊版 Office 用戶端（例如，Office 2010 用戶端）。
-- 任何使用舊版郵件通訊協定（如 IMAP、SMTP 或 POP3）的用戶端。
+- Older Office clients that don't use modern authentication (for example, an Office 2010 client).
+- Any client that uses older mail protocols such as IMAP, SMTP, or POP3.
 
-現今，大部分的登入嘗試都會來自舊版驗證。 舊版驗證不支援多重要素驗證。 即使您已在目錄上啟用多重要素驗證原則，攻擊者仍可使用較舊的通訊協定進行驗證，並略過多重要素驗證。 
+Today, the majority of compromising sign-in attempts come from legacy authentication. Legacy authentication does not support Multi-Factor Authentication. Even if you have a Multi-Factor Authentication policy enabled on your directory, an attacker can authenticate by using an older protocol and bypass Multi-Factor Authentication. 
 
-在您的租使用者中啟用安全性預設值之後，較舊的通訊協定所發出的所有驗證要求將會遭到封鎖。 安全性預設值不會封鎖 Exchange ActiveSync。
+After security defaults are enabled in your tenant, all authentication requests made by an older protocol will be blocked. Security defaults don't block Exchange ActiveSync.
 
-### <a name="protecting-privileged-actions"></a>保護特殊許可權動作
+### <a name="protecting-privileged-actions"></a>Protecting privileged actions
 
-組織會使用透過 Azure Resource Manager API 管理的各種 Azure 服務，包括：
+Organizations use a variety of Azure services managed through the Azure Resource Manager API, including:
 
 - Azure Portal 
 - Azure PowerShell 
 - Azure CLI
 
-使用 Azure Resource Manager 來管理您的服務是具有高許可權的動作。 Azure Resource Manager 可以改變整個租使用者的設定，例如服務設定和訂用帳戶計費。 單一要素驗證容易遭受各種攻擊，例如網路釣魚和密碼噴灑。 
+Using Azure Resource Manager to manage your services is a highly privileged action. Azure Resource Manager can alter tenant-wide configurations, such as service settings and subscription billing. Single-factor authentication is vulnerable to a variety of attacks like phishing and password spray. 
 
-請務必確認要存取 Azure Resource Manager 和更新設定的使用者身分識別。 您可以在允許存取之前，先要求額外的驗證來驗證其身分識別。
+It's important to verify the identity of users who want to access Azure Resource Manager and update configurations. You verify their identity by requiring additional authentication before you allow access.
 
-在您的租使用者中啟用安全性預設值之後，任何存取 Azure 入口網站、Azure PowerShell 或 Azure CLI 的使用者都必須完成額外的驗證。 此原則適用于所有存取 Azure Resource Manager 的使用者，無論他們是系統管理員或使用者。 
+After you enable security defaults in your tenant, any user who's accessing the Azure portal, Azure PowerShell, or the Azure CLI will need to complete additional authentication. This policy applies to all users who are accessing Azure Resource Manager, whether they're an administrator or a user. 
 
-如果使用者未註冊多重要素驗證，使用者將需要使用 Microsoft Authenticator 應用程式進行註冊，才能繼續進行。 將不會提供14天的多重要素驗證註冊期間。
+If the user isn't registered for Multi-Factor Authentication, the user will be required to register by using the Microsoft Authenticator app in order to proceed. No 14-day Multi-Factor Authentication registration period will be provided.
 
 ## <a name="deployment-considerations"></a>部署考量
 
-下列其他考慮與部署您租使用者的安全性預設值有關。
+The following additional considerations are related to deployment of security defaults for your tenant.
 
-### <a name="older-protocols"></a>較舊的通訊協定
+### <a name="older-protocols"></a>Older protocols
 
-郵件用戶端會使用較舊的驗證通訊協定（例如 IMAP、SMTP 和 POP3）來提出驗證要求。 這些通訊協定不支援多重要素驗證。 Microsoft 所看到的大部分帳戶危害，都是針對嘗試略過多重要素驗證的舊版通訊協定進行攻擊。 
+Mail clients use older authentication protocols (like IMAP, SMTP, and POP3) to make authentication requests. These protocols don't support Multi-Factor Authentication. Most of the account compromises that Microsoft sees are from attacks against older protocols that are trying to bypass Multi-Factor Authentication. 
 
-為了確保登入系統管理帳戶時需要多重要素驗證，而且攻擊者無法略過它，安全性預設會封鎖從較舊的通訊協定對系統管理員帳戶發出的所有驗證要求。
+To ensure that Multi-Factor Authentication is required for signing in to an administrative account and that attackers can't bypass it, security defaults block all authentication requests made to administrator accounts from older protocols.
 
 > [!WARNING]
-> 啟用此設定之前，請確定您的系統管理員未使用舊版驗證通訊協定。 如需詳細資訊，請參閱[如何從舊版驗證移開](concept-conditional-access-block-legacy-authentication.md)。
+> Before you enable this setting, make sure your administrators aren't using older authentication protocols. For more information, see [How to move away from legacy authentication](concept-conditional-access-block-legacy-authentication.md).
 
 ### <a name="conditional-access"></a>條件式存取
 
-您可以使用條件式存取來設定原則，以提供安全性預設值所啟用的相同行為。 如果您使用條件式存取，並在您的環境中啟用條件式存取原則，則不會提供安全性預設值。 如果您的授權提供條件式存取，但未在您的環境中啟用任何條件式存取原則，您就可以使用安全性預設值，直到您啟用條件式存取原則為止。
+You can use Conditional Access to configure policies that provide the same behavior enabled by security defaults. If you're using Conditional Access and have Conditional Access policies enabled in your environment, security defaults won't be available to you. If you have a license that provides Conditional Access but don't have any Conditional Access policies enabled in your environment, you are welcome to use security defaults until you enable Conditional Access policies.
 
-![警告訊息，您可以同時擁有安全性預設值或條件式存取](./media/concept-conditional-access-security-defaults/security-defaults-conditional-access.png)
+![Warning message that you can have security defaults or Conditional Access not both](./media/concept-conditional-access-security-defaults/security-defaults-conditional-access.png)
 
-以下是如何使用條件式存取來設定對等原則的逐步指南：
+Here are step-by-step guides on how you can use Conditional Access to configure equivalent policies:
 
-- [系統管理員需要 MFA](howto-conditional-access-policy-admin-mfa.md)
-- [Azure 管理需要 MFA](howto-conditional-access-policy-azure-management.md)
-- [封鎖舊版驗證](howto-conditional-access-policy-block-legacy.md)
-- [所有使用者都需要 MFA](howto-conditional-access-policy-all-users-mfa.md)
+- [Require MFA for administrators](howto-conditional-access-policy-admin-mfa.md)
+- [Require MFA for Azure management](howto-conditional-access-policy-azure-management.md)
+- [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
+- [Require MFA for all users](howto-conditional-access-policy-all-users-mfa.md)
+- [Require Azure MFA registration](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Requires Azure AD Identity Protection
 
-## <a name="enabling-security-defaults"></a>啟用安全性預設值
+## <a name="enabling-security-defaults"></a>Enabling security defaults
 
-若要在您的目錄中啟用安全性預設值：
+To enable security defaults in your directory:
 
-1. 登入 [Azure 入口網站](https://portal.azure.com) as 安全性系統管理員、條件式存取系統管理員或全域管理員。
-1. 流覽至 **Azure Active Directory**   > **屬性**。
-1. 選取 [**管理安全性預設值**]。
-1. 將 [**啟用安全性預設值**] 切換為 **[是]** 。
+1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator, Conditional Access administrator, or global administrator.
+1. Browse to **Azure Active Directory** > **Properties**.
+1. Select **Manage security defaults**.
+1. Set the **Enable security defaults** toggle to **Yes**.
 1. 選取 [儲存]。
 
 ## <a name="next-steps"></a>後續步驟
 
-[一般條件式存取原則](concept-conditional-access-policy-common.md)
+[Common Conditional Access policies](concept-conditional-access-policy-common.md)
 
-[什麼是條件式存取？](overview.md)
+[What is Conditional Access?](overview.md)

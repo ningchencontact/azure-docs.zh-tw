@@ -1,5 +1,5 @@
 ---
-title: 如何使用對稱金鑰透過 Azure IoT 中樞裝置佈建服務佈建繼承裝置 | Microsoft Docs
+title: Provision legacy devices using symmetric keys - Azure IoT Hub Device Provisioning Service
 description: 如何使用對稱金鑰透過裝置佈建服務執行個體佈建繼承裝置
 author: wesmc7777
 ms.author: wesmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 13e22d772ef9b90f415f10b65e4a4290a1f7bd81
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 3e3b54592608f5c39d618f5ceda40747ad4fd0fe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434828"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209921"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>如何使用對稱金鑰佈建繼承裝置
 
@@ -28,7 +28,7 @@ ms.locfileid: "72434828"
 此文章以 Windows 工作站為基礎來說明。 不過，您可以在 Linux 上執行上述程序。 如需 Linux 範例，請參閱[如何針對多組織用戶管理佈建](how-to-provision-multitenant.md)。
 
 > [!NOTE]
-> 本文中使用的範例是以 C 撰寫。另外還有[ C#裝置布建對稱金鑰範例](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample)可供使用。 若要使用此範例，請下載或複製[azure-iot-範例-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp)存放庫，並遵循範例程式碼中的內嵌指示。 您可以遵循本文中的指示，使用入口網站建立對稱金鑰註冊群組，並尋找執行範例所需的識別碼範圍和註冊群組主要和次要金鑰。 您也可以使用範例來建立個別註冊。
+> The sample used in this article is written in C. There is also a [C# device provisioning symmetric key sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) available. To use this sample, download or clone the [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) repository and follow the in-line instructions in the sample code. You can follow the instructions in this article to create a symmetric key enrollment group using the portal and to find the ID Scope and enrollment group primary and secondary keys needed to run the sample. You can also create individual enrollments using the sample.
 
 ## <a name="overview"></a>概觀
 
@@ -263,7 +263,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
     Press enter key to exit:
     ```
 
-9. 在入口網站中，流覽至您的模擬裝置所指派的 IoT 中樞，然後按一下 [ **Iot 裝置**] 索引標籤。成功布建模擬至中樞後，其裝置識別碼會出現在 [ **IoT 裝置**] 分頁上，*狀態*為 [**已啟用**]。 您可能需要按一下頂端的 [重新整理] 按鈕。 
+9. In the portal, navigate to the IoT hub your simulated device was assigned to and click the **IoT Devices** tab. On successful provisioning of the simulated to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. 您可能需要按一下頂端的 [重新整理] 按鈕。 
 
     ![已向 IoT 中樞註冊裝置](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 
@@ -279,9 +279,9 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要深入瞭解重新布建，請參閱[IoT 中樞裝置重新布建概念](concepts-device-reprovision.md) 
+* To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
 * [快速入門：使用對稱金鑰來佈建模擬的裝置](quick-create-simulated-device-symm-key.md)
-* 若要深入瞭解解除布建，請參閱如何取消布建[先前自動布建的裝置](how-to-unprovision-devices.md) 
+* To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
 
 
 

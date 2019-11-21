@@ -1,21 +1,21 @@
 ---
 author: rothja
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 7f89dc33c105a82646c8f12422f88a06efdca18b
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 2ce75624d2f03943c3d722a1f3a34102e70c698f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67174371"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224366"
 ---
-Azure Data Lake Analytics 讓管理分散式基礎結構和複雜程式碼的複雜工作變得簡單。 它會以動態方式布建資源，而您可以使用它來執行資料的 eb 分析。 當作業完成時，它會自動股資源。 您只需支付所使用的處理能力。 當您所儲存的資料量或所用的計算量有所增減時，也無需重新編寫程式碼。 若要提高訂用帳戶的預設限制，請聯絡支援人員。
+Azure Data Lake Analytics makes the complex task of managing distributed infrastructure and complex code easy. It dynamically provisions resources, and you can use it to do analytics on exabytes of data. When the job completes, it winds down resources automatically. You pay only for the processing power that was used. 當您所儲存的資料量與所用的運算量有所增減時，也無須重新編寫程式碼。 To raise the default limits for your subscription, contact support.
 
 | **Resource** | **預設限制** | **註解** |
 | --- | --- | --- |
 | 並行作業數上限 |20 | |
-| 每個帳戶的分析單位（au）數目上限 |250 | 使用最多結合跨越 20 個作業之 250 個 AU 的任意組合。 若要增加此限制，請聯絡 Microsoft 支援服務。 |
+| Maximum number of analytics units (AUs) per account |250 | 使用最多結合跨越 20 個作業之 250 個 AU 的任意組合。 To increase this limit, contact Microsoft Support. |
 | 用於提交作業的指令碼大小上限 | 3 MB | |
-| 每個訂用帳戶每個區域的 Data Lake Analytics 帳戶數目上限 | 5 | 若要增加此限制，請聯絡 Microsoft 支援服務。 |
+| Maximum number of Data Lake Analytics accounts per region per subscription | 5 | To increase this limit, contact Microsoft Support. |

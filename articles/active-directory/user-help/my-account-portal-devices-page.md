@@ -1,6 +1,6 @@
 ---
-title: 在我的帳戶入口網站上管理已連線的裝置-Azure AD
-description: 如何從我的帳戶入口網站的 [裝置] 頁面，查看和停用已連線的裝置。
+title: Manage your connected devices from the My Account portal - Azure AD
+description: How to view and disable devices connected to your work or school account from the Devices page of the My Account portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c0eb691abaabf09ae8f89354e1fdb6f18cf8e5b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 37994125f7f1a7119a8878c7edec401328fd75ca
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73804264"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233206"
 ---
-# <a name="manage-your-connected-devices-from-the-my-account-portal"></a>從我的帳戶入口網站管理已連線的裝置
+# <a name="manage-devices-connected-to-your-work-or-school-account-from-the-devices-page"></a>Manage devices connected to your work or school account from the Devices page
 
-從 [**我的帳戶**] 入口網站的 [**裝置**] 頁面，您可以：
+From the **Devices** page of the **My Account** portal, you can:
 
-- 查看您的工作或學校帳戶連線的裝置。
+- View your work or school account-connected devices.
 
-- 停用不再擁有、遺失或遭竊的裝置。
+- Disable any devices you no longer own, have lost, or that have been stolen.
 
 ## <a name="view-your-connected-devices"></a>檢視已連線裝置
 
@@ -33,7 +33,7 @@ ms.locfileid: "73804264"
 
 2. 從左側瀏覽窗格選取 [裝置]，或從 [裝置] 區塊選取 [管理裝置] 連結。
 
-    ![[我的帳戶] 頁面，顯示反白顯示的裝置連結](media/my-account-portal/my-account-portal-devices.png)
+    ![My Account page, showing highlighted Devices links](media/my-account-portal/my-account-portal-devices.png)
 
 3. 檢閱您已連線裝置的資訊，確保您能識別所有的資訊。
 
@@ -41,7 +41,7 @@ ms.locfileid: "73804264"
 
 ## <a name="disable-a-device"></a>停用裝置
 
-您可以隨時停用任何已連線裝置。 如果您不熟悉裝置，或裝置遺失或遭竊，這點格外重要。 停用裝置之後，您的組織就無法再進行驗證，也無法存取貴組織的任何資源。
+您可以隨時停用任何已連線裝置。 如果您不熟悉裝置，或裝置遺失或遭竊，這點格外重要。 After you disable a device, it can no longer be authenticated by your organization, and will be unable to access any of your organization's resources.
 
 >[!Important]
 >如果您不小心停用裝置，將無法復原。 您必須連絡您組織的系統管理員以再次新增裝置。
@@ -52,24 +52,24 @@ ms.locfileid: "73804264"
 
 2. 選取 [是] 以確認您想要停用裝置。
 
-## <a name="view-a-bitlocker-key"></a>查看 BitLocker 金鑰
+## <a name="view-a-bitlocker-key"></a>View a BitLocker key
 
-如果您已鎖定您的裝置，或發生嚴重錯誤，您可以移至另一個裝置，並從**我的帳戶**入口網站中查看您的 BitLocker 金鑰。
+If you're locked out of your device or have a fatal error, you can go to another device and view your BitLocker key from the **My Account** portal.
 
-1. 在未鎖定的另一個裝置上，移至 [**我的帳戶**] 入口網站的 [**裝置**] 頁面。
+1. On another device, where you're not locked out, go to the **Devices** page of the **My Account** portal.
 
-    ![具有 BitLocker 金鑰選項的裝置頁面](media/my-account-portal/my-account-portal-devices-bitlocker.png)
+    ![Device page with BitLocker key option](media/my-account-portal/my-account-portal-devices-bitlocker.png)
 
-2. 針對鎖定的裝置選取 [**查看 Bitlocker 金鑰**]，並記下已鎖定裝置的 bitlocker 金鑰。
+2. Select **View Bitlocker Keys** for the locked out device and write down the BitLocker key for your locked device.
 
 ## <a name="next-steps"></a>後續步驟
 
-在觀看已連線的裝置之後，您可以：
+After viewing your connected devices, you can:
 
-- 選取以查看或管理您的[安全性資訊](user-help-security-info-overview.md)。
+- Select to view or manage your [security info](user-help-security-info-overview.md).
 
-- 查看及管理您的[組織](my-account-portal-organizations-page.md)。
+- View and manage your [organizations](my-account-portal-organizations-page.md).
 
-- 查看您的登[入活動](my-account-portal-sign-ins-page.md)。
+- View your [sign-in activity](my-account-portal-sign-ins-page.md).
 
-- 瞭解您的組織如何[使用您的隱私權相關資料](my-account-portal-privacy-page.md)。
+- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).

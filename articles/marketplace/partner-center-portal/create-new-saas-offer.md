@@ -1,50 +1,50 @@
 ---
-title: 在商業 Marketplace 中建立新的 SaaS 供應專案
-description: 如何使用 Microsoft 合作夥伴中心的商業 Marketplace 入口網站，建立新的軟體即服務（SaaS）供應專案，以便在 Azure Marketplace、AppSource 或透過雲端解決方案提供者（CSP）方案中進行列出或銷售。
+title: Create a new SaaS offer in the Commercial Marketplace
+description: How to create a new Software as a Service (SaaS) offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center.
 author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/13/2019
-ms.openlocfilehash: a6694d094d185ad70cce8c546e12f48afb69f1ae
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.date: 11/19/2019
+ms.openlocfilehash: 12372c1f00e994382338adf9bd078018ba702da1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076951"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213350"
 ---
-# <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應專案
+# <a name="create-a-new-saas-offer"></a>Create a new SaaS offer
 
-若要開始建立軟體即服務（SaaS）供應專案，請確定您先[建立合作夥伴中心帳戶](./create-account.md)，並開啟 [[商業 Marketplace] 儀表板](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)，並選取 [**總覽**] 索引標籤。
+To begin creating Software as a Service (SaaS) offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
-![合作夥伴中心的商業 Marketplace 儀表板](./media/new-offer-overview.png)
+![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
 >[!Note]
-> 發行供應專案之後，在 [合作夥伴中心] 中對供應專案所做的編輯，只會在系統中更新，並在重新發佈之後儲存。 進行變更之後，請確定您提交發行集的供應專案。
+> Once an offer has been published, edits to the offer made in Partner Center will only be updated in the system and store fronts after re-publishing. Please ensure that you submit the offer for publication after you make changes.
 
-選取 [+**新增供應**專案]。 按鈕，然後選取 [**軟體即服務**] 功能表項目。 
+Select the + **New offer…** button, then select the **Software as a Service** menu item. 
 
-如果您選取其他供應專案類型，您可能會被重新導向至較舊的[Cloud Partner 入口網站](https://cloudpartner.azure.com/)。 目前只有在合作夥伴中心的商用 Marketplace 入口網站提供 SaaS 和 Dynamics 365 供應專案。
+If you select another offer type, you may be redirected to the older [Cloud Partner Portal](https://cloudpartner.azure.com/). Only SaaS and Dynamics 365 offers are available in the Commercial Marketplace portal on Partner Center at this time.
 
-![在合作夥伴中心建立供應專案視窗](./media/new-offer-click.png)
+![Create offer window on Partner Center](./media/new-offer-click.png)
 
-[**新增供應**專案] 對話方塊隨即顯示。 
+The **New offer** dialog box is displayed. 
 
-![[新增供應專案] 對話方塊](./media/new-offer-popup.png)
+![New offer dialog box](./media/new-offer-popup.png)
 
-## <a name="offer-id-and-alias"></a>供應專案識別碼和別名
+## <a name="offer-id-and-alias"></a>Offer ID and alias
 
-- **供應專案 ID**：您帳戶中每個供應專案的唯一識別碼。 在 marketplace 供應專案的 URL 位址中，客戶會看到此識別碼，而 Azure Resource Manager 範本（如果適用）。 供應專案識別碼必須是小寫、英數位元（包括連字號和底線，但不能有空格）。 這限制為50個字元，且在您選取 [*建立*] 之後無法變更。  
-範例：測試-供應專案-1
-<br>產生 URL： `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
+- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase, alphanumeric (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can't be changed after you select *Create*.  
+Example: test-offer-1
+<br>Resulting in the URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
-- **供應專案別名**：用來在合作夥伴中心入口網站中參考供應專案的名稱。 此名稱不會在 marketplace 中使用，而且與供應專案*名稱*和其他會向客戶顯示的值不同。 在您選取 [*建立*] 之後，就無法變更這個值。
+- **Offer alias**: The name used to refer to the offer within the Partner Center portal. This name won't be used in the marketplace and is different than the *Offer Name* and other values that will be shown to customers. This value can't be changed after you select *Create*.
 
-<br>範例：測試供應專案1&#8482;
+<br>Example: Test Offer 1&#8482;
 
-選取 [建立]。  系統會為此供應專案建立供應專案的 **[總覽**] 頁面。  
+選取 [建立]。  An **Offer overview** page is created for this offer.  
 
 <!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
@@ -52,167 +52,167 @@ ms.locfileid: "74076951"
 
 ## <a name="offer-overview"></a>供應項目概觀
 
-[**供應專案總覽**] 頁面包含： 
+The **Offer overview** page includes: 
 
-- **發行狀態**會顯示發佈此供應專案所需步驟的視覺標記法，以及完成每個步驟所需的時間。 不完整的發行步驟圖示將會呈現灰色。 
+- The **Publishing status** displays a visual representation of the steps required to publish this offer and how long each step will take to complete. Incomplete publishing step icons will be greyed out. 
 
-- [**供應專案總覽**] 功能表包含在此供應專案上執行作業的連結清單。 這份動作清單會根據您對供應專案所做的選擇而變更。  
-    - 如果供應專案為草稿-刪除草稿 
-    - 如果供應專案為 live Stop 銷售供應專案 
-    - 如果供應專案處於預覽狀態-上線 
-    - 如果您尚未完成發行者登出-取消發佈
+- The **Offer overview** menu contains a list of links for performing operations on this offer. This list of operations will change based on the selection you make for your offer.  
+    - If the offer is a draft - Delete draft 
+    - If the offer is live - Stop sell offer 
+    - If the offer is in preview - Go-live 
+    - If you haven't completed publisher sign out - Cancel publish
 
-## <a name="offer-setup"></a>供應專案設定
+## <a name="offer-setup"></a>Offer setup
 
-[**供應專案設定**] 索引標籤會要求您提供下列資訊。 完成這些欄位之後，請選取 [**儲存**]。
+The **Offer setup** tab asks for the following information. Select **Save** after completing these fields.
 
-- **您想要透過 Microsoft 銷售嗎？** （是/否）
-    - **是**，您想要透過 microsoft 銷售您的供應專案，microsoft 會代表您託管 marketplace 交易;或 
-    - **不**可以，您只想要透過 marketplace 來列出您的供應專案，並獨立處理任何與 Microsoft 無關的貨幣交易。    
+- **Would you like to sell through Microsoft?** (Yes/No)
+    - **Yes**, you would like to sell your offer through Microsoft, with Microsoft hosting marketplace transactions on your behalf; or 
+    - **No**, you would prefer to just list your offer through the marketplaces, processing any monetary transactions independently of Microsoft.    
 
 ### <a name="sell-through-microsoft"></a>透過 Microsoft 銷售
 
-透過 Microsoft 銷售可提供更好的客戶探索和收購，讓 Microsoft 代表您裝載 marketplace 交易，並利用 Microsoft 全球可用的商務功能。
+Selling through Microsoft provides better customer discovery and acquisition, allows Microsoft to host marketplace transactions on your behalf, and takes advantage of Microsoft's globally available commerce capabilities.
 
-#### <a name="saas-offer-requirements"></a>SaaS 供應專案需求
+#### <a name="saas-offer-requirements"></a>SaaS offer requirements
 
-若要在合作夥伴中心上以商業 Marketplace 列出軟體即服務（SaaS）供應專案，必須符合下列準則：
+In order to list Software as a Service (SaaS) offers with Commercial Marketplace on Partner Center, the following criteria must be met:
 
-- 您的供應專案必須使用[Azure Active Directory （Azure AD）](https://azure.microsoft.com/services/active-directory/)來進行身分識別管理和驗證。
-- 您的供應專案必須使用[SaaS 履行 api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2)來與 Azure Marketplace 整合。
-- 如需更廣泛的需求，請參閱[SaaS 供應專案發佈指南](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)。
+- Your offer must use [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) for identity management and authentication.
+- Your offer must use [SaaS Fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to integrate with the Azure Marketplace.
+- For more extensive requirements, see the [SaaS Offer Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
-#### <a name="saas-pricing-and-billing-options"></a>SaaS 定價和計費選項
-透過在發行者的 Azure 訂用帳戶中執行的 SaaS 解決方案，客戶所支付的授權費用，包括部署軟體的基礎結構成本。 Azure 基礎結構的使用方式是由合作夥伴直接管理和計費。 客戶不會看到實際的基礎結構使用量費用。 發行者應將 Azure 基礎結構使用費用組合成其軟體授權價格。 
+#### <a name="saas-pricing-and-billing-options"></a>SaaS pricing and billing options
+With SaaS solutions running in the publisher's Azure subscription, license fees paid by customers include the cost of the infrastructure upon which the software is deployed. Azure infrastructure usage is managed and billed to you, the partner, directly. 客戶不會看到實際的基礎結構使用量費用。 Publishers should bundle Azure infrastructure usage fees into their software license pricing. 
 
-SaaS 提供了以一般費用、每位使用者或使用計量付費服務的消費費用為依據的每月或年度計費支援。 Microsoft 的商用 marketplace 會在代理程式模型上運作，讓發行者設定價格、Microsoft 帳單客戶和 Microsoft 向發行者收取收益，同時也會將機構費用預繳。
+SaaS offers support monthly or annual billing based on a flat fee, per user, or consumption charges using the metered billing service. Microsoft's commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to the publisher while withholding an agency fee.
 
-下表顯示成本和支出的範例細分，以示範代理程式模型。
+The following table shows an example break down of costs and payouts to demonstrate the agency model.
 
-|**您的授權成本**|**每月 $100**|
+|**Your license cost**|**$100 per month**|
 |:---|:---|
 |Azure 使用量成本 (D1/1 核心)|直接向發行者收費，不是向客戶收費|
-|客戶是由 Microsoft 計費|每月 $100.00 （發行者必須考慮授權費用中任何產生或通過的基礎結構成本）|
+|Customer is billed by Microsoft|$100.00 per month (Publisher must account for any incurred or pass-through infrastructure costs in the license fee)|
 
-|**Microsoft 收取的費用**|**每月 $100**|
+|**Microsoft 收取的費用**|**$100 per month**|
 |:---|:---|
-|Microsoft 向您支付授權成本的 80% <br>*適用于合格 SaaS 應用程式的 *，Microsoft 支付您的授權成本 90%*|每月 $80.00 <br>每月 *$* 90.00 *|
+|Microsoft 向您支付授權成本的 80% <br>**For qualified SaaS apps, Microsoft pays 90% of your license cost*|每月 $80.00 <br>*$* 90.00 per month*|
 
-- 在此範例中，Microsoft 會向客戶收取軟體授權的 $100.00 費用，並向發行者收取 $80.00。
-- 已符合**Marketplace 服務費用**的合作夥伴，將會在2019年 6 2020 月30日前的 SaaS 供應專案上看到較少的交易費用。 在此案例中，Microsoft 會為您的軟體授權帳單 $100.00，並向發行者收取 $90.00。
-
-> [!NOTE]
-> **減少 Marketplace 服務費用**：針對您在我們的商業 Marketplace 上發佈的特定 SaaS 供應專案，microsoft 會將其 Marketplace 服務費用從20% （如 Microsoft 發行者合約中所述）降至10%。 為了讓您的供應專案符合資格，至少必須將您的其中一個供應專案指定為 IP 共同銷售就緒或 IP 共同銷售優先。  至少必須符合每個行事曆月份結束前五（5）個工作天的資格，才能收到該月份的縮減 Marketplace 服務費用。  降低的 Marketplace 服務費用不適用於 Vm、受管理的應用程式，或透過我們的商業 Marketplace 提供的任何其他產品。  優惠的 Marketplace 服務費用僅適用于 Microsoft 在2019年5月1日到2020日之間所收集之授權費用的合格供應專案。  在這段時間之後，Marketplace 服務費用會回到其一般金額。 
-
-### <a name="list-through-microsoft"></a>透過 Microsoft 列出
-
-藉由建立 marketplace 清單，向 Microsoft 推廣您的業務。 選擇只列出您的供應專案，而不是透過 Microsoft，表示 Microsoft 不會直接參與軟體授權交易。 沒有相關聯的交易費用，發行者會保留從客戶收集之任何軟體授權費用的100%。 不過，發行者負責支援軟體授權交易的所有層面，包括但不限於：訂單履行、計量、帳單、發票、付款和集合。 
-
-- **您要如何讓潛在客戶與此清單供應專案互動？**
-
-##### <a name="get-it-now-free"></a>立即取得（免費）
-提供可存取您應用程式的有效 URL （從*HTTP*或*HTTPs*開始），免費向客戶列出您的供應專案。  例如：`https://contoso.com/saas-app`
-
-##### <a name="free-trial-listing"></a>免費試用（清單）
-藉由提供有效的 URL （從*HTTP*或*HTTPs*開始），向客戶列出您的供應專案，其可透過[使用 Azure Active Directory （Azure AD）](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)以單鍵驗證的方式來取得試用版。  例如： `https://contoso.com/trial/saas-app`。 供應專案列出免費試用版是由您的服務所建立、管理及設定，而且沒有由 Microsoft 管理的訂用帳戶。
+- In this example, Microsoft bills $100.00 to the customer for your software license and pays out $80.00 to the publisher.
+- Partners who have qualified for the **Reduced Marketplace Service Fee** will see a reduced transaction fee on the SaaS offers from May 2019 until June 2020. In this scenario, Microsoft bills $100.00 for your software license and pays out $90.00 to the publisher.
 
 > [!NOTE]
-> 您的應用程式將透過試用連結接收的權杖，只能用來透過 Azure AD 取得使用者資訊，以在您的應用程式中自動建立帳戶。 Microsoft 帳戶（MSA）不支援使用此權杖進行驗證。
+> **Reduced Marketplace Service Fee**: For certain SaaS offers that you have published on our Commercial Marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. In order for your offer to qualify, at least one of your offers must have been designated by Microsoft as being either IP co-sell ready or IP co-sell prioritized.  Eligibility must be met at least five (5) business days before the end of each calendar month in order to receive this reduced Marketplace Service Fee for the month.  The Reduced Marketplace Service Fee does not apply to VMs, Managed Apps or any other products made available through our Commercial Marketplace.  The Reduced Marketplace Service Fee will only be available to qualified offers for license charges collected by Microsoft between May 1, 2019 and June 30, 2020.  After this time, the Marketplace Service Fee will return to its normal amount. 
+
+### <a name="list-through-microsoft"></a>List through Microsoft
+
+Promote your business with Microsoft by creating a marketplace listing. Selecting to list your offer only and not transact through Microsoft means that Microsoft doesn't participate directly in software license transactions. There is no associated transaction fee and the publisher keeps 100% of any software licensing fees collected from the customer. However, the publisher is responsible for supporting all aspects of the software license transaction, including but not limited to: order fulfillment, metering, billing, invoicing, payment, and collection. 
+
+- **How do you want potential customers to interact with this listing offer?**
+
+##### <a name="get-it-now-free"></a>Get it now (free)
+List your offer to customers for free by providing a valid URL (beginning with *http* or *https*) where they can access your app.  例如：`https://contoso.com/saas-app`
+
+##### <a name="free-trial-listing"></a>Free trial (listing)
+List your offer to customers with a link to a free trial by providing a valid URL (beginning with *http* or *https*), where they can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  例如： `https://contoso.com/trial/saas-app` 。 Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+
+> [!NOTE]
+> The tokens your application will receive through your trial link can only be used to obtain user information through Azure AD to automate account creation in your app. Microsoft Accounts (MSA) are not supported for authentication using this token.
 
 ##### <a name="contact-me"></a>與我連絡
-藉由連接客戶關係管理（CRM）系統來收集客戶連絡人資訊。 系統會要求客戶提供共用其資訊的許可權。 這些客戶詳細資料以及他們找到您供應專案的供應專案名稱、識別碼和 marketplace 來源，都會傳送至您所設定的 CRM 系統。 如需設定 CRM 的詳細資訊，請參閱[連接潛在客戶管理](#connect-lead-management)。 
+Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
 
-## <a name="example-marketplace-offer-listing"></a>範例 marketplace 供應專案清單
+## <a name="example-marketplace-offer-listing"></a>Example marketplace offer listing
 
-![範例 marketplace 供應專案清單與附注](./media/marketplace-offer.svg)
+![Example marketplace offer listing with notes](./media/marketplace-offer.svg)
 
 ## <a name="enable-a-test-drive"></a>啟用試用產品
 
-試用產品是向潛在客戶展示您的供應專案的絕佳方式，方法是讓他們選擇「在購買前試用」，進而提升轉換並產生高度合格的潛在客戶。 [深入瞭解試用產品。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+A test drive is a great way to showcase your offer to potential customers by giving them the option to 'try before you buy', resulting in increased conversion and the generation of highly qualified leads. [Learn more about test drives.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-- **啟用試用**產品（核取方塊）
+- **Enable a test drive** (checkbox)
 
-藉由啟用試用產品，系統會要求您設定示範環境，讓客戶可以在一段固定時間內試用您的供應專案。 
+By enabling test drive, you will be asked to configure a demonstration environment for customers to try your offer for a fixed period of time. 
 
-### <a name="type-of-test-drive"></a>試用產品的類型
+### <a name="type-of-test-drive"></a>Type of test drive
 
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** ：部署範本，其中包含構成解決方案的所有 Azure 資源。 符合此案例的產品只會使用 Azure 資源。
-- **[Dynamics 365 For Business central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** ： Microsoft 主控並維護 business central 企業資源規劃系統（財務、營運、供應鏈、CRM 等）的試用產品服務（包括布建和部署）。  
-- **[Dynamics 365 For Customer engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** ： Microsoft 會託管並維護客戶參與系統（銷售、服務、專案服務、現場服務等）的試用產品服務（包括布建和部署）。  
-- **[適用于作業的 Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** ： Microsoft 會主控並維護財務和營運企業資源規劃系統（財務、營運、製造、供應鏈等）的試用產品服務（包括布建和部署）。 
-- **[邏輯應用程式](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** ：包含所有複雜解決方案架構的部署範本。 任何自訂產品都應該使用這種類型的試用產品。
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** ：自訂建立儀表板的內嵌連結。 想要示範互動式 Power BI 視覺效果的產品應該使用這種類型的試用產品。 您只需要上傳內嵌的 Power BI URL。
+- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : A deployment template that contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources.
+- **[Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft hosts and maintains the test drive service (including provisioning and deployment) for a Business Central enterprise resource planning system (finance, operations, supply chain, CRM, etc.).  
+- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft hosts and maintains the test drive service (including provisioning and deployment) for a Customer Engagement system (sales, service, project service, field service, etc.).  
+- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft hosts and maintains the test drive service (including provisioning and deployment) for a Finance and Operations enterprise resource planning system (finance, operations, manufacturing, supply chain, etc.). 
+- **[Logic app](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : A deployment template encompassing all complex solution architectures. Any custom products should use this type of Test Drive.
+- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : An embedded link to a custom-built dashboard. Products that want to demonstrate an interactive Power BI visual should use this type of Test Drive. 您只需要上傳內嵌的 Power BI URL。
 
-#### <a name="additional-test-drive-resources"></a>其他試用產品資源
-- [試用技術最佳做法](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [試用產品行銷最佳做法](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [試用產品總覽一頁](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
+#### <a name="additional-test-drive-resources"></a>Additional test drive resources
+- [Test Drive Technical Best Practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Test Drive Marketing Best Practices](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [Test Drive Overview One Pager](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
 
-## <a name="connect-lead-management"></a>連接潛在客戶管理
+## <a name="connect-lead-management"></a>Connect lead management
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
-#### <a name="additional-lead-management-resources"></a>其他潛在客戶管理資源
-- [潛在客戶管理常見問題](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [常見的潛在客戶設定錯誤](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [潛在客戶管理總覽一頁](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+#### <a name="additional-lead-management-resources"></a>Additional lead management resources
+- [潛在客戶管理常見問題集](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
+- [常見潛在客戶設定錯誤](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Lead Management Overview One Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
-繼續進行下一節之前，請記得先**儲存**！
+Remember to **Save** before moving on to the next section!
 
-## <a name="properties"></a>properties
-[**屬性**] 索引標籤會要求您定義用來將您的供應專案分組在 marketplace 上的類別和產業、支援您供應專案的法律合約，以及您的應用程式版本。 
+## <a name="properties"></a>屬性
+The **Properties** tab asks you to define the categories and industries used to group your offer on the marketplaces, the legal contracts supporting your offer, and your app version. 
 
-完成這些欄位之後，請選取 [**儲存**]。 
+Select **Save** after completing these fields. 
 
 ### <a name="category"></a>類別
-選取最少一個（1）和最多三個（3）分類，用來將您的供應專案分組至適當的 marketplace 搜尋區域。 請在供應專案描述中，打電話給您的供應專案如何支援這些類別。 
+Select a minimum of one (1) and a maximum of three (3) categories used for grouping your offer into the appropriate marketplace search areas. Please call out how your offer supports these categories in the offer description. 
 
-### <a name="industry"></a>業界
+### <a name="industry"></a>產業
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>應用程式版本
-這是在 AppSource marketplace 中用來識別供應專案版本號碼的選擇性欄位。 
+This is an optional field used in the AppSource marketplace to identify the version number of your offer. 
 
 ### <a name="standard-contract"></a>標準合約
 
-- **使用標準合約嗎？**
+- **Use Standard Contract?**
 
-為了簡化客戶的採購程式，並降低軟體廠商的法律複雜度，Microsoft 提供了標準合約範本，以協助在 marketplace 中進行交易。 
+To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract template in order to help facilitate a transaction in the marketplace. 
 
-Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而不是製作自訂的條款及條件，而是客戶只需要審查並接受一次。 
+Rather than crafting custom terms and conditions, Azure Marketplace publishers can choose to offer their software under the Standard Contract, which customers only need to vet and accept once. 
 
-您可以在這裡找到標準合約： https://go.microsoft.com/fwlink/?linkid=2041178。
+The Standard Contract can be found here: https://go.microsoft.com/fwlink/?linkid=2041178.
 
 #### <a name="terms-of-use"></a>使用規定
 
-如果您的授權條款與標準合約不同，您可以選擇在此輸入您自己的法律使用規定。 這些可以輸入為純文字，或以單一 URL 連結至您的授權條款。
+If your license terms are different from the Standard Contract, you can elect to enter your own legal terms of use here. These can be entered as plain text or as a single URL linking to your license terms.
 
 客戶必須先接受這些條款，才能試用您的應用程式。 
 
-繼續進行下一節之前，請記得先**儲存**！
+Remember to **Save** before moving on to the next section!
 
-## <a name="offer-listing"></a>供應專案清單
+## <a name="offer-listing"></a>Offer listing
 
-[供應專案清單] 索引標籤會顯示您的供應專案可供使用的語言（和市場），目前的英文（美國）是唯一可用的位置。 此外，此頁面會顯示特定語言清單的狀態，以及它所加入的日期/時間。 您將需要針對每個語言/市場定義 marketplace 詳細資料（供應專案名稱、描述、搜尋詞彙等）。
+The Offer listing tab displays the languages (and markets) where your offer is available, currently English (United States) is the only location available. Additionally, this page displays the status of the language-specific listing and the date/time that it was added. You will need to define the marketplace details (offer name, description, search terms, etc.) for each language / market.
 
 > [!NOTE]
-> 提供清單內容（例如供應專案描述、檔、螢幕擷取畫面、使用規定和隱私權原則）不一定要使用英文，前提是該供應專案的開頭必須是片語「此應用程式僅適用于 [非英文語言]。」 您也可以提供*有用的連結 URL*來提供內容，而不是供應專案清單內容所使用的語言。
+> Offer listing content (such as offer description, documents, screenshots, terms of use and privacy policy) is not required to be in English as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
 
 ### <a name="offer-listings"></a>供應項目清單
 
-提供要顯示在 marketplace 中的詳細資料，包括供應專案和行銷資產的說明。
+Provide details to be displayed in the marketplace, including descriptions of your offer and marketing assets.
 
-- **名稱**（必要）：此處定義的名稱會顯示為您所選 marketplace 上您供應專案清單的標題。 系統會根據您先前的**新供應**專案，預先填入名稱。  這可能是商標的。  這不能包含 emoji （除非它們是商標和著作權符號），而且必須限制為50個字元。
-- **摘要**（必要）：提供您供應專案的簡短描述，以用於 marketplace 清單搜尋結果。 最多可以在此欄位中輸入100個字元的文字。
-- **描述**（必要）：提供您供應專案的描述，以顯示在 marketplace 清單總覽中。 請考慮包含價值主張、主要優點、任何類別或產業關聯、應用程式內購買機會、任何必要的公開，以及深入瞭解的連結。
-最多可以在此欄位中輸入3000個字元的文字。 如需其他秘訣，請參閱[撰寫絕佳的應用程式描述](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description)一文。
-- **搜尋關鍵字**：輸入最多三個搜尋關鍵字，客戶可以用來在 marketplace 中尋找您的供應專案。
-- **快速入門指示**（必要）：說明如何設定及開始使用您的應用程式來取得潛在客戶。  本快速入門可以包含更詳細的線上檔連結。 最多可以在此欄位中輸入3000個字元的文字。 
+- **Name** (required): The name defined here will appear as the title of your offer listing on the marketplace(s) you have chosen. The name is prepopulated based on your previous **New offer** entry.  This may be trademarked.  This must not contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
+- **Summary** (required): Provide a short description of your offer to be used in marketplace listing(s) search results. Up to 100 characters of text can be entered in this field.
+- **Description** (required): Provide a description of your offer to be displayed in the marketplace listing(s) overview. Consider including a value proposition, key benefits, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more.
+Up to 3,000 characters of text can be entered in this field. For additional tips, see the article [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
+- **Search keywords**: Enter up to three search keywords that customers can use to find your offer in the marketplace(s).
+- **Getting started instructions** (required): Explain how to configure and start using your app for potential customers.  This quickstart can contain links to more detailed online documentation. Up to 3,000 characters of text can be entered in this field. 
 
-#### <a name="description"></a>**描述**
+#### <a name="description"></a>**說明**
 
-這是必要欄位。 要包含在描述中的專案： 
+This is a required field. Items to include in the description: 
 
 * 在您的描述中的前幾個句子清楚描述您供應項目的價值主張。  
 * 請記住，前幾個句子可能會顯示在搜尋引擎結果中。  
@@ -223,23 +223,23 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 
 * 產品的描述。 
 * 可從產品獲益的使用者類型。 
-* 客戶需要或痛苦的產品位址。 
+* Customer needs or pain that the product addresses. 
 
-若要讓您的供應專案描述更吸引人，您可以使用 HTML 標籤來設定描述的格式。 
+To make your offer description more engaging you can use HTML tags to format the description. 
 
-1. 如果您想要建立段落，請將 `<p>` 新增至文字的乞求，並在結尾加入 `</p>`。
+1. If you want to create paragraphs, add `<p>` at the begging of the text and add `</p>` at the end.
 
     **範例**： 
 
-    `<p>` 這是我的第一個段落。 `</p>` <br>
-    `<p>` 這是我的第二段。 `</p>` <br>
+    `<p>` This is my first paragraph. `</p>` <br>
+    `<p>` This is my second paragraph. `</p>` <br>
 
-    上述內容看起來像這樣：
+    The above would look like this:
 
-    <p> 這是我的第一個段落。 </p>
-    <p> 這是我的第二段。 </p>
+    <p> This is my first paragraph. </p>
+    <p> This is my second paragraph. </p>
 
-1. 如果您想要新增專案的點**符清單**，請將您的文字放在下方的 `<li>` 標籤中。 您可以在 `<ul>` 和 `</ul>` 標記中，複製並貼上更多點符專案（`<li>` 與 `</li>` 標記之間的專案）。 請確定您已新增 `<ul></ul>`。 
+1. If you want to add a **bulleted list of items**, place your text within the `<li>` tags below. You can copy and paste more bulleted items (items between the `<li>` and `</li>` tags) within the `<ul>` and `</ul>` tags. Make sure you add the `<ul></ul>`. 
 
     **範例**：
 
@@ -251,236 +251,236 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
     </ul> 
     ```
 
-    上述內容看起來像這樣：
+    The above would look like this:
     <ul> 
-        <li>在此加入文字</li> 
-        <li> 在此加入文字 </li> 
-        <li> 在此加入文字 </li> 
+        <li>add text here</li> 
+        <li> add text here </li> 
+        <li> add text here </li> 
     </ul> 
 
-1. 若要以**粗體顯示**內容，請在您想要以粗體顯示的文字開頭新增 `<b>`，並在您想要以粗體顯示的文字結尾處新增 `</b>`。 
+1. To **bold** content, add `<b>` at the beginning of the text you want to bold and add `</b>` at the end of the text you want to bold. 
 
-    **範例**： `<b>` 免費試用 `</b>`
+    **Example**: `<b>` FREE TRIAL `</b>`
     
-    上述專案會導致店面中的供應專案描述中的「免費試用」字樣為粗體。 
+    The above would cause the words FREE TRIAL to be bolded in the description of the offer in the storefront. 
 
-    **免費試用**
+    **FREE TRIAL**
 
-1. 若要在您的內容之間新增**分行符號**，請在您想要在新行上啟動的內容之前新增 `<br>`。 如果您想要保留一個空格，並確定內容是從新的一行開始，請在內容之前新增 `<br><br>`。 
-
-    **範例**：
-
-    這是文字行。 `<br>` 這是將在新行中啟動的文字行。 `<br><br>` 這行程式碼會在下面兩行開始。 
-
-    上述內容看起來像這樣：
-
-    這是文字行。 <br> 這是將在新行中啟動的文字行。 <br><br> 這是將在下面兩行開頭的一行。 
-
-1. 如果您想要**增加文字的大小**，請先選擇文字要多大。 使用下列範例。 選取文字大小之後，請將對應的 `<H*></H*>` 標記加入至文字的開頭和結尾。 
+1. To add **line breaks** between your content, add `<br>` before the content that you want to start on a new line. If you want to leave a space and make sure content starts on a new line, add `<br><br>` before the content. 
 
     **範例**：
 
-    `<h1>`這是標題 1`</h1>` <br>
-    `<h2>`這是標題 2`</h2>` <br>
-    `<h3>`這是標題 3`</h3>` <br>
-    `<h4>`這是標題 4`</h4>` <br>
-    `<h5>`這是標題 5`</h5>` <br>
-    `<h6>`這是標題 6`</h6>` 
+    This is a text line. `<br>` This is a text line that will start in a new line. `<br><br>` This is a line that will start two lines below. 
 
-    上述內容看起來像這樣：
+    The above would look like this:
 
-    ![範例標題](./media/heading.png)
+    This is a text line. <br> This is a text line that will start in a new line. <br><br> This is a line that will start two lines below. 
+
+1. If you want to **increase the size of the text**, first choose how big you want the text to be. Use the below examples. After you have selected the size of the text, add the corresponding `<H*></H*>` tags to the beginning and ending of the text. 
+
+    **範例**：
+
+    `<h1>`This is heading 1`</h1>` <br>
+    `<h2>`This is heading 2`</h2>` <br>
+    `<h3>`This is heading 3`</h3>` <br>
+    `<h4>`This is heading 4`</h4>` <br>
+    `<h5>`This is heading 5`</h5>` <br>
+    `<h6>`This is heading 6`</h6>` 
+
+    The above would look like this:
+
+    ![Sample headings](./media/heading.png)
 
 #### <a name="links"></a>連結
 
-- **隱私權原則**（必要）：連結至貴組織的隱私權原則。 貴使用者必須負責確保您的應用程式符合隱私權法律和法規，以及提供有效的隱私權原則
-- **CSP 計畫行銷**資料（選擇性）：如果您選擇將您的供應專案延伸至[雲端解決方案提供者（CSP）](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)方案，您必須提供行銷資料的連結。 CSP 藉由讓 CSP 合作夥伴組合、行銷及轉售您的供應專案，來將您的供應專案延伸至更廣泛的合格客戶。 這些轉銷商將需要存取行銷您供應專案的素材。 如需詳細資訊，請參閱[進入市場服務](https://partner.microsoft.com/reach-customers/gtm)。
-- **有用的連結**（選用）：提供**標題**和**URL**來列出您的應用程式或相關服務的選擇性補充線上檔。 按一下 [ **+ 新增 URL**] 來新增其他有用的連結。
+- **Privacy Policy** (required): Link to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy
+- **CSP Program Marketing Materials** (optional): You must provide a link to marketing materials if you choose to extend your offer to the [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) program. CSP extends your offer to a broader range of qualified customers by enabling CSP partners to bundle, market, and resell your offer. These resellers will need access to materials for marketing your offer. For more information, see [Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
+- **Useful Links** (optional): Optional supplemental online documents about your app or related services listed by providing a **Title**  and  **URL**. Add additional useful links by clicking  **+ Add a URL**.
 
 #### <a name="contact-information"></a>連絡人資訊
 
-- **連絡人**：針對每個客戶連絡人，提供員工**姓名**、**電話號碼**和**電子郵件**位址。  （這些*不會*公開顯示）。 **支援連絡人**群組也需要**支援 URL** 。  （此資訊*將*會公開顯示）。
+- **Contacts**: For each customer contact, provide an employee  **Name** ,  **Phone number**, and  **Email**  address.  (These *will not* be displayed publicly). A **Support URL**  is also required for the  **Support Contact**  group.  (This information *will* be displayed publicly).
 
-**支援連絡人**（必要）：針對一般支援問題。
+**Support contact** (required): For general support questions.
 
-**工程連絡人**（必要）：針對技術問題。
+**Engineering contact** (required): For technical questions.
 
-**通道管理員連絡人**（必要）：適用于與 CSP 計畫相關的轉售商問題。
+**Channel Manager contact** (required): For reseller questions related to the CSP program.
 
-#### <a name="files-and-images"></a>檔案和影像
+#### <a name="files-and-images"></a>Files and Images
 
-- **檔**（必要）：為您的供應專案新增相關的行銷檔（PDF 格式），每個供應專案最少可提供一（1）個或最多三（3）份檔。
-- **影像**（選用）：您供應專案標誌影像可能會出現在整個 marketplace 中的多個位置，需要下列大小--小型： 48 x 48 圖元 _（必要）、_ 中型： 90 x 90 圖元、大型： 216 x 216 圖元 _（必要）、_ 寬： 255 x 115 圖元和主圖： 815 x 290 圖元。 所有映射都必須在中。PNG 格式。
-- **螢幕擷取畫面**（必要）：新增示範您供應專案的螢幕擷取畫面。 最多可新增五個（5）個螢幕擷取畫面，且應以 1280 x 720 圖元大小。 所有映射都必須在中。PNG 格式。
-- 影片 **（選用**）：新增示範您供應專案的影片連結。 您可以使用 YouTube 和/或 Vimeo 影片的連結，這會隨著您的供應項目顯示給客戶。 您也需要輸入影片的縮圖影像，並將其大小調整為 1280 x 720 圖元（PNG 格式）。 每個供應專案最多可以顯示四個影片。
+- **Documents** (required): Add related marketing documents for your offer, in PDF format, providing a minimum of one (1) and maximum of three (3) documents per offer.
+- **Images** (optional): There are multiple places where your offer's logo images may appear throughout the marketplace(s), requiring the following sizes -- Small: 48 x 48 pixels _(required),_ Medium: 90 x 90 pixels, Large: 216 x 216 pixels _(required),_ Wide: 255 x 115 pixels, and Hero: 815 x 290 pixels. All images must be in .PNG format.
+- **Screenshots** (required): Add screenshots demonstrating your offer. A maximum of five (5) screenshots may be added and should be sized at 1280 x 720 pixels. All images must be in .PNG format.
+- **Videos** (optional): Add links to videos demonstrating your offer. 您可以使用 YouTube 和/或 Vimeo 影片的連結，這會隨著您的供應項目顯示給客戶。 You will also need to enter a thumbnail image of the video, sized to 1280 x 720 pixels in PNG format. You can display a maximum of four videos per offer.
 
-繼續進行下一節之前，請記得先**儲存**！
+Remember to **Save** before moving on to the next section!
 
-#### <a name="additional-marketplace-listing-resources"></a>其他 marketplace 清單資源
+#### <a name="additional-marketplace-listing-resources"></a>Additional marketplace listing resources
 
-- [Marketplace 供應專案清單的最佳做法](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Best practices for marketplace offer listings](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 ## <a name="preview"></a>預覽
 
-[**預覽**] 索引標籤可讓您定義有限的**預覽物件**，以便在將您的供應專案即時發佈到更廣泛的 marketplace 物件之前發行供應專案。
+The **Preview** tab enables you to define a limited **Preview Audience** for releasing your offer prior to publishing your offer live to the broader marketplace audience.
 
 > [!IMPORTANT]
-> 您必須先**選取 [上線]** ，供應專案才會在預覽中核取您的供應專案之後，即時發佈給 marketplace 公用物件。
+> You must select **Go live** before your offer will be published live to the marketplace public audience after checking your offer in Preview.
 
-- **定義預覽物件：每行新增一個 AAD/MSA 帳戶電子郵件，以及選擇性的描述。**
+- **Define a Preview Audience: Add a single AAD/MSA account email per line, along with an optional description.**
 
-手動新增最多十（10）個電子郵件地址，或在上傳 CSV 檔案時，針對現有的 Microsoft 帳戶（MSA）或 Azure Active Directory 帳戶進行二十（20），以協助驗證您的供應專案，然後再即時發佈。 藉由新增這些帳戶，您就可以在將供應專案發佈至 marketplace 之前，定義允許預覽存取權的物件。 如果您的供應專案已上線，您仍然可以定義預覽物件，以測試您的供應專案是否有任何變更或更新。
+Add up to ten (10) email addresses manually, or twenty (20) if uploading a CSV file, for existing Microsoft Account (MSA) or Azure Active Directory accounts to help with validating your offer before publishing live. By adding these accounts, you are defining an audience that will be allowed preview access to your offer before it is published to the marketplace(s). If your offer is already live, you may still define a preview audience for testing any changes or updates to your offer.
 
 > [!NOTE]
-> 預覽物件與私用物件不同。 預覽物件可以在 marketplace 中即時發佈_之前，先_允許其存取您的供應專案。 您也可以選擇建立方案，使其僅供私用物件使用。 在 [**方案清單**] 索引標籤中，您可以使用 [**這是私用方案**] 核取方塊來定義私用物件。 然後，您可以使用 Azure 租使用者識別碼，為多達20000的客戶定義私用物件。
+> The preview audience differs from a private audience. A preview audience is allowed access to your offer _prior_ to being published live in the marketplaces. You may also choose to create a plan and make it available only to a private audience. In the **plan listing** tab, you can define a private audience with the **This is a private plan** checkbox. You can then define a private audience of up to 20,000 customers using Azure Tenant IDs.
 
-## <a name="technical-configuration"></a>技術設定
+## <a name="technical-configuration"></a>Technical configuration
 
-[**技術**設定] 索引標籤會定義用來連接到您的供應專案的技術詳細資料（URL 路徑、webhook、租使用者識別碼和應用程式識別碼）。 此連線可讓我們為終端客戶布建您的供應專案（如果他們選擇取得）。 在[SaaS 履行 api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2)的檔中可取得說明所收集欄位使用方式的圖表。
+The **Technical configuration** tab defines the technical details (URL path, webhook, tenant ID, and app ID) used to connect to your offer. This connection enables us to provision your offer for the end customer if they choose to acquire it. Diagrams describing the usage of the collected fields are available in documentation for [SaaS fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
-- **登陸頁面 URL** （必要）：定義從 marketplace 取得您的供應專案之後，客戶將居住的網站 URL。 此 URL 會是當客戶路由傳送至頁面時，接收權杖的端點。 您可以在履行 Api 中使用 resolve，交換該權杖以提供布建詳細資料。 您所收集的這些詳細資料和任何其他專案，都可以用來作為您的經驗，以完成註冊並啟用其購買的客戶互動網頁的一部分。
+- **Landing page URL** (required): Define the site URL that customers will land on after acquiring your offer from the marketplace. This URL will be the endpoint that receives a token when a customer is routed to the page. That token can be exchanged for provisioning details using resolve in the fulfillment APIs. Those details and any others you collect can be used as part of a customer-interactive web page built in your experience to complete registration and activate their purchase.
 
-- **連接 webhook** （必要）：針對 Microsoft 需要代表客戶傳送給您的所有非同步事件（例如： SaaS 訂用帳戶已失效），我們會要求您提供連線 webhook。 如果您還沒有 webhook 系統，最簡單的設定就是讓 HTTP 端點邏輯應用程式接聽張貼的任何事件，然後適當地處理（例如 HTTPs：\//prod-1westus.logic.azure.com:443/work）。 如需詳細資訊，請參閱[在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)。
+- **Connection webhook** (required): For all asynchronous events that Microsoft needs to send to you on behalf of the customer (example: SaaS Subscription has gone invalid), we require you to provide a connection webhook. If you don't already have a webhook system in place, the simplest configuration is to have an HTTP Endpoint Logic App that will listen for any events being posted to it and then handle them appropriately (e.g. https:\//prod-1westus.logic.azure.com:443/work). 如需詳細資訊，請參閱[在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)。
 
-- **Azure AD 租使用者識別碼**（必要）：在 Azure 入口網站內，我們會要求您[建立 Azure Active Directory （AD）應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)，以便驗證這兩個服務之間的連線是在驗證通訊之後。 若要尋找[租使用者識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)，請移至您的 Azure Active Directory 並選取 [**屬性**]，然後尋找列出的**目錄識別碼**（例如50c464d3-4930-494c-963c-1e951d15360e）。
+- **Azure AD tenant ID** (required): Inside Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD 應用程式識別碼**（必要）：您也需要[應用程式識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)和驗證金鑰。 若要取得這些值，請移至您的 Azure Active Directory 並選取 [**應用程式註冊**]，然後尋找所列的**應用程式識別碼**編號（例如50c464d3-4930-494c-963c-1e951d15360e）。 若要尋找驗證金鑰，請移至 [**設定**]，然後選取 [**金鑰**]。 您必須提供 [描述] 和 [持續時間]，然後才會提供數值。
+- **Azure AD app ID** (required): You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
 
- 請注意，Azure 應用程式識別碼會與您的發行者識別碼相關聯，因此請確定您的所有供應專案都使用相同的應用程式識別碼。
+ Note that the Azure application ID is associated to your publisher ID, so make sure that the same application ID is used in all your offers.
 
-## <a name="plan-overview"></a>計畫總覽
+## <a name="plan-overview"></a>Plan overview
 
-[**計畫總覽**] 索引標籤可讓您在相同的供應專案中提供各種方案選項。 這些方案（有時稱為 Sku）在版本、營收或服務層級方面可能有所不同。 您必須至少設定一個方案，才能在 marketplace 中銷售您的供應專案。
+The **Plan overview** tab enables you to provide a variety of plan options within the same offer. These plans (sometimes referred to as SKUs) could differ in terms of version, monetization, or tiers of service. You must set up at least one plan in order to sell your offer in the marketplace.
 
-建立之後，您將會看到您的方案名稱、識別碼、定價模型、可用性（公用或私人）、目前發行狀態，以及任何可用的動作。
+Once created, you will see your plan names, IDs, pricing models, availability (Public or Private), current publishing status, and any available actions.
 
-**計畫總覽**中的可用**動作**會因方案的目前狀態而有所不同，可能包括：
+**Actions** available in the **Plan overview** vary depending on the current status of your plan and may include:
 
-- 如果方案狀態為**草稿**-刪除草稿
-- 如果方案狀態為**Live** -停止銷售方案或同步私用物件
+- If the plan status is **Draft** - Delete draft
+- If the plan status is **Live** - Stop sell plan or Sync private audience
 
-**建立新方案**（選取要透過 Microsoft 銷售的人員的最少一個方案）
+**Create new plan** (minimum of one plan for those who select to sell through Microsoft)
 
-- **方案識別碼：** 為此供應專案中的每個方案建立唯一的方案識別碼。 [產品 URL] 和 [Azure Resource Manager 範本] （如果適用）中的客戶會看到此識別碼。 僅使用小寫、英數位元、虛線或底線。 此方案識別碼最多可以有50個字元。 請注意，在選取 [建立] 之後，就無法修改識別碼。
-- **方案名稱：** 當決定要在您的供應專案內選取哪一個方案時，客戶會看到此名稱。 為此供應專案中的每個方案建立唯一的供應專案名稱。 方案名稱是用來區分可能屬於相同供應專案一部分的軟體方案（例如 供應專案名稱： Windows Server;方案： Windows Server 2016、Windows Server 2019）。
+- **Plan ID:** Create a unique plan ID for each plan in this offer. This ID will be visible to customers in the product URL and Azure Resource Manager templates (if applicable). Use only lowercase, alphanumeric characters, dashes or underscores. A maximum of 50 characters are allowed for this plan ID. Note that the ID cannot be modified after selecting create.
+- **Plan name:** Customers will see this name when deciding which plan to select within your offer. Create a unique offer name for each plan in this offer. The plan name is used to differentiate software plans that may be a part of the same offer (E.g. Offer name: Windows Server; plans: Windows Server 2016, Windows Server 2019).
 
-### <a name="plan-listing"></a>計畫清單
+### <a name="plan-listing"></a>Plan listing
 
-[**方案清單**] 索引標籤會顯示您的方案可用的語言（和市場），目前的英文（美國）是唯一可用的位置。 此外，此頁面會顯示特定語言清單的狀態，以及它所加入的日期/時間。 您將需要針對每個語言/市場定義 marketplace 詳細資料（供應專案名稱、描述、搜尋詞彙等）。
+The **plan listing** tab displays the languages (and markets) where your plan is available, currently English (United States) is the only location available. Additionally, this page displays the status of the language-specific listing and the date/time that it was added. You will need to define the marketplace details (offer name, description, search terms, etc.) for each language / market.
 
-#### <a name="plan-listing-details"></a>方案清單詳細資料
+#### <a name="plan-listing-details"></a>Plan listing details
 
-選取其中一個方案語言會顯示**計畫清單**資訊，包括**名稱**和**描述。**
+Selecting one of the plan languages will display the **plan listing** information, including **Name** and **Description.**
 
-- **名稱**：根據您的 [預覽]**新方案**專案預先填入，並會顯示為您供應專案「軟體方案」的標題，顯示在 marketplace 中。
-- **描述：** 此描述可讓您瞭解此軟體方案的獨特之處，以及與您的供應專案內其他軟體方案有何差異。 最多可包含500個字元。
+- **Name**: Pre-populated based on your preview **New plan** entry and will appear as the title of your offer's "Software plan" displayed in the marketplace.
+- **Description:** This description is an opportunity to explain what makes this software plan unique and any differences from other software plans within your offer. May contain up to 500 characters.
 
-完成這些欄位之後，請選取 [**儲存**]。
+Select **Save** after completing these fields.
 
-#### <a name="plan-pricing-and-availability"></a>規劃定價和可用性
+#### <a name="plan-pricing-and-availability"></a>Plan pricing and availability
 
-[**定價與可用性**] 索引標籤可讓您設定此方案將在其中使用的市場、所需的營收模型、價格和計費期限。 此外，您還可以指出是否要讓所有人都能看到此計畫，或僅針對特定客戶（私用物件）。
+The **Pricing and availability** tab enables you to configure the markets that this plan will be available in, the desired monetization model, price, and billing term. In addition, you can indicate whether to make the plan visible to everyone or only to specific customers (a private audience).
 
-##### <a name="enabling-free-trials"></a>啟用免費試用
+##### <a name="enabling-free-trials"></a>Enabling Free Trials
 
-透過商業 marketplace 提供的 SaaS 供應專案，可讓您在透過 Microsoft 銷售時，提供一個月的免費試用版。 對於計量付費方案以外的所有帳單模型和條款，支援免費試用版。 此選項可讓客戶透過一個月的免費存取，取得低屏障的專案。  如果您選擇在供應專案內啟用方案的免費試用版，客戶將無法在初始一個月期間結束前轉換為付費訂用帳戶。  在這段期間，購買供應專案的客戶可以試用已啟用免費試用的任何支援方案，並在其間進行轉換。  付費訂閱的轉換會在期限結束時自動完成。
-
->[!Note]
->如果客戶選擇在沒有免費試用的情況下轉換成方案，將會進行轉換，但免費試用將會立即遺失。  此外，一旦客戶開始支付方案費用，他們就無法再于相同的訂用帳戶上再次取得免費試用版，即使他們轉換為支援免費試用的 SKU 也一樣。
-
-您供應專案中的每個方案都可以使用設定免費試用的功能。 只要流覽至每個供應專案的定價和可用性，並核取該方塊即可允許一個月的試用。
-
-![一個月免費試用核取方塊](./media/free-trial-enable.png)
+SaaS offers through the commercial marketplace enable you to provide a one-month free trial when selling through Microsoft. For all billing models and terms except metered plans, free trials are supported. This option allows customers to have a low-barrier to entry through one month of free access.  If you choose to enable a free trial for plans within your offer, the customer will not be able to convert to a paid subscription before the end of the initial one month period.  During this time, customers purchasing your offer can try out any of the supported plans that have the free trial enabled and convert between them.  The conversion to a paid subscription is done automatically at the end of the term.
 
 >[!Note]
->一旦您的 transactable 供應專案使用免費試用版發行後，就無法將該方案停用。 請確定第一次發行的此設定是正確的，以避免重新建立計畫。
+>If the customer chooses to convert to a plan without free trials, the conversion will happen, but the free trial will be lost immediately.  Also, once a customer starts paying for a plan, they can no longer get free trial on the same subscription again, even if they convert to a SKU that does support free trials.
 
-若要取得目前參與免費試用之客戶訂用帳戶的相關資訊，請使用新的 API 屬性 `isFreeTrial`，其將會標示為 true 或 false。 如需詳細資訊，請參閱[SaaS 取得訂](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription)用帳戶 API。
+The ability to configure a free trial is available for each plan in your offer. Simply navigate to the Pricing and Availability for each offer and check the box to allow a one-month trial.
+
+![One month free trial checkbox](./media/free-trial-enable.png)
 
 >[!Note]
->運用 marketplace 計量服務的方案不支援免費試用。
+>Once your transactable offer has been published with a free trial it cannot be disabled for that plan. Make sure this setting is correct for the first publish to avoid having to re-create the plan.
+
+To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. See the [SaaS Get Subscription API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) for more information.
+
+>[!Note]
+>Free trials are not supported for plans that leverage the marketplace metering service.
 
 #### <a name="markets"></a>市場
 
-- **編輯市場**（選擇性）
+- **Edit markets** (optional)
 
-必須至少有一個市場提供每個方案。 選取您想要讓此方案可供使用的任何市場位置的核取方塊。 包含一個搜尋方塊和按鈕，用於選取「稅金已匯款」的國家/地區，其中 Microsoft 免除銷售並代表您使用稅額，以協助。
+Every plan must be available in at least one market. Select the checkbox for any market location where you would like to make this plan available. A search box and button for selecting "Tax Remitted" countries, in which Microsoft remits sales and use tax on your behalf, are included to help.
 
-如果您已經在美國美元（USD）中設定方案的價格，並新增另一個市場位置，新市場的價格將會根據目前的匯率計算。 在發佈之前，您應該一律檢查每個市場的價格。 儲存變更之後，您可以使用 [匯出價格（.xlsx）] 連結來檢查定價。
+If you have already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to the current exchange rates. You should always review the price for each market before publishing. Pricing can be reviewed by using the "Export prices (xlsx)" link after saving your changes.
 
-#### <a name="pricing"></a>定價
+#### <a name="pricing"></a>價格
 
-- **計價模式**：以一般費率或基座為基礎
+- **Pricing model**: Flat rate or Seat based
 
-一般**費率：** 以單一每月或全年價格的原價價格，來存取您的供應專案。 這有時稱為以網站為基礎的定價。 使用此計價模式時，您可以選擇性地定義使用 marketplace 計量服務 API 的計量付費方案，以根據非標準單位向客戶收費。  如需計量付費計費的詳細資訊，請參閱[使用 marketplace 計量服務的計量付費](./saas-metered-billing.md)。
+**Flat rate:** Enable access to your offer with a single monthly or annual price flat rate price. This is sometimes referred to as site-based pricing. With this pricing model, you can optionally define metered plans that use the marketplace metering service API to charge customers according to non-standard units.  For more information on metered billing, see [metered billing using the marketplace metering service](./saas-metered-billing.md).
 
-**每位使用者：** 依據存取供應專案或佔用基座的使用者人數，使用價格來存取您的供應專案。 此以使用者為基礎的模型可讓您設定根據價格允許的最小和最大使用者數目。 如此一來，您可以設定多個方案，根據使用者數目來設定不同的價格點。  這些欄位為選擇性。 如果未選取此項，則會將使用者數目視為沒有限制（最小值為1，最多可支援系統）。 這些欄位可能會在您的方案更新中編輯。
+**Per user:** Enable access to your offer with the price based on the number of users accessing the offer or occupying seats. This user-based model enables you to set the minimum and maximum number of users allowed based on the price. This way, different price points can be configured based on the number of users by configuring multiple plans.  這些欄位為選擇性。 If left unselected, the number of users will be interpreted as not having a limit (min of 1 and max of as many as the system can support). These fields may be edited as part of an update to your plan.
 
-發佈之後，就無法變更計費計價模式選項。 此外，相同供應專案的所有方案都必須共用相同的計價模式。
+Once published, the billing pricing model choice cannot be changed. In addition, all plans for the same offer must share the same pricing model.
 
-- **計費期限**：每月或每年
+- **Billing term**: Monthly or Annual
 
-選取客戶必須支付所列價格的頻率。 至少必須提供一個月或年度費用，或這兩個選項都可供客戶使用。
+Select the frequency that customers must pay the price listed. At least one Monthly or Annual price must be provided, or both options can be made available to customers.
 
-- **價格**：每月美元或每年美元
+- **Price**: USD per month or USD per year
 
-以當地貨幣（美元 = 美國貨幣）設定的價格，會使用安裝期間目前可用的匯率，轉換為所有選定市場的本地貨幣。 在發佈之前，請先匯出定價試算表，並查看每個市場的價格，以驗證這些價格。 如果您想要在個別市場中設定自訂價格，請修改並匯入定價試算表。 您必須負責驗證此定價並擁有這些設定。
-*\*您必須先儲存定價變更, 以啟用匯出定價資料。*
+Prices set in local currency (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates available during setup. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet. You are responsible for validating this pricing and own these settings.
+*\*You must first save your pricing changes to enable export of pricing data.*
 
-發行之前，請先仔細檢查您的價格，因為在計畫發行後可能會變更的部分有一些限制：
+Review your prices carefully before publishing, as there are some restrictions on what can change after a plan is published:
 
-- 方案發佈之後，就無法變更定價模式。
-- 為方案發佈計費期限之後，稍後就無法移除。
-- 一旦您的方案中的市場價格發佈之後，就無法再變更。
+- Once a plan is published, the pricing model can't be changed.
+- Once a billing term is published for a plan, it can't be removed later.
+- Once a price for a market in your plan is published, it can't be changed later.
 
-### <a name="plan-audience"></a>規劃物件
+### <a name="plan-audience"></a>Plan Audience
 
-您可以選擇將每個方案設定為每個人都可看見，或僅供您選擇的特定物件使用。 您可以使用 Azure AD 的租使用者識別碼，為此限制的物件指派成員資格。
+You have the option to configure each plan to be visible to everyone or to only a specific audience of your choosing. You can assign membership in this restricted audience using Azure AD tenant IDs.
 
 #### <a name="privacy"></a>隱私權
 
-- **這是私用計畫**（選擇性核取方塊）
+- **This is a private plan** (Optional checkbox)
 
-核取此方塊，將您的方案設為私用，而且只對您選擇的限制物件是可見的。 發行為私用方案之後，您可以更新物件，或選擇將方案提供給所有人。 一旦方案發行為每個人都可以看到，每個人都必須保持可見。 （方案無法再次設定為私用計畫）。
+Check this box to make your plan private and visible only to the restricted audience of your choosing. Once published as a private plan, you can update the audience or choose to make the plan available to everyone. Once a plan is published as visible to everyone, it must remain visible to everyone. (The plan cannot be configured as a private plan again).
 
-- **限制的物件（租使用者識別碼）**
+- **Restricted Audience (Tenant IDs)**
 
-指派可存取此私人方案的物件。 使用租使用者識別碼來指派存取權，並使用選項來包含指派給每個租使用者識別碼的描述。 若要匯入 .csv 試算表檔案，最多可以新增10個租使用者識別碼，或20000客戶租使用者識別碼。
+Assign the audience that will have access to this private plan. Access is assigned using tenant IDs with the option to include a description of each tenant ID assigned. A maximum of 10 tenant IDs can be added, or 20,000 customers tenant IDs if importing a .csv spreadsheet file.
 
-租使用者是組織的標記法，其識別碼表示為 GUID （全域唯一識別碼，用來識別資源的128位整數編號）。 它是組織或應用程式開發人員在與 Microsoft 建立關係 (例如註冊 Azure、Microsoft Intune 或 Microsoft 365) 時收到的 Azure AD 專屬執行個體。 每個 Azure AD 租用戶都不同，並與其他 Azure AD 租用戶分開。 若要檢查租使用者，請使用您要用來管理應用程式的帳戶登入 Azure 入口網站。 如果您有租用戶，系統會自動將您登入，而且您會在您帳戶名稱正下方看到租用戶名稱。 將滑鼠停留在 Azure 入口網站右上方的帳戶名稱上，以查看您的姓名、電子郵件、目錄/租用戶識別碼 (一個 GUID) 與您的網域。 如果帳戶與多個租用戶相關聯，您可以選取帳戶名稱開啟功能表，以切換租用戶。 每個租用戶都有自己的租用戶識別碼。 您也可以在下列位置使用功能變數名稱 URL 來查詢組織的租使用者識別碼： [https://www.whatismytenantid.com](https://www.whatismytenantid.com)。
+A tenant is a representation of an organization, with an ID represented as a GUID (Globally Unique Identifier, a 128-bit integer number used to identify resources). 它是組織或應用程式開發人員在與 Microsoft 建立關係 (例如註冊 Azure、Microsoft Intune 或 Microsoft 365) 時收到的 Azure AD 專屬執行個體。 每個 Azure AD 租用戶都不同，並與其他 Azure AD 租用戶分開。 To check the tenant, sign in to the Azure portal with the account you want to use to manage your application. 如果您有租用戶，系統會自動將您登入，而且您會在您帳戶名稱正下方看到租用戶名稱。 將滑鼠停留在 Azure 入口網站右上方的帳戶名稱上，以查看您的姓名、電子郵件、目錄/租用戶識別碼 (一個 GUID) 與您的網域。 如果帳戶與多個租用戶相關聯，您可以選取帳戶名稱開啟功能表，以切換租用戶。 每個租用戶都有自己的租用戶識別碼。 You can also look up your organization's tenant ID using a domain name URL at:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
-雖然 SaaS 提供使用租使用者識別碼來定義私人物件，但其他供應專案類型可能會使用 Azure 訂用帳戶識別碼（也會以 Guid 表示）。
+While SaaS offers use tenant IDs to define a private audience, other offer types may use Azure Subscription IDs (which are also represented as GUIDs).
 
 > [!NOTE]
-> 私用物件（或受限制的物件）與預覽物件不同。 在 [ **[預覽](#preview)** ] 索引標籤中，您可以定義預覽物件。 在 marketplace 中發佈供應專案*之前*，允許預覽物件存取您的供應專案。 雖然私用物件指定僅適用于特定方案，但預覽物件可以查看所有方案（私用或非），但僅限在測試和驗證計畫時的有限預覽期間。
+> The private audience (or restricted audience) differs from a preview audience. In the **[Preview](#preview)** tab, you can define a preview audience. A preview audience is allowed access to your offer *prior* to the offer being published live in the marketplace. While the private audience designation only applies to a specific plan, the preview audience can view all plans (private or not), but only during the limited preview period while the plan is tested and validated.
 
-## <a name="example-list-of-plans-within-a-marketplace-offer"></a>Marketplace 供應專案中的方案清單範例
+## <a name="example-list-of-plans-within-a-marketplace-offer"></a>Example list of plans within a marketplace offer
 
-![包含附注的範例 marketplace 方案清單](./media/marketplace-plan.svg)
+![Example marketplace plan listing with notes](./media/marketplace-plan.svg)
 
 ## <a name="test-drive"></a>試用產品
 
 [!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
 
-## <a name="cloud-solution-provider-csp-reseller-audience"></a>雲端解決方案提供者（CSP）轉銷商物件
+## <a name="cloud-solution-provider-csp-reseller-audience"></a>Cloud Solution Provider (CSP) Reseller Audience
 
-選取在 CSP 方案中提供您的供應專案，可讓雲端解決方案提供者銷售您的產品，做為其客戶配套解決方案的一部分。 如需詳細資訊，請參閱[雲端解決方案提供者（CSP）](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers.md)。
+Electing to make your offer available in the CSP program enables Cloud Solution Providers to sell your product as part of a bundled solution to their customers. For more information, see [Cloud Solution Providers](https://go.microsoft.com/fwlink/?linkid=2111109).
 
-## <a name="publish"></a>Publish
+## <a name="publish"></a>發佈
 
-當您完成供應專案的所有必要區段之後，請選取入口網站右上角的 [**發佈**]。 系統會將您重新導向至 [**審查及發佈**] 頁面。
+Once you have completed all the required sections of the offer, select **publish** in the top-right corner of the portal. You will be re-directed to the **Review and publish** page.
 
-#### <a name="submit-offer-to-preview"></a>提交供應專案以供預覽
+#### <a name="submit-offer-to-preview"></a>Submit offer to preview
 
-如果這是您第一次發佈此供應專案，您可以：
+If this is your first time publishing this offer, you can:
 
-- 請參閱供應專案每個區段的完成狀態。
-    - *未啟動*-表示區段尚未觸及，需要完成。
-    - *不完整*-表示區段具有必須修正的錯誤，或需要提供更多資訊的詳細資訊。 請返回一節並加以更新。
-    - *Complete* -表示區段已完成，所有必要的資料都已提供，而且沒有任何錯誤。 供應專案的所有區段都必須處於「完整」狀態，您才能提交供應專案。
-- 將測試指示提供給認證小組，以確保您的應用程式已正確測試，以及有助於瞭解應用程式的任何補充注意事項。
-- 選取 [**提交**] 以提交供應專案進行發佈。 我們會傳送一封電子郵件給您，讓您知道供應專案的預覽版本何時可供您審查和核准。 您必須回到合作夥伴中心，並為供應專案選取 [**上線**]，以將您的供應專案發佈至公用（或私用供應專案給私人物件）。
+- See the completion status for each section of the offer.
+    - *Not started* - means the section has not been touched and needs to be completed.
+    - *Incomplete* - means the section has errors that need to be fixed or requires more information to be provided. Please go back to the section(s) and update it.
+    - *Complete* - means the section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
+- Provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
+- Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. You must return to Partner Center and select **Go-live** for the offer to publish your offer to the public (or if a private offer, to the private audience).
 
 ## <a name="next-steps"></a>後續步驟
 
-- [更新商用 Marketplace 中的現有供應專案](./update-existing-offer.md)
+- [更新商業市集中的現有供應項目](./update-existing-offer.md)

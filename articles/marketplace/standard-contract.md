@@ -1,59 +1,54 @@
 ---
-title: 標準合約 |Azure
-description: Azure Marketplace 和 AppSource 中的標準合約
+title: Standard Contract | Azure
+description: Standard Contract for Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
-author: qianw211
+author: ChJenk
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/05/2019
-ms.author: ellacroi
-ms.openlocfilehash: 17c1bf9d20b6f2e3ec450ff7bfb54fe61494ff09
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/19/2019
+ms.author: v-chjen
+ms.openlocfilehash: dc8edf2b6e4a1204e7edd515da9323896049eb13
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819503"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228229"
 ---
-# <a name="standard-contract"></a>標準合約
+# <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Standard Contract for the Microsoft commercial marketplace
 
-為了簡化客戶的採購程式，並降低軟體廠商的法律複雜度，Microsoft 提供了標準合約範本，以協助在 marketplace 中進行交易。 Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而不是製作自訂的條款及條件，而是客戶只需要審查並接受一次。 您可以在這裡找到標準合約： [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178)。 
+To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract for the Microsoft commercial marketplace in order to help facilitate transactions in the marketplace. Rather than crafting custom terms and conditions, commercial marketplace publishers can choose to offer their software under the Standard Contract, which customers only need to vet and accept once. The Standard Contract can be found here: [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178).
 
-在 Cloud Partner 入口網站中建立供應專案時，會在 [Marketplace] 索引標籤上定義供應專案的條款及條件。 將設定變更為 [是]，即可啟用 [標準合約] 選項。
-
-![啟用標準合約選項](media/marketplace-publishers-guide/standard-contract.png)
-
->[!Note] 
->如果您選擇使用標準合約，則[雲端解決方案提供者](./cloud-solution-providers.md)通道仍然需要個別的條款及條件。
-
-## <a name="standard-contract-amendments"></a>標準合約修訂
-
-標準合約修訂可讓發行者針對簡單性選取標準合約，並使用其產品或企業的自訂詞彙。  如果客戶已審查並接受 Microsoft 標準合約，則只需要審查合約的修訂。
-
-Azure Marketplace 發行者有兩種可用的改正：
-
-* 通用修訂：這些修訂通用適用于所有客戶的標準合約。 在購買流程中，產品的每個客戶都會看到通用修訂。
-
-![通用改正](media/marketplace-publishers-guide/universal-amendaments.png)
-
-* 自訂改正： Azure Marketplace 也具有以租使用者為目標的自訂修訂的布建。 它們對於僅以特定客戶為目標的標準合約而言，是特別的改正。 發行者可以選擇想要設為目標的租使用者。 來自該租使用者的客戶會在標準合約和目標修訂下購買產品。
-
-![自訂改正](media/marketplace-publishers-guide/custom-amendaments.png)
-
->[!Note] 
->以自訂修訂為目標的客戶，也會在購買期間取得標準條款的通用修訂。
+The terms and conditions for an offer are defined when creating the offer in Partner Center or in the Cloud Partner Portal. You can select to use the Standard Contract for the Microsoft commercial marketplace instead of providing your own custom terms and conditions.
 
 >[!Note]
->下列供應專案類型支援標準合約改正： Azure 應用程式（解決方案範本和受控應用程式）、虛擬機器、容器、容器應用程式。
+>Once you publish an offer using the Standard contract for the Microsoft commercial marketplace, you are not able to use your own custom terms and conditions. It is an “or” scenario. You either offer your solution under the Standard Contract *or* your own terms and conditions. If you would like to modify the terms of the Standard Contract you can do so through Standard Contract Amendments.
 
-### <a name="customer-experience"></a>客戶體驗
+## <a name="standard-contract-amendments"></a>Standard Contract Amendments
 
-在 Azure 入口網站的購買過程中，客戶將能夠查看與產品相關聯的條款，做為 Microsoft 標準合約和修訂。
+Standard Contract Amendments allow publishers to select the Standard Contract for simplicity, and with customized terms for their product or business. Customers only need to review the amendments to the contract, if they have already reviewed and accepted the Microsoft Standard Contract.
 
-![Azure 入口網站的客戶體驗。](media/marketplace-publishers-guide/ibiza-customer-experience.png)
+There are two kinds of amendments available for commercial marketplace publishers:
 
-### <a name="api"></a>API
+* Universal Amendments: These amendments are applied universally to the Standard Contract for all customers. Universal amendments are shown to every customer of the offer in the purchase flow. Customers must accept the terms of the Standard Contract and the amendment before they can use your offer.
 
-客戶可以使用 `Get-AzureRmMarketplaceTerms` 來取得供應專案的條款並接受。 標準合約和相關的改正將會在 Cmdlet 的輸出中傳回。
+* Custom Amendments: These amendments are special amendments to the Standard Contract that are targeted to specific customers only via Azure tenant IDs. Publishers can choose the tenant they want to target. Only customers from the tenant will be presented with the custom amendment terms in the offer’s purchase flow.  Customers must accept the terms of the Standard Contract and the amendment(s) before they can use your offer.
 
----
+>[!Note]
+>These two types of amendments stack on top of each other. Customers targeted with custom amendments will also get the universal amendment to the Standard Contract during purchase.
+
+You can leverage the Standard Contract for the Microsoft commercial marketplace for the following offer types:  Azure Applications (Solution Templates and Managed Applications), Virtual Machines, Containers, Container Applications, IoT Edge Modules, and SaaS.
+
+## <a name="customer-experience"></a>Customer experience
+
+During the discovery experience in Azure marketplace or AppSource, customers will be able to see the terms associated with the offer as the Standard Contract for the Microsoft commercial marketplace and any universal amendments.
+
+![The Azure portal customer discovery experience.](media/marketplace-publishers-guide/azure-discovery-process.png)
+
+During the purchase process in the Azure portal, customers will be able to see the terms associated with the offer as the Standard Contract for the Microsoft commercial marketplace and any universal and/or tenant-specific amendments.
+
+![The Azure portal customer purchase experience.](media/marketplace-publishers-guide/azure-purchase-process.png)
+
+## <a name="api"></a>API
+
+Customers may use Get-AzureRmMarketplaceTerms to retrieve the terms of an offer and accept it. The Standard Contract and associated amendments will be returned in the output of the cmdlet.

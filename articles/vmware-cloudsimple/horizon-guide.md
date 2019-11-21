@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple-使用私用雲端網站來裝載使用 VMware 範圍的虛擬桌面基礎結構
-description: 說明如何使用您的 CloudSimple 私用雲端網站, 透過 VMware 的水準裝載虛擬桌面基礎結構
+title: Azure VMware Solution by CloudSimple - Use Private Cloud site to host a virtual desktop infrastructure using VMware Horizon
+description: Describes how you can use your CloudSimple Private Cloud site to host a virtual desktop infrastructure using VMware Horizon
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -8,136 +8,136 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8e5aeb63c54bd9ad71d5eb179fb93972468af4c0
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0936de818303117797e1704f3cecb7f877a3935e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972759"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74206547"
 ---
-# <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>使用 CloudSimple 私用雲端網站來裝載使用 VMware 範圍的虛擬桌面基礎結構
+# <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Use CloudSimple Private Cloud site to host a virtual desktop infrastructure using VMware Horizon
 
-您可以使用您的 CloudSimple 私用雲端網站來裝載使用 VMware 範圍 7. x 的虛擬桌面基礎結構 (VDI)。 下圖顯示 VDI 的邏輯解決方案架構。
+You can use your CloudSimple Private Cloud site to host a virtual desktop infrastructure (VDI) using VMware Horizon 7.x. The following figure shows the logical solution architecture for the VDI.
 
-![水準部署](media/horizon-deployment.png)
+![Horizon deployment](media/horizon-deployment.png)
 
-透過此解決方案, 您可以完全掌控您的「水準視圖管理員」和「應用程式」磁片區。 熟悉的 UI、API 和 CLI 介面可讓您使用現有的腳本和工具。
+With this solution, you have full control over Horizon View Manager and App Volume. The familiar UI, API, and CLI interfaces enable use of your existing scripts and tools.
 
-CloudSimple 解決方案會要求您執行下列動作:
+The CloudSimple solution requires you to do the following:
 
-* 在您的私人雲端中安裝、設定及管理 VMware 範圍 7. x。
-* 提供您自己的水準授權。
+* Install, configure, and manage VMware Horizon 7.x in your Private Cloud.
+* Provide your own Horizon licenses.
 
 ## <a name="deploy-the-solution"></a>部署解決方案
 
-下列各節說明如何在您的私用雲端中使用水準部署 VDI 解決方案。
+The following sections describe how to deploy a VDI solution using Horizon in your Private Cloud.
 
-1. [確認 VMware 產品版本相容](#verify-that-vmware-product-versions-are-compatible)
-2. [估計桌面環境的大小](#estimate-the-size-of-your-desktop-environment)
-3. [為您的環境建立私人雲端](#create-a-private-cloud-for-your-environment)
-4. [在您的私用雲端中安裝 VMware 水準](#install-vmware-horizon-in-your-private-cloud)
+1. [Verify that VMware product versions are compatible](#verify-that-vmware-product-versions-are-compatible)
+2. [Estimate the size of your desktop environment](#estimate-the-size-of-your-desktop-environment)
+3. [Create a Private Cloud for your environment](#create-a-private-cloud-for-your-environment)
+4. [Install VMware Horizon in your Private Cloud](#install-vmware-horizon-in-your-private-cloud)
 
-### <a name="verify-that-vmware-product-versions-are-compatible"></a>確認 VMware 產品版本相容
+### <a name="verify-that-vmware-product-versions-are-compatible"></a>Verify that VMware product versions are compatible
 
-* 請確認您目前和規劃的範圍、應用程式磁片區、統一存取閘道, 以及使用者環境管理員彼此相容, 而且與私人雲端中的 vCenter 和 PSC 相同。 如需相容性資訊, 請參閱[水準7.5 的 VMware 相容性矩陣](https://www.vmware.com/resources/compatibility/sim/interop_matrix.php#interop&260=2877&0=)。
-* 若要在您的私人雲端中找出 vCenter 和 PSC 的目前版本, 請移至[CloudSimple 入口網站](access-cloudsimple-portal.md)中的 [**資源**], 選取您的私人雲端, 然後按一下 [ **vSphere 管理網路**] 索引標籤。
+* Verify that your current and planned versions of Horizon, App Volumes, Unified Access Gateway, and User Environment Manager are compatible with each other and with vCenter and PSC in the Private Cloud. For compatibility information, see [VMware Compatibility Matrix for Horizon 7.5](https://www.vmware.com/resources/compatibility/sim/interop_matrix.php#interop&260=2877&0=).
+* To find out the current versions of vCenter and PSC in your Private Cloud, go to **Resources** in the [CloudSimple portal](access-cloudsimple-portal.md), select your Private Cloud, and click the **vSphere Management Network** tab.
 
-![vCenter 和 PSC 版本](media/private-cloud-vsphere-versions.png)
+![vCenter and PSC versions](media/private-cloud-vsphere-versions.png)
 
-### <a name="estimate-the-size-of-your-desktop-environment"></a>估計桌面環境的大小
+### <a name="estimate-the-size-of-your-desktop-environment"></a>Estimate the size of your desktop environment
 
-* 確認您已識別的設定是否在 VMware 操作限制內。
-* 估計 DR 網站中所需的資源, 以保護您的內部部署環境。
+* Verify that your identified configuration is within VMware operational limits.
+* Estimate the resources that are needed in your DR site to protect your on-premises environment.
 
-### <a name="create-a-private-cloud-for-your-environment"></a>為您的環境建立私人雲端
+### <a name="create-a-private-cloud-for-your-environment"></a>Create a Private Cloud for your environment
 
-1. 遵循[設定私人雲端環境](quickstart-create-private-cloud.md)中的指示, 從 CloudSimple 入口網站建立私人雲端。  CloudSimple 會在每個新建立的私用雲端中, 建立名為 ' cloudowner ' 的預設 vCenter 使用者。 如需預設私用雲端使用者和許可權模型的詳細資訊, 請參閱[瞭解私用雲端許可權模型](learn-private-cloud-permissions.md)。
-2. 在您的私人雲端中為水準管理平面建立 VLAN, 並為其指派子網 CIDR。 如需指示, 請參閱[建立和管理 vlan/子網](create-vlan-subnet.md)。 這是將會安裝所有解決方案元件 (整合存取閘道、連線伺服器、應用程式磁片區伺服器和使用者環境管理員伺服器) 的網路。
-3. 決定您是否想要使用外部身分識別提供者來搭配您的私用雲端 vCenter。 如果是, 請選擇下列其中一個選項:
-    * 使用內部部署 Active Directory 作為外部身分識別提供者。 如需指示, 請參閱[vCenter 身分識別來源](set-vcenter-identity.md)。
-    * 在水準管理平面 VLAN 中設定私人雲端中的 Active Directory 伺服器, 以做為外部身分識別提供者使用。 如需指示, 請參閱[vCenter 身分識別來源](set-vcenter-identity.md)。
-    * 在私人雲端中設定水準管理平面 VLAN 中的 DHCP 和 DNS 伺服器。 如需指示, 請參閱[在您的 CloudSimple 私人雲端中設定 DNS 和 DHCP 應用程式和工作負載](dns-dhcp-setup.md)。
-4. 在安裝于私人雲端中的 DNS 伺服器上設定 DNS 轉送。 如需指示, 請參閱[建立條件](on-premises-dns-setup.md#create-a-conditional-forwarder)轉寄站。
+1. Create a Private Cloud from the CloudSimple portal by following the instructions in [Configure a Private Cloud environment](quickstart-create-private-cloud.md).  CloudSimple creates a default vCenter user named 'cloudowner' in every newly created Private Cloud. For details on the default Private Cloud user and permission model, see [Learn the Private Cloud permissions model](learn-private-cloud-permissions.md).
+2. Create a VLAN in your Private Cloud for the Horizon management plane and assign it a subnet CIDR. For instructions, see [Create and manage VLANs/Subnets](create-vlan-subnet.md). This is the network where all the solution components (Unified Access Gateway, Connection Server, App Volume Server, and User Environment Manager servers) will be installed.
+3. Decide if you want to use an external identity provider with your Private Cloud vCenter. If yes, choose one of these options:
+    * Use your on-premises Active Directory as the external identity provider. For instructions, see [vCenter Identity Sources](set-vcenter-identity.md).
+    * Set up an Active Directory server in the Private Cloud in Horizon management plane VLAN to use as your external identity provider. For instructions, see [vCenter Identity Sources](set-vcenter-identity.md).
+    * Set up a DHCP and DNS server in Horizon management plane VLAN in the Private Cloud. For instructions, see [Set up DNS and DHCP applications and workloads in your CloudSimple Private Cloud](dns-dhcp-setup.md).
+4. Configure DNS forwarding on the DNS server installed in the Private Cloud. For instructions, see [Create a Conditional Forwarder](on-premises-dns-setup.md#create-a-conditional-forwarder).
 
-### <a name="install-vmware-horizon-in-your-private-cloud"></a>在您的私用雲端中安裝 VMware 水準
+### <a name="install-vmware-horizon-in-your-private-cloud"></a>Install VMware Horizon in your Private Cloud
 
-下列部署圖表描述在私人雲端中部署的水準解決方案。 整合存取閘道、AD/DC、View 和應用程式磁片區伺服器會安裝在使用者建立的 VLAN 234 中。 整合存取閘道具有指派的公用 IP 位址, 可從網際網路連線。 水準桌面集區 Vm 會部署在 VLAN 235 中, 以提供額外的隔離和安全性。
+The following deployment diagram depicts a Horizon solution deployed in a Private Cloud. Unified Access Gateway, AD/DC, View, and App Volume Server are installed in user-created VLAN 234. Unified Access Gateway has an assigned public IP address that is reachable from the Internet. Horizon desktop pool VMs are deployed in VLAN 235 to provide additional isolation and security.
 
-![私用雲端中的水準部署](media/horizon-private-cloud.png)
+![Horizon deployment in the Private Cloud](media/horizon-private-cloud.png)
 
-下列各節概述設定類似圖所示之部署的指示。 開始之前, 請先確認您具有下列各項:
+The following sections outline the instructions to set up a deployment similar to the one that is depicted in the figure. Before you begin, verify that you have the following:
 
-* 使用 CloudSimple 入口網站建立的私用雲端, 具有足夠的容量來執行您的桌面集區。
-* 您的內部部署環境與私人雲端環境之間有足夠的頻寬, 可支援您桌上型電腦的網路流量。
-* 在您的內部部署資料中心與私人雲端之間設定的站對站 VPN 通道。
-* 從內部部署環境中的使用者子網到 CloudSimple 私用雲端子網的 IP 連線能力。
-* 已針對您的私人雲端安裝 AD/DHCP/DNS。
+* A Private Cloud created using the CloudSimple portal with sufficient capacity to run your desktop pools.
+* Sufficient bandwidth between your on-premises environment and the Private Cloud environment to support the network traffic for your desktops.
+* A Site-to-Site VPN tunnel set up between your on-premises datacenter and the Private Cloud.
+* IP reachability from end-user subnets in your on-premises environment to the CloudSimple Private Cloud subnets.
+* AD/DHCP/DNS installed for your Private Cloud.
 
-#### <a name="cloudsimple-portal-create-a-dedicated-vlansubnet-for-desktop-pools"></a>CloudSimple 入口網站:建立桌面集區專用的 VLAN/子網
+#### <a name="cloudsimple-portal-create-a-dedicated-vlansubnet-for-desktop-pools"></a>CloudSimple portal: Create a dedicated VLAN/subnet for desktop pools
 
-建立適用于水準桌面集區的 VLAN, 並為其指派子網 CIDR。 如需指示, 請參閱[建立和管理 vlan/子網](create-vlan-subnet.md)。 這是所有桌面虛擬機器將會在其中執行的網路。
+Create a VLAN for the Horizon desktop pools and assign it a subnet CIDR. For instructions, see [Create and manage VLANs/Subnets](create-vlan-subnet.md). This is the network where all the desktop virtual machines will run.
 
-遵循標準的安全性最佳作法來保護您的水準部署:
+Follow standard security best practices to secure your Horizon deployment:
 
-* 僅允許桌上型電腦 RDP 流量/SSH 流量傳送至您的桌面 Vm。
-* 僅允許水準管理平面 VLAN 和桌面集區 VLAN 之間的管理流量。
-* 僅允許來自內部部署網路的管理流量。
+* Allow only desktop RDP traffic / SSH traffic to your desktop VMs.
+* Allow only management traffic between Horizon management plane VLAN and desktop pool VLAN.
+* Allow only management traffic from on-premises network.
 
-您可以從 CloudSimple 入口網站設定[防火牆規則](firewall.md), 以強制執行這些最佳作法。
+You can enforce these best practices by configuring [firewall rules](firewall.md) from the CloudSimple portal.
 
-#### <a name="cloudsimple-portal-configure-firewall-rules-to-secure-horizon-management-plane"></a>CloudSimple 入口網站:設定防火牆規則以保護水準管理平面
+#### <a name="cloudsimple-portal-configure-firewall-rules-to-secure-horizon-management-plane"></a>CloudSimple portal: Configure firewall rules to secure Horizon management plane
 
-在 CloudSimple 入口網站中設定下列規則。 如需指示, 請參閱[設定防火牆資料表和規則](firewall.md)。
+Set up the following rules in the CloudSimple portal. For instructions, see [Set up firewall tables and rules](firewall.md).
 
-1. 在 CloudSimple N-S 防火牆中設定防火牆規則, 以允許在內部部署子網與水準管理 VLAN 之間進行通訊, 以便只允許 VMware 檔[水準埠清單](https://docs.vmware.com/en/VMware-Horizon-7/7.1/com.vmware.horizon-client-agent.security.doc/GUID-52807839-6BB0-4727-A9C7-EA73DE61ADAB.html)中所列的網路埠。
+1. Configure firewall rules in the CloudSimple N-S firewall to allow communication between on-premises subnets and Horizon management VLAN so that only the network ports listed in the VMware document [Horizon port list](https://docs.vmware.com/en/VMware-Horizon-7/7.1/com.vmware.horizon-client-agent.security.doc/GUID-52807839-6BB0-4727-A9C7-EA73DE61ADAB.html) are allowed.
 
-2. 在私人雲端中的水準管理 VLAN 和桌面集區 VLAN 之間建立 E-W 防火牆規則。
+2. Create E-W firewall rules between the Horizon management VLAN and desktop pool VLAN in the Private Cloud.
 
-#### <a name="cloudsimple-portal-create-a-public-ip-address-for-unified-access-gateway"></a>CloudSimple 入口網站:建立統一存取閘道的公用 IP 位址
+#### <a name="cloudsimple-portal-create-a-public-ip-address-for-unified-access-gateway"></a>CloudSimple portal: Create a public IP address for Unified Access Gateway
 
-建立統一存取閘道設備的公用 IP 位址, 以啟用來自網際網路的桌面用戶端連線。 如需指示, 請參閱[配置公用 IP 位址](public-ips.md)。
+Create a public IP address for the Unified Access Gateway appliance to enable desktop client connections from the internet. For instructions, see [Allocate public IP addresses](public-ips.md).
 
-當安裝程式完成時, 公用 IP 位址會被指派並列在 [公用 ip] 頁面上。
+When the setup is complete, the public IP address is assigned and listed on the Public IPs page.
 
-#### <a name="cloudsimple-portal-escalate-privileges"></a>CloudSimple 入口網站:提升權限
+#### <a name="cloudsimple-portal-escalate-privileges"></a>CloudSimple portal: Escalate privileges
 
-預設的 ' cloudowner ' 使用者在私人雲端 vCenter 中沒有足夠的許可權可以安裝, 因此必須提升使用者的 vCenter 許可權。 如需詳細資訊, 請參閱[提升許可權](escalate-private-cloud-privileges.md)。
+The default 'cloudowner' user doesn't have sufficient privileges in the Private Cloud vCenter to install Horizon, so the user's vCenter privileges must be escalated. For more information, see [Escalate privileges](escalate-private-cloud-privileges.md).
 
-#### <a name="vcenter-ui-create-a-user-in-private-cloud-for-horizon-installation"></a>vCenter UI:在私人雲端中建立用於水準安裝的使用者
+#### <a name="vcenter-ui-create-a-user-in-private-cloud-for-horizon-installation"></a>vCenter UI: Create a user in Private Cloud for Horizon installation
 
-1. 使用 ' cloudowner ' 使用者認證登入 vCenter。
-2. 在 vCenter 中建立新的使用者 [soln-admin], 並將使用者新增至 vCenter 中的 [系統管理員] 群組。
-3. 以 ' cloudowner ' 使用者身分登出 vCenter, 並以「soln-系統管理員」使用者身分登入。
+1. Sign in to vCenter using the 'cloudowner' user credentials.
+2. Create a new user, 'horizon-soln-admin', in vCenter and add the user to the administrators group in vCenter.
+3. Sign out of vCenter as the 'cloudowner' user and sign in as the 'horizon-soln-admin' user.
 
-#### <a name="vcenter-ui-install-vmware-horizon"></a>vCenter UI:安裝 VMware 範圍
+#### <a name="vcenter-ui-install-vmware-horizon"></a>vCenter UI: Install VMware Horizon
 
-如先前的邏輯架構一節中所述, 水準解決方案具有下列元件:
+As mentioned in the earlier logical architecture section, Horizon solution has the following components:
 
-* VMware 範圍視圖
-* VMware 整合存取閘道
-* VMware 應用程式磁片區管理員
-* VMware 使用者環境管理員
+* VMware Horizon View
+* VMware Unified Access Gateway
+* VMware App Volume Manager
+* VMware User Environment Manager
 
-安裝元件, 如下所示:
+Install the components as follows:
 
-1. 遵循 VMware 檔[部署和設定 Vmware 整合存取閘道](https://docs.vmware.com/en/Unified-Access-Gateway/3.3.1/com.vmware.uag-331-deploy-config.doc/GUID-F5CE0D5E-BE85-4FA5-BBCF-0F86C9AB8A70.html)中所提供的指示, 安裝並設定整合存取閘道。
+1. Install and configure Unified Access Gateway by following the instructions provided in the VMware document [Deploying and Configuring VMware Unified Access Gateway](https://docs.vmware.com/en/Unified-Access-Gateway/3.3.1/com.vmware.uag-331-deploy-config.doc/GUID-F5CE0D5E-BE85-4FA5-BBCF-0F86C9AB8A70.html).
 
-2. 依照[觀看安裝指南](https://docs.vmware.com/en/VMware-Horizon-7/7.4/horizon-installation/GUID-37D39B4F-5870-4188-8B11-B6C41AE9133C.html)中的指示, 在私用雲端中安裝水準視圖。
+2. Install Horizon View in the Private Cloud by following the instructions in [View Installation Guide](https://docs.vmware.com/en/VMware-Horizon-7/7.4/horizon-installation/GUID-37D39B4F-5870-4188-8B11-B6C41AE9133C.html).
 
-3. 遵循[安裝和設定 VMware 應用程式磁片](https://docs.vmware.com/en/VMware-App-Volumes/2.10/com.vmware.appvolumes.user.doc/GUID-5E8BAF8C-F5A6-412C-9424-266BA7109BA4.html)區中的指示, 安裝應用程式磁片區管理員。
+3. Install App Volume Manager by following the instructions in [Install and Configure VMware App Volumes](https://docs.vmware.com/en/VMware-App-Volumes/2.10/com.vmware.appvolumes.user.doc/GUID-5E8BAF8C-F5A6-412C-9424-266BA7109BA4.html).
 
-4. 遵循[關於安裝和設定 VMware 使用者環境管理員](https://docs.vmware.com/en/VMware-User-Environment-Manager/9.4/com.vmware.user.environment.manager-install-config/GUID-DBBC82E4-483F-4B28-9D49-4D28E08715BC.html)中的指示, 安裝和設定使用者環境管理員。
+4. Install and configure User Environment Manager by following the instructions in [About Installing and Configuring VMware User Environment Manager](https://docs.vmware.com/en/VMware-User-Environment-Manager/9.4/com.vmware.user.environment.manager-install-config/GUID-DBBC82E4-483F-4B28-9D49-4D28E08715BC.html).
 
-#### <a name="file-a-support-request-to-upload-vmware-horizon-pre-packaged-app-volumes"></a>提出支援要求, 以上傳 VMware 範圍預先封裝的應用程式磁片區
+#### <a name="file-a-support-request-to-upload-vmware-horizon-pre-packaged-app-volumes"></a>File a support request to upload VMware Horizon pre-packaged app volumes
 
-在安裝過程中, 應用程式磁片區管理員會使用預先封裝的磁片區來布建應用程式堆疊和可寫入的磁片區。 這些磁片區會作為應用程式堆疊和可寫入磁片區的範本。
+As a part of the installation process, App Volume Manager uses pre-packaged volumes to provision app stacks and writable volumes. These volumes serve as templates for app stacks and writable volumes.
 
-將磁片區上傳至私人雲端資料存放區需要 ESXi 的根密碼。 如需協助, 請提交[支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。 附加 AppVolumes 安裝程式配套, 讓 CloudSimple 支援人員可以將範本上傳至您的私用雲端環境。
+Uploading the volumes to the Private Cloud datastore requires the ESXi root password. For assistance, submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Attach the AppVolumes installer bundle so that CloudSimple support personnel can upload the templates to your Private Cloud environment.
 
-#### <a name="cloudsimple-portal-de-escalate-privileges"></a>CloudSimple 入口網站:取消提升許可權
+#### <a name="cloudsimple-portal-de-escalate-privileges"></a>CloudSimple portal: De-escalate privileges
 
-您現在可以[取消升級](escalate-private-cloud-privileges.md#de-escalate-privileges)' cloudowner ' 使用者的許可權。
+You can now [de-escalate the privileges](escalate-private-cloud-privileges.md#de-escalate-privileges) of the 'cloudowner' user.
 
-## <a name="ongoing-management-of-your-horizon-solution"></a>持續管理您的水準解決方案
+## <a name="ongoing-management-of-your-horizon-solution"></a>Ongoing management of your Horizon solution
 
-您可以完全掌控私人雲端環境中的水準和應用程式磁片區管理員軟體, 而且預期會執行必要的軟體生命週期管理。 更新或升級水準或應用程式磁片區之前, 請確定任何新版本的軟體都與私用雲端 vCenter 和 PSC 相容。
+You have full control over Horizon and App Volume Manager software in your Private Cloud environment and are expected to perform the necessary software lifecycle management. Ensure that any new versions of software are compatible with the Private Cloud vCenter and PSC before updating or upgrading Horizon or App Volume.

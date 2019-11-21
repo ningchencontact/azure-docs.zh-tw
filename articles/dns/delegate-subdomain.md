@@ -1,18 +1,18 @@
 ---
-title: 委派 Azure DNS 子網域
-description: 了解如何委派 Azure DNS 子網域。
+title: Delegate a subdomain - Azure DNS
+description: With this learning path, get started delegating an Azure DNS subdomain.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: article
 ms.date: 2/7/2019
-ms.author: victorh
-ms.openlocfilehash: 31543db8e177701ddfe6beaaa3091d6465b0e9cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 462282e9674e7a253f61c96338b54174c80fb03f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790805"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212381"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>委派 Azure DNS 子網域
 
@@ -20,7 +20,7 @@ ms.locfileid: "60790805"
 
 您也可以依喜好使用 [Azure PowerShell](delegate-subdomain-ps.md) 委派子網域。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要委派 Azure DNS 子網域，必須先將您的公用網域委派給 Azure DNS。 如需如何設定名稱伺服器以便進行委派的指示，請參閱[將網域委派給 Azure DNS](./dns-delegate-domain-azure-dns.md)。 一旦將您的網域委派給您的 Azure DNS 區域之後，就能夠委派子網域。
 
@@ -31,12 +31,12 @@ ms.locfileid: "60790805"
 
 首先建立 **engineering** 子網域的區域。
 
-1. 從 Azure 入口網站選取 [建立資源]  。
-2. 在 [搜尋] 方塊中，輸入 **DNS**，然後選取 [DNS 區域]  。
-3. 選取 [建立]  。
-4. 在 [建立 DNS 區域]  窗格中，在 [名稱]  文字方塊中輸入 **engineering.contoso.com**。
+1. 從 Azure 入口網站選取 [建立資源]。
+2. 在 [搜尋] 方塊中，輸入 **DNS**，然後選取 [DNS 區域]。
+3. 選取 [建立]。
+4. 在 [建立 DNS 區域] 窗格中，在 [名稱] 文字方塊中輸入 **engineering.contoso.com**。
 5. 選取您區域的資源群組。 您可能想要使用同一個資源群組作為上層區域以同時維持類似的資源。
-6. 按一下 [建立]  。
+6. 按一下 [建立]。
 7. 部署成功後，請移至新的區域。
 
 ## <a name="note-the-name-servers"></a>記下名稱伺服器
@@ -54,11 +54,11 @@ ms.locfileid: "60790805"
 接下來建立 **engineering** 區域的名稱伺服器 (NS) 記錄。
 
 1. 瀏覽至父系網域的區域。
-2. 選取 [+ 記錄集]  。
-3. 在 [新增記錄集]  窗格中，於 [名稱]  文字方塊中輸入 **engineering**。
-4. 對於 [類型]  ，請選取 [NS]  。
-5. 在 [名稱伺服器]  底下，輸入您先前從 **engineering** 區區域記下的四個名稱伺服器。
-6. 按一下 [確定]  。
+2. 選取 [+ 記錄集]。
+3. 在 [新增記錄集] 窗格中，於 [名稱] 文字方塊中輸入 **engineering**。
+4. 對於 [類型]，請選取 [NS]。
+5. 在 [名稱伺服器] 底下，輸入您先前從 **engineering** 區區域記下的四個名稱伺服器。
+6. 按一下 [確定]。
 
 ## <a name="test-the-delegation"></a>測試委派
 

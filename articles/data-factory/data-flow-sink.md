@@ -1,117 +1,119 @@
 ---
-title: 在 Azure Data Factory 的對應資料流程功能中設定接收轉換
-description: 瞭解如何在對應的資料流程中設定接收轉換。
+title: Set up a sink transformation in the mapping data flow feature
+description: Learn how to set up a sink transformation in the mapping data flow.
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/03/2019
-ms.openlocfilehash: fa6a2fd853673493c93dbe65f889468c8e0c8617
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 707c0e93b88f34d4663d3dbe20bb2e9e4991a332
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082941"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217918"
 ---
-# <a name="sink-transformation-for-a-data-flow"></a>資料流程的接收轉換
+# <a name="sink-transformation-for-a-data-flow"></a>Sink transformation for a data flow
 
-在轉換資料流程之後，您可以將資料接收到目的地資料集。 在 [接收] 轉換中, 選擇目的地輸出資料的資料集定義。 當您的資料流程需要時，您可以擁有多個接收轉換。
+After you transform your data flow, you can sink the data into a destination dataset. In the sink transformation, choose a dataset definition for the destination output data. You can have as many sink transformations as your data flow requires.
 
-若要考慮架構漂移和內送資料的變更，請將輸出資料接收到沒有在輸出資料集中定義之架構的資料夾。 您也可以在來源中選取 [**允許架構漂移**], 以考慮來源中的資料行變更。 然後自動對應接收器中的所有欄位。
+To account for schema drift and changes in incoming data, sink the output data to a folder without a defined schema in the output dataset. You can also account for column changes in your sources by selecting **Allow schema drift** in the source. Then automap all fields in the sink.
 
-![[接收] 索引標籤上的選項，包括 [自動對應] 選項](media/data-flow/sink1.png "接收1")
+![Options on the Sink tab, including the Auto Map option](media/data-flow/sink1.png "sink 1")
 
-若要接收所有傳入的欄位, 請開啟 [**自動對應**]。 若要選擇要接收到目的地的欄位, 或變更目的地的欄位名稱, 請關閉 [**自動對應**]。 然後開啟 [**對應**] 索引標籤來對應輸出欄位。
+To sink all incoming fields, turn on **Auto Map**. To choose the fields to sink to the destination, or to change the names of the fields at the destination, turn off **Auto Map**. Then open the **Mapping** tab to map output fields.
 
-![[對應] 索引標籤上的選項](media/data-flow/sink2.png "接收2")
+![Options on the Mapping tab](media/data-flow/sink2.png "sink 2")
 
 ## <a name="output"></a>輸出 
-針對 Azure Blob 儲存體或 Data Lake Storage 接收類型，將已轉換的資料輸出到資料夾。 Spark 會根據接收器轉換所使用的資料分割配置，產生分割的輸出資料檔案。 
+For Azure Blob storage or Data Lake Storage sink types, output the transformed data into a folder. Spark generates partitioned output data files based on the partitioning scheme that the sink transformation uses. 
 
-您可以從 [**優化**] 索引標籤設定資料分割配置。如果您想要 Data Factory 將您的輸出合併成單一檔案，請選取 [**單一分割**區]。 如果您想要維護或建立資料分割資料夾，請使用索引**鍵分割**，並設定您想要用於資料分割資料夾結構的索引鍵。
+You can set the partitioning scheme from the **Optimize** tab. If you want Data Factory to merge your output into a single file, select **Single partition**. If you wish to maintain or create partitioned folders, use **Key partitioning** and set the keys you wish to use for partitioned folder structures.
 
-![[優化] 索引標籤上的選項](media/data-flow/opt001.png "接收選項")
+![Options on the Optimize tab](media/data-flow/opt001.png "sink options")
 
-## <a name="field-mapping"></a>欄位對應
-在接收轉換的 [**對應**] 索引標籤上, 您可以將左側的傳入資料行對應至右邊的目的地。 當您接收到檔案的資料流程時，Data Factory 一律會將新檔案寫入資料夾。 當您對應到資料庫資料集時，您會選擇要插入、更新、upsert 或刪除的資料庫資料表作業選項。
+## <a name="field-mapping"></a>Field mapping
+On the **Mapping** tab of your sink transformation, you can map the incoming columns on the left to the destinations on the right. When you sink data flows to files, Data Factory will always write new files to a folder. When you map to a database dataset, you will choose database table operation options to insert, update, upsert, or delete.
 
-![[對應] 索引標籤](media/data-flow/sink2.png "接收")
+![The Mapping tab](media/data-flow/sink2.png "接收")
 
-在對應資料表中，您可以將多個資料行、取消多個資料行，或將多個資料列對應至相同的資料行名稱，以進行多重連結。
+In the mapping table, you can multiselect to link multiple columns, delink multiple columns, or map multiple rows to the same column name.
 
-若要一律將一組傳入的欄位對應至目標, 並完全接受彈性的架構定義, 請選取 [**允許架構漂移**]。
+To always map the incoming set of fields to a target as they are and to fully accept flexible schema definitions, select **Allow schema drift**.
 
-![[對應] 索引標籤，顯示對應至資料集中之資料行的欄位](media/data-flow/multi1.png "多個選項")
+![The Mapping tab, showing fields mapped to columns in the dataset](media/data-flow/multi1.png "multiple options")
 
-若要重設您的資料行對應, 請選取 [**重新對應**]。
+To reset your column mappings, select **Re-map**.
 
-![[接收] 索引標籤](media/data-flow/sink1.png "接收一個")
+![The Sink tab](media/data-flow/sink1.png "Sink One")
 
-如果架構變更, 請選取 [**驗證架構**] 以使接收失敗。
+Select **Validate schema** to fail the sink if the schema changes.
 
-選取 **[清除資料夾**] 以截斷接收資料夾的內容, 然後在該目的檔案夾中寫入目的地檔案。
+Select **Clear the folder** to truncate the contents of the sink folder before writing the destination files in that target folder.
 
-## <a name="fixed-mapping-vs-rule-based-mapping"></a>固定對應與以規則為基礎的對應
-當您關閉自動對應時，您可以加入宣告以資料行為基礎的對應（固定對應）或以規則為基礎的對應。 以規則為基礎的對應可讓您撰寫具有模式比對的運算式，而固定對應則會對應邏輯和實體資料行名稱。
+## <a name="fixed-mapping-vs-rule-based-mapping"></a>Fixed mapping vs. rule-based mapping
+When you turn off auto-mapping, you will have the option to add either column-based mapping (fixed mapping) or rule-based mapping. Rule-based mapping will allow you to write expressions with pattern matching while fixed mapping will map logical and physical column names.
 
-![以規則為基礎的對應](media/data-flow/rules4.png "以規則為基礎的對應")
+![Rule-based Mapping](media/data-flow/rules4.png "Rule-based mapping")
 
-當您選擇以規則為基礎的對應時，您會指示 ADF 評估相符的運算式，以符合傳入模式規則並定義外寄功能變數名稱。 您可以新增欄位和以規則為基礎之對應的任意組合。 然後，ADF 會根據來源的傳入中繼資料，在執行時間產生功能變數名稱。 您可以在 debug 和使用 [資料預覽] 窗格期間, 查看所產生欄位的名稱。
+When you choose rule-based mapping, you are instructing ADF to evaluate your matching expression to match incoming pattern rules and define the outgoing field names. You may add any combination of both field and rule-based mappings. Field names are then generated at runtime by ADF based on incoming metadata from the source. You can view the names of the generated fields during debug and using the data preview pane.
 
-模式比對的詳細資訊位於資料[行模式檔](concepts-data-flow-column-pattern.md)。
+Details on pattern matching are at [Column Pattern documentation](concepts-data-flow-column-pattern.md).
 
-您也可以在使用以規則為基礎的比對時輸入正則運算式模式，方法是展開資料列，然後在 [名稱符合：] 旁輸入正則運算式。
+You can also enter regular expression patterns when using rule based matching by expanding the row and entering a regular expression next to "Name Matches:".
 
-![Regex 對應](media/data-flow/scdt1g4.png "Regex 對應")
+![Regex Mapping](media/data-flow/scdt1g4.png "Regex mapping")
 
-如果您想要將所有傳入的欄位對應到目標中的相同名稱，就是以規則為基礎的對應與固定對應的基本常見範例。 在固定對應的情況下，您會列出資料表中的每個個別資料行。 針對以規則為基礎的對應，您會有一個規則，將使用 ```true()``` 的所有欄位對應到 ```$$```所表示的相同內送功能變數名稱。
+A very basic common example for a rule-based mapping vs. fixed mapping is the case where you want to map all incoming fields to the same name in your target. In the case of fixed mappings, you would list each individual column in the table. For rule-based mapping, you would have a single rule that maps all fields using ```true()``` to the same incoming field name represented by ```$$```.
 
-### <a name="sink-association-with-dataset"></a>與資料集的接收關聯
+### <a name="sink-association-with-dataset"></a>Sink association with dataset
 
-您為接收器選取的資料集不一定會有定義于資料集定義中的架構。 如果沒有已定義的架構，則您必須允許架構漂移。 當您定義固定對應時，邏輯對機構名稱對應將會保存在接收轉換中。 如果您變更資料集的架構定義，則可能會中斷您的接收對應。 若要避免這種情況，請使用以規則為基礎的對應。 以規則為基礎的對應會一般化，這表示資料集上的架構變更不會中斷對應。
+The dataset that you select for your sink may or may not have a schema defined in the dataset definition. If it does not have a defined schema, then you must allow schema drift. When you defined a fixed mapping, the logical-to-physical name mapping will persist in the sink transformation. If you change the schema definition of the dataset, then you will potentially break your sink mapping. To avoid this, use rule-based mapping. Rule-based mappings are generalized, meaning that schema changes on your dataset will not break the mapping.
 
 ## <a name="file-name-options"></a>檔案名稱選項
 
-設定檔案命名： 
+Set up file naming: 
 
-   * **預設值**：允許 SPARK 根據部分預設值來命名檔案。
-   * **模式**：輸入輸出檔案的模式。 例如,**貸款 [n]** 將會建立 loans1 .csv、loans2, 依此類推。
-   * **每個資料分割**：每個分割區輸入一個檔案名。
-   * 當做**資料行中的資料**：將輸出檔案設為數據行的值。
-   * **輸出至單一**檔案：使用此選項時，ADF 會將分割的輸出檔案結合成單一的命名檔案。 若要使用此選項，您的資料集應解析為資料夾名稱。 此外，請注意，此合併作業可能會根據節點大小而失敗。
+   * **Default**: Allow Spark to name files based on PART defaults.
+   * **Pattern**: Enter a pattern for your output files. For example, **loans[n]** will create loans1.csv, loans2.csv, and so on.
+   * **Per partition**: Enter one file name per partition.
+   * **As data in column**: Set the output file to the value of a column.
+   * **Output to a single file**: With this option, ADF will combine the partitioned output files into a single named file. To use this option, your dataset should resolve to a folder name. Also, please be aware that this merge operation can possibly fail based upon node size.
 
 > [!NOTE]
-> 只有當您執行「執行資料流程」活動時，檔案作業才會啟動。 它們不會在資料流程的「資料流程」（Debug）模式中啟動。
+> File operations start only when you're running the Execute Data Flow activity. They don't start in Data Flow Debug mode.
 
 ## <a name="database-options"></a>資料庫選項
 
-選擇資料庫設定：
+Choose database settings:
 
-![顯示 SQL 接收選項的 [設定] 索引標籤](media/data-flow/alter-row2.png "SQL 選項")
+![The Settings tab, showing SQL sink options](media/data-flow/alter-row2.png "SQL Options")
 
-* **Update 方法**：預設為允許插入。 如果您想要停止從來源插入新的資料列, 請清除 [**允許插入**]。 若要更新、upsert 或刪除資料列，請先加入 alter-row 轉換來標記這些動作的資料列。 
-* **重新建立資料表**：在資料流程完成之前，卸載或建立目標資料表。
-* **截斷資料表**：在資料流程完成之前，從目標資料表中移除所有資料列。
-* **批次大小**：輸入用來將資料值區寫入區塊的數位。 針對大型資料載入，請使用此選項。 
-* **啟用暫存**：當您將 Azure 資料倉儲當做接收資料集載入時，請使用 PolyBase。
-* **前置和後置 SQL 腳本**：輸入將在（前置處理）和之後（後置處理）資料寫入至您的接收資料庫之前執行的多行 SQL 腳本
+* **Update method**: The default is to allow inserts. Clear **Allow insert** if you want to stop inserting new rows from your source. To update, upsert, or delete rows, first add an alter-row transformation to tag rows for those actions. 
+* **Recreate table**: Drop or create your target table before the data flow finishes.
+* **Truncate table**: Remove all rows from your target table before the data flow finishes.
+* **Batch size**: Enter a number to bucket writes into chunks. Use this option for large data loads. 
+* **Enable staging**: Use PolyBase when you load Azure Data Warehouse as your sink dataset.
+* **Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
 
-![前置和後置 SQL 處理腳本](media/data-flow/prepost1.png "SQL 處理腳本")
-
-> [!NOTE]
-> 在 [資料流程] 中, 您可以指示 Data Factory 在目標資料庫中建立新的資料表定義。 若要建立資料表定義，請在接收轉換中設定具有新資料表名稱的資料集。 在 SQL 資料集的資料表名稱底下, 選取 [**編輯**], 然後輸入新的資料表名稱。 然後, 在 [接收] 轉換中, 開啟 [**允許架構漂移**]。 將 [匯**入架構**] 設定為 [**無**]。
-
-![SQL 資料集設定，顯示編輯資料表名稱的位置](media/data-flow/dataset2.png "SQL 架構")
+![pre and post SQL processing scripts](media/data-flow/prepost1.png "SQL processing scripts")
 
 > [!NOTE]
-> 當您更新或刪除資料庫接收中的資料列時，必須設定索引鍵資料行。 此設定可讓 alter row 轉換判斷資料手機連結庫（DML）中的唯一資料列。
+> In Data Flow, you can direct Data Factory to create a new table definition in your target database. To create the table definition, set a dataset in the sink transformation that has a new table name. In the SQL dataset, below the table name, select **Edit** and enter a new table name. Then, in the sink transformation, turn on **Allow schema drift**. Set **Import schema** to **None**.
 
-### <a name="cosmosdb-specific-settings"></a>CosmosDB 特定設定
+![SQL dataset settings, showing where to edit the table name](media/data-flow/dataset2.png "SQL Schema")
 
-當 CosmosDB 中的登陸資料時，您必須考慮下列其他選項：
+> [!NOTE]
+> When you update or delete rows in your database sink, you must set the key column. This setting allows the alter-row transformation to determine the unique row in the data movement library (DML).
 
-* 分割區索引鍵：這是必要欄位。 輸入代表集合之分割區索引鍵的字串。 範例︰ ```/movies/title```
-* 輸送量：為每次執行此資料流程時，設定您想要套用至 CosmosDB 集合之 ru 數目的選擇性值。 最小值為400。
+### <a name="cosmosdb-specific-settings"></a>CosmosDB specific settings
+
+When landing data in CosmosDB, you will need to consider these additional options:
+
+* Partition Key: This is a required field. Enter a string that represents the partition key for your collection. 範例：```/movies/title```
+* Throughput: Set an optional value for the number of RUs you'd like to apply to your CosmosDB collection for each execution of this data flow. Minimum is 400.
 
 ## <a name="next-steps"></a>後續步驟
-既然您已建立資料流程，請將「資料流程」[活動新增至您的管線](concepts-data-flow-overview.md)。
+Now that you've created your data flow, add a [Data Flow activity to your pipeline](concepts-data-flow-overview.md).

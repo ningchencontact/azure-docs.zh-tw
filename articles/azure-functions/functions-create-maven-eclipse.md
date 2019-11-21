@@ -1,25 +1,19 @@
 ---
-title: 使用 Java 和 Eclipse 建立 Azure 函數應用程式 | Microsoft Docs
+title: Create an Azure function app with Java and Eclipse
 description: 使用 Java 和 Eclipse 建立 HTTP 觸發的簡單無伺服器應用程式並發佈到 Azure Functions 的操作說明指南。
-services: functions
-documentationcenter: na
 author: jeffhollan
-manager: jpconnock
-keywords: azure functions, 函式, 事件處理, 計算, 無伺服器架構, java
-ms.service: azure-functions
 ms.topic: conceptual
-ms.devlang: java
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 114d1298ec72dc0be23786664bf066fcbb7413f0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d2d353e6ccd7dad7be302a5f40c65012f32deba7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900147"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227114"
 ---
-# <a name="create-your-first-function-with-java-and-eclipse"></a>使用 JAVA 和 Eclipse 建立您的第一個函式 
+# <a name="create-your-first-function-with-java-and-eclipse"></a>Create your first function with Java and Eclipse 
 
 本文示範如何使用 Eclipse IDEA 和 Apache Maven 建立[無伺服器](https://azure.microsoft.com/solutions/serverless/)函式專案、測試此專案並加以偵錯，然後將它部署至 Azure Functions。 
 
@@ -43,14 +37,14 @@ ms.locfileid: "72900147"
 
 ## <a name="create-a-functions-project"></a>建立 Functions 專案
 
-1. 在 Eclipse 中，選取 **[檔案**] 功能表，然後選取 [**新增-&gt; Maven 專案**]。 
+1. In Eclipse, select the **File** menu, then select **New -&gt; Maven Project**. 
 1. 接受 [新增 Maven 專案] 對話方塊中的預設值，然後選取 [下一步]。
 1. 選取 [新增原型] 並新增 [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype) 的項目。
     - 原型群組識別碼：com.microsoft.azure
     - 原型構件識別碼：azure-functions-archetype
-    - 版本：從[中央存放庫](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    使用最新版本**1.22**![Eclipse Maven create](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. 按一下 **[確定]** ，然後按 **[下一步]** 。  請務必填入所有欄位的值，包括 `resourceGroup`、`appName`和 `appRegion` （請使用**fabrikam-function-20170920120101928**以外的其他 appName），最後**完成**。
+    - Version: Use latest version **1.22** from [the central repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![Eclipse Maven create](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
+1. Click **OK** and then click **Next**.  Be sure to fill in values for all of the fields including `resourceGroup`, `appName`, and `appRegion` (please use a different appName other than **fabrikam-function-20170920120101928**), and eventually **Finish**.
     ![Eclipse Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
 Maven 會以 _artifactId_ 名稱在新的資料夾中建立專案檔。 專案中產生的程式碼是 [HTTP 觸發](/azure/azure-functions/functions-bindings-http-webhook)的簡單函式，此函式會回應觸發 HTTP 要求的本文。

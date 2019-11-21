@@ -69,6 +69,8 @@
       href: ddos-protection-overview.md
     - name: 子網路延伸模組
       href: subnet-extension.md
+    - name: 子網路委派
+      href: subnet-delegation-overview.md
     - name: 後端連線能力互通性
       items:
         - name: 引用和測試設定

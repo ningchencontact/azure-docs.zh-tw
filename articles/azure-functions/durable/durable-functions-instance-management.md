@@ -1,47 +1,43 @@
 ---
 title: 在 Durable Functions 中管理執行個體 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 擴充中管理執行個體。
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 6053303f292bc96b904447aa9beb0d5602871970
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: ab9cc9b093008730d175fa3fde4391f9de236a84
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614802"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231372"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>在 Azure 中管理 Durable Functions 中的執行個體
 
-如果您使用 Azure Functions 的[Durable Functions](durable-functions-overview.md)延伸模組，或想要開始這麼做，請確定您已充分利用它。 您可以深入瞭解如何管理 Durable Functions 協調流程實例，藉此將其優化。 本文討論每個執行個體管理作業的詳細資料。
+If you're using the [Durable Functions](durable-functions-overview.md) extension for Azure Functions, or want to start doing so, make sure you're getting the best use out of it. You can optimize your Durable Functions orchestration instances by learning more about how to manage them. 本文討論每個執行個體管理作業的詳細資料。
 
-例如，您可以啟動和終止實例，而且可以查詢實例，包括使用篩選準則查詢所有實例和查詢實例的能力。 此外，您可以將事件傳送至實例、等候協調流程完成，並取出 HTTP 管理 webhook Url。 本文也涵蓋其他管理作業，包括倒帶實例、清除實例歷程記錄，以及刪除工作中樞。
+You can start and terminate instances, for example, and you can query instances, including the ability to query all instances and query instances with filters. Additionally, you can send events to instances, wait for orchestration completion, and retrieve HTTP management webhook URLs. This article covers other management operations, too, including rewinding instances, purging instance history, and deleting a task hub.
 
-在 Durable Functions 中，您可以選擇要如何執行每個管理作業。 本文提供的範例會使用 .NET（C#）和 JavaScript 的 [Azure Functions Core Tools](../functions-run-local.md)。
+In Durable Functions, you have options for how you want to implement each of these management operations. This article provides examples that use the [Azure Functions Core Tools](../functions-run-local.md) for both .NET (C#) and JavaScript.
 
-## <a name="start-instances"></a>啟動實例
+## <a name="start-instances"></a>Start instances
 
-務必要能夠啟動協調流程的實例。 當您在另一個函式的觸發程式中使用 Durable Functions 系結時，通常會進行這項工作。
+It's important to be able to start an instance of orchestration. This is commonly done when you are using a Durable Functions binding in another function's trigger.
 
-[協調流程用戶端](durable-functions-bindings.md#orchestration-client)系結上的 `StartNewAsync` （.net）或 `startNew` （JavaScript）方法會啟動新的實例。 就內部而言，這個方法會將訊息將到控制佇列中，然後使用指定的名稱觸發函式的開頭，該函式會使用[協調流程觸發](durable-functions-bindings.md#orchestration-trigger)程式系結。
+The `StartNewAsync` (.NET) or `startNew` (JavaScript) method on the [orchestration client binding](durable-functions-bindings.md#orchestration-client) starts a new instance. Internally, this method enqueues a message into the control queue, which then triggers the start of a function with the specified name that uses the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger).
 
 協調流程程序已成功排定時，此非同步作業會完成。
 
-啟動新協調流程實例的參數如下所示：
+The parameters for starting a new orchestration instance are as follows:
 
 * **Name**：要排程的協調器函式的名稱。
 * **Input**：應該當作輸入傳給協調器函式的任何 JSON 可序列化資料。
-* **InstanceId**：(選擇性) 執行個體的唯一識別碼。 如果您未指定此參數，此方法會使用隨機識別碼。
+* **InstanceId**：(選擇性) 執行個體的唯一識別碼。 If you don't specify this parameter, the method uses a random ID.
 
 > [!TIP]
-> 使用隨機識別碼作為執行個體識別碼。 當您跨多個 Vm 調整協調器函式時，隨機實例識別碼有助於確保相等的負載分佈。 使用非隨機實例識別碼的適當時間是當識別碼必須來自外部來源，或當您要執行[單一協調](durable-functions-singletons.md)器模式時。
+> 使用隨機識別碼作為執行個體識別碼。 Random instance IDs help ensure an equal load distribution when you're scaling orchestrator functions across multiple VMs. The proper time to use non-random instance IDs is when the ID must come from an external source, or when you're implementing the [singleton orchestrator](durable-functions-singletons.md) pattern.
 
-下列程式碼是啟動新協調流程實例的範例函數：
+The following code is an example function that starts a new orchestration instance:
 
 ### <a name="c"></a>C#
 
@@ -58,9 +54,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
 ```javascript
 const df = require("durable-functions");
@@ -75,34 +71,34 @@ module.exports = async function(context, input) {
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-您也可以使用[Azure Functions Core Tools](../functions-run-local.md) `durable start-new` 命令，直接啟動實例。 它需要以下參數：
+You can also start an instance directly by using the [Azure Functions Core Tools](../functions-run-local.md) `durable start-new` command. 它需要以下參數：
 
-* **`function-name` （必要）** ：要啟動之函式的名稱。
-* **`input` （選擇性）** ：對函式的輸入（不論是內嵌或透過 JSON 檔案）。 針對檔案，請將前置詞新增至具有 `@`的檔案路徑，例如 `@path/to/file.json`。
-* **`id` (選用)** ：協調流程執行個體的識別碼。 如果您未指定此參數，此命令會使用隨機的 GUID。
+* **`function-name` (required)** : Name of the function to start.
+* **`input` (optional)** : Input to the function, either inline or through a JSON file. For files, add a prefix to the path to the file with `@`, such as `@path/to/file.json`.
+* **`id` (選用)** ：協調流程執行個體的識別碼。 If you don't specify this parameter, the command uses a random GUID.
 * **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設為 AzureWebJobsStorage。
-* **`task-hub-name` （選用）** ：要使用之 Durable Functions 工作中樞的名稱。 預設為 DurableFunctionsHub。 您也可以使用 durableTask： HubName 在[host](durable-functions-bindings.md#host-json)中設定此項。
+* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. 預設為 DurableFunctionsHub。 You can also set this in [host.json](durable-functions-bindings.md#host-json) by using durableTask:HubName.
 
 > [!NOTE]
-> 核心工具命令會假設您是從函式應用程式的根目錄執行它們。 如果您明確提供 `connection-string-setting` 和 `task-hub-name` 參數，您可以從任何目錄執行命令。 雖然您可以在不執行函式應用程式主機的情況下執行這些命令，但您可能會發現除非主機正在執行，否則您無法觀察到某些效果。 例如，`start-new` 命令會將啟動訊息將到目標工作中樞，但除非有執行的函式應用程式主機進程可以處理訊息，否則不會實際執行協調流程。
+> Core Tools commands assume you are running them from the root directory of a function app. If you explicitly provide the `connection-string-setting` and `task-hub-name` parameters, you can run the commands from any directory. Although you can run these commands without a function app host running, you might find that you can't observe some effects unless the host is running. For example, the `start-new` command enqueues a start message into the target task hub, but the orchestration doesn't actually run unless there is a function app host process running that can process the message.
 
-下列命令會啟動名為 HelloWorld 的函式，並將檔案的內容傳遞給它 `counter-data.json`：
+The following command starts the function named HelloWorld, and passes the contents of the file `counter-data.json` to it:
 
 ```bash
 func durable start-new --function-name HelloWorld --input @counter-data.json --task-hub-name TestTaskHub
 ```
 
-## <a name="query-instances"></a>查詢實例
+## <a name="query-instances"></a>Query instances
 
-在您管理協調流程的過程中，您很可能需要收集有關協調流程實例狀態的資訊（例如，它是否已正常完成或失敗）。
+As part of your effort to manage your orchestrations, you'll most likely need to gather information about the status of an orchestration instance (for example, whether it has completed normally or failed).
 
-[協調流程用戶端](durable-functions-bindings.md#orchestration-client)系結上的 `GetStatusAsync` （.net）或 `getStatus` （JavaScript）方法會查詢協調流程實例的狀態。
+The `GetStatusAsync` (.NET) or the `getStatus` (JavaScript) method on the [orchestration client binding](durable-functions-bindings.md#orchestration-client) queries the status of an orchestration instance.
 
 它會以 `instanceId` (必要)、`showHistory` (選用)、`showHistoryOutput` (選用) 和 `showInput` (選用) 作為參數。
 
-* **`showHistory`** ：如果設定為 [`true`]，回應會包含執行歷程記錄。
-* **`showHistoryOutput`** ：如果設定為 `true`，則執行歷程記錄會包含活動輸出。
-* **`showInput`** ：如果設定為 `false`，回應將不會包含函數的輸入。 預設值為 `true`。
+* **`showHistory`** : If set to `true`, the response contains the execution history.
+* **`showHistoryOutput`** : If set to `true`, the execution history contains activity outputs.
+* **`showInput`** : If set to `false`, the response won't contain the input of the function. 預設值為 `true`。
 
 此方法會傳回具有下列屬性的物件：
 
@@ -110,19 +106,19 @@ func durable start-new --function-name HelloWorld --input @counter-data.json --t
 * **InstanceId**：協調流程的執行個體識別碼 (應該與 `instanceId` 輸入相同)。
 * **CreatedTime**：協調器函式開始執行的時間。
 * **LastUpdatedTime**：協調流程前次執行檢查點檢查的時間。
-* **Input**：函式的 JSON 值輸入。 如果 `showInput` 為 false，則不會填入此欄位。
+* **Input**：函式的 JSON 值輸入。 This field isn't populated if `showInput` is false.
 * **CustomStatus**：JSON 格式的自訂協調流程狀態。
-* **Output**：函式的 JSON 值輸出 (如果函式已完成)。 如果協調器函式失敗，此屬性會包含失敗詳細資料。 如果協調器函式已終止，此屬性會包含終止的原因（如果有的話）。
+* **Output**：函式的 JSON 值輸出 (如果函式已完成)。 If the orchestrator function failed, this property includes the failure details. If the orchestrator function was terminated, this property includes the reason for the termination (if any).
 * **RuntimeStatus**：下列其中一個值：
   * **擱置**：已排程的執行個體尚未開始執行。
   * **Running**：執行個體已開始執行。
   * **Completed**：執行個體已正常完成。
-  * **ContinuedAsNew**：執行個體本身以新的記錄重新啟動。 此狀態為暫時性狀態。
+  * **ContinuedAsNew**：執行個體本身以新的記錄重新啟動。 This state is a transient state.
   * **Failed**：函式失敗，發生錯誤。
   * **Terminated**：執行個體已突然停止。
 * **歷程記錄**：協調流程的執行記錄。 只有在 `showHistory` 設為 `true` 時，才會填入此欄位。
 
-如果實例不存在，這個方法會傳回 `null` （.NET）或 `undefined` （JavaScript）。
+This method returns `null` (.NET) or `undefined` (JavaScript) if the instance doesn't exist.
 
 ### <a name="c"></a>C#
 
@@ -138,7 +134,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
@@ -155,35 +151,35 @@ module.exports = async function(context, instanceId) {
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-您也可以使用[Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` 命令，直接取得協調流程實例的狀態。 它需要以下參數：
+It's also possible to get the status of an orchestration instance directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` command. 它需要以下參數：
 
-* **`id` （必要）** ：協調流程實例的識別碼。
-* **`show-input` （選用）** ：如果設為 `true`，回應會包含函式的輸入。 預設值為 `false`。
-* **`show-output` （選用）** ：如果設為 `true`，回應會包含函式的輸出。 預設值為 `false`。
+* **`id` (required)** : ID of the orchestration instance.
+* **`show-input` (optional)** : If set to `true`, the response contains the input of the function. 預設值為 `false`。
+* **`show-output` (optional)** : If set to `true`, the response contains the output of the function. 預設值為 `false`。
 * **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` （選用）** ：要使用之 Durable Functions 工作中樞的名稱。 預設值為 `DurableFunctionsHub`。 您也可以使用 durableTask： HubName，在[host. json](durable-functions-bindings.md#host-json)中設定它。
+* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. 預設值為 `DurableFunctionsHub`。 It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
 
-下列命令會抓取協調流程實例識別碼為0ab8c55a66644d68a3a8b220b12d209c 之實例的狀態（包括輸入和輸出）。 它假設您是從函式應用程式的根目錄執行 `func` 命令：
+The following command retrieves the status (including input and output) of an instance with an orchestration instance ID of 0ab8c55a66644d68a3a8b220b12d209c. It assumes that you are running the `func` command from the root directory of the function app:
 
 ```bash
 func durable get-runtime-status --id 0ab8c55a66644d68a3a8b220b12d209c --show-input true --show-output true
 ```
 
-您可以使用 `durable get-history` 命令來取出協調流程實例的歷程記錄。 它需要以下參數：
+You can use the `durable get-history` command to retrieve the history of an orchestration instance. 它需要以下參數：
 
-* **`id` （必要）** ：協調流程實例的識別碼。
+* **`id` (required)** : ID of the orchestration instance.
 * **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` （選用）** ：要使用之 Durable Functions 工作中樞的名稱。 預設值為 `DurableFunctionsHub`。 您也可以使用 durableTask： HubName，在 host. json 中設定它。
+* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. 預設值為 `DurableFunctionsHub`。 It can also be set in host.json, by using durableTask:HubName.
 
 ```bash
 func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 ```
 
-## <a name="query-all-instances"></a>查詢所有實例
+## <a name="query-all-instances"></a>Query all instances
 
-不是一次查詢協調流程中的一個實例，您可能會發現一次查詢所有專案會更有效率。
+Rather than query one instance in your orchestration at a time, you might find it more efficient to query all of them at once.
 
-您可以使用 `GetStatusAsync` (.NET) 或 `getStatusAll` (JavaScript) 方法來查詢所有協調流程執行個體的狀態。 在 .NET 中，您可以傳遞 `CancellationToken` 物件，以防您想要將它取消。 此方法會和使用參數的 `GetStatusAsync`方法一樣傳回具有相同屬性的物件。
+您可以使用 `GetStatusAsync` (.NET) 或 `getStatusAll` (JavaScript) 方法來查詢所有協調流程執行個體的狀態。 In .NET, you can pass a `CancellationToken` object in case you want to cancel it. 此方法會和使用參數的 `GetStatusAsync`方法一樣傳回具有相同屬性的物件。
 
 ### <a name="c"></a>C#
 
@@ -203,7 +199,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
@@ -222,22 +218,22 @@ module.exports = async function(context, req) {
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-您也可以使用[Azure Functions Core Tools](../functions-run-local.md) `durable get-instances` 命令直接查詢實例。 它需要以下參數：
+It's also possible to query instances directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable get-instances` command. 它需要以下參數：
 
 * **`top` (選用)** ：這個命令支援分頁。 此參數會對應至每個要求擷取的執行個體數目。 預設值為 10。
-* **`continuation-token` （選擇性）** ：用來指出要取得之實例頁面或區段的 token。 每個 `get-instances` 執行都會將權杖傳回給下一組執行個體。
+* **`continuation-token` (optional)** : A token to indicate which page or section of instances to retrieve. 每個 `get-instances` 執行都會將權杖傳回給下一組執行個體。
 * **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` （選用）** ：要使用之 Durable Functions 工作中樞的名稱。 預設值為 `DurableFunctionsHub`。 您也可以使用 durableTask： HubName，在[host. json](durable-functions-bindings.md#host-json)中設定它。
+* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. 預設值為 `DurableFunctionsHub`。 It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
 
 ```bash
 func durable get-instances
 ```
 
-## <a name="query-instances-with-filters"></a>具有篩選的查詢實例
+## <a name="query-instances-with-filters"></a>Query instances with filters
 
-如果您不需要標準實例查詢可以提供的所有資訊，該怎麼辦？ 例如，如果您只是要尋找協調流程建立時間或協調流程執行時間狀態呢？ 您可以藉由套用篩選來縮小查詢範圍。
+What if you don't really need all the information that a standard instance query can provide? For example, what if you're just looking for the orchestration creation time, or the orchestration runtime status? You can narrow your query by applying filters.
 
-使用 `GetStatusAsync` （.NET）或 `getStatusBy` （JavaScript）方法來取得符合一組預先定義之篩選準則的協調流程實例清單。
+Use the `GetStatusAsync` (.NET) or `getStatusBy` (JavaScript) method to get a list of orchestration instances that match a set of predefined filters.
 
 ### <a name="c"></a>C#
 
@@ -265,7 +261,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
@@ -292,27 +288,27 @@ module.exports = async function(context, req) {
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-在 Azure Functions Core Tools 中，您也可以搭配使用 `durable get-instances` 命令與篩選準則。 除了上述的 `top`、`continuation-token`、`connection-string-setting`和 `task-hub-name` 參數之外，您還可以使用三個篩選參數（`created-after`、`created-before`和 `runtime-status`）。
+In the Azure Functions Core Tools, you can also use the `durable get-instances` command with filters. In addition to the aforementioned `top`, `continuation-token`, `connection-string-setting`, and `task-hub-name` parameters, you can use three filter parameters (`created-after`, `created-before`, and `runtime-status`).
 
 * **`created-after` (選用)** ：擷取這個日期/時間 (UTC) 之後建立的執行個體。 可接受 ISO 8601 格式的日期時間。
 * **`created-before` (選用)** ：擷取這個日期/時間 (UTC) 之前建立的執行個體。 可接受 ISO 8601 格式的日期時間。
-* **`runtime-status` （選擇性）** ：使用特定狀態（例如，執行中或已完成）來抓取實例。 可以提供多個狀態 (以空格分隔)。
+* **`runtime-status` (optional)** : Retrieve the instances with a particular status (for example, running or completed). 可以提供多個狀態 (以空格分隔)。
 * **`top` (選用)** ：每個要求擷取的執行個體數目。 預設值為 10。
-* **`continuation-token` （選擇性）** ：用來指出要取得之實例頁面或區段的 token。 每個 `get-instances` 執行都會將權杖傳回給下一組執行個體。
+* **`continuation-token` (optional)** : A token to indicate which page or section of instances to retrieve. 每個 `get-instances` 執行都會將權杖傳回給下一組執行個體。
 * **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` （選用）** ：要使用之 Durable Functions 工作中樞的名稱。 預設值為 `DurableFunctionsHub`。 您也可以使用 durableTask： HubName，在[host. json](durable-functions-bindings.md#host-json)中設定它。
+* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. 預設值為 `DurableFunctionsHub`。 It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
 
-如果您未提供任何篩選（`created-after`、`created-before`或 `runtime-status`），此命令只會抓取 `top` 實例，而不考慮執行時間狀態或建立時間。
+If you don't provide any filters (`created-after`, `created-before`, or `runtime-status`), the command simply retrieves `top` instances, with no regard to runtime status or creation time.
 
 ```bash
 func durable get-instances --created-after 2018-03-10T13:57:31Z --created-before  2018-03-10T23:59Z --top 15
 ```
 
-## <a name="terminate-instances"></a>終止實例
+## <a name="terminate-instances"></a>Terminate instances
 
-如果您的協調流程實例執行時間太長，或只是因為任何原因而需要停止它，您可以選擇將它終止。
+If you have an orchestration instance that is taking too long to run, or you just need to stop it before it completes for any reason, you have the option to terminate it.
 
-您可以使用[協調流程用戶端](durable-functions-bindings.md#orchestration-client)系結的 `TerminateAsync` （.net）或 `terminate` （JavaScript）方法來終止實例。 這兩個參數是一個 `instanceId` 和一個 `reason` 字串，會寫入記錄和實例狀態。 終止的實例會在到達下一個 `await` （.NET）或 `yield` （JavaScript）點時立即停止執行，如果已在 `await` 或 `yield`上，則會立即終止。
+You can use the `TerminateAsync` (.NET) or the `terminate` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to terminate instances. The two parameters are an `instanceId` and a `reason` string, which are written to logs and to the instance status. A terminated instance stops running as soon as it reaches the next `await` (.NET) or `yield` (JavaScript) point, or it terminates immediately if it's already on an `await` or `yield`.
 
 ### <a name="c"></a>C#
 
@@ -328,7 +324,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
@@ -344,30 +340,30 @@ module.exports = async function(context, instanceId) {
 ```
 
 > [!NOTE]
-> 實例終止目前不會傳播。 活動函式和子協調流程會執行到完成，不論您是否已結束通話它們的協調流程實例。
+> Instance termination doesn't currently propagate. Activity functions and sub-orchestrations run to completion, regardless of whether you've terminated the orchestration instance that called them.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-您也可以使用[Azure Functions Core Tools](../functions-run-local.md) `durable terminate` 命令，直接終止協調流程實例。 它需要以下參數：
+You can also terminate an orchestration instance directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable terminate` command. 它需要以下參數：
 
-* **`id` （必要）** ：要終止之協調流程實例的識別碼。
-* **`reason` （選用）** ：終止的原因。
+* **`id` (required)** : ID of the orchestration instance to terminate.
+* **`reason` (optional)** : Reason for termination.
 * **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` （選用）** ：要使用之 Durable Functions 工作中樞的名稱。 預設值為 `DurableFunctionsHub`。 您也可以使用 durableTask： HubName，在[host. json](durable-functions-bindings.md#host-json)中設定它。
+* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. 預設值為 `DurableFunctionsHub`。 It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
 
-下列命令會終止識別碼為0ab8c55a66644d68a3a8b220b12d209c 的協調流程實例：
+The following command terminates an orchestration instance with an ID of 0ab8c55a66644d68a3a8b220b12d209c:
 
 ```bash
 func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was time to be done."
 ```
 
-## <a name="send-events-to-instances"></a>將事件傳送至實例
+## <a name="send-events-to-instances"></a>Send events to instances
 
-在某些情況下，您的協調器函式必須能夠等候並接聽外來事件，這是很重要的。 這包括等候[人為互動](durable-functions-overview.md#human)的[監視](durable-functions-overview.md#monitoring)函式和函式。
+In some scenarios, it's important for your orchestrator functions to be able to wait and listen for external events. This includes [monitor functions](durable-functions-overview.md#monitoring) and functions that are waiting for [human interaction](durable-functions-overview.md#human).
 
-使用 `RaiseEventAsync` （.NET）方法或[協調流程用戶端](durable-functions-bindings.md#orchestration-client)系結的 `raiseEvent` （JavaScript）方法，將事件通知傳送至執行中的實例。 可以處理這些事件的實例包括等候 `WaitForExternalEvent` （.NET）或產生 `waitForExternalEvent` （JavaScript）呼叫的呼叫。
+Send event notifications to running instances by using the `RaiseEventAsync` (.NET) method or the `raiseEvent` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client). Instances that can handle these events are those that are awaiting a call to `WaitForExternalEvent` (.NET) or yielding to a `waitForExternalEvent` (JavaScript) call.
 
-`RaiseEventAsync` （.NET）和 `raiseEvent` （JavaScript）的參數如下所示：
+The parameters to `RaiseEventAsync` (.NET) and `raiseEvent` (JavaScript) are as follows:
 
 * **InstanceId**：執行個體的唯一識別碼。
 * **EventName**：要傳送的事件名稱。
@@ -387,7 +383,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
@@ -403,17 +399,17 @@ module.exports = async function(context, instanceId) {
 ```
 
 > [!NOTE]
-> 如果沒有具有指定之實例識別碼的協調流程實例，則會捨棄事件訊息。 如果實例存在，但尚未等候事件，則事件會儲存在實例狀態中，直到準備好接收和處理為止。
+> If there is no orchestration instance with the specified instance ID, the event message is discarded. If an instance exists but it is not yet waiting for the event, the event will be stored in the instance state until it is ready to be received and processed.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-您也可以使用[Azure Functions Core Tools](../functions-run-local.md) `durable raise-event` 命令，直接將事件引發至協調流程實例。 它需要以下參數：
+You can also raise an event to an orchestration instance directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable raise-event` command. 它需要以下參數：
 
-* **`id` （必要）** ：協調流程實例的識別碼。
-* **`event-name`** ：要引發之事件的名稱。
-* **`event-data` (選用)** ：要傳送至協調流程執行個體的資料。 這可以是 JSON 檔案的路徑，或者您可以直接在命令列上提供資料。
+* **`id` (required)** : ID of the orchestration instance.
+* **`event-name`** : Name of the event to raise.
+* **`event-data` (選用)** ：要傳送至協調流程執行個體的資料。 This can be the path to a JSON file, or you can provide the data directly on the command line.
 * **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` （選用）** ：要使用之 Durable Functions 工作中樞的名稱。 預設值為 `DurableFunctionsHub`。 您也可以使用 durableTask： HubName，在[host. json](durable-functions-bindings.md#host-json)中設定它。
+* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. 預設值為 `DurableFunctionsHub`。 It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
 
 ```bash
 func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEvent --event-data @eventdata.json
@@ -425,9 +421,9 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 
 ## <a name="wait-for-orchestration-completion"></a>等候協調流程完成
 
-在長時間執行的協調流程中，您可能會想要等候並取得協調流程的結果。 在這些情況下，可以在協調流程上定義超時時間也很有用。 如果超過超時時間，則應該傳回協調流程的狀態，而不是結果。
+In long-running orchestrations, you may want to wait and get the results of an orchestration. In these cases, it's also useful to be able to define a timeout period on the orchestration. If the timeout is exceeded, the state of the orchestration should be returned instead of the results.
 
-`WaitForCompletionOrCreateCheckStatusResponseAsync` （.NET）或 `waitForCompletionOrCreateCheckStatusResponse` （JavaScript）方法可以用來同步取得協調流程實例的實際輸出。 根據預設，這些方法會使用預設值10秒來進行 `timeout`，而1秒則用於 `retryInterval`。  
+The `WaitForCompletionOrCreateCheckStatusResponseAsync` (.NET) or the `waitForCompletionOrCreateCheckStatusResponse` (JavaScript) method can be used to get the actual output from an orchestration instance synchronously. By default, these methods use a default value of 10 seconds for `timeout`, and 1 second for `retryInterval`.  
 
 以下是範例 HTTP 觸發函式，它會示範如何使用這個 API：
 
@@ -435,7 +431,7 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
 
-使用下列程式程式碼呼叫函數。 在 [重試間隔] 中，針對 [超時] 和 [0.5 秒] 使用2秒：
+Call the function with the following line. Use 2 seconds for the timeout and 0.5 seconds for the retry interval:
 
 ```bash
     http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
@@ -443,7 +439,7 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 
 取決於從協調流程執行個體取得回應所需的時間，會有兩種情況：
 
-* 協調流程實例會在定義的時間內完成（在此案例中為2秒），而回應會是以同步方式傳遞的實際協調流程實例輸出：
+* The orchestration instances complete within the defined timeout (in this case 2 seconds), and the response is the actual orchestration instance output, delivered synchronously:
 
     ```http
         HTTP/1.1 200 OK
@@ -458,7 +454,7 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
         ]
     ```
 
-* 協調流程實例無法在定義的時間內完成，而且回應是[HTTP API URL 探索](durable-functions-http-api.md)中所述的預設值：
+* The orchestration instances can't complete within the defined timeout, and the response is the default one described in [HTTP API URL discovery](durable-functions-http-api.md):
 
     ```http
         HTTP/1.1 202 Accepted
@@ -477,25 +473,25 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
     ```
 
 > [!NOTE]
-> Webhook Url 的格式可能會不同，視您執行的 Azure Functions 主機版本而定。 上述範例適用於 Azure Functions 2.0 主機。
+> The format of the webhook URLs might differ, depending on which version of the Azure Functions host you are running. 上述範例適用於 Azure Functions 2.0 主機。
 
-## <a name="retrieve-http-management-webhook-urls"></a>取出 HTTP 管理 webhook Url
+## <a name="retrieve-http-management-webhook-urls"></a>Retrieve HTTP management webhook URLs
 
-您可以使用外部系統來監視或引發事件至協調流程。 外部系統可以透過 webhook Url 與 Durable Functions 通訊，這是[HTTP API URL 探索](durable-functions-http-features.md#http-api-url-discovery)中所述之預設回應的一部分。 您也可以使用[協調流程用戶端](durable-functions-bindings.md#orchestration-client)系結，以程式設計方式存取 webhook url。 `CreateHttpManagementPayload` （.NET）或 `createHttpManagementPayload` （JavaScript）方法可以用來取得包含這些 webhook Url 的可序列化物件。
+You can use an external system to monitor or to raise events to an orchestration. External systems can communicate with Durable Functions through the webhook URLs that are part of the default response described in [HTTP API URL discovery](durable-functions-http-features.md#http-api-url-discovery). The webhook URLs can alternatively be accessed programmatically using the [orchestration client binding](durable-functions-bindings.md#orchestration-client). The `CreateHttpManagementPayload` (.NET) or the `createHttpManagementPayload` (JavaScript) methods can be used to get a serializable object that contains these webhook URLs.
 
-`CreateHttpManagementPayload` （.NET）和 `createHttpManagementPayload` （JavaScript）方法有一個參數：
+The `CreateHttpManagementPayload` (.NET) and `createHttpManagementPayload` (JavaScript) methods have one parameter:
 
 * **instanceId**：執行個體的唯一識別碼。
 
-方法會傳回具有下列字串屬性的物件：
+The methods return an object with the following string properties:
 
 * **Id**：協調流程的執行個體識別碼 (應該與 `InstanceId` 輸入相同)。
 * **StatusQueryGetUri**：協調流程執行個體的狀態 URL。
 * **SendEventPostUri**：協調流程執行個體的「引發事件」URL。
 * **TerminatePostUri**：協調流程執行個體的「終止」URL。
-* **PurgeHistoryDeleteUri**：協調流程實例的「清除歷程記錄」 URL。
+* **PurgeHistoryDeleteUri**: The "purge history" URL of the orchestration instance.
 
-函數可以將這些物件的實例傳送至外部系統，以監視或引發對應協調流程上的事件，如下列範例所示：
+Functions can send instances of these objects to external systems to monitor or raise events on the corresponding orchestrations, as shown in the following examples:
 
 ### <a name="c"></a>C#
 
@@ -517,7 +513,7 @@ public static void SendInstanceInfo(
 ```
 
 > [!NOTE]
-> 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `DurableActivityContext` 而不是 `IDurableActivityContext`，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableActivityContext` instead of `IDurableActivityContext`, you must use the `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
@@ -537,19 +533,19 @@ modules.exports = async function(context, ctx) {
 };
 ```
 
-## <a name="rewind-instances-preview"></a>倒轉實例（預覽）
+## <a name="rewind-instances-preview"></a>Rewind instances (preview)
 
-如果您因為非預期的原因而發生協調流程失敗，*您可以使用*針對該目的所建立的 API，將實例倒轉成先前狀況良好的狀態。
-
-> [!NOTE]
-> 此 API 並非要取代適當的錯誤處理和重試原則。 相反地，它只是要用於協調流程執行個體因非預期原因而失敗的情況。 如需有關錯誤處理和重試原則的詳細資訊，請參閱[錯誤處理](durable-functions-error-handling.md)一文。
-
-使用[協調流程用戶端](durable-functions-bindings.md#orchestration-client)系結的 `RewindAsync` （.net）或 `rewind` （JavaScript）方法，讓協調流程回到執行*中狀態。* 這個方法也會重新執行導致協調流程失敗的活動或子協調流程執行失敗。
-
-例如，假設您有一個工作流程牽涉到一系列[人工核准](durable-functions-overview.md#human)。 假設有一系列的活動功能會通知某人需要核准，並等候即時回應。 當所有核准活動都收到回應或超時之後，假設另一個活動因為應用程式設定錯誤而失敗，例如不正確資料庫連接字串。 結果就是深入工作流程的協調流程失敗。 使用 `RewindAsync` （.NET）或 `rewind` （JavaScript） API，應用程式系統管理員可以修正設定錯誤，並將失敗的協調流程回溯回到失敗前的狀態。 不需要重新核准任何人為互動步驟，協調流程現在可以順利完成。
+If you have an orchestration failure for an unexpected reason, you can *rewind* the instance to a previously healthy state by using an API built for that purpose.
 
 > [!NOTE]
-> 倒轉*功能不*支援使用持久計時器的倒帶協調流程實例。
+> 此 API 並非要取代適當的錯誤處理和重試原則。 相反地，它只是要用於協調流程執行個體因非預期原因而失敗的情況。 For more information on error handling and retry policies, see the [Error handling](durable-functions-error-handling.md) article.
+
+Use the `RewindAsync` (.NET) or `rewind` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to put the orchestration back into the *Running* state. This method will also rerun the activity or sub-orchestration execution failures that caused the orchestration failure.
+
+For example, let's say you have a workflow involving a series of [human approvals](durable-functions-overview.md#human). Suppose there are a series of activity functions that notify someone that their approval is needed, and wait out the real-time response. After all of the approval activities have received responses or timed out, suppose that another activity fails due to an application misconfiguration, such as an invalid database connection string. 結果就是深入工作流程的協調流程失敗。 With the `RewindAsync` (.NET) or `rewind` (JavaScript) API, an application administrator can fix the configuration error, and rewind the failed orchestration back to the state immediately before the failure. None of the human-interaction steps need to be re-approved, and the orchestration can now complete successfully.
+
+> [!NOTE]
+> The *rewind* feature doesn't support rewinding orchestration instances that use durable timers.
 
 ### <a name="c"></a>C#
 
@@ -565,7 +561,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
@@ -582,22 +578,22 @@ module.exports = async function(context, instanceId) {
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-您也可以使用[Azure Functions Core Tools](../functions-run-local.md) `durable rewind` 命令，直接倒轉協調流程實例。 它需要以下參數：
+You can also rewind an orchestration instance directly by using the [Azure Functions Core Tools](../functions-run-local.md) `durable rewind` command. 它需要以下參數：
 
-* **`id` （必要）** ：協調流程實例的識別碼。
-* **`reason` （選擇性）** ：倒帶協調流程實例的原因。
+* **`id` (required)** : ID of the orchestration instance.
+* **`reason` (optional)** : Reason for rewinding the orchestration instance.
 * **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` （選用）** ：要使用之 Durable Functions 工作中樞的名稱。 根據預設，會使用[主機. json](durable-functions-bindings.md#host-json)檔案中的工作中樞名稱。
+* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. By default, the task hub name in the [host.json](durable-functions-bindings.md#host-json) file is used.
 
 ```bash
 func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator failed and needs to be revived."
 ```
 
-## <a name="purge-instance-history"></a>清除實例歷程記錄
+## <a name="purge-instance-history"></a>Purge instance history
 
-若要移除與協調流程相關聯的所有資料，您可以清除實例歷程記錄。 例如，您可能會想要刪除與已完成實例相關聯的任何 Azure 資料表資料列和大型訊息 blob。 若要這麼做，請使用[協調流程用戶端](durable-functions-bindings.md#orchestration-client)系結的 `PurgeInstanceHistoryAsync` （.net）或 `purgeInstanceHistory` （JavaScript）方法。
+To remove all the data associated with an orchestration, you can purge the instance history. For example, you might want to delete any Azure Table rows and large message blobs associated with a completed instance. To do so, use the `PurgeInstanceHistoryAsync` (.NET) or `purgeInstanceHistory` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client).
 
-這個方法有兩個多載。 第一個多載會依協調流程實例的識別碼清除記錄：
+This method has two overloads. The first overload purges history by the ID of the orchestration instance:
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -618,7 +614,7 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-下一個範例顯示計時器觸發的函式，它會清除在指定時間間隔之後完成的所有協調流程實例的歷程記錄。 在這種情況下，它會移除所有實例在30天之前完成的資料。 其排程為每天上午12點執行一次：
+The next example shows a timer-triggered function that purges the history for all orchestration instances that completed after the specified time interval. In this case, it removes data for all instances completed 30 or more days ago. It's scheduled to run once per day, at 12 AM:
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -637,37 +633,37 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-**JavaScript**`purgeInstanceHistoryBy` 方法可以用來有條件地清除多個實例的實例歷程記錄。
+**JavaScript** The `purgeInstanceHistoryBy` method can be used to conditionally purge instance history for multiple instances.
 
 > [!NOTE]
-> 若要讓清除歷程記錄作業成功，目標實例的執行時間狀態必須是 [**已完成**]、[已**終止**] 或 [**失敗**]。
+> For the purge history operation to succeed, the runtime status of the target instance must be **Completed**, **Terminated**, or **Failed**.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-您可以使用 [ [Azure Functions Core Tools](../functions-run-local.md) `durable purge-history`] 命令來清除協調流程實例的歷程記錄。 與上一節C#中的第二個範例類似，它會清除在指定的時間間隔期間所建立之所有協調流程實例的歷程記錄。 您可以依執行時間狀態進一步篩選已清除的實例。 此命令有數個參數：
+You can purge an orchestration instance's history by using the [Azure Functions Core Tools](../functions-run-local.md) `durable purge-history` command. Similar to the second C# example in the preceding section, it purges the history for all orchestration instances created during a specified time interval. You can further filter purged instances by runtime status. 此命令有數個參數：
 
 * **`created-after` (選用)** ：清除這個日期/時間 (UTC) 之後所建立執行個體的記錄。 可接受 ISO 8601 格式的日期時間。
 * **`created-before` (選用)** ：清除這個日期/時間 (UTC) 之前所建立執行個體的記錄。 可接受 ISO 8601 格式的日期時間。
-* **`runtime-status` （選用）** ：清除具有特定狀態之實例的歷程記錄（例如，執行中或已完成）。 可以提供多個狀態 (以空格分隔)。
+* **`runtime-status` (optional)** : Purge the history of instances with a particular status (for example, running or completed). 可以提供多個狀態 (以空格分隔)。
 * **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` （選用）** ：要使用之 Durable Functions 工作中樞的名稱。 根據預設，會使用[主機. json](durable-functions-bindings.md#host-json)檔案中的工作中樞名稱。
+* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. By default, the task hub name in the [host.json](durable-functions-bindings.md#host-json) file is used.
 
-下列命令會刪除2018年11月14日下午 7:35 PM （UTC）之前建立之所有失敗實例的歷程記錄。
+The following command deletes the history of all failed instances created before November 14, 2018 at 7:35 PM (UTC).
 
 ```bash
 func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runtime-status failed
 ```
 
-## <a name="delete-a-task-hub"></a>刪除工作中樞
+## <a name="delete-a-task-hub"></a>Delete a task hub
 
-您可以使用[Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub` 命令，刪除與特定工作中樞相關聯的所有儲存體成品，包括 Azure 儲存體資料表、佇列和 blob。 此命令有兩個參數：
+Using the [Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub` command, you can delete all storage artifacts associated with a particular task hub, including Azure storage tables, queues, and blobs. 此命令有兩個參數：
 
 * **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` （選用）** ：要使用之 Durable Functions 工作中樞的名稱。 根據預設，會使用[主機. json](durable-functions-bindings.md#host-json)檔案中的工作中樞名稱。
+* **`task-hub-name` (optional)** : Name of the Durable Functions task hub to use. By default, the task hub name in the [host.json](durable-functions-bindings.md#host-json) file is used.
 
-下列命令會刪除與 `UserTest` 任務中樞相關聯的所有 Azure 儲存體資料。
+The following command deletes all Azure storage data associated with the `UserTest` task hub.
 
 ```bash
 func durable delete-task-hub --task-hub-name UserTest
@@ -679,4 +675,4 @@ func durable delete-task-hub --task-hub-name UserTest
 > [了解如何處理版本控制](durable-functions-versioning.md)
 
 > [!div class="nextstepaction"]
-> [實例管理的內建 HTTP API 參考](durable-functions-http-api.md)
+> [Built-in HTTP API reference for instance management](durable-functions-http-api.md)

@@ -1,6 +1,6 @@
 ---
-title: 從虛擬網路到 Azure (大型實例) 上 SAP Hana 的連線設定 |Microsoft Docs
-description: 從虛擬網路設定為使用 Azure 上 SAP Hana (大型實例) 的連線能力。
+title: Connectivity set up from virtual network to SAP HANA on Azure (large instances) | Microsoft Docs
+description: Connectivity set up from virtual network to use SAP HANA on Azure (large instances).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
@@ -13,29 +13,29 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 547640ab1a6dd948cf5d17279d784e1b4a37b35e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5fbcc6ace4923d8aa2d938cd9fffe7a16c4fc1ff
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101242"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74206734"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>將虛擬網路連線至 HANA 大型執行個體
 
-建立 Azure 虛擬網路之後，您可以將該網路連線到 Azure 大型執行個體上的 SAP HANA。 在虛擬網路上建立 Azure ExpressRoute 閘道。 此閘道可讓您將虛擬網路連結到 ExpressRoute 線路, 而此線路會連線到 HANA 大型實例戳記上的客戶租使用者。
+建立 Azure 虛擬網路之後，您可以將該網路連線到 Azure 大型執行個體上的 SAP HANA。 在虛擬網路上建立 Azure ExpressRoute 閘道。 This gateway enables you to link the virtual network to the ExpressRoute circuit that connects to the customer tenant on the HANA Large Instance stamp.
 
 > [!NOTE] 
 > 此步驟可能需要 30 分鐘的時間才能完成。 會在指定的 Azure 訂用帳戶中建立新閘道，然後連線到指定的 Azure 虛擬網路。
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-如果閘道已經存在，請檢查其是否為 ExpressRoute 閘道。 如果它不是 ExpressRoute 閘道, 請刪除閘道, 然後將其重新建立為 ExpressRoute 閘道。 如果已建立 ExpressRoute 閘道，請參閱本文的下一節＜連結虛擬網路＞。 
+如果閘道已經存在，請檢查其是否為 ExpressRoute 閘道。 If it is not an ExpressRoute gateway, delete the gateway, and re-create it as an ExpressRoute gateway. 如果已建立 ExpressRoute 閘道，請參閱本文的下一節＜連結虛擬網路＞。 
 
 - 使用 [Azure 入口網站](https://portal.azure.com/) 或 PowerShell 來建立連線到您虛擬網路的 ExpressRoute VPN 閘道。
   - 如果您使用 Azure 入口網站，請新增新的 [虛擬網路閘道]，然後選取 [ExpressRoute] 作為閘道類型。
   - 如果您是使用 PowerShell，請先下載並使用最新版的 [Azure PowerShell SDK](https://azure.microsoft.com/downloads/)。 
  
-下列命令會建立 ExpressRoute 閘道。 前面加 _$_ 上的文字是使用者定義的變數, 應以您的特定資訊進行更新。
+下列命令會建立 ExpressRoute 閘道。 The texts preceded by a _$_ are user-defined variables that should be updated with your specific information.
 
 ```powershell
 # These Values should already exist, update to match your environment
@@ -70,9 +70,9 @@ New-AzVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName -Loc
 
 ## <a name="link-virtual-networks"></a>連結虛擬網路
 
-Azure 虛擬網路現在具有 ExpressRoute 閘道。 使用 Microsoft 提供的授權資訊, 將 ExpressRoute 閘道連線至 SAP Hana 大型實例 ExpressRoute 線路。 您可以使用 Azure 入口網站或 PowerShell 來連線。 PowerShell 指示如下所示。 
+Azure 虛擬網路現在具有 ExpressRoute 閘道。 Use the authorization information provided by Microsoft to connect the ExpressRoute gateway to the SAP HANA Large Instances ExpressRoute circuit. 您可以使用 Azure 入口網站或 PowerShell 來連線。 The PowerShell instructions are as follows. 
 
-針對每個連接使用不同的 Authguid 來說都, 為每個 ExpressRoute 閘道執行下列命令。 下列指令碼顯示的前兩個項目來自 Microsoft 所提供的資訊。 此外，AuthGUID 對每個虛擬網路及其閘道來說都是特定的。 如果您想要新增另一個 Azure 虛擬網路, 您需要取得 ExpressRoute 線路的另一個 AuthID, 以便將 HANA 大型實例連線到 Azure 中的 Microsoft。 
+Run the following commands for each ExpressRoute gateway by using a different AuthGUID for each connection. 下列指令碼顯示的前兩個項目來自 Microsoft 所提供的資訊。 此外，AuthGUID 對每個虛擬網路及其閘道來說都是特定的。 If you want to add another Azure virtual network, you need to get another AuthID for your ExpressRoute circuit that connects HANA large instances into Azure from Microsoft. 
 
 ```powershell
 # Populate with information provided by Microsoft Onboarding team
@@ -96,12 +96,12 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 ```
 
 > [!NOTE]
-> 命令 Get-azvirtualnetworkgatewayconnection, **ExpressRouteGatewayBypass**中的最後一個參數是啟用 ExpressRoute 快速路徑的新參數。 可減少您的 HANA 大型實例單位與 Azure Vm 之間的網路延遲的功能。 在5月2019中新增的功能。 如需詳細資訊, 請參閱[SAP Hana (大型實例) 網路架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture)一文。 請確定您執行的是最新版本的 PowerShell Cmdlet, 然後再執行命令。
+> The last parameter in the command New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** is a new parameter that enables ExpressRoute Fast Path. A functionality that reduces network latency between your HANA Large Instance units and Azure VMs. The functionality got added in May 2019. For more details, check the article [SAP HANA (Large Instances) network architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture). Make sure that you are running the latest version of PowerShell cmdlets before running the commands.
 
 若要將閘道連線到與訂用帳戶關聯的多個 ExpressRoute 線路，可能需要執行此步驟多次。 例如，您可能要將相同的虛擬網路閘道連線到 ExpressRoute 線路，而此線路會將虛擬網路連線到內部部署網路。
 
-## <a name="applying-expressroute-fast-path-to-existing-hana-large-instance-expressroute-circuits"></a>將 ExpressRoute 快速路徑套用至現有的 HANA 大型實例 ExpressRoute 線路
-目前為止的檔說明如何將使用 HANA 大型實例部署所建立的新 ExpressRoute 線路, 連接至其中一個 Azure 虛擬網路的 Azure ExpressRoute 閘道。 但許多客戶已設定好 ExpressRoute 電路, 並已將其虛擬網路連線到 HANA 大型實例。 由於新的 ExpressRoute 快速路徑會減少網路延遲, 因此建議您套用變更以使用此功能。 用來連接新 ExpreesRoute 線路和變更現有 ExpressRoute 線路的命令是相同的。 因此, 您需要執行這一系列的 PowerShell 命令, 以變更要使用的現有線路 
+## <a name="applying-expressroute-fast-path-to-existing-hana-large-instance-expressroute-circuits"></a>Applying ExpressRoute Fast Path to existing HANA Large Instance ExpressRoute circuits
+The documentation so far explained how to connect a new ExpressRoute circuit that got created with a HANA Large Instance deployment to an Azure ExpressRoute gateway of one of your Azure virtual networks. But many customers already have their ExpressRoute circuits setup already and have their virtual networks connected to HANA Large Instances already. As the new ExpressRoute Fast Path is reducing network latency, it is recommended that you apply the change to use this functionality. The commands to connect a new ExpreesRoute circuit and to change an existing ExpressRoute Circuit are the same. As a result you need to run this sequence of PowerShell commands to change an existing circuit to use 
 
 ```powershell
 # Populate with information provided by Microsoft Onboarding team
@@ -124,35 +124,35 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 -PeerId $PeerID -ConnectionType ExpressRoute -AuthorizationKey $AuthGUID -ExpressRouteGatewayBypass
 ```
 
-請務必新增如上所示的最後一個參數, 以啟用 ExpressRoute 快速路徑功能
+It is important that you add the last parameter as displayed above to enable the ExpressRoute Fast Path functionality
 
 
 ## <a name="expressroute-global-reach"></a>ExpressRoute Global Reach
-因為您想要針對這兩個案例的其中一種或兩種情況啟用全球觸達:
+As you want to enable Global Reach for one or both of the two scenarios:
 
- - HANA 系統複寫, 不需要任何額外的 proxy 或防火牆
- - 在兩個不同區域中的 HANA 大型實例單位之間複本備份, 以執行系統複製或系統重新整理
+ - HANA System Replication without any additional proxies or firewalls
+ - Copying backups between HANA Large Instance units in two different regions to perform system copies or system refreshes
 
-您需要考慮:
+you need consider that:
 
-- 您必須提供/29 位址空間的位址空間範圍。 該位址範圍可能與您目前用來將 HANA 大型實例連線到 Azure 的任何其他位址空間範圍不重迭, 而且可能不會與您在 Azure 或內部部署中其他地方使用的任何 IP 位址範圍重迭。
-- Asn (自發系統編號) 有一項限制, 可用來將您的內部部署路由公告至 HANA 大型實例。 您的內部部署不得以65000–65020或65515的範圍來公告具有私用 Asn 的任何路由。 
-- 針對將內部部署直接存取連接到「HANA 大型實例」的案例, 您需要計算連接到 Azure 的線路費用。 如需價格, 請查看[全球接觸附加](https://azure.microsoft.com/pricing/details/expressroute/)元件的價格。
+- You need to provide an address space range of a /29 address space. That address range may not overlap with any of the other address space ranges that you used so far connecting HANA Large Instances to Azure and may not overlap with any of your IP address ranges you used somewhere else in Azure or on-premises.
+- There is a limitation on the ASNs (Autonomous System Number) that can be used to advertise your on-premises routes to HANA Large Instances. Your on-premises must not advertise any routes with private ASNs in the range of 65000 – 65020 or 65515. 
+- For the scenario of connecting on-premises direct access to HANA Large instances, you need to calculate a fee for the circuit that connects you to Azure. For prices, check the prices for [Global Reach Add-On](https://azure.microsoft.com/pricing/details/expressroute/).
 
-若要取得套用至部署的一或兩個案例, 請使用 Azure 開啟支援訊息, 如[開啟 HANA 大型實例的支援要求](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#open-a-support-request-for-hana-large-instances)中所述
+To get one or both of the scenarios applied to your deployment, open a support message with Azure as described in [Open a support request for HANA large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#open-a-support-request-for-hana-large-instances)
 
-需要使用的資料和關鍵字, 讓 Microsoft 能夠在您的要求上路由及執行, 如下所示:
+Data that is needed and keywords that you need to use for Microsoft to be able to route and execute on your request, looks like:
 
-- 服務：SAP HANA 大型執行個體
-- 問題類型:組態和設定
-- 問題子類型：並未列出我的問題
-- 主旨「修改我的網路-加入全球範圍」
-- 詳細資料：「新增至 hana 大型實例到 hana 大型實例租使用者的全域觸達, 或將內部部署的全域延伸新增至 HANA 大型實例租使用者。
-- HANA 大型實例到 HANA 大型實例租使用者案例的其他詳細資料:您必須定義兩個要連線的租使用者所在的**Azure 區域** **, 而且**您需要提交 **/29 個 IP 位址範圍**
-- 內部部署至 HANA 大型實例租使用者案例的其他詳細資料:您必須定義您想要直接連接到部署 HANA 大型實例租使用者的**Azure 區域**。 此外, 您還需要提供在內部部署與 Azure 之間建立 ExpressRoute 線路時所收到的**驗證 GUID**和**線路對等識別碼**。 此外, 您必須為**ASN**命名。 最後一個交付項是 ExpressRoute 全球範圍的 **/29 IP 位址範圍**。
+- Service: SAP HANA Large Instance
+- Problem type: Configuration and Setup
+- Problem subtype: My problem is not listed above
+- Subject 'Modify my Network - add Global Reach'
+- Details: 'Add Global Reach to HANA Large Instance to HANA Large Instance tenant or 'Add Global Reach to on-premises to HANA Large Instance tenant.
+- Additional details for the HANA Large Instance to HANA Large Instance tenant case: You need to define the **two Azure regions** where the two tenants to connect are located **AND** you need to submit the **/29 IP address range**
+- Additional details for the on-premises to HANA Large Instance tenant case: You need to define the **Azure Region** where the HANA Large Instance tenant is deployed you want to connect to directly. Additionally you need to provide the **Auth GUID** and **Circuit Peer ID** that you received when you established your ExpressRoute circuit between on-premises and Azure. Additionally, you need to name your **ASN**. The last deliverable is a **/29 IP address range** for ExpressRoute Global Reach.
 
 > [!NOTE]
-> 如果您想要處理這兩個案例, 您需要提供兩個不同的/29 個 IP 位址範圍, 而不會與目前為止使用的任何其他 IP 位址範圍重迭。 
+> If you want to have both cases handled, you need to supply two different /29 IP address ranges that do not overlap with any other IP address range used so far. 
 
 
 

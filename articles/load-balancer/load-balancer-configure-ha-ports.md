@@ -1,6 +1,6 @@
 ---
 title: 設定 Azure Load Balancer 的高可用性連接埠
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: 了解如何使用高可用性連接埠來對所有連接埠上的內部流量進行負載平衡
 services: load-balancer
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: allensu
-ms.openlocfilehash: c0cf1eb62c8e01988c9014478ff72816e45ea64c
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c2e787a1f81d9f3d31b981c31a0249dd362b7bb9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275624"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225412"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>設定內部負載平衡器的高可用性連接埠
 
@@ -48,7 +48,7 @@ ms.locfileid: "68275624"
 
 ### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>使用 Azure 入口網站設定高可用性連接埠負載平衡器規則
 
-若要使用 Azure 入口網站來設定高可用性連接埠，請選取 [HA 連接埠]  核取方塊。 選取此選項時，系統會自動填入相關的連接埠和通訊協定組態。 
+若要使用 Azure 入口網站來設定高可用性連接埠，請選取 [HA 連接埠] 核取方塊。 選取此選項時，系統會自動填入相關的連接埠和通訊協定組態。 
 
 ![透過 Azure 入口網站的高可用性連接埠設定](./media/load-balancer-configure-ha-ports/haports-portal.png)
 

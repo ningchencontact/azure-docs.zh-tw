@@ -1,20 +1,16 @@
 ---
 title: Durable Functions 中的工作中樞 - Azure
-description: 了解在 Azure Functions 的 Durable Functions 擴充中，什麼是工作中樞。 了解如何設定工作中樞。
-services: functions
+description: 了解在 Azure Functions 的 Durable Functions 擴充中，什麼是工作中樞。 Learn how to configure task hubs.
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2017
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b0a58251530467d788710b0584b15715a207e20f
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 38c7da8a1de57ed5acf3248fc6a71431de0bd1e2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734314"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232796"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的工作中樞
 
@@ -33,24 +29,15 @@ ms.locfileid: "70734314"
 * 一個記錄資料表。
 * 一個執行個體資料表。
 * 一個儲存體容器，含有一或多個租用 blob。
+* A storage container containing large message payloads, if applicable.
 
-當協調器或活動函式執行時，或已排程執行時，就會在預設 Azure 儲存體帳戶中自動建立所有這些資源。 [效能和延展性](durable-functions-perf-and-scale.md)一文說明如何使用這些資源。
+All of these resources are created automatically in the default Azure Storage account when orchestrator, entity, or activity functions run or are scheduled to run. [效能和延展性](durable-functions-perf-and-scale.md)一文說明如何使用這些資源。
 
 ## <a name="task-hub-names"></a>工作中樞名稱
 
 工作中樞可透過 host.json 檔案中所宣告的名稱來加以識別，如下列範例所示：
 
-### <a name="hostjson-functions-1x"></a>host.json (Functions 1.x)
-
-```json
-{
-  "durableTask": {
-    "hubName": "MyTaskHub"
-  }
-}
-```
-
-### <a name="hostjson-functions-2x"></a>host.json (Functions 2.x)
+### <a name="hostjson-functions-20"></a>host.json (Functions 2.0)
 
 ```json
 {
@@ -63,9 +50,19 @@ ms.locfileid: "70734314"
 }
 ```
 
-工作中樞也可以使用應用程式設定來設定，如下列 *host.json* 範例檔案所示：
-
 ### <a name="hostjson-functions-1x"></a>host.json (Functions 1.x)
+
+```json
+{
+  "durableTask": {
+    "hubName": "MyTaskHub"
+  }
+}
+```
+
+Task hubs can also be configured using app settings, as shown in the following `host.json` example file:
+
+### <a name="hostjson-functions-10"></a>host.json (Functions 1.0)
 
 ```json
 {
@@ -75,7 +72,7 @@ ms.locfileid: "70734314"
 }
 ```
 
-### <a name="hostjson-functions-2x"></a>host.json (Functions 2.x)
+### <a name="hostjson-functions-20"></a>host.json (Functions 2.0)
 
 ```json
 {
@@ -99,7 +96,7 @@ ms.locfileid: "70734314"
 }
 ```
 
-以下先行編譯的 C# 範例示範如何撰寫函式，使用 [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) \(英文\) 以搭配設定為應用程式設定的工作中樞來運作：
+The following code is a precompiled C# example of how to write a function that uses the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to work with a task hub that is configured as an App Setting:
 
 ### <a name="c"></a>C#
 
@@ -107,7 +104,7 @@ ms.locfileid: "70734314"
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
     [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
-    [OrchestrationClient(TaskHub = "%MyTaskHub%")] DurableOrchestrationClientBase starter,
+    [OrchestrationClient(TaskHub = "%MyTaskHub%")] IDurableOrchestrationClient starter,
     string functionName,
     ILogger log)
 {
@@ -121,9 +118,13 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-### <a name="javascript"></a>JavaScript
+> [!NOTE]
+> The previous C# example is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+### <a name="javascript"></a>Javascript
 
 `function.json` 檔案中的工作中樞屬性會透過應用程式設定來設定：
+
 ```json
 {
     "name": "input",
@@ -133,12 +134,19 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-工作中樞名稱必須以字母開頭，且只包含字母和數字。 如果未指定，則預設名稱是 **DurableFunctionsHub**。
+工作中樞名稱必須以字母開頭，僅包含字母和數字。 If not specified, a default task hub name will be used as shown in the following table:
+
+| Durable extension version | Default task hub name |
+| - | - |
+| 2.x | When deployed in Azure, the task hub name is derived from the name of the _function app_. When running outside of Azure, the default task hub name is `TestHubName`. |
+| 1.x | The default task hub name for all environments is `DurableFunctionsHub`. |
+
+For more information about the differences between extension versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 > [!NOTE]
-> 當共用儲存體帳戶中有多個工作中樞時，可透過名稱來區分各個工作中樞。 如果您有多個函式應用程式共用了共用儲存體帳戶，您必須明確地在 host.json 檔案中為每個工作中樞設定不同的名稱。 否則，多個函式應用程式會因為訊息而彼此競爭，並可能因此導致未定義的行為。
+> 當共用儲存體帳戶中有多個工作中樞時，可透過名稱來區分各個工作中樞。 如果您有多個函式應用程式共用了共用儲存體帳戶，您必須明確地在 host.json 檔案中為每個工作中樞設定不同的名稱。 Otherwise the multiple function apps will compete with each other for messages, which could result in undefined behavior, including orchestrations getting unexpectedly "stuck" in the `Pending` or `Running` state.
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [了解如何處理版本控制](durable-functions-versioning.md)
+> [Learn how to handle orchestration versioning](durable-functions-versioning.md)

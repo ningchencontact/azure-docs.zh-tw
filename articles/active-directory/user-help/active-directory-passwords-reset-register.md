@@ -1,6 +1,6 @@
 ---
-title: 註冊以重設您自己的密碼-Azure AD
-description: 註冊驗證資料以 Azure AD 自助式密碼重設，因此您可以在沒有系統管理員協助的情況下重設自己的密碼。
+title: Register authentication info to reset your own password - Azure AD
+description: Register your authentication method information for Azure AD self-service password reset, so you can reset your own password without administrator help.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 796702b2189dcfb001f72913e4a01c0ae01462ad
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: 01cae72ac4752d5d1f6135312d578eb1a277ccd9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820440"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231908"
 ---
-# <a name="register-to-reset-your-own-password"></a>註冊以重設您自己的密碼
+# <a name="register-your-authentication-method-info-to-reset-your-own-password"></a>Register your authentication method info to reset your own password
 
 > [!IMPORTANT]
 > 您是否因無法登入而在這裡？ 若是如此，請參閱[重設您的工作密碼或學校密碼](active-directory-passwords-update-your-own-password.md)。

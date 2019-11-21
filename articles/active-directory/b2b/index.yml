@@ -5,19 +5,19 @@ metadata:
   title: 應用程式管理文件
   description: 了解如何使用 Azure AD 企業對企業 (B2B) 共同作業，以與來賓使用者和來自任何組織的外部夥伴安全地共用公司的應用程式及服務，同時持續控制貴公司的資料。
   ms.service: active-directory
-  ms.subservice: manage-apps
+  ms.subservice: B2B
   ms.workload: identity
   ms.topic: landing-page
   ms.date: 08/27/2019
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: a1822b3bd6ec7950bc3c0ab9304ea2f60a7127e4
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.openlocfilehash: 2c0f418249d470c1454474012fb25e6670630108
+  ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70125165"
+  ms.lasthandoff: 11/21/2019
+  ms.locfileid: "74272687"
 landingContent:
 - title: 關於 Azure B2B 共同作業
   linkLists:

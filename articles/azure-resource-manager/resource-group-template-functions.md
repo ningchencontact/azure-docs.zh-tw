@@ -1,18 +1,18 @@
 ---
-title: 範本函式
+title: 範本功能
 description: 描述要在 Azure 資源管理員範本中用來擷取值、搭配字串和數字使用，並擷取部署資訊的函數。
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: a9501517672d3ea80a29979ce6b1439c4cc0010e
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 11/19/2019
+ms.openlocfilehash: cf263bff72677778433d4ef2f3cee8135fe3ab06
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150652"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224174"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure 資源管理員範本函數
 
-本文描述您可以在Azure Resource Manager 範本中使用的所有函式。 如需在您的範本中使用函式的詳細資訊，請參閱[範本語法](template-expressions.md)。
+本文描述您可以在Azure Resource Manager 範本中使用的所有函式。 For information about using functions in your template, see [template syntax](template-expressions.md).
 
 若要建立自己的函式，請參閱[使用者定義的函式](resource-group-authoring-templates.md#functions)。
 
@@ -62,7 +62,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 <a id="greaterorequals" aria-hidden="true" />
 
 ## <a name="comparison-functions"></a>比較函式
-Resource Manager 提供了幾個用來在範本中進行比較的函式。
+Resource Manager 提供了幾個可在範本中進行比較的函式。
 
 * [equals](resource-group-template-functions-comparison.md#equals)
 * [less](resource-group-template-functions-comparison.md#less)
@@ -78,6 +78,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 資源管理員提供下列函式，以從與部署相關的範本和值的區段中取得值：
 
 * [部署](resource-group-template-functions-deployment.md#deployment)
+* [environment](resource-group-template-functions-deployment.md#environment)
 * [參數](resource-group-template-functions-deployment.md#parameters)
 * [變數](resource-group-template-functions-deployment.md#variables)
 
@@ -221,4 +222,4 @@ Resource Manager 提供下列函式以使用邏輯條件：
 * 如需有關 Azure 資源管理員範本中各區段的說明，請參閱 [編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 * 若要合併多個範本，請參閱 [透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)
 * 建立資源類型時若要逐一查看指定的次數，請參閱 [在 Azure Resource Manager 中建立資源的多個執行個體](resource-group-create-multiple.md)
-* 若要瞭解如何部署您所建立的範本，請參閱[使用 Azure Resource Manager 範本部署應用程式](resource-group-template-deploy.md)
+* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)

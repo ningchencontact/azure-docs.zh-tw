@@ -4,14 +4,8 @@ title: Azure Notebooks 文件
 metadata:
   title: Azure Notebooks 文件
   description: 了解如何透過裝載的 Azure Notebooks 服務來建立、執行和共用 Jupyter Notebooks。
-  services: notebooks
-  author: kraigb
-  manager: barbkess
-  ms.service: azure-notebooks
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
   ms.date: 12/04/2018
-  ms.author: kraigb
 abstract:
   description: 'Azure Notebooks 是免費的裝載服務，無需任何安裝程序，就能用來在雲端中開發和執行 Jupyter Notebooks。 Jupyter (前稱 IPython) 是開放原始碼專案，可輕鬆將 Markdown 文字、可執行程式碼 (Python、R 和 F#)、持續性資料、圖形以及視覺效果統整至名為「筆記本」的單一且可分享的畫布上。'
 sections:

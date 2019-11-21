@@ -12,26 +12,26 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 07/28/2019
+ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 07/28/2019
-ms.openlocfilehash: 8299725cf6977ca309d57b40f4792ff9b074a8cb
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.lastreviewed: 11/07/2019
+ms.openlocfilehash: 0cf593ce4ab9e0ba299d10b34422ee30661f38a9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213222"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228182"
 ---
-# <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推播至特定 iOS 裝置
+# <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至特定 iOS 裝置
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 本教學課程說明如何使用 Azure 通知中樞將即時新聞通知廣播至 iOS 應用程式。 完成時，您將能夠註冊自己所感興趣的即時新聞類別，並僅接收那些類別的推播通知。 此情況為適用於許多應用程式的常見模式，其中必須將通知傳送給先前宣告對該通知感興趣的使用者群組，例如 RSS 閱讀程式、供樂迷使用的應用程式等等。
 
-在通知中樞內建立註冊時，您可以透過包含一或多個 *tags* 來啟用廣播案例。 當通知傳送至標記時，已註冊該標記的裝置都會收到該通知。 由於標籤只是簡單的字串而已，您無需預先佈建標籤。 如需標記的詳細資訊，請參閱[通知中樞路由與標記運算式](notification-hubs-tags-segment-push-message.md)。
+在通知中樞內建立註冊時，您可以透過包含一或多個 *tags* 來啟用廣播案例。 當通知傳送至標記時，已註冊該標記的裝置都會收到該通知。 由於標籤只是簡單的字串而已，您無需預先佈建標籤。 如需標籤的詳細資訊，請參閱[通知中樞路由與標記運算式](notification-hubs-tags-segment-push-message.md)。
 
 在本教學課程中，您會執行下列步驟：
 
@@ -43,7 +43,7 @@ ms.locfileid: "71213222"
 
 ## <a name="prerequisites"></a>必要條件
 
-本主題以您在以下教學課程中建立的應用程式為基礎：[教學課程：使用 Azure 通知中樞][get-started]將通知推送至 iOS 應用程式。 開始本教學課程之前，您必須已完成[教學課程：使用 Azure 通知中樞][get-started]將通知推送至 iOS 應用程式。
+This topic builds on the app you created in [Tutorial: Push notifications to iOS apps using Azure Notification Hubs][get-started]. Before starting this tutorial, you must have already completed [Tutorial: Push notifications to iOS apps using Azure Notification Hubs][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>在應用程式中新增類別選項
 
@@ -61,6 +61,7 @@ ms.locfileid: "71213222"
      ![Xcode 介面產生器][3]
 
 2. 在輔助編輯器中，建立所有參數的出口，並將其命名為 "WorldSwitch"、"PoliticsSwitch"、"BusinessSwitch"、"TechnologySwitch"、"ScienceSwitch"、"SportsSwitch"
+
 3. 為按鈕建立名為 `subscribe` 的動作；您的 `ViewController.h` 應包含下列程式碼：
 
     ```objc
@@ -176,7 +177,7 @@ ms.locfileid: "71213222"
 
     此時，`didRegisterForRemoteNotificationsWithDeviceToken` 方法中不應有任何其他程式碼。
 
-10. 完成[開始使用通知中樞][get-started]教學課程之前， `AppDelegate.m`下列方法應該已出現在中。 否則，請予以新增。
+10. The following methods should already be present in `AppDelegate.m` from completing the [Get started with Notification Hubs][get-started] tutorial. 否則，請予以新增。
 
     ```objc
     - (void)MessageBox:(NSString *)title message:(NSString *)messageText
@@ -252,7 +253,7 @@ ms.locfileid: "71213222"
 
 ## <a name="optional-send-notifications-from-the-device"></a>(選擇性) 從裝置傳送通知
 
-通知通常會由後端服務傳送，但您可直接從應用程式傳送即時新聞通知。 若要這麼做，請更新`SendNotificationRESTAPI`您在[開始使用通知中樞][get-started]教學課程中所定義的方法。
+通知通常會由後端服務傳送，但您可直接從應用程式傳送即時新聞通知。 To do so, you update the `SendNotificationRESTAPI` method that you defined in the [Get started with Notification Hubs][get-started] tutorial.
 
 1. 在 `ViewController.m` 中，以下列方式更新 `SendNotificationRESTAPI` 方法，使其接受參數作為類別標記，並會傳送正確的[範本](notification-hubs-templates-cross-platform-push-messages.md)通知。
 

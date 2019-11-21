@@ -1,22 +1,16 @@
 ---
 title: 如何針對無法連線至 Azure Functions 執行階段的情形進行疑難排解。
 description: 了解如何針對無效的儲存體帳戶進行疑難排解。
-services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
-ms.service: azure-functions
-ms.workload: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: d5959acc7719e2b02d529bca8261bc09d5b93634
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 212f10bd33479e5a9f7244d5b2090c0324f937c2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085337"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226768"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>如何針對「無法連線至函式執行階段」的情形進行疑難排解
 
@@ -62,10 +56,10 @@ ms.locfileid: "70085337"
 
 [在此了解這些應用程式設定](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-### <a name="guidance"></a>指引
+### <a name="guidance"></a>指導方針
 
 * 請勿對上述任何設定核取 [位置設定]。 當您交換部署位置時，函式將會中斷。
-* 請勿將這些設定修改為自動化部署的一部分。
+* Do not modify these settings as part of automated deployments.
 * 在建立時，必須提供這些設定，且設定必須有效。 即使事後新增設定，不包含這些設定的自動化部署仍會導致應用程式無法運作。
 
 ## <a name="storage-account-credentials-invalid"></a>儲存體帳戶的認證無效

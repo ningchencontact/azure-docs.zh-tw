@@ -1,187 +1,185 @@
 ---
-title: Azure Functions 中的部署技術 |Microsoft Docs
-description: 瞭解您可以將程式碼部署到 Azure Functions 的不同方式。
+title: Deployment technologies in Azure Functions
+description: Learn the different ways you can deploy code to Azure Functions.
 author: ColbyTresness
-manager: gwallace
-ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: ce8287626b390d6eac4a3461d928c24f515f4023
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0eeb9c0c938793bb13218c5407f2a3fa117880e7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576134"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227001"
 ---
-# <a name="deployment-technologies-in-azure-functions"></a>Azure Functions 中的部署技術
+# <a name="deployment-technologies-in-azure-functions"></a>Deployment technologies in Azure Functions
 
-您可以使用幾種不同的技術，將您的 Azure Functions 專案程式碼部署至 Azure。 本文提供這些技術的詳盡清單，說明哪些技術適用于哪些類別的函式、說明當您使用每個方法時所發生的情況，以及提供在各種情況下使用最佳方法的建議. 支援部署至 Azure Functions 的各種工具，會根據其內容調整為正確的技術。 一般來說，zip 部署是建議的 Azure Functions 部署技術。
+You can use a few different technologies to deploy your Azure Functions project code to Azure. This article provides an exhaustive list of those technologies, describes which technologies are available for which flavors of Functions, explains what happens when you use each method, and provides recommendations for the best method to use in various scenarios. The various tools that support deploying to Azure Functions are tuned to the right technology based on their context. In general, zip deployment is the recommended deployment technology for Azure Functions.
 
-## <a name="deployment-technology-availability"></a>部署技術可用性
+## <a name="deployment-technology-availability"></a>Deployment technology availability
 
-Azure Functions 支援跨平臺本機開發和 Windows 和 Linux 上的裝載。 目前有三個主控方案可供使用：
+Azure Functions supports cross-platform local development and hosting on Windows and Linux. Currently, three hosting plans are available:
 
-+ [率](functions-scale.md#consumption-plan)
++ [Consumption](functions-scale.md#consumption-plan)
 + [高級](functions-scale.md#premium-plan)
-+ [專用（App Service）](functions-scale.md#app-service-plan)
++ [Dedicated (App Service)](functions-scale.md#app-service-plan)
 
-每個方案都有不同的行為。 並非所有的部署技術都適用于 Azure Functions 的各個類別。 下圖顯示作業系統和主控方案的每個組合支援的部署技術：
+Each plan has different behaviors. Not all deployment technologies are available for each flavor of Azure Functions. The following chart shows which deployment technologies are supported for each combination of operating system and hosting plan:
 
-| 部署技術 | Windows 耗用量 | Windows Premium | Windows 專用  | Linux 使用量 | Linux Premium | Linux 專用 |
+| Deployment technology | Windows Consumption | Windows Premium | Windows Dedicated  | Linux Consumption | Linux Premium | Linux Dedicated |
 |-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
-| 外部套件 URL<sup>1</sup> |✔|✔|✔|✔|✔|✔|
-| Zip 部署 |✔|✔|✔|✔|✔|✔|
+| External package URL<sup>1</sup> |✔|✔|✔|✔|✔|✔|
+| Zip deploy |✔|✔|✔|✔|✔|✔|
 | Docker 容器 | | | | |✔|✔|
 | Web Deploy |✔|✔|✔| | | |
 | 原始檔控制 |✔|✔|✔| |✔|✔|
-| 本機 Git<sup>1</sup> |✔|✔|✔| |✔|✔|
-| 雲端同步處理<sup>1</sup> |✔|✔|✔| |✔|✔|
+| Local Git<sup>1</sup> |✔|✔|✔| |✔|✔|
+| Cloud sync<sup>1</sup> |✔|✔|✔| |✔|✔|
 | FTP<sup>1</sup> |✔|✔|✔| |✔|✔|
-| 入口網站編輯 |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
+| Portal editing |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
 
-<sup>1</sup>需要[手動觸發同步](#trigger-syncing)處理的部署技術。  
-<sup>2</sup>只有針對 Linux 上的函式使用 Premium 和專用方案的 HTTP 和計時器觸發程式，才會啟用入口網站編輯功能。
+<sup>1</sup> Deployment technology that requires [manual trigger syncing](#trigger-syncing).  
+<sup>2</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and dedicated plans.
 
-## <a name="key-concepts"></a>重要概念
+## <a name="key-concepts"></a>主要概念
 
-若要瞭解部署在 Azure Functions 中的使用方式，某些重要概念十分重要。
+Some key concepts are critical to understanding how deployments work in Azure Functions.
 
-### <a name="trigger-syncing"></a>觸發程式同步
+### <a name="trigger-syncing"></a>Trigger syncing
 
-當您變更任何觸發程式時，函數基礎結構必須知道這些變更。 同步處理會針對許多部署技術自動進行。 不過，在某些情況下，您必須手動同步處理您的觸發程式。 當您藉由參考外部套件 URL、本機 Git、雲端同步或 FTP 來部署更新時，您必須手動同步處理您的觸發程式。 您可以透過下列三種方式之一來同步觸發程式：
+When you change any of your triggers, the Functions infrastructure must be aware of the changes. Synchronization happens automatically for many deployment technologies. However, in some cases, you must manually sync your triggers. When you deploy your updates by referencing an external package URL, local Git, cloud sync, or FTP, you must manually sync your triggers. You can sync triggers in one of three ways:
 
-* 在 Azure 入口網站中重新開機函數應用程式
-* 使用[主要金鑰](functions-bindings-http-webhook.md#authorization-keys)將 HTTP POST 要求傳送至 `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>`。
-* 將 HTTP POST 要求傳送至 `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`。 將預留位置取代為您的訂用帳戶識別碼、資源組名和函式應用程式的名稱。
+* Restart your function app in the Azure portal
+* Send an HTTP POST request to `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](functions-bindings-http-webhook.md#authorization-keys).
+* Send an HTTP POST request to `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Replace the placeholders with your subscription ID, resource group name, and the name of your function app.
 
-### <a name="remote-build"></a>遠端組建
+### <a name="remote-build"></a>Remote build
 
-Azure Functions 可以自動在 zip 部署後所收到的程式碼上執行組建。 根據您的應用程式是在 Windows 或 Linux 上執行，這些組建的行為會稍有不同。 當先前已將應用程式設定為在 [[從封裝執行](run-functions-from-deployment-package.md)] 中執行時，不會執行遠端組建。 若要瞭解如何使用遠端組建，請流覽至 [ [zip 部署](#zip-deploy)]。
+Azure Functions can automatically perform builds on the code it receives after zip deployments. These builds behave slightly differently depending on whether your app is running on Windows or Linux. Remote builds are not performed when an app has previously been set to run in [Run From Package](run-functions-from-deployment-package.md) mode. To learn how to use remote build, navigate to [zip deploy](#zip-deploy).
 
 > [!NOTE]
-> 如果您遇到遠端組建的問題，可能是因為您的應用程式是在功能推出之前建立（2019年8月1日）。 請嘗試建立新的函式應用程式，或執行 `az functionapp update -g <RESOURCE_GROUP_NAME> -n <APP_NAME>` 來更新您的函式應用程式。 此命令可能會嘗試兩次成功。
+> If you're having issues with remote build, it might be because your app was created before the feature was made available (August 1, 2019). Try creating a new function app, or running `az functionapp update -g <RESOURCE_GROUP_NAME> -n <APP_NAME>` to update your function app. This command might take two tries to succeed.
 
-#### <a name="remote-build-on-windows"></a>Windows 上的遠端組建
+#### <a name="remote-build-on-windows"></a>Remote build on Windows
 
-在 Windows 上執行的所有函數應用程式都有小型的管理應用程式，也就是 SCM （或[Kudu](https://github.com/projectkudu/kudu)）網站。 此網站會處理許多部署和 Azure Functions 的組建邏輯。
+All function apps running on Windows have a small management app, the SCM (or [Kudu](https://github.com/projectkudu/kudu)) site. This site handles much of the deployment and build logic for Azure Functions.
 
-將應用程式部署到 Windows 時，會執行特定語言的命令，例如C#`dotnet restore` （）或 `npm install` （JavaScript）。
+When an app is deployed to Windows, language-specific commands, like `dotnet restore` (C#) or `npm install` (JavaScript) are run.
 
-#### <a name="remote-build-on-linux"></a>Linux 上的遠端組建
+#### <a name="remote-build-on-linux"></a>Remote build on Linux
 
-若要在 Linux 上啟用遠端組建，必須設定下列[應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)：
+To enable remote build on Linux, the following [application settings](functions-how-to-use-azure-function-app-settings.md#settings) must be set:
 
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-根據預設，在部署至 Linux 時， [Azure Functions Core Tools](functions-run-local.md)和[Azure Functions Visual Studio Code 延伸](functions-create-first-function-vs-code.md#publish-the-project-to-azure)模組都會執行遠端組建。 因此，這兩個工具會自動在 Azure 中為您建立這些設定。 
+By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure. 
 
-當應用程式在 Linux 上以遠端方式建立時，它們會[從部署套件執行](run-functions-from-deployment-package.md)。 
+When apps are built remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md). 
 
-##### <a name="consumption-plan"></a>取用方案
+##### <a name="consumption-plan"></a>使用量方案
 
-在取用方案中執行的 Linux 函式應用程式沒有 SCM/Kudu 網站，這會限制部署選項。 不過，在取用方案中執行的 Linux 上的函式應用程式會支援遠端組建。
+Linux function apps running in the Consumption plan don't have an SCM/Kudu site, which limits the deployment options. However, function apps on Linux running in the Consumption plan do support remote builds.
 
-##### <a name="dedicated-and-premium-plans"></a>專用和 Premium 方案
+##### <a name="dedicated-and-premium-plans"></a>Dedicated and Premium plans
 
-在[專用（App Service）方案](functions-scale.md#app-service-plan)和[Premium 方案](functions-scale.md#premium-plan)的 Linux 上執行的函式應用程式，也有受限的 SCM/Kudu 網站。
+Function apps running on Linux in the [Dedicated (App Service) plan](functions-scale.md#app-service-plan) and the [Premium plan](functions-scale.md#premium-plan) also have a limited SCM/Kudu site.
 
-## <a name="deployment-technology-details"></a>部署技術詳細資料
+## <a name="deployment-technology-details"></a>Deployment technology details
 
-Azure Functions 提供下列部署方法。
+The following deployment methods are available in Azure Functions.
 
-### <a name="external-package-url"></a>外部封裝 URL
+### <a name="external-package-url"></a>External package URL
 
-您可以使用外部套件 URL 來參考包含函數應用程式的遠端封裝（.zip）檔案。 檔案會從提供的 URL 下載，而應用程式會在 [[從封裝執行](run-functions-from-deployment-package.md)] 模式下執行。
+You can use an external package URL to reference a remote package (.zip) file that contains your function app. The file is downloaded from the provided URL, and the app runs in [Run From Package](run-functions-from-deployment-package.md) mode.
 
->__使用方式：__ 將 `WEBSITE_RUN_FROM_PACKAGE` 新增至您的應用程式設定。 此設定的值應該是 URL （您要執行之特定封裝檔案的位置）。 您可以[在入口網站中](functions-how-to-use-azure-function-app-settings.md#settings)或[使用 [Azure CLI] 來](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)新增設定。 
+>__How to use it:__ Add `WEBSITE_RUN_FROM_PACKAGE` to your application settings. The value of this setting should be a URL (the location of the specific package file you want to run). You can add settings either [in the portal](functions-how-to-use-azure-function-app-settings.md#settings) or [by using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
 >
->如果您使用 Azure Blob 儲存體，請使用具有[共用存取簽章（SAS）](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer)的私人容器，為函式提供對封裝的存取權。 每當應用程式重新開機時，它就會提取內容的複本。 您的參考在應用程式的存留期內必須是有效的。
+>If you use Azure Blob storage, use a private container with a [shared access signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) to give Functions access to the package. Any time the application restarts, it fetches a copy of the content. Your reference must be valid for the lifetime of the application.
 
->__使用時機：__ 如果使用者不想要進行[遠端組建](#remote-build)，則 [外部套件 URL] 是在取用方案的 Linux 上執行 Azure Functions 唯一支援的部署方法。 當您更新函式應用程式所參考的封裝檔案時，您必須[手動同步處理觸發](#trigger-syncing)程式，以告知 Azure 您的應用程式已變更。
+>__When to use it:__ External package URL is the only supported deployment method for Azure Functions running on Linux in the Consumption plan, if the user doesn't want a [remote build](#remote-build) to occur. When you update the package file that a function app references, you must [manually sync triggers](#trigger-syncing) to tell Azure that your application has changed.
 
-### <a name="zip-deploy"></a>Zip 部署
+### <a name="zip-deploy"></a>Zip deploy
 
-使用「zip 部署」將包含函數應用程式的 .zip 檔案推送至 Azure。 （選擇性）您可以將應用程式設定為[從封裝](run-functions-from-deployment-package.md)開始執行，或指定發生[遠端組建](#remote-build)。
+Use zip deploy to push a .zip file that contains your function app to Azure. Optionally, you can set your app to start [running from package](run-functions-from-deployment-package.md), or specify that a [remote build](#remote-build) occurs.
 
->__使用方式：__ 使用您最愛的用戶端工具進行部署： [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure)、 [Visual Studio](functions-develop-vs.md#publish-to-azure)、 [Azure Functions Core Tools](functions-run-local.md)或[Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure)。 根據預設，這些工具會使用 zip 部署，並[從封裝執行](run-functions-from-deployment-package.md)。 當部署至 Linux 時，核心工具和 Visual Studio Code 延伸模組都會啟用[遠端組建](#remote-build)。 若要將 .zip 檔案手動部署至函式應用程式，請遵循[從 .zip 檔案或 URL 部署](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)中的指示。
+>__How to use it:__ Deploy by using your favorite client tool: [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), the [Azure Functions Core Tools](functions-run-local.md), or the [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). By default, these tools use zip deployment and [run from package](run-functions-from-deployment-package.md). Core Tools and the Visual Studio Code extension both enable [remote build](#remote-build) when deploying to Linux. To manually deploy a .zip file to your function app, follow the instructions in [Deploy from a .zip file or URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
->當您使用「zip 部署」進行部署時，您可以將應用程式設定為[從封裝執行](run-functions-from-deployment-package.md)。 若要從封裝執行，請將 `WEBSITE_RUN_FROM_PACKAGE` 應用程式設定值設定為 `1`。 我們建議您進行 zip 部署。 它會為您的應用程式產生更快的載入時間，而且它是 VS Code、Visual Studio 和 Azure CLI 的預設值。 
+>When you deploy by using zip deploy, you can set your app to [run from package](run-functions-from-deployment-package.md). To run from package, set the `WEBSITE_RUN_FROM_PACKAGE` application setting value to `1`. We recommend zip deployment. It yields faster loading times for your applications, and it's the default for VS Code, Visual Studio, and the Azure CLI. 
 
->__使用時機：__ Zip 部署是建議的 Azure Functions 部署技術。
+>__When to use it:__ Zip deploy is the recommended deployment technology for Azure Functions.
 
 ### <a name="docker-container"></a>Docker 容器
 
-您可以部署包含函數應用程式的 Linux 容器映射。
+You can deploy a Linux container image that contains your function app.
 
->__使用方式：__ 在 Premium 或專屬方案中建立 Linux 函數應用程式，並指定要執行的容器映射。 您可以使用兩種方式執行此動作：
+>__How to use it:__ Create a Linux function app in the Premium or Dedicated plan and specify which container image to run from. 您可以使用兩種方式執行此動作：
 >
->* 在 Azure 入口網站中的 Azure App Service 方案上建立 Linux 函數應用程式。 針對 [**發佈**]，選取 [ **Docker 映射**]，然後設定容器。 輸入裝載映射的位置。
->* 使用 Azure CLI，在 App Service 方案上建立 Linux 函數應用程式。 若要瞭解作法，請參閱[使用自訂映射在 Linux 上建立](functions-create-function-linux-custom-image.md#create-a-premium-plan)函式。
+>* Create a Linux function app on an Azure App Service plan in the Azure portal. For **Publish**, select **Docker Image**, and then configure the container. Enter the location where the image is hosted.
+>* Create a Linux function app on an App Service plan by using the Azure CLI. To learn how, see [Create a function on Linux by using a custom image](functions-create-function-linux-custom-image.md#create-a-premium-plan).
 >
->若要使用自訂容器部署至現有的應用程式，請在[Azure Functions Core Tools](functions-run-local.md)中，使用[`func deploy`](functions-run-local.md#publish)命令。
+>To deploy to an existing app by using a custom container, in [Azure Functions Core Tools](functions-run-local.md), use the [`func deploy`](functions-run-local.md#publish) command.
 
->__使用時機：__ 當您需要更充分掌控您的函式應用程式執行所在的 Linux 環境時，請使用 [Docker 容器] 選項。 此部署機制僅適用于在 Linux 上執行的函式。
+>__When to use it:__ Use the Docker container option when you need more control over the Linux environment where your function app runs. This deployment mechanism is available only for Functions running on Linux.
 
-### <a name="web-deploy-msdeploy"></a>Web Deploy （Msdeploy.exe）
+### <a name="web-deploy-msdeploy"></a>Web Deploy (MSDeploy)
 
-Web Deploy 封裝，並將您的 Windows 應用程式部署至任何 IIS 伺服器，包括在 Azure 中的 Windows 上執行的函數應用程式。
+Web Deploy packages and deploys your Windows applications to any IIS server, including your function apps running on Windows in Azure.
 
->__使用方式：__ 使用[適用于 Azure Functions 的 Visual Studio 工具](functions-create-your-first-function-visual-studio.md)。 清除 [**從套件檔案執行（建議選項）** ] 核取方塊。
+>__How to use it:__ Use [Visual Studio tools for Azure Functions](functions-create-your-first-function-visual-studio.md). Clear the **Run from package file (recommended)** check box.
 >
->您也可以下載[Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy)並直接呼叫 `MSDeploy.exe`。
+>You can also download [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy) and call `MSDeploy.exe` directly.
 
->__使用時機：__ 支援 Web Deploy 且沒有任何問題，但慣用的機制是「 [zip 部署已啟用從封裝執行](#zip-deploy)」。 若要深入瞭解，請參閱[Visual Studio 開發指南](functions-develop-vs.md#publish-to-azure)。
+>__When to use it:__ Web Deploy is supported and has no issues, but the preferred mechanism is [zip deploy with Run From Package enabled](#zip-deploy). To learn more, see the [Visual Studio development guide](functions-develop-vs.md#publish-to-azure).
 
 ### <a name="source-control"></a>原始檔控制
 
-使用原始檔控制，將您的函式應用程式連線至 Git 存放庫。 該存放庫中的程式碼更新會觸發部署。 如需詳細資訊，請參閱[Kudu Wiki](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments)。
+Use source control to connect your function app to a Git repository. An update to code in that repository triggers deployment. For more information, see the [Kudu Wiki](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
 
->__使用方式：__ 在入口網站的 [功能] 區域中使用 [部署中心]，設定從原始檔控制發行。 如需詳細資訊，請參閱 [Azure Functions 的持續部署](functions-continuous-deployment.md)。
+>__How to use it:__ Use Deployment Center in the Functions area of the portal to set up publishing from source control. 如需詳細資訊，請參閱 [Azure Functions 的持續部署](functions-continuous-deployment.md)。
 
->__使用時機：__ 使用原始檔控制是在其函式應用程式上共同作業之小組的最佳作法。 原始檔控制是不錯的部署選項，可啟用更複雜的部署管線。
+>__When to use it:__ Using source control is the best practice for teams that collaborate on their function apps. Source control is a good deployment option that enables more sophisticated deployment pipelines.
 
 ### <a name="local-git"></a>本機 Git
 
-您可以使用本機 Git，將程式碼從本機電腦推送至使用 Git Azure Functions。
+You can use local Git to push code from your local machine to Azure Functions by using Git.
 
->__使用方式：__ 依照[本機 Git 部署](../app-service/deploy-local-git.md)中的指示，Azure App Service。
+>__How to use it:__ Follow the instructions in [Local Git deployment to Azure App Service](../app-service/deploy-local-git.md).
 
->__使用時機：__ 一般來說，我們建議您使用不同的部署方法。 當您從本機 Git 發行時，您必須[手動同步處理觸發](#trigger-syncing)程式。
+>__When to use it:__ In general, we recommend that you use a different deployment method. When you publish from local Git, you must [manually sync triggers](#trigger-syncing).
 
-### <a name="cloud-sync"></a>雲端同步處理
+### <a name="cloud-sync"></a>Cloud sync
 
-使用雲端同步處理，將您的內容從 Dropbox 和 OneDrive 同步到 Azure Functions。
+Use cloud sync to sync your content from Dropbox and OneDrive to Azure Functions.
 
->__使用方式：__ 請遵循[從雲端資料夾同步內容](../app-service/deploy-content-sync.md)中的指示。
+>__How to use it:__ Follow the instructions in [Sync content from a cloud folder](../app-service/deploy-content-sync.md).
 
->__使用時機：__ 一般來說，我們建議其他部署方法。 當您使用雲端同步處理發佈時，您必須[手動同步處理觸發](#trigger-syncing)程式。
+>__When to use it:__ In general, we recommend other deployment methods. When you publish by using cloud sync, you must [manually sync triggers](#trigger-syncing).
 
 ### <a name="ftp"></a>FTP
 
-您可以使用 FTP 直接將檔案傳送到 Azure Functions。
+You can use FTP to directly transfer files to Azure Functions.
 
->__使用方式：__ 遵循[使用 FTP/s 部署內容](../app-service/deploy-ftp.md)中的指示。
+>__How to use it:__ Follow the instructions in [Deploy content by using FTP/s](../app-service/deploy-ftp.md).
 
->__使用時機：__ 一般來說，我們建議其他部署方法。 當您使用 FTP 發行時，必須[手動同步處理觸發](#trigger-syncing)程式。
+>__When to use it:__ In general, we recommend other deployment methods. When you publish by using FTP, you must [manually sync triggers](#trigger-syncing).
 
-### <a name="portal-editing"></a>入口網站編輯
+### <a name="portal-editing"></a>Portal editing
 
-在以入口網站為基礎的編輯器中，您可以直接編輯函式應用程式中的檔案（基本上是在每次儲存變更時部署）。
+In the portal-based editor, you can directly edit the files that are in your function app (essentially deploying every time you save your changes).
 
->__使用方式：__ 若要能夠在 Azure 入口網站中編輯您的函式，您必須[在入口網站中建立您的函數](functions-create-first-azure-function.md)。 若要保留單一事實來源，使用任何其他部署方法會使您的函式成為唯讀，並防止繼續進行入口網站編輯。 若要返回您可以在 Azure 入口網站中編輯檔案的狀態，您可以手動將編輯模式切換回 `Read/Write`，並移除任何與部署相關的應用程式設定（例如 `WEBSITE_RUN_FROM_PACKAGE`）。 
+>__How to use it:__ To be able to edit your functions in the Azure portal, you must have [created your functions in the portal](functions-create-first-azure-function.md). To preserve a single source of truth, using any other deployment method makes your function read-only and prevents continued portal editing. To return to a state in which you can edit your files in the Azure portal, you can manually turn the edit mode back to `Read/Write` and remove any deployment-related application settings (like `WEBSITE_RUN_FROM_PACKAGE`). 
 
->__使用時機：__ 入口網站是開始使用 Azure Functions 的好方法。 如需更密集的開發工作，建議您使用下列其中一個用戶端工具：
+>__When to use it:__ The portal is a good way to get started with Azure Functions. For more intense development work, we recommend that you use one of the following client tools:
 >
 >* [Visual Studio Code](functions-create-first-function-vs-code.md)
->* [Azure Functions Core Tools （命令列）](functions-run-local.md)
+>* [Azure Functions Core Tools (command line)](functions-run-local.md)
 >* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
-下表顯示支援入口網站編輯的作業系統和語言：
+The following table shows the operating systems and languages that support portal editing:
 
-| | Windows 耗用量 | Windows Premium | Windows 專用 | Linux 使用量 | Linux Premium | Linux 專用 |
+| | Windows Consumption | Windows Premium | Windows Dedicated | Linux Consumption | Linux Premium | Linux Dedicated |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
 | C# 指令碼 |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
@@ -189,21 +187,21 @@ Web Deploy 封裝，並將您的 Windows 應用程式部署至任何 IIS 伺服�
 | Java | | | | | | |
 | JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
 | Python (預覽) | | | | | | |
-| PowerShell （預覽） |✔|✔|✔| | | |
-| TypeScript （node.js） | | | | | | |
+| PowerShell (Preview) |✔|✔|✔| | | |
+| TypeScript (Node.js) | | | | | | |
 
-<sup>*</sup>只有針對 Linux 上的函式使用 Premium 和專用方案的 HTTP 和計時器觸發程式，才會啟用入口網站編輯功能。
+<sup>*</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and dedicated plans.
 
 ## <a name="deployment-slots"></a>部署位置
 
-當您將函數應用程式部署至 Azure 時，您可以部署到個別的部署位置，而不是直接部署到生產環境。 如需部署位置的詳細資訊，請參閱[Azure Functions 部署](../app-service/deploy-staging-slots.md)位置檔，以取得詳細資料。
+When you deploy your function app to Azure, you can deploy to a separate deployment slot instead of directly to production. For more information on deployment slots, see the [Azure Functions Deployment Slots](../app-service/deploy-staging-slots.md) documentation for details.
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入瞭解如何部署函數應用程式，請閱讀下列文章： 
+Read these articles to learn more about deploying your function apps: 
 
 + [Azure Functions 的持續部署](functions-continuous-deployment.md)
-+ [使用 Azure DevOps 的持續傳遞](functions-how-to-azure-devops.md)
-+ [Azure Functions 的 Zip 部署](deployment-zip-push.md)
-+ [從封裝檔案執行您的 Azure Functions](run-functions-from-deployment-package.md)
-+ [在 Azure Functions 中將函數應用程式的資源部署自動化](functions-infrastructure-as-code.md)
++ [Continuous delivery by using Azure DevOps](functions-how-to-azure-devops.md)
++ [Zip deployments for Azure Functions](deployment-zip-push.md)
++ [Run your Azure Functions from a package file](run-functions-from-deployment-package.md)
++ [Automate resource deployment for your function app in Azure Functions](functions-infrastructure-as-code.md)

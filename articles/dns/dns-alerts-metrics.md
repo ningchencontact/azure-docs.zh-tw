@@ -1,32 +1,30 @@
 ---
-title: Azure DNS 計量與警示 | Microsoft Docs
-description: 深入了解 Azure DNS 計量與警示。
+title: Metrics and alerts - Azure DNS
+description: With this learning path, get started with Azure DNS metrics and alerts.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: jennoc
-editor: ''
-ms.assetid: ''
+author: asudbring
+manager: kumudD
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
-ms.author: victorh
-ms.openlocfilehash: a9d8bc172eb5f5e0e119a0bde56fb167f7a0c2b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: dc4d7de3d235fcdaf4a7f681065ba6e2857eb2ce
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699142"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212408"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS 計量與警示
 Azure DNS 是 DNS 網域的主機服務，採用 Microsoft Azure 基礎結構來提供名稱解析。 本文說明 Azure DNS 服務的計量與警示。
 
 ## <a name="azure-dns-metrics"></a>Azure DNS 計量
 
-Azure DNS 提供讓客戶監視其裝載在服務中的 DNS 區域的特定層面的客戶的計量。 此外，使用 Azure DNS 計量，您可以設定依據感興趣的條件來接收警示。 計量是透過 [Azure 監視器服務](../azure-monitor/index.yml)提供的。 Azure DNS 透過 Azure 監視器為您的 DNS 區域提供下列計量：
+Azure DNS provides metrics for customers to enable them to monitor specific aspects of their DNS zones hosted in the service. 此外，使用 Azure DNS 計量，您可以設定依據感興趣的條件來接收警示。 計量是透過 [Azure 監視器服務](../azure-monitor/index.yml)提供的。 Azure DNS 透過 Azure 監視器為您的 DNS 區域提供下列計量：
 
 -   QueryVolume
 -   RecordSetCount
@@ -36,11 +34,11 @@ Azure DNS 提供讓客戶監視其裝載在服務中的 DNS 區域的特定層�
 >[!NOTE]
 > 目前，這些計量只適用於在 Azure DNS 中託管的公用 DNS 區域。 如果您在 Azure DNS 中有託管的私人區域，這些計量將不會提供這些區域的資料。 此外，計量與警示功能只有在 Azure 公用雲端中才受支援。 之後將提供主權雲端的支援。 
 
-最細微的項目，您可以查看的度量是 DNS 區域。 您目前無法看到在區域內的個別資源記錄的計量。
+The most granular element that you can see metrics for is a DNS zone. You cannot currently see metrics for individual resource records within a zone.
 
 ### <a name="query-volume"></a>查詢磁碟區
 
- Azure DNS 中的「查詢磁碟區」計量會顯示 Azure DNS 收到 DNS 區域的 DNS 查詢 (查詢流量) 磁碟區。 度量單位是計數，彙總則是一段時間收到的所有查詢的總計。 
+Azure DNS 中的「查詢磁碟區」計量會顯示 Azure DNS 收到 DNS 區域的 DNS 查詢 (查詢流量) 磁碟區。 度量單位是計數，彙總則是一段時間收到的所有查詢的總計。 
 
 若要檢視此計量，請從 Azure 入口網站中的 [監視器] 索引標籤選取 [計量] (預覽) 瀏覽器體驗。 從 [資源] 下拉式清單中選取您的 DNS 區域，選取 [查詢磁碟區] 計量，然後選取 [加總為彙總]。 其範例如下列螢幕擷取畫面所示。  如需計量瀏覽器體驗和圖表的詳細資訊，請參閱 [Azure 監視器計量瀏覽器](../azure-monitor/platform/metrics-charts.md)。
 
@@ -49,7 +47,7 @@ Azure DNS 提供讓客戶監視其裝載在服務中的 DNS 區域的特定層�
 *圖：Azure DNS 查詢磁碟區計量*
 
 ### <a name="record-set-count"></a>記錄集計數
- 「記錄集計數」計量顯示 Azure DNS 中 DNS 區域的記錄集數目。 您的區域中定義的所有記錄集都會計算在內。 度量單位是計數，彙總則是所有記錄集的最大值。 若要檢視此計量，請從 Azure 入口網站中的 [監視器]  索引標籤選取 [計量] (預覽)  瀏覽器體驗。 從 [資源]  下拉式清單中選取您的 DNS 區域，選取 [記錄集計數]  計量，然後選取 [最大值]  作為 [彙總]  。 如需計量瀏覽器體驗和圖表的詳細資訊，請參閱 [Azure 監視器計量瀏覽器](../azure-monitor/platform/metrics-charts.md)。 
+「記錄集計數」計量顯示 Azure DNS 中 DNS 區域的記錄集數目。 您的區域中定義的所有記錄集都會計算在內。 度量單位是計數，彙總則是所有記錄集的最大值。 若要檢視此計量，請從 Azure 入口網站中的 [監視器] 索引標籤選取 [計量] (預覽) 瀏覽器體驗。 從 [資源] 下拉式清單中選取您的 DNS 區域，選取 [記錄集計數] 計量，然後選取 [最大值] 作為 [彙總]。 如需計量瀏覽器體驗和圖表的詳細資訊，請參閱 [Azure 監視器計量瀏覽器](../azure-monitor/platform/metrics-charts.md)。 
 
 ![記錄集計數](./media/dns-alerts-metrics/dns-metrics-record-set-count.png)
 
@@ -57,14 +55,14 @@ Azure DNS 提供讓客戶監視其裝載在服務中的 DNS 區域的特定層�
 
 
 ### <a name="record-set-capacity-utilization"></a>記錄集容量使用率
- Azure DNS 中的「記錄集容量使用率」顯示 DNS 區域的記錄集容量使用率百分比。 Azure DNS 中的每個 DNS 區域有一個記錄集限制，定義區域允許的記錄集最大數目 (請參閱 [DNS 限制](dns-zones-records.md#limits))。 因此，此計量會顯示接近記錄集限制的程度。 例如，如果您的 DNS 區域設定了 500 個記錄集，而區域的預設記錄集限制為 5000，RecordSetCapacityUtilization 計量將顯示 10% 的值 (以 500 除以 5000 所得)。 度量單位是「百分比」  ，「彙總」  類型是「最大值」  。 若要檢視此計量，請從 Azure 入口網站中的 [監視器] 索引標籤選取 [計量] (預覽) 瀏覽器體驗。 從 [資源] 下拉式清單中選取您的 DNS 區域，選取 [記錄集容量使用率] 計量，然後選取 [最大值] 作為 [彙總]。 其範例如下列螢幕擷取畫面所示。 如需計量瀏覽器體驗和圖表的詳細資訊，請參閱 [Azure 監視器計量瀏覽器](../azure-monitor/platform/metrics-charts.md)。 
+Azure DNS 中的「記錄集容量使用率」顯示 DNS 區域的記錄集容量使用率百分比。 Azure DNS 中的每個 DNS 區域有一個記錄集限制，定義區域允許的記錄集最大數目 (請參閱 [DNS 限制](dns-zones-records.md#limits))。 因此，此計量會顯示接近記錄集限制的程度。 例如，如果您的 DNS 區域設定了 500 個記錄集，而區域的預設記錄集限制為 5000，RecordSetCapacityUtilization 計量將顯示 10% 的值 (以 500 除以 5000 所得)。 度量單位是「百分比」，「彙總」類型是「最大值」。 若要檢視此計量，請從 Azure 入口網站中的 [監視器] 索引標籤選取 [計量] (預覽) 瀏覽器體驗。 從 [資源] 下拉式清單中選取您的 DNS 區域，選取 [記錄集容量使用率] 計量，然後選取 [最大值] 作為 [彙總]。 其範例如下列螢幕擷取畫面所示。 如需計量瀏覽器體驗和圖表的詳細資訊，請參閱 [Azure 監視器計量瀏覽器](../azure-monitor/platform/metrics-charts.md)。 
 
 ![記錄集計數](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
 
 *圖：Azure DNS 記錄集容量使用率計量*
 
 ## <a name="alerts-in-azure-dns"></a>Azure DNS 中的警示
-Azure 監視器提供針對可用的計量值發出警示的功能。 DNS 計量可用於新的警示設定體驗。 如 [Azure 監視器警示文件](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)所述，您可以選取 DNS 區域作為資源、選擇計量訊號類型，並設定警示邏輯和其他參數，例如「期間」  和「頻率」  。 您可進一步定義符合警示條件時的[動作群組](../azure-monitor/platform/action-groups.md)，以透過選擇的動作傳遞警示。 如需如何設定 Azure 監視器計量警示的詳細資訊，請參閱[使用 Azure 監視器建立、檢視及管理警示](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)。 
+Azure 監視器提供針對可用的計量值發出警示的功能。 DNS 計量可用於新的警示設定體驗。 如 [Azure 監視器警示文件](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)所述，您可以選取 DNS 區域作為資源、選擇計量訊號類型，並設定警示邏輯和其他參數，例如「期間」和「頻率」。 您可進一步定義符合警示條件時的[動作群組](../azure-monitor/platform/action-groups.md)，以透過選擇的動作傳遞警示。 如需如何設定 Azure 監視器計量警示的詳細資訊，請參閱[使用 Azure 監視器建立、檢視及管理警示](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)。 
 
 ## <a name="next-steps"></a>後續步驟
 - 深入了解 [ Azure DNS](dns-overview.md)。

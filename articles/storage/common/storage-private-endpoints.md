@@ -1,6 +1,6 @@
 ---
-title: 使用具有 Azure 儲存體的私用端點 |Microsoft Docs
-description: 針對從虛擬網路對儲存體帳戶進行安全存取的私用端點的總覽。
+title: Using Private Endpoints with Azure Storage | Microsoft Docs
+description: Overview of private endpoints for secure access to storage accounts from virtual networks.
 services: storage
 author: santoshc
 ms.service: storage
@@ -9,119 +9,132 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: fb1f8a1d1f8e1ebbaf3e0e9fe96e3c1bf0ba9ba6
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 06b96bf548be45952e1ff21f0433a1607ab36501
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74078760"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227889"
 ---
-# <a name="using-private-endpoints-for-azure-storage-preview"></a>使用 Azure 儲存體的私用端點（預覽）
+# <a name="using-private-endpoints-for-azure-storage-preview"></a>Using Private Endpoints for Azure Storage (Preview)
 
-您可以針對您的 Azure 儲存體帳戶使用[私人端點](../../private-link/private-endpoint-overview.md)，以允許虛擬網路（VNet）上的用戶端透過[私人連結](../../private-link/private-link-overview.md)安全地存取資料。 私人端點會針對您的儲存體帳戶服務使用 VNet 位址空間中的 IP 位址。 VNet 上的用戶端與儲存體帳戶之間的網路流量會流經 VNet，並在 Microsoft 骨幹網路上進行私人連結，以消除公開網際網路的風險。
+You can use [Private Endpoints](../../private-link/private-endpoint-overview.md) for your Azure Storage accounts to allow clients on a virtual network (VNet) to securely access data over a [Private Link](../../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your storage account service. Network traffic between the clients on the VNet and the storage account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
-針對您的儲存體帳戶使用私人端點可讓您：
-- 設定儲存體防火牆以封鎖儲存體服務的公用端點上的所有連線，藉此保護您的儲存體帳戶。
-- 藉由讓您封鎖從 VNet 外泄的資料，提高虛擬網路（VNet）的安全性。
-- 使用[VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md)或具有私人對等互連的[ExpressRoutes](../../expressroute/expressroute-locations.md) ，安全地從連線到 VNet 的內部部署網路連線到儲存體帳戶。
+Using private endpoints for your storage account enables you to:
+- Secure your storage account by configuring the storage firewall to block all connections on the public endpoint for the storage service.
+- Increase security for the virtual network (VNet), by enabling you to block exfiltration of data from the VNet.
+- Securely connect to storage accounts from on-premises networks that connect to the VNet using [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../../expressroute/expressroute-locations.md) with private-peering.
 
-## <a name="conceptual-overview"></a>概念總覽
-![Azure 儲存體總覽的私用端點](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
+## <a name="conceptual-overview"></a>Conceptual Overview
+![Private Endpoints for Azure Storage Overview](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
 
-私人端點是[虛擬網路](../../virtual-network/virtual-networks-overview.md)（VNet）中 Azure 服務的特殊網路介面。 當您建立儲存體帳戶的私人端點時，它會在 VNet 上的用戶端與您的儲存體之間提供安全的連線。 私人端點會從 VNet 的 IP 位址範圍指派 IP 位址。 私人端點與儲存體服務之間的連接會使用安全的私用連結。
+A Private Endpoint is a special network interface for an Azure service in your [Virtual Network](../../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your storage account, it provides secure connectivity between clients on your VNet and your storage. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the storage service uses a secure private link.
 
-VNet 中的應用程式可以**使用相同的連接字串和授權機制**，順暢地透過私人端點連接到儲存體服務，否則會使用它們。 私人端點可以與儲存體帳戶支援的所有通訊協定搭配使用，包括 REST 和 SMB。
+Applications in the VNet can connect to the storage service over the private endpoint seamlessly, **using the same connection strings and authorization mechanisms that they would use otherwise**. Private endpoints can be used with all protocols supported by the storage account, including REST and SMB.
 
-當您在 VNet 中建立儲存體服務的私人端點時，會將同意要求傳送給儲存體帳戶擁有者。 如果要求建立私人端點的使用者也是儲存體帳戶的擁有者，則會自動核准此同意要求。
+When you create a private endpoint for a storage service in your VNet, a consent request is sent for approval to the storage account owner. If the user requesting the creation of the private endpoint is also an owner of the storage account, this consent request is automatically approved.
 
-儲存體帳戶擁有者可以透過[Azure 入口網站](https://portal.azure.com)中儲存體帳戶的 [*私人端點*] 索引標籤，來管理同意要求和私人端點。
-
-> [!TIP]
-> 如果您想要僅透過私人端點來限制對儲存體帳戶的存取，請將存放裝置防火牆設定為拒絕透過公用端點的所有存取。
-
-您可以藉由設定[儲存防火牆](storage-network-security.md#change-the-default-network-access-rule)預設拒絕透過其公用端點的存取，來保護您的儲存體帳戶，使其僅接受來自 VNet 的連線。 您不需要防火牆規則，就可以允許來自具有私人端點之 VNet 的流量，因為儲存體防火牆只會控制透過公用端點的存取。 私用端點會改為依賴同意流程來授與對儲存體服務的子網存取權。
-
-### <a name="private-endpoints-for-storage-service"></a>儲存體服務的私人端點
-
-建立私用端點時，您必須指定儲存體帳戶和它所連接的儲存體服務。 在您需要存取的儲存體帳戶中，每個儲存體服務都需要個別的私用[端點，也](../files/storage-files-introduction.md)就是[blob](../blobs/storage-blobs-overview.md)、 [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)、檔案、[佇列](../queues/storage-queues-introduction.md)、[資料表](../tables/table-storage-overview.md)或[靜態網站](../blobs/storage-blob-static-website.md)。
+Storage account owners can manage consent requests and the private endpoints, through the '*Private Endpoints*' tab for the storage account in the [Azure portal](https://portal.azure.com).
 
 > [!TIP]
-> 為儲存體服務的次要實例建立個別的私用端點，以在遠端協助 GRS 帳戶上獲得更佳的讀取效能。
+> If you want to restrict access to your storage account through the private endpoint only, configure the storage firewall to deny or control access through the public endpoint.
 
-針對[讀取權限異地多餘儲存體帳戶](storage-redundancy-grs.md#read-access-geo-redundant-storage)的讀取可用性，您需要服務之主要和次要實例的個別私人端點。 您不需要為次要實例建立私人端點來進行**容錯移轉**。 私人端點會在容錯移轉之後自動連接到新的主要實例。
+You can secure your storage account to only accept connections from your VNet, by [configuring the storage firewall](storage-network-security.md#change-the-default-network-access-rule) to deny access through its public endpoint by default. You don't need a firewall rule to allow traffic from a VNet that has a private endpoint, since the storage firewall only controls access through the public endpoint. Private endpoints instead rely on the consent flow for granting subnets access to the storage service.
+
+### <a name="private-endpoints-for-storage-service"></a>Private Endpoints for Storage Service
+
+When creating the private endpoint, you must specify the storage account and the storage service to which it connects. You need a separate private endpoint for each storage service in a storage account that you need to access, namely [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md), or [Static Websites](../blobs/storage-blob-static-website.md).
+
+> [!TIP]
+> Create a separate private endpoint for the secondary instance of the storage service for better read performance on RA-GRS accounts.
+
+For read availability on a [read-access geo redundant storage account](storage-redundancy-grs.md#read-access-geo-redundant-storage), you need separate private endpoints for both the primary and secondary instances of the service. You don't need to create a private endpoint for the secondary instance for **failover**. The private endpoint will automatically connect to the new primary instance after failover.
 
 #### <a name="resources"></a>資源
 
-如需有關為您的儲存體帳戶建立私人端點的詳細資訊，請參閱下列文章：
+For more detailed information on creating a private endpoint for your storage account, refer to the following articles:
 
-- [從 Azure 入口網站中的儲存體帳戶體驗，私下連接至儲存體帳戶](../../private-link/create-private-endpoint-storage-portal.md)
-- [在 Azure 入口網站中使用私人連結中心建立私人端點](../../private-link/create-private-endpoint-portal.md)
-- [使用 Azure CLI 建立私人端點](../../private-link/create-private-endpoint-cli.md)
-- [使用 Azure PowerShell 建立私人端點](../../private-link/create-private-endpoint-powershell.md)
+- [Connect privately to a storage account from the Storage Account experience in the Azure portal](../../private-link/create-private-endpoint-storage-portal.md)
+- [Create a private endpoint using the Private Link Center in the Azure portal](../../private-link/create-private-endpoint-portal.md)
+- [Create a private endpoint using Azure CLI](../../private-link/create-private-endpoint-cli.md)
+- [Create a private endpoint using Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 
-### <a name="dns-changes-for-private-endpoints"></a>私人端點的 DNS 變更
+### <a name="connecting-to-private-endpoints"></a>Connecting to Private Endpoints
 
-即使在使用私用端點時，VNet 上的用戶端也應該針對儲存體帳戶使用相同的連接字串。
+Clients on a VNet using the private endpoint should use the same connection string for the storage account, as clients connecting to the public endpoint. We rely upon DNS resolution to automatically route the connections from the VNet to the storage account over a private link.
 
-當您建立私用端點時，我們會將該儲存體端點的 DNS CNAME 資源記錄，更新為前置詞為 '*privatelink*' 之子域中的別名。 根據預設，我們也會建立附加至 VNet 的[私人 DNS 區域](../../dns/private-dns-overview.md)。 此私人 DNS 區域會對應至前置詞為 '*privatelink*' 的子域，並包含私人端點的 DNS A 資源記錄。
+> [!IMPORTANT]
+> Use the same connection string to connect to the storage account using private endpoints, as you'd use otherwise. Please don't connect to the storage account using its '*privatelink*' subdomain URL.
 
-當您從具有私用端點的 VNet 外部解析儲存體端點 URL 時，它會解析為儲存體服務的公用端點。 從裝載私用端點的 VNet 解析時，儲存體端點 URL 會解析為私人端點的 IP 位址。
+We create a [private DNS zone](../../dns/private-dns-overview.md) attached to the VNet with the necessary updates for the private endpoints, by default. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on [DNS changes](#dns-changes-for-private-endpoints) below describes the updates required for private endpoints.
 
-針對上述範例，當從裝載私人端點的 VNet 外部解析時，儲存體帳戶 ' StorageAccountA ' 的 DNS 資源記錄將會是：
+## <a name="dns-changes-for-private-endpoints"></a>DNS changes for Private Endpoints
 
-| 名稱                                                  | 在系統提示您進行確認時，輸入  | 值                                                 |
+The DNS CNAME resource record for a storage account with a private endpoint is updated to an alias in a subdomain with the prefix '*privatelink*'. By default, we also create a [private DNS zone](../../dns/private-dns-overview.md) attached to the VNet that corresponds to the subdomain with the prefix '*privatelink*', and contains the DNS A resource records for the private endpoints.
+
+When you resolve the storage endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the storage service. When resolved from the VNet hosting the private endpoint, the storage endpoint URL resolves to the private endpoint's IP address.
+
+For the illustrated example above, the DNS resource records for the storage account 'StorageAccountA', when resolved from outside the VNet hosting the private endpoint, will be:
+
+| Name                                                  | Type  | Value                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<儲存體服務公用端點\>                   |
-| \<儲存體服務公用端點\>                   | A     | \<儲存體服務公用 IP 位址\>                 |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
+| \<storage service public endpoint\>                   | A     | \<storage service public IP address\>                 |
 
-如先前所述，您可以使用儲存體防火牆拒絕透過公用端點的所有存取。
+As previously mentioned, you can deny or control access for clients outside the VNet through the public endpoint using the storage firewall.
 
-StorageAccountA 的 DNS 資源記錄（當由裝載私用端點的 VNet 中的用戶端解析時）會是：
+The DNS resource records for StorageAccountA, when resolved by a client in the VNet hosting the private endpoint, will be:
 
-| 名稱                                                  | 在系統提示您進行確認時，輸入  | 值                                                 |
+| Name                                                  | Type  | Value                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
 
-這種方法可讓您從裝載私人端點的 VNet 和 VNet 外部的用戶端，**使用相同的連接字串**來存取儲存體帳戶。 您可以使用儲存體防火牆來拒絕存取 VNet 以外的所有用戶端。
+This approach enables access to the storage account **using the same connection string** for clients on the VNet hosting the private endpoints, as well as clients outside the VNet.
 
-> [!IMPORTANT]
-> 請使用相同的連接字串，透過私人端點連接到儲存體帳戶，如您所使用的其他方式。 請不要使用其 '*privatelink*' 子域 URL 連線到儲存體帳戶。
+If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the storage account endpoint to the private endpoint IP address. For this, you must configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for '*StorageAccountA.privatelink.blob.core.windows.net*' with the private endpoint IP address. 
 
 > [!TIP]
-> 使用自訂或內部部署 DNS 伺服器時，您應該在與儲存體服務的 ' privatelink ' 子域對應的 DNS 區域中，設定私人端點的 DNS 資源記錄。
+> When using a custom or on-premises DNS server, you should configure your DNS server to resolve the storage account name in the 'privatelink' subdomain to the private endpoint IP address. You can do this by delegating the 'privatelink' subdomain to the private DNS zone of the VNet, or configuring the DNS zone on your DNS server and adding the DNS A records.
 
-針對儲存體服務的私人端點，建議的 DNS 區功能變數名稱稱為：
+The recommended DNS zone names for private endpoints for storage services are:
 
-| 儲存體服務        | 區功能變數名稱稱                            |
+| Storage service        | Zone name                            |
 | :--------------------- | :----------------------------------- |
 | Blob 服務           | `privatelink.blob.core.windows.net`  |
 | Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
-| 檔案服務           | `privatelink.file.core.windows.net`  |
-| 佇列服務          | `privatelink.queue.core.windows.net` |
-| 表格服務          | `privatelink.table.core.windows.net` |
-| 靜態網站        | `privatelink.web.core.windows.net`   |
+| File service           | `privatelink.file.core.windows.net`  |
+| Queue service          | `privatelink.queue.core.windows.net` |
+| Table service          | `privatelink.table.core.windows.net` |
+| Static Websites        | `privatelink.web.core.windows.net`   |
 
-## <a name="pricing"></a>定價
+#### <a name="resources"></a>資源
+
+For additional guidance on configuring your own DNS server to support private endpoints, refer to the following articles:
+
+- [Azure 虛擬網路中的資源名稱解析](/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [DNS configuration for Private Endpoints](/private-link/private-endpoint-overview#dns-configuration)
+
+## <a name="pricing"></a>價格
 
 如需定價詳細資料，請參閱 [Azure Private Link 定價](https://azure.microsoft.com/pricing/details/private-link)。
 
 ## <a name="known-issues"></a>已知問題
 
-### <a name="copy-blob-support"></a>複製 Blob 支援
+### <a name="copy-blob-support"></a>Copy Blob support
 
-在預覽期間，我們不支援在來源儲存體帳戶受到防火牆保護時，針對透過私人端點存取的儲存體帳戶所發出的[複製 Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob)命令。
+During the preview, we don't support [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) commands issued to storage accounts accessed through private endpoints when the source storage account is protected by a firewall.
 
-### <a name="subnets-with-service-endpoints"></a>具有服務端點的子網
-目前，您無法在具有服務端點的子網中建立私用端點。 因應措施是，您可以在相同的 VNet 中針對服務端點和私人端點建立個別的子網。
+### <a name="subnets-with-service-endpoints"></a>Subnets with Service Endpoints
+Currently, you can't create a private endpoint in a subnet that has service endpoints. As a workaround, you can create separate subnets in the same VNet for service endpoints and private endpoints.
 
-### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>具有私人端點的 Vnet 中用戶端的儲存體存取條件約束
+### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Storage access constraints for clients in VNets with Private Endpoints
 
-Vnet 中具有現有私用端點的用戶端，在存取其他具有私人端點的儲存體帳戶時，會面臨條件約束。 比方說，假設 VNet N1 具有儲存體帳戶 A1 的私用端點（例如 blob 服務）。 如果儲存體帳戶 A2 在 VNet 中有適用于 blob 服務的私用端點，則 VNet N1 中的用戶端也必須使用私用端點來存取帳戶 A2 的 blob 服務。 如果儲存體帳戶 A2 沒有 blob 服務的任何私用端點，則 VNet N1 中的用戶端可以存取其 blob 服務，而不需要私用端點。
+Clients in VNets with existing private endpoints face constraints when accessing other storage accounts that have private endpoints. For instance, suppose a VNet N1 has a private endpoint for a storage account A1 for, say, the blob service. If storage account A2 has a private endpoint in a VNet N2 for the blob service, then clients in VNet N1 must also access the blob service of account A2 using a private endpoint. If storage account A2 does not have any private endpoints for the blob service, then clients in VNet N1 can access its blob service without a private endpoint.
 
-此條件約束是當帳戶 A2 建立私人端點時，所做的 DNS 變更結果。
+This constraint is a result of the DNS changes made when account A2 creates a private endpoint.
 
-### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>具有私人端點之子網的網路安全性群組規則
+### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Network Security Group rules for subnets with private endpoints
 
-目前，您無法為具有私人端點的子網設定[網路安全性群組](../../virtual-network/security-overview.md)（NSG）規則。 此問題的有限因應措施是在來源子網上為私人端點執行存取規則，不過這種方法可能需要較高的管理負荷。
+Currently, you can't configure [Network Security Group](../../virtual-network/security-overview.md) (NSG) rules for subnets with private endpoints. A limited workaround for this issue is to implement your access rules for private endpoints on the source subnets, though this approach may require a higher management overhead.

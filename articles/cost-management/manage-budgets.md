@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中管理 Cloudyn 預算
+title: Manage Cloudyn budgets in Azure
 description: 本文可協助您在 Cloudyn 中快速建立預算，並開始管理這些預算。
 services: cost-management
 keywords: ''
@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: ad0566f0b93593140d217767f8d97f410dfcbb3b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 9d7d0e049d3c35aab56145beb94c8e41e56c5785
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259245"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74219106"
 ---
 # <a name="manage-azure-budgets-with-cloudyn"></a>使用 Cloudyn 管理 Azure 預算
 
@@ -27,7 +27,7 @@ ms.locfileid: "71259245"
 
 預算報表會顯示指派的預算。 使用者可以檢視他們的支出何時超過、低於或等於一段時間中的耗用量。 當您選取預算報表頂端的 [顯示/隱藏欄位] 時，您可以檢視成本、預算、累積成本或總預算。
 
-「Azure 成本管理」提供與 Cloudyn 類似的功能。 「Azure 成本管理」是原生的 Azure 成本管理解決方案。 它可協助您分析成本、建立及管理預算、匯出資料，以及檢閱最佳化建議並依據這些建議採取動作來節省成本。 如需有關成本管理中預算的詳細資訊，請參閱[建立及管理預算](tutorial-acm-create-budgets.md)。
+Azure 成本管理可提供與 Cloudyn 類似的功能。 「Azure 成本管理」是原生的 Azure 成本管理解決方案。 它可協助您分析成本、建立及管理預算、匯出資料，以及檢閱最佳化建議並依據這些建議採取動作來節省成本。 如需有關成本管理中預算的詳細資訊，請參閱[建立及管理預算](tutorial-acm-create-budgets.md)。
 
 ## <a name="create-budgets"></a>建立預算
 
@@ -54,7 +54,7 @@ ms.locfileid: "71259245"
 
 ## <a name="view-budget-in-reports"></a>在報表中檢視預算
 
-預算完成時會顯示在 [成本] &gt; [成本分析] 下的大部分成本報表中，也會顯示在「隨時間變化的成本和預算」報表中。 您也可以使用 [動作]，根據預算閾值來排程報表。
+When completed, your budget is shown in most Cost reports under **Costs** &gt; **Cost Analysis** and in the Cost vs. Budget Over Time report. 您也可以使用 [動作]，根據預算閾值來排程報表。
 
 以下是成本分析報表的範例。 其中顯示從年初開始的總預算，以及各工作負載和使用類型的成本。
 
@@ -64,7 +64,7 @@ ms.locfileid: "71259245"
 
 檢視報表的另一個方法是查看累積成本與您的預算。 若要查看累積成本，請在 [顯示/隱藏欄位] 下方選取 [累積成本] 和 [總預算]。 以下是從年初開始的累積成本範例。
 
-![顯示於下列報告中的範例累積成本和總預算：隨時間變化的成本和預算報告](./media/manage-budgets/accumulated-budget.png)
+![Example accumulated cost and total budget shown in the Cost vs. Budget Over Time report](./media/manage-budgets/accumulated-budget.png)
 
 未來中的某些時候，您的累積成本可能會超過預算。 若要更輕鬆地看到此狀況，您可以將圖表檢視變更為「折線」類型。
 
@@ -79,7 +79,7 @@ ms.locfileid: "71259245"
 
 讓我們看看以下範例。
 
-在「隨時間變化的成本和預算」中，按一下 [動作]，然後選取 [排程報表]。 在 [閾值] 索引標籤中，選取閾值計量。 例如，[成本百分比與預算]。 選取警示類型，並輸入預算的百分比值。 如果您只想要收到一次通知，選取 [連續警示的數目]，然後輸入 _1_。 按一下 [儲存]。
+In the Cost vs. Budget Over Time report, click **Actions** and then select **Schedule report**. 在 [閾值] 索引標籤中，選取閾值計量。 例如，[成本百分比與預算]。 選取警示類型，並輸入預算的百分比值。 如果您只想要收到一次通知，選取 [連續警示的數目]，然後輸入 _1_。 按一下 [儲存]。
 
 ![在 [儲存或排程此報告] 方塊中建立預算警示](./media/manage-budgets/budget-alert.png)
 

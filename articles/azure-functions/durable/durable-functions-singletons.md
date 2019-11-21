@@ -1,28 +1,24 @@
 ---
 title: Durable Functions 的單次個體 - Azure
 description: 如何在 Azure Functions 的 Durable Functions 擴充中使用單一資料庫。
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ec7eb1eba2bc029d592560b39cde20e93e5afcd6
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 8c12e0ab854bb2b5764dd326e3f1649202f6f16b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614672"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232809"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的單次協調器
 
-對於背景作業，您通常需要確保一次只會執行一個特定協調器的實例。 建立時，您可以將特定的實例識別碼指派給 orchestrator，以確保[Durable Functions](durable-functions-overview.md)中這種單一行為。
+For background jobs, you often need to ensure that only one instance of a particular orchestrator runs at a time. You can ensure this kind of singleton behavior in [Durable Functions](durable-functions-overview.md) by assigning a specific instance ID to an orchestrator when creating it.
 
 ## <a name="singleton-example"></a>單次個體範例
 
-下列範例顯示可建立單一背景工作協調流程的 HTTP 觸發程式函式。 程式碼可確保一個指定的執行個體識別碼只存在一個執行個體。
+The following example shows an HTTP-trigger function that creates a singleton background job orchestration. 程式碼可確保一個指定的執行個體識別碼只存在一個執行個體。
 
 ### <a name="c"></a>C#
 
@@ -56,9 +52,9 @@ public static async Task<HttpResponseMessage> RunSingle(
 ```
 
 > [!NOTE]
-> 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
+### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
 
 以下是 function.json 檔案：
 ```json
@@ -114,14 +110,14 @@ module.exports = async function(context, req) {
 };
 ```
 
-根據預設，執行個體識別碼是隨機產生的 GUID。 不過，在上一個範例中，會從 URL 的路由資料中傳遞實例識別碼。 程式碼會呼叫 `GetStatusAsync`C#（）或 `getStatus` （JavaScript）來檢查具有指定識別碼的實例是否已在執行中。 如果沒有這類實例正在執行，則會建立具有該識別碼的新實例。
+根據預設，執行個體識別碼是隨機產生的 GUID。 In the previous example, however, the instance ID is passed in route data from the URL. The code calls `GetStatusAsync`(C#) or `getStatus` (JavaScript) to check if an instance having the specified ID is already running. If no such instance is running, a new instance is created with that ID.
 
 > [!NOTE]
 > 在此範例中有潛在的競爭條件。 如果 **HttpStartSingle** 的兩個實例同時執行，則兩個函式呼叫都將會報告成功，但現在只會實際啟動一個協調流程執行個體。 視您的需求而定，這可能會有非預期的副作用。 基於這個理由，請務必確定不會有兩個要求同時執行此觸發程序函式。
 
-協調器函式的執行詳細資料實際上並不重要。 它可能是會啟動並完成的一般協調器函式，也可能是永遠執行的函式 (也就是[永久性協調流程](durable-functions-eternal-orchestrations.md))。 重點是一次只有一個執行個體在執行。
+The implementation details of the orchestrator function don't actually matter. 它可能是會啟動並完成的一般協調器函式，也可能是永遠執行的函式 (也就是[永久性協調流程](durable-functions-eternal-orchestrations.md))。 重點是一次只有一個執行個體在執行。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [瞭解協調流程的原生 HTTP 功能](durable-functions-http-features.md)
+> [Learn about the native HTTP features of orchestrations](durable-functions-http-features.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: c2f953c98e41291951f07556bd0cd441d2793d1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8353c8846820aa996214e6b119a2f9027b8b6fe6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60946587"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232455"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Azure Service Fabric 監視合作夥伴
 
@@ -27,7 +27,7 @@ ms.locfileid: "60946587"
 
 ## <a name="dynatrace"></a>Dynatrace
 
-我們與 Dynatrace 整合之後，可以提供許多現成的功能來監視 Service Fabric 叢集。 在 VMSS 執行個體上安裝 Dynatrace OneAgent 可為您提供效能計數器，並將 Service Fabric 的拓撲向下部署至應用程式層級。 Dynatrace 也是內部部署監視的絕佳選擇。 查看更多所列的功能[公告](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/)並[指示](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/)到您的叢集上啟用 Dynatrace。 
+我們與 Dynatrace 整合之後，可以提供許多現成的功能來監視 Service Fabric 叢集。 在 VMSS 執行個體上安裝 Dynatrace OneAgent 可為您提供效能計數器，並將 Service Fabric 的拓撲向下部署至應用程式層級。 Dynatrace 也是內部部署監視的絕佳選擇。 Check out more of the features listed in the [announcement](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) and [instructions](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) to enable Dynatrace on your cluster. 
 
 ## <a name="datadog"></a>Datadog
 
@@ -47,7 +47,7 @@ ELK 堆疊是一系列開放原始碼技術：Elasticsearch、Logstash 和 Kiban
 
 ## <a name="humio"></a>Humio
 
-Humio 是可從您的應用程式和從 Service Fabric 在雲端或內部部署即時的事件收集記錄檔的記錄檔收集服務。 除了即時的可檢視性，Humio 會提供先進的分析和視覺效果功能，可檢視，並從您的診斷收集深入解析。 Humio 有符合成本效益的定價方案，並內建至小數位數，同時保留它是閃電快的速度。 它直接與 Service Fabric 平台事件和應用程式遙測整合。 您可以深入了解 Humio 和 Service Fabric 的整合[此處](https://github.com/humio/service-fabric-humio)。
+Humio is a log collection service that can gather logs from your applications and events from Service Fabric in the cloud or on-premises in real time. In addition to live observability, Humio offers state of the art analysis and visualization capabilities for viewing and collecting insights from your diagnostics. Humio has cost effective pricing plans and is built to scale while retaining it's lightening fast speed. It directly integrates with Service Fabric platform events and Application telemetry. You can read more about the Humio and Service Fabric integration [here](https://github.com/humio/service-fabric-humio).
 
 ## <a name="next-steps"></a>後續步驟
 

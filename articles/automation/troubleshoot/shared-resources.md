@@ -8,12 +8,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b9b1be699190f6dc6f4771411c22f376d51637ec
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a2836f40b55a71e080288fce7e48275747962c16
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477458"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231524"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>針對共用資源的錯誤進行疑難排解
 
@@ -25,13 +25,13 @@ ms.locfileid: "67477458"
 
 #### <a name="issue"></a>問題
 
-當您在 Azure 自動化中匯入或更新模組時，模組會卡在 [匯入中]  狀態。
+當您在 Azure 自動化中匯入或更新模組時，模組會卡在 [匯入中] 狀態。
 
 #### <a name="cause"></a>原因
 
-匯入 PowerShell 模組是一種複雜的多步驟程序。 此程序可能會發生模組未正確匯入的問題。 如果發生這種情況，您所匯入的模組可能會卡在暫時性的狀態。 若要深入了解此程序，請參閱[匯入 PowerShell 模組]( /powershell/developer/module/importing-a-powershell-module#the-importing-process)。
+匯入 PowerShell 模組是一種複雜的多步驟程序。 此程序可能會發生模組未正確匯入的問題。 如果發生這種情況，您所匯入的模組可能會卡在暫時性的狀態。 若要深入了解此程序，請參閱[匯入 PowerShell 模組](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process)。
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解析度
 
 若要解決此問題，您必須使用 [Remove-AzureRmAutomationModule](/powershell/module/azurerm.automation/remove-azurermautomationmodule) Cmdlet 移除卡在**匯入**狀態的模組。 您可以稍後再重試匯入模組。
 
@@ -39,11 +39,11 @@ ms.locfileid: "67477458"
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
-### <a name="update-azure-modules-importing"></a>案例：AzureRM 模組停留在嘗試更新後匯入
+### <a name="update-azure-modules-importing"></a>Scenario: AzureRM modules are stuck importing after trying to update them
 
 #### <a name="issue"></a>問題
 
-橫幅，與下列訊息會留在您的帳戶中，在嘗試更新 AzureRM 模組後：
+A banner with the following message stays in your account after trying to update your AzureRM modules:
 
 ```error
 Azure modules are being updated
@@ -51,11 +51,11 @@ Azure modules are being updated
 
 #### <a name="cause"></a>原因
 
-沒有更新 AzureRM 模組，從 0 開始的數值名稱的資源群組中的自動化帳戶中的已知的問題。
+There is a known issue with updating the AzureRM modules in an Automation Account that is in a resource group with a numeric name that starts with 0.
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解析度
 
-若要更新 Azure 模組在您的自動化帳戶中，它必須是英數字元名稱的資源群組中。 從 0 開始的數值名稱的資源群組就無法在這個階段中更新 AzureRM 模組。
+To update your Azure modules in your Automation Account, it must be in a resource group that has an alphanumeric name. Resource groups with numeric names starting with 0 are unable to update AzureRM modules at this time.
 
 ### <a name="module-fails-to-import"></a>案例：無法匯入模組，或無法在匯入之後執行 Cmdlet
 
@@ -72,15 +72,15 @@ Azure modules are being updated
 * 模組在資料夾中遺失其相依性。
 * 您使用 `New-AzureRmAutomationModule` Cmdlet 來上傳模組，但您尚未提供完整的儲存路徑，或是尚未使用可公開存取的 URL 來載入模組。
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解析度
 
 下列任何一個解決方案都可以修正此問題：
 
-* 確認模組依照下列格式：ModuleName.Zip **->** ModuleName 或版本號碼 **->** (ModuleName.psm1、ModuleName.psd1)
+* 確定模組遵循下列格式：ModuleName.Zip **->** 模組名稱或版本號碼 **->** (ModuleName.psm1、ModuleName.psd1)
 * 開啟 .psd1 檔案，並且查看該模組是否有任何相依性。 如果有，請將這些模組上傳至自動化帳戶。
 * 請確定任何參考的 .dll 會出現在模組資料夾。
 
-### <a name="all-modules-suspended"></a>案例：Update-AzureModule.ps1 會在更新模組時暫止
+### <a name="all-modules-suspended"></a>Scenario: Update-AzureModule.ps1 suspends when updating modules
 
 #### <a name="issue"></a>問題
 
@@ -90,7 +90,7 @@ Azure modules are being updated
 
 使用 `Update-AzureModule.ps1` 指令碼時，用來判斷要同時更新多少個模組的預設設定為 10。 同時更新太多模組時，更新程序很容易發生錯誤。
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解析度
 
 同一個自動化帳戶中需要所有 AzureRM 模組的情況並不常見。 建議僅匯入您需要的 AzureRM 模組。
 
@@ -118,7 +118,7 @@ Azure modules are being updated
 
 ## <a name="run-as-accounts"></a>執行身分帳戶
 
-### <a name="unable-create-update"></a>案例：您無法建立或更新執行身分帳戶
+### <a name="unable-create-update"></a>Scenario: You're unable to create or update a Run As account
 
 #### <a name="issue"></a>問題
 
@@ -132,17 +132,17 @@ You do not have permissions to create…
 
 您沒有建立或更新執行身分帳戶所需的權限，或資源已在資源群組層級鎖定。
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解析度
 
 若要建立或更新執行身分帳戶，您必須具備執行身分帳戶所用資源的適當權限。 若要深入了解建立或更新執行身分帳戶所需的權限，請參閱[執行身分帳戶權限](../manage-runas-account.md#permissions)。
 
-如果問題是因為鎖定而造成的，請確認鎖定可以移除。 然後，瀏覽至已鎖定的資源、以滑鼠右鍵按一下鎖定，然後選擇 [刪除]  以移除鎖定。
+如果問題是因為鎖定而造成的，請確認鎖定可以移除。 然後，瀏覽至已鎖定的資源、以滑鼠右鍵按一下鎖定，然後選擇 [刪除] 以移除鎖定。
 
-### <a name="iphelper"></a>案例：當您收到錯誤 「 找不到進入點名稱為 'GetPerAdapterInfo' dll 'iplpapi.dll' 中 」 執行 runbook。
+### <a name="iphelper"></a>Scenario: You receive the error "Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'" when executing a runbook.
 
 #### <a name="issue"></a>問題
 
-執行 runbook 時您會收到下列例外狀況：
+When executing a runbook you receive the following exception:
 
 ```error
 Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
@@ -150,11 +150,11 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### <a name="cause"></a>原因
 
-此錯誤最可能是因為設定不正確[的執行身分帳戶](../manage-runas-account.md)。
+This error is most likely caused by an incorrectly configured [Run As Account](../manage-runas-account.md).
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解析度
 
-請確定您[的執行身分帳戶](../manage-runas-account.md)已正確設定。 一旦設定正確，請確定您有適當的程式碼在您向 Azure 進行驗證的 runbook。 下列範例會顯示在 runbook 中使用執行身分帳戶驗證至 Azure 的程式碼片段。
+Make sure your [Run As Account](../manage-runas-account.md) is properly configured. Once it is configured correctly, ensure you have the proper code in your runbook to authenticate with Azure. The following example shows a snippet of code to authenticate to Azure in a runbook using a Run As Account.
 
 ```powershell
 $connection = Get-AutomationConnection -Name AzureRunAsConnection
@@ -168,4 +168,4 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
 
 * 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
 * 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。
-* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。
+* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。

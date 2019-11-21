@@ -1,26 +1,25 @@
 ---
 title: 使用 REST API 來擷取計量
-titlesuffix: Azure Load Balancer
-description: 使用 Azure REST API，來收集 Load Balancer 在指定時間和日期範圍內的健康情況和使用量計量。
+titleSuffix: Azure Load Balancer
+description: In this article, get started using the Azure REST APIs to collect health and usage metrics for Azure Load Balancer.
 services: sql-database
 author: asudbring
-ms.reviewer: routlaw
-manager: jeconnoc
+manager: KumudD
 ms.service: load-balancer
 ms.custom: REST, seodec18
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: 0d12dc04aff58dd6273d8d29d422bdbd9e7c886b
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 760ec8a945ab88b63dde2de75f5354818facf4f2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274534"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225249"
 ---
-# <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>使用 REST API 取得 Load Balancer 使用量計量
+# <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Get Load Balancer usage metrics using the REST API
 
-此操作說明會說明如何使用 [Azure REST API](/rest/api/azure/)，來收集 [Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) 在一段時間內所處理的位元組數目。
+Collect the number of bytes processed by a [Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) for an interval of time using the [Azure REST API](/rest/api/azure/).
 
 REST API 的完整參考文件和其他範例可於 [Azure 監視器 REST 參考](/rest/api/monitor)中取得。 
 
@@ -43,14 +42,14 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="uri-parameters"></a>URI 參數
 
-| 名稱 | 描述 |
+| Name | 描述 |
 | :--- | :---------- |
 | subscriptionId | 可識別 Azure 訂用帳戶的訂用帳戶識別碼。 如果您有多個訂用帳戶，請參閱[使用多個訂用帳戶](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)。 |
 | resourceGroupName | 包含資源的資源群組名稱。 您可以從 Azure Resource Manager API、CLI 或入口網站取得這個值。 |
 | loadBalancerName | Azure Load Balancer 的名稱。 |
-| metricnames | 以逗號分隔的有效 [Load Balancer 計量](/azure/load-balancer/load-balancer-standard-diagnostics)清單。 |
+| metric names | 以逗號分隔的有效 [Load Balancer 計量](/azure/load-balancer/load-balancer-standard-diagnostics)清單。 |
 | api-version | 要用於要求的 API 版本。<br /><br /> 本文件涵蓋 api-version `2018-01-01`，內含於上述 URL 中。  |
-| 時間範圍 | 查詢的時間範圍。 它是格式如下的字串：`startDateTime_ISO/endDateTime_ISO`。 此選用參數會設定為傳回此範例中一天份的資料。 |
+| timespan | 查詢的時間範圍。 It's a string with the following format `startDateTime_ISO/endDateTime_ISO`. 此選用參數會設定為傳回此範例中一天份的資料。 |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Request body

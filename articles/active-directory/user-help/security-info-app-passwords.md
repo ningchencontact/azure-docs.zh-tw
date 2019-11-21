@@ -1,6 +1,6 @@
 ---
-title: 在安全性資訊（預覽）中建立應用程式密碼-Azure AD
-description: 在您的組織中設定自動產生密碼 (應用程式密碼)，以便搭配任何非瀏覽器應用程式或是不支援雙因素驗證的應用程式使用。 此應用程式密碼與一般密碼不同，可以在安全性資訊頁面上設定。
+title: Create app passwords from Security info (preview) page - Azure AD
+description: Create auto-generated passwords (app passwords) to use with any non-browser app, or any app that doesn't support two-factor verification, in your organization. 此應用程式密碼與一般密碼不同，可以在安全性資訊頁面上設定。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb26d90772fc9e3e3e506946363c76cf02e6b2ef
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ee9f6bc1986cb31b1e21a0678e59bf8269988426
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820332"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231800"
 ---
-# <a name="create-app-passwords-from-your-security-info-preview-page"></a>從您的安全性資訊（預覽）頁面建立應用程式密碼
+# <a name="create-app-passwords-from-the-security-info-preview-page"></a>Create app passwords from the Security info (preview) page
 
 某些應用程式 (例如 Outlook 2010) 不支援雙步驟驗證。 缺乏支援的意思就是，如果您在組織中使用雙步驟驗證，應用程式會無法運作。 若要解決此問題，您可以建立自動產生的密碼來與每個非瀏覽器應用程式搭配使用，此密碼與您的一般密碼不同。
 
@@ -30,7 +30,7 @@ ms.locfileid: "73820332"
 
 使用應用程式密碼時，請務必記住：
 
-- 應用程式密碼會自動產生，且應針對每個應用程式建立並輸入一次。
+- App passwords are auto-generated, and should be created and entered once per app.
 
 - 每位使用者的密碼以 40 組為限。 如果您在到達該限制之後嘗試建立一個密碼，系統就會提示您先刪除現有的密碼，然後才能建立新密碼。
 
@@ -52,7 +52,7 @@ ms.locfileid: "73820332"
 
 2. 以左側瀏覽窗格或是 [安全性資訊] 區塊中的連結選取 [安全性資訊]，然後在 [安全性資訊] 頁面選取 [新增方法]。
 
-    ![醒目提示新增方法選項的安全性資訊頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![醒目提示 [新增方法] 選項的 [安全性資訊] 頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. 在 [新增方法] 頁面上，從下拉式清單中選取 [應用程式密碼]，然後選取 [新增]。
 
@@ -83,6 +83,6 @@ ms.locfileid: "73820332"
 
 2. 在確認方塊中選取 [是]，即會刪除 [應用程式密碼]。 刪除應用程式密碼之後，該應用程式密碼就會從您的安全性資訊中移除，並且從 [安全性資訊] 頁面上消失。
 
-## <a name="for-more-information"></a>如需 Blob 的詳細資訊，
+## <a name="for-more-information"></a>取得詳細資訊
 
 - 如需進一步瞭解 [安全性資訊] 頁面以及其設定方式，請參閱[安全性資訊概觀](user-help-security-info-overview.md)

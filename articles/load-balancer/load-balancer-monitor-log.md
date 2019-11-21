@@ -1,6 +1,6 @@
 ---
 title: 監視公用基礎負載平衡器的作業、事件和計數器
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: 了解如何啟用 Basic Load Balancer 的警示事件和探查健康情況狀態記錄
 services: load-balancer
 documentationcenter: na
@@ -13,89 +13,89 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: df35168d0fab0b01ff11c4105a1fcc5b16e21f30
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 23a3a2629c6f2f89c4b8f6d5af57bcf3b6bb67dd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350718"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214919"
 ---
-# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>適用于公用基本 Load Balancer 的 Azure 監視器記錄
+# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure Monitor logs for public Basic Load Balancer
 
 >[!IMPORTANT] 
 >Azure Load Balancer 支援兩種不同類型：基本和標準。 本文討論基本 Load Balancer。 如需有關 Standard Load Balancer 的詳細資訊，請參閱 [Standard Load Balancer 概觀](load-balancer-standard-overview.md)，其中會透過 Azure 監視器中的多維度計量來公開遙測資料。
 
-您可以在 Azure 中使用不同類型的記錄來管理 Basic Load Balancer，並對其進行疑難排解。 透過入口網站可以存取其中一些記錄。 記錄可以串流處理至事件中樞或 Log Analytics 工作區。 所有記錄都可以從 Azure blob 儲存體中解壓縮，並在不同的工具（例如 Excel 和 Power BI）中進行查看。  您可以從下列清單進一步了解不同類型的記錄。
+您可以在 Azure 中使用不同類型的記錄來管理 Basic Load Balancer，並對其進行疑難排解。 透過入口網站可以存取其中一些記錄。 Logs can be streamed to an event hub or a Log Analytics workspace. All logs can be extracted from Azure blob storage, and viewed in different tools, such as Excel and Power BI.  您可以從下列清單進一步了解不同類型的記錄。
 
-* **活動記錄：** 您可以使用 [[查看活動記錄] 來監視資源的動作](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)，以查看提交至您的 Azure 訂用帳戶的所有活動及其狀態。 活動記錄預設為啟用，而且可以在 Azure 入口網站中查看。
+* **Activity logs:** You can use [View activity logs to monitor actions on resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) to view all activity being submitted to your Azure subscription(s), and their status. Activity logs are enabled by default, and can be viewed in the Azure portal.
 * **警示事件記錄：** 您可以使用此記錄來檢視負載平衡器所引發的警示。 系統每五分鐘會收集一次負載平衡器的狀態。 只有在引發負載平衡器警示事件時，才會寫入此記錄檔。
-* **健全狀況探查記錄：** 您可以使用此記錄來檢視健康狀態探查所偵測到的問題，例如後端集區中因為健康狀態探查失敗，而未從負載平衡器接收要求的執行個體數目。 健康狀態探查狀態發生變更時會寫入此記錄。
+* **健康狀態探查記錄︰** 您可以使用此記錄來檢視健康狀態探查所偵測到的問題，例如後端集區中因為健康狀態探查失敗而未從負載平衡器接收要求的執行個體數目。 健康狀態探查狀態發生變更時會寫入此記錄。
 
 > [!IMPORTANT]
-> Azure 監視器記錄檔目前僅適用于公用基本負載平衡器。 記錄僅適用於在資源管理員部署模型中部署的資源。 您無法將記錄使用於傳統部署模型中的資源。 如需這些部署模型的詳細資訊，請參閱[了解 Resource Manager 部署和傳統部署](../azure-resource-manager/resource-manager-deployment-model.md)。
+> Azure Monitor logs currently works only for public Basic load balancers. 記錄僅適用於在資源管理員部署模型中部署的資源。 您無法將記錄使用於傳統部署模型中的資源。 如需這些部署模型的詳細資訊，請參閱[了解 Resource Manager 部署和傳統部署](../azure-resource-manager/resource-manager-deployment-model.md)。
 
 ## <a name="enable-logging"></a>啟用記錄
 
-每個 Resource Manager 資源都會自動啟用活動記錄功能。 啟用事件和健全狀況探查記錄，以開始收集可透過這些記錄取得的資料。 使用下列步驟以啟用記錄功能。
+每個 Resource Manager 資源都會自動啟用活動記錄功能。 Enable event and health probe logging to start collecting the data available through those logs. 使用下列步驟以啟用記錄功能。
 
 登入 [Azure 入口網站](https://portal.azure.com)。 如果您還沒有負載平衡器，請先 [建立負載平衡器](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) 再繼續。
 
-1. 在入口網站中，按一下 [**資源群組**]。
-2. 選取您的負載平衡器 **@no__t 1resource-群組-名稱 >** 。
-3. 選取您的負載平衡器。
-4. 選取 [**監視** >  個**診斷設定**]。
-5. 在 [**診斷設定**] 窗格的 [**診斷設定**] 底下，選取 [ **+ 新增診斷設定**]。
-6. 在 [**診斷設定**] 建立窗格的 [**名稱**] 欄位中，輸入**myLBDiagnostics** 。
-7. 您有三個**診斷設定**選項。  您可以選擇其中一個、兩個或全部三個，並針對您的需求進行設定：
-   * **封存至儲存體帳戶**
-   * **串流至事件中樞**
-   * **傳送至 Log Analytics**
+1. In the portal, click **Resource groups**.
+2. Select **\<resource-group-name>** where your load balancer is.
+3. Select your load balancer.
+4. Select **Monitoring** > **Diagnostic settings**.
+5. In the **Diagnostics settings** pane, under **Diagnostics settings**, select **+ Add diagnostic setting**.
+6. In the **Diagnostics settings** creation pane, enter **myLBDiagnostics** in the **Name** field.
+7. You have three options for the **Diagnostics settings**.  You can choose one, two or all three and configure each for your requirements:
+   * **Archive to a storage account**
+   * **Stream to an event hub**
+   * **Send to Log Analytics**
 
     ### <a name="archive-to-a-storage-account"></a>封存至儲存體帳戶
-    您將需要已經為此程式建立的儲存體帳戶。  若要建立儲存體帳戶，請參閱[建立儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
+    You'll need a storage account already created for this process.  To create a storage account, see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
 
-    1. 選取 [封存**至儲存體帳戶**] 旁的核取方塊。
-    2. 選取 [**設定**] 以開啟 [**選取儲存體帳戶**] 窗格。
-    3. 在下拉方塊中，選取您的儲存體帳戶建立所在的**訂**用帳戶。
-    4. 在下拉方塊中，選取 [**儲存體帳戶**] 下的儲存體帳戶名稱。 
-    5. 選取 [確定]。
+    1. Select the checkbox next to **Archive to a storage account**.
+    2. Select **Configure** to open the **Select a storage account** pane.
+    3. Select the **Subscription** where your storage account was created in the pull-down box.
+    4. Select the name of your storage account under **Storage account** in the pull-down box. 
+    5. Select OK.
 
     ### <a name="stream-to-an-event-hub"></a>串流至事件中樞
-    您將需要已為此程式建立的事件中樞。  若要建立事件中樞，請參閱 [Quickstart：使用 Azure 入口網站 @ no__t-0 建立事件中樞
+    You'll need an event hub already created for this process.  To create an event hub, see [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
-    1. 選取 [**串流至事件中樞**] 旁的核取方塊
-    2. 選取 [**設定**] 以開啟 [**選取事件中樞**] 窗格。
-    3. 在下拉方塊中，選取您的事件中樞建立所在的**訂**用帳戶。
-    4. 在下拉方塊中**選取 [事件中樞命名空間**]。
-    5. 在下拉方塊中**選取 [事件中樞原則名稱**]。
-    6. 選取 [確定]。
+    1. Select the checkbox next to **Stream to an event hub**
+    2. Select **Configure** to open the **Select event hub** pane.
+    3. Select the **Subscription** where your event hub was created in the pull-down box.
+    4. **Select event hub namespace** in the pull-down box.
+    5. **Select event hub policy name** in the pull-down box.
+    6. Select OK.
 
     ### <a name="send-to-log-analytics"></a>傳送至 Log Analytics
-    您必須已經為此程式建立和設定 log analytics 工作區。  若要建立 Log Analytics 工作區，請參閱在[Azure 入口網站中建立 Log analytics 工作區](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+    You'll need to already have a log analytics workspace created and configured for this process.  To create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
-    1. 選取 [**傳送至 Log Analytics**] 旁的核取方塊。
-    2. 在下拉方塊中，選取您的 Log Analytics 工作區所在的**訂**用帳戶。
-    3. 在下拉方塊中，選取 [ **Log Analytics 工作區**]。
+    1. Select the checkbox next to **Send to Log Analytics**.
+    2. Select the **Subscription** where your Log Analytics workspace is in the pull-down box.
+    3. Select the **Log Analytics Workspace** in the pull-down box.
 
 
-8. 在 [**診斷設定**] 窗格的 [**記錄**檔] 區段底下，選取 [兩者] 旁的核取方塊：
+8. Beneath the **LOG** section in the **Diagnostics settings** pane, select the check box next to both:
    * **LoadBalancerAlertEvent**
    * **LoadBalancerProbeHealthStatus**
 
-9.  在 [**診斷設定**] 窗格中的 [**度量**] 區段底下，選取 [] 旁的核取方塊：
+9.  Beneath the **METRIC** section in the **Diagnostics settings** pane, select the check box next to:
    * **AllMetrics**
 
-11. 確認一切看起來正確，然後按一下 [建立**診斷設定**] 窗格頂端的 [**儲存**]。
+11. Verify everything looks correct and click **Save** at the top of the create **Diagnostic settings** pane.
 
 ## <a name="activity-log"></a>活動記錄
 
-預設會產生活動記錄。 記錄會在 Azure 的 [事件記錄] 存放區中保留 90 天。 若要深入瞭解這些記錄，請閱讀[View 活動記錄以監視資源上的動作](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)一文。
+The activity log is generated by default. 記錄會在 Azure 的 [事件記錄] 存放區中保留 90 天。 Learn more about these logs by reading the [View activity logs to monitor actions on resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) article.
 
-## <a name="archive-to-storage-account-logs"></a>封存至儲存體客戶紀錄
+## <a name="archive-to-storage-account-logs"></a>Archive to storage account logs
 
 ### <a name="alert-event-log"></a>警示事件記錄檔
 
-您必須對每一個負載平衡器進行啟用，才會產生此記錄檔。 事件會以 JSON 格式記錄，並儲存在您啟用記錄時所指定的儲存體帳戶中。 下列為事件的範例。
+您必須對每一個負載平衡器進行啟用，才會產生此記錄檔。 事件會以 JSON 格式記錄，並儲存在您啟用記錄時所指定的儲存體帳戶中。 The following example is of an event.
 
 ```json
 {
@@ -114,7 +114,7 @@ ms.locfileid: "71350718"
 }
 ```
 
-JSON 輸出顯示 [*事件名稱*] 屬性，它會描述負載平衡器建立警示的原因。 在此情況下，產生的警示是因為來源 IP NAT 限制（SNAT）所造成的 TCP 通訊埠耗盡。
+The JSON output shows the *eventname* property, which will describe the reason for the load balancer created an alert. In this case, the alert generated was because of TCP port exhaustion caused by source IP NAT limits (SNAT).
 
 ### <a name="health-probe-log"></a>健全狀況探查記錄檔
 
@@ -154,27 +154,27 @@ JSON 輸出顯示 [*事件名稱*] 屬性，它會描述負載平衡器建立警
 }
 ```
 
-JSON 輸出在屬性欄位中顯示了探查健全狀況狀態的基本資訊。 *DipDownCount*屬性會顯示後端上因為探查回應失敗而無法接收網路流量的實例總數。
+JSON 輸出在屬性欄位中顯示了探查健全狀況狀態的基本資訊。 The *dipDownCount* property shows the total number of instances on the back-end, which are not receiving network traffic because of failed probe responses.
 
 ### <a name="view-and-analyze-the-audit-log"></a>檢視和分析稽核記錄檔
 
 您可以使用下列任何方法，檢視和分析稽核記錄檔資料：
 
-* **Azure 工具：** 透過 Azure PowerShell、Azure 命令列介面（CLI）、Azure REST API 或 Azure 入口網站，從 audit 記錄取出資訊。 [稽核作業與資源管理員](../azure-resource-manager/resource-group-audit.md) 一文會詳述每個方法的逐步指示。
-* **Power BI：** 如果還沒有 [Power BI](https:// .microsoft.com/pricing) 帳戶，您可以免費試用。 使用 [Power BI 的 Azure 稽核記錄內容套件](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs)，您可以使用預先設定的儀表板來分析資料，或根據您的需求自訂檢視。
+* **Azure tools:** Retrieve information from the audit logs through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure portal. [稽核作業與資源管理員](../azure-resource-manager/resource-group-audit.md) 一文會詳述每個方法的逐步指示。
+* **Power BI︰** 如果還沒有 [Power BI](https:// .microsoft.com/pricing) 帳戶，您可以免費試用。 使用 [Power BI 的 Azure 稽核記錄內容套件](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs)，您可以使用預先設定的儀表板來分析資料，或根據您的需求自訂檢視。
 
 ### <a name="view-and-analyze-the-health-probe-and-event-log"></a>檢視和分析健全狀況探查與事件記錄檔
 
-連接到您的儲存體帳戶，並抓取事件和健康情況探查記錄的 JSON 記錄專案。 下載 JSON 檔案之後，您可以將它們轉換成 CSV，並在 Excel、Power BI 或任何其他資料視覺化檢視中進行查看。
+Connect to your storage account and retrieve the JSON log entries for event and health probe logs. Once you download the JSON files, you can convert them to CSV and view in Excel, Power BI, or any other data visualization tool.
 
 > [!TIP]
 > 如果您熟悉 Visual Studio 以及在 C# 中變更常數和變數值的基本概念，您可以使用 GitHub 所提供的[記錄檔轉換器工具 (英文)](https://github.com/Azure-Samples/networking-dotnet-log-converter)。
 
 ## <a name="stream-to-an-event-hub"></a>串流至事件中樞
-當診斷資訊串流處理到事件中樞時，它可以用於具有 Azure 監視器整合之協力廠商 SIEM 工具中的集中式記錄分析。 如需詳細資訊，請參閱[將 Azure 監視資料串流至事件中樞](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#tools-with-azure-monitor-integration)
+When diagnostic information is streamed to an event hub, it can be used for centralized log analysis in a third-party SIEM tool with Azure Monitor Integration. For more information, see [Stream Azure monitoring data to an event hub](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#tools-with-azure-monitor-integration)
 
 ## <a name="send-to-log-analytics"></a>傳送至 Log Analytics
-Azure 中的資源可以將其診斷資訊直接傳送至 Log Analytics 工作區，其中可以針對疑難排解和分析的資訊執行複雜的查詢。  如需詳細資訊，請參閱[在 Log Analytics 工作區中收集 Azure 資源記錄 Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)
+Resources in Azure can have their diagnostic information sent directly to a Log Analytics workspace where complex queries can be run against the information for troubleshooting and analysis.  For more information, see [Collect Azure resource logs in Log Analytics workspace in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)
 
 ## <a name="next-steps"></a>後續步驟
 

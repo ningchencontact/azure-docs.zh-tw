@@ -1,5 +1,5 @@
 ---
-title: 將存取權指派給 Azure 成本管理資料
+title: Assign access to Azure Cost Management data
 description: 本文逐步引導您針對不同存取範圍，指派對 Azure 成本管理資料的權限。
 services: cost-management
 keywords: ''
@@ -7,23 +7,23 @@ author: bandersmsft
 ms.author: banders
 ms.date: 10/14/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: ebc56d27b7adc8f1fea9eafabe1b211f3f0ad560
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e3140ee990127db6815828314103a09dff7cf26e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375137"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74219838"
 ---
 # <a name="assign-access-to-cost-management-data"></a>指派成本管理資料的存取權
 
-對於具有 Azure Enterprise 合約的使用者，在 Azure 入口網站和企業 (EA) 入口網站中授與的權限組合，定義了使用者對 Azure 成本管理資料的存取權層級。 針對具有其他 Azure 帳戶類型的使用者，使用 Azure 角色型存取控制來定義使用者對成本管理資料的存取層級會比較簡單。 本文逐步引導您指派對 Azure 成本管理資料的存取權。 指派權限組合之後，使用者依他們有存取權的範圍和他們在 Azure 入口網站中選取的範圍，來檢視成本管理中的資料。
+對於具有 Azure Enterprise 合約的使用者，在 Azure 入口網站和企業 (EA) 入口網站中授與的權限組合，定義了使用者對 Azure 成本管理資料的存取權層級。 For users with other Azure account types, defining a user's level of access to Cost Management data is simpler by using Azure role-based access control. 本文逐步引導您指派對 Azure 成本管理資料的存取權。 指派權限組合之後，使用者依他們有存取權的範圍和他們在 Azure 入口網站中選取的範圍，來檢視成本管理中的資料。
 
 使用者選取的範圍使用於成本管理，以提供資料彙總及控制對成本資訊的存取權。 使用範圍時，使用者不能多重選取範圍。 相反地，他們是選取子範圍彙總至的較大範圍，然後再篩選出想要檢視的部分。 請務必了解資料彙總，因為有些人員不應存取子範圍所彙總至的父範圍。
 
-觀看[如何使用 Azure 成本管理影片來指派存取](https://www.youtube.com/watch?v=J997ckmwTa8)權，以瞭解如何使用 Azure 角色型存取控制來指派存取權，以查看成本和費用。
+Watch the [How to assign access with Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) video to learn about assigning access to view costs and charges with Azure role-based access control.
 
 >[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
@@ -64,7 +64,7 @@ ms.locfileid: "72375137"
 - 管理群組
 - Resource group
 
-在合作夥伴將客戶上線至 Microsoft 客戶合約之後，就可以使用各種範圍。 然後，CSP 客戶可以在其 CSP 合作夥伴啟用時，使用成本管理功能。 如需詳細資訊，請參閱[開始使用 Azure 成本管理取得合作夥伴](get-started-partners.md)。
+Various scopes are available after partners onboard customers to a Microsoft Customer Agreement. CSP customers can then use Cost Management features when enabled by their CSP partner. For more information, see [Get started with Azure Cost Management for partners](get-started-partners.md).
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>在 EA 入口網站中啟用對成本的存取權
 
@@ -131,7 +131,7 @@ ms.locfileid: "72375137"
 
 ## <a name="assign-management-group-scope-access"></a>指派管理群組範圍存取權
 
-查看管理群組範圍的存取權至少需要成本管理的讀者（或讀者）許可權。 您可以在 Azure 入口網站中設定對管理群組的權限。 您必須至少有管理群組的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且針對 Azure EA 帳戶，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
+Access to view the management group scope requires at least the Cost Management Reader (or Reader) permission. 您可以在 Azure 入口網站中設定對管理群組的權限。 您必須至少有管理群組的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且針對 Azure EA 帳戶，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
 
 1. 登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 2. 在側邊欄中選取 [所有服務]，再搜尋「管理群組」，然後選取 [管理群組]。
@@ -173,11 +173,11 @@ ms.locfileid: "72375137"
 8. 若要指派存取權，搜尋並選取使用者。
 9. 按一下 [儲存]。
 
-## <a name="cross-tenant-authentication-issues"></a>跨租使用者驗證問題
+## <a name="cross-tenant-authentication-issues"></a>Cross-tenant authentication issues
 
-目前，Azure 成本管理對跨租使用者驗證的支援有限。 在某些情況下，當您嘗試在租使用者之間進行驗證時，您可能會在成本分析中收到「**拒絕存取**」錯誤。 如果您將角色型存取控制（RBAC）設定為另一個租使用者的訂用帳戶，然後嘗試查看成本資料，則可能會發生此問題。
+Currently, Azure Cost Management has limited support for cross-tenant authentication. In some circumstances when you try to authenticate across tenants, you may receive an **Access denied** error in cost analysis. This issue might occur if you configure role-based access control (RBAC) to another tenant's subscription and then try to view cost data.
 
-*若要解決此問題*：設定跨租使用者 RBAC 之後，請等候一小時。 然後，嘗試在成本分析中查看成本，或將成本管理存取權授與這兩個租使用者中的使用者。  
+*To work around the problem*: After you configure cross-tenant RBAC, wait an hour. Then, try to view costs in cost analysis or grant Cost Management access to users in both tenants.  
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -193,7 +193,7 @@
             - name: 預測航班誤點
               displayName: 'classification, studio'
               href: how-to-designer-sample-classification-flight-delay.md
-            - name: 測試分類
+            - name: 文字分類
               displayName: 'classification, studio'
               href: how-to-designer-sample-text-classification.md
         - name: 為 ML 使用估算器

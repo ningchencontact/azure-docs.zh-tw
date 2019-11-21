@@ -1,25 +1,21 @@
 ---
 title: Azure Durable Functions 單元測試
 description: 深入了解如何針對 Durable Functions 進行單元測試。
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.author: glenga
-ms.openlocfilehash: 95c6afcb2f7e864da4b9b43235326a17bed785fa
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614525"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231233"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions 單元測試
 
-單元測試是現代軟體開發實務中很重要的一部分。 單元測試會驗證商務邏輯行為，並且防止在未來引進未注意到的中斷性變更。 Durable Functions 很容易變得複雜，所以引進單元測試有助於避免中斷性變更。 下列各節說明如何對三個函數類型進行單元測試：協調流程用戶端、協調器和活動函式。
+單元測試是現代軟體開發實務中很重要的一部分。 單元測試會驗證商務邏輯行為，並且防止在未來引進未注意到的中斷性變更。 Durable Functions 很容易變得複雜，所以引進單元測試有助於避免中斷性變更。 The following sections explain how to unit test the three function types - Orchestration client, orchestrator, and activity functions.
 
 > [!NOTE]
-> 本文提供以 Durable Functions 1.x 為目標之 Durable Functions 應用程式單元測試的指導方針。 尚未更新，以將 Durable Functions 2.x 中引進的變更納入考慮。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> This article provides guidance for unit testing for Durable Functions apps targeting Durable Functions 1.x. It has not yet been updated to account for changes introduced in Durable Functions 2.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -35,7 +31,7 @@ ms.locfileid: "73614525"
 
 ## <a name="base-classes-for-mocking"></a>模擬的基底類別
 
-Durable Functions 1.x 中的三個抽象類別都支援模擬：
+Mocking is supported via three abstract classes in Durable Functions 1.x:
 
 * `DurableOrchestrationClientBase`
 
@@ -43,9 +39,9 @@ Durable Functions 1.x 中的三個抽象類別都支援模擬：
 
 * `DurableActivityContextBase`
 
-這些類別是定義協調流程用戶端、協調器和活動方法之 `DurableOrchestrationClient`、`DurableOrchestrationContext`和 `DurableActivityContext` 的基類。 模擬會設定基底類別方法的預期行為，讓單元測試可以驗證商務邏輯。 有一個雙步驟工作流程可以針對協調流程用戶端和協調器中的商務邏輯進行單元測試：
+These classes are base classes for `DurableOrchestrationClient`, `DurableOrchestrationContext`, and `DurableActivityContext` that define Orchestration Client, Orchestrator, and Activity methods. 模擬會設定基底類別方法的預期行為，讓單元測試可以驗證商務邏輯。 有一個雙步驟工作流程可以針對協調流程用戶端和協調器中的商務邏輯進行單元測試：
 
-1. 定義協調流程用戶端和協調器函式簽章時，請使用基類，而不是具體的執行。
+1. Use the base classes instead of the concrete implementation when defining orchestration client and orchestrator function signatures.
 2. 在單元測試中模擬基底類別的行為，並且驗證商務邏輯。
 
 在下列段落中尋找測試函式的詳細資料，這些函式使用協調流程用戶端繫結和協調器觸發程序繫結。
@@ -56,9 +52,9 @@ Durable Functions 1.x 中的三個抽象類別都支援模擬：
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-單元測試工作會驗證回應承載中提供的 `Retry-After` 標頭值。 因此，單元測試會模擬一些 `DurableOrchestrationClientBase` 方法，以確保可預測的行為。
+單元測試工作會驗證回應承載中提供的 `Retry-After` 標頭值。 So the unit test will mock some of `DurableOrchestrationClientBase` methods to ensure predictable behavior.
 
-首先，需要基本類別的 mock，`DurableOrchestrationClientBase`。 Mock 可以是執行 `DurableOrchestrationClientBase`的新類別。 不過，使用例如 [moq](https://github.com/moq/moq4) 的模擬架構可以簡化程序：
+First, a mock of the base class is required, `DurableOrchestrationClientBase`. The mock can be a new class that implements `DurableOrchestrationClientBase`. 不過，使用例如 [moq](https://github.com/moq/moq4) 的模擬架構可以簡化程序：
 
 ```csharp
     // Mock DurableOrchestrationClientBase
@@ -176,7 +172,7 @@ Durable Functions 1.x 中的三個抽象類別都支援模擬：
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-且單元測試會驗證輸出的格式。 單元測試可以直接使用參數類型，或模擬 `DurableActivityContextBase` 類別：
+且單元測試會驗證輸出的格式。 The unit tests can use the parameter types directly or mock `DurableActivityContextBase` class:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 

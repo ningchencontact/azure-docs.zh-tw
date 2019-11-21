@@ -1,5 +1,5 @@
 ---
-title: 獨立 Azure Service Fabric 中的定期備份/還原
+title: Periodic backup/restore in standalone Azure Service Fabric
 description: 使用 Service Fabric 的定期備份與還原功能，啟用應用程式資料的定期資料備份。
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 559f6cce7044d57c0a17fc3fe17f1c61f710913a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: feec830a81b9afe572e05bb6be21ad39edd7af04
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013339"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232472"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>在 Azure Service Fabric 中定期備份和還原
 > [!div class="op_single_selector"]
@@ -48,23 +48,23 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
     - Azure 儲存體
     - 檔案共用 (內部部署)
 - 列舉備份
-- 觸發資料分割的臨機操作備份
+- Trigger an ad hoc backup of a partition
 - 使用先前的備份來還原分割區
 - 暫時暫停備份
 - 備份的保留管理 (即將推出)
 
-## <a name="prerequisites"></a>先決條件
-* 具有 Fabric 6.4 版或更新版本的 Service Fabric 叢集。 如需下載所需套件的步驟，請參閱這篇[文章](service-fabric-cluster-creation-for-windows-server.md)。
+## <a name="prerequisites"></a>必要條件
+* Service Fabric cluster with Fabric version 6.4 or above. 如需下載所需套件的步驟，請參閱這篇[文章](service-fabric-cluster-creation-for-windows-server.md)。
 * 用於加密祕密 (連線至儲存體以儲存備份時所需) 的 X.509 憑證。 若要了解如何取得或建立自我簽署的 X.509 憑證，請參閱這篇[文章](service-fabric-windows-cluster-x509-security.md)。
 
 * 使用 Service Fabric SDK 3.0 版或更新版本來建置的 Service Fabric 可靠具狀態應用程式。 針對以 .Net Core 2.0 為目標的應用程式，則應該使用 Service Fabric SDK 3.1 版或更新版本來建置應用程式。
-* 安裝 ServiceFabric 模組 [在預覽中] 以進行設定呼叫。
+* Install Microsoft.ServiceFabric.Powershell.Http Module [In Preview] for making configuration calls.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-* 請先使用 `Connect-SFCluster` 命令來確定叢集已連線，再使用 ServiceFabric 模組進行任何設定要求。
+* Make sure that Cluster is connected using the `Connect-SFCluster` command before making any configuration request using Microsoft.ServiceFabric.Powershell.Http Module.
 
 ```powershell
 
@@ -86,7 +86,7 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
     }
     ```
 
-2. 現在，在 _區段底下新增下列_ 區段來啟用「備份與還原服務」`addonFeatures``properties`，如下列程式碼片段所示： 
+2. 現在，在 `properties` 區段底下新增下列 `addonFeatures` 區段來啟用「備份與還原服務」，如下列程式碼片段所示： 
 
     ```json
         "properties": {
@@ -98,7 +98,7 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
 
     ```
 
-3. 設定用於加密認證的 X.509 憑證。 這很重要，可確保所提供來連線至儲存體的認證 (如果有的話) 會先經過加密再進行保存。 在 `BackupRestoreService` 區段底下新增下列 `fabricSettings` 區段來設定加密憑證，如下列程式碼片段所示： 
+3. 設定用於加密認證的 X.509 憑證。 這很重要，可確保所提供來連線至儲存體的認證 (如果有的話) 會先經過加密再進行保存。 在 `fabricSettings` 區段底下新增下列 `BackupRestoreService` 區段來設定加密憑證，如下列程式碼片段所示： 
 
     ```json
     "properties": {
@@ -128,17 +128,17 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
 
 第一步是建立備份原則來描述備份排程、備份資料的目標儲存體、原則名稱，以及觸發備份儲存體的完整備份和保留原則之前所允許的增量備份上限。 
 
-針對備份儲存體，請建立檔案共用，然後將此檔案共用的 ReadWrite 存取權授與所有 Service Fabric 節點電腦。 此範例假設 `BackupStore` 上有名為 `StorageServer` 的共用。
+針對備份儲存體，請建立檔案共用，然後將此檔案共用的 ReadWrite 存取權授與所有 Service Fabric 節點電腦。 此範例假設 `StorageServer` 上有名為 `BackupStore` 的共用。
 
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>使用 ServiceFabric 的 powershell 模組
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell using Microsoft.ServiceFabric.Powershell.Http Module
 
 ```powershell
 
 New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrementalBackups 20 -FrequencyBased -Interval 00:15:00 -FileShare -Path '\\StorageServer\BackupStore' -Basic -RetentionDuration '10.00:00:00'
 
 ```
-#### <a name="rest-call-using-powershell"></a>使用 Powershell 的 Rest 呼叫
+#### <a name="rest-call-using-powershell"></a>Rest Call using Powershell
 
 執行下列 PowerShell 指令碼來叫用必要的 REST API 以建立新原則。
 
@@ -172,17 +172,27 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
+#### <a name="using-service-fabric-explorer"></a>Using Service Fabric Explorer
+
+1. In Service Fabric Explorer, navigate to the Backups tab and select Actions > Create Backup Policy.
+
+    ![建立備份原則][6]
+
+2. Fill out the information. For standalone clusters, FileShare should be selected.
+
+    ![Create Backup Policy FileShare][7]
+
 ### <a name="enable-periodic-backup"></a>啟用定期備份
 定義可滿足應用程式資料保護需求的原則之後，應該將該備份原則與應用程式建立關聯。 視需求而定，備份原則可以與應用程式、服務或分割區建立關聯。
 
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>使用 ServiceFabric 的 powershell 模組
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell using Microsoft.ServiceFabric.Powershell.Http Module
 
 ```powershell
 Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
 ```
 
-#### <a name="rest-call-using-powershell"></a>使用 Powershell 的 Rest 呼叫
+#### <a name="rest-call-using-powershell"></a>Rest Call using Powershell
 請執行下列 PowerShell 指令碼來叫用必要的 REST API，以將在上述步驟中所建立名為 `BackupPolicy1` 的備份原則與應用程式 `SampleApp` 建立關聯。
 
 ```powershell
@@ -196,15 +206,15 @@ $url = "http://localhost:19080/Applications/SampleApp/$/EnableBackup?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ``` 
 
-#### <a name="using-service-fabric-explorer"></a>使用 Service Fabric Explorer
+#### <a name="using-service-fabric-explorer"></a>Using Service Fabric Explorer
 
-1. 選取應用程式並移至 [動作]。 按一下 [啟用/更新應用程式備份]。
+1. Select an application and go to action. Click Enable/Update Application Backup.
 
-    ![啟用應用程式備份][3] 
+    ![Enable Application Backup][3] 
 
-2. 最後，選取所需的原則，然後按一下 [啟用備份]。
+2. Finally, select the desired policy and click Enable Backup.
 
-    ![選取原則][4]
+    ![Select Policy][4]
 
 ### <a name="verify-that-periodic-backups-are-working"></a>確認定期備份能夠運作
 
@@ -216,13 +226,13 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 您可以使用 _GetBackups_ API，以列舉屬於應用程式可靠具狀態服務和 Reliable Actors 的所有分割區相關備份。 視需求而定，可以列舉應用程式、服務或分割區的備份。
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>使用 ServiceFabric 的 powershell 模組
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell using Microsoft.ServiceFabric.Powershell.Http Module
 
 ```powershell
     Get-SFApplicationBackupList -ApplicationId WordCount     
 ```
 
-#### <a name="rest-call-using-powershell"></a>使用 Powershell 的 Rest 呼叫
+#### <a name="rest-call-using-powershell"></a>Rest Call using Powershell
 
 請執行下列 PowerShell 指令碼來叫用 HTTP API，以列舉針對 `SampleApp` 應用程式內所有分割區建立的備份。
 
@@ -275,14 +285,14 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
-#### <a name="using-service-fabric-explorer"></a>使用 Service Fabric Explorer
+#### <a name="using-service-fabric-explorer"></a>Using Service Fabric Explorer
 
-若要在 Service Fabric Explorer 中查看備份，請流覽至磁碟分割，然後選取 [備份] 索引標籤。
+To view backups in Service Fabric Explorer, navigate to a partition and select the Backups tab.
 
-![列舉備份][5]
+![Enumerate Backups][5]
 
 ## <a name="limitation-caveats"></a>限制 / 注意事項
-- Service Fabric PowerShell Cmdlet 處於預覽模式。
+- Service Fabric PowerShell cmdlets are in preview mode.
 - 不支援 Linux 上的 Service Fabric 叢集。
 
 ## <a name="next-steps"></a>後續步驟
@@ -293,3 +303,5 @@ FailureError            :
 [3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
 [4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
 [5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png
+[6]: ./media/service-fabric-backuprestoreservice/create-bp.png
+[7]: ./media/service-fabric-backuprestoreservice/create-bp-fileshare.png

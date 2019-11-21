@@ -1,7 +1,7 @@
 ---
-title: 以 STIG 為基礎的設定，以用於狀態設定-Azure 自動化
-description: 根據 Azure 自動化中的狀態設定，瞭解以 STIG 為基礎的設定。
-keywords: dsc，powershell，設定，安裝程式
+title: Configuration based on STIG to use in state configuration - Azure Automation
+description: Learn about configurations based on STIG for state configuration in Azure Automation.
+keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,39 +10,39 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 685b6bda09026e64154590afd66bdfbec43b8b1e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 224744bd49add514be165f4955739651fcbf6b61
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243535"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231666"
 ---
 # <a name="configuration-based-on-stig"></a>以 STIG 為基礎的設定
 
-> 適用於：Windows PowerShell 5.1
+> Applies To: Windows PowerShell 5.1
 
-第一次建立設定內容可能是一項挑戰。
-在許多情況下，目標是要以「基準」來自動設定伺服器，以符合業界建議。
+Creating configuration content for the first time can be challenging.
+In many cases, the goal is to automate configuration of servers following a "baseline" that hopefully aligns to an industry recommendation.
 
 > [!NOTE]
-> 本文是指由開放原始碼社區維護的解決方案。
-> 支援僅以 GitHub 共同作業的形式提供，而不是來自 Microsoft。
+> This article refers to a solution that is maintained by the Open Source community.
+> Support is only available in the form of GitHub collaboration, not from Microsoft.
 
-## <a name="community-project-powerstig"></a>社區專案：PowerSTIG
+## <a name="community-project-powerstig"></a>Community project: PowerSTIG
 
-名為[PowerSTIG](https://github.com/microsoft/powerstig)的社區專案的目標是要解決這個問題，方法是根據所提供有關 STIG 的[公用資訊](https://public.cyber.mil/stigs/)產生 DSC 內容（安全性技術實施指南），
+A community project named [PowerSTIG](https://github.com/microsoft/powerstig) aims to resolve this issue by generating DSC content based on [public information](https://public.cyber.mil/stigs/) provided about STIG (Security Technical Implementation Guide),
 
-處理基準比聽起來更為複雜。
-許多組織都需要記載規則的[例外](https://github.com/microsoft/powerstig#powerstigdata)狀況，並大規模管理該資料。
-PowerSTIG 藉由提供[複合資源](https://github.com/microsoft/powerstig#powerstigdsc)來處理每個設定區域，而不是嘗試在一個大型檔案中處理整個範圍的設定，來解決此問題。
+Dealing with baselines is more complicated than it sounds.
+Many organizations need to [document exceptions](https://github.com/microsoft/powerstig#powerstigdata) to rules and manage that data at scale.
+PowerSTIG addresses the problem by providing [Composite Resources](https://github.com/microsoft/powerstig#powerstigdsc) to address each area of the configuration rather than trying to address the entire range of settings in one large file.
 
-一旦產生設定之後，您就可以使用 DSC 設定[腳本](/powershell/scripting/dsc/configurations/configurations)來產生 mof 檔案，並將[mof 檔案上傳到 Azure 自動化](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)。
-然後從[內部部署](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws)或[在 Azure 中](/azure/automation/automation-dsc-onboarding#azure-virtual-machines)註冊您的伺服器，以提取設定。
+Once the configurations have been generated, you can use the [DSC Configuration scripts](/powershell/scripting/dsc/configurations/configurations) to generate MOF files and [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+Then register your servers from either [on-premises](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) or [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) to pull configurations.
 
-若要試用 PowerSTIG，請造訪[PowerShell 資源庫](http://www.powershellgallery.com)並下載解決方案，或按一下 [專案網站] 以查看[檔](https://github.com/microsoft/powerstig)。
+To try out PowerSTIG, visit the [PowerShell Gallery](http://www.powershellgallery.com) and download the solution or click "Project Site" to view the [documentation](https://github.com/microsoft/powerstig).
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Windows PowerShell 預期狀態設定概觀](/powershell/dsc/overview/overview)
-- [DSC 資源](/powershell/dsc/resources/resources)
-- [設定本機 Configuration Manager](/powershell/dsc/managing-nodes/metaconfig)
+- [Windows PowerShell 預期狀態設定概觀](/powershell/scripting/dsc/overview/overview)
+- [DSC Resources](/powershell/scripting/dsc/resources/resources)
+- [Configuring The Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)

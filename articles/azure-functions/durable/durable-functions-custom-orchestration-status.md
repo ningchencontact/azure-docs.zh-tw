@@ -1,20 +1,15 @@
 ---
 title: Durable Functions 中的自訂協調流程狀態 - Azure
 description: 了解如何設定及使用 Durable Functions 的自訂協調流程狀態。
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d3b3ee1fabf59ae3b87185c4c9eb2f85aa8acd91
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 22242a40a29a1a014a7ab88ed705c7ca3e5ba288
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614930"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232957"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Durable Functions 中的自訂協調流程狀態 (Azure Functions)
 
@@ -23,7 +18,7 @@ ms.locfileid: "73614930"
 ## <a name="sample-use-cases"></a>範例使用案例
 
 > [!NOTE]
-> 下列範例示範如何使用和 JavaScript 中C#的自訂狀態功能。 這些C#範例是針對 Durable Functions 2.x 而撰寫的，與 Durable Functions 1.x 不相容。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The following samples show how to use custom status feature in C# and JavaScript. The C# examples are written for Durable Functions 2.x and are not compatible with Durable Functions 1.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ### <a name="visualize-progress"></a>進度視覺化
 
@@ -56,7 +51,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
+#### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -117,7 +112,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
+#### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -147,7 +142,7 @@ module.exports = async function(context, req) {
 ```
 
 > [!NOTE]
-> 在 JavaScript 中，排程下一個 `customStatus` 或 `yield` 動作時，將設定 `return` 欄位。
+> 在 JavaScript 中，排程下一個 `yield` 或 `return` 動作時，將設定 `customStatus` 欄位。
 
 ### <a name="output-customization"></a>自訂輸出
 
@@ -191,7 +186,7 @@ public static void Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
+#### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -256,7 +251,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
+#### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -302,7 +297,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 }
 ```
 
-### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
+### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -338,9 +333,9 @@ GET /runtime/webhooks/durabletask/instances/instance123
 ```
 
 > [!WARNING]
-> 自訂狀態承載僅限為 16 KB 的 UTF-16 JSON 文字，因為它必須符合 Azure 資料表儲存體資料行的大小。 如果您需要較大的承載，建議使用外部儲存體。
+> 自訂狀態承載僅限為 16 KB 的 UTF-16 JSON 文字，因為它必須符合 Azure 資料表儲存體資料行的大小。 We recommend you use external storage if you need a larger payload.
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [瞭解持久計時器](durable-functions-timers.md)
+> [Learn about durable timers](durable-functions-timers.md)

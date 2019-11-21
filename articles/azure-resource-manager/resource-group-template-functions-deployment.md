@@ -1,28 +1,28 @@
 ---
-title: 範本函式-部署
+title: Template functions - deployment
 description: 描述 Azure Resource Manager 範本中用來擷取部署資訊的函式。
 ms.topic: conceptual
-ms.date: 09/13/2019
-ms.openlocfilehash: 17caf78fb77e330685bb45ab03aaeed611900ba0
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 11/19/2019
+ms.openlocfilehash: a255cea128241465788f21013eb0522a29f5bd9e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149632"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230226"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的部署函式 
 
 資源管理員提供下列函式，以從與部署相關的範本和值的區段中取得值：
 
 * [部署](#deployment)
+* [environment](#environment)
 * [參數](#parameters)
 * [變數](#variables)
 
 若要從資源、資源群組或訂用帳戶中取得值，請參閱 [資源函式](resource-group-template-functions-resource.md)。
 
-<a id="deployment" />
-
 ## <a name="deployment"></a>部署
+
 `deployment()`
 
 傳回目前部署作業的相關資訊。
@@ -133,18 +133,115 @@ ms.locfileid: "74149632"
 
 如需使用部署函式的訂用帳戶層級範本，請參閱[訂用帳戶部署函式](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json)。 它會使用 `az deployment create` 或 `New-AzDeployment` 命令進行部署。
 
-<a id="parameters" />
+## <a name="environment"></a>Environment
+
+`environment()`
+
+Returns information about the Azure environment used for deployment.
+
+### <a name="return-value"></a>傳回值
+
+This function returns properties for the current Azure environment.
+
+```json
+{
+  "name": "",
+  "gallery": "",
+  "graph": "",
+  "portal": "",
+  "graphAudience": "",
+  "activeDirectoryDataLake": "",
+  "batch": "",
+  "media": "",
+  "sqlManagement": "",
+  "vmImageAliasDoc": "",
+  "resourceManager": "",
+  "authentication": {
+    "loginEndpoint": "",
+    "audiences": [
+      "",
+      ""
+    ],
+    "tenant": "",
+    "identityProvider": ""
+  },
+  "suffixes": {
+    "acrLoginServer": "",
+    "azureDatalakeAnalyticsCatalogAndJob": "",
+    "azureDatalakeStoreFileSystem": "",
+    "azureFrontDoorEndpointSuffix": "",
+    "keyvaultDns": "",
+    "sqlServerHostname": "",
+    "storage": ""
+  }
+}
+```
+
+### <a name="example"></a>範例
+
+The following example template returns the environment object.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "environmentOutput": {
+            "value": "[environment()]",
+            "type" : "object"
+        }
+    }
+}
+```
+
+The preceding example returns the following object when deployed to global Azure:
+
+```json
+{
+  "name": "AzureCloud",
+  "gallery": "https://gallery.azure.com/",
+  "graph": "https://graph.windows.net/",
+  "portal": "https://portal.azure.com",
+  "graphAudience": "https://graph.windows.net/",
+  "activeDirectoryDataLake": "https://datalake.azure.net/",
+  "batch": "https://batch.core.windows.net/",
+  "media": "https://rest.media.azure.net",
+  "sqlManagement": "https://management.core.windows.net:8443/",
+  "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
+  "resourceManager": "https://management.azure.com/",
+  "authentication": {
+    "loginEndpoint": "https://login.windows.net/",
+    "audiences": [
+      "https://management.core.windows.net/",
+      "https://management.azure.com/"
+    ],
+    "tenant": "common",
+    "identityProvider": "AAD"
+  },
+  "suffixes": {
+    "acrLoginServer": ".azurecr.io",
+    "azureDatalakeAnalyticsCatalogAndJob": "azuredatalakeanalytics.net",
+    "azureDatalakeStoreFileSystem": "azuredatalakestore.net",
+    "azureFrontDoorEndpointSuffix": "azurefd.net",
+    "keyvaultDns": ".vault.azure.net",
+    "sqlServerHostname": ".database.windows.net",
+    "storage": "core.windows.net"
+  }
+}
+```
 
 ## <a name="parameters"></a>參數
+
 `parameters(parameterName)`
 
 傳回參數值。 指定的參數名稱必須定義於範本的 parameters 區段中。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| parameterName |yes |字串 |要傳回的參數名稱。 |
+| parameterName |是 |string |要傳回的參數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -229,28 +326,27 @@ ms.locfileid: "74149632"
 
 先前範例中具有預設值的輸出如下：
 
-| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| stringOutput | 字串 | 選項 1 |
-| intOutput | int | 1 |
-| objectOutput | 物件 | {"one": "a", "two": "b"} |
+| stringOutput | String | 選項 1 |
+| intOutput | Int | 1 |
+| objectOutput | Object | {"one": "a", "two": "b"} |
 | arrayOutput | 陣列 | [1, 2, 3] |
-| crossOutput | 字串 | 選項 1 |
+| crossOutput | String | 選項 1 |
 
-如需使用參數的詳細資訊，請參閱[Azure Resource Manager 範本中的參數](template-parameters.md)。
-
-<a id="variables" />
+For more information about using parameters, see [Parameters in Azure Resource Manager template](template-parameters.md).
 
 ## <a name="variables"></a>變數
+
 `variables(variableName)`
 
 傳回變數的值。 指定的變數名稱必須定義於範本的 variables 區段中。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| variableName |yes |字串 |要傳回的變數名稱。 |
+| variableName |是 |String |要傳回的變數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -322,14 +418,14 @@ ms.locfileid: "74149632"
 
 先前範例中具有預設值的輸出如下：
 
-| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| exampleOutput1 | 字串 | myVariable |
+| exampleOutput1 | String | myVariable |
 | exampleOutput2 | 陣列 | [1, 2, 3, 4] |
-| exampleOutput3 | 字串 | myVariable |
-| exampleOutput4 |  物件 | {"property1": "value1", "property2": "value2"} |
+| exampleOutput3 | String | myVariable |
+| exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
-如需使用變數的詳細資訊，請參閱[Azure Resource Manager 範本中的變數](template-variables.md)。
+For more information about using variables, see [Variables in Azure Resource Manager template](template-variables.md).
 
 ## <a name="next-steps"></a>後續步驟
 * 如需有關 Azure Resource Manager 範本中各區段的說明，請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。

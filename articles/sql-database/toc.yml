@@ -526,7 +526,7 @@
               href: sql-database-elastic-pool-manage.md
         - name: 資料庫伺服器資源
           items:
-            - name: 資料庫伺服器資源限制
+            - name: 資料庫資源限制
               href: sql-database-resource-limits-database-server.md
             - name: 連線架構
               href: sql-database-connectivity-architecture.md

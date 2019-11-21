@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 103e09a0e2b9dd409fa2ddaff1c5311ef9936d22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/19/2019
+ms.openlocfilehash: 6b5d48a1d198b62af853a6334de41bad01b3c98c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61422089"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232544"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>如何使用 Azure 入口網站，在適用於 MySQL 的 Azure 資料庫中設定伺服器參數
 
@@ -20,13 +20,13 @@ MySQL 的 Azure 資料庫支援某些伺服器參數的組態。 本文說明如
 ## <a name="navigate-to-server-parameters-on-azure-portal"></a>瀏覽至 Azure 入口網站上的伺服器參數
 
 1. 登入 Azure 入口網站，然後找到適用於 MySQL 的 Azure 資料庫伺服器。
-2. 在 [設定]  區段下方，按一下 [伺服器參數]  以開啟適用於 MySQL 伺服器的 Azure 資料庫的 [伺服器參數] 頁面。
+2. 在 [設定] 區段下方，按一下 [伺服器參數] 以開啟適用於 MySQL 伺服器的 Azure 資料庫的 [伺服器參數] 頁面。
 ![Azure 入口網站伺服器參數頁面](./media/howto-server-parameters/auzre-portal-server-parameters.png)
-3. 找出您需要調整的任何設定。 檢閱 [描述]  資料行，以了解用途和允許的值。
+3. 找出您需要調整的任何設定。 檢閱 [描述] 資料行，以了解用途和允許的值。
 ![列舉下拉按鈕](./media/howto-server-parameters/3-toggle_parameter.png)
-4. 按一下 [儲存]  以儲存變更。
+4. 按一下 [儲存] 以儲存變更。
 ![儲存或捨棄變更](./media/howto-server-parameters/4-save_parameters.png)
-5. 儲存新的參數值後，隨時可以選取 [全部重設為預設值]  回復為所有參數的預設值。
+5. 儲存新的參數值後，隨時可以選取 [全部重設為預設值] 回復為所有參數的預設值。
 ![全部重設為預設值](./media/howto-server-parameters/5-reset_parameters.png)
 
 ## <a name="list-of-configurable-server-parameters"></a>可設定的伺服器參數清單
@@ -35,30 +35,23 @@ MySQL 的 Azure 資料庫支援某些伺服器參數的組態。 本文說明如
 
 ## <a name="non-configurable-server-parameters"></a>無法設定的伺服器參數
 
-InnoDB 緩衝集區和連線數目上限無法設定，且與您的[定價層](concepts-service-tiers.md)有關。
+The InnoDB Buffer Pool size is not configurable and tied to your [pricing tier](concepts-service-tiers.md).
 
-|定價層 | **計算世代**|**vCore(s)**|**InnoDB 緩衝集區 (MB)**| **連線數目上限**|
-|---|---|---|---|--|
-|基本| Gen 4| 1| 960| 50|
-|基本| Gen 4| 2| 2560| 100|
-|基本| Gen 5| 1| 960| 50|
-|基本| Gen 5| 2| 2560| 100|
-|一般用途| Gen 4| 2| 3584| 300|
-|一般用途| Gen 4| 4| 7680| 625|
-|一般用途| Gen 4| 8| 15360| 1250|
-|一般用途| Gen 4| 16| 31232| 2500|
-|一般用途| Gen 4| 32| 62976| 5000|
-|一般用途| Gen 5| 2| 3584| 300|
-|一般用途| Gen 5| 4| 7680| 625|
-|一般用途| Gen 5| 8| 15360| 1250|
-|一般用途| Gen 5| 16| 31232| 2500|
-|一般用途| Gen 5| 32| 62976| 5000|
-|一般用途| Gen 5| 64| 125952| 10000|
-|記憶體最佳化| Gen 5| 2| 7168| 600|
-|記憶體最佳化| Gen 5| 4| 15360| 1250|
-|記憶體最佳化| Gen 5| 8| 30720| 2500|
-|記憶體最佳化| Gen 5| 16| 62464| 5000|
-|記憶體最佳化| Gen 5| 32| 125952| 10000|
+|定價層|**vCore(s)**|**InnoDB Buffer Pool size in MB <br>(servers supporting up to 4 TB storage)**| **InnoDB Buffer Pool size in MB <br>(servers supporting up to 16 TB storage)**|
+|:---|---:|---:|---:|
+|基本| 1| 960| |
+|基本| 2| 2560| |
+|一般用途| 2| 3584| 7168|
+|一般用途| 4| 7680| 15360|
+|一般用途| 8| 15360| 30720|
+|一般用途| 16| 31232| 62464|
+|一般用途| 32| 62976| 125952|
+|一般用途| 64| 125952| 251904|
+|記憶體最佳化| 2| 7168| 14336|
+|記憶體最佳化| 4| 15360| 30720|
+|記憶體最佳化| 8| 30720| 61440|
+|記憶體最佳化| 16| 62464| 124928|
+|記憶體最佳化| 32| 125952| 251904|
 
 這些額外的伺服器參數皆無法在系統中設定：
 
@@ -92,7 +85,7 @@ SELECT name FROM mysql.time_zone_name;
 
 ### <a name="setting-the-global-level-time-zone"></a>設定全域層級時區
 
-全域層級時區可從 Azure 入口網站中的 [伺服器參數]  頁面設定。 下方的命令可將全域時區的值設定為 "US/Pacific"。
+全域層級時區可從 Azure 入口網站中的 [伺服器參數] 頁面設定。 下方的命令可將全域時區的值設定為 "US/Pacific"。
 
 ![設定時區參數](./media/howto-server-parameters/timezone.png)
 

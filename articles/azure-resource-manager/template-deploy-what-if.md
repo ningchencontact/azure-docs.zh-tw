@@ -1,71 +1,71 @@
 ---
-title: 範本部署假設（預覽）
-description: 在部署 Azure Resource Manager 範本之前，請先判斷您的資源會發生哪些變更。
+title: Template deployment what-if (Preview)
+description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: mumian
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/19/2019
 ms.author: jgao
-ms.openlocfilehash: 117215e7c41ad7f354c9e76f764e9af1f50b74c1
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
-ms.translationtype: MT
+ms.openlocfilehash: f399a89ff22dd3d1b360196c81d652b55f30e029
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149236"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230215"
 ---
-# <a name="resource-manager-template-deployment-what-if-operation-preview"></a>Resource Manager 範本部署假設作業（預覽）
+# <a name="resource-manager-template-deployment-what-if-operation-preview"></a>Resource Manager template deployment what-if operation (Preview)
 
-在部署範本之前，您可能會想要預覽即將發生的變更。 Azure Resource Manager 提供「假設」作業，讓您在部署範本時查看資源的變更方式。 「假設」作業不會對現有的資源進行任何變更。 相反地，它會在部署指定的範本時預測變更。
+Before deploying a template, you might want to preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the template. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified template is deployed.
 
 > [!NOTE]
-> 「假設」作業目前為預覽狀態。 若要使用它，您必須[註冊預覽版](https://aka.ms/armtemplatepreviews)。 作為預覽版本，結果有時可能會顯示資源將會變更，但實際上不會發生任何變更。 我們正努力減少這些問題，但我們需要您的協助。 請在[https://aka.ms/armwhatifissues](https://aka.ms/armwhatifissues)報告這些問題。
+> The what-if operation is currently in preview. To use it, you must [sign up for the preview](https://aka.ms/armtemplatepreviews). As a preview release, the results may sometimes show that a resource will change when actually no change will happen. We're working to reduce these issues, but we need your help. Please report these issues at [https://aka.ms/armwhatifissues](https://aka.ms/armwhatifissues).
 
-您可以搭配 `New-AzDeploymentWhatIf` PowerShell 命令或[部署 What If](/rest/api/resources/deployments/whatif) REST 作業來使用「假設」作業。
+You can use the what-if operation with the `New-AzDeploymentWhatIf` PowerShell command or the [Deployments - What If](/rest/api/resources/deployments/whatif) REST operation.
 
-在 PowerShell 中，輸出看起來會像這樣：
+In PowerShell, the output looks like:
 
-![Resource Manager 範本部署假設作業 fullresourcepayload 和變更類型](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
+![Resource Manager template deployment what-if operation fullresourcepayload and change types](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
-## <a name="change-types"></a>變更類型
+## <a name="change-types"></a>Change types
 
-「假設」作業會列出六種不同類型的變更：
+The what-if operation lists six different types of changes:
 
-- **建立**：資源目前不存在，但在範本中定義。 將會建立資源。
+- **Create**: The resource doesn't currently exist but is defined in the template. The resource will be created.
 
-- **刪除**：只有在使用[完整模式](deployment-modes.md)進行部署時，才會套用此變更類型。 資源存在，但未在範本中定義。 使用完整模式時，將會刪除資源。 只有[支援完整模式刪除](complete-mode-deletion.md)的資源才會包含在此變更類型中。
+- **Delete**: This change type only applies when using [complete mode](deployment-modes.md) for deployment. The resource exists, but isn't defined in the template. With complete mode, the resource will be deleted. Only resources that [support complete mode deletion](complete-mode-deletion.md) are included in this change type.
 
-- **忽略**：資源存在，但未在範本中定義。 將不會部署或修改資源。
+- **Ignore**: The resource exists, but isn't defined in the template. The resource won't be deployed or modified.
 
-- **NoChange**：資源存在，並定義于範本中。 資源將會重新部署，但資源的屬性不會變更。 當[ResultFormat](#result-format)設定為 `FullResourcePayloads`（這是預設值）時，就會傳回這種變更類型。
+- **NoChange**: The resource exists, and is defined in the template. The resource will be redeployed, but the properties of the resource won't change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
 
-- **修改**：資源存在，並定義于範本中。 資源將會重新部署，而且資源的屬性將會變更。 當[ResultFormat](#result-format)設定為 `FullResourcePayloads`（這是預設值）時，就會傳回這種變更類型。
+- **Modify**: The resource exists, and is defined in the template. The resource will be redeployed, and the properties of the resource will change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
 
-- **部署**：資源存在，並定義于範本中。 資源將會重新部署。 資源的屬性不一定會變更。 當作業沒有足夠的資訊可判斷是否有任何屬性變更時，作業會傳回此變更類型。 當[ResultFormat](#result-format)設定為 `ResourceIdOnly`時，您只會看到此條件。
+- **Deploy**: The resource exists, and is defined in the template. The resource will be redeployed. The properties of the resource may or may not change. The operation returns this change type when it doesn't have enough information to determine if any properties will change. You only see this condition when [ResultFormat](#result-format) is set to `ResourceIdOnly`.
 
-## <a name="deployment-scope"></a>部署範圍
+## <a name="deployment-scope"></a>Deployment scope
 
-您可以在訂用帳戶或資源群組層級上，使用部署的假設作業。 您可以使用 `-ScopeType` 參數來設定部署範圍。 接受的值為 `Subscription` 和 `ResourceGroup`。 本文示範資源群組部署。
+You can use the what-if operation for deployments at either the subscription or resource group level. You set the deployment scope with the `-ScopeType` parameter. The accepted values are `Subscription` and `ResourceGroup`. This article demonstrates resource group deployments.
 
-若要瞭解訂用帳戶層級部署，請參閱在訂用帳戶[層級建立資源群組和資源](deploy-to-subscription.md#)。
+To learn about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md#).
 
-## <a name="result-format"></a>結果格式
+## <a name="result-format"></a>Result format
 
-您可以控制針對預測變更所傳回的詳細資料層級。 將 [`ResultFormat`] 參數設定為 [`FullResourcePayloads`]，以取得將會變更之資源的清單，以及將變更之屬性的詳細資料。 將 [`ResultFormat`] 參數設定為 [`ResourceIdOnly`]，以取得將會變更的資源清單。 預設值為 `FullResourcePayloads`。  
+You can control the level of detail that is returned about the predicted changes. Set the `ResultFormat` parameter to `FullResourcePayloads` to get a list of resources what will change and details about the properties that will change. Set the `ResultFormat` parameter to `ResourceIdOnly` to get a list of resources that will change. 預設值為 `FullResourcePayloads`。  
 
-下列螢幕擷取畫面顯示兩種不同的輸出格式：
+The following screenshots show the two different output formats:
 
-- 完整資源承載
+- Full resource payloads
 
-    ![Resource Manager 範本部署假設作業 fullresourcepayloads 輸出](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-fullresourcepayload.png)
+    ![Resource Manager template deployment what-if operation fullresourcepayloads output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-fullresourcepayload.png)
 
-- 僅限資源識別碼
+- Resource ID only
 
-    ![Resource Manager 範本部署假設作業 resourceidonly 輸出](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-resourceidonly.png)
+    ![Resource Manager template deployment what-if operation resourceidonly output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-resourceidonly.png)
 
-## <a name="run-what-if-operation"></a>執行假設作業
+## <a name="run-what-if-operation"></a>Run what-if operation
 
-### <a name="set-up-environment"></a>設定環境
+### <a name="set-up-environment"></a>Set up environment
 
-若要查看假設的運作方式，讓我們執行一些測試。 首先，從[可建立儲存體帳戶的 Azure 快速入門範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json)部署範本。 預設儲存體帳戶類型為 `Standard_LRS`。 您將使用此儲存體帳戶來測試如何回報變更。
+To see how what-if works, let's runs some tests. First, deploy a template from [Azure Quickstart templates that creates a storage account](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json). The default storage account type is `Standard_LRS`. You'll use this storage account to test how changes are reported by what-if.
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -76,9 +76,9 @@ New-AzResourceGroupDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-### <a name="test-modification"></a>測試修改
+### <a name="test-modification"></a>Test modification
 
-部署完成之後，您就可以測試「假設」作業。 執行 [假設] 命令，但將儲存體帳戶類型變更為 [`Standard_GRS`]。
+After the deployment completes, you're ready to test the what-if operation. Run the what-if command but change the storage account type to `Standard_GRS`.
 
 ```azurepowershell-interactive
 New-AzDeploymentWhatIf `
@@ -88,17 +88,19 @@ New-AzDeploymentWhatIf `
   -storageAccountType Standard_GRS
 ```
 
-假設輸出類似于：
+The what-if output is similar to:
 
-![Resource Manager 範本部署假設作業輸出](./media/template-deploy-what-if/resource-manager-deployment-whatif-output.png)
+![Resource Manager template deployment what-if operation output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output.png)
 
-請注意，輸出的頂端會定義色彩來指出變更的類型。
+Notice at the top of the output that colors are defined to indicate the type of changes.
 
-在輸出的底部，它會顯示 sku 名稱（儲存體帳戶類型）會從**Standard_LRS**變更為**Standard_GRS**。
+At the bottom of the output, it shows the sku name (storage account type) will be changed from **Standard_LRS** to **Standard_GRS**.
 
-### <a name="test-deletion"></a>測試刪除
+Some of the properties that are listed as deleted won't actually change. In the preceding image, these properties are accessTier, encryption.keySource and others in that section. Properties can be incorrectly reported as deleted when they aren't in the template but are automatically set during deployment. The final deployed resource will have the values set for the properties. As the what-if operation matures, these properties will be filtered out of the result.
 
-「假設」作業支援使用[部署模式](deployment-modes.md)。 當設定為完成模式時，不在範本中的資源會被刪除。 下列範例會部署未在完整模式中[定義任何資源的範本](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json)。
+### <a name="test-deletion"></a>Test deletion
+
+The what-if operation supports using [deployment mode](deployment-modes.md). When set to complete mode, resources not in the template are deleted. The following example deploys a [template that has no resources defined](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) in complete mode.
 
 ```azurepowershell-interactive
 New-AzDeploymentWhatIf `
@@ -108,15 +110,15 @@ New-AzDeploymentWhatIf `
   -Mode Complete
 ```
 
-因為範本中未定義任何資源，且部署模式設定為 [完成]，所以將會刪除儲存體帳戶。
+Because no resources are defined in the template and the deployment mode is set to complete, the storage account will be deleted.
 
-![Resource Manager 範本部署假設作業輸出部署模式完成](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
+![Resource Manager template deployment what-if operation output deployment mode complete](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
 
-請務必記住，什麼是不進行實際的變更。 儲存體帳戶仍存在於您的資源群組中。
+It's important to remember what-if makes no actual changes. The storage account still exists in your resource group.
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您注意到「假設」的預覽版本中有不正確的結果，請在[https://aka.ms/armwhatifissues](https://aka.ms/armwhatifissues)報告問題。
-- 若要使用 Azure PowerShell 部署範本，請參閱[使用 Resource Manager 範本和 Azure PowerShell 來部署資源](resource-group-template-deploy.md)。
-- 若要使用 REST 部署範本，請參閱[使用 Resource Manager 範本部署資源和 Resource Manager REST API](resource-group-template-deploy-rest.md)。
-- 當您收到錯誤時，若要回復為成功的部署，請參閱[發生錯誤時回復至部署成功](rollback-on-error.md)。
+- If you notice incorrect results from the preview release of what-if, please report the issues at [https://aka.ms/armwhatifissues](https://aka.ms/armwhatifissues).
+- To deploy templates with Azure PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md).
+- To deploy templates with REST, see [Deploy resources with Resource Manager templates and Resource Manager REST API](resource-group-template-deploy-rest.md).
+- To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).

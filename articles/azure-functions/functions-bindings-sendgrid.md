@@ -1,20 +1,16 @@
 ---
 title: Azure Functions SendGrid 繫結
 description: Azure Functions SendGrid 繫結參考。
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: a0d12639ce074c3ed105513a3d90e323e30d1087
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 997c9427883e2a099c2c185b618701fb85cb96a6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155082"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231093"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 繫結
 
@@ -33,7 +29,7 @@ ms.locfileid: "71155082"
 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet 套件版本 3.x 中提供了 SendGrid 繫結。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub 存放庫中。
 
 > [!NOTE]
-> 2\.x 版不會建立在`ServiceBusTrigger`實例中設定的主題或訂用帳戶。 2\.x 版是以[Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)為基礎，而且不會處理佇列管理。
+> Version 2.x does not create the topic or subscription configured in the `ServiceBusTrigger` instance. Version 2.x is based on [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) and does not handle queue management.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -166,7 +162,7 @@ public class Message
 
 ### <a name="java-example"></a>Java 範例
 
-下列範例會使用 JAVA `@SendGridOutput`函式執行時間連結[庫](/java/api/overview/azure/functions/runtime)中的注釋，以使用 SendGrid 輸出系結來傳送電子郵件。
+The following example uses the `@SendGridOutput` annotation from the [Java functions runtime library](/java/api/overview/azure/functions/runtime) to send an email using the SendGrid output binding.
 
 ```java
 @FunctionName("SendEmail")
@@ -263,8 +259,8 @@ public static void Run(
 |**apiKey**|**ApiKey**| 包含您 API 金鑰的應用程式設定名稱。 若未設定，預設應用程式設定名稱是「AzureWebJobsSendGridApiKey」。|
 |**to**|**To**| 收件者的電子郵件地址。 |
 |**from**|**From**| 寄件者的電子郵件地址。 |
-|**subject**|**Subject**| 電子郵件主旨。 |
-|**text**|**Text**| 電子郵件內容。 |
+|**subject**|**主旨**| 電子郵件主旨。 |
+|**text**|**文字**| 電子郵件內容。 |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -288,7 +284,7 @@ public static void Run(
 }
 ```  
 
-|屬性  |預設 | 描述 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------| 
 |from|n/a|所有函式的寄件者電子郵件地址。| 
 

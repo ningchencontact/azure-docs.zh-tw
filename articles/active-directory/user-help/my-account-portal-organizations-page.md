@@ -1,6 +1,6 @@
 ---
-title: 在我的帳戶入口網站上管理您的組織-Azure AD
-description: 如何從 [我的帳戶] 入口網站的 [組織] 頁面中，查看並離開您的組織。
+title: Manage your organizations from the My Account portal - Azure AD
+description: How to view and leave organizations connected to your work or school account from the Organizations page of the My Account portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b81ec4996ae91714b442dd2e62a0bc45c6bfd39
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d0b8a5a8ac4132c998567f956f3171db06a9ca53
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820420"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231852"
 ---
-# <a name="manage-your-organizations-from-the-my-account-portal"></a>從我的帳戶入口網站管理您的組織
+# <a name="manage-organizations-connected-to-your-work-or-school-account-from-the-organizations-page"></a>Manage organizations connected to your work or school account from the Organizations page
 
-您可以從 [**我的帳戶**] 入口網站的 [**組織**] 頁面管理您的組織。
+You can manage your organizations from the **Organizations** page of the **My Account** portal.
 
 **組織**頁面上顯示兩種組織：
 
@@ -30,7 +30,7 @@ ms.locfileid: "73820420"
 - **其他組織**。 其他組織是您先前使用公司或學校帳戶登入的任何群組。 您可以隨時離開這些組織。
 
     >[!NOTE]
-    > 如果您沒有指派的主要組織，您只會看到一個標題，告訴組織有相關聯組織的清單。
+    > If you don't have an assigned Home organization, you'll just see a single heading that says Organizations with the list of your associated organizations.
 
 ## <a name="view-your-organizations"></a>檢閱您的組織
 
@@ -38,7 +38,7 @@ ms.locfileid: "73820420"
 
 2. 從左側瀏覽窗格選取 [組織]，或從 [組織] 區塊選取 [管理組織] 連結。
 
-    ![[我的帳戶] 頁面，顯示反白顯示的組織連結](media/my-account-portal/my-account-portal-organizations.png)
+    ![My Account page, showing highlighted Organizations links](media/my-account-portal/my-account-portal-organizations.png)
 
 3. 檢閱您的**主要組織**的資訊。
 
@@ -51,20 +51,20 @@ ms.locfileid: "73820420"
 您可以從任何不是主要組織的組織中離開。
 
 >[!Important]
->如果您不小心從組織離開，將無法復原。 您必須等候該組織的系統管理員再次邀請您。
+>如果您不小心從組織離開，將無法復原。 You'll have to wait for the administrator of that organization to invite you again.
 
-1. 選取您想要離開的組織旁邊的 [**保留組織**]，然後選取 [**保留**] 以確認您想要離開。
+1. Select **Leave organization** next to the organization you want to leave, and then select **Leave** to confirm you want to leave.
 
     ![組織頁面醒目提示離開組織的連結](media/my-account-portal/my-account-portal-organizations-leave.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-在觀賞您的組織之後，您可以：
+After viewing your organizations, you can:
 
-- 查看或管理您的[安全性資訊](user-help-security-info-overview.md)。
+- View or manage your [security info](user-help-security-info-overview.md).
 
-- 查看或管理已連線的[裝置](my-account-portal-devices-page.md)。
+- View or manage your connected [devices](my-account-portal-devices-page.md).
 
-- 查看您的登[入活動](my-account-portal-sign-ins-page.md)。
+- View your [sign-in activity](my-account-portal-sign-ins-page.md).
 
-- 瞭解您的組織如何[使用您的隱私權相關資料](my-account-portal-privacy-page.md)。
+- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).

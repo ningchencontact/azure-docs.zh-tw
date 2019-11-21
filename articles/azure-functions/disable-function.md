@@ -1,39 +1,33 @@
 ---
 title: 如何停用 Azure Functions 中的函式
 description: 了解如何停用和啟用 Azure Functions 1.x 和 2.x 中的函式。
-services: functions
-documentationcenter: ''
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.author: glenga
-ms.openlocfilehash: 498bb8c0f1e7bb674605d4a98f0be0f3e0b9a7c9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7968580fcaa40575571a41f067fa74fbdc0a3a34
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650485"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233052"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>如何停用 Azure Functions 中的函式
 
 本文說明如何停用 Azure Functions 中的函式。 「停用」函式表示讓執行階段忽略為此函式定義的自動觸發程序。 您這麼做的方式取決於執行階段版本和程式設計語言：
 
-* 函數 2.x:
+* Functions 2.x:
   * 一種方法適用於所有語言
   * C# 類別庫的選擇性方法
-* 函數 1.x:
+* Functions 1.x:
   * 指令碼語言
   * C# 類別庫
 
 ## <a name="functions-2x---all-languages"></a>Functions 2.x - 所有語言
 
-在函數2.x 中, 您可以使用格式`AzureWebJobs.<FUNCTION_NAME>.Disabled`的應用程式設定來停用函式。 您可以透過數種方式來建立和修改此應用程式設定, 包括使用 [ [Azure CLI](/cli/azure/) ], 並從[Azure 入口網站](https://portal.azure.com)中的函式 [**管理**] 索引標籤。 
+In Functions 2.x, you disable a function by using an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled`. You can create and modify this application setting in a number of ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Manage** tab in the [Azure portal](https://portal.azure.com). 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-在 Azure CLI 中, 您會使用[`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)命令來建立和修改應用程式設定。 下列命令會建立名為的`QueueTrigger`應用程式`AzureWebJobs.QueueTrigger.Disabled`設定, 並將其設定為`true`, 以停用名為的函式。 
+In the Azure CLI, you use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command to create and modify the app setting. The following command disables a function named `QueueTrigger` by creating an app setting named `AzureWebJobs.QueueTrigger.Disabled` set it to `true`. 
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <myFunctionApp> \
@@ -41,7 +35,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 --settings AzureWebJobs.QueueTrigger.Disabled=true
 ```
 
-若要重新啟用函式, 請使用的值`false`重新執行相同的命令。
+To re-enable the function, rerun the same command with a value of `false`.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <myFunctionApp> \
@@ -51,7 +45,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ### <a name="portal"></a>入口網站
 
-您也可以使用函式的 [管理] 索引標籤上的 [函式狀態] 切換。此切換可藉由建立和刪除 `AzureWebJobs.<FUNCTION_NAME>.Disabled` 應用程式設定來產生作用。
+You can also use the **Function State** switch on the function's **Manage** tab. The switch works by creating and deleting the `AzureWebJobs.<FUNCTION_NAME>.Disabled` app setting.
 
 ![函式狀態切換](media/disable-function/function-state-switch.png)
 
@@ -88,7 +82,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 在第二個範例中，如有名為 IS_DISABLED 且設為 `true` 或 1 的應用程式設定，此函式就會停用。
 
-您可以在 Azure 入口網站中編輯此檔案，或使用函式的 [管理] 索引標籤上的 [函式狀態] 切換。此入口網站切換可藉由變更 *function.json* 檔案來產生作用。
+You can edit the file in the Azure portal or use the **Function State** switch on the function's **Manage** tab. The portal switch works by changing the *function.json* file.
 
 ![函式狀態切換](media/disable-function/function-state-switch.png)
 

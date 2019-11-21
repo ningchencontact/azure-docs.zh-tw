@@ -1,6 +1,6 @@
 ---
-title: 建立及發行您的應用程式的單一 「 以下列登入文件
-description: 整合 Azure Active Directory 與獨立軟體廠商的指引
+title: Create & publish single sign-on documentation for your application
+description: Guidance for independent software vendors on integrating with Azure Active Directory
 services: active-directory
 author: barbaraselden
 manager: CelesteDG
@@ -12,53 +12,53 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53221343ac606b6076cc9cc3cff6e0f96c1a3ac3
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: cb223ec8ab7b5c053136c78d3b4ca30ad4da4e18
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659589"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232276"
 ---
-# <a name="create-and-publish-single-sign-on-documentation-for-your-application"></a>建立及發行您的應用程式的單一 「 以下列登入文件   
+# <a name="create-and-publish-single-sign-on-documentation-for-your-application"></a>Create and publish single sign-on documentation for your application   
 
-## <a name="documentation-on-your-site"></a>在您的網站上的文件
+## <a name="documentation-on-your-site"></a>Documentation on your site
 
-容易採用的是企業軟體決策的重要因素。 清除輕鬆遵循文件支援您的客戶，其採用旅程圖中，並降低支援成本。 使用數千個軟體廠商，Microsoft 已經看到有哪些。
+Ease of adoption is a significant factor in enterprise software decisions. Clear easy-to-follow documentation supports your customers in their adoption journey and reduces support costs. Working with thousands of software vendors, Microsoft has seen what works.
 
-我們建議您至少在網站上的文件包含下列項目。
+We recommend that your documentation on your site at a minimum include the following items.
 
-* 您的 SSO 功能的簡介
+* Introduction to your SSO functionality
 
-  * 支援的通訊協定
+  * Protocols supported
 
-  * 版本和 SKU
+  * Version and SKU
 
-  * 支援的身分識別提供者清單與文件連結
+  * Supported Identity Providers list with documentation links
 
-* 您的應用程式的授權資訊
+* Licensing information for your application
 
-* 設定 SSO 的角色型存取控制
+* Role-based access control for configuring SSO
 
-* SSO 組態步驟
+* SSO Configuration Steps
 
-  * UI 的組態項目 SAML 提供者的預期值
+  * UI configuration elements for SAML with expected values from the provider
 
-  * 要傳遞至身分識別提供者的服務提供者資訊
+  * Service provider information to be passed to identity providers
 
-* 如果 OIDC/OAuth
+* If OIDC/OAuth
 
-  * 所需的商業理由與同意的權限的清單
+  * List of permissions required for consent with business justifications
 
-* 試驗使用者的測試步驟
+* Testing steps for pilot users
 
-* 疑難排解的資訊，包括錯誤碼和訊息
+* Troubleshooting information, including error codes and messages
 
-* 客戶所支援的機制
+* Support mechanisms for customers
 
-## <a name="documentation-on-the-microsoft-site"></a>Microsoft 網站上的文件
+## <a name="documentation-on-the-microsoft-site"></a>Documentation on the Microsoft Site
 
-當您列出您的應用程式，也在 Azure Marketplace 中發佈您的應用程式，Azure Active Directory 應用程式庫與 Microsoft 將會產生我們說明的逐步程序的共同客戶的文件。 您可以看到範例[此處](https://aka.ms/appstutorial)。 根據您的提交到資源庫中，建立這份文件，如果您變更使用您的 GitHub 帳戶的應用程式可以輕鬆地更新。
+When you list your application with the Azure Active Directory Application Gallery, which also publishes your application in the Azure Marketplace, Microsoft will generate documentation for our mutual customers explaining the step-by-step process. You can see an example [here](https://aka.ms/appstutorial). This documentation is created based on your submission to the gallery, and you can easily update it if you make changes to your application using your GitHub account.
 
 ## <a name="next-steps"></a>後續步驟
 
-[列出您在 Azure AD 應用程式資源庫中的應用程式](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)
+[List your application in the Azure AD Application Gallery](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)

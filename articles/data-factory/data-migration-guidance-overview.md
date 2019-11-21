@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Data Factory 將資料從您的 data lake 和資料倉儲遷移至 Azure
-description: 使用 Azure Data Factory 將資料從您的 data lake 和資料倉儲遷移至 Azure。
+title: Migrate data from data lake and data warehouse to Azure
+description: Use Azure Data Factory to migrate data from your data lake and data warehouse to Azure.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -11,54 +11,55 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 7/30/2019
-ms.openlocfilehash: 0be9cbc9c5af2e0778654ef70c5350b48f10c35d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 056e98c18dbe2dd1adaa9386145ef18e36f8aac2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675766"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217574"
 ---
-# <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>使用 Azure Data Factory 將資料從您的 data lake 或資料倉儲遷移至 Azure
+# <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Use Azure Data Factory to migrate data from your data lake or data warehouse to Azure
 
-如果您想要將您的 data lake 或企業資料倉儲（EDW）遷移至 Microsoft Azure，請考慮使用 Azure Data Factory。 Azure Data Factory 適用于下列案例：
+If you want to migrate your data lake or enterprise data warehouse (EDW) to Microsoft Azure, consider using Azure Data Factory. Azure Data Factory is well-suited to the following scenarios:
 
-- 從 Amazon Simple Storage Service （Amazon S3）或內部部署 Hadoop 分散式檔案系統（HDFS）遷移至 Azure 的海量資料工作負載
-- 從 Oracle Exadata、Netezza、Teradata 或 Amazon Redshift EDW 至 Azure 的遷移
+- Big data workload migration from Amazon Simple Storage Service (Amazon S3) or an on-premises Hadoop Distributed File System (HDFS) to Azure
+- EDW migration from Oracle Exadata, Netezza, Teradata, or Amazon Redshift to Azure
 
-Azure Data Factory 可以移動用於 data lake 遷移的 pb （PB）資料，以及數十 tb 的資料來進行資料倉儲遷移。
+Azure Data Factory can move petabytes (PB) of data for data lake migration, and tens of terabytes (TB) of data for data warehouse migration.
 
-## <a name="why-azure-data-factory-can-be-used-for-data-migration"></a>為何 Azure Data Factory 可用於資料移轉
+## <a name="why-azure-data-factory-can-be-used-for-data-migration"></a>Why Azure Data Factory can be used for data migration
 
-- Azure Data Factory 可以輕鬆地相應增加處理能力，以無伺服器的方式來移動資料，使其具有高效能、彈性和擴充性。 而且您只需支付使用的部分。 另請注意下列事項： 
-  - Azure Data Factory 對於資料量或檔案數目沒有任何限制。
-  - Azure Data Factory 可以完全使用您的網路和儲存體頻寬，達到您環境中最高的資料移動輸送量。
-  - Azure Data Factory 使用隨用隨付方法，因此您只需支付實際用來執行資料移轉至 Azure 的時間。  
-- Azure Data Factory 可以同時執行一次性的歷程記錄負載和排程的累加式載入。
-- Azure Data Factory 使用 Azure integration runtime （IR）在可公開存取的 data lake 和倉儲端點之間移動資料。 它也可以使用自我裝載 IR，在 Azure 虛擬網路（VNet）或防火牆後方移動 data lake 和倉儲端點的資料。
-- Azure Data Factory 具有企業級安全性：您可以使用 Windows Installer （MSI）或服務身分識別進行安全的服務對服務整合，或使用 Azure Key Vault 來進行認證管理。
-- Azure Data Factory 提供無程式碼的撰寫體驗，以及豐富的內建監視儀表板。  
+- Azure Data Factory can easily scale up the amount of processing power to move data in a serverless manner with high performance, resilience, and scalability. And you pay only for what you use. 另請注意下列事項： 
+  - Azure Data Factory has no limitations on data volume or on the number of files.
+  - Azure Data Factory can fully use your network and storage bandwidth to achieve the highest volume of data movement throughput in your environment.
+  - Azure Data Factory uses a pay-as-you-go method, so that you pay only for the time you actually use to run the data migration to Azure.  
+- Azure Data Factory can perform both a one-time historical load and scheduled incremental loads.
+- Azure Data Factory uses Azure integration runtime (IR) to move data between publicly accessible data lake and warehouse endpoints. It can also use self-hosted IR for moving data for data lake and warehouse endpoints inside Azure Virtual Network (VNet) or behind a firewall.
+- Azure Data Factory has enterprise-grade security: You can use Windows Installer (MSI) or Service Identity for secured service-to-service integration, or use Azure Key Vault for credential management.
+- Azure Data Factory provides a code-free authoring experience and a rich, built-in monitoring dashboard.  
 
-## <a name="online-vs-offline-data-migration"></a>線上與離線資料移轉
+## <a name="online-vs-offline-data-migration"></a>Online vs. offline data migration
 
-Azure Data Factory 是標準的線上資料移轉工具，可透過網路（網際網路、ER 或 VPN）傳輸資料。 而在進行離線資料移轉時，使用者會實際將資料傳輸裝置從其組織傳送至 Azure 資料中心。  
+Azure Data Factory is a standard online data migration tool to transfer data over a network (internet, ER, or VPN). Whereas with offline data migration, users physically ship data-transfer devices from their organization to an Azure Data Center.  
 
-當您選擇線上和離線遷移方法時，有三個重要的考慮：  
+There are three key considerations when you choose between an online and offline migration approach:  
 
-- 要遷移的資料大小
+- Size of data to be migrated
 - 網路頻寬
-- 遷移視窗
+- Migration window
 
-例如，假設您計畫使用 Azure Data Factory 來完成兩周內的資料移轉（您的*遷移視窗*）。 請注意下表中的粉紅色/藍色剪線。 任何指定之資料行的最小粉紅色資料格，會顯示其遷移視窗最接近但不到兩周的資料大小/網路頻寬配對。 （藍色資料格中的任何大小/頻寬配對都有超過兩周的線上遷移視窗。） 
+For example, assume you plan to use Azure Data Factory to complete your data migration within two weeks (your *migration window*). Notice the pink/blue cut line in the following table. The lowest pink cell for any given column shows the data size/network bandwidth pairing whose migration window is closest to but less than two weeks. (Any size/bandwidth pairing in a blue cell has an online migration window of more than two weeks.) 
 
-![online 與 offline](media/data-migration-guidance-overview/online-offline.png) 這份表格可協助您根據資料大小和可用的網路頻寬，在線上遷移（Azure Data Factory）中判斷您是否可以符合預期的遷移視窗。 如果線上遷移視窗超過兩周，您會想要使用離線遷移。
+![online vs. offline](media/data-migration-guidance-overview/online-offline.png) This table helps you determine whether you can meet your intended migration window through online migration (Azure Data Factory) based on the size of your data and your available network bandwidth. If the online migration window is more than two weeks, you'll want to use offline migration.
 
 > [!NOTE]
-> 藉由使用線上遷移，您可以透過單一工具來完成歷程記錄資料載入和累加式摘要端對端。  透過這種方法，您的資料可以在整個遷移視窗期間，在現有的存放區與新的存放區之間保持同步。 這表示您可以使用重新整理的資料，在新的存放區上重建您的 ETL 邏輯。
+> By using online migration, you can achieve both historical data loading and incremental feeds end-to-end through a single tool.  Through this approach, your data can be kept synchronized between the existing store and the new store during the entire migration window. This means you can rebuild your ETL logic on the new store with refreshed data.
 
 
 ## <a name="next-steps"></a>後續步驟
 
-- [將資料從 AWS S3 遷移至 Azure](data-migration-guidance-s3-azure-storage.md)
-- [將資料從內部部署 hadoop 叢集遷移至 Azure](data-migration-guidance-hdfs-azure-storage.md)
-- [將資料從內部部署 Netezza 伺服器遷移至 Azure](data-migration-guidance-netezza-azure-sqldw.md)
+- [Migrate data from AWS S3 to Azure](data-migration-guidance-s3-azure-storage.md)
+- [Migrate data from on-premises hadoop cluster to Azure](data-migration-guidance-hdfs-azure-storage.md)
+- [Migrate data from on-premises Netezza server to Azure](data-migration-guidance-netezza-azure-sqldw.md)

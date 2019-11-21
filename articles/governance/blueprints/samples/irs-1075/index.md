@@ -3,12 +3,12 @@ title: IRS 1075 藍圖範例 - 概觀
 description: IRS 1075 藍圖範例概觀。 此藍圖範例可協助客戶評定特定 IRS 1075 控制措施。
 ms.date: 11/19/2019
 ms.topic: sample
-ms.openlocfilehash: f713f6a59f439b2d5cb9df0860d16ff761304b4b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1d2fdac47c590e663a51c11f54a3a135a7a0ed3d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210197"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267381"
 ---
 # <a name="overview-of-the-irs-1075-blueprint-sample"></a>IRS 1075 藍圖範例概觀
 
@@ -24,6 +24,7 @@ IRS 1075 藍圖範例提供使用 [Azure 原則](../../../policy/overview.md)的
 
 > [!div class="nextstepaction"]
 > [IRS 1075 藍圖 - 控制項對應](./control-mapping.md)
+> [IRS 1075 藍圖 - 部署步驟](./deploy.md)
 
 有關藍圖及其使用方式的其他文件：
 

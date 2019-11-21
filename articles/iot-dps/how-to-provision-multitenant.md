@@ -1,5 +1,5 @@
 ---
-title: 如何在 Azure IoT 中樞裝置佈建服務中針對多組織用戶佈建裝置 | Microsoft Docs
+title: How to provision devices for multitenancy in Azure IoT Hub Device Provisioning Service
 description: 如何使用裝置佈建服務執行個體針對多組織用戶佈建裝置
 author: wesmc7777
 ms.author: wesmc
@@ -7,13 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
-ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6d9755c076763a72d54abb66cfdf01b0ac7ffb9d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116111"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228780"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>如何針對多組織用戶佈建 
 
@@ -25,7 +24,7 @@ ms.locfileid: "66116111"
 
 合併這兩種案例是很常見的。 例如，多租用戶 IoT 解決方案通常會使用一群散佈在多個區域的 IoT 中樞指派租用戶裝置。 這些租用戶裝置可依據地理位置指派給該群組中最低延遲的 IoT 中樞。
 
-此文章使用 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 的模擬裝置範例，示範如何在多租用戶情況下跨多個區域佈建裝置。 您將在此文章中執行下列步驟：
+此文章使用 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 的模擬裝置範例，示範如何在多租用戶情況下跨多個區域佈建裝置。 您將在本文中執行下列步驟：
 
 * 使用 Azure CLI 建立兩個區域 IoT 中樞 (**美國西部**與**美國東部**)
 * 建立多租用戶註冊
@@ -50,9 +49,9 @@ ms.locfileid: "66116111"
 在此節中，您將使用 Azure Cloud Shell 為租用戶在**美國西部**與**美國東部**區域建立兩個新的區域 IoT 中樞。
 
 
-1. 使用 Azure Cloud Shell 以 [az group create](/cli/azure/group#az-group-create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
+1. 在 Azure Cloud Shell 中使用 [az group create](/cli/azure/group#az-group-create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
 
-    下列範例會在 *eastus* 區域中建立名為 *contoso-us-resource-group* 的資源群組。 建議您將此群組用於在此文章中建立的所有資源。 這將會讓您在完成作業後更容易清除資源。
+    下列範例會在 *eastus* 區域中建立名為 *contoso-us-resource-group* 的資源群組。 建議您將此群組用於在本文中建立的所有資源。 這將會讓您在完成作業後更容易清除資源。
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location eastus
@@ -84,42 +83,42 @@ ms.locfileid: "66116111"
 
 在此節中，您將會為租用戶裝置建立新的註冊群組。  
 
-為了簡單起見，此文章將在註冊中使用[對稱金鑰證明](concepts-symmetric-key-attestation.md)。 如需更安全的解決方案，請考慮使用 [X.509 憑證證明](concepts-security.md#x509-certificates)與信任鏈結。
+為了簡單起見，本文將在註冊中使用[對稱金鑰證明](concepts-symmetric-key-attestation.md)。 如需更安全的解決方案，請考慮使用 [X.509 憑證證明](concepts-security.md#x509-certificates)與信任鏈結。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，並開啟您的裝置佈建服務執行個體。
 
-2. 選取 [管理註冊]  索引標籤，然後按一下頁面頂端的 [新增註冊群組]  按鈕。 
+2. 選取 [管理註冊] 索引標籤，然後按一下頁面頂端的 [新增註冊群組] 按鈕。 
 
-3. 在 [新增註冊群組]  上輸入下列資訊，然後按一下 [儲存]  按鈕。
+3. 在 [新增註冊群組] 上輸入下列資訊，然後按一下 [儲存] 按鈕。
 
     **群組名稱**：輸入 **contoso-us-devices**。
 
-    **證明類型**：選取 [對稱金鑰]  。
+    **證明類型**：選取 [對稱金鑰]。
 
     **自動產生金鑰**：此核取方塊應已勾選。
 
-    **選取要如何將裝置指派到中樞**：選取 [最低延遲]  。
+    **選取要如何將裝置指派給中樞**：選取 [最低延遲]。
 
     ![為對稱金鑰證明新增多租用戶註冊群組](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
 
-4. 在 [新增註冊群組]  上按一下 [連結新的 IoT 中樞]  ，以連結您的兩個區域中樞。
+4. 在 [新增註冊群組] 上按一下 [連結新的 IoT 中樞]，以連結您的兩個區域中樞。
 
-    訂用帳戶  ：如果您有多個訂用帳戶，請選擇您用來建立區域 IoT 中樞的訂用帳戶。
+    **訂用帳戶**：如果您有多個訂用帳戶，請選擇您用來建立區域 IoT 中樞的訂用帳戶。
 
     **IoT 中樞**：選取您建立的其中一個區域中樞。
 
-    **存取原則**：選擇 [iothubowner]  。
+    **存取原則**：選擇 **iothubowner**。
 
     ![使用佈建服務連結區域 IoT 中樞](./media/how-to-provision-multitenant/link-regional-hubs.png)
 
 
-5. 在兩個區域 IoT 中樞都已連結後，您必須為註冊群組選取它們，然後按一下 [儲存]  以建立註冊的區域 IoT 中樞群組。
+5. 在兩個區域 IoT 中樞都已連結後，您必須為註冊群組選取它們，然後按一下 [儲存] 以建立註冊的區域 IoT 中樞群組。
 
     ![建立註冊的區域中樞群組](./media/how-to-provision-multitenant/enrollment-regional-hub-group.png)
 
 
-6. 儲存註冊之後，請重新開啟它，並記下 [主要金鑰]  。 您必須先儲存註冊，才能產生金鑰。 此金鑰將在後續用來產生兩個模擬裝置的唯一裝置金鑰。
+6. 儲存註冊之後，請重新加以開啟，並記下 [主要金鑰]。 您必須先儲存註冊，才能產生金鑰。 此金鑰將在後續用來產生兩個模擬裝置的唯一裝置金鑰。
 
 
 ## <a name="create-regional-linux-vms"></a>建立區域 Linux VM
@@ -130,11 +129,11 @@ ms.locfileid: "66116111"
 
 1. 在 Azure Cloud Shell 中，變更下列命令中的參數並執行命令以建立**美國東部**區域 VM：
 
-    **--name**：輸入您**美國東部**區域裝置虛擬機器的唯一名稱。 
+    **--name**：輸入您**美國東部**區域裝置 VM 的唯一名稱。 
 
-    **--admin-username**：使用您自己的管理員使用者名稱。
+    **--admin-username**：使用您自己的系統管理員使用者名稱。
 
-    **--admin-password**：使用您自己的管理員密碼。
+    **--admin-password**：使用您自己的系統管理員密碼。
 
     ```azurecli-interactive
     az vm create \
@@ -151,11 +150,11 @@ ms.locfileid: "66116111"
 
 1. 在 Azure Cloud Shell 中，變更下列命令中的參數並執行命令以建立**美國西部**區域 VM：
 
-    **--name**：輸入您**美國西部**區域裝置虛擬機器的唯一名稱。 
+    **--name**：輸入您**美國西部**區域裝置 VM 的唯一名稱。 
 
-    **--admin-username**：使用您自己的管理員使用者名稱。
+    **--admin-username**：使用您自己的系統管理員使用者名稱。
 
-    **--admin-password**：使用您自己的管理員密碼。
+    **--admin-password**：使用您自己的系統管理員密碼。
 
     ```azurecli-interactive
     az vm create \
@@ -300,7 +299,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
 此範例程式碼會模擬將佈建要求傳送至裝置佈建服務執行個體的裝置開機順序。 此開機順序能使裝置由系統辨識，並依據延遲指派給最接近的 IoT 中樞。
 
-1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀]  索引標籤，並記下 [識別碼範圍]  值。
+1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀] 索引標籤，並記下 [識別碼範圍] 值。
 
     ![從入口網站刀鋒視窗擷取裝置佈建服務端點資訊](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -310,7 +309,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
     vi ~/azure-iot-sdk-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c
     ```
 
-1. 找出 `id_scope` 常數，並將其值取代為您先前複製的 [識別碼範圍]  值。 
+1. 尋找 `id_scope` 常數，並以您稍早複製的**識別碼範圍**值取代該值。 
 
     ```c
     static const char* id_scope = "0ne00002193";
@@ -400,7 +399,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算繼續使用在此文章中建立的資源，可以保留它們。 如果不打算繼續使用這些資源，請使用下列步驟刪除此文章建立的所有資源，以避免產生非必要費用。
+如果您打算繼續使用在本文中建立的資源，您可加以保留。 如果不打算繼續使用這些資源，請使用下列步驟刪除此文章建立的所有資源，以避免產生非必要費用。
 
 以下步驟假設您依照指示在名為 **contoso-us-resource-group** 的相同資源群組中建立了此文章中的所有資源。
 
@@ -410,18 +409,18 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
 依名稱刪除資源群組：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]  。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]。
 
-2. 在 [依名稱篩選]  文字方塊中，輸入您的資源所屬的資源群組名稱 **contoso-us-resource-group**。 
+2. 在 [依名稱篩選] 文字方塊中，輸入您的資源所屬的資源群組名稱 **contoso-us-resource-group**。 
 
-3. 在結果清單中的資源群組右側，按一下 **...** ，然後按一下 [刪除資源群組]  。
+3. 在結果清單中的資源群組右側，按一下 **...** ，然後按一下 [刪除資源群組]。
 
-4. 系統將會要求您確認是否刪除資源。 再次輸入您的資源群組名稱進行確認，然後按一下 [刪除]  。 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
+4. 系統將會要求您確認是否刪除資源。 再次輸入您的資源群組名稱進行確認，然後按一下 [刪除]。 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解更多的 Reprovisioning，請參閱[IoT 中樞裝置重新佈建概念](concepts-device-reprovision.md) 
-- 若要深入了解更多的解除佈建，請參閱[如何取消佈建先前自動佈建的裝置](how-to-unprovision-devices.md) 
+- To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
+- To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
 
 
 

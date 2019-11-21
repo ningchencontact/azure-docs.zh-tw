@@ -1,6 +1,6 @@
 ---
-title: 適用于 Azure Active Directory Identity Protection 的 Microsoft Graph API
-description: 瞭解如何從 Azure Active Directory 查詢 Microsoft Graph 風險偵測和相關資訊
+title: Microsoft Graph API for Azure Active Directory Identity Protection
+description: Learn how to query Microsoft Graph risk detections and associated information from Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 834ac1d6e35169689a767a95bbef09673454c46a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: MT
+ms.openlocfilehash: b3c7d2c6fe5a489415103a4da5daf707f9585f9d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73148884"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212870"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>開始使用 Azure Active Directory Identity Protection 和 Microsoft Graph
 
-Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API 的寄居地。 有四個 Api 會公開有風險的使用者和登入的相關資訊。第一個 API **riskDetection**可讓您查詢 Microsoft Graph，以取得使用者和登入連結的風險偵測和相關資訊的清單。 第二個 API **riskyUsers** 可讓您查詢 Microsoft Graph 中，Identity Protection 偵測為風險之使用者的相關資訊。 第三個 API **signIn** 可讓您查詢 Microsoft Graph 中，具有與風險狀態、詳細資料以及層級相關特定屬性之 Azure AD 登入的相關資訊。 第四個 API **identityRiskEvents**可讓您查詢 Microsoft Graph，以取得[風險](../reports-monitoring/concept-risk-events.md)偵測清單和相關資訊。 本文可讓您開始連接到 Microsoft Graph 並查詢這些 Api。 如需深入的簡介、完整文件以及 Graph 總管的存取權，請參閱 [Microsoft Graph 網站](https://graph.microsoft.io/)或這些 API 的特定參考文件：
+Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API 的寄居地。 There are four APIs that expose information about risky users and sign-ins. The first API, **riskDetection**, allows you to query Microsoft Graph for a list of both user and sign-in linked risk detections and associated information about the detection. 第二個 API **riskyUsers** 可讓您查詢 Microsoft Graph 中，Identity Protection 偵測為風險之使用者的相關資訊。 第三個 API **signIn** 可讓您查詢 Microsoft Graph 中，具有與風險狀態、詳細資料以及層級相關特定屬性之 Azure AD 登入的相關資訊。 The fourth API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk detections](../reports-monitoring/concept-risk-events.md) and associated information. This article gets you started with connecting to the Microsoft Graph and querying these APIs. 如需深入的簡介、完整文件以及 Graph 總管的存取權，請參閱 [Microsoft Graph 網站](https://graph.microsoft.io/)或這些 API 的特定參考文件：
 
 * [riskDetection API](https://docs.microsoft.com/graph/api/resources/riskdetection?view=graph-rest-beta)
 * [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
@@ -68,7 +68,7 @@ Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory
 
    ![建立應用程式](./media/howto-identity-protection-graph-api/44.png)
 
-   1. 在 [**名稱**] 文字方塊中，輸入應用程式的名稱（例如： ..Aadip risk 風險偵測 API 應用程式）。
+   1. In the **Name** textbox, type a name for your application (for example: Azure AD Risk Detection API Application).
 
    1. 在 [類型]，選取 [Web 應用程式和/或 Web API]。
 
@@ -122,7 +122,7 @@ Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory
 
    ![建立應用程式](./media/howto-identity-protection-graph-api/24.png)
 
-   1. 在 [**金鑰描述**] 文字方塊中，輸入描述（例如， *..aadip risk 風險偵測*）。
+   1. In the **Key description** textbox, type a description (for example, *Azure AD Risk Detection*).
    1. 在 [持續時間] 中選取 [1 年]。
    1. 按一下 [儲存]。
    1. 複製金鑰值，然後將它貼到安全的位置。   
@@ -131,7 +131,7 @@ Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory
    > 如果遺失此金鑰，則必須返回本區段並建立新的金鑰。 請勿將此金鑰告知他人︰任何人只要擁有此金鑰就可以存取您的資料。
    > 
 
-## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-detections-api"></a>驗證以 Microsoft Graph 及查詢身分識別風險偵測 API
+## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-detections-api"></a>Authenticate to Microsoft Graph and query the Identity Risk Detections API
 
 到目前為止，您應該已擁有︰
 
@@ -157,7 +157,7 @@ Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory
 
 將此標頭做為要求來傳送至下列 API URL： `https://graph.microsoft.com/beta/identityRiskEvents`
 
-如果成功，回應就是身分識別風險偵測的集合和 OData JSON 格式的相關資料，可依您的情況加以剖析和處理。
+The response, if successful, is a collection of identity risk detections and associated data in the OData JSON format, which can be parsed and handled as you see fit.
 
 以下是使用 PowerShell 驗證並呼叫 API 的範例程式碼。  
 您只需要新增用戶端識別碼、祕密金鑰和租用戶網域。
@@ -196,17 +196,17 @@ Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory
 
 這三個 API 會提供許多機會，在您的組織中擷取有風險的使用者和登入的相關資訊。 以下是這些 API 和相關聯範例要求的一些常見使用案例。 您可以使用上述的範例程式碼，或使用 [Graph 總管](https://developer.microsoft.com/graph/graph-explorer)執行這些查詢。
 
-### <a name="get-all-of-the-offline-risk-detections-riskdetection-api"></a>取得所有離線風險偵測（riskDetection API）
+### <a name="get-all-of-the-offline-risk-detections-riskdetection-api"></a>Get all of the offline risk detections (riskDetection API)
 
-使用 Identity Protection 登入風險原則時，您可以在即時偵測到風險時套用條件。 但離線探索到的偵測會如何？ 若要瞭解哪些偵測離線發生，因而無法觸發登入風險原則，您可以查詢 riskDetection API。
+With Identity Protection sign-in risk policies, you can apply conditions when risk is detected in real time. But what about detections that are discovered offline? To understand what detections occurred offline, and thus would not have triggered the sign-in risk policy, you can query the riskDetection API.
 
 ```
 GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType eq 'offline'
 ```
 
-### <a name="get-the-high-risk-and-medium-risk-detections-identityriskevents-api"></a>取得高風險和中度風險偵測（identityRiskEvents API）
+### <a name="get-the-high-risk-and-medium-risk-detections-identityriskevents-api"></a>Get the high-risk and medium-risk detections (identityRiskEvents API)
 
-中度和高風險偵測代表可能具有觸發 Identity Protection 登入或使用者風險原則的功能。 這些事件對於嘗試登入的使用者不是合法的身分識別擁有者具有中度或高度的可能性，因此應該優先修復這些事件。 
+Medium and high-risk detections represent those that may have the capability to trigger Identity Protection sign-in or user-risk policies. 這些事件對於嘗試登入的使用者不是合法的身分識別擁有者具有中度或高度的可能性，因此應該優先修復這些事件。 
 
 ```
 GET https://graph.microsoft.com/beta/identityRiskEvents?`$filter=riskLevel eq 'high' or riskLevel eq 'medium'" 
@@ -214,7 +214,7 @@ GET https://graph.microsoft.com/beta/identityRiskEvents?`$filter=riskLevel eq 'h
 
 ### <a name="get-all-of-the-users-who-successfully-passed-an-mfa-challenge-triggered-by-risky-sign-ins-policy-riskyusers-api"></a>取得成功通過有危險的登入原則所觸發之 MFA 挑戰的所有使用者 (riskyUsers API)
 
-若要瞭解以身分識別保護風險為基礎的原則對您的組織有何影響，您可以查詢成功通過具風險登入原則所觸發之 MFA 挑戰的所有使用者。 此資訊可協助您了解哪些使用者 Identity Protection 可能會被誤偵測為風險，以及哪些合法使用者可能正在執行 AI 認為有風險的動作。
+To understand the impact Identity Protection risk-based policies have on your organization, you can query all of the users who successfully passed an MFA challenge triggered by a risky sign-ins policy. 此資訊可協助您了解哪些使用者 Identity Protection 可能會被誤偵測為風險，以及哪些合法使用者可能正在執行 AI 認為有風險的動作。
 
 ```
 GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
@@ -230,14 +230,14 @@ https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>
 ## <a name="next-steps"></a>後續步驟
 
 恭喜，您剛剛完成了對 Microsoft Graph 的第一次呼叫！  
-現在您可以查詢身分識別風險偵測，並在您看到 [適合] 時使用資料。
+Now you can query identity risk detections and use the data however you see fit.
 
 若要深入了解 Microsoft Graph 以及如何使用 Graph API 來建置應用程式，請查看[說明文件](https://docs.microsoft.com/graph/overview)，而在 [Microsoft Graph 網站](https://developer.microsoft.com/graph)上還能找到更多資訊。 
 
 如需相關資訊，請參閱：
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-- [Azure Active Directory Identity Protection 偵測到的風險偵測類型](../reports-monitoring/concept-risk-events.md)
+- [Types of risk detections detected by Azure Active Directory Identity Protection](../reports-monitoring/concept-risk-events.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Microsoft Graph 概觀](https://developer.microsoft.com/graph/docs)
 - [Azure AD Identity Protection 服務根目錄](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)

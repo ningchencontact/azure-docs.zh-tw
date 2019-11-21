@@ -1,29 +1,25 @@
 ---
-title: 使用來自 Azure 函式的傳回值
-description: 瞭解如何管理 Azure Functions 的傳回值
-services: functions
-documentationcenter: na
+title: Using return value from an Azure Function
+description: Learn to manage return values for Azure Functions
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 8dd5a4d9d869c879ed402c5450690f0a691e1d2c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 30c9caf267482d7c3731d4848cfb26cc8120b1ac
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074410"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231075"
 ---
-# <a name="using-the-azure-function-return-value"></a>使用 Azure 函數傳回值
+# <a name="using-the-azure-function-return-value"></a>Using the Azure Function return value
 
-本文說明傳回值在函式內的運作方式。
+This article explains how return values work inside a function.
 
-在具有傳回值的語言中，您可以將函式[輸出](./functions-triggers-bindings.md#binding-direction)系結系結至傳回值：
+In languages that have a return value, you can bind a function [output binding](./functions-triggers-bindings.md#binding-direction) to the return value:
 
 * 在 C# 類別庫中，將輸出繫結屬性套用至方法傳回值。
-* 在其他語言中，將 function.json`name`*中的* 屬性設定為 `$return`。
+* 在其他語言中，將 function.json 中的 `name` 屬性設定為 `$return`。
 
 如果有多個輸出繫結，請只對其中一個使用傳回值。
 
@@ -55,7 +51,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
 以下是 function.json 檔案中的輸出繫結：
 
@@ -161,4 +157,4 @@ def main(input: azure.functions.InputStream) -> str:
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [處理 Azure Functions 系結錯誤](./functions-bindings-errors.md)
+> [Handle Azure Functions binding errors](./functions-bindings-errors.md)

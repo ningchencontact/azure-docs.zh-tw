@@ -1,45 +1,45 @@
 ---
-title: 使用 Azure 私人連結連線至 Azure Cosmos 帳戶
-description: 瞭解如何藉由建立私人端點，從 VM 安全地存取 Azure Cosmos 帳戶。
-author: SnehaGunda
+title: Connect to an Azure Cosmos account with Azure Private Link
+description: Learn how to securely access the Azure Cosmos account from a VM by creating a Private Endpoint.
+author: asudbring
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: sngun
-ms.openlocfilehash: 32595e561736b5f22f109d0caff1f3990300d2bc
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.author: allensu
+ms.openlocfilehash: 90710176ec16d1c565e24ff7df56b0b838f2699e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007321"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229413"
 ---
-# <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>使用 Azure 私人連結私下連接到 Azure Cosmos 帳戶
+# <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Connect privately to an Azure Cosmos account using Azure Private Link
 
-Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Azure 資源（例如虛擬機器（Vm））私下與私人連結資源進行通訊。
+Azure Private Endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with Private Link resources.
 
-在本文中，您將瞭解如何在 Azure 虛擬網路上建立 VM，以及如何使用 Azure 入口網站在私人端點上建立 Azure Cosmos 帳戶。 然後，您可以從 VM 安全地存取 Azure Cosmos 帳戶。
+In this article, you will learn how to create a VM on an Azure virtual network and an Azure Cosmos account with a Private Endpoint using the Azure portal. Then, you can securely access the Azure Cosmos account from the VM.
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入[Azure 入口網站。](https://portal.azure.com)
+Sign in to the [Azure portal.](https://portal.azure.com)
 
 ## <a name="create-a-vm"></a>建立 VM
 
 ### <a name="create-the-virtual-network"></a>建立虛擬網路
 
-在本節中，您將建立虛擬網路和子網，以裝載用來存取私人連結資源的 VM （在此範例中為 Azure Cosmos 帳戶）。
+In this section, you will create a virtual network and the subnet to host the VM that is used to access your Private Link resource (an Azure Cosmos account in this example).
 
 1. 在畫面的左上方，選取 [建立資源] > [網路] > [虛擬網路]。
 
 1. 在 [建立虛擬網路] 中，輸入或選取這項資訊：
 
-    | 設定 | 值 |
+    | 設定 | Value |
     | ------- | ----- |
-    | 名稱 | 輸入 MyVirtualNetwork。 |
+    | Name | 輸入 MyVirtualNetwork。 |
     | 位址空間 | 輸入 *10.1.0.0/16*。 |
-    | 訂閱 | 選取您的訂閱。|
-    | 資源群組 | 選取 [新建]，輸入 *myResourceGroup*，然後選取 [確定]。 |
-    | 位置 | 選取 [WestCentralUS]。|
+    | Subscription | 選取您的訂用帳戶。|
+    | Resource group | 選取 [新建]，輸入 *myResourceGroup*，然後選取 [確定]。 |
+    | Location | 選取 [WestCentralUS]。|
     | 子網路 - 名稱 | 輸入 mySubnet。 |
     | 子網路 - 位址範圍 | 輸入 *10.1.0.0/24*。 |
     |||
@@ -48,38 +48,38 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 ### <a name="create-the-virtual-machine"></a>建立虛擬機器
 
-1. 在 Azure 入口網站 畫面的左上方，選取 **建立資源** > **計算** > **虛擬機器**。
+1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Virtual machine**.
 
 1. 在 [建立虛擬機器 - 基本] 中，輸入或選取這項資訊：
 
-    | 設定 | 值 |
+    | 設定 | Value |
     | ------- | ----- |
     | **專案詳細資料** | |
-    | 訂閱 | 選取您的訂閱。 |
-    | 資源群組 | 選取 **myResourceGroup**。 您已在上一節中建立此項目。  |
+    | Subscription | 選取您的訂用帳戶。 |
+    | Resource group | 選取 **myResourceGroup**。 您已在上一節中建立此項目。  |
     | **執行個體詳細資料** |  |
     | 虛擬機器名稱 | 輸入 myVm。 |
-    | 區域 | 選取 [WestCentralUS]。 |
+    | 地區 | 選取 [WestCentralUS]。 |
     | 可用性選項 | 保留預設值 [不需要基礎結構備援]。 |
-    | 映像 | 選取 [Windows Server 2019 Datacenter]。 |
+    | 影像 | 選取 [Windows Server 2019 Datacenter]。 |
     | 大小 | 保留預設值 [標準 DS1 v2]。 |
     | **系統管理員帳戶** |  |
-    | 使用者名稱 | 輸入您選擇的使用者名稱。 |
+    | 使用者名稱 | Enter a username of your choice. |
     | 密碼 | 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
-    | 確認密碼 | 重新輸入密碼。 |
+    | 確認密碼 | Reenter the password. |
     | **輸入連接埠規則** |  |
     | 公用輸入連接埠 | 保留預設值 [無]。 |
     | **節省費用** |  |
     | 已經有 Windows 授權？ | 保留預設值 [否]。 |
     |||
 
-1. 選取 **[下一步：磁片]** 。
+1. Select **Next: Disks**.
 
-1. 在 [**建立虛擬機器-磁片**] 中保留預設值，然後選取 **[下一步：網路]** 。
+1. In **Create a virtual machine - Disks**, leave the defaults and select **Next: Networking**.
 
 1. 在 [建立虛擬機器 - 網路功能] 中，選取這項資訊：
 
-    | 設定 | 值 |
+    | 設定 | Value |
     | ------- | ----- |
     | 虛擬網路 | 保留預設值 [MyVirtualNetwork]。  |
     | 位址空間 | 保留預設值 [10.1.0.0/24]。|
@@ -95,15 +95,15 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 ## <a name="create-an-azure-cosmos-account"></a>建立 Azure Cosmos 帳戶
 
-建立[Azure COSMOS SQL API 帳戶](../cosmos-db/create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account)。 為了簡單起見，您可以在與其他資源相同的區域（也就是 "WestCentralUS"）中建立 Azure Cosmos 帳戶。
+Create an [Azure Cosmos SQL API account](../cosmos-db/create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account). For simplicity, you can create the Azure Cosmos account in the same region as the other resources (that is "WestCentralUS").
 
-## <a name="create-a-private-endpoint-for-your-azure-cosmos-account"></a>建立 Azure Cosmos 帳戶的私人端點
+## <a name="create-a-private-endpoint-for-your-azure-cosmos-account"></a>Create a Private Endpoint for your Azure Cosmos account
 
-建立 Azure Cosmos 帳戶的私人連結，如使用連結文章的[Azure 入口網站一節建立私人連結](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal)中所述。
+Create a Private Link for your Azure Cosmos account as described in the [Create a Private Link using the Azure portal](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal) section of the linked article.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>從網際網路連線至 VM
 
-從網際網路連線至 VM *myVm* ，如下所示：
+Connect to the VM *myVm* from the internet as follows:
 
 1. 在入口網站的搜尋列中，輸入 myVm。
 
@@ -126,16 +126,16 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 1. 當 VM 桌面出現之後，將它最小化以回到您的本機桌面。  
 
-## <a name="access-the-azure-cosmos-account-privately-from-the-vm"></a>從 VM 私下存取 Azure Cosmos 帳戶
+## <a name="access-the-azure-cosmos-account-privately-from-the-vm"></a>Access the Azure Cosmos account privately from the VM
 
-在本節中，您會使用私用端點，私下連線至 Azure Cosmos 帳戶。 
+In this section, you will connect privately to the Azure Cosmos account using the Private Endpoint. 
 
 > [!IMPORTANT]
-> Azure Cosmos 帳戶的 DNS 設定需要在主機檔案上進行手動修改，以包含特定帳戶的 FQDN。 在生產案例中，您會將 DNS 伺服器設定為使用私人 IP 位址。 不過，基於示範目的，您可以在 VM 上使用系統管理員許可權，並修改 `c:\Windows\System32\Drivers\etc\hosts` 檔案（在 Windows 上）或 `/etc/hosts` 檔案（在 Linux 上），以包含 IP 位址和 DNS 對應。
+> The DNS configuration for the Azure Cosmos account needs a manual modification on the hosts file to include the FQDN of the specific account. In production scenarios you will configure the DNS server to use the private IP addresses. However for the demo purpose, you can use administrator permissions on the VM and modify the `c:\Windows\System32\Drivers\etc\hosts` file (on Windows) or `/etc/hosts` file (on Linux) to include the IP address and DNS mapping.
 
-1. 若要包含 IP 位址和 DNS 對應，請登入您的虛擬機器*myVM*，開啟 `c:\Windows\System32\Drivers\etc\hosts` 檔案，並以下列格式包含上一個步驟中的 DNS 資訊：
+1. To include the IP address and DNS mapping, sign into your Virtual machine *myVM*, open the `c:\Windows\System32\Drivers\etc\hosts` file and include the DNS information from previous step in the following format:
 
-   [私人 IP 位址][帳戶端點]. 檔. azure .com
+   [Private IP Address] [Account endpoint].documents.azure.com
 
    **範例：**
 
@@ -144,40 +144,40 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
    10.1.255.14 mycosmosaccount-eastus.documents.azure.com
 
 
-1. 在 *myVM*的遠端桌面中，安裝[Microsoft Azure 儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows)。
+1. In the Remote Desktop of *myVM*, install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
 
-1. 選取 [ **Cosmos DB 帳戶（預覽）** ]，並按一下滑鼠右鍵。
+1. Select **Cosmos DB Accounts (Preview)** with the right-click.
 
-1. 選取 **[連線至 Cosmos DB]** 。
+1. Select **Connect to Cosmos DB**.
 
 1. 選取 [API]。
 
-1. 貼入先前複製的資訊，以輸入連接字串。
+1. Enter the connection string by pasting the information previously copied.
 
 1. 選取 [下一步]。
 
 1. 選取 [ **連接**]。
 
-1. 從*mycosmosaccount*流覽 Azure Cosmos 資料庫和容器。
+1. Browse the Azure Cosmos databases and containers from *mycosmosaccount*.
 
-1. （選擇性）將新的專案加入至*mycosmosaccount*。
+1. (Optionally) add new items to *mycosmosaccount*.
 
-1. 關閉對 *myVM*的遠端桌面連線。
+1. Close the remote desktop connection to *myVM*.
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當您使用私人端點、Azure Cosmos 帳戶和 VM 完成時，請刪除資源群組及其包含的所有資源： 
+When you're done using the Private Endpoint, Azure Cosmos account and the VM, delete the resource group and all of the resources it contains: 
 
-1. 在入口網站頂端的 [搜尋] ** 方塊中輸入  myResourceGroup，然後從搜尋結果中選取 [myResourceGroup] **  。
+1. 在入口網站頂端的 [搜尋] 方塊中輸入  *myResourceGroup* ，然後從搜尋結果中選取 [myResourceGroup] **  。
 
 1. 選取 [刪除資源群組]。
 
-1. **在 [輸入資源組名**] 中輸入 *myResourceGroup* ，然後選取 [**刪除**]。
+1. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已在虛擬網路、Azure Cosmos 帳戶和私人端點上建立 VM。 您已從網際網路連線至 VM，並使用私人連結安全地與 Azure Cosmos 帳戶通訊。
+In this article, you created a VM on a virtual network, an Azure Cosmos account and a Private Endpoint. You connected to the VM from the internet and securely communicated to the Azure Cosmos account using Private Link.
 
-* 若要深入瞭解私用端點，請參閱 [什麼是 Azure 私人端點？](private-endpoint-overview.md)。
+* To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
 
-* 若要深入瞭解搭配 Azure Cosmos DB 使用私人端點的限制，請參閱[Azure Cosmos DB 文章的 Azure 私用連結](../cosmos-db/how-to-configure-private-endpoints.md)。
+* To learn more about limitation of Private Endpoint when using with Azure Cosmos DB, see [Azure Private Link with Azure Cosmos DB](../cosmos-db/how-to-configure-private-endpoints.md) article.

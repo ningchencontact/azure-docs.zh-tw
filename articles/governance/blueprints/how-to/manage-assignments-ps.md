@@ -1,33 +1,33 @@
 ---
-title: 如何使用 PowerShell 管理指派
-description: 瞭解如何使用官方 Azure 藍圖 PowerShell 模組 Az. 藍圖來管理藍圖指派。
+title: How to manage assignments with PowerShell
+description: Learn how to manage blueprint assignments with the official Azure Blueprints PowerShell module, Az.Blueprint.
 ms.date: 09/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 98c2173568f65d029b00ca6c8b25d2195094a5e3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 00824ceed2e86683a86b172e529ba88704dbb050
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961612"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74210307"
 ---
-# <a name="how-to-manage-assignments-with-powershell"></a>如何使用 PowerShell 管理指派
+# <a name="how-to-manage-assignments-with-powershell"></a>How to manage assignments with PowerShell
 
-您可以使用**Az. 藍圖**Azure PowerShell 模組來管理藍圖指派。 此模組支援提取、建立、更新和移除指派。 此模組也可以提取現有藍圖定義的詳細資料。 本文涵蓋如何安裝模組並開始使用它。
+A blueprint assignment can be managed using the **Az.Blueprint** Azure PowerShell module. The module supports fetching, creating, updating, and removing assignments. The module can also fetch details on existing blueprint definitions. This article covers how to install the module and start using it.
 
-## <a name="add-the-azblueprint-module"></a>新增 Az. 藍圖模組
+## <a name="add-the-azblueprint-module"></a>Add the Az.Blueprint module
 
-若要讓 Azure PowerShell 管理藍圖指派，必須新增模組。 此模組適用於在本機安裝的 PowerShell、[Azure Cloud Shell](https://shell.azure.com) 或 [Azure PowerShell Docker 映像](https://hub.docker.com/r/azuresdk/azure-powershell/)。
+To enable Azure PowerShell to manage blueprint assignments, the module must be added. 此模組適用於在本機安裝的 PowerShell、[Azure Cloud Shell](https://shell.azure.com) 或 [Azure PowerShell Docker 映像](https://hub.docker.com/r/azuresdk/azure-powershell/)。
 
 ### <a name="base-requirements"></a>基底需求
 
-Azure 藍圖模組需要下列軟體：
+The Azure Blueprints module requires the following software:
 
-- Azure PowerShell 1.5.0 或更高版本。 如果尚未安裝，請依照[這些指示](/powershell/azure/install-az-ps)操作。
-- PowerShellGet 2.0.1 或更新版本。 如果未安裝或更新，請依照[這些指示](/powershell/gallery/installing-psget)操作。
+- Azure PowerShell 1.5.0 or higher. 如果尚未安裝，請依照[這些指示](/powershell/azure/install-az-ps)操作。
+- PowerShellGet 2.0.1 或更新版本。 如果未安裝或更新，請依照[這些指示](/powershell/scripting/gallery/installing-psget)操作。
 
 ### <a name="install-the-module"></a>安裝模組
 
-適用于 PowerShell 的藍圖模組是**Az. 藍圖**。
+The Blueprints module for PowerShell is **Az.Blueprint**.
 
 1. 從**系統管理** PowerShell 提示字元中，執行下列命令：
 
@@ -37,21 +37,21 @@ Azure 藍圖模組需要下列軟體：
    ```
 
    > [!NOTE]
-   > 如果已安裝**Az** ，則可能需要使用 `-AllowClobber` 來強制安裝。
+   > If **Az.Accounts** is already installed, it may be necessary to use `-AllowClobber` to force the installation.
 
-1. 驗證模組是否已匯入，而且是正確的版本（0.2.6）：
+1. Validate that the module has been imported and is the correct version (0.2.6):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.Blueprint module
    Get-Command -Module 'Az.Blueprint' -CommandType 'Cmdlet'
    ```
 
-## <a name="get-blueprint-definitions"></a>取得藍圖定義
+## <a name="get-blueprint-definitions"></a>Get blueprint definitions
 
-使用指派的第一個步驟通常是取得藍圖定義的參考。
-`Get-AzBlueprint` Cmdlet 會取得一或多個藍圖定義。 Cmdlet 可以從具有 `-ManagementGroupId {mgId}` 的管理群組或具有 `-SubscriptionId {subId}`的訂用帳戶，取得藍圖定義。 **Name**參數會取得藍圖定義，但必須與**ManagementGroupId**或**SubscriptionId**搭配使用。 **版本**可以與**名稱**搭配使用，以更明確地瞭解傳回的藍圖定義。 參數 `-LatestPublished` 會抓取最近發行的版本，而不是**版本**。
+The first step to working with an assignment is often getting a reference to a blueprint definition.
+The `Get-AzBlueprint` cmdlet gets one or more blueprint definitions. The cmdlet can get blueprint definitions from a management group with `-ManagementGroupId {mgId}` or a subscription with `-SubscriptionId {subId}`. The **Name** parameter gets a blueprint definition, but must be used with **ManagementGroupId** or **SubscriptionId**. **Version** can be used with **Name** to be more explicit about which blueprint definition is returned. Instead of **Version**, the switch `-LatestPublished` grabs the most recently published version.
 
-下列範例會使用 `Get-AzBlueprint`，從以 `{subId}`表示的特定訂用帳戶，取得名為 ' 101-藍圖-定義-訂用帳戶 ' 的藍圖定義的所有版本：
+The following example uses `Get-AzBlueprint` to get all versions of a blueprint definition named '101-blueprints-definition-subscription' from a specific subscription represented as `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -63,7 +63,7 @@ $blueprints = Get-AzBlueprint -SubscriptionId '{subId}' -Name '101-blueprints-de
 $blueprints
 ```
 
-具有多個版本之藍圖定義的範例輸出看起來像這樣：
+The example output for a blueprint definition with multiple versions looks like this:
 
 ```output
 Name                 : 101-blueprints-definition-subscription
@@ -78,7 +78,7 @@ Parameters           : {storageAccount_storageAccountType, storageAccount_locati
 ResourceGroups       : ResourceGroup
 ```
 
-藍圖定義上的[藍圖參數](../concepts/parameters.md#blueprint-parameters)可以擴充以提供詳細資訊。
+The [blueprint parameters](../concepts/parameters.md#blueprint-parameters) on the blueprint definition can be expanded to provide more information.
 
 ```azurepowershell-interactive
 $blueprints.Parameters
@@ -93,11 +93,11 @@ allowedlocations_listOfAllowedLocations                Microsoft.Azure.Commands.
 [Usergrouporapplicationname]:Reader_RoleAssignmentName Microsoft.Azure.Commands.Blueprint.Models.PSParameterDefinition
 ```
 
-## <a name="get-blueprint-assignments"></a>取得藍圖指派
+## <a name="get-blueprint-assignments"></a>Get blueprint assignments
 
-如果藍圖指派已存在，您可以使用 `Get-AzBlueprintAssignment` Cmdlet 取得其參考。 此 Cmdlet 會採用**SubscriptionId**和**Name**做為選擇性參數。 如果未指定**SubscriptionId** ，則會使用目前的訂用帳戶內容。
+If the blueprint assignment already exists, you can get a reference to it with the `Get-AzBlueprintAssignment` cmdlet. The cmdlet takes **SubscriptionId** and **Name** as optional parameters. If **SubscriptionId** isn't specified, the current subscription context is used.
 
-下列範例會使用 `Get-AzBlueprintAssignment`，從以 `{subId}`表示的特定訂用帳戶中，取得名為「指派-鎖定-資源群組」的單一藍圖指派：
+The following example uses `Get-AzBlueprintAssignment` to get a single blueprint assignment named 'Assignment-lock-resource-groups' from a specific subscription represented as `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -109,7 +109,7 @@ $blueprintAssignment = Get-AzBlueprintAssignment -SubscriptionId '{subId}' -Name
 $blueprintAssignment
 ```
 
-藍圖指派的範例輸出如下所示：
+The example output for a blueprint assignment looks like this:
 
 ```output
 Name              : Assignment-lock-resource-groups
@@ -123,52 +123,52 @@ Parameters        :
 ResourceGroups    : ResourceGroup
 ```
 
-## <a name="create-blueprint-assignments"></a>建立藍圖指派
+## <a name="create-blueprint-assignments"></a>Create blueprint assignments
 
-如果藍圖指派尚不存在，您可以使用 `New-AzBlueprintAssignment` Cmdlet 加以建立。 此 Cmdlet 會使用下列參數：
+If the blueprint assignment doesn't exist yet, you can create it with the `New-AzBlueprintAssignment` cmdlet. This cmdlet uses the following parameters:
 
-- **名稱**[必要]
-  - 指定藍圖指派的名稱
-  - 必須是唯一的，而且不存在於**SubscriptionId**中
-- **藍圖**[必要]
-  - 指定要指派的藍圖定義
-  - 使用 `Get-AzBlueprint` 取得參考物件
-- **位置**[必要]
-  - 指定要在其中建立系統指派的受控識別和訂用帳戶部署物件的區域
-- **訂**用帳戶（選擇性）
-  - 指定要部署指派的訂用帳戶
-  - 如果未提供，則預設為目前的訂用帳戶內容
-- **Lock** （選擇性）
-  - 定義要用於已部署資源的[藍圖資源鎖定](../concepts/resource-locking.md)
-  - 支援的選項： _None_、 _AllResourcesReadOnly_、 _AllResourcesDoNotDelete_
-  - 如果未提供，則預設為_None_
-- **SystemAssignedIdentity** （選擇性）
-  - 選取即可建立指派給系統指派的受控識別，並部署資源
-  - 已設定 "identity" 參數的預設值
-  - 不能與**UserAssignedIdentity**搭配使用
-- **UserAssignedIdentity** （選擇性）
-  - 指定要用於指派和部署資源的使用者指派受控識別
-  - 「身分識別」參數集的一部分
-  - 不能與**SystemAssignedIdentity**搭配使用
-- **參數**（選擇性）
-  - 在藍圖指派上設定[動態參數](../concepts/parameters.md#dynamic-parameters)的索引鍵/值組[雜湊表](/powershell/module/microsoft.powershell.core/about/about_hash_tables)
-  - 動態參數的預設值為定義中的**defaultValue**
-  - 如果未提供參數，而且沒有**defaultValue**，則參數不是選擇性的
+- **Name** [required]
+  - Specifies the name of the blueprint assignment
+  - Must be unique and not already exist in **SubscriptionId**
+- **Blueprint** [required]
+  - Specifies the blueprint definition to assign
+  - Use `Get-AzBlueprint` to get the reference object
+- **Location** [required]
+  - Specifies the region for the system-assigned managed identity and subscription deployment object to be created in
+- **Subscription** (optional)
+  - Specifies the subscription the assignment is deployed to
+  - If not provided, defaults to the current subscription context
+- **Lock** (optional)
+  - Defines the [blueprint resource locking](../concepts/resource-locking.md) to use for deployed resources
+  - Supported options: _None_, _AllResourcesReadOnly_, _AllResourcesDoNotDelete_
+  - If not provided, defaults to _None_
+- **SystemAssignedIdentity** (optional)
+  - Select to create a system-assigned managed identity for the assignment and to deploy the resources
+  - Default for the "identity" parameter set
+  - Can't be used with **UserAssignedIdentity**
+- **UserAssignedIdentity** (optional)
+  - Specifies the user-assigned managed identity to use for the assignment and to deploy the resources
+  - Part of the "identity" parameter set
+  - Can't be used with **SystemAssignedIdentity**
+- **Parameter** (optional)
+  - A [hash table](/powershell/module/microsoft.powershell.core/about/about_hash_tables) of key/value pairs for setting [dynamic parameters](../concepts/parameters.md#dynamic-parameters) on the blueprint assignment
+  - Default for a dynamic parameter is the **defaultValue** in the definition
+  - If a parameter isn't provided and has no **defaultValue**, the parameter isn't optional
 
     > [!NOTE]
-    > **參數**不支援 secureStrings。
+    > **Parameter** doesn't support secureStrings.
 
-- **ResourceGroupParameter** （選擇性）
-  - 資源群組成品的[雜湊表](/powershell/module/microsoft.powershell.core/about/about_hash_tables)
-  - 每個資源群組成品預留位置都有索引鍵/值組，可動態設定該資源群組成品上的**名稱**和**位置**
-  - 如果未提供資源群組參數，而且沒有**defaultValue**，則資源群組參數不是選擇性的
-- **AssignmentFile** （選擇性）
-  - 藍圖指派的 JSON 檔案表示路徑
-  - 此參數是 PowerShell 參數集的一部分，其中只包含**名稱**、**藍圖**和**SubscriptionId**，以及一般參數。
+- **ResourceGroupParameter** (optional)
+  - A [hash table](/powershell/module/microsoft.powershell.core/about/about_hash_tables) of resource group artifacts
+  - Each resource group artifact placeholder has key/value pairs for dynamically setting **Name** and **Location** on that resource group artifact
+  - If a resource group parameter isn't provided and has no **defaultValue**, the resource group parameter isn't optional
+- **AssignmentFile** (optional)
+  - The path to a JSON file representation of a blueprint assignment
+  - This parameter is part of a PowerShell parameter set that only includes **Name**, **Blueprint**, and **SubscriptionId**, plus the common parameters.
 
-### <a name="example-1-provide-parameters"></a>範例1：提供參數
+### <a name="example-1-provide-parameters"></a>Example 1: Provide parameters
 
-下列範例會建立以 `Get-AzBlueprint`提取之 ' my 藍圖 ' 藍圖定義版本 ' 1.1 ' 的新指派、將受控識別和指派物件位置設定為 ' westus2 '、使用_AllResourcesReadOnly_鎖定資源，以及針對以 `{subId}`表示的特定訂用帳戶，設定**參數**和**ResourceGroupParameter**的雜湊表：
+The following example creates a new assignment of version '1.1' of the 'my-blueprint' blueprint definition fetched with `Get-AzBlueprint`, sets the managed identity and assignment object location to 'westus2', locks the resources with _AllResourcesReadOnly_, and sets the hash tables for both **Parameter** and **ResourceGroupParameter** on specific subscription represented as `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -189,7 +189,7 @@ $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Bluep
     -Parameter $bpParameters -ResourceGroupParameter $bpRGParameters
 ```
 
-建立藍圖指派的範例輸出看起來像這樣：
+The example output for creating a blueprint assignment looks like this:
 
 ```output
 Name              : my-blueprint-assignment
@@ -203,10 +203,10 @@ Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
 
-### <a name="example-2-use-a-json-assignment-definition-file"></a>範例2：使用 JSON 指派定義檔
+### <a name="example-2-use-a-json-assignment-definition-file"></a>Example 2: Use a JSON assignment definition file
 
-下列範例會建立與[範例 1](#example-1-provide-parameters)幾乎相同的指派。
-範例不會將參數傳遞給 Cmdlet，而是會顯示 JSON 指派定義檔和**AssignmentFile**參數的用法。 此外， **excludedPrincipals**屬性會設定為**鎖定**的一部分。 沒有適用于**excludedPrincipals**的 PowerShell 參數，而且只能透過 JSON 指派定義檔來設定屬性。
+The following example creates nearly the same assignment as [Example 1](#example-1-provide-parameters).
+Instead of passing parameters to the cmdlet, the example shows use of a JSON assignment definition file and the **AssignmentFile** parameter. Additionally, the **excludedPrincipals** property is configured as part of **locks**. There isn't a PowerShell parameter for **excludedPrincipals** and the property can only be configured by setting it through the JSON assignment definition file.
 
 ```json
 {
@@ -247,50 +247,50 @@ $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Subsc
     -AssignmentFile '.\assignment.json'
 ```
 
-## <a name="update-blueprint-assignments"></a>更新藍圖指派
+## <a name="update-blueprint-assignments"></a>Update blueprint assignments
 
-有時候，必須更新已建立的藍圖指派。 `Set-AzBlueprintAssignment` Cmdlet 會處理此動作。 此 Cmdlet 會採用 `New-AzBlueprintAssignment` Cmdlet 所執行的大部分相同參數，以允許更新指派上設定的任何專案。 例外狀況包括_名稱_、_藍圖_和_SubscriptionId_。 只會更新提供的值。
+Sometimes it's necessary to update a blueprint assignment that has already been created. The `Set-AzBlueprintAssignment` cmdlet handles this action. The cmdlet takes most of the same parameters that the `New-AzBlueprintAssignment` cmdlet does, allowing anything that was set on the assignment to be updated. The exceptions are the _Name_, _Blueprint_, and _SubscriptionId_. Only the values provided are updated.
 
-若要瞭解更新藍圖指派時所發生的情況，請參閱[更新指派的規則](./update-existing-assignments.md#rules-for-updating-assignments)。
+To understand what happens when updating a blueprint assignment, see [rules for updating assignments](./update-existing-assignments.md#rules-for-updating-assignments).
 
-- **名稱**[必要]
-  - 指定要更新之藍圖指派的名稱
-  - 用來找出要更新的指派，而不是變更指派
-- **藍圖**[必要]
-  - 指定藍圖指派的藍圖定義
-  - 使用 `Get-AzBlueprint` 取得參考物件
-  - 用來找出要更新的指派，而不是變更指派
-- **Location** （選擇性）
-  - 指定要在其中建立系統指派的受控識別和訂用帳戶部署物件的區域
-- **訂**用帳戶（選擇性）
-  - 指定要部署指派的訂用帳戶
-  - 如果未提供，則預設為目前的訂用帳戶內容
-  - 用來找出要更新的指派，而不是變更指派
-- **Lock** （選擇性）
-  - 定義要用於已部署資源的[藍圖資源鎖定](../concepts/resource-locking.md)
-  - 支援的選項： _None_、 _AllResourcesReadOnly_、 _AllResourcesDoNotDelete_
-- **SystemAssignedIdentity** （選擇性）
-  - 選取即可建立指派給系統指派的受控識別，並部署資源
-  - 已設定 "identity" 參數的預設值
-  - 不能與**UserAssignedIdentity**搭配使用
-- **UserAssignedIdentity** （選擇性）
-  - 指定要用於指派和部署資源的使用者指派受控識別
-  - 「身分識別」參數集的一部分
-  - 不能與**SystemAssignedIdentity**搭配使用
-- **參數**（選擇性）
-  - 在藍圖指派上設定[動態參數](../concepts/parameters.md#dynamic-parameters)的索引鍵/值組[雜湊表](/powershell/module/microsoft.powershell.core/about/about_hash_tables)
-  - 動態參數的預設值為定義中的**defaultValue**
-  - 如果未提供參數，而且沒有**defaultValue**，則參數不是選擇性的
+- **Name** [required]
+  - Specifies the name of the blueprint assignment to update
+  - Used to locate the assignment to update, not to change the assignment
+- **Blueprint** [required]
+  - Specifies the blueprint definition of the blueprint assignment
+  - Use `Get-AzBlueprint` to get the reference object
+  - Used to locate the assignment to update, not to change the assignment
+- **Location** (optional)
+  - Specifies the region for the system-assigned managed identity and subscription deployment object to be created in
+- **Subscription** (optional)
+  - Specifies the subscription the assignment is deployed to
+  - If not provided, defaults to the current subscription context
+  - Used to locate the assignment to update, not to change the assignment
+- **Lock** (optional)
+  - Defines the [blueprint resource locking](../concepts/resource-locking.md) to use for deployed resources
+  - Supported options: _None_, _AllResourcesReadOnly_, _AllResourcesDoNotDelete_
+- **SystemAssignedIdentity** (optional)
+  - Select to create a system-assigned managed identity for the assignment and to deploy the resources
+  - Default for the "identity" parameter set
+  - Can't be used with **UserAssignedIdentity**
+- **UserAssignedIdentity** (optional)
+  - Specifies the user-assigned managed identity to use for the assignment and to deploy the resources
+  - Part of the "identity" parameter set
+  - Can't be used with **SystemAssignedIdentity**
+- **Parameter** (optional)
+  - A [hash table](/powershell/module/microsoft.powershell.core/about/about_hash_tables) of key/value pairs for setting [dynamic parameters](../concepts/parameters.md#dynamic-parameters) on the blueprint assignment
+  - Default for a dynamic parameter is the **defaultValue** in the definition
+  - If a parameter isn't provided and has no **defaultValue**, the parameter isn't optional
 
     > [!NOTE]
-    > **參數**不支援 secureStrings。
+    > **Parameter** doesn't support secureStrings.
 
-- **ResourceGroupParameter** （選擇性）
-  - 資源群組成品的[雜湊表](/powershell/module/microsoft.powershell.core/about/about_hash_tables)
-  - 每個資源群組成品預留位置都有索引鍵/值組，可動態設定該資源群組成品上的**名稱**和**位置**
-  - 如果未提供資源群組參數，而且沒有**defaultValue**，則資源群組參數不是選擇性的
+- **ResourceGroupParameter** (optional)
+  - A [hash table](/powershell/module/microsoft.powershell.core/about/about_hash_tables) of resource group artifacts
+  - Each resource group artifact placeholder has key/value pairs for dynamically setting **Name** and **Location** on that resource group artifact
+  - If a resource group parameter isn't provided and has no **defaultValue**, the resource group parameter isn't optional
 
-下列範例會變更鎖定模式，以更新使用 `Get-AzBlueprint` 提取之 ' my 藍圖 ' 藍圖定義版本 ' 1.1 ' 的指派：
+The following example updates the assignment of version '1.1' of the 'my-blueprint' blueprint definition fetched with `Get-AzBlueprint` by changing the lock mode:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -303,7 +303,7 @@ $bpAssignment = Set-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Bluep
     -SubscriptionId '{subId}' -Lock AllResourcesDoNotDelete
 ```
 
-建立藍圖指派的範例輸出看起來像這樣：
+The example output for creating a blueprint assignment looks like this:
 
 ```output
 Name              : my-blueprint-assignment
@@ -317,11 +317,11 @@ Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
 
-## <a name="remove-blueprint-assignments"></a>移除藍圖指派
+## <a name="remove-blueprint-assignments"></a>Remove blueprint assignments
 
-當您想要移除藍圖指派時，`Remove-AzBlueprintAssignment` Cmdlet 會處理此動作。 Cmdlet 會使用**Name**或**InputObject**來指定要移除哪一個藍圖指派。 **SubscriptionId**是_必要_的，而且必須在所有情況下提供。
+When it's time for a blueprint assignment to be removed, the `Remove-AzBlueprintAssignment` cmdlet handles this action. The cmdlet takes either **Name** or **InputObject** to specify which blueprint assignment to remove. **SubscriptionId** is _required_ and must be provided in all cases.
 
-下列範例會使用 `Get-AzBlueprintAssignment` 來提取現有的藍圖指派，然後從以 `{subId}`表示的特定訂用帳戶中移除它：
+The following example fetches an existing blueprint assignment with `Get-AzBlueprintAssignment` and then removes it from the specific subscription represented as `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -333,9 +333,9 @@ $blueprintAssignment = Get-AzBlueprintAssignment -Name 'Assignment-lock-resource
 Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '{subId}'
 ```
 
-## <a name="end-to-end-code-example"></a>端對端程式碼範例
+## <a name="end-to-end-code-example"></a>End-to-end code example
 
-將所有步驟結合在一起，下列範例會取得藍圖定義，然後在以 `{subId}`表示的特定訂用帳戶中建立、更新和移除藍圖指派：
+Bringing all the steps together, the following example gets the blueprint definition, then creates, updates, and removes a blueprint assignment in the specific subscription represented as `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

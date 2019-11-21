@@ -1,19 +1,19 @@
 ---
 title: 部署和管理 HDInsight 上的 Apache Storm 拓撲
-description: 了解如何使用以 Linux 為基礎 HDInsight 上的 Storm Dashboard 部署、監視和管理 Apache Storm 拓撲。 使用適用於 Visual Studio 的 Hadoop 工具。
+description: Learn how to deploy, monitor, and manage Apache Storm topologies using the Storm Dashboard on Linux-based HDInsight. 使用適用於 Visual Studio 的 Hadoop 工具。
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/22/2018
-ms.openlocfilehash: 1c219c85836eb4730fa90918385555c433a12449
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.date: 11/07/2019
+ms.openlocfilehash: 82c5db4f75f131ebdc2434955108e7d50237d9ba
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915114"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228952"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>部署和管理 HDInsight 上的 Apache Storm 拓撲 
 
@@ -23,98 +23,96 @@ ms.locfileid: "70915114"
 
 * HDInsight 上的 Apache Storm 叢集。 請參閱[使用 Azure 入口網站建立 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)，然後選取 [Storm] 作為 [叢集類型]。
 
+* (Optional) Familiarity with Secure Shell (SSH) and Secure Copy (SCP). 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-* 選擇性熟悉 SSH 和 SCP：如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+* (Optional) Visual Studio, Azure SDK 2.5.1 or newer, and the Data Lake Tools for Visual Studio. For more information, see [Apache Hadoop & Visual Studio Data Lake Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
-* 選擇性Visual Studio：Azure SDK 2.5.1 或更新版本，以及 Data Lake Tools for Visual Studio。 如需詳細資訊，請參閱[開始使用 Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)。
+## <a name="submit-a-topology-using-visual-studio"></a>Submit a topology using Visual Studio
 
-    下列其中一個 Visual Studio 版本：
+You can use the Data Lake Tools for Visual Studio to submit C# or hybrid topologies to your Storm cluster. 下列步驟使用範例應用程式。 For information about topology creation using the Data Lake Tools, see [Apache Storm topologies with Visual Studio and C#](apache-storm-develop-csharp-visual-studio-topology.md).
 
-  * Visual Studio 2012 (含 Update 4)
-
-  * Visual Studio 2013 (含 Update 4) 或 [Visual Studio 2013 Community](https://go.microsoft.com/fwlink/?LinkId=517284)
-  * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
-
-  * Visual Studio 2015 (任何版本)
-
-  * Visual Studio 2017 (任何版本)。 Data Lake Tools for Visual Studio 2017 會安裝為 Azure 工作負載的一部分。
-
-## <a name="submit-a-topology-visual-studio"></a>提交拓撲：Visual Studio
-
-HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 下列步驟使用範例應用程式。 如需使用 HDInsight Tools 建立的詳細資訊，請參閱 [使用 HDInsight Tools for Visual Studio 開發 C# 拓撲](apache-storm-develop-csharp-visual-studio-topology.md)。
-
-1. 如果您尚未安裝最新版的 Data Lake Tools for Visual Studio，請參閱[開始使用 Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)。
+1. If you haven't already installed the latest version of the Data Lake tools for Visual Studio, see [Use Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
     > [!NOTE]  
     > Data Lake Tools for Visual Studio 先前稱為 HDInsight Tools for Visual Studio。
     >
-    > Data Lake Tools for Visual Studio 隨附於適用於 Visual Studio 2017 的 __Azure 工作負載__中。
+    > Data Lake Tools for Visual Studio are included in the **Azure Workload** for Visual Studio 2019.
 
-2. 開啟 Visual Studio，選取 [檔案]  >  [新增]  >  [專案]。
+2. 開啟 Visual Studio。
 
-3. 在 [新增專案] 對話方塊中，依序展開 [已安裝]  >  [範本]，然後選取 [HDInsight]。 從範本清單中，選取 [Storm 範例]。 在對話方塊底部，輸入應用程式的名稱。
+3. In the **Start** window, select **Create a new project**.
 
-    ![image](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
+4. In the **Create a new project** window, select the search box, and enter *Storm*. Then choose **Storm Sample** from the result list and select **Next**.
 
-4. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，然後選取 [提交至 Storm on HDInsight]。
+5. In the **Configure your new project** window, enter a **Project name**, and go to or create a **Location** to save the new project in. 然後選取 [建立]。
 
-   > [!NOTE]  
-   > 如果出現提示，請輸入您 Azure 訂閱的登入認證。 如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
+    ![Configure your new project window, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
-5. 從 [Storm 叢集] 下拉式清單中選取 Storm on HDInsight 叢集，然後選取 [提交]。 您可以使用 [輸出] 視窗監視提交是否成功。
+6. In **Solution Explorer**, right-click the project, and choose **Submit to Storm on HDInsight**.
 
-## <a name="submit-a-topology-ssh-and-the-storm-command"></a>提交拓撲：SSH 和 Storm 命令
+    > [!NOTE]  
+    > 如果出現提示，請輸入您 Azure 訂閱的登入認證。 如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
 
-1. 使用 SSH 連接到 HDInsight 叢集。 使用您的 SSH 登入名稱來取代 **USERNAME**。 將 **CLUSTERNAME** 取代為 HDInsight 叢集名稱：
+7. In the **Submit Topology** dialog box, under the **Storm Cluster** drop-down list, choose your Storm on HDInsight cluster, and then select **Submit**. You can monitor whether the submission is successful by viewing the **Output** pane.
 
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+## <a name="submit-a-topology-using-ssh-and-the-storm-command"></a>Submit a topology using SSH and the Storm command
 
-    如需使用 SSH 連線至 HDInsight 叢集的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+To submit a topology to Storm using SSH:
 
-2. 使用下列命令以啟動範例拓撲：
+1. 使用 SSH 連接到 HDInsight 叢集。 Replace `USERNAME` with the name of your SSH user name (such as *sshuser*). 將 `CLUSTERNAME` 取代為 HDInsight 叢集名稱。
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
+    ```shell
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
+
+    For more information on using SSH to connect to your HDInsight cluster, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+
+2. Use the following command to start the *WordCount* example topology:
+
+    ```ssh
+    storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
+    ```
 
     這個命令會在叢集上啟動範例 WordCount 拓撲。 這個拓撲會隨機產生句子，並計算句子中每個字詞的出現次數。
 
-   > [!NOTE]  
-   > 將拓撲提交至叢集時，您必須先複製包含叢集的 jar 檔案，再使用 `storm` 命令。 若要將檔案複製到叢集，您可以使用 `scp` 命令。 例如： `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
-   >
-   > WordCount 範例和其他 Storm 入門範例都已經包含在叢集中，位置是 `/usr/hdp/current/storm-client/contrib/storm-starter/`。
+    > [!NOTE]  
+    > When submitting topology to the cluster, you must first copy the .jar file containing the cluster before using the `storm` command. 若要將檔案複製到叢集，您可以使用 `scp` 命令。 例如，輸入 `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`。
+    >
+    > The *WordCount* example, and other storm starter examples, are already included on your cluster at `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
-## <a name="submit-a-topology-programmatically"></a>提交拓撲︰以程式設計的方式
+## <a name="submit-a-topology-programmatically"></a>Submit a topology programmatically
 
 您可以透過程式設計的方式，使用 Nimbus 服務部署拓撲。 [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) 提供範例 Java 應用程式，以示範如何透過 Nimbus 服務部署和啟動拓撲。
 
-## <a name="monitor-and-manage-visual-studio"></a>監視及管理：Visual Studio
+## <a name="monitor-and-manage-a-topology-in-visual-studio"></a>Monitor and manage a topology in Visual Studio
 
-使用 Visual Studio 提交拓撲之後，隨即會出現 [Storm 拓撲] 檢視。 從清單中選取拓撲，以檢視執行中拓撲的詳細資訊。
+When you submit a topology using Visual Studio, the **Storm Topologies View** window appears. 從清單中選取拓撲，以檢視執行中拓撲的詳細資訊。
 
-![Visual Studio 監視器](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
+![Monitor topology, Storm Topologies View window, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
 
 > [!NOTE]  
-> 您也可以透過展開 [Azure]  >  [HDInsight]，並在 Storm on HDInsight 叢集上按一下滑鼠右鍵，然後選取 [檢視 Storm 拓撲] 以從**伺服器總管**中檢視 [Storm 拓撲]。
+> 您也可以從 [伺服器總管] 檢視 [Storm 拓撲]。 展開 [Azure] > [HDInsight]，以滑鼠右鍵按一下 Storm on HDInsight 叢集，然後選取 [檢視 Storm 拓撲]。
 
-選取 Spout 或 Bolt 的圖形以檢視這些元件的資訊。 隨即會針對每個選取的項目開啟新的視窗。
+選取 Spout 或 Bolt 的圖形以檢視這些元件的資訊。 A tooltip with component information appears for the item selected.
 
-### <a name="deactivate-and-reactivate"></a>停用和重新啟動
+### <a name="deactivate-and-reactivate-a-topology"></a>Deactivate and reactivate a topology
 
-停用拓撲會暫停它，直到刪除或重新啟動。 若要執行這些作業，請使用 [拓撲摘要] 頂端的 [停用] 和 [重新啟用] 按鈕。
+Deactivating a topology pauses it until the topology is killed or reactivated. To do these operations, use the **Deactivate** and **Reactivate** buttons in the **Actions** area at the top of the **Storm Topologies View** window.
 
-### <a name="rebalance"></a>重新平衡
+### <a name="rebalance-a-topology"></a>Rebalance a topology
 
-重新平衡拓撲可以讓系統修訂拓撲的平行處理原則。 例如，如果您已調整叢集的大小來新增更多節點，重新平衡可讓拓撲看見新的節點。
+重新平衡拓撲可以讓系統修訂拓撲的平行處理原則。 For example, if you've resized the cluster to add more notes, rebalancing allows a topology to see the new nodes.
 
-若要重新平衡拓撲，請使用 [拓撲摘要] 頂端的 [重新平衡] 按鈕。
+To rebalance a topology, use the **Rebalance** button in the **Actions** area of the **Storm Topologies View** window.
 
 > [!WARNING]  
-> 重新平衡拓撲首先會停用拓撲，然後跨叢集平均重新分佈背景工作角色，最後讓拓撲返回發生重新平衡之前的狀態。 因此，如果拓撲是作用中，它會再次變成作用中。 如果已停用，它就會保持停用。
+> Rebalancing a topology deactivates the topology, redistributes workers evenly across the cluster, and then returns the topology to the state it was in before rebalancing occurred. If the topology was active, it becomes active again. If the topology was deactivated, it remains deactivated.
 
-### <a name="kill-a-topology"></a>終止拓撲
+### <a name="kill-a-running-topology"></a>刪除執行中拓撲
 
-除非停止 Storm 拓撲或刪除叢集，否則 Storm 拓撲會繼續執行。 若要停止拓撲，請使用 [拓撲摘要] 頂端的 [終止] 按鈕。
+Storm topologies continue running until they're stopped or the cluster is deleted. To stop a topology, use the **Kill** button in the **Actions** area.
 
-## <a name="monitor-and-manage-ssh-and-the-storm-command"></a>監視及管理：SSH 和 Storm 命令
+## <a name="monitor-and-manage-a-topology-using-ssh-and-the-storm-command"></a>Monitor and manage a topology using SSH and the Storm command
 
 `storm` 公用程式可讓您從命令列使用執行中拓撲。 使用 `storm -h` 以取得完整的命令清單。
 
@@ -122,114 +120,156 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 �
 
 使用下列命令來列出所有執行中拓撲：
 
-    storm list
+```shell
+storm list
+```
 
 此命令會傳回類似以下文字的資訊：
 
-    Topology_name        Status     Num_tasks  Num_workers  Uptime_secs
-    -------------------------------------------------------------------
-    WordCount            ACTIVE     29         2            263
+```shell
+Topology_name        Status     Num_tasks  Num_workers  Uptime_secs
+-------------------------------------------------------------------
+WordCount            ACTIVE     29         2            263
+```
 
-### <a name="deactivate-and-reactivate"></a>停用和重新啟動
+### <a name="deactivate-and-reactivate-a-topology"></a>Deactivate and reactivate a topology
 
-停用拓撲會暫停它，直到刪除或重新啟動。 使用下列命令來停用和重新啟動：
+Deactivating a topology pauses it until the topology is killed or reactivated. Use the following commands to deactivate or reactivate:
 
-    storm Deactivate TOPOLOGYNAME
+```shell
+storm Deactivate TOPOLOGYNAME
+```
 
-    storm Activate TOPOLOGYNAME
+```shell
+storm Activate TOPOLOGYNAME
+```
 
 ### <a name="kill-a-running-topology"></a>刪除執行中拓撲
 
 Storm 拓撲一旦啟動之後，就會繼續執行直到停止。 若要停止拓撲，請使用下列命令：
 
-    storm kill TOPOLOGYNAME
+```shell
+storm kill TOPOLOGYNAME
+```
 
-### <a name="rebalance"></a>重新平衡
+### <a name="rebalance-a-topology"></a>Rebalance a topology
 
-重新平衡拓撲可以讓系統修訂拓撲的平行處理原則。 例如，如果您已調整叢集的大小來新增更多節點，重新平衡可讓拓撲看見新的節點。
+重新平衡拓撲可以讓系統修訂拓撲的平行處理原則。 For example, if you've resized the cluster to add more notes, rebalancing allows a topology to see the new nodes.
 
 > [!WARNING]  
-> 重新平衡拓撲首先會停用拓撲，然後跨叢集平均重新分佈背景工作角色，最後讓拓撲返回發生重新平衡之前的狀態。 因此，如果拓撲是作用中，它會再次變成作用中。 如果已停用，它就會保持停用。
+> Rebalancing a topology deactivates the topology, redistributes workers evenly across the cluster, and then returns the topology to the state it was in before rebalancing occurred. If the topology was active, it becomes active again. 如果已停用，它就會保持停用。
 
-    storm rebalance TOPOLOGYNAME
+```shell
+storm rebalance TOPOLOGYNAME
+```
 
-## <a name="monitor-and-manage-storm-ui"></a>監視及管理：Storm UI
+## <a name="monitor-and-manage-a-topology-using-the-storm-ui"></a>Monitor and manage a topology using the Storm UI
 
-Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsight 叢集中。 若要檢視 Storm UI，請使用網頁瀏覽器開啟 **https://CLUSTERNAME.azurehdinsight.net/stormui** ，其中 **CLUSTERNAME** 是叢集的名稱。
+The Storm UI provides a web interface for working with running topologies, and it's included on your HDInsight cluster. To view the Storm UI, use a web browser to open `https://CLUSTERNAME.azurehdinsight.net/stormui`, where *CLUSTERNAME* is the name of your cluster.
 
 > [!NOTE]  
-> 如果要求您提供使用者名稱和密碼，請輸入叢集系統管理員 (admin) 和建立叢集時使用的密碼。
+> If you're asked to provide a user name and password, enter the cluster administrator username and password that you used when creating the cluster.
 
-### <a name="main-page"></a>主頁面
+### <a name="storm-ui-main-page"></a>Storm UI main page
 
 Storm UI 的主頁面會提供下列資訊：
 
-* **叢集摘要**：有關 Storm 叢集的基本資訊。
-* **拓撲摘要**：執行中拓撲的清單。 使用本節中的連結來檢視特定拓撲的詳細資訊。
-* **監督員摘要**：Storm 監督員的相關資訊。
-* **Nimbus 設定**：適用於叢集的 Nimbus 設定。
+| 區段 | 描述 |
+| --- | --- |
+| **Cluster summary** | 有關 Storm 叢集的基本資訊。 |
+| **Nimbus summary** | A list of basic Nimbus information. |
+| **Topology summary** | 執行中拓撲的清單。 To view more information about a specific topology, select its link in the **Name** column. |
+| **Supervisor summary** | Storm 監督員的相關資訊。 To see the worker resources associated with a specific supervisor, select its link in the **Host** or **Id** column. |
+| **Nimbus configuration** | 適用於叢集的 Nimbus 設定。 |
 
-### <a name="topology-summary"></a>拓撲摘要
+The Storm UI main page looks similar to this web page:
+
+![Main page, Storm UI, Apache Storm topologies, Azure Insight](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png)
+
+#### <a name="topology-summary"></a>拓撲摘要
 
 選取 [拓撲摘要] 區段中的連結會顯示拓撲的下列資訊：
 
-* **拓撲摘要**：有關拓撲的基本資訊。
-* **拓撲動作**：您可以針對拓撲執行的管理動作。
+| 區段 | 描述 |
+| --- | --- |
+| **Topology summary** | 有關拓撲的基本資訊。 |
+| **Topology actions** | Management actions that you can do for the topology. The available actions are described later in this section. |
+| **Topology stats** | 拓撲的統計資料。 To set the time frame for an entry in this section, select its link in the **Window** column. |
+| **Spouts** *(time frame)* | 拓撲所使用的 Spout。 To view more information about a specific spout, select its link in the **Id** column. |
+| **Bolts** *(time frame)* | 拓撲所使用的 Bolt。 To view more information about a specific bolt, select its link in the **Id** column. |
+| **Worker resources** | A list of worker resources. To view more information about a specific worker resource, select its link in the **Host** column. |
+| **Topology visualization** | A **Show Visualization** button that displays a visualization of the topology. |
+| **Topology configuration** | 所選取拓撲的設定。 |
 
-  * **啟動**：繼續處理已停用的拓撲。
-  * **停用**：暫停執行中拓撲。
-  * **重新平衡**：調整拓撲的平行處理原則。 變更叢集中的節點數目之後，您應該重新平衡執行中拓撲。 這個作業可讓拓撲調整平行處理原則，以彌補叢集中增加或減少的節點數目。
+The Storm topology summary page looks similar to this web page:
 
-    如需詳細資訊，請參閱 <a href="https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of an Apache Storm topology</a> (了解 Apache Storm 拓撲的平行處理原則)。
-  * **終止**：在指定的逾時之後終止 Storm 拓撲。
-* **拓撲統計資料**：拓撲的統計資料。 若要設定頁面上其餘項目的時間範圍，請使用 [視窗] 資料行中的連結。
-* **Spout**：拓撲所使用的 Spout。 使用本節中的連結檢視特定 Spout 的詳細資訊。
-* **Bolt**：拓撲所使用的 Bolt。 使用本節中的連結檢視特定 Bolt 的詳細資訊。
-* **拓撲設定**：所選取拓撲的設定。
+![Topology summary page, Storm UI, Apache Storm, Azure Insight](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png)
 
-### <a name="spout-and-bolt-summary"></a>Spout 和 Bolt 摘要
+In the **Topology actions** section, you can select the following buttons to do an action:
+
+| 按鈕 | 描述 |
+| --- | --- |
+| **啟用** | 繼續處理已停用的拓撲。 |
+| **Deactivate** | 暫停執行中拓撲。 |
+| **Rebalance** | 調整拓撲的平行處理原則。 You should rebalance running topologies after you've changed the number of nodes in the cluster. This operation allows the topology to adjust parallelism to compensate for the additional or reduced number of nodes in the cluster.<br/><br/>如需詳細資訊，請參閱 <a href="https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of an Apache Storm topology</a> (了解 Apache Storm 拓撲的平行處理原則)。
+| **Kill** | 在指定的逾時之後終止 Storm 拓撲。 |
+| **偵錯** | Begins a debugging session for the running topology. |
+| **Stop Debug** | Ends the debugging session for the running topology. |
+| **Change Log Level** | Modifies the debugging log level. |
+
+##### <a name="spout-and-bolt-summary"></a>Spout and bolt summary
 
 從 [Spout] 或 [Bolt] 區段中選取 Spout 會顯示所選取項目的下列資訊：
 
-* **元件摘要**：有關 Spout 或 Bolt 的基本資訊。
-* **Spout/Bolt 統計資料**：Spout 或 Bolt 的統計資料。 若要設定頁面上其餘項目的時間範圍，請使用 [視窗] 資料行中的連結。
-* **輸入統計資料** (僅限 Bolt)：Bolt 所取用之輸入串流的相關資訊。
-* **輸出統計資料**：Spout 或 Bolt 所發出資料流的資訊。
-* **執行程式**：Spout 或 Bolt 執行個體的相關資訊。 選取特定執行程式的 [連接埠] 項目，以檢視針對此執行個體所產生之診斷資訊的記錄。
-* **錯誤**：Spout 或 Bolt 的任何錯誤資訊。
+| 區段 | 描述 |
+| --- | --- |
+| **Component summary** | 有關 Spout 或 Bolt 的基本資訊。 |
+| **Component actions** | **Debug** and **Stop Debug** buttons. |
+| **Spout stats** or **Bolt stats** | Spout 或 Bolt 的統計資料。 To set the time frame for an entry in this section, select its link in the **Window** column. |
+| (Bolt-only)<br/>**Input stats** *(time frame)* | Bolt 所取用之輸入串流的相關資訊。 |
+| **Output stats** *(time frame)* | Spout 或 Bolt 所發出資料流的資訊。 |
+| **Profiling and debugging** | Controls for profiling and debugging the components on this page. You can set the **Status / Timeout (Minutes)** value, and you can select buttons for **JStack**, **Restart Worker**, and **Heap**. |
+| **Executors** *(time frame)* | Spout 或 Bolt 執行個體的相關資訊。 To view a log of diagnostic information produced for this instance, select the **Port** entry for a specific executor. You can also see the worker resources associated with a specific executor by selecting its link in the **Host** column. |
+| **錯誤** | Spout 或 Bolt 的任何錯誤資訊。 |
 
-## <a name="monitor-and-manage-rest-api"></a>監視及管理：REST API
+The Storm bolt summary page looks similar to this web page:
 
-Storm UI 是以 REST API 為建置基礎，因此您可以使用 REST API 執行類似的管理和監視功能。 您可以使用 REST API 建立自訂工具來管理和監視 Storm 拓撲。
+![Bolt summary page, Storm UI, Apache Storm, Azure Insight](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png)
+
+## <a name="monitor-and-manage-the-topology-using-the-rest-api"></a>Monitor and manage the topology using the REST API
+
+The Storm UI is built on top of the REST API, so you can do similar management and monitoring tasks by using the REST API. 您可以使用 REST API 建立自訂工具來管理和監視 Storm 拓撲。
 
 如需詳細資訊，請參閱 [Apache Storm UI REST API](https://storm.apache.org/releases/current/STORM-UI-REST-API.html)。 下列資訊專用於搭配使用 REST API 與 Apache Storm on HDInsight。
 
 > [!IMPORTANT]  
-> Storm REST API 不是透過網際網路公開可用，而是必須使用 HDInsight 叢集前端節點的 SSH 通道來存取。 如需建立及使用 SSH 通道的詳細資訊，請參閱[使用 SSH 通道來存取 Apache Ambari Web UI、ResourceManager、JobHistory、NameNode、Apache Oozie 及其他 Web UI](../hdinsight-linux-ambari-ssh-tunnel.md)。
+> The Storm REST API is not publicly available over the internet. It must be accessed using an SSH tunnel to the HDInsight cluster head node. For information on creating and using an SSH tunnel, see [Use SSH tunneling to access Azure HDInsight](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 ### <a name="base-uri"></a>基底 URI
 
-在以 Linux 為基礎的 HDInsight 叢集上，REST API 的基底 URI 可在前端節點（ **HTTPs\/：/HEADNODEFQDN： 8744/API/v1/** ）上取得。 前端節點的網域名稱是在叢集建立期間產生，而不是靜態的。
+The base URI for the REST API on Linux-based HDInsight clusters is available at URL address `https://HEADNODEFQDN:8744/api/v1/`, where you replace *HEADNODEFQDN* with the head node. The domain name of the head node is generated during cluster creation and isn't static.
 
-您可以用幾種不同的方式尋找叢集前端節點的完整網域名稱 (FQDN)：
+You can find the fully qualified domain name (FQDN) for the cluster head node in several ways:
 
-* **從 SSH 工作階段**：使用命令 `headnode -f` (從 SSH 工作階段到叢集)。
-* **從 Ambari Web**：從頁面頂端選取 [服務]，然後選取 [Storm]。 從 [摘要] 索引標籤，選取 [Storm UI 伺服器]。 託管 Storm UI 和 REST API 的節點 FQDN 位於頁面頂端。
-* **從 Ambari REST API**：使用命令 `curl -u admin -G "https:\//CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 來擷取 Storm UI 和 REST API 執行所在節點的相關資訊。 將 **CLUSTERNAME** 取代為叢集名稱。 出現提示時，請輸入登入 (系統管理員) 帳戶的密碼。 在回應中，"host_name" 項目包含節點的 FQDN。
+| FQDN discovery method | 描述 |
+| --- | --- |
+| SSH session | Use the command `headnode -f` from an SSH session to the cluster. |
+| Ambari Web | On the Ambari cluster web page (`https://CLUSTERNAME.azurehdinsight.net`), select **Services** from the top of the page, then select **Storm**. 從 [摘要] 索引標籤，選取 [Storm UI 伺服器]。 託管 Storm UI 和 REST API 的節點 FQDN 位於頁面頂端。 |
+| Ambari REST API | Use the command `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` to retrieve information about the node that the Storm UI and REST API are running on. Replace the two instances of *CLUSTERNAME* with the cluster name. When you're prompted, enter the password for the user (admin) account. In the response, the "host_name" entry of the JSON output contains the FQDN of the node. |
 
-### <a name="authentication"></a>驗證
+### <a name="authentication"></a>Authentication
 
-REST API 的要求必須使用 **基本驗證**，因此請使用 HDInsight 叢集管理員名稱和密碼。
+Requests to the REST API must use *basic authentication*, so you have to use the administrator name and password for the HDInsight cluster.
 
 > [!NOTE]  
-> 因為使用純文字傳送基本驗證，所以您應該 **一律** 使用 HTTPS 來保護與叢集通訊的安全。
+> 因為使用純文字傳送基本驗證，所以您應該 *一律* 使用 HTTPS 來保護與叢集通訊的安全。
 
 ### <a name="return-values"></a>傳回值
 
-從 REST API 傳回的資訊可能只可在叢集中使用。 例如，無法從網際網路存取針對 [Apache Zookeeper](https://zookeeper.apache.org/) 伺服器傳回的完整網域名稱 (FQDN)。
+從 REST API 傳回的資訊可能只可在叢集中使用。 For example, the fully qualified domain name (FQDN) returned for [Apache ZooKeeper](https://zookeeper.apache.org/) servers isn't accessible from the internet.
 
 ## <a name="next-steps"></a>後續步驟
 
 了解如何[使用 Apache Maven 開發 Java 型拓撲](apache-storm-develop-java-topology.md)。
 
-若需更多範例拓撲的清單，請參閱 [Apache Storm on HDInsight 的範例拓撲](apache-storm-example-topology.md)。
+For a list of more example topologies, see [Example Apache Storm topologies in Azure HDInsight](apache-storm-example-topology.md).

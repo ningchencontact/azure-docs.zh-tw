@@ -1,6 +1,6 @@
 ---
 title: Azure 中的巢狀流量管理員設定檔
-titlesuffix: Azure Traffic Manager
+titleSuffix: Azure Traffic Manager
 description: 這篇文章說明「Azure 流量管理員」的「巢狀設定檔」功能
 services: traffic-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: allensu
-ms.openlocfilehash: 8815d852ad9f8a1823e1c21cc2d233409518da33
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: a5444c05b59196f53c670a2ae782f2bda5527c54
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333784"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227759"
 ---
 # <a name="nested-traffic-manager-profiles"></a>巢狀流量管理員設定檔
 
@@ -28,7 +28,7 @@ ms.locfileid: "68333784"
 
 下列範例說明如何在各種情況中使用巢狀流量管理員設定檔。
 
-## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>範例 1:結合「效能」和「加權」流量路由
+## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>範例 1︰結合「效能」和「加權」流量路由
 
 假設您將應用程式部署在下列 Azure 區域︰美國西部、西歐及東亞。 您使用流量管理員的「效能」流量路由方法，將流量分配給最靠近使用者的區域。
 
@@ -46,7 +46,7 @@ ms.locfileid: "68333784"
 
 當父設定檔使用「效能」流量路由方法時，必須指派位置給每個端點。 您需要在設定端點時指派位置。 選擇最接近部署的 Azure 區域。 Azure 區域是「網際網路延遲資料表」所支援的位置值。 如需詳細資訊，請參閱[流量管理員「效能」流量路由方法](traffic-manager-routing-methods.md#performance)。
 
-## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>範例 2：巢狀設定檔中的端點監視
+## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>範例 2︰巢狀設定檔中的端點監視
 
 「流量管理員」會主動監控每個服務端點的健康情況。 如果端點的狀況不良，流量管理員會將使用者導向替代端點，以維持服務的可用性。 這項端點監視及容錯移轉行為適用於所有流量路由方法。 如需詳細資訊，請參閱 [流量管理員端點監視](traffic-manager-monitoring.md)。 巢狀設定檔的端點監視有不同的運作方式。 使用巢狀設定檔時，父設定檔不會直接對子系執行健康狀態檢查， 子設定檔端點的健康狀態會用來計算子設定檔的整體健康狀態。 此健康狀態資訊會在巢狀設定檔階層中往上傳播。 父設定檔會使用這個彙總的健康狀態，來決定是否要將流量導向子設定檔。 如需巢狀設定檔健康狀態監視的完整詳細資料，請參閱[常見問題集](traffic-manager-FAQs.md#traffic-manager-nested-profiles)。
 
@@ -63,7 +63,7 @@ ms.locfileid: "68333784"
 > [!NOTE]
 > 「優先順序」流量路由方法會將所有流量分配給單一端點。 因此，如果子設定檔的 MinChildEndpoints 不是設為 '1'，則作用不大。
 
-## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>範例 3：「效能」流量路由中具優先順序的容錯移轉區域
+## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>範例 3︰設定「效能」流量路由中容錯移轉區域的優先順序
 
 「效能」流量路由方法的預設行為如下：當您的端點位於不同的地理位置時，即會將終端使用者路由傳送到「最靠近」(亦即網路延遲最低) 的端點。
 
@@ -75,7 +75,7 @@ ms.locfileid: "68333784"
 
 您可以對所有區域重複此模式。 將父設定檔中的三個端點全部取代為三個子設定檔，每個都提供容錯移轉優先順序。
 
-## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>範例 4：控制相同區域中多個端點之間的「效能」流量路由
+## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>範例 4︰控制相同區域中多個端點之間的「效能」流量路由
 
 假設在設定檔中使用「效能」流量路由方法，而此設定檔在特定區域有多個端點。 根據預設，導向該區域的流量會平均分散至該區域中所有可用的端點。
 
@@ -85,7 +85,7 @@ ms.locfileid: "68333784"
 
 ![搭配自訂區域內流量分配的「效能」流量路由][8]
 
-## <a name="example-5-per-endpoint-monitoring-settings"></a>範例 5：每個端點的監視設定
+## <a name="example-5-per-endpoint-monitoring-settings"></a>範例 5︰每個端點的監視設定
 
 假設您使用流量管理員，順暢地將流量從傳統內部部署網站移轉至裝載於 Azure 中的新雲端網站。 對於舊版的網站，您想要使用首頁 URI 來監視網站健康狀態。 但對於新的雲端網站，您實作一個包含額外檢查的自訂監視頁面 (路徑 '/monitor.aspx')。
 
@@ -97,17 +97,17 @@ ms.locfileid: "68333784"
 
 ## <a name="faqs"></a>常見問題集
 
-* [如何? 設定嵌套設定檔嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
+* [How do I configure nested profiles?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
 
-* [流量管理員支援多少個嵌套層級？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
+* [How many layers of nesting does Traffic Manger support?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
 
-* [我可以在相同的流量管理員設定檔中, 混用其他端點類型與嵌套的子設定檔嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
+* [Can I mix other endpoint types with nested child profiles, in the same Traffic Manager profile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
 
-* [計費模式如何適用于嵌套的設定檔？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
+* [How does the billing model apply for Nested profiles?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
 
-* [是否會對嵌套的設定檔產生效能影響？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
+* [Is there a performance impact for nested profiles?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
 
-* [流量管理員如何計算父設定檔中之嵌套端點的健全狀況？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
+* [How does Traffic Manager compute the health of a nested endpoint in a parent profile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -3,7 +3,7 @@ title: DNS 區域和記錄概觀 - Azure DNS | Microsoft Docs
 description: 將 DNS 區域和記錄，裝載於 Microsoft Azure DNS 中的支援概觀。
 services: dns
 documentationcenter: na
-author: vhorne
+author: asudbring
 manager: jeconnoc
 editor: ''
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
-ms.author: victorh
-ms.openlocfilehash: fdf9b60e38ad37334fe6183bb1a9c60cce9f85e1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.author: allensu
+ms.openlocfilehash: e80de4a3102f9fec8ad06c0facd110b51558d338
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832059"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211013"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 區域和記錄的概觀
 
@@ -30,7 +30,7 @@ ms.locfileid: "73832059"
 
 網域名稱系統是網域階層。 階層從「根」網域開始，其名稱只是 ' **.** '。  下面接著最上層網域，例如 'com'、'net'、'org'、'uk' 或 'jp'。  再往下是第二層網域，例如 'org.uk' 或 'co.jp'。 DNS 階層中的網域散佈在全球，裝載在世界各地的 DNS 名稱伺服器上。
 
-網域註冊機構是一種組織，可讓您購買功能變數名稱，例如 `contoso.com`。  購買功能變數名稱可讓您控制該名稱底下的 DNS 階層，例如，可讓您將名稱 `www.contoso.com` 導向您的公司網站。 可以讓該註冊機構代表您，將網域裝載在其自有的名稱伺服器上；或允許您指定替代的名稱伺服器。
+A domain name registrar is an organization that allows you to purchase a domain name, such as `contoso.com`.  Purchasing a domain name gives you the right to control the DNS hierarchy under that name, for example allowing you to direct the name `www.contoso.com` to your company web site. 可以讓該註冊機構代表您，將網域裝載在其自有的名稱伺服器上；或允許您指定替代的名稱伺服器。
 
 Azure DNS 提供散佈全球、高可用性的名稱伺服器基礎結構，可用來裝載您的網域。 只要將您的網域裝載於 Azure DNS 中，就可以像管理其他 Azure 服務一樣，使用相同的認證、API、工具、計費方式和支援來管理 DNS 記錄。
 
@@ -88,7 +88,7 @@ CNAME 記錄集不能與其他具有相同名稱的記錄集共存。 例如，�
 
 可以修改 SOA 記錄除了 'Host' 屬性以外的所有屬性，因為依照預先設定，該屬性會參考 Azure DNS 所提供的主要名稱伺服器名稱。
 
-對區域中的記錄進行變更時，不會自動更新 SOA 記錄中的區域序號。 如有需要，可以藉由編輯 SOA 記錄來手動更新。
+The zone serial number in the SOA record is not updated automatically when changes are made to the records in the zone. It can be updated manually by editing the SOA record, if necessary.
 
 ### <a name="spf-records"></a>SPF 記錄
 
@@ -113,7 +113,7 @@ DNS 記錄中的多個字串，不應與 TXT 記錄集中的多個 TXT 記錄相
 
 ## <a name="tags-and-metadata"></a>標記和中繼資料
 
-### <a name="tags"></a>標記
+### <a name="tags"></a>Tags
 
 標記是名稱-值組的清單，由 Azure Resource Manager 用來標示資源。  Azure Resource Manager 會使用標記來啟用 Azure 帳單篩選過的檢視，也可讓您設定標記需要的原則。 如需標記的詳細資訊，請參閱 [使用標記來組織您的 Azure 資源](../azure-resource-manager/resource-group-using-tags.md)。
 
@@ -133,15 +133,15 @@ Azure DNS 使用 Etag 以安全地處理相同資源的並行變更。 Etag 和 
 
 在 Azure DNS REST API 層級上是使用 HTTP 標頭指定 Etag。  下表提供它們的行為：
 
-| 頁首 | 行為 |
+| 標頭 | 行為 |
 | --- | --- |
 | None |PUT 一定成功 (沒有 Etag 檢查) |
-| If-match \<etag > |唯有當資源存在且 Etag 符合時，PUT 才會成功 |
+| If-match \<etag> |唯有當資源存在且 Etag 符合時，PUT 才會成功 |
 | If-match * |唯有當資源存在時，PUT 才會成功 |
 | If-none-match * |唯有當資源不存在時，PUT 才會成功 |
 
 
-## <a name="limits"></a>限制
+## <a name="limits"></a>Limits
 
 使用 Azure DNS 時，會適用下列的預設限制︰
 

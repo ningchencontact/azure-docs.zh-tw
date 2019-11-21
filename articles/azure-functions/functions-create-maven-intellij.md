@@ -1,25 +1,19 @@
 ---
-title: 使用 Java 和 IntelliJ 建立 Azure 函式 | Microsoft Docs
+title: Create an Azure function with Java and IntelliJ
 description: 了解如何使用 Java 和 IntelliJ 在 Azure 上建立及發佈簡單的 HTTP 觸發無伺服器應用程式。
-services: functions
-documentationcenter: na
 author: jeffhollan
-manager: jpconnock
-keywords: azure functions, 函式, 事件處理, 計算, 無伺服器架構, java
-ms.service: azure-functions
 ms.topic: conceptual
-ms.devlang: java
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 5aa0763206289305e98960b6e03ad903eb4547ae
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1d3dd0f4f1da4d3815d4d879dd13ed5882f39e8f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70744008"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230719"
 ---
-# <a name="create-your-first-azure-function-with-java-and-intellij"></a>使用 JAVA 和 IntelliJ 建立您的第一個 Azure 函式
+# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Create your first Azure function with Java and IntelliJ
 
 本文說明：
 - 如何使用 IntelliJ IDEA 和 Apache Maven 建立[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)函式專案
@@ -30,7 +24,7 @@ ms.locfileid: "70744008"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="set-up-your-development-environment"></a>設定開發環境
+## <a name="set-up-your-development-environment"></a>設定您的開發環境
 
 若要使用 Java 和 IntelliJ 開發函式，請安裝下列軟體：
 
@@ -52,8 +46,8 @@ ms.locfileid: "70744008"
 1. 在 [新增 Archetype] 視窗中，完成如下欄位：
     - GroupId：com.microsoft.azure
     - ArtifactId：azure-functions-archetype
-    - _版本_：使用來自[中央存放庫](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-     ![的最新**1.22**版從 IntelliJ 的原型建立 Maven 專案的想法](media/functions-create-first-java-intellij/functions-create-intellij.png)  
+    - _Version_: Use the latest version **1.22** from [the central repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![Create a Maven project from archetype in IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. 選取 [確定]，然後選取 [下一步]。
 1. 輸入目前專案的詳細資料，然後選取 [完成]。
 
@@ -93,7 +87,7 @@ Maven 會在和 [ArtifactId] 值具有相同名稱的新資料夾中建立專案
 
 ## <a name="deploy-the-function-to-azure"></a>將函式部署到 Azure
 
-1. 在您將函式部署至 Azure 之前，您必須[使用 Azure CLI 來登入](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)。
+1. Before you can deploy your function to Azure, you must [sign in by using the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
    ``` azurecli
    az login

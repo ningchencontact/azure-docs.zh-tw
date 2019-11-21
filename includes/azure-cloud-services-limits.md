@@ -1,23 +1,23 @@
 ---
 author: rothja
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 0b24688b502a40e722d2fcc4436ff1824862f489
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 24e327a0b669df247d44e4bf8f05b693abb49990
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67174353"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224411"
 ---
-| Resource | 預設限制 | 上限 |
+| 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
-| [每個部署的 Web 或背景工作角色](../articles/cloud-services/cloud-services-choose-me.md)<sup>1</sup> |25 |25 |
-| 每個部署的[實例輸入端點](/previous-versions/azure/reference/gg557552(v=azure.100)#instanceinputendpoint) |25 |25 |
-| 每個部署的[輸入端點](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) |25 |25 |
-| 每個部署的[內部端點](/previous-versions/azure/reference/gg557552(v=azure.100)#internalendpoint) |25 |25 |
+| [Web or worker roles per deployment](../articles/cloud-services/cloud-services-choose-me.md)<sup>1</sup> |25 |25 |
+| [Instance input endpoints](/previous-versions/azure/reference/gg557552(v=azure.100)#instanceinputendpoint) per deployment |25 |25 |
+| [Input endpoints](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) per deployment |25 |25 |
+| [Internal endpoints](/previous-versions/azure/reference/gg557552(v=azure.100)#internalendpoint) per deployment |25 |25 |
 | 每個部署的[託管服務憑證](../articles/cloud-services/cloud-services-certs-create.md#what-are-service-certificates) |199 |199 |
 
-<sup>1</sup>具有 web 或背景工作角色的每個 Azure 雲端服務可以有兩個部署，一個用於生產，另一個用於預備環境。 這項限制是指不同角色的數目，也就是設定。 這項限制不會參考每個角色的實例數目，也就是調整規模。
+<sup>1</sup>Each Azure Cloud Service with web or worker roles can have two deployments, one for production and one for staging. This limit refers to the number of distinct roles, that is, configuration. This limit doesn't refer to the number of instances per role, that is, scaling.
 

@@ -1,30 +1,24 @@
 ---
-title: 將 Azure 裝載 API 匯出至 PowerApps 和 Microsoft Flow | Microsoft Docs
+title: 將 Azure 裝載 API 匯出至 PowerApps 和 Microsoft Flow
 description: 如何向 PowerApps 和 Microsoft Flow 公開 App Service 中裝載之 API 的概觀
-services: app-service
-author: ggailey777
-manager: jeconnoc
-ms.assetid: ''
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 12/15/2017
-ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: b12d1fec9b7852835d3d5b5346d64868d2ee8c46
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 632818bf82e41e6be0a96d30cc1c4fa631718a3b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082854"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233083"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>將 Azure 裝載 API 匯出至 PowerApps 和 Microsoft Flow
 
-[PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) 是一種服務，可用來建置和使用自訂商務 App，以便跨越平台連接到您的資料和工作。 [Microsoft Flow](https://flow.microsoft.com/guided-learning/learning-introducing-flow/) 可讓您輕易將最愛的應用程式與服務之間的工作流程和商業程序自動化。 PowerApps 和 Microsoft Flow 隨附資料來源 (如 Office 365、Dynamics 365、Salesforce 等等) 的各種內建連接器。 在某些情況下，應用程式和流程建置者也想要連接他們組織建置的資料來源和 API。
+[PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) 是一種服務，可用來建置和使用自訂商務 App，以便跨越平台連接到您的資料和工作。 [Microsoft Flow](/learn/modules/get-started-with-flow/index) 可讓您輕易將最愛的應用程式與服務之間的工作流程和商業程序自動化。 PowerApps 和 Microsoft Flow 隨附資料來源 (如 Office 365、Dynamics 365、Salesforce 等等) 的各種內建連接器。 在某些情況下，應用程式和流程建置者也想要連接他們組織建置的資料來源和 API。
 
 同樣地，想要在組織內廣泛公開 API 的開發人員，可以讓應用程式和流程建置者使用他們的 API。 本主題說明如何匯出以 [Azure Functions](../azure-functions/functions-overview.md) 或 [Azure App Service](../app-service/overview.md)API。 匯出的 API 能成為「自訂連接器」，它在 PowerApps and Microsoft Flow just 中的使用方法就像內建連接器一樣。
 
 > [!IMPORTANT]
-> 只有 1.x[版的 Azure Functions 運行](functions-versions.md#creating-1x-apps)時間和應用程式服務應用程式才支援本文中所示的 API 定義功能。 2\.x 版的函式會與 API 管理整合，以建立和維護 OpenAPI 定義。 若要深入瞭解，請參閱[使用 AZURE API 管理為函式建立 OpenAPI 定義](functions-openapi-definition.md)。 
+> The API definition functionality shown in this article is only supported for [version 1.x of the Azure Functions runtime](functions-versions.md#creating-1x-apps) and App Services apps. Version 2.x of Functions integrates with API Management to create and maintain OpenAPI definitions. To learn more, see [Create an OpenAPI definition for a function with Azure API Management](functions-openapi-definition.md). 
 
 ## <a name="create-and-export-an-api-definition"></a>建立及匯出 API 定義
 在匯出 API 之前，您必須使用 OpenAPI 定義 (前身為 [Swagger](https://swagger.io/) 檔案) 描述 API。 此定義包含有關 API 中可以使用哪些作業，以及應該如何結構化 API 之要求和回應資料的資訊。 PowerApps 和 Microsoft Flow 可以為任何 OpenAPI 2.0 定義建立自訂連接器。 Azure Functions 和 Azure App Service 有內建支援，可供建立、裝載及管理 OpenAPI 定義。 如需詳細資訊，請參閱[在 Azure App Service 中裝載具有 CORS 支援的 RESTful API](../app-service/app-service-web-tutorial-rest-api.md)。

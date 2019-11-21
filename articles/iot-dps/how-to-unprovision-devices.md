@@ -1,5 +1,5 @@
 ---
-title: 如何取消佈建使用 Azure IoT 中樞裝置佈建服務佈建的裝置 | Microsoft Docs
+title: Deprovision devices that were provisioned with Azure IoT Hub Device Provisioning Service
 description: 如何取消佈建使用 Azure IoT 中樞裝置佈建服務佈建的裝置
 author: wesmc7777
 ms.author: wesmc
@@ -7,13 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: ba62d8cff646ce5ef4f4b8a36fdad78ddc354227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60d0647522fbce2fea43531e164e0a6d1b0de144
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626500"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229682"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>如何取消佈建先前自動佈建的裝置 
 
@@ -48,9 +47,9 @@ ms.locfileid: "60626500"
 
 若要檢視已透過註冊群組佈建的裝置清單，您可以檢視註冊群組的詳細資料。 如此便能輕鬆了解每個裝置佈建到哪個 IoT 中樞。 若要檢視裝置清單： 
 
-1. 登入 Azure 入口網站，然後在左側功能表上按一下 [所有資源]  。
+1. 登入 Azure 入口網站，然後在左側功能表上按一下 [所有資源]。
 2. 按一下資源清單中的佈建服務。
-3. 在佈建服務中，按一下 [管理註冊]  ，然後選取 [註冊群組]  索引標籤。
+3. 在佈建服務中，按一下 [管理註冊]，然後選取 [註冊群組] 索引標籤。
 4. 按一下註冊群組將之開啟。
 
    ![在入口網站中檢視註冊群組項目](./media/how-to-unprovision-devices/view-enrollment-group.png)

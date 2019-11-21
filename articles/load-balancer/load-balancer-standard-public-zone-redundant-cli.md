@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure CLI 來進行區域備援 VM 負載平衡
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: 了解如何使用 Azure CLI 來建立具有區域備援前端的公用 Standard Load Balancer
 services: load-balancer
 documentationcenter: na
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: allensu
-ms.openlocfilehash: 6a22ac9a2727c537d98e692e67076637fe8cc457
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: af327f751a0af67b6d17330dbaeb717df8660bfd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274320"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225277"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>使用 Azure CLI 來進行跨所有可用性區域的 VM 負載平衡
 
-本文會逐步說明如何在不倚賴多個 DNS 記錄的情況下，建立具有區域備援前端的公用 [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) 來達到區域備援的目的。 單一前端 IP 位址會自動具備區域備援。  現在為負載平衡器使用區域備援前端時，只需使用單一 IP 位址即可在單一地區內橫跨所有可用性區域，並連線至該地區內某虛擬網路中的任何 VM。 萬一整個資料中心失敗或遺失，使用可用性區域可保護您的應用程式和資料免於受害。
+本文會逐步說明如何在不倚賴多個 DNS 記錄的情況下，建立具有區域備援前端的公用 [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) 來達到區域備援的目的。 單一前端 IP 位址會自動具備區域備援。  現在，藉由將區域備援前端用於您的負載平衡器，您只需要單一 IP 位址，即可跨所有可用性區域連線至某區域內的區域網路中的任何 VM。 萬一整個資料中心失敗或遺失，使用可用性區域可保護您的應用程式和資料免於受害。
 
-如需有關搭配標準 Load Balancer 使用可用性區域的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
+如需關於搭配使用可用性區域和標準 Load Balancer 的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -49,7 +49,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>建立區域備援標準公用 IP
-若要存取網際網路上您的應用程式，您需要負載平衡器的公用 IP 位址。 區域中的所有可用性區域會同時為區域備援前端提供服務。 使用[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)建立區域多餘的公用 ip 位址。 當您建立標準公用 IP 位址時，它預設會具備區域備援能力。
+若要存取網際網路上您的應用程式，您需要負載平衡器的公用 IP 位址。 區域中的所有可用性區域會同時為區域備援前端提供服務。 Create a zone redundant public IP address with [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create). 當您建立標準公用 IP 位址時，它預設會具備區域備援能力。
 
 下列範例會在 *myResourceGroupLoadBalancer* 資源群組中建立名為 *myPublicIP* 的公用 IP 位址。
 

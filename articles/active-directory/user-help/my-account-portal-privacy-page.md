@@ -1,6 +1,6 @@
 ---
-title: 在我的帳戶入口網站上查看隱私權相關資訊-Azure AD
-description: 如何從我的帳戶入口網站的 [隱私權] 頁面中查看您的隱私權資訊。
+title: View privacy-related info from the My Account portal - Azure AD
+description: Learn how your organization uses your privacy-related information from the Privacy page of the My Account portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfb05bdb3aa2cf89328051b196475338eb5a3b3b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ff1a030a17ce4f63427eb6bfebbf84be74f6500d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820358"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231827"
 ---
-# <a name="view-your-privacy-related-info-from-the-my-account-portal"></a>從我的帳戶入口網站查看隱私權相關資訊
+# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>View how your organization uses your privacy-related data
 
-您可以從 [**我的帳戶**] 入口網站的 [**隱私權**] 頁面，查看您的組織如何使用您的資料。
+You can view how your organization uses your data from the **Privacy** page of the **My Account** portal.
 
 ## <a name="view-your-privacy-related-info"></a>檢視您的隱私權相關資訊
 
@@ -29,7 +29,7 @@ ms.locfileid: "73820358"
 
 2. 從左側瀏覽窗格中選取 [隱私權]，或從 [隱私權] 區塊中選取 [檢閱隱私權] 連結。
 
-    ![[我的帳戶] 頁面，顯示反白顯示的隱私權連結](media/my-account-portal/my-account-portal-privacy.png)
+    ![My Account page, showing highlighted Privacy links](media/my-account-portal/my-account-portal-privacy.png)
 
 3. 檢閱資訊，包括：
 
@@ -39,14 +39,14 @@ ms.locfileid: "73820358"
 
 ## <a name="next-steps"></a>後續步驟
 
-在您的組織如何使用您的資料之後，您可以：
+After viewing how your organization uses your data, you can:
 
-- 查看或管理您的[安全性資訊](user-help-security-info-overview.md)。
+- View or manage your [security info](user-help-security-info-overview.md).
 
-- 查看或管理已連線的[裝置](my-account-portal-devices-page.md)。
+- View or manage your connected [devices](my-account-portal-devices-page.md).
 
-- 查看或管理您的[組織](my-account-portal-organizations-page.md)。
+- View or manage your [organizations](my-account-portal-organizations-page.md).
 
-- 查看您的登[入活動](my-account-portal-sign-ins-page.md)。
+- View your [sign-in activity](my-account-portal-sign-ins-page.md).
 
-- 您也可以從[Office 入口網站的 [安全性 & 隱私權] 頁面，](https://portal.office.com/account/#security)查看 Microsoft Office 相關的連絡人喜好設定和隱私權資訊。
+- You can also view your Microsoft Office-related contact preferences and privacy information from the [Office portal, Security & privacy page](https://portal.office.com/account/#security).

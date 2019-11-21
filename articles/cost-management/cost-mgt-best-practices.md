@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 7c562e6f0a1358d16b9abef08a5e582e4ff84472
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8662de2195696c94f27e31289d5b5f7ea97b507d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002032"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74219125"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>如何透過 Azure 成本管理將雲端投資最佳化
 
@@ -39,7 +39,7 @@ Azure 成本管理可提供您規劃、分析以及減少費用，以便將雲�
 
 使用以下所述的原則，為貴組織在雲端成本管理方面的成就定位。
 
-#### <a name="planning"></a>規劃
+#### <a name="planning"></a>計劃
 
 全方位的前期規劃可讓您根據特定的業務需求，量身打造雲端使用情況。 自問：
 

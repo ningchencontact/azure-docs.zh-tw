@@ -1,24 +1,24 @@
 ---
 author: rothja
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: a8ee7cc28985d905a0d158745145ce7ffaa5ba6e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: df237cdbb8944928641f2dbea2117bbef7ba9165
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67174385"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224573"
 ---
-| Resource | 預設限制 | 上限 |
+| 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
-| 每個訂用帳戶的受信任</a> IP 位址或範圍數目上限 |0 |50 |
-| 記住我的裝置，天數 |14 |60 |
-| 應用程式密碼的最大數目 |0 |無限制 |
+| Maximum number of trusted IP addresses or ranges</a> per subscription |0 |50 |
+| Remember my devices, number of days |14 |60 |
+| Maximum number of app passwords |0 |無限制 |
 | MFA 呼叫期間允許 **X** 次嘗試 |1 |99 |
-| 雙向文字訊息超時秒數 |60 |600 |
+| Two-way text message timeout seconds |60 |600 |
 | 預設一次性略過秒數 |300 |1,800 |
-| **X** 次連續 MFA 被拒後鎖定使用者帳戶 |未設定 |99 |
-| **X** 分鐘後重設帳戶鎖定計數器 |未設定 |9999 |
-| **X** 分鐘後解除鎖定帳戶 |未設定 |9999 |
+| **X** 次連續 MFA 被拒後鎖定使用者帳戶 |Not set |99 |
+| **X** 分鐘後重設帳戶鎖定計數器 |Not set |9,999 |
+| **X** 分鐘後解除鎖定帳戶 |Not set |9,999 |

@@ -1,6 +1,6 @@
 ---
-title: 在我的應用程式入口網站上更新您的設定檔和帳戶-Azure AD
-description: 瞭解如何更新您的個人資料，以及您的工作或學校帳戶資訊，包括變更密碼、開啟密碼重設、更新安全性驗證方法、查看貴組織的使用規定聲明，以及登出您已使用工作或學校帳戶登入的任何位置。
+title: Update profile & account info from the My Apps portal - Azure AD
+description: Learn how to update your profile and your work or school account information, including changing your password, turning on password reset, updating your security verification methods, viewing your organization's terms of use statement, and signing out of everywhere you've signed in using your work or school account.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4416b35d2e2204cec2a9ffe2f50e92983d6204c0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3ecdffae61fbadfd5d975af942861e24589c6fbf
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820371"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233156"
 ---
-# <a name="update-your-profile-and-account-info-on-the-my-apps-portal"></a>在我的應用程式入口網站上更新您的設定檔和帳戶資訊
+# <a name="update-your-profile-and-work-or-school-account-information-on-the-my-apps-portal"></a>Update your profile and work or school account information on the My Apps portal
 
 您可以透過 [我的應用程式] Web 入口網站使用工作或學校帳戶，來檢視和啟動貴組織的許多雲端式應用程式、更新您的設定檔和帳戶資訊、查看您的**群組**資訊，以及執行您應用程式和群組的**存取權檢閱**。 如果您沒有 [我的應用程式] 入口網站的存取權，則必須連絡技術服務人員以取得權限。
 
@@ -29,115 +29,115 @@ ms.locfileid: "73820371"
 >[!Important]
 >本內容適用於使用者。 如果您是系統管理員，可以在[應用程式管理文件](https://docs.microsoft.com/azure/active-directory/manage-apps)中找到更多關於如何設定和管理雲端式應用程式的資訊。
 
-## <a name="view-your-organization-related-profile-information"></a>查看組織相關的設定檔資訊
+## <a name="view-your-organization-related-profile-information"></a>View your organization-related profile information
 
-根據您的組織在**我的應用程式**入口網站的 [**設定檔**] 頁面上選擇要包含的內容，您可能會看到與您的特定工作相關的詳細資料，以及您的裝置和活動，以及您所屬的任何其他組織。
+Depending on what your organization has chosen to include on your **Profile** page of the **My Apps** portal, you might see your specific work-related details, along with your devices and activity, and any additional organizations to which you belong.
 
-### <a name="to-view-your-profile-information"></a>若要查看您的設定檔資訊
+### <a name="to-view-your-profile-information"></a>To view your profile information
 
-1. 登入您的公司或學校帳戶，[移至**我的應用程式**入口網站](my-apps-portal-end-user-access.md)。
+1. Sign in to your work or school account, [go to the **My Apps** portal](my-apps-portal-end-user-access.md).
 
-2. 從 [**應用程式**] 頁面中，從右上角選取您的個人資料圖片，其中會顯示您的名稱和組織，然後選取 [**設定檔**]。
+2. From the **Apps** page, select your profile picture from the upper-right corner, where it says your name and your organization, and then select **Profile**.
 
-    [**設定檔**] 頁面隨即出現，並顯示您的設定檔資訊。
+    The **Profile** page appears, showing your profile information.
 
-    ![[設定檔] 頁面，其中顯示所有可用的資訊](media/my-apps-portal/my-apps-portal-profile-page.png)
+    ![Profile page, showing all of the available information](media/my-apps-portal/my-apps-portal-profile-page.png)
 
-3. 在 [**設定檔**] 頁面上，您可以：
+3. From the **Profile** page, you can:
 
-    - **檢查組織相關的詳細資料。** 查看您的相片、姓名、標題、相關聯的電子郵件地址和 office 資訊。 這項資訊是由您的組織所管理，您將無法加以變更。 如果您看到錯誤，請洽詢您的技術服務人員。
+    - **Review your organization-related details.** View your photo, name, title, associated email addresses, and office information. This information is managed by your organization and you won't be able to change it. If you see an error, contact your Helpdesk.
 
-    - **檢查您的裝置 & 活動**。 請確定每個裝置都已熟悉並正確地連接到您的組織。 如果您無法辨識裝置，請選取 [**停用裝置**] 以移除與您帳戶的關聯。 停用裝置之後，它就會從這個頁面中移除。
+    - **Review your Devices & activity**. Make sure each device is familiar and properly connected to your organization. If you don’t recognize a device, select **Disable device** to remove the association with your account. After you disable a device, it’s removed from this page.
 
-    - **審查您的組織。** 請確定您仍然可以使用每個指定的組織。 如果您不再使用組織，我們強烈建議您選取 [登入]**以離開組織**。 離開組織之後，它就會從這個頁面中移除。
+    - **Review your Organizations.** Make sure that you still work with each of the specified organizations. If you no longer work with an organization, we highly recommend that you select **Sign in to leave organization**. After you leave the organization, it’s removed from this page.
 
-## <a name="manage-your-work-or-school-account-information"></a>管理您的工作或學校帳戶資訊
+## <a name="manage-your-work-or-school-account-information"></a>Manage your work or school account information
 
-從**我的應用程式**入口網站的 [**設定檔**] 頁面，更新及管理您的公司或學校帳戶資訊。 此頁面可協助您：
+Update and manage your work or school account information from the **Profile** page of the **My Apps** portal. This page helps you to:
 
-- 變更您的工作或學校帳戶密碼。
+- Change your work or school account password.
 
-- 開啟密碼重設（如果您的系統管理員已開啟此功能）。
+- Turn on password reset (if your administrator has turned on this feature).
 
-- 提供額外的安全性驗證資訊。
+- Provide additional security verification information.
 
-- 檢查您組織的使用規定。
+- Review your organization’s terms of use.
 
-- 登出所有位置。
+- Sign out of everywhere.
 
-## <a name="change-your-password"></a>變更您的密碼
+## <a name="change-your-password"></a>變更密碼
 
-如果您想要變更公司或學校帳戶的密碼，您可以從 [**設定檔**] 頁面的 [**管理帳戶**] 區域中選取 [**變更密碼**]。
+If you want to change the password for your work or school account, you can select **Change password** from the **Manage account** area of the **Profile** page.
 
-### <a name="to-change-your-password"></a>變更您的密碼
+### <a name="to-change-your-password"></a>To change your password
 
-1. 從 [**設定檔**] 頁面的 [**管理帳戶**] 區域中，選取 [**變更密碼**]。
+1. From the **Manage account** area of the **Profile** page, select **Change password**.
 
-2. 在 [**變更密碼**] 頁面上，確認您的使用者識別碼正確，然後在方塊中輸入您的舊密碼和新密碼。
+2. On the **Change password** page, make sure your User ID is correct, and then type your old password and your new password into the boxes.
 
-    ![[變更密碼] 頁面](media/my-apps-portal/my-apps-portal-change-password-page.png)
+    ![Change password page](media/my-apps-portal/my-apps-portal-change-password-page.png)
 
 3. 選取 [提交]。
 
-    您的密碼已變更。 您必須使用公司或學校帳戶登入您先前登入的任何應用程式。
+    Your password is changed. You’ll be required to sign-in to any apps you’ve previously signed in to using your work or school account.
 
-## <a name="set-up-and-use-password-reset"></a>設定和使用密碼重設
+## <a name="set-up-and-use-password-reset"></a>Set up and use password reset
 
-如果您忘記您的密碼、您的公司支援人員從未獲得過，或已被鎖定您的帳戶，您可以重設自己的密碼。
+If you forgot your password, never got one from your company support, or have been locked out of your account, you can reset your own password.
 
 >[!Important]
->您的系統管理員必須開啟這項功能，而且您必須註冊才能加入。 如需如何註冊和重設密碼的詳細資訊，請參閱[註冊自助式密碼重設](active-directory-passwords-reset-register.md)及[重設您的工作或學校密碼](active-directory-passwords-update-your-own-password.md)。
+>Your administrator must turn on this feature and you must register to participate. For details about how to register and how to reset your password, see [Register for self-service password reset](active-directory-passwords-reset-register.md) and [Reset your work or school password](active-directory-passwords-update-your-own-password.md).
 
-## <a name="change-your-security-verification-information"></a>變更您的安全性驗證資訊
+## <a name="change-your-security-verification-information"></a>Change your security verification information
 
-如果您的組織要求您使用雙因素驗證，您可以從 [**其他安全性驗證**] 頁面新增、更新和刪除相關聯的安全性資訊。
+If your organization requires you to use two-factor verification, you can add, update, and delete your associated security information from the **Additional security verification** page.
 
-雙因素驗證要求您必須使用兩種驗證資訊，例如密碼和 PIN 碼，才能取得您的帳戶或組織的資訊。 如需雙因素驗證的詳細資訊，請參閱[設定我的帳戶以進行雙步驟驗證](multi-factor-authentication-end-user-first-time.md)。
+Two-factor verification requires you to use two pieces of verification info, like a password and a PIN, before you can get to your account or to your organization’s information. For more information about two-factor verification, see [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md).
 
-### <a name="to-change-your-security-information"></a>變更您的安全性資訊
+### <a name="to-change-your-security-information"></a>To change your security information
 
-1. 從 [**設定檔**] 頁面的 [**管理帳戶**] 區域中，選取 [**其他安全性驗證**]。
+1. From the **Manage account** area of the **Profile** page, select **Additional security verification**.
 
-    ![其他安全性驗證頁面](media/my-apps-portal/my-apps-portal-additional-verification-page.png)
+    ![Additional security verification page](media/my-apps-portal/my-apps-portal-additional-verification-page.png)
 
-2. 在 [**其他安全性驗證**] 頁面上，您可以新增、變更或刪除下列資訊：
+2. On the **Additional security verification** page, you can add, change, or delete the following information:
 
-    - **預設的驗證選項。** 選取要用於雙因素驗證的預設次要方法。 當您輸入使用者名稱和密碼之後，需要進行雙因素驗證時，就會自動使用此方法。
+    - **Default verification option.** Select the default secondary method to use for two-factor verification. This method is automatically used any time two-factor verification is required after you enter your username and password.
 
-    - **新增、更新或移除驗證方法。** 您可以新增、更新現有或刪除不再適用的舊資訊。
+    - **Add, update, or remove verification methods.** You can add new, update existing, or delete old information that no longer applies.
 
-    - **設定 Microsoft Authenticator 應用程式。** 您可以選擇將 Microsoft Authenticator 應用程式設定為使用您的驗證方法。 如需 Microsoft Authenticator 應用程式的詳細資訊，請參閱[什麼是 Microsoft Authenticator 應用程式？](user-help-auth-app-overview.md)
+    - **Set up the Microsoft Authenticator app.** You can choose to set up the Microsoft Authenticator app to work as your verification method. For more information about the Microsoft Authenticator app, see [What is the Microsoft Authenticator app?](user-help-auth-app-overview.md)
 
 3. 選取 [儲存] 來儲存變更。
 
-## <a name="review-your-organizations-terms-of-use-statement"></a>審查貴組織的使用規定聲明
+## <a name="review-your-organizations-terms-of-use-statement"></a>Review your organization’s terms of use statement
 
-您可以選擇查看貴組織的使用規定聲明（如果有的話）。
+You can choose to review your organization’s terms of use statement, if it’s available.
 
-1. 從 [**設定檔**] 頁面的 [**管理帳戶**] 區域中，選取 [**審查使用**規定]。
+1. From the **Manage account** area of the **Profile** page, select **Review terms of use**.
 
-2. 檢查您組織的使用規定，並選取 [**接受**] 以確認您已閱讀並瞭解您的組織使用規定。
+2. Review your organization's terms of use and select **Accept** to confirm that you've read and understood the terms of use for your organization.
 
-    ![我的應用程式入口網站中的使用規定頁面](media/my-apps-portal/my-apps-portal-tou-page.png)
+    ![Terms of use page from the My Apps portal](media/my-apps-portal/my-apps-portal-tou-page.png)
 
-    如果您的組織沒有使用規定，您可以選取 [**完成**] 以返回 [**設定檔**] 頁面。
+    If your organization doesn't have a terms of use, you can select **Done** to return to the **Profile** page.
 
-## <a name="sign-out-of-everywhere"></a>登出所有位置
+## <a name="sign-out-of-everywhere"></a>Sign out of everywhere
 
-您可以選擇使用您的工作或學校帳戶，登出目前登入的任何地方。 這包括所有應用程式和裝置。
+You can choose to sign out of everywhere you’re currently signed in to using your work or school account. This includes all apps and devices.
 
-### <a name="to-sign-out-of-everywhere"></a>登出所有位置
+### <a name="to-sign-out-of-everywhere"></a>To sign out of everywhere
 
-1. 從 [**設定檔**] 頁面的 [**管理帳戶**] 區域中，選取 [**登出所有位置**]。
+1. From the **Manage account** area of the **Profile** page, select **Sign out everywhere**.
 
-2. 在 [**登出位置**] 確認方塊中，選取 **[是]** ，確認您想要登出所有的會話和裝置。 如果您改變主意，請選取 [**否**]。
+2. In the **Sign out everywhere** confirmation box, select **Yes** to confirm that you want to sign out of all your sessions and devices. Select **No** if you change your mind.
 
 ## <a name="next-steps"></a>後續步驟
 
-在 [**設定檔**] 頁面上完成更新之後，您可以：
+After you finish your updates on the **Profile** page, you can:
 
-- [在我的應用程式入口網站上存取和使用應用程式](my-apps-portal-end-user-access.md)。
+- [Access and use apps on the My Apps portal](my-apps-portal-end-user-access.md).
 
-- [查看和更新您的群組相關資訊](my-apps-portal-end-user-groups.md)。
+- [View and update your groups-related information](my-apps-portal-end-user-groups.md).
 
-- [執行您自己的存取權審查](my-apps-portal-end-user-access-reviews.md)。
+- [Perform your own access reviews](my-apps-portal-end-user-access-reviews.md).
