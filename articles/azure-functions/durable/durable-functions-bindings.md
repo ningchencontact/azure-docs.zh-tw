@@ -1,32 +1,27 @@
 ---
 title: 長期函式中的繫結 - Azure
 description: 如何針對 Azure Functions 的 Durable Functions 擴充功能使用觸發程序和繫結。
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d7e77907e2d394d2a4c1679ec50af8d4f72fa6f1
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 40b5f0f17cbb6867a6ef293a485d728141a012ef
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615034"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233031"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>長期函式中的繫結 (Azure Functions)
 
 [長期函式](durable-functions-overview.md)延伸模組引進了兩個新的觸發程序繫結，可控制協調器和活動函式的執行。 它也引進了輸出繫結，可作為長期函式執行階段的用戶端。
 
-## <a name="orchestration-trigger"></a>協調流程觸發程式
+## <a name="orchestration-trigger"></a>Orchestration trigger
 
-協調流程觸發程式可讓您撰寫[持久協調](durable-functions-types-features-overview.md#orchestrator-functions)器函式。 這個觸發程序支援啟動新的協調器函式執行個體，以及繼續使用「等候」工作的現有協調器函式執行個體。
+The orchestration trigger enables you to author [durable orchestrator functions](durable-functions-types-features-overview.md#orchestrator-functions). 這個觸發程序支援啟動新的協調器函式執行個體，以及繼續使用「等候」工作的現有協調器函式執行個體。
 
 當您使用 Azure Functions 適用的 Visual Studio 工具時，協調流程觸發程序會使用 [OrchestrationTriggerAttribute](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.OrchestrationTriggerAttribute?view=azure-dotnet) .NET 屬性進行設定。
 
-當您以指令碼語言 (例如，JavaScript 或 C# 指令碼處理) 撰寫協調器函式時，協調流程觸發程序會由 `bindings`function.json*檔案之* 陣列中的下列 JSON 物件所定義：
+當您以指令碼語言 (例如，JavaScript 或 C# 指令碼處理) 撰寫協調器函式時，協調流程觸發程序會由 *function.json* 檔案之 `bindings` 陣列中的下列 JSON 物件所定義：
 
 ```json
 {
@@ -37,7 +32,7 @@ ms.locfileid: "73615034"
 }
 ```
 
-* `orchestration` 是當用戶端想要啟動此協調器函式的新實例時，必須使用的協調流程名稱。 這是選用屬性。 如果未指定，會使用函式的名稱。
+* `orchestration` is the name of the orchestration that clients must use when they want to start new instances of this orchestrator function. 這是選用屬性。 如果未指定，會使用函式的名稱。
 
 此觸發程序繫結會在內部輪詢函式應用程式之預設儲存體帳戶中的一系列佇列。 這些佇列是延伸模組的內部實作詳細資料，這就是為什麼它們未在繫結屬性中明確設定。
 
@@ -51,7 +46,7 @@ ms.locfileid: "73615034"
 * **傳回值** - 傳回值會序列化為 JSON，保存到 Azure 資料表儲存體中的協調流程歷程記錄資料表。 協調流程用戶端繫結可以查詢這些傳回值，會在稍後說明。
 
 > [!WARNING]
-> 協調器函式應該永不使用協調流程繫結觸發程序繫結以外的任何輸入或輸出繫結。 這麼做有可能會造成長期工作延伸模組的問題，因為這些繫結可能不會遵照單一執行緒和 I/O 規則。 如果您想要使用其他系結，請將它們新增至從協調器函式呼叫的活動函式。
+> 協調器函式應該永不使用協調流程繫結觸發程序繫結以外的任何輸入或輸出繫結。 這麼做有可能會造成長期工作延伸模組的問題，因為這些繫結可能不會遵照單一執行緒和 I/O 規則。 If you'd like to use other bindings, add them to an Activity function called from your Orchestrator function.
 
 > [!WARNING]
 > JavaScript 協調器函式永遠都不應宣告為 `async`。
@@ -60,12 +55,12 @@ ms.locfileid: "73615034"
 
 協調流程觸發程序繫結支援輸入及輸出。 協助了解輸入和輸出處理的一些事項如下：
 
-* **輸入**-.net 協調流程函數僅支援 `DurableOrchestrationContext` 做為參數類型。 不支援直接在函式簽章中還原序列化輸入。 程式碼必須使用 `GetInput<T>` （.NET）或 `getInput` （JavaScript）方法來提取協調器函數輸入。 這些輸入必須是 JSON 可序列化類型。
+* **inputs** - .NET orchestration functions support only `DurableOrchestrationContext` as a parameter type. 不支援直接在函式簽章中還原序列化輸入。 Code must use the `GetInput<T>` (.NET) or `getInput` (JavaScript) method to fetch orchestrator function inputs. 這些輸入必須是 JSON 可序列化類型。
 * **輸出** - 協調流程觸發程序支援輸出值以及輸入。 函式的傳回值會用來指派輸出值，而且必須是 JSON 可序列化。 如果 .NET 函式傳回 `Task` 或 `void`，則會將 `null` 值儲存為輸出。
 
 ### <a name="trigger-sample"></a>觸發程序範例
 
-下列範例程式碼示範最簡單的 "Hello World" 協調器函式看起來可能像這樣：
+The following example code shows what the simplest "Hello World" orchestrator function might look like:
 
 #### <a name="c"></a>C#
 
@@ -78,9 +73,9 @@ public static string Run([OrchestrationTrigger] IDurableOrchestrationContext con
 }
 ```
 > [!NOTE]
-> 先前的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions Versions](durable-functions-versions.md) article.
 
-#### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
+#### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -92,7 +87,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> JavaScript 中的 `context` 物件不代表 DurableOrchestrationCoNtext，而是整個函式[內容](../functions-reference-node.md#context-object)。 您可以透過 `context` 物件的 `df` 屬性來存取協調流程方法。
+> The `context` object in JavaScript does not represent the DurableOrchestrationContext, but the [function context as a whole](../functions-reference-node.md#context-object). 您可以透過 `context` 物件的 `df` 屬性來存取協調流程方法。
 
 > [!NOTE]
 > JavaScript 協調器應使用 `return`。 `durable-functions` 程式庫會負責呼叫 `context.done` 方法。
@@ -113,9 +108,9 @@ public static async Task<string> Run(
 ```
 
 > [!NOTE]
-> 先前的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-#### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
+#### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -127,13 +122,13 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-## <a name="activity-trigger"></a>活動觸發程式
+## <a name="activity-trigger"></a>Activity trigger
 
-活動觸發程式可讓您撰寫協調器函式所呼叫的函式，稱為「活動函式」（ [activity 函數](durable-functions-types-features-overview.md#activity-functions)）。
+The activity trigger enables you to author functions that are called by orchestrator functions, known as [activity functions](durable-functions-types-features-overview.md#activity-functions).
 
-如果您使用 Visual Studio，則會使用 `ActivityTriggerAttribute` .NET 屬性來設定活動觸發程式。
+If you're using Visual Studio, the activity trigger is configured using the `ActivityTriggerAttribute` .NET attribute.
 
-如果您使用 VS Code 或 Azure 入口網站來進行開發，則活動觸發程序會由 `bindings`function.json*之* 陣列中的下列 JSON 物件定義：
+如果您使用 VS Code 或 Azure 入口網站來進行開發，則活動觸發程序會由 *function.json* 之 `bindings` 陣列中的下列 JSON 物件定義：
 
 ```json
 {
@@ -144,7 +139,7 @@ module.exports = df.orchestrator(function*(context) {
 }
 ```
 
-* `activity` 是活動的名稱。 此值是協調器函式用來叫用此活動函式的名稱。 這是選用屬性。 如果未指定，會使用函式的名稱。
+* `activity` 是活動的名稱。 This value is the name that orchestrator functions use to invoke this activity function. 這是選用屬性。 如果未指定，會使用函式的名稱。
 
 此觸發程序繫結會在內部輪詢函式應用程式之預設儲存體帳戶中的佇列。 這個佇列是延伸模組的內部實作詳細資料，這就是為什麼它未在繫結屬性中明確設定。
 
@@ -164,13 +159,13 @@ module.exports = df.orchestrator(function*(context) {
 
 活動觸發程序繫結支援輸入及輸出，就像協調流程觸發程序一樣。 協助了解輸入和輸出處理的一些事項如下：
 
-* **輸入**-.net 活動函數原本就使用 `DurableActivityContext` 做為參數類型。 或者，可以使用 JSON 可序列化的任何參數類型宣告活動函式。 當您使用 `DurableActivityContext`時，您可以呼叫 `GetInput<T>` 來提取和還原序列化活動函數輸入。
+* **inputs** - .NET activity functions natively use `DurableActivityContext` as a parameter type. 或者，可以使用 JSON 可序列化的任何參數類型宣告活動函式。 When you use `DurableActivityContext`, you can call `GetInput<T>` to fetch and deserialize the activity function input.
 * **輸出** - 活動函式支援輸出值和輸入。 函式的傳回值會用來指派輸出值，而且必須是 JSON 可序列化。 如果 .NET 函式傳回 `Task` 或 `void`，則會將 `null` 值儲存為輸出。
 * **中繼資料**：.NET 活動函式可以繫結至 `string instanceId` 參數，以取得父代協調流程的執行個體識別碼。
 
 ### <a name="trigger-sample"></a>觸發程序範例
 
-下列範例程式碼示範簡單的 "Hello World" 活動函式看起來可能像這樣：
+The following example code shows what a simple "Hello World" activity function might look like:
 
 #### <a name="c"></a>C#
 
@@ -184,7 +179,7 @@ public static string SayHello([ActivityTrigger] IDurableActivityContext helloCon
 ```
 
 > [!NOTE]
-> 先前的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `DurableActivityContext`，而不是 `IDurableActivityContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableActivityContext` instead of `IDurableActivityContext`. For more information about the differences between versions, see the [Durable Functions Versions](durable-functions-versions.md) article.
 
 .NET `ActivityTriggerAttribute` 繫結的預設參數類型是 `IDurableActivityContext`。 不過，.NET活動觸發程序也支援直接繫結至JSON 可序列化類型 (包括基本類型)，因此，同一個函式可以簡化如下：
 
@@ -196,7 +191,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript （僅適用于函數2.0）
+#### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
 
 ```javascript
 module.exports = async function(context) {
@@ -213,9 +208,9 @@ module.exports = async function(context, name) {
 ```
 
 
-### <a name="using-input-and-output-bindings"></a>使用輸入和輸出系結
+### <a name="using-input-and-output-bindings"></a>Using input and output bindings
 
-除了活動觸發程式系結之外，您還可以使用一般輸入和輸出系結。 例如，您可以接受活動系結的輸入，並使用 EventHub 輸出系結將訊息傳送至 EventHub：
+You can use regular input and output bindings in addition to the activity trigger binding. For example, you can take the input to your activity binding, and send a message to an EventHub using the EventHub output binding:
 
 ```json
 {
@@ -244,7 +239,7 @@ module.exports = async function (context) {
 
 ## <a name="orchestration-client"></a>協調流程用戶端
 
-協調流程用戶端系結可讓您撰寫與協調器函式互動的函式。 這些函數有時稱為[用戶端](durable-functions-types-features-overview.md#client-functions)函式。 例如，您可以下列方式處理協調流程執行個體：
+The orchestration client binding enables you to write functions that interact with orchestrator functions. These functions are sometimes referred to as [client functions](durable-functions-types-features-overview.md#client-functions). 例如，您可以下列方式處理協調流程執行個體：
 
 * 啟動它們。
 * 查詢其狀態。
@@ -252,9 +247,9 @@ module.exports = async function (context) {
 * 在它們執行時傳送事件給它們。
 * 清除執行個體記錄。
 
-如果您使用 Visual Studio，您可以使用 Durable Functions 1.0 的 `OrchestrationClientAttribute` .NET 屬性來系結至協調流程用戶端。 從 Durable Functions 2.0 開始，您可以使用 `DurableClientAttribute` .NET 屬性來系結至協調流程用戶端。
+If you're using Visual Studio, you can bind to the orchestration client by using the `OrchestrationClientAttribute` .NET attribute for Durable Functions 1.0. Starting in the Durable Functions 2.0, you can bind to the orchestration client by using the `DurableClientAttribute` .NET attribute.
 
-如果您使用指令碼語言（例如， *.csx*或 *.js*檔案）進行開發，協調流程觸發程式是由函式的 `bindings` 陣列中的下列 JSON 物件所*定義：*
+If you're using scripting languages (for example, *.csx* or *.js* files) for development, the orchestration trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -274,7 +269,7 @@ module.exports = async function (context) {
 
 ### <a name="client-usage"></a>用戶端使用方式
 
-在 .NET 函式中，您通常會系結至 `IDurableOrchestrationClient`，這可讓您完整存取 Durable Functions 所支援的所有協調流程用戶端 Api。 在舊版的 Durable Functions 2.x 版中，您會改為系結至 `DurableOrchestrationClient` 類別。 在 JavaScript 中，相同的 Api 是由 `getClient` 傳回的物件所公開。 用戶端物件上的 API 包括：
+In .NET functions, you typically bind to `IDurableOrchestrationClient`, which gives you full access to all orchestration client APIs supported by Durable Functions. In the older Durable Functions 2.x releases, you instead bind to the `DurableOrchestrationClient` class. In JavaScript, the same APIs are exposed by the object returned from `getClient`. 用戶端物件上的 API 包括：
 
 * `StartNewAsync`
 * `GetStatusAsync`
@@ -284,9 +279,9 @@ module.exports = async function (context) {
 * `CreateCheckStatusResponse`
 * `CreateHttpManagementPayload`
 
-或者，.NET 函數可以系結至 `T` `StartOrchestrationArgs` 或 `JObject`的 `IAsyncCollector<T>`。
+Alternatively, .NET functions can bind to `IAsyncCollector<T>` where `T` is `StartOrchestrationArgs` or `JObject`.
 
-如需這些作業的詳細資訊，請參閱 `IDurableOrchestrationClient` API 檔。
+For more information on these operations, see the `IDurableOrchestrationClient` API documentation.
 
 ### <a name="client-sample-visual-studio-development"></a>用戶端範例 (Visual Studio 開發)
 
@@ -304,7 +299,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions Versions](durable-functions-versions.md) article.
 
 ### <a name="client-sample-not-visual-studio"></a>用戶端範例 (不是 Visual Studio)
 
@@ -329,13 +324,13 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 先前的 JSON 適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `orchestrationClient`，而不是 `durableClient` 作為觸發程式類型。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous JSON is for Durable Functions 2.x. For Durable Functions 1.x, you must use `orchestrationClient` instead of the `durableClient` as the trigger type. For more information about the differences between versions, see the [Durable Functions Versions](durable-functions-versions.md) article.
 
 以下是啟動新的協調器函式執行個體的特定語言範例。
 
-#### <a name="c-script-sample"></a>C#腳本範例
+#### <a name="c-script-sample"></a>C# Script Sample
 
-下列範例顯示如何使用長期協調流程用戶端系結，從佇列觸發C#的函式啟動新的函式實例：
+The following sample shows how to use the durable orchestration client binding to start a new function instance from a queue-triggered C# function:
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -349,7 +344,7 @@ public static Task Run(string input, IDurableOrchestrationClient starter)
 ```
 
 > [!NOTE]
-> 先前的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
+> The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions Versions](durable-functions-versions.md) article.
 
 #### <a name="javascript-sample"></a>JavaScript 範例
 
@@ -366,51 +361,51 @@ module.exports = async function (context) {
 
 啟動執行個體的更多詳細資料可以在[執行個體管理](durable-functions-instance-management.md)中找到。
 
-## <a name="entity-trigger"></a>實體觸發程式
+## <a name="entity-trigger"></a>Entity trigger
 
-實體觸發程式可讓您撰寫[實體](durable-functions-entities.md)函式。 此觸發程式支援處理特定實體實例的事件。
+Entity triggers allow you to author [entity functions](durable-functions-entities.md). This trigger supports processing events for a specific entity instance.
 
-當您使用適用于 Azure Functions 的 Visual Studio 工具時，會使用 `EntityTriggerAttribute` .NET 屬性來設定實體觸發程式。
+When you use the Visual Studio tools for Azure Functions, the entity trigger is configured using the `EntityTriggerAttribute` .NET attribute.
 
 > [!NOTE]
-> 從 Durable Functions 2.x 開始提供實體觸發程式。
+> Entity triggers are available starting in Durable Functions 2.x.
 
 此觸發程序繫結會在內部輪詢函式應用程式之預設儲存體帳戶中的一系列佇列。 這些佇列是延伸模組的內部實作詳細資料，這就是為什麼它們未在繫結屬性中明確設定。
 
 ### <a name="trigger-behavior"></a>觸發程序行為
 
-以下是有關實體觸發程式的一些注意事項：
+Here are some notes about the entity trigger:
 
-* **單一執行緒**：單一發送器執行緒用來處理特定實體的作業。 如果多個訊息同時傳送至單一實體，則會一次性處理作業。
-* **有害訊息處理**-實體觸發程式中沒有有害訊息支援。
-* **訊息可見度**-實體觸發程式訊息會被清除佇列，並且在可設定的持續時間內保持不可見。 只要函式應用程式正在執行且狀況良好，就會自動更新這些訊息的可見度。
-* 傳回**值**-Entity 函數不支援傳回值。 有一些特定的 Api 可用來儲存狀態，或將值傳回到協調流程。
+* **Single-threaded**: A single dispatcher thread is used to process operations for a particular entity. If multiple messages are sent to a single entity concurrently, the operations will be processed one-at-a-time.
+* **Poison-message handling** - There is no poison message support in entity triggers.
+* **Message visibility** - Entity trigger messages are dequeued and kept invisible for a configurable duration. 只要函式應用程式正在執行且狀況良好，就會自動更新這些訊息的可見度。
+* **Return values** - Entity functions do not support return values. There are specific APIs that can be used to save state or pass values back to orchestrations.
 
-在執行期間對實體所做的任何狀態變更都會在執行完成之後自動儲存。
+Any state changes made to an entity during its execution will be automatically persisted after execution has completed.
 
 ### <a name="trigger-usage-net"></a>觸發程序使用方式 (.NET)
 
-每個實體函式的參數類型為 `IDurableEntityContext`，其具有下列成員：
+Every entity function has a parameter type of `IDurableEntityContext`, which has the following members:
 
-* **EntityName**：目前正在執行之實體的名稱。
-* **EntityKey**：目前正在執行之實體的索引鍵。
-* **EntityId**：目前正在執行之實體的識別碼。
-* **OperationName**：目前作業的名稱。
-* **HasState**：實體是否存在，也就是具有某種狀態。 
-* **GetState\<TState > （）** ：取得實體的目前狀態。 如果它不存在，則會建立並初始化為 `default<TState>`。 `TState` 參數必須是基本或 JSON 可序列化類型。 
-* **GetState\<TState > （initfunction）** ：取得實體的目前狀態。 如果它不存在，則會藉由呼叫提供的 `initfunction` 參數來建立。 `TState` 參數必須是基本或 JSON 可序列化類型。 
-* **SetState （arg）** ：建立或更新實體的狀態。 `arg` 參數必須是可序列化物件或基本類型。
-* **DeleteState （）** ：刪除實體的狀態。 
-* **Getinput t>\<TInput > （）** ：取得目前作業的輸入。 `TInput` 型別參數必須是基本型別或 JSON 型別（可序列化 type）。
-* **Return （arg）** ：將值傳回至呼叫作業的協調流程。 `arg` 參數必須是基本或 JSON 可序列化物件。
-* **SignalEntity （EntityId，operation，input）** ：傳送單向訊息給實體。 `operation` 參數必須為非 null 字串，且 `input` 參數必須是基本或可序列化物件。
-* **CreateNewOrchestration （orchestratorFunctionName，input）** ：啟動新的協調流程。 `input` 參數必須是基本或 JSON 可序列化物件。
+* **EntityName**: the name of the currently executing entity.
+* **EntityKey**: the key of the currently executing entity.
+* **EntityId**: the ID of the currently executing entity.
+* **OperationName**: the name of the current operation.
+* **HasState**: whether the entity exists, that is, has some state. 
+* **GetState\<TState>()** : gets the current state of the entity. If it does not already exist, it is created and initialized to `default<TState>`. The `TState` parameter must be a primitive or JSON-serializeable type. 
+* **GetState\<TState>(initfunction)** : gets the current state of the entity. If it does not already exist, it is created by calling the provided `initfunction` parameter. The `TState` parameter must be a primitive or JSON-serializeable type. 
+* **SetState(arg)** : creates or updates the state of the entity. The `arg` parameter must be a JSON-serializeable object or primitive.
+* **DeleteState()** : deletes the state of the entity. 
+* **GetInput\<TInput>()** : gets the input for the current operation. The `TInput` type parameter must be a primitive or JSON-serializeable type.
+* **Return(arg)** : returns a value to the orchestration that called the operation. The `arg` parameter must be a primitive or JSON-serializeable object.
+* **SignalEntity(EntityId, operation, input)** : sends a one-way message to an entity. The `operation` parameter must be a non-null string, and the `input` parameter must be a primitive or JSON-serializeable object.
+* **CreateNewOrchestration(orchestratorFunctionName, input)** : starts a new orchestration. The `input` parameter must be a primitive or JSON-serializeable object.
 
-傳遞至實體函式的 `IDurableEntityContext` 物件可以使用 `Entity.Current` 非同步區域屬性來存取。 當使用以類別為基礎的程式設計模型時，這個方法會很方便。
+The `IDurableEntityContext` object passed to the entity function can be accessed using the `Entity.Current` async-local property. This approach is convenient when using the class-based programming model.
 
-### <a name="trigger-sample-c-function-based-syntax"></a>觸發程式範例C# （以函式為基礎的語法）
+### <a name="trigger-sample-c-function-based-syntax"></a>Trigger sample (C# function-based syntax)
 
-下列程式碼是實作為長期函數的簡單*計數器*實體範例。 此函式會定義三個作業，`add`，`reset`，而 `get`，其中每一個都是以整數狀態運作。
+下列程式碼會舉例說明實作為持久函式的簡單「計數器」實體。 此函式會定義三個作業 (`add`、`reset` 和 `get`)，每個作業都會以整數狀態運作。
 
 ```csharp
 [FunctionName("Counter")]
@@ -431,11 +426,11 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-如需以函式為基礎的語法和其使用方式的詳細資訊，請參閱以函[式為基礎的語法](durable-functions-dotnet-entities.md#function-based-syntax)。
+如需以函式為基礎的語法及其使用方式的詳細資訊，請參閱[以函式為基礎的語法](durable-functions-dotnet-entities.md#function-based-syntax)。
 
-### <a name="trigger-sample-c-class-based-syntax"></a>觸發程式範例C# （以類別為基礎的語法）
+### <a name="trigger-sample-c-class-based-syntax"></a>Trigger sample (C# class-based syntax)
 
-下列範例是使用類別和方法的 `Counter` 實體的對等執行。
+下列範例等同於使用類別和方法來實作 `Counter` 實體。
 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
@@ -456,20 +451,20 @@ public class Counter
 }
 ```
 
-這個實體的狀態是 `Counter` 類型的物件，其中包含的欄位會儲存計數器的目前值。 為了將此物件保存在儲存體中，它會由[Json.NET](https://www.newtonsoft.com/json)程式庫進行序列化和還原序列化。 
+此實體的狀態是 `Counter` 類型的物件，其中包含可儲存計數器目前值的欄位。 為了將此物件保存在儲存體中，該物件會由 [Json.NET](https://www.newtonsoft.com/json) 程式庫進行序列化和還原序列化。 
 
-如需以類別為基礎的語法和其使用方式的詳細資訊，請參閱[定義實體類別](durable-functions-dotnet-entities.md#defining-entity-classes)。
+如需以類別為基礎的語法及其使用方式的詳細資訊，請參閱[定義實體類別](durable-functions-dotnet-entities.md#defining-entity-classes)。
 
 > [!NOTE]
-> 使用實體類別時，*必須*`static` 宣告具有 `[FunctionName]` 屬性的函式進入點方法。 非靜態的進入點方法可能會導致多個物件初始化，以及可能的其他未定義行為。
+> 使用實體類別時，具有 `[FunctionName]` 屬性的函式進入點方法「必須」 宣告為 `static`。 非靜態的進入點方法可能會導致初始化多個物件，並可能導致其他未定義的行為。
 
-實體類別具有與系結和 .NET 相依性插入互動的特殊機制。 如需詳細資訊，請參閱[實體結構](durable-functions-dotnet-entities.md#entity-construction)。
+Entity classes have special mechanisms for interacting with bindings and .NET dependency injection. For more information, see [Entity construction](durable-functions-dotnet-entities.md#entity-construction).
 
-### <a name="trigger-sample-javascript"></a>觸發程式範例（JavaScript）
+### <a name="trigger-sample-javascript"></a>Trigger sample (JavaScript)
 
-下列程式碼是簡單*計數器*實體的範例，其實作為以 JavaScript 撰寫的長期函數。 此函式會定義三個作業，`add`，`reset`，而 `get`，其中每一個都是以整數狀態運作。
+The following code is an example of a simple *Counter* entity implemented as a durable function written in JavaScript. 此函式會定義三個作業 (`add`、`reset` 和 `get`)，每個作業都會以整數狀態運作。
 
-**函數. json**
+**function.json**
 ```json
 {
   "bindings": [
@@ -505,18 +500,18 @@ module.exports = df.entity(function(context) {
 ```
 
 > [!NOTE]
-> 從 `durable-functions` npm 套件的版本**1.3.0**開始，JavaScript 中提供了持久性實體。
+> 從 `durable-functions` npm 套件 **1.3.0** 版開始，JavaScript 提供了耐久性實體。
 
-## <a name="entity-client"></a>實體用戶端
+## <a name="entity-client"></a>Entity client
 
-實體用戶端系結可讓您以非同步方式觸發[實體](#entity-trigger)函式。 這些函數有時稱為[用戶端](durable-functions-types-features-overview.md#client-functions)函式。
+The entity client binding enables you to asynchronously trigger [entity functions](#entity-trigger). These functions are sometimes referred to as [client functions](durable-functions-types-features-overview.md#client-functions).
 
-如果您使用 Visual Studio，您可以使用 `DurableClientAttribute` .NET 屬性來系結至 entity client。
+If you're using Visual Studio, you can bind to the entity client by using the `DurableClientAttribute` .NET attribute.
 
 > [!NOTE]
-> `[DurableClientAttribute]` 也可以用來系結至[協調流程用戶端](#orchestration-client)。
+> The `[DurableClientAttribute]` can also be used to bind to the [orchestration client](#orchestration-client).
 
-如果您使用指令碼語言（例如， *.csx*或 *.js*檔案）進行開發，則實體觸發程式是由函式的 `bindings` 陣列中的下列 JSON 物件所*定義：*
+If you're using scripting languages (for example, *.csx* or *.js* files) for development, the entity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -528,27 +523,27 @@ module.exports = df.entity(function(context) {
 }
 ```
 
-* `taskHub` - 在多個函式應用程式共用相同儲存體帳戶，但是必須相互隔離的案例中使用。 若未指定，就會使用 `host.json` 的預設值。 這個值必須符合目標實體函數所使用的值。
-* `connectionName` - 包含儲存體帳戶連接字串的應用程式設定名稱。 此連接字串所代表的儲存體帳戶必須與目標實體函式所使用的相同。 如果未指定，則會使用函數應用程式的預設儲存體帳戶連接字串。
+* `taskHub` - 在多個函式應用程式共用相同儲存體帳戶，但是必須相互隔離的案例中使用。 若未指定，就會使用 `host.json` 的預設值。 This value must match the value used by the target entity functions.
+* `connectionName` - 包含儲存體帳戶連接字串的應用程式設定名稱。 The storage account represented by this connection string must be the same one used by the target entity functions. 如果未指定，則會使用函數應用程式的預設儲存體帳戶連接字串。
 
 > [!NOTE]
-> 在大部分情況下，建議您省略選擇性屬性，並依賴預設行為。
+> In most cases, we recommend that you omit the optional properties and rely on the default behavior.
 
-### <a name="entity-client-usage"></a>實體用戶端使用方式
+### <a name="entity-client-usage"></a>Entity client usage
 
-在 .NET 函式中，您通常會系結至 `IDurableEntityClient`，這可讓您完整存取持久實體所支援的所有用戶端 Api。 您也可以系結至 `IDurableOrchestrationClient` 介面，這可讓您存取實體和協調流程的用戶端 Api。 用戶端物件上的 API 包括：
+In .NET functions, you typically bind to `IDurableEntityClient`, which gives you full access to all client APIs supported by Durable Entities. You can also bind to the `IDurableOrchestrationClient` interface, which provides access to client APIs for both entities and orchestrations. 用戶端物件上的 API 包括：
 
-* **ReadEntityStateAsync\<t >** ：讀取實體的狀態。 它會傳迴響應，指出目標實體是否存在，如果有的話，它的狀態為何。
-* **SignalEntityAsync**：將單向訊息傳送至實體，並等候它排入佇列。
+* **ReadEntityStateAsync\<T>** : reads the state of an entity. It returns a response that indicates whether the target entity exists, and if so, what its state is.
+* **SignalEntityAsync**: sends a one-way message to an entity, and waits for it to be enqueued.
 
-在傳送信號之前，不需要建立目標實體-可以從處理信號的實體函式內建立實體狀態。
+There is no need to create the target entity before sending a signal - the entity state can be created from within the entity function that handles the signal.
 
 > [!NOTE]
-> 請務必瞭解，從用戶端傳送的「信號」只會排入佇列，以便在稍後以非同步方式處理。 特別是，`SignalEntityAsync` 通常會在實體甚至啟動作業之前傳回，而且不可能取得傳回值或觀察例外狀況。 如果需要更強的保證（例如，針對工作流程），應該使用*協調*器函式，這可以等候實體作業完成，而且可以處理傳回值並觀察例外狀況。
+> It's important to understand that the "signals" sent from the client are simply enqueued, to be processed asynchronously at a later time. In particular, the `SignalEntityAsync` usually returns before the entity even starts the operation, and it is not possible to get back the return value or observe exceptions. If stronger guarantees are required (e.g. for workflows), *orchestrator functions* should be used, which can wait for entity operations to complete, and can process return values and observe exceptions.
 
-### <a name="example-client-signals-entity-directly---c"></a>範例：用戶端直接通知實體-C#
+### <a name="example-client-signals-entity-directly---c"></a>Example: client signals entity directly - C#
 
-以下是叫用「計數器」實體的範例佇列觸發函式。
+Here is an example queue-triggered function that invokes a "Counter" entity.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -563,9 +558,9 @@ public static Task Run(
 }
 ```
 
-### <a name="example-client-signals-entity-via-interface---c"></a>範例：透過介面的用戶端信號實體-C#
+### <a name="example-client-signals-entity-via-interface---c"></a>Example: client signals entity via interface - C#
 
-可能的話，我們建議您[透過介面存取實體](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces)，因為它提供更多的型別檢查。 例如，假設先前所述的 `Counter` 實體實作為 `ICounter` 介面，定義如下：
+Where possible, we recommend [accessing entities through interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) because it provides more type checking. For example, suppose the `Counter` entity mentioned earlier implemented an `ICounter` interface, defined as follows:
 
 ```csharp
 public interface ICounter
@@ -581,7 +576,7 @@ public class Counter : ICounter
 }
 ```
 
-接著，用戶端程式代碼可以使用 `SignalEntityAsync<ICounter>` 來產生型別安全的 proxy：
+Client code can then use `SignalEntityAsync<ICounter>` to generate a type-safe proxy:
 
 ```csharp
 [FunctionName("UserDeleteAvailable")]
@@ -595,18 +590,18 @@ public static async Task AddValueClient(
 }
 ```
 
-`proxy` 參數是動態產生的 `ICounter`實例，它會在內部將對 `Add` 的呼叫轉譯為 `SignalEntityAsync`的對等（不具類型）呼叫。
+The `proxy` parameter is a dynamically generated instance of `ICounter`, which internally translates the call to `Add` into the equivalent (untyped) call to `SignalEntityAsync`.
 
 > [!NOTE]
-> `SignalEntityAsync` Api 代表單向作業。 如果實體介面傳回 `Task<T>`，`T` 參數的值一律會是 null 或 `default`。
+> The `SignalEntityAsync` APIs represent one-way operations. If an entity interfaces returns `Task<T>`, the value of the `T` parameter will always be null or `default`.
 
-特別的是，對 `Get` 作業發出信號是沒有意義的，因為不會傳回任何值。 相反地，用戶端可以使用 `ReadStateAsync` 直接存取計數器狀態，也可以啟動呼叫 `Get` 作業的協調器函式。
+In particular, it does not make sense to signal the `Get` operation, as no value is returned. Instead, clients can use either `ReadStateAsync` to access the counter state directly, or can start an orchestrator function that calls the `Get` operation.
 
-### <a name="example-client-signals-entity---javascript"></a>範例：用戶端信號實體-JavaScript
+### <a name="example-client-signals-entity---javascript"></a>Example: client signals entity - JavaScript
 
-以下是範例佇列觸發函式，它會對 JavaScript 中的「計數器」實體發出信號。
+Here is an example queue-triggered function that signals a "Counter" entity in JavaScript.
 
-**函數. json**
+**function.json**
 ```json
 {
     "bindings": [
@@ -638,7 +633,7 @@ module.exports = async function (context) {
 ```
 
 > [!NOTE]
-> 從 `durable-functions` npm 套件的版本**1.3.0**開始，JavaScript 中提供了持久性實體。
+> 從 `durable-functions` npm 套件 **1.3.0** 版開始，JavaScript 提供了耐久性實體。
 
 <a name="host-json"></a>
 ## <a name="hostjson-settings"></a>host.json 設定
@@ -648,4 +643,4 @@ module.exports = async function (context) {
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [實例管理的內建 HTTP API 參考](durable-functions-http-api.md)
+> [Built-in HTTP API reference for instance management](durable-functions-http-api.md)

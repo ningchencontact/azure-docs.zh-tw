@@ -7,12 +7,12 @@ ms.date: 03/21/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: f64856d5b0140d529e939d92d4be61b074928d6e
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: be3dc27823c09823133d5b9a3a3f34afe52ec57d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726417"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227896"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>如何使用 C++ 的 Blob 儲存體
 
@@ -32,10 +32,14 @@ ms.locfileid: "68726417"
 
 若要安裝 Azure Storage Client Library for C++，您可以使用下列方法：
 
-* **Linux：** 遵循 [Azure Storage Client Library for C++ 讀我檔案](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 頁面中提供的指示進行。  
-* **Windows：** 在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。 在 [NuGet 套件管理員主控台](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。  
-  
-     Install-Package wastorage
+* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README: Getting Started on Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) page.
+* **Windows:** On Windows, use [vcpkg](https://github.com/microsoft/vcpkg) as the dependency manager. Follow the [quick-start](https://github.com/microsoft/vcpkg#quick-start) to initialize vcpkg. Then, use the following command to install the library:
+
+```powershell
+.\vcpkg.exe install azure-storage-cpp
+```
+
+You can find a guide for how to build the source code and export to Nuget in the [README](https://github.com/Azure/azure-storage-cpp#download--install) file.
 
 ## <a name="configure-your-application-to-access-blob-storage"></a>設定您的應用程式以存取 Blob 儲存體
 在您要使用 Azure 儲存體 API 來存取 Blob 的 C++ 檔案頂端，加入下列 include 陳述式：  
@@ -66,7 +70,7 @@ const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;
 
 下列範例假設您已經使用這兩個方法之一來取得儲存體連接字串。  
 
-## <a name="retrieve-your-storage-account"></a>取得您的儲存體帳戶
+## <a name="retrieve-your-storage-account"></a>Retrieve your storage account
 您可以使用 **cloud_storage_account** 類別來代表儲存體帳戶資訊。 若要從儲存體連接字串擷取儲存體帳戶資訊，您可以使用 **parse** 方法。  
 
 ```cpp
@@ -81,7 +85,7 @@ azure::storage::cloud_storage_account storage_account = azure::storage::cloud_st
 azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
 ```
 
-## <a name="how-to-create-a-container"></a>HOW TO：建立容器
+## <a name="how-to-create-a-container"></a>作法：建立容器
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
 此範例說明如何建立尚不存在的容器：  
@@ -118,7 +122,7 @@ container.upload_permissions(permissions);
 
 網際網路上的任何人都可以看到公用容器中的 Blob，但要有適當的存取金鑰，才能修改或刪除這些 Blob。  
 
-## <a name="how-to-upload-a-blob-into-a-container"></a>HOW TO：將 Blob 上傳至容器
+## <a name="how-to-upload-a-blob-into-a-container"></a>作法：將 Blob 上傳到容器中
 Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。 在大多數情況下，建議使用區塊 Blob 的類型。  
 
 若要將檔案上傳至區塊 Blob，請取得容器參照，並使用該參照來取得區塊 Blob 參照。 取得 Blob 參考後，即可藉由呼叫 **upload_from_stream** 方法，將任何資料流上傳至 Blob。 此操作會建立 Blob (如果其並不存在) 或覆寫 Blob (如果其已存在)。 下列範例顯示如何將 Blob 上傳到容器，並假設已建立該容器。  
@@ -153,7 +157,7 @@ blob3.upload_text(U("other text"));
 
 或者，您可以使用 **upload_from_file** 方法，將檔案上傳至區塊 Blob。
 
-## <a name="how-to-list-the-blobs-in-a-container"></a>HOW TO：列出容器中的 Blob
+## <a name="how-to-list-the-blobs-in-a-container"></a>作法：列出容器中的 Blob
 若要列出容器中的 Blob，請先取得容器參照。 然後，您可以使用容器的 **list_blobs** 方法來擷取 blob 和 (或) 其中的目錄。 若要存取傳回的 **list_blob_item** 中豐富的屬性和方法，您必須呼叫 **list_blob_item.as_blob** 方法來取得 **cloud_blob** 物件，或呼叫 **list_blob.as_directory** 方法來取得 cloud_blob_directory 物件。 下列程式碼示範如何擷取和輸出 **my-sample-container** 容器中每個項目的 URI：
 
 ```cpp
@@ -183,7 +187,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 
 如需列出作業的詳細資訊，請參閱 [以 C++ 列出 Azure 儲存體資源](../storage-c-plus-plus-enumeration.md)。
 
-## <a name="how-to-download-blobs"></a>HOW TO：下載 Blob
+## <a name="how-to-download-blobs"></a>作法：下載 Blob
 若要下載 Blob，請先擷取 Blob 參考，然後呼叫 **download_to_stream** 方法。 下列範例使用 **download_to_stream** 方法將 Blob 內容傳送給資料流物件，您接著可將該物件永久儲存成本機檔案。  
 
 ```cpp
@@ -231,7 +235,7 @@ azure::storage::cloud_block_blob text_blob = container.get_block_blob_reference(
 utility::string_t text = text_blob.download_text();
 ```
 
-## <a name="how-to-delete-blobs"></a>HOW TO：刪除 Blob
+## <a name="how-to-delete-blobs"></a>作法：刪除 Blob
 若要刪除 Blob，請先取得 Blob 參考，然後針對該參考呼叫 **delete_blob** 方法。  
 
 ```cpp

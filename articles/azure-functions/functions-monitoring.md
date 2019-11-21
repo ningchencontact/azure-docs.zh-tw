@@ -1,69 +1,64 @@
 ---
 title: 監視 Azure Functions
-description: 瞭解如何搭配 Azure Functions 使用 Azure 應用程式 Insights 來監視函式執行。
-author: ggailey777
-manager: gwallace
-keywords: azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構
+description: Learn how to use Azure Application Insights with Azure Functions to monitor function execution.
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: glenga
-ms.openlocfilehash: dc333ef542da1330672ad1dc8ad731969eef6742
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 5f7f6c130226080cba635f89280f655498e5db27
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374560"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226904"
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
-[Azure Functions](functions-overview.md)提供與[Azure 應用程式 Insights](../azure-monitor/app/app-insights-overview.md)的內建整合來監視功能。 本文說明如何設定 Azure Functions，以便將系統產生的記錄檔傳送至 Application Insights。
+[Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) to monitor functions. This article shows you how to configure Azure Functions to send system-generated log files to Application Insights.
 
-我們建議使用 Application Insights，因為它會收集記錄、效能和錯誤資料。 它會自動偵測效能異常，並包含強大的分析工具，可協助您診斷問題，並瞭解如何使用您的函式。 它是設計來協助您持續改善效能和可用性。 您甚至可以在本機函數應用程式專案開發期間使用 Application Insights。 如需詳細資訊，請參閱[什麼是 Application Insights？](../azure-monitor/app/app-insights-overview.md)。
+We recommend using Application Insights because it collects log, performance, and error data. It automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. 它是設計來協助您持續改善效能和可用性。 You can even use Application Insights during local function app project development. For more information, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
-隨著 Azure Functions 內建必要的 Application Insights 檢測，您只需要有效的檢測金鑰，即可將您的函式應用程式連線至 Application Insights 資源。
+As the required Application Insights instrumentation is built into Azure Functions, all you need is a valid instrumentation key to connect your function app to an Application Insights resource.
 
 ## <a name="application-insights-pricing-and-limits"></a>Application Insights 定價和限制
 
-您可以免費嘗試 Azure Application Insights 與 Function Apps 整合。 每日限制可以免費處理的資料量。 在測試期間，您可能會達到此限制。 當您趨近每日限制時，Azure 會提供入口網站及電子郵件通知。 如果您錯過這些警示並達到限制，新的記錄檔就不會出現在 Application Insights 查詢中。 請留意限制，以避免不必要的疑難排解時間。 如需詳細資訊，請參閱[管理 Application Insights 中的價格和資料磁碟區](../azure-monitor/app/pricing.md)。
+您可以免費嘗試 Azure Application Insights 與 Function Apps 整合。 There's a daily limit to how much data can be processed for free. You might hit this limit during testing. 當您趨近每日限制時，Azure 會提供入口網站及電子郵件通知。 If you miss those alerts and hit the limit, new logs won't appear in Application Insights queries. Be aware of the limit to avoid unnecessary troubleshooting time. 如需詳細資訊，請參閱[管理 Application Insights 中的價格和資料磁碟區](../azure-monitor/app/pricing.md)。
 
-適用于函式應用程式的 Application Insights 功能完整清單詳細說明[Azure Functions 支援的功能 Application Insights](../azure-monitor/app/azure-functions-supported-features.md)。
+The full list of Application Insights features available to your function app is detailed in [Application Insights for Azure Functions supported features](../azure-monitor/app/azure-functions-supported-features.md).
 
 ## <a name="enable-application-insights-integration"></a>啟用 Application Insights 整合
 
 針對將資料傳送至 Application Insights 的函式應用程式，它需要知道 Application Insights 資源的檢測金鑰。 金鑰必須在名為 **APPINSIGHTS_INSTRUMENTATIONKEY** 的應用程式設定中。
 
-### <a name="new-function-app-in-the-portal"></a>入口網站中的新函數應用程式
+### <a name="new-function-app-in-the-portal"></a>New function app in the portal
 
-當您[在 Azure 入口網站中建立函數應用程式](functions-create-first-azure-function.md)時，預設會啟用 Application Insights 整合。 Application Insights 資源的名稱與您的函式應用程式相同，而且是在相同區域或最近的區域中建立。
+When you [create your function app in the Azure portal](functions-create-first-azure-function.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in nearest region.
 
-若要檢查所建立的 Application Insights 資源，請選取它以展開 [ **Application Insights** ] 視窗。 您可以變更**新的資源名稱**，或在[Azure 地理](https://azure.microsoft.com/global-infrastructure/geographies/)位置中選擇您要用來儲存資料的不同**位置**。
+To review the Application Insights resource being created, select it to expand the **Application Insights** window. You can change the **New resource name** or choose a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data.
 
 ![建立函式應用程式時啟用 Application Insights](media/functions-monitoring/enable-ai-new-function-app.png)
 
-當您選擇 [**建立**] 時，會使用您的函式應用程式建立 Application Insights 資源，其在 [應用程式設定] 中設定了 `APPINSIGHTS_INSTRUMENTATIONKEY`。 一切都已準備就緒。
+When you choose **Create**, an Application Insights resource is created with your function app, which has the `APPINSIGHTS_INSTRUMENTATIONKEY` set in application settings. Everything is ready to go.
 
 <a id="manually-connect-an-app-insights-resource"></a>
-### <a name="add-to-an-existing-function-app"></a>新增至現有的函數應用程式 
+### <a name="add-to-an-existing-function-app"></a>Add to an existing function app 
 
-當您使用[Azure CLI](functions-create-first-azure-function-azure-cli.md)、 [Visual Studio](functions-create-your-first-function-visual-studio.md)或[Visual Studio Code](functions-create-first-function-vs-code.md)建立函數應用程式時，您必須建立 Application Insights 資源。 然後，您可以從該資源新增檢測金鑰，做為函式應用程式中的應用程式設定。
+When you create a function app using the [Azure CLI](functions-create-first-azure-function-azure-cli.md), [Visual Studio](functions-create-your-first-function-visual-studio.md), or [Visual Studio Code](functions-create-first-function-vs-code.md), you must create the Application Insights resource. You can then add the instrumentation key from that resource as an application setting in your function app.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
-舊版的函式使用內建的監視功能，因此不再建議。 啟用這類函式應用程式的 Application Insights 整合時，您也必須[停用內建記錄功能](#disable-built-in-logging)。  
+Early versions of Functions used built-in monitoring, which is no longer recommended. When enabling Application Insights integration for such a function app, you must also [disable built-in logging](#disable-built-in-logging).  
 
 ## <a name="view-telemetry-in-monitor-tab"></a>在監視索引標籤中檢視遙測
 
-[啟用 Application Insights 整合](#enable-application-insights-integration)之後，您可以在 [**監視**] 索引標籤中查看遙測資料。
+With [Application Insights integration enabled](#enable-application-insights-integration), you can view telemetry data in the **Monitor** tab.
 
-1. 在 [函數應用程式] 頁面中，選取在設定 Application Insights 後至少執行一次的函式。 然後選取 [**監視**] 索引標籤。
+1. In the function app page, select a function that has run at least once after Application Insights was configured. Then select the **Monitor** tab.
 
    ![選取監視索引標籤](media/functions-monitoring/monitor-tab.png)
 
-1. 定期**選取**[重新整理]，直到函式呼叫清單出現為止。
+1. Select **Refresh** periodically, until the list of function invocations appears.
 
-   清單可能需要五分鐘的時間才會出現，而遙測用戶端會將資料傳送至伺服器。 （延遲不適用於[即時計量資料流](../azure-monitor/app/live-stream.md)。 當您載入頁面時，該服務會連線到函式主機，讓記錄直接串流處理至頁面。)
+   It can take up to five minutes for the list to appear while the telemetry client batches data for transmission to the server. (The delay doesn't apply to the [Live Metrics Stream](../azure-monitor/app/live-stream.md). 當您載入頁面時，該服務會連線到函式主機，讓記錄直接串流處理至頁面。)
 
    ![引動過程清單](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
@@ -75,11 +70,11 @@ ms.locfileid: "72374560"
 
    ![引動過程詳細資料](media/functions-monitoring/invocation-details-ai.png)
 
-您可以看到這兩個頁面都有一個 [**執行于] Application Insights**連結，可用於抓取資料的 Application Insights Analytics 查詢。
+You can see that both pages have a **Run in Application Insights** link to the Application Insights Analytics query that retrieves the data.
 
 ![在 Application Insights 中執行](media/functions-monitoring/run-in-ai.png)
 
-會顯示下列查詢。 您可以看到調用清單限制為過去30天。 此清單不會顯示20個以上的資料列（`where timestamp > ago(30d) | take 20`）。 [調用詳細資料] 清單適用于過去30天，沒有限制。
+The following query is displayed. You can see that the invocation list is limited to the last 30 days. The list shows no more than 20 rows (`where timestamp > ago(30d) | take 20`). The invocation details list is for the last 30 days with no limit.
 
 ![Application Insights 分析引動過程清單](media/functions-monitoring/ai-analytics-invocation-list.png)
 
@@ -87,27 +82,27 @@ ms.locfileid: "72374560"
 
 ## <a name="view-telemetry-in-application-insights"></a>在 Application Insights 中檢視遙測
 
-若要從 Azure 入口網站中的函式應用程式開啟 Application Insights，請移至函數應用程式的 **[總覽**] 頁面。 在 [**已設定的功能**] 下，選取 [ **Application Insights**]。
+To open Application Insights from a function app in the Azure portal, go to the function app's **Overview** page. Under **Configured features**, select **Application Insights**.
 
-![從函數應用程式的 [總覽] 頁面開啟 Application Insights](media/functions-monitoring/ai-link.png)
+![Open Application Insights from the function app Overview page](media/functions-monitoring/ai-link.png)
 
-如需如何使用 Application Insights 的相關資訊，請參閱 [Application Insights 文件](https://docs.microsoft.com/azure/application-insights/)。 本節示範一些如何在 Application Insights 中檢視資料的範例。 如果您已經熟悉 Application Insights，可以直接移至[有關如何設定及自訂遙測資料的章節](#configure-categories-and-log-levels)。
+如需如何使用 Application Insights 的相關資訊，請參閱 [Application Insights 文件](https://docs.microsoft.com/azure/application-insights/)。 本節示範一些如何在 Application Insights 中檢視資料的範例。 If you're already familiar with Application Insights, you can go directly to [the sections about how to configure and customize the telemetry data](#configure-categories-and-log-levels).
 
-![Application Insights 總覽 索引標籤](media/functions-monitoring/metrics-explorer.png)
+![Application Insights Overview tab](media/functions-monitoring/metrics-explorer.png)
 
-評估函式中的行為、效能和錯誤時，Application Insights 的下欄區域會很有説明：
+The following areas of Application Insights can be helpful when evaluating the behavior, performance, and errors in your functions:
 
 | Tab 鍵 | 描述 |
 | ---- | ----------- |
-| **[故障](../azure-monitor/app/asp-net-exceptions.md)** |  根據函式失敗和伺服器例外狀況建立圖表和警示。 **作業名稱**是函式名稱。 除非您針對相依性執行自訂遙測，否則不會顯示相依性中的失敗。 |
-| **[性能](../azure-monitor/app/performance-counters.md)** | 分析效能問題。 |
-| **伺服器** | 查看每一伺服器的資源使用率和輸送量。 如果要對函式拖累基礎資源的案例進行偵錯，此資料非常有用。 伺服器會作為「雲端角色執行個體」來參考。 |
-| **[計量](../azure-monitor/app/metrics-explorer.md)** | 建立以度量為基礎的圖表和警示。 計量包括函式呼叫數目、執行時間和成功率。 |
-| **[即時計量串流](../azure-monitor/app/live-stream.md)** | 查看即時建立的計量資料。 |
+| **[Failures](../azure-monitor/app/asp-net-exceptions.md)** |  Create charts and alerts based on function failures and server exceptions. **作業名稱**是函式名稱。 Failures in dependencies aren't shown unless you implement custom telemetry for dependencies. |
+| **[Performance](../azure-monitor/app/performance-counters.md)** | Analyze performance issues. |
+| **伺服器** | View resource utilization and throughput per server. 如果要對函式拖累基礎資源的案例進行偵錯，此資料非常有用。 伺服器會作為「雲端角色執行個體」來參考。 |
+| **[計量](../azure-monitor/app/metrics-explorer.md)** | Create charts and alerts that are based on metrics. Metrics include the number of function invocations, execution time, and success rates. |
+| **[即時計量串流](../azure-monitor/app/live-stream.md)** | View metrics data as it's created in real time. |
 
 ## <a name="query-telemetry-data"></a>查詢遙測資料
 
-[Application Insights 分析](../azure-monitor/app/analytics.md)可讓您以資料庫中的資料表形式存取所有遙測資料。 分析會提供用於擷取、操作和視覺化資料的查詢語言。
+[Application Insights Analytics](../azure-monitor/app/analytics.md) gives you access to all telemetry data in the form of tables in a database. 分析會提供用於擷取、操作和視覺化資料的查詢語言。
 
 ![選取 [分析]](media/functions-monitoring/select-analytics.png)
 
@@ -122,18 +117,18 @@ requests
 | render timechart
 ```
 
-可用的資料表會顯示在左邊的 [**架構**] 索引標籤中。 您可以找到下表中函式引動過程所產生的資料：
+The tables that are available are shown in the **Schema** tab on the left. 您可以找到下表中函式引動過程所產生的資料：
 
 | 表格 | 描述 |
 | ----- | ----------- |
-| **追蹤** | 由執行時間和函式程式碼所建立的記錄。 |
-| **requests** | 每個函式呼叫都有一個要求。 |
-| **exceptions** | 執行時間擲回的任何例外狀況。 |
-| **customMetrics** | 成功和失敗的調用計數、成功率和持續時間。 |
-| **customEvents** | 執行時間所追蹤的事件，例如：觸發函式的 HTTP 要求。 |
-| **performanceCounters** | 執行函數之伺服器的效能相關資訊。 |
+| **traces** | Logs created by the runtime and by function code. |
+| **requests** | One request for each function invocation. |
+| **exceptions** | Any exceptions thrown by the runtime. |
+| **customMetrics** | The count of successful and failing invocations, success rate, and duration. |
+| **customEvents** | Events tracked by the runtime, for example: HTTP requests that trigger a function. |
+| **performanceCounters** | Information about the performance of the servers that the functions are running on. |
 
-其他資料表適用于可用性測試和用戶端和瀏覽器遙測。 您可以實作自訂遙測，將資料新增至它們。
+The other tables are for availability tests, and client and browser telemetry. 您可以實作自訂遙測，將資料新增至它們。
 
 在每個資料表內，一些 Functions 特有的資料會位於 `customDimensions` 欄位中。  例如，下列查詢會擷取記錄層級為 `Error` 的所有追蹤。
 
@@ -142,23 +137,23 @@ traces
 | where customDimensions.LogLevel == "Error"
 ```
 
-執行時間會提供 `customDimensions.LogLevel` 和 @no__t 1 欄位。 您可以在您的函式程式碼中撰寫的記錄中提供額外的欄位。 請參閱本文稍後的[結構化記錄](#structured-logging)。
+The runtime provides the `customDimensions.LogLevel` and `customDimensions.Category` fields. You can provide additional fields in logs that you write in your function code. 請參閱本文稍後的[結構化記錄](#structured-logging)。
 
 ## <a name="configure-categories-and-log-levels"></a>設定類別和記錄層級
 
-您可以使用 Application Insights，而不需要任何自訂設定。 預設設定可能會導致大量的資料。 如果您使用 Visual Studio Azure 訂用帳戶，可能就會達到 Application Insights 適用的資料上限。 在本文稍後，您將瞭解如何設定及自訂您的函式傳送至 Application Insights 的資料。 針對函式應用程式，會在[Host.json]檔案中設定記錄功能。
+You can use Application Insights without any custom configuration. The default configuration can result in high volumes of data. 如果您使用 Visual Studio Azure 訂用帳戶，可能就會達到 Application Insights 適用的資料上限。 Later in this article, you learn how to configure and customize the data that your functions send to Application Insights. For a function app, logging is configured in the [host.json] file.
 
 ### <a name="categories"></a>類別
 
 Azure Functions 記錄器包括每個記錄的「類別」。 類別指出寫入記錄的是哪個部分的執行階段程式碼或函式程式碼。 
 
-函式執行時間會建立具有以 "Host" 開頭之類別的記錄。 在1.x 版中，`function started`、`function executed` 和 @no__t 2 記錄的類別目錄 `Host.Executor`。 從2.x 版開始，這些記錄的類別目錄 `Function.<YOUR_FUNCTION_NAME>`。
+The Functions runtime creates logs with a category that begin with "Host." In version 1.x, the `function started`, `function executed`, and `function completed` logs have the category `Host.Executor`. Starting in version 2.x, these logs have the category `Function.<YOUR_FUNCTION_NAME>`.
 
-如果您在函式程式碼中寫入記錄，則在1.x 版的函數執行時間中，類別會 `Function`。 在2.x 版中，類別目錄為 `Function.<YOUR_FUNCTION_NAME>.User`。
+If you write logs in your function code, the category is `Function` in version 1.x of the Functions runtime. In version 2.x, the category is `Function.<YOUR_FUNCTION_NAME>.User`.
 
 ### <a name="log-levels"></a>記錄層級
 
-Azure Functions 記錄器也會包含每個記錄檔的*記錄層級*。 [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) 為一個列舉，而整數代碼表示相對的重要性：
+The Azure Functions logger also includes a *log level* with every log. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) 為一個列舉，而整數代碼表示相對的重要性：
 
 |LogLevel    |程式碼|
 |------------|---|
@@ -172,9 +167,9 @@ Azure Functions 記錄器也會包含每個記錄檔的*記錄層級*。 [LogLev
 
 下一節會說明記錄層級 `None`。 
 
-### <a name="log-configuration-in-hostjson"></a>Host. json 中的記錄設定
+### <a name="log-configuration-in-hostjson"></a>Log configuration in host.json
 
-[Host.json] 檔案會設定函式應用程式傳送到 Application Insights 的記錄數量。 針對每個類別，您可以指出要傳送的最小記錄層級。 有兩個範例：第一個範例的目標是[功能2.x 版運行](functions-versions.md#version-2x)時間（.net Core），而第二個範例則是針對1.x 版執行時間。
+[Host.json] 檔案會設定函式應用程式傳送到 Application Insights 的記錄數量。 針對每個類別，您可以指出要傳送的最小記錄層級。 There are two examples: the first example targets the [Functions version 2.x runtime](functions-versions.md#version-2x) (.NET Core) and the second example is for the version 1.x runtime.
 
 ### <a name="version-2x"></a>2\.x 版
 
@@ -213,13 +208,13 @@ v2.x 版執行階段使用的是 [.NET Core 記錄篩選階層](https://docs.mic
 
 此範例會設定下列規則：
 
-* 針對分類為 `Host.Results` 或 `Function` 的記錄，只傳送 `Error` 層級和更新版本到 Application Insights。 `Warning` 層級和以下層級的記錄均會被忽略。
+* For logs with category `Host.Results` or `Function`, send only `Error` level and above to Application Insights. `Warning` 層級和以下層級的記錄均會被忽略。
 * 針對類別為 `Host.Aggregator` 的記錄，則會將所有記錄傳送到 Application Insights。 `Trace` 記錄層級和某些記錄器稱為 `Verbose` 的記錄層級相同，但會在 [host.json] 檔案中使用 `Trace`。
 * 針對所有其他記錄，只會將 `Information` 層級和以上層級傳送至 Application Insights。
 
-[Host.json] 中的類別值會控制以相同值開頭之所有類別的記錄。 [Host.json]中的 `Host` 會控制 `Host.General`、`Host.Executor`、`Host.Results` 等等的記錄。
+[Host.json] 中的類別值會控制以相同值開頭之所有類別的記錄。 `Host` in [host.json] controls logging for `Host.General`, `Host.Executor`, `Host.Results`, and so on.
 
-如果 [host.json] 包含多個以相同字串開頭的類別，則會先比對較長的類別。 假設您想要從執行時間的所有專案（`Host.Aggregator` 除外）記錄到 @no__t 1 層級，但是您想要 `Host.Aggregator` 記錄在 `Information` 層級：
+如果 [host.json] 包含多個以相同字串開頭的類別，則會先比對較長的類別。 Suppose you want everything from the runtime except `Host.Aggregator` to log at `Error` level, but you want `Host.Aggregator` to log at the `Information` level:
 
 ### <a name="version-2x"></a>2\.x 版 
 
@@ -254,7 +249,7 @@ v2.x 版執行階段使用的是 [.NET Core 記錄篩選階層](https://docs.mic
 }
 ```
 
-若要隱藏類別的所有記錄，您可以使用記錄層級 `None`。 不會使用該類別寫入任何記錄，而且不會有任何記錄層級。
+若要隱藏類別的所有記錄，您可以使用記錄層級 `None`。 No logs are written with that category and there's no log level above it.
 
 下列各節說明執行階段建立之記錄的主要類別。 
 
@@ -264,17 +259,17 @@ v2.x 版執行階段使用的是 [.NET Core 記錄篩選階層](https://docs.mic
 
 ![要求圖表](media/functions-monitoring/requests-chart.png)
 
-這些記錄都會以 `Information` 層級寫入。 如果您在 `Warning` 或以上版本進行篩選，就不會看到這項資料。
+All of these logs are written at `Information` level. If you filter at `Warning` or above, you won't see any of this data.
 
 ### <a name="category-hostaggregator"></a>類別 Host.Aggregator
 
 這些記錄會透過[可設定](#configure-the-aggregator)的期間來提供函式引動過程的計數與平均。 預設期間為 30 秒或 1,000 個結果，視何者較早達到而定。 
 
-您可在 Application Insights 中的 **customMetrics** 資料表取得記錄。 範例包括執行數、成功率和持續時間。
+您可在 Application Insights 中的 **customMetrics** 資料表取得記錄。 Examples are the number of runs, success rate, and duration.
 
 ![customMetrics 查詢](media/functions-monitoring/custom-metrics-query.png)
 
-這些記錄都會以 `Information` 層級寫入。 如果您在 `Warning` 或以上版本進行篩選，就不會看到這項資料。
+All of these logs are written at `Information` level. If you filter at `Warning` or above, you won't see any of this data.
 
 ### <a name="other-categories"></a>其他類別
 
@@ -282,9 +277,9 @@ v2.x 版執行階段使用的是 [.NET Core 記錄篩選階層](https://docs.mic
 
 ![追蹤查詢](media/functions-monitoring/analytics-traces.png)
 
-具有以 `Host` 開頭之類別目錄的所有記錄都是由函式執行時間所寫入。 「函式已啟動」和「函式已完成」記錄的類別目錄 `Host.Executor`。 若為成功執行，這些記錄會 `Information` 層級。 例外狀況會記錄在 `Error` 層級。 執行階段也會建立 `Warning` 層級的記錄，例如：傳送至有害佇列的佇列訊息。
+All logs with categories that begin with `Host` are written by the Functions runtime. The "Function started" and "Function completed" logs have category `Host.Executor`. For successful runs, these logs are `Information` level. Exceptions are logged at `Error` level. 執行階段也會建立 `Warning` 層級的記錄，例如：傳送至有害佇列的佇列訊息。
 
-您的函式程式碼所寫入的記錄具有 category `Function`，而且可以是任何記錄層級。
+Logs written by your function code have category `Function` and can be any log level.
 
 ## <a name="configure-the-aggregator"></a>設定彙總工具
 
@@ -301,7 +296,7 @@ v2.x 版執行階段使用的是 [.NET Core 記錄篩選階層](https://docs.mic
 
 ## <a name="configure-sampling"></a>設定取樣
 
-Application Insights 具有[取樣](../azure-monitor/app/sampling.md)功能，可防止您在尖峰負載時，于已完成的執行中產生太多遙測資料。 當傳入執行的速率超過指定的臨界值時，Application Insights 會開始隨機忽略部分傳入的執行。 每秒執行數上限的預設值為20（版本1.x 中為5個）。 您可以在 [host.json] 中設定取樣。  以下是範例：
+Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature that can protect you from producing too much telemetry data on completed executions at times of peak load. When the rate of incoming executions exceeds a specified threshold, Application Insights starts to randomly ignore some of the incoming executions. The default setting for maximum number of executions per second is 20 (five in version 1.x). 您可以在 [host.json] 中設定取樣。  以下是範例：
 
 ### <a name="version-2x"></a>2\.x 版 
 
@@ -332,7 +327,7 @@ Application Insights 具有[取樣](../azure-monitor/app/sampling.md)功能，�
 ```
 
 > [!NOTE]
-> [取樣](../azure-monitor/app/sampling.md)預設為啟用。 如果您似乎遺失資料，您可能需要調整取樣設定，以符合您的特定監視案例。
+> [取樣](../azure-monitor/app/sampling.md)預設為啟用。 If you appear to be missing data, you might need to adjust the sampling settings to fit your particular monitoring scenario.
 
 ## <a name="write-logs-in-c-functions"></a>在 C# 函式中寫入記錄
 
@@ -340,9 +335,9 @@ Application Insights 具有[取樣](../azure-monitor/app/sampling.md)功能，�
 
 ### <a name="ilogger"></a>ILogger
 
-在您的函式中使用 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 參數而不是 `TraceWriter` 參數。 使用 `TraceWriter` 建立的記錄會移至 Application Insights，但 `ILogger` 可讓您執行[結構化記錄](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)。
+在您的函式中使用 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 參數而不是 `TraceWriter` 參數。 Logs created by using `TraceWriter` go to Application Insights, but `ILogger` lets you do [structured logging](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-利用 `ILogger` 物件，您可以呼叫 `Log<level>` [擴充方法 (位於 ILogger 上)](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) \(英文\) 來建立記錄。 下列程式碼會寫入分類為 "Function" 的 `Information` 記錄。
+利用 `ILogger` 物件，您可以呼叫 `Log<level>` [擴充方法 (位於 ILogger 上)](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) \(英文\) 來建立記錄。 The following code writes `Information` logs with category "Function."
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -352,7 +347,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 
 ### <a name="structured-logging"></a>結構化記錄
 
-預留位置的順序 (而不是名稱) 會決定要在記錄訊息中使用的參數。 假設您有下列程式碼：
+預留位置的順序 (而不是名稱) 會決定要在記錄訊息中使用的參數。 Suppose you have the following code:
 
 ```csharp
 string partitionKey = "partitionKey";
@@ -362,9 +357,9 @@ logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionK
 
 如果您保留相同的訊息字串並反轉參數的順序，則產生的訊息文字值會處於錯誤的位置上。
 
-您可以使用這種方式來處理預留位置，讓您能夠執行結構化記錄。 Application Insights 會儲存參數名稱/值組和訊息字串。 結果就是訊息引數會變成您可以查詢的欄位。
+您可以使用這種方式來處理預留位置，讓您能夠執行結構化記錄。 Application Insights stores the parameter name-value pairs and the message string. 結果就是訊息引數會變成您可以查詢的欄位。
 
-如果您的記錄器方法呼叫看起來像先前的範例，您可以 `customDimensions.prop__rowKey` 查詢欄位。 新增 @no__t 0 前置詞，以確保執行時間新增的欄位與您的函式程式碼新增的欄位之間沒有衝突。
+If your logger method call looks like the previous example, you can query the field `customDimensions.prop__rowKey`. The `prop__` prefix is added to ensure there are no collisions between fields the runtime adds and fields your function code adds.
 
 您也可以藉由參考欄位 `customDimensions.prop__{OriginalFormat}`，在原始訊息字串上進行查詢。  
 
@@ -381,7 +376,7 @@ logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionK
 }
 ```
 
-### <a name="custom-metrics-logging"></a>自訂計量記錄
+### <a name="custom-metrics-logging"></a>Custom metrics logging
 
 在 C# 指令碼函式中，您可以使用 `ILogger` 上的 `LogMetric` 擴充方法，在 Application Insights 中建立自訂計量。 以下是範例方法呼叫：
 
@@ -389,33 +384,33 @@ logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionK
 logger.LogMetric("TestMetric", 1234);
 ```
 
-這段程式碼是使用適用于 .NET 的 Application Insights API 呼叫 `TrackMetric` 的替代方法。
+This code is an alternative to calling `TrackMetric` by using the Application Insights API for .NET.
 
 ## <a name="write-logs-in-javascript-functions"></a>在 JavaScript 函式中寫入記錄
 
-在 Node.js 函式，使用 `context.log` 寫入記錄。 未啟用結構化記錄。
+在 Node.js 函式，使用 `context.log` 寫入記錄。 Structured logging isn't enabled.
 
 ```
 context.log('JavaScript HTTP trigger function processed a request.' + context.invocationId);
 ```
 
-### <a name="custom-metrics-logging"></a>自訂計量記錄
+### <a name="custom-metrics-logging"></a>Custom metrics logging
 
-當您在 1.x[版](functions-versions.md#creating-1x-apps)的函式執行時間執行時，node.js 函式可以使用 `context.log.metric` 方法，在 Application Insights 中建立自訂計量。 2\.x 版目前不支援這個方法。 以下是範例方法呼叫：
+When you're running on [version 1.x](functions-versions.md#creating-1x-apps) of the Functions runtime, Node.js functions can use the `context.log.metric` method to create custom metrics in Application Insights. This method isn't currently supported in version 2.x. 以下是範例方法呼叫：
 
 ```javascript
 context.log.metric("TestMetric", 1234);
 ```
 
-這段程式碼是使用適用于 Application Insights 的 node.js SDK 呼叫 `trackMetric` 的替代方法。
+This code is an alternative to calling `trackMetric` by using the Node.js SDK for Application Insights.
 
-## <a name="log-custom-telemetry-in-c-functions"></a>記錄函式中C#的自訂遙測
+## <a name="log-custom-telemetry-in-c-functions"></a>Log custom telemetry in C# functions
 
 您可以使用 [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) \(英文\) NuGet 封裝，將自訂遙測資料傳送至 Application Insights。 以下 C# 範例使用的是[自訂遙測 API](../azure-monitor/app/api-custom-events-metrics.md)。 此範例適用於 .NET 類別庫，但 Application Insights 程式碼同樣適用於 C# 指令碼。
 
 ### <a name="version-2x"></a>2\.x 版
 
-2\.x 版執行階段會使用 Application Insights 中的新功能，自動將遙測與目前作業相互關聯。 不需要手動設定作業 `Id`、`ParentId` 或 @no__t 2 欄位。
+2\.x 版執行階段會使用 Application Insights 中的新功能，自動將遙測與目前作業相互關聯。 There's no need to manually set the operation `Id`, `ParentId`, or `Name` fields.
 
 ```cs
 using System;
@@ -564,13 +559,13 @@ namespace functionapp0915
 }
 ```
 
-請勿呼叫 `TrackRequest` 或 `StartOperation<RequestTelemetry>`，因為您會看到函式呼叫的重複要求。  Functions 執行階段會自動追蹤要求。
+Don't call `TrackRequest` or `StartOperation<RequestTelemetry>` because you'll see duplicate requests for a function invocation.  Functions 執行階段會自動追蹤要求。
 
-請勿設定 `telemetryClient.Context.Operation.Id`。 當同時執行許多函式時，此全域設定會導致不正確的相互關聯。 請改為建立新的遙測執行個體 (`DependencyTelemetry`、`EventTelemetry`)，並修改其 `Context` 屬性。 接著，將遙測執行個體傳入至 `TelemetryClient` 上的對應 `Track` 方法 (`TrackDependency()`、`TrackEvent()`)。 這個方法可確保遙測具有目前函式呼叫的正確相互關聯詳細資料。
+請勿設定 `telemetryClient.Context.Operation.Id`。 This global setting causes incorrect correlation when many functions are running simultaneously. 請改為建立新的遙測執行個體 (`DependencyTelemetry`、`EventTelemetry`)，並修改其 `Context` 屬性。 接著，將遙測執行個體傳入至 `TelemetryClient` 上的對應 `Track` 方法 (`TrackDependency()`、`TrackEvent()`)。 This method ensures that the telemetry has the correct correlation details for the current function invocation.
 
-## <a name="log-custom-telemetry-in-javascript-functions"></a>在 JavaScript 函式中記錄自訂遙測
+## <a name="log-custom-telemetry-in-javascript-functions"></a>Log custom telemetry in JavaScript functions
 
-以下範例程式碼片段會使用[Application Insights NODE.JS SDK](https://github.com/microsoft/applicationinsights-node.js)來傳送自訂遙測：
+Here is a sample code snippet that sends custom telemetry with the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js):
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -591,13 +586,13 @@ module.exports = function (context, req) {
 };
 ```
 
-@No__t-0 參數會將 `operation_Id` 設定為函數的調用識別碼。 此設定能夠讓指定的函式引動過程中所有自動產生和自訂的遙測相互關聯。
+The `tagOverrides` parameter sets the `operation_Id` to the function's invocation ID. 此設定能夠讓指定的函式引動過程中所有自動產生和自訂的遙測相互關聯。
 
 ## <a name="dependencies"></a>相依項目
 
-[函式 v2] 會自動收集 HTTP 要求、匯流排和 SQL 的相依性。
+Functions v2 automatically collects dependencies for HTTP requests, ServiceBus, and SQL.
 
-您可以撰寫自訂程式碼來顯示相依性。 如需範例，請參閱[ C#自訂遙測一節](#log-custom-telemetry-in-c-functions)中的範例程式碼。 範例程式碼會產生 Application Insights 中的*應用程式對應*，如下圖所示：
+You can write custom code to show the dependencies. For examples, see the sample code in the [C# custom telemetry section](#log-custom-telemetry-in-c-functions). The sample code results in an *application map* in Application Insights that looks like the following image:
 
 ![應用程式對應](./media/functions-monitoring/app-map.png)
 
@@ -607,49 +602,49 @@ module.exports = function (context, req) {
 
 ## <a name="streaming-logs"></a>串流記錄
 
-在開發應用程式時，您通常會想要查看在 Azure 中執行時，會以近乎即時的方式來寫入記錄檔。
+While developing an application, you often want to see what's being written to the logs in near-real time when running in Azure.
 
-有兩種方式可查看函數執行所產生之記錄檔的資料流程。
+There are two ways to view a stream of log files being generated by your function executions.
 
-* **內建記錄串流**： App Service 平臺可讓您查看應用程式記錄檔的資料流程。 這相當於當您在[本機開發](functions-develop-local.md)期間，以及在入口網站中使用 [**測試**] 索引標籤時，會看到的輸出。 所有以記錄為基礎的資訊都會顯示出來。 如需詳細資訊，請參閱[串流記錄](../app-service/troubleshoot-diagnostic-logs.md#stream-logs)。 此串流方法僅支援單一實例，且不能與在使用方式方案中的 Linux 上執行的應用程式搭配使用。
+* **Built-in log streaming**: the App Service platform lets you view a stream of your application log files. This is equivalent to the output seen when you debug your functions during [local development](functions-develop-local.md) and when you use the **Test** tab in the portal. All log-based information is displayed. For more information, see [Stream logs](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). This streaming method supports only a single instance, and can't be used with an app running on Linux in a Consumption plan.
 
-* **即時計量資料流**：當您的函式應用程式[連線到 Application Insights](#enable-application-insights-integration)時，您可以使用[即時計量資料流](../azure-monitor/app/live-stream.md)，在 Azure 入口網站中近乎即時地查看記錄資料和其他計量。 當您在取用方案中監視多個實例或 Linux 上執行的函數時，請使用此方法。 這個方法會使用[取樣的資料](#configure-sampling)。
+* **Live Metrics Stream**: when your function app is [connected to Application Insights](#enable-application-insights-integration), you can view log data and other metrics in near-real time in the Azure portal using [Live Metrics Stream](../azure-monitor/app/live-stream.md). Use this method when monitoring functions running on multiple-instances or on Linux in a Consumption plan. This method uses [sampled data](#configure-sampling).
 
-您可以在入口網站和大部分的本機開發環境中查看記錄資料流程。 
+Log streams can be viewed both in the portal and in most local development environments. 
 
 ### <a name="portal"></a>入口網站
 
-您可以在入口網站中同時查看這兩種類型的記錄資料流程。
+You can view both types of log streams in the portal.
 
-#### <a name="built-in-log-streaming"></a>內建記錄資料流程
+#### <a name="built-in-log-streaming"></a>Built-in log streaming
 
-若要在入口網站中查看串流記錄，請選取函數應用程式中的 [**平臺功能**] 索引標籤。 然後，在 [**監視**] 下選擇 [**記錄資料流程**]。
+To view streaming logs in the portal, select the **Platform features** tab in your function app. Then, under **Monitoring**, choose **Log streaming**.
 
-![在入口網站中啟用串流記錄](./media/functions-monitoring/enable-streaming-logs-portal.png)
+![Enable streaming logs in the portal](./media/functions-monitoring/enable-streaming-logs-portal.png)
 
-這會將您的應用程式連接至記錄串流服務，而應用程式記錄會顯示在視窗中。 您可以在**應用程式記錄**檔與**Web 服務器記錄**之間切換。  
+This connects your app to the log streaming service and application logs are displayed in the window. You can toggle between **Application logs** and **Web server logs**.  
 
-![在入口網站中查看串流記錄](./media/functions-monitoring/streaming-logs-window.png)
+![View streaming logs in the portal](./media/functions-monitoring/streaming-logs-window.png)
 
 #### <a name="live-metrics-stream"></a>即時計量串流
 
-若要查看應用程式的即時計量資料流，請選取函數應用程式的 [**總覽**] 索引標籤。 當您 Application Insights 啟用時，您會在 [**已設定的功能**] 下看到**Application Insights**連結。 此連結會帶您前往應用程式的 [Application Insights] 頁面。
+To view the Live Metrics Stream for your app, select the **Overview** tab of your function app. When you have Application Insights enables, you see an **Application Insights** link under **Configured features**. This link takes you to the Application Insights page for your app.
 
-在 Application Insights 中，選取 [**即時計量資料流**]。 [取樣的記錄專案](#configure-sampling)會顯示在 [**範例遙測**] 底下。
+In Application Insights, select **Live Metrics Stream**. [Sampled log entries](#configure-sampling) are displayed under **Sample Telemetry**.
 
-![在入口網站中觀看即時計量資料流](./media/functions-monitoring/live-metrics-stream.png) 
+![View Live Metrics Stream in the portal](./media/functions-monitoring/live-metrics-stream.png) 
 
 ### <a name="visual-studio-code"></a>Visual Studio Code
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
-### <a name="core-tools"></a>核心工具
+### <a name="core-tools"></a>Core Tools
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
 ### <a name="azure-cli"></a>Azure CLI
 
-您可以使用[Azure CLI](/cli/azure/install-azure-cli)來啟用串流記錄。 使用下列命令登入、選擇您的訂用帳戶和串流記錄檔：
+You can enable streaming logs by using the [Azure CLI](/cli/azure/install-azure-cli). Use the following commands to sign in, choose your subscription, and stream log files:
 
 ```azurecli
 az login
@@ -660,7 +655,7 @@ az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_N
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-您可以使用[Azure PowerShell](/powershell/azure/overview)來啟用串流記錄。 針對 PowerShell，請使用下列命令來新增您的 Azure 帳戶、選擇您的訂用帳戶和串流記錄檔：
+You can enable streaming logs by using [Azure PowerShell](/powershell/azure/overview). For PowerShell, use the following commands to add your Azure account, choose your subscription, and stream log files:
 
 ```powershell
 Add-AzAccount
@@ -671,9 +666,9 @@ Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 
 ## <a name="disable-built-in-logging"></a>停用內建記錄
 
-當您啟用 Application Insights 時，請停用使用 Azure 儲存體的內建記錄。 內建記錄適用于使用輕量工作負載進行測試，但不適用於高負載生產用途。 針對生產環境監視，建議 Application Insights。 如果在生產環境中使用內建記錄，記錄記錄可能不完整，因為 Azure 儲存體上的節流。
+When you enable Application Insights, disable the built-in logging that uses Azure Storage. The built-in logging is useful for testing with light workloads, but isn't intended for high-load production use. For production monitoring, we recommend Application Insights. If built-in logging is used in production, the logging record might be incomplete because of throttling on Azure Storage.
 
-若要停用內建記錄，請刪除 `AzureWebJobsDashboard` 應用程式設定。 如需在 Azure 入口網站中刪除應用程式設定的相關資訊，請參閱[如何管理函式應用程式](functions-how-to-use-azure-function-app-settings.md#settings)的**應用程式設定**。 在您刪除應用程式設定之前，請確定同一個函式應用程式中沒有任何現有的函式會使用 Azure 儲存體觸發程式或系結的設定。
+若要停用內建記錄，請刪除 `AzureWebJobsDashboard` 應用程式設定。 如需在 Azure 入口網站中刪除應用程式設定的相關資訊，請參閱[如何管理函式應用程式](functions-how-to-use-azure-function-app-settings.md#settings)的**應用程式設定**。 Before you delete the app setting, make sure no existing functions in the same function app use the setting for Azure Storage triggers or bindings.
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -682,4 +677,4 @@ Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 * [Application Insights](/azure/application-insights/)
 * [ASP.NET Core 記錄](/aspnet/core/fundamentals/logging/)
 
-[Host.json]: functions-host-json.md
+[host.json]: functions-host-json.md

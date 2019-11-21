@@ -1,6 +1,6 @@
 ---
 title: Azure 中的輸出連線
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: 本文說明如何 Azure 如何讓 VM 與公用網際網路服務進行通訊。
 services: load-balancer
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 9dcc5fa201c08ca4b1e65b8aae88118731eba427
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5bdcd955919a91760f16287a62956542cfaa47c5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881076"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225291"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的輸出連線
 
@@ -34,33 +34,33 @@ Azure 會使用來源網路位址轉譯 (SNAT) 執行這項功能。 當多個�
 有多個[輸出案例](#scenarios)。 您可以視需要合併這些案例。 仔細檢閱它們以了解當它們套用到您的部署模型和應用程式案例時的功能、限制和模式。 檢閱[管理這些案例](#snatexhaust)的指引。
 
 >[!IMPORTANT] 
->Standard Load Balancer 和標準公用 IP 引進新功能以及不同的輸出連線行為。  這些與基本 SKU 不同。  如果您想要在使用標準 SKU 時輸出連線，您必須使用標準公用 IP 位址或標準公用 Load Balancer 明確定義該連線。  這包括在使用內部 Standard Load Balancer 時建立輸出連線能力。  建議您一律使用標準公用 Load Balancer 的輸出規則。  [案例 3](#defaultsnat) 不適用於標準 SKU。  這表示當使用內部 Standard Load Balancer 時，如果想要使用輸出連線能力，您需要採取步驟來為後端集區中的 VM 建立輸出連線能力。  對於輸出連線能力，單一獨立 VM、可用性設定組中的所有 VM、一個 VMSS 中的所有執行個體都會成為群組。 這表示，如果可用性設定組中的單一 VM 與標準 SKU 相關聯，則此時可用性設定組內的所有 VM 執行個體行為會遵循相同的規則，就如同與標準 SKU 相關聯一般，雖然個別執行個體並非直接與它相關聯。  請仔細檢閱這整份文件了解整體概念，檢閱 [Standard Load Balancer](load-balancer-standard-overview.md) 了解 SKU 之間的差異，並檢閱[輸出規則](load-balancer-outbound-rules-overview.md)。  使用輸出規則可讓您細部控制輸出連線的所有層面。
+>Standard Load Balancer 和標準公用 IP 引進新功能以及不同的輸出連線行為。  這些與基本 SKU 不同。  如果您想要在使用標準 SKU 時輸出連線，您必須使用標準公用 IP 位址或標準公用 Load Balancer 明確定義該連線。  This includes creating outbound connectivity when using an internal Standard Load Balancer.  建議您一律使用標準公用 Load Balancer 的輸出規則。  [案例 3](#defaultsnat) 不適用於標準 SKU。  這表示當使用內部 Standard Load Balancer 時，如果想要使用輸出連線能力，您需要採取步驟來為後端集區中的 VM 建立輸出連線能力。  對於輸出連線能力，單一獨立 VM、可用性設定組中的所有 VM、一個 VMSS 中的所有執行個體都會成為群組。 這表示，如果可用性設定組中的單一 VM 與標準 SKU 相關聯，則此時可用性設定組內的所有 VM 執行個體行為會遵循相同的規則，就如同與標準 SKU 相關聯一般，雖然個別執行個體並非直接與它相關聯。  請仔細檢閱這整份文件了解整體概念，檢閱 [Standard Load Balancer](load-balancer-standard-overview.md) 了解 SKU 之間的差異，並檢閱[輸出規則](load-balancer-outbound-rules-overview.md)。  使用輸出規則可讓您細部控制輸出連線的所有層面。
 
 ## <a name="scenarios"></a>案例概觀
 
 使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 時，會明確定義 Azure Load Balancer 和相關資源。  Azure 目前提供三個不同的方法，來達成 Azure Resource Manager 資源的輸出連線。 
 
-| SKU | 狀況 | 方法 | IP 通訊協定 | 描述 |
+| SKU | 案例 | 方法 | IP 通訊協定 | 描述 |
 | --- | --- | --- | --- | --- |
-| 標準、基本 | [1.具有公用 IP 位址的 VM (不論是否有 Load Balancer)](#ilpip) | SNAT，未使用連接埠偽裝 | TCP、UDP、ICMP、ESP | Azure 會使用指派給執行個體 NIC 之 IP 設定的公用 IP。 執行個體有所有可用的暫時連接埠。 使用 Standard Load Balancer 時，您應該使用[輸出規則](load-balancer-outbound-rules-overview.md)明確定義輸出連線 |
-| 標準、基本 | [2.與 VM 相關聯的公用 Load Balancer (實例上沒有公用 IP 位址)](#lb) | SNAT 搭配使用 Load Balancer 前端的連接埠偽裝 (PAT) | TCP、UDP |Azure 會與多個私人 IP 位址共用公用 Load Balancer 前端的公用 IP 位址。 Azure 會使用前端的暫時連接埠來進行 PAT。 |
-| 無或基本 | [3.獨立 VM (無 Load Balancer, 沒有公用 IP 位址)](#defaultsnat) | SNAT 與連接埠偽裝 (PAT) | TCP、UDP | Azure 會自動指定 SNAT 的公用 IP 位址、與可用性設定組的多個私人 IP 位址共用此公用 IP 位址，以及使用此公用 IP 位址的暫時連接埠。 此案例是上述案例的後援。 如果您需要可見性和控制權，則不建議使用此方式。 |
+| 標準、基本 | [1. VM with Public IP address (with or without Load Balancer)](#ilpip) | SNAT，未使用連接埠偽裝 | TCP、UDP、ICMP、ESP | Azure 會使用指派給執行個體 NIC 之 IP 設定的公用 IP。 執行個體有所有可用的暫時連接埠。 使用 Standard Load Balancer 時，您應該使用[輸出規則](load-balancer-outbound-rules-overview.md)明確定義輸出連線 |
+| 標準、基本 | [2. Public Load Balancer associated with a VM (no Public IP address on the instance)](#lb) | SNAT 搭配使用 Load Balancer 前端的連接埠偽裝 (PAT) | TCP、UDP |Azure 會與多個私人 IP 位址共用公用 Load Balancer 前端的公用 IP 位址。 Azure 會使用前端的暫時連接埠來進行 PAT。 |
+| 無或基本 | [3. Standalone VM (no Load Balancer, no Public IP address)](#defaultsnat) | SNAT 與連接埠偽裝 (PAT) | TCP、UDP | Azure 會自動指定 SNAT 的公用 IP 位址、與可用性設定組的多個私人 IP 位址共用此公用 IP 位址，以及使用此公用 IP 位址的暫時連接埠。 此案例是上述案例的後援。 如果您需要可見性和控制權，則不建議使用此方式。 |
 
 如果您不想要讓 VM 與公用 IP 位址空間中的 Azure 外部端點進行通訊，您可以使用網路安全性群組 (NSG) 來視需要封鎖存取。 [防止輸出連線](#preventoutbound)一節中會更詳細探討 NSG。 有關設計、實作及管理沒有任何輸出存取之虛擬網路的指引，則不在本文的涵蓋範圍內。
 
-### <a name="ilpip"></a>案例 1：具有公用 IP 位址的 VM
+### <a name="ilpip"></a>Scenario 1: VM with Public IP address
 
-在此案例中, VM 已指派公用 IP。 就輸出連線而言，VM 是否負載平衡並不重要。 此案例的優先順序高於其他案例。 使用公用 IP 位址時, VM 會針對所有輸出流量使用公用 IP 位址。  
+In this scenario, the VM has a Public IP assigned to it. 就輸出連線而言，VM 是否負載平衡並不重要。 此案例的優先順序高於其他案例。 When a Public IP address is used, the VM uses the Public IP address for all outbound flows.  
 
 指派給虛擬機器的公用 IP 是 1:1 關聯 (而非 1:多) 而且會實作為無狀態 1:1 NAT。  不使用連接埠偽裝 (PAT)，VM 會有所有可用的暫時連接埠。
 
-如果您的應用程式起始許多輸出流程, 而您遇到 SNAT 埠耗盡的情況, 請考慮指派[公用 IP 位址來緩和 snat 條件約束](#assignilpip)。 從整體面檢閱[管理 SNAT 耗盡](#snatexhaust)。
+If your application initiates many outbound flows and you experience SNAT port exhaustion, consider assigning a [Public IP address to mitigate SNAT constraints](#assignilpip). 從整體面檢閱[管理 SNAT 耗盡](#snatexhaust)。
 
-### <a name="lb"></a>案例 2：無公用 IP 位址的負載平衡 VM
+### <a name="lb"></a>Scenario 2: Load-balanced VM without a Public IP address
 
 在此案例中，VM 是公用 Load Balancer 後端集區的一部分。 VM 沒有指派給它的公用 IP 位址。 必須使用負載平衡器規則來建立公用 IP 前端與後端集區之間的連結，從而設定 Load Balancer 資源。
 
-如果您未完成此規則設定, 則行為會如[獨立 VM 沒有公用 IP](#defaultsnat)的案例中所述。 規則不需要後端集區中有可運作的接聽程式，即可成功探查健康狀態。
+If you do not complete this rule configuration, the behavior is as described in the scenario for [Standalone VM with no Public IP](#defaultsnat). 規則不需要後端集區中有可運作的接聽程式，即可成功探查健康狀態。
 
 當負載平衡的 VM 建立輸出流程時，Azure 會將輸出流量的私用來源 IP 位址轉譯為公用負載平衡器前端的公用 IP 位址。 Azure 會使用 SNAT 來執行此功能。 Azure 也會使用 [PAT](#pat) 來偽裝公用 IP 位址背後的多個私人 IP 位址。 
 
@@ -70,11 +70,11 @@ SNAT 連接埠會預先配置，如[了解 SNAT 和 PAT](#snat) 一節所述。 
 
 當[多個公用 IP 位址與 Load Balancer Basic 建立關聯](load-balancer-multivip-overview.md)時，這些公用 IP 位址中的任一位址都是輸出流程的候選項目，且會隨機選取其中一個位址。  
 
-若要使用 Load Balancer Basic 監視輸出連線的健全狀況, 您可以使用[Azure 監視器記錄檔進行 Load Balancer](load-balancer-monitor-log.md) , 並[警示事件記錄](load-balancer-monitor-log.md#alert-event-log)檔來監視 SNAT 埠耗盡訊息。
+To monitor the health of outbound connections with Load Balancer Basic, you can use [Azure Monitor logs for Load Balancer](load-balancer-monitor-log.md) and [alert event logs](load-balancer-monitor-log.md#alert-event-log) to monitor for SNAT port exhaustion messages.
 
-### <a name="defaultsnat"></a>案例 3：不具公用 IP 位址的獨立 VM
+### <a name="defaultsnat"></a>Scenario 3: Standalone VM without a Public IP address
 
-在此案例中, VM 不是公用 Load Balancer 集區 (而不是內部 Standard Load Balancer 集區的一部分) 的一部分, 而且沒有指派給它的公用 IP 位址。 當 VM 建立輸出流程時，Azure 會將輸出流量的公用來源 IP 位址轉譯為私用來源 IP 位址。 此輸出流量所用的公用 IP 位址無法進行設定，而且不利於訂用帳戶的公用 IP 資源限制。 此公用 IP 位址不屬於您，也不能保留。 如果您重新部署 VM 或可用性設定組或虛擬機器擴展集，此公用 IP 位址將會釋出，並要求新的公用 IP 位址。 請勿使用此案例來將 IP 位址加入允許清單。 請改用其他兩個案例的任一個，您可在其中明確宣告輸出案例以及用於輸出連線的公用 IP 位址。
+In this scenario, the VM is not part of a public Load Balancer pool (and not part of an internal Standard Load Balancer pool) and does not have a Public IP address assigned to it. 當 VM 建立輸出流程時，Azure 會將輸出流量的公用來源 IP 位址轉譯為私用來源 IP 位址。 此輸出流量所用的公用 IP 位址無法進行設定，而且不利於訂用帳戶的公用 IP 資源限制。 此公用 IP 位址不屬於您，也不能保留。 如果您重新部署 VM 或可用性設定組或虛擬機器擴展集，此公用 IP 位址將會釋出，並要求新的公用 IP 位址。 請勿使用此案例來將 IP 位址加入允許清單。 請改用其他兩個案例的任一個，您可在其中明確宣告輸出案例以及用於輸出連線的公用 IP 位址。
 
 >[!IMPORTANT] 
 >此案例也適用於__僅__連結內部 Basic Load Balancer 時。 當內部 Standard Load Balancer 連結至 VM 時，案例 3 __無法使用__。  除了使用內部 Standard Load Balancer 以外，您必須明確地建立[案例 1](#ilpip) 或[案例 2](#lb)。
@@ -91,7 +91,7 @@ SNAT 連接埠會預先配置，如[了解 SNAT 和 PAT](#snat) 一節所述。 
 
 ### <a name="multife"></a>輸出流程的多個前端
 
-#### <a name="standard-load-balancer"></a>Standard Load Balancer
+#### <a name="standard-load-balancer"></a>標準 Load Balancer
 
 當[多個 (公用) IP 前端](load-balancer-multivip-overview.md)存在時，Standard Load Balancer 會同時使用輸出流程的所有候選項目。 如果已針對輸出連線啟用負載平衡規則，則將每個前端乘以可用預先配置 SNAT 連接埠的數目。
 
@@ -133,9 +133,9 @@ SNAT 連接埠會預先配置，如[了解 SNAT 和 PAT](#snat) 一節所述。 
 
 UDP SNAT 連接埠是由與 TCP SNAT 連接埠不同的演算法管理。  Load Balancer 會對 UDP 使用稱為 "Port-Restricted cone NAT" 的演算法。  每個流程都會取用一個 SNAT 連接埠 (不管目的地 IP 位址、連接埠為何)。
 
-#### <a name="snat-port-reuse"></a>SNAT 埠重複使用
+#### <a name="snat-port-reuse"></a>SNAT port reuse
 
-一旦釋放埠之後, 埠就可以視需要重複使用。  您可以將 SNAT 埠視為從最低到最高的順序, 適用于指定的案例, 而第一個可用的 SNAT 埠則用於新的連接。 
+Once a port has been released, the port is available for reuse as needed.  You can think of SNAT ports as a sequence from lowest to highest available for a given scenario, and the first available SNAT port is used for new connections. 
  
 #### <a name="exhaustion"></a>耗盡
 
@@ -180,20 +180,20 @@ SNAT 連接埠配置為 IP 傳輸通訊協定專屬 (TCP 和 UDP 會個別維護
 
 ### <a name="tcp-snat-port-release"></a>TCP SNAT 連接埠釋出
 
-- 如果伺服器/用戶端傳送 FINACK, 則會在240秒後釋放 SNAT 埠。
+- If either server/client sends FINACK, SNAT port will be released after 240 seconds.
 - 如果看到 RST，則會在 15 秒之後釋出 SNAT 連接埠。
-- 如果已達到閒置超時, 則會釋放埠。
+- If idle timeout has been reached, port is released.
 
 ### <a name="udp-snat-port-release"></a>UDP SNAT 連接埠釋出
 
-- 如果已達到閒置超時, 則會釋放埠。
+- If idle timeout has been reached, port is released.
 
 ## <a name="problemsolving"></a>解決問題 
 
 本節的用意是協助您降低 Azure 中輸出連線可能會發生的 SNAT 耗盡。
 
 ### <a name="snatexhaust"></a>管理 SNAT (PAT) 連接埠耗盡
-用於[PAT](#pat)的[暫時埠](#preallocatedports)是可耗盡資源, 如[不含公用 ip 位址的獨立 vm](#defaultsnat)和[沒有公用 ip 位址的負載平衡 vm](#lb)中所述。
+[Ephemeral ports](#preallocatedports) used for [PAT](#pat) are an exhaustible resource, as described in [Standalone VM without a Public IP address](#defaultsnat) and [Load-balanced VM without a Public IP address](#lb).
 
 如果您知道將會對相同的目的地 IP 位址和連接埠起始許多輸出 TCP 或 UDP 連線，並且觀察到失敗的輸出連線，或是支援人員告知您 SNAT 連接埠 ([PAT](#pat) 使用的預先配置[暫時連接埠](#preallocatedports)) 將耗盡，您有數個可緩和這些問題的一般選項。 請檢閱這些選項並判斷哪一個可用且最適合您的案例。 可能會有一或多個選項有助於管理此案例。
 
@@ -214,8 +214,8 @@ SNAT 連接埠配置為 IP 傳輸通訊協定專屬 (TCP 和 UDP 會個別維護
 
 暫時連接埠有 4 分鐘的閒置逾時 (無法調整)。 如果重試太過積極，耗盡情況就沒有機會進行自我清理。 因此，考慮應用程式重試交易的方式和頻率，是設計的一個重要部分。
 
-#### <a name="assignilpip"></a>將公用 IP 指派給每個 VM
-指派公用 IP 位址會將您的案例變更為[VM 的公用 ip](#ilpip)。 用於每個 VM 的所有公用 IP 暫時連接埠都可供 VM 使用。 (與公用 IP 暫時連接埠會與個別後端集區之所有相關 VM 共用的案例相反)。有一些要考慮的取捨，例如公用 IP 位址的額外成本，以及將大量個別 IP 位址加入允許清單所造成的潛在影響。
+#### <a name="assignilpip"></a>Assign a Public IP to each VM
+Assigning a Public IP address changes your scenario to [Public IP to a VM](#ilpip). 用於每個 VM 的所有公用 IP 暫時連接埠都可供 VM 使用。 (As opposed to scenarios where ephemeral ports of a public IP are shared with all the VMs associated with the respective backend pool.) There are trade-offs to consider, such as the additional cost of public IP addresses and the potential impact of whitelisting a large number of individual IP addresses.
 
 >[!NOTE] 
 >此選項不適用於 Web 背景工作角色。

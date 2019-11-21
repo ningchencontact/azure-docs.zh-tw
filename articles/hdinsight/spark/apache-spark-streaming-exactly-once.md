@@ -1,26 +1,26 @@
 ---
-title: Spark 串流 & 一次性事件處理-Azure HDInsight
-description: 如何設定 Apache Spark 串流處理一次或只處理一次事件。
-ms.service: hdinsight
+title: Spark Streaming & exactly-once event processing - Azure HDInsight
+description: How to set up Apache Spark Streaming to process an event once and only once.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 34cb3f4cdcc5bfc11bba300ff1aa04422e0fcc57
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.date: 11/15/2018
+ms.openlocfilehash: ee4f9b84e822cb370e5fe3d55fcceb9c8a9f2ab9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241141"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228978"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>透過一次性事件處理來建立 Apache Spark 串流作業
 
-在系統發生錯誤後，串流處理應用程式會採取不同的方法來處理再處理 (re-processing) 訊息：
+Stream processing applications take different approaches to how they handle reprocessing messages after some failure in the system:
 
 * 至少一次：保證會處理每則訊息，但可能會處理一次以上。
-* 最多一次：不一定會處理每則訊息。 如果已處理訊息，則只會處理一次。
+* 最多一次：不一定會處理每則訊息。 If a message is processed, it's only processed once.
 * 正好一次：保證會處理每則訊息一次，且只處理一次。
 
 本文說明如何設定 Spark 串流以進行一次性處理。
@@ -51,13 +51,13 @@ Spark 串流應用程式讀取事件的來源必須「可重新使用」。 這�
 
 Spark 串流支援使用預寫記錄檔，其中每個收到的事件會先寫入容錯儲存體中的 Spark 的檢查點目錄，然後儲存在彈性分散式資料集 (RDD) 中。 在 Azure 中，容錯儲存體是 Azure 儲存體或 Azure Data Lake Storage 所支援的 HDFS。 在 Spark 串流應用程式中，將 `spark.streaming.receiver.writeAheadLog.enable` 組態設定設為 `true`，即可為所有接收器啟用預寫記錄檔。 預寫記錄檔會為失敗的驅動程式和執行程式提供容錯。
 
-對於針對事件資料執行工作的背景工作，每個 RDD 都會定義為在多個背景工作間進行複寫與散發。 如果工作因執行它的背景工作損毀而失敗，則此工作會在另一個具有事件資料複本的背景工作上重新啟動，因此不會遺失事件。
+對於針對事件資料執行工作的背景工作，每個 RDD 都會定義為在多個背景工作間進行複寫與散發。 If a task fails because the worker running it crashed, the task will be restarted on another worker that has a replica of the event data, so the event isn't lost.
 
 ### <a name="use-checkpoints-for-drivers"></a>使用驅動程式的檢查點
 
 作業驅動程式必須可重新啟動。 如果執行 Spark 串流應用程式的驅動程式損毀，則會關閉其所有執行中的接收器、工作以及儲存事件資料的任何 RDD。 在此情況下，您必須能夠儲存作業的進度，以便稍後繼續執行。 定期向容錯儲存體執行 DStream 的有向非循環圖 (DAG) 檢查點即可完成此工作。 DAG 中繼資料包含用來建立串流應用程式的組態、用來定義應用程式的作業，以及已排入佇列但尚未完成的任何批次。 此中繼資料可讓失敗的驅動程式從檢查點資訊重新啟動。 驅動程式重新啟動時，它會啟動新的接收器，讓它們自行將事件資料從預寫記錄檔復原回到 RDD。
 
-在 Spark 串流中以兩個步驟啟用檢查點。 
+在 Spark 串流中以兩個步驟啟用檢查點。
 
 1. 在 StreamingContext 物件中，設定檢查點的儲存體路徑：
 
@@ -79,13 +79,13 @@ Spark 串流支援使用預寫記錄檔，其中每個收到的事件會先寫�
 
 ### <a name="use-idempotent-sinks"></a>使用等冪接收端
 
-您的作業寫入結果的目的地接收端必須能夠處理多次提供相同結果的情況。 接收端必須能夠偵測這類重複結果並予以忽略。 您可以在不變更狀態的情況下，使用相同的資料多次呼叫「等冪」接收端。
+The destination sink to which your job writes results must be able to handle the situation where it's given the same result more than once. 接收端必須能夠偵測這類重複結果並予以忽略。 您可以在不變更狀態的情況下，使用相同的資料多次呼叫「等冪」接收端。
 
-您可以實作先檢查資料存放區中是否存在連入結果的邏輯，從而建立等冪接收端。 如果結果已經存在，從您的 Spark 作業的觀點來看，寫入應該成功，但實際上資料存放區卻忽略了重複的資料。 如果結果不存在，則接收端應將此新結果插入其儲存體中。 
+您可以實作先檢查資料存放區中是否存在連入結果的邏輯，從而建立等冪接收端。 如果結果已經存在，從您的 Spark 作業的觀點來看，寫入應該成功，但實際上資料存放區卻忽略了重複的資料。 If the result doesn't exist, then the sink should insert this new result into its storage.
 
 例如，您可以使用預存程序與 Azure SQL Database，在資料表中插入事件。 此預存程序會先依索引鍵欄位尋找事件，而只有在找不到相符的事件時，才會將記錄插入資料表中。
 
-另一個範例是使用已分割的檔案系統，例如 Azure 儲存體 Blob 或 Azure Data Lake Storage。 在此情況下，您的接收邏輯不必檢查檔案是否存在。 如果代表事件的檔案存在，則只會使用相同的資料來覆寫。 否則會在計算的路徑上建立新檔案。
+另一個範例是使用已分割的檔案系統，例如 Azure 儲存體 Blob 或 Azure Data Lake Storage。 In this case, your sink logic doesn't need to check for the existence of a file. If the file representing the event exists, it's simply overwritten with the same data. 否則會在計算的路徑上建立新檔案。
 
 ## <a name="next-steps"></a>後續步驟
 

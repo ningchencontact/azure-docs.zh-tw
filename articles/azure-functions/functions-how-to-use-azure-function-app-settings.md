@@ -1,33 +1,29 @@
 ---
-title: 在 Azure 中設定函數應用程式設定
+title: Configure function app settings in Azure
 description: 了解如何設定 Azure Functions 應用程式設定。
-author: ggailey777
-manager: gwallace
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 7ad7f6156bbd8ea86e3e71bda4b23dac9722a0ef
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170751"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230581"
 ---
-# <a name="manage-your-function-app"></a>管理您的函數應用程式 
+# <a name="manage-your-function-app"></a>Manage your function app 
 
-在 Azure Functions 中，函數應用程式會提供個別函數的執行內容。 函數應用程式行為會套用至指定之函數應用程式所裝載的所有函數。 函數應用程式中的所有函式都必須是相同的[語言](supported-languages.md)。 
+在 Azure Functions 中，函數應用程式會提供個別函數的執行內容。 函數應用程式行為會套用至指定之函數應用程式所裝載的所有函數。 All functions in a function app must be of the same [language](supported-languages.md). 
 
-函式應用程式中的個別函式會一起部署並一起調整。 相同函式應用程式中的所有函式都會隨著函式應用程式的調整, 與每個實例共用資源。 
+Individual functions in a function app are deployed together and are scaled together. All functions in the same function app share resources, per instance, as the function app scales. 
 
-針對每個函式應用程式, 會分別定義連接字串、環境變數和其他應用程式設定。 必須在函式應用程式之間共用的任何資料, 都應該儲存在外部保存的存放區中。
+Connection strings, environment variables, and other application settings are defined separately for each function app. Any data that must be shared between function apps should be stored externally in a persisted store.
 
-本文說明如何設定和管理您的函數應用程式。 
+This article describes how to configure and manage your function apps. 
 
 > [!TIP]  
-> 您也可以使用[Azure CLI]來管理許多設定選項。 
+> Many configuration options can also be managed by using the [Azure CLI]. 
 
 ## <a name="get-started-in-the-azure-portal"></a>在 Azure 入口網站中開始使用
 
@@ -35,28 +31,28 @@ ms.locfileid: "70170751"
 
 ![Azure 入口網站中的函數應用程式概觀](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-您可以從 [總覽] 頁面流覽至管理函式應用程式所需的所有專案, 特別是 **[應用程式設定](#settings)** 和 **[平臺](#platform-features)** 功能。
+You can navigate to everything you need to manage your function app from the overview page, in particular the **[Application settings](#settings)** and **[Platform features](#platform-features)** .
 
 ## <a name="settings"></a>應用程式設定
 
-[**應用程式設定**] 索引標籤會維護您的函數應用程式所使用的設定。 這些設定會以加密方式儲存, 而且您必須選取 [**顯示值**], 才能在入口網站中查看值。 您也可以使用 Azure CLI 來存取應用程式設定。
+The **Application Settings** tab maintains settings that are used by your function app. These settings are stored encrypted, and you must select **Show values** to see the values in the portal. You can also access application settings by using the Azure CLI.
 
 ### <a name="portal"></a>入口網站
 
-若要在入口網站中新增設定, 請選取 [**新增應用程式設定**], 然後新增新的機碼值組。
+To add a setting in the portal, select **New application setting** and add the new key-value pair.
 
-![Azure 入口網站中的函數應用程式設定。](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+![Function app settings in the Azure portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
 ### <a name="azure-cli"></a>Azure CLI
 
-此[`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list)命令會傳回現有的應用程式設定, 如下列範例所示:
+The [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) command returns the existing application settings, as in the following example:
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-[`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)命令會新增或更新應用程式設定。 下列範例會使用名為`CUSTOM_FUNCTION_APP_SETTING`的索引鍵和的值來`12345`建立設定:
+The [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command adds or updates an application setting. The following example creates a setting with a key named `CUSTOM_FUNCTION_APP_SETTING` and a value of `12345`:
 
 
 ```azurecli-interactive
@@ -65,13 +61,13 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 --settings CUSTOM_FUNCTION_APP_SETTING=12345
 ```
 
-### <a name="use-application-settings"></a>使用應用程式設定
+### <a name="use-application-settings"></a>Use application settings
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-當您在本機開發函式應用程式時, 您必須在本機的設定 json 專案檔中維護這些值的本機複本。 若要深入瞭解, 請參閱[本機設定檔](functions-run-local.md#local-settings-file)。
+When you develop a function app locally, you must maintain local copies of these values in the local.settings.json project file. To learn more, see [Local settings file](functions-run-local.md#local-settings-file).
 
-## <a name="platform-features"></a>平台功能
+## <a name="platform-features"></a>Platform features
 
 ![函數應用程式平台功能索引標籤。](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
@@ -80,7 +76,7 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 > [!NOTE]
 > 當函數應用程式在「取用」主控方案上執行時，並非所有 App Service 功能都可供使用。
 
-本文的其餘部分著重于 Azure 入口網站中適用于函數的下列 App Service 功能:
+The rest of this article focuses on the following App Service features in the Azure portal that are useful for Functions:
 
 + [App Service 編輯器](#editor)
 + [Console](#console)
@@ -95,9 +91,9 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 
 ![App Service 編輯器](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-App Service 編輯器是一個進階的入口網站內編輯器，可供您用來修改 JSON 組態檔和類似的程式碼檔案。 選擇此選項會啟動一個含有基本編輯器的個別瀏覽器索引標籤。 這可讓您與 Git 存放庫整合、執行程式碼和進行偵錯，以及修改函數應用程式設定。 相較于內建函數編輯器, 此編輯器為您的函式提供了增強的開發環境。  
+App Service 編輯器是一個進階的入口網站內編輯器，可供您用來修改 JSON 組態檔和類似的程式碼檔案。 選擇此選項會啟動一個含有基本編輯器的個別瀏覽器索引標籤。 這可讓您與 Git 存放庫整合、執行程式碼和進行偵錯，以及修改函數應用程式設定。 This editor provides an enhanced development environment for your functions compared with the built-in function editor.  
 
-我們建議您考慮在本機電腦上開發您的功能。 當您在本機開發併發布至 Azure 時, 您的專案檔案在入口網站中是唯讀的。 若要深入瞭解, 請參閱在本機撰寫程式[代碼和測試 Azure Functions](functions-develop-local.md)。
+We recommend that you consider developing your functions on your local computer. When you develop locally and publish to Azure, your project files are read-only in the portal. To learn more, see [Code and test Azure Functions locally](functions-develop-local.md).
 
 ### <a name="console"></a>主控台
 
@@ -105,7 +101,7 @@ App Service 編輯器是一個進階的入口網站內編輯器，可供您用�
 
 當您偏好從命令列與函數應用程式進行互動時，入口網站內主控台是一個理想的開發人員工具。 常用命令包含目錄和檔案建立與瀏覽，以及執行批次檔和指令碼。 
 
-在本機開發時, 我們建議使用[Azure Functions Core Tools](functions-run-local.md)和[Azure CLI]。
+When developing locally, we recommend using the [Azure Functions Core Tools](functions-run-local.md) and the [Azure CLI].
 
 ### <a name="kudu"></a>進階工具 (Kudu)
 
@@ -114,23 +110,23 @@ App Service 編輯器是一個進階的入口網站內編輯器，可供您用�
 App Service 的進階工具 (也稱為 Kudu) 可讓您存取函數應用程式的進階系統管理功能。 從 Kudu，您可以管理系統資訊、應用程式設定、環境變數、網站擴充功能、HTTP 標頭，以及伺服器變數。 您也可以透過瀏覽至函數應用程式的 SCM 端點 (例如 `https://<myfunctionapp>.scm.azurewebsites.net/`) 來啟動 **Kudu** 
 
 
-### <a name="deployment"></a>部署中心
+### <a name="deployment"></a>Deployment Center
 
-當您使用原始檔控制方案來開發和維護您的函式程式碼時, 部署中心可讓您從原始檔控制建立和部署。 當您進行更新時, 會建立您的專案, 並將其部署至 Azure。 如需詳細資訊, 請參閱[Azure Functions 中的部署技術](functions-deployment-technologies.md)。
+When you use a source control solution to develop and maintain your functions code, Deployment Center lets you build and deploy from source control. Your project is built and deployed to Azure when you make updates. For more information, see [Deployment technologies in Azure Functions](functions-deployment-technologies.md).
 
-### <a name="cors"></a>跨原始來源資源分享
+### <a name="cors"></a>Cross-origin resource sharing
 
-為了避免在用戶端上執行惡意程式碼, 現代化的瀏覽器會封鎖從 web 應用程式對在不同網域中執行之資源的要求。 [跨原始來源資源分享 (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS)可讓`Access-Control-Allow-Origin`標頭宣告哪些來源可以呼叫您函式應用程式上的端點。
+To prevent malicious code execution on the client, modern browsers block requests from web applications to resources running in a separate domain. [Cross-origin resource sharing (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) lets an `Access-Control-Allow-Origin` header declare which origins are allowed to call endpoints on your function app.
 
 #### <a name="portal"></a>入口網站
 
-當您設定函數應用程式的 [允許的原始**來源**] `Access-Control-Allow-Origin`清單時, 會自動將標頭新增至函式應用程式中來自 HTTP 端點的所有回應。 
+When you configure the **Allowed origins** list for your function app, the `Access-Control-Allow-Origin` header is automatically added to all responses from HTTP endpoints in your function app. 
 
-![設定函數應用程式的 CORS 清單](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
+![Configure function app's CORS list](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
-使用萬用字元 (`*`) 時, 會忽略所有其他網域。 
+When the wildcard (`*`) is used, all other domains are ignored. 
 
-[`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add)使用命令將網域新增至允許的來源清單。 下列範例會新增 contoso.com 網域:
+Use the [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) command to add a domain to the allowed origins list. The following example adds the contoso.com domain:
 
 ```azurecli-interactive
 az functionapp cors add --name <FUNCTION_APP_NAME> \
@@ -138,13 +134,13 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 --allowed-origins https://contoso.com
 ```
 
-[`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show)使用命令來列出目前允許的原始來源。
+Use the [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) command to list the current allowed origins.
 
 ### <a name="auth"></a>驗證
 
 ![設定函數應用程式的驗證](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
-當函數使用 HTTP 觸發程序時，您可以要求呼叫必須先經過驗證。 App Service 支援使用社交提供者 (例如 Facebook、Microsoft 和 Twitter) 的 Azure Active Directory 驗證和登入。 如需設定特定驗證提供者的詳細資訊，請參閱 [Azure App Service 驗證概觀](../app-service/overview-authentication-authorization.md)。 
+當函數使用 HTTP 觸發程序時，您可以要求呼叫必須先經過驗證。 App Service supports Azure Active Directory authentication and sign-in with social providers, such as Facebook, Microsoft, and Twitter. 如需設定特定驗證提供者的詳細資訊，請參閱 [Azure App Service 驗證概觀](../app-service/overview-authentication-authorization.md)。 
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -1,5 +1,5 @@
 ---
-title: 如何從 Azure IoT 中樞裝置佈建服務中取消註冊裝置
+title: Disenroll device from Azure IoT Hub Device Provisioning Service
 description: 如何消註冊裝置以避免透過 Azure IoT 中樞裝置佈建服務進行佈建
 author: wesmc7777
 ms.author: wesmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0dadf0ec248dac01e5cc65779004477bf4afc823
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6efbc4483e4768014678822e82f4ca4178f51863
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62113564"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228770"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>如何從 Azure IoT 中樞裝置佈建服務中取消註冊裝置
 
@@ -26,12 +26,12 @@ ms.locfileid: "62113564"
 
 ## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>使用個別註冊項目將裝置列入封鎖清單
 
-個別註冊適用於單一裝置，而且可以使用 X.509 憑證或 SAS 權杖 (適用於實際或虛擬 TPM) 作為證明機制 (針對使用 SAS 權杖作為證明機制的裝置，只能透過個別註冊進行佈建)。若要將具有個別註冊的裝置列入封鎖清單，您可以停用或刪除其註冊項目。 
+個別註冊適用於單一裝置，而且可以使用 X.509 憑證或 SAS 權杖 (適用於實際或虛擬 TPM) 作為證明機制 (Devices that use SAS tokens as their attestation mechanism can be provisioned only through an individual enrollment.) To blacklist a device that has an individual enrollment, you can either disable or delete its enrollment entry. 
 
 停用裝置的註冊項目以將裝置暫時列入封鎖清單： 
 
 1. 登入 Azure 入口網站，然後在左側功能表中選取 [所有資源]。
-2. 在資源清單中，選取您要從中將裝置列入封鎖清單的佈建服務。
+2. 在資源清單中，選取您要從中將裝置列入黑名單的佈建服務。
 3. 在您的佈建服務中，選取 [管理註冊]，然後選取 [個別註冊] 索引標籤。
 4. 選取您想要列入封鎖清單之裝置的註冊項目。 
 
@@ -39,12 +39,12 @@ ms.locfileid: "62113564"
 
 5. 在註冊頁面上，捲動到底部，並在 [啟用項目] 切換開關選取 [停用]，然後選取 [儲存]。  
 
-   ![在入口網站中停用個別註冊項目](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
+   ![在入口網站中停用個別註冊](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
 
 刪除裝置的註冊項目以將裝置永久列入封鎖清單：
 
 1. 登入 Azure 入口網站，然後在左側功能表中選取 [所有資源]。
-2. 在資源清單中，選取您要從中將裝置列入封鎖清單的佈建服務。
+2. 在資源清單中，選取您要從中將裝置列入黑名單的佈建服務。
 3. 在您的佈建服務中，選取 [管理註冊]，然後選取 [個別註冊] 索引標籤。
 4. 針對您想要列入封鎖清單的裝置，選取其註冊項目旁邊的核取方塊。 
 5. 選取視窗頂端的 [刪除]，然後選取 [是] 以確認您要移除該註冊。 
@@ -74,7 +74,7 @@ X.509 憑證通常會配置在信任的信任鏈結中。 如果憑證在鏈結�
 刪除憑證的註冊群組以將憑證永久列入封鎖清單：
 
 1. 登入 Azure 入口網站，然後在左側功能表中選取 [所有資源]。
-2. 在資源清單中，選取您要從中將裝置列入封鎖清單的佈建服務。
+2. 在資源清單中，選取您要從中將裝置列入黑名單的佈建服務。
 3. 在佈建服務中，選取 [管理註冊]，然後選取 [註冊群組] 索引標籤。
 4. 針對您想要列入封鎖清單的憑證，選取其註冊群組旁邊的核取方塊。 
 5. 選取視窗頂端的 [刪除]，然後選取 [是] 以確認您要移除該註冊群組。 

@@ -1,23 +1,23 @@
 ---
-title: 使用 Azure 私用端點私下連接至儲存體帳戶
-description: 瞭解如何在 Azure 中使用私人端點，私下連線到儲存體帳戶。
+title: Connect privately to a storage account using Azure Private Endpoint
+description: Learn how to connect privately to a storage account in Azure using a Private Endpoint.
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: 8a72f70fbc1ab6052587beb1d949dd73b1ad3559
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.author: allensu
+ms.openlocfilehash: cfe0caaf199821358f8a66ac65ae75c38336c725
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376157"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228083"
 ---
-# <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>使用 Azure 私用端點私下連接至儲存體帳戶
-Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Azure 資源（例如虛擬機器（Vm））私下與私人連結資源進行通訊。
+# <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Connect privately to a storage account using Azure Private Endpoint
+Azure Private Endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with Private Link resources.
 
-在本快速入門中，您將瞭解如何在 Azure 虛擬網路上建立 VM、使用 Azure 入口網站的儲存體帳戶與私人端點。 然後，您可以從 VM 安全地存取儲存體帳戶。
+In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with a Private Endpoint using the Azure portal. Then, you can securely access the storage account from the VM.
 
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
@@ -25,11 +25,11 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 在 https://portal.azure.com 登入 Azure 入口網站。
 
 ## <a name="create-a-vm"></a>建立 VM
-在本節中，您將建立虛擬網路和子網，以裝載用來存取私人連結資源的 VM （在此範例中為儲存體帳戶）。
+In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link Resource (a storage account in this example).
 
 ### <a name="create-the-virtual-network"></a>建立虛擬網路
 
-在本節中，您將建立虛擬網路和子網，以裝載用來存取私人連結資源的 VM。
+In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link resource.
 
 1. 在畫面的左上方，選取 [建立資源] > [網路] > [虛擬網路]。
 1. 在 [建立虛擬網路] 中，輸入或選取這項資訊：
@@ -49,7 +49,7 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 ### <a name="create-virtual-machine"></a>建立虛擬機器
 
-1. 在 [Azure 入口網站] 畫面的左上方，選取 [**建立資源**] [ > ] [**計算** > **虛擬機器**]。
+1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Virtual machine**.
 
 1. 在 [建立虛擬機器 - 基本] 中，輸入或選取這項資訊：
 
@@ -62,7 +62,7 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
     | 虛擬機器名稱 | 輸入 myVm。 |
     | 地區 | 選取 [WestCentralUS]。 |
     | 可用性選項 | 保留預設值 [不需要基礎結構備援]。 |
-    | 映像 | 選取 [Windows Server 2019 Datacenter]。 |
+    | 影像 | 選取 [Windows Server 2019 Datacenter]。 |
     | 大小 | 保留預設值 [標準 DS1 v2]。 |
     | **系統管理員帳戶** |  |
     | 使用者名稱 | 輸入您選擇的使用者名稱。 |
@@ -74,9 +74,9 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
     | 已經有 Windows 授權？ | 保留預設值 [否]。 |
     |||
 
-1. 選取 **[下一步：磁片]** 。
+1. Select **Next: Disks**.
 
-1. 在 [**建立虛擬機器-磁片**] 中保留預設值，然後選取 **[下一步：網路]** 。
+1. In **Create a virtual machine - Disks**, leave the defaults and select **Next: Networking**.
 
 1. 在 [建立虛擬機器 - 網路功能] 中，選取這項資訊：
 
@@ -94,12 +94,12 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 1. 當您看到 [驗證成功] 訊息時，請選取 [建立]。
 
-## <a name="create-your-private-endpoint"></a>建立您的私用端點
-在本節中，您將使用私人端點來建立私人儲存體帳戶。 
+## <a name="create-your-private-endpoint"></a>Create your Private Endpoint
+In this section, you will create a private storage account using a Private Endpoint to it. 
 
-1. 在 [Azure 入口網站] 畫面的左上方，選取 [**建立資源**] [ > **儲存體**] [ > **儲存體帳戶**]。
+1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Storage** > **Storage account**.
 
-1. 在 [**建立儲存體帳戶-基本**] 中，輸入或選取這項資訊：
+1. In **Create storage account - Basics**, enter or select this information:
 
     | 設定 | Value |
     | ------- | ----- |
@@ -107,17 +107,17 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
     | Subscription | 選取您的訂用帳戶。 |
     | Resource group | 選取 **myResourceGroup**。 您已在上一節中建立此項目。|
     | **執行個體詳細資料** |  |
-    | 儲存體帳戶名稱  | 輸入*mystorageaccount*。 如果此名稱已被使用，請建立唯一名稱。 |
+    | 儲存體帳戶名稱  | Enter *mystorageaccount*. 如果此名稱已被使用，請建立唯一名稱。 |
     | 地區 | 選取 [WestCentralUS]。 |
     | 效能| 保留預設值 [標準]。 |
-    | 帳戶類型 | 保留預設**儲存體（一般用途 v2）** 。 |
-    | 複寫 | 選取 **[讀取權限異地多餘儲存體（RA-GRS）** ]。 |
+    | 帳戶類型 | Leave the default **Storage (general purpose v2)** . |
+    | 複寫 | Select **Read-access geo-redundant storage (RA-GRS)** . |
     |||
   
-3. 選取 **[下一步：網路]** 。
-4. 在 [**建立儲存體帳戶-網路功能**、連線方式] 中，選取 [**私人端點**]。
-5. 在 [**建立儲存體帳戶-網路**] 中，選取 [**新增私人端點**]。 
-6. 在 [**建立私人端點**] 中，輸入或選取這項資訊：
+3. Select **Next: Networking**.
+4. In **Create a storage account - Networking**, connectivity method, select **Private Endpoint**.
+5. In **Create a storage account - Networking**, select **Add Private Endpoint**. 
+6. In **Create Private Endpoint**, enter or select this information:
 
     | 設定 | Value |
     | ------- | ----- |
@@ -125,25 +125,25 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
     | Subscription | 選取您的訂用帳戶。 |
     | Resource group | 選取 **myResourceGroup**。 您已在上一節中建立此項目。|
     |Location|選取 [WestCentralUS]。|
-    |Name|輸入 *myPrivateEndpoint*。  |
-    |儲存體子資源|保留預設**Blob**。 |
+    |Name|Enter *myPrivateEndpoint*.  |
+    |Storage sub-resource|Leave the default **Blob**. |
     | **網路** |  |
-    | 虛擬網路  | 從 [資源群組] *myResourceGroup*中選取 [ *MyVirtualNetwork* ]。 |
+    | 虛擬網路  | Select *MyVirtualNetwork* from resource group *myResourceGroup*. |
     | 子網路 | 選取 [mySubnet] ** 。 |
     | **私人 DNS 整合**|  |
-    | 與私人 DNS 區域整合  | 保留預設值 [**是]** 。 |
-    | 私人 DNS 區域  | 保留預設的 * * （New） privatelink.blob.core.windows.net * *。 |
+    | 與私人 DNS 區域整合  | Leave the default **Yes**. |
+    | 私人 DNS 區域  | Leave the default ** (New) privatelink.blob.core.windows.net**. |
     |||
 7. 選取 [確定]。 
 8. 選取 [檢閱 + 建立]。 您會移至 [檢閱 + 建立] 頁面，其中 Azure 會驗證您的設定。 
 9. 當您看到 [驗證成功] 訊息時，請選取 [建立]。 
-10. 流覽至您剛才建立的儲存體帳戶資源。
-11. 從左側內容功能表中選取 [**存取金鑰**]。
-12. 選取 [key1] 連接字串上的 [**複製**]。
+10. Browse to the storage account resource that you just created.
+11. Select **Access Keys** from the left content menu.
+12. Select **Copy** on the connection string for key1.
  
 ## <a name="connect-to-a-vm-from-the-internet"></a>從網際網路連線至 VM
 
-從網際網路連線至 VM *myVm* ，如下所示：
+Connect to the VM *myVm* from the internet as follows:
 
 1. 在入口網站的搜尋列中，輸入 myVm。
 
@@ -166,15 +166,15 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 1. 當 VM 桌面出現之後，將它最小化以回到您的本機桌面。  
 
-## <a name="access-storage-account-privately-from-the-vm"></a>從 VM 私下存取儲存體帳戶
+## <a name="access-storage-account-privately-from-the-vm"></a>Access storage account privately from the VM
 
-在本節中，您會使用私用端點，私下連接到儲存體帳戶。
+In this section, you will connect privately to the storage account using the Private Endpoint.
 
 > [!IMPORTANT]
-> 存放裝置的 DNS 設定需要在主機檔案上進行手動修改以包含特定帳戶的 FQDN，請使用 Windows 上的系統管理員許可權修改下列檔案： c:\Windows\System32\Drivers\etc\hosts 或 Linux/etc/hosts依照下列格式，在上一個步驟中包含帳戶的 DNS 資訊： [私人 IP 位址] myaccount.blob.core.windows.net
+> DNS configuration for storage needs a manual modification on the hosts file to include the FQDN of the specific account Please modify the following file using administrator permissions on Windows: c:\Windows\System32\Drivers\etc\hosts or Linux /etc/hosts Include the DNS information for the account from previous step in the following format [Private IP Address] myaccount.blob.core.windows.net
 
 1. 在 myVM ** 的遠端桌面中，開啟 PowerShell。
-2. 輸入 @ no__t-0 您會收到類似下面的訊息：
+2. Enter `nslookup mystorageaccount.blob.core.windows.net` You'll receive a message similar to this:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -184,28 +184,28 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
     Aliases:  mystorageaccount.blob.core.windows.net
     ```
 3. 安裝 [Microsoft Azure 儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows)。
-4. 按一下滑鼠右鍵，選取 [**儲存體帳戶**]。
-5. 選取 **[連線到 azure 儲存體]** 。
-6. 選取 [**使用連接字串**]。
+4. Select **Storage accounts** with the right-click.
+5. Select **Connect to an azure storage**.
+6. Select **Use a connection string**.
 7. 選取 [下一步]。
-8. 貼入先前複製的資訊，以輸入連接字串。
+8. Enter the connection string by pasting the information previously copied.
 9. 選取 [下一步]。
 10. 選取 [ **連接**]。
-11. 從 mystorageaccount 流覽 Blob 容器 
-12. 也建立資料夾及/或將檔案上傳至*mystorageaccount*。 
-13. 關閉對 *myVM*的遠端桌面連線。 
+11. Browse the Blob containers from mystorageaccount 
+12. (Optionally) Create folders and/or upload files to *mystorageaccount*. 
+13. Close the remote desktop connection to *myVM*. 
 
-存取儲存體帳戶的其他選項：
-- Microsoft Azure 儲存體總管是 Microsoft 提供的獨立免費應用程式，可讓您在 Windows、macOS 和 Linux 上以視覺化方式處理 Azure 儲存體資料。 您可以安裝應用程式，以私下流覽儲存體帳戶內容。 
+Additional options to access the storage account:
+- Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
  
-- AzCopy 公用程式是適用于 Azure 儲存體的高效能可編寫腳本資料傳輸的另一個選項。 請使用 AzCopy 在 Blob、檔案和表格儲存體之間傳輸資料。 
+- The AzCopy utility is another option for high-performance scriptable data transfer for Azure storage. 請使用 AzCopy 在 Blob、檔案和表格儲存體之間傳輸資料。 
 
 
 ## <a name="clean-up-resources"></a>清除資源 
-當您使用私人端點、儲存體帳戶和 VM 完成時，請刪除資源群組及其包含的所有資源： 
-1. 輸入 *myResourceGroup* in 入口網站頂端的 **搜尋** 方塊，然後選取  *myResourceGroup* from 搜尋結果。 
+When you're done using the Private Endpoint, storage account and the VM, delete the resource group and all of the resources it contains: 
+1. 在入口網站頂端的 [搜尋] 方塊中輸入  *myResourceGroup* ，然後從搜尋結果中選取 [myResourceGroup] **  。 
 2. 選取 [刪除資源群組]。 
-3. 輸入 *myResourceGroup* FOR**鍵入資源組名**，然後選取 [**刪除**]。 
+3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
 
 ## <a name="next-steps"></a>後續步驟
-在本快速入門中，您已在虛擬網路和儲存體帳戶和私人端點上建立 VM。 您已從網際網路連線至其中一個 VM，並使用私人連結安全地向儲存體帳戶通訊。 若要深入瞭解私用端點，請參閱 [什麼是 Azure 私人端點？](private-endpoint-overview.md)。
+In this Quickstart, you created a VM on a virtual network and storage account and a Private Endpoint. You connected to one VM from the internet and securely communicated to the storage account using Private Link. To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).

@@ -1,21 +1,16 @@
 ---
 title: Azure Functions 的 Event Grid 觸發程序
 description: 了解如何在 Azure Functions 中處理 Event Grid 事件。
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: ''
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: ff21a1325e341f119fc8615ca03b41b8068aca19
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8820818528835df6379c894eb06c154f4120f507
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991413"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227307"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions 的 Event Grid 觸發程序
 
@@ -55,7 +50,7 @@ Event Grid 是一項 Azure 服務，會傳送 HTTP 要求通知您「發行者�
 
 ### <a name="c-2x"></a>C# (2.x)
 
-下列範例顯示繫結至 [ 的 Functions 2.x ](functions-dotnet-class-library.md)C# 函式`EventGridEvent`：
+下列範例顯示繫結至 `EventGridEvent` 的 Functions 2.x [C# 函式](functions-dotnet-class-library.md)：
 
 ```cs
 using Microsoft.Azure.EventGrid.Models;
@@ -81,7 +76,7 @@ namespace Company.Function
 
 ### <a name="c-version-1x"></a>C# (1.x 版)
 
-下列範例顯示繫結至 [ 的 Functions 1.x ](functions-dotnet-class-library.md)C# 函式`JObject`：
+下列範例顯示繫結至 `JObject` 的 Functions 1.x [C# 函式](functions-dotnet-class-library.md)：
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -318,13 +313,13 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 下表說明您在 function.json 檔案中設定的繫結設定屬性。 沒有要在 `EventGridTrigger` 屬性中設定的建構函式參數或屬性。
 
-|function.json 屬性 |說明|
+|function.json 屬性 |描述|
 |---------|---------|
 | **type** | 必要項目 - 必須設定為 `eventGridTrigger`。 |
 | **direction** | 必要項目 - 必須設定為 `in`。 |
 | **name** | 必要項目 - 函式程式碼中用於接收事件資料之參數的變數名稱。 |
 
-## <a name="usage"></a>使用量
+## <a name="usage"></a>用量
 
 使用 Azure Functions 1.x 中的 C# 和 F# 函式時，您可以為 Event Grid 觸發程序使用下列參數類型：
 
@@ -382,7 +377,7 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 若要開始接收 Event Grid HTTP 要求，請建立會指定端點 URL 以叫用函式的 Event Grid 訂用帳戶。
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 對於您在 Azure 入口網站中使用 Event Grid 觸發程序開發的函式，選取**新增 Event Grid 訂用帳戶**。
 
@@ -526,14 +521,14 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 * 設定 `Content-Type: application/json` 標頭。
 * 設定 `aeg-event-type: Notification` 標頭。
 * 將 RequestBin 資料貼到要求本文中。
-* 張貼至事件方格觸發程式函式的 URL。
-  * 針對2.x，請使用下列模式：
+* Post to the URL of your Event Grid trigger function.
+  * For 2.x use the following pattern:
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
 
-  * 若為1.x，請使用：
+  * For 1.x use:
 
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
@@ -553,7 +548,7 @@ Event Grid 觸發程序函式會執行並顯示類似於下列範例的記錄：
 
 ## <a name="local-testing-with-ngrok"></a>使用 ngrok 進行本機測試
 
-在本機測試 Event Grid 觸發程序的另一種方式，是自動建立網際網路與您開發電腦之間的 HTTP 連線。 您可以使用[ngrok](https://ngrok.com/)之類的工具來執行此動作：
+在本機測試 Event Grid 觸發程序的另一種方式，是自動建立網際網路與您開發電腦之間的 HTTP 連線。 You can do that with a tool like [ngrok](https://ngrok.com/):
 
 1. [建立 ngrok 端點](#create-an-ngrok-endpoint)。
 1. [執行 Event Grid 觸發程序函式](#run-the-event-grid-trigger-function)。
@@ -564,7 +559,7 @@ Event Grid 觸發程序函式會執行並顯示類似於下列範例的記錄：
 
 ### <a name="create-an-ngrok-endpoint"></a>建立 ngrok 端點
 
-從 *ngrok* 下載 [ngrok.exe](https://ngrok.com/)，並使用下列命令加以執行：
+從 [ngrok](https://ngrok.com/) 下載 *ngrok.exe*，並使用下列命令加以執行：
 
 ```
 ngrok http -host-header=localhost 7071

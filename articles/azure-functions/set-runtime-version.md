@@ -1,40 +1,35 @@
 ---
 title: 如何設定 Azure Functions 執行階段目標版本
 description: Azure Functions 支援多個執行階段版本。 了解如何指定 Azure 中裝載之函式應用程式的執行階段版本。
-services: functions
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: glenga
-ms.openlocfilehash: c30dbad9e2d433920ade6890eabd85f083f9d968
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 6f93ac7bcbd25c1b120cfeecae9dd4353524855f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596838"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230310"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>如何設定 Azure Functions 執行階段目標版本
 
-函式應用程式可在特定版本的 Azure Functions 執行階段中執行。 有兩個主要版本： 1.x[和](functions-versions.md)2.x，版本 3. x 處於預覽狀態。 根據預設，所建立的函式應用程式會使用 2.x 版的執行階段。 本文說明如何在 Azure 中設定要在您選擇的版本上執行的函式應用程式。 如需如何為特定版本設定本機開發環境的相關資訊，請參閱[在本機進行 Azure Functions 的程式碼編寫和測試](functions-run-local.md)。
+函式應用程式可在特定版本的 Azure Functions 執行階段中執行。 There are two major versions: [1.x and 2.x](functions-versions.md), with version 3.x in preview. 根據預設，所建立的函式應用程式會使用 2.x 版的執行階段。 本文說明如何在 Azure 中設定要在您選擇的版本上執行的函式應用程式。 如需如何為特定版本設定本機開發環境的相關資訊，請參閱[在本機進行 Azure Functions 的程式碼編寫和測試](functions-run-local.md)。
 
 ## <a name="automatic-and-manual-version-updates"></a>自動和手動版本更新
 
-Azure Functions 可讓您在函式應用程式中使用 `FUNCTIONS_EXTENSION_VERSION` 應用程式設定，以特定版本的執行時間為目標。 函式應用程式會保留在指定的主要版本上，直到您明確選擇移至新版本為止。
+Azure Functions lets you target a specific version of the runtime by using the `FUNCTIONS_EXTENSION_VERSION` application setting in a function app. 函式應用程式會保留在指定的主要版本上，直到您明確選擇移至新版本為止。
 
-如果您只指定主要版本，則函式應用程式會在執行時間可供使用時，自動更新為新的次要版本。 新的次要版本不會導入重大變更。 如果您指定次要版本 (例如 "2.0.12345")，則函式應用程式會釘選到該特定版本，直到您明確地變更它。
+If you specify only the major version, the function app is automatically updated to new minor versions of the runtime when they become available. 新的次要版本不會導入重大變更。 如果您指定次要版本 (例如 "2.0.12345")，則函式應用程式會釘選到該特定版本，直到您明確地變更它。
 
 > [!NOTE]
-> 如果您釘選到特定版本的 Azure Functions，然後嘗試使用 Visual Studio 來發行至 Azure，則會顯示對話方塊視窗，提示您更新至最新版本或取消發行。 若要避免這個情況，請在您的 `.csproj` 檔案中新增 `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` 屬性。
+> If you pin to a specific version of Azure Functions, and then try to publish to Azure using Visual Studio, a dialog window will pop up prompting you to update to the latest version or cancel the publish. To avoid this, add the `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` property in your `.csproj` file.
 
 有新版本公開發行時，入口網站會提示您向上移至該版本。 移至新版本之後，您隨時可以使用 `FUNCTIONS_EXTENSION_VERSION` 應用程式設定移回舊版。
 
-下表顯示每個主要版本的 `FUNCTIONS_EXTENSION_VERSION` 值，以啟用自動更新：
+The following table shows the `FUNCTIONS_EXTENSION_VERSION` values for each major version to enable automatic updates:
 
-| 主要版本 | `FUNCTIONS_EXTENSION_VERSION` 值 |
+| 主要版本 | `FUNCTIONS_EXTENSION_VERSION` value |
 | ------------- | ----------------------------------- |
-| 3.x （預覽） | `~3` |
+| 3.x (preview) | `~3` |
 | 2.x  | `~2` |
 | 1.x | `~1` |
 
@@ -42,7 +37,7 @@ Azure Functions 可讓您在函式應用程式中使用 `FUNCTIONS_EXTENSION_VER
 
 ## <a name="view-and-update-the-current-runtime-version"></a>檢視並更新目前的執行階段版本
 
-您可以變更函數應用程式所使用的執行階段版本。 由於可能會有重大變更，您只能在函式應用程式中建立任何函式之前，變更執行階段版本。 
+You can change the runtime version used by your function app. Because of the potential of breaking changes, you can only change the runtime version before you have created any functions in your function app. 
 
 > [!IMPORTANT]
 > 雖然執行階段版本取決於 `FUNCTIONS_EXTENSION_VERSION` 設定，但您應該在 Azure 入口網站中進行這項變更，而不是直接變更該設定。 這是因為入口網站會驗證您的變更，並視需要進行其他相關變更。
@@ -52,7 +47,7 @@ Azure Functions 可讓您在函式應用程式中使用 `FUNCTIONS_EXTENSION_VER
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
 > [!NOTE]
-> 使用 Azure 入口網站，您無法變更已包含函式之函式應用程式的執行階段版本。
+> Using the Azure portal, you can't change the runtime version for a function app that already contains functions.
 
 ### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>從 Azure CLI
 

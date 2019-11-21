@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: f1bf62596b6edcc6fff6572e431f3a777be93f05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4be484cdff2014f11c872da9a246ef8406447712
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002098"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230107"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>使用成本警示監視使用量和支出
 
@@ -35,21 +35,21 @@ ms.locfileid: "66002098"
 
 當部門支出到達固定的配額臨界值時，部門支出配額警示就會通知您。 支出配額會設定於 EA 入口網站中。 每當符合臨界值時，它就會產生一封電子郵件給部門擁有者，並顯示於成本警示中。 例如，配額的 50% 或 75%。
 
-## <a name="supported-alert-features-by-offer-categories"></a>支援依供應項目類別的警示功能
+## <a name="supported-alert-features-by-offer-categories"></a>Supported alert features by offer categories
 
-警示類型的支援取決於您所 (提供的 Microsoft) 的 Azure 帳戶的類型。 下表顯示支援的警示功能的各種 Microsoft 供應項目。 您可以檢視在由 Microsoft 所提供的完整清單[了解成本管理資料](understand-cost-mgt-data.md)。
+Support for alert types depends on the type of Azure account that you have (Microsoft offer). The following table shows the alert features that are supported by various Microsoft offers. You can view the full list of Microsoft offers at [Understand Cost Management data](understand-cost-mgt-data.md).
 
-| 警示類型 | Enterprise 合約 | Microsoft 客戶合約 | Web direct/付 As-You-執行 |
+| 警示類型 | Enterprise 合約 | Microsoft 客戶合約 | Web direct/Pay-As-You-Go |
 |---|---|---|---|
-| 預算 | ✔ | ✔ | ✔ |
+| Budget | ✔ | ✔ | ✔ |
 | 功勞 | ✔ |✘ | ✘ |
-| 部門消費配額 | ✔ | ✘ | ✘ |
+| Department spending quota | ✔ | ✘ | ✘ |
 
 
 
 ## <a name="view-cost-alerts"></a>檢視成本警示
 
-若要檢視成本警示，請開啟 在 Azure 入口網站，然後選取 所需的範圍內**預算**功能表中。 使用**範圍**丸切換到不同的範圍。 選取 **成本警示**功能表中。 如需有關範圍的詳細資訊，請參閱[了解並使用範圍](understand-work-scopes.md)。
+To view cost alerts, open the desired scope in the Azure portal and select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope. Select **Cost alerts** in the menu. 如需有關範圍的詳細資訊，請參閱[了解並使用範圍](understand-work-scopes.md)。
 
 ![在成本管理中顯示的警示範例影像](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 
@@ -67,6 +67,6 @@ ms.locfileid: "66002098"
 
 ![顯示關閉並重新啟動選項的範例影像](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - 如果您尚未建立預算或設定預算的警示條件，請完成[建立和管理預算](tutorial-acm-create-budgets.md)教學課程。

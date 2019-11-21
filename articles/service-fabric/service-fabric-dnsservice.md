@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: atsenthi
-ms.openlocfilehash: d8925f1c31b7a0c8f45e65e783077e8f5e2b0add
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 707fc9f073e37d60c6c6fca8e9a8392b2550da9f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103251"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229295"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric 中的 DNS 服務
 「DNS 服務」是一個選用的系統服務，您可以在叢集中啟用以使用 DNS 通訊協定來探索其他服務。 
@@ -114,8 +114,10 @@ DNS 服務不支援動態連接埠。 若要解決動態連接埠上所公開的
 3. 在使用您的變更將叢集範本更新之後，請加以套用，使升級完成。 升級完成後，DNS 系統服務就會開始在叢集中執行。 服務名稱是 `fabric:/System/DnsService`，而且您可以在 Service Fabric Explorer 的 [系統] 服務區段下找到它。 
 
 > [!NOTE]
-> 從 [停用] 將 DNS 升級為 [已啟用] 時，Service Fabric Explorer 可能不會反映新的狀態。 若要解決此問題，請修改 Azure Resource Manager 範本中的 UpgradePolicy 來重新開機節點。 如需詳細資訊，請參閱[Service Fabric 範本參考](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications)。
+> When upgrading DNS from disabled to enabled, Service Fabric Explorer may not reflect the new state. To solve, restart the nodes by modifying the UpgradePolicy in your Azure Resource Manager template. See the [Service Fabric Template Reference](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) for more.
 
+> [!NOTE]
+> Enabling DNS service when developing on a local machine will override some DNS settings. If you experience issues connecting to the internet, check your DNS settings.
 
 ## <a name="setting-the-dns-name-for-your-service"></a>為您的服務設定 DNS 名稱
 您可以在 ApplicationManifest.xml 檔案中，透過預設服務的宣告為您的服務設定 DNS 名稱，或透過 PowerShell 命令來設定。
@@ -179,10 +181,10 @@ DNS 服務不支援動態連接埠。 若要解決動態連接埠上所公開的
 ```
     <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
 ```
-其中：
+地點：
 
 - *First-Label-Of-Partitioned-Service-DNSName* 是服務 DNS 名稱的第一個部分。
-- *PartitionPrefix* 是可在叢集資訊清單的 DnsService 區段中設定的值，或可透過叢集的 Resource Manager 範本設定的值。 預設值為 "--"。 若要深入了解，請參閱 [DNS 服務設定](./service-fabric-cluster-fabric-settings.md#dnsservice)。
+- *PartitionPrefix* 是可在叢集資訊清單的 DnsService 區段中設定的值，或可透過叢集的 Resource Manager 範本設定的值。 The default value is "--". 若要深入了解，請參閱 [DNS 服務設定](./service-fabric-cluster-fabric-settings.md#dnsservice)。
 - *Target-Partition-Name* 是分割區的名稱。 
 - *PartitionSuffix* 是可在叢集資訊清單的 DnsService 區段中設定的值，或可透過叢集的 Resource Manager 範本設定的值。 預設值是空字串。 若要深入了解，請參閱 [DNS 服務設定](./service-fabric-cluster-fabric-settings.md#dnsservice)。
 - *Remaining-Partitioned-Service-DNSName* 是服務 DNS 名稱的其餘部分。
