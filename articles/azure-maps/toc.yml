@@ -49,6 +49,8 @@
           href: routing-coverage.md
         - name: 行動涵蓋範圍
           href: mobility-coverage.md
+        - name: 天氣涵蓋範圍
+          href: weather-coverage.md
     - name: 當地語系化支援
       href: supported-languages.md
     - name: 支援的地圖樣式
@@ -57,6 +59,8 @@
       href: zoom-levels-and-tile-grid.md
     - name: 行動服務資料結構
       href: mobility-service-data-structure.md
+    - name: 天氣服務概念
+      href: weather-services-concepts.md
 - name: 使用說明指南
   items:
     - name: 管理地圖服務帳戶
@@ -185,6 +189,8 @@
           href: 'https://docs.microsoft.com/rest/api/maps/mobility'
         - name: 轉譯服務
           href: 'https://docs.microsoft.com/rest/api/maps/render'
+        - name: 轉譯服務 V2
+          href: 'https://docs.microsoft.com/rest/api/maps/renderv2'
         - name: 路線規劃服務
           href: 'https://docs.microsoft.com/rest/api/maps/route'
         - name: 搜尋服務
@@ -195,6 +201,8 @@
           href: 'https://docs.microsoft.com/rest/api/maps/timezone'
         - name: 交通服務
           href: 'https://docs.microsoft.com/rest/api/maps/traffic'
+        - name: 天氣服務
+          href: 'https://docs.microsoft.com/rest/api/maps/weather'
         - name: 地圖服務帳戶管理
           href: 'https://docs.microsoft.com/rest/api/maps-management'
     - name: JavaScript

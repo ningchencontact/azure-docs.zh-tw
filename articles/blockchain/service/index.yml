@@ -2,7 +2,7 @@
 title: Azure 區塊鏈服務文件
 summary: 了解如何建立區塊鏈應用程式。 教學課程、API 參考和其他文件將示範如何使用 Azure 區塊鏈服務來建立、開發和管理 Azure 上的區塊鏈應用程式。
 metadata:
-  title: Azure 區塊鏈服務文件 - 教學課程和 API 參考
+  title: Azure 區塊鏈服務文件
   description: 了解如何建立區塊鏈應用程式。 教學課程、API 參考和其他文件將示範如何使用 Azure 區塊鏈服務來建立、開發和管理 Azure 上的區塊鏈應用程式。
   services: azure-blockchain
   ms.service: azure-blockchain
@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 11/04/2019
-  ms.openlocfilehash: 9e4def49e2d0e1fc91259bbdf744ec7e40a34547
-  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.openlocfilehash: 5af8999a32682df18d1e4f1be192c2d4be628860
+  ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73577333"
+  ms.lasthandoff: 11/21/2019
+  ms.locfileid: "74285068"
 landingContent:
 - title: 關於 Azure 區塊鏈服務
   linkLists:

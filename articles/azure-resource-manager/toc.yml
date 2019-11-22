@@ -177,15 +177,35 @@
           displayName: DevOps
     - name: 匯出範本
       href: export-template-portal.md
-    - name: 移動
+    - name: 移動 - 區域
       items:
-        - name: 移動資源
+        - name: 跨區域移動
+          href: resource-group-move-region.md
+        - name: 支援的服務
+          href: region-move-support.md
+        - name: 服務
+          items:
+            - name: Azure VM
+              href: ../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Azure 儲存體
+              href: ../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Azure SQL
+              href: ../sql-database/sql-database-move-resources-across-regions.md?toc=/azure/azure-resource-manager/toc.json
+            - name: 虛擬網路
+              href: ../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
+            - name: 網路安全性群組 (NSG)
+              href: ../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
+            - name: 公用 IP 位址
+              href: ../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/toc.json
+    - name: 移動 - 資源群組/訂用帳戶
+      items:
+        - name: 跨資源群組/訂用帳戶移動
           href: resource-group-move-resources.md
-        - name: 資源支援
+        - name: 支援的服務
           href: move-support-resources.md
         - name: 疑難排解移動
           href: troubleshoot-move.md
-        - name: 針對服務移動指引
+        - name: 服務
           items:
             - name: App Service 方案
               href: ./move-limitations/app-service-move-limitations.md

@@ -62,6 +62,8 @@
       href: customize-rdp-properties.md
     - name: 部署診斷工具
       href: deploy-diagnostics.md
+    - name: 設定 MSIX 應用程式附加
+      href: app-attach.md
 - name: 概念
   items:
     - name: Windows 虛擬桌面環境
