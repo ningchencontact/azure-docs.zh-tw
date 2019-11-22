@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: dad28da0b481467633bebf664fea2be39a50200b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e72e6c112913d646b6dc1479a9b80acc6d4ec7b1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681043"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280760"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 DB2 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -52,13 +52,13 @@ ms.locfileid: "73681043"
 > - DB2 for i (AS400)：使用複製活動之前，讓進階使用者建立登入使用者集合。 命令：`create collection <username>`
 > - DB2 for z/OS 或 LUW：使用高權限帳戶 - 具有封裝授權單位與 BIND、BINDADD、GRANT EXECUTE TO PUBLIC 權限的進階使用者或管理員 - 執行一次複製活動，然後就會在複製期間自動建立所需的封裝。 之後，您可以切換至一般使用者，來執行後續的複製。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 「整合執行階段」提供內建的 DB2 驅動程式，因此從 DB2 複製資料時，您不需要手動安裝任何驅動程式。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>快速入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -68,17 +68,19 @@ ms.locfileid: "73681043"
 
 以下是針對 DB2 連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設為：**DB2** | 是 |
-| 伺服器 |DB2 伺服器的名稱。 您可以指定在伺服器名稱後面加上以冒號隔開的連接埠號碼，例如 `server:port`。 |是 |
-| 資料庫 |DB2 資料庫的名稱。 |是 |
-| authenticationType |用來連接到 DB2 資料庫的驗證類型。<br/>允許的值為**基本**。 |是 |
-| username |指定要連線到 DB2 資料庫的使用者名稱。 |是 |
-| password |指定您為使用者名稱所指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
-| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
+| 類型 | 類型屬性必須設為：**DB2** | yes |
+| 伺服器 |DB2 伺服器的名稱。 您可以指定在伺服器名稱後面加上以冒號隔開的連接埠號碼，例如 `server:port`。 |yes |
+| database |DB2 資料庫的名稱。 |yes |
+| authenticationType |用來連接到 DB2 資料庫的驗證類型。<br/>允許的值為**基本**。 |yes |
+| username |指定要連線到 DB2 資料庫的使用者名稱。 |yes |
+| password |指定您為使用者名稱所指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |yes |
+| packageCollection | 指定在查詢資料庫時，ADF 自動建立所需套件的位置 | 否 |
+| certificateCommonName | 當您使用安全通訊端層（SSL）或傳輸層安全性（TLS）加密時，您必須輸入 [憑證一般名稱] 的值。 | 否 |
+| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，就會使用預設的「Azure 整合執行階段」。 |否 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -109,9 +111,9 @@ ms.locfileid: "73681043"
 
 若要從 DB2 複製資料，支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為： **Db2Table** | 是 |
+| 類型 | 資料集的類型屬性必須設定為： **Db2Table** | yes |
 | 結構描述 | 架構的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
 | 資料表 | 資料表的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
 | tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對新的工作負載使用 `schema` 和 `table`。 | 否 (如果已指定活動來源中的「查詢」) |
@@ -144,12 +146,12 @@ ms.locfileid: "73681043"
 
 若要從 DB2 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為： **Db2Source** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`。 | 否 (如果已指定資料集中的 "tableName") |
+| 類型 | 複製活動來源的類型屬性必須設定為： **Db2Source** | yes |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`。 | 否 (如果已指定資料集中的「tableName」) |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -194,19 +196,19 @@ ms.locfileid: "73681043"
 | Blob |Byte[] |
 | Char |字串 |
 | Clob |字串 |
-| 日期 |Datetime |
+| Date |Datetime |
 | DB2DynArray |字串 |
 | DbClob |字串 |
-| Decimal |Decimal |
-| DecimalFloat |Decimal |
+| DECIMAL |DECIMAL |
+| DecimalFloat |DECIMAL |
 | Double |Double |
 | Float |Double |
 | 圖形 |字串 |
-| Integer |Int32 |
+| 整數， |Int32 |
 | LongVarBinary |Byte[] |
 | LongVarChar |字串 |
 | LongVarGraphic |字串 |
-| 數值 |Decimal |
+| 數值 |DECIMAL |
 | Real |單一 |
 | SmallInt |Int16 |
 | 時間 |TimeSpan |

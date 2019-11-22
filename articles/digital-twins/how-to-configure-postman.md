@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 6a001d6b501a22b4b07599792a64af735c5d4d9b
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 784e31b823c65c0b908dc07582805e7a69d19563
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090488"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304811"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>如何針對 Azure Digital Twins 設定 Postman
 
@@ -52,15 +52,15 @@ ms.locfileid: "74090488"
 
 1. 選取的 API 會在相同的 [要求 API 權限] 窗格中顯示為 **Azure Digital Twins**。 選取 [讀取 (1)] 下拉式清單，然後選取 [Read.Write] 核取方塊。 選取 [新增權限] 按鈕。
 
-    [![新增 API 權限](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+    [![新增 Azure 數位 Twins 的 API 許可權](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
 1. 根據您組織的設定，您可能需要執行其他步驟，授與對此 API 的系統管理員存取權。 請連絡系統管理員以取得詳細資訊。 管理員存取權一經核准，您 API 的 [API 權限] 窗格中的 [需要管理員同意] 資料行就會顯示如下：
 
-    [![系統管理員同意核准](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
+    [![設定系統管理員同意核准](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
 1. 設定 `https://www.getpostman.com/oauth2/callback`的第二個重新**導向 URI** 。
 
-    [![新增 Postman 重新導向 URI](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
+    [![設定新的 Postman 重新導向 URI](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
 1. 若要確定[應用程式已註冊為**公用用戶端**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)，請開啟應用程式註冊的 [**驗證**] 窗格，然後在該窗格中向下移動。 在 [**預設用戶端類型**] 區段中，針對 [將**應用程式視為公用用戶端**] 選擇 [**是]** ，然後點擊 [**儲存**]。
 
@@ -104,7 +104,7 @@ ms.locfileid: "74090488"
 
 1. 用戶端現在應該如下所示：
 
-    [![Postman 用戶端範例](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
+    [![Postman 用戶端權杖範例](media/how-to-configure-postman/configure-postman-oauth-token.png)](media/how-to-configure-postman/configure-postman-oauth-token.png#lightbox)
 
 1. 選取 [要求權杖]。
   
@@ -116,14 +116,14 @@ ms.locfileid: "74090488"
 
 1. 在 [**標頭**] 索引標籤下，新增 HTTP 要求標頭索引鍵**content-type** ，其值為 `multipart/mixed`。
 
-   [![內容類型多部分/混合](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
+   [![指定內容類型多部分/混合](media/how-to-configure-postman/configure-postman-content-type.png)](media/how-to-configure-postman/configure-postman-content-type.png#lightbox)
 
 1. 將非文字資料序列化到檔案。 JSON 資料會儲存為 JSON 檔案。
 1. 在 [**主體**] 索引標籤底下，選取 [`form-data`]。 
 1. 藉由指派索引**鍵**名稱，然後選取 [`File`] 來新增每個檔案。
 1. 接著，透過 [選擇檔案] 按鈕選取每個檔案。
 
-   [![Postman 用戶端範例](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
+   [![Postman 用戶端表單主體範例](media/how-to-configure-postman/configure-postman-form-body.png)](media/how-to-configure-postman/configure-postman-form-body.png#lightbox)
 
    >[!NOTE]
    > * Postman 用戶端不需要多部分區塊具有手動指派的 **Content-type** 或 **Content-disposition**。

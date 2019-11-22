@@ -1,6 +1,6 @@
 ---
-title: Register authentication info to reset your own password - Azure AD
-description: Register your authentication method information for Azure AD self-service password reset, so you can reset your own password without administrator help.
+title: 註冊驗證資訊以重設您自己的密碼-Azure AD
+description: 註冊 Azure AD 自助式密碼重設的驗證方法資訊，如此一來，您就可以在沒有系統管理員協助的情況下重設自己的密碼。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01cae72ac4752d5d1f6135312d578eb1a277ccd9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: b9748c0d04f958648f7919b7ac29dc58d5a137ac
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231908"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279060"
 ---
-# <a name="register-your-authentication-method-info-to-reset-your-own-password"></a>Register your authentication method info to reset your own password
+# <a name="register-your-verification-method-info-to-reset-your-own-password"></a>註冊您的驗證方法資訊以重設您自己的密碼
 
 > [!IMPORTANT]
 > 您是否因無法登入而在這裡？ 若是如此，請參閱[重設您的工作密碼或學校密碼](active-directory-passwords-update-your-own-password.md)。
 
-身為終端使用者，如果您是使用 Azure Active Directory (Azure AD) 自助式密碼重設 (SSPR)，就可以自行重設密碼或解除鎖定您的帳戶。 在您可以使用這項功能之前，必須先註冊驗證方法，或確認您系統管理員已填入的預先定義驗證方法。
+身為終端使用者，如果您是使用 Azure Active Directory (Azure AD) 自助式密碼重設 (SSPR)，就可以自行重設密碼或解除鎖定您的帳戶。 您必須先註冊您的驗證方法，或確認系統管理員已填入的預先定義驗證方法，才可以使用此功能。
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>使用 SSPR 註冊或確認驗證資料
 
@@ -38,19 +38,19 @@ ms.locfileid: "74231908"
     * **安全性問題**：您的系統管理員已核准這份問題清單以供您回答。 您不可以使用相同的問題或回答一次以上。
 4. 提供並確認您系統管理員所需的資訊。 如果可以使用多個選項，建議您註冊多個方法。 當其中一種方法無法使用時，這可為您提供彈性。 例如，當您在旅行時，無法接聽您的辦公室電話。
 
-    ![註冊驗證方法，並選取 [完成]][Register]
+    ![註冊驗證方法，然後選取 [完成]][Register]
 
 5. 選取 [完成]。 現在當您日後需要 SSPR 時就可使用。
 
 如果您輸入**驗證電話**或**驗證電子郵件**的資料，在全域目錄中會看不見。 您和您的系統管理員是唯一可以看到此資料的人員。 只有您可以查看您安全性問題的答案。
 
-系統管理員在一段時間後可能會要求您確認驗證方法，確定您仍有適當的已註冊方法。
+您的系統管理員可能會要求您在一段時間後確認您的驗證方法，以確定您仍有適當的已註冊方法。
 
 ## <a name="common-problems-and-their-solutions"></a>常見問題及其解決方案
 
  以下提供一些常見的錯誤案例及其解決方案：
 
-| 錯誤案例| 您看到什麼錯誤訊息？| 方案 |
+| 錯誤案例| 您看到什麼錯誤訊息？| 解決方案 |
 | --- | --- | --- |
 | 在輸入我的使用者 ID 後，出現了「請連絡您的系統管理員」頁面 | 請連絡您的系統管理員。 <br> <br> 我們偵測到您的使用者帳戶密碼未受到 Microsoft 管理。 因此，我們無法自動重設您的密碼。 <br> <br> 請連絡 IT 人員以尋求進一步的協助。 | 您之所以看到此訊息，是因為 IT 人員在內部部署環境中管理您的密碼，而不允許您從 [無法存取您的帳戶] 連結重設您的密碼。 <br> <br> 若要重設密碼，請直接連絡您的 IT 人員以取得協助。 讓它們知道您需要重設密碼，以便它們可以為您啟用此功能。|
 | 在輸入我的使用者 ID 後，出現了「您的帳戶未啟用密碼重設」錯誤 | 您的帳戶未啟用密碼重設功能。 <br> <br> 很抱歉，IT 人員還沒將您的帳戶設定用於此服務。 <br> <br> 如果您願意，我們可以連絡貴組織的系統管理員來為您重設密碼。 | 您之所以看到此訊息，是因為 IT 人員尚未針對貴組織啟用從 [無法存取您的帳戶] 連結重設密碼的功能，或尚未授權您使用該功能。 <br> <br> 若要重設您的密碼，請選取 [連絡系統管理員] 連結。 系統會傳送電子郵件至貴公司的 IT 人員。 電子郵件會讓它們知道您需要重設密碼，以便它們可以為您啟用此功能。 |

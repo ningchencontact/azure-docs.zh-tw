@@ -3,12 +3,12 @@ title: 評估新 Azure 原則的影響
 description: 瞭解在 Azure 環境中引進新的原則時，所要遵循的流程。
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6c1a3ea764aedec7de5eab1f564176eaafead70b
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: e39183b13d2b3cf8c7527f9372879372b2123648
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959835"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279435"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy"></a>評估新 Azure 原則的影響
 
@@ -71,6 +71,6 @@ _停_用（DoNotEnforce），以防止觸發或建立活動記錄專案的[效�
 - 瞭解[原則定義結構](./definition-structure.md)。
 - 瞭解[原則指派結構](./assignment-structure.md)。
 - 瞭解如何以程式設計[方式建立原則](../how-to/programmatically-create.md)。
-- 瞭解如何[取得合規性資料](../how-to/getting-compliance-data.md)。
+- 瞭解如何[取得合規性資料](../how-to/get-compliance-data.md)。
 - 瞭解如何[補救不符合規範的資源](../how-to/remediate-resources.md)。
 - 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

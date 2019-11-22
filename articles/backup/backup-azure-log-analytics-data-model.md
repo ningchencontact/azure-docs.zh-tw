@@ -3,18 +3,22 @@ title: Azure 監視器記錄資料模型
 description: 在本文中，您將瞭解 Azure 備份資料的 Azure 監視器 Log Analytics 資料模型詳細資料。
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 055a36fb2aa8e9048089a338f57555242e8eb754
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: eed3f66c1743bb21118a2d90343989d2b6a081de
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173019"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278499"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>適用於 Azure 備份資料的 Log Analytics 資料模型
 
 使用 Log Analytics 資料模型，從 Log Analytics 建立自訂警示。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+> [!NOTE]
+>
+> 此資料模型會參考將診斷事件傳送至 Log Analytics （LA）的 Azure 診斷模式。 若要瞭解新資源特定模式的資料模型，您可以參考下列文章： [Azure 備份診斷事件的資料模型](https://aka.ms/diagnosticsdatamodel)
 
 ## <a name="using-azure-backup-data-model"></a>使用 Azure 備份資料模型
 

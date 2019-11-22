@@ -3,12 +3,12 @@ title: 了解效果的運作方式
 description: Azure 原則定義有各種不同的效果，可決定合規性的管理和報告方式。
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: c345f96ef5176c4afb3d46aaca2e9903c7911fb1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8338f3bf965f121a553a56c551d2095bf60e4880
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959894"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279520"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure 原則效果
 
@@ -571,6 +571,6 @@ EnforceRegoPolicy 效果的**details**屬性具有描述閘道管理員 v2 許�
 - 如[Azure 原則範例](../samples/index.md)，請參閱範例。
 - 檢閱 [Azure 原則定義結構](definition-structure.md)。
 - 瞭解如何以程式設計[方式建立原則](../how-to/programmatically-create.md)。
-- 瞭解如何[取得合規性資料](../how-to/getting-compliance-data.md)。
+- 瞭解如何[取得合規性資料](../how-to/get-compliance-data.md)。
 - 瞭解如何[補救不符合規範的資源](../how-to/remediate-resources.md)。
 - 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

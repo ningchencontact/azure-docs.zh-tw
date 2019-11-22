@@ -1,5 +1,5 @@
 ---
-title: 將 Google 新增為 B2B Azure Active Directory 的身分識別提供者 |Microsoft Docs
+title: 將 Google 新增為 B2B Azure AD 的身分識別提供者
 description: 與 Google 同盟以便讓來賓使用者使用自己的 Gmail 帳戶登入 Azure AD 應用程式
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68acf32660fe36ddd4c2982b818ce21adde7ddab
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 6da9aed857524e9b71aad4dfc99f1d2e54306dc9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603601"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272886"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>將 Google 新增為 B2B 來賓使用者的識別提供者
 
@@ -82,7 +82,7 @@ ms.locfileid: "73603601"
 
    ![顯示 [授權的重新導向 Uri] 區段的螢幕擷取畫面](media/google-federation/google-create-oauth-client-id.png)
 
-9. 選取 [ **建立**]。 複製用戶端識別碼和用戶端密碼，以便用來在 Azure AD 入口網站中新增識別提供者。
+9. 選取 [建立]。 複製用戶端識別碼和用戶端密碼，以便用來在 Azure AD 入口網站中新增識別提供者。
 
    ![顯示 OAuth 用戶端識別碼和用戶端密碼的螢幕擷取畫面](media/google-federation/google-auth-client-id-secret.png)
 
@@ -101,7 +101,7 @@ ms.locfileid: "73603601"
 1. 安裝最新版的 Azure AD PowerShell for Graph 模組 ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview))。
 2. 執行下列命令：`Connect-AzureAD`。
 3. 在出現登入提示時，使用受控的全域系統管理員帳戶來登入。  
-4. 執行以下命令： 
+4. 執行下列命令： 
    
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  

@@ -1,5 +1,6 @@
 ---
-title: 使用網路監看員和 Grafana 管理網路安全性群組流量記錄 | Microsoft Docs
+title: 使用 Grafana 管理 NSG 流量記錄
+titleSuffix: Azure Network Watcher
 description: 使用網路監看員和 Grafana 在 Azure 中管理和分析網路安全性群組流量記錄。
 services: network-watcher
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
-ms.openlocfilehash: 73173c144f979d4a10b90a16aec783fe51a3f90e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e92f4db575e4b318af8dc7bf3ba2eb4b69a3a2d9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62116234"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277946"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>使用網路監看員和 Grafana 來管理和分析網路安全性群組流量記錄
 
@@ -31,7 +32,7 @@ ms.locfileid: "62116234"
 
 您可以在已啟用流量記錄的網路中擁有許多個 NSG。 這樣的記錄資料量會讓您在剖析以及從記錄中取得見解時變得很麻煩。 本文提供了可使用 Grafana (開放原始碼的繪圖工具)、ElasticSearch (分散式的搜尋和分析引擎) 以及 Logstash (開放原始碼的伺服器端資料處理管線) 來集中管理這些 NSG 流量記錄的解決方案。  
 
-## <a name="scenario"></a>狀況
+## <a name="scenario"></a>案例
 
 NSG 流量記錄可使用網路監看員來啟用，並且會儲存在 Azure Blob 儲存體中。 Logstash 外掛程式可用來從 Blob 儲存體連線和處理流量記錄，並將記錄傳送到 ElasticSearch。  流量記錄儲存在 ElasticSearch 後，就可供進行分析並於 Grafana 的自訂儀表板中視覺化呈現。
 
@@ -186,13 +187,13 @@ sudo service grafana-server start
 
 #### <a name="add-the-elasticsearch-server-as-a-data-source"></a>將 ElasticSearch 伺服器新增為資料來源
 
-接下來，您必須將包含流量記錄的 ElasticSearch 索引新增為資料來源。 您可以藉由選取 [新增資料來源]  並在表單內填妥相關資訊，來新增資料來源。 您可以在下列螢幕擷取畫面找到這項設定的範例：
+接下來，您必須將包含流量記錄的 ElasticSearch 索引新增為資料來源。 您可以藉由選取 [新增資料來源] 並在表單內填妥相關資訊，來新增資料來源。 您可以在下列螢幕擷取畫面找到這項設定的範例：
 
 ![新增資料來源](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig2.png)
 
 #### <a name="create-a-dashboard"></a>建立儀表板
 
-您已成功地將 Grafana 設定為讀取包含 NSG 流量記錄的 ElasticSearch 索引，接下來您可以建立儀表板並將其個人化。 若要建立新的儀表板，請選取 [建立第一個儀表板]  。 下列圖形設定範例會顯示依 NSG 規則所區分的流量：
+您已成功地將 Grafana 設定為讀取包含 NSG 流量記錄的 ElasticSearch 索引，接下來您可以建立儀表板並將其個人化。 若要建立新的儀表板，請選取 [建立第一個儀表板]。 下列圖形設定範例會顯示依 NSG 規則所區分的流量：
 
 ![儀表板圖形](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig3.png)
 

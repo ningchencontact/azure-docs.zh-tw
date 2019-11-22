@@ -4,12 +4,12 @@ description: 在本文中，您將瞭解如何建立復原服務保存庫，以�
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: c678452cd65d0b03d923659e380c1dcef3540ce1
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 144d8cdb870e12474dfc47784749b5f0e466f8bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172435"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273384"
 ---
 # <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 
@@ -72,6 +72,13 @@ Azure 備份會自動處理保存庫的儲存體。 您必須指定該儲存體�
 
 > [!NOTE]
 > 您必須先變更復原服務保存庫的**儲存體複寫類型**（本機-多餘/異地），才能在保存庫中進行備份。 一旦您設定備份，[修改] 選項就會停用，而且您無法變更**儲存體複寫類型**。
+
+## <a name="modifying-default-settings"></a>修改預設設定
+
+我們強烈建議您在保存庫中設定備份之前，先檢查**儲存體複寫類型**和**安全性設定**的預設值。 
+* **儲存體複寫類型**預設會設定為 [**異地冗余**]。 一旦您設定備份之後，[修改] 選項就會停用。 請遵循下列[步驟](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy)來審查和修改設定。 
+* 預設會在新建立的保存庫上**啟用**虛**刪除**，以防止意外或惡意刪除的備份資料。 請遵循下列[步驟](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete)來審查和修改設定。
+
 
 ## <a name="next-steps"></a>後續步驟
 

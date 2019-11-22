@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: fd7ff7aa2275defba57aa24b5ef0b9adc78a5355
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: f6e1af2fdf43eb4351e996297f7dba775b7ffcef
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093783"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278800"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>將 Log Analytics 工作區移至不同的訂用帳戶或資源群組
 
@@ -29,17 +29,17 @@ ms.locfileid: "74093783"
 (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
 ```
 
-## <a name="remove-solutions"></a>移除解決方案
-已安裝在工作區中的受控解決方案將會隨著 Log Analytics 工作區移動作業一起移動。 不過，因為您必須從工作區移除連結到任何自動化帳戶，所以必須移除依賴該連結的解決方案。
+## <a name="workspace-move-considerations"></a>工作區移動考慮
+已安裝在工作區中的受控解決方案將會隨著 Log Analytics 工作區移動作業一起移動。 連線的代理程式會保持連線，並在移動之後繼續將資料傳送至工作區。 由於移動作業需要從工作區連結至任何自動化帳戶，因此必須移除依賴該連結的解決方案。
 
-必須移除的解決方案包括下列各項： 
+在您可以取消連結自動化帳戶之前，必須先移除的解決方案：
 
 - 更新管理
 - 變更追蹤
 - 於下班時間開始/停止 VM
 
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="delete-in-azure-portal"></a>在 Azure 入口網站中刪除
 請使用下列程式，使用 Azure 入口網站移除解決方案：
 
 1. 針對已安裝任何解決方案的資源群組開啟功能表。
@@ -48,7 +48,7 @@ ms.locfileid: "74093783"
 
 ![刪除解決方案](media/move-workspace/delete-solutions.png)
 
-### <a name="powershell"></a>PowerShell
+### <a name="delete-using-powershell"></a>使用 PowerShell 刪除
 
 若要使用 PowerShell 移除解決方案，請使用[get-azresource](/powershell/module/az.resources/remove-azresource?view=azps-2.8.0) Cmdlet，如下列範例所示：
 
@@ -58,7 +58,7 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM(<workspace-name>)" -ResourceGroupName <resource-group-name>
 ```
 
-## <a name="remove-alert-rules"></a>移除警示規則
+### <a name="remove-alert-rules"></a>移除警示規則
 對於**啟動/停止 vm**解決方案，您也必須移除解決方案所建立的警示規則。 請在 Azure 入口網站中使用下列程式來移除這些規則。
 
 1. 開啟 [**監視**] 功能表，然後選取 [**警示**]。

@@ -1,5 +1,5 @@
 ---
-title: 儲存管理員認證時發生問題設定 Azure AD 資源庫應用程式 |Microsoft Docs
+title: 儲存管理員認證時發生問題設定 Azure AD 資源庫應用程式
 description: 如何對在為已經列於 Azure AD 應用程式庫中的應用程式設定使用者佈建時所面臨的常見問題進行疑難排解
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 02/21/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152b704ca597fb473a820124ee6147d6d9bc7845
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 77e48b8921a1ebe3affd981c068da7fa55fdf30f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381473"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275792"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>在設定 Azure Active Directory 資源庫應用程式之使用者佈建的情況下儲存系統管理員認證時發生問題 
 

@@ -1,23 +1,14 @@
 ---
 title: 使用 Azure Notebooks 隨專案匯入和匯出資料
 description: 如何從外部來源將資料帶入 Azure Notebooks 專案，以及如何匯出專案中的資料。
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 586b423b-6668-4bdd-9592-4c237d7458fb
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: b33d5dbfa354061b9b25069b3b300010b7cd49bf
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: bd7ba27859e9d05c0d57c2f78b6449c2bc48ca33
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970203"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277392"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>使用 Azure Notebook 專案中的資料檔案
 
@@ -41,13 +32,13 @@ ms.locfileid: "71970203"
 
 1. 選取 [上傳] 命令，然後選取 [從 URL] 或 [從電腦] 及專案的必要資詳細資料，以用於您要匯入資料：
 
-   - **從 URL**：在 [檔案 URL] 欄位中輸入來源位址，然後在 [檔案名稱] 欄位中，輸入要指派給專案中 Notebook 的檔案名稱。 接著，選取 [+ 新增檔案]，將 URL 新增至上傳清單。 針對任何其他 URL 重複此程序，然後選取 [完成]。
+   - **從 URL**：在 [檔案**url** ] 欄位中輸入來源位址，並在 **[檔案名] 欄位中**輸入要指派給專案中筆記本的檔案名。 接著，選取 [+ 新增檔案]，將 URL 新增至上傳清單。 針對任何其他 URL 重複此程序，然後選取 [完成]。
 
-     ![從 URL 快顯視窗上傳](media/quickstarts/upload-from-url-popup.png)
+     ![從 URL 上傳的快顯視窗](media/quickstarts/upload-from-url-popup.png)
 
-   - **從電腦**：拖曳檔案放到快顯視窗中，或選取 [選擇檔案]，然後瀏覽至您想要匯入的資料檔案，並加以選取。 您可以放入或選擇任意數量且類型與格式不拘的檔案，因為是根據 Notebook 中的程式碼來開啟檔案和剖析其資料。
+   - **從 [電腦**]：將檔案拖放到快顯視窗中，或選取 **[選擇**檔案]，然後流覽至並選取您要匯入的資料檔案。 您可以放入或選擇任意數量且類型與格式不拘的檔案，因為是根據 Notebook 中的程式碼來開啟檔案和剖析其資料。
 
-     ![從電腦上傳快顯視窗](media/quickstarts/upload-from-computer-popup.png)
+     ![從電腦上傳的快顯視窗](media/quickstarts/upload-from-computer-popup.png)
 
 1. 匯入之後，檔案會出現在專案儀表板上，並可使用包含資料夾的相對路徑名稱，在 Notebook 程式碼內存取。
 
@@ -61,7 +52,7 @@ ms.locfileid: "71970203"
 
 1. 在顯示的 [上傳狀態] 快顯視窗中，從下拉式清單中選取 [目的資料夾]：
 
-    - 工作階段資料夾 ( *~/* )：將檔案上傳至目前的 Notebook 工作階段，並不會在專案中建立檔案。 工作階段資料夾與專案資料夾是對等資料夾，但在工作階段結束之後即不存在。 若要存取程式碼中的工作階段檔案，請在檔案名稱前面加上相對路徑 *.../* 。
+    - 會話資料夾（ *~/* ）：將檔案上傳到目前的筆記本會話，但不會在專案中建立檔案。 工作階段資料夾與專案資料夾是對等資料夾，但在工作階段結束之後即不存在。 若要存取程式碼中的工作階段檔案，請在檔案名稱前面加上相對路徑 *.../* 。
 
         使用工作階段資料夾可幫助進行實驗，並避免而長期來說可有可無的檔案造成專案過於凌亂。 您也可以將檔案上傳到專案中包含同名檔案的資料夾中，而不會造成衝突，也無需將檔案重新命名。 例如，假設專案中已有一個版本的*data.csv*，但您想要試驗不同版本的*data.csv*。 將檔案上傳到工作階段資料夾，您就可以使用所上傳檔案中的資料來執行 Notebook (使用 *.../data.csv* 在程式碼中參考)，而不是專案檔中的資料。
 

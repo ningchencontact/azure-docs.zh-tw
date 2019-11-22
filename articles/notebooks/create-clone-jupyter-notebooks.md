@@ -1,23 +1,14 @@
 ---
 title: 建立及複製 Azure 上的 Jupyter Notebooks
 description: Azure Notebooks 專案管理筆記本集合和相關檔案，讓您可以建立新的或從其他來源複製。
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 9b6a49e2-1d71-4c0b-9e5d-16e059427e38
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
-ms.author: kraigb
-ms.openlocfilehash: 3e0c49d1141d976558ece325baaa99fc9981275e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc5425312637710f0b9f94493b8cfb4a48582236
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496704"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277568"
 ---
 # <a name="create-and-clone-projects"></a>建立及複製專案
 
@@ -33,7 +24,7 @@ Azure Notebooks 會將您的 Jupyter Notebooks 和相關檔案整理成邏輯群
 
 您在儀表板上可進行的操作，取決於您是否使用該帳戶所擁有的使用者識別碼登入而定：
 
-| 命令 | 可供 | 說明 |
+| 命令 | 可供 | 描述 |
 | --- | --- | --- |
 | **Run** | 擁有者 | 啟動 Project Server，並在 Jupyter 中開啟專案資料夾。 (更常見的是，您先巡覽到專案資料夾，然後從該處啟動 筆記本。) |
 | **下載** | 任何人 | 將選取專案的複本下載為 ZIP 檔案。 |
@@ -64,7 +55,7 @@ Azure Notebooks 會將您的 Jupyter Notebooks 和相關檔案整理成邏輯群
 
 當您使用 **+ 新增專案**命令時，會顯示 Azure Notebooks 會顯示**建立新專案**快顯。 在此快顯中，輸入下列資訊，然後選取 [建立]︰
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 | --- | --- |
 | 專案名稱 | Azure Notebooks 用於顯示用途的專案易記名稱。 例如，「我的筆記本專案」。 |
 | 專案識別碼 | 自訂識別碼會成為您用來共用專案 URL 的一部分 (格式為 `https://notebooks.azure.com/<user_id>/projects/<project_id>`)。 此識別碼只能使用字母、數位和連字號、限制為30個字元，而且不能是[保留的專案識別碼](#reserved-project-ids)。 如果您不確定要使用的項目，常見的慣例是使用專案名稱的小寫版本，讓空格轉變成連字號，例如 「 my-notebook-project 」 (必要時，可截斷以符合長度限制)。 |
@@ -77,10 +68,10 @@ Azure Notebooks 會將您的 Jupyter Notebooks 和相關檔案整理成邏輯群
 
 | | | | | | |
 | --- | --- | --- | --- | --- | --- |
-| about | 帳戶 | 組織 | api | 日誌 | 教室 |
+| about | 帳戶 | 系統管理 | api | 日誌 | 教室 |
 | 內容 | 儀表板 | 看 | 常見問題 | help | html |
 | home | 入口 | 圖書館 | 管理 | new | 筆記本 |
-| notebook | pdf | preview | 定價 | 設定檔 | 搜尋 |
+| Notebooks | pdf | preview | 定價 | 設定檔 | 搜尋 |
 | status | 支援 | test | | | |
 
 如果您嘗試使用這些單字之一做為專案識別碼，則 [**建立新專案**] 和 [**專案設定**] 快顯視窗會指出「媒體櫃識別碼是保留的識別碼」。
@@ -91,7 +82,7 @@ Azure Notebooks 會將您的 Jupyter Notebooks 和相關檔案整理成邏輯群
 
 您可以輕鬆地將整個公用 GitHub 存放庫，匯入成包括任何資料和 *README.md* 檔案的專案。 使用**上傳 GitHub 存放庫**命令，在快顯中以提供下列詳細資料，然後選取 [匯入]：
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 | --- | --- |
 | GitHub 存放庫 | Github.com 上的來源存放庫名稱。 例如，若要在 [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks) 複製 Azure 認知服務的 Jupyter Notebooks ，請輸入「Microsoft/cognitive-services-notebooks」。  |
 | 以遞迴方式複製 | GitHub 存放庫可以包含多個子存放庫。 如果您想要複製父存放庫及其所有子系，請設定此選項。 因為存放庫可以擁有多個子系，除非您知道 有需要，不然請清除此選項。 |

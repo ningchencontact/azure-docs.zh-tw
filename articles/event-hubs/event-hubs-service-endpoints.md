@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 03/12/2019
 ms.author: shvija
-ms.openlocfilehash: 5a1b293d4d7f652c0cdd95226113ec3ce8f8222c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5b02b79980ebe5ea91a1cf16d3ea453ebef3bf08
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466135"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279786"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>將虛擬網路服務端點搭配 Azure 事件中樞使用
 
@@ -30,10 +30,9 @@ ms.locfileid: "73466135"
 >[!WARNING]
 > 實作「虛擬網路」整合可防止其他 Azure 服務與「事件中樞」進行互動。
 >
-> 實作虛擬網路時，不支援受信任的 Microsoft 服務。
+> 實作「虛擬網路」時，不支援受信任的 Microsoft 服務。
 >
 > 無法與「虛擬網路」搭配運作的常見 Azure 案例 (請注意，這**不是**完整的清單) -
-> - Azure 監視器
 > - Azure 串流分析
 > - 與 Azure 事件方格的整合
 > - Azure IoT 中樞路由
@@ -46,7 +45,7 @@ ms.locfileid: "73466135"
 > [!IMPORTANT]
 > 事件中樞的**標準**和**專用**層級支援虛擬網路。 基本層中不支援虛擬網路。
 
-## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 整合所啟用的進階安全性案例 
+## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 整合所實現的進階安全性案例 
 
 需要嚴格且劃分的安全性，以及虛擬網路子網在劃分服務之間提供分割的解決方案，仍然需要位於這些區間之服務之間的通訊路徑。
 
@@ -80,7 +79,7 @@ ms.locfileid: "73466135"
 > ```json
 > "defaultAction": "Allow"
 > ```
-> to
+> 收件人
 > ```json
 > "defaultAction": "Deny"
 > ```

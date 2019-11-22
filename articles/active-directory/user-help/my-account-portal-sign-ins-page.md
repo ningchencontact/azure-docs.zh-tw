@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9d134e522575f30fd1f1be8176e0e1589faa7ac
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a45caeed8b601a845b0eb0fbcd25f1ec097a77a1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587624"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279028"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>從 [我的登入（預覽）] 頁面中，查看並搜尋您最近的登入活動
 
@@ -31,7 +31,7 @@ ms.locfileid: "73587624"
 
 ## <a name="view-your-recent-sign-in-activity"></a>檢視您最近的登入活動
 
-1. 登入您的公司或學校帳戶，然後前往 https://myprofile.microsoft.com/ 頁面。
+1. 登入您的公司或學校帳戶，然後移至您的 https://myprofile.microsoft.com/ 頁面。
 
 2. 從左側流覽窗格中選取 [我的登**入（預覽）** ]，或從 [我的登**入（預覽）** ] 區塊選取 [**回顧最近的活動**] 連結。
 

@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 網路監看員進行連線疑難排解 - Azure CLI | Microsoft Docs
+title: 疑難排解連接-Azure CLI
+titleSuffix: Azure Network Watcher
 description: 了解如何使用 Azure CLI，來使用 Azure 網路監看員的連線疑難排解功能。
 services: network-watcher
 documentationcenter: na
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: kumud
-ms.openlocfilehash: 568d3fe774bd2ec810bd3aa386fb151518e6a581
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07358d5d77e91f0b4eebffa068ff72fc83c74893
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720832"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276033"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>使用 Azure CLI 利用 Azure 網路監看員進行連線疑難排解
 
@@ -51,7 +52,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Response
 
-下列回應是來自上一個範例。  在此回應中，`ConnectionStatus` 為 [無法連線]  。 您可以看到傳送的所有探查都失敗。 因為名為 **UserRule_Port80** 的使用者設定 `NetworkSecurityRule` 設定成封鎖連接埠 80 的連入流量，所以虛擬設備的連線失敗。 這項資訊可以用來研究連線問題。
+下列回應是來自上一個範例。  在此回應中，`ConnectionStatus` 為 [無法連線]。 您可以看到傳送的所有探查都失敗。 因為名為 `NetworkSecurityRule`UserRule_Port80**的使用者設定** 設定成封鎖連接埠 80 的連入流量，所以虛擬設備的連線失敗。 這項資訊可以用來研究連線問題。
 
 ```json
 {
@@ -132,7 +133,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Response
 
-在下列範例中，`connectionStatus` 會顯示為 [無法連線]  。 在 `hops` 詳細資料中，您可以在 `issues` 下看到已因 `UserDefinedRoute` 而封鎖流量。
+在下列範例中，`connectionStatus` 會顯示為 [無法連線]。 在 `hops` 詳細資料中，您可以在 `issues` 下看到已因 `UserDefinedRoute` 而封鎖流量。
 
 ```json
 {
@@ -190,7 +191,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Response
 
-在下列回應中，您可以看到 `connectionStatus` 顯示為 [可以連線]  。 連線成功時，會提供延遲值。
+在下列回應中，您可以看到 `connectionStatus` 顯示為 [可以連線]。 連線成功時，會提供延遲值。
 
 ```json
 {
@@ -236,7 +237,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Response
 
-下列 JSON 是執行前一個 Cmdlet 的範例回應。 因為檢查成功，所以 `connectionStatus` 屬性會顯示為 [可以連線]  。  系統會向您提供連線儲存體 Blob 和延遲所需躍點數目的詳細資料。
+下列 JSON 是執行前一個 Cmdlet 的範例回應。 因為檢查成功，所以 `connectionStatus` 屬性會顯示為 [可以連線]。  系統會向您提供連線儲存體 Blob 和延遲所需躍點數目的詳細資料。
 
 ```json
 {

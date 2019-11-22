@@ -12,18 +12,18 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26f25daa01288959c38520f9713d35eb975d2df2
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: c6df50db564dac09785b460d158d4276ea8a215e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73941390"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271257"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>使用 Azure Active Directory 連線服務診斷錯誤
 
-偵測先前的驗證程式碼時，Azure Active Directory 連線伺服器偵測到不相容的驗證類型。
+偵測先前的驗證碼時，Azure Active Directory 聯機服務偵測到不相容的驗證類型。
 
-必須建置專案，才能正確偵測該專案中先前的驗證碼。  如果您看到這個錯誤，而且您的專案中沒有先前的驗證碼，請重建後再試一次。
+若要正確偵測專案中先前的驗證碼，必須重建專案。 如果您看到這個錯誤，而且您的專案中沒有先前的驗證碼，請重建後再試一次。
 
 ## <a name="project-types"></a>專案類型
 

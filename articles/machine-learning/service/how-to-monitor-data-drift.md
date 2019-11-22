@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: bf82714011754ba516fa38444b1019b9cc1aa732
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e33f8a8090e7840087add0e16252bd2a3e873524
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111873"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276767"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>偵測部署到 Azure Kubernetes Service 的模型上的資料漂移（預覽）（AKS）
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -80,7 +80,7 @@ ms.locfileid: "74111873"
 ## <a name="configure-data-drift"></a>設定資料漂移
 若要設定實驗的資料漂移，請匯入相依性，如下列 Python 範例所示。 
 
-這個範例示範如何設定[`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector?view=azure-ml-py)物件：
+這個範例示範如何設定[`DataDriftDetector`](/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector)物件：
 
 ```python
 # Import Azure ML packages

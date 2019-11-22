@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9d7dc724130286298af6e1d4b0babc551f3f2658
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 63d2aa5c9e4ec751d9b95ba0d884e6dc17e207bb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123629"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276798"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 部署模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -578,6 +578,10 @@ print(profiling_results)
 ## <a name="deploy-to-target"></a>部署至目標
 
 部署會使用推斷設定部署設定來部署模型。 無論計算目標為何，部署程式都很類似。 部署至 AKS 稍有不同，因為您必須提供 AKS 叢集的參考。
+
+### <a name="securing-deployments-with-ssl"></a>使用 SSL 保護部署
+
+如需如何保護 web 服務部署的詳細資訊，請參閱[使用 SSL 保護 web 服務](how-to-secure-web-service.md#enable)。
 
 ### <a id="local"></a>本機部署
 

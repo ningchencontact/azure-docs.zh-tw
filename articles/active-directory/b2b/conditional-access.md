@@ -1,5 +1,5 @@
 ---
-title: 適用于 B2B 共同作業使用者的條件式存取-Azure Active Directory |Microsoft Docs
+title: B2B 共同作業使用者的條件式存取-Azure AD
 description: Azure Active Directory B2B 共同作業支援多重要素驗證 (MFA) 以對您的公司應用程式進行選擇性存取
 services: active-directory
 ms.service: active-directory
@@ -11,19 +11,19 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a54e5006a268347148945fbe7fc5f18cfa41036
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: c0b6ceba4c3c9202e2024b5c163c0e98bb6cbf55
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357129"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273004"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>適用于 B2B 共同作業使用者的條件式存取
 
 ## <a name="multi-factor-authentication-for-b2b-users"></a>B2B 使用者的多重要素驗證
 在使用 Azure AD B2B 共同作業的情況下，組織會為 B2B 使用者強制執行 Multi-Factor Authentication (MFA) 原則。 這些原則可以在租用戶層級、應用程式或個別使用者層級強制執行，也同樣針對組織的全職員工和成員啟用。 MFA 原則會在資源組織強制執行。
 
-範例:
+範例：
 1. 公司 A 中的系統管理員或資訊工作者邀請公司 B 的使用者使用公司 A 的應用程式 *Foo*。
 2. 公司 A 中的應用程式 *Foo* 是設定為要求在存取時使用 MFA。
 3. 當公司 B 的使用者嘗試存取公司 A 租用戶的應用程式 *Foo* 時，系統會要求他們完成 MFA 查問。
@@ -63,7 +63,7 @@ ms.locfileid: "68357129"
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
 
-3. 重設特定使用者的 MFA 方法，要求 B2B 共同作業使用者再次設定證明方法。 範例:
+3. 重設特定使用者的 MFA 方法，要求 B2B 共同作業使用者再次設定證明方法。 範例：
 
    ```
    Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
@@ -89,17 +89,17 @@ ms.locfileid: "68357129"
 
 ### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>適用于 B2B 使用者的裝置型、以位置為基礎和風險型條件式存取
 
-當 Contoso 針對其公司資料啟用裝置型條件式存取原則時, 會防止不受 Contoso 管理且不符合 Contoso 裝置原則的裝置進行存取。
+當 Contoso 針對其公司資料啟用裝置型條件式存取原則時，會防止不受 Contoso 管理且不符合 Contoso 裝置原則的裝置進行存取。
 
-如果 B2B 使用者的裝置未受 Contoso 管理，當 B2B 使用者從夥伴組織進行存取時，只要是在強制執行這些原則的內容中，系統就會封鎖其存取。 不過, Contoso 可以建立包含特定合作夥伴使用者的排除清單, 以從裝置型條件式存取原則中排除這些專案。
+如果 B2B 使用者的裝置未受 Contoso 管理，當 B2B 使用者從夥伴組織進行存取時，只要是在強制執行這些原則的內容中，系統就會封鎖其存取。 不過，Contoso 可以建立包含特定合作夥伴使用者的排除清單，以從裝置型條件式存取原則中排除這些專案。
 
 #### <a name="mobile-application-management-policies-for-b2b"></a>適用于 B2B 的行動應用程式管理原則
 
-條件式存取應用程式保護原則無法套用至 B2B 使用者, 因為邀請的組織無法看到 B2B 使用者的主要組織。
+條件式存取應用程式保護原則無法套用至 B2B 使用者，因為邀請的組織無法看到 B2B 使用者的主要組織。
 
 #### <a name="location-based-conditional-access-for-b2b"></a>適用于 B2B 的以位置為基礎的條件式存取
 
-如果邀請的組織能夠建立可定義其合作夥伴組織的信任 IP 位址範圍, 就可以針對 B2B 使用者強制執行以位置為基礎的條件式存取原則。
+如果邀請的組織能夠建立可定義其合作夥伴組織的信任 IP 位址範圍，就可以針對 B2B 使用者強制執行以位置為基礎的條件式存取原則。
 
 #### <a name="risk-based-conditional-access-for-b2b"></a>B2B 的以風險為基礎的條件式存取
 
@@ -110,5 +110,5 @@ ms.locfileid: "68357129"
 請參閱下列有關 Azure AD B2B 共同作業的文章：
 
 * [何謂 Azure AD B2B 共同作業？](what-is-b2b.md)
-* [Azure AD B2B 共同作業授權](licensing-guidance.md)
+* [Azure AD B2B 共同作業授權 (英文)](licensing-guidance.md)
 * [Azure Active Directory B2B 共同作業常見問題 (FAQ)](faq.md)

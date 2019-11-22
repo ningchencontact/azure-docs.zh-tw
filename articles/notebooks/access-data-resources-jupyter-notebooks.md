@@ -1,23 +1,14 @@
 ---
 title: 在 Azure 上從 Jupyter Notebook 存取資料資源
 description: 如何從 Jupyter Notebook 存取檔案、REST API、資料庫和不同的 Azure 儲存體資源。
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: ee867303-a5e5-4686-b2da-8a0108247d18
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: e1284072db8ca8aa7a49bd3c4d52f54e5d09420a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 23acdf99f6cb69f100e484e236580f3b2b43ba94
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970249"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277689"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>在 Notebook 中存取雲端資料
 
@@ -79,12 +70,12 @@ Azure Cosmos DB 針對 JSON 文件提供了具完整索引的 NoSQL 存放區。
 
 Azure 提供了許多其他資料庫類型供您使用。 以下文章提供了從 Python 存取這些資料庫的指引：
 
-- [適用於 PostgreSQL 的 Azure 資料庫：使用 Python 連線並查詢資料](https://docs.microsoft.com/azure/postgresql/connect-python)
+- [適用於 PostgreSQL 的 Azure 資料庫：使用 Python 來連接及查詢資料](https://docs.microsoft.com/azure/postgresql/connect-python)
 - [快速入門：搭配使用 Azure Redis 快取與 Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [適用於 MySQL 的 Azure 資料庫：使用 Python 連線並查詢資料](https://docs.microsoft.com/azure/mysql/connect-python)
+- [適用於 MySQL 的 Azure 資料庫：使用 Python 來連接及查詢資料](https://docs.microsoft.com/azure/mysql/connect-python)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Azure Data Factory 的複製精靈](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>後續步驟
 
-- [操作說明：使用專案資料檔案](work-with-project-data-files.md)
+- [如何：使用專案資料檔案](work-with-project-data-files.md)

@@ -1,30 +1,26 @@
 ---
 title: 如何在使用 Azure 開發人員空間時管理祕密
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 05/11/2018
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker、Kubernetes、Azure、AKS、Azure Container Service、容器
-ms.openlocfilehash: 900529d54a26729d9d0fb949d9217d5e2d618254
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49f53683b2499e790414d139dcb0bc0833005647
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515300"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279998"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>如何在使用 Azure 開發人員空間時管理祕密
 
 您的服務可能需要特定密碼、連接字串和其他祕密，例如資料庫或其他安全的 Azure 服務。 藉由在組態檔中設定這些祕密的值，您可以使用這些值作為程式碼中的環境變數。  請務必小心處理，以避免洩漏祕密的安全性。
 
-Azure 開發人員的空間會提供兩個將祕密儲存在 Azure 開發人員的空間用戶端工具所產生的 Helm 圖表建議、 簡化選項： 在 values.dev.yaml 檔案，並直接在 azds.yaml 內嵌。 不建議將祕密儲存在 values.yaml 中。 Helm 的兩種方法之外的用戶端工具所產生的圖表中定義這篇文章中，如果您建立您自己的 Helm 圖表，您可以使用 Helm 圖表，直接以管理並儲存祕密。
+Azure Dev Spaces 提供兩個建議、簡化的選項，將秘密儲存在由 Azure Dev Spaces 用戶端工具所產生的 Helm 圖表中： yaml 檔案中，並直接內嵌在 azds 中。 yaml。 不建議將祕密儲存在 values.yaml 中。 在這篇文章中定義的用戶端工具所產生的兩個方法中，如果您建立自己的 Helm 圖表，則可以直接使用 Helm 圖表來管理和儲存秘密。
 
 ## <a name="method-1-valuesdevyaml"></a>方法 1：values.dev.yaml
 1. 透過可使用 Azure 開發人員空間的專案來開啟 VS Code。
-2. 新增名為的檔案_values.dev.yaml_現有的相同資料夾中_azds.yaml_並定義您的祕密金鑰和值，如下列範例所示：
+2. 在與現有_azds_相同的資料夾中，新增名為_yaml_的檔案，並定義您的秘密金鑰和值，如下列範例所示：
 
     ```yaml
     secrets:
@@ -34,7 +30,7 @@ Azure 開發人員的空間會提供兩個將祕密儲存在 Azure 開發人員�
         key: "secretkeyhere"
     ```
      
-3. _azds.yaml_已經參考_values.dev.yaml_檔案若有的話。 如果您偏好不同的檔案名稱，更新 install.values 區段：
+3. _azds. yaml_已經參考_yaml_檔案（如果存在的話）。 如果您偏好使用不同的檔案名，請更新 [install] （安裝值）區段：
 
     ```yaml
     install:
@@ -82,7 +78,7 @@ Azure 開發人員的空間會提供兩個將祕密儲存在 Azure 開發人員�
                 key: "$REDIS_KEY"
     ```
      
-2.  在 _azds.yaml_ 所在的資料夾中建立 _.env_ 檔案。 使標準的「索引鍵=值」標記法來輸入祕密。 請不要將 _.env_ 檔案認可至原始檔控制。 (若要從 git 版控制系統的原始檔控制中移除，請將該檔案新增至 _.gitignore_ 檔案。) _.env_ 檔案如下列範例所示：
+2.  在 _azds.yaml_ 所在的資料夾中建立 _.env_ 檔案。 使標準的「索引鍵=值」標記法來輸入祕密。 請不要將 _.env_ 檔案認可至原始檔控制。 （若要從 git 型版本控制系統中的原始檔控制中省略，請將它新增至 _.gitignore_檔案。）下列範例會顯示一個_env_檔案：
 
     ```
     REDIS_PORT=3333

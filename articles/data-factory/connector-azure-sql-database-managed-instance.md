@@ -1,23 +1,23 @@
 ---
-title: 使用 Azure Data Factory 將資料複製到 Azure SQL Database 受控執行個體及從該處複製資料
+title: 將資料複製到 Azure SQL Database 受控執行個體
 description: 了解如何使用 Azure Data Factory 從 Azure SQL Database 受控執行個體來回移動資料。
 services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 9a70ecacdf10c985cabca8fa3ddf4314bf266afe
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+author: linda33wj
+manager: shwang
+ms.reviewer: douglasl
+ms.custom: seo-lt-2019
+ms.date: 09/09/2019
+ms.openlocfilehash: 9eedd8c1ad740f7393da47eac7a20cb5b58ad8d3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075617"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74218783"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 受控執行個體及從該處複製資料
 

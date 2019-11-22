@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 網路監看員安全性群組檢視分析網路安全性 - PowerShell | Microsoft Docs
+title: 分析網路安全性-安全性群組視圖-Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: 本文會說明如何使用 PowerShell，利用安全性群組檢視分析虛擬機器的安全性。
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 4c7b79460169612a046b19a4d66f222936710a8e
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 3127d60263437a18e0c8d9a98ebdfad31049c58d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163891"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277920"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>使用 PowerShell，利用安全性群組檢視分析虛擬機器的安全性
 
@@ -39,7 +40,7 @@ ms.locfileid: "70163891"
 
 此案例假設您已依照[建立網路監看員](network-watcher-create.md)中的步驟建立網路監看員。
 
-## <a name="scenario"></a>狀況
+## <a name="scenario"></a>案例
 
 本文涵蓋的案例會擷取指定虛擬機器之已設定且有效的安全性規則。
 

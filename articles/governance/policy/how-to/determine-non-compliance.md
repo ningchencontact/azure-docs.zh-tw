@@ -3,12 +3,12 @@ title: 判斷不符合的原因
 description: 當資源不符合規範時，有許多可能的原因。 學習如何找出導致不符合規範的原因。
 ms.date: 04/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6f113080ab84fe7d159766e6543ff61b28f4ead2
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 839e6c61c4a44ba7c7581290408bb997b53b8f96
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959605"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279403"
 ---
 # <a name="determine-causes-of-non-compliance"></a>判斷不符合的原因
 
@@ -216,6 +216,6 @@ _視覺化差異_有助於識別資源的變更。 偵測到的變更可能與�
 - 檢閱 [Azure 原則定義結構](../concepts/definition-structure.md)。
 - 檢閱[了解原則效果](../concepts/effects.md)。
 - 瞭解如何以程式設計[方式建立原則](programmatically-create.md)。
-- 瞭解如何[取得合規性資料](getting-compliance-data.md)。
+- 瞭解如何[取得合規性資料](get-compliance-data.md)。
 - 瞭解如何[補救不符合規範的資源](remediate-resources.md)。
 - 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

@@ -1,22 +1,23 @@
 ---
-title: 在 Azure Data Factory 中建立共用的自我裝載整合執行時間
+title: 使用 PowerShell 建立共用的自我裝載整合執行時間
 description: 了解如何在 Azure Data Factory 中建立共用的自我裝載整合執行階段，讓多個資料處理站都能存取該整合執行階段。
 services: data-factory
 documentationcenter: ''
-author: nabhishek
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: fcda60863f78dd338bbfc64c1679561262c554a9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+author: nabhishek
+manager: anansub
+ms.custom: seo-lt-2019
+ms.date: 10/31/2018
+ms.openlocfilehash: a8ac5bdaab915e46f5d5074c991703790d429e50
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73677063"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74218236"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中建立共用的自我裝載整合執行時間
 
@@ -51,7 +52,7 @@ ms.locfileid: "73677063"
 1. 建立連結的整合執行階段。
 1. 撤銷共用。
 
-### <a name="prerequisites"></a>必要條件 
+### <a name="prerequisites"></a>先決條件 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

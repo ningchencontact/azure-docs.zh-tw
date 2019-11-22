@@ -1,5 +1,5 @@
 ---
-title: 使用 Windows 虛擬機器擴展集的 Azure Resource Manager 範本將客體作業系統計量傳送至 Azure 監視器計量存放區
+title: 使用範本在 Azure 監視器中收集 Windows 擴展集計量
 description: 使用 Windows 虛擬機器擴展集的 Resource Manager 範本將客體作業系統計量傳送至 Azure 監視器計量存放區
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 8ee8c0c9d9724706f9b46013eba14e878832fd02
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 691b2ae7e497c9292975083e3687d9240ce6f3e6
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844965"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286127"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>使用 Windows 虛擬機器擴展集的 Azure Resource Manager 範本將客體作業系統計量傳送至 Azure 監視器計量存放區
 
@@ -25,7 +25,7 @@ ms.locfileid: "70844965"
 
 如果您剛開始使用 Resource Manager 範本，請了解[範本部署](../../azure-resource-manager/resource-group-overview.md)與其結構和語法。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 您必須先向 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) 註冊您的訂用帳戶。 
 
@@ -286,7 +286,7 @@ MSI 擴充功能中的下列程式碼也可以將診斷擴充功能與設定作�
 
 1. 在 [命名空間] 下拉式功能表中，選取 **azure.vm.windows.guest**。 
 
-1. 在 [計量] 下拉式功能表中，選取 [記憶體\%認可的位元組 (使用中)\]。  
+1. 在 [計量] 下拉式功能表中，選取 [記憶體**認可的位元組 (使用中)\]\%** 。  
 
 接著，您也可以選擇使用這個計量上的維度，為特定 VM 繪製圖表，或對擴展集中的每個 VM 繪製圖表。 
 

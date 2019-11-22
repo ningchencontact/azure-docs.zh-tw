@@ -1,5 +1,5 @@
 ---
-title: 使用 Storage Client Library for C++ 列出 Azure 儲存體資源 | Microsoft Docs
+title: 使用C++用戶端程式庫列出 Azure 儲存體資源
 description: 了解如何使用 Microsoft Azure Storage Client Library for C++ 中的列表 API 來列舉容器、Blob、佇列、資料表和實體。
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
-ms.openlocfilehash: 3a87e39c9435ba02357b4b655e95e96666242b71
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721927"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269456"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>以 C++ 列出 Azure 儲存體資源
 
@@ -34,7 +34,7 @@ Storage Client Library 提供各種方法來列出或查詢 Azure 儲存體中�
 
 ## <a name="asynchronous-versus-synchronous"></a>同步與非同步
 
-因為 Storage Client Library for C++ 的建置基礎為 [C++ REST 程式庫](https://github.com/Microsoft/cpprestsdk)，所以我們原本就使用 [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html) 支援非同步作業。 例如:
+因為 Storage Client Library for C++ 的建置基礎為 [C++ REST 程式庫](https://github.com/Microsoft/cpprestsdk)，所以我們原本就使用 [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html) 支援非同步作業。 例如︰
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;

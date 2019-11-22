@@ -4,14 +4,14 @@ description: 取得有關 Azure Migrate 服務常見問題的解答。
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: a622a5793e817be2445e60d925354ab37bb8e331
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: dc7dff0119ec849b447754ae54a45911038f6c48
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185768"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284460"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate：常見的問題
 
@@ -118,16 +118,10 @@ Azure Migrate 設備會持續收集內部部署環境的相關資訊。 但評�
 
 ### <a name="whats-the-difference-between-server-assessment-and-the-site-recovery-deployment-planner"></a>伺服器評估與 Site Recovery 部署規劃工具之間有何差異？
 
-伺服器評估是一種遷移計畫工具。 Site Recovery 部署規劃工具是一種嚴重損壞修復規劃工具。 
+伺服器評估是一種遷移計畫工具。 Site Recovery 部署規劃工具是一種嚴重損壞修復規劃工具。
 
 - **規劃將內部部署遷移至 azure**：如果您想要將內部部署伺服器遷移至 azure，請使用伺服器評估來進行遷移計畫。 它會評估內部部署工作負載，並提供指引和工具來協助您進行遷移。 準備好遷移計畫之後，您可以使用工具（包括 Azure Migrate 伺服器遷移），將機器遷移至 Azure。
 - **規劃 Azure**的嚴重損壞修復：如果您想要使用 Site Recovery 來設定從內部部署環境到 Azure 的嚴重損壞修復，請使用 Site Recovery 部署規劃工具。 針對嚴重損壞修復的目的，部署規劃工具提供內部部署環境的深度、Site Recovery 特定評估。 它會提供有關嚴重損壞修復的建議，例如複寫和容錯移轉。
-
-### <a name="does-azure-migrate-estimate-costs-for-the-enterprise-agreement-ea-program"></a>Azure Migrate 會評估 Enterprise 合約（EA）方案的成本嗎？
-
-Azure Migrate Server 評估目前不支援[Enterprise 合約計畫](https://azure.microsoft.com/offers/enterprise-agreement-support/)的成本預估。 因應措施是當您建立評量時，可以指定預付型方案做為**供應**專案，並以手動方式將折扣百分比（適用于訂**用**帳戶）新增為評量屬性中的**折扣**：
-
-  ![評估屬性](./media/resources-faq/discount.png)
 
 ### <a name="whats-the-difference-between-as-on-premises-and-performance-based-sizing"></a>As 內部部署和以效能為基礎的調整大小之間有何差異？
 

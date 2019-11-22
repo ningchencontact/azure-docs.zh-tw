@@ -7,16 +7,20 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 11/11/2019
-ms.openlocfilehash: b513408f551a255facc897b7ba83c68e2befe282
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 8fb1c6c65ab9c38ef16cfbc20435b35d0c7a7ce5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928274"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279606"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>如何更新容器的 Azure 監視器以啟用計量
 
 適用于容器的 Azure 監視器引進了從 Azure Kubernetes Services （AKS）叢集節點和 pod 收集計量，並將其寫入 Azure 監視器計量存放區的支援。 這項變更的目的是在呈現效能圖表中的匯總計算（Avg、Count、Max、Min、Sum）時傳遞改良的時效性，支援在 Azure 入口網站儀表板中釘選效能圖表，以及支援計量警示。
+
+>[!NOTE]
+>這項功能目前不支援 Red Hat OpenShift 叢集。
+>
 
 下列計量會在這項功能中啟用：
 

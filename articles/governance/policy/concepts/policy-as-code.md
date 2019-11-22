@@ -3,12 +3,12 @@ title: 設計原則即程式碼工作流程
 description: 瞭解如何設計工作流程，將您的 Azure 原則定義部署為程式碼，並自動驗證資源。
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 935616145ee32bea8c3b514c495690ce4105cb80
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0914ba6510c9d2ef87d3f83417f97340d42c8bce
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072079"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267270"
 ---
 # <a name="design-policy-as-code-workflows"></a>設計原則即程式碼工作流程
 
@@ -128,6 +128,6 @@ ms.locfileid: "74072079"
 - 瞭解[原則定義結構](./definition-structure.md)。
 - 瞭解[原則指派結構](./assignment-structure.md)。
 - 瞭解如何以程式設計[方式建立原則](../how-to/programmatically-create.md)。
-- 瞭解如何[取得合規性資料](../how-to/getting-compliance-data.md)。
+- 瞭解如何[取得合規性資料](../how-to/get-compliance-data.md)。
 - 瞭解如何[補救不符合規範的資源](../how-to/remediate-resources.md)。
 - 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

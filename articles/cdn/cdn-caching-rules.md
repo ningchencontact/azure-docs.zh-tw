@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: magattus
-ms.openlocfilehash: d4ab3ca32f229e92ae6bae5906c6c70593e9f9d3
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: ddd7dc7e1245c2a77e866a454bf6bfa3c1f16f88
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594045"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278143"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>使用快取規則來控制 Azure CDN 快取行為
 
 > [!NOTE] 
-> 快取規則僅適用於「**來自 Verizon 的 Azure CDN 標準**」和「**來自 Akamai 的 Azure CDN 標準**」的設定檔。 針對「**來自 Verizon 的 Azure CDN 進階**」設定檔，您必須使用 [管理]  入口網站中的 [Azure CDN 規則引擎](cdn-rules-engine.md)來執行類似功能。
+> 快取規則僅適用於「**來自 Verizon 的 Azure CDN 標準**」和「**來自 Akamai 的 Azure CDN 標準**」的設定檔。 針對**來自 Microsoft 的 AZURE cdn**設定檔，您必須使用**來自 VERIZON 的 azure cdn premium**設定檔的[標準規則引擎](cdn-standard-rules-engine-reference.md)，您必須在 [**管理**] 入口網站中使用 [ [Verizon Premium 規則引擎](cdn-rules-engine.md)]，以取得類似的功能。
  
 「Azure 內容傳遞網路」(CDN) 提供兩種方式來控制如何快取檔案： 
 
-- 快取規則：本文說明如何使用內容傳遞網路 (CDN) 快取規則來設定或修改全域及有自訂的條件，例如 URL 路徑和檔案延伸模組的預設快取到期行為。 Azure CDN 提供兩種類型的快取規則：
+- 快取規則：本文說明如何使用內容傳遞網路 (CDN) 快取規則，以全域及有自訂條件 (例如 URL 路徑和副檔名) 的方式設定或修改預設快取到期行為。 Azure CDN 提供兩種類型的快取規則：
 
-   - 全域快取規則：您可以設定每個端點的一個全域快取規則，在您的設定檔，這會影響對端點的所有要求。 全域快取規則會覆寫任何 HTTP 快取指示詞標頭 (如果已設定)。
+   - 全域快取規則：您可以針對設定檔中的每個端點設定一個全域快取規則，這會影響針對端點的所有要求。 全域快取規則會覆寫任何 HTTP 快取指示詞標頭 (如果已設定)。
 
-   - 自訂快取規則：您可以在您的設定檔中設定一或多個自訂快取規則的每個端點。 自訂快取規則會比對特定路徑和副檔名、會依序處理，並會覆寫全域快取規則 (如果已設定)。 
+   - 自訂快取規則：您可以針對設定檔中的每個端點設定一或多個自訂快取規則。 自訂快取規則會比對特定路徑和副檔名、會依序處理，並會覆寫全域快取規則 (如果已設定)。 
 
-- 查詢字串快取：您可以調整 Azure CDN 處理的要求查詢字串快取的方式。 如需相關資訊，請參閱[使用查詢字串控制 Azure CDN 快取行為](cdn-query-string.md)。 如果檔案無法快取，根據快取規則和 CDN 預設行為，查詢字串快取設定不會有任何效果。
+- 查詢字串快取：您可以調整 Azure CDN 使用查詢字串處理要求快取的方式。 如需相關資訊，請參閱[使用查詢字串控制 Azure CDN 快取行為](cdn-query-string.md)。 如果檔案無法快取，根據快取規則和 CDN 預設行為，查詢字串快取設定不會有任何效果。
 
 如需預設快取行為和快取指示詞標頭的相關資訊，請參閱[快取如何運作](cdn-how-caching-works.md)。 
 
@@ -42,11 +42,11 @@ ms.locfileid: "67594045"
 
 1. 開啟 Azure 入口網站，選取 CDN 設定檔，然後選取端點。
 
-2. 在左窗格的 [設定] 下方，選取 [快取規則]  。
+2. 在左窗格的 [設定] 下方，選取 [快取規則]。
 
-   ![CDN [快取規則] 按鈕](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+   ![CDN 快取規則按鈕](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
-   [快取規則]  頁面隨即出現。
+   [快取規則] 頁面隨即出現。
 
    ![CDN 快取規則頁面](./media/cdn-caching-rules/cdn-caching-rules-page.png)
 
@@ -54,11 +54,11 @@ ms.locfileid: "67594045"
 ## <a name="caching-behavior-settings"></a>快取行為設定
 針對全域和自訂快取規則，您可以指定下列**快取行為**設定：
 
-- **略過快取**:不要快取並忽略原始提供的快取指示詞標頭。
+- **略過快取**：不要快取並忽略原始提供的快取指示詞標頭。
 
-- **覆寫**:忽略原始提供的快取持續時間，請改用提供的快取持續時間。 這不會覆寫快取控制： 無快取。
+- 覆**寫**：忽略原始提供的快取持續時間;請改用提供的快取持續時間。 這不會覆寫快取控制：無快取。
 
-- **缺少時才設定**:接受原始提供的快取指示詞標頭，如果它們存在;否則，請使用提供的快取持續時間。
+- **缺少時才設定**：如果原始提供的快取指示詞標頭存在，就優先採用它們；否則，使用提供的快取持續時間。
 
 ![全域快取規則](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
@@ -67,17 +67,17 @@ ms.locfileid: "67594045"
 ## <a name="cache-expiration-duration"></a>快取到期期間
 針對全域和自訂快取規則，您能以天數、小時數、分鐘數和秒數來指定快取到期期間：
 
-- 針對 [覆寫]  和 [缺少時才設定]  的**快取行為**設定，有效快取持續時間的範圍介於 0 秒到 366 天。 若值為 0 秒，CDN 會快取內容，但必須向原始伺服器重新驗證每個要求。
+- 針對 [覆寫] 和 [缺少時才設定] 的**快取行為**設定，有效快取持續時間的範圍介於 0 秒到 366 天。 若值為 0 秒，CDN 會快取內容，但必須向原始伺服器重新驗證每個要求。
 
-- 針對 [略過快取]  設定，快取持續時間會自動設為 0 秒且無法變更。
+- 針對 [略過快取] 設定，快取持續時間會自動設為 0 秒且無法變更。
 
 ## <a name="custom-caching-rules-match-conditions"></a>自訂快取規則比對條件
 
 針對自訂快取規則，有兩個可用的比對條件：
  
-- **路徑**：這種狀況比對的路徑的 URL，但不包括網域名稱，並支援萬用字元符號 (\*)。 例如， _/myfile.html_、 _/my/folder/*_ 和 _/my/images/*.jpg_。 長度上限是 260 個字元。
+- **路徑**：這個條件會比對 URL 的路徑，排除網域名稱，並支援萬用字元符號 (\*)。 例如， _/myfile.html_、 _/my/folder/*_ 和 _/my/images/*.jpg_。 長度上限是 260 個字元。
 
-- **延伸模組**:這種狀況比對要求的檔案的副檔名。 您可以提供一份要比對的副檔名清單 (以逗號分隔)。 例如， _.jpg_、 _.mp3_ 或 _.png_。 副檔名的個數上限是 50，且每個副檔名的最大字元數目為 16。 
+- **副檔名**：這個條件會比對所要求檔案的副檔名。 您可以提供一份要比對的副檔名清單 (以逗號分隔)。 例如， _.jpg_、 _.mp3_ 或 _.png_。 副檔名的個數上限是 50，且每個副檔名的最大字元數目為 16。 
 
 ## <a name="global-and-custom-rule-processing-order"></a>全域和自訂規則處理順序
 全域和自訂快取規則會依下列順序處理：
@@ -88,22 +88,22 @@ ms.locfileid: "67594045"
 
 **範例**：
 - 全域快取規則： 
-   - 快取行為：**Override**
+   - 快取行為：**覆寫**
    - 快取到期期間：1 天
 
 - 自訂快取規則 #1：
    - 比對條件：**路徑**
    - 比對值： _/home/*_
-   - 快取行為：**Override**
+   - 快取行為：**覆寫**
    - 快取到期期間：2 天
 
 - 自訂快取規則 #2：
-   - 比對條件：**擴充功能**
+   - 比對條件：**副檔名**
    - 比對值： _.html_
    - 快取行為：**缺少時才設定**
    - 快取到期期間：3 天
 
-當有設定這些規則，要求 _&lt;端點主機名稱&gt;_ .azureedge.net/home/index.html 觸發程序自訂快取規則 #2 中，它會設定為：**缺少時才設定**和 3 天。 因此，如果 index.html  檔案具有 `Cache-Control` 或 `Expires` HTTP 標頭，則會優先採用它們，否則，如果未設定這些標頭，就會將檔案快取 3 天。
+若設定了這些規則，針對 _&lt;endpoint hostname&gt;_ .azureedge.net/home/index.html 的要求就會觸發自訂快取規則 #2，它會設定為：**缺少時才設定**和 3 天。 因此，如果 index.html 檔案具有 `Cache-Control` 或 `Expires` HTTP 標頭，則會優先採用它們，否則，如果未設定這些標頭，就會將檔案快取 3 天。
 
 > [!NOTE] 
 > 在規則變更之前快取的檔案會維持其原始的快取持續時間設定。 若要重設它們的快取持續時間，您必須[清除檔案](cdn-purge-endpoint.md)。 

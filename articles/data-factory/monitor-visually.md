@@ -1,110 +1,73 @@
 ---
-title: 以視覺化方式監視 Azure 資料處理站
+title: 以視覺化方式監視 Azure Data Factory
 description: 瞭解如何以視覺化方式監視 Azure data factory
 services: data-factory
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: 7b79fd9c87e97e624cce567b57c1c65fefcc151e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 11/19/2018
+ms.openlocfilehash: a4258b51acfa603c156bc35cdb2cbc3b16f37ab0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684633"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278405"
 ---
-# <a name="visually-monitor-azure-data-factories"></a>以視覺化方式監視 Azure 資料處理站
-Azure Data Factory 是以雲端為基礎的資料整合服務。 您可以使用它在雲端中建立資料驅動的工作流程，以協調和自動化資料移動和資料轉換。 藉由使用 Azure Data Factory，您可以：
+# <a name="visually-monitor-azure-data-factory"></a>以視覺化方式監視 Azure Data Factory
 
-- 建立並排程資料驅動的工作流程 (稱為管線)，它可以從不同的資料存放區擷取資料。
-- 使用計算服務（例如 Azure HDInsight Hadoop、Spark、Azure Data Lake Analytics 和 Azure Machine Learning）來處理/轉換資料。
-- 將輸出資料發佈至資料存放區，例如 Azure SQL 資料倉儲，讓商業智慧 (BI) 應用程式取用。
+在 Azure Data Factory 中建立併發布管線之後，您可以將它與觸發程式建立關聯，或手動啟動臨機操作執行。 您可以在 Azure Data Factory 使用者體驗中，以原生方式監視您所有的管線執行。 若要開啟監視體驗，請在[Azure 入口網站](https://portal.azure.com/)的 [data factory] 分頁中選取 [**監視] & [管理**] 磚。 如果您已經在 ADF UX 中，請按一下左側邊欄上的 [**監視**] 圖示。
 
-在此快速入門中，您將了解如何在不用撰寫任何程式碼的情況下，以視覺方式監視 Data Factory 管線。
-
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
-
-## <a name="monitor-data-factory-pipelines"></a>監視 Data Factory 管線
-
-使用簡單的清單視圖介面來監視管線和活動執行。 所有執行都會顯示在瀏覽器的當地時區中。 如果您變更時區，所有日期/時間欄位都會貼齊您選取的區域。  
-
-1. 啟動 Microsoft Edge 或 Google Chrome。 目前只有這兩個網頁瀏覽器支援 Data Factory UI。
-2. 登入[Azure 入口網站](https://portal.azure.com/)。
-3. 在 Azure 入口網站中，移至建立的資料處理站的分頁。 選取 [**監視] & [管理**] 磚，以啟動 Data Factory 視覺效果監視體驗。
+所有的資料處理站執行都會顯示在瀏覽器的當地時區中。 如果您變更時區，所有日期/時間欄位都會貼齊您選取的區域。
 
 ## <a name="monitor-pipeline-runs"></a>監視管線回合
-清單視圖會顯示 Data Factory 管線的每個管線執行。 其中包含下列資料行：
 
-| **資料行名稱** | **說明** |
+預設監視視圖是所選時段內的管線執行清單。 會顯示下列資料行：
+
+| **資料行名稱** | **描述** |
 | --- | --- |
 | 管線名稱 | 管線的名稱 |
-| 動作 | 可供觀看活動執行的單一動作 |
+| 動作 | 可讓您查看活動詳細資料、取消或重新執行管線的圖示 |
 | 回合開始 | 管線執行的開始日期和時間（MM/DD/YYYY、HH： MM： SS AM/PM） |
 | 持續時間 | 回合持續時間 (HH:MM:SS) |
-| 觸發方式 | 手動觸發程式或排程觸發程式 |
-| 狀態 | **失敗**、**成功**或**進行中** |
-| 參數 | 管線執行的參數（名稱/值配對） |
-| 錯誤 | 管線執行錯誤（如果有的話） |
+| 觸發方式 | 啟動管線之觸發程式的名稱 |
+| Status | **失敗**、**成功**、**進行中**、**已取消或已** **排入佇列** |
+| 註解 | 與管線相關聯的可篩選標記  |
+| parameters | 管線執行的參數（名稱/值配對） |
+| 錯誤 | 如果管線失敗，則執行錯誤 |
 | 回合識別碼 | 管線執行的識別碼 |
 
 ![監視管線執行的清單視圖](media/monitor-visually/pipeline-runs.png)
 
-## <a name="monitor-activity-runs"></a>監視活動回合
-清單視圖會顯示對應至每個管線執行的活動執行。 若要查看每個管線執行的活動執行，請選取 [**動作**] 資料行底下的 [**活動執行**] 圖示。 清單視圖包含下列資料行：
-
-| **資料行名稱** | **說明** |
-| --- | --- |
-| 活動名稱 | 管線內的活動名稱 |
-| 活動類型 | 活動的類型，例如**Copy**、 **HDInsightSpark**或**HDInsightHive** |
-| 回合開始 | 活動執行的開始日期和時間（MM/DD/YYYY，HH： MM： SS AM/PM） |
-| 持續時間 | 回合持續時間 (HH:MM:SS) |
-| 狀態 | **失敗**、**成功**或**進行中** |
-| 輸入 | 描述活動輸入的 JSON 陣列 |
-| 輸出 | 描述活動輸出的 JSON 陣列 |
-| 錯誤 | 活動執行錯誤（如果有的話） |
-
-![監視活動執行的清單視圖](media/monitor-visually/activity-runs.png)
-
-> [!IMPORTANT]
-> 您必須選取頂端的 **[重新**整理] 按鈕，以重新整理管線和活動執行的清單。 目前不支援自動重新整理。
+您需要手動選取 [重新整理]**按鈕，以**重新整理管線和活動執行的清單。 目前不支援 Autorefresh。
 
 ![重新整理按鈕](media/monitor-visually/refresh.png)
 
-## <a name="select-a-data-factory-to-monitor"></a>選取要監視的資料處理站
-將滑鼠停留在左上方的**Data Factory**圖示上。 選取箭號圖示，以查看您可以監視的 azure 訂用帳戶和資料處理站清單。
+## <a name="monitor-activity-runs"></a>監視活動回合
 
-![選取 data factory](media/monitor-visually/select-datafactory.png)
+若要查看每個管線執行的活動執行，請選取 [**動作**] 資料行底下的 [ **view activity 執行**] 圖示。 清單視圖會顯示對應至每個管線執行的活動執行。
 
-## <a name="configure-the-list-view"></a>設定清單檢視
-
-### <a name="apply-rich-ordering-and-filtering"></a>套用豐富的排序和篩選功能
-
-順序管線會根據執行開始時間，在 DESC/ASC 中執行。 使用下列資料行篩選管線執行：
-
-| **資料行名稱** | **說明** |
+| **資料行名稱** | **描述** |
 | --- | --- |
-| 管線名稱 | 管線的名稱。 選項包括**過去24小時**、**過去一周**和**過去30天**的快速篩選。 或選取自訂的日期和時間。 |
-| 回合開始 | 管線執行的開始日期和時間。 |
-| 回合狀態 | 依狀態篩選執行： [**成功**]、[**失敗**] 或 [**進行中**]。 |
+| 活動名稱 | 管線內的活動名稱 |
+| 活動類型 | 活動的類型，例如**Copy**、 **ExecuteDataFlow**或**AzureMLExecutePipeline** |
+| 動作 | 圖示，可讓您查看 JSON 輸入資訊、JSON 輸出資訊，或詳細的活動特定監視體驗 | 
+| 回合開始 | 活動執行的開始日期和時間（MM/DD/YYYY，HH： MM： SS AM/PM） |
+| 持續時間 | 回合持續時間 (HH:MM:SS) |
+| Status | **失敗**、**成功**、**進行中**或**已取消** |
+| Integration Runtime | 活動執行的 Integration Runtime |
+| 使用者屬性 | 活動的使用者定義屬性 |
+| 錯誤 | 如果活動失敗，則執行錯誤 |
+| 回合識別碼 | 活動執行的識別碼 |
 
-![篩選選項](media/monitor-visually/filter.png)
+![監視活動執行的清單視圖](media/monitor-visually/activity-runs.png)
 
-### <a name="add-or-remove-columns"></a>新增或移除資料行
-以滑鼠右鍵按一下清單視圖標題，然後選擇您想要在清單視圖中顯示的資料行。
+### <a name="promote-user-properties-to-monitor"></a>將使用者屬性升階以便監視
 
-![資料行的選項](media/monitor-visually/columns.png)
-
-### <a name="adjust-column-widths"></a>調整資料行寬度
-將滑鼠停留在資料行標頭上方，以增加和減少清單視圖中的資料行寬度。
-
-## <a name="promote-user-properties-to-monitor"></a>將使用者屬性升階以便監視
-
-您可以將任何管線活動屬性升階為使用者屬性，讓它變成您可以監視的實體。 例如，您可以將管線中複製活動的 [**來源**] 和 [**目的地**] 屬性升階為使用者屬性。 您也可以選取 [**自動產生**] 來產生複製活動的**來源**和**目的地**使用者屬性。
+將任何管線活動屬性升階為使用者屬性，使其成為您所監視的實體。 例如，您可以將管線中複製活動的 [**來源**] 和 [**目的地**] 屬性升階為使用者屬性。 選取 [**自動產生**] 以產生複製活動的**來源**和**目的地**使用者屬性。
 
 ![建立使用者屬性](media/monitor-visually/monitor-user-properties-image1.png)
 
@@ -119,9 +82,33 @@ Azure Data Factory 是以雲端為基礎的資料整合服務。 您可以使用
 
 ![活動執行清單具有使用者屬性的資料行](media/monitor-visually/monitor-user-properties-image4.png)
 
+## <a name="configure-the-list-view"></a>設定清單檢視
+
+### <a name="order-and-filter"></a>訂單和篩選
+
+根據執行開始時間，切換管線執行是遞減還是遞增的。 使用下列資料行篩選管線執行：
+
+| **資料行名稱** | **描述** |
+| --- | --- |
+| 管線名稱 | 依管線的名稱篩選。 |
+| 回合開始 |  決定顯示管線執行的時間範圍。 選項包括**過去24小時**、**過去一周**和**過去30天**的快速篩選，或是選取自訂的日期和時間。 |
+| 回合狀態 | 依狀態篩選執行：**成功**、**失敗**、已**排入佇列**、**已取消**或**進行中**。 |
+| 註解 | 依套用至每個管線的標記篩選 |
+| 執行 | 篩選是否要查看不見了管線 |
+
+![篩選選項](media/monitor-visually/filter.png)
+
+### <a name="add-or-remove-columns"></a>新增或移除資料行
+以滑鼠右鍵按一下清單視圖標題，然後選擇您想要在清單視圖中顯示的資料行。
+
+![資料行的選項](media/monitor-visually/columns.png)
+
+### <a name="adjust-column-widths"></a>調整資料行寬度
+將滑鼠停留在資料行標頭上方，以增加和減少清單視圖中的資料行寬度。
+
 ## <a name="rerun-activities-inside-a-pipeline"></a>在管線中重新執行活動
 
-您現在可以在管線中重新執行活動。 選取 [ **View activity 執行**]，然後選取您的管線中要重新執行管線的活動。
+您可以重新執行管線內的活動。 選取 [ **View activity 執行**]，然後選取您的管線中要重新執行管線的活動。
 
 ![檢視活動執行](media/monitor-visually/rerun-activities-image1.png)
 
@@ -139,9 +126,11 @@ Azure Data Factory 是以雲端為基礎的資料整合服務。 您可以使用
 
 ## <a name="gantt-views"></a>甘特圖視圖
 
-使用 [甘特圖] 視圖以快速視覺化您的管線和活動執行。 您可以查看每個管線的 [甘特圖] 或 [依您在管線上建立的批註/標記群組]。
+使用 [甘特圖] 視圖以快速視覺化您的管線和活動執行。
 
 ![甘特圖的範例](media/monitor-visually/gantt1.png)
+
+您可以查看每個管線的 [甘特圖] 或 [依您在管線上建立的批註/標記群組]。
 
 ![甘特圖注釋](media/monitor-visually/gantt2.png)
 
@@ -153,11 +142,6 @@ Azure Data Factory 是以雲端為基礎的資料整合服務。 您可以使用
 選取左下方的**資訊**圖示。 然後選取 [**引導式導覽**]，以取得如何監視管線和活動執行的逐步指示。
 
 ![導覽](media/monitor-visually/guided-tours.png)
-
-## <a name="feedback"></a>意見反應
-選取 [**意見**反應] 圖示，為我們提供各種功能或您可能面臨的任何問題的意見反應。
-
-![意見反應](media/monitor-visually/feedback.png)
 
 ## <a name="alerts"></a>Alerts
 

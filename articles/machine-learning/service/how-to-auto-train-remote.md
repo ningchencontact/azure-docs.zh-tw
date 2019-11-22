@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5104e6e037341c41a032f80287c6d56d17361d4c
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 8c50a1ba79fc07f62e319c6dceb75c32a9e8609f
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932185"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287131"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>使用雲端中的自動化機器學習來將模型定型
 
@@ -70,11 +70,18 @@ compute_target.wait_for_completion(
 
 ## <a name="access-data-using-tabulardataset-function"></a>使用 TabularDataset 函數存取資料
 
-將 X 和 y 定義為 `TabularDataset`s，這會傳遞至 AutoMLConfig 中的自動化 ML。 `from_delimited_files` 預設會將 `infer_column_types` 設定為 true，這將會自動推斷資料行類型。 
+定義 training_data 做為 `TabularDataset`和標籤，其會傳遞至 AutoMLConfig 中的自動化 ML。 `from_delimited_files` 預設會將 `infer_column_types` 設定為 true，這將會自動推斷資料行類型。 
 
 如果您想要手動設定資料行類型，您可以設定 `set_column_types` 引數，以手動設定每個資料行的類型。 在下列程式碼範例中，資料來自 sklearn 套件。
 
 ```python
+from sklearn import datasets
+from azureml.core.dataset import Dataset
+from scipy import sparse
+import numpy as np
+import pandas as pd
+import os
+
 # Create a project_folder if it doesn't exist
 if not os.path.isdir('data'):
     os.mkdir('data')
@@ -82,23 +89,20 @@ if not os.path.isdir('data'):
 if not os.path.exists(project_folder):
     os.makedirs(project_folder)
 
-from sklearn import datasets
-from azureml.core.dataset import Dataset
-from scipy import sparse
-import numpy as np
-import pandas as pd
+X = pd.DataFrame(data_train.data[100:,:])
+y = pd.DataFrame(data_train.target[100:])
 
-data_train = datasets.load_digits()
+# merge X and y
+label = "digit"
+X[label] = y
 
-pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
-pd.DataFrame(data_train.target[100:]).to_csv("data/y_train.csv", index=False)
+training_data = X
 
+training_data.to_csv('data/digits.csv')
 ds = ws.get_default_datastore()
 ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
 
-X = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/X_train.csv'))
-y = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/y_train.csv'))
-
+training_data = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/digits.csv'))
 ```
 
 ## <a name="create-run-configuration"></a>建立執行設定
@@ -115,7 +119,7 @@ run_config.environment.docker.enabled = True
 run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
 
 dependencies = CondaDependencies.create(
-    pip_packages=["scikit-learn", "scipy", "numpy"])
+    pip_packages=["scikit-learn", "scipy", "numpy==1.16.2"])
 run_config.environment.python.conda_dependencies = dependencies
 ```
 
@@ -131,22 +135,20 @@ import logging
 
 automl_settings = {
     "name": "AutoML_Demo_Experiment_{0}".format(time.time()),
+    "experiment_timeout_minutes" : 20,
+    "enable_early_stopping" : True,
     "iteration_timeout_minutes": 10,
-    "iterations": 20,
     "n_cross_validations": 5,
     "primary_metric": 'AUC_weighted',
-    "preprocess": False,
     "max_concurrent_iterations": 10,
-    "verbosity": logging.INFO
 }
 
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
                              compute_target=compute_target,
-                             run_configuration=run_config,
-                             X = X,
-                             y = y,
+                             training_data=training_data,
+                             label_column_name=label,
                              **automl_settings,
                              )
 ```

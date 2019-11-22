@@ -1,6 +1,6 @@
 ---
 title: 快速入門：適用于 JavaScript 的 Azure Blob 儲存體用戶端程式庫 v2
-description: 在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Node.js v2 適用的 Azure 儲存體用戶端程式庫將 Blob 上傳至 Azure 儲存體、下載 Blob，以及列出容器中的 Blob。
+description: 在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 使用適用于 node.js v2 的 Azure 儲存體用戶端程式庫來上傳 blob、下載 blob，以及列出容器中的 blob。
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 02/04/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 12078300b36412a1507991507a39654acdeb7c69
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7300d4eccec5b1e4b3b5b7dc292cf6150a42e7b4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825335"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269694"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v2-for-javascript"></a>快速入門：適用于 JavaScript 的 Azure Blob 儲存體用戶端程式庫 v2
 
@@ -22,7 +22,7 @@ ms.locfileid: "73825335"
 > [!TIP]
 > 適用於 Node.js 的最新 Azure 儲存體用戶端程式庫版本是 v10。 Microsoft 建議您盡可能使用最新版的用戶端程式庫。 若要開始使用 v10，請參閱[快速入門：使用適用于 JavaScript 的 Azure 儲存體用戶端程式庫 v10 （預覽）來上傳、下載、列出及刪除 blob](storage-quickstart-blobs-nodejs-v10.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -53,7 +53,7 @@ npm install
 ```
 
 ## <a name="run-the-sample"></a>執行範例
-相依性現已安裝，因此您可以發出下列命令來來執行範例：
+相依性已安裝好，因此您可以發出下列命令來來執行範例：
 
 ```bash
 npm start
@@ -88,7 +88,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 ```
 
-*dotenv* 模組會在本機執行應用程式進行偵錯時載入環境變數。 值均定義於名為 *.env* 的檔案中，並載入到目前的執行內容。 在生產環境中，伺服器組態會提供這些值，這就是為何只有當指令碼未在「生產」環境下執行時，此程式碼才會執行。
+dotenv 模組在本機執行應用程式進行偵錯會載入環境變數。 變數值會定義於名為 .env 的檔案中並載入目前的執行環境中。 在生產環境中，伺服器組態會提供這些值，這就是為何只有當指令碼未在「生產」環境下執行時，此程式碼才會執行。
 
 ```javascript
 const path = require('path');

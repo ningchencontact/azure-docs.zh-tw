@@ -1,6 +1,6 @@
 ---
-title: 將內部部署應用程式與 Cloud App Security 整合 - Azure Active Directory | Microsoft Docs
-description: 設定 Azure Active Directory 中的內部部署應用程式，以便與 Microsoft Cloud App Security (MCAS) 搭配運作。 使用即時 MCAS 條件式存取應用程式控制來監視和控制工作階段，根據條件式存取原則。 您可以將這些原則套用至內部部署應用程式，以在 Azure Active Directory (Azure AD) 中使用應用程式 Proxy。
+title: 整合內部部署應用程式與 Cloud App Security Azure AD
+description: 設定 Azure Active Directory 中的內部部署應用程式，以便與 Microsoft Cloud App Security (MCAS) 搭配運作。 使用 MCAS 條件式存取應用程式控制，根據條件式存取原則即時監視和控制會話。 您可以將這些原則套用至內部部署應用程式，以在 Azure Active Directory (Azure AD) 中使用應用程式 Proxy。
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.date: 12/19/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7b9b27a3b8329f906b1adfd48d28892a7edc4d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb97f9dd87277215a5d4708d3a6f49564c490204
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108453"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275502"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>使用 Microsoft Cloud App Security 與 Azure Active Directory 設定即時應用程式存取監視
-設定 Azure Active Directory (Azure AD) 中的內部部署應用程式，以使用 Microsoft Cloud App Security (MCAS) 進行即時監視。 MCAS 可使用條件式存取應用程式控制來監視和即時控制工作階段為基礎的條件式存取原則。 您可以將這些原則套用至內部部署應用程式，以在 Azure Active Directory (Azure AD) 中使用應用程式 Proxy。
+設定 Azure Active Directory (Azure AD) 中的內部部署應用程式，以使用 Microsoft Cloud App Security (MCAS) 進行即時監視。 MCAS 會使用條件式存取應用程式控制，根據條件式存取原則即時監視和控制會話。 您可以將這些原則套用至內部部署應用程式，以在 Azure Active Directory (Azure AD) 中使用應用程式 Proxy。
 
 以下一些範例是您可以使用 MCAS 建立的原則類型：
 
@@ -47,10 +47,10 @@ ms.locfileid: "67108453"
 
 ## <a name="add-on-premises-application-to-azure-ad"></a>將內部部署應用程式新增至 Azure AD
 
-將內部部署應用程式新增至 Azure AD。 如需快速入門，請參閱[將內部部署應用程式新增至 Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad)。 新增應用程式時，請務必在 [新增內部部署應用程式]  刀鋒視窗中設定下列兩項設定：
+將內部部署應用程式新增至 Azure AD。 如需快速入門，請參閱[將內部部署應用程式新增至 Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad)。 新增應用程式時，請務必在 [新增內部部署應用程式] 刀鋒視窗中設定下列兩項設定：
 
-- **預先驗證**：輸入 **Azure Active Directory**。
-- **轉譯應用程式主體中的 URL**：選擇 [是]  。
+- **預先驗證**：輸入**Azure Active Directory**。
+- **轉譯應用程式主體中的 url**：選擇 **[是]** 。
 
 應用程式若要與 MCAS 搭配運作，就需要這兩個設定。
 

@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 網路監看員安全性群組檢視分析網路安全性 - Azure CLI | Microsoft Docs
+title: 使用安全性群組視圖來分析網路安全性-Azure CLI
+titleSuffix: Azure Network Watcher
 description: 本文會說明如何使用 Azure CLI，利用安全性群組檢視分析虛擬機器的安全性。
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 68222a90eb60ab4f84a34b5e46833128ea081ec1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70460d3b46baa094f227f96733f8ac98fae9285b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724432"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277840"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>使用 Azure CLI，利用安全性群組檢視分析虛擬機器的安全性
 
@@ -36,7 +37,7 @@ ms.locfileid: "64724432"
 
 此案例假設您已依照[建立網路監看員](network-watcher-create.md)中的步驟建立網路監看員。
 
-## <a name="scenario"></a>狀況
+## <a name="scenario"></a>案例
 
 本文涵蓋的案例會擷取指定虛擬機器之已設定且有效的安全性規則。
 

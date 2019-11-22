@@ -1,6 +1,6 @@
 ---
-title: Set up an email address as your authentication method - Azure AD
-description: How to set up the Security info page to verify your identity using an email address as your authentication method.
+title: 設定電子郵件地址做為您的驗證方法-Azure AD
+description: 如何設定您的安全性資訊（預覽）頁面，以使用電子郵件地址做為您的驗證方法來驗證您的身分識別。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03b53760f27f853f34397ac9047f18a37e1bc845
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: dafa78e6f46a3d2d6b7a9c505defaeae21875946
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231790"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279011"
 ---
-# <a name="set-up-an-email-address-as-your-authentication-method-from-the-security-info-preview-page"></a>Set up an email address as your authentication method from the Security info (preview) page
+# <a name="set-up-an-email-address-as-your-verification-method"></a>設定電子郵件地址做為您的驗證方法
 
 您可以遵循下列步驟來新增密碼重設方法。 在您首次將此設定好之後，即可返回 [安全性資訊] 頁面來新增、更新或刪除安全性資訊。
 
@@ -32,17 +32,17 @@ ms.locfileid: "74231790"
 根據組織的設定，您或許可以使用電子郵件地址來作為其中一個安全性資訊方法。
 
 >[!Note]
->建議使用不需要您的網路密碼即可存取的電子郵件地址。 如果您沒有看到電子郵件選項，很可能是您的組織不允許您使用電子郵件進行驗證。 如果發生這種情況，您將必須選擇其他方法，或連絡您的系統管理員以取得更多協助。
+>建議使用不需要您的網路密碼即可存取的電子郵件地址。 如果您沒有看到電子郵件選項，很可能是您的組織不允許您使用電子郵件進行驗證。 如果發生這種情況，您必須選擇其他方法，或連絡您的系統管理員以取得更多協助。
 
 ### <a name="to-set-up-your-email-address"></a>設定電子郵件地址
 
-1. 登入您的公司或學校帳戶，然後前往 https://myprofile.microsoft.com/ 頁面。
+1. 登入您的公司或學校帳戶，然後移至您的 https://myprofile.microsoft.com/ 頁面。
 
     ![[我的設定檔] 頁面，顯示醒目提示的 [安全性資訊] 連結](media/security-info/securityinfo-myprofile-page.png)
 
 2. 以左側瀏覽窗格或是 [安全性資訊] 區塊中的連結選取 [安全性資訊]，然後在 [安全性資訊] 頁面選取 [新增方法]。
 
-    ![醒目提示 [新增方法] 選項的 [安全性資訊] 頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![醒目提示新增方法選項的安全性資訊頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. 在 [新增方法] 頁面上，從下拉式清單中選取 [電子郵件]，然後選取 [新增]。
 
@@ -86,7 +86,7 @@ ms.locfileid: "74231790"
 
 - **行動裝置或公司電話。** 輸入您的行動裝置號碼，然後等候來電以進行雙步驟驗證或密碼重設。 如需如何透過電話號碼驗證您身分識別的逐步指示，請參閱[將安全性資訊設定為使用電話](security-info-setup-phone-number.md)。
 
-- **Security key.** Register your Microsoft-compatible security key and use it along with a PIN for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a security key, see [Set up security info to use a security key](security-info-setup-security-key.md).
+- **安全性金鑰。** 註冊與 Microsoft 相容的安全性金鑰，並使用它搭配 PIN 進行雙步驟驗證或密碼重設。 如需如何使用安全性金鑰驗證您身分識別的逐步指示，請參閱[將安全性資訊設定為使用安全性金鑰](security-info-setup-security-key.md)。
 
 - **安全性問題。** 回答由您的系統管理員為組織所建立的一些安全性問題。 此選項僅適用於密碼重設，不適用雙步驟驗證。 如需如何設定安全性問題的逐步指示，請參閱[將安全性資訊設定為使用安全性問題](security-info-setup-questions.md)一文。
 
@@ -95,6 +95,6 @@ ms.locfileid: "74231790"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您已遺失或忘記密碼，請從[密碼重設入口網站](https://passwordreset.microsoftonline.com/)或遵循[重設公司或學校密碼](active-directory-passwords-update-your-own-password.md)一文中的步驟來重設密碼。
+- 如果您遺失或忘記密碼，請從[密碼重設入口網站](https://passwordreset.microsoftonline.com/)或遵循[重設公司或學校密碼](active-directory-passwords-update-your-own-password.md)一文中的步驟來重設密碼。
 
-- 在[無法登入 Microsoft 帳戶](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)一文中，取得登入問題的疑難排解秘訣和說明。
+- 在[無法登入 Microsoft 帳戶](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)一文中取得登入問題的疑難排解秘訣和說明。

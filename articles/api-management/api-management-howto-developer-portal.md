@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 377ed8f17cfcf67f10cbdec77199c69c606afa3e
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 1a8fb8140fd2f58556e4a64bca0f4a052a84c2bb
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74180680"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285608"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API 管理開發人員入口網站總覽
 
@@ -26,8 +26,6 @@ ms.locfileid: "74180680"
 本文說明「API 管理」中的開發人員入口網站自我裝載和受管理版本之間的差異。 它也會說明它的架構，並提供常見問題的解答。
 
 > [!WARNING]
-> 目前正在將新的開發人員入口網站推出至 API 管理服務。
-> 如果您的服務是新建立的或是開發人員層服務，您應該已經擁有最新版本。 否則，您可能會遇到問題（例如，使用發佈功能）。 此功能的推出應于2019年11月22日日星期五完成。
 >
 > [瞭解如何從預覽版本遷移至正式推出版本](#preview-to-ga)的開發人員入口網站。
 

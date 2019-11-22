@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f36d3bcb16876f080f780658bc59afd794e3431e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 261816e42c8de670cd7888af726a70e1a6e5b228
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699189"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269367"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>針對 Windows 中的 Azure 檔案服務問題進行疑難排解
 
@@ -37,9 +37,9 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 ### <a name="solution-for-cause-1"></a>原因 1 的解決方案
 
 1. 從支援 SMB 加密的用戶端 (Windows 8、Windows Server 2012 和更新版本) 進行連線，或從 Azure 檔案共用所使用的 Azure 儲存體帳戶相同的資料中心上的虛擬機器進行連線。
-2. 如果用戶端不支援 SMB 加密，請確認儲存體帳戶上已停用[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定。
+2. 如果用戶端不支援 SMB 加密，請確認儲存體帳戶上的[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定已經停用。
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>原因 2：在儲存體帳戶上已啟用虛擬網路或防火牆規則 
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>原因2：已在儲存體帳戶上啟用虛擬網路或防火牆規則 
 
 如果在儲存體帳戶上設定虛擬網路 (VNET) 和防火牆規則，網路流量將會被拒絕存取，除非用戶端 IP 位址或虛擬網路獲准存取。
 
@@ -56,13 +56,13 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 - 發生系統錯誤 67。 找不到網路名稱。
 - 發生系統錯誤 87。 參數錯誤。
 
-### <a name="cause-1-port-445-is-blocked"></a>原因 1：連接埠 445 遭到封鎖
+### <a name="cause-1-port-445-is-blocked"></a>原因1：已封鎖埠445
 
 如果連接埠 445 至 Azure 檔案服務資料中心的輸出通訊遭到封鎖，可能會發生系統錯誤 53 或系統錯誤 67。 若要查看 ISP 是否允許從連接埠 445 進行存取的摘要，請參閱 [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) \(英文\)。
 
 若要檢查您的防火牆或 ISP 是否封鎖連接埠 445，請使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 工具或 `Test-NetConnection` Cmdlet。 
 
-若要使用`Test-NetConnection` Cmdlet, 必須安裝 Azure PowerShell 模組, 請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)以取得詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resource-group-name>`。
+若要使用 `Test-NetConnection` Cmdlet，必須安裝 Azure PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)以取得詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resource-group-name>`。
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -94,19 +94,19 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 ### <a name="solution-for-cause-1"></a>原因 1 的解決方案
 
 #### <a name="solution-1---use-azure-file-sync"></a>解決方案 1-使用 Azure 檔案同步
-Azure 檔案同步可以將您的內部部署 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 Azure 檔案同步會透過埠443運作, 因此可作為因應措施, 從已封鎖埠445的用戶端存取 Azure 檔案儲存體。 [瞭解如何設定 Azure 檔案同步](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers)。
+Azure 檔案同步可以將您的內部部署 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 Azure 檔案同步會透過埠443運作，因此可作為因應措施，從已封鎖埠445的用戶端存取 Azure 檔案儲存體。 [瞭解如何設定 Azure 檔案同步](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers)。
 
 #### <a name="solution-2---use-vpn"></a>解決方案 2-使用 VPN
-藉由設定特定儲存體帳戶的 VPN, 流量會通過安全通道, 而不是透過網際網路。 ](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
-)請遵循[指示來設定 VPN, 以從 Windows 存取 Azure 檔案儲存體。
+藉由設定特定儲存體帳戶的 VPN，流量會通過安全通道，而不是透過網際網路。 請遵循[指示來設定 VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
+) ，以從 Windows 存取 Azure 檔案儲存體。
 
 #### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>解決方案 3-透過您的 ISP/IT 系統管理員協助來解除封鎖埠445
-與您的 IT 部門或 ISP 合作, 開啟埠445輸出到[AZURE IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
+與您的 IT 部門或 ISP 合作，開啟埠445輸出到[AZURE IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
 
-#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>解決方案 4-使用以 REST API 為基礎的工具, 例如儲存體總管/Powershell
-Azure 檔案儲存體也支援 SMB 以外的 REST。 REST 存取會透過埠 443 (標準 tcp) 運作。 有各種工具是使用 REST API 來撰寫, 可啟用豐富的 UI 體驗。 [儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)是其中之一。 [下載並安裝儲存體總管](https://azure.microsoft.com/features/storage-explorer/)並聯機至 Azure 檔案儲存體支援的檔案共用。 您也可以使用[PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) , 也就是使用者 REST API。
+#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>解決方案 4-使用以 REST API 為基礎的工具，例如儲存體總管/Powershell
+Azure 檔案儲存體也支援 SMB 以外的 REST。 REST 存取會透過埠443（標準 tcp）運作。 有各種工具是使用 REST API 來撰寫，可啟用豐富的 UI 體驗。 [儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)是其中之一。 [下載並安裝儲存體總管](https://azure.microsoft.com/features/storage-explorer/)並聯機至 Azure 檔案儲存體支援的檔案共用。 您也可以使用[PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) ，也就是使用者 REST API。
 
-### <a name="cause-2-ntlmv1-is-enabled"></a>原因 2：已啟用 NTLMv1
+### <a name="cause-2-ntlmv1-is-enabled"></a>原因2：已啟用 NTLMv1
 
 如果用戶端上已啟用 NTLMv1 通訊，就會發生系統錯誤 53 或系統錯誤 87。 Azure 檔案僅支援 NTLMv2 驗證。 啟用 NTLMv1 會使用戶端變得較不安全。 因此，Azure 檔案服務會封鎖通訊。 
 
@@ -129,16 +129,16 @@ Azure 檔案儲存體也支援 SMB 以外的 REST。 REST 存取會透過埠 443
 
 當您到達同時開啟的控制代碼上限時 (此為針對掛接檔案共用之電腦上的檔案所允許的上限)，即會發生錯誤 1816。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方案
 
 關閉一些控制代碼以減少同時開啟的控制代碼數，然後再試一次。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體效能與延展性檢查清單](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
 
-若要查看檔案共用、目錄或檔案的開啟控制碼, 請使用[AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell Cmdlet。  
+若要查看檔案共用、目錄或檔案的開啟控制碼，請使用[AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell Cmdlet。  
 
-若要關閉檔案共用、目錄或檔案的開啟控制碼, 請使用[AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell Cmdlet。
+若要關閉檔案共用、目錄或檔案的開啟控制碼，請使用[AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell Cmdlet。
 
 > [!Note]  
-> AzStorageFileHandle 和 AzStorageFileHandle Cmdlet 包含在 Az PowerShell 模組2.4 版或更新版本中。 若要安裝最新的 Az PowerShell 模組, 請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)。
+> AzStorageFileHandle 和 AzStorageFileHandle Cmdlet 包含在 Az PowerShell 模組2.4 版或更新版本中。 若要安裝最新的 Az PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 <a id="authorizationfailureportal"></a>
 ## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>流覽入口網站中的 Azure 檔案共用時發生「授權失敗」錯誤
@@ -148,13 +148,13 @@ Azure 檔案儲存體也支援 SMB 以外的 REST。 REST 存取會透過埠 443
 授權失敗  
 您沒有存取權 
 
-### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>原因 1：您的使用者帳戶沒有該儲存體帳戶的存取權
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>原因1：您的使用者帳戶沒有儲存體帳戶的存取權
 
 ### <a name="solution-for-cause-1"></a>原因 1 的解決方案
 
 瀏覽至 Azure 檔案共用所在的儲存體帳戶，按一下 [存取控制 (IAM)]，並確認您的使用者帳戶擁有儲存體帳戶的存取權。 若要深入了解，請參閱[如何使用角色型存取控制 (RBAC) 保護儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac)。
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>原因 2：在儲存體帳戶上已啟用虛擬網路或防火牆規則
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>原因2：已在儲存體帳戶上啟用虛擬網路或防火牆規則
 
 ### <a name="solution-for-cause-2"></a>原因 2 的解決方案
 
@@ -164,18 +164,18 @@ Azure 檔案儲存體也支援 SMB 以外的 REST。 REST 存取會透過埠 443
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>無法刪除 Azure 檔案共用中的檔案或目錄
 
 ### <a name="cause"></a>原因
-如果檔案或目錄有開啟的控制碼, 通常就會發生此問題。 
+如果檔案或目錄有開啟的控制碼，通常就會發生此問題。 
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方案
 
-如果 SMB 用戶端已關閉所有開啟的控制碼, 且問題持續發生, 請執行下列動作:
+如果 SMB 用戶端已關閉所有開啟的控制碼，且問題持續發生，請執行下列動作：
 
 - 使用[AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell Cmdlet 來查看開啟的控制碼。
 
 - 使用[AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell Cmdlet 關閉開啟的控制碼。 
 
 > [!Note]  
-> AzStorageFileHandle 和 AzStorageFileHandle Cmdlet 包含在 Az PowerShell 模組2.4 版或更新版本中。 若要安裝最新的 Az PowerShell 模組, 請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)。
+> AzStorageFileHandle 和 AzStorageFileHandle Cmdlet 包含在 Az PowerShell 模組2.4 版或更新版本中。 若要安裝最新的 Az PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>從 Windows 中的 Azure 檔案服務複製檔案或將檔案複製到其中的速度變慢
@@ -212,8 +212,8 @@ Azure 檔案儲存體也支援 SMB 以外的 REST。 REST 存取會透過埠 443
 
 根據預設，Windows 檔案總管不會以系統管理員身分執行。 如果您從系統管理命令提示字元執行 net use，就是以系統管理員身分對應網路磁碟機。 因為對應的磁碟機是以使用者為中心，如果磁碟機掛接在不同的使用者帳戶下，登入的使用者帳戶不會顯示此磁碟機。
 
-### <a name="solution"></a>方案
-從非系統管理員命令掛接共用。 或者，您可以依照[此 TechNet 主題](https://technet.microsoft.com/library/ee844140.aspx)設定 **EnableLinkedConnections** 登錄值。
+### <a name="solution"></a>解決方案
+從非系統管理員命令掛接共用。 或者，您可以依照[本 TechNet 主題](https://technet.microsoft.com/library/ee844140.aspx) 設定 **EnableLinkedConnections** 登錄值。
 
 <a id="netuse"></a>
 ## <a name="net-use-command-fails-if-the-storage-account-contains-a-forward-slash"></a>如果儲存體帳戶包含斜線，net use 命令就會失敗
@@ -222,7 +222,7 @@ Azure 檔案儲存體也支援 SMB 以外的 REST。 REST 存取會透過埠 443
 
 Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者帳戶名稱開頭為斜線，磁碟機對應將會失敗。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方案
 
 您可以使用下列其中一種方式來解決這個問題：
 
@@ -243,7 +243,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 
 磁碟機是按每個使用者掛接。 如果您的應用程式或服務正在與掛接磁碟機之帳戶不同的使用者帳戶下執行，應用程式將不會看到該磁碟機。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方案
 
 使用下列其中一個解決方案：
 
@@ -261,7 +261,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 <a id="doesnotsupportencryption"></a>
 ## <a name="error-you-are-copying-a-file-to-a-destination-that-does-not-support-encryption"></a>「您正將檔案複製到不支援加密的目的地」錯誤
 
-透過網路複製檔案時，該檔案會在來源電腦上解密、以純文字傳送，並在目的地上重新加密。 不過，您嘗試複製加密的檔案時，可能會看到下列錯誤：「您正將檔案複製到不支援加密的目的地。」
+透過網路複製檔案時，該檔案會在來源電腦上解密、以純文字傳送，並在目的地上重新加密。 不過，您可能會在嘗試複製加密的檔案時看到下列錯誤：「您正在將檔案複製到不支援加密的目的地。」
 
 ### <a name="cause"></a>原因
 如果您使用加密檔案系統 (EFS)，可能會發生此問題。 BitLocker 加密的檔案可以複製到 Azure 檔案服務。 不過，Azure 檔案服務不支援 NTFS EFS。
@@ -284,11 +284,11 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 
 如果用戶端機器上沒有足夠的快取可供大型目錄使用時，就會發生此問題。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方案
 
 若要解決此問題，請調整 **DirectoryCacheEntrySizeMax** 登錄值，以允許在用戶端機器快取較大型的目錄清單：
 
-- 位置:HKLM\System\CCS\Services\Lanmanworkstation\Parameters
+- 位址：HKLM\System\CCS\Services\Lanmanworkstation\Parameters
 - 值名稱：DirectoryCacheEntrySizeMax 
 - 值類型：DWORD
  
@@ -299,13 +299,13 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 
 ### <a name="cause"></a>原因
 
-當儲存體帳戶之相關訂用帳戶的 AAD 租用戶上未建立 [AAD 網域服務 (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)，而您嘗試在該儲存體帳戶上[為 Azure 檔案儲存體啟用 Azure Active Directory (AAD) 驗證](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable)時，發生 AadDsTenantNotFound 錯誤。  
+當儲存體帳戶之相關訂用帳戶的 AAD 租用戶上未建立 [AAD 網域服務 (AAD DS)](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable)，而您嘗試在該儲存體帳戶上[為 Azure 檔案儲存體啟用 Azure Active Directory (AAD) 驗證](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)時，發生 AadDsTenantNotFound 錯誤。  
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方案
 
 在您儲存體帳戶部署所在訂用帳戶的 AAD 租用戶上啟用 AAD DS。 您必須有 AAD 租用戶的系統管理員權限，才能建立受控網域。 如果您不是 Azure AD 租用戶的系統管理員，請連絡系統管理員，並遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) 的逐步指導。
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## <a name="need-help-contact-support"></a>需要協助嗎? 請連絡支援人員。
+## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

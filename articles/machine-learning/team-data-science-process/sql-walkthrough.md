@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 148d0c203248e4dcde5baaadc596d56e8b8ea17a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606523"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669387"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process 實務：使用 SQL Server
 在這個教學課程中，您將遵循逐步解說，使用 SQL Server 和可公開取得的資料集 ([NYC Taxi Trips (NYC 計程車車程)](https://www.andresmh.com/nyctaxitrips/) 資料集)，完成建置和部署機器學習服務模型的程序。 程序會遵循標準的資料科學工作流程︰包括擷取和瀏覽資料，以及設計功能以加快學習，接著建置和部署模型。
@@ -46,15 +46,15 @@ ms.locfileid: "65606523"
 ## <a name="mltasks"></a>預測工作的範例
 我們將根據 *tip\_amount* 編寫三個預測問題的公式，公式如下：
 
-1. 二元分類：預測是否已支付某趟車程的小費，例如大於美金 $0 元的 *tipp\_amount* 為正面範例，而等於美金 $0 元的 *tip\_amount* 為負面範例。
-2. 多元分類：預測針對該趟車程支付的小費範圍。 我們將 tip\_amount  分成五個分類收納組或類別：
+1. 二元分類：預測是否已支付某趟車程的小費，例如大於美金 $0 元的 *tip\_amount* 為正面範例，而等於美金 $0 元的 *tip\_amount* 為負面範例。
+2. 多類別分類：預測已針對該車程支付的小費的金額範圍。 我們將 tip*amount\_* 分成五個分類收納組或類別：
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. 迴歸工作：預測針對某趟車程支付的小費金額。  
+3. 迴歸工作：預測已針對某趟車程支付的小費金額。  
 
 ## <a name="setup"></a>設定適用於進階分析的 Azure 資料科學環境
 誠如您在《 [規劃您的環境](plan-your-environment.md) 》指南中所見，在 Azure 中使用「NYC 計程車車程」資料集時，有數個選項可以採用：
@@ -73,13 +73,13 @@ ms.locfileid: "65606523"
    > [!NOTE]
    > 指令碼範例和 IPython Notebook 將在安裝過程中下載到您的資料科學虛擬機器上。 當 VM 後續安裝指令碼完成之後，範例將位於您的 VM 文件庫上。  
    > 
-   > * 指令碼範例：`C:\Users\<user_name>\Documents\Data Science Scripts`  
+   > * 指令碼範例： `C:\Users\<user_name>\Documents\Data Science Scripts`  
    > * IPython Notebook 範例：`C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
-   >   where `<user_name>` 是 VM 的 Windows 登入名稱。 我們會將範例資料夾稱為「指令碼範例」  和「IPython Notebook 範例」  。
+   >   where `<user_name>` 是 VM 的 Windows 登入名稱。 我們會將範例資料夾稱為「指令碼範例」和「IPython Notebook 範例」。
    > 
    > 
 
-根據資料集大小、資料來源位置，以及選取的 Azure 目標環境，此案例的類似案例為[案例 \#5：本機資料中的大型資料集，Azure VM](plan-sample-scenarios.md#largelocaltodb) 中的目標 SQL Server。
+根據資料集大小、資料來源位置，以及選取的 Azure 目標環境，此案例的類似案例為[案例 \#5：本機檔案中的大型資料集、Azure VM 中的目標 SQL Server](plan-sample-scenarios.md#largelocaltodb)。
 
 ## <a name="getdata"></a>從公用來源取得資料
 若要從 [NYC 計程車車程](https://www.andresmh.com/nyctaxitrips/)資料集的公用位置取得該資料集，您可以使用[從 Azure Blob 儲存體來回移動資料](move-azure-blob.md)中所述的任何一種方法，將資料複製到新的虛擬機器。
@@ -87,7 +87,7 @@ ms.locfileid: "65606523"
 使用 AzCopy 複製資料：
 
 1. 登入您的虛擬機器 (VM)
-2. 在 VM 資料磁碟中建立新目錄 (注意：請勿將 VM 隨附的暫存磁碟，用作資料磁碟)。
+2. 在 VM 的資料磁碟中建立新的目錄 (注意：請勿使用 VM 隨附的「暫存磁碟」做為資料磁碟)。
 3. 在 [命令提示字元] 視窗中，執行下列 AzCopy 命令列，使用您在 (2) 中建立的 [資料] 資料夾來取代 <path_to_data_folder>：
    
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -96,13 +96,13 @@ ms.locfileid: "65606523"
 4. 將下載的檔案解壓縮。 請注意未壓縮檔案所在的資料夾。 此資料夾將稱為 <path\_to\_data\_files\>。
 
 ## <a name="dbload"></a>將資料大量匯入到 SQL Server 資料庫
-使用「資料分割資料表和檢視」  ，就可以改善載入/傳輸大量資料至 SQL 資料庫和後續查詢的效能。 在本節中，我們將遵循「 [使用 SQL 資料分割資料表平行大量資料匯入](parallel-load-sql-partitioned-tables.md) 」中所述的指示建立新的資料庫，並將資料平行載入資料分割資料表。
+使用「資料分割資料表和檢視」，就可以改善載入/傳輸大量資料至 SQL 資料庫和後續查詢的效能。 在本節中，我們將遵循「 [使用 SQL 資料分割資料表平行大量資料匯入](parallel-load-sql-partitioned-tables.md) 」中所述的指示建立新的資料庫，並將資料平行載入資料分割資料表。
 
 1. 登入 VM 之後，請啟動 **SQL Server Management Studio**。
 2. 使用 Windows 驗證進行連接。
    
     ![SSMS 連線][12]
-3. 如果您尚未變更 SQL Server 驗證模式，且尚未建立新的 SQL 登入使用者，請開啟 [指令碼範例]  資料夾中名為 **change\_auth.sql** 的指令碼檔案。 變更預設的使用者名稱和密碼。 按一下工具列中的 [ **!執行** ] 執行指令碼。
+3. 如果您尚未變更 SQL Server 驗證模式，且尚未建立新的 SQL 登入使用者，請開啟 [指令碼範例] **\_ 資料夾中名為** change**auth.sql** 的指令碼檔案。 變更預設的使用者名稱和密碼。 按一下工具列中的 [ **!執行** ] 執行指令碼。
    
     ![執行指令碼][13]
 4. 驗證和 (或) 變更 SQL Server 預設資料庫和記錄檔資料夾，以確保新建立的資料庫會儲存於資料磁碟中。 系統會使用資料和記錄磁碟，預先設定已針對資料倉儲載入進行最佳化的 SQL Server VM 映像。 如果您的 VM 不含資料磁碟，而您在 VM 安裝過程中加入新的虛擬硬碟，則需變更預設資料夾，如下所示：
@@ -110,7 +110,7 @@ ms.locfileid: "65606523"
    * 以滑鼠右鍵按一下左面板中的 SQL Server 名稱，然後按一下 [ **屬性**]。
      
        ![SQL Server 屬性][14]
-   * 在左邊的 [選取頁面]  清單中，選取 [資料庫設定]  。
+   * 在左邊的 [選取頁面] 清單中，選取 [資料庫設定]。
    * 確認**資料庫預設位置**，和 (或) 將其變更為您選擇的**資料磁碟**位置。 如果新資料庫是使用預設位置設定所建立，則此為新資料庫所在位置。
      
        ![SQL Database 的預設值][15]  
@@ -126,18 +126,18 @@ ms.locfileid: "65606523"
    
    * **bcp\_parallel\_generic.ps1** 是將資料平行大量匯入資料表的泛型指令碼。 修改此指令碼來設定輸入與目標變數，如指令碼的註解行中所示。
    * **bcp\_parallel\_nyctaxi.ps1** 是預先設定的泛型指令碼版本，可用來同時載入適用於「NYC 計程車車程」資料的兩種資料表。  
-8. 以滑鼠右鍵按一下 **bcp\_parallel\_nyctaxi.ps1** 指令碼名稱，然後按一下 [編輯]  利用 PowerShell 開啟。 檢閱預設的變數，並根據您選取的資料庫名稱、輸入資料資料夾、目標記錄資料夾，以及格式檔案範例 **nyctaxi_trip.xml** 和 **nyctaxi\_fare.xml** (位於 [指令碼範例]  資料夾) 的路徑進行修改。
+8. 以滑鼠右鍵按一下 **bcp\_parallel\_nyctaxi.ps1** 指令碼名稱，然後按一下 [編輯] 利用 PowerShell 開啟。 檢閱預設的變數，並根據您選取的資料庫名稱、輸入資料資料夾、目標記錄資料夾，以及格式檔案範例 **nyctaxi_trip.xml** 和 **nyctaxi\_fare.xml** (位於 [指令碼範例] 資料夾) 的路徑進行修改。
    
     ![大量匯入資料][16]
    
     您也可以選取驗證模式，預設值是 Windows 驗證。 按一下工具列中的綠色箭頭來執行。 指令碼將平行啟動 24 個大量匯入作業，針對每個資料分割資料表啟動 12 個作業。 您可以藉由開啟 SQL Server 預設資料資料夾 (如上述所設定)，來監視資料匯入進度。
 9. PowerShell 指令碼會報告開始和結束時間。 完成所有大量匯入時，即會報告結束時間。 檢查目標記錄資料夾，以確認大量匯入已成功，亦即，目標記錄資料夾中未報告任何錯誤。
-10. 您的資料庫已準備好進行探索、功能工程，以及所需的其他作業。 由於這些資料表是根據 **pickup\_datetime** 欄位來進行資料分割，因此資料分割配置將為在 **WHERE** 子句中加入 **pickup\_datetime** 條件的查詢帶來好處。
+10. 您的資料庫已準備好進行探索、功能工程，以及所需的其他作業。 由於這些資料表是根據 **pickup\_datetime** 欄位來進行資料分割，因此資料分割配置將為在 **WHERE\_ 子句中加入** pickup**datetime** 條件的查詢帶來好處。
 11. 在 **SQL Server Management Studio** 中，探索當中提供的指令碼範例 **sample\_queries.sql**。 若要執行查詢範例，請先將查詢行反白，然後按一下工具列中的 [ **!執行** ]。
 12. 「NYC 計程車車程」資料會載入兩個不同的資料表。 若要改善聯結作業，強烈建議您為資料表編製索引。 指令碼範例 **create\_partitioned\_index.sql** 會在複合聯結索引鍵 **medallion、hack\_license 和 pickup\_datetime** 上建立資料分割索引。
 
 ## <a name="dbexplore"></a>SQL Server 中的資料探索和功能工程
-在本節中，我們將使用先前建立的 SQL Server 資料庫，直接在 **SQL Server Management Studio** 中執行 SQL 查詢，藉此探索資料和產生功能。 名為 **sample\_queries.sql** 的指令碼範例位於 [指令碼範例]  資料夾中。 若資料庫名稱與預設名稱 TaxiNYC 不同，請修改指令碼以變更該名稱。
+在本節中，我們將使用先前建立的 SQL Server 資料庫，直接在 **SQL Server Management Studio** 中執行 SQL 查詢，藉此探索資料和產生功能。 名為 **sample\_queries.sql** 的指令碼範例位於 [指令碼範例] 資料夾中。 若資料庫名稱與預設名稱： **TaxiNYC**不同，請修改指令碼變更該名稱。
 
 在這個練習中，我們將：
 
@@ -150,8 +150,8 @@ ms.locfileid: "65606523"
 
 當您準備好繼續進行 Azure Machine Learning，您可以：  
 
-1. 儲存最後一個 SQL 查詢以對資料進行擷取和取樣，然後複製該查詢並直接貼到 Azure Machine Learning 中的[匯入資料][import-data]模組，或者
-2. 將您計畫用來建置模型的取樣和工程設計資料保存在新資料庫資料表中，然後在 Azure Machine Learning 的[匯入資料][import-data]模組中使用該新資料表。
+1. 儲存最後的 SQL 查詢以將資料解壓縮並加以取樣，然後將查詢直接複製到 Azure Machine Learning 的匯[入資料][import-data]模組中，或
+2. 將您計畫用來建立模型的取樣和工程設計資料保存在新的資料庫資料表中，並在 Azure Machine Learning 的匯[入資料][import-data]模組中使用新的資料表。
 
 在本節中，我們會儲存最後一個查詢，以擷取資料並對資料進行取樣。 ＜ [IPython Notebook 中的資料探索和功能工程](#ipnb) ＞一節中示範了第二個方法的執行方式。
 
@@ -172,7 +172,7 @@ ms.locfileid: "65606523"
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>探索：依據計程車牌照和計程車駕照的車程分佈
+#### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>探索：依據 medallion 和 hack_license 的車程分佈
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
@@ -191,7 +191,7 @@ ms.locfileid: "65606523"
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>探索：已支付小費 vs.未支付小費的車程分佈
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>探索：已支付小費和未支付小費的車程分佈
 此範例會尋找在指定期間內 (或者，如果涵蓋一整年，則是在整個資料庫中)，已收到小費及未收到小費的車程數目。 此分佈會反映二進位標籤分佈，以便稍後用來將二進位分類模型化。
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -233,7 +233,7 @@ ms.locfileid: "65606523"
 標籤產生和地理位置轉換探索查詢也可藉由移除計數組件，用來產生標籤或功能。 ＜ [IPython Notebook 中的資料探索和功能工程](#ipnb) ＞一節中提供了其他的功能工程 SQL 範例。 使用可在 SQL Server 資料庫執行個體上直接執行的 SQL 查詢，以更有效率的方式在整個資料集或其上的大型子集上執行功能產生查詢。 查詢可能會在 **SQL Server Management Studio**、IPython Notebook 或任何可在本機或遠端存取資料庫的開發工具或環境中執行。
 
 #### <a name="preparing-data-for-model-building"></a>準備資料以進行模型建置
-下列查詢可聯結 **nyctaxi\_trip** 和 **nyctaxi\_fare** 資料表、產生二進位分類標籤 **tipped**、多類別分類標籤 **tip\_class**，以及從完整聯結的資料集中擷取 1% 的隨機取樣。 您可以複製此查詢並直接貼到 [Azure Machine Learning Studio](https://studio.azureml.net) 的[匯入資料][import-data]模組，以便從 Azure 中的 SQL Server 資料庫執行個體直接擷取資料。 查詢會排除含有不正確 (0, 0) 座標的記錄。
+下列查詢可聯結 **nyctaxi\_trip** 和 **nyctaxi\_fare** 資料表、產生二進位分類標籤 **tipped**、多類別分類標籤 **tip\_class**，以及從完整聯結的資料集中擷取 1% 的隨機取樣。 您可以複製此查詢，然後直接貼入[Azure Machine Learning Studio](https://studio.azureml.net)匯[入資料][import-data]模組，以便從 Azure 中的 SQL Server 資料庫實例直接內嵌資料。 查詢會排除含有不正確 (0, 0) 座標的記錄。
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -252,7 +252,7 @@ ms.locfileid: "65606523"
 
 
 ## <a name="ipnb"></a>IPython Notebook 中的資料探索和功能工程
-在本節中，我們將在先前建立的 SQL Server 資料庫中進行 Python 和 SQL 查詢，藉此探索資料和產生功能。 名為 **machine-Learning-data-science-process-sql-story.ipynb** 的 IPython Notebook 範例位於 [Sample IPython Notebook 範例]  資料夾。 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks)也提供此 Notebook。
+在本節中，我們將在先前建立的 SQL Server 資料庫中進行 Python 和 SQL 查詢，藉此探索資料和產生功能。 名為 **machine-Learning-data-science-process-sql-story.ipynb** 的 IPython Notebook 範例位於 [Sample IPython Notebook 範例] 資料夾。 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks)也提供此 Notebook。
 
 使用巨量資料時的建議順序如下：
 
@@ -264,8 +264,8 @@ ms.locfileid: "65606523"
 
 準備好繼續進行 Azure Machine Learning 時，您可以：  
 
-1. 儲存最後一個 SQL 查詢以對資料進行擷取和取樣，然後複製該查詢並直接貼到 Azure Machine Learning 中的[匯入資料][import-data]模組。 ＜ [在 Azure Machine Learning 中建置模型](#mlmodel) ＞一節中示範了此方法的執行方式。    
-2. 將您計畫用來建置模型的取樣和工程設計資料保存在新資料庫資料表中，然後在[匯入資料][import-data]模組中使用該新資料表。
+1. 儲存最後的 SQL 查詢以將資料解壓縮並加以取樣，然後將查詢直接複製到 Azure Machine Learning 中的匯[入資料][import-data]模組。 ＜ [在 Azure Machine Learning 中建置模型](#mlmodel) ＞一節中示範了此方法的執行方式。    
+2. 將您計畫用來建立模型的取樣和工程設計資料保存在新的資料庫資料表中，然後使用匯[入資料][import-data]模組中的新資料表。
 
 以下是數個資料探索、資料視覺化及功能工程範例。 如需其他範例，請參考 [ **IPython Notebooks 範例** ] 資料夾中的 SQL IPython Notebook 範例。
 
@@ -282,7 +282,7 @@ ms.locfileid: "65606523"
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-#### <a name="report-number-of-rows-and-columns-in-table-nyctaxitrip"></a>報告資料表 nyctaxi_trip 中資料列和資料行的數目
+#### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a>報告資料表 nyctaxi_trip 中資料列和資料行的數目
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('nyctaxi_trip')
@@ -376,7 +376,7 @@ ms.locfileid: "65606523"
 ![圖 #8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>針對 SQL 中的資料進行次取樣
-準備在 [Azure Machine Learning Studio](https://studio.azureml.net) 中建置模型所需的資料時，您可以決定**要直接在「匯入資料」模組中使用的 SQL 查詢**，或將工程設計和取樣資料保存在新的資料表中，您只要利用簡單的 **SELECT * FROM <your\_new\_table\_name>** ，即可在[匯入資料][import-data]模組中使用此資料表。
+準備[Azure Machine Learning Studio](https://studio.azureml.net)中模型建立的資料時，您可以決定**要直接在匯入資料模組中使用 SQL 查詢**，或將工程設計和取樣的資料保存在新的資料表中，您可以在匯[入資料][import-data]模組中使用簡單的**SELECT * FROM <\_新的\_資料表\_名稱 >** 。
 
 在本節中，我們將建立新的資料表來保留取樣與工程資料。 ＜ [SQL Server 中的資料探索和功能工程](#dbexplore) ＞一節中提供了可用來建置模型的直接 SQL 查詢範例。
 
@@ -405,7 +405,7 @@ ms.locfileid: "65606523"
     cursor.commit()
 
 ### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>在 IPython Notebook 中使用 SQL 查詢進行資料探索
-在本節中，我們將使用前面所建立的新資料表中保存的 1% 取樣資料，來探索資料分佈。 請注意，如 [SQL Server 中的資料探索和功能工程](#dbexplore)一節所述，您可以使用原始資料表，或是使用 **TABLESAMPLE** 執行類似的探索，以限制探索範例，或是透過使用 **pickup\_datetime** 資料分割，將結果限制為指定的期間。
+在本節中，我們將使用前面所建立的新資料表中保存的 1% 取樣資料，來探索資料分佈。 請注意，如 **SQL Server 中的資料探索和功能工程**一節所述，您可以使用原始資料表，或是使用 **TABLESAMPLE\_ 執行類似的探索，以限制探索範例，或是透過使用** pickup[datetime](#dbexplore) 資料分割，將結果限制為指定的期間。
 
 #### <a name="exploration-daily-distribution-of-trips"></a>探索：車程的每日分佈
     query = '''
@@ -456,7 +456,7 @@ ms.locfileid: "65606523"
         cursor.execute(nyctaxi_one_percent_update_col)
         cursor.commit()
 
-#### <a name="feature-engineering-count-features-for-categorical-columns"></a>特徵設計：適用於類別資料行的計數功能
+#### <a name="feature-engineering-count-features-for-categorical-columns"></a>功能工程：適用於類別資料行的計數功能
 此範例會將類別欄位轉換為數值欄位，方法是使用它在資料中發生的計數來取代每個類別。
 
     nyctaxi_one_percent_insert_col = '''
@@ -486,7 +486,7 @@ ms.locfileid: "65606523"
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>特徵設計：適用於數值資料行的間隔功能
+#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>功能工程：適用於數字資料行的收納組功能
 此範例會將連續的數值欄位轉換成預設的類別範圍，亦即，將數值欄位轉換到類別欄位。
 
     nyctaxi_one_percent_insert_col = '''
@@ -514,8 +514,8 @@ ms.locfileid: "65606523"
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>特徵設計：從十進位緯度/經度擷取位置功能
-此範例中細分緯度和/或經度欄位的十進位表示法成多個區域欄位的不同資料粒度，例如國家/地區、 城市、 城鎮、 區塊等。請注意，新的地理位置欄位不會對應到實際的位置。 如需對應地理編碼位置的資訊，請參閱 [Bing 地圖服務 REST 服務](https://msdn.microsoft.com/library/ff701710.aspx)。
+#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>功能工程：從十進位經緯度擷取位置功能
+這個範例會將緯度和/或經度欄位的十進位表示細分成不同資料細微性的多個區域欄位，例如國家/地區、city、城鎮、block 等等。請注意，新的地理欄位不會對應到實際的位置。 如需對應地理編碼位置的資訊，請參閱 [Bing 地圖服務 REST 服務](https://msdn.microsoft.com/library/ff701710.aspx)。
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent
@@ -546,9 +546,9 @@ ms.locfileid: "65606523"
 
 我們現在已準備好在 [Azure Machine Learning](https://studio.azureml.net)中建置和部署模型。 資料已經準備好用於稍早所識別的任何預測問題，也就是：
 
-1. 二元分類：預測是否已支付某趟車程的小費。
-2. 多元分類：根據先前定義的類別，預測所支付的小費範圍。
-3. 迴歸工作：預測針對某趟車程支付的小費金額。  
+1. 二進位分類：預測是否已支付某趟車程的小費。
+2. 多類別分類：根據先前定義的類別，預測所支付的小費範圍。
+3. 迴歸工作：預測已針對某趟車程支付的小費金額。  
 
 ## <a name="mlmodel"></a>在 Azure Machine Learning 中建置模型
 若要開始進行模型化練習，請登入 Azure Machine Learning 工作區。 如果您尚未建立機器學習服務工作區，請參閱 [建立 Azure Machine Learning 工作區](../studio/create-workspace.md)。
@@ -572,13 +572,13 @@ ms.locfileid: "65606523"
 
 在這個練習中，我們已經探索了 SQL Server 中的資料並進行工程 (步驟 1-4)，並且決定了要在 Azure Machine Learning 中內嵌的取樣大小。 建置一或多個我們所決定的預測模型：
 
-1. 使用[匯入資料][import-data]模組 (可從**資料輸入和輸出**一節取得)，將資料匯入 Azure Machine Learning。 如需詳細資訊，請參閱[匯入資料][import-data]模組參考頁面。
+1. 使用匯[入資料][import-data]模組（可在**資料輸入和輸出**一節中取得），取得要 Azure Machine Learning 的資料。 如需詳細資訊，請參閱匯[入資料][import-data]模組參考頁面。
    
     ![Azure Machine Learning 匯入資料][17]
-2. 在 [屬性]  面板中，選取 [Azure SQL Database]  做為 [資料來源]  。
+2. 在 [屬性] 面板中，選取 [Azure SQL Database] 做為 [資料來源]。
 3. 在 [ **資料庫伺服器名稱** ] 欄位中輸入資料庫的 DNS 名稱。 格式： `tcp:<your_virtual_machine_DNS_name>,1433`
 4. 在對應欄位中輸入 **資料庫名稱** 。
-5. 在 [伺服器使用者帳戶名稱]  中輸入「SQL 使用者名稱」  ，並在 [伺服器使用者帳戶密碼]  中輸入「密碼」  。
+5. 在 [伺服器使用者帳戶名稱] 中輸入「SQL 使用者名稱」，並在 [伺服器使用者帳戶密碼] 中輸入「密碼」。
 7. 在 [ **資料庫查詢** ] 中編輯文字區域、貼上可擷取必要資料庫欄位的查詢 (包括任何經過計算的欄位，例如標籤)，以及向下取樣所需大小的資料。
 
 下圖顯示從 SQL Server 資料庫中直接讀取資料的二進位分類實驗範例。 您可以針對多類別分類和迴歸問題建構類似的實驗。
@@ -588,19 +588,19 @@ ms.locfileid: "65606523"
 > [!IMPORTANT]
 > 在前幾節中提供的模型化資料擷取和取樣查詢範例中， **這三個模型化練習的所有標籤都包含於此查詢中**。 每一個模型化練習的重要 (必要) 步驟都是針對其他兩個問題**排除**不需要的標籤，以及任何其他的**目標流失**。 例如，使用二進位分類時，請用 **tipped** 標籤，並排除 **tip\_class**、**tip\_amount** 和 **total\_amount** 欄位。 後者為目標流失，因為它們意指支付的小費。
 > 
-> 若要排除不必要的資料行和 (或) 目標流失，您可以使用[選取資料集中的資料行][select-columns]模組或[編輯中繼資料][edit-metadata]。 如需詳細資訊，請參閱[選取資料集中的資料行][select-columns]和[編輯中繼資料][edit-metadata]參考頁面。
+> 若要排除不必要的資料行及（或）目標流失，您可以使用 [[選取資料集中的資料行][select-columns]] 模組或 [[編輯中繼資料][edit-metadata]]。 如需詳細資訊，請參閱[選取資料集中的資料行][select-columns]和[編輯中繼資料][edit-metadata]參考頁面。
 > 
 > 
 
 ## <a name="mldeploy"></a>在 Azure Machine Learning 中部署模型
-當您備妥模型時，可以輕鬆地直接從實驗中將它部署為 Web 服務。 如需關於部署 Azure Machine Learning Web 服務的詳細資訊，請參閱 [部署 Azure 機器學習 Web 服務](../studio/publish-a-machine-learning-web-service.md)。
+當您備妥模型時，可以輕鬆地直接從實驗中將它部署為 Web 服務。 如需關於部署 Azure Machine Learning Web 服務的詳細資訊，請參閱 [部署 Azure 機器學習 Web 服務](../studio/deploy-a-machine-learning-web-service.md)。
 
 若要部署新的 Web 服務，您需要：
 
 1. 建立計分實驗。
 2. 部署 Web 服務。
 
-若要從「已完成」  的訓練實驗建立評分實驗，請按一下下方動作列中的 [建立評分實驗]  。
+若要從「已完成」的訓練實驗建立評分實驗，請按一下下方動作列中的 [建立評分實驗]。
 
 ![Azure 評分][18]
 
@@ -610,9 +610,9 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。 �
 2. 識別邏輯 **輸入連接埠** ，表示預期的輸入資料結構描述。
 3. 識別邏輯 **輸出連接埠** ，表示預期的 Web 服務輸出結構描述。
 
-建立計分實驗時，請檢閱它，並視需要進行調整。 典型的調整是使用某一個會排除標籤欄位的輸入資料集和 (或) 查詢來取代它們，因為在呼叫服務時將無法使用這些欄位。 若要將輸入資料集和 (或) 查詢的大小縮減為只有幾筆足以表示輸入結構描述的記錄，這也是個很好的練習。 針對輸出連接埠，通常會使用[選取資料集中的資料行][select-columns]模組在輸出中排除所有輸入欄位，只包含**計分標籤**和**計分機率**。
+建立計分實驗時，請檢閱它，並視需要進行調整。 典型的調整是使用某一個會排除標籤欄位的輸入資料集和 (或) 查詢來取代它們，因為在呼叫服務時將無法使用這些欄位。 若要將輸入資料集和 (或) 查詢的大小縮減為只有幾筆足以表示輸入結構描述的記錄，這也是個很好的練習。 針對輸出埠，通常會使用 [[選取資料集中的資料行][select-columns]] 模組，在輸出中排除所有輸入欄位，而且只包含**評分標籤**和**評分**機率。
 
-下圖為計分實驗範例。 準備部署時，請按下方動作列中的 [發佈 Web 服務]  按鈕。
+下圖為計分實驗範例。 準備部署時，請按下方動作列中的 [發佈 Web 服務] 按鈕。
 
 ![Azure Machine Learning 發佈][11]
 

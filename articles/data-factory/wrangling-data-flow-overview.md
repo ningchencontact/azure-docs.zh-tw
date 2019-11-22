@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 7b46b1108246f0b83fcfce69844d19d01b1994c4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e36cc044e6a4160d16f15b93d8a88d946f476c89
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665656"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287106"
 ---
 # <a name="what-are-wrangling-data-flows"></a>什麼是整頓的資料流程？
 
@@ -37,6 +37,30 @@ Azure Data Factory 中的整頓資料流程可讓您以雲端規模反復執行�
 ### <a name="data-validation"></a>資料驗證
 
 以無程式碼的方式流覽資料，以移除任何極端值、異常狀況，並將其符合用於快速分析的圖形。
+
+## <a name="supported-sources"></a>支援的來源
+
+| 連接器 | 資料格式 | 驗證類型 |
+| -- | -- | --|
+| [Azure Blob 儲存體](connector-azure-blob-storage.md) | CSV | 帳戶金鑰 |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | 服務主體 |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV | 帳戶金鑰，服務主體 |
+| [Azure SQL Database](connector-azure-sql-database.md) | - | SQL 驗證 |
+| [Azure Synapse 分析](connector-azure-sql-data-warehouse.md) | - | SQL 驗證 |
+
+## <a name="the-mashup-editor"></a>混搭編輯器
+
+當您建立整頓資料流程時，所有源資料集都會變成資料集查詢，並放在**ADFResource**資料夾中。 根據預設，UserQuery 會指向第一個資料集查詢。 所有的轉換都應該在 UserQuery 上完成，因為資料集查詢的變更不受支援，也不會保存。 目前不支援重新命名、加入和刪除查詢。
+
+![整頓](media/wrangling-data-flow/editor.png)
+
+目前不支援所有 Power Query M 函數來進行資料整頓，但仍可在撰寫期間使用。 建立整頓的資料流程時，如果不支援函式，系統會提示您輸入下列錯誤訊息：
+
+`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+
+如需有關支援的轉換的詳細資訊，請參閱[整頓資料流程函數](wrangling-data-flow-functions.md)。
+
+目前整頓的資料流程僅支援寫入至一個接收。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,20 +1,20 @@
 ---
 title: 管理多部 Azure 虛擬機器的更新
-description: 本文說明如何管理 Azure 虛擬機器的更新。
+description: 本文說明如何管理 Azure 和非 Azure 虛擬機器的更新。
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/02/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 11/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 367a4409c004c98cc4b5ec844aab5b05ec74abcb
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 70f4f4163a143354cd1fe5adf031c4d9cd87a46e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374504"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278671"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -25,31 +25,29 @@ ms.locfileid: "72374504"
 - 排定必要更新的安裝
 - 檢閱部署結果，以確認更新已成功套用至已啟用「更新管理」的所有虛擬機器。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用「更新管理」，您需要：
 
 - 已安裝其中一個支援作業系統的虛擬機器或電腦。
 
+- 存取 Linux Vm 的更新存放庫上架到解決方案。
+
 ## <a name="supported-operating-systems"></a>受支援的作業系統
 
 下列作業系統支援「更新管理」：
 
-|作業系統  |注意  |
+|作業系統  |注意事項  |
 |---------|---------|
 |Windows Server 2008、Windows Server 2008 R2 RTM    | 僅支援更新評估。         |
 |Windows Server 2008 R2 SP1 和更新版本     |必須要有 Windows PowerShell 4.0 或更新的版本。 ([下載 WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))</br> 建議使用 Windows PowerShell 5.1 以增加可靠性。 ([下載 WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
-|CentOS 6 (x86/x64) 和 7 (x64)      | Linux 代理程式必須能夠存取更新存放庫。        |
-|Red Hat Enterprise 6 (x86/x64) 和 7 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |
-|SUSE Linux Enterprise Server 11 (x86/x64) 和 12 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |
-|Ubuntu 14.04 LTS、16.04 LTS 和 18.04 LTS (x86/x64)      |Linux 代理程式必須能夠存取更新存放庫。         |
+|CentOS 6 (x86/x64) 和 7 (x64)      | |
+|Red Hat Enterprise 6 (x86/x64) 和 7 (x64)     | |
+|SUSE Linux Enterprise Server 11 (x86/x64) 和 12 (x64)     | |
+|Ubuntu 14.04 LTS、16.04 LTS 和 18.04 LTS (x86/x64)      | |
 
 > [!NOTE]
 > 若要避免在 Ubuntu 維護期間以外套用更新，請將自動安裝升級套件重新設定為停用自動更新。 如需詳細資訊，請參閱 [Ubuntu Server 指南中的自動更新主題](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)。
-
-Linux 代理程式必須能夠存取更新存放庫。
-
-這個解決方案不支援適用於 Linux 且設定為向多個 Azure Log Analytics 工作區回報的 Log Analytics 代理程式。
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>為 Azure 虛擬機器啟用「更新管理」
 
@@ -69,9 +67,7 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>為非 Azure 虛擬機器和電腦啟用「更新管理」
 
-若要瞭解如何為非 Azure Windows 虛擬機器和電腦啟用更新管理，請參閱[將 Windows 電腦連線到 Azure 中的 Azure 監視器服務](../log-analytics/log-analytics-windows-agent.md)。
-
-若要瞭解如何為非 Azure Linux 虛擬機器和電腦啟用更新管理，請參閱[將您的 linux 電腦連線至 Azure 監視器記錄](../log-analytics/log-analytics-agent-linux.md)。
+適用于 Windows 和 Linux 的 Log Analytics 代理程式必須安裝在公司網路或其他雲端環境上執行的 Vm 上，才能使用更新管理來啟用它們。 若要瞭解將代理程式部署至裝載于 Azure 外部之機器的系統需求和支援的方法，請參閱[Log Analytics 代理程式的總覽](../azure-monitor/platform/log-analytics-agent.md)。
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>檢視連結到自動化帳戶的電腦
 
@@ -93,7 +89,7 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 ## <a name="view-an-update-assessment"></a>檢視更新評估
 
-啟用 [更新管理] 之後，[更新管理] 窗格隨即開啟。 您可以在 [遺失更新] 索引標籤上看到遺失的更新清單。
+啟用 [更新管理] 之後，[更新管理] 窗格隨即開啟。 您可以在 [遺漏更新] 索引標籤上看到遺漏的更新清單。
 
 ## <a name="collect-data"></a>收集資料
 
@@ -103,11 +99,11 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 下表描述本解決方案支援的連線來源：
 
-| 連線的來源 | 支援的 | 描述 |
+| 連線的來源 | 支援 | 描述 |
 | --- | --- | --- |
-| Windows 代理程式 |是 |「更新管理」會從 Windows 代理程式收集系統更新的相關資訊，然後起始必要更新的安裝。 |
-| Linux 代理程式 |是 |「更新管理」會從 Linux 代理程式收集系統更新的相關資訊，然後在支援的發行版本上起始必要更新的安裝。 |
-| Operations Manager 管理群組 |是 |「更新管理」會從所連線之管理群組中的代理程式收集系統更新的相關資訊。 |
+| Windows 代理程式 |yes |「更新管理」會從 Windows 代理程式收集系統更新的相關資訊，然後起始必要更新的安裝。 |
+| Linux 代理程式 |yes |「更新管理」會從 Linux 代理程式收集系統更新的相關資訊，然後在支援的發行版本上起始必要更新的安裝。 |
+| Operations Manager 管理群組 |yes |「更新管理」會從所連線之管理群組中的代理程式收集系統更新的相關資訊。 |
 | Azure 儲存體帳戶 |否 |Azure 儲存體不包含系統更新的相關資訊。 |
 
 ### <a name="collection-frequency"></a>收集頻率
@@ -120,7 +116,7 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 儀表板可能需要 30 分鐘到 6 小時，才能顯示來自受控電腦的已更新資料。
 
-## <a name="schedule-an-update-deployment"></a>排程更新部署
+## <a name="schedule-an-update-deployment"></a>排定更新部署
 
 若要安裝更新，請將部署排定在發行排程和服務時段之後。 您可以選擇要在部署中包含的更新類型。 例如，您可以包含重大更新或安全性更新，並排除更新彙總套件。
 
@@ -130,8 +126,13 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 - **名稱**：輸入唯一名稱來識別更新部署。
 - **作業系統**：選取 [Windows] 或 [Linux]。
-- **要更新的群組 (預覽)** ：根據訂用帳戶、資源群組、位置及標記的組合來定義查詢，以建立要包含在您部署中的動態 Azure VM 群組。 若要深入了解，請參閱[動態群組](automation-update-management-groups.md)
-- **要更新的機器**：選取已儲存的搜尋或已匯入的群組，或選取機器，以選擇您想要更新的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。 您可以在排程更新部署之前，先查看機器的健康情況。 若要深入了解在 Azure 監視器記錄中建立電腦群組的不同方法，請參閱 [Azure 監視器記錄中的電腦群組](../azure-monitor/platform/computer-groups.md)
+- **要更新的群組**：根據訂用帳戶、資源群組、位置及標記的組合來定義查詢，以建立要包含在您部署中的動態 Azure vm 群組。 針對非 Azure Vm，已儲存的搜尋是用來建立要包含在您部署中的動態群組。 若要深入瞭解，請參閱[動態群組](automation-update-management-groups.md)。
+- **要更新的機器**：選取已儲存的搜尋或已匯入的群組，或選取機器，以選擇您想要更新的機器。
+
+   >[!NOTE]
+   >選取 [已儲存的搜尋] 選項並不會傳回電腦身分識別，只會傳回其名稱。 如果您在多個資源群組之間有多個相同名稱的 Vm，它們會在結果中傳回。 建議使用 [**群組至更新**] 選項，以確保您包含符合您準則的唯一 vm。
+
+   如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。 您可以在排程更新部署之前，先查看機器的健康情況。 若要深入了解在 Azure 監視器記錄中建立電腦群組的不同方法，請參閱 [Azure 監視器記錄中的電腦群組](../azure-monitor/platform/computer-groups.md)
 
   ![[新增更新部署] 窗格](./media/manage-update-multi/update-select-computers.png)
 
@@ -196,5 +197,5 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解「更新管理」(包括記錄、輸出和錯誤)，請參閱 [Azure 中的更新管理解決方案](../operations-management-suite/oms-solution-update-management.md)。
+若要深入了解「更新管理」(包括記錄、輸出和錯誤)，請參閱 [Azure 中的更新管理解決方案](../operations-management-suite/oms-solution-update-management.md)。
 

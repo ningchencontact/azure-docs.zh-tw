@@ -12,16 +12,20 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/18/2019
 ms.author: magoedte
-ms.openlocfilehash: f748399b6b356e5f8655f59221e78acd0d98f51e
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 08f7cf5a26108608aa3719085d69ec9543f4aa51
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173642"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279645"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>瞭解適用于容器 Azure 監視器的 Kubernetes 叢集健康情況
 
-使用容器的 Azure 監視器，它會監視並報告受管理基礎結構元件的健全狀況狀態，以及針對容器 Azure 監視器所支援的任何 Kubernetes 叢集上執行的所有節點。 此體驗延伸超過叢集健全狀況狀態，並會在[多叢集視圖](container-insights-analyze.md#multi-cluster-view-from-azure-monitor)上進行計算並回報，現在您可以瞭解叢集中的一或多個節點是否受資源限制，或節點或 pod 是否無法使用，而可能會影響叢集中的執行中應用程式（以策劃的計量為基礎）。 
+使用容器的 Azure 監視器，它會監視並報告受管理基礎結構元件的健全狀況狀態，以及針對容器 Azure 監視器所支援的任何 Kubernetes 叢集上執行的所有節點。 此體驗延伸超過叢集健全狀況狀態，並會在[多叢集視圖](container-insights-analyze.md#multi-cluster-view-from-azure-monitor)上進行計算並回報，現在您可以瞭解叢集中的一或多個節點是否受資源限制，或節點或 pod 是否無法使用，而可能會影響叢集中的執行中應用程式（以策劃的計量為基礎）。
+
+>[!NOTE]
+>此健全狀況功能目前為公開預覽階段。
+>
 
 如需如何啟用容器 Azure 監視器的詳細資訊，請參閱將[容器上架 Azure 監視器](container-insights-onboard.md)。
 
@@ -33,7 +37,7 @@ ms.locfileid: "74173642"
 
 ## <a name="overview"></a>Overview
 
-在容器的 Azure 監視器中，健康狀態功能會提供 Kubernetes 叢集的主動式健全狀況監視，協助您找出並診斷問題。 它讓您能夠看到所偵測到的重大問題。 監視叢集上容器化代理程式上執行的叢集健全狀況，並將健康情況資料寫入 Log Analytics 工作區中的**KubeHealth**資料表。 
+在容器的 Azure 監視器中，[健康情況（預覽）] 功能會提供 Kubernetes 叢集的主動式健全狀況監視，以協助您識別和診斷問題。 它讓您能夠看到所偵測到的重大問題。 監視叢集上容器化代理程式上執行的叢集健全狀況，並將健康情況資料寫入 Log Analytics 工作區中的**KubeHealth**資料表。 
 
 Kubernetes 叢集健康情況是根據下列 Kubernetes 物件和抽象概念所組織的許多監視案例：
 
@@ -72,7 +76,7 @@ Kubernetes 叢集健康情況是根據下列 Kubernetes 物件和抽象概念所
 
 ## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>查看 AKS 或非 AKS 叢集的健全狀況
 
-從 Azure 入口網站的左窗格中選取 [**見解**]，即可直接從 AKS 叢集存取容器的 Azure 監視器健全狀況功能。 在 [Insights] 區段下方，選取 [容器]。 
+從 Azure 入口網站的左窗格中選取 [**深入**解析]，即可直接從 AKS 叢集存取適用于容器的 Azure 監視器健康情況（預覽）功能。 在 [Insights] 區段下方，選取 [容器]。 
 
 若要從非 AKS 叢集（也就是裝載于內部部署或 Azure Stack 的 AKS 引擎叢集）中查看健全狀況，請從 Azure 入口網站的左窗格中選取 [ **Azure 監視器**]。 在 [Insights] 區段下方，選取 [容器]。  在 [多叢集] 頁面上，從清單中選取非 AKS 叢集。
 

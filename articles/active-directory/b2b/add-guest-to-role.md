@@ -1,5 +1,5 @@
 ---
-title: 將 B2B 共同作業使用者新增至角色-Azure Active Directory |Microsoft Docs
+title: 將 B2B 共同作業使用者新增至角色 Azure Active Directory
 description: 將來賓使用者新增至 Azure Active Directory 中的角色
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cb195fd3fbf668afe436d3247767d2cc998281a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 703e68994a9d156ccf3e74a5df4a2f4ee2f062cd
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65767577"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74268542"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>從 Azure Active Directory 租用戶中的合作夥伴組織授與權限給使用者
 
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) B2B 共同作業使用者是以來賓使用者
 
 ## <a name="default-role"></a>預設角色
 
-![顯示的預設目錄角色的螢幕擷取畫面](./media/add-guest-to-role/default-role.png)
+![顯示預設目錄角色的螢幕擷取畫面](./media/add-guest-to-role/default-role.png)
 
 ## <a name="global-administrator-role"></a>全域系統管理員角色
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) B2B 共同作業使用者是以來賓使用者
 
 ## <a name="limited-administrator-role"></a>受限的系統管理員角色
 
-![顯示有限的系統管理員角色的螢幕擷取畫面](./media/add-guest-to-role/limited-admin-role.png)
+![顯示受限系統管理員角色的螢幕擷取畫面](./media/add-guest-to-role/limited-admin-role.png)
 
 ## <a name="next-steps"></a>後續步驟
 

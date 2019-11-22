@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: f6a6f50a86dc58299a1c1b5994dd1d19cc915e6c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f577ac723558ad3772b697922baa624e0047dd21
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076888"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276822"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>使用 SSL 透過 Azure Machine Learning 保護 web 服務
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -80,8 +80,8 @@ TLS 和 SSL 都依賴*數位憑證*，這有助於加密和身分識別驗證。
 
 當您部署到 AKS 時，您可以建立新的 AKS 叢集，或附加現有的叢集。 如需建立或連接叢集的詳細資訊，請參閱[將模型部署到 Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)叢集。
   
--  如果您建立新的叢集，請使用 **[Provisionining_configuration AksCompute （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none-)** 。
-- 如果您附加現有的叢集，請使用 **[Attach_configuration AksCompute （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 。 這兩個都會傳回具有**enable_ssl**方法的設定物件。
+-  如果您建立新的叢集，請使用 **[Provisionining_configuration AksCompute （）](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none-)** 。
+- 如果您附加現有的叢集，請使用 **[Attach_configuration AksCompute （）](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none--load-balancer-type-none-)** 。 這兩個都會傳回具有**enable_ssl**方法的設定物件。
 
 **Enable_ssl**方法可以使用由 Microsoft 提供的憑證，或您購買的憑證。
 

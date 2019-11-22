@@ -1,21 +1,21 @@
 ---
-title: Azure 區塊鏈服務總帳版本、修補及升級
+title: Azure 區塊鏈服務總帳版本、修補 & 升級
 description: 概述 Azure 區塊鏈 Service 中支援的總帳版本，包括有關系統修補和系統管理和使用者管理之升級的原則。
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 16d0f0876e7d75dfd0266468ddc3005b86fc632f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: MT
+ms.openlocfilehash: 03eaf86ece191cce7eef6647a582a66495692db2
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579806"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284917"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>支援的 Azure 區塊鏈 Service 總帳版本
 

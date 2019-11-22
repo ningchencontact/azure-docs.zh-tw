@@ -1,6 +1,6 @@
 ---
 title: 管理解決方案中儲存的搜尋 |Microsoft Docs
-description: 管理解決方案通常會包含 Log Analytics 中儲存的搜尋，來分析解決方案所收集的資料。 它們可能也會定義警示來通知使用者，或自動採取動作以回應重大的問題。 本文說明如何在 Resource Manager 範本中定義 Log Analytics 儲存的搜尋，使其可以包含在管理解決方案中。
+description: 管理解決方案通常包含已儲存的記錄查詢，以分析解決方案所收集的資料。 本文說明如何在 Resource Manager 範本中定義 Log Analytics 儲存的搜尋。
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
@@ -8,17 +8,17 @@ author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce4f3dcbc28668f786c706e7029061e541a76ce9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1f4f0ac5d592a01b284a12e899b0aa5a9a62d122
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553919"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304927"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>將 Log Analytics 儲存的搜尋和警示新增到管理解決方案 (預覽)
 
 > [!IMPORTANT]
-> 如[先前所宣佈](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)，在*2019 年6月 1*日之後建立的 log analytics 工作區，將**只能使用 Azure** ScheduledQueryRules [REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)、 [Azure Resource Manager 範本](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template)和 PowerShell 來管理警示規則[Cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell)。 客戶可以輕鬆地為較舊的工作區[切換其慣用的警示規則管理方式](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)，以利用 Azure 監視器 scheduledQueryRules 做為預設值，並取得許多[新的優點](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api)，例如使用原生 PowerShell Cmdlet 的能力、增加回顧規則中的時間週期，在不同的資源群組或訂用帳戶中建立規則，還有更多其他功能。
+> 如[先前所宣佈](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)，在*2019 年6月 1*日之後建立的 log analytics 工作區，將**只能使用 Azure** ScheduledQueryRules [REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)、 [Azure Resource Manager 範本](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template)和[PowerShell Cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell)來管理警示規則。 客戶可以輕鬆地切換較舊工作區的[警示規則管理慣用方式](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)，利用 Azure 監視器 scheduledQueryRules 做為預設值，並取得許多[新的優點](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api)，例如使用原生 PowerShell Cmdlet、增加規則中的回顧時間週期、在個別資源群組或訂用帳戶中建立規則，以及更多其他功能。
 
 > [!NOTE]
 > 這是建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。
@@ -28,7 +28,7 @@ ms.locfileid: "72553919"
 > [!NOTE]
 > 本文中的範例使用管理解決方案所需或通用的參數和變數，如[在 Azure 中設計和建置管理解決方案](solutions-creating.md)所述。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您已經熟悉如何[建立管理解決方案](solutions-creating.md)，以及 [Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)和解決方案檔案的結構。
 
 
@@ -80,7 +80,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 > [!NOTE]
 > 如果查詢包含可解譯為 JSON 的字元，您可能需要在查詢中使用逸出字元。 例如，如果查詢為 **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"** ，就應該在方案檔中撰寫為 **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"** 。
 
-## <a name="alerts"></a>警示
+## <a name="alerts"></a>Alerts
 [Azure 記錄警示](../../azure-monitor/platform/alerts-unified-log.md)是由 Azure 警示規則所建立，以定期執行指定的記錄查詢。 如果查詢的結果符合指定的準則，就會建立警示記錄，並使用[動作群組](../../azure-monitor/platform/action-groups.md)執行一或多個動作。
 
 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)來擷取或新增動作。
@@ -112,11 +112,11 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
     }
 下表會說明排程資源的屬性。
 
-| 元素名稱 | 必要項 | 描述 |
+| 元素名稱 | 必要 | 描述 |
 |:--|:--|:--|
-| 啟用       | 是 | 指定在建立警示時是否要加以啟用。 |
-| interval      | 是 | 查詢的執行頻率，以分鐘為單位。 |
-| queryTimeSpan | 是 | 評估結果的時間長度，以分鐘為單位。 |
+| 啟用       | yes | 指定在建立警示時是否要加以啟用。 |
+| interval      | yes | 查詢的執行頻率，以分鐘為單位。 |
+| queryTimeSpan | yes | 評估結果的時間長度，以分鐘為單位。 |
 
 排程資源應該相依於儲存的搜尋，如此就會在排程之前建立該資源。
 > [!NOTE]
@@ -164,35 +164,35 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 下表會說明警示動作資源的屬性。
 
-| 元素名稱 | 必要項 | 描述 |
+| 元素名稱 | 必要 | 描述 |
 |:--|:--|:--|
-| `type` | 是 | 動作的類型。  這是適用於警示動作的**警示**。 |
-| `name` | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
+| `type` | yes | 動作的類型。  這是適用於警示動作的**警示**。 |
+| `name` | yes | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
 | `description` | 否 | 警示的選擇性描述。 |
-| `severity` | 是 | 警示記錄的嚴重性有下列值：<br><br> **critical**<br>**warning**<br>**informational**
+| `severity` | yes | 警示記錄的嚴重性有下列值：<br><br> **critical**<br>**warning**<br>**informational**
 
 #### <a name="threshold"></a>閾值
 此為必要區段。 它會定義警示臨界值的屬性。
 
-| 元素名稱 | 必要項 | 描述 |
+| 元素名稱 | 必要 | 描述 |
 |:--|:--|:--|
-| `Operator` | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| `Value` | 是 | 要比較結果的值。 |
+| `Operator` | yes | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
+| `Value` | yes | 要比較結果的值。 |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 此為選擇性區段。 加入此區段以供計量計量警示使用。
 
-| 元素名稱 | 必要項 | 描述 |
+| 元素名稱 | 必要 | 描述 |
 |:--|:--|:--|
-| `TriggerCondition` | 是 | 使用下列值來指定臨界值為違反次數總和或連續違反次數：<br><br>**Total<br>Consecutive** |
-| `Operator` | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| `Value` | 是 | 必須符合準則以觸發警示的次數。 |
+| `TriggerCondition` | yes | 使用下列值來指定臨界值為違反次數總和或連續違反次數：<br><br>**Total<br>Consecutive** |
+| `Operator` | yes | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
+| `Value` | yes | 必須符合準則以觸發警示的次數。 |
 
 
 #### <a name="throttling"></a>節流
 此為選擇性區段。 如果您想要在建立警示之後的某一段時間內隱藏相同規則所產生的警示，請加入此區段。
 
-| 元素名稱 | 必要項 | 描述 |
+| 元素名稱 | 必要 | 描述 |
 |:--|:--|:--|
 | DurationInMinutes | 如果包含 Throttling 元素，即為 Yes | 從同一個警示規則中建立一個警示之後隱藏警示的分鐘數。 |
 
@@ -201,9 +201,9 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 
 針對將警示延伸至 Azure 的使用者 - 排程的「動作群組」詳細資料現在應該與閾值一起傳遞，才能建立警示。 必須先在動作群組內定義電子郵件詳細資料、Webhook URL、Runbook 自動化詳細資料及其他動作，才能建立警示；使用者可以在入口網站中[從 Azure 監視器建立動作群組](../../azure-monitor/platform/action-groups.md)，或使用[動作群組 - 資源範本](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)來建立動作群組。
 
-| 元素名稱 | 必要項 | 描述 |
+| 元素名稱 | 必要 | 描述 |
 |:--|:--|:--|
-| AzNsNotification | 是 | Azure 動作群組的資源識別碼，其會與警示相關聯，以便在符合警示準則時採取必要動作。 |
+| AzNsNotification | yes | Azure 動作群組的資源識別碼，其會與警示相關聯，以便在符合警示準則時採取必要動作。 |
 | CustomEmailSubject | 否 | 電子郵件的自訂主旨列，該電子郵件會傳送到相關聯動作群組中指定的所有地址。 |
 | CustomWebhookPayload | 否 | 針對相關動作群組中定義的所有 Webhook 端點，要傳送到端點的自訂酬載。 格式取決於 Webhook 所預期的內容，而且必須是已序列化的有效 JSON。 |
 

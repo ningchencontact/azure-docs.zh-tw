@@ -2,44 +2,45 @@
 title: 使用範本建立 Apache Hadoop 叢集-Azure HDInsight
 description: 了解如何使用 Resource Manager 範本建立 HDInsight 的叢集
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: hrasheed
-ms.openlocfilehash: 5dd8b54e0d3febf7dbb3209a9f0bde76263aa726
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/18/2019
+ms.openlocfilehash: dba64d432231873676c49a1f4f2fac579c3f4be9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494815"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279270"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用 Resource Manager 範本在 HDInsight 中建立 Apache Hadoop 叢集
+
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 在本文中，您會學習使用 Azure Resource Manager 範本建立 Azure HDInsight 叢集的數種方式。 如需詳細資訊，請參閱 [使用 Azure 資源管理員範本部署應用程式](../azure-resource-manager/resource-group-template-deploy.md)。 若要了解其他叢集建立工具和功能，請按一下此頁面頂端的索引標籤選取器，或參閱[叢集建立方法](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods)。
 
-## <a name="prerequisites"></a>必要條件
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-若要依照本文中的指示，您需要：
+## <a name="prerequisites"></a>先決條件
 
 * [Azure 訂用帳戶](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-* Azure PowerShell 和/或 Azure 傳統 CLI。
+* Azure PowerShell 和/或 Azure CLI。
 
 ### <a name="resource-manager-templates"></a>Resource Manager 範本
+
 Resource Manager 範本可讓您輕鬆地在單一、協調的作業中為您的應用程式建立下列資源：
 * HDInsight 叢集及其相依資源 (例如，預設儲存體帳戶)。
 * 其他資源 (例如，使用 [Apache Sqoop](https://sqoop.apache.org/) \(英文\) 的 Azure SQL Database)。
 
 在範本中，您會定義應用程式所需的資源。 您也可以指定部署參數，以便為不同的環境輸入值。 範本由 JSON 與運算式所組成，可讓您用來為部署建構值。
 
-您可以在[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?term=hdinsight)中找到 HDInsight 範本範例。 使用跨平台 [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) (具有 [Resource Manager 擴充功能](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)) 或文字編輯器，將範本儲存至您工作站上的檔案。 
+您可以在[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?term=hdinsight)中找到 HDInsight 範本範例。 使用跨平台 [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) (具有 [Resource Manager 擴充功能](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)) 或文字編輯器，將範本儲存至您工作站上的檔案。
 
 如需 Resource Manager 範本的詳細資訊，請參閱下列文章和範例：
 
-* [編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)
+* [編寫 Azure 資源管理員範本](../azure-resource-manager/resource-group-authoring-templates.md)
 * [使用 Azure Resource Manager 範本部署應用程式](../azure-resource-manager/resource-group-template-deploy.md)
 * [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions) 範本參考
 * [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
@@ -58,21 +59,24 @@ Resource Manager 可讓您使用不同工具，從您的訂用帳戶中現有的
 
 ## <a name="deploy-using-azure-cli"></a>使用 Azure CLI 部署
 
-您可以使用傳統 CLI 來部署 Resource Manager 範本。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure CLI 來部署資源](../azure-resource-manager/resource-group-template-deploy-cli.md)和[使用 SAS 權杖和 Azure CLI 部署私用 Resource Manager 範本](../azure-resource-manager/resource-manager-cli-sas-token.md)。
+您可以使用 Azure CLI 部署 Resource Manager 範本。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure CLI 來部署資源](../azure-resource-manager/resource-group-template-deploy-cli.md)和[使用 SAS 權杖和 Azure CLI 部署私用 Resource Manager 範本](../azure-resource-manager/resource-manager-cli-sas-token.md)。
 
 ## <a name="deploy-using-the-rest-api"></a>使用 REST API 進行部署
+
 您可以使用 REST API 部署 Resource Manager 範本。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Resource Manager REST API 來部署資源](../azure-resource-manager/resource-group-template-deploy-rest.md)。
 
 ## <a name="deploy-with-visual-studio"></a>透過 Visual Studio 部署
+
  使用 Visual Studio 來透過使用者介面建立資源群組專案，並將其部署至 Azure。 您選取要包含在您的專案中的資源類型。 這些資源會自動新增至 Resource Manager 範本。 該專案也提供 PowerShell 指令碼來部署範本。
 
 如需搭配資源群組使用 Visual Studio 的簡介，請參閱 [透過 Visual Studio 建立和部署 Azure 資源群組](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)。
 
 ## <a name="troubleshoot"></a>疑難排解
 
-如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](hdinsight-hadoop-create-linux-clusters-portal.md)。
+如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](hdinsight-hadoop-customize-cluster-linux.md#access-control)。
 
 ## <a name="next-steps"></a>後續步驟
+
 在本文中，您學到幾種建立 HDInsight 叢集的方法。 若要深入了解，請參閱下列文章：
 
 * 如需更多 HDInsight 相關範本，請參閱[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?term=hdinsight)。

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 45415af479c9581ee04b97af4fb5297d09c5769d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 02d6e150e638321e11a8dec9838e360faa00783e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496329"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280948"
 ---
 # <a name="use-firewall-rules"></a>使用防火牆規則
 
@@ -46,7 +46,6 @@ IP 篩選器規則會依序套用，第一個符合 IP 位址的規則會決定�
 > 實作「IP 篩選」(防火牆規則) 時，不支援受信任的 Microsoft 服務，但很快就會提供這項支援。
 >
 > 無法與「IP 篩選」搭配運作的常見 Azure 案例 (請注意，這**不是**完整的清單) -
-> - Azure 監視器
 > - Azure 串流分析
 > - 與 Azure 事件方格的整合
 > - Azure IoT 中樞路由
@@ -75,7 +74,7 @@ IP 篩選器規則會依序套用，第一個符合 IP 位址的規則會決定�
 > ```json
 > "defaultAction": "Allow"
 > ```
-> to
+> 收件人
 > ```json
 > "defaultAction": "Deny"
 > ```

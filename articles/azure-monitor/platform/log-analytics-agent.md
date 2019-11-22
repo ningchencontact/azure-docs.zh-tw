@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 10/07/2019
-ms.openlocfilehash: 8070abad675acc69f5b1da232b60179078adbc57
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 11/21/2019
+ms.openlocfilehash: 33ba07ac8d89546856666cc7ab94fae650020001
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932233"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306534"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>使用 Log Analytics 代理程式收集記錄資料
 
@@ -20,7 +20,7 @@ Azure Log Analytics 代理程式先前稱為 Microsoft Monitoring Agent (MMA) �
 
 本文將詳細說明代理程式的概觀、系統和網路需求以及不同的部署方法。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 ![Log Analytics 代理程式通訊圖表](./media/log-analytics-agent/log-analytics-agent-01.png)
 
@@ -40,7 +40,7 @@ Azure Log Analytics 代理程式先前稱為 Microsoft Monitoring Agent (MMA) �
 * 向管理群組報告的 Linux 電腦必須設定為直接向 Log Analytics 工作區報告。 如果您的 Linux 電腦已直接回報至工作區，而您想要使用 Operations Manager 來監視它們，請遵循下列步驟向[Operations Manager 管理群組報告](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group)。
 * 您可以在 Windows 電腦上安裝 Log Analytics Windows 代理程式，並將它報告至與工作區整合的 Operations Manager，以及不同的工作區。
 
-適用于 Linux 和 Windows 的代理程式不僅可用於連線到 Azure 監視器，也支援 Azure 自動化裝載混合式 Runbook 背景工作角色和其他服務，例如[變更追蹤](../../automation/change-tracking.md)、[更新管理](../../automation/automation-update-management.md)和[Azure 資訊安全中心](../../security-center/security-center-intro.md). 如需有關「混合式 Runbook」背景工作角色的詳細資訊，請參閱 [Azure 自動化混合式 Runbook 背景工作](../../automation/automation-hybrid-runbook-worker.md)。  
+適用于 Linux 和 Windows 的代理程式不僅可用於連線到 Azure 監視器，也支援 Azure 自動化裝載混合式 Runbook 背景工作角色和其他服務，例如[變更追蹤](../../automation/change-tracking.md)、[更新管理](../../automation/automation-update-management.md)和[Azure 資訊安全中心](../../security-center/security-center-intro.md)。 如需有關「混合式 Runbook」背景工作角色的詳細資訊，請參閱 [Azure 自動化混合式 Runbook 背景工作](../../automation/automation-hybrid-runbook-worker.md)。  
 
 ## <a name="supported-windows-operating-systems"></a>支援的 Windows 作業系統
 
@@ -106,14 +106,13 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 |代理程式資源|連接埠 |方向 |略過 HTTPS 檢查|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |連接埠 443 |輸出|是 |  
-|*.oms.opinsights.azure.com |連接埠 443 |輸出|是 |  
-|*.blob.core.windows.net |連接埠 443 |輸出|是 |  
-|*.azure-automation.net |連接埠 443 |輸出|是 |  
+|*.ods.opinsights.azure.com |連接埠 443 |輸出|yes |  
+|*.oms.opinsights.azure.com |連接埠 443 |輸出|yes |  
+|*.blob.core.windows.net |連接埠 443 |輸出|yes |  
 
 如需 Azure Government 所需的防火牆資訊，請參閱[Azure Government 管理](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs)。 
 
-如果您打算使用 Azure 自動化混合式 Runbook 背景工作角色連線到自動化服務並向其註冊，以便在您的環境中使用 Runbook，它必須具有[設定適用於混合式 Runbook 背景工作角色的網路](../../automation/automation-hybrid-runbook-worker.md#network-planning)中所述的連接埠號碼和 URL 存取權。 
+如果您打算使用 Azure 自動化混合式 Runbook 背景工作角色來連線至自動化服務並向其註冊，以便在您的環境中使用 runbook 或管理解決方案，它必須能夠存取[設定混合式 Runbook 背景工作角色的網路](../../automation/automation-hybrid-runbook-worker.md#network-planning)中所述的埠號碼和 url。 
 
 Windows 和 Linux 代理程式支援使用 HTTPS 通訊協定，透過 proxy 伺服器或 Log Analytics 閘道與 Azure 監視器進行通訊。  不支援匿名和基本驗證 (使用者名稱/密碼)。  若是直接連線到服務的 Windows 代理程式，請在安裝期間或[部署後](agent-manage.md#update-proxy-settings)從控制台或使用 PowerShell 來指定 Proxy 設定。  
 
@@ -130,7 +129,7 @@ Windows 和 Linux 代理程式支援使用 HTTPS 通訊協定，透過 proxy 伺
 |user | 用於驗證 Proxy 的選擇性使用者名稱 |
 |password | 用於驗證 Proxy 的選擇性密碼 |
 |proxyhost | Proxy 伺服器/Log Analytics 閘道的位址或 FQDN |
-|連接埠 | Proxy 伺服器/Log Analytics 閘道的選擇性連接埠號碼 |
+|port | Proxy 伺服器/Log Analytics 閘道的選擇性連接埠號碼 |
 
 例如：`https://user01:password@proxy01.contoso.com:30443`
 

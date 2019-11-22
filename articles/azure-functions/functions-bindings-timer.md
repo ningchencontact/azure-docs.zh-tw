@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: ebe7916900ded20dc6555c9c28277dea889539a3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 57eec1293867a6596eb93f20ba27d468498e4e61
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230974"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278688"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的計時器觸發程序 
 
@@ -34,18 +34,9 @@ ms.locfileid: "74230974"
 
 ## <a name="example"></a>範例
 
-請參閱特定語言的範例：
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-* [C#](#c-example)
-* [C# 指令碼 (.csx)](#c-script-example)
-* [F#](#f-example)
-* [Java](#java-example)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
-
-### <a name="c-example"></a>C# 範例
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that is executed each time the minutes have a value divisible by five (eg if the function starts at 18:57:00, the next performance will be at 19:00:00). The [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) object is passed into the function.
+下列範例顯示[ C# ](functions-dotnet-class-library.md)每次分鐘有一個可被五個值整除的函式（例如，如果函式是從18:57:00 開始，下一個效能將會是19:00:00）。 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -59,9 +50,9 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 }
 ```
 
-### <a name="c-script-example"></a>C# 指令碼範例
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
-下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 The [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) object is passed into the function.
+下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -87,49 +78,9 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
-### <a name="f-example"></a>F# 範例
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 The [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) object is passed into the function.
-
-以下是 *function.json* 檔案中的繫結資料：
-
-```json
-{
-    "schedule": "0 */5 * * * *",
-    "name": "myTimer",
-    "type": "timerTrigger",
-    "direction": "in"
-}
-```
-
-以下是 F# 指令碼程式碼：
-
-```fsharp
-let Run(myTimer: TimerInfo, log: ILogger ) =
-    if (myTimer.IsPastDue) then
-        log.LogInformation("F# function is running late.")
-    let now = DateTime.Now.ToLongTimeString()
-    log.LogInformation(sprintf "F# function executed at %s!" now)
-```
-
-### <a name="java-example"></a>Java 範例
-
-下列範例函式會每五分鐘觸發並執行。 函式上的 `@TimerTrigger` 註釋會使用與 [CRON 運算式](https://en.wikipedia.org/wiki/Cron#CRON_expression)相同的字串格式來定義排程。
-
-```java
-@FunctionName("keepAlive")
-public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
-      ExecutionContext context
- ) {
-     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
-     context.getLogger().info("Timer is triggered: " + timerInfo);
-}
-```
-
-### <a name="javascript-example"></a>JavaScript 範例
-
-下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 A [timer object](#usage) is passed into the function.
+下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [計時器物件](#usage)會傳遞至函式。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -158,9 +109,9 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-### <a name="python-example"></a>Python 範例
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
-The following example uses a timer trigger binding whose configuration is described in the *function.json* file. The actual [Python function](functions-reference-python.md) that uses the binding is described in the *__init__.py* file. The object passed into the function is of type [azure.functions.TimerRequest object](/python/api/azure-functions/azure.functions.timerrequest). The function logic writes to the logs indicating whether the current invocation is due to a missed schedule occurrence. 
+下列範例會使用計時器觸發程式系結，其設定會在函式 *. json*檔案中加以描述。 使用系結的實際[Python](functions-reference-python.md)函式會在 *.py*檔案中描述。 傳入函式的物件為[TimerRequest 物件](/python/api/azure-functions/azure.functions.timerrequest)類型。 函式邏輯會寫入記錄，指出目前的叫用是否因錯過的排程發生而造成。 
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -192,7 +143,26 @@ def main(mytimer: func.TimerRequest) -> None:
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
-## <a name="attributes"></a>屬性
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+下列範例函式會每五分鐘觸發並執行。 函式上的 `@TimerTrigger` 註釋會使用與 [CRON 運算式](https://en.wikipedia.org/wiki/Cron#CRON_expression)相同的字串格式來定義排程。
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
+---
+
+## <a name="attributes-and-annotations"></a>屬性和注釋
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs)。
 
@@ -210,6 +180,35 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 }
 ```
 
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
+
+C#腳本不支援屬性。
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript 不支援屬性。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python 不支援屬性。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+函式上的 `@TimerTrigger` 註釋會使用與 [CRON 運算式](https://en.wikipedia.org/wiki/Cron#CRON_expression)相同的字串格式來定義排程。
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
+---
+
 ## <a name="configuration"></a>組態
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `TimerTrigger` 屬性。
@@ -220,17 +219,17 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 |**direction** | n/a | 必須設定為 "in"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | n/a | 代表函式程式碼中計時器物件的變數名稱。 | 
 |**schedule**|**ScheduleExpression**|[CRON 運算式](#ncrontab-expressions)或 [TimeSpan](#timespan) 值。 `TimeSpan` 只能用於 App Service 方案上執行的函式應用程式。 您可以將排程運算式放在應用程式設定中，並將此屬性設定為以 **%** 符號包裝的應用程式設定名稱，如此範例所示："%ScheduleAppSetting%"。 |
-|**runOnStartup**|**RunOnStartup**|如果為 `true`，當執行階段啟動時，會叫用函式。 例如，當函式應用程式因無活動而處於閒置狀態後再甦醒時、 when the function app restarts due to function changes, and when the function app scales out. So **runOnStartup** should rarely if ever be set to `true`, especially in production. |
-|**useMonitor**|**UseMonitor**|設定為 `true` 或 `false` 以表示是否應該監視排程。 排程監視會使排程持續進行，以協助確保即使在函式應用程式執行個體重新啟動時，排程也能正確地持續運作。 If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. 若為每分鐘觸發超過一次的排程，預設值為 `false`。
+|**runOnStartup**|**RunOnStartup**|如果為 `true`，當執行階段啟動時，會叫用函式。 例如，當函式應用程式因無活動而處於閒置狀態後再甦醒時、 當函式應用程式因函式變更而重新開機，以及函式應用程式相應放大時。因此， **runOnStartup**應該很少設定為 `true`，特別是在生產環境中。 |
+|**useMonitor**|**UseMonitor**|設定為 `true` 或 `false` 以表示是否應該監視排程。 排程監視會使排程持續進行，以協助確保即使在函式應用程式執行個體重新啟動時，排程也能正確地持續運作。 如果未明確設定，則會針對週期間隔大於或等於1分鐘的排程 `true` 預設值。 若為每分鐘觸發超過一次的排程，預設值為 `false`。
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> 建議不要在生產環境中將 **runOnStartup** 設定為 `true`。 使用此設定會在極度無法預期的情況下執行程式碼。 在特定的生產環境設定中，對於取用量方案中託管的應用程式，這些額外的執行會導致成本大幅增加。 For example, with **runOnStartup** enabled the trigger is invoked whenever your function app is scaled. 請確定在生產環境中啟用 **runOnStartup** 之前，您完全了解函式的實際執行行為。   
+> 建議不要在生產環境中將 **runOnStartup** 設定為 `true`。 使用此設定會在極度無法預期的情況下執行程式碼。 在特定的生產環境設定中，對於取用量方案中託管的應用程式，這些額外的執行會導致成本大幅增加。 例如，啟用**runOnStartup**時，每當調整您的函數應用程式時，就會叫用觸發程式。 請確定在生產環境中啟用 **runOnStartup** 之前，您完全了解函式的實際執行行為。   
 
-## <a name="usage"></a>用量
+## <a name="usage"></a>使用方式
 
-When a timer trigger function is invoked, a timer object is passed into the function. 下列 JSON 是計時器物件的範例表示法。
+叫用計時器觸發程式函式時，計時器物件會傳遞至函式。 下列 JSON 是計時器物件的範例表示法。
 
 ```json
 {
@@ -247,15 +246,15 @@ When a timer trigger function is invoked, a timer object is passed into the func
 
 當目前函式引動過程晚於排程時，`IsPastDue` 屬性為 `true`。 例如，函式應用程式重新啟動可能會導致遺漏引動過程。
 
-## <a name="ncrontab-expressions"></a>NCRONTAB expressions 
+## <a name="ncrontab-expressions"></a>NCRONTAB 運算式 
 
-Azure Functions uses the [NCronTab](https://github.com/atifaziz/NCrontab) library to interpret NCRONTAB expressions. An NCRONTAB exppression is similar to a CRON expression except that it includes an additional sixth field at the beginning to use for time precision in seconds:
+Azure Functions 使用[NCronTab](https://github.com/atifaziz/NCrontab)程式庫來解讀 NCronTab 運算式。 NCRONTAB 運算式與 CRON 運算式相似，不同之處在于它會在開頭包含額外的第六個欄位，以用於時間精確度（以秒為單位）：
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
 每個欄位可以具備下列類型的值：
 
-|Type  |範例  |觸發時間  |
+|在系統提示您進行確認時，輸入  |範例  |觸發時間  |
 |---------|---------|---------|
 |特定值 |<nobr>"0 5 * * * *"</nobr>|於 hh:05:00，其中 hh 是每小時 (一小時一次)|
 |所有值 (`*`)|<nobr>"0 * 5 * * *"</nobr>|於每天 5:mm:00，其中 mm 是小時中的每一分鐘 (一天 60 次)|
@@ -265,9 +264,9 @@ Azure Functions uses the [NCronTab](https://github.com/atifaziz/NCrontab) librar
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
-### <a name="ncrontab-examples"></a>NCRONTAB examples
+### <a name="ncrontab-examples"></a>NCRONTAB 範例
 
-Here are some examples of NCRONTAB expressions you can use for the timer trigger in Azure Functions.
+以下是您可以在 Azure Functions 中用於計時器觸發程式的一些 NCRONTAB 運算式範例。
 
 |範例|觸發時間  |
 |---------|---------|
@@ -280,19 +279,19 @@ Here are some examples of NCRONTAB expressions you can use for the timer trigger
 |`"0 30 9 * Jan Mon"`|一月每個星期一上午 9:30|
 
 
-### <a name="ncrontab-time-zones"></a>NCRONTAB time zones
+### <a name="ncrontab-time-zones"></a>NCRONTAB 的時區
 
 CRON 運算式中的數字代表時間和日期，而非時間範圍。 例如，`hour` 欄位中的 5 代表上午 5:00，而非每隔 5 小時。
 
 CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON 運算式以另一個時區為基礎，請為名為 `WEBSITE_TIME_ZONE` 的函式應用程式建立應用程式設定。 將值設定為所需的時區名稱，如 [Microsoft 時區索引](https://technet.microsoft.com/library/cc749073)中所示。 
 
-例如，*美加東部標準時間*是 UTC-05:00。 To have your timer trigger fire at 10:00 AM EST every day, use the following NCRONTAB expression that accounts for UTC time zone:
+例如，*美加東部標準時間*是 UTC-05:00。 若要讓計時器觸發程式在每天的上午10:00 觸發，請使用下列 NCRONTAB 運算式來表示 UTC 時區：
 
 ```
 "0 0 15 * * *"
 ``` 
 
-或者為名為 `WEBSITE_TIME_ZONE` 的函式應用程式建立應用程式設定，並將值設為**美加東部標準時間**。  Then uses the following NCRONTAB expression: 
+或者為名為 `WEBSITE_TIME_ZONE` 的函式應用程式建立應用程式設定，並將值設為**美加東部標準時間**。  然後使用下列 NCRONTAB 運算式： 
 
 ```
 "0 0 10 * * *"
@@ -300,20 +299,20 @@ CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON
 
 當您使用 `WEBSITE_TIME_ZONE` 時，時間會隨特定時區的時間變更 (例如日光節約時間) 而調整。 
 
-## <a name="timespan"></a>時間範圍
+## <a name="timespan"></a>TimeSpan
 
  `TimeSpan` 只能用於 App Service 方案上執行的函式應用程式。
 
 不同於 CRON 運算式，`TimeSpan` 值會指定每個函式引動過程之間的時間間隔。 如果函式在執行時間超過指定時間間隔之後完成，計時器會立即再次叫用函式。
 
-以字串表示，當 `hh` 低於 24 時，`TimeSpan` 格式為 `hh:mm:ss`。 當前兩個數字為 24 或更高時，格式為 `dd:hh:mm`。 這裡有一些範例：
+以字串表示，當 `TimeSpan` 低於 24 時，`hh:mm:ss` 格式為 `hh`。 當前兩個數字為 24 或更高時，格式為 `dd:hh:mm`。 這裡有一些範例：
 
 |範例 |觸發時間  |
 |---------|---------|
 |"01:00:00" | 每小時        |
 |"00:01:00"|每分鐘         |
-|"24:00:00" | every 24 hours        |
-|"1.00:00:00" | every day        |
+|"24:00:00" | 每24小時        |
+|"1.00：00： 00" | 每天        |
 
 ## <a name="scale-out"></a>向外延展
 
@@ -321,16 +320,16 @@ CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON
 
 ## <a name="function-apps-sharing-storage"></a>共用儲存體的函式應用程式
 
-If you are sharing storage accounts across function apps that are not deployed to app service, you might need to explicitly assign host ID to each app.
+如果您在未部署至 app service 的函式應用程式之間共用儲存體帳戶，您可能需要明確地將主機識別碼指派給每個應用程式。
 
 | Functions 版本 | 設定                                              |
 | ----------------- | ---------------------------------------------------- |
-| 2.x               | `AzureFunctionsWebHost__hostid` environment variable |
-| 1.x               | `id` in *host.json*                                  |
+| 2.x               | `AzureFunctionsWebHost__hostid` 環境變數 |
+| 1.x               | *host. json*中的 `id`                                  |
 
-You can omit the identifying value or manually set each function app's identifying configuration to a different value.
+您可以省略識別值，或手動將每個函數應用程式的識別設定設為不同的值。
 
-The timer trigger uses a storage lock to ensure that there is only one timer instance when a function app scales out to multiple instances. If two function apps share the same identifying configuration and each uses a timer trigger, only one timer runs.
+計時器觸發程式會使用儲存體鎖定，確保當函數應用程式相應放大至多個實例時，只有一個計時器實例。 如果兩個函式應用程式共用相同的識別設定，而且每個都使用計時器觸發程式，則只會執行一個計時器。
 
 ## <a name="retry-behavior"></a>重試行為
 

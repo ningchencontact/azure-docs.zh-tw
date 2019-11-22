@@ -1,5 +1,5 @@
 ---
-title: 設定使用者同意應用程式 - Azure Active Directory | Microsoft Docs
+title: 設定應用程式的使用者同意-Azure Active Directory
 description: 了解如何管理使用者同意應用程式權限的方式。 您可以授與管理員同意，以簡化使用者體驗。 這些方法適用於 Azure Active Directory (Azure AD) 租用戶中的所有使用者。
 services: active-directory
 author: msmimart
@@ -12,19 +12,19 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bd746e79bc9d70be23771f97b1757f090f6375f
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 4a187ea9d22efa40c482ea8930be0271d84a899a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709278"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273979"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>在 Azure Active Directory 設定使用者同意應用程式的方式
 了解如何設定使用者同意應用程式權限的方式。 您可以授與管理員同意，以簡化使用者體驗。 本文提供不同的方式供您設定使用者同意。 這些方法適用於 Azure Active Directory (Azure AD) 租用戶中的所有使用者。 
 
 如需同意應用程式的詳細資訊，請參閱 [Azure Active Directory 同意架構](../develop/consent-framework.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 授與管理員同意時，您需要以全域管理員、應用程式管理員或雲端應用程式管理員的身分登入。
 

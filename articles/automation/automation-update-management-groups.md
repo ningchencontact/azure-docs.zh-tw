@@ -1,20 +1,20 @@
 ---
 title: 搭配 Azure 更新管理使用動態群組
-description: 說明動態群組如何與更新管理搭配使用
+description: 本文說明動態群組如何與 Azure 自動化更新管理搭配使用。
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
-ms.date: 10/02/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 11/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edc4384be0f1dc73f2e7e098114080d304d92ce8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 022c2061febb54666acee1cfed4ec595421660a3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377742"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278734"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>搭配更新管理使用動態群組
 
@@ -24,10 +24,10 @@ ms.locfileid: "72377742"
 
 這些群組會由查詢定義，當更新部署開始時，就會評估該群組的成員。 動態群組無法與傳統 Vm 搭配使用。 定義查詢時，可以搭配使用下列專案來填入動態群組：
 
-* Subscription
+* 訂閱
 * 資源群組
 * 位置
-* Tags
+* 標籤
 
 ![選取群組](./media/automation-update-management/select-groups.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "72377742"
 
 ## <a name="non-azure-machines"></a>非 Azure 機器
 
-針對非 Azure 機器，已儲存的搜尋也稱為「電腦群組」，用來建立動態群組。 若要瞭解如何建立已儲存的搜尋，請參閱[建立電腦群組](../azure-monitor/platform/computer-groups.md#creating-a-computer-group)。 建立群組之後，您可以從已儲存的搜尋清單中加以選取。 按一下 [**預覽**] 以在當時已儲存的搜尋中預覽電腦。
+針對非 Azure 機器，已儲存的搜尋（也稱為電腦群組）是用來建立動態群組。 若要瞭解如何建立已儲存的搜尋，請參閱[建立電腦群組](../azure-monitor/platform/computer-groups.md#creating-a-computer-group)。 建立群組之後，您可以從已儲存的搜尋清單中加以選取。 按一下 [**預覽**] 以在當時已儲存的搜尋中預覽電腦。
 
 ![選取群組](./media/automation-update-management/select-groups-2.png)
 

@@ -2,14 +2,14 @@
 title: 跨區域的安全部署-Azure Deployment Manager
 description: 描述如何使用 Azure 部署管理員在許多區域中部署服務。 它會顯示安全部署實務，以便在推出到所有區域之前確認部署的穩定性。
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a0d13150086b393e10bc16c5c2cef173ab0abab
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 9b0e314b3911dcd3b96dc2b5b32081bd2e9c0c0c
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147184"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307040"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>使用 Azure Deployment Manager 啟用安全部署實務（公開預覽）
 
@@ -338,3 +338,5 @@ Azure Deployment Manager 處於預覽狀態。 提供[意見](https://aka.ms/adm
 
 > [!div class="nextstepaction"]
 > [教學課程：使用 Azure 部署管理員搭配 Resource Manager 範本](./deployment-manager-tutorial.md)
+>
+> [快速入門：在短短幾分鐘內試用 Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart)

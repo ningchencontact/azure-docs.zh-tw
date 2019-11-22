@@ -4,19 +4,20 @@ description: Go-To-Market 服務 - 本節描述了發行者可以使用的 Micro
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 6ae761b9558a0d6c1b663c1202bc560382c7b0b6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7b563cd90ec3e46dfd2d4420b728cd6f69df40eb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752385"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818637"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>您的商業 marketplace 權益
 
-您已發佈至 marketplace，現在您想要查看您的供應專案是否成功。 我們會為您提供權益–銷售、技術和行銷-您需要加速供應專案的成長。
+您已發佈至 marketplace，現在您想要查看您的供應專案是否成功。 我們會為您提供權益-銷售、技術和行銷-您需要加速供應專案的成長。
 
 當您上線供應專案時，Marketplace 報酬小組會開始與您合作，以符合您的合格權益。 Marketplace 獎勵權益會根據您的商業 marketplace 參與和銷售而累積。 您參與的越多，就越多越好。
 
@@ -102,7 +103,7 @@ Microsoft 保留撤銷並終止 Marketplace 獎勵權益的權利，讓發行者
 
 這項供應專案是以英文針對具有 Azure Marketplace 或 Microsoft AppSource 之 live 供應專案的所有合作夥伴來進行。
 
-經證實為詐騙的交易將不會計入發行者的[計費銷售計畫層](https://aka.ms/marketplacepublisherrewards)，如[清單、試用版、諮詢](#list-trial-and-consulting-benefits)一節、[交易合作夥伴權益](#marketplace-rewards-for-transact-partners)一節和[詳細的計畫中所述](https://aka.ms/marketplacepublisherrewards)。 在移除詐騙之後，Microsoft 會根據實際的計費銷售，將合作夥伴配置給資格層。 
+經證實為詐騙的交易將不會計入發行者的[計費銷售計畫層](https://aka.ms/marketplacepublisherrewards)，如[清單、試用版、諮詢](#list-trial-and-consulting-benefits)一節、[交易合作夥伴權益](#marketplace-rewards-for-transact-partners)一節和[詳細的程式](https://aka.ms/marketplacepublisherrewards)。 在移除詐騙之後，Microsoft 會根據實際的計費銷售，將合作夥伴配置給資格層。 
 
 ## <a name="next-steps"></a>後續步驟
 

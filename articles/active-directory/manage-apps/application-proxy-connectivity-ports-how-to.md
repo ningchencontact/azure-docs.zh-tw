@@ -1,5 +1,5 @@
 ---
-title: 如何開啟應用程式 Proxy 應用程式所需的防火牆連接埠 | Microsoft Docs
+title: 如何開啟應用程式 Proxy 應用程式所需的防火牆埠
 description: 了解要開啟哪些連接埠，Azure AD 應用程式 Proxy 才能正確運作
 services: active-directory
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e69f2e5049ca290a17c058c9d18dc7c6ec91f49
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b676508c73ff0233526f19b865bb9e4f7b80f12
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783570"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275557"
 ---
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>如何開啟應用程式 Proxy 應用程式所需的防火牆連接埠
 
 若要查看必要連接埠的完整清單，以及每個連接埠的功能，請參閱[應用程式 Proxy 文件](application-proxy-add-on-premises-application.md)的＜必要條件＞一節。 請注意，應用程式 Proxy 只會使用輸出連接埠。
 
-您也可以檢查您是否擁有所有必要的連接埠開啟 %installationdirectory[連接器連接埠測試工具](https://aadap-portcheck.connectorporttest.msappproxy.net/)從您內部部署網路。 越多的綠色勾選記號，表示越佳的復原功能。 
+您也可以從內部部署網路開啟[連接器埠測試控管](https://aadap-portcheck.connectorporttest.msappproxy.net/)，以檢查您是否已開啟所有必要的埠。 越多的綠色勾選記號，表示越佳的復原功能。 
 
 ## <a name="app-proxy-regions"></a>應用程式 Proxy 區域
 
@@ -37,7 +37,7 @@ ms.locfileid: "65783570"
 
 -   從您已安裝連接器之伺服器的瀏覽器上開啟工具。
 
--   確定所有適用於您連接器的 Proxy 或防火牆也已套用至這個頁面。 做法是在 Internet Explorer 中移至**設定** - &gt; **網際網路選項** - &gt; **連接**  - &gt; **LAN 設定**。 在此頁面上，您會看到 [為您的 LAN 使用 Proxy 伺服器] 欄位。 選取此方塊，然後將 Proxy 位址放入 [位址] 欄位。
+-   確定所有適用於您連接器的 Proxy 或防火牆也已套用至這個頁面。 這可以在 Internet Explorer 中完成，方法是前往 **設定** -&gt; **網際網路選項** ** -&gt; 連線 -&gt;** **LAN 設定**。 在此頁面上，您會看到 [為您的 LAN 使用 Proxy 伺服器] 欄位。 選取此方塊，然後將 Proxy 位址放入 [位址] 欄位。
 
 ## <a name="next-steps"></a>後續步驟
 [了解 Azure AD 應用程式 Proxy 連接器](application-proxy-connectors.md)

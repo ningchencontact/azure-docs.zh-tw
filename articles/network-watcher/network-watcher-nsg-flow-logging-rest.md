@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 網路監看員管理網路安全性群組流量記錄 - REST API | Microsoft Docs
+title: 管理 NSG 流量記錄-Azure REST API
+titleSuffix: Azure Network Watcher
 description: 此頁面說明如何使用 REST API 在 Azure 網路監看員中管理網路安全性群組流量記錄
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 88173b24ecfca72e05d6f930b45d732aefad0e56
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 636a422cd46dc6b6274766b92753f04195a829a0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563412"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277924"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>使用 REST API 設定網路安全性群組流量記錄
 
@@ -40,7 +41,7 @@ ms.locfileid: "69563412"
 > [!Important]
 > 針對網路監看員 REST API 呼叫，要求 URI 中的資源群組名稱是包含網路監看員的資源群組，而非您要執行診斷動作的資源。
 
-## <a name="scenario"></a>狀況
+## <a name="scenario"></a>案例
 
 本文章涵蓋的案例會示範如何使用 REST API 啟用、停用以及查詢流程記錄。 若要深入了解網路安全性群組流程記錄，請造訪[網路安全性群組流程記錄 - 概觀](network-watcher-nsg-flow-logging-overview.md)。
 
@@ -60,7 +61,7 @@ armclient login
 
 ## <a name="register-insights-provider"></a>註冊 Insights 提供者
 
-若要讓流量記錄成功運作，必須註冊 **Microsoft.Insights** 提供者。 如果您不確定是否已註冊 **Microsoft.Insights** 提供者，請執行下列程式碼。
+若要讓流量記錄成功運作，必須註冊 Microsoft.Insights 提供者。 如果您不確定是否已註冊 **Microsoft.Insights** 提供者，請執行下列程式碼。
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -218,7 +219,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ```
 
 > [!IMPORTANT]
-> 目前, 無法根據保留原則設定, 從 Blob 儲存體自動刪除網路監看員的[網路安全性群組 (NSG) 流量記錄](network-watcher-nsg-flow-logging-overview.md)問題。 如果您有現有的非零保留原則, 建議您定期刪除超過其保留期限的儲存體 blob, 以避免產生任何費用。 如需有關如何刪除 NSG 流量記錄儲存體 blog 的詳細資訊, 請參閱[刪除 NSG 流量記錄儲存體 blob](network-watcher-delete-nsg-flow-log-blobs.md)。
+> 目前有一個問題是，系統不會根據保留原則設定從 Blob 儲存體自動刪除網路監看員的[網路安全性群組 (NSG) 流量記錄](network-watcher-nsg-flow-logging-overview.md)。 如果您有現有的非零保留原則，建議您定期刪除超過其保留期間的儲存體 Blob 以避免產生任何費用。 如需如何刪除 NSG 流量記錄儲存體 Blob 的詳細資訊，請參閱[刪除 NSG 流量記錄儲存體 Blob](network-watcher-delete-nsg-flow-log-blobs.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd50ca8b81b933a61a67ac36db6a656791a8121f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0bfd75f54e2b57e57fcadc27df2ca43d8be5cf37
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832862"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285513"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>使用 Azure Active Directory authentication （預覽）登入 Azure 中的 Windows 虛擬機器
 
@@ -34,10 +34,10 @@ ms.locfileid: "73832862"
 - Azure RBAC 可讓您根據需求授與 Vm 適當的存取權，並在不再需要時將其移除。
 - 在允許存取 VM 之前，Azure AD 條件式存取可以強制執行額外的需求，例如： 
    - Multi-Factor Authentication
-   - 登入風險
-- 針對以 Azure 為基礎的 Windows Vm，將 Azure AD 聯結自動化並加以調整。
+   - 登入風險檢查
+- 將屬於您 VDI 部署的 Azure Windows Vm 的 Azure AD 聯結自動化並加以調整。
 
-## <a name="requirements"></a>要求
+## <a name="requirements"></a>需求
 
 ### <a name="supported-azure-regions-and-windows-distributions"></a>支援的 Azure 區域和 Windows 發行版本
 
@@ -68,7 +68,7 @@ ms.locfileid: "73832862"
 有多種方式可讓您啟用 Windows VM 的 Azure AD 登入：
 
 - 在建立 Windows VM 時使用 Azure 入口網站體驗
-- 在建立 Windows VM 或現有 Windows VM 時使用 Azure Cloud Shell 體驗
+- 在建立 Windows VM**或現有 WINDOWS vm**時使用 Azure Cloud Shell 體驗
 
 ### <a name="using-azure-portal-create-vm-experience-to-enable-azure-ad-login"></a>使用 Azure 入口網站建立 VM 體驗來啟用 Azure AD 登入
 
@@ -186,6 +186,13 @@ az role assignment create \
 - [使用 RBAC 和 Azure CLI 來管理 Azure 資源的存取權](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 - [使用 RBAC 和 Azure 入口網站管理 Azure 資源的存取權](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 - [使用 RBAC 和 Azure PowerShell 來管理 Azure 資源的存取權](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)。
+
+## <a name="using-conditional-access"></a>使用條件式存取
+
+您可以先強制執行條件式存取原則（例如多重要素驗證或使用者登入風險檢查），再授權存取 Azure 中啟用 Azure AD 登入的 Windows Vm。 若要套用條件式存取原則，您必須從 [雲端應用程式] 或 [動作] 指派選項中選取 [Azure Windows VM 登入] 應用程式，然後使用 [登入風險] 作為條件，並（或）要求多重要素驗證做為 [授與存取控制]。 
+
+> [!NOTE]
+> 如果您使用「需要多重要素驗證」做為要求存取「Azure Windows VM 登入」應用程式的授與存取控制，則您必須提供多重要素驗證宣告作為用戶端的一部分，以在其中起始對目標 Windows VM 的 RDP 會話Azure. 在 Windows 10 用戶端上達成此目標的唯一方法，就是在 RDP 期間使用 Windows Hello 企業版 PIN 或生物識別驗證。 Windows 10 1809 已新增 RDP 期間的生物識別驗證支援。 在 RDP 期間使用 Windows Hello 企業版驗證僅適用于使用憑證信任模型的部署，而且目前無法用於金鑰信任模型。
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>使用 Azure AD 認證登入 Windows VM
 
@@ -337,7 +344,12 @@ AADLoginForWindows 擴充功能必須成功安裝，VM 才能完成 Azure AD 聯
 
 ![您嘗試使用的登入方法不允許。](./media/howto-vm-sign-in-azure-ad-windows/mfa-sign-in-method-required.png)
 
-如果您已設定條件式存取原則，要求必須先完成 MFA 才能存取 RBAC 資源，則您必須確定使用強式驗證方法來啟動 VM 的「遠端桌面」連線，才能登入 Windows 10 電腦。做為 Windows Hello。 如果您未針對遠端桌面連線使用增強式驗證方法，您會看到下列錯誤。
+如果您已設定條件式存取原則，要求必須先完成 MFA 才能存取 RBAC 資源，則您必須確定使用強式驗證方法來啟動 VM 的「遠端桌面」連線，才能登入 Windows 10 電腦。做為 Windows Hello。 如果您未針對遠端桌面連線使用增強式驗證方法，您會看到下列錯誤。 
+
+如果您尚未部署 Windows Hello 企業版，而且目前無法使用，您可以設定條件式存取原則，從需要 MFA 的雲端應用程式清單中排除「Azure Windows VM 登入」應用程式，以 exlcude MFA 需求。 若要深入瞭解 Windows Hello 企業版，請參閱[Windows Hello 企業版總覽](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)。
+
+> [!NOTE]
+> Windows 10 的 windows Hello 企業版 PIN 驗證在 RDP 期間已有一段時間支援。 Windows 10 1809 已新增 RDP 期間的生物識別驗證支援。 在 RDP 期間使用 Windows Hello 企業版驗證僅適用于使用憑證信任模型的部署，而且目前無法用於金鑰信任模型。
  
 ## <a name="preview-feedback"></a>預覽意見反應
 

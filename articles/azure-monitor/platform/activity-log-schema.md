@@ -1,6 +1,6 @@
 ---
 title: Azure 活動記錄事件結構描述
-description: 了解發出至活動記錄之資料的事件結構描述
+description: 說明 Azure 活動記錄中每個類別目錄的事件架構。
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9f58f08718cc0bfeb94b83de55531c9bd22720e2
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: d196cf4024513d891182f3b916bd8412a2f81d14
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847355"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305486"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活動記錄事件結構描述
 透過「Azure 活動記錄」，您可深入了解 Azure 中發生的任何訂用帳戶層級事件。 本文說明每個資料類別的事件結構描述。 資料的結構描述取決於您是在入口網站、PowerShell、CLI，或直接透過 REST API 讀取資料，還是[使用記錄設定檔，將資料串流處理至儲存體或事件中樞](activity-log-export.md)。 下列範例顯示透過入口網站、PowerShell、CLI 和 REST API 提供的結構描述。 本文結尾會提供這些屬性與 [Azure 診斷記錄結構描述](diagnostic-logs-schema.md)的對應。
@@ -110,14 +110,14 @@ ms.locfileid: "73847355"
 ```
 
 ### <a name="property-descriptions"></a>屬性描述
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | 授權 |事件的 RBAC 屬性的 blob。 通常包括 action、role 和 scope 屬性。 |
 | 呼叫者 |已執行作業的使用者的電子郵件地址，根據可用性的 UPN 宣告或 SPN 宣告。 |
 | 通道 |為下列其中一個值：Admin、Operation |
 | claims |Active Directory 用來驗證使用者或應用程式，以便在 Resource Manager 中執行此作業的 JWT 權杖。 |
 | correlationId |通常是字串格式的 GUID。 具有相同 correlationId、屬於同一 uber 動作的事件。 |
-| 說明 |事件的靜態文字描述。 |
+| Description |事件的靜態文字描述。 |
 | eventDataId |事件的唯一識別碼。 |
 | eventName | 系統管理事件的易記名稱。 |
 | category | 一律為「系統管理」 |
@@ -137,7 +137,7 @@ ms.locfileid: "73847355"
 | subscriptionId |Azure 訂用帳戶識別碼。 |
 
 ## <a name="service-health"></a>服務健康情況
-所有在 Azure 中發生的服務健康情況事件皆記錄在此類別中。 您可能會在此類別中看到的事件類型範例為「美國東部的 SQL Azure 發生停機事件」。 服務健康情況事件有五個種類：必要動作、協助復原、事件、維護、資訊或安全性，這些情況只會在事件可能影響訂用帳戶中的資源時顯示。
+所有在 Azure 中發生的服務健康情況事件皆記錄在此類別中。 您可能會在此類別中看到的事件類型範例為「美國東部的 SQL Azure 發生停機事件」。 服務健康情況事件有五個種類：「需要採取動作」、「協助復原」、「事件」、「維護」、「資訊」或「安全性」，這些事件只會在訂用帳戶中有可能會受該事件影響的資源時顯示。
 
 ### <a name="sample-event"></a>範例事件
 ```json
@@ -197,7 +197,7 @@ ms.locfileid: "73847355"
 請參閱[服務健康情況通知](./../../azure-monitor/platform/service-notifications.md)一文，以取得關於屬性中之值的文件。
 
 ## <a name="resource-health"></a>資源健康情況
-此類別包含 Azure 資源已發生的任何資源健康情況事件的記錄。 「虛擬機器健康情況已變更為無法使用」是您可能在此類別中看到的事件類型。 資源健康情況事件可以代表四個健康情況的其中一個：可用、無法使用、已降級、未知。 此外，資源健康情況事件可分類為「平台起始」或「使用者起始」。
+此類別包含 Azure 資源已發生的任何資源健康情況事件的記錄。 例如，您在此類別中可看到的事件類型會是「虛擬機器健康狀態已變更為無法使用。」 資源健康情況事件可以代表四個健康情況的其中一個：可用、無法使用、已降級、未知。 此外，資源健康情況事件可分類為「平台起始」或「使用者起始」。
 
 ### <a name="sample-event"></a>範例事件
 
@@ -257,11 +257,11 @@ ms.locfileid: "73847355"
 ```
 
 ### <a name="property-descriptions"></a>屬性描述
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | 通道 | 一律是 “Admin, Operation” |
 | correlationId | 字串格式的 GUID。 |
-| 說明 |警示事件的靜態文字描述。 |
+| Description |警示事件的靜態文字描述。 |
 | eventDataId |警示事件的唯一識別碼。 |
 | category | 一律為 "ResourceHealth" |
 | eventTimestamp |處理與事件對應之要求的Azure 服務產生事件時的時間戳記。 |
@@ -286,7 +286,7 @@ ms.locfileid: "73847355"
 
 
 ## <a name="alert"></a>警示
-此類別包含所有 Azure 警示的啟用記錄。 您可能會在此類別中看到的事件類型範例為「myVM 上的 CPU 百分比在過去 5 分鐘內已超過 80」。 各種 Azure 系統都有警示概念，您可以定義某種類型的規則，並在條件符合該規則時接收通知。 每次支援的 Azure 警示類型「啟動」時，或產生通知的條件符合時，該啟用記錄會也會推送至此類別的活動記錄。
+此類別包含所有 Azure 警示的啟用記錄。 您可能會在此類別中看到的事件類型範例為「myVM 上的 CPU 百分比在過去 5 分鐘內已超過 80」 各種 Azure 系統都有警示概念，您可以定義某種類型的規則，並在條件符合該規則時接收通知。 每次支援的 Azure 警示類型「啟動」時，或產生通知的條件符合時，該啟用記錄會也會推送至此類別的活動記錄。
 
 ### <a name="sample-event"></a>範例事件
 
@@ -350,13 +350,13 @@ ms.locfileid: "73847355"
 ```
 
 ### <a name="property-descriptions"></a>屬性描述
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | 呼叫者 | 一律是 Microsoft.Insights/alertRules |
 | 通道 | 一律是 “Admin, Operation” |
 | claims | 具有警示引擎的 SPN (服務主體名稱) 或資源類型的 JSON Blob。 |
 | correlationId | 字串格式的 GUID。 |
-| 說明 |警示事件的靜態文字描述。 |
+| Description |警示事件的靜態文字描述。 |
 | eventDataId |警示事件的唯一識別碼。 |
 | category | 一律為「警示」 |
 | 層級 |事件的層級。 下列其中一個值：“Critical”、“Error”、“Warning” 和 “Informational” |
@@ -376,7 +376,7 @@ ms.locfileid: "73847355"
 屬性欄位將依據警示事件來源包含不同的值。 兩個常見的警示事件提供者為活動記錄警示和計量警示。
 
 #### <a name="properties-for-activity-log-alerts"></a>活動記錄警示的屬性
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | properties.subscriptionId | 導致啟用此活動記錄警示規則之活動記錄事件的訂用帳戶識別碼。 |
 | properties.eventDataId | 導致啟用此活動記錄警示規則之活動記錄事件的事件資料識別碼。 |
@@ -387,7 +387,7 @@ ms.locfileid: "73847355"
 | properties.status | 導致啟用此活動記錄警示規則之活動記錄事件的狀態。|
 
 #### <a name="properties-for-metric-alerts"></a>計量警示屬性
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | properties.RuleUri | 計量警示規則本身的資源識別碼。 |
 | properties.RuleName | 計量警示規則的名稱。 |
@@ -400,7 +400,7 @@ ms.locfileid: "73847355"
 | properties.MetricUnit | 用於評估計量警示規則之計量的計量單位。 |
 
 ## <a name="autoscale"></a>Autoscale
-所有與自動調整引擎 (以訂用帳戶中定義的自動調整設定為基礎) 作業相關的所有事件皆記錄在此類別。 您可能會在此類別中看到的事件類型範例為「自動調整規模的相應增加動作失敗」 自動調整可讓您使用自動調整設定，依據每日時間和/或負載 (計量) 資料，自動相應放大或縮小受支援資源類型中的執行個體數目。 符合相應增加或相應減少的條件時，啟動及成功或失敗事件將會記錄在此類別中。
+所有與自動調整引擎 (以訂用帳戶中定義的自動調整設定為基礎) 作業相關的所有事件皆記錄在此類別。 您可能會在此類別中看到的事件類型範例為「自動調整規模的相應增加動作失敗」 自動調整可讓您使用自動調整設定，依據每日時間和/或負載 (計量) 資料，自動相應放大或縮小受支援資源類型中的執行個體數目。 相應增加或相應減少的條件符合時，啟動及成功或失敗事件將會記錄在此類別中。
 
 ### <a name="sample-event"></a>範例事件
 ```json
@@ -460,13 +460,13 @@ ms.locfileid: "73847355"
 ```
 
 ### <a name="property-descriptions"></a>屬性描述
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | 呼叫者 | 一律是 Microsoft.Insights/autoscaleSettings |
 | 通道 | 一律是 “Admin, Operation” |
 | claims | 具有自動調整引擎的 SPN (服務主體名稱) 或資源類型的 JSON Blob。 |
 | correlationId | 字串格式的 GUID。 |
-| 說明 |自動調整事件的靜態文字描述。 |
+| Description |自動調整事件的靜態文字描述。 |
 | eventDataId |自動調整事件的唯一識別碼。 |
 | 層級 |事件的層級。 下列其中一個值：“Critical”、“Error”、“Warning” 和 “Informational” |
 | resourceGroupName |自動調整設定的資源群組名稱。 |
@@ -486,7 +486,7 @@ ms.locfileid: "73847355"
 | submissionTimestamp |當事件變成可供查詢時的時間戳記。 |
 | subscriptionId |Azure 訂用帳戶識別碼。 |
 
-## <a name="security"></a>安全性
+## <a name="security"></a>Security
 此類別包含「Azure 資訊安全中心」所產生之任何警示的記錄。 其中一個您會在此類別中看到的事件類型範例為「執行疑似雙重附檔名的檔案」。
 
 ### <a name="sample-event"></a>範例事件
@@ -550,11 +550,11 @@ ms.locfileid: "73847355"
 ```
 
 ### <a name="property-descriptions"></a>屬性描述
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | 通道 | 一律為 “Operation” |
 | correlationId | 字串格式的 GUID。 |
-| 說明 |安全性事件的靜態文字描述。 |
+| Description |安全性事件的靜態文字描述。 |
 | eventDataId |安全性事件的唯一識別碼。 |
 | eventName |安全性事件的易記名稱。 |
 | category | 一律為「安全性」 |
@@ -631,11 +631,11 @@ ms.locfileid: "73847355"
 
 ```
 ### <a name="property-descriptions"></a>屬性描述
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | 通道 | 一律為 “Operation” |
 | correlationId | 字串格式的 GUID。 |
-| 說明 |建議事件的靜態文字描述 |
+| Description |建議事件的靜態文字描述 |
 | eventDataId | 建議事件的唯一識別碼。 |
 | category | 一律為 "Recommendation" |
 | id |建議事件的唯一資源識別碼。 |
@@ -741,14 +741,14 @@ ms.locfileid: "73847355"
 
 ### <a name="policy-event-property-descriptions"></a>原則事件屬性描述
 
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | 授權 | 事件的 RBAC 屬性陣列。 針對新資源，這是觸發評估的要求其動作和範圍。 針對現有的資源，此動作為「Microsoft.Resources/checkPolicyCompliance/read」。 |
 | 呼叫者 | 針對新資源，則為啟動部署的身分識別。 針對現有的資源，則為 Microsoft Azure Policy Insights RP 的 GUID。 |
 | 通道 | 原則事件僅使用「作業」通道。 |
 | claims | Active Directory 用來驗證使用者或應用程式，以便在 Resource Manager 中執行此作業的 JWT 權杖。 |
 | correlationId | 通常是字串格式的 GUID。 具有相同 correlationId、屬於同一 uber 動作的事件。 |
-| 說明 | 原則事件的這個欄位是空白的。 |
+| Description | 原則事件的這個欄位是空白的。 |
 | eventDataId | 事件的唯一識別碼。 |
 | eventName | 「BeginRequest」或「EndRequest」。 「BeginRequest」用於延遲的 auditIfNotExists 和 deployIfNotExists 評估，以及當 deployIfNotExists 效果開始範本部署時。 所有其他的作業都會傳回「EndRequest」。 |
 | category | 將活動記錄事件宣告為屬於「Policy」。 |
@@ -783,14 +783,14 @@ ms.locfileid: "73847355"
 | category | 作業名稱部分 | 作業類型分類："Write"/"Delete"/"Action" |
 | resultType | status.value | |
 | resultSignature | substatus.value | |
-| resultDescription | 說明 |  |
+| resultDescription | Description |  |
 | durationMs | N/A | 一律為 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
 | 身分識別 | 宣告和授權屬性 |  |
 | 等級 | 等級 |  |
 | location | N/A | 處理事件所在的位置。 *這不是資源的位置，而是事件的處理位置。在未來的更新中將會移除此屬性。* |
-| 屬性 | properties.eventProperties |  |
+| properties | properties.eventProperties |  |
 | properties.eventCategory | category | 如果 properties.eventCategory 不存在，則類別為 "Administrative" |
 | properties.eventName | eventName |  |
 | properties.operationId | operationId |  |

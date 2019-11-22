@@ -1,5 +1,5 @@
 ---
-title: 開始使用 Azure 監視器的角色、權限和安全性
+title: Azure 監視器中的角色、許可權和安全性
 description: 了解如何使用 Azure 監視器的內建角色和權限來限制存取監視資源。
 author: johnkemnetz
 services: azure-monitor
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: c745375eb4f59208af79bbb03d45f8f0eea7f3ca
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 424d57c59dea11a49faf7a7bb32d85772ef4de8c
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260612"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305153"
 ---
-# <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>開始使用 Azure 監視器的角色、權限和安全性
+# <a name="roles-permissions-and-security-in-azure-monitor"></a>Azure 監視器中的角色、許可權和安全性
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 許多團隊需要嚴格規範對監視資料及設定的存取。 例如，如果您的小組成員是專門處理監視（支援工程師、DevOps 工程師），或如果您使用受控服務提供者，您可能只想授與他們存取權來監視資料，同時限制他們建立、修改或刪除資源。 本文說明如何在 Azure 中快速將內建的監視 RBAC 角色套用到使用者，或針對需要有限監視權限的使用者建置您自己的自訂角色。 接著會討論 Azure 監視器相關資源的安全性考量，以及如何限制對這些資源所包含的資料進行存取。
 
 ## <a name="built-in-monitoring-roles"></a>內建的監視角色
-Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資源所設計，同時仍可讓負責監視基礎結構的人員取得及設定他們所需的資料。 Azure 監視器提供兩個的立即可用的角色：監視讀取器和監視參與者。
+Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資源所設計，同時仍可讓負責監視基礎結構的人員取得及設定他們所需的資料。 Azure 監視器提供兩個現成的角色︰監視讀取器和監視參與者。
 
-### <a name="monitoring-reader"></a>監視讀者
+### <a name="monitoring-reader"></a>監視讀取器
 受指派監視讀取器角色的人員可以檢視訂用帳戶中所有的監視資料，但無法修改任何資源或編輯與監視資源相關的任何設定。 這個角色適用於組織中的使用者，例如支援或作業工程師，這些人員必須能夠︰
 
 * 在入口網站中檢視監視儀表板，並建立自己的私人監視儀表板。
@@ -71,7 +71,7 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>監視權限和自訂的 RBAC 角色
 如果上述的內建角色不符合您團隊的確切需求，您可以使用更精確的權限 [建立自訂的 RBAC 角色](../../role-based-access-control/custom-roles.md) 。 以下是一般 Azure 監視器 RBAC 作業及其說明。
 
-| 運算 | 描述 |
+| 作業 | 描述 |
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |讀取/寫入/刪除動作群組。 |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |讀取/寫入/刪除活動記錄警示。 |

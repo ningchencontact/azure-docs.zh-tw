@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: f9b1af14bd986f1fa6fb5feb398a7f1fdf982f77
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 02d8c511b799a4caee185f7ecb847e6cc15f3c87
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669103"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304742"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
 <a name="Overview"></a>
 
-當您將 web 應用程式、Linux 上的 web 應用程式、行動後端或 API 應用程式部署到[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)時，您可以使用不同的部署位置，而不是預設的生產位置（當您在**Standard**、 **Premium**或隔離模式下執行時）App Service 計畫層。 部署位置是具有專屬主機名稱的即時應用程式。 兩個部署位置 (包括生產位置) 之間的應用程式內容與設定項目可以互相交換。 
+當您將 web 應用程式、Linux 上的 web 應用程式、行動後端或 API 應用程式部署到[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)時，您可以在 [**標準**]、[ **Premium**] 或 [**隔離**式] App Service 方案層中執行時，使用個別的部署位置，而不是預設的生產位置。 部署位置是具有專屬主機名稱的即時應用程式。 兩個部署位置 (包括生產位置) 之間的應用程式內容與設定項目可以互相交換。 
 
 將應用程式部署至非生產位置具有下列優點：
 
@@ -248,6 +249,10 @@ ms.locfileid: "73669103"
 儲存設定之後，會隨機將指定百分比的用戶端路由傳送到非生產位置。 
 
 用戶端自動路由至特定位置之後，就會在該位置「釘選」在該用戶端會話的生命週期內。 用戶端瀏覽器中，您可以查看 HTTP 標頭中的 `x-ms-routing-name` Cookie，以確認您的工作階段固定到哪個位置。 路由至「預備」位置的要求具有 Cookie `x-ms-routing-name=staging`。 路由至生產位置的要求具有 Cookie `x-ms-routing-name=self`。
+
+   > [!NOTE]
+   > 在 Azure 入口網站旁邊，您也可以使用 Azure CLI 中的 [ [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing.md#az-webapp-traffic-routing-set) ] 命令，從 DevOps 管線或其他自動化系統等 CI/CD 工具設定路由百分比。
+   > 
 
 ### <a name="route-production-traffic-manually"></a>手動路由生產流量
 

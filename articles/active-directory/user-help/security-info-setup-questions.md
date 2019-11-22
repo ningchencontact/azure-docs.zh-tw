@@ -1,6 +1,6 @@
 ---
-title: Set up security questions as your authentication method - Azure AD
-description: How to set up your Security info to verify your identity using pre-defined security questions as your authentication method.
+title: 將安全性問題設定為您的驗證方法-Azure AD
+description: 如何設定您的安全性資訊（預覽）頁面，以使用預先定義的安全性問題做為驗證方法來驗證您的身分識別。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78e660163d3cc728f9ffe49e23a5c6cc2baa25eb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 6c32e2e2a7b609f999c7b804494188e2c6820171
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231776"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278996"
 ---
-# <a name="set-up-security-questions-as-your-authentication-method-from-the-security-info-preview-page"></a>Set up security questions as your authentication method from the Security info (preview) page
+# <a name="set-up-security-questions-as-your-verification-method"></a>將安全性問題設定為您的驗證方法
 
 您可以遵循下列步驟來新增密碼重設方法。 在您首次將此設定好之後，即可返回 [安全性資訊] 頁面來新增、更新或刪除安全性資訊。
 
@@ -36,19 +36,19 @@ ms.locfileid: "74231776"
 > [!Note]
 > 安全性問題會私密且安全地儲存在目錄中的使用者物件上，只能在註冊期間由您回答。 系統管理員無法讀取或修改您的問題或答案。
 >
-> 如果您未看到安全性問題選項，可能是因為您的組織不允許您使用安全性問題進行驗證。 如果發生這種情況，您將必須選擇其他方法，或連絡您的系統管理員以取得更多協助。
+> 如果您未看到安全性問題選項，可能是因為您的組織不允許您使用安全性問題進行驗證。 如果發生這種情況，您必須選擇其他方法，或連絡您的系統管理員以取得更多協助。
 >
-> Administrator accounts are not allowed to use Security Questions as a password reset method. If you are logged in as an admin level account you will not see these options.
+> 系統管理員帳戶不允許使用安全性問題做為密碼重設方法。 如果您以系統管理員層級帳戶登入，將不會看到這些選項。
 
 ### <a name="to-set-up-your-security-questions"></a>設定安全性問題
 
-1. 登入您的公司或學校帳戶，然後前往 https://myprofile.microsoft.com/ 頁面。
+1. 登入您的公司或學校帳戶，然後移至您的 https://myprofile.microsoft.com/ 頁面。
 
     ![[我的設定檔] 頁面，顯示醒目提示的 [安全性資訊] 連結](media/security-info/securityinfo-myprofile-page.png)
 
 2. 以左側瀏覽窗格或是 [安全性資訊] 區塊中的連結選取 [安全性資訊]，然後在 [安全性資訊] 頁面選取 [新增方法]。
 
-    ![醒目提示 [新增方法] 選項的 [安全性資訊] 頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![醒目提示新增方法選項的安全性資訊頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. 在 [新增方法] 頁面上，從下拉式清單中選取 [安全性問題]，然後選取 [新增]。
 
@@ -85,7 +85,7 @@ ms.locfileid: "74231776"
 
 - **行動裝置或公司電話。** 輸入您的行動裝置號碼，然後等候來電以進行雙步驟驗證或密碼重設。 如需如何透過電話號碼驗證您身分識別的逐步指示，請參閱[將安全性資訊設定為使用電話](security-info-setup-phone-number.md)。
 
-- **Security key.** Register your Microsoft-compatible security key and use it along with a PIN for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a security key, see [Set up security info to use a security key](security-info-setup-security-key.md).
+- **安全性金鑰。** 註冊與 Microsoft 相容的安全性金鑰，並使用它搭配 PIN 進行雙步驟驗證或密碼重設。 如需如何使用安全性金鑰驗證您身分識別的逐步指示，請參閱[將安全性資訊設定為使用安全性金鑰](security-info-setup-security-key.md)。
 
 - **電子郵件地址。** 輸入您的公司或學校電子郵件地址以接收用於密碼重設的電子郵件。 此選項不適用於雙步驟驗證。 如需如何設定電子郵件的逐步指示，請參閱[將安全性資訊設定為使用電子郵件](security-info-setup-email.md)。
 
@@ -94,6 +94,6 @@ ms.locfileid: "74231776"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您已遺失或忘記密碼，請從[密碼重設入口網站](https://passwordreset.microsoftonline.com/)或遵循[重設公司或學校密碼](active-directory-passwords-update-your-own-password.md)一文中的步驟來重設密碼。
+- 如果您遺失或忘記密碼，請從[密碼重設入口網站](https://passwordreset.microsoftonline.com/)或遵循[重設公司或學校密碼](active-directory-passwords-update-your-own-password.md)一文中的步驟來重設密碼。
 
-- 在[無法登入 Microsoft 帳戶](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)一文中，取得登入問題的疑難排解秘訣和說明。
+- 在[無法登入 Microsoft 帳戶](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)一文中取得登入問題的疑難排解秘訣和說明。

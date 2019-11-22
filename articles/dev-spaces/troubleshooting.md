@@ -1,20 +1,16 @@
 ---
 title: 疑難排解
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 09/25/2019
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
-ms.openlocfilehash: 5d327dd1041172bc546b2e0cb5ec3a140f401d84
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
-ms.translationtype: MT
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s '
+ms.openlocfilehash: 5eec9771e964cf6b47492fdad34bcba14d897d41
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072200"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279708"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -453,3 +449,13 @@ kubectl -n my-namespace delete pod --all
 ```
 
 在您的 pod 重新開機之後，您就可以開始使用現有的命名空間與 Azure Dev Spaces。
+
+### <a name="enable-azure-dev-spaces-on-aks-cluster-with-restricted-egress-traffic-for-cluster-nodes"></a>使用叢集節點的受限輸出流量，在 AKS 叢集上啟用 Azure Dev Spaces
+
+若要在 AKS 叢集上啟用 Azure Dev Spaces，以限制來自叢集節點的輸出流量，您必須允許下列 Fqdn：
+
+| 稱                                    | Port      | 使用      |
+|-----------------------------------------|-----------|----------|
+| cloudflare.docker.com | HTTPS：443 | 提取 linux alpine 和其他 Azure Dev Spaces 映射 |
+| gcr.io | HTTP：443 | 提取 helm/tiller 映射|
+| storage.googleapis.com | HTTP：443 | 提取 helm/tiller 映射|

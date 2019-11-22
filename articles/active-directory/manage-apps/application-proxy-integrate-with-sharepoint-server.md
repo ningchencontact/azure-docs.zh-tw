@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure AD 應用程式 Proxy 啟用 SharePoint 的遠端存取 | Microsoft Docs
+title: 啟用對 SharePoint Azure AD 應用程式 Proxy 的遠端存取
 description: 涵蓋如何整合內部部署 SharePoint 伺服器與 Azure AD 應用程式 Proxy 的基本概念。
 services: active-directory
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4f1351a2ebe6a23dc4d1e31f30f1c69ac862b21
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 8d8f1bbd79e6dcbbd75e1ea1b98bd211d77ed1a9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595440"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275452"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 啟用 SharePoint 的遠端存取
 
 此逐步指南會說明如何將內部部署 SharePoint 伺服器陣列與 Azure Active Directory （Azure AD）應用程式 Proxy 進行整合。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要執行設定，您需要下列資源：
 - SharePoint 2013 伺服器陣列或更新版本。
@@ -102,7 +102,7 @@ SharePoint web 應用程式必須使用 Kerberos 進行設定，適當的替代�
        New-SPAlternateURL -Url $internalUrl -WebApplication $wa -Zone Default -Internal
        ```
 
-    2. 開啟 [SharePoint 管理中心]網站。
+    2. 開啟 [SharePoint 管理中心]頁面。
     1. 在 [系統設定] 下，選取 [設定備用存取對應]。 [**備用存取對應集合**] 方塊隨即開啟。
     1. 使用新的 web 應用程式篩選顯示畫面，並確認您看到類似如下的內容：
 
@@ -125,7 +125,7 @@ SharePoint web 應用程式必須使用 Kerberos 進行設定，適當的替代�
        New-SPAlternateURL -Url $internalUrl -WebApplication $wa -Zone Extranet -Internal
        ```
 
-    2. 開啟 [SharePoint 管理中心]網站。
+    2. 開啟 [SharePoint 管理中心]頁面。
     1. 在 [系統設定] 下，選取 [設定備用存取對應]。 [**備用存取對應集合**] 方塊隨即開啟。
     1. 以已擴充的 web 應用程式篩選顯示，並確認您看到類似如下的內容：
 
@@ -135,7 +135,7 @@ SharePoint web 應用程式必須使用 Kerberos 進行設定，適當的替代�
 
 若要識別執行 SharePoint web 應用程式之應用程式集區的帳戶，並確定它是網域帳戶，請依照下列步驟進行：
 
-1. 開啟 [SharePoint 管理中心]網站。
+1. 開啟 [SharePoint 管理中心]頁面。
 1. 移至 [安全性]，然後選取 [設定服務帳戶]。
 1. 選取 [ **Web 應用程式集區-YourWebApplicationName**]。
 
@@ -171,12 +171,12 @@ SharePoint web 應用程式必須使用 Kerberos 進行設定，適當的替代�
 
 ### <a name="set-the-spn-for-the-sharepoint-service-account"></a>設定 SharePoint 服務帳戶的 SPN
 
-在本文中，內部 URL 為 `https://sharepoint`，因此會 `HTTP/sharepoint` 服務主體名稱（SPN）。 您必須以對應于您環境的值來取代這些值。
-若要註冊 SharePoint 應用程式集區帳戶 `Contoso\spapppool` 的 SPN `HTTP/sharepoint`，請以網域的系統管理員身分從命令提示字元執行下列命令：
+在本文中，內部 URL 為 `https://sharepoint`，因此會 `HTTP/sharepoint`服務主體名稱（SPN）。 您必須以對應于您環境的值來取代這些值。
+若要註冊 SharePoint 應用程式集區帳戶 `Contoso\spapppool`的 SPN `HTTP/sharepoint`，請以網域的系統管理員身分從命令提示字元執行下列命令：
 
 `setspn -S HTTP/sharepoint Contoso\spapppool`
 
-@No__t_0 命令會先搜尋 SPN，然後再將它新增。 如果 SPN 已經存在，您會看到**重複的 Spn 值**錯誤。 在此情況下，如果未在正確的應用程式集區帳戶下設定現有的 SPN，請考慮將它移除。 您可以使用-L 選項執行 `Setspn` 命令，以確認已成功新增 SPN。 若要深入了解此命令，請參閱 [Setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11))。
+`Setspn` 命令會先搜尋 SPN，然後再將它新增。 如果 SPN 已經存在，您會看到**重複的 Spn 值**錯誤。 在此情況下，如果未在正確的應用程式集區帳戶下設定現有的 SPN，請考慮將它移除。 您可以使用-L 選項執行 `Setspn` 命令，以確認已成功新增 SPN。 若要深入了解此命令，請參閱 [Setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11))。
 
 ### <a name="make-sure-the-connector-is-trusted-for-delegation-to-the-spn-that-was-added-to-the-sharepoint-application-pool-account"></a>請確定連接器已受信任，可委派給已新增至 SharePoint 應用程式集區帳戶的 SPN
 
@@ -188,7 +188,7 @@ SharePoint web 應用程式必須使用 Kerberos 進行設定，適當的替代�
 1. 尋找執行 Azure AD Proxy 連接器的電腦。 在此範例中，它是 SharePoint 伺服器本身。
 1. 按兩下該電腦，然後選取 [**委派**] 索引標籤。
 1. 請確定委派選項設定為 [**信任這台電腦，但只委派指定的服務**]。 然後，選取 [使用任何驗證通訊協定]。
-1. 選取 [**新增**] 按鈕，選取 [**使用者或電腦**]，然後找出 [SharePoint 應用程式集區帳戶]。 例如： `Contoso\spapppool` 。
+1. 選取 [**新增**] 按鈕，選取 [**使用者或電腦**]，然後找出 [SharePoint 應用程式集區帳戶]。 例如： `Contoso\spapppool`。
 1. 在 SPN 的清單中，選取您稍早針對服務帳戶建立的 SPN。
 1. 選取 **[確定]** ，然後再次選取 **[確定]** 以儲存變更。
   
@@ -198,7 +198,7 @@ SharePoint web 應用程式必須使用 Kerberos 進行設定，適當的替代�
 
 ## <a name="troubleshoot-sign-in-errors"></a>對登入錯誤進行疑難排解
 
-如果登入網站無法運作，您可以在連接器記錄檔中取得問題的詳細資訊：從執行連接器的電腦上，開啟事件檢視器，移至 **應用程式及服務記錄**檔  > **Microsoft**  > **AadApplicationProxy**  > **連接器**，然後檢查系統**管理員**記錄檔。
+如果登入網站無法運作，您可以在連接器記錄檔中取得問題的詳細資訊：從執行連接器的電腦上，開啟 事件檢視器，移至 **應用程式及服務記錄**檔 > **Microsoft** > **AadApplicationProxy** > **Connector**，然後檢查系統**管理員**記錄。
 
 ## <a name="next-steps"></a>後續步驟
 

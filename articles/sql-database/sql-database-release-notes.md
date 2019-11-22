@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 5c70d1d7d62b41965d4c81e8bbe0e5b2dc3cbb92
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bdea9af04008ef68578ff8c136760f2493a2ae35
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166250"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279222"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 版本資訊
 
@@ -80,6 +80,7 @@ ms.locfileid: "74166250"
 
 - **8 月 2019** -受控實例中完全支援自主資料庫。
 - **Oct 2019** -如果源資料庫包含記憶體內部 OLTP 物件，從業務關鍵層到一般用途層的內建時間點資料庫還原將不會成功。
+- **Oct 2019** -您可以使用**Database Mail**功能搭配使用安全連線的外部（非 Azure）郵件伺服器。
 - **11 月 2019** -從 Azure Blob 儲存體還原資料庫之後，使用 `DBCC CHECKDB` 來確認資料庫一致性。
 
 ## <a name="updates"></a>更新

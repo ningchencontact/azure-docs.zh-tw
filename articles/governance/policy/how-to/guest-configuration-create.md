@@ -3,12 +3,12 @@ title: 如何建立來賓設定原則
 description: 瞭解如何建立適用于 Windows 或 Linux Vm 的 Azure 原則來賓設定原則。
 ms.date: 09/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3c7b214a07b89f4b66aa32724259b01129b9b7e9
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 2f8ad66e636f7fa37d94d24d12a2537759a3304b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959471"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279365"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>如何建立來賓設定原則
 
@@ -412,4 +412,4 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 
 - 瞭解如何使用[來賓](../concepts/guest-configuration.md)設定來進行 vm 的審核。
 - 瞭解如何以程式設計[方式建立原則](programmatically-create.md)。
-- 瞭解如何[取得合規性資料](getting-compliance-data.md)。
+- 瞭解如何[取得合規性資料](get-compliance-data.md)。

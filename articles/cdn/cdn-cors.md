@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 204183fa25203a094eecd8df85a8bfd5dcf271cc
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 169de21b6dbdafaaeff64e315daa104f3b6faadd
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593963"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278116"
 ---
 # <a name="using-azure-cdn-with-cors"></a>搭配 CORS 使用 Azure CDN
 ## <a name="what-is-cors"></a>CORS 是什麼？
@@ -30,13 +30,13 @@ CORS 要求有兩種類型，*簡單要求*和*複雜要求*。
 
 ### <a name="for-simple-requests"></a>對於簡單要求︰
 
-1. 瀏覽器會傳送有額外**來源** HTTP 要求標頭的 CORS 要求。 此標頭的值是提供父頁面的來源，是以*通訊協定*、*網域*和*連接埠*的組合來定義的。  當來自 https: //www.contoso.com 的頁面嘗試存取位於 fabrikam.com 來源的使用者資料時，會將以下要求標頭傳送到 fabrikam.com：
+1. 瀏覽器會傳送有額外**來源** HTTP 要求標頭的 CORS 要求。 此標頭的值是提供父頁面的來源，是以*通訊協定*、*網域*和*連接埠*的組合來定義的。  當來自 HTTPs 的頁面\://www.contoso.com 嘗試存取 fabrikam.com 來源中的使用者資料時，會將下列要求標頭傳送到 fabrikam.com：
 
    `Origin: https://www.contoso.com`
 
 2. 該伺服器的回應可能是下列其中一項：
 
-   * 回應中的 **Access-Control-Allow-Origin** 標頭指出所允許的來源網站。 例如:
+   * 回應中的 **Access-Control-Allow-Origin** 標頭指出所允許的來源網站。 例如︰
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 
@@ -63,12 +63,21 @@ CORS 要求有兩種類型，*簡單要求*和*複雜要求*。
 ## <a name="multiple-origin-scenarios"></a>多重來源的狀況
 如果您要針對 CORS 允許使用特定清單中的來源，則會稍微複雜一點。 問題會在 CDN 快取第一個 CORS 來源的 **Access-Control-Allow-Origin** 標頭時發生。  當其他 CORS 來源發出後續要求時，CDN 會提供已快取的 **Access-Control-Allow-Origin** 標頭，而此標頭會不相符。  有幾個方法可以修正此問題。
 
+### <a name="azure-cdn-standard-profiles"></a>標準 Azure CDN 設定檔
+在來自 Microsoft 的標準 Azure CDN 上，您可以在[標準規則引擎](cdn-standard-rules-engine-reference.md)中建立規則，以檢查要求的**原始**標頭。 如果是有效的來源，您的規則會將**存取控制-允許來源**標頭設定為所需的值。 在此情況下，會忽略來自檔案源伺服器的**存取控制-允許來源**標頭，而且 CDN 的規則引擎會完全管理允許的 CORS 來源。
+
+![使用標準規則引擎的規則範例](./media/cdn-cors/cdn-standard-cors.png)
+
+> [!TIP]
+> 您可以在規則中新增其他動作，以修改其他回應標頭，例如**存取控制-允許方法**。
+> 
+
+在**來自 Akamai 的 AZURE CDN 標準**上，允許多個來源而不使用萬用字元來源的唯一機制是使用[查詢字串](cdn-query-string.md)快取。 啟用 CDN 端點的查詢字串設定，然後針對來自每個允許之網域的查詢使用唯一的查詢字串。 這麼做將使 CDN 針對每個唯一的查詢字串快取個別物件。 但是這不是最理想的方法，因為它會導致在 CDN 上快取同一個檔案的多個複本。  
+
 ### <a name="azure-cdn-premium-from-verizon"></a>來自 Verizon 的 Azure CDN 進階
-完成此作業的最佳方法是使用「來自 Verizon 的 Azure CDN 進階」  ，它會公開一些進階功能。 
+使用 Verizon Premium 規則引擎時，您必須[建立規則](cdn-rules-engine.md)來檢查要求的**原始**標頭。  如果是有效的來源，您的規則將使用要求中提供的來源設定 **Access-Control-Allow-Origin** 標頭。  如果 **Origin** 中指定的來源是不允許的，您的規則應會忽略 **Access-Control-Allow-Origin** 標頭，這將導致瀏覽器拒絕要求。 
 
-您必須 [建立規則](cdn-rules-engine.md) 來檢查要求的 **Origin** 標頭。  如果是有效的來源，您的規則將使用要求中提供的來源設定 **Access-Control-Allow-Origin** 標頭。  如果 **Origin** 中指定的來源是不允許的，您的規則應會忽略 **Access-Control-Allow-Origin** 標頭，這將導致瀏覽器拒絕要求。 
-
-使用規則引擎來這樣做的方法有兩種。 在這兩種情況下，會忽略來自檔案原始伺服器的 **Access-Control-Allow-Origin** 標頭，而允許的 CORS 來源會完全由 CDN 的規則引擎來管理。
+有兩種方式可以使用 Premium 規則引擎來執行此動作。 在這兩種情況下，會忽略來自檔案原始伺服器的 **Access-Control-Allow-Origin** 標頭，而允許的 CORS 來源會完全由 CDN 的規則引擎來管理。
 
 #### <a name="one-regular-expression-with-all-valid-origins"></a>包含所有有效來源的規則運算式
 在此情況下，您會建立包含您要允許使用之所有來源的規則運算式。 
@@ -94,6 +103,5 @@ CORS 要求有兩種類型，*簡單要求*和*複雜要求*。
 > 
 > 
 
-### <a name="azure-cdn-standard-profiles"></a>標準 Azure CDN 設定檔
-在標準 Azure CDN 設定檔 (**來自 Microsoft 的標準 Azure CDN**、**來自 Akamai 的標準 Azure CDN** 及**來自 Verizon 的標準 Azure CDN**) 上，在不使用萬用字元來源情況下允許多重來源的唯一機制是使用[查詢字串快取](cdn-query-string.md)。 啟用 CDN 端點的查詢字串設定，然後針對來自每個允許之網域的查詢使用唯一的查詢字串。 這麼做將使 CDN 針對每個唯一的查詢字串快取個別物件。 但是這不是最理想的方法，因為它會導致在 CDN 上快取同一個檔案的多個複本。  
+
 

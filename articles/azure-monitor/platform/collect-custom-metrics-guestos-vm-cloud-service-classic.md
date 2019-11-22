@@ -1,6 +1,6 @@
 ---
-title: 將客體作業系統計量傳送至 Azure 監視器計量存放區的傳統雲端服務
-description: 將客體作業系統計量傳送至 Azure 監視器計量存放區的雲端服務
+title: 將傳統雲端服務計量傳送至 Azure 監視器計量資料庫
+description: 說明將 Azure 傳統雲端服務的來賓 OS 效能計量傳送至 Azure 監視器計量存放區的程式。
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 56138277866d3b2bf02733a2c595a5a232faed8c
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1c742daf29cbbef5e6f51af5363be7fd949aaebf
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844945"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304769"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>將客體作業系統計量傳送至 Azure 監視器計量存放區的傳統雲端服務 
 
@@ -27,7 +27,7 @@ ms.locfileid: "70844945"
 
 本文中所述的程序僅適用於 Azure 雲端服務中的效能計數器。 不適合用於其他自訂計量。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 您必須是 Azure 訂用帳戶的[服務管理員或共同管理員](~/articles/billing/billing-add-change-azure-subscription-administrator.md)。 
 

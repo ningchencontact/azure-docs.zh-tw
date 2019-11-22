@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: dc1cb5cde06314e52ac886c1be1bb46b5f4bbd73
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 693e7d35a0bb4c7dfbb3e033690a5e86e2c398a8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686475"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278337"
 ---
 # <a name="integration-of-azure-security-products-in-azure-security-center"></a>Azure 安全性產品在 Azure 資訊安全中心中的整合
 
@@ -28,7 +28,7 @@ Azure 資訊安全中心提供您額外的 Microsoft 授權來與下列安全性
 
 Azure 應用程式閘道提供了 Web 應用程式防火牆 (WAF)，可為 Web 應用程式提供集中式保護，免於遭遇常見的攻擊和弱點。
 
-Web 應用程式的目標是利用常見已知弱點的惡意攻擊。 應用程式閘道 WAF 是根據「開啟 Web 應用程式安全性」專案中的核心規則集3.0 或2.2.9。 WAF 會自動更新以防止新的弱點，而不需要額外的設定。 WAF 警示會串流處理到資訊安全中心。 如需 WAF 所產生警示的詳細資訊，請參閱[Web 應用程式防火牆 CRS 規則群組與規則](https://docs.microsoft.com/azure/application-gateway/application-gateway-crs-rulegroups-rules?tabs=owasp3#crs911)。
+Web 應用程式已逐漸成為利用常見已知弱點進行惡意攻擊的目標。 應用程式閘道 WAF 是根據「開啟 Web 應用程式安全性」專案中的核心規則集3.0 或2.2.9。 WAF 會自動更新以防止新的弱點，而不需要額外的設定。 WAF 警示會串流處理到資訊安全中心。 如需 WAF 所產生警示的詳細資訊，請參閱[Web 應用程式防火牆 CRS 規則群組與規則](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md?tabs=owasp31#crs911-31)。
 
 ## Azure DDoS 保護<a name="azure-ddos"></a>
 
@@ -42,7 +42,7 @@ DDoS 保護標準層可降低下列攻擊類型的風險：
 
 > [!div class="mx-tableFixed"]
 
-|警示|說明|
+|警示|描述|
 |---|---|
 |**偵測到體積型攻擊**|這種攻擊的目標是要以大量看似合法的流量淹沒網路層。 它包括 UDP 洪水攻擊、放大洪水攻擊和其他詐騙封包洪水攻擊。 DDoS Protection Standard 會自動吸收並清除這些潛在的多 gb 攻擊，藉此降低其全域網路規模。|
 |**偵測到通訊協定攻擊**|這些攻擊會藉由利用第3層和第4層通訊協定堆疊中的弱點，而使目標變得無法存取。 其中包括 SYN 洪水攻擊、反映攻擊和其他通訊協定攻擊。 DDoS 保護標準層可透過與用戶端互動來區別惡意與合法流量並封鎖惡意流量，以降低這些攻擊的風險。|

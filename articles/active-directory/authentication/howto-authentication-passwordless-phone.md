@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acdcbef74d95fbbc4cfb49176d1f98621e746ff6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3ca668036a8b4a4af261ee85b8a884c22258beb4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474355"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269493"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>使用 Microsoft Authenticator 應用程式啟用無密碼登入（預覽）
 
@@ -29,7 +29,7 @@ Microsoft Authenticator 應用程式可用來登入任何 Azure AD 帳戶 (而�
 > [!NOTE]
 > 自2017年3月起，這項功能已在 Microsoft Authenticator 應用程式中，因此，有可能在目錄中啟用原則時，使用者可能會立即遇到此流程，如果原則未啟用，則會看到錯誤訊息。 請留意這項變更，並且讓使用者做好準備。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - Azure 多重要素驗證，以允許做為驗證方法的推播通知 
 - 在執行 iOS 8.0 或更新版本或 Android 6.0 或更新版本的裝置上安裝的最新版 Microsoft Authenticator。
@@ -46,7 +46,7 @@ Microsoft Authenticator 應用程式可用來登入任何 Azure AD 帳戶 (而�
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>啟用無密碼電話登入驗證方法
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)
-1. 流覽至**Azure AD Security** > **驗證**方法 > **驗證方法原則（預覽）**
+1. 搜尋並選取 [Azure Active Directory]。  > **驗證方法原則（預覽）** 中選取**安全性** > **驗證方法**
 1. 在 [**無密碼電話**] [登入] 底下，選擇下列選項
    1. **啟用**-是或否
    1. **目標**-所有使用者或選取使用者

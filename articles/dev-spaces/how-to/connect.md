@@ -1,20 +1,16 @@
 ---
-title: " 將您的開發電腦連線至 AKS 叢集"
-titleSuffix: Azure Dev Spaces
+title: 將您的開發電腦連線至 AKS 叢集
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 11/04/2019
 ms.topic: conceptual
 description: 瞭解如何使用 Azure Dev Spaces 將您的開發電腦連接到 AKS 叢集
 keywords: Azure Dev Spaces，Dev Spaces，Docker，Kubernetes，Azure，AKS，Azure Kubernetes Service，容器
-ms.openlocfilehash: 15e46fba19d92e08a9c87a63f6f01ec6b0836910
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1b65721b67ff63525adfe5d2061f22f359c02bde
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888916"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280127"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>將您的開發電腦連線至 AKS 叢集 (預覽)
 

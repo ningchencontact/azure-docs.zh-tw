@@ -1,5 +1,6 @@
 ---
-title: 針對 Azure 虛擬網路閘道和連線進行疑難排解 - Azure CLI | Microsoft Docs
+title: 針對 Azure VNET 閘道和連線進行疑難排解-Azure CLI
+titleSuffix: Azure Network Watcher
 description: 此頁面說明如何使用 Azure 網路監看員來針對 Azure CLI 進行疑難排解
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 0974c242533ff122d75979acc5eb158ec36c179d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca61486ce58ccd3385518c2d22e0690c1fb34d16
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699600"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277819"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>使用 Azure 網路監看員 Azure CLI 來針對虛擬網路閘道和連線進行疑難排解
 
@@ -39,7 +40,7 @@ ms.locfileid: "64699600"
 
 如需支援的閘道類型清單，請瀏覽[支援的閘道類型](network-watcher-troubleshoot-overview.md#supported-gateway-types)。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>Overview
 
 資源疑難排解可讓您針對虛擬網路閘道和連線所發生的問題進行疑難排解。 在要求進行資源疑難排解後，便會查詢並檢查記錄。 檢查完成時，就會傳回結果。 資源疑難排解要求是執行時間很長的要求，可能需要幾分鐘的時間才會傳回結果。 疑難排解記錄會儲存在指定儲存體帳戶的容器中。
 
@@ -87,13 +88,13 @@ az network vpn-connection show --resource-group resourceGroupName --ids vpnConne
 az network watcher troubleshooting start --resource-group resourceGroupName --resource resourceName --resource-type {vnetGateway/vpnConnection} --storage-account storageAccountName  --storage-path https://{storageAccountName}.blob.core.windows.net/{containerName}
 ```
 
-在執行此 Cmdlet 後，網路監看員會檢閱資源以驗證其健康狀態。 它會將結果傳回殼層，並將結果的記錄儲存在指定的儲存體帳戶中。
+在執行此 Cmdlet 後，網路監看員會檢閱資源以驗證其健全狀況。 它會將結果傳回殼層，並將結果的記錄儲存在指定的儲存體帳戶中。
 
 ## <a name="understanding-the-results"></a>了解結果
 
 動作文字會提供有關如何解決問題的一般指引。 如果問題有可行動作，則會提供附有其他指引的連結。 如果沒有其他指引，回應中會提供 URL 以供您開啟支援案例。  如需回應屬性和所含內容的詳細資訊，請瀏覽[網路監看員疑難排解概觀](network-watcher-troubleshoot-overview.md)
 
-如需從 Azure 儲存體帳戶下載檔案的指示，請參閱[以 .NET 開始使用 Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 另一項可用工具為儲存體總管。 如需有關「儲存體總管」的詳細資訊，請參閱下列連結：[儲存體總管](https://storageexplorer.com/)
+如需從 Azure 儲存體帳戶下載檔案的指示，請參閱[以 .NET 開始使用 Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 另一項可用工具為儲存體總管。 有關儲存體總管的詳細資訊可以在下列連結找到︰[儲存體總管](https://storageexplorer.com/)
 
 ## <a name="next-steps"></a>後續步驟
 

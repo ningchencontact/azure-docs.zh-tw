@@ -1,6 +1,6 @@
 ---
 title: 虛擬網路服務端點-Azure 服務匯流排
-description: 將 Microsoft.ServiceBus 服務端點新增至虛擬網路。
+description: 新增 Microsoft.ServiceBus 服務端點至虛擬網路。
 services: service-bus
 documentationcenter: ''
 author: axisc
@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: 7d31dd004c879fd3e689f4ba7a8ae58cb223ae70
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 99a705c3923821739ddc1dedd8f7c079dc534a1a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484923"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277298"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>搭配 Azure 服務匯流排使用虛擬網路服務端點
 
@@ -28,10 +28,9 @@ ms.locfileid: "73484923"
 >[!WARNING]
 > 實作虛擬網路整合可以防止其他 Azure 服務與服務匯流排互動。
 >
-> 實作虛擬網路時，不支援受信任的 Microsoft 服務。
+> 實作「虛擬網路」時，不支援受信任的 Microsoft 服務。
 >
 > 無法與「虛擬網路」搭配運作的常見 Azure 案例 (請注意，這**不是**完整的清單) -
-> - Azure 監視器
 > - Azure 串流分析
 > - 與 Azure 事件方格的整合
 > - Azure IoT 中樞路由
@@ -48,7 +47,7 @@ ms.locfileid: "73484923"
 
 請務必留意，使用 VNet 服務端點搭配服務匯流排時，應避免在混合了標準層和進階層服務匯流排命名空間的應用程式中啟用這些端點。 因為標準層不支援 VNet，所以端點僅限於進階層命名空間。
 
-## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 整合所啟用的進階安全性案例 
+## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 整合所實現的進階安全性案例 
 
 需要緊密和劃分安全性，而且虛擬網路子網路分割各劃分服務的解決方案，通常仍然需要位於這些區間之各項服務之間的通訊路徑。
 
@@ -81,7 +80,7 @@ ms.locfileid: "73484923"
 > ```json
 > "defaultAction": "Allow"
 > ```
-> to
+> 收件人
 > ```json
 > "defaultAction": "Deny"
 > ```

@@ -1,21 +1,19 @@
 ---
 title: 如何在 Azure Dev Spaces 中使用自訂 NuGet 摘要
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/17/2019
 ms.topic: conceptual
 description: 在 Azure Dev Spaces 中使用自訂 NuGet 摘要以存取及使用 NuGet 套件。
-keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 容器
+keywords: Docker、Kubernetes、Azure、AKS、Azure Container Service、容器
 manager: gwallace
-ms.openlocfilehash: 019335cd73e8eaf0ada6897f08c88ef2b8bbf631
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: MT
+ms.openlocfilehash: ee14d999872f6e739321c144831d60a4ae6f9388
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162793"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279957"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>在 Azure Dev Spaces 中使用自訂 NuGet 摘要
 
@@ -23,7 +21,7 @@ NuGet 摘要會提供在專案中包含套件來源的便利方式。 Azure Dev 
 
 ## <a name="set-up-a-nuget-feed"></a>設定 NuGet 摘要
 
-在 [`PackageReference`] 節點下的 `*.csproj` 檔案中，新增相依性的[套件參考](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files)。 例如：
+在 [`PackageReference`] 節點下的 `*.csproj` 檔案中，新增相依性的[套件參考](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files)。 例如︰
 
 ```xml
 <ItemGroup>
@@ -33,7 +31,7 @@ NuGet 摘要會提供在專案中包含套件來源的便利方式。 Azure Dev 
 </ItemGroup>
 ```
 
-在專案資料夾中建立[nuget.exe](https://docs.microsoft.com/nuget/reference/nuget-config-file)檔案，並設定 nuget 摘要的 `packageSources` 和 `packageSourceCredentials` 區段。 `packageSources` 區段包含您的摘要 url，必須可從您的 AKS 叢集存取。 `packageSourceCredentials` 是用來存取摘要的認證。 例如：
+在專案資料夾中建立[nuget.exe](https://docs.microsoft.com/nuget/reference/nuget-config-file)檔案，並設定 nuget 摘要的 `packageSources` 和 `packageSourceCredentials` 區段。 `packageSources` 區段包含您的摘要 url，必須可從您的 AKS 叢集存取。 `packageSourceCredentials` 是用來存取摘要的認證。 例如︰
 
 ```xml
 <packageSources>
@@ -48,7 +46,7 @@ NuGet 摘要會提供在專案中包含套件來源的便利方式。 Azure Dev 
 </packageSourceCredentials>
 ```
 
-更新您的 Dockerfile，將 `NuGet.Config` 檔案複製到映射。 例如：
+更新您的 Dockerfile，將 `NuGet.Config` 檔案複製到映射。 例如︰
 
 ```console
 COPY ["<project folder>/NuGet.Config", "./NuGet.Config"]

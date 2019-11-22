@@ -10,17 +10,17 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
-ms.openlocfilehash: 6067a60ed2883ea358dbdfff523b9224175bc5c2
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 90348ad05879aff75dadab85af4e905d92228a2d
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113403"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287115"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SAP 系統
 
 > [!IMPORTANT]
-> 先前的 SAP 應用程式伺服器和 SAP 訊息伺服器連接器已排程于2019年11月30日淘汰。 目前的 SAP 連接器會合並這些先前的 SAP 連接器，讓您不需要變更連線類型、與先前的連接器完全相容、提供許多其他功能，並繼續使用 SAP .Net 連接器程式庫（SAP NCo）。
+> 舊版的 SAP 應用程式伺服器和 SAP 訊息伺服器連接器已排程于2020年2月29日淘汰。 目前的 SAP 連接器會合並這些先前的 SAP 連接器，讓您不需要變更連線類型、與先前的連接器完全相容、提供許多其他功能，並繼續使用 SAP .Net 連接器程式庫（SAP NCo）。
 >
 > 對於使用較舊連接器的邏輯應用程式，請在淘汰日期之前[遷移至最新的連接器](#migrate)。 否則，這些邏輯應用程式會遇到執行失敗，而且無法將訊息傳送至您的 SAP 系統。
 

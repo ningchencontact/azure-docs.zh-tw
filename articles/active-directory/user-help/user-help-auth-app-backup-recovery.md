@@ -1,6 +1,6 @@
 ---
-title: 使用 Microsoft Authenticator 應用程式來備份和復原-Azure AD
-description: 瞭解如何使用 Microsoft Authenticator 應用程式來備份和復原您的帳號憑證。
+title: 使用 Microsoft Authenticator 應用程式 Azure AD 備份和復原帳戶
+description: 瞭解如何使用 Microsoft Authenticator 應用程式來備份和復原備份的帳號憑證。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 08/22/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2404dd443c1e3ede1d3ad5a81888e9f805edb810
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 827213c8d243e9d66c58195e1d9400bed9c3e337
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820268"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74266993"
 ---
-# <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>使用 Microsoft Authenticator 應用程式保來備份和復原帳戶認證
+# <a name="backup-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>使用 Microsoft Authenticator 應用程式來備份和復原帳號憑證
 
 **適用範圍：**
 

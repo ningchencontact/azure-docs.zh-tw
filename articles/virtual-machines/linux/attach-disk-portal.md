@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 78604a4f6fd5a6bcd21d0adc80c1c60278068836
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9b0602f526991be37b7a9cce1d621dc2138dec48
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037055"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279143"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>使用入口網站將資料磁碟附加至 Linux VM 
 本文示範如何透過 Azure 入口網站將新的及現有的磁碟連結到 Linux 虛擬機器。 您也可以[在 Azure 入口網站中將資料磁碟連結到 Windows VM](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
@@ -183,6 +183,15 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
+
+#### <a name="alternate-method-using-parted"></a>使用 parted 的替代方法
+Fdisk 公用程式需要互動式輸入，因此不適合在自動化腳本中使用。 不過， [parted](https://www.gnu.org/software/parted/)公用程式可以編寫腳本，因此在自動化案例中會有更好的表現。 Parted 公用程式可以用來分割和格式化資料磁片。 在下面的逐步解說中，我們使用新的資料磁片/dev/sdc，並使用[XFS](https://xfs.wiki.kernel.org/) filesystem 將它格式化。
+```bash
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+partprobe /dev/sdc1
+```
+如上所示，我們會使用[partprobe](https://linux.die.net/man/8/partprobe)公用程式，以確保核心能立即察覺新的磁碟分割和檔案系統。 如果無法使用 partprobe，可能會導致 blkid 或 lslbk 命令不會立即傳回新檔案系統的 UUID。
+
 ### <a name="mount-the-disk"></a>裝載磁碟
 使用 `mkdir` 建立用來掛接檔案系統的目錄。 下列範例會在 /datadrive 建立目錄：
 

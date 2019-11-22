@@ -1,6 +1,6 @@
 ---
-title: 將個人 Microsoft 帳戶新增至驗證器應用程式 Azure AD
-description: 如何將個人 Microsoft 帳戶 (例如 Outlook.com 或 Xbox LIVE 的帳戶) 新增至 Microsoft Authenticator 應用程式以進行雙因素驗證。
+title: 將個人 Microsoft 帳戶新增至 Microsoft Authenticator 應用程式 Azure AD
+description: 將個人 Microsoft 帳戶（例如適用于 Outlook.com 或 Xbox LIVE）新增至 Microsoft Authenticator 應用程式，以在使用雙因素驗證時驗證您的身分識別。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ca01aad76bfbeba0cf56be8ee74287a79f6346e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 28fd29c1f3f393c37c9e9a8d0995766258c2eb45
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820248"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278892"
 ---
-# <a name="add-your-personal-microsoft-accounts"></a>新增您的個人 Microsoft 帳戶
+# <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>將個人 Microsoft 帳戶新增至 Microsoft Authenticator 應用程式
 
 將個人 Microsoft 帳戶 (例如 Outlook.com 和 Xbox LIVE 的帳戶) 新增至 Microsoft Authenticator 應用程式，供標準雙因素驗證程序和無密碼手機登入方法使用。
 

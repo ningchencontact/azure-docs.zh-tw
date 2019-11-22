@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: c77e36b5fbeb1ecacd42352c8c52cfd4b617d0e6
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 715752072a14a3220d17d0dbda2efd0786a83de4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123613"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271260"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps：使用 Azure Machine Learning 進行模型管理、部署和監視
 
@@ -169,6 +169,6 @@ Azure ML 讓您能夠追蹤所有 ML 資產的端對端審核記錄。 具體而
 
 + 建立使用已[部署模型](how-to-consume-web-service.md)的用戶端
 
-+ [大規模機器學習](/architecture/data-guide/big-data/machine-learning-at-scale)
++ [大規模機器學習](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 
 + [Azure AI 參考架構 & 最佳做法代表](https://github.com/microsoft/AI)

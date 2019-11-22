@@ -1,5 +1,5 @@
 ---
-title: 從 Azure Active Directory 的使用者體驗中隱藏應用程式 | Microsoft Docs
+title: 在 Azure AD 的使用者體驗中隱藏應用程式
 description: 如何從 Azure Active Directory 存取面板或 Office 365 啟動器的使用者體驗中隱藏應用程式。
 services: active-directory
 author: msmimart
@@ -12,12 +12,12 @@ ms.date: 11/12/2018
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dd98aa974f2adcd363c04c10b7a10cef6ca8ce7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e01c79c5cc9391922333af4e9a60ba44a6a6b13
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824545"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274012"
 ---
 # <a name="hide-applications-from-end-users-in-azure-active-directory"></a>對 Azure Active Directory 中的使用者隱藏應用程式
 
@@ -35,12 +35,12 @@ ms.locfileid: "65824545"
 
 1.  以目錄的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2.  選取 **Azure Active Directory**。
-3.  選取 [企業應用程式]  。 [企業應用程式 - 所有應用程式]  刀鋒視窗隨即開啟。
-4.  在 [應用程式類型]  下，選取 [企業應用程式]\(如果尚未選取)  。
+3.  選取 [企業應用程式]。 [企業應用程式 - 所有應用程式] 刀鋒視窗隨即開啟。
+4.  在 [應用程式類型] 下，選取 [企業應用程式]\(如果尚未選取)。
 5.  搜尋您想要隱藏的庫應用程式，然後按一下該應用程式。  應用程式的概觀隨即開啟。
-6.  按一下 [內容]  。 
-7.  針對 [是否要向使用者顯示]  問題，按一下 [否]  。
-8.  按一下 [儲存]  。
+6.  按一下 [內容]。 
+7.  針對 [是否要向使用者顯示] 問題，按一下 [否]。
+8.  按一下 [檔案]。
 
 
 ## <a name="hide-office-365-applications-from-the-myapps-panel"></a>在使用者存取面板中隱藏 Office 365 應用程式
@@ -49,10 +49,10 @@ ms.locfileid: "65824545"
 
 1.  以目錄的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2.  選取 **Azure Active Directory**。
-3.  選取 [使用者設定]  。
-4.  在 [企業應用程式]  之下，按一下 [管理終端使用者如何啟動及檢視其應用程式]  。
-5.  針對 [使用者只能在 Office 365 入口網站看到 Office 365 應用程式]  ，按一下 [是]  。
-6.  按一下 [儲存]  。
+3.  選取 [使用者設定]。
+4.  在 [企業應用程式] 之下，按一下 [管理終端使用者如何啟動及檢視其應用程式]。
+5.  針對 [使用者只能在 Office 365 入口網站看到 Office 365 應用程式]，按一下 [是]。
+6.  按一下 [檔案]。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 11/20/2019
 ms.author: damaerte
-ms.openlocfilehash: ee68400d000ca823816c8efc6bcbc224d1388832
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 8e04e7c1919deaf60e083aba4588943147ebd6bf
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082985"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284819"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>在 Azure Cloud Shell 中保存檔案
 Cloud Shell 會運用 Azure 檔案儲存體在工作階段間保存檔案。 在初始啟動時，Cloud Shell 會提示您關聯新的或現有的檔案共用，以在工作階段間保存檔案。
@@ -38,14 +38,11 @@ Cloud Shell 會運用 Azure 檔案儲存體在工作階段間保存檔案。 在
 
 檔案共用會在您的 `clouddrive` 目錄中掛接為 `$Home`。 這是一次性的動作，後續的工作階段會自動掛接檔案共用。 
 
-> [!NOTE]
-> 為了安全起見，每位使用者都應該佈建自己的儲存體帳戶。  若要進行角色型存取控制 (RBAC)，使用者在儲存體帳戶層級必須具備參與者權限或更高的存取權限。
-
 檔案共用也包含為您建立的 5 GB 映像，此映像會自動保存 `$Home` 目錄中的資料。 這適用於 Bash 和 PowerShell。
 
 ## <a name="use-existing-resources"></a>使用現有的資源
 
-您可以使用進階選項來建立與現有資源的關聯。 選取 Cloud Shell 區域時，您也必須選取在同一個區域中共置的備份儲存體帳戶。 例如，如果您指派的區域是美國西部，則您也必須與位於美國西部的檔案共用建立關聯。
+您可以使用進階選項來建立與現有資源的關聯。 選取 Cloud Shell 區域時，您也必須選取在同一個區域中共置的備份儲存體帳戶。 例如，如果您指派的區域是「美國西部」，則您也必須將位於美國西部的檔案共用關聯在一起。
 
 當儲存體設定提示出現時，請選取 [顯示進階設定] 以檢視其他選項。 已填入的儲存體選項會篩選本地備援儲存體 (LRS)、異地備援儲存體 (GRS) 和區域備援儲存體 (ZRS) 帳戶。 
 
@@ -54,7 +51,14 @@ Cloud Shell 會運用 Azure 檔案儲存體在工作階段間保存檔案。 在
 
 ![資源群組設定](media/persisting-shell-storage/advanced-storage.png)
 
-### <a name="supported-storage-regions"></a>支援的儲存體區域
+## <a name="securing-storage-access"></a>保護儲存體存取
+為了安全起見，每位使用者都應該佈建自己的儲存體帳戶。  若要進行角色型存取控制 (RBAC)，使用者在儲存體帳戶層級必須具備參與者權限或更高的存取權限。
+
+Cloud Shell 在指定的訂用帳戶內，使用儲存體帳戶中的 Azure 檔案共用。 由於繼承的許可權，擁有訂用帳戶的足夠存取權限的使用者將能夠存取所有儲存體帳戶，以及訂用帳戶中包含的檔案共用。
+
+使用者應該藉由設定儲存體帳戶或訂用帳戶層級的許可權，來鎖定其檔案的存取權。
+
+## <a name="supported-storage-regions"></a>支援的儲存體區域
 相關聯的 Azure 儲存體帳戶必須位於與所掛接之目標 Cloud Shell 電腦相同的區域中。 若要尋找您目前的區域，您可以在 Bash 中執行 `env`，以找出 `ACC_LOCATION` 變數。 檔案共用會收到為您建立以便保存 `$Home` 目錄的 5 GB 映像。
 
 Cloud Shell 電腦存在於下列區域：
@@ -67,8 +71,6 @@ Cloud Shell 電腦存在於下列區域：
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>使用 Azure 資源原則限制資源建立
 您在 Cloud Shell 中建立的儲存體帳戶都會標記 `ms-resource-usage:azure-cloud-shell`。 如果您想要禁止使用者在 Cloud Shell 中建立儲存體帳戶，請建立這個特定標籤所觸發之[標籤的 Azure 資源原則](../azure-policy/json-samples.md)。
-
-
 
 ## <a name="how-cloud-shell-storage-works"></a>Cloud Shell 儲存體的運作方式 
 Cloud Shell 透過下列兩種方法來保存檔案： 

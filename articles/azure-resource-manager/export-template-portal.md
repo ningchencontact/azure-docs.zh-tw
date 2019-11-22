@@ -2,13 +2,13 @@
 title: Azure 入口網站中匯出範本
 description: 使用 Azure 入口網站從您的訂用帳戶中的資源匯出 Azure Resource Manager 範本。
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 6e05a8bff27e56bc5942a7c16ab63921c489f44c
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 11/21/2019
+ms.openlocfilehash: 9e6a4089758809cbebc6a3c0cd586cb418ca42bf
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149863"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306778"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>單一和多重資源匯出至 Azure 入口網站中的範本
 
@@ -33,7 +33,7 @@ Resource Manager 可讓您挑選一或多個要匯出至範本的資源。 您�
 | 範本是資源「目前」狀態的快照集。 其中包含您在部署後所做的任何手動變更。 | 範本只會顯示部署時的資源狀態。 您在部署後所做的任何手動變更都不會包含在內。 |
 | 您可以從資源群組中選取要匯出的資源。 | 包含特定部署的所有資源。 您無法挑選這些資源的子集，或新增在不同時間新增的資源。 |
 | 範本包含資源的所有屬性，包括您在部署期間通常不會設定的一些屬性。 在重複使用範本之前，您可能會想要移除或清除這些屬性。 | 範本僅包含部署所需的屬性。 範本已備妥可供使用。 |
-| 範本可能未包含重複使用所需的所有參數。 大部分的屬性值都是在範本中硬式編碼。 若要在其他環境中重新部署範本，您需要新增參數來增加設定資源的能力。 | 範本包括可讓您輕鬆地在不同環境中重新部署的參數。 |
+| 範本可能未包含重複使用所需的所有參數。 大部分的屬性值都是在範本中硬式編碼。 若要在其他環境中重新部署範本，您需要新增參數來增加設定資源的能力。  您也可以選擇取消選取 [**包含參數**]，以便您撰寫自己的參數。 | 範本包括可讓您輕鬆地在不同環境中重新部署的參數。 |
 
 從資源群組或資源匯出範本的時機：
 
@@ -62,6 +62,8 @@ Resource Manager 可讓您挑選一或多個要匯出至範本的資源。 您�
 
    ![顯示範本](./media/export-template-portal/show-template.png)
 
+   預設會選取 [**包含參數**]。  選取此選項時，將會在產生範本時包含所有範本參數。 如果您想要撰寫自己的參數，請切換此核取方塊以不包含它們。
+
 ## <a name="export-template-from-a-resource"></a>從資源匯出範本
 
 若要匯出一項資源：
@@ -74,7 +76,7 @@ Resource Manager 可讓您挑選一或多個要匯出至範本的資源。 您�
 
    ![匯出資源](./media/export-template-portal/export-single-resource.png)
 
-1. 匯出的範本隨即顯示，並可供下載和部署。 範本只包含單一資源。
+1. 匯出的範本隨即顯示，並可供下載和部署。 範本只包含單一資源。 預設會選取 [**包含參數**]。  選取此選項時，將會在產生範本時包含所有範本參數。 如果您想要撰寫自己的參數，請切換此核取方塊以不包含它們。
 
 ## <a name="export-template-before-deployment"></a>部署前匯出範本
 

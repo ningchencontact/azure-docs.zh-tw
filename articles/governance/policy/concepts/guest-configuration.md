@@ -3,12 +3,12 @@ title: 瞭解如何審核虛擬機器的內容
 description: 瞭解 Azure 原則如何使用「來賓設定」來審核 Azure 機器內的設定。
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5148ecb2f10a2ac517c5cf6c7f682a0f25808910
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: c01f6d02c15dbd7519bfafdc413d70a05498c7c4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959787"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279383"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure 原則的來賓設定
 
@@ -61,7 +61,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 |作業系統|驗證工具|注意事項|
 |-|-|-|
-|Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
+|Windows|[Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| 「來賓設定」延伸模組會安裝 Ruby 和 Python。 |
 
 ### <a name="validation-frequency"></a>驗證頻率
@@ -113,7 +113,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 一旦**DeployIfNotExists**指派符合規範， **AuditIfNotExists**原則指派就會使用本機驗證工具來判斷設定指派是否符合規範。 驗證工具會將結果提供給「來賓設定」用戶端。 用戶端會將結果轉送至「來賓延伸模組」，以便透過「來賓設定」資源提供者提供結果。
 
-「Azure 原則」會使用「來賓設定」資源提供者 **complianceStatus** 屬性在 [合規性] 節點中回報合規性。 如需詳細資訊，請參閱[取得合規性資料](../how-to/getting-compliance-data.md)。
+「Azure 原則」會使用「來賓設定」資源提供者 **complianceStatus** 屬性在 [合規性] 節點中回報合規性。 如需詳細資訊，請參閱[取得合規性資料](../how-to/get-compliance-data.md)。
 
 > [!NOTE]
 > **AuditIfNotExists**原則需要**DeployIfNotExists**原則才會傳回結果。 若沒有**DeployIfNotExists**， **AuditIfNotExists**原則會顯示 "0 of 0" 資源作為狀態。
@@ -198,6 +198,6 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 - 檢閱 [Azure 原則定義結構](definition-structure.md)。
 - 檢閱[了解原則效果](effects.md)。
 - 瞭解如何以程式設計[方式建立原則](../how-to/programmatically-create.md)。
-- 瞭解如何[取得合規性資料](../how-to/getting-compliance-data.md)。
+- 瞭解如何[取得合規性資料](../how-to/get-compliance-data.md)。
 - 瞭解如何[補救不符合規範的資源](../how-to/remediate-resources.md)。
 - 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

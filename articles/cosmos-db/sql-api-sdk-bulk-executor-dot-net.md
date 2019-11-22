@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2019
 ms.author: ramkris
-ms.openlocfilehash: 0ff281e54df0273cc4c72d1780f4a99fe9719aec
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b6685f8524dc1f3ac080abe81389d091c7cf6f1b
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900178"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306746"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET 大量執行程式程式庫：下載資訊 
 
@@ -33,12 +33,15 @@ ms.locfileid: "72900178"
 
 | |  |
 |---|---|
-| **說明**| .Net 大量執行程式程式庫可讓用戶端應用程式對 Azure Cosmos DB 帳戶執行大量作業。 此程式庫提供 BulkImport、BulkUpdate 和 BulkDelete 命名空間。 BulkImport 模組能夠以最佳化方式大量內嵌文件，如此就能充分取用為集合佈建的輸送量。 BulkUpdate 模組可以大量更新 Azure Cosmos 容器中的現有資料做為修補程式。 BulkDelete 模組能夠以最佳化方式大量刪除文件，如此就能充分取用為集合佈建的輸送量。|
+| **描述**| .Net 大量執行程式程式庫可讓用戶端應用程式對 Azure Cosmos DB 帳戶執行大量作業。 此程式庫提供 BulkImport、BulkUpdate 和 BulkDelete 命名空間。 BulkImport 模組能夠以最佳化方式大量內嵌文件，如此就能充分取用為集合佈建的輸送量。 BulkUpdate 模組可以大量更新 Azure Cosmos 容器中的現有資料做為修補程式。 BulkDelete 模組能夠以最佳化方式大量刪除文件，如此就能充分取用為集合佈建的輸送量。|
 |**SDK 下載**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **GitHub 中的大量執行程式程式庫**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**API 文件**|[.NET API 參考文件](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
 |**開始使用**|[開始使用大量執行程式程式庫 .NET SDK](bulk-executor-dot-net.md)|
 | **目前支援的架構**| Microsoft .NET Framework 4.5.2, 4.6.1 與 .NET Standard 2.0 |
+
+> [!NOTE]
+> 如果您使用大量執行程式，請參閱最新版本3.x 的[.NET sdk](tutorial-sql-api-dotnet-bulk-import.md)，其已內建于 SDK 中的大量執行程式。 
 
 ## <a name="release-notes"></a>版本資訊
 

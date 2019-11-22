@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: e891f6675920e7bb90d2a6d007676cdd65f19917
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 039176f2c546aa933d3a87ded8b6ded94e485d74
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679893"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280653"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>取得 Azure Data Factory 中的中繼資料活動
 
@@ -57,6 +57,7 @@ ms.locfileid: "73679893"
 
 - 針對 Amazon S3 和 Google Cloud Storage，`lastModified` 會套用到 bucket 和金鑰，但不會套用至虛擬資料夾，而 `exists` 則適用于值區和金鑰，但不會套用至前置詞或虛擬資料夾。
 - 針對 Azure Blob 儲存體，`lastModified` 會套用至容器和 Blob，而不是虛擬資料夾。
+- 取得中繼資料活動不支援資料夾/檔案上的萬用字元篩選。
 
 **關係資料庫**
 
@@ -71,7 +72,7 @@ ms.locfileid: "73679893"
 
 您可以在 [取得中繼資料作用欄位] 清單中指定下列元資料類型，以取得對應的資訊：
 
-| 中繼資料類型 | 說明 |
+| 中繼資料類型 | 描述 |
 |:--- |:--- |
 | itemName | 檔案或資料夾的名稱。 |
 | itemType | 檔案或資料夾的類型。 傳回的值為 `File` 或 `Folder`。 |
@@ -134,10 +135,10 @@ ms.locfileid: "73679893"
 
 目前，取得中繼資料活動可能會傳回下列類型的中繼資料資訊：
 
-屬性 | 說明 | 必要
+屬性 | 描述 | 必要
 -------- | ----------- | --------
-欄位清單 | 所需的中繼資料資訊類型。 如需所支援中繼資料的詳細資訊，請參閱本文的[中繼資料選項](#metadata-options)一節。 | 是 
-資料集 | 要由「取得中繼資料」活動抓取其中繼資料的參考資料集。 如需所支援連接器的詳細資訊，請參閱[功能](#capabilities)一節。 如需資料集語法的詳細資訊，請參閱特定的連接器主題。 | 是
+欄位清單 | 所需的中繼資料資訊類型。 如需所支援中繼資料的詳細資訊，請參閱本文的[中繼資料選項](#metadata-options)一節。 | yes 
+資料集 | 要由「取得中繼資料」活動抓取其中繼資料的參考資料集。 如需所支援連接器的詳細資訊，請參閱[功能](#capabilities)一節。 如需資料集語法的詳細資訊，請參閱特定的連接器主題。 | yes
 formatSettings | 適用于使用格式類型資料集時。 | 否
 storeSettings | 適用于使用格式類型資料集時。 | 否
 

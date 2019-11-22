@@ -1,6 +1,6 @@
 ---
-title: 設定安全性金鑰的安全性資訊（預覽）-Azure AD
-description: 如何設定您的安全性資訊，以使用快速身分識別線上（FIDO2）安全性金鑰來驗證您的身分識別。
+title: 將安全性金鑰設定為您的驗證方法-Azure AD
+description: 如何設定您的安全性資訊（預覽）頁面，以驗證您的身分識別使用快速身分識別線上（FIDO2）安全性金鑰做為您的驗證方法。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d86d594f0918e6a9ffed49142a81a0f7834e86
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7d02ca3a8b5b617edb8ee00ae7d15ea7e94cae80
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803780"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278954"
 ---
-# <a name="set-up-security-info-preview-for-a-security-key"></a>設定安全性金鑰的安全性資訊（預覽）
+# <a name="set-up-a-security-key-as-your-verification-method"></a>將安全性金鑰設定為您的驗證方法
 
 您可以使用安全性金鑰做為您組織內的無密碼登入方法。 安全性金鑰是與唯一 PIN 搭配使用的實體裝置，用以登入您的公司或學校帳戶。 由於安全性金鑰需要您擁有實體裝置，而且只有您知道的東西，因此它會被視為比使用者名稱和密碼更強的驗證方法。
 
@@ -154,6 +154,6 @@ ms.locfileid: "73803780"
 
 - 如需[Microsoft 相容安全性金鑰](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)的詳細資訊。
 
-- 如果您已遺失或忘記密碼，請從[密碼重設入口網站](https://passwordreset.microsoftonline.com/)或遵循[重設公司或學校密碼](active-directory-passwords-update-your-own-password.md)一文中的步驟來重設密碼。
+- 如果您遺失或忘記密碼，請從[密碼重設入口網站](https://passwordreset.microsoftonline.com/)或遵循[重設公司或學校密碼](active-directory-passwords-update-your-own-password.md)一文中的步驟來重設密碼。
 
-- 在[無法登入 Microsoft 帳戶](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)一文中，取得登入問題的疑難排解秘訣和說明。
+- 在[無法登入 Microsoft 帳戶](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)一文中取得登入問題的疑難排解秘訣和說明。

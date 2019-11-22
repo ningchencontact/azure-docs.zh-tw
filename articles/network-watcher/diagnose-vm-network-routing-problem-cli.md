@@ -1,6 +1,7 @@
 ---
-title: 診斷虛擬機器網路路由問題 - Azure CLI | Microsoft Docs
-description: 在本文章中，您將了解如何使用 Azure 網路監看員的下一個躍點功能，來診斷虛擬機器網路路由問題。
+title: 診斷 VM 網路路由問題-Azure CLI
+titleSuffix: Azure Network Watcher
+description: 在本文章中，您將了解如何使用 Azure 網路監看員的下一個躍點功能，以診斷虛擬機器網路路由問題。
 services: network-watcher
 documentationcenter: network-watcher
 author: KumudD
@@ -17,18 +18,18 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 968b7dd703ba40f46a068deb1d8b7d2b32e0de2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23ffc16948c250a6999c33b8812769ba889f4900
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64688205"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276099"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>診斷虛擬機器網路路由問題 - Azure CLI
 
-在本文章中，您可部署虛擬機器 (VM)，然後檢查送至 IP 位址和 URL 的通訊。 您可判斷通訊失敗的原因及其解決方式。
+在本文章中，您將部署虛擬機器 (VM)，然後檢查送至 IP 位址和 URL 的通訊。 您可判斷通訊失敗的原因及其解決方式。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +43,7 @@ ms.locfileid: "64688205"
 az group create --name myResourceGroup --location eastus
 ```
 
-使用 [az vm create](/cli/azure/vm#az-vm-create) 建立 VM。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。 下列範例會建立名為 myVm 的 VM：
+使用 [az vm create](/cli/azure/vm#az-vm-create) 來建立 VM。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。 下列範例會建立名為 myVm 的 VM：
 
 ```azurecli-interactive
 az vm create \
@@ -73,7 +74,7 @@ az network watcher configure \
 
 Azure 會自動建立通往預設目的地的路由。 您可以建立覆寫預設路由的自訂路由。 有時候，自訂路由可能會導致通訊失敗。 當流量的目的地為特定位址時，若要測試來自 VM 的路由，請使用 [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop) 判斷下一個路由躍點。
 
-測試從 VM 輸出至 www.bing.com 的其中一個 IP 位址通訊：
+測試從 VM 輸出至 www.bing.com 的其中一個 IP 位址的通訊：
 
 ```azurecli-interactive
 az network watcher show-next-hop \
@@ -161,6 +162,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文章中，您已建立 VM 並診斷來自 VM 的網路路由。 您已了解 Azure 會建立數個預設路由，並測試通往兩個不同目的地的路由。 深入了解 [Azure 中的路由](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)以及如何[建立自訂路由](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route)。
+在本文章中，您已建立 VM 並診斷來自 VM 的網路路由。 您已了解 Azure 會建立數個預設路由及測試通往兩個不同目的地的路由。 深入了解[Azure 中的路由](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)以及如何[建立自訂路由](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route)。
 
 針對輸出 VM 連線，您也可以使用網路監看員的[連線疑難排解](network-watcher-connectivity-cli.md)功能，以判斷 VM 與端點之間的延遲，以及所允許和拒絕的網路流量。 您可以使用網路監看員的連線監視功能，以監視某段時間內 VM 與端點 (例如 IP 位址或 URL) 之間的通訊情形。 若要了解方法，請參閱[監視網路連線](connection-monitor.md)。

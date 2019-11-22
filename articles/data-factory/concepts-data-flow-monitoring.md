@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: e92471bd467557f3ac8eb0404d672355ccab8449
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: e522ede7da669f6e684fc9a07adcc506a69e77e9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597095"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267896"
 ---
 # <a name="monitor-data-flows"></a>監視資料流程
 
@@ -51,7 +51,7 @@ ms.locfileid: "72597095"
   * 叢集啟動時間：取得資料流程執行之 JIT Spark 計算環境的時間量
   * 轉換數：在您的流程中執行的轉換步驟數目
   
-![Acit 資料流程監視](media/data-flow/monitornew.png "資料流程監視新增")  
+![資料流程監視](media/data-flow/monitornew.png "資料流程監視新增")  
   
 ## <a name="monitor-icons"></a>監視器圖示
 

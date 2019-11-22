@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: fb8f5f2adf497a12b4ed54b381a2dbf85e160b8e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 2a40680b45522d8a8e49a3f01a50a748e1c71b53
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123965"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274069"
 ---
 # <a name="container-security-in-security-center"></a>資訊安全中心中的容器安全性
 
@@ -32,7 +32,7 @@ Azure 資訊安全中心是適用于容器安全性的 Azure 原生解決方案�
 [![Azure 資訊安全中心的 [容器安全性] 索引標籤](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
 ## <a name="vulnerability-management---scanning-container-images-preview"></a>弱點管理-掃描容器映射（預覽）
-若要監視您的 Azure Container Registry，請將其連接到資訊安全中心。 推送新的映射時，資訊安全中心會使用領先業界的弱點掃描廠商 Qualys 掃描映射。
+若要監視您的 Azure Container Registry，請確定您是在資訊安全中心的標準層（請參閱[定價](https://docs.microsoft.com/azure/security-center/security-center-pricing.md)）。 然後啟用選用的容器登錄套件組合。 推送新的映射時，資訊安全中心會使用領先業界的弱點掃描廠商 Qualys 掃描映射。
 
 找到問題時（依 Qualys 或資訊安全中心），您會在資訊安全中心儀表板中收到通知。 針對每個弱點，資訊安全中心提供可採取動作的建議，以及嚴重性分類，以及如何修復問題的指引。 如需資訊安全中心建議的詳細資訊，請參閱[虛擬機器保護](security-center-virtual-machine-protection.md##compute-and-app-recs)中的建議清單。
 
@@ -55,7 +55,7 @@ AKS 提供安全性控制和叢集安全性狀態的可見度。 資訊安全中
 
 如需資訊安全中心建議的詳細資訊，請參閱[虛擬機器保護](security-center-virtual-machine-protection.md)。
 
-## <a name="run-time-protection---real-time-threat-detection"></a>執行時間保護-即時威脅偵測 
+## <a name="run-time-protection---real-time-threat-detection"></a>執行時間保護-即時威脅偵測
 
 資訊安全中心為您的容器化環境提供即時威脅偵測，並產生可疑活動的警示。 您可以使用這項資訊來快速修復安全性問題，並改善您容器的安全性。
 

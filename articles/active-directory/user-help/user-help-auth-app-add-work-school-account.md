@@ -1,6 +1,6 @@
 ---
-title: 將公司或學校帳戶新增至驗證器應用程式-Azure AD
-description: 如何將公司和學校帳戶新增至 Microsoft Authenticator 應用程式以進行雙因素驗證。
+title: 將公司或學校帳戶新增至 Microsoft Authenticator 應用程式 Azure AD
+description: 將您的工作或學校帳戶新增至 Microsoft Authenticator 應用程式，以在使用雙因素驗證時驗證您的身分識別。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7c9fa41a1278f0e1e54a06c3930e3bbc3d3d3ae
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bcd69fab269e39a8c78a56c08854262ca839d60f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803744"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267130"
 ---
-# <a name="add-your-work-or-school-account"></a>新增公司或學校帳戶
+# <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>將您的公司或學校帳戶新增至 Microsoft Authenticator 應用程式
 
 如果您的組織使用雙因素驗證，您可以設定公司或學校帳戶，使其使用 Microsoft Authenticator 應用程式作為其中一種驗證方法。
 

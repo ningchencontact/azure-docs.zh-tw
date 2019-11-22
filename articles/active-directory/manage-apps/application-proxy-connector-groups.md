@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure AD App Proxy 連接器群組, 在不同的網路上發佈應用程式 |Microsoft Docs
+title: 透過連接器群組在不同的網路上發佈應用程式-Azure AD
 description: 涵蓋如何建立和管理「Azure AD 應用程式 Proxy」中的連接器群組。
 services: active-directory
 author: msmimart
@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dae4eea3e08818d43482c995595cc9fbc3f91910
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 22fa1de0a0e3bb91480212381e07b17875bf0bf4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381494"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275572"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>使用連接器群組在個別的網路和位置上發佈應用程式
 
@@ -34,7 +34,7 @@ ms.locfileid: "68381494"
 
 ## <a name="prerequisites"></a>先決條件
 
-若要將連接器組成群組，您必須確定 [已安裝多個連接器](application-proxy-add-on-premises-application.md)。 當您安裝新的連接器時，它會自動加入「預設」  連接器群組。
+若要將連接器組成群組，您必須確定 [已安裝多個連接器](application-proxy-add-on-premises-application.md)。 當您安裝新的連接器時，它會自動加入「預設」 連接器群組。
 
 ## <a name="create-connector-groups"></a>建立連接器群組
 
@@ -54,8 +54,8 @@ ms.locfileid: "68381494"
 已透過應用程式 Proxy 發佈的每個應用程式均按照這些步驟處理。 您可以在首次發佈應用程式時，將應用程式指派給連接器群組，也可以隨時使用這些步驟變更指派。
 
 1. 從您目錄的管理儀表板中，選取 [企業應用程式] > [所有應用程式] > 您想要指派給連接器群組的應用程式 > [應用程式 Proxy]。
-1. 使用 [連接器群組] 下拉式功能表來選取應用程式所要使用的群組。
-1. 按一下 [儲存]  以套用變更。
+1. 使用 [連接器群組]下拉式功能表來選取應用程式所要使用的群組。
+1. 按一下 [儲存] 以套用變更。
 
 ## <a name="use-cases-for-connector-groups"></a>連接器群組的使用案例
 

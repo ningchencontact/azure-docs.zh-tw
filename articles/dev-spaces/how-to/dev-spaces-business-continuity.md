@@ -1,21 +1,19 @@
 ---
 title: Azure Dev Space 的商務持續性和災害復原
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 01/28/2019
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 2da92b4fcd98024ada8d852d65e08fe8c70e3884
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
-ms.translationtype: MT
+ms.openlocfilehash: f2c2767d23a99644ee4ecb4e1040162c58a72b1a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704044"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280098"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Azure Dev Space 的商務持續性和災害復原
 
@@ -33,7 +31,7 @@ Azure Dev Spaces 是 Azure Kubernetes Service (AKS) 的功能之一。 您應留
 
 ### <a name="enable-dev-spaces-via-the-azure-portal"></a>透過 Azure 入口網站啟用 Dev Spaces
 
-在 Azure 入口網站中，於各個叢集的屬性下方按一下 [Dev Spaces]  導覽項目。 然後，選擇啟用 Dev Spaces 的選項。
+在 Azure 入口網站中，於各個叢集的屬性下方按一下 [Dev Spaces] 導覽項目。 然後，選擇啟用 Dev Spaces 的選項。
 
 ![透過 Azure 入口網站啟用 Dev Spaces](../media/common/enable-dev-spaces.jpg)
 
@@ -80,11 +78,11 @@ azds space select -n <space name>
 如果您使用 Visual Studio，您可以透過下列步驟來切換現有專案所使用的叢集：
 
 1. 在 Visual Studio 中，開啟您的專案。
-1. 在 [方案總管] 中，以滑鼠右鍵按一下專案名稱，然後按一下 [屬性] 
-1. 在左側窗格中按一下 [偵錯] 
-1. 在 [偵錯屬性] 頁面上按一下 [設定檔]  下拉式清單，然後選擇 [Azure Dev Spaces]  。
-1. 按一下 [變更]  按鈕。
-1. 在顯示的對話方塊中，選取您要使用的 AAS 叢集。 如有需要，請選擇不同的開發人員空間來使用，從 [空間]  下拉式清單中選取適當的選項，以建立新的開發人員空間。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下專案名稱，然後按一下 [屬性]
+1. 在左側窗格中按一下 [偵錯]
+1. 在 [偵錯屬性] 頁面上按一下 [設定檔] 下拉式清單，然後選擇 [Azure Dev Spaces]。
+1. 按一下 [變更] 按鈕。
+1. 在顯示的對話方塊中，選取您要使用的 AAS 叢集。 如有需要，請選擇不同的開發人員空間來使用，從 [空間] 下拉式清單中選取適當的選項，以建立新的開發人員空間。
 
 選取正確的叢集和空間後，您可以按 F5 在 Dev Spaces 中執行服務。
 

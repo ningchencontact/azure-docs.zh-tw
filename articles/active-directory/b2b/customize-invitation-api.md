@@ -1,5 +1,5 @@
 ---
-title: B2B 共同作業 API 和自訂-Azure Active Directory |Microsoft Docs
+title: B2B 共同作業 API 和自訂-Azure Active Directory
 description: Azure Active Directory B2B 共同作業讓企業合作夥伴選擇性地存取您的公司應用程式，以支援公司間的關係
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0369988bc6f6503f9940e6aabccb91ab843d63f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a090ee3f9588ff6bff01e12db469bf04407a7fc
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65811875"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272869"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 共同作業 API 和自訂
 
@@ -105,7 +105,7 @@ New-AzureADMSInvitation
 * **UserState** 指出邀請為 **PendingAcceptance** 或 **Accepted**。
 * **UserStateChangedOn** 顯示最近 **UserState** 屬性變更的時間戳記。
 
-您可以使用 [篩選]  選項，依 **UserState** 篩選結果。 以下範例示範如何篩選結果，只顯示具有待決邀請的使用者。 此範例也顯示 **Format-list** 選項，其可讓您指定要顯示的屬性。 
+您可以使用 [篩選] 選項，依 **UserState** 篩選結果。 以下範例示範如何篩選結果，只顯示具有待決邀請的使用者。 此範例也顯示 **Format-list** 選項，其可讓您指定要顯示的屬性。 
  
 
 ```powershell

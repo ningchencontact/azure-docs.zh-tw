@@ -1,23 +1,14 @@
 ---
 title: 用於 Azure Notebooks 的使用者設定檔和識別碼
 description: 如何使用 Azure Notebooks 建立及管理您的使用者設定檔和使用者識別碼，這會成為共用筆記本 URL 的一部分。
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 7d069d86-660f-4c94-b6e3-0c0f38c52d0e
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
-ms.author: kraigb
-ms.openlocfilehash: 3985e3d5fbe6e24014694665557f13bcc9a35a25
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 0874fe8223ae9c49ccfe4e8efedf2620117a0f8c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598200"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277615"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>您 Azure Notebooks 的設定檔和使用者識別碼
 

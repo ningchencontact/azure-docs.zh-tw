@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 11/18/2019
-ms.openlocfilehash: 97aad6f3853de07a3c4d2fc694c1dcefbd0e82a4
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 12860d70cad2dbcfa3d06bf4df6939dd27ab3ab3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195128"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279638"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>適用於容器的 Azure 監視器概觀
 
@@ -47,6 +47,10 @@ ms.locfileid: "74195128"
 
 * 監視[部署至 AKS 引擎](https://github.com/microsoft/OMS-docker/tree/aks-engine)內部部署的容器工作負載，以及 Azure Stack 上的[AKS 引擎](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)。
 * 監視[部署至 Azure Red Hat OpenShift](../../openshift/intro-openshift.md)的容器工作負載。
+
+    >[!NOTE]
+    >Red Hat OpenShift 的支援現在是公開預覽的功能。
+    >
 
 查看下列提供中繼層級深入探討的影片，以協助您瞭解如何使用容器的 Azure 監視器監視 AKS 叢集。
 

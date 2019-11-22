@@ -1,6 +1,6 @@
 ---
 title: 準備 Azure 監視器診斷記錄的格式變更
-description: Azure 診斷記錄將會在 2018 年 11 月 1 日移至使用附加 Blob。
+description: 描述影響，以及如何更新您的工具，以處理已變更為在2018年11月1日使用附加 blob 的新 Azure 診斷記錄。
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: a5589828570455c61f857dbeadc896e8fef27178
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5e71f4c590e4eafea5a2c6ad52b8df8c7dcf3814
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258391"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307053"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>為 Azure 監視器的診斷記錄在封存至儲存體帳戶時的格式變更做好準備
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 中企業應用程式的使用者佈建管理 |Microsoft Docs
+title: Azure AD 中的企業應用程式使用者布建管理
 description: 了解如何使用 Azure Active Directory 管理企業應用程式的使用者帳戶佈建
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26b00670ad93cceab8f570d3a5f56bd095fa80b5
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 77cda523582b513669adcafd3a46b6ac02dd99db
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315262"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285626"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>在 Azure 入口網站中管理企業應用程式的使用者帳戶佈建
 
@@ -85,9 +85,4 @@ Azure AD 使用者物件和每個 SaaS 應用程式的使用者物件之間，�
 
 將布建**狀態**變更為 [**關閉**]，以暫停布建服務。 在此狀態下，Azure 不會建立、更新或移除應用程式中的任何使用者或群組物件。 將狀態變更回 [**開啟**]，服務就會從中斷處繼續進行。
 
-選取 [**清除目前的狀態並重新啟動同步**處理] 核取方塊，然後選取 [**儲存**至]：
-
-* 停止布建服務
-* 重新開機服務，然後再次執行初始迴圈
-
-此選項可讓系統管理員再次啟動布建部署程式。
+**清除目前狀態並重新啟動同步**處理會觸發初始迴圈。 服務接著會再次評估來源系統中的所有使用者，並判斷它們是否在布建範圍內。 當您的應用程式目前在隔離中，或您需要變更屬性對應時，這會很有用。 這不應該用來觸發刪除或停用要求，因為這些事件可以在觸發清除狀態並重新啟動時捨棄。 由於需要評估的物件數目，初始週期也需要較長的時間才能完成，而不是一般的累加迴圈。 您可以在[這裡](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)深入瞭解初始和增量迴圈的效能。 

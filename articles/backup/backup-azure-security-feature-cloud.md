@@ -3,12 +3,12 @@ title: 協助保護雲端工作負載的安全性功能
 description: 瞭解如何使用 Azure 備份中的安全性功能，讓備份更加安全。
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 95eb72fe9d918b527cdceec69a0e90a682d62b07
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b6ce2f9400ad46150fbd4ee86f126b137b5f7800
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172710"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278214"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>協助保護使用 Azure 備份之雲端工作負載的安全性功能
 
@@ -41,7 +41,7 @@ ms.locfileid: "74172710"
    > [!NOTE]
    > 如果保存庫中有任何虛刪除的備份專案，就無法在該時間刪除保存庫。 請在永久刪除備份專案之後嘗試刪除保存庫，而且保存庫中沒有任何已虛刪除狀態的專案。
 
-4. 若要還原已虛刪除的 VM，則必須先將它取消刪除。 若要取消刪除，請選擇虛刪除的 VM，然後按一下 [取消**刪除**] 選項。
+4. 若要還原已虛刪除的 VM，則必須先將它取消刪除。 若要取消刪除，請選擇虛刪除的 VM，然後選取 [取消**刪除**] 選項。
 
    ![Azure 入口網站、取消刪除 VM 的螢幕擷取畫面](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
@@ -60,7 +60,7 @@ ms.locfileid: "74172710"
 
    ![[繼續備份] 選項 Azure 入口網站的螢幕擷取畫面](./media/backup-azure-security-feature-cloud/resume-backup.png)
 
-此流程圖會顯示備份專案的不同步驟和狀態：
+此流程圖會顯示已啟用虛刪除時，備份專案的不同步驟和狀態：
 
 ![虛刪除之備份專案的生命週期](./media/backup-azure-security-feature-cloud/lifecycle.png)
 
@@ -68,26 +68,47 @@ ms.locfileid: "74172710"
 
 ## <a name="disabling-soft-delete"></a>停用虛刪除
 
-預設會在新建立的保存庫上啟用虛刪除。 如果已停用虛刪除安全性功能，則不會防止意外或惡意刪除備份資料。 若沒有虛刪除功能，受保護專案的所有刪除都會導致立即移除，而不會有還原功能。 由於「虛刪除」狀態中的備份資料不會對客戶產生任何費用，因此不建議您停用這項功能。 如果您打算將受保護的專案移至新的保存庫，且在刪除和重新保護之前，不能等待14天（例如在測試環境中），您應該考慮停用虛刪除的唯一情況。
+預設會在新建立的保存庫上啟用虛刪除，以防止意外或惡意刪除的備份資料。  不建議停用這項功能。 如果您打算將受保護的專案移至新的保存庫，且在刪除和重新保護之前，不能等待14天（例如在測試環境中），您應該考慮停用虛刪除的唯一情況。只有備份系統管理員可以停用這項功能。 如果您停用此功能，受保護專案的所有刪除都會導致立即移除，而不會有還原功能。 在停用此功能之前，已虛刪除狀態中的備份資料將會保留在虛刪除狀態。 如果您想要立即永久刪除這些專案，則必須重新刪除並刪除它們，才能永久刪除。
 
-### <a name="prerequisites-for-disabling-soft-delete"></a>停用虛刪除的必要條件
-
-- 啟用或停用保存庫的虛刪除（不含受保護的專案）只能進行 Azure 入口網站。 這適用于：
-  - 新建立的保存庫，不包含受保護的專案
-  - 受保護專案已刪除且過期的現有保存庫（超過14天的固定保留期限）
-- 如果已停用保存庫的虛刪除功能，您可以重新啟用它，但如果保存庫包含受保護的專案，您就無法還原該選擇並再次停用它。
-- 您無法針對包含已受保護專案或處於虛刪除狀態之專案的保存庫停用虛刪除。 如果您需要這樣做，請遵循下列步驟：
-  - 停止保護所有受保護專案的已刪除資料。
-  - 等候14天的安全保留期到期。
-  - 停用虛刪除。
-
-若要停用虛刪除，請確定符合必要條件，然後遵循下列步驟：
+若要停用虛刪除，請遵循下列步驟：
 
 1. 在 [Azure 入口網站中，移至您的保存庫，然後移至 [**設定**] -> **屬性**]。
-2. 在 屬性 窗格中，選取 **安全性設定** -> **更新**。
-3. 在 [安全性設定] 窗格的 [虛刪除] 底下，選取 [**停**用]。
+2. 在 屬性 窗格中，選取 **安全性設定** -> **更新**。  
+3. 在 [安全性設定] 窗格的 [虛**刪除**] 底下，選取 [**停**用]。
+
 
 ![停用虛刪除](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+
+## <a name="permanently-deleting-soft-deleted-backup-items"></a>永久刪除虛刪除的備份專案
+
+在停用此功能之前，已虛刪除狀態中的備份資料將會保留在虛刪除狀態。 如果您想要立即永久刪除這些專案，請重新刪除並刪除它們，以永久刪除。 
+
+請遵循下列步驟：
+
+1. 請遵循下列步驟來停用虛[刪除](#disabling-soft-delete)。 
+2. 在 Azure 入口網站中，移至您的保存庫，移至 [**備份專案**]，然後選擇虛刪除的 VM 
+
+![選擇虛刪除的 VM](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+
+3. 選取 [取消**刪除**] 選項。
+
+![選擇取消刪除](./media/backup-azure-security-feature-cloud/choose-undelete.png)
+
+
+4. 視窗隨即出現。 選取 [取消**刪除**]。
+
+![選取取消刪除](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+
+5. 選擇 [**刪除備份資料**]，以永久刪除備份資料。
+
+![選擇 [刪除備份資料]](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+
+6. 輸入備份專案的名稱，以確認您想要刪除復原點。
+
+![輸入備份專案的名稱](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+
+7. 若要刪除專案的備份資料，請選取 [**刪除**]。 通知訊息可讓您知道備份資料已被刪除。
+
 
 ## <a name="other-security-features"></a>其他安全性功能
 
@@ -139,7 +160,7 @@ Azure 儲存體會在將資料保存到雲端時，自動將其加密。 加密�
 
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>如果保存庫中有虛刪除的專案，是否可以刪除我的保存庫？
 
-如果保存庫中有已虛刪除狀態的備份專案，則無法刪除復原服務保存庫。 刪除作業14天后，會永久刪除虛刪除的專案。 只有在清除所有已虛刪除的專案之後，才能刪除保存庫。  
+如果保存庫中有已虛刪除狀態的備份專案，就無法刪除復原服務保存庫。 刪除作業之後的14天會永久刪除虛刪除的專案。 如果您無法等待14天，則請[停](#disabling-soft-delete)用虛刪除、取消刪除虛刪除的專案，然後再將它們刪除，以永久刪除。 確定沒有受保護的專案，而且沒有虛刪除的專案之後，就可以刪除保存庫。  
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>刪除之後，我可以刪除14天之前的資料嗎？
 

@@ -1,5 +1,5 @@
 ---
-title: 混合式組織的 B2B 共同作業 - Azure Active Directory | Microsoft Docs
+title: 適用于混合式組織的 B2B 共同作業-Azure AD
 description: 透過 Azure AD B2B 共同作業對夥伴提供內部部署和雲端資源的存取權。
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b30e9c14863f67d28203eac916606e8786101e3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 427f7ad4d6a1b9839b1197ef9f7ca15400ea0f59
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65768273"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272476"
 ---
 # <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>混合式組織的 Azure Active Directory B2B 共同作業
 

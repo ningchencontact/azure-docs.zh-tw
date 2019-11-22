@@ -1,23 +1,14 @@
 ---
 title: 設定和管理 Azure Notebook 專案
 description: 如何透過 Azure Notebooks UI 與直接終端機存取來管理專案中繼資料、專案檔、專案的環境和設定步驟。
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/13/2019
-ms.author: kraigb
-ms.openlocfilehash: fca98594be08f04b2f266f3aa574837ac024ecf4
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 56c265122894412e79b3d5a7b256964c49ab81a6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973136"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277649"
 ---
 # <a name="manage-and-configure-projects"></a>管理及設定專案
 
@@ -70,7 +61,7 @@ Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Noteb
 
 ### <a name="upload-files"></a>上傳檔案
 
-[上傳] 命令提供從其他位置匯入資料的兩個選項：[從 URL] 和 [從電腦]。 如需詳細資訊，請參閱[使用 Azure Notebook 專案中的資料檔案](work-with-project-data-files.md)。
+[**上傳**] 命令提供兩個選項，可從其他位置匯入資料：**從 [URL** ] 和 [**從電腦**]。 如需詳細資訊，請參閱[使用 Azure Notebook 專案中的資料檔案](work-with-project-data-files.md)。
 
 ### <a name="select-file-specific-commands"></a>選取特定檔案的命令
 
@@ -78,16 +69,16 @@ Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Noteb
 
 ![檔案內容功能表上的命令](media/project-file-commands.png)
 
-| 命令 | 鍵盤快速鍵 | Action |
+| 命令 | 鍵盤快速鍵 | 動作 |
 | --- | --- | --- |
 | 執行 | r (或按一下) | 執行 Notebook 檔案。 其他檔案類型開啟供檢視。  |
 | 複製連結 | y | 將檔案的連結複製到剪貼簿。 |
 | 在 Jupyter 實驗室中執行 | j | 在 JupyterLab 中執行 Notebook，這是比 Jupyter 通常會提供的介面更加偏向開發人員導向的介面。 |
 | 預覽 | p | 開啟檔案的 HTML 預覽；針對 Notebook，預覽是 Notebook 的唯讀轉譯。 如需詳細資訊，請參閱[預覽](#preview)一節。 |
 | 編輯檔案 | i | 開啟檔案進行編輯。 |
-| 下載 | 天 | 下載 zip 檔案，其中包含檔案或資料夾的內容。 |
+| 下載 | d | 下載 zip 檔案，其中包含檔案或資料夾的內容。 |
 | 重新命名 | a | 提示您輸入檔案或資料夾的新名稱。 |
-| DELETE | x | 提示您確認，然後從專案中永久移除檔案。 刪除無法復原。 |
+| 刪除 | x | 提示您確認，然後從專案中永久移除檔案。 刪除無法復原。 |
 | 移動 | m | 將檔案移到相同專案中不同的資料夾。 |
 
 #### <a name="preview"></a>預覽
@@ -96,12 +87,12 @@ Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Noteb
 
 預覽頁面支援數個工具列命令，有鍵盤快速鍵：
 
-| 命令 | 鍵盤快速鍵 | Action |
+| 命令 | 鍵盤快速鍵 | 動作 |
 | --- | --- | --- |
-| 共用 | 秒 | 顯示共用的快顯，您可以從其中取得連結、分享到社交媒體、取得內嵌的 HTML，以及傳送電子郵件。 |
-| 複製 | C  | 將 Notebook 複製到您的帳戶。 |
+| 共用 | s | 顯示共用的快顯，您可以從其中取得連結、分享到社交媒體、取得內嵌的 HTML，以及傳送電子郵件。 |
+| 複製 | c  | 將 Notebook 複製到您的帳戶。 |
 | 執行 | r | 如果可以，請執行 Notebook。 |
-| 下載 | 天 | 下載 Notebook 的複本。 |
+| 下載 | d | 下載 Notebook 的複本。 |
 
 ## <a name="configure-the-project-environment"></a>設定專案環境
 
@@ -115,7 +106,7 @@ Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Noteb
 
 ### <a name="one-time-initialization-script"></a>單次初始化指令碼
 
-Azure Notebooks 第一次為專案建立伺服器時，它會在名為 aznbsetup.sh 的專案中尋找檔案。如果此檔案存在，Azure Notebooks 會執行它。 指令碼的輸出會在您的專案資料夾中儲存為 .aznbsetup.log。
+第一次 Azure Notebooks 會建立專案的伺服器，它會在名為*aznbsetup.sh*的專案中尋找檔案。如果此檔案存在，Azure Notebooks 會執行它。 指令碼的輸出會在您的專案資料夾中儲存為 .aznbsetup.log。
 
 ### <a name="environment-setup-steps"></a>環境設定步驟
 
@@ -131,11 +122,11 @@ Azure Notebooks 第一次為專案建立伺服器時，它會在名為 aznbsetup
 
 專案的資訊取決於您選擇的作業類型：
 
-- **Requirements.txt**：在第二個下拉式清單中，選取已在專案中的 requirements.txt 檔案。 然後從出現的第三個下拉式清單中選取 Python 版本。 藉由使用 requirements.txt 檔案，Azure Notebooks 會在啟動 Notebook 伺服器時執行 `pip install -r` 與 requirements.txt 檔案。 您不需要明確安裝 Notebook 本身內的套件。
+- **需求 .txt**：在第二個下拉式清單中，選取已在專案中的 [*需求 .txt* ] 檔案。 然後從出現的第三個下拉式清單中選取 Python 版本。 藉由使用 requirements.txt 檔案，Azure Notebooks 會在啟動 Notebook 伺服器時執行 `pip install -r` 與 requirements.txt 檔案。 您不需要明確安裝 Notebook 本身內的套件。
 
-- **Shell 指令碼**：在第二個下拉式清單中，在專案中選取 bash shell 指令碼 (通常是具有 .sh 副檔名的檔案)，其中包含您希望執行以初始化環境的任何命令。
+- **Shell 腳本**：在第二個下拉式清單中，選取專案中的 bash Shell 腳本（通常是副檔名為*sh*的檔案），其中包含您想要執行以初始化環境的任何命令。
 
-- **Environment.yml**：在第二個下拉式清單中，針對使用 conda 環境的 Python 專案選取 environments.yml 檔案。
+- **Yml**：在第二個下拉式清單中，為使用 conda 環境的 Python 專案選取*yml*檔案。
 
 當您完成新增步驟時，選取 [儲存]。
 
@@ -152,7 +143,7 @@ Azure Notebooks 第一次為專案建立伺服器時，它會在名為 aznbsetup
 
 若要影響特定環境，請先將目錄變更到該環境資料夾。
 
-對於 Python 環境，您可以在每個環境的 bin 資料夾中找到 `pip` 和 `conda`。 您也可以使用環境的內建別名：
+對於 Python 環境，您可以在每個環境的 bin`pip``conda` 資料夾中找到 *和*。 您也可以使用環境的內建別名：
 
 ```bash
 # Anaconda 2 5.3.0/Python 2.7: python27
@@ -190,5 +181,5 @@ cat .nb.log
 
 ## <a name="next-steps"></a>後續步驟
 
-- [操作說明：使用專案資料檔案](work-with-project-data-files.md)
+- [如何：使用專案資料檔案](work-with-project-data-files.md)
 - [在 Notebook 中存取雲端資料](access-data-resources-jupyter-notebooks.md)

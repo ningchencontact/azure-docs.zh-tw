@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7db35b89903de6c5027bb7ea445245d84b96d6ef
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a6c6e680de6253f5e822ba282df2e2397093d003
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473304"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271002"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -39,7 +39,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 
 ---
 
-## <a name="october-2019"></a>2019年10月
+## <a name="october-2019"></a>2019 年 10 月
 
 ### <a name="deprecation-of-the-identityriskevent-api-for-azure-ad-identity-protection-risk-detections"></a>Azure AD Identity Protection 風險偵測的 identityRiskEvent API 已淘汰  
 
@@ -82,7 +82,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 
 在不久的未來，具有 Azure AD 帳戶的使用者將無法再使用應用程式註冊入口網站（apps.dev.microsoft.com）來註冊和管理交集應用程式，或在應用程式註冊中註冊和管理應用程式（舊版）Azure 入口網站中的經驗。
 
-若要深入瞭解新的應用程式註冊體驗，請參閱[Azure 入口網站訓練指南中的應用程式註冊](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide)。
+若要深入瞭解新的應用程式註冊體驗，請參閱[Azure 入口網站訓練指南中的應用程式註冊](../develop/app-registrations-training-guide-for-app-registrations-legacy-users.md)。
 
 ---
 
@@ -233,7 +233,7 @@ Azure AD B2C 現在支援每月作用中使用者（MAU）計費。 MAU 計費�
 
 ---
 
-## <a name="september-2019"></a>2019年9月
+## <a name="september-2019"></a>2019 年 9 月
 
 ### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>規劃變更：已淘汰 Power BI 內容套件
 
@@ -480,7 +480,7 @@ Power BI 行動應用程式與 Azure AD 應用程式 Proxy 之間的新整合，
 
 在2019年8月，我們已將下列26個具有同盟支援的新應用程式新增至應用程式庫：
 
-[市政平臺](https://docs.microsoft.com/azure/active-directory/saas-apps/civic-platform-tutorial)， [Amazon Business](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-business-tutorial)， [ProNovos Ops Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-ops-manager-tutorial)， [Cognidox](https://docs.microsoft.com/azure/active-directory/saas-apps/cognidox-tutorial)， [Viareport 的 Inativ Portal （歐洲）](https://docs.microsoft.com/azure/active-directory/saas-apps/viareports-inativ-portal-europe-tutorial)， [Azure Databricks](https://azure.microsoft.com/services/databricks)，[資源](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial)管理員，學術[出席](https://docs.microsoft.com/azure/active-directory/saas-apps/academy-attendance-tutorial)，[優先順序對照表](https://sync.appfluence.com/pmwebng/)，[Cousto MySpace](https://cousto.platformers.be/account/login)， [Uploadcare](https://uploadcare.com/accounts/signup/)， [Carbonite Endpoint Backup](https://docs.microsoft.com/azure/active-directory/saas-apps/carbonite-endpoint-backup-tutorial)， [CPQSync by Cincom](https://docs.microsoft.com/azure/active-directory/saas-apps/cpqsync-by-cincom-tutorial)， [Chargebee](https://docs.microsoft.com/azure/active-directory/saas-apps/chargebee-tutorial)，[交付媒體™入口網站](https://portal.deliver.media)，[第一線教育](https://docs.microsoft.com/azure/active-directory/saas-apps/frontline-education-tutorial)， [F5](https://www.f5.com/products/security/access-policy-manager)， [stashcat ADconnect](https://www.stashcat.com)、[閃爍](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial)、 [Vocoli](https://docs.microsoft.com/azure/active-directory/saas-apps/vocoli-tutorial)、 [ProNovos 分析](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-analytics-tutorial)、 [Sigstr](https://docs.microsoft.com/azure/active-directory/saas-apps/sigstr-tutorial)、 [Darwinbox](https://docs.microsoft.com/azure/active-directory/saas-apps/darwinbox-tutorial)、[依色彩監看](https://docs.microsoft.com/azure/active-directory/saas-apps/watch-by-colors-tutorial) [、控管、](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial) [EAB 流覽策略護理](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-strategic-care-tutorial)
+[市政平臺](https://docs.microsoft.com/azure/active-directory/saas-apps/civic-platform-tutorial)， [Amazon Business](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-business-tutorial)， [ProNovos Ops Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-ops-manager-tutorial)， [Cognidox](https://docs.microsoft.com/azure/active-directory/saas-apps/cognidox-tutorial)， [Viareport 的 Inativ Portal （歐洲）](https://docs.microsoft.com/azure/active-directory/saas-apps/viareports-inativ-portal-europe-tutorial)， [Azure Databricks](https://azure.microsoft.com/services/databricks)，[資源](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial)管理員，學術[出席](https://docs.microsoft.com/azure/active-directory/saas-apps/academy-attendance-tutorial)，[優先順序對照表](https://sync.appfluence.com/pmwebng/)， [Cousto MySpace](https://cousto.platformers.be/account/login)， [Uploadcare](https://uploadcare.com/accounts/signup/)， [Carbonite Endpoint Backup](https://docs.microsoft.com/azure/active-directory/saas-apps/carbonite-endpoint-backup-tutorial)，CPQSync [by Cincom](https://docs.microsoft.com/azure/active-directory/saas-apps/cpqsync-by-cincom-tutorial)， [Chargebee](https://docs.microsoft.com/azure/active-directory/saas-apps/chargebee-tutorial)，[提供。 media™ Portal](https://portal.deliver.media)，[第一線教育](https://docs.microsoft.com/azure/active-directory/saas-apps/frontline-education-tutorial)， [F5](https://www.f5.com/products/security/access-policy-manager)， [stashcat ADconnect](https://www.stashcat.com)、[閃爍](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial)、 [Vocoli](https://docs.microsoft.com/azure/active-directory/saas-apps/vocoli-tutorial)、 [ProNovos 分析](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-analytics-tutorial)、 [Sigstr](https://docs.microsoft.com/azure/active-directory/saas-apps/sigstr-tutorial)、 [Darwinbox](https://docs.microsoft.com/azure/active-directory/saas-apps/darwinbox-tutorial)、[依色彩監看](https://docs.microsoft.com/azure/active-directory/saas-apps/watch-by-colors-tutorial) [、控管、](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial) [EAB 流覽策略護理](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-strategic-care-tutorial)
 
 如需應用程式的詳細資訊，請參閱[與 Azure Active Directory 整合的 SaaS 應用程式](https://aka.ms/appstutorial)。 如需在 Azure AD 應用程式庫中列出應用程式的詳細資訊，請參閱[在 Azure Active Directory 應用程式庫中列出您的應用程式](https://aka.ms/azureadapprequest)。
 
@@ -525,7 +525,7 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 **服務類別：** 存取權檢閱  
 **產品功能：** 身分識別治理
 
-我們引進了新的 Microsoft Graph 應用程式許可權，`AccessReview.ReadWrite.Membership`，可讓應用程式自動建立和抓取群組成員資格和應用程式指派的存取權審查。 此許可權可供您的排程工作或自動化的一部分使用，而不需要登入的使用者內容。
+我們引進了新的 Microsoft Graph 應用程式許可權 `AccessReview.ReadWrite.Membership`，可讓應用程式自動建立和抓取群組成員資格和應用程式指派的存取權審查。 此許可權可供您的排程工作或自動化的一部分使用，而不需要登入的使用者內容。
 
 如需詳細資訊，請參閱[如何使用 PowerShell 的 Microsoft Graph 應用程式許可權建立 Azure AD 存取評論的範例](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-how-to-create-Azure-AD-access-reviews-using-Microsoft/m-p/807241)。
 
@@ -561,14 +561,14 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
 3. 在 [**使用者可以使用預覽功能來登錄及管理安全性資訊-增強**] 區域中，選取 [已**選取**]，然後選擇一組使用者，或選擇 [**全部**] 以針對租使用者中的所有使用者開啟此功能。
 
-4. 在 [使用者可以使用預覽功能來註冊及管理安全性 * * info * * *] 區域中，選取 [**無**]。
+4. 在 [使用者可以使用預覽功能來註冊及管理安全性 **info** ] 區域中，選取 [**無**]。
 
 5. 儲存您的設定。
 
     儲存設定之後，您將無法再存取舊的安全性資訊體驗。
 
 >[!Important]
->如果您未在2019年9月25日之前完成這些步驟，將會自動啟用您的 Azure Active Directory 租使用者以獲得增強的體驗。 如有任何疑問，請在 registrationpreview@microsoft.com 與我們聯繫。
+>如果您未在2019年9月25日之前完成這些步驟，將會自動啟用您的 Azure Active Directory 租使用者以獲得增強的體驗。 如有任何疑問，請在 registrationpreview@microsoft.com洽詢我們。
 
 ---
 
@@ -584,7 +584,7 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
 ---
 
-## <a name="july-2019"></a>2019年7月
+## <a name="july-2019"></a>2019 年 7 月
 
 ### <a name="plan-for-change-application-proxy-service-update-to-support-only-tls-12"></a>規劃變更：應用程式 Proxy 服務更新僅支援 TLS 1。2
 

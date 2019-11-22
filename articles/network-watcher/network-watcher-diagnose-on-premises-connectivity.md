@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 網路監看員診斷透過 VPN 閘道的內部部署連線 | Microsoft Docs
+title: 透過 VPN 閘道診斷內部部署連線能力
+titleSuffix: Azure Network Watcher
 description: 本文說明如何使用 Azure 網路監看員資源疑難排解，來診斷透過 VPN 閘道的內部部署連線。
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 05335cb6949928244e10641ebe82008275830e67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 602a319ce90e5a6d13829e218899f135413d762d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754058"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275946"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>透過 VPN 閘道診斷內部部署連線
 
@@ -30,7 +31,7 @@ Azure VPN 閘道可讓您建立混合式解決方案，以解決內部部署網�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="scenario"></a>狀況
+## <a name="scenario"></a>案例
 
 您想要使用 FortiGate 作為內部部署 VPN 閘道，在 Azure 和內部部署環境之間設定站對站連線。 為了實現此案例，您需要進行下列設定︰
 
@@ -39,13 +40,13 @@ Azure VPN 閘道可讓您建立混合式解決方案，以解決內部部署網�
 1. 站對站連線 (路由式) - [VPN 閘道與內部部署路由器之間的連線](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
 1. [設定 FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
-若要尋找設定站對站設定的詳細逐步解說指引，請瀏覽︰[使用 Azure 入口網站建立具有站對站連線的 VNet](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)。
+若要找到用於設定站對站組態的詳細逐步解說指南，請瀏覽︰[使用 Azure 入口網站建立具有網站間連線的 VNet](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)。
 
 其中一個重要組態步驟是設定 IPsec 通訊參數，設定若有任何錯誤將會導致內部部署網路與 Azure 之間的連線中斷。 目前 Azure VPN 閘道會設定為支援下列第 1 階段 IPsec 參數。 請注意，如先前所述，您無法修改這些設定。  如下表所示，Azure VPN 閘道支援的加密演算法有 AES256、AES128 及 3DES。
 
 ### <a name="ike-phase-1-setup"></a>IKE 第 1 階段設定
 
-| **屬性** | **原則式** | **路由式和標準或高效能 VPN 閘道** |
+| **屬性** | **PolicyBased** | **路由式和標準或高效能 VPN 閘道** |
 | --- | --- | --- |
 | IKE 版本 |IKEv1 |IKEv2 |
 | Diffie-Hellman 群組 |群組 2 (1024 位元) |群組 2 (1024 位元) |
@@ -81,9 +82,9 @@ Azure 網路監看員疑難排解功能可讓您輕鬆地利用簡單的 PowerSh
 
 ### <a name="gateway"></a>閘道器
 
-| 錯誤類型 | `Reason` | 記錄檔|
+| 錯誤類型 | 原因 | 記錄檔|
 |---|---|---|
-| NoFault | 未偵測到任何錯誤時。 |是|
+| NoFault | 未偵測到任何錯誤時。 |yes|
 | GatewayNotFound | 找不到閘道或閘道尚未佈建。 |否|
 | PlannedMaintenance |  閘道執行個體正在進行維護。  |否|
 | UserDrivenUpdate | 當正在更新使用者時。 這可能是調整大小作業。 | 否 |
@@ -91,26 +92,26 @@ Azure 網路監看員疑難排解功能可讓您輕鬆地利用簡單的 PowerSh
 | PlatformInActive | 平台發生問題。 | 否|
 | ServiceNotRunning | 基礎服務並未執行。 | 否|
 | NoConnectionsFoundForGateway | 閘道上沒有任何連線存在。 這只是警告。| 否|
-| ConnectionsNotConnected | 未進行任何連線。 這只是警告。| 是|
-| GatewayCPUUsageExceeded | 目前的閘道使用量 CPU 使用量 > 95%。 | 是 |
+| ConnectionsNotConnected | 未進行任何連線。 這只是警告。| yes|
+| GatewayCPUUsageExceeded | 目前的閘道使用量 CPU 使用量 > 95%。 | yes |
 
 ### <a name="connection"></a>連線
 
-| 錯誤類型 | `Reason` | 記錄檔|
+| 錯誤類型 | 原因 | 記錄檔|
 |---|---|---|
-| NoFault | 未偵測到任何錯誤時。 |是|
+| NoFault | 未偵測到任何錯誤時。 |yes|
 | GatewayNotFound | 找不到閘道或閘道尚未佈建。 |否|
 | PlannedMaintenance | 閘道執行個體正在進行維護。  |否|
 | UserDrivenUpdate | 當正在更新使用者時。 這可能是調整大小作業。  | 否 |
 | VipUnResponsive | 無法連線到閘道的主要執行個體。 健全狀況探查失敗時便會發生這種狀況。 | 否 |
 | ConnectionEntityNotFound | 缺少連線組態。 | 否 |
 | ConnectionIsMarkedDisconnected | 連線標記為「已中斷連線」。 |否|
-| ConnectionNotConfiguredOnGateway | 基礎服務未設定連線。 | 是 |
-| ConnectionMarkedStandby | 基礎服務標記為「待命」。| 是|
-| 驗證 | 預先共用的金鑰不相符。 | 是|
-| PeerReachability | 無法連線到對等閘道。 | 是|
-| IkePolicyMismatch | 對等閘道的 IKE 原則不受 Azure 支援。 | 是|
-| WfpParse Error | 剖析 WFP 記錄時發生錯誤。 |是|
+| ConnectionNotConfiguredOnGateway | 基礎服務未設定連線。 | yes |
+| ConnectionMarkedStandby | 基礎服務標記為「待命」。| yes|
+| 驗證 | 預先共用的金鑰不相符。 | yes|
+| PeerReachability | 無法連線到對等閘道。 | yes|
+| IkePolicyMismatch | 對等閘道的 IKE 原則不受 Azure 支援。 | yes|
+| WfpParse Error | 剖析 WFP 記錄時發生錯誤。 |yes|
 
 ## <a name="next-steps"></a>後續步驟
 

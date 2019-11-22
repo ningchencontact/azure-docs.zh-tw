@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: a7b0276ca41e1b9342b3602a67dea0517c60f66a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5d30f59252a5282c1b0e43249d2cab1e6136b539
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489348"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276666"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>使用 Azure Machine Learning 為您的模型微調超參數
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -380,7 +380,7 @@ RunDetails(hyperdrive_run).show()
 
 ## <a name="find-the-best-model"></a>尋找最佳模型
 
-完成所有超參數微調執行之後，請[找出最佳的執行](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverun?view=azure-ml-py#get-best-run-by-primary-metric-include-failed-true--include-canceled-true-)設定和對應的超參數值：
+完成所有超參數微調執行之後，請[找出最佳的執行](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverun?view=azure-ml-py#get-best-run-by-primary-metric-include-failed-true--include-canceled-true--include-resume-from-runs-true-----typing-union-azureml-core-run-run--nonetype-)設定和對應的超參數值：
 
 ```Python
 best_run = hyperdrive_run.get_best_run_by_primary_metric()

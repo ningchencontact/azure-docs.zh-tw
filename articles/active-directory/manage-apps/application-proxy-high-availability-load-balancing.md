@@ -1,5 +1,5 @@
 ---
-title: Azure AD 應用程式 Proxy 的高可用性和負載平衡 |Microsoft Docs
+title: 高可用性和負載平衡-Azure AD 應用程式 Proxy
 description: 流量散發如何與您的應用程式 Proxy 部署搭配運作。 包含如何將連接器效能優化，並針對後端伺服器使用負載平衡的秘訣。
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 014fcf37930800858cd70f15c19e3f494d3f3776
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 9add6ac30184d87ef50200c3ab944698a1a660f8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169794"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275526"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>應用程式 Proxy 連接器和應用程式的高可用性和負載平衡
 
@@ -81,18 +81,18 @@ ms.locfileid: "72169794"
 
 ## <a name="best-practices-for-load-balancing-among-multiple-app-servers"></a>在多個應用程式伺服器之間進行負載平衡的最佳做法
 當指派給應用程式 Proxy 應用程式的連接器群組有兩個以上的連接器，而且您在多部伺服器（伺服器陣列）上執行後端 web 應用程式時，需要有良好的負載平衡策略。 良好的策略可確保伺服器會平均取得用戶端要求，並防止伺服器陣列中的伺服器過度使用或使用量過低。
-### <a name="scenario-1-back-end-application-does-not-require-session-persistence"></a>案例 1：後端應用程式不需要會話持續性
+### <a name="scenario-1-back-end-application-does-not-require-session-persistence"></a>案例1：後端應用程式不需要會話持續性
 最簡單的案例是後端 web 應用程式不需要會話的持續性（會話持續性）。 任何來自使用者的要求都可以由伺服器陣列中的任何後端應用程式實例處理。 您可以使用第4層負載平衡器，並將它設定為沒有親和性。 有些選項包括 Microsoft 網路負載平衡和 Azure Load Balancer，或是來自另一個廠商的負載平衡器。 或者，也可以設定迴圈配置資源 DNS。
-### <a name="scenario-2-back-end-application-requires-session-persistence"></a>案例 2：後端應用程式需要會話持續性
+### <a name="scenario-2-back-end-application-requires-session-persistence"></a>案例2：後端應用程式需要會話持續性
 在此案例中，後端 web 應用程式在經過驗證的會話期間，需要會話（會話持續性）。 來自使用者的所有要求都必須由在伺服器陣列中的相同伺服器上執行的後端應用程式實例來處理。
 此案例可能會更複雜，因為用戶端通常會建立與應用程式 Proxy 服務的多個連接。 不同連接的要求可能會抵達伺服器陣列中的不同連接器和伺服器。 由於每個連接器都會使用自己的 IP 位址來進行這項通訊，因此負載平衡器無法根據連接器的 IP 位址來確保會話無法對應。 來源 IP 親和性無法使用。
 以下是案例2的一些選項：
 
-- 選項 1：以負載平衡器所設定之會話 cookie 的會話持續性為基礎。 建議使用此選項，因為它可讓負載在後端伺服器之間平均分配。 它需要具有這項功能的第7層負載平衡器，而且可以處理 HTTP 流量並終止 SSL 連線。 您可以使用 Azure 應用程式閘道（會話親和性），或來自另一個廠商的負載平衡器。
+- 選項1：根據負載平衡器所設定的會話 cookie，以會話持續性為基礎。 建議使用此選項，因為它可讓負載在後端伺服器之間平均分配。 它需要具有這項功能的第7層負載平衡器，而且可以處理 HTTP 流量並終止 SSL 連線。 您可以使用 Azure 應用程式閘道（會話親和性），或來自另一個廠商的負載平衡器。
 
-- 選項 2：以 X 轉送的標頭欄位作為會話持續性的基礎。 此選項需要具有這項功能的第7層負載平衡器，而且可以處理 HTTP 流量並終止 SSL 連線。  
+- 選項2：以 X 轉送的標頭欄位作為會話持續性的基礎。 此選項需要具有這項功能的第7層負載平衡器，而且可以處理 HTTP 流量並終止 SSL 連線。  
 
-- 選項 3：將後端應用程式設定為不需要會話持續性。
+- 選項3：將後端應用程式設定為不需要會話持續性。
 
 請參閱軟體廠商的檔，以瞭解後端應用程式的負載平衡需求。
 

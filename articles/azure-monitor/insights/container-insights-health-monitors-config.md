@@ -12,16 +12,20 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/12/2019
 ms.author: magoedte
-ms.openlocfilehash: b782581318751830ec47b9fecb056fecefb353eb
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 7a774adb33646635832dba5505abf57b2703de5d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134953"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279703"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>適用于容器的 Azure 監視器健全狀況監視設定指南
 
-監視是用於測量健全狀況及偵測容器 Azure 監視器中錯誤的主要元素。 本文可協助您瞭解如何測量健全狀況的概念，以及組成健全狀況模型的元素，以監視和報告 Kubernetes 叢集與[健康情況功能](container-insights-health.md)的健全狀況。
+監視是用於測量健全狀況及偵測容器 Azure 監視器中錯誤的主要元素。 這篇文章可協助您瞭解如何測量健全狀況的概念，以及組成健全狀況模型的元素，以使用[健全狀況（預覽）](container-insights-health.md)功能來監視和報告 Kubernetes 叢集的健康情況。
+
+>[!NOTE]
+>此健全狀況功能目前為公開預覽階段。
+>
 
 ## <a name="monitors"></a>監視器
 

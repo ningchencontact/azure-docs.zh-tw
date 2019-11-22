@@ -1,5 +1,5 @@
 ---
-title: 使用 REST API 將 Azure 資源的自訂計量傳送至 Azure 監視器計量的存放區
+title: 使用 REST API 將計量傳送至 Azure 監視器公制資料庫
 description: 使用 REST API 將 Azure 資源的自訂計量傳送至 Azure 監視器計量的存放區
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: aa842979bf86410e9dab97d6209f336eb6b02bd3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a19b59c758f31ff1ef3416b59031202193d50522
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253898"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285935"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>使用 REST API 將 Azure 資源的自訂計量傳送至 Azure 監視器計量的存放區
 
@@ -102,19 +102,19 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
 
 1. 登入 Azure 入口網站。 
 
-1. 在左側功能表中，選取 [監視]  。 
+1. 在左側功能表中，選取 [監視]。 
 
-1. 在 [監視]  頁面上，選取 [計量]  。 
+1. 在 [監視] 頁面上，選取 [計量]。 
 
    ![選取計量](./media/metrics-store-custom-rest-api/metrics.png) 
 
-1. 將彙總期間變更為 [過去 30 分鐘]  。  
+1. 將彙總期間變更為 [過去 30 分鐘]。  
 
-1. 在 [資源]  下拉式功能表中，選取您發出其計量的資源。  
+1. 在 [資源] 下拉式功能表中，選取您發出其計量的資源。  
 
-1. 在 [命名空間]  下拉式功能表中，選取 [QueueProcessing]  。 
+1. 在 [命名空間] 下拉式功能表中，選取 [QueueProcessing]。 
 
-1. 在 [計量]  下拉式功能表中，選取 [QueueDepth]  。  
+1. 在 [計量] 下拉式功能表中，選取 [QueueDepth]。  
 
  
 ## <a name="next-steps"></a>後續步驟

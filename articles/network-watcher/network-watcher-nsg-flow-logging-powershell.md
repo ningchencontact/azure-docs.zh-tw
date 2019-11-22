@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 網路監看員管理網路安全性群組流量記錄 - PowerShell | Microsoft Docs
+title: 管理 NSG 流量記錄-Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: 此頁面說明如何使用 PowerShell 在 Azure 網路監看員中管理網路安全性群組流量記錄
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 508fe6f7dc6c5fef99e5f62a2ce75b0c81b1577f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 162e499ba44557db388484639c21877fd8b852bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676337"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277972"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>使用 PowerShell 設定網路安全性群組流量記錄
 
@@ -33,7 +34,7 @@ ms.locfileid: "71676337"
 
 ## <a name="register-insights-provider"></a>註冊 Insights 提供者
 
-若要讓流量記錄成功運作，必須註冊 **Microsoft.Insights** 提供者。 如果您不確定是否已註冊 **Microsoft.Insights** 提供者，請執行下列程式碼。
+若要讓流量記錄成功運作，必須註冊 Microsoft.Insights 提供者。 如果您不確定是否已註冊 **Microsoft.Insights** 提供者，請執行下列程式碼。
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Insights

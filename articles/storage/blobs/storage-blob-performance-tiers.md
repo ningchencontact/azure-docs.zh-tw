@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 64efd1a02b903ec3874066f6c663b86a8080f746
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932261"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270215"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>區塊 blob 儲存體的效能層級
 
@@ -54,6 +54,12 @@ Premium 效能儲存體適用于需要快速且一致回應時間的工作負載
 ## <a name="standard-performance"></a>標準效能
 
 標準效能支援不同的[存取層](storage-blob-storage-tiers.md)，以最符合成本效益的方式儲存資料。 它已針對大型資料集上的高容量和高輸送量進行優化。
+
+- **備份和損毀修復資料集**。 標準效能儲存體提供符合成本效益的層級，讓它成為短期和長期嚴重損壞修復資料集、次要備份和合規性資料封存的絕佳使用案例。
+
+- **媒體內容**。 影像和影片通常會在第一次建立和儲存時經常存取，但此內容類型在較舊的情況下使用的頻率較低。 標準效能儲存體提供適當的媒體內容需求層級。 
+
+- **大量資料處理**。 這些類型的工作負載適用于標準儲存體，因為它們需要符合成本效益的高輸送量儲存體，而不是一致的低延遲。 會暫存大型的原始資料集以供處理，最後再遷移至較少的層級。
 
 ## <a name="migrate-from-standard-to-premium"></a>從標準遷移至 premium
 

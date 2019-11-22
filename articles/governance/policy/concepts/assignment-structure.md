@@ -3,12 +3,12 @@ title: 原則指派結構的詳細資料
 description: 描述 Azure 原則用來將原則定義和參數關聯至資源進行評估的原則指派定義。
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 500e40b8d3a5943c7f64f5b190223cb1dc7b4c92
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 9301004fe05afa77f3e73c6ec97335a17c237ce9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960028"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279473"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure 原則指派結構
 
@@ -93,6 +93,6 @@ Azure 原則會使用原則指派，以定義原則或方案所要指派的資�
 
 - 瞭解[原則定義結構](./definition-structure.md)。
 - 瞭解如何以程式設計[方式建立原則](../how-to/programmatically-create.md)。
-- 瞭解如何[取得合規性資料](../how-to/getting-compliance-data.md)。
+- 瞭解如何[取得合規性資料](../how-to/get-compliance-data.md)。
 - 瞭解如何[補救不符合規範的資源](../how-to/remediate-resources.md)。
 - 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

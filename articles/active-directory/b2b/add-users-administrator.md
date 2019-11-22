@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 入口網站中新增 B2B 共同作業使用者 - Azure Active Directory | Microsoft Docs
+title: 在 Azure 入口網站 Azure AD 中新增 B2B 共同作業使用者
 description: 說明系統管理員如何使用 Azure Active Directory (Azure AD) B2B 共同作業，將來自夥伴組織的來賓使用者新增到其目錄。
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85905e31b9375bac7f813782cbc224a6e770b7ce
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 7176101a1e6c1da54ddd8b5f22b61b91fbc5115a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013136"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267931"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者
 

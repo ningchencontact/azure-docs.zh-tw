@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 125841697a8ad7d34441dfca3a4c079ef59e5f96
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 214809df692bc7e43203fe4a736d6cc53908e0bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680828"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278529"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 HTTP 端點複製資料 | Microsoft Docs
 
@@ -31,7 +31,7 @@ ms.locfileid: "73680828"
 
 - **REST 連接器**專門支援從 RESTful API 複製資料； 
 - **HTTP 連接器**一般用來從任何 HTTP 端點擷取資料，例如下載檔案。 在 REST 連接器可供使用之前，您可能會使用 HTTP 連接器從 RESTful API 複製資料，這是可支援的方式，但功能性比 REST 連接器低。
-- **Web 資料表連接器**可從 HTML 網頁擷取資料表內容。
+- **Web 資料表連接器**會從 HTML 網頁擷取資料表內容。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -51,7 +51,7 @@ ms.locfileid: "73680828"
 > [!TIP]
 > 若要在 Data Factory 中設定 HTTP 連接器之前，測試擷取資料的 HTTP 要求，請先了解 API 規格中的標頭和本文需求。 您可以使用 Postman 或網頁瀏覽器之類的工具進行驗證。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -65,22 +65,22 @@ ms.locfileid: "73680828"
 
 以下是針對 HTTP 連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | **type** 屬性必須設定為 **HttpServer**。 | 是 |
-| url | Web 伺服器的基底 URL。 | 是 |
+| 類型 | **type** 屬性必須設定為 **HttpServer**。 | yes |
+| url | Web 伺服器的基底 URL。 | yes |
 | enableServerCertificateValidation | 指定是否在您連線到 HTTP 端點時啟用伺服器 SSL 憑證驗證。 如果 HTTPS 伺服器使用自我簽署的憑證，請將此屬性設定為 **false**。 | 否<br /> (預設值為 **true**) |
-| authenticationType | 指定驗證類型。 允許的值為**匿名**、**基本**、**摘要**、**Windows** 和 **ClientCertificate**。 <br><br> 如需更多關於這些驗證類型的屬性和 JSON 範例，請參閱此表格後面幾節。 | 是 |
+| authenticationType | 指定驗證類型。 允許的值為**匿名**、**基本**、**摘要**、**Windows** 和 **ClientCertificate**。 <br><br> 如需更多關於這些驗證類型的屬性和 JSON 範例，請參閱此表格後面幾節。 | yes |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，則會使用預設的 Azure Integration Runtime。 |否 |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>使用基本、摘要或 Windows 驗證
 
 將 **authenticationType** 屬性設定為 [基本]、[摘要] 或 [Windows]。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| userName | 用來存取 HTTP 端點的使用者名稱。 | 是 |
-| password | 使用者 (**userName** 值) 的密碼。 將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 | 是 |
+| userName | 用來存取 HTTP 端點的使用者名稱。 | yes |
+| password | 使用者 (**userName** 值) 的密碼。 將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 | yes |
 
 **範例**
 
@@ -110,7 +110,7 @@ ms.locfileid: "73680828"
 
 若要使用 ClientCertificate 驗證，請將 **authenticationType** 屬性設定為 **ClientCertificate**。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64 編碼的憑證資料。 | 指定 **embeddedCertData** 或 **certThumbprint**。 |
 | certThumbprint | 憑證指紋已安裝在自我裝載整合執行階段機器的憑證存放區上。 只有當 **connectVia** 屬性中已指定自我裝載整合執行階段時才適用。 | 指定 **embeddedCertData** 或 **certThumbprint**。 |
@@ -175,15 +175,15 @@ ms.locfileid: "73680828"
 
 下列屬性支援以格式為基礎之資料集的 `location` 設定下的 HTTP：
 
-| 屬性    | 說明                                                  | 必要 |
+| 屬性    | 描述                                                  | 必要 |
 | ----------- | ------------------------------------------------------------ | -------- |
-| 類型        | Dataset 中 `location` 下的 type 屬性必須設定為**HttpServerLocation**。 | 是      |
-| relativeUrl | 包含資料之資源的相對 URL。       | 否       |
+| 類型        | Dataset 中 `location` 下的 type 屬性必須設定為**HttpServerLocation**。 | yes      |
+| relativeUrl | 包含資料之資源的相對 URL。 HTTP 連接器會從合併的 URL 複製資料： `[URL specified in linked service]/[relative URL specified in dataset]`。   | 否       |
 
 > [!NOTE]
 > 支援的 HTTP 要求承載大小是大約 500 KB。 如果您希望傳遞至 Web 端點的承載大小大於 500 KB，請考慮將承載分批處理成較小的區塊。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -214,9 +214,9 @@ ms.locfileid: "73680828"
 >[!NOTE]
 >下列資料集模型仍受到支援，以供回溯相容性之用。 建議您使用上一節中所提及的新模型，然後 ADF 撰寫 UI 已切換為產生新的模型。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的 **type** 屬性必須設定為 **HttpFile**。 | 是 |
+| 類型 | 資料集的 **type** 屬性必須設定為 **HttpFile**。 | yes |
 | relativeUrl | 包含資料之資源的相對 URL。 若未指定此屬性，則只會使用在連結服務定義中指定的 URL。 | 否 |
 | requestMethod | HTTP 方法。 允許的值為 **Get** (預設值) 和 **Post**。 | 否 |
 | additionalHeaders | 其他 HTTP 要求標頭。 | 否 |
@@ -278,16 +278,16 @@ ms.locfileid: "73680828"
 
 在以格式為基礎的複製來源中，`storeSettings` 設定底下的 HTTP 支援下列屬性：
 
-| 屬性                 | 說明                                                  | 必要 |
+| 屬性                 | 描述                                                  | 必要 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| 類型                     | `storeSettings` 下的 type 屬性必須設定為**HttpReadSetting**。 | 是      |
+| 類型                     | `storeSettings` 下的 type 屬性必須設定為**HttpReadSetting**。 | yes      |
 | requestMethod            | HTTP 方法。 <br>允許的值為 **Get** (預設值) 和 **Post**。 | 否       |
 | addtionalHeaders         | 其他 HTTP 要求標頭。                             | 否       |
 | requestBody              | HTTP 要求的主體。                               | 否       |
-| requestTimeout           | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。 | 否       |
+| httpRequestTimeout           | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。 | 否       |
 | maxConcurrentConnections | 連接到儲存體存放區的連線數目。 只有當您想要限制與資料存放區的並行連接時，才指定。 | 否       |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -333,9 +333,9 @@ ms.locfileid: "73680828"
 >[!NOTE]
 >下列複製來源模型仍受到支援，以提供回溯相容性。 我們建議您先使用上述的新模型，然後 ADF 撰寫 UI 已切換為產生新的模型。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的 **type** 屬性必須設定為 **HttpSource**。 | 是 |
+| 類型 | 複製活動來源的 **type** 屬性必須設定為 **HttpSource**。 | yes |
 | httpRequestTimeout | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。  | 否 |
 
 **範例**

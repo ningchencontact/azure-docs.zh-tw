@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 93dfe784d45cd9cd93d22c5e8c3275c563f7f88b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1546ded1977e1e26792189e1d992d106d3d77ef2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572087"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271291"
 ---
 # <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>在您的程式碼中使用 SSL 憑證，Azure App Service
 
@@ -29,7 +29,7 @@ ms.locfileid: "73572087"
 
 當您讓 App Service 管理您的 SSL 憑證時，您可以分開維護憑證以及應用程式程式碼，並保護您的敏感性資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要遵循本操作說明指南：
 
@@ -38,7 +38,7 @@ ms.locfileid: "73572087"
 
 ## <a name="find-the-thumbprint"></a>尋找指紋
 
-在  <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>中，從左側功能表中選取 **應用程式服務** >  **\<應用程式名稱 >** 。
+在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>的左側功能表中，選取 [應用程式服務] >  **\<app-name>** 。
 
 從應用程式的左側導覽中，選取 [ **TLS/SSL 設定**]，然後選取 [**私密金鑰憑證（.pfx）** ] 或 **[公開金鑰憑證（.cer）** ]。
 
@@ -141,6 +141,8 @@ var cert = new X509Certificate2(bytes);
 > ```azurecli-interactive
 > az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 > ```
+>
+> 在您的程式碼中使用憑證的這種方法會使用 App Service 中的 SSL 功能，這會要求您的應用程式必須在**基本**層或更高版本中。
 
 下列C#範例會從您應用程式中的相對路徑載入公開憑證：
 
@@ -159,7 +161,7 @@ var cert = new X509Certificate2(bytes);
 
 ## <a name="more-resources"></a>其他資源
 
-* [使用 SSL 系結保護自訂 DNS 名稱](configure-ssl-bindings.md)
+* [使用 SSL 繫結保護自訂 DNS 名稱](configure-ssl-bindings.md)
 * [強制使用 HTTPS](configure-ssl-bindings.md#enforce-https)
 * [強制使用 TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
 * [常見問題集：App Service 憑證](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

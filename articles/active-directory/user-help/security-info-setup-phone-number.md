@@ -1,6 +1,6 @@
 ---
-title: Set up your phone number as your authentication method - Azure AD
-description: How to set up the Security info page to verify your identity using your phone number and mobile device as your authentication method.
+title: 將您的電話號碼設定為您的驗證方法-Azure AD
+description: 如何設定您的安全性資訊（預覽）頁面，以使用您的電話號碼和行動裝置做為驗證方法來驗證您的身分識別。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74a0c0d374e9a3bc58a62ba72a0c934ed0c6eff2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 6bb7d811b1d622fb14935b4d5ddf0cb60e44daa8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233141"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278972"
 ---
-# <a name="set-up-your-phone-number-as-your-authentication-method-from-the-security-info-preview-page"></a>Set up your phone number as your authentication method from the Security info (preview) page
+# <a name="set-up-a-phone-number-as-your-verification-method"></a>設定電話號碼作為驗證方法
 
 您可以遵循下列步驟來新增雙因素驗證和密碼重設方法。 在您首次將此設定好之後，即可返回 [安全性資訊] 頁面來新增、更新或刪除安全性資訊。
 
@@ -41,13 +41,13 @@ ms.locfileid: "74233141"
 
 ### <a name="to-set-up-phone-calls"></a>設定電話
 
-1. 登入您的公司或學校帳戶，然後前往 https://myprofile.microsoft.com/ 頁面。
+1. 登入您的公司或學校帳戶，然後移至您的 https://myprofile.microsoft.com/ 頁面。
 
     ![[我的設定檔] 頁面，顯示醒目提示的 [安全性資訊] 連結](media/security-info/securityinfo-myprofile-page.png)
 
 2. 以左側瀏覽窗格或是 [安全性資訊] 區塊中的連結選取 [安全性資訊]，然後在 [安全性資訊] 頁面選取 [新增方法]。
 
-    ![醒目提示 [新增方法] 選項的 [安全性資訊] 頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![醒目提示新增方法選項的安全性資訊頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. 在 [新增方法] 頁面上，從下拉式清單中選取 [電話]，然後選取 [新增]。
 
@@ -104,7 +104,7 @@ ms.locfileid: "74233141"
 
 - **行動裝置簡訊。** 輸入您的行動裝置號碼，然後取得將用來進行雙步驟驗證或密碼重設的代碼簡訊。 如需如何透過簡訊 (SMS) 驗證您身分識別的逐步指示，請參閱[將安全性資訊設定為使用簡訊 (SMS)](security-info-setup-text-msg.md)。
 
-- **Security key.** Register your Microsoft-compatible security key and use it along with a PIN for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a security key, see [Set up security info to use a security key](security-info-setup-security-key.md).
+- **安全性金鑰。** 註冊與 Microsoft 相容的安全性金鑰，並使用它搭配 PIN 進行雙步驟驗證或密碼重設。 如需如何使用安全性金鑰驗證您身分識別的逐步指示，請參閱[將安全性資訊設定為使用安全性金鑰](security-info-setup-security-key.md)。
 
 - **電子郵件地址。** 輸入您的公司或學校電子郵件地址以接收用於密碼重設的電子郵件。 此選項不適用於雙步驟驗證。 如需如何設定電子郵件的逐步指示，請參閱[將安全性資訊設定為使用電子郵件](security-info-setup-email.md)。
 
@@ -115,6 +115,6 @@ ms.locfileid: "74233141"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您已遺失或忘記密碼，請從[密碼重設入口網站](https://passwordreset.microsoftonline.com/)或遵循[重設公司或學校密碼](active-directory-passwords-update-your-own-password.md)一文中的步驟來重設密碼。
+- 如果您遺失或忘記密碼，請從[密碼重設入口網站](https://passwordreset.microsoftonline.com/)或遵循[重設公司或學校密碼](active-directory-passwords-update-your-own-password.md)一文中的步驟來重設密碼。
 
-- 在[無法登入 Microsoft 帳戶](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)一文中，取得登入問題的疑難排解秘訣和說明。
+- 在[無法登入 Microsoft 帳戶](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)一文中取得登入問題的疑難排解秘訣和說明。

@@ -8,17 +8,18 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d2d5e717154d16cc5579c1495aff9c1eebf54b17
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: f0537af684632a08a39e3e681900d62238365073
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132388"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280972"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>如何將 AI 擴充的欄位對應至可搜尋的索引
 
-在本文中，您可以了解如何將擴充的輸入欄位對應至可搜尋索引中的輸出欄位。 一旦具備[定義的技能集](cognitive-search-defining-skillset.md)，即必須將直接提供值之任何技能的輸出欄位，對應至搜尋索引中的指定欄位。 將內容從擴充的文件移至索引需要欄位對應。
+在本文中，您可以了解如何將擴充的輸入欄位對應至可搜尋索引中的輸出欄位。 一旦具備[定義的技能集](cognitive-search-defining-skillset.md)，即必須將直接提供值之任何技能的輸出欄位，對應至搜尋索引中的指定欄位。 
 
+將內容從擴充的檔移至索引時，需要輸出欄位對應。  擴充的檔其實是一種資訊的樹狀結構，即使索引中有複雜類型的支援，有時您可能會想要將資訊從擴充的樹狀結構轉換成更簡單的類型（例如，字串陣列）。 輸出欄位對應可讓您透過簡維資訊來執行資料圖形轉換。
 
 ## <a name="use-outputfieldmappings"></a>使用 outputFieldMappings
 若要對應欄位，請將 `outputFieldMappings` 新增至您的索引子定義，如下所示：
@@ -62,13 +63,71 @@ Content-Type: application/json
     ]
 }
 ```
-對於每個輸出欄位對應，請設定擴充欄位的名稱 (sourceFieldName)，以及索引中參考的欄位名稱 (targetFieldName)。
 
-sourceFieldName 中的路徑可以代表一個元素或多個元素。 在上述範例中，```/document/content/sentiment``` 代表單一數值，而 ```/document/content/organizations/*/description``` 代表數個組織描述。 如果有數個元素，這些元素會「壓平合併」至包含每個元素的陣列。 更具體地說，對於 ```/document/content/organizations/*/description``` 範例，[描述] 欄位中的資料在進行編製索引之前，看起來像描述的平面陣列：
+針對每個輸出欄位對應，設定擴充的檔樹狀結構（Sourcefieldname 路徑）中的資料位置，以及索引中所參考之欄位的名稱（targetFieldName）。
+
+## <a name="flattening-information-from-complex-types"></a>從複雜類型簡維資訊 
+
+sourceFieldName 中的路徑可以代表一個元素或多個元素。 在上述範例中，```/document/content/sentiment``` 代表單一數值，而 ```/document/content/organizations/*/description``` 代表數個組織描述。 
+
+如果有數個元素，這些元素會「壓平合併」至包含每個元素的陣列。 
+
+更具體地說，對於 ```/document/content/organizations/*/description``` 範例，[描述] 欄位中的資料在進行編製索引之前，看起來像描述的平面陣列：
 
 ```
  ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]
 ```
+
+這是一項重要的原則，因此我們將提供另一個範例。 假設您在擴充樹狀結構中有複雜類型的陣列。 假設有一個名為 customEntities 的成員，其中包含複雜類型的陣列，如下所述。
+
+```json
+"document/customEntities": 
+[
+    {
+        "name": "heart failure",
+        "matches": [
+            {
+                "text": "heart failure",
+                "offset": 10,
+                "length": 12,
+                "matchDistance": 0.0
+            }
+        ]
+    },
+    {
+        "name": "morquio",
+        "matches": [
+            {
+                "text": "morquio",
+                "offset": 25,
+                "length": 7,
+                "matchDistance": 0.0
+            }
+        ]
+    }
+    //...
+]
+```
+
+讓我們假設您的索引有一個名為 ' 疾病 ' 的欄位，其類型為 Collection （Edm. String），您想要在其中儲存實體的每個名稱。 
+
+這可以使用 "\*" 符號輕鬆完成，如下所示：
+
+```json
+    "outputFieldMappings": [
+        {
+            "sourceFieldName": "/document/customEntities/*/name",
+            "targetFieldName": "diseases"
+        }
+    ]
+```
+
+這項作業只會將 customEntities 元素的每個名稱「簡維」成單一字串陣列，如下所示：
+
+```json
+  "diseases" : ["heart failure","morquio"]
+```
+
 ## <a name="next-steps"></a>後續步驟
 一旦您將擴充欄位對應至可搜尋欄位，即可為每個可搜尋欄位將欄位屬性設定為[索引定義的一部分](search-what-is-an-index.md)。
 

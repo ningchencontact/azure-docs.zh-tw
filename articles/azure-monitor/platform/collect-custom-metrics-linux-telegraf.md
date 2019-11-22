@@ -1,6 +1,6 @@
 ---
 title: 使用 InfluxData Telegraf 代理程式收集 Linux VM 的自訂計量
-description: 使用 InfluxData Telegraf 代理程式收集 Linux VM 的自訂計量
+description: 有關如何在 Azure 中的 Linux VM 上部署 InfluxData Telegraf 代理程式，以及設定代理程式以將計量發佈至 Azure 監視器的指示。
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 05cc1dcb2a6fa4e7790fa57cd2136d21d94b8a0b
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 4e8783d500ed7dd6e8e5d518d2a4fbe5e5e1e276
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200518"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305295"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>使用 InfluxData Telegraf 代理程式收集 Linux VM 的自訂計量
 

@@ -3,12 +3,12 @@ title: 瞭解適用于 AKS 引擎的 Azure 原則
 description: 瞭解 Azure 原則如何使用 CustomResourceDefinitions，並從閘道管理員 v3 開啟原則代理程式，以使用 AKS 引擎來管理叢集。
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 904575680b62233ad5ec7422abbf66cf57dc4e11
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 2d1ae33755dcb52c5fe65ec46f0d02e090f6f417
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072056"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267259"
 ---
 # <a name="understand-azure-policy-for-aks-engine"></a>瞭解 AKS 引擎 Azure 原則
 
@@ -282,6 +282,6 @@ kubectl logs gatekeeper-controller-manager-0 -n $NAMESPACE
 - 檢閱[原則定義結構](definition-structure.md)。
 - 檢閱[了解原則效果](effects.md)。
 - 瞭解如何以程式設計[方式建立原則](../how-to/programmatically-create.md)。
-- 瞭解如何[取得合規性資料](../how-to/getting-compliance-data.md)。
+- 瞭解如何[取得合規性資料](../how-to/get-compliance-data.md)。
 - 瞭解如何[補救不符合規範的資源](../how-to/remediate-resources.md)。
 - 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

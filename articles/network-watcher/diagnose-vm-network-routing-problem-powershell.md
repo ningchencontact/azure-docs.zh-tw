@@ -1,5 +1,6 @@
 ---
-title: 診斷虛擬機器網路路由問題 - Azure PowerShell | Microsoft Docs
+title: 診斷 VM 網路路由問題-Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: 在本文章中，您將了解如何使用 Azure 網路監看員的下一個躍點功能，以診斷虛擬機器網路路由問題。
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,24 +18,24 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 08d273ce6e6ecb1b10d3c39a0954d430a3cb674a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81e2af329661d485b2d189e9a1f70b50bd6d4b7d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730743"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276119"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>診斷虛擬機器網路路由問題 - Azure PowerShell
 
 在本文章中，您將部署虛擬機器 (VM)，然後檢查送至 IP 位址和 URL 的通訊。 您可判斷通訊失敗的原因及其解決方式。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇要安裝在本機使用 PowerShell，本文需要 Azure PowerShell`Az`模組。 若要尋找已安裝的版本，請執行 `Get-Module -ListAvailable Az`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell，本文需要 Azure PowerShell `Az` 模組。 若要尋找已安裝的版本，請執行 `Get-Module -ListAvailable Az`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 
 
 
@@ -82,9 +83,9 @@ $networkWatcher = New-AzNetworkWatcher `
 
 ### <a name="use-next-hop"></a>使用下一個躍點
 
-Azure 會自動建立通往預設目的地的路由。 您可以建立覆寫預設路由的自訂路由。 有時候，自訂路由可能會導致通訊失敗。 若要測試從 VM 路由，請使用[Get AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop)命令來判斷下一個路由的躍點，當流量的目的地的特定位址。
+Azure 會自動建立通往預設目的地的路由。 您可以建立覆寫預設路由的自訂路由。 有時候，自訂路由可能會導致通訊失敗。 若要測試來自 VM 的路由，請使用[AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop)命令來判斷流量以特定位址為目標時的下一個路由躍點。
 
-測試從 VM 輸出至 www.bing.com 其中一個 IP 位址的通訊：
+測試從 VM 輸出至 www.bing.com 的其中一個 IP 位址的通訊：
 
 ```azurepowershell-interactive
 Get-AzNetworkWatcherNextHop `
@@ -110,7 +111,7 @@ Get-AzNetworkWatcherNextHop `
 
 ## <a name="view-details-of-a-route"></a>檢視路由的詳細資料
 
-若要分析進一步路由傳送，檢閱 網路介面的有效路由[Get AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)命令：
+若要進一步分析路由，請使用[AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)命令來檢查網路介面的有效路由：
 
 ```azurepowershell-interactive
 Get-AzEffectiveRouteTable `
@@ -143,6 +144,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文章中，您已建立 VM 並診斷來自 VM 的網路路由。 您已了解 Azure 會建立數個預設路由，並測試通往兩個不同目的地的路由。 深入了解 [Azure 中的路由](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)以及如何[建立自訂路由](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route)。
+在本文章中，您已建立 VM 並診斷來自 VM 的網路路由。 您已了解 Azure 會建立數個預設路由及測試通往兩個不同目的地的路由。 深入了解[Azure 中的路由](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)以及如何[建立自訂路由](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route)。
 
 針對輸出 VM 連線，您也可以使用網路監看員的[連線疑難排解](network-watcher-connectivity-powershell.md)功能，以判斷 VM 與端點之間的延遲，以及所允許和拒絕的網路流量。 您可以使用網路監看員的連線監視功能，以監視某段時間內 VM 與端點 (例如 IP 位址或 URL) 之間的通訊情形。 若要了解方法，請參閱[監視網路連線](connection-monitor.md)。

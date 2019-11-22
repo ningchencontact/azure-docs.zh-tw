@@ -1,6 +1,6 @@
 ---
-title: 設定文字訊息的安全性資訊（預覽）-Azure AD
-description: 如何設定安全性資訊以使用簡訊和行動裝置來驗證您的身分識別。
+title: 設定文字訊息做為您的驗證方法-Azure AD
+description: 如何設定您的安全性資訊（預覽）頁面，以使用文字訊息作為驗證方法來驗證您的身分識別。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a4be99a84964b7a55448692385d027262ecfec3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2fe8610d7551b63ed613153ba1ee0e6f8e73b5a5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803845"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278912"
 ---
-# <a name="set-up-security-info-preview-to-use-text-messaging"></a>將安全性資訊 (預覽) 設定為使用簡訊
+# <a name="set-up-text-messaging-as-your-verification-method"></a>設定文字訊息做為您的驗證方法
 
 您可以遵循下列步驟來新增雙因素驗證和密碼重設方法。 在您首次將此設定好之後，即可返回 [安全性資訊] 頁面來新增、更新或刪除安全性資訊。
 
@@ -39,7 +39,7 @@ ms.locfileid: "73803845"
 
 ### <a name="to-set-up-text-messages"></a>設定簡訊
 
-1. 登入您的公司或學校帳戶，然後前往 https://myprofile.microsoft.com/ 頁面。
+1. 登入您的公司或學校帳戶，然後移至您的 https://myprofile.microsoft.com/ 頁面。
 
     ![[我的設定檔] 頁面，顯示醒目提示的 [安全性資訊] 連結](media/security-info/securityinfo-myprofile-page.png)
 
@@ -115,6 +115,6 @@ ms.locfileid: "73803845"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您已遺失或忘記密碼，請從[密碼重設入口網站](https://passwordreset.microsoftonline.com/)或遵循[重設公司或學校密碼](active-directory-passwords-update-your-own-password.md)一文中的步驟來重設密碼。
+- 如果您遺失或忘記密碼，請從[密碼重設入口網站](https://passwordreset.microsoftonline.com/)或遵循[重設公司或學校密碼](active-directory-passwords-update-your-own-password.md)一文中的步驟來重設密碼。
 
-- 在[無法登入 Microsoft 帳戶](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)一文中，取得登入問題的疑難排解秘訣和說明。
+- 在[無法登入 Microsoft 帳戶](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)一文中取得登入問題的疑難排解秘訣和說明。

@@ -16,16 +16,16 @@ ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00b3e6f84051aec97691d2bedda6665d3c9c0ceb
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 1ca26c7277f69a817a48884acce116e3a66608ff
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125070"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275725"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>使用 Microsoft Graph Api 設定布建
 
-Azure 入口網站是一次為個別應用程式設定布建的便利方式。 但是，如果您要建立應用程式的數個（甚至上百個）實例，使用 Microsoft Graph Api 來自動化建立和設定應用程式會變得更容易。 本文概述如何透過 Api 將布建設定自動化。 這個方法通常用於[Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on)之類的應用程式。
+Azure 入口網站是一次為個別應用程式設定布建的便利方式。 但是，如果您要建立應用程式的數個（甚至上百個）實例，使用 Microsoft Graph Api 來自動化建立和設定應用程式會變得更容易。 本文概述如何透過 Api 將布建設定自動化。 這個方法通常用於[Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso)之類的應用程式。
 
 **使用 Microsoft Graph Api 將布建設定自動化的步驟總覽**
 

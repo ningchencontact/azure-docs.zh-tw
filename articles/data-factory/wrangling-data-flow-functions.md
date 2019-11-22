@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3274641f7b118e13b3ed727f609ce7471fd66b54
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e2517ec4a02a5d61fb3ce1d9ca9ffa2b5f4e8bf8
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682295"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287034"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>整頓資料流程中的轉換函數
 
@@ -81,12 +81,21 @@ Azure Data Factory 中的整頓資料流程可讓您以雲端規模進行無程�
 
 保留和移除頂端、保留範圍（對應的 M 函數、僅支援計數，而不是條件： [FirstN](https://docs.microsoft.com/powerquery-m/table-firstn)、[資料表. Skip](https://docs.microsoft.com/powerquery-m/table-skip)、 [RemoveFirstN](https://docs.microsoft.com/powerquery-m/table-removefirstn)、 [table. Range](https://docs.microsoft.com/powerquery-m/table-range)、[德盧斯](https://docs.microsoft.com/powerquery-m/table-minn)、 [table. MaxN](https://docs.microsoft.com/powerquery-m/table-maxn)）
 
-## <a name="known-unsupported-functionality"></a>已知不支援的功能
+## <a name="known-unsupported-functions"></a>已知不支援的函式
 
-以下是不支援的函式。 這份清單並不完整，而且可能隨時變更。
-* 合併資料行（可透過 AddColumn 來達成）
-* 分割資料行
-* 附加查詢
-* [使用第一個資料列做為標頭] 和 [使用標頭做為第一個資料列]
+| 函數 | Status |
+| -- | -- |
+| 資料表. Table.promoteheaders | 不支援。 藉由在資料集中設定「第一個資料列做為標頭」，可以達到相同的結果。 |
+| 資料表. CombineColumns | 這是不直接支援的常見案例，但可以藉由加入新的資料行來串連兩個指定的資料行來達成。  例如，AddColumn （RemoveEmailColumn，"Name"，each [FirstName] & "" & [LastName]） |
+| 資料表. Table.transformcolumntypes | 這在大部分情況下都受到支援。 下列案例不受支援：將字串轉換為貨幣類型、將字串轉換成時間類型，並將字串轉換成百分比類型。 |
+| 資料表. NestedJoin | 只要執行聯結，就會導致驗證錯誤。 必須擴充資料行，才能使其正常執行。 |
+| 資料表。相異 | 不支援移除重複的資料列。 |
+| 資料表. RemoveLastN | 不支援移除底部資料列。 |
+| 資料表. 資料列計數 | 不支援，但是可以透過加入資料行（其中包含空白的 [條件] 資料行），然後在該資料行上使用 [群組依據] 來達成。 資料表。支援群組。 | 
+| 資料列層級錯誤處理 | 目前不支援資料列層級的錯誤處理。 例如，若要篩選出資料行中的非數值，其中一種方法是將文字資料行轉換成數位。 無法轉換的每個資料格都會處於錯誤狀態，而且需要進行篩選。 此案例在整頓資料流程中是不可行的。 |
+| 資料表. 轉置 | 不支援 |
+| 資料表. Pivot | 不支援 |
 
 ## <a name="next-steps"></a>後續步驟
+
+瞭解如何[建立整頓資料流程](wrangling-data-flow-tutorial.md)。

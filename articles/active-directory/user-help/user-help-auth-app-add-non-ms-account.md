@@ -1,6 +1,6 @@
 ---
-title: 將非 Microsoft 帳戶新增至驗證器應用程式 Azure AD
-description: 如何將非 Microsoft 帳戶 (例如 Google、Facebook 或 GitHub 的帳戶) 新增至 Microsoft Authenticator 應用程式以進行雙因素驗證。
+title: 將非 Microsoft 帳戶新增至 Microsoft Authenticator 應用程式-Azure AD
+description: 將非 Microsoft 帳戶（例如 Google 或 Facebook）新增至 Microsoft Authenticator 應用程式，以在使用雙因素驗證時驗證您的身分識別。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62d866e9bf543577887ee99173a52202fcfec632
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c01377280c4e4c97b729e27c22496c388652924f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803670"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278888"
 ---
-# <a name="add-your-non-microsoft-accounts"></a>新增您的非 Microsoft 帳戶
+# <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>將非 Microsoft 帳戶新增至 Microsoft Authenticator 應用程式
 
 將非 Microsoft 帳戶 (例如 Google、Facebook 或 GitHub 的帳戶) 新增至 Microsoft Authenticator 應用程式以進行雙因素驗證。 Microsoft Authenticator 應用程式適用於任何使用雙因素驗證的應用程式，以及任何支援限時單次密碼 (TOTP) 標準的帳戶。
 

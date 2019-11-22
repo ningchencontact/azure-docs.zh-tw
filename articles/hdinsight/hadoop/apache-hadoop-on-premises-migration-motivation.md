@@ -2,18 +2,18 @@
 title: 優點：將內部部署 Apache Hadoop 遷移至 Azure HDInsight
 description: 了解將內部部署 Hadoop 叢集遷移到 Azure HDInsight 的動機和優點。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
-ms.author: hrasheed
-ms.openlocfilehash: 7f67b85b66748ae98cbb520bf4ebc11a2eef9efb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/15/2019
+ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494932"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267315"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 動機和優點
 
@@ -45,7 +45,7 @@ Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆
 
 - **安全與合規性** - HDInsight 可讓您使用  [Azure 虛擬網路](../hdinsight-plan-virtual-network-deployment.md)、 [加密](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)，以及與  [Azure Active Directory](../domain-joined/hdinsight-security-overview.md) 整合來保護企業資料資產。 HDInsight 也符合最熱門的產業和政府 [合規性標準](https://azure.microsoft.com/overview/trusted-cloud)。
 
-- **簡化的版本管理** - Azure HDInsight 會管理 Hadoop 生態系統元件的版本，並保持它們在最新狀態。 軟體更新對於內部部署通常是複雜的程序。
+- **簡化版本管理**-Azure HDInsight 管理 Hadoop 生態系統元件的版本，並將其保持在最新狀態。 軟體更新對於內部部署通常是複雜的程序。
 
 - **針對特定工作負載最佳化的小型叢集，其元件之間的相依性更少** - 典型的內部部署 Hadoop 設定成使用多用途的單一叢集。 使用 Azure HDInsight 可以建立工作負載特定的叢集。 針對特定工作負載建立叢集，可移除維護單一且複雜度不斷增加之叢集的複雜性。
 
@@ -101,9 +101,9 @@ Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆
 |主節點設定|m/y、cpu、disk 等|
 |資料節點設定|m/y、cpu、disk 等|
 |邊緣節點設定|m/y、cpu、disk 等|
-|是否使用 HDFS 加密？|是|
+|是否使用 HDFS 加密？|yes|
 |高可用性|HDFS HA、中繼存放區 HA|
-|災害復原 / 備份|是否備份叢集？|  
+|嚴重損壞修復/備份|是否備份叢集？|  
 |相依於叢集的系統|SQL Server、Teradata、Power BI、MongoDB|
 |協力廠商整合|Tableau，GridGain、Qubole、Informatica、Splunk|
 |**主題**：**安全性**|||
@@ -167,8 +167,8 @@ Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆
 |---|---|---|
 |**問題**|**範例**|**回答**|
 | 慣用區域|美國東部||
-|是否慣用 VNet？|是||
-|是否需要 HA / DR？|是||
+|是否慣用 VNet？|yes||
+|是否需要 HA / DR？|yes||
 |是否與其他雲端服務整合？|ADF、CosmosDB||
 |**主題**：**資料移動**  |||
 |初始載入喜好設定|DistCp、Data box、ADF、WANDisco||
@@ -177,25 +177,25 @@ Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆
 |**主題**：**監視與警示** |||
 |使用 Azure 監視器與警示或整合協力廠商監視|使用 Azure 監視器與警示||
 |**主題**：**安全性喜好設定** |||
-|私人且受保護的資料管線？|是||
-|是否使用網域加入叢集 (ESP)？|     是||
-|是否將內部部署 AD 同步處理至雲端？|     是||
+|私人且受保護的資料管線？|yes||
+|是否使用網域加入叢集 (ESP)？|     yes||
+|是否將內部部署 AD 同步處理至雲端？|     yes||
 |要同步處理的 AD 使用者數目？|          100||
-|是否將密碼同步套雲端？|    是||
-|僅雲端使用者？|                 是||
+|是否將密碼同步套雲端？|    yes||
+|僅雲端使用者？|                 yes||
 |是否需要 MFA？|                       否|| 
-|是否符合資料授權需求？|  是||
-|是否使用角色型存取控制？|        是||
-|是否需要稽核？|                  是||
-|是否使用待用資料加密？|          是||
-|是否使用傳輸中資料加密？|       是||
+|是否符合資料授權需求？|  yes||
+|是否使用角色型存取控制？|        yes||
+|是否需要稽核？|                  yes||
+|是否使用待用資料加密？|          yes||
+|是否使用傳輸中資料加密？|       yes||
 |**主題**：**架構重新設計喜好設定** |||
 |單一叢集或特定叢集類型|特定叢集類型||
 |共置儲存體或遠端儲存體？|遠端儲存體||
 |是否因資料儲存在遠端，所以叢集大小較小？|較小的叢集大小||
 |是否使用多個較小的叢集而不是單一大型叢集？|使用多個較小的叢集||
-|是否使用遠端中繼存放區？|是||
-|是否在不同叢集之間共用中繼存放區？|是||
+|是否使用遠端中繼存放區？|yes||
+|是否在不同叢集之間共用中繼存放區？|yes||
 |是否將工作負載解構？|使用 Spark 作業取代 Hive 作業||
 |是否使用 ADF 資料協調流程？|否||
 

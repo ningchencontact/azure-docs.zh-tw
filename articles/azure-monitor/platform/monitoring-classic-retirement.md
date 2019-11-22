@@ -1,6 +1,6 @@
 ---
-title: Azure 監視器中的整合警示和監視取代了傳統警示和監視
-description: 傳統監視服務和功能 (之前顯示在 Azure 入口網站的 [警示 (傳統)] 底下) 的淘汰概觀。 傳統警示和監視包含適用於 Azure 資源的傳統計量警示、適用於 Application Insights 的傳統計量警示、適用於 Application Insights 的傳統 WebTest 警示、適用於 Application Insights 的傳統自訂計量型警示，以及適用於 Application Insights SmartDetection v1 的傳統警示
+title: Azure 監視器中 & 監視的傳統警示更新
+description: 傳統監視服務和功能的淘汰說明，先前的 Azure 入口網站在 [警示（傳統）] 下顯示。
 author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: ea50a4f10aa1d794f875cb1eb9601774bec146cd
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: f4639d46a796924b4fe1dcbb46735abea128388f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676903"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307093"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Azure 監視器中的整合警示和監視取代了傳統警示和監視
 
 Azure 監視器現在已成為整合的完整堆疊監視服務，其現在可跨資源支援「一個計量」和「一個警示」；如需詳細資訊，請參閱[關於新 Azure 監視器的部落格文章](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/)。新的 Azure 監視和警示平台經過建置，變得更快速、更聰明，且可擴充，以跟上雲端運算日益擴張的版圖，並和 Microsoft Intelligent Cloud 的原則保持一致。 
 
-隨著新的 Azure 監視和警示平臺準備就緒，我們即將淘汰「傳統」監視和警示平臺（裝載于 Azure 警示的 [*查看傳統警示*] 區段中），**將于 azure 公用雲端中的2019年8月起被取代**. [Azure Government 雲端](../../azure-government/documentation-government-welcome.md)和[Azure 中國的世紀](https://docs.azure.cn/)不會受到影響。
+隨著新的 Azure 監視和警示平臺準備就緒，我們即將淘汰「傳統」監視和警示平臺（裝載于 Azure 警示的 [*查看傳統警示*] 區段內）**會在 azure 公用雲端中的2019年8月被取代**。 [Azure Government 雲端](../../azure-government/documentation-government-welcome.md)和[Azure 中國的世紀](https://docs.azure.cn/)不會受到影響。
 
 > [!NOTE]
-> 由於遷移工具的推出延遲, 傳統警示遷移的淘汰日期已從2019年6月30日最初宣佈的日期[延長到2019年8月31日](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/)。
+> 由於遷移工具的推出延遲，傳統警示遷移的淘汰日期已從2019年6月30日最初宣佈的日期[延長到2019年8月31日](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/)。
 
  ![Azure 入口網站中的傳統警示](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
@@ -80,7 +80,7 @@ Azure 監視器的較新計量平台現在可強化來自 Application Insights �
 
 下列是您會產生警示規則費用的情況範例：
 
-- 在新的 Azure 監視器平台上，超出免費單位所建立的任何新 (非移轉) 警示規則
+- 在新的 Azure 監視器平台上，超出免費單位所建立的任何新的 (非遷移) 警示規則
 - 超出 Azure 監視器所含免費單位而擷取和保留的任何資料
 - Application Insights 所執行的任何多測試 Web 測試
 - 超出 Azure 監視器所含免費單位而儲存的任何自訂計量

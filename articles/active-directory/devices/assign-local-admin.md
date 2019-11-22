@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5372bf853092ea55952b45a1300d0f979f1b086c
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: b222e67d06bc9fa0fabcc0bc3c0ddd2c6855fbc3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062266"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271298"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>如何管理已加入 Azure AD 的裝置上的本機系統管理員群組
 
@@ -48,7 +48,7 @@ Azure AD 也會將 Azure AD 裝置管理員角色新增至本機系統管理員�
 在 Azure 入口網站中，您可以在 [裝置] 頁面上管理裝置管理員角色。 若要開啟 [裝置] 頁面：
 
 1. 以全域管理員或裝置管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-1. 在左側導覽列上，按一下 [Azure Active Directory]。 
+1. 搜尋並選取 [Azure Active Directory]。
 1. 在 [管理] 區段中，按一下 [裝置]。
 1. 在 [裝置] 頁面上，按一下 [裝置設定]。
 
@@ -82,7 +82,7 @@ Azure AD 也會將 Azure AD 裝置管理員角色新增至本機系統管理員�
 - 如果您的租用戶使用者是從內部部署 Active Directory 同步處理的，請使用 `net localgroup administrators /add "Contoso\username"`。
 - 如果您的租用戶使用者是在 Azure AD 中建立的，請使用 `net localgroup administrators /add "AzureAD\UserUpn"`
 
-## <a name="considerations"></a>考量 
+## <a name="considerations"></a>注意事項 
 
 您無法將群組指派給裝置管理員角色，而只能指派個別使用者。
 

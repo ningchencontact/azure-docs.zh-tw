@@ -1,28 +1,24 @@
 ---
 title: 使用自訂 traefik 輸入控制器並設定 HTTPS
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 08/13/2019
 ms.topic: conceptual
 description: 瞭解如何設定 Azure Dev Spaces 以使用自訂 traefik 輸入控制器，並使用該輸入控制器來設定 HTTPS
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
-ms.openlocfilehash: c015fe8e7108f07d66d2464c4f8b6287e8f54446
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s
+ms.openlocfilehash: a7f8684c8236e69c16bedf0186ed7ed17bbc8462
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582314"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280066"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>使用自訂 traefik 輸入控制器並設定 HTTPS
 
 本文說明如何將 Azure Dev Spaces 設定為使用自訂 traefik 輸入控制器。 本文也會說明如何將該自訂輸入控制器設定為使用 HTTPS。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* Azure 訂用帳戶。 如果您沒有帳戶，您可以建立[免費帳戶][azure-account-create]。
+* Azure 訂閱。 如果您沒有帳戶，您可以建立[免費帳戶][azure-account-create]。
 * [已安裝 Azure CLI][az-cli]。
 * [已啟用 Azure Dev Spaces 的 Azure Kubernetes Service （AKS）][qs-cli]叢集。
 * 已安裝[kubectl][kubectl] 。
@@ -213,13 +209,13 @@ helm upgrade traefik stable/traefik --namespace traefik --values traefik-values.
 > [!NOTE]
 > 可能需要幾分鐘的時間，新的 traefik 服務版本才會啟動。 您可以使用 `kubectl get pods --namespace traefik --watch`來檢查進度。
 
-流覽至*dev/azureuser1*子空間中的範例應用程式，並注意您會重新導向至使用 HTTPS。 另請注意，頁面會載入，但瀏覽器會顯示一些錯誤。 開啟瀏覽器主控台會顯示與嘗試載入 HTTP 資源的 HTTPS 頁面相關的錯誤。 例如：
+流覽至*dev/azureuser1*子空間中的範例應用程式，並注意您會重新導向至使用 HTTPS。 另請注意，頁面會載入，但瀏覽器會顯示一些錯誤。 開啟瀏覽器主控台會顯示與嘗試載入 HTTP 資源的 HTTPS 頁面相關的錯誤。 例如︰
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
 ```
 
-若要修正此錯誤，請將[BikeSharingWeb/azds][azds-yaml]更新為使用*kubernetes.io/ingress.class*的*traefik* ，並將您的自訂網域用於 *$ （hostSuffix）* 。 例如：
+若要修正此錯誤，請將[BikeSharingWeb/azds][azds-yaml]更新為使用*kubernetes.io/ingress.class*的*traefik* ，並將您的自訂網域用於 *$ （hostSuffix）* 。 例如︰
 
 ```yaml
 ...

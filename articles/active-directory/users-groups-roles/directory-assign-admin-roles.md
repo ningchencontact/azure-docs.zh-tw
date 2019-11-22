@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc9565f44fdb868bc45d2f99de1d4036e1d5d123
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 5eefac10e2ab196affc4c4148348d19959fcfeec
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74181151"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74266906"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -238,6 +238,7 @@ ms.locfileid: "74181151"
 >- [Azure AD 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)-全域讀取器無法讀取企業應用程式的布建模式。
 >- [M365 系統管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage)-全域讀取者無法讀取客戶加密箱要求。 您在 M365 系統管理中心的左窗格中，找不到 [**支援**] 下的 [**客戶加密箱要求**] 索引標籤。
 >- [M365 安全性中心](https://security.microsoft.com/homepage)-全域讀取者無法讀取敏感度和保留標籤。 您在 M365 的 [安全性中心] 的左窗格中，找不到 [**敏感度卷**標]、[**保留標籤**] 和 [**標籤分析**]
+>- [Office 安全性 & 合規性中心](https://protection.microsoft.com)-全域讀取器無法讀取 SCC audit 記錄檔或執行內容搜尋。
 >- [小組系統管理中心](https://admin.teams.microsoft.com)-全域讀者無法讀取**小組生命週期**、**分析 & 報告**、 **IP 電話裝置管理**和**應用程式類別目錄**。
 >- [特殊許可權[存取管理（PAM）](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) ] 不支援 [全域讀取者] 角色。
 >- [Azure 資訊保護](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)-全域讀取器僅支援[集中報告](https://docs.microsoft.com/azure/information-protection/reports-aip)，而當您的 Azure AD 組織不在[統一標籤平臺](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)上時。

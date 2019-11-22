@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3fd97e33c88e7767e1d9b230792aea675a744f27
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: c16abd02dfef5fb8b74cd5c0cafa97e5f29cc6b2
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619774"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286973"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>已知問題和疑難排解 Azure Machine Learning
 
@@ -25,7 +25,7 @@ ms.locfileid: "73619774"
 
 Azure 計算將從2019年11月開始更新 NCv3 Sku，以支援所有 MPI 執行和版本，以及適用于未裝備虛擬機器的 RDMA 動詞命令。 這將需要短暫的停機時間-請[閱讀更多有關 sr-iov 升級的資訊](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku)。
 
-身為 Azure Machine Learning 管理的計算供應專案（AmlCompute）的客戶，您目前不需要進行任何變更。 根據[更新排程](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku)，您必須在訓練中規劃簡短的休息。 服務會負責更新叢集節點上的 VM 映射，並自動相應增加您的叢集。 一旦升級完成，您就可以使用所有其他 MPI discibutions （例如 OpenMPI 與 Pytorch），除了取得更高的未充分使用頻寬、延遲較低，以及更好的分散式應用程式效能。
+身為 Azure Machine Learning 管理的計算供應專案（AmlCompute）的客戶，您目前不需要進行任何變更。 根據[更新排程](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku)，您必須在訓練中規劃簡短的休息。 服務會負責更新叢集節點上的 VM 映射，並自動相應增加您的叢集。 一旦升級完成，您可以使用其他所有 MPI 散發套件（例如 OpenMPI with Pytorch），除了取得更高的未充分使用頻寬、延遲較低，以及更有效率的分散式應用程式效能。
 
 ## <a name="azure-machine-learning-designer-issues"></a>Azure Machine Learning 設計工具問題
 
@@ -126,7 +126,7 @@ psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
 
 ### <a name="10-iterations-for-automated-machine-learning"></a>> 自動化機器學習服務的10次反復專案
 
-在自動化機器學習設定中，如果您有10個以上的反復專案，請在提交執行時，將 `show_output` 設定為 `False`。
+在自動化機器學習設定中，如果您有10個以上的反復專案，請將 `show_output` 設定為在提交執行時 `False`。
 
 ### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Azure Machine Learning SDK/自動化機器學習的 Widget
 
@@ -202,7 +202,7 @@ Azure Machine Learning 工作區中的某些動作並不會將資訊記錄到__�
 
 ## <a name="webservices-in-azure-kubernetes-service-failures"></a>Azure Kubernetes Service 失敗中的 Webservices 
 
-Azure Kubernetes Service 可以使用 `kubectl` 來連接到叢集，藉以進行許多 webservice 失敗的調試。 您可以藉由執行來取得 Azure Kubernetes Service 叢集的 `kubeconfig.json`
+Azure Kubernetes Service 中的許多 webservice 失敗都可以藉由使用 `kubectl`連接到叢集來進行調試。 您可以執行來取得 Azure Kubernetes Service 叢集的 `kubeconfig.json`
 
 ```bash
 az aks get-credentials -g <rg> -n <aks cluster name>
@@ -236,7 +236,7 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-如果您不再擁有 SSL 憑證和私密金鑰，或使用 Azure Machine Learning 所產生的憑證，您可以使用 `kubectl` 連接到叢集，並將密碼 `azuremlfessl`，藉以卸離叢集之前先抓取檔案。
+如果您不再擁有 SSL 憑證和私密金鑰，或您使用 Azure Machine Learning 所產生的憑證，您可以使用 `kubectl` 連線到叢集並抓取密碼 `azuremlfessl`，在卸離叢集之前先取出檔案。
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
@@ -251,7 +251,7 @@ kubectl get secret/azuremlfessl -o yaml
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors （沒有名為的模組）
 如果您在 Azure ML 中提交實驗時遇到 ModuleErrors，這表示訓練腳本預期會安裝套件，但不會新增。 一旦您提供套件名稱，Azure ML 會在用於定型的環境中安裝套件。 
 
-如果您使用[估算器](concept-azure-machine-learning-architecture.md#estimators)來提交實驗，您可以根據要安裝封裝的來源，在估計工具中透過 `pip_packages` 或 `conda_packages` 參數指定封裝名稱。 您也可以使用 `conda_dependencies_file`or 在 txt 檔案中使用 `pip_requirements_file` 參數，指定具有所有相依性的 yml 檔案。
+如果您使用[估算器](concept-azure-machine-learning-architecture.md#estimators)來提交實驗，您可以根據要安裝封裝的來源，在估計工具中透過 `pip_packages` 或 `conda_packages` 參數指定封裝名稱。 您也可以使用 `conda_dependencies_file`來指定具有所有相依性的 yml 檔案，或使用 `pip_requirements_file` 參數列出 txt 檔案中所有的 pip 需求。
 
 Azure ML 也提供適用于 Tensorflow、PyTorch、Chainer 和 SKLearn 的架構專屬估算器。 使用這些估算器可確保在用於定型的環境中，代表您安裝架構相依性。 如先前所述，您可以選擇指定額外的相依性。 
  
@@ -264,7 +264,7 @@ Azure ML 也提供適用于 Tensorflow、PyTorch、Chainer 和 SKLearn 的架構
 這個例外狀況應該來自您的訓練腳本。 您可以從 Azure 入口網站查看記錄檔，以取得有關未定義的特定名稱或屬性錯誤的詳細資訊。 從 SDK 中，您可以使用 `run.get_details()` 來查看錯誤訊息。 這也會列出針對您的執行所產生的所有記錄檔。 請務必查看您的訓練腳本，並修正錯誤後再重試。 
 
 ### <a name="horovod-is-shutdown"></a>Horovod 已關閉
-在大部分情況下，此例外狀況表示導致 horovod 關閉的其中一個處理常式發生基礎例外狀況。 MPI 作業中的每個排名都會在 Azure ML 中取得專屬的專用記錄檔。 這些記錄檔的名稱為 `70_driver_logs`。 如果是分散式訓練，記錄檔名稱的後面會加上 `_rank`，讓您輕鬆區分記錄檔。 若要找出造成 horovod 關閉的確切錯誤，請流覽所有的記錄檔，並尋找 driver_log 檔案結尾處的 `Traceback`。 其中一個檔案會提供您實際的基礎例外狀況。 
+在大部分情況下，此例外狀況表示導致 horovod 關閉的其中一個處理常式發生基礎例外狀況。 MPI 作業中的每個排名都會在 Azure ML 中取得專屬的專用記錄檔。 這些記錄檔的名稱為 `70_driver_logs`。 在分散式訓練的情況下，記錄檔名稱會加上 `_rank`，讓您輕鬆區分記錄。 若要找出造成 horovod 關閉的確切錯誤，請流覽所有的記錄檔，並尋找 driver_log 檔案結尾處的 `Traceback`。 其中一個檔案會提供您實際的基礎例外狀況。 
 
 ## <a name="labeling-projects-issues"></a>標記專案問題
 

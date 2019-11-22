@@ -1,14 +1,14 @@
 ---
 title: 取得資源變更
-description: 瞭解如何在資源變更時尋找，並取得已變更屬性的清單。
+description: 瞭解如何找出變更資源的時間、取得已變更的屬性清單，以及評估差異。
 ms.date: 10/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 25d900276518e51e80021d1fdb1ac80945eb2d5c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 2ed2c0ef8638744aeaa9f31eded14d1716d891ae
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958766"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74303995"
 ---
 # <a name="get-resource-changes"></a>取得資源變更
 
@@ -168,7 +168,7 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 ```json
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}"
+    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"afterTime\":'2019-05-10T00:00:00.000Z\"}"
 }
 ```
 
@@ -288,4 +288,4 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 
 - 請參閱[入門查詢](../samples/starter.md)中使用的語言。
 - 請參閱 advanced[查詢](../samples/advanced.md)中的 advanced 使用。
-- 深入瞭解如何[探索資源](../concepts/explore-resources.md)。
+- 深入了解如何[探索資源](../concepts/explore-resources.md)。

@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 網路監看員和開放原始碼工具將網路流量模式視覺化 | Microsoft Docs
+title: 使用開放原始碼工具將網路流量模式視覺化
+titleSuffix: Azure Network Watcher
 description: 此頁面描述如何使用網路監看員封包擷取並搭配 Capanalysis，將往返於 VM 的流量模式視覺化。
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3baf73eed09e6880820952b8457526b6c21dd83b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64936013"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277767"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>使用開放原始碼工具將往返於 VM 的網路流量模式視覺化
 
@@ -27,7 +28,7 @@ ms.locfileid: "64936013"
 
 Azure 的網路監看員可讓您在網路上執行封包擷取，以便擷取資料。 本文提供逐步解說，示範如何使用 CapAnalysis 搭配網路監看員，以視覺化和深入探索封包擷取。
 
-## <a name="scenario"></a>狀況
+## <a name="scenario"></a>案例
 
 您在 Azure 的 VM 上部署簡單的 Web 應用程式，而且想要使用開放原始碼工具將網路流量視覺化，以快速識別流程模式和任何可能異常情況。 您可以利用網路監看員取得網路環境的封包擷取，並直接儲存在儲存體帳戶中。 然後，CapAnalysis 可以直接從儲存體 blob 內嵌封包擷取，並將其內容視覺化。
 
@@ -37,7 +38,7 @@ Azure 的網路監看員可讓您在網路上執行封包擷取，以便擷取�
 
 ### <a name="install-capanalysis"></a>安裝 CapAnalysis
 
-若要在虛擬機器上安裝 CapAnalysis，您可以參考此處的官方指示： https://www.capanalysis.net/ca/how-to-install-capanalysis 。
+若要在虛擬機器上安裝 CapAnalysis，您可以參考此處的官方指示： https://www.capanalysis.net/ca/how-to-install-capanalysis。
 若要從遠端存取 CapAnalysis，您必須在 VM 上新增輸入安全性規則，以開啟連接埠 9877。 如需有關在網路安全性群組中建立規則的詳細資訊，請參閱[在現有 NSG 中建立規則](../virtual-network/manage-network-security-group.md#create-a-security-rule)。 成功新增規則之後，您應該能夠從 `http://<PublicIP>:9877` 存取CapAnalysis
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>使用 Azure 網路監看員啟動封包擷取工作階段
@@ -76,7 +77,7 @@ CapAnalysis 提供各種選項將封包擷取視覺化，各以不同的觀點�
 
 1. Geomap
 
-    這個窗格提供您與您的網路流量的地圖檢視使用色彩調整每個國家/地區的流量。 您可以選取反白顯示的國家/地區來檢視其他流程統計資料，例如傳送和接收來自 Ip，在該國家/地區中資料的比例。
+    此窗格會提供您網路流量的地圖視圖，其中的色彩會調整為每個國家/地區的流量量。 您可以選取反白顯示的國家/地區來查看額外的流量統計資料，例如從該國家/地區的 Ip 傳送和接收的資料比例。
 
     ![geomap][8]
 

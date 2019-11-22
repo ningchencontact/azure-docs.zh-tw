@@ -1,5 +1,5 @@
 ---
-title: 了解 B2B 共同作業-Azure Active Directory 中的使用者權杖 |Microsoft Docs
+title: 瞭解 B2B 共同作業中的使用者權杖-Azure AD
 description: Azure Active Directory B2B 共同作業的使用者權杖參考資料
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c2e872c108e19e21258610edd62899b1029fcd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08dbb81b91def2fd464ecc85c2d2eaf45ed189d5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65767176"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271783"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>了解 Azure AD B2B 共同作業中的使用者權杖
 

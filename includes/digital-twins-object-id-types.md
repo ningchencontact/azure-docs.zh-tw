@@ -7,23 +7,23 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 09/30/2019
+ms.date: 11/20/2019
 ms.custom: include file
-ms.openlocfilehash: 12d4278171d43fdaf8613a1c91bdbffc269adc56
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: e46041a33c12b3fcb40e5a04de11108471e59855
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949065"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307204"
 ---
 `objectIdType` (或 **物件識別碼類型**) 係指給予角色的身分識別類型。 除了 `DeviceId` 和 `UserDefinedFunctionId` 類型之外，物件識別碼類型還會對應至 Azure Active Directory 物件的屬性。
 
 下表包含 Azure Digital Twins 中支援的物件識別碼類型：
 
-| Type | 描述 |
+| 在系統提示您進行確認時，輸入 | 描述 |
 | --- | --- |
 | UserId | 會為使用者指派角色。 |
-| DeviceId | 會為裝置指派角色。 |
+| deviceId | 會為裝置指派角色。 |
 | DomainName | 會為網域名稱指派角色。 每個具有指定網域名稱的使用者，都會有對應角色的存取權限。 |
 | TenantId | 會為租用戶指派角色。 每個屬於指定 Azure AD 租用戶識別碼的使用者，都會有對應角色的存取權限。 |
 | ServicePrincipalId | 會為服務主體物件識別碼指派角色。 |

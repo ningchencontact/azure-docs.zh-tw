@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Active Directory 中撰寫屬性對應的運算式 | Microsoft Docs
+title: 在 Azure AD 中撰寫屬性對應的運算式
 description: 了解在 Azure Active Directory 中自動化佈建 SaaS 應用程式物件的期間，如何使用運算式對應將屬性值轉換成可接受的格式。
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd7abdeef7c13c272a0e4bbf2075c6eda8f73a07
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 5f1880a79f7fdb27b407ecb7ed1b761493fe850d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162385"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274014"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>在 Azure Active Directory 中撰寫屬性對應的運算式
 當您設定佈建到 SaaS 應用程式時，您可以指定的其中一種屬性對應類型是運算式對應。 您必須撰寫類似指令碼的運算式，以便讓您將使用者的資料轉換成 SaaS 應用程式更能接受的格式。
@@ -29,29 +29,29 @@ ms.locfileid: "71162385"
 
 * 整個運算式必須以函式定義，由函式名稱後面接著以括號括住的引數組成： <br>
   *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
-* 您可以在函式內互相巢狀函式。 例如: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
+* 您可以在函式內互相巢狀函式。 例如︰ <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * 您可以將三種不同類型的引數傳入函式：
   
   1. 屬性，必須以方括弧括住。 例如：[attributeName]
-  2. 字串常數，必須以雙引號括住。 例如: "United States"
-  3. 其他函式。 例如: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* 對於字串常數，如果您在字串中需要反斜線 ( \ ) 或引號 ( " ) ，則必須使用反斜線 ( \ ) 符號逸出。 例如: "Company name:\\"Contoso\\""
+  2. 字串常數，必須以雙引號括住。 例如："United States"
+  3. 其他函式。 例如： FunctionOne （`<<argument1>>`、FunctionTwo （`<<argument2>>`））
+* 對於字串常數，如果您在字串中需要反斜線 ( \ ) 或引號 ( " ) ，則必須使用反斜線 ( \ ) 符號逸出。 例如： "Company name： \\" Contoso\\""
 
 ## <a name="list-of-functions"></a>函式的清單
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
 ---
-### <a name="append"></a>附加
+### <a name="append"></a>Append
 **函式：**<br> Append(source, suffix)
 
 **說明：**<br> 取出 source 字串值並在結尾附加尾碼。
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 在系統提示您進行確認時，輸入 | 注意事項 |
 | --- | --- | --- | --- |
-| **source** |必要項 |String |通常為 source 物件的屬性名稱。 |
-| **suffix** |必要項 |String |您想要附加至 source 值結尾的字串。 |
+| **source** |必要 |字串 |通常為 source 物件的屬性名稱。 |
+| **suffix** |必要 |字串 |您想要附加至 source 值結尾的字串。 |
 
 ---
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -61,14 +61,14 @@ ms.locfileid: "71162385"
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 在系統提示您進行確認時，輸入 | 注意事項 |
 | --- | --- | --- | --- |
-| **source** |必要項 |String |通常為 source 物件的屬性名稱。 |
-| **inputFormat** |必要項 |String |source 值的預期格式。 如需支援的格式，請參閱[https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)。 |
-| **outputFormat** |必要項 |String |輸出日期的格式。 |
+| **source** |必要 |字串 |通常為 source 物件的屬性名稱。 |
+| **inputFormat** |必要 |字串 |source 值的預期格式。 如需支援的格式，請參閱[https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)。 |
+| **outputFormat** |必要 |字串 |輸出日期的格式。 |
 
 ---
-### <a name="join"></a>加入
+### <a name="join"></a>Join
 **函式：**<br> Join(separator, source1, source2, …)
 
 **說明：**<br> Join() 類似 Append()，不過前者可以將多個 **source** 字串值合併成單一字串，且每個值會以 **separator** 字串分隔。
@@ -77,10 +77,10 @@ ms.locfileid: "71162385"
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 在系統提示您進行確認時，輸入 | 注意事項 |
 | --- | --- | --- | --- |
-| **separator** |必要項 |String |用來分隔串連成一個字串的 source 值的字串。 如果不需要分隔符號，可以是 ""。 |
-| **source1  … sourceN** |必要，變動次數 |String |要聯結在一起的字串值。 |
+| **separator** |必要 |字串 |用來分隔串連成一個字串的 source 值的字串。 如果不需要分隔符號，可以是 ""。 |
+| **source1  … sourceN** |必要，變動次數 |字串 |要聯結在一起的字串值。 |
 
 ---
 ### <a name="mid"></a>Mid
@@ -90,11 +90,11 @@ ms.locfileid: "71162385"
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 在系統提示您進行確認時，輸入 | 注意事項 |
 | --- | --- | --- | --- |
-| **source** |必要項 |String |通常為屬性的名稱。 |
-| **start** |必要項 |integer |子字串在 **source** 字串中起始位置的索引。 字串第一個字元的索引為 1，第二個字元的索引為 2，依此類推。 |
-| **length** |必要項 |integer |子字串的長度。 如果長度超出 **source** 字串結尾，函式會傳回從 **start** 索引一直到 **source** 字串結尾的子字串。 |
+| **source** |必要 |字串 |通常為屬性的名稱。 |
+| **開始** |必要 |integer |子字串在 **source** 字串中起始位置的索引。 字串第一個字元的索引為 1，第二個字元的索引為 2，依此類推。 |
+| **length** |必要 |integer |子字串的長度。 如果長度超出 **source** 字串結尾，函式會傳回從 **start** 索引一直到 **source** 字串結尾的子字串。 |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -104,24 +104,24 @@ ms.locfileid: "71162385"
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 在系統提示您進行確認時，輸入 | 注意事項 |
 | --- | --- | --- | --- |
-| **source** |必要項 |String | 通常是名字或姓氏屬性。 |
+| **source** |必要 |字串 | 通常是名字或姓氏屬性。 |
 
 ---
-### <a name="not"></a>否
+### <a name="not"></a>Not
 **函式：**<br> Not(source)
 
 **說明：**<br> 翻轉 **source** 的布林值。 如果 **source** 值為 "*True*"，則傳回 "*False*"。 反之則傳回 "*True*"。
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 在系統提示您進行確認時，輸入 | 注意事項 |
 | --- | --- | --- | --- |
-| **source** |必要項 |Boolean String |預期的 **source** 值為 "True" 或 "False"。 |
+| **source** |必要 |Boolean String |預期的 **source** 值為 "True" 或 "False"。 |
 
 ---
-### <a name="replace"></a>取代
+### <a name="replace"></a>將
 **函式：**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **說明：**<br>
@@ -146,15 +146,15 @@ ms.locfileid: "71162385"
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 在系統提示您進行確認時，輸入 | 注意事項 |
 | --- | --- | --- | --- |
-| **source** |必要項 |String |通常是來自**來源**物件的屬性名稱。 |
-| **oldValue** |選擇性 |String |在 **source** 或 **template** 中要被取代的值。 |
-| **regexPattern** |選擇性 |String |在 **source**中要被取代的值的規則運算式模式。 或者，使用**replacementPropertyName**時，會從**replacementPropertyName**中取出值的模式。 |
-| **regexGroupName** |選擇性 |String |**regexPattern**內的群組名稱。 只有在使用**replacementPropertyName**時，我們會將此群組的值從**ReplacementPropertyName**解壓縮為**replacementValue** 。 |
-| **replacementValue** |選擇性 |String |要取代舊值的新值。 |
-| **replacementAttributeName** |選擇性 |String |要用於取代值的屬性名稱 |
-| **template** |選用 |String |當提供**範本**值時，我們會尋找範本內部的**oldValue** ，並將其取代為**來源**值。 |
+| **source** |必要 |字串 |通常是來自**來源**物件的屬性名稱。 |
+| **oldValue** |選用 |字串 |在 **source** 或 **template** 中要被取代的值。 |
+| **regexPattern** |選用 |字串 |在 **source**中要被取代的值的規則運算式模式。 或者，使用**replacementPropertyName**時，會從**replacementPropertyName**中取出值的模式。 |
+| **regexGroupName** |選用 |字串 |**regexPattern**內的群組名稱。 只有在使用**replacementPropertyName**時，我們會將此群組的值從**ReplacementPropertyName**解壓縮為**replacementValue** 。 |
+| **replacementValue** |選用 |字串 |要取代舊值的新值。 |
+| **replacementAttributeName** |選用 |字串 |要用於取代值的屬性名稱 |
+| **template** |選用 |字串 |當提供**範本**值時，我們會尋找範本內部的**oldValue** ，並將其取代為**來源**值。 |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -171,9 +171,9 @@ ms.locfileid: "71162385"
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 在系統提示您進行確認時，輸入 | 注意事項 |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |至少需要 2 個，沒有上限 |String | 要評估的唯一值產生規則清單。 |
+| **uniqueValueRule1  … uniqueValueRuleN** |至少需要 2 個，沒有上限 |字串 | 要評估的唯一值產生規則清單。 |
 
 
 ---
@@ -184,22 +184,22 @@ ms.locfileid: "71162385"
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 在系統提示您進行確認時，輸入 | 注意事項 |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |必要項 |String |**[appRoleAssignments]** 物件。 |
+| **[appRoleAssignments]** |必要 |字串 |**[appRoleAssignments]** 物件。 |
 
 ---
-### <a name="split"></a>分割
+### <a name="split"></a>Split
 **函式：**<br> Split(source, delimiter)
 
 **說明：**<br> 使用指定的分隔符號，將字串分割成多重值陣列。
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 在系統提示您進行確認時，輸入 | 注意事項 |
 | --- | --- | --- | --- |
-| **source** |必要項 |String |**source** 值。 |
-| **delimiter** |必要項 |String |指定將用來分割字串的字元 (範例：",") |
+| **source** |必要 |字串 |**source** 值。 |
+| **delimiter** |必要 |字串 |指定將用來分割字串的字元 (範例：",") |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -209,9 +209,9 @@ ms.locfileid: "71162385"
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 在系統提示您進行確認時，輸入 | 注意事項 |
 | --- | --- | --- | --- |
-| **source** |必要項 |String |**source** 值。 |
+| **source** |必要 |字串 |**source** 值。 |
 
 ---
 ### <a name="switch"></a>Switch
@@ -221,12 +221,12 @@ ms.locfileid: "71162385"
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 在系統提示您進行確認時，輸入 | 注意事項 |
 | --- | --- | --- | --- |
-| **source** |必要項 |String |**Source** 值。 |
-| **defaultValue** |選擇性 |String |當 source 不符合任何 key 時要使用的預設值。 可以是空字串 ("")。 |
-| **key** |必要項 |String |要與 **source** 值比較的 **key**。 |
-| **value** |必要項 |String |符合 key 的 **source** 的取代值。 |
+| **source** |必要 |字串 |**Source** 值。 |
+| **defaultValue** |選用 |字串 |當 source 不符合任何 key 時要使用的預設值。 可以是空字串 ("")。 |
+| **key** |必要 |字串 |要與 **source** 值比較的 **key**。 |
+| **value** |必要 |字串 |符合 key 的 **source** 的取代值。 |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -236,10 +236,10 @@ ms.locfileid: "71162385"
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 在系統提示您進行確認時，輸入 | 注意事項 |
 | --- | --- | --- | --- |
-| **source** |必要項 |String |通常為 source 物件的屬性名稱 |
-| **culture** |選擇性 |String |根據 RFC 4646，文化特性 (Culture) 名稱的格式為 *languagecode2-country/regioncode2*，其中 *languagecode2* 是兩個字母的語言代碼，而 *country/regioncode2* 則是兩個字母的子文化特性代碼。 範例包括 ja-JP 代表日文 (日本)，en-US 代表英文 (美國)。 如果沒有兩個字母的語言代碼可供使用，則會使用衍生自 ISO 639-2 的三個字母代碼。|
+| **source** |必要 |字串 |通常為 source 物件的屬性名稱 |
+| **culture** |選用 |字串 |根據 RFC 4646，文化特性 (Culture) 名稱的格式為 *languagecode2-country/regioncode2*，其中 *languagecode2* 是兩個字母的語言代碼，而 *country/regioncode2* 則是兩個字母的子文化特性代碼。 範例包括 ja-JP 代表日文 (日本)，en-US 代表英文 (美國)。 如果沒有兩個字母的語言代碼可供使用，則會使用衍生自 ISO 639-2 的三個字母代碼。|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -249,10 +249,10 @@ ms.locfileid: "71162385"
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 在系統提示您進行確認時，輸入 | 注意事項 |
 | --- | --- | --- | --- |
-| **source** |必要項 |String |通常為 source 物件的屬性名稱。 |
-| **culture** |選擇性 |String |根據 RFC 4646，文化特性 (Culture) 名稱的格式為 *languagecode2-country/regioncode2*，其中 *languagecode2* 是兩個字母的語言代碼，而 *country/regioncode2* 則是兩個字母的子文化特性代碼。 範例包括 ja-JP 代表日文 (日本)，en-US 代表英文 (美國)。 如果沒有兩個字母的語言代碼可供使用，則會使用衍生自 ISO 639-2 的三個字母代碼。|
+| **source** |必要 |字串 |通常為 source 物件的屬性名稱。 |
+| **culture** |選用 |字串 |根據 RFC 4646，文化特性 (Culture) 名稱的格式為 *languagecode2-country/regioncode2*，其中 *languagecode2* 是兩個字母的語言代碼，而 *country/regioncode2* 則是兩個字母的子文化特性代碼。 範例包括 ja-JP 代表日文 (日本)，en-US 代表英文 (美國)。 如果沒有兩個字母的語言代碼可供使用，則會使用衍生自 ISO 639-2 的三個字母代碼。|
 
 ## <a name="examples"></a>範例
 ### <a name="strip-known-domain-name"></a>刪去已知的網域名稱
@@ -298,8 +298,8 @@ NormalizeDiacritics([givenName])
 
 **範例輸入/輸出：** <br>
 
-* **輸入** (givenName)："Zoë"
-* **輸出**："Zoe"
+* **輸入** (givenName)： "Zoë"
+* **輸出**：「Zoe」
 
 ### <a name="split-a-string-into-a-multi-valued-array"></a>將字串分割成多重值陣列
 您必須採用以逗號分隔的字串清單，然後將其分割成可插入到多重值屬性 (例如 Salesforce 的 PermissionSets 屬性) 的陣列。 在此範例中，已在 Azure AD 的 extensionAttribute5 中填入權限集合清單。
@@ -309,7 +309,7 @@ Split([extensionAttribute5], ",")
 
 **範例輸入/輸出：** <br>
 
-* **輸入** (extensionAttribute5)："PermissionSetOne, PermisionSetTwo"
+* **輸入**（extensionAttribute5）： "PermissionSetOne，PermisionSetTwo"
 * **輸出**：["PermissionSetOne", "PermissionSetTwo"]
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>以特定格式將日期輸出為字串
@@ -348,7 +348,7 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 **範例輸入/輸出：**
 
 * **輸入** (mailNickname: "john_doe72"
-* **輸出**："72"
+* **輸出**： "72"
 
 ### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>將產生的 userPrincipalName (UPN) 值轉換成小寫
 在以下範例中，會將 PreferredFirstName 與 PreferredLastName 來源欄位串連來產生 UPN 值，然後 ToLower 函式會對產生的字串進行操作以將所有字元轉換成小寫。 
@@ -377,7 +377,7 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 * **輸入** (PreferredFirstName)："John"
 * **輸入** (PreferredLastName)："Smith"
 * **輸出**：如果 John.Smith@contoso.com 的 UPN 值尚未存在於目錄中，則為 "John.Smith@contoso.com"
-* **輸出**：如果 John.Smith@contoso.com 的 UPN 值已存在於目錄中，則為 "J.Smith@contoso.com"
+* **輸出**：如果 J.Smith@contoso.com 的 UPN 值已存在於目錄中，則為 "John.Smith@contoso.com"
 * **輸出**：如果以上兩個 UPN 值已存在於目錄中，則為 "Jo.Smith@contoso.com"
 
 ## <a name="related-articles"></a>相關文章

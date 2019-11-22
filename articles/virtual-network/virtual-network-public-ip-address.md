@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 5e71f30723826a18f10d4c8e1b9d34e356c9962b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 9071596d384d09bf6cbc46316a7f33c69c7b32e9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114632"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278460"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>建立、變更或刪除公用 IP 位址
 
@@ -45,7 +45,7 @@ ms.locfileid: "74114632"
 
 ## <a name="create-a-public-ip-address"></a>建立公用 IP 位址
 
-1. 在入口網站的左上角，選取 [+ 建立資源]。
+1. 從 Azure 入口網站功能表或 **[首頁]** 頁面，選取 [建立資源]。
 2. 在 [搜尋 Marketplace] 方塊中，輸入「公用 IP 位址」。 當「公用 IP 位址」出現於搜尋結果時，將其選取。
 3. 在 [公用 IP 位址] 下方，選取 [建立]。
 4. 在 [建立公用 IP 位址] 下方，輸入或選取下列設定的值，然後選取 [建立]：

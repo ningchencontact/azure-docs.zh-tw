@@ -3,12 +3,12 @@ title: 瞭解 Azure Kubernetes Service 的 Azure 原則
 description: 瞭解 Azure 原則如何使用 Rego 和開啟原則代理程式來管理 Azure Kubernetes Service 上的叢集。
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: dbac1ee762066fb59cd57c04839666026a2bd89b
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: d8d5c1ebeded62f475804e4e704f823aba2c10eb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959789"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279385"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>瞭解 Azure Kubernetes Service 的 Azure 原則
 
@@ -257,6 +257,6 @@ Azure 原則附加元件是 Kubernetes 控制器/容器，會將記錄保留在 
 - 檢閱[原則定義結構](definition-structure.md)。
 - 檢閱[了解原則效果](effects.md)。
 - 瞭解如何以程式設計[方式建立原則](../how-to/programmatically-create.md)。
-- 瞭解如何[取得合規性資料](../how-to/getting-compliance-data.md)。
+- 瞭解如何[取得合規性資料](../how-to/get-compliance-data.md)。
 - 瞭解如何[補救不符合規範的資源](../how-to/remediate-resources.md)。
 - 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 網路監看員安全性群組檢視分析網路安全性 - REST API | Microsoft Docs
+title: 分析網路安全性-安全性群組視圖-Azure REST API
+titleSuffix: Azure Network Watcher
 description: 本文會說明如何使用 PowerShell，利用安全性群組檢視分析虛擬機器的安全性。
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 86fff39605fa91c1b09c1547dd0efa97b8fd26cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f11e288c28274e08fdabe7fee02a099410611872
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687855"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277902"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>使用 REST API，利用安全性群組檢視分析虛擬機器的安全性
 
@@ -39,7 +40,7 @@ ms.locfileid: "64687855"
 
 此案例假設您已依照[建立網路監看員](network-watcher-create.md)中的步驟建立網路監看員。 此案例也假設已有具有有效虛擬機器的資源群組可供使用。
 
-## <a name="scenario"></a>狀況
+## <a name="scenario"></a>案例
 
 本文涵蓋的案例會擷取有效且已套用指定虛擬機器的安全性規則。
 
@@ -53,7 +54,7 @@ armclient login
 
 執行下列程式碼以傳回虛擬機器。下列程式碼需要變數︰
 
-- **subscriptionId** -也可以使用擷取訂用帳戶 id **Get AzSubscription** cmdlet。
+- **subscriptionId** -訂用帳戶識別碼也可以使用 get-azsubscription Cmdlet 來**取得**。
 - **resourceGroupName** - 包含虛擬機器的資源群組名稱。
 
 ```powershell
@@ -63,7 +64,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-所需的資訊是回應中 `Microsoft.Compute/virtualMachines`類型下方的**識別碼**，如下列範例所示︰
+所需的資訊是回應中 **類型下方的**識別碼`Microsoft.Compute/virtualMachines`，如下列範例所示︰
 
 ```json
 ...,

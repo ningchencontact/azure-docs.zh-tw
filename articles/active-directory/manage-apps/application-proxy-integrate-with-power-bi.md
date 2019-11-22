@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure AD 應用程式 Proxy 啟用 Power BI 的遠端存取 |Microsoft Docs
+title: 使用 Azure AD 應用程式 Proxy 啟用 Power BI 的遠端存取
 description: 涵蓋如何將內部部署 Power BI 與 Azure AD 應用程式 Proxy 進行整合的基本概念。
 services: active-directory
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845ffda22cae9464870786cc5997b9f5521c03e1
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 9faa1fffde5553168c8b76ea40cebc001c1e27b2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795634"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275515"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 啟用 Power BI 行動版的遠端存取
 
 本文討論如何使用 Azure AD 應用程式 Proxy，讓 Power BI 行動應用程式連接到 Power BI 報表伺服器（PBIRS）和 SQL Server Reporting Services （SSRS）2016和更新版本。 透過這項整合，離開公司網路的使用者可以從 Power BI 的行動應用程式存取其 Power BI 報告，並受到 Azure AD 驗證的保護。 這種保護包括條件式存取和多重要素驗證等[安全性優點](application-proxy-security.md#security-benefits)。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文假設您已部署報表服務並[啟用應用程式 Proxy](application-proxy-add-on-premises-application.md)。
 

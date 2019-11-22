@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4a0a005d096702b864c770675a427184547a2b44
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a86c809e239a84b2ec6910c47a17b935c440c741
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185711"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287004"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>針對 Azure 認知搜尋中的常見索引子錯誤和警告進行疑難排解
 
@@ -291,3 +291,19 @@ ms.locfileid: "74185711"
 
 ## <a name="warning-the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>警告：資料變更偵測原則已設定為使用索引鍵資料行 ' X '
 [資料變更偵測原則](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies)具有其用來偵測變更之資料行的特定需求。 其中一個需求是每次變更來源專案時，就會更新此資料行。 另一個需求是此資料行的新值大於先前的值。 索引鍵資料行無法滿足這項需求，因為每個更新都不會變更。 若要解決此問題，請為變更偵測原則選取不同的資料行。
+
+<a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"/>
+
+## <a name="warning-document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>警告：檔文字看起來是 UTF-16 編碼，但遺漏了位元組順序標記
+
+在剖析之前，[索引子剖析模式](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters)必須知道文字的編碼方式。 編碼文字的兩個最常見方式是 UTF-16 和 UTF-8。 UTF-8 是可變長度的編碼，其中的每個字元長度介於1個位元組和4個位元組之間。 UTF-16 是固定長度的編碼，其中每個字元的長度為2個位元組。 UTF-16 有兩個不同的變體：「大 endian」和「小 endian」。 文字編碼取決於「位順序標記」，這是文字之前的一系列位元組。
+
+| 編碼 | 位元組順序標記 |
+| --- | --- |
+| UTF-16 Big Endian | 0xFE 0xFF |
+| UTF-16 小 Endian | 0xFF 0xFE |
+| UTF-8 | 0xEF 0xBB 0xBF |
+
+如果沒有位元組順序標記，則會假設文字會編碼為 UTF-8。
+
+若要解決此警告，請判斷此 blob 的文字編碼方式，並新增適當的位元組順序標記。

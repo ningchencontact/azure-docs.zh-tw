@@ -1,5 +1,5 @@
 ---
-title: 使用適用于 Azure 儲存體開發和測試的 Azurite 開放原始碼模擬器（預覽）
+title: 使用 Azurite 模擬器進行本機 Azure 儲存體開發
 description: Azurite 開放原始碼模擬器（預覽）提供免費的本機環境來測試您的 Azure 儲存體應用程式。
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,14 +7,14 @@ ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: e611afd6f10154636eb2e0dd08437b4f7468d6b3
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0421f49b31eba688542adc0a5b62e1cf75028836
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309544"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269464"
 ---
-# <a name="use-the-azurite-open-source-emulator-for-azure-storage-development-and-testing-preview"></a>使用適用于 Azure 儲存體開發和測試的 Azurite 開放原始碼模擬器（預覽）
+# <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>使用 Azurite 模擬器進行本機 Azure 儲存體開發和測試（預覽）
 
 Azurite 版本3.2 開放原始碼模擬器（預覽）提供免費的本機環境來測試您的 Azure blob 和佇列儲存體應用程式。 當您對應用程式在本機運作的方式感到滿意時，請切換至使用雲端中的 Azure 儲存體帳戶。 模擬器提供 Windows、Linux 和 MacOS 的跨平臺支援。 Azurite v3 支援 Azure Blob 服務所執行的 Api。
 
@@ -39,15 +39,15 @@ Azurite 是未來的儲存體模擬器平臺。 Azurite 會取代[Azure 儲存�
 
 延伸模組支援下列 Visual Studio Code 命令：
 
-   * **Azurite開始** -啟動所有 Azurite 服務
-   * **Azurite關閉**所有 Azurite 服務
-   * **Azurite清除** -重設所有 Azurite services 持續性資料
-   * **Azurite啟動 blob 服務** -啟動 blob 服務
-   * **Azurite關閉 blob 服務** -關閉 blob 服務
-   * **Azurite清除 blob 服務** -清除 blob 服務
-   * **Azurite啟動佇列服務** -啟動佇列服務
-   * **Azurite關閉佇列服務** -關閉佇列服務
-   * **Azurite清除佇列服務** -清除佇列服務
+   * **Azurite：開始**-啟動所有 Azurite 服務
+   * **Azurite： close** -關閉所有 Azurite 服務
+   * **Azurite：清除**-重設所有 Azurite 服務持續性資料
+   * **Azurite：啟動 Blob 服務**-啟動 blob 服務
+   * **Azurite：關閉 Blob 服務**-關閉 blob 服務
+   * **Azurite：清除 Blob 服務**-清除 blob 服務
+   * **Azurite：啟動佇列服務**-啟動佇列服務
+   * **Azurite：關閉佇列服務**-關閉佇列服務
+   * **Azurite：清除佇列服務**-清除佇列服務
 
 若要在 Visual Studio Code 內設定 Azurite，請選取 [擴充功能] 窗格。 選取 [ **Azurite**] 的 [**管理**] （齒輪）圖示。 選取 [**設定延伸模組設定**]。
 
@@ -55,13 +55,13 @@ Azurite 是未來的儲存體模擬器平臺。 Azurite 會取代[Azure 儲存�
 
 支援下列設定：
 
-   * **AzuriteBlob 主機** -Blob 服務接聽端點。 預設設定為127.0.0.1。
-   * **AzuriteBlob 埠** -Blob 服務接聽埠。 預設通訊埠為10000。
-   * **AzuriteDebug** -將 debug 記錄輸出到 Azurite 通道。 預設值為 **false**。
-   * **Azurite位置** -工作區位置路徑。 預設為 Visual Studio Code 工作資料夾。
-   * **Azurite佇列主機** -佇列服務接聽端點。 預設設定為127.0.0.1。
-   * **Azurite佇列埠** -佇列服務接聽埠。 預設通訊埠為10001。
-   * **Azurite無**訊息-無訊息模式會停用存取記錄。 預設值為 **false**。
+   * **Azurite： Blob 主機**-Blob 服務接聽端點。 預設設定為127.0.0.1。
+   * **Azurite： Blob 埠**-Blob 服務接聽埠。 預設通訊埠為10000。
+   * **Azurite： debug** -將 Debug 記錄輸出至 Azurite 通道。 預設值為 **false**。
+   * **Azurite： location** -工作區位置路徑。 預設為 Visual Studio Code 工作資料夾。
+   * **Azurite： Queue Host** -佇列服務接聽端點。 預設設定為127.0.0.1。
+   * **Azurite：佇列埠**-佇列服務接聽埠。 預設通訊埠為10001。
+   * **Azurite：無**訊息-無訊息模式會停用存取記錄。 預設值為 **false**。
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>使用 NPM 安裝及執行 Azurite
 
@@ -83,7 +83,7 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 
 **執行 Azurite Docker 映射**：
 
-下列命令會執行 Azurite Docker 映射。 參數`-p 10000:10000`會將要求從主機電腦的埠10000重新導向至 Docker 實例。
+下列命令會執行 Azurite Docker 映射。 `-p 10000:10000` 參數會將要求從主機電腦的埠10000重新導向至 Docker 實例。
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
@@ -91,7 +91,7 @@ docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
 
 **指定工作區位置**：
 
-在下列範例中， `-v c:/azurite:/data`參數會將*c：/azurite*指定為 azurite 保存的資料位置。 在執行 Docker 命令之前，必須先建立目錄（ *c：/azurite*）。
+在下列範例中，`-v c:/azurite:/data` 參數會將*c：/azurite*指定為 azurite 保存的資料位置。 在執行 Docker 命令之前，必須先建立目錄（ *c：/azurite*）。
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
@@ -290,13 +290,13 @@ azurite -d path/debug.log
 
 您可以使用下列帳戶名稱和金鑰搭配 Azurite。 這是舊版 Azure 儲存體模擬器所使用的相同知名帳戶和金鑰。
 
-* 帳戶名稱：`devstoreaccount1`
-* 帳戶金鑰：`Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
+* 帳戶名稱： `devstoreaccount1`
+* 帳戶金鑰： `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
 > [!NOTE]
 > 除了 SharedKey authentication，Azurite 也支援帳戶和服務 SAS 驗證。 當容器設定為允許公用存取時，也可以使用匿名存取。
 
-### <a name="connection-string"></a>連接字串
+### <a name="connection-string"></a>Connection string
 
 從您的應用程式連線到 Azurite 最簡單的方式，就是在應用程式的設定檔中設定參考快捷方式*UseDevelopmentStorage = true*的連接字串。 以下是*app.config*檔案中的連接字串範例：
 

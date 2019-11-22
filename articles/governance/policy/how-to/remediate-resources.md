@@ -3,12 +3,12 @@ title: 補救不相容的資源
 description: 本指南會逐步引導您在 Azure 原則中，修復不符合原則的資源。
 ms.date: 09/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 53ca21e4b8a1f3e7973706acd10601593efc3448
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8f1d263286a7504e7a8234ebd944bbbee69c5303
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959492"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267349"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>補救不符合 Azure 原則規範的資源
 
@@ -187,5 +187,5 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 - 檢閱 [Azure 原則定義結構](../concepts/definition-structure.md)。
 - 檢閱[了解原則效果](../concepts/effects.md)。
 - 瞭解如何以程式設計[方式建立原則](programmatically-create.md)。
-- 瞭解如何[取得合規性資料](getting-compliance-data.md)。
+- 瞭解如何[取得合規性資料](get-compliance-data.md)。
 - 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

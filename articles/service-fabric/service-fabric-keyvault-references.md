@@ -8,18 +8,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: atsenthi
-ms.openlocfilehash: b0f1a081727721ea0325276cf9edd52c6d71fb6b
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 96da89a00b054767553b0ed3d8debf30c344dd62
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243856"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307331"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Service Fabric 應用程式的 KeyVaultReference 支援（預覽）
 
 建立雲端應用程式時，常見的挑戰是如何安全地儲存應用程式所需的秘密。 例如，您可能會想要將容器儲存機制認證儲存在 keyvault 中，並在應用程式資訊清單中參考它。 Service Fabric KeyVaultReference 使用 Service Fabric 受控身分識別，並可讓您輕鬆地參考 keyvault 的秘密。 本文的其餘部分將詳細說明如何使用 Service Fabric KeyVaultReference，並包含一些一般的使用方式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 應用程式的受控識別（MIT）
     
@@ -37,7 +37,7 @@ ms.locfileid: "73243856"
         ...
     {
         "parameters":  [
-            "name":  "CentralSecretService"
+            "name":  "CentralSecretService",
                 {
                     "name":  "IsEnabled",
                     "value":  "true"

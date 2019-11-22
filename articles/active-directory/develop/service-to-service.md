@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 11/20/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8f95dfd6410ae22a4596ac7d5d72add57e8029d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 49081ba72559b021d2e4846e7d9feffd61ae7b36
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373883"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284905"
 ---
 # <a name="service-to-service-apps"></a>服務對服務應用程式
 
@@ -40,7 +40,7 @@ ms.locfileid: "72373883"
 
 ![精靈或伺服器應用程式到 Web API 圖表](./media/authentication-scenarios/daemon_server_app_to_web_api.png)
 
-## <a name="dprotocol-flow"></a>DProtocol 流程
+## <a name="protocol-flow"></a>通訊協定流程
 
 ### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>採用 OAuth 2.0 用戶端認證授與的應用程式識別碼
 
@@ -59,11 +59,11 @@ ms.locfileid: "72373883"
 
 ## <a name="code-samples"></a>程式碼範例
 
-請參閱「精靈或伺服器應用程式到 Web API」案例的程式碼範例。 歡迎您經常回來看看，因為我們會隨時新增新的範例。 [伺服器或精靈應用程式到 Web API](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+請參閱 Daemon 或伺服器應用程式到 Web API 案例的程式碼範例：[伺服器或背景工作應用程式至 WEB api](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
 ## <a name="app-registration"></a>應用程式註冊
 
-* 單一租用戶 - 無論是應用程式識別或委派的使用者識別的情況，精靈或伺服器應用程式都必須註冊在 Azure AD 的相同目錄中。 Web API 可以設定為公開一組權限，用以限制精靈或伺服器應用程式對其資源的存取權。 如果使用委派的使用者識別類型，伺服器應用程式需要從 Azure 入口網站的 [其他應用程式的權限] 下拉式功能表中，選取所需的權限。 如果使用應用程式識別類型，則不需要此步驟。
+* 單一租用戶 - 無論是應用程式識別或委派的使用者識別的情況，精靈或伺服器應用程式都必須註冊在 Azure AD 的相同目錄中。 Web API 可以設定為公開一組權限，用以限制精靈或伺服器應用程式對其資源的存取權。 如果使用委派的使用者識別類型，伺服器應用程式必須選取所需的許可權。 在應用程式註冊的 [ **API 許可權**] 頁面中，選取 [**新增許可權**] 並選擇 [API 系列] 之後，選擇 [**委派的許可權**]，然後選取您的許可權。 如果使用應用程式識別類型，則不需要此步驟。
 * 多租用戶 - 首先，設定精靈或伺服器應用程式來指出它運作所需的權限。 當目的地目錄中的使用者或系統管理員同意應用程式時 (使得應用程式可供組織使用)，這份必要權限清單會顯示在對話方塊中。 有些應用程式只需要使用者層級權限，亦即組織中的任何使用者都可以同意應用程式。 其他應用程式需要系統管理員層級權限，亦即組織中的使用者無法同意應用程式。 只有目錄管理員才能對需要此權限層級的應用程式表示同意。 當使用者或系統管理員同意時，這兩個 Web API 都會註冊在他們的目錄中。
 
 ## <a name="token-expiration"></a>權杖到期

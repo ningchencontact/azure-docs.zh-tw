@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: d91ac6d50faaadf560ae7ff9e9cce5f7bc4b180a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 47e66bfc4550372b571b7263ef5b7f2f149712dc
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803922"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307315"
 ---
 # <a name="supported-platforms"></a>支援的平台 
 
@@ -41,7 +41,7 @@ ms.locfileid: "72803922"
 
 ### Windows server 作業系統<a name="os-windows"></a>
 
-|OS|支援 Azure 資訊安全中心|支援與 Microsoft Defender ATP 整合|
+|作業系統|支援 Azure 資訊安全中心|支援與 Microsoft Defender ATP 整合|
 |:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
@@ -92,8 +92,8 @@ Azure 資訊安全中心支援下列 Azure PaaS 資源：
 * CosmosDB
 * 儲存體帳戶
 * App Service
-* 函式
-* 雲端服務
+* 函數
+* 服務雲端
 * VNet
 * 子網路
 * NIC
@@ -102,17 +102,19 @@ Azure 資訊安全中心支援下列 Azure PaaS 資源：
 * Service fabric 帳戶
 * 自動化帳戶
 * 負載平衡器
-* Search
+* 搜尋
 * 服務匯流排命名空間
 * 串流分析
 * 事件中樞命名空間
 * 邏輯應用程式
 * Redis
 * Data Lake Analytics
-* Data Lake Store
+* 資料湖存放區
 * 金鑰保存庫
 
 若要深入瞭解上述 PaaS 資源清單所支援的功能，請參閱[paas 服務支援的功能](security-center-services.md#paas-services)。
+
+也支援位於 Azure Stack 中的虛擬機器保護。 如需資訊安全中心與 Azure Stack 整合的詳細資訊，請參閱[將您的 Azure Stack 虛擬機器上架到資訊安全中心](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack)。
 
 ## <a name="next-steps"></a>後續步驟
 
