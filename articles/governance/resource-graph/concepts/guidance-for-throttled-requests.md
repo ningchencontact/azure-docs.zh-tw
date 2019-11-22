@@ -1,14 +1,14 @@
 ---
 title: 節流要求指引
-description: 瞭解如何建立更好的查詢，以避免要求受到節流處理 Azure Resource Graph。
-ms.date: 10/18/2019
+description: 瞭解如何以平行方式進行批次、錯開、分頁和查詢，以避免要求受到 Azure Resource Graph 的節流。
+ms.date: 11/21/2019
 ms.topic: conceptual
-ms.openlocfilehash: 651a5daa9e7e19a5dc157ba0cfa17da2c8abe3db
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4405cce567a75f83823cc2d441b2a59985c196ad
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038335"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304676"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Azure Resource Graph 中的節流要求指引
 
@@ -237,4 +237,4 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 
 - 請參閱[入門查詢](../samples/starter.md)中使用的語言。
 - 請參閱 advanced[查詢](../samples/advanced.md)中的 advanced 使用。
-- 深入瞭解如何[探索資源](explore-resources.md)。
+- 深入了解如何[探索資源](explore-resources.md)。

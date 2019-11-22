@@ -1,5 +1,5 @@
 ---
-title: 建立及使用計算目標進行模型定型
+title: 使用計算目標進行模型定型
 titleSuffix: Azure Machine Learning
 description: 設定機器學習服務模型定型的定型環境 (計算目標)。 您可以輕鬆地在定型環境之間切換。 在本機開始定型作業。 如果您需要相應放大，請切換至雲端式計算目標。
 services: machine-learning
@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3237272c7bdab5a798e84117147254a3471f5c6d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d628bbe889617464fe97695a17687d5f02cc61bc
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489568"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305326"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>設定及使用計算目標進行模型定型 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "73489568"
 
 
 >[!NOTE]
-> 本文中的程式碼已進行過 Azure Machine Learning SDK 1.0.39 版的測試。
+> 本文中的程式碼已使用 Azure Machine Learning SDK 版本1.0.74 進行測試。
 
 ## <a name="compute-targets-for-training"></a>訓練用的計算目標
 
@@ -105,9 +105,6 @@ Azure Machine Learning Compute 有預設限制，例如可配置的核心數目�
 #### <a name="run-based-creation"></a>執行式建立
 
 您可以建立 Azure Machine Learning Compute 做為執行階段的計算目標。 系統會自動為您的執行建立計算。 執行完成之後，就會自動刪除計算。 
-
-> [!NOTE]
-> 若要指定要使用的節點數目上限，您通常會將 `node_count` 設定為節點數目。 目前有（04/04/2019）個 bug，導致無法運作。 因應措施是使用執行設定的 `amlcompute._cluster_max_node_count` 屬性。 例如， `run_config.amlcompute._cluster_max_node_count = 5`。
 
 > [!IMPORTANT]
 > Azure Machine Learning Compute 的執行式建立目前為「預覽」狀態。 如果您使用自動化超參數調整或自動化機器學習，請勿使用回合式建立。 若要使用超參數微調或自動化機器學習，請改為建立[持續性計算](#persistent)目標。
@@ -315,7 +312,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 1. 填寫表單。 針對必要的屬性 (特別是 **VM 系列**) 和**節點上限**提供值，以便向上微調計算。  
 
-1. 選取 [ __建立__]。
+1. 選取 [建立]。
 
 
 1. 從清單選取計算目標以檢視建立作業的狀態：
@@ -380,7 +377,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 > [!IMPORTANT]
 > 當您提交定型回合時，會建立包含定型腳本之目錄的快照集，並傳送到計算目標。 它也會在您的工作區中儲存為實驗的一部分。 如果您變更檔案並再次提交執行，則只會上傳變更的檔案。
 >
-> 若要防止檔案包含在快照中，請在目錄中建立[.gitignore](https://git-scm.com/docs/gitignore)或 `.amlignore` 檔案，並在其中新增檔案。 `.amlignore` 檔案使用與[.gitignore](https://git-scm.com/docs/gitignore)檔案相同的語法和模式。 如果兩個檔案都存在，則會優先使用 `.amlignore` 檔案。
+> 若要防止檔案包含在快照中, 請在目錄中建立 [.gitignore](https://git-scm.com/docs/gitignore) `.amlignore`或檔案, 並在其中新增檔案。 檔案會使用與 `.amlignore`.gitignore[ 檔案相同的語法和模式。](https://git-scm.com/docs/gitignore) 如果兩個檔案都存在，則會優先使用 `.amlignore` 檔案。
 > 
 > 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshots)。
 

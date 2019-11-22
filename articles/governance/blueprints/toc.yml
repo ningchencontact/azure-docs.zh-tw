@@ -2,7 +2,7 @@
   href: index.yml
 - name: 概觀
   items:
-    - name: Azure 藍圖概觀
+    - name: 什麼是 Azure 藍圖？
       displayName: 'templates, policy, definition, assignment, rbac'
       href: overview.md
 - name: 快速入門
