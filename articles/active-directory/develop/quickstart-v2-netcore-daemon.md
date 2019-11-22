@@ -1,5 +1,6 @@
 ---
-title: Microsoft 身分識別平台 .NET Core 精靈 | Azure
+title: 使用主控台應用程式的身分識別來取得權杖並呼叫 Microsoft Graph API | Azure
+titleSuffix: Microsoft identity platform
 description: 了解 .NET Core 程序要如何使用應用程式本身的身分識別來取得存取權杖，並呼叫受 Microsoft 身分識別平台端點保護的 API
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +18,14 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a130878baa10be426072dfe79284a1d602dfb6ff
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: a2617013b90cc9709a27ff8ab8c5046ebdcc9951
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211852"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149425"
 ---
-# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>快速入門：使用應用程式的身分識別來取得權杖並從主控台應用程式呼叫 Microsoft Graph API
+# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>快速入門：使用主控台應用程式的身分識別來取得權杖並呼叫 Microsoft Graph API
 
 在本快速入門中，您將了解如何撰寫 .NET Core 應用程式，以使用應用程式本身的身分識別取得存取權杖，然後呼叫 Microsoft Graph API 以顯示目錄中[使用者的清單](https://docs.microsoft.com/graph/api/user-list)。 此案例適用於無周邊的自動作業或 Windows 服務需要使用應用程式身分識別 (而非使用者的身分識別) 才能執行的情況。
 

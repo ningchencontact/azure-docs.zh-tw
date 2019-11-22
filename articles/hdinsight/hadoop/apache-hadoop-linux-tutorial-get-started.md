@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Resource Manager 建立 Apache Hadoop 叢集 - Azure HDInsight
+title: 快速入門：Apache Hadoop 和 Resource Manager - Azure HDInsight
 description: 在本快速入門中，您將使用 Resource Manager 範本在 Azure HDInsight 中建立 Apache Hadoop 叢集
 keywords: 開始使用,hadoop linux,hadoop 快速入門,開始使用 hive,hive 快速入門
 ms.service: hdinsight
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 6c4ff1df0ec56339721b3cdab9bb62b0ee8ba94f
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: b554fcd4d4175aeac88df14eebbbaf4a8ba49f4c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067678"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044809"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>快速入門：使用 Resource Manager 範本在 Azure HDInsight 中建立 Apache Hadoop 叢集
 
@@ -50,7 +50,7 @@ HDInsight 目前隨附 [7 個不同的叢集類型](../hdinsight-overview.md#clu
     > [!NOTE]  
     > 您提供的值必須是唯一且應該遵循命名方針。 範本不會執行驗證檢查。 如果您提供的值已在使用中或未遵循方針，則會在提交範本之後收到錯誤。  
 
-    ![HDInsight Linux 開始使用入口網站上的 Resource Manager 範本](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "使用 Azure 入口網站和資源群組管理員範本在 HDInsight 中部署 Hadoop 叢集")
+    ![入口網站上 HDInsight Linux 開始使用的 Resource Manager 範本](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "使用 Azure 入口網站和資源群組管理員範本在 HDInsight 中部署 Hadoop 叢集")
 
 3. 選取 [我同意上方所述的條款及條件]  ，然後選取 [購買]  。 您會收到一則通知，內容指出您的部署正在進行中。  大約需要 20 分鐘的時間來建立叢集。
 
@@ -70,7 +70,7 @@ HDInsight 目前隨附 [7 個不同的叢集類型](../hdinsight-overview.md#clu
 
 1. 回到瀏覽器索引標籤，您可在其中存取 Azure 入口網站。 您應該位於叢集的 [概觀] 頁面上。 如果您只想刪除叢集，但保留預設儲存體帳戶，請選取 [刪除]  。
 
-    ![入口網站中的 HDInsight 刪除叢集](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "入口網站中的 HDInsight 刪除叢集")
+    ![HDInsight 從入口網站刪除叢集](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "HDInsight 從入口網站刪除叢集")
 
 2. 如果您想要刪除叢集以及預設儲存體帳戶，則選取資源群組名稱 (上一個螢幕擷取畫面中醒目提示的項目) 來開啟資源群組頁面。
 
