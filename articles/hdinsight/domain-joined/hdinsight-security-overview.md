@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
 ms.date: 09/23/2019
-ms.openlocfilehash: e1863cc54759f6cc2266073629093d4923260525
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 7fadb17476c2a071de767573994bb1120b476cdf
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240411"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053728"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Azure HDInsight 中的企業安全性概觀
 
@@ -59,6 +59,10 @@ Hadoop 系統管理員可以設定角色型存取控制 (RBAC)，以使用 Apach
 若要符合組織安全性和合規性需求，保護資料就非常重要。 除了限制未經授權的員工存取資料之外，您還應該將資料加密。
 
 HDInsight 叢集的兩個資料存放區 (Azure Blob 儲存體和 Azure Data Lake Storage Gen1/Gen2) 都支援透明伺服器端的待用[資料加密](../../storage/common/storage-service-encryption.md)。 安全的 HDInsight 叢集會完美地與此伺服器端待用資料加密功能配合運作。
+
+### <a name="compliance"></a>法規遵循
+
+Azure 合規性供應項目會以各種類型的保證為基礎，包括由獨立第三方稽核公司所產生的正式認證、證明、驗證、授權及評量，以及由 Microsoft 產生的契約修訂、自我評量及客戶指引文件。 如需 HDInsight 合規性資訊，請參閱 [Microsoft 信任中心](https://www.microsoft.com/trust-center)和 [Microsoft Azure 合規性的概觀](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)。
 
 ## <a name="shared-responsibility-model"></a>共同責任模式
 

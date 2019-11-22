@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - Apache Storm 寫入儲存體/Data Lake Storage - Azure HDInsight
+title: 教學課程：HDInsight Apache Storm 至儲存體 - Azure/Data Lake
 description: 教學課程 - 了解如何使用 Apache Storm 寫入 Azure HDInsight 的 HDFS 相容儲存體。
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: b6114a764d0834b7bcfe4b95d34fae6a03a8a40e
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 579163180f6c7ba19927ca66d20bd92d1b2de52e
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181032"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241203"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>教學課程：從 Azure HDInsight 上的 Apache Storm 寫入 Apache Hadoop HDFS
 

@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: f78c58c5-6e98-458b-8991-78624a245665
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 62e800a5ac1e1e001e5d4ef328a80c554d007182
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7f5e003a058cd94e6e4a4440c512217c387fda3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102357"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158163"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>教學課程：Azure Active Directory 與 FM:Systems 整合
 

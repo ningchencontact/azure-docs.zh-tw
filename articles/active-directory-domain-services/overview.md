@@ -8,20 +8,23 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 921266b78b82364b4610dcd74b6ee16ee44cb060
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 3d4ac9ed9b8d5162f820f7e981d3380b95cf41e4
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617264"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172821"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>什麼是 Azure Active Directory Domain Services？
 
-Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，例如，網域加入、群組原則、LDAP 和 Kerberos / NTLM 驗證，與 Windows Server Active Directory 完全相容。 您可以使用這些網域服務，而不需要在雲端部署、管理及修補網域控制站。 Azure AD DS 與您現有的 Azure AD 租用戶整合，讓使用者能夠使用其現有認證登入。 您也可以使用現有的群組與使用者帳戶，安全地存取資源，這樣能更順暢地將內部部署資源隨即轉移至 Azure。
+Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，例如，網域加入、群組原則、輕量型目錄存取通訊協定 (LDAP) 和 Kerberos / NTLM 驗證，與 Windows Server Active Directory 完全相容。 您可以使用這些網域服務，而不需要在雲端部署、管理及修補網域控制站。 Azure AD DS 與您現有的 Azure AD 租用戶整合，讓使用者能夠使用其現有認證登入。 您也可以使用現有的群組與使用者帳戶，安全地存取資源，這樣能更順暢地將內部部署資源隨即轉移至 Azure。
 
-Azure AD DS 會從 Azure AD 複寫身分識別資訊，因此適用於僅限雲端的 Azure AD 租用戶，或與內部部署 Active Directory Domain Services (AD DS) 環境同步處理的 Azure AD 租用戶。 如果您有現有的內部部署 AD DS 環境，您可以同步使用者帳戶資訊，為使用者提供一致的身分識別。 針對僅限雲端環境，您不需要傳統內部部署 AD DS 環境，就能使用 Azure AD DS 的集中式識別服務。 這兩個環境都有一組相同的 Azure AD DS 功能。
+Azure AD DS 會從 Azure AD 複寫身分識別資訊，因此適用於僅限雲端的 Azure AD 租用戶，或與內部部署 Active Directory Domain Services (AD DS) 環境同步處理的 Azure AD 租用戶。 這兩個環境都有一組相同的 Azure AD DS 功能。
+
+* 如果您有現有的內部部署 AD DS 環境，您可以同步使用者帳戶資訊，為使用者提供一致的身分識別。
+* 針對僅限雲端環境，您不需要傳統內部部署 AD DS 環境，就能使用 Azure AD DS 的集中式識別服務。
 
 下列影片概述如何將 Azure AD DS 與您的應用程式和工作負載整合，以在雲端提供識別服務：
 
@@ -31,7 +34,7 @@ Azure AD DS 會從 Azure AD 複寫身分識別資訊，因此適用於僅限雲�
 
 ## <a name="common-ways-to-provide-identity-solutions-in-the-cloud"></a>在雲端提供身分識別解決方案的常見方式
 
-當您將現有的工作負載移轉至雲端時，目錄感知應用程式可能會將 LDAP 用於內部部署 AD DS 目錄的讀取或寫入存取權。 在 Windows Server 上執行的應用程式通常都會部署在已加入網域的位置，因此只要使用群組原則就能安全地加以管理。 若要驗證終端使用者，應用程式也可以依賴 Windows 整合式驗證，例如 Kerberos 或 NTLM 驗證。
+當您將現有的工作負載移轉至雲端時，目錄感知應用程式可能會將 LDAP 用於內部部署 AD DS 目錄的讀取或寫入存取權。 在 Windows Server 上執行的應用程式通常都會部署在已加入網域的虛擬機器 (VM) 上，因此只要使用群組原則就能安全地加以管理。 若要驗證終端使用者，應用程式也可以依賴 Windows 整合式驗證，例如 Kerberos 或 NTLM 驗證。
 
 IT 系統管理員通常會使用下列其中一個解決方案，將識別服務提供給在 Azure 中執行的應用程式：
 
@@ -49,20 +52,26 @@ Azure AD DS 提供的替代方案適用於建立連線回內部部署 AD DS 環�
 
 * **簡化的部署體驗：** 使用 Azure 入口網站中的單一精靈為您的 Azure AD 租用戶啟用 Azure AD DS。
 * **與 Azure AD 整合：** 使用者帳戶、群組成員資格與認證，都自動可從您的 Azure AD 租用戶取得。 新使用者、群組，或 Azure AD 租用戶或內部部署 AD DS 環境中的屬性變更，都會自動同步到 Azure AD DS。
-* **使用公司認證/密碼：** Azure AD 租用戶中使用者的密碼可以與 Azure AD DS 搭配使用。 使用者可以使用其公司認證來將機器加入網域，以互動方式或透過遠端桌面登入，以及向 Azure AD DS 受控網域驗證。
+    * 外部目錄中連結至 Azure AD 的帳戶無法在 Azure AD DS 中使用。 這些外部目錄無法使用認證，因此無法同步處理到 Azure AD DS 受控網域。
+* **使用公司認證/密碼：** 在 Azure AD DS 中，Azure AD 租用戶中使用者的密碼都會相同。 使用者可以使用其公司認證來將機器加入網域，以互動方式或透過遠端桌面登入，以及向 Azure AD DS 受控網域驗證。
 * **NTLM 和 Kerberos 驗證：** 利用對 NTLM 與 Kerberos 驗證的支援，您就能部署依賴 Windows 整合式驗證的應用程式。
 * **高可用性：** Azure AD DS 包含多個網域控制站，為您的受控網域提供高可用性。 此高可用性可保證服務執行時間，且可從失敗復原。
+    * 在支援 [Azure 可用性區域][availability-zones]的區域中，這些網域控制站也會分散到多個區域，以提高復原能力。 
 
 Azure AD DS 受控網域的一些關鍵層面如下：
 
 * Azure AD DS 受控網域是獨立網域。 它不是內部部署網域的延伸。
 * 您的 IT 小組不需要管理、修補或監視此 Azure AD DS 受控網域的網域控制站。
 
-針對執行 AD DS 內部部署的混合式環境，您不需要管理對 Azure AD DS 受控網域的 AD 複寫。 使用者帳戶、群組成員資格與來自您內部部署目錄的認證會透過 Azure AD Connect 同步到 Azure AD。 這些使用者帳戶、群組成員資格與認證，都會自動在 Azure AD DS 受控網域中提供。
+針對執行 AD DS 內部部署的混合式環境，您不需要管理對 Azure AD DS 受控網域的 AD 複寫。 使用者帳戶、群組成員資格與來自您內部部署目錄的認證會透過 [Azure AD Connect][azure-ad-connect] 同步到 Azure AD。 這些使用者帳戶、群組成員資格與認證，都會自動在 Azure AD DS 受控網域中提供。
 
 ## <a name="how-does-azure-ad-ds-work"></a>Azure AD DS 如何運作？
 
-為了提供識別服務，Azure 會建立可在虛擬網路上供您選擇使用的 AD DS 受控網域。 系統透過一組 Windows Server 網域控制站提供復原功能，它在幕後運作，且您不需要管理、保護、保護或更新。 Azure AD DS 受控網域已設定為從 Azure AD 執行單向同步，以提供對一組集中式使用者、群組與認證的存取權。 您可以直接在 Azure AD DS 受控網域中建立資源，但系統不會將它們同步回 Azure AD。 Azure 中連線到此虛擬網路的應用程式、服務與 VM 接著可以使用常見的 AD DS 功能，例如，網域加入、群組原則、LDAP 與 Kerberos / NTLM 驗證。 在具有內部部署 AD DS 環境的混合式環境中，[Azure AD Connect][azure-ad-connect] 會與 Azure AD 同步身分識別資訊。
+為了提供識別服務，Azure 會在您選擇的虛擬網路上建立 AD DS 執行個體。 系統透過一組 Windows Server 網域控制站提供復原功能，它在幕後運作，且您不需要管理、保護、保護或更新。
+
+Azure AD DS 受控網域已設定為從 Azure AD 執行單向同步，以提供對一組集中式使用者、群組與認證的存取權。 您可以直接在 Azure AD DS 受控網域中建立資源，但系統不會將它們同步回 Azure AD。 Azure 中連線到此虛擬網路的應用程式、服務與 VM 接著可以使用常見的 AD DS 功能，例如，網域加入、群組原則、LDAP 與 Kerberos / NTLM 驗證。
+
+在具有內部部署 AD DS 環境的混合式環境中，[Azure AD Connect][azure-ad-connect] 會與 Azure AD 同步身分識別資訊。
 
 ![使用 AD Connect 讓 Azure AD Domain Services 與 Azure AD 和內部部署 Active Directory Domain Services 進行同步](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
@@ -73,7 +82,7 @@ Azure AD DS 受控網域的一些關鍵層面如下：
 
 ### <a name="azure-ad-ds-for-hybrid-organizations"></a>混合式組織的 Azure AD DS
 
-許多組織都執行包含雲端與內部部署應用程式工作負載的混合式基礎結構。 作為隨即轉移策略一部分移轉至 Azure 的繼承應用程式，仍可使用傳統 LDAP 連線來提供身分識別資訊。 為了支援此混合式基礎結構，來自內部部署 Active Directory Domain Services (AD DS) 環境的身分識別資訊可同步至 Azure AD 租用戶。 Azure AD DS 接著可以使用身分識別來源在 Azure 中提供這些繼承應用程式，而不需要設定及管理對內部部署目錄服務的應用程式連線能力。
+許多組織都執行包含雲端與內部部署應用程式工作負載的混合式基礎結構。 隸屬於隨即轉移策略且移轉至 Azure 的繼承應用程式，可使用傳統 LDAP 連線來提供身分識別資訊。 為了支援此混合式基礎結構，來自內部部署 AD DS 環境的身分識別資訊可同步至 Azure AD 租用戶。 Azure AD DS 接著可以使用身分識別來源在 Azure 中提供這些繼承應用程式，而不需要設定及管理對內部部署目錄服務的應用程式連線能力。
 
 讓我們看看 Litware Corporation 的範例，此混合式組織執行內部部署與 Azure 資源：
 
@@ -88,7 +97,7 @@ Azure AD DS 受控網域的一些關鍵層面如下：
 
 ### <a name="azure-ad-ds-for-cloud-only-organizations"></a>僅限雲端的組織的 Azure AD DS
 
-僅限雲端的 Azure AD 租用戶沒有內部部署身分識別來源。 例如，使用者帳戶與群組成員資格都是在 Azure AD 中建立及管理的。
+僅限雲端的 Azure AD 租用戶沒有內部部署身分識別來源。 例如，使用者帳戶與群組成員資格都可直接在 Azure AD 中建立和管理。
 
 現在，讓我們看 Contoso 的範例，此僅限雲端的組織只使用 Azure AD 來進行身分識別驗證。 所有使用者身分識別、其認證與群組成員資格都是在 Azure AD 中建立及管理的。 不需要進行任何額外的 Azure AD Connect 設定，就能從內部部署目錄同步任何身分識別資訊。
 
@@ -111,5 +120,6 @@ Azure AD DS 受控網域的一些關鍵層面如下：
 [compare]: compare-identity-solutions.md
 [synchronization]: synchronization.md
 [tutorial-create]: tutorial-create-instance.md
-[azure-ad-connect]: ../active-directory/hybrid/whatis-hybrid-identity.md
+[azure-ad-connect]: ../active-directory/hybrid/whatis-azure-ad-connect.md
 [password-hash-sync]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md
+[availability-zones]: ../availability-zones/az-overview.md

@@ -156,7 +156,7 @@
           href: vpn-gateway-howto-always-on-user-tunnel.md
         - name: 將自訂路由公告至 P2S 用戶端
           href: vpn-gateway-p2s-advertise-custom-routes.md
-    - name: 在 Azure 可用性區域中建立區域備援的 VNet 閘道
+    - name: 建立區域備援閘道
       href: create-zone-redundant-vnet-gateway.md
     - name: 在連線上設定 IPsec/IKE 原則
       href: vpn-gateway-ipsecikepolicy-rm-powershell.md

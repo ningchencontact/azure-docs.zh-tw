@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 監視器從混合式 Windows 電腦收集資料 | Microsoft Docs
+title: 使用 Azure 監視器從混合式 Windows 電腦收集資料
 description: 在本快速入門中，您將了解如何針對在 Azure 外部執行的 Windows 電腦上部署 Log Analytics 代理程式，並使用 Azure 監視器記錄來啟用資料收集。
 services: azure-monitor
 documentationcenter: azure-monitor
@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 1b8888c2c8aaedce181d19c015206323ccf2b0ba
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 26919a64313df823dddad5dcfca6de5d08dcd993
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677240"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199021"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>使用 Azure 監視器從混合式環境中的 Windows 電腦收集資料
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 44121b959d13a92ca1f4cca0e5a0c00341d1ac18
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: ef5c9e8d548e8acbcbdbe83f6e7c9965c798ad44
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073738"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931243"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>快速入門：搭配使用表單辨識器 REST API 和 Python 來擷取收據資料
 
@@ -36,7 +36,7 @@ ms.locfileid: "71073738"
 
 若要開始分析收據，請使用下列 Python 指令碼呼叫**分析收據** API。 執行指令碼之前，請進行下列變更：
 
-1. 將 `<Endpoint>` 取代為您使用表單辨識器訂用帳戶金鑰取得的端點。 您可以在表單辨識器的資源 [概觀]  索引標籤上找到此項目。
+1. 將 `<Endpoint>` 取代為您使用表單辨識器訂用帳戶取得的端點。
 1. 將 `<your receipt URL>` 取代為收據影像的 URL 位址。
 1. 將 `<subscription key>` 取代為您在先前的步驟中複製的訂用帳戶金鑰。
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: b118a509f72af2146abf854b881fa34d8de302a1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e3c4f1c641865fa8aa1d01d370063c03bbc0680c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564920"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72936040"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>教學課程：使用 Azure Content Moderator 仲裁電子商務產品影像
 
@@ -65,7 +65,9 @@ GitHub 上的[範例電子商務目錄仲裁](https://github.com/MicrosoftConten
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
-您將需要以訂用帳戶金鑰 (您稍後將會取得 `CustomVisionKey`) 的值更新 `___Key` 欄位，而且可能需要變更 `___Uri` 欄位，使其包含正確的區域識別碼。 使用您稍早建立之審核小組的識別碼填入 `ReviewUri` 欄位的 `YOURTEAMID` 部分。 您稍後將會填入 `CustomVisionUri` 欄位的最後一個部分。
+您必須以訂用帳戶金鑰值來更新 `___Key` 欄位，且必須將 `___Uri` 欄位變更為正確的端點 URL (您稍後將取得自訂視覺金鑰和端點)。 您可以在每個 Azure 資源的 [快速入門]  索引標籤中找到這些值。 使用您稍早建立之審核小組的識別碼填入 `ReviewUri` 欄位的 `YOURTEAMID` 部分。 您稍後將會填入 `CustomVisionUri` 欄位的最後一個部分。
+
+[!INCLUDE [subdomains note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="primary-method-calls"></a>主要方法呼叫
 

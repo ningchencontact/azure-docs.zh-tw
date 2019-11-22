@@ -1,19 +1,19 @@
 ---
 title: '教學課程：使用 Apache Kafka 串流 API - Azure HDInsight '
 description: 教學課程 - 了解如何搭配使用 Apache Kafka 串流 API 與 HDInsight 上的 Kafka。 此 API 可讓您在 Kafka 主題之間執行串流處理。
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 06/25/2019
-ms.openlocfilehash: 0639ecaa0e4ae0581a6c88e1ea9a47de870a8355
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 10/08/2019
+ms.openlocfilehash: f256adfd1fc970512cad5fb93ec235fc27a50373
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446386"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817740"
 ---
 # <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>教學課程：在 Azure HDInsight 中使用 Apache Kafka 串流 API
 
@@ -25,7 +25,7 @@ Kafka 串流處理通常會使用 Apache Spark 或 Apache Storm 來完成。 Kaf
 
 如需有關 Kafka 串流的詳細資訊，請參閱 Apache.org 上的[串流簡介](https://kafka.apache.org/10/documentation/streams/)文件。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 了解程式碼
@@ -61,9 +61,9 @@ Kafka 串流處理通常會使用 Apache Spark 或 Apache Storm 來完成。 Kaf
     ```xml
     <!-- Kafka client for producer/consumer operations -->
     <dependency>
-      <groupId>org.apache.kafka</groupId>
-      <artifactId>kafka-clients</artifactId>
-      <version>${kafka.version}</version>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.version}</version>
     </dependency>
     ```
 
@@ -159,31 +159,30 @@ public class Stream
     sudo apt -y install jq
     ```
 
-3. 設定環境變數。 分別以叢集登入密碼和叢集名稱取代 `PASSWORD` 和 `CLUSTERNAME`，然後輸入命令：
+3. 設定密碼變數。 請將 `PASSWORD` 取代為叢集登入密碼，然後輸入下列命令：
 
     ```bash
     export password='PASSWORD'
-    export clusterNameA='CLUSTERNAME'
     ```
 
-4. 擷取正確大小寫的叢集名稱。 視叢集的建立方式而定，叢集名稱的實際大小寫可能與您預期的不同。 此命令會取得實際的大小寫、將它儲存在變數中，然後顯示正確大小寫的名稱，以及您稍早提供的名稱。 輸入下列命令：
-
+4. 擷取正確大小寫的叢集名稱。 視叢集的建立方式而定，叢集名稱的實際大小寫可能與您預期的不同。 此命令會取得實際的大小寫，然後將其儲存在變數中。 輸入下列命令：
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
-  	| jq -r '.items[].Clusters.cluster_name')
-    echo $clusterName, $clusterNameA
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+
+    > [!Note]  
+    > 如果您是從叢集外部執行此程序，則應以不同的程序儲存叢集名稱。 請從 Azure 入口網站取得小寫的叢集名稱。 然後，在下列命令中，以叢集名稱取代 `<clustername>`，並執行命令：`export clusterName='<clustername>'`。  
 
 5. 若要取得 Kafka 代理程式主機和 Apache Zookeeper 主機，請使用下列命令。 出現提示時，輸入叢集登入 (admin) 帳戶的密碼。 系統會提示您輸入密碼兩次。
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G \
-    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER \
-  	| jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`;
-    export KAFKABROKERS=`curl -sS -u admin:$password -G \
-    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
-  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`;
+    export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
+
+    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
+
+> [!Note]  
+> 這些命令需要存取 Ambari。 如果您的叢集位於 NSG 後方，請從可存取 Ambari 的機器執行這些命令。 
 
 6. 若要建立串流作業所使用的主題，請使用下列命令：
 
@@ -231,7 +230,7 @@ public class Stream
     `--property` 參數會告知主控台取用者列印索引鍵 (字組) 和計數 (值)。 這個參數也會設定從 Kafka 讀取這些值時要使用的還原序列化。
 
     輸出大致如下：
-   
+
         dwarfs  13635
         ago     13664
         snow    13636

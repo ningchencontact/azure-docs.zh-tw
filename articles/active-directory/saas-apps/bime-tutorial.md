@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bdcf0729-c880-4c95-b739-0f6345b17dd8
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a34c688b7d8e12dac1d76b3e03fb1b50583c6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f792798e724387b6917c23d1bde0c2c68fa8a270
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106270"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157677"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>教學課程：Azure Active Directory 與 Bime 整合
 
@@ -136,7 +137,7 @@ Bime 與 Azure AD 整合提供下列優點：
 
 2. 在工具列中，按一下 [管理]  ，然後按一下 [帳戶]  。
   
-    ![管理](./media/bime-tutorial/ic775558.png "管理")
+    ![管理員](./media/bime-tutorial/ic775558.png "Admin")
 
 3. 在 [帳戶組態] 頁面上，執行下列步驟：
   
@@ -211,7 +212,7 @@ Bime 與 Azure AD 整合提供下列優點：
 
 2. 在工具列中，按一下 [管理]  ，然後按一下 [使用者]  。
 
-    ![管理](./media/bime-tutorial/ic775561.png "管理")
+    ![管理員](./media/bime-tutorial/ic775561.png "Admin")
 
 3. 在 [使用者清單]  中，按一下 新增使用者  \("+")。
 

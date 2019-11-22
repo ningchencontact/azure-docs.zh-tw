@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 27884d83b9ca828a81922d27fe958334665e664a
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 45cf376d54ef9f2e77acb2ece9529af640938853
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719526"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931768"
 ---
 # <a name="quickstart-computer-vision-client-library-for-net"></a>快速入門：適用於 .NET 的電腦視覺用戶端程式庫
 
@@ -108,7 +108,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 ## <a name="authenticate-the-client"></a>驗證用戶端
 
 > [!NOTE]
-> 本快速入門假設您已針對名為 `COMPUTER_VISION_SUBSCRIPTION_KEY` 的電腦視覺金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
+> 本快速入門假設您已針對名為 `COMPUTER_VISION_SUBSCRIPTION_KEY` 和 `COMPUTER_VISION_ENDPOINT` 的電腦視覺金鑰和端點[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
 
 在新方法中，使用端點和金鑰來具現化用戶端。 使用金鑰建立 [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) 物件，並使用該物件與您的端點建立 [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) 物件。
 
@@ -199,7 +199,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 
 ### <a name="get-domain-specific-content"></a>取得特定領域內容
 
-電腦視覺可以使用特製化模型來對影像執行進一步的分析。 如需詳細資訊，請參閱[特定領域內容](../concept-detecting-domain-content.md)。 
+電腦視覺可以使用特製化模型對影像執行進一步的分析。 如需詳細資訊，請參閱[特定領域內容](../concept-detecting-domain-content.md)。 
 
 下列程式碼會剖析影像中偵測到的名人相關資料。
 
@@ -211,7 +211,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 
 ### <a name="get-the-image-type"></a>取得影像類型
 
-下列程式碼可列印影像類型相關資訊&mdash;不論是美工圖案或線條繪圖。
+下列程式碼可列印影像類型的相關資訊&mdash;不論是美工圖案還是線條繪圖。
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_type)]
 

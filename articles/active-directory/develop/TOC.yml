@@ -61,8 +61,6 @@
               href: quickstart-v2-netcore-daemon.md
             - name: Python 主控台精靈
               href: quickstart-v2-python-daemon.md
-            - name: ASP.NET 精靈 Web 應用程式
-              href: 'https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2'
     - name: 教學課程
       items:
         - name: 單一頁面應用程式
@@ -83,6 +81,10 @@
               href: tutorial-v2-windows-uwp.md
             - name: Windows 桌面型 .NET
               href: tutorial-v2-windows-desktop.md
+        - name: 精靈應用程式
+          items:
+            - name: ASP.NET 精靈 Web 應用程式
+              href: tutorial-v2-aspnet-daemon-web-app.md
     - name: 範例
       href: sample-v2-code.md
     - name: 概念

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 1053541e192668a7b572d97c141c2fe8fc16ac5c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: bb4fc076d01c1108278cea0cebba958b4ea94660
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757355"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044061"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>快速入門：在 Web 上試用 Content Moderator
 
@@ -68,6 +68,6 @@ ms.locfileid: "72757355"
 ## <a name="next-steps"></a>後續步驟
 
 了解如何在您的應用程式中使用「仲裁 API」本身。
-- 實作影像仲裁。 使用 [API 主控台](try-image-api.md)或 [C# 快速入門](image-moderation-quickstart-dotnet.md)來掃描影像，並使用標記、信賴分數及其他擷取資訊來偵測潛在的成人和不雅內容。
-- 實作文字仲裁。 使用 [API 主控台](try-text-api.md)或使用 [C# 快速入門](text-moderation-quickstart-dotnet.md)來掃描文字內容，以找出潛在的粗話、機器輔助的不必要文字分類 (預覽)，以及個人資料。
+- 實作影像仲裁。 使用 [API 主控台](try-image-api.md)或依照 [.NET SDK 快速入門](dotnet-sdk-quickstart.md)的指示掃描影像，並使用標籤、信賴分數和其他擷取資訊來偵測潛在的成人和猥褻內容。
+- 實作文字仲裁。 使用 [API 主控台](try-text-api.md)或使用 [.NET SDK 快速入門](dotnet-sdk-quickstart.md)來掃描文字內容，以找出潛在的粗話、機器輔助的不必要文字分類 (預覽)，以及個人資料。
 - 實作影片仲裁。 請遵循[適用於 C# 的影片仲裁操作指南](video-moderation-api.md)以掃描影片並偵測潛在成人和不雅內容。 

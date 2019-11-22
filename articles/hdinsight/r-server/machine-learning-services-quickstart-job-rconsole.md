@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 R 主控台在 ML 服務上執行 R 指令碼 - Azure HDInsight
+title: 快速入門：ML 服務和 R 主控台上的 R 指令碼 - Azure HDInsight
 description: 在本快速入門中，您將使用 R 主控台對 Azure HDInsight 中的 ML 服務叢集執行 R 指令碼。
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 44bc90a4c556108b4b6874a2d1297a6467413824
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: af41a7569dedc9a56f67be8ae791d7185e0c7489
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736370"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241591"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>快速入門：使用 R 主控台對 Azure HDInsight 中的 ML 服務叢集執行 R 指令碼
 

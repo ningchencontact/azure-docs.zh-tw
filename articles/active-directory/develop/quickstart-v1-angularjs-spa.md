@@ -13,21 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/25/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20c62d379006382d4208e4b111202581bc75454f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c239b88a67e1be19e3a95130839ab6fd4598fe77
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380763"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150056"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>快速入門：建置 AngularJS 單一頁面應用程式 與 Azure Active Directory 整合進行登入和登出
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
+
+> [!IMPORTANT]
+> [Microsoft 身分識別平台](v2-overview.md)是 Azure Active Directory (Azure AD) 開發人員平台的演化。 它可讓開發人員建置應用程式以登入所有 Microsoft 身分識別，並取得權杖以呼叫 Microsoft Graph 等 Microsoft API，或開發人員所建置的 API。
+> 如果除了公司和學校帳戶之外，您也需要為個人帳戶啟用登入，則可以使用 [Microsoft 身分識別平台端點](azure-ad-endpoint-comparison.md)  。
+> 本快速入門適用於較舊的 Azure AD v1.0 端點。 針對新的專案，建議您使用 v2.0 端點。 如需詳細資訊，請參閱[此 JavaScript SPA 教學課程](tutorial-v2-javascript-spa.md)，以及說明「Microsoft 身分識別平台端點」  的[這篇文章](active-directory-v2-limitations.md)。
 
 Azure Active Directory (Azure AD) 可讓您簡單又直截了當地新增登入、登出，並保護對單一頁面應用程式的 OAuth API 呼叫。 它也可讓您的應用程式以使用者的 Windows Server Active Directory 帳戶來驗證使用者，並取用 Azure AD 保護的任何 Web API，例如 Office 365 API 或 Azure API。
 
@@ -45,9 +50,6 @@ Azure Active Directory (Azure AD) 可讓您簡單又直截了當地新增登入�
 1. 向 Azure AD 註冊應用程式.
 2. 安裝 ADAL 並設定單一頁面應用程式。
 3. 使用 ADAL 來保護單一頁面應用程式中的頁面。
-
-> [!NOTE]
-> 如果除了公司和學校帳戶之外，您也需要為個人帳戶啟用登入，則可以使用 [Microsoft 身分識別平台端點](azure-ad-endpoint-comparison.md)  。 如需詳細資訊，請參閱[此 JavaScript SPA 教學課程](tutorial-v2-javascript-spa.md)，以及說明「Microsoft 身分識別平台端點」  的[這篇文章](active-directory-v2-limitations.md)。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -70,7 +72,7 @@ Azure Active Directory (Azure AD) 可讓您簡單又直截了當地新增登入�
 1. 完成時，選取 [註冊]  。 在應用程式 [概觀]  頁面上，記下 [應用程式 (用戶端) 識別碼]  值。
 1. Adal.js 會使用 OAuth 隱含流程來與 Azure AD 通訊。 您必須為您的應用程式啟用隱含流程。 在所註冊應用程式的左側導覽窗格中，選取 [驗證]  。
 1. 在 [進階設定]  的 [隱含授與]  底下，啟用 [識別碼權杖]  和 [存取權杖]  核取方塊。 識別碼權杖和存取權杖都是必要權杖，因為此應用程式必須將使用者登入並呼叫 API。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]  。
 1. 在您的應用程式租用戶上授予權限。 移至 [API 權限]  ，然後選取 [授與同意]  下方的 [授與管理員同意]  按鈕。
 1. 選取 [是]  加以確認。
 

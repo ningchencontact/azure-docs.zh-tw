@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 58c63c229510b476ea19a9650c8eed0fc2d72ac2
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 089b37761c11c02e34c35eb378c64862bc4fbc98
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677823"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064142"
 ---
 # <a name="what-is-application-insights"></a>什麼是 Application Insights？
 Application Insights (一項 [Azure 監視器](../overview.md)功能) 是多個平台上的 Web 開發人員所適用的可延伸「應用程式效能管理」(APM) 服務。 您可以使用它來監視即時 Web 應用程式。 它將會自動偵測效能異常。 其中包括強大的分析工具可協助您診斷問題，並了解使用者實際如何運用您的應用程式。  它是設計來協助您持續改善效能和可用性。 它適用於各種不同平台上的應用程式，包括裝載在內部部署、混合式或任何公用雲端的 .NET、Node.js 和 Java EE。 它可與您的 DevOps 程序整合，並有各種開發工具的連接點。 透過與 Visual Studio App Center 整合，還可以從行動應用程式監視並分析遙測資料。
@@ -106,6 +106,7 @@ Application Insights 是 Microsoft Azure 中裝載的多項服務之一，而遙
   * [.NET 主控台應用程式](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.js](../../azure-monitor/app/nodejs.md)
+  * [Python (預覽)](../../azure-monitor/app/opencensus-python.md)
   * [其他平台](../../azure-monitor/app/platforms.md)
 * **[檢測您的網頁](../../azure-monitor/app/javascript.md)** 的頁面檢視、AJAX 和其他用戶端遙測。
 * 藉由與 Visual Studio App Center 整合，來 **[分析行動應用程式使用方式](../../azure-monitor/learn/mobile-center-quickstart.md)** 。
@@ -124,6 +125,8 @@ Application Insights 是 Microsoft Azure 中裝載的多項服務之一，而遙
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
+* [Python (預覽)](../../azure-monitor/app/opencensus-python.md)
+
 
 ## <a name="support-and-feedback"></a>支援與意見反應
 * 疑難排解與問題：

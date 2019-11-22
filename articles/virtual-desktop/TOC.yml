@@ -34,32 +34,42 @@
           href: connect-macos.md
         - name: 與 iOS 用戶端連線
           href: connect-ios.md
-    - name: 使用 Azure Resource Manager 範本建立主機集區
-      href: create-host-pools-arm-template.md
-    - name: 使用 PowerShell 建立主機集區
-      href: create-host-pools-powershell.md
-    - name: 在 Windows 虛擬桌面上部署 Windows 7 虛擬機器
-      href: deploy-windows-7-virtual-machine.md
-    - name: 將 Windows 授權套用至 Windows 虛擬桌面工作階段主機
+    - name: 建立主機集區和工作階段主機
+      items:
+        - name: Azure Resource Manager 範本
+          href: create-host-pools-arm-template.md
+        - name: PowerShell
+          href: create-host-pools-powershell.md
+        - name: 部署 Windows 7 虛擬機器
+          href: deploy-windows-7-virtual-machine.md
+        - name: 部署 GPU 型工作階段主機
+          href: configure-vm-gpu.md
+    - name: 建立設定檔容器
+      items:
+        - name: 使用 VM 型檔案共用
+          href: create-host-pools-user-profile.md
+        - name: 使用 Azure NetApp Files
+          href: create-fslogix-profile-container.md
+    - name: 設定主機集區設定
+      items:
+        - name: RDP 屬性
+          href: customize-rdp-properties.md
+        - name: 集區主機集區的負載平衡
+          href: configure-host-pool-load-balancing.md
+    - name: 使用 Windows 虛擬桌面授權
       href: apply-windows-license.md
     - name: 使用檔案共用建立主機集區的設定檔容器
       href: create-host-pools-user-profile.md
-    - name: 使用 Azure NetApp Files 建立主機集區的設定檔容器
-      href: create-fslogix-profile-container.md
-    - name: 設定 Windows 虛擬桌面負載平衡方法
-      href: configure-host-pool-load-balancing.md
-    - name: 準備和自訂主要 VHD 映像
-      href: set-up-customize-master-image.md
-    - name: 在主要 VHD 映像上安裝 Office
-      href: install-office-on-wvd-master-image.md
-    - name: 設定 Windows 虛擬桌面的 GPU
-      href: configure-vm-gpu.md
+    - name: 自訂工作階段主機映像
+      items:
+        - name: 設定主要 VHD 映像
+          href: set-up-customize-master-image.md
+        - name: 在主要 VHD 映像上安裝 Office
+          href: install-office-on-wvd-master-image.md
     - name: 動態調整工作階段主機
       href: set-up-scaling-script.md
-    - name: 適用於 Windows 虛擬桌面使用者的自訂摘要
+    - name: 自訂摘要
       href: customize-feed-for-virtual-desktop-users.md
-    - name: 自訂 RDP 屬性
-      href: customize-rdp-properties.md
     - name: 部署診斷工具
       href: deploy-diagnostics.md
     - name: 設定 MSIX 應用程式附加

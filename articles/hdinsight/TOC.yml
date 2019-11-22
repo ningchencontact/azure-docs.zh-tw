@@ -243,14 +243,8 @@
           href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
         - name: 了解並解決 WebHCat 錯誤
           href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
-        - name: Azure 藍圖
-          href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
         - name: 在論壇上取得協助
           href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight'
-        - name: 學習路徑
-          href: 'https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/'
-        - name: Microsoft 專業巨量資料方案
-          href: 'https://academy.microsoft.com/en-us/professional-program/tracks/big-data/'
         - name: 定價計算機
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: HDInsight 適用的 Windows 工具
@@ -279,8 +273,6 @@
           href: ./spark/apache-spark-intellij-tool-failure-debug.md
         - name: 使用 BI 工具分析資料
           href: ./spark/apache-spark-use-bi-tools.md
-        - name: 執行串流作業
-          href: ./spark/apache-spark-eventhub-streaming.md
         - name: 建立機器學習應用程式
           href: ./spark/apache-spark-ipython-notebook-machine-learning.md
         - name: 在 IntelliJ 中建立 Apache Spark 應用程式

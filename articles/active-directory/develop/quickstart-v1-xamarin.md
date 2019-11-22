@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36e354894700ec92a444f288b3e09f5d7af88329
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f93816168a95fa10639da91d72a070660157a96f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321041"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149533"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>快速入門：建置可整合 Microsoft 登入的 Xamarin 應用程式
 
@@ -31,5 +31,6 @@ ms.locfileid: "68321041"
 
 [Microsoft 驗證程式庫 (MSAL)](msal-overview.md) 可讓開發人員從 Microsoft 身分識別平台端點取得權杖，以存取受保護的 Web API。 Active Directory 驗證程式庫 (ADAL) 可與適用於開發人員的 Azure AD (v1.0) 端點整合；此時 MSAL 會與 Microsoft 身分識別平台 (v2.0) 端點整合。
 
-對於新的 Xamarin 應用程式，建議您使用 Microsoft 身分識別平台 (v2.0) 和 MSAL 來取得權杖及存取安全的 Web API：[使用 MSAL 將 Microsoft 身分識別和 Microsoft Graph 整合到 Xamarin Forms 應用程式中](https://github.com/azure-samples/active-directory-xamarin-native-v2#integrate-microsoft-identity-and-the-microsoft-graph-into-a-xamarin-forms-app-using-msal) (不含選擇性步驟)。
+## <a name="next-steps"></a>後續步驟
 
+對於新的 Xamarin 應用程式，建議您使用 Microsoft 身分識別平台 (v2.0) 和 MSAL 來取得權杖及存取安全的 Web API。 請參閱[使用 MSAL 將 Microsoft 身分識別和 Microsoft Graph 整合到 Xamarin Forms 應用程式中](https://github.com/azure-samples/active-directory-xamarin-native-v2#integrate-microsoft-identity-and-the-microsoft-graph-into-a-xamarin-forms-app-using-msal) (不含選擇性步驟) 來開始使用。

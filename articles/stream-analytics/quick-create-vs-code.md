@@ -1,5 +1,5 @@
 ---
-title: 在 Visual Studio Code 中建立 Azure 串流分析雲端作業 (預覽)
+title: 在 Visual Studio Code 中建立 Azure 串流分析雲端作業
 description: 本快速入門說明如何開始使用 Visual Studio Code 建立串流分析作業、設定輸入與輸出以及定義查詢。
 ms.service: stream-analytics
 author: mamccrea
@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/16/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 3301be3a067982cb90e663fe3782319eb0b90ba0
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 35e2711bbb3cd6dc0662146a566014dd65d879bc
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673138"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935094"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>快速入門：在 Visual Studio Code 中建立 Azure 串流分析雲端作業 (預覽)
 

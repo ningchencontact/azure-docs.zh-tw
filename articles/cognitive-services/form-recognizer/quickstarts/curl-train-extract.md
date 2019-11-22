@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 0b357a36afc44ceac8ed2c951e0f25901be9d93d
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 098dc5e2ab7d4b9533f58e03557db533eaa49a90
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264373"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931286"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>快速入門：搭配使用 REST API 與 cURL 將表單辨識器模型定型並擷取表單資料
 
@@ -38,7 +38,7 @@ ms.locfileid: "72264373"
 
 若要使用 Azure Blob 容器中的文件來訓練表單辨識器模型，請執行下列 cURL 命令以呼叫**訓練** API。 執行命令之前，請進行下列變更：
 
-1. 將 `<Endpoint>` 取代為您使用表單辨識器訂用帳戶金鑰取得的端點。 您可以在表單辨識器的資源 [概觀]  索引標籤上找到此項目。
+1. 將 `<Endpoint>` 取代為您使用表單辨識器訂用帳戶取得的端點。
 1. 將 `<subscription key>` 取代為您在先前的步驟中複製的訂用帳戶金鑰。
 1. 將 `<SAS URL>` 取代為 Azure Blob 儲存體容器的共用存取簽章 (SAS) URL。 若要擷取 SAS URL，請開啟 Microsoft Azure 儲存體總管、以滑鼠右鍵按一下您的容器，然後選取 [取得共用存取簽章]  。 確定 [讀取]  和 [列出]  權限均已勾選，再按一下 [建立]  。 然後，複製 [URL]  區段的值。 其格式應該為：`https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`。
 
@@ -93,7 +93,7 @@ curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "C
 
 接下來，您會分析文件，並從中擷取金鑰/值組和資料表。 執行下列 cURL 命令以呼叫**模型 - 分析** API。 執行命令之前，請進行下列變更：
 
-1. 將 `<Endpoint>` 取代為您從表單辨識器訂用帳戶金鑰中取得的端點。 您可以在表單辨識器的資源 [概觀]  索引標籤上找到此項目。
+1. 將 `<Endpoint>` 取代為您從表單辨識器訂用帳戶中取得的端點。
 1. 將 `<modelID>` 取代為您在上一節中取得的模型識別碼。
 1. 將 `<path to your form>` 取代為表單的檔案路徑 (例如，C:\temp\file.pdf)。 在本快速入門中，您可以使用[範例資料集](https://go.microsoft.com/fwlink/?linkid=2090451)中 **Test** 資料夾底下的檔案。
 1. 將 `<file type>` 取代為檔案類型。 支援的類型：`application/pdf`、`image/jpeg`、`image/png`。

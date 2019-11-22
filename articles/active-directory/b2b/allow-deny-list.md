@@ -1,5 +1,5 @@
 ---
-title: 允許或封鎖對特定組織的邀請-Azure Active Directory |Microsoft Docs
+title: 允許或封鎖對特定組織的邀請-Azure AD
 description: 說明系統管理員如何使用 Azure 入口網站或 PowerShell 設定存取或拒絕清單，以允許或封鎖來自特定網域的 B2B 使用者。
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cd0cc6b2343a84287bd2ffdfd9df8d832f17fc8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b5100c4406cfd4a8395dfa177dc3cd5e911decb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474168"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273430"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>允許或封鎖對特定組織的 B2B 使用者的邀請
 
@@ -45,7 +45,7 @@ ms.locfileid: "73474168"
 2. 選取 [Azure Active Directory] > [使用者] > [使用者設定]。
 3. 在 [外部使用者] 下，選取 [管理外部共同作業設定]。
 4. 在 [共同作業限制] 下，選取 [拒絕對指定網域的邀請]。
-5. 在 [目標網域] 下，輸入您要封鎖的網域之一的名稱。 若有多個網域，請將每個網域輸入於不同行。 例如：
+5. 在 [目標網域] 下，輸入您要封鎖的網域之一的名稱。 若有多個網域，請將每個網域輸入於不同行。 例如︰
 
    ![顯示已新增網域的拒絕選項](./media/allow-deny-list/DenyListSettings.png)
  
@@ -66,7 +66,7 @@ ms.locfileid: "73474168"
 2. 選取 [Azure Active Directory] > [使用者] > [使用者設定]。
 3. 在 [外部使用者] 下，選取 [管理外部共同作業設定]。
 4. 在 [共同作業限制] 下，選取 [僅允許對指定網域的邀請 (限制性最高)]。
-5. 在 [目標網域] 下，輸入您要允許的網域之一的名稱。 若有多個網域，請將每個網域輸入於不同行。 例如：
+5. 在 [目標網域] 下，輸入您要允許的網域之一的名稱。 若有多個網域，請將每個網域輸入於不同行。 例如︰
 
    ![顯示已新增網域的允許選項](./media/allow-deny-list/AllowListSettings.png)
  
@@ -80,7 +80,7 @@ ms.locfileid: "73474168"
 
 ## <a name="set-the-allow-or-deny-list-policy-using-powershell"></a>使用 PowerShell 設定允許或拒絕清單原則
 
-### <a name="prerequisite"></a>必要條件
+### <a name="prerequisite"></a>先決條件
 
 > [!Note]
 > AzureADPreview 模組不是完全支援的模組，因為它處於預覽狀態。 
@@ -140,19 +140,19 @@ New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Typ
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-若要設定允許或拒絕清單原則，請使用 [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) Cmdlet。 例如：
+若要設定允許或拒絕清單原則，請使用 [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) Cmdlet。 例如︰
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-若要取得原則，請使用 [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) Cmdlet。 例如：
+若要取得原則，請使用 [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) Cmdlet。 例如︰
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-若要移除原則，請使用 [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) Cmdlet。 例如：
+若要移除原則，請使用 [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) Cmdlet。 例如︰
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 

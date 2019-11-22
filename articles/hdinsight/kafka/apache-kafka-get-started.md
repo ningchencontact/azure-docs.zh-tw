@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 入口網站設定 HDInsight 上的 Apache Kafka - 快速入門
+title: 快速入門：使用 Azure 入口網站設定 HDInsight 上的 Apache Kafka
 description: 在本快速入門中，您會了解如何使用 Azure 入口網站，在 Azure HDInsight 上建立 Apache Kafka 叢集。 您也會了解 Kafka 主題、訂閱者與取用者。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 06/12/2019
-ms.openlocfilehash: f11cbdab59548906f751116a2ca7b9c545b25d91
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.date: 10/01/2019
+ms.openlocfilehash: e253d168fadd5aff46e70ba00a4021415c0ea6f7
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677875"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242047"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>快速入門：在 Azure HDInsight 中使用 Azure 入口網站建立 Apache Kafka 叢集
 
@@ -72,7 +72,7 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
     |主要儲存體帳戶|使用下拉式清單來選取現有的儲存體帳戶，或選取 [新建]  。 如果您建立新的帳戶，其名稱的長度必須介於 3 到 24 個字元之間，且只能包含數字和小寫字母。|
     |容器|使用自動填入的值。|
 
-    ![HDInsight Linux 開始提供叢集存放區值](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "提供用於建立 HDInsight 叢集的存放區值")
+    ![HDInsight Linux 會開始提供叢集儲存體值](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "提供用來建立 HDInsight 叢集的儲存體值")
 
     選取 [安全性 + 網路]  索引標籤。
 
@@ -111,24 +111,24 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
 3. 出現提示時，請輸入 SSH 使用者的密碼。
 
     連線之後，您會看到類似下列文字的資訊：
-    
+
     ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
-    
+
      * Documentation:  https://help.ubuntu.com
      * Management:     https://landscape.canonical.com
      * Support:        https://ubuntu.com/advantage
-    
+
       Get cloud support with Ubuntu Advantage Cloud Guest:
         https://www.ubuntu.com/business/services/cloud
-    
+
     83 packages can be updated.
     37 updates are security updates.
 
 
     Welcome to Apache Kafka on HDInsight.
-    
+
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
     ```
 
@@ -144,29 +144,31 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
     sudo apt -y install jq
     ```
 
-2. 設定環境變數。 分別以叢集登入密碼和叢集名稱取代 `PASSWORD` 和 `CLUSTERNAME`，然後輸入命令：
+1. 設定密碼變數。 請將 `PASSWORD` 取代為叢集登入密碼，然後輸入下列命令：
 
     ```bash
     export password='PASSWORD'
-    export clusterNameA='CLUSTERNAME'
     ```
 
-3. 擷取正確大小寫的叢集名稱。 視叢集的建立方式而定，叢集名稱的實際大小寫可能與您預期的不同。 此命令會取得實際的大小寫、將它儲存在變數中，然後顯示正確大小寫的名稱，以及您稍早提供的名稱。 輸入下列命令：
+1. 擷取正確大小寫的叢集名稱。 視叢集的建立方式而定，叢集名稱的實際大小寫可能與您預期的不同。 此命令會取得實際的大小寫，然後將其儲存在變數中。 輸入下列命令：
 
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
-    echo $clusterName, $clusterNameA
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+    > [!Note]  
+    > 如果您是從叢集外部執行此程序，則應以不同的程序儲存叢集名稱。 請從 Azure 入口網站取得小寫的叢集名稱。 然後，在下列命令中，以叢集名稱取代 `<clustername>`，並執行命令：`export clusterName='<clustername>'`。
 
-4. 若要使用 Zookeeper 主機資訊設定環境變數，請使用以下命令。 此命令會擷取所有的 Zookeeper 主機，然後只傳回前兩個項目。 這是因為考量備援之故，以防某一部主機無法連線。
+
+1. 若要使用 Zookeeper 主機資訊設定環境變數，請使用以下命令。 此命令會擷取所有的 Zookeeper 主機，然後只傳回前兩個項目。 這是因為考量備援之故，以防某一部主機無法連線。
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
     ```
 
-    此命令會直接在叢集前端節點上查詢 Ambari 服務。 您也可以使用 `https://$CLUSTERNAME.azurehdinsight.net:80/` 的公用位址來存取 Ambari。 某些網路組態可以防止存取公用位址。 例如，使用網路安全性群組 (NSG) 來限制存取虛擬網路中的 HDInsight。
+    > [!Note]  
+    > 此命令需要 Ambari 存取權。 如果您的叢集位於 NSG 後方，請從可存取 Ambari 的機器執行此命令。 
 
-5. 若要確認是否已正確設定環境變數，請使用下列命令：
+1. 若要確認是否已正確設定環境變數，請使用下列命令：
 
     ```bash
     echo $KAFKAZKHOSTS
@@ -176,15 +178,18 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
 
     `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
-6. 若要使用 Apache Kafka 訊息代理程式主機資訊來設定環境變數，請使用下列命令：
+1. 若要使用 Apache Kafka 訊息代理程式主機資訊來設定環境變數，請使用下列命令：
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
-7. 若要確認是否已正確設定環境變數，請使用下列命令：
+    > [!Note]  
+    > 此命令需要 Ambari 存取權。 如果您的叢集位於 NSG 後方，請從可存取 Ambari 的機器執行此命令。 
 
-    ```bash   
+1. 若要確認是否已正確設定環境變數，請使用下列命令：
+
+    ```bash
     echo $KAFKABROKERS
     ```
 

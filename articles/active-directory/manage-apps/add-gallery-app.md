@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bdf275bbafa9c46cfc4577ac2843da0be74c7ef
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: af0a826c499790c86a20ea7061075a6c3e66b3a4
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477275"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062617"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>將資源庫應用程式新增至 Azure AD 組織
 
@@ -34,27 +34,30 @@ Azure Active Directory (Azure AD) 有一個資源庫，其中包含數千個預�
 
 1. 在 [Azure Active Directory]  視格中，選取 [企業應用程式]  。
 
-    ![開啟企業應用程式](media/add-application-portal/open-enterprise-apps.png)
+    ![開啟企業應用程式](media/add-gallery-app/open-enterprise-apps.png)
 
-1. 選取 [新增應用程式]  。
 
-    ![新增應用程式](media/add-application-portal/new-application.png)
+3. 若要將資源庫應用程式新增至您的租用戶，請選取 [新增應用程式]  。
 
-1. 在 [從資源庫新增]  下方的搜尋方塊中，輸入您要新增的應用程式名稱。 
+    ![選取 [新增應用程式] 以將資源庫應用程式新增至您的租用戶](media/add-gallery-app/new-application.png)
 
-    ![依名稱或類別搜尋](media/add-application-portal/categories.png)
+ 4. 切換至新的資源庫預覽體驗：在 [新增應用程式]  頁面頂端的橫幅中，選取顯示為 [按一下這裡試用改良過的新版應用程式資源庫]  的連結。
 
-1. 從結果中選取應用程式。
+5. [瀏覽 Azure AD 資源庫]  窗格隨即開啟，並顯示雲端平台、內部部署應用程式和精選應用程式的圖格。 請注意，[精選應用程式]  區段中所列的應用程式，會有圖示指出它們是否支援同盟單一登入 (SSO) 和佈建。
 
-1. (選用) 在應用程式特有表單中，您可以編輯應用程式名稱，以符合貴組織的需求。
+    ![依名稱或類別搜尋應用程式](media/add-gallery-app/browse-gallery.png)
 
-1. 選取 [新增]  。 應用程式的 [概觀]  頁面隨即開啟。
+6. 瀏覽您要新增之應用程式的資源庫，或在搜尋方塊中輸入應用程式的名稱加以搜尋。 然後，從結果中選取應用程式。 (選擇性) 在表單中，您可以編輯應用程式名稱以符合您的組織需求。
+
+    ![說明如何從資源庫新增應用程式](media/add-gallery-app/create-application.png)
+
+7. 選取 [建立]  。 [開始使用] 頁面會隨即顯示，其中包含可為您組織設定應用程式的選項。
 
 ## <a name="configure-user-sign-in-properties"></a>設定使用者登入屬性
 
 1. 選取 [屬性]  ，以開啟屬性窗格來進行編輯。
 
-    ![編輯屬性窗格](media/add-application-portal/edit-properties.png)
+    ![編輯屬性窗格](media/add-gallery-app/edit-properties.png)
 
 1. 設定下列選項，以決定已指派或未指派給應用程式的使用者如何登入應用程式，以及使用者是否可以在存取面板中看到該應用程式。
 
@@ -94,7 +97,7 @@ Azure Active Directory (Azure AD) 有一個資源庫，其中包含數千個預�
 
 1. 若要使用自訂標誌，請建立 215 x 215 像素的標誌，並將它儲存為 PNG 格式。 然後瀏覽至您的標誌並加以上傳。
 
-    ![變更標誌](media/add-application-portal/change-logo.png)
+    ![變更標誌](media/add-gallery-app/change-logo.png)
 
 1. 完成之後，選取 [儲存]  。
 

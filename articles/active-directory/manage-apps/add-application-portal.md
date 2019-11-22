@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/09/2019
+ms.date: 10/29/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 466660a1e064ef41eb330b36107dbdcb1d097498
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: e5ee40f6fcd77465b67a7c409493027fefa48ca9
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477310"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062988"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>快速入門：新增應用程式到您的 Azure Active Directory 租用戶
 
@@ -43,24 +43,26 @@ Azure Active Directory (Azure AD) 有一個資源庫，其中包含數千個預�
 將資源庫應用程式新增至 Azure AD 租用戶：
 
 1. 在 [Azure 入口網站](https://portal.azure.com)的左方瀏覽窗格中，選取 [Azure Active Directory]  。
-1. 在 [Azure Active Directory]  視格中，選取 [企業應用程式]  。
-1. [所有應用程式]  窗格會隨即開啟，並顯示 Azure AD 租用戶中應用程式的隨機樣本。 選取 [所有應用程式]  窗格頂端的 [新增應用程式]  ，以將資源庫應用程式新增至您的租用戶。
+
+2. 在 [Azure Active Directory]  視格中，選取 [企業應用程式]  。 [所有應用程式]  窗格會隨即開啟，並顯示您 Azure AD 租用戶中應用程式的隨機樣本。
+
+3. 若要將資源庫應用程式新增至您的租用戶，請選取 [新增應用程式]  。 
 
     ![選取 [新增應用程式] 以將資源庫應用程式新增至您的租用戶](media/add-application-portal/new-application.png)
 
-1. 在 [類別]  窗格中，您會在 [精選應用程式]  區域底下看到屬於資源庫應用程式隨機樣本的圖示。 若要查看更多應用程式，您可以選取 [顯示更多]  ，但我們不建議以此方式搜尋，因為資源庫中有數千個應用程式。
+ 4. 切換至新的資源庫預覽體驗：在 [新增應用程式]  頁面頂端的橫幅中，選取顯示為 [按一下這裡試用改良過的新版應用程式資源庫]  的連結。
 
-    ![依名稱或類別搜尋應用程式](media/add-application-portal/categories.png)
+5. [瀏覽 Azure AD 資源庫 (預覽)]  窗格隨即開啟，並顯示雲端平台、內部部署應用程式和精選應用程式的圖格。 請注意，[精選應用程式]  區段中所列的應用程式，會有圖示指出它們是否支援同盟單一登入 (SSO) 和佈建。
 
-1. 若要搜尋應用程式，請在 [從資源庫新增]  下方，輸入您要新增的應用程式名稱。 從結果中選取應用程式，然後選取 [新增]  。 下列範例顯示搜尋 GitHub.com 後出現的 [新增應用程式]  表單。
+    ![依名稱或類別搜尋應用程式](media/add-application-portal/browse-gallery.png)
 
-    ![說明如何從資源庫新增應用程式](media/add-application-portal/add-an-application.png)
+6. 您可以瀏覽您要新增之應用程式的資源庫，或在搜尋方塊中輸入應用程式的名稱加以搜尋。 然後，從結果中選取應用程式。 在表單中，您可以編輯應用程式名稱，以符合您的組織需求。 在此範例中，我們已將名稱變更為 **GitHub-test**。
 
-1. 在應用程式專用的表單中，您可以變更屬性資訊。 例如，您可以編輯應用程式名稱，以符合您組織需求。 此範例使用的名稱是 **GitHub-test**。
-1. 當您完成屬性變更後，請選取 [新增]  。
-1. [開始使用] 頁面會隨即顯示，其中包含可為您組織設定應用程式的選項。
+    ![說明如何從資源庫新增應用程式](media/add-application-portal/create-application.png)
 
-您已完成新增應用程式。 如有需要，可以稍作休息。 下一節我們將示範如何變更應用程式的標誌和其他屬性。
+7. 選取 [建立]  。 [開始使用] 頁面會隨即顯示，其中包含可為您組織設定應用程式的選項。
+
+您已完成新增應用程式。 下一節我們將示範如何變更應用程式的標誌和其他屬性。
 
 ## <a name="find-your-azure-ad-tenant-application"></a>尋找 Azure AD 租用戶應用程式
 
@@ -81,17 +83,17 @@ Azure Active Directory (Azure AD) 有一個資源庫，其中包含數千個預�
 若要編輯應用程式屬性：
 
 1. 選取應用程式以將其開啟。
-1. 選取 [屬性]  ，以開啟屬性窗格來進行編輯。
+2. 選取 [屬性]  ，以開啟屬性窗格來進行編輯。
 
     ![顯示 [屬性] 畫面和可編輯的應用程式屬性](media/add-application-portal/edit-properties.png)
 
-1. 請花一點時間了解登入選項。 這些選項會決定已在應用程式中指派或取消指派的使用者要如何登入應用程式。 而且，這些選項也會決定使用者是否可在存取面板中看見應用程式。
+3. 請花一點時間了解登入選項。 這些選項會決定已在應用程式中指派或取消指派的使用者要如何登入應用程式。 而且，這些選項也會決定使用者是否可在存取面板中看見應用程式。
 
-    - [為使用者啟用登入]  可決定指派給應用程式的使用者是否可以登入。
-    - [需要使用者指派]  可決定未指派給應用程式的使用者是否可以登入。
-    - [可讓使用者看見]  可決定指派給應用程式的使用者是否可以在存取面板和 O365 啟動器中看見應用程式。
+    - [為使用者啟用登入？]  可決定指派給應用程式的使用者是否可以登入。
+    - [需要使用者指派？]  可決定未指派給應用程式的使用者是否可以登入。
+    - [可讓使用者看見？]  可決定指派給應用程式的使用者是否可以在存取面板和 O365 啟動器中看見應用程式。
 
-1. 您可以使用下表來協助您選擇最符合需求的選項。
+4. 您可以使用下表來協助您選擇最符合需求的選項。
 
    - **已指派**的使用者行為：
 
@@ -131,9 +133,12 @@ Azure Active Directory (Azure AD) 有一個資源庫，其中包含數千個預�
 1. 由於您已經找到您的應用程式，請選取該應用程式。
 1. 選取左窗格中的 [屬性]  。
 1. 上傳標誌。
-1. 完成之後，選取 [儲存]  。
+1. 完成之後，選取 [儲存]  。 
 
     ![說明如何從應用程式的 [屬性] 頁面變更標誌](media/add-application-portal/change-logo.png)
+
+   > [!NOTE]
+   > 這個 [屬性]  窗格上顯示的縮圖不會立即更新。 您可以關閉屬性再重新加以開啟，以查看更新的圖示。
 
 ## <a name="next-steps"></a>後續步驟
 

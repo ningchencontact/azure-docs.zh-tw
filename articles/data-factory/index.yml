@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Data Factory 文件
-summary: Azure Data Factory 是 Azure 的雲端 ETL 服務，可用於向外調整無伺服器資料整合和資料轉換。  它提供無程式碼的 UI，可用於直覺撰寫和單一窗格類別的監視與管理。 您也可以將現有的 SSIS 套件平移至 Azure，並在 ADF 中以完全相容的方式執行。 SSIS Integration Runtime 提供完全受控的服務，因此您不必擔心基礎結構管理。
+summary: Azure Data Factory 是 Azure 的雲端 ETL 服務，可用於向外調整無伺服器資料整合和資料轉換。  它提供無程式碼的 UI，可用於直覺撰寫和單一虛擬管理平台的監視與管理。 您也可以將現有的 SSIS 套件平移至 Azure，並在 ADF 中以完全相容的方式執行。 SSIS Integration Runtime 提供完全受控的服務，因此您不必擔心基礎結構管理。
 metadata:
   title: Azure Data Factory 文件
   description: 了解如何使用 Data Factory (雲端資料整合服務)，將資料儲存、移動及處理服務組合成自動化資料管線。 教學課程和其他文件會示範如何設定和管理資料管線，以及如何移動和轉換資料以供分析。
@@ -12,12 +12,12 @@ metadata:
   ms.author: maghan
   ms.date: 10/02/2019
   monikerRange: ''
-  ms.openlocfilehash: 570a549bc132b1126d904d52af3066e152687e72
-  ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+  ms.openlocfilehash: fc85ae8cc6dcb2d5d04a6cbd7f79eb03470a58fb
+  ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 10/17/2019
-  ms.locfileid: "72554850"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74321759"
 landingContent:
 - title: 關於 Azure Data Factory
   linkLists:

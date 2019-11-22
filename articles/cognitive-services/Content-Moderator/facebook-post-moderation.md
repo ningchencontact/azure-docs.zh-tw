@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: bd2ed09294ad122b7e8af045f01d3c6f63fcc510
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5aa4cc24484a4ba1da608da9676ade492db35b6c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564938"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72936014"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>教學課程：使用 Azure Content Moderator 仲裁 Facebook 文章和留言
 
@@ -28,7 +28,7 @@ ms.locfileid: "68564938"
 > * 建立接聽來自 Content Moderator 和 Facebook 之 HTTP 事件的 Azure Functions。
 > * 使用 Facebook 應用程式將 Facebook 頁面連結至 Content Moderator。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 此圖說明此案例中的每個元件：
 
@@ -72,7 +72,7 @@ ms.locfileid: "68564938"
     | -------------------- |-------------|
     | cm:TeamId   | 您的 Content Moderator TeamId  | 
     | cm:SubscriptionKey | 您的 Content Moderator 訂用帳戶金鑰 - 請參閱 [Credentials](review-tool-user-guide/credentials.md) |
-    | cm:Region | 您的 Content Moderator 區域名稱 (不含空格)。 |
+    | cm:Region | 您的 Content Moderator 區域名稱 (不含空格)。 您可以在 Azure 資源 [概觀]  索引標籤的 [位置]  欄位中找到此項目。|
     | cm:ImageWorkflow | 要在「影像」上執行之工作流程的名稱 |
     | cm:TextWorkflow | 要在「文字」上執行之工作流程的名稱 |
     | cm:CallbackEndpoint | CMListener 函式應用程式 (稍後將在本指南中建立) 的 URL |

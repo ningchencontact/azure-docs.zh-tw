@@ -1,5 +1,5 @@
 ---
-title: '教學課程：在 Azure HDInsight 中使用 Power BI 來分析 Apache Spark 資料 '
+title: 教學課程：使用 Power BI 分析 Azure HDInsight Apache Spark 資料
 description: 教學課程 - 使用 Microsoft Power BI 將儲存在 HDInsight 叢集中的 Apache Spark 資料視覺化
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 10/03/2019
-ms.openlocfilehash: fe7560f68690233d7a333724274a259d693123d0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: c2d6a5acba304d7421b000cab2ee5cee5b85e5ce
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035685"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241364"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>教學課程：在 HDInsight 中使用 Power BI 來分析 Apache Spark 資料
 
@@ -104,7 +104,7 @@ ms.locfileid: "72035685"
 
     2. 將 [BuildingID]  欄位拖曳至 [軸]  ，並將 [ActualTemp]  和 [TargetTemp]  欄位拖曳至 [值]  。
 
-        ![新增值欄](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "新增值欄")
+        ![新增值資料行](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "新增值資料行")
 
         圖表看起來如下：
 
@@ -134,7 +134,7 @@ Power BI 服務可讓您跨組織共用報表和儀表板。 在本節中，您�
 
 1. 選取要發佈您的資料集和報告的目標工作區，然後按一下 [選取]  。 在下列映像中，已選取預設值 [我的工作區]  。
 
-    ![選取要發佈資料集和報表的目標工作區](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "選取要發佈資料集和報表的目標工作區") 
+    ![選取要作為資料集和報告發佈目標的工作區](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "選取要作為資料集和報告發佈目標的工作區") 
 
 1. 成功發佈之後，按一下 [在 Power BI 中開啟 'BuildingTemperature.pbix']  。
 
@@ -154,7 +154,7 @@ Power BI 服務可讓您跨組織共用報表和儀表板。 在本節中，您�
 
 1. 在左側窗格中，移至 [工作區]   > [我的工作區]   > [報表]  ，然後按一下 [BuildingTemperature]  。
 
-    ![左側窗格中報告下列出的報表](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "左側窗格中報表下列出的報告")
+    ![在左窗格的 [報告] 底下列出的報告](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "在左窗格的 [報告] 底下列出的報告")
 
     您也應該會看到 [BuildingTemperature]  列於左側窗格中 [資料集]  底下。
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 5739827f1f6cf65cfe5c4aa8303c9f37eb569854
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 1ec1baa8797935b76963025f82d6c7df43a2a7d5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264398"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931547"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>快速入門：搭配使用 REST API 與 Python 將表單辨識器模型定型並擷取表單資料
 
@@ -114,7 +114,7 @@ ms.locfileid: "72264398"
 
 接下來，您會分析文件，並從中擷取金鑰/值組和資料表。 執行下列 Python 指令碼以呼叫**模型 - 分析** API。 執行命令之前，請進行下列變更：
 
-1. 將 `<Endpoint>` 取代為您使用表單辨識器訂用帳戶金鑰取得的端點。 您可以在表單辨識器的資源 [概觀]  索引標籤上找到此項目。
+1. 將 `<Endpoint>` 取代為您使用表單辨識器訂用帳戶取得的端點。
 1. 將 `<path to your form>` 取代為表單的檔案路徑 (例如，C:\temp\file.pdf)。 在本快速入門中，您可以使用[範例資料集](https://go.microsoft.com/fwlink/?linkid=2090451)中 **Test** 資料夾底下的檔案。
 1. 將 `<modelID>` 取代為您在上一節中取得的模型識別碼。
 1. 將 `<file type>` 取代為檔案類型。 支援的類型：`application/pdf`、`image/jpeg`、`image/png`。

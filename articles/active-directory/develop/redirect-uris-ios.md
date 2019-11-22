@@ -1,5 +1,6 @@
 ---
-title: 使用重新導向 URI 搭配 Microsoft 驗證程式庫 | Microsoft 身分識別平台
+title: 搭配使用重新導向 URI 與 Microsoft 驗證程式庫
+titleSuffix: Microsoft identity platform
 description: 了解適用於 ObjectiveC 的 Microsoft 驗證程式庫 (適用於 iOS 和 macOS 的 MSAL) 與適用於 ObjectiveC 的 Azure AD 驗證程式庫 (ADAL.ObjC) 之間的差異，以及如何在兩者之間遷移。
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: jak
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a84ea0acc165b236e2dbe17e62a84269a16eedb9
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: b78906a03eb9dc96fb58dea4ceabff953f2a3e4f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269286"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803793"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>使用重新導向 URI 搭配適用於 iOS 和 macOS 的 Microsoft 驗證程式庫
 

@@ -7,13 +7,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: overview
-ms.date: 07/25/2018
-ms.openlocfilehash: 86d32726280cce12888f125c65254a7b02166704
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 10/23/2019
+ms.openlocfilehash: 9b4ceb144408e0ac1886aa3a7e0e0f48ac4baba3
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60641240"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881955"
 ---
 # <a name="azure-and-jenkins"></a>Azure 與 Jenkins
 
@@ -37,7 +37,7 @@ ms.locfileid: "60641240"
 
 一旦使用 [Azure 服務主體](/azure/azure-resource-manager/resource-group-overview)進行設定，Jenkins 作業和管線即可使用此認證來：
 
-- 使用 [Azure 儲存體外掛程式](https://plugins.jenkins.io/windows-azure-storage)，在 [Azure 儲存體](/azure/storage/common/storage-introduction)中安全地儲存和封存組建構件。 檢閱 [Jenkins 儲存體作法](/azure/storage/common/storage-java-jenkins-continuous-integration-solution)，以了解詳細資訊。
+- 使用 [Azure 儲存體外掛程式](https://plugins.jenkins.io/windows-azure-storage)，在 [Azure 儲存體](/azure/storage/common/storage-introduction)中安全地儲存和封存組建成品。 檢閱 [Jenkins 儲存體作法](/azure/storage/common/storage-java-jenkins-continuous-integration-solution)，以了解詳細資訊。
 - 使用 [Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline) 來管理和設定 Azure 資源。
 
 ## <a name="deploy-your-code-into-azure-services"></a>將您的程式碼部署至 Azure 服務

@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 09/24/2019
 ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dce3fea1427632f37d826b79016e3aa3e22dad5f
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: b515a7954d82cdd377cec72fa8525fbd9691351d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264166"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149507"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>快速入門：從 iOS 或 macOS 應用程式登入使用者並呼叫 Microsoft Graph API
 
-本快速入門包含示範原生 iOS 或 macOS 應用程式如何登入個人、公司與學校帳戶、取得存取權杖，以及呼叫 Microsoft Graph API 的程式碼範例。
+本快速入門包含的程式碼範例，會示範原生 iOS 或 macOS 應用程式如何使用 Microsoft 身分識別平台來登入個人、公司與學校帳戶、取得存取權杖，以及呼叫 Microsoft Graph API。
 
 本快速入門適用於 iOS 和 macOS 應用程式。 只有 iOS 應用程式才需要某些步驟。 這些步驟會標注其僅適用於 iOS。
 
