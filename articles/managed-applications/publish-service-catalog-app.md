@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 62d8de4f36ab110f7bd871c9de0e5d843516970c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: f248fe125873b4ed1e930e56865e4e403bcceea6
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529009"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053831"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>建立及發佈受控應用程式定義
 
@@ -87,7 +87,7 @@ ms.locfileid: "72529009"
 
 ## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>使用 CreateUiDefinition.json 定義您的建立體驗
 
-身為發行者，您可以使用 **createUiDefinition.json** 來定義您的建立體驗，此檔案會產生使用者建立受控應用程式所需的介面。 您可以使用 [控制元素] (create-uidefinition-elements.md) 定義使用者提供每個參數輸入的方式，包括下拉式清單、文字方塊和密碼方塊。
+身為發行者，您可以使用 **createUiDefinition.json** 來定義您的建立體驗，此檔案會產生使用者建立受控應用程式所需的介面。 您可以使用 [控制元素](create-uidefinition-elements.md) 定義使用者提供每個參數輸入的方式，包括下拉式清單、文字方塊和密碼方塊。
 
 建立名為 **createUiDefinition.json** 的檔案 (此名稱會區分大小寫)
 
