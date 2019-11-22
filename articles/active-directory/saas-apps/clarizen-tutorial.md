@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88f42a849d5c483feb9325072fd65769839672e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b34e6087f3a6e7f3cc0f46c53d4fe903838d210
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105371"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158609"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>教學課程：Azure Active Directory 與 Clarizen 整合
 
@@ -136,7 +137,7 @@ Clarizen 與 Azure AD 整合提供下列優點：
 
 1. 按一下 [全域設定]  索引標籤。然後，在 **[同盟驗證]** 旁邊，按一下 [編輯]  。
 
-    ![[全域設定] 索引標籤](./media/clarizen-tutorial/tutorial_clarizen_002.png "全域設定")
+    ![全域設定](./media/clarizen-tutorial/tutorial_clarizen_002.png "全域設定")
 
 1. 在 [同盟驗證]  對話方塊中，執行下列步驟：
 

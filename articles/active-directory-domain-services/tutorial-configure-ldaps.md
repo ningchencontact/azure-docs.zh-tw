@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 2eaae9093614f1512dcd75d23c98bca871bf2850
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 5422298bf782944f10b60e98b5f251d8088f36ed
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193321"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172771"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>教學課程：為 Azure Active Directory Domain Services 受控網域設定安全 LDAP
 
@@ -22,7 +22,7 @@ ms.locfileid: "70193321"
 
 本教學課程將說明如何為 Azure AD DS 受控網域設定 LDAPS。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立用於 Azure AD DS 的數位憑證
@@ -68,7 +68,7 @@ ms.locfileid: "70193321"
 * **金鑰使用方法** - 必須將憑證設定為「數位簽章」  與「金鑰編密」  。
 * **憑證目的** - 憑證必須有效可進行 SSL 伺服器驗證。
 
-在本教學課程中，我們將使用 PowerShell 來建立安全 LDAP 的自我簽署憑證。 以**系統管理員**身分開啟 PowerShell 視窗並執行下列命令。 將 $dnsName 變數取代為您自有受控網域所使用的 DNS 名稱，例如 contoso.com   ：
+在本教學課程中，會使用 [New-SelfSignedCertificate][New-SelfSignedCertificate] Cmdlet 建立安全 LDAP 的自我簽署憑證。 以**系統管理員**身分開啟 PowerShell 視窗並執行下列命令。 將 $dnsName 變數取代為您自有受控網域所使用的 DNS 名稱，例如 contoso.com   ：
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
@@ -176,7 +176,7 @@ CER  憑證檔案現在可以散發到用戶端電腦，因為這些電腦必須
 
 建立及匯出包含私密金鑰的數位憑證，並將用戶端電腦設定為信任連線之後，您現在可以在 Azure AD DS 受控網域上啟用安全 LDAP。 若要在 Azure AD DS 受控網域上啟用安全 LDAP，請執行下列設定步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的 [搜尋資源]  方塊中搜尋「網域服務」  。 從搜尋結果選取 [Azure AD Domain Services]  。
+1. 在 [Azure 入口網站](https://portal.azure.com)的 [搜尋資源]  方塊中輸入「網域服務」  。 從搜尋結果選取 [Azure AD Domain Services]  。
 
     ![在 Azure 入口網站中搜尋並選取您的 Azure AD DS 受控網域](./media/tutorial-configure-ldaps/search-for-domain-services.png)
 
@@ -207,7 +207,7 @@ CER  憑證檔案現在可以散發到用戶端電腦，因為這些電腦必須
 讓我們來建立一個規則，以允許安全 LDAP 存取可透過 TCP 連接埠 636 從一組指定 IP 位址輸入。 優先順序較低的預設 DenyAll  規則會套用至來自網際網路的所有其他輸入流量，因此只有指定的位址可以使用安全 LDAP 連線到您的 Azure AD DS 受控網域。
 
 1. 在 Azure 入口網站的左側導覽中，選取 [資源群組]  。
-1. 選擇您的資源群組 (例如 myResourceGroup  )，然後選取您的網路安全性群組 (例如 AADDS-contoso.com-NSG  )。
+1. 選擇您的資源群組 (例如 myResourceGroup  )，然後選取您的網路安全性群組 (例如 *aaads-nsg*)。
 1. 此時會顯示現有輸入和輸出安全性規則的清單。 在 [網路安全性群組] 視窗的左側，選擇 [安全性] > [輸入安全性規則]  。
 1. 選取 [新增]  ，然後建立規則來允許 TCP  連接埠 636  。 為了提升安全性，請選擇 [IP 位址]  作為來源，然後為組織指定您自己的有效 IP 位址或範圍。
 
@@ -221,7 +221,7 @@ CER  憑證檔案現在可以散發到用戶端電腦，因為這些電腦必須
     | 通訊協定                          | TCP          |
     | 動作                            | 允許        |
     | 優先順序                          | 401          |
-    | Name                              | AllowLDAPS   |
+    | 名稱                              | AllowLDAPS   |
 
 1. 準備好時，請選取 [新增]  以儲存並套用規則。
 
@@ -297,3 +297,4 @@ CER  憑證檔案現在可以散發到用戶端電腦，因為這些電腦必須
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
 [ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
+[New-SelfSignedCertificate]: /powershell/module/pkiclient/new-selfsignedcertificate

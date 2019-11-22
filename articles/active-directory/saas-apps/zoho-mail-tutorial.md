@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 9874e1f3-ade5-42e7-a700-e08b3731236a
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69c2599a2ddd09cbaf869bf4d9e21a8032855cce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8fc58b9cdec1a68dd12b7f70f7521a024f358ce
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086171"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>教學課程：Azure Active Directory 與 Zoho 整合
 
@@ -218,11 +219,11 @@ Zoho 與 Azure AD 整合提供下列優點：
 
 1. 移至 [使用者詳細資料] \> [新增使用者]  。
    
-    ![新增使用者](./media/zoho-mail-tutorial/ic789611.png "新增使用者")
+    ![加入使用者](./media/zoho-mail-tutorial/ic789611.png "新增使用者")
 
 1. 在 [新增使用者]  對話方塊上，執行下列步驟：
    
-    ![新增使用者](./media/zoho-mail-tutorial/ic789612.png "新增使用者")
+    ![加入使用者](./media/zoho-mail-tutorial/ic789612.png "新增使用者")
    
     a. 在 [名字]  文字方塊中，輸入使用者的名字，例如 **Britta**。
 

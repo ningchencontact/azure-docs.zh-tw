@@ -1,5 +1,6 @@
 ---
-title: Azure AD v2.0 ASP.NET Web 伺服器快速入門 | Microsoft Docs
+title: Azure AD v2.0 ASP.NET Web 伺服器快速入門
+titleSuffix: Microsoft identity platform
 description: 使用傳統網頁瀏覽器型應用程式和 OpenID Connect 標準在 ASP.NET 方案上實作 Microsoft 登入
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1ce7197a195b37787d1a43a44efd8438154e9f9
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: b66d2a9a958afd536dcffeca211a3fc56cf09ef8
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113641"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803714"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>將「登入到 Microsoft」新增至 ASP.NET Web 應用程式
 
@@ -269,7 +270,7 @@ ms.locfileid: "70113641"
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>詳細資訊
-> 此頁面會以 SVG 格式新增一個具有黑色背景的登入按鈕：<br/>![使用 Microsoft 登入](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> 如需了解更多登入按鈕，請前往[商標指導方針](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "商標指導方針")。
+> 此頁面會以 SVG 格式新增一個具有黑色背景的登入按鈕：<br/>![使用 Microsoft 登入](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> 如需了解更多登入按鈕，請前往[商標指導方針](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "B商標指導方針)。
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>新增控制器來顯示使用者的宣告
@@ -410,7 +411,7 @@ ms.locfileid: "70113641"
 >  > - 應用程式開發人員新增任何其他需要**管理員同意**的權限。
 >  > - 或租用戶經過設定 (在 [企業應用程式] -> [使用者設定]  中)，使得使用者無法自行同意應用程式存取公司資料。
 >
-> 如需詳細資訊，請參閱 [Microsoft 身分識別平台端點中的權限和同意](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent)。
+> 如需詳細資訊，請參閱 [Microsoft 身分識別平台端點中的權限和同意](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)。
 <!--end-collapse-->
 
 #### <a name="view-application-results"></a>檢視應用程式結果

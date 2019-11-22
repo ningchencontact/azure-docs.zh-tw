@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccf3894daf71be0defe4271a08ec5e8d963e0d34
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a124832bd42a0a144ebc6000b818fb825aa422ef
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227489"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152983"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>教學課程：Azure Active Directory 與 AnswerHub 整合
 
@@ -144,7 +145,7 @@ ms.locfileid: "68227489"
 
 4. 在 [IDP 設定]  索引標籤上，完成下列步驟：
 
-    ![使用者和群組索引標籤](./media/answerhub-tutorial/ic785172.png "SAML 設定")  
+    [使用者和群組] 索引標籤![](./media/answerhub-tutorial/ic785172.png "SAML 設定")  
   
     a. 在 [IDP 登入 URL]  方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  。
   
@@ -156,11 +157,11 @@ ms.locfileid: "68227489"
 
 5. 在 [金鑰和憑證]  區段中，完成下列步驟：
 
-    ![金鑰和憑證區段](./media/answerhub-tutorial/ic785173.png "金鑰和憑證")  
+    [金鑰和憑證] 區段![](./media/answerhub-tutorial/ic785173.png "金鑰和憑證")  
 
     a. 在「記事本」中開啟從 Azure 入口網站下載的 Base-64 編碼憑證，複製其內容，然後將內容貼到 [IDP 公開金鑰 (x509 格式)]  方塊中。
   
-    b. 選取 [ **儲存**]。
+    b. 選取 [儲存]  。
 
 6. 在 [IDP 組態]  索引標籤上，再次選取 [儲存]  。
 
@@ -235,7 +236,7 @@ ms.locfileid: "68227489"
 
 4. 在左側窗格的 [管理使用者]  區段中，選取 [建立或匯入使用者]  ，然後選取 [使用者和群組]  。
 
-   ![使用者和群組索引標籤](./media/answerhub-tutorial/ic785175.png "使用者和群組")
+   [使用者和群組] 索引標籤![](./media/answerhub-tutorial/ic785175.png "使用者和群組")
 
 5. 在適當的方塊中，輸入您要新增之有效 Azure AD 帳戶的 [電子郵件地址]  、[使用者名稱]  和 [密碼]  ，然後選取 [儲存]  。
 

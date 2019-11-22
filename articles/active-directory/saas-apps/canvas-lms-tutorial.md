@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: bfed291c-a33e-410d-b919-5b965a631d45
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d96d1addf1028c2651ed837f3dab66f12d5d5fcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab998b6d9aec663123f0bd2428e4c6f1767f1846
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105855"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>教學課程：Azure Active Directory 與 Canvas 整合
 
@@ -136,11 +137,11 @@ ms.locfileid: "67105855"
 
 2. 移至 [課程] \> [受控帳戶] \> [Microsoft]  。
 
-    ![Canvas](./media/canvas-lms-tutorial/ic775990.png "Canvas")
+    ![畫布](./media/canvas-lms-tutorial/ic775990.png "畫布")
 
 3. 在左側瀏覽窗格中，選取 [驗證]  ，然後按一下 [加入新的 SAML 設定]  。
 
-    ![驗證](./media/canvas-lms-tutorial/ic775991.png "驗證")
+    ![驗證](./media/canvas-lms-tutorial/ic775991.png "Authentication")
 
 4. 在 [目前的整合] 頁面上，執行下列步驟：
 
@@ -223,7 +224,7 @@ ms.locfileid: "67105855"
 
 2. 移至 [課程] \> [受控帳戶] \> [Microsoft]  。
 
-   ![Canvas](./media/canvas-lms-tutorial/ic775990.png "Canvas")
+   ![畫布](./media/canvas-lms-tutorial/ic775990.png "畫布")
 
 3. 按一下 [使用者]  。
 
@@ -235,7 +236,7 @@ ms.locfileid: "67105855"
 
 5. 在 [新增使用者] 對話頁面上，執行下列步驟：
 
-   ![新增使用者](./media/canvas-lms-tutorial/ic775997.png "新增使用者")
+   ![加入使用者](./media/canvas-lms-tutorial/ic775997.png "新增使用者")
 
    a. 在 [全名]  文字方塊中，輸入使用者的名稱，例如 **BrittaSimon**。
 

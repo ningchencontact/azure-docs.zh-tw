@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 345b22be-d87e-45a4-b4c0-70a67eaf9bfd
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfafa1157619e151f97fcf9c8a410a0644354b80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 259635613855e4d7687cf569c94bbd3dd04027fe
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097387"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160619"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>教學課程：Azure Active Directory 與 Mimecast Personal Portal 整合
 
@@ -158,7 +159,7 @@ Mimecast Personal Portal 與 Azure AD 整合提供下列優點：
 
 2. 移至 [服務] \> [應用程式]  。
    
-    ![應用程式](./media/mimecast-personal-portal-tutorial/ic794998.png "應用程式")
+    ![應用程式](./media/mimecast-personal-portal-tutorial/ic794998.png "[應用程式]")
 
 3. 按一下 [驗證設定檔]  。
    
@@ -253,7 +254,7 @@ Mimecast Personal Portal 與 Azure AD 整合提供下列優點：
 
 2. 移至 [目錄 \> 內部]  。
    
-    ![目錄](./media/mimecast-personal-portal-tutorial/ic795003.png "目錄")
+    ![Directories](./media/mimecast-personal-portal-tutorial/ic795003.png "目錄")
 
 3. 按一下 [註冊新網域]  。
    

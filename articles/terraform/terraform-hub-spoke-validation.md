@@ -1,22 +1,19 @@
 ---
-title: 使用 Azure 中的 Terraform 驗證中樞和輪輻網路
+title: 教學課程 - 使用 Terraform 在 Azure 中驗證中樞和輪輻網路
 description: 驗證將所有虛擬網路連線至另一個網路的中樞和輪輻網路拓撲的教學課程。
-services: terraform
-ms.service: azure
-keywords: terraform, hub and spoke, networks, hybrid networks, devops, virtual machine, azure, vnet peering, 中樞和輪輻, 網路, 混合式網路, 虛擬機器, vnet 對等互連,
-author: VaijanathB
-manager: jeconnoc
-ms.author: vaangadi
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: e35af0fcf4a8f1f8f0446be44fe5b0bb6eeec693
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: b0b761fcd79f7129befefa37ce11d9c70cf7cb96
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169685"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969328"
 ---
-# <a name="tutorial-validate-a-hub-and-spoke-network-with-terraform-in-azure"></a>教學課程：使用 Azure 中的 Terraform 驗證中樞和輪輻網路
+# <a name="tutorial-validate-a-hub-and-spoke-network-in-azure-using-terraform"></a>教學課程：使用 Terraform 在 Azure 中驗證中樞和輪輻網路
 
 您會在本文中，執行於本系列之前文章中所建立的 Terraform 檔案。 結果是驗證示範虛擬網路之間的連線能力。
 

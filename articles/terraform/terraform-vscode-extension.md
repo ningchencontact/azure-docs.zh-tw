@@ -1,30 +1,27 @@
 ---
-title: 安裝和使用 Azure Terraform Visual Studio Code 擴充功能
+title: 教學課程 - 設定 Azure Terraform Visual Studio Code 擴充功能
 description: 了解如何在 Visual Studio Code 中安裝和使用 Azure Terraform 擴充功能。
-services: terraform
-ms.service: azure
-keywords: terraform, azure, devops, visual studio code, 擴充功能
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 7dd87f38ca5dfb1c2fdd38b56b314e0cbbe3ce12
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 93ec85a2e37350ef56ff8c2e1a0ea16bb3be355e
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169926"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969318"
 ---
-# <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>安裝和使用 Azure Terraform Visual Studio Code 擴充功能
+# <a name="tutorial-configure-the-azure-terraform-visual-studio-code-extension"></a>教學課程：設定 Azure Terraform Visual Studio Code 擴充功能
 
-Microsoft Azure Terraform Visual Studio Code 擴充功能，旨在讓開發人員搭配 Azure 製作、測試及使用 Terraform，以提高生產力。 此擴充功能提供了 Terraform 命令支援、資源圖表視覺效果，並可將 CloudShell 整合到 Visual Studio Code 內。
+您可以透過 Azure Terraform Visual Studio Code 延伸模組，在編輯器中使用 Terraform。 可使用此延伸模組來撰寫、測試及執行 Terraform 設定。 延伸模組也支援資源圖表視覺效果。
 
 在本文中，您將了解：
 > [!div class="checklist"]
-> * 使用 Terraform 來自動化並簡化 Azure 服務的佈建。
-> * 安裝和使用適用於 Azure 服務的 Microsoft Terraform Visual Studio Code 擴充功能。
-> * 使用 Visual Studio Code 來撰寫、規劃及執行 Terraform 方案。
+> * 如何使用 Terraform 自動佈建 Azure 服務
+> * 如何安裝和使用適用於 Azure 服務的 Terraform Visual Studio Code 擴充功能。
+> * 如何使用 Visual Studio Code 來撰寫、規劃及執行 Terraform 方案。
 
 ## <a name="prerequisites"></a>必要條件
 - **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
@@ -144,7 +141,7 @@ Azure Terraform 延伸模組將會出現在已安裝的延伸模組清單中。
 
     ![是否要開啟 Cloud Shell?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloud-shell.png)
 
-1. 第一次從新資料夾啟動 Cloud Shell 時，系統會要求您設定 Web 應用程式。 選取 [開啟]  。
+1. 第一次從新資料夾啟動 Cloud Shell 時，系統會提示您建立 Web 應用程式。 選取 [開啟]  。
 
     ![第一次啟動 Cloud Shell](media/terraform-vscode-extension/tf-first-launch-of-cloud-shell.png)
 
@@ -287,7 +284,7 @@ Terraform *plan* 命令是用來檢查變更集的執行計畫是否會執行您
 
 ![Lint 測試結果](media/terraform-vscode-extension/tf-lint-test-results.png)
 
-### <a name="module-test-end-to-end"></a>模組測試：*端對端*
+### <a name="test-the-module"></a>測試模組
 
 1. 從功能表列中選取 [檢視] > [命令選擇區] > [Azure Terraform：**執行測試]** 。
 
@@ -304,7 +301,7 @@ Terraform *plan* 命令是用來檢查變更集的執行計畫是否會執行您
 
 不久之後，您會看到 [終端機] 窗格顯示一個清單，如此範例所示：
 
-![端對端測試結果](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
+![測試結果](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]

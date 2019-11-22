@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 81c50614-f49b-4bbc-97d5-3cf77154305f
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bbbd73d1856ba5d3dc19873c56fce622b272939
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9edadd6462052f82f92c05c1678f845ece856cfb
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097330"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160661"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>教學課程：Azure Active Directory 與 Mimecast Admin Console 整合
 
@@ -233,7 +234,7 @@ Mimecast Admin Console 與 Azure AD 整合提供下列優點：
 
 2. 移至 [目錄 \> 內部]  。
    
-    ![目錄](./media/mimecast-admin-console-tutorial/ic795003.png "目錄")
+    ![Directories](./media/mimecast-admin-console-tutorial/ic795003.png "目錄")
 
 3. 按一下 [註冊新網域]  。
    

@@ -11,19 +11,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: dd591f18ad2abb8603270f4c570c7ef311bdadae
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 811591a3340f07b08b3a954ccd475e926b73a9cf
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072574"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176768"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>使用修訂項目安全地進行不間斷的變更
 當您的 API 已準備就緒，且開發人員也已準備好使用時，您就必須對該 API 進行變更，同時避免中斷 API 呼叫者的作業。 這對於讓開發人員了解您所做的更改也相當有用。 我們可以使用**修訂**在 Azure API 管理中進行此動作。 如需詳細資訊，請參閱[版本與修訂](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/)和[使用 Azure API 管理的 API 版本設定](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/)。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 新增修訂
@@ -92,10 +92,8 @@ ms.locfileid: "70072574"
 2. 從頂端功能表選取 [開發人員入口網站]  。
 3. 選取 [API]  ，然後選取 [Demo Conference API]  。
 4. 請注意，您現在可以使用新的**測試**作業。
-5. 從 API 名稱下方選取 [API 變更記錄]  。
+5. 按一下 [API 名稱] 附近的 [變更記錄]  。
 6. 請注意，您的變更記錄項目會出現在此清單中。
-
-    ![開發人員入口網站](media/api-management-getstarted-revise-api/developer_portal.PNG)
 
 ## <a name="next-steps"></a>後續步驟
 

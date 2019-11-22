@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/21/2019
-ms.openlocfilehash: 9bd620ef9664e921aa88792017585b02e44387f8
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/28/2019
+ms.openlocfilehash: 2df76c5906037fc5ce35e0c3a6558b0240c4b2be
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172700"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043311"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>教學課程：使用 DMS 在線上從 RDS MySQL 遷移至適用於 MySQL 的 Azure 資料庫
 
@@ -58,9 +58,6 @@ ms.locfileid: "71172700"
 * 使用 Azure Resource Manager 部署模型建立 Azure 資料庫移轉服務的 Azure 虛擬網路 (VNet)，以使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 為您的內部部署來源伺服器提供站對站連線能力。 如需建立 VNet 的詳細資訊，請參閱[虛擬網路文件](https://docs.microsoft.com/azure/virtual-network/)，特別是快速入門文章，裡面會提供逐步操作詳細資料。
 * 確定您的 VNet 網路安全性群組規則不會對 Azure 資料庫移轉服務封鎖下列輸入通訊埠：443、53、9354、445 及 12000。 如需 Azure VNet NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
 * 設定 [Windows 防火牆](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) (或是 Linux 防火牆)，以允許資料庫引擎的存取。 針對 MySQL 伺服器，請允許連接埠 3306 以進行連線。
-* 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 MySQL 伺服器 (預設的 TCP 連接埠是 3306)。
-* 使用來源資料庫前面的防火牆應用裝置時，您可能必須新增防火牆規則，才能讓 Azure 資料庫移轉服務存取來源資料庫，以進行移轉。
-* 為適用於 MySQL 的 Azure 資料庫伺服器建立伺服器層級的[防火牆規則](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)，以允許 Azure 資料庫移轉服務存取目標資料庫。 提供用於 Azure 資料庫移轉服務之 VNet 的子網路範圍。
 
 > [!NOTE]
 > 適用於 MySQL 的 Azure 資料庫僅支援 InnoDB 資料表。 若要將 MyISAM 資料表轉換為 InnoDB，請參閱[將資料表從 MyISAM 轉換為 InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) 一文
@@ -72,6 +69,7 @@ ms.locfileid: "71172700"
     * binlog_format = row
     * binlog_checksum = NONE
 3. 儲存新的參數群組。
+4. 建立新的參數群組與 RDS MySQL 實例之間的關聯。 可能需要重新開機。
 
 ## <a name="migrate-the-schema"></a>遷移結構描述
 

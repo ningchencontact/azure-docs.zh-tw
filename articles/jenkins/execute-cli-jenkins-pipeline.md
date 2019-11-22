@@ -7,13 +7,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 6/7/2017
-ms.openlocfilehash: 5728a9ab70c5b7db10a123d6964b498e70f96588
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/23/2019
+ms.openlocfilehash: 3da18bf50c82a32a9cec70555ac0d051e7660184
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162190"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882125"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>使用 Jenkins 和 Azure CLI 來部署到 Azure App Service
 若要將 Java Web 應用程式部署到 Azure，您可以在 [Jenkins 管線](https://jenkins.io/doc/book/pipeline/)中使用 Azure CLI。 在本教學課程中，您會在 Azure VM 上建立 CI/CD 管線，包括如何︰
@@ -174,7 +174,7 @@ withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
 ## <a name="deploy-to-azure-web-app-on-linux"></a>部署到 Linux 上的 Azure Web 應用程式
 既然您已知道如何在 Jenkins 管線中使用 Azure CLI，現在就可以修改指令碼來部署到 Linux 上的 Azure Web 應用程式。
 
-Linux 上的 Web 應用程式支援不同的方式來進行部署，也就是使用 Docker。 若要部署，您必須提供一個 Dockerfile，此檔案會將您的 Web 應用程式與服務執行階段封裝成 Docker 映像。 外掛程式會接著建置該映像，將它推送到 Docker 登錄，然後將該映像部署到您的 Web 應用程式。
+Linux 上的 Web 應用程式支援不同的方式來進行部署，也就是使用 Docker。 若要部署，您必須提供一個 Dockerfile，此檔案會將您的 Web 應用程式與服務執行階段封裝成 Docker 映像。 外掛程式會接著建置該映像，並推送到 Docker 登錄，然後將該映像部署到您的 Web 應用程式。
 
 * 依照[這裡](../app-service/containers/quickstart-nodejs.md)的步驟來建立在 Linux 上執行的 Azure Web 應用程式。
 * 依照這篇[文章](https://docs.docker.com/engine/installation/linux/ubuntu/)中的指示，將 Docker 安裝在您的 Jenkins 執行個體上。

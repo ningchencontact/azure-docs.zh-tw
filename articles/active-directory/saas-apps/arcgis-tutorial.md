@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: a9e132a4-29e7-48bf-beb9-4148e617c8a9
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db56cd7551ef8179aeff575fdd1f2578cbee74ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4afd7697272775b8d5558d9c091eeea0d2b9adf
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106697"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158018"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>教學課程：Azure Active Directory 與 ArcGIS Online 整合
 
@@ -216,18 +217,18 @@ ms.locfileid: "67106697"
 
 3. 選取 [自動新增成員而不傳送電子郵件]  ，然後按 [下一步]  。
    
-    ![自動新增成員](./media/arcgis-tutorial/ic784748.png "自動新增成員")
+    ![自動加入成員](./media/arcgis-tutorial/ic784748.png "自動加入成員")
 
 4. 在 [成員]  對話頁面上，執行下列步驟：
    
-     ![新增並檢閱](./media/arcgis-tutorial/ic784749.png "新增並檢閱")
+     ![加入並檢閱](./media/arcgis-tutorial/ic784749.png "加入並檢閱")
     
      a. 輸入您想要佈建之有效 AAD 帳戶的 [電子郵件]  、[名字]  和 [姓氏]  。
   
      b. 按一下 [新增並檢閱]  。
 5. 檢閱您已輸入的資料，然後按一下 [新增成員]  。
    
-    ![新增成員](./media/arcgis-tutorial/ic784750.png "新增成員")
+    ![新增成員](./media/arcgis-tutorial/ic784750.png "加入成員")
         
     > [!NOTE]
     > Azure Active Directory 帳戶的持有者會收到一封電子郵件，並依照連結在啟用其帳戶前進行確認。

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 32af532fcb3b3c5a294590bb7a1fa610d1068e25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08c5bd8da0dda74156b2d44c8106ed345ef749dd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67094443"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177011"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>教學課程：Azure Active Directory 與 Picturepark 整合
 
@@ -117,7 +117,7 @@ Picturepark 與 Azure AD 整合提供下列優點：
     | |
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Picturepark 客戶支援小組](https://picturepark.com/about/contact/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Picturepark 客戶支援小組](https://picturepark.com/company/picturepark-customer-support)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. 在 [SAML 簽署憑證]  區段中，按一下 [編輯]  按鈕以開啟 [SAML 簽署憑證]  對話方塊。
 
@@ -148,7 +148,7 @@ Picturepark 與 Azure AD 整合提供下列優點：
 
 3. 按一下 [驗證]  ，然後按一下 [識別提供者]  。
    
-    ![驗證](./media/picturepark-tutorial/ic795063.png "驗證")
+    ![驗證](./media/picturepark-tutorial/ic795063.png "Authentication")
 
 4. 在 [識別提供者組態]  區段中，執行下列步驟：
    

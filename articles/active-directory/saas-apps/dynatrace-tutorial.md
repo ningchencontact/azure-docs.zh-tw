@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/11/2019
+ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1db69cfbf86cf9f33b84273b9e4da6696897467d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 0ba96dd2fcfb995afa6e3b1302a2c8b075abfd90
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377300"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968713"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dynatrace"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Dynatrace 整合
 
@@ -48,7 +48,7 @@ ms.locfileid: "72377300"
 * Dynatrace 支援 **Just In Time** 使用者佈建
 
 > [!NOTE]
-> 此應用程式的識別碼是固定的字串值，因此一個租用戶中只能設定一個執行個體。
+> 此應用程式的識別碼都是固定字串值。 在一個租用戶中只能設定一個執行個體。
 
 ## <a name="adding-dynatrace-from-the-gallery"></a>從資源庫新增 Dynatrace
 
@@ -68,10 +68,10 @@ ms.locfileid: "72377300"
 若要設定及測試與 Dynatrace 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
-    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
-    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+    * **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    * **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
 1. **[設定 Dynatrace SSO](#configure-dynatrace-sso)** - 在應用程式端設定單一登入設定。
-    1. **[建立 Dynatrace 測試使用者](#create-dynatrace-test-user)** - 在 Dynatrace 中建立 B.Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
+    * **[建立 Dynatrace 測試使用者](#create-dynatrace-test-user)** - 在 Dynatrace 中建立 B.Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
 1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
 ## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
@@ -84,17 +84,27 @@ ms.locfileid: "72377300"
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [基本 SAML 組態] ****   區段上，已預先以  **IDP**  起始的模式設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存] ****   按鈕，才能儲存組態。
+1. 在 [基本 SAML 組態]  區段中，已預先以 **IDP** 起始的模式設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存]  按鈕，才能儲存設定。
 
-1. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
+1. 按一下 [設定其他 URL]  ，並完成下列步驟，以 **SP** 起始模式設定應用程式：
 
     在 [登入 URL]  文字方塊中，輸入 URL：`https://sso.dynatrace.com/`
 
-1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  ，以下載憑證並將其儲存在電腦上。
+1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找**同盟中繼資料 XML**。 選取 [下載]  以下載憑證，並將其儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-1. 在 [設定 Dynatrace]  區段上，根據您的需求複製適當的 URL。
+1. 在 [SAML 簽署憑證]  區段中，選取 [編輯]  按鈕以開啟 [SAML 簽署憑證]  對話方塊。 完成下列步驟：
+
+    ![編輯 SAML 簽署憑證](common/edit-certificate.png)
+
+    a. [簽署選項]  設定已預先填入。 請根據您的組織來檢閱設定。
+
+    b. 按一下 [檔案]  。
+
+    ![Communifire 簽署選項](./media/dynatrace-tutorial/tutorial-dynatrace-signing-option.png)
+
+1. 在 [設定 Dynatrace]  區段中，根據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -120,23 +130,23 @@ ms.locfileid: "72377300"
 
    ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-1. 選取 [新增使用者]  ，然後在 [新增指派]  對話方塊中選取 [使用者和群組]  。
+1. 選取 [新增使用者]  ，然後在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增使用者] 連結](common/add-assign-user.png)
 
-1. 在 [使用者和群組]  對話方塊的 [使用者] 清單中選取 [B.Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
+1. 在 [使用者及群組]  對話方塊的 [使用者] 清單中選取 [B.Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
 1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
 1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
 ## <a name="configure-dynatrace-sso"></a>設定 Dynatrace SSO
 
-若要在 **Dynatrace** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和複製的適當 URL 傳送給 [Dynatrace 支援小組](https://www.dynatrace.com/services-support/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Dynatrace** 端設定單一登入，您必須將從 Azure 入口網站下載的**同盟中繼資料 XML** 檔案和複製的適當 URL 傳送給 [Dynatrace 支援小組](https://www.dynatrace.com/services-support/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-dynatrace-test-user"></a>建立 Dynatrace 測試使用者
 
-本節會在 Dynatrace 中建立名為 Britta Simon 的使用者。 Dynatrace 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Dynatrace 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Dynatrace 中建立名為 B.Simon 的使用者。 Dynatrace 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Dynatrace 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
-## <a name="test-sso"></a>測試 SSO 
+## <a name="test-sso"></a>測試 SSO
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
@@ -151,4 +161,3 @@ ms.locfileid: "72377300"
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [嘗試搭配 Azure AD 使用 Dynatrace](https://aad.portal.azure.com/)
-

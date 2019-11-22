@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 09/10/2019
-ms.openlocfilehash: 8944a5adbe1b9e129b4a95c64aaa7a75fb96ac82
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1ac5e4dd28f7565f546c700a4bbb0076fd793bb7
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845575"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163422"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>教學課程：使用 DMS 在線上將 Oracle 遷移至適用於 PostgreSQL 的 Azure 資料庫 (預覽)
 
 您可以使用 Azure 資料庫移轉服務，在最短的停機時間內將資料庫從裝載在內部部署或位於虛擬機器上的 Oracle 資料庫遷移至[適用於 PostgreSQL 的 Azure 資料庫](https://docs.microsoft.com/azure/postgresql/)。 換句話說，應用程式可在最短的停機時間內完成移轉。 在此教學課程中，您會在 Azure 資料庫移轉服務中使用線上移轉活動，將 **HR** 資料庫範例從內部部署的 Oracle 11g 或從 Oracle 11g 的虛擬機器執行個體，遷移至適用於 PostgreSQL 的 Azure 資料庫。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 >
 > * 使用 ora2pg 工具評估移轉工作。
@@ -243,8 +243,8 @@ Azure 資料庫移轉服務也可以建立 PostgreSQL 資料表結構描述。 �
     | ------------- | ------------- | ------------- |
     | HR | targetHR.public | public.countries.country_id |
     | HR | targetHR.trgthr | trgthr.countries.country_id |
-    | HR | targetHR.TARGETHR | “TARGETHR”.”COUNTRIES”.”COUNTRY_ID” |
-    | HR | targetHR.HR | “HR”.”COUNTRIES”.”COUNTRY_ID” |
+    | HR | targetHR.TARGETHR | "TARGETHR"."COUNTRIES"."COUNTRY_ID" |
+    | HR | targetHR.HR | "HR"."COUNTRIES"."COUNTRY_ID" |
     | HR | targetHR.Hr | *無法對應混合大小寫 |
 
     *若要在目標 PostgreSQL 中建立混合大小寫的結構描述和資料表名稱，請連絡 [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)。 我們可以提供指令碼供您在目標 PostgreSQL 資料庫中設定混合大小寫的資料表結構描述。

@@ -1,5 +1,5 @@
 ---
-title: '教學課程：Azure 串流分析 JavaScript 使用者定義函式 | Microsoft Docs '
+title: Azure 串流分析 JavaScript 使用者定義函式
 description: 在此教學課程中，您將使用 JavaScript 使用者定義函式來執行進階查詢技術
 services: stream-analytics
 author: rodrigoamicrosoft
@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: c7414ee159303465d6698ce9c47d04ba37c0c46e
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 9ddf8a2a11cb863a0016726074c5279bfde96959
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329371"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990228"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>教學課程：Azure 串流分析 JavaScript 使用者定義函式
  
 Azure 串流分析支援以 JavaScript 撰寫的使用者定義函式。 JavaScript 提供豐富的 **String**、**RegExp**、**Math**、**Array** 和 **Date** 方法，可讓使用串流分析作業建立複雜的資料轉換變得更容易。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 定義 JavaScript 使用者定義函式
@@ -68,8 +68,11 @@ JavaScript 使用者定義的函式支援無狀態且只做為計算用途的純
     }
     ```
 
-6.  選取 [ **儲存**]。 您的函式會出現在函式的清單中。
+6.  選取 [儲存]  。 您的函式會出現在函式的清單中。
 7.  選取新的 **hex2Int** 函式，並檢查函式定義。 所有函式必須在函式別名前端新增 **UDF** 前置詞。 在串流分析查詢中呼叫函式時，您需要*包含前置詞*。 在此情況下，您會呼叫 **UDF.hex2Int**。
+
+## <a name="testing-javascript-udfs"></a>測試 JavaScript UDF 
+您可以在任何瀏覽器中測試和偵錯 JavaScript UDF 邏輯。 串流分析入口網站目前不支援對這類使用者定義函數的邏輯進行偵錯和測試。 函數如預期般運作後，即可將函數新增至串流分析工作 (如上所述)，然後直接從查詢加以叫用。
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>在查詢中呼叫 JavaScript 使用者定義函式
 
@@ -125,7 +128,6 @@ JavaScript 語言需區分大小寫，且 JavaScript 程式碼中物件欄位的
 
 ## <a name="troubleshooting"></a>疑難排解
 JavaScript 執行階段錯誤會被視為嚴重問題，並顯示在活動記錄。 若要擷取記錄檔，在 Azure 入口網站中，請移至您的作業並選取 [活動記錄]  。
-
 
 ## <a name="other-javascript-user-defined-function-patterns"></a>其他 JavaScript 使用者定義函式模式
 

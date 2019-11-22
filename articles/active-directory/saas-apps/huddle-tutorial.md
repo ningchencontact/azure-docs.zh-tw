@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8389ba4c-f5f8-4ede-b2f4-32eae844ceb0
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97e44b11f756f198724d37b3cef49f3ad94699df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1faf1c1fcdefb0c93d36c195f0cf44626a555f44
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101019"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158998"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>教學課程：Azure Active Directory 與 Huddle 整合
 
@@ -224,7 +225,7 @@ Huddle 與 Azure AD 整合提供下列優點：
 
 3. 按一下 [人員] \> [邀請人員]  。
 
-    ![People](./media/huddle-tutorial/ic787838.png "People")
+    ![人員](./media/huddle-tutorial/ic787838.png "人員")
 
 4. 在 [建立新的邀請]  區段中，執行下列步驟：
   

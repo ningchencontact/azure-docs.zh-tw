@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用企業安全性套件設定 Apache HBase - Azure
+title: Apache HBase 和企業安全性套件 - Azure HDInsight
 description: 教學課程 - 了解如何使用企業安全性套件在 Azure HDInsight 中設定 HBase 的 Apache Ranger 原則。
 ms.service: hdinsight
 author: hrasheed-msft
@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: da6903aa9f51fbba00ca599805ff3213e9388dd1
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597944"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044650"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>教學課程：使用企業安全性套件在 HDInsight 中設定 Apache HBase 原則
 

@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: fb92e882607575e99ae800bd9c6d7c36b5d89d8e
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f720e22542533d17fc7ab581f8ba8d9c03a89570
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034464"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025571"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>教學課程：使用 Azure Logic Apps 建立以核准為基礎的自動化工作流程
 

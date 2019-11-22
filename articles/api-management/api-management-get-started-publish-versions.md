@@ -11,20 +11,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1be70d3eb74d3a8f0eddb1e5c22e4234987276b3
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d0c837ac376f9d496baaf1ed67d0ec80c996804a
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073682"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176828"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>為您的 API 發佈多個版本 
 
 有時候，讓 API 的所有呼叫者使用完全相同的版本不太實際。 當呼叫者想要升級至更新版本時，他們希望能夠使用簡單易懂的方法來執行此操作。 您可以在 Azure API 管理中使用**版本**執行此操作。 如需詳細資訊，請參閱[版本與修訂](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/)。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 將新版本新增至現有 API
@@ -94,15 +94,14 @@ Azure API 管理可讓您選擇讓呼叫者指定他們想要之 API 版本的�
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>瀏覽開發人員入口網站以查看版本
 
 1. 從頂端功能表選取 [開發人員入口網站]  。
-2. 選取 [API]  ，請注意，[示範會議 API]  會顯示**原始**和 **v1** 版本。
-3. 選取 [v1]  。
-4. 請注意清單中第一項作業的 [要求 URL]  。 它會顯示 API URL 路徑，包含 **v1**。
-
-    ![API 內容功能表 - 新增版本](media/api-management-getstarted-publish-versions/developer_portal.png)
+2. 選取 [API]  ，並按一下 [Demo Conference API]  。
+3. 您應該會在 API 名稱旁邊看到有多個版本的下拉式清單。
+4. 選取 [v1]  。
+5. 請注意清單中第一項作業的 [要求 URL]  。 它會顯示 API URL 路徑，包含 **v1**。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 將新版本新增至現有 API

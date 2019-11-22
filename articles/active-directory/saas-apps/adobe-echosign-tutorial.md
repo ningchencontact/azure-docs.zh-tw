@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f9385723-8fe7-4340-8afb-1508dac3e92b
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb27e24e9b53b734a24304a63c8fd91d5e94f5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 788c1292b844088f171479b40fc566ff5cfc8a57
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107339"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73154034"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>教學課程：Azure Active Directory 與 Adobe Sign 整合
 
@@ -151,13 +152,13 @@ ms.locfileid: "67107339"
 
 1. 在 [SAML] 功能表中，選取 [Account Settings] \(帳戶設定\)   > [SAML Settings] \(SAML 設定\)  。
    
-    ![Adobe Sign [SAML Settings] \(SAML 設定\) 頁面的螢幕擷取畫面](./media/adobe-echosign-tutorial/ic789520.png "Account (\帳戶\)")
+    ![Adobe Sign [SAML Settings] \(SAML 設定\) 頁面的螢幕擷取畫面](./media/adobe-echosign-tutorial/ic789520.png "帳戶")
 
 1. 在 [SAML 設定]  區段中，執行下列步驟：
   
-   ![[SAML Settings] \(SAML 設定\) 的螢幕擷取畫面](./media/adobe-echosign-tutorial/ic789521.png "SAML Settings \(SAML 設定\)")
+   ![[SAML Settings] \(SAML 設定\) 的螢幕擷取畫面](./media/adobe-echosign-tutorial/ic789521.png "SAML 設定")
    
-   ![[SAML Settings] \(SAML 設定\) 的螢幕擷取畫面](./media/adobe-echosign-tutorial/ic789522.png "SAML Settings \(SAML 設定\)")
+   ![[SAML Settings] \(SAML 設定\) 的螢幕擷取畫面](./media/adobe-echosign-tutorial/ic789522.png "SAML 設定")
 
    a. 在 [SAML Mode] \(SAML 模式\)  底下，選取 [SAML Mandatory] \(SAML 強制\)  。
    
@@ -237,11 +238,11 @@ ms.locfileid: "67107339"
 
 2. 在頂端的功能表中，選取 [Account] \(帳戶\)  。 接著，在左側窗格中，選取 [Users & Groups] \(使用者和群組\)   > [Create a new user] \(建立新使用者\)  。
    
-    ![Adobe Sign 公司網站的螢幕擷取畫面，其中已醒目提示 [Account] \(帳戶\)、[Users &Groups] \(使用者和群組\) 及 [Create a new user] \(建立新使用者\)](./media/adobe-echosign-tutorial/ic789524.png "Account \(帳戶\)")
+    ![Adobe Sign 公司網站的螢幕擷取畫面，其中已醒目提示 [Account] \(帳戶\)、[Users &Groups] \(使用者和群組\) 及 [Create a new user] \(建立新使用者\)](./media/adobe-echosign-tutorial/ic789524.png "帳戶")
    
 3. 在 [建立新的使用者]  區段中，執行下列步驟：
    
-    ![[Create a new user] \(建立新使用者\) 區段的螢幕擷取畫面](./media/adobe-echosign-tutorial/ic789525.png "Create User \(建立使用者\)")
+    ![[Create a new user] \(建立新使用者\) 區段的螢幕擷取畫面](./media/adobe-echosign-tutorial/ic789525.png "建立使用者")
    
     a. 針對您想要佈建的有效 Azure AD 帳戶，將帳戶的 [Email Address] \(電子郵件地址\)  、[First Name] \(名字\)  及 [Last Name] \(姓氏\)  輸入至相關文字方塊中。
    

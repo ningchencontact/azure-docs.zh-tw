@@ -7,17 +7,17 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 02/23/2019
-ms.openlocfilehash: 1ee5a8d5f55422c9f8a0f20f3c6eb039f080dc2d
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.date: 10/23/2019
+ms.openlocfilehash: 58267c607b0c4f2eaaf242c8e0752451f8c04c9a
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815745"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882046"
 ---
-# <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plugin"></a>使用 Jenkins Azure Functions 外掛程式部署至 Azure Functions
+# <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>使用 Jenkins Azure Functions 外掛程式部署至 Azure Functions
 
-[Azure Functions](/azure/azure-functions/) 是無伺服器計算服務。 您可以視需要使用 Azure Functions 來執行程式碼，無須佈建或管理基礎結構。 本教學課程會示範如何使用 Azure Functions 外掛程式將 Java 函式部署至 Azure Functions。
+[Azure Functions](/azure/azure-functions/) 是無伺服器計算服務。 您可以視需要使用 Azure Functions 來執行程式碼，無須佈建或管理基礎結構。 本教學課程會示範如何使用 Azure Functions 外掛程式將 JAVA 函數部署至 Azure Functions。
 
 ## <a name="prerequisites"></a>必要條件
 

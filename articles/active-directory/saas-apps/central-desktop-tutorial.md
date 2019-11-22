@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58fcd21c7e6e3f2336d3e809584451dc38f6276b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fda8e928b530001faeae34c364dfed91d7620f0a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105743"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>教學課程：Azure Active Directory 與 Central Desktop 整合
 
@@ -232,7 +233,7 @@ ms.locfileid: "67105743"
 
 2. 選取 [人員]  ，然後選取 [新增內部成員]  。
 
-    ![People](./media/central-desktop-tutorial/ic781051.png "People")
+    ![人員](./media/central-desktop-tutorial/ic781051.png "人員")
 
 3. 在 [Email Address of New Members] \(新成員的電子郵件地址\)  方塊中，輸入您想要佈建的 Azure AD 帳戶，然後選取 [Next] \(下一步\)  。
 

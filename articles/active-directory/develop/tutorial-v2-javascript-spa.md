@@ -1,5 +1,6 @@
 ---
-title: Azure AD v2.0 JavaScript 單頁應用程式 (SPA) 引導式設定 | Microsoft Docs
+title: Azure AD v2.0 JavaScript 單頁應用程式 (SPA) 引導式設定
+titleSuffix: Microsoft identity platform
 description: JavaScript SPA 應用程式如何呼叫需要來自 Azure Active Directory v2.0 端點存取權杖的 API
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61790954393923bbf330ad3a534d1d33d1a44bbc
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: fc03e6f1610fe6cef9ce72c981f6f800da8a9951
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983486"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802525"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>登入使用者並從 JavaScript 單頁應用程式 (SPA) 呼叫 Microsoft 圖形 API
 
@@ -263,7 +264,7 @@ ms.locfileid: "70983486"
 
 在使用者第一次選取 [登入]  按鈕之後，`signIn` 方法會呼叫 `loginPopup` 以將使用者登入。 這個方法會開啟「Microsoft 身分識別平台端點」  的快顯視窗，以提示及驗證使用者的認證。 成功登入之後，使用者會重新導回到原本的 index.html  頁面。 系統會收到權杖 (由 `msal.js` 進行處理)，並快取權杖中包含的資訊。 此權杖也稱為「ID 權杖」  且包含使用者的基本資訊，例如使用者顯示名稱。 如果您打算將此權杖所提供的任何資料用於任何目的，您必須確定後端伺服器已驗證此權杖，以保證權杖是發給您應用程式的有效使用者。
 
-本指南所產生的 SPA 會呼叫 `acquireTokenSilent` 和/或 `acquireTokenPopup`，以取得用來查詢 Microsoft Graph API 中使用者設定檔資訊的「存取權杖」  。 如果您需要可驗證 ID 權杖的範例，請看一下 GitHub 中[這個](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 範例")的範例應用程式。 此範例使用 ASP.NET Web API 進行權杖驗證。
+本指南所產生的 SPA 會呼叫 `acquireTokenSilent` 和/或 `acquireTokenPopup`，以取得用來查詢 Microsoft Graph API 中使用者設定檔資訊的「存取權杖」  。 如果您需要可驗證 ID 權杖的範例，請參閱 GitHub 中的[這個](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 範例")範例應用程式。 此範例使用 ASP.NET Web API 進行權杖驗證。
 
 #### <a name="getting-a-user-token-interactively"></a>以互動方式取得使用者權杖
 

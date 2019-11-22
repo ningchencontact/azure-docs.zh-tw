@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 496156c3-0e22-4492-b36f-2c29c055e087
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 468d55b2b96979658bc8f3e226da36dc4af1c174
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 463a8981689614d96100e03965117c9344aa5d50
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097957"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159511"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>教學課程：Azure Active Directory 與 LogicMonitor 整合
 
@@ -211,7 +212,7 @@ LogicMonitor 與 Azure AD 整合有下列優點：
 
 2. 在頂端的功能表中，按一下 [設定]  ，然後按一下 [角色與使用者]  。
 
-    ![角色和使用者](./media/logicmonitor-tutorial/ic790056.png "角色和使用者")
+    ![角色與使用者](./media/logicmonitor-tutorial/ic790056.png "角色和使用者")
 
 3. 按一下 [新增]  。
 

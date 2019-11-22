@@ -1,22 +1,19 @@
 ---
-title: 在 Azure 中使用 Terratest 測試 Terraform 模組
+title: 教學課程 - 在 Azure 中使用 Terratest 測試 Terraform 模組
 description: 了解如何使用 Terratest 來測試 Terraform 模組。
-services: terraform
-ms.service: azure
-keywords: terraform, devops, 儲存體帳戶, azure, terratest, 單元測試, 整合測試
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 637bb01bff625989e392d5d711ebd5cdef5c0e09
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: bdb76fe2f87806c02a861ea84361b61a3e94b554
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169640"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969223"
 ---
-# <a name="test-terraform-modules-in-azure-by-using-terratest"></a>在 Azure 中使用 Terratest 測試 Terraform 模組
+# <a name="tutorial-test-terraform-modules-in-azure-using-terratest"></a>教學課程：在 Azure 中使用 Terratest 測試 Terraform 模組
 
 > [!NOTE]
 > 本文中的範例程式碼無法搭配 0.12 版 (和更新版本) 使用。
@@ -40,7 +37,7 @@ ms.locfileid: "71169640"
 
 - **Go 程式設計語言**：Terraform 測試案例是以 [Go](https://golang.org/dl/) 撰寫的。
 - **dep**：[dep](https://github.com/golang/dep#installation) 是適用於 Go 的相依性管理工具。
-- **Azure CLI**：[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 是一個可供您用來管理 Azure 資源的命令列工具。 (Terraform 支援透過服務主體或[透過 Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html) 來對 Azure 進行驗證。)
+- **Azure CLI**：[Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 是一個可供您用來管理 Azure 資源的命令列工具。 (Terraform 支援透過服務主體或[透過 Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html) 來對 Azure 進行驗證。)
 - **mage**：我們會使用 [mage 可執行檔](https://github.com/magefile/mage/releases)來說明如何簡化 Terratest 案例的執行。 
 
 ## <a name="create-a-static-webpage-module"></a>建立靜態網頁模組
@@ -91,7 +88,7 @@ variable "html_path" {
 
 ```hcl
 output "homepage_url" {
-  value = "${azurerm_storage_blob.homepage.url}"
+  value = azurerm_storage_blob.homepage.url
 }
 ```
 
@@ -106,30 +103,30 @@ output "homepage_url" {
 ```hcl
 resource "azurerm_resource_group" "main" {
   name     = "${var.website_name}-staging-rg"
-  location = "${var.location}"
+  location = var.location
 }
 
 resource "azurerm_storage_account" "main" {
   name                     = "${lower(replace(var.website_name, "/[[:^alnum:]]/", ""))}data001"
-  resource_group_name      = "${azurerm_resource_group.main.name}"
-  location                 = "${azurerm_resource_group.main.location}"
+  resource_group_name      = azurerm_resource_group.main.name
+  location                 = azurerm_resource_group.main.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
 
 resource "azurerm_storage_container" "main" {
   name                  = "wwwroot"
-  resource_group_name   = "${azurerm_resource_group.main.name}"
-  storage_account_name  = "${azurerm_storage_account.main.name}"
+  resource_group_name   = azurerm_resource_group.main.name
+  storage_account_name  = azurerm_storage_account.main.name
   container_access_type = "blob"
 }
 
 resource "azurerm_storage_blob" "homepage" {
   name                   = "index.html"
-  resource_group_name    = "${azurerm_resource_group.main.name}"
-  storage_account_name   = "${azurerm_storage_account.main.name}"
-  storage_container_name = "${azurerm_storage_container.main.name}"
-  source                 = "${var.html_path}"
+  resource_group_name    = azurerm_resource_group.main.name
+  storage_account_name   = azurerm_storage_account.main.name
+  storage_container_name = azurerm_storage_container.main.name
+  source                 = var.html_path
   type                   = "block"
   content_type           = "text/html"
 }
@@ -173,7 +170,7 @@ variable "website_name" {
 module "staticwebpage" {
   source       = "../../../"
   location     = "West US"
-  website_name = "${var.website_name}"
+  website_name = var.website_name
   html_path    = "empty.html"
 }
 ```
@@ -226,7 +223,7 @@ func TestUT_StorageAccountName(t *testing.T) {
         // Terraform init and plan only
         tfPlanOutput := "terraform.tfplan"
         terraform.Init(t, tfOptions)
-        terraform.RunTerraformCommand(t, tfOptions, terraform.FormatArgs(tfOptions.Vars, "plan", "-out="+tfPlanOutput)...)
+        terraform.RunTerraformCommand(t, tfOptions, terraform.FormatArgs(tfOptions, "plan", "-out="+tfPlanOutput)...)
 
         // Read and parse the plan output
         f, err := os.Open(path.Join(tfOptions.TerraformDir, tfPlanOutput))
@@ -317,11 +314,11 @@ variable "website_name" {
 module "staticwebpage" {
   source       = "../../"
   location     = "West US"
-  website_name = "${var.website_name}"
+  website_name = var.website_name
 }
 
 output "homepage" {
-  value = "${module.staticwebpage.homepage_url}"
+  value = module.staticwebpage.homepage_url
 }
 ```
 
@@ -395,8 +392,7 @@ GoPath/src/staticwebpage/test$ go test
 整合測試所需的進行時間比單元測試還久 (相較於五個單元案例需要一分鐘，一個整合案例就需要兩分鐘)。 但是您可以決定在案例中使用單元測試或整合測試。 一般而言，如果是使用 Terraform HCL 函式的複雜邏輯，我們喜歡使用單元測試。 對於使用者的端對端觀點，我們通常會使用整合測試。
 
 ## <a name="use-mage-to-simplify-running-terratest-cases"></a>使用 mage 來簡化 Terratest 案例的執行 
-
-在 Azure Cloud Shell 中執行測試案例並不容易的工作。 您必須移至不同的目錄並執行不同的命令。 為了避免使用 Cloud Shell，我們在專案中引進了建置系統。 在本節中，我們會使用 Go 建置系統 mage 來執行這項作業。
+在 Azure Cloud Shell 中執行測試案例，需要在不同的目錄中執行多種命令。 為了讓這個程序更有效率，我們會在專案中引進建置系統。 在本節中，我們會使用 Go 建置系統 mage 來執行這項作業。
 
 mage 唯一的要求是專案根目錄中有 `magefile.go` (在下列範例中以 `(+)` 標出)：
 
@@ -522,5 +518,5 @@ GoPath/src/staticwebpage$ mage
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需 Terratest 的詳細資訊，請參閱 [Terratest GitHub 頁面](https://github.com/gruntwork-io/terratest)。
-* 如需 mage 的詳細資訊，請參閱 [mage GitHub 頁面](https://github.com/magefile/mage)和 [mage 網站](https://magefile.org/)。
+> [!div class="nextstepaction"] 
+> [Terratest GitHub 頁面](https://github.com/gruntwork-io/terratest)。

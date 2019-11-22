@@ -1,22 +1,19 @@
 ---
-title: 使用 Azure 中的 Terraform 建立中樞和輪輻混合網路拓樸
+title: 教學課程 - 使用 Terraform 在 Azure 中建立中樞和輪輻混合網路拓撲
 description: 教學課程說明如何在 Azure 中使用 Terraform 建立完整的混合式網路參考架構
-services: terraform
-ms.service: azure
-keywords: terraform, hub and spoke, networks, hybrid networks, devops, virtual machine, azure, vnet peering, network virtual appliance, 中樞和輪輻, 網路, 混合式網路, 虛擬機器, vnet 對等互連, 網路虛擬設備
-author: VaijanathB
-manager: jeconnoc
-ms.author: vaangadi
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 5c2a61dd9da6d233a4b1410042f2125a1c300758
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 8d85163e746f1d2d0713a9a4f247a2061e0029b8
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173448"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969402"
 ---
-# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-with-terraform-in-azure"></a>教學課程：使用 Azure 中的 Terraform 建立中樞和輪輻混合網路拓樸
+# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>教學課程：使用 Terraform 在 Azure 中建立中樞和輪輻混合網路拓撲
 
 本系列教學課程顯示如何使用 Terraform 在 Azure 中實作[中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)。 
 

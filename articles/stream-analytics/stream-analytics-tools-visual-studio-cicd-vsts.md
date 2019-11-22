@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure DevOps 來部署具有 CI/CD 的 Azure 串流分析作業
+title: 部署具有 CI/CD 和 Azure DevOps 的 Azure 串流分析作業
 description: 本文說明如何使用 Azure DevOps Services 部署具有 CI/CD 的串流分析作業。
 services: stream-analytics
 author: su-jie
@@ -9,17 +9,17 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9e05e4eab8bd3c307334b62df00dc03e56ce60ad
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7810cf9950d919469c4b47053a878518726f4393
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727582"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925073"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>教學課程：使用 Azure Pipelines 來部署具有 CI/CD 的 Azure 串流分析作業
 本教學課程說明如何使用 Azure Pipelines 設定 Azure 串流分析作業的持續整合和部署。 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 將原始檔控制新增至專案
@@ -51,17 +51,17 @@ ms.locfileid: "56727582"
 
 向 Azure DevOps 中的專案共用應用程式原始檔，以便產生組建。  
 
-1. 在 Visual Studio 右下角的狀態列上，依序選取 [新增至原始檔控制]、[Git]，建立專案的新本機 Git 存放庫。 
+1. 在 Visual Studio 右下角的狀態列上，依序選取 [新增至原始檔控制]  、[Git]  ，建立專案的新本機 Git 存放庫。 
 
-2. 在 [Team Explorer] 的 [同步處理] 檢視中，選取 [推送至 Azure DevOps Services] 下的 [發佈 Git 存放庫] 按鈕。
+2. 在 [Team Explorer]  的 [同步處理]  檢視中，選取 [推送至 Azure DevOps Services]  下的 [發佈 Git 存放庫]  按鈕。
 
    ![[推送至 Azure DevOps Services] 的 [發行 Git 存放庫] 按鈕](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-git-repo-devops.png)
 
-3. 確認電子郵件，並在 [Azure DevOps Services 網域] 下拉式清單中選取組織。 輸入您的儲存機制名稱，並選取 [發佈儲存機制]。
+3. 確認電子郵件，並在 [Azure DevOps Services 網域]  下拉式清單中選取組織。 輸入您的儲存機制名稱，並選取 [發佈儲存機制]  。
 
    ![推送 Git 存放庫的 [發行存放庫] 按鈕](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-repository-devops.png)
 
-    發佈存放庫時會在組織中建立與本機存放庫名稱相同的新專案。 若要在現有專案中建立存放庫，請按一下**存放庫名稱**旁邊的 [進階]，並選取專案。 您可以選取 [在網路上檢視]，在瀏覽器上檢視您的程式碼。
+    發佈存放庫時會在組織中建立與本機存放庫名稱相同的新專案。 若要在現有專案中建立存放庫，請按一下**存放庫名稱**旁邊的 [進階]  ，並選取專案。 您可以選取 [在網路上檢視]  ，在瀏覽器上檢視您的程式碼。
  
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>設定 Azure DevOps 的持續傳遞
 Azure Pipelines 組建管線描述了由循序執行組建步驟所組成的工作流程。 深入了解 [Azure Pipelines 組建管線](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav)。 
@@ -71,33 +71,33 @@ Azure Pipelines 發行管線描述將應用程式封裝部署到叢集的工作�
 ### <a name="create-a-build-pipeline"></a>建立組建管線
 請開啟網頁瀏覽器，並瀏覽至您剛剛在 [Azure DevOps](https://app.vsaex.visualstudio.com/) 中建立的專案。 
 
-1. 在 [組建與版本] 索引標籤底下，選取 [組建]，然後選取 [+新增]。  選取 [Azure DevOps Services Git] 和 [繼續]。
+1. 在 [組建與版本]  索引標籤底下，選取 [組建]  ，然後選取 [+新增]  。  選取 [Azure DevOps Services Git]  和 [繼續]  。
     
     ![選取 Azure DevOps 中的 DevOps Git 來源](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source-devops.png)
 
-2. 在 [選取範本] 中，按一下 [空白流程] 從空白管線開始。
+2. 在 [選取範本]  中，按一下 [空白流程]  從空白管線開始。
     
     ![從 DevOps 的範本選項中選取空白流程](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template-empty-process.png)
 
-3. 在 [觸發程序] 下方，透過核取 [啟用持續整合] 觸發程序狀態來啟用持續整合。  選取 [儲存並加入佇列] 以手動啟動組建。 
+3. 在 [觸發程序]  下方，透過核取 [啟用持續整合]  觸發程序狀態來啟用持續整合。  選取 [儲存並加入佇列]  以手動啟動組建。 
     
     ![啟用持續整合觸發程序狀態](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
 
-4. 推送或簽入時也會觸發組建。 若要檢查組建進度，請切換到 [組建] 索引標籤。一旦確認組建執行成功，您必須定義將應用程式部署至叢集的發行管線。 以滑鼠右鍵按一下組建管線旁邊的省略符號，然後選取 [編輯]。
+4. 推送或簽入時也會觸發組建。 若要檢查組建進度，請切換到 [組建]  索引標籤。一旦確認組建執行成功，您必須定義將應用程式部署至叢集的發行管線。 以滑鼠右鍵按一下組建管線旁邊的省略符號，然後選取 [編輯]  。
 
-5.  在 [工作] 中，輸入 "Hosted" 作為**代理程式佇列**。
+5.  在 [工作]  中，輸入 "Hosted" 作為**代理程式佇列**。
     
     ![選取 [工作] 功能表中的代理程式佇列](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue-task.png) 
 
-6. 在 [第 1 階段] 中，按一下 [+]，然後新增 **NuGet** 工作。
+6. 在 [第 1 階段]  中，按一下 [+]  ，然後新增 **NuGet** 工作。
     
     ![在 [代理程式佇列] 中新增一個 NuGet 工作](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-nuget-task.png)
 
-7. 展開 [進階]，然後將 `$(Build.SourcesDirectory)\packages` 新增至**目的地目錄**中。 保留其餘的預設 NuGet 組態值。
+7. 展開 [進階]  ，然後將 `$(Build.SourcesDirectory)\packages` 新增至**目的地目錄**中。 保留其餘的預設 NuGet 組態值。
 
    ![設定 NuGet 還原工作](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget-restore-config.png)
 
-8. 在 [第 1 階段] 中，按一下 [+]，然後新增 **MSBuild** 工作。
+8. 在 [第 1 階段]  中，按一下 [+]  ，然後新增 **MSBuild** 工作。
 
    ![在 [代理程式佇列] 中新增 MSBuild 工作](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-msbuild-task.png)
 
@@ -109,16 +109,16 @@ Azure Pipelines 發行管線描述將應用程式封裝部署到叢集的工作�
 
    ![設定 DevOps 中的 MSBuild 工作](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-config-msbuild-task.png)
 
-10. 在 [第 1 階段] 中，按一下 [+]，然後新增 [Azure 資源群組部署] 工作。 
+10. 在 [第 1 階段]  中，按一下 [+]  ，然後新增 [Azure 資源群組部署]  工作。 
     
     ![新增 [Azure 資源群組部署] 工作](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-resource-group-deployment.png)
 
-11. 展開 [Azure 詳細資料] 並以下列值填入組態：
+11. 展開 [Azure 詳細資料]  並以下列值填入組態：
     
     |**設定**  |**建議的值**  |
     |---------|---------|
     |訂用帳戶  |  選擇您的訂用帳戶。   |
-    | 動作  |  建立或更新資源群組   |
+    |動作  |  建立或更新資源群組   |
     |資源群組  |  輸入資源群組名稱。   |
     |範本  | [您的解決方案路徑]\bin\Debug\Deploy\\[您的專案名稱].JobTemplate.json   |
     |範本參數  | [您的解決方案路徑]\bin\Debug\Deploy\\[您的專案名稱].JobTemplate.parameters.json   |
@@ -126,7 +126,7 @@ Azure Pipelines 發行管線描述將應用程式封裝部署到叢集的工作�
     
     ![設定 [Azure 資源群組部署] 的屬性](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deployment-properties.png)
 
-12. 按一下 [儲存並排入佇列] 以測試組建管線。
+12. 按一下 [儲存並排入佇列]  以測試組建管線。
     
     ![儲存 DevOps 中的組建並排入佇列](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-and-queue-build.png)
 
@@ -144,7 +144,7 @@ Azure Pipelines 發行管線描述將應用程式封裝部署到叢集的工作�
 
     ![從 Visual Studio 認可存放庫變更](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-commit-changes-visual-studio.png)
 
-2. 選取未發行的變更狀態列圖示或 Team Explorer 中的 [同步] 檢視。 選取 [推送] 更新 Azure DevOps 中的程式碼。
+2. 選取未發行的變更狀態列圖示或 Team Explorer 中的 [同步] 檢視。 選取 [推送]  更新 Azure DevOps 中的程式碼。
 
     ![從 Visual Studio 推送變更](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-visual-studio.png)
 
@@ -154,8 +154,8 @@ Azure Pipelines 發行管線描述將應用程式封裝部署到叢集的工作�
 
 若不再需要，可刪除資源群組、串流作業和所有相關資源。 刪除作業可避免因為作業使用串流單位而產生費用。 如果您計劃在未來使用該作業，您可以將其停止並在之後需要時重新啟動。 如果您不再繼續使用此作業，請使用下列步驟，刪除本教學課程所建立的所有資源：
 
-1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的名稱。  
-2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。
+1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]  ，然後按一下您所建立資源的名稱。  
+2. 在資源群組頁面上，按一下 [刪除]  ，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 

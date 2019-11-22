@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6bd02bcd52808af43c2254304c56fee76903c73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a144bec0a610a5a47e8a9bf3ff6a5de05b239ed
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090971"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159982"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>教學課程：Azure Active Directory 與 Humanity 整合
 
@@ -132,7 +133,7 @@ ms.locfileid: "67090971"
 
 2. 在頂端的功能表中，按一下 [系統管理員]  。
 
-    ![管理](./media/shiftplanning-tutorial/iC786619.png "管理")
+    ![管理員](./media/shiftplanning-tutorial/iC786619.png "Admin")
 3. 在 [整合]  下方，按一下 [單一登入]  。
 
     ![單一登入](./media/shiftplanning-tutorial/iC786620.png "單一登入")
@@ -214,11 +215,11 @@ ms.locfileid: "67090971"
 
 2. 按一下 Admin  。
 
-    ![管理](./media/shiftplanning-tutorial/iC786619.png "管理")
+    ![管理員](./media/shiftplanning-tutorial/iC786619.png "Admin")
 
 3. 按一下 [職員]  。
 
-    ![職員](./media/shiftplanning-tutorial/ic786623.png "職員")
+    ![人員](./media/shiftplanning-tutorial/ic786623.png "職員")
 
 4. 在 [動作]  下方，按一下 [新增員工]  。
 

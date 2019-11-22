@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c2a3e5aa-7b5a-4fe4-9285-45dbe6e8efcc
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ed903e71a019d0bdb1b62503913bd696e9d8a8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: add43f081ca6059651725cd6f817d4cce127b74b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102049"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73155769"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>教學課程：Azure Active Directory 與 FreshDesk 整合
 
@@ -118,7 +119,7 @@ FreshDesk 與 Azure AD 整合提供下列優點：
 
 6. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，使用 [編輯]  圖示來編輯宣告或使用 [新增宣告]  來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
     
-    | Name | 來源屬性 |
+    | 名稱 | 來源屬性 |
     | ---------------| --------------- |
     | 唯一的使用者識別碼 | user.mail |
 
@@ -245,7 +246,7 @@ FreshDesk 需以手動的方式佈建。
 
 2. 在頂端的功能表中，按一下 [系統管理員]  。
 
-    ![管理](./media/freshdesk-tutorial/IC776772.png "管理")
+    ![管理員](./media/freshdesk-tutorial/IC776772.png "Admin")
 
 3. 在 [一般設定]  索引標籤上，按一下 [代理程式]  。
   

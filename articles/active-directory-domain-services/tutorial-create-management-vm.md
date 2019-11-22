@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: e7c3ccb553010b84a30ccdad875ea0362112d830
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 2aec10ab07b78aaacf34340b268f9b7dfbe69eb5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69618788"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172317"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>教學課程：建立管理 VM 來設定及管理 Azure Active Directory Domain Services 受控網域
 
@@ -101,7 +101,7 @@ Azure AD DS 網域已被鎖定，因此您沒有在網域上進行特定管理�
 
 若要在已加入網域的 VM 上安裝 Active Directory 管理工具，請完成下列步驟：
 
-1. 當您登入 VM 時，預設應該會開啟 [伺服器管理員]  。 如果沒有，請在 [開始]  功能表上，選取 [伺服器管理員]  。
+1. 如果 [伺服器管理員]  在您登入 VM 時並未預設為開啟狀態，請選取 [開始]  功能表，然後選擇 [伺服器管理員]  。
 1. 在 [伺服器管理員]  視窗的 [儀表板]  窗格內，選取 [新增角色及功能]  。
 1. 在 [新增角色及功能精靈]  的 [開始之前]  頁面上，選取 [下一步]  。
 1. 針對 [安裝類型]  ，保持勾選 [角色型或功能型安裝]  選項，然後選取 [下一步]  。
@@ -131,13 +131,15 @@ Azure AD DS 網域已被鎖定，因此您沒有在網域上進行特定管理�
 
 1. 若要查看屬於 Azure AD DS 受控網域的使用者和群組，請選取 [AADDC 使用者]  容器。 此容器中會列出您 Azure AD 租用戶中的使用者帳戶和群組。
 
-    在下列範例輸出中，名為 contosoadmin   的使用者帳戶和「AAD DC 系統管理員」  群組會顯示在此容器中。
+    在下列範例輸出中，名為 *Contoso Admin* 的使用者帳戶和「AAD DC 系統管理員」  群組會顯示在此容器中。
 
     ![查看 Active Directory 管理中心中的 Azure AD DS 網域使用者清單](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
 1. 若要查看已加入 Azure AD DS 受控網域的電腦，請選取 [AADDC 電腦]  容器。 目前虛擬機器的項目(例如 myVM  ) 會隨即列出。 針對所有已加入 Azure AD DS 受控網域的電腦，其電腦帳戶會儲存在此「AADDC 電腦」  容器中。
 
-您可以使用常見的 Active Directory 管理中心動作，例如重設使用者帳戶密碼或管理群組成員資格。 您也可以使用「適用於 Windows PowerShell 的 Active Directory 模組」  (已安裝為管理工具的一部分) 來管理 Azure AD DS 受控網域中的一般動作。
+您可以使用常見的 Active Directory 管理中心動作，例如重設使用者帳戶密碼或管理群組成員資格。 這些動作僅適用於直接在 Azure AD DS 受控網域中建立的使用者和群組。 身分識別資訊只會從  Azure AD 同步處理到 Azure AD DS。 不會從 Azure AD DS 寫回 Azure AD。 對於從 Azure AD 同步處理的使用者，您無法變更密碼或受控群組成員資格，並將這些變更會反向同步處理。
+
+您也可以使用「適用於 Windows PowerShell 的 Active Directory 模組」  (已安裝為管理工具的一部分) 來管理 Azure AD DS 受控網域中的一般動作。
 
 ## <a name="next-steps"></a>後續步驟
 

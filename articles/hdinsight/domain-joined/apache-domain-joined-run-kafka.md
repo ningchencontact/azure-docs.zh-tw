@@ -1,18 +1,18 @@
 ---
-title: 教學課程-在 Azure HDInsight 中使用企業安全性套件搭配 Apache Kafka
+title: 教學課程 - Apache Kafka 和企業安全性套件 - Azure HDInsight
 description: 教學課程 - 了解如何使用企業安全性套件在 Azure HDInsight 中設定 Kafka 的 Apache Ranger 原則。
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 6d92ebc743bae97ecfa1591add27f470792dcafc
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: cb99b747cb5de01c616c4cab0ac6c14823f7d4db
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037161"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044637"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>教學課程：使用企業安全性套件在 HDInsight 中設定 Apache Kafka 原則 (預覽)
 

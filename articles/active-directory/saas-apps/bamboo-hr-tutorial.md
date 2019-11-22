@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f826b5d2-9c64-47df-bbbf-0adf9eb0fa71
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bc3de858102c02d49a7cefeef15de7e1c82220e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bfa7934472b512e2c884ab3f9a06728a8fb18b12
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106459"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157757"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>教學課程：Azure Active Directory 與 BambooHR 整合
 
@@ -132,7 +133,7 @@ ms.locfileid: "67106459"
 
 2. 在首頁上，執行下列操作：
    
-    ![BambooHR 單一登入頁面](./media/bamboo-hr-tutorial/ic796691.png "單一登入")   
+    ![[BambooHR 單一登入] 頁面](./media/bamboo-hr-tutorial/ic796691.png "單一登入")   
 
     a. 選取 [Apps] \(應用程式\)  。
    
@@ -142,13 +143,13 @@ ms.locfileid: "67106459"
 
 3. 在 [SAML Single Sign-On] \(SAML 單一登入\)  窗格中，執行下列操作：
    
-    ![[SAML Single Sign-On] \(SAML 單一登入\) 窗格](./media/bamboo-hr-tutorial/IC796692.png "SAML 單一登入")
+    ![[SAML 單一登入] 窗格](./media/bamboo-hr-tutorial/IC796692.png "SAML 單一登入")
    
     a. 在 [SSO Login Url]  \(SSO 登入 URL\) 方塊中，貼上您在步驟 6 中從 Azure 入口網站複製的**登入 URL**。
       
     b. 在「記事本」中開啟從 Azure 入口網站下載的 Base-64 編碼憑證，複製其內容，然後貼到 [X.509 Certificate] \(X.509 憑證\)  方塊中。
    
-    c. 選取 [ **儲存**]。
+    c. 選取 [儲存]  。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -209,7 +210,7 @@ ms.locfileid: "67106459"
 
 2. 在頂端的工具列中，選取 [Settings] \(設定\)  。
    
-    ![[Settings] \(設定\) 按鈕](./media/bamboo-hr-tutorial/IC796694.png "設定")
+    ![[設定] 按鈕](./media/bamboo-hr-tutorial/IC796694.png "設定")
 
 3. 選取 [概觀]  。
 
@@ -217,7 +218,7 @@ ms.locfileid: "67106459"
 
 5. 輸入您想要設定之有效 Azure AD 帳戶的使用者名稱、密碼及電子郵件地址。
 
-6. 選取 [ **儲存**]。
+6. 選取 [儲存]  。
         
 >[!NOTE]
 >若要設定 Azure AD 使用者帳戶，您也可以使用 BambooHR 使用者帳戶建立工具或 API。
