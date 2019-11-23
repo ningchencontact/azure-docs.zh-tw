@@ -1,46 +1,46 @@
 ---
-title: 針對混合式 Azure Active Directory 已加入裝置進行疑難排解-Azure Active Directory
+title: Troubleshooting hybrid Azure Active Directory joined devices
 description: 針對已加入混合式 Azure Active Directory 的 Windows 10 和 Windows Server 2016 裝置進行疑難排解。
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 06/28/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49658e3e57748ffb7542508530940aa5331f5db1
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 932540c830940ec18c439352d54f671db7387b94
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162415"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379153"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>針對混合式 Azure Active Directory 已加入裝置進行疑難排解 
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Troubleshooting hybrid Azure Active Directory joined devices 
 
-本文內容適用于執行 Windows 10 或 Windows Server 2016 的裝置。
+The content of this article is applicable to devices running Windows 10 or Windows Server 2016.
 
-針對其他 Windows 用戶端, 請參閱針對[混合式 Azure Active Directory 已聯結的下層裝置進行疑難排解一](troubleshoot-hybrid-join-windows-legacy.md)文。
+For other Windows clients, see the article [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md).
 
 本文章假設您[設定已加入混合式 Azure Active Directory 的裝置](hybrid-azuread-join-plan.md)來支援下列案例：
 
-- 以裝置為基礎的條件式存取
+- Device-based Conditional Access
 - [設定的企業漫遊](../active-directory-windows-enterprise-state-roaming-overview.md)
 - [Windows Hello 企業版](../active-directory-azureadjoin-passport-deployment.md)
 
-本檔提供解決潛在問題的疑難排解指引。 
+This document provides troubleshooting guidance to resolve potential issues. 
 
 對於 Windows 10 和 Windows Server 2016，混合式 Azure Active Directory 會加入對 Windows 10 2015 年 11 月更新 (含) 以上版本的支援。
 
-## <a name="troubleshoot-join-failures"></a>針對聯結失敗進行疑難排解
+## <a name="troubleshoot-join-failures"></a>Troubleshoot join failures
 
-### <a name="step-1-retrieve-the-join-status"></a>步驟 1:擷取加入狀態 
+### <a name="step-1-retrieve-the-join-status"></a>步驟 1：擷取加入狀態 
 
 **若要擷取加入狀態：**
 
-1. 以系統管理員身分開啟命令提示字元
+1. Open a command prompt as an administrator
 2. 輸入 `dsregcmd /status`
 
 ```
@@ -88,30 +88,30 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-### <a name="step-2-evaluate-the-join-status"></a>步驟 2:評估加入狀態 
+### <a name="step-2-evaluate-the-join-status"></a>步驟 2：評估加入狀態 
 
 請檢閱下列欄位，並確定它們具有預期的值：
 
-#### <a name="domainjoined--yes"></a>DomainJoined :是  
+#### <a name="domainjoined--yes"></a>DomainJoined : YES  
 
 此欄位指出裝置是否已加入內部部署 Active Directory。 如果值為 **NO**，則裝置無法執行混合式 Azure AD 加入。  
 
-#### <a name="workplacejoined--no"></a>WorkplaceJoined :否  
+#### <a name="workplacejoined--no"></a>WorkplaceJoined : NO  
 
 此欄位指出裝置是否已向 Azure AD 註冊為個人裝置 (標示為「已加入工作場所」)。 如果已加入網域的電腦同時加入混合式 Azure AD，此值應為 **NO**。 如果值為 **YES**，則在完成混合式 Azure AD 加入之前已新增工作或學校帳戶。 在此情況下，使用年度更新版的 Windows 10 (1607) 時會忽略該帳戶。
 
-#### <a name="azureadjoined--yes"></a>AzureAdJoined :是  
+#### <a name="azureadjoined--yes"></a>AzureAdJoined : YES  
 
 此欄位指出裝置是否已加入 Azure AD。 如果值為 **NO**，則尚未完成加入 Azure AD。 
 
-繼續進行後續步驟, 以進行進一步的疑難排解。
+Proceed to next steps for further troubleshooting.
 
-### <a name="step-3-find-the-phase-in-which-join-failed-and-the-errorcode"></a>步驟 3：找出聯結失敗的階段和 errorcode
+### <a name="step-3-find-the-phase-in-which-join-failed-and-the-errorcode"></a>Step 3: Find the phase in which join failed and the errorcode
 
-#### <a name="windows-10-1803-and-above"></a>Windows 10 1803 和更新版本
+#### <a name="windows-10-1803-and-above"></a>Windows 10 1803 and above
 
-在聯結狀態輸出的 [診斷資料] 區段中, 尋找「先前的註冊」小節。 只有當裝置已加入網域, 且無法進行混合式 Azure AD 聯結時, 才會顯示此區段。
-「錯誤階段」欄位代表聯結失敗的階段, 而「用戶端 ErrorCode」則代表聯結作業的錯誤碼。
+Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output. This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
+The 'Error Phase' field denotes the phase of the join failure while 'Client ErrorCode' denotes the error code of the Join operation.
 
 ```
 +----------------------------------------------------------------------+
@@ -126,62 +126,62 @@ WamDefaultAuthority: organizations
 +----------------------------------------------------------------------+
 ```
 
-#### <a name="older-windows-10-versions"></a>較舊的 Windows 10 版本
+#### <a name="older-windows-10-versions"></a>Older Windows 10 versions
 
-使用事件檢視器記錄來找出聯結失敗的階段和錯誤碼。
+Use Event Viewer logs to locate the phase and error code for the join failures.
 
-1. 在 [事件檢視器] 中開啟**使用者裝置註冊**事件記錄檔。 位於 [**應用程式及服務** > ] [記錄] [**Microsoft**  >  **Windows**  > **使用者裝置註冊**] 底下
-2. 尋找具有下列介於到304、305、307的事件。
+1. Open the **User Device Registration** event logs in event viewer. Located under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**
+2. Look for events with the following eventIDs 304, 305, 307.
 
-![失敗記錄事件](./media/troubleshoot-hybrid-join-windows-current/1.png)
+![Failure Log Event](./media/troubleshoot-hybrid-join-windows-current/1.png)
 
-![失敗記錄事件](./media/troubleshoot-hybrid-join-windows-current/2.png)
+![Failure Log Event](./media/troubleshoot-hybrid-join-windows-current/2.png)
 
-### <a name="step-4-check-for-possible-causes-and-resolutions-from-the-lists-below"></a>步驟 4：查看下列清單中的可能原因和解決方式
+### <a name="step-4-check-for-possible-causes-and-resolutions-from-the-lists-below"></a>Step 4: Check for possible causes and resolutions from the lists below
 
-#### <a name="pre-check-phase"></a>前置檢查階段
+#### <a name="pre-check-phase"></a>Pre-check phase
 
-失敗的可能原因:
+Possible reasons for failure:
 
-- 裝置不會看到網域控制站。
-   - 裝置必須位在組織內部網路上, 或在具有網路連線能力的 VPN 上, 以供內部部署 Active Directory (AD) 網域控制站使用。
+- Device has no line of sight to the Domain controller.
+   - The device must be on the organization’s internal network or on VPN with network line of sight to an on-premises Active Directory (AD) domain controller.
 
-#### <a name="discover-phase"></a>探索階段
+#### <a name="discover-phase"></a>Discover phase
 
-失敗的可能原因:
+Possible reasons for failure:
 
-- 服務連接點 (SCP) 物件設定錯誤/無法從 DC 讀取 SCP 物件。
-   - 在裝置所屬的 AD 樹系中, 必須有有效的 SCP 物件, 指向 Azure AD 中已驗證的功能變數名稱。
-   - 如需詳細資訊, 請參閱[設定服務連接點](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join)一節。
-- 無法連線至探索端點並從中提取探索中繼資料。
-   - 裝置應該能夠存取`https://enterpriseregistration.windows.net`系統內容中的, 以探索註冊和授權端點。 
-   - 如果內部部署環境需要輸出 proxy, IT 系統管理員必須確定裝置的電腦帳戶能夠探索並以無訊息方式向輸出 proxy 進行驗證。
-- 無法連線到使用者領域端點, 並執行領域探索。 (僅限 Windows 10 1809 版和更新版本)
-   - 裝置應該能夠存取`https://login.microsoftonline.com`系統內容中的, 以執行已驗證網域的領域探索, 並決定網欄位型別 (受管理/同盟)。
-   - 如果內部部署環境需要輸出 proxy, IT 管理員必須確定裝置上的系統內容能夠探索並以無訊息方式向輸出 proxy 進行驗證。
+- Service Connection Point (SCP) object misconfigured/unable to read SCP object from DC.
+   - A valid SCP object is required in the AD forest, to which the device belongs, that points to a verified domain name in Azure AD.
+   - Details can be found in the section [Configure a Service Connection Point](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
+- Failure to connect and fetch the discovery metadata from the discovery endpoint.
+   - The device should be able to access `https://enterpriseregistration.windows.net`, in the SYSTEM context, to discover the registration and authorization endpoints. 
+   - If the on-premises environment requires an outbound proxy, the IT admin must ensure that the computer account of the device is able to discover and silently authenticate to the outbound proxy.
+- Failure to connect to user realm endpoint and perform realm discovery. (Windows 10 version 1809 and later only)
+   - The device should be able to access `https://login.microsoftonline.com`, in the SYSTEM context, to perform realm discovery for the verified domain and determine the domain type (managed/federated).
+   - If the on-premises environment requires an outbound proxy, the IT admin must ensure that the SYSTEM context on the device is able to discover and silently authenticate to the outbound proxy.
 
-**一般錯誤代碼:**
+**Common error codes:**
 
-- **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED**(0x801c001d/-2145648611)
-   - 原因：無法讀取 SCP 物件, 並取得 Azure AD 的租使用者資訊。
-   - 解決方案：請參閱[設定服務連接點](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join)一節。
-- **DSREG_AUTOJOIN_DISC_FAILED**(0x801c0021/-2145648607)
-   - 原因：一般探索失敗。 無法取得 DRS 的探索中繼資料。
-   - 解決方案：尋找下方的將以進一步調查。
-- **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT** (0x801c001f/-2145648609)
-   - 原因：執行探索時發生作業超時。
-   - 解決方案：`https://enterpriseregistration.windows.net`確定可在系統內容中存取。 如需詳細資訊, 請參閱[網路連線需求](hybrid-azuread-join-managed-domains.md#prerequisites)一節。
-- **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED**(0x801c0021/-2145648611)
-   - 原因：一般領域探索失敗。 無法從 STS 判斷網欄位型別 (受管理/同盟)。 
-   - 解決方案：尋找下方的將以進一步調查。
+- **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611)
+   - Reason: Unable to read the SCP object and get the Azure AD tenant information.
+   - Resolution: Refer to the section [Configure a Service Connection Point](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
+- **DSREG_AUTOJOIN_DISC_FAILED** (0x801c0021/-2145648607)
+   - Reason: Generic Discovery failure. Failed to get the discovery metadata from DRS.
+   - Resolution: Find the suberror below to investigate further.
+- **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT**  (0x801c001f/-2145648609)
+   - Reason: Operation timed out while performing Discovery.
+   - Resolution: Ensure that `https://enterpriseregistration.windows.net` is accessible in the SYSTEM context. For more information, see the section [Network connectivity requirements](hybrid-azuread-join-managed-domains.md#prerequisites).
+- **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
+   - Reason: Generic Realm Discovery failure. Failed to determine domain type (managed/federated) from STS. 
+   - Resolution: Find the suberror below to investigate further.
 
-**通用將碼:**
+**Common suberror codes:**
 
-若要尋找探索錯誤碼的將程式碼, 請使用下列其中一種方法。
+To find the suberror code for the discovery error code, use one of the following methods.
 
-##### <a name="windows-10-1803-and-above"></a>Windows 10 1803 和更新版本
+##### <a name="windows-10-1803-and-above"></a>Windows 10 1803 and above
 
-在聯結狀態輸出的 [診斷資料] 區段中, 尋找 [DRS 探勘測試]。 只有當裝置已加入網域, 且無法進行混合式 Azure AD 聯結時, 才會顯示此區段。
+Look for 'DRS Discovery Test' in the 'Diagnostic Data' section of the join status output. This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
 
 ```
 +----------------------------------------------------------------------+
@@ -201,112 +201,112 @@ WamDefaultAuthority: organizations
 +----------------------------------------------------------------------+
 ```
 
-##### <a name="older-windows-10-versions"></a>較舊的 Windows 10 版本
+##### <a name="older-windows-10-versions"></a>Older Windows 10 versions
 
-使用事件檢視器記錄來找出聯結失敗的階段和 errorcode。
+Use Event Viewer logs to locate the phase and errorcode for the join failures.
 
-1. 在 [事件檢視器] 中開啟**使用者裝置註冊**事件記錄檔。 位於 [**應用程式及服務** > ] [記錄] [**Microsoft**  >  **Windows**  > **使用者裝置註冊**] 底下
-2. 使用下列介於到201尋找事件
+1. Open the **User Device Registration** event logs in event viewer. Located under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**
+2. Look for events with the following eventIDs 201
 
-![失敗記錄事件](./media/troubleshoot-hybrid-join-windows-current/5.png)
+![Failure Log Event](./media/troubleshoot-hybrid-join-windows-current/5.png)
 
-###### <a name="network-errors"></a>網路錯誤
+###### <a name="network-errors"></a>Network errors
 
-- **WININET_E_CANNOT_CONNECT**（0x80072efd/-2147012867）
-   - 原因：無法建立與伺服器的連接
-   - 解決方案：請確定網路連線到所需的 Microsoft 資源。 如需詳細資訊, 請參閱[網路連接需求](hybrid-azuread-join-managed-domains.md#prerequisites)。
-- **WININET_E_TIMEOUT**(0x80072ee2/-2147012894)
-   - 原因：一般網路超時。
-   - 解決方案：請確定網路連線到所需的 Microsoft 資源。 如需詳細資訊, 請參閱[網路連接需求](hybrid-azuread-join-managed-domains.md#prerequisites)。
-- **WININET_E_DECODING_FAILED**(0x80072f8f/-2147012721)
-   - 原因：網路堆疊無法解碼伺服器的回應。
-   - 解決方案：確定網路 proxy 不會干擾及修改伺服器回應。
+- **WININET_E_CANNOT_CONNECT** (0x80072efd/-2147012867)
+   - Reason: Connection with the server could not be established
+   - Resolution: Ensure network connectivity to the required Microsoft resources. For more information, see [Network connectivity requirements](hybrid-azuread-join-managed-domains.md#prerequisites).
+- **WININET_E_TIMEOUT** (0x80072ee2/-2147012894)
+   - Reason: General network timeout.
+   - Resolution: Ensure network connectivity to the required Microsoft resources. For more information, see [Network connectivity requirements](hybrid-azuread-join-managed-domains.md#prerequisites).
+- **WININET_E_DECODING_FAILED** (0x80072f8f/-2147012721)
+   - Reason: Network stack was unable to decode the response from the server.
+   - Resolution: Ensure that network proxy is not interfering and modifying the server response.
 
-###### <a name="http-errors"></a>HTTP 錯誤
+###### <a name="http-errors"></a>HTTP errors
 
-- **DSREG_DISCOVERY_TENANT_NOT_FOUND**(0x801c003a/-2145648582)
-   - 原因：設定了錯誤的租使用者識別碼的 SCP 物件。 或在租使用者中找不到有效的訂用帳戶。
-   - 解決方案：請確定 SCP 物件已設定正確的 Azure AD 租使用者識別碼和作用中訂用帳戶, 或存在於租使用者中。
-- **DSREG_SERVER_BUSY**(0x801c0025/-2145648603)
-   - 原因：來自 DRS 伺服器的 HTTP 503。
-   - 解決方案：伺服器目前無法使用。 一旦伺服器恢復上線, 未來的聯結嘗試可能會成功。
+- **DSREG_DISCOVERY_TENANT_NOT_FOUND** (0x801c003a/-2145648582)
+   - Reason: SCP object configured with wrong tenant ID. Or no active subscriptions were found in the tenant.
+   - Resolution: Ensure SCP object is configured with the correct Azure AD tenant ID and active subscriptions or present in the tenant.
+- **DSREG_SERVER_BUSY** (0x801c0025/-2145648603)
+   - Reason: HTTP 503 from DRS server.
+   - Resolution: Server is currently unavailable. future join attempts will likely succeed once server is back online.
 
-###### <a name="other-errors"></a>其他錯誤
+###### <a name="other-errors"></a>Other errors
 
-- **E_INVALIDDATA**(0x8007000d/-2147024883)
-   - 原因：無法剖析伺服器回應 JSON。 可能是因為 proxy 傳回 HTTP 200 和 HTML 驗證頁面。
-   - 解決方案：如果內部部署環境需要輸出 proxy, IT 管理員必須確定裝置上的系統內容能夠探索並以無訊息方式向輸出 proxy 進行驗證。
+- **E_INVALIDDATA** (0x8007000d/-2147024883)
+   - Reason: Server response JSON couldn't be parsed. Likely due to proxy returning HTTP 200 with an HTML auth page.
+   - Resolution: If the on-premises environment requires an outbound proxy, the IT admin must ensure that the SYSTEM context on the device is able to discover and silently authenticate to the outbound proxy.
 
-#### <a name="authentication-phase"></a>驗證階段
+#### <a name="authentication-phase"></a>Authentication phase
 
-僅適用于同盟網域帳戶。
+Applicable only for federated domain accounts.
 
-失敗的原因:
+Reasons for failure:
 
-- 無法以無訊息方式取得 DRS 資源的存取權杖。
-   - Windows 10 裝置會使用整合式 Windows 驗證, 從同盟服務取得驗證權杖到作用中的 WS-TRUST 端點。 詳細資料：[同盟服務設定](hybrid-azuread-join-manual.md##set-up-issuance-of-claims)
+- Unable to get an Access token silently for DRS resource.
+   - Windows 10 devices acquire auth token from the federation service using Integrated Windows Authentication to an active WS-Trust endpoint. Details: [Federation Service Configuration](hybrid-azuread-join-manual.md##set-up-issuance-of-claims)
 
-**一般錯誤代碼:**
+**Common error codes:**
 
-使用事件檢視器記錄檔來找出錯誤碼、將碼、伺服器錯誤碼和伺服器錯誤訊息。
+Use Event Viewer logs to locate the error code, suberror code, server error code, and server error message.
 
-1. 在 [事件檢視器] 中開啟**使用者裝置註冊**事件記錄檔。 位於 [**應用程式及服務** > ] [記錄] [**Microsoft**  >  **Windows**  > **使用者裝置註冊**] 底下
-2. 尋找具有下列 eventID 305 的事件
+1. Open the **User Device Registration** event logs in event viewer. Located under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**
+2. Look for events with the following eventID 305
 
-![失敗記錄事件](./media/troubleshoot-hybrid-join-windows-current/3.png)
+![Failure Log Event](./media/troubleshoot-hybrid-join-windows-current/3.png)
 
 ##### <a name="configuration-errors"></a>組態錯誤
 
-- **ERROR_ADAL_PROTOCOL_NOT_SUPPORTED**(0xcaa90017/-894894057)
-   - 原因：驗證通訊協定不是 WS-TRUST。
-   - 解決方案：內部部署身分識別提供者必須支援 WS-TRUST 
-- **ERROR_ADAL_FAILED_TO_PARSE_XML**(0xcaa9002c/-894894036)
-   - 原因：內部部署同盟服務未傳回 XML 回應。
-   - 解決方案：請確定 MEX 端點傳回的是有效的 XML。 請確定 proxy 未干擾並傳回非 xml 回應。
-- **ERROR_ADAL_COULDNOT_DISCOVER_USERNAME_PASSWORD_ENDPOINT**(0xcaa90023/-894894045)
-   - 原因：無法探索使用者名稱/密碼驗證的端點。
-   - 解決方案：檢查內部部署身分識別提供者設定。 請確定已啟用 WS-TRUST 端點, 並確定 MEX 回應包含這些正確的端點。
+- **ERROR_ADAL_PROTOCOL_NOT_SUPPORTED** (0xcaa90017/-894894057)
+   - Reason: Authentication protocol is not WS-Trust.
+   - Resolution: The on-premises identity provider must support WS-Trust 
+- **ERROR_ADAL_FAILED_TO_PARSE_XML** (0xcaa9002c/-894894036)
+   - Reason: On-premises federation service did not return an XML response.
+   - Resolution: Ensure MEX endpoint is returning a valid XML. Ensure proxy is not interfering and returning non-xml responses.
+- **ERROR_ADAL_COULDNOT_DISCOVER_USERNAME_PASSWORD_ENDPOINT** (0xcaa90023/-894894045)
+   - Reason: Could not discover endpoint for username/password authentication.
+   - Resolution: Check the on-premises identity provider settings. Ensure that the WS-Trust endpoints are enabled and ensure the MEX response contains these correct endpoints.
 
-##### <a name="network-errors"></a>網路錯誤
+##### <a name="network-errors"></a>Network errors
 
-- **ERROR_ADAL_INTERNET_TIMEOUT**(0xcaa82ee2/-894947614)
-   - 原因：一般網路超時。
-   - 解決方案：`https://login.microsoftonline.com`確定可在系統內容中存取。 確保內部部署身分識別提供者可在系統內容中存取。 如需詳細資訊, 請參閱[網路連接需求](hybrid-azuread-join-managed-domains.md#prerequisites)。
-- **ERROR_ADAL_INTERNET_CONNECTION_ABORTED**(0xcaa82efe/-894947586)
-   - 原因：已中止與驗證端點的連接。
-   - 解決方案：請在一段時間後重試, 或嘗試從替代穩定的網路位置進行聯結。
-- **ERROR_ADAL_INTERNET_SECURE_FAILURE**(0xcaa82f8f/-894947441)
-   - 原因：無法驗證服務器所傳送的安全通訊端層 (SSL) 憑證。
-   - 解決方案：檢查用戶端時間誤差。 請在一段時間後重試, 或嘗試從替代穩定的網路位置進行聯結。 
-- **ERROR_ADAL_INTERNET_CANNOT_CONNECT**(0xcaa82efd/-894947587)
-   - 原因：嘗試連接`https://login.microsoftonline.com`失敗。
-   - 解決方案：檢查與`https://login.microsoftonline.com`的網路連接。
+- **ERROR_ADAL_INTERNET_TIMEOUT** (0xcaa82ee2/-894947614)
+   - Reason: General network timeout.
+   - Resolution: Ensure that `https://login.microsoftonline.com` is accessible in the SYSTEM context. Ensure the on-premises identity provider is accessible in the SYSTEM context. For more information, see [Network connectivity requirements](hybrid-azuread-join-managed-domains.md#prerequisites).
+- **ERROR_ADAL_INTERNET_CONNECTION_ABORTED** (0xcaa82efe/-894947586)
+   - Reason: Connection with the auth endpoint was aborted.
+   - Resolution: Retry after sometime or try joining from an alternate stable network location.
+- **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441)
+   - Reason: The Secure Sockets Layer (SSL) certificate sent by the server could not be validated.
+   - Resolution: Check the client time skew. Retry after sometime or try joining from an alternate stable network location. 
+- **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
+   - Reason: The attempt to connect to `https://login.microsoftonline.com` failed.
+   - Resolution: Check network connection to `https://login.microsoftonline.com`.
 
-##### <a name="other-errors"></a>其他錯誤
+##### <a name="other-errors"></a>Other errors
 
-- **ERROR_ADAL_SERVER_ERROR_INVALID_GRANT**(0xcaa20003/-895352829)
-   - 原因：Azure AD 不接受來自內部部署身分識別提供者的 SAML 權杖。
-   - 解決方案：檢查同盟伺服器設定。 在驗證記錄中尋找伺服器錯誤碼。
-- **ERROR_ADAL_WSTRUST_REQUEST_SECURITYTOKEN_FAILED**(0xcaa90014/-894894060)
-   - 原因：伺服器 WS-TRUST 回應回報了錯誤例外狀況, 無法取得判斷提示
-   - 解決方案：檢查同盟伺服器設定。 在驗證記錄中尋找伺服器錯誤碼。
-- **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL**(0xcaa90006/-894894074)
-   - 原因：嘗試從權杖端點取得存取權杖時收到錯誤。
-   - 解決方案：尋找 ADAL 記錄檔中的基礎錯誤。 
-- **ERROR_ADAL_OPERATION_PENDING**(0xcaa1002d/-895418323)
-   - 原因：一般 ADAL 失敗
-   - 解決方案：尋找驗證記錄檔中的將碼或伺服器錯誤碼。
+- **ERROR_ADAL_SERVER_ERROR_INVALID_GRANT** (0xcaa20003/-895352829)
+   - Reason: SAML token from the on-premises identity provider was not accepted by Azure AD.
+   - Resolution: Check the federation server settings. Look for the server error code in the authentication logs.
+- **ERROR_ADAL_WSTRUST_REQUEST_SECURITYTOKEN_FAILED** (0xcaa90014/-894894060)
+   - Reason: Server WS-Trust response reported fault exception and it failed to get assertion
+   - Resolution: Check the federation server settings. Look for the server error code in the authentication logs.
+- **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
+   - Reason: Received an error when trying to get access token from the token endpoint.
+   - Resolution: Look for the underlying error in the ADAL log. 
+- **ERROR_ADAL_OPERATION_PENDING** (0xcaa1002d/-895418323)
+   - Reason: General ADAL failure
+   - Resolution: Look for the suberror code or server error code from the authentication logs.
     
-#### <a name="join-phase"></a>聯結階段
+#### <a name="join-phase"></a>Join Phase
 
-失敗的原因:
+Reasons for failure:
 
-尋找註冊類型, 並從下列清單尋找錯誤碼。
+Find the registration type and look for the error code from the list below.
 
-#### <a name="windows-10-1803-and-above"></a>Windows 10 1803 和更新版本
+#### <a name="windows-10-1803-and-above"></a>Windows 10 1803 and above
 
-在聯結狀態輸出的 [診斷資料] 區段中, 尋找「先前的註冊」小節。 只有當裝置已加入網域, 且無法進行混合式 Azure AD 聯結時, 才會顯示此區段。
-[註冊類型] 欄位表示已執行的聯結類型。
+Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output. This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
+'Registration Type' field denotes the type of join performed.
 
 ```
 +----------------------------------------------------------------------+
@@ -321,94 +321,94 @@ WamDefaultAuthority: organizations
 +----------------------------------------------------------------------+
 ```
 
-#### <a name="older-windows-10-versions"></a>較舊的 Windows 10 版本
+#### <a name="older-windows-10-versions"></a>Older Windows 10 versions
 
-使用事件檢視器記錄來找出聯結失敗的階段和 errorcode。
+Use Event Viewer logs to locate the phase and errorcode for the join failures.
 
-1. 在 [事件檢視器] 中開啟**使用者裝置註冊**事件記錄檔。 位於 [**應用程式及服務** > ] [記錄] [**Microsoft**  >  **Windows**  > **使用者裝置註冊**] 底下
-2. 使用下列介於到204尋找事件
+1. Open the **User Device Registration** event logs in event viewer. Located under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**
+2. Look for events with the following eventIDs 204
 
-![失敗記錄事件](./media/troubleshoot-hybrid-join-windows-current/4.png)
+![Failure Log Event](./media/troubleshoot-hybrid-join-windows-current/4.png)
 
-##### <a name="http-errors-returned-from-drs-server"></a>從 DRS 伺服器傳回的 HTTP 錯誤
+##### <a name="http-errors-returned-from-drs-server"></a>HTTP errors returned from DRS server
 
-- **DSREG_E_DIRECTORY_FAILURE**(0x801c03f2/-2145647630)
-   - 原因：收到來自 DRS 的錯誤回應, 錯誤碼為:"DirectoryError"
-   - 解決方案：如需可能的原因和解決方法, 請參閱伺服器錯誤碼。
-- **DSREG_E_DEVICE_AUTHENTICATION_ERROR**(0x801c0002/-2145648638)
-   - 原因：收到來自 DRS 的錯誤回應, 錯誤碼為:"AuthenticationError" 和 ErrorSubCode 不是 "DeviceNotFound"。 
-   - 解決方案：如需可能的原因和解決方法, 請參閱伺服器錯誤碼。
-- **DSREG_E_DEVICE_INTERNALSERVICE_ERROR**(0x801c0006/-2145648634)
-   - 原因：收到來自 DRS 的錯誤回應, 錯誤碼為:"DirectoryError"
-   - 解決方案：如需可能的原因和解決方法, 請參閱伺服器錯誤碼。
+- **DSREG_E_DIRECTORY_FAILURE** (0x801c03f2/-2145647630)
+   - Reason: Received an error response from DRS with ErrorCode: "DirectoryError"
+   - Resolution: Refer to the server error code for possible reasons and resolutions.
+- **DSREG_E_DEVICE_AUTHENTICATION_ERROR** (0x801c0002/-2145648638)
+   - Reason: Received an error response from DRS with ErrorCode: "AuthenticationError" and ErrorSubCode is NOT "DeviceNotFound". 
+   - Resolution: Refer to the server error code for possible reasons and resolutions.
+- **DSREG_E_DEVICE_INTERNALSERVICE_ERROR** (0x801c0006/-2145648634)
+   - Reason: Received an error response from DRS with ErrorCode: "DirectoryError"
+   - Resolution: Refer to the server error code for possible reasons and resolutions.
 
-##### <a name="tpm-errors"></a>TPM 錯誤
+##### <a name="tpm-errors"></a>TPM errors
 
-- **NTE_BAD_KEYSET**(0x80090016/-2146893802)
-   - 原因：TPM 操作失敗或無效
-   - 解決方案：可能是因為 sysprep 映射錯誤。 確定建立 sysprep 映射的電腦未 Azure AD 聯結、混合式 Azure AD 聯結, 或 Azure AD 註冊。
-- **TPM_E_PCP_INTERNAL_ERROR**(0x80290407/-2144795641)
-   - 原因：一般 TPM 錯誤。 
-   - 解決方案：在發生此錯誤的裝置上停用 TPM。 Windows 10 1809 版和更新版本會自動偵測 TPM 失敗, 並在不使用 TPM 的情況下完成混合式 Azure AD 聯結。
-- **TPM_E_NOTFIPS**(0x80280036/-2144862154)
-   - 原因：目前不支援 FIPS 模式中的 TPM。
-   - 解決方案：在發生此錯誤的裝置上停用 TPM。 Windows 1809 會自動偵測 TPM 失敗, 並在不使用 TPM 的情況下完成混合式 Azure AD 聯結。
-- **NTE_AUTHENTICATION_IGNORED**(0x80090031/-2146893775)
-   - 原因：TPM 已鎖定。
-   - 解決方案：暫時性錯誤。 等候 cooldown 期限。 請在一段時間後嘗試聯結。 如需詳細資訊, 請參閱[TPM 基本](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)概念一文
+- **NTE_BAD_KEYSET** (0x80090016/-2146893802)
+   - Reason: TPM operation failed or was invalid
+   - Resolution: Likely due to a bad sysprep image. Ensure the machine from which the sysprep image was created is not Azure AD joined, hybrid Azure AD joined, or Azure AD registered.
+- **TPM_E_PCP_INTERNAL_ERROR** (0x80290407/-2144795641)
+   - Reason: Generic TPM error. 
+   - Resolution: Disable TPM on devices with this error. Windows 10 version 1809 and higher automatically detects TPM failures and completes hybrid Azure AD join without using the TPM.
+- **TPM_E_NOTFIPS** (0x80280036/-2144862154)
+   - Reason: TPM in FIPS mode not currently supported.
+   - Resolution: Disable TPM on devices with this error. Windows 1809 automatically detects TPM failures and completes hybrid Azure AD join without using the TPM.
+- **NTE_AUTHENTICATION_IGNORED** (0x80090031/-2146893775)
+   - Reason: TPM locked out.
+   - Resolution: Transient error. Wait for the cooldown period. Join attempt after some time should succeed. More Information can be found in the article [TPM fundamentals](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)
 
-##### <a name="network-errors"></a>網路錯誤
+##### <a name="network-errors"></a>Network Errors
 
-- **WININET_E_TIMEOUT**(0x80072ee2/-2147012894)
-   - 原因：一般網路時間已嘗試在 DRS 註冊裝置
-   - 解決方案：檢查網路連線能力`https://enterpriseregistration.windows.net`。
-- **WININET_E_NAME_NOT_RESOLVED**（0x80072ee7/-2147012889）
-   - 原因：無法解析伺服器名稱或位址。
-   - 解決方案：檢查網路連線能力`https://enterpriseregistration.windows.net`。 確保主機名稱的 DNS 解析在 n/w 和裝置上是正確的。
-- **WININET_E_CONNECTION_ABORTED**（0x80072efe/-2147012866）
-   - 原因：與伺服器的連接已異常終止。
-   - 解決方案：請在一段時間後重試, 或嘗試從替代穩定的網路位置進行聯結。
+- **WININET_E_TIMEOUT** (0x80072ee2/-2147012894)
+   - Reason: General network time out trying to register the device at DRS
+   - Resolution: Check network connectivity to `https://enterpriseregistration.windows.net`.
+- **WININET_E_NAME_NOT_RESOLVED** (0x80072ee7/-2147012889)
+   - Reason: The server name or address could not be resolved.
+   - Resolution: Check network connectivity to `https://enterpriseregistration.windows.net`. Ensure DNS resolution for the hostname is accurate in the n/w and on the device.
+- **WININET_E_CONNECTION_ABORTED** (0x80072efe/-2147012866)
+   - Reason: The connection with the server was terminated abnormally.
+   - Resolution: Retry after sometime or try joining from an alternate stable network location.
 
-##### <a name="federated-join-server-errors"></a>聯合聯結伺服器錯誤
+##### <a name="federated-join-server-errors"></a>Federated join server Errors
 
-| 伺服器錯誤碼 | 伺服器錯誤訊息 | 可能的原因 | 解析度 |
+| Server error code | Server error message | Possible reasons | 解析度 |
 | --- | --- | --- | --- |
-| DirectoryError | 您的要求會暫時受到節流。 請在300秒後再試一次。 | 預期的錯誤。 可能是因為快速地連續建立多個註冊要求。 | 在 cooldown 期間之後重試聯結 |
+| DirectoryError | Your request is throttled temporarily. Please try after 300 seconds. | Expected error. Possibly due to making multiple registration requests in quick succession. | Retry join after the cooldown period |
 
-##### <a name="sync-join-server-errors"></a>同步聯結伺服器錯誤
+##### <a name="sync-join-server-errors"></a>Sync join server Errors
 
-| 伺服器錯誤碼 | 伺服器錯誤訊息 | 可能的原因 | 解析度 |
+| Server error code | Server error message | Possible reasons | 解析度 |
 | --- | --- | --- | --- |
-| DirectoryError | AADSTS90002:找<UUID>不到租使用者。 如果沒有作用中的租使用者訂用帳戶, 可能會發生此錯誤。 請洽詢您的訂用帳戶管理員。 | SCP 物件中的租使用者識別碼不正確 | 請確定已使用正確的 Azure AD 租使用者識別碼和作用中的訂用帳戶來設定 SCP 物件, 並出現在租使用者中。 |
-| DirectoryError | 找不到指定之識別碼的裝置物件。 | 同步聯結的預期錯誤。 裝置物件尚未從 AD 同步至 Azure AD | 等待 Azure AD Connect 同步完成, 並在同步完成後的下一次聯結嘗試解決問題 |
-| AuthenticationError | 目的電腦 SID 的驗證 | Azure AD 裝置上的憑證與同步聯結期間用來簽署 blob 的憑證不相符。 此錯誤通常表示同步尚未完成。 |  等待 Azure AD Connect 同步完成, 並在同步完成後的下一次聯結嘗試解決問題 |
+| DirectoryError | AADSTS90002: Tenant <UUID> not found. This error may happen if there are no active subscriptions for the tenant. Check with your subscription administrator. | Tenant ID in SCP object is incorrect | Ensure SCP object is configured with the correct Azure AD tenant ID and active subscriptions and present in the tenant. |
+| DirectoryError | The device object by the given ID is not found. | Expected error for sync join. The device object has not synced from AD to Azure AD | Wait for the Azure AD Connect sync to complete and the next join attempt after sync completion will resolve the issue |
+| AuthenticationError | The verification of the target computer's SID | The certificate on the Azure AD device doesn't match the certificate used to sign the blob during the sync join. This error typically means sync hasn’t completed yet. |  Wait for the Azure AD Connect sync to complete and the next join attempt after sync completion will resolve the issue |
 
-### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>步驟 5：收集記錄和連絡人 Microsoft 支援服務
+### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Step 5: Collect logs and contact Microsoft Support
 
-在這裡取得公用腳本: [ https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ]( https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ)
+Get public scripts here: [https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ]( https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ)
 
-1. 開啟系統管理命令提示字元, `start_ngc_tracing_public.cmd`然後執行。
-2. 執行重現問題的步驟。
-3. 藉由執行來停止執行`stop_ngc_tracing_public.cmd`記錄腳本。
-4. Zip 並傳送下`%SYSTEMDRIVE%\TraceDJPP\*`的記錄以進行分析。
+1. Open an admin command prompt and run `start_ngc_tracing_public.cmd`.
+2. Perform the steps to reproduce the issue.
+3. Stop running the logging script by executing `stop_ngc_tracing_public.cmd`.
+4. Zip and send the logs under `%SYSTEMDRIVE%\TraceDJPP\*` for analysis.
 
-## <a name="troubleshoot-post-join-issues"></a>針對後續聯結問題進行疑難排解
+## <a name="troubleshoot-post-join-issues"></a>Troubleshoot Post-Join issues
 
 ### <a name="retrieve-the-join-status"></a>擷取加入狀態 
 
-#### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet是和 AzureADPrt:是
+#### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet: YES and AzureADPrt: YES
   
 這些欄位指出使用者在登入裝置時，是否已順利向 Azure AD 進行驗證。 如果值為 **NO**，可能是因為：
 
-- 註冊時, 與裝置相關聯的 TPM 中有錯誤的儲存體金鑰 (以提高許可權執行時檢查 KeySignTest)。
+- Bad storage key in the TPM associated with the device upon registration (check the KeySignTest while running elevated).
 - 替代登入識別碼
 - 找不到 HTTP Proxy
 
 ## <a name="known-issues"></a>已知問題
-- 在 [設定-> 帳戶] 下 > [存取公司或學校]，混合式 Azure AD 加入的裝置可能會顯示兩個不同的帳戶，一個用於 Azure AD，另一個用於內部部署 AD，連線到行動裝置或外部 WiFi 網路時。 這只是 UI 問題，不會對功能造成任何影響。 
+- Under Settings -> Accounts -> Access Work or School, Hybrid Azure AD joined devices may show two different accounts, one for Azure AD and one for on-premises AD, when connected to mobile hotspots or external WiFi networks. This is only a UI issue and does not have any impact on functionality. 
  
 ## <a name="next-steps"></a>後續步驟
 
-[使用 dsregcmd.exe 命令繼續疑難排解裝置](troubleshoot-device-dsregcmd.md)
+Continue [troubleshooting devices using the dsregcmd command](troubleshoot-device-dsregcmd.md)
 
 如有問題，請參閱[裝置管理常見問題集](faq.md)

@@ -1,7 +1,7 @@
 ---
-title: 在 Xamarin iOS 和 Android 應用程式上使用 Microsoft Authenticator 或 Microsoft Intune 公司入口網站
+title: Use Microsoft Authenticator or Microsoft Intune Company Portal on Xamarin iOS and Android applications
 titleSuffix: Microsoft identity platform
-description: 瞭解如何將可從 .NET 的 Azure AD 驗證程式庫（ADAL.NET）使用 Microsoft Authenticator 的 Xamarin iOS 應用程式遷移至適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）
+description: Learn how to migrate Xamarin iOS applications that can use Microsoft Authenticator from the Azure AD Authentication Library for .NET (ADAL.NET) to the Microsoft Authentication Library for .NET (MSAL.NET)
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
@@ -17,29 +17,29 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e71e9ef72e7b6caaa3894bb30c6e7e9cf762232a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: bd144f1922456520075c1863ec347e85eb3889db
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802722"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379866"
 ---
-# <a name="use-microsoft-authenticator-or-microsoft-intune-company-portal-on-xamarin-applications"></a>在 Xamarin 應用程式上使用 Microsoft Authenticator 或 Microsoft Intune 公司入口網站
+# <a name="use-microsoft-authenticator-or-microsoft-intune-company-portal-on-xamarin-applications"></a>Use Microsoft Authenticator or Microsoft Intune Company Portal on Xamarin applications
 
-在 Android 和 iOS 上，像是 Microsoft Authenticator 或 Microsoft Intune 公司入口網站啟用的代理程式（僅限 Android）：
+On Android and iOS, brokers like Microsoft Authenticator or Microsoft Intune Company Portal enable (Android only):
 
-- 單一登入（SSO）。 您的使用者不需要登入每個應用程式。
-- 裝置識別。 訊息代理程式會存取裝置憑證，這是在工作場所加入裝置時所建立的。
-- 應用程式識別驗證。 當應用程式呼叫訊息代理程式時，它會傳遞其重新導向 URL，而 broker 會進行驗證。
+- Single sign-on (SSO). Your users won't need to sign in to each application.
+- Device identification. The broker accesses the device certificate, which was created on the device when it was workplace joined.
+- Application identification verification. When an application calls the broker, it passes its redirect URL, and the broker verifies it.
 
-若要啟用其中一項功能，應用程式開發人員必須在呼叫 `PublicClientApplicationBuilder.CreateApplication` 方法時，使用 `WithBroker()` 參數。 預設會將 `.WithBroker()` 設為 true。 開發人員也需要遵循適用于[iOS](#brokered-authentication-for-ios)或[Android](#brokered-authentication-for-android)應用程式的步驟。
+To enable one of these features, application developers need to use the `WithBroker()` parameter when they call the `PublicClientApplicationBuilder.CreateApplication` method. `.WithBroker()` is set to true by default. Developers also need to follow the steps here for [iOS](#brokered-authentication-for-ios) or [Android](#brokered-authentication-for-android) applications.
 
-## <a name="brokered-authentication-for-ios"></a>適用于 iOS 的代理驗證
+## <a name="brokered-authentication-for-ios"></a>Brokered authentication for iOS
 
-請遵循下列步驟來啟用您的 Xamarin iOS 應用程式，以與[Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458)應用程式通訊。
+Follow these steps to enable your Xamarin.iOS app to talk with the [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458) app.
 
-### <a name="step-1-enable-broker-support"></a>步驟1：啟用訊息代理程式支援
-代理程式支援是以每個 PublicClientApplication 為基礎來啟用。 此功能預設為停用。 當您透過 PublicClientApplicationBuilder 建立 PublicClientApplication 時，請使用 `WithBroker()` 參數（預設設定為 true）。
+### <a name="step-1-enable-broker-support"></a>Step 1: Enable broker support
+Broker support is enabled on a per-PublicClientApplication basis. 此功能預設為停用。 Use the `WithBroker()` parameter (set to true by default) when you create the PublicClientApplication through the PublicClientApplicationBuilder.
 
 ```CSharp
 var app = PublicClientApplicationBuilder
@@ -49,8 +49,8 @@ var app = PublicClientApplicationBuilder
                 .Build();
 ```
 
-### <a name="step-2-update-appdelegate-to-handle-the-callback"></a>步驟2：更新 AppDelegate 以處理回呼
-當適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）呼叫訊息代理程式時，訊息代理程式會透過 `AppDelegate` 類別的 `OpenUrl` 方法，再次呼叫您的應用程式。 因為 MSAL 會等待訊息代理程式的回應，所以您的應用程式需要合作以呼叫 MSAL.NET 回來。 若要啟用這項合作，請更新 `AppDelegate.cs` 檔案以覆寫下列方法。
+### <a name="step-2-update-appdelegate-to-handle-the-callback"></a>Step 2: Update AppDelegate to handle the callback
+When the Microsoft Authentication Library for .NET (MSAL.NET) calls the broker, the broker in turn calls back to your application through the `OpenUrl` method of the `AppDelegate` class. Because MSAL waits for the response from the broker, your application needs to cooperate to call MSAL.NET back. To enable this cooperation, update the `AppDelegate.cs` file to override the following method.
 
 ```CSharp
 public override bool OpenUrl(UIApplication app, NSUrl url, 
@@ -72,14 +72,14 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
 }           
 ```
 
-每次啟動應用程式時，就會叫用這個方法。 它是用來處理來自訊息代理程式之回應的機會，並完成 MSAL.NET 所起始的驗證程式。
+This method is invoked every time the application is launched. It's used as an opportunity to process the response from the broker and complete the authentication process initiated by MSAL.NET.
 
-### <a name="step-3-set-a-uiviewcontroller"></a>步驟3：設定 UIViewController （）
-仍然在 `AppDelegate.cs`中，您必須設定 [物件] 視窗。 一般來說，在 Xamarin iOS 中，您不需要設定 [物件] 視窗。 若要傳送和接收來自訊息代理程式的回應，您需要物件視窗。 
+### <a name="step-3-set-a-uiviewcontroller"></a>Step 3: Set a UIViewController()
+Still in `AppDelegate.cs`, you need to set an object window. Normally, with Xamarin iOS, you don't need to set the object window. To send and receive responses from the broker, you need an object window. 
 
-若要這麼做，您要做兩件事。 
-1. 在 `AppDelegate.cs`中，將 `App.RootViewController` 設定為新的 `UIViewController()`。 此指派可確保有 UIViewController 與訊息代理程式的呼叫。 如果設定不正確，您可能會收到此錯誤： `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
-1. 在 AcquireTokenInteractive 呼叫上，使用 `.WithParentActivityOrWindow(App.RootViewController)`，並傳入您將使用之物件視窗的參考。
+To do this, you do two things. 
+1. In `AppDelegate.cs`, set the `App.RootViewController` to a new `UIViewController()`. This assignment makes sure there's a UIViewController with the call to the broker. If it isn't set correctly, you might get this error: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
+1. On the AcquireTokenInteractive call, use the `.WithParentActivityOrWindow(App.RootViewController)` and pass in the reference to the object window you'll use.
 
 **例如：**
 
@@ -92,17 +92,17 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
-在取得權杖呼叫中：
+In the acquire token call:
 ```CSharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
 ```
 
-### <a name="step-4-register-a-url-scheme"></a>步驟4：註冊 URL 配置
-MSAL.NET 會使用 Url 來叫用訊息代理程式，然後將 broker 回應傳回給您的應用程式。 若要完成來回行程，請在 `Info.plist` 檔案中註冊應用程式的 URL 配置。
+### <a name="step-4-register-a-url-scheme"></a>Step 4: Register a URL scheme
+MSAL.NET uses URLs to invoke the broker and then return the broker response back to your app. To finish the round trip, register a URL scheme for your app in the `Info.plist` file.
 
-`CFBundleURLSchemes` 名稱必須包含 `msauth.` 做為前置詞，後面接著您的 `CFBundleURLName`。
+The `CFBundleURLSchemes` name must include `msauth.` as a prefix, followed by your `CFBundleURLName`.
 
 `$"msauth.(BundleId)"`
 
@@ -111,7 +111,7 @@ MSAL.NET 會使用 Url 來叫用訊息代理程式，然後將 broker 回應傳�
 `msauth.com.yourcompany.xforms`
 
 > [!NOTE]
-> 此 URL 配置會成為重新導向 URI 的一部分，當它收到來自訊息代理程式的回應時，它會用來唯一識別您的應用程式。
+> This URL scheme becomes part of the redirect URI that's used to uniquely identify your app when it receives the response from the broker.
 
 ```XML
  <key>CFBundleURLTypes</key>
@@ -129,10 +129,10 @@ MSAL.NET 會使用 Url 來叫用訊息代理程式，然後將 broker 回應傳�
     </array>
 ```
 
-### <a name="step-5-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>步驟5：將 broker 識別碼新增至 LSApplicationQueriesSchemes 區段
-MSAL 會使用 `–canOpenURL:` 來檢查代理程式是否已安裝在裝置上。 在 iOS 9 中，Apple 已鎖定應用程式可以查詢的配置。 
+### <a name="step-5-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>Step 5: Add the broker identifier to the LSApplicationQueriesSchemes section
+MSAL uses `–canOpenURL:` to check if the broker is installed on the device. In iOS 9, Apple locked down what schemes an application can query for. 
 
-將 `msauthv2` 新增至 `Info.plist` 檔案的 [`LSApplicationQueriesSchemes`] 區段。
+Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the `Info.plist` file.
 
 ```XML 
 <key>LSApplicationQueriesSchemes</key>
@@ -141,8 +141,8 @@ MSAL 會使用 `–canOpenURL:` 來檢查代理程式是否已安裝在裝置上
     </array>
 ```
 
-### <a name="step-6-register-your-redirect-uri-in-the-application-portal"></a>步驟6：在應用程式入口網站中註冊重新導向 URI
-使用訊息代理程式會在您的重新導向 URI 上增加額外的需求。 重新導向 URI 的格式_必須_如下：
+### <a name="step-6-register-your-redirect-uri-in-the-application-portal"></a>Step 6: Register your redirect URI in the application portal
+Using the broker adds an extra requirement on your redirect URI. The redirect URI _must_ have the following format:
 ```CSharp
 $"msauth.{BundleId}://auth"
 ```
@@ -150,38 +150,40 @@ $"msauth.{BundleId}://auth"
 ```CSharp
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; 
 ```
-請注意，重新導向 URI 會符合您在 `Info.plist` 檔案中包含的 `CFBundleURLSchemes` 名稱。
+Notice that the redirect URI matches the `CFBundleURLSchemes` name you included in the `Info.plist` file.
 
-### <a name="step-7-make-sure-the-redirect-uri-is-registered-with-your-app"></a>步驟7：確認重新導向 URI 已向您的應用程式註冊
+### <a name="step-7-make-sure-the-redirect-uri-is-registered-with-your-app"></a>Step 7: Make sure the redirect URI is registered with your app
 
-此重新導向 URI 必須在應用程式註冊入口網站上註冊（ https://portal.azure.com) 為應用程式的有效重新導向 URI。 
+This redirect URI needs to be registered on the app registration portal (https://portal.azure.com) as a valid redirect URI for your application. 
 
-入口網站有新的體驗應用程式註冊入口網站，可協助您從組合識別碼計算代理的回復 URI。
+The portal has a new experience app registration portal to help you compute the brokered reply URI from the bundle ID.
 
-1. 在應用程式註冊中，選擇 [**驗證**]，然後選取 **[試用新的體驗**]。
+1. In the app registration, choose **Authentication** and select **Try out the new experience**.
 
-   ![試用新的應用程式註冊體驗](media/msal-net-use-brokers-with-xamarin-apps/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+   ![Try out the new app registration experience](media/msal-net-use-brokers-with-xamarin-apps/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
-1. 選取 [**新增平臺**]。
+1. Select **Add a platform**.
 
-   ![新增平臺](media/msal-net-use-brokers-with-xamarin-apps/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
+   ![Add a platform](media/msal-net-use-brokers-with-xamarin-apps/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
-1. 當支援平臺清單時，請選取 [ **iOS**]。
+1. When the list of platforms is supported, select **iOS**.
 
-   ![設定 iOS](media/msal-net-use-brokers-with-xamarin-apps/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
+   ![Configure iOS](media/msal-net-use-brokers-with-xamarin-apps/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-1. 依要求輸入您的配套識別碼，然後選取 [**設定**]。
+1. Enter your bundle ID as requested, and then select **Configure**.
 
-   ![輸入套件組合識別碼](media/msal-net-use-brokers-with-xamarin-apps/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
+   ![Enter Bundle ID](media/msal-net-use-brokers-with-xamarin-apps/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
-1. 系統會為您計算重新導向 URI。
+1. The redirect URI is computed for you.
 
-   ![複製重新導向 URI](media/msal-net-use-brokers-with-xamarin-apps/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+   ![Copy redirect URI](media/msal-net-use-brokers-with-xamarin-apps/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
 
-## <a name="brokered-authentication-for-android"></a>適用于 Android 的代理驗證
+## <a name="brokered-authentication-for-android"></a>Brokered authentication for Android
 
-訊息代理程式支援不適用於 Android。
+MSAL.NET only support the Xamarin.iOS platform at the moment. It doesn't yet support brokers for the Xamarin.Android platform.
+
+The MSAL Android native library already supports it. For details see [Brokered auth in Android](https://docs.microsoft.com/azure/active-directory/develop/brokered-auth.md)
 
 ## <a name="next-steps"></a>後續步驟
 
-瞭解[MSAL.NET 的通用 Windows 平臺特定考慮](msal-net-uwp-considerations.md)。
+Learn about [Universal Windows Platform-specific considerations with MSAL.NET](msal-net-uwp-considerations.md).

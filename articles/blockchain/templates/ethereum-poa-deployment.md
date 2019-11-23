@@ -1,34 +1,27 @@
 ---
-title: 以太坊權威證明聯盟 - Azure
-description: 使用以太坊權威證明聯盟解決方案，來部署和設定多成員的聯盟以太坊網路
-services: azure-blockchain
-keywords: ''
-author: CodyBorn
-ms.author: coborn
+title: Deploy Ethereum Proof-of-Authority consortium solution template on Azure
+description: Use the Ethereum Proof-of-Authority Consortium solution to deploy and configure a multi-member consortium Ethereum network on Azure
 ms.date: 04/08/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: brendal
-manager: vamelech
-ms.openlocfilehash: 01b9f7f74077737ea95a56bbe81f440db425bf0c
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.reviewer: coborn
+ms.openlocfilehash: c3e449c1d6ebaf7c6cb2c35dc9f91d55f569447a
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698460"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326164"
 ---
-# <a name="ethereum-proof-of-authority-consortium"></a>以太坊權威證明聯盟
+# <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Deploy Ethereum proof-of-authority consortium solution template on Azure
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>總覽
-[此解決方案](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium)的設計訴求是，讓您以最低限度的 Azure 和以太坊知識，更輕鬆地部署、設定和控管多成員的聯盟權威證明以太坊網路。
+[The Ethereum Proof-of-Authority Consortium Azure solution template](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) is designed to make it easier to deploy, configure, and govern a multi-member consortium Proof-of-authority Ethereum network with minimal Azure and Ethereum knowledge.
 
 透過少數使用者輸入及 Azure 入口網站中的一鍵部署，每個成員都可以使用 Microsoft Azure 計算、網路和儲存體服務，在全球各地佈建網路應用。 每個成員的網路應用都會包含一組負載平衡的交易節點，讓應用程式或使用者可與其互動而提交以太坊交易。
 
 ## <a name="concepts"></a>概念
 
-### <a name="terminology"></a>術語
+### <a name="terminology"></a>詞彙
 
 -   **共識** - 透過區塊的驗證和建立在分散式網路中同步處理資料的動作。
 
@@ -40,15 +33,15 @@ ms.locfileid: "68698460"
 
 ### <a name="proof-of-authority"></a>權威證明
 
-對於剛接觸區塊鏈社群的人們來說，若要在 Azure 上以簡單且易於設定的方式了解此技術，此版解決方案會是個很好的機會。 工作量證明是一種 Sybil 防禦機制，可利用計算成本自我管理網路，並達到公平參與的目的。 這非常適用於競相以加密貨幣提升網路安全性的匿名、開放式區塊鏈網路。 不過，在私人/聯盟網路中，基礎以太幣並無任何價值。 另一個替代的通訊協定「證明」, 更適合所有共識參與者皆為已知且值得信賴的允許網路。 權威證明不需要進行採礦，不僅更有效率，且同時仍保有拜占庭容錯功能。
+對於剛接觸區塊鏈社群的人們來說，若要在 Azure 上以簡單且易於設定的方式了解此技術，此版解決方案會是個很好的機會。 工作量證明是一種 Sybil 防禦機制，可利用計算成本自我管理網路，並達到公平參與的目的。 這非常適用於競相以加密貨幣提升網路安全性的匿名、開放式區塊鏈網路。 不過，在私人/聯盟網路中，基礎以太幣並無任何價值。 An alternative protocol, proof-of-authority, is more suitable for permitted networks where all consensus participants are known and reputable. 權威證明不需要進行採礦，不僅更有效率，且同時仍保有拜占庭容錯功能。
 
 ### <a name="consortium-governance"></a>聯盟控管
 
-由於授權證明依賴允許的網路授權清單讓網路保持良好, 因此請務必提供公平的機制來修改此許可權清單。 每個部署都隨附一組智慧合約和入口網站, 適用于此允許清單的連鎖治理。 當提議的變更通過聯盟成員的多數決議後，即會執行變更。 如此，即能夠以公開透明的方式加入新的共識參與者或移除不當參與者，而助長誠信的網路。
+Since proof-of-authority relies upon a permitted list of network authorities to keep the network healthy, it's important to provide a fair mechanism to make modifications to this permission list. Each deployment comes with a set of smart-contracts and portal for on-chain governance of this permitted list. 當提議的變更通過聯盟成員的多數決議後，即會執行變更。 如此，即能夠以公開透明的方式加入新的共識參與者或移除不當參與者，而助長誠信的網路。
 
-### <a name="admin-account"></a>系統管理員帳戶
+### <a name="admin-account"></a>管理帳戶
 
-在部署授權單位節點期間, 系統會要求您提供管理乙太坊位址。 您可以使用數種不同的機制來產生和保護此以太坊帳戶。 在此位址新增為網路的授權後，您即可使用此帳戶來參與控管。 此管理員帳戶也會用來將共識參與此委派給在此部署的過程中建立的驗證器節點。 由於只會使用公用乙太坊位址, 因此每位系統管理員都可以彈性地以遵循其所需安全性模型的方式來保護其私用金鑰。
+During the deployment of the proof-of-authority nodes, you'll be asked for an Admin Ethereum address. 您可以使用數種不同的機制來產生和保護此以太坊帳戶。 在此位址新增為網路的授權後，您即可使用此帳戶來參與控管。 此管理員帳戶也會用來將共識參與此委派給在此部署的過程中建立的驗證器節點。 Since only the public Ethereum address is used, each admin has the flexibility to secure their private keys in a way that follows their wanted security model.
 
 ### <a name="validator-node"></a>驗證器節點
 
@@ -57,15 +50,15 @@ ms.locfileid: "68698460"
 
 ### <a name="identity-store"></a>身分識別存放區
 
-由於每個成員會同時執行多個驗證程式節點, 而且每個節點都必須有允許的識別, 因此驗證程式可以安全地在網路上取得唯一的主動身分識別。 為了簡化這項作業, 我們建立了一個身分識別存放區, 它會部署在每個成員的訂用帳戶中, 安全地保存所產生的乙太坊身分識別。 在部署時, 協調流程容器將會為每個驗證器產生乙太坊私密金鑰, 並將其儲存在 Azure Key Vault 中。 同位檢查節點在啟動之前，會先租用未使用的身分識別，以確保該身分識別不會由其他節點所取用。 身分識別會提供給用戶端，讓它取得開始建立區塊的授權。 如果主控 VM 發生運作中斷的情形，身分識別租用即會釋出，讓替代節點可在未來繼續使用其身分識別。
+Since each member will have multiple validator nodes running simultaneously and each node must have a permitted identity, it's important that the validators can safely acquire a unique active identity on the network. To make this easier, we've built an Identity Store that gets deployed in each member's subscription that securely holds the generated Ethereum identities. Upon deployment, the orchestration container will generate an Ethereum private key for each validator and store it in Azure Key Vault. 同位檢查節點在啟動之前，會先租用未使用的身分識別，以確保該身分識別不會由其他節點所取用。 身分識別會提供給用戶端，讓它取得開始建立區塊的授權。 如果主控 VM 發生運作中斷的情形，身分識別租用即會釋出，讓替代節點可在未來繼續使用其身分識別。
 
 ### <a name="bootnode-registrar"></a>啟動節點註冊機構
 
-為了簡化連線機制，每個成員都會在[資料 API 端點](#data-api)上裝載一組連線資訊。 這項資料包含 bootnodes 的清單, 提供給聯結成員的對等節點。 在此資料 API 中，我們會維護最新的啟動節點清單
+為了簡化連線機制，每個成員都會在[資料 API 端點](#data-api)上裝載一組連線資訊。 This data includes a list of bootnodes that are provided as peering nodes for the joining member. 在此資料 API 中，我們會維護最新的啟動節點清單
 
 ### <a name="bring-your-own-operator"></a>自備操作員
 
-聯盟成員通常會想要參與網路控管，但不想要運作及維護其基礎結構。 不同於傳統系統，由單一操作員負責處理整個網路，可能不利於非集中式的區塊鏈系統模型。 各個聯盟成員可以不要雇用集中式仲介機構來運作網路，而將基礎結構管理委派給他們所選擇的操作員。 這允許混合式模型, 其中每個成員都可以選擇操作自己的基礎結構, 或將作業委派給不同的夥伴。 委派的作業工作流程的運作方式如下：
+聯盟成員通常會想要參與網路控管，但不想要運作及維護其基礎結構。 不同於傳統系統，由單一操作員負責處理整個網路，可能不利於非集中式的區塊鏈系統模型。 各個聯盟成員可以不要雇用集中式仲介機構來運作網路，而將基礎結構管理委派給他們所選擇的操作員。 This allows a hybrid model where each member can choose to operate their own infrastructure or delegate operation to a different partner. 委派的作業工作流程的運作方式如下：
 
 1.  **聯盟成員**產生以太坊位址 (包含私密金鑰)
 
@@ -77,9 +70,9 @@ ms.locfileid: "68698460"
 
 5.  **聯盟成員**使用其私密金鑰簽署要求，接受驗證器節點**運算子**已代表他們執行部署並參與
 
-### <a name="azure-monitor"></a>Azure 監視器
+### <a name="azure-monitor"></a>Azure Monitor
 
-此解決方案也隨附 Azure 監視器，用以追蹤節點和網路統計資料。 這可以讓應用程式開發人員檢視基礎區塊鏈，以追蹤區塊產生統計資料。 網路操作員可以使用 Azure 監視器，透過基礎結構的統計資料和可查詢的記錄快速偵測並防止網路中斷的狀況。 如需詳細資訊, 請參閱[服務監視](#service-monitoring)。
+此解決方案也隨附 Azure 監視器，用以追蹤節點和網路統計資料。 這可以讓應用程式開發人員檢視基礎區塊鏈，以追蹤區塊產生統計資料。 網路操作員可以使用 Azure 監視器，透過基礎結構的統計資料和可查詢的記錄快速偵測並防止網路中斷的狀況。 For more information, see [Service monitoring](#service-monitoring).
 
 ### <a name="deployment-architecture"></a>部署架構
 
@@ -107,7 +100,7 @@ ms.locfileid: "68698460"
 
 我們利用 Docker 容器維持可靠性及進行模組化。 我們可以使用 Azure Container Registry 來裝載及提供已建立版本的映像，作為每個部署的一部分。 容器映像包含：
 
--   協調器
+-   Orchestrator
 
     -   在部署期間執行一次
 
@@ -129,7 +122,7 @@ ms.locfileid: "68698460"
 
     -   用來與控管合約互動的 Web 介面
 
-## <a name="how-to-guides"></a>使用說明指南
+## <a name="how-to-guides"></a>操作指南
 ### <a name="governance-dapp"></a>控管 DApp
 
 權威證明的核心是非集中式控管。 控管 DApp 是一組預先部署的[智慧合約](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/)和 Web 應用程式，用來控管網路上的授權。
@@ -145,28 +138,28 @@ ms.locfileid: "68698460"
 -   **可稽核的變更歷程記錄 -** 每項變更都會記錄在透明且可稽核的區塊鏈上。
 
 #### <a name="getting-started-with-governance"></a>控管入門
-若要透過治理管 dapp 來執行任何種類的交易, 您必須利用乙太坊的錢包。  最直接的方法是使用瀏覽器內電子錢包 (例如 [MetaMask](https://metamask.io))；不過，由於這些是部署在網路上的智慧合約，因此您也可以將您與「控管」合約的互動自動化。
+To perform any kind of transactions through the Governance DApp, you'll need to leverage an Ethereum wallet.  最直接的方法是使用瀏覽器內電子錢包 (例如 [MetaMask](https://metamask.io))；不過，由於這些是部署在網路上的智慧合約，因此您也可以將您與「控管」合約的互動自動化。
 
-安裝 MetaMask 之後，請在瀏覽器中瀏覽至「控管 DApp」。  您可以在部署電子郵件中或透過 Azure 入口網站在部署輸出中找到該 URL。  如果您未安裝瀏覽器內的錢包, 將無法執行任何動作;不過, 您仍然可以讀取系統管理員狀態。  
+安裝 MetaMask 之後，請在瀏覽器中瀏覽至「控管 DApp」。  您可以在部署電子郵件中或透過 Azure 入口網站在部署輸出中找到該 URL。  If you don't have an in-browser wallet installed you'll not be able to perform any actions; however, you still can read the administrator state.  
 
 #### <a name="becoming-an-admin"></a>成為管理員
-如果您是在網路上部署的第一個成員, 則您會自動成為系統管理員, 而且您的同位節點會列為驗證程式。  如果您要加入網路, 您必須以系統管理員的身分 (大於 50%) 取得投票現有系統管理員集合的。  如果您選擇不要成為管理員，您的節點將仍然會同步處理並驗證區塊鏈；不過，它們將不會參與區塊建立程序。 若要開始投票程序以成為管理員，請按一下 [Nominate] \(提名\) 並輸入您的乙太坊位址和別名。
+If you're the first member that deployed on the network, then you'll automatically become an Admin and your Parity nodes will be listed as Validators.  If you're joining the network, you'll need to get voted in as an Admin by a majority (greater than 50%) of the existing Admin set.  如果您選擇不要成為管理員，您的節點將仍然會同步處理並驗證區塊鏈；不過，它們將不會參與區塊建立程序。 若要開始投票程序以成為管理員，請按一下 [Nominate] \(提名\) 並輸入您的乙太坊位址和別名。
 
 ![提名](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
 
 #### <a name="candidates"></a>候選
-選取 [Candidates] \(候選\) 索引標籤時，會顯示一組目前的候選管理員。  在候選人獲得目前管理員的多數票選之後，該候選人就會升格為管理員。若要投票給某位候選人，請選取該資料列，然後按一下頂端的 [Vote in] \(投票選出\)。  如果您改變投票心意，可以選取該候選人，然後按一下 [Rescind vote] \(撤銷投票\)。
+選取 [Candidates] \(候選\) 索引標籤時，會顯示一組目前的候選管理員。  Once a Candidate reaches a majority vote by the current Admins, the Candidate will get promoted to an Admin.  To vote on a Candidate, select the row and click "Vote in" at the top.  如果您改變投票心意，可以選取該候選人，然後按一下 [Rescind vote] \(撤銷投票\)。
 
 ![候選](./media/ethereum-poa-deployment/governance-dapp-candidates.png)
 
 
 #### <a name="admins"></a>管理員
-[Admins] \(管理員\) 索引標籤會顯示一組目前的管理員，並可讓您進行投票。  一旦系統管理員失去超過 50% 的支援, 就會將其移除為網路上的管理員。  此管理員所擁有的所有驗證器節點都會失去驗證器狀態，而成為網路上的交易節點。  系統管理員可能會因為任何原因而移除;不過, 這是由聯盟事先同意原則。
+[Admins] \(管理員\) 索引標籤會顯示一組目前的管理員，並可讓您進行投票。  Once an Admin loses more than 50% support, they'll be removed as an Admin on the network.  此管理員所擁有的所有驗證器節點都會失去驗證器狀態，而成為網路上的交易節點。  An Admin may be removed for any number of reasons; however, it's up to the consortium to agree on a policy in advance.
 
 ![管理員](./media/ethereum-poa-deployment/governance-dapp-admins.png)
 
 #### <a name="validators"></a>驗證程式
-選取左側功能表中的 [Validators] \(驗證器\) 索引標籤時，會顯示此執行個體的目前已部署同位節點及其目前狀態 (節點類型)。  因為此視圖代表目前部署的聯盟成員, 所以每個聯盟成員在此清單中將會有一組不同的驗證程式。  如果這是新部署的實例, 而您尚未新增驗證程式, 則會顯示 [新增驗證程式] 選項。  選取此項將會自動選擇一組區域內平衡的同位節點, 並將它們指派給您的驗證程式集。  如果您部署的節點超出允許的容量，剩餘的節點就會變成網路上的交易節點。
+選取左側功能表中的 [Validators] \(驗證器\) 索引標籤時，會顯示此執行個體的目前已部署同位節點及其目前狀態 (節點類型)。  Each consortium member will have a different set of validators in this list, since this view represents the current deployed consortium member.  If this is a newly deployed instance and you haven't yet added your validators, you'll be shown the option to 'Add Validators'.  Selecting this will automatically choose a regionally balanced set of Parity nodes and assign them to your validator set.  如果您部署的節點超出允許的容量，剩餘的節點就會變成網路上的交易節點。
 
 指派每個驗證器的位址時，會自動透過 Azure 中的[身分識別存放區](#identity-store)指派。  如果某個節點停止運作，它就會放棄其身分識別，讓您部署中的另一個節點取代它。  這可確保維持您共識參與度的高可用性。
 
@@ -176,7 +169,7 @@ ms.locfileid: "68698460"
 所有管理員都可以更新顯示在頁面頂端的「聯盟名稱」。  選取左上方的齒輪圖示，即可更新「聯盟名稱」。
 
 #### <a name="account-menu"></a>帳戶功能表
-右上方是您的乙太坊帳戶別名和頭像。  如果您是系統管理員, 您將能夠更新您的別名。
+右上方是您的乙太坊帳戶別名和頭像。  If you're an Admin you'll have the ability to update your alias.
 
 ![帳戶](./media/ethereum-poa-deployment/governance-dapp-account.png)
 
@@ -200,9 +193,9 @@ ms.locfileid: "68698460"
 
 當訂用帳戶受到保護後，請移至 Azure 入口網站。 選取 [+] 和 [Marketplace (檢視全部)]，並搜尋以太坊 PoA 聯盟。
 
-以下幾節將引導您逐步設定網路中第一個成員的配置。 部署流程分成下列五個步驟：基本概念、部署區域、網路大小和效能、Ethereum 設定、Azure 監視器。
+以下幾節將引導您逐步設定網路中第一個成員的配置。 部署流程分成下列五個步驟：基本概念、部署區域、網路大小和效能、以太坊設定、Azure 監視器。
 
-#### <a name="basics"></a>基本知識
+#### <a name="basics"></a>基本概念
 
 在 [基本概念] 下方，為任何部署指定標準參數值，例如訂用帳戶、資源群組及基本虛擬機器屬性。
 
@@ -213,10 +206,10 @@ ms.locfileid: "68698460"
 建立新網路或加入現有網路？|建立新網路或加入已存在的聯盟網路|建立新的 加入現有的|建立新的
 電子郵件地址 (選擇性)|您將會在部署完成收到電子郵件通知，內含部署的相關資訊。|有效的電子郵件地址|NA
 VM 使用者名稱|每個所部署 VM 的管理員使用者名稱 (僅限英數字元)|1-64 個字元|NA
-驗證類型|用來向虛擬機器驗證的方法。|密碼或 SSH 公開金鑰|密碼
+驗證類型|要驗證虛擬機器的方法。|密碼或 SSH 公開金鑰|密碼
 密碼 (驗證類型 = 密碼)|每個所部署虛擬機器的管理員帳戶密碼。  密碼必須包含下列其中 3 項要求：1 個大寫字元、1 個小寫字元、1 個數字與 1 個特殊字元。 所有 VM 一開始都有相同的密碼，但您可以在佈建之後變更密碼。|12-72 個字元|NA
 SSH 金鑰 (驗證類型 = 公開金鑰)|用於遠端登入的安全殼層金鑰。||NA
-訂閱|要對其部署聯盟網路的訂用帳戶||NA
+Subscription|要對其部署聯盟網路的訂用帳戶||NA
 資源群組|要對其部署聯盟網路的資源群組。||NA
 Location|資源群組的 Azure 區域。||NA
 
@@ -256,13 +249,13 @@ Location|資源群組的 Azure 區域。||NA
 
 [虛擬機器定價詳細資料](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 
-虛擬機器和儲存層會影響網路效能。  根據所需的成本效益，建議您使用下列 SKU：
+Virtual Machine and Storage Tier will affect network performance.  根據所需的成本效益，建議您使用下列 SKU：
 
   虛擬機器 SKU|儲存層|價格|輸送量|延遲
   ---|---|---|---|---
   F1|標準 SSD|低|低|高
   D2_v3|標準 SSD|中|中|中
-  F16s|進階 SSD|高|高|低
+  F16|高階 SSD|高|高|低
 
 範例部署如下所示：![網路大小和效能](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
@@ -274,30 +267,30 @@ Location|資源群組的 Azure 區域。||NA
 
   參數名稱|描述|允許的值|預設值
   ---|---|---|---
-聯盟成員識別碼|與每個聯盟網路成員相關聯的識別碼，用來設定 IP 位址空間，以避免發生衝突。 如果使用私人網路，成員識別碼在相同網路的不同組織間應該是唯一的。  即使相同組織會部署到多個區域，仍然需要唯一成員識別碼。 請記下此參數的值, 因為您必須將它與其他聯結成員共用, 以確保不會發生衝突。|0-255|NA
+聯盟成員識別碼|與每個聯盟網路成員相關聯的識別碼，用來設定 IP 位址空間，以避免發生衝突。 如果使用私人網路，成員識別碼在相同網路的不同組織間應該是唯一的。  即使相同組織會部署到多個區域，仍然需要唯一成員識別碼。 Make note of the value of this parameter since you'll need to share it with other joining members to ensure there’s no collision.|0-255|NA
 網路識別碼|為要部署的聯盟以太坊網路指定網路識別碼。  每個以太坊網路都有自己的網路識別碼，1 是公用網路的識別碼。|5 - 999,999,999|10101010
 管理員以太坊位址|用來參與 PoA 控管的以太坊帳戶位址。  建議使用 MetaMask 來產生以太坊位址。|42 個以 0x 開頭的英數字元|NA
 進階選項|以太坊設定的進階選項|啟用或停用|停用
 公用 IP (進階選項 = 啟用)|將網路部署在 VNet 閘道後方，並移除對等互連存取權。 如果選取此選項，則所有成員都必須使用 VNet 閘道，連線才能相容。|公用 IP 私人 VNet|公用 IP
 區塊燃料限值 (進階選項 = 啟用)|網路的開始區塊燃料限值|任何數值|50000000
 區塊重新封印期 (秒)|當網路上沒有任何交易時，將建立空白區塊的頻率。 頻率越高，越快有定局，但會增加儲存成本。|任何數值|15
-交易權限合約 (進階選項 = 啟用)|交易授權合約的位元組程式碼。 將智慧型合約部署和執行限制為允許的乙太坊帳戶清單。|合約位元組程式碼|NA
+交易權限合約 (進階選項 = 啟用)|交易授權合約的位元組程式碼。 Restricts smart contract deployment and execution to a permitted list of Ethereum accounts.|合約位元組程式碼|NA
 
 範例部署如下所示：![以太坊設定](./media/ethereum-poa-deployment/ethereum-settings.png)
 
 #### <a name="monitoring"></a>監視
 
-[監視] 分頁可讓您為您的網路設定 Azure 監視器記錄資源。 監視代理程式會收集並顯示您網路中實用的計量和記錄，讓您能夠快速檢查網路健康情況或進行問題偵錯。
+The Monitoring blade allows you to configure an Azure Monitor logs resource for your network. 監視代理程式會收集並顯示您網路中實用的計量和記錄，讓您能夠快速檢查網路健康情況或進行問題偵錯。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
   參數名稱|描述|允許的值|預設值
   ---|---|---|---
 監視|用以啟用「監視」的選項|啟用或停用|啟用
-連接到現有的 Azure 監視器記錄|建立新的 Azure 監視器記錄實例或加入現有的實例|建立新的或加入現有的|新建
-監視位置 (連接到現有的 Azure 監視器記錄 = 新建)|將部署新 Azure 監視器記錄實例的區域|所有 Azure 監視器記錄區域|NA
-現有的 log analytics 工作區識別碼 (連接到現有的 Azure 監視器記錄 = 加入現有的)|現有 Azure 監視器記錄實例的工作區識別碼||NA
-現有的 log analytics 主要金鑰 (連接到現有的 Azure 監視器記錄 = 加入現有的)|用來連接到現有 Azure 監視器記錄實例的主要金鑰||NA
+Connect to existing Azure Monitor logs|Create a new Azure Monitor logs instance or join an existing instance|建立新的或加入現有的|新建
+Monitor Location(Connect to existing Azure Monitor logs= Create new)|The region where the new Azure Monitor logs instance will be deployed|All Azure Monitor logs regions|NA
+Existing log analytics workspace ID (Connect to existing Azure Monitor logs = Join Existing)|Workspace ID of the existing Azure Monitor logs instance||NA
+Existing log analytics primary key (Connect to existing Azure Monitor logs = Join Existing)|The primary key used to connect to the existing Azure Monitor logs instance||NA
 
 
 範例部署如下所示：![Azure 監視器](./media/ethereum-poa-deployment/azure-monitor.png)
@@ -312,7 +305,7 @@ Location|資源群組的 Azure 區域。||NA
 
 ##### <a name="deployment-output"></a>部署輸出
 
-完成部署之後, 您可以透過確認電子郵件或 Azure 入口網站來存取必要的參數。 在這些參數中，您會看到：
+Once the deployment has completed, you can access the necessary parameters via the confirmation email or through the Azure portal. 在這些參數中，您會看到：
 
 -   以太坊 RPC 端點
 
@@ -332,7 +325,7 @@ Location|資源群組的 Azure 區域。||NA
 
 ##### <a name="portal"></a>入口網站
 
-成功完成部署並布建所有資源之後, 您就可以在資源群組中查看輸出參數。
+Once the deployment has completed successfully and all resources have been provisioned you can view the output parameters in your resource group.
 
 1.  在入口網站中找出您的資源群組
 
@@ -345,7 +338,7 @@ Location|資源群組的 Azure 區域。||NA
 ### <a name="growing-the-consortium"></a>擴增聯盟
 
 若要擴充您的聯盟，您必須先連接實體網路。
-使用以公用 IP 為基礎的部署時，第一個步驟將可順暢執行。 如果部署在 VPN 後方, 請參閱[連接 VNet 閘道](#connecting-vnet-gateways)以在新成員部署過程中進行網路連線一節。  在部署完成之後，請使用[控管 DApp](#governance-dapp) 來成為網路管理員。
+使用以公用 IP 為基礎的部署時，第一個步驟將可順暢執行。 If deploying behind a VPN, see the section [Connecting VNet Gateway](#connecting-vnet-gateways) to do the network connection as part of the new member deployment.  在部署完成之後，請使用[控管 DApp](#governance-dapp) 來成為網路管理員。
 
 #### <a name="new-member-deployment"></a>新成員部署
 
@@ -371,7 +364,7 @@ Location|資源群組的 Azure 區域。||NA
 
 #### <a name="connecting-vnet-gateways"></a>連接 VNet 閘道
 
-如果您已使用預設公用 IP 設定進行部署，則可以忽略此步驟。 在使用私人網路的情況下，會透過 VNet 閘道連線連接不同的成員。 在成員可以加入網路並查看交易流量之前, 現有的成員必須在其 VPN 閘道上執行最後的設定, 以接受連線。 這表示在建立連接之前, 聯結成員的乙太坊節點將不會執行。 建議您在聯盟中建立多餘的網路連線 (網格), 以減少單一失敗點的機率。
+如果您已使用預設公用 IP 設定進行部署，則可以忽略此步驟。 在使用私人網路的情況下，會透過 VNet 閘道連線連接不同的成員。 Before a member can join the network and see transaction traffic, an existing member must do a final configuration on their VPN gateway to accept the connection. This means that the Ethereum nodes of the joining member won't run until a connection is established. It's recommended to create redundant network connections (mesh) into the consortium to reduce chances of a single point of failure.
 
 新成員部署後，現有成員必須設定對新成員的 VNet 閘道連線，以完成雙向連線。 為了達到此目的，現有成員將需要：
 
@@ -379,7 +372,7 @@ Location|資源群組的 Azure 區域。||NA
 
 2.  共用連線金鑰
 
-現有成員必須執行下列 PowerShell 指令碼，以完成連線。 我們建議使用位於入口網站右上方導覽列中的 Azure Cloud Shell。
+現有成員必須執行下列 PowerShell 指令碼，以完成連線。 We recommend using Azure Cloud Shell located in the top-right navigation bar in the portal.
 
 ![Cloud Shell](./media/ethereum-poa-deployment/cloud-shell.png)
 
@@ -429,7 +422,7 @@ New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $
 
 ![網路統計資料](./media/ethereum-poa-deployment/network-stats.png)
 
-#### <a name="sample-kusto-queries"></a>範例 Kusto 查詢
+#### <a name="sample-kusto-queries"></a>Sample Kusto queries
 
 在這些儀表板後方會有一組可查詢的原始記錄。 您可以使用這些原始記錄來自訂儀表板、調查失敗原因，或設定閾值警示。 以下提供一組可在記錄搜尋工具中執行的範例查詢：
 
@@ -455,7 +448,7 @@ ParityLog_CL
 
 ### <a name="ssh-access"></a>SSH 存取
 
-基於安全考量，網路群組安全性規則依預設會拒絕 SSH 連接埠存取。 若要存取 PoA 網路中的虛擬機器實例, 您必須將此規則變更為\"[允許]\"
+基於安全考量，網路群組安全性規則依預設會拒絕 SSH 連接埠存取。 To access the virtual machine instances in the PoA network, you'll need to change this rule to \"Allow\"
 
 1.  首先，從 Azure 入口網站進入已部署資源群組的 [概觀] 區段。
 
@@ -484,7 +477,7 @@ ParityLog_CL
 
 Azure 流量管理員可跨不同區域的多個部署路由傳入的流量，藉以縮短停機時間及改善 PoA 網路的回應能力。 內建的健康情況檢查以及自動重新路由有助於確保 RPC 端點和控管 DApp 的高可用性。 如果您已部署至多個區域，並已做好生產準備，則可利用這項功能。
 
-使用流量管理員可以：
+使用 Traffic Manager 可以：
 
 -   透過自動容錯移轉改善 PoA 網路的可用性。
 
@@ -502,23 +495,23 @@ Azure 流量管理員可跨不同區域的多個部署路由傳入的流量，�
 
 ![建立流量管理員](./media/ethereum-poa-deployment/traffic-manager-create.png)
 
-部署之後, 請選取資源群組中的實例。 用來存取流量管理員的 DNS 名稱可在 [概觀] 索引標籤中找到
+Once it's deployed, then select the instance in the resource group. 用來存取流量管理員的 DNS 名稱可在 [概觀] 索引標籤中找到
 
 ![找出流量管理員 DNS](./media/ethereum-poa-deployment/traffic-manager-dns.png)
 
-選取 [端點] 索引標籤，然後按一下 [新增] 按鈕。 為端點提供一個唯一的名稱。 將 [目標資源類型] 變更為 [公用 IP 位址]。 接著，取得第一個區域的負載平衡器所具備的公用\' IP 位址。
+選取 [端點] 索引標籤，然後按一下 [新增] 按鈕。 為端點提供一個唯一的名稱。 將 [目標資源類型] 變更為 [公用 IP 位址]。 接著，取得第一個區域的負載平衡器所具備的公用 IP 位址。
 
 ![路由流量管理員](./media/ethereum-poa-deployment/traffic-manager-routing.png)
 
-為已部署網路中的每個區域重複前述步驟。 當端點處於 [ \"已啟用\" ] 狀態時, 系統會自動將其載入, 並在流量管理員的 DNS 名稱上平衡區域。 現在，您可以使用此 DNS 名稱來取代本文件其他步驟中的 \[CONSORTIUM\_DATA\_URL\] 參數。
+為已部署網路中的每個區域重複前述步驟。 Once the endpoints are in the \"enabled\" status, they'll be automatically load and region balanced at the DNS name of the traffic manager. 現在，您可以使用此 DNS 名稱來取代本文件其他步驟中的 \[CONSORTIUM\_DATA\_URL\] 參數。
 
 ### <a name="data-api"></a>資料 API
 
-每個聯盟成員都會裝載其他成員連線至網路所需的資訊。 現有的成員將會在成員部署之前提供 [CONSORTIUM_DATA_URL]。 在部署時，加入的成員將會從 JSON 介面在下列端點擷取資訊：
+每個聯盟成員都會裝載其他成員連線至網路所需的資訊。 The existing member will provide the [CONSORTIUM_DATA_URL] before the member's deployment. 在部署時，加入的成員將會從 JSON 介面在下列端點擷取資訊：
 
 `<CONSORTIUM_DATA_URL>/networkinfo`
 
-回應將包含適用于聯結成員的資訊 (創世組塊、驗證器集合約 ABI、bootnodes), 以及對現有成員有用的資訊 (驗證程式位址)。 我們建議使用此標準來擴充跨雲端提供者的聯盟。 此 API 會傳回具有下列結構的 JSON 格式回應：
+The response will contain information useful for joining members (Genesis block, Validator Set contract ABI, bootnodes) and information useful to the existing member (validator addresses). 我們建議使用此標準來擴充跨雲端提供者的聯盟。 此 API 會傳回具有下列結構的 JSON 格式回應：
 ```json
 {
   "$id": "",
@@ -758,11 +751,11 @@ Truffle 具有可用來對智慧合約進行偵錯的本機開發網路。 您�
 
 -   同位檢查技術的教學課程 - <https://github.com/paritytech/pwasm-tutorial>
 
-## <a name="reference"></a>參考資料
+## <a name="reference"></a>參考
 
 ### <a name="faq"></a>常見問題集
 
-#### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>我發現網路上有許\'多我未傳送的交易。 這些交易來自何處？
+#### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>我發現網路上有許多我未傳送的交易。 這些交易來自何處？
 
 將[個人 API](https://web3js.readthedocs.io/en/v1.2.0/web3-eth-personal.html) 解除鎖定並不安全。 Bot 會接聽已解除鎖定的以太坊帳戶，並嘗試清空資金。 Bot 會假設這些帳戶含有真實的以太幣，並嘗試率先竊取餘額。 請勿在網路上啟用個人 API。 您應手動使用 MetaMask 之類的電子錢包預先簽署交易，或依照[以程式設計方式與智慧合約互動](#programmatically-interacting-with-a-smart-contract)一節中的說明，以程式設計方式預先簽署交易。
 

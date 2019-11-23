@@ -1,21 +1,21 @@
 ---
-title: 使用 Azure 儲存體總管來管理 Azure Data Lake Storage Gen2 中的資料
-description: 在本快速入門中, 您將瞭解如何使用 Azure 儲存體總管來建立 Azure Data Lake Storage Gen2 帳戶中的容器, 以及目錄和檔案。 接下來您會了解如何將檔案下載到本機電腦，以及如何檢視目錄中的所有檔案。
+title: Use Azure Storage Explorer with Azure Data Lake Storage Gen2
+description: In this quickstart, you learn how to use Azure Storage Explorer to create a container in an Azure Data Lake Storage Gen2 account, as well as a directory and a file. 接下來您會了解如何將檔案下載到本機電腦，以及如何檢視目錄中的所有檔案。
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 95d7a58c8188e8c6633f6be50af608aed437edff
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 53f43945b13a9dae44eba752f935eb34d7aa498b
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991409"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327626"
 ---
-# <a name="use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>使用 Azure 儲存體總管來管理 Azure Data Lake Storage Gen2 帳戶中的資料
+# <a name="use-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Use Azure Storage Explorer with Azure Data Lake Storage Gen2
 
 在本快速入門中，您將了解如何使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)建立目錄和 Blob。 接下來您會了解如何將 Blob 下載到本機電腦，以及如何檢視目錄中的所有 Blob。 您也將了解如何建立 Blob 的快照集、管理目錄存取原則，以及建立共用的存取簽章。
 
@@ -29,11 +29,11 @@ ms.locfileid: "69991409"
 
 第一次啟動時，會顯示 [Microsoft Azure 儲存體總管 - 連線] 視窗。 雖然儲存體總管提供數種方式可連線到儲存體帳戶，但目前只有一種方式支援管理 ACL。
 
-|工作|用途|
+|Task|目的|
 |---|---|
 |新增 Azure 帳戶 | 將您重新導向至貴組織的登入頁面，向 Azure 進行驗證。 如果想要管理及設定 ACL，這是目前唯一支援的驗證方法。 |
 
-選取 [新增 Azure 帳戶]，然後按一下 [登入]。遵循螢幕上的提示來登入 Azure 帳戶。
+Select **Add an Azure Account** and click **Sign in..** . Follow the on-screen prompts to sign into your Azure account.
 
 ![[Microsoft Azure 儲存體總管 - 連線] 視窗](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
@@ -45,13 +45,13 @@ ms.locfileid: "69991409"
 
 Blob 一律會上傳到目錄中。 這可讓您組織 Blob 群組，就像在電腦的資料夾中組織檔案一樣。
 
-若要建立目錄，請展開您在後續步驟中建立的儲存體帳戶。 選取 [Blob 容器]，然後以滑鼠右鍵按一下並選取 [建立 Blob 容器]。 輸入容器的 [名稱]。 完成時, 按**enter**以建立容器。 一旦成功建立 blob 目錄後，它就會顯示在所選儲存體帳戶的 [Blob 容器] 資料夾底下。
+若要建立目錄，請展開您在後續步驟中建立的儲存體帳戶。 選取 [Blob 容器]，然後以滑鼠右鍵按一下並選取 [建立 Blob 容器]。 Enter the name for your container. When complete, press **Enter** to create the container. 一旦成功建立 blob 目錄後，它就會顯示在所選儲存體帳戶的 [Blob 容器] 資料夾底下。
 
-![Microsoft Azure 儲存體總管-建立容器](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
+![Microsoft Azure Storage Explorer - Creating a container](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
 
 ## <a name="upload-blobs-to-the-directory"></a>將 Blob 上傳到目錄
 
-Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 用來備份 IaaS VM 的 VHD 檔案是分頁 Blob。 附加 Blob 用於記錄，例如當您想要寫入檔案，並繼續新增更多資訊時。 儲存在 Blob 儲存體中的大部分檔案都是區塊 Blob。
+Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 用來備份 IaaS VM 的 VHD 檔案是分頁 Blob。 附加 Blob 是用於記錄，例如當您想要寫入檔案，並繼續新增更多資訊時。 儲存在 Blob 儲存體中的大部分檔案都是區塊 Blob。
 
 在目錄功能區中，選取 [上傳]。 這項作業可讓您選擇上傳資料夾或檔案。
 

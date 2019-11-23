@@ -1,33 +1,27 @@
 ---
-title: 使用 Azure CLI 管理 Azure 區塊鏈 Service
-description: 如何使用 Azure CLI 建立及管理 Azure 區塊鏈 Service
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Manage Azure Blockchain Service using Azure CLI
+description: How to manage Azure Blockchain Service with Azure CLI
 ms.date: 05/02/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: seal
-manager: femila
-ms.openlocfilehash: 4dd58f2542674633f2d5e2a1724adc7934d7f030
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.reviewer: janders
+ms.openlocfilehash: 2a749387baee4881ffd6960e64666ede366a36ec
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307052"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325147"
 ---
-# <a name="manage-azure-blockchain-service-using-azure-cli"></a>使用 Azure CLI 管理 Azure 區塊鏈 Service
+# <a name="manage-azure-blockchain-service-using-azure-cli"></a>Manage Azure Blockchain Service using Azure CLI
 
-除了 Azure 入口網站以外，您還可以使用 Azure CLI 來管理 Azure 區塊鏈服務的區塊鏈成員和交易節點。
+In addition to the Azure portal, you can use Azure CLI to manage blockchain members and transaction nodes for your Azure Blockchain Service.
 
-請確定您已安裝最新的[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) ，並使用`az login`登入 Azure 帳戶。
+Make sure that you have installed the latest [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and logged in to an Azure account in with `az login`.
 
-在下列範例中，將 example `<parameter names>`取代成您自己的值。
+In the following examples, replace example `<parameter names>` with your own values.
 
-## <a name="create-blockchain-member"></a>建立區塊鏈成員
+## <a name="create-blockchain-member"></a>Create blockchain member
 
-範例會在 Azure 區塊鏈 Service 中建立區塊鏈成員，以在新的聯盟中執行仲裁總帳通訊協定。
+Example creates a blockchain member in Azure Blockchain Service that runs the Quorum ledger protocol in a new consortium.
 
 ```azurecli
 az resource create --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"<myBlockchainLocation>\", \"properties\": {\"password\": \"<myStrongPassword>\", \"protocol\": \"Quorum\", \"consortium\": \"<myConsortiumName>\", \"consortiumManagementAccountPassword\": \"<myConsortiumManagementAccountPassword>\", \"firewallRules\": [ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ] }, \"sku\": { \"name\": \"<skuName>\" } }"
@@ -37,19 +31,19 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName> --re
 |---------|-------------|
 | **resource-group** | Azure 區塊鏈服務資源建立所在的資源群組名稱。 |
 | **name** | 可識別 Azure 區塊鏈服務區塊鏈成員的唯一名稱。 用於公開端點位址的名稱。 例如： `myblockchainmember.blockchain.azure.com` 。 |
-| **location** | 區塊鏈成員建立所在的 Azure 區域。 例如： `eastus` 。 選擇最靠近您的使用者或其他 Azure 應用程式的位置。 |
-| **password** | 成員帳戶密碼。 成員帳戶密碼會用來對使用基本驗證的區塊鏈成員公用端點進行驗證。 密碼必須符合下列四個需求的其中三項：長度須介於 12 & 72 個字元、1個小寫字元、1個大寫字元、1個數字和1個特殊字元（不是數位記號（#）、百分比（%）、逗號（，）、星號（*）、後引號）（\`）、雙引號（"）、單引號（'）、虛線（-）和 semicolumn （;)|
-| **protocol** | 公開預覽支援仲裁。 |
+| **位置** | 區塊鏈成員建立所在的 Azure 區域。 例如： `eastus` 。 選擇最靠近您的使用者或其他 Azure 應用程式的位置。 |
+| **password** | 成員帳戶密碼。 成員帳戶密碼會用來對使用基本驗證的區塊鏈成員公用端點進行驗證。 The password must meet three of the following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolumn(;)|
+| **protocol** | Public preview supports Quorum. |
 | **consortium** | 要加入或建立的聯盟名稱。 |
-| **consortiumManagementAccountPassword** | 聯盟管理密碼。 密碼會用於加入聯盟。 |
-| **ruleName** | 用來允許清單 IP 位址範圍的規則名稱。 防火牆規則的選擇性參數。|
-| **startIpAddress** | 允許清單的 IP 位址範圍的開頭。 防火牆規則的選擇性參數。 |
-| **endIpAddress** | 允許清單的 IP 位址範圍結尾。 防火牆規則的選擇性參數。 |
+| **consortiumManagementAccountPassword** | 聯盟管理密碼。 The password is used for joining a consortium. |
+| **ruleName** | Rule name for whitelisting an IP address range. Optional parameter for firewall rules.|
+| **startIpAddress** | Start of the IP address range for whitelisting. Optional parameter for firewall rules. |
+| **endIpAddress** | End of the IP address range for whitelisting. Optional parameter for firewall rules. |
 | **skuName** | 服務層級類型。 使用 S0 表示「標準」，B0 表示「基本」。 |
 
-## <a name="change-blockchain-member-password"></a>變更區塊鏈成員密碼
+## <a name="change-blockchain-member-password"></a>Change blockchain member password
 
-範例會變更區塊鏈成員的密碼。
+Example changes a blockchain member's password.
 
 ```azurecli
 az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.password="<myStrongPassword>" --remove properties.consortiumManagementAccountAddress
@@ -57,12 +51,12 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 | 參數 | 描述 |
 |---------|-------------|
 | **resource-group** | Azure 區塊鏈服務資源建立所在的資源群組名稱。 |
-| **name** | 識別您的 Azure 區塊鏈服務成員的名稱。 |
-| **password** | 成員帳戶密碼。 密碼必須符合下列四個需求的其中三項：長度須介於 12 & 72 個字元、1個小寫字元、1個大寫字元、1個數字和1個特殊字元（不是數位記號（#）、百分比（%）、逗號（，）、星號（*）、後引號）（\`）、雙引號（"）、單引號（'）、虛線（-）和分號（;)。 |
+| **name** | Name that identifies your Azure Blockchain Service member. |
+| **password** | 成員帳戶密碼。 The password must meet three of the following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolon(;). |
 
 ## <a name="create-transaction-node"></a>建立交易節點
 
-在現有的區塊鏈成員內建立交易節點。 藉由新增交易節點，您可以增加安全性隔離並分散負載。 例如，您可能會有不同用戶端應用程式的交易節點端點。
+Create a transaction node inside an existing blockchain member. By adding transaction nodes, you can increase security isolation and distribute load. For example, you could have a transaction node endpoint for different client applications.
 
 ```azurecli
 az resource create --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers  --is-full-object --properties "{ \"location\": \"<myRegion>\", \"properties\": { \"password\": \"<myStrongPassword>\", \"firewallRules\": [ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ] } }"
@@ -71,16 +65,16 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName>/tran
 | 參數 | 描述 |
 |---------|-------------|
 | **resource-group** | Azure 區塊鏈服務資源建立所在的資源群組名稱。 |
-| **name** | Azure 區塊鏈 Service 區塊鏈成員的名稱，其中也包含新的交易節點名稱。 |
-| **location** | 區塊鏈成員建立所在的 Azure 區域。 例如： `eastus` 。 選擇最靠近您的使用者或其他 Azure 應用程式的位置。 |
-| **password** | 交易節點密碼。 密碼必須符合下列四個需求的其中三項：長度須介於 12 & 72 個字元、1個小寫字元、1個大寫字元、1個數字和1個特殊字元（不是數位記號（#）、百分比（%）、逗號（，）、星號（*）、後引號）（\`）、雙引號（"）、單引號（'）、虛線（-）和分號（;)。 |
-| **ruleName** | 用來允許清單 IP 位址範圍的規則名稱。 防火牆規則的選擇性參數。 |
-| **startIpAddress** | 允許清單的 IP 位址範圍的開頭。 防火牆規則的選擇性參數。 |
-| **endIpAddress** | 允許清單的 IP 位址範圍結尾。 防火牆規則的選擇性參數。|
+| **name** | Name of the Azure Blockchain Service blockchain member that also includes the new transaction node name. |
+| **位置** | 區塊鏈成員建立所在的 Azure 區域。 例如： `eastus` 。 選擇最靠近您的使用者或其他 Azure 應用程式的位置。 |
+| **password** | The transaction node password. The password must meet three of the following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolon(;). |
+| **ruleName** | Rule name for whitelisting an IP address range. Optional parameter for firewall rules. |
+| **startIpAddress** | Start of the IP address range for whitelisting. Optional parameter for firewall rules. |
+| **endIpAddress** | End of the IP address range for whitelisting. Optional parameter for firewall rules.|
 
-## <a name="change-transaction-node-password"></a>變更交易節點密碼
+## <a name="change-transaction-node-password"></a>Change transaction node password
 
-範例會變更交易節點密碼。
+Example changes a transaction node password.
 
 ```azurecli
 az resource update --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers  --set properties.password="<myStrongPassword>"
@@ -88,13 +82,13 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName>/tran
 
 | 參數 | 描述 |
 |---------|-------------|
-| **resource-group** | 資源組名，其中有 Azure 區塊鏈服務資源存在。 |
-| **name** | Azure 區塊鏈 Service 區塊鏈成員的名稱，其中也包含新的交易節點名稱。 |
-| **password** | 交易節點密碼。 密碼必須符合下列四個需求的其中三項：長度須介於 12 & 72 個字元、1個小寫字元、1個大寫字元、1個數字和1個特殊字元（不是數位記號（#）、百分比（%）、逗號（，）、星號（*）、後引號）（\`）、雙引號（"）、單引號（'）、虛線（-）和分號（;)。 |
+| **resource-group** | Resource group name where Azure Blockchain Service resources exist. |
+| **name** | Name of the Azure Blockchain Service blockchain member that also includes the new transaction node name. |
+| **password** | The transaction node password. The password must meet three of the following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolon(;). |
 
-## <a name="change-consortium-management-account-password"></a>變更聯盟管理帳戶密碼
+## <a name="change-consortium-management-account-password"></a>Change consortium management account password
 
-聯盟管理帳戶用於聯盟成員資格管理。 每個成員都是由聯盟管理帳戶唯一識別，而您可以使用下列命令來變更此帳戶的密碼。
+The consortium management account is used for consortium membership management. Each member is uniquely identified by a consortium management account and you can change the password of this account with the following command.
 
 ```azurecli
 az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.consortiumManagementAccountPassword="<myConsortiumManagementAccountPassword>" --remove properties.consortiumManagementAccountAddress
@@ -103,10 +97,10 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 | 參數 | 描述 |
 |---------|-------------|
 | **resource-group** | Azure 區塊鏈服務資源建立所在的資源群組名稱。 |
-| **name** | 識別您的 Azure 區塊鏈服務成員的名稱。 |
-| **consortiumManagementAccountPassword** | 聯盟管理帳戶密碼。 密碼必須符合下列四個需求的其中三項：長度須介於 12 & 72 個字元、1個小寫字元、1個大寫字元、1個數字和1個特殊字元（不是數位記號（#）、百分比（%）、逗號（，）、星號（*）、後引號）（\`）、雙引號（"）、單引號（'）、虛線（-）和分號（;)。 |
+| **name** | Name that identifies your Azure Blockchain Service member. |
+| **consortiumManagementAccountPassword** | The consortium management account password. The password must meet three of the following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolon(;). |
   
-## <a name="update-firewall-rules"></a>更新防火牆規則
+## <a name="update-firewall-rules"></a>Update firewall rules
 
 ```azurecli
 az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.firewallRules="[ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ]" --remove properties.consortiumManagementAccountAddress
@@ -114,15 +108,15 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 
 | 參數 | 描述 |
 |---------|-------------|
-| **resource-group** | 資源組名，其中有 Azure 區塊鏈服務資源存在。 |
-| **name** | Azure 區塊鏈 Service 區塊鏈成員的名稱。 |
-| **ruleName** | 用來允許清單 IP 位址範圍的規則名稱。 防火牆規則的選擇性參數。|
-| **startIpAddress** | 允許清單的 IP 位址範圍的開頭。 防火牆規則的選擇性參數。|
-| **endIpAddress** | 允許清單的 IP 位址範圍結尾。 防火牆規則的選擇性參數。|
+| **resource-group** | Resource group name where Azure Blockchain Service resources exist. |
+| **name** | Name of the Azure Blockchain Service blockchain member. |
+| **ruleName** | Rule name for whitelisting an IP address range. Optional parameter for firewall rules.|
+| **startIpAddress** | Start of the IP address range for whitelisting. Optional parameter for firewall rules.|
+| **endIpAddress** | End of the IP address range for whitelisting. Optional parameter for firewall rules.|
 
-## <a name="list-api-keys"></a>列出 API 金鑰
+## <a name="list-api-keys"></a>List API keys
 
-API 金鑰可用於節點存取，類似于使用者名稱和密碼。 有兩個 API 金鑰可支援金鑰輪替。 使用下列命令來列出您的 API 金鑰。
+API keys can be used for node access similar to user name and password. There are two API keys to support key rotation. Use the following command to list your API keys.
 
 ```azurecli
 az resource invoke-action --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --action "listApiKeys" --resource-type Microsoft.Blockchain/blockchainMembers
@@ -130,12 +124,12 @@ az resource invoke-action --resource-group <myResourceGroup> --name <myMemberNam
 
 | 參數 | 描述 |
 |---------|-------------|
-| **resource-group** | 資源組名，其中有 Azure 區塊鏈服務資源存在。 |
-| **name** | Azure 區塊鏈 Service 區塊鏈成員的名稱，其中也包含新的交易節點名稱。 |
+| **resource-group** | Resource group name where Azure Blockchain Service resources exist. |
+| **name** | Name of the Azure Blockchain Service blockchain member that also includes the new transaction node name. |
 
-## <a name="regenerate-api-keys"></a>重新產生 API 金鑰
+## <a name="regenerate-api-keys"></a>Regenerate API keys
 
-使用下列命令來重新產生您的 API 金鑰。
+Use the following command to regenerate your API keys.
 
 ```azurecli
 az resource invoke-action --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --action "regenerateApiKeys" --resource-type Microsoft.Blockchain/blockchainMembers --request-body '{"keyName":"<keyValue>"}'
@@ -144,13 +138,13 @@ az resource invoke-action --resource-group <myResourceGroup> --name <myMemberNam
 
 | 參數 | 描述 |
 |---------|-------------|
-| **resource-group** | 資源組名，其中有 Azure 區塊鏈服務資源存在。 |
-| **name** | Azure 區塊鏈 Service 區塊鏈成員的名稱，其中也包含新的交易節點名稱。 |
-| **keyName** | 將\< keyValue\>取代為 key1 或 key2。 |
+| **resource-group** | Resource group name where Azure Blockchain Service resources exist. |
+| **name** | Name of the Azure Blockchain Service blockchain member that also includes the new transaction node name. |
+| **keyName** | Replace \<keyValue\> with either key1 or key2. |
 
-## <a name="delete-a-transaction-node"></a>刪除交易節點
+## <a name="delete-a-transaction-node"></a>Delete a transaction node
 
-範例會刪除區塊鏈成員交易節點。
+Example deletes a blockchain member transaction node.
 
 ```azurecli
 az resource delete --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers
@@ -158,12 +152,12 @@ az resource delete --resource-group <myResourceGroup> --name <myMemberName>/tran
 
 | 參數 | 描述 |
 |---------|-------------|
-| **resource-group** | 資源組名，其中有 Azure 區塊鏈服務資源存在。 |
-| **name** | Azure 區塊鏈 Service 區塊鏈成員的名稱，其中也包含要刪除的新交易節點名稱。 |
+| **resource-group** | Resource group name where Azure Blockchain Service resources exist. |
+| **name** | Name of the Azure Blockchain Service blockchain member that also includes the new transaction node name to be deleted. |
 
-## <a name="delete-a-blockchain-member"></a>刪除區塊鏈成員
+## <a name="delete-a-blockchain-member"></a>Delete a blockchain member
 
-範例會刪除區塊鏈成員。
+Example deletes a blockchain member.
 
 ```azurecli
 az resource delete --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers
@@ -171,12 +165,12 @@ az resource delete --resource-group <myResourceGroup> --name <myMemberName> --re
 
 | 參數 | 描述 |
 |---------|-------------|
-| **resource-group** | 資源組名，其中有 Azure 區塊鏈服務資源存在。 |
-| **name** | 要刪除之 Azure 區塊鏈服務區塊鏈成員的名稱。 |
+| **resource-group** | Resource group name where Azure Blockchain Service resources exist. |
+| **name** | Name of the Azure Blockchain Service blockchain member to be deleted. |
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
-### <a name="grant-access-for-azure-ad-user"></a>授與 Azure AD 使用者的存取權
+### <a name="grant-access-for-azure-ad-user"></a>Grant access for Azure AD user
 
 ```azurecli
 az role assignment create --role <role> --assignee <assignee> --scope /subscriptions/<subId>/resourceGroups/<groupName>/providers/Microsoft.Blockchain/blockchainMembers/<myMemberName>
@@ -184,13 +178,13 @@ az role assignment create --role <role> --assignee <assignee> --scope /subscript
 
 | 參數 | 描述 |
 |---------|-------------|
-| **role** | Azure AD 角色的名稱。 |
-| **受託** | Azure AD 使用者識別碼。 例如： `user@contoso.com` |
-| scope | 角色指派的範圍。 可以是區塊鏈成員或交易節點。 |
+| **role** | Name of the Azure AD role. |
+| **assignee** | Azure AD user ID. 例如，`user@contoso.com` |
+| scope | Scope of the role assignment. Can be either a blockchain member or transaction node. |
 
-**範例:**
+**範例：**
 
-將 Azure AD 使用者的節點存取權授與區塊鏈**成員**：
+Grant node access for Azure AD user to blockchain **member**:
 
 ```azurecli
 az role assignment create \
@@ -199,9 +193,9 @@ az role assignment create \
   --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1
 ```
 
-**範例:**
+**範例：**
 
-將 Azure AD 使用者的節點存取權授與區塊鏈**交易節點**：
+Grant node access for Azure AD user to blockchain **transaction node**:
 
 ```azurecli
 az role assignment create \
@@ -210,20 +204,20 @@ az role assignment create \
   --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1/transactionNodes/contosoTransactionNode1
 ```
 
-### <a name="grant-node-access-for-azure-ad-group-or-application-role"></a>授與 Azure AD 群組或應用程式角色的節點存取權
+### <a name="grant-node-access-for-azure-ad-group-or-application-role"></a>Grant node access for Azure AD group or application role
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id>
 ```
 | 參數 | 描述 |
 |---------|-------------|
-| **role** | Azure AD 角色的名稱。 |
-| **assignee-object-id** | Azure AD 群組識別碼或應用程式識別碼。 |
-| scope | 角色指派的範圍。 可以是區塊鏈成員或交易節點。 |
+| **role** | Name of the Azure AD role. |
+| **assignee-object-id** | Azure AD group ID or application ID. |
+| scope | Scope of the role assignment. Can be either a blockchain member or transaction node. |
 
-**範例:**
+**範例：**
 
-授與**應用程式角色**的節點存取權
+Grant node access for **application role**
 
 ```azurecli
 az role assignment create \
@@ -232,7 +226,7 @@ az role assignment create \
   --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1
 ```
 
-### <a name="remove-azure-ad-node-access"></a>移除 Azure AD 節點存取
+### <a name="remove-azure-ad-node-access"></a>Remove Azure AD node access
 
 ```azurecli
 az role assignment delete --role <myRole> --assignee <assignee> --scope /subscriptions/mySubscriptionId/resourceGroups/<myResourceGroup>/providers/Microsoft.Blockchain/blockchainMembers/<myMemberName>/transactionNodes/<myTransactionNode>
@@ -240,11 +234,11 @@ az role assignment delete --role <myRole> --assignee <assignee> --scope /subscri
 
 | 參數 | 描述 |
 |---------|-------------|
-| **role** | Azure AD 角色的名稱。 |
-| **受託** | Azure AD 使用者識別碼。 例如： `user@contoso.com` |
-| scope | 角色指派的範圍。 可以是區塊鏈成員或交易節點。 |
+| **role** | Name of the Azure AD role. |
+| **assignee** | Azure AD user ID. 例如，`user@contoso.com` |
+| scope | Scope of the role assignment. Can be either a blockchain member or transaction node. |
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用 Azure 入口網站設定 Azure 區塊鏈 Service 交易節點](configure-transaction-nodes.md)
+> [Configure Azure Blockchain Service transaction nodes with the Azure portal](configure-transaction-nodes.md)

@@ -1,22 +1,22 @@
 ---
-title: 開始使用憑證式驗證-Azure Active Directory
+title: Certificate-based authentication - Azure Active Directory
 description: 了解如何在環境中設定憑證式驗證
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f57d4615fc80df6c5df9ba295288ad71ae12fa23
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8bfe306f089a26258ba9c7a07c54925f4540b44b
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60359070"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382013"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>開始在 Azure Active Directory 中使用憑證式驗證
 
@@ -32,7 +32,7 @@ ms.locfileid: "60359070"
 - 提供為 Office 365 企業版、商務版、教育版、美國政府方案的租用戶使用者，設定和使用憑證式驗證的步驟。 在 Office 365 China、US Government Defense 及 US Government Federal 方案中，這項功能處於預覽版。
 - 假設您已經設定[公開金鑰基礎結構 (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) 和 [AD FS](../hybrid/how-to-connect-fed-whatis.md)。
 
-## <a name="requirements"></a>需求
+## <a name="requirements"></a>要求
 
 若要設定憑證式驗證，必須符合下列陳述：
 
@@ -44,7 +44,7 @@ ms.locfileid: "60359070"
 - 您的用戶端裝置必須至少可以存取一個發出用戶端憑證的憑證授權單位。
 - 用於戶端驗證的用戶端憑證必須已經發給您的用戶端。
 
-## <a name="step-1-select-your-device-platform"></a>步驟 1：選取裝置平台
+## <a name="step-1-select-your-device-platform"></a>步驟 1︰選取裝置平台
 
 第一個步驟中，針對您要處理的裝置平台，您需要檢閱下列項目︰
 
@@ -56,11 +56,11 @@ ms.locfileid: "60359070"
 - [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 
-## <a name="step-2-configure-the-certificate-authorities"></a>步驟 2：設定憑證授權單位
+## <a name="step-2-configure-the-certificate-authorities"></a>步驟 2︰設定憑證授權單位
 
 若要在 Azure Active Directory 中設定您的憑證授權單位，為每個憑證授權單位下載下列項目：
 
-* 憑證的公開部分 (「.cer」  格式)
+* 憑證的公開部分 (「.cer」 格式)
 * 憑證撤銷清單 (CRl) 所在的網際網路對應 URL
 
 憑證授權單位的結構描述看起來像這樣︰
@@ -96,7 +96,7 @@ ms.locfileid: "60359070"
 
 設定的第一個步驟，您需要與您的租用戶建立連線。 一旦您與租用戶的連線存在，您可以檢閱、新增、刪除、修改在您的目錄中定義的受信任的憑證授權單位。
 
-### <a name="connect"></a>連線
+### <a name="connect"></a>連接
 
 若要與您的租用戶建立連線，使用 [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) Cmdlet︰
 
@@ -108,7 +108,7 @@ ms.locfileid: "60359070"
 
     Get-AzureADTrustedCertificateAuthority
 
-### <a name="add"></a>加
+### <a name="add"></a>新增
 
 若要建立受信任的憑證授權單位，使用 [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) Cmdlet 並將 **crlDistributionPoint** 屬性設為正確值：
 
@@ -134,13 +134,13 @@ ms.locfileid: "60359070"
     $c[0].AuthorityType=1
     Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
 
-## <a name="step-3-configure-revocation"></a>步驟 3：設定撤銷
+## <a name="step-3-configure-revocation"></a>步驟 3︰設定撤銷
 
-若要撤銷用戶端憑證，Azure Active Directory 會從和憑證授權單位資訊一起上傳的 URL 中，擷取憑證撤銷清單 (CRL) 並加以快取。 在 CRL 中，上次發佈的時間戳記 ([生效日期]  屬性) 是用來確保 CRL 依然有效。 定期參考 CRL 以撤銷對清單所列憑證的存取權。
+若要撤銷用戶端憑證，Azure Active Directory 會從和憑證授權單位資訊一起上傳的 URL 中，擷取憑證撤銷清單 (CRL) 並加以快取。 在 CRL 中，上次發佈的時間戳記 ([生效日期] 屬性) 是用來確保 CRL 依然有效。 定期參考 CRL 以撤銷對清單所列憑證的存取權。
 
 如果需要立即撤銷 (例如，使用者遺失裝置)，可以讓使用者的授權權杖失效。 使用 Windows PowerShell 設定這位特定使用者的 **StsRefreshTokenValidFrom** 欄位，即可讓授權權杖失效。 您必須為想要撤銷其存取權的每位使用者更新其 **StsRefreshTokenValidFrom** 欄位。
 
-為了確保撤銷持續有效，您必須將 CRL 的 [生效日期]  設定為 **StsRefreshTokenValidFrom** 所設值之後的日期，並確保有問題的憑證位於 CRL 中。
+為了確保撤銷持續有效，您必須將 CRL 的 [生效日期] 設定為 **StsRefreshTokenValidFrom** 所設值之後的日期，並確保有問題的憑證位於 CRL 中。
 
 下列步驟概述藉由設定 **StsRefreshTokenValidFrom** 欄位，來更新授權權杖並讓它失效的程序。
 
@@ -162,7 +162,7 @@ ms.locfileid: "60359070"
 
 您設定的日期必須是未來的日期。 如果不是未來的日期，則不會設定 **StsRefreshTokensValidFrom** 屬性。 如果是未來的日期，才會將 **StsRefreshTokensValidFrom** 設定為目前的時間 (而非 Set-MsolUser 命令指示的日期)。
 
-## <a name="step-4-test-your-configuration"></a>步驟 4：測試組態
+## <a name="step-4-test-your-configuration"></a>步驟 4︰測試組態
 
 ### <a name="testing-your-certificate"></a>測試您的憑證
 

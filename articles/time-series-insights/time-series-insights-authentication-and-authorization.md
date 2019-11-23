@@ -1,5 +1,5 @@
 ---
-title: API 驗證和授權-Azure 時間序列深入解析 |Microsoft Docs
+title: API authentication and authorization - Azure Time Series Insights | Microsoft Docs
 description: 本文說明如何為呼叫 Azure Time Series Insights API 的自訂應用程式設定驗證和授權。
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,73 +12,73 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 60099689c79308a45e3d40d63e0f993b030db7cd
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: d47f846f77d3552288dfea43b417d8c60856f41a
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133520"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327897"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API 的驗證和授權
 
-本檔說明如何使用新的 Azure Active Directory 分頁，在 Azure Active Directory 中註冊應用程式。 在 Azure Active Directory 中註冊的應用程式可讓使用者對與時間序列深入解析環境相關聯的 Azure 時間序列深入解析 API 進行驗證及授權使用。
+This document describes how to register an app in Azure Active Directory using the new Azure Active Directory blade. Apps registered in Azure Active Directory enable users to authenticate to and be authorized to use the Azure Time Series Insight API associated with a Time Series Insights environment.
 
 ## <a name="service-principal"></a>服務主體
 
-下列各節說明如何設定應用程式，以代表應用程式存取時間序列深入解析 API。 然後，應用程式可以透過 Azure Active Directory 使用自己的應用程式認證，在時間序列深入解析環境中查詢或發佈參考資料。
+The following sections describe how to configure an application to access the Time Series Insights API on behalf of an app. The application may then query or publish reference data in the Time Series Insights environment using its own application credentials through Azure Active Directory.
 
-## <a name="summary-and-best-practices"></a>摘要和最佳作法
+## <a name="summary-and-best-practices"></a>Summary and best practices
 
-Azure Active Directory 應用程式註冊流程牽涉到三個主要步驟。
+The Azure Active Directory app registration flow involves three main steps.
 
-1. 在 Azure Active Directory 中[註冊應用程式](#azure-active-directory-app-registration)。
-1. 授權應用程式擁有[時間序列深入解析環境的資料存取權](#granting-data-access)。
-1. 使用**應用程式識別碼**和**用戶端密碼**，從[用戶端應用程式](#client-app-initialization)中的 `https://api.timeseries.azure.com/` 取得權杖。 此權杖可用來呼叫 Time Series Insights API。
+1. [Register an application](#azure-active-directory-app-registration) in Azure Active Directory.
+1. Authorize the application to have [data access to the Time Series Insights environment](#granting-data-access).
+1. Use the **Application ID** and **Client Secret** to acquire a token from `https://api.timeseries.azure.com/` in your [client app](#client-app-initialization). 此權杖可用來呼叫 Time Series Insights API。
 
-根據**步驟 3**，將您的應用程式和使用者認證分開，可讓您：
+Per **step 3**, separating your application's and your user credentials allows you to:
 
-* 將許可權指派給與您自己的許可權不同的應用程式身分識別。 一般而言，這些權限只會限制為 App 所需的權限。 例如，您可以允許應用程式只從特定的時間序列深入解析環境中讀取資料。
-* 使用**用戶端密碼**或安全性憑證，將應用程式的安全性與建立使用者的驗證認證隔離。 因此，應用程式的認證不會相依于特定使用者的認證。 如果使用者的角色變更，應用程式不一定需要新的認證或進一步的設定。 如果使用者變更其密碼，對應用程式的所有存取都不需要新的認證或金鑰。
-* 使用**用戶端密碼**或安全性憑證來執行自動腳本，而不是特定使用者的認證（需要有這些認證）。
-* 使用安全性憑證而非密碼來保護 Azure 時間序列深入解析 API 的存取。
+* Assign permissions to the app identity that are distinct from your own permissions. 一般而言，這些權限只會限制為 App 所需的權限。 For example, you can allow the app to read data only from a particular Time Series Insights environment.
+* Isolate the app's security from the creating user's authentication credentials by using a **Client Secret** or security certificate. As a result, the application's credentials are not dependent on a specific user's credentials. If the user's role changes, the application does not necessarily require new credentials or further configuration. If the user changes their password, all access to the application doesn't require new credentials or keys.
+* Run an unattended script using a **Client Secret** or security certificate rather than a specific user's credentials (requiring them to be present).
+* Use a security certificate rather than a password to secure access to your Azure Time Series Insights API.
 
 > [!IMPORTANT]
-> 設定 Azure 時間序列深入解析安全性原則時，請遵循**關注點分離的**原則（針對上述案例說明）。
+> Follow the principle of **Separation of Concerns** (described for this scenario above) when configuring your Azure Time Series Insights security policy.
 
 > [!NOTE]
-> * 本文著重于單一租使用者應用程式，其中應用程式只會在一個組織中執行。
-> * 您通常會將單一租使用者應用程式用於組織內執行的企業營運系統應用程式。
+> * The article focuses on a single-tenant application where the application is intended to run in only one organization.
+> * You'll typically use single-tenant applications for line-of-business applications that run in your organization.
 
-## <a name="detailed-setup"></a>詳細設定
+## <a name="detailed-setup"></a>Detailed setup
 
-### <a name="azure-active-directory-app-registration"></a>Azure Active Directory 應用程式註冊
+### <a name="azure-active-directory-app-registration"></a>Azure Active Directory app registration
 
 [!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
-### <a name="granting-data-access"></a>授與資料存取權
+### <a name="granting-data-access"></a>Granting data access
 
-1. 針對時間序列深入解析環境，選取 [**資料存取原則**]，然後選取 [**新增**]。
+1. For the Time Series Insights environment, select **Data Access Policies** and select **Add**.
 
-   [![將新的資料存取原則新增至時間序列深入解析環境](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
+   [![Add new data access policy to the Time Series Insights environment](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
 
-1. 在 [**選取使用者**] 對話方塊中，貼上 [Azure Active Directory 應用程式註冊] 區段中的 [**應用程式名稱**] 或 [**應用程式識別碼**]。
+1. In the **Select User** dialog box, paste either the **Application Name** or the **Application ID** from the Azure Active Directory app registration section.
 
-   [在 [選取使用者] 對話方塊中 ![尋找應用程式](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
+   [![Find an application in the Select User dialog box](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
-1. 選取角色。 選取 [**讀取器**] 來查詢資料或**參與者**，以查詢資料並變更參考資料。 選取 [確定]。
+1. Select the role. Select **Reader** to query data or **Contributor** to query data and change reference data. 選取 [確定]。
 
-   [![選取 [選取使用者角色] 對話方塊中的 [讀取器] 或 [參與者]](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
+   [![Pick Reader or Contributor in the Select User Role dialog box](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
-1. 選取 **[確定]** 以儲存原則。
+1. Save the policy by selecting **OK**.
 
    > [!TIP]
-   > 瞭解如何將[資料存取權](./time-series-insights-data-access.md)授與 Azure Active Directory 中的時間序列深入解析環境。
+   > For advanced data access options, read [granting data access](./time-series-insights-data-access.md).
 
-### <a name="client-app-initialization"></a>用戶端應用程式初始化
+### <a name="client-app-initialization"></a>Client app initialization
 
-1. 使用 [Azure Active Directory 應用程式註冊] 區段中的 [**應用程式識別碼**] 和 [**用戶端密碼**] （應用程式金鑰），代表應用程式取得權杖。
+1. Use the **Application ID** and **Client Secret** (Application Key) from the Azure Active Directory app registration section to acquire the token on behalf of the application.
 
-    在C#中，下列程式碼可以代表應用程式取得權杖。 如需完整範例，請參閱[使用 C# 查詢資料](time-series-insights-query-data-csharp.md)。
+    In C#, the following code can acquire the token on behalf of the application. 如需完整範例，請參閱[使用 C# 查詢資料](time-series-insights-query-data-csharp.md)。
 
     ```csharp
     // Enter your Active Directory tenant domain name
@@ -101,56 +101,56 @@ Azure Active Directory 應用程式註冊流程牽涉到三個主要步驟。
 
 1. 當應用程式呼叫 Time Series Insights API 時，此權杖即可傳入 `Authorization` 標頭。
 
-## <a name="common-headers-and-parameters"></a>一般標頭和參數
+## <a name="common-headers-and-parameters"></a>Common headers and parameters
 
-本節說明用來對時間序列深入解析 GA 和預覽 Api 進行查詢的一般 HTTP 要求標頭和參數。 [時間序列深入解析 REST API 參考檔](https://docs.microsoft.com/rest/api/time-series-insights/)中會更詳細地涵蓋 API 特定需求。
+This section describes common HTTP request headers and parameters used to make queries against the Time Series Insights GA and Preview APIs. API-specific requirements are covered in greater detail in the [Time Series Insights REST API reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/).
 
-### <a name="authentication"></a>驗證
+### <a name="authentication"></a>Authentication
 
-若要對[時間序列深入解析 REST api](https://docs.microsoft.com/rest/api/time-series-insights/)執行已驗證的查詢，必須使用您選擇的 REST 用戶端（Postman、JavaScript、 C#），在[授權標頭](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate)中傳遞有效的 OAuth 2.0 持有人權杖。 
+To perform authenticated queries against the [Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), a valid OAuth 2.0 bearer token must be passed in the [Authorization header](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) using a REST client of your choice (Postman, JavaScript, C#). 
 
 > [!IMPORTANT]
-> 權杖必須完全發行至 `https://api.timeseries.azure.com/` 資源（也稱為權杖的「物件」）。
-> * 因此，您的[Postman](https://www.getpostman.com/) **AuthURL**會符合： `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+> The token must be issued exactly to the `https://api.timeseries.azure.com/` resource (also known as the "audience" of the token).
+> * Your [Postman](https://www.getpostman.com/) **AuthURL** with therefore conform to: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
 
 > [!TIP]
-> 請參閱託管的 Azure 時間序列深入解析[用戶端 sdk 範例視覺效果](https://tsiclientsample.azurewebsites.net/)，以瞭解如何使用[JAVASCRIPT 用戶端 sdk](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)搭配圖表和圖形，以程式設計方式驗證時間序列深入解析 api。
+> See the hosted Azure Time Series Insights [client SDK sample visualization](https://tsiclientsample.azurewebsites.net/) to see how to authenticate with the Time Series Insights APIs programmatically using the [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) along with charts and graphs.
 
 ### <a name="http-headers"></a>HTTP 標頭
 
-必要的要求標頭：
+Required request headers:
 
-- `Authorization` 驗證和授權時，必須在 Authorization 標頭中傳遞有效的 OAuth 2.0 持有人權杖。 權杖必須完全發行至 `https://api.timeseries.azure.com/` 資源（也稱為權杖的「物件」）。
+- `Authorization` for authentication and authorization, a valid OAuth 2.0 Bearer token must be passed in the Authorization header. The token must be issued exactly to the `https://api.timeseries.azure.com/` resource (also known as the "audience" of the token).
 
-選擇性的要求標頭：
+Optional request headers:
 
-- 僅支援 `Content-type` 的 `application/json`。
-- `x-ms-client-request-id`-用戶端要求識別碼。 服務會記錄此值。 允許服務跨服務追蹤作業。
-- `x-ms-client-session-id`-用戶端會話識別碼。 服務會記錄此值。 允許服務追蹤跨服務的一組相關作業。
-- `x-ms-client-application-name`-產生此要求的應用程式名稱。 服務會記錄此值。
+- `Content-type` - only `application/json` is supported.
+- `x-ms-client-request-id` - a client request ID. Service records this value. Allows the service to trace operation across services.
+- `x-ms-client-session-id` - a client session ID. Service records this value. Allows the service to trace a group of related operations across services.
+- `x-ms-client-application-name` - name of the application that generated this request. Service records this value.
 
-回應標頭：
+Response headers:
 
-- 僅支援 `Content-type` 的 `application/json`。
-- `x-ms-request-id` 伺服器產生的要求識別碼。 可以用來與 Microsoft 聯繫以調查要求。
+- `Content-type` - only `application/json` is supported.
+- `x-ms-request-id` - server-generated request ID. Can be used to contact Microsoft to investigate a request.
 
-### <a name="http-parameters"></a>HTTP 參數
+### <a name="http-parameters"></a>HTTP parameters
 
-必要的 URL 查詢字串參數：
+Required URL query string parameters:
 
 - `api-version=2016-12-12`
 - `api-version=2018-11-01-preview`
 
-選擇性的 URL 查詢字串參數：
+Optional URL query string parameters:
 
-- `timeout=<timeout>` –要求執行的伺服器端超時。 僅適用于[取得環境事件](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api)和[取得環境匯總](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api)api。 Timeout 值應採用 ISO 8601 持續時間格式，例如 `"PT20S"`，且應在 `1-30 s`範圍內。 預設值為 `30 s`。
+- `timeout=<timeout>` – server-side timeout for the request execution. Applicable only to the [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) and [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) APIs. Timeout value should be in ISO 8601 duration format, for example `"PT20S"` and should be in the range `1-30 s`. 預設值為 `30 s`。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需呼叫 GA 時間序列深入解析 API 的範例程式碼，請參閱[使用C#查詢資料](./time-series-insights-query-data-csharp.md)。
+- For sample code that calls the GA Time Series Insights API, see [Query data using C#](./time-series-insights-query-data-csharp.md).
 
-- 如需預覽時間序列深入解析 API 程式碼範例，請參閱[使用C#查詢預覽資料](./time-series-insights-update-query-data-csharp.md)。
+- For Preview Time Series Insights API code samples, see [Query Preview data using C#](./time-series-insights-update-query-data-csharp.md).
 
 - 如需 API 參考資訊，請參閱[查詢 API 參考](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api)。
 
-- 瞭解如何[建立服務主體](../active-directory/develop/howto-create-service-principal-portal.md)。
+- Learn how to [create a service principal](../active-directory/develop/howto-create-service-principal-portal.md).

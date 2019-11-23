@@ -1,93 +1,93 @@
 ---
-title: 如何在 Azure AD Identity Protection 中補救風險和解除封鎖使用者
-description: 瞭解您已關閉作用中風險偵測的選項。
+title: Remediate risks and unblock users in Azure AD Identity Protection
+description: Learn about the options you have close active risk detections.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61fe0e14fbb6c6251b3bf19843b9c065df60dd86
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 350e7b37d36be70cea345db52cdfb639b2f1c1a8
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887516"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382106"
 ---
-# <a name="remediate-risks-and-unblock-users"></a>補救風險並解除封鎖使用者
+# <a name="remediate-risks-and-unblock-users"></a>Remediate risks and unblock users
 
-完成[調查](howto-identity-protection-investigate-risk.md)之後，您會想要採取動作來補救風險或解除封鎖使用者。 組織也可以選擇使用其[風險原則](howto-identity-protection-configure-risk-policies.md)來啟用自動補救。 組織應該嘗試在您的組織熟悉的一段時間內，關閉他們呈現的所有風險偵測。 Microsoft 建議您儘快關閉事件，因為時間在處理風險時很重要。
+After completing your [investigation](howto-identity-protection-investigate-risk.md), you will want to take action to remediate the risk or unblock users. Organizations also have the option to enable automated remediation using their [risk policies](howto-identity-protection-configure-risk-policies.md). Organizations should try to close all risk detections that they are presented with in a time period your organization is comfortable with. Microsoft recommends closing events as soon as possible because time matters when working with risk.
 
 ## <a name="remediation"></a>補救
 
-所有作用中的風險偵測都有助於計算名為「使用者風險層級」的值。 使用者風險層級是帳戶遭到入侵的可能性指標 (低、中、高)。 身為系統管理員，您想要讓所有風險偵測關閉，讓受影響的使用者不再有風險。
+All active risk detections contribute to the calculation of a value called user risk level. 使用者風險層級是帳戶遭到入侵的可能性指標 (低、中、高)。 As an administrator, you want to get all risk detections closed, so that the affected users are no longer at risk.
 
-某些風險偵測可能會由 Identity Protection 標示為「已關閉（系統）」，因為這些事件已不再被視為有風險。
+Some risks detections may be marked by Identity Protection as "Closed (system)" because the events were no longer determined to be risky.
 
-系統管理員可以使用下列選項來進行補救：
+Administrators have the following options to remediate:
 
-- 具有風險原則的自我補救
+- Self-remediation with risk policy
 - 手動重設密碼
 - 解除使用者風險
-- 手動關閉個別風險偵測
+- Close individual risk detections manually
 
-### <a name="self-remediation-with-risk-policy"></a>具有風險原則的自我補救
+### <a name="self-remediation-with-risk-policy"></a>Self-remediation with risk policy
 
-如果您允許使用者自行補救，並在您的風險原則中使用 Azure 多重要素驗證（MFA）和自助式密碼重設（SSPR），他們可以在偵測到風險時解除封鎖。 這些偵測會被視為已關閉。 使用者必須先前已註冊 Azure MFA 和 SSPR，才能在偵測到風險時使用。
+If you allow users to self-remediate, with Azure Multi-Factor Authentication (MFA) and self-service password reset (SSPR) in your risk policies, they can unblock themselves when risk is detected. These detections are then considered closed. Users must have previously registered for Azure MFA and SSPR in order to use when risk is detected.
 
-某些偵測可能不會對需要使用者自行補救的層級產生風險，但系統管理員仍應評估這些偵測。 系統管理員可以決定是否需要額外的量值，例如[封鎖來自位置的存取](../conditional-access/howto-conditional-access-policy-location.md)，或降低其原則中可接受的風險。
+Some detections may not raise risk to the level where a user self-remediation would be required but administrators should still evaluate these detections. Administrators may determine that additional measures are necessary like [blocking access from locations](../conditional-access/howto-conditional-access-policy-location.md) or lowering the acceptable risk in their policies.
 
 ### <a name="manual-password-reset"></a>手動重設密碼
 
-如果您無法使用使用者風險原則來要求重設密碼，系統管理員可以使用手動密碼重設來關閉使用者的所有風險偵測。
+If requiring a password reset using a user risk policy is not an option, administrators can close all risk detections for a user with a manual password reset.
 
-系統管理員在重設使用者的密碼時，會提供兩個選項：
+Administrators are given two options when resetting a password for their users:
 
-- **產生臨時密碼** - 藉由產生暫時密碼，您可以立即讓身分識別回到安全狀態。 這個方法需要聯絡受影響的使用者，因為他們需要知道暫時密碼是什麼。 由於密碼是暫時性的，因此系統會提示使用者在下一次登入時，將密碼變更為新的內容。
+- **產生臨時密碼** - 藉由產生暫時密碼，您可以立即讓身分識別回到安全狀態。 This method requires contacting the affected users because they need to know what the temporary password is. Because the password is temporary, the user is prompted to change the password to something new during the next sign-in.
 
-- **要求使用者重設密碼** - 要求使用者重設密碼能夠自行復原，而不需要連絡技術支援中心或系統管理員。 此方法僅適用于已註冊 Azure MFA 和 SSPR 的使用者。 若使用者尚未註冊，則無法使用此選項。
+- **要求使用者重設密碼** - 要求使用者重設密碼能夠自行復原，而不需要連絡技術支援中心或系統管理員。 This method only applies to users that are registered for Azure MFA and SSPR. For users that have not been registered, this option isn't available.
 
 ### <a name="dismiss-user-risk"></a>解除使用者風險
 
-如果密碼重設不是您的選項，因為例如使用者已被刪除，您可以選擇解除使用者風險偵測。
+If a password reset is not an option for you, because for example the user has been deleted, you can choose to dismiss user risk detections.
 
-當您按一下 [**關閉使用者風險**] 時，所有事件都會關閉，而受影響的使用者不再有風險。 不過，因為這個方法不會影響現有的密碼，所以不會讓相關的身分識別回到安全狀態。 
+When you click **Dismiss user risk**, all events are closed and the affected user is no longer at risk. 不過，因為這個方法不會影響現有的密碼，所以不會讓相關的身分識別回到安全狀態。 
 
-### <a name="close-individual-risk-detections-manually"></a>手動關閉個別風險偵測
+### <a name="close-individual-risk-detections-manually"></a>Close individual risk detections manually
 
-您可以手動關閉個別風險偵測。 藉由手動關閉風險偵測，您可以降低使用者風險層級。 通常會以手動方式關閉風險偵測，以回應相關的調查。 例如，與使用者交談時，會顯示不再需要作用中的風險偵測。 
+You can close individual risk detections manually. By closing risk detections manually, you can lower the user risk level. Typically, risk detections are closed manually in response to a related investigation. For example, when talking to a user reveals that an active risk detection is not required anymore. 
  
-手動關閉風險偵測時，您可以選擇採取下列任何動作來變更風險偵測的狀態：
+When closing risk detections manually, you can choose to take any of the following actions to change the status of a risk detection:
 
-- 確認使用者遭盜用
+- Confirm user compromised
 - 解除使用者風險
-- 確認登入安全
-- 確認登入遭盜用
+- Confirm sign-in safe
+- Confirm sign-in compromised
 
-## <a name="unblocking-users"></a>解除封鎖使用者
+## <a name="unblocking-users"></a>Unblocking users
 
-系統管理員可以選擇根據其風險原則或調查來封鎖登入。 視登入或使用者風險而定，可能會發生封鎖。
+An administrator may choose to block a sign-in based on their risk policy or investigations. A block may occur based on either sign-in or user risk.
 
-### <a name="unblocking-based-on-user-risk"></a>根據使用者風險解除封鎖
+### <a name="unblocking-based-on-user-risk"></a>Unblocking based on user risk
 
-若要解除封鎖因使用者風險而遭到封鎖的帳戶，系統管理員可以使用下列選項：
+To unblock an account blocked due to user risk, administrators have the following options:
 
 1. **重設密碼** - 您可以重設使用者的密碼。
-1. **解除使用者風險**-如果已達到設定的封鎖存取使用者風險層級，使用者風險原則就會封鎖使用者。 您可以藉由關閉使用者風險或手動關閉回報的風險偵測，來降低使用者的風險層級。
-1. **從原則中排除使用者**-如果您認為登入原則的目前設定會造成特定使用者的問題，您可以將使用者排除在其中。 如需詳細資訊，請參閱[如何：設定及啟用風險原則](howto-identity-protection-configure-risk-policies.md#exclusions)一文中的排除範圍一節。
-1. **停用原則** - 如果您認為您的原則設定對所有使用者造成問題，您可以停用原則。 如需詳細資訊，請參閱[如何：設定及啟用風險原則](howto-identity-protection-configure-risk-policies.md)一文。
+1. **Dismiss user risk** - The user risk policy blocks a user if the configured user risk level for blocking access has been reached. You can reduce a user's risk level by dismissing user risk or manually closing reported risk detections.
+1. **Exclude the user from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. For more information, see the section Exclusions in the article [How To: Configure and enable risk policies](howto-identity-protection-configure-risk-policies.md#exclusions).
+1. **停用原則** - 如果您認為您的原則設定對所有使用者造成問題，您可以停用原則。 For more information, see the article [How To: Configure and enable risk policies](howto-identity-protection-configure-risk-policies.md).
 
-### <a name="unblocking-based-on-sign-in-risk"></a>根據登入風險解除封鎖
+### <a name="unblocking-based-on-sign-in-risk"></a>Unblocking based on sign-in risk
 
-若要根據登入風險來解除封鎖帳戶，系統管理員可以使用下列選項：
+To unblock an account based on sign-in risk, administrators have the following options:
 
-1. **從熟悉的位置或裝置登入** - 可疑的登入會遭封鎖通常是因為使用者嘗試從不熟悉的位置或裝置登入。 您的使用者可以嘗試從熟悉的位置或裝置登入，以快速判斷此原因是否為封鎖原因。
-1. **從原則中排除使用者**-如果您認為登入原則的目前設定會造成特定使用者的問題，您可以將使用者排除在其中。 如需詳細資訊，請參閱[如何：設定及啟用風險原則](howto-identity-protection-configure-risk-policies.md#exclusions)一文中的排除範圍一節。
-1. **停用原則** - 如果您認為您的原則設定對所有使用者造成問題，您可以停用原則。 如需詳細資訊，請參閱[如何：設定及啟用風險原則](howto-identity-protection-configure-risk-policies.md)一文。
+1. **從熟悉的位置或裝置登入** - 可疑的登入會遭封鎖通常是因為使用者嘗試從不熟悉的位置或裝置登入。 Your users can quickly determine whether this reason is the blocking reason by trying to sign-in from a familiar location or device.
+1. **Exclude the user from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. For more information, see the section Exclusions in the article [How To: Configure and enable risk policies](howto-identity-protection-configure-risk-policies.md#exclusions).
+1. **停用原則** - 如果您認為您的原則設定對所有使用者造成問題，您可以停用原則。 For more information, see the article [How To: Configure and enable risk policies](howto-identity-protection-configure-risk-policies.md).
 
 ## <a name="next-steps"></a>後續步驟
 

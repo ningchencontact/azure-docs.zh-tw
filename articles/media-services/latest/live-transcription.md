@@ -1,6 +1,6 @@
 ---
-title: Azure 媒體服務即時轉譯 |Microsoft Docs
-description: 本文說明 Azure 媒體服務即時轉譯的功能。
+title: Azure Media Services live transcription | Microsoft Docs
+description: This article explains what the Azure Media Services live transcription is.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,33 +11,33 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/27/2019
+ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 98084b9bb6f19d22c7995d3044bb32ceaa947dc5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a85f9f8b9d98f77cf673778f031d8f47f132fbe1
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040420"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327353"
 ---
-# <a name="live-transcription-preview"></a>即時轉譯（預覽）
+# <a name="live-transcription-preview"></a>Live transcription (preview)
 
-Azure 媒體服務會以不同的通訊協定提供影片、音訊和現在的文字。 當您使用 MPEG 或 HLS/CMAF 發佈您的即時串流，並搭配影片和音訊時，我們的服務會在 IMSC 1.1 相容的 TTML 中傳遞轉譯文字，並封裝到 MPEG-2 第30部分（ISO/IEC 14496-30）片段中。 如果透過 HLS/TS 使用傳遞，則會以區塊 VTT 的形式傳遞文字。 
+Azure Media Service delivers video, audio, and now text in different protocols. When you publish your live stream using MPEG-DASH or HLS/CMAF, then along with video and audio, our service will deliver the transcribed text in IMSC1.1 compatible TTML, packaged into MPEG-4 Part 30 (ISO/IEC 14496-30) fragments. If using delivery via HLS/TS, then text is delivered as chunked VTT. 
 
-本文說明如何在使用 Azure 媒體服務 v3 串流處理實況活動時，啟用即時轉譯。 在繼續之前，請確定您已熟悉媒體服務 v3 REST Api 的使用方式（如需詳細資訊，請參閱[本教學](stream-files-tutorial-with-rest.md)課程）。 您也應該熟悉[即時串流](live-streaming-overview.md)的概念。 建議[使用媒體服務](stream-live-tutorial-with-api.md)教學課程）來即時完成串流。 
+This article describes how to enable live transcription when streaming a Live Event with Azure Media Services v3. Before you proceed, make sure you are familiar with the use of Media Services v3 REST APIs (see [this tutorial](stream-files-tutorial-with-rest.md) for details). You should also be familiar with the [live streaming](live-streaming-overview.md) concept. It is recommended to complete the [Stream live with Media Services](stream-live-tutorial-with-api.md) tutorial. 
 
 > [!NOTE]
-> 目前，即時轉譯僅以美國西部2區域中的預覽功能形式提供。 它支援以英文轉譯成文字的語音文字。 這項功能的 API 參考已在本檔中，因為它目前為預覽狀態，所以我們的 REST 檔並不提供詳細資料。 
+> Currently, live transcription is only available as a preview feature in the West US 2 region. It supports transcription of spoken words in English to text. The API reference for this feature is in this document – since it is in preview, the details are not available with our REST documents. 
 
-## <a name="creating-the-live-event"></a>建立實況活動 
+## <a name="creating-the-live-event"></a>Creating the Live Event 
 
-若要建立實況活動，您可以將 PUT 作業傳送至2019-05-01 版，例如： 
+To create the Live Event, you would send the PUT operation to the 2019-05-01 version, such as: 
 
 ```
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
 ```
 
-作業具有下列主體（其中以 RTMP 做為內嵌通訊協定來建立傳遞即時事件）。 請注意，轉譯屬性的新增。 [Language] 唯一允許的值是 en-us。 
+The operation has the following body (where a pass-through Live Event is created with RTMP as the ingest protocol). Note the addition of a transcriptions property. The only allowed value for language is en-US. 
 
 ```
 { 
@@ -87,23 +87,23 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
 } 
 ```
 
-您應輪詢即時事件的狀態，直到進入「執行中」狀態為止，這表示您現在可以傳送投稿 RTMP 摘要。 您現在可以遵循本教學課程中的相同步驟，例如檢查預覽摘要和建立即時輸出。 
+You should poll the status of the Live Event until it goes into the “Running” state, which indicates that you can now send a contribution RTMP feed. You can now follow the same steps as in this tutorial, such as checking the preview feed, and creating Live Outputs. 
 
-## <a name="delivery-and-playback"></a>傳遞與播放 
+## <a name="delivery-and-playback"></a>Delivery and playback 
 
-請參閱[動態封裝總覽](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery)一文，瞭解我們的服務如何使用動態封裝，以不同的通訊協定傳遞影片、音訊和現在的文字。 當您使用 MPEG 或 HLS/CMAF 發佈您的即時串流，並搭配影片和音訊時，我們的服務會在 IMSC 1.1 相容的 TTML 中傳遞轉譯文字，並封裝到 MPEG-2 第30部分（ISO/IEC 14496-30）片段中。 如果透過 HLS/TS 使用傳遞，則會以區塊 VTT 的形式傳遞文字。 您可以使用 web 播放機（例如[Azure 媒體播放機](use-azure-media-player.md)）來播放串流。  
+Review the [Dynamic packaging overview](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery) article of how our service uses dynamic packaging to deliver video, audio, and now text in different protocols. When you publish your live stream using MPEG-DASH or HLS/CMAF, then along with video and audio, our service will deliver the transcribed text in IMSC1.1 compatible TTML, packaged into MPEG-4 Part 30 (ISO/IEC 14496-30) fragments. If using delivery via HLS/TS, then text is delivered as chunked VTT. You can use a web player such as the [Azure Media Player](use-azure-media-player.md) to play the stream.  
 
 > [!NOTE]
->  如果使用 Azure 媒體播放機，請使用2.3.3 或更新版本。
+>  If using Azure Media Player, use version 2.3.3 or later.
 
 ## <a name="known-issues"></a>已知問題 
 
-預覽時，以下是即時轉譯的已知問題 
+At preview, following are the known issues with Live Transcription 
 
-* 此功能僅適用于美國西部2。
-* 應用程式需要使用預覽 Api，如[媒體服務 V3 OpenAPI 規格](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json)規格中所述。
-* 唯一支援的語言是英文。
-* 關於內容保護，只支援 AES 信封加密。
+* The feature is available only in West US 2.
+* Applications need to use the preview APIs, described in the [Media Services v3 OpenAPI Specification](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json) specification.
+* The only supported language is English.
+* With respect to content protection, only AES envelope encryption is supported.
 
 ## <a name="next-steps"></a>後續步驟
 

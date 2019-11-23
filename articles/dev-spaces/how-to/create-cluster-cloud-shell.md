@@ -1,24 +1,24 @@
 ---
-title: 如何使用 Azure Cloud Shell 為 Azure Dev Spaces 建立啟用的 Kubernetes 叢集
+title: Create a Kubernetes cluster with Azure Dev Spaces enabled - Azure Cloud Shell
 services: azure-dev-spaces
 ms.date: 10/04/2018
 ms.topic: conceptual
 description: 了解如何在不安裝任何項目的情況下，直接從瀏覽器快速建立針對 Azure Dev Spaces 所啟用的 Kubernetes 叢集。
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s
-ms.openlocfilehash: dbdc9226e417b3142284386ae3586819cda802d9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: ac825caa7aacbc6ac21dd1f9fe7acbb9cf12e900
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280105"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325761"
 ---
-# <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>使用 Azure Cloud Shell 建立 Kubernetes 叢集
+# <a name="create-a-kubernetes-cluster-with-azure-dev-spaces-enabled-with-azure-cloud-shell"></a>Create a Kubernetes cluster with Azure Dev Spaces enabled with Azure Cloud Shell
 
-您可以使用[Azure Cloud Shell](/azure/cloud-shell)來建立 Azure Kubernetes Service 叢集，方法是使用此頁面中的 [**試用**] 按鈕。 如果您未登入，請遵循提示使用 Azure 帳戶來登入，然後在 Azure Cloud Shell 提示字元出現時，於其中輸入命令。
+You can use [Azure Cloud Shell](/azure/cloud-shell) to create an Azure Kubernetes Service cluster by using the **Try It** button from this page. 如果您未登入，請遵循提示使用 Azure 帳戶來登入，然後在 Azure Cloud Shell 提示字元出現時，於其中輸入命令。
 
 ## <a name="create-the-cluster"></a>建立叢集
 
-首先，在[支援 Azure Dev Spaces 的區域][supported-regions]中建立資源群組。
+First, create the resource group in a [region that supports Azure Dev Spaces][supported-regions].
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -37,7 +37,7 @@ az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --g
 如需完整教學課程的連結，請參閱 [Azure Dev Spaces](/azure/dev-spaces/)。
 
 > [!IMPORTANT]
-> 許多 Azure Dev Spaces 快速入門和教學課程都使用 Azure Dev Spaces CLI 來執行作業。 您無法在 Azure Cloud Shell 中安裝 Azure Dev Spaces CLI。
+> Many of the Azure Dev Spaces quickstarts and tutorials use the Azure Dev Spaces CLI to perform operations. 您無法在 Azure Cloud Shell 中安裝 Azure Dev Spaces CLI。
 
 
 [supported-regions]: ../about.md#supported-regions-and-configurations

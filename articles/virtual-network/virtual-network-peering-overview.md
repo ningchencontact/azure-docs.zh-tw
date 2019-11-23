@@ -10,102 +10,113 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/07/2019
+ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: 728d32ddb63658d24e932e8eeef4a3f50371ccc3
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 59854d7d46f533510bea97a6845554fc0ce83dbb
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72265058"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328363"
 ---
 # <a name="virtual-network-peering"></a>虛擬網路對等互連
 
-虛擬網路對等互連可讓您順暢地連接 Azure[虛擬網路](virtual-networks-overview.md)。 經過對等互連後，所有虛擬網路就可以作為一個整體來進行連線。 在對等互連之虛擬網路中的虛擬機器之間的流量，會透過 Microsoft 骨幹基礎結構路由傳送，其原理就像在相同虛擬網路中的虛擬機器之間，流量只會透過「私人」IP 位址來路由傳送。 Azure 支援：
-* VNet 對等互連 - 連接相同 Azure 區域內的 VNet
-* 全球 VNet 對等互連 - 連接各 Azure 區域內的 VNet
+Virtual network peering enables you to seamlessly connect networks in [Azure Virtual Network](virtual-networks-overview.md). The virtual networks appear as one for connectivity purposes. The traffic between virtual machines uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through Microsoft's *private* network only.
+
+Azure supports the following types of peering:
+
+* Virtual network peering: Connect virtual networks within the same Azure region.
+* Global virtual network peering: Connecting virtual networks across Azure regions.
 
 使用虛擬網路對等互連 (不論是本機還是全球) 的優點包括︰
 
-* 對等互連虛擬網路之間的網路流量為私用。 虛擬網路之間的流量會保留在 Microsoft 骨幹網路上。 虛擬網路之間的通訊不需要公用網際網路、閘道或加密。
 * 不同虛擬網路的資源之間具有低延遲、高頻寬連線。
-* 一旦虛擬網路對等互連，某個虛擬網路中的資源與不同虛擬網路中資源通訊的能力。
-* 跨 Azure 訂用帳戶、部署模型和跨 Azure 區域傳輸資料的能力。
-* 能夠將透過 Azure Resource Manager 所建立的虛擬網路對等互連，或將透過 Resource Manager 所建立的虛擬網路與透過傳統部署模型所建立的虛擬網路對等互連。 若要深入了解 Azure 部署模型，請參閱[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+* The ability for resources in one virtual network to communicate with resources in a different virtual network.
+* The ability to transfer data between virtual networks across Azure subscriptions, Azure Active Directory tenants, deployment models, and Azure regions.
+* The ability to peer virtual networks created through the Azure Resource Manager.
+* The ability to peer a virtual network created through Resource Manager to one created through the classic deployment model. 若要深入了解 Azure 部署模型，請參閱[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 * 建立對等互連時或建立對等互連之後，虛擬網路中的資源沒有停機時間。
+
+對等互連虛擬網路之間的網路流量為私用。 虛擬網路之間的流量會保留在 Microsoft 骨幹網路上。 虛擬網路之間的通訊不需要公用網際網路、閘道或加密。
 
 ## <a name="connectivity"></a>連線能力
 
-虛擬網路對等互連後，任一虛擬網路中的資源可以直接與對等互連虛擬網路中的資源連線。
+For peered virtual networks, resources in either virtual network can directly connect with resources in the peered virtual network.
 
 在相同區域的對等互連虛擬網路中，虛擬機器之間的網路延遲與單一虛擬網路中的網路延遲相同。 網路輸送量為依照虛擬機器大小，按比例允許的頻寬。 對等互連內的頻寬沒有其他額外限制。
 
 對等互連之虛擬網路中的虛擬機器之間的流量，會透過 Microsoft 骨幹基礎結構直接路由傳送，而不會透過閘道或透過公用網際網路來傳送。
 
-如有需要，可以將網路安全性群組套用在任一個虛擬網路，以封鎖其他虛擬網路或子網路的存取權限。
-設定虛擬網路對等互連時，您可以開啟或關閉虛擬網路之間的網路安全性群組規則。 如果您開啟對等互連的虛擬網路 (預設選項) 之間的完整連線，您可以將網路安全性群組套用至特定子網路或虛擬機器，以封鎖或拒絕特定的存取。 若要深入了解網路安全性群組，請參閱[網路安全性群組概觀](security-overview.md)。
+You can apply network security groups in either virtual network to block access to other virtual networks or subnets.
+When configuring virtual network peering, either open or close the network security group rules between the virtual networks. If you open full connectivity between peered virtual networks, you can apply network security groups to block or deny specific access. Full connectivity is the default option. To learn more about network security groups, see [Security groups](security-overview.md).
 
 ## <a name="service-chaining"></a>服務鏈結
 
-您可以設定使用者定義的路由，指向對等互連虛擬網路中當作「下一個躍點」IP 位址的虛擬機器，或指向虛擬網路閘道，以啟用服務鏈結。 服務鏈結可讓您透過使用者定義的路由，將流量從一個虛擬網路導向對等互連虛擬網路中的虛擬設備或虛擬網路閘道。
+Service chaining enables you to direct traffic from one virtual network to a virtual appliance or gateway in a peered network through user-defined routes.
 
-您可以部署中樞和輪輻網路，其中的中樞虛擬網路可以裝載基礎結構元件，例如網路虛擬設備或 VPN 閘道。 所有輪輻虛擬網路可以接著與中樞虛擬網路對等互連。 流量可以通過在中樞虛擬網路中的網路虛擬設備或 VPN 閘道。 
+To enable service chaining, configure user-defined routes that point to virtual machines in peered virtual networks as the *next hop* IP address. User-defined routes could also point to virtual network gateways to enable service chaining.
 
-虛擬網路對等互連可讓使用者定義路由中的下一個躍點成為對等互連虛擬網路中虛擬機器的 IP 位址或 VPN 閘道。 不過，您不能使用指定 ExpressRoute 閘道作為下一個躍點類型的使用者定義路由，在虛擬網路之間路由傳送。 若要深入了解使用者定義的路由，請參閱[使用者定義的路由概觀](virtual-networks-udr-overview.md#user-defined)。 若要了解如何建立中樞和輪輻網路拓撲，請參閱[中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+You can deploy hub-and-spoke networks, where the hub virtual network hosts infrastructure components such as a network virtual appliance or VPN gateway. 所有輪輻虛擬網路可以接著與中樞虛擬網路對等互連。 Traffic flows through network virtual appliances or VPN gateways in the hub virtual network.
+
+虛擬網路對等互連可讓使用者定義路由中的下一個躍點成為對等互連虛擬網路中虛擬機器的 IP 位址或 VPN 閘道。 You can't route between virtual networks with a user-defined route that specifies an Azure ExpressRoute gateway as the next hop type. 若要深入了解使用者定義的路由，請參閱[使用者定義的路由概觀](virtual-networks-udr-overview.md#user-defined)。 To learn how to create a hub and spoke network topology, see [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>閘道及內部部署連線能力
 
-不論每個虛擬網路是否與其他虛擬網路對等互連，它們仍可以擁有自己的閘道並使用它來連線至內部部署網路。 即使虛擬網路已對等互連，您也可以使用閘道來設定[虛擬網路對虛擬網路連線](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+Each virtual network, including a peered virtual network, can have its own gateway. A virtual network can use its gateway to connect to an on-premises network. You can also configure [virtual network-to-virtual network connections](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) by using gateways, even for peered virtual networks.
 
-當針對虛擬網路內部連線的兩個選項已設定時，虛擬網路之間的流量將會透過對等互連設定流動 (也就是透過 Azure 骨幹)。
+When you configure both options for virtual network interconnectivity, the traffic between the virtual networks flows through the peering configuration. The traffic uses the Azure backbone.
 
-當虛擬網路已對等互連時，您也可以將對等互連虛擬網路中的閘道設定為內部部署網路的傳輸點。 在此情況下，使用遠端閘道的虛擬網路不能擁有專屬閘道。 虛擬網路只能擁有一個閘道。 閘道可以是本機或遠端閘道 (在對等互連的虛擬網路中)，如下圖所示：
+You can also configure the gateway in the peered virtual network as a transit point to an on-premises network. In this case, the virtual network that is using a remote gateway can't have its own gateway. A virtual network has only one gateway. The gateway is either a local or remote gateway in the peered virtual network, as shown in the following diagram:
 
-![虛擬網路對等互連傳輸](./media/virtual-networks-peering-overview/figure04.png)
+![虛擬網路對等互連傳輸](./media/virtual-networks-peering-overview/local-or-remote-gateway-in-peered-virual-network.png)
 
-VNet 對等互連和全域 VNet 對等互連都支援閘道傳輸。 只有當閘道位於虛擬網路（Resource Manager）時，才支援透過不同部署模型（Resource Manager 和傳統）所建立之虛擬網路之間的閘道傳輸。 若要深入了解如何使用閘道來進行傳輸，請參閱[設定 VPN 閘道以在虛擬網路對等互連中進行傳輸](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+Both virtual network peering and global virtual network peering support gateway transit.
 
-當共用單一 Azure ExpressRoute 連線的虛擬網路已對等互連時，它們之間的流量會經過對等互連關聯性 (也就是透過 Azure 骨幹網路)。 您依然可以在每個虛擬網路中使用本機閘道來連線內部部署線路。 此外，您也可以使用共用閘道並設定內部部署連線的傳輸。
+Gateway transit between virtual networks created through different deployment models is supported. The gateway must be in the virtual network in the Resource Manager model. 若要深入了解如何使用閘道來進行傳輸，請參閱[設定 VPN 閘道以在虛擬網路對等互連中進行傳輸](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+
+When you peer virtual networks that share a single Azure ExpressRoute connection, the traffic between them goes through the peering relationship. That traffic uses the Azure backbone network. 您依然可以在每個虛擬網路中使用本機閘道來連線內部部署線路。 Otherwise, you can use a shared gateway and configure transit for on-premises connectivity.
 
 ## <a name="troubleshoot"></a>疑難排解
 
-若要確認虛擬網路對等互連，您可以針對虛擬網路的任何子網路中的網路介面[檢查有效的路由](diagnose-network-routing-problem.md)。 如果虛擬網路對等互連存在，則虛擬網路內的所有子網路都具有下一個躍點類型為「VNet 對等互連」的路由 (對每個對等互連的虛擬網路中的每個位址空間而言)。
+To confirm that virtual networks are peered, you can check effective routes. Check routes for a network interface in any subnet in a virtual network. 如果虛擬網路對等互連存在，則虛擬網路內的所有子網路都具有下一個躍點類型為「VNet 對等互連」的路由 (對每個對等互連的虛擬網路中的每個位址空間而言)。 For more information, see [Diagnose a virtual machine routing problem](diagnose-network-routing-problem.md).
 
-您也可以使用網路監看員的[連線能力檢查](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，針對對等互連虛擬網路中的虛擬機器連線能力進行疑難排解。 連線能力檢查可讓您查看流量是以何種方式從來源虛擬機器的網路介面傳送至目的地虛擬機器的網路介面。
+You can also troubleshoot connectivity to a virtual machine in a peered virtual network using Azure Network Watcher. A connectivity check lets you see how traffic is routed from a source virtual machine's network interface to a destination virtual machine's network interface. For more information, see [Troubleshoot connections with Azure Network Watcher using the Azure portal](../network-watcher/network-watcher-connectivity-portal.md#check-connectivity-to-a-virtual-machine).
 
-您也可以嘗試[虛擬網路對等互連問題的疑難排解員](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues)。
+You can also try the [Troubleshoot virtual network peering issues](virtual-network-troubleshoot-peering-issues.md).
 
-## <a name="requirements-and-constraints"></a>需求和限制
+## Constraints for peered virtual networks<a name="requirements-and-constraints"></a>
 
 只有在為虛擬網路建立全域的對等互連時，會受到下列限制：
-- 一個虛擬網路中的資源無法與全域對等互連虛擬網路中基本內部負載平衡器的前端 IP 位址通訊。 基本 Load Balancer 的支援僅存在於相同的區域內。 VNet 對等互連和全域 VNet 對等互連的 Standard Load Balancer 都有支援。 使用基本負載平衡器的服務將無法透過全域 VNet 對等互連來處理，如這裡所述[。](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 
-若要深入了解需求和限制，請參閱[虛擬網路對等互連需求和限制](virtual-network-manage-peering.md#requirements-and-constraints)。 若要了解您可為虛擬網路建立之對等互連數目的限制，請參閱 [Azure 網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 
+* Resources in one virtual network can't communicate with the front-end IP address of a Basic Internal Load Balancer (ILB)  in a globally peered virtual network.
+* Some services that use a Basic load balancer don't work over global virtual network peering. For more information, see [What are the constraints related to Global VNet Peering and Load Balancers?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
-## <a name="permissions"></a>Permissions
+For more information, see [Requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). To learn more about the supported number of peerings, see [Networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-若要了解建立虛擬網路對等互連所需的權限，請閱讀[虛擬網路對等互連權限](virtual-network-manage-peering.md#permissions)。
+## <a name="permissions"></a>使用權限
 
-## <a name="pricing"></a>定價
+To learn about permissions required to create a virtual network peering, see [Permissions](virtual-network-manage-peering.md#permissions).
 
-我們會針對使用虛擬網路對等互連連線的輸入和輸出流量收取少許費用。 如需有關 VNet 對等互連和全域 VNet 對等互連定價的詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/virtual-network)。
+## <a name="pricing"></a>價格
 
-閘道傳輸是一種對等互連屬性，可讓虛擬網路利用對等互連虛擬網路中的 VPN/ExpressRoute 閘道，來進行跨單位或 VNet 對 VNet 連線。 對等互連 VNet 中閘道（輸入或輸出）的流量會產生 VNet 對等互連費用。 如需詳細資訊，請參閱[VPN 閘道費用](https://azure.microsoft.com/pricing/details/vpn-gateway/)或 ExpressRoute 閘道費用和[VNet 對等互連費用。](https://azure.microsoft.com/pricing/details/virtual-network)
+There's a nominal charge for ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
+
+Gateway Transit is a peering property that enables a virtual network to utilize a VPN/ExpressRoute gateway in a peered virtual network. Gateway transit works for both cross premises and network-to-network connectivity. Traffic to the gateway (ingress or egress) in the peered virtual network incurs virtual network peering charges. For more information, see [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) for VPN gateway charges and ExpressRoute Gateway pricing for ExpressRoute gateway charges.
 
 >[!NOTE]
-> 本檔的先前版本指出 VNet 對等互連費用不適用於閘道傳輸。 這已更新，以反映每個定價頁面的精確定價。
+> A previous version of this document stated that virtual network peering charges would not apply with Gateway Transit. It now reflects accurate pricing per the pricing page.
 
 ## <a name="next-steps"></a>後續步驟
 
-* 虛擬網路對等互連是建立於虛擬網路之間，而這兩個虛擬網路是透過存在於相同或不同訂用帳戶中的相同或不同部署模型所建立。 完成下列其中一個案例的教學課程：
+* You can create a peering between two virtual networks. The networks can belong to the same subscription, different deployment models in the same subscription, or different subscriptions. 完成下列其中一個案例的教學課程：
 
-    |Azure 部署模型             | 訂閱  |
+    |Azure 部署模型             | Subscription  |
     |---------                          |---------|
     |兩者皆使用 Resource Manager              |[相同](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[不同](create-peering-different-subscriptions.md)|
     |一個使用 Resource Manager、一個使用傳統部署模型  |[相同](create-peering-different-deployment-models.md)|
     |                                   |[不同](create-peering-different-deployment-models-subscriptions.md)|
 
-* 了解如何建立[中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)。
-* 了解所有[虛擬網路對等互連設定，以及如何變更它們](virtual-network-manage-peering.md)。
-* 透過我們的 [VNet 對等互連常見問題集](virtual-networks-faq.md#vnet-peering)，取得 VNet 對等互連和全域 VNet 對等互連常見問題的解答
+* To learn how to create a hub and spoke network topology, see [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* To learn about all virtual network peering settings, see [Create, change, or delete a virtual network peering](virtual-network-manage-peering.md).
+* For answers to common virtual network peering and global virtual network peering questions, see [VNet Peering](virtual-networks-faq.md#vnet-peering).
