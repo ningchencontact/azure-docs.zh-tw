@@ -29,9 +29,9 @@ ms.locfileid: "71709529"
 > [!NOTE]
 > 本教學課程說明建立在 Azure AD 使用者布建服務之上的連接器。 如需有關此服務的用途和運作方式，以及常見問題的重要詳細資料，請參閱[使用 Azure Active Directory 自動化 SaaS 應用程式的使用者](../manage-apps/user-provisioning.md)布建和解除布建。
 >
-> 此連接器目前為預覽版。 如需預覽中 Azure 功能的一般使用規定，請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
+> 此連接器目前為預覽狀態。 如需預覽中 Azure 功能的一般使用規定，請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程假設您已經具有下列必要條件：
 
@@ -55,7 +55,7 @@ Azure AD 使用稱為「*指派*」的概念，來判斷哪些使用者會收到
 
 將 Elium 設定為使用 Azure AD 自動布建使用者之前，您必須在 Elium 上啟用「跨網域身分識別管理」（SCIM）布建的「系統」。 請遵循下列步驟：
 
-1. 登入 Elium 並移至**我的設定檔** > **設定**。
+1. 登入 Elium，並移至 **我的設定檔** > **設定**。
 
     ![Elium 中的 [設定] 功能表項目](media/Elium-provisioning-tutorial/setting.png)
 
@@ -112,7 +112,7 @@ Azure AD 使用稱為「*指派*」的概念，來判斷哪些使用者會收到
 
     ![布建模式的自動設定](common/provisioning-automatic.png)
 
-1. 在 [**管理員認證**] 區段的 [**租使用者 URL** ] 欄位中，輸入 **\<tenantURL @ no__t-3/scim/v2** 。 （**租使用者 url>** 是先前從 Elium 管理主控台中抓取的值）。也請在 [**秘密權杖**] 欄位中輸入 Elium**秘密 token**值。 最後，選取 [**測試連接**] 以確認 Azure AD 可以連接到 Elium。 如果連線失敗，請確定您的 Elium 帳戶具有系統管理員許可權，然後再試一次。
+1. 在 [**管理員認證**] 區段中，于 [**租使用者 URL** ] 欄位中輸入 **\<租使用者 url>\>/scim/v2** 。 （**租使用者 url>** 是先前從 Elium 管理主控台中抓取的值）。也請在 [**秘密權杖**] 欄位中輸入 Elium**秘密 token**值。 最後，選取 [**測試連接**] 以確認 Azure AD 可以連接到 Elium。 如果連線失敗，請確定您的 Elium 帳戶具有系統管理員許可權，然後再試一次。
 
     ![管理員認證中的租使用者 URL 和秘密權杖欄位](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -120,7 +120,7 @@ Azure AD 使用稱為「*指派*」的概念，來判斷哪些使用者會收到
 
     ![通知電子郵件](common/provisioning-notification-email.png)
 
-1. 按一下 [儲存]。
+1. 按一下 [檔案]。
 
 1. **在 [對應**] 區段中，選取 [**同步處理 Azure Active Directory 使用者至 Elium**]。
 

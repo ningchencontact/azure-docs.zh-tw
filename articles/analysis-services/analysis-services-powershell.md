@@ -22,7 +22,7 @@ ms.locfileid: "73572698"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="permissions"></a>使用權限
+## <a name="permissions"></a>權限
 
 大部分的 PowerShell 工作需要您在您管理的 Analysis Services 伺服器上具備系統管理員權限。 排定的 PowerShell 工作都是自動的作業。 執行排程器的帳戶和服務主體必須具有 Analysis Services 伺服器上的管理員權限。 
 
@@ -44,7 +44,7 @@ SqlServer 模組提供特定工作的資料庫管理 Cmdlet，以及接受「表
 
 ### <a name="supported-cmdlets"></a>支援的 Cmdlet
 
-|Cmdlet|說明|
+|Cmdlet|描述|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|將成員新增到資料庫角色。| 
 |[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|備份 Analysis Services 資料庫。|  

@@ -49,7 +49,7 @@ TDSP 是一種敏捷式反復資料科學方法，可有效率地提供預測性
 > [!NOTE] 
 > 本文使用 Azure DevOps 和 DSVM 來設定 TDSP 小組環境，因為這是在 Microsoft 執行 TDSP 的方式。 如果您的小組使用其他程式碼裝載或開發平臺，小組負責人工作會相同，但完成這些工作的方式可能會不同。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程假設您的[群組管理員](group-manager-tasks.md)已設定下列資源和許可權：
 
@@ -59,7 +59,7 @@ TDSP 是一種敏捷式反復資料科學方法，可有效率地提供預測性
 
 若要能夠複製存放庫，並在本機電腦或 DSVM 上修改其內容，或設定 Azure 檔案儲存體並將其掛接至您的 DSVM，您需要下列各項：
 
-- Azure 訂用帳戶。
+- Azure 訂閱。
 - 已在您的電腦上安裝 Git。 如果您使用 DSVM，則會預先安裝 Git。 否則，請參閱[平台和工具附錄](platforms-and-tools.md#appendix)。
 - 如果您想要使用 DSVM，則會在 Azure 中建立並設定 Windows 或 Linux DSVM。 如需詳細資訊和指示，請參閱[資料科學虛擬機器檔](/azure/machine-learning/data-science-virtual-machine/)。
 - 針對安裝在您電腦上的 Windows DSVM， [Git 認證管理員（GCM）](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) 。 在*README.md*檔案中，向下卷到 [**下載並安裝**] 區段，然後選取**最新的安裝程式**。 從安裝程式頁面下載 *.exe*安裝程式，並加以執行。 
@@ -77,7 +77,7 @@ TDSP 是一種敏捷式反復資料科學方法，可有效率地提供預測性
 - 不具有多個資料科學小組的小型資料科學群組。 
 - 具有多個資料科學小組的較大型資料科學群組，但想要使用群組層級短期衝刺計畫，將小組間共同作業優化。 
 
-如果小組選擇在單一群組專案下擁有其小組專屬的存放庫，小組負責人應該建立具有類似 *\<TeamName > 範本*和 *\<TeamName > 公用程式*名稱的存放庫。 例如：*TeamATemplate*和*TeamAUtilities*。 
+如果小組選擇將其小組專屬的存放庫放在單一群組專案下，小組負責人應該建立具有如 *\<TeamName > 範本*和 *\<TeamName > 公用程式*等名稱的存放庫。 例如： *TeamATemplate*和*TeamAUtilities*。 
 
 在任何情況下，小組負責人都必須讓其小組成員知道要設定和複製的範本和公用程式存放庫。 專案負責人應遵循[資料科學小組的專案負責人](project-lead-tasks.md)工作來建立專案存放庫，無論是在個別專案或單一專案下。 
 
@@ -85,7 +85,7 @@ TDSP 是一種敏捷式反復資料科學方法，可有效率地提供預測性
 
 若要為您的小組建立個別的專案：
 
-1. 在您的網頁瀏覽器中，移至您群組的 Azure DevOps 組織首頁，網址為*HTTPs：\/ / \<伺服器\<名稱 >/組織名稱 >* ，然後選取 [**新增專案**]。 
+1. 在您的網頁瀏覽器中，移至您群組的 Azure DevOps 組織首頁，網址為*HTTPs：\//\<伺服器名稱 >/\<組織名稱 >* ，然後選取 **新增專案**。 
    
    ![選取 [新增專案]](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
@@ -95,7 +95,7 @@ TDSP 是一種敏捷式反復資料科學方法，可有效率地提供預測性
    
    ![建立專案](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
-[Team 專案**摘要**] 頁面隨即開啟，其中頁面 URL 為*HTTPs：\/ / \<伺服器\<名稱 >/組織\<名稱 >/小組名稱 >* 。
+[Team 專案**摘要**] 頁面隨即開啟，其中頁面 URL 為*HTTPs：\//\<伺服器名稱 >/\<組織名稱 >/\<小組名稱 >* 。
 
 ### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>將 MyTeam 預設存放庫重新命名為 TeamUtilities
 
@@ -140,7 +140,7 @@ TDSP 是一種敏捷式反復資料科學方法，可有效率地提供預測性
    
    ![選取 [匯入]](./media/team-lead-tasks/import-repo.png)
    
-1. 在 [匯**入 git 存放庫**] 對話方塊中，選取 [ **Git** ] 作為 [**來源類型**]，然後在 [**複製 URL**] 底下輸入群組通用範本存放庫的 URL。 URL 為*HTTPs： \/ @ no__t-2 @ no__t-3server name >/\<organization name >/_git/\<repository name >* 。 例如： *HTTPs： \//dev/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*。 
+1. 在 [匯**入 git 存放庫**] 對話方塊中，選取 [ **Git** ] 作為 [**來源類型**]，然後在 [**複製 URL**] 底下輸入群組通用範本存放庫的 URL。 URL 為*HTTPs：\//\<伺服器名稱 >/\<組織名稱 >/_git/\<存放庫名稱 >* 。 例如： *HTTPs：\//dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*。 
    
 1. 選取 [匯入]。 群組範本存放庫的內容會匯入至您的小組範本存放庫。 
    
@@ -194,12 +194,12 @@ TDSP 是一種敏捷式反復資料科學方法，可有效率地提供預測性
    
 1. 在您的本機電腦上，建立下列目錄：
    
-   - 若為 Windows：**C：\GitRepos\MyTeam**
+   - 針對 Windows： **C:\GitRepos\MyTeam**
    - 針對 Linux， **$home/gitrepos/myteam** 
    
 1. 變更至您所建立的目錄。
    
-1. 在 Git Bash 中，執行命令`git clone <clone URL>`，其中\<複製 URL > 是您從 [複製] 對話方塊**複製的 url** 。
+1. 在 Git Bash 中執行命令 `git clone <clone URL>`，其中 \<複製 URL > 是您從 [複製] 對話方塊複製**的 url** 。
    
    例如，使用下列其中一個命令，將**TeamUtilities**存放庫複製到本機電腦上的*MyTeam*目錄。 
    
@@ -226,7 +226,7 @@ git push
 ```
 
 > [!NOTE]
-> 如果這是您第一次認可至 Git 存放庫，您可能需要在執行`git commit`命令之前，先設定全域參數*user.name*和*user. email* 。 執行下列兩個命令：
+> 如果這是您第一次認可至 Git 存放庫，您可能需要在執行 `git commit` 命令之前，先設定全域參數*user.name*和*使用者電子郵件*。 執行下列兩個命令：
 > 
 > `git config --global user.name <your name>`
 > 
@@ -250,7 +250,7 @@ git push
    
 1. 在 [**新增使用者和群組**] 對話方塊中，搜尋並選取要新增至群組的成員，然後選取 [**儲存變更**]。 
    
-   ![新增使用者與群組](./media/team-lead-tasks/add-users.png)
+   ![新增使用者和群組](./media/team-lead-tasks/add-users.png)
    
 
 若要設定小組成員的許可權：

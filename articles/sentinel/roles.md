@@ -30,15 +30,15 @@ Azure Sentinel 使用以 [角色為基礎的存取控制（RBAC）](../role-bas
 
 有三個特定的內建 Azure Sentinel 角色。  
 **所有 Azure Sentinel 內建角色都會授與讀取權限給您 Azure Sentinel 工作區中的資料。**
-- **Azure Sentinel 讀取器**：已指派此角色的使用者具有 Azure Sentinel 的 [觀看] 許可權。 使用者可以查看事件和資料，但無法進行變更。
-- **Azure Sentinel 回應**者：指派此角色的使用者可以讀取和執行事件的動作，例如指派和嚴重性變更。
-- **Azure Sentinel 參與者**：指派此角色的使用者可以讀取和執行事件的動作，以及建立和刪除分析規則。
+- **Azure Sentinel 讀者**：具有此角色的使用者具有 Azure Sentinel 的 [查看] 許可權。 使用者可以查看事件和資料，但無法進行變更。
+- **Azure Sentinel 回應**者：具有此角色的使用者可以讀取和執行事件的動作，例如指派和嚴重性變更。
+- **Azure Sentinel 參與者**：具有此角色的使用者可以讀取及執行事件的動作，以及建立和刪除分析規則。
 
 除了 Azure Sentinel 專用的 RBAC 角色之外，還有 Azure 和 Log Analytics RBAC 角色可授與更廣泛的許可權集，包括存取您的 Azure Sentinel 工作區和其他資源：
 
 - **Azure 角色：** [擁有](../role-based-access-control/built-in-roles.md#owner)者、[參與者](../role-based-access-control/built-in-roles.md#contributor)和[讀者](../role-based-access-control/built-in-roles.md#reader)。 Azure 角色會授與所有 Azure 資源（包括 Log Analytics 工作區和 Azure Sentinel 資源）的存取權。
 
--   **Log Analytics 角色：** [Log analytics 參與者](../role-based-access-control/built-in-roles.md#log-analytics-contributor)， [log analytics 讀取器](../role-based-access-control/built-in-roles.md#log-analytics-reader)。 Log Analytics 角色會在您所有的 Log Analytics 工作區中授與存取權。 
+-   **Log analytics 角色：** [log analytics 參與者](../role-based-access-control/built-in-roles.md#log-analytics-contributor)、 [log analytics 讀取器](../role-based-access-control/built-in-roles.md#log-analytics-reader)。 Log Analytics 角色會在您所有的 Log Analytics 工作區中授與存取權。 
 
 > [!NOTE]
 > Log Analytics 角色也會授與所有 Azure 資源的讀取權限，但只會指派 Log Analytics 資源的寫入權限。
@@ -56,7 +56,7 @@ Azure Sentinel 使用以 [角色為基礎的存取控制（RBAC）](../role-bas
 
 下表顯示 Azure Sentinel 中的角色和允許的動作。 X 表示該角色允許的動作。
 
-| Role | 建立及執行腳本| 建立和編輯儀表板、分析規則和其他 Azure Sentinel 資源 | 管理事件（關閉、指派等等） | 查看資料、事件、儀表板和其他 Azure Sentinel 資源 |
+| 角色 | 建立及執行腳本| 建立和編輯儀表板、分析規則和其他 Azure Sentinel 資源 | 管理事件（關閉、指派等等） | 查看資料、事件、儀表板和其他 Azure Sentinel 資源 |
 |--- |---|---|---|---|
 | Azure Sentinel 讀取器 | -- | -- | -- | X |
 | Azure Sentinel 回應程式|--|--| X | X |

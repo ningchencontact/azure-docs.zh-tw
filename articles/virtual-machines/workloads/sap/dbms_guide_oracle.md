@@ -318,14 +318,14 @@ Oracle 支援 Oracle 軟體在 Microsoft Azure 上執行。 如需 Windows Hyper
 
 以下是與 Azure 上的 SAP 有關的 SAP 附註。
 
-| 附註編號 | 標題 |
+| 附註編號 | Title |
 | --- | --- |
 | [1928533] |Azure 上的 SAP 應用程式：支援的產品和 Azure VM 類型 |
-| [2015553] |Microsoft Azure 上的 SAP：支援的必要條件 |
+| [2015553] |SAP on Microsoft Azure：支援必要條件 |
 | [1999351] |對適用於 SAP 的增強型 Azure 監視功能進行疑難排解 |
 | [2178632] |Microsoft Azure 上適用於 SAP 的主要監視度量 |
-| [2191498] |Linux 上搭配 Azure 的 SAP：增強型監視 |
-| [2039619] |Microsoft Azure 上使用 Oracle Database 的 SAP 應用程式︰支援的產品和版本 |
+| [2191498] |Linux 上使用 Azure 的 SAP：增強型監視 |
+| [2039619] |在 Microsoft Azure 上使用 Oracle database 的 SAP 應用程式：支援的產品和版本 |
 | [2243692] |Microsoft Azure (IaaS) VM 上的 Linux：SAP 授權問題 |
 | [2069760] |Oracle Linux 7.x SAP 安裝和升級 |
 | [1597355] |適用於 Linux 的交換空間建議 |
@@ -366,7 +366,7 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 
 如果您是使用以 Azure 分頁 Blob 儲存體或受控磁碟為基礎的磁碟，在[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中所述的內容同樣適用於搭配 Oracle Database 所做的部署。
 
-Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)。 確切的配額會根據您使用的 VM 類型而定。 如需 VM 類型及其配額的清單, 請參閱[Azure 中的 Windows 虛擬機器大小][virtual-machines-sizes-windows]。
+Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)。 確切的配額會根據您使用的 VM 類型而定。 如需 VM 類型及其配額的清單，請參閱[Azure 中的 Windows 虛擬機器大小][virtual-machines-sizes-windows]。
 
 若要識別支援的 Azure VM 類型，請參閱 SAP 附註 [1928533]。
 
@@ -374,11 +374,11 @@ Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於
 
 | 元件 | 磁碟 | 快取 | 儲存體集區 |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA & mirrlogB | 進階 | None | 不需要 |
-| \oracle\<SID>\origlogaB & mirrlogA | 進階 | None | 不需要 |
-| \oracle\<SID>\sapdata1...n | 進階 | 唯讀 | 可以使用 |
-| \oracle\<SID>\oraarch | 標準 | None | 不需要 |
-| Oracle Home、saptrace... | OS 磁碟 | | 不需要 |
+| \oracle\<SID>\origlogaA & mirrlogB | 高階 | 無 | 不需要 |
+| \oracle\<SID>\origlogaB & mirrlogA | 高階 | 無 | 不需要 |
+| \oracle\<SID>\sapdata1...n | 高階 | 唯讀 | 可以使用 |
+| \oracle\<SID>\oraarch | 標準 | 無 | 不需要 |
+| Oracle Home、saptrace... | 作業系統磁碟 | | 不需要 |
 
 
 裝載線上重做記錄之磁碟的選取，應由 IOPs 需求來決定。 可以將所有 sapdata1...n (資料表空間) 儲存在單一已掛接磁碟上，前提是其大小、IOPS 及輸送量必須能滿足需求。 
@@ -387,14 +387,14 @@ Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於
 
 | 元件 | 磁碟 | 快取 | 儲存體集區 |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA | 進階 | None | 可以使用  |
-| \oracle\<SID>\origlogaB | 進階 | None | 可以使用 |
-| \oracle\<SID>\mirrlogAB | 進階 | None | 可以使用 |
-| \oracle\<SID>\mirrlogBA | 進階 | None | 可以使用 |
-| \oracle\<SID>\sapdata1...n | 進階 | 唯讀 | 建議  |
-| \oracle\SID\sapdata(n+1)* | 進階 | None | 可以使用 |
-| \oracle\<SID>\oraarch* | 進階 | None | 不需要 |
-| Oracle Home、saptrace... | OS 磁碟 | 不需要 |
+| \oracle\<SID>\origlogaA | 高階 | 無 | 可以使用  |
+| \oracle\<SID>\origlogaB | 高階 | 無 | 可以使用 |
+| \oracle\<SID>\mirrlogAB | 高階 | 無 | 可以使用 |
+| \oracle\<SID>\mirrlogBA | 高階 | 無 | 可以使用 |
+| \oracle\<SID>\sapdata1...n | 高階 | 唯讀 | 建議  |
+| \oracle\SID\sapdata(n+1)* | 高階 | 無 | 可以使用 |
+| \oracle\<SID>\oraarch* | 高階 | 無 | 不需要 |
+| Oracle Home、saptrace... | 作業系統磁碟 | 不需要 |
 
 *(n+1)：裝載 SYSTEM、TEMP 及 UNDO 資料表空間。 System 和 Undo 資料表空間的 I/O 模式，與其他裝載應用程式資料的資料表空間不同。 對於 System 和 Undo 資料表空間的效能來說，無快取是最佳選項。
 
@@ -418,7 +418,7 @@ Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於
 
 如需 Azure 中適用於 Oracle Database 之災害復原的相關資訊，請參閱[Azure 環境中 Oracle Database 12c 資料庫的災害復原](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery)。
 
-### <a name="accelerated-networking"></a>加速的網路
+### <a name="accelerated-networking"></a>加速網路
 針對 Windows 上的 Oracle 部署，我們強烈建議使用 [Azure 加速網路](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) \(英文\) 中所述的加速網路功能。 另請考慮在[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中所提出的建議。 
 ### <a name="other"></a>其他
 [適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)也說明其他與搭配 Oracle Database 的 VM 部署相關的重要概念，包括 Azure 可用性設定組和 SAP 監視。
@@ -448,7 +448,7 @@ Oracle 支援 Oracle 軟體在以 Oracle Linux 為客體 OS 的 Microsoft Azure 
 
 我們非常建議使用 [Azure 受控磁碟](../../windows/managed-disks-overview.md)。 我們也非常建議針對 Oracle Database 部署使用 [Azure 進階 SSD](../../windows/disks-types.md)。
 
-Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔案服務)。 如需詳細資訊，請參閱下列內容： 
+Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔案服務)。 如需詳細資訊，請參閱下列主題： 
 
 - [Microsoft Azure 檔案服務簡介](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
@@ -456,7 +456,7 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 
 如果您是使用以 Azure 分頁 Blob 儲存體或受控磁碟為基礎的磁碟，在[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中所述的內容同樣適用於搭配 Oracle Database 所做的部署。
 
- Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)。確切的配額會根據使用的 VM 類型而定。 如需 VM 類型及其配額的清單, 請參閱[Azure 中 Linux 虛擬機器的大小][virtual-machines-sizes-linux]。
+ Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)。確切的配額會根據使用的 VM 類型而定。 如需 VM 類型及其配額的清單，請參閱[Azure 中 Linux 虛擬機器的大小][virtual-machines-sizes-linux]。
 
 若要識別支援的 Azure VM 類型，請參閱 SAP 附註 [1928533]。
 
@@ -464,11 +464,11 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 
 | 元件 | 磁碟 | 快取 | 移除* |
 | --- | ---| --- | --- |
-| /oracle/\<SID >/origlogaA & mirrlogB | 進階 | None | 不需要 |
-| /oracle/\<SID >/origlogaB & mirrlogA | 進階 | None | 不需要 |
-| /oracle/\<SID >/sapdata1...位 | 進階 | 唯讀 | 可以使用 |
-| /oracle/\<SID >/oraarch | 標準 | None | 不需要 |
-| Oracle Home、saptrace... | OS 磁碟 | | 不需要 |
+| /oracle/\<SID >/origlogaA & mirrlogB | 高階 | 無 | 不需要 |
+| /oracle/\<SID >/origlogaB & mirrlogA | 高階 | 無 | 不需要 |
+| /oracle/\<SID >/sapdata1...位 | 高階 | 唯讀 | 可以使用 |
+| /oracle/\<SID >/oraarch | 標準 | 無 | 不需要 |
+| Oracle Home、saptrace... | 作業系統磁碟 | | 不需要 |
 
 *移除：使用 RAID0 的 LVM stripe 或 MDADM
 
@@ -478,18 +478,18 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 
 | 元件 | 磁碟 | 快取 | 移除* |
 | --- | ---| --- | --- |
-| /oracle/\<SID >/origlogaA | 進階 | None | 可以使用  |
-| /oracle/\<SID >/origlogaB | 進階 | None | 可以使用 |
-| /oracle/\<SID >/mirrlogAB | 進階 | None | 可以使用 |
-| /oracle/\<SID>/mirrlogBA | 進階 | None | 可以使用 |
-| /oracle/\<SID >/sapdata1...位 | 進階 | 唯讀 | 建議  |
-| /oracle/\<SID >/sapdata (n + 1) * | 進階 | None | 可以使用 |
-| /oracle/\<SID >/oraarch * | 進階 | None | 不需要 |
-| Oracle Home、saptrace... | OS 磁碟 | 不需要 |
+| /oracle/\<SID >/origlogaA | 高階 | 無 | 可以使用  |
+| /oracle/\<SID >/origlogaB | 高階 | 無 | 可以使用 |
+| /oracle/\<SID >/mirrlogAB | 高階 | 無 | 可以使用 |
+| /oracle/\<SID >/mirrlogBA | 高階 | 無 | 可以使用 |
+| /oracle/\<SID >/sapdata1...位 | 高階 | 唯讀 | 建議  |
+| /oracle/\<SID >/sapdata （n + 1） * | 高階 | 無 | 可以使用 |
+| /oracle/\<SID >/oraarch * | 高階 | 無 | 不需要 |
+| Oracle Home、saptrace... | 作業系統磁碟 | 不需要 |
 
 *移除：使用 RAID0 的 LVM stripe 或 MDADM
 
-*(n+1)：裝載 SYSTEM、TEMP 及 UNDO 資料表空間：System 和 Undo 資料表空間的 I/O 模式，與其他裝載應用程式資料的資料表空間不同。 對於 System 和 Undo 資料表空間的效能來說，無快取是最佳選項。
+\* （n + 1）：裝載 SYSTEM、TEMP 和 UNDO 資料表空間：系統和復原資料表空間的 i/o 模式與裝載應用程式資料的其他資料表空間不同。 對於 System 和 Undo 資料表空間的效能來說，無快取是最佳選項。
 
 *oraarch：從效能的觀點來看，儲存體集區並非必要。
 
@@ -512,7 +512,7 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 
 Azure 中適用於 Oracle 資料庫的災害復原層面，已詳述於[Azure 環境中 Oracle Database 12c 資料庫的災害復原](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery)中。
 
-### <a name="accelerated-networking"></a>加速的網路
+### <a name="accelerated-networking"></a>加速網路
 Oracle Linux 中針對 Azure 加速網路的支援，已於 Oracle Linux 7 Update 5 (Oracle Linux 7.5) 中推出。 如果您無法升級至最新的 Oracle Linux 7.5 版，可能的因應措施為使用 RedHat Compatible Kernel (RHCK)，而非使用 Oracle UEK 核心。 
 
 根據 SAP 附註 [#1565179](https://launchpad.support.sap.com/#/notes/1565179) \(英文\)，支援在 Oracle Linux 內使用 RHEL 核心。 針對 Azure 加速網路，最小的 RHCKL 核心版本必須是 3.10.0-862.13.1.el7。 如果您是將 Oracle Linux 中的 UEK 核心搭配 [Azure 加速網路](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) \(英文\) 使用，您必須使用 Oracle UEK 核心第 5 版。

@@ -75,7 +75,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 以下是如何查詢存放區中的等候統計資料，以更多深入了解工作負載的一些範例：
 
-| **觀測** | **動作** |
+| **觀測** | **Action** |
 |---|---|
 |高鎖定等候數 | 查看受影響查詢的查詢文字，並找出目標實體。 查看查詢存放區，針對經常執行和/或持續時間很長的實體，尋找修改同一實體的其他查詢。 找出這些查詢之後，請考慮變更應用程式邏輯，改善並行存取，或使用限制較少的隔離等級。 |
 |高緩衝區 IO 等候數 | 在查詢存放區中尋找實體讀取次數高的查詢。 如果它們符合具有高 IO 等候的查詢，請考慮在基礎實體上引進索引，以執行搜尋而不是掃描。 這可將查詢的 IO 額外負荷降到最低。 請在入口網站檢查伺服器的**效能建議**，以查看是否有此伺服器的索引建議，可供將查詢最佳化。 |
@@ -87,7 +87,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 下列選項可用於設定查詢存放區參數。
 
-| **參數** | **說明** | **預設值** | **Range** |
+| **參數** | **描述** | **預設值** | **Range** |
 |---|---|---|---|
 | query_store_capture_mode | 根據值開啟/關閉查詢存放區功能。 注意：如果 performance_schema 已關閉，開啟 query_store_capture_mode 將會開啟 performance_schema 以及此功能所需的效能架構儀器子集。 | ALL | 無、全部 |
 | query_store_capture_interval | 查詢存放區捕獲間隔（以分鐘為單位）。 允許指定匯總查詢計量的間隔 | 15 | 5 - 60 |
@@ -96,7 +96,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 下列選項特別適用於等候統計資料。
 
-| **參數** | **說明** | **預設值** | **Range** |
+| **參數** | **描述** | **預設值** | **Range** |
 |---|---|---|---|
 | query_store_wait_sampling_capture_mode | 允許開啟/關閉等候統計資料。 | 無 | 無、全部 |
 | query_store_wait_sampling_frequency | 改變等候取樣的頻率（以秒為單位）。 5到300秒。 | 30 | 5-300 |
@@ -116,7 +116,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 此檢視會傳回查詢存放區中的所有資料。 不同的資料庫識別碼、使用者識別碼及查詢識別碼都會自成一資料列。
 
-| **名稱** | **資料類型** | **IS_NullABLE** | **說明** |
+| **名稱** | **資料類型** | **IS_NullABLE** | **描述** |
 |---|---|---|---|
 | `schema_name`| Varchar （64） | 否 | 架構的名稱 |
 | `query_id`| Bigint （20） | 否| 針對特定查詢產生的唯一識別碼，如果相同的查詢在不同的架構中執行，則會產生新的識別碼 |
@@ -149,7 +149,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 此檢視會傳回查詢存放區中的等候事件資料。 不同的資料庫識別碼、使用者識別碼、查詢識別碼及事件都會自成一資料列。
 
-| **名稱**| **資料類型** | **IS_NullABLE** | **說明** |
+| **名稱**| **資料類型** | **IS_NullABLE** | **描述** |
 |---|---|---|---|
 | `interval_start` | timestamp | 否| 間隔開始時間（15分鐘增量）|
 | `interval_end` | timestamp | 否| 間隔結束（15分鐘增量）|
@@ -161,9 +161,9 @@ SELECT * FROM mysql.query_store_wait_stats;
 | `count_star` | Bigint （20） | 否| 查詢間隔期間所取樣的等候事件數目 |
 | `sum_timer_wait_ms` | double | 否| 此查詢在間隔期間的總等候時間（以毫秒為單位） |
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>函式
 
-| **名稱**| **說明** |
+| **名稱**| **描述** |
 |---|---|
 | `mysql.az_purge_querystore_data(TIMESTAMP)` | 在指定的時間戳記之前清除所有查詢存放區資料 |
 | `mysql.az_procedure_purge_querystore_event(TIMESTAMP)` | 清除指定時間戳記之前的所有等候事件資料 |
@@ -171,10 +171,10 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 ## <a name="limitations-and-known-issues"></a>限制與已知問題
 
-- 如果 MySQL 伺服器上的參數 `default_transaction_read_only`，查詢存放區無法捕獲資料。
-- 如果遇到長 Unicode 查詢（\> = 6000 個位元組），查詢存放區功能可能會中斷。
+- 如果 MySQL 伺服器的參數 `default_transaction_read_only` 開啟，查詢存放區無法捕獲資料。
+- 如果遇到長 Unicode 查詢（\>= 6000 個位元組），查詢存放區的功能可能會中斷。
 - 等候統計資料的保留期限為24小時。
-- 等候統計資料會使用範例來捕獲部分事件。 您可以使用參數 `query_store_wait_sampling_frequency` 來修改頻率。
+- 等候統計資料會使用範例來捕獲部分事件。 您可以使用參數 `query_store_wait_sampling_frequency`來修改頻率。
 
 ## <a name="next-steps"></a>後續步驟
 

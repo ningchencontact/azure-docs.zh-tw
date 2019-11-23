@@ -23,7 +23,7 @@ ms.locfileid: "72299963"
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>開始使用 Azure 儲存體 (Azure WebJob 專案)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>Overview
 本文提供 C# 程式碼範例，示範如何搭配 Azure 資料表儲存體服務使用 Azure WebJobs SDK 1.x 版。 此程式碼範例會使用 [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 1.x 版。
 
 Azure 資料表儲存體服務可讓您儲存大量的結構化資料。 此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。 Azure 資料表很適合儲存結構化、非關聯式資料。  如需詳細資訊，請參閱 [以 .NET 開始使用 Azure 資料表儲存體](../cosmos-db/tutorial-develop-table-dotnet.md#create-a-table) 。
@@ -31,7 +31,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。 此服�
 有一些程式碼片段顯示用於以手動方式呼叫函式的 **Table** 屬性，亦即不是使用其中一個觸發程序屬性。
 
 ## <a name="how-to-add-entities-to-a-table"></a>如何將實體新增至資料表
-若要將實體加入至資料表，請使用**table**屬性搭配**ICollector @ no__t-2T >** 或**IAsyncCollector @ no__t-4T >** 參數，其中**t**會指定您想要新增之實體的架構。 屬性建構函式採用字串參數，來指定資料表的名稱。
+若要將實體加入至資料表，請使用**table**屬性搭配**ICollector\<t >** 或**IAsyncCollector\<t >** 參數，其中**t**會指定您想要加入之實體的架構。 屬性建構函式採用字串參數，來指定資料表的名稱。
 
 以下程式碼範例會將 **Person** 實體加入名為 *Ingress*的資料表。
 
@@ -80,7 +80,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。 此服�
 ![輸入函式已完成](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>如何讀取資料表中的多個實體
-若要讀取資料表，請使用**table**屬性搭配**IQueryable @ no__t-2T >** 參數，其中 Type **t**衍生自**TableEntity**或 implements **itableentity 而得**。
+若要讀取資料表，請使用**table**屬性搭配**IQueryable\<t >** 參數，其中 Type **t**衍生自**TableEntity**或 implements **itableentity 而得**。
 
 下列程式碼範例會讀取並記錄 **Ingress** 資料表中的所有資料列：
 

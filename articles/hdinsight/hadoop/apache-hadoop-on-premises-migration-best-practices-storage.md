@@ -17,7 +17,7 @@ ms.locfileid: "73494946"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>將內部部署 Apache Hadoop 叢集遷移至 Azure HDInsight
 
-本文提供 Azure HDInsight 系統中的資料儲存建議。 將內部部署 Apache Hadoop 系統移轉到 Azure HDInsight 有一系列的最佳做法，這是其中一部分。
+本文提供 Azure HDInsight 系統中的資料儲存建議。 將內部部署 Apache Hadoop 系統遷移到 Azure HDInsight 有一系列的最佳做法，這是其中一部分。
 
 ## <a name="choose-right-storage-system-for-hdinsight-clusters"></a>為 HDInsight 叢集選擇正確的儲存體系統
 
@@ -33,7 +33,7 @@ Azure 儲存體可進行異地複寫。 雖然異地複寫可提供地理位置�
 
 您可以使用下列其中一種格式來存取儲存在 Azure 儲存體中的資料：
 
-|資料存取格式 |說明 |
+|資料存取格式 |描述 |
 |---|---|
 |`wasb:///`|使用未加密通訊存取預設儲存體。|
 |`wasbs:///`|使用加密通訊存取預設儲存體。|
@@ -155,7 +155,7 @@ hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode
 
 1. 開啟 [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) 檔案並變更下列值：
 
-    |權杖屬性|說明|
+    |權杖屬性|描述|
     |---|---|
     |policy_name|要建立的預存原則所要使用的名稱。|
     |storage_account_name|儲存體帳戶的名稱。|

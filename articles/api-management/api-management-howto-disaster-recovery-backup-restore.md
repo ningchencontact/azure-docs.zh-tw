@@ -66,10 +66,10 @@ ms.locfileid: "71958538"
 
 4. 輸入應用程式的名稱。
 5. 針對應用程式類型，選取 [原生]。
-6. 輸入 [重新導向 URI] 的預留位置 URL，例如 `http://resources`，因為它是必要的欄位，但稍後不會使用這個值。 按一下核取方塊以儲存應用程式。
-7. 按一下 [建立]。
+6. 輸入 [重新導向 URI]`http://resources`**的預留位置 URL，例如**，因為它是必要的欄位，但稍後不會使用這個值。 按一下核取方塊以儲存應用程式。
+7. 按一下頁面底部的 [新增]。
 
-### <a name="add-an-application"></a>加入應用程式
+### <a name="add-an-application"></a>新增應用程式
 
 1. 在建立應用程式之後，按一下 [設定]。
 2. 按一下 [必要權限]。
@@ -78,7 +78,7 @@ ms.locfileid: "71958538"
 5. 選擇 [Windows Azure 服務管理 API]。
 6. 按 [選取]。
 
-    ![加入權限](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    ![新增權限](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
 7. 按一下剛新增之應用程式旁邊的 [委派的權限]，選取 [存取 Azure 服務管理 (預覽)] 方塊。
 8. 按 [選取]。
@@ -117,10 +117,10 @@ namespace GetTokenResourceManagerRequests
 
 1. 使用您所建立 Azure Active Directory 應用程式的租用戶識別碼來取代 `{tenant id}`。 您可以按一下 [應用程式註冊] -> [端點] 來存取識別碼。
 
-    ![端點][api-management-endpoint]
+    ![Endpoints][api-management-endpoint]
 
-2. 使用您瀏覽至 [設定] 頁面取得的值來取代 `{application id}`。
-3. 以來自您 Azure Active Directory 應用程式 [重新導向 URI] 索引標籤的值取代 `{redirect uri}`。
+2. 使用您瀏覽至 [設定]`{application id}`**頁面取得的值來取代**。
+3. 以來自您 Azure Active Directory 應用程式 [重新導向 URI]`{redirect uri}`**索引標籤的值取代**。
 
     指定值之後，程式碼範例應該會傳回類似以下範例的權杖：
 
@@ -167,7 +167,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 將 `Content-Type` 要求標頭的值設定為 `application/json`。
 
-備份作業的執行時間較長，因此可能需要數分鐘的時間才能完成。 如果要求成功並已開始備份程序，您就會收到含有 `Location` 標頭的 `202 Accepted` 回應狀態碼。 請向 `Location` 標頭中的 URL 發出 'GET' 要求，以查明作業的狀態。 在備份進行時，您會持續收到「202 已接受」狀態碼。 回應碼 `200 OK` 代表備份作業已成功完成。
+備份作業的執行時間較長，因此可能需要數分鐘的時間才能完成。 如果要求成功並已開始備份程序，您就會收到含有 `202 Accepted` 標頭的 `Location` 回應狀態碼。 請向 `Location` 標頭中的 URL 發出 'GET' 要求，以查明作業的狀態。 在備份進行時，您會持續收到「202 已接受」狀態碼。 回應碼 `200 OK` 代表備份作業已成功完成。
 
 進行備份要求時，請注意下列條件約束：
 
@@ -208,7 +208,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 將 `Content-Type` 要求標頭的值設定為 `application/json`。
 
-還原作業的執行時間較長，因此可能需要 30 分鐘以上的時間才能完成。 如果要求成功並已開始還原程序，您就會收到含有 `Location` 標頭的 `202 Accepted` 回應狀態碼。 請向 `Location` 標頭中的 URL 發出 'GET' 要求，以查明作業的狀態。 在還原進行時，您會持續收到「202 已接受」狀態碼。 回應碼 `200 OK` 代表還原作業已成功完成。
+還原作業的執行時間較長，因此可能需要 30 分鐘以上的時間才能完成。 如果要求成功並已開始還原程序，您就會收到含有 `202 Accepted` 標頭的 `Location` 回應狀態碼。 請向 `Location` 標頭中的 URL 發出 'GET' 要求，以查明作業的狀態。 在還原進行時，您會持續收到「202 已接受」狀態碼。 回應碼 `200 OK` 代表還原作業已成功完成。
 
 > [!IMPORTANT]
 > 作為還原目的地之服務的 **SKU** **必須符合**所要還原之已備份服務的 SKU。
@@ -226,7 +226,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 -   [複寫 Azure API 管理帳戶 (英文)](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [使用 Logic Apps 將 API 管理備份與還原自動化](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps) \(英文\)
--   [Azure APIM：備份與還原設定](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx) \(英文\)
+-   [Azure API 管理：備份與還原設定](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx) \(英文\)
     Stuart 詳細說明的方法與正式指南不同，但相當有意思。
 
 [backup an api management service]: #step1

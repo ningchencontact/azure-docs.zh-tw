@@ -52,7 +52,7 @@ ms.locfileid: "72173487"
 | VmMap |群組中所有 VM 的陣列。 |
 | VMMap 索引鍵 |每個 VM 的唯一索引鍵 (GUID)。 |
 | SubscriptionId |建立 VM 的 Azure 訂用帳戶識別碼。 |
-| ResourceGroupName | VM 所在的資源組名。
+| resourceGroupName | VM 所在的資源組名。
 | CloudServiceName |在其下建立 VM 的 Azure 雲端服務名稱。 |
 | RoleName |Azure VM 的名稱。 |
 | RecoveryPointId|VM 復原的時間戳記。 |
@@ -112,14 +112,14 @@ $vmMap = $RecoveryPlanContext.VmMap
 ## <a name="customize-the-recovery-plan"></a>自訂復原方案
 
 1. 在保存庫中，選取 [復原**方案（Site Recovery）** ]
-2. 若要建立復原方案，請按一下 [ **+ 復原方案**]。 [深入了解](site-recovery-create-recovery-plans.md)。 如果您已經有復原方案，請選取以將它開啟。
+2. 若要建立復原方案，請按一下 [ **+ 復原方案**]。 [詳細資訊](site-recovery-create-recovery-plans.md)。 如果您已經有復原方案，請選取以將它開啟。
 3. 在 [復原方案] 頁面中，按一下 [**自訂**]。
 
     ![按一下 [自訂] 按鈕](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. 按一下 [**Group 1] 旁的省略號（...）：啟動 @ no__t-0 @ no__t-1**新增 post 動作**。
+2. 按一下 **群組1：啟動** 旁的省略號（...）， > **新增 post 動作**。
 3. 在 [**插入動作**] 中，確認已選取 [**腳本**]，然後指定腳本的名稱（**Hello World**）。
-4. 指定自動化帳戶，然後選取 runbook。 若要儲存指令碼，請按一下 [確定]。 腳本會新增至 **Group 1：後續步驟 @ no__t-0。
+4. 指定自動化帳戶，然後選取 runbook。 若要儲存指令碼，請按一下 [確定]。 指令碼會新增至 [群組 1: 後續步驟]。
 
 
 ## <a name="reuse-a-runbook-script"></a>重複使用 runbook 腳本

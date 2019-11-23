@@ -45,4 +45,4 @@ ms.locfileid: "73826432"
 
 ## <a name="next-steps"></a>後續步驟
 
-請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)頁面。
+請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)網頁。

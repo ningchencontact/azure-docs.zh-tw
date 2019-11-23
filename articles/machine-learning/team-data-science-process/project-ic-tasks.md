@@ -32,7 +32,7 @@ ms.locfileid: "72244287"
 > [!NOTE] 
 > 本文使用 Azure Repos 和資料科學虛擬機器（DSVM）來設定 TDSP 環境，因為這是在 Microsoft 執行 TDSP 的方式。 如果您的小組使用其他程式碼裝載或開發平臺，則個別參與者工作會相同，但完成這些工作的方式可能會不同。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程假設您的[群組管理員](group-manager-tasks.md)、[小組負責人](team-lead-tasks.md)和[專案負責人](project-lead-tasks.md)已設定下列資源和許可權：
 
@@ -44,7 +44,7 @@ ms.locfileid: "72244287"
 
 若要複製存放庫及修改本機電腦或 DSVM 上的內容，或將 Azure 檔案儲存體掛接至您的 DSVM，您需要下列各項：
 
-- Azure 訂用帳戶。
+- Azure 訂閱。
 - 已在您的電腦上安裝 Git。 如果您使用 DSVM，則會預先安裝 Git。 否則，請參閱[平台和工具附錄](platforms-and-tools.md#appendix)。
 - 如果您想要使用 DSVM，則會在 Azure 中建立並設定 Windows 或 Linux DSVM。 如需詳細資訊和指示，請參閱[資料科學虛擬機器檔](/azure/machine-learning/data-science-virtual-machine/)。
 - 針對安裝在您電腦上的 Windows DSVM， [Git 認證管理員（GCM）](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) 。 在*README.md*檔案中，向下卷到 [**下載並安裝**] 區段，然後選取**最新的安裝程式**。 從安裝程式頁面下載 *.exe*安裝程式，並加以執行。 
@@ -55,7 +55,7 @@ ms.locfileid: "72244287"
 
 若要在本機使用存放庫，並將您的變更推送至共用的小組和專案存放庫，您必須先將存放庫*複製或複製*到本機電腦。 
 
-1. 在 Azure DevOps 中，移至您小組的 [專案摘要] 頁面，網址為 *： \/ @ no__t-2 @ no__t-3server name >/\<organization name >/\<team name >* ，例如**HTTPs： \//dev/DataScienceUnit/MyTeam**。
+1. 在 Azure DevOps 中，移至您小組的 [專案摘要] 頁面，網址為 *：\//\<伺服器名稱 >/\<組織名稱 >/\<小組名稱*>，例如**HTTPs：\//dev.azure.com/DataScienceUnit/MyTeam**。
    
 1. 在左側導覽中選取 [**存放庫**]，然後在頁面頂端選取您要複製的存放庫。
    
@@ -67,7 +67,7 @@ ms.locfileid: "72244287"
    
 1. 在您的本機電腦或 DSVM 上，建立下列目錄：
    
-   - 若為 Windows：**C:\GitRepos**
+   - 針對 Windows： **C:\GitRepos**
    - 針對 Linux： **$home/gitrepos**
    
 1. 變更至您所建立的目錄。

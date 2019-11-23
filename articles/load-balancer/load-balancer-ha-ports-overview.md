@@ -24,11 +24,11 @@ ms.locfileid: "74215066"
 
 Azure Standard Load Balancer 可協助您在使用內部負載平衡器時，同時對所有連接埠上的 TCP 和 UDP 流量進行負載平衡。 
 
-A high availability (HA) ports load-balancing rule is a variant of a load-balancing rule, configured on an internal Standard Load Balancer. 您可以透過提供單一規則來對抵達內部 Standard Load Balancer 所有連接埠的所有 TCP 和 UDP 流量進行負載平衡，以簡化對於負載平衡器的使用。 每次都會針對流量進行負載平衡決策。 此動作會以下列五個 Tuple 連線為基礎：來源 IP 位址、來源連接埠、目的地 IP 位址、目的地連接埠和通訊協定。
+高可用性（HA）埠負載平衡規則是負載平衡規則的變化，設定于內部 Standard Load Balancer 上。 您可以透過提供單一規則來對抵達內部 Standard Load Balancer 所有連接埠的所有 TCP 和 UDP 流量進行負載平衡，以簡化對於負載平衡器的使用。 每次都會針對流量進行負載平衡決策。 此動作會以下列五個 Tuple 連線為基礎：來源 IP 位址、來源連接埠、目的地 IP 位址、目的地連接埠和通訊協定。
 
-The HA ports load-balancing rules help you with critical scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. 此功能也可以在必須對大量連接埠進行負載平衡時提供協助。 
+HA 埠負載平衡規則可協助您進行重要案例，例如虛擬網路內網路虛擬裝置（Nva）的高可用性和規模調整。 此功能也可以在必須對大量連接埠進行負載平衡時提供協助。 
 
-The HA ports load-balancing rules is configured when you set the front-end and back-end ports to **0** and the protocol to **All**. 接著，內部負載平衡器資源會對所有 TCP 和 UDP 流程進行平衡，而不論連接埠號碼為何。
+當您將前端和後端埠設為**0** ，並將通訊協定設定為 [**全部**] 時，會設定 HA 埠負載平衡規則。 接著，內部負載平衡器資源會對所有 TCP 和 UDP 流程進行平衡，而不論連接埠號碼為何。
 
 ## <a name="why-use-ha-ports"></a>為何要使用 HA 連接埠？
 
@@ -44,7 +44,7 @@ The HA ports load-balancing rules is configured when you set the front-end and b
 - 提供 *n*-active 和主動-被動案例
 - 不需要使用複雜的解決方案 (例如，Apache ZooKeeper 節點) 來監視設備
 
-下圖顯示中樞和支點虛擬網路部署。 支點會強制將其通道導向中樞虛擬網路並且透過 NVA，然後再退出信任的空間。 在 HA 連接埠設定中，NVA 位於內部 Standard Load Balancer 後面。 所有流量皆可據以處理並轉送。 When configured as show in the following diagram, an HA Ports load-balancing rule additionally provides flow symmetry for ingress and egress traffic.
+下圖顯示中樞和支點虛擬網路部署。 支點會強制將其通道導向中樞虛擬網路並且透過 NVA，然後再退出信任的空間。 在 HA 連接埠設定中，NVA 位於內部 Standard Load Balancer 後面。 所有流量皆可據以處理並轉送。 如下列圖表所示進行設定時，HA 埠負載平衡規則會額外提供輸入和輸出流量的流程對稱。
 
 <a node="diagram"></a>
 ![中樞和支點虛擬網路 (具有以 HA 模式部署的 NVA)](./media/load-balancer-ha-ports-overview/nvaha.png)
@@ -56,7 +56,7 @@ The HA ports load-balancing rules is configured when you set the front-end and b
 
 您也可以對需要負載平衡大量連接埠的應用程式使用 HA 連接埠。 您可以藉由使用具有 HA 連接埠的內部 [Standard Load Balancer](load-balancer-standard-overview.md)，來簡化這些案例。 單一負載平衡規則會取代多個個別的負載平衡規則，每個連接埠一個規則。
 
-## <a name="region-availability"></a>區域供應狀況
+## <a name="region-availability"></a>區域可用性
 
 HA 連接埠功能適用於所有全域 Azure 區域。
 
@@ -94,11 +94,11 @@ HA 連接埠功能適用於所有全域 Azure 區域。
 
 ## <a name="limitations"></a>限制
 
-- HA ports load-balancing rules are available only for internal Standard Load Balancer.
+- HA 埠負載平衡規則僅適用于內部 Standard Load Balancer。
 - 不支援 HA 連接埠負載平衡規則與非 HA 連接埠負載平衡規則的組合。
-- Existing IP fragments will be forwarded by HA Ports load-balancing rules to same destination as first packet.  IP fragmenting a UDP or TCP packet is not supported.
-- The HA ports load-balancing rules are not available for IPv6.
-- Flow symmetry (primarily for NVA scenarios) is supported with backend instance and a single NIC (and single IP configuration) only when used as shown in the diagram above and using HA Ports load-balancing rules. 任何其他案例中均不提供此支援。 這表示兩個或多個 Load Balancer 資源及其各自規則均會進行獨立決策，而且絕對不會進行協調。 請參閱[網路虛擬設備](#nva)的描述和圖表。 When you are using multiple NICs or sandwiching the NVA between a public and internal Load Balancer, flow symmetry is not available.  您可以藉由對輸入流程進行來源 NAT 為應用裝置 IP，以允許回覆到達相同 NVA，來解決這個問題。  不過，我們強烈建議使用單一 NIC 和使用上述圖表所示的參考架構。
+- 現有的 IP 片段會被 HA 埠負載平衡規則轉送到與第一個封包相同的目的地。  不支援 UDP 或 TCP 封包的 IP 將。
+- HA 埠負載平衡規則無法供 IPv6 使用。
+- 只有當後端實例和單一 NIC （以及單一 IP 設定）使用時，才支援流程對稱（主要用於 NVA 案例），以及使用 HA 埠負載平衡規則。 任何其他案例中均不提供此支援。 這表示兩個或多個 Load Balancer 資源及其各自規則均會進行獨立決策，而且絕對不會進行協調。 請參閱[網路虛擬設備](#nva)的描述和圖表。 當您使用多個 Nic，或將公用和內部 Load Balancer 之間的 NVA 時，無法使用流程對稱。  您可以藉由對輸入流程進行來源 NAT 為應用裝置 IP，以允許回覆到達相同 NVA，來解決這個問題。  不過，我們強烈建議使用單一 NIC 和使用上述圖表所示的參考架構。
 
 
 ## <a name="next-steps"></a>後續步驟

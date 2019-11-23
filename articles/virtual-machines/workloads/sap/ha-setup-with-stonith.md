@@ -24,7 +24,7 @@ ms.locfileid: "71212540"
 本文件提供使用 STONITH 裝置在 SUSE 作業系統上進行高可用性設定的詳細逐步指示。
 
 **免責聲明：** *本指南的衍生方式是在 Microsoft HANA 大型實例環境中測試安裝程式，這項功能成功運作。由於適用于 HANA 大型實例的 Microsoft 服務管理小組不支援作業系統，因此您可能需要聯繫 SUSE，以在作業系統層進行進一步的疑難排解或澄清。Microsoft 服務管理小組會設定 STONITH 裝置並完全支援，並可用於針對 STONITH 裝置問題進行疑難排解。*
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 若要使用 SUSE 叢集進行高可用性設定，必須符合下列先決條件。
 ### <a name="pre-requisites"></a>必要條件
 - 已佈建 HANA 大型執行個體
@@ -154,7 +154,7 @@ zypper in SAPHanaSR SAPHanaSR-doc
 
 ![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
-按一下 [檔案] &gt; [新增] &gt; [專案]
+按一下 [虛擬機器]
 
 驗證會使用 IP 位址和 Csync2 中的預先共用金鑰執行。 金鑰檔案是使用 csync2 -k /etc/csync2/key_hagroup 產生。 檔案 key_hagroup 應在建立之後手動複製到叢集的所有成員。 **務必將檔案從 node1 複製到 node2**。
 
@@ -371,7 +371,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>案例 2：yast2 未顯示圖形檢視
 此文件使用 yast2 圖形畫面來設定高可用性叢集。 如果 yast2 並未如圖所示以圖形視窗開啟，並擲回 Qt 錯誤，請依照下列步驟執行。 如果它以圖形視窗開啟，您可以略過步驟。
 
-**錯誤**
+**Error**
 
 ![yast2-qt-gui-error.png](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
 

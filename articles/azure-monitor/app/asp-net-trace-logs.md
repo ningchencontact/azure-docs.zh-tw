@@ -43,7 +43,7 @@ ms.locfileid: "72677637"
 或以滑鼠右鍵按一下您在方案總管中的專案，以**設定 Application Insights**。 選取 [**設定追蹤集合**] 選項。
 
 > [!NOTE]
-> 沒有 Application Insights 的功能表或記錄收集器選項嗎？ 請嘗試進行[疑難排解](#troubleshooting)。
+> 沒有 Application Insights 的功能表或記錄收集器選項嗎？ 請嘗試進行 [疑難排解](#troubleshooting)。
 
 ## <a name="manual-installation"></a>手動安裝
 如果 Application Insights 安裝程式不支援您的專案類型 (例如 Windows 傳統型專案)，請使用這個方法。
@@ -53,18 +53,18 @@ ms.locfileid: "72677637"
 3. 搜尋「Application Insights」。
 4. 選取下列其中一個套件：
 
-   - 針對 ILogger： [ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/) 
-[ ![NuGet](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
-   - 針對 NLog： [ApplicationInsights. NLogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/) 
-[ ![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
-   - 針對 Log4Net： [ApplicationInsights. Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/) 
-[ ![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
-   - 針對 [ApplicationInsights]： [TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/) 
-[ ![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
-   - [ApplicationInsights. DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/) 
-[ ![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
-   - [ApplicationInsights. microsoft.applicationinsights.etwcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/) 
-[ ![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+   - 針對 ILogger： [ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+   - 針對 NLog： [ApplicationInsights NLogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+   - 針對 Log4Net： [ApplicationInsights Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+   - 針對[ApplicationInsights TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+   - [ApplicationInsights. DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+   - [ApplicationInsights. microsoft.applicationinsights.etwcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
    - [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 [![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 
@@ -84,7 +84,7 @@ NuGet 套件會安裝必要的元件，並修改 web.config 或 app.config （�
     logger.Warn("Slow response - database01");
 
 ## <a name="use-eventsource-events"></a>使用 EventSource 事件
-您可以將 [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 設定為要傳送至 Application Insights 作為追蹤的事件。 首先，安裝 `Microsoft.ApplicationInsights.EventSourceListener` NuGet 套件。 然後編輯 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 檔案的 `TelemetryModules` 區段。
+您可以將 [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 設定為要傳送至 Application Insights 作為追蹤的事件。 首先，安裝 `Microsoft.ApplicationInsights.EventSourceListener` NuGet 套件。 然後編輯 `TelemetryModules`ApplicationInsights.config[ 檔案的 ](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 區段。
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -135,14 +135,14 @@ NuGet 套件會安裝必要的元件，並修改 web.config 或 app.config （�
 ## <a name="use-the-trace-api-directly"></a>直接使用追蹤 API
 您可以直接呼叫 Application Insights 追蹤 API。 記錄配接器會使用此 API。
 
-例如：
+例如︰
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
 TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如，您可以在該處編碼 POST 資料。
 
-您也可以將嚴重性層級新增至您的訊息。 而和其他遙測一樣，您可以加入屬性值來協助篩選或搜尋不同的追蹤集。 例如：
+您也可以將嚴重性層級新增至您的訊息。 而和其他遙測一樣，您可以加入屬性值來協助篩選或搜尋不同的追蹤集。 例如︰
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -189,13 +189,13 @@ logger.warning('Hello, World!')
 使用 [Java 記錄配接器](../../azure-monitor/app/java-trace-logs.md)。
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>專案內容功能表上沒有 Application Insights 選項
-* 請確定已在開發電腦上安裝 Developer Analytics Tools。 在 Visual Studio**工具** >  個**擴充功能和更新**，尋找**Developer Analytics Tools**。 如果不在 [**已安裝**] 索引標籤上，請開啟 [**線上**] 索引標籤並安裝它。
+* 請確定已在開發電腦上安裝 Developer Analytics Tools。 在 Visual Studio**工具** > **延伸模組和更新** 中，尋找  **Developer Analytics Tools**。 如果不在 [**已安裝**] 索引標籤上，請開啟 [**線上**] 索引標籤並安裝它。
 * 這可能是 Devloper 分析工具不支援的專案類型。 請使用 [手動安裝](#manual-installation)。
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>設定工具中沒有任何記錄檔介面卡選項
 * 請先安裝記錄架構。
 * 如果您使用的是 System.webserver，請確定您已[在*web.config*中設定](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx)它。
-* 請確定您有最新版本的 Application Insights。 在 Visual Studio 中，移至 [**工具**]  >  [**擴充功能和更新**]，然後開啟 [**更新**] 索引標籤。如果**Developer Analytics Tools** ，請選取它來更新它。
+* 請確定您有最新版本的 Application Insights。 在 Visual Studio 中，移至 [**工具**] > [**擴充功能和更新**]，然後開啟 [**更新**] 索引標籤。如果**Developer Analytics Tools** ，請選取它來更新它。
 
 ### <a name="emptykey"></a>我收到「檢測金鑰不能是空的」錯誤訊息
 您可能已安裝記錄介面卡 Nuget 封裝，但未安裝 Application Insights。 在方案總管中，以滑鼠右鍵按一下  *ApplicationInsights*，然後選取 **更新 Application Insights**。 系統會提示您登入 Azure 並建立 Application Insights 資源，或重複使用現有資源。 這應該會修正問題。
@@ -209,7 +209,7 @@ logger.warning('Hello, World!')
 ### <a name="i-dont-see-some-log-entries-that-i-expected"></a>我看不到我預期的一些記錄檔專案
 如果您的應用程式傳送長篇大論的資料量，而且您使用適用于 ASP.NET 版本2.0.0 的 Application Insights SDK-Beta3 或更新版本，則適應性取樣功能可能會運作，並只傳送部分遙測。 [深入了解取樣。](../../azure-monitor/app/sampling.md)
 
-## <a name="add"></a>後續步驟
+## <a name="add"></a>接續步驟
 
 * [診斷 ASP.NET 中的失敗和例外狀況][exceptions]
 * [深入瞭解搜尋][diagnostic]

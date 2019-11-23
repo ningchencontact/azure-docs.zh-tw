@@ -17,7 +17,7 @@ ms.locfileid: "73499258"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 架構最佳作法
 
-本文將提供有關 Azure HDInsight 系統架構的建議。 將內部部署 Apache Hadoop 系統移轉到 Azure HDInsight 有一系列的最佳做法，這是其中一部分。
+本文將提供有關 Azure HDInsight 系統架構的建議。 將內部部署 Apache Hadoop 系統遷移到 Azure HDInsight 有一系列的最佳做法，這是其中一部分。
 
 ## <a name="use-multiple-workload-optimized-clusters"></a>使用多個已最佳化工作負載的叢集
 
@@ -30,7 +30,7 @@ Azure HDInsight 叢集專為特定的計算使用類型而設計。 由於儲存
 |批次處理 (ETL / ELT)|Hadoop、Spark|
 |資料倉儲|Hadoop、Spark、互動式查詢|
 |IoT / 串流|Kafka、Storm、Spark|
-|NoSQL 交易處理|hbase|
+|NoSQL 交易處理|HBase|
 |使用記憶體內快取執行互動式及更快速的查詢|互動式查詢|
 |資料科學|ML 服務、Spark|
 

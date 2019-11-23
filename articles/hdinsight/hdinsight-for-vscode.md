@@ -20,7 +20,7 @@ ms.locfileid: "72311726"
 
 Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包括 Windows、Linux 和 macOS。 請注意，適用于不同平臺的下列必要條件。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 需要有下列項目才能完成本文中的步驟：
 
@@ -50,20 +50,20 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 若要開啟工作資料夾，並在 Visual Studio Code 中建立檔案，請遵循下列步驟：
 
-1. 從功能表列，**流覽至** 檔案 檔案  >  **開啟資料夾**... > **C:\HD\HDexample**，然後選取 **選取資料夾** 按鈕。 資料夾會出現在左側的 [總管] 檢視中。
+1. 從功能表列，**流覽至** 檔案 > **開啟資料夾 ...**  > **C:\HD\HDexample**，然後選取 **選取資料夾** 按鈕。 資料夾會出現在左側的 [總管] 檢視中。
 
 2. 在 [ **Explorer** ] 視圖中，選取 [ **hdexample 已**] 資料夾，然後選取工作資料夾旁邊的 [**新增**檔案] 圖示：
 
    ![visual studio code 新增檔案圖示](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
-3. 使用 [`.hql` （Hive 查詢）] 或 [`.py` （Spark 腳本）] 副檔名，將新檔案命名為。 這個範例使用 **HelloWorld.hql**。
+3. 使用 `.hql` （Hive 查詢）或 `.py` （Spark 腳本）副檔名，將新檔案命名為。 這個範例使用 **HelloWorld.hql**。
 
 ## <a name="set-the-azure-environment"></a>設定 Azure 環境
 
-若是國家雲端使用者，請遵循下列步驟來先設定 Azure 環境，然後使用 @no__t 0Azure：登入 @ no__t-0 命令以登入 Azure：
+若是國家雲端使用者，請遵循下列步驟來先設定 Azure 環境，然後使用**azure： Sign in**命令登入 azure：
 
-1. 流覽至 [**檔**]  >  [**喜好**設定]  > **設定**。
-2. 搜尋下列字串：**Azure：Cloud @ no__t-0。
+1. 流覽至檔案 > **喜好** **設定 > 設定**。
+2. 搜尋下列字串： **Azure： Cloud**。
 3. 從清單中選取國家/地區雲端：
 
    ![設定預設的登入項目組態](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
@@ -72,7 +72,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 您必須先連線到您的 Azure 帳戶或連結叢集（使用 Apache Ambari 使用者名稱和密碼認證或已加入網域的帳戶），才能將腳本提交至您 Visual Studio Code 的叢集。 請遵循下列步驟來連接到 Azure：
 
-1. 從功能表列中，**流覽至 [**  > ] [命令選擇區 **...** ]，然後輸入 **Azure：登入 @ no__t-0：
+1. 從功能表列中，**流覽至 [**  > ] [命令選擇區 **...** ]，然後輸入**Azure： Sign In**：
 
     ![適用于 Visual Studio Code 登入的 Spark & Hive 工具](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
@@ -80,11 +80,11 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 ## <a name="link-a-cluster"></a>連結叢集
 
-### <a name="link-azure-hdinsight"></a>LinkAzure HDInsight
+### <a name="link-azure-hdinsight"></a>連結： Azure HDInsight
 
 您可以使用[Apache Ambari](https://ambari.apache.org/)管理的使用者名稱來連結一般叢集，也可以使用網域使用者名稱（例如： `user1@contoso.com`）連結企業安全性套件保護 Hadoop 叢集。
 
-1. 從功能表列中，**流覽至**  >  命令選擇區 **...** ，然後輸入 **Spark/Hive：** 連結叢集。
+1. 從功能表列中，**流覽至 [**  > ] [命令選擇區 **...** ]，然後輸入**Spark/Hive： Link a Cluster**。
 
    ![命令選擇區連結叢集命令](./media/hdinsight-for-vscode/link-cluster-command.png)
 
@@ -105,13 +105,13 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
    > [!NOTE]  
    > 如果叢集已登入 Azure 訂用帳戶並連結叢集，則會使用連結的使用者名稱和密碼。  
 
-### <a name="link-generic-livy-endpoint"></a>Link一般 Livy 端點
+### <a name="link-generic-livy-endpoint"></a>連結：一般 Livy 端點
 
-1. 從功能表列中，**流覽至**  >  命令選擇區 **...** ，然後輸入 **Spark/Hive：** 連結叢集。
+1. 從功能表列中，**流覽至 [**  > ] [命令選擇區 **...** ]，然後輸入**Spark/Hive： Link a Cluster**。
 
 2. 選取連結的叢集類型 [泛型 Livy 端點]。
 
-3. 輸入泛型 Livy 端點。 例如： HTTP @ no__t-0//10.172.41.42：18080。
+3. 輸入泛型 Livy 端點。 例如： HTTP\://10.172.41.42：18080。
 
 4. 選取授權類型 [基本] 或 [無]。  如果您選取 [**基本**]：  
     &emsp;a. 輸入您的 Ambari 使用者名稱;預設值為**admin**。  
@@ -121,7 +121,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 ## <a name="list-clusters"></a>列出叢集
 
-1. 從功能表列中，**流覽至 [**  > ] [命令選擇區 **...** ]，然後輸入 **Spark/Hive：列出叢集**。
+1. 從功能表列中，**流覽至 [**  > ] [命令選擇區 **...** ]，然後輸入**Spark/Hive： List Cluster**。
 
 2. 選取您想要的訂用帳戶。
 
@@ -135,7 +135,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 2. 選取稍[早](#open-a-work-folder)建立的**HelloWorld**檔案。 它會在腳本編輯器中開啟。
 
-3. 以滑鼠右鍵按一下腳本編輯器，然後選取 **Spark/Hive：** 設定預設叢集。  
+3. 以滑鼠右鍵按一下腳本編輯器，然後選取 [ **Spark/Hive：設定預設**叢集]。  
 
 4. [連接](#connect-to-an-azure-account)到您的 Azure 帳戶，或連結叢集（如果您尚未這麼做）。
 
@@ -159,15 +159,15 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 4. [連接](#connect-to-an-azure-account)到您的 Azure 帳戶，或連結叢集（如果您尚未這麼做）。
 
-5. 以滑鼠右鍵按一下腳本編輯器，然後選取 [**Hive]：Interactive @ no__t-0 以提交查詢，或使用 Ctrl + Alt + I 鍵盤快速鍵。  選取 @no__t 0Hive：Batch @ no__t-0 以提交腳本，或使用 Ctrl + Alt + H 鍵盤快速鍵。  
+5. 以滑鼠右鍵按一下腳本編輯器，然後選取 [ **Hive： Interactive** ] 以提交查詢，或使用 Ctrl + Alt + I 鍵盤快速鍵。  選取 [ **Hive：批次**] 以提交腳本，或使用 Ctrl + Alt + H 鍵盤快速鍵。  
 
 6. 如果您尚未指定預設叢集，請選取叢集。 這些工具也可讓您使用內容功能表來提交程式碼區塊，而不是整個腳本檔案。 幾分鐘之後，查詢結果就會出現在新的索引標籤中：
 
    ![互動式 Apache Hive 查詢結果](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
-    - [結果] 面板：您可以將整個結果以 CSV、JSON 或 Excel 檔案的形式儲存到本機路徑，或只選取多行。
+    - **結果**面板：您可以將整個結果以 CSV、JSON 或 Excel 檔案的形式儲存到本機路徑，或只選取多行。
 
-    - [訊息] 面板：當您選取**行**號時，它會跳至執行中腳本的第一行。
+    - [**訊息**] 面板：當您選取**行**號時，它會跳至執行中腳本的第一行。
 
 ## <a name="submit-interactive-pyspark-queries"></a>提交互動式 PySpark 查詢
 
@@ -195,7 +195,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 4. [連接](#connect-to-an-azure-account)到您的 Azure 帳戶，或連結叢集（如果您尚未這麼做）。
 
-5. 選取所有程式碼，以滑鼠右鍵按一下腳本編輯器，然後選取 [**Spark]：PySpark Interactive @ no__t-0 以提交查詢。 或者，使用 Ctrl + Alt + I 快捷方式。
+5. 選取所有程式碼，以滑鼠右鍵按一下腳本編輯器，然後選取 [ **Spark： PySpark Interactive** ] 來提交查詢。 或者，使用 Ctrl + Alt + I 快捷方式。
 
    ![pyspark 互動式操作功能表](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
@@ -250,7 +250,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 4. [連接](#connect-to-an-azure-account)到您的 Azure 帳戶，或連結叢集（如果您尚未這麼做）。
 
-5. 以滑鼠右鍵按一下腳本編輯器，然後選取 @no__t 0Spark：PySpark 批次 @ no__t-0，或使用 Ctrl + Alt + H 鍵盤快速鍵。
+5. 以滑鼠右鍵按一下腳本編輯器，然後選取 [ **Spark： PySpark Batch**]，或使用 Ctrl + Alt + H 鍵盤快速鍵。
 
 6. 選取要提交 PySpark 作業的叢集：
 
@@ -266,7 +266,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 方法 1  
 1. 從功能表，瀏覽至 [檔案]  >  [喜好設定]  >  [設定]。
-2. 在 [**搜尋設定**] 方塊中，輸入 @no__t 1HDInsight 作業提交：Livy Conf**。  
+2. 在 [**搜尋設定**] 方塊中，輸入**HDInsight 作業提交： Livy 會議**。  
 3. 選取 [在 settings.json 中編輯] 以取得相關搜尋結果。
 
 方法2：提交檔案，並注意 vscode 資料夾會自動新增至工作資料夾。 您可以選取 [ **vscode\settings.json**] 來查看 Livy 設定。
@@ -276,13 +276,13 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
     ![HDInsight Apache Livy 設定](./media/hdinsight-for-vscode/hdi-apache-livy-config.png)
 
     >[!NOTE]
-    >針對 [ **driverMemory** ] 和 [ **executorMemory** ] 設定，設定 [值] 和 [單位]。 例如: 1g 或1024m。
+    >針對 [ **driverMemory** ] 和 [ **executorMemory** ] 設定，設定 [值] 和 [單位]。 例如：1g 或1024m。
 
 + 支援的 Livy 設定：
 
     **張貼/batches**要求本文
 
-    | name | description | 型別 |
+    | 名稱 | Description | 類型 |
     | :- | :- | :- |
     | file | 要執行的應用程式所在的檔案 | 路徑（必要） |
     | proxyUser | 要在執行作業時模擬的使用者 | 字串 |
@@ -290,22 +290,22 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
     | args | 應用程式的命令列引數 | 字串清單 |
     | jars | 要在此會話中使用的 jar | 字串清單 | 
     | pyFiles | 要在此工作階段中使用的 Python 檔案 | 字串清單 |
-    | files | 要在此會話中使用的檔案 | 字串清單 |
+    | 檔案 | 要在此會話中使用的檔案 | 字串清單 |
     | driverMemory | 要用於驅動程式處理序的記憶體數量 | 字串 |
-    | driverCores | 要用於驅動程式處理序的核心數量 | Int |
+    | driverCores | 要用於驅動程式處理序的核心數量 | int |
     | executorMemory | 每一個執行程式處理序所要使用的記憶體數量 | 字串 |
-    | executorCores | 每個執行程式所要使用的核心數量 | Int |
-    | numExecutors | 要為此工作階段啟動的執行程式數量 | Int |
+    | executorCores | 每個執行程式所要使用的核心數量 | int |
+    | numExecutors | 要為此工作階段啟動的執行程式數量 | int |
     | archives | 要在此工作階段中使用的封存 | 字串清單 |
-    | queue | 要提交的 YARN 佇列名稱| 字串 |
-    | name | 此會話的名稱 | 字串 |
+    | 佇列 | 要提交的 YARN 佇列名稱| 字串 |
+    | 名稱 | 此會話的名稱 | 字串 |
     | conf | Spark 組態屬性 | key=val 的對應 |
 
     已建立之批次物件的回應主體。
 
-    | name | description | 型別 |
+    | 名稱 | Description | 類型 |
     | :- | :- | :- |
-    | id | 工作階段識別碼 | Int |
+    | id | 工作階段識別碼 | int |
     | appId | 此會話的應用程式識別碼 | 字串 |
     | appInfo | 詳細的應用程式資訊 | key=val 的對應 |
     | log | 記錄行 | 字串清單 |
@@ -322,7 +322,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 2. 從最左邊的資料行中選取**Azure**圖示。
 
-3. 在左窗格中，展開 [**AZURE]：HDINSIGHT @ NO__T-0。 列出可用的訂用帳戶和叢集。
+3. 從左窗格中，展開 [ **AZURE： HDINSIGHT**]。 列出可用的訂用帳戶和叢集。
 
 4. 展開叢集以查看 Hive 中繼資料資料庫和資料表架構。
 
@@ -340,8 +340,8 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 - 訊息面板
    1. 當資料表中的資料列數目大於100時，您會看到下列訊息：「Hive 資料表會顯示前100個數據列」。
-   2. 當資料表中的資料列數目小於或等於100時，您會看到如下所示的訊息：「為 Hive 資料表顯示60個數據列」。
-   3. 當資料表中沒有任何內容時，您會看到下列訊息：[Hive 資料表會顯示0個數據列]。
+   2. 當資料表中的資料列數目小於或等於100時，您會看到如下的訊息：「Hive 資料表會顯示60個數據列」。
+   3. 當資料表中沒有任何內容時，您會看到下列訊息：「Hive 資料表顯示0個數據列」。
 
         >[!NOTE]
         >
@@ -407,7 +407,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 ## <a name="unlink-cluster"></a>取消連結叢集
 
-1. 從功能表列中，移至 [ **View** > ] [**命令**選擇區]，然後輸入 **Spark/Hive：Unlink a Cluster**。  
+1. 從功能表列中，移至 [ **View** ] > [**命令**選擇區]，然後輸入**Spark/Hive：取消連結**叢集。  
 
 2. 選取要取消連結的叢集。  
 
@@ -415,7 +415,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 ## <a name="sign-out"></a>登出  
 
-從功能表列中，移至 [ **View** > ] [**命令**選擇區]，然後輸入 **Azure：登出 @ no__t-0。
+從功能表列中，移至 [ **View** ] > [**命令**選擇區]，然後輸入**Azure： Sign Out**。
 
 ## <a name="next-steps"></a>後續步驟
 

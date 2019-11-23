@@ -21,13 +21,13 @@ ms.locfileid: "72311700"
 
 此文件中的步驟使用 [Apache Maven](https://maven.apache.org/) \(英文\) 來建立及建置專案。 Maven是軟體專案管理和理解工具，可讓您建置 Java 專案的軟體、文件及報告。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * HDInsight 上的 Apache HBase 叢集。 請參閱[開始使用 Apache HBase](./apache-hbase-tutorial-get-started-linux.md)。
 
 * [JAVA 開發工具組（JDK）第8版](https://aka.ms/azure-jdks)。
 
-* 根據 Apache 正確[安裝](https://maven.apache.org/install.html)的 [Apache Maven](https://maven.apache.org/download.cgi)。  Maven 是適用於 Java 專案的專案建置系統。
+* 根據 Apache 正確[安裝](https://maven.apache.org/download.cgi)的 [Apache Maven](https://maven.apache.org/install.html)。  Maven 是適用於 Java 專案的專案建置系統。
 
 * SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -58,11 +58,11 @@ cd C:\HDI
 
     此命令會在目前的位置建立名為 `hbaseapp` 的目錄，其內含基本 Maven 專案。 第二個命令會將工作目錄變更為 `hbaseapp`。 第三個命令會建立新的目錄，`conf`，稍後將會用到。 `hbaseapp` 目錄包含下列項目：
 
-    * `pom.xml`:「專案物件模型」(](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)POM) 包含用來建置專案的資訊和組態詳細資料。
-    * `src\main\java\com\microsoft\examples`:包含應用程式的程式碼。
-    * `src\test\java\com\microsoft\examples`:包含應用程式的測試。
+    * `pom.xml`：專案物件模型（[POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)）包含用來建立專案的資訊和設定詳細資料。
+    * `src\main\java\com\microsoft\examples`︰包含應用程式的程式碼。
+    * `src\test\java\com\microsoft\examples`︰包含應用程式的測試。
 
-2. 移除產生的範例程式碼。 藉由輸入下列命令，刪除產生的測試和應用程式檔 `AppTest.java`，然後 `App.java`：
+2. 移除產生的範例程式碼。 `AppTest.java`中刪除產生的測試和應用程式檔，然後輸入下列命令來 `App.java`：
 
     ```cmd
     DEL src\main\java\com\microsoft\examples\App.java
@@ -71,7 +71,7 @@ cd C:\HDI
 
 ## <a name="update-the-project-object-model"></a>更新專案物件模型
 
-如需 pom 檔案的完整參考，請參閱 https://maven.apache.org/pom.html 。  輸入下列命令以開啟 `pom.xml`：
+如需 pom 檔案的完整參考，請參閱 https://maven.apache.org/pom.html。  輸入下列命令來開啟 `pom.xml`：
 
 ```cmd
 notepad pom.xml
@@ -79,7 +79,7 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>新增相依性
 
-在 `pom.xml` 中，于 `<dependencies>` 區段中新增下列文字：
+在 `pom.xml`中，于 [`<dependencies>`] 區段中新增下列文字：
 
 ```xml
 <dependency>
@@ -256,7 +256,7 @@ public class CreateTable {
 }
 ```
 
-這段程式碼是 @no__t 0 類別，它會建立名為 `people` 的資料表，並填入一些預先定義的使用者。
+這段程式碼是 `CreateTable` 類別，它會建立名為 `people` 的資料表，並填入一些預先定義的使用者。
 
 ### <a name="implement-a-searchbyemail-class"></a>執行 Searchbyemail.java 類別
 
@@ -341,7 +341,7 @@ public class SearchByEmail {
 }
 ```
 
-@No__t 0 類別可用來依電子郵件地址查詢資料列。 因為此類別使用規則運算式篩選器，您可以在使用此類別時提供字串或規則運算式。
+`SearchByEmail` 類別可以用來依電子郵件地址查詢資料列。 因為此類別使用規則運算式篩選器，您可以在使用此類別時提供字串或規則運算式。
 
 ### <a name="implement-a-deletetable-class"></a>執行 Deletetable.java 類別
 
@@ -375,7 +375,7 @@ public class DeleteTable {
 }
 ```
 
-@No__t 0 類別會藉由停用和卸載由 `CreateTable` 類別所建立的資料表，來清除在此範例中建立的 HBase 資料表。
+`DeleteTable` 類別會藉由停用和卸載由 `CreateTable` 類別所建立的資料表，清除在此範例中建立的 HBase 資料表。
 
 ## <a name="build-and-package-the-application"></a>建置和封裝應用程式
 
@@ -441,7 +441,7 @@ public class DeleteTable {
 
 下列步驟會使用 Azure PowerShell [AZ 模組](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)，將 JAR 上傳至 Apache HBase 叢集的預設儲存體。 接著，會使用 HDInsight Cmdlet 從遠端執行範例。
 
-1. 安裝並設定 AZ 模組之後，請建立名為 `hbase-runner.psm1` 的檔案。 使用下列文字做為此檔案的內容：
+1. 安裝並設定 AZ 模組之後，請建立名為 `hbase-runner.psm1`的檔案。 使用下列文字做為此檔案的內容：
 
    ```powershell
     <#
@@ -647,7 +647,7 @@ public class DeleteTable {
 
 2. 將 `hbase-runner.psm1` 檔案儲存在 `hbaseapp` 目錄中。
 
-3. 向 Azure PowerShell 註冊模組。 開啟新的 Azure PowerShell 視窗，並以您的叢集名稱取代 `CLUSTERNAME` 來編輯下面的命令。 然後輸入下列命令：
+3. 向 Azure PowerShell 註冊模組。 開啟新的 Azure PowerShell 視窗，並以您的叢集名稱取代 `CLUSTERNAME`，以編輯下面的命令。 然後輸入下列命令：
 
     ```powershell
     cd C:\HDI\hbaseapp

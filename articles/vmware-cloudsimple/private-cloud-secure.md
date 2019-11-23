@@ -37,7 +37,7 @@ ms.locfileid: "72311766"
 
 ### <a name="add-new-users-to-vcenter"></a>將新的使用者新增至 vCenter
 
-1. [提升](escalate-private-cloud-privileges.md)私人雲端上 **@no__t 2**使用者的許可權。
+1. [提升](escalate-private-cloud-privileges.md)私人雲端上 **CloudOwner@cloudsimple.local** 使用者的許可權。
 2. 使用 **CloudOwner@cloudsimple.local** 登入 vCenter
 3. [新增 VCenter 單一登入使用者](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html)。
 4. 將使用者新增至[vCenter 單一登入群組](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)。
@@ -51,7 +51,7 @@ ms.locfileid: "72311766"
 * [使用 Active Directory 做為](set-vcenter-identity.md)私人雲端 vCenter 上的身分識別提供者。
 * [使用 Azure AD 做為](azure-ad.md)私人雲端 vCenter 上的身分識別提供者
 
-1. [提升](escalate-private-cloud-privileges.md)私人雲端上 **@no__t 2**使用者的許可權。
+1. [提升](escalate-private-cloud-privileges.md)私人雲端上 **CloudOwner@cloudsimple.local** 使用者的許可權。
 2. 使用 **CloudOwner@cloudsimple.local** 登入 vCenter
 3. 將使用者從識別提供者新增至[vCenter 單一登入群組](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)。
 

@@ -23,7 +23,7 @@ ms.locfileid: "72792918"
 
 ### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>Azure 認知搜尋與我 DBMS 中的全文檢索搜尋有何不同？
 
-Azure 認知搜尋支援多個資料來源、[多種語言的語言分析](https://docs.microsoft.com/rest/api/searchservice/language-support)、[適用于有趣和不尋常資料輸入的自訂分析](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)、透過[評分設定檔](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)搜尋排名控制項，以及使用者體驗自動提示、點擊醒目提示和多面向導覽之類的功能。 它也包含其他功能，例如同義字和豐富的查詢語法，但這些功能通常並無不同之處。
+Azure 認知搜尋支援多個資料來源、[多種語言的語言分析](https://docs.microsoft.com/rest/api/searchservice/language-support)、[適用于有趣和不尋常資料輸入的自訂分析](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)、透過[評分設定檔](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)搜尋排名控制項，以及使用者體驗功能（例如自動提示、點擊顯示和多面向導覽）。 它也包含其他功能，例如同義字和豐富的查詢語法，但這些功能通常並無不同之處。
 
 ### <a name="what-is-the-difference-between-azure-cognitive-search-and-elasticsearch"></a>Azure 認知搜尋和 Elasticsearch 之間有何差異？
 
@@ -75,7 +75,7 @@ Azure 入口網站中目前沒有內建的索引提取、快照集或備份還�
 
 ### <a name="can-i-restrict-search-index-access-by-user-identity"></a>我可以依使用者身分識別來限制搜尋索引的存取權嗎？
 
-您可以使用 `search.in()` 篩選器來實作[安全性篩選](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search)。 篩選條件是利用[身分識別管理服務，例如 Azure Active Directory (AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) 撰寫而成，能以定義的使用者群組成員資格為基礎修剪搜尋結果。
+您可以使用 [ 篩選器來實作](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search)安全性篩選`search.in()`。 篩選條件是利用[身分識別管理服務，例如 Azure Active Directory (AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) 撰寫而成，能以定義的使用者群組成員資格為基礎修剪搜尋結果。
 
 ### <a name="why-are-there-zero-matches-on-terms-i-know-to-be-valid"></a>為什麼我認為有效的字詞沒有任何相符項目？
 
@@ -103,8 +103,8 @@ Azure 入口網站中目前沒有內建的索引提取、快照集或備份還�
 
 您的問題是否與缺少特性或功能相關？ 請在 [User Voice 網站](https://feedback.azure.com/forums/263029-azure-search)上要求此功能。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
  [StackOverflow： Azure 認知搜尋](https://stackoverflow.com/questions/tagged/azure-search)   
  [全文檢索搜尋在 Azure 認知搜尋中的運作方式](search-lucene-query-architecture.md)  
- [什麼是 Azure 認知搜尋？](search-what-is-azure-search.md)
+ [什麼是 Azue 認知搜尋？](search-what-is-azure-search.md)

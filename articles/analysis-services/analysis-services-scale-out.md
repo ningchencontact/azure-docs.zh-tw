@@ -44,9 +44,9 @@ ms.locfileid: "73572628"
 
 * 即使查詢集區中沒有任何複本，也允許同步處理。 如果您要從零向外延展到一個或多個複本，並在主伺服器上處理作業的新資料，請先執行同步處理，而不要在查詢集區中使用任何複本，然後再向外延展。在相應放大之前進行同步處理，可避免新加入複本的重複序列化。
 
-* 從主伺服器刪除模型資料庫時，不會自動從查詢集區中的複本刪除它。 您必須執行同步處理作業，方法是使用[AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell 命令，從複本的共用 blob 儲存位置移除該資料庫的檔案，然後刪除複本上的 model 資料庫。在查詢集區中。 若要判斷模型資料庫是否存在於查詢集區中的複本上，但不在主伺服器上，請確定 [**從查詢集區中個別的處理伺服器**] 設定為 **[是]** 。 然後使用 SSMS 連接到使用 `:rw` 限定詞的主伺服器，以查看資料庫是否存在。 然後連接到查詢集區中的複本，方法是不使用 `:rw` 限定詞進行連接，以查看相同的資料庫是否也存在。 如果資料庫存在於查詢集區中的複本上，而不是在主伺服器上，請執行同步作業。   
+* 從主伺服器刪除模型資料庫時，不會自動從查詢集區中的複本刪除它。 您必須執行同步處理作業，方法是使用[AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell 命令，從複本的共用 blob 儲存位置移除該資料庫的檔案，然後刪除複本上的 model 資料庫。在查詢集區中。 若要判斷模型資料庫是否存在於查詢集區中的複本上，但不在主伺服器上，請確定 [**從查詢集區中個別的處理伺服器**] 設定為 **[是]** 。 然後使用 `:rw` 辨識符號來連接到主伺服器，以查看資料庫是否存在。 然後連接到查詢集區中的複本，方法是不使用 `:rw` 限定詞來連接，以查看相同的資料庫是否也存在。 如果資料庫存在於查詢集區中的複本上，而不是在主伺服器上，請執行同步作業。   
 
-* 重新命名主伺服器上的資料庫時，需要額外的步驟，以確保資料庫已正確地同步處理至任何複本。 重新命名之後，請使用[AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance)命令來執行同步處理，並指定具有舊資料庫名稱的 `-Database` 參數。 這個同步處理會從任何複本移除具有舊名稱的資料庫和檔案。 然後執行另一次同步處理，並以新的資料庫名稱指定 `-Database` 參數。 第二次同步處理會將新命名的資料庫複製到第二組檔案，並會產生任何複本。 無法使用入口網站中的 [同步處理模型] 命令來執行這些同步作業。
+* 重新命名主伺服器上的資料庫時，需要額外的步驟，以確保資料庫已正確地同步處理至任何複本。 重新命名之後，請使用[AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance)命令來執行同步處理，並指定具有舊資料庫名稱的 `-Database` 參數。 這個同步處理會從任何複本移除具有舊名稱的資料庫和檔案。 然後執行另一個同步處理，並以新的資料庫名稱指定 `-Database` 參數。 第二次同步處理會將新命名的資料庫複製到第二組檔案，並會產生任何複本。 無法使用入口網站中的 [同步處理模型] 命令來執行這些同步作業。
 
 ### <a name="separate-processing-from-query-pool"></a>與查詢集區分開處理
 
@@ -107,7 +107,7 @@ ms.locfileid: "73572628"
 傳回狀態碼：
 
 
-|代碼  |說明  |
+|代碼  |描述  |
 |---------|---------|
 |-1     |  無效       |
 |0     | 正在複寫        |
@@ -128,7 +128,7 @@ ms.locfileid: "73572628"
 
 若要設定查詢複本的數目，請使用[AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)。 指定選擇性的 `-ReadonlyReplicaCount` 參數。
 
-若要將處理伺服器與查詢集區分開，請使用[AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)。 請指定要使用 `Readonly` 的選擇性 `-DefaultConnectionMode` 參數。
+若要將處理伺服器與查詢集區分開，請使用[AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)。 指定要使用 `Readonly`的選擇性 `-DefaultConnectionMode` 參數。
 
 若要深入瞭解，請參閱[使用服務主體搭配 Az microsoft.analysisservices 模組](analysis-services-service-principal.md#azmodule)。
 

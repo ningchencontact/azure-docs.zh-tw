@@ -34,7 +34,7 @@ Kubernetes 包含的 Web 儀表板可用來執行基本的管理作業。 此儀
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-此命令會在您的開發系統與 Kubernetes API 之間建立 Proxy，並開啟 Kubernetes 儀表板的網頁瀏覽器。 如果網頁瀏覽器未開啟至 Kubernetes 儀表板，請複製並貼上 Azure CLI 所記下的 URL 位址`http://127.0.0.1:8001`，通常為。
+此命令會在您的開發系統與 Kubernetes API 之間建立 Proxy，並開啟 Kubernetes 儀表板的網頁瀏覽器。 如果網頁瀏覽器未開啟至 Kubernetes 儀表板，請複製並貼上 Azure CLI 所記下的 URL 位址，通常 `http://127.0.0.1:8001`。
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)

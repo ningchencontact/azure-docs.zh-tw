@@ -15,11 +15,11 @@ ms.locfileid: "72177938"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>設定評估的相依性視覺效果
 
-本文說明如何在 Azure Migrate 中設定相依性對應：。
+本文說明如何在 Azure Migrate：伺服器評估中設定相依性對應。
 
 相依性對應可協助您將所有要評估和遷移的機器相依性視覺化。
 
-- 在 Azure Migrate：伺服器評估，您可以將機器彙集在一起進行評量。 通常是您想要一起遷移的機器。
+- 在 Azure Migrate：伺服器評估中，您可以將機器彙集在一起進行評量。 通常是您想要一起遷移的機器。
 - 當您想要評估較高層級信賴的群組時，通常會使用相依性對應。
 - 相依性對應可協助您在執行評量和遷移之前，先交叉檢查機器相依性。
 - 對應和視覺化相依性有助於有效率地規劃遷移至 Azure。 它有助於確保不會留下任何內容，從而避免在遷移期間發生意外的中斷。
@@ -30,8 +30,8 @@ ms.locfileid: "72177938"
 ## <a name="before-you-start"></a>開始之前
 
 - 請確定您已[建立](how-to-add-tool-first-time.md)Azure Migrate 專案。
-- 如果您已經建立專案，請確定您已[新增](how-to-assess.md)Azure Migrate：伺服器評量工具。
-- 請確定您已在 Azure Migrate 中探索到您的電腦。若要這麼做，您可以設定[VMware](how-to-set-up-appliance-vmware.md)或[hyper-v](how-to-set-up-appliance-hyper-v.md)的 Azure Migrate 設備。 設備會探索內部部署機器，然後將中繼資料和效能資料傳送至 Azure Migrate：。 [深入了解](migrate-appliance.md)。
+- 如果您已經建立專案，請確定您已[新增](how-to-assess.md)Azure Migrate：伺服器評估工具。
+- 請確定您已在 Azure Migrate 中探索到您的電腦。若要這麼做，您可以設定[VMware](how-to-set-up-appliance-vmware.md)或[hyper-v](how-to-set-up-appliance-hyper-v.md)的 Azure Migrate 設備。 設備會探索內部部署機器，並將中繼資料和效能資料傳送至 Azure Migrate：伺服器評量。 [詳細資訊](migrate-appliance.md)。
 
 
 **特性** | **注意**
@@ -50,11 +50,11 @@ Log Analytics 代理程式（MMA） | [深入瞭解](../azure-monitor/platform/l
 - 您只能將工作區附加在 Azure Migrate 專案訂用帳戶中。
 - 您可以附加現有的工作區，或建立一個新的。
 - 您第一次設定電腦的相依性視覺效果時，會附加工作區。
-- 您只能在探索 Azure Migrate 專案中的機器之後，才連接工作區。 若要這麼做，您可以設定[VMware](how-to-set-up-appliance-vmware.md)或[hyper-v](how-to-set-up-appliance-hyper-v.md)的 Azure Migrate 設備。 設備會探索內部部署機器，然後將中繼資料和效能資料傳送至 Azure Migrate：。 [深入了解](migrate-appliance.md)。
+- 您只能在探索 Azure Migrate 專案中的機器之後，才連接工作區。 若要這麼做，您可以設定[VMware](how-to-set-up-appliance-vmware.md)或[hyper-v](how-to-set-up-appliance-hyper-v.md)的 Azure Migrate 設備。 設備會探索內部部署機器，並將中繼資料和效能資料傳送至 Azure Migrate：伺服器評量。 [詳細資訊](migrate-appliance.md)。
 
 附加工作區，如下所示：
 
-1. 在 [**Azure] [遷移]：伺服器評定 @ no__t-0，按一下 **[總覽**]。 如果您尚未新增伺服器評估工具，請[先執行](how-to-assess.md)此動作。
+1. 在 [ **Azure Migrate：伺服器評估**] 中，按一下 **[總覽**]。 如果您尚未新增伺服器評估工具，請[先執行](how-to-assess.md)此動作。
 2. 在 **[總覽**] 中，按一下向下箭號以展開 [**基本**]。
 3. 在 [ **OMS 工作區**] 中，按一下 [**需要**設定]。
 4. 在 [**設定工作區**] 中，指定您要建立新的工作區，或使用現有的工作區：
@@ -70,7 +70,7 @@ Log Analytics 代理程式（MMA） | [深入瞭解](../azure-monitor/platform/l
 
 在您想要使用相依性對應進行視覺化的每一部內部部署機器上，下載並安裝代理程式。
 
-1. 在 [**Azure] [遷移]：伺服器評量 @ no__t-0，按一下 [探索到的**伺服器**]。
+1. 在 [ **Azure Migrate：伺服器評定**] 中，按一下 [探索到的**伺服器**]。
 2. 針對您要使用相依性視覺效果的每部電腦，按一下 [**需要代理程式安裝**]。
 3. 在電腦的 [相依性 **]** 頁面中 >**下載並安裝 MMA**、下載適當的代理程式，並如下所述進行安裝。
 4. 在 [**下載並安裝相依性代理程式**] 中，下載適當的代理程式並加以安裝，如下所述。
@@ -116,7 +116,7 @@ Log Analytics 代理程式（MMA） | [深入瞭解](../azure-monitor/platform/l
 
 ## <a name="create-a-group-using-dependency-visualization"></a>使用相依性視覺效果建立群組
 
-1. 在 [**Azure] [遷移]：伺服器評量 @ no__t-0，按一下 [探索到的**伺服器**]。
+1. 在 [ **Azure Migrate：伺服器評定**] 中，按一下 [探索到的**伺服器**]。
 2. 在 [相依性 **]** 資料行中，按一下您想要檢查之每部機器的 [查看相依性 **]** 。
 3. 在 [相依性對應] 上，您可以看到下列各項：
     - 電腦的輸入（用戶端）和輸出（伺服器） TCP 連線。
@@ -134,7 +134,7 @@ Log Analytics 代理程式（MMA） | [深入瞭解](../azure-monitor/platform/l
 6. 指定群組名稱。
 7. 確認 Azure Migrate 已探索到相依機器。
 
-    - 如果 Azure Migrate 未探索到相依機器：伺服器評估，您無法將它新增至群組。
+    - 如果 Azure Migrate：伺服器評估找不到相依電腦，您就無法將它新增至群組。
     - 若要新增電腦，請再次執行探索，並確認已探索到機器。
 
 8. 如果您需要建立此群組的評估，請選取核取方塊來建立新的群組評估。
@@ -152,7 +152,7 @@ Log Analytics 代理程式（MMA） | [深入瞭解](../azure-monitor/platform/l
 執行相依性資料的查詢，如下所示：
 
 1. 安裝代理程式之後，請移至入口網站，然後按一下 [概觀]。
-2. 在 [**Azure] [遷移]：伺服器評定 @ no__t-0，按一下 **[總覽**]。 按一下向下箭號以展開 [**基本**]。
+2. 在 [ **Azure Migrate：伺服器評估**] 中，按一下 **[總覽**]。 按一下向下箭號以展開 [**基本**]。
 3. 在 [ **OMS 工作區**] 中，按一下工作區名稱。
 3. 在 [Log Analytics 工作區] 頁面上 > **[一般**]，按一下 [**記錄**]。
 4. 撰寫查詢，然後按一下 [**執行**]。

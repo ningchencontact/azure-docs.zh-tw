@@ -96,7 +96,7 @@ WinSCP：您可以使用的熱門 SFTP 用戶端和 FTP 用戶端<br/>
 
 <!-- markdownlint-enable MD033 -->
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 規劃花幾天的時間來組合所有必要的軟體，並完成所有的手動程式。
 
@@ -116,7 +116,7 @@ WinSCP：您可以使用的熱門 SFTP 用戶端和 FTP 用戶端<br/>
 
 **建立 VM**
 
-1. 前往 <https://portal.azure.com> 的 Azure 入口網站，並登入您的帳戶。
+1. 前往 <https://portal.azure.com> 的 Azure 入口網站，然後登入您的帳戶。
 
 2. 按一下 [虛擬機器]。
 
@@ -145,20 +145,20 @@ WinSCP：您可以使用的熱門 SFTP 用戶端和 FTP 用戶端<br/>
 
 如果您使用的是 Windows 作業系統，則需要 PuTTYgen 來產生公開/私密金鑰組。
 
-公開金鑰可以自由共用，但私密金鑰應該保持完全機密，而且永遠不會與另一方共用。 產生金鑰之後，您必須將**SSH 公開金鑰**貼入設定中，有效地將它上傳至 Linux VM。 它會儲存在使用者帳戶主目錄的 \~/ssh 目錄內的已授權 @ no__t-0keys 中。 一旦您在 SSH 用戶端（在我們的案例中為 PuTTY）提供相關聯的**ssh 私密金鑰**，Linux VM 就可以辨識及驗證連線。
+公開金鑰可以自由共用，但私密金鑰應該保持完全機密，而且永遠不會與另一方共用。 產生金鑰之後，您必須將**SSH 公開金鑰**貼入設定中，有效地將它上傳至 Linux VM。 它會儲存在使用者帳戶主目錄的 \~/.ssh 目錄中授權\_金鑰內。 一旦您在 SSH 用戶端（在我們的案例中為 PuTTY）提供相關聯的**ssh 私密金鑰**，Linux VM 就可以辨識及驗證連線。
 
 提供新的個人存取 VM 時： 
 
 - 每個新的人員都會使用 PuTTYgen 產生自己的公開/私密金鑰。
 - 個人會分別儲存自己的私密金鑰，並將公開金鑰資訊傳送給 VM 的系統管理員。
-- 系統管理員將公開金鑰的內容貼入 \~/. ssh/已授權 @ no__t-1keys 檔案。
+- 系統管理員會將公開金鑰的內容貼入 \~/.ssh/authorized\_金鑰檔案。
 - 新的人員會透過 PuTTY 連接。
 
 **產生公開/私密金鑰組**
 
 1.  從 <https://www.putty.org/> 下載 PuTTYgen，並使用所有預設設定來安裝。
 
-2.  若要開啟 PuTTYgen，請在 C： \\Program Files @ no__t-1PuTTY 中找出 PuTTY 安裝目錄。
+2.  若要開啟 PuTTYgen，請在 C：\\Program Files\\PuTTY 中找出 PuTTY 安裝目錄。
 
     ![PuTTY 介面](media/puttygen-01.png)
 
@@ -189,11 +189,11 @@ WinSCP：您可以使用的熱門 SFTP 用戶端和 FTP 用戶端<br/>
 
 6. 開啟 PuTTY。
 
-7. 在 [**主機名稱**] 中，輸入您的使用者名稱和您複製的公用 IP 位址。 例如， **username @ no__t-1publicip**。
+7. 在 [**主機名稱**] 中，輸入您的使用者名稱和您複製的公用 IP 位址。 例如， **username\@publicip**。
 
     ![[PuTTY 設定] 對話方塊](media/putty-01.png)
 
-8. 在 [**類別**] 方塊中，按一下 [連線] **\> SSH \> 驗證**。提供您的**私密金鑰**檔案的路徑。
+8. 在 [**類別**] 方塊中，按一下 [**連接] \> SSH \> Auth**。提供您的**私密金鑰**檔案的路徑。
 
     ![[PuTTY 設定] 對話方塊](media/putty-02.png)
 
@@ -207,7 +207,7 @@ WinSCP：您可以使用的熱門 SFTP 用戶端和 FTP 用戶端<br/>
 
 既然 VM 已建立且您已登入，您必須執行幾個設定步驟，並安裝必要的預先安裝套件。
 
-1. 使用 vi 來編輯 hosts 檔案（`vi /etc/hosts`），將名稱**ofdemo**對應至本機 IP 位址。 假設我們的 IP 是 192.168.96.148 ofdemo，這會在變更之前：
+1. 使用 vi 來編輯 hosts 檔案（`vi /etc/hosts`），以將名稱**ofdemo**對應至本機 IP 位址。 假設我們的 IP 是 192.168.96.148 ofdemo，這會在變更之前：
 
     ```vi
     127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 
@@ -255,8 +255,8 @@ WinSCP：您可以使用的熱門 SFTP 用戶端和 FTP 用戶端<br/>
 6. 取得所需的套件：確定伺服器已連線到網際網路、下載下列套件，然後加以安裝：
 
      - dos2unix
-     - Glibc
-     - glibc. i686 glibc. x86 @ no__t-064
+     - glibc
+     - glibc. i686 glibc. x86\_64
      - libaio
      - ncurses
 
@@ -269,7 +269,7 @@ WinSCP：您可以使用的熱門 SFTP 用戶端和 FTP 用戶端<br/>
 
      - gcc
      - gcc-c + +
-     - libaio-對內. x86 @ no__t-064
+     - libaio-對內. x86\_64
      - strace
      - ltrace
      - gdb
@@ -308,14 +308,14 @@ Tibero 在 Azure 上的 OpenFrame 環境中提供了數個主要功能：
 **若要安裝 Tibero**
 
 1. 確認 Tibero 二進位安裝程式檔案存在，並檢查版本號碼。
-2. 將 Tibero 軟體複製到 Tibero 使用者帳戶（oframe）。 例如：
+2. 將 Tibero 軟體複製到 Tibero 使用者帳戶（oframe）。 例如︰
 
     ```
     [oframe7@ofdemo ~]$ tar -xzvf tibero6-bin-6_rel_FS04-linux64-121793-opt-tested.tar.gz 
     [oframe7@ofdemo ~]$ mv license.xml /opt/tmaxdb/tibero6/license/
     ```
 
-3. 在 vi （`vi .bash_profile`）中開啟 bash @ no__t-0profile，並在其中貼上下列內容：
+3. 在 vi （`vi .bash_profile`）中開啟 bash\_設定檔，並在其中貼上下列內容：
 
     ```
     # Tibero6 ENV
@@ -331,14 +331,14 @@ Tibero 在 Azure 上的 OpenFrame 環境中提供了數個主要功能：
     source .bash_profile
     ```
 
-5. 產生 tip 檔案（Tibero 的設定檔案），然後在 vi 中開啟它。 例如：
+5. 產生 tip 檔案（Tibero 的設定檔案），然後在 vi 中開啟它。 例如︰
 
     ```
     [oframe7@ofdemo ~]$ sh $TB_HOME/config/gen_tip.sh
     [oframe7@ofdemo ~]$ vi $TB_HOME/config/$TB_SID.tip
     ```
 
-6. 修改 \$TB @ no__t-1HOME/client/config/tbdsn. tbr，並將127.0.0.1 改成 oflocalhost，如下所示：
+6. 修改 \$TB\_HOME/client/config/tbdsn. tbr 並將127.0.0.1 改為 oflocalhost，如下所示：
 
     ```
     TVSAM=( 
@@ -386,14 +386,14 @@ Tibero 在 Azure 上的 OpenFrame 環境中提供了數個主要功能：
      ******************************************************************************
     ```
 
-8. 若要回收 Tibero，請先使用 `tbdown` 命令將它關閉。 例如：
+8. 若要回收 Tibero，請先使用 `tbdown` 命令將它關閉。 例如︰
 
     ```
     [oframe7@ofdemo ~]$$ tbdown 
     Tibero instance terminated (NORMAL mode).
     ```
 
-9. 現在使用 `tbboot` 啟動 Tibero。 例如：
+9. 現在使用 `tbboot`啟動 Tibero。 例如︰
 
     ```
     [oframe7@ofdemo ~]$ tbboot
@@ -440,29 +440,29 @@ OpenFrame 中的應用程式會使用開放原始碼 unixODBC 專案所提供的
 
 若要安裝 ODBC：
 
-1. 確認 Unixodbc-2.3.1.tar.gz 2.3.4 gz 安裝程式檔案存在，或使用 `wget unixODBC-2.3.4.tar.gz` 命令。 例如：
+1. 確認 Unixodbc-2.3.1.tar.gz 2.3.4 gz 安裝程式檔案存在，或使用 `wget unixODBC-2.3.4.tar.gz` 命令。 例如︰
 
      ```
      [oframe7@ofdemo ~]$ wget ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.4.tar.gz
      ```
 
-2. 將二進位檔解壓縮。 例如：
+2. 將二進位檔解壓縮。 例如︰
 
      ```
      [oframe7@ofdemo ~]$ tar -zxvf unixODBC-2.3.4.tar.gz
      ```
 
-3. 流覽至 unixODBC-2.3.4 目錄，並使用檢查電腦資訊來產生 Makefile。 例如：
+3. 流覽至 unixODBC-2.3.4 目錄，並使用檢查電腦資訊來產生 Makefile。 例如︰
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ ./configure --prefix=/opt/tmaxapp/unixODBC/ --sysconfdir=/opt/tmaxapp/unixODBC/etc
      ```
 
-     根據預設，unixODBC 會安裝在/usr/local 中，因此 `--prefix` 會傳遞值來變更位置。 同樣地，設定檔預設會安裝在/etc 中，因此 `--sysconfdir` 會傳遞所需位置的值。
+     根據預設，unixODBC 會安裝在/usr/local 中，因此 `--prefix` 傳遞值來變更位置。 同樣地，設定檔預設會安裝在/etc 中，因此 `--sysconfdir` 會傳遞所需位置的值。
 
 4. 執行 Makefile： `[oframe7@ofdemo unixODBC-2.3.4]$ make`
 
-5. 編譯後，複製程式目錄中的可執行檔。 例如：
+5. 編譯後，複製程式目錄中的可執行檔。 例如︰
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ make install
@@ -479,7 +479,7 @@ OpenFrame 中的應用程式會使用開放原始碼 unixODBC 專案所提供的
      export ODBCSYSINI=$HOME
      ```
 
-7. 套用 ODBC。 據以編輯下列檔案。 例如：
+7. 套用 ODBC。 據以編輯下列檔案。 例如︰
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ source ~/.bash_profile
@@ -543,7 +543,7 @@ OpenFrame 中的應用程式會使用開放原始碼 unixODBC 專案所提供的
 
 **安裝 OpenFrame Base**
 
-1. 請確定 Tibero 安裝成功，然後確認下列 OpenFrame @ no__t-0Base7 @ no__t-10 @ no__t-2Linux @ no__t-3x86\_64.bin installer 檔案和 base. properties 設定檔案存在。
+1. 請確定 Tibero 安裝成功，然後確認下列 OpenFrame\_Base7\_0\_Linux\_x86\_64. bin installer 檔案和 base. properties 設定檔案。
 
 2. 使用下列 Tibero 特定資訊更新 bash 設定檔：
 
@@ -558,8 +558,8 @@ OpenFrame 中的應用程式會使用開放原始碼 unixODBC 專案所提供的
      alias defvol='cd $OPENFRAME_HOME/volume_default'
      ```
 
-3. 執行 bash 設定檔： `[oframe7@ofdemo ~]$ . .bash_profile`
-4. 請確定 Tibero 進程正在執行。 例如：
+3. 執行 bash 設定檔：`[oframe7@ofdemo ~]$ . .bash_profile`
+4. 請確定 Tibero 進程正在執行。 例如︰
 
      ```linux
      [oframe7@ofdemo ~]$ ps -ef|grep tbsvr
@@ -602,7 +602,7 @@ OpenFrame 中的應用程式會使用開放原始碼 unixODBC 專案所提供的
      OPENFRAME_LICENSE_PATH=/opt/tmaxapp/license/OPENFRAME TMAX_LICENSE_PATH=/opt/tmaxapp/license/TMAX
      ```
 
-7. 使用基底. properties 檔案執行安裝程式。 例如：
+7. 使用基底. properties 檔案執行安裝程式。 例如︰
 
     ```
     [oframe7@ofdemo ~]$ chmod a+x OpenFrame_Base7_0_Linux_x86_64.bin 
@@ -611,7 +611,7 @@ OpenFrame 中的應用程式會使用開放原始碼 unixODBC 專案所提供的
 
     完成時，就會 diplayed 安裝完成訊息。
 
-8. 使用 `ls -ltr` 命令來確認 OpenFrame 基底目錄結構。 例如：
+8. 使用 `ls -ltr` 命令來確認 OpenFrame 基底目錄結構。 例如︰
 
      ```
      [oframe7@ofdemo OpenFrame]$ ls -ltr
@@ -677,7 +677,7 @@ OpenFrame 批次是由數個元件所組成，可模擬大型主機 Batch 環境
 
 **若要安裝 Batch**
 
-1. 請確定基底安裝成功，然後確認 OpenFrame @ no__t-0Batch7 @ no__t-10 @ no__t-2Fix2 @ no__t-3MVS @ no__t-4Linux @ no__t-5x86\_64.bin installer 檔案和 batch. properties 設定檔存在：
+1. 請確定基底安裝成功，然後確認 OpenFrame\_Batch7\_0\_Fix2\_MVS\_Linux\_x86\_64. bin installer 檔案和 batch. properties 設定檔存在：
 
 2. 在命令提示字元中，輸入 `vi batch.properties`，以使用 vi 來編輯 batch. properties 檔案。
 
@@ -706,7 +706,7 @@ OpenFrame 批次是由數個元件所組成，可模擬大型主機 Batch 環境
      ./OpenFrame_Batch7_0_Fix2_MVS_Linux_x86_64.bin -f batch.properties
      ```
 
-5. 當安裝完成時，請在命令提示字元中輸入 `tmboot`，啟動已安裝的 OpenFrame 套件。
+5. 當安裝完成時，請在命令提示字元中輸入 `tmboot`，以啟動已安裝的 OpenFrame 套件。
 
     ![tmboot 輸出](media/tmboot-01.png)
 
@@ -765,8 +765,8 @@ TACF Manager 是 OpenFrame 服務模組，透過 RACF 安全性控制使用者�
 
 **若要安裝 TACF**
 
-1. 確認 OpenFrame @ no__t-0Tacf7 @ no__t-10 @ no__t-2Fix2 @ no__t-3Linux @ no__t-4x86\_64.bin installer 檔案和 tacf. properties 設定檔案存在。
-2. 請確定批次安裝成功，然後使用 vi 開啟 tacf 檔案（`vi tacf.properties`）。
+1. 確認 OpenFrame\_Tacf7\_0\_Fix2\_Linux\_x86\_64. bin installer 檔案和 tacf. properties 設定檔案。
+2. 請確定批次安裝成功，然後使用 vi 來開啟 tacf 檔案（`vi tacf.properties`）。
 3. 修改 TACF 參數：
 
      ```
@@ -812,7 +812,7 @@ TACF Manager 是 OpenFrame 服務模組，透過 RACF 安全性控制使用者�
      /tmp/install.dir.41422/Linux/resource/jre/lib/resources.jar /tmp/install.dir.41422/Linux/resource/jre/lib/rt.jar /tmp/install.dir.41422/Linux/resource/jre/lib/sunrsasign.jar /tmp/install.dir.41422/Linux/resource/jre/lib/jsse.jar /tmp/install.dir.41422/Linux/resource/jre/lib/jce.jar /tmp/install.dir.41422/Linux/resource/jre/lib/charsets.jar /tmp/install.dir.41422/Linux/resource/jre/lib/jfr.jar /tmp/install.dir.41422/Linux/resource/jre/classes
      ```
 
-6. 在命令提示字元中，輸入 `tmboot`，以重新開機 OpenFrame。 輸出看起來會像這樣：
+6. 在命令提示字元中，輸入 `tmboot` 以重新開機 OpenFrame。 輸出看起來會像這樣：
 
      ```
      TMBOOT for node(NODE1) is starting: 
@@ -849,7 +849,7 @@ TACF Manager 是 OpenFrame 服務模組，透過 RACF 安全性控制使用者�
      TMBOOT: SVR(tmsvr) is starting: Wed Sep  7 17:48:53 2016
      ```
 
-7. 使用 `si` 命令中的 `tmadmin`，確認進程狀態已就緒。 例如：
+7. 使用 `si` 命令中的 `tmadmin`，確認進程狀態已就緒。 例如︰
 
      ```
      [oframe7\@ofdemo \~]\$ tmadmin
@@ -909,7 +909,7 @@ ProSort 是用於排序資料的批次交易中使用的公用程式。
 
 **若要安裝 ProSort**
 
-1. 請確定批次安裝成功，然後確認**prosort-bin-prosort\_2sp3-linux64-2123-opt.tar.gz**安裝程式檔案是否存在。
+1. 請確定批次安裝成功，然後確認**prosort-bin-prosort\_2sp3-linux64-2123-opt。 gz** installer 檔案是否存在。
 
 2. 使用屬性檔案執行安裝程式。 在命令提示字元中，輸入：
 
@@ -923,7 +923,7 @@ ProSort 是用於排序資料的批次交易中使用的公用程式。
      mv prosort /opt/tmaxapp/prosort
      ```
 
-4. 建立授權子目錄，並在該處複製授權檔案。 例如：
+4. 建立授權子目錄，並在該處複製授權檔案。 例如︰
 
      ```
      cd /opt/tmaxapp/prosort 
@@ -931,7 +931,7 @@ ProSort 是用於排序資料的批次交易中使用的公用程式。
      cp /opt/tmaxsw/oflicense/prosort/license.xml /opt/tmaxapp/prosort/license
      ```
 
-5. 在 vi （`vi .bash_profile`）中開啟 bash. profile，並如下所示加以更新：
+5. 在 vi （`vi .bash_profile`）中開啟 bash. profile，並如下所示更新：
 
      ```bash
      #       PROSORT
@@ -947,7 +947,7 @@ ProSort 是用於排序資料的批次交易中使用的公用程式。
 
 6. 若要執行 bash 設定檔，請在命令提示字元中輸入： `. .bash_profile`
 
-7. 建立設定檔。 例如：
+7. 建立設定檔。 例如︰
 
      ```
      oframe@oframe7: cd /opt/tmaxapp/prosort/config 
@@ -956,14 +956,14 @@ ProSort 是用於排序資料的批次交易中使用的公用程式。
       /home/oframe7/prosort/config/gbg.tip generated
      ```
 
-8. 建立符號連結。 例如：
+8. 建立符號連結。 例如︰
 
      ```
      oframe@oframe7: cd /opt/tmaxapp/OpenFrame/util/ 
      oframe@oframe7home/oframe7/OpenFrame/util :  ln -s DFSORT SORT
      ```
 
-9. 執行 `prosort -h` 命令來確認 ProSort 安裝。 例如：
+9. 執行 `prosort -h` 命令來確認 ProSort 安裝。 例如︰
 
      ```
      oframe@oframe7: prosort -h
@@ -983,7 +983,7 @@ OFCOBOL 是用來解讀大型主機 COBOL 程式的 OpenFrame 編譯器。
 
 **若要安裝 OFCOBOL**
 
-1. 請確定批次/線上安裝成功，然後確認 OpenFrame @ no__t-0COBOL3 @ no__t-10 @ no__t-240 @ no__t-3Linux @ no__t-4x86\_64.bin 安裝程式檔案存在。
+1. 請確定批次/線上安裝成功，然後確認 OpenFrame\_COBOL3\_0\_40\_Linux\_x86\_64. bin installer 檔案存在。
 
 2. 若要執行 OFCOBOL 安裝程式，請在命令提示字元中輸入：
 
@@ -1024,11 +1024,11 @@ OFCOBOL 是用來解讀大型主機 COBOL 程式的 OpenFrame 編譯器。
       source ~/.bash_profile
      ```
 
-7. 將 OFCOBOL 授權複製到已安裝的資料夾。 例如：
+7. 將 OFCOBOL 授權複製到已安裝的資料夾。 例如︰
      ```
      mv licofcob.dat $OFCOB_HOME/license
      ```
-8. 移至 OpenFrame tjclrun. 會議設定檔，並在 vi 中開啟它。 例如：
+8. 移至 OpenFrame tjclrun. 會議設定檔，並在 vi 中開啟它。 例如︰
      ```
      [oframe7@ofdemo ~]$ cd $OPENFRAME_HOME/config 
      [oframe7@ofdemo ~]$ vi tjclrun.conf
@@ -1043,7 +1043,7 @@ OFCOBOL 是用來解讀大型主機 COBOL 程式的 OpenFrame 編譯器。
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bin LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${COBDIR}/lib:/ usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib :${ODBC_HOME}/lib 
      :${OFCOB_HOME}/lib
      ```
-9. 請在 vi 中檢查 OpenFrame @ no__t-0COBOL\_InstallLog.log 檔案，並確認沒有任何錯誤。 例如：
+9. 查看 OpenFrame\_COBOL\_中的 .Installlog 記錄檔，並確認沒有任何錯誤。 例如︰
      ```
      [oframe7@ofdemo ~]$ vi $OFCOB_HOME/UninstallerData/log/OpenFrame_COBOL_InstallLog.log 
      …….. 
@@ -1055,7 +1055,7 @@ OFCOBOL 是用來解讀大型主機 COBOL 程式的 OpenFrame 編譯器。
      0 NonFatalErrors 
      0 FatalError
      ```
-10. 使用 `ofcob --version` 命令並檢查版本號碼，以確認安裝。 例如：
+10. 使用 `ofcob --version` 命令並檢查版本號碼，以確認安裝。 例如︰
 
      ```
      [oframe7@ofdemo ~]$ ofcob --version 
@@ -1071,9 +1071,9 @@ OFASM 是用來解讀大型主機組合程式的 OpenFrame 編譯器。
 
 **若要安裝 OFASM**
 
-1. 請確定批次/線上安裝成功，然後確認 OpenFrame @ no__t-0ASM3 @ no__t-10 @ no__t-2Linux @ no__t-3x86\_64.bin 安裝程式檔案存在。
+1. 請確定批次/線上安裝成功，然後確認 OpenFrame\_ASM3\_0\_Linux\_x86\_安裝程式檔案是否存在。
 
-2. 執行安裝程式。 例如：
+2. 執行安裝程式。 例如︰
 
      ```
      [oframe7@ofdemo ~]$ ./OpenFrame_ASM3_0_Linux_x86_64.bin
@@ -1081,7 +1081,7 @@ OFASM 是用來解讀大型主機組合程式的 OpenFrame 編譯器。
 
 3. 閱讀授權合約，然後按 Enter 繼續。
 4. 接受授權合約。
-5. 確認 bash 設定檔已更新為 OFASM 變數。 例如：
+5. 確認 bash 設定檔已更新為 OFASM 變數。 例如︰
 
      ```
      [oframe7@ofdemo ~]$ source .bash_profile
@@ -1117,7 +1117,7 @@ OFASM 是用來解讀大型主機組合程式的 OpenFrame 編譯器。
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bi n:${OPENFRAME_HOME}/volume_default/SYS1.LOADLIB LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${CO BDIR}/lib:/usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib:${OFCOB_HOM E}/lib:${ODBC_HOME}/lib:${OFPLI_HOME}/lib:${OFASM_HOME}/lib
      ```
 
-7. 在 vi 中開啟 OpenFrame @ no__t-0ASM\_InstallLog.log 檔案，並確認沒有任何錯誤。 例如：
+7. 在 vi 中開啟 OpenFrame\_ASM\_.Installlog，並確認沒有任何錯誤。 例如︰
 
      ```
      [oframe7@ofdemo ~]$ vi 
@@ -1152,7 +1152,7 @@ OFASM 是用來解讀大型主機組合程式的 OpenFrame 編譯器。
 
 **安裝 .OSC**
 
-1. 請確定基底安裝成功，然後確認 OpenFrame @ no__t-0OSC7 @ no__t-10 @ no__t-2Fix2 @ no__t-3Linux @ no__t-4x86\_64.bin installer 檔案和 .osc. properties 設定檔案存在。
+1. 請確定基底安裝成功，然後確認 OpenFrame\_OSC7\_0\_Fix2\_Linux\_x86\_64. bin installer 檔案和 .osc. properties 設定檔案。
 2. 編輯 .osc. properties 檔案中的下列參數：
      ```
      OPENFRAME_HOME=/opt/tmaxapp/OpenFrame OSC_SYS_OSC_NCS_PATH=/opt/tmaxapp/OpenFrame/temp/OSC_NCS OSC_APP_OSC_TC_PATH=/opt/tmaxapp/OpenFrame/temp/OSC_TC
@@ -1167,7 +1167,7 @@ OFASM 是用來解讀大型主機組合程式的 OpenFrame 編譯器。
      完成時，會顯示 [安裝完成] 訊息。
 
 4. 確認 bash 設定檔已更新為使用的 .OSC 變數。
-5. 檢查 OpenFrame @ no__t-0OSC7 @ no__t-10 @ no__t-2Fix2\_InstallLog.log 檔案。 您應該會看到類似下面的畫面：
+5. 請參閱 OpenFrame\_OSC7\_0\_Fix2\_.Installlog .log 檔案。 您應該會看到類似下面的畫面：
 
      ```
      Summary 
@@ -1180,13 +1180,13 @@ OFASM 是用來解讀大型主機組合程式的 OpenFrame 編譯器。
      0 FatalError
      ```
 
-6. 使用 vi 開啟 ofsys 的設定檔。 例如：
+6. 使用 vi 開啟 ofsys 的設定檔。 例如︰
 
      ```
      vi $OPENFRAME_HOME/config/ofsys.seq
      ```
 
-7. 在 [\#BASE] 和 [@no__t 1BATCH] 區段中，編輯參數，如下所示。
+7. 在 [\#基底] 和 [\#批次] 區段中，編輯參數，如下所示。
 
      ```
      Before changes
@@ -1224,7 +1224,7 @@ OFASM 是用來解讀大型主機組合程式的 OpenFrame 編譯器。
      TPFMAGENT      tmsvr
     ```
 
-8. 複製授權檔案。 例如：
+8. 複製授權檔案。 例如︰
 
      ```
      [oframe7@ofdemo ~]$ cp /home/oframe7/oflicense/ofonline/licosc.dat 
@@ -1238,7 +1238,7 @@ OFASM 是用來解讀大型主機組合程式的 OpenFrame 編譯器。
      -rwxrwxr-x. 1 oframe mqm 80 Sep  3 11:54 lictjes.da
      ```
 
-9. 若要啟動和關閉 .OSC，請在命令提示字元中輸入 `osctdlinit OSCOIVP1`，初始化 CICS 區域共用記憶體。
+9. 若要啟動和關閉 .OSC，請在命令提示字元中輸入 `osctdlinit OSCOIVP1`，以初始化 CICS 區域共用記憶體。
 
 10. 執行 `oscboot` 來啟動 .OSC。 輸出看起來會像這樣：
 
@@ -1268,13 +1268,13 @@ JEUS （JAVA 企業使用者解決方案）提供 OpenFrame web 應用程式伺�
 
 **若要安裝 Apache Ant**
 
-1. 使用 `wget` 命令下載 Ant 二進位檔。 例如：
+1. 使用 `wget` 命令下載 Ant 二進位檔。 例如︰
 
      ```
      wget http://apache.mirror.cdnetworks.com/ant/binaries/apacheant-1.9.7-bin.tar.gz
      ```
 
-2. 使用 `tar` 公用程式來解壓縮二進位檔案，並將它移到適當的位置。 例如：
+2. 使用 `tar` 公用程式來解壓縮二進位檔案，並將它移到適當的位置。 例如︰
 
      ```
      tar -xvzf apache-ant-1.9.7-bin.tar.gz
@@ -1294,7 +1294,7 @@ JEUS （JAVA 企業使用者解決方案）提供 OpenFrame web 應用程式伺�
      export PATH=$HOME/ant/bin:$PATH
      ```
 
-5.  套用修改過的環境變數。 例如：
+5.  套用修改過的環境變數。 例如︰
 
      ```
      [oframe7\@ofdemo \~]\$ source \~/.bash\_profile
@@ -1302,20 +1302,20 @@ JEUS （JAVA 企業使用者解決方案）提供 OpenFrame web 應用程式伺�
 
 **若要安裝 JEUS**
 
-1. 使用 `tar` 公用程式來展開安裝程式。 例如：
+1. 使用 `tar` 公用程式來展開安裝程式。 例如︰
 
      ```
      [oframe7@ofdemo ~]$ tar -zxvf jeus704.tar.gz
      ```
 
 2. 建立**jeus**資料夾（`mkdir jeus7`），並將二進位檔解壓縮。
-3. 變更為**安裝**目錄（或針對您自己的環境使用 JEUS 參數）。 例如：
+3. 變更為**安裝**目錄（或針對您自己的環境使用 JEUS 參數）。 例如︰
 
      ```
      [oframe7@ofdemo ~]$ cd jeus7/setup/
      ```
 
-4. 請先執行 `ant clean-all`，再執行組建。 輸出看起來會像這樣：
+4. 執行組建之前，請先執行 `ant clean-all`。 輸出看起來會像這樣：
 
      ```
      Buildfile: /home/oframe7jeus7/setup/build.xml
@@ -1330,7 +1330,7 @@ JEUS （JAVA 企業使用者解決方案）提供 OpenFrame web 應用程式伺�
      Total time: 0 seconds
      ```
 
-5.  建立網域-config-範本. properties 檔案的備份。 例如：
+5.  建立網域-config-範本. properties 檔案的備份。 例如︰
 
      ```
      [oframe7@ofdemo ~]$ cp domain-config-template.properties domain-configtemplate.properties.bkp
@@ -1345,7 +1345,7 @@ JEUS （JAVA 企業使用者解決方案）提供 OpenFrame web 應用程式伺�
 7. 將 `jeus.password=jeusadmin nodename=Tmaxsoft` 變更為 `jeus.password=tmax1234 nodename=ofdemo`
 
 8. 執行 `ant install` 命令來建立 JEUS。
-9.  以 JEUS 變數更新 bash @ no__t-0profile 檔案，如下所示：
+9.  使用 JEUS 變數來更新 bash\_設定檔檔案，如下所示：
 
      ```
      # JEUS ENV 
@@ -1353,13 +1353,13 @@ JEUS （JAVA 企業使用者解決方案）提供 OpenFrame web 應用程式伺�
      export PATH
      ```
 
-10. 執行 bash 設定檔。 例如：
+10. 執行 bash 設定檔。 例如︰
 
      ```
      [oframe7@ofdemo setup]$ . .bash_profile
      ```
 
-11. *選用*。 建立別名以輕鬆關閉和啟動 JEUS 元件：
+11. *選擇性*。 建立別名以輕鬆關閉和啟動 JEUS 元件：
 
      ```     
      # JEUS alias
@@ -1382,7 +1382,7 @@ JEUS （JAVA 企業使用者解決方案）提供 OpenFrame web 應用程式伺�
      http://<IP>:<port>/webadmin/login
      ```
 
-     例如，<http://192.168.92.133:9736/webadmin/login.>，登入畫面會隨即出現：
+     例如，<http://192.168.92.133:9736/webadmin/login.> 登入畫面會隨即出現：
     
      ![JEUS WebAdmin 登入畫面](media/jeus-01.png)
 
@@ -1413,8 +1413,8 @@ OFGW 是 OpenFrame 閘道，支援3270終端機模擬器和 OSI 基底之間的�
 
 **若要安裝 OFGW**
 
-1. 請確定已成功安裝 JEUS，然後確認 OFGW7 @ no__t-00 @ no__t-11\_Generic.bin 安裝程式檔案存在。
-2. 執行安裝程式。 例如：
+1. 請確定已成功安裝 JEUS，然後確認 OFGW7\_0\_1\_一般的 bin 安裝程式檔案是否存在。
+2. 執行安裝程式。 例如︰
 
      ```
      [oframe7@ofdemo ~]$ ./OFGW7_0_1_Generic.bin
@@ -1447,8 +1447,8 @@ OFManager 提供在 web 環境中 OpenFrame 的作業和管理功能。
 
 **若要安裝 OFManager**
 
-1. 確認 OFManager7\_Generic.bin 安裝程式檔案存在。
-2. 執行安裝程式。 例如：
+1. 確認 OFManager7\_一般的 bin 安裝程式檔案存在。
+2. 執行安裝程式。 例如︰
 
      ```
      OFManager7_Generic.bin

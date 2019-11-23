@@ -47,23 +47,23 @@ ms.locfileid: "72803729"
 
 ### <a name="interactive-authentication"></a>互動式驗證
 
-使用互動式驗證來建立行動應用程式時，最重要的註冊步驟是重新導向 URI。 您可以透過[[驗證](https://aka.ms/MobileAppReg)] 分頁中的 [平臺設定] 來設定此選項。
+使用互動式驗證來建立行動應用程式時，最重要的註冊步驟是重新導向 URI。 您可以透過[驗證](https://aka.ms/MobileAppReg) 分頁中的 [平臺設定] 來設定此選項。
 
 此體驗可讓您的應用程式透過 Microsoft Authenticator （和 Android 上的 Intune 公司入口網站）取得單一登入（SSO），並支援裝置管理原則。
 
 請注意，應用程式註冊入口網站中有預覽體驗，可協助您計算適用于 iOS 和 Android 應用程式的代理回復 URI：
 
-1. 在應用程式註冊中，選擇 [**驗證**和選擇] [**試用新體驗**]，
-   ![映射](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+1. 在應用程式註冊中, 選擇 **驗證** 及選擇 **試用新的體驗** 
+   ![image](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
-2. 選取 **新增平臺**
-   ![映射](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
+2. 選取 **新增平臺** 
+   ![image](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
-3. 當支援平臺清單時，請選取 [ **iOS**
-   ![映射]](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
+3. 當支援平臺清單時, 請選取 **iOS** 
+   ![image](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-4. 依要求輸入您的配套識別碼，然後按下 [**註冊**
-   ![映射]](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
+4. 依要求輸入您的配套識別碼, 然後按下 **註冊** 
+   ![image](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
 5. 系統會為您計算重新導向 URI。
    ![image](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
@@ -76,7 +76,7 @@ ms.locfileid: "72803729"
 
 ### <a name="username-password"></a>使用者名稱密碼
 
-如果您的應用程式只使用使用者名稱/密碼，您就不需要為應用程式註冊重新導向 URI。 事實上，此流程會執行 Microsoft 身分識別平臺 v2.0 端點的來回行程，而您的應用程式將不會在任何特定的 URI 上呼叫。 不過，您需要表達應用程式是公用用戶端應用程式。 這項設定的達成方式是前往您應用程式的 [**驗證**] 區段，然後在 [ **Advanced settings** ] 子節中，選擇 [**是]** ，將 [將**應用程式視為公用用戶端**] （**預設值為用戶端類型**段落）
+如果您的應用程式只使用使用者名稱/密碼，您就不需要為應用程式註冊重新導向 URI。 事實上，此流程會執行 Microsoft 身分識別平臺 v2.0 端點的來回行程，而您的應用程式將不會在任何特定的 URI 上呼叫。 不過，您需要表達應用程式是公用用戶端應用程式。 這項設定的達成方式是前往您應用程式的 [**驗證**] 區段，然後在 [ **Advanced settings** ] 子節中，選擇 [**是]** ，將 [將**應用程式視為公用用戶端**] （在**預設的用戶端類型**段落）
 
 ## <a name="api-permissions"></a>API 權限
 

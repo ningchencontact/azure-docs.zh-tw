@@ -26,7 +26,7 @@ ms.locfileid: "71828240"
 
 ### <a name="can-i-install-the-extension-on-my-visual-studio-team-foundation-server-instance-instead-of-on-an-azure-devops-instance"></a>我可以在 Visual Studio Team Foundation Server 實例上（而不是在 Azure DevOps 實例上安裝此擴充功能）嗎？
 
-資料分割 延伸模組無法供下載及安裝 Visual Studio Team Foundation Server。
+號 延伸模組無法供下載及安裝 Visual Studio Team Foundation Server。
 
 ### <a name="do-i-have-to-run-microsoft-security-code-analysis-with-my-build"></a>我是否必須使用我的組建來執行 Microsoft 安全性程式碼分析？ 
 
@@ -38,7 +38,7 @@ ms.locfileid: "71828240"
 
 ### <a name="can-i-break-my-build-when-results-are-found"></a>可以在找到結果時中斷我的組建嗎？
 
-是的。 當任何工具在記錄檔中報告問題或問題時，您可以引進組建中斷。 只要新增 [後期分析] 組建工作，然後選取您想要中斷組建的任何工具的核取方塊即可。
+是。 當任何工具在記錄檔中報告問題或問題時，您可以引進組建中斷。 只要新增 [後期分析] 組建工作，然後選取您想要中斷組建的任何工具的核取方塊即可。
 
 在分析後工作的 UI 中，您可以選擇在任何工具僅報告錯誤或同時回報錯誤和警告時，中斷組建。
 
@@ -48,14 +48,14 @@ ms.locfileid: "71828240"
 
 明顯的差異：
 
-- 工具會從代理程式 $ （SourcesDirectory）的源資料夾或% BUILD_SOURCESDIRECTORY% 執行。 例如，C:\agent @ no__t-0work\1\s。
+- 工具會從代理程式 $ （SourcesDirectory）的源資料夾，或從% BUILD_SOURCESDIRECTORY% 執行。 例如，C:\agent\_work\1\s。
 - 引數中的路徑可以相對於先前列出之來原始目錄的根目錄。 路徑也可以是絕對的。 您可以使用 Azure DevOps 組建變數或執行具有本機資源已知部署位置的內部部署代理程式，來取得絕對路徑。
 - 工具會自動提供輸出檔案路徑或資料夾。 如果您提供組建工作的輸出位置，該位置會被取代為組建代理程式上已知記錄檔位置的路徑
 - 某些工具的一些其他命令列引數已變更。 其中一個範例是新增或移除選項，以確保不會啟動 GUI。
 
 ### <a name="can-i-run-a-build-task-like-credential-scanner-across-multiple-repositories-in-an-azure-devops-build"></a>我可以在 Azure DevOps 組建中跨多個存放庫執行認證掃描器之類的組建工作嗎？
 
-資料分割 不支援在單一管線中跨多個存放庫執行安全的開發工具。
+號 不支援在單一管線中跨多個存放庫執行安全的開發工具。
 
 ### <a name="the-output-file-i-specified-isnt-being-created-or-i-cant-find-the-output-file-i-specified"></a>未建立我指定的輸出檔，或找不到我指定的輸出檔
 
@@ -63,11 +63,11 @@ ms.locfileid: "71828240"
 
 ### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>這些工具所產生的輸出檔會儲存在哪裡？ 
 
-組建工作會自動將輸出路徑加入至組建代理程式上的這個知名位置： $ （BuildDirectory） \_sdt \ logs。 因為我們會在這個位置上標準化，所以產生或取用程式碼分析記錄的所有小組都有輸出的存取權。
+組建工作會自動將輸出路徑加入至組建代理程式上的這個知名位置： $ （BuildDirectory）\_sdt\logs。 因為我們會在這個位置上標準化，所以產生或取用程式碼分析記錄的所有小組都有輸出的存取權。
 
 ### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>我可以將組建排入佇列，以便在裝載的組建代理程式上執行這些工作嗎？ 
 
-是的。 擴充功能中的所有工作和工具都可以在託管的組建代理程式上執行。
+是。 擴充功能中的所有工作和工具都可以在託管的組建代理程式上執行。
 
 >[!NOTE]
 > 反惡意程式碼掃描器組建工作需要有已啟用 Windows Defender 的組建代理程式。 託管 Visual Studio 2017 和更新版本會提供這類代理程式。 組建工作不會在 Visual Studio 2015 主控的代理程式上執行。
@@ -90,7 +90,7 @@ ms.locfileid: "71828240"
 
 ### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>安裝延伸模組會修改我現有的 Azure 管線嗎？ 
 
-資料分割 安裝此延伸模組可讓您的管線加入安全性組建工作。 您仍然需要新增或更新組建定義，如此一來，工具就可以與您的組建流程搭配使用。
+號 安裝此延伸模組可讓您的管線加入安全性組建工作。 您仍然需要新增或更新組建定義，如此一來，工具就可以與您的組建流程搭配使用。
 
 ## <a name="task-specific-faq"></a>工作特定的常見問題
 
@@ -170,16 +170,16 @@ ms.locfileid: "71828240"
 
 內容搜尋會定義如下：
 
-- **名稱**：要在認證掃描器輸出檔中使用的描述性搜尋者名稱。 我們建議您針對搜尋者名稱使用 camel 大小寫的命名慣例。
+- **名稱**：要在認證掃描器輸出檔案中使用的描述性搜尋程式名稱。 我們建議您針對搜尋者名稱使用 camel 大小寫的命名慣例。
 - **RuleId**：搜尋者的穩定不透明識別碼：
     - 認證掃描器的預設搜尋者會被指派一個**RuleId**值，例如 CSCAN0010、CSCAN0020 或 CSCAN0030。 最後一個數位保留給可能會透過正則運算式（RegEx）合併或分割搜尋者群組。
-    - 自訂的搜尋者的**RuleId**值應該有自己的命名空間。 範例包括 @no__t CSCAN-0Namespace @ no__t-10010、CSCAN \<Namespace @ no__t-30020 和 CSCAN \<Namespace @ no__t-50030。
+    - 自訂的搜尋者的**RuleId**值應該有自己的命名空間。 範例包括 CSCAN\<命名空間\>mylnxstorage02、CSCAN\<Namespace\>0020 和 CSCAN\<Namespace\>0030。
     - 完整的搜尋者名稱是**RuleId**值和搜索者名稱的組合。 範例包括 CSCAN0010。KeyStoreFiles 和 CSCAN0020。Base64EncodedCertificate.
-- **ResourceMatchPattern**：檔案副檔名的 Regex，可對搜尋者進行檢查。
+- **ResourceMatchPattern**：用來檢查搜尋者的檔案副檔名 Regex。
 - **ContentSearchPatterns**：包含要比對之 RegEx 語句的字串陣列。 如果未定義任何搜尋模式，則會傳回符合**ResourceMatchPattern**值的所有檔案。
-- **ContentSearchFilters**：包含 RegEx 語句的字串陣列，用來篩選搜尋程式特定的錯誤陽性。
+- **ContentSearchFilters**：包含 RegEx 語句的字串陣列，用來篩選搜尋特定的錯誤陽性。
 - **MatchDetails**：要針對每個搜尋的相符新增的描述性訊息、緩和指示或兩者。
-- **建議**：使用 PREfast 報表格式之比對的建議欄位內容。
+- **建議**事項：使用 PREfast 報表格式之相符項的建議欄位內容。
 - **嚴重性**：反映問題嚴重性層級的整數。 最高嚴重性層級的值為1。
 
   ![顯示認證掃描器設定的 XML](./media/security-tools/6-credscan-customsearchers.png)
@@ -192,7 +192,7 @@ ms.locfileid: "71828240"
 
 完整的錯誤訊息：
 
-"Error:已使用 NETCore *. x 版還原專案，但*使用目前的設定，將改用版本 y. y *。* 若要解決此問題，請確定已使用相同的設定來進行還原，以及進行後續作業（例如組建或發行）。 一般來說，如果在組建或發佈期間設定 RuntimeIdentifier 屬性，但在還原期間不會發生此問題。
+「錯誤：此專案已使用 NETCore 版本*x.x*進行還原，但使用目前的設定，將改用版本 y. y *. y。* 若要解決此問題，請確定已使用相同的設定來進行還原，以及進行後續作業（例如組建或發行）。 一般來說，如果在組建或發佈期間設定 RuntimeIdentifier 屬性，但在還原期間不會發生此問題。
 
 由於 Roslyn 分析器工作會在編譯過程中執行，因此組建電腦上的來源樹狀結構必須處於可建置狀態。
 
@@ -202,13 +202,13 @@ ms.locfileid: "71828240"
 
 完整的錯誤訊息：
 
-"' printbrm.exe ' 已結束，錯誤碼為 1--無法從 C： \\*mm.nn.bbbb.rr*建立分析器*AAAA*的實例：無法載入檔案或元件 ' CodeAnalysis，Version =*x*. x，Culture = 中性，PublicKeyToken = 31bf3856ad364e35 ' 或其相依性的其中之一。 系統找不到指定的檔案。」
+"' csc .exe ' 已結束，錯誤碼為 1--無法從 C：\\*mm.nn.bbbb.rr*建立分析器*AAAA*的實例：無法載入檔案或元件 ' CodeAnalysis，Version =*x*. x，Culture = 中性，PublicKeyToken = 31bf3856ad364e35 ' 或其相依性的其中之一。 系統找不到指定的檔案。」
 
 請確定您的編譯器支援 Roslyn 分析器。 執行 **/version**命令時，應該會報告2.6 或更新版本的 version 值。
 
 有時候 .csproj 檔案可以藉由參考 Microsoft.Net 中的套件，來覆寫組建電腦的 Visual Studio 安裝。 如果您不想要使用特定版本的編譯器，請移除 Microsoft.Net 的參考。 否則，請確定所參考封裝的版本也是2.6 或更新版本。
 
-嘗試取得在**printbrm.exe/errorlog**選項中指定的錯誤記錄檔路徑。 選項和路徑會出現在 Roslyn 分析器組建工作的記錄檔中。 它們看起來可能像是 **/errorlog： F:\ts-services-123 @ no__t-1work\456\s\Some\Project\Code\Code.csproj.sarif**
+嘗試取得在**printbrm.exe/errorlog**選項中指定的錯誤記錄檔路徑。 選項和路徑會出現在 Roslyn 分析器組建工作的記錄檔中。 它們看起來可能像是 **/errorlog： f:\ts-services-123\_work\456\s\Some\Project\Code\Code.csproj.sarif**
 
 ##### <a name="the-c-compiler-version-isnt-recent-enough"></a>C#編譯器版本不夠新
 
@@ -222,9 +222,9 @@ ms.locfileid: "71828240"
 
 如果您需要額外的協助，Microsoft 安全性程式碼分析支援將于太平洋標準時間上午 9:00 AM 到 5:00 PM 的星期一到星期五提供。
 
-  - 上架：請洽詢您的技術客戶經理以開始使用。
+  - 上線：請洽詢您的技術客戶經理以開始使用。
   
-  - 部門透過電子郵件寄給我們的小組，並提供[Microsoft 安全性代碼分析支援](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)。
+  - 支援：以電子郵件寄給我們的小組，其為[Microsoft 安全性程式碼分析支援](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)。
 
   >[!NOTE] 
   >您可能沒有與 Microsoft 的付費支援關係。 或者您可能會有支援供應專案，而無法從 Phoenix 目錄購買服務。 如果上述任一條件成立，請造訪我們的[支援服務首頁](https://www.microsoft.com/enterprise/services/support)以取得詳細資訊。

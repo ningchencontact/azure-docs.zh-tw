@@ -79,7 +79,7 @@ ms.locfileid: "73147004"
   
 4. 按一下 [成員資格]，然後依照電子郵件地址輸入 Azure AD 租用戶中的使用者或群組。
 
-     ![新增使用者](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
+     ![加入使用者](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
 5. 如果您建立的角色具有「讀取」權限，您可以使用 DAX 公式來新增資料列篩選條件。 按一下 [資料列篩選條件]，選取資料表，然後在 [DAX 篩選條件] 欄位中輸入 DAX 公式。 
 
@@ -137,9 +137,9 @@ ms.locfileid: "73147004"
   
 資料列篩選條件會套用至指定的資料列和相關資料列。 若資料表具有多個關聯性，篩選條件就會套用作用中關聯性的安全性。 資料列篩選條件會與針對相關資料表定義的其他資料列篩選條件產生交集，例如：  
   
-|表格|DAX 運算式|  
+|資料表|DAX 運算式|  
 |-----------|--------------------|  
-|地區|=Region[Country]="USA"|  
+|區域|=Region[Country]="USA"|  
 |ProductCategory|=ProductCategory[Name]="Bicycles"|  
 |交易|=Transactions[Year]=2016|  
   

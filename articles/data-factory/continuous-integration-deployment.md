@@ -20,7 +20,7 @@ ms.locfileid: "73680038"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和傳遞 (CI/CD)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 持續整合是指進行相關實作，以自動並及早測試對您的程式碼基底所做的每項變更。 持續傳遞會遵循持續整合期間所發生的測試，並將變更推送至暫存或生產系統。
 
@@ -78,7 +78,7 @@ ms.locfileid: "73680038"
 
 ![透過 Azure Pipelines 進行持續整合的圖表](media/continuous-integration-deployment/continuous-integration-image12.png)
 
-### <a name="requirements"></a>要求
+### <a name="requirements"></a>需求
 
 -   連結至使用 [Azure Resource Manager 服務端點](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)Team Foundation Server 或 Azure Repos 的 Azure 訂用帳戶。
 
@@ -196,7 +196,7 @@ ms.locfileid: "73680038"
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-您可以遵循類似的步驟（使用 `Start-AzDataFactoryV2Trigger` 函數），在部署之後重新開機觸發程式。
+您可以遵循類似的步驟（使用 `Start-AzDataFactoryV2Trigger` 函式），在部署之後重新開機觸發程式。
 
 > [!IMPORTANT]
 > 在持續整合和部署案例中，跨不同環境的整合執行階段類型必須是相同的。 例如，如果您在開發環境中有*自我裝載*整合執行階段 (IR)，則相同的 IR 在其他環境 (例如測試和生產環境) 中也必須屬於*自我裝載*類型。 同樣地，如果您要跨多個階段共用整合執行階段，則必須將所有環境中的整合執行階段設定為*連結自我裝載*，例如開發、測試和生產環境。
@@ -341,8 +341,8 @@ else {
       * `=` 表示保留目前的值做為參數的預設值。
       * `-` 表示不保留參數的預設值。
       * `|` 是針對連接字串或金鑰 Azure Key Vault 的秘密特殊案例。
-   * `<name>` 是參數的名稱。 如果是空的，則會接受屬性的名稱。 如果值的開頭為 `-` 字元，則會縮短名稱。 例如，`AzureStorage1_properties_typeProperties_connectionString` 會縮短為 `AzureStorage1_connectionString`。
-   * `<stype>` 是參數的類型。 如果 `<stype>` 為空白，則預設類型為 [`string`]。 支援的值： `string`、`bool`、`number`、`object` 和 `securestring`。
+   * `<name>` 是參數的名稱。 如果是空的，則會接受屬性的名稱。 如果值是以 `-` 字元開頭，則名稱會縮短。 例如，`AzureStorage1_properties_typeProperties_connectionString` 會縮短為 `AzureStorage1_connectionString`。
+   * `<stype>` 是參數的類型。 如果 `<stype>` 為空白，則預設類型為 [`string`]。 支援的值： `string`、`bool`、`number`、`object`和 `securestring`。
 * 當您在定義檔中指定陣列時，就表示範本中的相符屬性是陣列。 Data Factory 會使用陣列的 Integration Runtime 物件中指定的定義，逐一查看陣列中的所有物件。 第二個物件 (字串) 會變成屬性的名稱，以作為每個反覆項目參數的名稱。
 * 資源實例不可能有特定的定義。 任何定義都會套用至該類型的所有資源。
 * 根據預設，系統會將所有安全字串（例如 Key Vault 秘密）和安全字串（例如連接字串、金鑰和權杖）參數化。
@@ -419,16 +419,16 @@ else {
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* 路徑 `typeProperties` 下的所有屬性都會以其各自的預設值進行參數化。 例如， **IntegrationRuntimes**類型屬性底下有兩個屬性： `computeProperties` 和 `ssisProperties`。 這兩個屬性類型都會使用其各自的預設值和類型（物件）來建立。
+* 路徑 `typeProperties` 下的所有屬性都會使用其各自的預設值進行參數化。 例如， **IntegrationRuntimes**類型屬性底下有兩個屬性： `computeProperties` 和 `ssisProperties`。 這兩個屬性類型都會使用其各自的預設值和類型（物件）來建立。
 
 #### <a name="triggers"></a>觸發程序
 
-* 在 `typeProperties` 下，會將兩個屬性參數化。 第一個是 `maxConcurrency`，其指定為具有預設值，且的類型為`string`。 它的預設參數名稱為 `<entityName>_properties_typeProperties_maxConcurrency`。
-* `recurrence` 屬性也已參數化。 在其底下，會指定該層級的所有屬性，以預設值和參數名稱參數化為字串。 例外狀況是 `interval` 屬性，它會參數化為數位類型，且參數名稱後置字元為 `<entityName>_properties_typeProperties_recurrence_triggerSuffix`。 同樣地，`freq` 屬性是字串，而且會參數化為字串。 不過，`freq` 屬性會在沒有預設值的情況下參數化。 名稱會縮短並加上尾碼。 例如， `<entityName>_freq`。
+* 在 `typeProperties`底下，會將兩個屬性參數化。 第一個是 `maxConcurrency`，其指定為具有預設值，且的類型為`string`。 它具有 `<entityName>_properties_typeProperties_maxConcurrency`的預設參數名稱。
+* `recurrence` 屬性也已參數化。 在其底下，會指定該層級的所有屬性，以預設值和參數名稱參數化為字串。 例外狀況是 `interval` 屬性，其參數化為數位類型，且參數名稱後置字元為 `<entityName>_properties_typeProperties_recurrence_triggerSuffix`。 同樣地，`freq` 屬性是字串，而且會參數化為字串。 不過，`freq` 屬性會在沒有預設值的情況下參數化。 名稱會縮短並加上尾碼。 例如， `<entityName>_freq`。
 
 #### <a name="linkedservices"></a>Linkedservices.json 和 datasets.json
 
-* 連結服務是唯一的。 因為已連結的服務和資料集有範圍廣泛的類型，所以您可以提供特定類型的自訂。 在此範例中，所有類型的連結服務 `AzureDataLakeStore`，將會套用特定的範本，而所有其他的應用程式（透過 \*）將會套用不同的範本。
+* 連結服務是唯一的。 因為已連結的服務和資料集有範圍廣泛的類型，所以您可以提供特定類型的自訂。 在此範例中，將會套用 `AzureDataLakeStore`類型的所有連結服務，並套用特定的範本，而所有其他的應用程式（透過 \*）將會套用不同的範本。
 * `connectionString` 屬性將會參數化為 `securestring` 值，它不會有預設值，而且會有一個加上尾碼為 `connectionString`的簡短參數名稱。
 * `secretAccessKey` 的屬性會是 `AzureKeyVaultSecret` （例如，在 `AmazonS3` 連結服務中）。 它會自動參數化為 Azure Key Vault 秘密，並從已設定的金鑰保存庫提取。 您也可以將金鑰保存庫本身參數化。
 
@@ -545,7 +545,7 @@ else {
 }
 ```
 
-以下是如何將單一值新增至預設參數化範本的範例。 我們只想要將 Databricks 連結服務的現有 Databricks 互動式叢集識別碼新增到參數檔案。 請注意，下列檔案與上述檔案相同，但在 `Microsoft.DataFactory/factories/linkedServices` 的 [內容] 欄位底下包含 `existingClusterId` 除外。
+以下是如何將單一值新增至預設參數化範本的範例。 我們只想要將 Databricks 連結服務的現有 Databricks 互動式叢集識別碼新增到參數檔案。 請注意，下列檔案與上述檔案相同，但 `existingClusterId` 包含在 `Microsoft.DataFactory/factories/linkedServices`的 [屬性] 欄位底下。
 
 ```json
 {
@@ -657,7 +657,7 @@ else {
 
 如果您已為資料處理站設定持續整合和部署（CI/CD），您可能會在您的 factory 變得更大時遇到 Azure Resource Manager 範本限制。 限制的範例是 Resource Manager 範本中的資源數目上限。 為了配合大型工廠，並產生 factory 的完整 Resource Manager 範本，Data Factory 現在會產生連結的 Resource Manager 範本。 透過這項功能，整個 factory 承載會分成數個檔案，因此您不會遇到限制。
 
-如果您已設定 Git，則會產生連結的範本，並連同 `adf_publish` 分支的完整 Resource Manager 範本一起儲存在名為 `linkedTemplates` 的新資料夾底下。
+如果您已設定 Git，則會產生連結的範本，並連同 `adf_publish` 分支中的完整 Resource Manager 範本一起儲存在名為 `linkedTemplates`的新資料夾底下。
 
 ![連結的 Resource Manager 範本資料夾](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 

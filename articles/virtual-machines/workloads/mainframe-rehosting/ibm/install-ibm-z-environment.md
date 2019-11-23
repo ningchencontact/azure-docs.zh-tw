@@ -39,12 +39,12 @@ Azure 和 Azure Stack 支援下列版本：
 
 本文說明如何在 Azure 上設定 Z 開發和測試環境（zD & T） Enterprise Edition。 接著，您可以使用 zD & T Enterprise Edition web 伺服器，在 Azure 上建立和管理以 Z 為基礎的環境。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 > [!NOTE]
 > IBM 只允許在開發/測試環境中安裝 zD & T Enterprise Edition，*而不*是在生產環境中。
 
-- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+- Azure 訂閱。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 - 您需要存取媒體，這僅供 IBM 客戶和合作夥伴使用。 如需詳細資訊，請洽詢您的 IBM 代表，或參閱[zD & T](https://www.ibm.com/us-en/marketplace/z-systems-development-test-environment)網站上的連絡人資訊。
 
@@ -62,11 +62,11 @@ Azure 和 Azure Stack 支援下列版本：
 
 3. 透過 [連線 **]** 按鈕取得 VM [**總覽**] 分頁上顯示的 SSH 認證。 選取 [ **ssh** ] 索引標籤，並將 [ssh 登入] 命令複製到剪貼簿。
 
-4. 從您的本機電腦登入[Bash shell](/azure/cloud-shell/quickstart) ，並貼上命令。 其格式為**ssh @ no__t-1user id @ no__t-2 @ no__t-3 @ no__t-4IP Address @ no__t-5**。 當系統提示您提供認證時，請輸入它們以建立與您的主目錄的連接。
+4. 從您的本機電腦登入[Bash shell](/azure/cloud-shell/quickstart) ，並貼上命令。 它的格式會是**ssh\<使用者識別碼\>\@\<IP 位址\>** 。 當系統提示您提供認證時，請輸入它們以建立與您的主目錄的連接。
 
 ## <a name="copy-the-installation-file-to-the-server"></a>將安裝檔案複製到伺服器
 
-Web 服務器的安裝檔案是**ZDT @ no__t-1Install @ no__t-2EE\_V12.0.0.1.tgz**。 它包含在 IBM 所提供的媒體中。 您必須將此檔案上傳到您的 Ubuntu VM。
+Web 服務器的安裝檔案是**ZDT\_Install\_EE\_v 12.0.0.1. tgz**。 它包含在 IBM 所提供的媒體中。 您必須將此檔案上傳到您的 Ubuntu VM。
 
 1. 從命令列輸入下列命令，以確保新建立的映射中所有專案都是最新的：
 
@@ -91,7 +91,7 @@ Web 服務器的安裝檔案是**ZDT @ no__t-1Install @ no__t-2EE\_V12.0.0.1.tgz
 
 ## <a name="install-the-enterprise-edition"></a>安裝 Enterprise Edition
 
-1. 移至 ZDT 目錄，並使用下列命令將 ZDT @ no__t-0Install @ no__t-1EE\_V12.0.0.1.tgz 檔案解壓縮：
+1. 移至 ZDT 目錄，並使用下列命令將 ZDT\_Install\_EE\_12.0.0.1. tgz 檔案解壓縮：
 
     ```
     cd ZDT

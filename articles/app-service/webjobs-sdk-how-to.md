@@ -37,14 +37,14 @@ ms.locfileid: "71815733"
 > [!NOTE]
 > [Azure Functions](../azure-functions/functions-overview.md)是建置於 webjob SDK 上，本文提供一些主題的 Azure Functions 檔連結。 請注意函式與 Webjob SDK 之間的這些差異：
 > * Azure Functions 版本2。*x*對應至 webjob SDK 第3版。*x*和 Azure Functions 1。*x*對應至 webjob SDK 2。*x*。 原始程式碼存放庫會使用 Webjob SDK 編號。
-> * Azure Functions C#類別庫的範例程式碼就像是 webjob sdk 程式碼，不同之處在于 webjob sdk 專案中不需要有 @no__t 1 的屬性。
+> * Azure Functions C#類別庫的範例程式碼就像是 webjob sdk 程式碼，但您不需要在 webjob sdk 專案中使用 `FunctionName` 屬性。
 > * 某些系結類型僅在函式中受到支援，例如 HTTP （Webhook）和事件方格（以 HTTP 為基礎）。
 >
 > 如需詳細資訊，請參閱[比較 WebJobs SDK 和 Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs) (英文)。
 
 ## <a name="webjobs-host"></a>WebJobs 主機
 
-此主機是函式的執行階段容器。  它會接聽觸發程序並呼叫函式。 在第3版中。*x*，主機是 `IHost` 的執行。 在第2版中。*x*，您可以使用 `JobHost` 物件。 您可以在程式碼中建立主機執行個體，並撰寫程式碼以自訂其行為。
+此主機是函式的執行階段容器。  它會接聽觸發程序並呼叫函式。 在第3版中。*x*，主機是 `IHost`的執行。 在第2版中。*x*，您可以使用 `JobHost` 物件。 您可以在程式碼中建立主機執行個體，並撰寫程式碼以自訂其行為。
 
 這是直接使用 Webjob SDK，並透過 Azure Functions 間接使用的主要差異。 在 Azure Functions 中，服務會控制主機，而且您無法藉由撰寫程式碼來自訂主機。 Azure Functions 可讓您透過 host. json 檔案中的設定來自訂主機行為。 這些設定是字串，而不是程式碼，這會限制您可以執行的自訂類型。
 
@@ -52,7 +52,7 @@ ms.locfileid: "71815733"
 
 當您在本機執行時，或在 Azure 中執行時，Webjob SDK 會尋找本機. settings. json 檔案中的 Azure 儲存體和 Azure 服務匯流排連接字串。 根據預設，需要名為 `AzureWebJobsStorage` 的儲存體連接字串設定。  
 
-第2版。*x* SDK 可讓您針對這些連接字串使用您自己的名稱，或將其儲存在其他地方。 您可以使用[`JobHostConfiguration`]來設定程式碼中的名稱，如下所示：
+第2版。*x* SDK 可讓您針對這些連接字串使用您自己的名稱，或將其儲存在其他地方。 您可以使用[`JobHostConfiguration`]在程式碼中設定名稱，如下所示：
 
 ```cs
 static void Main(string[] args)
@@ -78,7 +78,7 @@ static void Main(string[] args)
 
 您可以在開發模式中執行主機，讓本機開發更有效率。 以下是當您在開發模式中執行時，所變更的一些設定：
 
-| 內容 | 開發設定 |
+| 屬性 | 開發設定 |
 | ------------- | ------------- |
 | `Tracing.ConsoleLevel` | `TraceLevel.Verbose` 將記錄輸出最大化。 |
 | `Queues.MaxPollingInterval`  | 最低值可確保立即觸發佇列方法。  |
@@ -88,7 +88,7 @@ static void Main(string[] args)
 
 #### <a name="version-3x"></a>第3版。*x*
 
-第3版。*x*使用標準 ASP.NET Core api。 在[`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder)實例上呼叫[`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment)方法。 傳遞名為 `development` 的字串，如下列範例所示：
+第3版。*x*使用標準 ASP.NET Core api。 呼叫[`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder)實例上的[`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment)方法。 傳遞名為 `development`的字串，如下列範例所示：
 
 ```cs
 static void Main()
@@ -109,7 +109,7 @@ static void Main()
 
 #### <a name="version-2x"></a>第2版。*x*
 
-`JobHostConfiguration` 類別具有可啟用開發模式的 `UseDevelopmentSettings` 方法。  下列範例示範如何使用開發設定。 若要讓 `config.IsDevelopment` 在本機執行時傳回 `true`，請將名為 `AzureWebJobsEnv` 的本機環境變數設定為值 `Development`。
+`JobHostConfiguration` 類別具有可啟用開發模式的 `UseDevelopmentSettings` 方法。  下列範例示範如何使用開發設定。 若要讓 `config.IsDevelopment` 在本機執行時傳回 `true`，請將名為 `AzureWebJobsEnv` 的本機環境變數設定為 `Development`的值。
 
 ```cs
 static void Main()
@@ -132,13 +132,13 @@ static void Main()
 
 在第2版中。*x*，您可以使用[ServicePointManager. servicepointmanager.defaultconnectionlimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API 來控制對主機的並行連線數目。 在2中。*x*，在啟動 webjob 主機之前，您應該從預設值2增加此值。
 
-所有從函式使用 `HttpClient` 的輸出 HTTP 要求，都是透過 `ServicePointManager` 來進行。 當您到達 `DefaultConnectionLimit` 中設定的值之後，`ServicePointManager` 就會開始將要求排入佇列，然後再傳送它們。 假設您的 `DefaultConnectionLimit` 設為 2，且您的程式碼會發出 1,000 個 HTTP 要求。 一開始，只允許兩個要求傳至作業系統。 其他的 998 個要求會排入佇列，直到有足夠的空間給它們。 這表示您的 `HttpClient` 可能會超時，因為它似乎已提出要求，但不是由作業系統將要求傳送到目的地伺服器。 因此，您可能會看到一個似乎不合理的行為：您的本機 `HttpClient` 花費 10 秒完成要求，但您的服務正以 200 毫秒的時間傳回每個要求。 
+您從函式使用 `HttpClient` 流程透過 `ServicePointManager`進行的所有傳出 HTTP 要求。 當您到達 `DefaultConnectionLimit`中設定的值之後，`ServicePointManager` 會在傳送要求之前先將它們排入佇列。 假設您的 `DefaultConnectionLimit` 設為 2，且您的程式碼會發出 1,000 個 HTTP 要求。 一開始，只允許兩個要求傳至作業系統。 其他的 998 個要求會排入佇列，直到有足夠的空間給它們。 這表示您的 `HttpClient` 可能會超時，因為它似乎已提出要求，但不是由作業系統將要求傳送到目的地伺服器。 因此，您可能會看到一個似乎不合理的行為：您的本機 `HttpClient` 花費 10 秒完成要求，但您的服務正以 200 毫秒的時間傳回每個要求。 
 
-ASP.NET 應用程式的預設值為 `Int32.MaxValue`，這可能適用于在基本或更高 App Service 方案中執行的 Webjob。 Webjob 通常需要 Always On 設定，而且只有基本和較高的 App Service 方案才支援。
+ASP.NET 應用程式的預設值是 `Int32.MaxValue`，而且可能適用于在基本或更高 App Service 方案中執行的 Webjob。 Webjob 通常需要 Always On 設定，而且只有基本和較高的 App Service 方案才支援。
 
-如果 WebJob 正在免費或共用的 App Service 方案中執行，則您的應用程式會受到 App Service 沙箱的限制，沙箱目前的[連線限制為 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits)。 在 `ServicePointManager` 中使用未系結的連接限制時，可能會達到沙箱連接閾值，而且網站將會關閉。 在此狀況下，將 `DefaultConnectionLimit` 設為更低的值，如 50 或 100，可防止這種狀況發生，同時仍允許有足夠的輸送量。
+如果 WebJob 正在免費或共用的 App Service 方案中執行，則您的應用程式會受到 App Service 沙箱的限制，沙箱目前的[連線限制為 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits)。 在 `ServicePointManager`中使用未系結的連線限制時，可能會達到沙箱連接閾值，而網站將會關閉。 在此狀況下，將 `DefaultConnectionLimit` 設為更低的值，如 50 或 100，可防止這種狀況發生，同時仍允許有足夠的輸送量。
 
-此設定必須先設定，才能發出任何 HTTP 要求。 基於這個理由，Webjob 主機不應自動調整設定。 可能會有在主機啟動之前發生的 HTTP 要求，這可能會導致非預期的行為。 最好的方法是在初始化 `JobHost` 之前，立即在 `Main` 方法中設定值，如下所示：
+此設定必須先設定，才能發出任何 HTTP 要求。 基於這個理由，Webjob 主機不應自動調整設定。 可能會有在主機啟動之前發生的 HTTP 要求，這可能會導致非預期的行為。 最好的方法是在初始化 `JobHost`之前，立即在 `Main` 方法中設定值，如下所示：
 
 ```csharp
 static void Main(string[] args)
@@ -153,7 +153,7 @@ static void Main(string[] args)
 
 ## <a name="triggers"></a>觸發程序
 
-函數必須是公用方法，而且必須有一個 trigger 屬性或[@no__t 1](#manual-triggers)屬性。
+函數必須是公用方法，而且必須有一個 trigger 屬性或[`NoAutomaticTrigger`](#manual-triggers)屬性。
 
 ### <a name="automatic-triggers"></a>自動觸發程式
 
@@ -169,7 +169,7 @@ public static void Run(
 }
 ```
 
-@No__t-0 屬性會告知執行時間，只要佇列訊息出現在 `myqueue-items` 佇列中，就會呼叫函數。 @No__t-0 屬性會告知執行時間使用佇列訊息來讀取*範例*工作專案容器中的 blob。 佇列訊息的內容（傳入 `myQueueItem` 參數中的函式）是 blob 的名稱。
+`QueueTrigger` 屬性會告知執行時間在 `myqueue-items` 佇列中出現佇列訊息時呼叫函式。 `Blob` 屬性會告知執行時間使用佇列訊息來讀取*範例*工作專案容器中的 blob。 佇列訊息的內容（傳入 `myQueueItem` 參數中的函式）是 blob 的名稱。
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
@@ -240,7 +240,7 @@ static void Main(string[] args)
 
 #### <a name="version-3x"></a>第3版。*x*
 
-在第3版中。*x*，儲存體系結會包含在 `Microsoft.Azure.WebJobs.Extensions.Storage` 套件中。 呼叫 `ConfigureWebJobs` 方法中的 @no__t 0 擴充方法，如下所示：
+在第3版中。*x*，儲存體系結會包含在 `Microsoft.Azure.WebJobs.Extensions.Storage` 封裝中。 在 `ConfigureWebJobs` 方法中呼叫 `AddAzureStorage` 擴充方法，如下所示：
 
 ```cs
 static void Main()
@@ -288,7 +288,7 @@ static void Main()
 * 佇列儲存體
 * 資料表儲存體
 
-若要使用其他觸發程序與繫結型別，請安裝包含它們的 NuGet 封裝，並在 `JobHostConfiguration` 物件上呼叫 `Use<binding>` 方法。 例如，如果您想要使用計時器觸發程式，請安裝 `Microsoft.Azure.WebJobs.Extensions`，並在 `Main` 方法中呼叫 `UseTimers`，如下所示：
+若要使用其他觸發程序與繫結型別，請安裝包含它們的 NuGet 封裝，並在 `Use<binding>` 物件上呼叫 `JobHostConfiguration` 方法。 例如，如果您想要使用計時器觸發程式，請安裝 `Microsoft.Azure.WebJobs.Extensions` 並在 `Main` 方法中呼叫 `UseTimers`，如下所示：
 
 ```cs
 static void Main()
@@ -318,11 +318,11 @@ public class Functions
 }
 ```
 
-系結至[`ExecutionContext` 的程式]取決於您的 SDK 版本。
+系結至[`ExecutionContext`]的程式取決於您的 SDK 版本。
 
 #### <a name="version-3x"></a>第3版。*x*
 
-呼叫 `ConfigureWebJobs` 方法中的 @no__t 0 擴充方法，如下所示：
+在 `ConfigureWebJobs` 方法中呼叫 `AddExecutionContextBinding` 擴充方法，如下所示：
 
 ```cs
 static void Main()
@@ -343,7 +343,7 @@ static void Main()
 
 #### <a name="version-2x"></a>第2版。*x*
 
-先前所提到的 `Microsoft.Azure.WebJobs.Extensions` 封裝方法也提供特殊的繫結型別，您可以呼叫 `UseCore` 方法來註冊該繫結型別。 這個系結可讓您在函式簽章中定義[@no__t 1]參數，其啟用方式如下所示：
+先前所提到的 `Microsoft.Azure.WebJobs.Extensions` 封裝方法也提供特殊的繫結型別，您可以呼叫 `UseCore` 方法來註冊該繫結型別。 這個系結可讓您在函式簽章中定義[`ExecutionContext`]參數，此功能的啟用方式如下所示：
 
 ```cs
 class Program
@@ -362,8 +362,8 @@ class Program
 
 您可以設定某些觸發程式和系結的行為。 設定它們的程式取決於 SDK 版本。
 
-* **第3版。*x*：** 在 `ConfigureWebJobs` 中呼叫 `Add<Binding>` 方法時設定設定。
-* **第2版。*x*：** 在您傳入 `JobHost` 的 configuration 物件中設定屬性，藉以設定設定。
+* **第3版。*x*：** 在 `ConfigureWebJobs`中呼叫 `Add<Binding>` 方法時設定設定。
+* **第2版。*x*：** 在您傳入 `JobHost`的設定物件中設定屬性，藉以進行設定。
 
 這些系結特有的設定相當於 Azure Functions 中的[主機 json 專案](../azure-functions/functions-host-json.md)檔中的設定。
 
@@ -611,9 +611,9 @@ public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
 
 此程式碼可讓您在測試環境中使用名為 `logqueuetest` 的佇列，以及在生產環境中使用名為 `logqueueprod` 的佇列。 您不必使用硬式編碼的佇列名稱，而是在 `appSettings` 集合中指定項目的名稱。
 
-如果您未提供自訂的預設值，則會生效 `NameResolver`。 此預設值會從應用程式設定或環境變數取得值。
+如果您未提供自訂的預設 `NameResolver`，就會生效。 此預設值會從應用程式設定或環境變數取得值。
 
-您的 @no__t 0 類別會從 `appSettings` 取得佇列名稱，如下所示：
+您的 `NameResolver` 類別會從 `appSettings`取得佇列名稱，如下所示：
 
 ```cs
 public class CustomNameResolver : INameResolver
@@ -633,7 +633,7 @@ public class CustomNameResolver : INameResolver
 using Microsoft.Extensions.DependencyInjection;
 ```
 
-您可以藉由在[`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder)上呼叫[@no__t 1]擴充方法來新增解決器，如下列範例所示：
+您可以藉由在[`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder)上呼叫[`ConfigureServices`]擴充方法來新增解析程式，如下列範例所示：
 
 ```cs
 static async Task Main(string[] args)
@@ -671,7 +671,7 @@ Azure Functions 會實作 `INameResolver`，以從應用程式設定取得值，
 
 ## <a name="binding-at-runtime"></a>執行階段的繫結
 
-如果您需要先在函式中執行一些工作，再使用如 `Queue`、`Blob` 或 `Table` 的系結屬性，您可以使用 `IBinder` 介面。
+如果您需要先在函式中執行一些工作，再使用 `Queue`、`Blob`或 `Table`之類的系結屬性，您可以使用 `IBinder` 介面。
 
 下列範例會使用輸入佇列訊息，並在輸出佇列中建立含有相同內容的新訊息。 輸出佇列名稱會由函數主體中的程式碼設定。
 
@@ -703,7 +703,7 @@ Azure Functions 檔提供有關每個系結類型的參考資訊。 您會在每
 
 ## <a name="disable-attribute"></a>Disable 屬性 
 
-[@No__t 1](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs)屬性可讓您控制是否可以觸發函數。 
+[`Disable`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs)屬性可讓您控制是否可以觸發函數。 
 
 在下列範例中，如果應用程式設定 `Disable_TestJob` 的值為 `1` 或 `True` （不區分大小寫），則不會執行函數。 在此情況下，執行階段會建立記錄訊息「*函式 'Functions.TestJob' 已停用*」。
 
@@ -721,7 +721,7 @@ public static void TestJob([QueueTrigger("testqueue2")] string message)
 
 ## <a name="timeout-attribute"></a>Timeout 屬性
 
-如果在指定的時間內未完成，則[@no__t 1](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs)屬性會導致函式取消。 在下列範例中，函數會執行一天，而不會有 Timeout 屬性。 Timeout 會在15秒後取消函式。
+如果函式未在指定的時間內完成， [`Timeout`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs)屬性會導致該函式取消。 在下列範例中，函數會執行一天，而不會有 Timeout 屬性。 Timeout 會在15秒後取消函式。
 
 ```cs
 [Timeout("00:00:15")]
@@ -736,13 +736,13 @@ public static async Task TimeoutJob(
 }
 ```
 
-您可以將 Timeout 屬性套用至類別或方法層級，也可以使用 `JobHostConfiguration.FunctionTimeout` 來指定全域超時。 類別層級或方法層級的超時會覆寫全域超時。
+您可以將 Timeout 屬性套用至類別或方法層級，也可以使用 `JobHostConfiguration.FunctionTimeout`來指定全域超時。 類別層級或方法層級的超時會覆寫全域超時。
 
 ## <a name="singleton-attribute"></a>Singleton 屬性
 
-[@No__t 1](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs)屬性可確保只有一個函式實例會執行，即使主機 web 應用程式有多個實例也一樣。 它會使用[分散式鎖定](#viewing-lease-blobs)來完成這項程式。
+[`Singleton`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs)屬性可確保只有一個函式實例會執行，即使主機 web 應用程式有多個實例也一樣。 它會使用[分散式鎖定](#viewing-lease-blobs)來完成這項程式。
 
-在此範例中，只會在任何指定的時間執行一個 @no__t 0 函數的單一實例：
+在此範例中，只有一個 `ProcessImage` 函數的實例會在任何指定的時間執行：
 
 ```cs
 [Singleton]
@@ -760,7 +760,7 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 * **ServiceBusTrigger**。 將 `ServiceBusConfiguration.MessageOptions.MaxConcurrentCalls` 設定為 `1`。
 * **FileTrigger**。 將 `FileProcessor.MaxDegreeOfParallelism` 設定為 `1`。
 
-您可以使用這些設定確保函式在單一執行個體上以單一項目執行。 為確保當 web 應用程式相應放大至多個實例時，只有單一的函式實例正在執行，請在函式上套用接聽程式層級的單一鎖定（`[Singleton(Mode = SingletonMode.Listener)]`）。 當 JobHost 啟動時，就會取得接聽程式鎖定。 如果三個擴充的執行個體全部同時啟動，則其中只有一個執行個體會取得鎖定，且只有一個接聽程式會啟動。
+您可以使用這些設定確保函式在單一執行個體上以單一項目執行。 為確保當 web 應用程式向外延展至多個實例時，只有單一的函式實例正在執行，請在函數（`[Singleton(Mode = SingletonMode.Listener)]`）上套用接聽程式層級的單一鎖定。 當 JobHost 啟動時，就會取得接聽程式鎖定。 如果三個擴充的執行個體全部同時啟動，則其中只有一個執行個體會取得鎖定，且只有一個接聽程式會啟動。
 
 ### <a name="scope-values"></a>範圍值
 
@@ -784,7 +784,7 @@ public class WorkItem
 
 ### <a name="singletonscopehost"></a>SingletonScope.Host
 
-鎖定的預設範圍是 `SingletonScope.Function`，這表示鎖定範圍（blob 租用路徑）會系結至完整的函式名稱。 若要鎖定跨函式，請指定 `SingletonScope.Host`，並在您不想要同時執行的所有函數中，使用相同的領域識別碼名稱。 在下列範例中，一次只有 `AddItem` 或 `RemoveItem` 的一個執行個體會執行：
+鎖定的預設範圍是 `SingletonScope.Function`的，這表示鎖定範圍（blob 租用路徑）會系結至完整的函式名稱。 若要鎖定跨函式，請指定 `SingletonScope.Host`，並在您不想要同時執行的所有函式中，使用相同的範圍識別碼名稱。 在下列範例中，一次只有 `AddItem` 或 `RemoveItem` 的一個執行個體會執行：
 
 ```csharp
 [Singleton("ItemsLock", SingletonScope.Host)]
@@ -802,7 +802,7 @@ public static void RemoveItem([QueueTrigger("remove-item")] string message)
 
 ### <a name="viewing-lease-blobs"></a>檢視租用二進位大型物件
 
-WebJobs SDK 使用 [Azure 二進位大型物件租用](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs)以實作分散式鎖定。 Singleton 所使用的租用 blob 可以在「鎖定」路徑下的 `AzureWebJobsStorage` 儲存體帳戶的 @no__t 0 容器中找到。 例如，稍早所示第一個 `ProcessImage` 範例的租用二進位大型物件路徑可以是 `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`。 所有路徑皆包含 JobHost 識別碼，在此個案中為 061851c758f04938a4426aa9ab3869c0。
+WebJobs SDK 使用 [Azure 二進位大型物件租用](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs)以實作分散式鎖定。 Singleton 所使用的租用 blob 可以在「鎖定」路徑下的 `AzureWebJobsStorage` 儲存體帳戶的 `azure-webjobs-host` 容器中找到。 例如，稍早所示第一個 `ProcessImage` 範例的租用二進位大型物件路徑可以是 `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`。 所有路徑皆包含 JobHost 識別碼，在此個案中為 061851c758f04938a4426aa9ab3869c0。
 
 ## <a name="async-functions"></a>Async 函數
 
@@ -834,17 +834,17 @@ WebJobs SDK 使用 [Azure 二進位大型物件租用](../storage/common/storage
 
 `ILogger` 執行個體建立的每個記錄皆有相關聯的 `Category` 和 `Level`。 [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)是列舉，而整數程式碼表示相對重要性：
 
-|LogLevel    |程式碼|
+|LogLevel    |代碼|
 |------------|---|
 |追蹤       | 0 |
 |偵錯       | 1 |
-|內容 | 2 |
+|資訊 | 2 |
 |警告     | 3 |
-|Error       | 4 |
-|重大    | 5 |
-|None        | 6 |
+|錯誤       | 4 |
+|重要    | 5 |
+|無        | 6 |
 
-您可以將每個類別個別篩選為特定的[`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)。 例如，您可能想要看見二進位大型物件觸發程序處理的所有記錄，但只看見所有其他項目的 `Error` 以上等級記錄。
+您可以將每個類別個別篩選成特定[`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)。 例如，您可能想要看見二進位大型物件觸發程序處理的所有記錄，但只看見所有其他項目的 `Error` 以上等級記錄。
 
 #### <a name="version-3x"></a>第3版。*x*
 
@@ -856,7 +856,7 @@ WebJobs SDK 使用 [Azure 二進位大型物件租用](../storage/common/storage
 using Microsoft.Azure.WebJobs.Logging; 
 ```
 
-下列範例會根據預設，建立篩選準則，以篩選 `Warning` 層級的所有記錄。 @No__t-0 和 @no__t 1 分類（相當於第2版中的 `Host.Results`。*x*）會在 `Error` 層級進行篩選。 篩選條件會將目前的類別與 `LogCategories` 執行個體中所有已註冊的層級比較，並選擇最長的相符項目。 這表示 `Host.Triggers` 註冊的 @no__t 0 層級符合 `Host.Triggers.Queue` 或 `Host.Triggers.Blob`。 這可讓您控制更廣泛的分類，但無需一一新增。
+下列範例會根據預設，建立篩選以篩選 `Warning` 層級的所有記錄。 `Function` 和 `results` 類別目錄（相當於第2版中的 `Host.Results`。*x*）會在 `Error` 層級進行篩選。 篩選條件會將目前的類別與 `LogCategories` 執行個體中所有已註冊的層級比較，並選擇最長的相符項目。 這表示針對 `Host.Triggers` 註冊的 `Debug` 層級符合 `Host.Triggers.Queue` 或 `Host.Triggers.Blob`。 這可讓您控制更廣泛的分類，但無需一一新增。
 
 ```cs
 static async Task Main(string[] args)
@@ -885,11 +885,11 @@ static async Task Main(string[] args)
 
 #### <a name="version-2x"></a>第2版。*x*
 
-在第2版中。*x* SDK，您可以使用 `LogCategoryFilter` 類別來控制篩選。 @No__t-0 具有初始值為 `Information` 的 @no__t 1 屬性，這表示會記錄 `Information`、`Warning`、@no__t 5 或 @no__t 6 層級的任何訊息，但在 `Debug` 或 @no__t 8 層級的任何訊息都會被篩選掉。
+在第2版中。*x* SDK，您可以使用 `LogCategoryFilter` 類別來控制篩選。 `LogCategoryFilter` 具有 `Default` 屬性，其初始值為 `Information`，這表示會記錄 `Information`、`Warning`、`Error`或 `Critical` 層級的任何訊息，但在 `Debug` 或 `Trace` 層級的任何訊息都會被篩選掉。
 
 如同第3版中的 `LogCategories`。*x*，`CategoryLevels` 屬性可讓您指定特定分類的記錄層級，讓您可以微調記錄輸出。 如果在 `CategoryLevels` 目錄內找不到相符項目，則當決定是否篩選訊息時，篩選條件會回復到 `Default` 值。
 
-下列範例建構一個預設會篩選 `Warning` 等級所有記錄的篩選條件。 @No__t-0 和 @no__t 1 分類會以 @no__t 2 層級進行篩選。 The `LogCategoryFilter` 會將目前分類與所有已註冊的 `CategoryLevels` 比較，並選擇最長的相符項目。 因此，為 `Host.Triggers` 註冊的 `Debug` 層級會符合 `Host.Triggers.Queue` 或 `Host.Triggers.Blob`。 這可讓您控制更廣泛的分類，但無需一一新增。
+下列範例建構一個預設會篩選 `Warning` 等級所有記錄的篩選條件。 [`Function`] 和 [`Host.Results`] 分類會在 `Error` 層級進行篩選。 The `LogCategoryFilter` 會將目前分類與所有已註冊的 `CategoryLevels` 比較，並選擇最長的相符項目。 因此，為 `Host.Triggers` 註冊的 `Debug` 層級會符合 `Host.Triggers.Queue` 或 `Host.Triggers.Blob`。 這可讓您控制更廣泛的分類，但無需一一新增。
 
 ```csharp
 var filter = new LogCategoryFilter();
@@ -970,11 +970,11 @@ static void Main()
 
 #### <a name="version-2x"></a>第2版。*x*
 
-在第2版中。*x*，webjob SDK 的 Application Insights 提供者在內部建立的[@no__t 2]會使用[`ServerTelemetryChannel`](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)。 當 Application Insights 端點無法使用或正在節流連入要求時，此通道[會將要求儲存在 Web 應用程式的檔案系統中，並於稍後重新提交](https://apmtips.com/blog/2015/09/03/more-telemetry-channels)。
+在第2版中。*x*，webjob SDK 的 Application Insights 提供者內部建立的[`TelemetryClient`]會使用[`ServerTelemetryChannel`](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)。 當 Application Insights 端點無法使用或正在節流連入要求時，此通道[會將要求儲存在 Web 應用程式的檔案系統中，並於稍後重新提交](https://apmtips.com/blog/2015/09/03/more-telemetry-channels)。
 
 [`TelemetryClient`] 由實作 `ITelemetryClientFactory` 的類別所建立。 根據預設，這會是 [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs)。
 
-如果您想要修改 Application Insights 管線的任何一部分，您可以提供自己的 `ITelemetryClientFactory`，主機將使用您的類別來建構 [`TelemetryClient`]。 例如，此程式碼會覆寫 `DefaultTelemetryClientFactory`，以修改 `ServerTelemetryChannel` 的屬性：
+如果您想要修改 Application Insights 管線的任何一部分，您可以提供自己的 `ITelemetryClientFactory`，主機將使用您的類別來建構 [`TelemetryClient`]。 例如，此程式碼會覆寫 `DefaultTelemetryClientFactory` 以修改 `ServerTelemetryChannel`的屬性：
 
 ```csharp
 private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
@@ -996,7 +996,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-@No__t 0 物件會設定調適型[取樣](https://docs.microsoft.com/azure/application-insights/app-insights-sampling)。 這表示在某些高容量的案例中，Application Insights 會將選取的遙測資料子集傳送至伺服器。
+`SamplingPercentageEstimatorSettings` 物件會設定調適型[取樣](https://docs.microsoft.com/azure/application-insights/app-insights-sampling)。 這表示在某些高容量的案例中，Application Insights 會將選取的遙測資料子集傳送至伺服器。
 
 建立遙測 factory 之後，請將它傳遞給 Application Insights 記錄提供者：
 
@@ -1016,4 +1016,4 @@ config.LoggerFactory = new LoggerFactory()
 [`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
 [`ITelemetryInitializer`]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
 [`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
-[`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs
+[JobHostConfiguration]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

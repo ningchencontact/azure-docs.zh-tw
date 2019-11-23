@@ -31,7 +31,7 @@ ms.locfileid: "71802218"
 
 ![跨雲端網路連線](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 若要建立 Azure 與 OCI 之間的連線，您必須擁有有效的 Azure 訂用帳戶和作用中的 OCI 租用。
 
@@ -57,13 +57,13 @@ ms.locfileid: "71802218"
 1. 建立動態路由閘道（DRG.4）。 建立 FastConnect 線路時，您將需要此程式。 如需詳細資訊，請參閱[動態路由閘道](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm)檔。
 1. 在您的 Oracle 租使用者底下建立 FastConnect 電路。 如需詳細資訊，請參閱[Oracle 檔](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm)集。
   
-    * 在 FastConnect 設定 下，選取 **Microsoft Azure：ExpressRoute @ no__t-0 作為提供者。
+    * 在 [FastConnect 設定] 下，選取 [ **Microsoft Azure： ExpressRoute** ] 做為提供者。
     * 選取您在上一個步驟中布建的動態路由閘道。
     * 選取要布建的頻寬。 為了達到最佳效能，頻寬必須符合建立 ExpressRoute 線路時選取的頻寬。
     * 在 [**提供者服務金鑰**] 中，貼上 ExpressRoute 服務金鑰。
     * 在上一個步驟中使用第一個/30 私人 IP 位址空間劃分，以取得**主要 BGP Ip 位址**和**次要 bgp ip**位址的第二個/30 私人 ip 位址空間。
         * 將 Oracle BGP IP 位址（主要和次要）的第一個可用位址和第二個位址指派給客戶 BGP IP 位址（從 FastConnect 的觀點來看）。 第一個可用的 IP 位址是/30 位址空間中的第二個 IP 位址（Microsoft 會保留第一個 IP 位址）。
-    * 按一下 [建立]。
+    * 按一下頁面底部的 [新增]。
 1. 使用路由表，完成透過動態路由閘道，將 FastConnect 連結至 Oracle 租使用者下的虛擬雲端網路。
 1. 流覽至 Azure，並確定 ExpressRoute 線路的**提供者狀態**已變更為 [已布**建**]，而且已布建 [ **Azure 私**用] 類型的對等互連。 這是下列步驟的必要條件。
 
@@ -85,7 +85,7 @@ Microsoft 已建立 Terraform 腳本，以啟用網路互連的自動化部署�
 
 您可以在此[GitHub 存放庫](https://aka.ms/azureociinterconnecttf)中找到 Terraform 腳本和用來部署連線的相關檔。
 
-## <a name="monitoring"></a>監視
+## <a name="monitoring"></a>監控
 
 在這兩個雲端上安裝代理程式，您可以利用 Azure[網路效能監控（NPM）](../../../expressroute/how-to-npm.md)來監視端對端網路的效能。 NPM 可協助您立即找出網路問題，並協助消除它們。
 

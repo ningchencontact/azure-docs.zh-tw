@@ -58,8 +58,8 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 | --- | --- | --- | --- |
 | 安全性群組成員</br>Office 群組成員 | 指定的檢閱者</br>群組擁有者</br>自我審查 | Azure AD 存取權檢閱</br>Azure AD 群組 | 存取面板 |
 | 指派給已連線的應用程式 | 指定的檢閱者</br>自我審查 | Azure AD 存取權檢閱</br>Azure AD 企業應用程式 (預覽版) | 存取面板 |
-| Azure AD 角色 | 指定的檢閱者</br>自我審查 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
-| Azure 資源角色 | 指定的檢閱者</br>自我審查 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
+| Azure AD 角色 | 指定的檢閱者</br>自我審查 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure 入口網站 |
+| Azure 資源角色 | 指定的檢閱者</br>自我審查 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure 入口網站 |
 
 
 ## <a name="onboard-access-reviews"></a>上架存取權檢閱
@@ -97,7 +97,7 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 
 ### <a name="which-users-must-have-licenses"></a>哪些使用者必須有授權？
 
-與存取評論互動的每個使用者都必須具有付費 Azure AD Premium P2 授權。 例如：
+與存取評論互動的每個使用者都必須具有付費 Azure AD Premium P2 授權。 範例包括︰
 
 - 建立存取權審查的系統管理員
 - 執行存取權審查的群組擁有者
@@ -113,7 +113,7 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 | 系統管理員會使用500使用者來建立群組 A 的存取權審查。 將3個群組擁有者指派為審查員。 | 1每個群組擁有者的系統管理員 + 3 授權許可權作為審核者。 | 4 |
 | 系統管理員會使用500使用者來建立群組 A 的存取權審查。 讓它成為自我審查。 | 1將每位使用者的系統管理員 + 500 授權作為自我審核者。 | 501 |
 | 系統管理員會建立群組 B 的存取權審查，其中有5位使用者和25位來賓使用者。 讓它成為自我審查。 | 1每位使用者的系統管理員 + 5 授權作為自我審核者。<br/>（來賓使用者會以所需的1:5 比例涵蓋） | 6 |
-| 系統管理員會建立群組 C 的存取權審查，其中包含5位使用者和108來賓使用者。 讓它成為自我審查。 | 1每位使用者的系統管理員 + 5 授權（身為自我審核者 + 16 個），以所需的1:5 比例涵蓋所有108來賓使用者。<br/>1 + 5 = 6 個授權，涵蓋5個 @ no__t-06 = 30 個來賓使用者。 針對剩餘的（108-5 @ no__t-06） = 78 個來賓使用者，需要 78/5 = 16 個額外的授權。 因此，總共需要 6 + 16 = 22 個授權。 | 22 |
+| 系統管理員會建立群組 C 的存取權審查，其中包含5位使用者和108來賓使用者。 讓它成為自我審查。 | 1每位使用者的系統管理員 + 5 授權（身為自我審核者 + 16 個），以所需的1:5 比例涵蓋所有108來賓使用者。<br/>1 + 5 = 6 個授權，其中涵蓋 5\*6 = 30 位來賓使用者。 針對剩餘的（108-5\*6） = 78 個來賓使用者，需要 78/5 = 16 個額外的授權。 因此，總共需要 6 + 16 = 22 個授權。 | 22 |
 
 如需如何指派授權給使用者的相關資訊，請參閱[使用 Azure Active Directory 入口網站指派或移除授權](../fundamentals/license-users-groups.md)。
 

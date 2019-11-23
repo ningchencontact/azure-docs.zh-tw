@@ -23,7 +23,7 @@ ms.locfileid: "72430225"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>健康情況服務的資料並非最新警示
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 Azure AD Connect Health 監視的內部部署電腦上的代理程式會定期將資料上傳至 Azure AD Connect Health 服務。 如果服務未收到來自代理程式的資料，則入口網站所提供的資訊將會過時。 若要醒目提示此問題，服務將會引發 [**健全狀況服務資料不是最**新的狀態] 警示。 當服務在過去兩小時內未收到完整資料時，就會產生此警示。  
 
@@ -59,7 +59,7 @@ Azure AD Connect Health 監視的內部部署電腦上的代理程式會定期�
 
 * 請確定已安裝最新版本的代理程式。 查看[發行歷程記錄](reference-connect-health-version-history.md)。 
 * 請確定電腦上**正在**執行 Azure AD Connect Health 代理程式服務。 例如，適用於 AD FS 的 Connect Health 應該要有三個服務。
-  ![Verify Azure AD Connect Health @ no__t-1
+  ![驗證 Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
 
 * 確實詳讀[需求小節](how-to-connect-health-agent-install.md#requirements)，並符合相關要求。
 * 使用[測試連線工具](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service)找出連線問題。

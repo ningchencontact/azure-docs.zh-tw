@@ -20,7 +20,7 @@ ms.locfileid: "72514615"
 * [如何使用 Powershell 建立 Azure 檔案共用](#create-file-share-through-powershell)
 * [如何使用 CLI 建立 Azure 檔案共用](#create-file-share-through-command-line-interface-cli)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要建立 Azure 檔案共用，您可以使用已經存在的儲存體帳戶，或[建立新的 Azure 儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。 若要使用 PowerShell 建立 Azure 檔案共用，您需要儲存體帳戶的名稱與帳戶金鑰。 如果您打算使用 Powershell 或 CLI，您將需要儲存體帳戶金鑰。
 
 > [!NOTE]
@@ -93,7 +93,7 @@ ms.locfileid: "72514615"
 * [連線並掛接檔案共用 - Linux](../storage-how-to-use-files-linux.md)
 * [連線並掛接檔案共用 - macOS](storage-how-to-use-files-mac.md)
 
-請參閱這些連結，以取得 Azure 檔案服務的詳細資訊。
+請參閱這些連結，以取得 Azure 檔案的相關詳細資訊。
 
 * [常見問題集](../storage-files-faq.md)
 * [在 Windows 上進行疑難排解](storage-troubleshoot-windows-file-connection-problems.md)      

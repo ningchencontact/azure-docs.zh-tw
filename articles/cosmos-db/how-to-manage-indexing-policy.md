@@ -42,7 +42,7 @@ Azure Cosmos DB 會遵循針對每個容器所定義的[索引編製原則](inde
     }
 ```
 
-此編制索引原則等同于下面的一項，它會手動將 ```kind```、```dataType``` 和 ```precision``` 設定為預設值。 這些屬性不再需要明確設定，而且您可以完全從索引編制原則中省略它們（如上述範例所示）。
+此編制索引原則等同于下面的規則，它會以手動方式將 ```kind```、```dataType```和 ```precision``` 設定為預設值。 這些屬性不再需要明確設定，而且您可以完全從索引編制原則中省略它們（如上述範例所示）。
 
 ```json
     {
@@ -96,7 +96,7 @@ Azure Cosmos DB 會遵循針對每個容器所定義的[索引編製原則](inde
     }
 ```
 
-此編制索引原則等同于下面的一項，它會手動將 ```kind```、```dataType``` 和 ```precision``` 設定為預設值。 這些屬性不再需要明確設定，而且您可以完全從索引編制原則中省略它們（如上述範例所示）。
+此編制索引原則等同于下面的規則，它會以手動方式將 ```kind```、```dataType```和 ```precision``` 設定為預設值。 這些屬性不再需要明確設定，而且您可以完全從索引編制原則中省略它們（如上述範例所示）。
 
 ```json
     {
@@ -370,7 +370,7 @@ Azure Cosmos 容器會將其索引編製原則儲存為 JSON 文件，並可從 
 
 ## <a name="use-the-net-sdk-v2"></a>使用 .NET SDK V2
 
-[.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)中的 `DocumentCollection` 物件會公開一個 @no__t 2 屬性，讓您變更 `IndexingMode` 並新增或移除 `IncludedPaths` 和 `ExcludedPaths`。
+[.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)中的 `DocumentCollection` 物件會公開 `IndexingPolicy` 屬性，可讓您變更 `IndexingMode` 以及新增或移除 `IncludedPaths` 和 `ExcludedPaths`。
 
 ```csharp
 // Retrieve the container's details
@@ -400,7 +400,7 @@ long indexTransformationProgress = container.IndexTransformationProgress;
 
 ## <a name="use-the-net-sdk-v3"></a>使用 .NET SDK V3
 
-[.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)中的 `ContainerProperties` 物件（請參閱[本快速入門](create-sql-api-dotnet.md)中有關其使用方式的資訊）會公開一個 `IndexingPolicy` 屬性，可讓您變更 `IndexingMode` 並新增或移除 `IncludedPaths` 和 `ExcludedPaths`。
+來自[.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)的 `ContainerProperties` 物件（請參閱[本快速入門](create-sql-api-dotnet.md)中有關其使用方式的資訊）會公開一個 `IndexingPolicy` 屬性，讓您可以變更 `IndexingMode`，以及新增或移除 `IncludedPaths` 和 `ExcludedPaths`。
 
 ```csharp
 // Retrieve the container's details
@@ -424,7 +424,7 @@ containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<Co
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-若要追蹤索引轉換進度，請傳遞 `RequestOptions` 物件，將 @no__t 1 屬性設定為 `true`，然後從 `x-ms-documentdb-collection-index-transformation-progress` 回應標頭中取出值。
+若要追蹤索引轉換進度，請傳遞將 `PopulateQuotaInfo` 屬性設定為 `true`的 `RequestOptions` 物件，然後從 `x-ms-documentdb-collection-index-transformation-progress` 回應標頭中取出值。
 
 ```csharp
 // retrieve the container's details
@@ -457,7 +457,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
 
 ## <a name="use-the-java-sdk"></a>使用 Java SDK
 
-[Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) 中的 `DocumentCollection` 物件 (請參閱關於其使用方式的[這個快速入門](create-sql-api-java.md)) 會公開 `getIndexingPolicy()` 和 `setIndexingPolicy()` 方法。 這些方法所管理的 `IndexingPolicy` 物件可讓您變更索引編製模式，以及新增或移除已納入和排除的路徑。
+`DocumentCollection`Java SDK[ 中的 ](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) 物件 (請參閱關於其使用方式的[這個快速入門](create-sql-api-java.md)) 會公開 `getIndexingPolicy()` 和 `setIndexingPolicy()` 方法。 這些方法所管理的 `IndexingPolicy` 物件可讓您變更索引編製模式，以及新增或移除已納入和排除的路徑。
 
 ```java
 // Retrieve the container's details
@@ -539,7 +539,7 @@ containerResponse.subscribe(result -> {
 
 ## <a name="use-the-nodejs-sdk"></a>使用 Node.js SDK
 
-[Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) 中的 `ContainerDefinition` 介面 (請參閱關於其使用方式的[這個快速入門](create-sql-api-nodejs.md)) 會公開 `indexingPolicy` 屬性，以供您變更 `indexingMode` 以及新增或移除 `includedPaths` 和 `excludedPaths`。
+`ContainerDefinition`Node.js SDK[ 中的 ](https://www.npmjs.com/package/@azure/cosmos) 介面 (請參閱關於其使用方式的[這個快速入門](create-sql-api-nodejs.md)) 會公開 `indexingPolicy` 屬性，以供您變更 `indexingMode` 以及新增或移除 `includedPaths` 和 `excludedPaths`。
 
 取得容器的詳細資料
 
@@ -596,7 +596,7 @@ containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/name/*' });
 const replaceResponse = await client.database('database').container('container').replace(containerResponse.body);
 ```
 
-若要在容器上追蹤索引轉換進度，請傳遞會將 `populateQuotaInfo` 屬性設定為 `true` 的 `RequestOptions` 物件，然後從 `x-ms-documentdb-collection-index-transformation-progress` 回應標頭中擷取值。
+若要在容器上追蹤索引轉換進度，請傳遞會將 `RequestOptions` 屬性設定為 `populateQuotaInfo` 的 `true` 物件，然後從 `x-ms-documentdb-collection-index-transformation-progress` 回應標頭中擷取值。
 
 ```javascript
 // retrieve the container's details
@@ -673,7 +673,7 @@ response = client.ReplaceContainer(containerPath, container)
 
 ## <a name="next-steps"></a>後續步驟
 
-在下列文章中深入了解編製索引：
+在下列文章中深入了解索引編製：
 
 - [索引編製概觀](index-overview.md)
-- [編製索引原則](index-policy.md)
+- [索引編製原則](index-policy.md)

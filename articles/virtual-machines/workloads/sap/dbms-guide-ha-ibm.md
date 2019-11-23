@@ -86,7 +86,7 @@ ms.locfileid: "72783773"
 | [IBM Db2 HADR 11。1][db2-hadr-11.1] |
 | [IBM Db2 HADR R 10。5][db2-hadr-10.5] |
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 為了達到高可用性，IBM Db2 LUW with HADR 會安裝在至少兩個 Azure 虛擬機器上，它們會部署在[azure 可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)或跨[Azure 可用性區域](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)。 
 
 下列圖形顯示兩個資料庫伺服器 Azure Vm 的設定。 這兩個資料庫伺服器 Azure Vm 都有自己的儲存體，且已啟動並執行。 在 HADR 中，其中一個 Azure Vm 中的一個資料庫實例具有主要實例的角色。 所有用戶端都已連線到此主要實例。 資料庫交易中的所有變更都會保存在 Db2 交易記錄檔的本機。 當交易記錄檔記錄在本機保存時，記錄會透過 TCP/IP 傳輸到第二個資料庫伺服器、待命伺服器或待命實例上的資料庫實例。 待命實例會藉由向前復原已傳送的交易記錄檔記錄來更新本機資料庫。 如此一來，待命伺服器就會與主伺服器保持同步。
@@ -126,7 +126,7 @@ HADR 只是一種複寫功能。 它沒有任何失敗偵測，也沒有自動�
 
 在執行部署之前，請先完成規劃程式。 規劃會建立在 Azure 中使用 HADR 部署 Db2 設定的基礎。 下表列出需要屬於規劃 IMB-M43 Db2 LUW （SAP 環境的資料庫部分）的重要元素：
 
-| 話題 | 簡短說明 |
+| 主題 | 簡短說明 |
 | --- | --- |
 | 定義 Azure 資源群組 | 您部署 VM、VNet、Azure Load Balancer 和其他資源的資源群組。 可以是現有或新的。 |
 | 虛擬網路/子網定義 | 要在其中部署 IBM Db2 和 Azure Load Balancer 的 Vm。 可以是現有或新建立的。 |
@@ -134,7 +134,7 @@ HADR 只是一種複寫功能。 它沒有任何失敗偵測，也沒有自動�
 | IBM Db2 資料庫的虛擬主機名稱和虛擬 IP| 用來連接 SAP 應用程式伺服器的虛擬 IP 或主機名稱。 **virt-hostname**、 **db-virt-ip**。 |
 | Azure 隔離 | Azure 防護或 SBD 隔離（強烈建議）。 避免分裂腦情況的方法。 |
 | SBD VM | SBD 虛擬機器大小、儲存體、網路。 |
-| Azure Load Balancer | 使用基本或標準（建議），適用于 Db2 資料庫的探查埠（我們的建議62500）**探查-埠**。 |
+| Azure 負載平衡器 | 使用基本或標準（建議），適用于 Db2 資料庫的探查埠（我們的建議62500）**探查-埠**。 |
 | 名稱解析| 名稱解析在環境中的運作方式。 強烈建議使用 DNS 服務。 可以使用本機主機檔案。 |
     
 如需 Azure 中 Linux Pacemaker 的詳細資訊，請參閱在[azure 中的 SUSE Linux Enterprise Server 上設定 Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)。
@@ -201,7 +201,7 @@ IBM Db2 LUW 的資源代理套裝程式含在適用于 SAP 應用程式的 SUSE 
 
 若要使用 SAP 同質系統複製程式來設定待命資料庫伺服器，請執行下列步驟：
 
-1. 選取 [**系統複製**選項] > [**目標系統**]  >  [**分散式** >  個**資料庫實例**]。
+1. 選取 **系統複製**選項 > **目標系統** > **分散式** > **資料庫實例**。
 1. 在 [複製方法] 中，選取 [**同質系統**]，讓您可以使用 [備份] 來還原待命伺服器實例上的備份。
 1. 當您到達針對同質系統複製還原資料庫的結束步驟時，請結束安裝程式。 從主要主機的備份還原資料庫。 所有後續的安裝階段都已經在主資料庫伺服器上執行。
 1. 設定適用于 IBM Db2 的 HADR。
@@ -501,7 +501,7 @@ j2ee/dbhost = db-virt-hostname
  
 1. 登入 J2EE 實例的主要應用程式伺服器，並執行： `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. 在左側畫面中，選擇 [**安全性存放區**]。
-1. 在右邊的畫面中，選擇 [jdbc/pool/\<SAPSID >/url.] 這個關鍵字
+1. 在右邊的畫面中，選擇 [關鍵 jdbc/pool/\<SAPSID] >/url。
 1. 將 JDBC URL 中的主機名稱變更為虛擬主機名稱。
      `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
 1. 選取 [新增]。
@@ -516,7 +516,7 @@ j2ee/dbhost = db-virt-hostname
 
 我們建議您設定一個通用 NFS 共用，其中記錄是從兩個節點寫入。 NFS 共用必須具有高度可用性。 
 
-您可以使用現有的高可用性 NFS 共用來進行傳輸或設定檔目錄。 如需詳細資訊，請參閱
+您可以使用現有的高可用性 NFS 共用來進行傳輸或設定檔目錄。 如需詳細資訊，請參閱：
 
 - [SUSE Linux Enterprise Server 上 Azure Vm 上 NFS 的高可用性][nfs-ha] 
 - [SUSE Linux Enterprise Server 上的 Azure Vm 上的 SAP NetWeaver 高可用性與適用于 SAP 應用程式的 Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
@@ -597,7 +597,7 @@ crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
 - **crm 資源遷移 \<res_name > \<主機 >：** 建立位置條件約束，並可能造成接管問題
-- **crm 資源 clear \<res_name >** ：清除位置條件約束
+- **crm 資源清除 \<res_name >** ：清除位置條件約束
 - **crm 資源清理 \<res_name >** ：清除資源的所有錯誤
 
 ### <a name="test-the-fencing-agent"></a>測試隔離代理程式

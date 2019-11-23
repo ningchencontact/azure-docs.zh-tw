@@ -31,7 +31,7 @@ ms.locfileid: "73482423"
 ### <a name="data-types-extensions"></a>資料類型擴充功能
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能** | **說明** |
+> | **擴充功能** | **描述** |
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | 提供不區分大小寫的字元字串類型。 |
 > | [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | 提供多維度 Cube 的資料類型。 |
@@ -45,7 +45,7 @@ ms.locfileid: "73482423"
 ### <a name="full-text-search-extensions"></a>全文檢索搜尋擴充功能
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能** | **說明** |
+> | **擴充功能** | **描述** |
 > |---|---|
 > | [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | 提供整數的文字搜尋字典範本。 |
 > | [dict\_xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | 延伸同義文書處理的文字搜尋字典範本。 |
@@ -54,7 +54,7 @@ ms.locfileid: "73482423"
 ### <a name="functions-extensions"></a>函數擴充功能
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能** | **說明** |
+> | **擴充功能** | **描述** |
 > |---|---|
 > | [autoinc](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.7) | 用於自動遞增欄位的函數。 |
 > | [earthdistance](https://www.postgresql.org/docs/9.6/static/earthdistance.html) | 提供方法來計算地球表面上的大圓距離。 |
@@ -76,7 +76,7 @@ ms.locfileid: "73482423"
 ### <a name="hyperscale-extensions"></a>超大規模資料庫擴充功能
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能** | **說明** |
+> | **擴充功能** | **描述** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Citus 分散式資料庫。 |
 > | 分區\_rebalancer | 在節點新增或移除時，安全地重新平衡伺服器群組中的資料。 |
@@ -84,7 +84,7 @@ ms.locfileid: "73482423"
 ### <a name="index-types-extensions"></a>索引類型擴充功能
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能** | **說明** |
+> | **擴充功能** | **描述** |
 > |---|---|
 > | [bloom](https://www.postgresql.org/docs/current/bloom.html) | Bloom 存取方法-以檔案為基礎的簽章索引。 |
 > | [btree\_gin](https://www.postgresql.org/docs/9.6/static/btree-gin.html) | 提供範例 GIN 運算子類別，可針對特定資料類型執行 B 型樹狀結構的行為。 |
@@ -93,14 +93,14 @@ ms.locfileid: "73482423"
 ### <a name="language-extensions"></a>語言擴充功能
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能** | **說明** |
+> | **擴充功能** | **描述** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 可載入的程序性語言。 |
 
 ### <a name="miscellaneous-extensions"></a>其他擴充功能
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能** | **說明** |
+> | **擴充功能** | **描述** |
 > |---|---|
 > | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | 于 postgresql 的系統管理功能。 |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | 用來驗證關聯完整性的函數。 |
@@ -126,7 +126,7 @@ ms.locfileid: "73482423"
 ### <a name="postgis-extensions"></a>PostGIS 擴充功能
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能** | **說明** |
+> | **擴充功能** | **描述** |
 > |---|---|
 > | [PostGIS](https://www.postgis.net/)、postgis\_topology、postgis\_tiger\_geocoder、postgis\_sfcgal | 適用於 PostgreSQL 的空間與地理物件。 |
 > | address\_standardizer、address\_standardizer\_data\_us | 用來將位址剖析為組成項目。 用來支援對位址進行地理編碼的正規化步驟。 |

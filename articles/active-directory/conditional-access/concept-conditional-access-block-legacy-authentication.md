@@ -58,7 +58,7 @@ ms.locfileid: "72819734"
 
 在您的目錄中啟用新式驗證之後，您就可以藉由啟用 Office 用戶端的新式驗證來開始更新應用程式。 根據預設，Office 2016 或更新版本的用戶端支援新式驗證。 不需要額外的步驟。
 
-如果您使用的是 Office 2013 Windows 用戶端或更舊版本，建議您升級到 Office 2016 或更新版本。 即使在完成在目錄中啟用新式驗證的先前步驟之後，舊版 Office 應用程式仍會繼續使用舊版驗證通訊協定。 如果您使用的是 Office 2013 用戶端，而且無法立即升級為 Office 2016 或更新版本，請遵循下列文章中的步驟， [在 Windows 裝置上啟用 Office 2013 的新式驗證](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication)。 若要在使用傳統驗證時協助保護您的帳戶，建議您在目錄中使用強式密碼。 查看 [Azure AD 密碼保護](../authentication/concept-password-ban-bad.md) to 禁止整個目錄中的弱式密碼。
+如果您使用的是 Office 2013 Windows 用戶端或更舊版本，建議您升級到 Office 2016 或更新版本。 即使在完成在目錄中啟用新式驗證的先前步驟之後，舊版 Office 應用程式仍會繼續使用舊版驗證通訊協定。 如果您使用的是 Office 2013 用戶端，而且無法立即升級為 Office 2016 或更新版本，請遵循下列文章中的步驟， [在 Windows 裝置上啟用 Office 2013 的新式驗證](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication)。 若要在使用傳統驗證時協助保護您的帳戶，建議您在目錄中使用強式密碼。 查看 [Azure AD 密碼保護](../authentication/concept-password-ban-bad.md) ，以禁止在您的目錄中執行弱式密碼。
 
 Office 2010 不支援新式驗證。 您必須將任何使用 Office 2010 的使用者升級至較新版本的 Office。 我們建議您升級至 Office 2016 或更新版本，因為它預設會封鎖舊版驗證。
 

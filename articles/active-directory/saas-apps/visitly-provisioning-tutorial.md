@@ -31,7 +31,7 @@ ms.locfileid: "71840154"
 >
 > 此連接器目前為公開預覽版。 如需預覽功能之一般 Microsoft Azure 使用規定的詳細資訊，請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中概述的案例假設您已經具有下列必要條件：
 
@@ -41,7 +41,7 @@ ms.locfileid: "71840154"
 
 ## <a name="assign-users-to-visitly"></a>將使用者指派給 Visitly 
 
-Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使用者應接收所選應用程式的存取權。 在自動使用者布建的內容中，只有指派給 Azure AD 中應用程式的使用者或群組會進行同步處理。
+Azure Active Directory 使用稱為「*指派*」的概念，來判斷哪些使用者應接收所選應用程式的存取權。 在自動使用者布建的內容中，只有指派給 Azure AD 中應用程式的使用者或群組會進行同步處理。
 
 在您設定並啟用自動使用者布建之前，請先決定 Azure AD 中的哪些使用者或群組需要存取 Visitly。 然後遵循此處的指示，將這些使用者或群組指派給 Visitly：
 * [將使用者或群組指派給企業應用程式](../manage-apps/assign-user-or-group-access-portal.md)
@@ -56,7 +56,7 @@ Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使�
 
 在您設定 Visitly 以 Azure AD 自動布建使用者之前，您必須啟用 [系統] 以在 Visitly 上進行跨網域身分識別管理（SCIM）布建。
 
-1. 登入[Visitly](https://app.visitly.io/login)。 選取[整合  >  個**主機同步**處理]。
+1. 登入[Visitly](https://app.visitly.io/login)。 選取 [整合] > **主機同步**處理。
 
     ![主機同步處理](media/Visitly-provisioning-tutorial/login.png)
 
@@ -83,7 +83,7 @@ Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使�
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式, 請選取窗格頂端的 [**新增應用程式**] 按鈕。
+3. 若要新增新的應用程式，請選取窗格頂端的 [**新增應用程式**] 按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
@@ -100,7 +100,7 @@ Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使�
 
 ### <a name="configure-automatic-user-provisioning-for-visitly-in-azure-ad"></a>在 Azure AD 中設定自動使用者布建以進行 Visitly
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。 選取 [**企業應用程式**]  >  個 [**所有應用程式**]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 選取 [**企業應用程式**] > [**所有應用程式**]。
 
     ![所有應用程式](common/enterprise-applications.png)
 
@@ -116,7 +116,7 @@ Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使�
 
     ![[布建模式] 設定為 [自動]](common/provisioning-automatic.png)
 
-5. 在 [管理員認證] 區段下，分別輸入 [**租使用者 URL** ] 和 [**秘密權杖**] 中先前抓取的 @no__t 0 和**API 金鑰**值。 選取 [**測試連接**] 以確保 Azure AD 可以連接到 Visitly。 如果連線失敗，請確定您的 Visitly 帳戶具有系統管理員許可權，然後再試一次。
+5. 在 [管理員認證] 區段下，分別輸入先前在 [**租使用者 URL** ] 和 [**秘密權杖**] 中抓取的 `https://api.visitly.io/v1/usersync/SCIM` 和**API 金鑰**值。 選取 [**測試連接**] 以確保 Azure AD 可以連接到 Visitly。 如果連線失敗，請確定您的 Visitly 帳戶具有系統管理員許可權，然後再試一次。
 
     ![租使用者 URL + 權杖](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -124,7 +124,7 @@ Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使�
 
     ![通知電子郵件](common/provisioning-notification-email.png)
 
-7. 選取 [儲存]。
+7. 選取 [ **儲存**]。
 
 8. **在 [對應**] 區段下，選取 [**同步處理 Azure Active Directory 使用者至 Visitly**]。
 
@@ -142,7 +142,7 @@ Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使�
 
 12. 在 [**設定**] 區段的 [**範圍**] 中選擇所需的值，以定義您想要布建到 Visitly 的使用者或群組。
 
-    ![布建範圍](common/provisioning-scope.png)
+    ![佈建範圍](common/provisioning-scope.png)
 
 13. 當您準備好要布建時，請選取 [**儲存**]。
 

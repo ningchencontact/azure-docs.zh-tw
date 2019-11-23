@@ -24,13 +24,13 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 09/30/2019
 ms.locfileid: "71679811"
 ---
-# <a name="authorization-agents-android"></a>授權代理程式（Android）
+# <a name="authorization-agents-android"></a>授權代理程式 (Android)
 
 本文說明 Microsoft 驗證程式庫（MSAL）允許您的應用程式使用的不同授權代理程式，以及如何加以啟用。
 
 選擇授權代理程式的特定策略是選擇性的，而且代表可自訂的其他功能。 大部分的應用程式會使用 MSAL 預設值（請參閱[瞭解 ANDROID MSAL 設定檔](msal-configuration.md)以查看各種預設值）。
 
-MSAL 支援使用 `WebView` 或系統瀏覽器的授權。  下圖顯示如何使用 `WebView`，或具有 CustomTabs 或不含 CustomTabs 的系統瀏覽器：
+MSAL 支援使用 `WebView`或系統瀏覽器的授權。  下圖顯示如何使用 `WebView`或具有 CustomTabs 或不含 CustomTabs 的系統瀏覽器：
 
 ![MSAL 登入範例](./media/authorization-agents/sign-in-ui.jpg)
 
@@ -38,7 +38,7 @@ MSAL 支援使用 `WebView` 或系統瀏覽器的授權。  下圖顯示如何�
 
 根據預設，與 MSAL 整合的應用程式會使用系統瀏覽器的自訂索引標籤來進行授權。 不同于網站，自訂索引標籤會與預設的系統瀏覽器共用 cookie jar，讓使用 web 或其他與自訂索引標籤整合的原生應用程式更少登入。
 
-如果應用程式使用 @no__t 0 的策略，而不將 Microsoft Authenticator 或公司入口網站支援整合到其應用程式中，則使用者在裝置上或原生應用程式與 web 應用程式之間不會有單一登入（SSO）體驗。
+如果應用程式使用 `WebView` 策略，而不將 Microsoft Authenticator 或公司入口網站支援整合到其應用程式中，則使用者在裝置上或原生應用程式與 web 應用程式之間不會有單一登入（SSO）體驗。
 
 如果應用程式使用具有 Microsoft Authenticator 或公司入口網站支援的 MSAL，則使用者若有使用其中一個應用程式的作用中登入，就可以在應用程式之間擁有單一登入體驗。
 
@@ -50,7 +50,7 @@ MSAL 支援使用 `WebView` 或系統瀏覽器的授權。  下圖顯示如何�
 "authorization_user_agent" : "WEBVIEW"
 ```
 
-使用應用程式內 `WebView` 時，使用者會直接登入應用程式。 權杖會保留在應用程式的沙箱中，而且無法在應用程式的 cookie jar 外使用。 因此，除非應用程式與驗證器或公司入口網站整合，否則使用者不能在應用程式之間擁有 SSO 體驗。
+使用應用程式內 `WebView`時，使用者會直接登入應用程式。 權杖會保留在應用程式的沙箱中，而且無法在應用程式的 cookie jar 外使用。 因此，除非應用程式與驗證器或公司入口網站整合，否則使用者不能在應用程式之間擁有 SSO 體驗。
 
 不過，`WebView` 確實提供了自訂登入 UI 外觀與風格的功能。 如需如何進行這項自訂的詳細資訊，請參閱[Android 網站](https://developer.android.com/reference/android/webkit/WebView)。
 
@@ -68,7 +68,7 @@ MSAL 支援使用 `WebView` 或系統瀏覽器的授權。  下圖顯示如何�
 
 由於 MSAL 無法指定要在每個廣泛的 Android 手機陣列上使用的確切瀏覽器套件，MSAL 會執行一個瀏覽器選取啟發學習法，以嘗試提供最佳的跨裝置 SSO。
 
-MSAL 會抓取裝置上安裝的完整瀏覽器清單，以選取要使用的瀏覽器。 此清單會依照封裝管理員傳回的順序，間接反映使用者的喜好設定。 例如，如果設定了預設瀏覽器，就是清單中的第一個專案。 系統會挑選清單中的_第一個_瀏覽器，不論它是否支援自訂索引標籤。 如果瀏覽器支援自訂索引標籤，MSAL 將會啟動 [自訂] 索引標籤。自訂索引標籤的外觀和風格更接近應用程式內 `WebView`，並允許基本 UI 自訂。 若要深入瞭解，請參閱[Android 中的自訂](https://developer.chrome.com/multidevice/android/customtabs)索引標籤。
+MSAL 會抓取裝置上安裝的完整瀏覽器清單，以選取要使用的瀏覽器。 此清單會依照封裝管理員傳回的順序，間接反映使用者的喜好設定。 例如，如果設定了預設瀏覽器，就是清單中的第一個專案。 系統會挑選清單中的_第一個_瀏覽器，不論它是否支援自訂索引標籤。 如果瀏覽器支援自訂索引標籤，MSAL 將會啟動 [自訂] 索引標籤。自訂索引標籤可讓您更接近應用程式內 `WebView`，並允許基本 UI 自訂。 若要深入瞭解，請參閱[Android 中的自訂](https://developer.chrome.com/multidevice/android/customtabs)索引標籤。
 
 如果裝置上沒有瀏覽器套件，MSAL 會使用應用程式內 `WebView`。
 

@@ -378,9 +378,9 @@ SAP ASE 可執行檔應該位於或安裝於 VM OS 磁碟的系統磁碟機 (磁
 
 此外，在交易 DBACockpit 中產生的連結看起來如下︰
 
-> https:\//\<fullyqualifiedhostname>:44300/sap/bc/webdynpro/sap/dba_cockpit
+> HTTPs：\//\<fullyqualifiedhostname >： 44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http:\//\<fullyqualifiedhostname>:8000/sap/bc/webdynpro/sap/dba_cockpit
+> HTTP：\//\<fullyqualifiedhostname >： 8000/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > 
 
@@ -396,9 +396,9 @@ SAP ASE 可執行檔應該位於或安裝於 VM OS 磁碟的系統磁碟機 (磁
 
 將 SAP 設定檔參數 icm/host_name_full 設定為 Azure VM 的 DNS 名稱，其連結看起來可能如下︰
 
-> https:\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
+> HTTPs：\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http:\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
+> HTTP：\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
 
 在此情況下，您需要確定︰
 
@@ -503,7 +503,7 @@ SAP ASE 可執行檔應該位於或安裝於 VM 的根檔案系統 ( /sybase )�
 
 這個組態讓 tempdb 所耗用的空間比系統磁碟機能夠提供的還多。 作為參考，您可以在內部部署執行的現有系統上檢查 tempdb 裝置的大小。 或者，這類組態可針對無法使用系統磁碟機來提供的 tempdb 啟用 IOPS 數目。 內部部署執行的系統可以用來監視 tempdb 的 I/O 工作負載。
 
-永遠不要將任何 SAP ASE 目錄放置於 VM 的 /mnt 或 /mnt/resource 上。 對於 SAP ASE，此裝置也適用於 tempdb，即使 tempdb 中保留的物件只是暫時性的。 因為 /mnt 或 /mnt/resource 是預設的 Azure VM 暫存空間，而不是永續性空間。 如需 Azure VM 暫存空間的詳細資訊, 請參閱[這篇文章][virtual-machines-linux-how-to-attach-disk]
+永遠不要將任何 SAP ASE 目錄放置於 VM 的 /mnt 或 /mnt/resource 上。 對於 SAP ASE，此裝置也適用於 tempdb，即使 tempdb 中保留的物件只是暫時性的。 因為 /mnt 或 /mnt/resource 是預設的 Azure VM 暫存空間，而不是永續性空間。 如需 Azure VM 暫存空間的詳細資訊，請參閱[這篇文章][virtual-machines-linux-how-to-attach-disk]
 
 如需資料和交易記錄檔部署，請參閱在[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中提出的陳述和建議。 在以 Linux 為主的部署案例中，建議將 LVM 或 MDADM 的使用量用來建置具有足夠 IOPS、輸送量和磁碟區的等量磁碟區組。 
 
@@ -531,9 +531,9 @@ SAP ASE 可執行檔應該位於或安裝於 VM 的根檔案系統 ( /sybase )�
 
 而且在交易 DBACockpit 中產生的連結看起來如下︰
 
-> https:\//\<fullyqualifiedhostname>:44300/sap/bc/webdynpro/sap/dba_cockpit
+> HTTPs：\//\<fullyqualifiedhostname >： 44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http:\//\<fullyqualifiedhostname>:8000/sap/bc/webdynpro/sap/dba_cockpit
+> HTTP：\//\<fullyqualifiedhostname >： 8000/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > 
 
@@ -549,9 +549,9 @@ SAP ASE 可執行檔應該位於或安裝於 VM 的根檔案系統 ( /sybase )�
 
 將 SAP 設定檔參數 icm/host_name_full 設定為 Azure VM 的 DNS 名稱，其連結看起來可能如下︰
 
-> https:\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
+> HTTPs：\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http:\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
+> HTTP：\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
 
 在此情況下，您需要確定︰
 

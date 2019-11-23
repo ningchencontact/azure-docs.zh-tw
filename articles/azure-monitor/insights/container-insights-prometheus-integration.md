@@ -30,7 +30,7 @@ ms.locfileid: "73514338"
 * 整個叢集的 HTTP URL，並從服務的列出端點探索目標。 例如，k8s 服務，例如 kube-dns 和 kube 狀態-計量，以及應用程式特定的 pod 附注。 在此內容中收集的計量會定義于 ConfigMap 區段 *[Prometheus data_collection_settings. cluster]* 。
 * 整個節點-HTTP URL，並從服務的列出端點探索目標。 在此內容中收集的計量會定義于 ConfigMap 區段 *[Prometheus_data_collection_settings. node]* 中。
 
-| 端點 | Scope | 範例 |
+| Endpoint | 範圍 | 範例 |
 |----------|-------|---------|
 | Pod 注釋 | 全叢集 | 備註 <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Kubernetes 服務 | 全叢集 | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
@@ -38,15 +38,15 @@ ms.locfileid: "73514338"
 
 指定 URL 時，容器的 Azure 監視器只會抓取端點。 當指定 Kubernetes 服務時，會使用叢集 DNS 伺服器解析服務名稱以取得 IP 位址，然後剪輯解析的服務。
 
-|Scope | 金鑰 | 資料類型 | 值 | 說明 |
+|範圍 | 金鑰 | 資料類型 | 值 | 描述 |
 |------|-----|-----------|-------|-------------|
 | 全叢集 | | | | 指定下列三種方法中的任何一種，以抓取度量的端點。 |
 | | `urls` | 字串 | 以逗號分隔的陣列 | HTTP 端點（IP 位址或指定的有效 URL 路徑）。 例如： `urls=[$NODE_IP/metrics]`。 （$NODE _IP 是容器參數的特定 Azure 監視器，可以用來取代節點 IP 位址。 必須全部大寫）。 |
 | | `kubernetes_services` | 字串 | 以逗號分隔的陣列 | Kubernetes 服務的陣列，可從 kube 狀態計量抓取計量。 例如，`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`。|
-| | `monitor_kubernetes_pods` | Boolean | True 或 False | 當設定為 [全叢集] 設定中的 [`true`] 時，容器代理程式的 Azure 監視器會針對下列 Prometheus 注釋，在整個叢集中抓取 Kubernetes pod：<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Boolean | True 或 False | 啟用 pod 的抓取。 `monitor_kubernetes_pods` 必須設為 `true`。 |
+| | `monitor_kubernetes_pods` | 布林值 | true 或 false | 當設定為 [全叢集] 設定中的 `true` 時，容器代理程式的 Azure 監視器會針對下列 Prometheus 注釋，在整個叢集中抓取 Kubernetes pod：<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `prometheus.io/scrape` | 布林值 | true 或 false | 啟用 pod 的抓取。 `monitor_kubernetes_pods` 必須設為 `true`。 |
 | | `prometheus.io/scheme` | 字串 | http 或 https | 預設為透過 HTTP 的 scrapping。 如有必要，請將設定為 `https`。 | 
-| | `prometheus.io/path` | 字串 | 以逗號分隔的陣列 | 從中提取計量的來源 HTTP 資源路徑。 如果計量路徑不 `/metrics`，請使用此注釋加以定義。 |
+| | `prometheus.io/path` | 字串 | 以逗號分隔的陣列 | 從中提取計量的來源 HTTP 資源路徑。 如果未 `/metrics`度量路徑，請使用此注釋加以定義。 |
 | | `prometheus.io/port` | 字串 | 9102 | 指定要抓取的埠。 如果未設定埠，則會預設為9102。 |
 | | `monitor_kubernetes_pods_namespaces` | 字串 | 以逗號分隔的陣列 | 允許的命名空間清單，以從 Kubernetes pod 抓取計量。<br> 例如， `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
 | 全節點 | `urls` | 字串 | 以逗號分隔的陣列 | HTTP 端點（IP 位址或指定的有效 URL 路徑）。 例如： `urls=[$NODE_IP/metrics]`。 （$NODE _IP 是容器參數的特定 Azure 監視器，可以用來取代節點 IP 位址。 必須全部大寫）。 |
@@ -127,19 +127,19 @@ ConfigMaps 是全域清單，而且只能有一個 ConfigMap 套用至代理程�
 
 3. 執行下列 kubectl 命令來建立 ConfigMap： `kubectl apply -f <configmap_yaml_file.yaml>`。
     
-    範例：`kubectl apply -f container-azm-ms-agentconfig.yaml`. 
+    範例： `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
     設定變更可能需要幾分鐘的時間才會生效，且叢集中的所有 omsagent pod 都會重新開機。 重新開機是所有 omsagent pod 的輪流重新開機，不會同時全部重新開機。 當重新開機完成時，會顯示與下列類似的訊息，並包含結果： `configmap "container-azm-ms-agentconfig" created`。
 
 ## <a name="applying-updated-configmap"></a>套用更新的 ConfigMap
 
-如果您已將 ConfigMap 部署至叢集，而且想要以較新的設定更新它，您可以編輯先前使用的 ConfigMap 檔案，然後使用與之前相同的命令來套用，`kubectl apply -f <configmap_yaml_file.yaml`。
+如果您已將 ConfigMap 部署至叢集，而且想要使用較新的設定來更新它，您可以編輯先前使用的 ConfigMap 檔案，然後使用與之前相同的命令來套用，`kubectl apply -f <configmap_yaml_file.yaml`。
 
 設定變更可能需要幾分鐘的時間才會生效，且叢集中的所有 omsagent pod 都會重新開機。 重新開機是所有 omsagent pod 的輪流重新開機，不會同時全部重新開機。 當重新開機完成時，會顯示與下列類似的訊息，並包含結果： `configmap "container-azm-ms-agentconfig" updated`。
 
 ## <a name="verify-configuration"></a>驗證組態 
 
-若要確認已成功套用設定，請使用下列命令來檢查代理程式 pod 的記錄： `kubectl logs omsagent-fdf58 -n=kube-system`。 如果 omsagent pod 有設定錯誤，輸出將會顯示類似下列的錯誤：
+若要確認已成功套用設定，請使用下列命令來檢查代理程式 pod 中的記錄： `kubectl logs omsagent-fdf58 -n=kube-system`。 如果 omsagent pod 有設定錯誤，輸出將會顯示類似下列的錯誤：
 
 ``` 
 ***************Start Config Processing******************** 
@@ -158,7 +158,7 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 
 - 從 Log Analytics 工作區中的**KubeMonAgentEvents**資料表。 資料會每小時傳送一次，具有抓取錯誤的*警告*嚴重性和設定錯誤的*錯誤*嚴重性。 如果沒有任何錯誤，則資料表中的專案將會有具有嚴重性*資訊*的資料，而這不會報告任何錯誤。 **Tags**屬性包含發生錯誤之 pod 和容器識別碼的詳細資訊，以及最後一次出現、最後一次發生和計數的時間。
 
-錯誤會使 omsagent 無法剖析檔案，因而導致它重新開機並使用預設設定。 更正 ConfigMap 中的錯誤之後，請儲存 yaml 檔案，並執行下列命令來套用更新的 ConfigMaps： `kubectl apply -f <configmap_yaml_file.yaml`。
+錯誤會使 omsagent 無法剖析檔案，因而導致它重新開機並使用預設設定。 更正 ConfigMap 中的錯誤之後，請執行下列命令來儲存 yaml 檔案並套用更新的 ConfigMaps： `kubectl apply -f <configmap_yaml_file.yaml`。
 
 ## <a name="query-prometheus-metrics-data"></a>查詢 Prometheus 計量資料
 

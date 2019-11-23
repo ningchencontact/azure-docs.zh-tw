@@ -49,7 +49,7 @@ Azure 磁碟加密也適用于具有 premium 儲存體的 Vm。
 
 ## <a name="networking-requirements"></a>網路需求
 若要啟用 Azure 磁碟加密，Vm 必須符合下列網路端點設定需求：
-  - 若要取得權杖以連線到您的金鑰保存庫，Windows VM 必須能夠連接到 Azure Active Directory 端點，\[login. microsoftonline .com @ no__t-1。
+  - 若要取得權杖以連線到您的金鑰保存庫，Windows VM 必須能夠連接到 Azure Active Directory 端點，\[login.microsoftonline.com\]。
   - 若要將加密金鑰寫入金鑰保存庫，Windows VM 必須能夠連線到金鑰保存庫端點。
   - Windows VM 必須能夠連接到裝載 Azure 擴充功能儲存機制的 Azure 儲存體端點，以及裝載 VHD 檔案的 Azure 儲存體帳戶。
   -  如果您的安全性原則會限制從 Azure VM 至網際網路的存取，您可以解析前述的 URI，並設定特定的規則以允許和這些 IP 的輸出連線。 如需詳細資訊，請參閱[防火牆後方的 Azure Key Vault](../../key-vault/key-vault-access-behind-firewall.md)。    
@@ -69,12 +69,12 @@ Azure 磁碟加密需要 Azure Key Vault 來控制及管理磁片加密金鑰和
 
 如需詳細資訊，請參閱[建立和設定 Azure 磁碟加密的金鑰保存庫](disk-encryption-key-vault.md)。
 
-## <a name="terminology"></a>詞彙
+## <a name="terminology"></a>術語
 下表定義 Azure 磁片加密檔中所使用的一些常見詞彙：
 
-| 詞彙 | 定義 |
+| 術語 | 定義 |
 | --- | --- |
-| Azure 金鑰保存庫 | Key Vault 是一個密碼編譯金鑰管理服務，以「美國聯邦資訊處理標準」(FIPS) 已驗證的硬體安全性模組為基礎。 這些標準可協助您保護密碼編譯金鑰和敏感性祕密。 如需詳細資訊，請參閱[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)檔，以及[建立和設定 Azure 磁碟加密的金鑰保存庫](disk-encryption-key-vault.md)。 |
+| Azure Key Vault | Key Vault 是一個密碼編譯金鑰管理服務，以「美國聯邦資訊處理標準」(FIPS) 已驗證的硬體安全性模組為基礎。 這些標準可協助您保護密碼編譯金鑰和敏感性祕密。 如需詳細資訊，請參閱[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)檔，以及[建立和設定 Azure 磁碟加密的金鑰保存庫](disk-encryption-key-vault.md)。 |
 | Azure CLI | [Azure CLI](/cli/azure/install-azure-cli) 已針對從命令列管理 Azure 資源進行最佳化。|
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx)是業界認可的 windows 磁片區加密技術，可用來在 Windows vm 上啟用磁片加密。 |
 | 金鑰加密金鑰（KEK） | 您可以用來保護或包裝秘密的非對稱金鑰（RSA 2048）。 您可以提供硬體安全性模組 (HSM) 保護的金鑰或軟體保護的金鑰。 如需詳細資訊，請參閱[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)檔，以及[建立和設定 Azure 磁碟加密的金鑰保存庫](disk-encryption-key-vault.md)。 |
@@ -85,9 +85,9 @@ Azure 磁碟加密需要 Azure Key Vault 來控制及管理磁片加密金鑰和
 
 - [快速入門-使用 Azure CLI 建立和加密 Windows VM](disk-encryption-cli-quickstart.md)
 - [快速入門-使用 Azure Powershell 建立和加密 Windows VM](disk-encryption-powershell-quickstart.md)
-- [Windows Vm 上的 Azure 磁碟加密案例](disk-encryption-windows.md)
+- [Windows VM 上的 Azure 磁碟加密案例](disk-encryption-windows.md)
 - [Azure 磁碟加密必要條件 CLI 腳本](https://github.com/ejarvi/ade-cli-getting-started)
 - [Azure 磁碟加密必要條件 PowerShell 腳本](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
-- [建立和設定 Azure 磁碟加密的金鑰保存庫](disk-encryption-key-vault.md)
+- [建立及設定適用於 Azure 磁碟加密的金鑰保存庫](disk-encryption-key-vault.md)
 
 

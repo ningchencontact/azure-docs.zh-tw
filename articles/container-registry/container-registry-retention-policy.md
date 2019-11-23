@@ -17,9 +17,9 @@ ms.locfileid: "71972660"
 ---
 # <a name="set-a-retention-policy-for-untagged-manifests"></a>為未標記的資訊清單設定保留原則
 
-Azure Container Registry 可讓您選擇為沒有任何相關聯標記（未標記的*資訊清單*）的預存映射資訊清單設定*保留原則*。 啟用保留原則時，會在您設定的天數之後自動刪除登錄中未標記的資訊清單。 這項功能可防止登錄填滿不需要的成品，並協助您節省儲存成本。 如果未標記的資訊清單的 `delete-enabled` 屬性設定為 `false`，就無法刪除資訊清單，且不會套用保留原則。
+Azure Container Registry 可讓您選擇為沒有任何相關聯標記（未標記的*資訊清單*）的預存映射資訊清單設定*保留原則*。 啟用保留原則時，會在您設定的天數之後自動刪除登錄中未標記的資訊清單。 這項功能可防止登錄填滿不需要的成品，並協助您節省儲存成本。 如果未標記之資訊清單的 `delete-enabled` 屬性設定為 `false`，則無法刪除資訊清單，且不會套用保留原則。
 
-您可以使用 Azure Cloud Shell 或本機安裝的 Azure CLI 來執行本文中的命令範例。 如果您想要在本機使用，則需要2.0.74 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
+您可以使用 Azure Cloud Shell 或本機安裝的 Azure CLI 來執行本文中的命令範例。 如果您想要在本機使用，則需要2.0.74 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
 
 > [!IMPORTANT]
 > 此功能目前在預覽階段，但[有某些限制](#preview-limitations)。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
@@ -63,8 +63,8 @@ az acr config retention update --registry myregistry --status enabled --days 0 -
 
 如果您啟用先前的原則，保留期為0天，您可以快速確認刪除未標記的資訊清單：
 
-1. 將測試影像 `hello-world:latest` 映射推送至您的登錄，或替換成您選擇的另一個測試映射。
-1. 使用[az acr repository Untag][az-acr-repository-untag]命令來 Untag @no__t 0 映射。 未標記的資訊清單會保留在登錄中。
+1. 將測試映射 `hello-world:latest` 映射推送至您的登錄，或替換成您選擇的另一個測試映射。
+1. Untag `hello-world:latest` 映射，例如，使用[az acr repository Untag][az-acr-repository-untag]命令。 未標記的資訊清單會保留在登錄中。
     ```azurecli
     az acr repository untag --name myregistry --image hello-world:latest
     ```
@@ -92,14 +92,14 @@ az acr config retention update --registry myregistry --status disabled --type Un
 
 1. 流覽至您的 Azure container registry。 在 [**原則**] 底下，選取 [**保留期**（預覽）]。
 1. 在 [**狀態**] 中，選取 [**已啟用**]。
-1. 選取0到365之間的天數，以保留未標記的資訊清單。 選取 [儲存]。
+1. 選取0到365之間的天數，以保留未標記的資訊清單。 選取 [ **儲存**]。
 
 ![在 Azure 入口網站中啟用保留原則](media/container-registry-retention-policy/container-registry-retention-policy01.png)
 
 ### <a name="disable-a-retention-policy"></a>停用保留原則
 
 1. 流覽至您的 Azure container registry。 在 [**原則**] 底下，選取 [**保留期**（預覽）]。
-1. 在 [**狀態**] 中，選取 [**停用**]。 選取 [儲存]。
+1. 在 [**狀態**] 中，選取 [**停用**]。 選取 [ **儲存**]。
 
 ## <a name="next-steps"></a>後續步驟
 

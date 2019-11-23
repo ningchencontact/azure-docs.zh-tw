@@ -64,11 +64,11 @@ ms.locfileid: "72176608"
 
 ## <a name="baseline-custom-check-properties"></a>基準自訂檢查屬性
 
-| Name| 狀態 | 有效值| 預設值| 描述 |
+| 名稱| Status | 有效值| 預設值| 描述 |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|baselineCustomChecksEnabled|必要： true |有效值：**布林值** |預設值： **false** |傳送高優先順序訊息之前的最大時間間隔。|
-|baselineCustomChecksFilePath |必要： true|有效值：**String**、 **null** |預設值： **null** |基準 xml 設定的完整路徑|
-|baselineCustomChecksFileHash |必要： true|有效值：**String**、 **null** |預設值： **null** |xml 設定檔 @no__t 0。 如需其他資訊，請使用[sha256sum 參考](https://linux.die.net/man/1/sha256sum)。 |
+|baselineCustomChecksEnabled|必要： true |有效值：**布林**值 |預設值： **false** |傳送高優先順序訊息之前的最大時間間隔。|
+|baselineCustomChecksFilePath |必要： true|有效值： **String**、 **null** |預設值： **null** |基準 xml 設定的完整路徑|
+|baselineCustomChecksFileHash |必要： true|有效值： **String**、 **null** |預設值： **null** |xml 設定檔 `sha256sum`。 如需其他資訊，請使用[sha256sum 參考](https://linux.die.net/man/1/sha256sum)。 |
 
 若要查看其他基準範例，請參閱[自訂基準範例-1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml)和[自訂基準範例-2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml)。
 

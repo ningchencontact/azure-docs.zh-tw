@@ -47,7 +47,7 @@ Azure 資料科學虛擬機器（Dsvm）具有一組豐富的工具和程式庫�
 | 範例的連結      | VM 上 Jupyter 中的 `h2o` 目錄底下有提供範例。      |
 | 相關工具      | Apache Spark、MXNet、XGBoost、Sparkling Water、Deep Water    |
 
-Dsvm 上有數個其他的機器學習程式庫，例如 Dsvm 的 Anaconda Python 散發套件中的熱門 @no__t 0 封裝。 若要查看以 Python、R 及 Julia 提供的套件清單，請執行個別的套件管理員。
+Dsvm 上有數個其他的機器學習程式庫，例如 Dsvm 的 Anaconda Python 散發套件中的熱門 `scikit-learn` 封裝。 若要查看以 Python、R 及 Julia 提供的套件清單，請執行個別的套件管理員。
 
 ## <a name="lightgbm"></a>LightGBM
 
@@ -99,7 +99,7 @@ Dsvm 上有數個其他的機器學習程式庫，例如 Dsvm 的 Anaconda Pytho
 | 支援的版本     | Windows、Linux     |
 | 典型的使用案例      | 一般機器學習程式庫      |
 | 如何設定或安裝它？      |  搭配 GPU 支援安裝   |
-| 如何使用或執行它      | 作為 Python 程式庫（2.7 和3.5）、R 套件及路徑上命令列工具（適用于 Windows 的 @no__t 0 和 Linux `/dsvm/tools/xgboost/xgboost`）    |
+| 如何使用或執行它      | 作為 Python 程式庫（2.7 和3.5）、R 套件及路徑上命令列工具（適用于 Windows 的`C:\dsvm\tools\xgboost\bin\xgboost.exe` 和適用于 Linux 的 `/dsvm/tools/xgboost/xgboost`）    |
 | 範例的連結      | 範例包含在 VM 的 `/dsvm/tools/xgboost/demo`(適用於 Linux) 中，以及 `C:\dsvm\tools\xgboost\demo` (適用於 Windows) 中。   |
 | 相關工具      | LightGBM、MXNet   |
 

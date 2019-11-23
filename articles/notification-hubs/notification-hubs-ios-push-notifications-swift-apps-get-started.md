@@ -23,7 +23,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/08/2019
 ms.locfileid: "72030651"
 ---
-# <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>教學課程：將通知推送至使用通知中樞 REST API 的 Swift iOS 應用程式
+# <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>教學課程：將通知推送至使用通知中樞的 Swift iOS 應用程式 REST API
 
 > [!div class="op_single_selector"]
 > * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
@@ -42,7 +42,7 @@ ms.locfileid: "72030651"
 > * 將您的 iOS 應用程式連線至通知中樞。
 > * 測試方案。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要繼續，您需要：
 
@@ -89,18 +89,18 @@ ms.locfileid: "72030651"
 
 1. 使用您布建的通知中樞中您自己的值，更新**devsettings plist**以包含下列設定專案：
 
-   | Key                            | Type                     | 值                     |
+   | 金鑰                            | 在系統提示您進行確認時，輸入                     | 值                     |
    |--------------------------------| -------------------------| --------------------------|
-   | notificationHubKey             | 字串                   | \<hubKey>                  |
-   | notificationHubKeyName         | 字串                   | \<hubKeyName>              |
-   | notificationHubName            | 字串                   | \<hubName>                 |
-   | notificationHubNamespace       | 字串                   | \<hubNamespace>            |
+   | notificationHubKey             | 字串                   | \<hubKey >                  |
+   | notificationHubKeyName         | 字串                   | \<hubKeyName >              |
+   | notificationHubName            | 字串                   | \<hubName >                 |
+   | notificationHubNamespace       | 字串                   | \<hubNamespace >            |
 
    流覽至 Azure 入口網站中的 通知中樞 資源，即可找到所需的值。 特別是， **notificationHubName**和**notificationHubNamespace**值位於 [**總覽**] 頁面中 [**基本**] 摘要的右上角。
 
    ![通知中樞 Essentials 摘要](./media/notification-hubs-ios-push-notifications-swift-apps-get-started/hub-essentials.png)
 
-   您也可以流覽至 [**存取原則**]，然後選取個別的**存取原則**（例如 `DefaultFullSharedAccessSignature`）來尋找**notificationHubKeyName**和**notificationHubKey**值。 之後，從**主要連接字串**複製值，其前面加上 `SharedAccessKeyName=` 的 `notificationHubKeyName`，並在 `notificationHubKey` 前面加上 `SharedAccessKey=` 的值。
+   您也可以流覽至 [**存取原則**]，然後選取個別的**存取原則**（例如 `DefaultFullSharedAccessSignature`）來尋找**notificationHubKeyName**和**notificationHubKey**值。 之後，請從**主要連接字串**複製值，其前面加上 `notificationHubKeyName` 的 `SharedAccessKeyName=`，以及 `notificationHubKey`前面加上 `SharedAccessKey=` 的值。
 
    連接字串應採用下列格式：
 
@@ -116,7 +116,7 @@ ms.locfileid: "72030651"
 
 1. 尋找 [**簽署**]，然後為您的**Apple 開發人員帳戶**選取適當的**小組**。 小組值應符合您用來建立憑證和設定檔的**專案**。
 
-1. Xcode 應該根據套件組合**識別碼**，自動拉出適當的布建**設定檔**值。 如果您看不到新的布建**設定檔**值，請**嘗試 @no__t-** 5**帳戶** > **視圖詳細資料**中選取 @no__t **Xcode**，以重新整理**簽署身分識別**的設定檔。 選取 [**簽署識別**]，然後選取右下角**的 [重新**整理] 按鈕以下載設定檔。
+1. Xcode 應該根據套件組合**識別碼**，自動拉出適當的布建**設定檔**值。 如果您沒有看到新的 布建**設定檔** 值，請嘗試選取  **Xcode** > **喜好**設定 > **帳戶** >  **詳細資料**，以重新整理**簽署識別**的設定檔。 選取 [**簽署識別**]，然後選取右下角**的 [重新**整理] 按鈕以下載設定檔。
 
 1. 選取 [**功能**] 索引標籤，並確定已啟用**推播通知**。
 
@@ -297,7 +297,7 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 
 若要新增和設定橋接標頭：
 
-1. 在 Xcode 中，**選取 [** 檔案]  >  個**新**的 @no__t **-3 個**檔案  > **標頭檔**。 將標頭檔命名為**BridgingHeader**。
+1. 在 Xcode 中 **，選取** 檔案 > **新** **的 > 檔案** > **標頭檔**。 將標頭檔命名為**BridgingHeader**。
 
 1. 編輯檔案以匯入**CommonHMAC。 h**：
 
@@ -317,7 +317,7 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 
    1. 確定 [**安裝目標-C 相容性標頭**] 選項設定為 **[是]** 。
 
-   1. 在 [**目標-C 橋接標頭**] 選項中，輸入 `'<ProjectName>/BridgingHeader.h'` 的檔案路徑。 這是我們橋接標頭的檔案路徑。
+   1. 在 [**目標-C 橋接標頭**] 選項中，輸入檔案路徑 `'<ProjectName>/BridgingHeader.h'`。 這是我們橋接標頭的檔案路徑。
 
    如果您找不到這些選項，請確定您已選取 [ **All** ]，而不是 [**基本**] 或 [**自訂**]。
 
@@ -410,10 +410,10 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 
 1. 設定要求標頭，如下所示：
 
-   | Key           | 值            |
+   | 金鑰           | 值            |
    | ------------- | ---------------- |
    | Content-Type  | application/json |
-   | Authorization | \<sasToken>       |
+   | 授權 | \<sasToken >       |
    | x-ms-version  | 2015-01          |
 
 1. 選取出現在 [**儲存**] 按鈕右下方的 [程式**代碼**] 按鈕。 要求看起來應該類似下列範例：
@@ -428,7 +428,7 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
     Postman-Token: <postmanToken>
     ```
 
-1. 選取 [**傳送**] 按鈕。
+1. 選取 [Send] \(傳送\) 按鈕。
 
 此時，指定的**installationId**不存在任何註冊。 驗證應該會產生「404找不到」回應，而不是「401未經授權」回應。 此結果應確認已接受 SAS 權杖。
 
@@ -658,12 +658,12 @@ class NotificationRegistrationService {
 
 1. 設定要求標頭，如下所示：
 
-   | Key                            | 值                          |
+   | 金鑰                            | 值                          |
    | ------------------------------ | ------------------------------ |
-   | Content-Type                   | application/json;charset=utf-8 |
-   | Authorization                  | \<sasToken>                     |
-   | ServiceBusNotification-Format  | template                       |
-   | Tags                           | "12345"                        |
+   | Content-Type                   | application/json; 字元集 = utf-8 |
+   | 授權                  | \<sasToken >                     |
+   | ServiceBusNotification-格式  | 範本                       |
+   | 標籤                           | "12345"                        |
 
 1. 將**要求本文**設定為使用具有下列 JSON 承載的**原始 json （application. json）** ：
 
@@ -690,12 +690,12 @@ class NotificationRegistrationService {
     }
     ```
 
-1. 選取 [**傳送**] 按鈕。
+1. 選取 [Send] \(傳送\) 按鈕。
 
 您應該會取得成功狀態碼，並在用戶端裝置上收到通知。
 
 ## <a name="next-steps"></a>後續步驟
-您現在已透過[REST API](/rest/api/notificationhubs/)將基本 iOS Swift 應用程式連線至通知中樞，而且可以傳送和接收通知。 如需詳細資訊，請參閱下列文章：
+您現在已透過[REST API](/rest/api/notificationhubs/)將基本 iOS Swift 應用程式連線至通知中樞，而且可以傳送和接收通知。 如需詳細資訊，請參閱下列文章。
 
 - [Azure 通知中樞總覽](notification-hubs-push-notification-overview.md)
 - [通知中樞 REST API](/rest/api/notificationhubs/)

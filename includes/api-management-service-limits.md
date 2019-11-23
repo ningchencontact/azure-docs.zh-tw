@@ -16,7 +16,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 09/18/2019
 ms.locfileid: "67174382"
 ---
-| Resource | 限制 |
+| 資源 | 限制 |
 | --- | --- |
 | 縮放單位數上限 | 每個區域 10 個<sup>1</sup> |
 | 快取大小 | 每個單位 5 GB<sup>2</sup> |

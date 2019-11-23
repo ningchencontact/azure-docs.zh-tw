@@ -36,7 +36,7 @@ ms.locfileid: "72170612"
 不支援在適用於 Linux 的 Windows 子系統上安裝 Service Fabric 執行階段。 您可以使用支援的 Azure Service Fabric 命令列介面 (CLI)，管理裝載於雲端或內部部署中其他地方的 Service Fabric 實體。 如需如何安裝 CLI 的資訊，請參閱[設定 Service Fabric CLI](./service-fabric-cli.md)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 以下為支援開發的作業系統版本。
 
@@ -71,7 +71,7 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 ### <a name="ubuntu"></a>Ubuntu
 
 1. 開啟終端機。
-2. 將 Service Fabric 存放庫新增至來源清單。
+2. 將 Service Fabric 儲存機制新增至來源清單。
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
@@ -110,7 +110,7 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-8. 根據新增的存放庫重新整理套件清單。
+8. 根據新增的儲存機制重新整理套件清單。
 
     ```bash
     sudo apt-get update
@@ -178,8 +178,8 @@ SDK 安裝程式隨附的 Service Fabric 執行階段包含下表中的套件。
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | 內含於 npm | latest |
-RHEL | - | OpenJDK 1.8 | 內含於 npm | latest |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | 內含於 npm | 最新 |
+RHEL | - | OpenJDK 1.8 | 內含於 npm | 最新 |
 
 ## <a name="set-up-a-local-cluster"></a>設定本機叢集
 在安裝完成之後，請啟動本機叢集。
@@ -272,9 +272,9 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 > 
 > 在 Ubuntu 上，建議您直接從 Eclipse 網站安裝，而不要使用套件安裝程式 (`apt` 或 `apt-get`)。 這麼做可確保您會取得最新版的 Eclipse。 您可以安裝適用於 Java 開發人員或 Java EE 開發人員的 Eclipse IDE。
 
-1. 在 Eclipse 中，確定您已安裝 Eclipse Neon 或更新版本以及 Buildship 2.2.1 版或更新版本。 請選取 [說明] >  [關於 Eclipse] >  [安裝詳細資料]，檢查已安裝的元件版本。 您可以使用 [Eclipse Buildship：適用于 Gradle @ no__t-0 的 Eclipse 外掛程式。
+1. 在 Eclipse 中，確定您已安裝 Eclipse Neon 或更新版本以及 Buildship 2.2.1 版或更新版本。 請選取 [說明] >  [關於 Eclipse] >  [安裝詳細資料]，檢查已安裝的元件版本。 您可以使用[Eclipse Buildship：適用于 Gradle 的 Eclipse 外掛程式][buildship-update]中的指示來更新 Buildship。
 
-2. 若要安裝 Service Fabric 外掛程式，請選取 [說明]  >  [安裝新軟體]。
+2. 若要安裝 Service Fabric 外掛程式，請選取 [說明]  **[安裝新軟體]**  > 。
 
 3. 在 [使用] 方塊中，輸入 **https://dl.microsoft.com/eclipse** 。
 
@@ -286,7 +286,7 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 
 6. 執行安裝步驟。 然後接受使用者授權合約。
 
-如果您已安裝 Service Fabric Eclipse 外掛程式，請確定您擁有的是最新版本。 請選取 [說明] > [關於Eclipse] > [安裝詳細資料] 來檢查。 然後，在已安裝的外掛程式清單中搜尋 Service Fabric。如果有可用的較新版本，請選取 [更新]。
+如果您已安裝 Service Fabric Eclipse 外掛程式，請確定您擁有的是最新版本。 請選取 [說明] > [關於Eclipse] > [安裝詳細資料] 來檢查。 然後在已安裝的外掛程式清單中搜尋 Service Fabric。如果有較新的版本可用，請選取 [**更新**]。
 
 如需詳細資訊，請參閱[適用於 Eclipse Java 應用程式開發的 Service Fabric 外掛程式](service-fabric-get-started-eclipse.md)。
 
@@ -298,7 +298,7 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 sudo apt-get update
 sudo apt-get install servicefabric servicefabricsdkcommon
 ```
-若要更新 Maven 提供的 Java SDK 二進位檔，您必須在 ``build.gradle`` 檔案中更新對應二進位檔的版本詳細資料，以指向最新版本。 若想知道您需要更新版本的確切位置，請在 [Service Fabric 入門範例](https://github.com/Azure-Samples/service-fabric-java-getting-started)中參考 任何 ``build.gradle`` 檔案。
+若要更新 Maven 提供的 Java SDK 二進位檔，您必須在 ``build.gradle`` 檔案中更新對應二進位檔的版本詳細資料，以指向最新版本。 若想知道您需要更新版本的確切位置，請在 ``build.gradle``Service Fabric 入門範例[中參考 任何 ](https://github.com/Azure-Samples/service-fabric-java-getting-started) 檔案。
 
 > [!NOTE]
 > 更新套件可能會導致本機開發叢集停止執行。 請遵循本文中的指示，在升級之後重新啟動本機叢集。

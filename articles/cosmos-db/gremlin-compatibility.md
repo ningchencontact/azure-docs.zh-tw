@@ -25,7 +25,7 @@ Azure Cosmos DB 圖形引擎密切遵循[Apache TinkerPop](https://tinkerpop.apa
 
 * ***[Gremlin 位元組程式碼](http://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** 是不限程式設計語言的圖形周遊規格。 Cosmos DB Graph 尚不支援。 使用 ```GremlinClient.SubmitAsync()```，並以文字字串的形式傳遞。
 
-* 目前不支援 ***@no__t 1***設定基數。 請改用 ```property(list, 'xyz', 1)```。
+* 目前不支援***```property(set, 'xyz', 1)```*** 設定基數。 請改用 ```property(list, 'xyz', 1)```。
 
 * ***```match()```*** 允許使用宣告式模式比對來查詢圖形。 這項功能無法使用。
 
@@ -33,7 +33,7 @@ Azure Cosmos DB 圖形引擎密切遵循[Apache TinkerPop](https://tinkerpop.apa
 
 * 不支援***依陣列屬性排序***```.order().by(<array property>)```。 僅支援依據基本類型排序。
 
-* 不支援***非基本的 JSON 類型***。 使用 ```string```、```number``` 或 ```true``` @ no__t-3 @ no__t-4 類型。 ```null``` 值不受支援。 
+* 不支援***非基本的 JSON 類型***。 使用 ```string```、```number```或 ```true```/```false``` 類型。 不支援 ```null``` 值。 
 
 * 目前無法使用***GraphSONv3***序列化程式。
 

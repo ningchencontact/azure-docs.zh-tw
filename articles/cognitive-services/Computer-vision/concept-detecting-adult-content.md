@@ -35,7 +35,7 @@ ms.locfileid: "71718522"
 
 ## <a name="use-the-api"></a>使用 API
 
-您可以使用[分析影像](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)API 來偵測成人內容。 當您將 `Adult` 的值新增至**visualFeatures**查詢參數時，API 會傳回三個布林屬性 @ no__t-2 @ no__t-3，`isRacyContent`，而 `isGoryContent` @ no__t-6IN 其 JSON 回應。 此方法也會傳回對應的屬性 @ no__t-0 @ no__t-1，`racyScore`，而 `goreScore` @ no__t-4which 代表每個個別類別的信賴分數，介於0到1之間。
+您可以使用[分析影像](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)API 來偵測成人內容。 當您將 `Adult` 的值新增至**visualFeatures**查詢參數時，API 會在其 JSON 回應中&mdash;`isAdultContent`、`isRacyContent`和 `isGoryContent`&mdash;傳回三個布林值屬性。 方法也會傳回對應的屬性&mdash;`adultScore`、`racyScore`和 `goreScore`&mdash;，代表每個個別類別的信賴分數為零和一個。
 
-- [快速入門：分析影像 (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
-- [快速入門：分析影像 (REST API)](./quickstarts/csharp-analyze.md)
+- [快速入門：分析影像（.NET SDK）](./quickstarts-sdk/csharp-analyze-sdk.md)
+- [快速入門：分析影像（REST API）](./quickstarts/csharp-analyze.md)

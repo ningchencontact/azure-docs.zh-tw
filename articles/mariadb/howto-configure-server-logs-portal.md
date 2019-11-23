@@ -17,7 +17,7 @@ ms.locfileid: "71844709"
 
 您可以從 Azure 入口網站設定、列出和下載[適用於 MariaDB 的 Azure 資料庫慢速查詢記錄](concepts-server-logs.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文中的步驟需要您擁有[適用於 MariaDB 的 Azure 資料庫 server](quickstart-create-mariadb-server-database-using-azure-portal.md)。
 
 ## <a name="configure-logging"></a>設定記錄
@@ -28,11 +28,11 @@ ms.locfileid: "71844709"
 2. 選取適用於 MariaDB 的 Azure 資料庫伺服器。
 
 3. 在提要欄位的 [**監視**] 區段下，選取 [**伺服器記錄**]。 
-   @no__t 0Screenshot 伺服器記錄選項 @ no__t-1
+   ![伺服器記錄選項的螢幕擷取畫面](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
 
 4. 若要查看伺服器參數，請選取 [**按一下這裡以啟用記錄] 和 [設定記錄參數**]。
 
-5. 變更您需要調整的參數，包括將 [ **slow_query_log** ] 設為 [**開啟**]。 您在此工作階段中所做的所有變更都會以紫色顯示。 
+5. 變更您需要調整的參數，包括將**slow_query_log**開啟至 [**開啟**]。 您在此工作階段中所做的所有變更都會以紫色顯示。 
 
    變更參數之後，請選取 [**儲存**]。 或者，您可以捨棄您的變更。
 
@@ -62,7 +62,7 @@ ms.locfileid: "71844709"
 
 ## <a name="set-up-diagnostic-logs"></a>設定診斷記錄
 
-1. 在側邊欄的 **監視** 區段下，選取 **診斷設定**  > **新增診斷設定**。
+1. 在提要欄位的 **監視** 區段下，選取 **診斷設定** > **新增診斷設定**。
 
    ![診斷設定選項的螢幕擷取畫面](./media/howto-configure-server-logs-portal/add-diagnostic-setting.png)
 
@@ -71,10 +71,10 @@ ms.locfileid: "71844709"
 1. 指定要傳送慢速查詢記錄（儲存體帳戶、事件中樞或 Log Analytics 工作區）的資料接收。
 
 1. 選取 [ **MySqlSlowLogs** ] 做為記錄類型。
-@no__t-診斷設定選項 @ no__t-1 的0Screenshot
+![診斷設定選項的螢幕擷取畫面](./media/howto-configure-server-logs-portal/configure-diagnostic-setting.png)
 
 1. 設定資料接收以管道傳送緩慢查詢記錄檔之後，請選取 [**儲存**]。
-@no__t-診斷設定選項的0Screenshot，並醒目提示 [儲存] @ no__t-1
+![診斷設定選項的螢幕擷取畫面，並反白顯示 [儲存]](./media/howto-configure-server-logs-portal/save-diagnostic-setting.png)
 
 1. 藉由在您設定的資料接收器中探索緩慢查詢記錄來加以存取。 最多可能需要10分鐘的時間，記錄才會出現。
 

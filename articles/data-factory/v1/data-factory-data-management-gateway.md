@@ -22,7 +22,7 @@ ms.locfileid: "73682719"
 ---
 # <a name="data-management-gateway"></a>資料管理閘道
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。
 
 > [!NOTE]
 > 資料管理閘道現已更名為「自我裝載整合執行階段」。
@@ -38,7 +38,7 @@ ms.locfileid: "73682719"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 ### <a name="capabilities-of-data-management-gateway"></a>資料管理閘道功能
 資料管理閘道提供下列功能：
 
@@ -72,7 +72,7 @@ ms.locfileid: "73682719"
 * 您必須**使用閘道**，即使資料存放區位於 **Azure IaaS VM** 上的雲端中。
 
 ## <a name="installation"></a>安裝
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 * 支援的 **作業系統** 版本包括 Windows 7、Windows 8/8.1、Windows 10、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。 目前不支援在網域控制站上安裝資料管理閘道。
 * 必須有 .NET Framework 4.5.1 或更新版本。 如果您要在 Windows 7 電腦上安裝閘道，請安裝 .NET Framework 4.5 或更新版本。 如需詳細資訊，請參閱 [.NET Framework 系統需求](https://msdn.microsoft.com/library/8z6watww.aspx) 。
 * 建議的閘道機器「組態」 為至少 2 GHz、4 核心、8 GB RAM 和 80 GB 磁碟。
@@ -141,7 +141,7 @@ ms.locfileid: "73682719"
 
 在公司防火牆層級，您需要設定下列網域和輸出連接埠：
 
-| 網域名稱 | 連接埠 | 說明 |
+| 網域名稱 | 連接埠 | 描述 |
 | --- | --- | --- |
 | *.servicebus.windows.net |443 |用於與「資料移動服務」後端進行通訊 |
 | *.core.windows.net |443 |用於使用 Azure Blob 的分段複製 (如果已設定)|
@@ -151,7 +151,7 @@ ms.locfileid: "73682719"
 Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，您可以在閘道電腦上相應地設定網域和連接埠。
 
 > [!NOTE]
-> 1. 視您的來源/接收器而定，您可能需要將額外的網域和輸出連接埠加到您公司/Windows 防火牆的允許清單中。
+> 1. 視您的來源/接收器而定，您可能需要將額外的網域和輸出連接埠加到您公司/Windows 防火牆的白名單中。
 > 2. 對於某些雲端資料庫 (例如：[Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings)、[Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access) 等)，您可能需要將閘道電腦的 IP 位址加到其防火牆組態的白名單中。
 >
 >
@@ -263,7 +263,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 
 「資料管理閘道組態管理員」的 [首頁] 索引標籤會顯示更新排程，以及上次安裝/更新閘道的時間。
 
-![更新排程](media/data-factory-data-management-gateway/UpdateSection.png)
+![排程更新](media/data-factory-data-management-gateway/UpdateSection.png)
 
 您可以立即安裝更新，或等候閘道在排定時間自動更新。 例如，下圖顯示的是「閘道組態管理員」中所顯示的通知訊息以及 [更新] 按鈕，按一下此按鈕即可立即安裝更新。
 
@@ -363,10 +363,10 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 
 下表說明 [閘道節點] 清單中的資料行：
 
-監視屬性 | 說明
+監視屬性 | 描述
 :------------------ | :----------
 名稱 | 邏輯閘道和閘道相關聯節點的名稱。 節點是安裝了閘道的內部部署 Windows 機器。 若要了解如何在單一邏輯閘道中擁有一個以上的節點 (最多四個節點)，請參閱[資料管理閘道 - 高可用性和延展性](data-factory-data-management-gateway-high-availability-scalability.md)。
-狀態 | 邏輯閘道和閘道節點的狀態。 範例：線上/離線/有限/等。如需這些狀態的相關資訊，請參閱[閘道狀態](#gateway-status)一節。
+Status | 邏輯閘道和閘道節點的狀態。 範例：線上/離線/有限/等。如需這些狀態的相關資訊，請參閱[閘道狀態](#gateway-status)一節。
 版本 | 顯示邏輯閘道和每個閘道節點的版本。 邏輯閘道的版本取決於群組中大多數節點的版本。 如果邏輯閘道設定中有不同版本的節點，則只有版本號碼和邏輯閘道相同的節點會正常運作。 其他節點會進入受限制模式，並需要加以手動更新 (如果自動更新失敗才需要這麼做)。
 可用的記憶體 | 閘道節點上可用的記憶體。 這個值是近乎即時的快照集。
 CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快照集。
@@ -379,7 +379,7 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
 ### <a name="gateway-status"></a>閘道狀態
 下表提供**閘道節點**的可能狀態：
 
-狀態  | 註解/案例
+Status  | 註解/案例
 :------- | :------------------
 線上 | 節點已連線至 Data Factory 服務。
 離線 | 節點已離線。
@@ -389,7 +389,7 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
 
 下表提供**邏輯閘道**的可能狀態。 閘道的狀態取決於閘道節點的狀態。
 
-狀態 | 註解
+Status | 註解
 :----- | :-------
 需要註冊 | 此邏輯閘道還沒有已註冊的節點
 線上 | 閘道節點已連線

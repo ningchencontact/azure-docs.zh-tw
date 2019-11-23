@@ -40,7 +40,7 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
 * 適當的埠必須在適用的 Windows Active Directory （AD）伺服器上開啟。  
     必要的埠如下所示： 
 
-    |     服務           |     Port     |     Protocol     |
+    |     服務           |     Port     |     通訊協定     |
     |-----------------------|--------------|------------------|
     |    AD Web 服務    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
@@ -100,7 +100,7 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
     * **組織單位路徑**  
         這是將在其中建立 SMB 伺服器電腦帳戶的組織單位（OU）的 LDAP 路徑。 也就是 OU = 第二層，OU = 第一層。 
 
-        如果您使用具有 Azure Active Directory Domain Services 的 Azure NetApp Files，則當您設定 NetApp 帳戶的 Active Directory 時，組織單位路徑會 `OU=AADDC Computers`。
+        如果您使用具有 Azure Active Directory Domain Services 的 Azure NetApp Files，則當您設定 NetApp 帳戶的 Active Directory 時，會 `OU=AADDC Computers` 組織單位路徑。
         
     * 認證，包括您的使用者**名稱**和**密碼**
 
@@ -130,7 +130,7 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
 
         在每個容量集區中，磁片區名稱都必須是唯一的。 長度至少必須有三個字元。 您可以使用任何英數位元。   
 
-        您不能使用 `default` 作為磁片區名稱。
+        您不能使用 `default` 做為磁片區名稱。
 
     * **容量集區**  
         指定您想要在其中建立磁片區的容量集區。

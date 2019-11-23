@@ -25,7 +25,7 @@ ms.locfileid: "71828515"
 
 如需 [Azure 安全性最佳做法](https://docs.microsoft.com/azure/security/)的相關詳細資訊，請參閱 [Azure Service Fabric 安全性最佳做法](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices)
 
-## <a name="key-vault"></a>Key Vault
+## <a name="key-vault"></a>金鑰保存庫
 
 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) 是建議採用的 Azure Service Fabric 應用程式和叢集的秘密管理服務。
 > [!NOTE]
@@ -217,16 +217,16 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [我們建議您執行廣為知名且經過妥善測試的業界標準設定，例如 Microsoft 安全性基準，而不是自行建立基準](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines);在您的虛擬機器擴展集上布建這些功能的選項是使用 Azure Desired State Configuration （DSC）延伸模組處理常式，在 Vm 上線時進行設定，使其執行生產環境軟體。
 
 ## <a name="azure-firewall"></a>Azure 防火牆
-@no__t 0Azure 防火牆是受控的雲端式網路安全性服務，可保護您的 Azure 虛擬網路資源。它是完全具狀態的防火牆即服務，具有內建的高可用性和不受限制的雲端擴充性。 ](https://docs.microsoft.com/azure/firewall/overview);這讓您能夠將輸出 HTTP/S 流量限制為指定的完整功能變數名稱（FQDN）清單，包括萬用字元。 這項功能不需要 SSL 終止。 建議您利用適用于 Windows Update 的[Azure 防火牆 FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags)標籤，並讓 Microsoft Windows Update 端點的網路流量可以流經您的防火牆。 [使用範本部署 Azure 防火牆](https://docs.microsoft.com/azure/firewall/deploy-template)提供了適用于 Microsoft 網路/azureFirewalls 資源範本定義的範例。 Service Fabric 應用程式通用的防火牆規則，是針對您的叢集虛擬網路允許下列各項：
+[Azure 防火牆是受控的雲端式網路安全性服務，可保護您的 Azure 虛擬網路資源。它是完全具狀態的防火牆即服務，具有內建的高可用性和不受限制的雲端擴充性。](https://docs.microsoft.com/azure/firewall/overview)這讓您能夠將輸出 HTTP/S 流量限制為指定的完整功能變數名稱（FQDN）清單，包括萬用字元。 這項功能不需要 SSL 終止。 建議您利用適用于 Windows Update 的[Azure 防火牆 FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags)標籤，並讓 Microsoft Windows Update 端點的網路流量可以流經您的防火牆。 [使用範本部署 Azure 防火牆](https://docs.microsoft.com/azure/firewall/deploy-template)提供了適用于 Microsoft 網路/azureFirewalls 資源範本定義的範例。 Service Fabric 應用程式通用的防火牆規則，是針對您的叢集虛擬網路允許下列各項：
 
 - \* download.microsoft.com
-- *servicefabric.azure.com
+- \* servicefabric.azure.com
 - *.core.windows.net
 
 這些防火牆規則可讓您的允許輸出網路安全性群組（包括 ServiceFabric 和儲存體）成為虛擬網路中允許的目的地。
 
 ## <a name="tls-12"></a>TLS 1.2
-[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
+[技術](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
 
 ## <a name="windows-defender"></a>Windows Defender 
 
@@ -263,7 +263,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 > 如果您沒有使用 Windows Defender，請參閱您的反惡意程式碼文件，以了解設定規則。 Linux 不支援 Windows Defender。
 
 ## <a name="platform-isolation"></a>平臺隔離
-根據預設，Service Fabric 應用程式會被授與 Service Fabric 執行時間本身的存取權，這會以不同的形式來列出本身：[環境變數](service-fabric-environment-variables-reference.md)指向對應于應用程式和網狀架構檔案的主機上的檔案路徑，處理序間通訊端點，其接受應用程式特定的要求，以及網狀架構預期應用程式用來驗證本身的用戶端憑證。 在服務裝載本身不受信任程式碼的可能性中，建議您停用此 SF 執行時間的存取權，除非明確需要。 在應用程式資訊清單的 [原則] 區段中，會使用下列宣告來移除執行時間的存取： 
+根據預設，Service Fabric 應用程式會被授與 Service Fabric 執行時間本身的存取權，這會以不同的形式來列出本身：[環境變數](service-fabric-environment-variables-reference.md)會指向對應至應用程式和網狀架構檔案之主機上的檔案路徑、可接受應用程式特定要求的處理序間通訊端點，以及網狀架構預期應用程式用來驗證本身的用戶端憑證。 在服務裝載本身不受信任程式碼的可能性中，建議您停用此 SF 執行時間的存取權，除非明確需要。 在應用程式資訊清單的 [原則] 區段中，會使用下列宣告來移除執行時間的存取： 
 
 ```xml
 <ServiceManifestImport>
@@ -276,8 +276,8 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 
 ## <a name="next-steps"></a>後續步驟
 
-* 在執行 Windows Server 的 VM 或電腦上建立叢集：[適用於 Windows Server 的 Service Fabric 叢集建立](service-fabric-cluster-creation-for-windows-server.md)。
-* 在執行 Linux 的 VM 或電腦上建立叢集：[建立 Linux 叢集](service-fabric-cluster-creation-via-portal.md)。
+* 在執行 Windows Server 的 Vm 或電腦上建立叢集：[針對 Windows server 建立 Service Fabric](service-fabric-cluster-creation-for-windows-server.md)叢集。
+* 在執行 Linux 的 Vm 或電腦上建立叢集：[建立 linux](service-fabric-cluster-creation-via-portal.md)叢集。
 * 了解 [Service Fabric 支援選項](service-fabric-support.md)。
 
 [Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png

@@ -19,7 +19,7 @@ ms.locfileid: "71973416"
 為了存取 Azure Service Fabric 應用程式的受控識別功能，您必須先在叢集上啟用受控識別權杖服務。 此服務負責使用其受控識別來驗證 Service Fabric 應用程式，並代表其取得存取權杖。 啟用服務之後，您可以 Service Fabric Explorer 在左窗格的 [**系統**] 區段底下的 [ManagedIdentityTokenService] 中看到它，並在 [其他系統服務] 旁的 [ **Fabric：/system/** ] 底下執行。
 
 > [!NOTE] 
-> 從 API 版本 `"2019-06-01-preview"` 開始，支援部署具有受控識別的 Service Fabric 應用程式。 您也可以針對應用程式類型、應用程式類型版本和服務資源使用相同的 API 版本。 支援的最小 Service Fabric 執行時間為 6.5 CU2。 在 additoin 中，組建/封裝環境也應該具有 CU2 或更高版本的 SF .Net SDK
+> 從 API 版本 `"2019-06-01-preview"`開始，支援部署具有受控識別的 Service Fabric 應用程式。 您也可以針對應用程式類型、應用程式類型版本和服務資源使用相同的 API 版本。 支援的最小 Service Fabric 執行時間為 6.5 CU2。 在 additoin 中，組建/封裝環境也應該具有 CU2 或更高版本的 SF .Net SDK
 
 ## <a name="system-assigned-managed-identity"></a>系統指派的受控識別
 
@@ -47,7 +47,7 @@ ms.locfileid: "71973416"
       }
     }
 ```
-這個屬性會分別宣告（以 Azure Resource Manager，以及受控識別和 Service Fabric 資源提供者，此資源應具有隱含（@no__t 0）受控識別。
+這個屬性會分別宣告（以 Azure Resource Manager，以及受控識別和 Service Fabric 資源提供者，此資源應具有隱含（`system assigned`）受控識別。
 
 ### <a name="application-and-service-package"></a>應用程式和服務套件
 
@@ -76,9 +76,9 @@ ms.locfileid: "71973416"
         </ServiceManifestImport>
       ```
 
-    這個元素會將應用程式的身分識別指派給服務;若沒有此指派，服務將無法存取應用程式的身分識別。 在上述程式碼片段中，`SystemAssigned` 身分識別（也就是保留的關鍵字）會對應至易記名稱 `WebAdmin` 的服務定義。
+    這個元素會將應用程式的身分識別指派給服務;若沒有此指派，服務將無法存取應用程式的身分識別。 在上述程式碼片段中，`SystemAssigned` 身分識別（也就是保留的關鍵字）會對應至易記名稱 `WebAdmin`下的服務定義。
 
-3. 更新服務資訊清單，以在**Resources**區段內新增**microsoft.managedidentity**元素，其名稱符合應用程式資訊清單中 `IdentityBindingPolicy` 定義的 `ServiceIdentityRef` 設定的值：
+3. 更新服務資訊清單，以在**Resources**區段內新增**microsoft.managedidentity**元素，其名稱符合應用程式資訊清單中 `IdentityBindingPolicy` 定義的 `ServiceIdentityRef` 設定值：
 
     **ServiceManifest .xml**
 
@@ -90,7 +90,7 @@ ms.locfileid: "71973416"
         </ManagedIdentities>
       </Resources>
     ```
-    這是與上述服務的身分識別對應，但從服務定義的觀點來看。 此身分識別會依照應用程式資訊清單中宣告的易記名稱（`WebAdmin`）加以參考。
+    這是與上述服務的身分識別對應，但從服務定義的觀點來看。 識別會依照應用程式資訊清單中宣告的易記名稱（`WebAdmin`）來參考。
 
 ## <a name="next-steps"></a>後續步驟
 * 審查 Azure Service Fabric 中的[受控識別支援](./concepts-managed-identity.md)

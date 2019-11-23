@@ -82,7 +82,7 @@ Microsoft Azure 儲存體模擬器是模擬 Azure Blob、佇列和表格服務�
 如需有關這些命令的詳細資訊，請參閱[儲存體模擬器命令列工具參考](#storage-emulator-command-line-tool-reference)。
 
 > [!TIP]
-> 您可以使用 [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 來管理您的 SQL Server 執行個體，包括 LocalDB 安裝。 在 SMSS [連接到伺服器] 對話方塊中，於 [伺服器名稱:] 欄位中指定 `(localdb)\MSSQLLocalDb`，以連接到 LocalDB 執行個體。
+> 您可以使用 [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 來管理您的 SQL Server 執行個體，包括 LocalDB 安裝。 在 SMSS [連接到伺服器] 對話方塊中，於 [伺服器名稱:]`(localdb)\MSSQLLocalDb`**欄位中指定**，以連接到 LocalDB 執行個體。
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>對儲存體模擬器的驗證要求
 
@@ -315,7 +315,7 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 
 ### <a name="version-31"></a>3\.1 版
 
-* 儲存體模擬器現在支援讀取權限異地備援儲存體 (RA-GRS)。 第二個帳戶支援 `Get Blob Service Stats`、`Get Queue Service Stats` 和 @no__t 2 Api，而且一律會根據基礎 SQL 資料庫，將 LastSyncTime 回應元素的值傳回為目前時間。 如需以程式設計方式使用儲存體模擬器來存取次要位置，請使用 Storage Client Library for.NET 3.2 版或更新版本。 如需詳細資訊，請參閱「Microsoft Azure Storage Client Library for .NET」。
+* 儲存體模擬器現在支援讀取權限異地備援儲存體 (RA-GRS)。 `Get Blob Service Stats`、`Get Queue Service Stats`和 `Get Table Service Stats` Api 支援次要帳戶，並且一律會根據基礎 SQL 資料庫，將 LastSyncTime 回應元素的值傳回為目前時間。 如需以程式設計方式使用儲存體模擬器來存取次要位置，請使用 Storage Client Library for.NET 3.2 版或更新版本。 如需詳細資訊，請參閱「Microsoft Azure Storage Client Library for .NET」。
 
 ### <a name="version-30"></a>3\.0 版
 

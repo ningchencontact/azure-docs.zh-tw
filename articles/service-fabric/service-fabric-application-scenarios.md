@@ -30,7 +30,7 @@ Service Fabric 的獨特架構可讓您在應用程式中執行接近即時的�
 
 針對下列類型的應用程式，請考慮使用 Service Fabric 平臺：
 
-* **資料收集、處理和 IoT**：Service Fabric 會透過其具狀態服務來處理大規模且延遲較低。 它可協助處理數百萬個裝置上的資料，其中裝置和計算的資料會共置。
+* **資料收集、處理和 IoT**： Service Fabric 會處理大規模，並透過其具狀態服務進行低延遲。 它可協助處理數百萬個裝置上的資料，其中裝置和計算的資料會共置。
 
     已使用 Service Fabric 建立 IoT 服務的客戶包括[Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure)、 [PCL 建築](https://customers.microsoft.com/story/pcl-construction-professional-services-azure)、 [Crestron](https://customers.microsoft.com/story/crestron-partner-professional-services-azure)、[寶馬](https://customers.microsoft.com/story/bmw-enables-driver-mobility-via-azure-service-fabric/)、 [Schneider 電動](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric)和[網狀網格系統](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions)。
 
@@ -42,7 +42,7 @@ Service Fabric 的獨特架構可讓您在應用程式中執行接近即時的�
 
     已建立商務工作流程服務的客戶包括[Zeiss 群組](https://customers.microsoft.com/story/zeiss-group-focuses-on-azure-service-fabric-for-key-integration-platform)、[仲裁商務解決方案](https://customers.microsoft.com/en-us/story/quorum-business-solutions-expand-energy-managemant-solutions-using-azure-service-fabric)和[Société一般](https://customers.microsoft.com/en-us/story/societe-generale-speeds-real-time-market-quotes-using-azure-service-fabric)。
 
-* **資料的計算**：Service Fabric 可讓您建立執行大量資料計算的具狀態應用程式。 Service Fabric 允許在應用程式中進行處理（計算）和資料的共置。 
+* **資料的計算**： Service Fabric 可讓您建立執行大量資料計算的具狀態應用程式。 Service Fabric 允許在應用程式中進行處理（計算）和資料的共置。 
 
    一般來說，當您的應用程式需要存取資料時，與外部資料快取或儲存層相關聯的網路延遲會限制計算時間。 具狀態 Service Fabric 服務會消除該延遲，以提供更優化的讀取和寫入。 
    
@@ -50,9 +50,9 @@ Service Fabric 的獨特架構可讓您在應用程式中執行接近即時的�
 
     具有內建計算服務的客戶包括[Solidsoft 回復](https://customers.microsoft.com/story/solidsoft-reply-platform-powers-e-verification-of-pharmaceuticals)和[Infosupport](https://customers.microsoft.com/story/service-fabric-customer-profile-info-support-and-fudura)。
 
-* **高可用性服務**：Service Fabric 藉由建立多個次要服務複本來提供快速容錯移轉。 如果節點、處理序或個別服務因為硬體或其他故障而停機，其中一個次要複本會升級為主要複本，以便將服務損失降到最低。
+* **高可用性服務**： Service Fabric 藉由建立多個次要服務複本來提供快速容錯移轉。 如果節點、處理序或個別服務因為硬體或其他故障而停機，其中一個次要複本會升級為主要複本，以便將服務損失降到最低。
 
-* **可調整的服務**：可以分割個別服務，以便在叢集中擴充狀態。 您也可以即時建立和移除個別服務。 您可以從數個節點上的幾個實例向外延展服務，並在多個節點上將數千個實例相應放大，然後視需要再重新調整。 您可以使用 Service Fabric 來建立這些服務，並管理其完整的生命週期。
+* **可調整的服務**：可以分割個別服務，以便在叢集中相應放大。 您也可以即時建立和移除個別服務。 您可以從數個節點上的幾個實例向外延展服務，並在多個節點上將數千個實例相應放大，然後視需要再重新調整。 您可以使用 Service Fabric 來建立這些服務，並管理其完整的生命週期。
 
 ## <a name="application-design-case-studies"></a>應用程式設計個案研究
 示範如何使用 Service Fabric 來設計應用程式的個案研究，會在[客戶案例](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=0&so=story_publish_date%20desc/)和 Azure 網站的[微服務](https://azure.microsoft.com/solutions/microservice-applications/)上發佈。
@@ -68,9 +68,9 @@ Service Fabric 的獨特架構可讓您在應用程式中執行接近即時的�
 
 下圖說明設計無狀態的應用程式與可設定狀態的應用程式之間的差異。 藉由運用 [Reliable Services](service-fabric-reliable-services-introduction.md) 和 [Reliable Actors](service-fabric-reliable-actors-introduction.md) 程式設計模型，具狀態服務既可降低應用程式複雜度，又可提高輸送量和降低延遲。
 
-以下是使用無狀態服務的範例應用程式：使用無狀態服務 @ no__t-1 的 @no__t 0Application
+以下是使用無狀態服務的範例應用程式：使用無狀態服務的 ![應用程式][Image1]
 
-以下是使用具狀態服務的範例應用程式：使用具狀態服務 @ no__t-1 的 @no__t 0Application
+以下是使用具狀態服務的範例應用程式：使用具狀態服務的 ![應用程式][Image2]
 
 ## <a name="next-steps"></a>後續步驟
 

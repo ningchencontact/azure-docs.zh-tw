@@ -27,7 +27,7 @@ ms.locfileid: "72374010"
 
 Azure Active Directory （Azure AD）中的條件式存取功能提供了數種方式的其中一種，可讓您用來保護應用程式及保護服務。 條件式存取可讓開發人員和企業客戶以多種方式來保護服務，包括：
 
-* 多因素驗證
+* Multi-Factor Authentication
 * 只允許已註冊 Intune 的裝置存取特定服務
 * 限制使用者位置及 IP 範圍
 
@@ -89,7 +89,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ## <a name="scenarios"></a>案例
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 Azure AD 條件式存取是[Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)中包含的功能。 您可以在[未經授權的使用報告](../active-directory-conditional-access-unlicensed-usage-report.md)中深入了解授權需求。 開發人員可以加入 [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx)，其中包含的 Enterprise Mobility Suite 免費訂用帳戶會包含 Azure AD Premium。
 
@@ -146,7 +146,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![存取多個要求新權杖之服務的應用程式](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-如果應用程式是使用 ADAL 程式庫，就一律會以互動方式重試取得權杖失敗。 當此互動式要求發生時，使用者就有機會遵守條件式存取。 除非要求為 `AcquireTokenSilentAsync` 或 `PromptBehavior.Never`，否則應用程式必須執行互動式 @no__t 2 要求，讓使用者有機會符合原則，這是正確的情況。
+如果應用程式是使用 ADAL 程式庫，就一律會以互動方式重試取得權杖失敗。 當此互動式要求發生時，使用者就有機會遵守條件式存取。 除非要求是 `AcquireTokenSilentAsync` 或 `PromptBehavior.Never` 在此情況下，應用程式需要執行互動式 ```AcquireToken``` 要求，讓使用者有機會符合原則。
 
 ## <a name="scenario-single-page-app-spa-using-adaljs"></a>案例：使用 ADAL.js 的單頁應用程式 (SPA)
 
@@ -158,7 +158,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 * 接著可以使用 `acquireToken(…)`，以無訊息方式取得存取權杖，這表示它在任何情況下都不會顯示 UI。
 * `acquireTokenPopup(…)` 和 `acquireTokenRedirect(…)` 都是用來以互動方式要求資源的權杖，這表示它們一律會顯示登入 UI。
 
-當應用程式需要存取權杖來呼叫 Web API 時，它會嘗試 `acquireToken(…)`。 如果權杖會話已過期，或我們需要遵守條件式存取原則，則*acquireToken*函數會失敗，且應用程式會使用 `acquireTokenPopup()` 或 `acquireTokenRedirect()`。
+當應用程式需要存取權杖來呼叫 Web API 時，它會嘗試 `acquireToken(…)`。 如果權杖會話已過期，或我們需要遵守條件式存取原則，則*acquireToken*函式會失敗，且應用程式會使用 `acquireTokenPopup()` 或 `acquireTokenRedirect()`。
 
 ![使用 ADAL 的單頁應用程式流程圖](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
 
@@ -176,7 +176,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 若要試用此情節，請參閱我們的 [JS SPA 代理者程式碼範例](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)。 此程式碼範例會使用條件式存取原則，以及您稍早使用 JS SPA 註冊的 Web API 來示範這種情況。 它會示範如何正確處理宣告挑戰，並取得可用於您 Web API 的存取權杖。 或者，查看一般 [Angular.js 程式碼範例](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp)，以取得 Angular SPA 的指引
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * 若要深入了解功能，請參閱 [Azure Active Directory 中的條件式存取](../active-directory-conditional-access-azure-portal.md)。
 * 如需更多的 Azure AD 程式碼範例，請參閱[程式碼範例的 Github 存放庫](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)。

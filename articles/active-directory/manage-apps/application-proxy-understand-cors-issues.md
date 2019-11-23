@@ -20,7 +20,7 @@ ms.locfileid: "72025780"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>瞭解和解決 Azure Active Directory 應用程式 Proxy CORS 問題
 
-[跨原始來源資源分享（CORS）](https://www.w3.org/TR/cors/) can 有時會針對您透過 Azure Active Directory 應用程式 Proxy 發佈的應用程式和 api 呈現挑戰。 本文討論 Azure AD 應用程式 Proxy CORS 的問題和解決方案。
+[跨原始來源資源分享（CORS）](https://www.w3.org/TR/cors/) 有時可能會對您透過 Azure Active Directory 應用程式 Proxy 發佈的應用程式和 api 帶來挑戰。 本文討論 Azure AD 應用程式 Proxy CORS 的問題和解決方案。
 
 瀏覽器安全性通常會防止網頁對另一個網域發出 AJAX 要求。 這種限制稱為「*相同來源原則*」，可防止惡意網站從另一個網站讀取敏感性資料。 不過，有時候您可能會想要讓其他網站呼叫您的 Web API。 CORS 是一種 W3C 標準，可讓伺服器放寬相同的來源原則，並允許某些跨原始來源要求，同時拒絕其他要求。
 
@@ -28,15 +28,15 @@ ms.locfileid: "72025780"
 
 如果兩個 Url 具有相同的配置、主機和埠（[RFC 6454](https://tools.ietf.org/html/rfc6454)），就會有相同的來源，例如：
 
--   http:\//contoso.com/foo.html
--   http:\//contoso.com/bar.html
+-   HTTP：\//contoso.com/foo.html
+-   HTTP：\//contoso.com/bar.html
 
 下列 Url 的來源與前兩個不同：
 
--   HTTP： \//contoso. net-不同的網域
--   HTTP： \//contoso.com:9000/foo.html-不同的埠
--   HTTPs： \//contoso.com/foo.html-不同的配置
--   HTTP： \//www.contoso.com/foo.html-不同的子域
+-   HTTP：\//contoso.net-不同的網域
+-   HTTP：\//contoso.com:9000/foo.html-不同的埠
+-   HTTPs：\//contoso.com/foo.html-不同的配置
+-   HTTP：\//www.contoso.com/foo.html-不同的子域
 
 相同來源原則會防止應用程式存取來自其他來源的資源，除非它們使用正確的存取控制標頭。 如果 CORS 標頭不存在或不正確，跨原始來源要求將會失敗。 
 
@@ -46,7 +46,7 @@ ms.locfileid: "72025780"
 1. 按**F12**鍵以顯示 [調試] 主控台。
 1. 請嘗試重現交易，並查看主控台訊息。 CORS 違規會產生關於來源的主控台錯誤。
 
-在下列螢幕擷取畫面中，選取 [**試試看**] 按鈕會造成 CORS 錯誤訊息，指出在存取控制-允許來源標頭中找不到 HTTPs： \//corswebclient-msappproxy. net。
+在下列螢幕擷取畫面中，選取 [**試試看**] 按鈕會造成 CORS 錯誤訊息，指出在存取控制-允許來源標頭中找不到 HTTPs：\//corswebclient-contoso.msappproxy.net。
 
 ![CORS 問題](./media/application-proxy-understand-cors-issues/image3.png)
 
@@ -64,11 +64,11 @@ CORSWebClient 應用程式會在您裝載于內部部署環境時運作，但無
 
 您可以透過數種方式的任何一種來解決上述的 CORS 問題。
 
-### <a name="option-1-set-up-a-custom-domain"></a>選項 1：設定自訂網域
+### <a name="option-1-set-up-a-custom-domain"></a>選項1：設定自訂網域
 
 使用 Azure AD 應用程式 Proxy[自訂網域](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains)，從相同的來源發佈，而不需要對應用程式來源、代碼或標頭進行任何變更。 
 
-### <a name="option-2-publish-the-parent-directory"></a>選項 2：發佈上層目錄
+### <a name="option-2-publish-the-parent-directory"></a>選項2：發行上層目錄
 
 發佈這兩個應用程式的上層目錄。 如果 web 伺服器上只有兩個應用程式，此解決方案的運作方式特別好。 您可以發佈通用上層目錄，而不是個別發佈每個應用程式，而這會產生相同的來源。
 
@@ -82,10 +82,10 @@ CORSWebClient 應用程式會在您裝載于內部部署環境時運作，但無
 
 產生的應用程式 Url 會有效地解決 CORS 問題：
 
-- HTTPs： \//corswebclient-contoso. msappproxy. net/CORSWebService
-- HTTPs： \//corswebclient-contoso. msappproxy. net/CORSWebClient
+- HTTPs：\//corswebclient-contoso.msappproxy.net/CORSWebService
+- HTTPs：\//corswebclient-contoso.msappproxy.net/CORSWebClient
 
-### <a name="option-3-update-http-headers"></a>選項 3：更新 HTTP 標頭
+### <a name="option-3-update-http-headers"></a>選項3：更新 HTTP 標頭
 
 在 web 服務上新增自訂 HTTP 回應標頭，以符合原始要求。 對於在 Internet Information Services （IIS）中執行的網站，請使用 IIS 管理員來修改標頭：
 
@@ -99,14 +99,14 @@ Cache-控制項：無快取 \
 Pragma：無快取 \
 內容類型：文字/純文字;字元集 = utf-8 \
 過期時間：-1 \
-相同接受-編碼 \
-伺服器：Microsoft-IIS/8.5 Microsoft-HTTPAPI/2.0\
-**存取控制-允許-來源： HTTPs @ no__t-1//corswebclient-contoso. msappproxy. net**\
-X-AspNet-版本：4.0.30319\
-X-支援者：ASP.NET\
+Vary：接受-編碼 \
+伺服器： Microsoft-IIS/8.5 Microsoft-HTTPAPI.DLL/2.0 \
+**存取控制-允許-來源： HTTPs\://corswebclient-contoso.msappproxy.net**\
+X-AspNet-版本： 4.0.30319 \
+X-支援： ASP.NET \
 內容長度：17
 
-### <a name="option-4-modify-the-app"></a>選項 4：修改應用程式
+### <a name="option-4-modify-the-app"></a>選項4：修改應用程式
 
 您可以藉由新增具有適當值的存取控制-允許來源標頭，來變更您的應用程式以支援 CORS。 新增標頭的方式取決於應用程式的程式碼語言。 變更程式碼是最小的建議選項，因為它需要最多的工作。
 
@@ -115,6 +115,6 @@ X-支援者：ASP.NET\
 無法解析某些 CORS 問題，例如當您的應用程式重新導向至*login.microsoftonline.com*進行驗證時，存取權杖會過期。 然後，CORS 呼叫會失敗。 此案例的因應措施是延長存取權杖的存留期，以避免在使用者的會話期間過期。 如需如何執行這項操作的詳細資訊，請參閱[Azure AD 中可設定的權杖存留期](../develop/active-directory-configurable-token-lifetimes.md)。
 
 ## <a name="see-also"></a>另請參閱
-- [教學課程：在 Azure Active Directory @ no__t-0 中，透過應用程式 Proxy 新增內部部署應用程式以進行遠端存取 
+- [教學課程：在 Azure Active Directory 中新增內部部署應用程式，以透過應用程式 Proxy 進行遠端存取](application-proxy-add-on-premises-application.md) 
 - [規劃 Azure AD 應用程式 Proxy 部署](application-proxy-deployment-plan.md) 
 - [透過 Azure Active Directory 應用程式 Proxy 從遠端存取內部部署應用程式](application-proxy.md) 

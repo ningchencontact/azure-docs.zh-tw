@@ -35,7 +35,8 @@ Azure IoT Edge 模組會實作為容器，因此 IoT Edge 需要容器引擎來�
 <br>
 <center>
 
-![Moby as container runtime @ no__t-1 @ no__t-2
+![Moby 作為容器執行時間](./media/support/only-moby-for-production.png)
+</center>
 
 ## <a name="operating-systems"></a>作業系統
 Azure IoT Edge 會在大部分可執行容器的作業系統上執行;不過，所有這些系統都不是同樣支援的。 以下將作業系統分組為各種階層，代表使用者可預期的支援程度。
@@ -51,7 +52,8 @@ Azure IoT Edge 會在大部分可執行容器的作業系統上執行;不過，�
 <br>
 <center>
 
-![Host OS 符合來賓 OS @ no__t-1 @ no__t-2
+![主機 OS 符合來賓 OS](./media/support/edge-on-device.png)
+</center>
 
 ### <a name="tier-1"></a>第 1 層
 
@@ -60,8 +62,8 @@ Azure IoT Edge 會在大部分可執行容器的作業系統上執行;不過，�
 | 作業系統 | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
 | Raspbian Stretch |  | ![Raspbian Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
-| [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 公開預覽  |
-| [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 公開預覽 |
+| [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 公開預覽版  |
+| [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 公開預覽版 |
 | [Windows 10 IoT 核心版](https://docs.microsoft.com/windows/iot-core/windows-iot-core)，組建17763 | ![Windows IoT 核心版 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Windows 10 IoT 企業版](https://docs.microsoft.com/windows/iot-core/windows-iot-enterprise)，組建17763 | ![Windows 10 IoT 企業版 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/rel-notes-19)，組建17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
@@ -101,7 +103,8 @@ Azure IoT Edge 可以在虛擬機器中執行。 當客戶想要使用邊緣智�
 <br>
 <center>
 
-VM 中的 @no__t 0Azure IoT Edge @ no__t-1 @ no__t-2
+VM](./media/support/edge-on-vm.png)
+中的 ![Azure IoT Edge </center>
 
 ## <a name="minimum-system-requirements"></a>最低系統需求
 Azure IoT Edge 在小如 Raspberry Pi3 至伺服器等級的硬體上都能順利執行。 針對您的案例選擇正確的硬體取決於您想要執行的工作負載。 決定最終的裝置可能很複雜，不過您可以在傳統膝上型電腦或桌上型電腦上輕鬆開始建立原型解決方案。

@@ -15,7 +15,7 @@ ms.locfileid: "72326631"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 WHERE 子句
 
-選擇性的 WHERE 子句（`WHERE <filter_condition>`）指定來源 JSON 專案必須滿足的條件，查詢才能將其包含在結果中。 JSON 專案必須將指定的條件評估為 `true`，才能視為結果。 索引層使用 WHERE 子句來判斷可為結果一部分之來源專案的最小子集。
+選擇性的 WHERE 子句（`WHERE <filter_condition>`）會指定來源 JSON 專案必須滿足的條件，查詢才能將其包含在結果中。 JSON 專案必須評估指定的條件，才能 `true` 視為結果。 索引層使用 WHERE 子句來判斷可為結果一部分之來源專案的最小子集。
   
 ## <a name="syntax"></a>語法
   
@@ -42,7 +42,7 @@ WHERE <filter_condition>
 
 ## <a name="examples"></a>範例
 
-下列查詢會要求包含 @no__t 0 屬性的專案，其值為 `AndersenFamily`。 它會排除沒有 @no__t 0 屬性或其值不符合 `AndersenFamily` 的任何專案。
+下列查詢會要求包含 `id` 屬性的專案，其值為 `AndersenFamily`。 它會排除沒有 `id` 屬性或其值不符合 `AndersenFamily`的任何專案。
 
 ```sql
     SELECT f.address
@@ -74,7 +74,7 @@ WHERE <filter_condition>
 |位元    | \|, &, ^, <<, >>, >>> (zero-fill right shift) |
 |邏輯    | AND、OR、NOT      |
 |比較 | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|String     |  \|\| (串連) |
+|字串     |  \|\| (串連) |
 
 下列查詢會使用二元運算子：
 
@@ -104,7 +104,7 @@ WHERE <filter_condition>
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-您也可以在查詢中使用屬性參考。 例如，`SELECT * FROM Families f WHERE f.isRegistered` 會傳回包含屬性 `isRegistered` 的 JSON 專案，其值等於 `true`。 任何其他值（例如 `false`、`null`、`Undefined`、`<number>`、`<string>`、`<object>` 或 `<array>`）都會將專案從結果中排除。 
+您也可以在查詢中使用屬性參考。 例如，`SELECT * FROM Families f WHERE f.isRegistered` 會傳回包含屬性 `isRegistered` 的 JSON 專案，其值等於 `true`。 任何其他值（例如 `false`、`null`、`Undefined`、`<number>`、`<string>`、`<object>`或 `<array>`）都會從結果中排除該專案。 
 
 ## <a name="next-steps"></a>後續步驟
 

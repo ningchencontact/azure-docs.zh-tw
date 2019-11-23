@@ -26,9 +26,9 @@ Azure 序列主控台內有一組已知錯誤。 這是這些錯誤和風險降�
 
 ## <a name="common-errors"></a>常見錯誤
 
-Error                            |   風險降低
+錯誤                            |   緩和
 :---------------------------------|:--------------------------------------------|
-無法擷取 *&lt;VMNAME&gt;* 的開機診斷設定。 若要使用序列主控台，請確定已針對此 VM 啟用診斷開機診斷。 ![Boot 診斷錯誤 @ no__t-1 | 請確認 VM 或虛擬機器擴展集已啟用[開機診斷](boot-diagnostics.md)。 如果您在虛擬機器擴展集實例上使用序列主控台，請確定您的實例具有最新的模型。
+無法擷取 *&lt;VMNAME&gt;* 的開機診斷設定。 若要使用序列主控台，請確定已針對此 VM 啟用診斷開機診斷。 ![開機診斷錯誤](./media/virtual-machines-serial-console/virtual-machines-serial-console-boot-diagnostics-error.png) | 請確認 VM 或虛擬機器擴展集已啟用[開機診斷](boot-diagnostics.md)。 如果您在虛擬機器擴展集實例上使用序列主控台，請確定您的實例具有最新的模型。
 VM 處於已停止 (已解除配置) 狀態。 啟動 VM 並重試序列主控台連線。 ![已解除配置的錯誤](./media/virtual-machines-serial-console/virtual-machines-serial-console-deallocating-error.png) | VM 或虛擬機器擴展集實例必須處於已啟動狀態，才能存取序列主控台。 啟動您的 VM 或虛擬機器擴展集實例，然後再試一次。
 存取此 VM 的開機診斷儲存體帳戶時，遇到「禁止」回應。 ![儲存體帳戶防火牆錯誤](./media/virtual-machines-serial-console/virtual-machines-serial-console-firewall-error.png)| 請確定開機診斷沒有帳戶防火牆。 必須要有可存取的開機診斷儲存體帳戶，序列主控台才能運作。 根據設計，序列主控台無法與開機診斷儲存體帳戶上啟用的儲存體帳戶防火牆搭配使用。
 您沒有可使用此 VM 與序列主控台的必要權限。 請確定您至少具有「虛擬機器參與者」角色權限。| 若要存取序列主控台，您必須在 VM 或虛擬機器擴展集上具有參與者層級的存取權或更新版本。 如需詳細資訊，請參閱[總覽頁面](serial-console-overview.md)。

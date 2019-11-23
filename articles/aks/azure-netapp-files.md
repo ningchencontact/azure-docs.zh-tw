@@ -49,7 +49,7 @@ az provider register --namespace Microsoft.NetApp --wait
 > [!NOTE]
 > 這需要一些時間才會完成。
 
-當您建立 Azure NetApp 帳戶以與 AKS 搭配使用時，您必須在**節點**資源群組中建立帳戶。 首先，使用[az aks show][az-aks-show]命令取得資源組名，並加入 @no__t 1 查詢參數。 下列範例會在資源組名*myResourceGroup*中，取得名為*myAKSCluster*之 AKS 叢集的節點資源群組：
+當您建立 Azure NetApp 帳戶以與 AKS 搭配使用時，您必須在**節點**資源群組中建立帳戶。 首先，使用[az aks show][az-aks-show]命令取得資源組名，並加入 `--query nodeResourceGroup` 查詢參數。 下列範例會在資源組名*myResourceGroup*中，取得名為*myAKSCluster*之 AKS 叢集的節點資源群組：
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -143,7 +143,7 @@ $ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $AN
 }
 ```
 
-建立 `pv-nfs.yaml`，定義 PersistentVolume。 將 `path` 取代為*creationToken* ，並使用上一個命令的*ipAddress* `server`。 例如:
+建立 `pv-nfs.yaml` 定義 PersistentVolume。 將 `path` 取代為上一個命令中具有*ipAddress*的*creationToken*和 `server`。 例如︰
 
 ```yaml
 ---
@@ -175,7 +175,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>建立 PersistentVolumeClaim
 
-建立 `pvc-nfs.yaml`，定義 PersistentVolume。 例如:
+建立 `pvc-nfs.yaml` 定義 PersistentVolume。 例如︰
 
 ```yaml
 apiVersion: v1
@@ -205,7 +205,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>使用 pod 掛接
 
-建立 `nginx-nfs.yaml`，定義使用 PersistentVolumeClaim 的 pod。 例如:
+建立 `nginx-nfs.yaml`，定義使用 PersistentVolumeClaim 的 pod。 例如︰
 
 ```yaml
 kind: Pod
@@ -241,7 +241,7 @@ kubectl apply -f nginx-nfs.yaml
 kubectl describe pod nginx-nfs
 ```
 
-使用[kubectl exec][kubectl-exec]來連線至 pod，以確認您的磁片區已掛接在 pod 中，然後 `df -h` 來檢查是否已掛接該磁片區。
+使用[kubectl exec][kubectl-exec]來連線至 pod，以確認您的磁片區已掛接在 pod 中，然後 `df -h` 檢查是否已掛接該磁片區。
 
 ```console
 $ kubectl exec -it nginx-nfs -- bash

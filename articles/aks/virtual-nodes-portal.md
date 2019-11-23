@@ -81,12 +81,12 @@ az provider register --namespace Microsoft.ContainerInstance
 
 在 [基本資料] 頁面上設定下列選項：
 
-- 專案詳細資料：選取 Azure 訂用帳戶，然後選取或建立 Azure 資源群組，例如 *myResourceGroup*。 輸入 **Kubernetes 叢集名稱**，例如 myAKSCluster。
-- 叢集詳細資料：選取 AKS 叢集的區域、Kubernetes 版本及 DNS 名稱前置詞。
+- 專案詳細資料：選取 Azure 訂用帳戶，然後選取或建立 Azure 資源群組，例如 myResourceGroup。 輸入 **Kubernetes 叢集名稱**，例如 myAKSCluster。
+- 叢集詳細資料：選取 AKS 叢集的地區、Kubernetes 版本及 DNS 名稱前置詞。
 - *主要節點集*區：選取 AKS 節點的 VM 大小。 VM 大小**無法**在 AKS 叢集部署完畢後變更。
      - 選取要部署到叢集的節點數目。 本文將 [節點計數] 設為 1。 節點計數**可以**在叢集部署完畢後調整。
 
-按一下 **下一步縮放 @ no__t-0。
+按 **[下一步：調整]** 。
 
 在 [**調整**] 頁面上，選取 [**虛擬節點**] 下的 [*已啟用*]。
 
@@ -106,7 +106,7 @@ Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中�
 
 若要開啟 Cloud Shell，請選取程式碼區塊右上角的 [試試看]。 您也可以移至 [https://shell.azure.com/bash](https://shell.azure.com/bash)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
-使用[az aks get-認證][az-aks-get-credentials]命令，將 `kubectl` 設定為連接到您的 Kubernetes 叢集。 下列範例會針對 myResourceGroup 資源群組中的叢集名稱 myAKSCluster 取得認證：
+使用[az aks get-認證][az-aks-get-credentials]命令來設定 `kubectl` 連接到您的 Kubernetes 叢集。 下列範例會針對 myResourceGroup 資源群組中的叢集名稱 myAKSCluster 取得認證：
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -191,13 +191,13 @@ Pod 會從 Azure 虛擬網路的子網路 (為搭配使用虛擬節點而委派)
 kubectl run -it --rm virtual-node-test --image=debian
 ```
 
-使用 `apt-get` 在 Pod 中安裝 `curl`：
+使用 `curl` 在 Pod 中安裝 `apt-get`：
 
 ```azurecli-interactive
 apt-get update && apt-get install -y curl
 ```
 
-現在您可以使用 `curl` (例如 http://10.241.0.4) 來存取 Pod 的位址。 提供前述 `kubectl get pods` 命令中您自己的 IP 位址：
+現在您可以使用 `curl` (例如 *http://10.241.0.4* ) 來存取 Pod 的位址。 提供前述 `kubectl get pods` 命令中您自己的 IP 位址：
 
 ```azurecli-interactive
 curl -L http://10.241.0.4

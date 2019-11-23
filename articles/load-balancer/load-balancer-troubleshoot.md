@@ -1,6 +1,6 @@
 ---
 title: 針對 Azure Load Balancer 進行疑難排解
-description: Learn how to troubleshoot known issues with Azure Load Balancer.
+description: 瞭解如何對 Azure Load Balancer 的已知問題進行疑難排解。
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -28,7 +28,7 @@ ms.locfileid: "74214770"
 - 負載平衡器後方的 VM 未回應健康狀態探查 
 - 負載平衡器後方的 VM 未回應設定連接埠的流量
 
-When the external clients to the backend VMs go through the load balancer, the IP address of the clients will be used for the communication. Make sure the IP address of the clients are added into the NSG allow list. 
+當後端 Vm 的外部用戶端通過負載平衡器時，用戶端的 IP 位址將會用於通訊。 請確定用戶端的 IP 位址已新增至 NSG 允許清單。 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>徵兆：負載平衡器後方的 VM 都沒有回應健康狀態探查
 如果後端伺服器要參與負載平衡器集合，就必須通過探查檢查。 如需健康狀態探查的詳細資訊，請參閱[了解負載平衡器探查](load-balancer-custom-probe-overview.md)。 
@@ -78,7 +78,7 @@ When the external clients to the backend VMs go through the load balancer, the I
     - 在目標後端集區 VM 上以及從相同 VNet 的另一個測試 VM 同時執行 Netsh trace。 現在，執行 PsPing 測試一段時間、收集一些網路追蹤資料，然後停止測試。 
     - 分析網路擷取，並查看是否有與 ping 查詢相關的傳入和傳出封包。 
         - 如果後端集區 VM 上觀察不到任何傳入封包，則可能是網路安全性群組或 UDR 設定錯誤而封鎖流量。 
-        - If no outgoing packets are observed on the backend pool VM, the VM needs to be checked for any unrelated issues (for example, Application blocking the probe port). 
+        - 如果在後端集區 VM 上觀察不到任何輸出封包，則必須檢查 VM 是否有任何不相關的問題（例如，應用程式封鎖探查埠）。 
     - 確認探查封包是否在到達負載平衡器之前被強制傳送到另一個目的地 (可能是透過 UDR 設定)。 這可能會導致流量永遠都無法到達後端 VM。 
 * 變更探查類型 (例如，將 HTTP 變更為 TCP)，並在網路安全性群組 ACL 和防火牆中設定對應的連接埠以驗證探查回應的組態是否有問題。 如需健康狀態探查組態的詳細資訊，請參閱[端點負載平衡健康狀態探查組態 (英文)](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/)。
 
@@ -104,9 +104,9 @@ When the external clients to the backend VMs go through the load balancer, the I
 
 如果在子網路或 VM 上設定的一或多個網路安全性群組封鎖來源 IP 或連接埠，VM 就無法回應。
 
-For the public load balancer, the IP address of the Internet clients will be used for communication between the clients and the load balancer backend VMs. Make sure the IP address of the clients are allowed in the backend VM's network security group.
+對於公用負載平衡器，網際網路用戶端的 IP 位址將會用於用戶端與負載平衡器後端 Vm 之間的通訊。 請確定後端 VM 的網路安全性群組中允許用戶端的 IP 位址。
 
-1. 列出在後端 VM 上設定的網路安全性群組。 For more information, see [Manage network security groups](../virtual-network/manage-network-security-group.md)
+1. 列出在後端 VM 上設定的網路安全性群組。 如需詳細資訊，請參閱[管理網路安全性群組](../virtual-network/manage-network-security-group.md)
 1. 從網路安全性群組的清單中，檢查︰
     - 資料連接埠上的傳入或傳出流量是否有干擾。 
     - VM 之 NIC 上或子網路上的 [全部拒絕] 網路安全性群組規則的優先順序是否高於允許負載平衡器探查與流量的預設規則 (網路安全性群組必須允許 168.63.129.16 的負載平衡器 IP，亦即探查連接埠)。

@@ -33,7 +33,7 @@ Data Factory 可讓您建立資料導向工作流程，不僅可透過計算服�
 如需詳細資訊，請參閱[概觀與重要概念](data-factory-introduction.md)。
 
 ### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>哪裡可以找到 Azure 資料處理站的定價詳細資料？
-如需 Azure Data Factory 的定價詳細資料, 請參閱[Data Factory 定價詳細資料頁面][adf-pricing-details]。  
+如需 Azure Data Factory 的定價詳細資料，請參閱[Data Factory 定價詳細資料頁面][adf-pricing-details]。  
 
 ### <a name="how-do-i-get-started-with-azure-data-factory"></a>如何開始使用 Azure Data Factory？
 * 如需 Azure Data Factory 的概觀，請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)。
@@ -50,32 +50,32 @@ Data Factory 可在**美國西部**和**北歐**地區使用。 資料處理站�
 您可以使用下列其中一個工具/SDK 來製作/建立資料處理站：
 
 * **Visual Studio** 您可以使用 Visual Studio 建立 Azure Data Factory。 如需詳細資料，請參閱 [使用 Visual Studio 建置您的第一個資料管線](data-factory-build-your-first-pipeline-using-vs.md) 。
-* **Azure PowerShell** 如需使用 PowerShell 來建立 Data Factory 的教學課程/逐步解說，請參閱 [使用 Azure PowerShell 建立和監視 Azure Data Factory](data-factory-build-your-first-pipeline-using-powershell.md) 。 如需 Data Factory Cmdlet 的完整檔, 請參閱 MSDN Library 上的[Data Factory Cmdlet 參考][adf-powershell-reference]內容。
-* **.NET 類別庫** 您可以使用 Data Factory .NET SDK，透過程式設計方式建立 Data Factory。 如需使用 .NET SDK 建立 Data Factory 的逐步解說，請參閱 [使用 .NET SDK 建立、監視和管理 Data Factory](data-factory-create-data-factories-programmatically.md) 。 如需 Data Factory .NET SDK 的完整檔, 請參閱[Data Factory 類別庫參考][msdn-class-library-reference]。
-* **REST API** 您也可以使用 Azure Data Factory 服務所公開的 REST API 來建立和部署 Data Factory。 如需 Data Factory REST API 的完整檔, 請參閱[Data Factory REST API 參考][msdn-rest-api-reference]。
-* **Azure Resource Manager 範本** 請參閱[教學課程：使用 Azure Resource Manager 範本建置您的第一個 Azure Data Factory](data-factory-build-your-first-pipeline-using-arm.md)，以取得詳細資料。
+* **Azure PowerShell** 如需使用 PowerShell 來建立 Data Factory 的教學課程/逐步解說，請參閱 [使用 Azure PowerShell 建立和監視 Azure Data Factory](data-factory-build-your-first-pipeline-using-powershell.md) 。 如需 Data Factory Cmdlet 的完整檔，請參閱 MSDN Library 上的[Data Factory Cmdlet 參考][adf-powershell-reference]內容。
+* **.NET 類別庫** 您可以使用 Data Factory .NET SDK，透過程式設計方式建立 Data Factory。 如需使用 .NET SDK 建立 Data Factory 的逐步解說，請參閱 [使用 .NET SDK 建立、監視和管理 Data Factory](data-factory-create-data-factories-programmatically.md) 。 如需 Data Factory .NET SDK 的完整檔，請參閱[Data Factory 類別庫參考][msdn-class-library-reference]。
+* **REST API** 您也可以使用 Azure Data Factory 服務所公開的 REST API 來建立和部署 Data Factory。 如需 Data Factory REST API 的完整檔，請參閱[Data Factory REST API 參考][msdn-rest-api-reference]。
+* **Azure Resource Manager 範本** 請參閱 [教學課程：使用 Azure Resource Manager 範本建置您的第一個 Azure Data Factory](data-factory-build-your-first-pipeline-using-arm.md) 以取得詳細資訊。
 
 ### <a name="can-i-rename-a-data-factory"></a>我是否可以重新命名資料處理站？
-資料分割 和其他 Azure 資源一樣，您無法變更 Azure Data Factory 的名稱。
+號 和其他 Azure 資源一樣，您無法變更 Azure Data Factory 的名稱。
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>我是否可以將 Data Factory 從一個 Azure 訂用帳戶移至另一個訂用帳戶？
-是的。 請使用您資料處理站刀鋒視窗上的 [移動] 按鈕，如下圖所示：
+是。 請使用您資料處理站刀鋒視窗上的 [移動] 按鈕，如下圖所示：
 
 ![移動 Data Factory](media/data-factory-faq/move-data-factory.png)
 
 ### <a name="what-are-the-compute-environments-supported-by-data-factory"></a>Data Factory 支援什麼計算環境?
 下表列出 Data Factory 支援的計算環境以及可在環境上執行的活動。
 
-| 計算環境 | activities |
+| 計算環境 | 活動 |
 | --- | --- |
 | [隨選 HDInsight 叢集](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)或[您自己的 HDInsight 叢集](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md)、[Hive](data-factory-hive-activity.md)、[Pig](data-factory-pig-activity.md)、[MapReduce](data-factory-map-reduce.md)、[Hadoop 串流](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning 活動︰批次執行和更新資源](data-factory-azure-ml-batch-execution-activity.md) |
-| [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
+| [Azure 資料湖分析](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[資料湖分析 U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service)、[Azure SQL 資料倉儲](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service)、[SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[預存程序](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Azure Data Factory 相較於 SQL Server Integration Services (SSIS) 有何異同？ 
-請參閱由我們的 MVP (最有價值專家) Reza Rad 所撰寫的 [Azure Data Factory 與SSIS 的比較](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) (英文)。 Data Factory 中的某些最近變更可能未列於投影片組中。 我們會持續新增更多功能到 Azure Data Factory。 我們會持續新增更多功能到 Azure Data Factory。 我們會在今年將這些更新整合到 Microsoft 的資料整合技術比較中。   
+請參閱我們的其中一位 Mvp （最重要的專業人員）的[Azure Data Factory 與 SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS)簡報： Reza Rad。 Data Factory 中的某些最近變更可能未列於投影片組中。 我們會持續新增更多功能到 Azure Data Factory。 我們會持續新增更多功能到 Azure Data Factory。 我們會在今年將這些更新整合到 Microsoft 的資料整合技術比較中。   
 
 ## <a name="activities---faq"></a>活動 - 常見問題集
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>您可以在 Data Factory 管線中使用的不同類型活動有哪些？
@@ -105,7 +105,7 @@ Data Factory 中的複製活動會將資料從來源資料存放區複製到接�
 
 ## <a name="hdinsight-activity---faq"></a>HDInsight 活動 - 常見問題集
 ### <a name="what-regions-are-supported-by-hdinsight"></a>HDInsight 支援哪些區域？
-請參閱下列文章中的「地理可用性」一節: 或[HDInsight 定價詳細資料][hdinsight-supported-regions]。
+請參閱下列文章中的「地理可用性」一節：或[HDInsight 定價詳細資料][hdinsight-supported-regions]。
 
 ### <a name="what-region-is-used-by-an-on-demand-hdinsight-cluster"></a>隨選 HDInsight 叢集使用哪一個區域？
 隨選 HDInsight 叢集會建立在存有您指定用來使用叢集之儲存體的位置。    
@@ -170,12 +170,12 @@ Pipeline 1: dataset4->activity4->dataset5
 
 * 使用「監視及管理應用程式」來重新執行活動時段或配量。 如需相關指示，請參閱 [重新執行已選取的活動時段](data-factory-monitor-manage-app.md#perform-batch-actions) 。   
 * 在 Azure 入口網站中，於該配量的 [資料配量] 刀鋒視窗上，按一下命令列中的 [執行]。
-* 執行**AzDataFactorySliceStatus 指令程式**, 並將狀態設定為**等待**配量。   
+* 執行**AzDataFactorySliceStatus 指令程式**，並將狀態設定為**等待**配量。   
 
     ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-  如需 Cmdlet 的詳細資訊, 請參閱[AzDataFactorySliceStatus][set-azure-datafactory-slice-status] 。
+  如需 Cmdlet 的詳細資訊，請參閱[AzDataFactorySliceStatus][set-azure-datafactory-slice-status] 。
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>處理配量需要多久的時間？
 使用「監視及管理應用程式」中的「活動時段總管」來了解處理一個資料配量所花費的時間。 如需詳細資料，請參閱 [活動時段總管](data-factory-monitor-manage-app.md#activity-window-explorer) 。
@@ -190,7 +190,7 @@ Pipeline 1: dataset4->activity4->dataset5
 6. 您應該會看到 [持續時間] 欄位與值。 這個值是處理配量所花費的時間。   
 
 ### <a name="how-to-stop-a-running-slice"></a>如何停止執行中配量？
-如果您需要停止執行管線, 您可以使用[AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) Cmdlet。 目前，擱置管線並不會停止正在進行的配量執行。 一旦進行中的執行完成，就不會再挑選任何額外的配量。
+如果您需要停止執行管線，您可以使用[AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) Cmdlet。 目前，擱置管線並不會停止正在進行的配量執行。 一旦進行中的執行完成，就不會再挑選任何額外的配量。
 
 如果真的想要立即停止所有執行作業，唯一的方法就是刪除管線，然後再重新建立。 如果您選擇刪除管線，則「不」需要刪除管線所使用的資料表和連結服務。
 

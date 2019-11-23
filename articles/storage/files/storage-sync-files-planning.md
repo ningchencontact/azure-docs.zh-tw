@@ -1,6 +1,6 @@
 ---
 title: 規劃 Azure 檔案同步部署 | Microsoft Docs
-description: 了解規劃 Azure 檔案部署時的考量事項。
+description: 了解規劃 Azure 檔案服務部署時的考量事項。
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -73,7 +73,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 
 您可以藉由安裝 Az PowerShell module 來安裝評估 Cmdlet，此模組可依照以下指示安裝：[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 
-#### <a name="usage"></a>使用量  
+#### <a name="usage"></a>使用方式  
 您可以使用幾個不同的方式來叫用評估工具：您可以執行系統檢查、資料集檢查，或兩者都執行。 若要執行系統和資料集的檢查： 
 
 ```powershell
@@ -250,7 +250,7 @@ Azure 檔案同步僅於下列區域提供：
 | 區域 | 資料中心位置 |
 |--------|---------------------|
 | 澳洲東部 | 新南威爾斯 |
-| 澳大利亞東南部 | 維多利亞 |
+| 澳洲東南部 | 維多利亞 |
 | 巴西南部 | 聖保羅州 |
 | 加拿大中部 | 多倫多 |
 | 加拿大東部 | 魁北克市 |
@@ -298,8 +298,8 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 
 | 主要區域      | 配對的區域      |
 |---------------------|--------------------|
-| 澳洲東部      | 澳大利亞東南部|
-| 澳大利亞東南部 | 澳洲東部     |
+| 澳洲東部      | 澳洲東南部|
+| 澳洲東南部 | 澳洲東部     |
 | 巴西南部        | 美國中南部   |
 | 加拿大中部      | 加拿大東部        |
 | 加拿大東部         | 加拿大中部     |

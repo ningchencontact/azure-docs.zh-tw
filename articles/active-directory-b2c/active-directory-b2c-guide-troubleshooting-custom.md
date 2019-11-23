@@ -29,7 +29,7 @@ ms.locfileid: "71826911"
 
 我們最愛的編輯器中有兩個[Visual Studio Code](https://code.visualstudio.com/)和 [[記事本 + +](https://notepad-plus-plus.org/)]。
 
-在您上傳 XML 檔案之前，XML 結構描述驗證會識別錯誤。 在[入門套件](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)的根資料夾中，取得 XML 架構定義檔*trustframeworkpolicy_ 0.3.0.0*。 若要瞭解如何在編輯器中使用 XSD 架構檔案進行驗證，請在編輯器的檔中尋找*xml 工具*和*xml 驗證*或類似的內容。
+在您上傳 XML 檔案之前，XML 結構描述驗證會識別錯誤。 在[入門套件](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)的根資料夾中，取得 XML 架構定義檔*TrustFrameworkPolicy_0 3.0.0*。 若要瞭解如何在編輯器中使用 XSD 架構檔案進行驗證，請在編輯器的檔中尋找*xml 工具*和*xml 驗證*或類似的內容。
 
 您可能會發現檢閱 XML 規則很有幫助。 Azure AD B2C 會拒絕它所偵測到的任何 XML 格式錯誤。 格式錯誤的 XML 有時可能會產生令人誤解的錯誤訊息。
 
@@ -52,23 +52,23 @@ ms.locfileid: "71826911"
 
 > 錯誤程式碼片段︰`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
-* 檢查 `<TrustFrameworkPolicy\>` 和 @no__t 1 元素中的 TenantId 值是否符合您的目標 Azure AD B2C 租使用者。
+* 檢查 `<TrustFrameworkPolicy\>` 和 `<BasePolicy\>` 元素中的 TenantId 值是否符合您的目標 Azure AD B2C 租使用者。
 
 ## <a name="troubleshoot-the-runtime"></a>針對執行階段進行疑難排解
 
-* 使用 [**立即執行**] 和 [`https://jwt.ms`]，在您的 web 或行動應用程式以外獨立測試原則。 此網站的作用就像信賴憑證者應用程式。 它會顯示 Azure AD B2C 原則所產生的 JSON web 權杖（JWT）內容。
+* 使用 **立即執行** 和 `https://jwt.ms`，獨立測試您的 web 或行動應用程式的原則。 此網站的作用就像信賴憑證者應用程式。 它會顯示 Azure AD B2C 原則所產生的 JSON web 權杖（JWT）內容。
 
-    若要建立可重新導向至 `https://jwt.ms` 以進行權杖檢查的測試應用程式：
+    若要建立可重新導向至 `https://jwt.ms` 進行權杖檢查的測試應用程式：
 
     [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 * 若要追蹤用戶端瀏覽器和 Azure AD B2C 之間的訊息交換，請使用 [Fiddler](https://www.telerik.com/fiddler)。 它可協助您了解使用者旅程圖在協調流程步驟中的何處失敗。
 
-* 在[開發模式](active-directory-b2c-troubleshoot-custom.md)中，請使用 **Application Insights** 來追蹤身分識別體驗架構使用者旅程圖的活動。 在**開發模式**中，您可以觀察 Identity Experience Framework 與技術設定檔所定義的各種宣告提供者之間的宣告交換，例如身分識別提供者、以 API 為基礎的服務，Azure AD B2C 使用者目錄和其他服務，例如 Azure 多重要素驗證。
+* 在**開發模式**中，請使用 [Application Insights](active-directory-b2c-troubleshoot-custom.md) 來追蹤身分識別體驗架構使用者旅程圖的活動。 在**開發模式**中，您可以觀察 Identity Experience Framework 與技術設定檔所定義的各種宣告提供者之間的宣告交換，例如身分識別提供者、API 服務、Azure AD B2C 使用者目錄，以及其他服務，例如 Azure 多重要素驗證。
 
 ## <a name="recommended-practices"></a>建議的做法
 
-**為您的情節保留多個版本。將它們和您的應用程式一起放在一個專案中。** 基底、擴充和信賴憑證者檔案直接相互依存。 將它們儲存成一個群組。 有新功能新增至您的原則時，保留個別的工作版本。 將工作版本和其所互動的應用程式程式碼，分階段放入您自己的檔案系統中。 您的應用程式可能會在一個租用戶中叫用許多不同的信賴憑證者原則。 它們可能會變成相依於您的 Azure AD B2C 原則可能提供的宣告。
+**保留多個版本的案例。使用您的應用程式將它們群組在專案中。** 基底、擴充和信賴憑證者檔案直接相互依存。 將它們儲存成一個群組。 有新功能新增至您的原則時，保留個別的工作版本。 將工作版本和其所互動的應用程式程式碼，分階段放入您自己的檔案系統中。 您的應用程式可能會在一個租用戶中叫用許多不同的信賴憑證者原則。 它們可能會變成相依於您的 Azure AD B2C 原則可能提供的宣告。
 
 **使用已知的使用者旅程圖來開發和測試技術設定檔。** 使用已測試的入門套件原則來設定您的技術設定檔。 將它們併入您自己的使用者旅程圖之前，先個別進行測試。
 

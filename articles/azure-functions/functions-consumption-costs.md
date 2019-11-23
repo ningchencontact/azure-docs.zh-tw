@@ -1,6 +1,6 @@
 ---
-title: Estimating Consumption plan costs in Azure Functions
-description: Learn how to better estimate the costs that you may incur when running your function app in a Consumption plan in Azure.
+title: 估計 Azure Functions 中的耗用量方案成本
+description: 瞭解如何在 Azure 中的取用方案中執行函數應用程式時，更清楚地預估可能產生的成本。
 ms.date: 9/20/2019
 ms.topic: conceptual
 ms.openlocfilehash: 9d81c99f3602e3d7ed5508884b0b313ef2f2fcaf
@@ -10,106 +10,106 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74230866"
 ---
-# <a name="estimating-consumption-plan-costs"></a>Estimating Consumption plan costs
+# <a name="estimating-consumption-plan-costs"></a>估計耗用量方案成本
 
-There are currently three types of hosting plans for an app that run in Azure Functions, with each plan having its own pricing model: 
+在 Azure Functions 中執行的應用程式目前有三種類型的主控方案，每個方案都有自己的定價模型： 
 
-| 方案 | 描述 |
+| 規劃 | 描述 |
 | ---- | ----------- |
-| [**Consumption**](functions-scale.md#consumption-plan) | You're only charged for the time that your function app runs. This plan includes a [free grant][pricing page] on a per subscription basis.|
-| [**Premium**](functions-scale.md#premium-plan) | Provides you with the same features and scaling mechanism as the Consumption plan, but with enhanced performance and VNET access. Cost is based on your chosen pricing tier. To learn more, see [Azure Functions Premium plan](functions-premium-plan.md). |
-| [**Dedicated (App Service)** ](functions-scale.md#app-service-plan) <br/>(basic tier or higher) | When you need to run in dedicated VMs or in isolation, use custom images, or want to use your excess App Service plan capacity. Uses [regular App Service plan billing](https://azure.microsoft.com/pricing/details/app-service/). Cost is based on your chosen pricing tier.|
+| [**率**](functions-scale.md#consumption-plan) | 您只需針對函數應用程式執行的時間付費。 此方案包含每個訂用帳戶的[免費授]與[定價頁面]。|
+| [**進階**](functions-scale.md#premium-plan) | 提供您與取用方案相同的功能和調整機制，但具備增強的效能和 VNET 存取權。 成本是根據您選擇的定價層。 若要深入瞭解，請參閱[Azure Functions Premium 方案](functions-premium-plan.md)。 |
+| [**專用（App Service）** ](functions-scale.md#app-service-plan) <br/>（基本層或更高版本） | 當您需要在專用 Vm 或隔離中執行時，請使用自訂映射，或想要使用您超額的 App Service 方案容量。 使用[一般 App Service 方案計費](https://azure.microsoft.com/pricing/details/app-service/)。 成本是根據您選擇的定價層。|
 
-You chose the plan that best supports your function performance and cost requirements. 若要深入了解，請參閱 [Azure Functions 規模調整和主控](functions-scale.md)。
+您選擇最能支援函數效能和成本需求的方案。 若要深入了解，請參閱 [Azure Functions 規模調整和主控](functions-scale.md)。
 
-This article deals only with the Consumption plan, since this plan results in variable costs. 
+本文只會處理取用方案，因為此計畫會產生可變成本。 
 
-Durable Functions can also run in a Consumption plan. To learn more about the cost considerations when using Durable Functions, see [Durable Functions billing](./durable/durable-functions-billing.md).
+Durable Functions 也可以在取用量方案中執行。 若要深入瞭解使用 Durable Functions 時的成本考慮，請參閱[Durable Functions 計費](./durable/durable-functions-billing.md)。
 
 ## <a name="consumption-plan-costs"></a>使用量方案成本
 
-The execution *cost* of a single function execution is measured in *GB-seconds*. Execution cost is calculated by combining its memory usage with its execution time. A function that runs for longer costs more, as does a function that consumes more memory. 
+單一函式執行的執行*成本*是以*GB*為單位來測量。 執行成本的計算方式是將其記憶體使用量與執行時間合併。 針對較長成本執行的函式會更多，如同耗用更多記憶體的函數一樣。 
 
-Consider a case where the amount of memory used by the function stays constant. In this case, calculating the cost is simple multiplication. For example, say that your function consumed 0.5 GB for 3 seconds. Then the execution cost is `0.5GB * 3s = 1.5 GB-seconds`. 
+假設函式所使用的記憶體數量保持不變。 在此情況下，計算成本是簡單的乘法。 例如，假設您的函式已耗用 0.5 GB 3 秒。 然後會 `0.5GB * 3s = 1.5 GB-seconds`執行成本。 
 
-Since memory usage changes over time, the calculation is essentially the integral of memory usage over time.  The system does this calculation by sampling the memory usage of the process (along with child processes) at regular intervals. As mentioned on the [pricing page], memory usage is rounded up to the nearest 128-MB bucket. When your process is using 160 MB, you're charged for 256 MB. The calculation takes into account concurrency, which is multiple concurrent function executions in the same process.
+由於記憶體使用量會隨著時間而改變，因此計算基本上是一段時間內記憶體使用量的整數。  系統會以固定間隔取樣進程的記憶體使用量（連同子進程）來進行這項計算。 如[定價頁面]中所述，記憶體使用量會無條件進位到最接近的 128-MB 值區。 當您的處理常式使用 160 MB 時，會向您收取 256 MB 的費用。 計算會將並行處理納入考慮，這是相同進程中的多個並行函數執行。
 
 > [!NOTE]
-> While CPU usage isn't directly considered in execution cost, it can have an impact on the cost when it affects the execution time of the function.
+> 雖然 CPU 使用量不會直接被視為執行成本，但它可能會影響函式執行時間的成本。
 
-## <a name="other-related-costs"></a>Other related costs
+## <a name="other-related-costs"></a>其他相關成本
 
-When estimating the overall cost of running your functions in any plan, remember that the Functions runtime uses several other Azure services, which are each billed separately. When calculating pricing for function apps, any triggers and bindings you have that integrate with other Azure services require you to create and pay for those additional services. 
+當您在任何計畫中評估執行函式的整體成本時，請記住函式執行時間會使用數個其他 Azure 服務，而每個服務分別計費。 計算函式應用程式的定價時，您與其他 Azure 服務整合的所有觸發程式和系結，都需要您建立並支付那些額外的服務。 
 
-For functions running in a Consumption plan, the total cost is the execution cost of your functions, plus the cost of bandwidth and additional services. 
+對於在取用方案中執行的函式，總成本是您函式的執行成本，加上頻寬和其他服務的成本。 
 
-When estimating the overall costs of your function app and related services, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=functions). 
+估計函數應用程式和相關服務的整體成本時，請使用[Azure 定價計算機](https://azure.microsoft.com/pricing/calculator/?service=functions)。 
 
-| Related cost | 描述 |
+| 相關成本 | 描述 |
 | ------------ | ----------- |
-| **儲存體帳戶** | Each function app requires that you have an associated General Purpose [Azure Storage account](../storage/common/storage-introduction.md#types-of-storage-accounts), which is [billed separately](https://azure.microsoft.com/pricing/details/storage/). This account is used internally by the Functions runtime, but you can also use it for Storage triggers and bindings. If you don't have a storage account, one is created for you when the function app is created. To learn more, see [Storage account requirements](functions-scale.md#storage-account-requirements).|
-| **Application Insights** | Functions relies on [Application Insights](../azure-monitor/app/app-insights-overview.md) to provide a high-performance monitoring experience for your function apps. While not required, you should [enable Application Insights integration](functions-monitoring.md#enable-application-insights-integration). A free grant of telemetry data is included every month. To learn more, see [the Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). |
-| **Network bandwidth** | You don't pay for data transfer between Azure services in the same region. However, you can incur costs for outbound data transfers to another region or outside of Azure. To learn more, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/). |
+| **儲存體帳戶** | 每個函式應用程式都需要您擁有相關聯的一般用途[Azure 儲存體帳戶](../storage/common/storage-introduction.md#types-of-storage-accounts)，這會[分別計費](https://azure.microsoft.com/pricing/details/storage/)。 此帳戶是由函式執行時間在內部使用，但您也可以將它用於儲存體觸發程式和系結。 如果您沒有儲存體帳戶，則會在建立函數應用程式時為您建立一個。 若要深入瞭解，請參閱[儲存體帳戶需求](functions-scale.md#storage-account-requirements)。|
+| **Application Insights** | 函式依賴[Application Insights](../azure-monitor/app/app-insights-overview.md) ，為您的函式應用程式提供高效能的監視體驗。 雖然並非必要，但您應該[啟用 Application Insights 整合](functions-monitoring.md#enable-application-insights-integration)。 每個月都會包含免費的遙測資料授與。 若要深入瞭解，請參閱[Azure 監視器定價頁面](https://azure.microsoft.com/pricing/details/monitor/)。 |
+| **網路頻寬** | 您不需支付相同區域中 Azure 服務之間的資料傳輸費用。 不過，輸出資料傳輸至另一個區域或 Azure 外部可能會產生成本。 若要深入瞭解，請參閱[頻寬定價詳細資料](https://azure.microsoft.com/pricing/details/bandwidth/)。 |
 
-## <a name="behaviors-affecting-execution-time"></a>Behaviors affecting execution time
+## <a name="behaviors-affecting-execution-time"></a>影響執行時間的行為
 
-The following behaviors of your functions can impact the execution time:
+函數的下列行為可能會影響執行時間：
 
-+ **Triggers and bindings**: The time taken to read input from and write output to your [function bindings](functions-triggers-bindings.md) is counted as execution time. For example, when your function uses an output binding to write a message to an Azure storage queue, your execution time includes the time taken to write the message to the queue, which is included in the calculation of the function cost. 
++ **觸發程式和**系結：在函式系結中讀取輸入和將輸出寫入至函式系結時所花費的時間[，會計算](functions-triggers-bindings.md)為執行時間。 例如，當您的函式使用輸出系結將訊息寫入至 Azure 儲存體佇列時，您的執行時間會包含將訊息寫入佇列所需的時間，這會包含在函數成本的計算中。 
 
-+ **Asynchronous execution**: The time that your function waits for the results of an async request (`await` in C#) is counted as execution time. The GB-second calculation is based on the start and end time of the function and the memory usage over that period. What is happening over that time in terms of CPU activity isn't factored into the calculation. You may be able to reduce costs during asynchronous operations by using [Durable Functions](durable/durable-functions-overview.md). You're not billed for time spent at awaits in orchestrator functions.
++ **非同步執行**：您的函式等候非同步要求結果的時間（在中C#`await`）會視為執行時間。 GB 秒的計算是以函式的開始和結束時間，以及該期間內的記憶體使用量為基礎。 在這段時間內，CPU 活動不會考慮到計算中的情況。 您可以使用[Durable Functions](durable/durable-functions-overview.md)，在非同步作業期間降低成本。 在協調器函式中，您不需支付花費在等候的時間。
 
-## <a name="view-execution-data"></a>View execution data
+## <a name="view-execution-data"></a>查看執行資料
 
-In [your invoice](/azure/billing/billing-download-azure-invoice), you can view the cost-related data of **Total Executions - Functions** and **Execution Time - Functions**, along with the actual billed costs. However, this invoice data is a monthly aggregate for a past invoice period. 
+在[您的發票](/azure/billing/billing-download-azure-invoice)中，您可以查看總執行的成本相關資料 **-函數**和**執行時間函數**，以及實際的計費成本。 不過，此發票資料是過去發票期間的每月匯總。 
 
-To better understand the cost impact of your functions, you can use Azure Monitor to view cost-related metrics currently being generated by your function apps. You can use either [Azure Monitor metrics explorer](../azure-monitor/platform/metrics-getting-started.md) in the [Azure 入口網站] or REST APIs to get this data.
+若要進一步瞭解函數的成本影響，您可以使用 Azure 監視器來查看您的函式應用程式目前所產生的成本相關計量。 您可以使用[Azure 入口網站]或 REST api 中的[Azure 監視器計量瀏覽器](../azure-monitor/platform/metrics-getting-started.md)來取得此資料。
 
-### <a name="monitor-metrics-explorer"></a>Monitor metrics explorer
+### <a name="monitor-metrics-explorer"></a>監視計量瀏覽器
 
-Use [Azure Monitor metrics explorer](../azure-monitor/platform/metrics-getting-started.md) to view cost-related data for your Consumption plan function apps in a graphical format. 
+使用[Azure 監視器計量瀏覽器](../azure-monitor/platform/metrics-getting-started.md)，以圖形格式為您的取用方案函式應用程式來查看成本相關資料。 
 
-1. At the top of the [Azure 入口網站] in **Search services, resources, and docs**  search for `monitor` and select **Monitor** under **Services**.
+1. 在**搜尋服務、資源和**檔的[Azure 入口網站]頂端搜尋 `monitor`，然後選取 [**服務**] 底下的 [**監視**]。
 
-1. At the left, select **Metrics** > **Select a resource**, then use the settings below the image to choose your function app.
+1. 在左側選取 [**計量**] > **選取資源**，然後使用影像下方的設定來選擇您的函數應用程式。
 
-    ![Select your function app resource](media/functions-consumption-costing/select-a-resource.png)
+    ![選取您的函數應用程式資源](media/functions-consumption-costing/select-a-resource.png)
 
       
     |設定  |建議的值  |描述  |
     |---------|---------|---------|
-    | Subscription    |  您的訂用帳戶  | The subscription with your function app.  |
-    | Resource group     | 您的資源群組  | The resource group that contains your function app.   |
-    | 資源類型     |  應用程式服務 | Function apps are shown as App Services instances in Monitor. |
-    | 資源     |  Your function app  | The function app to monitor.        |
+    | 訂閱    |  您的訂用帳戶  | 您的函數應用程式的訂用帳戶。  |
+    | 資源群組     | 您的資源群組  | 包含函數應用程式的資源群組。   |
+    | 資源類型     |  應用程式服務 | 函數應用程式會顯示為監視器中的應用程式服務實例。 |
+    | 資源     |  您的函數應用程式  | 要監視的函數應用程式。        |
 
-1. Select **Apply** to choose your function app as the resource to monitor.
+1. 選取 [套用]**以選擇您**的函式應用程式作為要監視的資源。
 
-1. From **Metric**, choose **Function execution count** and **Sum** for **Aggregation**. This adds the sum of the execution counts during chosen period to the chart.
+1. 從 **[計量] 中，** 選擇 [**函數執行計數**] 和 [匯總**的** **總和**]。 這會將所選期間內執行計數的總和加到圖表中。
 
-    ![Define a functions app metric to add to the chart](media/functions-consumption-costing/monitor-metrics-add-metric.png)
+    ![定義要加入至圖表的函式應用程式度量](media/functions-consumption-costing/monitor-metrics-add-metric.png)
 
-1. Select **Add metric** and repeat steps 2-4 to add **Function execution units** to the chart. 
+1. 選取 [**新增度量**] 並重複步驟2-4，將函式**執行單位**加入至圖表。 
 
-The resulting chart contains the totals for both execution metrics in the chosen time range, which in this case is two hours.
+產生的圖表會包含所選時間範圍內這兩個執行計量的總計，在此案例中為兩小時。
 
-![Graph of function execution counts and execution units](media/functions-consumption-costing/monitor-metrics-execution-sum.png)
+![函式執行計數和執行單位的圖形](media/functions-consumption-costing/monitor-metrics-execution-sum.png)
 
-As the number of execution units is so much greater than the execution count, the chart just shows execution units.
+當執行單位數目大於執行計數時，圖表只會顯示執行單位。
 
-This chart shows a total of 1.11 billion `Function Execution Units` consumed in a two-hour period, measured in MB-milliseconds. To convert to GB-seconds, divide by 1024000. In this example, the function app consumed `1110000000 / 1024000 = 1083.98` GB-seconds. You can take this value and multiply by the current price of execution time on the [Functions pricing page][pricing page], which gives you the cost of these two hours, assuming you've already used any free grants of execution time. 
+此圖表顯示在兩小時期間內（以 MB-毫秒為單位）耗用的總 1110000000 `Function Execution Units`。 若要轉換成 GB 秒，請除以1024000。 在此範例中，函數應用程式耗用 `1110000000 / 1024000 = 1083.98` GB 秒。 您可以採用此值並乘以函式[定價頁面][定價頁面]上目前的執行時間價格，這會提供這兩個小時的費用，假設您已使用任何免費的執行時間授與。 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-The [Azure CLI](/cli/azure/) has commands for retrieving metrics. You can use the CLI from a local command environment or directly from the portal using [Azure Cloud Shell](../cloud-shell/overview.md). For example, the following [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) command returns hourly data over same time period used before.
+[Azure CLI](/cli/azure/)具有用來抓取計量的命令。 您可以從本機命令環境或使用[Azure Cloud Shell](../cloud-shell/overview.md)直接從入口網站使用 CLI。 例如，下列[az monitor 計量 list](/cli/azure/monitor/metrics#az-monitor-metrics-list)命令會傳回過去使用的相同時間週期內的每小時資料。
 
-Make sure to replace `<AZURE_SUBSCRIPTON_ID>` with your Azure subscription ID running the command.
+請務必使用執行命令的 Azure 訂用帳戶識別碼來取代 `<AZURE_SUBSCRIPTON_ID>`。
 
 ```azurecli-interactive
 az monitor metrics list --resource /subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/metrics-testing-consumption/providers/Microsoft.Web/sites/metrics-testing-consumption --metric FunctionExecutionUnits,FunctionExecutionCount --aggregation Total --interval PT1H --start-time 2019-09-11T21:46:00Z --end-time 2019-09-11T23:18:00Z
 ```
 
-This command returns a JSON payload that looks like the following example:
+此命令會傳回如下列範例所示的 JSON 承載：
 
 ```json
 {
@@ -188,15 +188,15 @@ This command returns a JSON payload that looks like the following example:
   ]
 }
 ```
-This particular response shows that from `2019-09-11T21:46` to `2019-09-11T23:18`, during which the app consumed 1110000000 MB-milliseconds (1083.98 GB-seconds).
+此特定回應顯示從 `2019-09-11T21:46` 到 `2019-09-11T23:18`，應用程式會在這段期間內使用 1110000000 MB-毫秒（1083.98 GB-秒）。
 
-## <a name="determine-memory-usage"></a>Determine memory usage
+## <a name="determine-memory-usage"></a>判斷記憶體使用量
 
-Function execution units are a combination of execution time and your memory usage, which makes it a difficult metric for understanding memory usage. Memory data isn't a metric currently available through Azure Monitor. However, if you want to optimize the memory usage of your app, can use the performance counter data collected by Application Insights.  
+函式執行單位是執行時間和記憶體使用量的組合，這讓它成為瞭解記憶體使用量的難以辨識。 記憶體資料不是目前透過 Azure 監視器提供的度量。 不過，如果您想要將應用程式的記憶體使用量優化，可以使用 Application Insights 所收集的效能計數器資料。  
 
-If you haven't already done so, [enable Application Insights in your function app](functions-monitoring.md#enable-application-insights-integration). With this integration enabled, you can [query this telemetry data in the portal](functions-monitoring.md#query-telemetry-data).  
+如果您尚未這麼做，請[在您的函數應用程式中啟用 Application Insights](functions-monitoring.md#enable-application-insights-integration)。 啟用此整合之後，您就可以[在入口網站中查詢此遙測資料](functions-monitoring.md#query-telemetry-data)。  
 
-Under **Monitoring**, select **Logs (Analytics)** , then copy the following telemetry query and paste it into the query window and select **Run**. This query returns the total memory usage at each sampled time.
+在 [**監視**] 底下，選取 [**記錄（分析）** ]，然後複製下列遙測查詢並貼到查詢視窗中，然後選取 [**執行**]。 此查詢會傳回每個取樣時間的總記憶體使用量。
 
 ```
 performanceCounters
@@ -204,20 +204,20 @@ performanceCounters
 | project timestamp, name, value
 ```
 
-The results look like the following example:
+結果看起來如下列範例所示：
 
-| timestamp \[UTC\]          | 名稱          | value       |
+| 時間戳記 \[UTC\]          | 名稱          | 值       |
 |----------------------------|---------------|-------------|
-| 9/12/2019, 1:05:14\.947 AM | 私用位元組 | 209,932,288 |
-| 9/12/2019, 1:06:14\.994 AM | 私用位元組 | 212,189,184 |
-| 9/12/2019, 1:06:30\.010 AM | 私用位元組 | 231,714,816 |
-| 9/12/2019, 1:07:15\.040 AM | 私用位元組 | 210,591,744 |
-| 9/12/2019, 1:12:16\.285 AM | 私用位元組 | 216,285,184 |
-| 9/12/2019, 1:12:31\.376 AM | 私用位元組 | 235,806,720 |
+| 9/12/2019、1:05:14\.947 AM | 私用位元組 | 209932288 |
+| 9/12/2019、1:06:14\.994 AM | 私用位元組 | 212189184 |
+| 9/12/2019，1:06:30\.010 AM | 私用位元組 | 231714816 |
+| 9/12/2019、1:07:15\.040 AM | 私用位元組 | 210591744 |
+| 9/12/2019、1:12:16\.285 AM | 私用位元組 | 216285184 |
+| 9/12/2019、1:12:31\.376 AM | 私用位元組 | 235806720 |
 
-## <a name="function-level-metrics"></a>Function-level metrics
+## <a name="function-level-metrics"></a>函數層級計量
 
-Azure Monitor tracks metrics at the resource level, which for Functions is the function app. Application Insights integration emits metrics on a per-function basis. Here's an example analytics query to get the average duration of a function:
+Azure 監視器會追蹤資源層級的計量，而函式是函式應用程式。 Application Insights 整合會針對每個函式來發出計量。 以下是取得函數的平均持續時間的範例分析查詢：
 
 ```
 customMetrics
@@ -235,7 +235,7 @@ customMetrics
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Learn more about Monitoring function apps](functions-monitoring.md)
+> [深入瞭解監視函數應用程式](functions-monitoring.md)
 
-[pricing page]: https://azure.microsoft.com/pricing/details/functions/
+[定價頁面]: https://azure.microsoft.com/pricing/details/functions/
 [Azure 入口網站]: https://portal.azure.com

@@ -29,8 +29,8 @@ Azure 磁碟加密使用 Azure Key Vault 來控制及管理磁片加密金鑰和
 
 下列快速入門將說明這些步驟：
 
-- [使用 Azure CLI 建立和加密 Windows VM](disk-encryption-cli-quickstart.md)
-- [使用 Azure PowerShell 建立和加密 Windows VM](disk-encryption-cli-quickstart.md)
+- [使用 Azure CLI 建立和加密 Windows 虛擬機器](disk-encryption-cli-quickstart.md)
+- [使用 Azure PowerShell 建立和加密 Windows 虛擬機器](disk-encryption-cli-quickstart.md)
 
 如果您想要的話，也可以產生或匯入金鑰加密金鑰（KEK）。
 
@@ -41,7 +41,7 @@ Azure 磁碟加密使用 Azure Key Vault 來控制及管理磁片加密金鑰和
 
 您可以使用[Azure CLI](/cli/azure/)、 [Azure PowerShell Az 模組](/powershell/azure/overview)或[Azure 入口網站](https://portal.azure.com)來完成這篇文章中的步驟。
 
-雖然可以透過瀏覽器存取入口網站，但 Azure CLI 和 Azure PowerShell 需要本機安裝;請參閱 @no__t-適用于 Windows 的0Azure 磁片加密：安裝工具 @ no__t-0 以取得詳細資料。
+雖然可以透過瀏覽器存取入口網站，但 Azure CLI 和 Azure PowerShell 需要本機安裝;如需詳細資訊，請參閱[適用于 Windows 的 Azure 磁碟加密：安裝工具](disk-encryption-windows.md#install-tools-and-connect-to-azure)。
 
 ### <a name="connect-to-your-azure-account"></a>連線至您的 Azure 帳戶
 

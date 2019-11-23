@@ -32,7 +32,7 @@ EXEC sp_add_feature_restriction <feature>, <object_class>, <object_name>
 
 下列功能可以受到限制：
 
-| 功能          | 說明 |
+| 功能          | 描述 |
 |------------------|-------------|
 | N'ErrorMessages' | 受限制時，會將錯誤訊息內的任何使用者資料加上遮罩。 請參閱[錯誤訊息功能限制](#error-messages-feature-restriction) |
 | N'Waitfor'       | 受限制的情況下，命令會立即傳回，而不會有任何延遲。 查看[WAITFOR 功能限制](#waitfor-feature-restriction) |
@@ -63,7 +63,7 @@ EXEC sp_drop_feature_restriction N'ErrorMessages', N'User', N'MyUser'
 
 [`sys.sql_feature_restrictions`] 視圖會顯示資料庫上所有目前定義的功能限制。 它具有下列資料行：
 
-| 資料行名稱 | 資料類型 | 說明 |
+| 資料行名稱 | 資料類型 | 描述 |
 |-------------|-----------|-------------|
 | class       | nvarchar(128) | 套用限制之物件的類別 |
 | 物件      | nvarchar(256) | 套用限制的物件名稱 |

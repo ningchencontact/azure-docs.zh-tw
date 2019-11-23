@@ -315,7 +315,7 @@ ms.locfileid: "71066859"
 
 在本文中，我們將討論在 Azure 中的虛擬機器 (VM) 上部署 SAP 應用程式的步驟，包括替代部署選項和疑難排解。 本文是以[適用于 SAP NetWeaver 的 Azure 虛擬機器規劃和執行][planning-guide]中的資訊為基礎。 本文也可補充 SAP 安裝文件和 SAP Note 的不足，而這些是安裝及部署 SAP 軟體的主要資源。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -423,28 +423,28 @@ ms.locfileid: "71066859"
 1. **基本**：
    * **名稱**：資源名稱 (虛擬機器名稱)。
    * **VM 磁碟類型**：選取作業系統磁碟的磁碟類型。 如果您想要使用進階儲存體作為您的資料磁碟，建議您作業系統磁碟也使用進階儲存體。
-   * **使用者名稱和密碼**或 **SSH 公開金鑰**：輸入在佈建期間建立之使用者的使用者名稱和密碼。 對於 Linux 虛擬機器，您可以輸入要用來登入電腦的公開安全殼層 (SSH) 金鑰。
-   * 訂用帳戶：選取您想要用來佈建新虛擬機器的訂用帳戶。
-   * **资源组**：資源的資源群組名稱。 您可以輸入新資源群組的名稱，或現有資源群組的名稱。
-   * **位置**：部署新虛擬機器的位置。 如果您想要將虛擬機器連線到內部部署網路，請務必選取將 Azure 連線到內部部署網路的虛擬網路位置。 如需詳細資訊，請參閱[適用于 SAP NetWeaver 的 Azure 虛擬機器規劃與部署中的][planning-guide] [Microsoft Azure 網路][planning-guide-microsoft-azure-networking]功能。
-1. **大小**：
+   * **使用者名稱和密碼**或 **SSH 公用金鑰**︰輸入在佈建期間建立之使用者的使用者名稱和密碼。 對於 Linux 虛擬機器，您可以輸入要用來登入電腦的公開安全殼層 (SSH) 金鑰。
+   * **訂用帳戶**：選取您想要用來佈建新虛擬機器的訂用帳戶。
+   * **資源群組**：VM 的資源群組名稱。 您可以輸入新資源群組的名稱，或現有資源群組的名稱。
+   * **位置**︰部署新虛擬機器的位置。 如果您想要將虛擬機器連線到內部部署網路，請務必選取將 Azure 連線到內部部署網路的虛擬網路位置。 如需詳細資訊，請參閱[適用于 SAP NetWeaver 的 Azure 虛擬機器規劃與部署中的][planning-guide] [Microsoft Azure 網路][planning-guide-microsoft-azure-networking]功能。
+1. ：
 
-     如需支援的 VM 類型清單，請參閱 SAP Note [1928533]。 如果您想要使用進階儲存體，請務必選取正確的 VM 類型。 並非所有 VM 類型都支援進階儲存體。 如需詳細資訊，請參閱[儲存體：Azure 中的 Microsoft Azure 儲存體][planning-guide-storage-microsoft-azure-storage-and-data-disks]和資料磁片和[azure 進階儲存體][planning-guide-azure-premium-storage][虛擬機器規劃和實作為 SAP NetWeaver][planning-guide]。
+     如需支援的 VM 類型清單，請參閱 SAP Note [1928533]。 如果您想要使用進階儲存體，請務必選取正確的 VM 類型。 並非所有 VM 類型都支援進階儲存體。 如需詳細資訊，請參閱[儲存體： Microsoft Azure 儲存體和資料磁片][planning-guide-storage-microsoft-azure-storage-and-data-disks]，以及 azure 中的[azure 進階儲存體][planning-guide-azure-premium-storage][虛擬機器規劃和實作為 SAP NetWeaver][planning-guide]。
 
 1. **設定**：
    * **儲存體**
      * **磁碟類型**：選取作業系統磁碟的磁碟類型。 如果您想要使用進階儲存體作為您的資料磁碟，建議您作業系統磁碟也使用進階儲存體。
      * **使用受控磁碟**：如果您想要使用受控磁碟，請選取 [是]。 如需受控磁碟的詳細資訊，請參閱規劃指南中的章節[受控磁碟][planning-guide-managed-disks]。
-     * **儲存體帳戶**：選取現有的儲存體帳戶或建立新帳戶。 並非所有的儲存體類型都適用於執行 SAP 應用程式。 如需儲存體類型的詳細資訊，請參閱 [RDBMS 部署的 VM 儲存體結構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)。
+     * **儲存體帳戶**：選取現有的儲存體帳戶或建立新的儲存體帳戶。 並非所有的儲存體類型都適用於執行 SAP 應用程式。 如需儲存體類型的詳細資訊，請參閱 [RDBMS 部署的 VM 儲存體結構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)。
    * **網路**
      * **虛擬網路**和**子網路**：若要整合虛擬機器與內部網路，請選取連線到內部部署網路的虛擬網路。
-     * **公用 IP 位址**：選取您想要使用的公用 IP 位址，或輸入參數來建立新的公用 IP 位址。 您可以使用公用 IP 位址，透過網際網路存取您的虛擬機器。 請務必也建立網路安全性群組，以便對您的虛擬機器進行安全的存取。
-     * **網路安全性群組**︰如需詳細資訊，請參閱[使用網路安全性群組控制網路流量流程][virtual-networks-nsg]。
-   * **擴充功能**：您可以將虛擬機器擴充功能新增至部署中，藉此安裝它們。 您不需要在此步驟新增擴充功能。 稍後會安裝 SAP 支援所需的擴充功能。 請參閱本指南中的[設定適用于 SAP 的 Azure 擴充][deployment-guide-4.5]功能章節。
+     * **公用 IP 位址**︰選取您想要使用的公用 IP 位址，或輸入參數來建立新的公用 IP 位址。 您可以使用公用 IP 位址，透過網際網路存取您的虛擬機器。 請務必也建立網路安全性群組，以便對您的虛擬機器進行安全的存取。
+     * **網路安全性群組**：如需詳細資訊，請參閱[使用網路安全性群組控制網路流量流程][virtual-networks-nsg]。
+   * **擴充功能**：您可以將虛擬機器擴充功能新增至部署中，藉此安裝安裝。 您不需要在此步驟新增擴充功能。 稍後會安裝 SAP 支援所需的擴充功能。 請參閱本指南中的[設定適用于 SAP 的 Azure 擴充][deployment-guide-4.5]功能章節。
    * **高可用性**：選取可用性設定組，或輸入參數來建立新的可用性設定組。 如需詳細資訊，請參閱[Azure 可用性設定組][planning-guide-3.2.3]。
    * **監視**
-     * **開機診斷**：您可以選取 [停用] 開機診斷。
-     * **來賓 OS 診斷**：您可以選取 [停用] 監視診斷。
+     * **開機診斷**︰您可以選取 [停用] 開機診斷。
+     * **客體 OS 診斷**︰您可以選取 [停用] 監視診斷。
 
 1. **摘要**：
 
@@ -456,10 +456,10 @@ ms.locfileid: "71066859"
 
 您可以使用[azure 快速入門-範本 GitHub 存放庫][azure-quickstart-templates-github]中發佈的其中一個 SAP 範本來建立虛擬機器。 您也可以使用[Azure 入口網站][virtual-machines-windows-tutorial]、 [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]或[Azure CLI][virtual-machines-linux-tutorial]來手動建立虛擬機器。
 
-* [**兩層式設定（僅一部虛擬機器）範本**（sap-2 層-marketplace-映射）][sap-templates-2-tier-marketplace-image]
+* [**兩層式設定（僅限一部虛擬機器）範本**（sap-2 層-marketplace-映射）][sap-templates-2-tier-marketplace-image]
 
   若只要使用一部虛擬機器建立一個兩層系統，請使用此範本。
-* [**兩層式設定（僅限一部虛擬機器）範本-受控磁碟**（sap-2 層-marketplace-映射-md）][sap-templates-2-tier-marketplace-image-md]
+* [**兩層式設定（僅一部虛擬機器）範本-受控磁碟**（sap-2 層-marketplace-映射-md）][sap-templates-2-tier-marketplace-image-md]
 
   若只要使用一部虛擬機器和受控磁碟建立一個兩層系統，請使用此範本。
 * [**三層式設定（多部虛擬機器）範本**（sap-3 層-marketplace-映射）][sap-templates-3-tier-marketplace-image]
@@ -472,9 +472,9 @@ ms.locfileid: "71066859"
 在 Azure 入口網站中，輸入範本的下列參數：
 
 1. **基本**：
-   * 訂用帳戶：用來部署範本的訂用帳戶。
-   * **资源组**：用來部署範本的資源群組。 您可以建立新的資源群組，也可以選取訂用帳戶中的現有資源群組。
-   * **位置**：部署範本的位置。 如果您選取了現有的資源群組，則會使用該資源群組的位置。
+   * **訂用帳戶**：用來部署範本的訂用帳戶。
+   * **資源群組**：用來部署範本的資源群組。 您可以建立新的資源群組，也可以選取訂用帳戶中的現有資源群組。
+   * **位置**︰部署範本的位置。 如果您選取了現有的資源群組，則會使用該資源群組的位置。
 
 1. **設定**：
    * **SAP 系統識別碼**：SAP 系統識別碼 (SID)。
@@ -484,20 +484,20 @@ ms.locfileid: "71066859"
    * **SAP 系統大小**：SAP 系統的大小。
 
      新系統所提供的 SAP 數量。 如果您不確定系統需要多少 SAP，請詢問您的 SAP 技術合作夥伴或系統整合者。
-   * **系統可用性** (僅限三層範本)：系統可用性。
+   * **系統可用性**：(僅限三層範本) 系統可用性。
 
      選取適合高可用性安裝組態的 **HA**。 為 ABAP SAP Central Services (ASCS) 建立兩部資料庫伺服器和兩部伺服器。
-   * **儲存體類型** (僅限兩層範本)：要使用的儲存體類型。
+   * **儲存體類型**：(僅限兩層範本) 要使用的儲存體類型。
 
      對於大型系統，我們強烈建議使用 Azure 進階儲存體。 如需儲存體類型的詳細資訊，請參閱下列資源：
       * [針對 SAP DBMS 實例使用 Azure 進階 SSD 儲存體][2367194]
       * [RDBMS 部署的 VM 儲存體結構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
-      * [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體][storage-premium-storage-preview-portal]
+      * [進階儲存體： Azure 虛擬機器工作負載適用的高效能儲存體][storage-premium-storage-preview-portal]
       * [Microsoft Azure 儲存體簡介][storage-introduction]
    * **管理員使用者名稱**和**管理員密碼**：使用者名稱和密碼。
      建立新的使用者，以便登入虛擬機器。
-   * **新的或現有的子網路**：決定要建立新的虛擬網路和子網路，還是要使用現有子網路。 如果您已經有連線到內部部署網路的虛擬網路，請選取 [現有]。
-   * **子網路識別碼**：如果您想將 VM 部署至現有的 VNet (其中具有定義 VM 應指派的目的子網路)，請說明該特定子網路的 ID。 識別碼通常如下所示：/subscriptions/&lt;訂用帳戶識別碼>/resourceGroups/&lt;資源群組名稱>/providers/Microsoft.Network/virtualNetworks/&lt;虛擬網路名稱>/subnets/&lt;子網路名稱>
+   * **新的或現有的子網路**︰決定要建立新的虛擬網路和子網路，還是使用現有的子網路。 如果您已經有連線到內部部署網路的虛擬網路，請選取 [現有]。
+   * **子網路識別碼**：如果您想要將 VM 部署至現有 VNet，而 VNet 中已定義應指派 VM 的子網路，請提供該特定子網路的識別碼。 識別碼通常如下所示：/subscriptions/&lt;訂用帳戶識別碼>/resourceGroups/&lt;資源群組名稱>/providers/Microsoft.Network/virtualNetworks/&lt;虛擬網路名稱>/subnets/&lt;子網路名稱>
 
 1. **條款及條件**：  
     檢閱並接受法律條款。
@@ -512,7 +512,7 @@ ms.locfileid: "71066859"
 
 #### <a name="join-a-domain-windows-only"></a>加入網域 (僅限 Windows)
 
-如果您的 Azure 部署透過 Azure 站對站 VPN 連線或 ExpressRoute 連接到內部部署 Active Directory 或 DNS 實例（這在 Azure 中稱為「*跨*單位」，適用于[SAP 虛擬機器規劃和執行NetWeaver][planning-guide]），預期 VM 會加入內部部署網域。 如需這項工作之考慮的詳細資訊，請參閱將[VM 加入內部部署網域（僅限 Windows）][deployment-guide-4.3]。
+如果您的 Azure 部署透過 Azure 站對站 VPN 連線或 ExpressRoute 連接到內部部署 Active Directory 或 DNS 實例（這在虛擬機器 Azure 中稱為「跨單位」，[適用于 SAP NetWeaver 的][planning-guide]「*內部部署*」），則 VM 應該加入內部部署網域。 如需這項工作之考慮的詳細資訊，請參閱將[VM 加入內部部署網域（僅限 Windows）][deployment-guide-4.3]。
 
 #### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>設定 VM 擴充功能
 
@@ -563,13 +563,13 @@ ms.locfileid: "71066859"
 1. **基本**：
    * **名稱**：資源名稱 (虛擬機器名稱)。
    * **VM 磁碟類型**：選取作業系統磁碟的磁碟類型。 如果您想要使用進階儲存體作為您的資料磁碟，建議您作業系統磁碟也使用進階儲存體。
-   * **使用者名稱和密碼**或 **SSH 公開金鑰**：輸入在佈建期間建立之使用者的使用者名稱和密碼。 對於 Linux 虛擬機器，您可以輸入要用來登入電腦的公開安全殼層 (SSH) 金鑰。
-   * 訂用帳戶：選取您想要用來佈建新虛擬機器的訂用帳戶。
-   * **资源组**：資源的資源群組名稱。 您可以輸入新資源群組的名稱，或現有資源群組的名稱。
-   * **位置**：部署新虛擬機器的位置。 如果您想要將虛擬機器連線到內部部署網路，請務必選取將 Azure 連線到內部部署網路的虛擬網路位置。 如需詳細資訊，請參閱[適用于 SAP NetWeaver 的 Azure 虛擬機器規劃與部署中的][planning-guide] [Microsoft Azure 網路][planning-guide-microsoft-azure-networking]功能。
-1. **大小**：
+   * **使用者名稱和密碼**或 **SSH 公用金鑰**︰輸入在佈建期間建立之使用者的使用者名稱和密碼。 對於 Linux 虛擬機器，您可以輸入要用來登入電腦的公開安全殼層 (SSH) 金鑰。
+   * **訂用帳戶**：選取您想要用來佈建新虛擬機器的訂用帳戶。
+   * **資源群組**：VM 的資源群組名稱。 您可以輸入新資源群組的名稱，或現有資源群組的名稱。
+   * **位置**︰部署新虛擬機器的位置。 如果您想要將虛擬機器連線到內部部署網路，請務必選取將 Azure 連線到內部部署網路的虛擬網路位置。 如需詳細資訊，請參閱[適用于 SAP NetWeaver 的 Azure 虛擬機器規劃與部署中的][planning-guide] [Microsoft Azure 網路][planning-guide-microsoft-azure-networking]功能。
+1. ：
 
-     如需支援的 VM 類型清單，請參閱 SAP Note [1928533]。 如果您想要使用進階儲存體，請務必選取正確的 VM 類型。 並非所有 VM 類型都支援進階儲存體。 如需詳細資訊，請參閱[儲存體：Azure 中的 Microsoft Azure 儲存體][planning-guide-storage-microsoft-azure-storage-and-data-disks]和資料磁片和[azure 進階儲存體][planning-guide-azure-premium-storage][虛擬機器規劃和實作為 SAP NetWeaver][planning-guide]。
+     如需支援的 VM 類型清單，請參閱 SAP Note [1928533]。 如果您想要使用進階儲存體，請務必選取正確的 VM 類型。 並非所有 VM 類型都支援進階儲存體。 如需詳細資訊，請參閱[儲存體： Microsoft Azure 儲存體和資料磁片][planning-guide-storage-microsoft-azure-storage-and-data-disks]，以及 azure 中的[azure 進階儲存體][planning-guide-azure-premium-storage][虛擬機器規劃和實作為 SAP NetWeaver][planning-guide]。
 
 1. **設定**：
    * **儲存體**
@@ -577,13 +577,13 @@ ms.locfileid: "71066859"
      * **使用受控磁碟**：如果您想要使用受控磁碟，請選取 [是]。 如需受控磁碟的詳細資訊，請參閱規劃指南中的章節[受控磁碟][planning-guide-managed-disks]。
    * **網路**
      * **虛擬網路**和**子網路**：若要整合虛擬機器與內部網路，請選取連線到內部部署網路的虛擬網路。
-     * **公用 IP 位址**：選取您想要使用的公用 IP 位址，或輸入參數來建立新的公用 IP 位址。 您可以使用公用 IP 位址，透過網際網路存取您的虛擬機器。 請務必也建立網路安全性群組，以便對您的虛擬機器進行安全的存取。
-     * **網路安全性群組**︰如需詳細資訊，請參閱[使用網路安全性群組控制網路流量流程][virtual-networks-nsg]。
-   * **擴充功能**：您可以將虛擬機器擴充功能新增至部署中，藉此安裝它們。 您不需要在此步驟新增擴充功能。 稍後會安裝 SAP 支援所需的擴充功能。 請參閱本指南中的[設定適用于 SAP 的 Azure 擴充][deployment-guide-4.5]功能章節。
+     * **公用 IP 位址**︰選取您想要使用的公用 IP 位址，或輸入參數來建立新的公用 IP 位址。 您可以使用公用 IP 位址，透過網際網路存取您的虛擬機器。 請務必也建立網路安全性群組，以便對您的虛擬機器進行安全的存取。
+     * **網路安全性群組**：如需詳細資訊，請參閱[使用網路安全性群組控制網路流量流程][virtual-networks-nsg]。
+   * **擴充功能**：您可以將虛擬機器擴充功能新增至部署中，藉此安裝安裝。 您不需要在此步驟新增擴充功能。 稍後會安裝 SAP 支援所需的擴充功能。 請參閱本指南中的[設定適用于 SAP 的 Azure 擴充][deployment-guide-4.5]功能章節。
    * **高可用性**：選取可用性設定組，或輸入參數來建立新的可用性設定組。 如需詳細資訊，請參閱[Azure 可用性設定組][planning-guide-3.2.3]。
    * **監視**
-     * **開機診斷**：您可以選取 [停用] 開機診斷。
-     * **來賓 OS 診斷**：您可以選取 [停用] 監視診斷。
+     * **開機診斷**︰您可以選取 [停用] 開機診斷。
+     * **客體 OS 診斷**︰您可以選取 [停用] 監視診斷。
 
 1. **摘要**：
 
@@ -595,49 +595,49 @@ ms.locfileid: "71066859"
 
 若要透過 Azure 入口網站使用私人 OS 映像來建立部署，請使用下列其中一個 SAP 範本。 這些範本會在[azure 快速入門-範本 GitHub 存放庫][azure-quickstart-templates-github]中發佈。 您也可以使用[PowerShell][virtual-machines-upload-image-windows-resource-manager]來手動建立虛擬機器。
 
-* [**兩層式設定（僅一部虛擬機器）範本**（sap-2 層-使用者-映射）][sap-templates-2-tier-user-image]
+* [**兩層式設定（僅一部虛擬機器）範本**（sap-2 層-使用者映射）][sap-templates-2-tier-user-image]
 
   若只要使用一部虛擬機器建立一個兩層系統，請使用此範本。
-* [**兩層式設定（僅一部虛擬機器）範本-受控磁片映射**（sap-2 層-使用者-影像-md）][sap-templates-2-tier-user-image-md]
+* [**兩層式設定（僅一部虛擬機器）範本-受控磁片映射**（sap-2 層-使用者-映射-md）][sap-templates-2-tier-user-image-md]
 
   若只要使用一部虛擬機器和受控磁碟映像建立一個兩層系統，請使用此範本。
 * [**三層式設定（多部虛擬機器）範本**（sap-3 層-使用者-映射）][sap-templates-3-tier-user-image]
 
   若要使用多部虛擬機器或自己的 OS 映像建立一個三層系統，請使用此範本。
-* [**三層式設定（多部虛擬機器）範本-受控磁片映射**（sap-3 層-使用者-影像-md）][sap-templates-3-tier-user-image-md]
+* [**三層式設定（多部虛擬機器）範本-受控磁片映射**（sap-3 層-使用者-映射-md）][sap-templates-3-tier-user-image-md]
 
   若要使用多部虛擬機器或自己的 OS 映像和受控磁碟映像建立一個三層系統，請使用此範本。
 
 在 Azure 入口網站中，輸入範本的下列參數：
 
 1. **基本**：
-   * 訂用帳戶：用來部署範本的訂用帳戶。
-   * **资源组**：用來部署範本的資源群組。 您可以建立新的資源群組，或選取訂用帳戶中的現有資源群組。
-   * **位置**：部署範本的位置。 如果您選取了現有的資源群組，則會使用該資源群組的位置。
+   * **訂用帳戶**：用來部署範本的訂用帳戶。
+   * **資源群組**：用來部署範本的資源群組。 您可以建立新的資源群組，或選取訂用帳戶中的現有資源群組。
+   * **位置**︰部署範本的位置。 如果您選取了現有的資源群組，則會使用該資源群組的位置。
 1. **設定**：
    * **SAP 系統識別碼**：SAP 系統識別碼。
    * **OS 類型**：您想要部署的作業系統類型 (Windows 或 Linux)。
    * **SAP 系統大小**：SAP 系統的大小。
 
      新系統所提供的 SAP 數量。 如果您不確定系統需要多少 SAP，請詢問您的 SAP 技術合作夥伴或系統整合者。
-   * **系統可用性** (僅限三層範本)：系統可用性。
+   * **系統可用性**：(僅限三層範本) 系統可用性。
 
      選取適合高可用性安裝組態的 **HA**。 為 ASCS 建立兩部資料庫伺服器和兩部伺服器。
-   * **儲存體類型** (僅限兩層範本)：要使用的儲存體類型。
+   * **儲存體類型**：(僅限兩層範本) 要使用的儲存體類型。
 
      對於大型系統，我們強烈建議使用 Azure 進階儲存體。 如需儲存體類型的詳細資訊，請參閱下列資源：
       * [針對 SAP DBMS 實例使用 Azure 進階 SSD 儲存體][2367194]
       * [RDBMS 部署的 VM 儲存體結構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體][storage-premium-storage-preview-portal]
       * [Microsoft Azure 儲存體簡介][storage-introduction]
-   * **使用者映像 VHD URI** (僅限非受控磁碟映像範本)：私人 OS 映像 VHD 的 URI，例如 https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd。
-   * **使用者映像儲存體帳戶** (僅限非受控磁碟映像範本)：私人 OS 映像儲存所在的儲存體帳戶名稱，例如 &lt;accountname> in https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd。
-   * **userImageId** (僅限受控磁碟映像範本):要使用的受控磁碟映像識別碼
+   * **使用者映像 VHD URI** (僅限非受控磁碟映像範本)：私人 OS 映像 VHD 的 URI，例如 https://&lt;accountname&gt;.blob.core.windows.net/vhds/userimage.vhd。
+   * **使用者映像儲存體帳戶** (僅限非受控磁碟映像範本)：私人 OS 映像儲存所在的儲存體帳戶名稱，例如 &lt;accountname&gt; in https://&lt;accountname&gt;.blob.core.windows.net/vhds/userimage.vhd。
+   * **userImageId** (僅限非受控磁碟映像範本)：您想要使用的受控磁碟映像的識別碼。
    * **管理員使用者名稱**和**管理員密碼**：使用者名稱和密碼。
 
      建立新的使用者，以便登入虛擬機器。
-   * **新的或現有的子網路**：決定要建立新的虛擬網路和子網路，還是要使用現有子網路。 如果您已經有連線到內部部署網路的虛擬網路，請選取 [現有]。
-   * **子網路識別碼**：如果您想將 VM 部署至現有的 VNet (其中具有定義 VM 應指派的目的子網路)，請說明該特定子網路的 ID。 識別碼通常如下所示：/subscriptions/&lt;訂用帳戶識別碼>/resourceGroups/&lt;資源群組名稱>/providers/Microsoft.Network/virtualNetworks/&lt;虛擬網路名稱>/subnets/&lt;子網路名稱>
+   * **新的或現有的子網路**︰決定要建立新的虛擬網路和子網路，還是使用現有的子網路。 如果您已經有連線到內部部署網路的虛擬網路，請選取 [現有]。
+   * **子網路識別碼**：如果您想要將 VM 部署至現有 VNet，而 VNet 中已定義應指派 VM 的子網路，請提供該特定子網路的識別碼。 識別碼通常如下所示：/subscriptions/&lt;訂用帳戶識別碼>/resourceGroups/&lt;資源群組名稱>/providers/Microsoft.Network/virtualNetworks/&lt;虛擬網路名稱>/subnets/&lt;子網路名稱>
 
 1. **條款及條件**：  
     檢閱並接受法律條款。
@@ -650,11 +650,11 @@ ms.locfileid: "71066859"
 
 #### <a name="join-a-domain-windows-only"></a>加入網域 (僅限 Windows)
 
-如果您的 Azure 部署透過 Azure 站對站 VPN 連線或 Azure ExpressRoute 連接到內部部署 Active Directory 或 DNS 實例（這在 Azure 中稱為「*跨*單位」，適用于[SAP 虛擬機器規劃和執行NetWeaver][planning-guide]），預期 VM 會加入內部部署網域。 如需此步驟之考慮的詳細資訊，請參閱將[VM 加入內部部署網域（僅限 Windows）][deployment-guide-4.3]。
+如果您的 Azure 部署透過 Azure 站對站 VPN 連線或 Azure ExpressRoute 連接到內部部署 Active Directory 或 DNS 實例（這在虛擬機器 Azure 中稱為「*跨*單位」，[適用于 SAP NetWeaver][planning-guide]），則 VM 應該加入內部部署網域。 如需此步驟之考慮的詳細資訊，請參閱將[VM 加入內部部署網域（僅限 Windows）][deployment-guide-4.3]。
 
 #### <a name="configure-proxy-settings"></a>進行 Proxy 設定
 
-根據內部部署網路的設定方式，您可能需要在您的 VM 上設定 Proxy。 如果您的 VM 透過 VPN 或 ExpressRoute 連線到您的內部部署網路，則 VM 可能無法存取網際網路，也無法透過 SAP 延伸模組下載所需的 VM 擴充功能或收集 SAP 主機代理程式的 Azure 基礎結構資訊針對 Azure，請參閱[設定 proxy][deployment-guide-configure-proxy]。
+根據內部部署網路的設定方式，您可能需要在您的 VM 上設定 Proxy。 如果您的 VM 透過 VPN 或 ExpressRoute 連線到內部部署網路，則 VM 可能無法存取網際網路，也無法透過 Azure 的 SAP 延伸模組下載所需的 VM 擴充功能或收集 SAP 主機代理程式的 Azure 基礎結構資訊，請參閱[設定 proxy][deployment-guide-configure-proxy]。
 
 #### <a name="configure-azure-vm-extension-for-sap"></a>設定適用于 SAP 的 Azure VM 擴充功能
 
@@ -667,7 +667,7 @@ ms.locfileid: "71066859"
 
 ### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>案例 3：使用非一般化 Azure VHD 搭配 SAP 來移動內部部署 VM
 
-在此情況下，您會規劃將特定 SAP 系統從內部部署環境移至 Azure。 將包含 OS、SAP 二進位檔和最終 DBMS 二進位檔的 VHD，以及包含 DBMS 資料和記錄檔的 VHD 上傳至 Azure，即可達成。 不同於[案例 2：使用適用于 SAP][deployment-guide-3.3]的自訂映射部署 VM，在此情況下，您會在 Azure VM 中保留主機名稱、sap SID 和 sap 使用者帳戶，因為它們是在內部部署環境中設定。 您不需要將 OS 一般化。 此案例最適用於跨單位案例，其中部分的 SAP 架構是在內部部署執行，部分則在 Azure 上執行。
+在此情況下，您會規劃將特定 SAP 系統從內部部署環境移至 Azure。 將包含 OS、SAP 二進位檔和最終 DBMS 二進位檔的 VHD，以及包含 DBMS 資料和記錄檔的 VHD 上傳至 Azure，即可達成。 不同于案例[2：使用適用于 SAP 的自訂映射部署 VM][deployment-guide-3.3]中所述的案例，在此案例中，您會在 Azure VM 中保留主機名稱、sap SID 和 sap 使用者帳戶，因為它們是在內部部署環境中設定。 您不需要將 OS 一般化。 此案例最適用於跨單位案例，其中部分的 SAP 架構是在內部部署執行，部分則在 Azure 上執行。
 
 在此案例中，**不會**在部署期間自動安裝 VM 代理程式。 由於 VM 代理程式和適用于 SAP 的 Azure 擴充功能必須在 Azure 上執行 SAP NetWeaver，因此在建立虛擬機器之後，您必須手動下載、安裝和啟用這兩個元件。
 
@@ -699,33 +699,33 @@ ms.locfileid: "71066859"
 * [**兩層式設定（僅一部虛擬機器）範本**（sap-2 層-使用者-磁片）][sap-templates-2-tier-os-disk]
 
   若只要使用一部虛擬機器建立一個兩層系統，請使用此範本。
-* [**兩層式設定（僅一部虛擬機器）範本-受控磁片**（sap-2 層-使用者-磁片-md）][sap-templates-2-tier-os-disk-md]
+* [**兩層式設定（僅限一部虛擬機器）範本-受控磁片**（sap-2 層-使用者-md）][sap-templates-2-tier-os-disk-md]
 
   若只要使用一部虛擬機器和受控磁碟建立一個兩層系統，請使用此範本。
 
 在 Azure 入口網站中，輸入範本的下列參數：
 
 1. **基本**：
-   * 訂用帳戶：用來部署範本的訂用帳戶。
-   * **资源组**：用來部署範本的資源群組。 您可以建立新的資源群組，或選取訂用帳戶中的現有資源群組。
-   * **位置**：部署範本的位置。 如果您選取了現有的資源群組，則會使用該資源群組的位置。
+   * **訂用帳戶**：用來部署範本的訂用帳戶。
+   * **資源群組**：用來部署範本的資源群組。 您可以建立新的資源群組，或選取訂用帳戶中的現有資源群組。
+   * **位置**︰部署範本的位置。 如果您選取了現有的資源群組，則會使用該資源群組的位置。
 1. **設定**：
    * **SAP 系統識別碼**：SAP 系統識別碼。
    * **OS 類型**：您想要部署的作業系統類型 (Windows 或 Linux)。
    * **SAP 系統大小**：SAP 系統的大小。
 
      新系統所提供的 SAP 數量。 如果您不確定系統需要多少 SAP，請詢問您的 SAP 技術合作夥伴或系統整合者。
-   * **儲存體類型** (僅限兩層範本)：要使用的儲存體類型。
+   * **儲存體類型**：(僅限兩層範本) 要使用的儲存體類型。
 
      對於大型系統，我們強烈建議使用 Azure 進階儲存體。 如需儲存體類型的詳細資訊，請參閱下列資源：
       * [針對 SAP DBMS 實例使用 Azure 進階 SSD 儲存體][2367194]
       * [RDBMS 部署的 VM 儲存體結構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
-      * [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體][storage-premium-storage-preview-portal]
+      * [進階儲存體： Azure 虛擬機器工作負載適用的高效能儲存體][storage-premium-storage-preview-portal]
       * [Microsoft Azure 儲存體簡介][storage-introduction]
-   * **OS 磁碟 VHD URI** (僅限非受控磁碟範本)：私人 OS 磁碟的 URI，例如 https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd。
-   * **OS 磁碟受控磁碟識別碼** (僅限受控磁碟範本)：作業系統磁碟的受控磁碟識別碼 /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
-   * **新的或現有的子網路**：決定要建立新的虛擬網路和子網路，還是要使用現有子網路。 如果您已經有連線到內部部署網路的虛擬網路，請選取 [現有]。
-   * **子網路識別碼**：如果您想將 VM 部署至現有的 VNet (其中具有定義 VM 應指派的目的子網路)，請說明該特定子網路的 ID。 識別碼通常如下所示：/subscriptions/&lt;訂用帳戶識別碼>/resourceGroups/&lt;資源群組名稱>/providers/Microsoft.Network/virtualNetworks/&lt;虛擬網路名稱>/subnets/&lt;子網路名稱>
+   * **OS 磁碟 VHD URI** (僅限非受控磁碟範本)：私人 OS 磁碟的 URI，例如 https://&lt;accountname&gt;.blob.core.windows.net/vhds/osdisk.vhd。
+   * **作業系統磁碟受控磁碟識別碼** (僅限非受控磁碟範本)：作業系統磁碟 /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN 的受控磁碟識別碼
+   * **新的或現有的子網路**︰決定要建立新的虛擬網路和子網路，還是使用現有的子網路。 如果您已經有連線到內部部署網路的虛擬網路，請選取 [現有]。
+   * **子網路識別碼**：如果您想要將 VM 部署至現有 VNet，而 VNet 中已定義應指派 VM 的子網路，請提供該特定子網路的識別碼。 識別碼通常如下所示：/subscriptions/&lt;訂用帳戶識別碼>/resourceGroups/&lt;資源群組名稱>/providers/Microsoft.Network/virtualNetworks/&lt;虛擬網路名稱>/subnets/&lt;子網路名稱>
 
 1. **條款及條件**：  
     檢閱並接受法律條款。
@@ -740,11 +740,11 @@ ms.locfileid: "71066859"
 
 #### <a name="join-a-domain-windows-only"></a>加入網域 (僅限 Windows)
 
-如果您的 Azure 部署透過 Azure 站對站 VPN 連線或 ExpressRoute 連接到內部部署 Active Directory 或 DNS 實例（這在 Azure 中稱為「*跨*單位」，適用于[SAP 虛擬機器規劃和執行NetWeaver][planning-guide]），預期 VM 會加入內部部署網域。 如需這項工作之考慮的詳細資訊，請參閱將[VM 加入內部部署網域（僅限 Windows）][deployment-guide-4.3]。
+如果您的 Azure 部署透過 Azure 站對站 VPN 連線或 ExpressRoute 連接到內部部署 Active Directory 或 DNS 實例（這在虛擬機器 Azure 中稱為「跨單位」，[適用于 SAP NetWeaver 的][planning-guide]「*內部部署*」），則 VM 應該加入內部部署網域。 如需這項工作之考慮的詳細資訊，請參閱將[VM 加入內部部署網域（僅限 Windows）][deployment-guide-4.3]。
 
 #### <a name="configure-proxy-settings"></a>進行 Proxy 設定
 
-根據內部部署網路的設定方式，您可能需要在您的 VM 上設定 Proxy。 如果您的 VM 透過 VPN 或 ExpressRoute 連線到您的內部部署網路，則 VM 可能無法存取網際網路，也無法透過 SAP 延伸模組下載所需的 VM 擴充功能或收集 SAP 主機代理程式的 Azure 基礎結構資訊針對 Azure，請參閱[設定 proxy][deployment-guide-configure-proxy]。
+根據內部部署網路的設定方式，您可能需要在您的 VM 上設定 Proxy。 如果您的 VM 透過 VPN 或 ExpressRoute 連線到內部部署網路，則 VM 可能無法存取網際網路，也無法透過 Azure 的 SAP 延伸模組下載所需的 VM 擴充功能或收集 SAP 主機代理程式的 Azure 基礎結構資訊，請參閱[設定 proxy][deployment-guide-configure-proxy]。
 
 #### <a name="configure-azure-vm-extension-for-sap"></a>設定適用于 SAP 的 Azure VM 擴充功能
 
@@ -948,11 +948,11 @@ azure --version
     ```
 
 輸入您的帳戶資料並識別 Azure 虛擬機器之後，指令碼會部署所需的擴充功能，並啟用所需的功能。 這可能需要數分鐘的時間。
-如需的詳細`Set-AzVMAEMExtension`資訊，請參閱[AzVMAEMExtension][msdn-set-Azvmaemextension]。
+如需 `Set-AzVMAEMExtension`的詳細資訊，請參閱[AzVMAEMExtension][msdn-set-Azvmaemextension]。
 
 ![成功執行 SAP 特定 Azure Cmdlet 設定-AzVMAEMExtension][deployment-guide-figure-900]
 
-此`Set-AzVMAEMExtension`設定會執行所有步驟，以設定 SAP 的主機資料收集。
+`Set-AzVMAEMExtension` 設定會執行所有步驟，以設定 SAP 的主機資料收集。
 
 指令碼輸出包含下列資訊︰
 
@@ -961,7 +961,7 @@ azure --version
 * 其中一行輸出會提供 SAP 設定之 VM 擴充功能的實際更新狀態。
 * 另一行輸出會確認已部署或已更新組態。
 * 輸出的最後一行是參考資訊。 它會顯示測試 VM 擴充功能以進行 SAP 設定的選項。
-* 若要檢查是否已成功執行 Azure VM Extension for SAP 設定的所有步驟，以及 Azure 基礎結構是否提供必要的資料，請繼續進行 Azure Extension for SAP 的準備檢查，如準備檢查中所述[適用于 SAP 的 Azure 擴充][deployment-guide-5.1]功能。
+* 若要檢查是否已成功執行 Azure VM Extension for SAP 設定的所有步驟，以及 Azure 基礎結構是否提供必要的資料，請繼續進行 Azure Extension for SAP 的準備檢查，如[適用于 sap 的 Azure 擴充功能的準備檢查][deployment-guide-5.1]中所述。
 * 等候 15-30 分鐘的時間，讓 Azure 診斷收集相關的資料。
 
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>適用於 Linux VM 的 Azure CLI
@@ -1036,7 +1036,7 @@ azure --version
 
 1. 登入 Azure 虛擬機器 (不一定要使用管理帳戶)。
 1. 開啟命令提示字元視窗。
-1. 在命令提示字元中，將目錄變更為適用于 SAP 的 Azure 擴充功能的安裝資料夾：C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;version>\\drop
+1. 在命令提示字元中，將目錄變更為適用于 SAP 的 Azure 擴充功能的安裝資料夾： C：\\套件\\外掛程式\\Azurecatextensionhandler 用\\&lt;版本 >\\drop
 
    延伸模組路徑中的*版本*可能會有所不同。 如果您在安裝資料夾中看到延伸模組的多個版本的資料夾，請檢查 AzureEnhancedMonitoring Windows 服務的設定，然後切換至指定為*可執行檔路徑*的資料夾。
 
@@ -1085,7 +1085,7 @@ Azperflib.exe 輸出會顯示適用於 SAP 的所有已填入 Azure 效能計數
 
    **預期的結果**：傳回效能計數器的清單。 此檔案不得是空的。
 
-   b. 執行 `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
+   b.這是另一個 C# 主控台應用程式。 執行 `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
 
    **預期的結果**：傳回**無**錯誤的一行，例如 **3;config;Error;;0;0;none;0;1456416792;tst-servercs;**
 
@@ -1101,7 +1101,7 @@ Azperflib.exe 輸出會顯示適用於 SAP 的所有已填入 Azure 效能計數
 
      **預期的結果**：列出 waagent 目錄的內容。
 
-   b.  執行 `ps -ax | grep waagent`
+   b.這是另一個 C# 主控台應用程式。  執行 `ps -ax | grep waagent`
 
    **預期的結果**：顯示類似下列一個項目：`python /usr/sbin/waagent -daemon`
 
@@ -1109,9 +1109,9 @@ Azperflib.exe 輸出會顯示適用於 SAP 的所有已填入 Azure 效能計數
 
    a.  執行 `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
 
-   **預期的結果**：列出 Azure Extension for SAP 目錄的內容。
+   **預期的結果**：列出 Azure EXTENSION for SAP 目錄的內容。
 
-   b. 執行 `ps -ax | grep AzureEnhanced`
+   b.這是另一個 C# 主控台應用程式。 執行 `ps -ax | grep AzureEnhanced`
 
    **預期的結果**：顯示類似下列一個項目：`python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
 
@@ -1119,7 +1119,7 @@ Azperflib.exe 輸出會顯示適用於 SAP 的所有已填入 Azure 效能計數
 
    a.  執行 `/usr/sap/hostctrl/exe/saposcol -d`
 
-   b.  執行 `dump ccm`
+   b.這是另一個 C# 主控台應用程式。  執行 `dump ccm`
 
    c.  檢查 **Virtualization_Configuration\Enhanced Monitoring Access** 計量是否為 **true**。
 
@@ -1129,7 +1129,7 @@ Azperflib.exe 輸出會顯示適用於 SAP 的所有已填入 Azure 效能計數
 
 ### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>適用于 SAP 設定的 Azure 延伸模組健康情況檢查
 
-如果未正確地傳遞部分基礎結構資料，如[適用于 sap 的 Azure 擴充功能的準備檢查][deployment-guide-5.1]中所述的測試所`Test-AzVMAEMExtension`示，請執行 Cmdlet 來檢查 azure 基礎結構和 azure extension for sap 是否為已正確設定。
+如果未正確地傳遞部分基礎結構資料，如[適用于 sap 的 Azure 擴充功能的準備檢查][deployment-guide-5.1]中所述的測試所示，請執行 `Test-AzVMAEMExtension` Cmdlet，以檢查是否已正確設定適用于 Sap 的 azure 基礎結構和 azure 擴充功能。
 
 1. 請確定您已安裝最新版本的 Azure PowerShell Cmdlet，如[部署 Azure PowerShell Cmdlet][deployment-guide-4.1]中所述。
 1. 執行下列 PowerShell Cmdlet。 如需可用環境的清單，請執行 `Get-AzEnvironment` Cmdlet。 若要使用公用 Azure，請選取 **AzureCloud** 環境。 若為中國的 Azure，請選取 **AzureChinaCloud**。
@@ -1166,7 +1166,7 @@ AzureEnhancedMonitoring Windows 服務會收集 Azure 中的效能計量。 如�
 
 安裝目錄 \\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;版本>\\drop 是空的。
 
-###### <a name="solution"></a>方案
+###### <a name="solution"></a>解決方案
 
 未安裝此擴充功能。 判斷這是否為 Proxy 問題 (如先前所述)。 您可能需要重新啟動電腦，或重新執行 `Set-AzVMAEMExtension` 組態指令碼。
 
@@ -1178,10 +1178,10 @@ AzureEnhancedMonitoring Windows 服務不存在。
 
 Azperflib.exe 輸出會擲回錯誤︰
 
-![執行 azperflib.exe 指出適用于 SAP 的 Azure 擴充功能的服務未執行][deployment-guide-figure-1400]
+![執行 azperflib.exe 時，表示適用于 SAP 的 Azure 延伸模組的服務並未執行][deployment-guide-figure-1400]
 <a name="figure-14"></a>
 
-###### <a name="solution"></a>方案
+###### <a name="solution"></a>解決方案
 
 如果服務不存在，則未正確安裝適用于 SAP 的 Azure 擴充功能。 使用[Azure 中適用于 SAP 的 Vm 部署案例][deployment-guide-3]中的部署案例中所述的步驟，重新部署擴充功能。
 
@@ -1193,7 +1193,7 @@ Azperflib.exe 輸出會擲回錯誤︰
 
 AzureEnhancedMonitoring Windows 服務存在並已啟用，但無法啟動。 如需詳細資訊，請檢查應用程式事件記錄檔。
 
-###### <a name="solution"></a>方案
+###### <a name="solution"></a>解決方案
 
 組態不正確。 如[設定適用于 sap 的 Azure 擴充][deployment-guide-4.5]功能所述，在 VM 中重新開機適用于 Sap 的 azure 擴充功能。
 
@@ -1211,9 +1211,9 @@ Daemon 會收集在 Azure 中的效能計量。 如果未執行 Daemon，則不�
 
 ###### <a name="issue"></a>問題
 
-目錄\\var\\lib\\waagent沒有適用于SAP的Azure擴充功能的子目錄。\\
+目錄 \\var\\lib\\waagent\\ 沒有適用于 SAP 的 Azure 擴充功能的子目錄。
 
-###### <a name="solution"></a>方案
+###### <a name="solution"></a>解決方案
 
 未安裝此擴充功能。 判斷這是否為 Proxy 問題 (如先前所述)。 您可能需要重新啟動電腦及/或重新執行 `Set-AzVMAEMExtension` 組態指令碼。
 
@@ -1231,7 +1231,7 @@ WARNING: [WARN] Standard Managed Disks are not supported. Extension will be inst
 
 如先前所述，執行 azperfli.exe 可能會獲得表示健康情況不良狀態的結果。 
 
-###### <a name="solution"></a>方案
+###### <a name="solution"></a>解決方案
 
 這些訊息的原因是標準受控磁碟不會傳遞 SAP Extension for SAP 所使用的 Api 來檢查標準 Azure 儲存體帳戶的統計資料。 使用者並不需要在意此問題。 引進標準磁碟儲存體帳戶收集資料的原因，是因為經常發生 i/o 的節流。 受控磁碟將會透過限制儲存體帳戶中的磁碟數量來避免此類節流。 因此，沒有該資料的類型並不重要。
 
@@ -1242,4 +1242,4 @@ Azure 中的效能計量是由 Daemon 收集，而 Daemon 會從數個來源取�
 
 如需完整且最新的已知問題清單，請參閱 SAP 附注[1999351]，其中包含適用于 SAP 的 Azure 擴充功能的其他疑難排解資訊。
 
-如果使用 SAP Note [1999351]進行疑難排解無法解決問題，請依照`Set-AzVMAEMExtension` [設定適用于 SAP 的 Azure 延伸][deployment-guide-4.5]模組中所述，重新執行設定腳本。 因為儲存體分析或診斷計數器在啟用後可能未立即建立，所以您可能必須等待一個小時的時間。 如果問題仍然存在，請在元件 BC-OP-NT-AZR (適用於 Windows) 或 BC-OP-LNX-AZR (適用於 Linux 虛擬機器) 上開啟 SAP 客戶支援訊息。
+如果使用 SAP Note [1999351]進行疑難排解無法解決問題，請重新執行 `Set-AzVMAEMExtension` 設定腳本，如[設定適用于 SAP 的 Azure 延伸][deployment-guide-4.5]模組中所述。 因為儲存體分析或診斷計數器在啟用後可能未立即建立，所以您可能必須等待一個小時的時間。 如果問題仍然存在，請在元件 BC-OP-NT-AZR (適用於 Windows) 或 BC-OP-LNX-AZR (適用於 Linux 虛擬機器) 上開啟 SAP 客戶支援訊息。

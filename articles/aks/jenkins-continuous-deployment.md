@@ -27,13 +27,13 @@ ms.locfileid: "72263936"
 > * 建立 Jenkins 建置作業和 GitHub Webhook 來進行自動化建置。
 > * 測試 CI/CD 管線以根據 GitHub 程式碼認可來更新 AKS 中的應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要下列項目：
 
 - 對 Kubernetes、Git、CI/CD 及容器映像的基本了解
 
-- 使用[AKS 叢集認證][aks-credentials]設定的[AKS][aks-quickstart]叢集和 @no__t 1
+- 使用[AKS 叢集認證][aks-credentials]設定的[AKS][aks-quickstart]叢集和 `kubectl`
 
 - [Azure Container Registry （ACR）][acr-quickstart]登錄、ACR 登入伺服器名稱，以及設定為[使用 ACR Registry 進行驗證][acr-authentication]的 AKS 叢集
 
@@ -66,7 +66,7 @@ git clone https://github.com/<your-github-account>/azure-voting-app-redis.git
 cd azure-voting-app-redis
 ```
 
-若要建立範例應用程式所需的容器映像，請搭配 `docker-compose` 使用 *docker-compose.yaml* 檔案：
+若要建立範例應用程式所需的容器映像，請搭配 *使用*docker-compose.yaml`docker-compose` 檔案：
 
 ```console
 docker-compose up -d
@@ -89,7 +89,7 @@ tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-使用[docker tag][docker-tag]命令，以 ACR 登入伺服器名稱和版本號碼（`v1`）來標記映射。 提供在上一個步驟中所取得您自己的 `<acrLoginServer>` 名稱：
+使用[docker tag][docker-tag]命令，以 ACR 登入伺服器名稱和 `v1`的版本號碼來標記映射。 提供在上一個步驟中所取得您自己的 `<acrLoginServer>` 名稱：
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
@@ -103,7 +103,7 @@ docker push <acrLoginServer>/azure-vote-front:v1
 
 ## <a name="deploy-the-sample-application-to-aks"></a>將範例應用程式部署至 AKS
 
-若要將範例應用程式部署至您的 AKS 叢集，您可以使用 Azure 投票存放庫根目錄中的 Kubernetes 資訊清單檔。 請使用編輯器 (例如 `vi`) 來開啟 *azure-vote-all-in-one-redis.yaml* 資訊清單檔。 將 `microsoft` 取代為您的 ACR 登入伺服器名稱。 您可以在資訊清單檔的第 **47** 行找到這個值：
+若要將範例應用程式部署至您的 AKS 叢集，您可以使用 Azure 投票存放庫根目錄中的 Kubernetes 資訊清單檔。 請使用編輯器 (例如 *) 來開啟* azure-vote-all-in-one-redis.yaml`vi` 資訊清單檔。 將 `microsoft` 取代為您的 ACR 登入伺服器名稱。 您可以在資訊清單檔的第 **47** 行找到這個值：
 
 ```yaml
 containers:
@@ -230,13 +230,13 @@ az role assignment create --assignee 626dd8ea-042d-4043-a8df-4ef56273670f --role
 從 Jenkins 入口網站首頁的左側，選取 [New item] \(新增項目\)：
 
 1. 輸入 *azure-vote* 作為作業名稱。 選擇 [Freestyle project] \(自由樣式專案\)，然後選取 [OK] \(確定\)
-1. 在 [**一般**] 區段中，選取 [ **GitHub 專案**]，然後輸入您的分支存放庫 URL，例如*HTTPs： \//GitHub .com/\<your-GitHub 帳戶 @ no__t-5/azure-投票-應用程式 redis*
-1. 在 [**原始程式碼管理**] 區段中，選取 [ **git**]，輸入您的分支存放庫 *。 Git* URL，例如*HTTPs： \//github .com/\<your-github 帳戶 @ no__t-6/azure-voting-app-redis*
+1. 在 [**一般**] 區段中，選取 [ **GitHub 專案**]，然後輸入您的分支存放庫 URL，例如*HTTPs：\//github.com/\<您的 GitHub 帳戶\>/azure-voting-app-redis*
+1. 在 [**原始程式碼管理**] 區段中，選取 [ **git**]，輸入您的分支存放庫 *。 Git* URL，例如*HTTPs：\//github.com/\<您的 github 帳戶\>/azure-voting-app-redis.git*
 
 1. 在 [Build Triggers] \(建置觸發程序\) 底下，選取 [GitHub hook trigger for GITscm polling] \(GITScm 輪詢的 GitHub 勾點觸發程序\)
 1. 在 [Build Environment] \(建置環境\) 底下，選取 [Use secret texts or files] \(使用祕密文字或檔案\)
 1. 在 [Bindings] \(繫結\) 底下，選取 [Add] \(新增\) > [Username and password (separated)] \(使用者名稱和密碼 (分隔)\)
-   - 針對 [Username Variable] \(使用者名稱變數\) 輸入 `ACR_ID`，並針對 [Password Variable] \(密碼變數\) 輸入 `ACR_PASSWORD`
+   - 針對 [Username Variable] \(使用者名稱變數\)`ACR_ID`**輸入**，並針對 [Password Variable] \(密碼變數\)`ACR_PASSWORD`**輸入**
 
      ![Jenkins 繫結](media/aks-jenkins/bindings.png)
 

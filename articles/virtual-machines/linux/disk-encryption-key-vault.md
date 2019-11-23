@@ -29,8 +29,8 @@ Azure 磁碟加密使用 Azure Key Vault 來控制及管理磁片加密金鑰和
 
 下列快速入門將說明這些步驟：
 
-- [使用 Azure CLI 建立和加密 Linux VM](disk-encryption-cli-quickstart.md)
-- [使用 Azure PowerShell 建立和加密 Linux VM](disk-encryption-cli-quickstart.md)
+- [使用 Azure CLI 來建立和加密 Linux VM](disk-encryption-cli-quickstart.md)
+- [使用 Azure PowerShell 建立和加密 Linux 虛擬機器](disk-encryption-cli-quickstart.md)
 
 如果您想要的話，也可以產生或匯入金鑰加密金鑰（KEK）。
 
@@ -41,7 +41,7 @@ Azure 磁碟加密使用 Azure Key Vault 來控制及管理磁片加密金鑰和
 
 您可以使用[Azure CLI](/cli/azure/)、 [Azure PowerShell Az 模組](/powershell/azure/overview)或[Azure 入口網站](https://portal.azure.com)來完成這篇文章中的步驟。 
 
-雖然可以透過瀏覽器存取入口網站，但 Azure CLI 和 Azure PowerShell 需要本機安裝;請參閱 @no__t-適用于 Linux 的0Azure 磁片加密：安裝工具 @ no__t-0 以取得詳細資料。
+雖然可以透過瀏覽器存取入口網站，但 Azure CLI 和 Azure PowerShell 需要本機安裝;如需詳細資訊，請參閱[適用于 Linux 的 Azure 磁碟加密：安裝工具](disk-encryption-linux.md#install-tools-and-connect-to-azure)。
 
 ### <a name="connect-to-your-azure-account"></a>連線至您的 Azure 帳戶
 
@@ -117,19 +117,19 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 
 使用 [az keyvault update](/cli/azure/keyvault#az-keyvault-update) 啟用金鑰保存庫的磁碟加密。 
 
- - **針對磁碟加密啟用 Key Vault**：需要 Enabled-for-disk-encryption。 
+ - **針對磁碟加密啟用 Key Vault：** 需要 Enabled-for-disk-encryption。 
 
      ```azurecli-interactive
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-disk-encryption "true"
      ```  
 
- - **視需要針對部署啟用 Key Vault**：可讓 Microsoft.Compute 資源提供者在資源建立期間 (例如，在建立虛擬機器時) 參考了這個金鑰保存庫的情況下，從這個金鑰保存庫擷取祕密。
+ - **視需要針對部署啟用 Key Vault：** 可讓 Microsoft.Compute 資源提供者在資源建立期間 (例如，在建立虛擬機器時) 參考了這個金鑰保存庫的情況下，從這個金鑰保存庫擷取祕密。
 
      ```azurecli-interactive
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-deployment "true"
      ``` 
 
- - **視需要針對範本部署啟用 Key Vault**：允許 Resource Manager 從保存庫擷取秘密。
+ - **視需要針對範本部署啟用 Key Vault：** 允許 Resource Manager 從保存庫擷取祕密。
      ```azurecli-interactive  
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-template-deployment "true"
      ```
@@ -137,19 +137,19 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 ###  <a name="azure-powershell"></a>Azure PowerShell
  使用金鑰保存庫 PowerShell Cmdlet[設定-set-azkeyvaultaccesspolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy)來啟用金鑰保存庫的磁片加密。
 
-  - **針對磁碟加密啟用 Key Vault**：Azure 磁碟加密需要 EnabledForDiskEncryption。
+  - **針對磁碟加密啟用 Key Vault：** Azure 磁碟加密需要 EnabledForDiskEncryption。
       
      ```azurepowershell-interactive 
      Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup" -EnabledForDiskEncryption
      ```
 
-  - **視需要針對部署啟用 Key Vault**：可讓 Microsoft.Compute 資源提供者在資源建立期間 (例如，在建立虛擬機器時) 參考了這個金鑰保存庫的情況下，從這個金鑰保存庫擷取祕密。
+  - **視需要針對部署啟用 Key Vault：** 可讓 Microsoft.Compute 資源提供者在資源建立期間 (例如，在建立虛擬機器時) 參考了這個金鑰保存庫的情況下，從這個金鑰保存庫擷取祕密。
 
      ```azurepowershell-interactive
       Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup" -EnabledForDeployment
      ```
 
-  - **視需要針對範本部署啟用 Key Vault**：可讓 Azure Resource Manager 在範本部署參考了這個金鑰保存庫的情況下，從這個金鑰保存庫取得祕密。
+  - **視需要針對範本部署啟用 Key Vault：** 可讓 Azure Resource Manager 在範本部署參考了這個金鑰保存庫的情況下，從這個金鑰保存庫取得祕密。
 
      ```azurepowershell-interactive             
      Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup" -EnabledForTemplateDeployment
@@ -160,7 +160,7 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 1. 選取您的金鑰保存庫，移至 [**存取原則**]，然後**按一下以顯示 [高級存取原則**]。
 2. 選取標示為**為磁碟區加密啟用對 Azure 磁碟加密的存取**的方塊。
 3. 視需要選取 [為部署啟用對 Azure 虛擬機器的存取] 及/或 [為範本部署啟用對 Azure Resource Manager 的存取]。 
-4. 按一下 [儲存]。
+4. 按一下 [檔案]。
 
     ![Azure 金鑰保存庫進階存取原則](./media/disk-encryption/keyvault-portal-fig4.png)
 

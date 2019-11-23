@@ -19,18 +19,18 @@ ms.locfileid: "71802617"
 使用遠端 Windows 會話時，您網路的可用頻寬會大幅影響您的體驗品質。 不同的應用程式和顯示解析度需要不同的網路設定，因此請務必確定您的網路已設定為符合您的需求。
 
 >[!NOTE]
->下列建議適用于低於 0.1% 遺失的網路。
+>下列建議適用于低於0.1% 遺失的網路。
 
-## <a name="applications"></a>應用程式
+## <a name="applications"></a>[應用程式]
 
 下表列出順暢使用者體驗的最低建議頻寬。 
 
 |工作負載        |範例應用程式                                                                                           |建議的頻寬|
 |----------------|--------------------------------------------------------------------------------------------------------------|---------------------|
-|任務型工作者     |Microsoft Word、Outlook、Excel、Adobe Reader                                                                  |1.5 @ no__t-0Mbps        |
-|Office 背景工作   |Microsoft Word、Outlook、Excel、Adobe Reader、PowerPoint、相片 Viewer                                        |3 @ no__t-0Mbps          |
-|知識工作者|Microsoft Word，Outlook，Excel，Adobe Reader，PowerPoint，相片檢視器，JAVA                                  |5 @ no__t-0Mbps          |
-|Power worker    |Microsoft Word，Outlook，Excel，Adobe Reader，PowerPoint，相片檢視器，JAVA，CAD/CAM，插圖/發行|15 @ no__t-0Mbps         |
+|任務型工作者     |Microsoft Word、Outlook、Excel、Adobe Reader                                                                  |1.5&nbsp;Mbps        |
+|Office 背景工作   |Microsoft Word、Outlook、Excel、Adobe Reader、PowerPoint、相片 Viewer                                        |3&nbsp;Mbps          |
+|知識工作者|Microsoft Word，Outlook，Excel，Adobe Reader，PowerPoint，相片檢視器，JAVA                                  |5&nbsp;Mbps          |
+|Power worker    |Microsoft Word，Outlook，Excel，Adobe Reader，PowerPoint，相片檢視器，JAVA，CAD/CAM，插圖/發行|15&nbsp;Mbps         |
 
 >[!NOTE]
 >無論會話中有多少使用者，都適用這些建議。

@@ -38,7 +38,7 @@ ms.locfileid: "73672627"
     * **版本**：選取 [V2]。
     * **位置**：選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區可位於其他位置和區域。 這些資料存放區包含 Azure Data Lake Store、Azure 儲存體、Azure SQL Database 等等。
 
-3. 選取 [ **建立**]。
+3. 選取 [建立]。
 4. 建立完成後，請移至資料處理站。 您會看到如下圖所示的 [Data Factory] 首頁：
    
    ![Data Factory 首頁](./media/load-office-365-data/data-factory-home-page.png)

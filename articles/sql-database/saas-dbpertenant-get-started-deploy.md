@@ -36,7 +36,7 @@ ms.locfileid: "73824004"
 
 我們提供了[一系列的相關教學課程](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)，帶領您探索各式各樣的 SaaS 設計和管理模式。 這些教學課程所涵蓋的內容，超出本文的初始部署程序。 閱讀教學課程時，您可以檢查我們提供的指令碼，了解各個 SaaS 模式的實作方式。 指令碼示範 SQL Database 的功能如何簡化 SaaS 應用程式的開發過程。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，請確定您已安裝 Azure PowerShell。 如需詳細資訊，請參閱[開始使用 Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
 
@@ -126,7 +126,7 @@ Wingtip 應用程式使用  [*Azure 流量管理員*](../traffic-manager/traffi
 
     下表有前述格式各部分的解說。
 
-    | URL 部分        | 說明       |
+    | URL 部分        | 描述       |
     | :-------------- | :---------------- |
     | http://events.wingtip-dpt | Wingtip 應用程式的事件部分。<br /><br /> -dpt 能將 Wingtip Tickets 的「每一租用戶一個資料庫」實作與其他實作進行區分。 例如，「單一」每一租用戶一個應用程式 (-sa)，或「多租用戶資料庫」 (-mt) 實作。 |
     | .*user&lt;&gt;* | 範例中的 af1。 |

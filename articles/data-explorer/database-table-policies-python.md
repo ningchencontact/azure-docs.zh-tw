@@ -18,7 +18,7 @@ ms.locfileid: "71997237"
 
 Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 在本文中，您會使用 Python 來建立適用于 Azure 資料總管的資料庫和資料表原則。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -35,7 +35,7 @@ pip install azure-kusto-data (Optional, for changing table's policies)
 ```
 
 ## <a name="authentication"></a>驗證
-若要執行本文中的範例，我們需要 Azure AD 應用程式和服務主體，才能存取資源。 您可以使用相同的 Azure AD 應用程式，從[測試叢集和資料庫](create-cluster-database-csharp.md#authentication)進行驗證。 如果您想要使用不同的 Azure AD 應用程式，請參閱[建立 Azure AD 應用](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)程式來建立免費的 Azure AD 應用程式，並在訂用帳戶範圍新增角色指派。 它也會說明如何取得 `Directory (tenant) ID`、`Application ID` 和 @no__t 2。 您可能需要將新的 Azure AD 應用程式新增為資料庫中的主體，請參閱[管理 Azure 資料總管資料庫許可權](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions)。    
+若要執行本文中的範例，我們需要 Azure AD 應用程式和服務主體，才能存取資源。 您可以使用相同的 Azure AD 應用程式，從[測試叢集和資料庫](create-cluster-database-csharp.md#authentication)進行驗證。 如果您想要使用不同的 Azure AD 應用程式，請參閱[建立 Azure AD 應用](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)程式來建立免費的 Azure AD 應用程式，並在訂用帳戶範圍新增角色指派。 它也會說明如何取得 `Directory (tenant) ID`、`Application ID`和 `Client Secret`。 您可能需要將新的 Azure AD 應用程式新增為資料庫中的主體，請參閱[管理 Azure 資料總管資料庫許可權](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions)。    
 
 ## <a name="alter-database-retention-policy"></a>改變資料庫保留原則
 使用10天的虛刪除週期來設定保留原則。

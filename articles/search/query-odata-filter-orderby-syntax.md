@@ -93,13 +93,13 @@ identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
 
 | API | 參數名稱 | 限制 |
 | --- | --- | --- |
-| [建立](https://docs.microsoft.com/rest/api/searchservice/create-index)或[更新](https://docs.microsoft.com/rest/api/searchservice/update-index)索引 | `suggesters/sourceFields` | None |
+| [建立](https://docs.microsoft.com/rest/api/searchservice/create-index)或[更新](https://docs.microsoft.com/rest/api/searchservice/update-index)索引 | `suggesters/sourceFields` | 無 |
 | [建立](https://docs.microsoft.com/rest/api/searchservice/create-index)或[更新](https://docs.microsoft.com/rest/api/searchservice/update-index)索引 | `scoringProfiles/text/weights` | 只能**參考可搜尋的欄位** |
 | [建立](https://docs.microsoft.com/rest/api/searchservice/create-index)或[更新](https://docs.microsoft.com/rest/api/searchservice/update-index)索引 | `scoringProfiles/functions/fieldName` | 只能參考可**篩選**的欄位 |
-| [搜尋](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `queryType` `full` 時 `search` | 只能**參考可搜尋的欄位** |
-| [搜尋](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | 只能參考**facetable**欄位 |
-| [搜尋](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | 只能**參考可搜尋的欄位** |
-| [搜尋](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | 只能**參考可搜尋的欄位** |
+| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `queryType` `full` 時 `search` | 只能**參考可搜尋的欄位** |
+| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | 只能參考**facetable**欄位 |
+| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | 只能**參考可搜尋的欄位** |
+| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | 只能**參考可搜尋的欄位** |
 | [建議](https://docs.microsoft.com/rest/api/searchservice/suggestions)與[自動完成](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | 只能參考屬於[建議工具](index-add-suggesters.md)的欄位 |
 | [搜尋](https://docs.microsoft.com/rest/api/searchservice/search-documents)、[建議](https://docs.microsoft.com/rest/api/searchservice/suggestions)和[自動完成](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | 只能參考可**篩選**的欄位 |
 | [搜尋](https://docs.microsoft.com/rest/api/searchservice/search-documents)和[建議](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | 只能參考可**排序**欄位 |
@@ -111,14 +111,14 @@ OData 中的常數是指定[實體資料模型](https://docs.microsoft.com/dotne
 
 下表顯示 Azure 認知搜尋所支援的每個資料類型的常數範例：
 
-| Data type | 範例常數 |
+| 資料類型 | 範例常數 |
 | --- | --- |
-| `Edm.Boolean` | `true`，`false` |
+| `Edm.Boolean` | `true`、`false` |
 | `Edm.DateTimeOffset` | `2019-05-06T12:30:05.451Z` |
 | `Edm.Double` | `3.14159`、`-1.2e7`、`NaN`、`INF`、`-INF` |
 | `Edm.GeographyPoint` | `geography'POINT(-122.131577 47.678581)'` |
 | `Edm.GeographyPolygon` | `geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'` |
-| `Edm.Int32` | `123`，`-456` |
+| `Edm.Int32` | `123`、`-456` |
 | `Edm.Int64` | `283032927235` |
 | `Edm.String` | `'hello'` |
 
@@ -218,7 +218,7 @@ select_expression ::= '*' | field_path(',' field_path)*
 > [!NOTE]
 > 如需完整的 EBNF，請參閱[Azure 認知搜尋的 OData 運算式語法參考](search-query-odata-syntax-reference.md)。
 
-**$Orderby**和 **$select**參數都是簡單運算式的逗號分隔清單。 **$Filter**參數是由較簡單的子運算式所組成的布林運算式。 這些子運算式會使用邏輯運算子（例如[`and`、`or`和 `not`](search-query-odata-logical-operators.md)）、比較運算子（例如[`eq`、`lt`、`gt`](search-query-odata-comparison-operators.md)等等）和集合運算子（例如[`any` 和 @no__t_10）結合。_ ](search-query-odata-collection-operators.md).
+**$Orderby**和 **$select**參數都是簡單運算式的逗號分隔清單。 **$Filter**參數是由較簡單的子運算式所組成的布林運算式。 這些子運算式會使用邏輯運算子（例如[`and`、`or`和 `not`](search-query-odata-logical-operators.md)）、比較運算子（例如[`eq`、`lt`、`gt`](search-query-odata-comparison-operators.md)等等）和集合運算子（例如[`any` 和 `all`](search-query-odata-collection-operators.md)）結合。
 
 在下列文章中會更詳細地探索 **$filter**、 **$orderby**和 **$select**參數：
 
@@ -226,7 +226,7 @@ select_expression ::= '*' | field_path(',' field_path)*
 - [Azure 認知搜尋中的 OData $orderby 語法](search-query-odata-orderby.md)
 - [Azure 認知搜尋中的 OData $select 語法](search-query-odata-select.md)
 
-## <a name="see-also"></a>請參閱  
+## <a name="see-also"></a>另請參閱  
 
 - [Azure 認知搜尋中的多面向導覽](search-faceted-navigation.md)
 - [Azure 認知搜尋中的篩選](search-filters.md)

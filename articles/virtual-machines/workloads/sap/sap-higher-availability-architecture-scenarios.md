@@ -238,15 +238,15 @@ Azure 受控磁碟會自動放在其所連接虛擬機器的容錯網域。 如�
 
 * SAP 應用程式伺服器的高可用性
 
-    SAP 應用程式伺服器執行個體是備援元件。 每個 SAP 伺服器執行個體都已部署在自己的 VM 上，而此 VM 是在不同的 Azure 容錯網域及升級網域中執行。 如需詳細資訊, 請參閱[容錯網域][planning-guide-3.2.1]和[升級網域][planning-guide-3.2.2]一節。 
+    SAP 應用程式伺服器執行個體是備援元件。 每個 SAP 伺服器執行個體都已部署在自己的 VM 上，而此 VM 是在不同的 Azure 容錯網域及升級網域中執行。 如需詳細資訊，請參閱[容錯網域][planning-guide-3.2.1]和[升級網域][planning-guide-3.2.2]一節。 
 
-    您可以使用 Azure 可用性設定組來確保此組態。 如需詳細資訊, 請參閱[Azure 可用性設定組][planning-guide-3.2.3]一節。 
+    您可以使用 Azure 可用性設定組來確保此組態。 如需詳細資訊，請參閱[Azure 可用性設定組][planning-guide-3.2.3]一節。 
 
     當 Azure 容錯或升級網域可能因規劃或未規劃而無法使用時，將會導致有限數目的 VM 及其 SAP 應用程式伺服器執行個體無法使用。
 
-    每個 SAP 應用程式伺服器執行個體都會放在自己的 Azure 儲存體帳戶中。 當一個 Azure 儲存體可能無法使用時，只會導致一部 VM 及其 SAP 應用程式伺服器執行個體無法使用。 不過請注意，一個 Azure 訂用帳戶中的 Azure 儲存體帳戶數目有限。 若要確保在 VM 重新開機後自動啟動 ASCS/SCS 實例, 請在[使用 SAP 實例的自動][planning-guide-11.5]啟動一節中所述的 ASCS/SCS 實例啟動設定檔中, 設定 Autostart 參數。
+    每個 SAP 應用程式伺服器執行個體都會放在自己的 Azure 儲存體帳戶中。 當一個 Azure 儲存體可能無法使用時，只會導致一部 VM 及其 SAP 應用程式伺服器執行個體無法使用。 不過請注意，一個 Azure 訂用帳戶中的 Azure 儲存體帳戶數目有限。 若要確保在 VM 重新開機後自動啟動 ASCS/SCS 實例，請在[使用 SAP 實例的自動][planning-guide-11.5]啟動一節中所述的 ASCS/SCS 實例啟動設定檔中，設定 Autostart 參數。
   
-    如需詳細資訊, 請參閱[SAP 應用程式伺服器的高可用性][planning-guide-11.4.1]。
+    如需詳細資訊，請參閱[SAP 應用程式伺服器的高可用性][planning-guide-11.4.1]。
 
     即使您使用受控磁碟，這些磁碟會儲存在 Azure 儲存體帳戶中，而且在儲存體發生中斷時可能無法使用。
 
@@ -254,7 +254,7 @@ Azure 受控磁碟會自動放在其所連接虛擬機器的容錯網域。 如�
 
     在此案例中，利用 Azure VM 重新啟動來保護已安裝 SAP ASCS/SCS 執行個體的 VM。 如果 Azure 伺服器發生規劃或未規劃的停機，則會在另一個可用的伺服器上重新啟動 VM。 如前所述，在此 ASCS/SCS 執行個體案例中，Azure VM 重新啟動主要是保護 VM，而「不是」應用程式。 透過 VM 重新啟動，您可間接達到 SAP ASCS/SCS 執行個體的「更高可用性」。 
 
-    若要確保在 VM 重新開機後自動啟動 ASCS/SCS 實例, 請在 ASCS/SCS 實例啟動設定檔中設定 Autostart 參數, 如[使用自動啟動 SAP 實例][planning-guide-11.5]一節中所述。 此設定表示 ASCS/SCS 執行個體可當作單一 VM 中執行的單一失敗點 (SPOF)，將會決定整個 SAP 環境是否可用。
+    若要確保在 VM 重新開機後自動啟動 ASCS/SCS 實例，請在 ASCS/SCS 實例啟動設定檔中設定 Autostart 參數，如[使用自動啟動 SAP 實例][planning-guide-11.5]一節中所述。 此設定表示 ASCS/SCS 執行個體可當作單一 VM 中執行的單一失敗點 (SPOF)，將會決定整個 SAP 環境是否可用。
 
 * DBMS 伺服器的「更高可用性」
 
@@ -282,4 +282,4 @@ SAP 提供一項設定，讓您在 VM 內的 OS 啟動後立即啟動 SAP 執行
 
 ## <a name="next-steps"></a>後續步驟
 
-如需完整 SAP NetWeaver 應用程式感知高可用性的詳細資訊, 請參閱[Azure IaaS 上的 sap 應用程式高可用性][sap-high-availability-architecture-scenarios-sap-app-ha]。
+如需完整 SAP NetWeaver 應用程式感知高可用性的詳細資訊，請參閱[Azure IaaS 上的 sap 應用程式高可用性][sap-high-availability-architecture-scenarios-sap-app-ha]。

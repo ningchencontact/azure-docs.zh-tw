@@ -32,7 +32,7 @@ ms.locfileid: "72598129"
 
 根據預設，清單作業一次最多會傳回5000個結果。 若要傳回較小的結果集，請在呼叫其中一個**ListContainerSegmented**方法時，為 `maxresults` 參數提供非零值。
 
-如果您的儲存體帳戶包含超過5000個容器，或如果您已指定 `maxresults` 的值，讓清單作業傳回儲存體帳戶中的容器子集，則 Azure 儲存體會傳回*接續權杖*，其中清單為那裡. 接續 token 是不透明的值，可讓您用來抓取 Azure 儲存體的下一組結果。
+如果您的儲存體帳戶包含超過5000個容器，或如果您已指定 `maxresults` 的值，讓清單作業傳回儲存體帳戶中的容器子集，則 Azure 儲存體會傳回包含容器清單的*接續權杖*。 接續 token 是不透明的值，可讓您用來抓取 Azure 儲存體的下一組結果。
 
 在您的程式碼中，檢查接續 token 的值，以判斷它是否為 null。 當接續 token 為 null 時，結果集就會完成。 如果接續 token 不是 null，則再次呼叫**ListContainersSegmented**或**ListContainersSegmentedAsync** ，傳入接續 token 來抓取下一組結果，直到接續 token 為 null 為止。
 
@@ -97,7 +97,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [列出容器](/rest/api/storageservices/list-containers2)
 [列舉 Blob 資源](/rest/api/storageservices/enumerating-blob-resources)

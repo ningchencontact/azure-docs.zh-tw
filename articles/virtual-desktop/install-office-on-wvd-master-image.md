@@ -23,7 +23,7 @@ ms.locfileid: "71679528"
 本文也假設您已在 VM 上擁有更高的存取權，無論是布建在 Azure 或 Hyper-v 管理員中。 如果沒有，請參閱提高[存取權以管理所有 Azure 訂用帳戶和管理群組](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin)。
 
 >[!NOTE]
->這些指示適用于可以與貴組織現有的程式搭配使用的 Windows 虛擬桌面特定設定。
+>這些指示適用於可搭配您組織現有程序使用的 Windows 虛擬桌面特定設定。
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>在共用電腦啟用模式中安裝 Office
 
@@ -53,7 +53,7 @@ Office 部署工具需要設定 XML 檔案。 若要自訂下列範例，請參�
 - 以每個使用者模式安裝 OneDrive。 若要深入瞭解，請參閱[以每一電腦模式安裝 OneDrive](#install-onedrive-in-per-machine-mode)。
 
 >[!NOTE]
->您可以透過群組原則物件（Gpo）或登錄設定來設定共用電腦啟用。 GPO 位於 [**電腦設定] @ no__t-1Policies @ no__t-2Administrative Templates @ no__t-3Microsoft Office 2016 （電腦） \\Licensing 設定**
+>您可以透過群組原則物件（Gpo）或登錄設定來設定共用電腦啟用。 GPO 位於 **電腦設定\\原則\\系統管理範本\\Microsoft Office 2016 （電腦）\\授權設定**
 
 Office 部署工具組含 setup.exe。 若要安裝 Office，請在命令列中執行下列命令：
 
@@ -130,11 +130,11 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 
 以下說明如何以每一電腦模式安裝 OneDrive：
 
-1. 首先，建立一個暫存 OneDrive 安裝程式的位置。 本機磁片資料夾或 [\\ @ no__t-1unc] （file://unc）位置是正常的。
+1. 首先，建立一個暫存 OneDrive 安裝程式的位置。 本機磁片資料夾或 [\\\\unc] （file://unc）位置是正常的。
 
 2. 使用下列連結，將 OneDriveSetup 下載至您的暫存位置： <https://aka.ms/OneDriveWVD-Installer>
 
-3. 如果您省略 **\<EXCLUDEAPP ID = "OneDrive"/\>** 來安裝 Office with onedrive，請執行下列命令，從提升許可權的命令提示字元中，卸載任何現有的 OneDrive 每一使用者安裝：
+3. 如果您藉由省略 **\<EXCLUDEAPP ID = "OneDrive"/\>** 來安裝 Office with onedrive，請執行下列命令，從提升許可權的命令提示字元中，卸載任何現有的 OneDrive 每一使用者安裝：
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall

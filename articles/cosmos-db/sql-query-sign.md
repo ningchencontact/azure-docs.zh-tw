@@ -34,7 +34,7 @@ SIGN(<numeric_expr>)
   
 ## <a name="examples"></a>範例
   
-  下列範例會將數位的 @no__t 0 值從-2 傳回2。  
+  下列範例會將數位的 `SIGN` 值從-2 傳回2。  
   
 ```sql
 SELECT SIGN(-2) AS s1, SIGN(-1) AS s2, SIGN(0) AS s3, SIGN(1) AS s4, SIGN(2) AS s5  

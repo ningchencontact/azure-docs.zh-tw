@@ -25,9 +25,9 @@ ms.locfileid: "72244327"
 
 ![專案負責人工作流程](./media/project-lead-tasks/project-leads-1-tdsp-creating-projects.png)
 
-本教學課程涵蓋步驟1：建立專案存放庫，以及步驟2：從您的小組 ProjectTemplate 存放庫植入專案存放庫。 
+本教學課程涵蓋步驟1：建立專案存放庫和步驟2：從您的小組 ProjectTemplate 存放庫植入專案存放庫。 
 
-針對步驟3：建立專案的功能工作專案，以及步驟4：新增專案階段的案例，請參閱[Agile 開發資料科學專案](agile-development.md)。
+針對 [步驟3：建立專案的功能工作專案] 和 [步驟4：加入專案] 階段的案例，請參閱[Agile 開發資料科學專案](agile-development.md)。
 
 針對步驟5：建立和自訂儲存體/分析資產和共用（如有必要），請參閱[建立小組資料和分析資源](team-lead-tasks.md#create-team-data-and-analytics-resources)。
 
@@ -36,7 +36,7 @@ ms.locfileid: "72244327"
 > [!NOTE] 
 > 本文使用 Azure Repos 來設定 TDSP 專案，因為這是在 Microsoft 執行 TDSP 的方式。 如果您的小組使用另一個程式碼裝載平臺，則專案負責人工作會相同，但完成這些工作的方式可能會不同。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程假設您的[群組管理員](group-manager-tasks.md)和[小組負責人](team-lead-tasks.md)已設定下列資源和許可權：
 
@@ -47,7 +47,7 @@ ms.locfileid: "72244327"
 
 若要複製存放庫及修改本機電腦上的內容或資料科學虛擬機器（DSVM），或設定 Azure 檔案儲存體並將其掛接至 DSVM，您也需要下列各項：
 
-- Azure 訂用帳戶。
+- Azure 訂閱。
 - 已在您的電腦上安裝 Git。 如果您使用 DSVM，則會預先安裝 Git。 否則，請參閱[平台和工具附錄](platforms-and-tools.md#appendix)。
 - 如果您想要使用 DSVM，則會在 Azure 中建立並設定 Windows 或 Linux DSVM。 如需詳細資訊和指示，請參閱[資料科學虛擬機器檔](/azure/machine-learning/data-science-virtual-machine/)。
 - 針對安裝在您電腦上的 Windows DSVM， [Git 認證管理員（GCM）](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) 。 在*README.md*檔案中，向下卷到 [**下載並安裝**] 區段，然後選取**最新的安裝程式**。 從安裝程式頁面下載 *.exe*安裝程式，並加以執行。 
@@ -57,7 +57,7 @@ ms.locfileid: "72244327"
 
 若要在小組的**MyTeam**專案中建立專案存放庫：
 
-1. 移至您小組的專案**摘要**頁面，網址為 *： \/ @ no__t-3 @ no__t-4server name >/\<organization name >/\<team name >* ，例如**HTTPs： \//dev. Azure .com/DataScienceUnit/MyTeam**，以及從左側導覽中選取 [**存放庫**]。 
+1. 移至您小組的 [專案**摘要**] 頁面，網址為 *：\//\<伺服器名稱 >/\<組織名稱 >/\<小組名稱 >* ，例如**HTTPs：\//dev.azure.com/DataScienceUnit/MyTeam**，然後從左側導覽中選取 [**存放庫**]。 
    
 1. 選取頁面頂端的存放庫名稱，然後從下拉式清單中選取 [**新增存放庫**]。
    
@@ -83,7 +83,7 @@ ms.locfileid: "72244327"
    
    ![選取 [匯入]](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. 在 [匯**入 git 存放庫**] 對話方塊中，選取 [ **Git** ] 作為 [**來源類型**]，然後在 [**複製 url**] 底下輸入**TeamTemplate**存放庫的 url。 URL 為*HTTPs： \/ @ no__t-2 @ no__t-3server name >/\<organization name >/\<team name >/_git/\<team template repository name >* 。 例如： **HTTPs： \//dev/DataScienceUnit/MyTeam/_git/TeamTemplate**。 
+1. 在 [匯**入 git 存放庫**] 對話方塊中，選取 [ **Git** ] 作為 [**來源類型**]，然後在 [**複製 url**] 底下輸入**TeamTemplate**存放庫的 url。 URL 為*HTTPs：\//\<伺服器名稱 >/\<組織名稱 >/\<小組名稱 >/_git/\<小組範本存放庫名稱 >* 。 例如： **HTTPs：\//dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**。 
    
 1. 選取 [匯入]。 小組範本存放庫的內容會匯入到您的專案存放庫。 
    

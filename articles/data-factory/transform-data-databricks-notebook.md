@@ -57,13 +57,13 @@ ms.locfileid: "73683924"
 
 下表說明 JSON 定義中使用的 JSON 屬性：
 
-|屬性|說明|必要|
+|屬性|描述|必要|
 |---|---|---|
-|名稱|管線中的活動名稱。|是|
-|說明|說明活動用途的文字。|否|
-|類型|若是 Databricks Notebook 活動，則活動類型是 DatabricksNotebook。|是|
-|linkedServiceName|Databricks Notebook 執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|是|
-|notebookPath|要在 Databricks 工作區中執行之 Notebook 的絕對路徑。 此路徑必須以斜線開頭。|是|
+|名稱|管線中的活動名稱。|yes|
+|Description|說明活動用途的文字。|否|
+|類型|若是 Databricks Notebook 活動，則活動類型是 DatabricksNotebook。|yes|
+|linkedServiceName|Databricks Notebook 執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|yes|
+|notebookPath|要在 Databricks 工作區中執行之 Notebook 的絕對路徑。 此路徑必須以斜線開頭。|yes|
 |baseParameters|機碼值組的陣列。 基礎映像參數可以用於每個活動執行。 如果 Notebook 採用未指定的參數，則系統會使用 Notebook 的預設值。 在 [Databricks Notebook](https://docs.databricks.com/api/latest/jobs.html#jobsparampair) 中尋找更多參數的相關資料。|否|
 |程式庫|要在負責執行工作的叢集上，即將安裝的程式庫清單。 可以是 \<字串, 物件> 陣列。|否|
 

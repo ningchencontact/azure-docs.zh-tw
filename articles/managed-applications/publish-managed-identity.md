@@ -139,7 +139,7 @@ ms.locfileid: "72330233"
 
 > [!NOTE]
 > Marketplace 受控應用程式範本會自動產生，供客戶通過 Azure 入口網站建立體驗。
-> 在這些情況下，CreateUIDefinition 上的 @no__t 0 輸出金鑰必須用來啟用身分識別。
+> 在這些情況下，CreateUIDefinition 上的 `managedIdentity` 輸出金鑰必須用來啟用身分識別。
 
 受控識別也可以透過 Azure Resource Manager 範本來啟用。 範例鈴會在受控應用程式上啟用**系統指派**的身分識別。 使用 Azure Resource Manager 樣板參數來提供輸入，就可以形成更複雜的識別物件。 這些輸入可用於以**使用者指派**的身分識別來建立受控應用程式。
 
@@ -275,7 +275,7 @@ ms.locfileid: "72330233"
 
 ### <a name="authoring-the-maintemplate-with-a-linked-resource"></a>使用連結的資源撰寫 mainTemplate
 
-除了更新 CreateUIDefinition，主要範本也需要更新，以接受已連結資源識別碼中傳遞的。 您可以藉由新增新的參數，更新主要範本以接受新的輸出。 因為 `managedIdentity` 輸出會覆寫所產生 Managed 應用程式範本上的值，所以它不會傳遞至主要範本，而且不應該包含在 parameters 區段中。
+除了更新 CreateUIDefinition，主要範本也需要更新，以接受已連結資源識別碼中傳遞的。 您可以藉由新增新的參數，更新主要範本以接受新的輸出。 因為 `managedIdentity` 的輸出會覆寫所產生的 Managed 應用程式範本上的值，所以不會將它傳遞至主要範本，而且不應該包含在 parameters 區段中。
 
 範例主要範本，會將網路設定檔設定為 CreateUIDefinition 所提供的現有網路介面。
 
@@ -319,7 +319,7 @@ ms.locfileid: "72330233"
 
 ## <a name="accessing-the-managed-identity-token"></a>存取受控識別權杖
 
-受控應用程式的權杖現在可以透過發行者租使用者中的 @no__t 0 api 來存取。 範例要求可能如下所示：
+受控應用程式的權杖現在可以透過發行者租使用者中的 `listTokens` api 來存取。 範例要求可能如下所示：
 
 ``` HTTP
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
@@ -334,10 +334,10 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 要求主體參數：
 
-參數 | 必要項 | 描述
+參數 | 必要 | 描述
 ---|---|---
 authorizationAudience | 否 | 目標資源的應用程式識別碼 URI。 它也是已發行權杖的 `aud` （物件）宣告。 預設值為 "https://management.azure.com/"
-userAssignedIdentities | 否 | 要為其取得權杖的使用者指派受控識別清單。 如果未指定，`listTokens` 會傳回系統指派受控識別的權杖。
+userAssignedIdentities | 否 | 要為其取得權杖的使用者指派受控識別清單。 如果未指定，`listTokens` 會傳回系統指派之受控識別的權杖。
 
 
 範例回應可能如下所示：
@@ -370,7 +370,7 @@ expires_in | 存取權杖生效的秒數。
 expires_on | 存取權杖到期的時間範圍。 這會表示為 epoch 的秒數。
 not_before | 存取權杖生效時的 timespan。 這會表示為 epoch 的秒數。
 authorizationAudience | 存取權杖要求的 `aud` （物件）。 這與 `listTokens` 要求中所提供的相同。
-ResourceId | 已發行權杖的 Azure 資源識別碼。 這可能是受控應用程式識別碼或使用者指派的身分識別識別碼。
+resourceId | 已發行權杖的 Azure 資源識別碼。 這可能是受控應用程式識別碼或使用者指派的身分識別識別碼。
 token_type | Token 的類型。
 
 ## <a name="next-steps"></a>後續步驟

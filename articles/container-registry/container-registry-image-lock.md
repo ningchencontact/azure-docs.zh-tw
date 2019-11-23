@@ -19,10 +19,10 @@ ms.locfileid: "71949509"
 
 在 Azure container registry 中，您可以鎖定映射版本或存放庫，使其無法被刪除或更新。 若要鎖定映射或存放庫，請使用 Azure CLI 命令[az acr repository update][az-acr-repository-update]來更新其屬性。 
 
-本文要求您在 Azure Cloud Shell 或本機執行 Azure CLI （建議使用使用2.0.55 版或更新版本）。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
+本文要求您在 Azure Cloud Shell 或本機執行 Azure CLI （建議使用使用2.0.55 版或更新版本）。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
 
 > [!IMPORTANT]
-> 本文不適用於鎖定整個登錄，例如，使用**設定 >** Azure 入口網站中的鎖定，或 Azure CLI 中的 @no__t 1 命令。 鎖定登錄資源並不會讓您無法建立、更新或刪除存放庫中的資料。 鎖定登錄只會影響管理作業，例如新增或刪除複寫，或刪除登錄本身。 [鎖定資源以防止非預期的變更](../azure-resource-manager/resource-group-lock-resources.md)的詳細資訊。
+> 本文不適用於鎖定整個登錄，例如，使用 Azure 入口網站中的**設定 > 鎖定**，或在 Azure CLI 中 `az lock` 命令。 鎖定登錄資源並不會讓您無法建立、更新或刪除存放庫中的資料。 鎖定登錄只會影響管理作業，例如新增或刪除複寫，或刪除登錄本身。 [鎖定資源以防止非預期的變更](../azure-resource-manager/resource-group-lock-resources.md)的詳細資訊。
 
 ## <a name="scenarios"></a>案例
 
@@ -70,7 +70,7 @@ az acr repository update \
 
 ### <a name="lock-an-image-by-manifest-digest"></a>依資訊清單摘要鎖定影像
 
-若要鎖定資訊清單摘要所識別的*myrepo/myimage*影像（以 `sha256:...` 表示的 SHA-256 雜湊），請執行下列命令。 （若要尋找與一或多個映射標記相關聯的資訊清單摘要，請執行[az acr repository show-資訊清單][az-acr-repository-show-manifests]命令）。
+若要鎖定資訊清單摘要所識別的*myrepo/myimage*影像（以 `sha256:...`表示的 SHA-256 雜湊），請執行下列命令。 （若要尋找與一或多個映射標記相關聯的資訊清單摘要，請執行[az acr repository show-資訊清單][az-acr-repository-show-manifests]命令）。
 
 ```azurecli
 az acr repository update \

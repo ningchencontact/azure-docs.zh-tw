@@ -48,7 +48,7 @@ Analysis Services 也支援使用服務主體的受控識別所執行的作業�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Using Az. Microsoft.analysisservices 模組
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a>使用 Az. Microsoft.analysisservices 模組 <a name="azmodule" />
 
 使用服務主體搭配[microsoft.analysisservices](/powershell/module/az.analysisservices)模組進行資源管理作業時，請使用 `Connect-AzAccount` Cmdlet。 
 

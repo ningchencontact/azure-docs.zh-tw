@@ -1,6 +1,6 @@
 ---
-title: Create an Azure private link service using Azure PowerShell| Microsoft Docs
-description: Learn how to create an Azure private link service using Azure PowerShell
+title: 使用 Azure PowerShell 建立 Azure 私人連結服務 |Microsoft Docs
+description: 瞭解如何使用 Azure PowerShell 建立 Azure 私人連結服務
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -14,16 +14,16 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229382"
 ---
-# <a name="create-a-private-link-service-using-azure-powershell"></a>Create a Private Link service using Azure PowerShell
-This article shows you how to create a private link service in Azure using Azure PowerShell.
+# <a name="create-a-private-link-service-using-azure-powershell"></a>使用 Azure PowerShell 建立私人連結服務
+本文說明如何使用 Azure PowerShell 在 Azure 中建立私人連結服務。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this article requires the latest Azure PowerShell module version. 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell，本文需要最新的 Azure PowerShell 模組版本。 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-Before you can create your private link, you must create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *WestCentralUS* location:
+您必須先使用[remove-azresourcegroup](/powershell/module/az.resources/new-azresourcegroup)來建立資源群組，才能建立私人連結。 下列範例會在*WestCentralUS*位置中建立名為*myResourceGroup*的資源群組：
 
 ```azurepowershell
 $location = "westcentralus"
@@ -33,7 +33,7 @@ New-AzResourceGroup `
   -Location $location
 ```
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
-Create a virtual network for your private link with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *myvnet* with subnet for frontend (*frontendSubnet*), backend (*backendSubnet*), private link (*otherSubnet*):
+使用[new-azvirtualnetwork](/powershell/module/az.network/new-azvirtualnetwork)為您的私用連結建立虛擬網路。 下列範例會建立名為*myvnet*的虛擬網路，其中包含適用于前端（*frontendSubnet*）、後端（*backendSubnet*）、私用連結（*otherSubnet*）的子網：
 
 ```azurepowershell
 $virtualNetworkName = "myvnet"
@@ -62,8 +62,8 @@ $vnet = New-AzVirtualNetwork `
 -AddressPrefix "10.0.0.0/16" `
 -Subnet $frontendSubnet,$backendSubnet,$otherSubnet 
 ```
-## <a name="create-internal-load-balancer"></a>Create Internal Load Balancer
-Create an internal Standard Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). The following example creates an internal Standard Load Balancer using the frontend IP configuration, probe, rule and backend pool  that you created in the preceding steps:
+## <a name="create-internal-load-balancer"></a>建立內部 Load Balancer
+使用[remove-azloadbalancer](/powershell/module/az.network/new-azloadbalancer)建立內部 Standard Load Balancer。 下列範例會使用您在先前步驟中建立的前端 IP 設定、探查、規則和後端集區，建立內部 Standard Load Balancer：
 
 ```azurepowershell
 
@@ -79,8 +79,8 @@ $probe = New-AzLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Por
 $rule = New-AzLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beaddresspool -Probe $probe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 $NRPLB = New-AzLoadBalancer -ResourceGroupName $rgName -Name $lbName -Location $location -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $probe -LoadBalancingRule $rule -Sku Standard 
 ```
-## <a name="create-a-private-link-service"></a>Create a private link service
-Create a private link service with [New-AzPrivateLinkService](/powershell/module/az.network/new-azloadbalancer).  This example creates a private link service named *myPLS* using Standard Load Balancer in resource group named *myResourceGroup*. 
+## <a name="create-a-private-link-service"></a>建立私用連結服務
+使用[AzPrivateLinkService](/powershell/module/az.network/new-azloadbalancer)建立私人連結服務。  這個範例會使用名為*myResourceGroup*的資源群組中的 Standard Load Balancer，建立名為*myPLS*的私用連結服務。 
 ```azurepowershell
 
 $plsIpConfigName = "PLS-ipconfig" 
@@ -102,20 +102,20 @@ $privateLinkService = New-AzPrivateLinkService `
 -IpConfiguration $IPConfig 
 ```
 
-### <a name="get-private-link-service"></a>Get private link service
-Get details about your private link service with [New-AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice) as follows:
+### <a name="get-private-link-service"></a>取得私用連結服務
+使用[AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice)取得私人連結服務的詳細資料，如下所示：
 
 ```azurepowershell
 $pls = Get-AzPrivateLinkService -Name $plsName -ResourceGroupName $rgName 
 ```
 
-At this stage, your Private Link Service is successfully created and is ready to receive the traffic. Note that above example is only to demonstrate creating Private Link Service using PowerShell.  We haven't configured the load balancer backend pools or any application on the backend pools to listen to the traffic. If you want to see end to end traffic flows, you can strongly advised to configure your application behind your standard load balancer. 
+在此階段，您的私用連結服務已成功建立，並已準備好接收流量。 請注意，上述範例只是為了示範如何使用 PowerShell 建立私用連結服務。  我們尚未設定負載平衡器後端集區或後端集區上的任何應用程式來接聽流量。 如果您想要查看端對端流量流程，強烈建議您在標準負載平衡器後方設定應用程式。 
 
-Next we will demonstrate how to map this service to a private endpoint in different VNet using PowerShell. Again, the example is limited to creating the Private Endpoint and connecting to Private Link Service created above. You can create Virtual Machines in the Virtual Network to send/receive traffic to the private endpoint for building your scenario. 
+接下來，我們將示範如何使用 PowerShell 將此服務對應至不同 VNet 中的私人端點。 同樣地，此範例僅限於建立私人端點，以及連接到上面所建立的私用連結服務。 您可以在虛擬網路中建立虛擬機器，以將流量傳送至私用端點，以建立您的案例。 
 
 ## <a name="create-a-private-endpoint"></a>建立私人端點
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
-Create a virtual network for your private endpoint with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a virtual network named *vnetPE* in resource group named *myResourceGroup*:
+使用[new-azvirtualnetwork](/powershell/module/az.network/new-azvirtualnetwork)為您的私用端點建立虛擬網路。 這個範例會在名為*myResourceGroup*的資源群組中建立名為 *vnetPE* 的虛擬網路：
  
 ```azurepowershell
 $virtualNetworkNamePE = "vnetPE"
@@ -135,7 +135,7 @@ $vnetPE = New-AzVirtualNetwork `
 ```
 
 ### <a name="create-a-private-endpoint"></a>建立私人端點
-Create a private endpoint for consuming private link service created above in your virtual network:
+針對在您的虛擬網路中建立的取用私人連結服務，建立私用端點：
  
 ```azurepowershell
  
@@ -146,8 +146,8 @@ $plsConnection= New-AzPrivateLinkServiceConnection `
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName -Name $peName -Location $location -Subnet $vnetPE.subnets[0] -PrivateLinkServiceConnection $plsConnection -ByManualRequest 
 ```
  
-### <a name="get-private-endpoint"></a>Get private endpoint
-Get the IP address of the private endpoint with `Get-AzPrivateEndpoint` as follows:
+### <a name="get-private-endpoint"></a>取得私用端點
+取得具有 `Get-AzPrivateEndpoint` 之私用端點的 IP 位址，如下所示：
 
 ```azurepowershell
 # Get Private Endpoint and its IP Address 
@@ -160,8 +160,8 @@ $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress
 
 ```
 
-### <a name="approve-the-private-endpoint-connection"></a>Approve the private endpoint connection
-Approve the private end point connection to the private link service with 'Approve-AzPrivateEndpointConnection`.
+### <a name="approve-the-private-endpoint-connection"></a>核准私人端點連接
+使用「核准-AzPrivateEndpointConnection」來核准私人連結服務的私用端點連線。
 
 ```azurepowershell   
 
@@ -174,5 +174,5 @@ Approve-AzPrivateEndpointConnection -ResourceId $pls.PrivateEndpointConnections[
 ``` 
 
 ## <a name="next-steps"></a>後續步驟
-- Learn more about [Azure private link](private-link-overview.md)
+- 深入瞭解[Azure 私人連結](private-link-overview.md)
  

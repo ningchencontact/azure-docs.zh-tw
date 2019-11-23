@@ -20,7 +20,7 @@ ms.locfileid: "71828988"
 您可以使用 Azure Resource Manager 範本來完成將虛擬網路移至另一個區域的工作。 若要這麼做，您可以將虛擬網路匯出至範本、修改參數以符合目的地區域，然後將範本部署到新的區域。 如需 Resource Manager 範本的詳細資訊，請參閱[將資源群組匯出至範本](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 請確定您的虛擬網路位於您想要移動的 Azure 區域中。
 
@@ -60,7 +60,7 @@ ms.locfileid: "71828988"
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-1. 下載的檔案與匯出資源的來源資源群組具有相同的名稱。 找出您使用命令所匯出的 *@no__t 1resource-群組名稱 > json*檔案，然後在您的編輯器中開啟它：
+1. 下載的檔案與匯出資源的來源資源群組具有相同的名稱。 找出 *\<的資源群組名稱 >. json*檔案，您會使用命令來匯出該檔案，然後在您的編輯器中開啟它：
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -105,9 +105,9 @@ ms.locfileid: "71828988"
     Get-AzLocation | format-table
     ```
 
-1. 選擇性您也可以根據您的需求，變更 *@no__t 1resource-群組名稱 > json*檔案中的其他參數：
+1. 選擇性您也可以根據您的需求，變更 *\<資源群組名稱 >. json*檔案中的其他參數：
 
-    * **位址空間**：儲存檔案之前，您可以藉由修改**資源** > **addressSpace**區段並變更**addressPrefixes**屬性，來改變虛擬網路的位址空間：
+    * **位址空間**：儲存檔案之前，您可以藉由修改**resources** > **addressSpace**區段並變更**addressPrefixes**屬性，來改變虛擬網路的位址空間：
 
         ```json
                 "resources": [
@@ -126,7 +126,7 @@ ms.locfileid: "71828988"
                     },
         ```
 
-    * **子網路**：您可以藉由變更檔案的**子**網區段，來變更或新增至子網名稱和子網位址空間。 您可以藉由變更 [**名稱**] 屬性來變更子網的名稱。 而且您可以藉由變更**addressPrefix**屬性來變更子網位址空間：
+    * **子網**：您可以藉由變更檔案的**子網**區段來變更或新增至子網名稱和子網位址空間。 您可以藉由變更 [**名稱**] 屬性來變更子網的名稱。 而且您可以藉由變更**addressPrefix**屬性來變更子網位址空間：
 
         ```json
                 "subnets": [
@@ -193,7 +193,7 @@ ms.locfileid: "71828988"
          ]
         ```
 
-1. 將資源*群組名稱儲存>json檔案。\<*
+1. 儲存 *\<資源群組名稱 >. json*檔案。
 
 1. 使用[remove-azresourcegroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)，在目的地區域中建立要部署之目標虛擬網路的資源群組：
     
@@ -201,7 +201,7 @@ ms.locfileid: "71828988"
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-1. 使用[new-azresourcegroupdeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)，將已編輯的 *\<resource-群組名稱 > json*檔案部署到您在上一個步驟中建立的資源群組：
+1. 使用[new-azresourcegroupdeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)，將已編輯的 *\<資源群組名稱 >. json*檔案部署到您在上一個步驟中建立的資源群組：
 
     ```azurepowershell-interactive
 

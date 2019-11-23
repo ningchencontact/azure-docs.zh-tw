@@ -18,12 +18,12 @@ ms.locfileid: "73516860"
 
 本文說明如何在 Azure Web 應用程式防火牆（WAF）中為使用 Azure 入口網站的應用程式閘道設定 bot 保護規則。 
 
-您可以為 WAF 啟用受管理的 bot 保護規則集，以封鎖或記錄來自已知惡意 IP 位址的要求。 IP 位址源自 Microsoft 威脅情報摘要。 包括 Azure 資訊安全中心在內的多項服務皆使用 Intelligent Security Graph，其同時也支援 Microsoft 威脅情報的運作。
+您可以為 WAF 啟用受管理的 bot 保護規則集，以封鎖或記錄來自已知惡意 IP 位址的要求。 這些 IP 位址皆來自 Microsoft 威脅情報摘要。 包括 Azure 資訊安全中心在內的多項服務皆使用 Intelligent Security Graph，其同時也支援 Microsoft 威脅情報的運作。
 
 > [!NOTE]
 > Bot 保護規則集目前處於公開預覽狀態，且提供預覽服務等級協定。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 遵循 [建立適用于應用程式閘道的 Web 應用程式防火牆原則](create-waf-policy-ag.md)中所述的指示，建立應用程式閘道的基本 WAF 原則。
 

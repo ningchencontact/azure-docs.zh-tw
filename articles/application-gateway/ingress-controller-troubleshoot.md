@@ -236,7 +236,7 @@ AGIC 有3個記錄層級。 層級1是預設值，它會顯示最少的記錄行
 Kubernetes 的社區已針對[kubectl](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-output-verbosity-and-debugging)工具建立了9種層級的記錄。 在此存放庫中，我們會使用其中的3個，並具有類似的語義：
 
 
-| 詳細程度 | 說明 |
+| 詳細程度 | 描述 |
 |-----------|-------------|
 |  1        | 預設記錄層級;顯示啟動詳細資料、警告和錯誤 |
 |  3        | 有關事件和變更的擴充資訊;已建立物件的清單 |

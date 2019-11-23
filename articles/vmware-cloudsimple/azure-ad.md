@@ -83,7 +83,7 @@ Azure AD 是 Microsoft 多租使用者雲端式目錄和身分識別管理服務
 1. [提升](escalate-private-cloud-privileges.md)私人雲端 vCenter 的許可權。
 2. 收集設定身分識別來源所需的設定參數。
 
-    | **選項** | **說明** |
+    | **選項** | **描述** |
     |------------|-----------------|
     | **名稱** | 身分識別來源的名稱。 |
     | **使用者的基本 DN** | 使用者的基本辨別名稱。  針對 Azure AD，請使用： `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` 範例： `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`。|

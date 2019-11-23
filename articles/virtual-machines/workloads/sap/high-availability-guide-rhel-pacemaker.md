@@ -55,7 +55,7 @@ ms.locfileid: "71672990"
 * SAP Note [1999351] 包含 Azure Enhanced Monitoring Extension for SAP 的其他疑難排解資訊。
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) 包含 Linux 所需的所有 SAP Note。
 * [適用于 SAP on Linux 的 Azure 虛擬機器規劃和執行][planning-guide]
-* [適用于 SAP on Linux 的 Azure 虛擬機器部署 (本文)][deployment-guide]
+* [適用于 SAP on Linux 的 Azure 虛擬機器部署（本文）][deployment-guide]
 * [適用于 SAP on Linux 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
 * [Pacemaker 叢集中的 SAP HANA 系統複寫](https://access.redhat.com/articles/3004101)
 * 一般 RHEL 文件
@@ -63,10 +63,10 @@ ms.locfileid: "71672990"
   * [高可用性附加元件管理](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [高可用性附加元件參考](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [RHEL 高可用性叢集的支援原則-sbd 和 fence_sbd](https://access.redhat.com/articles/2800691)
-* Azure 特定的 RHEL 檔:
+* Azure 特定的 RHEL 檔：
   * [RHEL 高可用性叢集的支援原則：以 Microsoft Azure 虛擬機器作為叢集成員](https://access.redhat.com/articles/3131341)
   * [在 Microsoft Azure 上安裝和設定 Red Hat Enterprise Linux 7.4 (和更新版本) 高可用性叢集](https://access.redhat.com/articles/3252491)
-  * [在 RHEL 7.6 上的 Pacemaker 中使用獨立的排入佇列伺服器 2 (ENSA2) 設定 SAP S/4HANA ASCS/ERS](https://access.redhat.com/articles/3974941)
+  * [在 RHEL 7.6 上的 Pacemaker 中使用獨立的排入佇列伺服器2（ENSA2）設定 SAP S/4HANA ASCS/ERS](https://access.redhat.com/articles/3974941)
 
 ## <a name="cluster-installation"></a>叢集安裝
 
@@ -88,11 +88,11 @@ ms.locfileid: "71672990"
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   請注意, 藉由將集區附加至 Azure Marketplace PAYG RHEL 映射, 您將能有效地以 RHEL 使用量重複計費: 一次針對 PAYG 映射, 另一次用於您所附加之集區中的 RHEL 權利。 為了減輕此問題, Azure 現在提供 BYOS RHEL 映射。 您可以[在這裡](https://aka.ms/rhel-byos)取得詳細資訊。
+   請注意，藉由將集區附加至 Azure Marketplace PAYG RHEL 映射，您將能有效地以 RHEL 使用量重複計費：一次針對 PAYG 映射，另一次用於您所附加之集區中的 RHEL 權利。 為了減輕此問題，Azure 現在提供 BYOS RHEL 映射。 您可以[在這裡](https://aka.ms/rhel-byos)取得詳細資訊。
 
 1. **[A]** 啟用 RHEL for SAP 存放庫
 
-   若要安裝必要的封裝，請啟用下列存放庫。
+   若要安裝必要的套件，請啟用下列存放庫。
 
    <pre><code>sudo subscription-manager repos --disable "*"
    sudo subscription-manager repos --enable=rhel-7-server-rpms
@@ -107,13 +107,13 @@ ms.locfileid: "71672990"
    </code></pre>
 
    > [!IMPORTANT]
-   > 我們建議使用下列 Azure 隔離代理程式版本 (或更新版本), 讓客戶從更快速的容錯移轉時間受益, 如果資源停止失敗或叢集節點無法再彼此通訊:  
-   > RHEL 7.6： fence-agents-4.2.1-11-preview. el7 _ 6。8  
-   > RHEL 7.5： fence-agents-4.0.11-86. el7 _ 5。8  
-   > RHEL 7.4： fence-agents-4.0.11-66. el7 _ 4.12  
+   > 我們建議使用下列 Azure 隔離代理程式版本（或更新版本），讓客戶從更快速的容錯移轉時間受益，如果資源停止失敗或叢集節點無法再彼此通訊：  
+   > RHEL 7.6：隔離-代理程式-4.2.1-11. 8 el7_6  
+   > RHEL 7.5：隔離-代理程式-4.0.11-86. el7_5 8  
+   > RHEL 7.4：隔離-代理程式-4.0.11-66. el7_4 12  
    > 如需詳細資訊，請參閱以[RHEL 高可用性叢集成員身分執行的 AZURE VM 需要很長的時間才能圍住，或隔離會在 VM 關機之前失敗/超時](https://access.redhat.com/solutions/3408711)。
 
-   檢查 Azure 隔離代理程式的版本。 如有必要, 請將其更新為等於或晚于上述的版本。
+   檢查 Azure 隔離代理程式的版本。 如有必要，請將其更新為等於或晚于上述的版本。
 
    <pre><code># Check the version of the Azure Fence Agent
     sudo yum info fence-agents-azure-arm
@@ -161,7 +161,7 @@ ms.locfileid: "71672990"
 
 1. **[1]** 建立 Pacemaker 叢集
 
-   執行下列命令以驗證節點，並建立叢集。 將權杖設為 30000，以允許記憶體保留維護。 如需詳細資訊, 請參閱[適用于 Linux 的文章][virtual-machines-linux-maintenance]。
+   執行下列命令以驗證節點，並建立叢集。 將權杖設為 30000，以允許記憶體保留維護。 如需詳細資訊，請參閱[適用于 Linux 的文章][virtual-machines-linux-maintenance]。
 
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
@@ -200,18 +200,18 @@ ms.locfileid: "71672990"
 
 STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下列步驟來建立服務主體。
 
-1. 移至 <https://portal.azure.com>。
+1. 移至 <https://portal.azure.com>
 1. 開啟 [Azure Active Directory] 刀鋒視窗  
    移至 [屬性]，並記下目錄識別碼。 這是「租用戶識別碼」。
 1. 按一下 [應用程式註冊]
 1. 按一下 [新增註冊]
-1. 輸入名稱, 選取 [僅此組織目錄中的帳戶] 
-2. 選取應用程式類型 [Web], 輸入登入 URL (例如 HTTP:\//localhost), 然後按一下 [新增]  
+1. 輸入名稱，選取 [僅此組織目錄中的帳戶] 
+2. 選取應用程式類型 [Web]，輸入登入 URL （例如 HTTP：\//localhost），然後按一下 [新增]  
    登入 URL 並未使用，而且可以是任何有效的 URL
-1. 選取 [憑證和密碼], 然後按一下 [新增用戶端密碼]
-1. 輸入新金鑰的描述, 選取 [永不過期], 然後按一下 [新增]
+1. 選取 [憑證和密碼]，然後按一下 [新增用戶端密碼]
+1. 輸入新金鑰的描述，選取 [永不過期]，然後按一下 [新增]
 1. 記下值。 此值會用來做為服務主體的**密碼**
-1. 選取 [總覽]。 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的「登入識別碼」)
+1. 選取 [總覽]。 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的 **login id**)
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 為柵欄代理程式建立自訂角色
 
@@ -243,14 +243,14 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 
 將在上一章中建立的自訂角色「Linux 柵欄代理程式角色」指派給服務主體。 不要再使用「擁有者」角色！
 
-1. 移至 https://portal.azure.com 。
+1. 移至 https://portal.azure.com
 1. 開啟 [所有資源] 刀鋒視窗
 1. 選取第一個叢集節點的虛擬機器
 1. 選取 [存取控制 (IAM)]
 1. 按一下 [新增角色指派]
 1. 選取「Linux 柵欄代理程式角色」角色
 1. 輸入您先前建立的應用程式名稱
-1. 按一下 [Save] \(儲存)。
+1. 按一下 [儲存]。
 
 針對第二個叢集節點重複上述步驟。
 
@@ -279,4 +279,4 @@ sudo pcs property set stonith-timeout=900
 * [適用于 SAP 的 Azure 虛擬機器規劃和執行][planning-guide]
 * [適用于 SAP 的 Azure 虛擬機器部署][deployment-guide]
 * [適用于 SAP 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
-* 若要瞭解如何建立高可用性並規劃 Azure Vm 上 SAP Hana 的嚴重損壞修復, 請參閱[azure 虛擬機器 (vm) 上 SAP Hana 的高可用性][sap-hana-ha]
+* 若要瞭解如何建立高可用性並規劃 Azure Vm 上 SAP Hana 的嚴重損壞修復，請參閱[azure 虛擬機器（vm）上 SAP Hana 的高可用性][sap-hana-ha]

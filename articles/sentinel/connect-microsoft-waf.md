@@ -29,7 +29,7 @@ ms.locfileid: "72029780"
 您可以從 Azure 應用程式閘道的 Microsoft web 應用程式防火牆（WAF）串流記錄。 這 WAF 可保護您的應用程式免于遭受常見的 web 弱點，例如 SQL 插入式攻擊和跨網站腳本，並可讓您自訂規則以減少誤報。 遵循這些指示，將您的 Microsoft Web 應用程式防火牆記錄串流至 Azure Sentinel。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 現有的應用程式閘道資源
 
@@ -40,12 +40,12 @@ ms.locfileid: "72029780"
     
 1. 在 Azure Sentinel 入口網站中，選取 [**資料連線器**]。
 1. 在 [資料連線器] 頁面中，選取 [ **WAF** ] 圖格。
-1. 移至[應用程式閘道資源](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) and 選擇您的 WAF。
+1. 移至[應用程式閘道資源](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) ，然後選擇您的 WAF。
     1. 選取 [診斷設定]。
     1. 選取資料表底下的 [ **+ 新增診斷設定**]。
     1. 在 [**診斷設定**] 頁面中，輸入**名稱**，然後選取 [**傳送至 Log Analytics**]。
     1. 在 [ **Log Analytics 工作區**] 底下，選取 [Azure Sentinel] 工作區。
-    1. 選取您想要分析的記錄類型。 我們建議：ApplicationGatewayAccessLog 和 ApplicationGatewayFirewallLog。
+    1. 選取您想要分析的記錄類型。 建議使用： ApplicationGatewayAccessLog 和 ApplicationGatewayFirewallLog。
 1. 若要在 Log Analytics 中使用適用于 Microsoft web 應用程式防火牆警示的相關架構，請搜尋**AzureDiagnostics**。
 
 ## <a name="next-steps"></a>後續步驟

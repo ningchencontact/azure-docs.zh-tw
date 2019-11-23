@@ -41,7 +41,8 @@ ms.locfileid: "72256275"
 
 叢集 vserver 會顯示在左側，而 IP 位址則會出現在中間和右側。 使用 A 記錄和指標設定每個用戶端的存取點，如圖所示。
 
-@no__t 0Avere 叢集迴圈配置資源 DNS 圖表 @ no__t-1<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
+![Avere cluster 迴圈配置資源 DNS 圖表](media/avere-vfxt-rrdns-diagram.png) 
+<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 每個面向用戶端的 IP 位址都必須有唯一的名稱，供叢集內部使用 (在此圖表中，為了清楚起見，用戶端 IP 名稱為 vs1-client-IP-*，但在生產環境中，您可能要使用更精簡的名稱，例如 client*)。
 

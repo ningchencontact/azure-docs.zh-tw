@@ -34,7 +34,7 @@ ms.locfileid: "71057995"
 若安裝之 netvsc.sys 系統檔案的版本是 **10.0.14393.594** 或 **10.0.15063.0**，則可能會發生此問題。 這些版本的 netvsc.sys 可能會使得系統無法與 Azure 平台互動。
 
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方案
 
 在遵循下列步驟之前，請先[擷取受影響 VM 的系統磁碟快照集作為備份](../windows/snapshot-copy-managed-disk.md)。 若要針對此問題進行疑難排解，請使用「序列主控台」，或透過將 VM 的系統磁碟連結至復原 VM，以[修復離線 VM](#repair-the-vm-offline)。
 
@@ -54,8 +54,8 @@ ms.locfileid: "71057995"
 
 2. 下載適當的更新到已連結到相同區域中工作中 VM 的新或現有資料磁碟：
 
-   - **10.0.14393.594**：[KB4073562](https://support.microsoft.com/help/4073562) 或更新版本
-   - **10.0.15063.0**：[KB4016240](https://support.microsoft.com/help/4016240)或更新版本
+   - **10.0.14393.594**：[KB4073562](https://support.microsoft.com/help/4073562) 或更新的更新
+   - **10.0.15063.0**：[KB4016240](https://support.microsoft.com/help/4016240) 或更新的更新
 
 3. 將公用程式磁碟從工作中 VM 中斷連結，然後將它連結到損壞的 VM。
 
@@ -97,8 +97,8 @@ ms.locfileid: "71057995"
 
 12. 下載適當的更新：
 
-    - **10.0.14393.594**：[KB4073562](https://support.microsoft.com/help/4073562) 或更新版本
-    - **10.0.15063.0**：[KB4016240](https://support.microsoft.com/help/4016240)或更新版本
+    - **10.0.14393.594**：[KB4073562](https://support.microsoft.com/help/4073562) 或更新的更新
+    - **10.0.15063.0**：[KB4016240](https://support.microsoft.com/help/4016240) 或更新的更新
 
 13. 將系統磁碟連結為您可以在其上下載更新之救援 VM 上的資料磁碟。
 
@@ -116,6 +116,6 @@ ms.locfileid: "71057995"
 
 16. [中斷連結系統磁碟，並重新建立 VM](../windows/troubleshoot-recovery-disks-portal.md)。
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 連絡支援人員
+## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 
 如果仍需要協助，請[連絡 Azure 支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

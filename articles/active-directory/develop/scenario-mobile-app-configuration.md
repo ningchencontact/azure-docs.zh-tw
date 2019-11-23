@@ -82,7 +82,7 @@ var app = PublicClientApplicationBuilder.Create(clientId)
                                         .Build();
 ```
 
-還有一些*參數*方法可設定 UI 父系、覆寫預設授權單位、指定用戶端名稱和版本（適用于遙測）、指定重新導向 URI、指定要使用的 Http 處理站（例如，若要處理 proxy，請指定遙測和記錄）。 這是下列段落的主題。
+還有一些*參數*方法可設定 UI 父系、覆寫預設授權單位、指定用戶端名稱和版本（適用于遙測）、指定重新導向 URI、指定要使用的 Http 處理站（例如，用來處理 proxy、指定遙測和記錄）。 這是下列段落的主題。
 
 ##### <a name="specifying-the-parent-uiwindowactivity"></a>指定父 UI/視窗/活動
 
@@ -113,7 +113,7 @@ var pca = PublicClientApplicationBuilder
 
 在 Xamarin iOS 上，當您使用 MSAL.NET 時，必須考慮幾個事項：
 
-1. [覆寫並在 `AppDelegate`中執行 `OpenUrl` 函式](msal-net-xamarin-ios-considerations.md#implement-openurl)
+1. [覆寫並在 `AppDelegate` 中執行 `OpenUrl` 函式](msal-net-xamarin-ios-considerations.md#implement-openurl)
 1. [啟用 Keychain 群組](msal-net-xamarin-ios-considerations.md#enable-keychain-access)
 1. [啟用權杖快取共用](msal-net-xamarin-ios-considerations.md#enable-token-cache-sharing-across-ios-applications)
 1. [啟用 Keychain 存取](msal-net-xamarin-ios-considerations.md#enable-keychain-access)

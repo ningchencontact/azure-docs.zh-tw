@@ -23,9 +23,9 @@ ms.lasthandoff: 10/02/2019
 ms.locfileid: "71720005"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>適用于 SAP 應用程式之最佳網路延遲的 Azure 鄰近性放置群組
-以 SAP NetWeaver 或 SAP S/4HANA 架構為基礎的 SAP 應用程式, 對於 SAP 應用層與 SAP 資料庫層之間的網路延遲是敏感的。 此敏感度是在應用層中執行的大部分商務邏輯所產生的結果。 因為 SAP 應用層會執行商務邏輯，所以會以較高的頻率向資料庫層發出查詢，以每秒數千或數十個的速率。 在大部分情況下，這些查詢的本質很簡單。 它們通常可以在500毫秒或更少的資料庫層上執行。
+以 SAP NetWeaver 或 SAP S/4HANA 架構為基礎的 SAP 應用程式，對於 SAP 應用層與 SAP 資料庫層之間的網路延遲是敏感的。 此敏感度是在應用層中執行的大部分商務邏輯所產生的結果。 因為 SAP 應用層會執行商務邏輯，所以會以較高的頻率向資料庫層發出查詢，以每秒數千或數十個的速率。 在大部分情況下，這些查詢的本質很簡單。 它們通常可以在500毫秒或更少的資料庫層上執行。
 
-在網路上將這類查詢從應用層傳送到資料庫層，並接收結果集的時間，對於執行商務程式所花費的時間有重大影響。 這是網路延遲的敏感性，這就是為什麼您需要在 SAP 部署專案中達到最佳的網路延遲。 請參閱 [SAP Note #1100926-常見問題：網路效能 @ no__t-0，以取得如何分類網路延遲的指導方針。
+在網路上將這類查詢從應用層傳送到資料庫層，並接收結果集的時間，對於執行商務程式所花費的時間有重大影響。 這是網路延遲的敏感性，這就是為什麼您需要在 SAP 部署專案中達到最佳的網路延遲。 如需如何分類網路延遲的指導方針，請參閱[SAP 附注 #1100926-常見問題：網路效能](https://launchpad.support.sap.com/#/notes/1100926/E)。
 
 在許多 Azure 區域中，資料中心的數量已增加。 可用性區域的引進也會觸發這項成長。 同時，客戶（特別是高階 SAP 系統）在 M 系列系列或 HANA 大型實例中使用更特殊的 VM Sku。 在特定 Azure 區域中的所有資料中心都無法使用這些 Azure 虛擬機器類型。 由於這兩個喜好傾向，客戶的網路延遲不在最佳範圍內。 在某些情況下，此延遲會導致其 SAP 系統的效能不佳。
 
@@ -65,7 +65,7 @@ Azure 上大多數的 SAP NetWeaver 和 S/4HANA 系統部署都不會使用[HANA
 在此情況下，單一 SAP 系統會群組在每一個資源群組中，每個都有一個鄰近放置群組。 無論您使用的是 HANA 向外延展或 DBMS 相應增加設定，都不會有任何相關性。
 
 ## <a name="proximity-placement-groups-and-hana-large-instances"></a>鄰近放置群組和 HANA 大型實例
-如果您的某些 SAP 系統依賴應用層的[Hana 大型實例](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)，當您使用 Hana 大型實例單位時，您可以在 Hana 大型實例單位與 Azure vm 之間體驗大量的網路延遲改善已部署在[修訂4的資料列或戳記](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)中。 其中一項改進是 HANA 大型實例單位在部署時，會使用鄰近放置群組進行部署。 您可以使用該鄰近放置群組來部署您的應用層 Vm。 因此，這些 Vm 將會部署在裝載您的 HANA 大型實例單位的相同資料中心內。
+如果您的某些 SAP 系統依賴應用層的[Hana 大型實例](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)，當您使用部署在[修訂版4資料列或戳記](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)中的 hana 大型實例單位時，您可以在 hana 大型實例單位與 Azure vm 之間體驗大量的網路延遲改善。 其中一項改進是 HANA 大型實例單位在部署時，會使用鄰近放置群組進行部署。 您可以使用該鄰近放置群組來部署您的應用層 Vm。 因此，這些 Vm 將會部署在裝載您的 HANA 大型實例單位的相同資料中心內。
 
 若要判斷您的 HANA 大型實例單位是否部署在修訂4戳記或資料列中，請參閱[AZURE HANA 大型實例控制的 Azure 入口網站](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#look-at-attributes-of-single-hli-unit)一文。 在您的 HANA 大型實例單位的屬性總覽中，您也可以判斷近接位置群組的名稱，因為它是在部署 HANA 大型實例單位時所建立的。 屬性總覽中出現的名稱是您應該將應用層 Vm 部署到的鄰近放置群組的名稱。
 
@@ -130,7 +130,7 @@ New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppganchorvm" -Location
 
 假設您以與 DBMS Vm 相同的方式部署中央服務 Vm，並參考相同的區域或區域和相同的鄰近放置群組。 在下一個步驟中，您必須建立要用於 SAP 系統之應用層的可用性設定組。
 
-您必須定義並建立鄰近放置群組。 建立可用性設定組的命令需要對鄰近放置群組識別碼 (而非名稱) 進行額外的參考。 您可以使用下列命令來取得鄰近放置群組的識別碼：
+您必須定義並建立鄰近放置群組。 建立可用性設定組的命令需要對鄰近放置群組識別碼（而非名稱）進行額外的參考。 您可以使用下列命令來取得鄰近放置群組的識別碼：
 
 <pre><code>
 Get-AzProximityPlacementGroup -ResourceGroupName "myfirstppgexercise" -Name "letsgetclose"
@@ -142,7 +142,7 @@ Get-AzProximityPlacementGroup -ResourceGroupName "myfirstppgexercise" -Name "let
 New-AzAvailabilitySet -ResourceGroupName "myfirstppgexercise" -Name "myppgavset" -Location "westus2" -ProximityPlacementGroupId "/subscriptions/my very long ppg id string" -sku "aligned" -PlatformUpdateDomainCount 3 -PlatformFaultDomainCount 2 
 </code></pre>
 
-在理想的情況下, 您應該使用三個容錯網域。 但支援的容錯網域數目可能會因區域而異。 在此情況下，特定區域可能會有兩個容錯網域的最大數目。 若要部署您的應用層 Vm，您需要新增可用性設定組名稱和鄰近放置組名的參考，如下所示：
+在理想的情況下，您應該使用三個容錯網域。 但支援的容錯網域數目可能會因區域而異。 在此情況下，特定區域可能會有兩個容錯網域的最大數目。 若要部署您的應用層 Vm，您需要新增可用性設定組名稱和鄰近放置組名的參考，如下所示：
 
 <pre><code>
 New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppgavsetappvm" -Location "westus2" -OpenPorts 80,3389 -AvailabilitySetName "myppgavset" -ProximityPlacementGroup "letsgetclose" -Size "Standard_DS11_v2"

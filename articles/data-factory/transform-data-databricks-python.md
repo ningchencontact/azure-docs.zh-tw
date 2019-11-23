@@ -62,13 +62,13 @@ ms.locfileid: "73683944"
 
 下表說明 JSON 定義中使用的 JSON 屬性：
 
-|屬性|說明|必要|
+|屬性|描述|必要|
 |---|---|---|
-|名稱|管線中的活動名稱。|是|
-|說明|說明活動用途的文字。|否|
-|類型|若是 Databricks Python 活動，則活動類型是 DatabricksSparkPython。|是|
-|linkedServiceName|Python 活動執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|是|
-|pythonFile|要執行之 Python 檔案的 URI。 只支援 DBFS 路徑。|是|
+|名稱|管線中的活動名稱。|yes|
+|Description|說明活動用途的文字。|否|
+|類型|若是 Databricks Python 活動，則活動類型是 DatabricksSparkPython。|yes|
+|linkedServiceName|Python 活動執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|yes|
+|pythonFile|要執行之 Python 檔案的 URI。 只支援 DBFS 路徑。|yes|
 |參數|將傳遞至 Python 檔案的命令列參數。 這是字串陣列。|否|
 |程式庫|要在負責執行工作的叢集上，即將安裝的程式庫清單。 可以是 < 字串, 物件 > 陣列|否|
 

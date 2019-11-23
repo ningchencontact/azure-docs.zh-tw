@@ -33,7 +33,7 @@ ms.locfileid: "73847237"
 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 -   您有一個具有同盟網域的 Azure AD 租使用者。
 

@@ -176,7 +176,7 @@ ms.locfileid: "72899168"
                                                     <div class="cardText">
                                                         <h3>使用者行為分析</h3>
                                                         <p>
-                                                            <a href="./app/usage-overview.md">Overview</a><br>
+                                                            <a href="./app/usage-overview.md">概觀</a><br>
                                                             <a href="./app/usage-send-user-context.md">傳送使用者內容識別碼</a><br>
                                                             <a href="./app/usage-segmentation.md">使用者、工作階段和事件</a><br>
                                                             <a href="./app/usage-funnels.md">漏斗圖</a><br>
@@ -209,13 +209,13 @@ ms.locfileid: "72899168"
                                                         <br><br>
                                                         <h3>資料模型</h3>
                                                         <p>
-                                                            <a href="./app/data-model.md">Overview</a><br>
+                                                            <a href="./app/data-model.md">概觀</a><br>
                                                             <a href="./app/data-model-request-telemetry.md">要求</a><br>
                                                             <a href="./app/data-model-dependency-telemetry.md">相依性</a><br>
                                                             <a href="./app/data-model-exception-telemetry.md">例外狀況</a><br>
                                                             <a href="./app/data-model-trace-telemetry.md">追蹤</a><br>
                                                             <a href="./app/data-model-event-telemetry.md">Event</a><br>
-                                                            <a href="./app/data-model-metric-telemetry.md">度量</a><br>
+                                                            <a href="./app/data-model-metric-telemetry.md">計量</a><br>
                                                             <a href="./app/data-model-context.md">內容</a>
                                                             </p>
                                                         </p>

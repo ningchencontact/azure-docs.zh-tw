@@ -109,12 +109,12 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-[TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) 方法的 `kind` 參數會分類保存的檔案。 有四個預先定義的 [TaskOutputKind][net_taskoutputkind] 類型`TaskOutput``TaskPreview`: `TaskLog`、`TaskIntermediate.`和, 您也可以定義輸出的自訂類別。
+`kind`TaskOutputStorage[.](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage)SaveAsync[ 方法的 ](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) 參數會分類保存的檔案。 有四個預先定義的 [TaskOutputKind][net_taskoutputkind] 類型`TaskOutput``TaskPreview`: `TaskLog`、`TaskIntermediate.`和, 您也可以定義輸出的自訂類別。
 
 這些輸出類型可供您在稍後針對特定工作的保存輸出查詢 Batch 時，指定要列出的輸出類型。 換句話說，當您列出某個工作的輸出時，可以根據其中一個輸出類型來篩選清單。 例如，「給我工作 *109* 的 *preview* 輸出」。 本文稍後的「擷取輸出」會提供列出和擷取輸出的詳細資訊。
 
 > [!TIP]
-> 輸出類型也會決定特定檔案出現在 Azure 入口網站的位置：*TaskOutput* 類別的檔案會出現在 [工作輸出檔案] 底下，而 TaskLog 檔案會出現在 [工作記錄] 底下。
+> 輸出類型也會決定特定檔案出現在 Azure 入口網站的位置：TaskOutput 類別的檔案會出現在 [工作輸出檔案] 底下，而 TaskLog 檔案會出現在 [工作記錄] 底下。
 
 ### <a name="store-job-outputs"></a>儲存工作輸出
 
@@ -136,7 +136,7 @@ await jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4"
 
 除了在工作或作業完成時將檔案保存到永久性儲存體之外，您可能也會需要保存在工作執行期間更新的檔案 &mdash; 例如記錄檔或 `stdout.txt` 和 `stderr.txt`。 基於此目的，Azure Batch 檔案慣例程式庫會提供[TaskOutputStorage][net_taskoutputstorage]。[SaveTrackedAsync][net_savetrackedasync]方法。 透過[SaveTrackedAsync][net_savetrackedasync]，您可以追蹤節點上檔案的更新（以您指定的間隔），並將這些更新保存到 Azure 儲存體。
 
-在下列程式碼片段中，我們會在工作執行期間，使用[SaveTrackedAsync][net_savetrackedasync]在 Azure 儲存體中每隔15秒更新 `stdout.txt`：
+在下列程式碼片段中，我們會使用[SaveTrackedAsync][net_savetrackedasync] ，在工作執行期間每15秒更新 Azure 儲存體的 `stdout.txt`：
 
 ```csharp
 TimeSpan stdoutFlushDelay = TimeSpan.FromSeconds(3);
@@ -161,7 +161,7 @@ using (ITrackedSaveOperation stdout =
 }
 ```
 
-加上註解的區段 `Code to process data and produce output file(s)` 是您的工作正常會執行的程式碼預留位置。 例如，您可能有程式碼會從 Azure 儲存體下載資料，並對這些資料執行轉換或計算。 此程式碼片段的重要部分是示範如何將這類程式碼包裝在 @no__t 0 的區塊中，以使用[SaveTrackedAsync][net_savetrackedasync]定期更新檔案。
+加上註解的區段 `Code to process data and produce output file(s)` 是您的工作正常會執行的程式碼預留位置。 例如，您可能有程式碼會從 Azure 儲存體下載資料，並對這些資料執行轉換或計算。 此程式碼片段的重要部分是示範如何在 `using` 區塊中包裝這類程式碼，以使用[SaveTrackedAsync][net_savetrackedasync]定期更新檔案。
 
 節點代理程式是一項程式，會在集區中的每個節點上執行，並在節點與 Batch 服務之間提供命令和控制介面。 `Task.Delay` 呼叫在此 `using` 區塊的結尾是必要的，以確保節點代理程式有時間清除節點上 stdout.txt 檔案的標準內容。 若沒有此延遲，就可能會遺漏輸出的最後幾秒。 此延遲可能並非所有檔案都需要。
 

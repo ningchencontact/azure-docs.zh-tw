@@ -204,7 +204,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements
-系統會在每個適用於 PostgreSQL 的 Azure 資料庫伺服器上預先載入 pg_stat_statements 延伸模組，以提供您追蹤 SQL 語句執行統計資料的方法。
+Pg_stat_statements 擴充功能會在每個適用於 PostgreSQL 的 Azure 資料庫伺服器上預先載入，以提供您追蹤 SQL 語句執行統計資料的方法。
 控制延伸模組計入哪些陳述式的設定 `pg_stat_statements.track` 預設為 `top`，這表示會追蹤用戶端直接發出的所有陳述式。 其他兩個會追蹤層級 `none` 和 `all`。 這項設定是可透過 [Azure 入口網站](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal)或 [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli) 設定的伺服器參數。
 
 pg_stat_statements 提供查詢執行資訊，不過會對於伺服器效能造成影響，因為它會記錄每個 SQL 陳述式。 如果您不主動使用 pg_stat_statements 延伸模組，我們建議您將 `pg_stat_statements.track` 設定為 `none`。 請注意，某些協力廠商監視服務可能會需要 pg_stat_statements 傳遞查詢效能深入解析，因此請確認這是否為您的情況。
@@ -215,7 +215,7 @@ dblink 和 postgres_fdw 可讓您從一個 PostgreSQL 伺服器連線至另一�
 目前不支援來自適用於 PostgreSQL 的 Azure 資料庫的輸出連線，但與其他適用於 PostgreSQL 的 Azure 資料庫伺服器的連接除外。
 
 ## <a name="uuid"></a>uuid
-如果您打算從 ossp 擴充功能使用 `uuid_generate_v4()`，請考慮從 pgcrypto 擴充功能與 `gen_random_uuid()` 進行比較，以獲得效能優勢。
+如果您打算使用來自 ossp 擴充功能的 `uuid_generate_v4()`，請考慮與 pgcrypto 延伸模組的 `gen_random_uuid()` 進行比較，以取得效能優勢。
 
 
 ## <a name="pgaudit"></a>pgAudit
@@ -249,7 +249,7 @@ TimescaleDB 是一種時間序列資料庫，封裝為于 postgresql 的延伸�
 CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 ```
 > [!TIP]
-> 如果您看到錯誤，請確認您在儲存 shared_preload_libraries 後[重新開機伺服器](howto-restart-server-portal.md)。 
+> 如果您看到錯誤，請確認您在儲存 shared_preload_libraries 之後[重新開機伺服器](howto-restart-server-portal.md)。 
 
 您現在可以[從頭](https://docs.timescale.com/getting-started/creating-hypertables)開始建立 TimescaleDB hypertable，或[在於 postgresql 中遷移現有的時間序列資料](https://docs.timescale.com/getting-started/migrating-data)。
 

@@ -40,7 +40,7 @@ ms.locfileid: "71673328"
 
 下列範例會指派**儲存體 Blob 資料參與者**角色，其中包括**Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey**動作。 角色的範圍設定為儲存體帳戶的層級。
 
-請記得使用您自己的值來取代角括弧中的預留位置值:
+請記得以您自己的值取代角括號中的預留位置值：
 
 ```azurecli-interactive
 az role assignment create \
@@ -57,7 +57,7 @@ az role assignment create \
 
 因為使用者委派金鑰有效的最大間隔是從開始日期起算的7天，所以您應該指定在開始時間的7天內的 SAS 到期時間。 在使用者委派金鑰過期之後，SAS 無效，因此到期時間超過7天的 SAS 仍然有效7天。
 
-建立使用者委派 SAS 時，需要 `--auth-mode login` 和 `--as-user parameters`。 指定 @no__t 1 參數的*登*入，以便向 Azure 儲存體提出的要求會以您的 Azure AD 認證進行授權。 指定 `--as-user` 參數，表示傳回的 SAS 應該是使用者委派 SAS。
+建立使用者委派 SAS 時，需要 `--auth-mode login` 和 `--as-user parameters`。 指定 `--auth-mode` 參數的*登*入，以便向 Azure 儲存體提出的要求會以您的 Azure AD 認證進行授權。 指定 `--as-user` 參數，表示傳回的 SAS 應該是使用者委派 SAS。
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>建立容器的使用者委派 SAS
 
@@ -89,7 +89,7 @@ se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26
 
 Blob 上使用者委派 SAS 的支援許可權包括 [新增]、[建立]、[刪除]、[讀取] 和 [寫入]。 可以單獨或結合指定許可權。 如需這些許可權的詳細資訊，請參閱[建立使用者委派 SAS](/rest/api/storageservices/create-user-delegation-sas)。
 
-下列語法會傳回 blob 的使用者委派 SAS。 此範例會指定 `--full-uri` 參數，這會傳回附加 SAS 權杖的 blob URI。 請記得以您自己的值取代括弧中的預留位置值：
+下列語法會傳回 blob 的使用者委派 SAS。 此範例會指定 `--full-uri` 參數，傳回已附加 SAS 權杖的 blob URI。 請記得以您自己的值取代括弧中的預留位置值：
 
 ```azurecli-interactive
 az storage blob generate-sas \
@@ -117,7 +117,7 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 若要從 Azure CLI 撤銷使用者委派 SAS，請呼叫[az storage account revoke-委派-keys](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys)命令。 此命令會撤銷與指定的儲存體帳戶相關聯的所有使用者委派金鑰。 任何與這些金鑰相關聯的共用存取簽章都會失效。
 
-請記得使用您自己的值來取代角括弧中的預留位置值:
+請記得以您自己的值取代角括號中的預留位置值：
 
 ```azurecli-interactive
 az storage account revoke-delegation-keys \

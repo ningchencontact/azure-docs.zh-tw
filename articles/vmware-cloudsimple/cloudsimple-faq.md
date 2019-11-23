@@ -33,7 +33,7 @@ CloudSimple 適用于美國東部、美國西部和西歐區域，還有其他�
 
 **如何? 啟用 CloudSimple 的訂用帳戶嗎？**
 
-您可以在[azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com)聯絡您的 Microsoft 帳戶代表，以啟用 CloudSimple 服務的訂用帳戶。 在您要啟用 CloudSimple 服務的電子郵件中，提供您的訂用帳戶識別碼。  
+您可以在[azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com)與您的 Microsoft 帳戶代表合作，以啟用 CloudSimple 服務的訂用帳戶。 在您要啟用 CloudSimple 服務的電子郵件中，提供您的訂用帳戶識別碼。  
 
 **如何? 存取 CloudSimple 入口網站嗎？**
 
@@ -68,11 +68,11 @@ CloudSimple 提供下列連線選項，以連線到您的 CloudSimple 區域網�
 
 Azure ExpressRoute 線路是高速、低延遲、安全的連線。  CloudSimple 會針對每個客戶提供每個區域專用的 ExpressRoute 線路。  使用此線路，您可以從內部部署或 Azure 訂用帳戶建立安全的連線。
 
-@no__t 0What 是連接到 CloudSimple 的網路成本嗎？CloudSimple 與 Azure 之間或跨區域，是否有任何輸出費用？ **
+**連接到 CloudSimple 的網路成本為何？ CloudSimple 與 Azure 之間或跨區域，是否有任何輸出費用？**
 
 網路輸出沒有 CloudSimple 費用。  Azure 標準費率適用于來自虛擬網路或內部部署 ExpressRoute 線路的任何輸出流量。
 
-## <a name="networking"></a>網路功能
+## <a name="networking"></a>網路
 
 **我的私人雲端有哪些網路功能可供使用？**
 
@@ -90,7 +90,7 @@ Azure ExpressRoute 線路是高速、低延遲、安全的連線。  CloudSimple
 
 在 CloudSimple 入口網站中，您可以配置新的公用 IP 位址，並將它與虛擬機器或設備的私人 IP 位址產生關聯。  您也可以建立新的防火牆規則，或套用現有的防火牆規則，以允許來自入口網站中特定埠和 IP 位址的流量。 如需詳細資訊，請參閱[配置私人雲端環境的公用 IP 位址](public-ips.md)。
 
-## <a name="security"></a>安全性
+## <a name="security"></a>Security
 
 **我在 CloudSimple 上有哪些安全性選項？**
 
@@ -106,9 +106,9 @@ CloudSimple 提供下列安全性功能來保護您的私用雲端環境：
 
 CloudSimple 提供下列主機類型：
 
-* **CS28 節點：** CPU： 2x 2.2 GHz，總計28核心，48 HT。  RAM：256 GB。  儲存體:1600 GB NVMe 快取，5760 GB 資料（全部-Flash）。 網路：4x25Gbe NIC
-* **CS36 節點：** CPU 2x 2.3 GHz，總36核心，72 HT。  RAM：512 GB。  儲存體:3200 GB NVMe cache 11520 GB 資料（全部-Flash）。  網路：4x25Gbe NIC
-* **CS36m-節點：** CPU 2x 2.3 GHz，總36核心，72 HT。  RAM：576 GB。  儲存體:3200 GB NVMe cache 13360 GB 資料（全部-Flash）。  網路：4x25Gbe NIC
+* **CS28 節點：** CPU： 2x 2.2 GHz，總計28核心，48 HT。  RAM： 256 GB。  儲存體： 1600 GB NVMe 快取，5760 GB 資料（全部-Flash）。 網路： 4x25Gbe NIC
+* **CS36 節點：** CPU 2x 2.3 GHz，總36核心，72 HT。  RAM： 512 GB。  儲存體： 3200 GB NVMe 快取 11520 GB 資料（全部-Flash）。  網路： 4x25Gbe NIC
+* **CS36m-節點：** CPU 2x 2.3 GHz，總36核心，72 HT。  RAM： 576 GB。  儲存體： 3200 GB NVMe 快取 13360 GB 資料（全部-Flash）。  網路： 4x25Gbe NIC
 
 **如何處理任何硬體失敗？**
 
@@ -121,17 +121,17 @@ CloudSimple 平臺和我們的服務營運小組會持續監視所有 CloudSimpl
 CloudSimple 透過每個私人雲端提供所有 flash 的 VMware vSAN 儲存體。  每個 vSphere 都是使用自己的 vSAN 資料存放區所建立。  如需詳細資訊，請參閱[私用雲端 VMware 元件-vSAN 儲存體](vmware-components.md#vsan-storage)。
 
 **是否支援加密資料？**
-是的。  您可以在私人雲端上設定 vSAN 儲存體，以使用部署在內部部署或 Azure 上的金鑰管理伺服器（KMS）來加密 vSAN 上儲存的資料。
+是。  您可以在私人雲端上設定 vSAN 儲存體，以使用部署在內部部署或 Azure 上的金鑰管理伺服器（KMS）來加密 vSAN 上儲存的資料。
 
 **如何處理失敗的磁片？**
 
 CloudSimple 會持續監視私人雲端的所有硬體元件。  如果偵測到磁片失敗或磁片識別為失敗（根據啟發學習法），則會自動將新的節點新增至私人雲端。  具有失敗或失敗磁片的節點會從私人雲端移除。
 
-## <a name="vmware"></a>VMWare
+## <a name="vmware"></a>VMware
 
 **如何? 在內部部署環境中執行應用程式和資料的大規模上傳或遷移？**
 
-CloudSimple 提供原生 VMware vSphere 解決方案。  所有適用于大量資料移轉的 VMware 工具都可以搭配您的私用雲端使用。  這些選項包括：
+CloudSimple 提供原生 VMware vSphere 解決方案。  所有適用于大量資料移轉的 VMware 工具都可以搭配您的私用雲端使用。  選項包括：
 
 * 用於大量遷移資料的 VMware HCX。
 * 使用從內部部署到 CloudSimple 的儲存體 vMotion 來進行資料的冷遷移。
@@ -150,7 +150,7 @@ CloudSimple 不會對安裝在私人雲端上的應用程式執行升級或更�
 
 **支援哪些 Azure 服務？**
 
-CloudSimple 提供 azure ExpressRoute 連線給您在 Azure 上的訂用帳戶。  在您的訂用帳戶中執行的所有服務都可以連接到您的私人雲端。  範例包括：
+CloudSimple 提供 azure ExpressRoute 連線給您在 Azure 上的訂用帳戶。  在您的訂用帳戶中執行的所有服務都可以連接到您的私人雲端。  範例包括︰
 
 * **Azure Active Directory**作為 CloudSimple vCenter 的身分識別來源。
 * **Azure 儲存體**，用於儲存來自私人雲端的備份、映射和其他資料。
@@ -163,4 +163,4 @@ CloudSimple 提供獨特的功能，從 Azure 入口網站管理私人雲端上�
 
 **我可以使用 Azure 取得哪些授權權益？**
 
-透過 CloudSimple，您可以利用 Azure 混合式使用權益，並省下高達 90% 的授權。 這項權益可保留您對 Microsoft 授權的投資，並降低您與其他雲端解決方案相關的 TCO。 您也可以取得 Windows Server 2008 和 Microsoft SQL Server 2008 的擴充安全性更新。  「自備授權」（BYOL）模型可協助您為常見的應用程式（例如 Veeam 和 Zerto）維持低成本。  
+透過 CloudSimple，您可以利用 Azure 混合式使用權益，並省下高達90% 的授權。 這項權益可保留您對 Microsoft 授權的投資，並降低您與其他雲端解決方案相關的 TCO。 您也可以取得 Windows Server 2008 和 Microsoft SQL Server 2008 的擴充安全性更新。  「自備授權」（BYOL）模型可協助您為常見的應用程式（例如 Veeam 和 Zerto）維持低成本。  
