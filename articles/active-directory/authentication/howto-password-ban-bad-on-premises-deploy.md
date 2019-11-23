@@ -1,141 +1,141 @@
 ---
-title: 部署 Azure AD 密碼保護-Azure Active Directory
-description: 部署 Azure AD 密碼保護，以禁止在內部部署環境中有錯誤的密碼
+title: Deploy Azure AD password protection - Azure Active Directory
+description: Deploy Azure AD password protection to ban bad passwords on-premises
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 695bd461ae7e979c0a803cd2d6cb450003a6bcee
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 5e1d53d63b40ad62a4d21cbad22a67e9e9781b1f
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603006"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381721"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密碼保護
 
-既然您已瞭解[如何強制執行 Windows Server Active Directory 的 Azure AD 密碼保護](concept-password-ban-bad-on-premises.md)，下一步就是規劃和執行您的部署。
+Now that you understand [how to enforce Azure AD password protection for Windows Server Active Directory](concept-password-ban-bad-on-premises.md), the next step is to plan and execute your deployment.
 
 ## <a name="deployment-strategy"></a>部署策略
 
-我們建議您以 audit 模式啟動部署。 Audit 模式是預設的初始設定，可以繼續設定密碼。 系統會將封鎖的密碼記錄在事件記錄檔中。 在 audit 模式中部署 proxy 伺服器和 DC 代理程式之後，您應該在強制執行原則時，監視密碼原則對使用者和環境的影響。
+We recommend that you start deployments in audit mode. Audit mode is the default initial setting, where passwords can continue to be set. Passwords that would be blocked are recorded in the event log. After you deploy the proxy servers and DC Agents in audit mode, you should monitor the impact that the password policy will have on users and the environment when the policy is enforced.
 
-在 audit 階段，許多組織會發現：
+During the audit stage, many organizations find out that:
 
 * 它們必須改善現有的作業程序，才能使用更安全的密碼。
-* 使用者通常會使用不安全的密碼。
-* 他們必須通知使用者即將進行的安全性強制變更、可能對他們造成的影響，以及如何選擇更安全的密碼。
+* Users often use unsecure passwords.
+* They need to inform users about the upcoming change in security enforcement, possible impact on them, and how to choose more secure passwords.
 
-也可以進行更強的密碼驗證，以影響您現有的 Active Directory 網域控制站部署自動化。 我們建議在審查期間評估期間，至少有一個 DC 升級和一個 DC 降級，以協助您事先發現這類問題。  如需詳細資訊，請參閱：
+It is also possible for stronger password validation to affect your existing Active Directory domain controller deployment automation. We recommend that at least one DC promotion and one DC demotion happen during the audit period evaluation in order to help uncover such issues in advance.  如需詳細資訊，請參閱
 
-* [Ntdsutil.exe 無法設定弱式目錄服務修復模式密碼](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
-* [網域控制站複本升級因弱式目錄服務修復模式密碼而失敗](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
-* [由於本機系統管理員密碼弱，導致網域控制站降級失敗](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
+* [Ntdsutil.exe is unable to set a weak Directory Services Repair Mode password](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
+* [Domain controller replica promotion fails because of a weak Directory Services Repair Mode password](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
+* [Domain controller demotion fails due to a weak local Administrator password](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
-在以 audit 模式執行此功能一段合理的時間之後，您可以將設定從*audit*切換為*強制*性，以要求更安全的密碼。 在此期間進行專注的監視是個不錯的主意。
+After the feature has been running in audit mode for a reasonable period, you can switch the configuration from *Audit* to *Enforce* to require more secure passwords. 在此期間進行專注的監視是個不錯的主意。
 
 ## <a name="deployment-requirements"></a>部署需求
 
-* 您可以在[排除組織中不正確密碼](concept-password-ban-bad.md#license-requirements)一文中找到 Azure AD 密碼保護的授權需求。
-* 將安裝 Azure AD 密碼保護 DC 代理程式軟體的所有電腦都必須執行 Windows Server 2012 或更新版本。 這項需求並不表示 Active Directory 網域或樹系也必須位於 Windows Server 2012 網域或樹系功能等級。 如[設計原則](concept-password-ban-bad-on-premises.md#design-principles)中所述，執行 DC 代理程式或 proxy 軟體時，不需要最少的 DFL 或 FFL。
-* 所有已安裝 DC 代理程式服務的電腦都必須安裝 .NET 4.5。
-* 將安裝 Azure AD 密碼保護 Proxy 服務的所有電腦都必須執行 Windows Server 2012 R2 或更新版本。
+* Licensing requirements for Azure AD password protection can be found in the article [Eliminate bad passwords in your organization](concept-password-ban-bad.md#license-requirements).
+* All machines where the Azure AD Password Protection DC Agent software will be installed must run Windows Server 2012 or later. This requirement does not imply that the Active Directory domain or forest must also be at Windows Server 2012 domain or forest functional level. As mentioned in [Design Principles](concept-password-ban-bad-on-premises.md#design-principles), there is no minimum DFL or FFL required for either the DC agent or proxy software to run.
+* All machines that get the DC agent service installed must have .NET 4.5 installed.
+* All machines where the Azure AD Password Protection Proxy service will be installed  must run Windows Server 2012 R2 or later.
    > [!NOTE]
-   > Proxy 服務部署是部署 Azure AD 密碼保護的必要需求，即使網域控制站可能具有輸出直接網際網路連線能力。 
+   > Proxy service deployment is a mandatory requirement for deploying Azure AD password protection even though the domain controller may have outbound direct internet connectivity. 
    >
-* 將安裝 Azure AD 密碼保護 Proxy 服務的所有電腦都必須安裝 .NET 4.7。
-  .NET 4.7 應該已經安裝在完全更新的 Windows 伺服器上。 如有需要，請下載並執行[Windows 的 .NET Framework 4.7 離線安裝程式](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)中找到的安裝程式。
-* 已安裝 Azure AD 密碼保護元件的所有機器（包括網域控制站）都必須安裝通用 C 執行時間。 您可以藉由確定您有 Windows Update 的所有更新，來取得執行時間。 或者，您也可以在 OS 特定的更新套件中取得。 如需詳細資訊，請參閱[Windows 中的通用 C 執行時間更新](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows)。
-* 每個網域中至少要有一個網域控制站，以及至少一部裝載 proxy 服務以進行密碼保護的伺服器之間，必須有網路連線能力。 此連線能力必須允許網域控制站存取 proxy 服務上的 RPC 端點對應程式埠135和 RPC 伺服器埠。 根據預設，RPC 伺服器埠是動態 RPC 埠，但可以設定為[使用靜態埠](#static)。
-* 將安裝 Azure AD 密碼保護 Proxy 服務的所有電腦都必須具備下列端點的網路存取權：
+* All machines where the Azure AD Password Protection Proxy service will be installed must have .NET 4.7 installed.
+  .NET 4.7 should already be installed on a fully updated Windows Server. If necessary, download and run the installer found at [The .NET Framework 4.7 offline installer for Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+* All machines, including domain controllers, that have Azure AD password protection components installed must have the Universal C Runtime installed. You can get the runtime by making sure you have all updates from Windows Update. Or you can get it in an OS-specific update package. For more information, see [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
+* Network connectivity must exist between at least one domain controller in each domain and at least one server that hosts the proxy service for password protection. This connectivity must allow the domain controller to access RPC endpoint mapper port 135 and the RPC server port on the proxy service. By default, the RPC server port is a dynamic RPC port, but it can be configured to [use a static port](#static).
+* All machines where the Azure AD Password Protection Proxy service will be installed must have network access to the following endpoints:
 
     |**端點**|**用途**|
     | --- | --- |
     |`https://login.microsoftonline.com`|驗證要求|
     |`https://enterpriseregistration.windows.net`|Azure AD 密碼保護功能|
  
-* Microsoft Azure AD 連接代理程式更新程式的必要條件
+* Microsoft Azure AD Connect Agent Updater prerequisites
 
-  Microsoft Azure AD Connect Agent 更新程式服務會與 Azure AD 密碼保護 Proxy 服務並存安裝。 需要進行其他設定，才能讓 Microsoft Azure AD Connect 代理程式更新程式服務能夠運作：
+  The Microsoft Azure AD Connect Agent Updater service is installed side by side with the Azure AD Password Protection Proxy service. Additional configuration is required in order for the Microsoft Azure AD Connect Agent Updater service to be able to function:
 
-  如果您的環境使用 HTTP proxy 伺服器，您必須遵循[使用現有的內部部署 proxy 伺服器](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers)中所指定的指導方針。
+  If your environment uses an http proxy server, you must follow the guidelines specified in [Work with existing on-premises proxy servers](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
 
-  Microsoft Azure AD Connect Agent 更新程式服務也需要[tls 需求](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements)中指定的 tls 1.2 步驟。
+  The Microsoft Azure AD Connect Agent Updater service also requires the TLS 1.2 steps specified in [TLS requirements](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements).
 
-  您必須針對[應用程式 Proxy 環境安裝](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment)程式中指定的一組埠和 url 啟用網路存取。
-
-  > [!WARNING]
-  > Azure AD 密碼保護 Proxy 和應用程式 Proxy 安裝不同版本的 Microsoft Azure AD Connect Agent 更新程式服務，這就是為什麼指示會參考應用程式 Proxy 內容的原因。 這些不同版本在並存安裝時不相容，因此不建議您在同一部電腦上並存安裝 Azure AD 的密碼保護 Proxy 和應用程式 Proxy。
-
-* 裝載 proxy 服務以進行密碼保護的所有電腦都必須設定為授與網域控制站登入 proxy 服務的能力。 此功能是透過「從網路存取這台電腦」許可權指派來控制。
-* 裝載 proxy 服務以進行密碼保護的所有機器，都必須設定為允許輸出 TLS 1.2 HTTP 流量。
-* 全域系統管理員帳戶，用來向 Azure AD 註冊密碼保護和樹系的 proxy 服務。
-* 在樹系根域中具有 Active Directory 網域系統管理員許可權的帳戶，可向 Azure AD 註冊 Windows Server Active Directory 樹系。
-* 執行 DC 代理程式服務軟體的任何 Active Directory 網域都必須使用分散式檔案系統複寫（DFSR）來進行 sysvol 複寫。
-
-  如果您的網域尚未使用 DFSR，則必須先將它遷移至使用 DFSR，然後再安裝 Azure AD 密碼保護。 如需詳細資訊，請參閱下列連結：
-
-  [SYSVOL 複寫遷移指南： FRS 到 DFS 複寫](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+  Network access must be enabled for the set of ports and urls specified in the [Application Proxy environment setup procedures](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
 
   > [!WARNING]
-  > Azure AD 密碼保護 DC 代理程式軟體目前會安裝在網域中的網域控制站上，而這些網域仍在使用 FRS （前身為 DFSR）進行 sysvol 複寫，但軟體將無法在此環境中正常運作。 額外的負面副作用包括無法複寫的個別檔案，且 sysvol 還原程式似乎成功，但無法以無訊息方式複寫所有檔案。 您應該儘快遷移網域以使用 DFSR，這兩者都是針對 DFSR 的固有優勢，同時也會解除封鎖 Azure AD 密碼保護的部署。 軟體的未來版本將會在仍使用 FRS 的網域中執行時自動停用。
+  > Azure AD Password Protection Proxy and Application Proxy install different versions of the Microsoft Azure AD Connect Agent Updater service, which is why the instructions refer to Application Proxy content. These different versions are incompatible when installed side by side, so it is not recommended to install Azure AD Password Protection Proxy and Application Proxy side by side on the same machine.
 
-* 金鑰發佈服務必須在執行 Windows Server 2012 的網域中的所有網域控制站上啟用。 根據預設，會透過手動觸發程式啟動來啟用此服務。
+* All machines that host the proxy service for password protection must be configured to grant domain controllers the ability to log on to the proxy service. This ability is controlled via the "Access this computer from the network" privilege assignment.
+* All machines that host the proxy service for password protection must be configured to allow outbound TLS 1.2 HTTP traffic.
+* A Global Administrator account to register the proxy service for password protection and forest with Azure AD.
+* An account that has Active Directory domain administrator privileges in the forest root domain to register the Windows Server Active Directory forest with Azure AD.
+* Any Active Directory domain that runs the DC Agent service software must use Distributed File System Replication (DFSR) for sysvol replication.
 
-## <a name="single-forest-deployment"></a>單一樹系部署
+  If your domain is not already using DFSR, you MUST migrate it to use DFSR before installing Azure AD Password Protection. For more information, see the following link:
 
-下圖顯示 Azure AD 密碼保護的基本元件如何在內部部署 Active Directory 環境中一起工作。
+  [SYSVOL Replication Migration Guide: FRS to DFS Replication](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+
+  > [!WARNING]
+  > The Azure AD Password Protection DC Agent software will currently install on domain controllers in domains that are still using FRS (the predecessor technology to DFSR) for sysvol replication, but the software will NOT work properly in this environment. Additional negative side-effects include individual files failing to replicate, and sysvol restore procedures appearing to succeed but silently failing to replicate all files. You should migrate your domain to use DFSR as soon as possible, both for DFSR's inherent benefits and also to unblock the deployment of Azure AD Password Protection. Future versions of the software will be automatically disabled when running in a domain that is still using FRS.
+
+* The Key Distribution Service must be enabled on all domain controllers in the domain that run Windows Server 2012. By default, this service is enabled via manual trigger start.
+
+## <a name="single-forest-deployment"></a>Single-forest deployment
+
+The following diagram shows how the basic components of Azure AD password protection work together in an on-premises Active Directory environment.
 
 ![Azure AD 密碼保護元件搭配運作的方式](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
-在您部署軟體之前，最好先複習它的運作方式。 請參閱[概念總覽的 Azure AD 密碼保護](concept-password-ban-bad-on-premises.md)。
+It's a good idea to review how the software works before you deploy it. See [Conceptual overview of Azure AD password protection](concept-password-ban-bad-on-premises.md).
 
 ### <a name="download-the-software"></a>下載軟體
 
-Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=57071)取得這些功能。
+There are two required installers for Azure AD password protection. They're available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
-### <a name="install-and-configure-the-proxy-service-for-password-protection"></a>安裝和設定用於密碼保護的 proxy 服務
+### <a name="install-and-configure-the-proxy-service-for-password-protection"></a>Install and configure the proxy service for password protection
 
-1. 選擇一或多部伺服器來裝載用於密碼保護的 proxy 服務。
-   * 每個這類服務只能為單一樹系提供密碼原則。 主機電腦必須加入該樹系中的網域。 同時支援根域和子域。 在樹系的每個網域中至少有一個 DC 與密碼保護電腦之間，您需要有網路連線能力。
-   * 您可以在網域控制站上執行 proxy 服務以進行測試。 但是該網域控制站接著需要網際網路連線，這可能是安全性考慮。 我們建議僅供測試之用。
-   * 我們建議至少有兩部 proxy 伺服器來進行冗余。 請參閱[高可用性](howto-password-ban-bad-on-premises-deploy.md#high-availability)。
+1. Choose one or more servers to host the proxy service for password protection.
+   * Each such service can only provide password policies for a single forest. The host machine must be joined to a domain in that forest. Root and child domains are both supported. You need network connectivity between at least one DC in each domain of the forest and the password protection machine.
+   * You can run the proxy service on a domain controller for testing. But that domain controller then requires internet connectivity, which can be a security concern. We recommend this configuration for testing only.
+   * We recommend at least two proxy servers for redundancy. See [High availability](howto-password-ban-bad-on-premises-deploy.md#high-availability).
 
-1. 使用 `AzureADPasswordProtectionProxySetup.exe` 軟體安裝程式安裝 Azure AD 密碼保護 Proxy 服務。
+1. Install the  Azure AD Password Protection Proxy service using the `AzureADPasswordProtectionProxySetup.exe` software installer.
    * 軟體安裝並不需要重新開機。 您可以使用標準 MSI 程序來自動執行軟體安裝，例如：
 
       `AzureADPasswordProtectionProxySetup.exe /quiet`
 
       > [!NOTE]
-      > 您必須先執行 Windows 防火牆服務，才能安裝 Azureadpasswordprotectionproxysetup.msi .msi 封裝，以避免發生安裝錯誤。 如果 Windows 防火牆設定為不執行，因應措施是在安裝期間暫時啟用並執行防火牆服務。 在安裝後，proxy 軟體對 Windows 防火牆沒有特定的相依性。 如果您使用的是協力廠商防火牆，仍然必須將其設定為符合部署需求。 其中包括允許對埠135和 proxy RPC 伺服器埠的輸入存取。 請參閱[部署需求](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements)。
+      > The Windows Firewall service must be running before you install the AzureADPasswordProtectionProxySetup.msi package to avoid an installation error. If Windows Firewall is configured to not run, the workaround is to temporarily enable and run the Firewall service during the installation. The proxy software has no specific dependency on Windows Firewall after installation. If you're using a third-party firewall, it must still be configured to satisfy the deployment requirements. These include allowing inbound access to port 135 and the proxy RPC server port. See [Deployment requirements](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements).
 
 1. 以系統管理員身分開啟 PowerShell 視窗。
-   * 密碼保護 proxy 套裝軟體含新的 PowerShell 模組*AzureADPasswordProtection*。 下列步驟會從這個 PowerShell 模組執行各種 Cmdlet。 匯入新的模組，如下所示：
+   * The password protection proxy software includes a new PowerShell module, *AzureADPasswordProtection*. The following steps run various cmdlets from this PowerShell module. Import the new module as follows:
 
       ```powershell
       Import-Module AzureADPasswordProtection
       ```
 
-   * 若要檢查服務是否正在執行，請使用下列 PowerShell 命令：
+   * To check that the service is running, use the following PowerShell command:
 
-      `Get-Service AzureADPasswordProtectionProxy | fl`。
+      `Get-Service AzureADPasswordProtectionProxy | fl`答案中所述步驟，工作帳戶即會啟用。
 
-     結果應該會顯示「正在執行」**狀態**。
+     The result should show a **Status** of "Running."
 
 1. 註冊 Proxy。
-   * 完成步驟3之後，proxy 服務就會在機器上執行。 但服務還沒有必要的認證，無法與 Azure AD 通訊。 需要使用 Azure AD 進行註冊：
+   * After step 3 is completed, the proxy service is running on the machine. But the service doesn't yet have the necessary credentials to communicate with Azure AD. Registration with Azure AD is required:
 
      `Register-AzureADPasswordProtectionProxy`
 
-     此 Cmdlet 需要您 Azure 租使用者的全域管理員認證。 您也需要內部部署 Active Directory 樹系根域中的網域系統管理員許可權。 在此命令成功針對 proxy 服務執行一次之後，其他的調用將會成功，但不需要。
+     This cmdlet requires global administrator credentials for your Azure tenant. You also need on-premises Active Directory domain administrator privileges in the forest root domain. After this command succeeds once for a proxy service, additional invocations of it will succeed but are unnecessary.
 
-      `Register-AzureADPasswordProtectionProxy` Cmdlet 支援下列三種驗證模式。 前兩個模式支援 Azure 多重要素驗證，但第三個模式則否。 如需詳細資訊，請參閱下面的批註。
+      The `Register-AzureADPasswordProtectionProxy` cmdlet supports the following three authentication modes. The first two modes support Azure Multi-Factor Authentication but the third mode does not. Please see comments below for more details.
 
      * 互動式驗證模式：
 
@@ -144,7 +144,7 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
         ```
 
         > [!NOTE]
-        > 在 Server Core 作業系統上，此模式無法運作。 相反地，請使用下列其中一種驗證模式。 此外，如果啟用 Internet Explorer 增強式安全性設定，此模式可能會失敗。 解決方法是停用該設定、註冊 proxy，然後重新啟用它。
+        > This mode doesn't work on Server Core operating systems. Instead, use one of the following authentication modes. Also, this mode might fail if Internet Explorer Enhanced Security Configuration is enabled. The workaround is to disable that Configuration, register the proxy, and then re-enable it.
 
      * 裝置代碼驗證模式：
 
@@ -153,7 +153,7 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
 
-        接著，您可以遵循不同裝置上顯示的指示來完成驗證。
+        You then complete authentication by following the displayed instructions on a different device.
 
      * 無訊息 (密碼型) 驗證模式：
 
@@ -163,23 +163,23 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
         ```
 
         > [!NOTE]
-        > 如果您的帳戶需要 Azure 多重要素驗證，此模式就會失敗。 在此情況下，請使用先前兩種驗證模式的其中一個，或改為使用不需要 MFA 的其他帳戶。
+        > This mode fails if Azure Multi-Factor Authentication is required for your account. In that case, use one of the previous two authentication modes, or instead use a different account that does not require MFA.
         >
-        > 如果 Azure 裝置註冊（由 Azure AD 密碼保護所使用）已設定為全域要求 MFA，您可能也會看到必要的 MFA。 若要解決此問題，您可以使用與先前兩種驗證模式之一支援 MFA 的不同帳戶，或者您也可以暫時放寬 Azure 裝置註冊 MFA 需求。 若要這麼做，請移至 Azure 入口網站，然後依序移至 [Azure Active Directory]、[裝置] 和 [裝置設定]，然後將 [需要多重要素驗證以加入裝置] 設定為 [否]。 註冊完成後，請務必將此設定重新設定回 [是]。
+        > You may also see MFA required if Azure Device Registration (which is used under the covers by Azure AD Password Protection) has been configured to globally require MFA. To workaround this you may use a different account that supports MFA with one of the previous two authentication modes, or you may also temporarily relax the Azure Device Registration MFA requirement. To do this, go to the Azure management portal, then go to Azure Active Directory, then Devices, then Device Settings, then set "Require Multi-Factor Auth to join devices" to No. Be sure to reconfigure this setting back to Yes once registration is complete.
         >
-        > 我們建議您將 MFA 需求略過，僅供測試之用。
+        > We recommend that MFA requirements be bypassed for test purposes only.
 
-       您目前不需要指定 *-ForestCredential*參數，它會保留供未來的功能使用。
+       You don't currently have to specify the *-ForestCredential* parameter, which is reserved for future functionality.
 
-   只有在服務的存留期內，才需要註冊密碼保護的 proxy 服務。 之後，proxy 服務就會自動執行任何其他必要的維護。
+   Registration of the proxy service for password protection is necessary only once in the lifetime of the service. After that, the proxy service will automatically perform any other necessary maintenance.
 
    > [!TIP]
-   > 第一次針對特定的 Azure 租使用者執行此 Cmdlet 時，可能會有明顯的延遲。 除非回報失敗，否則請不要擔心這種延遲。
+   > There might be a noticeable delay before completion the first time that this cmdlet is run for a specific Azure tenant. Unless a failure is reported, don't worry about this delay.
 
 1. 註冊樹系。
-   * 您必須使用 `Register-AzureADPasswordProtectionForest` PowerShell Cmdlet，以必要的認證來初始化內部部署 Active Directory 樹系，才能與 Azure 進行通訊。 此 Cmdlet 需要您 Azure 租使用者的全域管理員認證。 它也需要內部部署 Active Directory 企業系統管理員許可權。 此步驟會針對每一樹系執行一次。
+   * You must initialize the on-premises Active Directory forest with the necessary credentials to communicate with Azure by using the `Register-AzureADPasswordProtectionForest` PowerShell cmdlet. The cmdlet requires global administrator credentials for your Azure tenant. It also requires on-premises Active Directory Enterprise Administrator privileges. 此步驟會針對每一樹系執行一次。
 
-      `Register-AzureADPasswordProtectionForest` Cmdlet 支援下列三種驗證模式。 前兩個模式支援 Azure 多重要素驗證，但第三個模式則否。 如需詳細資訊，請參閱下面的批註。
+      The `Register-AzureADPasswordProtectionForest` cmdlet supports the following three authentication modes. The first two modes support Azure Multi-Factor Authentication but the third mode does not. Please see comments below for more details.
 
      * 互動式驗證模式：
 
@@ -188,7 +188,7 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
         ```
 
         > [!NOTE]
-        > 在 Server Core 作業系統上，此模式無法運作。 請改用下列其中一種驗證模式。 此外，如果啟用 Internet Explorer 增強式安全性設定，此模式可能會失敗。 解決方法是停用該設定、註冊樹系，然後重新啟用它。  
+        > This mode won't work on Server Core operating systems. Instead use one of the following two authentication modes. Also, this mode might fail if Internet Explorer Enhanced Security Configuration is enabled. The workaround is to disable that Configuration, register the forest, and then re-enable it.  
 
      * 裝置代碼驗證模式：
 
@@ -197,7 +197,7 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
 
-        接著，您可以遵循不同裝置上顯示的指示來完成驗證。
+        You then complete authentication by following the displayed instructions on a different device.
 
      * 無訊息 (密碼型) 驗證模式：
 
@@ -207,27 +207,27 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
         ```
 
         > [!NOTE]
-        > 如果您的帳戶需要 Azure 多重要素驗證，此模式就會失敗。 在此情況下，請使用先前兩種驗證模式的其中一個，或改為使用不需要 MFA 的其他帳戶。
+        > This mode fails if Azure Multi-Factor Authentication is required for your account. In that case, use one of the previous two authentication modes, or instead use a different account that does not require MFA.
         >
-        > 如果 Azure 裝置註冊（由 Azure AD 密碼保護所使用）已設定為全域要求 MFA，您可能也會看到必要的 MFA。 若要解決此問題，您可以使用與先前兩種驗證模式之一支援 MFA 的不同帳戶，或者您也可以暫時放寬 Azure 裝置註冊 MFA 需求。 若要這麼做，請移至 Azure 入口網站，然後依序移至 [Azure Active Directory]、[裝置] 和 [裝置設定]，然後將 [需要多重要素驗證以加入裝置] 設定為 [否]。 註冊完成後，請務必將此設定重新設定回 [是]。
+        > You may also see MFA required if Azure Device Registration (which is used under the covers by Azure AD Password Protection) has been configured to globally require MFA. To workaround this you may use a different account that supports MFA with one of the previous two authentication modes, or you may also temporarily relax the Azure Device Registration MFA requirement. To do this, go to the Azure management portal, then go to Azure Active Directory, then Devices, then Device Settings, then set "Require Multi-Factor Auth to join devices" to No. Be sure to reconfigure this setting back to Yes once registration is complete.
         >
-        > 我們建議您將 MFA 需求略過，僅供測試之用。
+        > We recommend that MFA requirements be bypassed for test purposes only.
 
-       只有當目前登入的使用者也是根域的 Active Directory 網域系統管理員時，這些範例才會成功。 如果不是這種情況，您可以透過 *-ForestCredential*參數提供替代網域認證。
+       These examples only succeed if the currently signed-in user is also an Active Directory domain administrator for the root domain. If this isn't the case, you can supply alternative domain credentials via the *-ForestCredential* parameter.
 
    > [!NOTE]
-   > 如果您的環境中安裝了多個 proxy 伺服器，則您用來註冊樹系的 proxy 伺服器並不重要。
+   > If multiple proxy servers are installed in your environment, it doesn't matter which proxy server you use to register the forest.
    >
    > [!TIP]
-   > 第一次針對特定的 Azure 租使用者執行此 Cmdlet 時，可能會有明顯的延遲。 除非回報失敗，否則請不要擔心這種延遲。
+   > There might be a noticeable delay before completion the first time that this cmdlet is run for a specific Azure tenant. Unless a failure is reported, don't worry about this delay.
 
-   只有在樹系的存留期內，才需要註冊 Active Directory 樹系。 之後，樹系中的網域控制站代理程式就會自動執行任何其他必要的維護。 成功執行樹系的 `Register-AzureADPasswordProtectionForest` 之後，Cmdlet 的其他調用會成功，但不需要。
+   Registration of the Active Directory forest is necessary only once in the lifetime of the forest. After that, the Domain Controller Agents in the forest will automatically perform any other necessary maintenance. After `Register-AzureADPasswordProtectionForest` runs successfully for a forest, additional invocations of the cmdlet succeed but are unnecessary.
 
-   若要讓 `Register-AzureADPasswordProtectionForest` 成功，proxy 伺服器的網域中至少必須有一個執行 Windows Server 2012 或更新版本的網域控制站。 在此步驟之前，不需要在任何網域控制站上安裝 DC 代理程式軟體。
+   For `Register-AzureADPasswordProtectionForest` to succeed, at least one domain controller running Windows Server 2012 or later must be available in the proxy server's domain. The DC Agent software does not have to be installed on any domain controllers prior to this step.
 
-1. 設定 proxy 服務以進行密碼保護，以透過 HTTP proxy 進行通訊。
+1. Configure the proxy service for password protection to communicate through an HTTP proxy.
 
-   如果您的環境需要使用特定的 HTTP proxy 來與 Azure 通訊，請使用此方法：在%ProgramFiles%\Azure AD 密碼保護 Proxy\Service 資料夾中建立*register-azureadpasswordprotectionproxy* 。 包含下列內容：
+   If your environment requires the use of a specific HTTP proxy to communicate with Azure, use this method: Create a *AzureADPasswordProtectionProxy.exe.config* file in the %ProgramFiles%\Azure AD Password Protection Proxy\Service folder. Include the following content:
 
       ```xml
       <configuration>
@@ -240,7 +240,7 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
       </configuration>
       ```
 
-   如果您的 HTTP proxy 需要驗證，請新增*useDefaultCredentials*標記：
+   If your HTTP proxy requires authentication, add the *useDefaultCredentials* tag:
 
       ```xml
       <configuration>
@@ -253,17 +253,17 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
       </configuration>
       ```
 
-   在這兩種情況下，請將 `http://yourhttpproxy.com:8080` 取代為特定 HTTP proxy 伺服器的位址和埠。
+   In both cases, replace `http://yourhttpproxy.com:8080` with the address and port of your specific HTTP proxy server.
 
-   如果您的 HTTP proxy 已設定為使用授權原則，您必須授與裝載 proxy 服務之電腦的 Active Directory 電腦帳戶的存取權，以進行密碼保護。
+   If your HTTP proxy is configured to use an authorization policy, you must grant access to the Active Directory computer account of the machine that hosts the proxy service for password protection.
 
-   建議您在建立或更新*register-azureadpasswordprotectionproxy*之後，停止並重新啟動 proxy 服務。
+   We recommend that you stop and restart the proxy service after you create or update the *AzureADPasswordProtectionProxy.exe.config* file.
 
-   Proxy 服務不支援使用特定認證來連接 HTTP proxy。
+   The proxy service doesn't support the use of specific credentials for connecting to an HTTP proxy.
 
-1. 選擇性：將 [密碼保護] 的 proxy 服務設定為在特定通訊埠上接聽。
-   * 網域控制站上的密碼保護 DC 代理程式軟體會使用 RPC over TCP 來與 proxy 服務進行通訊。 根據預設，proxy 服務會在任何可用的動態 RPC 端點上進行接聽。 但是，您可以將服務設定為在特定 TCP 通訊埠上接聽（如果您的環境中有網路拓朴或防火牆需求，這是必要的）。
-      * <a id="static" /></a>若要將服務設定為在靜態埠下執行，請使用 `Set-AzureADPasswordProtectionProxyConfiguration` Cmdlet。
+1. Optional: Configure the proxy service for password protection to listen on a specific port.
+   * The DC Agent software for password protection on the domain controllers uses RPC over TCP to communicate with the proxy service. By default, the proxy service listens on any available dynamic RPC endpoint. But you can configure the service to listen on a specific TCP port, if this is necessary because of networking topology or firewall requirements in your environment.
+      * <a id="static" /></a>To configure the service to run under a static port, use the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
 
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
@@ -272,7 +272,7 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
          > [!WARNING]
          > 您必須將服務停止後再重新啟動，這些變更才會生效。
 
-      * 若要將服務設定為在動態埠下執行，請使用相同的程式，但將*StaticPort*設回零：
+      * To configure the service to run under a dynamic port, use the same procedure but set *StaticPort* back to zero:
 
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
@@ -282,9 +282,9 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
          > 您必須將服務停止後再重新啟動，這些變更才會生效。
 
    > [!NOTE]
-   > 密碼保護的 proxy 服務需要在埠設定的任何變更之後手動重新開機。 但是，在進行這些設定變更之後，您不需要在網域控制站上重新開機 DC 代理程式服務軟體。
+   > The proxy service for password protection requires a manual restart after any change in port configuration. But you don't have to restart the DC Agent service software on domain controllers after you make these configuration changes.
 
-   * 若要查詢服務的目前設定，請使用 `Get-AzureADPasswordProtectionProxyConfiguration` Cmdlet：
+   * To query for the current configuration of the service, use the `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet:
 
       ```powershell
       Get-AzureADPasswordProtectionProxyConfiguration | fl
@@ -294,60 +294,60 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
       StaticPort  : 0
       ```
 
-### <a name="install-the-dc-agent-service"></a>安裝 DC 代理程式服務
+### <a name="install-the-dc-agent-service"></a>Install the DC Agent service
 
-   使用 `AzureADPasswordProtectionDCAgentSetup.msi` 套件，安裝 DC 代理程式服務以進行密碼保護。
+   Install the DC Agent service for password protection by using the `AzureADPasswordProtectionDCAgentSetup.msi` package.
 
-   軟體安裝或卸載需要重新開機。 這項需求是因為密碼篩選 Dll 只會在重新開機時載入或卸載。
+   The software installation, or uninstallation, requires a restart. This requirement is because password filter DLLs are only loaded or unloaded by a restart.
 
-   您可以在還不是網域控制站的電腦上安裝 DC 代理程式服務。 在此情況下，服務將會啟動並執行，但會維持非作用中狀態，直到電腦升級為網域控制站為止。
+   You can install the DC Agent service on a machine that's not yet a domain controller. In this case, the service will start and run but remain inactive until the machine is promoted to be a domain controller.
 
-   您可以使用標準 MSI 程式來自動安裝軟體。 例如：
+   You can automate the software installation by using standard MSI procedures. 例如：
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
-   如果您想要讓安裝程式自動重新開機電腦，可以省略 `/norestart` 旗標。
+   You may omit the `/norestart` flag if you prefer to have the installer automatically reboot the machine.
 
-在網域控制站上安裝 DC 代理程式軟體並重新啟動該電腦之後，安裝就會完成。 任何其他設定都無須進行，也無法進行。
+The installation is complete after the DC Agent software is installed on a domain controller, and that computer is rebooted. 任何其他設定都無須進行，也無法進行。
 
-## <a name="upgrading-the-proxy-agent"></a>升級 Proxy 代理程式
+## <a name="upgrading-the-proxy-agent"></a>Upgrading the Proxy agent
 
-當有較新版本的 Azure AD 密碼保護 Proxy 軟體可供使用時，會執行最新版的 `AzureADPasswordProtectionProxySetup.exe` 軟體安裝程式來完成升級。 您可以從[Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=57071)取得軟體的最新版本。
+When a newer version of the Azure AD Password Protection Proxy software is available, the upgrade is accomplished by running the latest version of the `AzureADPasswordProtectionProxySetup.exe` software installer. The latest version of the software is available on the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
-不需要卸載目前版本的 Proxy 軟體-安裝程式會執行就地升級。 升級 Proxy 軟體時，不需要重新開機。 軟體升級可能會使用標準 MSI 程式自動化，例如： `AzureADPasswordProtectionProxySetup.exe /quiet`。
+It is not required to uninstall the current version of the Proxy software - the installer will perform an in-place upgrade. No reboot should be required when upgrading the Proxy software. The software upgrade may be automated using standard MSI procedures, for example: `AzureADPasswordProtectionProxySetup.exe /quiet`.
 
-Proxy 代理程式支援自動升級。 自動升級會使用 Microsoft Azure AD Connect Agent 更新程式服務，這會與 Proxy 服務並存安裝。 預設會開啟自動升級，而且可能會使用 `Set-AzureADPasswordProtectionProxyConfiguration` Cmdlet 來啟用或停用。 您可以使用 `Get-AzureADPasswordProtectionProxyConfiguration` Cmdlet 來查詢目前的設定。 Microsoft 建議您一律啟用自動升級設定。
+The Proxy agent supports automatic upgrade. Automatic upgrade uses the Microsoft Azure AD Connect Agent Updater service, which is installed side by side with the Proxy service. Automatic upgrade is on by default, and may be enabled or disabled using the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet. The current setting can be queried using the `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet. Microsoft recommends that the automatic upgrade setting always is enabled.
 
-`Get-AzureADPasswordProtectionProxy` Cmdlet 可用來查詢樹系中所有目前已安裝之 Proxy 代理程式的軟體版本。
+The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to query the software version of all currently installed Proxy agents in a forest.
 
-## <a name="upgrading-the-dc-agent"></a>升級 DC 代理程式
+## <a name="upgrading-the-dc-agent"></a>Upgrading the DC agent
 
-當有較新版本的 Azure AD 密碼保護 DC 代理程式軟體可供使用時，會執行最新版的 `AzureADPasswordProtectionDCAgentSetup.msi` 軟體套件來進行升級。 您可以從[Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=57071)取得軟體的最新版本。
+When a newer version of the Azure AD Password Protection DC Agent software is available, the upgrade is accomplished by running the latest version of the `AzureADPasswordProtectionDCAgentSetup.msi` software package. The latest version of the software is available on the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
-不需要卸載目前版本的 DC 代理程式軟體-安裝程式會執行就地升級。 升級 DC 代理程式軟體時，一律需要重新開機-這項需求是由核心 Windows 行為所造成。 
+It is not required to uninstall the current version of the DC agent software - the installer will perform an in-place upgrade. A reboot is always required when upgrading the DC agent software - this requirement is caused by core Windows behavior. 
 
-軟體升級可能會使用標準 MSI 程式自動化，例如： `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`。
+The software upgrade may be automated using standard MSI procedures, for example: `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`.
 
-如果您想要讓安裝程式自動重新開機電腦，可以省略 `/norestart` 旗標。
+You may omit the `/norestart` flag if you prefer to have the installer automatically reboot the machine.
 
-`Get-AzureADPasswordProtectionDCAgent` Cmdlet 可用來查詢樹系中所有目前已安裝之 DC 代理程式的軟體版本。
+The `Get-AzureADPasswordProtectionDCAgent` cmdlet may be used to query the software version of all currently installed DC agents in a forest.
 
 ## <a name="multiple-forest-deployments"></a>多個樹系部署
 
-沒有任何要在多個樹系部署 Azure AD 密碼保護的額外需求。 每個樹系都獨立設定，如「單一樹系部署」一節中所述。 每個密碼保護 proxy 只能支援其已加入樹系中的網域控制站。 任何樹系中的密碼保護軟體都不會察覺部署在其他樹系中的密碼保護軟體，而不論 Active Directory 的信任設定為何。
+沒有任何要在多個樹系部署 Azure AD 密碼保護的額外需求。 Each forest is independently configured as described in the "Single-forest deployment" section. Each password protection proxy can only support domain controllers from the forest that it's joined to. The password protection software in any forest is unaware of password protection software that's deployed in other forests, regardless of Active Directory trust configurations.
 
 ## <a name="read-only-domain-controllers"></a>唯讀網域控制站
 
-密碼變更/集不會在唯讀網域控制站（Rodc）上處理及保存。 它們會轉送到可寫入的網域控制站。 因此，您不需要在 Rodc 上安裝 DC 代理程式軟體。
+Password changes/sets are not processed and persisted on read-only domain controllers (RODCs). They are forwarded to writable domain controllers. So, you don't have to install the DC Agent software on RODCs.
 
 ## <a name="high-availability"></a>高可用性
 
-當樹系中的網域控制站嘗試從 Azure 下載新原則或其他資料時，密碼保護的主要可用性考慮就是 proxy 伺服器的可用性。 在決定要呼叫哪一個 proxy 伺服器時，每個 DC 代理程式都會使用簡單的迴圈配置資源樣式演算法。 代理程式會略過沒有回應的 proxy 伺服器。 對於大部分已完全連線的 Active Directory 部署，其中包含目錄和 sysvol 資料夾狀態的狀況良好複寫，兩部 proxy 伺服器就足以確保可用性。 這會導致及時下載新的原則和其他資料。 但您可以部署額外的 proxy 伺服器。
+The main availability concern for password protection is the availability of proxy servers when the domain controllers in a forest try to download new policies or other data from Azure. Each DC Agent uses a simple round-robin-style algorithm when deciding which proxy server to call. The Agent skips proxy servers that aren't responding. For most fully connected Active Directory deployments that have healthy replication of both directory and sysvol folder state, two proxy servers is enough to ensure availability. This results in timely download of new policies and other data. But you can deploy additional proxy servers.
 
-DC 代理程式軟體的設計可減少與高可用性相關聯的一般問題。 DC 代理程式會維護最近下載的密碼原則的本機快取。 即使所有已註冊的 proxy 伺服器都變成無法使用，DC 代理程式仍會繼續強制執行其快取的密碼原則。 在大型部署中，密碼原則的合理更新頻率通常是天，而不是小時或更少。 因此，暫時中斷 proxy 伺服器並不會嚴重影響 Azure AD 密碼保護。
+The design of the DC Agent software mitigates the usual problems that are associated with high availability. The DC Agent maintains a local cache of the most recently downloaded password policy. Even if all registered proxy servers become unavailable, the DC Agents continue to enforce their cached password policy. A reasonable update frequency for password policies in a large deployment is usually days, not hours or less. So, brief outages of the proxy servers don't significantly impact Azure AD password protection.
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已在內部部署伺服器上安裝了 Azure AD 密碼保護所需的服務，請[執行安裝後設定並收集報告資訊](howto-password-ban-bad-on-premises-operations.md)，以完成您的部署。
+Now that you've installed the services that you need for Azure AD password protection on your on-premises servers, [perform post-install configuration and gather reporting information](howto-password-ban-bad-on-premises-operations.md) to complete your deployment.
 
 [Azure AD 密碼保護的概念性概觀](concept-password-ban-bad-on-premises.md)

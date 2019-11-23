@@ -1,22 +1,22 @@
 ---
-title: Azure 磁碟加密範例腳本
-description: 本文是 Linux Vm 的 Microsoft Azure 磁片加密附錄。
+title: Azure Disk Encryption sample scripts
+description: This article is the appendix for Microsoft Azure Disk Encryption for Linux VMs.
 author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b034bad8661e93cbf5797c93739f1db3a64626f0
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ad0e3bbba729436c3a07f44d989a40f5349dfb3e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748901"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326356"
 ---
-# <a name="azure-disk-encryption-sample-scripts"></a>Azure 磁碟加密範例腳本 
+# <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption sample scripts 
 
-本文提供準備預先加密的 Vhd 和其他工作的範例腳本。
+This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.
 
  
 
@@ -36,32 +36,32 @@ ms.locfileid: "73748901"
      Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
      ```
 
-### <a name="using-the-azure-disk-encryption-prerequisites-powershell-script"></a>使用 Azure 磁碟加密必要條件 PowerShell 腳本
+### <a name="using-the-azure-disk-encryption-prerequisites-powershell-script"></a>Using the Azure Disk Encryption prerequisites PowerShell script
 如果您已經熟悉 Azure 磁碟加密的必要條件，您可以使用 [Azure 磁碟加密必要條件 PowerShell 指令碼](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 )。 如需使用此 PowerShell 指令碼的範例，請參閱[加密 VM 快速入門](disk-encryption-powershell-quickstart.md)。 您可以從指令碼區段 (起自 211 行) 中移除註解，以對現有資源群組中現有 VM 的所有磁碟加密。 
 
 下表顯示可在 PowerShell 指令碼中使用的參數： 
 
 
-|參數|說明|是否為強制？|
+|參數|描述|是否為強制？|
 |------|------|------|
-|$resourceGroupName| 金鑰保存庫所屬資源群組的名稱。  如果不存在此名稱的應用程式，將會以此名稱建立新的資源群組。| True|
-|$keyVaultName|要用來放置加密金鑰的金鑰保存庫名稱。 如果不存在此名稱的應用程式，將會以此名稱建立新的保存庫。| True|
-|$location|金鑰保存庫的位置。 請確定金鑰保存庫和要加密的 VM 位於相同位置。 使用 `Get-AzLocation` 取得位置清單。|True|
-|$subscriptionId|要使用的 Azure 訂用帳戶識別碼。  您可以使用 `Get-AzSubscription` 取得您的訂用帳戶識別碼。|True|
-|$aadAppName|會用來將祕密寫入到金鑰保存庫的 Azure AD 應用程式名稱。 如果不存在此名稱的應用程式，將會以此名稱建立新的應用程式。 如果此應用程式已經存在，請將 aadClientSecret 參數傳遞至指令碼。|False|
-|$aadClientSecret|稍早建立的 Azure AD 應用程式用戶端密碼。|False|
-|$keyEncryptionKeyName|金鑰保存庫中選用金鑰加密金鑰的名稱。 如果不存在此名稱的應用程式，將會以此名稱建立新的金鑰。|False|
+|$resourceGroupName| 金鑰保存庫所屬資源群組的名稱。  如果不存在此名稱的應用程式，將會以此名稱建立新的資源群組。| 是|
+|$keyVaultName|要用來放置加密金鑰的金鑰保存庫名稱。 如果不存在此名稱的應用程式，將會以此名稱建立新的保存庫。| 是|
+|$location|金鑰保存庫的位置。 請確定金鑰保存庫和要加密的 VM 位於相同位置。 使用 `Get-AzLocation` 取得位置清單。|是|
+|$subscriptionId|要使用的 Azure 訂用帳戶識別碼。  您可以使用 `Get-AzSubscription` 取得您的訂用帳戶識別碼。|是|
+|$aadAppName|會用來將祕密寫入到金鑰保存庫的 Azure AD 應用程式名稱。 如果不存在此名稱的應用程式，將會以此名稱建立新的應用程式。 如果此應用程式已經存在，請將 aadClientSecret 參數傳遞至指令碼。|否|
+|$aadClientSecret|稍早建立的 Azure AD 應用程式用戶端密碼。|否|
+|$keyEncryptionKeyName|金鑰保存庫中選用金鑰加密金鑰的名稱。 如果不存在此名稱的應用程式，將會以此名稱建立新的金鑰。|否|
 
 
 ### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>加密或解密沒有 Azure AD 應用程式的 VM
 
-- [在現有或執行中的 Linux VM 上啟用磁片加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
+- [Enable disk encryption on an existing or running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
 - [在執行中 Linux VM 上停用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - 只能在 Linux VM 的資料磁碟區上停用加密。  
 
 ### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>加密或解密具有 Azure AD 應用程式 (舊版) 的 VM 
  
-- [在現有或執行中的 Linux VM 上啟用磁片加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
+- [Enable disk encryption on an existing or running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
 
 
 -  [在執行中 Linux VM 上停用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
@@ -79,7 +79,7 @@ ms.locfileid: "73748901"
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>OS 磁碟加密的必要條件
 
-* VM 必須使用與作業系統磁片加密相容的散發套件，如[Azure 磁碟加密支援的作業系統](disk-encryption-overview.md#supported-vm-sizes)中所列 
+* The VM must be using a distribution compatible with OS disk encryption as listed in the [Azure Disk Encryption supported operating systems](disk-encryption-overview.md#supported-vm-sizes) 
 * 必須從 Azure Resource Manager 的Marketplace 映像建立 VM。
 * 具有至少 4 GB RAM 的 Azure VM (建議大小為 7 GB)。
 * (適用於 RHEL 和 CentOS) 停用 SELinux。 若要停用 SELinux，請參閱「4.4.2. 停用 SELinux」，其位於 VM 上的 [SELinux 使用者和系統管理員指南](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux)。
@@ -107,7 +107,7 @@ ms.locfileid: "73748901"
 
 5. 使用[下一節](#monitoring-os-encryption-progress)的指示定期監視加密進度。
 
-6. AzVmDiskEncryptionStatus 顯示「VMRestartPending」之後，請登入或使用入口網站、PowerShell 或 CLI 來重新開機您的 VM。
+6. After Get-AzVmDiskEncryptionStatus shows "VMRestartPending", restart your VM either by signing in to it or by using the portal, PowerShell, or CLI.
     ```powershell
     C:\> Get-AzVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
@@ -160,7 +160,7 @@ ms.locfileid: "73748901"
   不建議在 OS 加密進行時登入 VM。 其他兩個方法都失敗時，只複製記錄。
 
 ## <a name="prepare-a-pre-encrypted-linux-vhd"></a>準備已預先加密的 Linux VHD
-準備預先加密的 VHD 會根據散發套件而有所不同。 提供有關準備 Ubuntu 16、openSUSE 13.2 和 CentOS 7 的範例。 
+準備預先加密的 VHD 會根據散發套件而有所不同。 Examples on preparing Ubuntu 16, openSUSE 13.2, and CentOS 7 are available. 
 
 ### <a name="ubuntu-16"></a>Ubuntu 16
 在發佈安裝期間執行下列步驟以設定加密︰
@@ -289,7 +289,7 @@ ms.locfileid: "73748901"
    ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
    ```
-   to:
+   至：
    ```bash
     if [ 1 ]; then
    ```
@@ -319,7 +319,8 @@ ms.locfileid: "73748901"
 
 6. 現在您可以取消佈建 VM，並將 VHD 上傳到 Azure。
 
-### <a name="centos-7"></a>CentOS 7
+### <a name="centos-7-and-rhel-81"></a>CentOS 7 and RHEL 8.1
+
 若要在發佈安裝期間設定加密，請執行下列步驟︰
 1. 在分割磁碟時選取 [加密資料]。
 
@@ -369,7 +370,7 @@ ms.locfileid: "73748901"
    ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
    ```
-   to
+   更新成
    ```bash
     if [ 1 ]; then
    ```
@@ -399,11 +400,11 @@ ms.locfileid: "73748901"
     ![CentOS 7 設定 - 執行 /usr/sbin/dracut -f -v](./media/disk-encryption/centos-encrypt-fig5.png)
 
 ## <a name="upload-encrypted-vhd-to-an-azure-storage-account"></a>上傳加密的 VHD 至 Azure 儲存體帳戶
-啟用 DM Crypt 加密之後，需要將本機加密的 VHD 上傳至您的儲存體帳戶。
+After DM-Crypt encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
-## <a name="upload-the-secret-for-the-pre-encrypted-vm-to-your-key-vault"></a>將預先加密 VM 的密碼上傳至金鑰保存庫
+## <a name="upload-the-secret-for-the-pre-encrypted-vm-to-your-key-vault"></a>Upload the secret for the pre-encrypted VM to your key vault
 使用 Azure AD 應用程式 (舊版) 加密時，先前取得的磁碟加密密碼必須上傳，作為金鑰保存庫中的密碼。 金鑰保存庫必須為 Azure AD 用戶端啟用磁碟加密以及權限。
 
 ```powershell 
@@ -417,7 +418,7 @@ ms.locfileid: "73748901"
 ``` 
 
 ### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>未使用 KEK 加密的磁碟加密密碼
-若要在金鑰保存庫中設定密碼，請使用[AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret)。 複雜密碼會編碼為 base64 字串，然後上傳至金鑰保存庫。 此外，請確定在金鑰保存庫中建立密碼時會設定下列標籤。
+To set up the secret in your key vault, use [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). The passphrase is encoded as a base64 string and then uploaded to the key vault. 此外，請確定在金鑰保存庫中建立密碼時會設定下列標籤。
 
 ```powershell
 
