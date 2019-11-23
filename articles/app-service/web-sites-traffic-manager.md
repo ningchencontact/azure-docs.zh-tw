@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bb63b25ee9257a402a9887bc8ed8aa83370f3ea0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a1f377c3325797f2f55f051830014b1068c51327
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066415"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405583"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>使用 Azure 流量管理員來控制 Azure App Service 流量
 > [!NOTE]
@@ -42,7 +42,7 @@ Azure 流量管理員使用四種不同的路由方法。 下列清單說明 Azu
 如需詳細資訊，請參閱[流量管理員路由方法](../traffic-manager/traffic-manager-routing-methods.md)。
 
 ## <a name="app-service-and-traffic-manager-profiles"></a>App Service 和流量管理員設定檔
-若要設定 App Service 應用程式流量的控制, 您可以在 Azure 流量管理員中建立設定檔, 以使用上述四種負載平衡方法的其中一種, 然後新增您想要控制其流量的端點 (在此案例中為 App Service)特徵. 系統會定期與設定檔溝通您的應用程式狀態 (執行中、已停止或已刪除)，讓 Azure 流量管理員可相應地導向流量。
+To configure the control of App Service app traffic, you create a profile in Azure Traffic Manager that uses one of the four load balancing methods described previously, and then add the endpoints (in this case, App Service) for which you want to control traffic to the profile. 系統會定期與設定檔溝通您的應用程式狀態 (執行中、已停止或已刪除)，讓 Azure 流量管理員可相應地導向流量。
 
 搭配使用 Azure 流量管理員與 Azure 時，請牢記下列重點：
 
@@ -57,5 +57,4 @@ Azure 流量管理員使用四種不同的路由方法。 下列清單說明 Azu
 ## <a name="next-steps"></a>後續步驟
 如需 Azure 流量管理員的概念和技術概觀，請參閱 [Traffic Manager 概觀](../traffic-manager/traffic-manager-overview.md)。
 
-如需將流量管理員與 App Service 搭配使用的詳細資訊，請參閱[將 Azure 流量管理員與 Azure 網站搭配使用](https://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx)和 [Azure 流量管理員現在可以與 Azure 網站整合部落格文章](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/)。
 

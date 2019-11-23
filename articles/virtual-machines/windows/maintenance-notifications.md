@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中處理 Windows Vm 的維護通知
+title: Handling maintenance notifications for Windows VMs in Azure
 description: 檢視 Azure 中執行的 Windows 虛擬機器的維修通知，並開始自助維修。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: 6e269e9b21fe16a1d77b4e1f714517f91fa531d4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: eca32d537f42d68568ef2859a64b60133a17e893
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039201"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328310"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>處理 Windows 虛擬機器預定進行的維修作業通知
 
@@ -26,13 +26,13 @@ ms.locfileid: "74039201"
 
 - 如果維護不需要重新開機，Azure 會在主機更新時使用就地移轉來暫停 VM。 這些不需要重新開機的維護作業會逐個容錯網域套用，而且如果收到任何警告健康情況訊號，進度就會停止。 
 
-- 如果維護需要重新開機，您會在規劃維護時收到通知。 在這些情況下，您會獲得一個時間範圍，通常是35天，您可以自行開始進行維護。
+- 如果維護需要重新開機，您會在規劃維護時收到通知。 In these cases, you are given a time window that is typically 35 days where you can start the maintenance yourself, when it works for you.
 
 
 預定進行的維修作業若需要重新開機，會排定在不同波段。 每一波段有不同的範圍 (區域)。
 
-- 波段開始時會傳送通知給客戶。 根據預設，通知會傳送給訂用帳戶擁有者和共同擁有者。 您可以使用 Azure [活動記錄警示](../../azure-monitor/platform/activity-logs-overview.md)，對通知新增更多收件者和傳訊選項，例如電子郵件、SMS 和 Webhook。  
-- 接獲通知時，即可使用「自助期間」。 在通常是35天的此視窗中，您可以找出這一波包含哪些虛擬機器，並根據您自己的排程需求主動開始進行維護。
+- 波段開始時會傳送通知給客戶。 By default, notifications are sent to the subscription owners. 您可以使用 Azure [活動記錄警示](../../azure-monitor/platform/activity-logs-overview.md)，對通知新增更多收件者和傳訊選項，例如電子郵件、SMS 和 Webhook。  
+- 接獲通知時，即可使用「自助期間」。 During this window that is typically 35 days, you can find which of your virtual machines are included in this wave and proactively start maintenance according to your own scheduling needs.
 - 在自助期間之後，「排定維護期間」隨即開始。 在此期間的某個時間點，Azure 會排定並將必要的維護套用於您的虛擬機器。 
 
 有兩個期間的目標是要讓您在知道 Azure 何時將會自動開始維修的同時，有足夠時間開始維修，並將虛擬機器重新啟動。
@@ -76,7 +76,7 @@ ms.locfileid: "74039201"
 
 ## <a name="check-maintenance-status-using-powershell"></a>使用 PowerShell 檢查維修狀態
 
-您也可以使用 Azure Powershell 來查看 VM 排定何時進行維修。 使用 [ 參數時，可從 ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)Get-AzVM`-status` Cmdlet 取得預定進行的維修作業的相關資訊。
+您也可以使用 Azure Powershell 來查看 VM 排定何時進行維修。 使用 `-status` 參數時，可從 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) Cmdlet 取得預定進行的維修作業的相關資訊。
  
 只在有預定進行的維修作業時，才會傳回維修資訊。 如果沒有排定會影響 VM 的維護，則 Cmdlet 不會傳回任何維護資訊。 
 
@@ -88,7 +88,7 @@ Get-AzVM -ResourceGroupName rgName -Name vmName -Status
 
 下列是 MaintenanceRedeployStatus 下傳回的內容： 
 
-| 值 | 描述   |
+| Value | 描述   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 指出您目前是否可以在 VM 上開始維修 |
 | PreMaintenanceWindowStartTime         | 維修自助期間的開始，此時您可以在 VM 上起始維修 |
@@ -169,13 +169,13 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **答：** 部署在可用性設定組或虛擬機器擴展集的虛擬機器，具有更新網域 (UD) 的概念。 執行維護時，Azure 會接受 UD 條件約束，並且不會從不同的 UD (在相同的可用性設定組內) 重新啟動虛擬機器。  Azure 也會等候至少 30 分鐘，再移至下一個虛擬機器群組。 
 
-如需高可用性的詳細資訊，請參閱[Azure 中虛擬機器的可用性](availability.MD)。
+For more information about high availability, see [Availability for virtual machines in Azure](availability.MD).
 
 **問：我如何取得規劃維護的通知？**
 
 **答：** 規劃的維護是從對一或多個 Azure 區域設定排程開始。 之後，電子郵件通知會傳送至訂用帳戶擁有者 (每個訂用帳戶一封電子郵件)。 可以使用「活動記錄警示」來設定此通知的其他通道和收件者。 如果您將虛擬機器部署到已排程規劃的維護之區域，您不會收到通知，但是需要檢查 VM 的維護狀態。
 
-**問：我在入口網站、Powershell 或 CLI 中都看不到任何已規劃維護的指示。怎麼了？**
+**Q: I don't see any indication of planned maintenance in the portal, Powershell, or CLI. What is wrong?**
 
 **答：** 只有在計劃性維護期間將受到該維護波段影響的 VM 可以取得與計劃性維護相關的資訊。 也就是說，如果您看不到資料，可能是維護已完成 (或尚未啟動)，或者您的虛擬機器是裝載在更新的伺服器上。
 
@@ -195,14 +195,14 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **答：** 這些平台會受到規劃的維護影響，使用這些平台的客戶是安全的，因為只有單一升級網域 (UD) 中的 VM 會在任何指定時間受到影響。 雲端服務 (Web/背景工作角色) 和 Service Fabric 目前無法使用自助維護。
 
-**問：我在 Vm 上看不到任何維護資訊。問題出在哪裡？**
+**Q: I don’t see any maintenance information on my VMs. What went wrong?**
 
 **答：** 您在 VM 上看不到任何維護資訊有以下幾個原因：
 1.  您使用標示為 Microsoft 內部的訂用帳戶。
 2.  您的 VM 未排程進行維護。 可能是維護波段已經結束、取消或修改，所以您的 VM 不再受到它的影響。
 3.  您尚未將 [維護] 資料行新增至您的虛擬機器清單檢視。 雖然我們已將此資料行新增至預設檢視，但是設定為查看非預設資料行的客戶必須將 [維護] 資料行手動新增至其 VM 清單檢視。
 
-**問：我的 VM 已排程在第二次進行維護。因此?**
+**Q: My VM is scheduled for maintenance for the second time. Why?**
 
 **答：** 有數個使用案例，您會在您已完成維護重新部署之後，看到 VM 排程進行維護：
 1.  我們已取消維護，並且使用不同的裝載重新啟動它。 可能是我們偵測到發生錯誤的裝載，只是需要部署額外承載。

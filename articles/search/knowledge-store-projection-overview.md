@@ -1,85 +1,85 @@
 ---
-title: 在知識存放區中使用投影（預覽）
+title: Working with projections in a knowledge store (preview)
 titleSuffix: Azure Cognitive Search
-description: 儲存 AI 擴充索引管線中的擴充資料，並將其塑造到知識存放區，以供全文檢索搜尋以外的案例使用。 知識存放區目前為公開預覽狀態。
+description: Save and shape your enriched data from the AI enrichment indexing pipeline into a knowledge store for use in scenarios other than full text search. 知識存放區目前為公開預覽狀態。
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bb6af4be232810c1f5d135e459238e2e4f2cd5d8
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: e7ed7eef961e357b8c1e4e59790f9f150c286c61
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720033"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326601"
 ---
-# <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>在 Azure 認知搜尋中使用知識存放區中的投影
+# <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Working with projections in a knowledge store in Azure Cognitive Search
 
 > [!IMPORTANT] 
-> 知識存放區目前為公開預覽狀態。 預覽功能會在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-preview](search-api-preview.md)提供預覽功能。 目前有有限的入口網站支援，而且沒有 .NET SDK 支援。
+> 知識存放區目前為公開預覽狀態。 預覽功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供預覽功能。 目前的入口網站支援有限，而且沒有 .NET SDK 支援。
 
-Azure 認知搜尋可讓您透過內建的認知技能和自訂技能來擴充內容，做為編制索引的一部分。 擴充將結構新增至您的檔，並讓搜尋更有效率。 在許多情況下，擴充的檔適用于搜尋以外的案例，例如知識發掘。
+Azure Cognitive Search enables content enrichment through built-in cognitive skills and custom skills as part of indexing. Enrichments add structure to your documents and make searching more effective. In many instances, the enriched documents are useful for scenarios other than search, such as for knowledge mining.
 
-「[知識存放區](knowledge-store-concept-intro.md)」的一個元件是擴充檔的觀點，可以儲存至實體儲存體以供知識挖掘之用。 預測可讓您將資料「投射」到符合您需求的圖形，保留關聯性，讓 Power BI 之類的工具可以讀取資料，而不需要額外的工作。
+Projections, a component of [knowledge store](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort.
 
-投影可以是表格式，其中的資料會儲存在 Azure 資料表儲存體中的資料列和資料行，或儲存在 Azure Blob 儲存體中的 JSON 物件。 您可以在擴充資料時，定義多項資料的預測。 當您想要在個別使用案例中以不同方式塑造相同的資料時，多個投射會很有用。
+Projections can be tabular, with data stored in rows and columns in Azure Table storage, or JSON objects stored in Azure Blob storage. You can define multiple projections of your data as it is being enriched. Multiple projections are useful when you want the same data shaped differently for individual use cases.
 
-知識存放區支援三種類型的預測：
+The knowledge store supports three types of projections:
 
-+ **資料表**：對於最能以資料列和資料行表示的資料，資料表預測可讓您在資料表儲存體中定義架構化圖形或投射。
++ **Tables**: For data that's best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage.
 
-+ **物件**：當您需要資料和擴充的 JSON 標記法時，物件投影會儲存為 blob。
++ **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs.
 
-+ 檔案 **：當**您需要儲存從檔解壓縮的影像時，檔案投射可讓您儲存正規化的影像。
++ **Files**: When you need to save the images extracted from the documents, file projections allow you to save the normalized images.
 
-若要查看內容中定義的預測，請逐步解說[如何開始使用知識存放區](knowledge-store-howto.md)。
+To see projections defined in context, step through [How to get started with knowledge store](knowledge-store-howto.md).
 
-## <a name="projection-groups"></a>投射群組
+## <a name="projection-groups"></a>Projection groups
 
-在某些情況下，您必須將擴充的資料投影到不同的圖形，以符合不同的目標。 知識存放區可讓您定義多個投射群組。 投射群組具有相互獨佔性和關聯的下列重要特性。
+In some cases, you will need to project your enriched data in different shapes to meet different objectives. The knowledge store allows you to define multiple groups of projections. Projection groups have the following key characteristics of mutual exclusivity and relatedness.
 
-### <a name="mutual-exclusivity"></a>相互獨佔性
+### <a name="mutual-exclusivity"></a>Mutual exclusivity
 
-投影到單一群組中的所有內容，都與投影至其他投射群組的資料無關。
-這種獨立性意味著您可以讓相同的資料成形，但在每個投射群組中都有重複的方式。
+All content projected into a single group is independent of data projected into other projection groups.
+This independence implies that you can have the same data shaped differently, yet repeated in each projection group.
 
-### <a name="relatedness"></a>關聯
+### <a name="relatedness"></a>Relatedness
 
-投射群組現在可讓您跨投射類型來投影檔，同時保留跨投影類型的關聯性。 在單一投射群組內投射的所有內容，會跨投影類型保留資料中的關聯性。 在資料表中，關聯性是以產生的索引鍵為基礎，而每個子節點都會保留父節點的參考。 跨類型（資料表、物件和檔案），跨不同類型投射單一節點時，會保留關聯性。 例如，假設您有一個包含影像和文字的檔。 您可以將文字投影至資料表或物件，並將影像放到資料表或物件具有包含檔案 URL 屬性的檔案中。
+Projection groups now allow you to project your documents across projection types while preserving the relationships across projection types. All content projected within a single projection group preserves relationships within the data across projection types. Within tables, relationships are based on a generated key and each child node retains a reference to the parent node. Across types (tables, objects, and files), relationships are preserved when a single node is projected across different types. For example, consider a scenario where you have a document containing images and text. You could project the text to tables or objects and the images to files where the tables or objects have a property containing the file URL.
 
-## <a name="input-shaping"></a>輸入成形
+## <a name="input-shaping"></a>Input shaping
 
-取得正確的圖形或結構中的資料，是有效使用的關鍵，也就是資料表或物件。 能夠根據您計畫的存取和使用方式來塑造或結構化您的資料，這是在技能集中以**整形**者技能的形式公開的重要功能。  
+Getting your data in the right shape or structure is key to effective use, be it tables or objects. The ability to shape or structure your data based on how you plan to access and use it is a key capability exposed as the **Shaper** skill within the skillset.  
 
-當您在擴充樹狀結構中的物件符合投射的架構時，可以更輕鬆地定義投影。 更新的[整形程式技能](cognitive-search-skill-shaper.md)可讓您從擴充樹狀結構的不同節點撰寫物件，並將其父系在新節點底下。 「**整形**」技能可讓您定義具有嵌套物件的複雜類型。
+Projections are easier to define when you have an object in the enrichment tree that matches the schema of the projection. The updated [Shaper skill](cognitive-search-skill-shaper.md) allows you to compose an object from different nodes of the enrichment tree and parent them under a new node. The **Shaper** skill allows you to define complex types with nested objects.
 
-當您定義了一個新的圖形，其中包含您所需的所有專案時，您現在可以使用此圖形做為投影的來源，或做為另一個技能的輸入。
+When you have a new shape defined that contains all the elements you need to project out, you can now use this shape as the source for your projections or as an input to another skill.
 
-## <a name="projection-slicing"></a>投射切割
+## <a name="projection-slicing"></a>Projection slicing
 
-定義投射群組時，擴充樹狀結構中的單一節點可以分割成多個相關的資料表或物件。 加入具有現有投射之子系之來源路徑的投影，會導致子節點從父節點切割，並投射到新的相關資料表或物件中。 這項技術可讓您在整形程式技能中定義單一節點，以作為所有投影的來源。
+When defining a projection group, a single node in the enrichment tree can be sliced into multiple related tables or objects. Adding a projection with a source path that is a child of an existing projection will result in the child node being sliced out of the parent node and projected into the new yet related table or object. This technique allows you to define a single node in a shaper skill that can be the source for all of your projections.
 
-## <a name="table-projections"></a>資料表投射
+## <a name="table-projections"></a>Table projections
 
-因為它可讓匯入更容易，所以我們建議使用 Power BI 來探索資料的資料表。 此外，資料表投射允許變更資料表關聯性之間的基數。 
+Because it makes importing easier, we recommend table projections for data exploration with Power BI. Additionally, table projections allow for changing the cardinality between table relationships. 
 
-您可以將索引中的單一檔投影成多個資料表，並保留關聯性。 投影到多個資料表時，除非子節點是相同群組內另一個資料表的來源，否則整個圖形都會投射到每個資料表中。
+You can project a single document in your index into multiple tables, preserving the relationships. When projecting to multiple tables, the complete shape will be projected into each table, unless a child node is the source of another table within the same group.
 
-### <a name="defining-a-table-projection"></a>定義資料表投射
+### <a name="defining-a-table-projection"></a>Defining a table projection
 
-在技能集的 `knowledgeStore` 元素內定義資料表投影時，請先將擴充樹狀結構上的節點對應到資料表來源。 此節點通常是您加入至技能清單中，以產生您需要投影到資料表的特定圖形之**塑造技能的**輸出。 您選擇要加入至專案的節點可以切割成多個資料表。 資料表定義是您想要投影的資料表清單。
+When defining a table projection within the `knowledgeStore` element of your skillset, start by mapping a node on the enrichment tree to the table source. Typically this node is the output of a **Shaper** skill that you added to the list of skills to produce a specific shape that you need to project into tables. The node you choose to project can be sliced to project into multiple tables. The tables definition is a list of tables that you want to project.
 
-每個資料表都需要三個屬性：
+Each table requires three properties:
 
-+ tableName： Azure 儲存體中的資料表名稱。
++ tableName: The name of the table in Azure Storage.
 
-+ generatedKeyName：唯一識別此資料列之索引鍵的資料行名稱。
++ generatedKeyName: The column name for the key that uniquely identifies this row.
 
-+ 來源：從您的擴充來源的擴充樹狀結構中的節點。 此節點通常是整形者的輸出，但可能是任何技能的輸出。
++ source: The node from the enrichment tree you are sourcing your enrichments from. This node is usually the output of a shaper, but could be the output of any of the skills.
 
-以下是資料表投影的範例。
+Here is an example of table projections.
 
 ```json
 {
@@ -112,15 +112,17 @@ Azure 認知搜尋可讓您透過內建的認知技能和自訂技能來擴充�
 }
 ```
 
-如本範例所示，主要片語和實體會模型化為不同的資料表，而且將包含每個資料列之父系（MainTable）的參考。
+As demonstrated in this example, the key phrases and entities are modeled into different tables and will contain a reference back to the parent (MainTable) for each row.
 
-下圖是[如何開始使用知識存放區](knowledge-store-howto.md)中的案例法則的參考。 在案例中有多項意見，而且每個意見都藉由識別包含在其中的實體而擴充時，您可以建立預測的模型，如下所示。
+<!---
+The following illustration is a reference to the Case-law exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
 
-![資料表中的實體和關聯性](media/knowledge-store-projection-overview/TableRelationships.png "資料表投影中的模型關聯性")
+![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
+--->
 
-## <a name="object-projections"></a>物件投影
+## <a name="object-projections"></a>Object projections
 
-物件投射是擴充樹狀結構的 JSON 標記法，可以從任何節點來源。 在許多情況下，建立資料表投射的同一個**整形**程式技能可以用來產生物件投射。 
+Object projections are JSON representations of the enrichment tree that can be sourced from any node. In many cases, the same **Shaper** skill that creates a table projection can be used to generate an object projection. 
 
 ```json
 {
@@ -156,15 +158,15 @@ Azure 認知搜尋可讓您透過內建的認知技能和自訂技能來擴充�
 }
 ```
 
-產生物件投射需要一些特定物件屬性：
+Generating an object projection requires a few object-specific attributes:
 
-+ storageContainer：將儲存物件的容器
-+ 來源：擴充樹狀結構節點的路徑，這是投射的根
-+ 索引鍵：代表要儲存之物件唯一索引鍵的路徑。 它會用來建立容器中的 blob 名稱。
++ storageContainer: The container where the objects will be saved
++ source: The path to the node of the enrichment tree that is the root of the projection
++ key: A path that represents a unique key for the object to be stored. It will be used to create the name of the blob in the container.
 
-## <a name="file-projection"></a>檔案投射
+## <a name="file-projection"></a>File projection
 
-檔案投射與物件投影類似，而且只對 `normalized_images` 集合採取動作。 與物件投射類似，檔案投影會儲存在 blob 容器中，其中資料夾前置詞為檔識別碼的 base64 編碼值。 檔案投射無法與物件投影共用相同的容器，而且必須投射到不同的容器中。
+File projections are similar to object projections and only act on the `normalized_images` collection. Similar to object projections, file projections are saved in the blob container with folder prefix of the base64 encoded value of the document ID. File projections cannot share the same container as object projections and need to be projected into a different container.
 
 ```json
 {
@@ -198,23 +200,23 @@ Azure 認知搜尋可讓您透過內建的認知技能和自訂技能來擴充�
 }
 ```
 
-## <a name="projection-lifecycle"></a>預測生命週期
+## <a name="projection-lifecycle"></a>Projection lifecycle
 
-您的預測有一個生命週期，系結至資料來源中的來源資料。 當您的資料更新並重新建立索引時，您的投影會以擴充的結果進行更新，確保您的預測最終會與資料來源中的資料一致。 投影會繼承您為索引設定的刪除原則。 刪除索引子或搜尋服務本身時，不會刪除投影。
+Your projections have a lifecycle that is tied to the source data in your data source. As your data is updated and reindexed, your projections are updated with the results of the enrichments ensuring your projections are eventually consistent with the data in your data source. The projections inherit the delete policy you've configured for your index. Projections are not deleted when the indexer or the search service itself is deleted.
 
-## <a name="using-projections"></a>使用投影
+## <a name="using-projections"></a>Using projections
 
-執行索引子之後，您可以讀取透過投影指定的容器或資料表中的預測資料。
+After the indexer is run, you can read the projected data in the containers or tables you specified through projections.
 
-針對分析，Power BI 中的探索就像將 Azure 資料表儲存體設定為數據源一樣簡單。 您可以使用中的關聯性，輕鬆地在您的資料上建立一組視覺效果。
+For analytics, exploration in Power BI is as simple as setting Azure Table storage as the data source. You can easily create a set of visualizations on your data using the relationships within.
 
-或者，如果您需要在資料科學管線中使用擴充的資料，您可以將[資料從 blob 載入至 Pandas 資料框架](../machine-learning/team-data-science-process/explore-data-blob.md)。
+Alternatively, if you need to use the enriched data in a data science pipeline, you could [load the data from blobs into a Pandas DataFrame](../machine-learning/team-data-science-process/explore-data-blob.md).
 
-最後，如果您需要從知識存放區匯出資料，Azure Data Factory 有連接器可以匯出資料，並將其存放在您選擇的資料庫中。 
+Finally, if you need to export your data from the knowledge store, Azure Data Factory has connectors to export the data and land it in the database of your choice. 
 
 ## <a name="next-steps"></a>後續步驟
 
-在下一個步驟中，請使用範例資料和指示來建立您的第一個知識存放區。
+As a next step, create your first knowledge store using sample data and instructions.
 
 > [!div class="nextstepaction"]
-> [如何建立知識存放區](knowledge-store-howto.md)。
+> [How to create a knowlege store](knowledge-store-howto.md).

@@ -1,5 +1,5 @@
 ---
-title: 安裝內部部署資料閘道-Azure Logic Apps
+title: Install on-premises data gateway - Azure Logic Apps
 description: 您必須先下載並安裝內部部署資料閘道，才能從 Azure Logic Apps 存取內部部署資料
 services: logic-apps
 ms.service: logic-apps
@@ -9,77 +9,79 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: ef46fce8609119777ef73cbe189d7a8ace662c91
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e1e56d18b0874a724849e28092ed46892a1b5519
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076928"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326383"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
-[從 Azure Logic Apps 連接到內部部署資料來源](../logic-apps/logic-apps-gateway-connection.md)之前，請先在本機電腦上下載並安裝內部[部署資料閘道](https://aka.ms/on-premises-data-gateway-installer)。 閘道可做為橋接器，在內部部署的資料來源與邏輯應用程式之間快速地傳輸和加密資料。 您可以將相同的閘道安裝與其他雲端服務搭配使用，例如 Power BI、電源自動化、Power Apps 和 Azure Analysis Services。 如需如何搭配使用閘道與這些服務的相關資訊，請參閱下列文章：
+Before you can [connect to on-premises data sources from Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), download and install the [on-premises data gateway](https://aka.ms/on-premises-data-gateway-installer) on a local computer. The gateway works as a bridge that provides quick data transfer and encryption between data sources on premises and your logic apps. You can use the same gateway installation with other cloud services, such as Power BI, Power Automate, Power Apps, and Azure Analysis Services. For information about how to use the gateway with these services, see these articles:
 
-* [Microsoft Power 自動化內部部署資料閘道](/power-automate/gateway-reference)
+* [Microsoft Power Automate on-premises data gateway](/power-automate/gateway-reference)
 * [Microsoft Power BI 內部部署資料閘道](/power-bi/service-gateway-onprem)
-* [Microsoft Power Apps 內部部署資料閘道](/powerapps/maker/canvas-apps/gateway-reference)
+* [Microsoft Power Apps on-premises data gateway](/powerapps/maker/canvas-apps/gateway-reference)
 * [Azure Analysis Services 內部部署資料閘道](../analysis-services/analysis-services-gateway.md)
 
-本文說明如何下載、安裝及設定您的內部部署資料閘道，讓您可以從 Azure Logic Apps 存取內部部署資料來源。 您也可以在本主題稍後深入瞭解[資料閘道的運作方式](#gateway-cloud-service)。 如需閘道的詳細資訊，請參閱[什麼是內部部署閘道](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)？
+This article shows how to download, install, and set up your on-premises data gateway so that you can access on-premises data sources from Azure Logic Apps. You can also learn more about [how the data gateway works](#gateway-cloud-service) later in this topic. For more information about the gateway, see [What is an on-premises gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)?
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* Azure 帳戶和訂用帳戶。 如果您沒有訂用帳戶的 Azure 帳戶，請[註冊免費的 azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 帳戶和訂用帳戶。 If you don't have an Azure account with a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-  * 您的 Azure 帳戶必須屬於單一[Azure Active Directory （Azure AD）租使用者或目錄](../active-directory/fundamentals/active-directory-whatis.md#terminology)。 您必須使用相同的 Azure 帳戶來安裝和管理本機電腦上的閘道。
+  * Your Azure account must belong to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You must use the same Azure account for installing and administering the gateway on your local computer.
 
-  * 在閘道安裝期間，您會使用您的 Azure 帳戶登入，這會將您的閘道安裝連結至您的 Azure 帳戶，而只會將該帳戶 之後，在 Azure 入口網站中，當您建立註冊並宣告閘道安裝的 Azure 閘道資源時，您必須使用相同的 Azure 帳戶和 Azure AD 租使用者。 在 Azure Logic Apps 中，內部部署觸發程式和動作會使用閘道資源來連接到內部部署資料來源。
+  * During gateway installation, you sign in with your Azure account, which links your gateway installation to your Azure account and only that account. Later, in the Azure portal, you must use the same Azure account and Azure AD tenant when you create an Azure gateway resource that registers and claims your gateway installation. In Azure Logic Apps, on-premises triggers and actions then use the gateway resource for connecting to on-premises data sources.
 
     > [!NOTE]
-    > 您只能將一個閘道安裝和一個 Azure 閘道資源連結到彼此。 您無法將相同的閘道安裝連結至多個 Azure 帳戶或 Azure 閘道資源。 不過，Azure 帳戶可以連結至多個閘道安裝和 Azure 閘道資源。 在內部部署觸發程式或動作中，您可以從各種不同的 Azure 訂用帳戶中進行選取，然後選取相關聯的閘道資源。
+    > You can link only one gateway installation and one Azure gateway resource to each other. You can't link the same gateway installation to multiple Azure accounts or Azure gateway resources. However, an Azure account can link to multiple gateway installations and Azure gateway resources. In an on-premises trigger or action, you can select from your various Azure subscriptions, and then select an associated gateway resource.
 
-  * 您必須使用工作帳戶或學校帳戶（也稱為*組織*帳戶）登入，其看起來會像 `username@contoso.com`。 您不能使用 Azure B2B （來賓）帳戶或個人 Microsoft 帳戶，例如 @hotmail.com 或 @outlook.com。
+  * You need to sign in with either a work account or school account, also known as an *organization* account, which looks like `username@contoso.com`. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as @hotmail.com or @outlook.com.
 
     > [!TIP]
-    > 如果您註冊 Office 365 供應專案，但未提供公司電子郵件地址，您的位址可能會像 `username@domain.onmicrosoft.com`。 您的帳戶會儲存在 Azure Active Directory （Azure AD）中的租使用者內。 在大部分情況下，您 Azure AD 帳戶的使用者主體名稱（UPN）與您的電子郵件地址相同。
+    > If you signed up for an Office 365 offering and didn't provide your work email address, your address might look like `username@domain.onmicrosoft.com`. Your account is stored within a tenant in an Azure Active Directory (Azure AD). In most cases, the User Principal Name (UPN) for your Azure AD account is the same as your email address.
     >
-    > 若要使用連結至 Microsoft 帳戶的[Visual Studio 標準訂](https://visualstudio.microsoft.com/vs/pricing/)用帳戶，請先[在 Azure AD 中建立租](../active-directory/develop/quickstart-create-new-tenant.md)使用者，或使用預設目錄。 將具有密碼的使用者新增至目錄，然後授與該使用者對您 Azure 訂用帳戶的存取權。 接著，您就可以在安裝閘道時，使用此使用者名稱和密碼來進行登入。
+    > To use a [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/) that's linked to a Microsoft account, first [create a tenant in Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) or use the default directory. Add a user with a password to the directory, and then give that user access to your Azure subscription. 接著，您就可以在安裝閘道時，使用此使用者名稱和密碼來進行登入。
 
 * 您的本機電腦需求如下：
 
   **最低需求**
 
-  * .NET Framework 4.7。2
+  * .NET Framework 4.7.2
   * 64 位元版本的 Windows 7 或 Windows Server 2008 R2 (或更新版本)
 
   **建議需求**
 
   * 8 核心 CPU
   * 8 GB 記憶體
-  * 64位版本的 Windows Server 2012 R2 或更新版本
-  * 用於緩衝處理的固態硬碟（SSD）儲存體
+  * 64-bit version of Windows Server 2012 R2 or later
+  * Solid-state drive (SSD) storage for spooling
 
   > [!NOTE]
-  > 閘道不支援 Windows Server Core。
+  > The gateway doesn't support Windows Server Core.
 
-* **相關考慮**
+* **Related considerations**
 
-  * 您只可以在本機電腦上安裝內部部署資料閘道，而無法在網域控制站上安裝。 不過，閘道不必安裝在和資料來源相同的電腦上。 您的所有資料來源都只需要一個閘道，因此您不需要為每個資料來源安裝閘道。
+  * Install the on-premises data gateway only on a local computer, not a domain controller. 閘道不必安裝在和資料來源相同的電腦上。 You need only one gateway for all your data sources, so you don't need to install the gateway for each data source.
 
     > [!TIP]
     > 若要盡量減少延遲，您可以將閘道安裝在最靠近資料來源的位置或同一部電腦上，但前提是您有相關權限。
 
-  * 將閘道安裝在有線網路上的電腦上、連線到網際網路、一律開啟，而且不會進入睡眠狀態。 否則，閘道將無法執行，而且效能可能會透過無線網路而受到影響。
+  * Install the gateway on a computer that's on a wired network, connected to the internet, always turned on, and doesn't go to sleep. Otherwise, the gateway can't run, and performance might suffer over a wireless network.
 
-  * 如果您打算使用 Windows 驗證，請確定您將閘道安裝在與資料來源相同 Active Directory 環境成員的電腦上。
+  * If you plan to use Windows authentication, make sure that you install the gateway on a computer that's a member of the same Active Directory environment as your data sources.
 
-  * 您為閘道安裝所選取的區域，是您稍後為邏輯應用程式建立 Azure 閘道資源時必須選取的相同位置。 根據預設，此區域與管理 Azure 帳戶的 Azure AD 租使用者位置相同。 不過，您可以在閘道安裝期間變更位置。
+  * The region that you select for your gateway installation is the same location that you must select when you later create the Azure gateway resource for your logic app. By default, this region is the same location as your Azure AD tenant that manages your Azure account. However, you can change the location during gateway installation.
 
-  * 閘道有兩種模式： [標準模式] 和 [個人模式]，僅適用于 Power BI。 同一部電腦上不能有一個以上的閘道在相同的模式下執行。
+  * If you're updating your gateway installation to the latest version, uninstall your current gateway first for a cleaner experience.
 
-  * Azure Logic Apps 支援透過閘道進行的讀取和寫入作業。 不過，這些作業對[其裝載大小有限制](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)。
+  * The gateway has two modes: standard mode and personal mode, which applies only to Power BI. You can't have more than one gateway running in the same mode on the same computer.
+
+  * Azure Logic Apps supports read and write operations through the gateway. However, these operations have [limits on their payload size](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="install-gateway"></a>
 
@@ -87,46 +89,46 @@ ms.locfileid: "74076928"
 
 1. [在本機電腦上下載並執行閘道安裝程式](https://aka.ms/on-premises-data-gateway-installer)。
 
-1. 在安裝程式開啟之後，選取 **[下一步]** 。
+1. After the installer opens, select **Next**.
 
-   ![閘道安裝程式的簡介畫面](./media/logic-apps-gateway-install/gateway-intro-screen.png)
+   ![Intro screen for gateway installer](./media/logic-apps-gateway-install/gateway-intro-screen.png)
 
-1. 選取 [內部**部署資料閘道（建議）** ]，這是 [標準模式]，然後選取 **[下一步]** 。
+1. Select **On-premises data gateway (recommended)** , which is standard mode, and then select **Next**.
 
-   ![選取資料閘道的執行模式](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
+   ![Select run mode for data gateway](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
 
-1. 請參閱最低需求，保留預設安裝路徑，接受使用規定，然後選取 [**安裝**]。
+1. Review the minimum requirements, keep the default installation path, accept the terms of use, and then select **Install**.
 
-   ![審查需求並接受使用條款](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
+   ![Review requirements and accept terms of use](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
 
-1. 成功安裝閘道之後，請提供您 Azure 帳戶的電子郵件地址，然後選取 [登**入**]，例如：
+1. After the gateway successfully installs, provide the email address for your Azure account, and then select **Sign in**, for example:
 
    ![使用公司或學校帳戶登入](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-   您的閘道安裝只能連結到一個 Azure 帳戶。
+   Your gateway installation can link to only one Azure account.
 
-1. 選取 **在這部電腦上註冊新的閘道** ** > 下一步**。 此步驟會向[閘道雲端服務](#gateway-cloud-service)註冊您的閘道安裝。
+1. Select **Register a new gateway on this computer** > **Next**. This step registers your gateway installation with the [gateway cloud service](#gateway-cloud-service).
 
-   ![在本機電腦上註冊閘道](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
+   ![Register gateway on local computer](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
 1. 為您的閘道安裝提供下列資訊：
 
-   * 在您的 Azure AD 租使用者中唯一的閘道名稱
-   * 您想要使用的修復金鑰，必須至少有八個字元
+   * A gateway name that's unique across your Azure AD tenant
+   * The recovery key, which must have at least eight characters, that you want to use
    * 確認您的修復金鑰
 
-   ![提供閘道安裝的資訊](./media/logic-apps-gateway-install/gateway-name-recovery-key.png)
+   ![Provide information for gateway installation](./media/logic-apps-gateway-install/gateway-name-recovery-key.png)
 
    > [!IMPORTANT]
-   > 將您的修復金鑰儲存並保留在安全的地方。 如果您想要變更位置、移動、復原或接管閘道安裝，則需要此金鑰。
+   > 將您的修復金鑰儲存並保留在安全的地方。 You need this key if you ever want to change the location, move, recover, or take over a gateway installation.
 
-   請注意，您可以選擇**新增至現有的閘道**叢集，而當您針對[高可用性案例](#high-availability)安裝額外的閘道時，就會選取此選項。
+   Note the option to **Add to an existing gateway cluster**, which you select when you install additional gateways for [high-availability scenarios](#high-availability).
 
-1. 檢查閘道雲端服務的區域，以及閘道安裝所使用的[Azure 服務匯流排](https://azure.microsoft.com/services/service-bus/)。 根據預設，此區域是與您的 Azure 帳戶 Azure AD 租使用者相同的位置。
+1. Check the region for the gateway cloud service and [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) that's used by your gateway installation. By default, this region is the same location as the Azure AD tenant for your Azure account.
 
-   ![確認閘道服務和服務匯流排的區域](./media/logic-apps-gateway-install/confirm-gateway-region.png)
+   ![Confirm region for gateway service and service bus](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
-1. 若要接受預設區域，請選取 [**設定**]。 不過，如果預設區域不是最接近您的區域，您可以變更該區域。
+1. To accept the default region, select **Configure**. However, if the default region isn't the one that's closest to you, you can change the region.
 
    *為什麼要變更閘道安裝的區域？*
 
@@ -134,36 +136,36 @@ ms.locfileid: "74076928"
 
    1. 在目前區域旁邊，選取 [變更區域]。
 
-      ![變更目前的閘道區域](./media/logic-apps-gateway-install/change-gateway-service-region.png)
+      ![Change the current gateway region](./media/logic-apps-gateway-install/change-gateway-service-region.png)
 
-   1. 在下一個頁面上，開啟 [**選取區域**] 清單，選取您想要的區域，然後選取 [**完成**]。
+   1. On the next page, open the **Select Region** list, select the region you want, and select **Done**.
 
-      ![選取閘道服務的另一個區域](./media/logic-apps-gateway-install/select-region-gateway-install.png)
+      ![Select another region for gateway service](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
-1. 檢查最後確認視窗中的資訊。 這個範例會使用相同的帳戶來進行 Logic Apps、Power BI、電源應用程式和電源自動化，讓閘道可供所有這些服務使用。 當您準備好時，請選取 [**關閉**]。
+1. Review the information in the final confirmation window. This example uses the same account for Logic Apps, Power BI, Power Apps, and Power Automate, so the gateway is available for all these services. When you're ready, select **Close**.
 
-   ![確認資料閘道資訊](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
+   ![Confirm data gateway information](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
-1. 現在，[為您的閘道安裝建立 Azure 資源](../logic-apps/logic-apps-gateway-connection.md)。
+1. Now [create the Azure resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md).
 
-## <a name="check-or-adjust-communication-settings"></a>檢查或調整通訊設定
+## <a name="check-or-adjust-communication-settings"></a>Check or adjust communication settings
 
-內部部署資料閘道取決於雲端連線[Azure 服務匯流排](../service-bus-messaging/service-bus-messaging-overview.md)，並建立與閘道相關聯 Azure 區域的對應輸出連線。 如果您的工作環境要求流量通過 proxy 或防火牆來存取網際網路，此限制可能會導致內部部署資料閘道無法連線到閘道雲端服務，並 Azure 服務匯流排。 閘道有數個通訊設定可供您調整。 如需詳細資訊，請參閱下列主題：
+The on-premises data gateway depends on [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) for cloud connectivity and establishes the corresponding outbound connections to the gateway's associated Azure region. If your work environment requires that traffic goes through a proxy or firewall to access the internet, this restriction might prevent the on-premises data gateway from connecting to the gateway cloud service and Azure Service Bus. The gateway has several communication settings, which you can adjust. 如需詳細資訊，請參閱下列主題：
 
-* [調整內部部署資料閘道的通訊設定](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
-* [設定內部部署資料閘道的 proxy 設定](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
+* [Adjust communication settings for the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
+* [Configure proxy settings for the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>
 
 ## <a name="high-availability-support"></a>高可用性支援
 
-若要避免內部部署資料存取發生單一失敗點，您可以在不同的電腦上安裝多個閘道（僅限標準模式），並將它們設定為叢集或群組。 如此一來，如果主要閘道無法使用，則會將資料要求路由傳送至第二個閘道，依此類推。 因為您只能在一部電腦上安裝一個標準閘道，所以您必須在另一部電腦上安裝叢集中的每個額外閘道。 所有與內部部署資料閘道搭配運作的連接器都支援高可用性。
+To avoid single points of failure for on-premises data access, you can have multiple gateway installations (standard mode only) with each on a different computer, and set them up as a cluster or group. That way, if the primary gateway is unavailable, data requests are routed to the second gateway, and so on. Because you can install only one standard gateway on a computer, you must install each additional gateway that's in the cluster on a different computer. All the connectors that work with the on-premises data gateway support high availability.
 
-* 您必須至少有一個閘道安裝與主要閘道相同的 Azure 帳戶，以及該安裝的修復金鑰。
+* You must already have at least one gateway installation with the same Azure account as the primary gateway and the recovery key for that installation.
 
 * 主要閘道必須執行 2017 年 11 月或更新版本的閘道更新。
 
-設定主要閘道之後，當您移至 [安裝其他閘道] 時，選取 [**新增至現有的閘道**叢集]，選取主要閘道（即您安裝的第一個閘道），並提供該閘道的修復金鑰。 如需詳細資訊，請參閱[適用於內部部署資料閘道的高可用性叢集](https://docs.microsoft.com/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster)。
+After you set up your primary gateway, when you go to install another gateway, select **Add to an existing gateway cluster**, select the primary gateway, which is the first gateway that you installed, and provide the recovery key for that gateway. 如需詳細資訊，請參閱[適用於內部部署資料閘道的高可用性叢集](https://docs.microsoft.com/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster)。
 
 <a name="update-gateway-installation"></a>
 
@@ -171,108 +173,108 @@ ms.locfileid: "74076928"
 
 如果您必須變更閘道的位置、閘道安裝移至新的電腦、復原受損的閘道，或取得現有閘道的擁有權，您會需要在閘道安裝期間所提供的修復金鑰。
 
-1. 在具有現有閘道的電腦上執行閘道安裝程式。 如果您沒有最新的閘道安裝程式，請[下載最新的閘道版本](https://aka.ms/on-premises-data-gateway-installer)。
+1. Run the gateway installer on the computer that has the existing gateway. If you don't have the latest gateway installer, [download the latest gateway version](https://aka.ms/on-premises-data-gateway-installer).
 
    > [!NOTE]
-   > 在具有原始閘道安裝的電腦上還原閘道之前，您必須先卸載該電腦上的閘道。 此動作會中斷原始閘道的連線。
-   > 如果您移除或刪除任何雲端服務的閘道叢集，就無法還原該叢集。
+   > Before you restore the gateway on the computer that has the original gateway installation, you must first uninstall the gateway on that computer. This action disconnects the original gateway.
+   > If you remove or delete a gateway cluster for any cloud service, you can't restore that cluster.
 
-1. 在安裝程式開啟之後，以用來安裝閘道的相同 Azure 帳戶登入。
+1. After the installer opens, sign in with the same Azure account that was used to install the gateway.
 
-1. 選取 [**遷移、還原或接管現有的閘道** > **下一步]** ，例如：
+1. Select **Migrate, restore, or takeover an existing gateway** > **Next**, for example:
 
    ![選取 [遷移、還原或取代現有閘道]](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
-1. 選取可用的叢集和閘道，然後輸入所選閘道的修復金鑰，例如：
+1. Select from the available clusters and gateways, and enter the recovery key for the selected gateway, for example:
 
-   ![選取閘道並提供修復金鑰](./media/logic-apps-gateway-install/select-existing-gateway.png)
+   ![Select gateway and provide recovery key](./media/logic-apps-gateway-install/select-existing-gateway.png)
 
-1. 若要變更區域，請選取 [**變更區域**]，然後選取新的區域。
+1. To change the region, select **Change Region**, and select the new region.
 
-1. 當您準備好時，請選取 [**設定**]，讓您可以完成工作。
+1. When you're ready, select **Configure** so that you can finish your task.
 
-## <a name="tenant-level-administration"></a>租使用者層級管理
+## <a name="tenant-level-administration"></a>Tenant-level administration
 
-若要查看 Azure AD 租使用者中的所有內部部署資料閘道，該租使用者中的全域管理員可以使用租使用者系統管理員身分登入[Power Platform 管理中心](https://powerplatform.microsoft.com)，然後選取 [**資料閘道**] 選項。 如需詳細資訊，請參閱內部[部署資料閘道的租使用者層級管理](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)。
+To get visibility into all the on-premises data gateways in an Azure AD tenant, global administrators in that tenant can sign in to the [Power Platform Admin center](https://powerplatform.microsoft.com) as a tenant administrator and select the **Data Gateways** option. For more information, see [Tenant-level administration for the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin).
 
 <a name="restart-gateway"></a>
 
 ## <a name="restart-gateway"></a>重新啟動閘道
 
-根據預設，在本機電腦上安裝閘道時，會以名為「內部部署資料閘道服務」的 Windows 服務帳戶的身分執行。 不過，閘道安裝會針對其「登入身分」帳號憑證使用 `NT SERVICE\PBIEgwService` 名稱，並具有「以服務方式登入」許可權。
+By default, the gateway installation on your local computer runs as a Windows service account named "On-premises data gateway service". However, the gateway installation uses the `NT SERVICE\PBIEgwService` name for its "Log On As" account credentials and has "Log on as a service" permissions.
 
 > [!NOTE]
-> 您的 Windows 服務帳戶與用來連線到內部部署資料來源的帳戶不同，以及您登入雲端服務時所使用的 Azure 帳戶。
+> Your Windows service account differs from the account used for connecting to on-premises data sources and from the Azure account that you use when you sign in to cloud services.
 
-就像任何其他 Windows 服務一樣，您可以透過各種方式來啟動和停止閘道。 如需詳細資訊，請參閱[重新開機內部部署資料閘道](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart)。
+Like any other Windows service, you can start and stop the gateway in various ways. For more information, see [Restart an on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart).
 
 <a name="gateway-cloud-service"></a>
 
 ## <a name="how-the-gateway-works"></a>閘道運作方式
 
-您組織中的使用者可以存取已獲授權存取的內部部署資料。 不過，在這些使用者可以連線到您的內部部署資料來源之前，您必須先安裝及設定內部部署資料閘道。 通常，系統管理員是安裝和設定閘道的人員。 這些動作可能需要伺服器管理員許可權或您內部部署伺服器的特殊知識。
+Users in your organization can access on-premises data for which they already have authorized access. However, before these users can connect to your on-premises data source, you need to install and set up an on-premises data gateway. Usually, an admin is the person who installs and sets up a gateway. These actions might require Server Administrator permissions or special knowledge about your on-premises servers.
 
-閘道可協助快速且安全的通訊幕後通訊。 這項通訊會在雲端中的使用者、閘道雲端服務和您的內部部署資料來源之間流動。 閘道雲端服務會將資料來源認證和閘道詳細資料予以加密並儲存。 服務也會在使用者、閘道和您的內部部署資料來源之間路由傳送查詢和其結果。
+The gateway facilitates quick and secure communication behind-the-scenes-communication. This communication flows between a user in the cloud, the gateway cloud service, and your on-premises data source. 閘道雲端服務會將資料來源認證和閘道詳細資料予以加密並儲存。 The service also routes queries and their results between the user, the gateway, and your on-premises data source.
 
-閘道可搭配防火牆運作，而且僅使用輸出連線。 源自閘道代理程式的所有流量都是安全輸出流量。 閘道會透過[Azure 服務匯流排](../service-bus-messaging/service-bus-messaging-overview.md)，從加密通道上的內部部署來源轉送資料。 此服務匯流排會建立閘道與呼叫服務之間的通道，但不會儲存任何資料。 透過閘道傳送的所有資料都會加密。
+閘道可搭配防火牆運作，而且僅使用輸出連線。 源自閘道代理程式的所有流量都是安全輸出流量。 The gateway relays data from on-premises sources on encrypted channels through [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). 此服務匯流排會建立閘道與呼叫服務之間的通道，但不會儲存任何資料。 透過閘道傳送的所有資料都會加密。
 
-![內部部署資料閘道的架構](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
+![Architecture for on-premises data gateway](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
 > [!NOTE]
-> 視雲端服務而定，您可能需要設定閘道的資料來源。
+> Depending on the cloud service, you might need to set up a data source for the gateway.
 
-這些步驟說明當您與連線到內部部署資料來源的專案互動時，會發生什麼情況：
+These steps describe what happens when you interact with an element that's connected to an on-premises data source:
 
-1. 雲端服務會建立查詢，以及資料來源的加密認證。 服務接著會將查詢和認證傳送到閘道佇列以進行處理。
+1. The cloud service creates a query, along with the encrypted credentials for the data source. The service then sends the query and credentials to the gateway queue for processing.
 
-1. 閘道雲端服務會分析查詢，並將要求推送至 Azure 服務匯流排。
+1. The gateway cloud service analyzes the query and pushes the request to Azure Service Bus.
 
-1. Azure 服務匯流排會將暫止的要求傳送至閘道。
+1. Azure Service Bus sends the pending requests to the gateway.
 
-1. 閘道會取得查詢、將認證解密，並使用這些認證連接到一或多個資料來源。
+1. The gateway gets the query, decrypts the credentials, and connects to one or more data sources with those credentials.
 
-1. 閘道會將查詢傳送至要執行的資料來源。
+1. The gateway sends the query to the data source for running.
 
 1. 結果會從資料來源傳送回閘道，然後再到閘道雲端服務。 閘道雲端服務接著就會使用結果。
 
-### <a name="authentication-to-on-premises-data-sources"></a>對內部部署資料來源的驗證
+### <a name="authentication-to-on-premises-data-sources"></a>Authentication to on-premises data sources
 
-預存認證是用來從閘道連接到內部部署資料來源。 無論使用者為何，閘道都會使用預存認證來連接。 特定服務可能會有驗證例外狀況，例如 Power BI 中 Analysis Services 的 DirectQuery 和 LiveConnect。
+A stored credential is used to connect from the gateway to on-premises data sources. Regardless of the user, the gateway uses the stored credential to connect. There might be authentication exceptions for specific services, such as DirectQuery and LiveConnect for Analysis Services in Power BI.
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 
-Microsoft 雲端服務會使用[Azure AD](../active-directory/fundamentals/active-directory-whatis.md)來驗證使用者。 Azure AD 租使用者包含使用者名稱和安全性群組。 一般來說，您用來登入的電子郵件地址與您帳戶的使用者主體名稱（UPN）相同。
+Microsoft cloud services use [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) to authenticate users. An Azure AD tenant contains usernames and security groups. Typically, the email address that you use for sign-in is the same as the User Principal Name (UPN) for your account.
 
-### <a name="what-is-my-upn"></a>我的 UPN 是什麼？
+### <a name="what-is-my-upn"></a>What is my UPN?
 
-如果您不是網域系統管理員，您可能不知道您的 UPN。 若要尋找您帳戶的 UPN，請從您的工作站執行 `whoami /upn` 命令。 雖然結果看起來像是電子郵件地址，但結果會是您本機網域帳戶的 UPN。
+If you're not a domain admin, you might not know your UPN. To find the UPN for your account, run the `whoami /upn` command from your workstation. Although the result looks like an email address, the result is the UPN for your local domain account.
 
-### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>同步處理內部部署 Active Directory 與 Azure AD
+### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Synchronize an on-premises Active Directory with Azure AD
 
-內部部署 Active Directory 帳戶和 Azure AD 帳戶的 UPN 必須相同。 因此，請確定每個內部部署 Active Directory 帳戶都符合您的 Azure AD 帳戶。 雲端服務只知道 Azure AD 內的帳戶。 因此，您不需要將帳戶新增至內部部署 Active Directory。 如果 Azure AD 中的帳戶不存在，您就無法使用該帳戶。
+The UPN for your on-premises Active Directory accounts and Azure AD accounts must be the same. So, make sure that each on-premises Active Directory account matches your Azure AD account. The cloud services know only about accounts within Azure AD. So, you don't need to add an account to your on-premises Active Directory. If the account doesn't exist in Azure AD, you can't use that account.
 
-以下是您可以讓內部部署 Active Directory 帳戶與 Azure AD 相符的方式。
+Here are ways that you can match your on-premises Active Directory accounts with Azure AD.
 
-* 手動將帳戶新增至 Azure AD。
+* Add accounts manually to Azure AD.
 
-  在 Azure 入口網站或 Microsoft 365 系統管理中心內建立帳戶。 請確定帳戶名稱符合內部部署 Active Directory 帳戶的 UPN。
+  Create an account in the Azure portal or in the Microsoft 365 admin center. Make sure that the account name matches the UPN for the on-premises Active Directory account.
 
-* 使用 Azure Active Directory Connect 工具，將本機帳戶同步處理至您的 Azure AD 租使用者。
+* Synchronize local accounts to your Azure AD tenant by using the Azure Active Directory Connect tool.
 
-  Azure AD Connect 工具會提供目錄同步作業和驗證設定的選項。 這些選項包括密碼雜湊同步處理、傳遞驗證和同盟。 如果您不是租使用者管理員或本機網域系統管理員，請洽詢您的 IT 系統管理員以取得 Azure AD Connect 設定。 Azure AD Connect 可確保您的 Azure AD UPN 符合您的本機 Active Directory UPN。 如果您使用 Analysis Services 即時連線搭配 Power BI 或單一登入（SSO）功能，這種比對會很有説明。
+  The Azure AD Connect tool provides options for directory synchronization and authentication setup. These options include password hash sync, pass-through authentication, and federation. If you're not a tenant admin or a local domain admin, contact your IT admin to get Azure AD Connect set up. Azure AD Connect ensures that your Azure AD UPN matches your local Active Directory UPN. This matching helps if you're using Analysis Services live connections with Power BI or single sign-on (SSO) capabilities.
 
   > [!NOTE]
-  > 使用 Azure AD Connect 工具同步處理帳戶，會在您的 Azure AD 租使用者中建立新的帳戶。
+  > Synchronizing accounts with the Azure AD Connect tool creates new accounts in your Azure AD tenant.
 
 <a name="faq"></a>
 
-## <a name="faq-and-troubleshooting"></a>常見問題和疑難排解
+## <a name="faq-and-troubleshooting"></a>FAQ and troubleshooting
 
 如需詳細資訊，請參閱下列主題：
 
 * [內部部署資料閘道常見問題集](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
-* [針對內部部署資料閘道進行疑難排解](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [監視和優化閘道效能](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [Troubleshoot the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
+* [Monitor and optimize gateway performance](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>後續步驟
 

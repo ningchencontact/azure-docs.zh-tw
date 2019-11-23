@@ -1,16 +1,16 @@
 ---
 title: 常見問題疑難排解
-description: 了解如何針對建立、指派和移除藍圖的問題進行疑難排解。
-ms.date: 12/11/2018
+description: Learn how to troubleshoot issues creating, assigning, and removing blueprints such as policy violations and blueprint parameter functions.
+ms.date: 11/22/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: b6f1d6c40f7268e90f09457e680a3ef33996c341
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4e7ea1760e000a167c4329d6f12f3acc18d18f7c
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960297"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406603"
 ---
-# <a name="troubleshoot-errors-using-azure-blueprints"></a>使用 Azure 藍圖針對錯誤進行疑難排解
+# <a name="troubleshoot-errors-using-azure-blueprints"></a>針對使用 Azure 藍圖發生的錯誤進行疑難排解
 
 您可能會在建立或指派藍圖時遇到錯誤。 此文章說明可能發生的各種錯誤與解決方式。
 
@@ -20,9 +20,9 @@ ms.locfileid: "73960297"
 
 1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
 
-1. 從左邊的頁面選取 [**指派的藍圖**]，然後使用 [搜尋] 方塊來篩選藍圖指派，以尋找失敗的指派。 您也可以依 [佈建狀態] 欄排序指派表格，以查看所有已群組在一起的失敗指派。
+1. Select **Assigned blueprints** from the page on the left and use the search box to filter the blueprint assignments to find the failed assignment. 您也可以依 [佈建狀態] 欄排序指派表格，以查看所有已群組在一起的失敗指派。
 
-1. 以滑鼠左鍵按一下狀態為 [_失敗_] 的藍圖，或按一下滑鼠右鍵，然後選取 [ **View 指派詳細資料**]。
+1. Left-click on the blueprint with the _Failed_ status or right-click and select **View assignment details**.
 
 1. 代表指派失敗的紅色橫幅警告位於藍圖指派頁面的最上方。 按一下該橫幅上的任一處，以取得更多詳細資料。
 
@@ -43,11 +43,11 @@ ms.locfileid: "73960297"
 - 要建立的資源受到原則所限制 (通常是 SKU 或位置限制)
 - 部署正在設定原則所設定的欄位 (通常會使用標記)
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解析度
 
 變更藍圖，使其不會與錯誤詳細資料中的原則發生發生衝突。 如果此變更不可行，替代選項就是變更原則指派的範圍，使藍圖不再與原則產生衝突。
 
-### <a name="escape-function-parameter"></a>案例：藍圖參數是函式
+### <a name="escape-function-parameter"></a>Scenario: Blueprint parameter is a function
 
 #### <a name="issue"></a>問題
 
@@ -57,14 +57,14 @@ ms.locfileid: "73960297"
 
 將使用如 `[resourceGroup().tags.myTag]` 等函式的藍圖參數傳遞至成品，會造成在成品上設定該函式處理過後的結果，而非動態函式。
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解析度
 
-若要將函式作為參數傳遞，請使用 `[` 逸出整個字串，讓藍圖參數看起來像 `[[resourceGroup().tags.myTag]`。 逸出字元會導致「藍圖」在處理藍圖時，將值視為字串。 接著「藍圖」會將函式置於成品上，讓它如預期般地為動態函式。 如需詳細資訊，請參閱[Azure Resource Manager 範本中的語法和運算式](../../../azure-resource-manager/template-expressions.md)。
+若要將函式作為參數傳遞，請使用 `[` 逸出整個字串，讓藍圖參數看起來像 `[[resourceGroup().tags.myTag]`。 逸出字元會導致「藍圖」在處理藍圖時，將值視為字串。 接著「藍圖」會將函式置於成品上，讓它如預期般地為動態函式。 For more information, see [Syntax and expressions in Azure Resource Manager templates](../../../azure-resource-manager/template-expressions.md).
 
 ## <a name="next-steps"></a>後續步驟
 
 如果您沒有看到您的問題，或無法解決您的問題，請瀏覽下列其中一個管道以取得更多支援：
 
-- 透過[Azure 論壇](https://azure.microsoft.com/support/forums/)取得 azure 專家的解答。
+- Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 - 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。
 - 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。

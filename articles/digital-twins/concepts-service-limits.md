@@ -1,19 +1,19 @@
 ---
-title: 公開預覽服務限制-Azure 數位 Twins |Microsoft Docs
-description: 瞭解 Azure 數位 Twins 的公開預覽服務限制。
+title: Public preview service limits - Azure Digital Twins | Microsoft Docs
+description: Learn about public preview service, subscription, instance, and rate limits for Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.openlocfilehash: 3cea4fe65e49bfa2d49822d443103ae6cc6ce69f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/21/2019
+ms.openlocfilehash: f54311af65d9678b2a51b23a38bab66111a818ca
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014158"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383077"
 ---
 # <a name="public-preview-service-limits"></a>公開預覽服務限制
 
@@ -70,8 +70,8 @@ Azure Digital Twins 管理 API 的要求比率限制如下：
 
 下列限制是裝置可傳送至 Azure Digital Twins 執行個體的所有訊息總數上限：
 
-- 所有裝置上每秒100個訊息
--   每個裝置每秒25則訊息
+- 100 messages per second across all devices
+-   25 messages per second per device
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,6 +1,6 @@
 ---
-title: 如何調試 Udf-Azure 數位 Twins |Microsoft Docs
-description: 瞭解在 Azure 數位 Twins 中用來偵測使用者定義函數的建議方法。
+title: How to debug UDFs - Azure Digital Twins | Microsoft Docs
+description: Learn about recommended approaches to debug user-defined functions in Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,43 +9,43 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 130250156f0fae3e6c40742278479b5d4612657b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a5f5729836e031b895fdb584efd971f2b8653353
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005941"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383389"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>如何為 Azure Digital Twins 中的使用者定義函式偵錯
 
-本文摘要說明如何診斷和偵測 Azure 數位 Twins 中的使用者定義函數。 接著，它會找出偵錯這些函式時的一些最常見案例。
+This article summarizes how to diagnose and debug user-defined functions in Azure Digital Twins. 接著，它會找出偵錯這些函式時的一些最常見案例。
 
 >[!TIP]
 > 若要深入了解如何在 Azure Digital Twins 中使用活動記錄、診斷記錄和 Azure 監視器來設定偵錯工具，請閱讀[如何設定監視和記錄](./how-to-configure-monitoring.md)。
 
 ## <a name="debug-issues"></a>為問題偵錯
 
-瞭解如何診斷 Azure 數位 Twins 內的問題，可讓您有效地分析問題、找出問題的原因，並為他們提供適當的解決方案。
+Knowing how to diagnose issues within Azure Digital Twins allows you to effectively analyze issues, identify the causes of problems, and provide appropriate solutions for them.
 
-提供各種記錄、分析和診斷工具給該端。
+A variety of logging, analytics, and diagnostic tools are provided to that end.
 
-### <a name="enable-logging-for-your-instance"></a>為您的實例啟用記錄
+### <a name="enable-logging-for-your-instance"></a>Enable logging for your instance
 
-Azure Digital Twins 支援強固的記錄、監視與分析功能。 解決方案開發人員可以使用 Azure 監視器記錄、診斷記錄、活動記錄和其他服務，以支援 IoT 應用程式的複雜監視需求。 您可以合併記錄選項以查詢或檢視跨多的服務的記錄，並提供許多服務的精細記錄涵蓋範圍。
+Azure Digital Twins 支援強固的記錄、監視與分析功能。 Solutions developers can use Azure Monitor logs, diagnostic logs, activity logs, and other services to support the complex monitoring needs of an IoT app. 您可以合併記錄選項以查詢或檢視跨多的服務的記錄，並提供許多服務的精細記錄涵蓋範圍。
 
-* 如需 Azure 數位 Twins 特有的記錄設定，請閱讀[如何設定監視和記錄](./how-to-configure-monitoring.md)。
-* 請參閱[Azure 監視器](../azure-monitor/overview.md)總覽，以瞭解透過 Azure 監視器啟用的強大記錄檔設定。
-* 請參閱[從 azure 資源收集和取用記錄資料](../azure-monitor/platform/resource-logs-overview.md)一文，以透過 Azure 入口網站、Azure CLI 或 PowerShell 設定 Azure 數位 Twins 中的診斷記錄設定。
+* For logging configuration specific to Azure Digital Twins, read [How to configure monitoring and logging](./how-to-configure-monitoring.md).
+* Consult the [Azure Monitor](../azure-monitor/overview.md) overview to learn about powerful log settings enabled through Azure Monitor.
+* Review the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/resource-logs-overview.md) for configuring diagnostic log settings in Azure Digital Twins through the Azure portal, Azure CLI, or PowerShell.
 
-設定好之後，您將能夠選取所有記錄類別、計量，並使用功能強大的 Azure 監視器 log analytics 工作區來支援您的偵錯工具。
+Once configured, you'll be able to select all log categories, metrics, and use powerful Azure Monitor log analytics workspaces to support your debugging efforts.
 
 ### <a name="trace-sensor-telemetry"></a>追蹤感應器遙測
 
-若要追蹤感應器遙測，請確認已針對您的 Azure Digital Twins 執行個體啟用診斷設定。 然後，請確定已選取所有需要的記錄檔類別。 最後，確認所需的記錄會傳送至 Azure 監視器記錄。
+若要追蹤感應器遙測，請確認已針對您的 Azure Digital Twins 執行個體啟用診斷設定。 然後，請確定已選取所有需要的記錄檔類別。 Lastly, confirm that the desired logs are being sent to Azure Monitor logs.
 
 若要使感應器遙測訊息與其各自的記錄相符，您可以針對所傳送的事件資料指定相互關聯識別碼。 若要這樣做，將 `x-ms-client-request-id` 屬性設為 GUID。
 
-傳送遙測之後，請使用 [設定相互關聯識別碼] 開啟 Azure 監視器 log analytics 來查詢記錄：
+After sending telemetry, open Azure Monitor log analytics to query for logs using the set Correlation ID:
 
 ```Kusto
 AzureDiagnostics
@@ -56,14 +56,14 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | 針對事件資料指定的相互關聯識別碼 |
 
-若要查看所有最近的遙測記錄查詢：
+To see all recent telemetry logs query:
 
 ```Kusto
 AzureDiagnostics
 | order by CorrelationId desc
 ```
 
-如果您為使用者定義函數啟用記錄，這些記錄會出現在 log analytics 實例中，類別目錄 `UserDefinedFunction`。 若要取得它們，請在 log analytics 中輸入下列查詢準則：
+If you enable logging for your user-defined function, those logs appear in your log analytics instance with the category `UserDefinedFunction`. To retrieve them, enter the following query condition in log analytics:
 
 ```Kusto
 AzureDiagnostics
@@ -84,7 +84,7 @@ AzureDiagnostics
 
 透過管理 API 檢查使用者定義函式是否存在角色指派：
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
@@ -98,7 +98,7 @@ GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_U
 
 如果針對 Azure Digital Twins 執行個體的管理 API 進行下列呼叫，您可以判斷指定的比對器是否適用於指定的感應器。
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
@@ -122,7 +122,7 @@ GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSO
 
 如果針對 Azure Digital Twins 管理 API 進行下列呼叫，您可以判斷所指定感應器內送遙測資料觸發之使用者定義函式的識別碼：
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
@@ -216,4 +216,4 @@ function process(telemetry, executionContext) {
 
 - 了解如何在 Azure Digital Twins 中啟用[監視和記錄](./how-to-configure-monitoring.md)。
 
-- 如需更多 Azure 記錄選項，請參閱[Azure 活動記錄的總覽一](../azure-monitor/platform/activity-logs-overview.md)文。
+- Read the [Overview of Azure Activity log](../azure-monitor/platform/activity-logs-overview.md) article for more Azure logging options.

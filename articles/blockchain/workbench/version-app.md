@@ -1,29 +1,23 @@
 ---
-title: 區塊鏈應用程式版本設定-Azure Blockchain Workbench
-description: 如何使用 Azure Blockchain Workbench Preview 中的應用程式版本。
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Blockchain app versioning - Azure Blockchain Workbench
+description: How to use application versions in Azure Blockchain Workbench Preview.
 ms.date: 11/20/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 35d9be219d1473ac56ca501f80fca96a265e814f
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
-ms.translationtype: HT
+ms.openlocfilehash: 45219790cf0cd064e0fcd456e262b2f93aa03ac9
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284841"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323917"
 ---
-# <a name="azure-blockchain-workbench-preview-application-versioning"></a>Azure Blockchain Workbench 預覽應用程式版本設定
+# <a name="azure-blockchain-workbench-preview-application-versioning"></a>Azure Blockchain Workbench Preview application versioning
 
-您可以建立和使用多個版本的 Azure Blockchain Workbench Preview 應用程式。 如果上傳相同應用程式的多個版本，就可以取得版本歷程記錄，而且使用者可以選擇他們想要使用哪一個版本。
+You can create and use multiple versions of an Azure Blockchain Workbench Preview app. 如果上傳相同應用程式的多個版本，就可以取得版本歷程記錄，而且使用者可以選擇他們想要使用哪一個版本。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Blockchain Workbench 部署。 如需詳細資訊，請參閱 [Azure Blockchain Workbench 部署](deploy.md)，以取得部署的詳細資訊
 * 已在 Blockchain Workbench 中部署的區塊鏈應用程式。 請參閱[在 Azure Blockchain Workbench 中建立區塊鏈應用程式](create-app.md)

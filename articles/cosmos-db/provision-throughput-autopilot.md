@@ -1,98 +1,109 @@
 ---
-title: 在 autopilot 模式中建立 Azure Cosmos 容器和資料庫。
-description: 瞭解優點、使用案例，以及如何在 autopilot 模式下布建 Azure Cosmos 資料庫和容器。
+title: Create Azure Cosmos containers and databases in autopilot mode.
+description: Learn about the benefits, use cases, and how to provision Azure Cosmos databases and containers in autopilot mode.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0e9f909aba11d35307e02a98a41ffa04e36e4db2
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 584fedc2ebe93b2a3cfd8a3b538a410d29aebe9d
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953138"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383096"
 ---
-# <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>在 autopilot 模式中建立 Azure Cosmos 容器和資料庫（預覽）
+# <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Create Azure Cosmos containers and databases in autopilot mode (Preview)
 
-Azure Cosmos DB 可讓您以手動或 autopilot 模式在容器上布建輸送量。 本文說明 autopilot 模式的優點和使用案例。
+Azure Cosmos DB allows you to provision throughput on your containers in either manual or autopilot mode. This article describes the benefits and use cases of autopilot mode.
 
 > [!NOTE]
-> Autopilot 模式目前提供公開預覽。 若要啟用 Azure Cosmos 帳戶的 autopilot 功能，請參閱本文的[啟用 autopilot](#enable-autopilot)一節。 您只能為新的資料庫和容器啟用 autopilot，而不會提供給現有的容器和資料庫使用。
+> Autopilot mode is currently available in public preview. To enable autopilot feature for your Azure Cosmos account, see the [enable autopilot](#enable-autopilot) section of this article. You can enable autopilot for new databases and containers only,it's not available for existing containers and databases.
 
-除了手動布建輸送量以外，您現在還可以在 autopilot 模式中設定 Azure cosmos 容器。 在 autopilot 模式中設定的 Azure Cosmos 容器和資料庫，將會根據**您的應用程式需求自動並立即調整布建的輸送量，而不會影響 sla。**
+In addition to manual provisioning of throughput, you can now configure Azure cosmos containers in autopilot mode. Azure Cosmos containers and databases configured in autopilot mode will **automatically and instantly scale the provisioned throughput based on your application needs without compromising the SLAs.**
 
-您不再需要手動管理布建的輸送量或處理速率限制問題。 在 autopilot 模式中設定的 Azure Cosmos 容器可以立即調整以回應工作負載，而不會影響全域工作負載的可用性、延遲、輸送量或效能。 在高使用率的情況下，在 autopilot 模式中設定的 Azure Cosmos 容器可以相應增加或減少，而不會影響進行中的作業。
+You no longer need to manually manage the provisioned throughput or handle rate-limiting issues. Azure Cosmos containers configured in autopilot mode can be scaled instantly in response to the workload without any impacting the availability, latency, throughput, or performance of the workload globally. Under high utilization, Azure Cosmos containers configured in autopilot mode can be scaled up or down without impacting the ongoing operations.
 
-在 autopilot 模式中設定容器和資料庫時，您必須指定最大輸送量 `Tmax` 不能超過。 然後，容器可以根據 `0.1*Tmax < T < Tmax` 範圍內的工作負載需求立即進行調整。 換句話說，容器和資料庫會根據工作負載需求立即調整，從最低到您已設定的最大輸送量值的10%，到設定的最大輸送量值。 您可以在任何時間點變更 autopilot 資料庫或容器上的最大輸送量（Tmax）設定。 使用 autopilot 選項時，每個容器或資料庫的 400 RU/秒最小輸送量已不再適用。
+When configuring containers and databases in autopilot mode, you need to specify the maximum throughput `Tmax`  not to be exceeded. Containers can then scale instantly based on the workload needs within the `0.1*Tmax < T < Tmax` range. In other words, containers and databases scale instantly based on the workload needs, from as low as 10% of the maximum throughput value that you have configured, and up to the configured maximum throughput value. You can change the maximum throughput (Tmax) setting on autopilot database or container at any point in time. With autopilot option, the 400 RU/s minimum throughput per container or database is no longer applicable.
 
-在 autopilot 預覽期間，針對容器或資料庫上指定的最大輸送量，系統允許在計算的儲存體限制內運作。 如果超過儲存空間限制，則會自動將最大輸送量調整為較高的值。 使用具有 autopilot 模式的資料庫層級輸送量時，資料庫內允許的容器數目會計算為：（0.001 * 最大輸送量）。 例如，如果您布建 20000 autopilot RU/秒，則資料庫可以有20個容器。
+During the preview of autopilot, for the specified maximum throughput on the container or the database, the system allows operating within the calculated storage limit. If the storage limit is exceeded, then the maximum throughput is automatically adjusted to a higher value. When using database level throughput with autopilot mode, the number of containers allowed within a database is calculated as: (0.001 * Max throughput ). For example, if you provision 20,000 autopilot RU/s, then the database can have 20 containers.
 
-## <a name="benefits-of-autopilot-mode"></a>Autopilot 模式的優點
+## <a name="benefits-of-autopilot-mode"></a>Benefits of autopilot mode
 
-在 autopilot 模式中設定的 Azure Cosmos 容器具有下列優點：
+Azure Cosmos containers that are configured in autopilot mode have the following benefits:
 
-* **簡單：** Autopilot 模式中的容器會移除為各種容器手動管理布建輸送量（ru）和容量的複雜性。
+* **Simple:** Containers in autopilot mode remove the complexity to manage provisioned throughput (RUs) and capacity manually for various containers.
 
-* **可調整：** Autopilot 模式中的容器會視需要順暢地調整布建的輸送量容量。 用戶端連線、應用程式不會中斷，而且它們不會影響任何現有的 Sla。
+* **Scalable:** Containers in autopilot mode seamlessly scale the provisioned throughput capacity as needed. There is no disruption to client connections, applications and they don’t impact any existing SLAs.
 
-* 符合**成本效益：** 當您使用以 autopilot 模式設定的 Azure Cosmos 容器時，您只需支付工作負載每小時需要的資源費用。
+* **Cost-effective:** When you use Azure Cosmos containers configured in autopilot mode, you only pay for the resources that your workloads need on a per-hour basis.
 
-* **高可用性：** Autopilot 模式中的 Azure Cosmos 容器會使用相同的全域分散式、容錯、高可用性的後端，以確保資料持久性，並一律提供高可用性。
+* **Highly available:** Azure Cosmos containers in autopilot mode use the same globally distributed, fault-tolerant, highly available backend to ensure data durability, and high availability always.
 
-## <a name="use-cases-of-autopilot-mode"></a>Autopilot 模式的使用案例
+## <a name="use-cases-of-autopilot-mode"></a>Use cases of autopilot mode
 
-在 autopilot 模式中設定的 Azure Cosmos 容器使用案例包括：
+The use cases for Azure Cosmos containers configured in autopilot mode include:
 
-* **變數工作負載：** 當您執行的應用程式，每日尖峰使用量為1小時到數小時，或每年有數次時。 範例包括人力資源、預算和營運報表的應用程式。 針對這類案例，可以使用在 autopilot 模式中設定的容器，您不再需要手動布建尖峰或平均容量。
+* **Variable workloads:** When you are running a lightly used application with peak usage of 1 hour to several hours few times each day, or several times per year. Examples include applications for human resources, budgeting, and operational reporting. For such scenarios, containers configured in autopilot mode can be used, you no longer need to manually provision for either peak or average capacity.
 
-* 無法**預測的工作負載：** 當您執行的工作負載在一整天都有資料庫使用量，同時也在難以預測的活動尖峰時執行。 其中一個範例包含一個流量網站，當氣象預報變更時，會看到活動的激增。 在 autopilot 模式中設定的容器會調整容量，以符合應用程式尖峰負載的需求，並在活動激增時相應減少規模。
+* **Unpredictable workloads:** When you are running workloads where there is database usage throughout the day, but also peaks of activity that are hard to predict. An example includes a traffic site that sees a surge of activity when weather forecast changes. Containers configured in autopilot mode adjust the capacity to meet the needs of the application's peak load and scale back down when the surge of activity is over.
 
-* **新的應用程式：** 如果您要部署新的應用程式，但不確定您需要多少布建的輸送量（也就是您所需的 ru 數目）。 使用在 autopilot 模式中設定的容器，您可以自動調整您的應用程式的容量需求和需求。
+* **New applications:** If you are deploying a new application and are unsure about how much provisioned throughput (i.e., how many RUs) you need. With containers configured in autopilot mode, you can automatically scale to the capacity needs and requirements of your application.
 
-* 不**常使用的應用程式：** 如果您的應用程式只使用幾個小時，每天或每週或每個月數次，例如低容量應用程式/web/blog 網站。
+* **Infrequently used applications:** If you have an application that is only used for a few hours several times per day or week or month, such as a low-volume application/web/blog site.
 
-* **開發和測試資料庫：** 開發人員會在工作時間使用 Azure Cosmos 帳戶，但在夜間或週末不需要它們。 在 autopilot 模式中設定容器時，它們會在不使用時相應減少為最小值。
+* **Development and test databases:** Developers use the Azure Cosmos accounts during work hours but don't need them on nights or weekends. With containers configured in autopilot mode, they scale down to minimum when not in use.
 
-* 已**排程的生產工作負載/查詢：** 當您在單一容器上有一系列已排程的要求/作業/查詢，而且如果您想要以絕對低輸送量執行，您現在可以輕鬆地執行這項工作。 當排程的查詢/要求提交至以 autopilot 模式設定的容器時，它會視需要自動相應增加，並執行作業。
+* **Scheduled production workloads/queries:** When you have a series of scheduled requests/operations/queries on a single container, and if there are idle periods where you want to run at an absolute low throughput, you can now do that easily. When a scheduled query/request is submitted to a container configured in autopilot mode, it will automatically scale up as much as needed and run the operation.
 
-先前問題的解決方案不僅需要大量的執行時間，還會在設定或您的程式碼中引進複雜性，而且經常需要手動介入來處理它們。 Autopilot 模式可讓上述案例現成可用，因此您不再需要擔心這些問題。
+Solutions to the previous problems not only require an enormous amount of time in implementation, but they also introduce complexity in configuration or your code, and frequently require manual intervention to address them. The autopilot mode enables above scenarios out of the box, so that you do not need to worry about these problems anymore.
 
-## <a name="comparison--containers-configured-in-manual-mode-vs-autopilot-mode"></a>比較–以手動模式與 autopilot 模式設定的容器
+## <a name="comparison--containers-configured-in-manual-mode-vs-autopilot-mode"></a>Comparison – Containers configured in manual mode vs. autopilot mode
 
-|  | 以手動模式設定的容器  | 在 autopilot 模式中設定的容器 |
+|  | Containers configured in manual mode  | Containers configured in autopilot mode |
 |---------|---------|---------|
-| **布建的輸送量** | 手動布建 | 根據工作負載使用模式自動和立即調整。 |
-| **要求/作業的速率限制（429）**  | 如果耗用量超過布建的容量，則可能會發生。 | 如果耗用的輸送量是在您以 autopilot 模式選擇的最大輸送量內，則不會發生。   |
-| **容量規劃** |  您必須進行初始容量規劃，並布建所需的輸送量。 |    您不必擔心容量規劃。 系統會自動負責容量規劃和容量管理。 |
-| **價格** | 每小時手動布建 RU/秒。 | 針對單一寫入區域帳戶，您需支付每小時使用的輸送量，方法是使用 autopilot RU/秒的每小時費率。 <br/><br/>針對具有多個寫入區域的帳戶，autopilot 不會額外收費。 您需支付每小時使用的輸送量，並使用相同的多宿主 RU/秒費率。 |
-| **最適合工作負載類型** |  可預測且穩定的工作負載|   無法預測和可變的工作負載  |
+| **Provisioned throughput** | Manually provisioned | Automatically and instantaneously scaled based on the workload usage patterns. |
+| **Rate-limiting of requests/operations (429)**  | May happen, if consumption exceeds provisioned capacity. | Will not happen if the throughput consumed is within the max throughput that you choose with autopilot mode.   |
+| **容量規劃** |  You have to do an initial capacity planning and provision of the throughput you need. |    You don’t have to worry about capacity planning. The system automatically takes care of capacity planning and capacity management. |
+| **定價** | Manually provisioned RU/s per hour. | For single write region accounts, you pay for the throughput used on an hourly basis, by using the autopilot RU/s per hour rate. <br/><br/>For accounts with multiple write regions, there is no extra charge for autopilot. You pay for the throughput used on hourly basis using the same multi-master RU/s per hour rate. |
+| **Best suited for workload types** |  Predictable and stable workloads|   Unpredictable and variable workloads  |
 
-## <a name="a-idenable-autopilot-enable-autopilot-from-azure-portal"></a><a id="enable-autopilot"> 從 Azure 入口網站啟用 autopilot
+## <a id="enable-autopilot"></a> Enable autopilot from Azure portal
 
-您可以在中從 Azure 入口網站啟用，以試用 Azure Cosmos 帳戶中的 autopilot。 使用下列步驟來啟用 autopilot 選項：
+You can try out autopilot in your Azure Cosmos accounts by enabling in from Azure portal. Use the following steps to enable the autopilot option:
 
-1. 登入[Azure 入口網站。](https://portal.azure.com)
+1. Sign in to the [Azure portal.](https://portal.azure.com)
 
-2. 流覽至您的 Azure Cosmos 帳戶，然後開啟 [**新增功能**] 索引標籤。選取 [**自動試驗**] 和 [**註冊**]，如下列螢幕擷取畫面所示：
+2. Navigate to your Azure Cosmos account and open the **New Features** tab. Select **Auto Pilot** and **Register** as shown in the following screenshot:
 
-![在 autopilot 模式中建立容器](./media/provision-throughput-autopilot/enable-autopilot-azure-portal.png)
+![Create a container in autopilot mode](./media/provision-throughput-autopilot/enable-autopilot-azure-portal.png)
 
-## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>使用 autopilot 模式建立資料庫或容器
+## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Create a database or a container with autopilot mode
 
-建立資料庫或容器時，您可以設定 autopilot。 針對新的資料庫或容器使用下列步驟，啟用 autopilot，並指定最大輸送量。
+You can configure autopilot for databases or containers while creating them. Use the following steps to a new database or container, enable autopilot, and specify the maximum throughput.
 
-1. 登入[Azure 入口網站](https://portal.azure.com)或[Azure Cosmos explorer。](https://cosmos.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Cosmos explorer.](https://cosmos.azure.com/)
 
-1. 流覽至您的 Azure Cosmos 帳戶，然後開啟 [**資料總管**] 索引標籤。
+1. Navigate to your Azure Cosmos account and open the **Data Explorer** tab.
 
-1. 選取 [**新增容器**]，輸入容器的名稱，也就是資料分割索引鍵。 選取 [ **Autopilot** ] 選項，然後選擇當使用 Autopilot 選項時，容器不能超過的最大輸送量。
+1. Select **New Container**, enter a name for your container, a partition key. Select the **Autopilot** option, and choose the maximum throughput that the container cannot exceed when using the autopilot option.
 
-   ![在 autopilot 模式中建立容器](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
+   ![Create a container in autopilot mode](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
 
 1. 選取 [確定]
 
-使用類似的步驟，您也可以在 autopilot 模式中建立具有布建輸送量的資料庫。
+With similar steps, you can also create a database with provisioned throughput in autopilot mode.
+
+## <a id="autopilot-limits"></a> Throughput and storage limits for autopilot
+
+The following table shows the maximum throughout and storage limits for different options in autopilot mode:
+
+|Maximum throughput limit  |Maximum storage limit  |
+|---------|---------|
+|4000 RU/s  |   50 GB    |
+|20,000 RU/s  |  200 GB  |
+|100,000 RU/s    |  1 TB   |
+|500,000 RU/s    |  5 TB  |
 
 ## <a name="next-steps"></a>後續步驟
 

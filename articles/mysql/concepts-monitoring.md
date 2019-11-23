@@ -6,29 +6,29 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 920d632dfa15c25905dc4077465e6f8654b5f57d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: df03f8ba0e522aacd305b6337e506f53e309660a
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603176"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384051"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>在適用於 MySQL 的 Azure 資料庫中監視
 監視伺服器的相關資料，可協助您疑難排解並最佳化您的工作負載。 適用於 MySQL 的 Azure 資料庫提供多種計量，可讓您深入了解您伺服器的行為。
 
-## <a name="metrics"></a>度量
+## <a name="metrics"></a>計量
 所有 Azure 計量都有一分鐘頻率，且每個計量皆提供 30 天的記錄。 您可以在計量上設定警示。 如需逐步指引，請參閱[如何設定警示](howto-alert-on-metric.md)。 其他工作包含設定自動化動作、執行進階分析，以及封存記錄。 如需詳細資訊，請參閱 [Azure 計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
 
 ### <a name="list-of-metrics"></a>計量清單
 這些計量可供適用於 MySQL 的 Azure 資料庫使用：
 
-|計量|計量顯示名稱|單位|說明|
+|計量|計量顯示名稱|單位|描述|
 |---|---|---|---|
 |cpu_percent|CPU 百分比|百分比|使用中的 CPU 百分比。|
 |memory_percent|記憶體百分比|百分比|使用中記憶體的百分比。|
 |io_consumption_percent|IO 百分比|百分比|使用中 IO 的百分比。|
 |storage_percent|儲存體百分比|百分比|使用的儲存體佔伺服器最大值的百分比。|
-|storage_used|已使用儲存體|位元組|使用中的儲存體數量。 此服務所使用的儲存體可能包括資料庫檔案、交易記錄和伺服器記錄。|
+|storage_used|使用的儲存空間|位元組|使用中的儲存體數量。 此服務所使用的儲存體可能包括資料庫檔案、交易記錄和伺服器記錄。|
 |serverlog_storage_percent|伺服器記錄儲存體百分比|百分比|使用的伺服器記錄儲存體佔伺服器記錄儲存體上限的百分比。|
 |serverlog_storage_usage|使用的伺服器記錄儲存體|位元組|使用中的伺服器記錄儲存體數量。|
 |serverlog_storage_limit|伺服器記錄儲存體限制|位元組|此伺服器的伺服器記錄儲存體上限。|
@@ -41,16 +41,24 @@ ms.locfileid: "73603176"
 |backup_storage_used|已使用的備份儲存體|位元組|已使用的備份儲存體數量。|
 
 ## <a name="server-logs"></a>伺服器記錄
-您可以在伺服器上啟用慢速查詢和審核記錄。 您也可以透過 Azure 監視器記錄、事件中樞和儲存體帳戶中的 Azure 診斷記錄來取得這些記錄。 若要深入瞭解記錄，請造訪 [audit logs](concepts-audit-logs.md)和[緩慢查詢記錄](concepts-server-logs.md)文章。
+You can enable slow query and audit logging on your server. These logs are also available through Azure Diagnostic Logs in Azure Monitor logs, Event Hubs, and Storage Account. To learn more about logging, visit the [audit logs](concepts-audit-logs.md) and [slow query logs](concepts-server-logs.md) articles.
 
 ## <a name="query-store"></a>查詢存放區
-[查詢存放區](concepts-query-store.md)是一項功能，可持續追蹤查詢的效能，包括查詢執行時間統計資料和等候事件。 此功能會將查詢執行時間效能資訊保存在**mysql**架構中。 您可以透過各種設定旋鈕控制資料的收集和儲存。
+[Query Store](concepts-query-store.md) is a feature that keeps track of query performance over time including query runtime statistics and wait events. The feature persists query runtime performance information in the **mysql** schema. 您可以透過各種設定旋鈕控制資料的收集和儲存。
 
 ## <a name="query-performance-insight"></a>查詢效能深入解析
-[查詢效能深入解析](concepts-query-performance-insight.md)可搭配查詢存放區提供可從 Azure 入口網站存取的視覺效果。 這些圖表可讓您識別影響效能的關鍵查詢。 查詢效能深入解析可在適用於 MySQL 的 Azure 資料庫伺服器入口網站頁面的 [**智慧效能**] 區段中存取。
+[查詢效能深入解析](concepts-query-performance-insight.md)可搭配查詢存放區提供可從 Azure 入口網站存取的視覺效果。 這些圖表可讓您識別影響效能的關鍵查詢。 Query Performance Insight is accessible in the **Intelligent Performance** section of your Azure Database for MySQL server's portal page.
 
 ## <a name="performance-recommendations"></a>效能建議
-[效能建議](concepts-performance-recommendations.md)功能可識別改善工作負載效能的機會。 效能建議會提供您建立新索引的建議，讓您有機會改善工作負載的效能。 若要產生索引建議，此功能會考量各種資料庫特性，包括查詢存放區所報告的結構描述和工作負載。 實作任何效能建議後，客戶應測試效能，以評估這些變更的影響。
+[效能建議](concepts-performance-recommendations.md)功能可識別改善工作負載效能的機會。 Performance Recommendations provides you with recommendations for creating new indexes that have the potential to improve the performance of your workloads. 若要產生索引建議，此功能會考量各種資料庫特性，包括查詢存放區所報告的結構描述和工作負載。 實作任何效能建議後，客戶應測試效能，以評估這些變更的影響。
+
+## <a name="service-health"></a>服務健康情況
+[Azure Service health](../service-health/overview.md) provides a view of all service health notifications in your subscription. You can set up Service Health alerts to notify you via your preferred communication channels when there are issues or changes that may affect the Azure services and regions you use.
+
+You can view scheduled maintenance events for Azure Database for MySQL by using the **planned maintenance** event type. To learn how to create **service health alerts**, visit the [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md) article.
+
+> [!IMPORTANT]
+> The planned maintenance notifications is available in preview for EAST US and UK South only.
 
 ## <a name="next-steps"></a>後續步驟
 - 請參閱[如何設定警示](howto-alert-on-metric.md)，取得根據計量來建立警示的指引。

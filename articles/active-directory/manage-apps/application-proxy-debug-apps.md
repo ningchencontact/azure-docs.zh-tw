@@ -1,6 +1,6 @@
 ---
-title: 偵錯工具 Proxy 應用程式-Azure Active Directory |Microsoft Docs
-description: Azure Active Directory （Azure AD）應用程式 Proxy 應用程式的 Debug 問題。
+title: Debug Application Proxy applications - Azure Active Directory | Microsoft Docs
+description: Debug issues with Azure Active Directory (Azure AD) Application Proxy applications.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -11,44 +11,44 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 06b8edcb0f912bfd35137e197253b20b9459448f
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 575891d99c077299f5e7abf008c1ebb2b158373f
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057753"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382064"
 ---
-# <a name="debug-application-proxy-application-issues"></a>偵錯工具 Proxy 應用程式問題 
+# <a name="debug-application-proxy-application-issues"></a>Debug Application Proxy application issues 
 
-本文可協助您針對 Azure Active Directory （Azure AD）應用程式 Proxy 應用程式的問題進行疑難排解。 如果您使用應用程式 Proxy 服務來遠端存取內部部署 web 應用程式，但無法連線到應用程式，請使用此流程圖來進行應用程式問題的疑難排解。 
+This article helps you troubleshoot issues with Azure Active Directory (Azure AD) Application Proxy applications. If you're using the Application Proxy service for remote access to an on-premises web application, but you're having trouble connecting to the application, use this flowchart to debug application issues. 
 
 ## <a name="before-you-begin"></a>開始之前
 
-針對應用程式 Proxy 問題進行疑難排解時，我們建議您從連接器開始。 首先，請遵循[偵錯工具 Proxy 連接器問題](application-proxy-debug-connectors.md)中的疑難排解流程，確認應用程式 proxy 連接器已正確設定。 如果您仍然遇到問題，請回到本文以對應用程式進行疑難排解。  
+When troubleshooting Application Proxy issues, we recommend you start with the connectors. First, follow the troubleshooting flow in [Debug Application Proxy Connector issues](application-proxy-debug-connectors.md) to make sure Application Proxy connectors are configured correctly. If you're still having issues, return to this article to troubleshoot the application.  
 
-如需應用程式 Proxy 的詳細資訊，請參閱：
+For more information about Application Proxy, see:
 
-- [透過應用程式 Proxy 遠端存取內部部署應用程式](application-proxy.md)
-- [應用程式 Proxy 連接器](application-proxy-connectors.md)
-- [安裝並註冊連接器](application-proxy-add-on-premises-application.md)
+- [Remote access to on-premises applications through Application Proxy](application-proxy.md)
+- [Application Proxy connectors](application-proxy-connectors.md)
+- [Install and register a connector](application-proxy-add-on-premises-application.md)
 - [針對應用程式 Proxy 問題和錯誤訊息進行疑難排解](application-proxy-troubleshoot.md)
 
-## <a name="flowchart-for-application-issues"></a>應用程式問題的流程圖
+## <a name="flowchart-for-application-issues"></a>Flowchart for application issues
 
-此流程圖會逐步引導您完成一些連接至應用程式時常見問題的檢查步驟。 如需每個步驟的詳細資訊，請參閱流程圖後面的表格。
+This flowchart walks you through the steps for debugging some of the more common issues with connecting to the application. For details about each step, see the table following the flowchart.
 
-![顯示偵錯工具之步驟的流程圖](media/application-proxy-debug-apps/application-proxy-apps-debugging-flowchart.png)
+![Flowchart showing steps for debugging an application](media/application-proxy-debug-apps/application-proxy-apps-debugging-flowchart.png)
 
-|  | Action | 描述 | 
+|  | 行動 | 描述 | 
 |---------|---------|---------|
-|1 | 開啟瀏覽器、存取應用程式，然後輸入您的認證 | 請嘗試使用您的認證登入應用程式，並檢查是否有任何使用者相關的錯誤，例如[無法存取此公司應用程式](application-proxy-sign-in-bad-gateway-timeout-error.md)。 |
-|2 | 確認使用者對應用程式的指派 | 請確定您的使用者帳戶具有從公司網路內部存取應用程式的許可權，然後依照[測試應用程式](application-proxy-add-on-premises-application.md#test-the-application)中的步驟來測試登入應用程式。 如果登入問題仍然存在，請參閱如何針對登[入錯誤進行疑難排解](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)。  |
-|3 | 開啟瀏覽器並嘗試存取應用程式 | 如果立即出現錯誤，請檢查是否已正確設定應用程式 Proxy。 如需特定錯誤訊息的詳細資訊，請參閱針對[應用程式 Proxy 問題和錯誤訊息進行疑難排解](application-proxy-troubleshoot.md)。  |
-|4 | 檢查您的自訂網域設定或針對錯誤進行疑難排解 | 如果頁面完全沒有顯示，請確認您的自訂網域已正確設定，方法是[使用自訂網域](application-proxy-configure-custom-domain.md)進行審核。<br></br>如果未載入頁面，並出現錯誤訊息，請參考[疑難排解應用程式 Proxy 問題和錯誤訊息](application-proxy-troubleshoot.md)，以進行錯誤的疑難排解。 <br></br>如果出現錯誤訊息所需的時間超過20秒，可能會發生連線問題。 請移至[偵錯工具 Proxy 連接器](application-proxy-debug-connectors.md)疑難排解一文。  |
-|5 | 如果問題持續發生，請移至連接器的調試 | Proxy 與連接器之間或連接器與後端之間可能有連線問題。 請移至[偵錯工具 Proxy 連接器](application-proxy-debug-connectors.md)疑難排解一文。 |
-|6 | 發佈所有資源、檢查瀏覽器開發人員工具，以及修正連結 | 請確定發行路徑包含您應用程式的所有必要影像、腳本和樣式表單。 如需詳細資訊，請參閱[將內部部署應用程式新增至 Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad)。 <br></br>使用瀏覽器的開發人員工具（Internet Explorer 或 Microsoft Edge 中的 F12 工具）並檢查發佈問題，如[應用程式頁面未正確顯示](application-proxy-page-appearance-broken-problem.md)所述。 <br></br>在[頁面上的連結](application-proxy-page-links-broken-problem.md)中解決中斷連結的選項無法使用。 |
-|7 | 檢查網路延遲 | 如果頁面載入速度很慢，請瞭解在[降低延遲的考慮](application-proxy-network-topology.md#considerations-for-reducing-latency)下，將網路延遲降至最低的方法。 | 
-|8 | 請參閱其他疑難排解說明 | 如果問題持續發生，請在[應用程式 Proxy 疑難排解檔](application-proxy-page-appearance-broken-problem.md)中尋找其他疑難排解文章。 |
+|1 | Open a browser, access the app, and enter your credentials | Try using your credentials to sign in to the app, and check for any user-related errors, like [This corporate app can't be accessed](application-proxy-sign-in-bad-gateway-timeout-error.md). |
+|2 | Verify user assignment to the app | Make sure your user account has permission to access the app from inside the corporate network, and then test signing in to the app by following the steps in [Test the application](application-proxy-add-on-premises-application.md#test-the-application). If sign-in issues persist, see [How to troubleshoot sign-in errors](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).  |
+|3 | Open a browser and try to access the app | If an error appears immediately, check to see that Application Proxy is configured correctly. For details about specific error messages, see [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md).  |
+|4 | Check your custom domain setup or troubleshoot the error | If the page doesn't display at all, make sure your custom domain is configured correctly by reviewing [Working with custom domains](application-proxy-configure-custom-domain.md).<br></br>If the page doesn't load and an error message appears, troubleshoot the error by referring to  [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md). <br></br>If it takes longer than 20 seconds for an error message to appear, there could be connectivity issue. Go to the [Debug Application Proxy connectors](application-proxy-debug-connectors.md) troubleshooting article.  |
+|5 | If issues persist, go to connector debugging | There could be a connectivity issue between the proxy and the connector or between the connector and the back end. Go to the [Debug Application Proxy connectors](application-proxy-debug-connectors.md) troubleshooting article. |
+|6 | Publish all resources, check browser developer tools, and fix links | Make sure the publishing path includes all the necessary images, scripts, and style sheets for your application. For details, see [Add an on-premises app to Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). <br></br>Use the browser's developer tools (F12 tools in Internet Explorer or Microsoft Edge) and check for publishing issues as described in [Application page does not display correctly](application-proxy-page-appearance-broken-problem.md). <br></br>Review options for resolving broken links in [Links on the page don't work](application-proxy-page-links-broken-problem.md). |
+|7 | Check for network latency | If the page loads slowly, learn about ways to minimize network latency in [Considerations for reducing latency](application-proxy-network-topology.md#considerations-for-reducing-latency). | 
+|8 | See additional troubleshooting help | If issues persist, find additional troubleshooting articles in the [Application Proxy troubleshooting documentation](application-proxy-troubleshoot.md). |
 
 ## <a name="next-steps"></a>後續步驟
 

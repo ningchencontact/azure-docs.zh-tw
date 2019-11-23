@@ -1,22 +1,22 @@
 ---
-title: 使用現有的 NPS 伺服器提供 Azure MFA 功能-Azure Active Directory
+title: Provide Azure MFA capabilities using NPS - Azure Active Directory
 description: 將雲端式雙步驟驗證功能新增至現有的驗證基礎結構
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8606ad9afb6642fa29cc3cae523c31e129c7ebd
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: b5faf7c73e071b1eb075a72dac103b92e982ed84
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73061474"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381747"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>將現有的 NPS 基礎結構與 Azure Multi-Factor Authentication 整合
 
@@ -76,14 +76,14 @@ Windows Server 2008 R2 SP1 或更新版本。
 
 NPS 伺服器必須能夠透過連接埠 80 和 443 與下列 URL 通訊。
 
-- HTTPs：\//adnotifications.windowsazure.com
+- https:\//adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
 
-此外，必須連線到下列 Url，才能[使用提供的 PowerShell 腳本來完成介面卡的設定](#run-the-powershell-script)
+Additionally, connectivity to the following URLs is required to complete the [setup of the adapter using the provided PowerShell script](#run-the-powershell-script)
 
 - https:\//login.microsoftonline.com
-- HTTPs：\//provisioningapi.microsoftonline.com
-- HTTPs：\//aadcdn.msauth.net
+- https:\//provisioningapi.microsoftonline.com
+- https:\//aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>準備您的環境
 
@@ -119,13 +119,13 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 有兩個因素會影響與 NPS 擴充部署搭配提供的驗證方法：
 
 1. 在 RADIUS 用戶端 (VPN、Netscaler 伺服器或其他) 與 NPS 伺服器之間使用的密碼加密演算法。
-   - **PAP**支援雲端中 Azure MFA 的所有驗證方法：電話、單向文字訊息、行動裝置代理程式更新、OATH 硬體權杖，以及行動裝置應用程式驗證碼。
+   - **PAP** supports all the authentication methods of Azure MFA in the cloud: phone call, one-way text message, mobile app notification, OATH hardware tokens, and mobile app verification code.
    - **CHAPV2** 和 **EAP** 支援通話和行動裝置應用程式通知。
 
       > [!NOTE]
       > 當您部署 NPS 擴充時，使用這些因素來評估哪些方法可供您的使用者使用。 如果您的 RADIUS 用戶端支援 PAP，但用戶端 UX 沒有驗證碼的輸入欄位，則通話和行動裝置應用程式通知是兩個支援的選項。
       >
-      > 此外，如果您的 VPN 用戶端 UX 支援輸入欄位，而且您已設定網路存取原則-驗證可能會成功，但是網路原則中設定的 RADIUS 屬性都不會套用到網路存取裝置，和 RRAS 伺服器和 VPN 用戶端一樣。 如此一來，VPN 用戶端的存取權可能會比所需或更少存取。
+      > In addition, if your VPN client UX does support input field and you have configured Network Access Policy - the authentication might succeed, however none of the RADIUS attributes configured in the Network Policy will be applied to neither the Network Access Device, like the RRAS server, nor the VPN client. As a result, the VPN client might have more access than desired or less to no access.
       >
 
 2. 用戶端應用程式 (VPN、Netscaler 伺服器或其他) 可以處理的輸入法。 例如，VPN 用戶端是否有一些方法可讓使用者從文字或行動裝置應用程式輸入驗證程式碼？
@@ -140,7 +140,7 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 1. 使用測試帳戶登入 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)。
 2. 遵循提示來設定驗證方法。
-3. [建立條件式存取原則](howto-mfa-getstarted.md#create-conditional-access-policy)，以要求測試帳戶使用多重要素驗證。
+3. [Create a Conditional Access policy](howto-mfa-getstarted.md#create-conditional-access-policy) to require multi-factor authentication for the test account.
 
 ## <a name="install-the-nps-extension"></a>安裝 NPS 擴充功能
 
@@ -153,13 +153,13 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 2. 將二進位檔複製到您要設定的網路原則伺服器。
 3. 執行 *setup.exe* 並遵循安裝指示。 如果您遇到錯誤，請根據必要條件一節再次檢查兩個已成功安裝的程式庫。
 
-#### <a name="upgrade-the-nps-extension"></a>升級 NPS 擴充功能
+#### <a name="upgrade-the-nps-extension"></a>Upgrade the NPS extension
 
-升級現有 NPS 延伸模組安裝時，若要避免基礎伺服器重新開機，請完成下列步驟：
+When upgrading an existing NPS extension install, to avoid a reboot of the underlying server complete the following steps:
 
-1. 卸載現有的版本
-1. 執行新的安裝程式
-1. 重新開機網路原則伺服器（IAS）服務
+1. Uninstall the existing version
+1. Run the new installer
+1. Restart the Network Policy Server (IAS) service
 
 ### <a name="run-the-powershell-script"></a>執行 PowerShell 指令碼
 
@@ -188,18 +188,18 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 在您想要進行設定以取得負載平衡的任何其他 NPS 伺服器上，重複上述步驟。
 
-如果您先前的電腦憑證已過期，而且已產生新的憑證，您應該刪除所有過期的憑證。 擁有過期的憑證可能會造成 NPS 擴充功能啟動的問題。
+If your previous computer certificate has expired, and a new certificate has been generated, you should delete any expired certificates. Having expired certificates can cause issues with the NPS Extension starting.
 
 > [!NOTE]
 > 如果您使用自己的憑證，而不是透過 PowerShell 指令碼產生憑證，請確定這些憑證遵守 NPS 命名慣例。 主體名稱必須是 **CN=\<租用戶識別碼\>,OU=Microsoft NPS Extension**。 
 
 ### <a name="certificate-rollover"></a>憑證變換
 
-使用 NPS 擴充功能的 release 1.0.1.32，現在支援讀取多個憑證。 這項功能有助於在憑證更新到期前進行輪替。 如果您的組織執行的是舊版的 NPS 擴充功能，您應該升級為1.0.1.32 或更高版本。
+With release 1.0.1.32 of the NPS extension, reading multiple certificates is now supported. This capability will help facilitate rolling certificate updates prior to their expiration. If your organization is running a previous version of the NPS extension, you should upgrade to version 1.0.1.32 or higher.
 
-`AzureMfaNpsExtnConfigSetup.ps1` 腳本所建立的憑證有效期限為2年。 IT 組織應該監視憑證的到期日。 NPS 擴充功能的憑證會放在 [個人] 底下的 [本機電腦] 憑證存放區中，併發行至提供給腳本的租使用者識別碼。
+Certificates created by the `AzureMfaNpsExtnConfigSetup.ps1` script are valid for 2 years. IT organizations should monitor certificates for expiration. Certificates for the NPS extension are placed in the Local Computer certificate store under Personal and are Issued To the tenant ID provided to the script.
 
-當憑證接近到期日時，應該建立新的憑證來取代它。  此程式是藉由再次執行 `AzureMfaNpsExtnConfigSetup.ps1` 並在出現提示時保留相同的租使用者識別碼來完成。 此程式應該在您環境中的每個 NPS 伺服器上重複執行。
+When a certificate is approaching the expiration date, a new certificate should be created to replace it.  This process is accomplished by running the `AzureMfaNpsExtnConfigSetup.ps1` again and keeping the same tenant ID when prompted. This process should be repeated on each NPS server in your environment.
 
 ## <a name="configure-your-nps-extension"></a>設定 NPS 擴充功能
 
@@ -208,7 +208,7 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 ### <a name="configuration-limitations"></a>設定限制
 
 - Azure MFA 的 NPS 延伸模組並未包含可將使用者與設定從 MFA Server 移轉至雲端的工具。 有基於此，建議將此延伸模組用於新的部署，而非用於現有部署。 如果您在現有部署上使用此延伸模組，您的使用者必須再次執行證明，以便在雲端中填入其 MFA 詳細資料。  
-- NPS 擴充功能會使用內部部署 Active directory 中的 UPN，來識別 Azure MFA 上用來執行次要驗證的使用者。延伸模組可設定為使用不同的識別碼，例如 UPN 以外的替代登入識別碼或自訂 Active Directory 欄位。 如需詳細資訊，請參閱 [NPS 擴充功能的 Multi-Factor Authentication 所適用的進階設定選項](howto-mfa-nps-extension-advanced.md)一文。
+- The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension can be configured to use a different identifier like alternate login ID or custom Active Directory field other than UPN. 如需詳細資訊，請參閱 [NPS 擴充功能的 Multi-Factor Authentication 所適用的進階設定選項](howto-mfa-nps-extension-advanced.md)一文。
 - 並非所有的加密通訊協定都支援所有的驗證方法。
    - **PAP** 支援通話、單向簡訊、行動裝置應用程式通知和行動裝置應用程式驗證碼
    - **CHAPV2** 和 **EAP** 支援通話和行動裝置應用程式通知
@@ -231,11 +231,11 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 ## <a name="troubleshooting"></a>疑難排解
 
-### <a name="nps-extension-health-check-script"></a>NPS 擴充功能健全狀況檢查腳本
+### <a name="nps-extension-health-check-script"></a>NPS extension health check script
 
-下列腳本可在 TechNet 元件庫中取得，以在疑難排解 NPS 延伸模組時執行基本的健全狀況檢查步驟。
+The following script is available on the TechNet Gallery to perform basic health check steps when troubleshooting the NPS extension.
 
-[MFA_NPS_Troubleshooter. ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
 
 ---
 
@@ -243,7 +243,7 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 在憑證存放區中尋找安裝程式所建立的自我簽署憑證，並確認私密金鑰已將權限授與給使用者 **NETWORK SERVICE**。 憑證的主體名稱為 **CN \<tenantid\>, OU = Microsoft NPS Extension**
 
-*AzureMfaNpsExtnConfigSetup*腳本所產生的自我簽署憑證也具有兩年的有效存留期。 確認憑證已安裝時，您也應該檢查憑證尚未過期。
+Self-signed certificates generated by the *AzureMfaNpsExtnConfigSetup.ps1* script also have a validity lifetime of two years. When verifying that the certificate is installed, you should also check that the certificate has not expired.
 
 ---
 
@@ -267,7 +267,7 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
 ```
 
-執行此命令之後，請移至您的 C 磁片磁碟機，找出並按兩下檔案。 移至 [詳細資料] 並向下捲動至 [指紋]，將安裝在伺服器上的憑證指紋與此指紋進行比較。 這兩個憑證指紋應該相符。
+Once you run this command, go to your C drive, locate the file and double-click on it. 移至 [詳細資料] 並向下捲動至 [指紋]，將安裝在伺服器上的憑證指紋與此指紋進行比較。 這兩個憑證指紋應該相符。
 
 如果命令傳回多個憑證，則可以使用採人類看得懂之格式的 Valid-From 和 Valid-Until 時間戳記來篩選出明顯不符者。
 
@@ -275,7 +275,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 ### <a name="why-cant-i-sign-in"></a>我為何無法登入？
 
-檢查您的密碼尚未到期。 NPS 延伸模組不支援在登入工作流程期間變更密碼。 請洽詢貴組織的 IT 人員以取得進一步的協助。
+檢查您的密碼尚未到期。 NPS 延伸模組不支援在登入工作流程期間變更密碼。 Contact your organization's IT Staff for further assistance.
 
 ---
 
@@ -302,19 +302,19 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 ---
 
-### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>為什麼驗證無法運作，儘管有有效的憑證？
+### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>Why is authentication not working, despite a valid certificate being present?
 
-如果您先前的電腦憑證已過期，而且已產生新的憑證，您應該刪除所有過期的憑證。 擁有過期的憑證可能會造成 NPS 擴充功能啟動的問題。
+If your previous computer certificate has expired, and a new certificate has been generated, you should delete any expired certificates. Having expired certificates can cause issues with the NPS Extension starting.
 
-若要檢查您是否有有效的憑證，請使用 MMC 檢查本機電腦帳戶的憑證存放區，並確定憑證未通過其到期日。 若要產生新的有效憑證，請重新[執行「執行 PowerShell 腳本](#run-the-powershell-script)」一節底下的步驟
+To check if you have a valid certificate, check the local Computer Account's Certificate Store using MMC, and ensure the certificate has not passed its expiry date. To generate a newly valid certificate, rerun the steps under the section "[Run the PowerShell script](#run-the-powershell-script)"
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>管理的 TLS/SSL 通訊協定和加密套件
 
 除非您的組織需要較舊的和較弱的加密套件，否則建議您加以停用或移除。 如需如何完成這項工作的相關資訊，請參閱[管理 AD FS 的 SSL/TLS 通訊協定和加密套件](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)一文
 
-### <a name="additional-troubleshooting"></a>其他疑難排解
+### <a name="additional-troubleshooting"></a>Additional troubleshooting
 
-如需其他疑難排解指引和可能的解決方案，請參閱[從適用于 Azure 多因素驗證的 NPS 擴充功能解決錯誤訊息](howto-mfa-nps-extension-errors.md)一文。
+Additional troubleshooting guidance and possible solutions can be found in the article [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
 ## <a name="next-steps"></a>後續步驟
 

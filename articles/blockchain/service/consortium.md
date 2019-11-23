@@ -1,88 +1,82 @@
 ---
-title: Azure 區塊鏈 Service 聯盟
-description: 瞭解 Azure 區塊鏈 Service 如何使用私人聯盟
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Azure Blockchain Service consortium
+description: Understand how Azure Blockchain Service uses a private consortium
 ms.date: 10/14/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: zeyadr
-manager: femila
-ms.openlocfilehash: ddb3f02662c0c71ebc90e1a740b4068d6fbcded4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 44a5aa7ca530c230b42e5b8a7d88a912729e5695
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577500"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325243"
 ---
-# <a name="azure-blockchain-service-consortium"></a>Azure 區塊鏈 Service 聯盟
+# <a name="azure-blockchain-service-consortium"></a>Azure Blockchain Service Consortium
 
-使用 Azure 區塊鏈 Service 時，您可以建立私用聯盟區塊鏈網路，其中每個區塊鏈網路都可以限制為網路中的特定參與者。 只有私人聯盟區塊鏈網路中的參與者可以查看區塊鏈並與其互動。 Azure 區塊鏈 Service 中的聯盟網路可以包含兩種類型的成員參與者角色：
+Using Azure Blockchain Service, you can create private consortium blockchain networks where each blockchain network can be limited to specific participants in the network. Only participants in the private consortium blockchain network can view and interact with the blockchain. Consortium networks in Azure Blockchain Service can contain two types of member participant roles:
 
-* 可以接受聯盟管理動作並可參與區塊鏈交易的**系統管理員**許可權參與者。
+* **Administrator** - Privileged participants who can take consortium management actions and can participate in blockchain transactions.
 
-* 不能採取任何聯盟管理動作，但可以參與區塊鏈交易的**使用者**參與者。
+* **User** -  Participants who cannot take any consortium management action but can participate in blockchain transactions.
 
-聯盟網路可以混合使用參與者角色，而且每個角色類型可以有任意數目的。 必須至少有一位系統管理員。
+Consortium networks can be a mix of participant roles and can have an arbitrary number of each role type. There must be at least one administrator.
 
-下圖顯示具有多個參與者的聯盟網路：
+The following diagram shows a consortium network with multiple participants:
 
-![私用的聯盟網狀圖表](./media/consortium/network-diagram.png)
+![Private consortium network diagram](./media/consortium/network-diagram.png)
 
-透過 Azure 區塊鏈 Service 中的聯盟管理，您可以管理聯盟網路中的參與者。 聯盟的管理是以網路的共識模型為基礎。 在目前的預覽版本中，Azure 區塊鏈 Service 提供了適用于聯盟管理的集中式共識模型。 任何具有管理員角色的特殊許可權參與者都可以接受聯盟管理動作，例如新增或移除網路中的參與者。
+With consortium management in Azure Blockchain Service, you can manage participants in the consortium network. Management of the consortium is based on the consensus model of the network. In the current preview release, Azure Blockchain Service provides a centralized consensus model for consortium management. Any privileged participant with an administer role can take consortium management actions, such as adding or removing participants from a network.
 
 ## <a name="roles"></a>角色
 
-聯盟中的參與者可以是個人或組織，而且可以指派使用者角色或系統管理員角色。 下表列出兩個角色之間的高層級差異：
+Participants in a consortium can be individuals or organizations and can be assigned a user role or an administrator role. The following table lists the high-level differences between the two roles:
 
 | 行動 | 使用者角色 | 系統管理員角色
 |--------|:----:|:------------:|
-| 建立新成員 | 是 | 是 |
-| 邀請新成員 | 否 | 是 |
-| 設定或變更成員參與者角色 | 否 | 是 |
-| 變更成員顯示名稱 | 僅適用于自己的成員 | 僅適用于自己的成員 |
-| 移除成員 | 僅適用于自己的成員 | 是 |
-| 參與區塊鏈交易 | 是 | 是 |
+| Create new member | 是 | 是 |
+| Invite new members | 否 | 是 |
+| Set or change member participant role | 否 | 是 |
+| Change member display name | Only for own member | Only for own member |
+| 移除成員 | Only for own member | 是 |
+| Participate in blockchain transactions | 是 | 是 |
 
 ### <a name="user-role"></a>使用者角色
 
-使用者是沒有系統管理員功能的聯盟參與者。 他們無法參與管理與聯盟相關的成員。 使用者可以變更其成員的顯示名稱，並可從聯盟中移除自己。
+Users are consortium participants with no administrator capabilities. They cannot participate in managing members related to the consortium. Users can change their member display name and can remove themselves from a consortium.
 
-### <a name="administrator"></a>系統管理員
+### <a name="administrator"></a>管理員
 
-系統管理員可以管理聯盟內的成員。 系統管理員可以邀請成員、移除成員，或更新聯盟內的成員角色。
-聯盟中至少必須有一位系統管理員。 在離開聯盟之前，最後一個系統管理員必須先將另一個參與者指定為系統管理員角色。
+An administrator can manage members within the consortium. An administrator can invite members, remove members, or update members roles within the consortium.
+There must always be at least one administrator within a consortium. The last administrator must specify another participant as an administrator role before leaving a consortium.
 
-## <a name="managing-members"></a>管理成員
+## <a name="managing-members"></a>Managing members
 
-只有系統管理員可以邀請其他參與者加入聯盟。 系統管理員會使用他們的 Azure 訂用帳戶識別碼來邀請參與者。
+Only administrators can invite other participants to the consortium. Administrators invite participants using their Azure subscription ID.
 
-一旦受邀，參與者就可以在 Azure 區塊鏈 Service 中部署新的成員，以加入區塊鏈聯盟。 若要觀看並加入受邀的聯盟，您必須指定網路系統管理員邀請中所使用的相同 Azure 訂用帳戶識別碼。
+Once invited, participants can join the blockchain consortium by deploying a new member in Azure Blockchain Service. To view and join the invited consortium, you must specify the same Azure subscription ID used in the invite by the network administrator.
 
-系統管理員可以移除聯盟中的任何參與者，包括其他系統管理員。 成員只能從聯盟移除自己。
+Administrators can remove any participant from the consortium, including other administrators. Members can only remove themselves from a consortium.
 
-## <a name="consortium-management-smart-contract"></a>聯盟管理智慧合約
+## <a name="consortium-management-smart-contract"></a>Consortium management smart contract
 
-Azure 區塊鏈 Service 中的聯盟管理是透過聯盟管理智慧合約來完成。 當您部署新的區塊鏈成員時，智慧型合約會自動部署至您的節點。
+Consortium management in Azure Blockchain Service is done via consortium management smart contracts. The smart contracts are automatically deployed to your nodes when you deploy a new blockchain member.
 
-可以在 Azure 入口網站中查看根聯盟管理智慧合約的位址。 **RootContract 位址**位於區塊鏈成員的 [總覽] 區段。
+The address of the root consortium management smart contract can be viewed in the Azure portal. The **RootContract address** is in blockchain member's overview section.
 
-![RootContract 位址](./media/consortium/rootcontract-address.png)
+![RootContract address](./media/consortium/rootcontract-address.png)
 
-您可以使用聯盟管理[PowerShell 模組](manage-consortium-powershell.md)，Azure 入口網站，或直接透過使用 Azure 區塊鏈服務產生的乙太坊帳戶的智慧合約，與聯盟管理智慧合約互動。
+You can interact with the consortium management smart contract using the consortium management [PowerShell module](manage-consortium-powershell.md), Azure portal, or directly through the smart contract using the Azure Blockchain Service generated Ethereum account.
 
-## <a name="ethereum-account"></a>乙太坊帳戶
+## <a name="ethereum-account"></a>Ethereum account
 
-建立成員時，會建立乙太坊帳戶金鑰。 Azure 區塊鏈 Service 會使用金鑰來建立與聯盟管理相關的交易。 乙太坊帳戶金鑰是由 Azure 區塊鏈 Service 自動管理。
+When a member is created, an Ethereum account key is created. Azure Blockchain Service uses the key to create transactions related to consortium management. The Ethereum account key is managed by Azure Blockchain Service automatically.
 
-可以在 Azure 入口網站中查看成員帳戶。 成員帳戶位於區塊鏈成員的 [總覽] 區段。
+The member account can be viewed in the Azure portal. The member account is in blockchain member's overview section.
 
-![成員帳戶](./media/consortium/member-account.png)
+![Member account](./media/consortium/member-account.png)
 
-您可以按一下您的成員帳戶並輸入新密碼，以重設乙太坊帳戶。 系統會重設乙太坊帳戶位址和密碼。  
+You can reset your Ethereum account by clicking on your member account and entering a new password. Both the Ethereum account address and the password will be reset.  
 
 ## <a name="next-steps"></a>後續步驟
 
-[如何使用 PowerShell 管理 Azure 區塊鏈 Service 中的成員](manage-consortium-powershell.md)
+[How to manage members in Azure Blockchain Service using PowerShell](manage-consortium-powershell.md)

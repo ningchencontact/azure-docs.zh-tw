@@ -1,14 +1,14 @@
 ---
 title: 了解藍圖生命週期
-description: 了解藍圖所會歷經的生命週期以及各階段的詳細資訊。
+description: Learn about the lifecycle that a blueprint definition goes through and details about each stage, including updating and removing blueprint assignments.
 ms.date: 07/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: d071a2af985d294bc87a5363d9e7566762e0fd8a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960502"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404583"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>了解 Azure 藍圖生命週期
 
@@ -29,14 +29,13 @@ ms.locfileid: "73960502"
 
 建立藍圖時，將成品新增至其中、儲存至管理群組或訂用帳戶，並提供唯一名稱與唯一版本。 藍圖現在處於**草稿**模式，尚無法指派。 然而在**草稿**模式中，它可以繼續更新及變更。
 
-處於**草稿**模式且未曾發佈的藍圖會在 [藍圖定義] 頁面上，顯示與**已發佈**藍圖不同的圖示。 **最新版本**會針對這些從未發佈的藍圖顯示為**草稿**。
+處於**草稿**模式且未曾發佈的藍圖會在 [藍圖定義] 頁面上，顯示與**已發佈**藍圖不同的圖示。 The **Latest Version** is displayed as **Draft** for these never published blueprints.
 
 使用 [Azure 入口網站](../create-blueprint-portal.md#create-a-blueprint)或 [REST API](../create-blueprint-rest-api.md#create-a-blueprint) 來建立及編輯藍圖。
 
 ## <a name="publishing-a-blueprint"></a>發佈藍圖
 
-對**草稿**模式的藍圖進行所有計劃性變更之後，該藍圖會處於**已發佈**狀態且可供指派。 藍圖的**已發佈**版本是無法改變的。
-一旦處於**已發佈**狀態，系統就會以與**草稿**藍圖不同的圖示來顯示藍圖，並在 [最新版本] 欄中顯示所提供的版本號碼。
+對**草稿**模式的藍圖進行所有計劃性變更之後，該藍圖會處於**已發佈**狀態且可供指派。 藍圖的**已發佈**版本是無法改變的。 一旦處於**已發佈**狀態，系統就會以與**草稿**藍圖不同的圖示來顯示藍圖，並在 [最新版本] 欄中顯示所提供的版本號碼。
 
 使用 [Azure 入口網站](../create-blueprint-portal.md#publish-a-blueprint)或 [REST API](../create-blueprint-rest-api.md#publish-a-blueprint) 來發佈藍圖。
 
@@ -64,11 +63,11 @@ ms.locfileid: "73960502"
 
 1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
 
-1. 從左邊的頁面選取 [**藍圖定義**]，然後使用篩選選項來找出您想要刪除其版本的藍圖。 按一下該藍圖以開啟編輯頁面。
+1. Select **Blueprint definitions** from the page on the left and use the filter options to locate the blueprint you want to delete a version of. Select it to open the edit page.
 
-1. 按一下 [已發佈的版本] 索引標籤，然後找出您要刪除的版本。
+1. Select the **Published versions** tab and locate the version you wish to delete.
 
-1. 以滑鼠右鍵按一下要刪除的版本，然後選取 [**刪除此版本**]。
+1. Right-click on the version to delete and select **Delete this version**.
 
 ## <a name="deleting-the-blueprint"></a>刪除藍圖
 
@@ -95,16 +94,16 @@ ms.locfileid: "73960502"
 
 若要了解作法，請參閱[更新現有的指派](../how-to/update-existing-assignments.md)。
 
-### <a name="unassigning-assignments"></a>取消指派指派
+### <a name="unassigning-assignments"></a>Unassigning assignments
 
-如果不再需要藍圖，則可以從管理群組或訂用帳戶取消指派。 在藍圖解除期間，會發生下列情況：
+If the blueprint is no longer needed, it can be unassigned from the management group or subscription. During blueprint unassignment, the following occurs:
 
-- 移除[藍圖資源鎖定](resource-locking.md)
-- 刪除藍圖指派物件
-- 條件如果使用**系統指派的受控識別**，它也會一併刪除
+- Removal of [blueprint resource locking](resource-locking.md)
+- Deletion of the blueprint assignment object
+- (Conditional) If a **system-assigned managed identity** was used, it's also deleted
 
 > [!NOTE]
-> 藍圖指派所部署的所有資源都會保留在原處，但不再受 Azure 藍圖保護。
+> All resources deployed by the blueprint assignment remain in place, but are no longer protected by Azure Blueprints.
 
 ## <a name="next-steps"></a>後續步驟
 

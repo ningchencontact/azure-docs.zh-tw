@@ -1,27 +1,21 @@
 ---
-title: 取得 Azure Blockchain Workbench 預覽資料庫詳細資料
-description: 瞭解如何取得 Azure Blockchain Workbench 預覽資料庫和資料庫伺服器資訊。
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: 取得 Azure Blockchain Workbench 資料庫詳細資料
+description: Learn how to get Azure Blockchain Workbench Preview database and database server information.
 ms.date: 09/05/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: mmercuri
-manager: femila
-ms.openlocfilehash: f4a4eaab9a03aeed27e29eb645b6e22a028b243b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2b3190a9d042be8ead1ff3d5ef48d4a2a19e8963
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845068"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324699"
 ---
-# <a name="get-information-about-your-azure-blockchain-workbench-preview-database"></a>取得 Azure Blockchain Workbench 預覽資料庫的相關資訊
+# <a name="get-information-about-your-azure-blockchain-workbench-database"></a>取得 Azure Blockchain Workbench 資料庫的相關資訊
 
-本文說明如何取得 Azure Blockchain Workbench Preview 資料庫的詳細資訊。
+This article shows how to get detailed information about your Azure Blockchain Workbench Preview database.
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 使用 Blockchain Workbench SQL DB 中的資料庫檢視可提供應用程式、工作流程與智慧合約執行的相關資訊。 開發人員可以在使用如 Microsoft Excel、Power BI、Visual Studio 及 SQL Server Management Studio 等工具時運用此資訊。
 

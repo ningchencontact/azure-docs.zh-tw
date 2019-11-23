@@ -1,185 +1,190 @@
 ---
-title: Azure Cosmos DB 服務配額
-description: Azure Cosmos DB 不同資源類型的服務配額和預設限制。
+title: Azure Cosmos DB service quotas
+description: Azure Cosmos DB service quotas and default limits on different resource types.
 author: arramac
 ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 45cf7b7d9383de467f72769465a3ad382fe9d589
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 7ce15a0fe55c32ad7e381ba70e4dffee11c76bee
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064038"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383397"
 ---
-# <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 服務配額
+# <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB service quotas
 
-本文概述 Azure Cosmos DB 提供給不同資源的預設配額。
+This article provides an overview of the default quotas offered to different resources in the Azure Cosmos DB.
 
-## <a name="storage-and-throughput"></a>儲存體和輸送量
+## <a name="storage-and-throughput"></a>Storage and throughput
 
-在您的訂用帳戶下建立 Azure Cosmos 帳戶之後，您可以藉由[建立資料庫、容器和專案](databases-containers-items.md)來管理您帳戶中的資料。 您可以在容器層級或資料庫層級布建輸送量，以[要求單位（RU/秒或 RU）](request-units.md)為依據。 下表列出每個容器/資料庫的儲存體和輸送量限制。
+After you create an Azure Cosmos account under your subscription, you can manage data in your account by [creating databases, containers, and items](databases-containers-items.md). You can provision throughput at a container-level or a database-level in terms of [request units (RU/s or RUs)](request-units.md). The following table lists the limits for storage and throughput per container/database.
 
 | 資源 | 預設限制 |
 | --- | --- |
-| 每個容器的最大 ru 數（[專用輸送量布建模式](databases-containers-items.md#azure-cosmos-containers)） | 預設為1000000。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它 |
-| 每個資料庫最多 ru （已布[建的共用輸送量模式](databases-containers-items.md#azure-cosmos-containers)） | 預設為1000000。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它 |
-| 每個（邏輯）分割區索引鍵的最大 ru | 10,000 |
-| 每個（邏輯）分割區索引鍵的所有專案儲存體上限| 10 GB |
-| 相異（邏輯）分割區索引鍵的最大數目 | 無限制 |
-| 每個容器的儲存體上限 | 無限制 |
-| 每個資料庫的儲存體上限 | 無限制 |
-| 每個帳戶的附件大小上限（附件功能正在進行折舊） | 2GB | 
+| Maximum RUs per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) |
+| Maximum RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) |
+| Maximum RUs per (logical) partition key | 10,000 |
+| Maximum storage across all items per (logical) partition key| 10 GB |
+| Maximum number of distinct (logical) partition keys | 無限制 |
+| Maximum storage per container | 無限制 |
+| Maximum storage per database | 無限制 |
+| Maximum attachment size per Account (Attachment feature is being depreciated) | 2GB |
+| Minimum RUs required per 1 GB | 10 RU/s |
 
 > [!NOTE]
-> 若要深入瞭解管理具有資料分割索引鍵的工作負載的最佳作法，其儲存體或輸送量需要較高的限制，請參閱[建立綜合分割](synthetic-partition-keys.md)區索引鍵。
+> To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md).
 >
 
-Cosmos 容器（或共用輸送量資料庫）的最小輸送量必須為 400 ru。 當容器成長時，支援的最低輸送量也取決於下列因素：
+A Cosmos container (or shared throughput database) must have a minimum throughput of 400 RUs. As the container grows, the minimum supported throughput also depends on the following factors:
 
-* 您可以在容器上設定的最小輸送量取決於容器上所布建的最大輸送量。 例如，如果您的輸送量已增加到 10000 ru，則最低可能的布建輸送量會是 1000 ru
-* 共用輸送量資料庫上的最小輸送量也取決於您先前在共用輸送量資料庫中建立的容器總數（以每個容器 100 ru 為單位）。 例如，如果您已在共用輸送量資料庫中建立五個容器，則輸送量至少必須為 500 ru
+* The minimum throughput that you can set on a container depends on the maximum throughput ever provisioned on the container. For example, if your throughput was increased to 10000 RUs, then the lowest possible provisioned throughput would be 1000 RUs
+* The minimum throughput on a shared throughput database also depends on the total number of containers that you have ever created in a shared throughput database, measured at 100 RUs per container. For example, if you have created five containers within a shared throughput database, then the throughput must be at least 500 RUs
 
-您可以從 Azure 入口網站或 Sdk 抓取容器或資料庫的目前和最小輸送量。 如需詳細資訊，請參閱[在容器和資料庫上](set-throughput.md)布建輸送量。 
+The current and minimum throughput of a container or a database can be retrieved from the Azure portal or the SDKs. For more information, see [Provision throughput on containers and databases](set-throughput.md). 
 
 > [!NOTE]
-> 在某些情況下，您可以將輸送量降低到低於10%。 使用 API 來取得每個容器的最小 ru 數目。
+> In some cases, you may be able to lower throughput to lesser than 10%. Use the API to get the exact minimum RUs per container.
 >
 
-總而言之，以下是布建的最小 RU 限制。 
+In summary, here are the minimum provisioned RU limits. 
 
 | 資源 | 預設限制 |
 | --- | --- |
-| 每個容器的最小 ru 數（[專用輸送量布建模式](databases-containers-items.md#azure-cosmos-containers)） | 400 |
-| 每個資料庫的最小 ru （已布[建的共用輸送量模式](databases-containers-items.md#azure-cosmos-containers)） | 400 |
-| 共用輸送量資料庫內每個容器的最小 ru | 100 |
+| Minimum  RUs per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Minimum  RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Minimum  RUs per container within a shared throughput database | 100 |
 
-Cosmos DB 可透過 Sdk 或入口網站，為每個容器或資料庫支援彈性調整輸送量（ru）。 每個容器可以在10到100次的縮放範圍內，以同步方式和最大值為限時，立即進行調整。 如果要求的輸送量值超出範圍，則會以非同步方式執行調整。 視容器中所要求的輸送量和資料儲存體大小而定，非同步調整可能需要數分鐘到數小時才能完成。  
+Cosmos DB supports elastic scaling of throughput (RUs) per container or database via the SDKs or portal. Each container can scale synchronously and immediately within a scale range of 10 to 100 times, between minimum and maximum values. If the requested throughput value is outside the range, scaling is performed asynchronously. Asynchronous scaling may take minutes to hours to complete depending on the requested throughput and data storage size in the container.  
 
-## <a name="control-plane-operations"></a>控制平面作業
+## <a name="control-plane-operations"></a>Control plane operations
 
-您可以使用 Azure 入口網站、Azure PowerShell、Azure CLI 和 Azure Resource Manager 範本來布建[和管理 Azure Cosmos 帳戶](how-to-manage-database-account.md)。 下表列出每個訂用帳戶、帳戶和作業數目的限制。
+You can [provision and manage your Azure Cosmos account](how-to-manage-database-account.md) using the Azure portal, Azure PowerShell, Azure CLI, and Azure Resource Manager templates. The following table lists the limits per subscription, account, and number of operations.
 
 | 資源 | 預設限制 |
 | --- | --- |
-| 每個訂閱的資料庫帳戶數目上限 | 預設為50。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它|
-| 區域容錯移轉的最大數目 | 預設為 1/小時。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它|
+| Maximum database accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)|
+| Maximum number of regional failovers | 1/hour by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)|
 
 > [!NOTE]
-> 區域容錯移轉只適用于單一區域寫入帳戶。 多重區域寫入帳戶不需要或有變更寫入區域的任何限制。
+> Regional failovers only apply to single region writes accounts. Multi-region write accounts do not require or have any limits on changing the write region.
 
-Cosmos DB 會自動定期備份您的資料。 如需備份保留間隔和 windows 的詳細資訊，請參閱[Azure Cosmos DB 中的線上備份和隨選資料還原](online-backup-and-restore.md)。
+Cosmos DB automatically takes backups of your data at regular intervals. For details on backup retention intervals and windows, see [Online backup and on-demand data restore in Azure Cosmos DB](online-backup-and-restore.md).
 
-## <a name="per-account-limits"></a>每個帳戶的限制
-
-| 資源 | 預設限制 |
-| --- | --- |
-| 資料庫的最大數目 | 無限制 |
-| 每個資料庫（或帳戶）的容器數目上限 | 無限制 |
-| 區域數目上限 | 無限制（所有 Azure 區域） |
-
-## <a name="per-container-limits"></a>每個容器的限制
-
-根據您使用的 API 而定，Azure Cosmos 容器可以代表集合、資料表或圖形。 容器支援唯一索引[鍵限制](unique-keys.md)式、[預存程式、觸發程式和 udf](stored-procedures-triggers-udfs.md)的設定，以及[索引編制原則](how-to-manage-indexing-policy.md)。 下表列出容器內設定特有的限制。 
+## <a name="per-account-limits"></a>Per-account limits
 
 | 資源 | 預設限制 |
 | --- | --- |
-| 資料庫或容器名稱的最大長度 | 255 |
-| 每個容器的預存程式數上限 | 100 <sup>*</sup>|
-| 每個容器的最大 Udf | 25 <sup>*</sup>|
-| 索引編制原則中的路徑數目上限| 100 <sup>*</sup>|
-| 每個容器的唯一索引鍵數目上限|10 <sup>*</sup>|
-| 每個唯一索引鍵條件約束的路徑數目上限|16 <sup>*</sup>|
+| Maximum number of databases | 無限制 |
+| Maximum number of containers per database (or account) | 無限制 |
+| Maximum number of regions | No limit (All Azure regions) |
 
-<sup>*</sup>您可以聯絡 Azure 支援，以增加每個容器的限制。
+## <a name="per-container-limits"></a>Per-container limits
 
-## <a name="per-item-limits"></a>每個專案的限制
-
-根據您使用的 API 而定，Azure Cosmos 專案可以代表集合中的檔、資料表中的資料列，或是圖形中的節點或邊緣。 下表顯示 Cosmos DB 中每個專案的限制。 
+Depending on which API you use, an Azure Cosmos container can represent either a collection, a table, or graph. Containers support configurations for [unique key constraints](unique-keys.md), [stored procedures, triggers, and UDFs](stored-procedures-triggers-udfs.md), and [indexing policy](how-to-manage-indexing-policy.md). The following table lists the limits specific to configurations within a container. 
 
 | 資源 | 預設限制 |
 | --- | --- |
-| 專案的大小上限 | 2 MB （UTF-8 長度的 JSON 標記法） |
-| 資料分割索引鍵值的最大長度 | 2048個位元組 |
-| 識別碼值的最大長度 | 1024個位元組 |
-| 每個專案的屬性數目上限 | 沒有實際限制 |
-| 最大的嵌套深度 | 沒有實際限制 |
-| 屬性名稱的最大長度 | 沒有實際限制 |
-| 屬性值的最大長度 | 沒有實際限制 |
-| 字串屬性值的最大長度 | 沒有實際限制 |
-| 數值屬性值的最大長度 | IEEE754 雙精確度64位 |
+| Maximum length of database or container name | 255 |
+| Maximum stored procedures per container | 100 <sup>*</sup>|
+| Maximum UDFs per container | 25 <sup>*</sup>|
+| Maximum number of paths in indexing policy| 100 <sup>*</sup>|
+| Maximum number of unique keys per container|10 <sup>*</sup>|
+| Maximum number of paths per unique key constraint|16 <sup>*</sup>|
 
-除了資料分割索引鍵和識別碼值的長度限制，以及 2 MB 的整體大小限制以外，專案裝載沒有任何限制，例如屬性數目和嵌套深度。 您可能必須針對具有大型或複雜專案結構的容器設定編制索引原則，以減少 RU 耗用量。 如需實際範例和用來管理大型專案的模式，請參閱[Cosmos DB 中的模型專案](how-to-model-partition-example.md)。
+<sup>*</sup> You can increase any of these per-container limits by contacting Azure Support.
 
-## <a name="per-request-limits"></a>每個要求的限制
+## <a name="per-item-limits"></a>Per-item limits
 
-Cosmos DB 支援對容器、專案和資料庫等資源[進行 CRUD 和查詢作業](https://docs.microsoft.com/rest/api/cosmos-db/)。  
+Depending on which API you use, an Azure Cosmos item can represent either a document in a collection, a row in a table, or a node or edge in a graph. The following table shows the limits per item in Cosmos DB. 
 
 | 資源 | 預設限制 |
 | --- | --- |
-| 單一作業的最長執行時間（例如預存程式執行或單一查詢頁面抓取）| 5 秒 |
-| 要求大小上限（預存程式、CRUD）| 2 MB |
-| 回應大小上限（例如，分頁查詢） | 4 MB |
+| Maximum size of an item | 2 MB (UTF-8 length of JSON representation) |
+| Maximum length of partition key value | 2048 bytes |
+| Maximum length of id value | 1024 bytes |
+| Maximum number of properties per item | No practical limit |
+| Maximum nesting depth | No practical limit |
+| Maximum length of property name | No practical limit |
+| Maximum length of property value | No practical limit |
+| Maximum length of string property value | No practical limit |
+| Maximum length of numeric property value | IEEE754 double-precision 64-bit |
 
-當查詢之類的作業達到執行超時或回應大小限制之後，它會將結果的頁面和接續 token 傳回給用戶端，以繼續執行。 單一查詢可以跨頁面/接續執行的持續時間沒有實際限制。
+There are no restrictions on the item payloads like number of properties and nesting depth, except for the length restrictions on partition key and id values, and the overall size restriction of 2 MB. You may have to configure indexing policy for containers with large or complex item structures to reduce RU consumption. See [Modeling items in Cosmos DB](how-to-model-partition-example.md) for a real-world example, and patterns to manage large items.
 
-Cosmos DB 使用 HMAC 進行授權。 您可以使用主要金鑰或[資源權杖](secure-access-to-data.md)，對容器、資料分割索引鍵或專案等資源進行更細緻的存取控制。 下表列出 Cosmos DB 中的授權權杖限制。
+## <a name="per-request-limits"></a>Per-request limits
 
-| 資源 | 預設限制 |
-| --- | --- |
-| 主要權杖到期時間上限 | 15 分鐘  |
-| 資源權杖到期時間下限 | 10分鐘  |
-| 資源權杖到期時間上限 | 預設為24小時。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它|
-| 權杖授權的最大時鐘誤差| 15 分鐘 |
-
-Cosmos DB 支援在寫入期間執行觸發程式。 服務最多支援一個預先觸發程式，以及一個每個寫入作業的後續觸發程式。 
-
-## <a name="sql-query-limits"></a>SQL 查詢限制
-
-Cosmos DB 支援使用[SQL](how-to-sql-query.md)查詢專案。 下表描述查詢語句中的限制，例如子句數目或查詢長度。
+Cosmos DB supports [CRUD and query operations](https://docs.microsoft.com/rest/api/cosmos-db/) against resources like containers, items, and databases.  
 
 | 資源 | 預設限制 |
 | --- | --- |
-| SQL 查詢的最大長度| 256 KB <sup>*</sup>|
-| 每個查詢的聯結數上限| 5 <sup>*</sup>|
-| 每個查詢的最大 And| 2000 <sup>*</sup>|
-| 每個查詢的最大 Or| 2000 <sup>*</sup>|
-| 每個查詢的 Udf 上限| 10 <sup>*</sup>|
-| 運算式中的每個引數數目上限| 6000 <sup>*</sup>|
-| 每個多邊形的點數上限| 4096 <sup>*</sup>|
+| Maximum execution time for a single operation (like a stored procedure execution or a single query page retrieval)| 5 秒 |
+| Maximum request size (stored procedure, CRUD)| 2 MB |
+| Maximum response size (for example, paginated query) | 4 MB |
 
-<sup>*</sup>您可以透過聯絡 Azure 支援人員來增加任何這些 SQL 查詢限制。
+Once an operation like query reaches the execution timeout or response size limit, it returns a page of results and a continuation token to the client to resume execution. There is no practical limit on the duration a single query can run across pages/continuations.
 
-## <a name="mongodb-api-specific-limits"></a>MongoDB API 特定限制
-
-Cosmos DB 針對以 MongoDB 撰寫的應用程式支援 MongoDB 有線通訊協定。 您可以在[支援的 MongoDB 功能和語法](mongodb-feature-support.md)中找到支援的命令和通訊協定版本。
-
-下表列出 MongoDB 功能支援的特定限制。 針對 SQL （核心） API 所提及的其他服務限制也適用于 MongoDB API。
+Cosmos DB uses HMAC for authorization. You can use either a master key, or a [resource tokens](secure-access-to-data.md) for fine-grained access control to resources like containers, partition keys, or items. The following table lists limits for authorization tokens in Cosmos DB.
 
 | 資源 | 預設限制 |
 | --- | --- |
-| MongoDB 查詢記憶體大小上限 | 40 MB |
-| MongoDB 作業的執行時間上限| 30 秒 |
+| Maximum master token expiry time | 15 分鐘  |
+| Minimum resource token expiry time | 10 min  |
+| Maximum resource token expiry time | 24 h by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)|
+| Maximum clock skew for token authorization| 15 分鐘 |
 
-## <a name="try-cosmos-db-free-limits"></a>試用 Cosmos DB 免費限制
+Cosmos DB supports execution of triggers during writes. The service supports a maximum of one pre-trigger and one post-trigger per write operation. 
 
-下表列出免費試用版試用[Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)的限制。
+## <a name="autopilot-mode-limits"></a>Autopilot mode limits
+
+See the [Autopilot](provision-throughput-autopilot.md#autopilot-limits) article for the throughput and storage limits in autopilot mode.
+
+## <a name="sql-query-limits"></a>SQL query limits
+
+Cosmos DB supports querying items using [SQL](how-to-sql-query.md). The following table describes restrictions in query statements, for example in terms of number of clauses or query length.
 
 | 資源 | 預設限制 |
 | --- | --- |
-| 試用期間 | 30天（可更新任意次數） |
-| 每個訂用帳戶的容器上限（SQL、Gremlin、資料表 API） | 1 |
-| 每個訂用帳戶的容器上限（MongoDB API） | 3 |
-| 每個容器的最大輸送量 | 5000 |
-| 每個共用輸送量資料庫的最大輸送量 | 20000 |
-| 每個帳戶的總儲存空間上限 | 10 GB |
+| Maximum length of SQL query| 256 KB <sup>*</sup>|
+| Maximum JOINs per query| 5 <sup>*</sup>|
+| Maximum ANDs per query| 2000 <sup>*</sup>|
+| Maximum ORs per query| 2000 <sup>*</sup>|
+| Maximum UDFs per query| 10 <sup>*</sup>|
+| Maximum arguments per IN expression| 6000 <sup>*</sup>|
+| Maximum points per polygon| 4096 <sup>*</sup>|
 
-試用 Cosmos DB 僅支援「美國中部」、「北歐」和「東南亞」區域中的「全域散發」。 無法為試用 Azure Cosmos DB 帳戶建立 Azure 支援票證。 不過，支援是提供給具有現有支援方案的訂閱者。
+<sup>*</sup> You can increase any of these SQL query limits by contacting Azure Support.
+
+## <a name="mongodb-api-specific-limits"></a>MongoDB API-specific limits
+
+Cosmos DB supports the MongoDB wire protocol for applications written against MongoDB. You can find the supported commands and protocol versions at [Supported MongoDB features and syntax](mongodb-feature-support.md).
+
+The following table lists the limits specific to MongoDB feature support. Other service limits mentioned for the SQL (core) API also apply to the MongoDB API.
+
+| 資源 | 預設限制 |
+| --- | --- |
+| Maximum MongoDB query memory size | 40 MB |
+| Maximum execution time for MongoDB operations| 30 秒 |
+
+## <a name="try-cosmos-db-free-limits"></a>Try Cosmos DB Free limits
+
+The following table lists the limits for the [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/) trial.
+
+| 資源 | 預設限制 |
+| --- | --- |
+| Duration of the trial | 30 days (can be renewed any number of times) |
+| Maximum containers per subscription (SQL, Gremlin, Table API) | 1 |
+| Maximum containers per subscription (MongoDB API) | 3 |
+| Maximum throughput per container | 5000 |
+| Maximum throughput per shared-throughput database | 20000 |
+| Maximum total storage per account | 10 GB |
+
+Try Cosmos DB supports global distribution in only the Central US, North Europe, and Southeast Asia regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
 
 ## <a name="next-steps"></a>後續步驟
 
-深入瞭解 Cosmos DB 的核心概念[全域散發](distribute-data-globally.md)和[分割](partitioning-overview.md)和布[建的輸送量](request-units.md)。
+Read more about Cosmos DB's core concepts [global distribution](distribute-data-globally.md) and [partitioning](partitioning-overview.md) and [provisioned throughput](request-units.md).
 
 透過下列其中一個快速入門開始使用 Azure Cosmos DB：
 

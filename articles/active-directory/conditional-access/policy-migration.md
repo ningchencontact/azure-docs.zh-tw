@@ -1,45 +1,45 @@
 ---
-title: 什麼是 Azure Active Directory 條件式存取原則移轉？ | Microsoft Docs
+title: Migrate Conditional Access policies - Azure Active Directory
 description: 了解如何在 Azure 入口網站中移轉傳統原則中。
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7464546a78e1b54cdea3bd6dd66656f5b189bc02
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 75d664f6e61dbbaaf0b8ab74c392596a206ff644
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67506814"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380546"
 ---
-# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取原則移轉？ 
+# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>What is a policy migration in Azure Active Directory Conditional Access? 
 
-[條件式存取](../active-directory-conditional-access-azure-portal.md)是一項功能的 Azure Active directory (Azure AD) 可讓您控制如何授權使用者存取您雲端應用程式。 雖然目的仍相同，但新的 Azure 入口網站已導入了條件式存取如何運作的重大改進。
+[Conditional Access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active directory (Azure AD) that enables you to control how authorized users access your cloud apps. While the purpose is still the same, the release of the new Azure portal has introduced significant improvements to how Conditional Access works.
 
 請考慮移轉尚未在 Azure 入口網站中建立的原則，因為：
 
 - 您現在可以處理之前無法處理的案例。
 - 您可以合併它們以減少必須管理的原則數目。   
-- 您可以管理所有的條件式存取原則，在單一中央位置。
+- You can manage all your Conditional Access policies in one central location.
 - Azure 傳統入口網站將被淘汰。   
 
-這篇文章說明您需要知道要將您現有的條件式存取原則移轉到新的架構。
+This article explains what you need to know to migrate your existing Conditional Access policies to the new framework.
  
 ## <a name="classic-policies"></a>傳統原則
 
-在  [Azure 入口網站](https://portal.azure.com)，則[條件式存取-原則](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)頁面是您的條件式存取原則的進入點。 不過，在您環境中，您可能也有條件式存取原則，您還沒有建立使用此頁面。 這些原則也稱為「傳統原則」  。 傳統原則是條件式存取原則，您已建立在：
+In the [Azure portal](https://portal.azure.com), the [Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) page is your entry point to your Conditional Access policies. However, in your environment, you might also have Conditional Access policies you have not created using this page. 這些原則也稱為「傳統原則」。 Classic policies are Conditional Access policies, you have created in:
 
 - Azure 傳統入口網站
 - Intune 傳統入口網站
 - Intune 應用程式防護入口網站
 
-在 **條件式存取**頁面上，您可以按一下來存取您的傳統原則[**傳統原則 （預覽）** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies)中**管理**一節。 
+On the **Conditional Access** page, you can access your classic policies by clicking [**Classic policies (preview)** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) in the **Manage** section. 
 
 ![Azure Active Directory](./media/policy-migration/71.png)
 
@@ -53,29 +53,29 @@ ms.locfileid: "67506814"
 
    ![Azure Active Directory](./media/policy-migration/73.png)
    
-- 檢閱設定的傳統原則 （並將它停用）。
+- Review the settings of a classic policy (and to disable it).
 
    ![Azure Active Directory](./media/policy-migration/74.png)
 
-如果您已停用傳統原則，再也無法還原此步驟。 這就是為什麼您可以使用 [詳細資料]  檢視來修改傳統原則中的群組成員資格。 
+如果您已停用傳統原則，再也無法還原此步驟。 這就是為什麼您可以使用 [詳細資料] 檢視來修改傳統原則中的群組成員資格。 
 
 ![Azure Active Directory](./media/policy-migration/75.png)
 
 藉由變更所選的群組或排除特定群組，即可先測試一些測試使用者的已停用傳統原則效果，然後再針對所有包含的使用者和群組停用此原則。 
 
-## <a name="azure-ad-conditional-access-policies"></a>Azure AD 條件式存取原則
+## <a name="azure-ad-conditional-access-policies"></a>Azure AD Conditional Access policies
 
-使用 Azure 入口網站中的條件式存取，您可以管理您在單一中央位置的所有原則。 因為條件式存取如何變更的實作，您應該已經熟悉它的基本概念之前移轉傳統原則。
+With Conditional Access in the Azure portal, you can manage all your policies in one central location. Because the implementation of how Conditional Access has changed, you should familiarize yourself with the basic concepts before migrating your classic policies.
 
 請參閱：
 
-- [什麼是 Azure Active Directory 中的條件式存取](../active-directory-conditional-access-azure-portal.md)若要了解基本概念與術語。
-- [Azure Active Directory 中的條件式存取的最佳作法](best-practices.md)以取得您組織中部署條件式存取的一些指引。
-- [使用 Azure Active Directory 條件式存取所需的特定應用程式 MFA](app-based-mfa.md)以熟悉 Azure 入口網站中的使用者介面。
+- [What is Conditional Access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md) to learn about the basic concepts and the terminology.
+- [Best practices for Conditional Access in Azure Active Directory](best-practices.md) to get some guidance on deploying Conditional Access in your organization.
+- [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md) to familiarize yourself with the user interface in the Azure portal.
  
 ## <a name="migration-considerations"></a>移轉考量
 
-在本文中，Azure AD 條件式存取原則也稱為*新的原則*。
+In this article, Azure AD Conditional Access policies are also referred to as *new policies*.
 您的傳統原則會繼續與新原則並存運作，直到您停用或刪除它們為止。 
 
 下列是原則彙總內容中的重要層面：
@@ -132,5 +132,5 @@ Office 365 Exchange Online [以應用程式為基礎](technical-reference.md#app
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您想要了解如何設定條件式存取原則，請參閱[需要 MFA 的特定應用程式與 Azure Active Directory 條件式存取](app-based-mfa.md)。
-- 如果您已準備好設定您的環境的條件式存取原則，請參閱[Azure Active Directory 中的條件式存取的最佳作法](best-practices.md)。 
+- 如果您想要知道如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](app-based-mfa.md)。
+- 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](best-practices.md)。 

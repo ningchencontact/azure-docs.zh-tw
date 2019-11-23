@@ -1,5 +1,5 @@
 ---
-title: 如何建立使用者定義函數-在 Azure 數位 Twins 中 |Microsoft Docs
+title: How to create user-defined functions - in Azure Digital Twins | Microsoft Docs
 description: 如何在 Azure Digital Twins 中建立使用者定義函式、比對器和角色指派。
 ms.author: alinast
 author: alinamstanciu
@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4db6f0052c92d4532917a996eda82a27d97d3063
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 824fe611867216233e223e505f5321b23b7406fb
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009559"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383319"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中建立使用者定義函式
 
@@ -46,7 +46,7 @@ ms.locfileid: "74009559"
 
 下列比對器範例在資料類型值為 `"Temperature"` 的任何感應器遙測事件上會評估為 True。 您可以藉由提出已驗證的 HTTP POST 要求，在使用者定義函式上建立多個比對器：
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/matchers
 ```
 
@@ -69,7 +69,7 @@ YOUR_MANAGEMENT_API_URL/matchers
 }
 ```
 
-| 值 | 更換為 |
+| Value | 更換為 |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | 裝載您執行個體的伺服器區域 |
 
@@ -81,7 +81,7 @@ YOUR_MANAGEMENT_API_URL/matchers
 
 建立比對器之後，使用下列已驗證的多部分 HTTP POST 要求來上傳函式程式碼片段：
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
@@ -109,7 +109,7 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| 值 | 更換為 |
+| Value | 更換為 |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | 多部分內容界限名稱 |
 | YOUR_SPACE_IDENTIFIER | 空間識別碼  |
@@ -201,26 +201,26 @@ function process(telemetry, executionContext) {
 
 1. 針對所有角色[查詢系統 API](./security-create-manage-role-assignments.md#retrieve-all-roles)，以取得您想要指派給使用者定義函式的角色識別碼。 提出已驗證的 HTTP GET 要求來達成此目的：
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    保留所需的角色識別碼。 它將會以下方的 JSON 主體屬性 **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) 來傳遞。
 
 1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) 將會是稍早建立的使用者定義函式識別碼。
-1. 藉由使用 **查詢您的空間來尋找**path`YOUR_ACCESS_CONTROL_PATH` (`fullpath`) 的值。
+1. 藉由使用 `fullpath` 查詢您的空間來尋找 **path** (`YOUR_ACCESS_CONTROL_PATH`) 的值。
 1. 複製傳回的 `spacePaths` 值。 您將會在下方用到該值。 提出已驗證的 HTTP GET 要求：
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | 值 | 更換為 |
+    | Value | 更換為 |
     | --- | --- |
     | YOUR_SPACE_NAME | 想要使用的空間名稱 |
 
 1. 將傳回的 `spacePaths` 值貼至 **path**，藉由提出已驗證的 HTTP POST 要求來建立使用者定義函式角色指派：
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/roleassignments
     ```
     使用 JSON 主體：
@@ -234,11 +234,11 @@ function process(telemetry, executionContext) {
     }
     ```
 
-    | 值 | 更換為 |
+    | Value | 更換為 |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | 所需角色的識別碼 |
     | YOUR_USER_DEFINED_FUNCTION_ID | 您所要使用的使用者定義函式其識別碼 |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | 指定使用者定義函式類型的識別碼 |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | The ID specifying the user-defined function type (`UserDefinedFunctionId`) |
     | YOUR_ACCESS_CONTROL_PATH | 存取控制路徑 |
 
 >[!TIP]

@@ -1,21 +1,15 @@
 ---
 title: 在 Microsoft Power BI 中使用 Azure Blockchain Workbench 資料
 description: 了解如何在 Microsoft Power BI 中載入與檢視 Azure Blockchain Workbench SQL DB 資料。
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 05/09/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: mmercuri
-manager: femila
-ms.openlocfilehash: dcb6729581d5282b32359874eaad22050d0d2048
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e1f160c3563a280548c74ebe84f30bf08945c3f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510700"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324802"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>將 Azure Blockchain Workbench 資料搭配 Microsoft Power BI 使用
 
@@ -23,29 +17,29 @@ Microsoft Power BI 中的功能可供使用 Power BI Desktop 輕鬆地從 SQL DB
 
 本文包含如何從 PowerBI 桌面連線至 Azure Blockchain Workbench SQL Database、建立報告，並將報告部署至 powerbi.com 的逐步解說。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 下載 [Power BI Desktop](https://aka.ms/pbidesktopstore)。
 
 ## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>將 Power BI 連線至 Azure Blockchain Workbench 中的資料
 
 1.  開啟 Power BI Desktop。
-2.  選取 [取得資料]  。
+2.  選取 [取得資料]。
 
     ![取得資料](./media/data-powerbi/get-data.png)
-3.  從資料來源類型中選取 [SQL Server]  。
+3.  從資料來源類型中選取 [SQL Server]。
 
-4.  在對話方塊中提供伺服器與資料庫名稱。 指定您要匯入資料，或執行 **DirectQuery**。 選取 [確定]  。
+4.  在對話方塊中提供伺服器與資料庫名稱。 指定您要匯入資料，或執行 **DirectQuery**。 選取 [確定]。
 
     ![選取 SQL Server](./media/data-powerbi/select-sql.png)
 
-5.  提供存取 Azure Blockchain Workbench 的資料庫認證。 選取 [資料庫]  ，然後輸入您的認證。
+5.  提供存取 Azure Blockchain Workbench 的資料庫認證。 選取 [資料庫]，然後輸入您的認證。
 
     如果您使用的是由 Azure Blockchain Workbench 部署程序建立的認證，則使用者名稱為 **dbadmin**，且密碼為您在部署期間提供的密碼。
 
     ![SQL DB 設定](./media/data-powerbi/db-settings.png)
 
-6.  一旦連線至資料庫時，[導覽列]  對話方塊會顯示資料庫內可用的資料表與檢視。 檢視是針對報告所設計，所有檢視名稱的前面都會加上 **vw**。
+6.  一旦連線至資料庫時，[導覽列] 對話方塊會顯示資料庫內可用的資料表與檢視。 檢視是針對報告所設計，所有檢視名稱的前面都會加上 **vw**。
 
     ![導覽器](./media/data-powerbi/navigator.png)
 

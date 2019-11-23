@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a536eb89f2040333617329e963ce00f5c6b1ba7a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4026de0b13a143a6bd3905e3d4fbb5071e196c21
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086970"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384234"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>了解 Azure VM 的系統重新啟動
 
@@ -41,7 +41,7 @@ Azure 資源健康狀態是一項服務，會揭露個別 Azure 資源的健康�
 
 ## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>可能導致 VM 重新開機的動作和事件
 
-### <a name="planned-maintenance"></a>預定的維修
+### <a name="planned-maintenance"></a>規劃的維修
 
 為提升 VM 之基礎主機基礎結構的可靠性、效能和安全性，Microsoft Azure 會全球定期執行更新。 許多這些更新 (包括記憶體保留的更新) 在執行時並不會對 VM 或雲端服務造成任何影響。
 
@@ -67,7 +67,7 @@ Azure 資源健康狀態是一項服務，會揭露個別 Azure 資源的健康�
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>使用者起始的重新開機或關機動作
 
-如果從 Azure 入口網站、Azure PowerShell、命令列介面或重設 API 執行重新開機，可以在 [Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)中找到此事件。
+If you perform a reboot from the Azure portal, Azure PowerShell, command-line interface, or REST API, you can find the event in the [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md).
 
 如果您從 VM 的作業系統執行動作，您可以在系統記錄中找到此事件。
 
@@ -101,7 +101,7 @@ VM 會裝載於在 Azure 資料中心內執行的實體伺服器。 除了少數
 
 在少數情況下，Azure 作業小組可能需要執行維護活動，以確保 Azure 平台的整體健全狀況。 此行為可能會影響 VM 可用性，且通常會導致如先前所述的相同自動復原動作。  
 
-非計畫中的維護包括下列各項：
+Unplanned maintenance include the following:
 
 - 緊急節點磁碟重組
 - 緊急網路交換器更新
@@ -118,7 +118,7 @@ Azure 中的 VM 依賴作業系統的虛擬磁碟以及 Azure 儲存體基礎結
 
 **超出 IO 限制**
 
-當 I/O 要求因為每秒 I/O 作業次數 (IOPS) 超出磁碟的 I/O 限制而一直節流時，VM 可能會暫時關閉。 (標準磁碟儲存體受限於 500 IOPS)。若要緩和這個問題，請使用磁碟等量化或在客體 VM 內設定儲存體空間 (視工作負載而定)。 如需詳細資訊，請參閱[設定 Azure VM 以達到最佳的儲存體效能](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)。
+當 I/O 要求因為每秒 I/O 作業次數 (IOPS) 超出磁碟的 I/O 限制而一直節流時，VM 可能會暫時關閉。 (Standard disk storage is limited to 500 IOPS.) To mitigate this issue, use disk striping or configure the storage space inside the guest VM, depending on the workload. 如需詳細資訊，請參閱[設定 Azure VM 以達到最佳的儲存體效能](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)。
 
 ### <a name="other-incidents"></a>其他事件
 

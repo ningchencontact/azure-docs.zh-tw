@@ -1,52 +1,52 @@
 ---
-title: 在 Azure Kubernetes Service 中使用多個節點集區（AKS）
-description: 瞭解如何在 Azure Kubernetes Service （AKS）中建立及管理叢集的多個節點集區
+title: Use multiple node pools in Azure Kubernetes Service (AKS)
+description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 9c8bae879c5e28914981eec34afb0759dd963004
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c48bcab0a3d009b186832a6b728597f03788a7cd
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928985"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382998"
 ---
-# <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service （AKS）中建立及管理叢集的多個節點集區
+# <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 
-在 Azure Kubernetes Service （AKS）中，相同設定的節點會群組在一起成為*節點*集區。 這些節點集區包含執行應用程式的基礎 Vm。 當您建立 AKS 叢集時，會定義初始節點數目及其大小（SKU），以建立*預設節點集*區。 若要支援具有不同計算或儲存體需求的應用程式，您可以建立額外的節點集區。 例如，您可以使用這些額外的節點集區，為計算密集型應用程式提供 Gpu，或存取高效能 SSD 儲存體。
+In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. These node pools contain the underlying VMs that run your applications. The initial number of nodes and their size (SKU) are defined when you create an AKS cluster, which creates a *default node pool*. To support applications that have different compute or storage demands, you can create additional node pools. For example, use these additional node pools to provide GPUs for compute-intensive applications, or access to high-performance SSD storage.
 
 > [!NOTE]
-> 這項功能可讓您更進一步控制如何建立和管理多個節點集區。 因此，建立/更新/刪除需要個別的命令。 先前透過 `az aks create` 或 `az aks update` 的叢集作業會使用 managedCluster API，而且是變更控制平面和單一節點集區的唯一選項。 這項功能會透過 agentPool API 公開代理程式組件區的個別作業集，並要求使用 `az aks nodepool` 命令集，以在個別節點集區上執行作業。
+> This feature enables higher control over how to create and manage multiple node pools. As a result, separate commands are required for  create/update/delete. Previously cluster operations through `az aks create` or `az aks update` used the managedCluster API and were the only option to change your control plane and a single node pool. This feature exposes a separate operation set for agent pools through the agentPool API and require use of the `az aks nodepool` command set to execute operations on an individual node pool.
 
-本文說明如何在 AKS 叢集中建立和管理多個節點集區。
+This article shows you how to create and manage multiple node pools in an AKS cluster.
 
 ## <a name="before-you-begin"></a>開始之前
 
-您需要安裝並設定 Azure CLI 版本2.0.76 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
+You need the Azure CLI version 2.0.76 or later installed and configured. 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="limitations"></a>限制
 
-當您建立和管理支援多個節點集區的 AKS 叢集時，適用下列限制：
+The following limitations apply when you create and manage AKS clusters that support multiple node pools:
 
-* 您無法刪除預設（第一個）節點集區。
-* 無法使用 HTTP 應用程式路由附加元件。
-* AKS 叢集必須使用標準 SKU 負載平衡器來使用多個節點集區，但基本 SKU 負載平衡器不支援此功能。
-* AKS 叢集必須使用節點的虛擬機器擴展集。
-* 您無法使用現有的 Resource Manager 範本來新增或刪除節點集區，就像大部分的作業一樣。 相反地，請[使用個別的 Resource Manager 範本](#manage-node-pools-using-a-resource-manager-template)，對 AKS 叢集中的節點集區進行變更。
-* 節點集區的名稱只可包含小寫英數位元，且必須以小寫字母開頭。 針對 Linux 節點集區，長度必須介於1到12個字元之間，而 Windows 節點集區的長度必須介於1到6個字元之間。
-* AKS 叢集最多可以有八個節點集區。
-* AKS 叢集在這八個節點集區中最多可以有400個節點。
-* 所有節點集區都必須位於相同的子網中。
+* You can't delete the default (first) node pool.
+* The HTTP application routing add-on can't be used.
+* The AKS cluster must use the Standard SKU load balancer to use multiple node pools, the feature is not supported with Basic SKU load balancers.
+* The AKS cluster must use virtual machine scale sets for the nodes.
+* You can't add or delete node pools using an existing Resource Manager template as with most operations. Instead, [use a separate Resource Manager template](#manage-node-pools-using-a-resource-manager-template) to make changes to node pools in an AKS cluster.
+* The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
+* The AKS cluster can have a maximum of eight node pools.
+* The AKS cluster can have a maximum of 400 nodes across those eight node pools.
+* All node pools must reside in the same subnet.
 
 ## <a name="create-an-aks-cluster"></a>建立 AKS 叢集
 
-若要開始使用，請建立具有單一節點集區的 AKS 叢集。 下列範例會使用[az group create][az-group-create]命令，在*eastus*區域中建立名為*myResourceGroup*的資源群組。 然後使用[az AKS create][az-aks-create]命令來建立名為*myAKSCluster*的 AKS 叢集。 *--Kubernetes-* *1.13.10*版本是用來示範如何在下列步驟中更新節點集區。 您可以指定任何[支援的 Kubernetes 版本][supported-versions]。
+To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.13.10* is used to show how to update a node pool in a following step. You can specify any [supported Kubernetes version][supported-versions].
 
 > [!NOTE]
-> 使用多個節點集區時，**不支援***基本*負載平衡器 SKU。 根據預設，系統會使用 Azure CLI 和 Azure 入口網站的*標準*負載平衡器 SKU 來建立 AKS 叢集。
+> The *Basic* load balancer SKU is **not supported** when using multiple node pools. By default, AKS clusters are created with the *Standard* load balancer SKU from Azure CLI and Azure portal.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -66,17 +66,17 @@ az aks create \
 建立叢集需要幾分鐘的時間。
 
 > [!NOTE]
-> 若要確保您的叢集能夠可靠地運作，您應該在預設節點集區中至少執行2（兩個）節點，因為基本的系統服務在此節點集區上執行。
+> To ensure your cluster operates reliably, you should run at least 2 (two) nodes in the default node pool, as essential system services are running across this node pool.
 
-當叢集準備就緒時，請使用[az aks get-認證][az-aks-get-credentials]命令來取得要搭配 `kubectl`使用的叢集認證：
+When the cluster is ready, use the [az aks get-credentials][az-aks-get-credentials] command to get the cluster credentials for use with `kubectl`:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## <a name="add-a-node-pool"></a>新增節點集區
+## <a name="add-a-node-pool"></a>Add a node pool
 
-在上一個步驟中建立的叢集具有單一節點集區。 讓我們使用[az aks nodepool add][az-aks-nodepool-add]命令來新增第二個節點集區。 下列範例會建立名為*mynodepool*的節點集區，其會執行*3*個節點：
+The cluster created in the previous step has a single node pool. Let's add a second node pool using the [az aks nodepool add][az-aks-nodepool-add] command. The following example creates a node pool named *mynodepool* that runs *3* nodes:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -88,15 +88,15 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> 節點集區的名稱必須以小寫字母開頭，而且只能包含英數位元。 針對 Linux 節點集區，長度必須介於1到12個字元之間，而 Windows 節點集區的長度必須介於1到6個字元之間。
+> The name of a node pool must start with a lowercase letter and can only contain alphanumeric characters. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
 
-若要查看節點集區的狀態，請使用[az aks node pool list][az-aks-nodepool-list]命令，並指定您的資源群組和叢集名稱：
+To see the status of your node pools, use the [az aks node pool list][az-aks-nodepool-list] command and specify your resource group and cluster name:
 
 ```azurecli-interactive
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
-下列範例輸出顯示已成功建立節點集區中有三個節點的*mynodepool* 。 在上一個步驟中建立 AKS 叢集時，會使用節點計數*2*來建立預設*nodepool1* 。
+The following example output shows that *mynodepool* has been successfully created with three nodes in the node pool. When the AKS cluster was created in the previous step, a default *nodepool1* was created with a node count of *2*.
 
 ```console
 $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
@@ -126,21 +126,21 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ```
 
 > [!TIP]
-> 當您新增節點集區時，如果未指定*OrchestratorVersion*或*VmSize* ，則會根據 AKS 叢集的預設值來建立節點。 在此範例中，這是 Kubernetes 的版本*1.13.10*和節點大小*Standard_DS2_v2*。
+> If no *OrchestratorVersion* or *VmSize* is specified when you add a node pool, the nodes are created based on the defaults for the AKS cluster. In this example, that was Kubernetes version *1.13.10* and node size of *Standard_DS2_v2*.
 
-## <a name="upgrade-a-node-pool"></a>升級節點集區
+## <a name="upgrade-a-node-pool"></a>Upgrade a node pool
  
 > [!NOTE]
-> 在叢集或節點集區上的升級和調整作業不能同時發生，如果嘗試了錯誤就會傳回。 相反地，每個作業類型必須在目標資源上完成，然後才在該相同資源上進行下一個要求。 請在我們的[疑難排解指南](https://aka.ms/aks-pending-upgrade)中閱讀更多相關資訊。
+> Upgrade and scale operations on a cluster or node pool cannot occur simultaneously, if attempted an error is returned. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](https://aka.ms/aks-pending-upgrade).
 
-當您的 AKS 叢集最初是在第一個步驟中建立時，就會指定*1.13.10*的 `--kubernetes-version`。 這會設定控制平面和預設節點集區的 Kubernetes 版本。 本節中的命令說明如何升級單一特定的節點集區。
+When your AKS cluster was initially created in the first step, a `--kubernetes-version` of *1.13.10* was specified. This set the Kubernetes version for both the control plane and the default node pool. The commands in this section explain how to upgrade a single specific node pool.
 
-[下一節](#upgrade-a-cluster-control-plane-with-multiple-node-pools)將說明升級控制平面和節點集區的 Kubernetes 版本之間的關聯性。
+The relationship between upgrading the Kubernetes version of the control plane and the node pool are explained in the [section below](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
-> 節點集區 OS 映射版本會系結至叢集的 Kubernetes 版本。 在叢集升級之後，您只會取得 OS 映射升級。
+> The node pool OS image version is tied to the Kubernetes version of the cluster. You will only get OS image upgrades, following a cluster upgrade.
 
-因為在此範例中有兩個節點集區，所以我們必須使用[az aks nodepool upgrade][az-aks-nodepool-upgrade]來升級節點集區。 讓我們將*mynodepool*升級至 Kubernetes *1.13.10*。 使用[az aks nodepool upgrade][az-aks-nodepool-upgrade]命令升級節點集區，如下列範例所示：
+Since there are two node pools in this example, we must use [az aks nodepool upgrade][az-aks-nodepool-upgrade] to upgrade a node pool. Let's upgrade the *mynodepool* to Kubernetes *1.13.10*. Use the [az aks nodepool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -151,7 +151,7 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-使用[az aks node pool list][az-aks-nodepool-list]命令再次列出節點集區的狀態。 下列範例顯示*mynodepool*處於*1.13.10*的*升級*狀態：
+List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Upgrading* state to *1.13.10*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -184,49 +184,49 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
-將節點升級為指定的版本需要幾分鐘的時間。
+It takes a few minutes to upgrade the nodes to the specified version.
 
-最佳做法是將 AKS 叢集中的所有節點集區升級至相同的 Kubernetes 版本。 `az aks upgrade` 的預設行為是將所有節點集區與控制平面同時升級，以達成這種對齊方式。 升級個別節點集區的功能可讓您執行輪流升級，並在節點集區之間排程 pod，以維護上述條件約束內的應用程式執行時間。
+As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The default behavior of `az aks upgrade` is to upgrade all node pools together with the control plane to achieve this alignment. The ability to upgrade individual node pools lets you perform a rolling upgrade and schedule pods between node pools to maintain application uptime within the above constraints mentioned.
 
-## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>升級具有多個節點集區的叢集控制平面
+## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Upgrade a cluster control plane with multiple node pools
 
 > [!NOTE]
-> Kubernetes 使用標準的[語義版本](https://semver.org/)控制版本設定配置。 版本號碼會以*x-y*表示，其中*x*是主要版本， *y*是次要版本，而*z*是修補程式版本。 例如，在版本*1.12.6*中，1是主要版本，12是次要版本，而6是修補程式版本。 在叢集建立期間，會設定控制平面和初始節點集區的 Kubernetes 版本。 當所有其他節點集區新增至叢集時，會設定其 Kubernetes 版本。 節點集區以及節點集區與控制平面之間的 Kubernetes 版本可能不同。
+> Kubernetes uses the standard [Semantic Versioning](https://semver.org/) versioning scheme. The version number is expressed as *x.y.z*, where *x* is the major version, *y* is the minor version, and *z* is the patch version. For example, in version *1.12.6*, 1 is the major version, 12 is the minor version, and 6 is the patch version. The Kubernetes version of the control plane and the initial node pool are set during cluster creation. All additional node pools have their Kubernetes version set when they are added to the cluster. The Kubernetes versions may differ between node pools as well as between a node pool and the control plane.
 
-AKS 叢集有兩個叢集資源物件與 Kubernetes 版本相關聯。
+An AKS cluster has two cluster resource objects with Kubernetes versions associated.
 
-1. 叢集控制平面 Kubernetes 版本。
-2. 具有 Kubernetes 版本的節點集區。
+1. A cluster control plane Kubernetes version.
+2. A node pool with a Kubernetes version.
 
-控制平面會對應至一或多個節點集區。 升級作業的行為取決於所使用的 Azure CLI 命令。
+A control plane maps to one or many node pools. The behavior of an upgrade operation depends on which Azure CLI command is used.
 
-升級 AKS 控制平面需要使用 `az aks upgrade`。 這會升級控制項平面版本以及叢集中的所有節點集區。 
+Upgrading an AKS control plane requires using `az aks upgrade`. This upgrades the control plane version and all node pools in the cluster. 
 
-使用 `--control-plane-only` 旗標發出 `az aks upgrade` 命令時，只會升級叢集控制平面。 叢集中沒有任何相關聯的節點集區變更。
+Issuing the `az aks upgrade` command with the `--control-plane-only` flag upgrades only the cluster control plane. None of the associated node pools in the cluster are changed.
 
-升級個別節點集區需要使用 `az aks nodepool upgrade`。 這只會升級具有指定 Kubernetes 版本的目標節點集區
+Upgrading individual node pools requires using `az aks nodepool upgrade`. This upgrades only the target node pool with the specified Kubernetes version
 
-### <a name="validation-rules-for-upgrades"></a>升級的驗證規則
+### <a name="validation-rules-for-upgrades"></a>Validation rules for upgrades
 
-叢集的控制平面或節點集區所持有之 Kubernetes 版本的有效升級，會由下列規則組進行驗證。
+The valid Kubernetes upgrades for a cluster's control plane and node pools are validated by the following sets of rules.
 
-* 要升級至的有效版本規則：
-   * 節點集區版本必須與控制平面具有相同的*主要*版本。
-   * 節點集區版本可能是小於控制平面版本的兩個*次要*版本。
-   * 節點集區版本可能是小於控制平面版本的兩個*修補程式*版本。
+* Rules for valid versions to upgrade node pools:
+   * The node pool version must have the same *major* version as the control plane.
+   * The node pool *minor* version must be within two *minor* versions of the control plane version.
+   * The node pool version cannot be greater than the control `major.minor.patch` version.
 
-* 提交升級作業的規則：
-   * 您無法降級控制平面或節點集區 Kubernetes 版本。
-   * 如果未指定節點集區 Kubernetes 版本，則行為取決於所使用的用戶端。 Resource Manager 範本中的宣告會切換回已針對節點集區定義的現有版本（如果使用的話），如果未設定，則會使用控制平面版本來切換回來。
-   * 您可以在指定的時間升級或調整控制平面或節點集區，而無法同時在單一控制平面或節點集區資源上提交多項作業。
+* Rules for submitting an upgrade operation:
+   * You cannot downgrade the control plane or a node pool Kubernetes version.
+   * If a node pool Kubernetes version is not specified, behavior depends on the client being used. Declaration in Resource Manager templates fall back to the existing version defined for the node pool if used, if none is set the control plane version is used to fall back on.
+   * You can either upgrade or scale a control plane or a node pool at a given time, you cannot submit multiple operations on a single control plane or node pool resource simultaneously.
 
-## <a name="scale-a-node-pool-manually"></a>手動調整節點集區
+## <a name="scale-a-node-pool-manually"></a>Scale a node pool manually
 
-當您的應用程式工作負載需求變更時，您可能需要調整節點集區中的節點數目。 節點數目可以向上或向下調整。
+As your application workload demands change, you may need to scale the number of nodes in a node pool. The number of nodes can be scaled up or down.
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-若要調整節點集區中的節點數目，請使用[az aks node pool scale][az-aks-nodepool-scale]命令。 下列範例會將*mynodepool*中的節點數目調整為*5*：
+To scale the number of nodes in a node pool, use the [az aks node pool scale][az-aks-nodepool-scale] command. The following example scales the number of nodes in *mynodepool* to *5*:
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -237,7 +237,7 @@ az aks nodepool scale \
     --no-wait
 ```
 
-使用[az aks node pool list][az-aks-nodepool-list]命令再次列出節點集區的狀態。 下列範例顯示*mynodepool*處於*調整*狀態，而且有*5*個節點的新計數：
+List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Scaling* state with a new count of *5* nodes:
 
 ```console
 $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
@@ -270,24 +270,24 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
 ]
 ```
 
-調整作業需要幾分鐘的時間才能完成。
+It takes a few minutes for the scale operation to complete.
 
-## <a name="scale-a-specific-node-pool-automatically-by-enabling-the-cluster-autoscaler"></a>藉由啟用叢集自動調整程式，自動調整特定節點集區
+## <a name="scale-a-specific-node-pool-automatically-by-enabling-the-cluster-autoscaler"></a>Scale a specific node pool automatically by enabling the cluster autoscaler
 
-AKS 提供不同的功能，可使用稱為叢集[自動調整程式](cluster-autoscaler.md)的功能自動調整節點集區。 針對每個節點集區具有唯一最小和最大規模計數的節點集區，可以啟用這項功能。 瞭解如何[使用每個節點集區的叢集自動調整程式](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)。
+AKS offers a separate feature to automatically scale node pools with a feature called the [cluster autoscaler](cluster-autoscaler.md). This feature can be enabled per node pool with unique minimum and maximum scale counts per node pool. Learn how to [use the cluster autoscaler per node pool](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
 
-## <a name="delete-a-node-pool"></a>刪除節點集區
+## <a name="delete-a-node-pool"></a>Delete a node pool
 
-如果您不再需要集區，您可以將它刪除並移除基礎 VM 節點。 若要刪除節點集區，請使用[az aks node pool delete][az-aks-nodepool-delete]命令並指定節點集區名稱。 下列範例會刪除在先前步驟中建立的*mynoodepool* ：
+If you no longer need a pool, you can delete it and remove the underlying VM nodes. To delete a node pool, use the [az aks node pool delete][az-aks-nodepool-delete] command and specify the node pool name. The following example deletes the *mynoodepool* created in the previous steps:
 
 > [!CAUTION]
-> 當您刪除節點集區時，不會發生資料遺失的復原選項。 如果無法在其他節點集區上排程 pod，則無法使用這些應用程式。 當使用中的應用程式沒有資料備份或在叢集中的其他節點集區上執行的能力時，請確定您不會刪除節點集區。
+> There are no recovery options for data loss that may occur when you delete a node pool. If pods can't be scheduled on other node pools, those applications are unavailable. Make sure you don't delete a node pool when in-use applications don't have data backups or the ability to run on other node pools in your cluster.
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name mynodepool --no-wait
 ```
 
-下列來自[az aks node pool list][az-aks-nodepool-list]命令的範例輸出顯示*mynodepool*處於*刪除*狀態：
+The following example output from the [az aks node pool list][az-aks-nodepool-list] command shows that *mynodepool* is in the *Deleting* state:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -320,15 +320,15 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
-刪除節點和節點集區需要幾分鐘的時間。
+It takes a few minutes to delete the nodes and the node pool.
 
-## <a name="specify-a-vm-size-for-a-node-pool"></a>指定節點集區的 VM 大小
+## <a name="specify-a-vm-size-for-a-node-pool"></a>Specify a VM size for a node pool
 
-在先前的範例中，若要建立節點集區，則會針對在叢集中建立的節點使用預設的 VM 大小。 較常見的案例是使用不同的 VM 大小和功能來建立節點集區。 例如，您可以建立節點集區，其中包含具有大量 CPU 或記憶體的節點，或可提供 GPU 支援的節點集區。 在下一個步驟中，您會[使用污點和容差](#schedule-pods-using-taints-and-tolerations)，告訴 Kubernetes 排程器如何限制可以在這些節點上執行的 pod 存取。
+In the previous examples to create a node pool, a default VM size was used for the nodes created in the cluster. A more common scenario is for you to create node pools with different VM sizes and capabilities. For example, you may create a node pool that contains nodes with large amounts of CPU or memory, or a node pool that provides GPU support. In the next step, you [use taints and tolerations](#schedule-pods-using-taints-and-tolerations) to tell the Kubernetes scheduler how to limit access to pods that can run on these nodes.
 
-在下列範例中，建立以 GPU 為基礎的節點集區，以使用*Standard_NC6* VM 大小。 這些 Vm 是由 NVIDIA Tesla K80 插卡提供技術支援。 如需可用 VM 大小的詳細資訊，請參閱[Azure 中 Linux 虛擬機器的大小][vm-sizes]。
+In the following example, create a GPU-based node pool that uses the *Standard_NC6* VM size. These VMs are powered by the NVIDIA Tesla K80 card. For information on available VM sizes, see [Sizes for Linux virtual machines in Azure][vm-sizes].
 
-再次使用[az aks node pool add][az-aks-nodepool-add]命令來建立節點集區。 這次請指定名稱*gpunodepool*，然後使用 `--node-vm-size` 參數來指定*Standard_NC6*大小：
+Create a node pool using the [az aks node pool add][az-aks-nodepool-add] command again. This time, specify the name *gpunodepool*, and use the `--node-vm-size` parameter to specify the *Standard_NC6* size:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -340,7 +340,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-下列來自[az aks node pool list][az-aks-nodepool-list]命令的範例輸出顯示*gpunodepool*正在*建立*具有指定*VmSize*的節點：
+The following example output from the [az aks node pool list][az-aks-nodepool-list] command shows that *gpunodepool* is *Creating* nodes with the specified *VmSize*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -373,11 +373,11 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
-成功建立*gpunodepool*需要幾分鐘的時間。
+It takes a few minutes for the *gpunodepool* to be successfully created.
 
-## <a name="schedule-pods-using-taints-and-tolerations"></a>使用污點和容差排程 pod
+## <a name="schedule-pods-using-taints-and-tolerations"></a>Schedule pods using taints and tolerations
 
-您現在的叢集中有兩個節點集區-一開始建立預設節點集區，以及以 GPU 為基礎的節點集區。 使用 [ [kubectl] [取得節點][kubectl-get]] 命令來查看您叢集中的節點。 下列範例輸出顯示節點：
+You now have two node pools in your cluster - the default node pool initially created, and the GPU-based node pool. Use the [kubectl get nodes][kubectl-get] command to view the nodes in your cluster. The following example output shows the nodes:
 
 ```console
 $ kubectl get nodes
@@ -392,15 +392,15 @@ Kubernetes 排程器可以使用污點和容差來限制可以在節點上執行
 * **污點**會套用至節點，該節點指示僅可以在其上排程特定的 pod。
 * 然後**容差**會套用至容器，允許它們*容許*節點的污點。
 
-如需如何使用 advanced Kubernetes 排程功能的詳細資訊，請參閱[AKS 中 advanced 排程器功能的最佳做法][taints-tolerations]
+For more information on how to use advanced Kubernetes scheduled features, see [Best practices for advanced scheduler features in AKS][taints-tolerations]
 
-在此範例中，使用[kubectl 污點 node][kubectl-taint]命令，將污點套用至您的 GPU 型節點。 從上一個 `kubectl get nodes` 命令的輸出中，指定 GPU 節點的名稱。 污點會當做索引*鍵：值*和排程選項來套用。 下列範例會使用*sku = gpu*配對，並定義 pod，否則會具有*NoSchedule*功能：
+In this example, apply a taint to your GPU-based node using the [kubectl taint node][kubectl-taint] command. Specify the name of your GPU-based node from the output of the previous `kubectl get nodes` command. The taint is applied as a *key:value* and then a scheduling option. The following example uses the *sku=gpu* pair and defines pods otherwise have the *NoSchedule* ability:
 
 ```console
 kubectl taint node aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
 ```
 
-下列基本範例 YAML 資訊清單會使用 toleration，以允許 Kubernetes 排程器在 GPU 型節點上執行 NGINX pod。 如需針對 MNIST 資料集執行 Tensorflow 作業的更適當但需要大量時間的範例，請參閱[在 AKS 上針對計算密集型工作負載使用 gpu][gpu-cluster]。
+The following basic example YAML manifest uses a toleration to allow the Kubernetes scheduler to run an NGINX pod on the GPU-based node. For a more appropriate, but time-intensive example to run a Tensorflow job against the MNIST dataset, see [Use GPUs for compute-intensive workloads on AKS][gpu-cluster].
 
 建立名為 `gpu-toleration.yaml` 的檔案，然後將下列範例 YAML 複製進來：
 
@@ -427,13 +427,13 @@ spec:
     effect: "NoSchedule"
 ```
 
-使用 `kubectl apply -f gpu-toleration.yaml` 命令來排程 pod：
+Schedule the pod using the `kubectl apply -f gpu-toleration.yaml` command:
 
 ```console
 kubectl apply -f gpu-toleration.yaml
 ```
 
-需要幾秒鐘的時間來排程 pod，並提取 NGINX 的映射。 使用 [ [kubectl 描述 pod][kubectl-describe] ] 命令來查看 pod 狀態。 下列精簡的範例輸出顯示已套用*sku = gpu： NoSchedule* toleration。 在 [事件] 區段中，排程器已將 pod 指派給*aks-gpunodepool-28993262-vmss000000* GPU 型節點：
+It takes a few seconds to schedule the pod and pull the NGINX image. Use the [kubectl describe pod][kubectl-describe] command to view the pod status. The following condensed example output shows the *sku=gpu:NoSchedule* toleration is applied. In the events section, the scheduler has assigned the pod to the *aks-gpunodepool-28993262-vmss000000* GPU-based node:
 
 ```console
 $ kubectl describe pod mypod
@@ -452,19 +452,19 @@ Events:
   Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
 ```
 
-只有套用此污點的 pod 可以在*gpunodepool*的節點上排程。 任何其他 pod 都會在*nodepool1*節點集區中排程。 如果您建立其他節點集區，您可以使用其他污點和容差來限制可在這些節點資源上排程的 pod。
+Only pods that have this taint applied can be scheduled on nodes in *gpunodepool*. Any other pod would be scheduled in the *nodepool1* node pool. If you create additional node pools, you can use additional taints and tolerations to limit what pods can be scheduled on those node resources.
 
-## <a name="manage-node-pools-using-a-resource-manager-template"></a>使用 Resource Manager 範本管理節點集區
+## <a name="manage-node-pools-using-a-resource-manager-template"></a>Manage node pools using a Resource Manager template
 
-當您使用 Azure Resource Manager 範本來建立和管理資源時，您通常可以更新範本中的設定，並重新部署以更新資源。 在 AKS 中使用節點集區時，一旦建立 AKS 叢集之後，就無法更新初始節點集區設定檔。 這個行為表示您無法更新現有的 Resource Manager 範本、對節點集區進行變更，然後重新部署。 相反地，您必須建立個別的 Resource Manager 範本，只更新現有 AKS 叢集的節點集區。
+When you use an Azure Resource Manager template to create and managed resources, you can typically update the settings in your template and redeploy to update the resource. With node pools in AKS, the initial node pool profile can't be updated once the AKS cluster has been created. This behavior means that you can't update an existing Resource Manager template, make a change to the node pools, and redeploy. Instead, you must create a separate Resource Manager template that updates only the node pools for an existing AKS cluster.
 
-建立 `aks-agentpools.json` 的範本，並貼上下列範例資訊清單。 這個範例範本會設定下列設定：
+Create a template such as `aks-agentpools.json` and paste the following example manifest. This example template configures the following settings:
 
-* 更新名為*myagentpool*的*Linux*節點集區，以執行三個節點。
-* 設定節點集區中的節點，以執行 Kubernetes 版本*1.13.10*。
-* 將節點大小定義為*Standard_DS2_v2*。
+* Updates the *Linux* node pool named *myagentpool* to run three nodes.
+* Sets the nodes in the node pool to run Kubernetes version *1.13.10*.
+* Defines the node size as *Standard_DS2_v2*.
 
-視需要編輯這些值，視需要更新、新增或刪除節點集區：
+Edit these values as need to update, add, or delete node pools as needed:
 
 ```json
 {
@@ -533,7 +533,7 @@ Events:
 }
 ```
 
-使用[az group deployment create][az-group-deployment-create]命令來部署此範本，如下列範例所示。 系統會提示您輸入現有的 AKS 叢集名稱和位置：
+Deploy this template using the [az group deployment create][az-group-deployment-create] command, as shown in the following example. You are prompted for the existing AKS cluster name and location:
 
 ```azurecli-interactive
 az group deployment create \
@@ -541,32 +541,32 @@ az group deployment create \
     --template-file aks-agentpools.json
 ```
 
-視您在 Resource Manager 範本中定義的節點集區設定和作業而定，可能需要幾分鐘的時間來更新 AKS 叢集。
+It may take a few minutes to update your AKS cluster depending on the node pool settings and operations you define in your Resource Manager template.
 
-## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>為節點集區中的每個節點指派一個公用 IP
+## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Assign a public IP per node in a node pool
 
 > [!WARNING]
-> 在針對每個節點指派公用 IP 的預覽期間，因為可能會有負載平衡器規則與 VM 布建衝突，所以無法*在 AKS 中與 STANDARD LOAD BALANCER SKU*搭配使用。 在預覽期間，如果您需要為每個節點指派一個公用 IP，則必須使用*基本 LOAD BALANCER SKU* 。
+> During the preview of assigning a public IP per node, it cannot be used with the *Standard Load Balancer SKU in AKS* due to possible load balancer rules conflicting with VM provisioning. While in preview you must use the *Basic Load Balancer SKU* if you need to assign a public IP per node.
 
-AKS 節點不需要自己的公用 IP 位址進行通訊。 不過，某些情況下，節點集區中的節點可能需要有自己的公用 IP 位址。 其中一個範例是遊戲，其中主控台需要直接連線到雲端虛擬機器，以將躍點降至最低。 這可以藉由註冊個別的預覽功能 [節點公用 IP （預覽）] 來達成。
+AKS nodes do not require their own public IP addresses for communication. However, some scenarios may require nodes in a node pool to have their own public IP addresses. An example is gaming, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This can be achieved by registering for a separate preview feature, Node Public IP (preview).
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-成功註冊之後，請遵循[上述](#manage-node-pools-using-a-resource-manager-template)相同指示部署 Azure Resource Manager 範本，並將 [布林值] 屬性 `enableNodePublicIP` 新增至 agentPoolProfiles。 將值設定為 `true`，預設為，如果未指定，則會設定為 `false`。 這是僅限建立時間的屬性，而且需要最低 API 版本2019-06-01。 這可同時套用至 Linux 和 Windows 節點集區。
+After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](#manage-node-pools-using-a-resource-manager-template) and add the boolean value property `enableNodePublicIP` to agentPoolProfiles. Set the value to `true` as by default it is set as `false` if not specified. This is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
 
 ## <a name="clean-up-resources"></a>清除資源
 
-在本文中，您已建立 AKS 叢集，其中包含以 GPU 為基礎的節點。 若要減少不必要的成本，您可能會想要刪除*gpunodepool*或整個 AKS 叢集。
+In this article, you created an AKS cluster that includes GPU-based nodes. To reduce unnecessary cost, you may want to delete the *gpunodepool*, or the whole AKS cluster.
 
-若要刪除以 GPU 為基礎的節點集區，請使用[az aks nodepool delete][az-aks-nodepool-delete]命令，如下列範例所示：
+To delete the GPU-based node pool, use the [az aks nodepool delete][az-aks-nodepool-delete] command as shown in following example:
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
 ```
 
-若要刪除叢集本身，請使用[az group delete][az-group-delete]命令來刪除 AKS 資源群組：
+To delete the cluster itself, use the [az group delete][az-group-delete] command to delete the AKS resource group:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -574,9 +574,9 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已瞭解如何在 AKS 叢集中建立和管理多個節點集區。 如需如何跨節點集區控制 pod 的詳細資訊，請參閱[AKS 中先進排程器功能的最佳做法][operator-best-practices-advanced-scheduler]。
+In this article, you learned how to create and manage multiple node pools in an AKS cluster. For more information about how to control pods across node pools, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
 
-若要建立及使用 Windows Server 容器節點集區，請參閱[在 AKS 中建立 Windows server 容器][aks-windows]。
+To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-windows].
 
 <!-- EXTERNAL LINKS -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

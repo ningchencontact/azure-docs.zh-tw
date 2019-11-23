@@ -1,6 +1,6 @@
 ---
-title: 如何在 Azure Active Directory Identity Protection 中設定及啟用風險原則
-description: 在 Azure Active Directory Identity Protection 中啟用和設定風險原則
+title: Risk policies - Azure Active Directory Identity Protection
+description: Enable and configure risk policies in Azure Active Directory Identity Protection
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -11,73 +11,73 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79f919633f6b1912ef07b7ff636eb60fb3d5859f
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 37091b2551d68e241c7179949c3eb1db9a381de6
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72886957"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382166"
 ---
-# <a name="how-to-configure-and-enable-risk-policies"></a>如何：設定及啟用風險原則
+# <a name="how-to-configure-and-enable-risk-policies"></a>How To: Configure and enable risk policies
 
-如我們在上一篇文章中所學到的身分[識別保護原則](concept-identity-protection-policies.md)，我們有兩個可在目錄中啟用的風險原則。 
+As we learned in the previous article, [Identity Protection policies](concept-identity-protection-policies.md) we have two risk policies that we can enable in our directory. 
 
 - 登入風險原則
 - 使用者風險原則
 
-![啟用使用者和登入風險原則的安全性總覽頁面](./media/howto-identity-protection-configure-risk-policies/identity-protection-security-overview.png)
+![Security overview page to enable user and sign-in risk policies](./media/howto-identity-protection-configure-risk-policies/identity-protection-security-overview.png)
 
-這兩個原則都適用于將環境中風險偵測的回應自動化，並可讓使用者在偵測到風險時自行補救。 
+Both policies work to automate the response to risk detections in your environment and allow users to self-remediate when risk is detected. 
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
 ## <a name="prerequisites"></a>必要條件 
 
-如果您的組織想要允許使用者在偵測到風險時進行自我補救，則必須註冊自助式密碼重設和 Azure 多重要素驗證的使用者。 我們建議您[啟用結合的安全性資訊註冊體驗](../authentication/howto-registration-mfa-sspr-combined.md)，以獲得最佳體驗。 允許使用者進行自我補救，讓他們更快速地回到生產力狀態，而不需要系統管理員介入。 系統管理員仍然可以看到這些事件，並在事實之後進行調查。 
+If your organization wants to allow users to self-remediate when risks are detected, users must be registered for both self-service password reset and Azure Multi-Factor Authentication. We recommend [enabling the combined security information registration experience](../authentication/howto-registration-mfa-sspr-combined.md) for the best experience. Allowing users to self-remediate gets them back to a productive state more quickly without requiring administrator intervention. Administrators can still see these events and investigate them after the fact. 
 
-## <a name="choosing-acceptable-risk-levels"></a>選擇可接受的風險層級
+## <a name="choosing-acceptable-risk-levels"></a>Choosing acceptable risk levels
 
-組織必須決定他們願意接受平衡使用者體驗和安全性狀態的風險層級。 
+Organizations must decide the level of risk they are willing to accept balancing user experience and security posture. 
 
-Microsoft 的建議是將使用者風險原則閾值設為 [**高**]，並將 [登入風險原則] 設定為 [**中] 和 [上**一層]。
+Microsoft's recommendation is to set the user risk policy threshold to **High** and the sign-in risk policy to **Medium and above**.
 
-選擇 [高] 臨界值可減少觸發原則的次數，並將對使用者的影響降至最低。 不過，它會從原則中排除**低**和**中度**風險偵測，這可能不會阻止攻擊者利用遭到入侵的身分識別。 選取 [**低**] 臨界值會引進額外的使用者中斷，但會增加安全性狀態。
+選擇 [高] 臨界值可減少觸發原則的次數，並將對使用者的影響降至最低。 However, it excludes **Low** and **Medium** risk detections from the policy, which may not block an attacker from exploiting a compromised identity. Selecting a **Low** threshold introduces additional user interrupts, but increased security posture.
 
 ## <a name="exclusions"></a>排除
 
-所有的原則都允許排除使用者，例如您的[緊急存取或半透明的系統管理員帳戶](../users-groups-roles/directory-emergency-access.md)。 組織可能會根據帳戶的使用方式，判斷他們需要從特定原則排除其他帳戶。 所有的排除專案都應該定期檢查，以查看它們是否仍適用。
+All of the policies allow for excluding users such as your [emergency access or break-glass administrator accounts](../users-groups-roles/directory-emergency-access.md). Organizations may determine they need to exclude other accounts from specific policies based on the way the accounts are used. All exclusions should be reviewed regularly to see if they are still applicable.
 
-## <a name="enable-policies"></a>啟用原則
+## <a name="enable-policies"></a>Enable policies
 
-若要啟用使用者風險和登入風險原則，請完成下列步驟。
+To enable the user risk and sign-in risk policies complete the following steps.
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
-1. 流覽至**Azure Active Directory** > **安全性** > **Identity Protection** > **總覽**。
-1. 選取 [**設定使用者風險原則**]。
-   1. 在 [**指派**] 底下
-      1. **使用者**-選擇 [**所有使用者**] **，或選取個人和群組**（如果您要限制首度發行）。
-         1. （選擇性）您可以選擇從原則中排除使用者。
-      1. **條件** - **使用者風險**Microsoft 的建議是將此選項設定為 [**高**]。
-   1. 在**控制項**底下
-      1. **存取**-Microsoft 的建議是**允許存取**，而且**需要變更密碼**。
-   1. **強制執行原則** ** - **
-   1. **儲存**-此動作會讓您回到 [**總覽**] 頁面。
-1. 選取 [**設定登入風險原則**]。
-   1. 在 [**指派**] 底下
-      1. **使用者**-選擇 [**所有使用者**] **，或選取個人和群組**（如果您要限制首度發行）。
-         1. （選擇性）您可以選擇從原則中排除使用者。
-      1. **條件** - 登**入風險**Microsoft 的建議是將此選項設定為 [**中] 和 [以上**]。
-   1. 在**控制項**底下
-      1. **存取**-Microsoft 的建議是**允許存取**，而且**需要多重要素驗證**。
-   1. **強制執行原則** ** - **
+1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.
+1. Select **Configure user risk policy**.
+   1. Under **Assignments**
+      1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
+         1. Optionally you can choose to exclude users from the policy.
+      1. **Conditions** - **User risk** Microsoft's recommendation is to set this option to **High**.
+   1. Under **Controls**
+      1. **Access** - Microsoft's recommendation is to **Allow access** and **Require password change**.
+   1. **Enforce Policy** - **On**
+   1. **Save** - This action will return you to the **Overview** page.
+1. Select **Configure sign-in risk policy**.
+   1. Under **Assignments**
+      1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
+         1. Optionally you can choose to exclude users from the policy.
+      1. **Conditions** - **Sign-in risk** Microsoft's recommendation is to set this option to **Medium and above**.
+   1. Under **Controls**
+      1. **Access** - Microsoft's recommendation is to **Allow access** and **Require multi-factor authentication**.
+   1. **Enforce Policy** - **On**
    1. **儲存**
 
 ## <a name="next-steps"></a>後續步驟
 
-- [啟用 Azure 多重要素驗證註冊原則](howto-identity-protection-configure-mfa-policy.md)
+- [Enable Azure Multi-Factor Authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
 
-- [什麼是風險](concept-identity-protection-risks.md)
+- [What is risk](concept-identity-protection-risks.md)
 
-- [調查風險偵測](howto-identity-protection-investigate-risk.md)
+- [Investigate risk detections](howto-identity-protection-investigate-risk.md)
 
-- [模擬風險偵測](howto-identity-protection-simulate-risk.md)
+- [Simulate risk detections](howto-identity-protection-simulate-risk.md)

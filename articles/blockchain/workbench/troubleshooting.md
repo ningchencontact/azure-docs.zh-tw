@@ -1,30 +1,24 @@
 ---
 title: Azure Blockchain Workbench 疑難排解
-description: 如何針對 Azure Blockchain Workbench Preview 應用程式進行疑難排解。
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+description: How to troubleshoot an Azure Blockchain Workbench Preview application.
 ms.date: 10/14/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: zeyadr
-manager: femila
-ms.openlocfilehash: 3032a81a4411cb162a335189ca65b845f8d6305f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.reviewer: brendal
+ms.openlocfilehash: ef4bce4dfba77aafa9b86c6877c153534b54636e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329090"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324309"
 ---
-# <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Azure Blockchain Workbench 預覽疑難排解
+# <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Azure Blockchain Workbench Preview troubleshooting
 
 我們提供了 PowerShell 指令碼來協助開發人員偵錯或支援。 指令碼會產生摘要，並收集詳細記錄以供疑難排解。 所收集的記錄包括：
 
 * 區塊鏈網路，例如 Ethereum
 * Blockchain Workbench 微服務
 * Application Insights
-* Azure 監視（Azure 監視器記錄）
+* Azure Monitoring (Azure Monitor logs)
 
 您可以使用這些資訊來判斷後續步驟，並判斷問題的根本原因。
 
@@ -54,9 +48,9 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 | resourceGroupName | Blockchain Workbench 部署所在 Azure 資源群組的名稱。 | 是 |
 | OutputDirectory | 用來建立輸出 .ZIP 檔案的路徑。 如果未指定，則會預設為目前的目錄。 | 否 |
 | LookbackHours | 提取遙測資料時要使用的小時數。 預設值為 24 小時。 最大值為 90 小時 | 否 |
-| OmsSubscriptionId | 部署 Azure 監視器記錄的訂用帳戶識別碼。 只有在區塊鏈網路的 Azure 監視器記錄部署在 Blockchain Workbench 的資源群組之外時，才傳遞此參數。| 否 |
-| OmsResourceGroup |部署 Azure 監視器記錄的資源群組。 只有在區塊鏈網路的 Azure 監視器記錄部署在 Blockchain Workbench 的資源群組之外時，才傳遞此參數。| 否 |
-| OmsWorkspaceName | Log Analytics 工作區名稱。 只有在區塊鏈網路的 Azure 監視器記錄部署在 Blockchain Workbench 的資源群組之外時，才傳遞此參數 | 否 |
+| OmsSubscriptionId | The subscription ID where Azure Monitor logs is deployed. Only pass this parameter if the Azure Monitor logs for the blockchain network is deployed outside of Blockchain Workbench's resource group.| 否 |
+| OmsResourceGroup |The resource group where Azure Monitor logs is deployed. Only pass this parameter if the Azure Monitor logs for the blockchain network is deployed outside of Blockchain Workbench's resource group.| 否 |
+| OmsWorkspaceName | Log Analytics 工作區名稱。 Only pass this parameter if the Azure Monitor logs for the blockchain network is deployed outside of Blockchain Workbench's resource group | 否 |
 
 ## <a name="what-is-collected"></a>所收集的項目有哪些？
 

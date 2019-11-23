@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8aba38b7ecebefb1205b17bc633d9ff0c0812d4b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 803b1e397efd4a6f9ddaa3bae1d101c8f204e728
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206797"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328302"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>適用於 SAP NetWeaver 的 SQL Server Azure 虛擬機器 DBMS 部署
 
@@ -341,7 +341,7 @@ It is recommended to review [this][virtual-machines-sql-server-infrastructure-se
 這些組態讓 tempdb 所耗用的空間比系統磁碟機能夠提供的還多。 非持續性 D:\ 磁碟機也會提供更好的 I/O 延遲和輸送量 (但 A 系列 VM 除外)。 若要判斷正確的 tempdb 大小，您可以在現有的系統上檢查 tempdb 大小。 
 
 >[!NOTE]
-> 如果您將 tempdb 資料檔案和記錄檔儲存至您在 D:\ 磁碟機上建立的資料夾，您必須確定 VM 重新啟動後，這個資料夾依然存在。 Since the D:\ drive is freshly initialized after a VM reboot all file and directory structures are wiped out. A possibility to recreate eventual directory structures on D:\ drive before the start of the SQL Server service is documented in [this article](https://www.sqlserver.co.uk/index.php/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
+> 如果您將 tempdb 資料檔案和記錄檔儲存至您在 D:\ 磁碟機上建立的資料夾，您必須確定 VM 重新啟動後，這個資料夾依然存在。 Since the D:\ drive is freshly initialized after a VM reboot all file and directory structures are wiped out. A possibility to recreate eventual directory structures on D:\ drive before the start of the SQL Server service is documented in [this article](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
 
 執行含有 SAP 資料庫的 SQL Server 且 tempdb 資料和 tempdb 記錄檔放置於 D:\ 磁碟機的 VM 組態應該像這樣︰
 

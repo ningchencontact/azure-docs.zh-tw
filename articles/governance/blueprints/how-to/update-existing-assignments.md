@@ -1,14 +1,14 @@
 ---
-title: 從入口網站更新現有的指派
-description: 瞭解在 Azure 藍圖中，從入口網站更新現有指派的機制。
-ms.date: 10/25/2018
+title: Update an existing assignment from the portal
+description: Learn about the mechanism for updating an existing blueprint assignment from the portal in Azure Blueprints.
+ms.date: 11/21/2019
 ms.topic: conceptual
-ms.openlocfilehash: f48f8cfb33a05e2bf8dcbe097d3a9eb3a5ebb9db
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b4cf03d88103b85bc00dbd815816ead2740f2093
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960365"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406386"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>如何更新現有的藍圖指派
 
@@ -24,19 +24,20 @@ ms.locfileid: "73960365"
 
 1. 選取頁面左側的 [指派的藍圖]。
 
-1. 在藍圖清單中，以滑鼠左鍵按一下藍圖指派。 然後按一下 [**更新指派**] 按鈕，或以滑鼠右鍵按一下藍圖指派，然後選取 [**更新指派**]。
+1. 在藍圖清單中，以滑鼠左鍵按一下藍圖指派。 Then click the **Update assignment** button OR right-click the blueprint assignment and select **Update assignment**.
 
-   ![更新現有的藍圖指派](../media/update-existing-assignments/update-assignment.png)
+   ![Update an existing blueprint assignment](../media/update-existing-assignments/update-assignment.png)
 
-1. [**指派藍圖**] 頁面會預先填入原始指派中的所有值。 您可以變更**藍圖定義版本**、**鎖定指派**狀態，以及任何存在於藍圖定義的動態參數。 完成變更後，按一下 [指派]。
+1. The **Assign blueprint** page will load pre-filled with all values from the original assignment.
+   您可以變更**藍圖定義版本**、**鎖定指派**狀態，以及任何存在於藍圖定義的動態參數。 完成變更後，按一下 [指派]。
 
 1. 在更新後的指派詳細資料頁面上，查看新的狀態。 在此範例中，我們對指派新增了**鎖定**。
 
-   ![已更新現有的藍圖指派-鎖定模式](../media/update-existing-assignments/updated-assignment.png)
+   ![Updated an existing blueprint assignment - lock mode changed](../media/update-existing-assignments/updated-assignment.png)
 
-1. 使用下拉式按鈕探索其他**指派作業**的詳細資料。 **受管理資源**的資料表會依選取的指派作業進行更新。
+1. Explore details about other **Assignment operations** using the drop-down. The table of **Managed resources** updates by selected assignment operation.
 
-   ![藍圖指派的指派作業](../media/update-existing-assignments/assignment-operations.png)
+   ![Assignment operations of a blueprint assignment](../media/update-existing-assignments/assignment-operations.png)
 
 ## <a name="rules-for-updating-assignments"></a>用於更新指派的規則
 
@@ -46,9 +47,10 @@ ms.locfileid: "73960365"
   - 如果角色或角色受託人 (使用者、群組或應用程式) 有所變更，便會建立新的角色指派。 先前部署的角色指派會留在原處。
 - 原則指派
   - 如果原則指派參數有所變更，則現有指派也會更新。
-  - 如果原則指派定義有所變更，則會建立新的原則指派。 先前部署的原則指派會留在原處。
+  - 如果原則指派定義有所變更，則會建立新的原則指派。
+    先前部署的原則指派會留在原處。
   - 如果從藍圖中移除原則指派成品，則部署的原則指派會留在原處。
-- Azure 資源管理員範本
+- Azure Resource Manager 範本
   - 範本會透過 Resource Manager 處理為 **PUT**。 因為每個資源類型對此動作的處理方式不同，請檢閱每個所含資源的文件，以判斷藍圖在執行此動作時會有什麼影響。
 
 ## <a name="possible-errors-on-updating-assignments"></a>更新指派時的可能錯誤
