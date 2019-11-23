@@ -1,83 +1,83 @@
 ---
-title: 建立 Azure 防禦主機 |Microsoft Docs
-description: 在本文中，您將瞭解如何建立 Azure 防禦主機
+title: Create an Azure Bastion host  | Microsoft Docs
+description: In this article, learn how to create an Azure Bastion host
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 356f8d17dd194c79915600f63683e124cc481b33
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7838e1930a8ccd190c95740a6a8e3dadc68149f0
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498369"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422126"
 ---
-# <a name="create-an-azure-bastion-host"></a>建立 Azure 防禦主機
+# <a name="create-an-azure-bastion-host"></a>Create an Azure Bastion host
 
-本文說明如何建立 Azure 防禦主機。 一旦在您的虛擬網路中布建 Azure 防禦服務，您在相同虛擬網路中的所有 Vm 都可以使用順暢的 RDP/SSH 體驗。 此部署依虛擬網路來進行，而非以訂用帳戶/帳戶或虛擬機器為依據。
+This article shows you how to create an Azure Bastion host. Once you provision the Azure Bastion service in your virtual network, the seamless RDP/SSH experience is available to all your VMs in the same virtual network. 此部署依虛擬網路來進行，而非以訂用帳戶/帳戶或虛擬機器為依據。
 
-有兩種方式可讓您建立防禦主機資源：
+There are two ways that you can create a Bastion host resource:
 
-* 使用 Azure 入口網站建立防禦資源。
-* 使用現有的 VM 設定在 Azure 入口網站中建立防禦資源。
+* Create a Bastion resource using the Azure portal.
+* Create a Bastion resource in the Azure portal by using existing VM settings.
 
 ## <a name="before-you-begin"></a>開始之前
 
-防禦功能適用于下列 Azure 公用區域：
+Bastion is available in the following Azure public regions:
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
 
-## <a name="createhost"></a>建立防禦主機
+## <a name="createhost"></a>Create a bastion host
 
-本節可協助您從 Azure 入口網站建立新的 Azure 防禦資源。
+This section helps you create a new Azure Bastion resource from the Azure portal.
 
-1. 從[Azure 入口網站](https://portal.azure.com)的 [首頁] 中，按一下 [ **+ 建立資源**]。
+1. On the [Azure portal](https://portal.azure.com) menu or from the **Home** page, select **Create a resource**.
 
-1. 在 [**新增**] 頁面的 [*搜尋 Marketplace* ] 欄位中，**輸入防禦**，然後按**Enter 鍵**以取得搜尋結果。
+1. On the **New** page, in the *Search the Marketplace* field, type **Bastion**, then click **Enter** to get to the search results.
 
-1. 從結果中 **，按一下 [** 防禦]。 請確定發行者為*Microsoft* ，而類別目錄為*網路*。
+1. From the results, click **Bastion**. 確定發行者為 *Microsoft*，且類別 [網路]。
 
-1. 在 [**防禦**] 頁面上，按一下 [**建立**] 以開啟 [**建立**防禦] 頁面。
+1. On the **Bastion** page, click **Create** to open the **Create a bastion** page.
 
-1. 在 [**建立**防禦] 頁面上，設定新的防禦資源。 指定防禦資源的設定。
+1. On the **Create a bastion** page, configure a new Bastion resource. Specify the configuration settings for your Bastion resource.
 
-    ![建立防禦](./media/bastion-create-host-portal/settings.png)
+    ![create a bastion](./media/bastion-create-host-portal/settings.png)
 
-    * **訂**用帳戶：您想要用來建立新防禦資源的 Azure 訂用帳戶。
-    * **資源群組**：將在其中建立新防禦資源的 Azure 資源群組。 如果您沒有現有的資源群組，您可以建立一個新的。
-    * **名稱**：新防禦資源的名稱
-    * **區域**：將在其中建立資源的 Azure 公用區域。
-    * **虛擬網路**：將在其中建立防禦資源的虛擬網路。 如果您沒有或不想使用現有的虛擬網路，您可以在入口網站中建立新的虛擬網路。 如果您使用現有的虛擬網路，請確定現有的虛擬網路有足夠的可用位址空間來容納防禦子網需求。
-    * **子網**：虛擬網路中將部署新防禦主機資源的子網。 您必須使用 [名稱] 值**AzureBastionSubnet**來建立子網。 此值可讓 Azure 知道要將防禦資源部署到哪一個子網。 這與閘道子網不同。您必須使用至少為/27 或更大子網的子網（/27、/26 等等）。 建立不含任何路由表或委派的**AzureBastionSubnet** 。 當您在**AzureBastionSubnet**上使用網路安全性群組時，請參閱使用[nsg](bastion-nsg.md)。
-    * **公用 ip 位址**：將存取 RDP/SSH 之防禦資源的公用 ip （透過埠443）。 建立新的公用 IP，或使用現有的。 公用 IP 位址必須與您建立的防禦資源位於相同的區域中。
-    * **公用 ip 位址名稱**：公用 ip 位址資源的名稱。
-    * **公用 IP 位址 SKU**：預設會預先填入 [**標準**]。 Azure 防禦僅使用/支援標準公用 IP SKU。
-    * **指派**：預設為**靜態**預先填入。
+    * **Subscription**: The Azure subscription you want to use to create a new Bastion resource.
+    * **Resource Group**: The Azure resource group in which the new Bastion resource will be created in. 如果您沒有現有資源群組，可以建立新的資源群組。
+    * **Name**: The name of the new Bastion resource
+    * **Region**: The Azure public region that the resource will be created in.
+    * **Virtual network**: The virtual network in which the Bastion resource will be created in. You can create a new virtual network in the portal during this process, in case you don’t have or don’t want to use an existing virtual network. If you are using an existing virtual network, make sure the existing virtual network has enough free address space to accommodate the Bastion subnet requirements.
+    * **Subnet**: The subnet in your virtual network to which the new Bastion host resource will be deployed. You must create a subnet using the name value **AzureBastionSubnet**. This value lets Azure know which subnet to deploy the Bastion resources to. This is different than a Gateway subnet.You must use a subnet of at least a /27 or larger subnet (/27, /26, and so on). Create the **AzureBastionSubnet** without any route tables or delegations. When you use Network Security Groups on the **AzureBastionSubnet**, refer to [Work with NSGs](bastion-nsg.md).
+    * **Public IP address**: The public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP, or use an existing one. The public IP address must be in the same region as the Bastion resource you are creating.
+    * **Public IP address name**: The name of the public IP address resource.
+    * **Public IP address SKU**: Prepopulated by default to **Standard**. Azure Bastion uses/supports only the Standard Public IP SKU.
+    * **Assignment**: Prepopulated by default to **Static**.
 
-1. 當您完成指定設定後，請按一下 [審核] [ **+ 建立**]。 這會驗證這些值。 通過驗證之後，您就可以開始建立程式。
-1. 在 [建立防禦] 頁面上，按一下 [**建立**]。
-1. 您會看到一則訊息，告訴您您的部署正在進行中。 當資源建立時，狀態會顯示在此頁面上。 建立和部署防禦資源需要大約5分鐘的時間。
+1. When you have finished specifying the settings, click **Review + Create**. This validates the values. Once validation passes, you can begin the creation process.
+1. On the Create a bastion page, click **Create**.
+1. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. It takes about 5 mins for the Bastion resource to be created and deployed.
 
-## <a name="createvmset"></a>使用 VM 設定建立防禦主機
+## <a name="createvmset"></a>Create a bastion host using VM settings
 
-如果您使用現有的 VM 在入口網站中建立防禦主機，則會自動將不同的設定對應至您的虛擬機器和/或虛擬網路。
+If you create a bastion host in the portal by using an existing VM, various settings will automatically default corresponding to your virtual machine and/or virtual network.
 
-1. 開啟 [Azure 入口網站](https://portal.azure.com)。 流覽至您的虛擬機器，然後按一下 **[連線]** 。
+1. 開啟 [Azure 入口網站](https://portal.azure.com)。 Go to your virtual machine, then click **Connect**.
 
-   ![VM 連接](./media/bastion-create-host-portal/vmsettings.png)
-1. 在右側提要**欄位中，按一下 [** 防禦]，然後**使用**[防禦]。
+   ![VM Connect](./media/bastion-create-host-portal/vmsettings.png)
+1. On the right sidebar, click **Bastion**, then **Use Bastion**.
 
    ![Bastion](./media/bastion-create-host-portal/vmbastion.png)
-1. 在 [防禦] 頁面上，填寫下列設定欄位：
+1. On the Bastion page, fill out the following settings fields:
 
-   * **名稱**：您想要建立的防禦主機的名稱。
-   * **子網**：虛擬網路內部將用來部署防禦資源的子網。 子網必須以名稱**AzureBastionSubnet**建立。 這可讓 Azure 知道要將防禦資源部署到哪一個子網。 這與閘道子網不同。 按一下 [**管理子網**設定] 以建立 Azure 防禦子網。 強烈建議您至少使用一個/27 或更大的子網（/27、/26 等）。 建立**AzureBastionSubnet** ，但不包含任何網路安全性群組、路由表或委派。 按一下 [**建立**] 以建立子網，然後繼續進行下一設定。
-   * **公用 ip 位址**：將存取 RDP/SSH 之防禦資源的公用 ip （透過埠443）。 建立新的公用 IP，或使用現有的。 公用 IP 位址必須與您建立的防禦資源位於相同的區域中。
-   * **公用 ip 位址名稱**：公用 ip 位址資源的名稱。
-1. 在 [驗證] 畫面上，按一下 [**建立**]。 等候大約5分鐘的時間來建立和部署防禦資源。
+   * **Name**: The name of the bastion host you want to create.
+   * **Subnet**: The subnet inside your virtual network to which Bastion resource will be deployed. The subnet must be created with the name **AzureBastionSubnet**. This lets Azure know which subnet to deploy the Bastion resource to. This is different than a Gateway subnet. Click **Manage subnet configuration** to create the Azure Bastion Subnet. We highly recommend that you use at least a /27 or larger subnet (/27, /26, etc.). Create the **AzureBastionSubnet** without any Network Security Groups, route tables, or delegations. Click **Create** to create the subnet, then proceed with the next settings.
+   * **Public IP address**: The public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP, or use an existing one. The public IP address must be in the same region as the Bastion resource you are creating.
+   * **Public IP address name**: The name of the public IP address resource.
+1. On the validation screen, click **Create**. Wait for about 5 mins for the Bastion resource to be created and deployed.
 
 ## <a name="next-steps"></a>後續步驟
 
-閱讀防禦[常見問題](bastion-faq.md)
+Read the [Bastion FAQ](bastion-faq.md)

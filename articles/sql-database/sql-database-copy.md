@@ -11,20 +11,20 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 11/14/2019
-ms.openlocfilehash: 0b8bfff03414dd02360cab1957ea2205e392235d
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b3bc99d0fbdb551af0fb3711d74db537d3f9b1a5
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082470"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421340"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>複製 Azure SQL 資料庫的交易一致性複本
 
-Azure SQL Database 提供數種方法，可在相同伺服器或不同的伺服器上，建立現有 Azure SQL 資料庫（[單一資料庫](sql-database-single-database.md)）的交易一致複本。 若要複製 SQL Database，您可使用 Azure 入口網站、PowerShell 或 T-SQL。 
+Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database ([single database](sql-database-single-database.md)) on either the same server or a different server. 若要複製 SQL Database，您可使用 Azure 入口網站、PowerShell 或 T-SQL。
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
-資料庫複本是發生複製要求時的來源資料庫快照集。 您可以選取相同的伺服器或不同的伺服器。 此外，您也可以選擇保留其服務層級和計算大小，或在相同的服務層級（版本）中使用不同的計算大小。 複製完成之後，複本會變成功能完整的獨立資料庫。 此時，您可以將它升級或降級成任何版本。 可以個別管理登入、使用者和權限。 此複本是使用異地複寫技術所建立，一旦植入完成，異地複寫連結就會自動終止。 使用異地複寫的所有需求都適用于資料庫複製作業。 如需詳細資訊，請參閱[主動式異地複寫總覽](sql-database-active-geo-replication.md)。
+資料庫複本是發生複製要求時的來源資料庫快照集。 You can select the same server or a different server. Also you can choose to keep its service tier and compute size, or use a different compute size within the same service tier (edition). 複製完成之後，複本會變成功能完整的獨立資料庫。 此時，您可以將它升級或降級成任何版本。 可以個別管理登入、使用者和權限。 The copy is created using the geo-replication technology and once seeding is completed the geo-replication link is automatically terminated. All the requirements for using geo-replication apply to the database copy operation. See [Active geo-replication overview](sql-database-active-geo-replication.md) for details.
 
 > [!NOTE]
 > 當您建立資料庫複本時，會使用[自動資料庫備份](sql-database-automated-backups.md)。
@@ -33,71 +33,74 @@ Azure SQL Database 提供數種方法，可在相同伺服器或不同的伺服�
 
 當您將資料庫複製到相同的 SQL Database 伺服器時，可以在這兩個資料庫上使用相同的登入。 您用來複製資料庫的安全性主體會變成新資料庫的資料庫擁有者。 所有資料庫使用者、其權限及其安全性識別碼 (SID) 都會複製到資料庫副本。  
 
-當您將資料庫複製到不同的 SQL Database 伺服器時，新伺服器上的安全性主體就會變成新資料庫上的資料庫擁有者。 如果您使用[自主資料庫使用者](sql-database-manage-logins.md)來進行資料存取，請確保主要和次要資料庫一律具有相同的使用者認證，以便在複製完成時，您可以使用相同的認證立即存取它。 
+當您將資料庫複製到不同的 SQL Database 伺服器時，新伺服器上的安全性主體就會變成新資料庫上的資料庫擁有者。 如果您使用[自主資料庫使用者](sql-database-manage-logins.md)來進行資料存取，請確保主要和次要資料庫一律具有相同的使用者認證，以便在複製完成時，您可以使用相同的認證立即存取它。
 
-如果您使用 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)，則可以完全不需管理副本中的認證。 不過，當您將資料庫複製到新的伺服器時，以登入為基礎的存取可能無法運作，因為登入不存在於新的伺服器上。 若要了解如何在將資料庫複製到不同的 SQL Database 伺服器時管理登入，請參閱[如何管理災害復原後的 Azure SQL 資料庫安全性](sql-database-geo-replication-security-config.md)。 
+如果您使用 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)，則可以完全不需管理副本中的認證。 不過，當您將資料庫複製到新的伺服器時，以登入為基礎的存取可能無法運作，因為登入不存在於新的伺服器上。 若要了解如何在將資料庫複製到不同的 SQL Database 伺服器時管理登入，請參閱[如何管理災害復原後的 Azure SQL 資料庫安全性](sql-database-geo-replication-security-config.md)。
 
 在複製成功之後，重新對應其他使用者之前，只有起始複製的登入 (也就是資料庫擁有者) 可以登入新的資料庫。 若要在複製作業完成之後解析登入，請參閱 [解析登入](#resolve-logins)。
 
 ## <a name="copy-a-database-by-using-the-azure-portal"></a>使用 Azure 入口網站來複製資料庫
 
-若要使用 Azure 入口網站來複製資料庫，請開啟資料庫頁面，然後按一下 [複製]。 
+若要使用 Azure 入口網站來複製資料庫，請開啟資料庫頁面，然後按一下 [複製]。
 
    ![資料庫複本](./media/sql-database-copy/database-copy.png)
 
 ## <a name="copy-a-database-by-using-powershell"></a>使用 PowerShell 來複製資料庫
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+To copy a database, use the following examples.
 
-若要使用 PowerShell 來複製資料庫，請使用[AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) Cmdlet。 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+For PowerShell, use the [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet.
+
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
 ```powershell
-New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
-    -ServerName $sourceserver `
-    -DatabaseName "MySampleDatabase" `
-    -CopyResourceGroupName "myResourceGroup" `
-    -CopyServerName $targetserver `
-    -CopyDatabaseName "CopyOfMySampleDatabase"
+New-AzSqlDatabaseCopy -ResourceGroupName "<resourceGroup>" -ServerName $sourceserver -DatabaseName "<databaseName>" `
+    -CopyResourceGroupName "myResourceGroup" -CopyServerName $targetserver -CopyDatabaseName "CopyOfMySampleDatabase"
 ```
+
+The database copy is a asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azure-cli
+az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myResourceGroup" --dest-server $targetserver `
+    --name "<databaseName>" --resource-group "<resourceGroup>" --server $sourceserver
+```
+
+The database copy is a asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [az sql db delete](/cli/azure/sql/db#az-sql-db-delete) command.
+
+* * *
 
 如需完整範例指令碼，請參閱[將資料庫複製到新伺服器](scripts/sql-database-copy-database-to-new-server-powershell.md)。
 
-資料庫複本是非同步作業，但是在接受要求之後，就會立即建立目標資料庫。 如果您需要在仍在進行時取消複製作業，請使用[set-azsqldatabase 搭配 Cmdlet 卸載](/powershell/module/az.sql/new-azsqldatabase)目標資料庫。  
+## <a name="rbac-roles-to-manage-database-copy"></a>RBAC roles to manage database copy
 
-## <a name="rbac-roles-to-manage-database-copy"></a>用來管理資料庫複製的 RBAC 角色
-
-若要建立資料庫複本，您必須在下列角色中
+To create a database copy, you will need to be in the following roles
 
 - 訂用帳戶擁有者，或是
-- SQL Server 參與者角色或
-- 來源和目標資料庫上具有下列許可權的自訂角色：
+- SQL Server Contributor role or
+- Custom role on the source and target databases with following permission:
 
-   Microsoft.Sql/servers/databases/read   
-   Microsoft.Sql/servers/databases/write   
+   Microsoft.Sql/servers/databases/read  Microsoft.Sql/servers/databases/write
 
-若要取消資料庫複本，您必須在下列角色中
+To cancel a database copy, you will need to be in the following roles
 
 - 訂用帳戶擁有者，或是
-- SQL Server 參與者角色或
-- 來源和目標資料庫上具有下列許可權的自訂角色：
+- SQL Server Contributor role or
+- Custom role on the source and target databases with following permission:
 
-   Microsoft.Sql/servers/databases/read   
-   Microsoft.Sql/servers/databases/write   
-   
-若要使用 Azure 入口網站來管理資料庫複製，您也需要下列許可權：
+   Microsoft.Sql/servers/databases/read  Microsoft.Sql/servers/databases/write
 
-&nbsp; &nbsp; &nbsp; Microsoft .Resources/訂用帳戶/資源/讀取   
-&nbsp; &nbsp; &nbsp; Microsoft .Resources/訂用帳戶/資源/寫入   
-&nbsp; &nbsp; &nbsp; Microsoft .Resources/部署/讀取   
-&nbsp; &nbsp; &nbsp; Microsoft .Resources/部署/寫入   
-&nbsp; &nbsp; &nbsp; Microsoft .Resources/部署/operationstatuses/讀取    
+To manage database copy using Azure portal, you will also need the following permissions:
 
-如果您想要查看入口網站上資源群組中的 [部署] 底下的作業，跨多個資源提供者的作業（包括 SQL 作業），您將需要這些額外的 RBAC 角色： 
+   Microsoft.Resources/subscriptions/resources/read Microsoft.Resources/subscriptions/resources/write Microsoft.Resources/deployments/read Microsoft.Resources/deployments/write Microsoft.Resources/deployments/operationstatuses/read
 
-&nbsp; &nbsp; &nbsp; Microsoft .Resources/訂用帳戶/resourcegroups/部署/作業/讀取   
-&nbsp; &nbsp; &nbsp; Microsoft .Resources/訂用帳戶/resourcegroups/部署/operationstatuses/讀取
+If you want to see the operations under deployments in the resource group on the portal, operations across multiple resource providers including SQL operations, you will need these additional RBAC roles:
 
-
+   Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read
 
 ## <a name="copy-a-database-by-using-transact-sql"></a>使用 Transact-SQL 來複製資料庫
 
@@ -111,9 +114,10 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
 此命令會將 Database1 複製到相同伺服器上名為 Database2 的新資料庫。 視資料庫大小而定，複製作業可能需要一些時間才能完成。
 
-    -- Execute on the master database.
-    -- Start copying.
-    CREATE DATABASE Database2 AS COPY OF Database1;
+   ```sql
+   -- execute on the master database to start copying
+   CREATE DATABASE Database2 AS COPY OF Database1;
+   ```
 
 ### <a name="copy-a-sql-database-to-a-different-server"></a>將 SQL Database 複製到不同伺服器
 
@@ -121,19 +125,20 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
 此命令會將 server1 上的 Database1 複製到 server2 上名為 Database2 的新資料庫。 視資料庫大小而定，複製作業可能需要一些時間才能完成。
 
-    -- Execute on the master database of the target server (server2)
-    -- Start copying from Server1 to Server2
-    CREATE DATABASE Database2 AS COPY OF server1.Database1;
-    
+```sql
+-- Execute on the master database of the target server (server2) to start copying from Server1 to Server2
+CREATE DATABASE Database2 AS COPY OF server1.Database1;
+```
+
 > [!IMPORTANT]
-> 這兩部伺服器的防火牆都必須設定為允許來自發出 T-sql COPY 命令之用戶端 IP 的輸入連接。
+> Both servers' firewalls must be configured to allow inbound connection from the IP of the client issuing the T-SQL COPY command.
 
-### <a name="copy-a-sql-database-to-a-different-subscription"></a>將 SQL 資料庫複製到不同的訂用帳戶
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copy a SQL database to a different subscription
 
-您可以使用上一節所述的步驟，將您的資料庫複製到不同訂用帳戶中的 SQL Database 伺服器。 請確定您使用的登入與源資料庫的資料庫擁有者具有相同的名稱和密碼，而且它是 dbmanager 角色的成員，或者是伺服器層級主體登入。 
+You can use the steps described in the previous section to copy your database to a SQL Database server in a different subscription. Make sure you use a login that has the same name and password as the database owner of the source database and it is a member of the dbmanager role or is the server-level principal login. 
 
 > [!NOTE]
-> [Azure 入口網站](https://portal.azure.com)不支援複製到不同的訂用帳戶，因為入口網站會呼叫 ARM API，並使用訂用帳戶憑證來存取與異地複寫相關的兩部伺服器。  
+> The [Azure portal](https://portal.azure.com) does not support copy to a different subscription because Portal calls the ARM API and it uses the subscription certificates to access both servers involved in geo-replication.  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>監視複製作業的進度
 
@@ -146,8 +151,7 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 > 如果您決定在進行複製時予以取消，請在新資料庫上執行 [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) 陳述式。 或者，在來源資料庫上執行 DROP DATABASE 陳述式也會取消複製程序。
 
 > [!IMPORTANT]
-> 如果您需要使用比來源更小的 SLO 來建立複本，目標資料庫可能沒有足夠的資源來完成植入程式，而且可能會導致複製 operaion 失敗。 在此案例中，請使用異地還原要求，在不同的伺服器和/或不同的區域中建立複本。 如需詳細需，請參閱[使用資料庫備份復原 AZURE SQL 資料庫](sql-database-recovery-using-backups.md#geo-restore)。
-
+> If you need to create a copy with a substantially smaller SLO than the source, the target database may not have sufficient resources to complete the seeding process and it can cause the copy operaion to fail. In this scenario use a geo-restore request to create a copy in a different server and/or a different region. See [Recover an Azure SQL database using database backups](sql-database-recovery-using-backups.md#geo-restore) for more informaion.
 
 ## <a name="resolve-logins"></a>解析登入
 
@@ -161,7 +165,7 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
 在 Azure SQL Database 中複製資料庫時，可能會發生下列錯誤。 如需詳細資訊，請參閱 [複製 Azure SQL Database](sql-database-copy.md)。
 
-| 錯誤碼 | Severity | 描述 |
+| 錯誤碼 | 嚴重性 | 描述 |
 | ---:| ---:|:--- |
 | 40635 |16 |IP 位址 '%.&#x2a;ls' 的用戶端已暫時停用。 |
 | 40637 |16 |建立資料庫副本目前已停用。 |
@@ -179,5 +183,5 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需登入相關資訊，請參閱[管理登入](sql-database-manage-logins.md)以及[如何管理災害復原後的 Azure SQL 資料庫安全性](sql-database-geo-replication-security-config.md)。
-* 若要匯出資料庫，請參閱[將資料庫匯出至 BACPAC](sql-database-export.md)。
+- 如需登入相關資訊，請參閱[管理登入](sql-database-manage-logins.md)以及[如何管理災害復原後的 Azure SQL 資料庫安全性](sql-database-geo-replication-security-config.md)。
+- 若要匯出資料庫，請參閱[將資料庫匯出至 BACPAC](sql-database-export.md)。

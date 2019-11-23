@@ -1,5 +1,5 @@
 ---
-title: 在向外延展的雲端資料庫之間移動資料
+title: 在相應放大的雲端資料庫之間移動資料
 description: 說明如何使用彈性資料庫 API 透過自我託管服務操作分區和移動資料。
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 00f579017ce4dd79e913565ee27698398b5feb38
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8b0db4a1e55b53165e40e176834d66b62926e24b
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823594"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421566"
 ---
-# <a name="moving-data-between-scaled-out-cloud-databases"></a>在向外延展的雲端資料庫之間移動資料
+# <a name="moving-data-between-scaled-out-cloud-databases"></a>在相應放大的雲端資料庫之間移動資料
 
 如果您是軟體服務開發人員，您的應用程式突然出現巨量需求，您需要因應這種成長。 所以，您加入了更多的資料庫 (分區)。 您該如何將資料重新發佈到新的資料庫，卻不打斷資料的完整性？ 使用 **分割合併工具** 將資料從受條件約束的資料庫移到新的資料庫。  
 
@@ -104,14 +104,15 @@ ms.locfileid: "73823594"
     // Create the schema annotations
     SchemaInfo schemaInfo = new SchemaInfo();
 
-    // Reference tables
+    // reference tables
     schemaInfo.Add(new ReferenceTableInfo("dbo", "region"));
     schemaInfo.Add(new ReferenceTableInfo("dbo", "nation"));
 
-    // Sharded tables
+    // sharded tables
     schemaInfo.Add(new ShardedTableInfo("dbo", "customer", "C_CUSTKEY"));
     schemaInfo.Add(new ShardedTableInfo("dbo", "orders", "O_CUSTKEY"));
-    // Publish
+
+    // publish
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo);
     ```
 
@@ -179,7 +180,7 @@ ms.locfileid: "73823594"
 
 分割合併服務是以 Microsoft Azure 訂用帳戶中的雲端服務執行。 因此會對您的服務執行個體收取雲端服務的費用。 除非您經常執行分割/合併/移動作業，否則建議您刪除分割合併雲端服務。 這可以節省執行中或已部署的雲端服務執行個體的成本。 每當您需要執行分割或合併作業時，您可以重新部署和啟動可立即運作的組態。
 
-## <a name="monitoring"></a>監控
+## <a name="monitoring"></a>監視
 
 ### <a name="status-tables"></a>狀態資料表
 
@@ -216,21 +217,26 @@ ms.locfileid: "73823594"
 ## <a name="deploy-diagnostics"></a>部署診斷
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 針對 NuGet 封裝所提供的 Web 和背景工作角色，若要使用診斷組態啟用監視和診斷，請使用 Azure PowerShell 執行下列命令：
 
 ```powershell
-    $storage_name = "<YourAzureStorageAccount>"
-    $key = "<YourAzureStorageAccountKey"
-    $storageContext = New-AzStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
-    $config_path = "<YourFilePath>\SplitMergeWebContent.diagnostics.xml"
-    $service_name = "<YourCloudServiceName>"
-    Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWeb"
-    $config_path = "<YourFilePath>\SplitMergeWorkerContent.diagnostics.xml"
-    $service_name = "<YourCloudServiceName>"
-    Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
+$storageName = "<azureStorageAccount>"
+$key = "<azureStorageAccountKey"
+$storageContext = New-AzStorageContext -StorageAccountName $storageName -StorageAccountKey $key
+$configPath = "<filePath>\SplitMergeWebContent.diagnostics.xml"
+$serviceName = "<cloudServiceName>"
+
+Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
+    -DiagnosticsConfigurationPath $configPath -ServiceName $serviceName `
+    -Slot Production -Role "SplitMergeWeb"
+
+Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
+    -DiagnosticsConfigurationPath $configPath -ServiceName $serviceName `
+    -Slot Production -Role "SplitMergeWorker"
 ```
 
 您可以在這裡找到有關如何設定和部署診斷設定的詳細資訊： [在 Azure 雲端服務和虛擬機器中啟用診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)。

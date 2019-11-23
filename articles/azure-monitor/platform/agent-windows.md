@@ -1,24 +1,24 @@
 ---
-title: 將 Windows 電腦連接到 Azure 監視器 |Microsoft Docs
-description: 本文說明如何將裝載于其他雲端或內部部署環境的 Windows 電腦，與適用于 Windows 的 Log Analytics 代理程式連線 Azure 監視器。
+title: Connect Windows computers to Azure Monitor | Microsoft Docs
+description: This article describes how to connect Windows computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Windows.
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 10/07/2019
-ms.openlocfilehash: abe114a989c4ec672d391a7fd7d83341d4c52638
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 42183ca7b02ba75b241ee1a83b5a0dc936a8c1c8
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932781"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420427"
 ---
-# <a name="connect-windows-computers-to-azure-monitor"></a>將 Windows 電腦連線至 Azure 監視器
+# <a name="connect-windows-computers-to-azure-monitor"></a>Connect Windows computers to Azure Monitor
 
-若要使用 Azure 監視器來監視及管理本機資料中心或其他雲端環境中的虛擬機器或實體電腦，您需要部署 Log Analytics 代理程式（也稱為 Microsoft Monitoring Agent （MMA）），並將它設定為向一或多個 Log Analytics 工作區報告。 此代理程式也支援 Azure 自動化的混合式 Runbook 背景工作角色。  
+In order to monitor and manage virtual machines or physical computers in your local datacenter or other cloud environment with Azure Monitor, you need to deploy the Log Analytics agent (also referred to as the Microsoft Monitoring Agent (MMA)) and configure it to report to one or more Log Analytics workspaces. 此代理程式也支援 Azure 自動化的混合式 Runbook 背景工作角色。  
 
-在受監視的 Windows 電腦上，會將此代理程式列為 Microsoft Monitoring Agent 服務。 Microsoft Monitoring Agent 服務會從記錄檔和 Windows 事件記錄檔、效能資料及其他遙測收集事件。 即使代理程式無法與報告的 Azure 監視器通訊，代理程式仍會繼續執行，並將收集到的資料排入受監視電腦的磁片上。 當連線恢復時，Microsoft Monitoring Agent 服務會將收集的資料傳送給服務。
+在受監視的 Windows 電腦上，會將此代理程式列為 Microsoft Monitoring Agent 服務。 Microsoft Monitoring Agent 服務會從記錄檔和 Windows 事件記錄檔、效能資料及其他遙測收集事件。 Even when the agent is unable to communicate with Azure Monitor it reports to, the agent continues to run and queues the collected data on the disk of the monitored computer. 當連線恢復時，Microsoft Monitoring Agent 服務會將收集的資料傳送給服務。
 
 可以使用下列其中一種方法安裝代理程式。 大部分安裝會使用這些方法的組合，視需要為不同的電腦集合進行安裝。  使用每種方法的詳細資料會在本文稍後提供。
 
@@ -28,15 +28,15 @@ ms.locfileid: "72932781"
 * 針對 Azure Stack 中執行內部部署 Windows 的虛擬機器，使用 Resource Manager 範本。 
 
 >[!NOTE]
->Azure 資訊安全中心（ASC）取決於 Microsoft Monitoring Agent （也稱為 Log Analytics Windows 代理程式），並會安裝並設定它，以在其部署過程中向 Log Analytics 工作區報告。 ASC 包含自動布建選項，可讓您在訂用帳戶中的所有 Vm 上自動安裝 Log Analytics Windows 代理程式，並將其設定為向特定工作區報告。 如需此選項的詳細資訊，請參閱[啟用 Log Analytics 代理程式的自動](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-the-log-analytics-agent-)布建。
+>Azure Security Center (ASC) depends on the Microsoft Monitoring Agent (also referred to as the Log Analytics Windows agent) and will install and configure it to report to a Log Analytics workspace as part of its deployment. ASC includes an automatic provisioning option which enables automatic installation of the Log Analytics Windows agent on all VMs in your subscription and configures it to report to a specific workspace. For more information about this option, see [Enable automatic provisioning of Log Analytics agent](../../security-center/security-center-enable-data-collection.md#auto-provision-mma).
 >
 
-如果您需要將代理程式設定為向多個工作區報告，這在初始設定期間無法執行，只有在更新 [控制台] 或 PowerShell 中的設定（如[新增或移除工作區](agent-manage.md#adding-or-removing-a-workspace)中所述）之後。  
+If you need to configure the agent to report to more than one workspace, this cannot be performed during initial setup, only afterwards by updating the settings from Control Panel or PowerShell as described in [Adding or removing a workspace](agent-manage.md#adding-or-removing-a-workspace).  
 
 若要了解支援的組態，請檢閱[支援的 Windows 作業系統](log-analytics-agent.md#supported-windows-operating-systems)和[網路防火牆組態](log-analytics-agent.md#network-firewall-requirements)。
 
 ## <a name="obtain-workspace-id-and-key"></a>取得工作區識別碼和金鑰
-安裝適用於 Windows 的 Log Analytics 代理程式之前，您需要 Log Analytics 工作區的工作區識別碼和金鑰。  在安裝過程中，從每個安裝方法都需要這項資訊，才能正確設定代理程式，並確保它可以與 Azure 商業和美國政府雲端中的 Azure 監視器成功通訊。 
+安裝適用於 Windows 的 Log Analytics 代理程式之前，您需要 Log Analytics 工作區的工作區識別碼和金鑰。  This information is required during setup from each installation method to properly configure the agent and ensure it can successfully communicate with Azure Monitor in Azure commercial and US Government cloud. 
 
 1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
 2. 在您的 Log Analytics 工作區清單中，選取您要設定讓代理程式向哪個工作區報告。
@@ -48,13 +48,13 @@ ms.locfileid: "72932781"
 若要設定將 [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) 通訊協定用於 Windows 代理程式和 Log Analytics 服務之間的通訊，您可以遵循下列步驟，以在將代理程式安裝於虛擬機器之前或之後啟用此功能。
 
 >[!NOTE]
->如果您要將執行 Windows Server 2008 SP2 x64 的 VM 設定為使用 TLS 1.2，您必須先安裝下列[sha-1 程式碼簽署支援更新](https://support.microsoft.com/help/4474419/sha-2-code-signing-support-update)，然後再執行下列步驟。 
+>If you are configuring a VM running Windows Server 2008 SP2 x64 to use TLS 1.2, you first need to install the following [SHA-2 code signing support update](https://support.microsoft.com/help/4474419/sha-2-code-signing-support-update) before performing the steps below. 
 >
 
 1. 找出下列登錄子機碼：**HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
-2. 在 TLS 1.2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**的**通訊協定**底下建立子機碼
-3. 在您先前所建立的 TLS 1.2 通訊協定版本子機碼底下，建立 **Client** 子機碼。 例如， **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ Client**。
-4. 在**HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ 用戶端**底下建立下列 DWORD 值：
+2. Create a subkey under **Protocols** for TLS 1.2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
+3. 在您先前所建立的 TLS 1.2 通訊協定版本子機碼底下，建立 **Client** 子機碼。 For example, **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
+4. Create the following DWORD values under **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**:
 
     * **Enabled** [Value = 1]
     * **DisabledByDefault** [Value = 0]  
@@ -68,7 +68,7 @@ ms.locfileid: "72932781"
 5. 重新啟動系統來使設定生效。 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>使用安裝精靈安裝代理程式
-下列步驟會在您的電腦上，使用安裝程式，在 Azure 中安裝和設定 Log Analytics 代理程式，並為您的代理程式 Azure Government 雲端。 如果您想要了解如何設定代理程式，以同時回報至 System Center Operations Manager 管理群組，請參閱[使用代理程式安裝精靈部署 Operations Manager 代理程式](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard)。
+The following steps install and configure the Log Analytics agent in Azure and Azure Government cloud by using the setup wizard for the agent on your computer. 如果您想要了解如何設定代理程式，以同時回報至 System Center Operations Manager 管理群組，請參閱[使用代理程式安裝精靈部署 Operations Manager 代理程式](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard)。
 
 1. 在 Log Analyics 工作區中，從您稍早瀏覽的 [Windows 伺服器] 頁面，根據 Windows 作業系統的處理器架構，選取適當的 [下載 Windows 代理程式] 版本來下載。   
 2. 執行安裝程式以在您的電腦上安裝代理程式。
@@ -117,7 +117,7 @@ ms.locfileid: "72932781"
     setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
     >[!NOTE]
-    >*OPINSIGHTS_WORKSPACE_ID*和*OPINSIGHTS_WORKSPACE_KEY*參數的字串值必須以雙引號封裝，以指示 Windows Installer interprit 為封裝的有效選項。 
+    >The string values for the parameters *OPINSIGHTS_WORKSPACE_ID* and *OPINSIGHTS_WORKSPACE_KEY* need to be encapsulated in double-quotes to instruct Windows Installer to interprit as valid options for the package. 
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>使用 Azure 自動化中的 DSC 安裝代理程式
 
@@ -186,11 +186,11 @@ ms.locfileid: "72932781"
 
 在電腦的 [控制台] 中，找到 [Microsoft Monitoring Agent]。  選取它，在 [Azure Log Analytics] 索引標籤上，代理程式應該會顯示下列訊息︰**Microsoft Monitoring Agent 已成功連線到 Microsoft Operations Management Suite 服務。**<br><br> ![MMA 對 Log Analytics 的連線狀態](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
-您也可以在 Azure 入口網站中執行簡單的記錄查詢。  
+You can also perform a simple log query in the Azure portal.  
 
-1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中，輸入**Azure 監視器**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [ **Azure 監視器**]。  
-2. 選取功能表中的 [**記錄**]。 
-2. 在 [記錄檔] 窗格的 [查詢] 欄位中，輸入：  
+1. 在 Azure 入口網站中，按一下 [所有服務]。 In the list of resources, type **Azure Monitor**. 當您開始輸入時，清單會根據您輸入的文字進行篩選。 Select **Azure Monitor**.  
+2. Select **Logs** in the menu. 
+2. On the Logs pane, in the query field type:  
 
     ```
     Heartbeat 
@@ -202,6 +202,6 @@ ms.locfileid: "72932781"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱[管理和維護適用于 Windows 和 Linux 的 Log Analytics 代理程式](agent-manage.md)，以瞭解如何從虛擬機器重新設定、升級或移除代理程式。
+- Review [Managing and maintaining the Log Analytics agent for Windows and Linux](agent-manage.md) to learn about how to reconfigure, upgrade, or remove the agent from the virtual machine.
 
-- 如果您在安裝或管理代理程式時遇到問題，請參閱針對[Windows 代理程式進行疑難排解](agent-windows-troubleshoot.md)。
+- Review [Troubleshooting the Windows agent](agent-windows-troubleshoot.md) if you encounter issues while installing or managing the agent.

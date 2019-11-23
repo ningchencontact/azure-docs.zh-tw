@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5faf7c73e071b1eb075a72dac103b92e982ed84
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 8388d5b22cddcf148c68f35758ccdf797abbcd9e
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381747"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420626"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>將現有的 NPS 基礎結構與 Azure Multi-Factor Authentication 整合
 
@@ -68,9 +68,9 @@ Windows Server 2008 R2 SP1 或更新版本。
 
 使用 NPS 擴充功能的每位使用者都必須使用 Azure AD Connect 同步到 Azure Active Directory ，且必須註冊 MFA。
 
-當您安裝擴充功能時，您的 Azure AD 租用戶需要目錄識別碼和系統管理員認證。 您可以在 [Azure 入口網站](https://portal.azure.com)中找到您的目錄識別碼。 請以系統管理員身分登入，選取左側的 [Azure Active Directory] 圖示，然後選取 [屬性]。 複製 [目錄識別碼] 方塊中的 GUID，然後儲存。 當您安裝 NPS 擴充功能時，將使用此 GUID 作為租用戶識別碼。
+當您安裝擴充功能時，您的 Azure AD 租用戶需要目錄識別碼和系統管理員認證。 您可以在 [Azure 入口網站](https://portal.azure.com)中找到您的目錄識別碼。 以系統管理員身分登入。 Search for and select the **Azure Active Directory**, then select **Properties**. 複製 [目錄識別碼] 方塊中的 GUID，然後儲存。 當您安裝 NPS 擴充功能時，將使用此 GUID 作為租用戶識別碼。
 
-![在 Azure Active Directory 屬性下尋找您的目錄識別碼](./media/howto-mfa-nps-extension/find-directory-id.png)
+![在 Azure Active Directory 屬性下尋找您的目錄識別碼](./media/howto-mfa-nps-extension/properties-directory-id.png)
 
 ### <a name="network-requirements"></a>網路需求
 

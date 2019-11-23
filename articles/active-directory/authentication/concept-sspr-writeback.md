@@ -1,6 +1,6 @@
 ---
-title: 內部部署密碼回寫與 Azure AD SSPR 的整合-Azure Active Directory
-description: 在內部部署 AD 基礎結構中添加雲端密碼回寫功能
+title: On-premises password writeback integration with Azure AD SSPR - Azure Active Directory
+description: Get cloud passwords written back to on-premises AD infrastructure
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07069d22d57540c6a16472bc7278821e14f1f18e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 758d7122a991309504c5cac18b9aaf1268808887
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561292"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420650"
 ---
 # <a name="what-is-password-writeback"></a>什麼是密碼回寫？
 
@@ -37,13 +37,13 @@ ms.locfileid: "68561292"
 密碼回寫提供：
 
 * **強制執行內部部署 Active Directory 密碼原則**：當使用者重設其密碼時，系統會進行檢查以確保此動作符合內部部署 Active Directory 原則，然後才將此動作認可至該目錄。 這項檢閱包括檢查歷程記錄、複雜度、有效期、密碼篩選，以及您在本機 Active Directory 中已定義的任何其他密碼限制。
-* **零延遲的意見反應**： 密碼回寫是一項同步作業。 如果使用者的密碼不符合原則，或因為任何原因而無法重設或變更，他們會立即收到通知。
+* **零延遲的意見反應**：密碼回寫是一項同步作業。 如果使用者的密碼不符合原則，或因為任何原因而無法重設或變更，他們會立即收到通知。
 * **支援從存取面板和 Office 365 變更密碼**：當已同盟的或已同步處理密碼雜湊的使用者變更其已過期或尚未過期的密碼時，系統會將這些密碼回寫到本機 Active Directory 環境。
 * **支援在管理員從 Azure 入口網站重設密碼時將密碼回寫**：每當管理員在 [Azure 入口網站](https://portal.azure.com)中重設使用者密碼時，如果該使用者為已同盟的或已同步處理密碼雜湊的使用者，系統就會將密碼回寫至內部部署環境。 Office 管理入口網站目前不支援此功能。
 * **不需要任何輸入防火牆規則**：密碼回寫會使用「Azure 服務匯流排」轉送作為基礎通訊通道。 所有通訊都會透過連接埠 443 來輸出。
 
 > [!NOTE]
-> 內部部署 AD 中的受保護群組所包含的系統管理員帳戶無法用於密碼回寫。 系統管理員可以在雲端變更其密碼, 但不能使用密碼重設來重設忘記的密碼。 如需受保護群組的詳細資訊，請參閱 [Active Directory 中的受保護帳戶和群組](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory)。
+> 內部部署 AD 中的受保護群組所包含的系統管理員帳戶無法用於密碼回寫。 Administrators can change their password in the cloud but cannot use password reset to reset a forgotten password. 如需受保護群組的詳細資訊，請參閱 [Active Directory 中的受保護帳戶和群組](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory)。
 
 ## <a name="licensing-requirements-for-password-writeback"></a>密碼回寫的授權需求
 
@@ -117,7 +117,7 @@ ms.locfileid: "68561292"
 
 在使用者提交密碼重設之後，重設要求會先經過數個加密步驟，然後才抵達您的內部部署環境。 這些加密步驟可確保提供最高的服務可靠性和安全性。 這些步驟的說明如下：
 
-* **步驟 1：採用 2048 位元 RSA 金鑰的密碼加密**：在使用者提交要寫回到內部部署環境的密碼之後，所提交的密碼本身會以 2048 位元 RSA 金鑰加密。
+* **步驟 1：採用 2048 位元 RSA 金鑰的密碼加密**在使用者提交要寫回到內部部署環境的密碼之後，所提交的密碼本身會以 2048 位元 RSA 金鑰加密。
 * **步驟 2：採用 AES-GCM 的套件層級加密**：整個套件 (密碼 + 必要的中繼資料) 會以 AES-GCM 加密。 這個加密可防止任何可直接存取基礎 ServiceBus 通道的人員檢視或竄改內容。
 * **步驟 3：所有通訊都會透過 TLS/SSL 進行**：與 ServiceBus 的所有通訊都會在 SSL/TLS 通道中進行。 這個加密可保護內容，免於遭到未經授權的第三方存取。
 * **每 6 個月自動變換金鑰**：所有金鑰會每 6 個月變換一次，或在每一次於 Azure AD Connect 上停用再重新啟用密碼回寫時進行變換，以確保最高的服務安全性。
@@ -161,10 +161,10 @@ ms.locfileid: "68561292"
    * 任何由使用者使用 PowerShell 第 1 版、第 2 版或 Azure AD Graph API 來進行的自有密碼重設
 * **不支援的系統管理員作業**
    * 任何由系統管理員從 PowerShell 第 1 版、第 2 版或 Azure AD Graph API 起始的使用者密碼重設
-   * 從[Microsoft 365 系統管理中心](https://admin.microsoft.com)起始的任何使用者密碼重設
+   * Any administrator-initiated end-user password reset from the [Microsoft 365 admin center](https://admin.microsoft.com)
 
 > [!WARNING]
-> 在內部部署中使用 [使用者必須在下次登入時變更密碼] 核取方塊, Active Directory 系統管理工具 (例如 Active Directory 使用者和電腦) 或 Active Directory 管理中心不受支援。 變更內部部署密碼時, 請不要核取此選項。
+> Use of the checkbox "User must change password at next logon" in on-premises Active Directory administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is supported as a preview feature of Azure AD Connect. For more information, see the article, [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon).
 
 ## <a name="next-steps"></a>後續步驟
 

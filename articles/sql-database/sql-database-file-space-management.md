@@ -1,5 +1,5 @@
 ---
-title: 單一/集區資料庫檔案空間管理
+title: Single/pooled databases file space management
 description: 此頁面描述如何管理 Azure SQL Database 中的單一和集區資料庫的檔案空間，並提供如何判斷您是否需要壓縮單一或集區資料庫，以及如何執行資料庫壓縮作業的程式碼範例。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: a8fe58313bce6e9a21b07aa095672ec35ce572d2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 007bbffbd7c4fcad339f88eb78991eb39fb829e6
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803065"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420978"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>在 Azure SQL Database 中管理單一和集區資料庫的檔案空間
 
@@ -26,10 +26,6 @@ ms.locfileid: "73803065"
 > 本文不適用於 Azure SQL Database 中的受控執行個體部署選項。
 
 ## <a name="overview"></a>概觀
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 使用單一和集區資料庫 Azure SQL Database 時，某些工作負載模式的資料庫基礎資料檔案的配置可能會大於已使用資料頁數。 當使用的空間增加，隨後卻將資料刪除時，就會發生這種狀況。 原因是因為在資料刪除後，並不會自動回收已配置的檔案空間。
 
@@ -56,7 +52,7 @@ ms.locfileid: "73803065"
 由於可能會對資料庫效能造成影響，因此 SQL Database 服務不會自動壓縮資料檔案，以回收未使用的配置空間。  不過，客戶可以依照[回收未使用的配置空間](#reclaim-unused-allocated-space)中描述的步驟，在其選擇的時間自行壓縮資料檔案。
 
 > [!NOTE]
-> 不同於資料檔案，SQL Database 服務會自動壓縮記錄檔，因為該作業並不會影響資料庫效能。 
+> 不同於資料檔案，SQL Database 服務會自動壓縮記錄檔，因為該作業並不會影響資料庫效能。
 
 ## <a name="understanding-types-of-storage-space-for-a-database"></a>了解資料庫的儲存體空間類型
 
@@ -68,7 +64,6 @@ ms.locfileid: "73803065"
 |**已配置的資料空間**|可用以儲存資料庫資料的格式化檔案空間量。|配置的空間量會自動成長，但絕不會在刪除後減少。 此行為可確保未來能更快地插入，因為不需要重新格式化空間。|
 |**已配置但未使用的資料空間**|已配置的資料空間量與已使用的資料空間之間的差異。|此數量代表可藉由壓縮資料檔案而回收的可用空間量上限。|
 |**資料大小上限**|可用來儲存資料庫資料的空間量上限。|配置的資料空間量不得成長超過資料大小上限。|
-||||
 
 下圖說明資料庫的不同儲存體空間類型之間的關聯性。
 
@@ -98,13 +93,13 @@ ORDER BY end_time DESC
 ```sql
 -- Connect to database
 -- Database data space allocated in MB and database data space allocated unused in MB
-SELECT SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB, 
-SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB 
+SELECT SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB,
+SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB
 FROM sys.database_files
 GROUP BY type_desc
 HAVING type_desc = 'ROWS'
 ```
- 
+
 ### <a name="database-data-max-size"></a>資料庫資料大小上限
 
 修改下列查詢，以傳回資料庫資料大小上限。  查詢結果以位元組為單位。
@@ -125,7 +120,6 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 |**已配置的資料空間**|彈性集區中的所有資料庫所配置的資料空間總和。||
 |**已配置但未使用的資料空間**|已配置的資料空間量與彈性集區中的所有資料庫已使用的資料空間之間的差異。|此數量代表已為彈性集區配置、且可藉由壓縮資料檔案而回收的空間量上限。|
 |**資料大小上限**|彈性集區可用於其所有資料庫的資料空間量上限。|為彈性集區配置的空間不應超過彈性集區大小上限。  如果發生此狀況，則可藉由壓縮資料庫資料檔案來回收已配置但未使用的空間。|
-||||
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>查詢彈性集區，以取得儲存體空間資訊
 
@@ -146,36 +140,29 @@ ORDER BY end_time DESC
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>配置的彈性集區資料空間與已配置但未使用的空間
 
-修改下列 PowerShell 指令碼以傳回資料表，列出為彈性集區中的每個資料庫配置的空間與未使用的配置空間。 此資料表會根據資料庫已配置但未使用的空間量，從最大至最小來排序資料庫。  查詢結果以 MB 為單位。  
+Modify the following examples to return a table listing the space allocated and unused allocated space for each database in an elastic pool. 此資料表會根據資料庫已配置但未使用的空間量，從最大至最小來排序資料庫。  查詢結果以 MB 為單位。  
 
 以查詢判斷為集區中的每個資料庫配置的空間所產生的結果，可在加總後用來判斷為彈性集區配置的總空間。 配置的彈性集區空間不應超過彈性集區大小上限。  
+
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
 PowerShell 指令碼需要 SQL Server PowerShell 模組 – 請參閱[下載 PowerShell 模組](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module)以便安裝。
 
 ```powershell
-# Resource group name
-$resourceGroupName = "rg1" 
-# Server name
-$serverName = "ls2" 
-# Elastic pool name
-$poolName = "ep1"
-# User name for server
-$userName = "name"
-# Password for server
-$password = "password"
+$resourceGroupName = "<resourceGroupName>"
+$serverName = "<serverName>"
+$poolName = "<poolName>"
+$userName = "<userName>"
+$password = "<password>"
 
-# Get list of databases in elastic pool
-$databasesInPool = Get-AzSqlElasticPoolDatabase `
-    -ResourceGroupName $resourceGroupName `
-    -ServerName $serverName `
-    -ElasticPoolName $poolName
+# get list of databases in elastic pool
+$databasesInPool = Get-AzSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName `
+    -ServerName $serverName -ElasticPoolName $poolName
 $databaseStorageMetrics = @()
 
-# For each database in the elastic pool,
-# get its space allocated in MB and space allocated unused in MB.
-  
-foreach ($database in $databasesInPool)
-{
+# for each database in the elastic pool, get space allocated in MB and space allocated unused in MB
+foreach ($database in $databasesInPool) {
     $sqlCommand = "SELECT DB_NAME() as DatabaseName, `
     SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB, `
     SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB `
@@ -184,17 +171,13 @@ foreach ($database in $databasesInPool)
     HAVING type_desc = 'ROWS'"
     $serverFqdn = "tcp:" + $serverName + ".database.windows.net,1433"
     $databaseStorageMetrics = $databaseStorageMetrics + 
-        (Invoke-Sqlcmd -ServerInstance $serverFqdn `
-        -Database $database.DatabaseName `
-        -Username $userName `
-        -Password $password `
-        -Query $sqlCommand)
+        (Invoke-Sqlcmd -ServerInstance $serverFqdn -Database $database.DatabaseName `
+            -Username $userName -Password $password -Query $sqlCommand)
 }
-# Display databases in descending order of space allocated unused
+
+# display databases in descending order of space allocated unused
 Write-Output "`n" "ElasticPoolName: $poolName"
-Write-Output $databaseStorageMetrics | Sort `
-    -Property DatabaseDataSpaceAllocatedUnusedInMB `
-    -Descending | Format-Table
+Write-Output $databaseStorageMetrics | Sort -Property DatabaseDataSpaceAllocatedUnusedInMB -Descending | Format-Table
 ```
 
 下列螢幕擷取畫面是指令碼輸出的其中一個範例：
@@ -230,20 +213,19 @@ DBCC SHRINKDATABASE (N'db1')
 
 此命令可能會在資料庫執行時影響其效能，如果可能，應該在低使用量期間執行。  
 
-如需有關此命令的詳細資訊，請參閱 [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql)。 
+如需有關此命令的詳細資訊，請參閱 [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql)。
 
 ### <a name="auto-shrink"></a>自動壓縮
 
 或者，可以啟用資料庫自動壓縮。  自動壓縮會減少檔案管理複雜度，且比起 `SHRINKDATABASE` 或 `SHRINKFILE` 較不影響資料庫效能。  自動壓縮對於管理包含許多資料庫的彈性集區可能特別有用。  不過，自動壓縮比起 `SHRINKDATABASE` 和 `SHRINKFILE` 在回收檔案空間上可能較沒效率。
 若要啟用自動壓縮，請修改下列命令中的資料庫名稱。
 
-
 ```sql
 -- Enable auto-shrink for the database.
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-如需有關此命令的詳細資訊，請參閱 [DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 選項。 
+如需有關此命令的詳細資訊，請參閱 [DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 選項。
 
 ### <a name="rebuild-indexes"></a>重建索引
 
@@ -256,5 +238,5 @@ ALTER DATABASE [db1] SET AUTO_SHRINK ON
   - [使用以 DTU 為基礎的購買模型的單一資料庫資源限制](sql-database-dtu-resource-limits-single-databases.md)
   - [針對彈性集區，Azure SQL Database 以虛擬核心為基礎的購買模型限制](sql-database-vcore-resource-limits-elastic-pools.md)
   - [使用以 DTU 為基礎的購買模型的彈性集區資源限制](sql-database-dtu-resource-limits-elastic-pools.md)
-- 如需有關 `SHRINKDATABASE` 命令的詳細資訊，請參閱 [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql)。 
+- 如需有關 `SHRINKDATABASE` 命令的詳細資訊，請參閱 [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql)。
 - 如需索引分散和如何重建索引的詳細資訊，請參閱[重新組織與重建索引](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)。

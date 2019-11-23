@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Sentinel 中使用筆記本的搜尋功能 |Microsoft Docs
-description: 本文說明如何使用具有 Azure Sentinel 搜尋功能的筆記本。
+title: Hunting capabilities using notebooks in Azure Sentinel| Microsoft Docs
+description: This article describes how to use notebooks with the Azure Sentinel hunting capabilities.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,136 +14,136 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.author: rkarlin
-ms.openlocfilehash: ba22cc3db0ca50a292ddef4d0d646f8578c15cd4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b94744e3879d31e88865f7b01ac12d816f67da15
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489171"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74424118"
 ---
-# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>使用 Jupyter 筆記本來尋找安全性威脅
+# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Use Jupyter notebooks to hunt for security threats
 
-Azure Sentinel 的基礎是資料存放區;它結合高效能查詢、動態架構，以及大規模的資料磁片區規模。 Azure 入口網站和所有 Azure Sentinel 工具都會使用通用 API 來存取此資料存放區。 相同的 API 也適用于外部工具，例如[Jupyter](https://jupyter.org/)筆記本和 Python。 雖然在入口網站中可以執行許多常見的工作，Jupyter 也擴充了您可以使用此資料來執行的作業範圍。 它結合了完整的可程式性與大量的程式庫集合，供機器學習、視覺化和資料分析之用。 這些屬性讓 Jupyter 成為安全性調查和搜尋的強大工具。
+The foundation of Azure Sentinel is the data store; it combines high performance querying, dynamic schema, and scales to massive data volumes. The Azure portal and all Azure Sentinel tools use a common API to access this data store. The same API is also available for external tools such as [Jupyter](https://jupyter.org/) notebooks and Python. While many common tasks can be carried out in the portal, Jupyter extends the scope of what you can do with this data. It combines full programmability with a huge collection of libraries for machine learning, visualization, and data analysis. These attributes make Jupyter a compelling tool for security investigation and hunting.
 
-![範例筆記本](./media/notebooks/sentinel-notebooks-map.png)
+![example notebook](./media/notebooks/sentinel-notebooks-map.png)
 
-我們已將 Jupyter 體驗整合到 Azure 入口網站，讓您可以輕鬆地建立及執行筆記本來分析您的資料。 *Kqlmagic*程式庫提供的粘附功能可讓您從 Azure Sentinel 進行查詢，並直接在筆記本內執行。 查詢會使用[Kusto 查詢語言](https://kusto.azurewebsites.net/docs/query/index.html)。 某些由 Microsoft 的安全性分析師所開發的多個筆記本會與 Azure Sentinel 一起封裝。 其中一些筆記本是針對特定案例所建立，並可依自己的情況使用。 其他則是做為範例，說明您可以複製或調整以在自己的筆記本中使用的技術和功能。 也可以從 Azure Sentinel 的社區 GitHub 匯入其他筆記本。
+We've integrated the Jupyter experience into the Azure portal, making it easy for you to create and run notebooks to analyze your data. The *Kqlmagic* library provides the glue that lets you take queries from Azure Sentinel and run them directly inside a notebook. Queries use the [Kusto Query Language](https://kusto.azurewebsites.net/docs/query/index.html). Several notebooks, developed by some of Microsoft's security analysts, are packaged with Azure Sentinel. Some of these notebooks are built for a specific scenario and can be used as-is. Others are intended as samples to illustrate techniques and features that you can copy or adapt for use in your own notebooks. Other notebooks may also be imported from the Azure Sentinel community GitHub.
 
-整合式 Jupyter 體驗會使用[Azure Notebooks](https://notebooks.azure.com/)來儲存、共用和執行筆記本。 如果您的電腦上有 Python 環境和 Jupyter，或在其他 JupterHub 環境（例如 Azure Databricks）中，您也可以在本機執行這些筆記本。
+The integrated Jupyter experience uses [Azure Notebooks](https://notebooks.azure.com/) to store, share, and execute notebooks. You can also run these notebooks locally if you have a Python environment and Jupyter on your computer, or in other JupterHub environments such as Azure Databricks.
 
-筆記本有兩個元件：
+Notebooks have two components:
 
-- 以瀏覽器為基礎的介面，您可以在其中輸入並執行查詢和程式碼，以及顯示執行結果的位置。
-- 負責剖析和執行程式碼本身的*核心*。 
+- The browser-based interface where you enter and run queries and code, and where the results of the execution are displayed.
+- A *kernel* that is responsible for parsing and executing the code itself. 
 
-在 Azure Notebooks 中，此核心預設會在 Azure*免費雲端計算和儲存體*上執行。 如果您的筆記本包含複雜的機器學習模型或視覺效果，請考慮使用更強大的專用計算資源，例如[資料科學虛擬機器](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)（DSVM）。 您帳戶中的筆記本會保持私密，除非您選擇共用。
+In Azure Notebooks, by default, this kernel runs on Azure *Free Cloud Compute and Storage*. If your notebooks include complex machine learning models or visualizations, consider using more powerful, dedicated compute resources such as [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) (DSVM). Notebooks in your account are kept private unless you choose to share them.
 
-Azure Sentinel 的筆記本會使用許多熱門的 Python 程式庫，例如 pandas、matplotlib、bokeh 和其他。 有很多其他 Python 套件可供您選擇，涵蓋的範圍如下：
+The Azure Sentinel notebooks use many popular Python libraries such as pandas, matplotlib, bokeh, and others. There are a great many other Python packages for you to choose from, covering areas such as:
 
-- 視覺效果和圖形
-- 資料處理和分析
-- 統計資料和數值計算
-- 機器學習和深度學習
+- Visualizations and graphics
+- Data processing and analysis
+- Statistics and numerical computing
+- Machine learning and deep learning
 
-我們也在名為[msticpy](https://github.com/Microsoft/msticpy/)的套件中發行了一些開放原始碼的 Jupyter 安全性工具。 此套件用於許多內含的筆記本。 Msticpy 工具的設計目的是為了協助建立用於搜尋和調查的筆記本，而且我們正積極處理新的功能和改進。
+We've also released some open-source Jupyter security tools in a package named [msticpy](https://github.com/Microsoft/msticpy/). This package is used in many of the included notebooks. Msticpy tools are designed specifically to help with creating notebooks for hunting and investigation and we're actively working on new features and improvements.
 
-初始筆記本包括：
+The initial notebooks include:
 
-- **引導式調查-處理警示**：可讓您藉由分析受影響主機上的活動，快速分級警示。
-- **引導式搜尋-Windows host explorer**：可讓您探索帳戶活動、進程執行、網路活動和主機上的其他事件。
-- **引導式搜尋-Office365-探索**：在多個 office 365 資料集中尋找可疑的 office 365 活動。
+- **Guided investigation - Process Alerts**: Allows you to quickly triage alerts by analyzing activity on the affected host or hosts.
+- **Guided hunting - Windows host explorer**: Allows you to explore account activity, process executions, network activity, and other events on a host.
+- **Guided hunting - Office365-Exploring**: Hunt for suspicious Office 365 activity in multiple Office 365 data sets.
 
-[Azure Sentinel 的社區 GitHub 存放庫](https://github.com/Azure/Azure-Sentinel)是 Microsoft 所建立或從社區提供的任何未來 Azure Sentinel 筆記本的位置。
+The [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel) is the location for any future Azure Sentinel notebooks built by Microsoft or contributed from the community.
 
-若要使用筆記本，您必須擁有 Azure Notebooks 帳戶。 如需詳細資訊，請參閱快速入門：從 Azure Notebooks 檔登[入並設定使用者識別碼](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks)。 若要建立此帳戶，您可以從**Azure Sentinel 筆記本**中的命令列使用 [**註冊 Azure Notebooks** ] 選項：
+To use the notebooks, you must have an Azure Notebooks account. For more information, see [Quickstart: Sign in and set a user ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks) from the Azure Notebooks documentation. To create this account, you can use the **Sign up for Azure Notebooks** option from the command bar in **Azure Sentinel - Notebooks**:
 
 > [!div class="mx-imgBorder"]
->![註冊 Azure Notebooks 選項](./media/notebooks/sentinel-azure-sign-up-azure-notebooks.png)
+>![Sign up for Azure Notebooks option](./media/notebooks/sentinel-azure-sign-up-azure-notebooks.png)
 
-## <a name="view-available-notebooks-from-azure-sentinel"></a>從 Azure Sentinel 查看可用的筆記本
+You can run a notebook direct from Azure Sentinel, or clone all the Azure Sentinel notebooks to a new Azure Notebooks project.
+
+## <a name="run-a-notebook-from-azure-sentinel"></a>Run a notebook from Azure Sentinel
  
-1. 在 [Azure 入口網站中，流覽至**Azure Sentinel** > **威脅管理**] > [**筆記本**]，您可以在其中看到 Azure Sentinel 提供的筆記本。 
+1. From the Azure portal, navigate to **Azure Sentinel** > **Threat management** > **Notebooks**, where you can see notebooks that Azure Sentinel provides. 
 
-2. 選取個別的筆記本以閱讀其描述、必要的資料類型和資料來源。 例如：
+2. Select individual notebooks to read their descriptions, required data types, and data sources. 例如：
     
     > [!div class="mx-imgBorder"]
-    > ![啟動筆記本](./media/notebooks/sentinel-azure-notebooks-nolaunch.png)
+    > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-nolaunch.png)
 
-3. 選取 [**啟動筆記本**] 以流覽[Azure Sentinel 社區 GitHub 存放庫](https://github.com/Azure/Azure-Sentinel)上的筆記本。
+3. Select the notebook you want to use, and then select **Launch Notebook (Preview)** to clone and configure the notebook into a new Azure Notebooks project that connects to your Azure Sentinel workspace. When the process is complete, the notebook opens within Azure Notebooks for you to run.
 
-目前，您無法直接從 Azure Sentinel 啟動筆記本。 相反地，請使用下列程式，逐步引導您將 GitHub 上的筆記本複製到 Azure Notebooks 專案。
+## <a name="clone-azure-sentinel-notebooks-to-a-new-azure-notebooks-project"></a>Clone Azure Sentinel notebooks to a new Azure Notebooks project
 
-## <a name="clone-azure-sentinel-notebooks-to-a-new-azure-notebooks-project"></a>將 Azure Sentinel 筆記本複製到新的 Azure Notebooks 專案
+This procedure creates an Azure Notebooks project for you, which contains the Azure Sentinel notebooks. You can then run the notebooks as-is, or make changes to them and then run them.
 
-此程式會為您建立 Azure Notebooks 專案，其中包含 Azure Sentinel 的筆記本。 然後您可以依序執行筆記本，或對其進行變更，然後加以執行。
-
-1. 在 Azure 入口網站中，流覽至**Azure Sentinel** > **威脅管理** > **筆記本**，然後從命令列選取 **複製筆記本**：
+1. From the Azure portal, navigate to **Azure Sentinel** > **Threat management** > **Notebooks** and then select **Clone Notebooks** from the command bar:
   
     > [!div class="mx-imgBorder"]
-    >![複製筆記本 選項](./media/notebooks/sentinel-azure-clone-notebooks.png)
+    >![Clone Notebooks option](./media/notebooks/sentinel-azure-clone-notebooks.png)
 
-2. 當下列對話方塊出現時，請選取 [匯**入**]，將 GitHub 存放庫複製到您的 Azure Notebooks 專案。 如果您沒有現有的 Azure Notebooks 帳戶，系統會提示您建立一個並登入。
+2. When the following dialog appears, select **Import** to clone the GitHub repo into your Azure Notebooks project. If you don't have an existing Azure Notebooks account, you'll be prompted to create one and sign in.
 
-   ![匯入筆記本](./media/notebooks/sentinel-notebooks-clone.png)
+   ![Import notebook](./media/notebooks/sentinel-notebooks-clone.png)
 
-3. 在 [上**傳 github 存放庫**] 對話方塊中，不要**以遞迴方式**選取 [複製]，因為此選項參考連結的 GitHub 存放庫。 在 [專案名稱] 中，使用預設名稱或輸入新的名稱。 然後按一下 [匯**入**] 開始複製 GitHub 內容，這可能需要幾分鐘的時間才能完成。
+3. On the **Upload GitHub Repository** dialog box, don't select **Clone recursively** because this option refers to linked GitHub repos. For the project name, use the default name or type in a new one. Then click **Import** to start cloning the GitHub content, which can take a few minutes to complete.
 
-   ![匯入筆記本](./media/notebooks/sentinel-create-project.png)
+   ![Import notebook](./media/notebooks/sentinel-create-project.png)
 
-4. 開啟您剛建立的專案，然後開啟 [**筆記本**] 資料夾以查看筆記本。 例如：
+4. Open the project you just created, and then open the **Notebooks** folder to see the notebooks. 例如：
 
-   ![匯入存放庫](./media/notebooks/sentinel-open-notebook1.png)
+   ![Import repo](./media/notebooks/sentinel-open-notebook1.png)
 
-然後，您可以從 Azure Notebooks 執行筆記本。 若要從 Azure Sentinel 返回這些筆記本，請從 [ **Azure Sentinel 筆記本**] 中的命令列選取 [**移至您的筆記本**]：
+You can then run the notebooks from Azure Notebooks. To return to these notebooks from Azure Sentinel, select **Go to your Notebooks** from the command bar in **Azure Sentinel - Notebooks**:
 
 > [!div class="mx-imgBorder"]
->![移至您的筆記本選項](./media/notebooks/sentinel-azure-to-go-notebooks.png)
+>![Go to your Notebooks option](./media/notebooks/sentinel-azure-to-go-notebooks.png)
 
 
-## <a name="using-notebooks-to-hunt"></a>使用筆記本進行搜尋
+## <a name="using-notebooks-to-hunt"></a>Using notebooks to hunt
 
-每個筆記本都會引導您完成進行搜尋或調查的步驟。 筆記本本身所需的程式庫和其他相依性可以透過筆記本本身或簡單的設定程式來安裝。 將您的筆記本專案系結回到 Azure Sentinel 訂用帳戶的設定，會在先前的步驟中自動布建。
+Each notebook walks you through the steps for carrying out a hunt or investigation. Libraries and other dependencies needed by the notebook can be installed from the notebook itself or via a simple configuration procedure. Configuration that ties your notebook project back to your Azure Sentinel subscription is automatically provisioned in the preceding steps.
 
-1. 如果您還不在 Azure Notebooks 中，您可以從**Azure Sentinel 筆記本**的命令列中，使用 [**移至您的筆記本**] 選項：
+1. If you're not already in Azure Notebooks, you can use the **Go to your Notebooks** option from the command bar in **Azure Sentinel - Notebooks**:
     
     > [!div class="mx-imgBorder"]
-    >![移至您的筆記本選項](./media/notebooks/sentinel-azure-to-go-notebooks.png)
+    >![Go to your Notebooks option](./media/notebooks/sentinel-azure-to-go-notebooks.png)
     
-    在 Azure Notebooks 中，依序選取 [**我的專案**]、包含 Azure Sentinel 筆記本的專案，以及最後的 [**筆記本**] 資料夾。
+    In Azure Notebooks, select **My Projects**, then the project that contains the Azure Sentinel notebooks, and finally the **Notebooks** folder.
     
-2. 開啟筆記本之前，請注意，預設會選取 [免費計算] 來執行筆記本：
+2. Before you open a notebook, be aware that by default, Free Compute is selected to run the notebooks:
     
-   ![選取筆記本](./media/notebooks/sentinel-open-notebook2.png)
+   ![select notebook](./media/notebooks/sentinel-open-notebook2.png)
     
-    如果您已設定要使用的資料科學虛擬機器（DSVM），如簡介中所述，請先選取 DSVM 並進行驗證，再開啟第一個筆記本。 
+    If you've configured a Data Science Virtual Machines (DSVM) to use as explained in the introduction, select the DSVM and authenticate before you open the first notebook. 
 
-3. 選取筆記本以開啟它。
+3. Select a notebook to open it.
     
-    第一次開啟筆記本時，系統可能會提示您選取核心版本。 如果未出現提示，您可以從 [**核心**] >  [**變更核心**] 選取核心版本，然後選取至少為3.6 的版本。 選取的核心版本會顯示在 [筆記本] 視窗的右上方：
+    The first time you open a notebook, you might be prompted to select a kernel version. If you're not prompted, you can select the kernel version from **Kernel** >  **Change kernel**, and then select a version that's at least 3.6. The selected kernel version is displayed in the top right of the notebook window:
     
-   ![選取筆記本](./media/notebooks/sentinel-select-kernel.png)
+   ![select notebook](./media/notebooks/sentinel-select-kernel.png)
 
-4. 在您對已下載的筆記本進行任何變更之前，最好先製作原始筆記本的複本，並使用該複本。 若要這麼做，**請選取 [** 檔案] > **建立複本**。 使用複本可讓您安全地更新至未來版本的筆記本，而不會覆寫任何資料。
+4. Before you make any changes to notebook that you've downloaded, it's a good idea to make a copy of the original notebook and work on the copy. To do that, select **File** > **Make a Copy**. Working on copies lets you safely update to future versions of notebooks without overwriting any of your data.
     
-    您現在已經準備好執行或編輯選取的筆記本。
+    You're now ready to run or edit the selected notebook.
 
 建議：
 
-- 如需在 Azure Sentinel 中查詢資料的快速簡介，請查看主要 [**筆記本**] 資料夾中的[GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb)筆記本。 
+- For a quick introduction to querying data in Azure Sentinel, look at the [GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) notebook in the main **Notebooks** folder. 
 
-- 您可以在 [**範例-筆記本**] 子資料夾中找到其他範例筆記本。 這些範例筆記本已與資料一起儲存，讓您更容易看到預期的輸出。 我們建議您在[nbviewer](https://nbviewer.jupyter.org/)中查看這些筆記本。 
+- You'll find additional sample notebooks in the **Sample-Notebooks** subfolder. These sample notebooks have been saved with data, so that it's easier to see the intended output. We recommend viewing these notebooks in [nbviewer](https://nbviewer.jupyter.org/). 
 
-- **做法**資料夾包含描述的筆記本，例如：設定您的預設 Python 版本、設定 DSVM、從筆記本建立 Azure Sentinel 的書簽，以及其他主題。
+- The **HowTos** folder contains notebooks describing, for example: Setting you default Python version, configuring a DSVM, creating Azure Sentinel bookmarks from a notebook, and other subjects.
 
-提供的筆記本是做為有用的工具，以及您可以在開發自己的筆記本時使用的圖例和程式碼範例。
+The notebooks provided are intended as both useful tools and as illustrations and code samples that you can use in the development of your own notebooks.
 
-我們歡迎您提供意見反應、建議、功能要求、貢獻的筆記本、錯誤報表，或是現有筆記本的改進專案和新增專案。 前往[Azure Sentinel 社區 GitHub](https://github.com/Azure/Azure-Sentinel)以建立問題或分支，並上傳投稿。
+We welcome feedback, whether suggestions, requests for features, contributed Notebooks, bug reports or improvements and additions to existing notebooks. Go to the [Azure Sentinel Community GitHub](https://github.com/Azure/Azure-Sentinel) to create an issue or fork and upload a contribution.
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已瞭解如何開始在 Azure Sentinel 中使用 Jupyter 筆記本。 若要深入了解 Azure Sentinel，請參閱下列文章：
+In this article, you learned how to get started using Jupyter notebooks in Azure Sentinel. 若要深入了解 Azure Sentinel，請參閱下列文章：
 
-- [主動尋找威脅](hunting.md)
-- [搜尋時使用書簽來儲存有趣的資訊](bookmarks.md)
+- [Proactively hunt for threats](hunting.md)
+- [Use bookmarks to save interesting information while hunting](bookmarks.md)

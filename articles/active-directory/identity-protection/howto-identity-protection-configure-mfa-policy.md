@@ -1,5 +1,5 @@
 ---
-title: 如何在 Azure Active Directory Identity Protection 中設定多重要素驗證註冊原則
+title: Configure the MFA registration policy - Azure Active Directory Identity Protection
 description: 了解如何設定 Azure AD Identity Protection 多重要素驗證註冊原則。
 services: active-directory
 ms.service: active-directory
@@ -11,43 +11,43 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc98f645c6b24069e090560a049ccb4fcd03dfec
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 2fa6a4cf184b426355f62117ea51642127eee529
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887568"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382133"
 ---
-# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>如何：設定 Azure 多重要素驗證註冊原則
+# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>How To: Configure the Azure Multi-Factor Authentication registration policy
 
-Azure AD Identity Protection 可協助您管理 Azure 多因素驗證（MFA）註冊的導入，方法是設定條件式存取原則來要求進行 MFA 註冊，無論您登入的新式驗證應用程式為何。
+Azure AD Identity Protection helps you manage the roll-out of Azure Multi-Factor Authentication (MFA) registration by configuring a Conditional Access policy to require MFA registration no matter what modern authentication app you are signing in to.
 
-## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>什麼是 Azure 多重要素驗證註冊原則？
+## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>What is the Azure Multi-Factor Authentication registration policy?
 
-Azure 多因素驗證提供一種方法來驗證您使用的不只是使用者名稱和密碼。 它提供使用者登入的第二層安全性。為了讓使用者能夠回應 MFA 提示，他們必須先註冊 Azure 多重要素驗證。
+Azure Multi-Factor Authentication provides a means to verify who you are using more than just a username and password. It provides a second layer of security to user sign-ins. In order for users to be able to respond to MFA prompts, they must first register for Azure Multi-Factor Authentication.
 
-我們建議您針對使用者登入要求 Azure 多重要素驗證，因為它：
+We recommend that you require Azure Multi-Factor Authentication for user sign-ins because it:
 
-- 透過一系列驗證選項提供增強式驗證。
-- 在準備您的組織從 Identity Protection 中的風險偵測進行自我補救時，扮演著重要的角色。
+- Delivers strong authentication through a range of verification options.
+- Plays a key role in preparing your organization to self-remediate from risk detections in Identity Protection.
 
-如需有關 Azure 多因素驗證的詳細資訊，請參閱[什麼是 Azure 多重要素驗證？](../authentication/howto-mfa-getstarted.md)
+For more information on Azure Multi-Factor Authentication, see [What is Azure Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
 
 ## <a name="policy-configuration"></a>原則組態
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
-1. 流覽至**Azure Active Directory** > **安全性** > **Identity Protection** > **MFA 註冊原則**。
-   1. 在 [**指派**] 底下
-      1. **使用者**-選擇 [**所有使用者**] **，或選取個人和群組**（如果您要限制首度發行）。
-         1. （選擇性）您可以選擇從原則中排除使用者。
-   1. 在**控制項**底下
-      1. 確定已核取 [**需要 AZURE MFA 註冊**] 核取方塊，然後選擇 [**選取**]。
-   1. **強制執行原則** ** - **
+1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **MFA registration policy**.
+   1. Under **Assignments**
+      1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
+         1. Optionally you can choose to exclude users from the policy.
+   1. Under **Controls**
+      1. Ensure the checkbox **Require Azure MFA registration** is checked and choose **Select**.
+   1. **Enforce Policy** - **On**
    1. **儲存**
 
 ## <a name="user-experience"></a>使用者體驗
 
-Azure Active Directory Identity Protection 會在下次以互動方式登入時，提示您的使用者進行註冊，且會有14天的時間完成註冊。 在此14天的期間內，他們可以略過註冊，但是在一段期間結束時，他們必須先註冊，才能完成登入程式。
+Azure Active Directory Identity Protection will prompt your users to register the next time they sign in interactively and they will have 14 days to complete registration. During this 14-day period, they can bypass registration but at the end of the period they will be required to register before they can complete the sign-in process.
 
 如需相關的使用者經驗概觀，請參閱︰
 
@@ -55,8 +55,8 @@ Azure Active Directory Identity Protection 會在下次以互動方式登入時�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [啟用登入和使用者風險原則](howto-identity-protection-configure-risk-policies.md)
+- [Enable sign-in and user risk policies](howto-identity-protection-configure-risk-policies.md)
 
-- [啟用 Azure AD 自助式密碼重設](../authentication/howto-sspr-deployment.md)
+- [Enable Azure AD self-service password reset](../authentication/howto-sspr-deployment.md)
 
-- [啟用 Azure 多重要素驗證](../authentication/howto-mfa-getstarted.md)
+- [Enable Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

@@ -1,7 +1,7 @@
 ---
-title: MLOps： ML 模型管理
+title: 'MLOps: ML model management'
 titleSuffix: Azure Machine Learning
-description: '瞭解 Azure Machine Learning 的模型管理（MLOps）。 部署、管理及監視您的模型，以持續改進它們。 '
+description: 'Learn about model management with Azure Machine Learning (MLOps). Deploy, manage, and monitor your models to continuously improve them. '
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,166 +9,160 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 715752072a14a3220d17d0dbda2efd0786a83de4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 19552747db427bf780a140c15f11bed322d1f867
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271260"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420081"
 ---
-# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps：使用 Azure Machine Learning 進行模型管理、部署和監視
+# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: model management, deployment, and monitoring with Azure Machine Learning
 
-在本文中，您將瞭解如何使用 Azure Machine Learning 來管理模型的生命週期。 Azure Machine Learning 使用 Machine Learning 作業（MLOps）方法，可改善機器學習解決方案的品質和一致性。 
+In this article, learn about how to use Azure Machine Learning to manage the lifecycle of your models. Azure Machine Learning uses a Machine Learning Operations (MLOps) approach. MLOps improves the quality and consistency of your machine learning solutions. 
 
-Azure Machine Learning 提供下列 MLOps 功能：
+Azure Machine Learning provides the following MLOps capabilities:
 
-- **從任何地方部署 ML 專案**
-- **監視 ml 應用程式的操作和 ML 相關問題**-比較定型和推斷之間的模型輸入、探索模型特定計量，以及提供 ML 基礎結構的監視和警示。
-- **捕捉建立 ML 生命週期的端對端審核記錄所需的資料**，包括正在發佈模型的物件、變更的原因，以及模型部署或用於生產環境中的時間。
-- **使用 Azure Machine Learning 和 Azure DevOps 自動化端對端 ML 生命週期**，以便經常更新模型、測試新模型，以及持續推出新的 ml 模型以及其他應用程式和服務。
+- **Create reproducible ML pipelines**. Pipelines allow you to define repeatable and reusable steps for your data preparation, training, and scoring processes.
+- **Register, package, and deploy models from anywhere** and track associated metadata required to use the model.
+- **Capture the governance data required for capturing the end-to-end ML lifecycle**, including who is publishing models, why changes are being made, and when models were deployed or used in production.
+- **Notify and alert on events in the ML lifecycle** such as experiment completion, model registration, model deployment, and data drift detection.
+- **Monitor ML applications for operational and ML-related issues**. Compare model inputs between training and inference, explore model-specific metrics, and provide monitoring and alerts on your ML infrastructure.
+- **Automate the end-to-end ML lifecycle with Azure Machine Learning and Azure DevOps** to frequently update models, test new models, and continuously roll out new ML models alongside your other applications and services.
 
-若要深入瞭解 MLOps 背後的概念以及如何將其套用到 Azure Machine Learning，請觀看下列影片。
+## <a name="create-reproducible-ml-pipelines"></a>Create reproducible ML pipelines
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
+Use ML pipelines from Azure Machine Learning to stitch together all of the steps involved in your model training process.
 
-## <a name="deploy-ml-projects-from-anywhere"></a>從任何地方部署 ML 專案
+An ML pipeline can contain steps from data preparation to feature extraction to hyperparameter tuning to model evaluation. For more information, see [ML pipelines](concept-ml-pipelines.md).
 
-### <a name="turn-your-training-process-into-a-reproducible-pipeline"></a>將您的定型流程轉換成可重現的管線
-使用 Azure Machine Learning 中的 ML 管線，將模型定型程式中涉及的所有步驟結合在一起，從資料準備到功能解壓縮到超參數微調到模型評估。
+## <a name="register-package-and-deploy-models-from-anywhere"></a>Register, package, and deploy models from anywhere
 
-如需詳細資訊，請參閱[ML 管線](concept-ml-pipelines.md)。
-
-### <a name="register-and-track-ml-models"></a>註冊和追蹤 ML 模型
+### <a name="register-and-track-ml-models"></a>Register and track ML models
 
 模型註冊可讓您在 Azure 雲端自己的工作區中儲存模型和控制模型版本。 模型註冊可讓您更輕鬆地組織和追蹤已定型模型。
 
 > [!TIP]
-> 已註冊的模型是組成模型的一或多個檔案的邏輯容器。 例如，如果您的模型儲存在多個檔案中，您可以將它們註冊為 Azure Machine Learning 工作區中的單一模型。 註冊之後，您就可以下載或部署已註冊的模型，並接收所有已註冊的檔案。
- 
-已註冊的模型是透過名稱和版本來識別。 每次註冊與現有模型名稱相同的模型時，登錄都會遞加版本。 您也可以在可於搜尋模型時使用的註冊期間提供額外中繼資料標記。 Azure Machine Learning 支援可使用 Python 3.5.2 或更高版本載入的任何模型。
+> A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in your Azure Machine Learning workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
+
+已註冊的模型是透過名稱和版本來識別。 每次註冊與現有模型名稱相同的模型時，登錄都會遞加版本。 Additional metadata tags can be provided during registration. These tags are then used when searching for a model. Azure Machine Learning supports any model that can be loaded using Python 3.5.2 or higher.
 
 > [!TIP]
-> 您也可以註冊在 Azure Machine Learning 外部定型的模型。
+> You can also register models trained outside Azure Machine Learning.
 
-您無法刪除使用中部署的已註冊模型。
+You can't delete a registered model that is being used in an active deployment.
 如需詳細資訊，請參閱[部署模型](how-to-deploy-and-where.md#registermodel)的註冊模型一節。
 
-### <a name="package-and-debug-models"></a>封裝和調試模型
+### <a name="package-and-debug-models"></a>Package and debug models
 
-將模型部署到生產環境之前，它會封裝成 Docker 映射。 在大部分情況下，映射建立會在部署期間自動在背景中進行。 在 advanced 案例中，您可以手動指定映射。
+Before deploying a model into production, it is packaged into a Docker image. In most cases, image creation happens automatically in the background during deployment. You can manually specify the image.
 
-如果您在部署時遇到問題，您可以在本機開發環境上部署，以進行疑難排解和偵錯工具。
+If you run into problems with the deployment, you can deploy on your local development environment for troubleshooting and debugging.
 
-如需詳細資訊，請參閱[部署模型](how-to-deploy-and-where.md#registermodel)和[疑難排解部署](how-to-troubleshoot-deployment.md)。
+For more information, see [Deploy models](how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](how-to-troubleshoot-deployment.md).
 
-### <a name="validate-and-profile-models"></a>驗證和分析模型
+### <a name="validate-and-profile-models"></a>Validate and profile models
 
-Azure Machine Learning 可以流量分析來判斷部署模型時所要使用的理想 CPU 和記憶體設定。 模型驗證會在此程式中進行，並使用您為分析程式提供的資料。
+Azure Machine Learning can use profiling to determine the ideal CPU and memory settings to use when deploying your model. Model validation happens as part of this process, using data that you supply for the profiling process.
 
-### <a name="convert-and-optimize-models"></a>轉換和優化模型
+### <a name="convert-and-optimize-models"></a>Convert and optimize models
 
-將模型轉換成[Open Neural Network Exchange](https://onnx.ai) （ONNX）可能會改善效能。 平均來說，轉換成 ONNX 可能會增加2倍的效能。
+Converting your model to [Open Neural Network Exchange](https://onnx.ai) (ONNX) may improve performance. On average, converting to ONNX can yield a 2x performance increase.
 
-如需 ONNX 與 Azure Machine Learning 的詳細資訊，請參閱[建立和加速 ML 模型](concept-onnx.md)一文。
+For more information on ONNX with Azure Machine Learning, see the [Create and accelerate ML models](concept-onnx.md) article.
 
-### <a name="use-models"></a>使用模型
+### <a name="use-models"></a>Use models
 
-定型的機器學習模型可以部署為雲端中的 web 服務，或在您的開發環境中。 您也可以將模型部署到 Azure IoT Edge 裝置。 部署可以使用 CPU、GPU 或可現場程式化閘道陣列（FPGA）來進行推斷。 您也可以使用 Power BI 的模型。
+Trained machine learning models are deployed as web services in the cloud or locally. You can also deploy models to Azure IoT Edge devices. Deployments use CPU, GPU, or field-programmable gate arrays (FPGA) for inferencing. You can also use models from Power BI.
 
-使用模型做為 web 服務或 IoT Edge 裝置時，您會提供下列專案：
+When using a model as a web service or IoT Edge device, you provide the following items:
 
-* 用來對提交給服務/裝置的資料進行評分的模型。
-* 輸入腳本。 此腳本會接受要求，使用模型來對資料進行評分，並傳迴響應。
-* Conda 環境檔案，描述模型和專案腳本所需的相依性。
-* 模型和專案腳本所需的任何其他資產，例如文字、資料等等。
+* The model(s) that are used to score data submitted to the service/device.
+* An entry script. This script accepts requests, uses the model(s) to score the data, and return a response.
+* A conda environment file that describes the dependencies required by the model(s) and entry script.
+* Any additional assets such as text, data, etc. that are required by the model(s) and entry script.
 
-這些資產會封裝成 Docker 映射，並部署為 web 服務或 IoT Edge 模組。
+You also provide the configuration of the target deployment platform. For example, the VM family type, available memory, and number of cores when deploying to Azure Kubernetes Service.
 
-（選擇性）您可以使用下列參數來進一步調整部署：
+When the image is created, components required by Azure Machine Learning are also added. For example, assets needed to run the web service and interact with IoT Edge.
 
-* 啟用 GPU：用來啟用 Docker 映射中的 GPU 支援。 映射必須用於 Microsoft Azure 服務，例如 Azure 容器實例、Azure Kubernetes Service、Azure Machine Learning 計算或 Azure 虛擬機器。
-* 額外的 docker 檔案步驟：檔案，其中包含建立 Docker 映射時要執行的其他 Docker 步驟。
-* 基底映射：作為基底映射使用的自訂映射。 如果您未使用自訂映射，則 Azure Machine Learning 會提供基底映射。
+#### <a name="batch-scoring"></a>批次評分
+Batch scoring is supported through ML pipelines. For more information, see [Batch predictions on big data](how-to-run-batch-predictions.md).
 
-您也會提供目標部署平臺的設定。 例如，VM 系列類型、可用記憶體，以及部署到 Azure Kubernetes Service 時的核心數目。
+#### <a name="real-time-web-services"></a>Real-time web services
 
-建立映射時，也會新增 Azure Machine Learning 所需的元件。 例如，執行 web 服務和與 IoT Edge 互動所需的資產。
-
-> [!NOTE]
-> 您無法修改或變更 Docker 映射中使用的 web 伺服器或 IoT Edge 元件。 Azure Machine Learning 使用 web 伺服器設定，並 IoT Edge Microsoft 所測試及支援的元件。
-
-#### <a name="web-service"></a>Web 服務
-
-您可以在**web 服務**中使用您的模型，並搭配下列計算目標：
+You can use your models in **web services** with the following compute targets:
 
 * Azure 容器執行個體
 * Azure Kubernetes Service
-* 本機開發環境
+* Local development environment
 
-若要將模型部署為 web 服務，您必須提供下列專案：
+To deploy the model as a web service, you must provide the following items:
 
-* 模型或模型的集團。
-* 使用模型所需的相依性。 例如，接受要求並叫用模型、conda 相依性等的腳本。
-* 部署設定，描述部署模型的方式和位置。
+* The model or ensemble of models.
+* Dependencies required to use the model. For example, a script that accepts requests and invokes the model, conda dependencies, etc.
+* Deployment configuration that describes how and where to deploy the model.
 
-如需詳細資訊，請參閱[部署模型](how-to-deploy-and-where.md)。
+For more information, see [Deploy models](how-to-deploy-and-where.md).
 
-#### <a name="iot-edge-devices"></a>IoT Edge 裝置
+#### <a name="iot-edge-devices"></a>IoT Edge devices
 
-您可以透過**Azure IoT Edge 模組**，使用 IoT 裝置的模型。 IoT Edge 模組會部署到裝置上啟用推斷或模型評分的硬體裝置。
+You can use models with IoT devices through **Azure IoT Edge modules**. IoT Edge modules are deployed to a hardware device, which enables inference, or model scoring, on the device.
 
-如需詳細資訊，請參閱[部署模型](how-to-deploy-and-where.md)。
+For more information, see [Deploy models](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>分析
 
-Microsoft Power BI 支援使用機器學習模型來進行資料分析。 如需詳細資訊，請參閱[Power BI 中的 Azure Machine Learning 整合（預覽）](https://docs.microsoft.com/power-bi/service-machine-learning-integration)。
+Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI (preview)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 
-## <a name="monitor-for-operational--ml-issues"></a>適用于操作 & ML 問題的監視
+## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Capture the governance data required for capturing the end-to-end ML lifecycle
 
-監視可讓您瞭解哪些資料要傳送至您的模型，以及它所傳回的預測。
+Azure ML gives you the capability to track the end-to-end audit trail of all of your ML assets. 具體而言：
 
-此資訊可協助您瞭解模型的使用方式。 收集的輸入資料可能也有助於定型模型的未來版本。
+- Azure ML [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information on which repository / branch / commit your code came from.
+- [Azure ML Datasets](how-to-create-register-datasets.md) help you track, profile, and version data. 
+- Azure ML Run history stores a snapshot of the code, data, and compute used to train a model.
+- The Azure ML Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
+
+## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notify, automate, and alert on events in the ML lifecycle
+Azure ML publishes key events to Azure EventGrid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](how-to-use-event-grid.md).
+
+## <a name="monitor-for-operational--ml-issues"></a>Monitor for operational & ML issues
+
+Monitoring enables you to understand what data is being sent to your model, and the predictions that it returns.
+
+This information helps you understand how your model is being used. The collected input data may also be useful in training future versions of the model.
 
 如需詳細資訊，請參閱[如何啟用模型資料收集](how-to-enable-data-collection.md)。
 
 
-## <a name="audit-trail-of-the-ml-lifecycle"></a>ML 生命週期的審核記錄
+## <a name="automate-the-ml-lifecycle"></a>Automate the ML lifecycle 
 
-Azure ML 讓您能夠追蹤所有 ML 資產的端對端審核記錄。 具體而言：
+You can use GitHub and Azure Pipelines to create a continuous integration process that trains a model. In a typical scenario, when a Data Scientist checks a change into the Git repo for a project, the Azure Pipeline will start a training run. The results of the run can then be inspected to see the performance characteristics of the trained model. You can also create a pipeline that deploys the model as a web service.
 
-- Azure ML 會[與 Git 整合](how-to-set-up-training-targets.md#gitintegration)，以追蹤您的程式碼來自哪個存放庫/分支/認可的資訊。
-- [AZURE ML 資料集](how-to-create-register-datasets.md)可協助您追蹤和版本資料。
-- Azure ML 執行歷程記錄會儲存用來定型模型之程式碼、資料和計算的快照集。
-- Azure ML 模型登錄會捕捉與您的模型相關聯的所有中繼資料（如果其部署狀況良好，則會在部署時進行定型）。
+The [Azure Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml) makes it easier to work with Azure Pipelines. It provides the following enhancements to Azure Pipelines:
 
-## <a name="automate-the-ml-lifecycle"></a>自動化 ML 生命週期 
+* Enables workspace selection when defining a service connection.
+* Enables release pipelines to be triggered by trained models created in a training pipeline.
 
-您可以使用 GitHub 和 Azure Pipelines 來建立可訓練模型的連續整合程式。 在典型的案例中，當資料科學家將變更簽入專案的 Git 存放庫時，Azure 管線就會開始執行定型。 然後，可以檢查執行的結果，以查看定型模型的效能特性。 您也可以建立管線，將模型部署為 web 服務。
-
-[Azure Machine Learning 延伸](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml)模組可讓您更輕鬆地使用 Azure Pipelines。 它提供 Azure Pipelines 的下列增強功能：
-
-* 在定義服務連接時啟用工作區選取。
-* 可讓發行管線由定型管線中建立的定型模型觸發。
-
-如需有關搭配 Azure Machine Learning 使用 Azure Pipelines 的詳細資訊，請參閱[使用 Azure Pipelines 的持續整合和部署 ML 模型一](/azure/devops/pipelines/targets/azure-machine-learning)文和[Azure Machine Learning MLOps](https://aka.ms/mlops)存放庫。
+For more information on using Azure Pipelines with Azure Machine Learning, see the [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) article and the [Azure Machine Learning MLOps](https://aka.ms/mlops) repository.
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入瞭解，請閱讀並探索下列資源：
+Learn more by reading and exploring the following resources:
 
-+ [如何使用 Azure Machine Learning & 部署模型的位置](how-to-deploy-and-where.md)
++ [How & where to deploy models](how-to-deploy-and-where.md) with Azure Machine Learning
 
-+ [教學課程：在 ACI 中部署影像分類模型](tutorial-deploy-models-with-aml.md)。
++ [Tutorial: Deploy an image classification model in ACI](tutorial-deploy-models-with-aml.md).
 
-+ [端對端 MLOps 範例存放庫](https://github.com/microsoft/MLOps)
++ [End-to-end MLOps examples repo](https://github.com/microsoft/MLOps)
 
-+ [具有 Azure Pipelines 的 ML 模型 CI/CD](/azure/devops/pipelines/targets/azure-machine-learning)
++ [CI/CD of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
 
-+ 建立使用已[部署模型](how-to-consume-web-service.md)的用戶端
++ Create clients that [consume a deployed model](how-to-consume-web-service.md)
 
 + [大規模機器學習](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 
-+ [Azure AI 參考架構 & 最佳做法代表](https://github.com/microsoft/AI)
++ [Azure AI reference architectures & best practices rep](https://github.com/microsoft/AI)

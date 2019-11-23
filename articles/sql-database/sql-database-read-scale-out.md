@@ -1,6 +1,6 @@
 ---
-title: 讀取複本上的查詢
-description: 此 Azure SQL Database 可讓您使用唯讀複本的容量（稱為讀取相應放大）來負載平衡唯讀工作負載。
+title: Read queries on replicas
+description: The Azure SQL Database provides the ability to load-balance read-only workloads using the capacity of read-only replicas - called Read Scale-Out.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -11,35 +11,35 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: 1f47b01c4a9227d0e2ee45b17645b2ae97e4ba3d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f111b19eb07c218a9f3250ef3ffdb8a97cf07542
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821237"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420723"
 ---
-# <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>使用唯讀複本對唯讀查詢工作負載進行負載平衡
+# <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Use read-only replicas to load-balance read-only query workloads
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-作為[高可用性架構](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)的一部分，Premium 和商務關鍵服務層級中的每個資料庫都會自動布建主要複本和數個次要複本。 次要複本會以與主要複本相同的計算大小進行布建。 **讀取相應放大**功能可讓您使用其中一個唯讀複本的容量來負載平衡 SQL Database 唯讀工作負載，而不是共用讀寫複本。 這種方式的唯讀工作負載將會與主要讀寫工作負載隔離，而且不會影響其效能。 此功能適用于包含邏輯上分隔唯讀工作負載（例如分析）的應用程式。 在 Premium 和商務關鍵性服務層級中，應用程式可以使用此額外容量來獲得效能優勢，而不需額外成本。
+As part of the [High Availability architecture](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), each database in the Premium and Business Critical service tier is automatically provisioned with a primary replica and several secondary replicas. The secondary replicas are provisioned with the same compute size as the primary replica. The **Read Scale-Out** feature allows you to load-balance SQL Database read-only workloads using the capacity of one of the read-only replicas instead of sharing the read-write replica. 這種方式的唯讀工作負載將會與主要讀寫工作負載隔離，而且不會影響其效能。 The feature is intended for the applications that include logically separated read-only workloads, such as analytics. In the Premium and Business Critical service tiers, applications could gain performance benefits using this additional capacity at no extra cost.
 
-當至少建立一個次要複本時，超大規模資料庫服務層級也會提供**讀取**相應放大功能。 如果唯讀工作負載所需的資源超過一個次要複本上的可用性，則可以使用多個次要複本。 「基本」、「標準」和「一般用途」服務層級的高可用性架構不包含任何複本。 **讀取相應放大**功能在這些服務層級中無法使用。
+The **Read Scale-Out** feature is also available in the Hyperscale service tier when at least one secondary replica is created. Multiple secondary replicas can be used if read-only workloads require more resources than available on one secondary replica. The High Availability architecture of Basic, Standard, and General Purpose service tiers does not include any replicas. The **Read Scale-Out** feature is not available in these service tiers.
 
-下圖說明如何使用業務關鍵資料庫。
+The following diagram illustrates it using a Business Critical database.
 
 ![唯讀複本](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-在新的 Premium、業務關鍵和超大規模資料庫資料庫上，預設會啟用讀取相應放大功能。 針對超大規模資料庫，預設會為新的資料庫建立一個次要複本。 如果您的 SQL 連接字串是以 `ApplicationIntent=ReadOnly`進行設定，則該應用程式將由閘道重新導向至該資料庫的唯讀複本。 如需如何使用 `ApplicationIntent` 屬性的詳細資訊，請參閱[指定應用程式意圖](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)。
+The Read Scale-Out feature is enabled by default on new Premium,  Business Critical, and Hyperscale databases. For Hyperscale, one secondary replica is created by default for new databases. If your SQL connection string is configured with `ApplicationIntent=ReadOnly`, the application will be redirected by the gateway to a read-only replica of that database. For information on how to use the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
-如果您想要確保應用程式連接到主要複本，而不論 SQL 連接字串中的 `ApplicationIntent` 設定為何，您必須在建立資料庫時或在改變其設定時明確停用讀取相應放大。 例如，如果您將資料庫從標準或一般用途層升級至高階、業務關鍵或超大規模資料庫層，而且想要確定所有連線都會繼續移至主要複本，請停用讀取相應放大。如需如何停用它的詳細資訊，請參閱[啟用和停用讀取相應放大](#enable-and-disable-read-scale-out)。
+If you wish to ensure that the application connects to the primary replica regardless of the `ApplicationIntent` setting in the SQL connection string, you must explicitly disable read scale-out when creating the database or when altering its configuration. For example, if you upgrade your database from Standard or General Purpose tier to Premium, Business Critical or Hyperscale tier and want to make sure all your connections continue to go to the primary replica, disable Read Scale-out. For details on how to disable it, see [Enable and disable Read Scale-Out](#enable-and-disable-read-scale-out).
 
 > [!NOTE]
-> 唯讀複本上不支援查詢資料存放區、擴充的事件、SQL Profiler 和 Audit 功能。 
+> Query Data Store, Extended Events, SQL Profiler and Audit features are not supported on the read-only replicas.
 
 ## <a name="data-consistency"></a>資料一致性
 
-複本的其中一個優點是複本一律處於交易一致狀態，但在不同的時間點，不同的複本之間可能會有些微延遲。 讀取相應放大支援工作階段層級一致性。 這表示，如果唯讀會話在無法使用複本所造成的連線錯誤之後重新連線，它可能會被重新導向至與讀寫複本不是100% 最新的複本。 同樣地，如果應用程式使用讀寫會話寫入資料，並且使用唯讀會話立即讀取，則可能不會立即在複本上看到最新的更新。 延遲是因非同步交易記錄重做作業所造成。
+複本的其中一個優點是複本一律處於交易一致狀態，但在不同的時間點，不同的複本之間可能會有些微延遲。 讀取相應放大支援工作階段層級一致性。 It means, if the read-only session reconnects after a connection error caused by replica unavailability, it may be redirected to a replica that is not 100% up-to-date with the read-write replica. Likewise, if an application writes data using a read-write session and immediately reads it using a read-only session, it is possible that the latest updates are not immediately visible on the replica. The latency is caused by an asynchronous transaction log redo operation.
 
 > [!NOTE]
 > 區域內的複寫延遲較低，這種情況很罕見。
@@ -50,13 +50,13 @@ ms.locfileid: "73821237"
 
 例如，下列連接字串會將用戶端連線至唯讀複本 (請將角括號中的項目取代為您的環境適用的值，並去除角括號)：
 
-```SQL
+```sql
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
 下列連接字串會將用戶端連線至讀寫複本 (請將角括號中的項目取代為您的環境適用的值，並去除角括號)：
 
-```SQL
+```sql
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadWrite;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
@@ -66,68 +66,69 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>
 
 您可以執行下列查詢，確認是否已連線到唯讀複本。 它會在連線到唯讀複本時傳回 READ_ONLY。
 
-```SQL
+```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 
 > [!NOTE]
 > 在任何指定時間，ReadOnly 工作階段只能存取其中一個 AlwaysON 複本。
 
-## <a name="monitoring-and-troubleshooting-read-only-replica"></a>監視和疑難排解唯讀複本
+## <a name="monitoring-and-troubleshooting-read-only-replica"></a>Monitoring and troubleshooting read-only replica
 
-當連接到唯讀複本時，您可以使用 `sys.dm_db_resource_stats` DMV 來存取效能計量。 若要存取查詢計劃統計資料，請使用 `sys.dm_exec_query_stats`、`sys.dm_exec_query_plan` 和 `sys.dm_exec_sql_text` Dmv。
+When connected to a read-only replica, you can access the performance metrics using the `sys.dm_db_resource_stats` DMV. To access query plan statistics, use the `sys.dm_exec_query_stats`, `sys.dm_exec_query_plan` and `sys.dm_exec_sql_text` DMVs.
 
 > [!NOTE]
-> 邏輯 master 資料庫中的 DMV `sys.resource_stats` 會傳回主要複本的 CPU 使用率和儲存體資料。
-
+> The DMV `sys.resource_stats` in the logical master database returns CPU usage and storage data of the primary replica.
 
 ## <a name="enable-and-disable-read-scale-out"></a>啟用和停用讀取縮放
 
-在 Premium、業務關鍵和超大規模資料庫服務層級上，預設會啟用讀取相應放大。 在基本、標準或一般用途服務層級中，無法啟用讀取相應放大。 在設定了0個複本的超大規模資料庫資料庫上，會自動停用讀取相應放大。 
+Read Scale-Out is enabled by default on Premium, Business Critical and Hyperscale service tiers. Read Scale-Out cannot be enabled in Basic, Standard, or General Purpose service tiers. Read Scale-Out is automatically disabled on Hyperscale databases configured with 0 replicas.
 
-您可以使用下列方法，在 Premium 或業務關鍵服務層級中的單一資料庫和彈性集區資料庫上，停用並重新啟用讀取相應放大。
+You can disable and re-enable Read Scale-Out on single databases and elastic pool databases in Premium or Business Critical service tier using the following methods.
 
 > [!NOTE]
-> 針對回溯相容性，可停用讀取向外延展的功能。
+> The ability to disable Read Scale-Out is provided for backward compatibility.
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
-您可以在 [**設定**資料庫] 分頁上管理讀取相應放大設定。 
+You can manage the Read Scale-out setting on the **Configure** database blade.
 
 ### <a name="powershell"></a>PowerShell
 
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+
 要在 Azure PowerShell 中管理讀取相應放大，必須使用 2016 年 12 月版的 Azure PowerShell 或更新版本。 如需最新 PowerShell 版本的相關資訊，請參閱 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
-您可以藉由叫用[set-azsqldatabase 搭配](/powershell/module/az.sql/set-azsqldatabase)Cmdlet 並傳入所需的值– `Enabled` 或 `Disabled`--作為 `-ReadScale` 參數，在 Azure PowerShell 中停用或重新啟用讀取相應放大。 
+You can disable or re-enable Read Scale-Out in Azure PowerShell by invoking the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet and passing in the desired value – `Enabled` or `Disabled` -- for the `-ReadScale` parameter.
 
-停用現有資料庫的讀取相應放大（以您環境的正確值取代角括弧中的專案，並卸載角括弧）：
-
-```powershell
-Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
-```
-停用新資料庫的讀取相應放大（以您環境的正確值取代角括弧中的專案，並卸載角括弧）：
+To disable read scale-out on an existing database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
 
 ```powershell
-New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled -Edition Premium
+Set-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Disabled
 ```
 
-若要在現有的資料庫上重新啟用讀取相應放大（以您環境的正確值取代角括弧中的專案，並卸載角括弧）：
+To disable read scale-out on a new database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
 
 ```powershell
-Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
+New-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Disabled -Edition Premium
+```
+
+To re-enable read scale-out on an existing database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
+
+```powershell
+Set-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Enabled
 ```
 
 ### <a name="rest-api"></a>REST API
 
-若要建立已停用讀取相應放大的資料庫，或變更現有資料庫的設定，請使用下列方法，並將 `readScale` 屬性設為 `Enabled` 或 `Disabled` 如下列範例要求所示。
+To create a database with read scale-out disabled, or to change the setting for an existing database, use the following method with the `readScale` property set to `Enabled` or `Disabled` as in the below sample request.
 
 ```rest
 Method: PUT
 URL: https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{GroupName}/providers/Microsoft.Sql/servers/{ServerName}/databases/{DatabaseName}?api-version= 2014-04-01-preview
-Body:
-{
-   "properties":
-   {
+Body: {
+   "properties": {
       "readScale":"Disabled"
    }
 }
@@ -135,17 +136,17 @@ Body:
 
 如需詳細資訊，請參閱[資料庫 - 建立或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)。
 
-## <a name="using-tempdb-on-read-only-replica"></a>在唯讀複本上使用 TempDB
+## <a name="using-tempdb-on-read-only-replica"></a>Using TempDB on read-only replica
 
-TempDB 資料庫不會複寫至唯讀複本。 每個複本都有自己的 TempDB 資料庫版本，它是在建立複本時所建立的。 它可確保 TempDB 是可更新的，而且可以在查詢執行期間修改。 如果您的唯讀工作負載相依于使用 TempDB 物件，您應該在查詢腳本中建立這些物件。 
+The TempDB database is not replicated to the read-only replicas. Each replica has its own version of TempDB database that is created when the replica is created. It ensures that TempDB is updateable and can be modified during your query execution. If your read-only workload depends on using TempDB objects, you should create these objects as part of your query script.
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>對異地複寫的資料庫使用讀取縮放
 
-如果您使用讀取相應放大來負載平衡異地複寫之資料庫上的唯讀工作負載（例如，做為容錯移轉群組的成員），請確定主要和異地複寫的次要資料庫上都已啟用讀取相應放大。 此設定可確保當您的應用程式在容錯移轉之後連線到新的主要複本時，相同的負載平衡體驗會繼續進行。 如果您要連線到啟用讀取縮放的異地複寫次要資料庫，則會使用與路由傳送主要資料庫上連線的相同方式，將設定 `ApplicationIntent=ReadOnly` 的工作階段路由傳送至其中一個複本。  未設定 `ApplicationIntent=ReadOnly` 的工作階段會路由傳送至異地複寫次要的主要複本，這也是唯讀狀態。 由於異地複寫的次要資料庫具有與主資料庫不同的端點，因此在過去存取次要複本時，不需要設定 `ApplicationIntent=ReadOnly`。 為了確保回溯相容性，`sys.geo_replication_links` DMV 會顯示 `secondary_allow_connections=2` (允許所有用戶端連線)。
+If you are using Read Scale-Out to load-balance read-only workloads on a database that is geo-replicated (for example, as a member of a failover group), make sure that read scale-out is enabled on both the primary and the geo-replicated secondary databases. This configuration will ensure that the same load-balancing experience continues when your application connects to the new primary after failover. 如果您要連線到啟用讀取縮放的異地複寫次要資料庫，則會使用與路由傳送主要資料庫上連線的相同方式，將設定 `ApplicationIntent=ReadOnly` 的工作階段路由傳送至其中一個複本。  未設定 `ApplicationIntent=ReadOnly` 的工作階段會路由傳送至異地複寫次要的主要複本，這也是唯讀狀態。 Because geo-replicated secondary database has a different endpoint than the primary database, historically to access the secondary it wasn't required to set `ApplicationIntent=ReadOnly`. 為了確保回溯相容性，`sys.geo_replication_links` DMV 會顯示 `secondary_allow_connections=2` (允許所有用戶端連線)。
 
 > [!NOTE]
-> 不支援在次要資料庫的本機複本之間進行迴圈配置資源或任何其他負載平衡路由。
+> Round-robin or any other load-balanced routing between the local replicas of the secondary database is not supported.
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需 SQL Database 超大規模資料庫供應專案的相關資訊，請參閱[超大規模資料庫服務層級](./sql-database-service-tier-hyperscale.md)。
+- For information about SQL Database Hyperscale offering, see [Hyperscale service tier](./sql-database-service-tier-hyperscale.md).

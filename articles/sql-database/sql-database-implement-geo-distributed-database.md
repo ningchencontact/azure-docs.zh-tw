@@ -1,5 +1,5 @@
 ---
-title: 執行地理位置分散的解決方案
+title: Implement a geo-distributed solution
 description: 了解如何設定您的 Azure SQL 資料庫和應用程式來容錯移轉至複寫資料庫，並測試容錯移轉。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 51380d312c778380602c64cac766b050511cf994
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1da977f41add19afa6f84b7e5a3dc99c980ac1cf
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810930"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421133"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>教學課程：實作異地分散式資料庫
 
@@ -32,13 +32,14 @@ ms.locfileid: "73810930"
 ## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 若要完成本教學課程，請確定您已安裝下列項目：
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- Azure SQL Database 中的單一資料庫。 若要建立一次使用，
+- A single database in Azure SQL Database. 若要建立一次使用，
   - [入口網站](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
@@ -57,49 +58,65 @@ ms.locfileid: "73810930"
 
 使用 Azure PowerShell，在現有的 Azure SQL 伺服器與另一個區域的新 Azure SQL 伺服器之間建立[容錯移轉群組](sql-database-auto-failover-group.md)。 然後將範例資料庫新增到容錯移轉群組。
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 > [!IMPORTANT]
 > [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 
 若要建立容錯移轉群組，請執行下列指令碼：
 
-   ```powershell
-    # Set variables for your server and database
-    $adminlogin = "<your admin>"
-    $password = "<your password>"
-    $myresourcegroupname = "<your resource group name>"
-    $mylocation = "<your resource group location>"
-    $myservername = "<your existing server name>"
-    $mydatabasename = "<your database name>"
-    $mydrlocation = "<your disaster recovery location>"
-    $mydrservername = "<your disaster recovery server name>"
-    $myfailovergroupname = "<your globally unique failover group name>"
+```powershell
+$admin = "<adminName>"
+$password = "<password>"
+$resourceGroup = "<resourceGroupName>"
+$location = "<resourceGroupLocation>"
+$server = "<serverName>"
+$database = "<databaseName>"
+$drLocation = "<disasterRecoveryLocation>"
+$drServer = "<disasterRecoveryServerName>"
+$failoverGroup = "<globallyUniqueFailoverGroupName>"
 
-    # Create a backup server in the failover region
-    New-AzSqlServer -ResourceGroupName $myresourcegroupname `
-       -ServerName $mydrservername `
-       -Location $mydrlocation `
-       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
-          -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+# create a backup server in the failover region
+New-AzSqlServer -ResourceGroupName $resourceGroup -ServerName $drServer `
+    -Location $drLocation -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
+    -ArgumentList $admin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
-    # Create a failover group between the servers
-    New-AzSqlDatabaseFailoverGroup `
-       –ResourceGroupName $myresourcegroupname `
-       -ServerName $myservername `
-       -PartnerServerName $mydrservername  `
-       –FailoverGroupName $myfailovergroupname `
-       –FailoverPolicy Automatic `
-       -GracePeriodWithDataLossHours 2
+# create a failover group between the servers
+New-AzSqlDatabaseFailoverGroup –ResourceGroupName $resourceGroup -ServerName $server `
+    -PartnerServerName $drServer –FailoverGroupName $failoverGroup –FailoverPolicy Automatic -GracePeriodWithDataLossHours 2
 
-    # Add the database to the failover group
-    Get-AzSqlDatabase `
-       -ResourceGroupName $myresourcegroupname `
-       -ServerName $myservername `
-       -DatabaseName $mydatabasename | `
-     Add-AzSqlDatabaseToFailoverGroup `
-       -ResourceGroupName $myresourcegroupname `
-       -ServerName $myservername `
-       -FailoverGroupName $myfailovergroupname
-   ```
+# add the database to the failover group
+Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -DatabaseName $database | `
+    Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $resourceGroup -ServerName $server -FailoverGroupName $failoverGroup
+```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+> [!IMPORTANT]
+> Run `az login` to sign in to Azure.
+
+```powershell
+$admin = "<adminName>"
+$password = "<password>"
+$resourceGroup = "<resourceGroupName>"
+$location = "<resourceGroupLocation>"
+$server = "<serverName>"
+$database = "<databaseName>"
+$drLocation = "<disasterRecoveryLocation>" # must be different then $location
+$drServer = "<disasterRecoveryServerName>"
+$failoverGroup = "<globallyUniqueFailoverGroupName>"
+
+# create a backup server in the failover region
+az sql server create --admin-password $password --admin-user $admin `
+    --name $drServer --resource-group $resourceGroup --location $drLocation
+
+# create a failover group between the servers
+az sql failover-group create --name $failoverGroup --partner-server $drServer `
+    --resource-group $resourceGroup --server $server --add-db $database `
+    --failover-policy Automatic --grace-period 2
+```
+
+* * *
 
 在 Azure 入口網站中也可以變更異地複寫設定，方法是選取您的資料庫，然後選取 [設定] > [異地複寫]。
 
@@ -133,7 +150,7 @@ ms.locfileid: "73810930"
    </dependency>
    ```
 
-1. 在 `properties` 區段之後新增 `dependencies` 區段來指定 Java 版本：
+1. 在 `dependencies` 區段之後新增 `properties` 區段來指定 Java 版本：
 
    ```xml
    <properties>
@@ -142,7 +159,7 @@ ms.locfileid: "73810930"
    </properties>
    ```
 
-1. 在 `build` 區段之後新增 `properties` 區段來支援資訊清單檔：
+1. 在 `properties` 區段之後新增 `build` 區段來支援資訊清單檔：
 
    ```xml
    <build>
@@ -300,34 +317,54 @@ ms.locfileid: "73810930"
 
 執行下列指令碼，以模擬容錯移轉，並觀察應用程式結果。 請注意，在資料庫移轉期間，一些插入和選取會失敗。
 
-您也可以使用下列命令，在測試期間檢查災害復原伺服器的角色：
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-   ```powershell
-   (Get-AzSqlDatabaseFailoverGroup `
-      -FailoverGroupName $myfailovergroupname `
-      -ResourceGroupName $myresourcegroupname `
-      -ServerName $mydrservername).ReplicationRole
-   ```
+You can check the role of the disaster recovery server during the test with the following command:
+
+```powershell
+(Get-AzSqlDatabaseFailoverGroup -FailoverGroupName $failoverGroup `
+    -ResourceGroupName $resourceGroup -ServerName $drServer).ReplicationRole
+```
 
 若要測試容錯移轉：
 
 1. 啟動容錯移轉群組的手動容錯移轉：
 
    ```powershell
-   Switch-AzSqlDatabaseFailoverGroup `
-      -ResourceGroupName $myresourcegroupname `
-      -ServerName $mydrservername `
-      -FailoverGroupName $myfailovergroupname
+   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $myresourcegroupname `
+    -ServerName $drServer -FailoverGroupName $failoverGroup
    ```
 
 1. 將容錯移轉群組還原至主要伺服器：
 
    ```powershell
-   Switch-AzSqlDatabaseFailoverGroup `
-      -ResourceGroupName $myresourcegroupname `
-      -ServerName $myservername `
-      -FailoverGroupName $myfailovergroupname
+   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $resourceGroup `
+    -ServerName $server -FailoverGroupName $failoverGroup
    ```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+You can check the role of the disaster recovery server during the test with the following command:
+
+```azure-cli
+az sql failover-group show --name $failoverGroup --resource-group $resourceGroup --server $drServer
+```
+
+若要測試容錯移轉：
+
+1. 啟動容錯移轉群組的手動容錯移轉：
+
+   ```azure-cli
+   az sql failover-group set-primary --name $failoverGroup --resource-group $resourceGroup --server $drServer
+   ```
+
+1. 將容錯移轉群組還原至主要伺服器：
+
+   ```azure-cli
+   az sql failover-group set-primary --name $failoverGroup --resource-group $resourceGroup --server $server
+   ```
+
+* * *
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,7 +1,7 @@
 ---
 title: 什麼是 Azure 標準 Load Balancer？
 titleSuffix: Azure Load Balancer
-description: 透過此學習路徑，您可以開始使用 Azure Standard Load Balancer 功能的總覽。
+description: With this learning path, get started with an overview of Azure Standard Load Balancer features.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: ce85c3ab1bf642dc7e9a92f08acdec2bd754d2f9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 36035d844237115361ccb3c1e1bc0dcb91250881
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278035"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423863"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure Standard Load Balancer 概觀
 
@@ -40,13 +40,13 @@ Load Balancer 資源的運作方式，一律以前端、規則、健康情況探
 Load Balancer 資源是一種物件，而您可以在其中表示 Azure 應如何對其多租用戶基礎結構進行設計程式，以達到您想要建立的案例。  Load Balancer 資源與實際的基礎結構之間沒有直接關聯性；建立 Load Balancer 並不會建立執行個體，容量一直都在，且無須考量啟動或調整延遲的問題。 
 
 >[!NOTE]
-> Azure 會為您的案例提供一套完整受控的負載平衡解決方案。 如果您要尋找傳輸層安全性（TLS）通訊協定終止（「SSL 卸載」）或每一 HTTP/HTTPS 要求的應用層處理，請參閱[什麼是 Azure 應用程式閘道](../application-gateway/overview.md)。 如果您要尋找全域 DNS 負載平衡，請參閱[什麼是 > 流量管理員](../traffic-manager/traffic-manager-overview.md)。 您的端對端案例可能會因結合這些解決方案而受益。
+> Azure 會為您的案例提供一套完整受控的負載平衡解決方案。 If you're looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, see [What is Azure Application Gateway?](../application-gateway/overview.md) If you're looking for global DNS load balancing, see [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Your end-to-end scenarios may benefit from combining these solutions.
 >
-> 如需 Azure 負載平衡選項的比較，請參閱[azure 中的負載平衡選項總覽](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)。
+> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## <a name="why-use-standard-load-balancer"></a>為何要使用標準 Load Balancer？
 
-標準負載平衡器可讓您將小規模部署的應用程式調整為大型且複雜的多重區域架構，並建立高可用性。
+Standard Load Balancer 可讓您將小規模部署的應用程式調整為大型且複雜的多重區域架構，並建立高可用性。
 
 請檢閱下表，大致了解標準 Load Balancer 與基本 Load Balancer 之間的差異：
 
@@ -77,7 +77,7 @@ Standard Load Balancer 會新增對 [HTTPS 健康情況探查](load-balancer-cus
 ### <a name="az"></a>可用性區域
 
 >[!IMPORTANT]
->請參閱相關主題的[可用性區域](../availability-zones/az-overview.md)，包括任何區域特定資訊。
+>Review [Availability Zones](../availability-zones/az-overview.md) for related topics, including any region specific information.
 
 標準 Load Balancer 在可使用「可用性區域」的區域中可支援較多功能。  這些功能會累加於所有標準 Standard Load Balancer 所提供的功能之上。  公用和內部標準 Load Balancer 皆可進行可用性區域設定。
 
@@ -93,7 +93,7 @@ Standard Load Balancer 會新增對 [HTTPS 健康情況探查](load-balancer-cus
 
 標準 Load Balancer 可透過 Azure 監視器提供多維度計量。  您可針對指定維度篩選、分組及劃分這些計量，  且您可深入檢視服務目前和過去的效能和健康情況。  此外也支援資源健康情況。  以下將簡單說明支援的診斷：
 
-| 度量 | 描述 |
+| 計量 | 描述 |
 | --- | --- |
 | VIP 可用性 | Standard Load Balancer 會在資料路徑上持續運用，從區域內到 Load Balancer 前端，再一路到支援 VM 的 SDN 堆疊。 只要狀況良好的執行個體持續存在，測量就會依循與您應用程式的負載平衡流量相同的路徑。 此外，也會驗證您客戶所使用的資料路徑。 此測量對您的應用程式來說是看不見的，也不會干擾到其他作業。|
 | DIP 可用性 | 標準 Load Balancer 使用分散式健康情況探查服務，可根據您的組態設定監視應用程式端點的健康情況。 這個計量會提供 Load Balancer 集區中每個個別執行個體端點的彙總檢視，或各端點篩選過的檢視。  您可以看到 Load Balancer 藉由健康情況探查設定如何檢視應用程式的健康情況。
@@ -182,7 +182,7 @@ SKU 是不可變動的。 請依照本節中的步驟從一個資源 SKU 移到�
 
 1. 視需要針對 Load Balancer 和「公用 IP」建立一個新的 Standard 資源。 重新建立您的規則和探查定義。  如果您先前使用對 443/tcp 的 TCP 探查，請考慮將此探查通訊協定變更為 HTTPS 探查並新增路徑。
 
-2. 在 NIC 或子網路上建立新的或更新現有的 NSG，以將已負載平衡的流量、探查及任何其他您想要允許的流量列入白名單。
+2. 在 NIC 或子網路上建立新的或更新現有的 NSG，以將已負載平衡的流量、探查及任何其他您想要允許的流量列入允許清單。
 
 3. 從所有 VM 執行個體中移除 Basic SKU 資源 (看 Load Balancer 和「公用 IP」哪一個適用)。 請務必也移除可用性設定組的所有 VM 執行個體。
 
@@ -206,7 +206,7 @@ SKU 是不可變動的。 請依照本節中的步驟從一個資源 SKU 移到�
 >
 >Load Balancer 和 Public IP 資源必須使用相符的 SKU。 您無法將 Basic SKU 資源與 Standard SKU 資源混用。 您無法將獨立虛擬機器、可用性設定組資源中的虛擬機器或虛擬機器擴展集資源同時連結到這兩個 SKU。
 
-## <a name="region-availability"></a>區域可用性
+## <a name="region-availability"></a>區域供應狀況
 
 Standard Load Balancer 目前已在所有公用雲端地區推出。
 
@@ -214,7 +214,7 @@ Standard Load Balancer 目前已在所有公用雲端地區推出。
 
 標準 Load Balancer 提供 99.99% SLA。  如需詳細資訊，請檢閱[標準 Load Balancer SLA](https://aka.ms/lbsla)。
 
-## <a name="pricing"></a>定價
+## <a name="pricing"></a>價格
 
 使用 Standard Load Balancer 需要付費。
 

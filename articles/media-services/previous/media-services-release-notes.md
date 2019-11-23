@@ -13,23 +13,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: f76a2eb098e2d96f617d19de089e56c7e8a497fd
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7c6cac925ad53e08ecc10c828765153c905f1c1d
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162758"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423880"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 
 Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已知問題。
 
 > [!NOTE]
-> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 另請參閱[從 v2 到 v3 的遷移指引](../latest/migrate-from-v2-to-v3.md)
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 我們想要收到客戶的意見，以針對影響到您的問題進行修正。 若要回報問題或提問，請在 [Azure 媒體服務 MSDN 論壇]中提交貼文。 
 
-## <a name="a-idissuesknown-issues"></a><a id="issues"/>的已知問題
+## <a name="a-idissuesknown-issues"></a><a id="issues"/>Known issues
 ### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>媒體服務一般問題
 
 | 問題 | 描述 |
@@ -41,34 +41,34 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 | 當您查詢實體時，一次最多只能傳回 1000 個實體，因為公用 REST 第 2 版有 1,000 個查詢結果數目的限制。 |請依照[此 .NET 範例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 範例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中的說明，使用 Skip 和 Take (.NET)/top (REST)。 |
 | 某些用戶端在 Smooth Streaming 資訊清單中可能會遇到重複標記問題。 |如需詳細資訊，請參閱[本節](media-services-deliver-content-overview.md#known-issues)。 |
 | 媒體服務 .NET SDK 物件無法序列化，因此無法與 Redis 的 Azure 快取搭配運作。 |如果您嘗試將 SDK AssetCollection 物件序列化以將其新增至 Redis 的 Azure 快取，則會擲回例外狀況。 |
-|當嘗試取得資產或帳戶層級篩選時，REST API 會以指出「此版本的 REST Api 無法存取篩選」的錯誤訊息回應。|已使用比用來嘗試取得篩選器的較新 API 版本來建立或修改篩選。 如果客戶使用的程式碼或工具正在使用兩個 API 版本，就會發生這種情況。  這裡的最佳解決方案是升級程式碼或工具，以使用較新或兩個 API 版本。|
+|The REST API responds with an error message saying “The filter cannot be accessed by this version of REST Api” when attempting to get an Asset or Account level filter.|The filter was created or modified with a newer API version than is being used to try to get the filter. This can happen if two API versions are being used by code or tools being used by the customer.  The best solution here is to upgrade the code or tools to use the newer or the two API versions.|
 
 ## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>REST API 版本歷程記錄
 如需媒體服務 REST API 版本歷程記錄的相關資訊，請參閱 [Azure 媒體服務 REST API 參考]。
 
 ## <a name="september-2019"></a>2019 年 9 月
 
-### <a name="deprecation-of-media-processors"></a>淘汰媒體處理器
+### <a name="deprecation-of-media-processors"></a>Deprecation of media processors
 
-我們宣佈*Azure 媒體索引子*和*Azure 媒體索引子 2 Preview*已淘汰。 [Azure 媒體索引子](media-services-index-content.md)媒體處理器將于2020年10月1日淘汰。 [Azure 媒體索引子 2 Preview](media-services-process-content-with-indexer2.md)媒體處理器將于2020年1月1日淘汰。 [Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代這些舊版媒體處理器。
+We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. The [Azure Media Indexer](media-services-index-content.md) media processor will be retired on October 1st of 2020. The [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) media processors will be retired on January 1 of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
 
-如需詳細資訊，請參閱[從 Azure 媒體索引子遷移和 Azure 媒體索引子2，到 Azure 媒體服務影片索引子](migrate-indexer-v1-v2.md)。
+For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
 ## <a name="august-2019"></a>2019 年 8 月
 
-### <a name="deprecation-of-media-processors"></a>淘汰媒體處理器
+### <a name="deprecation-of-media-processors"></a>Deprecation of media processors
 
-我們宣佈淘汰*Windows Azure 媒體編碼器*（WAME）和*Azure 媒體編碼器*（AME）媒體處理器，即將于2019年11月30日淘汰。
+We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors, which are being retired on March 31, 2020.
 
-如需詳細資訊，請參閱[將 WAME 遷移至媒體編碼器標準](https://go.microsoft.com/fwlink/?LinkId=2101334)並[將 AME 遷移至媒體編碼器標準](https://go.microsoft.com/fwlink/?LinkId=2101335)。
+For details, see [Migrate WAME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) and [Migrate AME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
 
 ## <a name="march-2019"></a>2019 年 3 月
 
-Azure 媒體服務的媒體 Hyperlapse 預覽功能已被取代。
+The Media Hyperlapse Preview feature of Azure Media Services was deprecated.
 
 ## <a name="december-2018"></a>2018 年 12 月
 
-Azure 媒體服務的 Media Hyperlapse Preview 功能即將淘汰。 自 2018 年 12 月 19 日起，媒體服務將不再變更或改進媒體超縮時攝影功能。 它將會於 2019 年 3 月 29 日淘汰，並且不再提供使用。
+The Media Hyperlapse Preview feature of Azure Media Services will soon be retired. 自 2018 年 12 月 19 日起，媒體服務將不再變更或改進媒體超縮時攝影功能。 它將會於 2019 年 3 月 29 日淘汰，並且不再提供使用。
 
 ## <a name="october-2018"></a>2018 年 10 月
 
