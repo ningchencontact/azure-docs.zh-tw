@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: aac2f3ea2b52ac0319f96279deed13c1145749bd
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174363"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451664"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>從 Cloud Shell 部署範本
 
@@ -19,21 +19,21 @@ ms.locfileid: "67174363"
 
 1. 選取您的 Cloud Shell 資源群組。 名稱模式為 `cloud-shell-storage-<region>`。
 
-   ![選取資源群組](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
+   ![選取資源群組](./media/resource-manager-cloud-shell-deploy/select-cloud-shell-resource-group.png)
 
 1. 選取 Cloud Shell 的儲存體帳戶。
 
    ![選取儲存體帳戶](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
-1. 選取 [Blob]  。
+1. 選取 [Blob]。
 
    ![選取 Blob](./media/resource-manager-cloud-shell-deploy/select-blobs.png)
 
-1. 選取 [+ 容器]  。
+1. 選取 [+ 容器]。
 
    ![新增容器](./media/resource-manager-cloud-shell-deploy/add-container.png)
 
-1. 為您的容器提供名稱和存取層級。 本文中的範例範本不包含機密資訊，因此允許匿名讀取權限。 選取 [確定]  。
+1. 為您的容器提供名稱和存取層級。 本文中的範例範本不包含機密資訊，因此允許匿名讀取權限。 選取 [確定]。
 
    ![提供容器值](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
 
@@ -41,7 +41,7 @@ ms.locfileid: "67174363"
 
    ![選取新容器](./media/resource-manager-cloud-shell-deploy/select-container.png)
 
-1. 選取 [上傳]  。
+1. 選取 [上傳]。
 
    ![上傳 Blob](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
 
