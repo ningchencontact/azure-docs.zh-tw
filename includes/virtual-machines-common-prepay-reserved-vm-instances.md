@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 08/29/2019
-ms.openlocfilehash: 29cf947d1e9d26460dc34a6417e76b68bb75e9dc
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/21/2019
+ms.openlocfilehash: f583796fc353852ef3898e28fa96524e08cfb4ad
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005469"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414526"
 ---
 當您認可至 Azure 保留的 VM 實例時，可以節省成本。 保留項目折扣會自動套用到符合保留項目範圍和屬性之執行中虛擬機器的數目。 您不需要將保留指派給虛擬機器來取得折扣。 保留實例購買僅涵蓋 VM 使用量的計算部分。 對於 Windows Vm，使用量計量會分割成兩個不同的計量。 有一個計算計量器，它與 Linux 計量和 Windows IP 計量器相同。 當您進行購買時，您所看到的費用僅限於計算成本。 費用並不包含 Windows 軟體成本。 如需軟體成本的詳細資訊，請參閱[不包含在 Azure 保留的 VM 執行個體中的軟體成本](../articles/billing/billing-reserved-instance-windows-software-costs.md)。
 
@@ -79,7 +79,6 @@ ms.locfileid: "74005469"
 ## <a name="buy-a-reserved-vm-instance"></a>購買保留 VM 執行個體
 
 您可以在[Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D)中購買保留的 VM 實例。 保留的付款方式可為[預先付款或每月付款](../articles/billing/billing-monthly-payments-reservations.md)。
-
 這些需求適用于購買保留的 VM 實例：
 
 - 您必須是至少一個 EA 訂用帳戶的「擁有者」角色，或具有隨用隨付費率的訂用帳戶。
@@ -92,6 +91,9 @@ ms.locfileid: "74005469"
 1. 選取 [所有服務] > [保留]。
 1. 選取 [**新增**] 以購買新的保留區，然後按一下 [**虛擬機器**]。
 1. 輸入必要欄位。 符合您選取之屬性的執行中 VM 執行個體符合取得保留項目折扣的資格。 取得折扣的 VM 執行個體實際數目取決於選取的範圍和數量。
+
+如果您有 EA 合約，您可以使用 [**新增更多] 選項**來快速新增額外的實例。 選項不適用於其他訂用帳戶類型。
+
 
 | 欄位      | 描述|
 |------------|--------------|

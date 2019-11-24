@@ -42,7 +42,7 @@ ms.locfileid: "72990847"
 
 將時間序列深入解析與其他服務整合，可提供額外的嚴重損壞修復機會。 例如，傳送至事件中樞的遙測可能會保存到備份 Azure Blob 儲存體資料庫。
 
-### <a name="time-series-insights"></a>Time Series Insights
+### <a name="time-series-insights"></a>時間序列深入解析
 
 有數種方式可讓您的時間序列深入解析資料、應用程式和服務保持執行狀態，即使它們已中斷。 
 
