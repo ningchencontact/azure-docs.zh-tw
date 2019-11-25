@@ -4,12 +4,12 @@ ms.date: 10-19-2019
 ms.topic: hub-page
 title: 語音服務文件
 description: 開始使用語音服務。
-ms.openlocfilehash: 0a07125764908b661216c20279ab4bdf80ae91ca
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e9fda2788b28ba882b5c5eb232bfd2ffbc85f049
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580322"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406180"
 ---
 <div id="main" class="v2">    
     <div class="container">
@@ -271,7 +271,7 @@ ms.locfileid: "73580322"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>辨識語音、意圖和實體</h3>
-                                                    <p>使用語音 SDK 和 LUIS 來辨識語音、意圖和實體。</p>
+                                                    <p>使用語音 SDK 和 Language Understanding (LUIS) 來辨識語音、意圖和實體。</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -289,7 +289,7 @@ ms.locfileid: "73580322"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>LUIS 文件</h3>
+                                                    <h3>Language Understanding (LUIS) 文件</h3>
                                                     <p>深入了解 Language Understanding 服務 (LUIS) 和自然語言處理 (NLP)。</p>
                                                 </div>
                                             </div>
@@ -308,7 +308,7 @@ ms.locfileid: "73580322"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>LUIS 入口網站</h3>
+                                                    <h3>Language Understanding (LUIS) 入口網站</h3>
                                                     <p>將自然語言建置到應用程式、機器人和 IoT 裝置中。</p>
                                                 </div>
                                             </div>

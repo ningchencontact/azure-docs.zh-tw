@@ -12,12 +12,8 @@
       href: quickstarts/create-publish-knowledge-base.md
     - name: 新增具有中繼資料的問題
       href: quickstarts/add-question-metadata-portal.md
-    - name: 取得答案
-      items:
-        - name: 使用 Postman
-          href: Quickstarts/get-answer-from-kb-using-postman.md
-        - name: 使用 cURL
-          href: Quickstarts/get-answer-from-kb-using-cURL.md
+    - name: 使用 Postman 或 cURL 來獲得答案
+      href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
     - name: 使用 REST API
       items:
         - name: 建立新的知識庫

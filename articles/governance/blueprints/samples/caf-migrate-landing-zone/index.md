@@ -1,14 +1,14 @@
 ---
 title: CAF 移轉登陸區域藍圖範例 - 概觀
-description: CAF 移轉登陸區域藍圖範例的概觀和架構。
+description: 適用於 Azure 移轉登陸區域藍圖範例之雲端採用架構 (CAF) 的概觀和結構
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: cba1eb6d4761ae8e236f22fa22ff08c129d9637e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: e007c7af4d788016d74f085ba39b63ee218d6de0
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038455"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404759"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>適用於 Azure 的 Microsoft 雲端採用架構，移轉登陸區域藍圖範例的概觀
 
@@ -43,7 +43,7 @@ CAF 移轉登陸區域藍圖範例會在 Azure 中部署基礎結構資源，供
 您已檢閱了 CAF 移轉登陸區域藍圖範例的概觀和架構。
 
 > [!div class="nextstepaction"]
->  [CAF 移轉登陸區域藍圖 - 部署步驟](./deploy.md)
+> [CAF 移轉登陸區域藍圖 - 部署步驟](./deploy.md)
 
 有關藍圖及其使用方式的其他文件：
 

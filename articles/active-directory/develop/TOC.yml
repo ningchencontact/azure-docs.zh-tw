@@ -289,6 +289,8 @@
               items:
                 - name: MSAL.NET 中的 ADFS 支援
                   href: msal-net-adfs-support.md
+                - name: MSAL for JAVA 中的 ADFS 支援
+                  href: msal-java-adfs-support.md
             - name: 與 Azure AD B2C 整合
               items:
                 - name: Android

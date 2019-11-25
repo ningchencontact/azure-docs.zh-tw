@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Language Understanding (LUIS) 文件
-summary: 了解如何使用 Language Understanding 服務，讓應用程式了解人在文字中所表達的意思。
+summary: 了解 Language Understanding 如何讓應用程式了解人在文字中所表達的意思。
 metadata:
   ms.topic: landing-page
-  ms.date: 09/19/2019
+  ms.date: 11/22/2019
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -11,13 +11,13 @@ metadata:
   services: cognitive-services
   title: Language Understanding (LUIS) 文件
   titleSuffix: Azure Cognitive Services
-  description: Language Understanding 服務 (LUIS) 可讓應用程式了解人在文字中所表達的意思。 LUIS 使用機器學習，讓開發人員建置應用程式，來可接收使用者的自然語言輸入，並從其中擷取意義。
-  ms.openlocfilehash: 70249b540e53ab8182a25f81d7401697b2b888c1
-  ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+  description: Language Understanding (LUIS) 服務可讓應用程式了解人在文字中所表達的意思。 LUIS 使用機器學習，讓開發人員建置應用程式，來可接收使用者的自然語言輸入，並從其中擷取意義。
+  ms.openlocfilehash: 14386a08b92814b16fb007e4dd01cb4bb5238c0a
+  ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 09/20/2019
-  ms.locfileid: "71155024"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74406142"
 landingContent:
 - title: 關於 Language Understanding (LUIS)
   linkLists:
@@ -25,16 +25,18 @@ landingContent:
     links:
     - text: 什麼是 Language Understanding？
       url: what-is-luis.md
-    - text: 新功能
-      url: whats-new.md
     - text: LUIS 入口網站
       url: https://www.luis.ai
   - linkListType: concept
     links:
     - text: 規劃您的應用程式
       url: luis-how-plan-your-app.md
-    - text: 應用程式的撰寫週期
+    - text: 反覆的應用程式設計
       url: luis-concept-app-iteration.md
+  - linkListType: whats-new
+    links:
+    - text: 新功能
+      url: whats-new.md
   - linkListType: video
     links:
     - text: AI 巡迴研討會：LUIS
@@ -47,7 +49,7 @@ landingContent:
       url: luis-concept-intent.md
     - text: 實體
       url: luis-concept-entity-types.md
-    - text: 好的範例語句
+    - text: 表達方式
       url: luis-concept-utterance.md
     - text: 片語清單功能
       url: luis-concept-feature.md
@@ -89,15 +91,15 @@ landingContent:
       url: sdk-python-quickstart-authoring-app.md#train-the-app
   - linkListType: how-to-guide
     links:
-    - text: 設定應用程式版本
+    - text: 為您的應用程式設定版本
       url: luis-how-to-manage-versions.md
-    - text: 互動式測試
+    - text: 執行互動式測試
       url: luis-interactive-test.md
-    - text: 批次測試
+    - text: 執行批次測試
       url: luis-how-to-batch-test.md
     - text: 訓練應用程式
       url: luis-how-to-train.md
-    - text: 發佈以使用預測端點
+    - text: 發佈預測端點
       url: luis-how-to-publish-app.md
 - title: 從端點取得預測
   linkLists:
