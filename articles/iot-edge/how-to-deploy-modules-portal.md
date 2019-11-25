@@ -9,13 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 4c2adc8ef0d426617dc85dd507907d612bbdabaa
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 6d915145e64a5f1a097f38cf79b19426c3acbaf2
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964911"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457436"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>從 Azure 入口網站部署 Azure IoT Edge 模組
 
@@ -43,9 +42,9 @@ Azure 入口網站有一個精靈，可以引導您建立部署資訊清單，�
 
 ### <a name="add-modules"></a>新增模組
 
-1. 在頁面的 [**容器登錄設定**] 區段中，提供認證以存取任何包含模組映射的私人容器登錄。
+1. In the **Container Registry Settings** section of the page, provide the credentials to access any private container registries that contain your module images.
 
-1. 在頁面的 [**部署模組**] 區段中，選取 [**新增**]。
+1. In the **Deployment Modules** section of the page, select **Add**.
 
 1. 從下拉式清單中查看模組的類型：
 
@@ -57,7 +56,7 @@ Azure 入口網站有一個精靈，可以引導您建立部署資訊清單，�
 
 1. 請提供模組的名稱，然後指定容器映像。 例如：
 
-   * **名稱**-SimulatedTemperatureSensor
+   * **Name** - SimulatedTemperatureSensor
    * **映像 URI** - mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 
 1. 視需要填寫選擇性欄位。 如需容器建立選項、重新啟動原則和所需狀態的詳細資訊，請參閱 [EdgeAgent 所需屬性](module-edgeagent-edgehub.md#edgeagent-desired-properties)。 如需模組對應項的詳細資訊，請參閱[定義或更新所需屬性](module-composition.md#define-or-update-desired-properties)。
@@ -92,7 +91,7 @@ Azure Marketplace 是集合了應用程式和服務的線上市集，您可以�
 
 1. 尋找模組並開始部署程序。
 
-   * Azure 入口網站：尋找模組，然後選取 [**建立**]。
+   * Azure portal: Find a module and select **Create**.
 
    * Azure Marketplace：
 

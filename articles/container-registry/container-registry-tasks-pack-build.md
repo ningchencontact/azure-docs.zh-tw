@@ -1,45 +1,40 @@
 ---
-title: 從應用程式建立 Azure Container Registry 映射
-description: 使用 az acr pack build 命令，從應用程式建立容器映射並推送至 Azure Container Registry，而不需要使用 Dockerfile。
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Build image with Cloud Native Buildpack
+description: Use the az acr pack build command to build a container image from an app and push to Azure Container Registry, without using a Dockerfile.
 ms.topic: article
 ms.date: 10/24/2019
-ms.author: danlep
-ms.openlocfilehash: 34ef0fe4be00cfa7ce3e73c23eec636784071e56
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 9cd1ae464213027cba3012c93c0ca3894c804750
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965900"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456128"
 ---
-# <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>使用雲端原生 Buildpack 從應用程式建立及推送映射
+# <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Build and push an image from an app using a Cloud Native Buildpack
 
-Azure CLI 命令 `az acr pack build` 使用來自[Buildpacks](https://buildpacks.io/)的[`pack`](https://github.com/buildpack/pack) CLI 工具來建立應用程式，並將其映射推送至 Azure container registry。 這項功能可讓您從您的應用程式原始程式碼快速地建立容器映射，而不需要定義 Dockerfile。
+The Azure CLI command `az acr pack build` uses the [`pack`](https://github.com/buildpack/pack) CLI tool, from [Buildpacks](https://buildpacks.io/), to build an app and push its image into an Azure container registry. This feature provides an option to quickly build a container image from your application source code in Node.js, Java, and other languages without having to define a Dockerfile.
 
-您可以使用 Azure Cloud Shell 或本機安裝的 Azure CLI 來執行本文中的範例。 如果您想要在本機使用，則需要2.0.70 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to run the examples in this article. If you'd like to use it locally, version 2.0.70 or later is required. 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
 > [!IMPORTANT]
 > 此功能目前為預覽狀態。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 
-## <a name="use-the-build-command"></a>使用 build 命令
+## <a name="use-the-build-command"></a>Use the build command
 
-若要使用雲端原生 Buildpacks 來建立及推送容器映射，請執行[az acr pack build][az-acr-pack-build]命令。 [Az acr build][az-acr-build]命令會從 Dockerfile 來源和相關程式碼建立及推送映射，而 `az acr pack build` 您直接指定應用程式來源樹狀結構。
+To build and push a container image using Cloud Native Buildpacks, run the [az acr pack build][az-acr-pack-build] command. Whereas the [az acr build][az-acr-build] command builds and pushes an image from a Dockerfile source and related code, with `az acr pack build` you specify an application source tree directly.
 
-當您執行 `az acr pack build`時，請至少指定下列內容：
+At a minimum, specify the following when you run `az acr pack build`:
 
-* 您在其中執行命令的 Azure container registry
-* 產生之影像的映射名稱和標記
-* ACR 工作的其中一個[支援內容位置](container-registry-tasks-overview.md#context-locations)，例如本機目錄、GitHub 存放庫或遠端 tarball
-* 適用于您應用程式的 Buildpack 產生器映射名稱。 Azure Container Registry 快取產生器映射，例如 `cloudfoundry/cnb:0.0.34-cflinuxfs3` 以加快組建的速度。  
+* An Azure container registry where you run the command
+* An image name and tag for the resulting image
+* One of the [supported context locations](container-registry-tasks-overview.md#context-locations) for ACR Tasks, such as a local directory, a GitHub repo, or a remote tarball
+* The name of a Buildpack builder image suitable for your application. Azure Container Registry caches builder images such as `cloudfoundry/cnb:0.0.34-cflinuxfs3` for faster builds.  
 
-`az acr pack build` 支援 ACR 工作命令的其他功能，包括已串流處理並儲存以供日後抓取的[執行變數](container-registry-tasks-reference-yaml.md#run-variables)和工作[執行記錄](container-registry-tasks-overview.md#view-task-logs)。
+`az acr pack build` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-overview.md#view-task-logs) that are streamed and also saved for later retrieval.
 
-## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>範例：使用 Cloud Foundry builder 建立 node.js 映射
+## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Example: Build Node.js image with Cloud Foundry builder
 
-下列範例會使用 `cloudfoundry/cnb:0.0.34-cflinuxfs3` 產生器，從[Azure 範例/nodejs-檔-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world)存放庫中的 node.js 應用程式建立容器映射。 Azure Container Registry 會快取此產生器，因此不需要 `--pull` 參數：
+The following example builds a container image from a Node.js app in the [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) repo, using the `cloudfoundry/cnb:0.0.34-cflinuxfs3` builder. This builder is cached by Azure Container Registry, so a `--pull` parameter isn't required:
 
 ```azurecli
 az acr pack build \
@@ -49,27 +44,27 @@ az acr pack build \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-這個範例會建立具有 `1.0` 標記的 `node-app` 映射，並將其推送至*myregistry*容器登錄。 在此範例中，目標登錄名稱會明確地加到映射名稱前面。 如果未指定，登錄登入伺服器名稱會自動加在映射名稱前面。
+This example builds the `node-app` image with the `1.0` tag and pushes it to the *myregistry* container registry. In this example, the target registry name is explicitly prepended to the image name. If not specified, the registry login server name is automatically prepended to the image name.
 
-命令輸出會顯示建立和推送映射的進度。 
+Command output shows the progress of building and pushing the image. 
 
-成功建立映射之後，您可以使用 Docker 執行它（如果已安裝）。 第一次登入您的登錄：
+After the image is successfully built, you can run it with Docker, if you have it installed. First sign into your registry:
 
 ```azurecli
 az acr login --name myregistry
 ```
 
-執行映射：
+Run the image:
 
 ```console
 docker run --rm -p 1337:1337 myregistry.azurecr.io/node-app:1.0
 ```
 
-在您慣用的瀏覽器中流覽至 `localhost:1337`，以查看範例 web 應用程式。 按 `[Ctrl]+[C]` 以停止容器。
+Browse to `localhost:1337` in your favorite browser to see the sample web app. Press `[Ctrl]+[C]` to stop the container.
 
-## <a name="example-build-java-image-with-heroku-builder"></a>範例：使用 Heroku builder 建立 JAVA 映射
+## <a name="example-build-java-image-with-heroku-builder"></a>Example: Build Java image with Heroku builder
 
-下列範例會使用 `heroku/buildpacks:18` 產生器，從[buildpack/sample-java 應用](https://github.com/buildpack/sample-java-app)程式存放庫中的 java 應用程式建立容器映射。 `--pull` 參數指定命令應提取最新的產生器映射。 
+The following example builds a container image from the Java app in the [buildpack/sample-java-app](https://github.com/buildpack/sample-java-app) repo, using the `heroku/buildpacks:18` builder. The `--pull` parameter specifies that the command should pull the latest builder image. 
 
 ```azurecli
 az acr pack build \
@@ -79,30 +74,30 @@ az acr pack build \
     https://github.com/buildpack/sample-java-app.git
 ```
 
-此範例會建立以命令的執行識別碼標記的 `java-app` 映射，並將其推送至*myregistry*容器登錄。
+This example builds the `java-app` image tagged with the run ID of the command and pushes it to the *myregistry* container registry.
 
-命令輸出會顯示建立和推送映射的進度。 
+Command output shows the progress of building and pushing the image. 
 
-成功建立映射之後，您可以使用 Docker 執行它（如果已安裝）。 第一次登入您的登錄：
+After the image is successfully built, you can run it with Docker, if you have it installed. First sign into your registry:
 
 ```azurecli
 az acr login --name myregistry
 ```
 
-執行映射，以*runid*的映射標記取代：
+Run the image, substituting your image tag for *runid*:
 
 ```console
 docker run --rm -p 8080:8080 myregistry.azurecr.io/java-app:runid
 ```
 
-在您慣用的瀏覽器中流覽至 `localhost:8080`，以查看範例 web 應用程式。 按 `[Ctrl]+[C]` 以停止容器。
+Browse to `localhost:8080` in your favorite browser to see the sample web app. Press `[Ctrl]+[C]` to stop the container.
 
 
 ## <a name="next-steps"></a>後續步驟
 
-當您使用 `az acr pack build`建立及推送容器映射之後，就可以將它部署為您選擇的目標，如同任何映射。 Azure 部署選項包括在[App Service](../app-service/containers/tutorial-custom-docker-image.md)或[Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md)之間執行，以及其他專案。
+After you build and push a container image with `az acr pack build`, you can deploy it like any image to a target of your choice. Azure deployment options include running it in [App Service](../app-service/containers/tutorial-custom-docker-image.md) or [Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md), among others.
 
-如需 ACR 工作功能的詳細資訊，請參閱[使用 ACR 工作自動化容器映射組建和維護](container-registry-tasks-overview.md)。
+For more information about ACR Tasks features, see [Automate container image builds and maintenance with ACR Tasks](container-registry-tasks-overview.md).
 
 
 <!-- LINKS - External -->

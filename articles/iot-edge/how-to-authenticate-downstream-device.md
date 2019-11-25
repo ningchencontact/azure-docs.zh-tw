@@ -1,6 +1,6 @@
 ---
-title: 驗證下游裝置-Azure IoT Edge |Microsoft Docs
-description: 如何驗證下游裝置或分葉裝置以 IoT 中樞，並透過 Azure IoT Edge 閘道裝置路由傳送其連線。
+title: Authenticate downstream devices - Azure IoT Edge | Microsoft Docs
+description: How to authenticate downstream devices or leaf devices to IoT Hub, and route their connection through Azure IoT Edge gateway devices.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,82 +8,81 @@ ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 1e184691ebbd34de0f69e93419d9c34ab18edbe6
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 922654a6947a21eeee945762100abe086c552ad7
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025943"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457233"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>在 Azure IoT 中樞中驗證下游裝置
 
-在透明閘道案例中，下游裝置（有時稱為分葉裝置或子裝置）需要 IoT 中樞的身分識別，就像任何其他裝置一樣。 本文會逐步解說用來驗證下游裝置以 IoT 中樞的選項，然後示範如何宣告閘道連線。
+In a transparent gateway scenario, downstream devices (sometimes called leaf devices or child devices) need identities in IoT Hub like any other device. This article walks through the options for authenticating a downstream device to IoT Hub, and then demonstrates how to declare the gateway connection.
 
-設定成功的透明閘道連線有三個一般步驟。 本文涵蓋第二個步驟：
+There are three general steps to set up a successful transparent gateway connection. This article covers the second step:
 
-1. 閘道裝置必須能夠安全地連線到下游裝置、接收來自下游裝置的通訊，以及將訊息路由傳送至適當的目的地。 如需詳細資訊，請參閱[設定 IoT Edge 裝置以作為透明閘道](how-to-create-transparent-gateway.md)。
-2. **下游裝置必須具有裝置身分識別，才能使用 IoT 中樞進行驗證，並知道要透過其閘道裝置進行通訊。**
-3. 下游裝置必須能夠安全地連接到其閘道裝置。 如需詳細資訊，請參閱[將下游裝置連線到 Azure IoT Edge 閘道](how-to-connect-downstream-device.md)。
+1. The gateway device needs to be able to securely connect to downstream devices, receive communications from downstream devices, and route messages to the proper destination. For more information, see [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md).
+2. **The downstream device needs to have a device identity to be able to authenticate with IoT Hub, and know to communicate through its gateway device.**
+3. The downstream device needs to be able to securely connect to its gateway device. 如需詳細資訊，請參閱[將下游裝置連線到 Azure IoT Edge 閘道](how-to-connect-downstream-device.md)。
 
-下游裝置可以使用下列三種方法的其中一種向 IoT 中樞進行驗證：對稱金鑰（有時稱為共用存取金鑰）、x.509 自我簽署憑證，或 x.509 憑證授權單位單位（CA）簽署的憑證。 驗證步驟類似于使用 IoT 中樞設定任何非 IoT Edge 裝置的步驟，但要宣告閘道關聯性的差異很小。
+Downstream devices can authenticate with IoT Hub using one of three methods: symmetric keys (sometimes referred to as shared access keys), X.509 self-signed certificates, or X.509 certificate authority (CA) signed certificates. The authentication steps are similar to the steps used to set up any non-IoT-Edge device with IoT Hub, with small differences to declare the gateway relationship.
 
-本文中的步驟會顯示手動裝置布建，而不是使用 Azure IoT 中樞裝置布建服務進行自動布建。 
+The steps in this article show manual device provisioning, not automatic provisioning with the Azure IoT Hub Device Provisioning Service. 
 
 ## <a name="prerequisites"></a>必要條件
 
-完成[設定 IoT Edge 裝置以作為透明閘道](how-to-create-transparent-gateway.md)中的步驟。 如果您針對下游裝置使用 x.509 驗證，則需要使用您在透明閘道一文中設定的相同憑證產生腳本。 
+Complete the steps in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md). If you're using X.509 authentication for your downstream device, you need to use the same certificate generating script that you set up in the transparent gateway article. 
 
-本文是指在數個點的*閘道主機名稱*。 閘道主機名稱會在 IoT Edge 閘道裝置上 yaml 檔案的**hostname**參數中宣告。 它是用來建立本文中的憑證，而在下游裝置的連接字串中則稱為。 閘道主機名稱必須可解析為 IP 位址，方法是使用 DNS 或主機檔案專案。
+This article refers to the *gateway hostname* at several points. The gateway hostname is declared in the **hostname** parameter of the config.yaml file on the IoT Edge gateway device. It's used to create the certificates in this article, and is referred to in the connection string of the downstream devices. The gateway hostname needs to be resolvable to an IP Address, either using DNS or a host file entry.
 
-## <a name="symmetric-key-authentication"></a>對稱金鑰驗證
+## <a name="symmetric-key-authentication"></a>Symmetric key authentication
 
-對稱金鑰驗證或共用存取金鑰驗證是使用 IoT 中樞進行驗證的最簡單方式。 使用對稱金鑰驗證時，base64 金鑰會與您在 IoT 中樞中的 IoT 裝置識別碼相關聯。 您會在 IoT 應用程式中包含該金鑰，讓您的裝置可以在連線到 IoT 中樞時呈現該金鑰。 
+Symmetric key authentication, or shared access key authentication, is the simplest way to authenticate with IoT Hub. With symmetric key authentication, a base64 key is associated with your IoT device ID in IoT Hub. You include that key in your IoT applications so that your device can present it when it connects to IoT Hub. 
 
-### <a name="create-the-device-identity"></a>建立裝置身分識別 
+### <a name="create-the-device-identity"></a>Create the device identity 
 
-使用 Azure 入口網站、Azure CLI 或適用于 Visual Studio Code 的 IoT 擴充功能，在您的 IoT 中樞中新增 IoT 裝置。 請記住，下游裝置必須在 IoT 中樞中識別為一般 IoT 裝置，而不是 IoT Edge 裝置。 
+Add a new IoT device in your IoT hub, using either the Azure portal, Azure CLI, or the IoT extension for Visual Studio Code. Remember that downstream devices need to be identified in IoT Hub as regular IoT device, not IoT Edge devices. 
 
-當您建立新的裝置身分識別時，請提供下列資訊： 
+When you create the new device identity, provide the following information: 
 
-* 建立您裝置的識別碼。
+* Create an ID for your device.
 
-* 選取 [**對稱金鑰**] 作為 [驗證類型]。 
+* Select **Symmetric key** as the authentication type. 
 
-* （選擇性）選擇 [**設定父裝置**]，然後選取此下游裝置將透過其連線的 IoT Edge 閘道裝置。 此步驟對於對稱金鑰驗證是選擇性的，但建議使用，因為設定父裝置會啟用下游裝置的[離線功能](offline-capabilities.md)。 您隨時可以更新裝置詳細資料，以在稍後新增或變更父系。 
+* Optionally, choose to **Set a parent device** and select the IoT Edge gateway device that this downstream device will connect through. This step is optional for symmetric key authentication, but it's recommended because setting a parent device enables [offline capabilities](offline-capabilities.md) for your downstream device. You can always update the device details to add or change the parent later. 
 
-   ![在入口網站中建立具有對稱金鑰驗證的裝置識別碼](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
+   ![Create device ID with symmetric key auth in portal](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
-您可以使用[適用于 Azure CLI 的 IoT 擴充](https://github.com/Azure/azure-iot-cli-extension)功能來完成相同的操作。 下列範例會建立具有對稱金鑰驗證的新 IoT 裝置，並指派父裝置： 
+You can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same operation. The following example creates a new IoT device with symmetric key authentication and assigns a parent device: 
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID}
 ```
 
-如需有關建立裝置和父系/子管理的 Azure CLI 命令的詳細資訊，請參閱[az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest)命令的參考內容。
+For more information about Azure CLI commands for device creation and parent/child management, see the reference content for [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) commands.
 
-### <a name="connect-to-iot-hub-through-a-gateway"></a>透過閘道連接到 IoT 中樞
+### <a name="connect-to-iot-hub-through-a-gateway"></a>Connect to IoT Hub through a gateway
 
-相同的程式是用來驗證一般 IoT 裝置，以對稱金鑰的 IoT 中樞也適用于下游裝置。 唯一的差別在於，您需要新增閘道裝置的指標以路由連線，或在離線案例中，代表 IoT 中樞來處理驗證。 
+The same process is used to authenticate regular IoT devices to IoT Hub with symmetric keys also applies to downstream devices. The only difference is that you need to add a pointer to the gateway device to route the connection or, in offline scenarios, to handle the authentication on behalf of IoT Hub. 
 
-針對對稱金鑰驗證，您不需要在裝置上採取額外的步驟，就能使用 IoT 中樞進行驗證。 您仍然需要備妥憑證，讓下游裝置可以連線到其閘道裝置，如[將下游裝置連線到 Azure IoT Edge 閘道](how-to-connect-downstream-device.md)中所述。
+For symmetric key authentication, there's no additional steps that you need to take on your device for it to authenticate with IoT Hub. You still need the certificates in place so that your downstream device can connect to its gateway device, as described in [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md).
 
-在入口網站中建立 IoT 裝置身分識別之後，您可以取出其主要或次要金鑰。 其中一個索引鍵必須包含在連接字串中，而您包含在與 IoT 中樞通訊的任何應用程式中。 針對對稱金鑰驗證，IoT 中樞會在裝置詳細資料中提供完整格式的連接字串，以方便您的便利性。 您需要將閘道裝置的額外資訊新增至連接字串。 
+After creating an IoT device identity in the portal, you can retrieve its primary or secondary keys. One of these keys needs to be included in the connection string that you include in any application that communicates with IoT Hub. For symmetric key authentication, IoT Hub provides the fully formed connection string in the device details for your convenience. You need to add extra information about the gateway device to the connection string. 
 
-下游裝置的對稱金鑰連接字串需要下列元件： 
+Symmetric key connection strings for downstream devices need the following components: 
 
-* 裝置連接的 IoT 中樞： `Hostname={iothub name}.azure-devices.net`
-* 向中樞註冊的裝置識別碼： `DeviceID={device ID}`
-* 主要或次要金鑰： `SharedAccessKey={key}`
-* 裝置透過連接的閘道裝置。 從 IoT Edge 閘道裝置的 yaml 檔案提供**主機名稱**值： `GatewayHostName={gateway hostname}`
+* The IoT hub that the device connects to: `Hostname={iothub name}.azure-devices.net`
+* The device ID registered with the hub: `DeviceID={device ID}`
+* Either the primary or secondary key: `SharedAccessKey={key}`
+* The gateway device that the device connects through. Provide the **hostname** value from the IoT Edge gateway device's config.yaml file: `GatewayHostName={gateway hostname}`
 
-總之，完整的連接字串看起來像這樣：
+All together, a complete connection string looks like:
 
 ``` 
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
-如果您已建立此下游裝置的父/子關聯性，則可以直接呼叫閘道做為連線主機，以簡化連接字串。 例如： 
+If you established a parent/child relationship for this downstream device, then you can simplify the connection string by calling the gateway directly as the connection host. 例如： 
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
@@ -91,21 +90,21 @@ HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
 
 ## <a name="x509-authentication"></a>X.509 authentication 
 
-有兩種方式可使用 x.509 憑證來驗證 IoT 裝置。 無論您選擇驗證的方式為何，將裝置連線至 IoT 中樞的步驟都相同。 選擇自我簽署或 CA 簽署憑證以進行驗證，然後繼續瞭解如何連接到 IoT 中樞。 
+There are two ways to authenticate an IoT device using X.509 certificates. Whichever way you choose to authenticate, the steps to connect your device to IoT Hub are the same. Choose either self-signed or CA-signed certs for authentication, then continue to learn how to connect to IoT Hub. 
 
-如需 IoT 中樞如何使用 x.509 authentication 的詳細資訊，請參閱下列文章： 
-* [使用 x.509 CA 憑證進行裝置驗證](../iot-hub/iot-hub-x509ca-overview.md)
-* [概念瞭解 x.509 IoT 產業中的 CA 憑證](../iot-hub/iot-hub-x509ca-concept.md)
+For more information about how IoT Hub uses X.509 authentication, see the following articles: 
+* [Device authentication using X.509 CA certificates](../iot-hub/iot-hub-x509ca-overview.md)
+* [Conceptual understanding of X.509 CA certificates in the IoT industry](../iot-hub/iot-hub-x509ca-concept.md)
 
-### <a name="create-the-device-identity-with-x509-self-signed-certificates"></a>使用 x.509 自我簽署憑證建立裝置身分識別
+### <a name="create-the-device-identity-with-x509-self-signed-certificates"></a>Create the device identity with X.509 self-signed certificates
 
-針對 x.509 自我簽署驗證，有時也稱為指紋驗證，您必須建立新的憑證以放在您的 IoT 裝置上。 這些憑證的指紋會與您共用 IoT 中樞以進行驗證。 
+For X.509 self-signed authentication, sometimes referred to as thumbprint authentication, you need to create new certificates to place on your IoT device. These certificates have a thumbprint in them that you share with IoT Hub for authentication. 
 
-測試此案例最簡單的方式，就是使用您在設定 IoT Edge 裝置中用來建立憑證的相同電腦，[以作為透明閘道](how-to-create-transparent-gateway.md)。 該機器應該已經使用正確的工具、根 CA 憑證和中繼 CA 憑證進行設定，以建立 IoT 裝置憑證。 之後，您可以將最終的憑證及其私密金鑰複製到下游裝置。 遵循閘道一文中的步驟，您可以在電腦上設定 openssl，然後複製 IoT Edge 存放庫來存取憑證建立腳本。 然後，您建立了一個工作目錄，我們稱之為 **\<WRKDIR >** 以保存憑證。 預設憑證適用于開發和測試，因此只有過去30天。 您應該已建立根 CA 憑證和中繼憑證。 
+The easiest way to test this scenario is to use the same machine that you used to create certificates in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md). That machine should already be set up with the right tool, root CA certificate, and intermediate CA certificate to create the IoT device certificates. You can copy the final certificates and their private keys over to your downstream device afterwards. Following the steps in the gateway article, you set up openssl on your machine, then cloned the IoT Edge repo to access certificate creation scripts. Then, you made a working directory that we call **\<WRKDIR>** to hold the certificates. The default certificates are meant for developing and testing, so only last 30 days. You should have created a root CA certificate and an intermediate certificate. 
 
-1. 在 bash 或 PowerShell 視窗中流覽至您的工作目錄。 
+1. Navigate to your working directory in either a bash or PowerShell window. 
 
-2. 建立下游裝置的兩個憑證（主要和次要）。 提供您的裝置名稱，然後是主要或次要標籤。 這項資訊是用來命名檔案，讓您可以追蹤多個裝置的憑證。 
+2. Create two certificates (primary and secondary) for the downstream device. Provide your device name and then the primary or secondary label. This information is used to name the files so that you can keep track of certificates for multiple devices. 
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -117,21 +116,21 @@ HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
    ./certGen.sh create_device_certificate "<device name>-secondary"
    ```
 
-3. 從每個憑證（也就是40十六進位字元字串）取出 SHA1 指紋（在 IoT 中樞介面中稱為指紋）。 使用下列 openssl 命令來查看憑證並尋找指紋：
+3. Retrieve the SHA1 fingerprint (called a thumbprint in the IoT Hub interface) from each certificate, which is a 40 hexadecimal character string. Use the following openssl command to view the certificate and find the fingerprint:
 
    ```PowerShell/bash
    openssl x509 -in <WORKDIR>/certs/iot-device-<device name>-primary.cert.pem -text -fingerprint | sed 's/[:]//g'
    ```
 
-4. 流覽至 Azure 入口網站中的 IoT 中樞，並使用下列值建立新的 IoT 裝置身分識別： 
+4. Navigate to your IoT hub in the Azure portal and create a new IoT device identity with the following values: 
 
-   * 選取 [x.509] [**自我簽署**] 做為 [驗證類型]。
-   * 貼上您從裝置的主要和次要憑證複製的十六進位字串。
-   * 選取 [**設定父裝置**]，然後選擇此下游裝置將透過其連線的 IoT Edge 閘道裝置。 下游裝置的 x.509 驗證需要父裝置。 
+   * Select **X.509 Self-Signed** as the authentication type.
+   * Paste the hexadecimal strings that you copied from your device's primary and secondary certificates.
+   * Select **Set a parent device** and choose the IoT Edge gateway device that this downstream device will connect through. A parent device is required for X.509 authentication of a downstream device. 
 
-   ![在入口網站中使用 x.509 自我簽署驗證來建立裝置識別碼](./media/how-to-authenticate-downstream-device/x509-self-signed-portal.png)
+   ![Create device ID with X.509 self-signed auth in portal](./media/how-to-authenticate-downstream-device/x509-self-signed-portal.png)
 
-5. 將下列檔案複製到下游裝置上的任何目錄：
+5. Copy the following files to any directory on your downstream device:
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
    * `<WRKDIR>\certs\iot-device-<device name>*.cert.pem`
@@ -139,28 +138,28 @@ HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
    * `<WRKDIR>\certs\iot-device-<device name>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device name>*.key.pem`
 
-   您將會在連接到 IoT 中樞的分葉裝置應用程式中參考這些檔案。 您可以使用像是[Azure Key Vault](https://docs.microsoft.com/azure/key-vault)的服務或類似[安全複製通訊協定](https://www.ssh.com/ssh/scp/)的功能來移動憑證檔案。
+   You'll reference these files in the leaf device applications that connect to IoT Hub. You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.
 
-您可以使用[適用于 Azure CLI 的 IoT 擴充](https://github.com/Azure/azure-iot-cli-extension)功能來完成相同的裝置建立作業。 下列範例會建立具有 x.509 自我簽署驗證的新 IoT 裝置，並指派父裝置： 
+You can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same device creation operation. The following example creates a new IoT device with X.509 self-signed authentication and assigns a parent device: 
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
-如需有關建立裝置的 Azure CLI 命令、產生憑證，以及父和子系管理的詳細資訊，請參閱[az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest)命令的參考內容。
+For more information about Azure CLI commands for device creation, certificate generation, and parent and child management, see the reference content for [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) commands.
 
-### <a name="create-the-device-identity-with-x509-ca-signed-certificates"></a>使用 x.509 CA 簽署的憑證來建立裝置身分識別
+### <a name="create-the-device-identity-with-x509-ca-signed-certificates"></a>Create the device identity with X.509 CA signed certificates
 
-針對 x.509 憑證授權單位單位（CA）簽署的驗證，您需要在 IoT 中樞中註冊的根 CA 憑證，以用來簽署 IoT 裝置的憑證。 任何使用由根 CA 憑證或其中繼憑證所發出之憑證的裝置，都將被允許進行驗證。 
+For X.509 certificate authority (CA) signed authentication, you need a root CA certificate registered in IoT Hub that you use to sign certificates for your IoT device. Any device using a certificate that was issues by the root CA certificate or any of its intermediate certificates will be permitted to authenticate. 
 
-本節是根據 IoT 中樞文章在[Azure IoT 中樞中設定 x.509 安全性中](../iot-hub/iot-hub-security-x509-get-started.md)詳述的指示。 遵循本節中的步驟，以瞭解要使用哪些值來設定透過閘道連接的下游裝置。 
+This section is based on the instructions detailed in the IoT Hub article [Set up X.509 security in your Azure IoT hub](../iot-hub/iot-hub-security-x509-get-started.md). Follow the steps in this section to know which values to use to set up a downstream device that connects through a gateway. 
 
-測試此案例最簡單的方式，就是使用您在設定 IoT Edge 裝置中用來建立憑證的相同電腦，[以作為透明閘道](how-to-create-transparent-gateway.md)。 該機器應該已經使用正確的工具、根 CA 憑證和中繼 CA 憑證進行設定，以建立 IoT 裝置憑證。 之後，您可以將最終的憑證及其私密金鑰複製到下游裝置。 遵循閘道一文中的步驟，您可以在電腦上設定 openssl，然後複製 IoT Edge 存放庫來存取憑證建立腳本。 然後，您建立了一個工作目錄，我們稱之為 **\<WRKDIR >** 以保存憑證。 預設憑證適用于開發和測試，因此只有過去30天。 您應該已建立根 CA 憑證和中繼憑證。 
+The easiest way to test this scenario is to use the same machine that you used to create certificates in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md). That machine should already be set up with the right tool, root CA certificate, and intermediate CA certificate to create the IoT device certificates. You can copy the final certificates and their private keys over to your downstream device afterwards. Following the steps in the gateway article, you set up openssl on your machine, then cloned the IoT Edge repo to access certificate creation scripts. Then, you made a working directory that we call **\<WRKDIR>** to hold the certificates. The default certificates are meant for developing and testing, so only last 30 days. You should have created a root CA certificate and an intermediate certificate. 
 
-1. 請遵循在*Azure iot 中樞中設定 x.509 安全性*的[IoT 中樞註冊 x.509 CA 憑證](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)一節中的指示。 在該區段中，您會執行下列步驟： 
+1. Follow the instructions in the [Register X.509 CA certificates to your IoT hub](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) section of *Set up X.509 security in your Azure IoT hub*. In that section, you perform the following steps: 
 
-   1. 上傳根 CA 憑證。 如果您使用的是在透明閘道一文中建立的憑證，請上傳 **\<WRKDIR >/certs/azure-iot-test-only.root.ca.cert.pem**作為根憑證檔案。 
-   2. 確認您擁有該根 CA 憑證。 您可以在 \<WRKDIR > 中驗證是否擁有憑證工具。 
+   1. Upload a root CA certificate. If you're using the certificates that you created in the transparent gateway article, upload **\<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem** as the root certificate file. 
+   2. Verify that you own that root CA certificate. You can verify possession with the cert tools in \<WRKDIR>. 
 
       ```powershell
       New-CACertsVerificationCert "<verification code from Azure portal>"
@@ -170,12 +169,12 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
       ./certGen.sh create_verification_certificate <verification code from Azure portal>"
       ```
 
-2. 遵循在*Azure iot 中樞中設定 x.509 安全性*一節中的 在該區段中，您會執行下列步驟： 
+2. Follow the instructions in the [Create an X.509 device for your IoT hub](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) section of *Set up X.509 security in your Azure IoT hub*. In that section, you perform the following steps: 
 
-   1. 新增裝置。 為 [**裝置識別碼**] 提供小寫的名稱，然後選擇 [ **x.509 CA 簽署**的驗證類型]。 
-   2. 設定父裝置。 針對下游裝置，請選取 [**設定父裝置**]，然後選擇將提供連線至 IoT 中樞的 IoT Edge 閘道裝置。 
+   1. Add a new device. Provide a lowercase name for **device ID**, and choose the authentication type **X.509 CA Signed**. 
+   2. Set a parent device. For downstream devices, select **Set a parent device** and choose the IoT Edge gateway device that will provide the connection to IoT Hub. 
 
-3. 建立下游裝置的憑證鏈。 使用您上傳至 IoT 中樞的相同根 CA 憑證來進行此鏈。 使用您在入口網站中為裝置身分識別所提供的相同小寫裝置識別碼。
+3. Create a certificate chain for your downstream device. Use the same root CA certificate that you uploaded to IoT Hub to make this chain. Use the same lowercase device ID that you gave to your device identity in the portal.
 
    ```powershell
    New-CACertsDevice "<device id>"
@@ -185,7 +184,7 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
    ./certGen.sh create_device_certificate "<device id>"
    ```
 
-4. 將下列檔案複製到下游裝置上的任何目錄： 
+4. Copy the following files to any directory on your downstream device: 
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
    * `<WRKDIR>\certs\iot-device-<device id>*.cert.pem`
@@ -193,33 +192,33 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
    * `<WRKDIR>\certs\iot-device-<device id>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device id>*.key.pem`
 
-   您將會在連接到 IoT 中樞的分葉裝置應用程式中參考這些檔案。 您可以使用像是[Azure Key Vault](https://docs.microsoft.com/azure/key-vault)的服務或類似[安全複製通訊協定](https://www.ssh.com/ssh/scp/)的功能來移動憑證檔案。
+   You'll reference these files in the leaf device applications that connect to IoT Hub. You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.
 
-您可以使用[適用于 Azure CLI 的 IoT 擴充](https://github.com/Azure/azure-iot-cli-extension)功能來完成相同的裝置建立作業。 下列範例會使用 x.509 CA 簽署的驗證來建立新的 IoT 裝置，並指派父裝置： 
+You can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same device creation operation. The following example creates a new IoT device with X.509 CA signed authentication and assigns a parent device: 
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
-如需有關建立裝置和父系/子管理的 Azure CLI 命令的詳細資訊，請參閱[az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest)命令的參考內容。
+For more information about Azure CLI commands for device creation and parent/child management, see the reference content for [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) commands.
 
 
-### <a name="connect-to-iot-hub-through-a-gateway"></a>透過閘道連接到 IoT 中樞
+### <a name="connect-to-iot-hub-through-a-gateway"></a>Connect to IoT Hub through a gateway
 
-每個 Azure IoT SDK 會以不同的方式處理 x.509 驗證。 不過，相同的程式是用來驗證使用 x.509 的一般 IoT 裝置，以 IoT 中樞。憑證也適用于下游裝置。 唯一的差別在於，您需要新增閘道裝置的指標以路由連線，或在離線案例中，代表 IoT 中樞來處理驗證。 一般來說，您可以針對所有 IoT 中樞裝置遵循相同的 x.509 authentication 步驟，然後直接將連接字串中的 [**主機名稱**] 的值取代為閘道裝置的主機名稱。 
+Each Azure IoT SDK handles X.509 authentication a little differently. However, the same process is used to authenticate regular IoT devices to IoT Hub with X.509 certificates also applies to downstream devices. The only difference is that you need to add a pointer to the gateway device to route the connection or, in offline scenarios, to handle the authentication on behalf of IoT Hub. In general, you can follow the same X.509 authentication steps for all IoT Hub devices, then simply replace the value of **Hostname** in the connection string to be the hostname of your gateway device. 
 
-下列各節顯示不同 SDK 語言的一些範例。 
+The following sections show some examples for different SDK languages. 
 
 >[!IMPORTANT]
->下列範例示範 IoT 中樞 Sdk 如何使用憑證來驗證裝置。 在生產部署中，您應該將所有秘密（例如私人或 SAS 金鑰）儲存在硬體安全模組（HSM）中。 
+>The following samples demonstrate how the IoT Hub SDKs use certificates to authenticate devices. In a production deployment, you should store all secrets like private or SAS keys in a hardware secure module (HSM). 
 
 #### <a name="net"></a>.NET
 
-如需驗證 x.509 憑證C# IoT 中樞的程式範例，請參閱[在您的 Azure IoT 中樞中設定 x.509 安全性](../iot-hub/iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates)。 這裡包含該範例的一些重要行，以示範驗證程式。
+For an example of a C# program authenticating to IoT Hub with X.509 certificates, see [Set up X.509 security in your Azure IoT hub](../iot-hub/iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates). Some of the key lines of that sample are included here to demonstrate the authentication process.
 
-為您的 DeviceClient 實例宣告主機名稱時，請使用 IoT Edge 閘道裝置的主機名稱。 主機名稱可以在閘道裝置的 yaml 檔案中找到。 
+When declaring the hostname for your DeviceClient instance, use the IoT Edge gateway device's hostname. The hostname can be found in the gateway device's config.yaml file. 
 
-如果您使用 IoT Edge git 存放庫所提供的測試憑證，憑證的金鑰就是**1234**。
+If you're using the test certificates provided by the IoT Edge git repository, the key to the certificates is **1234**.
 
 ```csharp
 try
@@ -248,9 +247,9 @@ catch (Exception ex)
 
 #### <a name="c"></a>C
 
-如需使用 x.509 憑證向 IoT 中樞驗證的 C 程式範例，請參閱 C IoT SDK 的[iotedge_downstream_device_sample](https://github.com/Azure/azure-iot-sdk-c/tree/x509_edge_bugbash/iothub_client/samples/iotedge_downstream_device_sample)範例。 這裡包含該範例的一些重要行，以示範驗證程式。
+For an example of a C program authenticating to IoT Hub with X.509 certificates, see the C IoT SDK's [iotedge_downstream_device_sample](https://github.com/Azure/azure-iot-sdk-c/tree/x509_edge_bugbash/iothub_client/samples/iotedge_downstream_device_sample) sample. Some of the key lines of that sample are included here to demonstrate the authentication process.
 
-定義下游裝置的連接字串時，請使用 IoT Edge 閘道裝置的主機名稱做為**主機名稱**參數。 主機名稱可以在閘道裝置的 yaml 檔案中找到。 
+When defining the connection string for your downstream device, use the IoT Edge gateway device's hostname for the **HostName** parameter. The hostname can be found in the gateway device's config.yaml file. 
 
 ```C
 // If your downstream device uses X.509 authentication (self signed or X.509 CA) then
@@ -296,11 +295,11 @@ int main(void)
 
 #### <a name="nodejs"></a>Node.js
 
-如需使用 x.509 憑證向 IoT 中樞進行驗證的 node.js 程式範例，請參閱 node.js IoT SDK 的[simple_sample_device_x509](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js)範例。 這裡包含該範例的一些重要行，以示範驗證程式。
+For an example of a Node.js program authenticating to IoT Hub with X.509 certificates, see the Node.js IoT SDK's [simple_sample_device_x509.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js) sample. Some of the key lines of that sample are included here to demonstrate the authentication process.
 
-定義下游裝置的連接字串時，請使用 IoT Edge 閘道裝置的主機名稱做為**主機名稱**參數。 主機名稱可以在閘道裝置的 yaml 檔案中找到。 
+When defining the connection string for your downstream device, use the IoT Edge gateway device's hostname for the **HostName** parameter. The hostname can be found in the gateway device's config.yaml file. 
 
-如果您使用 IoT Edge git 存放庫所提供的測試憑證，憑證的金鑰就是**1234**。
+If you're using the test certificates provided by the IoT Edge git repository, the key to the certificates is **1234**.
 
 ```node
 // String containing Hostname and Device Id in the following format:
@@ -325,9 +324,9 @@ client.setOptions(options);
 
 #### <a name="python"></a>Python
 
-Python SDK 目前僅支援使用 X509 憑證和檔案中的金鑰，而非以內嵌方式定義的檔案。 在下列範例中，相關的 filepaths 會儲存在環境變數中。
+The Python SDK currently only supports using X509 certificates and and keys from files, not ones which are defined inline. In the following example, relevant filepaths are stored in environment variables.
 
-定義下游裝置的主機名稱時，請使用 IoT Edge 閘道裝置的主機名稱做為**主機名稱**參數。 主機名稱可以在閘道裝置的 yaml 檔案中找到。 
+When defining the hostname for your downstream device, use the IoT Edge gateway device's hostname for the **HostName** parameter. The hostname can be found in the gateway device's config.yaml file. 
 
 ```python
 import os
@@ -355,9 +354,9 @@ if __name__ == '__main__':
 
 #### <a name="java"></a>Java
 
-如需使用 x.509 憑證驗證 IoT 中樞的 JAVA 程式範例，請參閱 JAVA IoT SDK 的[SendEventX509](https://github.com/Azure/azure-iot-sdk-python/blob/master/device/samples/iothub_client_sample_x509.py)範例。 這裡包含該範例的一些重要行，以示範驗證程式。
+For an example of a Java program authenticating to IoT Hub with X.509 certificates, see the Java IoT SDK's [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-python/blob/master/device/samples/iothub_client_sample_x509.py) sample. Some of the key lines of that sample are included here to demonstrate the authentication process.
 
-定義下游裝置的連接字串時，請使用 IoT Edge 閘道裝置的主機名稱做為**主機名稱**參數。 主機名稱可以在閘道裝置的 yaml 檔案中找到。 
+When defining the connection string for your downstream device, use the IoT Edge gateway device's hostname for the **HostName** parameter. The hostname can be found in the gateway device's config.yaml file. 
 
 ```java
 //PEM encoded representation of the public key certificate
@@ -388,4 +387,4 @@ DeviceClient client = new DeviceClient(connectionString, protocol, publicKeyCert
 
 ## <a name="next-steps"></a>後續步驟
 
-完成本文之後，您應該會有一個 IoT Edge 裝置做為透明閘道，以及向 IoT 中樞註冊的下游裝置。 接下來，您必須設定下游裝置以信任閘道裝置，並將訊息傳送給它。 如需詳細資訊，請參閱[將下游裝置連線到 Azure IoT Edge 閘道](how-to-connect-downstream-device.md)。
+By completing this article, you should have an IoT Edge device working as a transparent gateway and a downstream device registered with an IoT hub. Next, you need to configure your downstream devices to trust the gateway device and send messages to it. 如需詳細資訊，請參閱[將下游裝置連線到 Azure IoT Edge 閘道](how-to-connect-downstream-device.md)。

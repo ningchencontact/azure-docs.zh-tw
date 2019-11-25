@@ -9,13 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: c8cd6e2d13e252f9a7560b55eca58341e791db5a
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 72535b69c81aee880eb16bf5d10e11dedb36f3a7
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964931"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457468"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>使用 Azure CLI 部署 Azure IoT Edge 模組
 
@@ -116,7 +115,7 @@ ms.locfileid: "72964931"
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
-裝置識別碼參數會區分大小寫。 內容參數會指向您已儲存的部署資訊清單檔案。
+The device ID parameter is case-sensitive. 內容參數會指向您已儲存的部署資訊清單檔案。
 
    ![az iot edge set-modules 輸出](./media/how-to-deploy-cli/set-modules.png)
 
@@ -130,7 +129,7 @@ ms.locfileid: "72964931"
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-裝置識別碼參數會區分大小寫。
+The device ID parameter is case-sensitive.
 
    ![az iot hub module-identity list 輸出](./media/how-to-deploy-cli/list-modules.png)
 

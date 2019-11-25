@@ -1,35 +1,30 @@
 ---
-title: Azure 入口網站中的 Azure Container Registry 存放庫
-description: 使用 Azure 入口網站來觀看 Azure Container Registry 存放庫，以裝載 Docker 容器映射和其他支援的成品。
-services: container-registry
-author: cristy
-manager: gwallace
-ms.service: container-registry
+title: View repositories in portal
+description: Use the Azure portal to view Azure Container Registry repositories, which host Docker container images and other supported artifacts.
 ms.topic: article
 ms.date: 01/05/2018
-ms.author: jeconnoc
-ms.openlocfilehash: 793d8e82ca78c6055a6e956d4f41b7991d5fd700
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 1da72706d2554610a685f71199ab14af5e30ce1a
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931539"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456287"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>檢視 Azure 入口網站中的容器登錄存放庫
 
 Azure Container Registry 可讓您將 Docker 容器映像儲存在存放庫中。 透過將映像儲存在存放庫中，您可以在隔離的環境中儲存映像的群組 (或映像的版本)。 當您將映像推送到登錄時，可以指定這些存放庫，然後在 Azure 入口網站中檢視其內容。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **容器登錄**：在 Azure 訂用帳戶中建立容器登錄。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。
-* **DOCKER CLI**：在您的本機電腦上安裝[docker][docker-install] ，其可為您提供 docker 命令列介面。
+* **Docker CLI**: Install [Docker][docker-install] on your local machine, which provides you with the Docker command-line interface.
 * **容器映像**：將映像推送至容器登錄。 如需如何發送和提取映像的指引，請參閱[發送和提取映像](container-registry-get-started-docker-cli.md)。
 
 ## <a name="view-repositories-in-azure-portal"></a>在 Azure 入口網站中檢視存放庫
 
 您可以在 Azure 入口網站中看到裝載映像以及映像標籤的存放庫清單。
 
-如果您依照[發送和提取映像](container-registry-get-started-docker-cli.md) 中的步驟進行 (而且後來並未刪除該映像)，您的容器登錄中應該會有 Nginx 映像。 該文章中的指示指定您要以 `/samples/nginx` 中的 "samples" 命名空間來標記映像。 做為重新整理程式，在該文章中指定的[docker push][docker-push]命令為：
+如果您依照[發送和提取映像](container-registry-get-started-docker-cli.md) 中的步驟進行 (而且後來並未刪除該映像)，您的容器登錄中應該會有 Nginx 映像。 該文章中的指示指定您要以 `/samples/nginx` 中的 "samples" 命名空間來標記映像。 As a refresher, the [docker push][docker-push] command specified in that article was:
 
 ```Bash
 docker push myregistry.azurecr.io/samples/nginx

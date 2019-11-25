@@ -1,62 +1,58 @@
 ---
-title: Azure Container Registry 工作的跨登錄驗證
-description: 使用 Azure 資源的受控識別來設定 Azure Container Registry 工作（ACR 工作）以存取另一個私人 Azure Container Registry
-services: container-registry
-author: dlepow
-ms.service: container-registry
+title: Cross-registry authentication from ACR task
+description: Configure an Azure Container Registry Task (ACR Task) to access another private Azure container registry by using a managed identity for Azure Resources
 ms.topic: article
 ms.date: 07/12/2019
-ms.author: danlep
-ms.openlocfilehash: f2ffb42ce109f5e6f7186461f931b7f8da57ff32
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 3dc4792f196ab7553f3167983ce34850669fa5bc
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931507"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456190"
 ---
-# <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>使用 Azure 管理的身分識別在 ACR 工作中進行跨登錄驗證 
+# <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Cross-registry authentication in an ACR task using an Azure-managed identity 
 
-在[ACR](container-registry-tasks-overview.md)工作中，您可以[啟用 Azure 資源的受控識別](container-registry-tasks-authentication-managed-identity.md)。 此工作可以使用身分識別來存取其他 Azure 資源，而不需要提供或管理認證。 
+In an [ACR task](container-registry-tasks-overview.md), you can [enable a managed identity for Azure resources](container-registry-tasks-authentication-managed-identity.md). The task can use the identity to access other Azure resources, without needing to provide or manage credentials. 
 
-在本文中，您將瞭解如何在從登錄中提取映射的工作中啟用受控識別，而這項作業與用來執行工作的映射不同。
+In this article, you learn how to enable a managed identity in a task that pulls an image from a registry different from the one used to run the task.
 
-若要建立 Azure 資源，本文會要求您執行 Azure CLI 版2.0.68 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
+To create the Azure resources, this article requires that you run the Azure CLI version 2.0.68 or later. 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
 
 ## <a name="scenario-overview"></a>案例概觀
 
-範例工作會從另一個 Azure container registry 提取基底映射，以建立及推送應用程式映射。 若要提取基底映射，您可以使用受控識別來設定工作，並為其指派適當的許可權。 
+The example task pulls a base image from another Azure container registry to build and push an application image. To pull the base image, you configure the task with a managed identity and assign appropriate permissions to it. 
 
-這個範例會顯示使用使用者指派或系統指派的受控識別的步驟。 您所選擇的身分識別取決於您組織的需求。
+This example shows steps using either a user-assigned or system-assigned managed identity. Your choice of identity depends on your organization's needs.
 
-在真實世界的案例中，組織可能會維護一組可供所有開發小組用來建立其應用程式的基底映射。 這些基底映射會儲存在公司登錄中，每個開發小組僅具有「提取」許可權。 
+In a real-world scenario, an organization might maintain a set of base images used by all development teams to build their applications. These base images are stored in a corporate registry, with each development team having only pull rights. 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-在本文中，您需要兩個 Azure container registry：
+For this article, you need two Azure container registries:
 
-* 您可以使用第一個登錄來建立和執行 ACR 工作。 在本文中，此登錄名為*myregistry*。 
-* 第二個登錄會裝載用來建立映射的基底映射。 在本文中，第二個登錄名為*mybaseregistry*。 
+* You use the first registry to create and execute ACR tasks. In this article, this registry is named *myregistry*. 
+* The second registry hosts a base image used for the task to build an image. In this article, the second registry is named *mybaseregistry*. 
 
-在稍後的步驟中，將取代為您自己的登錄名稱。
+Replace with your own registry names in later steps.
 
-如果您還沒有所需的 Azure 容器登錄，請參閱[快速入門：使用 Azure CLI 建立私人容器](container-registry-get-started-azure-cli.md)登錄。 您還不需要將映射推送至登錄。
+If you don't already have the needed Azure container registries, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md). You don't need to push images to the registry yet.
 
-## <a name="prepare-base-registry"></a>準備基底登錄
+## <a name="prepare-base-registry"></a>Prepare base registry
 
-首先，建立工作目錄，然後使用下列內容建立名為 Dockerfile 的檔案。 這個簡單的範例會從 Docker Hub 中的公用映射建立 node.js 基底映射。
+First, create a working directory and then create a file named Dockerfile with the following content. This simple example builds a Node.js base image from a public image in Docker Hub.
     
 ```bash
 echo FROM node:9-alpine > Dockerfile
 ```
-在目前的目錄中，執行[az acr build][az-acr-build]命令，以建立基底映射並將其推送至基底登錄。 實際上，組織中的另一個小組或進程可能會維護基底登錄。
+In the current directory, run the [az acr build][az-acr-build] command to build and push the base image to the base registry. In practice, another team or process in the organization might maintain the base registry.
     
 ```azurecli
 az acr build --image baseimages/node:9-alpine --registry mybaseregistry --file Dockerfile .
 ```
 
-## <a name="define-task-steps-in-yaml-file"></a>在 YAML 檔案中定義工作步驟
+## <a name="define-task-steps-in-yaml-file"></a>Define task steps in YAML file
 
-這個範例[多步驟](container-registry-tasks-multi-step.md)工作的步驟定義于[YAML](container-registry-tasks-reference-yaml.md)檔案中。 在您的本機工作目錄中建立名為 `helloworldtask.yaml` 的檔案，並貼上下列內容。 使用基底登錄的伺服器名稱，更新組建步驟中 `REGISTRY_NAME` 的值。
+The steps for this example [multi-step task](container-registry-tasks-multi-step.md) are defined in a [YAML file](container-registry-tasks-reference-yaml.md). Create a file named `helloworldtask.yaml` in your local working directory and paste in the following contents. Update the value of `REGISTRY_NAME` in the build step with the server name of your base registry.
 
 ```yml
 version: v1.0.0
@@ -66,17 +62,17 @@ steps:
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
 ```
 
-「組建」步驟會使用 helloworld 中的 `Dockerfile-app` 檔案來建立映射，而這是[Azure 範例/acr-組建-節點](https://github.com/Azure-Samples/acr-build-helloworld-node.git)存放庫。 `--build-arg` 會參考基底登錄以提取基底映射。 成功建立時，會將映射推送至用來執行工作的登錄。
+The build step uses the `Dockerfile-app` file in the [Azure-Samples/acr-build-helloworld-node](https://github.com/Azure-Samples/acr-build-helloworld-node.git) repo to build an image. The `--build-arg` references the base registry to pull the base image. When successfully built, the image is pushed to the registry used to run the task.
 
-## <a name="option-1-create-task-with-user-assigned-identity"></a>選項1：使用使用者指派的身分識別來建立工作
+## <a name="option-1-create-task-with-user-assigned-identity"></a>Option 1: Create task with user-assigned identity
 
-本節中的步驟會建立工作，並啟用使用者指派的身分識別。 如果您想要改為啟用系統指派的身分識別，請參閱[選項2：使用系統指派](#option-2-create-task-with-system-assigned-identity)的身分識別來建立工作。 
+The steps in this section create a task and enable a user-assigned identity. If you want to enable a system-assigned identity instead, see [Option 2: Create task with system-assigned identity](#option-2-create-task-with-system-assigned-identity). 
 
 [!INCLUDE [container-registry-tasks-user-assigned-id](../../includes/container-registry-tasks-user-assigned-id.md)]
 
 ### <a name="create-task"></a>建立工作
 
-藉由執行下列[az acr task create][az-acr-task-create]命令來建立工作*helloworldtask* 。 此工作會在沒有原始程式碼內容的情況下執行，而命令會參考工作目錄中 `helloworldtask.yaml` 的檔案。 `--assign-identity` 參數會傳遞使用者指派之身分識別的資源識別碼。 
+Create the task *helloworldtask* by executing the following [az acr task create][az-acr-task-create] command. The task runs without a source code context, and the command references the file `helloworldtask.yaml` in the working directory. The `--assign-identity` parameter passes the resource ID of the user-assigned identity. 
 
 ```azurecli
 az acr task create \
@@ -89,13 +85,13 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
-## <a name="option-2-create-task-with-system-assigned-identity"></a>選項2：使用系統指派的身分識別來建立工作
+## <a name="option-2-create-task-with-system-assigned-identity"></a>Option 2: Create task with system-assigned identity
 
-本節中的步驟會建立工作，並啟用系統指派的身分識別。 如果您想要改為啟用使用者指派的身分識別，請參閱[選項1：使用使用者指派](#option-1-create-task-with-user-assigned-identity)的身分識別來建立工作。 
+The steps in this section create a task and enable a system-assigned identity. If you want to enable a user-assigned identity instead, see [Option 1: Create task with user-assigned identity](#option-1-create-task-with-user-assigned-identity). 
 
 ### <a name="create-task"></a>建立工作
 
-藉由執行下列[az acr task create][az-acr-task-create]命令來建立工作*helloworldtask* 。 此工作會在沒有原始程式碼內容的情況下執行，而命令會參考工作目錄中 `helloworldtask.yaml` 的檔案。 不含值的 `--assign-identity` 參數會在工作上啟用系統指派的身分識別。 
+Create the task *helloworldtask* by executing the following [az acr task create][az-acr-task-create] command. The task runs without a source code context, and the command references the file `helloworldtask.yaml` in the working directory. The `--assign-identity` parameter with no value enables the system-assigned identity on the task. 
 
 ```azurecli
 az acr task create \
@@ -107,25 +103,25 @@ az acr task create \
 ```
 [!INCLUDE [container-registry-tasks-system-id-properties](../../includes/container-registry-tasks-system-id-properties.md)]
 
-## <a name="give-identity-pull-permissions-to-the-base-registry"></a>將身分識別提取許可權授與基底登錄
+## <a name="give-identity-pull-permissions-to-the-base-registry"></a>Give identity pull permissions to the base registry
 
-在本節中，授與從基底登錄（ *mybaseregistry*）提取的「受控識別」許可權。
+In this section, give the managed identity permissions to pull from the base registry, *mybaseregistry*.
 
-使用[az acr show][az-acr-show]命令來取得基底登錄的資源識別碼，並將它儲存在變數中：
+Use the [az acr show][az-acr-show] command to get the resource ID of the base registry and store it in a variable:
 
 ```azurecli
 baseregID=$(az acr show --name mybaseregistry --query id --output tsv)
 ```
 
-使用[az role 指派 create][az-role-assignment-create]命令，將身分識別指派給基底登錄的 `acrpull` 角色。 此角色只有從登錄提取映射的許可權。
+Use the [az role assignment create][az-role-assignment-create] command to assign the identity the `acrpull` role to the base registry. This role has permissions only to pull images from the registry.
 
 ```azurecli
 az role assignment create --assignee $principalID --scope $baseregID --role acrpull
 ```
 
-## <a name="add-target-registry-credentials-to-task"></a>將目標登錄認證新增至工作
+## <a name="add-target-registry-credentials-to-task"></a>Add target registry credentials to task
 
-現在，使用[az acr task credential add][az-acr-task-credential-add]命令，將身分識別的認證新增至工作，讓它可以使用基底登錄進行驗證。 執行命令，其對應于您在工作中啟用的受控識別類型。 如果您已啟用使用者指派的身分識別，請以身分識別的用戶端識別碼傳遞 `--use-identity`。 如果您已啟用系統指派的身分識別，請傳遞 `--use-identity [system]`。
+Now use the [az acr task credential add][az-acr-task-credential-add] command to add the identity's credentials to the task so that it can authenticate with the base registry. Run the command corresponding to the type of managed identity you enabled in the task. If you enabled a user-assigned identity, pass `--use-identity` with the client ID of the identity. If you enabled a system-assigned identity, pass `--use-identity [system]`.
 
 ```azurecli
 # Add credentials for user-assigned identity to the task
@@ -143,9 +139,9 @@ az acr task credential add \
   --use-identity [system]
 ```
 
-## <a name="manually-run-the-task"></a>手動執行工作
+## <a name="manually-run-the-task"></a>Manually run the task
 
-若要確認您啟用受控識別的工作成功執行，請使用[az acr task run][az-acr-task-run]命令手動觸發工作。 
+To verify that the task in which you enabled a managed identity runs successfully, manually trigger the task with the [az acr task run][az-acr-task-run] command. 
 
 ```azurecli
 az acr task run \
@@ -153,7 +149,7 @@ az acr task run \
   --registry myregistry
 ```
 
-如果工作執行成功，輸出會類似于：
+If the task runs successfully, output is similar to:
 
 ```
 Queued a run with ID: cf10
@@ -202,7 +198,7 @@ The push refers to repository [myregistry.azurecr.io/hello-world]
 Run ID: cf10 was successful after 32s
 ```
 
-執行[az acr repository show-tags][az-acr-repository-show-tags]命令，確認映射已建立且已成功推送至*myregistry*：
+Run the [az acr repository show-tags][az-acr-repository-show-tags] command to verify that the image built and was successfully pushed to *myregistry*:
 
 ```azurecli
 az acr repository show-tags --name myregistry --repository hello-world --output tsv
@@ -216,8 +212,8 @@ cf10
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入瞭解如何[在 ACR 工作中啟用受控識別](container-registry-tasks-authentication-managed-identity.md)。
-* 請參閱[ACR 工作 YAML 參考](container-registry-tasks-reference-yaml.md)
+* Learn more about [enabling a managed identity in an ACR task](container-registry-tasks-authentication-managed-identity.md).
+* See the [ACR Tasks YAML reference](container-registry-tasks-reference-yaml.md)
 
 <!-- LINKS - Internal -->
 [az-login]: /cli/azure/reference-index#az-login

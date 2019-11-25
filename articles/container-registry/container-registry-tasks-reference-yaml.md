@@ -1,33 +1,28 @@
 ---
-title: Azure Container Registry 工作參考 - YAML
+title: YAML reference - ACR Tasks
 description: 適用於以 YAML 為「ACR 工作」定義工作的參考，包括工作屬性、步驟類型、步驟屬性及內建變數。
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 10/23/2019
-ms.author: danlep
-ms.openlocfilehash: 6e55b65d58fe6545d8212b4233f2f45261d18ee5
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a27f55d08a7ed5d7bf3360030eabefc4b7720b82
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043891"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454643"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 工作參考：YAML
 
-「ACR 工作」中的多步驟工作定義提供一個著重於建置、測試及修補容器並以容器為中心的計算原始物件。 本文涵蓋定義多步驟工作之 YAML 檔的命令、參數、屬性和語法。
+「ACR 工作」中的多步驟工作定義提供一個著重於建置、測試及修補容器並以容器為中心的計算原始物件。 This article covers the commands, parameters, properties, and syntax for the YAML files that define your multi-step tasks.
 
 此文章包含適用於為「ACR 工作」建立多步驟工作 YAML 檔案的參考。 如果您想要「ACR 工作」的簡介，請參閱 [ACR 工作概觀](container-registry-tasks-overview.md)。
 
 ## <a name="acr-taskyaml-file-format"></a>acr-task.yaml 檔案格式
 
-「ACR 工作」支援採用標準 YAML 語法的多步驟工作宣告。 您會在 YAML 檔案中定義工作的步驟。 接著，您可以將檔案傳遞至[az acr run][az-acr-run]命令，以手動方式執行工作。 或者，使用檔案來建立具有[az acr task create][az-acr-task-create]的工作，該工作會在 Git 認可或基底映射更新時自動觸發。 雖然此文章以 `acr-task.yaml` 作為包含步驟的檔案，但「ACR 工作」支援任何使用[支援的副檔名](#supported-task-filename-extensions)的有效檔案名稱。
+「ACR 工作」支援採用標準 YAML 語法的多步驟工作宣告。 You define a task's steps in a YAML file. You can then run the task manually by passing the file to the [az acr run][az-acr-run] command. Or, use the file to create a task with [az acr task create][az-acr-task-create] that's triggered automatically on a Git commit or base image update. 雖然此文章以 `acr-task.yaml` 作為包含步驟的檔案，但「ACR 工作」支援任何使用[支援的副檔名](#supported-task-filename-extensions)的有效檔案名稱。
 
 最上層 `acr-task.yaml` 原始物件是**工作屬性** **步驟類型** 及 **步驟屬性**：
 
-* [工作屬性](#task-properties)會套用至整個工作執行的所有步驟。 有數個全域工作屬性，包括：
+* [工作屬性](#task-properties)會套用至整個工作執行的所有步驟。 There are several global task properties, including:
   * `version`
   * `stepTimeout`
   * `workingDirectory`
@@ -62,13 +57,13 @@ YAML 是「ACR 工作」目前唯一支援的檔案格式。 其他副檔名則�
 
 ## <a name="run-the-sample-tasks"></a>執行範例工作
 
-此文章接下來的各節中會參考數個範例工作檔案。 範例工作位於公用 GitHub 存放庫中，也就是[Azure 範例/acr 作業][acr-tasks]。 您可以使用 Azure CLI 命令[az acr run][az-acr-run]來執行它們。 範例命令會類似於：
+此文章接下來的各節中會參考數個範例工作檔案。 The sample tasks are in a public GitHub repository, [Azure-Samples/acr-tasks][acr-tasks]. You can run them with the Azure CLI command [az acr run][az-acr-run]. 範例命令會類似於：
 
 ```azurecli
 az acr run -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
 ```
 
-範例命令的格式會假設您已在 Azure CLI 中設定預設登錄，因此它們會省略 `--registry` 參數。 若要設定預設登錄，請使用[az configure][az-configure]命令搭配 `--defaults` 參數，它會接受 `acr=REGISTRY_NAME` 值。
+範例命令的格式會假設您已在 Azure CLI 中設定預設登錄，因此它們會省略 `--registry` 參數。 To configure a default registry, use the [az configure][az-configure] command with the `--defaults` parameter, which accepts an `acr=REGISTRY_NAME` value.
 
 例如，為 Azure CLI 設定一個名為 "myregistry" 的預設登錄：
 
@@ -78,38 +73,38 @@ az configure --defaults acr=myregistry
 
 ## <a name="task-properties"></a>工作屬性
 
-工作屬性通常會出現在 `acr-task.yaml` 檔案的頂端，而且是全域屬性，適用于整個工作步驟的完整執行。 這些全域屬性中有些可在個別步驟中被覆寫。
+Task properties typically appear at the top of an `acr-task.yaml` file, and are global properties that apply throughout the full execution of the task steps. 這些全域屬性中有些可在個別步驟中被覆寫。
 
 | 屬性 | Type | 選用 | 描述 | 支援覆寫 | 預設值 |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | string | 是 | 「ACR 工作」服務所剖析的 `acr-task.yaml` 檔案版本。 在「ACR 工作」努力維持回溯相容性的同時，此值則可讓「ACR 工作」在已定義的版本內維持相容性。 如果未指定，則預設為最新版本。 | 否 | None |
-| `stepTimeout` | 整數 (秒) | 是 | 步驟的可執行秒數上限。 如果在工作上指定屬性，則會設定所有步驟的預設 `timeout` 屬性。 如果在步驟上指定了 `timeout` 屬性，它會覆寫工作所提供的屬性。 | 是 | 600 (10 分鐘) |
-| `workingDirectory` | string | 是 | 容器在執行時間期間的工作目錄。 如果在工作上指定屬性，則會設定所有步驟的預設 `workingDirectory` 屬性。 如果在步驟上指定，它會覆寫工作所提供的屬性。 | 是 | `$HOME` |
-| `env` | [字串, 字串, ...] | 是 |  `key=value` 格式的字串陣列，可定義工作的環境變數。 如果在工作上指定屬性，則會設定所有步驟的預設 `env` 屬性。 如果在步驟上指定，它會覆寫任何繼承自工作的環境變數。 | None |
-| `secrets` | [秘密，秘密，...] | 是 | [秘密](#secret)物件的陣列。 | None |
-| `networks` | [network，network，...] | 是 | [網路](#network)物件的陣列。 | None |
+| `version` | string | 是 | 「ACR 工作」服務所剖析的 `acr-task.yaml` 檔案版本。 在「ACR 工作」努力維持回溯相容性的同時，此值則可讓「ACR 工作」在已定義的版本內維持相容性。 If unspecified, defaults to the latest version. | 否 | None |
+| `stepTimeout` | 整數 (秒) | 是 | 步驟的可執行秒數上限。 If the property is specified on a task, it sets the default `timeout` property of all the steps. If the `timeout` property is specified on a step, it overrides the property provided by the task. | 是 | 600 (10 分鐘) |
+| `workingDirectory` | string | 是 | The working directory of the container during runtime. If the property is specified on a task, it sets the default `workingDirectory` property of all the steps. If specified on a step, it overrides the property provided by the task. | 是 | `$HOME` |
+| `env` | [字串, 字串, ...] | 是 |  Array of strings in `key=value` format that define the environment variables for the task. If the property is specified on a task, it sets the default `env` property of all the steps. If specified on a step, it overrides any environment variables inherited from the task. | None |
+| `secrets` | [secret, secret, ...] | 是 | Array of [secret](#secret) objects. | None |
+| `networks` | [network, network, ...] | 是 | Array of [network](#network) objects. | None |
 
 ### <a name="secret"></a>secret
 
-Secret 物件具有下列屬性。
+The secret object has the following properties.
 
 | 屬性 | Type | 選用 | 描述 | 預設值 |
 | -------- | ---- | -------- | ----------- | ------- |
-| `id` | string | 否 | 密碼的識別碼。 | None |
-| `keyvault` | string | 是 | Azure Key Vault 秘密 URL。 | None |
-| `clientID` | string | 是 | 適用于 Azure 資源之[使用者指派受控識別](container-registry-tasks-authentication-managed-identity.md)的用戶端識別碼。 | None |
+| `id` | string | 否 | The identifier of the secret. | None |
+| `keyvault` | string | 是 | The Azure Key Vault Secret URL. | None |
+| `clientID` | string | 是 | The client ID of the [user-assigned managed identity](container-registry-tasks-authentication-managed-identity.md) for Azure resources. | None |
 
 ### <a name="network"></a>網路
 
-Network 物件具有下列屬性。
+The network object has the following properties.
 
 | 屬性 | Type | 選用 | 描述 | 預設值 |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | string | 否 | 網路的名稱。 | None |
-| `driver` | string | 是 | 用來管理網路的驅動程式。 | None |
-| `ipv6` | bool | 是 | 是否啟用 IPv6 網路功能。 | `false` |
-| `skipCreation` | bool | 是 | 是否略過網路建立。 | `false` |
-| `isDefault` | bool | 是 | 網路是否為 Azure Container Registry 所提供的預設網路 | `false` |
+| `driver` | string | 是 | The driver to manage the network. | None |
+| `ipv6` | bool | 是 | Whether IPv6 networking is enabled. | `false` |
+| `skipCreation` | bool | 是 | Whether to skip network creation. | `false` |
+| `isDefault` | bool | 是 | Whether the network is a default network provided with Azure Container Registry | `false` |
 
 ## <a name="task-step-types"></a>工作步驟類型
 
@@ -119,7 +114,7 @@ Network 物件具有下列屬性。
 | --------- | ----------- |
 | [`build`](#build) | 使用熟悉的 `docker build` 語法來建置容器映像。 |
 | [`push`](#push) | 執行新建置或重新標記之映像的 `docker push` 以推送至容器登錄。 支援 Azure Container Registry、其他私人登錄，以及公用 Docker Hub。 |
-| [`cmd`](#cmd) | 以命令方式執行容器，並將參數傳遞給容器的 `[ENTRYPOINT]`。 `cmd` 步驟類型支援 `env`、`detach`和其他熟悉的 `docker run` 命令選項之類的參數，可讓您使用並行容器執行來進行單元和功能測試。 |
+| [`cmd`](#cmd) | 以命令方式執行容器，並將參數傳遞給容器的 `[ENTRYPOINT]`。 The `cmd` step type supports parameters like `env`, `detach`, and other familiar `docker run` command options, enabling unit and functional testing with concurrent container execution. |
 
 ## <a name="build"></a>build
 
@@ -138,13 +133,13 @@ steps:
 
 | 參數 | 描述 | 選用 |
 | --------- | ----------- | :-------: |
-| `-t` &#124; `--image` | 定義所建置映像的完整 `image:tag`。<br /><br />由於映像可能會用於內部工作驗證 (例如功能測試)，因此並非所有映像都需要 `push` 來推送至登錄。 不過，若要在工作執行內將某個映像執行個體化，則該映像確實需要一個可供參考的名稱。<br /><br />不同于 `az acr build`，執行 ACR 工作不會提供預設的推送行為。 使用「ACR 工作」時，預設案例會能夠建置、驗證，然後推送映像。 如需了解如何視需要推送所建置的映像，請參閱 [push](#push)。 | 是 |
-| `-f` &#124; `--file` | 指定傳遞給 `docker build` 的 Dockerfile。 如果未指定，則會假設使用內容根目錄中的預設 Dockerfile。 若要指定 Dockerfile，請傳遞相對於內容根目錄的檔案名。 | 是 |
+| `-t` &#124; `--image` | 定義所建置映像的完整 `image:tag`。<br /><br />由於映像可能會用於內部工作驗證 (例如功能測試)，因此並非所有映像都需要 `push` 來推送至登錄。 不過，若要在工作執行內將某個映像執行個體化，則該映像確實需要一個可供參考的名稱。<br /><br />Unlike `az acr build`, running ACR Tasks doesn't provide default push behavior. 使用「ACR 工作」時，預設案例會能夠建置、驗證，然後推送映像。 如需了解如何視需要推送所建置的映像，請參閱 [push](#push)。 | 是 |
+| `-f` &#124; `--file` | 指定傳遞給 `docker build` 的 Dockerfile。 如果未指定，則會假設使用內容根目錄中的預設 Dockerfile。 To specify a Dockerfile, pass the filename relative to the root of the context. | 是 |
 | `context` | 傳遞給 `docker build` 的根目錄。 每個工作的根目錄都會設定為共用的 [workingDirectory](#task-step-properties)，並且包含相關 Git 複製目錄的根目錄。 | 否 |
 
 ### <a name="properties-build"></a>屬性：build
 
-`build` 步驟類型支援下列屬性。 在這篇文章的工作[步驟屬性](#task-step-properties)一節中，尋找這些屬性的詳細資料。
+`build` 步驟類型支援下列屬性。 Find details of these properties in the [Task step properties](#task-step-properties) section of this article.
 
 | | | |
 | -------- | ---- | -------- |
@@ -216,7 +211,7 @@ steps:
 
 ### <a name="properties-push"></a>屬性：push
 
-`push` 步驟類型支援下列屬性。 在這篇文章的工作[步驟屬性](#task-step-properties)一節中，尋找這些屬性的詳細資料。
+`push` 步驟類型支援下列屬性。 Find details of these properties in the [Task step properties](#task-step-properties) section of this article.
 
 | | | |
 | -------- | ---- | -------- |
@@ -335,9 +330,9 @@ steps:
   - cmd: docker.io/bash:3.0 echo hello world
 ```
 
-藉由使用標準 `docker run` 映射參考慣例，`cmd` 可以從任何私人登錄或公用 Docker Hub 執行映射。 如果您要參考「ACR 工作」執行所在之相同登錄中的映像，則不需要指定任何登錄認證。
+By using the standard `docker run` image reference convention, `cmd` can run images from any private registry or the public Docker Hub. 如果您要參考「ACR 工作」執行所在之相同登錄中的映像，則不需要指定任何登錄認證。
 
-* 執行來自 Azure container registry 的映射。 下列範例假設您具有名為 `myregistry`的登錄，以及自訂映射 `myimage:mytag`。
+* Run an image that's from an Azure container registry. The following example assumes you have a registry named `myregistry`, and a custom image `myimage:mytag`.
 
     ```yml
     version: v1.1.0
@@ -345,11 +340,11 @@ steps:
         - cmd: myregistry.azurecr.io/myimage:mytag
     ```
 
-* 使用執行變數或別名將登錄參考一般化
+* Generalize the registry reference with a Run variable or alias
 
-    您不需要在 `acr-task.yaml` 檔案中硬式編碼您的登錄名稱，而可以使用[執行變數](#run-variables)或[別名](#aliases)讓它更具可攜性。 `Run.Registry` 變數或 `$Registry` 別名會在執行時間展開為工作執行所在的登錄名稱。
+    Instead of hard-coding your registry name in an `acr-task.yaml` file, you can make it more portable by using a [Run variable](#run-variables) or [alias](#aliases). The `Run.Registry` variable or `$Registry` alias expands at runtime to the name of the registry in which the task is executing.
 
-    例如，若要將上述工作一般化，使其可在任何 Azure container registry 中運作，請參考映射名稱中的 $Registry 變數：
+    For example, to generalize the preceding task so that it works in any Azure container registry, reference the $Registry variable in the image name:
 
     ```yml
     version: v1.1.0
@@ -364,26 +359,26 @@ steps:
 | 屬性 | Type | 選用 | 描述 | 預設值 |
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | bool | 是 | 執行時是否應將容器中斷連結。 | `false` |
-| `disableWorkingDirectoryOverride` | bool | 是 | 是否要停用 `workingDirectory` 覆寫功能。 搭配 `workingDirectory` 使用此項，即可完整控制容器的工作目錄。 | `false` |
+| `disableWorkingDirectoryOverride` | bool | 是 | Whether to disable `workingDirectory` override functionality. Use this in combination with `workingDirectory` to have complete control over the container's working directory. | `false` |
 | `entryPoint` | string | 是 | 覆寫步驟容器的 `[ENTRYPOINT]`。 | None |
 | `env` | [字串, 字串, ...] | 是 | `key=value` 格式的字串陣列，用來定義步驟的環境變數。 | None |
-| `expose` | [字串, 字串, ...] | 是 | 從容器公開的埠陣列。 |  None |
-| [`id`](#example-id) | string | 是 | 可唯一識別工作內的步驟。 工作內的其他步驟可以參考步驟的 `id`，例如使用 `when`進行相依性檢查。<br /><br />`id` 同時也是執行中容器的名稱。 舉例來說，在工作內其他容器中執行的程序可以參考 `id` 作為其 DNS 主機名稱，或藉由 docker logs [id] 來存取它。 | `acb_step_%d`，其中 `%d` 是 YAML 檔案中步驟上階的以零為基的索引 |
-| `ignoreErrors` | bool | 是 | 不論容器執行期間是否發生錯誤，是否將步驟標記為成功。 | `false` |
-| `isolation` | string | 是 | 容器的隔離等級。 | `default` |
+| `expose` | [字串, 字串, ...] | 是 | Array of ports that are exposed from the container. |  None |
+| [`id`](#example-id) | string | 是 | 可唯一識別工作內的步驟。 工作內的其他步驟可以參考步驟的 `id`，例如使用 `when`進行相依性檢查。<br /><br />`id` 同時也是執行中容器的名稱。 舉例來說，在工作內其他容器中執行的程序可以參考 `id` 作為其 DNS 主機名稱，或藉由 docker logs [id] 來存取它。 | `acb_step_%d`, where `%d` is the 0-based index of the step top-down in the YAML file |
+| `ignoreErrors` | bool | 是 | Whether to mark the step as successful regardless of whether an error occurred during container execution. | `false` |
+| `isolation` | string | 是 | The isolation level of the container. | `default` |
 | `keep` | bool | 是 | 在執行後是否應保留步驟的容器。 | `false` |
-| `network` | object | 是 | 識別執行容器的網路。 | None |
-| `ports` | [字串, 字串, ...] | 是 | 從容器發佈到主機的埠陣列。 |  None |
-| `pull` | bool | 是 | 是否要先強制提取容器，再執行它以防止任何快取行為。 | `false` |
-| `privileged` | bool | 是 | 是否要以特殊許可權模式執行容器。 | `false` |
-| `repeat` | int | 是 | 重複執行容器的重試次數。 | 0 |
-| `retries` | int | 是 | 容器失敗執行時嘗試的重試次數。 只有當容器的結束代碼不是零時，才會嘗試重試。 | 0 |
-| `retryDelay` | 整數 (秒) | 是 | 容器執行重試之間的延遲（以秒為單位）。 | 0 |
-| `secret` | object | 是 | 識別 Azure 資源的 Azure Key Vault 秘密或[受控識別](container-registry-tasks-authentication-managed-identity.md)。 | None |
-| `startDelay` | 整數 (秒) | 是 | 延遲容器執行的秒數。 | 0 |
+| `network` | object | 是 | Identifies a network in which the container runs. | None |
+| `ports` | [字串, 字串, ...] | 是 | Array of ports that are published from the container to the host. |  None |
+| `pull` | bool | 是 | Whether to force a pull of the container before executing it to prevent any caching behavior. | `false` |
+| `privileged` | bool | 是 | Whether to run the container in privileged mode. | `false` |
+| `repeat` | int | 是 | The number of retries to repeat the execution of a container. | 0 |
+| `retries` | int | 是 | The number of retries to attempt if a container fails its execution. A retry is only attempted if a container's exit code is non-zero. | 0 |
+| `retryDelay` | 整數 (秒) | 是 | The delay in seconds between retries of a container's execution. | 0 |
+| `secret` | object | 是 | Identifies an Azure Key Vault secret or [managed identity for Azure resources](container-registry-tasks-authentication-managed-identity.md). | None |
+| `startDelay` | 整數 (秒) | 是 | Number of seconds to delay a container's execution. | 0 |
 | `timeout` | 整數 (秒) | 是 | 終止步驟前可允許步驟執行的秒數上限。 | 600 |
 | [`when`](#example-when) | [字串, 字串, ...] | 是 | 設定步驟與工作內一或多個其他步驟的相依性。 | None |
-| `user` | string | 是 | 容器的使用者名稱或 UID | None |
+| `user` | string | 是 | The user name or UID of a container | None |
 | `workingDirectory` | string | 是 | 設定步驟的工作目錄。 「ACR 工作」預設會建立根目錄作為工作目錄。 不過，如果您的組建含有數個步驟，則可藉由指定相同的工作目錄，讓較前面的步驟與較後面的步驟共用成品。 | `$HOME` |
 
 ### <a name="examples-task-step-properties"></a>範例：工作步驟屬性
@@ -426,7 +421,7 @@ az acr run -f when-sequential-id.yaml https://github.com/Azure-Samples/acr-tasks
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/when-sequential-id.yaml -->
 [!code-yml[task](~/acr-tasks/when-sequential-id.yaml)]
 
-平行映射組建：
+Parallel images build:
 
 ```azurecli
 az acr run -f when-parallel.yaml https://github.com/Azure-Samples/acr-tasks.git
@@ -459,11 +454,11 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 * `Run.Branch`
 * `Run.TaskName`
 
-變數名稱一般一目了然。 常用變數的詳細資料如下所示。 從 YAML 版本 `v1.1.0`開始，您可以使用縮寫的預先定義工作[別名](#aliases)來取代大部分的執行變數。 例如，若要取代 `{{.Run.Registry}}`，請使用 `$Registry` 別名。
+The variable names are generally self-explanatory. Details follows for commonly used variables. As of YAML version `v1.1.0`, you can use an abbreviated, predefined [task alias](#aliases) in place of most run variables. For example, in place of `{{.Run.Registry}}`, use the `$Registry` alias.
 
 ### <a name="runid"></a>Run.ID
 
-每次執行時，都會透過 `az acr run`，或透過 `az acr task create`建立的觸發程式執行，都有唯一的識別碼。 此識別碼代表目前正在執行的「執行」。
+Each Run, through `az acr run`, or trigger based execution of tasks created through `az acr task create`, has a unique ID. 此識別碼代表目前正在執行的「執行」。
 
 通常用來唯一標記某個映像：
 
@@ -483,9 +478,9 @@ steps:
   - build: -t $Registry/hello-world:$ID .
 ```
 
-### <a name="runregistryname"></a>執行. 于: registryname
+### <a name="runregistryname"></a>Run.RegistryName
 
-容器登錄的名稱。 通常用於不需要完整伺服器名稱的工作步驟中，例如，`cmd` 在登錄上執行 Azure CLI 命令的步驟。
+The name of the container registry. Typically used in task steps that don't require a fully qualified server name, for example, `cmd` steps that run Azure CLI commands on registries.
 
 ```yml
 version 1.1.0
@@ -499,27 +494,27 @@ steps:
 
 執行開始的目前 UTC 時間。
 
-### <a name="runcommit"></a>執行. Commit
+### <a name="runcommit"></a>Run.Commit
 
-對於由 GitHub 存放庫認可所觸發的工作，認可識別碼。
+For a task triggered by a commit to a GitHub repository, the commit identifier.
 
-### <a name="runbranch"></a>執行分支
+### <a name="runbranch"></a>Run.Branch
 
-對於由 GitHub 存放庫認可所觸發的工作，則為分支名稱。
+For a task triggered by a commit to a GitHub repository, the branch name.
 
 ## <a name="aliases"></a>別名
 
-從 `v1.1.0`，ACR 工作支援執行時可供工作步驟使用的別名。 別名類似于 bash 中支援的別名（命令快捷方式）和一些其他命令 shell。 
+As of `v1.1.0`, ACR Tasks supports aliases that are available to task steps when they execute. Aliases are similar in concept to aliases (command shortcuts) supported in bash and some other command shells. 
 
-使用別名時，您可以藉由輸入單一單字，啟動任何命令或命令群組（包括選項和檔案名）。
+With an alias, you can launch any command or group of commands (including options and filenames) by entering a single word.
 
-ACR 工作支援數個預先定義的別名，以及您所建立的自訂別名。
+ACR Tasks supports several predefined aliases and also custom aliases you create.
 
-### <a name="predefined-aliases"></a>預先定義的別名
+### <a name="predefined-aliases"></a>Predefined aliases
 
-下列工作別名可用於取代[執行變數](#run-variables)：
+The following task aliases are available to use in place of [run variables](#run-variables):
 
-| Alias | 執行變數 |
+| Alias | Run variable |
 | ----- | ------------ |
 | `ID` | `Run.ID` |
 | `SharedVolume` | `Run.SharedVolume` |
@@ -531,7 +526,7 @@ ACR 工作支援數個預先定義的別名，以及您所建立的自訂別名�
 | `Commit` | `Run.Commit` |
 | `Branch` | `Run.Branch` |
 
-在 [工作步驟] 中，在別名前面加上 `$` 指示詞，如下列範例所示：
+In task steps, precede an alias with the `$` directive, as in this example:
 
 ```yaml
 version: v1.1.0
@@ -539,18 +534,18 @@ steps:
   - build: -t $Registry/hello-world:$ID -f hello-world.dockerfile .
 ```
 
-### <a name="image-aliases"></a>影像別名
+### <a name="image-aliases"></a>Image aliases
 
-下列每個別名都會指向 Microsoft Container Registry （MCR）中的穩定映射。 您可以在工作檔案的 [`cmd`] 區段中參考每個專案，而不使用指示詞。
+Each of the following aliases points to a stable image in Microsoft Container Registry (MCR). You can refer to each of them in the `cmd` section of a Task file without using a directive.
 
-| Alias | 映像 |
+| Alias | 影像 |
 | ----- | ----- |
 | `acr` | `mcr.microsoft.com/acr/acr-cli:0.1` |
 | `az` | `mcr.microsoft.com/acr/azure-cli:d0725bc` |
 | `bash` | `mcr.microsoft.com/acr/bash:d0725bc` |
 | `curl` | `mcr.microsoft.com/acr/curl:d0725bc` |
 
-下列範例工作會使用數個別名，在執行登錄中的存放庫 `samples/hello-world` 中[清除](container-registry-auto-purge.md)7 天之前的映射標記：
+The following example task uses several aliases to [purge](container-registry-auto-purge.md) image tags older than 7 days in the repo `samples/hello-world` in the run registry:
 
 ```yaml
 version: v1.1.0
@@ -559,9 +554,9 @@ steps:
   - cmd: acr purge --registry $RegistryName --filter samples/hello-world:.* --ago 7d
 ```
 
-### <a name="custom-alias"></a>自訂別名
+### <a name="custom-alias"></a>Custom alias
 
-在 YAML 檔案中定義自訂別名並加以使用，如下列範例所示。 別名只能包含英數位元。 展開別名的預設指示詞是 `$` 字元。
+Define a custom alias in your YAML file and use it as shown in the following example. An alias can contain only alphanumeric characters. The default directive to expand an alias is the `$` character.
 
 ```yml
 version: v1.1.0
@@ -572,7 +567,7 @@ steps:
   - build: -t $Registry/$repo/hello-world:$ID -f Dockerfile .
 ```
 
-您可以連結至遠端或本機 YAML 檔案，以取得自訂別名定義。 下列範例會連結至 Azure blob 儲存體中的 YAML 檔案：
+You can link to a remote or local YAML file for custom alias definitions. The following example links to a YAML file in Azure blob storage:
 
 ```yml
 version: v1.1.0

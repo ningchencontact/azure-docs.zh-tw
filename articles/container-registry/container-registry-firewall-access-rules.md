@@ -1,53 +1,48 @@
 ---
-title: 存取 Azure Container Registry 的防火牆規則
-description: 設定規則, 以從防火牆後方存取 Azure container registry。
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Firewall access rules
+description: Configure rules to access an Azure container registry from behind a firewall.
 ms.topic: article
 ms.date: 07/17/2019
-ms.author: danlep
-ms.openlocfilehash: 88b6da4e9bd2938adadadc1ef0e696399fc3c75e
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 6a0a169f7e5a7e07771cb9fee474b7f4a9391a4e
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827998"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455178"
 ---
-# <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>設定規則以存取防火牆後方的 Azure container registry
+# <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configure rules to access an Azure container registry behind a firewall
 
-本文說明如何在防火牆上設定規則, 以允許存取 Azure container registry。 例如, 位於防火牆或 proxy 伺服器後方的 Azure IoT Edge 裝置可能需要存取容器登錄來提取容器映射。 或者, 在內部部署網路中鎖定的伺服器可能需要存取以推送映射。
+This article explains how to configure rules on your firewall to allow access to an Azure container registry. For example, an Azure IoT Edge device behind a firewall or proxy server might need to access a container registry to pull a container image. Or, a locked-down server in an on-premises network might need access to push an image.
 
-如果您想要將容器登錄上的輸入網路存取規則設定為只允許在 Azure 虛擬網路或公用 IP 位址範圍內進行存取, 請參閱[限制從虛擬網路存取 azure container registry](container-registry-vnet.md)。
+If instead you want to configure inbound network access rules on a container registry to allow access only within an Azure virtual network or a public IP address range, see [Restrict access to an Azure container registry from a virtual network](container-registry-vnet.md).
 
-## <a name="about-registry-endpoints"></a>關於登錄端點
+## <a name="about-registry-endpoints"></a>About registry endpoints
 
-若要將映射或其他成品提取或推送至 Azure container registry, 用戶端 (例如 Docker daemon) 必須透過 HTTPS 與兩個不同的端點進行互動。
+To pull or push images or other artifacts to an Azure container registry, a client such as a Docker daemon needs to interact over HTTPS with two distinct endpoints.
 
-* 登錄**REST API 端點**-驗證和登錄管理作業會透過登錄的公用 REST API 端點來處理。 此端點是登錄的登入伺服器 URL, 或相關聯的 IP 位址範圍。 
+* **Registry REST API endpoint** - Authentication and registry management operations are handled through the registry's public REST API endpoint. This endpoint is the login server URL of the registry, or an associated IP address range. 
 
-* **儲存體端點**-azure 會代表每個登錄來配置 azure 儲存體帳戶中的[blob 儲存體](container-registry-storage.md), 以管理容器映射和其他成品。 當用戶端存取 Azure container registry 中的映射層時, 它會使用登錄所提供的儲存體帳戶端點來提出要求。
+* **Storage endpoint** - Azure [allocates blob storage](container-registry-storage.md) in Azure storage accounts on behalf of each registry to manage container images and other artifacts. When a client accesses image layers in an Azure container registry, it makes requests using a storage account endpoint provided by the registry.
 
-如果您的登錄是[異地](container-registry-geo-replication.md)複寫的, 用戶端可能需要與特定區域或多個複寫區域中的 REST 和儲存體端點互動。
+If your registry is [geo-replicated](container-registry-geo-replication.md), a client might need to interact with REST and storage endpoints in a specific region or in multiple replicated regions.
 
-## <a name="allow-access-to-rest-and-storage-urls"></a>允許存取 REST 和儲存體 Url
+## <a name="allow-access-to-rest-and-storage-urls"></a>Allow access to REST and storage URLs
 
-* **REST 端點**-允許存取登錄伺服器 URL, 例如`myregistry.azurecr.io`
-* **儲存體端點**-允許使用萬用字元存取所有 Azure blob 儲存體帳戶`*.blob.core.windows.net`
+* **REST endpoint** - Allow access to the registry server URL, such as  `myregistry.azurecr.io`
+* **Storage endpoint** - Allow access to all Azure blob storage accounts using the wildcard `*.blob.core.windows.net`
 
 
-## <a name="allow-access-by-ip-address-range"></a>允許依 IP 位址範圍存取
+## <a name="allow-access-by-ip-address-range"></a>Allow access by IP address range
 
-如果您需要允許存取特定的 IP 位址, 請下載[AZURE IP 範圍和服務標籤–公用雲端](https://www.microsoft.com/download/details.aspx?id=56519)。
+If you need to allow access to specific IP addresses, download [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
 
-若要尋找 ACR REST 端點 IP 範圍, 請在 JSON 檔案中搜尋**AzureContainerRegistry** 。
+To find the ACR REST endpoint IP ranges, search for **AzureContainerRegistry** in the JSON file.
 
 > [!IMPORTANT]
-> Azure 服務的 IP 位址範圍可能會變更, 並每週發佈更新。 定期下載 JSON 檔案, 並在您的存取規則中進行必要的更新。 如果您的案例牽涉到在 Azure 虛擬網路中設定網路安全性群組規則來存取 Azure Container Registry, 請改用**AzureContainerRegistry** [服務標記](#allow-access-by-service-tag)。
+> IP address ranges for Azure services can change, and updates are published weekly. Download the JSON file regularly, and make necessary updates in your access rules. If your scenario involves configuring network security group rules in an Azure virtual network to access Azure Container Registry, use the **AzureContainerRegistry** [service tag](#allow-access-by-service-tag) instead.
 >
 
-### <a name="rest-ip-addresses-for-all-regions"></a>所有區域的 REST IP 位址
+### <a name="rest-ip-addresses-for-all-regions"></a>REST IP addresses for all regions
 
 ```json
 {
@@ -63,9 +58,9 @@ ms.locfileid: "68827998"
     [...]
 ```
 
-### <a name="rest-ip-addresses-for-a-specific-region"></a>特定區域的 REST IP 位址
+### <a name="rest-ip-addresses-for-a-specific-region"></a>REST IP addresses for a specific region
 
-搜尋特定的區域, 例如**AzureContainerRegistry. AustraliaEast**。
+Search for the specific region, such as **AzureContainerRegistry.AustraliaEast**.
 
 ```json
 {
@@ -81,7 +76,7 @@ ms.locfileid: "68827998"
     [...]
 ```
 
-### <a name="storage-ip-addresses-for-all-regions"></a>所有區域的儲存體 IP 位址
+### <a name="storage-ip-addresses-for-all-regions"></a>Storage IP addresses for all regions
 
 ```json
 {
@@ -97,9 +92,9 @@ ms.locfileid: "68827998"
     [...]
 ```
 
-### <a name="storage-ip-addresses-for-specific-regions"></a>特定區域的儲存體 IP 位址
+### <a name="storage-ip-addresses-for-specific-regions"></a>Storage IP addresses for specific regions
 
-搜尋特定的區域, 例如**AustraliaCentral**。
+Search for the specific region, such as **Storage.AustraliaCentral**.
 
 ```json
 {
@@ -115,17 +110,17 @@ ms.locfileid: "68827998"
     [...]
 ```
 
-## <a name="allow-access-by-service-tag"></a>允許依服務標記存取
+## <a name="allow-access-by-service-tag"></a>Allow access by service tag
 
-在 Azure 虛擬網路中, 使用網路安全性規則來篩選來自資源 (例如虛擬機器) 至容器登錄的流量。 若要簡化 Azure 網路規則的建立, 請使用**AzureContainerRegistry** [服務標記](../virtual-network/security-overview.md#service-tags)。 服務標籤代表一組 IP 位址首碼, 可存取全域或每個 Azure 區域的 Azure 服務。 當地址變更時, 會自動更新標記。 
+In an Azure virtual network, use network security rules to filter traffic from a resource such as a virtual machine to a container registry. To simplify the creation of the Azure network rules, use the **AzureContainerRegistry** [service tag](../virtual-network/security-overview.md#service-tags). A service tag represents a group of IP address prefixes to access an Azure service globally or per Azure region. The tag is automatically updated when addresses change. 
 
-例如, 建立具有目的地**AzureContainerRegistry**的輸出網路安全性群組規則, 以允許 Azure container registry 的流量。 若只要在特定區域中允許存取服務標籤, 請以下列格式指定區域:**AzureContainerRegistry**。[*區功能變數名稱稱*]。
+For example, create an outbound network security group rule with destination **AzureContainerRegistry** to allow traffic to an Azure container registry. To allow access to the service tag only in a specific region, specify the region in the following format: **AzureContainerRegistry**.[*region name*].
 
 ## <a name="next-steps"></a>後續步驟
 
-* 瞭解[適用于網路安全性的 Azure 最佳作法](../security/fundamentals/network-best-practices.md)
+* Learn about [Azure best practices for network security](../security/fundamentals/network-best-practices.md)
 
-* 深入瞭解 Azure 虛擬網路中的[安全性群組](/azure/virtual-network/security-overview)
+* Learn more about [security groups](/azure/virtual-network/security-overview) in an Azure virtual network
 
 
 

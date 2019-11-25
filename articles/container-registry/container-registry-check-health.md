@@ -1,54 +1,49 @@
 ---
-title: 檢查 Azure Container Registry 中的登錄健全狀況
-description: 瞭解如何執行快速診斷命令, 以識別使用 Azure container registry 時的常見問題, 包括本機 Docker 設定和登錄的連線能力。
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Check registry health
+description: Learn how to run a quick diagnostic command to identify common problems when using an Azure container registry, including local Docker configuration and connectivity to the registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.author: danlep
-ms.openlocfilehash: 3511655d220ee85ce6b5744612e5d6fddafbe877
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ea4432c9e92c4a0380517e39678814e2d1cb3bfc
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68309724"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456404"
 ---
-# <a name="check-the-health-of-an-azure-container-registry"></a>檢查 Azure container registry 的健全狀況
+# <a name="check-the-health-of-an-azure-container-registry"></a>Check the health of an Azure container registry
 
-使用 Azure container registry 時, 您可能偶爾會遇到問題。 例如, 您可能無法提取容器映射, 因為您的本機環境中有 Docker 的問題。 或者, 網路問題可能會讓您無法連接到登錄。 
+When using an Azure container registry, you might occasionally encounter problems. For example, you might not be able to pull a container image because of an issue with Docker in your local environment. Or, a network issue might prevent you from connecting to the registry. 
 
-作為第一個診斷步驟, 請執行[az acr check-health][az-acr-check-health]命令, 以取得環境健全狀況的相關資訊, 並選擇性地存取目標登錄。 此命令適用于 Azure CLI 版本2.0.67 或更新版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
+As a first diagnostic step, run the [az acr check-health][az-acr-check-health] command to get information about the health of the environment and optionally access to a target registry. This command is available in Azure CLI version 2.0.67 or later. 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
 
-## <a name="run-az-acr-check-health"></a>執行 az acr check-health
+## <a name="run-az-acr-check-health"></a>Run az acr check-health
 
-下列範例顯示執行`az acr check-health`命令的不同方式。
+The follow examples show different ways to run the `az acr check-health` command.
 
 > [!NOTE]
-> 如果您在 Azure Cloud Shell 中執行命令, 則不會檢查本機環境。 不過, 您可以檢查目標登錄的存取權。
+> If you run the command in Azure Cloud Shell, the local environment is not checked. However, you can check the access to a target registry.
 
-### <a name="check-the-environment-only"></a>僅檢查環境
+### <a name="check-the-environment-only"></a>Check the environment only
 
-若要檢查本機 Docker daemon、CLI 版本和 Helm 用戶端設定, 請執行命令, 而不需要額外的參數:
+To check the local Docker daemon, CLI version, and Helm client configuration, run the command without additional parameters:
 
 ```azurecli
 az acr check-health
 ```
 
-### <a name="check-the-environment-and-a-target-registry"></a>檢查環境和目標登錄
+### <a name="check-the-environment-and-a-target-registry"></a>Check the environment and a target registry
 
-若要檢查登錄的存取權, 以及執行本機環境檢查, 請傳遞目標登錄的名稱。 例如:
+To check access to a registry as well as perform local environment checks, pass the name of a target registry. 例如：
 
 ```azurecli
 az acr check-health --name myregistry
 ```
 
-## <a name="error-reporting"></a>錯誤報表
+## <a name="error-reporting"></a>錯誤報告
 
-命令會將資訊記錄到標準輸出。 如果偵測到問題, 則會提供錯誤碼和描述。 如需有關程式碼和可能解決方案的詳細資訊, 請參閱[錯誤參考](container-registry-health-error-reference.md)。
+The command logs information to the standard output. If a problem is detected, it provides an error code and description. For more information about the codes and possible solutions, see the [error reference](container-registry-health-error-reference.md).
 
-根據預設, 命令會在發現錯誤時停止。 您也可以執行命令, 讓它提供所有健康情況檢查的輸出, 即使找到錯誤也一樣。 `--ignore-errors`新增參數, 如下列範例所示:
+By default, the command stops whenever it finds an error. You can also run the command so that it provides output for all health checks, even if errors are found. Add the `--ignore-errors` parameter, as shown in the following examples:
 
 ```azurecli
 # Check environment only
@@ -79,9 +74,9 @@ Fetch access token for registry 'myregistry.azurecr.io' : OK
 
 ## <a name="next-steps"></a>後續步驟
 
-如需[az acr check-health][az-acr-check-health]命令所傳回之錯誤碼的詳細資訊, 請參閱[健康情況檢查錯誤參考](container-registry-health-error-reference.md)。
+For details about error codes returned by the [az acr check-health][az-acr-check-health] command, see the [Health check error reference](container-registry-health-error-reference.md).
 
-如需有關 Azure Container Registry 的常見問題和其他已知問題, 請參閱[常見問題](container-registry-faq.md)。
+See the [FAQ](container-registry-faq.md) for frequently asked questions and other known issues about Azure Container Registry.
 
 
 

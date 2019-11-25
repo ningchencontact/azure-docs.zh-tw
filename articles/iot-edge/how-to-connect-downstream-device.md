@@ -1,6 +1,6 @@
 ---
 title: 連線下游裝置 - Azure IoT Edge | Microsoft Docs
-description: 如何設定下游或分葉裝置，以連線到 Azure IoT Edge 閘道裝置。
+description: How to configure downstream or leaf devices to connect to Azure IoT Edge gateway devices.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,23 +8,22 @@ ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: c37c3ed2031746d7c476850749bb3dc613252654
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 719ec736fd2f28f8d8b3b226109bc988c872d10f
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176800"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457131"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>將下游裝置連線到 Azure IoT Edge 閘道
 
-本文提供在下游裝置與 IoT Edge 透明閘道之間建立信任連線的指示。 在透明閘道案例中，一或多個裝置可以透過維護連線以 IoT 中樞的單一閘道裝置，傳遞其訊息。 下游裝置可以是使用 [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub)雲端服務建立身分識別的任何應用程式或平台。 在許多情況下，這些應用程式都會使用 [Azure IoT 裝置 SDK](../iot-hub/iot-hub-devguide-sdks.md)。 下游裝置甚至可以是在 IoT Edge 閘道裝置本身上執行的應用程式。 
+This article provides instructions for establishing a trusted connection between downstream devices and IoT Edge transparent gateways. In a transparent gateway scenario, one or more devices can pass their messages through a single gateway device that maintains the connection to IoT Hub. 下游裝置可以是使用 [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub)雲端服務建立身分識別的任何應用程式或平台。 在許多情況下，這些應用程式都會使用 [Azure IoT 裝置 SDK](../iot-hub/iot-hub-devguide-sdks.md)。 A downstream device could even be an application running on the IoT Edge gateway device itself. 
 
-設定成功的透明閘道連線有三個一般步驟。 本文涵蓋第三個步驟：
+There are three general steps to set up a successful transparent gateway connection. This article covers the third step:
 
-1. 閘道裝置必須安全地連線到下游裝置、接收來自下游裝置的通訊，以及將訊息路由傳送至適當的目的地。 如需詳細資訊，請參閱[設定 IoT Edge 裝置以作為透明閘道](how-to-create-transparent-gateway.md)。
-2. 下游裝置需要裝置身分識別才能使用 IoT 中樞進行驗證，並知道要透過其閘道裝置進行通訊。 如需詳細資訊，請參閱[驗證下游裝置以 Azure IoT 中樞](how-to-authenticate-downstream-device.md)。
-3. **下游裝置必須能夠安全地連接到其閘道裝置。**
+1. The gateway device needs to securely connect to downstream devices, receive communications from downstream devices, and route messages to the proper destination. For more information, see [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md).
+2. The downstream device needs a device identity to be able to authenticate with IoT Hub, and know to communicate through its gateway device. For more information, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
+3. **The downstream device needs to be able to securely connect to its gateway device.**
 
 本文可透過下列方式，找出下游裝置連線的常見問題，並引導您設定下游裝置： 
 
@@ -36,34 +35,34 @@ ms.locfileid: "72176800"
 
 ## <a name="prerequisites"></a>必要條件 
 
-在 [設定 IoT Edge 裝置] 中產生的 [ **azure-iot-test-only.root.ca.cert.pem** ] 憑證檔案，以作為下游裝置上可用[的透明閘道](how-to-create-transparent-gateway.md)。 您的下游裝置會使用此憑證來驗證閘道裝置的身分識別。 
+Have the **azure-iot-test-only.root.ca.cert.pem** certificate file that was generated in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md) available on your downstream device. Your downstream device uses this certificate to validate the identity of the gateway device. 
 
 ## <a name="prepare-a-downstream-device"></a>準備下游裝置
 
-下游裝置可以是使用 [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub)雲端服務建立身分識別的任何應用程式或平台。 在許多情況下，這些應用程式都會使用 [Azure IoT 裝置 SDK](../iot-hub/iot-hub-devguide-sdks.md)。 下游裝置甚至可以是在 IoT Edge 閘道裝置本身上執行的應用程式。 不過，另一個 IoT Edge 裝置不能是 IoT Edge 閘道的下游。 
+下游裝置可以是使用 [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub)雲端服務建立身分識別的任何應用程式或平台。 在許多情況下，這些應用程式都會使用 [Azure IoT 裝置 SDK](../iot-hub/iot-hub-devguide-sdks.md)。 A downstream device could even be an application running on the IoT Edge gateway device itself. However, another IoT Edge device cannot be downstream of an IoT Edge gateway. 
 
 >[!NOTE]
->已在 IoT 中樞中註冊身分識別的 IoT 裝置，可以使用[模組 twins](../iot-hub/iot-hub-devguide-module-twins.md)來隔離單一裝置上的不同進程、硬體或功能。 IoT Edge 閘道支援使用對稱金鑰驗證（而不是 x.509 憑證驗證）的下游模組連線。 
+>IoT devices that have identities registered in IoT Hub can use [module twins](../iot-hub/iot-hub-devguide-module-twins.md) to isolate different process, hardware, or functions on a single device. IoT Edge gateways support downstream module connections using symmetric key authentication but not X.509 certificate authentication. 
 
 若要將下游裝置連線到 IoT Edge 閘道，您需要具備兩樣東西：
 
 * 使用附加資訊的 IoT 中樞裝置連接字串設定的裝置或應用程式，可將其連線至閘道。 
 
-    請在[驗證下游裝置以 Azure IoT 中樞](how-to-authenticate-downstream-device.md)中說明此步驟。
+    This step is explained in [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
-* 裝置或應用程式必須信任閘道的**根 CA**憑證，以驗證閘道裝置的 TLS 連線。 
+* The device or application has to trust the gateway's **root CA** certificate to validate the TLS connections to the gateway device. 
 
-    本文的其餘部分將詳細說明此步驟。 此步驟可以透過下列兩種方式執行：在作業系統的憑證存放區中安裝 CA 憑證，或使用 Azure IoT Sdk 在應用程式中參考憑證，以在特定語言中進行。
+    This step is explained in detail in the rest of this article. This step can be performed one of two ways: by installing the CA certificate in the operating system's certificate store, or (for certain languages) by referencing the certificate within applications using the Azure IoT SDKs.
 
 ## <a name="tls-and-certificate-fundamentals"></a>TLS 和憑證的基本概念
 
-安全地將下游裝置連線到 IoT Edge 的挑戰，如同網際網路上發生的其他任何安全用戶端/伺服器通訊。 用戶端和伺服器會透過網際網路，使用[傳輸層安全性 (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security) 安全地進行通訊。 TLS 是使用標準[公開金鑰基礎結構 (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure) 建構 (稱為憑證) 建置的。 TLS 是相當相關的規格，可解決與保護兩個端點有關的各種主題。 本節將摘要說明如何將裝置安全地連接到 IoT Edge 閘道的相關概念。
+安全地將下游裝置連線到 IoT Edge 的挑戰，如同網際網路上發生的其他任何安全用戶端/伺服器通訊。 用戶端和伺服器會透過網際網路，使用[傳輸層安全性 (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security) 安全地進行通訊。 TLS 是使用標準[公開金鑰基礎結構 (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure) 建構 (稱為憑證) 建置的。 TLS is a fairly involved specification and addresses a wide range of topics related to securing two endpoints. This section summarizes the concepts relevant for you to securely connect devices to an IoT Edge gateway.
 
-當用戶端連線到伺服器時，伺服器會顯示一連串的憑證，稱為*伺服器憑證鏈結*。 憑證鏈結通常會包含根憑證授權單位 (CA) 憑證、一個或多個中繼 CA 憑證，以及最後的伺服器憑證本身。 用戶端會以密碼編譯方式驗證整個伺服器憑證鏈結，藉此建立與伺服器的信任。 伺服器憑證鏈的這個用戶端驗證稱為*伺服器鏈驗證*。 用戶端密碼編譯會挑戰服務，以證明擁有與伺服器憑證相關聯的私密金鑰，此處理程式稱為「*擁有權證明*」。 伺服器鏈驗證和擁有證明的組合稱為*伺服器驗證*。 若要驗證伺服器憑證鏈結，用戶端需要一份用來建立 (或核發) 伺服器憑證的根 CA 憑證。 一般而言，當連線到網站時，瀏覽器已預先設定常用的 CA 憑證，讓用戶端的程序順暢進行。 
+當用戶端連線到伺服器時，伺服器會顯示一連串的憑證，稱為*伺服器憑證鏈結*。 憑證鏈結通常會包含根憑證授權單位 (CA) 憑證、一個或多個中繼 CA 憑證，以及最後的伺服器憑證本身。 用戶端會以密碼編譯方式驗證整個伺服器憑證鏈結，藉此建立與伺服器的信任。 This client validation of the server certificate chain is called *server chain validation*. The client cryptographically challenges the service to prove possession of the private key associated with the server certificate in a process called *proof of possession*. The combination of server chain validation and proof of possession is called *server authentication*. 若要驗證伺服器憑證鏈結，用戶端需要一份用來建立 (或核發) 伺服器憑證的根 CA 憑證。 一般而言，當連線到網站時，瀏覽器已預先設定常用的 CA 憑證，讓用戶端的程序順暢進行。 
 
 當裝置連線到 Azure IoT 中樞時，該裝置就是用戶端，而 IoT 中樞雲端服務則是伺服器。 IoT 中樞雲端服務是以稱為 **Baltimore CyberTrust Root** 的根 CA 憑證作為後盾，這是公開可用且最廣泛使用的憑證。 大多數裝置上已安裝 IoT 中樞 CA 憑證，因此許多 TLS 實作 (OpenSSL、Schannel、LibreSSL) 會自動在伺服器憑證驗證期間使用該憑證。 可成功連線到 IoT 中樞的裝置在嘗試連線到 IoT Edge 閘道時可能會發生問題。
 
-當裝置連線到 IoT Edge 閘道時，下游裝置就是用戶端，而閘道裝置則是伺服器。 但是，Azure IoT Edge 可讓操作員 (或使用者) 建置他們認為合適的閘道憑證鏈結。 操作員可以選擇使用公用 CA 憑證 (例如 Baltimore)，或使用自我簽署 (或內部) 的根 CA 憑證。 公用 CA 憑證通常會有與其相關聯的成本，因此通常用於實際執行案例中。 自我簽署的 CA 憑證慣用於開發和測試。 簡介中所列的透明閘道設定文章會使用自我簽署的根 CA 憑證。 
+當裝置連線到 IoT Edge 閘道時，下游裝置就是用戶端，而閘道裝置則是伺服器。 但是，Azure IoT Edge 可讓操作員 (或使用者) 建置他們認為合適的閘道憑證鏈結。 操作員可以選擇使用公用 CA 憑證 (例如 Baltimore)，或使用自我簽署 (或內部) 的根 CA 憑證。 公用 CA 憑證通常會有與其相關聯的成本，因此通常用於實際執行案例中。 自我簽署的 CA 憑證慣用於開發和測試。 The transparent gateway setup articles listed in the introduction use self-signed root CA certificates. 
 
 當您將自我簽署的根 CA 憑證用於 IoT Edge 閘道時，它必須安裝在或提供給嘗試連線到閘道的所有下游裝置。 
 
@@ -71,36 +70,36 @@ ms.locfileid: "72176800"
 
 若要深入了解 IoT Edge 憑證以及一些實際執行的影響，請參閱 [IoT Edge 憑證使用方式詳細資料](iot-edge-certs.md)。
 
-## <a name="provide-the-root-ca-certificate"></a>提供根 CA 憑證
+## <a name="provide-the-root-ca-certificate"></a>Provide the root CA certificate
 
-若要確認閘道裝置的憑證，下游裝置需要它自己的根 CA 憑證複本。 如果您使用 IoT Edge git 存放庫中提供的腳本來建立測試憑證，則根 CA 憑證稱為**azure-iot-test-only.root.ca.cert.pem**。 如果您還沒有做為其他下游裝置準備步驟的一部分，請將此憑證檔案移至下游裝置上的任何目錄。 您可以使用類似[Azure Key Vault](https://docs.microsoft.com/azure/key-vault)的服務或類似[安全複製通訊協定](https://www.ssh.com/ssh/scp/)的功能來移動憑證檔案。
+To verify the gateway device's certificates, the downstream device needs its own copy of the root CA certificate. If you used the scripts provided in the IoT Edge git repository to create test certificates, then the root CA certificate is called **azure-iot-test-only.root.ca.cert.pem**. If you haven't already as part of the other downstream device preparation steps, move this certificate file to any directory on your downstream device. You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate file.
 
-## <a name="install-certificates-in-the-os"></a>在 OS 中安裝憑證
+## <a name="install-certificates-in-the-os"></a>Install certificates in the OS
 
-在作業系統的憑證存放區中安裝根 CA 憑證，通常可讓大部分的應用程式使用根 CA 憑證。 有一些例外狀況，例如 NodeJS 不使用作業系統憑證存放區的應用程式，而是使用節點執行時間的內部憑證存放區。 如果您無法在作業系統層級安裝憑證，請直接跳至[使用憑證搭配 Azure IoT sdk](#use-certificates-with-azure-iot-sdks)。 
+Installing the root CA certificate in the operating system's certificate store generally allows most applications to use the root CA certificate. There are some exceptions, like NodeJS applications that don't use the OS certificate store but rather use the Node runtime's internal certificate store. If you can't install the certificate at the operating system level, skip ahead to [Use certificates with Azure IoT SDKs](#use-certificates-with-azure-iot-sdks). 
 
 ### <a name="ubuntu"></a>Ubuntu
 
-下列命令是如何在 Ubuntu 主機上安裝 CA 憑證的範例。 這個範例假設您使用的是必要條件文章中的**azure-iot-test-only.root.ca.cert.pem**憑證，而且您已將憑證複製到下游裝置上的某個位置。
+下列命令是如何在 Ubuntu 主機上安裝 CA 憑證的範例。 This example assumes that you're using the **azure-iot-test-only.root.ca.cert.pem** certificate from the prerequisites articles, and that you've copied the certificate into a location on the downstream device.
 
 ```bash
 sudo cp <path>/azure-iot-test-only.root.ca.cert.pem /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
 sudo update-ca-certificates
 ```
 
-您應該會看到訊息指出：「正在更新 /etc/ssl/certs 中的憑證...已新增 1 個，已移除 0 個；完成。」
+You should see a message that says, "Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done."
 
 ### <a name="windows"></a>Windows
 
-下列步驟是如何在 Windows 主機上安裝 CA 憑證的範例。 這個範例假設您使用的是必要條件文章中的**azure-iot-test-only.root.ca.cert.pem**憑證，而且您已將憑證複製到下游裝置上的某個位置。
+下列步驟是如何在 Windows 主機上安裝 CA 憑證的範例。 This example assumes that you're using the **azure-iot-test-only.root.ca.cert.pem** certificate from the prerequisites articles, and that you've copied the certificate into a location on the downstream device.
 
-您可以使用 PowerShell 的「匯[入憑證](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps)」作為系統管理員來安裝憑證：
+You can install certificates using PowerShell's [Import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) as an administrator:
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
 ```
 
-您也可以使用**certlm.msc**公用程式來安裝憑證： 
+You can also install certificates using the **certlm** utility: 
 
 1. 在 [開始] 功能表中，搜尋並選取 [管理電腦憑證]。 稱為 **certlm** 的公用程式隨即開啟。
 2. 瀏覽至 [憑證 - 本機電腦] >  [受信任的根憑證授權單位]。
@@ -117,15 +116,15 @@ import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorel
 
 使用應用程式層級的範例之前，請準備好兩件事：
 
-* 您的下游裝置的 IoT 中樞連接字串已修改為指向閘道裝置，以及驗證下游裝置以 IoT 中樞所需的任何憑證。 如需詳細資訊，請參閱[驗證下游裝置以 Azure IoT 中樞](how-to-authenticate-downstream-device.md)。
+* Your downstream device's IoT Hub connection string modified to point to the gateway device, and any certificates required to authenticate your downstream device to IoT Hub. For more information, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
 * 您複製並儲存在下游裝置上某個位置之根 CA 憑證的完整路徑。
 
-    例如，`<path>/azure-iot-test-only.root.ca.cert.pem`。 
+    例如： `<path>/azure-iot-test-only.root.ca.cert.pem` 。 
 
 ### <a name="nodejs"></a>NodeJS
 
-本節提供將 Azure IoT NodeJS 裝置用戶端連線到 IoT Edge 閘道的範例應用程式。 針對 NodeJS 應用程式，您必須在應用層級安裝根 CA 憑證，如下所示。 NodeJS 應用程式不會使用系統的憑證存放區。 
+本節提供將 Azure IoT NodeJS 裝置用戶端連線到 IoT Edge 閘道的範例應用程式。 For NodeJS applications, you must install the root CA certificate at the application level as shown here. NodeJS applications don't use the system's certificate store. 
 
 1. 從[適用於 Node.js 的 Azure IoT 裝置 SDK 範例存放庫](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)取得 **edge_downstream_device.js** 的範例。 
 2. 請檢閱 **readme.md** 檔案，以確定您擁有執行此範例的所有先決條件。 
@@ -182,32 +181,32 @@ var options = {
 
 本節介紹將 Azure IoT Python 裝置用戶端連線到 IoT Edge 閘道的範例應用程式。 
 
-1. 從[適用于 Python 的 Azure IoT 裝置 SDK 範例](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios)取得**send_message**的範例。 
-2. 請確定您是在 IoT Edge 容器中執行，或在偵錯工具案例中，已設定 `EdgeHubConnectionString` 和 `EdgeModuleCACertificateFile` 環境變數。
+1. Get the sample for **send_message** from the [Azure IoT device SDK for Python samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios). 
+2. Ensure that you are either running in an IoT Edge container, or in a debug scenario, have the `EdgeHubConnectionString` and `EdgeModuleCACertificateFile` environment variables set.
 3. 如需如何在裝置上執行此範例的指示，請參閱 SDK 文件。 
 
 
 ## <a name="test-the-gateway-connection"></a>測試閘道連線
 
-使用此範例命令來測試您的下游裝置是否可連線到閘道裝置： 
+Use this sample command to test that your downstream device can connect to the gateway device: 
 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
 
-此命令會測試透過 MQTTS （埠8883）的連線。 如果您要使用不同的通訊協定，請視需要調整 AMQPS （5671）或 HTTPS （433）的命令。
+This command tests connections over MQTTS (port 8883). If you're using a different protocol, adjust the command as neccessary for AMQPS (5671) or HTTPS (433).
 
-此命令的輸出可能很長，包括鏈中所有憑證的相關資訊。 如果您的連線成功，您會看到類似 `Verification: OK` 或 `Verify return code: 0 (ok)` 的一行。
+The output of this command may be long, including information about all the certificates in the chain. If your connection is successful, you'll see a line like `Verification: OK` or `Verify return code: 0 (ok)`.
 
-![驗證閘道連線](./media/how-to-connect-downstream-device/verification-ok.png)
+![Verify gateway connection](./media/how-to-connect-downstream-device/verification-ok.png)
 
-## <a name="troubleshoot-the-gateway-connection"></a>針對閘道連線進行疑難排解
+## <a name="troubleshoot-the-gateway-connection"></a>Troubleshoot the gateway connection
 
-如果您的分葉裝置與其閘道裝置的連線斷斷續續，請嘗試下列步驟以進行解析。 
+If your leaf device has intermittent connection to its gateway device, try the following steps for resolution. 
 
-1. 連接字串中的閘道主機名稱與閘道裝置上 IoT Edge yaml 檔案中的主機名稱值相同嗎？
-2. 閘道主機名稱是否可解析為 IP 位址？ 您可以使用 DNS 或在分葉裝置上新增主機檔案專案，來解決間歇性連線。
-3. 通訊埠是否在您的防火牆中開啟？ 下游裝置與透明 IoT Edge 之間必須可以根據所使用的通訊協定（MQTTS： 8883/AMQPS： 5671/HTTPS：433）進行通訊。
+1. Is the gateway hostname in the connection string the same as the hostname value in the IoT Edge config.yaml file on the gateway device?
+2. Is the gateway hostname resolvable to an IP Address? You can resolve intermittent connections either by using DNS or by adding a host file entry on the leaf device.
+3. Are communication ports open in your firewall? Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparent IoT Edge.
 
 ## <a name="next-steps"></a>後續步驟
 

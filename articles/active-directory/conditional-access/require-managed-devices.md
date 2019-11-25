@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 11/22/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31b7aa906cbefc0ffda707a228f2a9d50be351a8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 0caf8e8d5e18efc0a7332f97acccc394051ed360
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380040"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452390"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>How To: Require managed devices for cloud app access with Conditional Access
 
@@ -79,7 +79,7 @@ In your Conditional Access policy, you can select **Require Hybrid Azure AD join
 
 此選項要求向 Azure AD 註冊裝置，而且裝置要由下列項目標示為符合規範：
          
-- Intune。
+- Intune
 - 一個第三方行動裝置管理 (MDM) 系統，可透過 Azure AD 整合來管理 Windows 10 裝置。 不支援針對 Windows 10 以外的裝置 OS 類型使用的第三方 MDM 系統。
  
 ![裝置型條件](./media/require-managed-devices/46.png)
@@ -90,6 +90,9 @@ In your Conditional Access policy, you can select **Require Hybrid Azure AD join
 - 您的員工使用的行動裝置應用程式受到控管
 - 協助控制您的員工存取及共用公司資訊的方式，進而保護公司資訊
 - 裝置與其應用程式都符合公司安全性需求的規範
+
+> [!NOTE]
+> If you configure a policy to require compliant devices users may be prompted on Mac, iOS, and Android to select a device certificate during policy evaluation. This is a known behavior.
 
 ## <a name="next-steps"></a>後續步驟
 

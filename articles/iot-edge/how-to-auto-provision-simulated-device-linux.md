@@ -1,5 +1,5 @@
 ---
-title: 使用 DPS 自動布建 Linux 裝置-Azure IoT Edge |Microsoft Docs
+title: Automatically provision Linux devices with DPS - Azure IoT Edge | Microsoft Docs
 description: 在 Linux VM 上使用模擬的 TPM 來測試 Azure IoT Edge 的 Azure 裝置佈建服務
 author: kgremban
 manager: philmea
@@ -8,19 +8,18 @@ ms.date: 03/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 228851a0d528bfb222e5aa19880f856424e95ad1
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 292ae570d4f2ddd0c09e667860ee2ba01b9fc6b8
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828118"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457178"
 ---
-# <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>在 Linux 虛擬機器上使用虛擬 TPM 建立及布建 IoT Edge 裝置
+# <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Create and provision an IoT Edge device with a virtual TPM on a Linux virtual machine
 
-您可以使用裝置布建[服務](../iot-dps/index.yml)來自動布建 Azure IoT Edge 裝置。 如果您不熟悉自動佈建程序，請先檢閱[自動佈建概念](../iot-dps/concepts-auto-provisioning.md)，再繼續作業。
+Azure IoT Edge devices can be automatically provisioned using the [Device Provisioning Service](../iot-dps/index.yml). 如果您不熟悉自動佈建程序，請先檢閱[自動佈建概念](../iot-dps/concepts-auto-provisioning.md)，再繼續作業。
 
-本文說明如何使用下列步驟，在模擬的 IoT Edge 裝置上測試自動布建：
+This article shows you how to test auto-provisioning on a simulated IoT Edge device with the following steps:
 
 * 使用保護硬體的模擬信任平台模組 (TPM)，在 Hyper-V 中建立 Linux 虛擬機器 (VM)。
 * 建立 IoT 中樞裝置佈建服務 (DPS) 的執行個體。
@@ -28,28 +27,28 @@ ms.locfileid: "71828118"
 * 安裝 IoT Edge 執行階段，並將裝置連線至 IoT 中樞
 
 > [!NOTE]
-> 使用 TPM 證明搭配 DPS 時需要 TPM 2.0，而且只能用來建立個別的群組，而不能用來註冊。
+> TPM 2.0 is required when using TPM attestation with DPS and can only be used to create individual, not group, enrollments.
 
 > [!TIP]
-> 本文說明如何使用 TPM 模擬器測試 DPS 布建，但其中大部分適用于實體 TPM 硬體，例如[INFINEON OPTIGA&trade; TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board)、Azure IoT 認證裝置。
+> This article describes how to test DPS provisioning using a TPM simulator, but much of it applies to physical TPM hardware such as the [Infineon OPTIGA&trade; TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), an Azure Certified for IoT device.
 >
-> 如果您使用實體裝置，您可以直接跳至本文中的[從實體裝置取出](#retrieve-provisioning-information-from-a-physical-device)布建資訊一節。
+> If you're using a physical device, you can skip ahead to the [Retrieve provisioning information from a physical device](#retrieve-provisioning-information-from-a-physical-device) section in this article.
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * [已啟用 Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) 的 Windows 開發機器。 本文使用執行 Ubuntu Server VM 的 Windows 10。
 * 使用中的 IoT 中樞。
-* 如果使用模擬的 TPM，請在啟用「[桌面開發與C++ ](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 」工作負載的情況下[Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 或更新版本。
+* If using a simulated TPM, [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
 
 ## <a name="create-a-linux-virtual-machine-with-a-virtual-tpm"></a>使用虛擬 TPM 建立 Linux 虛擬機器
 
-在本節中，您會在 Hyper-v 上建立新的 Linux 虛擬機器。 您已使用模擬 TPM 設定此虛擬機器，以便用來測試自動布建如何與 IoT Edge 搭配運作。 
+In this section, you create a new Linux virtual machine on Hyper-V. You configured this virtual machine with a simulated TPM so that you can use it for testing how automatic provisioning works with IoT Edge. 
 
 ### <a name="create-a-virtual-switch"></a>建立虛擬交換器
 
 虛擬交換器可讓您的虛擬機器連線至實體網路。
 
-1. 在您的 Windows 電腦上開啟 [Hyper-v 管理員]。 
+1. Open Hyper-V Manager on your Windows machine. 
 
 2. 在 [動作] 功能表中，選取 [虛擬交換器管理員]。 
 
@@ -65,23 +64,23 @@ ms.locfileid: "71828118"
 
 1. 下載要用於虛擬機器的磁碟映像檔，並將其儲存於本機。 例如 [Ubuntu Server](https://www.ubuntu.com/download/server)。 
 
-2. 在 [Hyper-v 管理員] 中，選取 [**動作**] 功能表中的 [**新增** > **虛擬機器**]。
+2. In Hyper-V Manager again, select **New** > **Virtual Machine** in the **Actions** menu.
 
 3. 使用下列特定組態完成 [新增虛擬機器精靈]：
 
-   1. **指定世代**：選取 [第 2 代]。 第2代虛擬機器已啟用「嵌套虛擬化」，這是在虛擬機器上執行 IoT Edge 的必要功能。
+   1. **指定世代**：選取 [第 2 代]。 Generation 2 virtual machines have nested virtualization enabled, which is required to run IoT Edge on a virtual machine.
    2. **設定網路功能**：將 [連線] 的值設定為您在上一節中建立的虛擬交換器。 
    3. **安裝選項**：選取 [從可開機映像檔安裝作業系統]，並瀏覽至您在本機儲存的磁碟映像檔。
 
-4. 選取 wizard 中的 **[完成**] 以建立虛擬機器。
+4. Select **Finish** in the wizard to create the virtual machine.
 
 系統可能需要幾分鐘的時間來建立新的 VM。 
 
 ### <a name="enable-virtual-tpm"></a>啟用虛擬 TPM
 
-建立 VM 之後，請開啟其設定以啟用可讓您自動布建裝置的虛擬可信賴平臺模組（TPM）。
+Once your VM is created, open its settings to enable the virtual trusted platform module (TPM) that lets you auto-provision the device.
 
-1. 選取虛擬機器，然後開啟其**設定**。
+1. Select the virtual machine, then open its **Settings**.
 
 2. 瀏覽至 [安全性]。 
 
@@ -93,18 +92,18 @@ ms.locfileid: "71828118"
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>啟動虛擬機器，並收集 TPM 資料
 
-在虛擬機器中，建立可用來抓取裝置之**註冊識別碼**和**簽署金鑰**的工具。
+In the virtual machine, build a tool that you can use to retrieve the device's **Registration ID** and **Endorsement key**.
 
-1. 啟動您的虛擬機器並與其連線。
+1. Start your virtual machine and connect to it.
 
-1. 依照虛擬機器中的提示完成安裝程式，並重新啟動電腦。
+1. Follow the prompts within the virtual machine to finish the installation process and reboot the machine.
 
-1. 登入您的 VM，然後依照[設定 Linux 開發環境](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux)中的步驟來安裝和建立適用于 C 的 Azure IOT 裝置 SDK。
+1. Sign in to your VM, then follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C.
 
    >[!TIP]
-   >在本文的過程中，您將會複製並貼上虛擬機器，這不容易透過 Hyper-v 管理員連線應用程式。 您可能想要透過 Hyper-v 管理員連接到虛擬機器一次，以取得其 IP 位址： `ifconfig`。 然後，您可以使用 IP 位址透過 SSH： `ssh <username>@<ipaddress>`進行連線。
+   >In the course of this article, you'll copy to and paste from the virtual machine, which is not easy through the Hyper-V Manager connection application. You may want to connect to the virtual machine through Hyper-V Manager once to retrieve its IP address: `ifconfig`. Then, you can use the IP address to connect through SSH: `ssh <username>@<ipaddress>`.
 
-1. 執行下列命令，以建立可從 TPM 模擬器抓取裝置布建資訊的 SDK 工具。
+1. Run the following commands to build the SDK tool that retrieves your device provisioning information from the TPM simulator.
 
    ```bash
    cd azure-iot-sdk-c/cmake
@@ -114,27 +113,27 @@ ms.locfileid: "71828118"
    sudo ./tpm_device_provision
    ```
 
-1. 從命令視窗中，流覽至 `azure-iot-sdk-c` 目錄，然後執行 TPM 模擬器。 它會透過連接埠 2321年和 2322 上的通訊端接聽。 請勿關閉此命令視窗;您將需要讓此模擬器保持執行狀態。
+1. From a command window, navigate to the `azure-iot-sdk-c` directory and run the TPM simulator. 它會透過連接埠 2321年和 2322 上的通訊端接聽。 Do not close this command window; you will need to keep this simulator running.
 
-   從 `azure-iot-sdk-c` 目錄中，執行下列命令以啟動模擬器：
+   From the `azure-iot-sdk-c` directory, run the following command to start the simulator:
 
    ```bash
    ./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe
    ```
 
-1. 使用 Visual Studio，開啟在名為 `azure_iot_sdks.sln`的 `cmake` 目錄中產生的方案，然後使用 [**建立**] 功能表上的 [**建立方案**] 命令來建立解決方案。
+1. Using Visual Studio, open the solution generated in the `cmake` directory named `azure_iot_sdks.sln`, and build it using the **Build solution** command on the **Build** menu.
 
 1. 在 Visual Studio 的 [方案總管] 窗格中，瀏覽至 **Provision\_Tools** 資料夾。 以滑鼠右鍵按一下 **tpm_device_provision** 專案，然後選取 [設為起始專案]。
 
-1. 使用 [**調試**] 功能表上的任一 [**啟動**] 命令來執行方案。 [輸出] 視窗會顯示 TPM 模擬器的**註冊識別碼**和**簽署金鑰**，當您在中建立裝置的個別註冊時，您可以將其複製以供稍後使用。您可以關閉此視窗（使用註冊識別碼和簽署金鑰），但讓 TPM 模擬器視窗保持執行狀態。
+1. Run the solution using either of the **Start** commands on the **Debug** menu. The output window displays the TPM simulator's **Registration ID** and the **Endorsement key**, which you should copy for use later when you create an individual enrollment for your device in You can close this window (with Registration ID and Endorsement key), but leave the TPM simulator window running.
 
-## <a name="retrieve-provisioning-information-from-a-physical-device"></a>從實體裝置取出布建資訊
+## <a name="retrieve-provisioning-information-from-a-physical-device"></a>Retrieve provisioning information from a physical device
 
-在您的裝置上，建立可用來取出裝置布建資訊的工具。
+On your device, build a tool that you can use to retrieve the device's provisioning information.
 
-1. 請依照[設定 Linux 開發環境](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux)中的步驟來安裝和建立適用于 C 的 Azure IOT 裝置 SDK。
+1. Follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C.
 
-1. 執行下列命令，以建立可從 TPM 裝置抓取裝置布建資訊的 SDK 工具。
+1. Run the following commands to build the SDK tool that retrieves your device provisioning information from the TPM device.
 
    ```bash
    cd azure-iot-sdk-c/cmake
@@ -144,7 +143,7 @@ ms.locfileid: "71828118"
    sudo ./tpm_device_provision
    ```
 
-1. 複製 [**註冊識別碼**] 和 [**簽署金鑰**] 的值。 您可以使用這些值為 DPS 中的裝置建立個別的註冊。
+1. Copy the values for **Registration ID** and **Endorsement key**. 您可以使用這些值為 DPS 中的裝置建立個別的註冊。
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>設定 IoT 中樞裝置佈建服務
 
@@ -158,7 +157,7 @@ ms.locfileid: "71828118"
 
 在 DPS 中建立註冊時，您就有機會宣告**初始裝置對應項狀態**。 在裝置對應項中，您可以根據解決方案中需要的任何計量 (例如區域、環境、位置或裝置類型) 來設定標記，進而將裝置分組。 這些標記會用來建立[自動部署](how-to-deploy-monitor.md)。 
 
-1. 在  [Azure 入口網站](https://portal.azure.com)中，流覽至您的 IoT 中樞裝置佈建服務實例。 
+1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service. 
 
 2. 在 [設定] 下方，選取 [管理註冊]。 
 
@@ -166,18 +165,18 @@ ms.locfileid: "71828118"
 
    1. 針對 [機制]，選取 [TPM]。 
 
-   2. 提供您從虛擬機器複製的 [**簽署金鑰**] 和 [**註冊識別碼**]。
+   2. Provide the **Endorsement key** and **Registration ID** that you copied from your virtual machine.
 
       > [!TIP]
-      > 如果您使用實體 TPM 裝置，您必須判斷**簽署金鑰**，這對每個 tpm 晶片而言都是唯一的，而且是從與其相關聯的 tpm 晶片製造商取得。 您可以藉由建立簽署金鑰的 SHA-256 雜湊，為您的 TPM 裝置衍生唯一的**註冊識別碼**。
+      > If you're using a physical TPM device, you need to determine the **Endorsement key**, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. You can derive a unique **Registration ID** for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
 
-   3. 選取 [ **True** ] 以宣告這部虛擬機器是 IoT Edge 裝置。 
+   3. Select **True** to declare that this virtual machine is an IoT Edge device. 
 
-   4. 選擇您的裝置所要連接的連結 **IoT 中樞**。 您可以選擇多個中樞，並根據選取的配置原則，將裝置指派給其中一個。 
+   4. 選擇您的裝置所要連接的連結 **IoT 中樞**。 You can choose multiple hubs, and the device will be assigned to one of them according to the selected allocation policy. 
 
-   5. 視需要提供裝置的識別碼。 您可以使用裝置識別碼，將個別裝置設為模組部署的目標。 如果您未提供裝置識別碼，則會使用註冊識別碼。
+   5. 視需要提供裝置的識別碼。 您可以使用裝置識別碼，將個別裝置設為模組部署的目標。 If you don't provide a device ID, the registration ID is used.
 
-   6. 視需要將標記值新增至 [初始裝置對應項狀態]。 您可以使用標記將裝置群組設定為模組部署的目標。 例如︰ 
+   6. 視需要將標記值新增至 [初始裝置對應項狀態]。 您可以使用標記將裝置群組設定為模組部署的目標。 例如： 
 
       ```json
       {
@@ -190,9 +189,9 @@ ms.locfileid: "71828118"
       }
       ```
 
-   7. 選取 [ **儲存**]。 
+   7. 選取 [儲存]。 
 
-現在此裝置已有註冊，IoT Edge 執行時間可以在安裝期間自動布建裝置。 
+Now that an enrollment exists for this device, the IoT Edge runtime can automatically provision the device during installation. 
 
 ## <a name="install-the-iot-edge-runtime"></a>安裝 IoT Edge 執行階段
 
@@ -200,7 +199,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容
 
 開始閱讀您的裝置類型適用的文章之前，請先了解您的 DPS [識別碼範圍] 和裝置的 [註冊識別碼]。 如果您安裝了範例 Ubuntu Server，請使用 **x64** 指示。 請務必將 IoT Edge 執行階段設定為自動佈建，而不是手動佈建。 
 
-[在 Linux 上安裝 Azure IoT Edge 執行時間](how-to-install-iot-edge-linux.md)
+[Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md)
 
 ## <a name="give-iot-edge-access-to-the-tpm"></a>為 IoT Edge 指定對 TPM 的存取權
 
@@ -263,7 +262,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容
    sudo systemctl restart iotedge
    ```
 
-確認有看到 IoT Edge 執行階段正在執行。 
+確認 IoT Edge 執行階段正在執行。 
 
    ```bash
    sudo systemctl status iotedge
@@ -299,7 +298,7 @@ journalctl -u iotedge --no-pager --no-full
 iotedge list
 ```
 
-您可以確認已使用您在裝置布建服務中建立的個別註冊。 在 Azure 入口網站中，流覽至您的裝置布建服務實例。 開啟您所建立之個別註冊的註冊詳細資料。 請注意，註冊的狀態會被**指派**，且會列出裝置識別碼。 
+You can verify that the individual enrollment that you created in Device Provisioning Service was used. Navigate to your Device Provisioning Service instance in the Azure portal. Open the enrollment details for the individual enrollment that you created. Notice that the status of the enrollment is **assigned** and the device ID is listed. 
 
 ## <a name="next-steps"></a>後續步驟
 

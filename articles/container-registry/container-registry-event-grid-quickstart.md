@@ -1,22 +1,17 @@
 ---
-title: 快速入門 - 將 Azure Container Registry 事件傳送至事件方格
+title: Quickstart - Send events to Event Grid
 description: 在本快速入門中，您可以針對容器登錄啟用事件方格事件，然後將容器映像推送和刪除事件傳送至範例應用程式。
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
-ms.author: danlep
 ms.custom: seodec18
-ms.openlocfilehash: 49ee9a7f12601b0d93e320ab797be4a1ada41c04
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 1ff9572cf8614e3eb5d015a602ca3f878875a0a4
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309807"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455339"
 ---
-# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>快速入門：將事件從私人容器登錄傳送到事件方格
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Quickstart: Send events from private container registry to Event Grid
 
 Azure 事件方格是完全受控的事件路由服務，可使用發佈-訂閱模型提供統一的事件耗用量。 在本快速入門中，您可以使用 Azure CLI 來建立容器登錄、訂閱登錄事件，然後部署範例 Web 應用程式來接收事件。 最後，您會觸發容器映像 `push` 和 `delete` 事件，並在範例應用程式中檢視事件裝載。
 
@@ -24,7 +19,7 @@ Azure 事件方格是完全受控的事件路由服務，可使用發佈-訂閱�
 
 ![呈現包含三個已接收事件之範例 Web 應用程式的網頁瀏覽器][sample-app-01]
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶][azure-account] 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][azure-account]。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -32,7 +27,7 @@ Azure 事件方格是完全受控的事件路由服務，可使用發佈-訂閱�
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-Azure 資源群組是一種邏輯容器，您可在其中部署與管理 Azure 資源。 下列[az group create][az-group-create]命令會在*eastus*區域中建立名為*myResourceGroup*的資源群組。 如果您想要針對資源群組使用不同名稱，請將 `RESOURCE_GROUP_NAME` 設定為不同的值。
+Azure 資源群組是一種邏輯容器，您可在其中部署與管理 Azure 資源。 The following [az group create][az-group-create] command creates a resource group named *myResourceGroup* in the *eastus* region. 如果您想要針對資源群組使用不同名稱，請將 `RESOURCE_GROUP_NAME` 設定為不同的值。
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -40,9 +35,9 @@ RESOURCE_GROUP_NAME=myResourceGroup
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
 
-## <a name="create-a-container-registry"></a>建立容器登錄庫
+## <a name="create-a-container-registry"></a>建立容器登錄
 
-接下來，使用下列命令來將容器登錄部署到資源群組。 執行[az acr create][az-acr-create]命令之前, 請將設定`ACR_NAME`為您的登錄名稱。 此名稱在 Azure 內必須是唯一的，且長度限制為 5-50 個英數字元。
+接下來，使用下列命令來將容器登錄部署到資源群組。 Before you run the [az acr create][az-acr-create] command, set `ACR_NAME` to a name for your registry. 此名稱在 Azure 內必須是唯一的，且長度限制為 5-50 個英數字元。
 
 ```azurecli-interactive
 ACR_NAME=<acrName>
@@ -101,7 +96,7 @@ az group deployment create \
 
 ## <a name="subscribe-to-registry-events"></a>訂閱登錄事件
 
-在事件方格中，您可以訂閱「主題」，以告知它您想要追蹤的事件，以及要將它們傳送至何處。 下列[az eventgrid event-訂][az-eventgrid-event-subscription-create]用帳戶 create 命令會訂閱您所建立的容器登錄, 並指定 web 應用程式的 URL 做為它應該傳送事件的目標端點。 您在先前小節中所填入的環境變數會在此處重複使用，因此不需進行任何編輯。
+在事件方格中，您可以訂閱「主題」，以告知它您想要追蹤的事件，以及要將它們傳送至何處。 The following [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] command subscribes to the container registry you created, and specifies your web app's URL as the endpoint to which it should send events. 您在先前小節中所填入的環境變數會在此處重複使用，因此不需進行任何編輯。
 
 ```azurecli-interactive
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
@@ -186,7 +181,7 @@ $ az acr repository show-tags --name $ACR_NAME --repository myimage
 
 ### <a name="delete-the-image"></a>刪除映像
 
-現在, 使用`ImageDeleted` [az acr repository delete][az-acr-repository-delete]命令來刪除影像, 以產生事件:
+Now, generate an `ImageDeleted` event by deleting the image with the [az acr repository delete][az-acr-repository-delete] command:
 
 ```azurecli-interactive
 az acr repository delete --name $ACR_NAME --image myimage:v1
@@ -208,7 +203,7 @@ Are you sure you want to continue? (y/n): y
 
 ![顯示含有 ImagePushed 和 ImageDeleted 事件之範例應用程式的網頁瀏覽器][sample-app-03]
 
-恭喜您！ 如果您看到 `ImagePushed` 和 `ImageDeleted` 事件，表示您的登錄正在將事件傳送至事件方格，而事件方格正在將那些事件轉送至您的 Web 應用程式端點。
+恭喜！ 如果您看到 `ImagePushed` 和 `ImageDeleted` 事件，表示您的登錄正在將事件傳送至事件方格，而事件方格正在將那些事件轉送至您的 Web 應用程式端點。
 
 ## <a name="clean-up-resources"></a>清除資源
 

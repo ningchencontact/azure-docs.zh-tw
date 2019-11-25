@@ -1,20 +1,15 @@
 ---
-title: 將 Docker 映像推送至私人 Azure 容器登錄
+title: Push & pull Docker image
 description: 使用 Docker CLI 推送和提取 Docker 映像至 Azure 中的私人容器登錄
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 01/23/2019
-ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 6944755619ea5e8e63af04b9b3bca6f7376e29a9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6751a04c3c1bfe826334161704c20c1ba2e5a6d2
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68309450"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456367"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 將您的第一個映像推送至私人 Docker 容器登錄
 
@@ -25,7 +20,7 @@ Azure 容器登錄庫儲存和管理私人 [Docker](https://hub.docker.com) 容�
 ## <a name="prerequisites"></a>必要條件
 
 * **Azure 容器登錄庫** - 在 Azure 訂用帳戶中建立容器登錄庫。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。
-* **Docker CLI** - 您也必須在本機上安裝 Docker。 Docker 提供可輕鬆在任何[macOS][docker-mac]、 [Windows][docker-windows]或[Linux][docker-linux]系統上設定 docker 的套件。
+* **Docker CLI** - 您也必須在本機上安裝 Docker。 Docker 提供可輕鬆在任何 [macOS][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系統上設定 Docker 的套件。
 
 ## <a name="log-in-to-a-registry"></a>登入登錄庫
 
@@ -62,7 +57,7 @@ docker pull nginx
 docker run -it --rm -p 8080:80 nginx
 ```
 
-流覽至`http://localhost:8080`以在執行中的容器中, 查看 Nginx 所提供的預設網頁。 您應該會看到如下所示的頁面：
+Browse to `http://localhost:8080` to view the default web page served by Nginx in the running container. 您應該會看到如下所示的頁面：
 
 ![本機電腦上的 Nginx](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -104,7 +99,7 @@ docker pull myregistry.azurecr.io/samples/nginx
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-流覽至`http://localhost:8080`以查看執行中的容器。
+Browse to `http://localhost:8080` to view the running container.
 
 若要停止並移除該容器，請按 `Control`+`C`。
 

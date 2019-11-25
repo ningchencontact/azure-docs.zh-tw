@@ -1,7 +1,7 @@
 ---
-title: 使用適用于 JAVA 的 MSAL （MSAL4j）從權杖快取取得和移除帳戶
+title: Get and remove accounts from the token cache using MSAL for Java (MSAL4j)
 titleSuffix: Microsoft identity platform
-description: 瞭解如何使用適用于 JAVA 的 Microsoft 驗證程式庫，從權杖快取中查看和移除帳戶。
+description: Learn how to view and remove accounts from the token cache using the Microsoft Authentication Library for Java.
 services: active-directory
 documentationcenter: dev-center-name
 author: sangonzal
@@ -18,20 +18,20 @@ ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343abd87d3b5e8b82989b8b370cef61ec6d051df
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: fa6c4c53d04f227db7a9a83946182c109dc06d39
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905507"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452458"
 ---
-# <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java-msal4j"></a>使用適用于 JAVA 的 MSAL （MSAL4j）從權杖快取取得和移除帳戶
+# <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>Get and remove accounts from the token cache using MSAL for Java
 
-MSAL4J 預設會提供記憶體中的權杖快取。 記憶體中的權杖快取會持續在應用程式實例的持續時間內。
+MSAL for Java provides an in-memory token cache by default. The in-memory token cache lasts the duration of the application instance.
 
-## <a name="see-which-accounts-are-in-the-cache"></a>查看快取中的帳戶
+## <a name="see-which-accounts-are-in-the-cache"></a>See which accounts are in the cache
 
-您可以藉由呼叫 `PublicClientApplication.getAccounts()` 來檢查快取中的帳戶，如下列範例所示：
+You can check what accounts are in the cache by calling `PublicClientApplication.getAccounts()` as shown in the following example:
 
 ```java
 PublicClientApplication pca = new PublicClientApplication.Builder(
@@ -42,9 +42,9 @@ PublicClientApplication pca = new PublicClientApplication.Builder(
 Set<IAccount> accounts = pca.getAccounts().join();
 ```
 
-## <a name="remove-accounts-from-the-cache"></a>從快取中移除帳戶
+## <a name="remove-accounts-from-the-cache"></a>Remove accounts from the cache
 
-若要從快取中移除帳戶，請尋找需要移除的帳戶，然後呼叫 `PublicClientApplicatoin.removeAccount()`，如下列範例所示：
+To remove an account from the cache, find the account that needs to be removed and then call `PublicClientApplicatoin.removeAccount()` as shown in the following example:
 
 ```java
 Set<IAccount> accounts = pca.getAccounts().join();
@@ -56,6 +56,6 @@ IAccount accountToBeRemoved = accounts.stream().filter(
 pca.removeAccount(accountToBeRemoved).join();
 ```
 
-## <a name="learn-more"></a>詳細資訊
+## <a name="learn-more"></a>了解更多
 
-如果您使用 MSAL for JAVA，請瞭解[MSAL For java 中的自訂權杖](msal-java-token-cache-serialization.md)快取序列化。
+If you are using MSAL for Java, learn about [Custom token cache serialization in MSAL for Java](msal-java-token-cache-serialization.md).

@@ -1,7 +1,7 @@
 ---
-title: MSAL for JAVA 中的自訂權杖快取序列化
+title: Custom token cache serialization in MSAL for Java
 titleSuffix: Microsoft identity platform
-description: 瞭解如何序列化適用于 JAVA 的 MSAL 的權杖快取
+description: Learn how to serialize the token cache for MSAL for Java
 services: active-directory
 documentationcenter: dev-center-name
 author: sangonzal
@@ -18,22 +18,22 @@ ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7274a1b6b5ebf5b55c2cad4b52dfe4c997e26314
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 7323a47095c58958503cecf16189ed875fac3b4d
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74145898"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452594"
 ---
-# <a name="custom-token-cache-serialization-in-msal-for-java-msal4j"></a>MSAL for JAVA 中的自訂權杖快取序列化（MSAL4J）
+# <a name="custom-token-cache-serialization-in-msal-for-java"></a>Custom token cache serialization in MSAL for Java
 
-若要保存應用程式實例之間的權杖快取，您將需要自訂序列化。 與權杖快取序列化相關的 JAVA 類別和介面如下所示：
+To persist the token cache between instances of your application, you will need to customize the serialization. The Java classes and interfaces involved in token cache serialization are the following:
 
-- [ITokenCache](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCache.html)：代表安全性權杖快取的介面。
-- [ITokenCacheAccessAspect](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessAspect.html)：代表在存取之前和之後執行程式碼之作業的介面。 您會使用負責序列化和還原序列化快取的邏輯，來 @Override *beforeCacheAccess*和*afterCacheAccess* 。
-- [ITokenCacheCoNtext](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessContext.html)：代表存取權杖快取之內容的介面。 
+- [ITokenCache](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCache.html):  Interface representing security token cache.
+- [ITokenCacheAccessAspect](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessAspect.html): Interface representing operation of executing code before and after access. You would @Override *beforeCacheAccess* and *afterCacheAccess* with the logic responsible for serializing and deserializing the cache.
+- [ITokenCacheContext](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessContext.html): Interface representing context in which the token cache is accessed. 
 
-以下是權杖快取序列化/還原序列化的自訂序列化的簡單實作為方式。 請勿將此複本複製並貼到生產環境中。
+Below is a naive implementation of custom serialization of token cache serialization/deserialization. Do not copy and paste this into a production environment.
 
 ```Java
 static class TokenPersistence implements ITokenCacheAccessAspect {
@@ -65,6 +65,6 @@ PublicClientApplication app =
 PublicClientApplication.builder("my_client_id").setTokenCacheAccessAspect(persistenceAspect).build();
 ```
 
-## <a name="learn-more"></a>詳細資訊
+## <a name="learn-more"></a>了解更多
 
-瞭解如何[使用適用于 JAVA 的 MSAL，從權杖快取取得和移除帳戶](msal-java-get-remove-accounts-token-cache.md)。
+Learn about [Get and remove accounts from the token cache using MSAL for Java](msal-java-get-remove-accounts-token-cache.md).

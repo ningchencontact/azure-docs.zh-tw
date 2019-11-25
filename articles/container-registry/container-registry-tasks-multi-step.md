@@ -1,19 +1,14 @@
 ---
-title: 建立、測試 & 修補影像 Azure Container Registry 的多步驟工作
-description: 多步驟工作簡介，這是 Azure Container Registry 中 ACR 工作的一項功能，可提供在雲端中建立、測試及修補容器映射的工作型工作流程。
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Multi-step task to build, test & patch image
+description: Introduction to multi-step tasks, a feature of ACR Tasks in Azure Container Registry that provides task-based workflows for building, testing, and patching container images in the cloud.
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: danlep
-ms.openlocfilehash: 06bdcc1cd4f9bfcb1a77140d70435545fbe01079
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 3ed071fa2027e91ee5bc6c07738dc66763454847
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74148762"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456165"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>執行 ACR 工作中的多步驟建置、測試及修補工作
 
@@ -31,7 +26,7 @@ ms.locfileid: "74148762"
 1. 如果測試通過，便建置 Helm 圖表封存套件
 1. 使用新的 Helm 圖表封存套件來執行 `helm upgrade`
 
-所有步驟都會在 Azure 內執行，這會將工作卸交給 Azure 的計算資源，讓您無須管理基礎結構。 除了您的 Azure 容器登錄之外，您只需支付您所用資源的費用。 如需價格的詳細資訊，請參閱[Azure Container Registry 定價][pricing]中的**容器組建**一節。
+所有步驟都會在 Azure 內執行，這會將工作卸交給 Azure 的計算資源，讓您無須管理基礎結構。 除了您的 Azure 容器登錄之外，您只需支付您所用資源的費用。 For information on pricing, see the **Container Build** section in [Azure Container Registry pricing][pricing].
 
 
 ## <a name="common-task-scenarios"></a>常見的工作案例
@@ -84,13 +79,13 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
 
-如需數個案例，請參閱多步驟工作 YAML 檔案和 Dockerfile 的工作[範例](container-registry-tasks-samples.md)。
+See [task examples](container-registry-tasks-samples.md) for multi-step task YAML files and Dockerfiles for several scenarios.
 
 ## <a name="run-a-sample-task"></a>執行範例工作
 
 工作支援手動執行 (稱為「快速執行」)，也支援在進行 Git 認可或基底影像更新時自動執行。
 
-若要執行工作，您必須先在 YAML 檔案中定義工作的步驟，然後執行 Azure CLI 命令[az acr run][az-acr-run]。
+To run a task, you first define the task's steps in a YAML file, then execute the Azure CLI command [az acr run][az-acr-run].
 
 以下是一個使用範例工作 YAML 檔案來執行工作的範例 Azure CLI 命令。 其步驟會建置映像，然後推送該映像。 請先使用您自己的 Azure 容器登錄名稱更新 `\<acrName\>`，再執行此命令。
 
@@ -155,7 +150,7 @@ Run ID: yd14 was successful after 19s
 您可以在下列位置找到多步驟工作參考和範例：
 
 * [工作參考](container-registry-tasks-reference-yaml.md) - 工作步驟類型、其屬性及使用方式。
-* 工作[範例](container-registry-tasks-samples.md)-適用于數個案例的範例 `task.yaml` 和 Docker 檔案，簡單到複雜。
+* [Task examples](container-registry-tasks-samples.md) - Example `task.yaml` and Docker files for several scenarios, simple to complex.
 * [Cmd 存放庫](https://github.com/AzureCR/cmd) - 作為 ACR 工作命令的容器集合。
 
 <!-- IMAGES -->

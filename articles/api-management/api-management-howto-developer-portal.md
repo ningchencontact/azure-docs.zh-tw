@@ -1,6 +1,6 @@
 ---
-title: Azure API 管理開發人員入口網站總覽-Azure API 管理 |Microsoft Docs
-description: 深入瞭解 API 管理中的開發人員入口網站。
+title: Overview of Azure API Management developer portal - Azure API Management | Microsoft Docs
+description: Learn about the developer portal in API Management.
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -10,112 +10,132 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 1a8fb8140fd2f58556e4a64bca0f4a052a84c2bb
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 2b69fdd7abefca360433fc9fb090569cba23febe
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285608"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454400"
 ---
-# <a name="azure-api-management-developer-portal-overview"></a>Azure API 管理開發人員入口網站總覽
+# <a name="azure-api-management-developer-portal-overview"></a>Azure API Management developer portal overview
 
-開發人員入口網站是一個自動產生、可完全自訂的網站，其中包含您 Api 的檔。 API 取用者可以在此探索您的 Api、瞭解如何使用它們、要求存取權，以及如何試用。
+Developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, request access, and try them out.
 
-本文說明「API 管理」中的開發人員入口網站自我裝載和受管理版本之間的差異。 它也會說明它的架構，並提供常見問題的解答。
+This article describes the differences between self-hosted and managed versions of the developer portal in API Management. It also explains its architecture and provides answers to frequently asked questions.
 
 > [!WARNING]
 >
-> [瞭解如何從預覽版本遷移至正式推出版本](#preview-to-ga)的開發人員入口網站。
+> [Learn how to migrate from the preview version to the generally available version](#preview-to-ga) of the developer portal.
 
 ![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="managed-vs-self-hosted"></a>受控和自我裝載版本
+## <a name="managed-vs-self-hosted"></a> Managed and self-hosted versions
 
-您可以透過兩種方式來建立開發人員入口網站：
+You can build your developer portal in two ways:
 
-- **受控版本**-藉由編輯和自訂入口網站（內建于您的 API 管理實例中），並可透過 `<your-api-management-instance-name>.developer.azure-api.net`的 URL 存取。 請參閱[此檔文章](api-management-howto-developer-portal-customize.md)，以瞭解如何存取和自訂受管理的入口網站。
-- **自我裝載版本**-藉由在 API 管理實例外部部署和自我裝載您的入口網站。 這種方法可讓您編輯入口網站的程式碼基底，並擴充提供的核心功能。 您也需要自行將入口網站升級至最新版本。 如需詳細資訊和指示，請參閱[GitHub 存放庫，並提供入口網站的原始程式碼][1]。 [受控版本的教學](api-management-howto-developer-portal-customize.md)課程會逐步解說入口網站的系統管理面板，此功能也會在自我裝載版本中提供。
+- **Managed version** - by editing and customizing the portal, which is built into your API Management instance and is accessible through the URL `<your-api-management-instance-name>.developer.azure-api.net`. Refer to [this documentation article](api-management-howto-developer-portal-customize.md) to learn how to access and customize the managed portal.
+- **Self-hosted version** - by deploying and self-hosting your portal outside of an API Management instance. This approach allows you to edit the portal's codebase and extend the provided core functionality. You also need to upgrade the portal to the latest version yourself. For details and instructions, refer to the [GitHub repository with the source code of the portal][1]. The [tutorial for the managed version](api-management-howto-developer-portal-customize.md) walks through the portal's administrative panel, which is also featured in the self-hosted version.
 
-## <a name="portal-architectural-concepts"></a>入口網站架構概念
+## <a name="portal-architectural-concepts"></a>Portal architectural concepts
 
-入口網站元件可以邏輯方式分成兩個類別：程式*代碼*和*內容*。
+The portal components can be logically divided into two categories: *code* and *content*.
 
-程式*代碼*會保留在[GitHub 存放庫][1]中，並包含：
+*Code* is maintained in [the GitHub repository][1] and includes:
 
-- Widget-代表視覺元素，並結合 HTML、JavaScript、樣式功能、設定和內容對應。 範例包括影像、文欄位落、表單、Api 清單等等。
-- 樣式定義-指定 widget 如何設定樣式
-- 引擎-這會從入口網站內容產生靜態網頁，並以 JavaScript 撰寫
-- 視覺化編輯器-允許在瀏覽器內自訂和撰寫體驗
+- Widgets - which represent visual elements and combine HTML, JavaScript, styling ability, settings, and content mapping. Examples are an image, a text paragraph, a form, a list of APIs etc.
+- Styling definitions - which specify how widgets can be styled
+- Engine - which generates static webpages from portal content and is written in JavaScript
+- Visual editor - which allows for in-browser customization and authoring experience
 
-*內容*分為兩個子類別：*入口網站內容*和*API 管理內容*。
+*Content* is divided into two subcategories: *portal content* and *API Management content*.
 
-入口網站的*內容*專屬於入口網站，其中包括：
+*Portal content* is specific to the portal and includes:
 
-- 頁面-例如登陸頁面、API 教學課程、blog 文章
-- 媒體-影像、動畫及其他檔案型內容
-- 版面配置-範本，會與 URL 比對，並定義頁面的顯示方式
-- 樣式-樣式定義的值，例如字型、色彩、框線
-- 設定-例如 favicon、網站中繼資料
+- Pages - for example, landing page, API tutorials, blog posts
+- Media - images, animations, and other file-based content
+- Layouts - templates, which are matched against a URL and define how pages are displayed
+- Styles - values for styling definitions, e.g. fonts, colors, borders
+- Settings - configuration, e.g. favicon, website metadata
 
-*入口網站內容*（媒體除外）會以 JSON 檔表示。
+*Portal content*, except for media, is expressed as JSON documents.
 
-*Api 管理內容*包括 Api、作業、產品、訂用帳戶等實體。
+*API Management content* includes entities such as APIs, Operations, Products, Subscriptions.
 
-入口網站是以[Paperbits 架構](https://paperbits.io/)的調整分支為基礎。 原始的 Paperbits 功能已擴充，可提供 API 管理特定的 widget （例如 Api 清單、產品清單），以及用於儲存和抓取內容的 API 管理服務連接器。
+The portal is based on an adapted fork of the [Paperbits framework](https://paperbits.io/). The original Paperbits functionality has been extended to provide API Management-specific widgets (for example, a list of APIs, a list of Products) and a connector to API Management service for saving and retrieving content.
 
-## <a name="faq"></a>常見問題
+## <a name="faq"></a> Frequently asked questions
 
-在本節中，我們會回答有關新開發人員入口網站的常見問題，這些是一般性質的問題。 如需自我裝載版本的特定問題，請參閱[GitHub 存放庫的 wiki 一節](https://github.com/Azure/api-management-developer-portal/wiki)。
+In this section, we answer common questions about the new developer portal, which are of general nature. For questions specific to the self-hosted version, refer to [the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="a-idpreview-to-ga-how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> 如何從入口網站的預覽版本進行遷移？
+### <a name="a-idpreview-to-ga-how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> How can I migrate from the preview version of the portal?
 
-藉由使用開發人員入口網站的預覽版本，您可以在 API 管理服務中布建預覽內容。 在正式推出版本中，已大幅修改預設內容以獲得更佳的使用者體驗。 它也包含新的小工具。
+By using the preview version of the developer portal, you provisioned the preview content in your API Management service. The default content has been significantly modified in the generally available version for better user experience. It also includes new widgets.
 
-如果您使用的是受控版本，請按一下 [**作業**] 功能表區段中的 [**重設內容**]，重設入口網站的內容。 確認此操作將會移除入口網站的所有內容，並布建新的預設內容。 入口網站的引擎已自動在您的 API 管理服務中更新。
+If you're using the managed version, reset the content of the portal by clicking **Reset content** in the **Operations** menu section. Confirming this operation will remove all the content of the portal and provision the new default content. The portal's engine has been automatically updated in your API Management service.
 
-![重設入口網站內容](media/api-management-howto-developer-portal/reset-content.png)
+![Reset portal content](media/api-management-howto-developer-portal/reset-content.png)
 
-如果您使用自我裝載的版本，請使用 GitHub 存放庫中的 `scripts/cleanup.bat` 和 `scripts/generate.bat` 來移除現有的內容，並布建新的內容。 請務必事先從 GitHub 存放庫將入口網站的程式碼升級至最新版本。
+If you're using the self-hosted version, use the `scripts/cleanup.bat` and `scripts/generate.bat` from the GitHub repository to remove existing content and provision new content. Make sure you upgrade your portal's code to the latest release from the GitHub repository beforehand.
 
-如果您不想重設入口網站的內容，可以考慮在整個頁面中使用新的小工具。 現有 widget 已自動更新為最新版本。
+If you don't want to reset the content of the portal, you may consider using newly available widgets throughout your pages. Existing widgets have been automatically updated to the latest versions.
 
-如果您的入口網站是在公開上市後公告之後布建，則它應該已有新的預設內容功能。 您的端不需要採取任何動作。
+If your portal was provisioned after the general availability announcement, it should already feature the new default content. No action is required from your side.
 
-### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-new-developer-portal"></a>如何從舊的開發人員入口網站遷移至新的開發人員入口網站？
+### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-new-developer-portal"></a>How can I migrate from the old developer portal to the new developer portal?
 
-入口網站不相容，您必須手動遷移內容。
+Portals are incompatible and you need to migrate the content manually.
 
-### <a name="does-the-new-portal-have-all-the-features-of-the-old-portal"></a>新的入口網站是否具有舊版入口網站的所有功能？
+### <a name="does-the-new-portal-have-all-the-features-of-the-old-portal"></a>Does the new portal have all the features of the old portal?
 
-新的開發人員入口網站不支援*應用程式*和*問題*。 如果您在舊的入口網站中使用了*問題*，並在新的專案中需要它們，請在[專用的 GitHub 問題](https://github.com/Azure/api-management-developer-portal/issues/122)中張貼留言。
+The new developer portal doesn't support *Applications* and *Issues*. If you have used *Issues* in the old portal and need them in the new one, post a comment in [a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/122).
 
-### <a name="has-the-old-portal-been-deprecated"></a>舊的入口網站已被取代嗎？
+Authentication with OAuth in the interactive developer console is not yet supported. You can track the progress through [the GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/208).
 
-舊的開發人員和發行者入口網站現在是*舊版*的功能-他們只會接收安全性更新。 新功能只會在新的開發人員入口網站中執行。
+### <a name="has-the-old-portal-been-deprecated"></a>Has the old portal been deprecated?
 
-舊版入口網站的淘汰將會分開宣告。 如果您有任何疑問、疑慮或意見，請[在專屬的 GitHub 問題中](https://github.com/Azure/api-management-developer-portal/issues/121)提出。
+The old developer and publisher portals are now *legacy* features - they will be receiving security updates only. 新功能將僅會在新的開發人員入口網站中實作。
 
-### <a name="how-can-i-automate-portal-deployments"></a>如何自動進行入口網站部署？
+Deprecation of the legacy portals will be announced separately. If you have questions, concerns, or comments, raise them [in a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/121).
 
-您可以透過 REST API 以程式設計方式存取和管理開發人員入口網站的內容，不論您使用的是受控或自我裝載版本。
+### <a name="how-can-i-automate-portal-deployments"></a>How can I automate portal deployments?
 
-此 API 記載于[GitHub 存放庫的 wiki 一節][2]。 它也可以用來自動化環境之間的入口網站內容遷移，例如從測試環境到生產環境。 您可以在 GitHub 上的[此檔文章中](https://aka.ms/apimdocs/migrateportal)深入瞭解此程式。
+You can programmatically access and manage the developer portal's content through the REST API, regardless if you're using a managed or a self-hosted version.
 
-### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>入口網站是否支援 Azure Resource Manager 範本和（或）是否與 API 管理 DevOps 資源套件相容？
+The API is documented in [the GitHub repository's wiki section][2]. It can also be used for automating migrations of portal content between environments - for example from a test environment to the production environment. You can learn more about this process [in this documentation article](https://aka.ms/apimdocs/migrateportal) on GitHub.
 
-號
+### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>Does the portal support Azure Resource Manager templates and/or is it compatible with API Management DevOps Resource Kit?
 
-### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>我是否需要針對受管理的入口網站相依性啟用額外的 VNET 連線？
+不會。
 
-號
+### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-new-managed-portal-dependencies"></a>Do I need to enable additional VNet connectivity for the new managed portal dependencies?
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console-what-should-i-do"></a>我在使用互動式主控台時遇到 CORS 錯誤。 我該怎麼辦？
+In most cases - no.
 
-互動式主控台會從瀏覽器提出用戶端 API 要求。 您可以藉由在您的 API 上新增[cors 原則](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS)來解決 CORS 問題。 您可以手動指定所有參數，或使用萬用字元 `*` 值。 例如︰
+If your API Management service is in an internal VNet, your developer portal is only accessible from within the network. The management endpoint's host name must resolve to the internal VIP of the service from the machine you use to access the portal's administrative interface. Make sure the management endpoint is registered in the DNS. In case of misconfiguration, you will see an error: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
+
+### <a name="i-have-assigned-a-custom-api-management-domain-and-the-published-portal-doesnt-work"></a>I have assigned a custom API Management domain and the published portal doesn't work
+
+After you update the domain, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
+
+### <a name="i-have-added-an-identity-provider-and-i-cant-see-it-in-the-portal"></a>I have added an identity provider and I can't see it in the portal
+
+After you configure an identity provider (for example, AAD, AAD B2C), you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
+
+### <a name="i-have-set-up-delegation-and-the-portal-doesnt-use-it"></a>I have set up delegation and the portal doesn't use it
+
+After you set up delegation, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
+
+### <a name="my-other-api-management-configuration-changes-havent-been-propagated-in-the-developer-portal"></a>My other API Management configuration changes haven't been propagated in the developer portal
+
+Most configuration changes (for example, VNet, sign-in and product terms) require [republishing the portal](api-management-howto-developer-portal-customize.md#publish).
+
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a>I'm getting a CORS error when using the interactive console
+
+The interactive console makes a client-side API request from the browser. You can resolve the CORS problem by adding [a CORS policy](api-management-cross-domain-policies.md#CORS) on your API(s). You can specify all the parameters manually or use wildcard `*` values. 例如：
 
 ```XML
 <cors>
@@ -143,23 +163,63 @@ ms.locfileid: "74285608"
 
 > [!NOTE]
 > 
-> 如果您在產品範圍中套用 CORS 原則，而不是在 API 範圍內套用，而您的 API 會透過標頭使用訂用帳戶金鑰驗證，則您的主控台將無法使用。
+> If you apply the CORS policy in the Product scope, instead of the API(s) scope, and your API uses subscription key authentication through a header, your console won't work.
 >
-> 瀏覽器會自動發出選項 HTTP 要求，其中未包含含有訂用帳戶金鑰的標頭。 由於遺漏了訂用帳戶金鑰，因此 API 管理無法將選項呼叫與產品產生關聯，因此無法套用 CORS 原則。
+> The browser automatically issues an OPTIONS HTTP request, which doesn’t contain a header with the subscription key. Because of the missing subscription key, API Management can't associate the OPTIONS call with a Product, so it can’t apply the CORS policy.
 >
-> 因應措施是，您可以在查詢參數中傳遞訂用帳戶金鑰。
+> As a workaround you can pass the subscription key in a query parameter.
+
+### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>What permissions do I need to edit the developer portal?
+
+If you're seeing the `Oops. Something went wrong. Please try again later.` error when you open the portal in the administrative mode, you may be lacking the required permissions (RBAC).
+
+The legacy portals required the permission `Microsoft.ApiManagement/service/getssotoken/action` at the service scope (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`) to allow the user administrator access to the portals. The new portal requires the permission `Microsoft.ApiManagement/service/users/token/action` at the scope `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
+
+You can use the following PowerShell script to create a role with the required permission. Remember to change the `<subscription-id>` parameter. 
+
+```PowerShell
+#New Portals Admin Role 
+Import-Module Az 
+Connect-AzAccount 
+$contributorRole = Get-AzRoleDefinition "API Management Service Contributor" 
+$customRole = $contributorRole 
+$customRole.Id = $null
+$customRole.Name = "APIM New Portal Admin" 
+$customRole.Description = "This role gives the user ability to log in to the new Developer portal as administrator" 
+$customRole.Actions = "Microsoft.ApiManagement/service/users/token/action" 
+$customRole.IsCustom = $true 
+$customRole.AssignableScopes.Clear() 
+$customRole.AssignableScopes.Add('/subscriptions/<subscription-id>') 
+New-AzRoleDefinition -Role $customRole 
+```
+ 
+Once the role is created, it can be granted to any user from the **Access Control (IAM)** section in the Azure portal. Assigning this role to a user will assign the permission at the service scope. The user will be able to generate SAS tokens on behalf of *any* user in the service. At the minimum, this role needs to be assigned to the administrator of the service. The following PowerShell command demonstrates how to assign the role to a user `user1` at the lowest scope to avoid granting unnecessary permissions to the user: 
+
+```PowerShell
+New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
+```
+
+After the permissions have been granted to a user, the user must sign out and sign in again to the Azure portal for the new permissions to take effect.
+
+### <a name="im-seeing-the-unable-to-start-the-portal-see-if-settings-are-specified-correctly--error"></a>I'm seeing the `Unable to start the portal. See if settings are specified correctly (...)` error
+
+This error is shown when a `GET` call to `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` fails. The call is issued from the browser by the administrative interface of the portal.
+
+If your API Management service is in a VNet - refer to the VNet connectivity question above.
+
+The call failure may also be caused by an SSL certificate, which is assigned to a custom domain and is not trusted by the browser. As a mitigation, you can remove the management endpoint custom domain - API Management will fall back to the default endpoint with a trusted certificate.
 
 ## <a name="next-steps"></a>後續步驟
 
-深入瞭解新的開發人員入口網站：
+Learn more about the new developer portal:
 
-- [存取和自訂受管理的開發人員入口網站](api-management-howto-developer-portal-customize.md)
-- [設定入口網站的自我裝載版本][2]
+- [Access and customize the managed developer portal](api-management-howto-developer-portal-customize.md)
+- [Set up self-hosted version of the portal][2]
 
-流覽其他資源：
+Browse other resources:
 
-- [具有原始程式碼的 GitHub 存放庫][1]
-- [專案的公開藍圖][3]
+- [GitHub repository with the source code][1]
+- [Public roadmap of the project][3]
 
 [1]: https://aka.ms/apimdevportal
 [2]: https://github.com/Azure/api-management-developer-portal/wiki

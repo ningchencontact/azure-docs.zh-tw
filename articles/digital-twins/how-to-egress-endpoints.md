@@ -1,21 +1,21 @@
 ---
-title: 輸出和端點-Azure 數位 Twins |Microsoft Docs
-description: 瞭解如何在 Azure 數位 Twins 中建立及輸出事件端點。
+title: Egress and endpoints - Azure Digital Twins | Microsoft Docs
+description: Learn how to create and egress event endpoints in Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
-ms.openlocfilehash: 33e8a6a281fbc6620a4608c7b0821b196043423e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/22/2019
+ms.openlocfilehash: 95dbed72aeca639041d259e9c92c2a3b73ef63fe
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010062"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456922"
 ---
-# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Azure 數位 Twins 中的輸出和端點
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Egress and endpoints in Azure Digital Twins
 
 Azure Digital Twins 的「端點」代表使用者 Azure 訂用帳戶內的訊息或事件代理程式。 事件和訊息可以傳送至 Azure 事件中樞、Azure 事件方格和 Azure 服務匯流排主題。
 
@@ -47,16 +47,16 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| 屬性 | 在系統提示您進行確認時，輸入 | 描述 |
+| 屬性 | Type | 描述 |
 | --- | --- | --- |
-| id | 字串 | 事件的唯一識別碼。 |
-| 主旨 | 字串 | 發行者定義事件主體的路徑。 |
-| data | 物件 | 資源提供者特有的事件資料。 |
-| eventType | 字串 | 此事件來源已註冊的事件類型之一。 |
-| eventTime | 字串 | 事件產生的時間，以提供者之 UTC 時間為準。 |
-| dataVersion | 字串 | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
-| metadataVersion | 字串 | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
-| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
+| id | string | 事件的唯一識別碼。 |
+| subject | string | 發行者定義事件主體的路徑。 |
+| data | object | 資源提供者特有的事件資料。 |
+| eventType | string | 此事件來源已註冊的事件類型之一。 |
+| eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
+| dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
+| metadataVersion | string | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 會提供此值。 |
+| 主題 | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 會提供此值。 |
 
 如需有關事件方格事件結構描述的詳細資訊：
 
@@ -90,13 +90,13 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 - 感應器
 - SensorBlobMetadata
 - SensorExtendedProperty
-- 空白字元
+- 外太空
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
 - SpaceRoleAssignment
-- 系統
-- 使用者
+- System
+- User
 - UserBlobMetadata
 - UserExtendedProperty
 
@@ -122,7 +122,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| 值 | 更換為 |
+| Value | 更換為 |
 | --- | --- |
 | YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
@@ -153,7 +153,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| 值 | 更換為 |
+| Value | 更換為 |
 | --- | --- |
 | YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
@@ -188,7 +188,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| 值 | 更換為 |
+| Value | 更換為 |
 | --- | --- |
 | YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
@@ -223,7 +223,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| 值 | 更換為 |
+| Value | 更換為 |
 | --- | --- |
 | YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
@@ -246,7 +246,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 >[!IMPORTANT]
 > 請特別注意 **eventTypes** 屬性。 此屬性會定義端點處理的事件類型，並以此決定其路由方式。
 
-已驗證的 HTTP POST 要求：
+An authenticated HTTP POST request against:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/endpoints
@@ -268,7 +268,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | 值 | 更換為 |
+    | Value | 更換為 |
     | --- | --- |
     | YOUR_NAMESPACE | 端點的命名空間 |
     | YOUR_PRIMARY_KEY | 用於驗證的主要連接字串 |
@@ -291,7 +291,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | 值 | 更換為 |
+    | Value | 更換為 |
     | --- | --- |
     | YOUR_PRIMARY_KEY | 用於驗證的主要連接字串|
     | YOUR_SECONDARY_KEY | 用於驗證的次要連接字串 |
@@ -313,7 +313,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | 值 | 更換為 |
+    | Value | 更換為 |
     | --- | --- |
     | YOUR_NAMESPACE | 端點的命名空間 |
     | YOUR_PRIMARY_KEY | 用於驗證的主要連接字串 |
@@ -334,7 +334,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | 值 | 更換為 |
+    | Value | 更換為 |
     | --- | --- |
     | YOUR_NAMESPACE | 端點的命名空間 |
     | YOUR_PRIMARY_KEY | 用於驗證的主要連接字串 |

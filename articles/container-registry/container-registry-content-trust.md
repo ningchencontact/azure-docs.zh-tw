@@ -1,19 +1,14 @@
 ---
-title: Azure Container Registry 中的內容信任
-description: 瞭解如何啟用 Azure container registry 的內容信任，以及推送和提取已簽署的映射。
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Manage signed images
+description: Learn how to enable content trust for your Azure container registry, and push and pull signed images.
 ms.topic: article
 ms.date: 09/06/2019
-ms.author: danlep
-ms.openlocfilehash: f14d4d32d2423b12786095da17305af605088fb7
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 0418b13c352dc3b81d34501e7e76be6c54615a83
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300428"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456468"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Azure Container Registry 中的內容信任
 
@@ -43,7 +38,7 @@ Azure Container Registry 會實作 Docker 的[內容信任][docker-content-trust
 
 首要步驟是在登錄層級啟用內容信任。 啟用內容信任後，用戶端 (使用者或服務) 即可將已簽署的映像推送至您的登錄。 在您的登錄上啟用內容信任時，並不會限定只有已啟用內容信任的取用者才能使用登錄。 未啟用內容信任的取用者仍可繼續如常使用您的登錄。 不過，已在其用戶端中啟用內容信任的取用者，將*只能*在您的登錄中看到已簽署的映像。
 
-若要為您的登錄啟用內容信任，請先瀏覽至 Azure 入口網站中的登錄。 在 [原則] 下方，選取 [內容信任] > [已啟用] > [儲存]。 您也可以使用 Azure CLI 中的[az acr config content-trust update][az-acr-config-content-trust-update]命令。
+若要為您的登錄啟用內容信任，請先瀏覽至 Azure 入口網站中的登錄。 在 [原則] 下方，選取 [內容信任] > [已啟用] > [儲存]。 You can also use the [az acr config content-trust update][az-acr-config-content-trust-update] command in the Azure CLI.
 
 ![在 Azure 入口網站中為登錄啟用內容信任][content-trust-01-portal]
 
@@ -77,11 +72,11 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 只有您已授與權限的使用者或系統，才可將信任的映像推送至您的登錄。 若要為使用者 (或使用服務主體的系統) 授與信任的映像推送權限，請為其 Azure Active Directory 身分識別授與 `AcrImageSigner` 角色。 除了 `AcrPush` (或對等項目) 以外，還需要此角色才能將映像推送至登錄。 如需詳細資訊，請參閱 [Azure Container Registry 角色和權限](container-registry-roles.md)。
 
 > [!NOTE]
-> 您無法將受信任的映射推播許可權授與 Azure container registry 的系統[管理員帳戶](container-registry-authentication.md#admin-account)。
+> You can't grant trusted image push permission to the [admin account](container-registry-authentication.md#admin-account) of an Azure container registry.
 
 下文會詳細說明如何在 Azure 入口網站和 Azure CLI 中授與 `AcrImageSigner` 角色。
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 在 Azure 入口網站中瀏覽至您的登錄，然後選取 [存取控制 (IAM)] > [新增角色指派]。 在 [新增角色指派] 下方，選取 [角色] 下的 `AcrImageSigner`，然後**選取**一或多個使用者或服務主體，再按一下 [儲存]。
 
@@ -117,7 +112,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 `<service principal ID>` 可以是服務主體的 **appId**、**objectId**，或其 **servicePrincipalNames** 之一。 如需使用服務主體與 Azure Container Registry 的詳細資訊，請參閱[使用服務主體進行 Azure Container Registry 驗證](container-registry-auth-service-principal.md)。
 
 > [!IMPORTANT]
-> 進行任何角色變更之後，請執行 `az acr login` 來重新整理 Azure CLI 的本機身分識別權杖，以便讓新的角色生效。 如需驗證身分識別角色的詳細資訊，請參閱[使用 rbac 來管理 azure 資源的存取權和 Azure CLI](../role-based-access-control/role-assignments-cli.md)和[針對 AZURE 資源的 RBAC 進行疑難排解](../role-based-access-control/troubleshooting.md)。
+> 進行任何角色變更之後，請執行 `az acr login` 來重新整理 Azure CLI 的本機身分識別權杖，以便讓新的角色生效。 For information about verifying roles for an identity, see [Manage access to Azure resources using RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md) and [Troubleshoot RBAC for Azure resources](../role-based-access-control/troubleshooting.md).
 
 ## <a name="push-a-trusted-image"></a>推送信任的映像
 

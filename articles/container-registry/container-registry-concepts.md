@@ -1,54 +1,50 @@
 ---
-title: 關於 Azure Container Registry 中的存放庫和映射
-description: 介紹 Azure container registry、存放庫和容器映射的重要概念。
-services: container-registry
-author: dlepow
-ms.service: container-registry
+title: About repositories & images
+description: Introduction to key concepts of Azure container registries, repositories, and container images.
 ms.topic: article
 ms.date: 09/10/2019
-ms.author: danlep
-ms.openlocfilehash: 9a3d4a7d9c3fd4a0465d4e780024559a71372d9d
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 9de0c344b226a0b13e76c7f02977ba3c91ba2d2a
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300211"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455283"
 ---
-# <a name="about-registries-repositories-and-images"></a>關於登錄、存放庫和映射
+# <a name="about-registries-repositories-and-images"></a>About registries, repositories, and images
 
-本文介紹容器登錄、存放庫，以及容器映射和相關成品的重要概念。 
+This article introduces the key concepts of container registries, repositories, and container images and related artifacts. 
 
 ## <a name="registry"></a>登錄
 
-容器「登錄」是一項服務，可儲存及散發容器映像。 Docker Hub 是一個支援開放原始碼社區的公用容器登錄，可做為映射的一般目錄。 Azure Container Registry 提供使用者直接控制其映射、整合式驗證、[異地](container-registry-geo-replication.md)複寫支援網路關閉部署、[虛擬網路和防火牆的全域散發和可靠性](container-registry-vnet.md)設定、[標記鎖定](container-registry-image-lock.md)，以及其他許多增強功能。 
+容器「登錄」是一項服務，可儲存及散發容器映像。 Docker Hub is a public container registry that supports the open source community and serves as a general catalog of images. Azure Container Registry provides users with direct control of their images, with integrated authentication, [geo-replication](container-registry-geo-replication.md) supporting global distribution and reliability for network-close deployments, [virtual network and firewall configuration](container-registry-vnet.md), [tag locking](container-registry-image-lock.md), and many other enhanced features. 
 
-除了 Docker 容器映射之外，Azure Container Registry 也支援相關的[內容](container-registry-image-formats.md)成品，包括開放容器計畫（OCI）影像格式。
+In addition to Docker container images, Azure Container Registry supports related [content artifacts](container-registry-image-formats.md) including Open Container Initiative (OCI) image formats.
 
-## <a name="content-addressable-elements-of-an-artifact"></a>成品的內容可定址元素
+## <a name="content-addressable-elements-of-an-artifact"></a>Content addressable elements of an artifact
 
-Azure container registry 中的成品位址包含下列元素。 
+The address of an artifact in an Azure container registry includes the following elements. 
 
 ```
 [loginUrl]/[namespace]/[artifact:][tag]
 ```
 
-* **loginUrl** -登錄主機的完整名稱。 Azure container registry 中的登錄主機格式為*myregistry*. azurecr.io （全部小寫）。 使用 Docker 或其他用戶端工具將成品提取或推送至 Azure container registry 時，您必須指定 loginUrl。 
-* 以逗號分隔的相關映射或成品邏輯**群組-例如**，針對工作組或應用程式
-* 成品 **-特定**影像或成品的存放庫名稱
-* **標記**-儲存在存放庫中的映射或成品的特定版本
+* **loginUrl** - The fully qualified name of the registry host. The registry host in an Azure container registry is in the format *myregistry*.azurecr.io (all lowercase). You must specify the loginUrl when using Docker or other client tools to pull or push artifacts to an Azure container registry. 
+* **namespace** - Slash-delimited logical grouping of related images or artifacts - for example, for a workgroup or app
+* **artifact** - The name of a repository for a particular image or artifact
+* **tag** - A specific version of an image or artifact stored in a repository
 
 
-例如，Azure container registry 中映射的完整名稱可能如下所示：
+For example, the full name of an image in an Azure container registry might look like:
 
 ```
 myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2
 ```
 
-如需這些元素的詳細資訊，請參閱下列各節。
+See the following sections for details about these elements.
 
 ## <a name="repository-name"></a>儲存機制名稱
 
-容器登錄會管理*存放庫*、容器映射的集合或具有相同名稱但不同標記的其他成品。 例如，下列三個映像位於 "acr-helloworld" 存放庫中：
+Container registries manage *repositories*, collections of container images or other artifacts with the same name, but different tags. 例如，下列三個映像位於 "acr-helloworld" 存放庫中：
 
 ```
 acr-helloworld:latest
@@ -56,7 +52,7 @@ acr-helloworld:v1
 acr-helloworld:v2
 ```
 
-存放庫名稱也可以包含[命名空間](container-registry-best-practices.md#repository-namespaces)。 命名空間可讓您使用正斜線分隔的存放庫名稱來將影像分組，例如：
+存放庫名稱也可以包含[命名空間](container-registry-best-practices.md#repository-namespaces)。 Namespaces allow you to group images using forward slash-delimited repository names, for example:
 
 ```
 marketing/campaign10-18/web:v2
@@ -66,35 +62,35 @@ product-returns/web-submission:20180604
 product-returns/legacy-integrator:20180715
 ```
 
-## <a name="image"></a>Image
+## <a name="image"></a>影像
 
-登錄中的容器映射或其他成品會與一或多個標記相關聯、具有一或多個圖層，而且是由資訊清單所識別。 瞭解這些元件彼此之間的關聯性，可協助您有效地管理您的登錄。
+A container image or other artifact within a registry is associated with one or more tags, has one or more layers, and is identified by a manifest. Understanding how these components relate to each other can help you manage your registry effectively.
 
-### <a name="tag"></a>標記
+### <a name="tag"></a>Tag
 
-影像或其他成品的*標記*會指定其版本。 存放庫內的單一成品可以指派一或多個標記，也可能是「未標記」。 也就是說，您可以刪除影像中的所有標記，而影像的資料（其層級）會保留在登錄中。
+The *tag* for an image or other artifact specifies its version. A single artifact within a repository can be assigned one or many tags, and may also be "untagged." That is, you can delete all tags from an image, while the image's data (its layers) remain in the registry.
 
 存放庫 (或存放庫和命名空間) 以及標記可定義映像的名稱。 您可以在推送或提取作業中指定映像名稱，以推送和提取映像。
 
-您要如何將容器映射標記為開發或部署它們的指引。 例如，建議使用穩定標記來維護您的基底映射，以及用來部署映射的唯一標記。 如需詳細資訊，請參閱[標記和版本設定容器映射的建議](container-registry-image-tag-version.md)。
+How you tag container images is guided by your scenarios to develop or deploy them. For example, stable tags are recommended for maintaining your base images, and unique tags for deploying images. For more information, see [Recommendations for tagging and versioning container images](container-registry-image-tag-version.md).
 
-### <a name="layer"></a>圖層
+### <a name="layer"></a>層次
 
-容器映射是由一或多個*圖層*所組成，每個都對應到定義影像的 Dockerfile 中的一條線。 登錄中的映像會共用常見層次，以提高儲存效率。 例如，不同存放庫中的數個映像可能會共用相同的 Alpine Linux 基底層次，但是該層次只有一個複本會儲存在登錄中。
+Container images are made up of one or more *layers*, each corresponding to a line in the Dockerfile that defines the image. 登錄中的映像會共用常見層次，以提高儲存效率。 例如，不同存放庫中的數個映像可能會共用相同的 Alpine Linux 基底層次，但是該層次只有一個複本會儲存在登錄中。
 
 層次共用也可將層次分布最佳化，使其分布於有多個映像共用常見層次的節點。 例如，如果節點上現有的映像包含 Alpine Linux 層次作為其基底，則參考同一層的不同映像在後續提取中不會將層移轉到節點。 相反地，它會參考已存在於節點上的層次。
 
-為了提供安全的隔離和保護，以防止可能的分層操作，層級不會在登錄之間共用。
+To provide secure isolation and protection from potential layer manipulation, layers are not shared across registries.
 
 ### <a name="manifest"></a>資訊清單
 
-推送至容器登錄的每個容器映射或成品都會與*資訊清單*相關聯。 在推送映像時，由登錄所產生的資訊清單，可唯一識別該映像並指定其層次。 您可以使用 Azure CLI 命令[az acr repository show-指令][az-acr-repository-show-manifests]清單，列出存放庫的資訊清單：
+Each container image or artifact pushed to a container registry is associated with a *manifest*. 在推送映像時，由登錄所產生的資訊清單，可唯一識別該映像並指定其層次。 You can list the manifests for a repository with the Azure CLI command [az acr repository show-manifests][az-acr-repository-show-manifests]:
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>
 ```
 
-例如，列出 "acr-helloworld" 存放庫的資訊清單：
+For example, list the manifests for the "acr-helloworld" repository:
 
 ```console
 $ az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -126,22 +122,22 @@ $ az acr repository show-manifests --name myregistry --repository acr-helloworld
 
 ### <a name="manifest-digest"></a>資訊清單摘要
 
-資訊清單是由唯一的 SHA-256 雜湊或「資訊清單摘要」識別。 每個影像或成品（不論是否已標記）都是由其摘要所識別。 即使映像的層次資料與另一個映像的層次資料相同完全，摘要值也會是唯一的。 這個機制可讓您重複將標記相同的映像推送至登錄。 例如，您可以將 `myimage:latest` 重複推送至您的登錄，而不會發生錯誤，因為每個映像都是由其唯一摘要識別。
+資訊清單是由唯一的 SHA-256 雜湊或「資訊清單摘要」識別。 Each image or artifact--whether tagged or not--is identified by its digest. 即使映像的層次資料與另一個映像的層次資料相同完全，摘要值也會是唯一的。 這個機制可讓您重複將標記相同的映像推送至登錄。 例如，您可以將 `myimage:latest` 重複推送至您的登錄，而不會發生錯誤，因為每個映像都是由其唯一摘要識別。
 
 您可以在推送作業中指定其摘要，以從摘要中提取映像。 有些系統可能會設定為依照摘要提取，因為這可保證所提取的映像版本，即使標記相同的映像隨後推送至登錄亦然。
 
-例如，從 "acr-helloworld" 存放庫提取映射，依資訊清單摘要：
+For example, pull an image from the "acr-helloworld" repository by manifest digest:
 
 ```console
 $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108
 ```
 
 > [!IMPORTANT]
-> 如果您重複推送具有相同標記且已修改的映像，可以建立孤立映像 (也就是已取消標記的映像)，但仍會耗用您登錄中的空間。 當您依照標記列出或檢視映像時，已取消標記的映像不會顯示在 Azure CLI 或 Azure 入口網站中。 不過，其層次仍然存在，而且會耗用您登錄中的空間。 刪除未標記的映射會在資訊清單是唯一的（或最後一個）指向特定層時釋放登錄空間。 如需釋放未標記映射所使用之空間的詳細資訊，請參閱[在 Azure Container Registry 中刪除容器映射](container-registry-delete.md)。
+> 如果您重複推送具有相同標記且已修改的映像，可以建立孤立映像 (也就是已取消標記的映像)，但仍會耗用您登錄中的空間。 當您依照標記列出或檢視映像時，已取消標記的映像不會顯示在 Azure CLI 或 Azure 入口網站中。 不過，其層次仍然存在，而且會耗用您登錄中的空間。 Deleting an untagged image frees registry space when the manifest is the only one, or the last one, pointing to a particular layer. For information about freeing space used by untagged images, see [Delete container images in Azure Container Registry](container-registry-delete.md).
 
 ## <a name="next-steps"></a>後續步驟
 
-在 Azure Container Registry 中深入瞭解[映射儲存體](container-registry-storage.md)和[支援的內容格式](container-registry-image-formats.md)。
+Learn more about [image storage](container-registry-storage.md) and [supported content formats](container-registry-image-formats.md) in Azure Container Registry.
 
 <!-- LINKS - Internal -->
 [az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests

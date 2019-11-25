@@ -1,39 +1,34 @@
 ---
-title: 刪除 Azure Container Registry 中的映像資源
-description: 有關如何使用 Azure CLI 命令來刪除容器映射資料，以有效管理登錄大小的詳細資訊。
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Delete image resources
+description: Details on how to effectively manage registry size by deleting container image data using Azure CLI commands.
 ms.topic: article
 ms.date: 07/31/2019
-ms.author: danlep
-ms.openlocfilehash: d415bef80ed8c96ff6e5df81ae9281ae681a4879
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 8d20bf2be1d472855c3e67dd79ea1725c152e3d2
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300194"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455279"
 ---
-# <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>使用 Azure CLI 刪除 Azure Container Registry 中的容器映射
+# <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Delete container images in Azure Container Registry using the Azure CLI
 
 若要維護 Azure Container Registry 的大小，您應該定期刪除過時的映像資料。 雖然有些部署至生產環境的容器映像可能需要較長時間的儲存，但其他容器映像通常可以更快速地刪除。 例如，在自動化建置和測試案例中，您的登錄可以快速地填入可能永遠不會部署的映像，並可在完成建置和測試行程後立刻清除。
 
-您可以用數種不同的方式刪除映像資料，因此務必了解每項刪除作業對於儲存體使用量有何影響。 本文涵蓋數個刪除影像資料的方法:
+您可以用數種不同的方式刪除映像資料，因此務必了解每項刪除作業對於儲存體使用量有何影響。 This article covers several methods for deleting image data:
 
 * 刪除[存放庫](#delete-repository)：刪除存放庫內的所有映像和所有唯一層次。
 * 依[標記](#delete-by-tag)刪除：刪除映像、標記、映像參考的所有唯一層次，以及與映像相關聯的所有其他標記。
-* 依[資訊清單摘要](#delete-by-manifest-digest)刪除：刪除映像、映像參考的所有唯一層次，以及與映像相關聯的所有標記。
+* 刪除[資訊清單摘要](#delete-by-manifest-digest)：刪除映像、映像參考的所有唯一層次，以及與映像相關聯的所有標記。
 
-提供範例腳本以協助自動執行刪除作業。
+Sample scripts are provided to help automate delete operations.
 
-如需這些概念的簡介, 請參閱[關於登錄、存放庫和映射](container-registry-concepts.md)。
+For an introduction to these concepts, see [About registries, repositories, and images](container-registry-concepts.md).
 
 ## <a name="delete-repository"></a>刪除存放庫
 
-刪除存放庫即可刪除存放庫中的所有映像，包括所有標籤、唯一層次及資訊清單。 當您刪除儲存機制時, 會復原參照該存放庫中唯一層之映射所使用的儲存空間。
+刪除存放庫即可刪除存放庫中的所有映像，包括所有標籤、唯一層次及資訊清單。 When you delete a repository, you recover the storage space used by the images that reference unique layers in that repository.
 
-下列 Azure CLI 命令可刪除 "acr-helloworld" 存放庫以及該存放庫內的所有標記和資訊清單。 如果登錄中的任何其他映射未參考已刪除之資訊清單所參考的圖層, 其層級資料也會一併刪除, 並復原儲存空間。
+下列 Azure CLI 命令可刪除 "acr-helloworld" 存放庫以及該存放庫內的所有標記和資訊清單。 If layers referenced by the deleted manifests are not referenced by any other images in the registry, their layer data is also deleted, recovering the storage space.
 
 ```azurecli
  az acr repository delete --name myregistry --repository acr-helloworld
@@ -43,7 +38,7 @@ ms.locfileid: "71300194"
 
 您可以在刪除作業中指定存放庫名稱和標記，以從存放庫中刪除個別映像。 當您依標記刪除時，會復原映像中任何唯一層次 (並未由登錄中任何其他映像共用的層次) 所使用的儲存空間。
 
-若要依標記刪除, 請使用[az acr repository delete][az-acr-repository-delete] , 並在`--image`參數中指定映射名稱。 映像獨有的所有層次，與該映像相關聯的任何其他標記都會遭到刪除。
+To delete by tag, use [az acr repository delete][az-acr-repository-delete] and specify the image name in the `--image` parameter. 映像獨有的所有層次，與該映像相關聯的任何其他標記都會遭到刪除。
 
 例如，從 "myregistry" 登錄中刪除 "acr-helloworld:latest" 映像：
 
@@ -54,13 +49,13 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> 「依標記」刪除不應該與刪除標記 (取消標記) 混淆。 您可以使用 Azure CLI 命令[az acr repository untag][az-acr-repository-untag]來刪除標記。 當您 untag 映射時, 不會釋放任何空間, 因為它的[資訊清單](container-registry-concepts.md#manifest)和圖層資料會保留在登錄中。 只有標記參考本身會被刪除。
+> 「依標記」刪除不應該與刪除標記 (取消標記) 混淆。 You can delete a tag with the Azure CLI command [az acr repository untag][az-acr-repository-untag]. No space is freed when you untag an image because its [manifest](container-registry-concepts.md#manifest) and layer data remain in the registry. 只有標記參考本身會被刪除。
 
 ## <a name="delete-by-manifest-digest"></a>依資訊清單摘要刪除
 
 [資訊清單摘要](container-registry-concepts.md#manifest-digest)可以與一個、零個或多個標記產生關聯。 當您依摘要刪除時，由資訊清單參考的所有標記都會遭到刪除，因為任何層次的層次資料對映像而言都是唯一的。 共用的層次資料不會遭到刪除。
 
-若要依摘要刪除，首先針對包含所要刪除映像的存放庫列出資訊清單摘要。 例如:
+若要依摘要刪除，首先針對包含所要刪除映像的存放庫列出資訊清單摘要。 例如：
 
 ```console
 $ az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -83,7 +78,7 @@ $ az acr repository show-manifests --name myregistry --repository acr-helloworld
 ]
 ```
 
-接下來, 在[az acr repository delete][az-acr-repository-delete]命令中指定您想要刪除的摘要。 此命令的格式為：
+Next, specify the digest you wish to delete in the [az acr repository delete][az-acr-repository-delete] command. 此命令的格式為：
 
 ```azurecli
 az acr repository delete --name <acrName> --image <repositoryName>@<digest>
@@ -97,23 +92,23 @@ This operation will delete the manifest 'sha256:3168a21b98836dda7eb7a846b3d73528
 Are you sure you want to continue? (y/n): y
 ```
 
-`acr-helloworld:v2`映射會從登錄中刪除, 如同該映射獨有的任何圖層資料。 如果資訊清單與多個標記相關聯，也會一併刪除所有相關聯的標記。
+The `acr-helloworld:v2` image is deleted from the registry, as is any layer data unique to that image. 如果資訊清單與多個標記相關聯，也會一併刪除所有相關聯的標記。
 
-## <a name="delete-digests-by-timestamp"></a>依時間戳記刪除摘要
+## <a name="delete-digests-by-timestamp"></a>Delete digests by timestamp
 
-若要維護存放庫或登錄的大小, 您可能需要定期刪除早于特定日期的資訊清單摘要。
+To maintain the size of a repository or registry, you might need to periodically delete manifest digests older than a certain date.
 
-下列 Azure CLI 命令會以遞增的順序, 列出存放庫中比指定時間戳記更早的所有資訊清單摘要。 以適合您環境的值取代 `<acrName>` 和 `<repositoryName>`。 時間戳記可以是完整的日期時程表達式或日期, 如下列範例所示。
+The following Azure CLI command lists all manifest digest in a repository older than a specified timestamp, in ascending order. 以適合您環境的值取代 `<acrName>` 和 `<repositoryName>`。 The timestamp could be a full date-time expression or a date, as in this example.
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName> \
 --orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
 ```
 
-識別過時的資訊清單摘要之後, 您可以執行下列 Bash 腳本, 以刪除比指定時間戳記更舊的資訊清單摘要。 它需要 Azure CLI 和 **xargs**。 根據預設，此指令碼不會執行任何刪除。 將 `ENABLE_DELETE` 值變更為 `true`，以啟用映像刪除。
+After identifying stale manifest digests, you can run the following Bash script to delete manifest digests older than a specified timestamp. 它需要 Azure CLI 和 **xargs**。 根據預設，此指令碼不會執行任何刪除。 將 `ENABLE_DELETE` 值變更為 `true`，以啟用映像刪除。
 
 > [!WARNING]
-> 請小心使用下列範例腳本--已刪除的映射資料無法復原。 如果您有依資訊清單摘要提取映射的系統 (相對於映射名稱), 則不應該執行這些腳本。 刪除資訊清單摘要將會導致這些系統無法從您的登錄中提取映射。 請考慮採用*唯一的標記*配置, 這是[建議的最佳作法](container-registry-image-tag-version.md), 而不是依資訊清單提取。 
+> Use the following sample script with caution--deleted image data is UNRECOVERABLE. If you have systems that pull images by manifest digest (as opposed to image name), you should not run these scripts. Deleting the manifest digests will prevent those systems from pulling the images from your registry. Instead of pulling by manifest, consider adopting a *unique tagging* scheme, a [recommended best practice](container-registry-image-tag-version.md). 
 
 ```bash
 #!/bin/bash
@@ -188,7 +183,7 @@ fi
    ]
    ```
 
-如您在序列中最後一個步驟的輸出中所見, 現在有一個孤立的資訊清單, `"tags"`其屬性為空白清單。 此資訊清單以及它所參考的任何唯一層次資料，仍存在於登錄中。 **若要刪除這類孤立映像及其層次資料，您必須依資訊清單摘要刪除**。
+As you can see in the output of the last step in the sequence, there is now an orphaned manifest whose `"tags"` property is an empty list. 此資訊清單以及它所參考的任何唯一層次資料，仍存在於登錄中。 **若要刪除這類孤立映像及其層次資料，您必須依資訊清單摘要刪除**。
 
 ## <a name="delete-all-untagged-images"></a>刪除所有已取消標記的映像
 
@@ -198,10 +193,10 @@ fi
 az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?tags[0]==null].digest"
 ```
 
-在腳本中使用此命令, 您可以刪除存放庫中的所有未標記映射。
+Using this command in a script, you can delete all untagged images in a repository.
 
 > [!WARNING]
-> 請小心使用下列範例指令碼--無法復原已刪除的映像資料。 如果您有依資訊清單摘要提取映射的系統 (相對於映射名稱), 則不應該執行這些腳本。 刪除已取消標記的映像，會導致這些系統無法從登錄中提取映像。 請考慮採用*唯一的標記*配置, 這是[建議的最佳作法](container-registry-image-tag-version.md), 而不是依資訊清單提取。
+> 請小心使用下列範例指令碼--無法復原已刪除的映像資料。 If you have systems that pull images by manifest digest (as opposed to image name), you should not run these scripts. 刪除已取消標記的映像，會導致這些系統無法從登錄中提取映像。 Instead of pulling by manifest, consider adopting a *unique tagging* scheme, a [recommended best practice](container-registry-image-tag-version.md).
 
 **Bash 中的 Azure CLI**
 
@@ -262,9 +257,9 @@ if ($enableDelete) {
 
 ## <a name="automatically-purge-tags-and-manifests-preview"></a>自動清除標記和資訊清單 (預覽)
 
-做為腳本 Azure CLI 命令的替代方案，請執行隨選或排程的 ACR 工作，以刪除比特定期間還舊的所有標記，或符合指定的名稱篩選器。 如需詳細資訊，請參閱[從 Azure container Registry 自動清除映射](container-registry-auto-purge.md)。
+As an alternative to scripting Azure CLI commands, run an on-demand or scheduled ACR task to delete all tags that are older than a certain duration or match a specified name filter. For more information, see [Automatically purge images from an Azure container registry](container-registry-auto-purge.md).
 
-選擇性地為每個登錄設定[保留原則](container-registry-retention-policy.md)，以管理未標記的資訊清單。 當您啟用保留原則時，登錄中沒有任何相關聯的標記和基礎層資料的映射資訊清單，會在設定的期間之後自動刪除。
+Optionally set a [retention policy](container-registry-retention-policy.md) for each registry, to manage untagged manifests. When you enable a retention policy, image manifests in the registry that don't have any associated tags, and the underlying layer data, are automatically deleted after a set period.
 
 ## <a name="next-steps"></a>後續步驟
 

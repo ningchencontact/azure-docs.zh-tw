@@ -1,21 +1,18 @@
 ---
-title: 異地複寫 Azure 容器登錄
-description: 開始建立和管理異地複寫的 Azure container registry，讓登錄能夠使用多宿主區域複本服務多個區域。
-services: container-registry
+title: 異地複寫登錄
+description: Get started creating and managing a geo-replicated Azure container registry, which enables the registry to serve multiple regions with multi-master regional replicas.
 author: stevelas
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: cddd55d3dfc2609b7a32a276e106e152f0868b32
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: d238de30e458261a11c941c03ac127c732ca8d3d
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931642"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456438"
 ---
-# <a name="geo-replication-in-azure-container-registry"></a>Azure 容器登錄中的異地複寫
+# <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry 中的異地複寫
 
 公司想要本機存在或熱備份時，選擇從多個 Azure 區域執行服務。 最佳做法是將容器登錄中放入每個區域，其中執行映像以允許網路關閉作業、啟用快速、可靠的映像圖層傳輸。 異地複寫可讓 Azure 容器登錄成為單一登錄、服務包含多個區域登錄的多重主要區域。 
 
@@ -64,7 +61,7 @@ docker push contosowesteu.azurecr.io/public/products/web:1.2
 
 ## <a name="configure-geo-replication"></a>設定異地複寫
 
-設定異地複寫是簡單的，只要按一下地圖上的區域。 您也可以使用 Azure CLI 中的[az acr replication](/cli/azure/acr/replication)命令之類的工具來管理異地複寫，或使用[Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication)來部署已啟用異地複寫的登錄。
+設定異地複寫是簡單的，只要按一下地圖上的區域。 You can also manage geo-replication using tools including the [az acr replication](/cli/azure/acr/replication) commands in the Azure CLI, or deploy a registry enabled for geo-replication with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
 
 異地複寫是[進階登錄](container-registry-skus.md)的一項功能。 如果您的登錄還不是進階，您可以在 [Azure 入口網站](https://portal.azure.com)中從基本和標準變更為進階：
 
@@ -97,19 +94,19 @@ ACR 會開始同步設定的複本之間的映像。 完成時，入口網站會
 * 異地複寫登錄中的每個區域在設定完成後，都是獨立的。 Azure Container Registry SLA 會套用至每個異地複寫的區域。
 * 當您對異地複寫的登錄推送或提取映像時，背景中的 Azure 流量管理員會將要求傳送至離您最近的區域中的登錄。
 * 當您將映像或標記更新推送至最接近的區域之後，Azure Container registry 需要一些時間將資訊清單和層複寫至您選擇加入的其餘區域。 映像愈大，複寫就愈耗時。 各個複寫區域會透過最終的一致性模型同步處理映像和標記。
-* 若要管理相依于異地複寫之推送更新的工作流程，我們建議您設定[webhook](container-registry-webhook.md)來回應推送事件。 您可以在異地複寫的登錄中設定區域 Webhook，來追蹤異地複寫區域之間的推送事件何時完成。
+* To manage workflows that depend on push updates to a geo-replicated , we recommend that you configure [webhooks](container-registry-webhook.md) to respond to the push events. 您可以在異地複寫的登錄中設定區域 Webhook，來追蹤異地複寫區域之間的推送事件何時完成。
 
 ## <a name="delete-a-replica"></a>刪除複本伺服器
 
-設定登錄的複本之後，您可以在不再需要時將它刪除。 使用 Azure 入口網站或其他工具（例如 Azure CLI 中的[az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete)命令）來刪除複本。
+After you've configured a replica for your registry, you can delete it at any time if it's no longer needed. Delete a replica using the Azure portal or other tools such as the [az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete) command in the Azure CLI.
 
-若要刪除 Azure 入口網站中的複本：
+To delete a replica in the Azure portal:
 
-1. 流覽至您的 Azure Container Registry，然後**選取 [** 複寫]。
-1. 選取複本的名稱，然後選取 [**刪除**]。 確認您想要刪除複本。
+1. Navigate to your Azure Container Registry, and select **Replications**.
+1. Select the name of a replica, and select **Delete**. Confirm that you want to delete the replica.
 
 > [!NOTE]
-> 您無法在登錄的*主區域*（也就是您用來建立登錄的位置）中刪除登錄複本。 您只能藉由刪除登錄本身來刪除 home 複本。
+> You can't delete the registry replica in the *home region* of the registry, that is, the location where you created the registry. You can only delete the home replica by deleting the registry itself.
 
 ## <a name="geo-replication-pricing"></a>異地複寫價格
 

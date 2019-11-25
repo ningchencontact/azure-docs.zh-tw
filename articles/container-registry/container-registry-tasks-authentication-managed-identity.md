@@ -1,6 +1,6 @@
 ---
-title: 使用受控識別搭配 Azure Container Registry 工作
-description: 在 Azure Container Registry 工作中啟用適用于 Azure 資源的受控識別, 以允許工作存取其他 Azure 資源, 包括其他私人容器登錄。
+title: Managed identity in ACR task
+description: Enable a managed identity for Azure Resources in an Azure Container Registry task to allow the task to access other Azure resources including other private container registries.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,51 +8,51 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: danlep
-ms.openlocfilehash: 9f7c083a079e42172a9e2865f90293fa4d6813d8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: c86553d7658e57032393c682628d4b12d6945381
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640422"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454727"
 ---
-# <a name="use-an-azure-managed-identity-in-acr-tasks"></a>在 ACR 工作中使用受 Azure 管理的身分識別 
+# <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Use an Azure-managed identity in ACR Tasks 
 
-在[ACR](container-registry-tasks-overview.md)工作中啟用[適用于 Azure 資源的受控識別](../active-directory/managed-identities-azure-resources/overview.md), 讓工作可以存取其他 Azure 資源, 而不需要提供或管理認證。 例如, 您可以使用受控識別來啟用工作步驟, 以將容器映射提取或推送至另一個登錄。
+Enable a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) in an [ACR task](container-registry-tasks-overview.md), so the task can access other Azure resources, without needing to provide or manage credentials. For example, use a managed identity to enable a task step to pull or push container images to another registry.
 
-在本文中, 您將瞭解如何使用 Azure CLI, 在 ACR 工作上啟用使用者指派或系統指派的受控識別。 您可以使用 Azure Cloud Shell 或 Azure CLI 的本機安裝。 如果您想要在本機使用, 則需要2.0.68 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
+In this article, you learn how to use the Azure CLI to enable a user-assigned or system-assigned managed identity on an ACR task. You can use the Azure Cloud Shell or a local installation of the Azure CLI. If you'd like to use it locally, version 2.0.68 or later is required. 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
-如需使用受控識別從 ACR 工作存取受保護資源的案例, 請參閱:
+For scenarios to access secured resources from an ACR task using a managed identity, see:
 
-* [跨登錄驗證](container-registry-tasks-cross-registry-authentication.md)
-* [使用儲存在 Azure Key Vault 中的秘密存取外部資源](container-registry-tasks-authentication-key-vault.md)
+* [Cross-registry authentication](container-registry-tasks-cross-registry-authentication.md)
+* [Access external resources with secrets stored in Azure Key Vault](container-registry-tasks-authentication-key-vault.md)
 
 ## <a name="why-use-a-managed-identity"></a>為什麼要使用受控識別？
 
-適用于 Azure 資源的受控識別會在 Azure Active Directory (Azure AD) 中, 為選取的 Azure 服務提供自動的受控識別。 您可以使用受控識別來設定 ACR 工作, 讓工作可以存取其他受保護的 Azure 資源, 而不需要在工作步驟中傳遞認證。
+A managed identity for Azure resources provides selected Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can configure an ACR task with a managed identity so that the task can access other secured Azure resources, without passing credentials in the task steps.
 
 受控身分識別有兩種：
 
-* *使用者指派*的身分識別, 您可以指派給多個資源, 並視需要保存。 使用者指派的身分識別目前處於預覽狀態。
+* *User-assigned identities*, which you can assign to multiple resources and persist for as long as you want. 使用者指派的身分識別目前處於預覽狀態。
 
-* *系統指派*的身分識別, 這對於特定資源 (例如 ACR 工作) 而言是唯一的, 而且會在該資源的存留期內持續。
+* A *system-assigned identity*, which is unique to a specific resource such as an ACR task and lasts for the lifetime of that resource.
 
-您可以在 ACR 工作中啟用其中一種或兩種類型的身分識別。 將身分識別存取權授與另一個資源, 就像任何安全性主體一樣。 當工作執行時, 它會使用身分識別來存取任何需要存取的工作步驟中的資源。
+You can enable either or both types of identity in an ACR task. Grant the identity access to another resource, just like any security principal. When the task runs, it uses the identity to access the resource in any task steps that require access.
 
-## <a name="steps-to-use-a-managed-identity"></a>使用受控識別的步驟
+## <a name="steps-to-use-a-managed-identity"></a>Steps to use a managed identity
 
-遵循這些高階步驟, 以使用受控識別搭配 ACR 工作。
+Follow these high-level steps to use a managed identity with an ACR task.
 
-### <a name="1-optional-create-a-user-assigned-identity"></a>1.選擇性建立使用者指派的身分識別
+### <a name="1-optional-create-a-user-assigned-identity"></a>1. (Optional) Create a user-assigned identity
 
-如果您打算使用使用者指派的身分識別, 您可以使用現有的身分識別。 或者, 使用 Azure CLI 或其他 Azure 工具來建立身分識別。 例如, 使用[az identity create][az-identity-create]命令。 
+If you plan to use a user-assigned identity, you can use an existing identity. Or, create the identity using the Azure CLI or other Azure tools. For example, use the [az identity create][az-identity-create] command. 
 
-如果您打算僅使用系統指派的身分識別, 請略過此步驟。 當您建立 ACR 工作時, 可以建立系統指派的身分識別。
+If you plan to use only a system-assigned identity, skip this step. You can create a system-assigned identity when you create the ACR task.
 
-### <a name="2-enable-identity-on-an-acr-task"></a>2.啟用 ACR 工作的身分識別
+### <a name="2-enable-identity-on-an-acr-task"></a>2. Enable identity on an ACR task
 
-當您建立 ACR 工作時, 可以選擇性地啟用使用者指派的身分識別、系統指派的身分識別, 或兩者。 例如, 當您在`--assign-identity` Azure CLI 中執行[az acr task create][az-acr-task-create]命令時, 請傳遞參數。
+When you create an ACR task, optionally enable a user-assigned identity, a system-assigned identity, or both. For example, pass the `--assign-identity` parameter when you run the [az acr task create][az-acr-task-create] command in the Azure CLI.
 
-若要啟用系統指派的身分識別, `--assign-identity`請傳遞沒有值`assign-identity [system]`或的。 下列命令會從公用 GitHub 存放庫建立 Linux 工作, 以使用 Git `hello-world`認可觸發程式和系統指派的受控識別來建立映射:
+To enable a system-assigned identity, pass `--assign-identity` with no value or `assign-identity [system]`. The following command creates a Linux task from a public GitHub repository which builds the `hello-world` image with a Git commit trigger and with a system-assigned managed identity:
 
 ```azurecli
 az acr task create \
@@ -63,7 +63,7 @@ az acr task create \
     --assign-identity
 ```
 
-若要啟用使用者指派的身分識別, `--assign-identity`請使用身分識別的*資源識別碼*值來傳遞。 下列命令會從公用 GitHub 存放庫建立 Linux 工作, 以使用 Git `hello-world`認可觸發程式和使用者指派的受控識別來建立映射:
+To enable a user-assigned identity, pass `--assign-identity` with a value of the *resource ID* of the identity. The following command creates a Linux task from a public GitHub repository which builds the `hello-world` image with a Git commit trigger and with a user-assigned managed identity:
 
 ```azurecli
 az acr task create \
@@ -74,33 +74,33 @@ az acr task create \
     --assign-identity <resourceID>
 ```
 
-您可以藉由執行[az identity show][az-identity-show]命令, 取得身分識別的資源識別碼。 資源群組*myResourceGroup*中識別碼*MYUSERASSIGNEDIDENTITY*的資源識別碼的格式為。 
+You can get the resource ID of the identity by running the [az identity show][az-identity-show] command. The resource ID for the ID *myUserAssignedIdentity* in resource group *myResourceGroup* is of the form. 
 
 ```
 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
 ```
 
-### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3.授與身分識別許可權以存取其他 Azure 資源
+### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. Grant the identity permissions to access other Azure resources
 
-視您工作的需求而定, 授與身分識別許可權以存取其他 Azure 資源。 範例包括：
+Depending on the requirements of your task, grant the identity permissions to access other Azure resources. 例如：
 
-* 使用提取、推送和提取, 或 Azure 中目標容器登錄的其他許可權, 將角色指派給受控識別。 如需登錄角色的完整清單, 請參閱[Azure Container Registry 角色和許可權](container-registry-roles.md)。 
-* 將角色指派給受控識別, 以讀取 Azure 金鑰保存庫中的秘密。
+* Assign the managed identity a role with pull, push and pull, or other permissions to a target container registry in Azure. For a complete list of registry roles, see [Azure Container Registry roles and permissions](container-registry-roles.md). 
+* Assign the managed identity a role to read secrets in an Azure key vault.
 
-使用[Azure CLI](../role-based-access-control/role-assignments-cli.md)或其他 Azure 工具來管理資源的角色型存取。 例如, 執行[az role 指派 create][az-role-assignment-create]命令, 將身分識別的角色指派給身分識別。 
+Use the [Azure CLI](../role-based-access-control/role-assignments-cli.md) or other Azure tools to manage role-based access to resources. For example, run the [az role assignment create][az-role-assignment-create] command to assign the identity a role to the identity. 
 
-下列範例會將許可權指派給受控識別, 以從容器登錄中提取。 命令會指定身分識別的*服務主體識別碼*和目標登錄的*資源識別碼*。
+The following example assigns a managed identity the permissions to pull from a container registry. The command specifies the *service principal ID* of the identity and the *resource ID* of the target registry.
 
 
 ```azurecli
 az role assignment create --assignee <servicePrincipalID> --scope <registryID> --role acrpull
 ```
 
-### <a name="4-optional-add-credentials-to-the-task"></a>4.選擇性將認證新增至工作
+### <a name="4-optional-add-credentials-to-the-task"></a>4. (Optional) Add credentials to the task
 
-如果您的工作將映射提取或推送至另一個 Azure 容器登錄, 請將認證新增至要驗證的身分識別工作。 執行[az acr task credential add][az-acr-task-credential-add]命令並傳遞`--use-identity`參數, 以將身分識別的認證新增至工作。 
+If your task pulls or pushes images to another Azure container registry, add credentials to the task for the identity to authenticate. Run the [az acr task credential add][az-acr-task-credential-add] command and pass the `--use-identity` parameter to add the identity's credentials to the task. 
 
-例如, 若要為系統指派的身分識別新增認證以向登錄*targetregistry*進行驗證, 請`use-identity [system]`傳遞:
+For example, to add credentials for a system-assigned identity to authenticate with the registry *targetregistry*, pass `use-identity [system]`:
 
 ```azurecli
 az acr task credential add \
@@ -110,7 +110,7 @@ az acr task credential add \
     --use-identity [system]
 ```
 
-若要為使用者指派的身分識別新增認證, 以向登錄*targetregistry*進行驗證`use-identity` , 請使用識別的*用戶端識別碼*值來傳遞。 例如:
+To add credentials for a user-assigned identity to authenticate with the registry *targetregistry*, pass `use-identity` with a value of the *client ID* of the identity. 例如：
 
 ```azurecli
 az acr task credential add \
@@ -120,14 +120,14 @@ az acr task credential add \
     --use-identity <clientID>
 ```
 
-您可以藉由執行[az identity show][az-identity-show]命令, 取得身分識別的用戶端識別碼。 [用戶端識別碼] 是表單`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`的 GUID。
+You can get the client ID of the identity by running the [az identity show][az-identity-show] command. The client ID is a GUID of the form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中, 您已瞭解如何在 ACR 工作上啟用和使用使用者指派或系統指派的受控識別。 如需使用受控識別從 ACR 工作存取受保護資源的案例, 請參閱:
+In this article, you learned how to enable and use a user-assigned or system-assigned managed identity on an ACR task. For scenarios to access secured resources from an ACR task using a managed identity, see:
 
-* [跨登錄驗證](container-registry-tasks-cross-registry-authentication.md)
-* [使用儲存在 Azure Key Vault 中的秘密存取外部資源](container-registry-tasks-authentication-key-vault.md)
+* [Cross-registry authentication](container-registry-tasks-cross-registry-authentication.md)
+* [Access external resources with secrets stored in Azure Key Vault](container-registry-tasks-authentication-key-vault.md)
 
 
 <!-- LINKS - Internal -->
