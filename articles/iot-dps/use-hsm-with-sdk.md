@@ -1,5 +1,5 @@
 ---
-title: Use different attestation mechanisms with the Azure IoT Hub Device Provisioning Service Client SDK
+title: 使用不同的證明機制搭配 Azure IoT 中樞裝置布建服務用戶端 SDK
 description: Azure 作法 - 如何在 Azure 中使用不同證明機制搭配裝置佈建服務用戶端 SDK
 author: robinsh
 ms.author: robinsh
@@ -17,9 +17,9 @@ ms.locfileid: "74228277"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>如何使用不同證明機制搭配適用於 C 的裝置佈建服務用戶端 SDK
 
-本文說明如何使用不同的[證明機制](concepts-security.md#attestation-mechanism)搭配適用於 C 的裝置佈建服務用戶端 SDK。您可以使用實體裝置或模擬器。 The provisioning service supports authentication for two types of attestation mechanisms: X.509 and Trusted Platform Module (TPM).
+本文說明如何使用不同的[證明機制](concepts-security.md#attestation-mechanism)搭配適用於 C 的裝置佈建服務用戶端 SDK。您可以使用實體裝置或模擬器。 布建服務支援兩種證明機制類型的驗證： x.509 和信賴平臺模組（TPM）。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 根據[建立及佈建模擬的裝置](./quick-create-simulated-device.md)指南中標題為「準備開發環境」一節，準備您的開發環境。
 
@@ -35,11 +35,11 @@ ms.locfileid: "74228277"
 
 ## <a name="enable-authentication-for-supported-attestation-mechanisms"></a>針對支援的證明機制啟用驗證
 
-The SDK authentication mode (X.509 or TPM) must be enabled for the physical device or simulator before they can be enrolled in the Azure portal. 首先，瀏覽至 azure-iot-sdk-c 的根目錄。 然後根據您選擇的驗證模式來執行指定的命令：
+您必須先啟用實體裝置或模擬器的 SDK 驗證模式（x.509 或 TPM），才能在 Azure 入口網站中註冊。 首先，瀏覽至 azure-iot-sdk-c 的根目錄。 然後根據您選擇的驗證模式來執行指定的命令：
 
-### <a name="use-x509-with-simulator"></a>Use X.509 with simulator
+### <a name="use-x509-with-simulator"></a>搭配使用 x.509 與模擬器
 
-The provisioning service ships with a Device Identity Composition Engine (DICE) emulator that generates an **X.509** certificate for authenticating the device. To enable **X.509** authentication, run the following command: 
+布建服務隨附裝置身分識別組合引擎（骰子）模擬器，它會產生**x.509**憑證來驗證裝置。 若要啟用**x.509** authentication，請執行下列命令： 
 
 ```
 cmake -Ddps_auth_type=x509 ..
@@ -47,9 +47,9 @@ cmake -Ddps_auth_type=x509 ..
 
 可在[這裡](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)找到硬體與 DICE 的相關資訊。
 
-### <a name="use-x509-with-hardware"></a>Use X.509 with hardware
+### <a name="use-x509-with-hardware"></a>使用 x.509 搭配硬體
 
-The provisioning service can be used with **X.509** on other hardware. 需要硬體與 SDK 之間的介面才能建立連線。 如需關於介面的資訊，請連絡您的 HSM 製造商。
+布建服務可與其他硬體上的**x.509**搭配使用。 需要硬體與 SDK 之間的介面才能建立連線。 如需關於介面的資訊，請連絡您的 HSM 製造商。
 
 ### <a name="use-tpm"></a>使用 TPM
 
@@ -148,8 +148,8 @@ cmake -Ddps_auth_type=tpm_simulator ..
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
 2. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源] 按鈕，然後開啟您的裝置佈建服務。
-   - **X.509 Individual Enrollment**: On the provisioning service summary blade, select **Manage enrollments**. 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增] 按鈕。 Select **X.509** as the identity attestation *Mechanism*, upload the leaf certificate as required by the blade. 完成後，按一下 [儲存] 按鈕。 
-   - **X.509 Group Enrollment**: On the provisioning service  summary blade, select **Manage enrollments**. 選取 [群組註冊] 索引標籤，然後按一下頂端的 [新增] 按鈕。 Select **X.509** as the identity attestation *Mechanism*, enter a group name and certification name, upload the CA/Intermediate certificate as required by the blade. 完成後，按一下 [儲存] 按鈕。 
+   - **X.509 個別註冊**：在 [布建服務摘要] 分頁上，選取 [**管理註冊**]。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增] 按鈕。 選取 [ **x.509** ] 作為身分識別證明*機制*，並視需要上傳分頁的 [分葉憑證]。 完成後，按一下 [儲存] 按鈕。 
+   - **X.509 群組註冊**：在 [布建服務摘要] 分頁上，選取 [**管理註冊**]。 選取 [群組註冊] 索引標籤，然後按一下頂端的 [新增] 按鈕。 選取 [ **x.509** ] 作為身分識別證明*機制*，輸入組名和憑證名稱，並依分頁的需求上傳 CA/中繼憑證。 完成後，按一下 [儲存] 按鈕。 
 
 ## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>針對使用自訂證明機制的裝置啟用驗證 (選擇性)
 
@@ -181,7 +181,7 @@ cmake -Ddps_auth_type=tpm_simulator ..
 
 ## <a name="connecting-to-iot-hub-after-provisioning"></a>佈建之後連線到 IoT 中樞
 
-Once the device has been provisioned with the provisioning service, this API uses the specified authentication mode (**X.509** or TPM) to connect with IoT Hub: 
+一旦裝置已布建服務，此 API 就會使用指定的驗證模式（**x.509**或 TPM）來連線 IoT 中樞： 
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```

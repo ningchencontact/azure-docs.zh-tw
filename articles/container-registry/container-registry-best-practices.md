@@ -46,11 +46,11 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 雖然您可以對特定主機類型 (例如「Azure 容器執行個體」) 進行實驗，但完成後，您可能會想要刪除該容器執行個體。 不過，您也可能會想要保留已推送到 Azure Container Registry 的映像集合。 藉由將登錄放在它自己的資源群組中，即可將刪除容器執行個體資源群組時意外刪除該登錄中映像集合的風險降到最低。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 向 Azure Container Registry 進行驗證時，有兩種主要的案例：個人驗證和服務 (或「遠端控制」) 驗證。 下表提供這些案例的簡要概觀，以及各個案例的建議驗證方法。
 
-| Type | 範例案例 | 建議的方法 |
+| 在系統提示您進行確認時，輸入 | 範例案例 | 建議的方法 |
 |---|---|---|
 | 個人身分識別 | 將映像提取至其開發電腦或從該電腦提取映像的開發人員。 | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | 遠端控制/服務身分識別 | 未直接涉及使用者的組建和部署管線。 | [服務主體](container-registry-authentication.md#service-principal) |
@@ -59,9 +59,9 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 ## <a name="manage-registry-size"></a>管理登錄大小
 
-The storage constraints of each [container registry SKU][container-registry-skus] are intended to align with a typical scenario: **Basic** for getting started, **Standard** for the majority of production applications, and **Premium** for hyper-scale performance and [geo-replication][container-registry-geo-replication]. 在整個登錄生命週期，您應該定期刪除未使用的內容來管理其大小。
+每個[容器登錄 SKU][container-registry-skus]的儲存體條件約束都是要與一般案例一致：**基本**用於入門、適用于大多數實際執行應用程式的**標準**，以及用於超大規模效能和[異地][container-registry-geo-replication]複寫的**Premium** 。 在整個登錄生命週期，您應該定期刪除未使用的內容來管理其大小。
 
-Use the Azure CLI command [az acr show-usage][az-acr-show-usage] to display the current size of your registry:
+使用 Azure CLI 命令[az acr show-usage][az-acr-show-usage]來顯示登錄的目前大小：
 
 ```console
 $ az acr show-usage --resource-group myResourceGroup --name myregistry --output table

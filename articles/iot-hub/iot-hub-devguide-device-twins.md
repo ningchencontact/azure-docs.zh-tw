@@ -119,7 +119,7 @@ ms.locfileid: "74209706"
 
 ### <a name="desired-property-example"></a>所需屬性範例
 
-在上述範例中，解決方案後端和裝置應用程式會使用 `telemetryConfig` 裝置對應項的所需屬性和報告屬性，以同步處理此裝置的遙測組態。 例如：
+在上述範例中，解決方案後端和裝置應用程式會使用 `telemetryConfig` 裝置對應項的所需屬性和報告屬性，以同步處理此裝置的遙測組態。 例如︰
 
 1. 解決方案後端會以所需組態值來設定所需屬性。 以下是含有所需屬性集的文件部分︰
 
@@ -158,7 +158,7 @@ ms.locfileid: "74209706"
 
 * **依識別碼擷取裝置對應項**。 此作業會傳回裝置對應項文件，包括標籤以及所需屬性、報告屬性和系統屬性。
 
-* **部份更新裝置對應項**。 此作業可讓解決方案後端局部地更新裝置對應項中的標籤或所需屬性。 部分更新會以 JSON 文件的形式來表示，以新增或更新任何屬性。 設定為 `null` 的屬性會遭到移除。 下列範例會以 `{"newProperty": "newValue"}` 值建立新的所需屬性、以 `"otherNewValue"` 覆寫 `existingProperty` 的現有值，並移除 `otherOldProperty`。 不會對現有的所需屬性或標籤進行任何變更︰
+* **部份更新裝置對應項**。 此作業可讓解決方案後端局部地更新裝置對應項中的標籤或所需屬性。 部分更新會以 JSON 文件的形式來表示，以新增或更新任何屬性。 設定為 `null` 的屬性會遭到移除。 下列範例會以 `{"newProperty": "newValue"}` 值建立新的所需屬性、以 `existingProperty` 覆寫 `"otherNewValue"` 的現有值，並移除 `otherOldProperty`。 不會對現有的所需屬性或標籤進行任何變更︰
 
    ```json
    {
@@ -180,9 +180,9 @@ ms.locfileid: "74209706"
 
 * **接收對應項通知**。 這項作業可以在對應項修改時通知方案後端。 若要這樣做，您的 IoT 解決方案必須建立路由，並將資料來源設為等於 *twinChangeEvents*。 根據預設，預先不存在這類路由，因此不會傳送任何對應項通知。 如果變更率太高，或基於其他原因，例如內部失敗，IoT 中樞可能只會傳送一個包含所有變更的通知。 因此，如果您的應用程式需要可靠地稽核和記錄所有中間狀態，您應該使用裝置到雲端的訊息。 對應項通知訊息包含屬性和內文。
 
-  - 屬性
+  - properties
 
-    | Name | Value |
+    | 名稱 | 值 |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  傳送通知的時間 |
@@ -196,7 +196,7 @@ ms.locfileid: "74209706"
 
     訊息系統屬性前面會加上 `$` 符號。
 
-  - body
+  - 內文
         
     本節包含所有對應項變更 (JSON 格式)。 它使用的格式與修補程式的格式相同，差別在於它可以包含所有對應項區段︰tags、properties.reported、properties.desired，而且包含 “$metadata” 項目。 例如，
 
@@ -231,7 +231,7 @@ ms.locfileid: "74209706"
 
 裝置應用程式會使用下列不可部分完成的作業來操作裝置對應項︰
 
-* **擷取裝置對應項**。 This operation returns the device twin document (including desired and reported system properties) for the currently connected device. (Tags are not visible to device apps.)
+* **擷取裝置對應項**。 這項作業會針對目前連線的裝置傳回裝置對應項檔（包括所需和報告的系統屬性）。 （裝置應用程式看不到標記）。
 
 * **部分更新的報告屬性**。 此作業可針對目前連線裝置的報告屬性進行部分更新。 此作業使用的 JSON 更新格式，與解決方案後端用於局部更新所需屬性的格式相同。
 
@@ -245,11 +245,11 @@ ms.locfileid: "74209706"
 
 標籤、所需屬性和報告屬性是具有下列限制的 JSON 物件：
 
-* All keys in JSON objects are UTF-8 encoded, case-sensitive, and up-to 1 KB in length. 允許的字元會排除 UNICODE 控制字元 (區段 C0 和 C1)，以及 `.`、`$` 和 SP。
+* JSON 物件中的所有金鑰都是以 UTF-8 編碼、區分大小寫，且長度上限為 1 KB。 允許的字元會排除 UNICODE 控制字元 (區段 C0 和 C1)，以及 `.`、`$` 和 SP。
 
 * JSON 物件中的所有值可以屬於下列 JSON 類型︰布林值、數字、字串、物件。 不允許使用陣列。 整數的最大值是 4503599627370495 和整數的最小值是 -4503599627370496。
 
-* All JSON objects in tags, desired, and reported properties can have a maximum depth of 10. 例如，下列物件有效：
+* 標記、所需和報告屬性中的所有 JSON 物件最大深度為10。 例如，下列物件有效：
 
    ```json
    {
@@ -295,7 +295,7 @@ IoT 中樞會拒絕 (並出現錯誤) 將會讓這些文件的大小增加到超
 
 IoT 中樞會為裝置對應項所需屬性和報告屬性的每個 JSON 物件保有上次更新的時間戳記。 時間戳記採用 UTC 格式，並以 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 格式 `YYYY-MM-DDTHH:MM:SS.mmmZ` 進行編碼。
 
-例如：
+例如︰
 
 ```json
 {

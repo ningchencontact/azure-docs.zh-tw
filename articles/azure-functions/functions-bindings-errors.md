@@ -1,6 +1,6 @@
 ---
-title: Handle Azure Functions bindings errors
-description: Learn to handle Azure Functions binding errors
+title: 處理 Azure Functions 系結錯誤
+description: 瞭解如何處理 Azure Functions 系結錯誤
 author: craigshoemaker
 ms.topic: reference
 ms.date: 09/12/2019
@@ -12,8 +12,8 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227286"
 ---
-# <a name="handle-azure-functions-binding-errors"></a>Handle Azure Functions binding errors
+# <a name="handle-azure-functions-binding-errors"></a>處理 Azure Functions 系結錯誤
 
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
-For information on errors returned by services supported by Functions, see the [Binding error codes](functions-bindings-error-pages.md#binding-error-codes) section of the [Azure Functions error handling](functions-bindings-error-pages.md) overview article.  
+如需函數所支援之服務所傳回錯誤的詳細資訊，請參閱[Azure Functions 錯誤處理](functions-bindings-error-pages.md)總覽一文的系結[錯誤碼](functions-bindings-error-pages.md#binding-error-codes)一節。  

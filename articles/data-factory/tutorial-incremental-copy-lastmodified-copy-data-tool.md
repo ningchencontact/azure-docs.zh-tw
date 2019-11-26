@@ -1,6 +1,6 @@
 ---
-title: Data tool to copy new and updated files incrementally
-description: Create an Azure data factory and then use the Copy Data tool to incrementally load new files based on LastModifiedDate.
+title: 資料工具，以累加方式複製新的和更新的檔案
+description: 建立 Azure data factory，然後使用 [資料複製] 工具，以累加方式根據 LastModifiedDate 載入新檔案。
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -21,34 +21,34 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74217794"
 ---
-# <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Incrementally copy new and changed files based on LastModifiedDate by using the Copy Data tool
+# <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>使用資料複製工具，根據 LastModifiedDate 以累加方式複製新的和變更的檔案
 
-In this tutorial, you'll use the Azure portal to create a data factory. Then, you'll use the Copy Data tool to create a pipeline that incrementally copies new and changed files only, based on their **LastModifiedDate** from Azure Blob storage to Azure Blob storage.
+在本教學課程中，您將使用 Azure 入口網站來建立資料處理站。 然後，您將使用資料複製工具來建立管線，根據其從 Azure Blob 儲存體**LastModifiedDate**至 azure blob 儲存體，以累加方式複製新的和已變更的檔案。
 
-By doing so, ADF will scan all the files from the source store, apply the file filter by their LastModifiedDate, and copy the new and updated file only since last time to the destination store.  Please note that if you let ADF scan huge amounts of files but only copy a few files to destination, you would still expect the long duration due to file scanning is time consuming as well.   
+藉由執行此動作，ADF 會掃描來源存放區的所有檔案，並依其 LastModifiedDate 套用檔案篩選器，並只在上次到達目的地存放區之後，才複製新的和更新的檔案。  請注意，如果您讓 ADF 掃描大量的檔案，但是只將幾個檔案複製到目的地，您仍然會預期長時間，因為檔案掃描也非常耗時。   
 
 > [!NOTE]
 > 如果您不熟悉 Azure Data Factory，請參閱 [Azure Data Factory 簡介](introduction.md)。
 
-In this tutorial, you will perform the following tasks:
+在本教學課程中，您將執行下列工作：
 
 > [!div class="checklist"]
 > * 建立資料處理站。
 > * 使用複製資料工具建立管線。
-> * 監視管線和活動執行。
+> * 監視管道和活動執行。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
-* **Azure storage account**: Use Blob storage as the _source_ and _sink_ data store. 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)中的指示。
+* **Azure 儲存體帳戶**：使用 Blob 儲存體作為_來源_和_接收_資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)中的指示。
 
-### <a name="create-two-containers-in-blob-storage"></a>Create two containers in Blob storage
+### <a name="create-two-containers-in-blob-storage"></a>在 Blob 儲存體中建立兩個容器
 
-Prepare your Blob storage for the tutorial by performing these steps.
+執行下列步驟，為教學課程準備您的 Blob 儲存體。
 
-1. Create a container named **source**. You can use various tools to perform this task, such as [Azure Storage Explorer](https://storageexplorer.com/).
+1. 建立名為**source**的容器。 您可以使用各種工具來執行這項工作，例如[Azure 儲存體總管](https://storageexplorer.com/)。
 
-2. Create a container named **destination**. 
+2. 建立名為**destination**的容器。 
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
@@ -62,8 +62,8 @@ Prepare your Blob storage for the tutorial by performing these steps.
    
    ![新增資料處理站錯誤訊息](./media/doc-common-process/name-not-available-error.png)
 
-   如果您收到有關名稱值的錯誤訊息，請輸入不同的資料處理站名稱。 例如，使用**您的名稱** **ADFTutorialDataFactory**。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
-3. Select the Azure **subscription** in which you'll create the new data factory. 
+   如果您收到有關名稱值的錯誤訊息，請輸入不同的資料處理站名稱。 例如，使用_您的名稱_**ADFTutorialDataFactory**。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
+3. 選取您要在其中建立新資料處理站的 Azure**訂**用帳戶。 
 4. 針對 [資源群組]，採取下列其中一個步驟︰
      
     * 選取 [使用現有的]，然後從下拉式清單選取現有的資源群組。
@@ -72,33 +72,33 @@ Prepare your Blob storage for the tutorial by performing these steps.
          
     若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。
 
-5. Under **version**, select **V2**.
-6. 在 [位置] 下，選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) that your data factory uses can be in other locations and regions.
+5. 在 [**版本**] 底下，選取 [ **V2**]。
+6. 在 [位置] 下，選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 您的資料處理站所使用的資料存放區（例如，Azure 儲存體和 SQL Database）和計算（例如 Azure HDInsight）可位於其他位置和區域中。
 7. 選取 [釘選到儀表板]。 
 8. 選取 [建立]。
-9. On the dashboard, refer to the **Deploying Data Factory** tile to see the process status.
+9. 在儀表板上，請參閱 [**部署 Data Factory** ] 磚，以查看處理狀態。
 
-    ![Deploying Data Factory Tile](media/tutorial-copy-data-tool/deploying-data-factory.png)
+    ![部署 Data Factory 磚](media/tutorial-copy-data-tool/deploying-data-factory.png)
 10. 建立完成後，隨即會顯示 **Data Factory** 首頁。
    
     ![Data Factory 首頁](./media/doc-common-process/data-factory-home-page.png)
-11. To open the Azure Data Factory user interface (UI) on a separate tab, select the **Author & Monitor** tile. 
+11. 若要在不同的索引標籤上開啟 Azure Data Factory 使用者介面（UI），請選取 [**作者 & 監視器**] 磚。 
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>使用複製資料工具建立管線
 
-1. On the **Let's get started** page, select the **Copy Data** title to open the Copy Data tool. 
+1. 在 [**現在就開始**吧] 頁面上，選取 [**資料複製**] 標題以開啟 [資料複製] 工具。 
 
    ![複製資料工具圖格](./media/doc-common-process/get-started-page.png)
    
-2. On the **Properties** page, take the following steps:
+2. 在 [**屬性**] 頁面上，採取下列步驟：
 
-    a. Under **Task name**, enter **DeltaCopyFromBlobPipeline**.
+    a. 在 [工作**名稱**] 下，輸入**DeltaCopyFromBlobPipeline**。
 
-    b.這是另一個 C# 主控台應用程式。 Under **Task cadence** or **Task schedule**, select **Run regularly on schedule**.
+    b.這是另一個 C# 主控台應用程式。 在 [工作**步調**] 或 [工作**排程**] 底下，選取 [依**排程定期執行**]。
 
-    c. Under **Trigger Type**, select **Tumbling Window**.
+    c. 在 [**觸發程式類型**] 底下，選取 [**輪轉視窗]** 。
     
-    d. Under **Recurrence**, enter **15 Minute(s)** . 
+    d. 在 **[週期**] 底下，輸入**15 分鐘**。 
     
     e. 選取 [下一步]。 
     
@@ -108,7 +108,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
     
 3. 在 [來源資料存放區] 頁面上，完成下列步驟：
 
-    a. Select  **+ Create new connection**, to add a connection.
+    a. 選取 [ **+ 建立新**連線] 以新增連接。
     
     ![來源資料存放區頁面](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page.png)
 
@@ -116,35 +116,35 @@ Prepare your Blob storage for the tutorial by performing these steps.
     
     ![來源資料存放區頁面](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
-    c. On the **New Linked Service** page, select your storage account from the **Storage account name** list and then select **Finish**.
+    c. 在 [**新增連結服務**] 頁面上，從 [**儲存體帳戶名稱**] 清單中選取您的儲存體帳戶，然後選取 **[完成]** 。
     
     ![來源資料存放區頁面](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-linkedservice.png)
     
-    d. Select the newly created linked service and then select **Next**. 
+    d. 選取新建立的連結服務，然後選取 **[下一步]** 。 
     
    ![來源資料存放區頁面](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
 
 4. 在 [選擇輸入檔案或資料夾] 頁面上，完成下列步驟︰
     
-    a. Browse and select the **source** folder, and then select **Choose**.
+    a. 流覽並選取 [**源**] 資料夾，然後選取 [**選擇**]。
     
     ![選擇輸入檔案或資料夾](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-input-file-folder.png)
     
-    b.這是另一個 C# 主控台應用程式。 Under **File loading behavior**, select **Incremental load: LastModifiedDate**.
+    b.這是另一個 C# 主控台應用程式。 在 [檔案**載入行為**] 底下，選取 [累加**式載入： LastModifiedDate**]。
     
     ![選擇輸入檔案或資料夾](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-loading-behavior.png)
     
-    c. Check **Binary copy** and select **Next**.
+    c. 檢查**二進位複製**並選取 **[下一步]** 。
     
      ![選擇輸入檔案或資料夾](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
      
-5. On the **Destination data store** page, select **AzureBlobStorage**. This is the same storage account as the source data store. 然後，選取 [下一步]。
+5. 在 [**目的地資料存放區**] 頁面上，選取 [ **AzureBlobStorage**]。 這是與來源資料存放區相同的儲存體帳戶。 然後，選取 [下一步]。
 
     ![目的地資料存放區頁面](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/destination-data-store-page-select-linkedservice.png)
     
 6. 在 [選擇輸出檔案或資料夾] 頁面上，完成下列步驟︰
     
-    a. Browse and select the **destination** folder, and then select **Choose**.
+    a. 流覽並選取 [**目的地**] 資料夾，然後選取 **[選擇**]。
     
     ![選擇輸出檔案或資料夾](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
     
@@ -156,7 +156,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
     ![設定頁面](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/settings-page.png)
     
-8. On the **Summary** page, review the settings and then select **Next**.
+8. 在 [**摘要**] 頁面上，檢查設定，然後選取 **[下一步]** 。
 
     ![摘要頁面](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/summary-page.png)
     
@@ -164,47 +164,47 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
     ![部署頁面](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/deployment-page.png)
     
-10. 請注意，系統會自動選取左側的 [監視] 索引標籤。 [動作] 資料行中會有連結可供檢視活動執行詳細資料，以及重新執行管線。 Select **Refresh** to refresh the list, and select the **View Activity Runs** link in the **Actions** column. 
+10. 請注意，系統會自動選取左側的 [監視] 索引標籤。 [動作] 資料行中會有連結可供檢視活動執行詳細資料，以及重新執行管線。 選取 [重新整理] 以重新整理清單，**然後選取 [** **動作**] 資料行中的 [ **View Activity 執行**] 連結。 
 
-    ![Refresh list and select View Activity Runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs1.png)
+    ![重新整理清單並選取 [觀看活動執行]](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs1.png)
 
-11. There's only one activity (the copy activity) in the pipeline, so you see only one entry. 如需關於複製作業的詳細資料，請選取 [動作] 資料行中的 [詳細資料] 連結 (眼鏡圖示)。 
+11. 管線中只有一個活動（複製活動），因此您只會看到一個專案。 如需關於複製作業的詳細資料，請選取 [動作] 資料行中的 [詳細資料] 連結 (眼鏡圖示)。 
 
-    ![Copy activity is in pipeline](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs2.png)
+    ![複製活動在管線中](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs2.png)
     
-    Because there is no file in the **source** container in your Blob storage account, you will not see any file copied to the **destination** container in your Blob storage account.
+    因為 Blob 儲存體帳戶的**來源**容器中沒有任何檔案，所以您不會看到任何複製到 blob 儲存體帳戶中**目的地**容器的檔案。
     
-    ![No file in source container or destination container](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
+    ![來源容器或目的地容器中沒有檔案](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
     
-12. Create an empty text file and name it **file1.txt**. Upload this text file to the **source** container in your storage account. 您可以使用各種工具來執行這些工作，例如 [Azure 儲存體總管](https://storageexplorer.com/)。   
+12. 建立空的文字檔，並將其命名為**file1 .txt**。 將此文字檔上傳至儲存體帳戶中的**來源**容器。 您可以使用各種工具來執行這些工作，例如 [Azure 儲存體總管](https://storageexplorer.com/)。   
 
-    ![Create file1.txt and upload to source container](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
+    ![建立 file1 .txt 並上傳至來源容器](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
     
-13. To go back to the **Pipeline Runs** view, select **All Pipeline Runs**, and wait for the same pipeline to be triggered again automatically.  
+13. 若要返回 [**管線執行**] 視圖，請選取 [**所有管線執行**]，並等候相同的管線自動觸發。  
 
-    ![Select All Pipeline Runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
+    ![選取所有管線執行](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
 
-14. Select **View Activity Run** for the second pipeline run when you see it. Then review the details in the same way you did for the first pipeline run.  
+14. 當您看到第二個管線執行時，選取 [**查看活動執行**]。 然後以您對第一個管線執行的相同方式來檢查詳細資料。  
 
-    ![Select View Activity Run and review details](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs5.png)
+    ![選取 [查看活動執行] 和 [查看詳細資料]](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs5.png)
 
-    You will that see one file (file1.txt) has been copied from the **source** container to the **destination** container of your Blob storage account.
+    您會看到一個檔案（file1 .txt）已從**來源**容器複製到 Blob 儲存體帳戶的**目的地**容器。
     
-    ![File1.txt has been copied from source container to destination container](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
+    ![File1 已從來源容器複製到目的地容器](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
     
-15. Create another empty text file and name it **file2.txt**. Upload this text file to the **source** container in your Blob storage account.   
+15. 建立另一個空的文字檔，並將它命名為**file2 .txt**。 將此文字檔上傳至 Blob 儲存體帳戶中的**來源**容器。   
     
-16. Repeat steps 13 and 14 for this second text file. You will see that only the new file (file2.txt) has been copied from the **source** container to the **destination** container of your storage account in the next pipeline run.  
+16. 針對第二個文字檔重複步驟13和14。 在下一個管線執行中，您會看到只有新的檔案（file2）已從**來源**容器複製到儲存體帳戶的**目的地**容器。  
     
-    ![File2.txt has been copied from source container to destination container](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs7.png)
+    ![已將 File2 從來源容器複製到目的地容器](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs7.png)
 
-    You can also verify this by using [Azure Storage Explorer](https://storageexplorer.com/) to scan the files.
+    您也可以使用[Azure 儲存體總管](https://storageexplorer.com/)掃描檔案來確認此項。
     
-    ![Scan files using Azure Storage Explorer](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
+    ![使用 Azure 儲存體總管掃描檔案](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
 
     
 ## <a name="next-steps"></a>後續步驟
-Advance to the following tutorial to learn about transforming data by using an Apache Spark cluster on Azure:
+請繼續進行下列教學課程，以瞭解如何使用 Azure 上的 Apache Spark 叢集來轉換資料：
 
 > [!div class="nextstepaction"]
->[Transform data in the cloud by using an Apache Spark cluster](tutorial-transform-data-spark-portal.md)
+>[使用 Apache Spark 叢集來轉換雲端中的資料](tutorial-transform-data-spark-portal.md)

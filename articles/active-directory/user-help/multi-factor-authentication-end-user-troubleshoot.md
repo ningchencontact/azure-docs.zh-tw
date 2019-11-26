@@ -1,6 +1,6 @@
 ---
-title: Common problems & solutions with account authentication - Azure AD
-description: Learn about potential problems and solutions for some of the more common two-factor verification problems and your work or school account.
+title: 使用帳戶驗證 & 解決方案的常見問題-Azure AD
+description: 瞭解一些常見的雙因素驗證問題，以及您的公司或學校帳戶的潛在問題和解決方案。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -20,94 +20,94 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231884"
 ---
-# <a name="common-problems-and-solutions-with-two-factor-verification-and-your-work-or-school-account"></a>Common problems and solutions with two-factor verification and your work or school account
+# <a name="common-problems-and-solutions-with-two-factor-verification-and-your-work-or-school-account"></a>使用雙因素驗證的常見問題和解決方案，以及您的公司或學校帳戶
 
-Your organization has turned on two-factor verification, meaning that your work or school account sign-in now requires a combination of your user name, your password, and a mobile device or phone. 您的組織已開啟此額外驗證，因為它比只使用密碼更安全，它依賴兩種形式的驗證：您知道的東西和您持有的東西。 雙因素驗證有助於阻止惡意駭客偽裝成您，因為即使他們有您的密碼，他們也可能沒有您的裝置。
+您的組織已開啟雙因素驗證，這表示您的工作或學校帳戶登入現在需要結合您的使用者名稱、密碼，以及行動裝置或電話。 您的組織已開啟此額外驗證，因為它比只使用密碼更安全，它依賴兩種形式的驗證：您知道的東西和您持有的東西。 雙因素驗證有助於阻止惡意駭客偽裝成您，因為即使他們有您的密碼，他們也可能沒有您的裝置。
 
-There are some common two-factor verification problems that seem to happen more frequently than any of us would like. We've put together this article hoping to address the most common problems and some possible fixes.
+有一些常見的雙因素驗證問題，似乎會比任何人想要的還要頻繁。 我們將本文放在一起，希望能解決最常見的問題和一些可能的修正。
 
 >[!Important]
 >本內容適用於使用者。 I如果您是系統管理員，可以在 [Azure Active Directory 文件](https://docs.microsoft.com/azure/active-directory)中找到更多關於如何設定和管理 Azure Active Directory (Azure AD) 環境的資訊。
 >
 >此內容也僅適用於您的公司或學校帳戶，貴組織提供給您的帳戶 (例如 alain@contoso.com)。 如果您遇到雙因素驗證和個人 Microsoft 帳戶、您自行設定帳戶 (例如 danielle@outlook.com) 的問題，請參閱[開啟或關閉 Microsoft 帳戶的雙步驟驗證](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)。
 
-## <a name="i-forgot-my-mobile-device-at-home"></a>I forgot my mobile device at home
+## <a name="i-forgot-my-mobile-device-at-home"></a>我在家裡忘了我的行動裝置
 
-It happens. You left your mobile device at home and now you can't use your phone to verify you are who you say you are. If you previously added another method to sign in to your account, such as your office phone, you should be able to use that method now. If you never added an additional verification method, you'll have to contact your Help desk and have them help you get back into your account.
+就會發生這種情況。 您的行動裝置已離開家裡，現在無法使用您的電話來驗證您是否為您所說的身分。 如果您先前新增了另一個方法來登入您的帳戶（例如辦公室電話），您應該能夠立即使用該方法。 如果您從未新增額外的驗證方法，就必須聯絡技術支援人員，讓他們協助您取回帳戶。
 
-### <a name="to-sign-in-to-your-work-or-school-account-using-another-verification-method"></a>To sign in to your work or school account using another verification method
+### <a name="to-sign-in-to-your-work-or-school-account-using-another-verification-method"></a>使用其他驗證方法登入您的公司或學校帳戶
 
-1. Sign in to your account normally and choose the **Sign in another way** link on the **Two-factor verification** page.
+1. 正常登入您的帳戶，然後選擇 [**雙因素驗證**] 頁面上的 [**以另一種方式登入**] 連結。
 
     ![變更登入驗證方法](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
 
     >[!Note]
     >如果您沒有看到 [以另一種方式登入] 的連結，表示您尚未設定任何其他的驗證方法。 您必須連絡系統管理員，請他協助您登入帳戶。
 
-2. Choose your alternative verification method, and continue with the two-factor verification process.
+2. 選擇您的替代驗證方法，並繼續進行雙因素驗證程式。
 
-## <a name="i-lost-my-mobile-device-or-it-was-stolen"></a>I lost my mobile device or it was stolen
+## <a name="i-lost-my-mobile-device-or-it-was-stolen"></a>我的行動裝置遺失或遭竊
 
-If you've lost or had your mobile device stolen, you can either sign in using a different method or you can ask your Help desk to clear your settings. We strongly recommend letting your Help desk know if your phone was lost or stolen, so the appropriate updates can be made to your account. After your settings are cleared, you'll be prompted to [register for two-factor verification](multi-factor-authentication-end-user-first-time.md) the next time you sign in.
+如果您遺失或行動裝置遭竊，您可以使用不同的方法登入，也可以要求技術支援人員清除您的設定。 我們強烈建議您讓技術服務人員知道您的手機遺失或遭竊，因此可以對您的帳戶進行適當的更新。 清除您的設定之後，系統會提示您在下一次登入時[註冊雙因素驗證](multi-factor-authentication-end-user-first-time.md)。
 
-## <a name="im-not-getting-the-verification-code-sent-to-my-mobile-device"></a>I'm not getting the verification code sent to my mobile device
+## <a name="im-not-getting-the-verification-code-sent-to-my-mobile-device"></a>我未取得傳送至行動裝置的驗證碼
 
-Not getting your verification code is a common problem and it's typically related to your mobile device and its settings. Some possible things to try:
+未取得您的驗證碼是常見的問題，而且通常與您的行動裝置及其設定相關。 一些可能的嘗試事項：
 
-- **Restart your mobile device.** Sometimes your device just needs a refresh. Restarting your device ends any background processes or services that are currently running and could cause problems, along with refreshing your device's core components, restarting them in case they crashed at some point.
+- **重新開機您的行動裝置。** 有時您的裝置只需要重新整理。 重新開機裝置會結束目前正在執行的任何背景處理常式或服務，而且可能會造成問題，以及重新整理裝置的核心元件，以在某個時間點損毀的情況下重新開機。
 
-- **Verify your security information is correct.** Make sure your security verification method information is accurate, especially your phone numbers. If you put in the wrong phone number, all of your alerts will go to that incorrect number. Fortunately, that user won't be able to do anything with the alerts, but it also won't help you sign in to your account. To make sure your information is correct, see the instructions in the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md) article.
+- **請確認您的安全性資訊是否正確。** 請確定您的安全性驗證方法資訊正確，尤其是您的電話號碼。 如果您放入錯誤的電話號碼，您所有的警示將會移至不正確的數位。 幸運的是，該使用者將無法對警示執行任何動作，但它也無法協助您登入您的帳戶。 若要確保您的資訊正確無誤，請參閱[管理雙因素驗證方法設定](multi-factor-authentication-end-user-manage-settings.md)一文中的指示。
 
-- **Verify your notifications are turned on.** Make sure your mobile device has notifications turned on and that you've selected a notification method that allows phone calls, your authentication app, and your messaging app (for text messages) to send visible alert notifications to your mobile device.
+- **確認您的通知已開啟。** 請確定您的行動裝置已開啟通知，而且您已選取允許電話、驗證應用程式和訊息應用程式（用於文字訊息）的通知方法，將顯示的警示通知傳送到您的行動裝置。
 
-- **Make sure you have a device signal and Internet connection.** Make sure your phone calls and text messages are getting through to your mobile device. Have a friend call you and send you a text message to make sure you receive both. If you don't, first check to make sure your mobile device is turned on. If your device is turned on, but you're still not getting the call or text, it's most likely a problem with your network and you'll need to talk to your provider. If you often have signal-related problems, we recommend you install and use the [Microsoft Authenticator app](user-help-auth-app-download-install.md) on your mobile device. The authenticator app can generate random security codes for sign-in, without requiring any cell signal or Internet connection.
+- **請確定您有裝置信號和網際網路連線。** 請確定您的電話和文字訊息會通過您的行動裝置。 讓朋友打電話給您，並傳送文字訊息給您，以確保您同時收到這兩者。 如果您沒有這麼做，請先檢查以確定您的行動裝置已開啟。 如果您的裝置已開啟，但您仍未收到電話或文字，很可能是您的網路有問題，而且您必須與您的提供者交談。 如果您經常遇到信號相關問題，建議您在行動裝置上安裝並使用[Microsoft Authenticator 應用程式](user-help-auth-app-download-install.md)。 驗證器應用程式可以產生用於登入的隨機安全程式碼，而不需要任何資料格信號或網際網路連線。
 
-- **Turn off Do not disturb.** Make sure you haven't turned on the **Do not disturb** feature for your mobile device. When this feature is turned on, notifications aren't allowed to alert you on your mobile device. Refer to your mobile device's manual for instructions about how to turn off this feature.
+- **關閉 [請勿打擾]。** 請確定您未針對您的行動裝置開啟 [**請勿打擾**] 功能。 開啟這項功能時，不允許通知在您的行動裝置上發出警示。 如需如何關閉此功能的指示，請參閱行動裝置的手冊。
 
-- **Unblock phone numbers** In the United States, voice calls from Microsoft come from the following numbers: +1 (866) 539 4191, +1 (855) 330 8653, and +1 (877) 668 6536.
+- **解除封鎖電話號碼**在美國，來自 Microsoft 的語音電話來自下列數位： + 1 （866） 539 4191、+ 1 （855） 330 8653 和 + 1 （877） 668 6536。
 
-- **Check your battery-related settings.** This one seems a bit odd on the surface, but if you've set up your battery optimization to stop lesser-used apps from remaining active in the background, your notification system has most-likely been affected. To try to fix this problem, turn off battery optimization for your authentication app and your messaging app, and then try signing in to your account again.
+- **檢查您的電池相關設定。** 此介面在表面上看起來有點奇怪，但如果您已設定電池優化，以停止在背景中從剩餘作用中使用的低應用程式，您的通知系統可能會受到影響。 若要嘗試修正此問題，請關閉驗證應用程式和訊息應用程式的電池優化，然後再次嘗試登入您的帳戶。
 
-## <a name="im-not-getting-prompted-for-my-second-verification-information"></a>I'm not getting prompted for my second verification information
+## <a name="im-not-getting-prompted-for-my-second-verification-information"></a>我不會收到第二個驗證資訊的提示
 
-If you've signed in to your work or school account using your user name and password, but haven't been prompted about your additional security verification information, it might be that you haven't set up your device yet. Your mobile device must specifically be set up to work with your additional security verification method. To make sure you've turned on your mobile device and that it's available to use with your verification method, see the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md) article. If you know you haven't set up your device or your account, you can do it now by following the steps in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
+如果您已使用使用者名稱和密碼登入公司或學校帳戶，但未收到其他安全性驗證資訊的提示，可能是您尚未設定您的裝置。 您的行動裝置必須特別設定，才能與您的其他安全性驗證方法搭配使用。 若要確定您已開啟行動裝置，並可與您的驗證方法搭配使用，請參閱[管理您的雙因素驗證方法設定](multi-factor-authentication-end-user-manage-settings.md)一文。 如果您知道您尚未設定您的裝置或帳戶，您可以遵循[針對雙步驟驗證設定我的帳戶一](multi-factor-authentication-end-user-first-time.md)文中的步驟來完成。
 
-## <a name="i-got-a-new-phone-number-how-do-i-change-it-for-two-factor-verification"></a>I got a new phone number, how do I change it for two-factor verification?
+## <a name="i-got-a-new-phone-number-how-do-i-change-it-for-two-factor-verification"></a>我收到新的電話號碼，如何變更雙因素驗證？
 
-If you've gotten a new phone number, you'll need to update your security verification method details so your verification prompts go to the right location. To do update your verification method, follow the steps in the **Add or change your phone number** section of the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md#add-or-change-your-phone-number) article.
+如果您已取得新的電話號碼，則必須更新您的安全性驗證方法詳細資料，讓您的驗證提示會移至正確的位置。 若要更新您的驗證方法，請遵循[管理您的雙因素驗證方法設定](multi-factor-authentication-end-user-manage-settings.md#add-or-change-your-phone-number)一文中的**新增或變更您的電話號碼**一節中的步驟。
 
-## <a name="i-got-a-new-mobile-device-how-do-i-add-it"></a>I got a new mobile device, how do I add it?
+## <a name="i-got-a-new-mobile-device-how-do-i-add-it"></a>我有新的行動裝置，要如何新增它呢？
 
-If you've gotten a new mobile device, you'll need to set it up to work with two-factor verification. This is a multi-step solution:
+如果您已取得新的行動裝置，則必須將其設定為使用雙因素驗證。 這是一個多步驟解決方案：
 
-1. Set up your device to work with your work or school account by following the steps in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
+1. 依照[針對雙步驟驗證設定我的帳戶](multi-factor-authentication-end-user-first-time.md)一文中的步驟，設定您的裝置以使用您的工作或學校帳戶。
 
-2. Update your account and device information in the **Additional security verification** page, deleting your old device and adding your new one. For more information, see the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md) article.
+2. 在 [**其他安全性驗證**] 頁面中更新您的帳戶和裝置資訊，並刪除舊的裝置並新增新的裝置。 如需詳細資訊，請參閱[管理您的雙因素驗證方法設定](multi-factor-authentication-end-user-manage-settings.md)一文。
 
-3. 選用。 Download, install, and set up the Microsoft Authenticator app on your mobile device by following the steps in the [Download and install the Microsoft Authenticator app](user-help-auth-app-download-install.md) article.
+3. 選用。 遵循[下載並安裝 Microsoft Authenticator 應用程式](user-help-auth-app-download-install.md)文章中的步驟，在您的行動裝置上下載、安裝和設定 Microsoft Authenticator 應用程式。
 
-4. 選用。 Turn on two-factor verification for your trusted devices by following the steps in the **Turn on two-factor verification prompts on a trusted device** section of the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) article.
+4. 選用。 遵循[管理您的雙因素驗證方法設定](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device)一文中的在**信任的裝置上開啟雙因素驗證提示**一節中的步驟，為信任的裝置開啟雙因素驗證。
 
-## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>I'm having problems signing in on my mobile device while traveling
+## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>我在旅行時登入行動裝置時遇到問題
 
-You might find it more difficult to use a mobile device-related verification method, like a text messaging, while you're in an international location. It's also possible that your mobile device can cause you to incur roaming charges. For this situation, we recommend you use the Microsoft Authenticator app, with the option to connect to a Wi-Fi hotspot. For more information about how to download, install, and set up the Microsoft Authenticator app on your mobile device, see the [Download and install the Microsoft Authenticator app](user-help-auth-app-download-install.md) article.
+當您在國際位置時，您可能會發現，使用行動裝置相關的驗證方法（例如文字訊息）就比較不容易。 您的行動裝置也可能會導致您產生漫遊費用。 在此情況下，建議您使用 Microsoft Authenticator 應用程式，並選擇連接到 Wi-fi 熱點。 如需有關如何在您的行動裝置上下載、安裝及設定 Microsoft Authenticator 應用程式的詳細資訊，請參閱[下載並安裝 Microsoft Authenticator 應用程式](user-help-auth-app-download-install.md)一文。
 
-## <a name="i-cant-get-my-app-passwords-to-work"></a>I can't get my app passwords to work
+## <a name="i-cant-get-my-app-passwords-to-work"></a>我無法讓應用程式密碼正常執行
 
-App passwords replace your normal password for older desktop applications that don't support two-factor verification. 請先確定您輸入的密碼正確。 If that doesn't fix it, try creating a new app password for the app by following the steps in the **Create and delete app passwords using the My Apps portal** section of the [Manage app passwords for two-step verification](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page) article.
+應用程式密碼會針對不支援雙因素驗證的舊版桌面應用程式，取代您的一般密碼。 請先確定您輸入的密碼正確。 如果無法修正此問題，請嘗試我的應用程式使用[管理應用程式密碼以進行雙步驟驗證](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page)一文中的**建立和刪除應用程式**密碼一節中的步驟，為應用程式建立新的應用程式密碼。
 
-## <a name="why-cant-i-turn-two-factor-verification-off"></a>Why can't I turn two-factor verification off?
+## <a name="why-cant-i-turn-two-factor-verification-off"></a>為什麼無法關閉雙重要素驗證？
 
-If you're using two-factor verification with your work or school account (for example, alain@contoso.com), it most likely means that your organization has decided you must use this added security feature. 因為您的組織已決定您必須使用此功能，所以您無法個別關閉此功能。 If, however, you're using two-factor verification with a personal account, like alain@outlook.com, you have the ability to turn the feature on and off. For instructions about how to control two-factor verification for your personal Microsoft accounts, see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+如果您使用與公司或學校帳戶的雙因素驗證（例如 alain@contoso.com），則最有可能表示您的組織已決定您必須使用這項新增的安全性功能。 因為您的組織已決定您必須使用此功能，所以您無法個別關閉此功能。 不過，如果您使用具有個人帳戶的雙因素驗證（例如 alain@outlook.com），您就能夠開啟和關閉此功能。 如需如何為您的個人 Microsoft 帳戶控制雙因素驗證的指示，請參閱開啟[或關閉 Microsoft 帳戶的雙因素驗證](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)。
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>我找不到我的問題的解答
 
-If you've tried these steps but are still running into problems, contact your Help desk for assistance.
+如果您嘗試了這些步驟，但仍遇到問題，請洽詢支援人員以尋求協助。
 
 ## <a name="related-articles"></a>相關文章
 
 - [管理您的雙因素驗證方法設定](multi-factor-authentication-end-user-manage-settings.md)
 
-- [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md)
+- [設定我的帳戶以進行雙步驟驗證](multi-factor-authentication-end-user-first-time.md)
 
 - [Microsoft Authenticator 應用程式常見問題集](user-help-auth-app-faq.md)

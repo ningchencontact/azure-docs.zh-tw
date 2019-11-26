@@ -278,7 +278,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
-`_IsBillable`屬性[會指定內嵌資料是否會產生費用。](log-standard-properties.md#_isbillable)
+`_IsBillable`[屬性](log-standard-properties.md#_isbillable)會指定內嵌資料是否會產生費用。
 
 若要查看每部電腦內嵌的可**計費**事件計數，請使用 
 

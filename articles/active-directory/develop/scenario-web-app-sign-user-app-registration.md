@@ -1,6 +1,6 @@
 ---
-title: Web app that signs in users (app registration) - Microsoft identity platform
-description: Learn how to build a web app that signs in users (app registration)
+title: 登入使用者的 Web 應用程式（應用程式註冊）-Microsoft 身分識別平臺
+description: 瞭解如何建立可登入使用者的 web 應用程式（應用程式註冊）
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -22,109 +22,109 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74482056"
 ---
-# <a name="web-app-that-signs-in-users-app-registration"></a>Web app that signs in users: App registration
+# <a name="web-app-that-signs-in-users-app-registration"></a>登入使用者的 Web 應用程式：應用程式註冊
 
-This article explains the app registration specifics for a web app that signs in users.
+本文說明登入使用者之 web 應用程式的應用程式註冊細節。
 
-To register your application, you can use:
+若要註冊您的應用程式，您可以使用：
 
-- The [web app quickstarts](#register-an-app-by-using-the-quickstarts). In addition to being a great first experience with creating an application, quickstarts in the Azure portal contain a button named **Make this change for me**. You can use this button to set the properties you need, even for an existing app. You'll need to adapt the values of these properties to your own case. In particular, the web API URL for your app is probably going to be different from the proposed default, which will also affect the sign-out URI.
-- The Azure portal to [register your application manually](#register-an-app-by-using-the-azure-portal).
-- PowerShell and command-line tools.
+- [Web 應用程式快速入門](#register-an-app-by-using-the-quickstarts)。 除了是建立應用程式的絕佳第一個體驗，Azure 入口網站中的快速入門包含名為 [**為我進行這項變更**] 的按鈕。 您可以使用此按鈕來設定所需的屬性，即使是現有的應用程式也是如此。 您必須將這些屬性的值調整為您自己的案例。 特別是，您應用程式的 Web API URL 可能會與建議的預設值不同，這也會影響登出 URI。
+- 要[手動註冊應用程式](#register-an-app-by-using-the-azure-portal)的 Azure 入口網站。
+- PowerShell 和命令列工具。
 
-## <a name="register-an-app-by-using-the-quickstarts"></a>Register an app by using the quickstarts
+## <a name="register-an-app-by-using-the-quickstarts"></a>使用快速入門註冊應用程式
 
-You can use these links to bootstrap the creation of your web application:
+您可以使用這些連結來啟動建立 web 應用程式：
 
 - [ASP.NET Core](https://aka.ms/aspnetcore2-1-aad-quickstart-v2)
 - [ASP.NET](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)
 
-## <a name="register-an-app-by-using-the-azure-portal"></a>Register an app by using the Azure portal
+## <a name="register-an-app-by-using-the-azure-portal"></a>使用 Azure 入口網站註冊應用程式
 
 > [!NOTE]
-> The portal to use is different depending on whether your application runs in the Microsoft Azure public cloud or in a national or sovereign cloud. For more information, see [National clouds](./authentication-national-cloud.md#app-registration-endpoints).
+> 要使用的入口網站會根據您的應用程式是在 Microsoft Azure 公用雲端或全國或主權雲端執行而有所不同。 如需詳細資訊，請參閱[國家/地區](./authentication-national-cloud.md#app-registration-endpoints)雲端。
 
 
-1. 使用公司或學校帳戶或個人 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。 Alternatively, sign in to the Azure portal of choice for the national cloud.
-1. If your account gives you access to more than one tenant, select your account in the upper-right corner. Then, set your portal session to the desired Azure Active Directory (Azure AD) tenant.
-1. In the left pane, select the **Azure Active Directory** service, and then select **App registrations** > **New registration**.
+1. 使用公司或學校帳戶或個人 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。 或者，登入國家雲端的選擇 Azure 入口網站。
+1. 如果您的帳戶可讓您存取多個租使用者，請在右上角選取您的帳戶。 然後，將您的入口網站會話設定為所需的 Azure Active Directory （Azure AD）租使用者。
+1. 在左窗格中選取 [ **Azure Active Directory** ] 服務，然後選取 [**應用程式註冊** > **新增註冊**]。
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 1. 當 [註冊應用程式] 頁面出現時，輸入您應用程式的註冊資訊：
-   1. Choose the supported account types for your application. (See [Supported account types](./v2-supported-account-types.md).)
-   1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app. For example, enter **AspNetCore-WebApp**.
-   1. For **Redirect URI**, add the type of application and the URI destination that will accept returned token responses after successful authentication. 例如，輸入 **https://localhost:44321** 。 接著，選取 [註冊]。
+   1. 為您的應用程式選擇支援的帳戶類型。 （請參閱[支援的帳戶類型](./v2-supported-account-types.md)。）
+   1. 在 [**名稱**] 區段中，輸入將對應用程式使用者顯示且有意義的應用程式名稱。 例如，輸入**AspNetCore-WebApp**。
+   1. 針對 [重新**導向 URI**]，新增應用程式類型和 URI 目的地，以在成功驗證後接受傳回的權杖回應。 例如，輸入 **https://localhost:44321** 。 接著，選取 [註冊]。
 1. 選取 [驗證] 功能表，然後新增下列資訊：
-   1. For **Reply URL**, add **https://localhost:44321/signin-oidc** of type **Web**.
-   1. In the **Advanced settings** section, set **Logout URL** to **https://localhost:44321/signout-oidc** .
-   1. Under **Implicit grant**, select **ID tokens**.
-   1. 選取 [儲存]。
+   1. 針對 [**回復 URL**]，新增**Web**類型的 **https://localhost:44321/signin-oidc** 。
+   1. 在 [ **Advanced settings** ] 區段中，將 [**登出 URL** ] 設定為 **https://localhost:44321/signout-oidc** 。
+   1. 在 **[隱含授**與] 底下，選取 [**識別碼權杖**]。
+   1. 選取 [ **儲存**]。
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
 1. 當 [註冊應用程式] 頁面出現時，輸入您應用程式的註冊資訊：
-   1. Choose the supported account types for your application. (See [Supported account types](./v2-supported-account-types.md).)
-   1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app. For example, enter **MailApp-openidconnect-v2**.
-   1. In the **Redirect URI (optional)** section, select **Web** in the combo box and enter the following redirect URI: **https://localhost:44326/** .
+   1. 為您的應用程式選擇支援的帳戶類型。 （請參閱[支援的帳戶類型](./v2-supported-account-types.md)。）
+   1. 在 [**名稱**] 區段中，輸入將對應用程式使用者顯示且有意義的應用程式名稱。 例如，輸入**MailApp-openidconnect-v2**。
+   1. 在 [重新**導向 URI （選擇性）** ] 區段中，選取下拉式方塊中的 [ **Web** ]，然後輸入下列重新導向 URI： **https://localhost:44326/** 。
 1. 選取 [註冊] 以建立應用程式。
-1. Select the **Authentication** menu. 
-1. In the **Advanced settings** | **Implicit grant** section, select **ID tokens**. This sample requires the [implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user.
-1. 選取 [儲存]。
+1. 選取 [**驗證**] 功能表。 
+1. 在 [**高級設定**] | [**隱含授**與] 區段中，選取 [**識別碼權杖**]。 此範例需要啟用[隱含授與流程](v2-oauth2-implicit-grant-flow.md)，才能登入使用者。
+1. 選取 [ **儲存**]。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-1. When the **Register an application page** appears, enter a display name for the application. For example, enter **java-webapp**. 
-1. Select **Accounts in any organizational directory and personal Microsoft Accounts (e.g. Skype, Xbox, Outlook.com)** , and then select **Web app / API** for **Application Type**.
-1. Select **Register** to register the application.
-1. On the left menu, select **Authentication**. Under **Redirect URIs**, select **Web**. 
+1. 當 [**註冊應用程式] 頁面**出現時，輸入應用程式的顯示名稱。 例如，輸入**java-webapp**。 
+1. 選取**任何組織目錄中的帳戶和個人 Microsoft 帳戶（例如 Skype、Xbox、Outlook.com）** ，然後選取 [ **Web 應用程式/API** ] 作為 [**應用程式類型**]。
+1. 選取 [**註冊**] 以註冊應用程式。
+1. 在左側功能表上，選取 [**驗證**]。 在 [重新**導向 uri**] 底下，選取 [ **Web**]。 
 
-1. Enter two redirect URIs: one for the sign-in page, and one for the graph page. For both, use the same host and port number, followed by **/msal4jsample/secure/aad** for the sign-in page and **msal4jsample/graph/me** for the user information page.
+1. 輸入兩個重新導向 Uri：一個用於登入頁面，另一個用於圖形頁面。 針對這兩個，使用相同的主機和埠號碼，後面接著 **/msal4jsample/secure/aad**作為登入頁面，然後按 [ **msal4jsample/graph/me]** 作為 [使用者資訊] 頁面。
  
-   By default, the sample uses:
+   根據預設，此範例會使用：
 
    - **http://localhost:8080/msal4jsample/secure/aad**
    - **http://localhost:8080/msal4jsample/graph/me**
 
-1. In the **Advanced settings** section, set **Logout URL** to **http://localhost:8080/msal4jsample/sign_out** . 然後選取 [儲存]。
+1. 在 [ **Advanced settings** ] 區段中，將 [**登出 URL** ] 設定為 **http://localhost:8080/msal4jsample/sign_out** 。 然後選取 [儲存]。
 
-1. Select **Certificates & secrets** from the menu. 
-1. In the **Client secrets** section, select **New client secret**, and then:
+1. 從功能表中選取 [**憑證 & 密碼**]。 
+1. 在 [**用戶端密碼**] 區段中，選取 [**新增用戶端密碼**]，然後：
 
-   1. Enter a key description.
-   1. Select the key duration **In 1 year**.
+   1. 輸入 [金鑰描述]。
+   1. 選取**1 年**的金鑰持續時間。
    1. 選取 [新增]。
-   1. When the key value appears, copy it for later. This value will not be displayed again or be retrievable by any other means.
+   1. 當金鑰值出現時，請複製它以供稍後查看。 此值將不會再次顯示，也不會透過任何其他方式來抓取。
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
 1. 當 [註冊應用程式] 頁面出現時，輸入您應用程式的註冊資訊：
-   1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app. For example, enter **python-webapp**.
-   1. Change **Supported account types** to **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)** .
-   1. In the **Redirect URI (optional)** section, select **Web** in the combo  box and enter the following redirect URI: **http://localhost:5000/getAToken** .
+   1. 在 [**名稱**] 區段中，輸入將對應用程式使用者顯示且有意義的應用程式名稱。 例如，輸入**python-webapp**。
+   1. 將**支援的帳戶類型**變更為**任何組織目錄中的帳戶和個人 Microsoft 帳戶（例如 Skype、Xbox、Outlook.com）** 。
+   1. 在 [重新**導向 URI （選擇性）** ] 區段中，選取下拉式方塊中的 [ **Web** ]，然後輸入下列重新導向 URI： **http://localhost:5000/getAToken** 。
 1. 選取 [註冊] 以建立應用程式。
-1. 在應用程式的 [概觀] 頁面上，尋找 [應用程式 (用戶端) 識別碼] 值並將它記下供稍後使用。 You'll need it to configure the Visual Studio configuration file for this project.
-1. Select the **Authentication** section. In **Advanced settings**, set **Logout URL** to **http://localhost:5000/logout** . 然後選取 [儲存]。
-1. On the left menu, select **Certificates & secrets**.
-1. In the **Client Secrets** section, select **New client secret**, and then:
+1. 在應用程式的 [概觀] 頁面上，尋找 [應用程式 (用戶端) 識別碼] 值並將它記下供稍後使用。 您將需要它來設定此專案的 Visual Studio 設定檔。
+1. 選取 [**驗證**] 區段。 在 [**高級設定**] 中，將 [**登出 URL** ] 設定為 **http://localhost:5000/logout** 。 然後選取 [儲存]。
+1. 在左側功能表上，選取 [**憑證 & 密碼**]。
+1. 在 [**用戶端密碼**] 區段中，選取 [**新增用戶端密碼**]，然後：
 
-   1. Enter a key description.
+   1. 輸入 [金鑰描述]。
    1. 選取 [1 年] 作為 [金鑰持續時間]。
    1. 選取 [新增]。
-   1. When the key value appears, copy it. 稍後您將會用到此資訊。
+   1. 當金鑰值出現時，複製它。 稍後您將會用到此資訊。
 ---
 
-## <a name="register-an-app-by-using-powershell"></a>Register an app by using PowerShell
+## <a name="register-an-app-by-using-powershell"></a>使用 PowerShell 註冊應用程式
 
 > [!NOTE]
-> Currently, Azure AD PowerShell creates applications with only the following supported account types:
+> 目前，Azure AD PowerShell 只會建立具有下列受支援帳戶類型的應用程式：
 >
-> - MyOrg (accounts in this organizational directory only)
-> - AnyOrg (accounts in any organizational directory)
+> - MyOrg （僅限此組織目錄中的帳戶）
+> - AnyOrg （任何組織目錄中的帳戶）
 >
-> You can create an application that signs in users with their personal Microsoft accounts (for example, Skype, Xbox, or Outlook.com). First, create a multitenant application. Supported account types are accounts in any organizational directory. Then, change the `signInAudience` property in the application manifest from the Azure portal. For more information, see [step 1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) in the ASP.NET Core tutorial. You can generalize this step to web apps in any language.
+> 您可以建立應用程式，以使用其個人 Microsoft 帳戶（例如 Skype、Xbox 或 Outlook.com）來登入使用者。 首先，建立多租使用者應用程式。 支援的帳戶類型是任何組織目錄中的帳戶。 然後，從 Azure 入口網站變更應用程式資訊清單中的 `signInAudience` 屬性。 如需詳細資訊，請參閱 ASP.NET Core 教學課程中的[步驟 1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) 。 您可以將此步驟一般化為任何語言的 web 應用程式。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [App's code configuration](scenario-web-app-sign-user-app-configuration.md)
+> [應用程式的程式碼設定](scenario-web-app-sign-user-app-configuration.md)

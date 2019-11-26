@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Predict credit risk example'
+title: 設計工具：預測信用風險範例
 titleSuffix: Azure Machine Learning
-description: Build a classifier and use custom Python scripts to predict credit risk using Azure Machine Learning designer.
+description: 建立分類器並使用自訂 Python 腳本，利用 Azure Machine Learning 設計工具來預測信用風險。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,61 +17,61 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74214243"
 ---
-# <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>Build a classifier & use Python scripts to predict credit risk using Azure Machine Learning designer
+# <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>建立分類器 & 使用 Python 腳本來預測使用 Azure Machine Learning 設計工具的信用風險
 
-**Designer (preview) sample 4**
+**設計工具（預覽）範例4**
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-This article shows you how to build a complex machine learning pipeline using the designer (preview). You'll learn how to implement custom logic using Python scripts and compare multiple models to choose the best option.
+本文說明如何使用設計工具（預覽）來建立複雜的機器學習管線。 您將瞭解如何使用 Python 腳本來執行自訂邏輯，並比較多個模型來選擇最佳選項。
 
-This sample trains a classifier to predict credit risk using credit application information such as credit history, age, and number of credit cards. However, you can apply the concepts in this article to tackle your own machine learning problems.
+這個範例會將分類器定型，以使用信用額度記錄、年齡和信用卡號碼等點數應用程式資訊來預測信用風險。 不過，您可以套用本文中的概念來處理您自己的機器學習問題。
 
-Here's the completed graph for this pipeline:
+以下是此管線的完成圖形：
 
-[![Graph of the pipeline](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[管線 ![圖形](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Click sample 4 to open it.
+4. 按一下 [範例 4] 將它開啟。
 
 ## <a name="data"></a>資料
 
-This sample uses the German Credit Card dataset from the UC Irvine repository. It contains 1,000 samples with 20 features and one label. Each sample represents a person. The 20 features include numerical and categorical features. For more information about the dataset, see the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
+此範例會使用來自 UC Irvine 存放庫的德國信用卡資料集。 其中包含具有20個功能和一個標籤的1000範例。 每個範例都代表一個人。 20個功能包含數值和類別功能。 如需有關資料集的詳細資訊，請參閱[UCI 網站](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29)。 最後一個資料行是代表信用風險的標籤，只有兩個可能的值： [高信用風險 = 2] 和 [低信用風險] = 1。
 
-## <a name="pipeline-summary"></a>Pipeline summary
+## <a name="pipeline-summary"></a>管線摘要
 
-In this pipeline, you compare two different approaches for generating models to solve this problem:
+在此管線中，您比較兩種不同的方法來產生模型，以解決此問題：
 
-- Training with the original dataset.
-- Training with a replicated dataset.
+- 使用原始資料集進行定型。
+- 使用複寫的資料集進行定型。
 
-With both approaches, you evaluate the models by using the test dataset with replication to ensure that results are aligned with the cost function. Test two classifiers with both approaches: **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
+使用這兩種方法時，您會使用測試資料集搭配複寫來評估模型，以確保結果與成本函數一致。 使用這兩種方法測試兩個分類器：**雙類別支援向量機器**和**雙類別促進式決策樹**。
 
-The cost of misclassifying a low-risk example as high is 1, and the cost of misclassifying a high-risk example as low is 5. We use an **Execute Python Script** module to account for this misclassification cost.
+將低風險範例比為 [高] 的成本是1，而將高風險範例比為 [低] 的成本則是5。 我們會使用**執行 Python 腳本**模組來考慮此分類誤判成本。
 
-Here's the graph of the pipeline:
+以下是管線的圖形：
 
-[![Graph of the pipeline](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[管線 ![圖形](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="data-processing"></a>資料處理
 
-Start by using the **Metadata Editor** module to add column names to replace the default column names with more meaningful names, obtained from the dataset description on the UCI site. Provide the new column names as comma-separated values in the **New column** name field of the **Metadata Editor**.
+首先，使用 [**中繼資料編輯器**] 模組來加入資料行名稱，以更有意義的名稱取代預設的資料行名稱，並從 UCI 網站上的資料集描述取得。 在 [**中繼資料編輯器**] 的 [**新資料行**名稱] 欄位中，提供新的資料行名稱做為逗號分隔值。
 
-Next, generate the training and test sets used to develop the risk prediction model. Split the original dataset into training and test sets of the same size by using the **Split Data** module. To create sets of equal size, set the **Fraction of rows in the first output dataset** option to 0.7.
+接下來，產生用來開發風險預測模型的定型和測試集。 使用**分割資料**模組，將原始資料集分割成相同大小的定型和測試集。 若要建立相等大小的集合，請將**第一個輸出資料集選項中的資料列分數**設定為0.7。
 
-### <a name="generate-the-new-dataset"></a>Generate the new dataset
+### <a name="generate-the-new-dataset"></a>產生新的資料集
 
-Because the cost of underestimating risk is high, set the cost of misclassification like this:
+由於低估風險的成本很高，因此請設定分類誤判的成本，如下所示：
 
-- For high-risk cases misclassified as low risk: 5
-- For low-risk cases misclassified as high risk: 1
+- 針對高風險的案例，分類錯誤為低風險：5
+- 針對低風險的案例，分類錯誤為高風險：1
 
-To reflect this cost function, generate a new dataset. In the new dataset, each high-risk example is replicated five times, but the number of low-risk examples doesn't change. Split the data into training and test datasets before replication to prevent the same row from being in both sets.
+若要反映此成本函數，請產生新的資料集。 在新的資料集中，每個高風險範例都會複寫五次，但低風險範例的數目不會變更。 在複寫之前將資料分割成定型和測試資料集，以避免在這兩個集合中出現相同的資料列。
 
-To replicate the high-risk data, put this Python code into an **Execute Python Script** module:
+若要複寫高風險的資料，請將此 Python 程式碼放入**執行 Python 腳本**模組：
 
 ```Python
 import pandas as pd
@@ -85,42 +85,42 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     return result,
 ```
 
-The **Execute Python Script** module replicates both the training and test datasets.
+[**執行 Python 腳本**] 模組會複寫定型和測試資料集。
 
 ### <a name="feature-engineering"></a>特徵設計
 
-The **Two-Class Support Vector Machine** algorithm requires normalized data. So use the **Normalize Data** module to normalize the ranges of all numeric features with a `tanh` transformation. A `tanh` transformation converts all numeric features to values within a range of 0 and 1 while preserving the overall distribution of values.
+**雙類別支援向量機器**演算法需要正規化資料。 因此，請使用正規化**資料**模組，將所有數值特徵的範圍標準化，並 `tanh` 轉換。 `tanh` 轉換會將所有數值特徵轉換成0和1範圍內的值，同時保留值的整體分佈。
 
-The **Two-Class Support Vector Machine** module handles string features, converting them to categorical features and then to binary features with a value of zero or one. So you don't need to normalize these features.
+二元**支援向量機器**模組會處理字串功能，將它們轉換成類別特徵，然後再轉換為值為零或1的二進位特徵。 因此，您不需要將這些功能標準化。
 
 ## <a name="models"></a>模型
 
-Because you applied two classifiers, **Two-Class Support Vector Machine** (SVM) and **Two-Class Boosted Decision Tree**, and two datasets, you generate a total of four models:
+因為您套用了兩個分類器、**兩個類別的支援向量機器**（SVM）和兩個類別的推進式**決策樹**，以及兩個資料集，所以總共會產生四個模型：
 
-- SVM trained with original data.
-- SVM trained with replicated data.
-- Boosted Decision Tree trained with original data.
-- Boosted Decision Tree trained with replicated data.
+- 以原始資料定型的 SVM。
+- SVM 已使用複寫的資料進行定型。
+- 以原始資料定型的推進式決策樹。
+- 以複寫的資料定型的推進式決策樹。
 
-This sample uses the standard data science workflow to create, train, and test the models:
+這個範例會使用標準資料科學工作流程來建立、定型和測試模型：
 
-1. Initialize the learning algorithms, using **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
-1. Use **Train Model** to apply the algorithm to the data and create the actual model.
-1. Use **Score Model** to produce scores by using the test examples.
+1. 使用**二級支援向量機器**和**二級促進式決策樹**來初始化學習演算法。
+1. 使用**訓練模型**將演算法套用至資料，並建立實際的模型。
+1. 使用**評分模型**，透過測試範例來產生分數。
 
-The following diagram shows a portion of this pipeline, in which the original and replicated training sets are used to train two different SVM models. **Train Model** is connected to the training set, and **Score Model** is connected to the test set.
+下圖顯示此管線的一部分，其中會使用原始和已複寫的定型集來定型兩個不同的 SVM 模型。 **定型模型**會連接到定型集，而**評分模型**會連接到測試集。
 
-![Pipeline graph](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
+![管線圖表](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
-In the evaluation stage of the pipeline, you compute the accuracy of each of the four models. For this pipeline, use **Evaluate Model** to compare examples that have the same misclassification cost.
+在管線的評估階段中，您會計算四個模型的精確度。 針對此管線，使用 [**評估模型**] 來比較具有相同分類誤判成本的範例。
 
-The **Evaluate Model** module can compute the performance metrics for as many as two scored models. So you can use one instance of **Evaluate Model** to evaluate the two SVM models and another instance of **Evaluate Model** to evaluate the two Boosted Decision Tree models.
+[**評估模型**] 模組可以計算多達兩個評分模型的效能計量。 因此，您可以使用一個**評估模型**的實例來評估兩個 SVM 模型和另一個 [**評估模型**] 實例，以評估兩個推進式決策樹模型。
 
-Notice that the replicated test dataset is used as the input for **Score Model**. In other words, the final accuracy scores include the cost for getting the labels wrong.
+請注意，複寫的測試資料集會當做**評分模型**的輸入使用。 換句話說，最終的精確度分數會包含取得標籤錯誤的成本。
 
-## <a name="combine-multiple-results"></a>Combine multiple results
+## <a name="combine-multiple-results"></a>合併多個結果
 
-The **Evaluate Model** module produces a table with a single row that contains various metrics. To create a single set of accuracy results, we first use **Add Rows** to combine the results into a single table. We then use the following Python script in the **Execute Python Script** module to add the model name and training approach for each row in the table of results:
+「**評估模型**」模組會產生一個包含各種計量的單一資料列的資料表。 若要建立一組精確度結果，我們會先使用 [**加入資料列**] 將結果合併成單一資料表。 然後，我們會在 [**執行 Python 腳本**] 模組中使用下列 Python 腳本，針對結果資料表中的每個資料列加入模型名稱和定型方法：
 
 ```Python
 import pandas as pd
@@ -142,17 +142,17 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ## <a name="results"></a>結果
 
-To view the results of the pipeline, you can right-click the Visualize output of the last **Select Columns in Dataset** module.
+若要查看管線的結果，您可以用滑鼠右鍵按一下 [**資料集中最後一個選取資料行**] 模組的 [視覺化輸出]。
 
-![Visualize output](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/result.png)
+![將輸出視覺化](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/result.png)
 
-The first column lists the machine learning algorithm used to generate the model.
+第一個資料行列出用來產生模型的機器學習演算法。
 
-The second column indicates the type of the training set.
+第二個數據行表示定型集的類型。
 
-The third column contains the cost-sensitive accuracy value.
+第三個數據行包含成本相關的精確度值。
 
-From these results, you can see that the best accuracy is provided by the model that was created with **Two-Class Support Vector Machine** and trained on the replicated training dataset.
+從這些結果中，您可以看到，以**雙類別支援向量機器**建立的模型所提供的最佳準確度，並已在複寫的訓練資料集上定型。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -160,11 +160,11 @@ From these results, you can see that the best accuracy is provided by the model 
 
 ## <a name="next-steps"></a>後續步驟
 
-Explore the other samples available for the designer:
+探索適用于設計工具的其他範例：
 
-- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
-- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
-- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
-- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
+- [範例 1-回歸：預測汽車的價格](how-to-designer-sample-regression-automobile-price-basic.md)
+- [範例 2-回歸：比較汽車價格預測的演算法](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [範例 3-使用特徵選取進行分類：收入預測](how-to-designer-sample-classification-predict-income.md)
+- [範例 5-分類：預測流失](how-to-designer-sample-classification-churn.md)
+- [範例 6-分類：預測航班延誤](how-to-designer-sample-classification-flight-delay.md)
+- [範例 7-文字分類：維琪百科 SP 500 資料集](how-to-designer-sample-text-classification.md)

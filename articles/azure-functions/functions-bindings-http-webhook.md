@@ -46,7 +46,7 @@ HTTP 觸發程序可讓您透過 HTTP 要求叫用函式。 您可以使用 HTTP
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-下列範例會顯示在查詢字串或 HTTP 要求主體中尋找 `name` 參數的 [C# 函式](functions-dotnet-class-library.md)。 請注意，傳回值用於輸出繫結，但傳回值屬性並非必要。
+下列範例會顯示在查詢字串或 HTTP 要求主體中尋找 [ 參數的 ](functions-dotnet-class-library.md)C# 函式`name`。 請注意，傳回值用於輸出繫結，但傳回值屬性並非必要。
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -68,7 +68,7 @@ public static async Task<IActionResult> Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 下列範例示範 function.json 檔案中的觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
 
@@ -279,7 +279,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 }
 ```
 
-#### <a name="read-parameter-from-the-query-string"></a>Read parameter from the query string
+#### <a name="read-parameter-from-the-query-string"></a>讀取查詢字串中的參數
 
 此範例會從查詢字串中讀取名為 ```id``` 的參數，並使用它來建立傳回至用戶端且內容類型為 ```application/json``` 的 JSON 文件。 
 
@@ -318,7 +318,7 @@ public HttpResponseMessage run(
 }
 ```
 
-#### <a name="read-body-from-a-post-request"></a>Read body from a POST request
+#### <a name="read-body-from-a-post-request"></a>從 POST 要求讀取主體
 
 此範例會讀取 POST 要求的主體，作為 ```String```，並使用它來建立傳回至用戶端且內容類型為 ```application/json``` 的 JSON 文件。
 
@@ -354,7 +354,7 @@ public HttpResponseMessage run(
     }
 ```
 
-#### <a name="read-parameter-from-a-route"></a>Read parameter from a route
+#### <a name="read-parameter-from-a-route"></a>從路由讀取參數
 
 此範例會從路由路徑讀取名為 ```id``` 的必要參數，和選用參數 ```name```，然後使用這些參數來建立傳回至用戶端且內容類型為 ```application/json``` 的 JSON 文件。 T
 
@@ -392,7 +392,7 @@ public HttpResponseMessage run(
 }
 ```
 
-#### <a name="read-pojo-body-from-a-post-request"></a>Read POJO body from a POST request
+#### <a name="read-pojo-body-from-a-post-request"></a>從 POST 要求讀取 POJO 主體
 
 以下是此範例中所參照 ```ToDoItem``` 類別的程式碼：
 
@@ -424,7 +424,7 @@ public class ToDoItem {
 
 ```
 
-此範例會讀取 POST 要求的主體。 要求主體會自動還原序列化至 ```ToDoItem``` 物件，並傳回至用戶端，且內容類型為 ```application/json```。 ```ToDoItem``` 參數會在指派給 ```HttpMessageResponse.Builder``` 類別的 ```body``` 屬性時，由 Functions 執行階段序列化。
+此範例會讀取 POST 要求的主體。 要求主體會自動還原序列化至 ```ToDoItem``` 物件，並傳回至用戶端，且內容類型為 ```application/json```。 ```ToDoItem``` 參數會在指派給 ```body``` 類別的 ```HttpMessageResponse.Builder``` 屬性時，由 Functions 執行階段序列化。
 
 ```java
 @FunctionName("TriggerPojoPost")
@@ -460,13 +460,13 @@ public HttpResponseMessage run(
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
-In [C# class libraries](functions-dotnet-class-library.md) and Java, the `HttpTrigger` attribute is available to configure the function.
+在[ C#類別庫](functions-dotnet-class-library.md)和 JAVA 中，可以使用 `HttpTrigger` 屬性來設定函式。
 
-You can set the authorization level and allowable HTTP methods in attribute constructor parameters, webhook type, and a route template. 如需這些設定的詳細資訊，請參閱[觸發程序 - 組態](#trigger---configuration)。
+您可以在屬性函式參數、webhook 類型和路由範本中，設定授權層級和允許的 HTTP 方法。 如需這些設定的詳細資訊，請參閱[觸發程序 - 組態](#trigger---configuration)。
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-This example demonstrates how to use the [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribute.
+這個範例示範如何使用[HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs)屬性。
 
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
@@ -477,23 +477,23 @@ public static Task<IActionResult> Run(
 }
 ```
 
-For a complete example, see the [trigger example](#trigger---example).
+如需完整範例，請參閱[觸發程式範例](#trigger---example)。
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
-Attributes are not supported by C# Script.
+C#腳本不支援屬性。
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Attributes are not supported by JavaScript.
+JavaScript 不支援屬性。
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Attributes are not supported by Python.
+Python 不支援屬性。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-This example demonstrates how to use the [HttpTrigger](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java) attribute.
+這個範例示範如何使用[HttpTrigger](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java)屬性。
 
 ```java
 @FunctionName("HttpTriggerJava")
@@ -507,7 +507,7 @@ public HttpResponseMessage<String> HttpTrigger(
 }
 ```
 
-For a complete example, see the [trigger example](#trigger---example).
+如需完整範例，請參閱[觸發程式範例](#trigger---example)。
 
 ---
 
@@ -527,7 +527,7 @@ For a complete example, see the [trigger example](#trigger---example).
 
 ## <a name="trigger---usage"></a>觸發程序 - 使用方式
 
-The trigger input type is declared as either `HttpRequest` or a custom type. 如果您選擇 `HttpRequest`，就會取得要求物件的完整存取權。 針對自訂的類型，執行階段會嘗試剖析 JSON 要求本文來設定物件屬性。
+觸發程式輸入類型會宣告為 `HttpRequest` 或自訂類型。 如果您選擇 `HttpRequest`，就會取得要求物件的完整存取權。 針對自訂的類型，執行階段會嘗試剖析 JSON 要求本文來設定物件屬性。
 
 ### <a name="customize-the-http-endpoint"></a>自訂 HTTP 端點
 
@@ -580,7 +580,7 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 您可以將任何 [Web API 路由條件約束](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints)與您的參數搭配使用。 下列 C# 函式程式碼會同時利用這兩個參數。
 
@@ -600,9 +600,9 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-In Node, the Functions runtime provides the request body from the `context` object. 如需詳細資訊，請參閱 [JavaScript 觸發程序範例](#trigger---example)。
+在 Node 中，函式執行時間會提供來自 `context` 物件的要求主體。 如需詳細資訊，請參閱 [JavaScript 觸發程序範例](#trigger---example)。
 
-The following example shows how to read route parameters from `context.bindingData`.
+下列範例顯示如何從 `context.bindingData`讀取路由參數。
 
 ```javascript
 module.exports = function (context, req) {
@@ -621,9 +621,9 @@ module.exports = function (context, req) {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-The function execution context is exposed via a parameter declared as `func.HttpRequest`. This instance allows a function to access data route parameters, query string values and methods that allow you to return HTTP responses.
+函數執行內容是透過宣告為 `func.HttpRequest`的參數公開。 這個實例可讓函數存取資料路由參數、查詢字串值和方法，讓您能夠傳回 HTTP 回應。
 
-Once defined, the route parameters are available to the function by calling the `route_params` method.
+一旦定義之後，即可透過呼叫 `route_params` 方法，將路由參數提供給函式。
 
 ```python
 import logging
@@ -641,9 +641,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The function execution context is properties as declared in the `HttpTrigger` attribute. The attribute allows you to define route parameters, authorization levels, HTTP verbs and the incoming request instance.
+函數執行內容是 `HttpTrigger` 屬性中所宣告的屬性。 屬性可讓您定義路由參數、授權層級、HTTP 指令動詞和連入要求實例。
 
-Route parameters are defined via the `HttpTrigger` attribute.
+路由參數是透過 `HttpTrigger` 屬性來定義。
 
 ```java
 package com.function;
@@ -670,7 +670,7 @@ public class HttpTriggerJava {
 
 ---
 
-所有函式路由預設前面都會加上 *api*。 您也可以在 [host.json](functions-host-json.md) 檔案中使用 `http.routePrefix` 屬性來自訂或移除前置詞。 下列範例會在 *host.json* 檔案中使用空字串作為前置詞來移除 *api* 路由前置詞。
+所有函式路由預設前面都會加上 *api*。 您也可以在 `http.routePrefix`host.json[ 檔案中使用 ](functions-host-json.md) 屬性來自訂或移除前置詞。 下列範例會在 *host.json* 檔案中使用空字串作為前置詞來移除 *api* 路由前置詞。
 
 ```json
 {
@@ -688,7 +688,7 @@ public class HttpTriggerJava {
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Information regarding authenticated clients is available as a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal 可作為要求內容的一部分提供，如下列範例所示：
+已驗證用戶端的相關資訊可在[ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal)中取得。 ClaimsPrincipal 可作為要求內容的一部分提供，如下列範例所示：
 
 ```csharp
 using System.Net;
@@ -718,9 +718,9 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
-Information regarding authenticated clients is available as a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal 可作為要求內容的一部分提供，如下列範例所示：
+已驗證用戶端的相關資訊可在[ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal)中取得。 ClaimsPrincipal 可作為要求內容的一部分提供，如下列範例所示：
 
 ```csharp
 using System.Net;
@@ -754,15 +754,15 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
+已驗證的使用者可透過[HTTP 標頭](../app-service/app-service-authentication-how-to.md#access-user-claims)取得。
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
+已驗證的使用者可透過[HTTP 標頭](../app-service/app-service-authentication-how-to.md#access-user-claims)取得。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
+已驗證的使用者可透過[HTTP 標頭](../app-service/app-service-authentication-how-to.md#access-user-claims)取得。
 
 ---
 
@@ -794,7 +794,7 @@ Functions 可讓您使用金鑰來提高開發期間存取 HTTP 函式端點的�
 
 ![在入口網站中管理函式金鑰。](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-You may obtain function keys programmatically by using [Key management APIs](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
+您可以使用[金鑰管理 api](https://github.com/Azure/azure-functions-host/wiki/Key-management-API)以程式設計方式取得功能鍵。
 
 ### <a name="api-key-authorization"></a>API 金鑰授權
 
@@ -807,7 +807,7 @@ You may obtain function keys programmatically by using [Key management APIs](htt
 您可以允許匿名要求，這不需要金鑰。 您也可以要求使用主要金鑰。 您可以使用繫結 JSON 中的 `authLevel` 屬性來變更預設授權層級。 如需詳細資訊，請參閱[觸發程序 - 組態](#trigger---configuration)。
 
 > [!NOTE]
-> 在本機執行函式時，不論指定的驗證等級設定為何，都會停用授權。 發佈至 Azure 之後，就會強制執行您觸發程序中的 `authLevel` 設定。 Keys are still required when running [locally in a container](functions-create-function-linux-custom-image.md#run-the-image-locally).
+> 在本機執行函式時，不論指定的驗證等級設定為何，都會停用授權。 發佈至 Azure 之後，就會強制執行您觸發程序中的 `authLevel` 設定。 [在容器中的本機執行](functions-create-function-linux-custom-image.md#run-the-image-locally)時，仍然需要金鑰。
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>在生產環境中保護 HTTP 端點
@@ -848,7 +848,7 @@ Webhook 授權是由 Webhook 接收器元件 (HTTP 觸發程序的一部分) 處
 
 ## <a name="trigger---limits"></a>觸發程序的 - 限制
 
-HTTP 要求長度的限制為 100 MB (104,857,600 個位元組)，而 URL 長度的限制為 4 KB (4,096 個位元組)。 這些限制由執行階段 [Web.config 檔案](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)的 `httpRuntime` 元素所指定。
+HTTP 要求長度的限制為 100 MB (104,857,600 個位元組)，而 URL 長度的限制為 4 KB (4,096 個位元組)。 這些限制由執行階段 `httpRuntime`Web.config 檔案[的 ](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) 元素所指定。
 
 如果使用 HTTP 觸發程序的函式未在約 2.5 分鐘內完成，閘道將會逾時並傳回 HTTP 502 錯誤。 函式會繼續執行，但無法傳回 HTTP 回應。 對於長時間執行的函式，建議您遵循非同步模式，並傳回可以偵測要求狀態的位置。 如需函式可以執行多久的相關資訊，請參閱[級別和裝載 - 使用情況方案](functions-scale.md#timeout)。
 
@@ -901,11 +901,11 @@ HTTP 要求長度的限制為 100 MB (104,857,600 個位元組)，而 URL 長度
 
 |屬性  |預設值 | 描述 |
 |---------|---------|---------| 
-| customHeaders|None|Allows you to set custom headers in the HTTP response. The previous example adds the `X-Content-Type-Options` header to the response to avoid content type sniffing. |
-|dynamicThrottlesEnabled|true<sup>\*</sup>|啟用時，此設定會促使要求處理管線定期檢查系統效能計數器，例如連線/執行緒/處理程序/記憶體/CPU/其他，而且如果這些計數器中任一個超過內建的臨界值上限 (80%)，則要求會遭到拒絕，並包含 429「忙碌」的回應，直到計數器回到正常水平。<br/><sup>\*</sup>The default in a consumption plan is `true`. The default in a dedicated plan is `false`.|
-|hsts|not enabled|When `isEnabled` is set to `true`, the [HTTP Strict Transport Security (HSTS) behavior of .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) is enforced, as defined in the [`HstsOptions` class](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). The above example also sets the [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) property to 10 days. Supported properties of `hsts` are: <table><tr><th>屬性</th><th>描述</th></tr><tr><td>excludedHosts</td><td>A string array of host names for which the HSTS header isn't added.</td></tr><tr><td>includeSubDomains</td><td>Boolean value that indicates whether the includeSubDomain parameter of the Strict-Transport-Security header is enabled.</td></tr><tr><td>maxAge</td><td>String that defines the max-age parameter of the Strict-Transport-Security header.</td></tr><tr><td>preload</td><td>Boolean that indicates whether the preload parameter of the Strict-Transport-Security header is enabled.</td></tr></table>|
-|maxConcurrentRequests|100<sup>\*</sup>|The maximum number of http functions that are executed in parallel. 這可讓您控制並行作業，幫助您管理資源使用率。 例如，您可能會有使用大量系統資源 (記憶體/CPU/通訊端) 的 HTTP 函式，以致於並行率太高時會造成問題。 或者，如果函式對第三方服務發出傳出要求，則需要限制這些呼叫的速率。 在這些情況下，套用節流會有所幫助。 <br/><sup>*</sup>The default for a consumption plan is 100. The default for a dedicated plan is unbounded (`-1`).|
-|maxOutstandingRequests|200<sup>\*</sup>|在任何指定時間保留的未完成要求數目上限。 此限制包括已排入佇列但尚未開始執行的要求，以及任何進行中的執行。 會以 429「忙碌」回應來拒絕任何超過此限制的連入要求。 這樣可讓呼叫者採用以時間為基礎的重試策略，並且也協助您控制要求延遲的上限。 此動作只會控制在指令碼主機執行路徑內發生的佇列處理。 其他佇列 (例如 ASP.NET 要求佇列) 仍然有效，且不受此設定的影響。 <br/><sup>\*</sup>\The default for a consumption plan is 200. The default for a dedicated plan is unbounded (`-1`).|
+| customHeaders|無|可讓您設定 HTTP 回應中的自訂標頭。 先前的範例會將 `X-Content-Type-Options` 標頭新增至回應，以避免內容類型探查。 |
+|dynamicThrottlesEnabled|true<sup>\*</sup>|啟用時，此設定會促使要求處理管線定期檢查系統效能計數器，例如連線/執行緒/處理程序/記憶體/CPU/其他，而且如果這些計數器中任一個超過內建的臨界值上限 (80%)，則要求會遭到拒絕，並包含 429「忙碌」的回應，直到計數器回到正常水平。<br/><sup>\*</sup>耗用量方案中的預設值為 `true`。 專用方案中的預設值為 `false`。|
+|hsts|未啟用|當 `isEnabled` 設定為 `true`時，會強制執行[.Net Core 的 HTTP 嚴格傳輸安全性（HSTS）行為](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts)，如[`HstsOptions` 類別](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0)中所定義。 上述範例也會將[`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge)屬性設定為10天。 支援的 `hsts` 屬性包括： <table><tr><th>屬性</th><th>描述</th></tr><tr><td>excludedHosts</td><td>未新增 HSTS 標頭之主機名稱的字串陣列。</td></tr><tr><td>includeSubDomains</td><td>布林值，指出是否啟用嚴格傳輸安全性標頭的 includeSubDomain 參數。</td></tr><tr><td>maxAge</td><td>定義嚴格傳輸安全性標頭的最大壽命參數的字串。</td></tr><tr><td>預先載入</td><td>布林值，指出是否啟用嚴格傳輸安全性標頭的預先載入參數。</td></tr></table>|
+|maxConcurrentRequests|100<sup>\*</sup>|平行執行的 HTTP 函式數目上限。 這可讓您控制並行作業，幫助您管理資源使用率。 例如，您可能會有使用大量系統資源 (記憶體/CPU/通訊端) 的 HTTP 函式，以致於並行率太高時會造成問題。 或者，如果函式對第三方服務發出傳出要求，則需要限制這些呼叫的速率。 在這些情況下，套用節流會有所幫助。 <br/><sup>*</sup>耗用量方案的預設值為100。 專用方案的預設值是無限制的（`-1`）。|
+|maxOutstandingRequests|200<sup>\*</sup>|在任何指定時間保留的未完成要求數目上限。 此限制包括已排入佇列但尚未開始執行的要求，以及任何進行中的執行。 會以 429「忙碌」回應來拒絕任何超過此限制的連入要求。 這樣可讓呼叫者採用以時間為基礎的重試策略，並且也協助您控制要求延遲的上限。 此動作只會控制在指令碼主機執行路徑內發生的佇列處理。 其他佇列 (例如 ASP.NET 要求佇列) 仍然有效，且不受此設定的影響。 <br/>耗用量方案<sup>\*</sup>\The 預設值為200。 專用方案的預設值是無限制的（`-1`）。|
 |routePrefix|api|適用於所有路由的路由前置詞。 若要移除預設前置詞，請使用空字串。 |
 
 

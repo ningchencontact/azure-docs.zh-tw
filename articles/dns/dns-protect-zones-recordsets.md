@@ -1,6 +1,6 @@
 ---
-title: Protecting DNS Zones and Records - Azure DNS
-description: In this learning path, get started protecting DNS zones and record sets in Microsoft Azure DNS.
+title: 保護 DNS 區域和記錄-Azure DNS
+description: 在此學習路徑中，開始在 Microsoft Azure DNS 中保護 DNS 區域和記錄集。
 services: dns
 author: asudbring
 ms.service: dns
@@ -158,9 +158,9 @@ azure role create -inputfile <file path>
 
 ## <a name="resource-locks"></a>資源鎖定
 
-除了 RBAC，Azure Resource Manager 支援另一種安全性控制項，也就是鎖定資源的能力。 其中 RBAC 規則可讓您控制特定使用者和群組的動作，資源鎖定會套用至資源，而且對於所有使用者和角色都有效。 如需詳細資訊，請參閱[使用 Azure Resource Manager 來鎖定資源](../azure-resource-manager/resource-group-lock-resources.md)。
+除了 RBAC，Azure Resource Manager 支援另一種安全性控制項，也就是鎖定資源的能力。 其中 RBAC 規則可讓您控制特定使用者和群組的動作，資源鎖定會套用至資源，而且對於所有使用者和角色都有效。 如需詳細資訊，請參閱 [使用 Azure 資源管理員來鎖定資源](../azure-resource-manager/resource-group-lock-resources.md)。
 
-There are two types of resource lock: **CanNotDelete** and **ReadOnly**. 這些可以套用至 DNS 區域，或個別的記錄集。  下列章節說明幾個常見的案例，以及如何使用資源鎖定進行支援。
+有兩種類型的資源鎖定： **CanNotDelete**和**ReadOnly**。 這些可以套用至 DNS 區域，或個別的記錄集。  下列章節說明幾個常見的案例，以及如何使用資源鎖定進行支援。
 
 ### <a name="protecting-against-all-changes"></a>保護免於所有變更
 

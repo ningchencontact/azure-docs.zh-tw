@@ -17,7 +17,7 @@ ms.locfileid: "74185869"
 
 本文概述當您使用 Azure Migrate Server 遷移工具遷移 Hyper-v Vm 時所使用的架構和處理常式。
 
-[Azure Migrate](migrate-services-overview.md) 提供集中式中樞，可追蹤內部部署應用程式和工作負載及私人/公用雲端 VM 的探索、評量和移轉 (以 Azure 為目標)。 該中樞提供的 Azure Migrate 工具可進行評量和移轉，也提供第三方獨立軟體廠商 (ISV) 的供應項目。
+[Azure Migrate](migrate-services-overview.md) 提供集中式中樞，可追蹤內部部署應用程式和工作負載及私人/公用雲端 VM 的探索、評量和移轉 (以 Azure 為目標)。 該中樞能提供 Azure Migrate 工具以進行評量和移轉，也提供協力廠商獨立軟體廠商 (ISV) 的供應項目。
 
 ## <a name="agentless-migration"></a>無代理程式遷移
 

@@ -1,7 +1,7 @@
 ---
-title: Configuration data at scale - Azure Automation
-description: Learn how to configure data at scale for state configuration in Azure Automation.
-keywords: dsc,powershell,configuration,setup
+title: 大規模設定資料-Azure 自動化
+description: 瞭解如何在 Azure 自動化中針對狀態設定進行大規模的資料設定。
+keywords: dsc，powershell，設定，安裝程式
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -19,38 +19,38 @@ ms.locfileid: "74231697"
 ---
 # <a name="configuration-data-at-scale"></a>大規模組態資料
 
-> Applies To: Windows PowerShell 5.1
+> 適用于： Windows PowerShell 5。1
 
-Managing hundreds or thousands of servers can be a challenge.
-Customers have provided feedback that the most difficult aspect is actually managing [configuration data](/powershell/scripting/dsc/configurations/configdata).
-Organizing information across logical constructs like location, type, and environment.
+管理數百部或數千部伺服器可能是一項挑戰。
+客戶提供的意見反應是最困難的層面實際上是管理設定[資料](/powershell/scripting/dsc/configurations/configdata)。
+跨邏輯結構（例如位置、類型和環境）來組織資訊。
 
 > [!NOTE]
-> This article refers to a solution that is maintained by the Open Source community.
-> Support is only available in the form of GitHub collaboration, not from Microsoft.
+> 本文是指由開放原始碼社區維護的解決方案。
+> 支援僅以 GitHub 共同作業的形式提供，而不是來自 Microsoft。
 
-## <a name="community-project-datum"></a>Community project: Datum
+## <a name="community-project-datum"></a>社區專案： Datum
 
-A community maintained solution named [Datum](https://github.com/gaelcolas/Datum) has been created to resolve this challenge.
-Datum builds on great ideas from other configuration management platforms and implements the same type of solution for PowerShell DSC.
-Information is [organized in to text files](https://github.com/gaelcolas/Datum#3-intended-usage) based on logical ideas.
-Examples would be:
+已建立名為[Datum](https://github.com/gaelcolas/Datum)的社區維護解決方案，以解決這項挑戰。
+Datum 建基於其他設定管理平臺的絕佳想法，並為 PowerShell DSC 實行相同類型的解決方案。
+資訊會根據邏輯概念[組織成文字檔](https://github.com/gaelcolas/Datum#3-intended-usage)。
+範例如下：
 
-- Settings that should apply globally
-- Settings that should apply to all servers in a location
-- Settings that should apply to all database servers
-- Individual server settings
+- 應該全域套用的設定
+- 應該套用至位置中所有伺服器的設定
+- 應套用至所有資料庫伺服器的設定
+- 個別伺服器設定
 
-This information is organized in the file format you prefer (JSON, Yaml, or PSD1).
-Then cmdlets are provided to generate configuration data files by [consolidating the information](https://github.com/gaelcolas/Datum#datum-tree) from each file in to single view of a server or server role.
+這項資訊會以您偏好的檔案格式（JSON、Yaml 或 .PSD1）來組織。
+接著會提供 Cmdlet，藉由將每個檔案中[的資訊合併](https://github.com/gaelcolas/Datum#datum-tree)至伺服器或伺服器角色的單一視圖，來產生設定資料檔案。
 
-Once the data files have been generated, you can use them with [DSC Configuration scripts](/powershell/scripting/dsc/configurations/write-compile-apply-configuration) to generate MOF files and [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Then register your servers from either [on-premises](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) or [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) to pull configurations.
+一旦產生資料檔案之後，您就可以使用它們來搭配[DSC 設定腳本](/powershell/scripting/dsc/configurations/write-compile-apply-configuration)來產生 mof 檔案，並將[mof 檔案上傳到 Azure 自動化](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)。
+然後從[內部部署](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws)或[在 Azure 中](/azure/automation/automation-dsc-onboarding#azure-virtual-machines)註冊您的伺服器，以提取設定。
 
-To try out Datum, visit the [PowerShell Gallery](https://www.powershellgallery.com/packages/datum/) and download the solution or click "Project Site" to view the [documentation](https://github.com/gaelcolas/Datum#2-getting-started--concepts).
+若要試用 Datum，請造訪[PowerShell 資源庫](https://www.powershellgallery.com/packages/datum/)並下載解決方案，或按一下 [專案網站] 以查看[檔](https://github.com/gaelcolas/Datum#2-getting-started--concepts)。
 
 ## <a name="next-steps"></a>後續步驟
 
 - [Windows PowerShell 預期狀態設定概觀](/powershell/scripting/dsc/overview/overview)
-- [DSC Resources](/powershell/scripting/dsc/resources/resources)
-- [Configuring The Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- [DSC 資源](/powershell/scripting/dsc/resources/resources)
+- [設定本機 Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)

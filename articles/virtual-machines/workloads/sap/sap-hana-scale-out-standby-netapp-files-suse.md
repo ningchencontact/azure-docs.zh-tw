@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 11/21/2019
 ms.author: radeltch
-ms.openlocfilehash: 7fb7294cc6f7918b4c6a3afa9e3c9dc7f44504e1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
-ms.translationtype: MT
+ms.openlocfilehash: 8c3cb50a4a89d72ddcedea5d379f8e889655c5c0
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014943"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327999"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>使用 azure NetApp Files on SUSE Linux Enterprise Server 在 Azure Vm 上部署具有待命節點的 SAP Hana 相應放大系統 
 
@@ -99,17 +99,17 @@ ms.locfileid: "74014943"
 ![SAP NetWeaver 高可用性概觀](./media/high-availability-guide-suse-anf/sap-hana-scale-out-standby-netapp-files-suse.png)
 
 在上圖中，會遵循 SAP Hana 網路建議，在一個 Azure 虛擬網路中表示三個子網： 
+* 針對用戶端通訊
 * 與儲存系統通訊
 * 適用于內部 HANA 節點間通訊
-* 針對用戶端通訊
 
 Azure NetApp 磁片區位於個別的子網中，並[委派給 Azure Netapp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet)。  
 
 針對此範例設定，子網為：  
 
+  - `client` 10.23.0.0/24  
   - `storage` 10.23.2.0/24  
   - `hana` 10.23.3.0/24  
-  - `client` 10.23.0.0/24  
   - `anf` 10.23.1.0/26  
 
 ## <a name="set-up-the-azure-netapp-files-infrastructure"></a>設定 Azure NetApp Files 基礎結構 
@@ -140,7 +140,7 @@ Azure NetApp Files 在數個[azure 區域](https://azure.microsoft.com/global-in
 
    當您要部署磁片區時，請務必選取**nfsv 4.1**版本。 目前，NFSv 4.1 的存取權需要額外的允許清單。 將磁片區部署在指定的 Azure NetApp Files[子網](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)中。 
    
-   請記住，Azure NetApp Files 資源和 Azure Vm 必須位於相同的 Azure 虛擬網路或對等互連 Azure 虛擬網路中。 例如， **HN1**資料 Mnt00001、 **HN1**-log mnt00001 等等是磁片區名稱和 nfs://10.23.1.5/**HN1**-data-mnt00001、nfs://10.23.1.4/**HN1**-Log-mnt00001 等等，是 Azure NetApp Files 磁片區的檔案路徑。  
+   請記住，Azure NetApp Files 資源和 Azure Vm 必須位於相同的 Azure 虛擬網路或對等互連 Azure 虛擬網路中。 例如， **HN1**資料 Mnt00001、 **HN1**-log mnt00001 等等，是磁片區名稱和 nfs://10.23.1.5/**HN1**-data-mnt00001、nfs://10.23.1.4/**HN1**-Log-mnt00001 等等，是 Azure NetApp Files 磁片區的檔案路徑。  
 
    * 磁片區**HN1**-資料-mnt00001 （nfs://10.23.1.5/**HN1**-資料-mnt00001）
    * 磁片區**HN1**-資料-mnt00002 （nfs://10.23.1.6/**HN1**-資料-mnt00002）
@@ -165,9 +165,6 @@ Azure NetApp Files 在數個[azure 區域](https://azure.microsoft.com/global-in
 
 > [!IMPORTANT]
 > 針對 SAP Hana 工作負載，低延遲很重要。 請與您的 Microsoft 代表合作，以確保虛擬機器和 Azure NetApp Files 磁片區已部署在接近的附近。  
-
-> [!IMPORTANT]
-> **Sid**Adm 的使用者識別碼和 vm 上 `sapsys` 的群組識別碼必須符合 Azure NetApp Files 中的設定。 如果 VM 識別碼與 Azure NetApp 設定不相符，則在 Vm 上掛接的 Azure NetApp 磁片區上的檔案許可權將會顯示為 `nobody`。 當您將[新系統上架](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u)到 Azure NetApp Files 時，請務必指定正確的識別碼。
 
 ### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>針對 Azure NetApp Files 上的 HANA 資料庫進行大小調整
 
@@ -209,40 +206,40 @@ Azure NetApp Files 磁片區的輸送量是磁片區大小和服務層級的功�
 
 ## <a name="deploy-linux-virtual-machines-via-the-azure-portal"></a>透過 Azure 入口網站部署 Linux 虛擬機器
 
-首先，您必須建立 Azure NetApp Files 磁片區。 執行下列動作：
+首先，您必須建立 Azure NetApp Files 磁片區。 然後執行下列步驟：
 1. 在您的[azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)中建立[azure 虛擬網路子網](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)。 
 1. 部署 Vm。 
 1. 建立額外的網路介面，並將網路介面連結至對應的 Vm。  
 
-   每部虛擬機器都有三個網路介面，分別對應至三個 Azure 虛擬網路子網（`storage`、`hana`和 `client`）。 
+   每部虛擬機器都有三個網路介面，分別對應至三個 Azure 虛擬網路子網（`client`、`storage` 和 `hana`）。 
 
    如需詳細資訊，請參閱[在具有多個網路介面卡的 Azure 中建立 Linux 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics)。  
 
 > [!IMPORTANT]
 > 針對 SAP Hana 工作負載，低延遲很重要。 為了達到低延遲，請與您的 Microsoft 代表合作，以確保虛擬機器和 Azure NetApp Files 磁片區會以接近的鄰近性進行部署。 當您將使用 SAP Hana Azure NetApp Files 的[新 SAP Hana 系統上架](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u)時，請提交所需的資訊。 
  
-下一個指示假設您已建立資源群組、Azure 虛擬網路和三個 Azure 虛擬網路子網： `storage`、`hana`和 `client`。 當您部署 Vm 時，請選取 [儲存體] 子網，讓儲存體網路介面是 Vm 上的主要介面。 如果無法這麼做，請透過「儲存體子網閘道」設定明確路由至 Azure NetApp Files 委派的子網。 
+下一個指示假設您已建立資源群組、Azure 虛擬網路和三個 Azure 虛擬網路子網： `client`、`storage` 和 `hana`。 當您部署 Vm 時，請選取用戶端子網，讓用戶端網路介面是 Vm 上的主要介面。 您也必須透過「儲存體子網閘道」，設定 Azure NetApp Files 委派子網的明確路由。 
 
 > [!IMPORTANT]
 > 請確定您選取的作業系統在您所使用的特定 VM 類型上有 SAP Hana 的 SAP 認證。 如需這些類型的 SAP Hana 認證的 VM 類型和作業系統版本清單，請移至[SAP Hana 認證的 IaaS 平臺](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)網站。 按一下所列 VM 類型的詳細資料，以取得該類型的 SAP Hana 支援作業系統版本的完整清單。  
 
 1. 建立 SAP Hana 的可用性設定組。 請務必設定更新網域上限。  
 
-2. 執行下列動作來建立三部虛擬機器（**hanadb1**、 **hanadb2**、 **hanadb3**）：  
+2. 執行下列步驟，以建立三部虛擬機器（**hanadb1**、 **hanadb2**、 **hanadb3**）：  
 
    a. 使用 Azure 資源庫中支援 SAP Hana 的使用 SLES4SAP 映射。 在此範例中，我們使用了使用 SLES4SAP 12 SP4 映射。  
 
    b.這是另一個 C# 主控台應用程式。 選取您稍早為 SAP Hana 建立的可用性設定組。  
 
-   c. 選取儲存體 Azure 虛擬網路子網。 選取 [[加速網路](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)]。  
+   c. 選取用戶端 Azure 虛擬網路子網。 選取 [[加速網路](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)]。  
 
-   當您部署虛擬機器時，系統會自動產生網路介面名稱。 我們會參考連接至儲存體 Azure 虛擬網路子網的網路介面，做為**hanadb1 儲存體**、 **hanadb2 儲存體**和**hanadb3 儲存體**。 
+   當您部署虛擬機器時，系統會自動產生網路介面名稱。 為了簡單起見，我們會參考自動產生的網路介面，其會連結至用戶端 Azure 虛擬網路子網，例如**hanadb1 客戶**端、 **hanadb2 用戶端**和**hanadb3 用戶端**。 
 
-3. 針對 `hana` 的虛擬網路子網（在此範例中為**hanadb1-hana**、 **hanadb2-hana**和**hanadb3-hana**），建立三個網路介面，每個虛擬機器各一個。  
+3. 針對 `storage` 的虛擬網路子網（在此範例中為**hanadb1 儲存體**、 **hanadb2 儲存體**和**hanadb3 儲存體**），建立三個網路介面，每個虛擬機器各一個。  
 
-4. 針對 `client` 虛擬網路子網（在此範例中為**hanadb1-client**、 **hanadb2-client**和**hanadb3-client**）建立三個網路介面，每個虛擬機器各一個。  
+4. 針對 `hana` 的虛擬網路子網（在此範例中為**hanadb1-hana**、 **hanadb2-hana**和**hanadb3-hana**），建立三個網路介面，每個虛擬機器各一個。  
 
-5. 執行下列動作，將新建立的虛擬網路介面附加至對應的虛擬機器：  
+5. 執行下列步驟，將新建立的虛擬網路介面附加至對應的虛擬機器：  
 
     a. 移至[Azure 入口網站](https://portal.azure.com/#home)中的虛擬機器。  
 
@@ -250,7 +247,7 @@ Azure NetApp Files 磁片區的輸送量是磁片區大小和服務層級的功�
 
     c. 在 [**總覽**] 窗格中，選取 [**停止**] 以解除配置虛擬機器。  
 
-    d. 選取 [**網路**]，然後連接網路介面。 在 [**附加網路介面**] 下拉式清單中，選取已為 `hana` 和 `client` 子網建立的網路介面。  
+    d. 選取 [**網路**]，然後連接網路介面。 在 [**附加網路介面**] 下拉式清單中，選取已為 `storage` 和 `hana` 子網建立的網路介面。  
     
     e. 選取 [ **儲存**]。 
  
@@ -258,23 +255,24 @@ Azure NetApp Files 磁片區的輸送量是磁片區大小和服務層級的功�
  
     g. 暫時讓虛擬機器處於 [已停止] 狀態。 接下來，我們將為所有新連接的網路介面啟用[加速網路](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)。  
 
-6. 藉由執行下列動作，為 `hana` 和 `client` 子網的額外網路介面啟用加速網路：  
+6. 執行下列步驟，為 `storage` 和 `hana` 子網的額外網路介面啟用加速網路：  
 
     a. 在[Azure 入口網站](https://portal.azure.com/#home)中開啟[Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) 。  
 
-    b.這是另一個 C# 主控台應用程式。 執行下列命令，為附加至 `hana` 和 `client` 子網的其他網路介面啟用加速網路。  
+    b.這是另一個 C# 主控台應用程式。 執行下列命令，為附加至 `storage` 和 `hana` 子網的其他網路介面啟用加速網路。  
 
     <pre><code>
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-storage</b> --accelerated-networking true
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-storage</b> --accelerated-networking true
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-storage</b> --accelerated-networking true
+    
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-hana</b> --accelerated-networking true
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-hana</b> --accelerated-networking true
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-hana</b> --accelerated-networking true
-    
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-client</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-client</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-client</b> --accelerated-networking true
+
     </code></pre>
 
-7. 執行下列動作來啟動虛擬機器：  
+7. 執行下列步驟來啟動虛擬機器：  
 
     a. 在左窗格中，選取 [**虛擬機器**]。 篩選虛擬機器名稱（例如， **hanadb1**），然後選取它。  
 
@@ -288,36 +286,53 @@ Azure NetApp Files 磁片區的輸送量是磁片區大小和服務層級的功�
 * **[2]** ：僅適用于節點2
 * **[3]** ：僅適用于節點3
 
-執行下列動作來設定並準備您的 OS：
+執行下列步驟來設定並準備您的 OS：
 
 1. **[A]** 維護虛擬機器上的主機檔案。 包含所有子網的專案。 在此範例中，已將下列專案新增至 `/etc/hosts`。  
 
     <pre><code>
     # Storage
-    10.23.2.4   hanadb1
-    10.23.2.5   hanadb2
-    10.23.2.6   hanadb3
+    10.23.2.4   hanadb1-storage
+    10.23.2.5   hanadb2-storage
+    10.23.2.6   hanadb3-storage
     # Client
-    10.23.0.5   hanadb1-client
-    10.23.0.6   hanadb2-client
-    10.23.0.7   hanadb3-client
+    10.23.0.5   hanadb1
+    10.23.0.6   hanadb2
+    10.23.0.7   hanadb3
     # Hana
     10.23.3.4   hanadb1-hana
     10.23.3.5   hanadb2-hana
     10.23.3.6   hanadb3-hana
     </code></pre>
 
-2. **[A]** 變更 DHCP 和雲端 config 設定，以避免非預期的主機名稱變更。  
+2. **[A]** 變更用於存放裝置之網路介面的 DHCP 和雲端設定，以避免非預期的主機名稱變更。  
+
+    下列指示假設存放裝置網路介面已 `eth1`。 
 
     <pre><code>
     vi /etc/sysconfig/network/dhcp
-    #Change the following DHCP setting to "no"
+    # Change the following DHCP setting to "no"
     DHCLIENT_SET_HOSTNAME="no"
-    vi /etc/sysconfig/network/ifcfg-eth0
-    # Edit ifcfg-eth0 
+    vi /etc/sysconfig/network/ifcfg-<b>eth1</b>
+    # Edit ifcfg-eth1 
     #Change CLOUD_NETCONFIG_MANAGE='yes' to "no"
     CLOUD_NETCONFIG_MANAGE='no'
     </code></pre>
+
+2. **[A]** 新增網路路由，讓 Azure NetApp Files 的通訊會透過儲存體網路介面來進行。  
+
+    下列指示假設存放裝置網路介面已 `eth1`。  
+
+    <pre><code>
+    vi /etc/sysconfig/network/ifroute-<b>eth1</b>
+    # Add the following routes 
+    # RouterIPforStorageNetwork - - -
+    # ANFNetwork/cidr RouterIPforStorageNetwork - -
+    <b>10.23.2.1</b> - - -
+    <b>10.23.1.0/26</b> <b>10.23.2.1</b> - -
+    </code></pre>
+
+    重新開機 VM 以啟用變更。  
 
 3. **[A]** 準備 OS 以使用 Nfs 在 netapp 系統上執行 SAP Hana，如[NetApp AFF Systems with NFS 設定指南 SAP Hana](https://www.netapp.com/us/media/tr-4435.pdf)所述。 建立 NetApp configuration 設定的設定檔 */etc/sysctl.d/netapp-hana.conf* 。  
 
@@ -387,28 +402,33 @@ Azure NetApp Files 磁片區的輸送量是磁片區大小和服務層級的功�
     umount /mnt/tmp
     </code></pre>
 
-3. **[A]** 確認 NFS 網域設定。 請確定已將網域設定為 **`localdomain`** ，而且對應已設為 [無**人**]。  
+3. **[A]** 確認 NFS 網域設定。 請確定已將網域設定為預設的 Azure NetApp Files 網域，也就是 **`defaultv4iddomain.com`** ，而且對應已設為 [沒有**人**]。  
+
+    > [!IMPORTANT]
+    > 請務必將 VM 上 `/etc/idmapd.conf` 中的 NFS 網域設定為符合 Azure NetApp Files 上的預設網域設定： **`defaultv4iddomain.com`** 。 如果 NFS 用戶端上的網域設定（也就是 VM）和 NFS 伺服器（也就是 Azure NetApp configuration）不相符，則在 Vm 上掛接的 Azure NetApp 磁片區上的檔案許可權將會顯示為 `nobody`。  
 
     <pre><code>
-    sudo cat  /etc/idmapd.conf
+    sudo cat /etc/idmapd.conf
     # Example
     [General]
     Verbosity = 0
     Pipefs-Directory = /var/lib/nfs/rpc_pipefs
-    Domain = <b>localdomain</b>
+    Domain = <b>ldefaultv4iddomain.com</b>
     [Mapping]
     Nobody-User = <b>nobody</b>
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** 停用 NFSv4 識別碼對應。 若要建立 `nfs4_disable_idmapping` 所在的目錄結構，請執行掛接命令。 您將無法在/sys/modules 下手動建立目錄，因為已為核心/驅動程式保留存取權。  
+4. **[A]** 確認 `nfs4_disable_idmapping`。 它應該設定為**Y**。若要建立 `nfs4_disable_idmapping` 所在的目錄結構，請執行掛接命令。 您將無法在/sys/modules 下手動建立目錄，因為已為核心/驅動程式保留存取權。  
 
     <pre><code>
+    # Check nfs4_disable_idmapping 
+    cat /sys/module/nfs/parameters/nfs4_disable_idmapping
+    # If you need to set nfs4_disable_idmapping to Y
     mkdir /mnt/tmp
     mount 10.23.1.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
-    # Disable NFSv4 idmapping. 
-    echo "N" > /sys/module/nfs/parameters/nfs4_disable_idmapping
+    echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
     </code></pre>`
 
 5. **[A]** 手動建立 SAP Hana 群組和使用者。 群組 sapsys 和使用者**hn1**Adm 的識別碼必須設定為相同的識別碼，在上架期間提供。 （在此範例中，識別碼會設定為**1001**。）如果未正確設定識別碼，您將無法存取磁片區。 群組 sapsys 和使用者帳戶的識別碼**hn1**adm 和 sapadm 在所有虛擬機器上必須相同。  

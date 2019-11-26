@@ -71,7 +71,7 @@ ms.locfileid: "74231031"
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-下列範例示範在 `samples-workitems` 容器中新增或更新 Blob 時，寫入記錄的 [C# 函式](functions-dotnet-class-library.md)。
+下列範例示範在 [ 容器中新增或更新 Blob 時，寫入記錄的 ](functions-dotnet-class-library.md)C# 函式`samples-workitems`。
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
@@ -81,13 +81,13 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](./functions-bindings-expressions-patterns.md)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
+Blob 觸發程序路徑 `{name}` 中的字串 `samples-workitems/{name}` 會建立[繫結運算式](./functions-bindings-expressions-patterns.md)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
 
 如需有關 `BlobTrigger` 屬性的詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes)。
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
-The following example shows a blob trigger binding in a *function.json* file and code that uses the binding. 在 `samples-workitems` [容器](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).中新增或更新 Blob 時，函數會寫入記錄。
+下列範例顯示函式*json*檔案中的 blob 觸發程式系結，以及使用該系結的程式碼。 在 `samples-workitems` [容器](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).中新增或更新 Blob 時，函數會寫入記錄。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -106,7 +106,7 @@ The following example shows a blob trigger binding in a *function.json* file and
 }
 ```
 
-Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](./functions-bindings-expressions-patterns.md)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
+Blob 觸發程序路徑 `{name}` 中的字串 `samples-workitems/{name}` 會建立[繫結運算式](./functions-bindings-expressions-patterns.md)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
 
 如需 *function.json* 檔案屬性的詳細資訊，請參閱[設定](#trigger---configuration)一節中這些屬性的說明。
 
@@ -153,7 +153,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
-Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](./functions-bindings-expressions-patterns.md)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
+Blob 觸發程序路徑 `{name}` 中的字串 `samples-workitems/{name}` 會建立[繫結運算式](./functions-bindings-expressions-patterns.md)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
 
 如需 *function.json* 檔案屬性的詳細資訊，請參閱[設定](#trigger---configuration)一節中這些屬性的說明。
 
@@ -188,7 +188,7 @@ module.exports = function(context) {
 }
 ```
 
-Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](./functions-bindings-expressions-patterns.md)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
+Blob 觸發程序路徑 `{name}` 中的字串 `samples-workitems/{name}` 會建立[繫結運算式](./functions-bindings-expressions-patterns.md)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
 
 如需 *function.json* 檔案屬性的詳細資訊，請參閱[設定](#trigger---configuration)一節中這些屬性的說明。
 
@@ -274,7 +274,7 @@ public void run(
   }
    ```
 
-  For a complete example, see [Trigger example](#trigger---example).
+  如需完整範例，請參閱[觸發程式範例](#trigger---example)。
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -300,21 +300,21 @@ public void run(
 * `StorageAccount` 屬性套用至該類別。
 * 函數應用程式 (「AzureWebJobsStorage」應用程式設定) 的預設儲存體帳戶。
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
-Attributes are not supported by C# Script.
+C#腳本不支援屬性。
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Attributes are not supported by JavaScript.
+JavaScript 不支援屬性。
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Attributes are not supported by Python.
+Python 不支援屬性。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#trigger---example) for details.
+`@BlobTrigger` 屬性是用來提供觸發函式之 blob 的存取權。 如需詳細資訊，請參閱[觸發程式範例](#trigger---example)。
 
 ---
 
@@ -338,27 +338,27 @@ The `@BlobTrigger` attribute is used to give you access to the blob that trigger
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Access blob data using `context.bindings.<name from function.json>`.
+使用 `context.bindings.<name from function.json>`存取 blob 資料。
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Access blob data via the parameter typed as [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Refer to the [trigger example](#trigger---example) for details.
+透過輸入為[InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python)的參數來存取 blob 資料。 如需詳細資訊，請參閱[觸發程式範例](#trigger---example)。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#trigger---example) for details.
+`@BlobTrigger` 屬性是用來提供觸發函式之 blob 的存取權。 如需詳細資訊，請參閱[觸發程式範例](#trigger---example)。
 
 ---
 
 ## <a name="trigger---blob-name-patterns"></a>觸發程序 - Blob 名稱模式
 
-您可以在 *function.json* 中的 `path` 屬性或 `BlobTrigger` 屬性建構函式中，指定 Blob 名稱模式。 名稱模式可以是[篩選條件或繫結運算式](./functions-bindings-expressions-patterns.md)。 下列各節提供相關範例。
+您可以在 `path`function.json*中的* 屬性或 `BlobTrigger` 屬性建構函式中，指定 Blob 名稱模式。 名稱模式可以是[篩選條件或繫結運算式](./functions-bindings-expressions-patterns.md)。 下列各節提供相關範例。
 
 ### <a name="get-file-name-and-extension"></a>取得檔案名稱和副檔名
 
@@ -404,7 +404,7 @@ The `@BlobTrigger` attribute is used to give you access to the blob that trigger
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
@@ -419,11 +419,11 @@ module.exports = function (context, myBlob) {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Metadata is not available in Python.
+Python 中無法使用中繼資料。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Metadata is not available in Java.
+無法在 JAVA 中使用中繼資料。
 
 ---
 
@@ -431,15 +431,15 @@ Metadata is not available in Java.
 
 Azure Functions 執行階段可確保不會針對一樣新或更新的 blob 多次呼叫 blob 觸發程序函式。 為了判斷指定的 blob 版本是否已處理過，它會維護 *blob 回條*。
 
-Azure Functions 會將 blob 回條儲存在您函數應用程式 (`AzureWebJobsStorage` 應用程式設定所定義) 的 Azure 儲存體帳戶中名為 *azure-webjobs-hosts*的容器中。 Blob 回條具有下列資訊：
+Azure Functions 會將 blob 回條儲存在您函數應用程式 (*應用程式設定所定義) 的 Azure 儲存體帳戶中名為*azure-webjobs-hosts`AzureWebJobsStorage`的容器中。 Blob 回條具有下列資訊：
 
-* 已觸發的函數 ("&lt;函數應用程式名稱>.Functions.&lt;函數名稱>"，例如："MyFunctionApp.Functions.CopyBlob")
+* 已觸發的函數 ("*函數應用程式名稱>&lt;* .Functions.*函數名稱>&lt;* "，例如："MyFunctionApp.Functions.CopyBlob")
 * 容器名稱
 * Blob 類型 ("BlockBlob" 或 "PageBlob")
 * Blob 名稱
 * ETag (Blob 版本識別碼，例如："0x8D1DC6E70A277EF")
 
-要強制重新處理某個 Blob，可以從 *azure-webjobs-hosts* 容器中手動刪除該 Blob 的 Blob 回條。 While reprocessing might not occur immediately, it's guaranteed to occur at a later point in time.
+要強制重新處理某個 Blob，可以從 *azure-webjobs-hosts* 容器中手動刪除該 Blob 的 Blob 回條。 雖然重新處理可能不會立即發生，但一定會在稍後的時間點發生。
 
 ## <a name="trigger---poison-blobs"></a>觸發程序 - 有害的 Blob
 
@@ -463,7 +463,7 @@ JavaScript 和 Java 函式會將整個 Blob 載入記憶體中，而 C# 函式�
 
 ## <a name="trigger---polling"></a>觸發程序 - 輪詢
 
-If the blob container being monitored contains more than 10,000 blobs (across all containers), the Functions runtime scans log files to watch for new or changed blobs. 此程序可能會導致延遲。 可能直到建立 Blob 之後數分鐘或更久，才會觸發函數。
+如果受監視的 blob 容器包含超過10000個 blob （跨所有容器），函數執行時間會掃描記錄檔以監看新的或已變更的 blob。 此程序可能會導致延遲。 可能直到建立 Blob 之後數分鐘或更久，才會觸發函數。
 
 > [!WARNING]
 > 此外，[會以「最大努力」建立儲存體記錄](/rest/api/storageservices/About-Storage-Analytics-Logging)。 並不保證會擷取所有事件。 在某些情況下可能會遺失記錄。
@@ -492,7 +492,7 @@ public static void Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 <!--Same example for input and output. -->
 
@@ -649,7 +649,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
 * [HTTP 觸發程序，從查詢字串中查閱 Blob 名稱](#http-trigger-look-up-blob-name-from-query-string)
 * [佇列觸發程序，接收來自佇列訊息的 Blob 名稱](#queue-trigger-receive-blob-name-from-queue-message)
 
-#### <a name="http-trigger-look-up-blob-name-from-query-string"></a>HTTP trigger, look up blob name from query string
+#### <a name="http-trigger-look-up-blob-name-from-query-string"></a>HTTP 觸發程式，從查詢字串中查閱 blob 名稱
 
  下列範例示範使用 `HttpTrigger` 註解接收參數 (其中包含 Blob 儲存體容器中的檔案名稱) 的 Java 函式。 `BlobInput` 註解接著會讀取檔案，並將其內容傳遞給函式做為 `byte[]`。
 
@@ -674,7 +674,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
   }
 ```
 
-#### <a name="queue-trigger-receive-blob-name-from-queue-message"></a>Queue trigger, receive blob name from queue message
+#### <a name="queue-trigger-receive-blob-name-from-queue-message"></a>佇列觸發程式，接收來自佇列訊息的 blob 名稱
 
  下列範例示範使用 `QueueTrigger` 註解接收訊息 (其中包含 Blob 儲存體容器中的檔案名稱) 的 Java 函式。 `BlobInput` 註解接著會讀取檔案，並將其內容傳遞給函式做為 `byte[]`。
 
@@ -735,21 +735,21 @@ public static void Run(
 
 您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes)。
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
-Attributes are not supported by C# Script.
+C#腳本不支援屬性。
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Attributes are not supported by JavaScript.
+JavaScript 不支援屬性。
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Attributes are not supported by Python.
+Python 不支援屬性。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The `@BlobInput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [input example](#input---example) for details.
+`@BlobInput` 屬性可讓您存取觸發函數的 blob。 如果您使用具有屬性的位元組陣列，請將 `dataType` 設定為 `binary`。 如需詳細資訊，請參閱[輸入範例](#input---example)。
 
 ---
 
@@ -764,7 +764,7 @@ The `@BlobInput` attribute gives you access to the blob that triggered the funct
 |**name** | n/a | 表示函式程式碼中 Blob 的變數名稱。|
 |**路徑** |**BlobPath** | blob 的路徑。 |
 |**連接** |**連接**| 應用程式設定的名稱包含要用於此繫結的[儲存體連接字串](../storage/common/storage-configure-connection-string.md)。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須為一般用途的儲存體帳戶，不可為[僅限 Blob 的儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
-|n/a | **Access** | 指出您是否將讀取或寫入。 |
+|n/a | **存取** | 指出您是否將讀取或寫入。 |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -774,21 +774,21 @@ The `@BlobInput` attribute gives you access to the blob that triggered the funct
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Access the blob data using `context.bindings.<name from function.json>`.
+使用 `context.bindings.<name from function.json>`存取 blob 資料。
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Access blob data via the parameter typed as [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Refer to the [input example](#input---example) for details.
+透過輸入為[InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python)的參數來存取 blob 資料。 如需詳細資訊，請參閱[輸入範例](#input---example)。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The `@BlobInput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [input example](#input---example) for details.
+`@BlobInput` 屬性可讓您存取觸發函數的 blob。 如果您使用具有屬性的位元組陣列，請將 `dataType` 設定為 `binary`。 如需詳細資訊，請參閱[輸入範例](#input---example)。
 
 ---
 
@@ -848,7 +848,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 };
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 <!--Same example for input and output. -->
 
@@ -1098,25 +1098,25 @@ public static void Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
-Attributes are not supported by C# Script.
+C#腳本不支援屬性。
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Attributes are not supported by JavaScript.
+JavaScript 不支援屬性。
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Attributes are not supported by Python.
+Python 不支援屬性。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The `@BlobOutput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [output example](#output---example) for details.
+`@BlobOutput` 屬性可讓您存取觸發函數的 blob。 如果您使用具有屬性的位元組陣列，請將 `dataType` 設定為 `binary`。 如需詳細資訊，請參閱[輸出範例](#output---example)。
 
 ---
 
-For a complete example, see [Output example](#output---example).
+如需完整範例，請參閱[輸出範例](#output---example)。
 
 您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes)。
 
@@ -1129,9 +1129,9 @@ For a complete example, see [Output example](#output---example).
 |**type** | n/a | 必須設為 `blob`。 |
 |**direction** | n/a | 必須針對輸出繫結設定為 `out`。 例外狀況在[使用方式](#output---usage)一節中會加以說明。 |
 |**name** | n/a | 表示函式程式碼中 Blob 的變數名稱。  設為 `$return` 以參考函式傳回值。|
-|**路徑** |**BlobPath** | The path to the blob container. |
+|**路徑** |**BlobPath** | Blob 容器的路徑。 |
 |**連接** |**連接**| 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須為一般用途的儲存體帳戶，不可為[僅限 Blob 的儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
-|n/a | **Access** | 指出您是否將讀取或寫入。 |
+|n/a | **存取** | 指出您是否將讀取或寫入。 |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1141,7 +1141,7 @@ For a complete example, see [Output example](#output---example).
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
@@ -1151,16 +1151,16 @@ For a complete example, see [Output example](#output---example).
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-You can declare function parameters as the following types to write out to blob storage:
+您可以將函式參數宣告為下列類型，以將其寫出至 blob 儲存體：
 
-* Strings as `func.Out(str)`
-* Streams as `func.Out(func.InputStream)`
+* 字串做為 `func.Out(str)`
+* 資料流程 `func.Out(func.InputStream)`
 
-Refer to the [output example](#output---example) for details.
+如需詳細資訊，請參閱[輸出範例](#output---example)。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The `@BlobOutput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [output example](#output---example) for details.
+`@BlobOutput` 屬性可讓您存取觸發函數的 blob。 如果您使用具有屬性的位元組陣列，請將 `dataType` 設定為 `binary`。 如需詳細資訊，請參閱[輸出範例](#output---example)。
 
 ---
 

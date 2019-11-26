@@ -1,6 +1,6 @@
 ---
 title: Azure 儲存體安全性指南 | Microsoft Docs
-description: Details methods for securing Azure Storage accounts, including management plane security, authorization, network security, encryption, etc.
+description: 詳述保護 Azure 儲存體帳戶的方法，包括管理平面安全性、授權、網路安全性、加密等。
 services: storage
 author: tamram
 ms.service: storage
@@ -18,36 +18,36 @@ ms.locfileid: "72926713"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
 
-Azure Storage provides a comprehensive set of security capabilities that together enable organizations to build and deploy secure applications:
+Azure 儲存體提供一組完整的安全性功能，可讓組織建立和部署安全的應用程式：
 
-- All data (including metadata) written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](storage-service-encryption.md). For more information, see [Announcing Default Encryption for Azure Blobs, Files, Tables, and Queues Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
-- Azure Active Directory (Azure AD) and Role-Based Access Control (RBAC) are supported for both resource management operations and data plane operations:   
+- 寫入 Azure 儲存體的所有資料（包括中繼資料）都會使用[儲存體服務加密（SSE）](storage-service-encryption.md)自動加密。 如需詳細資訊，請參閱[宣佈 Azure blob、檔案、資料表和佇列儲存體的預設加密](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/)。
+- Azure Active Directory （Azure AD）和以角色為基礎的存取控制（RBAC）都支援資源管理作業和資料平面作業：   
     - 您可以將儲存體帳戶範圍內的 RBAC 角色指派給安全性主體，以及使用 Azure AD 來授權資源管理作業，例如金鑰管理。
-    - Azure AD integration is supported for blob and queue data operations. RBAC roles can be scoped to a subscription, resource group, storage account, individual container or queue. Roles can be assigned to a security principal or a managed identity for Azure resources. 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。
-- Data can be secured in transit between an application and Azure using [Client-Side Encryption](../storage-client-side-encryption.md), HTTPS, or SMB 3.0.  
+    - Blob 和佇列資料作業支援 Azure AD 整合。 RBAC 角色的範圍可以設定為訂用帳戶、資源群組、儲存體帳戶、個別容器或佇列。 角色可以指派給 Azure 資源的安全性主體或受控識別。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。
+- 您可以使用[用戶端加密](../storage-client-side-encryption.md)、HTTPS 或 SMB 3.0，保護應用程式與 Azure 之間的傳輸資料。  
 - 您可以使用 [Azure 磁碟加密](../../security/fundamentals/encryption-overview.md)來加密 Azure 虛擬機器所使用的 OS 和資料磁碟。
-- Delegated access to the data objects in Azure Storage can be granted using a shared access signature. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
-- Network-layer security between your application components and storage can be enabled using the storage firewall, service endpoints or private endpoints.
+- 您可以使用共用存取簽章來授與 Azure 儲存體中資料物件的委派存取權。 如需詳細資訊，請參閱[使用共用存取簽章（SAS）授與 Azure 儲存體資源的有限存取權](storage-sas-overview.md)。
+- 您可以使用儲存體防火牆、服務端點或私人端點來啟用應用程式元件和儲存體之間的網路層安全性。
 
-本文簡要說明這些安全性功能當中，可與「Azure 儲存體」搭配使用的每個安全性功能。 Links are provided to articles provide additional details on each capability.
+本文簡要說明這些安全性功能當中，可與「Azure 儲存體」搭配使用的每個安全性功能。 文章提供的連結可提供每項功能的其他詳細資料。
 
-Here are the areas covered in this article:
+本文涵蓋的區域如下：
 
-* [Management Plane Security](#management-plane-security) – Securing resource-level access to your Storage Account
+* [管理平面安全性](#management-plane-security)–保護儲存體帳戶的資源層級存取
 
-  The management plane consists of the operations used to manage your storage account. 本節涵蓋 Azure Resource Manager 部署模型，以及如何使用「角色型存取控制」(RBAC) 來控制對儲存體帳戶的存取。 此外，也說明如何管理儲存體帳戶金鑰，以及重新產生這些金鑰。
+  管理平面是由用來管理儲存體帳戶的作業所組成。 本節涵蓋 Azure Resource Manager 部署模型，以及如何使用「角色型存取控制」(RBAC) 來控制對儲存體帳戶的存取。 此外，也說明如何管理儲存體帳戶金鑰，以及重新產生這些金鑰。
 
-* [Network Security](#network-security) - Securing network-level access to your Storage Account
+* [網路安全性](#network-security)-保護儲存體帳戶的網路層級存取
 
-  This section covers how you can secure the network-level access to the storage services endpoints. It discusses how you can use the storage firewall to allow access to your data from specific virtual networks or IP address ranges. It also covers the use of service endpoints and private endpoints with storage accounts.
+  本節涵蓋如何保護對儲存體服務端點的網路層級存取。 它會討論如何使用存放裝置防火牆，允許從特定的虛擬網路或 IP 位址範圍存取您的資料。 其中也涵蓋了服務端點和私人端點與儲存體帳戶的使用。
 
-* [Authorization](#authorization) – Authorizing access to your data
+* [授權](#authorization)-授權存取您的資料
 
-  This section describes access to the data objects in your Storage account, such as blobs, files, queues, and tables, using Shared Access Signatures and Stored Access Policies. 我們將涵蓋服務層級的 SAS 和帳戶層級的 SAS。 我們也會看到如何限制存取特定的 IP 位址 (或 IP 位址範圍)、如何限制用於 HTTPS 的通訊協定，以及如何撤銷共用存取簽章，而不需等到它過期。
+  本節說明如何使用共用存取簽章和預存存取原則，來存取儲存體帳戶中的資料物件，例如 blob、檔案、佇列和資料表。 我們將涵蓋服務層級的 SAS 和帳戶層級的 SAS。 我們也會看到如何限制存取特定的 IP 位址 (或 IP 位址範圍)、如何限制用於 HTTPS 的通訊協定，以及如何撤銷共用存取簽章，而不需等到它過期。
 
 * [傳輸中加密](#encryption-in-transit)
 
-  本節討論如何在將資料傳輸至 Azure 儲存體或從中傳出時提供保護。 我們將討論 HTTPS 的建議用法，以及 SMB 3.0 針對 Azure 檔案共用所使用的加密。 We will also discuss Client-side Encryption, which enables you to encrypt data before transfer into Storage, and to decrypt the data after it is transferred out of Storage.
+  本節討論如何在將資料傳輸至 Azure 儲存體或從中傳出時提供保護。 我們將討論 HTTPS 的建議用法，以及 SMB 3.0 針對 Azure 檔案共用所使用的加密。 我們也將討論用戶端加密，這可讓您在傳輸至儲存體之前加密資料，以及在資料從儲存體傳出後進行解密。
 
 * [待用加密](#encryption-at-rest)
 
@@ -122,16 +122,16 @@ Here are the areas covered in this article:
 
 每個儲存體帳戶在 [Azure 入口網站](https://portal.azure.com/) 和 PowerShell Cmdlet 中都有兩個稱為「金鑰 1」和「金鑰 2」的金鑰。 您可以使用下列其中一種方法手動重新產生它們，包括 (但不限於) 使用 [Azure 入口網站](https://portal.azure.com/)、PowerShell、Azure CLI，或以程式設計方式使用 .NET 儲存體用戶端程式庫或 Azure 儲存體服務 REST API。
 
-There are various reasons to regenerate your storage account keys.
+重新產生儲存體帳戶金鑰的原因有很多種。
 
-* You may regenerate them periodically for security.
-* You might regenerate your storage account keys if your application or network security is compromised.
-* Another instance for key regeneration is when team members with access to the keys leave. Shared Access Signatures were designed primarily to address this scenario – you should share an account-level SAS connection string or token, instead of sharing access keys, with most individuals or applications.
+* 您可以定期重新產生以取得安全性。
+* 如果您的應用程式或網路安全性遭到入侵，您可能會重新產生儲存體帳戶金鑰。
+* 重新產生金鑰的另一個實例是當具有金鑰存取權的小組成員離開時。 共用存取簽章的設計主要是為了解決這種情況–您應該共用帳戶層級 SAS 連接字串或權杖，而不是與大部分的個人或應用程式共用存取金鑰。
 
 #### <a name="key-regeneration-plan"></a>金鑰重新產生計畫
-You should not regenerate an access key in use without planning. Abrupt key regeneration can block access to a storage account for existing applications, causing major disruption. Azure Storage accounts provide two keys, so that you can regenerate one key at a time.
+您不應該在未規劃的情況下，重新產生使用中的存取金鑰。 突然金鑰重新產生可能會封鎖現有應用程式對儲存體帳戶的存取，因而導致主要中斷。 Azure 儲存體帳戶提供兩個金鑰，因此您可以一次重新產生一個金鑰。
 
-Before you regenerate your keys, be sure you have a list of all applications dependent on the storage account, as well as any other services you are using in Azure. For example, if you are using Azure Media Services use your storage account, you must resync the access keys with your media service after you regenerate the key. If you are using an application such as a storage explorer, you will need to provide new keys to those applications as well. 如果 VM 的 VHD 檔案儲存在儲存體帳戶中，它們將不會受到重新產生儲存體帳戶金鑰影響。
+重新產生金鑰之前，請確定您有相依于儲存體帳戶的所有應用程式清單，以及您在 Azure 中使用的任何其他服務。 例如，如果您使用 Azure 媒體服務使用您的儲存體帳戶，您必須在重新產生金鑰之後，將存取金鑰與媒體服務重新同步處理。 如果您使用的是儲存體 explorer 之類的應用程式，您也必須為這些應用程式提供新的金鑰。 如果 VM 的 VHD 檔案儲存在儲存體帳戶中，它們將不會受到重新產生儲存體帳戶金鑰影響。
 
 您可以在 Azure 入口網站中重新產生金鑰。 重新產生金鑰之後，最多可能需要 10 分鐘的時間，才能在所有「儲存體服務」完成同步處理。
 
@@ -145,11 +145,11 @@ Before you regenerate your keys, be sure you have a list of all applications dep
 
 您可以過幾天後移轉，變更每個應用程式來使用新的金鑰並進行發佈。 全部完成之後，您接著應該返回並重新產生舊的金鑰，使其無法運作。
 
-另一個選項是將儲存體帳戶金鑰放在 [Azure 金鑰保存庫](https://azure.microsoft.com/services/key-vault/) 中做為密碼，並讓您的應用程式可從中擷取該金鑰。 接著，當您重新產生金鑰並更新 Azure 金鑰保存庫時，將不需重新部署應用程式，因為它們會自動從 Azure 金鑰保存庫中挑選新的金鑰。 You can have the application read the key each time it needs it, or the application can cache it in memory and if it fails when using it, retrieve the key again from the Azure Key Vault.
+另一個選項是將儲存體帳戶金鑰放在 [Azure 金鑰保存庫](https://azure.microsoft.com/services/key-vault/) 中做為密碼，並讓您的應用程式可從中擷取該金鑰。 接著，當您重新產生金鑰並更新 Azure 金鑰保存庫時，將不需重新部署應用程式，因為它們會自動從 Azure 金鑰保存庫中挑選新的金鑰。 您可以讓應用程式在每次需要時都讀取金鑰，或者應用程式可以在記憶體中快取它，如果使用它時失敗，請從 Azure Key Vault 重新取得金鑰。
 
-使用 Azure 金鑰保存庫，也會增加儲存體金鑰的安全性層級。 Using the Key Vault, enables you to avoid writing storage keys in application configuration files. It also prevents exposure of keys to everyone with access to those configuration files.
+使用 Azure 金鑰保存庫，也會增加儲存體金鑰的安全性層級。 使用 Key Vault，可讓您避免在應用程式佈建檔中寫入儲存體金鑰。 它也會防止將金鑰公開給具有這些設定檔存取權的每個人。
 
-Azure Key Vault also has the advantage of using Azure AD to control access to your keys. You can grant access to the specific applications that need to retrieve the keys from Key Vault, without exposing them to other applications that do not need access to the keys.
+Azure Key Vault 也具有使用 Azure AD 來控制金鑰存取的優點。 您可以將存取權授與需要從 Key Vault 取出金鑰的特定應用程式，而不會將其公開給不需要存取金鑰的其他應用程式。
 
 > [!NOTE]
 > Microsoft 建議同一時間在您的所有應用程式中僅使用其中一個金鑰。 如果您在某些地方使用金鑰 1 並在其他地方使用金鑰 2，您就無法在沒有部分應用程式遺失存取的情況下輪換您的金鑰。
@@ -160,39 +160,39 @@ Azure Key Vault also has the advantage of using Azure AD to control access to yo
 * [Azure 儲存體資源提供者 REST API 參考](https://msdn.microsoft.com/library/mt163683.aspx)
 
 ## <a name="network-security"></a>網路安全性
-Network Security enables you to restrict access to the data in an Azure Storage Account from select networks. You can use the Azure Storage firewall to restrict access to clients from specific public IP address ranges, select virtual networks (VNets) on Azure, or to specific Azure resources. You also have the option to create a Private Endpoint for your storage account in the VNet that needs access, and blocking all access through the public endpoint.
+網路安全性可讓您限制從選取的網路存取 Azure 儲存體帳戶中的資料。 您可以使用 Azure 儲存體防火牆來限制來自特定公用 IP 位址範圍的用戶端存取、選取 Azure 上的虛擬網路（Vnet），或特定的 Azure 資源。 您也可以選擇在需要存取的 VNet 中，為您的儲存體帳戶建立私人端點，並透過公用端點封鎖所有存取。
 
-You can configure the network access rules for your storage account through the [Firewalls and Virtual Networks](storage-network-security.md) tab in the Azure portal. Using the storage firewall, you can deny access for public internet traffic, and grant access to select clients based on the configured network rules.
+您可以透過 Azure 入口網站中的 [[防火牆和虛擬網路](storage-network-security.md)] 索引標籤，為您的儲存體帳戶設定網路存取規則。 使用存放裝置防火牆，您可以拒絕公用網際網路流量的存取，並根據所設定的網路規則，授與選取用戶端的存取權。
 
-You can also use [Private Endpoints](../../private-link/private-endpoint-overview.md) to privately and securely connect to a storage account from a VNet using [Private Links](../../private-link/private-link-overview.md).
+您也可以使用私人[端點](../../private-link/private-endpoint-overview.md)私下，並使用[私人連結](../../private-link/private-link-overview.md)安全地從 VNet 連線到儲存體帳戶。
 
-Storage firewall rules only apply to the public endpoint for the storage account. The subnet that hosts a private endpoint for a storage account gets implicit access to the account when you approve the creation of that private endpoint.
+儲存體防火牆規則僅適用于儲存體帳戶的公用端點。 當您核准建立該私人端點時，裝載儲存體帳戶之私用端點的子網會取得帳戶的隱含存取權。
 
 > [!NOTE]
-> The storage firewall rules are not applicable to storage management operations conducted through the Azure portal and the Azure Storage Management API.
+> 存放裝置防火牆規則不適用於透過 Azure 入口網站和 Azure 儲存體管理 API 進行的存放裝置管理作業。
 
-### <a name="access-rules-for-public-ip-address-ranges"></a>Access rules for public IP address ranges
-The Azure Storage firewall can be used to restrict access to a storage account from specific public IP address ranges. You can use IP address rules to restrict access to specific internet-based services communicating on a fixed public IP endpoint, or to select on-premises networks.
+### <a name="access-rules-for-public-ip-address-ranges"></a>公用 IP 位址範圍的存取規則
+Azure 儲存體防火牆可以用來限制從特定公用 IP 位址範圍存取儲存體帳戶。 您可以使用 IP 位址規則來限制存取固定公用 IP 端點上的特定網際網路型服務，或選取內部部署網路。
 
-### <a name="access-rules-for-azure-virtual-networks"></a>Access rules for Azure virtual networks
-Storage accounts, by default, accept connections from clients on any network. You can restrict the client access to the data in a storage account to selected networks using the storage firewall. [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) enable routing of traffic from an Azure virtual network to the storage account. 
+### <a name="access-rules-for-azure-virtual-networks"></a>Azure 虛擬網路的存取規則
+根據預設，儲存體帳戶會接受來自任何網路上用戶端的連接。 您可以使用儲存體防火牆，將儲存體帳戶中資料的存取許可權制為選取的網路。 [服務端點](../../virtual-network/virtual-network-service-endpoints-overview.md)可讓您將流量從 Azure 虛擬網路路由傳送至儲存體帳戶。 
 
-### <a name="granting-access-to-specific-trusted-resource-instances"></a>Granting access to specific trusted resource instances
-You can allow a [subset of Azure trusted services](storage-network-security.md#trusted-microsoft-services) to access the storage account through the firewall with strong authentication based on the service resource type, or a resource instance.
+### <a name="granting-access-to-specific-trusted-resource-instances"></a>授與特定受信任資源實例的存取權
+您可以允許[Azure 受信任服務的子集](storage-network-security.md#trusted-microsoft-services)透過防火牆，使用以服務資源類型或資源實例為基礎的強式驗證來存取儲存體帳戶。
 
-For the services that support resource instance-based access through the storage firewall, only the selected instance can access the data in the storage account. In this case, the service must support resource-instance authentication using system-assigned [managed identities](../../active-directory/managed-identities-azure-resources/overview.md).
+針對支援透過儲存體防火牆進行資源實例型存取的服務，只有選取的實例可以存取儲存體帳戶中的資料。 在此情況下，服務必須使用系統指派的[受控](../../active-directory/managed-identities-azure-resources/overview.md)識別來支援資源實例驗證。
 
-### <a name="using-private-endpoints-for-securing-connections"></a>Using private endpoints for securing connections
-Azure Storage supports private endpoints, which enable secure access of storage account from an Azure virtual network. Private endpoints assign a private IP address from your VNet's address space to the storage service. When using private endpoints, the storage connection string redirects traffic destined for the storage account to the private IP address. The connection between the private endpoint and the storage account uses a private link. Using private endpoints you can block exfiltration of data from your VNet.
+### <a name="using-private-endpoints-for-securing-connections"></a>使用私用端點來保護連接安全
+Azure 儲存體支援私人端點，可讓您從 Azure 虛擬網路安全存取儲存體帳戶。 私人端點會從 VNet 的位址空間，將私人 IP 位址指派給儲存體服務。 使用私用端點時，儲存體連接字串會將目的地為儲存體帳戶的流量重新導向至私人 IP 位址。 私人端點與儲存體帳戶之間的連線會使用私用連結。 您可以使用私人端點來封鎖 VNet 的資料外泄。
 
-On-premises networks connected over VPN or [ExpressRoutes](../../expressroute/expressroute-locations.md) private peering and other peered virtual networks can also access the storage account over the private endpoint. Private endpoint for your storage accounts can be created in a VNet in any region, enabling a secure global reach. You may also create private endpoints for storage accounts in other [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) tenants.
+透過 VPN 或[ExpressRoutes](../../expressroute/expressroute-locations.md)私用對等互連和其他對等互連虛擬網路連線的內部部署網路，也可以透過私人端點存取儲存體帳戶。 您儲存體帳戶的私人端點可以在任何區域的 VNet 中建立，讓全球安全的延伸。 您也可以為其他[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)租使用者中的儲存體帳戶建立私人端點。
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>授權
 資料平面安全性是指用來保護儲存在 Azure 儲存體的資料物件 (Blob、佇列、表格和檔案) 的方法。 我們已了解在傳輸資料期間加密資料和安全性的方法，但您該從何處著手來控制對物件的存取？
 
 有三個選項可供您授權 Azure 儲存體資料物件的存取權，包括：
 
-- Using Azure AD to authorize access to containers and queues. Azure AD 在授權方面的優勢勝過其他方法，包括不需要在程式碼中儲存祕密。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。 
+- 使用 Azure AD 來授權容器和佇列的存取權。 Azure AD 在授權方面的優勢勝過其他方法，包括不需要在程式碼中儲存祕密。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。 
 - 使用儲存體帳戶金鑰來透過共用金鑰授權存取權。 透過共用金鑰授權時，需要在應用程式中儲存儲存體帳戶金鑰，因此 Microsoft 建議盡可能改為使用 Azure AD。
 - 使用共用存取簽章，來授與一段特定時間對特定資料物件的受控權限。
 
@@ -273,12 +273,12 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
   * [建構服務 SAS](https://msdn.microsoft.com/library/dn140255.aspx)
   * [建構帳戶 SAS](https://msdn.microsoft.com/library/mt584140.aspx)
 
-* This is a tutorial for using the .NET client library to create Shared Access Signatures and Stored Access Policies.
+* 本教學課程說明如何使用 .NET 用戶端程式庫來建立共用存取簽章和儲存的存取原則。
   * [使用共用存取簽章 (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
 
     本文包含 SAS 模型的說明、共用存取簽章的範例，以及使用 SAS 最佳做法的建議。 同時也會討論撤銷授與的權限。
 
-* Authentication
+* 驗證
 
   * [Azure 儲存體服務的驗證](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * 共用存取簽章入門教學課程
@@ -289,7 +289,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 ### <a name="transport-level-encryption--using-https"></a>Transport-Level Encryption – Using HTTPS
 您應該採取以確保 Azure 儲存體資料安全性的另一個步驟是在用戶端和 Azure 儲存體之間加密資料。 第一個建議是一律使用 [HTTPS](https://en.wikipedia.org/wiki/HTTPS) 通訊協定，可確保透過公用網際網路的安全通訊。
 
-如果要有安全的通訊通道，呼叫 REST API 或存取儲存體中的物件時，您應該一律使用 HTTPS。 此外， **共用存取簽章** (可用來委派 Azure 儲存體物件的存取權) 包含一個選項，可指定在使用共用存取簽章時只能使用 HTTPS 通訊協定，以確保任何使用 SAS 權杖送出連結的人都將使用正確的通訊協定。
+如果要有安全的通訊通道，呼叫 REST API 或存取儲存體中的物件時，您應該一律使用 HTTPS。 此外， **共用存取簽章**(可用來委派 Azure 儲存體物件的存取權) 包含一個選項，可指定在使用共用存取簽章時只能使用 HTTPS 通訊協定，以確保任何使用 SAS 權杖送出連結的人都將使用正確的通訊協定。
 
 透過啟用儲存體帳戶[所需的安全傳輸](../storage-require-secure-transfer.md)，您可於呼叫 REST API 來存取儲存體帳戶中的物件時強制使用 HTTPS。 啟用此選項後，使用 HTTP 的連線將被拒絕。
 
@@ -314,7 +314,7 @@ SMB 3.0 (含加密) 可於[所有支援的 Windows 和 Windows Server 作業系�
 
 您可以使用 Microsoft 管理的金鑰，或自己的自訂金鑰。 Microsoft 會產生受控金鑰，然後除了依照內部 Microsoft 原則定義的方式處理金鑰的安全儲存體之外，也會處理其定期輪換。 如需有關使用自訂金鑰的詳細資訊，請參閱[使用 Azure Key Vault 中客戶管理的金鑰進行儲存體服務加密](storage-service-encryption-customer-managed-keys.md)。
 
-SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Resource Manager 和傳統) 以及所有 Azure 儲存體服務 (Blob、佇列、資料表和檔案) 中的資料加密。 
+SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Resource Manager 和傳統) 以及所有「Azure 儲存體」服務 (Blob、佇列、資料表和檔案) 中的資料加密。 
 
 ### <a name="client-side-encryption"></a>用戶端加密
 在討論傳輸中的資料加密時，我們曾提及用戶端加密。 此功能可讓您以程式設計方式加密用戶端應用程式中的資料，然後透過連線傳送資料以寫入 Azure 儲存體，並在從 Azure 儲存體擷取資料之後以程式設計方式解密資料。
@@ -336,7 +336,7 @@ SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Re
   本文說明用戶端加密，並提供使用儲存體用戶端程式庫，從四個儲存體服務加密和解密資源的範例。 它也會討論 Azure 金鑰保存庫。
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>使用 Azure 磁碟加密來加密虛擬機器所使用的磁碟
-Azure Disk Encryption allows you to encrypt the OS disks and Data disks used by an IaaS Virtual Machine. 對於 Windows，磁碟機是使用業界標準的 BitLocker 加密技術來加密。 對於 Linux，磁碟是使用 DM-Crypt 技術來加密。 這會與 Azure 金鑰保存庫整合，可讓您控制和管理磁碟加密金鑰。
+Azure 磁碟加密可讓您加密 IaaS 虛擬機器所使用的 OS 磁片和資料磁片。 對於 Windows，磁碟機是使用業界標準的 BitLocker 加密技術來加密。 對於 Linux，磁碟是使用 DM-Crypt 技術來加密。 這會與 Azure 金鑰保存庫整合，可讓您控制和管理磁碟加密金鑰。
 
 在 Microsoft Azure 中啟用時，解決方案會對 IaaS VM 支援下列案例：
 
@@ -344,7 +344,7 @@ Azure Disk Encryption allows you to encrypt the OS disks and Data disks used by 
 * 標準層 VM：[A、D、DS、G、GS 等系列 IaaS VM](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * 在 Windows 和 Linux IaaS VM 上啟用加密
 * 為 Windows IaaS VM 的 OS 和資料磁碟機停用加密
-* 為 Linux IaaS VM 的資料磁碟機停用加密
+* 在 Linux IaaS VM 的資料磁碟機上停用加密
 * 在執行 Windows 用戶端 OS 的 IaaS VM 上啟用加密
 * 在具有掛接路徑的磁碟區上啟用加密
 * 在使用 mdadm 設定了等量磁碟 (RAID) 的 Linux VM 上啟用加密
@@ -362,7 +362,7 @@ Azure Disk Encryption allows you to encrypt the OS disks and Data disks used by 
 
 
 > [!NOTE]
-> 下列 Linux 散發套件目前支援 Linux OS 磁碟加密：RHEL 7.2、CentOS 7.2n 和 Ubuntu 16.04。
+> 下列 Linux 散發套件目前支援 Linux OS 磁碟加密：RHEL 7.2、CentOS 7.2 和 Ubuntu 16.04。
 >
 >
 
@@ -466,7 +466,7 @@ SSE 是由 Azure 儲存體所管理。 SSE 並不針對傳輸中資料提供安�
 
   本文是 Microsoft Message Analyzer 的參考，並包含教學課程、快速入門及功能摘要的連結。
 
-## <a name="cross-origin-resource-sharing-cors"></a>跨原始資源共用 (CORS)
+## <a name="cross-origin-resource-sharing-cors"></a>跨原始來源資源分享 (CORS)
 ### <a name="cross-domain-access-of-resources"></a>跨網域存取資源
 在某一個網域中執行的 Web 瀏覽器對來自不同網域的資源提出 HTTP 要求時，這稱為跨原始來源的 HTTP 要求。 例如，來自 contoso.com 的 HTML 網頁會對裝載於 fabrikam.blob.core.windows.net 上的 jpeg 提出要求。 基於安全性理由，瀏覽器會限制從指令碼 (例如 JavaScript) 內初始化的跨原始來源 HTTP 要求。 這表示當 contoso.com 的網頁上有一些 JavaScript 程式碼要求 fabrikam.blob.core.windows.net 上的該 jpeg 時，瀏覽器將不允許該要求。
 

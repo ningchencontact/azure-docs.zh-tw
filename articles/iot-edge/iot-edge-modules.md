@@ -17,7 +17,7 @@ ms.locfileid: "74456575"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>了解 Azure IoT Edge 模組
 
-Azure IoT Edge 可讓您在模組表單的邊緣上部署和管理商務邏輯。 Azure IoT Edge 模組是 IoT Edge 管理的最小計算單位，可以包含 Azure 服務 (例如 Azure 串流分析) 或您自己的解決方案特定程式碼。 To understand how modules are developed, deployed, and maintained, it helps to think of the four conceptual elements of a module:
+Azure IoT Edge 可讓您在模組表單的邊緣上部署和管理商務邏輯。 Azure IoT Edge 模組是 IoT Edge 管理的最小計算單位，可以包含 Azure 服務 (例如 Azure 串流分析) 或您自己的解決方案特定程式碼。 若要瞭解如何開發、部署和維護模組，請考慮模組的四個概念元素：
 
 * **模組映像**是套件，其中包含定義模組的軟體。
 * **模組執行個體**是在 IoT Edge 裝置上執行模組映像的計算單位。 模組執行個體是由 IoT Edge 執行階段啟動。
@@ -68,7 +68,7 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## <a name="offline-capabilities"></a>離線功能
 
-Azure IoT Edge modules can operate offline indefinitely after syncing with IoT Hub at least once. IoT Edge devices can also extend this offline capability to other IoT devices. 如需詳細資訊，請參閱[了解適用於 IoT Edge 裝置、模組及子裝置的擴充離線功能](offline-capabilities.md)。
+同步處理之後，Azure IoT Edge 模組可以無限期地離線操作 IoT 中樞至少一次。 IoT Edge 裝置也可以將此離線功能延伸至其他 IoT 裝置。 如需詳細資訊，請參閱[了解適用於 IoT Edge 裝置、模組及子裝置的擴充離線功能](offline-capabilities.md)。
 
 ## <a name="next-steps"></a>後續步驟
  - [了解開發 IoT Edge 模組的需求和工具](module-development.md)

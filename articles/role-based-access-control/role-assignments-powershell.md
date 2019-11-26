@@ -1,6 +1,6 @@
 ---
 title: 使用 RBAC 與 Azure PowerShell 管理 Azure 資源的存取權 | Microsoft Docs
-description: Learn how to manage access to Azure resources for users, groups, and applications using role-based access control (RBAC) and Azure PowerShell. 這包括如何列出存取權、授與存取權以及移除存取權。
+description: 瞭解如何使用角色型存取控制（RBAC）和 Azure PowerShell，來管理使用者、群組和應用程式對 Azure 資源的存取權。 這包括如何列出存取權、授與存取權以及移除存取權。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -23,11 +23,11 @@ ms.locfileid: "74384006"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>使用 RBAC 與 Azure PowerShell 管理 Azure 資源的存取權
 
-[角色型存取控制 (RBAC)](overview.md) 是您管理對 Azure 資源存取的機制。 本文將描述如何使用 RBAC 和 Azure PowerShell 來管理使用者、群組和應用程式的存取權。
+[角色型存取控制 (RBAC)](overview.md) 是您對 Azure 資源存取進行管理的機制。 本文將描述如何使用 RBAC 和 Azure PowerShell 來管理使用者、群組和應用程式的存取權。
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要管理存取權，您需要下列其中一項：
 
@@ -81,11 +81,11 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-## <a name="list-a-role-definition"></a>List a role definition
+## <a name="list-a-role-definition"></a>列出角色定義
 
-### <a name="list-a-role-definition-in-json-format"></a>List a role definition in JSON format
+### <a name="list-a-role-definition-in-json-format"></a>以 JSON 格式列出角色定義
 
-To list a role definition in JSON format, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+若要以 JSON 格式列出角色定義，請使用[get-azroledefinition](/powershell/module/az.resources/get-azroledefinition)。
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name> | ConvertTo-Json
@@ -157,9 +157,9 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 
 在 RBAC 中，若要列出存取權，您可以列出角色指派。
 
-### <a name="list-all-role-assignments-in-a-subscription"></a>List all role assignments in a subscription
+### <a name="list-all-role-assignments-in-a-subscription"></a>列出訂用帳戶中的所有角色指派
 
-The easiest way to get a list of all the role assignments in the current subscription (including inherited role assignments from root and management groups) is to use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) without any parameters.
+若要取得目前訂用帳戶中所有角色指派的清單（包括從根和管理群組繼承的角色指派），最簡單的方式是使用[new-azroleassignment](/powershell/module/az.resources/get-azroleassignment) ，而不需要任何參數。
 
 ```azurepowershell
 Get-AzRoleAssignment
@@ -217,9 +217,9 @@ Get-AzRoleAssignment -SignInName <email_or_userprincipalname> -ExpandPrincipalGr
 Get-AzRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
-### <a name="list-role-assignments-at-a-resource-group-scope"></a>List role assignments at a resource group scope
+### <a name="list-role-assignments-at-a-resource-group-scope"></a>列出資源群組範圍的角色指派
 
-To list all role assignments at a resource group scope, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+若要列出資源群組範圍中的所有角色指派，請使用[new-azroleassignment](/powershell/module/az.resources/get-azroleassignment)。
 
 ```azurepowershell
 Get-AzRoleAssignment -ResourceGroupName <resource_group_name>
@@ -241,9 +241,9 @@ RoleDefinitionName : Virtual Machine Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 ```
 
-### <a name="list-role-assignments-at-a-subscription-scope"></a>List role assignments at a subscription scope
+### <a name="list-role-assignments-at-a-subscription-scope"></a>列出訂用帳戶範圍的角色指派
 
-To list all role assignments at a subscription scope, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). To get the subscription ID, you can find it on the **Subscriptions** blade in the Azure portal or you can use [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
+若要列出訂用帳戶範圍中的所有角色指派，請使用[new-azroleassignment](/powershell/module/az.resources/get-azroleassignment)。 若要取得訂用帳戶識別碼，您可以在 Azure 入口網站的 [**訂閱**] 分頁上找到它，或者您可以使用[get-azsubscription](/powershell/module/Az.Accounts/Get-AzSubscription)。
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope /subscriptions/<subscription_id>
@@ -253,9 +253,9 @@ Get-AzRoleAssignment -Scope /subscriptions/<subscription_id>
 PS C:\> Get-AzRoleAssignment -Scope /subscriptions/00000000-0000-0000-0000-000000000000
 ```
 
-### <a name="list-role-assignments-at-a-management-group-scope"></a>List role assignments at a management group scope
+### <a name="list-role-assignments-at-a-management-group-scope"></a>列出管理群組範圍的角色指派
 
-To list all role assignments at a management group scope, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
+若要列出管理群組範圍的所有角色指派，請使用[new-azroleassignment](/powershell/module/az.resources/get-azroleassignment)。 若要取得管理群組識別碼，您可以在 **管理群組**] 分頁的 [Azure 入口網站中找到，也可以使用[AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup)。
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -273,13 +273,13 @@ PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGr
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
-## <a name="get-object-ids"></a>Get object IDs
+## <a name="get-object-ids"></a>取得物件識別碼
 
-To list, add, or remove role assignments, you might need to specify the unique ID of an object. The ID has the format: `11111111-1111-1111-1111-111111111111`. You can get the ID using the Azure portal or Azure PowerShell.
+若要列出、新增或移除角色指派，您可能需要指定物件的唯一識別碼。 識別碼的格式為： `11111111-1111-1111-1111-111111111111`。 您可以使用 Azure 入口網站或 Azure PowerShell 取得識別碼。
 
-### <a name="user"></a>User
+### <a name="user"></a>使用者
 
-To get the object ID for an Azure AD user, you can use [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
+若要取得 Azure AD 使用者的物件識別碼，您可以使用[AzADUser](/powershell/module/az.resources/get-azaduser)。
 
 ```azurepowershell
 Get-AzADUser -StartsWith <string_in_quotes>
@@ -288,16 +288,16 @@ Get-AzADUser -StartsWith <string_in_quotes>
 
 ### <a name="group"></a>群組
 
-To get the object ID for an Azure AD group, you can use [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
+若要取得 Azure AD 群組的物件識別碼，您可以使用[AzADGroup](/powershell/module/az.resources/get-azadgroup)。
 
 ```azurepowershell
 Get-AzADGroup -SearchString <group_name_in_quotes>
 (Get-AzADGroup -DisplayName <group_name_in_quotes>).id
 ```
 
-### <a name="application"></a>Application
+### <a name="application"></a>應用程式
 
-To get the object ID for an Azure AD service principal (identity used by an application), you can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). For a service principal, use the object ID and **not** the application ID.
+若要取得 Azure AD 服務主體（應用程式所使用的身分識別）的物件識別碼，您可以使用[new-azadserviceprincipal](/powershell/module/az.resources/get-azadserviceprincipal)。 針對服務主體，請使用物件識別碼，而**不**是應用程式識別碼。
 
 ```azurepowershell
 Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
@@ -310,7 +310,7 @@ Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 
 ### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>為資源群組範圍的使用者建立角色指派
 
-To grant access to a user at a resource group scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+若要將存取權授與資源群組範圍中的使用者，請使用[new-azroleassignment](/powershell/module/az.resources/new-azroleassignment)。
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name> -ResourceGroupName <resource_group_name>
@@ -332,26 +332,26 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-using-the-unique-role-id"></a>Create a role assignment using the unique role ID
+### <a name="create-a-role-assignment-using-the-unique-role-id"></a>使用唯一角色識別碼建立角色指派
 
-There are a couple of times when a role name might change, for example:
+有一些時間可能會變更角色名稱，例如：
 
-- You are using your own custom role and you decide to change the name.
-- You are using a preview role that has **(Preview)** in the name. When the role is released, the role is renamed.
+- 您會使用自己的自訂角色，並決定變更名稱。
+- 您在名稱中使用的預覽角色具有 **（預覽）** 。 釋放角色時，會重新命名角色。
 
 > [!IMPORTANT]
-> A preview version is provided without a service level agreement, and it's not recommended for production workloads. 可能不支援特定功能，或可能已經限制功能。
+> 預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
 > 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-Even if a role is renamed, the role ID does not change. If you are using scripts or automation to create your role assignments, it's a best practice to use the unique role ID instead of the role name. Therefore, if a role is renamed, your scripts are more likely to work.
+即使角色已重新命名，角色識別碼也不會變更。 如果您使用腳本或自動化來建立角色指派，最佳做法是使用唯一角色識別碼，而不是角色名稱。 因此，如果重新命名角色，您的腳本比較有可能會使用。
 
-To create a role assignment using the unique role ID instead of the role name, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+若要使用唯一角色識別碼（而非角色名稱）來建立角色指派，請使用[new-azroleassignment](/powershell/module/az.resources/new-azroleassignment)。
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-The following example assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to *alain\@example.com* user at the *pharma-sales* resource group scope. To get the unique role ID, you can use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) or see [Built-in roles for Azure resources](built-in-roles.md).
+下列範例會將「[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)」角色指派給*醫藥-sales*資源群組範圍中的*alain\@example.com*使用者。 若要取得唯一角色識別碼，您可以使用[get-azroledefinition](/powershell/module/az.resources/get-azroledefinition)或查看[適用于 Azure 資源的內建角色](built-in-roles.md)。
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -369,7 +369,7 @@ CanDelegate        : False
 
 ### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>為資源範圍的群組建立角色指派
 
-To grant access to a group at a resource scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). For information about how to get the object ID of the group, see [Get object IDs](#get-object-ids).
+若要將存取權授與資源範圍中的群組，請使用[new-azroleassignment](/powershell/module/az.resources/new-azroleassignment)。 如需如何取得群組物件識別碼的詳細資訊，請參閱[取得物件](#get-object-ids)識別碼。
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -ResourceName <resource_name> -ResourceType <resource_type> -ParentResource <parent resource> -ResourceGroupName <resource_group_name>
@@ -400,7 +400,7 @@ CanDelegate        : False
 
 ### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>為訂用帳戶範圍的應用程式建立角色指派
 
-To grant access to an application at a subscription scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). For information about how to get the object ID of the application, see [Get object IDs](#get-object-ids).
+若要在訂用帳戶範圍授與應用程式的存取權，請使用[new-azroleassignment](/powershell/module/az.resources/new-azroleassignment)。 如需如何取得應用程式物件識別碼的詳細資訊，請參閱[取得物件](#get-object-ids)識別碼。
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
@@ -420,9 +420,9 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-for-a-user-at-a-management-group-scope"></a>Create a role assignment for a user at a management group scope
+### <a name="create-a-role-assignment-for-a-user-at-a-management-group-scope"></a>為管理群組範圍的使用者建立角色指派
 
-To grant access to a user at a management group scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
+若要在管理群組範圍授與使用者存取權，請使用[new-azroleassignment](/powershell/module/az.resources/new-azroleassignment)。 若要取得管理群組識別碼，您可以在 **管理群組**] 分頁的 [Azure 入口網站中找到，也可以使用[AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup)。
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -446,28 +446,28 @@ CanDelegate        : False
 
 在 RBAC 中，若要移除存取權，您需使用 [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) 來移除角色指派。
 
-The following example removes the *Virtual Machine Contributor* role assignment from the *alain\@example.com* user on the *pharma-sales* resource group:
+下列範例會從*醫藥-sales*資源群組上的*alain\@example.com*使用者移除「*虛擬機器參與者*」角色指派：
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
 ```
 
-The following example removes the <role_name> role from <object_id> at a subscription scope.
+下列範例會從訂用帳戶範圍中的 < object_id > 移除 < role_name > 角色。
 
 ```azurepowershell
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
 ```
 
-The following example removes the <role_name> role from <object_id> at the management group scope.
+下列範例會從管理群組範圍的 < object_id > 中移除 < role_name > 角色。
 
 ```azurepowershell
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-If you get the error message: "The provided information does not map to a role assignment", make sure that you also specify the `-Scope` or `-ResourceGroupName` parameters. For more information, see [Troubleshoot RBAC for Azure resources](troubleshooting.md#role-assignments-with-unknown-security-principal).
+如果您收到錯誤訊息：「提供的資訊未對應至角色指派」，請確定您也指定了 `-Scope` 或 `-ResourceGroupName` 參數。 如需詳細資訊，請參閱[針對 Azure 資源的 RBAC 進行疑難排解](troubleshooting.md#role-assignments-with-unknown-security-principal)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Tutorial: Grant a group access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Tutorial: Create a custom role for Azure resources using Azure PowerShell](tutorial-custom-role-powershell.md)
+- [教學課程：使用 RBAC 和 Azure PowerShell 為群組授與 Azure 資源的存取權](tutorial-role-assignments-group-powershell.md)
+- [教學課程：使用 Azure PowerShell 建立適用于 Azure 資源的自訂角色](tutorial-custom-role-powershell.md)
 - [使用 Azure PowerShell 管理資源](../azure-resource-manager/manage-resources-powershell.md)

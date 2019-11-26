@@ -27,10 +27,10 @@ ms.locfileid: "74231330"
 * `E1_HelloSequence`：此協調器函式連續呼叫 `E1_SayHello` 多次。 它會儲存 `E1_SayHello` 呼叫的輸出，並記錄結果。
 * `E1_SayHello`：此活動函式在字串前面加上 "Hello"。
 
-The following sections explain the configuration and code that is used for C# scripting and JavaScript. Visual Studio 開發適用的程式碼會顯示在文章結尾。
+下列各節說明用於C#腳本處理和 JavaScript 的設定和程式碼。 Visual Studio 開發適用的程式碼會顯示在文章結尾。
 
 > [!NOTE]
-> JavaScript Durable Functions are available for the Functions 2.0 runtime only.
+> JavaScript Durable Functions 僅適用于函數2.0 執行時間。
 
 ## <a name="e1_hellosequence"></a>E1_HelloSequence
 
@@ -43,7 +43,7 @@ The following sections explain the configuration and code that is used for C# sc
 重要的是 `orchestrationTrigger` 繫結類型。 所有協調器函式必須都使用此觸發程序類型。
 
 > [!WARNING]
-> 為了遵守協調器函式的「沒有 I/O」規則，當您使用 `orchestrationTrigger` 觸發程序繫結時，請勿使用任何輸入或輸出繫結。  如果需要其他輸入或輸出繫結，請改為在協調器所呼叫之 `activityTrigger` 函式的內容中使用。 For more information, see the [orchestrator function code constraints](durable-functions-code-constraints.md) article.
+> 為了遵守協調器函式的「沒有 I/O」規則，當您使用 `orchestrationTrigger` 觸發程序繫結時，請勿使用任何輸入或輸出繫結。  如果需要其他輸入或輸出繫結，請改為在協調器所呼叫之 `activityTrigger` 函式的內容中使用。 如需詳細資訊，請參閱協調器函式程式[代碼條件約束](durable-functions-code-constraints.md)一文。
 
 ### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C# 指令碼 (Visual Studio Code 和 Azure 入口網站範例程式碼)
 
@@ -51,29 +51,29 @@ The following sections explain the configuration and code that is used for C# sc
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/run.csx)]
 
-所有 C# 協調流程函式都必須有 `DurableOrchestrationContext` 類型的參數 (在 `Microsoft.Azure.WebJobs.Extensions.DurableTask` 組件中)。 如果您使用 C# 指令碼，請利用 `#r` 標記法來參考此組件。 This context object lets you call other *activity* functions and pass input parameters using its `CallActivityAsync` method.
+所有 C# 協調流程函式都必須有 `DurableOrchestrationContext` 類型的參數 (在 `Microsoft.Azure.WebJobs.Extensions.DurableTask` 組件中)。 如果您使用 C# 指令碼，請利用 `#r` 標記法來參考此組件。 此內容物件可讓您呼叫其他*活動*函數，並使用其 `CallActivityAsync` 方法傳遞輸入參數。
 
 程式碼中以不同的參數值連續呼叫 `E1_SayHello` 三次。 每次呼叫的傳回值會新增至函式最後傳回的 `outputs` 清單。
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
 以下是原始程式碼：
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-所有 JavaScript 協調流程函式都必須包含 [`durable-functions` 模組](https://www.npmjs.com/package/durable-functions)。 It's a library that enables you to write Durable Functions in JavaScript. 協調流程函式與其他 JavaScript 函式之間有三項重大差異：
+所有 JavaScript 協調流程函式都必須包含 [`durable-functions` 模組](https://www.npmjs.com/package/durable-functions)。 它是可讓您以 JavaScript 撰寫 Durable Functions 的程式庫。 協調流程函式與其他 JavaScript 函式之間有三項重大差異：
 
 1. 此函式是[產生器函式。](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
 2. 此函式會包裝在對`durable-functions`模組的`orchestrator`方法進行的呼叫中 (在此是 `df`)。
 3. 此函式必須是同步的。 「Orchestrator」方法會處理呼叫「context.done」，因為函式應該只是「return」。
 
-`context` 物件包含 `df` 物件，可讓您使用其 `callActivity` 方法來呼叫其他「活動」函式並傳遞輸入參數。 程式碼會使用不同的參數值依序呼叫 `E1_SayHello` 三次，使用 `yield` 表示執行應等候要傳回的非同步活動函式呼叫。 每次呼叫的傳回值會新增至函式最後傳回的 `outputs` 清單。
+`context` 物件包含 `df` 物件，可讓您使用其  *方法來呼叫其他「活動」* `callActivity`函式並傳遞輸入參數。 程式碼會使用不同的參數值依序呼叫 `E1_SayHello` 三次，使用 `yield` 表示執行應等候要傳回的非同步活動函式呼叫。 每次呼叫的傳回值會新增至函式最後傳回的 `outputs` 清單。
 
 ## <a name="e1_sayhello"></a>E1_SayHello
 
 ### <a name="functionjson-file"></a>function.json 檔案
 
-活動函式 `E1_SayHello` 和 `E1_HelloSequence`的 *function.json*檔案很類似，差別在於前者使用 `activityTrigger` 繫結型別，而不是 `orchestrationTrigger` 繫結型別。
+活動函式 *和*的 `E1_SayHello`function.json`E1_HelloSequence`檔案很類似，差別在於前者使用 `activityTrigger` 繫結型別，而不是 `orchestrationTrigger` 繫結型別。
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
 
@@ -86,7 +86,7 @@ The following sections explain the configuration and code that is used for C# sc
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
-This function has a parameter of type `DurableActivityContext`, which it uses to get the input that was passed to it by the orchestrator function's call to `CallActivityAsync<T>`.
+此函式具有 `DurableActivityContext`類型的參數，它會使用它來取得由協調器函式的呼叫傳遞給它的 `CallActivityAsync<T>`的輸入。
 
 ### <a name="javascript"></a>Javascript
 
@@ -139,7 +139,7 @@ Content-Type: application/json; charset=utf-8
 > [!NOTE]
 > 在範例應用程式中，啟動協調器函式的 HTTP POST 端點是以名為 "HttpStart" 的 HTTP 觸發程序函式實作。 您可以對其他觸發程序類型實作類似的起始邏輯，例如 `queueTrigger`、`eventHubTrigger` 或 `timerTrigger`。
 
-查看函式執行記錄。 The `E1_HelloSequence` function started and completed multiple times due to the replay behavior described in the [orchestration reliability](durable-functions-orchestrations.md#reliability) topic. 相反地，`E1_SayHello` 只執行三次，因為這幾次函式執行不會再來一次。
+查看函式執行記錄。 由於[協調流程可靠性](durable-functions-orchestrations.md#reliability)主題中所述的重新執行行為，`E1_HelloSequence` 函式已啟動並完成多次。 相反地，`E1_SayHello` 只執行三次，因為這幾次函式執行不會再來一次。
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio 範例程式碼
 

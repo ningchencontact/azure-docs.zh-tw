@@ -1,5 +1,5 @@
 ---
-title: Enable SQL TDE with Azure Key Vault
+title: 使用 Azure Key Vault 啟用 SQL TDE
 description: 了解如何設定 Azure SQL Database 和資料倉儲，以透過 PowerShell 或 CLI 開始使用透明資料加密 (TDE) 進行待用資料加密。
 services: sql-database
 ms.service: sql-database
@@ -18,7 +18,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74422457"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell and CLI: Enable Transparent Data Encryption with customer-managed key from Azure Key Vault
+# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 和 CLI：從 Azure Key Vault 使用客戶管理的金鑰來啟用透明資料加密
 
 本文將逐步解說如何將 Azure Key Vault 中的金鑰用於 SQL Database 或資料倉儲上的透明資料加密 (TDE)。 若要深入了解以 Azure Key Vault 整合進行 TDE - 攜帶您自己的金鑰 (BYOK) 的支援，請參閱 [Azure SQL 透明資料加密：「攜帶您自己的金鑰」支援](transparent-data-encryption-byok-azure-sql.md)。
 
@@ -26,11 +26,11 @@ ms.locfileid: "74422457"
 
 - 您必須具有 Azure 訂用帳戶，並且是該訂用帳戶的系統管理員。
 - [建議執行的選擇性作業] 備妥硬體安全性模組 (HSM) 或本機金鑰存放區，用來建立 TDE 保護裝置金鑰內容的本機複本。
-- You must have Azure PowerShell installed and running.
+- 您必須已安裝且正在執行 Azure PowerShell。
 - 建立要用於 TDE 的 Azure Key Vault 和金鑰。
   - [使用硬體安全性模組 (HSM) 與 Key Vault 的指示](../key-vault/key-vault-hsm-protected-keys.md)
     - 金鑰保存庫必須具有下列屬性才能用於 TDE：
-  - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md) and purge protection
+  - 虛[刪除](../key-vault/key-vault-ovw-soft-delete.md)和清除保護
 - 金鑰必須具有下列屬性才能用於 TDE：
    - 沒有到期日
    - 未停用
@@ -38,12 +38,12 @@ ms.locfileid: "74422457"
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-如需 Az 模組安裝指示，請參閱[安裝 Azure PowerShell](/powershell/azure/install-az-ps)。 For specific cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+如需 Az 模組安裝指示，請參閱[安裝 Azure PowerShell](/powershell/azure/install-az-ps)。 如需特定的 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。
 
-For specifics on Key Vault, see [PowerShell instructions from Key Vault](../key-vault/quick-create-powershell.md) and [How to use Key Vault soft-delete with PowerShell](../key-vault/key-vault-soft-delete-powershell.md).
+如需 Key Vault 的詳細資訊，請參閱[Key Vault 的 PowerShell 指示](../key-vault/quick-create-powershell.md)和[如何搭配 powershell 使用 Key Vault 虛刪除](../key-vault/key-vault-soft-delete-powershell.md)。
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager （RM）模組，但所有未來的開發都是針對 Az .Sql 模組。 AzureRM 模組會繼續收到錯誤修正，直到2020年12月為止。  Az 模組和 AzureRm 模組中命令的引數本質上完全相同。 如需其相容性的詳細資訊，請參閱[新的 Azure PowerShell Az 模組簡介](/powershell/azure/new-azureps-module-az)。
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>將 Azure AD 身分識別指派給您的伺服器
 
@@ -53,7 +53,7 @@ For specifics on Key Vault, see [PowerShell instructions from Key Vault](../key-
    $server = Set-AzSqlServer -ResourceGroupName <SQLDatabaseResourceGroupName> -ServerName <LogicalServerName> -AssignIdentity
    ```
 
-If you are creating a server, use the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) cmdlet with the tag -Identity to add an Azure AD identity during server creation:
+如果您要建立伺服器，請使用[AzSqlServer](/powershell/module/az.sql/new-azsqlserver)指令程式搭配標記身分識別，在伺服器建立期間新增 Azure AD 身分識別：
 
    ```powershell
    $server = New-AzSqlServer -ResourceGroupName <SQLDatabaseResourceGroupName> -Location <RegionName> `
@@ -62,7 +62,7 @@ If you are creating a server, use the [New-AzSqlServer](/powershell/module/az.sq
 
 ## <a name="grant-key-vault-permissions-to-your-server"></a>為您的伺服器授與 Key Vault 權限
 
-Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet to grant your server access to the key vault before using a key from it for TDE.
+使用[set-azkeyvaultaccesspolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy)指令程式，將金鑰保存庫的存取權授與您的伺服器，再使用其金鑰來進行 TDE。
 
    ```powershell
    Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> `
@@ -71,10 +71,10 @@ Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvau
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>將 Key Vault 金鑰新增至伺服器，並設定 TDE 保護裝置
 
-- Use the [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey?view=azps-2.4.0) cmdlet to retrieve the key ID from key vault
-- Use the [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) cmdlet to add the key from the Key Vault to the server.
-- Use the [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet to set the key as the TDE protector for all server resources.
-- Use the [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet to confirm that the TDE protector was configured as intended.
+- 使用[AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey?view=azps-2.4.0) Cmdlet 從金鑰保存庫取出金鑰識別碼
+- 使用[AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) Cmdlet，將金鑰從 Key Vault 新增至伺服器。
+- 使用[AzSqlServerTransparentDataEncryptionProtector 指令程式](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector)，將金鑰設定為所有伺服器資源的 TDE 保護裝置。
+- 使用[AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector)指令程式來確認 TDE 保護裝置已如預期設定。
 
 > [!NOTE]
 > 金鑰保存庫名稱和金鑰名稱的合併長度不可超過 94 個字元。
@@ -96,7 +96,7 @@ Get-AzSqlServerTransparentDataEncryptionProtector -ResourceGroupName <SQLDatabas
 
 ## <a name="turn-on-tde"></a>開啟 TDE
 
-Use the [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet to turn on TDE.
+使用[AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) Cmdlet 來開啟 TDE。
 
 ```powershell
 Set-AzSqlDatabaseTransparentDataEncryption -ResourceGroupName <SQLDatabaseResourceGroupName> `
@@ -107,7 +107,7 @@ Set-AzSqlDatabaseTransparentDataEncryption -ResourceGroupName <SQLDatabaseResour
 
 ## <a name="check-the-encryption-state-and-encryption-activity"></a>檢查加密狀態和加密活動
 
-Use the [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) to get the encryption state and the [Get-AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) to check the encryption progress for a database or data warehouse.
+使用[AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption)來取得加密狀態，以及[取得 AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity)以檢查資料庫或資料倉儲的加密進度。
 
 ```powershell
 # get the encryption state
@@ -121,9 +121,9 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-To install the required Command-Line Interface version 2.0 or later and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+若要安裝所需的命令列介面2.0 版或更新版本，並連接到您的 Azure 訂用帳戶，請參閱[安裝和設定 Azure 跨平臺命令列介面 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
-For specifics on Key Vault, see [Manage Key Vault using CLI 2.0](../key-vault/key-vault-manage-with-cli2.md) and [How to use Key Vault soft-delete with CLI](../key-vault/key-vault-soft-delete-cli.md).
+如需 Key Vault 的詳細資訊，請參閱[使用 cli 2.0 管理 Key Vault](../key-vault/key-vault-manage-with-cli2.md)和[如何搭配使用 Key Vault 虛刪除與 cli](../key-vault/key-vault-soft-delete-cli.md)。
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>將 Azure AD 身分識別指派給您的伺服器
 
@@ -184,21 +184,21 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-- Use the [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet to turn off TDE.
+- 使用[AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) Cmdlet 來關閉 TDE。
 
    ```powershell
    Set-AzSqlDatabaseTransparentDataEncryption -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName> `
       -DatabaseName <DatabaseName> -State "Disabled”
    ```
 
-- Use the [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet to return the list of Key Vault keys added to the server.
+- 使用[AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey)指令，傳回已新增至伺服器的 Key Vault 金鑰清單。
 
    ```powershell
    # KeyId is an optional parameter, to return a specific key version
    Get-AzSqlServerKeyVaultKey -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-- Use the [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) to remove a Key Vault key from the server.
+- 使用[AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey)從伺服器移除 Key Vault 金鑰。
 
    ```powershell
    # the key set as the TDE Protector cannot be removed
@@ -207,11 +207,11 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-- For general database settings, see [az sql](/cli/azure/sql).
+- 如需一般資料庫設定，請參閱[az sql](/cli/azure/sql)。
 
-- For vault key settings, see [az sql server key](/cli/azure/sql/server/key).
+- 如需保存庫金鑰設定，請參閱[az sql server key](/cli/azure/sql/server/key)。
 
-- For TDE settings, see [az sql server tde-key](/cli/azure/sql/server/tde-key) and [az sql db tde](/cli/azure/sql/db/tde).
+- 如需 TDE 設定，請參閱[az sql server TDE-key](/cli/azure/sql/server/tde-key)和[az sql db TDE](/cli/azure/sql/db/tde)。
 
 * * *
 
@@ -219,7 +219,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 如果發生問題，請進行下列檢查：
 
-- If the key vault cannot be found, make sure you're in the right subscription.
+- 如果找不到金鑰保存庫，請確定您是在正確的訂用帳戶中。
 
    # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 

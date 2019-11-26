@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Blockchain Workbench database firewall
-description: Learn how to configure the Azure Blockchain Workbench Preview database firewall to allow external clients and applications to connect.
+title: 設定 Azure Blockchain Workbench 資料庫防火牆
+description: 瞭解如何設定 Azure Blockchain Workbench Preview 資料庫防火牆，以允許外部用戶端和應用程式連接。
 ms.date: 09/09/2019
 ms.topic: article
 ms.reviewer: mmercuri
@@ -19,7 +19,7 @@ ms.locfileid: "74326007"
 
 若要連線至您要設定規則的資料庫：
 
-1. Sign in to the Azure portal with an account that has **Owner**     permissions for the Azure Blockchain Workbench resources.
+1. 使用具有 Azure Blockchain Workbench**資源擁有者許可權的**帳戶登入 Azure 入口網站。
 2. 在左側導覽窗格中，選取 [資源群組]。
 3. 為 Blockchain Workbench 部署選擇資源群組的名稱。
 4. 選取 [類型] 排序資源清單，然後選擇您的 **SQL 伺服器**。

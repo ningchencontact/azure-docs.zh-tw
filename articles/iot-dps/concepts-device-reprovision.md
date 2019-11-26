@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub Device Provisioning Service - Device concepts
+title: Azure IoT 中樞裝置布建服務-裝置概念
 description: 描述 Azure IoT 中樞裝置佈建服務的裝置重新佈建概念
 author: wesmc7777
 ms.author: wesmc

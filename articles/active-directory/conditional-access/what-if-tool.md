@@ -1,6 +1,6 @@
 ---
-title: The Conditional Access What If tool - Azure Active Directory
-description: Learn how you can understand the impact of your Conditional Access policies on your environment.
+title: 條件式存取 What If 工具 Azure Active Directory
+description: 瞭解如何在您的環境中瞭解條件式存取原則的影響。
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,21 +18,21 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74379983"
 ---
-# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Troubleshoot using the What If tool in Conditional Access
+# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>在條件式存取中使用 What If 工具進行疑難排解
 
-[Conditional Access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect from the Conditional Access policies in your environment? To answer this question, you can use the **Conditional Access What If tool**.
+[條件式存取](../active-directory-conditional-access-azure-portal.md)是 Azure Active Directory （Azure AD）的功能，可讓您控制授權使用者存取雲端應用程式的方式。 您要如何知道環境中的條件式存取原則會有什麼？ 若要回答這個問題，您可以使用**條件式存取 What If 工具**。
 
-This article explains how you can use this tool to test your Conditional Access policies.
+本文說明如何使用此工具來測試您的條件式存取原則。
 
-## <a name="what-it-is"></a>性質
+## <a name="what-it-is"></a>內容
 
-The **Conditional Access What If policy tool** allows you to understand the impact of your Conditional Access policies on your environment. 這個工具並非要讓您以手動方式執行多個登入來試用您的原則，而是要讓您評估使用者的模擬登入。 該模擬可評估此登入對原則所造成的影響，並產生模擬報告。 The report does not only list the applied Conditional Access policies but also [classic policies](policy-migration.md#classic-policies) if they exist.    
+**條件式存取 What If 原則工具**可讓您瞭解條件式存取原則對環境的影響。 這個工具並非要讓您以手動方式執行多個登入來測試原則，而是要讓您評估使用者的模擬登入。 該模擬可評估此登入對原則所造成的影響，並產生模擬報告。 此報告不只會列出已套用的條件式存取原則，還有[傳統原則](policy-migration.md#classic-policies)（如果有的話）。    
 
-The **What If** tool provides a way to quickly determine the policies that apply to a specific user. 例如，如果您需要針對問題進行疑難排解，就可以使用這項資訊。    
+**What If**工具可讓您快速判斷適用于特定使用者的原則。 例如，如果您需要針對問題進行疑難排解，就可以使用這項資訊。    
 
 ## <a name="how-it-works"></a>運作方式
 
-In the **Conditional Access What If tool**, you first need to configure the settings of the sign-in scenario you want to simulate. 這些設定包括：
+在 [**條件式存取 What If 工具**] 中，您必須先設定要模擬之登入案例的設定。 這些設定包括：
 
 - 您要測試的使用者 
 - 使用者會嘗試存取的雲端應用程式
@@ -44,9 +44,9 @@ In the **Conditional Access What If tool**, you first need to configure the sett
 
 ## <a name="running-the-tool"></a>執行工具
 
-You can find the **What If** tool on the **[Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** page in the Azure portal.
+您可以在 Azure 入口網站的 [ **[條件式存取-原則](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** ] 頁面上找到 [ **What If** ] 工具。
 
-To start the tool, in the toolbar on top of the list of policies, click **What If**.
+若要啟動工具，請在原則清單頂端的工具列中，按一下 [ **What If**]。
 
 ![What If](./media/what-if-tool/01.png)
 
@@ -58,7 +58,7 @@ To start the tool, in the toolbar on top of the list of policies, click **What I
 
 ![What If](./media/what-if-tool/02.png)
 
-### <a name="user"></a>User
+### <a name="user"></a>使用者
 
 您只能選取一個使用者。 這是唯一的必要欄位。
 
@@ -88,7 +88,7 @@ IP 位址是用來模擬[位置條件](location-condition.md)的單一 IPv4 位�
 
 ## <a name="evaluation"></a>評估 
 
-You start an evaluation by clicking **What If**. 評估結果所提供的報告中會包含： 
+您可以按一下 [ **What If**] 開始評估。 評估結果所提供的報告中會包含： 
 
 ![What If](./media/what-if-tool/03.png)
 

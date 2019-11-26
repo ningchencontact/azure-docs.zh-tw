@@ -1,5 +1,5 @@
 ---
-title: Access from Container Instances
+title: 從容器實例存取
 description: 了解如何使用 Azure Active Directory 服務主體，從 Azure 容器執行個體提供私人容器登錄中映像的存取權。
 ms.topic: article
 ms.date: 04/23/2018

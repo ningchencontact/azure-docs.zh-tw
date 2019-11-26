@@ -1,6 +1,6 @@
 ---
-title: Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL developers.
-description: This article describes Apache Spark concepts to help U-SQL developers understand Spark code concepts.
+title: 瞭解 Azure Data Lake Analytics U-SQL 開發人員的 Apache Spark 程式碼概念。
+description: 本文說明 Apache Spark 的概念，以協助 SQL 開發人員瞭解 Spark 程式碼概念。
 author: guyhay
 ms.author: guyhay
 ms.reviewer: jasonh
@@ -15,96 +15,96 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74424014"
 ---
-# <a name="understand-apache-spark-code-for-u-sql-developers"></a>Understand Apache Spark code for U-SQL developers
+# <a name="understand-apache-spark-code-for-u-sql-developers"></a>瞭解適用于 U-SQL 開發人員的 Apache Spark 程式碼
 
-This section provides high-level guidance on transforming U-SQL Scripts to Apache Spark.
+本節提供將 U-SQL 腳本轉換成 Apache Spark 的高階指引。
 
-- It starts with a [comparison of the two language's processing paradigms](#understand-the-u-sql-and-spark-language-and-processing-paradigms)
-- Provides tips on how to:
-   - [Transform scripts](#transform-u-sql-scripts) including U-SQL's [rowset expressions](#transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions)
-   - [.NET code](#transform-net-code)
+- 一開始會[比較這兩種語言的處理範例](#understand-the-u-sql-and-spark-language-and-processing-paradigms)
+- 提供有關如何：
+   - [轉換腳本](#transform-u-sql-scripts)，包括 U-SQL 的資料列[集運算式](#transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions)
+   - [.NET 程式碼](#transform-net-code)
    - [資料類型](#transform-typed-values)
-   - [Catalog objects](#transform-u-sql-catalog-objects).
+   - [目錄物件](#transform-u-sql-catalog-objects)。
 
-## <a name="understand-the-u-sql-and-spark-language-and-processing-paradigms"></a>Understand the U-SQL and Spark language and processing paradigms
+## <a name="understand-the-u-sql-and-spark-language-and-processing-paradigms"></a>瞭解 U-SQL 和 Spark 語言和處理範例
 
-Before you start migrating Azure Data Lake Analytics' U-SQL scripts to Spark, it is useful to understand the general language and processing philosophies of the two systems.
+在您開始將 Azure Data Lake Analytics ' U-SQL 腳本遷移至 Spark 之前，請先瞭解兩個系統的一般語言和處理原理。
 
-U-SQL is a SQL-like declarative query language that uses a data-flow paradigm and allows you to easily embed and scale out user-code written in .NET (for example C#), Python, and R. The user-extensions can implement simple expressions or user-defined functions, but can also provide the user the ability to implement so called user-defined operators that implement custom operators to perform rowset level transformations, extractions and writing output.
+U-SQL 是一種類似 SQL 的宣告式查詢語言，它會使用資料流程架構，並可讓您輕鬆地內嵌和相應放大以 .NET （例如C#）、Python 和 R 撰寫的使用者程式碼。使用者擴充功能可以實作為簡單的運算式或使用者定義的函式，但也可以讓使用者實作為使用者定義的運算子，以實作為自訂運算子來執行資料列集層級轉換、提取和正在寫入輸出。
 
-Spark is a scale-out framework offering several language bindings in Scala, Java, Python, .NET etc. where you primarily write your code in one of these languages, create data abstractions called resilient distributed datasets (RDD), dataframes, and datasets and then use a LINQ-like domain-specific language (DSL) to transform them. It also provides SparkSQL as a declarative sublanguage on the dataframe and dataset abstractions. The DSL provides two categories of operations, transformations and actions. Applying transformations to the data abstractions will not execute the transformation but instead build-up the execution plan that will be submitted for evaluation with an action (for example, writing the result into a temporary table or file, or printing the result).
+Spark 是一種向外延展架構，可在 Scala、JAVA、Python、.NET 等中提供數種語言系結。您主要以其中一種語言撰寫程式碼，建立稱為復原分散式資料集（RDD）、資料框架和資料集的資料抽象概念，以及然後使用類似 LINQ 的特定領域語言（DSL）來轉換它們。 它也會提供 SparkSQL 做為資料框架和資料集抽象的宣告式子語言。 DSL 提供兩種類別的作業、轉換和動作。 將轉換套用至資料抽象層不會執行轉換，而是會建立執行計畫，並以動作提交以進行評估（例如，將結果寫入臨時表或檔案，或列印結果）。
 
-Thus when translating a U-SQL script to a Spark program, you will have to decide which language you want to use to at least generate the data frame abstraction (which is currently the most frequently used data abstraction) and whether you want to write the declarative dataflow transformations using the DSL or SparkSQL. In some more complex cases, you may need to split your U-SQL script into a sequence of Spark and other steps implemented with Azure Batch or Azure Functions.
+因此，將 U-SQL 腳本轉譯成 Spark 程式時，您必須決定要使用哪一種語言，至少產生資料框架抽象概念（這是目前最常使用的資料抽象），以及您是否想要撰寫宣告式的使用 DSL 或 SparkSQL 的資料流程轉換。 在某些較複雜的情況下，您可能需要將您的 U-SQL 腳本分割成 Spark 的序列，以及使用 Azure Batch 或 Azure Functions 所執行的其他步驟。
 
-Furthermore, Azure Data Lake Analytics offers U-SQL in a serverless job service environment, while both Azure Databricks and Azure HDInsight offer Spark in form of a cluster service. When transforming your application, you will have to take into account the implications of now creating, sizing, scaling, and decommissioning the clusters.
+此外，Azure Data Lake Analytics 在無伺服器作業服務環境中提供了 SQL-DMO，同時 Azure Databricks 和 Azure HDInsight 以叢集服務的形式提供 Spark。 轉換您的應用程式時，您必須考慮現在建立、調整大小、調整和解除委任叢集的含意。
 
-## <a name="transform-u-sql-scripts"></a>Transform U-SQL scripts
+## <a name="transform-u-sql-scripts"></a>轉換 U-SQL 腳本
 
-U-SQL scripts follow the following processing pattern:
+U-SQL 腳本會遵循下列處理模式：
 
-1. Data gets read from either unstructured files, using the `EXTRACT` statement, a location or file set specification, and the built-in or user-defined extractor and desired schema, or from U-SQL tables (managed or external tables). It is represented as a rowset.
-2. The rowsets get transformed in multiple U-SQL statements that apply U-SQL expressions to the rowsets and produce new rowsets.
-3. Finally, the resulting rowsets are output into either files using the `OUTPUT` statement that specifies the location(s) and a built-in or user-defined outputter, or into a U-SQL table.
+1. 資料會從非結構化檔案中讀取，使用 `EXTRACT` 語句、位置或檔案集規格，以及內建或使用者定義的解壓縮和所需的架構，或是來自 U-SQL 資料表（managed 或外部資料表）。 它會以資料列集來表示。
+2. 資料列集會在多個將 U-SQL 運算式套用至資料列集並產生新資料列集的 U SQL 語句中轉換。
+3. 最後，產生的資料列集會使用 `OUTPUT` 語句（指定位置和內建或使用者定義的輸出器，或在 U SQL 資料表中）輸出到其中一個檔案。
 
-The script is evaluated lazily, meaning that each extraction and transformation step is composed into an expression tree and globally evaluated (the dataflow).
+腳本會以延遲的方式進行評估，這表示每個提取和轉換步驟會組成運算式樹狀架構，並全域評估（資料流程）。
 
-Spark programs are similar in that you would use Spark connectors to read the data and create the dataframes, then apply the transformations on the dataframes using either the LINQ-like DSL or SparkSQL, and then write the result into files, temporary Spark tables, some programming language types, or the console.
+Spark 程式類似于，您會使用 Spark 連接器來讀取資料並建立資料框架，然後使用類似 LINQ 的 DSL 或 SparkSQL 在資料框架上套用轉換，然後將結果寫入檔案、暫存 Spark 資料表、某些程式設計語言類型或主控台。
 
-## <a name="transform-net-code"></a>Transform .NET code
+## <a name="transform-net-code"></a>轉換 .NET 程式碼
 
-U-SQL's expression language is C# and it offers a variety of ways to scale out custom .NET code.
+U-SQL 的運算式語言是C# ，它提供各種方法來相應放大自訂的 .net 程式碼。
 
-Since Spark currently does not natively support executing .NET code, you will have to either rewrite your expressions into an equivalent Spark, Scala, Java, or Python expression or find a way to call into your .NET code. If your script uses .NET libraries, you have the following options:
+由於 Spark 目前並未原生支援執行 .NET 程式碼，因此您必須將運算式重寫為對等的 Spark、Scala、JAVA 或 Python 運算式，或尋找方法來呼叫您的 .NET 程式碼。 如果您的腳本使用 .NET 程式庫，您有下列選項：
 
-- Translate your .NET code into Scala or Python.
-- Split your U-SQL script into several steps, where you use Azure Batch processes to apply the .NET transformations (if you can get acceptable scale)
-- Use a .NET language binding available in Open Source called Moebius. This project is not in a supported state.
+- 將您的 .NET 程式碼轉譯為 Scala 或 Python。
+- 將您的 U-SQL 腳本分割成幾個步驟，您可以在其中使用 Azure Batch 進程來套用 .NET 轉換（如果您可以取得可接受的規模）
+- 使用稱為 Moebius 的開放原始碼中提供的 .NET 語言系結。 這個專案不是處於支援的狀態。
 
-In any case, if you have a large amount of .NET logic in your U-SQL scripts, please contact us through your Microsoft Account representative for further guidance.
+在任何情況下，如果您的 U-SQL 腳本中有大量的 .NET 邏輯，請透過您的 Microsoft 客戶代表來洽詢我們，以取得進一步的指引。
 
-The following details are for the different cases of .NET and C# usages in U-SQL scripts.
+下列詳細資料適用于 .NET 的不同案例和C# U SQL 腳本中的使用方式。
 
-### <a name="transform-scalar-inline-u-sql-c-expressions"></a>Transform scalar inline U-SQL C# expressions
+### <a name="transform-scalar-inline-u-sql-c-expressions"></a>轉換純量內嵌的 U C# -SQL 運算式
 
-U-SQL's expression language is C#. Many of the scalar inline U-SQL expressions are implemented natively for improved performance, while more complex expressions may be executed through calling into the .NET framework.
+U-SQL 的運算式語言是C#。 許多純量內嵌的 U-SQL 運算式會以原生方式實作為改善的效能，而更複雜的運算式則可透過呼叫 .NET framework 來執行。
 
-Spark has its own scalar expression language (either as part of the DSL or in SparkSQL) and allows calling into user-defined functions written in its hosting language.
+Spark 有自己的純量運算式語言（作為 DSL 或 SparkSQL 的一部分），並允許呼叫以其裝載語言撰寫的使用者定義函式。
 
-If you have scalar expressions in U-SQL, you should first find the most appropriate natively understood Spark scalar expression to get the most performance, and then map the other expressions into a user-defined function of the Spark hosting language of your choice.
+如果您在 SQL-DMO 中有純量運算式，您應該先找出最適合的原生易懂 Spark 純量運算式，以取得最多效能，然後將其他運算式對應至您所選 Spark 裝載語言的使用者定義函數。
 
-Be aware that .NET and C# have different type semantics than the Spark hosting languages and Spark's DSL. See [below](#transform-typed-values) for more details on the type system differences.
+請注意，.NET 和C#的類型語義與 spark 裝載語言和 SPARK 的 DSL 不同。 如需類型系統差異的詳細資訊，請參閱[下文](#transform-typed-values)。
 
-### <a name="transform-user-defined-scalar-net-functions-and-user-defined-aggregators"></a>Transform user-defined scalar .NET functions and user-defined aggregators
+### <a name="transform-user-defined-scalar-net-functions-and-user-defined-aggregators"></a>轉換使用者定義的純量 .NET 函數和使用者定義的匯總工具
 
-U-SQL provides ways to call arbitrary scalar .NET functions and to call user-defined aggregators written in .NET.
+U-SQL 提供方法來呼叫任意純量 .NET 函式，以及呼叫以 .NET 撰寫的使用者定義匯總工具。
 
-Spark also offers support for user-defined functions and user-defined aggregators written in most of its hosting languages that can be called from Spark's DSL and SparkSQL.
+Spark 也支援以大部分裝載語言撰寫的使用者定義函式和使用者定義匯總工具，可從 Spark 的 DSL 和 SparkSQL 呼叫。
 
-### <a name="transform-user-defined-operators-udos"></a>Transform user-defined operators (UDOs)
+### <a name="transform-user-defined-operators-udos"></a>轉換使用者定義的運算子（Udo）
 
-U-SQL provides several categories of user-defined operators (UDOs) such as extractors, outputters, reducers, processors, appliers, and combiners that can be written in .NET (and - to some extent - in Python and R).
+[U-SQL] 提供數種使用者定義運算子（Udo）類別，例如擷取器、輸出器、歸納器、處理器、套用器和結合器，可在 .NET 中撰寫（和-到某些範圍內的 Python 和 R）。
 
-Spark does not offer the same extensibility model for operators, but has equivalent capabilities for some.
+Spark 不會針對運算子提供相同的擴充性模型，但有對等的功能。
 
-The Spark equivalent to extractors and outputters is Spark connectors. For many U-SQL extractors, you may find an equivalent connector in the Spark community. For others, you will have to write a custom connector. If the U-SQL extractor is complex and makes use of several .NET libraries, it may be preferable to build a connector in Scala that uses interop to call into the .NET library that does the actual processing of the data. In that case, you will have to deploy the .NET Core runtime to the Spark cluster and make sure that the referenced .NET libraries are .NET Standard 2.0 compliant.
+與擷取器和輸出器對等的 Spark 是 Spark 連接器。 對於許多的擷取器，您可能會在 Spark 社區中找到對等的連接器。 對於其他人，您將必須撰寫自訂連接器。 如果 U-SQL 解壓縮程式很複雜，並使用數個 .NET 程式庫，最好是在 Scala 中建立連接器，以使用 interop 呼叫 .NET 程式庫來執行資料的實際處理。 在此情況下，您必須將 .NET Core 執行時間部署至 Spark 叢集，並確定參照的 .NET 程式庫符合 .NET Standard 2.0 相容。
 
-The other types of U-SQL UDOs will need to be rewritten using user-defined functions and aggregators and the semantically appropriate Spark DLS or SparkSQL expression. For example, a processor can be mapped to a SELECT of a variety of UDF invocations, packaged as a function that takes a dataframe as an argument and returns a dataframe.
+其他類型的 U-SQL Udo 必須使用使用者自訂函數和匯總工具，以及語義適當的 Spark DLS 或 SparkSQL 運算式來重寫。 例如，處理器可以對應至各種 UDF 調用的選取，並封裝為函式，以接受資料框架做為引數並傳回資料框架。
 
-### <a name="transform-u-sqls-optional-libraries"></a>Transform U-SQL's optional libraries
+### <a name="transform-u-sqls-optional-libraries"></a>轉換 U SQL 的選擇性程式庫
 
-U-SQL provides a set of optional and demo libraries that offer [Python](data-lake-analytics-u-sql-python-extensions.md), [R](data-lake-analytics-u-sql-r-extensions.md), [JSON, XML, AVRO support](https://github.com/Azure/usql/tree/master/Examples/DataFormats), and some [cognitive services capabilities](data-lake-analytics-u-sql-cognitive.md).
+U-SQL 提供一組選擇性和示範程式庫，提供[Python](data-lake-analytics-u-sql-python-extensions.md)、 [R](data-lake-analytics-u-sql-r-extensions.md)、 [JSON、XML、AVRO 支援](https://github.com/Azure/usql/tree/master/Examples/DataFormats)和一些[認知服務功能](data-lake-analytics-u-sql-cognitive.md)。
 
-Spark offers its own Python and R integration, pySpark and SparkR respectively, and provides connectors to read and write JSON, XML, and AVRO.
+Spark 分別提供自己的 Python 和 R 整合、pySpark 和 SparkR，並提供可讀取和寫入 JSON、XML 和 AVRO 的連接器。
 
-If you need to transform a script referencing the cognitive services libraries, we recommend contacting us via your Microsoft Account representative.
+如果您需要轉換參考認知服務程式庫的腳本，建議您透過 Microsoft 客戶代表來聯繫我們。
 
-## <a name="transform-typed-values"></a>Transform typed values
+## <a name="transform-typed-values"></a>轉換具類型的值
 
-Because U-SQL's type system is based on the .NET type system and Spark has its own type system, that is impacted by the host language binding, you will have to make sure that the types you are operating on are close and for certain types, the type ranges, precision and/or scale may be slightly different. Furthermore, U-SQL and Spark treat `null` values differently.
+因為 U 型的型別系統是以 .NET 型別系統為基礎，而 Spark 有自己的型別系統，而這是由主機語言系結所影響，所以您必須確定您所操作的類型已關閉，而且適用于特定類型的類型範圍，精確度和/或小數位數可能會稍有不同。 此外，U-SQL 和 Spark 會以不同的方式來處理 `null` 值。
 
 ### <a name="data-types"></a>資料類型
 
-The following table gives the equivalent types in Spark, Scala, and PySpark for the given U-SQL types.
+下表提供 Spark、Scala 和 PySpark 中指定之 U SQL 類型的對等類型。
 
 | U-SQL | Spark |  Scala | PySpark |
 | ------ | ------ | ------ | ------ |
@@ -121,103 +121,103 @@ The following table gives the equivalent types in Spark, Scala, and PySpark for 
 |`ushort`     ||||
 |`char`   | |`Char`||
 |`string` |`StringType` |`String` |`StringType` |
-|`DateTime`   |`DateType`，`TimestampType` |`java.sql.Date`，`java.sql.Timestamp` | `DateType`，`TimestampType`|
+|`DateTime`   |`DateType`、`TimestampType` |`java.sql.Date`、`java.sql.Timestamp` | `DateType`、`TimestampType`|
 |`bool`   |`BooleanType` |`Boolean` | `BooleanType`|
 |`Guid`   ||||
 |`byte[]` |`BinaryType` |`Array[Byte]` | `BinaryType`|
 |`SQL.MAP<K,V>`   |`MapType(keyType, valueType, valueContainsNull)` |`scala.collection.Map` | `MapType(keyType, valueType, valueContainsNull=True)`|
 |`SQL.ARRAY<T>`   |`ArrayType(elementType, containsNull)` |`scala.collection.Seq` | `ArrayType(elementType, containsNull=True)`|
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
-- [org.apache.spark.sql.types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
-- [Spark SQL and DataFrames Types](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
-- [Scala value types](https://www.scala-lang.org/api/current/scala/AnyVal.html)
-- [pyspark.sql.types](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.types)
+- [. spark. .sql 類型](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
+- [Spark SQL 和資料框架類型](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
+- [Scala 數值型別](https://www.scala-lang.org/api/current/scala/AnyVal.html)
+- [pyspark 類型](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.types)
 
-### <a name="treatment-of-null"></a>Treatment of NULL
+### <a name="treatment-of-null"></a>Null 的處理方式
 
-In Spark, types per default allow NULL values while in U-SQL, you explicitly mark scalar, non-object as nullable. While Spark allows you to define a column as not nullable, it will not enforce the constraint and [may lead to wrong result](https://medium.com/@weshoffman/apache-spark-parquet-and-troublesome-nulls-28712b06f836).
+在 Spark 中，每個預設的類型允許 Null 值，而在 U-SQL 中，您會將純量非物件明確標示為可為 null。 雖然 Spark 可讓您將資料行定義為不可為 null，但它不會強制執行條件約束，而且[可能會導致錯誤的結果](https://medium.com/@weshoffman/apache-spark-parquet-and-troublesome-nulls-28712b06f836)。
 
-In Spark, NULL indicates that the value is unknown. A Spark NULL value is different from any value, including itself. Comparisons between two Spark NULL values, or between a NULL value and any other value, return unknown because the value of each NULL is unknown.  
+在 Spark 中，Null 表示此值不明。 Spark Null 值與任何值（包括本身）不同。 兩個 Spark Null 值之間或 Null 值與任何其他值之間的比較，會傳回 unknown，因為每個 Null 的值都是未知的。  
 
-This behavior is different from U-SQL, which follows C# semantics where `null` is different from any value but equal to itself.  
+這種行為不同于 SQL-DMO，其遵循C#的語義是 `null` 與任何值不同，但等於其本身。  
 
-Thus a SparkSQL `SELECT` statement that uses `WHERE column_name = NULL` returns zero rows even if there are NULL values in `column_name`, while in U-SQL, it would return the rows where `column_name` is set to `null`. Similarly, A Spark `SELECT` statement that uses `WHERE column_name != NULL` returns zero rows even if there are non-null values in `column_name`, while in U-SQL, it would return the rows that have non-null. Thus, if you want the U-SQL null-check semantics, you should use [isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) and [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) respectively (or their DSL equivalent).
+因此，即使 `column_name`中有 Null 值，使用 `WHERE column_name = NULL` 的 SparkSQL `SELECT` 語句也會傳回零個數據列，而在 U-SQL 中，它會傳回 `column_name` 設定為 `null`的資料列。 同樣地，使用 `WHERE column_name != NULL` 的 Spark `SELECT` 語句也會傳回零個數據列，即使 `column_name`中有非 null 值，但在 U-SQL 中，它會傳回具有非 null 的資料列。 因此，如果您想要使用 U-SQL null 檢查的語義，您應該分別使用[isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull)和[isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) （或其對等的 DSL）。
 
-## <a name="transform-u-sql-catalog-objects"></a>Transform U-SQL catalog objects
+## <a name="transform-u-sql-catalog-objects"></a>轉換 U-SQL 目錄物件
 
-One major difference is that U-SQL Scripts can make use of its catalog objects, many of which have no direct Spark equivalent.
+其中一個主要差異在於，U-SQL 腳本可以利用它的目錄物件，其中有許多都不具有直接的 Spark 對等用法。
 
-Spark does provide support for the Hive Meta store concepts, mainly databases, and tables, so you can map U-SQL databases and schemas to Hive databases, and U-SQL tables to Spark tables (see [Moving data stored in U-SQL tables](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables)), but it has no support for views, table-valued functions (TVFs), stored procedures, U-SQL assemblies, external data sources etc.
+Spark 支援 Hive 中繼存放區概念（主要是資料庫和資料表），因此您可以將 U-SQL 資料庫和架構對應至 Hive 資料庫，並將 U-SQL 資料表對應至 Spark 資料表（請參閱[移動儲存在 U-sql 資料表中的資料](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables)），但不支援 views。資料表值函式（Tvf）、預存程式、U-SQL 元件、外部資料源等等。
 
-The U-SQL code objects such as views, TVFs, stored procedures, and assemblies can be modeled through code functions and libraries in Spark and referenced using the host language's function and procedural abstraction mechanisms (for example, through importing Python modules or referencing Scala functions).
+您可以透過 Spark 中的程式碼函式和程式庫來模型化 tvf、預存程式和元件之類的 U-SQL 程式碼物件，並使用主語言的函式和程式性抽象機器制來參考（例如，透過匯入Python 模組或參考 Scala 函數）。
 
-If the U-SQL catalog has been used to share data and code objects across projects and teams, then equivalent mechanisms for sharing have to be used (for example, Maven for sharing code objects).
+如果已使用 U-SQL 目錄來跨專案和小組共用資料和程式碼物件，則必須使用對等的共用機制（例如，共用程式碼物件的 Maven）。
 
-## <a name="transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions"></a>Transform U-SQL rowset expressions and SQL-based scalar expressions
+## <a name="transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions"></a>轉換 U-SQL 資料列集運算式和以 SQL 為基礎的純量運算式
 
-U-SQL's core language is transforming rowsets and is based on SQL. The following is a non-exhaustive list of the most common rowset expressions offered in U-SQL:
+U-SQL 的核心語言會轉換資料列集，並以 SQL 為基礎。 以下是在 SQL-DMO 中提供的最常見資料列集運算式的非完整清單：
 
-- `SELECT`/`FROM`/`WHERE`/`GROUP BY`+Aggregates+`HAVING`/`ORDER BY`+`FETCH`
-- `INNER`/`OUTER`/`CROSS`/`SEMI` `JOIN` expressions
-- `CROSS`/`OUTER` `APPLY` expressions
-- `PIVOT`/`UNPIVOT` expressions
-- `VALUES` rowset constructor
+- `SELECT`/`FROM`/`WHERE`/`GROUP BY`+ 匯總 +`HAVING`/`ORDER BY`+`FETCH`
+- `INNER`/`OUTER`/`CROSS`/`SEMI` `JOIN` 運算式
+- `CROSS`/`OUTER` `APPLY` 運算式
+- `PIVOT`/`UNPIVOT` 運算式
+- `VALUES` 資料列集函數
 
-- Set expressions `UNION`/`OUTER UNION`/`INTERSECT`/`EXCEPT`
+- 設定運算式 `UNION`/`OUTER UNION`/`INTERSECT`/`EXCEPT`
 
-In addition, U-SQL provides a variety of SQL-based scalar expressions such as
+此外，U-SQL 提供各種以 SQL 為基礎的純量運算式，例如
 
-- `OVER` windowing expressions
-- a variety of built-in aggregators and ranking functions (`SUM`, `FIRST` etc.)
-- Some of the most familiar SQL scalar expressions: `CASE`, `LIKE`, (`NOT`) `IN`, `AND`, `OR` etc.
+- `OVER` 視窗化運算式
+- 各種內建的匯總工具和次序函數（`SUM`、`FIRST` 等）
+- 其中一些最熟悉的 SQL 純量運算式： `CASE`、`LIKE`、（`NOT`） `IN`、`AND`、`OR` 等。
 
-Spark offers equivalent expressions in both its DSL and SparkSQL form for most of these expressions. Some of the expressions not supported natively in Spark will have to be rewritten using a combination of the native Spark expressions and semantically equivalent patterns. For example, `OUTER UNION` will have to be translated into the equivalent combination of projections and unions.
+Spark 會針對大部分的這些運算式提供其 DSL 和 SparkSQL 形式的相等運算式。 某些在 Spark 中原本不支援的運算式，必須使用原生 Spark 運算式和語義相等模式的組合來重寫。 例如，`OUTER UNION` 必須轉譯成投影和等位的相等組合。
 
-Due to the different handling of NULL values, a U-SQL join will always match a row if both of the columns being compared contain a NULL value, while a join in Spark will not match such columns unless explicit null checks are added.
+由於 Null 值的不同處理方式，如果要比較的兩個數據行都包含 Null 值，則在 Spark 中的聯結將永遠符合一個資料列，除非新增明確的 Null 檢查。
 
-## <a name="transform-other-u-sql-concepts"></a>Transform other U-SQL concepts
+## <a name="transform-other-u-sql-concepts"></a>轉換其他的 U-SQL 概念
 
-U-SQL also offers a variety of other features and concepts, such as federated queries against SQL Server databases, parameters, scalar, and lambda expression variables, system variables, `OPTION` hints.
+U-SQL 也提供各種不同的功能和概念，例如針對 SQL Server 資料庫、參數、純量和 lambda 運算式變數、系統變數、`OPTION` 提示的同盟查詢。
 
-### <a name="federated-queries-against-sql-server-databasesexternal-tables"></a>Federated Queries against SQL Server databases/external tables
+### <a name="federated-queries-against-sql-server-databasesexternal-tables"></a>針對 SQL Server 資料庫/外部資料表的同盟查詢
 
-U-SQL provides data source and external tables as well as direct queries against Azure SQL Database. While Spark does not offer the same object abstractions, it provides [Spark connector for Azure SQL Database](../sql-database/sql-database-spark-connector.md) that can be used to query SQL databases.
+U-SQL 提供資料來源和外部資料表，以及針對 Azure SQL Database 的直接查詢。 雖然 Spark 不提供相同的物件抽象概念，但它會為可用來查詢 SQL 資料庫的[Azure SQL Database 提供 Spark 連接器](../sql-database/sql-database-spark-connector.md)。
 
-### <a name="u-sql-parameters-and-variables"></a>U-SQL parameters and variables
+### <a name="u-sql-parameters-and-variables"></a>U-SQL 參數和變數
 
-Parameters and user variables have equivalent concepts in Spark and their hosting languages.
+參數和使用者變數在 Spark 和其裝載語言中具有對等概念。
 
-For example in Scala, you can define a variable with the `var` keyword:
+例如，在 Scala 中，您可以使用 `var` 關鍵字來定義變數：
 
 ```
 var x = 2 * 3;
 println(x)
 ```
 
-U-SQL's system variables (variables starting with `@@`) can be split into two categories:
+U-SQL 的系統變數（以 `@@`開頭的變數）可以分割成兩個類別：
 
-- Settable system variables that can be set to specific values to impact the scripts behavior
-- Informational system variables that inquire system and job level information
+- 可以設定為特定值的可設定系統變數，以影響腳本行為
+- 查詢系統和作業層級資訊的資訊系統變數
 
-Most of the settable system variables have no direct equivalent in Spark. Some of the informational system variables can be modeled by passing the information as arguments during job execution, others may have an equivalent function in Spark's hosting language.
+大部分可設定的系統變數在 Spark 中沒有直接的對等用法。 某些資訊系統變數可以藉由在作業執行期間以引數的形式傳遞資訊來進行模型化，而其他人在 Spark 的裝載語言中可能會有對等的函式。
 
-### <a name="u-sql-hints"></a>U-SQL hints
+### <a name="u-sql-hints"></a>U-SQL 提示
 
-U-SQL offers several syntactic ways to provide hints to the query optimizer and execution engine:  
+[U-SQL] 提供數種語法方式來提供查詢最佳化工具和執行引擎的提示：  
 
-- Setting a U-SQL system variable
-- an `OPTION` clause associated with the rowset expression to provide a data or plan hint
-- a join hint in the syntax of the join expression (for example, `BROADCASTLEFT`)
+- 設定 U-SQL 系統變數
+- 與資料列集運算式相關聯的 `OPTION` 子句，用以提供資料或計畫提示
+- 聯結運算式語法中的聯結提示（例如，`BROADCASTLEFT`）
 
-Spark's cost-based query optimizer has its own capabilities to provide hints and tune the query performance. Please refer to the corresponding documentation.
+Spark 的成本型查詢最佳化工具有它自己的功能，可提供提示並微調查詢效能。 請參閱對應的檔。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Understand Spark data formats for U-SQL developers](understand-spark-data-formats.md)
-- [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
-- [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
-- [Transform data using Spark activity in Azure Data Factory](../data-factory/transform-data-using-spark.md)
-- [Transform data using Hadoop Hive activity in Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
-- [What is Apache Spark in Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)
+- [瞭解適用于 U-SQL 開發人員的 Spark 資料格式](understand-spark-data-formats.md)
+- [適用于 Apache Spark 的 .NET](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- [將您的海量資料分析解決方案從 Azure Data Lake Storage Gen1 升級至 Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
+- [在 Azure Data Factory 中使用 Spark 活動轉換資料](../data-factory/transform-data-using-spark.md)
+- [在 Azure Data Factory 中使用 Hadoop Hive 活動轉換資料](../data-factory/transform-data-using-hadoop-hive.md)
+- [Azure HDInsight 中的 Apache Spark](../hdinsight/spark/apache-spark-overview.md)

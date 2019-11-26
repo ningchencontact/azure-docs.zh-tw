@@ -16,31 +16,31 @@ ms.locfileid: "74231744"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中以動態方式建立和使用 Azure 檔案服務的永續性磁碟區
 
-永續性磁碟區代表一塊已佈建來與 Kubernetes Pod 搭配使用的儲存體。 永續性磁碟區可供一個或多個 Pod 使用，且可以動態或靜態方式佈建。 If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect using the [Server Message Block (SMB) protocol][smb-overview]. 本文會示範如何在 Azure Kubernetes Service (AKS) 叢集中以動態方式建立 Azure 檔案共用，以供多個 Pod 使用。
+永續性磁碟區代表一塊已佈建來與 Kubernetes Pod 搭配使用的儲存體。 永續性磁碟區可供一個或多個 Pod 使用，且可以動態或靜態方式佈建。 如果多個 pod 需要平行存取相同的存放磁片區，您可以使用 Azure 檔案儲存體，以使用[伺服器訊息區（SMB）通訊協定][smb-overview]進行連接。 本文會示範如何在 Azure Kubernetes Service (AKS) 叢集中以動態方式建立 Azure 檔案共用，以供多個 Pod 使用。
 
-For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
+如需有關 Kubernetes 磁片區的詳細資訊，請參閱[AKS 中應用程式的儲存體選項][concepts-storage]。
 
 ## <a name="before-you-begin"></a>開始之前
 
-此文章假設您目前具有 AKS 叢集。 If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli]或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
 
-You also need the Azure CLI version 2.0.59 or later installed and configured. 執行  `az --version` 以尋找版本。 If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+您也需要安裝並設定 Azure CLI 版本2.0.59 或更新版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="create-a-storage-class"></a>建立儲存體類別
 
-儲存體類別可用來定義 Azure 檔案共用的建立方式。 A storage account is automatically created in the [node resource group][node-resource-group] for use with the storage class to hold the Azure file shares. Choose of the following [Azure storage redundancy][storage-skus] for *skuName*:
+儲存體類別可用來定義 Azure 檔案共用的建立方式。 系統會自動在[節點資源群組][node-resource-group]中建立儲存體帳戶，以搭配儲存類別來存放 Azure 檔案共用。 選擇下列適用于*skuName*的[Azure 儲存體冗余][storage-skus]：
 
 * *Standard_LRS* - 標準本地備援儲存體 (LRS)
 * *Standard_GRS* - 標準異地備援儲存體 (GRS)
 * *Standard_RAGRS* - 標準讀取權限異地備援儲存體 (RA-GRS)
-* *Premium_LRS* - premium locally redundant storage (LRS)
+* *Premium_LRS* -Premium 本機多餘儲存體（LRS）
 
 > [!NOTE]
-> Azure Files support premium storage in AKS clusters that run Kubernetes 1.13 or higher.
+> Azure 檔案儲存體在執行 Kubernetes 1.13 或更高版本的 AKS 叢集中支援 premium 儲存體。
 
-For more information on Kubernetes storage classes for Azure Files, see [Kubernetes Storage Classes][kubernetes-storage-classes].
+如需 Azure 檔案儲存體的 Kubernetes 儲存體類別的詳細資訊，請參閱[Kubernetes 儲存體類別][kubernetes-storage-classes]。
 
-建立名為 `azure-file-sc.yaml` 的檔案，然後將下列資訊清單範例複製進來。 For more information on *mountOptions*, see the [Mount options][mount-options] section.
+建立名為 `azure-file-sc.yaml` 的檔案，然後將下列資訊清單範例複製進來。 如需*mountOptions*的詳細資訊，請參閱[掛接選項][mount-options]一節。
 
 ```yaml
 kind: StorageClass
@@ -60,7 +60,7 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Create the storage class with the [kubectl apply][kubectl-apply] command:
+使用[kubectl apply][kubectl-apply]命令來建立儲存體類別：
 
 ```console
 kubectl apply -f azure-file-sc.yaml
@@ -68,7 +68,7 @@ kubectl apply -f azure-file-sc.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>建立永續性磁碟區宣告
 
-永續性磁碟區宣告 (PVC) 會使用儲存體類別物件，以動態方式佈建 Azure 檔案共用。 The following YAML can be used to create a persistent volume claim *5 GB* in size with *ReadWriteMany* access. For more information on access modes, see the [Kubernetes persistent volume][access-modes] documentation.
+永續性磁碟區宣告 (PVC) 會使用儲存體類別物件，以動態方式佈建 Azure 檔案共用。 下列 YAML 可以用來建立具有*ReadWriteMany*存取權的持續性磁片區索取*5 GB*大小。 如需有關存取模式的詳細資訊，請參閱[Kubernetes 持續性磁片][access-modes]區檔。
 
 現在，建立名為 `azure-file-pvc.yaml` 的檔案，然後將下列 YAML 複製進來。 請確定 storageClassName 與最後一個步驟中建立的儲存體類別相符。
 
@@ -87,15 +87,15 @@ spec:
 ```
 
 > [!NOTE]
-> If using the *Premium_LRS* sku for your storage class, the minimum value for *storage* must be *100Gi*.
+> 如果您的儲存體類別使用*Premium_LRS* sku，則*儲存體*的最小值必須是*100Gi*。
 
-Create the persistent volume claim with the [kubectl apply][kubectl-apply] command:
+使用[kubectl apply][kubectl-apply]命令來建立持續性磁片區宣告：
 
 ```console
 kubectl apply -f azure-file-pvc.yaml
 ```
 
-完成之後，便會建立檔案共用。 此外，也會建立 Kubernetes 祕密，其中包含連線資訊和認證。 You can use the [kubectl get][kubectl-get] command to view the status of the PVC:
+完成之後，便會建立檔案共用。 此外，也會建立 Kubernetes 祕密，其中包含連線資訊和認證。 您可以使用[kubectl get][kubectl-get]命令來查看 PVC 的狀態：
 
 ```console
 $ kubectl get pvc azurefile
@@ -106,7 +106,7 @@ azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX 
 
 ## <a name="use-the-persistent-volume"></a>使用永續性磁碟區
 
-下列 YAML 所建立的 Pod，會使用永續性磁碟區宣告 azurefile，將 Azure 檔案共用裝載在 /mnt/azure 路徑。 For Windows Server containers (currently in preview in AKS), specify a *mountPath* using the Windows path convention, such as *'D:'* .
+下列 YAML 所建立的 Pod，會使用永續性磁碟區宣告 azurefile，將 Azure 檔案共用裝載在 /mnt/azure 路徑。 若是 Windows Server 容器（目前在 AKS 中處於預覽狀態），請使用 Windows 路徑慣例指定*mountPath* ，例如「 *d：* 」。
 
 建立名為 `azure-pvc-files.yaml` 的檔案，然後將下列 YAML 複製進來。 請確定claimName 與最後一個步驟中建立的 PVC 相符。
 
@@ -135,7 +135,7 @@ spec:
         claimName: azurefile
 ```
 
-Create the pod with the [kubectl apply][kubectl-apply] command.
+使用[kubectl apply][kubectl-apply]命令建立 pod。
 
 ```console
 kubectl apply -f azure-pvc-files.yaml
@@ -166,7 +166,7 @@ Volumes:
 
 ## <a name="mount-options"></a>掛接選項
 
-The default value for *fileMode* and *dirMode* is *0755* for Kubernetes version 1.9.1 and above. If using a cluster with Kuberetes version 1.8.5 or greater and dynamically creating the persistent volume with a storage class, mount options can be specified on the storage class object. 下列範例會設定 0777：
+*適用于*Kubernetes 版本1.9.1 和以上的*dirMode*的預設值為*0755* 。 如果使用 Kuberetes version 1.8.5 版或更高版本的叢集，並使用儲存類別動態建立持續性磁片區，則可以在儲存類別物件上指定掛接選項。 下列範例會設定 0777：
 
 ```yaml
 kind: StorageClass
@@ -186,11 +186,11 @@ parameters:
   skuName: Standard_LRS
 ```
 
-如果您是使用 1.8.0-1.8.4 版的叢集，可將 runAsUser 值設定為 0 來指定資訊安全內容。 For more information on Pod security context, see [Configure a Security Context][kubernetes-security-context].
+如果您是使用 1.8.0-1.8.4 版的叢集，可將 runAsUser 值設定為 0 來指定資訊安全內容。 如需 Pod 安全性內容的詳細資訊，請參閱[設定安全性內容][kubernetes-security-context]。
 
 ## <a name="next-steps"></a>後續步驟
 
-For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
+如需相關的最佳作法，請參閱[AKS 中儲存和備份的最佳作法][operator-best-practices-storage]。
 
 使用「Azure 檔案」來深入了解 Kubernetes 永續性磁碟區。
 

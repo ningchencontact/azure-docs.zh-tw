@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure Database for MySQL with redirection
-description: This article describes how you can configure you application to connect to Azure Database for MySQL with redirection.
+title: 使用重新導向連接到適用於 MySQL 的 Azure 資料庫
+description: 本文說明如何設定應用程式，以使用重新導向連接到適用於 MySQL 的 Azure 資料庫。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -13,53 +13,53 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233736"
 ---
-# <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Connect to Azure Database for MySQL with redirection
+# <a name="connect-to-azure-database-for-mysql-with-redirection"></a>使用重新導向連接到適用於 MySQL 的 Azure 資料庫
 
-This topic explains how to connect an application your Azure Database for MySQL server with redirection mode. Redirection aims to reduce network latency between client applications and MySQL servers by allowing applications to connect directly to backend server nodes.
+本主題說明如何使用重新導向模式將應用程式連線到您的適用於 MySQL 的 Azure 資料庫伺服器。 重新導向的目標是允許應用程式直接連線到後端伺服器節點，以減少用戶端應用程式和 MySQL 伺服器之間的網路延遲。
 
 > [!IMPORTANT]
-> Support for redirection in the PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) is currently in preview.
+> PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure)中的重新導向支援目前為預覽狀態。
 
 ## <a name="before-you-begin"></a>開始之前
-登入 [Azure 入口網站](https://portal.azure.com)。 Create an Azure Database for MySQL server with engine version 5.6, 5.7, or 8.0. 如需詳細資訊，請參閱[如何從入口網站建立適用於 MySQL 伺服器的 Azure 資料庫](quickstart-create-mysql-server-database-using-azure-portal.md)或[如何使用 CLI 建立適用於 MySQL 伺服器的 Azure 資料庫](quickstart-create-mysql-server-database-using-azure-cli.md)。
+登入 [Azure 入口網站](https://portal.azure.com)。 建立具有引擎版本5.6、5.7 或8.0 的適用於 MySQL 的 Azure 資料庫伺服器。 如需詳細資訊，請參閱[如何從入口網站建立適用於 MySQL 伺服器的 Azure 資料庫](quickstart-create-mysql-server-database-using-azure-portal.md)或[如何使用 CLI 建立適用於 MySQL 伺服器的 Azure 資料庫](quickstart-create-mysql-server-database-using-azure-cli.md)。
 
-Redirection is currently only supported when SSL is enabled. 如需如何設定 SSL 的詳細資訊，請參閱[使用 SSL 與適用於 MySQL 的 Azure 資料庫](https://docs.microsoft.com/azure/mysql/howto-configure-ssl#step-3-enforcing-ssl-connections-in-azure)。 
+目前只有在啟用 SSL 時，才支援重新導向。 如需如何設定 SSL 的詳細資訊，請參閱[使用 SSL 與適用於 MySQL 的 Azure 資料庫](https://docs.microsoft.com/azure/mysql/howto-configure-ssl#step-3-enforcing-ssl-connections-in-azure)。 
 
 ## <a name="php"></a>PHP
 
 ### <a name="ubuntu-linux"></a>Ubuntu Linux
 
-#### <a name="prerequisites"></a>必要條件 
-- PHP versions 7.2.15+ and 7.3.2+
-- PHP PEAR 
+#### <a name="prerequisites"></a>先決條件 
+- PHP 版本 7.2.15 + 和 7.3.2 +
+- PHP 梨 
 - php-mysql
-- Azure Database for MySQL server with SSL enabled
+- 已啟用 SSL 的適用於 MySQL 的 Azure 資料庫伺服器
 
-1. Install [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) with [PECL](https://pecl.php.net/package/mysqlnd_azure).
+1. 使用[PECL](https://pecl.php.net/package/mysqlnd_azure)安裝[mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) 。
 
     ```bash
     sudo pecl install mysqlnd_azure
     ```
 
-2. Locate the extension directory (`extension_dir`) by running the below:
+2. 執行下列程式，找出延伸目錄（`extension_dir`）：
 
     ```bash
     php -i | grep "extension_dir"
     ```
 
-3. Change directories to the returned folder and ensure `mysqlnd_azure.so` is located in this folder. 
+3. 將目錄變更為傳回的資料夾，並確定 `mysqlnd_azure.so` 位於此資料夾中。 
 
-4. Locate the folder for .ini files by running the below: 
+4. 執行下列程式，找出 .ini 檔案的資料夾： 
 
     ```bash
     php -i | grep "dir for additional .ini files"
     ```
 
-5. Change directories to this returned folder. 
+5. 將目錄變更為這個傳回的資料夾。 
 
-6. Create a new .ini file for `mysqlnd_azure`. Make sure the alphabet order of the name is after that of mysqnld, since the modules are loaded according to the name order of the ini files. For example, if `mysqlnd` .ini is named `10-mysqlnd.ini`, name the mysqlnd ini as `20-mysqlnd-azure.ini`.
+6. 建立 `mysqlnd_azure`的新 .ini 檔案。 請確定名稱的字母順序是在 mysqnld 之後，因為模組是根據 ini 檔案的名稱順序載入。 例如，如果 `mysqlnd` .ini 的名稱是 `10-mysqlnd.ini`，請將 mysqlnd ini 命名為 `20-mysqlnd-azure.ini`。
 
-7. Within the new .ini file, add the following lines to enable redirection.
+7. 在新的 .ini 檔案中，新增下列幾行以啟用重新導向。
 
     ```bash
     extension=mysqlnd_azure
@@ -68,51 +68,51 @@ Redirection is currently only supported when SSL is enabled. 如需如何設定 
 
 ### <a name="windows"></a>Windows
 
-#### <a name="prerequisites"></a>必要條件 
-- PHP versions 7.2.15+ and 7.3.2+
+#### <a name="prerequisites"></a>先決條件 
+- PHP 版本 7.2.15 + 和 7.3.2 +
 - php-mysql
-- Azure Database for MySQL server with SSL enabled
+- 已啟用 SSL 的適用於 MySQL 的 Azure 資料庫伺服器
 
-1. Determine if you are running a x64 or x86 version of PHP by running the following command:
+1. 藉由執行下列命令來判斷您是否正在執行 x64 或 x86 版本的 PHP：
 
     ```cmd
     php -i | findstr "Thread"
     ```
 
-2. Download the corresponding x64 or x86 version of the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) DLL from [PECL](https://pecl.php.net/package/mysqlnd_azure) that matches your version of PHP. 
+2. 從符合您 PHP 版本的[PECL](https://pecl.php.net/package/mysqlnd_azure)下載對應的 x64 或 x86 版本的[mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) DLL。 
 
-3. Extract the zip file and find the DLL named `php_mysqlnd_azure.dll`.
+3. 解壓縮 zip 檔案，並尋找名為 `php_mysqlnd_azure.dll`的 DLL。
 
-4. Locate the extension directory (`extension_dir`) by running the below command:
+4. 執行下列命令，找出延伸目錄（`extension_dir`）：
 
     ```cmd
     php -i | find "extension_dir"s
     ```
 
-5. Copy the `php_mysqlnd_azure.dll` file into the directory returned in step 4. 
+5. 將 `php_mysqlnd_azure.dll` 檔案複製到步驟4中傳回的目錄。 
 
-6. Locate the PHP folder containing the `php.ini` file using the following command:
+6. 使用下列命令，找出包含 `php.ini` 檔案的 PHP 資料夾：
 
     ```cmd
     php -i | find "Loaded Configuration File"
     ```
 
-7. Modify the `php.ini` file and add the following extra lines to enable redirection. 
+7. 修改 `php.ini` 檔案並新增下列額外的行，以啟用重新導向。 
 
-    Under the Dynamic Extensions section: 
+    在 [動態擴充] 區段底下： 
     ```cmd
     extension=mysqlnd_azure
     ```
     
-    Under the Module Settings section:     
+    在 [模組設定] 區段底下：     
     ```cmd 
     [mysqlnd_azure]
     mysqlnd_azure.enabled=on
     ```
 
-### <a name="confirm-redirection"></a>Confirm redirection
+### <a name="confirm-redirection"></a>確認重新導向
 
-You can also confirm redirection is configured with the below sample PHP code. Create a PHP file called `mysqlConnect.php` and paste the below code. Update the server name, username, and password with your own. 
+您也可以使用下列範例 PHP 程式碼來確認重新導向。 建立名為 `mysqlConnect.php` 的 PHP 檔案，並貼上下列程式碼。 以您自己的名稱、使用者名稱和密碼來補救伺服器。 
  
  ```php
 <?php

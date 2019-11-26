@@ -1,7 +1,7 @@
 ---
-title: 'Join Data: Module Reference'
+title: 聯結資料：模組參考
 titleSuffix: Azure Machine Learning
-description: Learn how to use the join Join Data module in Azure Machine Learning to merge datasets.
+description: 瞭解如何使用 Azure Machine Learning 中的聯結聯結資料模組來合併資料集。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -18,54 +18,54 @@ ms.locfileid: "74232612"
 ---
 # <a name="join-data"></a>聯結資料
 
-This article describes how to use the **Join Data** module in Azure Machine Learning designer (preview) to merge two datasets using a database-style join operation.  
+本文描述如何在 Azure Machine Learning 設計師（預覽）中使用**聯結資料**模組，以使用資料庫樣式的聯結作業來合併兩個資料集。  
 
-## <a name="how-to-configure-join-data"></a>How to configure Join Data
+## <a name="how-to-configure-join-data"></a>如何設定聯結資料
 
-To perform a join on two datasets, they should be related by a key column. Composite keys using multiple columns are also supported. 
+若要在兩個資料集上執行聯結，它們應該與索引鍵資料行相關。 也支援使用多個資料行的複合索引鍵。 
 
-1. Add the datasets you want to combine, and then drag the **Join Data** module into your pipeline. 
+1. 新增您想要合併的資料集，然後將**聯結資料**模組拖曳到您的管線中。 
 
-    You can find the module in the **Data Transformation** category, under **Manipulation**.
+    您可以在 [**資料轉換**] 分類中的 [**操作**] 底下找到模組。
 
-1. Connect the datasets to the **Join Data** module. 
+1. 將資料集連接到**聯結資料**模組。 
  
-1. Select **Launch column selector** to choose key column(s). Remember to choose columns for both the left and right inputs.
+1. 選取 [**啟動資料行選取器**]，選擇索引鍵資料行。 請記得選擇左側和右側輸入的資料行。
 
-    For a single key:
+    針對單一索引鍵：
 
-    Select a single key column for both inputs.
+    針對這兩個輸入選取單一索引鍵資料行。
     
-    For a composite key:
+    針對複合索引鍵：
 
-    Select all the key columns from left input and right input in the same order. The **Join Data** module will join the tables when all key columns match. Check the option **Allow duplicates and preserve column order in selection** if the column order isn't the same as the original table. 
+    以相同的順序，從左側輸入和右側輸入中選取所有索引鍵資料行。 **聯結資料**模組會在所有索引鍵資料行都相符時聯結資料表。 如果資料行順序與原始資料表不相同，請核取 [**允許重複專案並保留資料行順序**] 選項。 
 
     ![資料行選取器](media/module/join-data-column-selector.png)
 
 
-1. Select the **Match case** option if you want to preserve case sensitivity on a text column join. 
+1. 如果您想要保留文字資料行聯結的區分大小寫，請選取 [**符合大小寫**] 選項。 
    
-1. Use the **Join type** dropdown list to specify how the datasets should be combined.  
+1. 使用 [**聯結類型**] 下拉式清單，指定資料集的結合方式。  
   
-    * **Inner Join**: An *inner join* is the most common join operation. It returns the combined rows only when the values of the key columns match.  
+    * **內部聯結**：*內部聯結*是最常見的聯結作業。 只有當索引鍵資料行的值相符時，它才會傳回合並的資料列。  
   
-    * **Left Outer Join**: A *left outer join* returns joined rows for all rows from the left table. When a row in the left table has no matching rows in the right table, the returned row contains missing values for all columns that come from the right table. You can also specify a replacement value for missing values.  
+    * **左方外部聯結**：*左方外部聯結*會傳回左側資料表中所有資料列的聯結資料列。 當左資料表中的資料列在右資料表中沒有相符的資料列時，傳回的資料列會包含來自右資料表之所有資料行的遺漏值。 您也可以指定遺漏值的取代值。  
   
-    * **Full Outer Join**: A *full outer join* returns all rows from the left table (**table1**) and from the right table (**table2**).  
+    * **完整外部聯結**：*完整外部聯結*會傳回左側資料表（**table1**）和右資料表（**table2**）中的所有資料列。  
   
-         For each of the rows in either table that have no matching rows in the other, the result includes a row containing missing values.  
+         對於任一資料表中不符合另一個資料列的每個資料列，結果會包含包含遺漏值的資料列。  
   
-    * **Left Semi-Join**: A *left semi-join* returns only the values from the left table when the values of the key columns match.  
+    * **左方半聯結**：當索引鍵資料行的值相符時，*左方半聯結*只會傳回左側資料表中的值。  
 
-1. For the option **Keep right key columns in joined table**:
+1. 針對 [**在聯結資料表中保留正確**的索引鍵資料行] 選項：
 
-    * Select this option to view the keys from both input tables.
-    * Deselect to only return the key columns from the left input.
+    * 選取此選項可同時從兩個輸入資料表中查看索引鍵。
+    * 取消選取即可只傳回左邊輸入的索引鍵資料行。
 
-1. Run the pipeline, or select the Join Data module and selected **Run Selected** to perform the join.
+1. 執行管線，或選取 [聯結資料] 模組，選取的 **[執行] 以執行**聯結。
 
-1. To view the results, right-click the **Join Data** > **Results dataset** > **Visualize**.
+1. 若要查看結果，請以滑鼠右鍵按一下 [**聯結資料** > **結果資料集**] > [**視覺化**]。
 
 ## <a name="next-steps"></a>後續步驟
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

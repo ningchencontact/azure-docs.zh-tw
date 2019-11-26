@@ -1,6 +1,6 @@
 ---
-title: Designing Azure Functions for identical input
-description: Building Azure Functions to be idempotent
+title: 為相同的輸入設計 Azure Functions
+description: 建立具有等冪性的 Azure Functions
 author: craigshoemaker
 ms.author: cshoe
 ms.date: 9/12/2019
@@ -12,34 +12,34 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74226864"
 ---
-# <a name="designing-azure-functions-for-identical-input"></a>Designing Azure Functions for identical input
+# <a name="designing-azure-functions-for-identical-input"></a>為相同的輸入設計 Azure Functions
 
-The reality of event-driven and message-based architecture dictates the need to accept identical requests while preserving data integrity and system stability.
+事件驅動和以訊息為基礎的架構的現實，表示需要接受相同的要求，同時保留資料完整性和系統穩定性。
 
-To illustrate, consider an elevator call button. As you press the button, it lights up and an elevator is sent to your floor. A few moments later, someone else joins you in the lobby. This person smiles at you and presses the illuminated button a second time. You smile back and chuckle to yourself as you're reminded that the command to call an elevator is idempotent.
+為了說明，請考慮電梯呼叫按鈕。 當您按下按鈕時，它會亮起，而電梯會傳送到您的樓層。 幾分鐘後，其他人會在您的大廳中加入您。 這個人會肯定您，然後按第二次按下亮起的按鈕。 當您提醒自己呼叫電梯的命令為等冪時，您會回頭回顧並 chuckle。
 
-Pressing an elevator call button a second, third, or fourth time has no bearing on the final result. When you press the button, regardless of the number of times, the elevator is sent to your floor. Idempotent systems, like the elevator, result in the same outcome no matter how many times identical commands are issued.
+在第二、第三或第四次按下電梯呼叫按鈕，並不會影響最終結果。 當您按下按鈕時，不論是多少次，電梯都會傳送到您的樓層。 等冪系統（例如電梯）會產生相同的結果，不論發出相同命令的次數為何。
 
-When it comes to building applications, consider the following scenarios:
+建立應用程式時，請考慮下列案例：
 
-- What happens if your inventory control application tries to delete the same product more than once?
-- How does your human resource application behave if there is more than one request to create an employee record for the same person?
-- Where does the money go if your banking app gets 100 requests to make the same withdrawal?
+- 如果您的清查控制應用程式嘗試多次刪除相同的產品，會發生什麼事？
+- 如果有一個以上的要求建立同一人的員工記錄，您的人力資源應用程式如何運作？
+- 如果您的銀行應用程式取得100要求以進行相同提款，該怎麼辦？
 
-There are many contexts where requests to a function may receive identical commands. Some situations include:
+在許多情況下，函數的要求可能會收到相同的命令。 某些情況包括：
 
-- Retry policies sending the same request many times
-- Cached commands replayed to the application
-- Application errors sending multiple identical requests
+- 多次傳送相同要求的重試原則
+- 重新執行至應用程式的快取命令
+- 傳送多個相同要求的應用程式錯誤
 
-To protect data integrity and system health, an idempotent application contains logic that may contain the following behaviors:
+為了保護資料完整性和系統健全狀況，等冪應用程式包含可能包含下列行為的邏輯：
 
-- Verifying of the existence of data before trying to execute a delete
-- Checking to see if data already exists before trying to execute a create action
-- Reconciling logic that creates eventual consistency in data
-- Concurrency controls
-- Duplication detection
-- Data freshness validation
-- Guard logic to verify input data
+- 嘗試執行刪除之前確認資料是否存在
+- 嘗試執行建立動作之前，檢查資料是否已存在
+- 協調在資料中建立最終一致性的邏輯
+- 並行控制
+- 重複偵測
+- 資料有效性驗證
+- 保護驗證輸入資料的邏輯
 
-Ultimately idempotency is achieved by ensuring a given action is possible and is only executed once.
+最終等冪性是藉由確保指定的動作可行，而且只會執行一次。

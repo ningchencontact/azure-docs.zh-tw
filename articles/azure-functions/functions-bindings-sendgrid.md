@@ -29,7 +29,7 @@ ms.locfileid: "74231093"
 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet 套件版本 3.x 中提供了 SendGrid 繫結。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub 存放庫中。
 
 > [!NOTE]
-> Version 2.x does not create the topic or subscription configured in the `ServiceBusTrigger` instance. Version 2.x is based on [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) and does not handle queue management.
+> 2\.x 版不會建立在 `ServiceBusTrigger` 實例中設定的主題或訂用帳戶。 2\.x 版是以[Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)為基礎，而且不會處理佇列管理。
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -162,7 +162,7 @@ public class Message
 
 ### <a name="java-example"></a>Java 範例
 
-The following example uses the `@SendGridOutput` annotation from the [Java functions runtime library](/java/api/overview/azure/functions/runtime) to send an email using the SendGrid output binding.
+下列範例會使用 JAVA 函式執行時間連結[庫](/java/api/overview/azure/functions/runtime)中的 `@SendGridOutput` 注釋，以使用 SendGrid 輸出系結來傳送電子郵件。
 
 ```java
 @FunctionName("SendEmail")
@@ -286,7 +286,7 @@ public static void Run(
 
 |屬性  |預設值 | 描述 |
 |---------|---------|---------| 
-|from|n/a|所有函式的寄件者電子郵件地址。| 
+|從|n/a|所有函式的寄件者電子郵件地址。| 
 
 
 ## <a name="next-steps"></a>後續步驟

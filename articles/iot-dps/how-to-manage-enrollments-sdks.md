@@ -1,5 +1,5 @@
 ---
-title: Manage device enrollments using Azure DPS SDKs
+title: 使用 Azure DPS Sdk 管理裝置註冊
 description: 如何在 IoT 中樞裝置佈建服務中使用服務 SDK 管理裝置註冊
 author: robinsh
 ms.author: robinsh
@@ -17,14 +17,14 @@ ms.locfileid: "74228809"
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>如何使用 Azure 裝置佈建服務 SDK 管理裝置註冊
 「裝置註冊」會建立單一裝置或裝置群組的記錄，這些裝置可能會在某個時間點向裝置佈建服務進行註冊。 註冊記錄包含屬於該註冊一部分之裝置一開始所需的設定，包括所需的 IoT 中樞。 本文會示範如何針對您的佈建服務使用 Azure IoT 佈建服務 SDK，以程式設計方式管理裝置註冊。  這些 SDK 可從 GitHub 上取得，其位在與 Azure IoT SDK 相同的存放庫中。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 從裝置佈建服務執行個體取得連接字串。
 * 取得所使用之[證明機制](concepts-security.md#attestation-mechanism)的裝置安全性構件：
     * [**信賴平台模組 (TPM)** ](/azure/iot-dps/concepts-security#trusted-platform-module)：
         * 個別註冊：來自實體裝置或 TPM 模擬器的註冊識別碼和 TPM 簽署金鑰。
         * 註冊群組不適用 TPM 證明。
     * [**X.509**](/azure/iot-dps/concepts-security)：
-        * 個別註冊：來自實體裝置或 SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) 模擬器的[分葉憑證](/azure/iot-dps/concepts-security)。
+        * 個別註冊：來自實體裝置或 SDK [DICE](/azure/iot-dps/concepts-security) 模擬器的[分葉憑證](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)。
         * 註冊群組：[CA/根憑證](/azure/iot-dps/concepts-security#root-certificate)或[中繼憑證](/azure/iot-dps/concepts-security#intermediate-certificate)，用來在實體裝置上產生裝置憑證。  也可以從 SDK DICE 模擬器產生。
 * 確切的 API 呼叫可能因語言不同而有所不同。 請檢閱 GitHub 上提供的範例以取得詳細資訊：
    * [JAVA 佈建服務用戶端範例](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
@@ -39,18 +39,18 @@ ms.locfileid: "74228809"
     您可以依照此工作流程使用 SDK 建立註冊群組：
 
     1. 註冊群組的證明機制使用 X.509 根憑證。  使用根憑證呼叫服務 SDK API ```X509Attestation.createFromRootCertificate``` 以建立註冊的證明。  X.509 根憑證會以 PEM 檔案或以字串形式提供。
-    1. 使用已建立的 ```attestation``` 及唯一的 ```enrollmentGroupId``` 建立新 ```EnrollmentGroup``` 變數。  (選擇性) 您可以設定參數如 ```Device ID```、```IoTHubHostName```、```ProvisioningStatus```。
-    2. 使用 ```EnrollmentGroup``` 在後端應用程式中呼叫服務 SDK API ```createOrUpdateEnrollmentGroup```，以建立註冊群組。
+    1. 使用已建立的 ```EnrollmentGroup``` 及唯一的 ```attestation``` 建立新 ```enrollmentGroupId``` 變數。  (選擇性) 您可以設定參數如 ```Device ID```、```IoTHubHostName```、```ProvisioningStatus```。
+    2. 使用 ```createOrUpdateEnrollmentGroup``` 在後端應用程式中呼叫服務 SDK API ```EnrollmentGroup```，以建立註冊群組。
 
-* **個別註冊**是可能會註冊之單一裝置的項目。 個別註冊可使用 X.509 憑證或 SAS 權杖 (從實際或虛擬的 TPM) 來作為證明機制。 對於需要唯一初始設定的裝置，或是只能透過 TPM 或虛擬 TPM 使用 SAS 權杖作為證明機制的裝置，建議您使用個別註冊。 個別註冊可能會指定所需的 IoT 中樞裝置識別碼。
+* **個別註冊**是可能會註冊之單一裝置的項目。 個別註冊可使用 X.509 憑證或 SAS 權杖 (從實際或虛擬的 TPM) 來作為證明機制。 對於需要唯一初始設定的裝置，或是只能透過 TPM 或虛擬 TPM 使用 SAS 權杖作為證明機制的裝置，建議您使用個別註冊。 個別申請可能會指定所需的 IoT 中樞裝置識別碼。
 
     您可以依照此工作流程使用 SDK 建立個別註冊：
     
     1. 選擇您的 ```attestation``` 機制，可以是 TPM 或 X.509。
         1. **TPM**：從實體裝置或 TPM 模擬器使用簽署金鑰作為輸入，您可以呼叫服務 SDK API ```TpmAttestation``` 以建立註冊證明。 
         2. **X.509**：使用用戶端憑證作為輸入，您可以呼叫服務 SDK API ```X509Attestation.createFromClientCertificate``` 以建立註冊證明。
-    2. 使用已建立的 ```attestation``` 及唯一的 ```registrationId``` 建立新 ```IndividualEnrollment``` 變數作為輸入，其位於您的裝置上或從 TPM 模擬器所產生。  (選擇性) 您可以設定參數如 ```Device ID```、```IoTHubHostName```、```ProvisioningStatus```。
-    3. 使用 ```IndividualEnrollment``` 在後端應用程式中呼叫服務 SDK API ```createOrUpdateIndividualEnrollment```，以建立個別註冊。
+    2. 使用已建立的 ```IndividualEnrollment``` 及唯一的 ```attestation``` 建立新 ```registrationId``` 變數作為輸入，其位於您的裝置上或從 TPM 模擬器所產生。  (選擇性) 您可以設定參數如 ```Device ID```、```IoTHubHostName```、```ProvisioningStatus```。
+    3. 使用 ```createOrUpdateIndividualEnrollment``` 在後端應用程式中呼叫服務 SDK API ```IndividualEnrollment```，以建立個別註冊。
 
 在您成功建立註冊之後，裝置佈建服務會傳回註冊結果。 此工作流程會在[先前所述的](#prerequisites)範例中示範。
 
@@ -72,8 +72,8 @@ ms.locfileid: "74228809"
 
 ## <a name="remove-an-enrollment-entry"></a>移除註冊項目
 
-* **個別註冊**可藉由使用 ```registrationId``` 呼叫服務 SDK API ```deleteIndividualEnrollment``` 來予以刪除。
-* **群組註冊**可藉由使用 ```enrollmentGroupId``` 呼叫服務 SDK API ```deleteEnrollmentGroup``` 來予以刪除。
+* **個別註冊**可藉由使用 ```deleteIndividualEnrollment``` 呼叫服務 SDK API ```registrationId``` 來予以刪除。
+* **群組註冊**可藉由使用 ```deleteEnrollmentGroup``` 呼叫服務 SDK API ```enrollmentGroupId``` 來予以刪除。
 
 此工作流程會在[先前所述的](#prerequisites)範例中示範。
 
@@ -82,7 +82,7 @@ ms.locfileid: "74228809"
 您可以依照此工作流程執行大量作業，以建立、更新或移除多項個別註冊：
 
 1. 建立包含多個 ```IndividualEnrollment``` 的變數。  針對每種語言，此變數的實作皆不相同。  檢閱 GitHub 上的大量作業範例以取得詳細資訊。
-2. 使用所需作業的 ```BulkOperationMode``` 與個別註冊的變數來呼叫服務 SDK API ```runBulkOperation```。 支援下列四種模式：建立、更新、updateIfMatchEtag 和刪除。
+2. 使用所需作業的 ```runBulkOperation``` 與個別註冊的變數來呼叫服務 SDK API ```BulkOperationMode```。 支援下列四種模式：建立、更新、updateIfMatchEtag 和刪除。
 
 在您成功執行作業之後，裝置佈建服務會傳回大量作業的結果。
 

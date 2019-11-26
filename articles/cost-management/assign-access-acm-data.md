@@ -1,5 +1,5 @@
 ---
-title: Assign access to Azure Cost Management data
+title: 將存取權指派給 Azure 成本管理資料
 description: 本文逐步引導您針對不同存取範圍，指派對 Azure 成本管理資料的權限。
 services: cost-management
 keywords: ''
@@ -19,11 +19,11 @@ ms.locfileid: "74219838"
 ---
 # <a name="assign-access-to-cost-management-data"></a>指派成本管理資料的存取權
 
-對於具有 Azure Enterprise 合約的使用者，在 Azure 入口網站和企業 (EA) 入口網站中授與的權限組合，定義了使用者對 Azure 成本管理資料的存取權層級。 For users with other Azure account types, defining a user's level of access to Cost Management data is simpler by using Azure role-based access control. 本文逐步引導您指派對 Azure 成本管理資料的存取權。 指派權限組合之後，使用者依他們有存取權的範圍和他們在 Azure 入口網站中選取的範圍，來檢視成本管理中的資料。
+對於具有 Azure Enterprise 合約的使用者，在 Azure 入口網站和企業 (EA) 入口網站中授與的權限組合，定義了使用者對 Azure 成本管理資料的存取權層級。 針對具有其他 Azure 帳戶類型的使用者，使用 Azure 角色型存取控制來定義使用者對成本管理資料的存取層級會比較簡單。 本文逐步引導您指派對 Azure 成本管理資料的存取權。 指派權限組合之後，使用者依他們有存取權的範圍和他們在 Azure 入口網站中選取的範圍，來檢視成本管理中的資料。
 
 使用者選取的範圍使用於成本管理，以提供資料彙總及控制對成本資訊的存取權。 使用範圍時，使用者不能多重選取範圍。 相反地，他們是選取子範圍彙總至的較大範圍，然後再篩選出想要檢視的部分。 請務必了解資料彙總，因為有些人員不應存取子範圍所彙總至的父範圍。
 
-Watch the [How to assign access with Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) video to learn about assigning access to view costs and charges with Azure role-based access control.
+觀看[如何使用 Azure 成本管理影片來指派存取](https://www.youtube.com/watch?v=J997ckmwTa8)權，以瞭解如何使用 Azure 角色型存取控制來指派存取權，以查看成本和費用。
 
 >[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
@@ -37,12 +37,12 @@ Watch the [How to assign access with Azure Cost Management](https://www.youtube.
 
 | **範圍** | **定義於** | **檢視資料所需的存取權** | **事先的 EA 設定** | **資料彙總至** |
 | --- | --- | --- | --- | --- |
-| 計費帳戶<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | 企業管理員 | None | Enterprise 合約中的所有訂用帳戶 |
-| 部門 | [https://ea.azure.com](https://ea.azure.com/) | 部門管理員 | 啟用 **DA 檢視費用** | 連結至部門的註冊帳戶所含的所有訂用帳戶 |
+| 計費帳戶<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | 企業管理員 | 無 | Enterprise 合約中的所有訂用帳戶 |
+| Department | [https://ea.azure.com](https://ea.azure.com/) | 部門管理員 | 啟用 **DA 檢視費用** | 連結至部門的註冊帳戶所含的所有訂用帳戶 |
 | 註冊帳戶<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | 帳戶擁有者 | 啟用 **AO 檢視費用** | 註冊帳戶中的所有訂用帳戶 |
 | 管理群組 | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 管理群組下的所有訂用帳戶 |
-| Subscription | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 訂用帳戶中的所有資源/資源群組 |
-| Resource group | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 資源群組中的所有資源 |
+| 訂閱 | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 訂用帳戶中的所有資源/資源群組 |
+| 資源群組 | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 資源群組中的所有資源 |
 
 <sup>1</sup> 帳單帳戶也稱為「Enterprise 合約」或「註冊」。
 
@@ -62,9 +62,9 @@ Watch the [How to assign access with Azure Cost Management](https://www.youtube.
 
 - Azure 帳戶
 - 管理群組
-- Resource group
+- 資源群組
 
-Various scopes are available after partners onboard customers to a Microsoft Customer Agreement. CSP customers can then use Cost Management features when enabled by their CSP partner. For more information, see [Get started with Azure Cost Management for partners](get-started-partners.md).
+在合作夥伴將客戶上線至 Microsoft 客戶合約之後，就可以使用各種範圍。 然後，CSP 客戶可以在其 CSP 合作夥伴啟用時，使用成本管理功能。 如需詳細資訊，請參閱[開始使用 Azure 成本管理取得合作夥伴](get-started-partners.md)。
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>在 EA 入口網站中啟用對成本的存取權
 
@@ -131,53 +131,53 @@ Various scopes are available after partners onboard customers to a Microsoft Cus
 
 ## <a name="assign-management-group-scope-access"></a>指派管理群組範圍存取權
 
-Access to view the management group scope requires at least the Cost Management Reader (or Reader) permission. 您可以在 Azure 入口網站中設定對管理群組的權限。 您必須至少有管理群組的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且針對 Azure EA 帳戶，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
+查看管理群組範圍的存取權至少需要成本管理的讀者（或讀者）許可權。 您可以在 Azure 入口網站中設定對管理群組的權限。 您必須至少有管理群組的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且針對 Azure EA 帳戶，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
 
-1. 登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
+1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 2. 在側邊欄中選取 [所有服務]，再搜尋「管理群組」，然後選取 [管理群組]。
 3. 您可以選取階層中的管理群組。
 4. 在您管理群組的旁邊，按一下 [詳細資料]。
 5. 從左窗格中選取 [存取控制 (IAM)]。
-6. 按一下 [新增]。
+6. 按一下頁面底部的 [新增]。
 7. 在 [角色] 底下，選取 [成本管理讀者]。
 8. 在 [存取權指派對象為] 底下，選取 [Azure AD 使用者、群組或應用程式]。
 9. 若要指派存取權，搜尋並選取使用者。
-10. 按一下 [儲存]。  
+10. 按一下 [檔案]。  
     ![管理群組的 [新增權限] 方塊中的範例資訊](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>指派訂用帳戶範圍存取權
 
 對訂用帳戶的存取權至少需要成本管理讀者 (或讀者) 權限。 您可以在 Azure 入口網站中設定對訂用帳戶的權限。 您必須至少有訂用帳戶的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且針對 Azure EA 帳戶，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
 
-1. 登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
+1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 2. 在側邊欄中選取 [所有服務]，再搜尋「訂用帳戶」，然後選取 [訂用帳戶]。
-3. 選取您的訂用帳戶。
+3. 選取您的訂閱。
 4. 從左窗格中選取 [存取控制 (IAM)]。
-5. 按一下 [新增]。
+5. 按一下頁面底部的 [新增]。
 6. 在 [角色] 底下，選取 [成本管理讀者]。
 7. 在 [存取權指派對象為] 底下，選取 [Azure AD 使用者、群組或應用程式]。
 8. 若要指派存取權，搜尋並選取使用者。
-9. 按一下 [儲存]。
+9. 按一下 [檔案]。
 
 ## <a name="assign-resource-group-scope-access"></a>指派資源群組範圍存取權
 
 對資源群組的存取權至少需要成本管理讀者 (或讀者) 權限。 您可以在 Azure 入口網站中設定對資源群組的權限。 您必須至少有資源群組的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且針對 Azure EA 帳戶，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
 
-1. 登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
+1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 2. 在側邊欄中選取 [所有服務]，再搜尋「資源群組」，然後選取 [資源群組]。
 3. 選取您的資源群組。
 4. 從左窗格中選取 [存取控制 (IAM)]。
-5. 按一下 [新增]。
+5. 按一下頁面底部的 [新增]。
 6. 在 [角色] 底下，選取 [成本管理讀者]。
 7. 在 [存取權指派對象為] 底下，選取 [Azure AD 使用者、群組或應用程式]。
 8. 若要指派存取權，搜尋並選取使用者。
-9. 按一下 [儲存]。
+9. 按一下 [檔案]。
 
-## <a name="cross-tenant-authentication-issues"></a>Cross-tenant authentication issues
+## <a name="cross-tenant-authentication-issues"></a>跨租使用者驗證問題
 
-Currently, Azure Cost Management has limited support for cross-tenant authentication. In some circumstances when you try to authenticate across tenants, you may receive an **Access denied** error in cost analysis. This issue might occur if you configure role-based access control (RBAC) to another tenant's subscription and then try to view cost data.
+目前，Azure 成本管理對跨租使用者驗證的支援有限。 在某些情況下，當您嘗試在租使用者之間進行驗證時，您可能會在成本分析中收到「**拒絕存取**」錯誤。 如果您將角色型存取控制（RBAC）設定為另一個租使用者的訂用帳戶，然後嘗試查看成本資料，則可能會發生此問題。
 
-*To work around the problem*: After you configure cross-tenant RBAC, wait an hour. Then, try to view costs in cost analysis or grant Cost Management access to users in both tenants.  
+*若要解決此問題*：設定跨租使用者 RBAC 之後，請等候一小時。 然後，嘗試在成本分析中查看成本，或將成本管理存取權授與這兩個租使用者中的使用者。  
 
 
 ## <a name="next-steps"></a>後續步驟

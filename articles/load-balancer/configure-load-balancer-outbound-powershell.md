@@ -1,7 +1,7 @@
 ---
-title: Configure load balancing and outbound rules by using Azure PowerShell
+title: 使用 Azure PowerShell 設定負載平衡和輸出規則
 titleSuffix: Azure Load Balancer
-description: This article shows how to configure load balancing and outbound rules in Standard Load Balancer by using Azure PowerShell.
+description: 本文說明如何使用 Azure PowerShell，在 Standard Load Balancer 中設定負載平衡和輸出規則。
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
@@ -15,15 +15,15 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74225435"
 ---
-# <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-azure-powershell"></a>Configure load balancing and outbound rules in Standard Load Balancer by using Azure PowerShell
+# <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-azure-powershell"></a>使用 Azure PowerShell 在 Standard Load Balancer 中設定負載平衡和輸出規則
 
-This article shows you how to configure outbound rules in Standard Load Balancer by using Azure PowerShell.  
+本文說明如何使用 Azure PowerShell 在 Standard Load Balancer 中設定輸出規則。  
 
-When you finish this article's scenario, the load balancer resource contains two front ends and their associated rules. You have one front end for inbound traffic and another front end for outbound traffic.  
+當您完成本文的案例時，負載平衡器資源會包含兩個前端和其相關聯的規則。 您有一個前端用於輸入流量，另一個前端用於輸出流量。  
 
-Each front end references a public IP address. In this scenario, the public IP address for inbound traffic is different from the address for outbound traffic.   The load-balancing rule provides only inbound load balancing. The outbound rule controls the outbound network address translation (NAT) for the VM.  
+每個前端都會參考公用 IP 位址。 在此案例中，輸入流量的公用 IP 位址與輸出流量的位址不同。   負載平衡規則只會提供輸入負載平衡。 輸出規則會控制 VM 的輸出網路位址轉譯（NAT）。  
 
-The scenario uses two back-end pools: one for inbound traffic and one for outbound traffic. These pools illustrate capability and provide flexibility for the scenario.
+此案例使用兩個後端集區：一個用於輸入流量，另一個用於輸出流量。 這些集區說明功能，並提供案例的彈性。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -37,7 +37,7 @@ Connect-AzAccount
 ```
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-Create a resource group by using [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). An Azure resource group is a logical container into which Azure resources are deployed. The resources are then managed from the group.
+使用[remove-azresourcegroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)建立資源群組。 Azure 資源群組是 Azure 資源部署所在的邏輯容器。 然後，系統會從群組管理資源。
 
 下列範例會在 eastus2 位置建立名為 myresourcegroupoutbound 的資源群組：
 
@@ -45,7 +45,7 @@ Create a resource group by using [New-AzResourceGroup](https://docs.microsoft.co
 New-AzResourceGroup -Name myresourcegroupoutbound -Location eastus
 ```
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
-Create a virtual network named *myvnetoutbound*. Name its subnet *mysubnetoutbound*. Place it in *myresourcegroupoutbound* by using [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=azps-2.6.0) and [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=azps-2.6.0).
+建立名為*myvnetoutbound*的虛擬網路。 將其子網命名為*myresourcegroupoutbound*。 使用[new-azvirtualnetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=azps-2.6.0)和[new-azvirtualnetworksubnetconfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=azps-2.6.0)將它放在*myresourcegroupoutbound*中。
 
 ```azurepowershell-interactive
 $subnet = New-AzVirtualNetworkSubnetConfig -Name mysubnetoutbound -AddressPrefix "192.168.0.0/24"
@@ -53,19 +53,19 @@ $subnet = New-AzVirtualNetworkSubnetConfig -Name mysubnetoutbound -AddressPrefix
 New-AzVirtualNetwork -Name myvnetoutbound -ResourceGroupName myresourcegroupoutbound -Location eastus -AddressPrefix "192.168.0.0/16" -Subnet $subnet
 ```
 
-## <a name="create-an-inbound-public-ip-address"></a>Create an inbound public IP address 
+## <a name="create-an-inbound-public-ip-address"></a>建立輸入公用 IP 位址 
 
-To access your web app on the internet, you need a public IP address for the load balancer. Standard Load Balancer supports only standard public IP addresses. 
+若要在網際網路上存取您的 web 應用程式，您需要負載平衡器的公用 IP 位址。 Standard Load Balancer 僅支援標準公用 IP 位址。 
 
-Use [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=azps-2.6.0) to create a standard public IP address named *mypublicipinbound* in *myresourcegroupoutbound*.
+使用[get-azpublicipaddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=azps-2.6.0)在*myresourcegroupoutbound*中建立名為*mypublicipinbound*的標準公用 IP 位址。
 
 ```azurepowershell-interactive
 $pubIPin = New-AzPublicIpAddress -ResourceGroupName myresourcegroupoutbound -Name mypublicipinbound -AllocationMethod Static -Sku Standard -Location eastus
 ```
 
-## <a name="create-an-outbound-public-ip-address"></a>Create an outbound public IP address 
+## <a name="create-an-outbound-public-ip-address"></a>建立輸出公用 IP 位址 
 
-Create a standard IP address for the load balancer's front-end outbound configuration by using [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=azps-2.6.0).
+使用[get-azpublicipaddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=azps-2.6.0)建立負載平衡器前端輸出設定的標準 IP 位址。
 
 ```azurepowershell-interactive
 $pubIPout = New-AzPublicIpAddress -ResourceGroupName myresourcegroupoutbound -Name mypublicipoutbound -AllocationMethod Static -Sku Standard -Location eastus
@@ -73,37 +73,37 @@ $pubIPout = New-AzPublicIpAddress -ResourceGroupName myresourcegroupoutbound -Na
 
 ## <a name="create-an-azure-load-balancer"></a>建立 Azure Load Balancer
 
-This section explains how to create and configure the following components of the load balancer:
-  - A front-end IP that receives the incoming network traffic on the load balancer
-  - A back-end pool where the front-end IP sends the load-balanced network traffic
-  - A back-end pool for outbound connectivity
-  - A health probe that determines the health of the back-end VM instances
-  - A load-balancer inbound rule that defines how traffic is distributed to the VMs
-  - A load-balancer outbound rule that defines how traffic is distributed from the VMs
+本節說明如何建立及設定下列負載平衡器元件：
+  - 接收負載平衡器上的連入網路流量的前端 IP
+  - 後端集區，前端 IP 會在其中傳送負載平衡的網路流量
+  - 輸出連線能力的後端集區
+  - 可判斷後端 VM 實例健康情況的健康情況探查
+  - 定義如何將流量分散至 Vm 的負載平衡器輸入規則
+  - 一種負載平衡器輸出規則，可定義如何從 Vm 散發流量
 
-### <a name="create-an-inbound-front-end-ip"></a>Create an inbound front-end IP
-Create the inbound front-end IP configuration for the load balancer by using [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig?view=azps-2.6.0). The load balancer should include an inbound front-end IP configuration named *myfrontendinbound*. Associate this configuration with the public IP address *mypublicipinbound*.
+### <a name="create-an-inbound-front-end-ip"></a>建立輸入前端 IP
+使用[new-azloadbalancerfrontendipconfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig?view=azps-2.6.0)建立負載平衡器的輸入前端 IP 設定。 負載平衡器應包含名為*myfrontendinbound*的輸入前端 IP 設定。 將此設定與公用 IP 位址*mypublicipinbound*建立關聯。
 
 ```azurepowershell-interactive
 $frontendIPin = New-AzLoadBalancerFrontendIPConfig -Name "myfrontendinbound" -PublicIpAddress $pubIPin
 ```
-### <a name="create-an-outbound-front-end-ip"></a>Create an outbound front-end IP
-Create the outbound front-end IP configuration for the load balancer by using [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig?view=azps-2.6.0). This load balancer should include an outbound front-end IP configuration named *myfrontendoutbound*. Associate this configuration with the public IP address *mypublicipoutbound*.
+### <a name="create-an-outbound-front-end-ip"></a>建立輸出前端 IP
+使用[new-azloadbalancerfrontendipconfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig?view=azps-2.6.0)建立負載平衡器的輸出前端 IP 設定。 此負載平衡器應包含名為*myfrontendoutbound*的輸出前端 IP 設定。 將此設定與公用 IP 位址*mypublicipoutbound*建立關聯。
 
 ```azurepowershell-interactive
 $frontendIPout = New-AzLoadBalancerFrontendIPConfig -Name "myfrontendoutbound" -PublicIpAddress $pubIPout
 ```
-### <a name="create-an-inbound-back-end-pool"></a>Create an inbound back-end pool
-Create the back-end inbound pool for the load balancer by using [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig?view=azps-2.6.0). Name the pool *bepoolinbound*.
+### <a name="create-an-inbound-back-end-pool"></a>建立輸入後端集區
+使用[new-azloadbalancerbackendaddresspoolconfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig?view=azps-2.6.0)建立負載平衡器的後端輸入集區。 將集區命名為*bepoolinbound*。
 
 ```azurepowershell-interactive
 $bepoolin = New-AzLoadBalancerBackendAddressPoolConfig -Name bepoolinbound
 ``` 
 
-### <a name="create-an-outbound-back-end-pool"></a>Create an outbound back-end pool
-Use the following command to create another back-end address pool to define outbound connectivity for a pool of VMs by using [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig?view=azps-2.6.0). Name this pool *bepooloutbound*. 
+### <a name="create-an-outbound-back-end-pool"></a>建立輸出後端集區
+使用下列命令建立另一個後端位址集區，以使用[new-azloadbalancerbackendaddresspoolconfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig?view=azps-2.6.0)定義 vm 集區的輸出連線能力。 將此集區命名為*bepooloutbound*。 
 
-By creating a separate outbound pool, you provide maximum flexibility. But you can omit this step and use only the inbound *bepoolinbound* if you prefer.  
+藉由建立個別的輸出集區，您可以提供最大的彈性。 但您可以省略此步驟，並在您偏好的情況下使用輸入*bepoolinbound* 。  
 
 ```azurepowershell-interactive
 $bepoolout = New-AzLoadBalancerBackendAddressPoolConfig -Name bepooloutbound
@@ -111,56 +111,56 @@ $bepoolout = New-AzLoadBalancerBackendAddressPoolConfig -Name bepooloutbound
 
 ### <a name="create-a-health-probe"></a>建立健康狀態探查
 
-A health probe checks all VM instances to make sure they can send network traffic. The VM instance that fails the probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. 
+健康情況探查會檢查所有 VM 實例，以確保它們可以傳送網路流量。 失敗探查檢查的 VM 實例會從負載平衡器中移除，直到它重新上線，探查檢查判斷其狀況良好為止。 
 
-To monitor the health of the VMs, create a health probe by using [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig?view=azps-2.6.0). 
+若要監視 Vm 的健康情況，請使用[new-azloadbalancerprobeconfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig?view=azps-2.6.0)建立健康狀態探查。 
 
 ```azurepowershell-interactive
 $probe = New-AzLoadBalancerProbeConfig -Name http -Protocol "http" -Port 80 -IntervalInSeconds 15 -ProbeCount 2 -RequestPath /
 ```
-### <a name="create-a-load-balancer-rule"></a>Create a load-balancer rule
+### <a name="create-a-load-balancer-rule"></a>建立負載平衡器規則
 
-A load-balancer rule defines the front-end IP configuration for the incoming traffic and the back-end pool to receive the traffic. It also defines the required source and destination port. 
+負載平衡器規則會定義連入流量的前端 IP 設定和後端集區，以接收流量。 它也會定義所需的來源和目的地埠。 
 
-Create a load-balancer rule named *myinboundlbrule* by using [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig?view=azps-2.6.0). This rule will listen to port 80 in the front-end pool *myfrontendinbound*. It will also use port 80 to send load-balanced network traffic to the back-end address pool *bepoolinbound*. 
+使用[add-azloadbalancerruleconfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig?view=azps-2.6.0)建立名為*myinboundlbrule*的負載平衡器規則。 此規則會接聽前端集區*myfrontendinbound*中的埠80。 它也會使用埠80，將負載平衡的網路流量傳送到後端位址集區*bepoolinbound*。 
 
 ```azurepowershell-interactive
 $inboundRule = New-AzLoadBalancerRuleConfig -Name inboundlbrule -FrontendIPConfiguration $frontendIPin -BackendAddressPool $bepoolin -Probe $probe -Protocol "Tcp" -FrontendPort 80 -BackendPort 80 -IdleTimeoutInMinutes 15 -EnableFloatingIP -LoadDistribution SourceIP -DisableOutboundSNAT
 ```
 
 >[!NOTE]
->This load-balancing rule disables automatic outbound secure NAT (SNAT) because of the **-DisableOutboundSNAT** parameter. Outbound NAT is provided only by the outbound rule.
+>由於 **-DisableOutboundSNAT**參數，此負載平衡規則會停用自動輸出安全 NAT （SNAT）。 輸出 NAT 僅由輸出規則提供。
 
 ### <a name="create-an-outbound-rule"></a>建立輸出規則
 
-An outbound rule defines the front-end public IP, which is represented by the front-end *myfrontendoutbound*. This front end will be used for all outbound NAT traffic as well as the back-end pool to which the rule applies.  
+輸出規則會定義前端*myfrontendoutbound*所代表的前端公用 IP。 此前端將用於所有輸出 NAT 流量，以及套用規則的後端集區。  
 
-Use the following command to create an outbound rule *myoutboundrule* for outbound network translation of all VMs (in NIC IP configurations) in the *bepool* back-end pool.  The command changes the outbound idle time-out from 4 to 15 minutes. It allocates 10,000 SNAT ports instead of 1,024. For more information, see [New-AzLoadBalancerOutboundRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalanceroutboundruleconfig?view=azps-2.7.0).
+使用下列命令，針對*bepool*後端集區中的所有 vm （在 NIC IP 設定中），建立輸出網路轉譯的輸出規則*myoutboundrule* 。  此命令會將輸出閒置時間從4變更為15分鐘。 它會配置 10000 SNAT 埠，而不是1024。 如需詳細資訊，請參閱[AzLoadBalancerOutboundRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalanceroutboundruleconfig?view=azps-2.7.0)。
 
 ```azurepowershell-interactive
  $outboundRule = New-AzLoadBalancerOutBoundRuleConfig -Name outboundrule -FrontendIPConfiguration $frontendIPout -BackendAddressPool $bepoolout -Protocol All -IdleTimeoutInMinutes 15 -AllocatedOutboundPort 10000
 ```
-If you don't want to use a separate outbound pool, you can change the address pool argument in the preceding command to specify *$bepoolin* instead.  We recommend using separate pools to make the resulting configuration flexible and readable.
+如果您不想要使用個別的輸出集區，您可以變更上述命令中的位址集區引數，改為指定 *$bepoolin* 。  我們建議使用不同的集區，讓產生的設定具有彈性且可讀取。
 
 ### <a name="create-a-load-balancer"></a>建立負載平衡器
 
-Use the following command to create a load balancer for the inbound IP address by using [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer?view=azps-2.6.0). Name the load balancer *lb*. It should include an inbound front-end IP configuration. Its back-end pool *bepoolinbound* should be associated with the public IP address *mypublicipinbound* that you created in the preceding step.
+使用下列命令，使用[remove-azloadbalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer?view=azps-2.6.0)建立輸入 IP 位址的負載平衡器。 將負載平衡器命名為*lb*。它應該包含輸入前端 IP 設定。 其後端集區*bepoolinbound*應該與您在上一個步驟中建立的公用 IP 位址*mypublicipinbound*相關聯。
 
 ```azurepowershell-interactive
 New-AzLoadBalancer -Name lb -Sku Standard -ResourceGroupName myresourcegroupoutbound -Location eastus -FrontendIpConfiguration $frontendIPin,$frontendIPout -BackendAddressPool $bepoolin,$bepoolout -Probe $probe -LoadBalancingRule $inboundrule -OutboundRule $outboundrule 
 ```
 
-At this point, you can continue adding your VMs to both *bepoolinbound* and *bepooloutbound* back-end pools by updating the IP configuration of the respective NIC resources. Update the resource configuration by using [Add-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
+此時，您可以藉由更新個別 NIC 資源的 IP 設定，繼續將您的 Vm 新增至*bepoolinbound*和*bepooloutbound*後端集區。 使用[AzNetworkInterfaceIpConfig](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest)更新資源設定。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-When you no longer need the resource group, load balancer, and related resources, you can remove them by using [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.7.0).
+當您不再需要資源群組、負載平衡器和相關資源時，可以使用[remove-azresourcegroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.7.0)將它們移除。
 
 ```azurepowershell-interactive 
   Remove-AzResourceGroup -Name myresourcegroupoutbound
 ```
 
 ## <a name="next-steps"></a>後續步驟
-In this article, you created a standard load balancer, configured both inbound and outbound load-balancer traffic rules, and configured a health probe for the VMs in the back-end pool. 
+在本文中，您已建立標準負載平衡器、設定輸入和輸出負載平衡器流量規則，並已針對後端集區中的 Vm 設定健康情況探查。 
 
-To learn more, continue to the [tutorials for Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
+若要深入瞭解，請繼續進行[Azure Load Balancer 的教學](tutorial-load-balancer-standard-public-zone-redundant-portal.md)課程。

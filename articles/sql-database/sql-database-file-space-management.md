@@ -1,5 +1,5 @@
 ---
-title: Single/pooled databases file space management
+title: 單一/集區資料庫檔案空間管理
 description: 此頁面描述如何管理 Azure SQL Database 中的單一和集區資料庫的檔案空間，並提供如何判斷您是否需要壓縮單一或集區資料庫，以及如何執行資料庫壓縮作業的程式碼範例。
 services: sql-database
 ms.service: sql-database
@@ -25,7 +25,7 @@ ms.locfileid: "74420978"
 > [!NOTE]
 > 本文不適用於 Azure SQL Database 中的受控執行個體部署選項。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 使用單一和集區資料庫 Azure SQL Database 時，某些工作負載模式的資料庫基礎資料檔案的配置可能會大於已使用資料頁數。 當使用的空間增加，隨後卻將資料刪除時，就會發生這種狀況。 原因是因為在資料刪除後，並不會自動回收已配置的檔案空間。
 
@@ -140,12 +140,12 @@ ORDER BY end_time DESC
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>配置的彈性集區資料空間與已配置但未使用的空間
 
-Modify the following examples to return a table listing the space allocated and unused allocated space for each database in an elastic pool. 此資料表會根據資料庫已配置但未使用的空間量，從最大至最小來排序資料庫。  查詢結果以 MB 為單位。  
+修改下列範例，以傳回一個資料表，其中列出彈性集區中每個資料庫的已配置空間和未使用的配置空間。 此資料表會根據資料庫已配置但未使用的空間量，從最大至最小來排序資料庫。  查詢結果以 MB 為單位。  
 
 以查詢判斷為集區中的每個資料庫配置的空間所產生的結果，可在加總後用來判斷為彈性集區配置的總空間。 配置的彈性集區空間不應超過彈性集區大小上限。  
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager （RM）模組，但所有未來的開發都是針對 Az .Sql 模組。 AzureRM 模組會繼續收到錯誤修正，直到2020年12月為止。  Az 模組和 AzureRm 模組中命令的引數本質上完全相同。 如需其相容性的詳細資訊，請參閱[新的 Azure PowerShell Az 模組簡介](/powershell/azure/new-azureps-module-az)。
 
 PowerShell 指令碼需要 SQL Server PowerShell 模組 – 請參閱[下載 PowerShell 模組](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module)以便安裝。
 
@@ -225,7 +225,7 @@ DBCC SHRINKDATABASE (N'db1')
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-如需有關此命令的詳細資訊，請參閱 [DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 選項。
+如需有關此命令的詳細資訊， [請參閱 ](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 選項。
 
 ### <a name="rebuild-indexes"></a>重建索引
 

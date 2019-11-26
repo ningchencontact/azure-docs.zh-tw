@@ -1,6 +1,6 @@
 ---
-title: Password protection operations and reports - Azure Active Directory
-description: Azure AD Password Protection post-deployment operations and reporting
+title: 密碼保護作業和報告-Azure Active Directory
+description: Azure AD 的密碼保護部署後作業和報告
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -28,7 +28,7 @@ ms.locfileid: "74381672"
 
 ## <a name="enable-password-protection"></a>啟用密碼保護
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory**, **Authentication methods**, then **Password Protection**.
+1. 登入[Azure 入口網站](https://portal.azure.com)，然後流覽至 [ **Azure Active Directory**]、[**驗證方法**] 和 [**密碼保護**]。
 1. 將 [啟用 Windows Server Active Directory 上的密碼保護] 設定為 [是]
 1. 如[部署指南](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy)所述，建議您一開始就將 [模式] 設定為 [稽核]
    * 對功能感到滿意後，您可以將 [模式] 切換為 [已強制]
@@ -56,11 +56,11 @@ ms.locfileid: "74381672"
 受影響的終端使用者可能需要與其 IT 人員合作，以了解新的需求，並更加能夠選擇安全的密碼。
 
 > [!NOTE]
-> Azure AD Password Protection has no control over the specific error message displayed by the client machine when a weak password is rejected.
+> 當弱式密碼遭到拒絕時，Azure AD 密碼保護無法控制用戶端電腦所顯示的特定錯誤訊息。
 
 ## <a name="enable-mode"></a>啟用模式
 
-This setting should be left in its default enabled (Yes) state. 將此設定設為停用 (否)，會導致所有已部署的 Azure AD 密碼保護 DC 代理程式進入靜止模式，依現況接受其中的所有密碼，而在任何情況下，都不會執行任何驗證活動 (例如，甚至不會發出稽核事件)。
+此設定應保持為其預設啟用（是）狀態。 將此設定設為停用 (否)，會導致所有已部署的 Azure AD 密碼保護 DC 代理程式進入靜止模式，依現況接受其中的所有密碼，而在任何情況下，都不會執行任何驗證活動 (例如，甚至不會發出稽核事件)。
 
 ## <a name="next-steps"></a>後續步驟
 

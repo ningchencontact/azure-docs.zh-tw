@@ -31,20 +31,20 @@ ASE 輸出相依性幾乎完全使用 FQDN 定義，它背後並沒有靜態位�
 保護輸出位址的解決方案在於使用可以根據網域名稱控制輸出流量的防火牆裝置。 Azure 防火牆可以依據目的地的 FQDN 限制 HTTP 和 HTTPS 流量輸出。  
 
 > [!NOTE]
-> At this moment, we can't fully lockdown the outbound connection currently.
+> 目前，我們無法完全鎖定輸出連接。
 
 ## <a name="system-architecture"></a>系統架構
 
-Deploying an ASE with outbound traffic going through a firewall device requires changing routes on the ASE subnet. Routes operate at an IP level. If you are not careful in defining your routes, you can force TCP reply traffic to source from another address. When your reply address is different from the address traffic was sent to, the problem is called asymmetric routing and it will break TCP.
+透過防火牆裝置部署具有輸出流量的 ASE，需要變更 ASE 子網上的路由。 路由會在 IP 層級運作。 如果您不小心定義路由，可以將 TCP 回復流量強制從另一個位址到來源。 當您的回復位址與傳送至的位址流量不同時，此問題稱為「非對稱式路由」，而它將會中斷 TCP。
 
-There must be routes defined so that inbound traffic to the ASE can reply back the same way the traffic came in. Routes must be defined for inbound management requests and for inbound application requests.
+必須定義路由，才能讓 ASE 的輸入流量以流量傳入的相同方式回復。 您必須針對輸入管理要求和輸入應用程式要求來定義路由。
 
-The traffic to and from an ASE must abide by the following conventions
+進出 ASE 的流量必須遵守下列慣例
 
-* The traffic to Azure SQL, Storage, and Event Hub are not supported with use of a firewall device. This traffic must be sent directly to those services. The way to make that happen is to configure service endpoints for those three services. 
-* Route table rules must be defined that send inbound management traffic back from where it came.
-* Route table rules must be defined that send inbound application traffic back from where it came. 
-* All other traffic leaving the ASE can be sent to your firewall device with a route table rule.
+* 使用防火牆裝置時，不支援 Azure SQL、儲存體和事件中樞的流量。 此流量必須直接傳送至這些服務。 進行這項操作的方法是設定這三個服務的服務端點。 
+* 您必須定義路由表規則，以將輸入管理流量從其來源傳送回來。
+* 必須定義路由表規則，將輸入應用程式流量從它的位置送回。 
+* 所有其他保留 ASE 的流量，都可以使用路由表規則傳送到您的防火牆裝置。
 
 ![具有 Azure 防火牆連線流程的 ASE][5]
 
@@ -52,7 +52,7 @@ The traffic to and from an ASE must abide by the following conventions
 
 使用 Azure 防火牆來鎖定現有 ASE 輸出流量的步驟如下：
 
-1. 在 ASE 子網路上為 SQL、儲存體和事件中樞啟用服務端點。 To enable service endpoints, go into the networking portal > subnets and select Microsoft.EventHub, Microsoft.SQL and Microsoft.Storage from the Service endpoints dropdown. 當您為 Azure SQL 啟用服務端點時，任何具有 Azure SQL 相依性的應用程式也必須設定服務端點。 
+1. 在 ASE 子網路上為 SQL、儲存體和事件中樞啟用服務端點。 若要啟用服務端點，請移至網路入口網站 > 子網，然後從 [服務端點] 下拉式清單中選取 [Microsoft]、[microsoft] 和 [Microsoft]。 當您為 Azure SQL 啟用服務端點時，任何具有 Azure SQL 相依性的應用程式也必須設定服務端點。 
 
    ![選取服務端點][2]
   
@@ -94,9 +94,9 @@ Azure 防火牆可以將記錄傳送至 Azure 儲存體、事件中樞或 Azure 
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
-Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+當您不知道所有應用程式相依性時，第一次讓應用程式運作時，將 Azure 防火牆與 Azure 監視器記錄整合會很有用。 您可以從[Azure 監視器中的分析記錄資料](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)，深入瞭解 Azure 監視器記錄。
  
-## <a name="dependencies"></a>相依項目
+## <a name="dependencies"></a>相依性
 
 當您想要設定 Azure 防 火牆以外的防火牆設備時，才需要下列資訊。 
 
@@ -108,7 +108,7 @@ Integrating your Azure Firewall with Azure Monitor logs is useful when first get
 
 #### <a name="service-endpoint-capable-dependencies"></a>服務端點功能相依性 
 
-| 端點 |
+| Endpoint |
 |----------|
 | Azure SQL |
 | Azure 儲存體 |
@@ -116,24 +116,24 @@ Integrating your Azure Firewall with Azure Monitor logs is useful when first get
 
 #### <a name="ip-address-dependencies"></a>IP 位址相依性
 
-| 端點 | 詳細資料 |
+| Endpoint | 詳細資料 |
 |----------| ----- |
 | \*:123 | NTP 時鐘檢查。 在連接埠 123 上的多個端點檢查流量 |
-| \*:12000 | 此連接埠用於某些系統監視。 If blocked, then some issues will be harder to triage but your ASE will continue to operate |
-| 40.77.24.27:80 | Needed to monitor and alert on ASE problems |
-| 40.77.24.27:443 | Needed to monitor and alert on ASE problems |
-| 13.90.249.229:80 | Needed to monitor and alert on ASE problems |
-| 13.90.249.229:443 | Needed to monitor and alert on ASE problems |
-| 104.45.230.69:80 | Needed to monitor and alert on ASE problems |
-| 104.45.230.69:443 | Needed to monitor and alert on ASE problems |
-| 13.82.184.151:80 | Needed to monitor and alert on ASE problems |
-| 13.82.184.151:443 | Needed to monitor and alert on ASE problems |
+| \*:12000 | 此連接埠用於某些系統監視。 如果遭到封鎖，則某些問題將難以分級，但您的 ASE 會繼續運作 |
+| 40.77.24.27：80 | 需要監視 ASE 問題併發出警示 |
+| 40.77.24.27:443 | 需要監視 ASE 問題併發出警示 |
+| 13.90.249.229：80 | 需要監視 ASE 問題併發出警示 |
+| 13.90.249.229:443 | 需要監視 ASE 問題併發出警示 |
+| 104.45.230.69：80 | 需要監視 ASE 問題併發出警示 |
+| 104.45.230.69:443 | 需要監視 ASE 問題併發出警示 |
+| 13.82.184.151：80 | 需要監視 ASE 問題併發出警示 |
+| 13.82.184.151:443 | 需要監視 ASE 問題併發出警示 |
 
 使用 Azure 防火牆，您可以自動獲得以下使用 FQDN 標記設定的所有內容。 
 
 #### <a name="fqdn-httphttps-dependencies"></a>FQDN HTTP/HTTPS 相依性 
 
-| 端點 |
+| Endpoint |
 |----------|
 |graph.windows.net:443 |
 |login.live.com:443 |
@@ -214,17 +214,17 @@ Integrating your Azure Firewall with Azure Monitor logs is useful when first get
 
 #### <a name="wildcard-httphttps-dependencies"></a>萬用字元 HTTP/HTTPS 相依性 
 
-| 端點 |
+| Endpoint |
 |----------|
 |gr-Prod-\*.cloudapp.net:443 |
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
-| \*.identity.azure.net:443 |
+| \*。 identity.azure.net:443 |
 
 #### <a name="linux-dependencies"></a>Linux 相依項目 
 
-| 端點 |
+| Endpoint |
 |----------|
 |wawsinfraprodbay063.blob.core.windows.net:443 |
 |registry-1.docker.io:443 |
@@ -235,7 +235,7 @@ Integrating your Azure Firewall with Azure Monitor logs is useful when first get
 |download.mono-project.com:80 |
 |packages.treasuredata.com:80|
 |security.ubuntu.com:80 |
-| \*.cdn.mscr.io:443 |
+| \*。 cdn.mscr.io:443 |
 |mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
 |packages.fluentbit.io:443 |
@@ -252,15 +252,15 @@ Integrating your Azure Firewall with Azure Monitor logs is useful when first get
 |40.76.35.62:11371 |
 |104.215.95.108:11371 |
 
-## <a name="us-gov-dependencies"></a>US Gov dependencies
+## <a name="us-gov-dependencies"></a>US Gov 相依性
 
-For US Gov you still need to set service endpoints for Storage, SQL and Event Hub.  You can also use Azure Firewall with the instructions earlier in this document. If you need to use your own egress firewall device, the endpoints are listed below.
+對於 US Gov，您仍然需要為儲存體、SQL 和事件中樞設定服務端點。  您也可以使用 Azure 防火牆，以及本檔稍早的指示。 如果您需要使用自己的輸出防火牆裝置，則端點如下所示。
 
-| 端點 |
+| Endpoint |
 |----------|
-| \*.ctldl.windowsupdate.com:80 |
-| \*.management.usgovcloudapi.net:80 |
-| \*.update.microsoft.com:80 |
+| \*。 ctldl.windowsupdate.com:80 |
+| \*。 management.usgovcloudapi.net:80 |
+| \*。 update.microsoft.com:80 |
 |admin.core.usgovcloudapi.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
@@ -303,9 +303,9 @@ For US Gov you still need to set service endpoints for Storage, SQL and Event Hu
 |management.usgovcloudapi.net:80 |
 |maupdateaccountff.blob.core.usgovcloudapi.net:80 |
 |mscrl.microsoft.com
-|ocsp.digicert.0 |
+|ocsp. digicert 0 |
 |ocsp.msocsp.co|
-|ocsp.verisign.0 |
+|ocsp verisign 0 |
 |rteventse.trafficmanager.net:80 |
 |settings-n.data.microsoft.com:80 |
 |shavamafestcdnprod1.azureedge.net:80 |
@@ -317,7 +317,7 @@ For US Gov you still need to set service endpoints for Storage, SQL and Event Hu
 |www.msftconnecttest.com:80 |
 |www.thawte.com:80 |
 |\*ctldl.windowsupdate.com:443 |
-|\*.management.usgovcloudapi.net:443 |
+|\*。 management.usgovcloudapi.net:443 |
 |\*.update.microsoft.com:443 |
 |admin.core.usgovcloudapi.net:443 |
 |azperfmerges.blob.core.windows.net:443 |

@@ -11,7 +11,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224360"
 ---
-| 資源 | 預設限制 | 上限 | 附註 |
+| 資源 | 預設限制 | 上限 | 注意 |
 | --- | --- | --- | --- |
-| Azure 網路監看員 | 每個區域 1 個 | 每個區域 1 個 | Network Watcher is created to enable access to the service. Only one instance of Network Watcher is required per subscription per region. |
-| Packet capture sessions |10,000 per region | 10,000 |Number of sessions only, not saved captures. |
+| Azure 網路監看員 | 每個區域 1 個 | 每個區域 1 個 | 建立網路監看員以啟用對服務的存取。 每個區域每個訂用帳戶只需要一個網路監看員實例。 |
+| 封包捕獲會話 |每個區域10000 | 10,000 |僅限會話數目，未儲存的捕捉。 |

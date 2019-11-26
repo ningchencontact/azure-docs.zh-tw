@@ -1,6 +1,6 @@
 ---
 title: Azure 上的開發人員開始使用指南 | Microsoft Docs
-description: This article provides essential information for developers looking to get started using the Microsoft Azure platform for their development needs.
+description: 本文針對想要開始使用 Microsoft Azure 平臺來滿足其開發需求的開發人員，提供基本資訊。
 services: ''
 cloud: ''
 documentationcenter: ''
@@ -21,11 +21,11 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74424072"
 ---
-# <a name="get-started-guide-for-azure-developers"></a>適用於 Azure 開發人員的使用者入門指南
+# <a name="get-started-guide-for-azure-developers"></a>Azure 開發人員開始使用指南
 
 ## <a name="what-is-azure"></a>何謂 Azure？
 
-Azure is a complete cloud platform that can host your existing applications and streamline new application development. Azure can even enhance on-premises applications. Azure integrates the cloud services that you need to develop, test, deploy, and manage your applications, all while taking advantage of the efficiencies of cloud computing.
+Azure 是一個完整的雲端平臺，可以裝載您現有的應用程式，並簡化新的應用程式開發。 Azure 甚至可以增強內部部署應用程式。 Azure 整合了開發、測試、部署和管理您的應用程式所需的雲端服務，同時利用雲端運算的效率。
 
 在 Azure 中裝載應用程式，即可從小規模著手，並隨著客戶需求的成長，輕鬆地調整應用程式。 Azure 也會提供高可用性應用程式所需的可靠性，甚至包括不同地區之間的容錯移轉。 [Azure 入口網站](https://portal.azure.com)可讓您輕鬆地管理您的所有 Azure 服務。 您也可以使用服務特定 API 和範本，以程式設計方式管理服務。
 
@@ -33,7 +33,7 @@ Azure is a complete cloud platform that can host your existing applications and 
 
 ## <a name="where-do-i-start"></a>我該從哪裡開始？
 
-With all the services that Azure offers, it can be an intimidating task to figure out which services you need to support your solution architecture. 本節著重於開發人員常用的 Azure 服務。 如需所有 Azure 服務的清單，請參閱 [Azure 文件](../../index.md)。
+有了 Azure 提供的所有服務，它可以是恐嚇的工作，以找出支援您的解決方案架構所需的服務。 本節著重於開發人員常用的 Azure 服務。 如需所有 Azure 服務的清單，請參閱 [Azure 文件](../../index.md)。
 
 首先，您必須決定如何在 Azure 中裝載應用程式。 您需要以虛擬機器 (VM) 形式管理整個基礎結構嗎？ 您可以使用 Azure 所提供的平台管理功能嗎？ 您只需要使用無伺服器架構來裝載程式碼執行嗎？
 
@@ -45,7 +45,7 @@ With all the services that Azure offers, it can be an intimidating task to figur
 
 Azure 提供數個雲端式運算供應項目來執行您的應用程式，讓您不需要擔心基礎結構詳細資料。 隨著您應用程式使用的成長，您可以輕鬆地向上延展或向外延展資源。
 
-Azure 提供可支援應用程式開發和裝載需求的服務。 Azure 提供基礎結構即服務 (IaaS)，讓您完全控制應用程式裝載。 Azure's Platform as a Service (PaaS) offerings provide the fully managed services needed to power your apps. There's even true serverless hosting in Azure where all you need to do is write your code.
+Azure 提供可支援應用程式開發和裝載需求的服務。 Azure 提供基礎結構即服務 (IaaS)，讓您完全控制應用程式裝載。 Azure 的平臺即服務（PaaS）供應專案提供管理應用程式所需的完全受控服務。 在 Azure 中，甚至是真正的無伺服器裝載，您只需要撰寫程式碼即可。
 
 ![Azure 應用程式裝載選項](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
@@ -58,11 +58,11 @@ Azure 提供可支援應用程式開發和裝載需求的服務。 Azure 提供�
 
 因為所有三種應用程式類型都共用 App Service 執行階段，所以您可以架設網站、支援行動用戶端，並在 Azure 中公開 API，而全部都是來自相同的專案或解決方案。 若要深入了解 App Service，請參閱[什麼是 Azure Web Apps](../../app-service/overview.md)。
 
-請注意，已使用 DevOps 設計 App Service。 It supports various tools for publishing and continuous integration deployments. These tools include GitHub webhooks, Jenkins, Azure DevOps, TeamCity, and others.
+請注意，已使用 DevOps 設計 App Service。 它支援用於發佈和持續整合部署的各種工具。 這些工具組括 GitHub webhook、Jenkins、Azure DevOps、TeamCity 和其他工具。
 
 您可以使用[線上移轉工具](https://www.migratetoazure.net/)，將現有應用程式移轉至 App Service。
 
-> **When to use**: Use App Service when you’re migrating existing web applications to Azure, and when you need a fully-managed hosting platform for your web apps. 當您需要支援行動用戶端或是使用應用程式公開 REST API 時，也可以使用 App Service。
+> **使用**時機：當您將現有的 web 應用程式遷移至 Azure 時，以及當您需要 web 應用程式的完全受控裝載平臺時，請使用 App Service。 當您需要支援行動用戶端或是使用應用程式公開 REST API 時，也可以使用 App Service。
 > 
 > **開始使用**：App Service 可讓您輕鬆地建立和部署第一個 [Web 應用程式](../../app-service/app-service-web-get-started-dotnet.md)、[行動應用程式](../../app-service-mobile/app-service-mobile-ios-get-started.md)或 [API 應用程式](../../app-service/app-service-web-tutorial-rest-api.md)。
 > 
@@ -80,7 +80,7 @@ Azure 提供可支援應用程式開發和裝載需求的服務。 Azure 提供�
 
 #### <a name="azure-functions-serverless"></a>Azure Functions (無伺服器)
 
-Rather than worrying about building out and managing a whole application or the infrastructure to run your code, what if you could just write your code and have it run in response to events or on a schedule?  [Azure Functions](../../azure-functions/functions-overview.md) 是「無伺服器」樣式供應項目，可讓您只撰寫所需的程式碼。 With Functions, you can trigger code execution with HTTP requests, webhooks, cloud service events, or on a schedule. 您也可以使用選擇的開發語言編寫程式碼，例如 C\#、F\#、Node.js、Python 或 PHP。 使用耗用型計費時，您只需要支付程式碼執行時間的費用，而且 Azure 會視需要調整。
+您不需要擔心如何建立和管理整個應用程式或基礎結構來執行程式碼，如果您只要撰寫程式碼，並讓它執行以回應事件或排程，該怎麼做？  [Azure Functions](../../azure-functions/functions-overview.md) 是「無伺服器」樣式供應項目，可讓您只撰寫所需的程式碼。 透過函式，您可以使用 HTTP 要求、webhook、雲端服務事件或依排程觸發程式碼執行。 您也可以使用選擇的開發語言編寫程式碼，例如 C\#、F\#、Node.js、Python 或 PHP。 使用耗用型計費時，您只需要支付程式碼執行時間的費用，而且 Azure 會視需要調整。
 
 > **使用時機**：當您的程式碼是透過其他 Azure 服務、Web 事件或依排程觸發時，請使用 Azure Functions。 當您不需要整個託管專案的額外負荷時，或只想要支付程式碼執行時間的費用時，也可以使用 Functions。 若要深入了解，請參閱 [Azure Functions 概觀](../../azure-functions/functions-overview.md)。
 > 
@@ -90,12 +90,12 @@ Rather than worrying about building out and managing a whole application or the 
 
 #### <a name="azure-service-fabric"></a>Azure Service Fabric
 
-Azure Service Fabric is a distributed systems platform. This platform makes it easy to build, package, deploy, and manage scalable and reliable microservices. It also provides comprehensive application management capabilities such as: 
+Azure Service Fabric 是分散式系統平臺。 此平臺可讓您輕鬆地建立、封裝、部署及管理可調整和可靠的微服務。 它也提供完整的應用程式管理功能，例如： 
 
 * 佈建
 * 正在部署 
-* 監視
-* Upgrading/patching
+* 監控
+* 升級/修補
 * 刪除中 
 
 在共用電腦集區上執行的應用程式可以從小規模著手，然後視需要調整為成千上萬部電腦。
@@ -108,13 +108,13 @@ Service Fabric 支援具有 Open Web Interface for .NET (OWIN) 和 ASP.NET Core 
 
 ### <a name="enhance-your-applications-with-azure-services"></a>使用 Azure 服務增強應用程式
 
-Along with application hosting, Azure provides service offerings that can enhance the functionality. Azure can also improve the development and maintenance of your applications, both in the cloud and on-premises.
+除了應用程式裝載之外，Azure 還提供可增強功能的服務供應專案。 Azure 也可以改善您的應用程式在雲端和內部部署環境的開發和維護。
 
 #### <a name="hosted-storage-and-data-access"></a>託管儲存體和資料存取
 
-Most applications must store data, so however you decide to host your application in Azure, consider one or more of the following storage and data services.
+大部分的應用程式都必須儲存資料，因此，您決定在 Azure 中裝載應用程式，請考慮下列一或多個儲存體和資料服務。
 
-- **Azure Cosmos DB**: A globally distributed, multi-model database service. This database enables you to elastically scale throughput and storage across any number of geographical regions with a comprehensive SLA. 
+- **Azure Cosmos DB**：全域散發的多模型資料庫服務。 此資料庫可讓您跨任意數目的地理區域彈性調整輸送量和儲存體，並提供完整的 SLA。 
   
   > **使用時機：** 當您的應用程式需要文件、資料表或圖表資料庫時，請併入具有多個定義完善、一致模型的 MongoDB 資料庫。 
   > 
@@ -163,7 +163,7 @@ Azure 提供數種方式，以在應用程式中使用容器。
   > 
   > **開始使用**：[針對 Linux 上的 App Service 使用自訂 Docker 映像](../../app-service/containers/quickstart-docker-go.md)。
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>驗證
 
 重要的不只是知道誰正在使用您的應用程式，還可以防止未經授權的資源存取。 Azure 提供數種方式，以驗證應用程式用戶端。
 
@@ -181,21 +181,21 @@ Azure 提供數種方式，以在應用程式中使用容器。
 
 若要深入了解 Azure 中的安全性最佳做法，請參閱 [Azure 安全性最佳做法與模式](../../security/fundamentals/best-practices-and-patterns.md)。
 
-### <a name="monitoring"></a>監視
+### <a name="monitoring"></a>監控
 
-With your application up and running in Azure, you need to monitor performance, watch for issues, and see how customers are using your app. Azure 提供數個監視選項。
+當您的應用程式在 Azure 中啟動並執行時，您需要監視效能、監看問題，並查看客戶如何使用您的應用程式。 Azure 提供數個監視選項。
 
--   **Visual Studio Application Insights**：Azure 託管的可延伸分析服務，可與 Visual Studio 整合以監視即時 Web 應用程式。 It gives you the data that you need to improve the performance and usability of your apps continuously. This improvement occurs whether you host your applications on Azure or not.
+-   **Visual Studio Application Insights**：Azure 託管的可延伸分析服務，可與 Visual Studio 整合以監視即時 Web 應用程式。 它會提供您所需的資料，以持續改善應用程式的效能和可用性。 無論您是否在 Azure 上裝載應用程式，都會發生這種改善。
 
     >**開始使用**：遵循 [Application Insights 教學課程](../../azure-monitor/app/app-insights-overview.md)。
 
--   **Azure Monitor**: A service that helps you to visualize, query, route, archive, and act on the metrics and logs that you generate with your Azure infrastructure and resources. Monitor is a single source for monitoring Azure resources and provides the data views that you see in the Azure portal.
+-   **Azure 監視器**：一種服務，可協助您對使用 Azure 基礎結構和資源所產生的計量和記錄進行視覺化、查詢、路由傳送、封存和採取行動。 監視是監視 Azure 資源的單一來源，可提供您在 Azure 入口網站中看到的資料檢視。
  
     >**開始使用**：[開始使用 Azure 監視器](../../monitoring-and-diagnostics/monitoring-get-started.md)。
 
 ### <a name="devops-integration"></a>DevOps 整合
 
-不論使用持續整合佈建 VM 還是發佈 Web 應用程式，Azure 都會與大部分的熱門 DevOps 工具整合。 You can work with the tools that you already have and maximize your existing experience with support for tools like: 
+不論使用持續整合佈建 VM 還是發佈 Web 應用程式，Azure 都會與大部分的熱門 DevOps 工具整合。 您可以使用已有的工具，並將您現有的體驗最大化，並支援下列工具： 
 
 * Jenkins 
 * GitHub 
@@ -210,13 +210,13 @@ With your application up and running in Azure, you need to monitor performance, 
 > **立即試用**：[試用數個 DevOps 整合](https://azure.microsoft.com/try/devops/)。
 
 
-## <a name="azure-regions"></a>Azure 地區
+## <a name="azure-regions"></a>Azure 區域
 
-Azure 是在全球各地許多地區正式推出的全域雲端平台。 When you provision a service, application, or VM in Azure, you're asked to select a region. This region represents a specific datacenter where your application runs or where your data is stored. 這些區域對應到在 [Azure 區域](https://azure.microsoft.com/regions/)頁面上發佈的特定位置。
+Azure 是在全球各地許多地區正式推出的全域雲端平台。 當您在 Azure 中布建服務、應用程式或 VM 時，系統會要求您選取區域。 此區域代表您的應用程式執行所在的特定資料中心，或儲存資料的位置。 這些區域對應到在 [Azure 區域](https://azure.microsoft.com/regions/)頁面上發佈的特定位置。
 
 ### <a name="choose-the-best-region-for-your-application-and-data"></a>選擇您應用程式和資料的最佳區域
 
-使用 Azure 的其中一個優點是您可以將應用程式部署至全球各地的各種資料中心。 您選擇的區域可能會影響應用程式的效能。 例如，最好選擇較接近大多數客戶的區域，以減少網路要求延遲。 You might also want to select your region to meet the legal requirements for distributing your app in certain countries/regions. 最好一律將應用程式資料儲存在相同的資料中心內，或儲存在最接近裝載應用程式之資料中心的資料中心內。
+使用 Azure 的其中一個優點是您可以將應用程式部署至全球各地的各種資料中心。 您選擇的區域可能會影響應用程式的效能。 例如，最好選擇較接近大多數客戶的區域，以減少網路要求延遲。 您也可以選取您的區域，以符合在某些國家/地區發佈應用程式的法律需求。 最好一律將應用程式資料儲存在相同的資料中心內，或儲存在最接近裝載應用程式之資料中心的資料中心內。
 
 ### <a name="multi-region-apps"></a>多區域應用程式
 
@@ -232,19 +232,19 @@ Azure 提供一組豐富的體驗，讓您建立和管理 Azure 資源、應用�
 
 ### <a name="command-line-interfaces-and-powershell"></a>命令列介面和 PowerShell
 
-Azure provides two ways to manage your applications and services from the command line. You can use tools like Bash, Terminal, the command prompt, or your command-line tool of choice. Usually, you can do the same tasks from the command line as in the Azure portal—such as creating and configuring virtual machines, virtual networks, web apps, and other services.
+Azure 提供兩種方式，從命令列管理您的應用程式和服務。 您可以使用 Bash、終端機、命令提示字元或您選擇的命令列工具等工具。 通常，您可以從命令列執行與 Azure 入口網站相同的工作，例如建立和設定虛擬機器、虛擬網路、web 應用程式和其他服務。
 
 -   [Azure 命令列介面 (CLI)](../../xplat-cli-install.md)：可讓您連接到 Azure 訂用帳戶，並從命令列對 Azure 資源設計各種工作的程式。
 
 -   [Azure PowerShell](../../powershell-install-configure.md)：提供一組含 Cmdlet 的模組，可讓您使用 Windows PowerShell 來管理 Azure 資源。
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure 入口網站
 
-The [Azure portal](https://portal.azure.com) is a web-based application. You can use the Azure portal to create, manage, and remove Azure resources and services. 其中包括：
+[Azure 入口網站](https://portal.azure.com)是 web 應用程式。 您可以使用 Azure 入口網站來建立、管理和移除 Azure 資源和服務。 其中包括：
 
-* A configurable dashboard
-* Azure resource management tools
-* Access to subscription settings and billing information. 如需詳細資訊，請參閱 [Azure 入口網站概觀](../../azure-portal-overview.md)。
+* 可設定的儀表板
+* Azure 資源管理工具
+* 存取訂用帳戶設定和帳單資訊。 如需詳細資訊，請參閱 [Azure 入口網站概觀](../../azure-portal-overview.md)。
 
 ### <a name="rest-apis"></a>REST API
 
@@ -252,7 +252,7 @@ Azure 是以支援 Azure 入口網站 UI 的一組 REST API 所建置。 也支�
 
 ### <a name="apis"></a>API
 
-Along with REST APIs, many Azure services also let you programmatically manage resources from your applications by using platform-specific Azure SDKs, including SDKs for the following development platforms:
+除了 REST Api，許多 Azure 服務也可讓您使用平臺特定的 Azure Sdk （包括適用于下列開發平臺的 Sdk），以程式設計方式從應用程式管理資源：
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 -   [Node.js](https://docs.microsoft.com/azure/javascript/)
@@ -264,13 +264,13 @@ Along with REST APIs, many Azure services also let you programmatically manage r
 
 [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) 和 [Azure 媒體服務](../../media-services/previous/media-services-dotnet-how-to-use.md) 這類服務提供用戶端 SDK，讓您可以從 Web 和行動用戶端應用程式存取服務。
 
-### <a name="azure-resource-manager"></a>Azure Resource Manager 
+### <a name="azure-resource-manager"></a>Azure 資源管理員 
     
-Running your app on Azure likely involves working with multiple Azure services. These services follow the same life cycle and can be thought of as a logical unit. 例如，Web 應用程式可能使用 Web Apps、SQL Database、「儲存體」、「Azure Redis 快取」及「Azure 內容傳遞網路」服務。 [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) 可讓您將應用程式中的資源當成群組使用。 您可以透過單一的協調作業來部署、更新或刪除所有資源。
+在 Azure 上執行您的應用程式可能牽涉到使用多個 Azure 服務。 這些服務會遵循相同的生命週期，並可視為邏輯單元。 例如，Web 應用程式可能使用 Web Apps、SQL Database、「儲存體」、「Azure Redis 快取」及「Azure 內容傳遞網路」服務。 [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) 可讓您將應用程式中的資源當成群組使用。 您可以透過單一的協調作業來部署、更新或刪除所有資源。
 
-Along with logically grouping and managing related resources, Azure Resource Manager includes deployment capabilities that let you customize the deployment and configuration of related resources. For example, you can use Resource Manager deploy and configure an application. This application can consist of multiple virtual machines, a load balancer, and an Azure SQL database as a single unit.
+除了以邏輯方式分組和管理相關資源之外，Azure Resource Manager 還包含部署功能，可讓您自訂相關資源的部署和設定。 例如，您可以使用 Resource Manager 部署和設定應用程式。 此應用程式可包含多部虛擬機器、負載平衡器和 Azure SQL 資料庫做為單一單位。
 
-透過使用本身為 JSON 格式化文件的 Azure Resource Manager 範本，即可開發這些部署。 範本可讓您定義部署，以及使用宣告式範本而非指令碼來管理應用程式。 您的範本可以用於測試、預備和生產這類不同環境。 For example, you can use templates to add a button to a GitHub repo that deploys the code in the repo to a set of Azure services with a single click.
+透過使用本身為 JSON 格式化文件的 Azure Resource Manager 範本，即可開發這些部署。 範本可讓您定義部署，以及使用宣告式範本而非指令碼來管理應用程式。 您的範本可以用於測試、預備和生產這類不同環境。 例如，您可以使用範本將按鈕新增至 GitHub 存放庫，將存放庫中的程式碼部署到一組 Azure 服務，只需按一下即可。
 
 > **使用時機**：當您想要可使用 REST API、Azure CLI 和 Azure PowerShell 以程式設計方式管理之應用程式的範本部署，請使用 Resource Manager 範本。
 > 
@@ -278,19 +278,19 @@ Along with logically grouping and managing related resources, Azure Resource Man
 
 ## <a name="understanding-accounts-subscriptions-and-billing"></a>了解帳戶、訂用帳戶和計費
 
-身為開發人員，我們要深入了解程式碼，並嘗試盡快開始讓我們的應用程式執行。 當然，我們想要鼓勵您盡可能輕鬆地開始使用 Azure。 為了協助您更輕鬆地進行，Azure 提供[免費試用](https://azure.microsoft.com/free/)。 某些服務甚至具有「免費試用」功能，例如 [Azure App Service](https://tryappservice.azure.com/)，而且您甚至不需要建立帳戶。 As fun as it is to dive into coding and deploying your application to Azure, it's also important to take some time to understand how Azure works. Specifically,  you should understand how it works from a standpoint of user accounts, subscriptions, and billing.
+身為開發人員，我們要深入了解程式碼，並嘗試盡快開始讓我們的應用程式執行。 當然，我們想要鼓勵您盡可能輕鬆地開始使用 Azure。 為了協助您更輕鬆地進行，Azure 提供[免費試用](https://azure.microsoft.com/free/)。 某些服務甚至具有「免費試用」功能，例如 [Azure App Service](https://tryappservice.azure.com/)，而且您甚至不需要建立帳戶。 就像深入探討編碼和將應用程式部署到 Azure 一樣，也必須花一些時間來瞭解 Azure 的運作方式。 具體而言，您應該從使用者帳戶、訂閱和計費的觀點來瞭解其運作方式。
 
 ### <a name="what-is-an-azure-account"></a>什麼是 Azure 帳戶？
 
-To create or work with an Azure subscription, you must have an Azure account. An Azure account is simply an identity in Azure AD or in a directory, such as a work or school organization, that Azure AD trusts. 如果您不屬於這類組織，則一律會使用 Azure AD 所信任的 Microsoft 帳戶來建立訂用帳戶。 若要深入了解整合內部部署 Windows Server Active Directory 與 Azure AD，請參閱[整合您的內部部署身分識別與 Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md)。
+若要建立或使用 Azure 訂用帳戶，您必須擁有 Azure 帳戶。 Azure 帳戶只是 Azure AD 或目錄中的身分識別，例如公司或學校組織，Azure AD 信任。 如果您不屬於這類組織，則一律會使用 Azure AD 所信任的 Microsoft 帳戶來建立訂用帳戶。 若要深入了解整合內部部署 Windows Server Active Directory 與 Azure AD，請參閱[整合您的內部部署身分識別與 Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md)。
 
 每個 Azure 訂用帳戶都會與 Azure AD 執行個體有信任關係。 這表示它信任該目錄來驗證使用者、服務和裝置。 多個訂用帳戶可以信任相同的目錄，但是一個訂用帳戶只能信任一個目錄。 若要深入了解，請參閱 [Azure 訂用帳戶與 Azure Active Directory 建立關聯的方式](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)。
 
-As well as defining individual Azure account identities, also called *users*, you can define *groups* in Azure AD. 建立使用者群組是使用角色型存取控制 (RBAC) 管理訂用帳戶中資源存取權的好方法。 若要了解如何建立群組，請參閱[在 Azure Active Directory Preview 中建立群組](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。 您也可以[使用 PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md) 建立和管理群組。
+除了定義個別的 Azure 帳戶身分識別（也稱為「*使用者*」），您還可以在 Azure AD 中定義*群組*。 建立使用者群組是使用角色型存取控制 (RBAC) 管理訂用帳戶中資源存取權的好方法。 若要了解如何建立群組，請參閱[在 Azure Active Directory Preview 中建立群組](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。 您也可以[使用 PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md) 建立和管理群組。
 
-### <a name="manage-your-subscriptions"></a>管理您的訂用帳戶
+### <a name="manage-your-subscriptions"></a>管理訂用帳戶
 
-訂用帳戶是連結至 Azure 帳戶之 Azure 服務的邏輯分組。 單一 Azure 帳戶可以包含多個訂用帳戶。 Azure 服務是根據訂用帳戶計費。 如需依類型的可用訂用帳戶供應項目清單，請參閱 [Microsoft Azure 供應項目詳細資料](https://azure.microsoft.com/support/legal/offer-details/)。 Azure subscriptions have an Account Administrator who has full control over the subscription. They also have a Service Administrator who has control over all services in the subscription. 如需有關傳統訂用帳戶管理員的資訊，請參閱[新增或變更 Azure 訂用帳戶管理員](../../billing/billing-add-change-azure-subscription-administrator.md)。 Individual accounts can be granted detailed control of Azure resources using [role-based access control (RBAC)](../../role-based-access-control/overview.md).
+訂用帳戶是連結至 Azure 帳戶之 Azure 服務的邏輯分組。 單一 Azure 帳戶可以包含多個訂用帳戶。 Azure 服務是根據訂用帳戶計費。 如需依類型的可用訂用帳戶供應項目清單，請參閱 [Microsoft Azure 供應項目詳細資料](https://azure.microsoft.com/support/legal/offer-details/)。 Azure 訂用帳戶擁有可完全控制訂閱的帳戶管理員。 他們也有服務系統管理員，可以控制訂用帳戶中的所有服務。 如需有關傳統訂用帳戶管理員的資訊，請參閱[新增或變更 Azure 訂用帳戶管理員](../../billing/billing-add-change-azure-subscription-administrator.md)。 您可以使用[角色型存取控制（RBAC）](../../role-based-access-control/overview.md)，將個別帳戶授與 Azure 資源的詳細控制。
 
 #### <a name="resource-groups"></a>資源群組
 
@@ -300,24 +300,24 @@ Azure 資源總管是很棒的工具，可用來以視覺化方式檢視您已�
 
 #### <a name="grant-access-to-resources"></a>授與對資源的存取
 
-When you allow access to Azure resources, it’s always a best practice to provide users with the least privilege that’s required to do a given task.
+當您允許存取 Azure 資源時，最佳做法是為使用者提供執行指定工作所需的最低許可權。
 
-- **角色型存取控制 (RBAC)** ：在 Azure 中，您可以授與指定範圍的使用者帳戶 (主體) 存取權：訂用帳戶、資源群組或個別資源。 RBAC lets you deploy resources into a resource group and grant permissions to a specific user or group. It also lets you limit access to only the resources that belong to the target resource group. 您也可以授與對單一資源的存取，例如虛擬機器或虛擬網路。 若要授與存取權，請將角色指派給使用者、群組或服務主體。 有許多預先定義的角色，而且您也可以定義自己的自訂角色。 若要深入了解，請參閱[什麼是角色型存取控制 (RBAC)？](../../role-based-access-control/overview.md)
+- **角色型存取控制 (RBAC)** ：在 Azure 中，您可以授與指定範圍的使用者帳戶 (主體) 存取權：訂用帳戶、資源群組或個別資源。 RBAC 可讓您將資源部署至資源群組，並將許可權授與特定使用者或群組。 它也可讓您限制只能存取屬於目標資源群組的資源。 您也可以授與對單一資源的存取，例如虛擬機器或虛擬網路。 若要授與存取權，請將角色指派給使用者、群組或服務主體。 有許多預先定義的角色，而且您也可以定義自己的自訂角色。 若要深入了解，請參閱[什麼是角色型存取控制 (RBAC)？](../../role-based-access-control/overview.md)
 
   > **使用時機**：當您需要使用者和群組的更細緻存取管理時，或當您需要將使用者設定為訂用帳戶的擁有者時。
   > 
   > **開始使用**：若要深入了解，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](../../role-based-access-control/role-assignments-portal.md)。
 
-- **Service principal objects**: Along with providing access to user principals and groups, you can grant the same access to a service principal.
+- **服務主體物件**：除了提供使用者主體和群組的存取權之外，您還可以將相同的存取權授與服務主體。
 
   > **使用時機**：當您以程式設計方式管理 Azure 資源或授與應用程式存取權時。 如需詳細資訊，請參閱[建立 Active Directory 應用程式和服務主體](../../active-directory/develop/howto-create-service-principal-portal.md)。
 
-#### <a name="tags"></a>Tags
+#### <a name="tags"></a>標籤
 
-Azure Resource Manager 可讓您將自訂標記指派給個別資源。 當您需要組織資源以進行計費或監視時，標記 (即鍵值組) 可能特別有用。 標記提供一種方法來追蹤多個資源群組的資源。 You can assign tags the following ways:
+Azure Resource Manager 可讓您將自訂標記指派給個別資源。 當您需要組織資源以進行計費或監視時，標記 (即鍵值組) 可能特別有用。 標記提供一種方法來追蹤多個資源群組的資源。 您可以透過下列方式指派標籤：
 
-* In the portal 
-* In the Azure Resource Manager template 
+* 在入口網站中 
+* 在 Azure Resource Manager 範本中 
 * 使用 REST API
 * 使用 Azure CLI
 * 使用 PowerShell 
@@ -326,16 +326,16 @@ Azure Resource Manager 可讓您將自訂標記指派給個別資源。 當您�
 
 ### <a name="billing"></a>計費
 
-從內部部署運算移至雲端託管服務時，追蹤和預估服務使用和相關成本十分重要。 It’s important to estimate what new resources cost to run on a monthly basis. You can also project how the billing looks for a given month based on the current spending.
+從內部部署運算移至雲端託管服務時，追蹤和預估服務使用和相關成本十分重要。 請務必預估每月執行的新資源成本。 您也可以根據目前的費用，針對指定的月份來投影帳單的顯示方式。
 
 #### <a name="get-resource-usage-data"></a>取得資源使用量資料
 
-Azure 提供一組計費 REST API，可存取 Azure 訂用帳戶的資源使用和中繼資料資訊。 這些計費 API 可讓您更妥善地預測和管理 Azure 成本。 You can track and analyze spending in hourly increments and create spending alerts. You can also predict future billing based on current usage trends.
+Azure 提供一組計費 REST API，可存取 Azure 訂用帳戶的資源使用和中繼資料資訊。 這些計費 API 可讓您更妥善地預測和管理 Azure 成本。 您可以依每小時的增量追蹤和分析支出，並建立支出警示。 您也可以根據目前的使用量趨勢預測未來的帳單。
 
 >**開始使用**：若要深入了解如何使用計費 API，請參閱 [Azure 計費使用和 RateCard API 概觀](../../billing-usage-rate-card-overview.md)。
 
 #### <a name="predict-future-costs"></a>預測未來成本
 
-Although it's challenging to estimate costs ahead of time, Azure has tools that can help. It has a [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help estimate the cost of deployed resources. You can also use the Billing resources in the portal and the Billing REST APIs to estimate future costs, based on current consumption.
+雖然在一段時間內評估成本是很困難的，但 Azure 有一些工具可以提供協助。 它具有[定價計算機](https://azure.microsoft.com/pricing/calculator/)，可協助預估已部署資源的成本。 您也可以使用入口網站中的計費資源和計費 REST Api，根據目前的耗用量來預估未來成本。
 
 >**開始使用**：請參閱 [Azure 計費使用和 RateCard API 概觀](../../billing-usage-rate-card-overview.md)。

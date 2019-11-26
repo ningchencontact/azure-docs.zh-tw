@@ -20,7 +20,7 @@ ms.locfileid: "74226768"
 
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
-### <a name="summary"></a>總結
+### <a name="summary"></a>Summary
 當 Azure Functions 執行階段無法啟動時，就會發生此問題。 之所以會發生這個錯誤，最常見的原因是函式應用程式無法存取其儲存體帳戶。 [在此深入了解儲存體帳戶需求](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
 ### <a name="troubleshooting"></a>疑難排解
@@ -48,7 +48,7 @@ ms.locfileid: "74226768"
 
 ### <a name="required-application-settings"></a>必要的應用程式設定
 
-* 必要項
+* 必要
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 * 取用方案函式所必備
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
@@ -56,10 +56,10 @@ ms.locfileid: "74226768"
 
 [在此了解這些應用程式設定](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-### <a name="guidance"></a>指導方針
+### <a name="guidance"></a>指引
 
 * 請勿對上述任何設定核取 [位置設定]。 當您交換部署位置時，函式將會中斷。
-* Do not modify these settings as part of automated deployments.
+* 請勿將這些設定修改為自動化部署的一部分。
 * 在建立時，必須提供這些設定，且設定必須有效。 即使事後新增設定，不包含這些設定的自動化部署仍會導致應用程式無法運作。
 
 ## <a name="storage-account-credentials-invalid"></a>儲存體帳戶的認證無效

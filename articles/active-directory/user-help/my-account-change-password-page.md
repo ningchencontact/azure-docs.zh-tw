@@ -1,6 +1,6 @@
 ---
-title: Change your work or school account password - Azure AD
-description: Learn to change your work or school account password from the Change Password page of the My Account portal.
+title: 變更您的公司或學校帳戶密碼-Azure AD
+description: 瞭解如何從我的帳戶入口網站的 [變更密碼] 頁面變更您的工作或學校帳戶密碼。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -19,41 +19,41 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231878"
 ---
-# <a name="change-your-work-or-school-account-password-from-the-my-account-portal"></a>Change your work or school account password from the My Account portal
+# <a name="change-your-work-or-school-account-password-from-the-my-account-portal"></a>從我的帳戶入口網站變更您的公司或學校帳戶密碼
 
-From the **Change password** page of the **My Account** portal, you can update your work or school account password. This will only work if you know your existing password and if you aren't locked out of your account.
+從 [**我的帳戶**] 入口網站的 [**變更密碼**] 頁面，您可以更新您的公司或學校帳戶密碼。 只有當您知道現有的密碼，以及未鎖定您的帳戶時，這才會生效。
 
-If you don't remember your password, if you've been locked out of your account, or if you never got a password from your company support team, you can use your security info and your mobile device to reset your password. 如需詳細資訊，請參閱[重設您的工作密碼或學校密碼](https://docs.microsoft.com/azure/active-directory/user-help/user-help-reset-password)。
+如果您不記得密碼，或您的帳戶已被鎖定，或者如果您沒有公司支援小組的密碼，您可以使用您的安全性資訊和行動裝置來重設密碼。 如需詳細資訊，請參閱[重設您的工作密碼或學校密碼](https://docs.microsoft.com/azure/active-directory/user-help/user-help-reset-password)。
 
 >[!Note]
->If you're trying to get back into a personal account like for Xbox, hotmail.com, or outlook.com, try the suggestions in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
+>如果您想要回到個人帳戶，例如 Xbox、hotmail.com 或 outlook.com，[當您無法登入您的 Microsoft 帳戶文章時](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)，請嘗試中的建議。
 
-## <a name="to-change-your-password-from-the-my-account-portal"></a>To change your password from the My Account portal
+## <a name="to-change-your-password-from-the-my-account-portal"></a>若要從我的帳戶入口網站變更您的密碼
 
-1. Sign in to your work or school account, using your existing password, and then go to your https://myprofile.microsoft.com/ page.
+1. 使用現有的密碼登入您的公司或學校帳戶，然後移至您的 https://myprofile.microsoft.com/ 頁面。
 
-2. Select **Password** from the left navigation pane or select the **Change password** link from the **Password** block.
+2. 從左側流覽窗格中選取 [**密碼**]，或從 [**密碼**] 區塊選取 [**變更密碼**] 連結。
 
-    ![My Account page, showing highlighted Change password link](media/my-account-portal/my-account-portal-change-password.png)
+    ![[我的帳戶] 頁面，顯示反白顯示的變更密碼連結](media/my-account-portal/my-account-portal-change-password.png)
 
-3. Type your old password, and then create and confirm your new password.
+3. 輸入您的舊密碼，然後建立並確認您的新密碼。
 
-    ![Change password page, showing password fields](media/my-account-portal/my-account-portal-change-password-page.png)
+    ![[變更密碼] 頁面，顯示密碼欄位](media/my-account-portal/my-account-portal-change-password-page.png)
 
 4. 選取 [提交]。
 
-    Your password will be changed and you'll be asked to sign in to your work or school account again.
+    您的密碼將會變更，並要求您再次登入您的公司或學校帳戶。
 
 ## <a name="next-steps"></a>後續步驟
 
-After changing your password, you can:
+變更您的密碼之後，您可以：
 
-- View or manage your [security info](user-help-security-info-overview.md).
+- 查看或管理您的[安全性資訊](user-help-security-info-overview.md)。
 
-- View or manage your connected [devices](my-account-portal-devices-page.md).
+- 查看或管理已連線的[裝置](my-account-portal-devices-page.md)。
 
-- View or manage your [organizations](my-account-portal-organizations-page.md).
+- 查看或管理您的[組織](my-account-portal-organizations-page.md)。
 
-- View your [sign-in activity](my-account-portal-sign-ins-page.md).
+- 查看您的登[入活動](my-account-portal-sign-ins-page.md)。
 
-- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
+- 瞭解您的組織如何[使用您的隱私權相關資料](my-account-portal-privacy-page.md)。

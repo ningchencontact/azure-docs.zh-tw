@@ -1,6 +1,6 @@
 ---
-title: Configure Blockchain Data Manager using Azure CLI - Azure Blockchain Service
-description: Create and manage a Blockchain Data Manager for Azure Blockchain Service using Azure CLI
+title: 使用 Azure CLI 設定區塊鏈資料管理員-Azure 區塊鏈 Service
+description: 使用 Azure CLI 建立和管理 Azure 區塊鏈服務的區塊鏈資料管理員
 ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
@@ -13,20 +13,20 @@ ms.locfileid: "74455931"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>使用 Azure CLI 設定區塊鏈資料管理員
 
-Configure Blockchain Data Manager for Azure Blockchain Service to capture blockchain data send it to an Azure Event Grid Topic.
+設定 Azure 區塊鏈 Service 的區塊鏈資料管理員來捕捉區塊鏈資料將其傳送至 Azure 事件方格主題。
 
-To configure a Blockchain Data Manager instance, you:
+若要設定區塊鏈資料管理員實例，您可以：
 
-* Create a Blockchain Manager instance
-* Create an input to an Azure Blockchain Service transaction node
-* Create an output to an Azure Event Grid Topic
+* 建立區塊鏈 Manager 實例
+* 建立 Azure 區塊鏈 Service 交易節點的輸入
+* 建立 Azure 事件方格主題的輸出
 * 新增區塊鏈應用程式
-* Start an instance
+* 啟動實例
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* Install the latest [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and signed in using `az login`.
-* Complete [Quickstart: Use Visual Studio Code to connect to a Azure Blockchain Service consortium network](connect-vscode.md)
+* 安裝最新的[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)並使用 `az login`登入。
+* 完成[快速入門：使用 Visual Studio Code 連接到 Azure 區塊鏈 Service 聯盟網路](connect-vscode.md)
 * 建立[事件方格主題](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * 了解 [Azure 事件方格中的事件處理常式](../../event-grid/event-handlers.md)
 
@@ -48,7 +48,7 @@ az group create --name myRG --location eastus
 
 ## <a name="create-instance"></a>建立執行個體
 
-A Blockchain Data Manager instance monitors an Azure Blockchain Service transaction node. 執行個體會從該交易節點中擷取所有的原始區塊和原始交易資料。
+區塊鏈資料管理員實例會監視 Azure 區塊鏈 Service 交易節點。 執行個體會從該交易節點中擷取所有的原始區塊和原始交易資料。
 
 ``` azurecli
 az resource create \
@@ -61,15 +61,15 @@ az resource create \
 
 | 參數 | 描述 |
 |-----------|-------------|
-| resource-group | Resource group name where to create the Blockchain Data Manager instance. |
-| 名稱 | Name of the Blockchain Data Manager instance. |
-| resource-type | The resource type for a Blockchain Data Manager instance is **Microsoft.blockchain/watchers**. |
-| is-full-object | Indicates properties contain options for the watcher resource. |
-| properties | JSON-formatted string containing properties for the watcher resource. Can be passed as a string or a file.  |
+| resource-group | 要在其中建立區塊鏈資料管理員實例的資源組名。 |
+| 名稱 | 區塊鏈資料管理員實例的名稱。 |
+| 資源類型 | 區塊鏈資料管理員實例的資源類型為**區塊鏈/** 監看員。 |
+| is-full-object | 指出屬性包含監看員資源的選項。 |
+| properties | JSON 格式的字串，包含監看員資源的屬性。 可以當做字串或檔案來傳遞。  |
 
-### <a name="create-instance-examples"></a>Create instance examples
+### <a name="create-instance-examples"></a>建立實例範例
 
-JSON configuration example to create a Blockchain Manager instance in the **East US** region.
+在**美國東部**區域中建立區塊鏈 Manager 實例的 JSON 設定範例。
 
 ``` json
 {
@@ -81,10 +81,10 @@ JSON configuration example to create a Blockchain Manager instance in the **East
 
 | 元素 | 描述 |
 |---------|-------------|
-| location | Region where to create the watcher resource |
-| properties | Properties to set when creating the watcher resource |
+| location | 要在其中建立監看員資源的區域 |
+| properties | 建立監看員資源時要設定的屬性 |
 
-Create a Blockchain Data Manager instance named *mywatcher* using a JSON string for configuration.
+使用設定的 JSON 字串，建立名為*mywatcher*的區塊鏈資料管理員實例。
 
 ``` azurecli-interactive
 az resource create \
@@ -95,7 +95,7 @@ az resource create \
                      --properties '{"location":"eastus"}'
 ```
 
-Create a Blockchain Data Manager instance named *mywatcher* using a JSON configuration file.
+使用 JSON 設定檔建立名為*mywatcher*的區塊鏈資料管理員實例。
 
 ``` azurecli
 az resource create \
@@ -108,7 +108,7 @@ az resource create \
 
 ## <a name="create-input"></a>建立輸入
 
-An input connects Blockchain Data Manager to an Azure Blockchain Service transaction node. Only users with access to the transaction node can create a connection.
+輸入會將區塊鏈資料管理員連接到 Azure 區塊鏈 Service 交易節點。 只有具有交易節點存取權的使用者才能建立連線。
 
 ``` azurecli
 az resource create \
@@ -123,17 +123,17 @@ az resource create \
 
 | 參數 | 描述 |
 |-----------|-------------|
-| resource-group | Resource group name where to create the input resource. |
-| 名稱 | Name of the input. |
-| namespace | Use the **Microsoft.Blockchain** provider namespace. |
-| resource-type | The resource type for a Blockchain Data Manager input is **inputs**. |
-| parent | The path to the watcher to which the input is associated. For example, **watchers/mywatcher**. |
-| is-full-object | Indicates properties contain options for the input resource. |
-| properties | JSON-formatted string containing properties for the input resource. Can be passed as a string or a file. |
+| resource-group | 要在其中建立輸入資源的資源組名。 |
+| 名稱 | 輸入的名稱。 |
+| namespace | 使用**區塊鏈**提供者命名空間。 |
+| 資源類型 | 區塊鏈**資料管理員輸入的資源類型是輸入**。 |
+| 父 | 與輸入相關聯之監看員的路徑。 例如，監看員 **/mywatcher**。 |
+| is-full-object | 指出屬性包含輸入資源的選項。 |
+| properties | JSON 格式的字串，包含輸入資源的屬性。 可以當做字串或檔案來傳遞。 |
 
-### <a name="input-examples"></a>Input examples
+### <a name="input-examples"></a>輸入範例
 
-Configuration JSON example to create an input resource in the *East US* region that is connected to \<Blockchain member\>.
+設定 JSON 範例，以在*美國東部*區域建立連線至 \<區塊鏈成員\>的輸入資源。
 
 ``` json
 {
@@ -149,11 +149,11 @@ Configuration JSON example to create an input resource in the *East US* region t
 
 | 元素 | 描述 |
 |---------|-------------|
-| location | Region where to create the input resource. |
-| inputType | Ledger type of the Azure Blockchain Service member. Currently, **Ethereum** is supported. |
-| ResourceId | Transaction node to which the input is connected. Replace \<Subscription ID\>, \<Resource group\>, and \<Blockchain member\> with the values for the transaction node resource. The input connects to the default transaction node for the Azure Blockchain Service member. |
+| location | 要在其中建立輸入資源的區域。 |
+| inputType | Azure 區塊鏈服務成員的總帳類型。 目前支援**乙太坊**。 |
+| resourceId | 輸入所連接的交易節點。 以交易節點資源的值取代 \<訂用帳戶識別碼\>、\<資源群組\>和 \<區塊鏈成員\>。 輸入會連接到 Azure 區塊鏈服務成員的預設交易節點。 |
 
-Create an input named *myInput* for *mywatcher* using a JSON string for configuration.
+使用設定的 JSON 字串，為*mywatcher*建立名為*myinput.x*的輸入。
 
 ``` azurecli-interactive
 az resource create \
@@ -166,7 +166,7 @@ az resource create \
                    --properties '{"location":"eastus", "properties":{"inputType":"Ethereum","dataSource":{"resourceId":"/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/BlockchainMembers/<Blockchain member>/transactionNodes/transaction-node"}}}'
 ```
 
-Create an input named *myInput* for *mywatcher* using a JSON configuration file.
+使用 JSON 設定檔為*mywatcher*建立名為*myinput.x*的輸入。
 
 ``` azurecli
 az resource create \
@@ -178,7 +178,7 @@ az resource create \
                    --properties @input.json
 ```
 
-## <a name="create-output"></a>Create output
+## <a name="create-output"></a>建立輸出
 
 輸出連線會將區塊鏈資料傳送至 Azure 事件方格。 您可將區塊鏈資料傳送至單一目的地，或將區塊鏈資料傳送至多個目的地。 區塊鏈資料管理員會針對任何指定的區塊鏈資料管理員執行個體，支援多個事件方格主題輸出連線。
 
@@ -195,17 +195,17 @@ az resource create \
 
 | 參數 | 描述 |
 |-----------|-------------|
-| resource-group | Resource group name where to create the output resource. |
-| 名稱 | Name of the output. |
-| namespace | Use the **Microsoft.Blockchain** provider namespace. |
-| resource-type | The resource type for a Blockchain Data Manager output is **outputs**. |
-| parent | The path to the watcher to which the output is associated. For example, **watchers/mywatcher**. |
-| is-full-object | Indicates properties contain options for the output resource. |
-| properties | JSON-formatted string containing properties for the output resource. Can be passed as a string or a file. |
+| resource-group | 要在其中建立輸出資源的資源組名。 |
+| 名稱 | 輸出的名稱。 |
+| namespace | 使用**區塊鏈**提供者命名空間。 |
+| 資源類型 | 輸出的區塊鏈資料管理員的資源**類型。** |
+| 父 | 與輸出相關聯之監看員的路徑。 例如，監看員 **/mywatcher**。 |
+| is-full-object | 指出屬性包含輸出資源的選項。 |
+| properties | JSON 格式的字串，包含輸出資源的屬性。 可以當做字串或檔案來傳遞。 |
 
-### <a name="output-examples"></a>Output examples
+### <a name="output-examples"></a>輸出範例
 
-Configuration JSON example to create an output resource in the *East US* region that is connected to an event grid topic named \<event grid topic\>.
+設定 JSON 範例，以在*美國東部*區域建立輸出資源，並連接到名為 \<事件方格主題\>的事件方格主題。
 
 ``` json
 {
@@ -221,11 +221,11 @@ Configuration JSON example to create an output resource in the *East US* region 
 
 | 元素 | 描述 |
 |---------|-------------|
-| location | Region where to create the output resource. |
-| outputType | Type of output. Currently, **EventGrid** is supported. |
-| ResourceId | Resource to which the output is connected. Replace \<Subscription ID\>, \<Resource group\>, and \<Blockchain member\> with the values for the event grid resource. |
+| location | 要在其中建立輸出資源的區域。 |
+| outputType | 輸出的類型。 目前支援**EventGrid** 。 |
+| resourceId | 輸出所連接的資源。 以事件方格資源的值取代 \<訂用帳戶識別碼\>、\<資源群組\>和 \<區塊鏈成員\>。 |
 
-Create an output named *myoutput* for *mywatcher* that connects to an event grid topic using a JSON configuration string.
+針對使用 JSON 設定字串連接到 event grid 主題的*mywatcher* ，建立名為*myoutput*的輸出。
 
 ``` azurecli-interactive
 az resource create \
@@ -238,7 +238,7 @@ az resource create \
                    --properties '{"location":"eastus","properties":{"outputType":"EventGrid","dataSource":{"resourceId":"/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.EventGrid/topics/<event grid topic>"}}}'
 ```
 
-Create an output named *myoutput* for *mywatcher* that connects to an event grid topic using a JSON configuration file.
+建立一個名為*myoutput*的輸出， *MYWATCHER*會使用 JSON 設定檔連接到事件方格主題。
 
 ``` azurecli
 az resource create \
@@ -251,13 +251,13 @@ az resource create \
                    --properties @output.json
 ```
 
-## <a name="add-blockchain-application"></a>Add blockchain application
+## <a name="add-blockchain-application"></a>新增區塊鏈應用程式
 
-If you add a blockchain application, Blockchain Data Manager decodes event and property state for the application. Otherwise, only raw block and raw transaction data is sent. Blockchain Data Manager also discovers contract addresses when the contract is deployed. You can add multiple blockchain applications to a Blockchain Data Manager instance.
+如果您新增區塊鏈應用程式，區塊鏈資料管理員會將應用程式的事件和屬性狀態解碼。 否則，只會傳送原始區塊和原始交易資料。 區塊鏈資料管理員也會在部署合約時探索合約位址。 您可以將多個區塊鏈應用程式新增至區塊鏈資料管理員實例。
 
 
 > [!IMPORTANT]
-> Currently, blockchain applications that declare Solidity [array types](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) or [mapping types](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) are not fully supported. Properties declared as array or mapping types will not be decoded in *ContractPropertiesMsg* or *DecodedContractEventsMsg* messages.
+> 目前，不完全支援宣告密度[陣列類型](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays)或[對應類型](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types)的區塊鏈應用程式。 宣告為數組或對應類型的屬性將不會在*ContractPropertiesMsg*或*DecodedContractEventsMsg*訊息中解碼。
 
 ``` azurecli
 az resource create \
@@ -272,17 +272,17 @@ az resource create \
 
 | 參數 | 描述 |
 |-----------|-------------|
-| resource-group | Resource group name where to create the application resource. |
-| 名稱 | Name of the application. |
-| namespace | Use the **Microsoft.Blockchain** provider namespace. |
-| resource-type | The resource type for a Blockchain Data Manager application is **artifacts**. |
-| parent | The path to the watcher to which the application is associated. For example, **watchers/mywatcher**. |
-| is-full-object | Indicates properties contain options for the application resource. |
-| properties | JSON-formatted string containing properties for the application resource. Can be passed as a string or a file. |
+| resource-group | 要在其中建立應用程式資源的資源組名。 |
+| 名稱 | 應用程式的名稱。 |
+| namespace | 使用**區塊鏈**提供者命名空間。 |
+| 資源類型 | 區塊鏈資料管理員應用程式的資源**類型是成品**。 |
+| 父 | 與應用程式相關聯之監看員的路徑。 例如，監看員 **/mywatcher**。 |
+| is-full-object | 指出屬性包含應用程式資源的選項。 |
+| properties | JSON 格式的字串，其中包含應用程式資源的屬性。 可以當做字串或檔案來傳遞。 |
 
-### <a name="blockchain-application-examples"></a>Blockchain application examples
+### <a name="blockchain-application-examples"></a>區塊鏈應用程式範例
 
-Configuration JSON example to create an application resource in the *East US* region that monitors a smart contract defined by the contract ABI and bytecode.
+設定 JSON 範例，以在*美國東部*區域中建立應用程式資源，以監視合約 ABI 和位元組程式碼所定義的智慧合約。
 
 ``` json
 {
@@ -303,13 +303,13 @@ Configuration JSON example to create an application resource in the *East US* re
 
 | 元素 | 描述 |
 |---------|-------------|
-| location | Region where to create the application resource. |
-| artifactType | 應用程式的類型。 Currently, **EthereumSmartContract** is supported. |
-| abiFileUrl | URL for smart contract ABI JSON file. For more information on obtaining contract ABI and creating a URL, see [Get Contract ABI and bytecode](data-manager-portal.md#get-contract-abi-and-bytecode) and [Create contract ABI and bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
-| bytecodeFileUrl | URL for smart contract deployed bytecode JSON file. For more information on obtaining the smart contract deployed bytecode and creating a URL, see [Get Contract ABI and bytecode](data-manager-portal.md#get-contract-abi-and-bytecode) and [Create contract ABI and bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). Note: Blockchain Data Manager requires the **deployed bytecode**. |
-| queryTargetTypes | Published message types. Specifying **ContractProperties** publishes *ContractPropertiesMsg* message type. Specifying **ContractEvents** publishes *DecodedContractEventsMsg* message type. Note: *RawBlockAndTransactionMsg* and *RawTransactionContractCreationMsg* message types are always published. |
+| location | 要在其中建立應用程式資源的區域。 |
+| artifactType | 應用程式的類型。 目前支援**EthereumSmartContract** 。 |
+| abiFileUrl | 智慧合約 ABI JSON 檔案的 URL。 如需取得合約 ABI 和建立 URL 的詳細資訊，請參閱[取得合約 abi 和位元組](data-manager-portal.md#get-contract-abi-and-bytecode)程式碼，以及[建立合約 abi 和位元組](data-manager-portal.md#create-contract-abi-and-bytecode-url)程式碼 url。 |
+| bytecodeFileUrl | 智慧合約已部署位元組程式碼的 URL JSON 檔案。 如需取得智慧合約部署的位元組程式碼，以及建立 URL 的詳細資訊，請參閱[取得合約 abi 和位元組](data-manager-portal.md#get-contract-abi-and-bytecode)程式碼，並[建立合約 abi 和位元組](data-manager-portal.md#create-contract-abi-and-bytecode-url)程式碼 url。 注意：區塊鏈資料管理員需要已**部署的位元組**。 |
+| queryTargetTypes | 已發行的訊息類型。 指定**ContractProperties**會發行*ContractPropertiesMsg*訊息類型。 指定**ContractEvents**會發行*DecodedContractEventsMsg*訊息類型。 注意：一律會發佈*RawBlockAndTransactionMsg*和*RawTransactionContractCreationMsg*訊息類型。 |
 
-Create an application named *myApplication* for *mywatcher* that monitors a smart contract defined by a JSON string.
+為*mywatcher*建立名為*myApplication*的應用程式，以監視 JSON 字串所定義的智慧合約。
 
 ``` azurecli-interactive
 az resource create \
@@ -322,7 +322,7 @@ az resource create \
                    --properties '{"location":"eastus","properties":{"artifactType":"EthereumSmartContract","content":{"abiFileUrl":"<ABI URL>","bytecodeFileUrl":"<Bytecode URL>","queryTargetTypes":["ContractProperties","ContractEvents"]}}}'
 ```
 
-Create an application named *myApplication* for *mywatcher* that watches a smart contract defined using a JSON configuration file.
+建立名為*myApplication*的應用程式， *mywatcher*會監看使用 JSON 設定檔定義的智慧合約。
 
 ``` azurecli
 az resource create \
@@ -335,9 +335,9 @@ az resource create \
                    --properties @artifact.json
 ```
 
-## <a name="start-instance"></a>Start instance
+## <a name="start-instance"></a>啟動實例
 
-When running, a Blockchain Manager instance monitors blockchain events from the defined inputs and sends data to the defined outputs.
+執行時，區塊鏈 Manager 實例會從定義的輸入監視區塊鏈事件，並將資料傳送至定義的輸出。
 
 ``` azurecli
 az resource invoke-action \
@@ -347,12 +347,12 @@ az resource invoke-action \
 
 | 參數 | 描述 |
 |-----------|-------------|
-| 動作 | Use **start** to run the watcher. |
-| ids | Watcher resource ID. Replace \<Subscription ID\>, \<Resource group\>, and \<Watcher name\> with the values for the watcher resource.|
+| 動作 | 使用 [**啟動**] 來執行監看員。 |
+| ids | 監看員資源識別碼。 以監看員資源的值取代 \<訂用帳戶識別碼\>、\<資源群組\>和 \<監看員名稱\>。|
 
-### <a name="start-instance-example"></a>Start instance example
+### <a name="start-instance-example"></a>啟動實例範例
 
-Start a Blockchain Data Manager instance named *mywatcher*.
+啟動名為*mywatcher*的區塊鏈資料管理員實例。
 
 ``` azurecli-interactive
 az resource invoke-action \
@@ -360,9 +360,9 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/mywatcher
 ```
 
-## <a name="stop-instance"></a>Stop instance
+## <a name="stop-instance"></a>停止實例
 
-Stop a Blockchain Data Manager instance.
+停止區塊鏈資料管理員實例。
 
 ``` azurecli
 az resource invoke-action \
@@ -372,12 +372,12 @@ az resource invoke-action \
 
 | 參數 | 描述 |
 |-----------|-------------|
-| 動作 | Use **stop** to stop the watcher. |
-| ids | Name of the watcher. Replace \<Subscription ID\>, \<Resource group\>, and \<Watcher name\> with the values for the watcher resource. |
+| 動作 | 使用 [**停止**] 停止監看員。 |
+| ids | 監看員的名稱。 以監看員資源的值取代 \<訂用帳戶識別碼\>、\<資源群組\>和 \<監看員名稱\>。 |
 
-### <a name="stop-watcher-example"></a>Stop watcher example
+### <a name="stop-watcher-example"></a>停止監看員範例
 
-Stop an instance named *mywatcher*.
+停止名為*mywatcher*的實例。
 
 ``` azurecli-interactive
 az resource invoke-action \
@@ -385,9 +385,9 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/mywatcher
 ```
 
-## <a name="delete-instance"></a>Delete instance
+## <a name="delete-instance"></a>刪除實例
 
-Delete a Blockchain Data Manager instance.
+刪除區塊鏈資料管理員實例。
 
 ``` azurecli
 az resource delete \
@@ -398,13 +398,13 @@ az resource delete \
 
 | 參數 | 描述 |
 |-----------|-------------|
-| resource-group | Resource group name of the watcher to delete. |
-| 名稱 | Name of the watcher to delete. |
-| resource-type | The resource type for a Blockchain Data Manager watcher is **Microsoft.blockchain/watchers**. |
+| resource-group | 要刪除之監看員的資源組名。 |
+| 名稱 | 要刪除的監看員名稱。 |
+| 資源類型 | 區塊鏈資料管理員監看員的資源類型為**區塊鏈/** 監看員。 |
 
-### <a name="delete-instance-example"></a>Delete instance example
+### <a name="delete-instance-example"></a>刪除實例範例
 
-Delete an instance named *mywatcher* in the *myRG* resource group.
+刪除*myRG*資源群組中名為*mywatcher*的實例。
 
 ``` azurecli-interactive
 az resource delete \
@@ -415,7 +415,7 @@ az resource delete \
 
 ## <a name="next-steps"></a>後續步驟
 
-Try the next tutorial creating a blockchain transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
+請嘗試下一個教學課程使用區塊鏈資料管理員和 Azure Cosmos DB 建立區塊鏈交易訊息瀏覽器。
 
 > [!div class="nextstepaction"]
-> [Use Blockchain Data Manager to send data to Azure Cosmos DB](data-manager-cosmosdb.md)
+> [使用區塊鏈資料管理員將資料傳送至 Azure Cosmos DB](data-manager-cosmosdb.md)

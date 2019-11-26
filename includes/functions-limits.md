@@ -11,28 +11,28 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74322883"
 ---
-| 資源 | [Consumption plan](../articles/azure-functions/functions-scale.md#consumption-plan) | [Premium plan](../articles/azure-functions/functions-scale.md#premium-plan) | [App Service plan](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
+| 資源 | [耗用量方案](../articles/azure-functions/functions-scale.md#consumption-plan) | [Premium 方案](../articles/azure-functions/functions-scale.md#premium-plan) | [App Service 方案](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
-| 橫向擴充 | Event driven | Event driven | [Manual/autoscale](../articles/app-service/manage-scale-up.md) | 
+| 橫向擴充 | 事件驅動 | 事件驅動 | [手動/自動調整](../articles/app-service/manage-scale-up.md) | 
 | 執行個體上限 | 200 | 100 | 10-20 |
-|Default [time out duration](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>2</sup> |
-|Max [time out duration](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | 60 | unbounded<sup>3</sup> |
-| Max outbound connections (per instance) | 600 active (1200 total) | 無限制 | 無限制 |
-| Max request size (MB)<sup>4</sup> | 100 | 100 | 100 |
-| Max query string length<sup>4</sup> | 4096 | 4096 | 4096 |
-| Max request URL length<sup>4</sup> | 8192 | 8192 | 8192 |
-| [ACU](../articles/virtual-machines/windows/acu.md) per instance | 100 | 210-840 | 100-840 |
-| Max memory (GB per instance) | 1.5 | 3.5-14 | 1.75-14 |
-| Function apps per plan |100 |100 |unbounded<sup>5</sup> |
-| [App Service 方案](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |每個資源群組 100 個 |每個資源群組 100 個 |
-| Storage<sup>6</sup> |1GB |250 GB |50-1000 GB |
+|預設[超時](../articles/azure-functions/functions-scale.md#timeout)時間（分鐘） |5 | 30 |30<sup>2</sup> |
+|最大[時間輸出持續時間](../articles/azure-functions/functions-scale.md#timeout)（分鐘） |10 | 60 | 無界限<sup>3</sup> |
+| 最大輸出連線數（每個實例） | 600作用中（1200總計） | 無限制 | 無限制 |
+| 要求大小上限（MB）<sup>4</sup> | 100 | 100 | 100 |
+| 最大查詢字串長度<sup>4</sup> | 4096 | 4096 | 4096 |
+| 要求 URL 長度上限<sup>4</sup> | 8192 | 8192 | 8192 |
+| 每個實例的[ACU](../articles/virtual-machines/windows/acu.md) | 100 | 210-840 | 100-840 |
+| 最大記憶體（每個實例 GB） | 1.5 | 3.5-14 | 1.75-14 |
+| 每個方案的函數應用程式 |100 |100 |無界限<sup>5</sup> |
+| [App Service 方案](../articles/app-service/overview-hosting-plans.md) | 每個[區域](https://azure.microsoft.com/global-infrastructure/regions/)100 |每個資源群組 100 個 |每個資源群組 100 個 |
+| 儲存體<sup>6</sup> |1 GB |250 GB |50-1000 GB |
 | 每個應用程式的自訂網域</a> |500<sup>7</sup> |500 |500 |
-| 自訂網域 [SSL 支援](../articles/app-service/configure-ssl-bindings.md) |unbounded SNI SSL connection included | unbounded SNI SSL and 1 IP SSL connections included |unbounded SNI SSL and 1 IP SSL connections included | 
+| 自訂網域 [SSL 支援](../articles/app-service/configure-ssl-bindings.md) |包含未系結的 SNI SSL 連線 | 包含未系結的 SNI SSL 和1個 IP SSL 連線 |包含未系結的 SNI SSL 和1個 IP SSL 連線 | 
 
-<sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../articles/azure-subscription-service-limits.md#app-service-limits).  
-<sup>2</sup> By default, the timeout for the Functions 1.x runtime in an App Service plan is unbounded.  
-<sup>3</sup> Requires the App Service plan be set to [Always On](../articles/azure-functions/functions-scale.md#always-on). Pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/).  
-<sup>4</sup> These limits are [set in the host](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
-<sup>5</sup> The actual number of function apps that you can host depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
-<sup>6</sup> The storage limit is the total content size in temporary storage across all apps in the same App Service plan. Consumption plan uses Azure Files for temporary storage.  
-<sup>7</sup> When your function app is hosted in a [Consumption plan](../articles/azure-functions/functions-scale.md#consumption-plan), only the CNAME option is supported. For function apps in a [Premium plan](../articles/azure-functions/functions-scale.md#premium-plan) or an [App Service plan](../articles/azure-functions/functions-scale.md#app-service-plan), you can map a custom domain using either a CNAME or an A record.
+<sup>1</sup>如需各種 App Service 計畫選項的特定限制，請參閱[App Service 方案限制](../articles/azure-subscription-service-limits.md#app-service-limits)。  
+<sup>2</sup>根據預設，App Service 計畫中的函式1.x 執行時間的超時不受限制。  
+<sup>3</sup>要求 App Service 計畫必須設定為[Always On](../articles/azure-functions/functions-scale.md#always-on)。 以標準[費率](https://azure.microsoft.com/pricing/details/app-service/)付費。  
+<sup>4</sup> [主機中設定](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config)了這些限制。  
+<sup>5</sup>您可以裝載的函式應用程式實際數目，取決於應用程式的活動、電腦實例的大小，以及對應的資源使用率。  
+<sup>6</sup>儲存限制是相同 App Service 方案中所有應用程式的暫存儲存體中的總內容大小。 取用方案會使用 Azure 檔案儲存體暫存儲存體。  
+<sup>7</sup>當您的函數應用程式裝載于取用[方案](../articles/azure-functions/functions-scale.md#consumption-plan)時，只支援 CNAME 選項。 針對高階[方案](../articles/azure-functions/functions-scale.md#premium-plan)或[App Service 方案](../articles/azure-functions/functions-scale.md#app-service-plan)中的函數應用程式，您可以使用 CNAME 或 a 記錄來對應自訂網域。

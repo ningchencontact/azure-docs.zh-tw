@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple - Back up workload virtual machines on Private Cloud using Veeam
-description: Describes how you can back up your virtual machines that are running in an Azure-based CloudSimple Private Cloud using Veeam B&R 9.5
+title: Azure VMware Solution by CloudSimple-使用 Veeam 備份私人雲端上的工作負載虛擬機器
+description: 說明如何使用 Veeam B & R 9.5，備份以 Azure 為基礎的 CloudSimple 私人雲端中執行的虛擬機器
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -15,164 +15,164 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232356"
 ---
-# <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Back up workload VMs on CloudSimple Private Cloud using Veeam B&R
+# <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>使用 Veeam B & R 來備份 CloudSimple 私人雲端上的工作負載 Vm
 
-This guide describes how you can back up your virtual machines that are running in an Azure-based CloudSimple Private Cloud by using Veeam B&R 9.5.
+本指南說明如何使用 Veeam B & R 9.5，備份在以 Azure 為基礎的 CloudSimple 私人雲端中執行的虛擬機器。
 
-## <a name="about-the-veeam-back-up-and-recovery-solution"></a>About the Veeam back up and recovery solution
+## <a name="about-the-veeam-back-up-and-recovery-solution"></a>關於 Veeam 備份和復原解決方案
 
-The Veeam solution includes the following components.
+Veeam 解決方案包含下列元件。
 
-**Backup Server**
+**備份伺服器**
 
-The backup server is a Windows server (VM) that serves as the control center for Veeam and performs these functions: 
+備份伺服器是一種 Windows server （VM），可做為 Veeam 的控制中心，並執行下列功能： 
 
-* Coordinates backup, replication, recovery verification, and restore tasks
-* Controls job scheduling and resource allocation
-* Allows you to set up and manage backup infrastructure components and specify global settings for the backup infrastructure
+* 協調備份、複寫、復原驗證和還原工作
+* 控制作業排程和資源配置
+* 可讓您設定和管理備份基礎結構元件，並指定備份基礎結構的全域設定
 
-**Proxy Servers**
+**Proxy 伺服器**
 
-Proxy servers are installed between the backup server and other components of the backup infrastructure. They manage the following functions:
+Proxy 伺服器會安裝在備份伺服器和備份基礎結構的其他元件之間。 他們會管理下列功能：
 
-* Retrieval of VM data from the production storage
+* 從生產儲存體抓取 VM 資料
 * 壓縮
 * 重複資料刪除
 * 加密
-* Transmission of data to the backup repository
+* 將資料傳輸至備份存放庫
 
-**Backup repository**
+**備份存放庫**
 
-The backup repository is the storage location where Veeam keeps backup files, VM copies, and metadata for replicated VMs.  The repository can be a Windows or Linux server with local disks (or mounted NFS/SMB) or a hardware storage deduplication appliance.
+備份存放庫是儲存位置，其中 Veeam 會保留複寫 Vm 的備份檔案、VM 複本和中繼資料。  存放庫可以是具有本機磁片（或掛接的 NFS/SMB）或硬體儲存體重復資料刪除設備的 Windows 或 Linux 伺服器。
 
-### <a name="veeam-deployment-scenarios"></a>Veeam deployment scenarios
-You can leverage Azure to provide a backup repository and a storage target for long term backup and archiving. All the backup network traffic between VMs in the Private Cloud and the backup repository in Azure travels over a high bandwidth, low latency link. Replication traffic across regions travels over the internal Azure backplane network, which lowers bandwidth costs for users.
+### <a name="veeam-deployment-scenarios"></a>Veeam 部署案例
+您可以利用 Azure 來提供備份存放庫，以及長期備份和封存的儲存體目標。 私人雲端中的 Vm 與 Azure 中的備份存放庫之間的所有備份網路流量，會透過高頻寬、低延遲的連結來傳輸。 跨區域的複寫流量會透過內部 Azure 背板網路傳輸，以降低使用者的頻寬成本。
 
-**Basic deployment**
+**基本部署**
 
-For environments with less than 30 TB to back up, CloudSimple recommends the following configuration:
+對於少於 30 TB 要備份的環境，CloudSimple 建議使用下列設定：
 
-* Veeam backup server and proxy server installed on the same VM in the Private Cloud.
-* A Linux based primary backup repository in Azure configured as a target for backup jobs.
-* `azcopy` used to copy the data from the primary backup repository to an Azure blob container that is replicated to another region.
+* 在私人雲端中的相同 VM 上安裝 Veeam 備份伺服器和 proxy 伺服器。
+* Azure 中以 Linux 為基礎的主要備份存放庫，設定為備份作業的目標。
+* `azcopy` 用來將資料從主要備份存放庫複製到已複寫至另一個區域的 Azure blob 容器。
 
-![Basic deployment scenarios](media/veeam-basicdeployment.png)
+![基本部署案例](media/veeam-basicdeployment.png)
 
-**Advanced deployment**
+**先進部署**
 
-For environments with more than 30 TB to back up, CloudSimple recommends the following configuration:
+針對具有超過 30 TB 要備份的環境，CloudSimple 建議使用下列設定：
 
-* One proxy server per node in the vSAN cluster, as recommended by Veeam.
-* Windows based primary backup repository in the Private Cloud to cache five days of data for fast restores.
-* Linux backup repository in Azure as a target for backup copy jobs for longer duration retention. This repository should be configured as a scale-out backup repository.
-* `azcopy` used to copy the data from the primary backup repository to an Azure blob container that is replicated to another region.
+* VSAN 叢集中每個節點的一個 proxy 伺服器（如 Veeam 所建議）。
+* 私人雲端中以 Windows 為主的主要備份存放庫，可快取五天的資料，以快速還原。
+* Azure 中的 Linux 備份存放庫，做為備份複本作業的目標，持續時間較長的保留期。 此存放庫應設定為相應放大備份存放庫。
+* `azcopy` 用來將資料從主要備份存放庫複製到已複寫至另一個區域的 Azure blob 容器。
 
-![Basic deployment scenarios](media/veeam-advanceddeployment.png)
+![基本部署案例](media/veeam-advanceddeployment.png)
 
-In the previous figure, notice that the backup proxy is a VM with Hot Add access to workload VM disks on the vSAN datastore. Veeam uses Virtual Appliance backup proxy transport mode for vSAN.
+在上圖中，請注意，備份 proxy 是具有 vSAN 資料存放區上之工作負載 VM 磁片的熱新增存取權的 VM。 Veeam 使用虛擬裝置備份 proxy 傳輸模式來進行 vSAN。
 
-## <a name="requirements-for-veeam-solution-on-cloudsimple"></a>Requirements for Veeam solution on CloudSimple
+## <a name="requirements-for-veeam-solution-on-cloudsimple"></a>CloudSimple 上 Veeam 解決方案的需求
 
-The Veeam solution requires you to do the following:
+Veeam 解決方案會要求您執行下列動作：
 
-* Provide your own Veeam licenses.
-* Deploy and manage Veeam to backup the workloads running in the CloudSimple Private Cloud.
+* 提供您自己的 Veeam 授權。
+* 部署和管理 Veeam，以備份在 CloudSimple 私人雲端中執行的工作負載。
 
-This solution provides you with full control over the Veeam backup tool and offers the choice to use the native Veeam interface or the Veeam vCenter plug-in to manage VM backup jobs.
+此解決方案可讓您完整控制 Veeam 備份工具，並提供使用原生 Veeam 介面或 Veeam vCenter 外掛程式來管理 VM 備份作業的選項。
 
-If you are an existing Veeam user, you can skip the section on Veeam Solution Components and directly proceed to [Veeam Deployment Scenarios](#veeam-deployment-scenarios).
+如果您是現有的 Veeam 使用者，可以略過 Veeam 解決方案元件上的一節，並直接繼續進行[Veeam 部署案例](#veeam-deployment-scenarios)。
 
-## <a name="install-and-configure-veeam-backups-in-your-cloudsimple-private-cloud"></a>Install and configure Veeam backups in your CloudSimple Private Cloud
+## <a name="install-and-configure-veeam-backups-in-your-cloudsimple-private-cloud"></a>在您的 CloudSimple 私人雲端中安裝和設定 Veeam 備份
 
-The following sections describe how to install and configure a Veeam backup solution for your CloudSimple Private Cloud.
+下列各節說明如何安裝及設定 CloudSimple 私人雲端的 Veeam 備份解決方案。
 
-The deployment process consists of these steps:
+部署程式由下列步驟組成：
 
-1. [vCenter UI: Set up infrastructure services in your Private Cloud](#vcenter-ui-set-up-infrastructure-services-in-your-private-cloud)
-2. [CloudSimple portal: Set up Private Cloud networking for Veeam](#cloudsimple-private-cloud-set-up-private-cloud-networking-for-veeam)
-3. [CloudSimple portal: Escalate Privileges](#cloudsimple-private-cloud-escalate-privileges-for-cloudowner)
-4. [Azure portal: Connect your virtual network to the Private Cloud](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
-5. [Azure portal: Create a backup repository in Azure](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
-6. [Azure portal: Configure Azure blob storage for long term data retention](#configure-azure-blob-storage-for-long-term-data-retention)
-7. [vCenter UI of Private Cloud: Install Veeam B&R](#vcenter-console-of-private-cloud-install-veeam-br)
-8. [Veeam Console: Configure Veeam Backup & Recovery software](#veeam-console-install-veeam-backup-and-recovery-software)
-9. [CloudSimple portal: Set up Veeam access and de-escalate privileges](#cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges)
+1. [vCenter UI：在您的私人雲端中設定基礎結構服務](#vcenter-ui-set-up-infrastructure-services-in-your-private-cloud)
+2. [CloudSimple 入口網站：設定 Veeam 的私用雲端網路](#cloudsimple-private-cloud-set-up-private-cloud-networking-for-veeam)
+3. [CloudSimple 入口網站：提升許可權](#cloudsimple-private-cloud-escalate-privileges-for-cloudowner)
+4. [Azure 入口網站：將您的虛擬網路連線到私人雲端](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
+5. [Azure 入口網站：在 Azure 中建立備份存放庫](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
+6. [Azure 入口網站：設定長期資料保留的 Azure blob 儲存體](#configure-azure-blob-storage-for-long-term-data-retention)
+7. [私人雲端的 vCenter UI：安裝 Veeam B & R](#vcenter-console-of-private-cloud-install-veeam-br)
+8. [Veeam 主控台：設定 Veeam 備份 & 復原軟體](#veeam-console-install-veeam-backup-and-recovery-software)
+9. [CloudSimple 入口網站：設定 Veeam 存取和取消提升許可權](#cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges)
 
 ### <a name="before-you-begin"></a>開始之前
 
-The following are required before you begin Veeam deployment:
+開始 Veeam 部署之前，需要下列各項：
 
-* An Azure subscription owned by you
-* A pre-created Azure resource group
-* An Azure virtual network in your subscription
+* 您所擁有的 Azure 訂用帳戶
+* 預先建立的 Azure 資源群組
+* 訂用帳戶中的 Azure 虛擬網路
 * Azure 儲存體帳戶
-* A [Private Cloud](create-private-cloud.md) created using the CloudSimple portal.  
+* 使用 CloudSimple 入口網站建立的[私用雲端](create-private-cloud.md)。  
 
-The following items are needed during the implementation phase:
+在執行階段期間，需要下列專案：
 
-* VMware templates for Windows to install Veeam (such as Windows Server 2012 R2 - 64 bit image)
-* One available VLAN identified for the backup network
-* CIDR of the subnet to be assigned to the backup network
-* Veeam 9.5 u3 installable media (ISO) uploaded to the vSAN datastore of the Private Cloud
+* 適用于 Windows 的 VMware 範本，用來安裝 Veeam （例如 Windows Server 2012 R2-64 位映射）
+* 針對備份網路識別的一個可用 VLAN
+* 要指派給備份網路之子網的 CIDR
+* 已上傳至私人雲端 vSAN 資料存放區的 Veeam 9.5 u3 可安裝媒體（ISO）
 
-### <a name="vcenter-ui-set-up-infrastructure-services-in-your-private-cloud"></a>vCenter UI: Set up infrastructure services in your Private Cloud
+### <a name="vcenter-ui-set-up-infrastructure-services-in-your-private-cloud"></a>vCenter UI：在您的私人雲端中設定基礎結構服務
 
-Configure infrastructure services in the Private Cloud to make it easy to manage your workloads and tools.
+在私人雲端中設定基礎結構服務，以輕鬆管理您的工作負載和工具。
 
-* You can add an external identity provider as described in [Set up vCenter identity sources to use Active Directory](set-vcenter-identity.md) if any of the following apply:
+* 您可以新增外部身分識別提供者（如[設定 vCenter 身分識別來源](set-vcenter-identity.md)中所述），以在下列任何一種情況下使用 Active Directory：
 
-  * You want to identify users from your on-premises Active Directory (AD) in your Private Cloud.
-  * You want to set up an AD in your Private Cloud for all users.
-  * You want to use Azure AD.
-* To provide IP address lookup, IP address management, and name resolution services for your workloads in the Private Cloud, set up a DHCP and DNS server as described in [Set up DNS and DHCP applications and workloads in your CloudSimple Private Cloud](dns-dhcp-setup.md).
+  * 您想要從您的私人雲端中的內部部署 Active Directory （AD）識別使用者。
+  * 您想要在私人雲端中為所有使用者設定 AD。
+  * 您想要使用 Azure AD。
+* 若要在私人雲端中為您的工作負載提供 IP 位址查閱、IP 位址管理和名稱解析服務，請設定 DHCP 和 DNS 伺服器，如在[CloudSimple 私人雲端中設定 DNS 和 DHCP 應用程式和工作負載](dns-dhcp-setup.md)中所述。
 
-### <a name="cloudsimple-private-cloud-set-up-private-cloud-networking-for-veeam"></a>CloudSimple Private Cloud: Set up Private Cloud networking for Veeam
+### <a name="cloudsimple-private-cloud-set-up-private-cloud-networking-for-veeam"></a>CloudSimple 私用雲端：設定 Veeam 的私用雲端網路
 
-Access the CloudSimple portal to set up Private Cloud networking for the Veeam solution.
+存取 CloudSimple 入口網站，為 Veeam 解決方案設定私用雲端網路。
 
-Create a VLAN for the backup network and assign it a subnet CIDR. For instructions, see [Create and manage VLANs/Subnets](create-vlan-subnet.md).
+建立備份網路的 VLAN，並為其指派子網 CIDR。 如需指示，請參閱[建立和管理 vlan/子網](create-vlan-subnet.md)。
 
-Create firewall rules between the management subnet and the backup network to allow network traffic on ports used by Veeam. See the Veeam topic [Used Ports](https://helpcenter.veeam.com/docs/backup/vsphere/used_ports.html?ver=95). For instructions on firewall rule creation, see [Set up firewall tables and rules](firewall.md).
+在管理子網和備份網路之間建立防火牆規則，以允許 Veeam 所使用之埠上的網路流量。 請參閱 Veeam 主題[使用的埠](https://helpcenter.veeam.com/docs/backup/vsphere/used_ports.html?ver=95)。 如需建立防火牆規則的指示，請參閱[設定防火牆資料表和規則](firewall.md)。
 
-The following table provides a port list.
+下表提供埠清單。
 
 | 圖示 | 描述 | 圖示 | 描述 |
 | ------------ | ------------- | ------------ | ------------- |
-| 備份伺服器  | vCenter  | HTTPS / TCP  | 443 |
-| 備份伺服器 <br> *Required for deploying Veeam Backup & Replication components* | Backup Proxy  | TCP/UDP  | 135, 137 to 139 and 445 |
+| 備份伺服器  | vCenter  | HTTPS/TCP  | 443 |
+| 備份伺服器 <br> *部署 Veeam 備份 & 複寫元件所需* | 備份 Proxy  | TCP/UDP  | 135、137到139和445 |
     | 備份伺服器   | DNS  | UDP  | 53  | 
-    | 備份伺服器   | Veeam Update Notification Server  | TCP  | 80  | 
-    | 備份伺服器   | Veeam License Update Server  | TCP  | 443  | 
-    | Backup Proxy   | vCenter |   |   | 
-    | Backup Proxy  | Linux Backup Repository   | TCP  | 22  | 
-    | Backup Proxy  | Windows Backup Repository  | TCP  | 49152 - 65535   | 
-    | Backup Repository  | Backup Proxy  | TCP  | 2500 -5000  | 
-    | Source Backup Repository<br> *Used for backup copy jobs*  | Target Backup Repository  | TCP  | 2500 - 5000  | 
+    | 備份伺服器   | Veeam 更新通知伺服器  | TCP  | 80  | 
+    | 備份伺服器   | Veeam 授權補救伺服器  | TCP  | 443  | 
+    | 備份 Proxy   | vCenter |   |   | 
+    | 備份 Proxy  | Linux 備份存放庫   | TCP  | 22  | 
+    | 備份 Proxy  | Windows 備份存放庫  | TCP  | 49152-65535   | 
+    | 備份存放庫  | 備份 Proxy  | TCP  | 2500-5000  | 
+    | 來源備份存放庫<br> *用於備份複製作業*  | 目標備份存放庫  | TCP  | 2500-5000  | 
 
-Create firewall rules between the workload subnet and the backup network as described in [Set up firewall tables and rules](firewall.md).  For application aware backup and restore, [additional ports](https://helpcenter.veeam.com/docs/backup/vsphere/used_ports.html?ver=95) must be opened on the workload VMs that host specific applications.
+在工作負載子網和備份網路之間建立防火牆規則，如[設定防火牆資料表和規則](firewall.md)中所述。  針對應用程式感知備份和還原，必須在裝載特定應用程式的工作負載 Vm 上開啟[其他埠](https://helpcenter.veeam.com/docs/backup/vsphere/used_ports.html?ver=95)。
 
-By default, CloudSimple provides a 1Gbps ExpressRoute link. For larger environment sizes, a higher bandwidth link may be required. Contact Azure support for more information about higher bandwidth links.
+根據預設，CloudSimple 會提供 1Gbps ExpressRoute 連結。 針對較大的環境大小，可能需要較高的頻寬連結。 如需更多頻寬連結的詳細資訊，請洽詢 Azure 支援。
 
-To continue the setup, you need the authorization key and peer circuit URI and access to your Azure Subscription.  This information is available on the Virtual Network Connection page in the CloudSimple portal. For instructions, see [Obtain peering information for Azure virtual network to CloudSimple connection](virtual-network-connection.md). If you have any trouble obtaining the information, [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+若要繼續進行設定，您需要授權金鑰和對等線路 URI，並可存取您的 Azure 訂用帳戶。  這項資訊可在 CloudSimple 入口網站的 [虛擬網路連線] 頁面上取得。 如需指示，請參閱[取得 Azure 虛擬網路到 CloudSimple 連線的對等資訊](virtual-network-connection.md)。 如果您在取得資訊時遇到任何問題，[請聯絡支援](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)人員。
 
-### <a name="cloudsimple-private-cloud-escalate-privileges-for-cloudowner"></a>CloudSimple Private Cloud: Escalate privileges for cloudowner
+### <a name="cloudsimple-private-cloud-escalate-privileges-for-cloudowner"></a>CloudSimple 私用雲端：提升 cloudowner 的許可權
 
-The default 'cloudowner' user doesn't have sufficient privileges in the Private Cloud vCenter to install VEEAM, so the user's vCenter privileges must be escalated. For more information, see [Escalate privileges](escalate-private-cloud-privileges.md).
+預設的 ' cloudowner ' 使用者在私用雲端 vCenter 中沒有足夠的許可權可以安裝 VEEAM，因此使用者的 vCenter 許可權必須提升。 如需詳細資訊，請參閱[提升許可權](escalate-private-cloud-privileges.md)。
 
-### <a name="azure-portal-connect-your-virtual-network-to-the-private-cloud"></a>Azure portal: Connect your virtual network to the Private Cloud
+### <a name="azure-portal-connect-your-virtual-network-to-the-private-cloud"></a>Azure 入口網站：將您的虛擬網路連線到私人雲端
 
-Connect your virtual network to the Private Cloud by following the instructions in [Azure Virtual Network Connection using ExpressRoute](azure-expressroute-connection.md).
+遵循[使用 ExpressRoute 的 Azure 虛擬網路](azure-expressroute-connection.md)連線中的指示，將您的虛擬網路連線至私人雲端。
 
-### <a name="azure-portal-create-a-backup-repository-vm"></a>Azure portal: Create a backup repository VM
+### <a name="azure-portal-create-a-backup-repository-vm"></a>Azure 入口網站：建立備份存放庫 VM
 
-1. Create a standard D2 v3 VM with (2 vCPUs and 8 GB memory).
-2. Select the CentOS 7.4 based image.
-3. Configure a network security group (NSG) for the VM. Verify that the VM does not have a public IP address and is not reachable from the public internet.
-4. Create a username and password based user account for the new VM. For instructions, see [Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
-5. Create 1x512 GiB standard HDD and attach it to the repository VM.  For instructions, see [How to attach a managed data disk to a Windows VM in the Azure portal](../virtual-machines/windows/attach-managed-disk-portal.md).
-6. [Create an XFS volume on the managed disk](https://www.digitalocean.com/docs/volumes/how-to/). Log in to the VM using the previously mentioned credentials. Execute the following script to create a logical volume, add the disk to it, create an XFS filesystem [partition](https://www.digitalocean.com/docs/volumes/how-to/partition/) and [mount](https://www.digitalocean.com/docs/volumes/how-to/mount/) the partition under the /backup1 path.
+1. 使用（2個 vcpu 和 8 GB 記憶體）建立標準 D2 v3 VM。
+2. 選取以 CentOS 7.4 為基礎的映射。
+3. 設定 VM 的網路安全性群組（NSG）。 確認 VM 沒有公用 IP 位址，而且無法從公用網際網路連線。
+4. 為新的 VM 建立使用者名稱和密碼型使用者帳戶。 如需指示，請參閱[在 Azure 入口網站中建立 Linux 虛擬機器](../virtual-machines/linux/quick-create-portal.md)。
+5. 建立 1x512 GiB standard HDD，並將其連結至存放庫 VM。  如需指示，請參閱[如何在 Azure 入口網站中將受控資料磁片連結至 WINDOWS VM](../virtual-machines/windows/attach-managed-disk-portal.md)。
+6. [在受控磁片上建立 XFS 磁片](https://www.digitalocean.com/docs/volumes/how-to/)區。 使用先前所述的認證來登入 VM。 執行下列腳本來建立邏輯磁片區、在其中新增磁片、建立 XFS filesystem[磁碟分割](https://www.digitalocean.com/docs/volumes/how-to/partition/)，並在/backup1 路徑底下[掛接](https://www.digitalocean.com/docs/volumes/how-to/mount/)磁碟分割。
 
-    Example script:
+    範例腳本：
 
     ```
     sudo pvcreate /dev/sdc
@@ -185,18 +185,18 @@ Connect your virtual network to the Private Cloud by following the instructions 
     sudo mount -t xfs /dev/mapper/backup1-backup1 /backup1
     ```
 
-7. Expose /backup1 as an NFS mount point to the Veeam backup server that is running in the Private Cloud. For instructions, see the Digital Ocean article [How To Set Up an NFS Mount on CentOS 6](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-centos-6). Use this NFS share name when you configure the backup repository in the Veeam backup server.
+7. 將/backup1 公開為在私人雲端中執行之 Veeam 備份伺服器的 NFS 掛接點。 如需指示，請參閱數位海洋文章[如何在 CentOS 6 上設定 NFS 掛接](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-centos-6)。 當您在 Veeam 備份伺服器中設定備份存放庫時，請使用此 NFS 共用名稱。
 
-8. Configure filtering rules in the NSG for the backup repository VM to explicitly allow all network traffic to and from the VM.
+8. 在備份存放庫 VM 的 NSG 中設定篩選規則，以明確地允許進出 VM 的所有網路流量。
 
 > [!NOTE]
-> Veeam Backup & Replication uses the SSH protocol to communicate with Linux backup repositories and requires the SCP utility on Linux repositories. Verify that the SSH daemon is properly configured and that SCP is available on the Linux host.
+> Veeam 備份 & 複寫會使用 SSH 通訊協定與 Linux 備份存放庫通訊，而且需要 Linux 存放庫上的 SCP 公用程式。 確認 SSH 背景程式已正確設定，且在 Linux 主機上可以使用 SCP。
 
-### <a name="configure-azure-blob-storage-for-long-term-data-retention"></a>Configure Azure blob storage for long term data retention
+### <a name="configure-azure-blob-storage-for-long-term-data-retention"></a>針對長期資料保留設定 Azure blob 儲存體
 
-1. Create a general purpose storage account (GPv2) of standard type and a blob container as described in the Microsoft video [Getting Started with Azure Storage](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage).
-2. Create an Azure storage container, as described in the [Create Container](https://docs.microsoft.com/rest/api/storageservices/create-container) reference.
-2. Download the `azcopy` command line utility for Linux from Microsoft. You can use the following commands in the bash shell in CentOS 7.5.
+1. 建立標準類型和 blob 容器的一般用途儲存體帳戶（GPv2），如 Microsoft video[消費者入門 with Azure 儲存體](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)所述。
+2. 如[建立容器](https://docs.microsoft.com/rest/api/storageservices/create-container)參考中所述，建立 Azure 儲存體容器。
+2. 從 Microsoft 下載適用于 Linux 的 `azcopy` 命令列公用程式。 您可以在 CentOS 7.5 中的 bash shell 中使用下列命令。
 
     ```
     wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
@@ -206,100 +206,100 @@ Connect your virtual network to the Private Cloud by following the instructions 
     sudo yum -y install icu
     ```
 
-3. Use the `azcopy` command to copy backup files to and from the blob container.  See [Transfer data with AzCopy on Linux](../storage/common/storage-use-azcopy-linux.md) for detailed commands.
+3. 使用 `azcopy` 命令，將備份檔案複製到 blob 容器，或從該檔案複製。  如需詳細的命令，請參閱[使用 AzCopy On Linux 傳送資料](../storage/common/storage-use-azcopy-linux.md)。
 
-### <a name="vcenter-console-of-private-cloud-install-veeam-br"></a>vCenter console of Private Cloud: Install Veeam B&R
+### <a name="vcenter-console-of-private-cloud-install-veeam-br"></a>私人雲端的 vCenter 主控台：安裝 Veeam B & R
 
-Access vCenter from your Private Cloud to create a Veeam service account, install Veeam B&R 9.5, and configure Veeam using the service account.
+從您的私人雲端存取 vCenter 以建立 Veeam 服務帳戶、安裝 Veeam B & R 9.5，以及使用服務帳戶來設定 Veeam。
 
-1. Create a new role named ‘Veeam Backup Role’ and assign it necessary permissions as recommended by Veeam. For details see the Veeam topic [Required Permissions](https://helpcenter.veeam.com/docs/backup/vsphere/required_permissions.html?ver=95).
-2. Create a new ‘Veeam User Group’ group in vCenter and assign it the ‘Veeam Backup Role’.
-3. Create a new ‘Veeam Service Account’ user and add it to the ‘Veeam User Group’.
+1. 建立名為「Veeam 備份角色」的新角色，並依照 Veeam 的建議指派必要的許可權。 如需詳細資訊，請參閱 Veeam 主題[必要許可權](https://helpcenter.veeam.com/docs/backup/vsphere/required_permissions.html?ver=95)。
+2. 在 vCenter 中建立新的「Veeam 使用者群組」群組，並為其指派「Veeam 備份角色」。
+3. 建立新的「Veeam 服務帳戶」使用者，並將它新增至「Veeam 使用者群組」。
 
-    ![Creating a Veeam service account](media/veeam-vcenter01.png)
+    ![建立 Veeam 服務帳戶](media/veeam-vcenter01.png)
 
-4. Create a distributed port group in vCenter using the backup network VLAN. For details, view the VMware video [Creating a Distributed Port Group in the vSphere Web Client](https://www.youtube.com/watch?v=wpCd5ZbPOpA).
-5. Create the VMs for the Veeam backup and proxy servers in vCenter as per the [Veeam system requirements](https://helpcenter.veeam.com/docs/backup/vsphere/system_requirements.html?ver=95). You can use Windows 2012 R2 or Linux. For more information see [Requirements for using Linux backup repositories](https://www.veeam.com/kb2216).
-6. Mount the installable Veeam ISO as a CDROM device in the Veeam backup server VM.
-7. Using an RDP session to the Windows 2012 R2 machine (the target for the Veeam installation), [install Veeam B&R 9.5u3](https://helpcenter.veeam.com/docs/backup/vsphere/install_vbr.html?ver=95) in a Windows 2012 R2 VM.
-8. Find the internal IP address of the Veeam backup server VM and configure the IP address to be static in the DHCP server. The exact steps required to do this depend on the DHCP server. As an example, the Netgate article <a href="https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html" target="_blank">static DHCP mappings</a> explains how to configure a DHCP server using a pfSense router.
+4. 使用備份網路 VLAN，在 vCenter 中建立分散式通訊埠群組。 如需詳細資訊，請參閱 VMware 影片在[VSphere Web 用戶端中建立分散式通訊埠群組](https://www.youtube.com/watch?v=wpCd5ZbPOpA)。
+5. 依據[Veeam 系統需求](https://helpcenter.veeam.com/docs/backup/vsphere/system_requirements.html?ver=95)，在 vCenter 中建立 Veeam 備份和 proxy 伺服器的 vm。 您可以使用 Windows 2012 R2 或 Linux。 如需詳細資訊，請參閱[使用 Linux 備份存放庫的需求](https://www.veeam.com/kb2216)。
+6. 在 Veeam 備份伺服器 VM 中，將可安裝的 Veeam ISO 掛接為 CDROM 裝置。
+7. 使用 Windows 2012 R2 電腦的 RDP 會話（Veeam 安裝的目標），在 Windows 2012 R2 VM 中[安裝 Veeam B & R 9.5 u3](https://helpcenter.veeam.com/docs/backup/vsphere/install_vbr.html?ver=95) 。
+8. 尋找 Veeam 備份伺服器 VM 的內部 IP 位址，並將 IP 位址設定為 DHCP 伺服器中的靜態。 執行此操作所需的確切步驟取決於 DHCP 伺服器。 例如，Netgate 文章<a href="https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html" target="_blank">靜態 DHCP</a>對應說明如何使用 pfSense 路由器設定 DHCP 伺服器。
 
-### <a name="veeam-console-install-veeam-backup-and-recovery-software"></a>Veeam console: Install Veeam backup and recovery software
+### <a name="veeam-console-install-veeam-backup-and-recovery-software"></a>Veeam 主控台：安裝 Veeam 備份和修復軟體
 
-Using the Veeam console, configure Veeam backup and recovery software. For details, see [Veeam Backup & Replication v9 - Installation and Deployment](https://www.youtube.com/watch?v=b4BqC_WXARk).
+使用 Veeam 主控台，設定 Veeam 備份和復原軟體。 如需詳細資訊，請參閱[Veeam Backup & Replication v9-安裝和部署](https://www.youtube.com/watch?v=b4BqC_WXARk)。
 
-1. Add VMware vSphere as a managed server environment. When prompted, provide  the credentials of the Veeam Service Account that you created at the beginning of [vCenter Console of Private Cloud: Install Veeam B&R](#vcenter-console-of-private-cloud-install-veeam-br).
+1. 將 VMware vSphere 新增為受管理的伺服器環境。 出現提示時，提供您在私人雲端的 VCenter 主控台開頭所建立之 Veeam 服務帳戶的認證[： Install Veeam B & R](#vcenter-console-of-private-cloud-install-veeam-br)。
 
-    * Use default settings for load control and default advanced settings.
-    * Set the mount server location  to be the backup server.
-    * Change the configuration backup location for the Veeam server to the remote repository.
+    * 使用 [負載控制] 和 [預設] advanced 設定的預設設定。
+    * 將掛接伺服器位置設定為備份伺服器。
+    * 將 Veeam 伺服器的設定備份位置變更為遠端存放庫。
 
-2. Add the Linux server in Azure as the backup repository.
+2. 在 Azure 中新增 Linux 伺服器做為備份存放庫。
 
-    * Use default settings for load control and for the advanced settings. 
-    * Set the mount server location to be the backup server.
-    * Change the configuration backup location for the Veeam server to the remote repository.
+    * 針對 [負載控制] 和 [高級設定] 使用預設設定。 
+    * 將掛接伺服器位置設定為備份伺服器。
+    * 將 Veeam 伺服器的設定備份位置變更為遠端存放庫。
 
-3. Enable encryption of configuration backup using **Home> Configuration Backup Settings**.
+3. 使用**Home > 設定備份設定**來啟用設定備份的加密。
 
-4. Add a Windows server VM as a proxy server for VMware environment. Using ‘Traffic Rules’ for a proxy, encrypt backup data over the wire.
+4. 新增 Windows server VM 作為 VMware 環境的 proxy 伺服器。 使用 proxy 的「流量規則」，透過網路加密備份資料。
 
-5. Configure backup jobs.
-    * To configure backup jobs, follow the instructions in [Creating a Backup Job](https://www.youtube.com/watch?v=YHxcUFEss4M).
-    * Enable encryption of backup files under **Advanced Settings > Storage**.
+5. 設定備份作業。
+    * 若要設定備份作業，請遵循[建立備份作業](https://www.youtube.com/watch?v=YHxcUFEss4M)中的指示。
+    * 在 **高級設定 > 儲存體** 下，啟用備份檔案的加密。
 
-6. Configure backup copy jobs.
+6. 設定備份複製作業。
 
-    * To configure backup copy jobs, follow the instructions in the video [Creating a Backup Copy Job](https://www.youtube.com/watch?v=LvEHV0_WDWI&t=2s).
-    * Enable encryption of backup files under **Advanced Settings > Storage**.
+    * 若要設定備份複製作業，請遵循[建立備份複製作業](https://www.youtube.com/watch?v=LvEHV0_WDWI&t=2s)影片中的指示。
+    * 在 **高級設定 > 儲存體** 下，啟用備份檔案的加密。
 
-### <a name="cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges"></a>CloudSimple portal: Set up Veeam access and de-escalate privileges
-Create a public IP address for the Veeam backup and recovery server. For instructions, see [Allocate public IP addresses](public-ips.md).
+### <a name="cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges"></a>CloudSimple 入口網站：設定 Veeam 存取和取消提升許可權
+建立 Veeam 備份和復原伺服器的公用 IP 位址。 如需指示，請參閱[配置公用 IP 位址](public-ips.md)。
 
-Create a firewall rule using to allow the Veeam backup server to create an outbound connection to Veeam website for downloading updates/patches on TCP port 80. For instructions, see [Set up firewall tables and rules](firewall.md).
+使用建立防火牆規則，以允許 Veeam 備份伺服器建立 Veeam 網站的輸出連線，以下載 TCP 通訊埠80上的更新/修補程式。 如需指示，請參閱[設定防火牆資料表和規則](firewall.md)。
 
-To de-escalate privileges, see [De-escalate privileges](escalate-private-cloud-privileges.md#de-escalate-privileges).
+若要取消提升許可權，請參閱[取消提升許可權](escalate-private-cloud-privileges.md#de-escalate-privileges)。
 
 ## <a name="references"></a>參考
 
-### <a name="cloudsimple-references"></a>CloudSimple references
+### <a name="cloudsimple-references"></a>CloudSimple 參考
 
 * [建立私人雲端](create-private-cloud.md)
-* [Create and manage VLANs/Subnets](create-vlan-subnet.md)
-* [vCenter Identity Sources](set-vcenter-identity.md)
-* [Workload DNS and DHCP Setup](dns-dhcp-setup.md)
-* [Escalate privileges](escalate-privileges.md)
-* [Set up firewall tables and rules](firewall.md)
-* [Private Cloud permissions](learn-private-cloud-permissions.md)
-* [Allocate public IP Addresses](public-ips.md)
+* [建立和管理 Vlan/子網](create-vlan-subnet.md)
+* [vCenter 身分識別來源](set-vcenter-identity.md)
+* [工作負載 DNS 和 DHCP 設定](dns-dhcp-setup.md)
+* [提升許可權](escalate-privileges.md)
+* [設定防火牆資料表和規則](firewall.md)
+* [私人雲端許可權](learn-private-cloud-permissions.md)
+* [配置公用 IP 位址](public-ips.md)
 
-### <a name="veeam-references"></a>Veeam References
+### <a name="veeam-references"></a>Veeam 參考
 
-* [Used Ports](https://helpcenter.veeam.com/docs/backup/vsphere/used_ports.html?ver=95)
-* [Required Permissions](https://helpcenter.veeam.com/docs/backup/vsphere/required_permissions.html?ver=95)
-* [System Requirements](https://helpcenter.veeam.com/docs/backup/vsphere/system_requirements.html?ver=95)
-* [Installing Veeam Backup & Replication](https://helpcenter.veeam.com/docs/backup/vsphere/install_vbr.html?ver=95)
-* [Required modules and permissions for Multi-OS FLR and Repository support for Linux](https://www.veeam.com/kb2216)
-* [Veeam Backup & Replication v9 - Installation and Deployment - Video](https://www.youtube.com/watch?v=b4BqC_WXARk)
-* [Veeam v9 Creating a Backup Job - Video](https://www.youtube.com/watch?v=YHxcUFEss4M)
-* [Veeam v9 Creating a Backup Copy Job - Video](https://www.youtube.com/watch?v=LvEHV0_WDWI&t=2s)
+* [使用的埠](https://helpcenter.veeam.com/docs/backup/vsphere/used_ports.html?ver=95)
+* [必要許可權](https://helpcenter.veeam.com/docs/backup/vsphere/required_permissions.html?ver=95)
+* [系統需求](https://helpcenter.veeam.com/docs/backup/vsphere/system_requirements.html?ver=95)
+* [安裝 Veeam 備份 & 複寫](https://helpcenter.veeam.com/docs/backup/vsphere/install_vbr.html?ver=95)
+* [適用于 Linux 的多 OS FLR 和存放庫支援所需的模組和許可權](https://www.veeam.com/kb2216)
+* [Veeam Backup & Replication v9-安裝與部署-影片](https://www.youtube.com/watch?v=b4BqC_WXARk)
+* [建立備份作業的 Veeam v9-影片](https://www.youtube.com/watch?v=YHxcUFEss4M)
+* [Veeam v9 建立備份複製作業-影片](https://www.youtube.com/watch?v=LvEHV0_WDWI&t=2s)
 
-### <a name="azure-references"></a>Azure references
+### <a name="azure-references"></a>Azure 參考
 
-* [Configure a virtual network gateway for ExpressRoute using the Azure portal](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)
-* [Connect a VNet to a circuit - different subscription](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription)
-* [Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md)
-* [How to attach a managed data disk to a Windows VM in the Azure portal](../virtual-machines/windows/attach-managed-disk-portal.md)
-* [Getting Started with Azure Storage - Video](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)
-* [Create Container](https://docs.microsoft.com/rest/api/storageservices/create-container)
+* [使用 Azure 入口網站設定 ExpressRoute 的虛擬網路閘道](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)
+* [將 VNet 連線到線路-不同的訂用帳戶](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription)
+* [在 Azure 入口網站中建立 Linux 虛擬機器](../virtual-machines/linux/quick-create-portal.md)
+* [如何在 Azure 入口網站中將受控資料磁片連結至 Windows VM](../virtual-machines/windows/attach-managed-disk-portal.md)
+* [使用 Azure 儲存體的消費者入門-影片](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)
+* [建立容器](https://docs.microsoft.com/rest/api/storageservices/create-container)
 * [使用 AzCopy on Linux 傳送資料](../storage/common/storage-use-azcopy-linux.md)
 
-### <a name="vmware-references"></a>VMware references
+### <a name="vmware-references"></a>VMware 參考
 
-* [Creating a Distributed Port Group in the vSphere Web Client - Video](https://www.youtube.com/watch?v=wpCd5ZbPOpA)
+* [在 vSphere Web 用戶端中建立分散式通訊埠群組-影片](https://www.youtube.com/watch?v=wpCd5ZbPOpA)
 
 ### <a name="other-references"></a>其他參考資料
 
-* [Create an XFS volume on the managed disk - RedHat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-xfs)
-* [How To Set Up an NFS Mount on CentOS 7 - HowToForge](https://www.howtoforge.com/nfs-server-and-client-on-centos-7)
-* [Configuring the DHCP Server - Netgate](https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html)
+* [在受控磁片上建立 XFS 磁片區-RedHat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-xfs)
+* [如何在 CentOS 7 上設定 NFS 掛接-HowToForge](https://www.howtoforge.com/nfs-server-and-client-on-centos-7)
+* [設定 DHCP 伺服器-Netgate](https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html)

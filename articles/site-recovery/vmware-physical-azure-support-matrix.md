@@ -33,7 +33,7 @@ VMware Vm 的嚴重損壞修復 | 將內部部署 VMware 虛擬機器複寫至 A
 **伺服器** | **需求** | **詳細資料**
 --- | --- | ---
 vCenter Server | 6\.7、6.5、6.0 或5.5 版 | 我們建議您在嚴重損壞修復部署中使用 vCenter server。
-vSphere 主機 | 6\.7、6.5、6.0 或5.5 版 | 我們建議 vSphere 主機與 vCenter 伺服器應位於和處理序伺服器相同的網路中。 根據預設，進程伺服器會在設定伺服器上執行。 [詳細資訊](vmware-physical-azure-config-process-server-overview.md)。
+vSphere 主機 | 6\.7、6.5、6.0 或5.5 版 | 我們建議 vSphere 主機與 vCenter 伺服器應位於和處理序伺服器相同的網路中。 根據預設，進程伺服器會在設定伺服器上執行。 [深入了解](vmware-physical-azure-config-process-server-overview.md)。
 
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery 組態伺服器
@@ -70,12 +70,12 @@ Site Recovery 支援複寫任何執行於所支援機器上的工作負載。
 **元件** | **詳細資料**
 --- | ---
 機器設定 | 複寫到 Azure 的電腦必須符合 [Azure 需求](#azure-vm-requirements)。
-機器工作負載 | Site Recovery 支援複寫任何執行於所支援機器上的工作負載。 [詳細資訊](https://aka.ms/asr_workload)。
+機器工作負載 | Site Recovery 支援複寫任何執行於所支援機器上的工作負載。 [深入了解](https://aka.ms/asr_workload)。
 Windows Server 2019 | 支援自[更新彙總套件 34](https://support.microsoft.com/help/4490016) （行動服務的9.22 版）。
 Windows Server 2016 64 位 | 支援 Server Core、具有桌面體驗的伺服器。
 Windows Server 2012 R2/Windows Server 2012 | 支援。
 Windows Server 2008 R2 SP1 和更新版本。 | 支援。<br/><br/> 在行動服務代理程式的版本 2019 9.30 中，您必須在執行 Windows 2008 R2 SP1 或更新版本的電腦上安裝[服務堆疊更新（SSU）](https://support.microsoft.com/help/4490628)和[sha-1 更新](https://support.microsoft.com/help/4474419)。 2019年9月不支援 SHA-1，而且如果未啟用 SHA-1 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。 深入了解 [SHA-2 的升級與需求](https://aka.ms/SHA-2KB)。
-Windows Server 2008 SP2 或更新版本（64位/32 位） |  僅支援遷移。 [詳細資訊](migrate-tutorial-windows-server-2008.md)。<br/><br/> 在行動服務代理程式的版本9.30 中（預期的發行日期為2019年11月），您需要在 Windows 2008 SP2 電腦上安裝[服務堆疊更新（SSU）](https://support.microsoft.com/help/4493730)和[sha-1 更新](h https://support.microsoft.com/help/4474419)。 2019年9月不支援 ISHA-1，如果未啟用 SHA-2 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。 深入了解 [SHA-2 的升級與需求](https://aka.ms/SHA-2KB)。
+Windows Server 2008 SP2 或更新版本（64位/32 位） |  僅支援遷移。 [深入了解](migrate-tutorial-windows-server-2008.md)。<br/><br/> 在行動服務代理程式的版本9.30 中（預期的發行日期為2019年11月），您需要在 Windows 2008 SP2 電腦上安裝[服務堆疊更新（SSU）](https://support.microsoft.com/help/4493730)和[sha-1 更新](h https://support.microsoft.com/help/4474419)。 2019年9月不支援 ISHA-1，如果未啟用 SHA-2 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。 深入了解 [SHA-2 的升級與需求](https://aka.ms/SHA-2KB)。
 Windows 10、Windows 8.1、Windows 8 | 支援。
 Windows 7 （含 SP1）64位 | 支援自[更新彙總套件 36](https://support.microsoft.com/help/4503156) （行動服務的9.22 版）。 </br></br> 在行動服務代理程式的版本9.30 中（預期的發行日期為2019年11月），您需要安裝在 Windows 7 SP1 電腦上的[服務堆疊更新（SSU）](https://support.microsoft.com/help/4490628)和[sha-1 更新](https://support.microsoft.com/help/4474419)。  2019年9月不支援 SHA-1，而且如果未啟用 SHA-1 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。 深入了解 [SHA-2 的升級與需求](https://aka.ms/SHA-2KB)。
 Linux | 僅支援64位系統。 不支援 32-bit 系統。<br/><br/>每個 Linux 伺服器都應該安裝[linux Integration Services （.lis）元件](https://www.microsoft.com/download/details.aspx?id=55106)。 在測試容錯移轉/容錯移轉之後，必須在 Azure 中啟動伺服器。 如果遺漏了 .LIS 元件，請務必先安裝[元件](https://www.microsoft.com/download/details.aspx?id=55106)，再啟用複寫，讓機器在 Azure 中開機。 <br/><br/> Site Recovery 會協調容錯移轉以在 Azure 中執行 Linux 伺服器。 不過，Linux 廠商可能會將支援僅限於生命週期尚未結束的發行版本。<br/><br/> 在 Linux 散發套件上，僅支援屬於散發套件次要版本/更新的庫存核心。<br/><br/> 不支援升級各主要 Linux 散發套件版本的受保護機器。 若要升級，請停用複寫、升級作業系統，然後再次啟用複寫。<br/><br/> [深入瞭解](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)Azure 中的 Linux 和開放原始碼技術支援。
@@ -304,7 +304,7 @@ VM 上所有磁碟的尖峰資料變換 | 54 MB/秒
 
 ## <a name="obtain-latest-components"></a>取得最新元件
 
-**名稱** | **描述** | **詳細資料**
+**Name** | **描述** | **詳細資料**
 --- | --- | ---
 組態伺服器 | 已安裝在內部部署。<br/> 協調內部部署 VMware 伺服器或實體機器與 Azure 之間的通訊。 | - [瞭解](vmware-physical-azure-config-process-server-overview.md)設定伺服器。<br/> - [瞭解](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)如何升級至最新版本。<br/> - [瞭解如何](vmware-azure-deploy-configuration-server.md)設定設定伺服器。 
 處理序伺服器 | 預設會安裝在組態伺服器上。<br/> 接收復寫資料，以快取、壓縮和加密進行優化，並將其傳送至 Azure。<br/> 隨著部署的成長，您可以新增額外的進程伺服器來處理較大量的複寫流量。 | - [瞭解](vmware-physical-azure-config-process-server-overview.md)進程伺服器。<br/> - [瞭解](vmware-azure-manage-process-server.md#upgrade-a-process-server)如何升級至最新版本。<br/> - [瞭解如何](vmware-physical-large-deployment.md#set-up-a-process-server)設定相應放大進程伺服器。

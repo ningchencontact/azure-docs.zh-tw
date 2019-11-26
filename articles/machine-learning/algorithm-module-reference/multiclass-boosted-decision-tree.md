@@ -1,7 +1,7 @@
 ---
-title: 'Multiclass Boosted Decision Tree: Module Reference'
+title: 多元促進式決策樹：模組參考
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Multiclass Boosted Decision Tree module in Azure Machine Learning to create a classifier using labeled data.
+description: 瞭解如何在 Azure Machine Learning 中使用多元促進式決策樹模組，以使用加上標籤的資料來建立分類器。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -18,46 +18,46 @@ ms.locfileid: "74232595"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>多元促進式決策樹
 
-This article describes a module in Azure Machine Learning designer (preview).
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
-Use this module to create a machine learning model that is based on the boosted decision trees algorithm.
+使用此模組來建立以促進式決策樹演算法為基礎的機器學習模型。
 
-A boosted decision tree is an ensemble learning method in which the second tree corrects for the errors of the first tree, the third tree corrects for the errors of the first and second trees, and so forth. Predictions are based on the ensemble of trees together.
+促進式決策樹是一個集團學習方法，其中第二個樹狀結構會針對第一個樹狀結構的錯誤修正，第三個樹狀目錄會更正第一個和第二個樹系的錯誤，依此類推。 預測是以樹狀結構的集團為基礎。
 
 ## <a name="how-to-configure"></a>如何設定 
 
-This module creates an untrained classification model. Because classification is a supervised learning method, you need a *labeled dataset* that includes a label column with a value for all rows.
+此模組會建立未定型的分類模型。 因為分類是受監督的學習方法，所以您需要一個加上標籤的*資料集*，其中包含所有資料列的值。
 
-You can train this type of model by using the [Train Model](././train-model.md). 
+您可以使用[訓練模型](././train-model.md)來定型這種類型的模型。 
 
-1.  Add the **Multiclass Boosted Decision Tree** module to your pipeline.
+1.  將多元促進式**決策樹**模組新增至您的管線。
 
-1.  Specify how you want the model to be trained by setting the **Create trainer mode** option.
+1.  藉由設定 [**建立定型模式]** 選項，指定您要如何訓練模型。
 
-    + **Single Parameter**: If you know how you want to configure the model, you can provide a specific set of values as arguments.
+    + **單一參數**：如果您知道要如何設定模型，可以提供一組特定值做為引數。
 
 
-    *  **Maximum number of leaves per tree** limits the maximum number of terminal nodes (leaves) that can be created in any tree.
+    *  **每個樹狀結構的葉數上限**限制可以在任何樹狀結構中建立的終端機節點數目上限（葉子）。
     
-        By increasing this value, you potentially increase the size of the tree and achieve higher precision, at the risk of overfitting and longer training time.
+        藉由增加此值，您可能會增加樹狀結構的大小，並達到更高的精確度，但有過度學習和較長定型時間的風險。
   
-    * **Minimum number of samples per leaf node** indicates the number of cases required to create any terminal node (leaf) in a tree.  
+    * [**每個分葉節點的樣本數下限**] 表示在樹狀結構中建立任何終端節點（分葉）所需的案例數目。  
 
-         By increasing this value, you increase the threshold for creating new rules. For example, with the default value of 1, even a single case can cause a new rule to be created. If you increase the value to 5, the training data would have to contain at least five cases that meet the same conditions.
+         藉由增加此值，您可以增加建立新規則的閾值。 例如，預設值為1時，即使是單一案例，也可能會導致建立新的規則。 如果您將此值增加為5，訓練資料必須包含至少五個符合相同條件的案例。
 
-    * **Learning rate** defines the step size while learning. Enter a number between 0 and 1.
+    * 學習**速率**會定義學習時的步驟大小。 請輸入介於0和1之間的數位。
 
-         The learning rate determines how fast or slow the learner converges on an optimal solution. If the step size is too large, you might overshoot the optimal solution. If the step size is too small, training takes longer to converge on the best solution.
+         學習速率會決定學習模組在最佳解決方案上的快速或緩慢。 如果步驟大小太大，您可能會下限最佳的解決方案。 如果步驟大小太小，訓練會花更長的時間在最佳解決方案上融合。
 
-    * **Number of trees constructed** indicates the total number of decision trees to create in the ensemble. By creating more decision trees, you can potentially get better coverage, but training time will increase.
+    * [**樹狀結構數**] 表示要在集團中建立的決策樹總數。 藉由建立更多決策樹，您可能會獲得更好的涵蓋範圍，但訓練時間將會增加。
 
-    *  **Random number seed** optionally sets a non-negative integer to use as the random seed value. Specifying a seed ensures reproducibility across runs that have the same data and parameters.  
+    *  **亂數字種子**可選擇性地設定非負整數，做為隨機種子值使用。 指定種子可確保跨回合的重現性具有相同的資料和參數。  
 
-         The random seed is set by default to 42. Successive runs using different random seeds can have different results.
+         隨機種子預設會設定為42。 使用不同隨機種子的後續執行可能會有不同的結果。
 
 > [!Note]
-> If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](./train-model.md) module.
+> 如果您將 [**建立定型模式**] 設定為 [**單一參數**]，請連接已標記的資料集和 [[訓練模型](./train-model.md)] 模組。
 
 ## <a name="next-steps"></a>後續步驟
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

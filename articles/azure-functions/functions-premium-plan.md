@@ -1,109 +1,109 @@
 ---
 title: Azure Functions 進階方案
-description: Details and configuration options (VNet, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
+description: Azure Functions Premium 方案的詳細資料和設定選項（VNet，無冷啟動、無限制的執行持續時間）。
 author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
 ms.openlocfilehash: 99589a4f11f91afa7d3c9f93d844654ccc69aab1
 ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74322950"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 進階方案
 
-The Azure Functions Premium plan is a hosting option for function apps. The Premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the Premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md).
+Azure Functions Premium 方案是函數應用程式的裝載選項。 Premium 方案提供 VNet 連線能力、無冷啟動和 Premium 硬體等功能。  多個函數應用程式可以部署到相同的高階方案，而方案則可讓您設定計算實例大小、基本方案大小和最大方案大小。  如需高階計畫和其他計畫和裝載類型的比較，請參閱[函數級別和裝載選項](functions-scale.md)。
 
 ## <a name="create-a-premium-plan"></a>建立進階方案
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]
 
-You can also create a Premium plan using [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) in the Azure CLI. The following example creates an _Elastic Premium 1_ tier plan:
+您也可以使用 Azure CLI 中的[az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create)來建立高階計畫。 下列範例會建立_彈性 Premium 1_層方案：
 
 ```azurecli-interactive
 az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> \
 --location <REGION> --sku EP1
 ```
 
-In this example, replace `<RESOURCE_GROUP>` with your resource group and `<PLAN_NAME>` with a name for your plan that is unique in the resource group. Specify a [supported `<REGION>`](#regions). To create a Premium plan that supports Linux, include the `--is-linux` option.
+在此範例中，請將 `<RESOURCE_GROUP>` 取代為您的資源群組，並使用您的方案名稱（在資源群組中是唯一的） `<PLAN_NAME>`。 指定[支援的 `<REGION>`](#regions)。 若要建立支援 Linux 的 Premium 方案，請包含 `--is-linux` 選項。
 
-With the plan created, you can use [az functionapp create](/cli/azure/functionapp#az-functionapp-create) to create your function app. In the portal, both the plan and the app are created at the same time. 
+建立計畫之後，您可以使用[az functionapp create](/cli/azure/functionapp#az-functionapp-create)來建立函數應用程式。 在入口網站中，會同時建立方案和應用程式。 
 
-## <a name="features"></a>功能
+## <a name="features"></a>特性
 
-The following features are available to function apps deployed to a Premium plan.
+下列功能可供部署至 Premium 方案的函數應用程式使用。
 
-### <a name="pre-warmed-instances"></a>Pre-warmed instances
+### <a name="pre-warmed-instances"></a>預先準備就緒的實例
 
-If no events and executions occur today in the Consumption plan, your app may scale down to zero instances. When new events come in, a new instance needs to be specialized with your app running on it.  Specializing new instances may take some time depending on the app.  This additional latency on the first call is often called app cold start.
+如果目前在取用方案中沒有發生任何事件和執行，您的應用程式可能會相應減少為零個實例。 當新事件進入時，必須將新的實例專門提供給在其上執行的應用程式。  根據應用程式，將新的實例特製化可能需要一些時間。  第一次呼叫時的此額外延遲通常稱為應用程式冷啟動。
 
-In the Premium plan, you can have your app pre-warmed on a specified number of instances, up to your minimum plan size.  Pre-warmed instances also let you pre-scale an app before high load. As the app scales out, it first scales into the pre-warmed instances. Additional instances continue to buffer out and warm immediately in preparation for the next scale operation. By having a buffer of pre-warmed instances, you can effectively avoid cold start latencies.  Pre-warmed instances is a feature of the Premium plan, and you need to keep at least one instance running and available at all times the plan is active.
+在高階方案中，您可以讓應用程式預先準備就緒指定的實例數目，最多可達您最小的方案大小。  預先準備就緒的實例也可讓您在高負載前預先調整應用程式。 當應用程式相應放大時，它會先調整為預先準備就緒的實例。 其他實例會繼續緩衝並立即準備好進行下一個調整作業。 藉由擁有預先準備就緒之實例的緩衝區，您可以有效地避免冷啟動延遲。  預先準備就緒的實例是高階方案的一項功能，而且您必須至少保留一個執行中的實例，而且在計畫作用中的任何時候都可以使用。
 
-You can configure the number of pre-warmed instances in the Azure portal by selected your **Function App**, going to the **Platform Features** tab, and selecting the **Scale Out** options. In the function app edit window, pre-warmed instances is specific to that app, but the minimum and maximum instances apply to your entire plan.
+您可以選取您的**函數應用程式**、前往 [**平臺功能**] 索引標籤，然後選取**Scale Out**選項，以在 Azure 入口網站中設定預先準備就緒的實例數目。 在 [函數應用程式] [編輯] 視窗中，預先準備就緒的實例是該應用程式特有的，但最小和最大實例適用于整個計畫。
 
-![Elastic Scale Settings](./media/functions-premium-plan/scale-out.png)
+![彈性調整規模設定](./media/functions-premium-plan/scale-out.png)
 
-You can also configure pre-warmed instances for an app with the Azure CLI
+您也可以使用 Azure CLI 為應用程式設定預先準備就緒的實例
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
 ```
 
-### <a name="private-network-connectivity"></a>Private network connectivity
+### <a name="private-network-connectivity"></a>私人網路連線能力
 
-Azure Functions deployed to a Premium plan takes advantage of [new VNet integration for web apps](../app-service/web-sites-integrate-with-vnet.md).  When configured, your app can communicate with resources within your VNet or secured via service endpoints.  IP restrictions are also available on the app to restrict incoming traffic.
+部署至 Premium 方案的 Azure Functions 會利用[web 應用程式的新 VNet 整合](../app-service/web-sites-integrate-with-vnet.md)。  設定之後，您的應用程式就可以與 VNet 內的資源通訊，或透過服務端點來保護其安全。  應用程式也可以使用 IP 限制來限制連入流量。
 
-When assigning a subnet to your function app in a Premium plan, you need a subnet with enough IP addresses for each potential instance. We require an IP block with at least 100 available addresses.
+將子網指派給高階方案中的函式應用程式時，您需要有足夠的 IP 位址可用於每個潛在實例的子網。 我們需要至少具有100個可用位址的 IP 區塊。
 
-Fore more information, see [integrate your function app with a VNet](functions-create-vnet.md).
+如需詳細資訊，請參閱[整合您的函數應用程式與 VNet](functions-create-vnet.md)。
 
-### <a name="rapid-elastic-scale"></a>Rapid elastic scale
+### <a name="rapid-elastic-scale"></a>快速彈性調整
 
-Additional compute instances are automatically added for your app using the same rapid scaling logic as the Consumption plan.  To learn more about how scaling works, see [Function scale and hosting](./functions-scale.md#how-the-consumption-and-premium-plans-work).
+系統會使用與取用方案相同的快速調整邏輯，為您的應用程式自動新增額外的計算實例。  若要深入瞭解調整如何運作，請參閱[函數級別和裝載](./functions-scale.md#how-the-consumption-and-premium-plans-work)。
 
-### <a name="longer-run-duration"></a>Longer run duration
+### <a name="longer-run-duration"></a>較長的執行持續時間
 
-Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this 60 minutes for Premium plan apps.
+取用方案中的 Azure Functions 僅限10分鐘的時間執行一次。  在 Premium 方案中，回合持續時間預設為30分鐘，以防止執行失控。 不過，您可以[修改 host. json](./functions-host-json.md#functiontimeout)設定，讓 Premium 方案應用程式有60分鐘的時間。
 
-## <a name="plan-and-sku-settings"></a>Plan and SKU settings
+## <a name="plan-and-sku-settings"></a>方案和 SKU 設定
 
-When you create the plan, you configure two settings: the minimum number of instances (or plan size) and the maximum burst limit.  Minimum instances are reserved and always running.
+當您建立方案時，可以設定兩個設定：實例的最小數目（或方案大小）和最大高載限制。  實例的最小值為保留且一律正在執行。
 
 > [!IMPORTANT]
-> You are charged for each instance allocated in the minimum instance count regardless if functions are executing or not.
+> 不論函式是否正在執行，您都會針對每個配置於最小實例計數的實例向您收費。
 
-If your app requires instances beyond your plan size, it can continue to scale out until the number of instances hits the maximum burst limit.  You are billed for instances beyond your plan size only while they are running and rented to you.  We will make a best effort at scaling your app out to its defined maximum limit, whereas the minimum plan instances are guaranteed for your app.
+如果您的應用程式需要超過方案大小的實例，它可以繼續相應放大，直到實例數目達到最大高載限制為止。  只有在執行並出租給您的情況下，才會向您收取方案大小以外的實例費用。  我們會盡力將您的應用程式調整為其定義的最大限制，而最小方案實例則可保證您的應用程式。
 
-You can configure the plan size and maximums in the Azure portal by selected the **Scale Out** options in the plan or a function app deployed to that plan (under **Platform Features**).
+您可以藉由選取方案中的**Scale Out**選項或部署至該方案的函式應用程式（在 [**平臺功能**] 底下），來設定 Azure 入口網站中的計畫大小和上限。
 
-You can also increase the maximum burst limit from the Azure CLI:
+您也可以從 Azure CLI 增加最大的高載限制：
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
 ```
 
-### <a name="available-instance-skus"></a>Available instance SKUs
+### <a name="available-instance-skus"></a>可用的實例 Sku
 
-When creating or scaling your plan, you can choose between three instance sizes.  You will be billed for the total number of cores and memory consumed per second.  Your app can automatically scale out to multiple instances as needed.  
+建立或調整您的方案時，您可以選擇三種實例大小。  系統會向您收取每秒耗用的核心和記憶體總數。  您的應用程式可以視需要自動相應放大至多個實例。  
 
 |SKU|核心|記憶體|儲存體|
 |--|--|--|--|
-|EP1|1|3.5GB|250 GB|
+|EP1|1|3.5 GB|250 GB|
 |EP2|2|7 GB|250 GB|
 |EP3|4|14 GB|250 GB|
 
-## <a name="regions"></a>地區
+## <a name="regions"></a>區域
 
-Below are the currently supported regions for each OS.
+以下是每個 OS 目前支援的區域。
 
-|地區| Windows | Linux |
+|區域| Windows | Linux |
 |--| -- | -- |
-|澳洲中部| ✔<sup>1</sup> | |
-|澳洲中部 2| ✔<sup>1</sup> | |
-|澳大利亞東部| ✔ | |
-|澳大利亞東南部 | ✔ | ✔ |
+|澳大利亞中部| ✔<sup>1</sup> | |
+|澳大利亞中部 2| ✔<sup>1</sup> | |
+|澳洲東部| ✔ | |
+|澳洲東南部 | ✔ | ✔ |
 |巴西南部| ✔<sup>2</sup> |  |
 |加拿大中部| ✔ |  |
 |美國中部| ✔ |  |
@@ -126,11 +126,11 @@ Below are the currently supported regions for each OS.
 |美國西部| ✔ | ✔ |
 |美國西部 2| ✔ |  |
 
-<sup>1</sup>Maximum scale out limited to 20 instances.  
-<sup>2</sup>Maximum scale out limited to 60 instances.
+<sup>1</sup>最大相應放大限制為20個實例。  
+<sup>2</sup>最大相應放大限制為60個實例。
 
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Understand Azure Functions scale and hosting options](functions-scale.md)
+> [瞭解 Azure Functions 規模和裝載選項](functions-scale.md)

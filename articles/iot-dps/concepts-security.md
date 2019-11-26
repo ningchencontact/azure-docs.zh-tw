@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub Device Provisioning Service - Security concepts
+title: Azure IoT 中樞裝置布建服務-安全性概念
 description: 說明具有裝置佈建服務和 IoT 中樞之裝置的特定安全性佈建概念
 author: nberdy
 ms.author: nberdy
@@ -28,7 +28,7 @@ IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於�
 裝置佈建服務支援下列形式的證明：
 * 以標準 X.509 憑證驗證流程為基礎的 **X.509 憑證**。
 * **信賴平台模組 (TPM)** 是以 nonce 挑戰為基礎，使用金鑰的 TPM 標準，提供已簽署的共用存取簽章 (SAS) 權杖。 使用此證明形式時，裝置不需要有實體 TPM，但該服務會根據 [TPM 規格](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)，而預期裝置使用簽署金鑰進行證明。
-* 以共用存取簽章 (SAS) [安全性權杖](../iot-hub/iot-hub-devguide-security.md#security-tokens)為基礎的**對稱金鑰**，其包含雜湊簽章與內嵌到期日。 如需詳細資訊，請參閱[對稱金鑰證明](concepts-symmetric-key-attestation.md)。
+* 以共用存取簽章 (SAS) **安全性權杖**為基礎的[對稱金鑰](../iot-hub/iot-hub-devguide-security.md#security-tokens)，其包含雜湊簽章與內嵌到期日。 如需詳細資訊，請參閱[對稱金鑰證明](concepts-symmetric-key-attestation.md)。
 
 
 ## <a name="hardware-security-module"></a>硬體安全模組
@@ -78,7 +78,7 @@ TPM 證明是以 nonce 挑戰為基礎，會使用簽署和儲存根金鑰來出
 
 分葉憑證 (或終端實體憑證) 會識別憑證持有者。 它在其憑證鏈結中有根憑證，以及零或多個中繼憑證。 分葉憑證無法用來簽署其他任何憑證。 它會唯一識別裝置來佈建服務，且有時稱為裝置憑證。 在驗證期間，裝置會使用與此憑證相關聯的私密金鑰，回應以證明來自服務的持有挑戰。
 
-Leaf certificates used with an [Individual enrollment](./concepts-service.md#individual-enrollment) entry have a requirement that the **Subject Name** must be set to the registration ID of the Individual Enrollment entry. Leaf certificates used with an [Enrollment group](./concepts-service.md#enrollment-group) entry should have the **Subject Name** set to the desired device ID which will be shown in the **Registration Records** for the authenticated device in the enrollment group.
+與[個別註冊](./concepts-service.md#individual-enrollment)專案搭配使用的分葉憑證，必須將 [**主體名稱**] 設定為個別註冊專案的 [註冊識別碼]。 與[註冊群組](./concepts-service.md#enrollment-group)專案搭配使用的分葉憑證應該將 [**主體名稱**] 設為所需的裝置識別碼，以顯示在註冊群組中已驗證裝置的**註冊記錄**中。
 
 若要深入了解，請參閱[驗證以 X.509 CA 憑證簽署的裝置](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates)。
 

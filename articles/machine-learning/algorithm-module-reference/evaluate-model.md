@@ -1,7 +1,7 @@
 ---
-title: 'Evaluate Model: Module Reference'
+title: 評估模型：模組參考
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Evaluate Model module in Azure Machine Learning to measure the accuracy of a trained model.
+description: 瞭解如何使用 Azure Machine Learning 中的 [評估模型] 模組來測量定型模型的精確度。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,113 +16,113 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74214574"
 ---
-# <a name="evaluate-model-module"></a>Evaluate Model module
+# <a name="evaluate-model-module"></a>評估模型模組
 
-This article describes a module in Azure Machine Learning designer (preview).
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
-Use this module to measure the accuracy of a trained model. You provide a dataset containing scores generated from a model, and the **Evaluate Model** module computes a set of industry-standard evaluation metrics.
+使用此模組來測量已定型模型的精確度。 您提供的資料集包含從模型產生的分數，而 [**評估模型**] 模組則會計算一組業界標準的評估度量。
   
- The metrics returned by **Evaluate Model** depend on the type of model that you are evaluating:  
+ 「**評估模型**」傳回的計量取決於您要評估的模型類型：  
   
--   **Classification Models**    
--   **Regression Models**    
+-   **分類模型**    
+-   **回歸模型**    
 
 
 > [!TIP]
-> If you are new to model evaluation, we recommend the video series by Dr. Stephen Elston, as part of the [machine learning course](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) from EdX. 
+> 如果您是模型評估的新手，我們建議 Stephen Elston 的影片系列，做為 EdX 中[機器學習課程](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/)的一部分。 
 
 
-There are three ways to use the **Evaluate Model** module:
+有三種方式可以使用 [**評估模型**] 模組：
 
-+ Generate scores over your training data, and evaluate the model based on these scores
-+ Generate scores on the model, but compare those scores to scores on a reserved testing set
-+ Compare scores for two different but related models, using the same set of data
++ 在定型資料上產生分數，並根據這些分數來評估模型
++ 在模型上產生分數，但將這些分數與保留測試集的分數進行比較
++ 使用相同的資料集來比較兩個不同但相關模型的分數
 
-## <a name="use-the-training-data"></a>Use the training data
+## <a name="use-the-training-data"></a>使用定型資料
 
-To evaluate a model, you must connect a dataset that contains a set of input columns and scores.  If no other data is available, you can use your original dataset.
+若要評估模型，您必須連接包含一組輸入資料行和分數的資料集。  如果沒有其他可用的資料，您可以使用原始資料集。
 
-1. Connect the **Scored dataset** output of the [Score Model](./score-model.md) to the input of **Evaluate Model**. 
-2. Click **Evaluate Model** module, and run the pipeline to generate the evaluation scores.
+1. 將[評分模型](./score-model.md)的**評分資料集**輸出連接到**評估模型**的輸入。 
+2. 按一下 [**評估模型**模組]，然後執行管線以產生評估分數。
 
-## <a name="use-testing-data"></a>Use testing data
+## <a name="use-testing-data"></a>使用測試資料
 
-A common scenario in machine learning is to separate your original data set into training and testing datasets, using the [Split](./split-data.md) module, or the [Partition and Sample](./partition-and-sample.md) module. 
+在機器學習中，常見的案例是使用 Split 模組或[分割](./split-data.md)區[和範例](./partition-and-sample.md)模組，將您的原始資料集劃分成定型和測試資料集。 
 
-1. Connect the **Scored dataset** output of the [Score Model](score-model.md) to the input of **Evaluate Model**. 
-2. Connect the output of the Split Data module that contains the testing data to the right-hand input of **Evaluate Model**.
-2. Click **Evaluate Model** module, and select **Run selected** to generate the evaluation scores.
+1. 將[評分模型](score-model.md)的**評分資料集**輸出連接到**評估模型**的輸入。 
+2. 將包含測試資料之「分割資料」模組的輸出連接到「**評估模型**」的右側輸入。
+2. 按一下 [**評估模型**模組]，然後選取 [**執行選取**的] 以產生評估分數。
 
-## <a name="compare-scores-from-two-models"></a>Compare scores from two models
+## <a name="compare-scores-from-two-models"></a>比較兩個模型的分數
 
-You can also connect a second set of scores to **Evaluate Model**.  The scores might be a shared evaluation set that has known results, or a set of results from a different model for the same data.
+您也可以連接第二組分數來**評估模型**。  分數可能是具有已知結果的共用評估集，或是來自不同模型的相同資料的一組結果。
 
-This feature is useful because you can easily compare results from two different models on the same data. Or, you might compare scores from two different runs over the same data with different parameters.
+這項功能很有用，因為您可以輕鬆地比較相同資料上兩個不同模型的結果。 或者，您可以比較兩個不同回合的分數與不同參數的相同資料。
 
-1. Connect the **Scored dataset** output of the [Score Model](score-model.md) to the input of **Evaluate Model**. 
-2. Connect the output of the Score Model module for the second model to the right-hand input of **Evaluate Model**.
-3. Right-click **Evaluate Model**, and select **Run selected** to generate the evaluation scores.
+1. 將[評分模型](score-model.md)的**評分資料集**輸出連接到**評估模型**的輸入。 
+2. 將第二個模型的 [評分模型] 模組的輸出連接到 [**評估模型**] 的右側輸入。
+3. 以滑鼠右鍵按一下 [**評估模型**]，然後選取 [**執行選取**的] 以產生評估分數。
 
 ## <a name="results"></a>結果
 
-After you run **Evaluate Model**, right-click the module and select **Evaluation results** to see the results. 您可以：
+執行 [**評估模型**] 之後，以滑鼠右鍵按一下模組，然後選取 [**評估結果**] 以查看結果。 您可以：
 
-+ Save the results as a dataset, for easier analysis with other tools
-+ Generate a visualization in the designer
++ 將結果另存為資料集，以便更輕鬆地使用其他工具進行分析
++ 在設計工具中產生視覺效果
 
-If you connect datasets to both inputs of **Evaluate Model**, the results will contain metrics for both set of data, or both models.
-The model or data attached to the left port is presented first in the report, followed by the metrics for the dataset, or model attached on the right port.  
+如果您將資料集連接到這兩個「**評估模型**」的輸入，則結果會包含這兩個資料集的計量，或兩種模型。
+附加至左側埠的模型或資料會先顯示在報表中，後面接著資料集的計量，或在正確的埠上附加的模型。  
 
-For example, the following image represents a comparison of results from two clustering models that were built on the same data, but with different parameters.  
+例如，下圖表示兩個群集模型的結果比較，這些模型是建立在相同的資料上，但使用不同的參數。  
 
 ![AML&#95;Comparing2Models](media/module/aml-comparing2models.png "AML_Comparing2Models")  
 
-Because this is a clustering model, the evaluation results are different than if you compared scores from two regression models, or compared two classification models. However, the overall presentation is the same. 
+因為這是叢集模型，所以評估結果不同于您比較兩個回歸模型的分數，或比較兩個分類模型。 不過，整體的呈現方式相同。 
 
-## <a name="metrics"></a>計量
+## <a name="metrics"></a>度量
 
-This section describes the metrics returned for the specific types of models supported for use with **Evaluate Model**:
+本節說明針對支援搭配**評估模型**使用之特定模型類型所傳回的計量：
 
-+ [classification models](#bkmk_classification)
-+ [regression models](#bkmk_regression)
++ [分類模型](#bkmk_classification)
++ [回歸模型](#bkmk_regression)
 
-###  <a name="bkmk_classification"></a> Metrics for classification models
+###  <a name="bkmk_classification"></a>分類模型的計量
 
-The following metrics are reported when evaluating classification models. If you compare models, they are ranked by the metric you select for evaluation.  
+評估分類模型時，會報告下列計量。 如果您比較模型，則會依照您選取進行評估的計量排序。  
   
--   **Accuracy** measures the goodness of a classification model as the proportion of true results to total cases.  
+-   **精確度**會測量分類模型的健全狀況，做為整體案例的實際結果比例。  
   
--   **Precision** is the proportion of true results over all positive results.  
+-   **精確度**是所有正面結果的 true 結果比例。  
   
--   **Recall** is the fraction of all correct results returned by the model.  
+-   **回想**是模型傳回的所有正確結果的分數。  
   
--   **F-score** is computed as the weighted average of precision and recall between 0 and 1, where the ideal F-score value is 1.  
+-   **F 分數**會計算為精確度的加權平均值，並在0和1之間重新叫用，其中理想的 F 分數值是1。  
   
--   **AUC** measures the area under the curve plotted with true positives on the y axis and false positives on the x axis. This metric is useful because it provides a single number that lets you compare models of different types.  
+-   **AUC**會測量在 y 軸上以真肯定繪製的曲線下的區域，以及 X 軸上的誤報。 此度量很有用，因為它提供單一數位，可讓您比較不同類型的模型。  
   
-- **Average log loss** is a single score used to express the penalty for wrong results. It is calculated as the difference between two probability distributions – the true one, and the one in the model.  
+- **平均記錄遺失**是用來表示錯誤結果之負面影響的單一分數。 其計算方式為兩個機率分佈之間的差異– true，以及模型中的一個。  
   
-- **Training log loss** is a single score that represents the advantage of the classifier over a random prediction. The log loss measures the uncertainty of your model by comparing the probabilities it outputs to the known values (ground truth) in the labels. You want to minimize log loss for the model as a whole.
+- **定型記錄遺失**是單一分數，代表透過隨機預測的分類器的優勢。 記錄遺失會藉由比較輸出的機率與標籤中的已知值（真）來測量模型的不確定性。 您想要將整個模型的記錄遺失降至最低。
 
-##  <a name="bkmk_regression"></a> Metrics for regression models
+##  <a name="bkmk_regression"></a>回歸模型的度量
  
-The metrics returned for regression models are designed to estimate the amount of error.  A model is considered to fit the data well if the difference between observed and predicted values is small. However, looking at the pattern of the residuals (the difference between any one predicted point and its corresponding actual value) can tell you a lot about potential bias in the model.  
+針對回歸模型傳回的計量是設計來估計錯誤量。  如果觀察到和預測值之間的差異很小，則會將模型視為適合資料的程度。 不過，查看殘差的模式（任何一個預測點和其對應的實際值之間的差異），可以告訴您有關模型中潛在偏差的許多資訊。  
   
- The following metrics are reported for evaluating regression models. When you compare models, they are ranked by the metric you select for evaluation.  
+ 系統會針對評估回歸模型回報下列計量。 當您比較模型時，它們會依照您選取進行評估的度量來進行排序。  
   
-- **Mean absolute error (MAE)** measures how close the predictions are to the actual outcomes; thus, a lower score is better.  
+- **平均絕對錯誤（MAE）** 測量預測與實際結果之間的接近程度;因此，分數越低越好。  
   
-- **Root mean squared error (RMSE)** creates a single value that summarizes the error in the model. By squaring the difference, the metric disregards the difference between over-prediction and under-prediction.  
+- **根平均平方誤差（RMSE）** 會建立單一值，以摘要說明模型中的錯誤。 藉由對差異進行求值，計量會忽略過度預測和預測下的差異。  
   
-- **Relative absolute error (RAE)** is the relative absolute difference between expected and actual values; relative because the mean difference is divided by the arithmetic mean.  
+- **相對絕對錯誤（RAE）** 是預期和實際值之間的相對絕對差異;相對，因為平均差異是除以算術平均值。  
   
-- **Relative squared error (RSE)** similarly normalizes the total squared error of the predicted values by dividing by the total squared error of the actual values.  
+- **相對平方誤差（RSE）** 同樣地，會將預測值的總平方誤差除以實際值的總平方誤差。  
   
-- **Mean Zero One Error (MZOE)** indicates whether the prediction was correct or not.  In other words: `ZeroOneLoss(x,y) = 1` when `x!=y`; otherwise `0`.
+- **Mean 零1錯誤（MZOE）** 指出預測是否正確。  換句話說： `x!=y`時 `ZeroOneLoss(x,y) = 1`;否則 `0`。
   
-- **Coefficient of determination**, often referred to as R<sup>2</sup>, represents the predictive power of the model as a value between 0 and 1. Zero means the model is random (explains nothing); 1 means there is a perfect fit. However, caution should be used in interpreting  R<sup>2</sup> values, as low values can be entirely normal and high values can be suspect.
+- **決定係數**（通常稱為 R<sup>2</sup>）表示模型的預測能力是介於0和1之間的值。 零表示模型是隨機的（不會說明任何內容）;1表示有完美的調整。 不過，請小心解釋 R<sup>2</sup>值，因為低值可能完全正常，且高值可能會有疑問。
   
 
 ## <a name="next-steps"></a>後續步驟
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

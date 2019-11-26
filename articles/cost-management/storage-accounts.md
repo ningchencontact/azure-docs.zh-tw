@@ -23,7 +23,7 @@ ms.locfileid: "74229934"
 
 您可以將 Cloudyn 報表儲存在 Cloudyn 入口網站、Azure 儲存體或 AWS 儲存體貯體中。 將報表儲存至 Cloudyn 入口網站中是免費的。 但您也可以選擇將報表儲存至雲端服務提供者的儲存體，只是那會產生額外費用。 本文將協助您設定 Azure 儲存體帳戶和 Amazon Web Services (AWS) 儲存體貯體，以儲存您的報表。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您必須具有 Azure 儲存體帳戶或 Amazon 儲存體貯體。
 
@@ -65,7 +65,7 @@ Cloudyn 會使用現有的 AWS 認證 (使用者或角色) 將報表儲存至您
 2. 從服務清單中，選取 [IAM]。
 3. 選取主控台左側的 [Policies] \(原則\)，然後按一下 [Create Policy] \(建立原則\)。
 4. 按一下 [JSON] 索引標籤。
-5. 下列原則可讓您將報表儲存至 S3 貯體。 Copy and paste the following policy example to the **JSON** tab. Replace &lt;bucketname&gt; with your bucket name.
+5. 下列原則可讓您將報表儲存至 S3 貯體。 複製下列原則範例並貼到 [ **JSON** ] 索引標籤中。使用您的值區名稱取代 &lt;bucketname&gt;。
 
    ```json
    {

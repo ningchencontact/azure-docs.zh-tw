@@ -19,16 +19,16 @@ ms.locfileid: "74227959"
 
 Azure Data Lake Storage Gen2 [支援階層命名空間](data-lake-storage-introduction.md)，其提供專門打造的原生目錄型容器，可與 Hadoop 分散式檔案系統 (HDFS) 搭配運作。 透過 [ABFS 驅動程式](data-lake-storage-abfs-driver.md)即可從 HDFS 存取 Data Lake Storage Gen2 資料。
 
-This article demonstrates how to create an account using the Azure portal, Azure PowerShell, or via the Azure CLI.
+本文示範如何使用 Azure 入口網站、Azure PowerShell，或透過 Azure CLI 來建立帳戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。 
 
 |           | 先決條件 |
 |-----------|--------------|
-|入口網站     | None         |
-|PowerShell | This article requires the PowerShell module Az.Storage version **0.7** or later. 請執行 `Get-Module -ListAvailable Az.Storage` 命令來了解您目前使用的版本。 如果您執行此命令之後，沒有顯示任何結果，或如果顯示 **0.7** 以下的其他版本，表示您的 powershell 模組必須升級。 請參閱本指南[升級您的 powershell 模組](#upgrade-your-powershell-module)一節。
+|入口網站     | 無         |
+|PowerShell | 本文需要 PowerShell 模組 Az. Storage **0.7**版或更新版本。 請執行 `Get-Module -ListAvailable Az.Storage` 命令來了解您目前使用的版本。 如果您執行此命令之後，沒有顯示任何結果，或如果顯示 **0.7** 以下的其他版本，表示您的 powershell 模組必須升級。 請參閱本指南[升級您的 powershell 模組](#upgrade-your-powershell-module)一節。
 |CLI        | 您可以登入 Azure，並且以下列兩種方式之一執行 Azure CLI 命令： <ul><li>您可以從 Azure 入口網站，在 Azure Cloud Shell 中執行 CLI 命令 </li><li>您可以安裝 CLI，並在本機執行 CLI 命令</li></ul>|
 
 在命令列上工作時，您可以選擇執行 Azure Cloud Shell 或在本機安裝 CLI。
@@ -39,17 +39,17 @@ Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網�
 
 [![Cloud Shell](./media/data-lake-storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
-The button launches an interactive shell that you can use to run the steps in this article:
+按鈕會啟動互動式 shell，讓您用來執行本文中的步驟：
 
 [![顯示 Cloud Shell 視窗的螢幕擷取畫面](./media/data-lake-storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### <a name="install-the-cli-locally"></a>在本機安裝 CLI
 
-您也可以在本機安裝及使用 Azure CLI。 This article requires that you are running the Azure CLI version 2.0.38 or later. 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+您也可以在本機安裝及使用 Azure CLI。 本文會要求您執行 Azure CLI 版本2.0.38 版或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 ## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>建立啟用 Azure Data Lake Storage Gen2 的儲存體帳戶
 
-Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔案、佇列、資料表和磁碟。 The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. Data in your Azure storage account is durable and highly available, secure, and massively scalable.
+Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔案、佇列、資料表和磁碟。 儲存體帳戶會為您的 Azure 儲存體資料提供唯一的命名空間，可透過 HTTP 或 HTTPS 從世界各地存取。 您的 Azure 儲存體帳戶中的資料既持久又高可用性、安全且可大幅擴充。
 
 > [!NOTE]
 > 您必須建立 **StorageV2 (general-purpose V2)** 類型的新儲存體帳戶，才能利用 Data Lake Storage Gen2 功能。  
@@ -62,7 +62,7 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-每個儲存體帳戶都必須屬於 Azure 資源群組。 資源群組是用來群組 Azure 服務的邏輯容器。 當您建立儲存體帳戶時，可以選擇建立新的資源群組，或使用現有的資源群組。 This article shows how to create a new resource group.
+每個儲存體帳戶都必須屬於 Azure 資源群組。 資源群組是用來群組 Azure 服務的邏輯容器。 當您建立儲存體帳戶時，可以選擇建立新的資源群組，或使用現有的資源群組。 本文說明如何建立新的資源群組。
 
 若要在 Azure 入口網站中建立一般用途 v2 儲存體帳戶，請遵循下列步驟：
 
@@ -70,16 +70,16 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 > 階層命名空間目前可在所有公用區域中使用。
 
 1. 選擇您要在其中建立儲存體帳戶的訂用帳戶。
-2. In the Azure portal, choose the **Create a resource** button, then choose **Storage account**.
+2. 在 Azure 入口網站中，選擇 **建立資源** 按鈕，然後選擇 **儲存體帳戶**。
 3. 在 [資源群組] 欄位下方，選取 [新建]。 為新的資源群組輸入名稱。
    
    資源群組是用來群組 Azure 服務的邏輯容器。 當您建立儲存體帳戶時，可以選擇建立新的資源群組，或使用現有的資源群組。
 
 4. 接下來，輸入儲存體帳戶的名稱。 您所選擇的名稱在整個 Azure 中必須是唯一的。 名稱的長度必須介於 3 到 24 個字元之間，且只能包含數字和小寫字母。
 5. 選擇位置。
-6. Make sure that **StorageV2 (general purpose v2)** appears as selected in the **Account kind** drop-down list.
-7. Optionally change the values in each of these fields: **Performance**, **Replication**, **Access tier**. To learn more about these options, see [Introduction to Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#azure-storage-services).
-8. Choose the **Advanced** tab.
+6. 請確定 [ **StorageV2 （一般用途 v2）** ] 出現在 [**帳戶類型**] 下拉式清單中的選取狀態。
+7. （選擇性）變更每個欄位中的值： [**效能** **]、[複寫]、[** **存取層**]。 若要深入瞭解這些選項，請參閱[Azure 儲存體簡介](https://docs.microsoft.com/azure/storage/common/storage-introduction#azure-storage-services)。
+8. 選擇 [ **Advanced** ] 索引標籤。
 10. 在 [Data Lake Storage Gen2] 區段中，將 [階層式命名空間] 設定為 [啟用]。
 11. 按一下 [檢閱及建立] 建立儲存體帳戶。
 
@@ -212,6 +212,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-In this article, you've created a storage account with Data Lake Storage Gen2 capabilities. 若要了解如何在您的儲存體帳戶中上傳和下載 Blob，請參閱以下主題。
+在本文中，您已建立具有 Data Lake Storage Gen2 功能的儲存體帳戶。 若要了解如何在您的儲存體帳戶中上傳和下載 Blob，請參閱以下主題。
 
 * [AzCopy V10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

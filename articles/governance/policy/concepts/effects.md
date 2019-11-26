@@ -21,7 +21,7 @@ ms.locfileid: "74279520"
 - [AuditIfNotExists](#auditifnotexists)
 - [拒絕](#deny)
 - [DeployIfNotExists](#deployifnotexists)
-- [已停用](#disabled)
+- [Disabled](#disabled)
 - [EnforceOPAConstraint](#enforceopaconstraint) （預覽）
 - [EnforceRegoPolicy](#enforceregopolicy) （預覽）
 - [編輯](#modify)

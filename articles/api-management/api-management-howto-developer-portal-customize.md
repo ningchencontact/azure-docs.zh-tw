@@ -1,6 +1,6 @@
 ---
-title: Access and customize the managed developer portal - Azure API Management | Microsoft Docs
-description: Learn how to use the managed version of the developer portal in API Management.
+title: 存取和自訂受管理的開發人員入口網站-Azure API 管理 |Microsoft Docs
+description: 瞭解如何在 API 管理中使用受管理的開發人員入口網站版本。
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -19,115 +19,115 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74454413"
 ---
-# <a name="access-and-customize-developer-portal"></a>Access and customize developer portal
+# <a name="access-and-customize-developer-portal"></a>存取和自訂開發人員入口網站
 
-Developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, and request access.
+開發人員入口網站是一個自動產生、可完全自訂的網站，其中包含您 Api 的檔。 API 取用者可以在此探索您的 Api、瞭解如何使用它們，以及要求存取權。
 
-在本教學課程中，您會了解如何：
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
-> * Access the managed version of the developer portal
-> * Navigate its administrative interface
-> * Customize the content
-> * Publish the changes
-> * View the published portal
+> * 存取開發人員入口網站的受控版本
+> * 流覽其系統管理介面
+> * 自訂內容
+> * 發佈變更
+> * 查看已發佈的入口網站
 
-You can find more details on the developer portal in the [Azure API Management developer portal overview](api-management-howto-developer-portal.md).
+您可以在[AZURE API 管理開發人員入口網站總覽](api-management-howto-developer-portal.md)中找到更多開發人員入口網站的詳細資料。
 
-![API Management developer portal - admin mode](media/api-management-howto-developer-portal-customize/cover.png)
+![API 管理開發人員入口網站-管理員模式](media/api-management-howto-developer-portal-customize/cover.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)
-- 匯入並發佈 Azure API 管理執行個體。 For more information, see [Import and publish](import-and-publish.md)
+- 匯入並發佈 Azure API 管理執行個體。 如需詳細資訊，請參閱匯[入和發佈](import-and-publish.md)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="access-the-portal-as-an-administrator"></a>Access the portal as an administrator
+## <a name="access-the-portal-as-an-administrator"></a>以系統管理員身分存取入口網站
 
-Follow the steps below to access the managed version of the portal.
+請遵循下列步驟來存取受管理的入口網站版本。
 
-1. Go to your API Management service instance in the Azure portal.
-1. Click on the **Developer portal** button in the top navigation bar. A new browser tab with an administrative version of the portal will open.
+1. 在 Azure 入口網站中，移至您的 API 管理服務實例。
+1. 在上方導覽列中，按一下 [**開發人員入口網站**] 按鈕。 具有入口網站管理版本的新瀏覽器索引標籤隨即開啟。
 
-## <a name="understand-the-portals-administrative-interface"></a>Understand the portal's administrative interface
+## <a name="understand-the-portals-administrative-interface"></a>瞭解入口網站的系統管理介面
 
-### <a name="default-content"></a>Default content 
+### <a name="default-content"></a>預設內容 
 
-If you're accessing the portal for the first time, the default content will be automatically provisioned in the background. Default content has been designed to showcase portal's capabilities and minimize the amount of customizations needed to personalize your portal. You can learn more about what is included in the portal content in the [Azure API Management developer portal overview](api-management-howto-developer-portal.md).
+如果您是第一次存取入口網站，則會在背景自動布建預設內容。 預設內容設計為展示入口網站的功能，並將個人化您的入口網站所需的自訂數量降至最低。 您可以在[AZURE API 管理開發人員入口網站總覽](api-management-howto-developer-portal.md)中深入瞭解入口網站內容中包含的內容。
 
-### <a name="visual-editor"></a>Visual editor
+### <a name="visual-editor"></a>視覺效果編輯器
 
-You can customize the content of the portal with the visual editor. The menu sections on the left let you create or modify pages, media, layouts, menus, styles, or website settings. The menu items on the bottom let you switch between viewports (for example, mobile or desktop), view the elements of the portal visible to authenticated or anonymous users, or save or undo actions.
+您可以使用視覺化編輯器自訂入口網站的內容。 左側的功能表區段可讓您建立或修改頁面、媒體、版面配置、功能表、樣式或網站設定。 底部的功能表項目可讓您在不同的物件之間切換（例如，行動或桌面）、查看已驗證或匿名使用者可以看見的入口網站元素，或儲存或復原動作。
 
-You can add rows to a page by clicking on a blue icon with a plus sign. Widgets (for example, text, images, or APIs list) can be added by pressing a grey icon with a plus sign. You can rearrange items in a page with the drag-and-drop interaction. 
+您可以按一下具有加號的藍色圖示，將資料列加入至頁面。 可以藉由按下加號的灰色圖示來新增 widget （例如，文字、影像或 Api 清單）。 您可以使用拖放互動來重新排列頁面中的專案。 
 
-### <a name="layouts-and-pages"></a>Layouts and pages
+### <a name="layouts-and-pages"></a>版面配置和頁面
 
-![Pages and layouts](media/api-management-howto-developer-portal-customize/pages-layouts.png)
+![頁面和版面配置](media/api-management-howto-developer-portal-customize/pages-layouts.png)
 
-Layouts define how pages are displayed. For example, in the default content, there are two layouts - one applies to the home page, and the other to all remaining pages.
+版面配置定義頁面的顯示方式。 例如，在預設內容中，有兩個配置-一個適用于首頁，另一個則套用至所有剩餘的頁面。
 
-A layout gets applied to a page by matching its URL template to the page's URL. For example, layout with a URL template of `/wiki/*` will be applied to every page with the `/wiki/` segment in the URL: `/wiki/getting-started`, `/wiki/styles`, etc.
+版面配置會藉由將其 URL 範本與頁面的 URL 進行比對，套用至頁面。 例如，具有 `/wiki/*` URL 範本的配置，將會套用至 URL 中具有 `/wiki/` 區段的每個頁面： `/wiki/getting-started`、`/wiki/styles`等等。
 
-In the image above, content belonging to the layout is marked in blue, while the page is marked in red. The menu sections are marked respectively.
+在上圖中，屬於版面配置的內容會以藍色標示，而頁面則會以紅色標示。 功能表區段會分別標示。
 
-### <a name="styling-guide"></a>Styling guide
+### <a name="styling-guide"></a>樣式指南
 
-![Styling guide](media/api-management-howto-developer-portal-customize/styling-guide.png)
+![樣式指南](media/api-management-howto-developer-portal-customize/styling-guide.png)
 
-Styling guide is a panel created with designers in mind. It allows for overseeing and styling all the visual elements in your portal. The styling is hierarchical - many elements inherit properties from other elements. For example, button elements use colors for text and background. To change a button's color, you need to change the original color variant.
+樣式指南是以設計工具建立的面板。 它可讓您監督和設定入口網站中所有視覺專案的樣式。 樣式設定是階層式的，許多元素會從其他元素繼承屬性。 例如，button 元素會使用文字和背景的色彩。 若要變更按鈕的色彩，您需要變更原始的色彩變化。
 
-To edit a variant, click on it and select the pencil icon that appears on top of it. Once you make the changes in the pop-up window, close it.
+若要編輯 variant，請在變數上按一下，然後選取出現在其上方的鉛筆圖示。 在快顯視窗中進行變更之後，請將它關閉。
 
 ### <a name="save-button"></a>[儲存] 按鈕
 
 ![[儲存] 按鈕](media/api-management-howto-developer-portal-customize/save-button.png)
 
-Whenever you make a change in the portal, you need to save it manually by pressing the **Save** button in the menu at the bottom. When you save your changes, the modified content is automatically uploaded to your API Management service.
+每當您在入口網站中進行變更時，都必須按底部功能表中的 [**儲存**] 按鈕，以手動方式儲存。 當您儲存變更時，修改過的內容會自動上傳到您的 API 管理服務。
 
-## <a name="customize-the-portals-content"></a>Customize the portal's content
+## <a name="customize-the-portals-content"></a>自訂入口網站的內容
 
-Before you make your portal available to the visitors, you should personalize the automatically generated content. Recommended changes include the layouts, styles, and the content of the home page.
+在您將入口網站提供給訪客使用之前，您應該將自動產生的內容個人化。 建議的變更包括 [首頁] 的版面配置、樣式和內容。
 
 > [!NOTE]
-> Due to integration considerations, the following pages can't be removed or moved under a different URL: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
+> 基於整合考慮，下列頁面無法在不同的 URL 下移除或移動： `/404`、`/500`、`/captcha`、`/change-password`、`/config.json`、`/confirm/invitation`、`/confirm-v2/identities/basic/signup`、`/confirm-v2/password`、`/internal-status-0123456789abcdef`、`/publish`、`/signin`、`/signin-sso``/signup`。
 
 ### <a name="home-page"></a>首頁
 
-The default **Home** page is filled with dummy content. You can either remove the whole sections with the content or keep the structure and adjust the elements one by one. Replace the generated text and images with your own and make sure the links point to desired locations.
+預設的**首頁**會填入虛擬內容。 您可以移除內容的整個區段，或保留結構並逐一調整元素。 以您自己的方式取代產生的文字和影像，並確定連結指向所需的位置。
 
 ### <a name="layouts"></a>版面配置
 
-Replace the automatically generated logo in the navigation bar with your own image.
+以您自己的影像取代導覽列中自動產生的標誌。
 
-### <a name="styling"></a>Styling
+### <a name="styling"></a>樣式
 
-Although you don't need to adjust any styles, you may consider adjusting particular elements. For example, change the primary color to match your brand's color.
+雖然您不需要調整任何樣式，但您可以考慮調整特定元素。 例如，變更主要色彩以符合品牌的色彩。
 
-### <a name="customization-example"></a>Customization example
+### <a name="customization-example"></a>自訂範例
 
-In the video below we demonstrate how to edit the content of the portal, customize the website's look, and publish the changes.
+在下列影片中，我們會示範如何編輯入口網站的內容、自訂網站外觀，以及發佈變更。
 
 > [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
-## <a name="publish"> </a>Publish the portal
+## <a name="publish"></a>發佈入口網站
 
-To make your portal and its latest changes available to visitors, you need to publish it.
+若要讓您的入口網站和其最新的變更可供訪客使用，您必須將其發佈。
 
-1. Make sure you saved your changes by clicking on the **Save** icon.
-1. Click on **Publish website** in the **Operations** section of the menu. 這項作業可能需要幾分鐘的時間。  
-    ![Publish portal](media/api-management-howto-developer-portal-customize/publish-portal.png)
+1. 請按一下 [**儲存**] 圖示，以確定您已儲存變更。
+1. 在功能表的 [**作業**] 區段中，按一下 [**發行網站**]。 這項作業可能需要幾分鐘的時間。  
+    ![發佈入口網站](media/api-management-howto-developer-portal-customize/publish-portal.png)
 
 > [!NOTE]
-> The portal needs to be republished after API Management service configuration changes, such as assigning a custom domain, updating the identity providers, setting delegation, specifying sign-in and product terms, and more.
+> 入口網站必須在 API 管理服務設定變更之後重新發佈，例如指派自訂網域、更新身分識別提供者、設定委派、指定登入和產品條款等等。
 
-## <a name="visit-the-published-portal"></a>Visit the published portal
+## <a name="visit-the-published-portal"></a>造訪已發佈的入口網站
 
-After you publish the portal, you can access it at the same URL as the administrative panel, for example `https://contoso-api.developer.azure-api.net`. View it in a separate browser session (incognito / private browsing mode) as an external visitor.
+發佈入口網站後，您可以在與系統管理面板相同的 URL 上存取它，例如 `https://contoso-api.developer.azure-api.net`。 以獨立的瀏覽器會話（incognito/私用瀏覽模式）來觀看，做為外部訪客。
 
 ## <a name="next-steps"></a>後續步驟
 
-Learn more about the developer portal:
+深入瞭解開發人員入口網站：
 
 - [Azure API 管理開發人員入口網站概觀](api-management-howto-developer-portal.md)

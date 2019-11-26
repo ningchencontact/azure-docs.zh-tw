@@ -1,6 +1,6 @@
 ---
-title: Set up a lab to teach data science with Python and Jupyter Notebooks | Microsoft Docs
-description: Learn how to set up a lab to teach data science using Python and Jupyter Notebooks.
+title: 設定實驗室以使用 Python 和 Jupyter 筆記本來教授資料科學 |Microsoft Docs
+description: 瞭解如何設定實驗室，以使用 Python 和 Jupyter 筆記本來教授資料科學。
 services: lab-services
 documentationcenter: na
 author: emaher
@@ -20,60 +20,60 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383983"
 ---
-# <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Set up a lab to teach data science with Python and Jupyter Notebooks
+# <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>設定實驗室以使用 Python 和 Jupyter 筆記本來教授資料科學
 
-This article outlines how to set up a template machine in Lab Services with the tools needed to teach students how to use [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io).  Jupyter Notebooks is an open-source project that lets you easily combine rich text and executable [Python](https://www.python.org/) source code on a single canvas called a notebook.  Running a notebook results in a linear record of inputs and outputs.  Those outputs can include text, tables of information, scatter plots, and more.
+本文概述如何在實驗室服務中設定範本機器，以及讓學生學習如何使用[Jupyter 筆記本](http://jupyter-notebook.readthedocs.io)所需的工具。  Jupyter 筆記本是一個開放原始碼專案，可讓您輕鬆地將 rtf 和可執行檔[Python](https://www.python.org/)原始程式碼結合在稱為筆記本的單一畫布上。  執行筆記本會產生輸入和輸出的線性記錄。  這些輸出可以包含文字、資訊資料表、散佈圖等等。
 
 ## <a name="lab-configuration"></a>實驗室組態
 
-To set up this lab, you need an Azure subscription and lab account to get started. 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。 Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see [tutorial to setup a lab account](tutorial-setup-lab-account.md).  You can also use an existing lab account.
+若要設定此實驗室，您需要 Azure 訂用帳戶和實驗室帳戶，才能開始使用。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。 取得 Azure 訂用帳戶之後，您可以在 Azure 實驗室服務中建立新的實驗室帳戶。 如需建立新實驗室帳戶的詳細資訊，請參閱[設定實驗室帳戶的教學](tutorial-setup-lab-account.md)課程。  您也可以使用現有的實驗室帳戶。
 
-### <a name="lab-account-settings"></a>Lab Account Settings
+### <a name="lab-account-settings"></a>實驗室帳戶設定
 
-Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see [specify marketplace images available to lab creators](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators).
+針對實驗室帳戶啟用下表所述的設定。 如需如何啟用 marketplace 映射的詳細資訊，請參閱[指定可供實驗室建立者使用的 marketplace 映射](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators)。
 
-| Lab account setting | 範例的指示 |
+| 實驗室帳戶設定 | 範例的指示 |
 | ------------------- | ------------ |
-| Marketplace image | Enable the [Data Science Virtual Machine - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) image for use within your lab account. |
+| Marketplace 映射 | 啟用[資料科學虛擬機器-Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows)映射，以便在您的實驗室帳戶中使用。 |
 
 >[!TIP]
->This article will focus on configuring a template machine that uses the Windows Server operating system.  It's also possible to set up a data science class with Python and Jupyter Notebooks using [Data Science Virtual Machine for Linux (CentOS)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm) or [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) images from the Azure Marketplace.
+>本文將著重于設定使用 Windows Server 作業系統的範本機器。  您也可以使用[適用于 linux 的資料科學虛擬機器（CentOS）](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm)或 Azure Marketplace 的[linux （Ubuntu）影像資料科學虛擬機器](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu)，設定具有 Python 和 Jupyter 筆記本的資料科學類別。
 
-### <a name="lab-settings"></a>Lab settings
+### <a name="lab-settings"></a>實驗室設定
 
-Use the settings in the table below when setting up a classroom lab.  For more information how to create a classroom lab, see [set up a classroom lab tutorial](tutorial-setup-classroom-lab.md).
+設定教室實驗室時，請使用下表中的設定。  如需如何建立教室實驗室的詳細資訊，請參閱[設定教室實驗室教學課程](tutorial-setup-classroom-lab.md)。
 
-| Lab settings | Value/instructions |
+| 實驗室設定 | 值/指示 |
 | ------------ | ------------------ |
-|虛擬機器大小| Small GPU (Compute). This size is best suited for compute-intensive and network-intensive applications like Artificial Intelligence and Deep Learning. |
-|Virtual Machine Image| SQL Server 2019 Standard on Windows Server 2019|
+|虛擬機器大小| 小型 GPU （計算）。 此大小最適合用於計算密集型和網路密集型應用程式，例如人工智慧和深度學習。 |
+|虛擬機器映射| Windows Server 2019 上的 SQL Server 2019 Standard|
 
-## <a name="template-machine"></a>Template machine
+## <a name="template-machine"></a>範本機器
 
-The [Data Science Virtual Machine - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) image provides the necessary deep learning frameworks and tools required for this type of class.  The image includes Jupyter Notebooks and Visual Studio Code.  [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io) is a web application that allows data scientists to take raw data, run computations, and see the results all in the same environment.  For our template machine, the web application will be running locally.  [Visual Studio Code](https://code.visualstudio.com/) is an IDE that provides a rich interactive experience when writing and testing a notebook.  For more information, see [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
+[資料科學虛擬機器 Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows)映射提供這類類別所需的必要深度學習架構和工具。  映射包含 Jupyter 筆記本和 Visual Studio Code。  [Jupyter 筆記本](http://jupyter-notebook.readthedocs.io)是一種 web 應用程式，可讓資料科學家採用原始資料、執行計算，並在相同的環境中查看結果。  針對我們的範本機器，web 應用程式將會在本機執行。  [Visual Studio Code](https://code.visualstudio.com/)是在撰寫和測試筆記本時提供豐富互動體驗的 IDE。  如需詳細資訊，請參閱[在 Visual Studio Code 中使用 Jupyter 筆記本](https://code.visualstudio.com/docs/python/jupyter-support)。
 
-The remaining task to set up the class is to provide local notebooks.  For instructions how to use the Azure Machine Learning samples, see [how to configure an environment with Jupyter Notebooks](../../machine-learning/service/how-to-configure-environment.md#jupyter).  You can also provide your own notebooks on the template machine.  The notebooks will be copied to all student machines when the template is published.
+設定類別的其餘工作是提供本機筆記本。  如需如何使用 Azure Machine Learning 範例的指示，請參閱[如何設定具有 Jupyter 筆記本的環境](../../machine-learning/service/how-to-configure-environment.md#jupyter)。  您也可以在範本機器上提供自己的筆記本。  發佈範本時，會將筆記本複製到所有學生電腦。
 
 ## <a name="cost-estimate"></a>成本預估值
 
-Let's cover a possible cost estimate for this class.  We'll use a class of 25 students.  There are 20 hours of scheduled class time.  Also, each student gets 10 hours quota for homework or assignments outside scheduled class time.  The virtual machine size we chose was small gpu (compute), which is 139 lab units.
+讓我們來討論這個類別的可能成本預估。  我們將使用25名學生的課程。  已排程的類別時間有20小時。  此外，每個學生在排程的類別時間以外，會取得家庭或指派10小時的配額。  我們選擇的虛擬機器大小為小型 gpu （計算），也就是139實驗室單位。
 
-Here is an example of a possible cost estimate for this class:
+以下是此類別的可能成本預估範例：
 
-25 students \* (20 scheduled hours + 10 quota hours) \* 139 lab units \*  0.01 USD per hour  = 1042.5 USD
+25名學生 \* （20個已排程的小時 + 10 個配額小時） \* 139 個實驗室單位 \* 每小時0.01 美元 = 1042.5 美元
 
-Further more details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
+如需更多有關定價的詳細資訊，請參閱[Azure 實驗室服務定價](https://azure.microsoft.com/pricing/details/lab-services/)。
 
 ## <a name="conclusion"></a>結論
 
-In this article, we walked through the steps to create a lab for a Jupyter Notebooks class. You can use a similar setup for other machine learning classes.
+在本文中，我們逐步解說了建立 Jupyter 筆記本類別的實驗室的步驟。 您可以針對其他機器學習類別使用類似的設定。
 
 ## <a name="next-steps"></a>後續步驟
 
-Next steps are common to setting up any lab.
+下一步是設定任何實驗室的常見步驟。
 
-- [Create and manage a template](how-to-create-manage-template.md)
+- [建立和管理範本](how-to-create-manage-template.md)
 - [新增使用者](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)
+- [設定配額](how-to-configure-student-usage.md#set-quotas-for-users)
+- [設定排程](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [學生的電子郵件註冊連結](how-to-configure-student-usage.md#send-invitations-to-users)

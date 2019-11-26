@@ -1,6 +1,6 @@
 ---
-title: Verify X.509 CA certificates with Azure IoT Hub Device Provisioning Service
-description: How to do proof-of-possession for X.509 CA certificates with Azure IoT Hub Device Provisioning Service
+title: 驗證 Azure IoT 中樞裝置布建服務的 x.509 CA 憑證
+description: 如何使用 Azure IoT 中樞裝置布建服務對 x.509 CA 憑證執行擁有權證明
 author: wesmc7777
 ms.author: wesmc
 ms.date: 02/26/2018
@@ -65,7 +65,7 @@ Microsoft 提供了工具和範例，協助您建立已簽署的驗證憑證：
 
 1. 在入口網站中，將產生的簽章當作驗證憑證上傳至佈建服務。 在 Azure 入口網站的 [憑證詳細資料] 中，使用 [驗證憑證 .pem 或.cer 檔案] 欄位旁的 [檔案總管] 圖示，從您的系統上傳已簽署的驗證憑證。
 
-2. 一旦憑證上傳成功後，按一下 [確認]。 憑證的 [狀態] 在 [憑證總管]清單中會變更為 _已驗證_。 如果無法自動更新，請按一下 [重新整理]。
+2. 一旦憑證上傳成功後，按一下 [確認]。 憑證的 [狀態] 在 [憑證總管]清單中會變更為 **已驗證**。 如果無法自動更新，請按一下 [重新整理]。
 
    ![上傳憑證驗證](./media/how-to-verify-certificates/upload-cert-verification.png)  
 

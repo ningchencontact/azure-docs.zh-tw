@@ -27,7 +27,7 @@ ms.locfileid: "74480802"
 * **未設定**：找不到更新代理程式或尚未完成上線。
 
 > [!NOTE]
-> There may be a slight delay between what the Azure portal shows and the current state of the machine.
+> Azure 入口網站顯示的內容與電腦目前的狀態之間可能會稍有延遲。
 
 ## <a name="start-the-troubleshooter"></a>啟動疑難排解員
 
@@ -52,18 +52,18 @@ ms.locfileid: "74480802"
 
 作業系統檢查會確認「混合式 Runbook 背景工作角色」是否正在執行下列其中一個作業系統：
 
-|作業系統  |注意  |
+|作業系統  |注意事項  |
 |---------|---------|
 |Windows Server 2008 R2 RTM、Windows Server 2008 | 僅支援更新評估。         |
-|Windows Server 2008 R2 SP1 和更新版本 |.NET Framework 4.6 or later is required. ([下載 .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1 is required.  ([下載 Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 和更新版本 |需要 .NET Framework 4.6 或更新版本。 ([下載 .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> 需要 Windows PowerShell 5.1。  ([下載 Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
-### <a name="net-462"></a>.NET 4.6.2
+### <a name="net-462"></a>.NET 4.6。2
 
-The .NET Framework check verifies that the system has a minimum of [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) installed.
+.NET Framework 檢查會確認系統是否已安裝最少的[.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) 。
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-The WMF check verifies that the system has the required version of the Windows Management Framework (WMF) - [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
+WMF 檢查會確認系統是否具有所需的 Windows Management Framework （WMF）版本- [Windows Management framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616)。
 
 ### <a name="tls-12"></a>TLS 1.2
 
@@ -107,7 +107,7 @@ Crypto 資料夾存取權檢查會判斷「本機系統帳戶」是否能夠存�
 
 ## <a name="troubleshoot-offline"></a>離線疑難排解
 
-您可以藉由在本機執行指令碼，對「混合式 Runbook 背景工作角色」使用疑難排解員。 您可以在「PowerShell 資源庫」中取得 [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) 指令碼。 You must have WMF 4.0, or greater, installed to run the script. To download the latest version of PowerShell, see [Installing various versions of PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
+您可以藉由在本機執行指令碼，對「混合式 Runbook 背景工作角色」使用疑難排解員。 您可以在「PowerShell 資源庫」中取得 [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) 指令碼。 您必須安裝 WMF 4.0 或更新版本，才能執行腳本。 若要下載最新版本的 PowerShell，請參閱[安裝各種版本的 powershell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell)。
 
 此指令碼的輸出會如下列範例所示：
 

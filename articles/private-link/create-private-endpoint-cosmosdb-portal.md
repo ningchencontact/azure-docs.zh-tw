@@ -137,7 +137,7 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
    [私人 IP 位址][帳戶端點]. 檔. azure .com
 
-   **範例:**
+   **範例：**
 
    10.1.255.13 mycosmosaccount.documents.azure.com
 

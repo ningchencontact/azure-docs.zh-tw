@@ -42,7 +42,7 @@ Azure 流量管理員使用四種不同的路由方法。 下列清單說明 Azu
 如需詳細資訊，請參閱[流量管理員路由方法](../traffic-manager/traffic-manager-routing-methods.md)。
 
 ## <a name="app-service-and-traffic-manager-profiles"></a>App Service 和流量管理員設定檔
-To configure the control of App Service app traffic, you create a profile in Azure Traffic Manager that uses one of the four load balancing methods described previously, and then add the endpoints (in this case, App Service) for which you want to control traffic to the profile. 系統會定期與設定檔溝通您的應用程式狀態 (執行中、已停止或已刪除)，讓 Azure 流量管理員可相應地導向流量。
+若要設定 App Service 應用程式流量的控制，您可以在 Azure 流量管理員中建立設定檔，以使用上述四種負載平衡方法的其中一種，然後新增您想要控制其流量的端點（在此案例中為 App Service）特徵. 系統會定期與設定檔溝通您的應用程式狀態 (執行中、已停止或已刪除)，讓 Azure 流量管理員可相應地導向流量。
 
 搭配使用 Azure 流量管理員與 Azure 時，請牢記下列重點：
 

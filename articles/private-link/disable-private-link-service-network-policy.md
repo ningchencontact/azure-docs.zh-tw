@@ -1,6 +1,6 @@
 ---
-title: 'Disable network policies for Azure Private Link service source IP address '
-description: Learn how to disable network policies for Azure private Link
+title: '停用 Azure 私人連結服務來源 IP 位址的網路原則 '
+description: 瞭解如何停用 Azure 私人連結的網路原則
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -14,16 +14,16 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74228113"
 ---
-# <a name="disable-network-policies-for-private-link-service-source-ip"></a>Disable network policies for Private Link service source IP
+# <a name="disable-network-policies-for-private-link-service-source-ip"></a>停用私人連結服務來源 IP 的網路原則
 
-In order to choose a source IP address for your Private Link service, an explicit disable setting `privateLinkServiceNetworkPolicies` is required on the subnet. This setting is only applicable for the specific private IP address you chose as the source IP of the Private Link service. For other resources in the subnet, access is controlled based on Network Security Groups (NSG) security rules definition. 
+若要為您的私用連結服務選擇來源 IP 位址，子網上必須 `privateLinkServiceNetworkPolicies` 明確的停用設定。 此設定僅適用于您選擇做為私人連結服務之來源 IP 的特定私人 IP 位址。 若為子網中的其他資源，則會根據網路安全性群組（NSG）安全性規則定義來控制存取。 
  
-When using any Azure client (PowerShell, CLI or templates), an additional step is required to change this property. You can disable the policy using the cloud shell from the Azure portal, or local installations of Azure PowerShell, Azure CLI, or use Azure Resource Manager templates.  
+使用任何 Azure 用戶端（PowerShell、CLI 或範本）時，需要額外的步驟來變更此屬性。 您可以從 Azure 入口網站使用 cloud shell，或 Azure PowerShell、Azure CLI 的本機安裝，或使用 Azure Resource Manager 範本來停用原則。  
  
-Follow the steps below to disable private link service network policies for a virtual network named *myVirtualNetwork* with a *default* subnet hosted in a resource group named *myResourceGroup*. 
+請遵循下列步驟，針對名為*myVirtualNetwork*的虛擬網路停用私人連結服務網路原則，並在名為*myResourceGroup*的資源群組中託管*預設*子網。 
 
 ## <a name="using-azure-powershell"></a>使用 Azure PowerShell
-This section describes how to disable subnet private endpoint policies using Azure PowerShell.
+本節說明如何使用 Azure PowerShell 停用子網私人端點原則。
 
 ```azurepowershell
 $virtualNetwork= Get-AzVirtualNetwork `
@@ -35,7 +35,7 @@ $virtualNetwork= Get-AzVirtualNetwork `
 $virtualNetwork | Set-AzVirtualNetwork 
 ```
 ## <a name="using-azure-cli"></a>使用 Azure CLI
-This section describes how to disable subnet private endpoint policies using Azure CLI.
+本節說明如何使用 Azure CLI 停用子網私人端點原則。
 ```azurecli
 az network vnet subnet update \ 
   --name default \ 
@@ -44,7 +44,7 @@ az network vnet subnet update \
   --disable-private-link-service-network-policies true 
 ```
 ## <a name="using-a-template"></a>使用範本
-This section describes how to disable subnet private endpoint policies using Azure Resource Manager Template.
+本節說明如何使用 Azure Resource Manager 範本停用子網私人端點原則。
 ```json
 { 
     "name": "myVirtualNetwork", 
@@ -71,5 +71,5 @@ This section describes how to disable subnet private endpoint policies using Azu
  
 ```
 ## <a name="next-steps"></a>後續步驟
-- Learn more about [Azure Private Endpoint](private-endpoint-overview.md)
+- 深入瞭解[Azure 私用端點](private-endpoint-overview.md)
  

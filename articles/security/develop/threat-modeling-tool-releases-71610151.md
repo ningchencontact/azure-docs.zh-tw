@@ -21,39 +21,39 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233827"
 ---
-# <a name="threat-modeling-tool-update-release-71610151---10162019"></a>Threat Modeling Tool update release 7.1.61015.1 - 10/16/2019
+# <a name="threat-modeling-tool-update-release-71610151---10162019"></a>Threat Modeling Tool 更新版本 7.1.61015.1 - 2019 年 10 月 16 日
 
-Version 7.1.61015.1 of the Microsoft Threat Modeling Tool (TMT) was released on October 16 2019 and contains the following changes:
+Microsoft Threat Modeling Tool （TMT）的版本7.1.61015.1 已于 16 2019 年10月發行，並包含下列變更：
 
-- Accessibility improvements
+- 協助工具改善
 - 錯誤修正
-- New stencils for Azure Logic Apps and Azure Data Explorer
+- Azure Logic Apps 和 Azure 資料總管的新樣板
 
-## <a name="notable-bug-fixes"></a>Notable bug fixes
+## <a name="notable-bug-fixes"></a>值得注意的 bug 修正
 
-### <a name="improved-backward-compatibility-with-files-created-in-threat-modeling-tool-2016"></a>Improved backward compatibility with files created in "Threat Modeling Tool 2016"
+### <a name="improved-backward-compatibility-with-files-created-in-threat-modeling-tool-2016"></a>已改善在 "Threat Modeling Tool 2016" 中建立之檔案的回溯相容性
 
-Several bugs related to the opening or display of threat model files created in "Threat Modeling Tool 2016" have been fixed.
+已修正與開啟或顯示在 "Threat Modeling Tool 2016" 中建立的威脅模型檔案相關的幾個 bug。
 
-## <a name="feature-enhancements"></a>Feature enhancements
+## <a name="feature-enhancements"></a>功能增強
 
-### <a name="new-stencils-for-azure-logic-apps-and-azure-data-explorer"></a>New stencils for Azure Logic Apps and Azure Data Explorer
+### <a name="new-stencils-for-azure-logic-apps-and-azure-data-explorer"></a>Azure Logic Apps 和 Azure 資料總管的新樣板
 
-New stencils for Azure Logic Apps and Azure Data Explorer were added to the Azure Stencil along with their associated threats and mitigations.
+Azure Logic Apps 和 Azure 資料總管的新樣板已新增至 Azure 樣板，及其相關聯的威脅和緩和措施。
 
-![Azure Logic Apps and Azure Data Explorer Stencils](./media/threat-modeling-tool-releases-71610151/tmt-logic-apps.png)
+![Azure Logic Apps 和 Azure 資料總管樣板](./media/threat-modeling-tool-releases-71610151/tmt-logic-apps.png)
 
 ## <a name="known-issues"></a>已知問題
 
-### <a name="errors-related-to-priority-values-outside-of-the-expected-ranges"></a>Errors related to priority values outside of the expected ranges
+### <a name="errors-related-to-priority-values-outside-of-the-expected-ranges"></a>與預期範圍外的優先順序值相關的錯誤
 
-Some customers have reported receiving the following error message when opening files created in the "Threat Modeling Tool 2016" or custom templates:
+某些客戶在開啟 "Threat Modeling Tool 2016" 或自訂範本中建立的檔案時，回報收到下列錯誤訊息：
 
     System.InvalidOperationException: Invalid Priority value. Accepted values are [0..4] and 'High', 'Medium', 'Low' at ThreatModeling.Model.Threat.get_Priority()
     
     System.ArgumentOutOfRangeException: Accepted values are 'High', 'Medium', and 'Low' Parameter name: value Actual value was 5.6. at ThreatModeling.Model.Threat.set_Priority(String value)
 
-This issue is under investigation
+此問題正在調查中
 
 ## <a name="system-requirements"></a>系統需求
 

@@ -69,7 +69,7 @@ Azure Migrate 設備是輕量設備，供 Azure Migrate 伺服器評估用來執
 
 - 安裝用於實體伺服器探索及評定的代理程式與 Web 應用程式。
 - 安裝 Windows 角色，包括 Windows 啟用服務、IIS 與 PowerShell ISE。
-- 下載並安裝 IIS 可讀寫模組。 [詳細資訊](https://www.microsoft.com/download/details.aspx?id=7435)。
+- 下載並安裝 IIS 可讀寫模組。 [深入了解](https://www.microsoft.com/download/details.aspx?id=7435)。
 - 使用 Azure Migrate 的持續設定詳細資料來更新登錄機碼 (HKLM)。
 - 在路徑底下建立下列檔案：
     - **組態檔**：%Programdata%\Microsoft Azure\Config

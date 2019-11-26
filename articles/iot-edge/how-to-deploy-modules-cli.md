@@ -24,7 +24,7 @@ ms.locfileid: "74457468"
 
 本文說明如何建立 JSON 部署資訊清單，然後使用該檔案將部署發送到 IoT Edge 裝置。 如需根據裝置共用標籤，建立目標為多個裝置的部署資訊，請參閱[大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor-cli.md) (英文)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶中的 [IoT 中樞](../iot-hub/iot-hub-create-using-cli.md)。
 * 已安裝 IoT Edge 執行階段的 [IoT Edge 裝置](how-to-register-device.md#register-with-the-azure-cli)。
@@ -115,7 +115,7 @@ ms.locfileid: "74457468"
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
-The device ID parameter is case-sensitive. 內容參數會指向您已儲存的部署資訊清單檔案。
+裝置識別碼參數會區分大小寫。 內容參數會指向您已儲存的部署資訊清單檔案。
 
    ![az iot edge set-modules 輸出](./media/how-to-deploy-cli/set-modules.png)
 
@@ -129,7 +129,7 @@ The device ID parameter is case-sensitive. 內容參數會指向您已儲存的�
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-The device ID parameter is case-sensitive.
+裝置識別碼參數會區分大小寫。
 
    ![az iot hub module-identity list 輸出](./media/how-to-deploy-cli/list-modules.png)
 

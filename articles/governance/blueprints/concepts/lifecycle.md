@@ -1,6 +1,6 @@
 ---
 title: 了解藍圖生命週期
-description: Learn about the lifecycle that a blueprint definition goes through and details about each stage, including updating and removing blueprint assignments.
+description: 瞭解藍圖定義所經歷的生命週期，以及每個階段的詳細資料，包括更新和移除藍圖指派。
 ms.date: 07/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
@@ -29,7 +29,7 @@ ms.locfileid: "74404583"
 
 建立藍圖時，將成品新增至其中、儲存至管理群組或訂用帳戶，並提供唯一名稱與唯一版本。 藍圖現在處於**草稿**模式，尚無法指派。 然而在**草稿**模式中，它可以繼續更新及變更。
 
-處於**草稿**模式且未曾發佈的藍圖會在 [藍圖定義] 頁面上，顯示與**已發佈**藍圖不同的圖示。 The **Latest Version** is displayed as **Draft** for these never published blueprints.
+處於**草稿**模式且未曾發佈的藍圖會在 [藍圖定義] 頁面上，顯示與**已發佈**藍圖不同的圖示。 **最新版本**會針對這些從未發佈的藍圖顯示為**草稿**。
 
 使用 [Azure 入口網站](../create-blueprint-portal.md#create-a-blueprint)或 [REST API](../create-blueprint-rest-api.md#create-a-blueprint) 來建立及編輯藍圖。
 
@@ -63,11 +63,11 @@ ms.locfileid: "74404583"
 
 1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
 
-1. Select **Blueprint definitions** from the page on the left and use the filter options to locate the blueprint you want to delete a version of. Select it to open the edit page.
+1. 從左邊的頁面選取 [**藍圖定義**]，然後使用篩選選項來找出您想要刪除其版本的藍圖。 選取它以開啟 [編輯] 頁面。
 
-1. Select the **Published versions** tab and locate the version you wish to delete.
+1. 選取 [**已發佈的版本**] 索引標籤，然後找出您想要刪除的版本。
 
-1. Right-click on the version to delete and select **Delete this version**.
+1. 以滑鼠右鍵按一下要刪除的版本，然後選取 [**刪除此版本**]。
 
 ## <a name="deleting-the-blueprint"></a>刪除藍圖
 
@@ -94,16 +94,16 @@ ms.locfileid: "74404583"
 
 若要了解作法，請參閱[更新現有的指派](../how-to/update-existing-assignments.md)。
 
-### <a name="unassigning-assignments"></a>Unassigning assignments
+### <a name="unassigning-assignments"></a>取消指派指派
 
-If the blueprint is no longer needed, it can be unassigned from the management group or subscription. During blueprint unassignment, the following occurs:
+如果不再需要藍圖，則可以從管理群組或訂用帳戶取消指派。 在藍圖解除期間，會發生下列情況：
 
-- Removal of [blueprint resource locking](resource-locking.md)
-- Deletion of the blueprint assignment object
-- (Conditional) If a **system-assigned managed identity** was used, it's also deleted
+- 移除[藍圖資源鎖定](resource-locking.md)
+- 刪除藍圖指派物件
+- 條件如果使用**系統指派的受控識別**，它也會一併刪除
 
 > [!NOTE]
-> All resources deployed by the blueprint assignment remain in place, but are no longer protected by Azure Blueprints.
+> 藍圖指派所部署的所有資源都會保留在原處，但不再受 Azure 藍圖保護。
 
 ## <a name="next-steps"></a>後續步驟
 

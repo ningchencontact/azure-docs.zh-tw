@@ -29,7 +29,7 @@ ms.locfileid: "74276119"
 
 在本文章中，您將部署虛擬機器 (VM)，然後檢查送至 IP 位址和 URL 的通訊。 您可判斷通訊失敗的原因及其解決方式。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

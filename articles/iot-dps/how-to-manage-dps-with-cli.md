@@ -1,5 +1,5 @@
 ---
-title: Manage IoT Hub Device Provisioning Service using Azure CLI & IoT extension
+title: 使用 Azure CLI & IoT 擴充功能來管理 IoT 中樞裝置佈建服務
 description: 了解如何使用 Azure CLI 和 IoT 擴充功能來管理 IoT 中樞裝置佈建服務
 author: chrissie926
 ms.author: menchi
@@ -43,20 +43,20 @@ IoT 擴充功能以裝置管理和完整 IoT Edge 功能來擴充 Azure CLI 的�
 開始之前，請先完成先前所述的安裝步驟。 如果您沒有 Azure 帳戶，可以立即[建立一個免費帳戶](https://azure.microsoft.com/free/?v=17.39a)。 
 
 
-### <a name="1-log-in-to-the-azure-account"></a>1. Log in to the Azure account
+### <a name="1-log-in-to-the-azure-account"></a>1. 登入 Azure 帳戶
   
     az login
 
 ![登入][1]
 
-### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. Create a resource group IoTHubBlogDemo in eastus
+### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. 在 eastus 中建立資源群組 Eastus iothubblogdemo
 
     az group create -l eastus -n IoTHubBlogDemo
 
 ![建立資源群組][2]
 
 
-### <a name="3-create-two-device-provisioning-services"></a>3. Create two Device Provisioning services
+### <a name="3-create-two-device-provisioning-services"></a>3. 建立兩個裝置布建服務
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps
 
@@ -64,20 +64,20 @@ IoT 擴充功能以裝置管理和完整 IoT Edge 功能來擴充 Azure CLI 的�
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps2
 
-### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4. List all the existing Device Provisioning services under this resource group
+### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4. 列出此資源群組下所有現有的裝置布建服務
 
     az iot dps list --resource-group IoTHubBlogDemo
 
 ![列出裝置佈建服務][4]
 
 
-### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. Create an IoT Hub blogDemoHub under the newly created resource group
+### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. 在新建立的資源群組下建立 IoT 中樞 blogDemoHub
 
     az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
 
 ![建立 IoT 中樞][5]
 
-### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. Link one existing IoT Hub to a Device Provisioning service
+### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. 將一個現有的 IoT 中樞連結到裝置布建服務
 
     az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps --connection-string <connection string> -l westus
 

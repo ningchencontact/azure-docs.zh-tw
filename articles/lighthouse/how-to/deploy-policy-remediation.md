@@ -12,7 +12,7 @@ ms.locfileid: "74463871"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>部署可在委派的訂用帳戶內補救的原則
 
-[Azure Lighthouse](../overview.md) allows service providers to create and edit policy definitions within a delegated subscription. 不過，若要部署使用[補救工作](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources)的原則 (也就是，具有 [deployIfNotExists](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) 或 [modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) 效果的原則)，您必須在客戶租用戶中建立[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。 Azure 原則可以使用此受控識別在原則內部署範本。 當您讓客戶上線進行 Azure 委派資源管理，以及當您部署原則本身時，必須執行下列步驟才能啟用此案例。
+[Azure 燈塔](../overview.md)可讓服務提供者建立和編輯委派訂用帳戶內的原則定義。 不過，若要部署使用[補救工作](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources)的原則 (也就是，具有 [deployIfNotExists](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) 或 [modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) 效果的原則)，您必須在客戶租用戶中建立[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。 Azure 原則可以使用此受控識別在原則內部署範本。 當您讓客戶上線進行 Azure 委派資源管理，以及當您部署原則本身時，必須執行下列步驟才能啟用此案例。
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>建立可將角色指派給客戶租用戶中受控識別的使用者
 
@@ -22,7 +22,7 @@ ms.locfileid: "74463871"
 
 客戶上線之後，在此授權中建立的 **principalId** 就能夠將這些內建角色指派給客戶租用戶中的受控識別。 不過，他們不會有任何通常與「使用者存取管理員」角色相關聯的其他權限。
 
-以下範例顯示將具有「使用者存取管理員」角色的 **principalId**。 This user will be able to assign two built-in roles to managed identities in the customer tenant: Contributor and Log Analytics Contributor.
+以下範例顯示將具有「使用者存取管理員」角色的 **principalId**。 這位使用者可以將兩個內建角色指派給客戶租使用者中的受控識別：參與者和 Log Analytics 參與者。
 
 ```json
 {

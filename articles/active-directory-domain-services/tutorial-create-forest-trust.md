@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create a forest trust in Azure AD Domain Services | Microsoft Docs
-description: Learn how to create a one-way outbound forest to an on-premises AD DS domain in the Azure portal for Azure AD Domain Services
+title: 教學課程-在 Azure AD Domain Services 中建立樹系信任 |Microsoft Docs
+description: 瞭解如何在適用于 Azure 入口網站中的內部部署 AD DS 網域建立單向輸出樹系 Azure AD Domain Services
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -17,23 +17,23 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233593"
 ---
-# <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: Create an outbound forest trust to an on-premises domain in Azure Active Directory Domain Services (preview)
+# <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>教學課程：在 Azure Active Directory Domain Services （預覽）中建立內部部署網域的輸出樹系信任
 
-In environments where you can't synchronize password hashes, or you have users that exclusively sign in using smart cards so they don't know their password, you can use a resource forest in Azure Active Directory Domain Services (AD DS). A resource forest uses a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain. Azure AD DS resource forests are currently in preview.
+在無法同步處理密碼雜湊的環境中，或您有使用智慧卡以獨佔方式登入的使用者，因此他們不知道其密碼，您可以使用 Azure Active Directory Domain Services （AD DS）中的資源樹系。 資源樹系會使用從 Azure AD DS 到一或多個內部部署 AD DS 環境的單向輸出信任。 此信任關係可讓使用者、應用程式和電腦向 Azure AD DS 受控網域中的內部部署網域進行驗證。 Azure AD DS 資源樹系目前為預覽狀態。
 
-![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
+![從 Azure AD DS 到內部部署 AD DS 的樹系信任圖表](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-在本教學課程中，您會了解如何：
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
-> * Configure DNS in an on-premises AD DS environment to support Azure AD DS connectivity
-> * Create a one-way inbound forest trust in an on-premises AD DS environment
-> * Create a one-way outbound forest trust in Azure AD DS
-> * Test and validate the trust relationship for authentication and resource access
+> * 在內部部署 AD DS 環境中設定 DNS，以支援 Azure AD DS 連線能力
+> * 在內部部署 AD DS 環境中建立單向的輸入樹系信任
+> * 在 Azure AD DS 中建立單向輸出樹系信任
+> * 測試和驗證信任關係以進行驗證和資源存取
 
-如果您沒有 Azure 訂用帳戶，請先建立[帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)再開始。
+如果您沒有 Azure 訂用帳戶，請先[建立帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)再開始。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成此教學課程，您需要下列資源和權限：
 
@@ -41,171 +41,171 @@ In environments where you can't synchronize password hashes, or you have users t
     * 如果您沒有 Azure 訂用帳戶，請先[建立帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 * 與您的訂用帳戶相關聯的 Azure Active Directory 租用戶，可與內部部署目錄或僅限雲端的目錄同步。
     * 如果需要，請[建立 Azure Active Directory 租用戶][create-azure-ad-tenant]或[將 Azure 訂用帳戶與您的帳戶建立關聯][associate-azure-ad-tenant]。
-* An Azure Active Directory Domain Services managed domain created using a resource forest and configured in your Azure AD tenant.
+* 使用資源樹系建立並在您的 Azure AD 租使用者中設定的 Azure Active Directory Domain Services 受控網域。
     * 如有需要，請[建立並設定 Azure Active Directory Domain Services 執行個體][create-azure-ad-ds-instance-advanced]。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
-In this tutorial, you create and configure the outbound forest trust from Azure AD DS using the Azure portal. 若要開始使用，請先登入 [Azure 入口網站](https://portal.azure.com)。
+在本教學課程中，您會使用 Azure 入口網站來建立及設定來自 Azure AD DS 的輸出樹系信任。 若要開始使用，請先登入 [Azure 入口網站](https://portal.azure.com)。
 
-## <a name="networking-considerations"></a>網路功能考量
+## <a name="networking-considerations"></a>網路考量
 
-The virtual network that hosts the Azure AD DS resource forest needs network connectivity to your on-premises Active Directory. Applications and services also need network connectivity to the virtual network hosting the Azure AD DS resource forest. Network connectivity to the Azure AD DS resource forest must be always on and stable otherwise users may fail to authenticate or access resources.
+裝載 Azure AD DS 資源樹系的虛擬網路需要內部部署 Active Directory 的網路連接。 應用程式和服務也需要對裝載 Azure AD DS 資源樹系的虛擬網路進行網路連線。 Azure AD DS 資源樹系的網路連線必須一律開啟且穩定，否則使用者可能無法驗證或存取資源。
 
-Before you configure a forest trust in Azure AD DS, make sure your networking between Azure and on-premises environment meets the following requirements:
+在 Azure AD DS 中設定樹系信任之前，請確定 Azure 與內部部署環境之間的網路功能符合下列需求：
 
-* Use private IP addresses. Don't rely on DHCP with dynamic IP address assignment.
-* Avoid overlapping IP address spaces to allow virtual network peering and routing to successfully communicate between Azure and on-premises.
-* An Azure virtual network needs a gateway subnet to configure a site-to-site (S2S) VPN or ExpressRoute connection
-* Create subnets with enough IP addresses to support your scenario.
-* Make sure Azure AD DS has its own subnet, don't share this virtual network subnet with application VMs and services.
-* Peered virtual networks are NOT transitive.
-    * Azure virtual network peerings must be created between all virtual networks you want to use the Azure AD DS resource forest trust to the on-premises AD DS environment.
-* Provide continuous network connectivity to your on-premises Active Directory forest. Don't use on-demand connections.
-* Make sure there's continuous name resolution (DNS) between your Azure AD DS resource forest name and your on-premises Active Directory forest name.
+* 使用私人 IP 位址。 不要依賴具有動態 IP 位址指派的 DHCP。
+* 避免重迭的 IP 位址空間，讓虛擬網路對等互連和路由能夠成功地在 Azure 與內部部署之間進行通訊。
+* Azure 虛擬網路需要閘道子網來設定站對站（S2S） VPN 或 ExpressRoute 連線
+* 建立具有足夠 IP 位址的子網，以支援您的案例。
+* 請確定 Azure AD DS 有自己的子網，請勿與應用程式 Vm 和服務共用此虛擬網路子網。
+* 對等互連虛擬網路不可轉移。
+    * 您必須在想要使用 Azure AD DS 資源樹系信任至內部部署 AD DS 環境的所有虛擬網路之間建立 Azure 虛擬網路對等互連。
+* 提供內部部署 Active Directory 樹系的持續網路連線能力。 請勿使用隨選連接。
+* 請確定您的 Azure AD DS 資源樹系名稱與內部部署 Active Directory 樹系名稱之間有持續的名稱解析（DNS）。
 
-## <a name="configure-dns-in-the-on-premises-domain"></a>Configure DNS in the on-premises domain
+## <a name="configure-dns-in-the-on-premises-domain"></a>設定內部部署網域中的 DNS
 
-To correctly resolve the Azure AD DS managed domain from the on-premises environment, you may need to add forwarders to the existing DNS servers. If you haven't configure the on-premises environment to communicate with the Azure AD DS managed domain, complete the following steps from a management workstation for the on-premises AD DS domain:
+若要從內部部署環境正確地解析 Azure AD DS 受控網域，您可能需要將轉寄站新增至現有的 DNS 伺服器。 如果您尚未將內部部署環境設定為與 Azure AD DS 受控網域通訊，請從內部部署 AD DS 網域的管理工作站完成下列步驟：
 
-1. Select **Start | Administrative Tools | DNS**
-1. Right-select DNS server, such as *myAD01*, select **Properties**
-1. Choose **Forwarders**, then **Edit** to add additional forwarders.
-1. Add the IP addresses of the Azure AD DS managed domain, such as *10.0.1.4* and *10.0.1.5*.
+1. 選取 [**開始] |系統管理工具 |DNS**
+1. 以滑鼠右鍵選取 [DNS 伺服器]，例如*myAD01*，然後選取 [**屬性**]
+1. 選擇 **[** 轉寄站]，然後選取 [**編輯**] 以新增其他轉寄站。
+1. 新增 Azure AD DS 受控網域的 IP 位址，例如*10.0.1.4*和*10.0.1.5*。
 
-## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Create inbound forest trust in the on-premises domain
+## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>在內部部署網域中建立輸入樹系信任
 
-The on-premises AD DS domain needs an incoming forest trust for the Azure AD DS managed domain. This trust must be manually created in the on-premises AD DS domain, it can't be created from the Azure portal.
+內部部署 AD DS 網域需要 Azure AD DS 受控網域的連入樹系信任。 此信任必須以手動方式建立于內部部署 AD DS 網域中，而無法從 Azure 入口網站建立。
 
-To configure inbound trust on the on-premises AD DS domain, complete the following steps from a management workstation for the on-premises AD DS domain:
+若要在內部部署 AD DS 網域上設定輸入信任，請從內部部署 AD DS 網域的管理工作站完成下列步驟：
 
-1. Select **Start | Administrative Tools | Active Directory Domains and Trusts**
-1. Right-select domain, such as *onprem.contoso.com*, select **Properties**
-1. Choose **Trusts** tab, then **New Trust**
-1. Enter name on Azure AD DS domain name, such as *aadds.contoso.com*, then select **Next**
-1. Select the option to create a **Forest trust**, then to create a **One way: incoming** trust.
-1. Choose to create the trust for **This domain only**. In the next step, you create the trust in the Azure portal for the Azure AD DS managed domain.
-1. Choose to use **Forest-wide authentication**, then enter and confirm a trust password. This same password is also entered in the Azure portal in the next section.
-1. Step through the next few windows with default options, then choose the option for **No, do not confirm the outgoing trust**.
+1. 選取 [**開始] |系統管理工具 |Active Directory 網域和信任**
+1. 以滑鼠右鍵選取 [網域]，例如*onprem.contoso.com*，然後選取 [**屬性**]
+1. 依序選擇 [**信任**] 索引標籤和 [**新增信任**]
+1. 在 [Azure AD DS 功能變數名稱] 上輸入名稱，例如*aadds.contoso.com*，然後選取 **[下一步]**
+1. 選取 [建立**樹系信任**] 選項，然後選擇 [建立一個**方式：連入**信任]。
+1. 選擇**只建立此網域**的信任。 在下一個步驟中，您會在 Azure AD DS 受控網域的 Azure 入口網站中建立信任。
+1. 選擇使用**全樹系驗證**，然後輸入並確認信任密碼。 在下一節中，也會在 Azure 入口網站中輸入相同的密碼。
+1. 使用預設選項逐步執行接下來的幾個視窗，然後選擇 [**否，不要確認外寄信任**] 選項。
 1. 選取 [完成]。
 
-## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Create outbound forest trust in Azure AD DS
+## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>在 Azure AD DS 中建立輸出樹系信任
 
-With the on-premises AD DS domain configured to resolve the Azure AD DS managed domain and an inbound forest trust created, now created the outbound forest trust. This outbound forest trust completes the trust relationship between the on-premises AD DS domain and the Azure AD DS managed domain.
+當內部部署 AD DS 網域設定為解析 Azure AD DS 受控網域和所建立的輸入樹系信任時，現在已建立輸出樹系信任。 此輸出樹系信任會完成內部部署 AD DS 網域與 Azure AD DS 受控網域之間的信任關係。
 
-To create the outbound trust for the Azure AD DS managed domain in the Azure portal, complete the following steps:
+若要在 Azure 入口網站中建立 Azure AD DS 受控網域的輸出信任，請完成下列步驟：
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**, then select your managed domain, such as *aadds.contoso.com*
-1. From the menu on the left-hand side of the Azure AD DS managed domain, select **Trusts**, then choose to **+ Add** a trust.
-1. Enter a display name that identifies your trust, then the on-premises trusted forest DNS name, such as *onprem.contoso.com*
-1. Provide the same trust password that was used when configuring the inbound forest trust for the on-premises AD DS domain in the previous section.
-1. Provide at least two DNS servers for the on-premises AD DS domain, such as *10.0.2.4* and *10.0.2.5*
-1. When ready, **Save** the outbound forest trust
+1. 在 Azure 入口網站中，搜尋並選取  **Azure AD Domain Services**，然後選取您的受控網域，例如*aadds.contoso.com*
+1. 從 Azure AD DS 受控網域左側的功能表中，選取 [**信任**]，然後選擇 [ **+ 新增**信任]。
+1. 輸入 [顯示名稱] 來識別您的信任，然後輸入內部部署信任的樹系 DNS 名稱，例如*onprem.contoso.com*
+1. 提供在上一節中設定內部部署 AD DS 網域的輸入樹系信任時，所使用的相同信任密碼。
+1. 為內部部署 AD DS 網域（例如*10.0.2.4*和*10.0.2.5* ）至少提供兩部 DNS 伺服器
+1. 準備就緒時，**儲存**輸出樹系信任
 
-    [Create outbound forest trust in the Azure portal](./media/create-forest-trust/portal-create-outbound-trust.png)
+    [在 Azure 入口網站中建立輸出樹系信任](./media/create-forest-trust/portal-create-outbound-trust.png)
 
-## <a name="validate-resource-authentication"></a>Validate resource authentication
+## <a name="validate-resource-authentication"></a>驗證資源驗證
 
-The following common scenarios let you validate that forest trust correctly authenticates users and access to resources:
+下列常見案例可讓您驗證樹系信任是否正確地驗證使用者和資源的存取權：
 
-* [On-premises user authentication from the Azure AD DS resource forest](#on-premises-user-authentication-from-the-azure-ad-ds-resource-forest)
-* [Access resources in the Azure AD DS resource forest using on-premises user](#access-resources-in-the-azure-ad-ds-resource-forest-using-on-premises-user)
-    * [Enable file and printer sharing](#enable-file-and-printer-sharing)
-    * [Create a security group and add members](#create-a-security-group-and-add-members)
-    * [Create a file share for cross-forest access](#create-a-file-share-for-cross-forest-access)
-    * [Validate cross-forest authentication to a resource](#validate-cross-forest-authentication-to-a-resource)
+* [Azure AD DS 資源樹系中的內部部署使用者驗證](#on-premises-user-authentication-from-the-azure-ad-ds-resource-forest)
+* [使用內部部署使用者存取 Azure AD DS 資源樹系中的資源](#access-resources-in-the-azure-ad-ds-resource-forest-using-on-premises-user)
+    * [啟用檔案及印表機共用](#enable-file-and-printer-sharing)
+    * [建立安全性群組並新增成員](#create-a-security-group-and-add-members)
+    * [建立跨樹系存取的檔案共用](#create-a-file-share-for-cross-forest-access)
+    * [驗證資源的跨樹系驗證](#validate-cross-forest-authentication-to-a-resource)
 
-### <a name="on-premises-user-authentication-from-the-azure-ad-ds-resource-forest"></a>On-premises user authentication from the Azure AD DS resource forest
+### <a name="on-premises-user-authentication-from-the-azure-ad-ds-resource-forest"></a>Azure AD DS 資源樹系中的內部部署使用者驗證
 
-You should have Windows Server virtual machine joined to the Azure AD DS resource domain. Use this virtual machine to test your on-premises user can authenticate on a virtual machine.
+您應該已將 Windows Server 虛擬機器加入 Azure AD DS 資源網域。 使用這部虛擬機器來測試您的內部部署使用者可以在虛擬機器上進行驗證。
 
-1. Connect to the Windows Server VM joined to the Azure AD DS resource forest using Remote Desktop and your Azure AD DS administrator credentials. If you get a Network Level Authentication (NLA) error, check the user account you used is not a domain user account.
+1. 使用遠端桌面和您的 Azure AD DS 系統管理員認證，連接到已加入 Azure AD DS 資源樹系的 Windows Server VM。 如果您收到網路層級驗證（NLA）錯誤，請檢查您所使用的使用者帳戶不是網域使用者帳戶。
 
     > [!NOTE]
-    > To securely connect to your VMs joined to Azure AD Domain Services, you can use the [Azure Bastion Host Service](https://docs.microsoft.com/azure/bastion/bastion-overview) in supported Azure regions.
+    > 若要安全地連接到已加入 Azure AD Domain Services 的 Vm，您可以在支援的 Azure 區域中使用[azure 防禦主機服務](https://docs.microsoft.com/azure/bastion/bastion-overview)。
 
-1. Open a command prompt and use the `whoami` command to show the distinguished name of the currently authenticated user:
+1. 開啟命令提示字元，然後使用 `whoami` 命令來顯示目前已驗證使用者的辨別名稱：
 
     ```console
     whoami /fqdn
     ```
 
-1. Use the `runas` command to authenticate as a user from the on-premises domain. In the following command, replace `userUpn@trusteddomain.com` with the UPN of a user from the trusted on-premises domain. The command prompts you for the user’s password:
+1. 使用 `runas` 命令，以來自內部部署網域的使用者身分進行驗證。 在下列命令中，將 `userUpn@trusteddomain.com` 取代為來自受信任內部部署網域之使用者的 UPN。 此命令會提示您輸入使用者的密碼：
 
     ```console
     Runas /u:userUpn@trusteddomain.com cmd.exe
     ```
 
-1. If the authentication is a successful, a new command prompt opens. The title of the new command prompt includes `running as userUpn@trusteddomain.com`.
-1. Use `whoami /fqdn` in the new command prompt to view the distinguished name of the authenticated user from the on-premises Active Directory.
+1. 如果驗證成功，就會開啟新的命令提示字元。 新命令提示字元的標題包含 `running as userUpn@trusteddomain.com`。
+1. 在新的命令提示字元中使用 `whoami /fqdn`，以從內部部署 Active Directory 查看已驗證使用者的辨別名稱。
 
-### <a name="access-resources-in-the-azure-ad-ds-resource-forest-using-on-premises-user"></a>Access resources in the Azure AD DS resource forest using on-premises user
+### <a name="access-resources-in-the-azure-ad-ds-resource-forest-using-on-premises-user"></a>使用內部部署使用者存取 Azure AD DS 資源樹系中的資源
 
-Using the Windows Server VM joined to the Azure AD DS resource forest, you can test the scenario where users can access resources hosted in the resource forest when they authenticate from computers in the on-premises domain with users from the on-premises domain. The following examples show you how to create and test various common scenarios.
+使用已加入 Azure AD DS 資源樹系的 Windows Server VM 時，您可以測試案例，當使用者從內部部署網域中的電腦向內部部署網域的使用者進行驗證時，可以存取資源樹系中主控的資源。 下列範例會示範如何建立和測試各種常見的案例。
 
-#### <a name="enable-file-and-printer-sharing"></a>Enable file and printer sharing
+#### <a name="enable-file-and-printer-sharing"></a>啟用檔案及印表機共用
 
-1. Connect to the Windows Server VM joined to the Azure AD DS resource forest using Remote Desktop and your Azure AD DS administrator credentials. If you get a Network Level Authentication (NLA) error, check the user account you used is not a domain user account.
+1. 使用遠端桌面和您的 Azure AD DS 系統管理員認證，連接到已加入 Azure AD DS 資源樹系的 Windows Server VM。 如果您收到網路層級驗證（NLA）錯誤，請檢查您所使用的使用者帳戶不是網域使用者帳戶。
 
     > [!NOTE]
-    > To securely connect to your VMs joined to Azure AD Domain Services, you can use the [Azure Bastion Host Service](https://docs.microsoft.com/azure/bastion/bastion-overview) in supported Azure regions.
+    > 若要安全地連接到已加入 Azure AD Domain Services 的 Vm，您可以在支援的 Azure 區域中使用[azure 防禦主機服務](https://docs.microsoft.com/azure/bastion/bastion-overview)。
 
-1. Open **Windows Settings**, then search for and select **Network and Sharing Center**.
-1. Choose the option for **Change advanced sharing** settings.
-1. Under the **Domain Profile**, select **Turn on file and printer sharing** and then **Save changes**.
-1. Close **Network and Sharing Center**.
+1. 開啟 [ **Windows 設定**]，然後搜尋並選取 [**網路和共用中心**]。
+1. 選擇 [**變更 advanced 共用**設定] 的選項。
+1. 在 [**網域設定檔**] 底下，選取 [**開啟檔案及印表機共用**]，然後**儲存變更**。
+1. 關閉 [**網路和共用中心**]。
 
-#### <a name="create-a-security-group-and-add-members"></a>Create a security group and add members
+#### <a name="create-a-security-group-and-add-members"></a>建立安全性群組並新增成員
 
 1. 開啟 [Active Directory 使用者及電腦]。
-1. Right-select the domain name, choose **New**, and then select **Organizational Unit**.
-1. In the name box, type *LocalObjects*, then select **OK**.
-1. Select and right-click **LocalObjects** in the navigation pane. Select **New** and then **Group**.
-1. Type *FileServerAccess* in the **Group name** box. For the **Group Scope**, select **Domain local**, then choose **OK**.
-1. In the content pane, double-click **FileServerAccess**. Select **Members**, choose to **Add**, then select **Locations**.
-1. Select your on-premises Active Directory from the **Location** view, then choose **OK**.
-1. Type *Domain Users* in the **Enter the object names to select** box. Select **Check Names**, provide credentials for the on-premises Active Directory, then select **OK**.
+1. 在 [功能變數名稱] 上按一下滑鼠右鍵，選擇 [**新增**]，然後選取 [**組織單位**]。
+1. 在 [名稱] 方塊中，輸入*LocalObjects*，然後選取 **[確定]** 。
+1. 選取並以滑鼠右鍵按一下流覽窗格中的 [ **LocalObjects** ]。 依序選取 [**新增**] 和 [**群組**]。
+1. 在 [**組名**] 方塊中，輸入*FileServerAccess* 。 針對 [**群組領域**]，選取 [**網域本機**]，然後選擇 **[確定]** 。
+1. 在內容窗格中，按兩下 [ **FileServerAccess**]。 選取 [**成員**]，選擇 [**新增**]，然後選取 [**位置**]。
+1. 從 [**位置**] 視圖中選取您的內部部署 Active Directory，然後選擇 **[確定]** 。
+1. 在 [**輸入要選取的物件名稱**] 方塊中，輸入*Domain Users* 。 選取 [**檢查名稱**]，提供內部部署 Active Directory 的認證，然後選取 **[確定]** 。
 
     > [!NOTE]
-    > You must provide credentials because the trust relationship is only one way. This means users from the Azure AD DS can't access resources or search for users or groups in the trusted (on-premises) domain.
+    > 您必須提供認證，因為信任關係只有一種方式。 這表示來自 Azure AD DS 的使用者無法存取資源，或在受信任的（內部部署）網域中搜尋使用者或群組。
 
-1. The **Domain Users** group from your on-premises Active Directory should be a member of the **FileServerAccess** group. Select **OK** to save the group and close the window.
+1. 來自內部部署 Active Directory 的**網域使用者**群組應該是**FileServerAccess**群組的成員。 選取 **[確定]** 以儲存群組並關閉視窗。
 
-#### <a name="create-a-file-share-for-cross-forest-access"></a>Create a file share for cross-forest access
+#### <a name="create-a-file-share-for-cross-forest-access"></a>建立跨樹系存取的檔案共用
 
-1. On the Windows Server VM joined to the Azure AD DS resource forest, create a folder and provide name such as *CrossForestShare*.
-1. Right-select the folder and choose **Properties**.
-1. Select the **Security** tab, then choose **Edit**.
-1. In the *Permissions for CrossForestShare* dialog box, select **Add**.
-1. Type *FileServerAccess* in **Enter the object names to select**, then select **OK**.
-1. Select *FileServerAccess* from the **Groups or user names** list. In the **Permissions for FileServerAccess** list, choose *Allow* for the **Modify** and **Write** permissions, then select **OK**.
-1. Select the **Sharing** tab, then choose **Advanced Sharing…**
-1. Choose **Share this folder**, then enter a memorable name for the file share in **Share name** such as *CrossForestShare*.
-1. Select **Permissions**. In the **Permissions for Everyone** list, choose **Allow** for the **Change** permission.
-1. Select **OK** two times and then **Close**.
+1. 在已加入 Azure AD DS 資源樹系的 Windows Server VM 上，建立資料夾並提供名稱，例如*CrossForestShare*。
+1. 以滑鼠右鍵選取資料夾，然後選擇 [**屬性**]。
+1. 選取 [**安全性**] 索引標籤，然後選擇 [**編輯**]。
+1. 在 [ *CrossForestShare 的許可權*] 對話方塊中，選取 [**新增**]。
+1. 在 **[輸入要選取的物件名稱**] 中輸入*FileServerAccess* ，然後選取 **[確定]** 。
+1. 從 [**群組或使用者名稱**] 清單中選取 [ *FileServerAccess* ]。 在 [ **FileServerAccess 的許可權**] 清單中，選擇 [*允許*] 作為 [**修改**] 和 [**寫入**] 許可權，然後選取 **[確定]** 。
+1. 選取 [**共用**] 索引標籤，然後選擇 [ **Advanced 共用 ...** ]
+1. 選擇 [**共用此資料夾**]，然後在 [**共用名稱**] 中為檔案共用輸入易記的名稱，例如*CrossForestShare*。
+1. 選取 [**許可權**]。 在 [ **Everyone 的許可權**] 清單中，選擇 [**允許**] 做為 [**變更**] 許可權。
+1. 選取 **[確定]** 兩次，然後按一下 [**關閉**]。
 
-#### <a name="validate-cross-forest-authentication-to-a-resource"></a>Validate cross-forest authentication to a resource
+#### <a name="validate-cross-forest-authentication-to-a-resource"></a>驗證資源的跨樹系驗證
 
-1. Sign in a Windows computer joined to your on-premises Active Directory using a user account from your on-premises Active Directory.
-1. Using **Windows Explorer**, connect to the share you created using the fully qualified host name and the share such as `\\fs1.aadds.contoso.com\CrossforestShare`.
-1. To validate the write permission, right-select in the folder, choose **New**, then select **Text Document**. Use the default name **New Text Document**.
+1. 使用內部部署 Active Directory 的使用者帳戶，登入加入內部部署 Active Directory 的 Windows 電腦。
+1. 使用**Windows Explorer**，連接到您使用完整主機名稱和共用（例如 `\\fs1.aadds.contoso.com\CrossforestShare`）所建立的共用。
+1. 若要驗證寫入權限，請在資料夾中以滑鼠右鍵選取，選擇 [**新增**]，然後選取 [**文字檔**]。 使用預設名稱 [**新文字檔**]。
 
-    If the write permissions are set correctly, a new text document is created. The following steps will then open, edit, and delete the file as appropriate.
-1. To validate the read permission, open **New Text Document**.
-1. To validate the modify permission, add text to the file and close **Notepad**. When prompted to save changes, choose **Save**.
-1. To validate the delete permission, right-select **New Text Document** and choose **Delete**. Choose **Yes** to confirm file deletion.
+    如果已正確設定寫入權限，則會建立新的文字檔。 接著，下列步驟將會適當地開啟、編輯及刪除檔案。
+1. 若要驗證讀取權限，請開啟 [**新的文字檔**]。
+1. 若要驗證修改許可權，請將文字新增至檔案，然後關閉 [**記事本**]。 當系統提示您儲存變更時，請選擇 [**儲存**]。
+1. 若要驗證刪除許可權，請以滑鼠右鍵選取 [**新的文字檔**]，然後選擇 [**刪除**]。 選擇 **[是]** 以確認檔案刪除。
 
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
-> * Configure DNS in an on-premises AD DS environment to support Azure AD DS connectivity
-> * Create a one-way inbound forest trust in an on-premises AD DS environment
-> * Create a one-way outbound forest trust in Azure AD DS
-> * Test and validate the trust relationship for authentication and resource access
+> * 在內部部署 AD DS 環境中設定 DNS，以支援 Azure AD DS 連線能力
+> * 在內部部署 AD DS 環境中建立單向的輸入樹系信任
+> * 在 Azure AD DS 中建立單向輸出樹系信任
+> * 測試和驗證信任關係以進行驗證和資源存取
 
-For more conceptual information about forest types in Azure AD DS, see [What are resource forests?][concepts-forest] and [How do forest trusts work in Azure AD DS?][concepts-trust]
+如需有關 Azure AD DS 中之樹系類型的詳細概念資訊，請參閱[什麼是資源][concepts-forest]樹系？和[樹系信任在 Azure AD DS 中如何運作？][concepts-trust]
 
 <!-- INTERNAL LINKS -->
 [concepts-forest]: concepts-resource-forest.md

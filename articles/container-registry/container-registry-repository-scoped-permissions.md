@@ -1,6 +1,6 @@
 ---
-title: Permissions to repositories
-description: Create a token with permissions scoped to specific repositories in a registry to pull or push images
+title: 存放庫的許可權
+description: 建立權杖，其許可權範圍限於登錄中的特定存放庫，以提取或推送映射
 ms.topic: article
 ms.date: 10/31/2019
 ms.openlocfilehash: cf36a49ffd6c04897e6f44b844f0c813d0992b18
@@ -10,39 +10,39 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74454922"
 ---
-# <a name="repository-scoped-permissions-in-azure-container-registry"></a>Repository-scoped permissions in Azure Container Registry 
+# <a name="repository-scoped-permissions-in-azure-container-registry"></a>Azure Container Registry 中的存放庫範圍許可權 
 
-Azure Container Registry supports several [authentication options](container-registry-authentication.md) using identities that have [role-based access](container-registry-roles.md) to an entire registry. However, for certain scenarios, you might need to provide access only to specific *repositories* in a registry. 
+Azure Container Registry 使用對整個登錄具有[角色型存取權](container-registry-roles.md)的身分識別，支援數個[驗證選項](container-registry-authentication.md)。 不過，在某些情況下，您可能只需要提供登錄中特定*存放庫*的存取權。 
 
-This article shows how to create and use an access token that has permissions to perform actions on only specific repositories in a registry. With an access token, you can provide users or services with scoped, time-limited access to repositories to pull or push images or perform other actions. 
+本文說明如何建立及使用存取權杖，其僅有許可權可在登錄中的特定存放庫上執行動作。 有了存取權杖，您就可以為使用者或服務提供有範圍的限時存取存放庫，以提取或推送映射，或執行其他動作。 
 
-See [About repository-scoped permissions](#about-repository-scoped-permissions), later in this article, for background about token concepts and scenarios.
+如需有關權杖概念和案例的背景資訊，請參閱本文稍後的[關於儲存機制範圍的許可權](#about-repository-scoped-permissions)。
 
 > [!IMPORTANT]
 > 此功能目前在預覽階段，但[有某些限制](#preview-limitations)。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 
 ## <a name="preview-limitations"></a>預覽限制
 
-* This feature is only available in a **Premium** container registry. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
-* You can't currently assign repository-scoped permissions to an Azure Active Directory object such as a service principal or managed identity.
+* 這項功能僅適用于**Premium**容器登錄。 如需登錄服務層和限制的相關資訊，請參閱[Azure Container Registry sku](container-registry-skus.md)。
+* 您目前無法將存放庫範圍的許可權指派給 Azure Active Directory 物件，例如服務主體或受控識別。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* **Azure CLI** - This article requires a local installation of the Azure CLI (version 2.0.76 or later). 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
-* **Docker** - To authenticate with the registry, you also need a local Docker installation. Docker 提供 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 系統的安裝指示。
-* **Container registry with repositories** - If you don't have one, create a container registry in your Azure subscription. 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。 
+* **Azure CLI** -這篇文章需要本機安裝 Azure CLI （2.0.76 或更新版本）。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
+* **Docker** -若要使用登錄進行驗證，您也需要本機 Docker 安裝。 Docker 提供 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 系統的安裝指示。
+* **具有存放庫的 container registry** -如果您沒有，請在您的 Azure 訂用帳戶中建立容器登錄。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。 
 
-  For test purposes, [push](container-registry-get-started-docker-cli.md) or [import](container-registry-import-images.md) one or more sample images to the registry. Examples in this article refer to the following images in two repositories: `samples/hello-world:v1` and `samples/nginx:v1`. 
+  基於測試目的，請將一或多個範例影像[推送](container-registry-get-started-docker-cli.md)或匯[入](container-registry-import-images.md)至登錄。 本文中的範例會參考兩個存放庫中的下列影像： `samples/hello-world:v1` 和 `samples/nginx:v1`。 
 
 ## <a name="create-an-access-token"></a>建立存取權杖
 
-Create a token using the [az acr token create][az-acr-token-create] command. When creating a token, specify one or more repositories and associated actions on each repository, or specify an existing scope map with those settings.
+使用[az acr token create][az-acr-token-create]命令來建立權杖。 建立權杖時，請在每個儲存機制上指定一或多個存放庫和相關聯的動作，或使用這些設定來指定現有的範圍對應。
 
-### <a name="create-access-token-and-specify-repositories"></a>Create access token and specify repositories
+### <a name="create-access-token-and-specify-repositories"></a>建立存取權杖並指定存放庫
 
-The following example creates an access token with permissions to perform `content/write` and `content/read` actions on the `samples/hello-world` repository, and the `content/read` action on the `samples/nginx` repository. By default, the command generates two passwords. 
+下列範例會建立具有許可權的存取權杖，以執行 `samples/hello-world` 存放庫上的 `content/write` 和 `content/read` 動作，以及 `samples/nginx` 儲存機制上的 `content/read` 動作。 根據預設，此命令會產生兩個密碼。 
 
-This example sets the token status to `enabled` (the default setting), but you can update the token at any time and set the status to `disabled`.
+這個範例會將權杖狀態設定為 `enabled` （預設設定），但是您可以隨時更新權杖，並將狀態設定為 `disabled`。
 
 ```azurecli
 az acr token create --name MyToken --registry myregistry \
@@ -50,9 +50,9 @@ az acr token create --name MyToken --registry myregistry \
   --repository samples/nginx content/read --status enabled
 ```
 
-The output shows details about the token, including generated passwords and scope map. It's recommended to save the passwords in a safe place to use later with `docker login`. The passwords can't be retrieved again but new ones can be generated.
+輸出會顯示權杖的詳細資料，包括產生的密碼和範圍對應。 建議您將密碼儲存在安全的位置，以供稍後使用 `docker login`。 無法再次抓取密碼，但可以產生新的密碼。
 
-The output also shows that a scope map is automatically created, named `MyToken-scope-map`. You can use the scope map to apply the same repository actions to other tokens. Or, update the scope map later to change the token permissions.
+輸出也會顯示已自動建立範圍對應，名為 `MyToken-scope-map`。 您可以使用範圍對應，將相同的儲存機制動作套用至其他權杖。 或者，稍後更新範圍對應以變更權杖許可權。
 
 ```console
 {
@@ -85,11 +85,11 @@ The output also shows that a scope map is automatically created, named `MyToken-
   "type": "Microsoft.ContainerRegistry/registries/tokens"
 ```
 
-### <a name="create-a-scope-map-and-associated-token"></a>Create a scope map and associated token
+### <a name="create-a-scope-map-and-associated-token"></a>建立範圍對應和相關聯的權杖
 
-Alternatively, specify a scope map with repositories and associated actions when creating a token. To create a scope map, use the [az acr scope-map create][az-acr-scope-map-create] command.
+或者，在建立權杖時，使用存放庫和相關聯的動作來指定範圍對應。 若要建立範圍對應，請使用[az acr scope-map create][az-acr-scope-map-create]命令。
 
-The following example command creates a scope map with the same permissions used in the previous example. It allows `content/write` and `content/read` actions on the `samples/hello-world` repository, and the `content/read` action on the `samples/nginx` repository:
+下列範例命令會使用上述範例中所使用的相同許可權來建立範圍對應。 它允許 `samples/hello-world` 存放庫上的 `content/write` 和 `content/read` 動作，以及 `samples/nginx` 存放庫上的 `content/read` 動作：
 
 ```azurecli
 az acr scope-map create --name MyScopeMap --registry myregistry \
@@ -116,21 +116,21 @@ az acr scope-map create --name MyScopeMap --registry myregistry \
   "type": "Microsoft.ContainerRegistry/registries/scopeMaps"
 ```
 
-Run [az acr token create][az-acr-token-create] to create a token associated with the *MyScopeMap* scope map. By default, the command generates two passwords. This example sets the token status to `enabled` (the default setting), but you can update the token at any time and set the status to `disabled`.
+執行[az acr token create][az-acr-token-create]來建立與*MyScopeMap*範圍對應相關聯的權杖。 根據預設，此命令會產生兩個密碼。 這個範例會將權杖狀態設定為 `enabled` （預設設定），但是您可以隨時更新權杖，並將狀態設定為 `disabled`。
 
 ```azurecli
 az acr token create --name MyToken --registry myregistry --scope-map MyScopeMap --status enabled
 ```
 
-The output shows details about the token, including generated passwords and the scope map you applied. It's recommended to save the passwords in a safe place to use later with `docker login`. The passwords can't be retrieved again but new ones can be generated.
+輸出會顯示權杖的詳細資料，包括產生的密碼和您套用的範圍對應。 建議您將密碼儲存在安全的位置，以供稍後使用 `docker login`。 無法再次抓取密碼，但可以產生新的密碼。
 
-## <a name="generate-passwords-for-token"></a>Generate passwords for token
+## <a name="generate-passwords-for-token"></a>產生權杖的密碼
 
-If passwords were created when you created the token, proceed to [Authenticate with registry](#authenticate-using-token).
+如果您在建立權杖時建立了密碼，請繼續[使用登錄進行驗證](#authenticate-using-token)。
 
-If you don't have a token password, or you want to generate new passwords, run the [az acr token credential generate][az-acr-token-credential-generate] command.
+如果您沒有權杖密碼，或您想要產生新的密碼，請執行[az acr token credential 產生][az-acr-token-credential-generate]命令。
 
-The following example generates a new password for the token you created, with an expiration period of 30 days. It stores the password in the environment variable TOKEN_PWD. This example is formatted for the bash shell.
+下列範例會針對您所建立的權杖產生新密碼，並在30天內到期。 它會將密碼儲存在環境變數中 TOKEN_PWD。 這個範例會針對 bash shell 進行格式化。
 
 ```azurecli
 TOKEN_PWD=$(az acr token credential generate \
@@ -138,9 +138,9 @@ TOKEN_PWD=$(az acr token credential generate \
   --password1 --query 'passwords[0].value' --output tsv)
 ```
 
-## <a name="authenticate-using-token"></a>Authenticate using token
+## <a name="authenticate-using-token"></a>使用權杖進行驗證
 
-Run `docker login` to authenticate with the registry using the token credentials. Enter the token name as the user name and provide one of its passwords. The following example is formatted for the bash shell, and provides the values using environment variables.
+執行 `docker login`，使用權杖認證來向登錄進行驗證。 輸入權杖名稱做為使用者名稱，並提供其中一個密碼。 下列範例會針對 bash shell 進行格式化，並使用環境變數來提供值。
 
 ```bash
 TOKEN_NAME=MyToken
@@ -149,22 +149,22 @@ TOKEN_PWD=<token password>
 echo $TOKEN_PWD | docker login --username $TOKEN_NAME --password-stdin myregistry.azurecr.io
 ```
 
-Output should show successful authentication:
+輸出應該會顯示成功的驗證：
 
 ```console
 Login Succeeded
 ```
 
-## <a name="verify-scoped-access"></a>Verify scoped access
+## <a name="verify-scoped-access"></a>驗證限定範圍的存取
 
-You can verify that the token provides scoped permissions to the repositories in the registry. In this example, the following `docker pull` commands complete successfully to pull images available in the `samples/hello-world` and `samples/nginx` repositories:
+您可以驗證權杖是否提供登錄中存放庫的範圍許可權。 在此範例中，下列 `docker pull` 命令會順利完成，以提取 `samples/hello-world` 和 `samples/nginx` 存放庫中可用的映射：
 
 ```console
 docker pull myregistry.azurecr.io/samples/hello-world:v1
 docker pull myregistry.azurecr.io/samples/nginx:v1
 ```
 
-Because the example token allows the `content/write` action only on the `samples/hello-world` repository, `docker push` succeeds to that repository but fails for `samples/nginx`:
+因為範例權杖只允許 `samples/hello-world` 存放庫上的 `content/write` 動作，所以 `docker push` 成功到該存放庫，但 `samples/nginx`會失敗：
 
 ```console
 # docker push succeeds
@@ -174,90 +174,90 @@ docker pull myregistry.azurecr.io/samples/hello-world:v1
 docker pull myregistry.azurecr.io/samples/nginx:v1
 ```
 
-## <a name="update-scope-map-and-token"></a>Update scope map and token
+## <a name="update-scope-map-and-token"></a>更新範圍對應和權杖
 
-To update token permissions, update the permissions in the associated scope map, using [az acr scope-map update][az-acr-scope-map-update]. For example, to update *MyScopeMap* to remove the `content/write` action on the `samples/hello-world` repository:
+若要更新權杖許可權，請使用[az acr scope map update][az-acr-scope-map-update]來更新相關聯範圍對應中的許可權。 例如，若要更新*MyScopeMap*以移除 `samples/hello-world` 儲存機制上的 `content/write` 動作：
 
 ```azurecli
 az acr scope-map update --name MyScopeMap --registry myregistry \
   --remove samples/hello-world content/write
 ```
 
-If the scope map is associated with more than one token, the command updates the permission of all associated tokens.
+如果範圍對應與一個以上的權杖相關聯，此命令會更新所有相關聯權杖的許可權。
 
-If you want to update a token with a different scope map, run [az acr token update][az-acr-token-update]. 例如：
+如果您想要使用不同的範圍對應來更新權杖，請執行[az acr token update][az-acr-token-update]。 例如︰
 
 ```azurecli
 az acr token update --name MyToken --registry myregistry \
   --scope-map MyNewScopeMap
 ```
 
-After updating a token, or a scope map associated with a token, the permission changes take effect at the next `docker login` or other authentication using the token.
+更新權杖或與權杖相關聯的範圍對應之後，許可權變更會在下一個 `docker login` 或使用權杖的其他驗證生效。
 
-After updating a token, you might want to generate new passwords to access the registry. Run [az acr token credential generate][az-acr-token-credential-generate]. 例如：
+更新權杖之後，您可能會想要產生新的密碼來存取登錄。 執行[az acr token credential [產生][az-acr-token-credential-generate]]。 例如︰
 
 ```azurecli
 az acr token credential generate \
   --name MyToken --registry myregistry --days 30
 ```
 
-## <a name="about-repository-scoped-permissions"></a>About repository-scoped permissions
+## <a name="about-repository-scoped-permissions"></a>關於存放庫範圍的許可權
 
 ### <a name="concepts"></a>概念
 
-To configure repository-scoped permissions, you create an *access token* and an associated *scope map* using commands in the Azure CLI.
+若要設定存放庫範圍的許可權，您可以使用 Azure CLI 中的命令來建立*存取權杖*和相關聯的*範圍對應*。
 
-* An **access token** is a credential used with a password to authenticate with the registry. Associated with each token are permitted *actions* scoped to one or more repositories. You can set an expiration time for each token. 
+* **存取權杖**是一種認證，搭配用來向登錄進行驗證的密碼。 與每個權杖相關聯的允許*動作*範圍設定為一個或多個存放庫。 您可以設定每個權杖的到期時間。 
 
-* **Actions** on each specified repository include one or more of the following.
+* 每個指定存放庫上的**動作**都包含下列一或多個。
 
-  |行動  |描述  |
+  |動作  |描述  |
   |---------|---------|
-  |`content/read`     |  Read data from the repository. For example, pull an artifact.  |
-  |`metadata/read`    | Read metadata from the repository. For example, list tags or show manifest metadata.   |
-  |`content/write`     |  Write data to the repository. Use with `content/read` to push an artifact.    |
-  |`metadata/write`     |  Write metadata to the repository. For example, update manifest attributes.  |
-  |`content/delete`    | Remove data from the repository. For example, delete a repository or a manifest. |
+  |`content/read`     |  讀取存放庫中的資料。 例如，提取成品。  |
+  |`metadata/read`    | 讀取存放庫中的中繼資料。 例如，列出標記或顯示資訊清單中繼資料。   |
+  |`content/write`     |  將資料寫入存放庫。 使用與 `content/read` 來推送成品。    |
+  |`metadata/write`     |  將中繼資料寫入至存放庫。 例如，更新資訊清單屬性。  |
+  |`content/delete`    | 移除存放庫中的資料。 例如，刪除存放庫或資訊清單。 |
 
-* A **scope map** is a registry object that groups repository permissions you apply to a token, or can reapply to other tokens. If you don't apply a scope map when creating a token, a scope map is automatically created for you, to save the permission settings. 
+* **範圍對應**是一個登錄物件，可將您套用至權杖的存放庫許可權分組，或重新套用至其他權杖。 如果您在建立權杖時未套用範圍對應，系統會自動為您建立範圍對應，以儲存許可權設定。 
 
-  A scope map helps you configure multiple users with identical access to a set of repositories. Azure Container Registry also provides system-defined scope maps that you can apply when creating access tokens.
+  範圍對應可協助您設定多個使用者對一組存放庫具有相同的存取權。 Azure Container Registry 也會提供系統定義的範圍對應，您可以在建立存取權杖時加以套用。
 
-The following image summarizes the relationship between tokens and scope maps. 
+下圖摘要說明權杖與範圍對應之間的關聯性。 
 
-![Registry scope maps and tokens](media/container-registry-repository-scoped-permissions/token-scope-map-concepts.png)
+![登錄範圍對應和權杖](media/container-registry-repository-scoped-permissions/token-scope-map-concepts.png)
 
 ### <a name="scenarios"></a>案例
 
-Scenarios for using an access token include:
+使用存取權杖的案例包括：
 
-* Provide IoT devices with individual tokens to pull an image from a repository
-* Provide an external organization with permissions to a specific repository 
-* Limit repository access to specific user groups in your organization. For example, provide write and read access to developers who build images that target specific repositories, and read access to teams that deploy from those repositories.
+* 提供具有個別權杖的 IoT 裝置，以從存放庫提取映射
+* 提供具有特定存放庫許可權的外部組織 
+* 限制存放庫存取您組織中的特定使用者群組。 例如，針對建立以特定存放庫為目標之影像的開發人員，以及從這些存放庫部署之小組的讀取存取權，提供寫入和讀取權限。
 
-### <a name="authentication-using-token"></a>Authentication using token
+### <a name="authentication-using-token"></a>使用權杖進行驗證
 
-Use a token name as a user name and one of its associated passwords to authenticate with the target registry. The authentication method depends on the configured actions.
+使用權杖名稱作為使用者名稱，以及其中一個相關聯的密碼來向目標登錄進行驗證。 驗證方法取決於設定的動作。
 
-### <a name="contentread-or-contentwrite"></a>content/read or content/write
+### <a name="contentread-or-contentwrite"></a>內容/讀取或內容/寫入
 
-If the token permits only `content/read` or `content/write` actions, provide token credentials in either of the following authentication flows:
+如果權杖只允許 `content/read` 或 `content/write` 動作，請在下列其中一個驗證流程中提供權杖認證：
 
-* Authenticate with Docker using `docker login`
-* Authenticate with the registry using the [az acr login][az-acr-login] command in the Azure CLI
+* 使用 `docker login` 向 Docker 進行驗證
+* 使用 Azure CLI 中的[az acr login][az-acr-login]命令，向登錄進行驗證
 
-Following authentication, the token permits the configured actions on the scoped repository or repositories. For example, if the token permits the `content/read` action on a repository, `docker pull` operations are permitted on images in that repository.
+在驗證之後，權杖允許已設定範圍的儲存機制或儲存機制上的動作。 例如，如果權杖允許存放庫上的 `content/read` 動作，則會允許在該存放庫中的映射上執行 `docker pull` 作業。
 
-#### <a name="metadataread-metadatawrite-or-contentdelete"></a>metadata/read, metadata/write, or content/delete
+#### <a name="metadataread-metadatawrite-or-contentdelete"></a>中繼資料/讀取、中繼資料/寫入，或內容/刪除
 
-If the token permits `metadata/read`, `metadata/write`, or `content/delete` actions on a repository, token credentials must be provided as parameters with the related [az acr repository][az-acr-repository] commands in the Azure CLI.
+如果權杖允許在存放庫上 `metadata/read`、`metadata/write`或 `content/delete` 動作，則必須使用 Azure CLI 中的相關[az acr repository][az-acr-repository]命令，將權杖認證當做參數提供。
 
-For example, if `metadata/read` actions are permitted on a repository, pass the token credentials when running the [az acr repository show-tags][az-acr-repository-show-tags] command to list tags.
+例如，如果在存放庫上允許 `metadata/read` 動作，請在執行[az acr repository show-tags][az-acr-repository-show-tags]命令以列出標記時，傳遞權杖認證。
 
 ## <a name="next-steps"></a>後續步驟
 
-* To manage scope maps and access tokens, use additional commands in the [az acr scope-map][az-acr-scope-map] and [az acr token][az-acr-token] command groups.
-* See the [authentication overview](container-registry-authentication.md) for scenarios to authenticate with an Azure container registry using an admin account or an Azure Active Directory identity.
+* 若要管理範圍對應和存取權杖，請使用[az acr 範圍對應][az-acr-scope-map]和[az acr token][az-acr-token]命令群組中的其他命令。
+* 如需使用系統管理員帳戶或 Azure Active Directory 身分識別向 Azure container registry 進行驗證的案例，請參閱[驗證概述](container-registry-authentication.md)。
 
 
 <!-- LINKS - External -->

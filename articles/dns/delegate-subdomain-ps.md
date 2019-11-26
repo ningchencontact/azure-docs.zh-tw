@@ -1,6 +1,6 @@
 ---
-title: Delegate a subdomain - Azure PowerShell - Azure DNS
-description: With this learning path, get started delegating an Azure DNS subdomain using Azure PowerShell.
+title: 委派子域-Azure PowerShell Azure DNS
+description: 透過此學習路徑，開始使用 Azure PowerShell 委派 Azure DNS 子域。
 services: dns
 author: asudbring
 ms.service: dns
@@ -27,7 +27,7 @@ ms.locfileid: "74212496"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要委派 Azure DNS 子網域，必須先將您的公用網域委派給 Azure DNS。 如需如何設定名稱伺服器以便進行委派的指示，請參閱[將網域委派給 Azure DNS](./dns-delegate-domain-azure-dns.md)。 一旦將您的網域委派給您的 Azure DNS 區域之後，就能夠委派子網域。
 
@@ -47,7 +47,7 @@ ms.locfileid: "74212496"
 
 在用於測試的 engineering 區域建立 **A** 記錄。
 
-   `New-AzDnsRecordSet -ZoneName engineering.contoso.com -ResourceGroupName <resource group name> -Name www -RecordType A -ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address 10.10.10.10)`答案中所述步驟，工作帳戶即會啟用。
+   `New-AzDnsRecordSet -ZoneName engineering.contoso.com -ResourceGroupName <resource group name> -Name www -RecordType A -ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address 10.10.10.10)`。
 
 ## <a name="create-an-ns-record"></a>建立 NS 記錄
 

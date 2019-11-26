@@ -1,5 +1,5 @@
 ---
-title: Tag resources for logical organization
+title: 邏輯組織的標記資源
 description: 示範如何套用標籤以針對計費及管理來組織 Azure 資源。
 ms.topic: conceptual
 ms.date: 10/30/2019
@@ -20,7 +20,7 @@ ms.locfileid: "74484271"
 
 ## <a name="policies"></a>原則
 
-您可以使用 [Azure 原則](../governance/policy/overview.md)來強制標記規則和慣例。 建立原則，就可以避免將資源部署到不符合貴組織預期標記的訂用帳戶。 您可以建立一個原則，以便在部署期間自動套用所需的標記，而不需手動套用標記或搜尋不符合規範的資源。 Tags can also now be applied to existing resources with the new [Modify](../governance/policy/concepts/effects.md#modify) effect and a [remediation task](../governance/policy/how-to/remediate-resources.md). 下列區段會顯示標籤的範例原則。
+您可以使用 [Azure 原則](../governance/policy/overview.md)來強制標記規則和慣例。 建立原則，就可以避免將資源部署到不符合貴組織預期標記的訂用帳戶。 您可以建立一個原則，以便在部署期間自動套用所需的標記，而不需手動套用標記或搜尋不符合規範的資源。 標籤現在也可以套用至具有新[修改](../governance/policy/concepts/effects.md#modify)效果和[補救](../governance/policy/how-to/remediate-resources.md)工作的現有資源。 下列區段會顯示標籤的範例原則。
 
 [!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
@@ -75,7 +75,7 @@ Environment                    Test
 
 每當您將標記套用到資源或資源群組時，即會覆寫該資源或資源群組上現有的標記。 因此，您必須視該資源或資源群組是否具備現有標籤來使用不同的方法。
 
-若要將標籤新增至*不具現有標籤的資源群組*，請使用：
+若要將標籤新增至*沒有現有標籤的資源群組*，請使用：
 
 ```azurepowershell-interactive
 Set-AzResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
@@ -89,7 +89,7 @@ $tags.Add("Status", "Approved")
 Set-AzResourceGroup -Tag $tags -Name examplegroup
 ```
 
-若要將標籤新增至*不具現有標籤的資源*，請使用：
+若要將標籤新增至*沒有現有標籤的資源*，請使用：
 
 ```azurepowershell-interactive
 $r = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
@@ -104,7 +104,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
+若要將所有標記從資源群組套用至其資源，而*不保留資源上的現有標記*，請使用下列腳本：
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -114,7 +114,7 @@ foreach ($g in $groups)
 }
 ```
 
-To apply all tags from a resource group to its resources, and *keep existing tags on resources that aren't duplicates*, use the following script:
+若要將所有標記從資源群組套用至其資源，並*在不重複的資源上保留現有*的標籤，請使用下列腳本：
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -191,13 +191,13 @@ az resource list --tag Dept=Finance
 
 每當您將標記套用到資源或資源群組時，即會覆寫該資源或資源群組上現有的標記。 因此，您必須視該資源或資源群組是否具備現有標籤來使用不同的方法。
 
-若要將標籤新增至*不具現有標籤的資源群組*，請使用：
+若要將標籤新增至*沒有現有標籤的資源群組*，請使用：
 
 ```azurecli
 az group update -n examplegroup --set tags.Environment=Test tags.Dept=IT
 ```
 
-若要將標籤新增至*不具現有標籤的資源*，請使用：
+若要將標籤新增至*沒有現有標籤的資源*，請使用：
 
 ```azurecli
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
@@ -211,7 +211,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
+若要將所有標記從資源群組套用至其資源，而*不保留資源上的現有標記*，請使用下列腳本：
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -227,7 +227,7 @@ do
 done
 ```
 
-To apply all tags from a resource group to its resources, and *keep existing tags on resources*, use the following script:
+若要將所有標記從資源群組套用至其資源，並*在資源上保留現有的標記*，請使用下列腳本：
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -247,7 +247,7 @@ done
 
 ## <a name="templates"></a>範本
 
-To tag a resource during deployment, add the `tags` element to the resource you're deploying. 提供標籤名稱和值。
+若要在部署期間標記資源，請將 `tags` 元素新增至您要部署的資源。 提供標籤名稱和值。
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>將常值套用至標記名稱
 
@@ -283,7 +283,7 @@ To tag a resource during deployment, add the `tags` element to the resource you'
 }
 ```
 
-To set a tag to a datetime value, use the [utcNow function](resource-group-template-functions-string.md#utcnow).
+若要將標記設定為 datetime 值，請使用[utcNow 函數](resource-group-template-functions-string.md#utcnow)。
 
 ### <a name="apply-an-object-to-the-tag-element"></a>將物件套用至標記元素
 
@@ -325,7 +325,7 @@ To set a tag to a datetime value, use the [utcNow function](resource-group-templ
 
 ### <a name="apply-a-json-string-to-the-tag-name"></a>將 JSON 字串套用至標記名稱
 
-若要將多個值儲存於單一標籤，請套用代表這些值的 JSON 字串。 The entire JSON string is stored as one tag that can't exceed 256 characters. 下列範例具有名為 `CostCenter` 的單一標籤，其中包含 JSON 字串中的數個值︰  
+若要將多個值儲存於單一標籤，請套用代表這些值的 JSON 字串。 整個 JSON 字串會儲存成一個不能超過256個字元的標記。 下列範例具有名為 `CostCenter` 的單一標籤，其中包含 JSON 字串中的數個值︰  
 
 ```json
 {
@@ -356,9 +356,9 @@ To set a tag to a datetime value, use the [utcNow function](resource-group-templ
 }
 ```
 
-### <a name="apply-tags-from-resource-group"></a>Apply tags from resource group
+### <a name="apply-tags-from-resource-group"></a>從資源群組套用標記
 
-To apply tags from a resource group to a resource, use the [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) function. When getting the tag value, use the `tags.[tag-name]` syntax instead of the `tags.tag-name` syntax, because some characters aren't parsed correctly in the dot notation.
+若要將標記從資源群組套用至資源，請使用[resourceGroup](resource-group-template-functions-resource.md#resourcegroup)函數。 取得標記值時，請使用 `tags.[tag-name]` 語法，而不是 `tags.tag-name` 語法，因為在點標記法中無法正確剖析某些字元。
 
 ```json
 {

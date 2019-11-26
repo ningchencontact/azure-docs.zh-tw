@@ -1,6 +1,6 @@
 ---
-title: Zero-downtime deployment for Durable Functions
-description: Learn how to enable your Durable Functions orchestration for zero-downtime deployments.
+title: Durable Functions 的零停機部署
+description: 瞭解如何啟用您的 Durable Functions 協調流程，以進行零停機部署。
 author: tsushi
 ms.topic: conceptual
 ms.date: 10/10/2019
@@ -12,61 +12,61 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231263"
 ---
-# <a name="zero-downtime-deployment-for-durable-functions"></a>Zero-downtime deployment for Durable Functions
+# <a name="zero-downtime-deployment-for-durable-functions"></a>Durable Functions 的零停機部署
 
-The [reliable execution model](durable-functions-checkpointing-and-replay.md) of Durable Functions requires that orchestrations be deterministic, which creates an additional challenge to consider when you deploy updates. When a deployment contains changes to activity function signatures or orchestrator logic, in-flight orchestration instances fail. This situation is especially a problem for instances of long-running orchestrations, which might represent hours or days of work.
+Durable Functions 的[可靠執行模型](durable-functions-checkpointing-and-replay.md)需要協調流程具有決定性，這會在您部署更新時產生額外的挑戰。 當部署包含活動函式簽章或 orchestrator 邏輯的變更時，進行中的協調流程實例會失敗。 對於長時間執行的協調流程實例而言，這種情況特別有問題，這可能代表數小時或幾天的工作。
 
-To prevent these failures from happening, you have two options: 
-- Delay your deployment until all running orchestration instances have completed.
-- Make sure that any running orchestration instances use the existing versions of your functions. 
+若要避免發生這些失敗，您有兩個選項： 
+- 延遲部署，直到所有執行中的協調流程實例都完成為止。
+- 請確定任何執行中的協調流程實例都使用您的函式的現有版本。 
 
 > [!NOTE]
-> This article provides guidance for functions apps that target Durable Functions 1.x. It hasn't been updated to account for changes introduced in Durable Functions 2.x. For more information about the differences between extension versions, see [Durable Functions versions](durable-functions-versions.md).
+> 本文提供以 Durable Functions 1.x 為目標之函數應用程式的指引。 尚未更新，以將 Durable Functions 2.x 中引進的變更納入考慮。 如需有關延伸模組版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)。
 
-The following chart compares the three main strategies to achieve a zero-downtime deployment for Durable Functions: 
+下圖比較三個主要策略，以達到 Durable Functions 的零停機部署： 
 
-| 策略 |  When to use | 優點 | 缺點 |
+| 策略 |  使用時機 | 優點 | 缺點 |
 | -------- | ------------ | ---- | ---- |
-| [版本控制](#versioning) |  Applications that don't experience frequent [breaking changes.](durable-functions-versioning.md) | Simple to implement. |  Increased function app size in memory and number of functions.<br/>Code duplication. |
-| [Status check with slot](#status-check-with-slot) | A system that doesn't have long-running orchestrations lasting more than 24 hours or frequently overlapping orchestrations. | Simple code base.<br/>Doesn't require additional function app management. | Requires additional storage account or task hub management.<br/>Requires periods of time when no orchestrations are running. |
-| [Application routing](#application-routing) | A system that doesn't have periods of time when orchestrations aren't running, such as those time periods with orchestrations that last more than 24 hours or with frequently overlapping orchestrations. | Handles new versions of systems with continually running orchestrations that have breaking changes. | Requires an intelligent application router.<br/>Could max out the number of function apps allowed by your subscription. 預設值為 100。 |
+| [版本控制](#versioning) |  不常遇到[重大變更](durable-functions-versioning.md)的應用程式。 | 容易執行。 |  增加記憶體中的函數應用程式大小和函式數目。<br/>程式碼重複。 |
+| [具有位置的狀態檢查](#status-check-with-slot) | 沒有長時間執行的協調流程持續超過24小時或經常重迭之協調流程的系統。 | 簡單的程式碼基底。<br/>不需要額外的函數應用程式管理。 | 需要額外的儲存體帳戶或任務管理中樞。<br/>當沒有任何協調流程正在執行時，需要一段時間。 |
+| [應用程式路由](#application-routing) | 在協調流程未執行時沒有時間週期的系統，例如，協調流程過去超過24小時或經常重迭協調流程的時間週期。 | 處理新版本的系統，持續執行具有重大變更的協調流程。 | 需要智慧型應用程式路由器。<br/>可能會使您的訂用帳戶所允許的函式應用程式數目達到上限。 預設值為 100。 |
 
 ## <a name="versioning"></a>版本控制
 
-Define new versions of your functions and leave the old versions in your function app. As you can see in the diagram, a function's version becomes part of its name. Because previous versions of functions are preserved, in-flight orchestration instances can continue to reference them. Meanwhile, requests for new orchestration instances call for the latest version, which your orchestration client function can reference from an app setting.
+定義函式的新版本，並將舊版本保留在函數應用程式中。 如您在圖表中所見，函式的版本會成為其名稱的一部分。 因為已保留舊版的函式，所以進行中的協調流程實例可以繼續參考它們。 同時，新的協調流程實例的要求會呼叫最新版本，您的協調流程用戶端函式可以從應用程式設定參考。
 
-![Versioning strategy](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
+![版本控制策略](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
 
-In this strategy, every function must be copied, and its references to other functions must be updated. You can make it easier by writing a script. Here's a [sample project](https://github.com/TsuyoshiUshio/DurableVersioning) with a migration script.
+在此策略中，每個函數都必須複製，而且必須更新其對其他函式的參考。 您可以撰寫腳本，讓它更容易。 以下是包含遷移腳本的[範例專案](https://github.com/TsuyoshiUshio/DurableVersioning)。
 
 >[!NOTE]
->This strategy uses deployment slots to avoid downtime during deployment. For more detailed information about how to create and use new deployment slots, see [Azure Functions deployment slots](../functions-deployment-slots.md).
+>此策略會使用部署位置來避免部署期間的停機時間。 如需如何建立和使用新部署位置的詳細資訊，請參閱[Azure Functions 部署](../functions-deployment-slots.md)位置。
 
-## <a name="status-check-with-slot"></a>Status check with slot
+## <a name="status-check-with-slot"></a>具有位置的狀態檢查
 
-While the current version of your function app is running in your production slot, deploy the new version of your function app to your staging slot. Before you swap your production and staging slots, check to see if there are any running orchestration instances. After all orchestration instances are complete, you can do the swap. This strategy works when you have predictable periods when no orchestration instances are in flight. This is the best approach when your orchestrations aren't long-running and when your orchestration executions don't frequently overlap.
+當您的函式應用程式目前版本在生產位置中執行時，請將新版本的函式應用程式部署到您的預備位置。 交換生產和預備位置之前，請檢查是否有任何正在執行的協調流程實例。 完成所有協調流程實例之後，您就可以進行交換。 當您在沒有協調流程實例的情況下有可預測的期間時，此策略會運作。 當您的協調流程不是長時間執行，且您的協調流程執行頻率不常重迭時，這是最佳的方法。
 
-### <a name="function-app-configuration"></a>Function app configuration
+### <a name="function-app-configuration"></a>函數應用程式設定
 
-Use the following procedure to set up this scenario.
+請使用下列程式來設定此案例。
 
-1. [Add deployment slots](../functions-deployment-slots.md#add-a-slot) to your function app for staging and production.
+1. [將部署位置新增](../functions-deployment-slots.md#add-a-slot)至您的函式應用程式以進行臨時和生產環境。
 
-1. For each slot, set the [AzureWebJobsStorage application setting](../functions-app-settings.md#azurewebjobsstorage) to the connection string of a shared storage account. This storage account connection string is used by the Azure Functions runtime. This account is used by the Azure Functions runtime and manages the function's keys.
+1. 針對每個位置，將[AzureWebJobsStorage 應用程式](../functions-app-settings.md#azurewebjobsstorage)設定設為共用儲存體帳戶的連接字串。 Azure Functions 執行時間會使用此儲存體帳戶連接字串。 此帳戶是由 Azure Functions 執行時間使用，並會管理函式的金鑰。
 
-1. For each slot, create a new app setting, for example, `DurableManagementStorage`. Set its value to the connection string of different storage accounts. These storage accounts are used by the Durable Functions extension for [reliable execution](durable-functions-checkpointing-and-replay.md). Use a separate storage account for each slot. Don't mark this setting as a deployment slot setting.
+1. 針對每個位置，建立新的應用程式設定，例如 `DurableManagementStorage`。 將其值設定為不同儲存體帳戶的連接字串。 Durable Functions 延伸模組會使用這些儲存體帳戶來進行[可靠的執行](durable-functions-checkpointing-and-replay.md)。 針對每個位置使用個別的儲存體帳戶。 請勿將此設定標記為部署位置設定。
 
-1. In your function app's [host.json file's durableTask section](durable-functions-bindings.md#hostjson-settings), specify `azureStorageConnectionStringName` as the name of the app setting you created in step 3.
+1. 在您函式應用程式的[host. json 檔案的 durableTask 區段](durable-functions-bindings.md#hostjson-settings)中，指定 `azureStorageConnectionStringName`，做為您在步驟3中建立的應用程式設定名稱。
 
-The following diagram shows the described configuration of deployment slots and storage accounts. In this potential predeployment scenario, version 2 of a function app is running in the production slot, while version 1 remains in the staging slot.
+下圖顯示部署位置和儲存體帳戶的描述設定。 在這種可能的預先部署案例中，函式應用程式的第2版會在生產位置中執行，而第1版會保留在預備位置。
 
-![Deployment slots and storage accounts](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
+![部署位置和儲存體帳戶](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
 
-### <a name="hostjson-examples"></a>host.json examples
+### <a name="hostjson-examples"></a>host. json 範例
 
-The following JSON fragments are examples of the connection string setting in the *host.json* file.
+下列 JSON 片段是*主機. JSON*檔案中連接字串設定的範例。
 
-#### <a name="functions-20"></a>Functions 2.0
+#### <a name="functions-20"></a>函數2。0
 
 ```json
 {
@@ -89,9 +89,9 @@ The following JSON fragments are examples of the connection string setting in th
 }
 ```
 
-### <a name="cicd-pipeline-configuration"></a>CI/CD pipeline configuration
+### <a name="cicd-pipeline-configuration"></a>CI/CD 管線設定
 
-Configure your CI/CD pipeline to deploy only when your function app has no pending or running orchestration instances. When you're using Azure Pipelines, you can create a function that checks for these conditions, as in the following example:
+只有當您的函式應用程式沒有擱置或執行中的協調流程實例時，才能設定 CI/CD 管線進行部署。 當您使用 Azure Pipelines 時，您可以建立函數來檢查這些條件，如下列範例所示：
 
 ```csharp
 [FunctionName("StatusCheck")]
@@ -110,68 +110,68 @@ public static async Task<IActionResult> StatusCheck(
 }
 ```
 
-Next, configure the staging gate to wait until no orchestrations are running. For more information, see [Release deployment control using gates](/azure/devops/pipelines/release/approvals/gates?view=azure-devops)
+接下來，設定暫存閘道等待，直到沒有任何協調流程正在執行為止。 如需詳細資訊，請參閱[使用閘道發行部署控制](/azure/devops/pipelines/release/approvals/gates?view=azure-devops)
 
-![Deployment gate](media/durable-functions-zero-downtime-deployment/deployment-gate.png)
+![部署閘道](media/durable-functions-zero-downtime-deployment/deployment-gate.png)
 
-Azure Pipelines checks your function app for running orchestration instances before your deployment starts.
+Azure Pipelines 檢查函式應用程式，以在部署開始之前執行協調流程實例。
 
-![Deployment gate (running)](media/durable-functions-zero-downtime-deployment/deployment-gate-2.png)
+![部署閘道（執行中）](media/durable-functions-zero-downtime-deployment/deployment-gate-2.png)
 
-Now the new version of your function app should be deployed to the staging slot.
+現在，您的函式應用程式的新版本應部署至預備位置。
 
-![Staging slot](media/durable-functions-zero-downtime-deployment/deployment-slot-2.png)
+![預備位置](media/durable-functions-zero-downtime-deployment/deployment-slot-2.png)
 
-Finally, swap slots. 
+最後，交換位置。 
 
-Application settings that aren't marked as deployment slot settings are also swapped, so the version 2 app keeps its reference to storage account A. Because orchestration state is tracked in the storage account, any orchestrations running on the version 2 app continue to run in the new slot without interruption.
+未標示為部署位置設定的應用程式設定也會一併交換，因此第2版應用程式會保留其對儲存體帳戶 A 的參考。由於協調流程狀態會在儲存體帳戶中追蹤，因此在第2版應用程式上執行的任何協調流程都會繼續在新的位置中執行，而不會中斷。
 
 ![部署位置](media/durable-functions-zero-downtime-deployment/deployment-slot-3.png)
 
-To use the same storage account for both slots, you can change the names of your task hubs. In this case, you need to manage the state of your slots and your app's HubName settings. To learn more, see [Task hubs in Durable Functions](durable-functions-task-hubs.md).
+若要針對這兩個位置使用相同的儲存體帳戶，您可以變更您的工作中樞名稱。 在此情況下，您必須管理位置的狀態和應用程式的 HubName 設定。 若要深入瞭解，請參閱[Durable Functions 中的工作中樞](durable-functions-task-hubs.md)。
 
-## <a name="application-routing"></a>Application routing
+## <a name="application-routing"></a>應用程式路由
 
-This strategy is the most complex. However, it can be used for function apps that don't have time between running orchestrations.
+此策略是最複雜的。 不過，它可以用於沒有執行協調流程之間時間的函數應用程式。
 
-For this strategy, you must create an *application router* in front of your Durable Functions. This router can be implemented with Durable Functions. The router has the responsibility to:
+針對此策略，您必須在 Durable Functions 前面建立*應用程式路由器*。 此路由器可以使用 Durable Functions 來執行。 路由器必須負責：
 
-* Deploy the function app.
-* Manage the version of Durable Functions. 
-* Route orchestration requests to function apps.
+* 部署函數應用程式。
+* 管理 Durable Functions 的版本。 
+* 將協調流程要求路由傳送至函數應用程式。
 
-The first time an orchestration request is received, the router does the following tasks:
+第一次收到協調流程要求時，路由器會執行下列工作：
 
-1. Creates a new function app in Azure.
-2. Deploys your function app's code to the new function app in Azure.
-3. Forwards the orchestration request to the new app.
+1. 在 Azure 中建立新的函數應用程式。
+2. 將函數應用程式的程式碼部署至 Azure 中的新函式應用程式。
+3. 將協調流程要求轉寄到新的應用程式。
 
-The router manages the state of which version of your app's code is deployed to which function app in Azure.
+路由器會管理您的應用程式代碼版本部署至 Azure 中哪個函式應用程式的狀態。
 
-![Application routing (first time)](media/durable-functions-zero-downtime-deployment/application-routing.png)
+![應用程式路由（第一次）](media/durable-functions-zero-downtime-deployment/application-routing.png)
 
-The router directs deployment and orchestration requests to the appropriate function app based on the version sent with the request. It ignores the patch version.
+路由器會根據要求所傳送的版本，將部署和協調流程要求導向至適當的函式應用程式。 它會忽略修補程式版本。
 
-When you deploy a new version of your app without a breaking change, you can increment the patch version. The router deploys to your existing function app and sends requests for the old and new versions of the code, which are routed to the same function app.
+當您部署應用程式的新版本而未進行重大變更時，您可以遞增修補程式版本。 路由器會部署至您現有的函式應用程式，並傳送舊版和新版本之程式碼的要求，而這會路由至相同的函式應用程式。
 
-![Application routing (no breaking change)](media/durable-functions-zero-downtime-deployment/application-routing-2.png)
+![應用程式路由（不中斷變更）](media/durable-functions-zero-downtime-deployment/application-routing-2.png)
 
-When you deploy a new version of your app with a breaking change, you can increment the major or minor version. Then the application router creates a new function app in Azure, deploys to it, and routes requests for the new version of your app to it. In the following diagram, running orchestrations on the 1.0.1 version of the app keep running, but requests for the 1.1.0 version are routed to the new function app.
+當您使用重大變更來部署新版本的應用程式時，您可以遞增主要或次要版本。 然後，應用程式路由器會在 Azure 中建立新的函式應用程式、將其部署至其中，並將應用程式新版本的要求路由傳送至其中。 在下圖中，在應用程式的1.0.1 版上執行協調流程會繼續執行，但1.1.0 版本的要求會路由傳送至新的函式應用程式。
 
-![Application routing (breaking change)](media/durable-functions-zero-downtime-deployment/application-routing-3.png)
+![應用程式路由（重大變更）](media/durable-functions-zero-downtime-deployment/application-routing-3.png)
 
-The router monitors the status of orchestrations on the 1.0.1 version and removes apps after all orchestrations are finished. 
+路由器會監視1.0.1 版本上的協調流程狀態，並在所有協調流程完成之後移除應用程式。 
 
-### <a name="tracking-store-settings"></a>Tracking store settings
+### <a name="tracking-store-settings"></a>追蹤存放區設定
 
-Each function app should use separate scheduling queues, possibly in separate storage accounts. If you want to query all orchestrations instances across all versions of your application, you can share instance and history tables across your function apps. You can share tables by configuring the `trackingStoreConnectionStringName` and `trackingStoreNamePrefix` settings in the [host.json settings](durable-functions-bindings.md#host-json) file so that they all use the same values.
+每個函數應用程式都應該使用個別的排程佇列，可能在不同的儲存體帳戶中。 如果您想要跨所有應用程式版本查詢所有協調流程實例，您可以在函式應用程式中共用實例和歷程記錄資料表。 您可以藉由在 [ [json](durable-functions-bindings.md#host-json)設定檔案] 中設定 `trackingStoreConnectionStringName` 和 `trackingStoreNamePrefix` 設定，讓它們全都使用相同的值來共用資料表。
 
-For more information, see [Manage instances in Durable Functions in Azure](durable-functions-instance-management.md).
+如需詳細資訊，請參閱[在 Azure 中的 Durable Functions 中管理實例](durable-functions-instance-management.md)。
 
-![Tracking store settings](media/durable-functions-zero-downtime-deployment/tracking-store-settings.png)
+![追蹤存放區設定](media/durable-functions-zero-downtime-deployment/tracking-store-settings.png)
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Versioning Durable Functions](durable-functions-versioning.md)
+> [版本控制 Durable Functions](durable-functions-versioning.md)
 

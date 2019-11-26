@@ -31,15 +31,15 @@ Microsoft Threat Modeling Tool 目前以 Windows 免費應用程式的形式發�
 - 支援的作業系統
   - Microsoft Windows 10 年度更新版或更新版本
 - 必要的 .NET 版本
-  - .NET 4.7.1 or later
+  - .NET 4.7.1 或更新版本
 - 其他需求
   - 必須有網際網路連線可接收工具和範本的更新。
 
 ## <a name="release-notes"></a>版本資訊
 
-- [Microsoft Threat Modeling Tool GA Release Version 7.1.61015.1](threat-modeling-tool-releases-71610151.md) - October 16 2019
-- [Microsoft Threat Modeling Tool GA Release Version 7.1.60702.1](threat-modeling-tool-releases-71607021.md) - July 2 2019
-- [Microsoft Threat Modeling Tool GA Release Version 7.1.60408.1](threat-modeling-tool-releases-71604081.md) - April 9 2019
+- [MICROSOFT THREAT MODELING TOOL GA 發行版本 7.1.61015.1](threat-modeling-tool-releases-71610151.md) -16 2019 年10月
+- [MICROSOFT THREAT MODELING TOOL GA 發行版本 7.1.60702.1](threat-modeling-tool-releases-71607021.md) -2 2019 年7月
+- [MICROSOFT THREAT MODELING TOOL GA 發行版本 7.1.60408.1](threat-modeling-tool-releases-71604081.md) -9 2019 年4月
 - [Microsoft Threat Modeling Tool GA 發行版本 7.1.60126.1](threat-modeling-tool-releases-71601261.md) - 2019 年 1 月 29 日
 - [Microsoft Threat Modeling Tool GA 發行版本 7.1.51023.1](threat-modeling-tool-releases-71510231.md) - 2018 年 11 月 1 日
 - [Microsoft Threat Modeling Tool GA 發行版本 7.1.50911.2](threat-modeling-tool-releases-71509112.md) - 2018 年 9 月 12 日

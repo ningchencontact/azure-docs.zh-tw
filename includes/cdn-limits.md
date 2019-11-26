@@ -13,10 +13,10 @@ ms.locfileid: "74224374"
 ---
 | 資源 | 預設限制 |
 | --- | --- |
-| Azure Content Delivery Network profiles |25 |
-| Content Delivery Network endpoints per profile |25 |
+| Azure 內容傳遞網路設定檔 |25 |
+| 內容傳遞網路每個設定檔的端點 |25 |
 | 每個端點的自訂網域 |25 |
 
-A Content Delivery Network subscription can contain one or more Content Delivery Network profiles. A Content Delivery Network profile can contain one or more Content Delivery Network endpoints. You might want to use multiple profiles to organize your Content Delivery Network endpoints by internet domain, web application, or some other criteria. 
+內容傳遞網路訂用帳戶可以包含一或多個內容傳遞網路設定檔。 內容傳遞網路設定檔可以包含一或多個內容傳遞網路端點。 您可能想要使用多個設定檔，依網際網路網域、web 應用程式或其他準則來組織您的內容傳遞網路端點。 
 
 

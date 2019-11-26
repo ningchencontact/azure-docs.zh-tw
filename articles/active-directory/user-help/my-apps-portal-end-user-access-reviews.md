@@ -1,6 +1,6 @@
 ---
-title: Manage your organization's access to apps & groups - Azure AD
-description: Learn how to perform an access review to manage security access for your organization's apps and groups from the My Apps portal.
+title: 管理組織對應用程式 & 群組的存取權-Azure AD
+description: 瞭解如何執行存取權審查，以從我的應用程式入口網站管理組織應用程式和群組的安全性存取。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -20,7 +20,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231829"
 ---
-# <a name="perform-an-access-review-from-the-my-apps-portal"></a>Perform an access review from the My Apps portal
+# <a name="perform-an-access-review-from-the-my-apps-portal"></a>從我的應用程式入口網站執行存取權審查
 
 您可以透過 [我的應用程式] Web 入口網站使用工作或學校帳戶，來檢視和啟動貴組織的許多雲端式應用程式、更新您的設定檔和帳戶資訊、查看您的**群組**資訊，以及執行您應用程式和群組的**存取權檢閱**。 如果您沒有 [我的應用程式] 入口網站的存取權，則必須連絡技術服務人員以取得權限。
 
@@ -31,51 +31,51 @@ ms.locfileid: "74231829"
 
 ## <a name="manage-access-reviews"></a>管理存取權檢閱
 
-If your administrator has given you permission to perform your own access reviews, you can manage your groups or apps access from the **Access reviews** tile on the **My Apps** portal page.
+如果您的系統管理員已授與您執行自己的存取權審查的許可權，您可以從**我的應用程式**入口網站頁面上的 [**存取審查**] 磚，管理您的群組或應用程式存取權。
 
 >[!Note]
->If you don't see the **Access reviews** tile it either means that you don't have permission to perform access reviews, or that you don't have any pending reviews waiting for your approval. If you think you should have access to the tile, contact your Help desk for assistance.
+>如果您看不到 [**存取評論**] 磚，表示您沒有執行存取權審查的許可權，或者您沒有任何擱置中的評論正在等待您的核准。 如果您認為您應該有磚的存取權，請洽詢服務台尋求協助。
 
-### <a name="to-perform-your-access-reviews"></a>To perform your access reviews
+### <a name="to-perform-your-access-reviews"></a>若要執行您的存取權審查
 
 1. 登入您的公司或學校帳戶。
 
-2. Open your web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
+2. 開啟您的網頁瀏覽器並移至 https://myapps.microsoft.com，或使用您組織所提供的連結。 例如，您可能會被導向至您組織的自訂頁面，例如 https://myapps.microsoft.com/contoso.com。
 
-    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
+    [**應用程式**] 頁面隨即出現，其中顯示貴組織所擁有且可供您使用的所有雲端應用程式。
 
-    ![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
+    ![我的應用程式入口網站中的 [應用程式] 頁面](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
 
-3. Select the **Access reviews** tile to see a list of access reviews waiting for your approval.
+3. 選取 [**存取評論**] 磚，以查看等待您核准的存取評論清單。
 
-    ![Access reviews page with pending access reviews for the organization](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
+    ![具有組織暫止存取審查的 [存取評論] 頁面](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
 
-4. Select **Begin review** to start your access review.
+4. 選取 [**開始審核**] 以開始存取權審查。
 
-5. Review your access and determine whether it's still necessary.
+5. 檢查您的存取權，並判斷是否仍然需要。
 
-    ![Access review page, showing the review details](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
+    ![[存取權審查] 頁面，其中顯示審核詳細資料](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
 
     >[!Note]
-    >If you're an administrator, and allowed to review your organization's access to groups and apps, you'll see a different page. For more information about reviewing groups or apps for your organization, see [Review access to groups or applications in Azure AD Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review).
+    >如果您是系統管理員，而且允許您檢查組織對群組和應用程式的存取權，您會看到不同的頁面。 如需有關為組織審查群組或應用程式的詳細資訊，請參閱[在 Azure AD 存取審查中審查群組或應用程式的存取權](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review)。
 
-6. Select **Yes** to keep your access or **No** to remove your access.
+6. 選取 **[是]** 以保留您的存取權，或按一下 [**否**] 以移除存取權。
 
-    If you select **Yes**, you might need to specify a justification in the **Reason** box.
+    如果您選取 [**是]** ，您可能需要在 [**原因**] 方塊中指定理由。
 
-    ![Access review page, showing the Reason box with sample text](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
+    ![[存取權審查] 頁面，顯示 [原因] 方塊與範例文字](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
 7. 選取 [提交]。
 
-    Your access review is complete and you return to the **My Apps** portal.
+    您的存取權檢查已完成，您會返回**我的應用程式**入口網站。
 
     >[!Note]
-    >You can change your access at any time until your access review period ends. If you remove your access to an app or group, it's not removed immediately. The removal happens when the access review period ends or when an administrator closes the review.
+    >您可以隨時變更您的存取權，直到存取權審查期間結束為止。 如果您移除對應用程式或群組的存取權，它不會立即移除。 當存取審查期間結束或系統管理員關閉審核時，就會進行移除。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Access and use apps on the My Apps portal](my-apps-portal-end-user-access.md).
+- [在我的應用程式入口網站上存取和使用應用程式](my-apps-portal-end-user-access.md)。
 
-- [Change your profile information](my-apps-portal-end-user-update-profile.md).
+- [變更您的設定檔資訊](my-apps-portal-end-user-update-profile.md)。
 
-- [View and update your groups-related information](my-apps-portal-end-user-groups.md).
+- [查看和更新您的群組相關資訊](my-apps-portal-end-user-groups.md)。

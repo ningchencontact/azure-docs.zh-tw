@@ -22,7 +22,7 @@ ms.locfileid: "74421216"
 
 使用 Azure SQL Database 資料庫工具 (例如 [彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md))，輕鬆地管理現有相應放大的分區化資料庫。 請先轉換現有的資料庫，才能使用[分區對應管理員](sql-database-elastic-scale-shard-map-management.md)。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 若要移轉現有的分區化資料庫︰
 
@@ -63,7 +63,7 @@ $ShardMapManager = Get-ShardMapManager -UserName '<user_name>' -Password '<passw
 選取要建立的分區對應類型。 請依據資料庫結構進行選擇︰
 
 1. 每個資料庫有一個租用戶 (相關詞彙，請參閱 [詞彙](sql-database-elastic-scale-glossary.md))。
-2. 每個資料庫的多個租用戶 (兩種類型)︰
+2. 每個資料庫有多個租用戶 (兩種類型)︰
    1. 清單對應
    2. 範圍對應
 
@@ -100,7 +100,7 @@ $ShardMap = New-ListShardMap -KeyType $([int]) -ListShardMapName 'ListShardMap' 
 $ShardMap = New-RangeShardMap -KeyType $([int]) -RangeShardMapName 'RangeShardMap' -ShardMapManager $ShardMapManager
 ```
 
-### <a name="option-3-list-mappings-on-an-individual-database"></a>Option 3: List mappings on an individual database
+### <a name="option-3-list-mappings-on-an-individual-database"></a>選項3：列出個別資料庫上的對應
 
 設定此模式也需要建立清單對應，如步驟 2，選項 1 所示。
 
@@ -149,7 +149,7 @@ Get-Shards -ShardMap $ShardMap
 Get-Mappings -ShardMap $ShardMap
 ```
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>Summary
 
 一旦完成安裝後，您就可以開始使用彈性資料庫用戶端程式庫。 您也可以使用[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)和[多分區查詢](sql-database-elastic-scale-multishard-querying.md)。
 

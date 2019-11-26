@@ -18,7 +18,7 @@ Azure 備份支援將 SAP Hana 資料庫備份至 Azure。 本文摘要說明當
 
 上線至公開預覽，如下所示：
 
-* 在入口網站中，[依照本文所述](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal)，向復原服務服務提供商註冊您的訂用帳戶識別碼。
+* 在入口網站中，[依照本文所](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal)述，向復原服務服務提供者註冊您的訂用帳戶識別碼。
 * 針對 PowerShell，請執行此 Cmdlet。 它應該會完成為「已註冊」。
 
 ```PowerShell

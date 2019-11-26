@@ -17,7 +17,7 @@ ms.locfileid: "74186095"
 
 本文概述使用 Azure Migrate Server 遷移工具，以代理程式為基礎的複寫所用的架構和進程。
 
-[Azure Migrate](migrate-services-overview.md)提供中央中樞，以追蹤內部部署應用程式和工作負載的探索、評估和遷移，以及 AWS/GCP VM 實例到 Azure。 該中樞提供的 Azure Migrate 工具可進行評量和移轉，也提供第三方獨立軟體廠商 (ISV) 的供應項目。
+[Azure Migrate](migrate-services-overview.md)提供中央中樞，以追蹤內部部署應用程式和工作負載的探索、評估和遷移，以及 AWS/GCP VM 實例到 Azure。 該中樞能提供 Azure Migrate 工具以進行評量和移轉，也提供協力廠商獨立軟體廠商 (ISV) 的供應項目。
 
 ## <a name="agent-based-replication"></a>以代理程式為基礎的複寫
 

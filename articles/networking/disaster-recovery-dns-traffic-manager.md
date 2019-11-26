@@ -58,9 +58,9 @@ ms.locfileid: "74483532"
 DNS 是轉移網路流量最有效率的機制之一，因為 DNS 通常是全球性的，且位於資料中心外部，不會受到任何區域性故障或可用性區域 (AZ) 層級的故障所影響。 除了能使用 DNS 架構的容錯移轉機制外，在 Azure 中還有另外兩個 DNS 服務能在某些形式上達到相同成效 - Azure DNS (權威式 DNS) 和 Azure 流量管理員 (DNS 架構的智慧流量路由)。 
 
 請務必了解 DNS 的一些概念，我們會廣泛地使用這些概念來討論本文中提供的解決方案：
-- **DNS A Record** – A Records are pointers that point a domain to an IPv4 address. 
+- **DNS a 記錄**– a 記錄是將網域指向 IPv4 位址的指標。 
 - **CNAME 或 Canonical 名稱** - 此記錄類型用來指向其他 DNS 記錄。 CNAME 不會以 IP 位址作為回應，而是以指標，其指向包含 IP 位址的記錄。 
-- **加權路由** – 您可以選擇為服務端點賦予特定的權重，然後再根據指派的權重分配流量。 此路由方法是流量管理員中四個可用流量路由機制的其中一個。 如需詳細資訊，請參閱 [加權路由方法](../traffic-manager/traffic-manager-routing-methods.md#weighted)。
+- **加權路由** – 您可以選擇使權重與服務端點相關聯，然後根據指派的權重分配流量。 此路由方法是流量管理員中四個可用流量路由機制的其中一個。 如需詳細資訊，請參閱 [加權路由方法](../traffic-manager/traffic-manager-routing-methods.md#weighted)。
 - **優先順序路由** – 優先順序路由會以端點的健康情況檢查為基礎。 根據預設，Azure 流量管理員會將所有流量傳送到優先順序最高的端點，而在發生失敗或損毀時，流量管理員會將流量路由至次要端點。 如需詳細資訊，請參閱 [優先順序路由方法](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)。
 
 ## <a name="manual-failover-using-azure-dns"></a>使用 Azure DNS 進行手動容錯移轉
@@ -72,7 +72,7 @@ DNS 是轉移網路流量最有效率的機制之一，因為 DNS 通常是全�
 
 解決方案所做的假設是：
 - 主要和次要端點都有不常變更的靜態 IP。 假設主要站台的 IP 是 100.168.124.44，而次要站台的 IP 是 100.168.124.43。
-- 主要和次要站台都有 Azure DNS 區域。 假設主要站台的端點是 prod.contoso.com，而備份站台的端點是 dr.contoso.com。 A DNS record for the main application known as www\.contoso.com also exists.   
+- 主要和次要站台都有 Azure DNS 區域。 假設主要站台的端點是 prod.contoso.com，而備份站台的端點是 dr.contoso.com。 主要應用程式的 DNS 記錄（也稱為 www\.contoso.com）也存在。   
 - TTL 會等於或低於組織中設定的 RTO SLA。 例如，如果企業將應用程式災害回應的 RTO 設定為 60 分鐘，則 TTL 應不超過 60 分鐘，而且愈低愈好。 
   您可以設定 Azure DNS 的手動容錯移轉，如下所示：
 - 建立 DNS 區域
@@ -80,7 +80,7 @@ DNS 是轉移網路流量最有效率的機制之一，因為 DNS 通常是全�
 - 更新 CNAME 記錄
 
 ### <a name="step-1-create-a-dns"></a>步驟 1 - 建立 DNS
-Create a DNS zone (for example, www\.contoso.com) as shown below:
+建立 DNS 區域（例如，www\.contoso.com），如下所示：
 
 ![在 Azure 中建立 DNS 區域](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
@@ -88,13 +88,13 @@ Create a DNS zone (for example, www\.contoso.com) as shown below:
 
 ### <a name="step-2-create-dns-zone-records"></a>步驟 2：建立 DNS 區域記錄
 
-Within this zone create three records (for example - www\.contoso.com, prod.contoso.com and dr.consoto.com) as show below.
+在此區域中，會建立三個記錄（例如，www\.contoso.com、prod.contoso.com 和 dr.consoto.com），如下所示。
 
 ![建立 DNS 區域記錄](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
 圖 - 在 Azure 中建立 DNS 區域記錄
 
-In this scenario, site, www\.contoso.com has a TTL of 30 mins, which is well below the stated RTO, and is pointing to the production site prod.contoso.com. 這是正常營運時的組態。 prod.contoso.com 和 dr.contoso.com 的 TTL 已設定為 300 秒或 5 分鐘。 您可以使用 Azure 監視器或 Azure App Insights 這類 Azure 監視服務，或 Dynatrace 等任何合作夥伴監視解決方案，甚至可以使用自有的解決方案，來監視或偵測應用程式或虛擬基礎結構層級的失敗。
+在此案例中，site，www\.contoso.com 的 TTL 為30分鐘，低於指定的 RTO，而且指向生產網站 prod.contoso.com。 這是正常營運時的組態。 prod.contoso.com 和 dr.contoso.com 的 TTL 已設定為 300 秒或 5 分鐘。 您可以使用 Azure 監視器或 Azure App Insights 這類 Azure 監視服務，或 Dynatrace 等任何合作夥伴監視解決方案，甚至可以使用自有的解決方案，來監視或偵測應用程式或虛擬基礎結構層級的失敗。
 
 ### <a name="step-3-update-the-cname-record"></a>步驟 3：更新 CNAME 記錄
 
@@ -104,7 +104,7 @@ In this scenario, site, www\.contoso.com has a TTL of 30 mins, which is well bel
 
 圖 - 更新 Azure 中的 CNAME 記錄
 
-Within 30 minutes, during which most resolvers will refresh the cached zone file, any query to www\.contoso.com will be redirected to dr.contoso.com.
+在30分鐘內，大部分的解析程式將會重新整理快取的區域檔案，而 www\.contoso.com 的任何查詢都會重新導向至 dr.contoso.com。
 您也可以執行下列 Azure CLI 命令來變更 CNAME 值：
  ```azurecli
    az network dns record-set cname set-record \
@@ -142,7 +142,7 @@ Within 30 minutes, during which most resolvers will refresh the cached zone file
 
 ![建立流量管理員設定檔](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
 
-*Figure - Create a Traffic Manager profile*
+*圖-建立流量管理員設定檔*
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>步驟 2：在流量管理員設定檔中建立端點
 

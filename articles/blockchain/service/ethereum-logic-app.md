@@ -1,5 +1,5 @@
 ---
-title: Use Ethereum Blockchain connector with Azure Logic Apps - Azure Blockchain Service
+title: 搭配 Azure Logic Apps 使用乙太坊區塊鏈連接器-Azure 區塊鏈服務
 description: 使用 Ethereum 區塊鏈連接器搭配 Azure Logic Apps，觸發智慧型合約函式及回應智慧型合約事件。
 ms.date: 10/14/2019
 ms.topic: article
@@ -15,9 +15,9 @@ ms.locfileid: "74325211"
 
 使用 [Ethereum 區塊鏈連接器](https://docs.microsoft.com/connectors/blockchainethereum/)搭配 [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/)，執行智慧型合約動作及回應智慧型合約事件。 例如，假設您想要建立以 REST 為基礎的微服務，以傳回區塊鏈總帳中的資訊。 使用邏輯應用程式時，您可以接受所查詢的資訊儲存在區塊鏈總帳中的 HTTP 要求。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-Complete the optional prerequisite [Quickstart: Use Visual Studio Code to connect to an Azure Blockchain Service consortium network](connect-vscode.md). 此快速入門會引導您安裝[適用於 Ethereum 的 Azure 區塊鏈服務開發套件](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)，並設定您的區塊鏈開發環境。
+完成選用的必要條件[快速入門：使用 Visual Studio Code 連接到 Azure 區塊鏈 Service 聯盟網路](connect-vscode.md)。 此快速入門會引導您安裝[適用於 Ethereum 的 Azure 區塊鏈服務開發套件](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)，並設定您的區塊鏈開發環境。
 
 ## <a name="create-a-logic-app"></a>建立邏輯應用程式
 
@@ -59,7 +59,7 @@ Ethereum 區塊鏈連接器有一個觸發程序和數個動作。 您應使用�
     | **事件名稱** | 選取要檢查的智慧型合約事件。 此事件會觸發邏輯應用程式。 |
     | **間隔**和**頻率** | 選取您要檢查事件的頻率。 |
 
-1. 選取 [儲存]。
+1. 選取 [ **儲存**]。
 
 若要完成您的邏輯應用程式，您可以新增一個根據 Ethereum 區塊鏈事件觸發程序執行動作的步驟。 例如，傳送電子郵件。
 
@@ -193,7 +193,7 @@ Ethereum 區塊鏈連接器需要與區塊鏈的 API 連線。 您可以對多�
 您可以在將交易傳送至區塊鏈時，使用 Ethereum 帳戶的私密金鑰來進行驗證。 您的 Ethereum 帳戶公開和私密金鑰是由 12 個字的助憶鍵產生的。 當您連線至 Azure 區塊鏈服務聯盟成員時，適用於 Ethereum 的 Azure 區塊鏈服務開發套件就會產生助憶鍵。 您可以使用開發套件延伸模組來取得端點位址。
 
 1. 在 Visual Studio Code 中，開啟命令選擇區 (F1)。
-1. Select **Azure Blockchain: Retrieve private key**.
+1. 選取 [ **Azure 區塊鏈：取出私密金鑰**]。
 1. 選取您連線至聯盟成員時所儲存的助憶鍵。
 
     ![命令選擇區，具有可選取助憶鍵的選項](./media/ethereum-logic-app/private-key.png)

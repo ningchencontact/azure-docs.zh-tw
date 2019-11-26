@@ -1,5 +1,5 @@
 ---
-title: Manage users in Azure Blockchain Workbench
+title: 管理 Azure Blockchain Workbench 中的使用者
 description: 如何在 Azure Blockchain Workbench 中管理使用者。
 ms.date: 05/09/2019
 ms.topic: article
@@ -15,7 +15,7 @@ ms.locfileid: "74324701"
 
 Azure Blockchain Workbench 納入了對屬於協會一分子的人員與組織進行使用者管理的功能。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 需要進行 Blockchain Workbench 部署。 請參閱 [Azure Blockchain Workbench 部署](deploy.md)，以取得部署的詳細資訊。
 

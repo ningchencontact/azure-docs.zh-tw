@@ -1,6 +1,6 @@
 ---
-title: Sign-in using authentication with a work or school account - Azure AD
-description: Learn how to sign in to your work or school account using the various two-factor verification methods.
+title: 使用驗證搭配公司或學校帳戶登入-Azure AD
+description: 瞭解如何使用各種雙因素驗證方法來登入您的公司或學校帳戶。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233238"
 ---
-# <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Sign in to your work or school account using your two-factor verification method
+# <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>使用您的雙因素驗證方法來登入您的公司或學校帳戶
 
 > [!NOTE]
 > 本文的目的逐步解說典型的登入體驗。 如需登入的說明或疑難排解問題，請參閱 [使用 Azure Multi-Factor Authentication 時碰到困難](multi-factor-authentication-end-user-troubleshoot.md)。

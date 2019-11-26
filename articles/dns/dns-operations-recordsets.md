@@ -238,7 +238,7 @@ $recordsets = Get-AzDnsRecordSet -Zone $zone
 Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-上述範例顯示如何將 'A' 記錄新增至類型 'A' 的現有記錄集。 作業的類似序列也可用來將記錄新增至其他類型的記錄集，可透過每一個記錄類型專屬的其他變數取代 `Add-AzDnsRecordConfig` 的 `-Ipv4Address` 變數。 每個記錄類型的參數對 `New-AzDnsRecordConfig` Cmdlet 而言是相同的，如以上「其他記錄類型範例」所示。
+上述範例顯示如何將 'A' 記錄新增至類型 'A' 的現有記錄集。 作業的類似序列也可用來將記錄新增至其他類型的記錄集，可透過每一個記錄類型專屬的其他變數取代 `-Ipv4Address` 的 `Add-AzDnsRecordConfig` 變數。 每個記錄類型的參數對 `New-AzDnsRecordConfig` Cmdlet 而言是相同的，如以上「其他記錄類型範例」所示。
 
 類型 'CNAME' 或 'SOA' 的記錄集不能包含多個記錄。 這個條件是起因於 DNS 標準。 而非 Azure DNS 的限制。
 
@@ -388,7 +388,7 @@ Get-AzDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGrou
 
 如果 `$ConfirmPreference`PowerShell 喜好設定變數的值為 `Medium` 或更低，則每個 cmdlet 會提示確認。 因為 `$ConfirmPreference` 的預設值為 `High`，使用預設 PowerShell 設定時不會出現這些提示。
 
-您可以使用 `-Confirm` 參數覆寫目前 `$ConfirmPreference` 設定。 如果您指定 `-Confirm` 或 `-Confirm:$True`，此 cmdlet 在執行前會提示您進行確認。 如果您指定 `-Confirm:$False`，此 cmdlet 不會提示您進行確認。 
+您可以使用 `$ConfirmPreference` 參數覆寫目前 `-Confirm` 設定。 如果您指定 `-Confirm` 或 `-Confirm:$True`，此 cmdlet 在執行前會提示您進行確認。 如果您指定 `-Confirm:$False`，此 cmdlet 不會提示您進行確認。 
 
 如需 `-Confirm` 和 `$ConfirmPreference` 的詳細資訊，請參閱[有關喜好設定變數](/powershell/module/microsoft.powershell.core/about/about_preference_variables)。
 

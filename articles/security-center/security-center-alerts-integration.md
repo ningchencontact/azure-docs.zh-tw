@@ -24,7 +24,7 @@ Azure 資訊安全中心提供您額外的 Microsoft 授權來與下列安全性
 * [Azure WAF](#azure-waf)
 * [Azure DDoS 保護](#azure-ddos)
 
-## Azure WAF <a name="azure-waf"></a>
+## Azure WAF<a name="azure-waf"></a>
 
 Azure 應用程式閘道提供了 Web 應用程式防火牆 (WAF)，可為 Web 應用程式提供集中式保護，免於遭遇常見的攻擊和弱點。
 

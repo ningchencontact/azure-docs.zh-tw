@@ -1,5 +1,5 @@
 ---
-title: Android certificate-based authentication - Azure Active Directory
+title: 以 Android 憑證為基礎的驗證-Azure Active Directory
 description: 了解在有 Android 裝置的解決方案中，設定憑證式驗證的支援案例和需求
 services: active-directory
 ms.service: active-directory
@@ -35,16 +35,16 @@ ms.locfileid: "74381995"
 
 | 應用程式 | 支援 |
 | --- | --- |
-| Azure 資訊保護應用程式 |![Check mark signifying support for this application][1] |
-| Intune 公司入口網站 |![Check mark signifying support for this application][1] |
-| Microsoft Teams |![Check mark signifying support for this application][1] |
-| OneNote |![Check mark signifying support for this application][1] |
-| OneDrive |![Check mark signifying support for this application][1] |
-| Outlook |![Check mark signifying support for this application][1] |
-| Power BI |![Check mark signifying support for this application][1] |
-| 商務用 Skype |![Check mark signifying support for this application][1] |
-| Word / Excel / PowerPoint |![Check mark signifying support for this application][1] |
-| Yammer |![Check mark signifying support for this application][1] |
+| Azure 資訊保護應用程式 |![核取記號表示此應用程式的支援][1] |
+| Intune 公司入口網站 |![核取記號表示此應用程式的支援][1] |
+| Microsoft Teams |![核取記號表示此應用程式的支援][1] |
+| OneNote |![核取記號表示此應用程式的支援][1] |
+| OneDrive |![核取記號表示此應用程式的支援][1] |
+| Outlook |![核取記號表示此應用程式的支援][1] |
+| Power BI |![核取記號表示此應用程式的支援][1] |
+| 商務用 Skype |![核取記號表示此應用程式的支援][1] |
+| Word / Excel / PowerPoint |![核取記號表示此應用程式的支援][1] |
+| Yammer |![核取記號表示此應用程式的支援][1] |
 
 ### <a name="implementation-requirements"></a>實作需求
 

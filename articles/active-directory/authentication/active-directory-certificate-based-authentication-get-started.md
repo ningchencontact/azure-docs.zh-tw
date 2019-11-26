@@ -1,5 +1,5 @@
 ---
-title: Certificate-based authentication - Azure Active Directory
+title: 以憑證為基礎的驗證-Azure Active Directory
 description: 了解如何在環境中設定憑證式驗證
 services: active-directory
 ms.service: active-directory
@@ -32,7 +32,7 @@ ms.locfileid: "74382013"
 - 提供為 Office 365 企業版、商務版、教育版、美國政府方案的租用戶使用者，設定和使用憑證式驗證的步驟。 在 Office 365 China、US Government Defense 及 US Government Federal 方案中，這項功能處於預覽版。
 - 假設您已經設定[公開金鑰基礎結構 (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) 和 [AD FS](../hybrid/how-to-connect-fed-whatis.md)。
 
-## <a name="requirements"></a>要求
+## <a name="requirements"></a>需求
 
 若要設定憑證式驗證，必須符合下列陳述：
 
@@ -96,7 +96,7 @@ ms.locfileid: "74382013"
 
 設定的第一個步驟，您需要與您的租用戶建立連線。 一旦您與租用戶的連線存在，您可以檢閱、新增、刪除、修改在您的目錄中定義的受信任的憑證授權單位。
 
-### <a name="connect"></a>連接
+### <a name="connect"></a>連線
 
 若要與您的租用戶建立連線，使用 [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) Cmdlet︰
 
@@ -166,7 +166,7 @@ ms.locfileid: "74382013"
 
 ### <a name="testing-your-certificate"></a>測試您的憑證
 
-您應該試著使用您**裝置上的瀏覽器**登入 [Outlook Web Access](https://outlook.office365.com) 或 [SharePoint Online](https://microsoft.sharepoint.com)，這是第一個組態測試。
+您應該試著使用您[裝置上的瀏覽器](https://outlook.office365.com)登入 [Outlook Web Access](https://microsoft.sharepoint.com) 或 **SharePoint Online**，這是第一個組態測試。
 
 如果登入成功，您便知道︰
 

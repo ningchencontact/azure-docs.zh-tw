@@ -1,5 +1,5 @@
 ---
-title: RBAC roles and permissions
+title: RBAC 角色和許可權
 description: Azure 角色型存取控制 (RBAC) 以及身分識別和存取管理 (IAM) 可對 Azure Container Registry 中的資源提供精確的權限。
 ms.topic: article
 ms.date: 03/20/2019
@@ -14,11 +14,11 @@ ms.locfileid: "74456248"
 
 Azure Container Registry 服務可支援一組 Azure 角色，對於 Azure Container Registry 提供不同程度的權限。 Azure[角色型存取控制](../role-based-access-control/index.yml) (RBAC) 可用來將特定權限指派給必須與登錄互動的使用者或服務主體。
 
-| 角色/權限       | [存取 Resource Manager](#access-resource-manager) | [建立/刪除登錄](#create-and-delete-registry) | [推送映像](#push-image) | [提取映像](#pull-image) | [Delete image data](#delete-image-data) | [變更原則](#change-policies) |   [簽署映像](#sign-images)  |
+| 角色/權限       | [存取 Resource Manager](#access-resource-manager) | [建立/刪除登錄](#create-and-delete-registry) | [推送映像](#push-image) | [提取映像](#pull-image) | [刪除影像資料](#delete-image-data) | [變更原則](#change-policies) |   [簽署映像](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 擁有者 | X | X | X | X | X | X |  |  
 | 參與者 | X | X | X |  X | X | X |  |  
-| 讀取者 | X |  |  | X |  |  |  |
+| 讀取器 | X |  |  | X |  |  |  |
 | AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
 | AcrDelete |  |  |  |  | X |  |  |
@@ -58,7 +58,7 @@ Azure Container Registry 服務可支援一組 Azure 角色，對於 Azure Conta
 
 ## <a name="delete-image-data"></a>刪除映像資料
 
-The ability to [delete container images](container-registry-delete.md), or delete other [supported artifacts](container-registry-image-formats.md) such as Helm charts, from a registry.
+從登錄中[刪除容器映射](container-registry-delete.md)，或刪除其他[支援](container-registry-image-formats.md)的成品（例如 Helm 圖表）的功能。
 
 ## <a name="change-policies"></a>變更原則
 

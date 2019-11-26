@@ -1,6 +1,6 @@
 ---
-title: Passwordless security key sign (preview) - Azure Active Directory
-description: Enable passwordless security key sign-in to Azure AD using FIDO2 security keys (preview)
+title: 無密碼安全性金鑰簽署（預覽）-Azure Active Directory
+description: 使用 FIDO2 安全性金鑰（預覽）啟用無密碼安全性金鑰登入 Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,91 +18,91 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381845"
 ---
-# <a name="enable-passwordless-security-key-sign-in-preview"></a>Enable passwordless security key sign in (preview)
+# <a name="enable-passwordless-security-key-sign-in-preview"></a>啟用無密碼安全性金鑰登入（預覽）
 
-For enterprises that use passwords today and have a shared PC environment, security keys provide a seamless way for workers to authenticate without entering a username or password. Security keys provide improved productivity for workers, and have better security.
+對於目前使用密碼並具有共用電腦環境的企業，安全性金鑰提供順暢的方式讓背景工作人員進行驗證，而不需要輸入使用者名稱或密碼。 安全性金鑰可提高背景工作角色的效率，並提供更好的安全性。
 
-This document focuses on enabling security key based passwordless authentication. At the end of this article, you will be able to sign in to web-based applications with your Azure AD account using a FIDO2 security key.
+本檔著重于啟用以安全性金鑰為基礎的無密碼 authentication。 在本文結尾，您將能夠使用 FIDO2 的安全性金鑰，以您的 Azure AD 帳戶登入 web 應用程式。
 
 |     |
 | --- |
-| FIDO2 security keys are a public preview feature of Azure Active Directory. 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| FIDO2 安全性金鑰是 Azure Active Directory 的公開預覽功能。 如需預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-## <a name="requirements"></a>要求
+## <a name="requirements"></a>需求
 
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
-- [Combined security information registration preview](concept-registration-mfa-sspr-combined.md)
-- Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
-- WebAuthN requires Windows 10 version 1809 or higher**
+- [結合的安全性資訊註冊預覽](concept-registration-mfa-sspr-combined.md)
+- 相容的[FIDO2 安全性金鑰](concept-authentication-passwordless.md#fido2-security-keys)
+- WebAuthN 需要 Windows 10 1809 版或更高版本 * *
 
-To use security keys for logging in to web apps and services, you must have a browser that supports the WebAuthN protocol. These include Microsoft Edge, Chrome, Firefox, and Safari.
+若要使用安全性金鑰來登入 web 應用程式和服務，您必須擁有支援 WebAuthN 通訊協定的瀏覽器。 其中包括 Microsoft Edge、Chrome、Firefox 和 Safari。
 
-## <a name="prepare-devices-for-preview"></a>Prepare devices for preview
+## <a name="prepare-devices-for-preview"></a>準備裝置以供預覽
 
-Devices that you will be piloting with must be running Windows 10 version 1809 or higher. The best experience is on Windows 10 version 1903 or higher.
+您將試驗的裝置必須執行 Windows 10 1809 版或更高版本。 最佳體驗是在 Windows 10 1903 版或更新版本上。
 
-## <a name="enable-passwordless-authentication-method"></a>Enable passwordless authentication method
+## <a name="enable-passwordless-authentication-method"></a>啟用無密碼 authentication 方法
 
-### <a name="enable-the-combined-registration-experience"></a>Enable the combined registration experience
+### <a name="enable-the-combined-registration-experience"></a>啟用合併的註冊體驗
 
-Registration features for passwordless authentication methods rely on the combined registration preview. Follow the steps in the article [Enable combined security information registration (preview)](howto-registration-mfa-sspr-combined.md), to enable the combined registration preview.
+無密碼驗證方法的註冊功能依賴結合的註冊預覽。 遵循[啟用結合的安全性資訊註冊（預覽）](howto-registration-mfa-sspr-combined.md)一文中的步驟，以啟用合併的註冊預覽。
 
-### <a name="enable-fido2-security-key-method"></a>Enable FIDO2 security key method
+### <a name="enable-fido2-security-key-method"></a>啟用 FIDO2 安全性金鑰方法
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication method policy (Preview)** .
-1. Under the method **FIDO2 Security Key**, choose the following options:
-   1. **Enable** - Yes or No
-   1. **Target** - All users or Select users
+1. 流覽至**Azure Active Directory** >  > **驗證方法原則（預覽）** 的**安全性** > **驗證方法**。
+1. 在 [方法**FIDO2] 安全性金鑰**底下，選擇下列選項：
+   1. **啟用**-是或否
+   1. **目標**-所有使用者或選取使用者
 1. **儲存**組態。
 
-## <a name="user-registration-and-management-of-fido2-security-keys"></a>User registration and management of FIDO2 security keys
+## <a name="user-registration-and-management-of-fido2-security-keys"></a>FIDO2 安全性金鑰的使用者註冊與管理
 
 1. 瀏覽至 [https://myprofile.microsoft.com](https://myprofile.microsoft.com)。
-1. Sign in if not already.
-1. Click **Security Info**.
-   1. If the user already has at least one Azure Multi-Factor Authentication method registered, they can immediately register a FIDO2 security key.
-   1. If they don’t have at least one Azure Multi-Factor Authentication method registered, they must add one.
-1. Add a FIDO2 Security key by clicking **Add method** and choosing **Security key**.
-1. Choose **USB device** or **NFC device**.
-1. Have your key ready and choose **Next**.
-1. A box will appear and ask the user to create/enter a PIN for your security key, then perform the required gesture for the key, either biometric or touch.
-1. The user will be returned to the combined registration experience and asked to provide a meaningful name for the key so the user can identify which one if they have multiple. 按一下 [下一步]。
-1. Click **Done** to complete the process.
+1. 如果尚未登入，請先登入。
+1. 按一下 [**安全性資訊**]。
+   1. 如果使用者已註冊至少一個 Azure 多因素驗證方法，他們可以立即註冊 FIDO2 的安全性金鑰。
+   1. 如果未註冊至少一個 Azure 多因素驗證方法，則必須新增一個。
+1. 按一下 [**新增方法**]，然後選擇 [**安全性金鑰**]，以新增 FIDO2 安全性金鑰。
+1. 選擇 [ **USB 裝置**] 或 [ **NFC 裝置**]。
+1. 備妥您的金鑰，然後選擇 **[下一步]** 。
+1. 隨即會出現一個方塊，並要求使用者建立/輸入您的安全性金鑰的 PIN，然後執行金鑰的必要手勢，也就是生物識別或觸控。
+1. 使用者將會回到合併的註冊體驗，並要求您提供有意義的金鑰名稱，讓使用者可以識別有多個索引鍵（如果有的話）。 按一下 [下一步]。
+1. 按一下 [**完成**] 完成程式。
 
-## <a name="sign-in-with-passwordless-credential"></a>Sign in with passwordless credential
+## <a name="sign-in-with-passwordless-credential"></a>使用無密碼認證登入
 
-In the example below a user has already provisioned their FIDO2 security key. The user can choose to sign in on the web with their FIDO2 security key inside of a supported browser on Windows 10 version 1809 or higher.
+在下列範例中，使用者已布建其 FIDO2 安全性金鑰。 使用者可以選擇使用 Windows 10 1809 版或更高版本上支援的瀏覽器中的 FIDO2 安全性金鑰來登入 web。
 
-![Security key sign-in Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
+![安全性金鑰登入 Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 
-## <a name="troubleshooting-and-feedback"></a>Troubleshooting and feedback
+## <a name="troubleshooting-and-feedback"></a>疑難排解與意見反應
 
-If you would like to share feedback or encounter issues while previewing this feature, please share via the Windows Feedback Hub app.
+如果您想要在預覽這項功能時分享意見反應或遇到問題，請透過 Windows 意見反應中樞應用程式共用。
 
-1. Launch **Feedback Hub** and make sure you're signed in.
-1. Submit feedback under the following categorization:
-   1. Category: Security and Privacy
-   1. Subcategory: FIDO
-1. To capture logs, use the option: **Recreate my Problem**
+1. 啟動**意見反應中樞**，並確認您已登入。
+1. 在下列分類下提交意見反應：
+   1. 類別：安全性和隱私權
+   1. 子類別目錄： FIDO
+1. 若要捕獲記錄，請使用 [**重新建立我的問題**] 選項。
 
 ## <a name="known-issues"></a>已知問題
 
-### <a name="security-key-provisioning"></a>Security key provisioning
+### <a name="security-key-provisioning"></a>安全性金鑰提供
 
-Administrator provisioning and de-provisioning of security keys is not available in the public preview.
+公開預覽中不提供安全性金鑰的系統管理員布建和取消布建。
 
-### <a name="upn-changes"></a>UPN changes
+### <a name="upn-changes"></a>UPN 變更
 
-If a user’s UPN changes, you can no longer modify FIDO2 security keys to account for the change. The resolution is to reset the device and the user has to re-register their FIDO2 security keys.
+如果使用者的 UPN 變更，您就無法再修改 FIDO2 安全性金鑰來考慮變更。 解決方式是重設裝置，且使用者必須重新註冊其 FIDO2 安全性金鑰。
 
 ## <a name="next-steps"></a>後續步驟
 
-[FIDO2 security key Windows 10 sign in](howto-authentication-passwordless-security-key-windows.md)
+[FIDO2 安全性金鑰 Windows 10 登入](howto-authentication-passwordless-security-key-windows.md)
 
-[Enable FIDO2 authentication to on-premises resources](howto-authentication-passwordless-security-key-on-premises.md)
+[對內部部署資源啟用 FIDO2 authentication](howto-authentication-passwordless-security-key-on-premises.md)
 
-[Learn more about device registration](../devices/overview.md)
+[深入瞭解裝置註冊](../devices/overview.md)
 
-[Learn more about Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[深入瞭解 Azure 多重要素驗證](../authentication/howto-mfa-getstarted.md)

@@ -1,5 +1,5 @@
 ---
-title: Configure group settings using PowerShell - Azure AD | Microsoft Docs
+title: 使用 PowerShell 設定群組設定-Azure AD |Microsoft Docs
 description: 如何使用 Azure Active Directory Cmdlet 管理群組的設定
 services: active-directory
 documentationcenter: ''
@@ -28,7 +28,7 @@ ms.locfileid: "74382980"
 > [!IMPORTANT]
 > 某些設定需要 Azure Active Directory Premium P1 授權。 如需詳細資訊，請參閱[範本設定](#template-settings)資料表。
 
-如需有關如何防止非系統管理員的使用者建立安全性群組的詳細資訊，請依照 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) \(英文\) 中所述的內容設定  `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`。
+如需有關如何防止非系統管理員的使用者建立安全性群組的詳細資訊，請依照  `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`Set-MSOLCompanySettings[ \(英文\) 中所述的內容設定 ](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)。
 
 Office 365 群組設定是使用 Settings 物件和 SettingsTemplate 物件所設定。 一開始，您在目錄中不會看到任何設定物件，因為已使用預設設定來設定您的目錄。 若要變更預設設定，您必須使用設定範本來建立新的設定物件。 設定範本是由 Microsoft 所定義。 有數個不同的設定範本。 若要設定目錄的 Office 365 群組設定，您要使用名為 "Group.Unified" 的範本。 若要在單一群組上設定 Office 365 群組設定，請使用名為 "Group.Unified.Guest" 的範本。 此範本是用來管理 Office 365 群組的來賓存取權。 
 
@@ -88,52 +88,52 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
    ```powershell
    $Setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
    ```  
-5. Then apply the setting:
+5. 然後套用設定：
   
    ```powershell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
-6. You can read the values using:
+6. 您可以使用來讀取這些值：
 
    ```powershell
    $Setting.Values
    ```  
 ## <a name="update-settings-at-the-directory-level"></a>更新目錄層級的設定
-To update the value for UsageGuideLinesUrl in the setting template, simply edit the URL with Step 4 above, then perform Step 5 to set the new value.
+若要更新設定範本中 UsageGuideLinesUrl 的值，只需編輯上述步驟4中的 URL，然後執行步驟5來設定新的值。
 
-To remove the value of UsageGuideLinesUrl, edit the URL to be an empty string using Step 4 above:
+若要移除 UsageGuideLinesUrl 的值，請使用上述的步驟4，將 URL 編輯為空字串：
 
    ```powershell
    $Setting["UsageGuidelinesUrl"] = ""
    ```  
-Then perform Step 5 to set the new value.
+然後執行步驟5以設定新的值。
 
 ## <a name="template-settings"></a>範本設定
 以下是 Group.Unified SettingsTemplate 中定義的設定。 除非另行指定，否則這些功能都需要 Azure Active Directory Premium P1 授權。 
 
-| **設定** | **說明** |
+| **設定** | **描述** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>類型：布林值<li>預設值︰True |此旗標指出是否允許非管理使用者在目錄中建立 Office 365 群組。 此設定不需要 Azure Active Directory Premium P1 授權。|
+|  <ul><li>EnableGroupCreation<li>型別：布林值<li>預設值：True |此旗標指出是否允許非管理使用者在目錄中建立 Office 365 群組。 此設定不需要 Azure Active Directory Premium P1 授權。|
 |  <ul><li>GroupCreationAllowedGroupId<li>類型：字串<li>預設值：“” |即使 EnableGroupCreation == false，仍允許成員建立 Office 365 群組之安全性群組的 GUID。 |
 |  <ul><li>UsageGuidelinesUrl<li>類型：字串<li>預設值：“” |群組使用方針的連結。 |
-|  <ul><li>ClassificationDescriptions<li>類型：字串<li>預設值：“” | 分類說明的以逗號分隔清單。 ClassificationDescriptions 的值只能採用下列格式：<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>where Classification matches the strings in the ClassificationList.<br>This setting does not apply when EnableMIPLabels == True.|
-|  <ul><li>DefaultClassification<li>類型：字串<li>預設值：“” | 如果尚未指定，則是做為群組預設分類的分類。<br>This setting does not apply when EnableMIPLabels == True.|
+|  <ul><li>ClassificationDescriptions<li>類型：字串<li>預設值：“” | 分類說明的以逗號分隔清單。 ClassificationDescriptions 的值只能採用下列格式：<br>$setting ["ClassificationDescriptions"] = "分類：描述，分類：描述"<br>其中分類會符合 ClassificationList 中的字串。<br>當 EnableMIPLabels = = True 時，此設定不適用。|
+|  <ul><li>DefaultClassification<li>類型：字串<li>預設值：“” | 如果尚未指定，則是做為群組預設分類的分類。<br>當 EnableMIPLabels = = True 時，此設定不適用。|
 |  <ul><li>PrefixSuffixNamingRequirement<li>類型：字串<li>預設值：“” | 長度上限為 64 個字元的字串，用以定義為 Office 365 群組設定的命名慣例。 如需詳細資訊，請參閱[對 Office 365 群組強制執行命名原則 (預覽)](groups-naming-policy.md)。 |
 | <ul><li>CustomBlockedWordsList<li>類型：字串<li>預設值：“” | 使用者在群組名稱或別名中不允許使用之片語的逗號分隔字串。 如需詳細資訊，請參閱[對 Office 365 群組強制執行命名原則 (預覽)](groups-naming-policy.md)。 |
-| <ul><li>EnableMSStandardBlockedWords<li>類型：布林值<li>預設值：“False” | 請勿使用
-|  <ul><li>AllowGuestsToBeGroupOwner<li>類型：布林值<li>預設值︰False | 布林值，表示來賓使用者是否可以是群組的擁有者。 |
-|  <ul><li>AllowGuestsToAccessGroups<li>類型：布林值<li>預設值︰True | 用以指出來賓使用者是否可存取 Office 365 內容的布林值。  此設定不需要 Azure Active Directory Premium P1 授權。|
+| <ul><li>EnableMSStandardBlockedWords<li>型別：布林值<li>預設值：“False” | 請勿使用
+|  <ul><li>AllowGuestsToBeGroupOwner<li>型別：布林值<li>預設值︰False | 布林值，表示來賓使用者是否可以是群組的擁有者。 |
+|  <ul><li>AllowGuestsToAccessGroups<li>型別：布林值<li>預設值：True | 用以指出來賓使用者是否可存取 Office 365 內容的布林值。  此設定不需要 Azure Active Directory Premium P1 授權。|
 |  <ul><li>GuestUsageGuidelinesUrl<li>類型：字串<li>預設值：“” | 來賓使用指導方針的連結 url。 |
-|  <ul><li>AllowToAddGuests<li>類型：布林值<li>預設值︰True | 布林值表示是否允許將來賓新增至此目錄。 <br>This setting may be overridden and become read-only if *EnableMIPLabels* is set to *True* and a guest policy is associated with the sensitivity label assigned to the group. |
-|  <ul><li>ClassificationList<li>類型：字串<li>預設值：“” |可套用至 Office 365 群組、以逗號分隔的有效分類值清單。 <br>This setting does not apply when EnableMIPLabels == True.|
-|  <ul><li>EnableMIPLabels<li>類型：布林值<li>預設值：“False” |The flag indicating whether sensitivity labels published in Microsoft 365 Compliance Center can be applied to Office 365 Groups. For more information, see [Assign Sensitivity Labels for Office 365 groups](groups-assign-sensitivity-labels.md). |
+|  <ul><li>AllowToAddGuests<li>型別：布林值<li>預設值：True | 布林值表示是否允許將來賓新增至此目錄。 <br>如果*EnableMIPLabels*設定為*True* ，而且來賓原則與指派給群組的敏感度標籤相關聯，則此設定可能會遭到覆寫，而且會變成隻讀。 |
+|  <ul><li>ClassificationList<li>類型：字串<li>預設值：“” |可套用至 Office 365 群組、以逗號分隔的有效分類值清單。 <br>當 EnableMIPLabels = = True 時，此設定不適用。|
+|  <ul><li>EnableMIPLabels<li>型別：布林值<li>預設值：“False” |此旗標指出是否可以將 Microsoft 365 合規性中心發佈的敏感度標籤套用至 Office 365 群組。 如需詳細資訊，請參閱[指派 Office 365 群組的敏感度標籤](groups-assign-sensitivity-labels.md)。 |
 
-## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Example: Configure Guest policy for groups at the directory level
-1. Get all the setting templates:
+## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>範例：在目錄層級設定群組的來賓原則
+1. 取得所有設定範本：
    ```powershell
    Get-AzureADDirectorySettingTemplate
    ```
-2. To set guest policy for groups at the directory level, you need Group.Unified template
+2. 若要在目錄層級設定群組的來賓原則，您需要群組. 整合範本
    ```powershell
    $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
    ```
@@ -142,16 +142,16 @@ Then perform Step 5 to set the new value.
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. Then update AllowAddGuests setting
+4. 然後更新 AllowAddGuests 設定
    ```powershell
    $Setting["AllowAddGuests"] = $False
    ```  
-5. Then apply the setting:
+5. 然後套用設定：
   
    ```powershell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
-6. You can read the values using:
+6. 您可以使用來讀取這些值：
 
    ```powershell
    $Setting.Values
@@ -182,7 +182,7 @@ Then perform Step 5 to set the new value.
    Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups
    ```
 
-3. Read all directory settings values of a specific directory settings object, using Settings ID GUID:
+3. 使用設定識別碼 GUID，讀取特定目錄設定物件的所有目錄設定值：
    ```powershell
    (Get-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323).values
    ```
@@ -210,7 +210,7 @@ Then perform Step 5 to set the new value.
    Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
    ```
 
-## <a name="create-settings-for-a-specific-group"></a>Create settings for a specific group
+## <a name="create-settings-for-a-specific-group"></a>建立特定群組的設定
 
 1. 搜尋名為「Groups.Unified.Guest」的設定範本
    ```powershell
@@ -237,7 +237,7 @@ Then perform Step 5 to set the new value.
    ```powershell
    $SettingCopy["AllowAddGuests"]=$False
    ```
-5. Get the ID of the group you want to apply this setting to:
+5. 取得您想要套用此設定之群組的識別碼：
    ```powershell
    $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
    ```
@@ -245,39 +245,39 @@ Then perform Step 5 to set the new value.
    ```powershell
    New-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -DirectorySetting $SettingCopy
    ```
-7. To verify the settings, run this command:
+7. 若要驗證設定，請執行此命令：
    ```powershell
    Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
    ```
 
 ## <a name="update-settings-for-a-specific-group"></a>更新特定群組的設定
-1. Get the ID of the group whose setting you want to update:
+1. 取得您想要更新其設定之群組的識別碼：
    ```powershell
    $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
    ```
-2. Retrieve the setting of the group:
+2. 取出群組的設定：
    ```powershell
    $Setting = Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
    ```
-3. Update the setting of the group as you need, e.g.
+3. 視需要更新群組的設定，例如
    ```powershell
    $Setting["AllowAddGuests"] = $True
    ```
-4. Then get the ID of the setting for this specific group:
+4. 然後取得此特定群組之設定的識別碼：
    ```powershell
    Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
    ```
-   You will get a response similar to this:
+   您會收到類似下面的回應：
    ```powershell
    Id                                   DisplayName            TemplateId                             Values
    --                                   -----------            -----------                            ----------
    2dbee4ca-c3b6-4f0d-9610-d15569639e1a Group.Unified.Guest    08d542b9-071f-4e16-94b0-74abb372e3d9   {class SettingValue {...
    ```
-5. Then you can set the new value for this setting:
+5. 接著，您可以設定此設定的新值：
    ```powershell
    Set-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -Id 2dbee4ca-c3b6-4f0d-9610-d15569639e1a -DirectorySetting $Setting
    ```
-6. You can read the value of the setting to make sure it has been updated correctly:
+6. 您可以讀取設定的值，以確定它已正確更新：
    ```powershell
    Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
    ```
@@ -287,5 +287,5 @@ Then perform Step 5 to set the new value.
 
 ## <a name="additional-reading"></a>其他閱讀資料
 
-* [使用 Azure Active Directory 群組管理資源的存取權](../fundamentals/active-directory-manage-groups.md)
+* [使用 Azure Active Directory 群組來管理資源的存取權](../fundamentals/active-directory-manage-groups.md)
 * [整合內部部署身分識別與 Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

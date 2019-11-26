@@ -1,5 +1,5 @@
 ---
-title: High availability for Azure MFA Server - Azure Active Directory
+title: Azure MFA Server 的高可用性-Azure Active Directory
 description: 在設定中部署多個 Azure Multi-Factor Authentication Server 執行個體以提供高可用性。
 services: multi-factor-authentication
 ms.service: active-directory
@@ -23,13 +23,13 @@ ms.locfileid: "74404311"
 若要透過 Azure Server MFA 部署達到高可用性，您必須部署多部 MFA Server。 本節提供負載平衡設計的相關資訊，該設計可達到 Azure MFS Server 部署中的高可用性目標。
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+> 從2019年7月1日起，Microsoft 將不再為新的部署提供 MFA 伺服器。 新客戶若想要從他們的使用者要求多重要素驗證，應該使用雲端式 Azure 多重要素驗證。 在7月1日前啟動 MFA Server 的現有客戶將能夠下載最新版本、未來的更新，並如往常般產生啟用認證。
 
 ## <a name="mfa-server-overview"></a>MFA Server 概觀
 
 Azure MFA Server 服務架構包含數個元件，如下圖所示：
 
- ![MFA Server Architecture components](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
+ ![MFA Server 架構元件](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
 
 MFA Server 是已安裝 Azure Multi-Factor Authentication 軟體的 Windows Server。 MFA Server 執行個體必須透過 Azure MFA 服務啟用才能運作。 您可以在內部部署安裝多部 MFA Server。
 
@@ -39,9 +39,9 @@ MFA Server 是已安裝 Azure Multi-Factor Authentication 軟體的 Windows Serv
 
 向 AD 成功驗證之後，MFA Server 將會與 MFA 服務通訊。 MFA Server 會等候來自 MFA 服務的通知，以允許或拒絕使用者存取應用程式。
 
-如果 MFA 主要伺服器離線，仍可處理驗證，但無法處理需要變更 MFA 資料庫的作業。 (Examples include: the addition of users, self-service PIN changes, changing user information, or access to the user portal)
+如果 MFA 主要伺服器離線，仍可處理驗證，但無法處理需要變更 MFA 資料庫的作業。 （範例包括：新增使用者、自助 PIN 變更、變更使用者資訊或存取使用者入口網站）
 
-## <a name="deployment"></a>Deployment
+## <a name="deployment"></a>部署
 
 請考慮對 Azure MFA Server 及其相關元件進行負載平衡的下列重點。
 

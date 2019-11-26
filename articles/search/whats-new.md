@@ -1,7 +1,7 @@
 ---
-title: New feature announcements
+title: 新功能公告
 titleSuffix: Azure Cognitive Search
-description: Announcements of new and enhanced features, including a service rename of Azure Search to Azure Cognitive Search.
+description: 全新和增強功能的公告，包括將 Azure 搜尋服務的服務重新命名為 Azure 認知搜尋。
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -15,39 +15,39 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74422389"
 ---
-# <a name="whats-new-in-azure-cognitive-search"></a>What's new in Azure Cognitive Search
+# <a name="whats-new-in-azure-cognitive-search"></a>Azure 認知搜尋的新功能
 
-了解該服務的新功能。 Bookmark this page to keep up to date with the service.
+了解該服務的新功能。 將此頁面加入書簽，以掌握服務的最新狀態。
 
 <a name="new-service-name"></a>
 
-## <a name="new-service-name-for-azure-search"></a>New service name for Azure Search
+## <a name="new-service-name-for-azure-search"></a>Azure 搜尋服務的新服務名稱
 
-Azure Search is now renamed to **Azure Cognitive Search** to reflect the expanded use of cognitive skills and AI processing in core operations. While cognitive skills add new capabilities, using AI is strictly optional. You can continue to use Azure Cognitive Search without AI to build rich, full text search solutions over private, heterogenous, text-based content in an index that you create and manage in the cloud. 
+Azure 搜尋服務現在已重新命名為**Azure 認知搜尋**，以反映核心作業中的認知技能和 AI 處理的擴充使用。 雖然認知技能新增了新功能，但使用 AI 是完全選擇性的。 您可以繼續使用不含 AI 的 Azure 認知搜尋，在您于雲端建立和管理的索引中，透過私人、未經處理、以文字為基礎的內容來建立豐富的全文檢索搜尋解決方案。 
 
-API versions, Nuget packages, namespaces, and endpoints are unchanged. Your existing search solutions are unaffected by the service name change.
+API 版本、Nuget 套件、命名空間和端點都不會變更。 您現有的搜尋解決方案不受服務名稱變更的影響。
 
-## <a name="feature-announcements"></a>Feature announcements
+## <a name="feature-announcements"></a>功能公告
 
-November 4, 2019 - Ignite Conference
+2019年11月4日-Ignite 會議
 
-+ [Incremental indexing (preview)](cognitive-search-incremental-indexing-conceptual.md) allows you to pick and choose which steps to reprocess when making modifications to an enrichment pipeline. Incremental indexing is useful if you have image content that you previously analyzed. The output of costly analysis is stored and then used as a basis for additional indexing or enrichment.
++ 累加[式索引編制（預覽）](cognitive-search-incremental-indexing-conceptual.md)可讓您在對擴充管線進行修改時，選擇要重新處理的步驟。 如果您有先前分析的影像內容，累加式編制索引會很有用。 成本高昂分析的輸出會儲存起來，然後用來做為額外索引或擴充的基礎。
 
 <!-- 
 + Custom Entity Lookup is a cognitive skill used during indexing that allows you to provide a list of custom entities (such as part numbers, diseases, or names of locations you care about) that should be found within the text. It supports fuzzy matching, case-insensitive matching, and entity synonyms. -->
 
-+ [Document Extraction (preview)](cognitive-search-skill-document-extraction.md) is a cognitive skill used during indexing that allows you to extract the contents of a file from within a skillset. Previously, document cracking only occurred prior to skillset execution. With the addition of this skill, you can also perform this operation within skillset execution.
++ 檔[解壓縮（預覽）](cognitive-search-skill-document-extraction.md)是在編制索引期間使用的認知技能，可讓您從技能集中解壓縮檔案的內容。 過去，只有在技能集執行之前才會發生檔破解。 隨著這項技能的增加，您也可以在技能集執行期間執行此作業。
 
-+ [Text Translation (preview)](cognitive-search-skill-text-translation.md) is a cognitive skill used during indexing that evaluates text and, for each record, returns the text translated to the specified target language.
++ [文字翻譯（預覽）](cognitive-search-skill-text-translation.md)是在索引編制期間所使用的認知技能，可評估文字，而針對每一筆記錄，會傳回轉譯為指定目的語言的文字。
 
-+ [Power BI templates](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) can jumpstart your visualizations and analysis of enriched content in a knowledge store in Power BI desktop. This template is designed for Azure table projections created through the [Import data wizard](knowledge-store-create-portal.md).
++ [Power BI 範本](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md)可以快速開始您的視覺效果，並分析 Power BI desktop 中的知識存放區中豐富的內容。 此範本是針對透過 [匯[入資料] wizard](knowledge-store-create-portal.md)建立的 Azure 資料表投影所設計。
 
-+ [Azure Data Lake Storage Gen2 (preview)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB Gremlin API (preview)](search-howto-index-cosmosdb.md), and [Cosmos DB Cassandra API (preview)](search-howto-index-cosmosdb.md) are now supported in indexers. You can sign up using [this form](https://aka.ms/azure-cognitive-search/indexer-preview). You will receive a confirmation email once you have been accepted into the preview program.
++ [Azure Data Lake Storage Gen2 （預覽）](search-howto-index-azure-data-lake-storage.md)、 [Cosmos DB Gremlin API （預覽）](search-howto-index-cosmosdb.md)和[Cosmos DB Cassandra API （預覽）](search-howto-index-cosmosdb.md)現在已在索引子中支援。 您可以使用[此表單](https://aka.ms/azure-cognitive-search/indexer-preview)進行註冊。 一旦您接受預覽計畫，就會收到一封確認電子郵件。
 
-July 24 2019
+24 2019 年7月
 
-+ Generally available in [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
++ 已在[Azure Government 雲端](https://docs.microsoft.com/azure/azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search)中正式推出。
 
 ## <a name="service-updates"></a>服務更新
 
-[Service update announcements](https://azure.microsoft.com/updates/?product=search&status=all) for Azure Cognitive Search can be found on the Azure web site.
+Azure 認知搜尋的[服務更新宣告](https://azure.microsoft.com/updates/?product=search&status=all)可在 azure 網站上找到。

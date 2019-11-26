@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot legacy hybrid Azure Active Directory joined devices
+title: 針對舊版混合式 Azure Active Directory 已加入裝置進行疑難排解
 description: 針對已加入混合式 Azure Active Directory 的下層裝置進行疑難排解。
 services: active-directory
 ms.service: active-directory
@@ -32,7 +32,7 @@ ms.locfileid: "74379109"
 
 本文章假設您[設定已加入混合式 Azure Active Directory 的裝置](hybrid-azuread-join-plan.md)來支援下列案例：
 
-- Device-based Conditional Access
+- 以裝置為基礎的條件式存取
 
 本文章提供有關如何解決潛在問題的疑難排解指引。  
 
@@ -69,11 +69,11 @@ ms.locfileid: "74379109"
     ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
    - Autoworkplace.exe 無法以無訊息方式使用 Azure AD 或 AD FS 進行驗證。 造成此情況的原因可能是 AD FS (適用於同盟網域) 遺漏或設定不正確、「Azure AD 無縫單一登入」(適用於受控網域) 遺漏或設定不正確，或網路問題。 
-   - It could be that multi-factor authentication (MFA) is enabled/configured for the user and WIAORMULTIAUTHN is not configured at the AD FS server. 
+   - 可能是已啟用/設定使用者的多重要素驗證（MFA），而且未在 AD FS 伺服器上設定 WIAORMULTIAUTHN。 
    - 另一個可能原因是主領域探索 (HRD) 頁面正在等候使用者互動，而導致 **autoworkplace.exe** 無法以無訊息方式要求權杖。
    - 可能是用戶端上 IE 的內部網路區域中遺漏 AD FS 和 Azure AD URL。
    - 網路連線能力問題可能會導致 **autoworkplace.exe** 無法連線至 AD FS 或 Azure AD URL。 
-   - **Autoworkplace.exe** requires the client to have direct line of sight from the client to the organization's on-premises AD domain controller, which means that hybrid Azure AD join succeeds only when the client is connected to organization's intranet.
+   - **Autoworkplace.exe 無法**需要用戶端能夠從用戶端直接看到到組織的內部部署 AD 網域控制站，這表示只有當用戶端連線到組織的內部網路時，混合式 Azure AD 聯結才會成功。
    - 貴組織使用的是 Azure AD 無縫單一登入，`https://autologon.microsoftazuread-sso.com` 或 `https://aadg.windows.net.nsatc.net` 不在裝置的 IE 內部網路設定中，並且未針對內部網路區域啟用 [允許透過指令碼更新至狀態列]。
 - 您不是以網域使用者身分登入
 

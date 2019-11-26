@@ -21,7 +21,7 @@ ms.locfileid: "74218863"
 
 本文說明 Cloudyn 入口網站中所含 Cloudyn 報告的用途。 也會說明如何有效運用這些報告。 大部分為直覺式的報告，具有一致的外觀及操作方式。 在一份報告中所能執行的動作，大部分也能在其他報告中執行。 如需概略了解 Cloudyn 報告的使用方式 (包括如何自訂和儲存或排定報告)，請參閱[了解成本報告](understanding-cost-reports.md)。
 
-Azure 成本管理可提供與 Cloudyn 類似的功能。 「Azure 成本管理」是原生的 Azure 成本管理解決方案。 它可協助您分析成本、建立及管理預算、匯出資料，以及檢閱最佳化建議並依據這些建議採取動作來節省成本。 如需詳細資訊，請參閱 [Azure 成本管理](overview-cost-mgt.md)。
+「Azure 成本管理」提供與 Cloudyn 類似的功能。 「Azure 成本管理」是原生的 Azure 成本管理解決方案。 它可協助您分析成本、建立及管理預算、匯出資料，以及檢閱最佳化建議並依據這些建議採取動作來節省成本。 如需詳細資訊，請參閱 [Azure 成本管理](overview-cost-mgt.md)。
 
 ## <a name="report-types"></a>報表類型
 
@@ -51,7 +51,7 @@ _成本分析_報告會顯示您雲端提供者的帳單資料。 您可以使�
 
 有些_成本分析_報表不會按照資源標記將成本分組。 而且在使用[成本配置 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) 建立成本模型來配置成本後，報告才會顯示標記型計費資訊。
 
-使用[成本配置 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) 建立成本模型之後，您就可以使用_成本配置_報告。 Cloudyn 會處理成本/帳單資料，並將資料與您雲端帳戶的使用量和標記資料進行「比對」。 若要符合資料，Cloudyn 需要存取您的使用量資料。 如果您有缺少認證的帳戶，則這些帳戶會標示為_未分類的資源_。
+使用_成本配置 360_ 建立成本模型之後，您就可以使用[成本配置](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs)報告。 Cloudyn 會處理成本/帳單資料，並將資料與您雲端帳戶的使用量和標記資料進行「比對」。 若要符合資料，Cloudyn 需要存取您的使用量資料。 如果您有缺少認證的帳戶，則這些帳戶會標示為_未分類的資源_。
 
 ## <a name="dashboards"></a>儀表板
 
@@ -198,7 +198,7 @@ Cloudyn 會藉由套用「帳戶親和性」，確保配置會保留每個連結
 7. 如果在 [日期] 中選取一次性費用，請在 [生效日期] 中，輸入支付費用的日期。 如果選取 [週期性費用]，請輸入包括費用開始日期和結束日期的日期範圍。
 8. 在 [實體] 樹狀結構中，選取您想要套用費用的實體，然後選取 [開啟]。
 
-_When charges are assigned to an entity, users can't change them. Charges that are added by an administrator to a parent entity are read-only._
+_將費用指派給實體時，使用者將無法變更它們。系統管理員新增至父實體的費用是唯讀的。_
 
 檢視自訂費用：
 
@@ -210,9 +210,9 @@ _When charges are assigned to an entity, users can't change them. Charges that a
 
 如需有關建立自訂成本模型的詳細資訊，請參閱[教學課程：使用 Cloudyn 來管理成本](tutorial-manage-costs.md)。
 
-### <a name="cost-vs-budget-over-time-report"></a>Cost vs. Budget Over Time report
+### <a name="cost-vs-budget-over-time-report"></a>成本與隨時間變化的預算報告
 
-The Cost vs. Budget Over Time report allows you to compare the main cost contributors against your budget. 指派的預算會在報告中出現，因此您可以檢視隨時間變化的預算號用量 (超過/不足/持平)。 使用預算報告頂端的 [顯示/隱藏欄位] 時，您可以檢視成本、預算、累積成本或總預算。
+[隨時間變化的預算] 報告可讓您將主要成本參與者與預算做比較。 指派的預算會在報告中出現，因此您可以檢視隨時間變化的預算號用量 (超過/不足/持平)。 使用預算報告頂端的 [顯示/隱藏欄位] 時，您可以檢視成本、預算、累積成本或總預算。
 
 ### <a name="current-month-projected-cost-report"></a>當月預估成本報告
 
@@ -246,7 +246,7 @@ The Cost vs. Budget Over Time report allows you to compare the main cost contrib
 
 若要將已完成的預算匯出為 CSV 檔案，按一下 [動作] 下方的 [匯出] 來下載檔案。
 
-When completed, your budget is shown in Cost Analysis reports and in the Cost vs. Budget Over Time report. 您也可以根據預算閾值來排程報告。
+完成時，您的預算會顯示在成本分析報告中，以及成本與預算一段時間的報告中。 您也可以根據預算閾值來排程報告。
 
 ### <a name="azure-resource-explorer-report"></a>Azure 資源總管報告
 

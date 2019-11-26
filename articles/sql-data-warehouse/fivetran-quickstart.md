@@ -1,5 +1,5 @@
 ---
-title: Fivetran quickstart
+title: Fivetran 快速入門
 description: 快速開始使用 Fivetran 和 Azure SQL 資料倉儲。
 services: sql-data-warehouse
 author: mlee3gsd
@@ -81,5 +81,5 @@ ms.locfileid: "74229098"
 * 主機 (您的伺服器名稱)。
 * 連接埠。
 * 資料庫。
-* User (the user name should be **fivetran\@_server_name_** where *server_name* is part of your Azure host URI: ***server_name*.database.windows.net**).
+* 使用者（使用者名稱應**fivetran\@_server_name_**  ，其中*server_name*是 Azure 主機 URI 的一部分： ***server_name *。**
 * 密碼。

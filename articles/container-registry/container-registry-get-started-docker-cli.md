@@ -1,5 +1,5 @@
 ---
-title: Push & pull Docker image
+title: 推送 & 提取 Docker 映射
 description: 使用 Docker CLI 推送和提取 Docker 映像至 Azure 中的私人容器登錄
 ms.topic: article
 ms.date: 01/23/2019
@@ -17,7 +17,7 @@ Azure 容器登錄庫儲存和管理私人 [Docker](https://hub.docker.com) 容�
 
 在下列步驟中，您會從公用 Docker 中樞登錄庫下載官方提供的 [Nginx 映像](https://store.docker.com/images/nginx)，將其標記為私人 Azure 容器登錄庫，推送到您的登錄庫，然後再從登錄庫將其提取出來。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 容器登錄庫** - 在 Azure 訂用帳戶中建立容器登錄庫。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。
 * **Docker CLI** - 您也必須在本機上安裝 Docker。 Docker 提供可輕鬆在任何 [macOS][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系統上設定 Docker 的套件。
@@ -57,7 +57,7 @@ docker pull nginx
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Browse to `http://localhost:8080` to view the default web page served by Nginx in the running container. 您應該會看到如下所示的頁面：
+流覽至 `http://localhost:8080`，以 Nginx 在執行中的容器中提供的預設網頁。 您應該會看到如下所示的頁面：
 
 ![本機電腦上的 Nginx](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -73,7 +73,7 @@ Browse to `http://localhost:8080` to view the default web page served by Nginx i
 docker tag nginx myregistry.azurecr.io/samples/nginx
 ```
 
-如需使用命名空間進行標記的詳細資訊，請參閱 [Azure Container Registry 的最佳做法](container-registry-best-practices.md)的[存放庫命名空間](container-registry-best-practices.md#repository-namespaces)一節。
+如需使用命名空間進行標記的詳細資訊，請參閱 [Azure Container Registry 的最佳做法](container-registry-best-practices.md#repository-namespaces)的[存放庫命名空間](container-registry-best-practices.md)一節。
 
 ## <a name="push-the-image-to-your-registry"></a>將映像推送至您的登錄庫
 
@@ -99,7 +99,7 @@ docker pull myregistry.azurecr.io/samples/nginx
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Browse to `http://localhost:8080` to view the running container.
+流覽至 `http://localhost:8080` 以查看執行中的容器。
 
 若要停止並移除該容器，請按 `Control`+`C`。
 

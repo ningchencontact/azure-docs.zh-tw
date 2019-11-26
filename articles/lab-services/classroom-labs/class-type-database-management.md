@@ -1,6 +1,6 @@
 ---
-title: Set up a lab to teach database management for relational databases | Microsoft Docs
-description: Learn how to set up a lab to teach the management of relational databases.
+title: 設定實驗室來教授關係資料庫的資料庫管理 |Microsoft Docs
+description: 瞭解如何設定實驗室，以教授關係資料庫的管理。
 services: lab-services
 documentationcenter: na
 author: emaher
@@ -20,59 +20,59 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233762"
 ---
-# <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Set up a lab to teach database management for relational databases
+# <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>設定實驗室來教授關係資料庫的資料庫管理
 
-This article describes how to set up a lab for a basic databases management class in Azure Lab Services. Databases concepts are one of the introductory courses taught in most of the Computer Science departments in college. Structured Query Language (SQL) is an international standard. SQL is the standard language for relation database management including adding, accessing, and managing content in a database.  It is most noted for its quick processing, proven reliability, ease, and flexibility of use.
+本文說明如何在 Azure 實驗室服務中設定基本資料庫管理類別的實驗室。 資料庫概念是在大學大部分電腦科學部門所教授的其中一個簡介課程。 結構化查詢語言 (SQL) （SQL）是國際標準。 SQL 是關聯資料庫管理的標準語言，包括新增、存取和管理資料庫中的內容。  最值得注意的是，其快速處理、經過證實的可靠性、便利性和使用彈性。
 
-In this article, we'll show how to set up a virtual machine template in a lab with both MySQL Database Server and SQL Server 2019 server.  [MySQL](https://www.mysql.com/) is a freely available open source Relational Database Management System (RDBMS).  [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) is the latest version of Microsoft’s RDBMS.
+在本文中，我們將示範如何在具有 MySQL 資料庫伺服器和 SQL Server 2019 伺服器的實驗室中設定虛擬機器範本。  [MySQL](https://www.mysql.com/)是免費提供的開放原始碼關係資料庫管理系統（RDBMS）。  [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019)是 Microsoft RDBMS 的最新版本。
 
 ## <a name="lab-configuration"></a>實驗室組態
 
-To set up this lab, you need an Azure subscription and lab account to get started. 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。 Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see [Tutorial to Setup a Lab Account](tutorial-setup-lab-account.md).  You can also use an existing lab account.
+若要設定此實驗室，您需要 Azure 訂用帳戶和實驗室帳戶，才能開始使用。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。 取得 Azure 訂用帳戶之後，您可以在 Azure 實驗室服務中建立新的實驗室帳戶。 如需建立新實驗室帳戶的詳細資訊，請參閱[設定實驗室帳戶的教學](tutorial-setup-lab-account.md)課程。  您也可以使用現有的實驗室帳戶。
 
-### <a name="lab-account-settings"></a>Lab account settings
+### <a name="lab-account-settings"></a>實驗室帳戶設定
 
-Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see [Specify Marketplace images available to lab creators](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#specify-marketplace-images-available-to-lab-creators).
+針對實驗室帳戶啟用下表所述的設定。 如需如何啟用 marketplace 映射的詳細資訊，請參閱[指定可供實驗室建立者使用的 marketplace 映射](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#specify-marketplace-images-available-to-lab-creators)。
 
-| Lab account setting | 範例的指示 |
+| 實驗室帳戶設定 | 範例的指示 |
 | ------------------- | ------------ |
-|Marketplace image| Enable the ‘SQL Server 2019 Standard on Windows Server 2019’ image for use within your lab account.|
+|Marketplace 映射| 啟用「Windows Server 2019 上的 SQL Server 2019 標準」映射，以在您的實驗室帳戶中使用。|
 
-### <a name="lab-settings"></a>Lab settings
+### <a name="lab-settings"></a>實驗室設定
 
-Use the settings in the table below when setting up a classroom lab.  For more information how to create a classroom lab, see [set up a classroom lab tutorial](tutorial-setup-classroom-lab.md).
+設定教室實驗室時，請使用下表中的設定。  如需如何建立教室實驗室的詳細資訊，請參閱[設定教室實驗室教學課程](tutorial-setup-classroom-lab.md)。
 
-| Lab settings | Value/instructions |
+| 實驗室設定 | 值/指示 |
 | ------------ | ------------------ |
-|虛擬機器大小| 中。 This size is best suited for relational databases, in-memory caching, and analytics.|
-|Virtual Machine Image| SQL Server 2019 Standard on Windows Server 2019|
+|虛擬機器大小| 中。 此大小最適合用於關係資料庫、記憶體內部快取及分析。|
+|虛擬機器映射| Windows Server 2019 上的 SQL Server 2019 Standard|
 
-## <a name="template-machine-configuration"></a>Template machine configuration
+## <a name="template-machine-configuration"></a>範本機器設定
 
-To install MySQL on Windows Server 2019, you can follow the steps mentioned in [Install and Run MySQL Community Server on a Virtual Machine](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
+若要在 Windows Server 2019 上安裝 MySQL，您可以遵循在[虛擬機器上安裝和執行 Mysql 社區伺服器](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine)中所述的步驟。
 
-SQL Server 2019 is pre-installed in the virtual machine image we chose when creating the new lab.
+SQL Server 2019 已預先安裝在建立新實驗室時所選擇的虛擬機器映射中。
 
 ## <a name="cost-estimate"></a>成本預估值
 
-Let's cover a possible cost estimate for this class.  We'll use a class of 25 students.  There are 20 hours of scheduled class time.  Also, each student gets 10 hours quota for homework or assignments outside scheduled class time.  The virtual machine size we chose was medium, which is 42 lab units.
+讓我們來討論這個類別的可能成本預估。  我們將使用25名學生的課程。  已排程的類別時間有20小時。  此外，每個學生在排程的類別時間以外，會取得家庭或指派10小時的配額。  我們選擇的虛擬機器大小為「中」，也就是42實驗室單位。
 
-Here is an example of a possible cost estimate for this class:
+以下是此類別的可能成本預估範例：
 
-25 students \* (20 scheduled hours + 10 quota hours) \* 0.42 USD per hour  = 315.00 USD
+25名學生 \* （20個排程小時 + 10 個配額小時） \* 0.42 美元/小時 = 315.00 美元
 
-Further more details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
+如需更多有關定價的詳細資訊，請參閱[Azure 實驗室服務定價](https://azure.microsoft.com/pricing/details/lab-services/)。
 
 ## <a name="conclusion"></a>結論
 
-This article walked you through the steps necessary to create a lab for basic database management concepts using both MySQL and SQL Server. You can use a similar setup for other databases classes.
+本文逐步解說使用 MySQL 和 SQL Server 建立基本資料庫管理概念的實驗室所需的步驟。 您可以針對其他資料庫類別使用類似的設定。
 
 ## <a name="next-steps"></a>後續步驟
 
-Next steps are common to setting up any lab.
+下一步是設定任何實驗室的常見步驟。
 
-- [Create and manage a template](how-to-create-manage-template.md)
+- [建立和管理範本](how-to-create-manage-template.md)
 - [新增使用者](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)
+- [設定配額](how-to-configure-student-usage.md#set-quotas-for-users)
+- [設定排程](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [學生的電子郵件註冊連結](how-to-configure-student-usage.md#send-invitations-to-users)

@@ -1,6 +1,6 @@
 ---
-title: Using return value from an Azure Function
-description: Learn to manage return values for Azure Functions
+title: 使用來自 Azure 函式的傳回值
+description: 瞭解如何管理 Azure Functions 的傳回值
 author: craigshoemaker
 ms.topic: reference
 ms.date: 01/14/2019
@@ -12,15 +12,15 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74480577"
 ---
-# <a name="using-the-azure-function-return-value"></a>Using the Azure Function return value
+# <a name="using-the-azure-function-return-value"></a>使用 Azure 函數傳回值
 
-This article explains how return values work inside a function.
+本文說明傳回值在函式內的運作方式。
 
-In languages that have a return value, you can bind a function [output binding](./functions-triggers-bindings.md#binding-direction) to the return value:
+在具有傳回值的語言中，您可以將函式[輸出](./functions-triggers-bindings.md#binding-direction)系結系結至傳回值：
 
 * 在 C# 類別庫中，將輸出繫結屬性套用至方法傳回值。
-* In Java, apply the output binding annotation to the function method.
-* 在其他語言中，將 function.json 中的 `name` 屬性設定為 `$return`。
+* 在 JAVA 中，將輸出系結注釋套用至函式方法。
+* 在其他語言中，將 function.json`name`*中的* 屬性設定為 `$return`。
 
 如果有多個輸出繫結，請只對其中一個使用傳回值。
 
@@ -52,7 +52,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 以下是 function.json 檔案中的輸出繫結：
 
@@ -155,7 +155,7 @@ def main(input: azure.functions.InputStream) -> str:
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Here's Java code that uses the return value for an output binding:
+以下是針對輸出系結使用傳回值的 JAVA 程式碼：
 
 ```java
 @FunctionName("QueueTrigger")
@@ -176,4 +176,4 @@ public static String run(
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Handle Azure Functions binding errors](./functions-bindings-errors.md)
+> [處理 Azure Functions 系結錯誤](./functions-bindings-errors.md)

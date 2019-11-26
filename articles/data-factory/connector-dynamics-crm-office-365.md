@@ -221,7 +221,7 @@ ms.locfileid: "74280691"
 | 類型 | 資料集的類型屬性必須設定為**DynamicsEntity**、 **DynamicsCrmEntity**或**CommonDataServiceForAppsEntity**。 |yes |
 | entityName | 要擷取之實體的邏輯名稱。 | 否 (來源，如果已指定活動來源中的「查詢」)；是 (接收) |
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -260,7 +260,7 @@ ms.locfileid: "74280691"
 >- 當您從 Dynamics 複製資料時，從 Dynamics 到 sink 的明確資料行對應是選擇性的，但高度建議，以確保具有決定性的複製結果。
 >- 在撰寫 UI 中匯入架構時，ADF 會藉由取樣 Dynamics 查詢結果的前幾個資料列來初始化來源資料行清單，以推斷架構，在此情況下，將不會省略前幾個資料列中沒有值的資料行。 如果沒有明確對應，相同的行為也適用于複製執行。 您可以檢查並將更多資料行加入對應中，這將會在複製執行時間中接受。
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[
@@ -331,7 +331,7 @@ Dynamics 365 線上版限制[每個組織只能有 2 個並行批次呼叫](http
 
 「**WriteBatchSize**」和「**parallelCopies**」的最佳組合取決於您實體的架構，例如資料行數目、資料列大小、與這些呼叫連結的外掛程式/工作流程/工作流程活動數目等等。預設值為 10 writeBatchSize * 10 parallelCopies 是根據 Dynamics 服務的建議，這適用于大多數的 Dynamics 實體，但可能不是最佳效能。 您可以藉由調整複製活動設定中的組合來微調效能。
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[

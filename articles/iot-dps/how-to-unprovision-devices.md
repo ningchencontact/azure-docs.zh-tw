@@ -1,5 +1,5 @@
 ---
-title: Deprovision devices that were provisioned with Azure IoT Hub Device Provisioning Service
+title: 取消布建使用 Azure IoT 中樞裝置布建服務布建的裝置
 description: 如何取消佈建使用 Azure IoT 中樞裝置佈建服務佈建的裝置
 author: wesmc7777
 ms.author: wesmc

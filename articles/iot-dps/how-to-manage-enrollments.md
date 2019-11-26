@@ -1,5 +1,5 @@
 ---
-title: Manage device enrollments for Azure IoT Hub Device Provisioning Service in the Azure portal
+title: 管理 Azure 入口網站中 Azure IoT 中樞裝置布建服務的裝置註冊
 description: 如何在 Azure 入口網站中管理裝置佈建服務的裝置註冊
 author: wesmc7777
 ms.author: wesmc
@@ -34,12 +34,12 @@ ms.locfileid: "74229721"
      a. 按一下 [管理註冊]，然後選取 [註冊群組] 索引標籤。  
      b.這是另一個 C# 主控台應用程式。 按一下位於頂端的 [新增] 按鈕。  
      c. 當 [新增註冊群組] 面板出現時，請輸入註冊清單項目的資訊。  需要 [群組名稱]。 此外，針對 [憑證類型]，請選取「CA 或中繼」，並上傳裝置群組的根 [主要憑證]。  
-     d. 按一下 [儲存]。 在成功建立註冊群組後，您應該會看到群組名稱出現在 [註冊群組] 索引標籤底下。  
+     d. 按一下 [檔案]。 在成功建立註冊群組後，您應該會看到群組名稱出現在 [註冊群組] 索引標籤底下。  
 
-     [![Enrollment group in the portal](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
+     [在入口網站中 ![註冊群組](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
 
-* **個別註冊**是可能會註冊之單一裝置的項目。 個別註冊可使用 x509 憑證或 SAS 權杖 (從實際或虛擬的 TPM) 來作為證明機制。 對於需要唯一初始設定的裝置，或是只能透過 TPM 或虛擬 TPM 將 SAS 權杖作為證明機制的裝置，建議您使用個別註冊。 個別註冊可能會指定所需的 IoT 中樞裝置識別碼。
+* **個別註冊**是可能會註冊之單一裝置的項目。 個別註冊可使用 x509 憑證或 SAS 權杖 (從實際或虛擬的 TPM) 來作為證明機制。 對於需要唯一初始設定的裝置，或是只能透過 TPM 或虛擬 TPM 將 SAS 權杖作為證明機制的裝置，建議您使用個別註冊。 個別申請可能會指定所需的 IoT 中樞裝置識別碼。
 
     您可以使用下列步驟在入口網站中建立個別註冊：
 
@@ -49,7 +49,7 @@ ms.locfileid: "74229721"
        a. 按一下 [管理註冊]，然後選取 [個別註冊] 索引標籤。  
        b.這是另一個 C# 主控台應用程式。 按一下位於頂端的 [新增] 按鈕。   
        c. 當 [新增註冊] 面板出現時，請輸入註冊清單項目的資訊。 請先選取裝置的證明 [機制] (X.509 或 TPM)。 X.509 證明會要求您上傳裝置的分葉 [主要憑證]。 TPM 會要求您輸入裝置的 [證明金鑰] 和 [註冊識別碼]。  
-       d. 按一下 [儲存]。 在成功建立註冊群組後，您應該會看到裝置出現在 [個別註冊] 索引標籤底下。  
+       d. 按一下 [檔案]。 在成功建立註冊群組後，您應該會看到裝置出現在 [個別註冊] 索引標籤底下。  
 
        [![入口網站中的個別註冊](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 

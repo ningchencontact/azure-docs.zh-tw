@@ -377,7 +377,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 > [!IMPORTANT]
 > 當您提交定型回合時，會建立包含定型腳本之目錄的快照集，並傳送到計算目標。 它也會在您的工作區中儲存為實驗的一部分。 如果您變更檔案並再次提交執行，則只會上傳變更的檔案。
 >
-> 若要防止檔案包含在快照中, 請在目錄中建立 [.gitignore](https://git-scm.com/docs/gitignore) `.amlignore`或檔案, 並在其中新增檔案。 檔案會使用與 `.amlignore`.gitignore[ 檔案相同的語法和模式。](https://git-scm.com/docs/gitignore) 如果兩個檔案都存在，則會優先使用 `.amlignore` 檔案。
+> 若要防止檔案包含在快照中，請在目錄中建立[.gitignore](https://git-scm.com/docs/gitignore)或 `.amlignore` 檔案，並在其中新增檔案。 `.amlignore` 檔案使用與[.gitignore](https://git-scm.com/docs/gitignore)檔案相同的語法和模式。 如果兩個檔案都存在，則會優先使用 `.amlignore` 檔案。
 > 
 > 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshots)。
 

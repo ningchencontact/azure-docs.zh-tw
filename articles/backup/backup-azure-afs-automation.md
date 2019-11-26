@@ -1,6 +1,6 @@
 ---
-title: Back up and restore Azure Files with PowerShell
-description: In this article, learn how to back up and restore Azure Files using the Azure Backup service and PowerShell.
+title: 使用 PowerShell 備份和還原 Azure 檔案儲存體
+description: 在本文中，您將瞭解如何使用 Azure 備份服務和 PowerShell 來備份和還原 Azure 檔案儲存體。
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: 78000bc669eb7a61f8698ad8c39ef49f65b245a2
@@ -10,60 +10,60 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224167"
 ---
-# <a name="back-up-and-restore-azure-files-with-powershell"></a>Back up and restore Azure Files with PowerShell
+# <a name="back-up-and-restore-azure-files-with-powershell"></a>使用 PowerShell 備份和還原 Azure 檔案儲存體
 
-This article describes how to use Azure PowerShell to back up and recover an Azure Files file share using an [Azure Backup](backup-overview.md) Recovery Services vault.
+本文說明如何使用 Azure PowerShell，以使用[Azure 備份](backup-overview.md)復原服務保存庫來備份和復原 Azure 檔案儲存體的檔案共用。
 
 本文說明如何：
 
 > [!div class="checklist"]
 >
-> * Set up PowerShell and register the Azure Recovery Services Provider.
+> * 設定 PowerShell，並註冊 Azure 復原服務提供者。
 > * 建立復原服務保存庫。
-> * Configure backup for an Azure file share.
-> * Run a backup job.
-> * Restore a backed up Azure file share, or an individual file from a share.
-> * Monitor backup and restore jobs.
+> * 設定 Azure 檔案共用的備份。
+> * 執行備份作業。
+> * 從共用還原已備份的 Azure 檔案共用或個別檔案。
+> * 監視備份和還原作業。
 
 ## <a name="before-you-start"></a>開始之前
 
-* [Learn more](backup-azure-recovery-services-vault-overview.md) about Recovery Services vaults.
-* Read about the preview capabilities for [backing up Azure file shares](backup-azure-files.md).
-* Review the PowerShell object hierarchy for Recovery Services.
+* [深入瞭解](backup-azure-recovery-services-vault-overview.md)復原服務保存庫。
+* 閱讀[備份 Azure 檔案共用](backup-azure-files.md)的預覽功能。
+* 請參閱復原服務的 PowerShell 物件階層。
 
 ## <a name="recovery-services-object-hierarchy"></a>復原服務物件階層
 
-The object hierarchy is summarized in the following diagram.
+下圖摘要說明物件階層。
 
 ![復原服務物件階層](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.recoveryservices) reference in the Azure library.
+請參閱 Azure 程式庫中的**azurerm.recoveryservices** [Cmdlet 參考](/powershell/module/az.recoveryservices)參考。
 
-## <a name="set-up-and-install"></a>Set up and install
+## <a name="set-up-and-install"></a>設定並安裝
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Set up PowerShell as follows:
+設定 PowerShell，如下所示：
 
 1. [下載最新版的 Az PowerShell](/powershell/azure/install-az-ps)。 最低版本需求為 1.0.0。
 
-2. Find the Azure Backup PowerShell cmdlets with this command:
+2. 使用下列命令尋找 Azure 備份 PowerShell Cmdlet：
 
     ```powershell
     Get-Command *azrecoveryservices*
     ```
 
-3. Review the aliases and cmdlets for Azure Backup, Azure Site Recovery, and the Recovery Services vault appear. Here's an example of what you might see. It's not a complete list of cmdlets.
+3. 查看 Azure 備份、Azure Site Recovery 和復原服務保存庫的別名和 Cmdlet。 以下是您可能會看到的範例。 這不是 Cmdlet 的完整清單。
 
     ![復原服務 Cmdlet 清單](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
 
-4. Sign in to your Azure account with **Connect-AzAccount**.
-5. On the web page that appears, you're prompted to input your account credentials.
+4. 使用 **[Disconnect-azaccount]** 登入您的 Azure 帳戶。
+5. 在出現的網頁上，系統會提示您輸入您的帳號憑證。
 
-    * Alternately, you can include your account credentials as a parameter in the **Connect-AzAccount** cmdlet with **-Credential**.
-    * If you're a CSP partner working on behalf of a tenant, specify the customer as a tenant, using their tenantID or tenant primary domain name. 例如 **Connect-AzAccount -Tenant** fabrikam.com。
+    * 或者，您可以使用 **-Credential**，將您的帳號憑證當做參數包含在**disconnect-azaccount**指令程式中。
+    * 如果您是代表租使用者工作的 CSP 合作夥伴，請使用其 tenantID 或租使用者的主功能變數名稱稱，將客戶指定為租使用者。 例如 **Connect-AzAccount -Tenant** fabrikam.com。
 
-6. Associate the subscription you want to use with the account, because an account can have several subscriptions.
+6. 將您想要使用的訂用帳戶與帳戶建立關聯，因為一個帳戶可以有數個訂閱。
 
     ```powershell
     Select-AzSubscription -SubscriptionName $SubscriptionName
@@ -75,13 +75,13 @@ Set up PowerShell as follows:
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-8. Verify that the providers registered successfully:
+8. 確認已成功註冊提供者：
 
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-9. In the command output, verify that **RegistrationState** changes to **Registered**. If it doesn't, run the **Register-AzResourceProvider** cmdlet again.
+9. 在命令輸出中，確認 [ **RegistrationState** ] 變更為 [**已註冊**]。 如果不是，請再次執行**register-azresourceprovider** Cmdlet。
 
 ## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 
@@ -89,22 +89,22 @@ Set up PowerShell as follows:
 
 依照下列步驟建立復原服務保存庫。
 
-1. A vault is placed in a resource group. If you don't have an existing resource group, create a new one with the [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0). In this example, we create a new resource group in the West US region.
+1. 保存庫會放在資源群組中。 如果您沒有現有的資源群組，請建立一個新的[remove-azresourcegroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0)。 在此範例中，我們會在美國西部區域中建立新的資源群組。
 
    ```powershell
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
-2. Use the [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) cmdlet to create the vault. 為保存庫指定與用於資源群組相同的位置。
+2. 使用[new-azrecoveryservicesvault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) Cmdlet 來建立保存庫。 為保存庫指定與用於資源群組相同的位置。
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Specify the type of redundancy to use for the vault storage.
+3. 指定要用於保存庫儲存體的冗余類型。
 
    * 您可以使用[本機備援儲存體](../storage/common/storage-redundancy-lrs.md)或[異地備援儲存體](../storage/common/storage-redundancy-grs.md)。
-   * The following example sets the **-BackupStorageRedundancy** option for the[Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd for **testvault** set to **GeoRedundant**.
+   * 下列範例會將**testvault**設定為**異地備援**的[AzRecoveryServicesBackupProperties cmd 設定](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) **-BackupStorageRedundancy**選項。
 
      ```powershell
      $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -119,7 +119,7 @@ Set up PowerShell as follows:
 Get-AzRecoveryServicesVault
 ```
 
-The output is similar to the following. Note that the associated resource group and location are provided.
+輸出如下所示。 請注意，系統會提供相關聯的資源群組和位置。
 
 ```powershell
 Name              : Contoso-vault
@@ -133,10 +133,10 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 ### <a name="set-the-vault-context"></a>設定保存庫內容
 
-Store the vault object in a variable, and set the vault context.
+將保存庫物件儲存在變數中，並設定保存庫內容。
 
-* Many Azure Backup cmdlets require the Recovery Services vault object as an input, so it's convenient to store the vault object in a variable.
-* 保存庫內容是保存庫中受保護的資料類型。 Set it with [Set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0). After the context is set, it applies to all subsequent cmdlets.
+* 許多 Azure 備份 Cmdlet 都需要復原服務保存庫物件做為輸入，因此將保存庫物件儲存在變數中是很方便的。
+* 保存庫內容是保存庫中受保護的資料類型。 將它設定為[set-azrecoveryservicesvaultcoNtext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0)。 設定內容之後，它會套用至所有後續的 Cmdlet。
 
 下列範例會設定 **testvault** 的保存庫內容。
 
@@ -144,9 +144,9 @@ Store the vault object in a variable, and set the vault context.
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
-### <a name="fetch-the-vault-id"></a>Fetch the vault ID
+### <a name="fetch-the-vault-id"></a>提取保存庫識別碼
 
-We plan on deprecating the vault context setting in accordance with Azure PowerShell guidelines. Instead, you can store or fetch the vault ID, and pass it to relevant commands. So, if you haven't set the vault context or want to specify the command to run for a certain vault, pass the vault ID as "-vaultID" to all relevant command as follows:
+我們計畫根據 Azure PowerShell 方針來淘汰保存庫內容設定。 相反地，您可以儲存或提取保存庫識別碼，並將它傳遞至相關的命令。 因此，如果您尚未設定保存庫內容，或想要指定要針對特定保存庫執行的命令，請將保存庫識別碼當做 "-vaultID" 傳遞給所有相關的命令，如下所示：
 
 ```powershell
 $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
@@ -155,14 +155,14 @@ New-AzRecoveryServicesBackupProtectionPolicy -Name "NewAFSPolicy" -WorkloadType 
 
 ## <a name="configure-a-backup-policy"></a>設定備份原則
 
-A backup policy specifies the schedule for backups, and how long backup recovery points should be kept:
+備份原則會指定備份的排程，以及應該保留備份復原點的時間長度：
 
 * 備份原則至少與一個保留原則相關聯。 保護原則會定義復原點在被刪除之前要保留多久。
-* View the default backup policy retention using [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
-* View the default backup policy schedule using [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
-* You use the [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) cmdlet to create a new backup policy. You input the schedule and retention policy objects.
+* 使用[AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0)來查看預設的備份原則保留期。
+* 使用[get-azrecoveryservicesbackupschedulepolicyobject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0)來查看預設的備份原則排程。
+* 您可以使用[使用 get-azrecoveryservicesbackupprotectionpolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) Cmdlet 來建立新的備份原則。 您可以輸入排程和保留原則物件。
 
-By default, a start time is defined in the Schedule Policy Object. Use the following example to change the start time to the desired start time. The desired start time should be in UTC as well. The below example assumes the desired start time is 01:00 AM UTC for daily backups.
+根據預設，開始時間是在排程原則物件中定義。 使用下列範例，將開始時間變更為所需的開始時間。 所需的開始時間也應該是 UTC。 下列範例假設每日備份所需的開始時間為 01:00 AM UTC。
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"
@@ -172,9 +172,9 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 ```
 
 > [!IMPORTANT]
-> You need to provide the start time in 30 minute multiples only. In the above example, it can be only "01:00:00" or "02:30:00". The start time cannot be "01:15:00"
+> 您只需要提供30分鐘倍數的開始時間。 在上述範例中，它只能是 "01:00:00" 或 "02:30:00"。 開始時間不能為 "01:15:00"
 
-下列範例會將排程原則和保留原則儲存在變數中。 It then uses those variables as parameters for a new policy (**NewAFSPolicy**). **NewAFSPolicy** 會每日進行備份，並保留 30 天。
+下列範例會將排程原則和保留原則儲存在變數中。 然後，它會使用這些變數做為新原則的參數（**NewAFSPolicy**）。 **NewAFSPolicy** 會每日進行備份，並保留 30 天。
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"
@@ -182,7 +182,7 @@ $retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "Azure
 New-AzRecoveryServicesBackupProtectionPolicy -Name "NewAFSPolicy" -WorkloadType "AzureFiles" -RetentionPolicy $retPol -SchedulePolicy $schPol
 ```
 
-The output is similar to the following.
+輸出如下所示。
 
 ```powershell
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
@@ -192,21 +192,21 @@ NewAFSPolicy           AzureFiles            AzureStorage              10/24/201
 
 ## <a name="enable-backup"></a>啟用備份
 
-After you define the backup policy, you can enable the protection for the Azure file share using the policy.
+定義備份原則之後，您可以使用原則來啟用 Azure 檔案共用的保護。
 
-### <a name="retrieve-a-backup-policy"></a>Retrieve a backup policy
+### <a name="retrieve-a-backup-policy"></a>取出備份原則
 
-You fetch the relevant policy object with [Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0). Use this cmdlet to get a specific policy, or to view the policies associated with a workload type.
+您可以使用[使用 get-azrecoveryservicesbackupprotectionpolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0)來提取相關的原則物件。 使用此 Cmdlet 來取得特定原則，或查看與工作負載類型相關聯的原則。
 
-#### <a name="retrieve-a-policy-for-a-workload-type"></a>Retrieve a policy for a workload type
+#### <a name="retrieve-a-policy-for-a-workload-type"></a>取得工作負載類型的原則
 
-The following example retrieves policies for the workload type **AzureFiles**.
+下列範例會抓取工作負載類型**AzureFiles**的原則。
 
 ```powershell
 Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureFiles"
 ```
 
-The output is similar to the following.
+輸出如下所示。
 
 ```powershell
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
@@ -217,7 +217,7 @@ dailyafs             AzureFiles         AzureStorage         1/10/2018 12:30:00 
 > [!NOTE]
 > PowerShell 中 **BackupTime** 欄位的時區是國際標準時間 (UTC)。 當備份時間顯示在 Azure 入口網站中時，系統會根據您的當地時區調整時間。
 
-### <a name="retrieve-a-specific-policy"></a>Retrieve a specific policy
+### <a name="retrieve-a-specific-policy"></a>取出特定原則
 
 下列原則會擷取名為 **dailyafs** 的備份原則。
 
@@ -225,11 +225,11 @@ dailyafs             AzureFiles         AzureStorage         1/10/2018 12:30:00 
 $afsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "dailyafs"
 ```
 
-### <a name="enable-backup-and-apply-policy"></a>Enable backup and apply policy
+### <a name="enable-backup-and-apply-policy"></a>啟用備份並套用原則
 
-Enable protection with [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). After the policy is associated with the vault, backups are triggered in accordance with the policy schedule.
+啟用[enable-azrecoveryservicesbackupprotection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0)的保護。 當原則與保存庫建立關聯之後，就會根據原則排程觸發備份。
 
-The following example enables protection for the Azure file share **testAzureFileShare** in storage account **testStorageAcct**, with the policy **dailyafs**.
+下列範例會在 [儲存體帳戶] **testStorageAcct**中，使用原則**Dailyafs**來啟用 Azure 檔案共用**testAzureFileShare**的保護。
 
 ```powershell
 Enable-AzRecoveryServicesBackupProtection -StorageAccountName "testStorageAcct" -Name "testAzureFS" -Policy $afsPol
@@ -245,13 +245,13 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 ## <a name="trigger-an-on-demand-backup"></a>觸發隨選備份
 
-Use [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) to run an on-demand backup for a protected Azure file share.
+使用[備份 backup-azrecoveryservicesbackupitem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0)來執行受保護 Azure 檔案共用的隨選備份。
 
-1. Retrieve the storage account and file share from the container in the vault that holds your backup data with [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+1. 使用[AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer)，從保存備份資料的保存庫中的容器，取出儲存體帳戶和檔案共用。
 2. 若要開始備份作業，您需使用 [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem) 來取得 VM 的相關資訊。
-3. Run an on-demand backup with[Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
+3. 使用[備份 backup-azrecoveryservicesbackupitem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem)執行隨選備份。
 
-Run the on-demand backup as follows:
+執行隨選備份，如下所示：
 
 ```powershell
 $afsContainer = Get-AzRecoveryServicesBackupContainer -FriendlyName "testStorageAcct" -ContainerType AzureStorage
@@ -269,15 +269,15 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 
 Azure 檔案共用快照用於進行備份時，因此通常在命令傳回此輸出時作業便已完成。
 
-### <a name="using-on-demand-backups-to-extend-retention"></a>Using on-demand backups to extend retention
+### <a name="using-on-demand-backups-to-extend-retention"></a>使用隨選備份來延長保留期
 
-On-demand backups can be used to retain your snapshots for 10 years. Schedulers can be used to run on-demand PowerShell scripts with chosen retention and thus take snapshots at regular intervals every week, month, or year. While taking regular snapshots, refer to the [limitations of on-demand backups](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) using Azure backup.
+隨選備份可以用來保留您的快照10年。 排程器可用來以選擇的保留來執行隨選 PowerShell 腳本，因此每週、每月或每年都會定期拍攝快照集。 取得一般快照集時，請參閱使用 Azure 備份進行[隨選備份的限制](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share)。
 
-If you are looking for sample scripts, you can refer to the sample script on GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>) using Azure Automation runbook that enables you to schedule backups on a periodic basis and retain them even up to 10 years.
+如果您要尋找範例腳本，您可以使用 Azure 自動化 runbook 參閱 GitHub （<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>）上的範例腳本，讓您定期排程備份並保留最多10年。
 
 ### <a name="modify-the-protection-policy"></a>修改保護原則
 
-To change the policy used for backing up the Azure file share, use [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Specify the relevant backup item and the new backup policy.
+若要變更用來備份 Azure 檔案共用的原則，請使用[enable-azrecoveryservicesbackupprotection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0)。 指定相關的備份專案和新的備份原則。
 
 下列範例會將 **testAzureFS** 保護原則從 **dailyafs** 變更為 **monthlyafs**。
 
@@ -288,17 +288,17 @@ $afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -Workloa
 Enable-AzRecoveryServicesBackupProtection -Item $afsBkpItem -Policy $monthlyafsPol
 ```
 
-## <a name="restore-azure-file-shares-and-files"></a>Restore Azure file shares and files
+## <a name="restore-azure-file-shares-and-files"></a>還原 Azure 檔案共用和檔案
 
-You can restore an entire file share or specific files on the share. You can restore to the original location, or to an alternate location.
+您可以還原整個檔案共用或共用上的特定檔案。 您可以還原至原始位置或替代位置。
 
 ### <a name="fetch-recovery-points"></a>擷取復原點
 
-Use [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint?view=azps-1.4.0) to list all recovery points for the backed-up item.
+使用[AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint?view=azps-1.4.0)來列出已備份專案的所有復原點。
 
-In the following script:
+在下列腳本中：
 
-* The variable **$rp** is an array of recovery points for the selected backup item from the past seven days.
+* 變數 **$rp**是過去七天內所選備份專案的復原點陣列。
 * 陣列是以相反時間順序排序，最新復原點位於索引 **0**。
 * 使用標準 PowerShell 陣列索引來挑選復原點。
 * 在範例中， **$rp[0]** 會選取最新的復原點。
@@ -311,7 +311,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $afsBkpItem -StartDate $st
 $rp[0] | fl
 ```
 
-The output is similar to the following.
+輸出如下所示。
 
 ```powershell
 FileShareSnapshotUri : https://testStorageAcct.file.core.windows.net/testAzureFS?sharesnapshot=2018-11-20T00:31:04.00000
@@ -327,18 +327,18 @@ ContainerType        : AzureStorage
 BackupManagementType : AzureStorage
 ```
 
-After the relevant recovery point is selected, you restore the file share or file to the original location, or to an alternate location.
+選取相關的復原點之後，您可以將檔案共用或檔案還原至原始位置或替代位置。
 
-### <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Restore an Azure file share to an alternate location
+### <a name="restore-an-azure-file-share-to-an-alternate-location"></a>將 Azure 檔案共用還原至替代位置
 
-Use the [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) to restore to the selected recovery point. Specify these parameters to identify the alternate location:
+使用[backup-azrecoveryservicesbackupitem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0)還原至選取的復原點。 指定這些參數以識別替代位置：
 
-* **TargetStorageAccountName**: The storage account to which the backed-up content is restored. 目標儲存體帳戶必須與保存庫位於相同位置。
-* **TargetFileShareName**: The file shares within the target storage account to which the backed-up content is restored.
-* **TargetFolder**: The folder under the file share to which data is restored. 如果備份的內容還原至根資料夾，則將目標資料夾值設為空字串。
-* **ResolveConflict**: Instruction if there's a conflict with the restored data. 可接受的值為 **Overwrite** 或 **Skip**。
+* **TargetStorageAccountName**：要還原備份內容的目標儲存體帳戶。 目標儲存體帳戶必須與保存庫位於相同位置。
+* **TargetFileShareName**：要還原備份內容的目標儲存體帳戶內的檔案共用。
+* **TargetFolder**：要還原資料的檔案共用下的資料夾。 如果備份的內容還原至根資料夾，則將目標資料夾值設為空字串。
+* **ResolveConflict**：如果與還原的資料發生衝突，則為指令。 可接受的值為 **Overwrite** 或 **Skip**。
 
-Run the cmdlet with the parameters as follows:
+使用參數執行 Cmdlet，如下所示：
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -TargetStorageAccountName "TargetStorageAcct" -TargetFileShareName "DestAFS" -TargetFolder "testAzureFS_restored" -ResolveConflict Overwrite
@@ -352,28 +352,28 @@ WorkloadName     Operation            Status               StartTime            
 testAzureFS        Restore              InProgress           12/10/2018 9:56:38 AM                               9fd34525-6c46-496e-980a-3740ccb2ad75
 ```
 
-### <a name="restore-an-azure-file-to-an-alternate-location"></a>Restore an Azure file to an alternate location
+### <a name="restore-an-azure-file-to-an-alternate-location"></a>將 Azure 檔案還原至替代位置
 
-Use the [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) to restore to the selected recovery point. Specify these parameters to identify the alternate location, and to uniquely identify the file you want to restore.
+使用[backup-azrecoveryservicesbackupitem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0)還原至選取的復原點。 指定這些參數以識別替代位置，並唯一識別您想要還原的檔案。
 
-* **TargetStorageAccountName**: The storage account to which the backed-up content is restored. 目標儲存體帳戶必須與保存庫位於相同位置。
-* **TargetFileShareName**: The file shares within the target storage account to which the backed-up content is restored.
-* **TargetFolder**: The folder under the file share to which data is restored. 如果備份的內容還原至根資料夾，則將目標資料夾值設為空字串。
-* **SourceFilePath**: The absolute path of the file, to be restored within the file share, as a string. 此路徑與 **Get-AzStorageFile** PowerShell Cmdlet 中使用的路徑相同。
-* **SourceFileType**: Whether a directory or a file is selected. 可接受的值為 **Directory** 或 **File**。
-* **ResolveConflict**: Instruction if there's a conflict with the restored data. 可接受的值為 **Overwrite** 或 **Skip**。
+* **TargetStorageAccountName**：要還原備份內容的目標儲存體帳戶。 目標儲存體帳戶必須與保存庫位於相同位置。
+* **TargetFileShareName**：要還原備份內容的目標儲存體帳戶內的檔案共用。
+* **TargetFolder**：要還原資料的檔案共用下的資料夾。 如果備份的內容還原至根資料夾，則將目標資料夾值設為空字串。
+* **SourceFilePath**：檔案共用中要還原之檔案的絕對路徑，以字串表示。 此路徑與 **Get-AzStorageFile** PowerShell Cmdlet 中使用的路徑相同。
+* **SourceFileType**：是否已選取目錄或檔案。 可接受的值為 **Directory** 或 **File**。
+* **ResolveConflict**：如果與還原的資料發生衝突，則為指令。 可接受的值為 **Overwrite** 或 **Skip**。
 
-The additional parameters (SourceFilePath and SourceFileType) are related only to the individual file you want to restore.
+其他參數（SourceFilePath 和 SourceFileType）僅與您要還原的個別檔案相關聯。
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -TargetStorageAccountName "TargetStorageAcct" -TargetFileShareName "DestAFS" -TargetFolder "testAzureFS_restored" -SourceFileType File -SourceFilePath "TestDir/TestDoc.docx" -ResolveConflict Overwrite
 ```
 
-This command returns a job with an ID to be tracked, as shown in the previous section.
+此命令會傳回具有要追蹤之識別碼的作業，如上一節所示。
 
-### <a name="restore-azure-file-shares-and-files-to-the-original-location"></a>Restore Azure file shares and files to the original location
+### <a name="restore-azure-file-shares-and-files-to-the-original-location"></a>將 Azure 檔案共用和檔案還原至原始位置
 
-When you restore to an original location, you don't need to specify destination- and target-related parameters. 僅必須提供 **ResolveConflict**。
+當您還原到原始位置時，您不需要指定與目的地和目標相關的參數。 僅必須提供 **ResolveConflict**。
 
 #### <a name="overwrite-an-azure-file-share"></a>覆寫 Azure 檔案共用
 
@@ -389,7 +389,7 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -SourceFileType File 
 
 ## <a name="track-backup-and-restore-jobs"></a>追蹤備份和還原作業
 
-On-demand backup and restore operations return a job along with an ID, as shown when you [ran an on-demand backup](#trigger-an-on-demand-backup). Use the [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) cmdlet to track the job progress and details.
+隨選備份和還原作業會連同識別碼一起傳回工作，如您[執行隨選備份](#trigger-an-on-demand-backup)時所示。 使用[AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) Cmdlet 來追蹤作業進度和詳細資料。
 
 ```powershell
 $job = Get-AzRecoveryServicesBackupJob -JobId 00000000-6c46-496e-980a-3740ccb2ad75 -VaultId $vaultID
@@ -419,4 +419,4 @@ $job.ErrorDetails
 
 ## <a name="next-steps"></a>後續步驟
 
-[Learn about](backup-azure-files.md) backing up Azure Files in the Azure portal.
+[瞭解](backup-azure-files.md)Azure 入口網站中的備份 Azure 檔案儲存體。

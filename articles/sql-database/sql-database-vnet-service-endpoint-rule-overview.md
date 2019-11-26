@@ -1,5 +1,5 @@
 ---
-title: VNet endpoints and rules for single and pooled databases
+title: 適用于單一和集區資料庫的 VNet 端點和規則
 description: 將子網路標示為虛擬網路服務端點。 然後將端點標示為虛擬網路規則，以列在 Azure SQL Database 的 ACL 中。 您的 SQL Database 將會接受來自子網路上所有虛擬機器和其他節點的通訊。
 services: sql-database
 ms.service: sql-database
@@ -20,12 +20,12 @@ ms.locfileid: "74422517"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>對資料庫伺服器使用虛擬網路服務端點和規則
 
-*虛擬網路規則* 是一種防火牆安全功能，可控制 Azure [SQL Database](sql-database-technical-overview.md) 中單一資料庫和彈性集區或是 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)資料庫的資料庫伺服器，是否要接受來自虛擬網路中特定子網路傳來的通訊。 本文說明為何虛擬網路規則功能有時是讓 Azure SQL Database 和 SQL 資料倉儲安全地接受通訊的最佳選項。
+「虛擬網路規則」是一個防火牆安全性功能，可控制適用於 Azure [SQL Database](sql-database-technical-overview.md) 中單一資料庫和彈性集區的資料庫伺服器，或是適用於 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)中資料庫的資料庫伺服器，是否會接受虛擬網路中特定子網路所傳來的通訊。 本文說明為何虛擬網路規則功能有時是讓 Azure SQL Database 和 SQL 資料倉儲安全地接受通訊的最佳選項。
 
 > [!IMPORTANT]
 > 本文適用於 Azure SQL Server，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。 本文「不」適用 Azure SQL Database 中的**受控執行個體**部署，因為它沒有相關聯的服務端點。
 
-To create a virtual network rule, there must first be a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference.
+若要建立虛擬網路規則，必須先有[虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d]，才能參考該規則。
 
 ## <a name="how-to-create-a-virtual-network-rule"></a>如何建立虛擬網路規則
 
@@ -60,7 +60,7 @@ RBAC 替代方案：
 
 「網路管理員」和「資料庫管理員」角色的能力已超過管理虛擬網路規則所需。 只需要其中一部分能力。
 
-You have the option of using [role-based access control (RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role, versus adding the user to the other two major administrator roles.
+您可以選擇在 Azure 中使用[角色型存取控制（RBAC）][rbac-what-is-813s] ，以建立只具有必要功能子集的單一自訂角色。 您可以使用自訂角色，而不是涉及網路系統管理員或資料庫管理員。如果您將使用者新增至自訂角色，而不是將使用者新增至其他兩個主要系統管理員角色，則安全性暴露的介面區會較低。
 
 > [!NOTE]
 > 某些案例中，Azure SQL Database 和 VNet 子網路是在不同的訂用帳戶。 在這些情況下，您必須確保下列設定：
@@ -76,14 +76,14 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 
 - 在任何給定的虛擬網路中，每個 Azure SQL Database 伺服器最多只能有 128 個 ACL 項目。
 
-- Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][arm-deployment-model-568f] networks.
+- 虛擬網路規則只適用于 Azure Resource Manager 虛擬網路;而不是[傳統部署模型][arm-deployment-model-568f]網路。
 
 - 開啟 Azure SQL Database 的虛擬網路服務端點也可啟用 MySQL 和 PostgreSQL Azure 服務的端點。 不過，開啟端點時，嘗試從端點連線到您的 MySQL 或 PostgreSQL 執行個體可能會失敗。
   - 根本原因是 MySQL 和 PostgreSQL 可能未設定虛擬網路規則。 您必須為適用於 MySQL 和 PostgreSQL 的 Azure 資料庫設定虛擬網路規則，設定之後就能成功連線。
 
 - 在防火牆上，IP 位址範圍會套用到下列網路項目，但虛擬網路規則不這麼做：
-  - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
-  - On-premises via [ExpressRoute][expressroute-indexmd-744v]
+  - [站對站（S2S）虛擬私人網路（VPN）][vpn-gateway-indexmd-608y]
+  - 透過[ExpressRoute][expressroute-indexmd-744v]的內部部署
 
 ### <a name="considerations-when-using-service-endpoints"></a>使用服務端點時的注意事項
 
@@ -110,18 +110,18 @@ Azure 儲存體已實作功能，可讓您限制連線至 Azure 儲存體帳戶�
 
 PolyBase 通常用於將資料從 Azure 儲存體帳戶載入 Azure SQL 資料倉儲。 如果您正在載入資料的來源 Azure 儲存體帳戶限制只能存取一組 VNet 子網路，從 PolyBase 到帳戶的連線會中斷。 如需透過連線至固定到 VNet 的 Azure 儲存體的 Azure SQL 資料倉儲來啟用 PolyBase 匯入和匯出案例，請按照下列所示的步驟進行：
 
-#### <a name="prerequisites"></a>必要條件
+#### <a name="prerequisites"></a>先決條件
 
 - 使用此[指南](https://docs.microsoft.com/powershell/azure/install-az-ps)安裝 Azure PowerShell。
 - 如果您有一般用途 v1 或 Blob 儲存體帳戶，您必須先使用此[指南](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)先升級至一般用途 v2。
 - 您必須開啟 Azure 儲存體帳戶 [防火牆與虛擬網路] 設定功能表下方的 [允許信任的 Microsoft 服務存取此儲存體帳戶]。 如需詳細資訊請參閱此[指南](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 AzureRM 模組會繼續收到錯誤修正，直到2020年12月為止。  Az 模組和 AzureRm 模組中命令的引數本質上完全相同。 如需其相容性的詳細資訊，請參閱[新的 Azure PowerShell Az 模組簡介](/powershell/azure/new-azureps-module-az)。
 
 #### <a name="steps"></a>步驟
 
-1. In PowerShell, **register your Azure SQL Server** hosting your Azure SQL Data Warehouse instance with Azure Active Directory (AAD):
+1. 在 PowerShell 中，使用 Azure Active Directory （AAD）**註冊您的 Azure SQL Server**裝載您的 Azure SQL 資料倉儲實例：
 
    ```powershell
    Connect-AzAccount
@@ -129,13 +129,13 @@ PolyBase 通常用於將資料從 Azure 儲存體帳戶載入 Azure SQL 資料�
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-1. 以此[指南](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)建立**一般用途的 v2 儲存體帳戶**。
+1. 以此**指南**建立[一般用途的 v2 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)。
 
    > [!NOTE]
-   > - 如果您有一般用途 v1 或 Blob 儲存體帳戶，您必須先使用此 [指南](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)**升級至 v2**。
+   > - 如果您有一般用途 v1 或 Blob 儲存體帳戶，您必須先使用此 **指南**[升級至 v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)。
    > - 關於 Azure Data Lake Storage Gen2 的已知問題，請參閱此[指南](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues)。
     
-1. 請瀏覽至您儲存體帳戶之下的 [存取控制 \(IAM\)]，然後按一下 [新增角色指派]。 Assign **Storage Blob Data Contributor** RBAC role to your Azure SQL Server hosting your Azure SQL Data Warehouse which you've registered with Azure Active Directory (AAD) as in step#1.
+1. 請瀏覽至您儲存體帳戶之下的 [存取控制 \(IAM\)]，然後按一下 [新增角色指派]。 將**儲存體 Blob 資料參與者**RBAC 角色指派給您的 Azure SQL Server 裝載您已向 AZURE ACTIVE DIRECTORY （AAD）註冊的 Azure SQL 資料倉儲，如步驟 # 1 所示。
 
    > [!NOTE]
    > 僅有具備「擁有者」權限的成員才能執行此步驟。 關於 Azure 資源的各種內建角色，請參閱此[指南](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)。
@@ -181,7 +181,7 @@ Blob 稽核會將稽核記錄推送到您自己的儲存體帳戶。 如果這�
 
 只是設定防火牆規則不能協助您保護伺服器。 您也必須開啟 VNet 服務端點，安全性才會生效。 當您開啟服務端點時，您的 VNet 子網路會停機，直到完成關閉到開啟的轉換。 特別是大型的 VNet，這會更明顯。 您可以使用 **IgnoreMissingVNetServiceEndpoint** 旗標來減少或排除在轉換期間的停機時間。
 
-您可以使用 PowerShell 設定 **IgnoreMissingVNetServiceEndpoint** 旗標。 For details, see [PowerShell to create a Virtual Network service endpoint and rule for Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+您可以使用 PowerShell 設定 **IgnoreMissingVNetServiceEndpoint** 旗標。 如需詳細資訊，請參閱[PowerShell 以建立 Azure SQL Database 的虛擬網路服務端點和規則][sql-db-vnet-service-endpoint-rule-powershell-md-52d]。
 
 ## <a name="errors-40914-and-40615"></a>錯誤 40914 和 40615
 
@@ -207,7 +207,7 @@ Blob 稽核會將稽核記錄推送到您自己的儲存體帳戶。 如果這�
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>入口網站可以建立虛擬網路規則
 
-This section illustrates how you can use the [Azure portal][http-azure-portal-link-ref-477t] to create a *virtual network rule* in your Azure SQL Database. 此規則會指示 SQL Database 接受一個標記為「虛擬網路服務端點」的特定子網路所傳來的通訊。
+本節說明如何使用[Azure 入口網站][http-azure-portal-link-ref-477t]，在您的 Azure SQL Database 中建立*虛擬網路規則*。 此規則會指示 SQL Database 接受一個標記為「虛擬網路服務端點」的特定子網路所傳來的通訊。
 
 > [!NOTE]
 > 如果您想要將服務端點新增至 Azure SQL Database 伺服器的 VNet 防火牆規則，請先確認已為子網路開啟服務端點。
@@ -216,20 +216,20 @@ This section illustrates how you can use the [Azure portal][http-azure-portal-li
 
 ## <a name="powershell-alternative"></a>PowerShell 替代方案
 
-A script can also create virtual network rules using PowerShell cmdlet **New-AzSqlServerVirtualNetworkRule** or [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). If interested, see [PowerShell to create a Virtual Network service endpoint and rule for Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+腳本也可以使用 PowerShell Cmdlet **New-AzSqlServerVirtualNetworkRule**或[az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)來建立虛擬網路規則。 如有興趣，請參閱[PowerShell 以建立 Azure SQL Database 的虛擬網路服務端點和規則][sql-db-vnet-service-endpoint-rule-powershell-md-52d]。
 
 ## <a name="rest-api-alternative"></a>REST API 替代方案
 
 SQL VNet 動作的 PowerShell cmdlet 會在內部呼叫 REST API。 您可以直接呼叫 REST API。
 
-- [Virtual Network Rules: Operations][rest-api-virtual-network-rules-operations-862r]
+- [虛擬網路規則：作業][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您必須已有一個子網路是以 Azure SQL Database 相關的特定虛擬網路服務端點「類型名稱」所標記。
 
 - 相關的端點類型名稱是 **Microsoft.Sql**。
-- If your subnet might not be tagged with the type name, see [Verify your subnet is an endpoint][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
+- 如果您的子網可能未以類型名稱標記，請參閱[驗證您的子網是端點][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]。
 
 <a name="a-portal-steps-for-vnet-rule-200" />
 
@@ -242,7 +242,7 @@ SQL VNet 動作的 PowerShell cmdlet 會在內部呼叫 REST API。 您可以直
 3. 將 [允許存取 Azure 服務] 控制項設為 [關閉]。
 
     > [!IMPORTANT]
-    > If you leave the control set to ON, your Azure SQL Database server accepts communication from any subnet inside the Azure boundary i.e. originating from one of the IP addresses that is recognized as those within ranges defined for Azure data centers. 就安全性觀點而言，讓此控制項保持 [開啟] 可能使存取過多。 Microsoft Azure 虛擬網路服務端點功能，連同 SQL Database 的虛擬網路規則功能，可縮小安全性曝露面。
+    > 如果您將此控制項保持設定為 [開啟]，您的 Azure SQL Database 伺服器就會接受來自 Azure 界限內任何子網的通訊，也就是源自 Azure 資料中心定義範圍內的其中一個 IP 位址。 就安全性觀點而言，讓此控制項保持 [開啟] 可能使存取過多。 Microsoft Azure 虛擬網路服務端點功能，連同 SQL Database 的虛擬網路規則功能，可縮小安全性曝露面。
 
 4. 按一下 [虛擬網路] 區段中的 [+ 新增現有的] 控制項。
 
@@ -273,15 +273,15 @@ SQL VNet 動作的 PowerShell cmdlet 會在內部呼叫 REST API。 您可以直
 
 ## <a name="related-articles"></a>相關文章
 
-- [Azure virtual network service endpoints][vm-virtual-network-service-endpoints-overview-649d]
-- [Azure SQL Database server-level and database-level firewall rules][sql-db-firewall-rules-config-715d]
+- [Azure 虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d]
+- [Azure SQL Database 伺服器層級和資料庫層級防火牆規則][sql-db-firewall-rules-config-715d]
 
 Azure SQL Database 的虛擬網路規則功能，已於 2017 年 9 月底推出。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Use PowerShell to create a virtual network service endpoint, and then a virtual network rule for Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
-- [Virtual Network Rules: Operations][rest-api-virtual-network-rules-operations-862r] with REST APIs
+- [使用 PowerShell 建立虛擬網路服務端點，然後用 Azure SQL Database 的虛擬網路規則。][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [虛擬網路規則：][rest-api-virtual-network-rules-operations-862r]使用 REST Api 的作業
 
 <!-- Link references, to images. -->
 [image-portal-firewall-vnet-add-existing-10-png]: media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-vnet-add-existing-10.png

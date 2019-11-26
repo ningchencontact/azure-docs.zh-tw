@@ -1,6 +1,6 @@
 ---
-title: Create & publish single sign-on documentation for your application
-description: Guidance for independent software vendors on integrating with Azure Active Directory
+title: 建立 & 發行應用程式的單一登入檔
+description: 獨立軟體廠商與 Azure Active Directory 整合的指引
 services: active-directory
 author: barbaraselden
 manager: CelesteDG
@@ -19,46 +19,46 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232276"
 ---
-# <a name="create-and-publish-single-sign-on-documentation-for-your-application"></a>Create and publish single sign-on documentation for your application   
+# <a name="create-and-publish-single-sign-on-documentation-for-your-application"></a>建立及發佈應用程式的單一登入檔   
 
-## <a name="documentation-on-your-site"></a>Documentation on your site
+## <a name="documentation-on-your-site"></a>網站上的檔
 
-Ease of adoption is a significant factor in enterprise software decisions. Clear easy-to-follow documentation supports your customers in their adoption journey and reduces support costs. Working with thousands of software vendors, Microsoft has seen what works.
+簡化採用是企業軟體決策中的重要因素。 清楚易懂的檔可支援您的客戶採用旅程，並降低支援成本。 與數以千計的軟體廠商合作，Microsoft 看過哪些功能可以運作。
 
-We recommend that your documentation on your site at a minimum include the following items.
+我們建議您的網站最少包含下列專案的檔。
 
-* Introduction to your SSO functionality
+* SSO 功能簡介
 
-  * Protocols supported
+  * 支援的通訊協定
 
-  * Version and SKU
+  * 版本和 SKU
 
-  * Supported Identity Providers list with documentation links
+  * 支援的身分識別提供者清單與檔連結
 
-* Licensing information for your application
+* 應用程式的授權資訊
 
-* Role-based access control for configuring SSO
+* 以角色為基礎的存取控制，用於設定 SSO
 
-* SSO Configuration Steps
+* SSO 設定步驟
 
-  * UI configuration elements for SAML with expected values from the provider
+  * 具有提供者所需值之 SAML 的 UI 設定元素
 
-  * Service provider information to be passed to identity providers
+  * 要傳遞給識別提供者的服務提供者資訊
 
-* If OIDC/OAuth
+* 如果 OIDC/OAuth
 
-  * List of permissions required for consent with business justifications
+  * 同意商業理由所需的許可權清單
 
-* Testing steps for pilot users
+* 試驗使用者的測試步驟
 
-* Troubleshooting information, including error codes and messages
+* 疑難排解資訊，包括錯誤代碼和訊息
 
-* Support mechanisms for customers
+* 客戶的支援機制
 
-## <a name="documentation-on-the-microsoft-site"></a>Documentation on the Microsoft Site
+## <a name="documentation-on-the-microsoft-site"></a>Microsoft 網站上的檔
 
-When you list your application with the Azure Active Directory Application Gallery, which also publishes your application in the Azure Marketplace, Microsoft will generate documentation for our mutual customers explaining the step-by-step process. You can see an example [here](https://aka.ms/appstutorial). This documentation is created based on your submission to the gallery, and you can easily update it if you make changes to your application using your GitHub account.
+當您使用 Azure Active Directory 應用程式庫列出您的應用程式時，這也會在 Azure Marketplace 中發佈您的應用程式，Microsoft 會為我們的相互客戶產生檔，以說明逐步流程。 您可以在[這裡](https://aka.ms/appstutorial)看到範例。 本檔是根據您提交至資源庫而建立的，如果您使用 GitHub 帳戶對應用程式進行變更，就可以輕鬆地更新。
 
 ## <a name="next-steps"></a>後續步驟
 
-[List your application in the Azure AD Application Gallery](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)
+[在 Azure AD 應用程式庫中列出您的應用程式](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)

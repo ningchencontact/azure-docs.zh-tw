@@ -1,5 +1,5 @@
 ---
-title: Work with proxies in Azure Functions
+title: 在 Azure Functions 中使用 proxy
 description: 如何使用 Azure Functions Proxy 的概觀
 author: alexkarcher-msft
 ms.topic: conceptual
@@ -29,8 +29,8 @@ ms.locfileid: "74230446"
 2. 在左側窗格中，選取 [新增 Proxy]。
 3. 為您的 Proxy 提供名稱。
 4. 指定 [路由範本] 和 [HTTP 方法]，以設定此函式應用程式上公開的端點。 這些參數的行為會根據 [HTTP 觸發程序]的規則。
-5. 將**後端 URL** 設定為其他端點。 此端點可能是另一個函式應用程式中的函式，也可能是任何其他 API。 值不需要是靜態，且可以參考[application settings]和[來自原始用戶端要求的參數]。
-6. 按一下 [建立]。
+5. 將**後端 URL** 設定為其他端點。 此端點可能是另一個函式應用程式中的函式，也可能是任何其他 API。 值不需要是靜態，且可以參考[應用程式設定]和[來自原始用戶端要求的參數]。
+6. 按一下頁面底部的 [新增]。
 
 您的 Proxy 現在會存在做為函式應用程式上的新端點。 從用戶端的觀點而言，它相當於 Azure Functions 中的 HttpTrigger。 您可以藉由複製 Proxy URL 並使用最愛的 HTTP 用戶端來測試它，以嘗試您的新 Proxy。
 
@@ -40,13 +40,13 @@ Azure Functions Proxy 可讓您修改針對後端的要求及來自後端的回�
 
 ### <a name="modify-backend-request"></a>修改後端要求
 
-根據預設，後端要求會初始化為原始要求的複本。 除了設定後端 URL 之外，您也可以變更 HTTP 方法、標頭及查詢字串參數。 修改過的值可以參考[application settings]和[來自原始用戶端要求的參數]。
+根據預設，後端要求會初始化為原始要求的複本。 除了設定後端 URL 之外，您也可以變更 HTTP 方法、標頭及查詢字串參數。 修改過的值可以參考[應用程式設定]和[來自原始用戶端要求的參數]。
 
 後端要求可以藉由展開 Proxy 詳細資料分頁的*要求覆寫*區段，在入口網站中修改。 
 
 ### <a name="modify-response"></a>修改回應
 
-根據預設，用戶端回應會初始化為後端回應的複本。 您可以對回應的狀態碼、原因說明、標頭及本文做出變更。 修改過的值可以參考[application settings]、[來自原始用戶端要求的參數]，以及[來自後端回應的參數]。
+根據預設，用戶端回應會初始化為後端回應的複本。 您可以對回應的狀態碼、原因說明、標頭及本文做出變更。 修改過的值可以參考[應用程式設定]、[來自原始用戶端要求的參數]，以及[來自後端回應的參數]。
 
 後端要求可以藉由展開 Proxy 詳細資料分頁的*回應覆寫*區段，在入口網站中修改。 
 
@@ -61,7 +61,7 @@ Proxy 的設定不需要是靜態。 您可以將它設定為使用來自原始�
 
  
 >[!Note]  
->如果您的函式使用*函式、系統管理員或 sys* 授權層級，您必須針對每個原始的函式 URL 提供程式碼和 clientId。 In this case the reference would look like: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` We recommend storing these keys in [application settings] and referencing those in your proxies. This avoids storing secrets in your source code. 
+>如果您的函式使用*函式、系統管理員或 sys* 授權層級，您必須針對每個原始的函式 URL 提供程式碼和 clientId。 在此情況下，參考看起來會像這樣： `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` 我們建議您將這些金鑰儲存在[應用程式設定]中，並參考您的 proxy。 這可避免在您的原始程式碼中儲存秘密。 
 
 ### <a name="request-parameters"></a>參考要求參數
 
@@ -91,7 +91,7 @@ Proxy 的設定不需要是靜態。 您可以將它設定為使用來自原始�
 
 您也可以參考[針對函式應用程式定義的應用程式設定](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings)，只要以百分比符號 (%) 括住設定名稱即可。
 
-例如， https://%ORDER_PROCESSING_HOST%/api/orders 的後端 URL 會將 "%ORDER_PROCESSING_HOST%" 取代為 ORDER_PROCESSING_HOST 設定的值。
+例如， *https://%ORDER_PROCESSING_HOST%/api/orders* 的後端 URL 會將 "%ORDER_PROCESSING_HOST%" 取代為 ORDER_PROCESSING_HOST 設定的值。
 
 > [!TIP] 
 > 當您有多個部署或測試環境時，請使用後端主機的應用程式設定。 這樣一來，您就可以確保一律與該環境保持正確的後端通訊。
@@ -100,7 +100,7 @@ Proxy 的設定不需要是靜態。 您可以將它設定為使用來自原始�
 
 將旗標 `"debug":true` 新增至您 `proxies.json` 中的任何 proxy 即可啟用偵錯記錄。 記錄會儲存於 `D:\home\LogFiles\Application\Proxies\DetailedTrace`，且可透過進階工具 (kudu) 進行存取。 任何 HTTP 回應也都會包含具有 URL 的 `Proxy-Trace-Location` 標頭以存取記錄檔。
 
-您可以新增設定為 `true` 的 `Proxy-Trace-Enabled` 標頭，以偵錯用戶端中的 Proxy。 這也會記錄檔案系統的追蹤，並在回應中傳回追蹤 URL 作為標頭。
+您可以新增設定為 `Proxy-Trace-Enabled` 的 `true` 標頭，以偵錯用戶端中的 Proxy。 這也會記錄檔案系統的追蹤，並在回應中傳回追蹤 URL 作為標頭。
 
 ### <a name="block-proxy-traces"></a>封鎖 Proxy 追蹤
 
@@ -249,7 +249,7 @@ requestOverrides 物件定義針對傳回給用戶端之回應所做的變更。
 [Modify the response]: #modify-response
 [定義 requestOverrides 物件]: #requestOverrides
 [定義 responseOverrides 物件]: #responseOverrides
-[application settings]: #use-appsettings
+[應用程式設定]: #use-appsettings
 [使用變數]: #using-variables
 [來自原始用戶端要求的參數]: #request-parameters
 [來自後端回應的參數]: #response-parameters

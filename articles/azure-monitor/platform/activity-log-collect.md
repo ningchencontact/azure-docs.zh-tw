@@ -1,6 +1,6 @@
 ---
-title: Collect and analyze Azure activity logs in Log Analytics workspace | Microsoft Docs
-description: Collect the Azure Activity Log in Azure Monitor Logs and use the monitoring solution to analyze and search the Azure activity log across all your Azure subscriptions.
+title: 在 Log Analytics 工作區中收集並分析 Azure 活動記錄 |Microsoft Docs
+description: 收集 Azure 監視器記錄中的 Azure 活動記錄，並使用監視解決方案來分析和搜尋所有 Azure 訂用帳戶的 Azure 活動記錄。
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
@@ -14,66 +14,66 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74212579"
 ---
-# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>在 Azure 監視器的 Log Analytics 工作區中收集並分析 Azure 活動記錄
 
 > [!NOTE]
-> You can now collect the Activity log into a Log Analytics workspace using a diagnostic setting similar to how you collect resource logs. See [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](diagnostic-settings-subscription.md).
+> 您現在可以使用與收集資源記錄的方式類似的診斷設定，將活動記錄收集到 Log Analytics 工作區。 請參閱[在 Azure 監視器中收集和分析 Log Analytics 工作區中的 Azure 活動記錄](diagnostic-settings-subscription.md)。
 
-The [Azure Activity Log](activity-logs-overview.md) provides insight into subscription-level events that have occurred in your Azure subscription. This article describes how to collect the Activity Log into a Log Analytics workspace and how to use the Activity Log Analytics [monitoring solution](../insights/solutions.md), which provides log queries and views for analyzing this data. 
+[Azure 活動記錄](activity-logs-overview.md)可讓您深入瞭解 azure 訂用帳戶中所發生的訂用帳戶層級事件。 本文說明如何將活動記錄檔收集到 Log Analytics 工作區，以及如何使用活動記錄分析[監視解決方案](../insights/solutions.md)，以提供記錄查詢和用於分析此資料的視圖。 
 
-Connecting the Activity Log to a Log Analytics workspace provides the following benefits:
+將活動記錄連接到 Log Analytics 工作區可提供下列優點：
 
-- Consolidate the Activity Log from multiple Azure subscriptions into one location for analysis.
-- Store Activity Log entries for longer than 90 days.
-- Correlate Activity Log data with other monitoring data collected by Azure Monitor.
-- Use [log queries](../log-query/log-query-overview.md) to perform complex analysis and gain deep insights on Activity Log entries.
+- 將多個 Azure 訂用帳戶的活動記錄合併到一個位置以進行分析。
+- 儲存活動記錄專案超過90天。
+- 將活動記錄資料與 Azure 監視器所收集的其他監視資料相互關聯。
+- 使用[記錄查詢](../log-query/log-query-overview.md)來執行複雜的分析，並取得活動記錄專案的深入見解。
 
-## <a name="connect-to-log-analytics-workspace"></a>Connect to Log Analytics workspace
-A single workspace can be connected to the Activity Log for multiple subscriptions in the same Azure tenant. For collection across multiple tenants, see [Collect Azure Activity Logs into a Log Analytics workspace across subscriptions in different Azure Active Directory tenants](activity-log-collect-tenants.md).
+## <a name="connect-to-log-analytics-workspace"></a>連接到 Log Analytics 工作區
+單一工作區可以連接到相同 Azure 租使用者中多個訂用帳戶的活動記錄。 針對跨多個租使用者的集合，請參閱[將 Azure 活動記錄收集到不同 Azure Active Directory 租使用者中訂用帳戶之間的 Log Analytics 工作區](activity-log-collect-tenants.md)。
 
 > [!IMPORTANT]
-> You may receive an error with the following procedure if the Microsoft.OperationalInsights and Microsoft.OperationsManagement resource providers aren't registered for your subscription. See [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md) to register these providers.
+> 如果未針對您的訂用帳戶註冊 Microsoft.operationalinsights 和 Microsoft.operationsmanagement 資源提供者，您可能會收到下列程式的錯誤。 若要註冊這些提供者，請參閱[Azure 資源提供者和類型](../../azure-resource-manager/resource-manager-supported-services.md)。
 
-Use the following procedure to connect the Activity Log to your Log Analytics workspace:
+使用下列程式，將活動記錄連線到您的 Log Analytics 工作區：
 
-1. From the **Log Analytics workspaces** menu in the Azure portal, select the workspace to collect the Activity Log.
-1. In the **Workspace Data Sources** section of the workspace's menu, select **Azure Activity log**.
-1. Click the subscription you want to connect.
+1. 從 Azure 入口網站中的  **Log Analytics 工作區** 功能表，選取要收集活動記錄的工作區。
+1. 在工作區功能表的 [**工作區資料來源**] 區段中，選取 [ **Azure 活動記錄**]。
+1. 按一下您要連接的訂用帳戶。
 
     ![工作區](media/activity-log-export/workspaces.png)
 
-1. Click **Connect** to connect the Activity log in the subscription to the selected workspace. If the subscription is already connected to another workspace, click **Disconnect** first to disconnect it.
+1. 按一下 [連線 **]** ，將訂用帳戶中的活動記錄連接到選取的工作區。 如果訂用帳戶已連接到另一個工作區，請按一下 [先**中斷**連線] 將其中斷連接。
 
-    ![Connect Workspaces](media/activity-log-export/connect-workspace.png)
+    ![連接工作區](media/activity-log-export/connect-workspace.png)
 
-## <a name="analyze-in-log-analytics-workspace"></a>Analyze in Log Analytics workspace
-When you connect an Activity Log to a Log Analytics workspace, entries will be written to the workspace into a table called **AzureActivity** that you can retrieve with a [log query](../log-query/log-query-overview.md). The structure of this table varies depending on the [category of log entry](activity-logs-overview.md#categories-in-the-activity-log). See [Azure Activity Log event schema](activity-log-schema.md) for a description of each category.
+## <a name="analyze-in-log-analytics-workspace"></a>在 Log Analytics 工作區中分析
+當您將活動記錄檔連接到 Log Analytics 工作區時，專案會寫入至名為**AzureActivity**的資料表，您可以使用[記錄查詢](../log-query/log-query-overview.md)來加以抓取。 這個資料表的結構會根據[記錄專案的類別](activity-logs-overview.md#categories-in-the-activity-log)而有所不同。 如需每個類別的說明，請參閱[Azure 活動記錄事件架構](activity-log-schema.md)。
 
-## <a name="activity-logs-analytics-monitoring-solution"></a>Activity Logs Analytics monitoring solution
-The Azure Log Analytics monitoring solution includes multiple log queries and views for analyzing the Activity Log records in your Log Analytics workspace.
+## <a name="activity-logs-analytics-monitoring-solution"></a>活動記錄分析監視解決方案
+Azure Log Analytics 監視解決方案包含多個記錄查詢和視圖，可用於分析 Log Analytics 工作區中的活動記錄檔記錄。
 
 ### <a name="install-the-solution"></a>安裝解決方案
-Use the procedure in [Install a monitoring solution](../insights/solutions.md#install-a-monitoring-solution) to install the **Activity Log Analytics** solution. There is no additional configuration required.
+使用[安裝監視解決方案](../insights/solutions.md#install-a-monitoring-solution)中的程式來安裝**活動記錄分析**解決方案。 不需要進行其他設定。
 
 ### <a name="use-the-solution"></a>使用解決方案
-Monitoring solutions are accessed from the **Monitor** menu in the Azure portal. Select **More** in the **Insights** section to open the **Overview** page with the solution tiles. The **Azure Activity Logs** tile displays a count of the number of **AzureActivity** records in your workspace.
+監視解決方案可從 Azure 入口網站中的 [**監視**] 功能表存取。 在 [**深入**解析] 區段中選取 [**更多**]，以開啟具有方案磚的 [**總覽**] 頁面。 [ **Azure 活動記錄**] 圖格會顯示工作區中**AzureActivity**記錄的數目。
 
 ![Azure 活動記錄圖格](media/collect-activity-logs/azure-activity-logs-tile.png)
 
 
-Click the **Azure Activity Logs** tile to open the **Azure Activity Logs** view. The view includes the visualization parts in the following table. Each part lists up to 10 items matching that parts's criteria for the specified time range. You can run a log query that returns all  matching records by clicking **See all** at the bottom of the part.
+按一下 [ **Azure 活動記錄**] 圖格，以開啟 [ **azure 活動記錄**] 視圖。 此視圖包含下表中的視覺效果元件。 每個部分會列出最多10個專案，符合所指定時間範圍內的部分準則。 您可以按一下元件底部的 [**查看全部**]，來執行記錄查詢，以傳回所有相符的記錄。
 
 ![Azure 活動記錄儀表板](media/collect-activity-logs/activity-log-dash.png)
 
-| Visualization part | 描述 |
+| 視覺效果元件 | 描述 |
 | --- | --- |
-| Azure 活動記錄項目 | Shows a bar chart of the top Azure Activity Log entry record totals for the date range that you have selected and shows a list of the top 10 activity callers. 按一下長條圖即可執行 `AzureActivity` 的記錄搜尋。 Click a caller item to run a log search returning all Activity Log entries for that item. |
-| 依狀態列出的活動記錄 | Shows a doughnut chart for Azure Activity Log status for the selected date range and a list of the top ten status records. Click the chart to run a log query for `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Click a status item to run a log search returning all Activity Log entries for that status record. |
-| 依資源列出的活動記錄 | Shows the total number of resources with Activity Logs and lists the top ten resources with record counts for each resource. 按一下總計區域即可執行 `AzureActivity | summarize AggregatedValue = count() by Resource` 的記錄搜尋，這會顯示解決方案可用的所有 Azure 資源。 Click a resource to run a log query returning all activity records for that resource. |
-| 依資源提供者列出的活動記錄 | Shows the total number of resource providers that produce Activity Logs and lists the top ten. Click the total area to run a log query for `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, which shows all Azure resource providers. Click a resource provider to run a log query returning all activity records for the provider. |
+| Azure 活動記錄項目 | 針對您所選取的日期範圍，顯示最上層 Azure 活動記錄專案記錄總計的橫條圖，並顯示前10個活動呼叫者的清單。 按一下長條圖即可執行 `AzureActivity` 的記錄搜尋。 按一下呼叫者專案來執行記錄搜尋，以傳回該專案的所有活動記錄專案。 |
+| 依狀態列出的活動記錄 | 顯示所選日期範圍的 Azure 活動記錄狀態的環圈圖，以及前十筆狀態記錄的清單。 按一下圖表以執行 `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`的記錄查詢。 按一下狀態專案以執行記錄搜尋，以傳回該狀態記錄的所有活動記錄專案。 |
+| 依資源列出的活動記錄 | 顯示具有活動記錄的總資源數，並列出每個資源具有記錄計數的前10個資源。 按一下總計區域即可執行 `AzureActivity | summarize AggregatedValue = count() by Resource` 的記錄搜尋，這會顯示解決方案可用的所有 Azure 資源。 按一下資源以執行記錄查詢，以傳回該資源的所有活動記錄。 |
+| 依資源提供者列出的活動記錄 | 顯示產生活動記錄的資源提供者總數，並列出前十個。 按一下 [總計] 區域，以執行 `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`的記錄查詢，這會顯示所有的 Azure 資源提供者。 按一下資源提供者以執行記錄查詢，以傳回提供者的所有活動記錄。 |
 
 ## <a name="next-steps"></a>後續步驟
 
-- Learn more about the [Activity Log](activity-logs-overview.md).
-- Learn more about the [Azure Monitor data platform](data-platform.md).
-- Use [log queries](../log-query/log-query-overview.md) to view detailed information from your Activity Log.
+- 深入瞭解[活動記錄](activity-logs-overview.md)。
+- 深入瞭解[Azure 監視器資料平臺](data-platform.md)。
+- 使用[記錄查詢](../log-query/log-query-overview.md)，從您的活動記錄中查看詳細資訊。

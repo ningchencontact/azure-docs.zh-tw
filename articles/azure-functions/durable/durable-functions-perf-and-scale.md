@@ -26,9 +26,9 @@ ms.locfileid: "74231351"
 
 ## <a name="instances-table"></a>執行個體資料表
 
-The **Instances** table is another Azure Storage table that contains the statuses of all orchestration and entity instances within a task hub. 隨著執行個體的建立，此資料表中會新增資料列。 The partition key of this table is the orchestration instance ID or entity key and the row key is a fixed constant. There is one row per orchestration or entity instance.
+**實例**資料表是另一個 Azure 儲存體資料表，其中包含工作中樞內所有協調流程和實體實例的狀態。 隨著執行個體的建立，此資料表中會新增資料列。 此資料表的資料分割索引鍵是協調流程實例識別碼或實體索引鍵，而資料列索引鍵是固定的常數。 每個協調流程或實體實例都有一個資料列。
 
-This table is used to satisfy instance query requests from the `GetStatusAsync` (.NET) and `getStatus` (JavaScript) APIs as well as the [status query HTTP API](durable-functions-http-api.md#get-instance-status). 它終於與先前所述的 [歷程記錄] 資料表內容保持一致。 以這種方式使用不同的 Azure 儲存體資料表有效地滿足執行個體查詢作業，會受到[命令和查詢責任隔離 (CQRS) 模式](https://docs.microsoft.com/azure/architecture/patterns/cqrs)所影響。
+這個資料表是用來滿足來自 `GetStatusAsync` （.NET）和 `getStatus` （JavaScript） Api 的實例查詢要求，以及[狀態查詢 HTTP API](durable-functions-http-api.md#get-instance-status)。 它終於與先前所述的 [歷程記錄] 資料表內容保持一致。 以這種方式使用不同的 Azure 儲存體資料表有效地滿足執行個體查詢作業，會受到[命令和查詢責任隔離 (CQRS) 模式](https://docs.microsoft.com/azure/architecture/patterns/cqrs)所影響。
 
 ## <a name="internal-queue-triggers"></a>內部佇列觸發程序
 
@@ -40,24 +40,24 @@ This table is used to satisfy instance query requests from the `GetStatusAsync` 
 
 ### <a name="control-queues"></a>控制佇列
 
-在 Durable Functions 中，每個工作中樞都有多個「控制佇列」。 「控制佇列」比簡單的工作項目佇列更複雜。 Control queues are used to trigger the stateful orchestrator and entity functions. Because the orchestrator and entity function instances are stateful singletons, it's not possible to use a competing consumer model to distribute load across VMs. Instead, orchestrator and entity messages are load-balanced across the control queues. 後續各節對此行為有更詳細的說明。
+在 Durable Functions 中，每個工作中樞都有多個「控制佇列」。 「控制佇列」比簡單的工作項目佇列更複雜。 控制佇列是用來觸發具狀態協調器和實體函式。 因為協調器和實體函式實例是可設定狀態的單次個體，所以無法使用競爭取用者模型，將負載分散到 Vm。 相反地，協調器和實體訊息會在控制佇列間進行負載平衡。 後續各節對此行為有更詳細的說明。
 
 控制佇列包含各種不同的協調流程生命週期訊息類型。 例如，[協調器控制訊息](durable-functions-instance-management.md)、活動函式「回應」訊息，以及計時器訊息。 將有 32 則訊息會在單一輪詢中從控制佇列中清除。 這些訊息包含承載資料以及中繼資料，包括適用於哪個協調流程執行個體。 如果有多則已從佇列中清除的訊息適用於相同的協調流程執行個體，系統會將這些訊息當作一個批次處理。
 
-### <a name="queue-polling"></a>Queue polling
+### <a name="queue-polling"></a>佇列輪詢
 
-The durable task extension implements a random exponential back-off algorithm to reduce the effect of idle-queue polling on storage transaction costs. When a message is found, the runtime immediately checks for another message; when no message is found, it waits for a period of time before trying again. After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to 30 seconds.
+長期工作延伸模組會執行隨機的指數退避演算法，以降低閒置佇列輪詢對儲存體交易成本的影響。 當找到訊息時，執行時間會立即檢查另一個訊息;當找不到任何訊息時，它會等候一段時間，然後再試一次。 在後續失敗的嘗試取得佇列訊息之後，等待時間會持續增加，直到達到最長等候時間為止（預設為30秒）。
 
-The maximum polling delay is configurable via the `maxQueuePollingInterval` property in the [host.json file](../functions-host-json.md#durabletask). Setting this property to a higher value could result in higher message processing latencies. Higher latencies would be expected only after periods of inactivity. Setting this property to a lower value could result in higher storage costs due to increased storage transactions.
+最大輪詢延遲可透過[主機. json](../functions-host-json.md#durabletask)檔案中的 `maxQueuePollingInterval` 屬性來設定。 將此屬性設定為較高的值可能會導致訊息處理延遲較高。 只有在閒置一段時間後，才會預期較高的延遲。 將此屬性設定為較低的值，可能會因為儲存體交易增加而導致儲存成本較高。
 
 > [!NOTE]
-> When running in the Azure Functions Consumption and Premium plans, the [Azure Functions Scale Controller](../functions-scale.md#how-the-consumption-and-premium-plans-work) will poll each control and work-item queue once every 10 seconds. This additional polling is necessary to determine when to activate function app instances and to make scale decisions. At the time of writing, this 10 second interval is constant and cannot be configured.
+> 在 Azure Functions 耗用量和 Premium 方案中執行時， [Azure Functions 調整控制器](../functions-scale.md#how-the-consumption-and-premium-plans-work)會每隔10秒輪詢每個控制項和工作專案佇列一次。 需要進行此額外的輪詢，以判斷何時要啟動函式應用程式實例，並做出調整決策。 在撰寫本文時，這個10秒的間隔是固定的，而且無法設定。
 
 ## <a name="storage-account-selection"></a>儲存體帳戶選取
 
-The queues, tables, and blobs used by Durable Functions are created in a configured Azure Storage account. The account to use can be specified using the `durableTask/storageProvider/connectionStringName` setting (or `durableTask/azureStorageConnectionStringName` setting in Durable Functions 1.x) in the **host.json** file.
+Durable Functions 所使用的佇列、資料表和 blob 會在設定的 Azure 儲存體帳戶中建立。 您可以使用**主機. json**檔案中的 `durableTask/storageProvider/connectionStringName` 設定（或 Durable Functions 1.x 中的 `durableTask/azureStorageConnectionStringName` 設定）來指定要使用的帳戶。
 
-### <a name="durable-functions-2x"></a>Durable Functions 2.x
+### <a name="durable-functions-2x"></a>Durable Functions 2。x
 
 ```json
 {
@@ -71,7 +71,7 @@ The queues, tables, and blobs used by Durable Functions are created in a configu
 }
 ```
 
-### <a name="durable-functions-1x"></a>Durable Functions 1.x
+### <a name="durable-functions-1x"></a>Durable Functions 1。x
 
 ```json
 {
@@ -87,9 +87,9 @@ The queues, tables, and blobs used by Durable Functions are created in a configu
 
 ## <a name="orchestrator-scale-out"></a>協調器向外延展
 
-活動函式是無狀態，且經由新增虛擬機器而自動相應放大。 Orchestrator functions and entities, on the other hand, are *partitioned* across one or more control queues. 控制佇列數目會定義於 **host.json** 檔案中。 The following example host.json snippet sets the `durableTask/storageProvider/partitionCount` property (or `durableTask/partitionCount` in Durable Functions 1.x) to `3`.
+活動函式是無狀態，且經由新增虛擬機器而自動相應放大。 另一方面，協調器函式和實體會*分割*成一或多個控制佇列。 控制佇列數目會定義於 **host.json** 檔案中。 下列範例 host. json 程式碼片段會將 `durableTask/storageProvider/partitionCount` 屬性（或 Durable Functions 1.x 中的 `durableTask/partitionCount`）設定為 `3`。
 
-### <a name="durable-functions-2x"></a>Durable Functions 2.x
+### <a name="durable-functions-2x"></a>Durable Functions 2。x
 
 ```json
 {
@@ -103,7 +103,7 @@ The queues, tables, and blobs used by Durable Functions are created in a configu
 }
 ```
 
-### <a name="durable-functions-1x"></a>Durable Functions 1.x
+### <a name="durable-functions-1x"></a>Durable Functions 1。x
 
 ```json
 {
@@ -117,7 +117,7 @@ The queues, tables, and blobs used by Durable Functions are created in a configu
 
 一個工作中樞可設定為有 1 到 16 個資料分割。 若未指定，則預設資料分割計數為 **4**。
 
-向外延展至多個函式主機執行個體時 (通常在不同的虛擬機器上)，每個執行個體取得其中一個控制佇列的鎖定。 These locks are internally implemented as blob storage leases and ensure that an orchestration instance or entity only runs on a single host instance at a time. If a task hub is configured with three control queues, orchestration instances and entities can be load-balanced across as many as three VMs. 您可以新增更多虛擬機器，以增加容量來執行活動函式。
+向外延展至多個函式主機執行個體時 (通常在不同的虛擬機器上)，每個執行個體取得其中一個控制佇列的鎖定。 這些鎖定會在內部實作為 blob 儲存體租用，並確保協調流程實例或實體一次只會在單一主控制項實例上執行。 如果工作中樞已設定三個控制佇列，則協調流程實例和實體最多可以在三個 Vm 之間進行負載平衡。 您可以新增更多虛擬機器，以增加容量來執行活動函式。
 
 下圖說明在向外延展環境中，Azure Functions 主機與儲存體實體之間的互動方式。
 
@@ -125,18 +125,18 @@ The queues, tables, and blobs used by Durable Functions are created in a configu
 
 如上圖所示，所有虛擬機器會爭奪工作項目佇列上的訊息。 不過，只有三個虛擬機器可以從控制佇列中取得訊息，每個虛擬機器會鎖定單一控制佇列。
 
-Orchestration instances and entities are distributed across all control queue instances. The distribution is done by hashing the instance ID of the orchestration or the entity name and key pair. Orchestration instance IDs by default are random GUIDs, ensuring that instances are equally distributed across all control queues.
+協調流程實例和實體會散發到所有控制佇列實例。 散發是藉由雜湊協調流程的實例識別碼或機構名稱和金鑰組來完成。 根據預設，協調流程實例識別碼是隨機 Guid，確保實例會平均分散到所有控制佇列。
 
-一般而言，協調器函式是輕巧的設計，應該不需要大量運算能力。 It is therefore not necessary to create a large number of control queue partitions to get great throughput for orchestrations. 大部分繁重的工作應在無狀態活動函式中進行，這還可以無限制地相應放大。
+一般而言，協調器函式是輕巧的設計，應該不需要大量運算能力。 因此，不需要建立大量的控制佇列資料分割來取得協調流程的絕佳輸送量。 大部分繁重的工作應在無狀態活動函式中進行，這還可以無限制地相應放大。
 
-## <a name="auto-scale"></a>自動調整
+## <a name="auto-scale"></a>自動調整規模
 
-As with all Azure Functions running in the Consumption and Elastic Premium plans, Durable Functions supports auto-scale via the [Azure Functions scale controller](../functions-scale.md#runtime-scaling). 縮放控制器藉由定期發出 _peek_ 命令來監視所有佇列的延遲。 縮放控制器會以所查看訊息的延遲為基礎，決定是要新增或移除 VM。
+如同在耗用量和彈性 Premium 方案中執行的所有 Azure Functions，Durable Functions 支援透過[Azure Functions 縮放控制器](../functions-scale.md#runtime-scaling)自動調整規模。 縮放控制器藉由定期發出 _peek_ 命令來監視所有佇列的延遲。 縮放控制器會以所查看訊息的延遲為基礎，決定是要新增或移除 VM。
 
 如果縮放控制器判斷控制佇列訊息延遲太高，它會新增 VM 執行個體，直到訊息延遲減少到可接受的程度或達到控制佇列資料分割計數。 同樣地，如果工作項目佇列延遲偏高，不論資料分割計數為何，縮放控制器都會持續新增 VM 執行個體。
 
 > [!NOTE]
-> Starting with Durable Functions 2.0, function apps can be configured to run within VNET-protected service endpoints in the Elastic Premium plan. In this configuration, the Durable Functions triggers initiate scale requests instead of the Scale Controller.
+> 從 Durable Functions 2.0 開始，函數應用程式可以設定為在彈性 Premium 方案的受 VNET 保護的服務端點內執行。 在此設定中，Durable Functions 觸發程式會起始調整要求，而不是縮放控制器。
 
 ## <a name="thread-usage"></a>執行緒使用方式
 
@@ -144,15 +144,15 @@ As with all Azure Functions running in the Consumption and Elastic Premium plans
 
 活動函式和一般佇列觸發的函式有完全相同的行為。 它們可以安全地執行 I/O、執行需要大量 CPU 的作業，以及使用多個執行緒。 因為活動觸發程序是無狀態，所以能夠自由地向外延展至不限數量的虛擬機器。
 
-Entity functions are also executed on a single thread and operations are processed one-at-a-time. However, entity functions do not have any restrictions on the type of code that can be executed.
+實體函式也會在單一執行緒上執行，而且作業會一次性處理。 不過，實體函式對於可執行檔程式碼類型沒有任何限制。
 
 ## <a name="concurrency-throttles"></a>並行節流
 
-Azure Functions 支援在單一應用程式執行個體中同時執行多個函式。 此並行執行作業有助於提升平行處理原則，且盡可能減少典型應用程式在一段時間內會遇到的「冷啟動」數目。 However, high concurrency can exhaust per-VM system resources such network connections or available memory. 視函式應用程式的需求而定，每個執行個體並行處理可能必須進行節流，以避免在高負載情況下記憶體不足的可能性。
+Azure Functions 支援在單一應用程式執行個體中同時執行多個函式。 此並行執行作業有助於提升平行處理原則，且盡可能減少典型應用程式在一段時間內會遇到的「冷啟動」數目。 不過，高平行存取可能會耗盡每個 VM 的系統資源，例如網路連接或可用的記憶體。 視函式應用程式的需求而定，每個執行個體並行處理可能必須進行節流，以避免在高負載情況下記憶體不足的可能性。
 
-Activity, orchestrator, and entity function concurrency limits can be configured in the **host.json** file. The relevant settings are `durableTask/maxConcurrentActivityFunctions` for activity functions and `durableTask/maxConcurrentOrchestratorFunctions` for both orchestrator and entity functions.
+活動、orchestrator 和實體函式的平行存取限制可以在**主機. json**檔案中設定。 相關設定會 `durableTask/maxConcurrentActivityFunctions` 用於協調器和實體功能的活動函式和 `durableTask/maxConcurrentOrchestratorFunctions`。
 
-### <a name="functions-20"></a>Functions 2.0
+### <a name="functions-20"></a>函數2。0
 
 ```json
 {
@@ -176,18 +176,18 @@ Activity, orchestrator, and entity function concurrency limits can be configured
 }
 ```
 
-In the previous example, a maximum of 10 orchestrator or entity functions and 10 activity functions can run on a single VM concurrently. If not specified, the number of concurrent activity and orchestrator or entity function executions is capped at 10X the number of cores on the VM.
+在上述範例中，最多可以在單一 VM 上同時執行10個協調器或實體函式和10個活動函數。 如果未指定，並行活動和協調器或實體函式執行的數目上限為 VM 上核心數目的10倍。
 
 > [!NOTE]
-> 這些設定很有用，有助於管理單一 VM 上的記憶體和 CPU 使用量。 However, when scaled out across multiple VMs, each VM has its own set of limits. These settings can't be used to control concurrency at a global level.
+> 這些設定很有用，有助於管理單一 VM 上的記憶體和 CPU 使用量。 不過，在多個 Vm 之間相應放大時，每個 VM 都有自己的一組限制。 這些設定不能用來控制全域層級的平行存取。
 
-## <a name="extended-sessions"></a>Extended sessions
+## <a name="extended-sessions"></a>擴充的會話
 
-Extended sessions is a setting that keeps orchestrations and entities in memory even after they finish processing messages. 啟用擴充工作階段的典型效果，就是減少對 Azure 儲存體帳戶的 I/O 及提升整體輸送量。
+「擴充會話」是一項設定，可在處理完訊息之後，將協調流程和實體保留在記憶體中。 啟用擴充工作階段的典型效果，就是減少對 Azure 儲存體帳戶的 I/O 及提升整體輸送量。
 
-You can enable extended sessions by setting `durableTask/extendedSessionsEnabled` to `true` in the **host.json** file. The `durableTask/extendedSessionIdleTimeoutInSeconds` setting can be used to control how long an idle session will be held in memory:
+您可以藉由將 `durableTask/extendedSessionsEnabled` 設定為在**host. json**檔案中 `true`，來啟用擴充會話。 [`durableTask/extendedSessionIdleTimeoutInSeconds`] 設定可用來控制閒置會話將保留在記憶體中的時間長度：
 
-**Functions 2.0**
+**函數2。0**
 ```json
 {
   "extensions": {
@@ -199,7 +199,7 @@ You can enable extended sessions by setting `durableTask/extendedSessionsEnabled
 }
 ```
 
-**Functions 1.0**
+**函數1。0**
 ```json
 {
   "durableTask": {
@@ -209,34 +209,34 @@ You can enable extended sessions by setting `durableTask/extendedSessionsEnabled
 }
 ```
 
-There are two potential downsides of this setting to be aware of:
+這項設定有兩個可能的缺點要注意：
 
-1. There's an overall increase in function app memory usage.
-2. There can be an overall decrease in throughput if there are many concurrent, short-lived orchestrator or entity function executions.
+1. 函數應用程式記憶體使用量整體增加了。
+2. 如果有許多並行、短期的協調器或實體函式執行，輸送量會有整體的降低。
 
-As an example, if `durableTask/extendedSessionIdleTimeoutInSeconds` is set to 30 seconds, then a short-lived orchestrator or entity function episode that executes in less than 1 second still occupies memory for 30 seconds. It also counts against the `durableTask/maxConcurrentOrchestratorFunctions` quota mentioned previously, potentially preventing other orchestrator or entity functions from running.
+例如，如果 `durableTask/extendedSessionIdleTimeoutInSeconds` 設為30秒，則在小於1秒內執行的短期協調器或實體函數集，仍會佔用記憶體30秒。 它也會計算先前所述的 `durableTask/maxConcurrentOrchestratorFunctions` 配額，可能會導致其他協調器或實體功能無法執行。
 
-The specific effects of extended sessions on orchestrator and entity functions are described in the next sections.
+Orchestrator 和實體函式的擴充會話的特定效果將在下一節中說明。
 
 ### <a name="orchestrator-function-replay"></a>協調器函式重新執行
 
-如先前所述，使用 [歷程記錄] 資料表的內容可重新執行協調器函式。 根據預設，每次從控制佇列中清除一批訊息時，就會重新執行協調器函式程式碼。 When extended sessions are enabled, orchestrator function instances are held in memory longer and new messages can be processed without a full history replay.
+如先前所述，使用 [歷程記錄] 資料表的內容可重新執行協調器函式。 根據預設，每次從控制佇列中清除一批訊息時，就會重新執行協調器函式程式碼。 啟用擴充會話時，協調器函式實例會保留在記憶體中，而不需要完整的歷程記錄重新執行即可處理新訊息。
 
-The performance improvement of extended sessions is most often observed in the following situations:
+擴充會話的效能改進通常會在下列情況中觀察到：
 
-* When there are a limited number of orchestration instances running concurrently.
-* When orchestrations have large number of sequential actions (e.g. hundreds of activity function calls) that complete quickly.
-* When orchestrations fan-out and fan-in a large number of actions that complete around the same time.
-* When orchestrator functions need to process large messages or do any CPU-intensive data processing.
+* 當並存執行的協調流程實例數目有限時。
+* 當協調流程有大量快速完成的連續動作（例如數百個活動函式呼叫）時。
+* 當協調流程展開傳送，且有大量動作在同一時間內完成時。
+* 當協調器函式需要處理大型訊息或進行任何 CPU 密集的資料處理時。
 
-In all other situations, there is typically no observable performance improvement for orchestrator functions.
+在所有其他情況下，協調器函式通常不會有明顯的效能改進。
 
 > [!NOTE]
-> 只有在協調器函式經過完整開發及測試之後，才能使用這些設定。 The default aggressive replay behavior can useful for detecting [orchestrator function code constraints](durable-functions-code-constraints.md) violations at development time, and is therefore disabled by default.
+> 只有在協調器函式經過完整開發及測試之後，才能使用這些設定。 預設的積極重新執行行為有助於在開發期間偵測協調器函式程式[代碼條件約束](durable-functions-code-constraints.md)違規，因此預設為停用。
 
-### <a name="entity-function-unloading"></a>Entity function unloading
+### <a name="entity-function-unloading"></a>實體函數卸載
 
-Entity functions process up to 20 operations in a single batch. As soon as an entity finishes processing a batch of operations, it persists its state and unloads from memory. You can delay the unloading of entities from memory using the extended sessions setting. Entities continue to persist their state changes as before, but remain in memory for the configured period of time to reduce the number of loads from Azure Storage. This reduction of loads from Azure Storage can improve the overall throughput of frequently accessed entities.
+實體函數在單一批次中最多可處理20個作業。 一旦實體完成作業批次的處理，它就會保存其狀態，並從記憶體中卸載。 您可以使用 [擴充會話] 設定，延遲卸載記憶體中的實體。 實體會繼續如之前一樣保存其狀態變更，但會保留在記憶體中一段設定的時間，以減少 Azure 儲存體的負載數目。 這項減少從 Azure 儲存體的負載，可以改善經常存取實體的整體輸送量。
 
 ## <a name="performance-targets"></a>效能目標
 
@@ -246,20 +246,20 @@ Entity functions process up to 20 operations in a single batch. As soon as an en
 * **平行活動執行**：這個案例說明的協調器函式會使用[展開傳送、收合傳送](durable-functions-cloud-backup.md)模式平行執行許多活動函式。
 * **平行處理回應**：這個案例是[展開傳送、收合傳送](durable-functions-cloud-backup.md)模式的第二個部份。 它著重於收合傳送的效能。 請務必請注意，不同於展開傳送，收合傳送是由單一協調器函式執行個體進行，因此只能在單一 VM 上執行。
 * **外部事件處理**：這個案例代表為[外部事件](durable-functions-external-events.md)服務的單一協調器函式執行個體 (一次一個)。
-* **Entity operation processing**: This scenario tests how quickly a _single_ [Counter entity](durable-functions-entities.md) can process a constant stream of operations.
+* **實體工作處理**：此案例會測試_單一_[計數器實體](durable-functions-entities.md)如何快速處理作業的常數資料流程。
 
 > [!TIP]
 > 不同於展開傳送，收合傳送作業受限制於單一 VM。 如果您的應用程式使用展開傳送、收合傳送模式，而且您很在意收合傳送效能，請考慮將活動函式展開傳送細分到多個[子協調流程](durable-functions-sub-orchestrations.md)。
 
 下表顯示先前所述案例的預期「最大」輸送量數字。 「執行個體」是指在 Azure App Service 中單一小型 ([A1](../../virtual-machines/windows/sizes-previous-gen.md#a-series)) VM 上執行之協調器函式的單一執行個體。 在所有情況下，假設已啟用[擴充工作階段](#orchestrator-function-replay)。 實際結果可能會因函式程式碼所執行的 CPU 或 I/O 工作而有所不同。
 
-| 案例 | 輸送量上限 |
+| 案例 | 最大輸送量 |
 |-|-|
 | 循序活動執行 | 每個執行個體每秒 5 個活動 |
 | 平行活動執行 (展開傳送) | 每個執行個體每秒 100 個活動 |
 | 平行回應處理 (收合傳送) | 每個執行個體每秒 150 個回應 |
 | 外部事件處理 | 每個執行個體每秒 50 個事件 |
-| Entity operation processing | 64 operations per second |
+| 實體工作處理 | 每秒64作業 |
 
 > [!NOTE]
 > 這些數字是 Durable Functions 擴充功能 v1.4.0 (GA) 版的現行資料。 隨著功能更臻成熟及最佳化的進行，這些數字可能會隨時間改變。
@@ -269,4 +269,4 @@ Entity functions process up to 20 operations in a single batch. As soon as an en
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Learn about disaster recovery and geo-distribution](durable-functions-disaster-recovery-geo-distribution.md)
+> [瞭解嚴重損壞修復和地理分佈](durable-functions-disaster-recovery-geo-distribution.md)

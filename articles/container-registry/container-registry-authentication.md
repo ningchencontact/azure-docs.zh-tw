@@ -1,5 +1,5 @@
 ---
-title: Registry authentication options
+title: 登錄驗證選項
 description: Azure Container Registry 的驗證選項，包括使用 Azure Active Directory 身分識別來登入、使用服務主體，以及使用選擇性的管理員認證。
 ms.topic: article
 ms.date: 12/21/2018
@@ -15,11 +15,11 @@ ms.locfileid: "74455381"
 
 向 Azure Container Registry 進行驗證的方式有數種，每一種方式都適用於一或多個登錄使用案例。
 
-Recommended ways include authenticating to a registry directly via [individual login](#individual-login-with-azure-ad), or your applications and container orchestrators can perform unattended, or "headless," authentication by using an Azure Active Directory (Azure AD) [service principal](#service-principal).
+建議的方式包括直接透過[個別登](#individual-login-with-azure-ad)入向登錄進行驗證，或者您的應用程式和容器協調器可以使用 Azure Active Directory （Azure AD）[服務主體](#service-principal)來執行自動或「無周邊」驗證。
 
 ## <a name="individual-login-with-azure-ad"></a>使用 Azure AD 進行個人登入
 
-直接與您的登錄搭配運作時 (例如將映像拖曳至開發工作站或從開發工作站推送映像)，請在 [Azure CLI](/cli/azure/install-azure-cli) 中使用 [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) 命令來進行驗證：
+直接與您的登錄搭配運作時 (例如將映像拖曳至開發工作站或從開發工作站推送映像)，請在 [Azure CLI](/cli/azure/acr?view=azure-cli-latest#az-acr-login) 中使用 [az acr login](/cli/azure/install-azure-cli) 命令來進行驗證：
 
 ```azurecli
 az acr login --name <acrName>
@@ -45,25 +45,25 @@ az acr login --name <acrName>
 
 如需角色的完整清單，請參閱 [Azure Container Registry 角色和權限](container-registry-roles.md)。
 
-For CLI scripts to create a service principal for authenticating with an Azure container registry, and guidance on using a service principal, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md).
+若要讓 CLI 腳本建立用來向 Azure container registry 進行驗證的服務主體，以及使用服務主體的指引，請參閱使用[服務主體 Azure Container Registry 驗證](container-registry-auth-service-principal.md)。
 
 ## <a name="admin-account"></a>管理帳戶
 
 每個容器登錄都包含一個管理使用者帳戶，且預設為停用。 您可以在 Azure 入口網站中或藉由使用 Azure CLI 或其他 Azure 工具，啟用此管理使用者並管理其認證。
 
 > [!IMPORTANT]
-> 管理帳戶是專為讓單一使用者存取登錄而設計，主要用於測試。 We do not recommend sharing the admin account credentials among multiple users. 所有使用管理帳戶進行驗證的使用者會顯示為單一使用者，此使用者具備登錄的推送和提取存取權。 變更或停用此帳戶時，會將所有使用其認證之使用者的登錄存取權都停用。 針對遠端控制案例的使用者和服務主體，建議使用個人身分識別。
+> 管理帳戶是專為讓單一使用者存取登錄而設計，主要用於測試。 我們不建議在多個使用者之間共用系統管理員帳號憑證。 所有使用管理帳戶進行驗證的使用者會顯示為單一使用者，此使用者具備登錄的推送和提取存取權。 變更或停用此帳戶時，會將所有使用其認證之使用者的登錄存取權都停用。 針對遠端控制案例的使用者和服務主體，建議使用個人身分識別。
 >
 
-管理帳戶隨附兩個密碼，兩個密碼都可以重新產生。 兩個密碼可讓您在重新產生其中一個密碼時，使用另一個密碼來維持與登錄的連線。 如果已啟用管理帳戶，即可在系統提示時將使用者名稱和其中一個密碼傳遞給 `docker login` 命令，向登錄進行基本驗證。 例如：
+管理帳戶隨附兩個密碼，兩個密碼都可以重新產生。 兩個密碼可讓您在重新產生其中一個密碼時，使用另一個密碼來維持與登錄的連線。 如果已啟用管理帳戶，即可在系統提示時將使用者名稱和其中一個密碼傳遞給 `docker login` 命令，向登錄進行基本驗證。 例如︰
 
 ```
 docker login myregistry.azurecr.io 
 ```
 
-For best practices to manage login credentials, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference.
+如需管理登入認證的最佳作法，請參閱[docker login](https://docs.docker.com/engine/reference/commandline/login/)命令參考。
 
-若要為現有的登錄啟用管理使用者，您可以在 Azure CLI 中使用 [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) 命令的 `--admin-enabled` 參數：
+若要為現有的登錄啟用管理使用者，您可以在 Azure CLI 中使用 `--admin-enabled`az acr update[ 命令的 ](/cli/azure/acr?view=azure-cli-latest#az-acr-update) 參數：
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

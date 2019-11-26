@@ -1,6 +1,6 @@
 ---
-title: Metrics and alerts - Azure DNS
-description: With this learning path, get started with Azure DNS metrics and alerts.
+title: 計量和警示-Azure DNS
+description: 在此學習路徑中，開始使用 Azure DNS 計量和警示。
 services: dns
 documentationcenter: na
 author: asudbring
@@ -24,7 +24,7 @@ Azure DNS 是 DNS 網域的主機服務，採用 Microsoft Azure 基礎結構來
 
 ## <a name="azure-dns-metrics"></a>Azure DNS 計量
 
-Azure DNS provides metrics for customers to enable them to monitor specific aspects of their DNS zones hosted in the service. 此外，使用 Azure DNS 計量，您可以設定依據感興趣的條件來接收警示。 計量是透過 [Azure 監視器服務](../azure-monitor/index.yml)提供的。 Azure DNS 透過 Azure 監視器為您的 DNS 區域提供下列計量：
+Azure DNS 提供客戶計量，讓他們能夠監視服務中託管的 DNS 區域的特定層面。 此外，使用 Azure DNS 計量，您可以設定依據感興趣的條件來接收警示。 計量是透過 [Azure 監視器服務](../azure-monitor/index.yml)提供的。 Azure DNS 透過 Azure 監視器為您的 DNS 區域提供下列計量：
 
 -   QueryVolume
 -   RecordSetCount
@@ -34,7 +34,7 @@ Azure DNS provides metrics for customers to enable them to monitor specific aspe
 >[!NOTE]
 > 目前，這些計量只適用於在 Azure DNS 中託管的公用 DNS 區域。 如果您在 Azure DNS 中有託管的私人區域，這些計量將不會提供這些區域的資料。 此外，計量與警示功能只有在 Azure 公用雲端中才受支援。 之後將提供主權雲端的支援。 
 
-The most granular element that you can see metrics for is a DNS zone. You cannot currently see metrics for individual resource records within a zone.
+您可以查看計量的最細微元素是 DNS 區域。 您目前無法在區域內看到個別資源記錄的計量。
 
 ### <a name="query-volume"></a>查詢磁碟區
 

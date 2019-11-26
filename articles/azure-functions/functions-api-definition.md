@@ -1,5 +1,5 @@
 ---
-title: OpenAPI metadata in Azure Functions
+title: Azure Functions 中的 OpenAPI 中繼資料
 description: Azure Functions 中的 OpenAPI 支援概觀
 author: alexkarcher-msft
 ms.topic: conceptual
@@ -40,7 +40,7 @@ Azure Functions 中的 OpenAPI 2.0 (先前稱為 Swagger) 中繼資料支援是�
 
 ### <a name="templates"></a>可用範本
 
-|Name| 描述 |
+|名稱| 描述 |
 |:-----|:-----|
 |已產生的定義|具有可從函式現有中繼資料推斷之最大數量資訊的 OpenAPI 定義。|
 
@@ -53,7 +53,7 @@ Azure Functions 中的 OpenAPI 2.0 (先前稱為 Swagger) 中繼資料支援是�
 |[Host](https://swagger.io/specification/#fixed-fields-15)|**函式應用程式設定** > **App Service 設定** > **概觀** > **URL**|不存在
 |[Paths](https://swagger.io/specification/#paths-object-29)|[整合] > [選取的 HTTP 方法]|繫結：路由
 |[Path Item](https://swagger.io/specification/#path-item-object-32)|[整合] > [路由範本]|繫結：方法
-|[Security](https://swagger.io/specification/#security-scheme-object-112)|**金鑰**|不存在|
+|[安全性](https://swagger.io/specification/#security-scheme-object-112)|**金鑰**|不存在|
 |operationID*|**路由 + 允許的動詞**|路由 + 允許的動詞|
 
 \*只有與 PowerApps 和 Flow 整合才需要作業識別碼。

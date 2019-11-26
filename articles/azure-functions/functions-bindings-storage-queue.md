@@ -185,9 +185,9 @@ module.exports = async function (context, message) {
 
 ### <a name="trigger---python-example"></a>觸發程序 - Python 範例
 
-The following example demonstrates how to read a queue message passed to a function via a trigger.
+下列範例示範如何讀取透過觸發程式傳遞至函式的佇列訊息。
 
-A Storage queue trigger is defined in *function.json* where *type* is set to `queueTrigger`.
+儲存體佇列觸發程式定義于*function. json*中，其中*type*設為 `queueTrigger`。
 
 ```json
 {
@@ -204,7 +204,7 @@ A Storage queue trigger is defined in *function.json* where *type* is set to `qu
 }
 ```
 
-The code *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage` which allows you to read the queue message in your function.
+程式碼 *_\_init_\_。 .py*會將參數宣告為 `func.ServiceBusMessage`，這可讓您讀取函數中的佇列訊息。
 
 ```python
 import logging
@@ -303,7 +303,7 @@ def main(msg: func.QueueMessage):
 
 ## <a name="trigger---usage"></a>觸發程序 - 使用方式
 
-在 C# 和 C# 指令碼中，使用方法參數 (例如 `string paramName`) 來存取訊息資料。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以繫結至下列任何類型：
+在 C# 和 C# 指令碼中，使用方法參數 (例如 `string paramName`) 來存取訊息資料。 在 C# 指令碼中，`paramName` 是 `name`function.json*之* 屬性中指定的值。 您可以繫結至下列任何類型：
 
 * 物件：Functions 執行階段會將 JSON 裝載還原序列化為程式碼中所定義之任意類別的執行個體。 
 * `string`
@@ -318,9 +318,9 @@ def main(msg: func.QueueMessage):
 
 佇列觸發程序提供數個[中繼資料屬性](./functions-bindings-expressions-patterns.md#trigger-metadata)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 類別的屬性。
 
-|屬性|Type|描述|
+|屬性|在系統提示您進行確認時，輸入|描述|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|佇列承載 (如果為有效字串)。 如果佇列承載為字串，`QueueTrigger` 具有相同於 *function.json* 中由 `name` 屬性命名之變數的值。|
+|`QueueTrigger`|`string`|佇列承載 (如果為有效字串)。 如果佇列承載為字串，`QueueTrigger` 具有相同於 `name`function.json*中由* 屬性命名之變數的值。|
 |`DequeueCount`|`int`|此訊息已從佇列清除的次數。|
 |`ExpirationTime`|`DateTimeOffset`|訊息到期時間。|
 |`Id`|`string`|佇列訊息識別碼。|
@@ -336,7 +336,7 @@ def main(msg: func.QueueMessage):
 
 ## <a name="trigger---polling-algorithm"></a>觸發程序 - 輪詢演算法
 
-佇列觸發程序會實作隨機指數型倒退演算法，以降低閒置佇列輪詢對儲存體交易成本的影響。  找到訊息時，執行階段會等待兩秒，然後檢查另一個訊息；當找不到任何訊息時，它會等候大約四秒，然後再試一次。 連續嘗試取得佇列訊息失敗後，等候時間會持續增加，直到它到達等待時間上限 (預設值為一分鐘)。 可透過 [host.json 檔案](functions-host-json.md#queues)中的 `maxPollingInterval` 屬性來設定最長等待時間。
+佇列觸發程序會實作隨機指數型倒退演算法，以降低閒置佇列輪詢對儲存體交易成本的影響。  找到訊息時，執行階段會等待兩秒，然後檢查另一個訊息；當找不到任何訊息時，它會等候大約四秒，然後再試一次。 連續嘗試取得佇列訊息失敗後，等候時間會持續增加，直到它到達等待時間上限 (預設值為一分鐘)。 可透過 `maxPollingInterval`host.json 檔案[中的 ](functions-host-json.md#queues) 屬性來設定最長等待時間。
 
 ## <a name="trigger---concurrency"></a>觸發程序 - 並行
 
@@ -348,7 +348,7 @@ def main(msg: func.QueueMessage):
 
 ## <a name="trigger---hostjson-properties"></a>觸發程序 - host.json 屬性
 
-[host.json](functions-host-json.md#queues) 檔案包含控制佇列觸發程序行為的設定。 See the [host.json settings](#hostjson-settings) section for details regarding available settings.
+[host.json](functions-host-json.md#queues) 檔案包含控制佇列觸發程序行為的設定。 如需可用設定的詳細資訊，請參閱[host. json 設定](#hostjson-settings)一節。
 
 ## <a name="output"></a>輸出
 
@@ -513,9 +513,9 @@ module.exports = function(context) {
 
 ### <a name="output---python-example"></a>輸出 - Python 範例
 
-The following example demonstrates how to output single and multiple values to storage queues. The configuration needed for *function.json* is the same either way.
+下列範例示範如何將單一和多個值輸出到儲存體佇列。 *函數. json*所需的設定也是相同的方式。
 
-A Storage queue binding is defined in *function.json* where *type* is set to `queue`.
+儲存體佇列系結定義于*function json*中，其中*type*設為 `queue`。
 
 ```json
 {
@@ -547,7 +547,7 @@ A Storage queue binding is defined in *function.json* where *type* is set to `qu
 }
 ```
 
-To set a individual message on the queue, you pass a single value to the `set` method.
+若要在佇列上設定個別訊息，請將單一值傳遞給 `set` 方法。
 
 ```python
 import azure.functions as func
@@ -561,7 +561,7 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     return 'OK'
 ```
 
-To create multiple messages on the queue, declare a parameter as the appropriate list type and pass an array of values (that match the list type) to the `set` method.
+若要在佇列上建立多個訊息，請將參數宣告為適當的清單類型，並將值陣列（符合清單類型）傳遞給 `set` 方法。
 
 ```python
 import azure.functions as func
@@ -620,7 +620,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 ## <a name="output---usage"></a>輸出 - 使用方式
 
-在 C# 和 C# 指令碼中，藉由使用方法參數 (例如 `out T paramName`) 寫入單一佇列訊息。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以使用方法傳回類型，而不是 `out` 參數，而且 `T` 可以是下列類型之一：
+在 C# 和 C# 指令碼中，藉由使用方法參數 (例如 `out T paramName`) 寫入單一佇列訊息。 在 C# 指令碼中，`paramName` 是 `name`function.json*之* 屬性中指定的值。 您可以使用方法傳回類型，而不是 `out` 參數，而且 `T` 可以是下列類型之一：
 
 * 可序列化為 JSON 的物件
 * `string`
@@ -672,7 +672,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 |屬性  |預設值 | 描述 |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|佇列輪詢之間的間隔上限。 Minimum is 00:00:00.100 (100 ms) and increments up to 00:01:00 (1 min).  In 1.x the data type is milliseconds, and in 2.x it is a TimeSpan.|
+|maxPollingInterval|00:00:01|佇列輪詢之間的間隔上限。 最小值為00：00：00.100 （100毫秒），而遞增至00:01:00 （1分鐘）。  在1.x 中，資料類型是毫秒，而在2.x 中，這是 TimeSpan。|
 |visibilityTimeout|00:00:00|處理訊息失敗時，重試之間的時間間隔。 |
 |batchSize|16|Functions 執行階段會同時擷取，並以平行方式處理的佇列訊息數目。 當要處理的數目減少到 `newBatchThreshold` 時，執行階段就會取得另一個批次，並開始處理那些訊息。 因此，每個函式並行處理之訊息的上限為 `batchSize` 加上 `newBatchThreshold`。 這項限制個別套用至每個佇列觸發的函式。 <br><br>如果您需要避免平行執行在單一佇列上收到的訊息，可以將 `batchSize` 設定為 1。 不過，只要您的函式應用程式在單一虛擬機器 (VM) 上執行，這項設定就只會將並行排除。 如果函式應用程式相應放大為多個 VM，則每個 VM 可以執行每個佇列觸發之函式的一個執行個體。<br><br>最大值 `batchSize` 為 32。 |
 |maxDequeueCount|5|將訊息移至有害佇列之前，嘗試處理訊息的次數。|

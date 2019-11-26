@@ -49,7 +49,7 @@ ms.locfileid: "74219747"
     ![在建立角色頁面上貼上來自 Cloudyn 的外部識別碼](./media/connect-aws-account/create-role01.png)
 5. 在 [附加權限原則] 底下的 [原則類型] 篩選方塊搜尋中，輸入 `ReadOnlyAccess`，選取 [ReadOnlyAccess]，然後按 [下一步：檢閱]。  
     ![在原則名稱清單中選取唯讀存取權](./media/connect-aws-account/readonlyaccess.png)
-6. 在 [檢閱] 分頁中，確定您的選擇正確無誤，然後輸入**角色名稱**。 For example, *Azure-Cost-Mgt*. Enter a **Role description**. 例如，_Cloudyn 的角色指派_，然後按一下 [Create role] \(建立角色\)。
+6. 在 [檢閱] 分頁中，確定您的選擇正確無誤，然後輸入**角色名稱**。 例如， *Azure-成本-支出*。輸入**角色描述**。 例如，_Cloudyn 的角色指派_，然後按一下 [Create role] \(建立角色\)。
 7. 在 [角色] 清單中，按一下您建立的角色，然後從 [摘要] 分頁中複製 **角色 ARN** 值。 稍後當您在 Cloudyn 中註冊設定時，請使用 [Role ARN] \(角色 ARN\) (Amazon Resource Name) 值。  
     ![從 [摘要] 頁面複製角色 ARN](./media/connect-aws-account/role-arn.png)
 
@@ -172,7 +172,7 @@ Cloudyn 會開始收集資料並填入報告。 接下來，[啟用詳細 AWS �
    }
    ```
 
-9. 按一下 [儲存]。  
+9. 按一下 [檔案]。  
     ![按一下 [貯體] 原則編輯器中的 [儲存]](./media/connect-aws-account/bucket-policy-editor.png)
 
 

@@ -19,7 +19,7 @@ ms.locfileid: "74186641"
 Azure Web 應用程式防火牆（WAF）原則會定義當要求到達 Front 時所需的檢查。
 本文說明如何設定 WAF 原則，其中包含一些自訂規則，以及啟用 Azure 管理的預設規則集。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>先決條件
 

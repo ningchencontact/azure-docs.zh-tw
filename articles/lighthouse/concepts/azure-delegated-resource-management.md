@@ -33,7 +33,7 @@ Azure 委派的資源管理可讓使用者以邏輯方式將資源從某個租�
 
 概括而言，以下是 Azure 委派的資源管理的運作方式：
 
-1. 身為服務提供者，您會識別您的群組、服務主體或使用者管理客戶 Azure 資源所需的存取權 (角色)。 存取權定義包含服務提供者的租用戶識別碼，以及適用於該供應項目的必要存取權，這是使用來自您的租用戶並對應至[內建 **roleDefinition** 值](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) \(部分機器翻譯\) 的 **principalId** 身分識別 (參與者、VM 參與者、讀者等) 來定義的。
+1. 身為服務提供者，您會識別您的群組、服務主體或使用者管理客戶 Azure 資源所需的存取權 (角色)。 存取權定義包含服務提供者的租用戶識別碼，以及適用於該供應項目的必要存取權，這是使用來自您的租用戶並對應至**內建** roleDefinition[ 值 **\(部分機器翻譯\) 的**principalId](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 身分識別 (參與者、VM 參與者、讀者等) 來定義的。
 2. 您會以下列其中一種方式來指定此存取權並將客戶上線至 Azure 委派的資源管理：
    - [發佈 Azure Marketplace 受控服務供應項目](../how-to/publish-managed-services-offers.md) (私人或公用) 並由客戶接受
    - 針對一或多個特定訂用帳戶或資源群組[將 Azure Resource Manager 範本部署至客戶的租用戶](../how-to/onboard-customer.md)

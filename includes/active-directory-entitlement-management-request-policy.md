@@ -15,187 +15,187 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74260667"
 ---
-## <a name="for-users-in-your-directory"></a>For users in your directory
+## <a name="for-users-in-your-directory"></a>適用于您目錄中的使用者
 
-Follow these steps if you want to allow users in your directory to be able to request this access package. When defining the request policy, you can specify individual users, or more commonly groups of users. For example, your organization may already have a group such as **All employees**.  If that group is added in the policy for users who can request access, then any member of that group can then request access.
+如果您想要允許目錄中的使用者能夠要求此存取套件，請遵循下列步驟。 定義要求原則時，您可以指定個別使用者，或更常用的使用者群組。 例如，您的組織可能已經有一個群組，例如 [**所有員工**]。  如果為可要求存取權的使用者在原則中新增該群組，則該群組的任何成員都可以要求存取權。
 
 1. 在 [可要求存取的使用者] 區段中，按一下 [您目錄中的使用者]。
 
-    When you select this option, new options appear to further refine who in your directory can request this access package.
+    當您選取此選項時，會出現新的選項，以進一步精簡您的目錄中可以要求此存取封裝的人員。
 
-    ![Access package - Requests - For users in your directory](./media/active-directory-entitlement-management-request-policy/for-users-in-your-directory.png)
+    ![存取套件-要求-適用于您目錄中的使用者](./media/active-directory-entitlement-management-request-policy/for-users-in-your-directory.png)
 
 1. 選取下列其中一個選項：
 
     |  |  |
     | --- | --- |
-    | **Specific users and groups** | Choose this option if you want only the users and groups in your directory that you specify to be able to request this access package. |
-    | **All members (excluding guests)** | Choose this option if you want all member users in your directory to be able to request this access package. This option doesn't include any guest users you might have invited into your directory. |
-    | **All users (including guests)** | Choose this option if you want all member users and guest users in your directory to be able to request this access package. |
+    | **特定使用者和群組** | 如果您只想要您指定的目錄中的使用者和群組能夠要求此存取封裝，請選擇此選項。 |
+    | **所有成員（不包括來賓）** | 如果您要讓目錄中的所有成員使用者都能夠要求此存取封裝，請選擇此選項。 此選項不包含任何您可能已受邀進入目錄的來賓使用者。 |
+    | **所有使用者（包括來賓）** | 如果您要讓目錄中的所有成員使用者和來賓使用者都能夠要求此存取封裝，請選擇此選項。 |
 
-    Guest users refer to external users that have been invited into your directory with [Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). For more information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
+    來賓使用者會參考已受邀使用[AZURE AD B2B](../articles/active-directory/b2b/what-is-b2b.md)的目錄中的外部使用者。 如需成員使用者與來賓使用者之間差異的詳細資訊，請參閱[Azure Active Directory 中的預設使用者許可權為何？](../articles/active-directory/fundamentals/users-default-permissions.md)。
 
-1. If you selected **Specific users and groups**, click **Add users and groups**.
+1. 如果您選取 [**特定使用者和群組**]，請按一下 [**新增使用者和群組**]。
 
-1. In the Select users and groups pane, select the users and groups you want to add.
+1. 在 [選取使用者和群組] 窗格中，選取您想要新增的使用者和群組。
 
-    ![Access package - Requests - Select users and groups](./media/active-directory-entitlement-management-request-policy/select-users-groups.png)
+    ![存取套件-要求-選取使用者和群組](./media/active-directory-entitlement-management-request-policy/select-users-groups.png)
 
-1. Click **Select** to add the users and groups.
+1. 按一下 [**選取**] 以新增使用者和群組。
 
-1. Skip down to the [Approval](#approval) section.
+1. 向下跳至 [[核准](#approval)] 區段。
 
-## <a name="for-users-not-in-your-directory"></a>For users not in your directory
+## <a name="for-users-not-in-your-directory"></a>針對不在您目錄中的使用者
 
- **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to be allow invitations in **Collaboration restrictions**. For more information, see [Enable B2B external collaboration and manage who can invite guests](../articles/active-directory/b2b/delegate-invitations.md).
+ **不在您目錄中的使用者**是指位於另一個 Azure AD 目錄或網域中的使用者。 這些使用者可能尚未被邀請到您的目錄。 Azure AD 目錄必須設定為允許共同作業**限制**中的邀請。 如需詳細資訊，請參閱[啟用 B2B 外部共同作業和管理可以邀請來賓的人員](../articles/active-directory/b2b/delegate-invitations.md)。
 
 > [!NOTE]
-> A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of an Azure Active Directory B2B collaboration user](../articles/active-directory/b2b/user-properties.md).
+> 系統會針對尚未在您的目錄中核准或自動核准要求的使用者，建立來賓使用者帳戶。 系統會邀請來賓，但不會收到邀請電子郵件。 相反地，他們會在其存取套件指派傳遞時收到電子郵件。 根據預設，當該來賓使用者不再具有任何存取套件指派時，由於其上次指派已過期或已取消，所以該來賓使用者帳戶將會遭到封鎖而無法登入，且後續將會刪除。 如果您想要讓來賓使用者無限期地保留在您的目錄中，即使他們沒有任何存取套件指派，您也可以變更您的權利管理設定。 如需有關來賓使用者物件的詳細資訊，請參閱[AZURE ACTIVE DIRECTORY B2B 共同作業使用者的屬性](../articles/active-directory/b2b/user-properties.md)。
 
-Follow these steps if you want to allow users not in your directory to request this access package:
+如果您想要讓不在您目錄中的使用者要求此存取套件，請遵循下列步驟：
 
-1. In the **Users who can request access** section, click **For users not in your directory**.
+1. 在 [**可以要求存取權的使用者**] 區段中，按一下 [**針對不在您的目錄中的使用者**]。
 
-    When you select this option, new options appear.
+    當您選取此選項時，會出現新的選項。
 
-    ![Access package - Requests - For users not in your directory](./media/active-directory-entitlement-management-request-policy/for-users-not-in-your-directory.png)
+    ![存取套件-要求-適用于不在您目錄中的使用者](./media/active-directory-entitlement-management-request-policy/for-users-not-in-your-directory.png)
 
 1. 選取下列其中一個選項：
 
     |  |  |
     | --- | --- |
-    | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
-    | **All connected organizations** | Choose this option if all users from all your connected organizations can request this access package. |
+    | **特定的已連線組織** | 如果您想要從系統管理員先前新增的組織清單中選取，請選擇此選項。 來自所選組織的所有使用者都可以要求此存取封裝。 |
+    | **所有已連線的組織** | 如果所有已連線組織中的所有使用者都可以要求此存取套件，請選擇此選項。 |
 
-    A connected organization is an external Azure AD directory or domain that you have a relationship with.
+    已連線的組織是與您有關聯性的外部 Azure AD 目錄或網域。
 
-1. If you selected **Specific connected organizations**, click **Add directories** to select from a list of connected organizations that your administrator previously added.
+1. 如果您選取了 [**特定的連線組織**]，請按一下 [**新增目錄**]，從您的系統管理員先前新增的已連線組織清單中選取。
 
-1. Type the name or domain name to search for a previously connected organization.
+1. 輸入 [名稱] 或 [功能變數名稱]，以搜尋先前連線的組織。
 
-    ![Access package - Requests - Select directories](./media/active-directory-entitlement-management-request-policy/select-directories.png)
+    ![存取套件-要求-選取目錄](./media/active-directory-entitlement-management-request-policy/select-directories.png)
 
-    If the organization you want to collaborate with isn't in the list, you can ask your administrator to add it as a connected organization. For more information, see [Add a connected organization](../articles/active-directory/governance/entitlement-management-organization.md).
+    如果您想要與其共同作業的組織不在清單中，您可以要求系統管理員將其新增為已連線的組織。 如需詳細資訊，請參閱[新增已連線的組織](../articles/active-directory/governance/entitlement-management-organization.md)。
 
-1. Once you've selected all your connected organizations, click **Select**.
+1. 選取所有已連線的組織之後，請按一下 [**選取**]。
 
     > [!NOTE]
-    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or deny list. 如需詳細資訊，請參閱[允許或封鎖對特定組織的 B2B 使用者的邀請](../articles/active-directory/b2b/allow-deny-list.md)。
+    > 來自所選已連線組織的所有使用者都將能夠要求此存取封裝。 這包括從與組織相關聯的所有子域 Azure AD 的使用者，除非 Azure B2B 允許或拒絕清單已封鎖這些網域。 如需詳細資訊，請參閱[允許或封鎖對特定組織的 B2B 使用者的邀請](../articles/active-directory/b2b/allow-deny-list.md)。
 
-1. Skip down to the [Approval](#approval) section.
+1. 向下跳至 [[核准](#approval)] 區段。
 
-## <a name="none-administrator-direct-assignments-only"></a>None (administrator direct assignments only)
+## <a name="none-administrator-direct-assignments-only"></a>無（僅限系統管理員直接指派）
 
-Follow these steps if you want to bypass access requests and allow administrators to directly assign specific users to this access package. Users won't have to request the access package. You can still set lifecycle settings, but there are no request settings.
+如果您想要略過存取要求，並允許系統管理員直接將特定使用者指派給此存取套件，請遵循下列步驟。 使用者不需要要求存取封裝。 您仍然可以設定生命週期設定，但不會有任何要求設定。
 
-1. In the **Users who can request access** section, click **None (administrator direct assignments only**.
+1. 在 [**可要求存取的使用者**] 區段中，按一下 [**無] （僅限系統管理員直接指派**。
 
-    ![Access package - Requests - None administrator direct assignments only](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
+    ![存取套件-要求-無系統管理員直接指派](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
-    After you create the access package, you can directly assign specific internal and external users to the access package. If you specify an external user, a guest user account will be created in your directory. For information about directly assigning a user, see [View, add, and remove assignments for an access package](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
+    建立存取套件之後，您可以直接將特定的內部和外部使用者指派給存取封裝。 如果您指定外部使用者，將會在您的目錄中建立來賓使用者帳戶。 如需直接指派使用者的相關資訊，請參閱[View、add 和 remove access package 的指派](../articles/active-directory/governance/entitlement-management-access-package-assignments.md)。
 
-1. Skip down to the [Enable requests](#enable-requests) section.
+1. 向下跳至 [[啟用要求](#enable-requests)] 區段。
 
 ## <a name="approval"></a>核准
 
-In the Approval section, you specify whether an approval is required when users request this access package. The approval settings work in the following way:
+在 [核准] 區段中，您可以指定使用者要求此存取套件時是否需要核准。 核准設定的工作方式如下：
 
-- Only one of the selected approvers or fallback approvers needs to approve a request for single-stage approval. 
-- Only one of the selected approvers from each stage needs to approve a request for 2-stage approval.
-- The approver can be a Manager, Internal sponsor, or External sponsor depending on who the policy is governing access.
-- Approval from every selected approver isn't required for single or 2-stage approval.
-- The approval decision is based on whichever approver reviews the request first.
+- 只有一個選取的核准者或回溯核准者需要核准單一階段核准的要求。 
+- 每個階段中只有一個選取的核准者需要核准2階段核准的要求。
+- 核准者可以是經理、內部贊助商或外部贊助商，視原則負責存取的物件而定。
+- 對每個選取的核准者進行核准，並不需要進行單一或2階段核准。
+- 核准決策是以第一次審核要求的核准者為基礎。
 
-Follow these steps to specify the approval settings for requests for the access package:
+請遵循下列步驟來指定存取封裝要求的核准設定：
 
-1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. Or, to have requests automatically approved, set the toggle to **No**.
+1. 若要要求核准所選使用者的要求，請將 [**需要核准**] 切換設定為 **[是]** 。 或者，若要自動核准要求，請將切換設定為 [**否**]。
 
-1. To require users to provide a justification to request the access package, set the **Require requestor justification** toggle to **Yes**.
+1. 若要要求使用者提供理由來要求存取封裝，請將 [**需要要求者理由**] 切換為 **[是]** 。
     
-1. Now determine if requests will require single or 2-stage approval. Set the **How many stages** toggle to **1** for single stage approval or set the toggle to **2** for 2-stage approval.
+1. 現在判斷要求是否需要單一或2階段核准。 設定**多個階段**切換為**1**以進行單一階段核准，或將2階段核准的切換設定為**2** 。
 
-    ![Access package - Requests - Approval settings](./media/active-directory-entitlement-management-request-policy/approval.png)
+    ![存取套件-要求-核准設定](./media/active-directory-entitlement-management-request-policy/approval.png)
 
 
-Use the following steps to add approvers after selecting how many stages you require: 
+選取您需要多少階段之後，請使用下列步驟來新增核准者： 
 
-### <a name="single-stage-approval"></a>Single-stage approval
+### <a name="single-stage-approval"></a>單一階段核准
 
-1. Add the **First Approver**:
+1. 新增**第一個核准者**：
     
-    If the policy is set to govern access for users in your directory, you can select **Manager as approver**. Or, add a specific user by clicking **Add approvers** after selecting Choose specific approvers from the dropdown menu.
+    如果原則設定為管理目錄中使用者的存取權，您可以選取 [**管理員] 作為 [核准者**]。 或者，在選取下拉式功能表中的 [選擇特定核准者] 後，按一下 [**新增核准**者] 來新增特定的使用者。
     
-    ![Access package - Requests - For users in directory - First Approver](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
+    ![存取套件-要求-針對目錄優先核准者中的使用者](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
 
-    If this policy is set to govern access for users not in your directory, you can select **External sponsor** or **Internal sponsor**. Or, add a specific user by clicking **Add approvers** or groups under Choose specific approvers.
+    如果此原則設定為管理不在您目錄中的使用者存取權，您可以選取 [**外部贊助商**] 或 [**內部贊助**者]。 或者，按一下 [選擇特定核准者] 底下的 [**新增核准者**或群組]，以新增特定的使用者。
     
-    ![Access package - Requests - For users out of directory - First Approver](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
+    ![存取套件-要求-使用者超出目錄優先核准者](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
     
-1. If you selected **Manager** as the first approver, click **Add fallback** to select one or more users or groups in your directory to be a fallback approver. Fallback approvers receive the request if entitlement management can't find the manager for the user requesting access.
+1. 如果您已選取 [**管理員**] 做為第一個核准者，請按一下 [**新增**回溯]，在您的目錄中選取一或多個使用者或群組做為回溯核准者。 如果權利管理找不到要求存取權之使用者的管理員，則回溯核准者會收到要求。
 
-    The manager is found by entitlement management using the **Manager** attribute. The attribute is in the user's profile in Azure AD. For more information, see [Add or update a user's profile information using Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+    管理員是由使用**manager**屬性的權利管理找到。 屬性位於使用者設定檔的 Azure AD 中。 如需詳細資訊，請參閱[使用 Azure Active Directory 新增或更新使用者的設定檔資訊](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md)。
 
-1. If you selected **Choose specific approvers**, click **Add approvers** to select one or more users or groups in your directory to be approvers.
+1. 如果您選取 **[選擇特定核准者**]，請按一下 [**新增核准**者]，在您的目錄中選取核准者的一或多個使用者或群組。
 
-1. In the box under **Decision must be made in how many days?** , specify the number of days that an approver has to review a request for this access package.
+1. 在 [必須在**幾天內進行決策**] 底下的方塊中，指定核准者審查此存取套件要求所需的天數。
 
-    If a request isn't approved within this time period, it will be automatically denied. The user will have to submit another request for the access package.
+    如果要求未在這段時間內核准，則會自動拒絕。 使用者必須提交存取套件的另一個要求。
 
-1. To require approvers to provide a justification for their decision, set Require approver justification to **Yes**.
+1. 若要要求核准者提供其決策的理由，請將 [需要核准者理由] 設定為 **[是]** 。
 
-    The justification is visible to other approvers and the requestor.
+    其他核准者和要求者可以看到此理由。
 
-### <a name="2-stage-approval-preview"></a>2-stage approval (Preview)
+### <a name="2-stage-approval-preview"></a>2階段核准（預覽）
 
-If you selected a 2-stage approval, you'll need to add a second approver.
+如果您選取了2階段核准，則必須新增第二個核准者。
 
-1. Add the **Second Approver**: 
+1. 新增**第二個核准者**： 
     
-    If the users are in your directory, add a specific user as the second approver by clicking **Add approvers** under Choose specific approvers.
+    如果使用者在您的目錄中，請按一下 [選擇特定核准者] 底下的 [**新增核准**者]，將特定使用者新增為第二個核准者。
 
-    ![Access package - Requests - For users in directory - Second Approver](./media/active-directory-entitlement-management-request-policy/in-directory-second-approver.png)
+    ![存取套件-要求-針對目錄-第二核准者的使用者](./media/active-directory-entitlement-management-request-policy/in-directory-second-approver.png)
 
-    If the users aren't in your directory, select **Internal sponsor** or **External sponsor** as the second approver. After selecting the approver, add the fallback approvers.
+    如果使用者不在您的目錄中，請選取 [**內部贊助商**] 或 [**外部贊助商**] 作為第二個核准者 選取核准者之後，請新增 fallback 核准者。
 
-    ![Access package - Requests - For users out of directory - Second Approver](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
+    ![存取套件-要求-使用者超出目錄-第二核准者](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
 
-1. Specify the number of days the second approver has to approve the request in the box under **Decision must be made in how many days?** . 
+1. 指定第二核准者核准要求的天數，在 [**決定必須在多少天內完成？** ] 方塊中。 
 
-1. Set the Require approver justification toggle to **Yes** or **No**.
+1. 將 [需要核准者理由] 切換為 **[是]** 或 [**否**]。
 
-### <a name="alternate-approvers"></a>Alternate approvers
+### <a name="alternate-approvers"></a>替代核准者
 
-You can specify alternate approvers, similar to specifying the first and second approvers who can approve requests. Having alternate approvers will help ensure that the requests are approved or denied before they expire (timeout). You can list alternate approvers the first approver and second approver for 2-stage approval. 
+您可以指定替代的核准者，類似于指定可核准要求的第一個和第二個核准者。 擁有替代的核准者將有助於確保要求會在到期之前核准或拒絕（timeout）。 您可以列出第一個核准者和第二個核准者進行2階段核准的替代核准者。 
 
-By specifying alternate approvers, in the event that the first or second approvers were unable to approve or deny the request, the pending request gets forwarded to the alternate approvers, per the forwarding schedule you specified during policy setup. They receive an email to approve or deny the pending request.
+藉由指定替代核准者，當第一或第二個核准者無法核准或拒絕要求時，就會根據您在原則設定期間指定的轉送排程，將擱置的要求轉寄給替代的核准者。 他們會收到電子郵件，以核准或拒絕擱置中的要求。
 
-After the request is forwarded to the alternate approvers, the first or second approvers can still approve or deny the request. Alternate approvers use the same My Access site to approve or deny the pending request.
+將要求轉送到替代核准者之後，第一個或第二個核准者仍然可以核准或拒絕要求。 替代核准者會使用相同的我的存取權網站來核准或拒絕擱置中的要求。
 
-We can list people or groups of people to be approvers and alternate approvers. Please ensure that you list different sets of people to be the first, second, and alternate approvers.
-For example, if you listed Alice and Bob as the First Approver(s), list Carol and Dave as the alternate approvers. Use the following steps to add alternate approvers to an access package:
+我們可以向核准者和替代核准者列出人員或群組。 請確定您列出不同的人員集合，使其成為第一個、第二個和替代的核准者。
+例如，如果您將 Alice 和 Bob 列為第一個核准者，請將 Carol 和 Dave 列出為替代的核准者。 使用下列步驟，將替代核准者新增至存取套件：
 
-1. Under the First Approver, Second Approver, or both, click **Show advanced request settings**.
+1. 在第一個核准者、第二個核准者或兩者底下，按一下 [**顯示先進的要求設定**]。
 
-    ![Access package - Policy - Show advanced request settings](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
+    ![存取套件-原則-顯示 advanced 要求設定](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
 
-1. Set **If no action taken, forward to alternate approvers?** toggle to **Yes**.
+1. 設定**是否未採取任何動作，轉寄給替代核准者？** 切換為 **[是]** 。
 
-1. Click **Add alternate approvers** and select the alternate approver(s) from the list.
+1. 按一下 [**新增替代核准者**]，並從清單中選取替代核准者。
 
-    ![Access package - Policy - Add Alternate Approvers](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+    ![存取套件-原則-新增替代的核准者](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
 
-1. In the **Forward to alternate approver(s) after how many days** box, put in the number of days the approvers have to approve or deny a request. If no approvers have approved or denied the request before the request duration, the request expires (timeout), and the user will have to submit another request for the access package. 
+1. 在 [在**幾天後向前前往替代核准者**] 方塊中，放入核准者核准或拒絕要求的天數。 如果沒有核准者在要求期間之前核准或拒絕要求，則要求會過期（超時），而且使用者必須提交存取封裝的另一個要求。 
 
-    Requests can only be forwarded to alternate approvers a day after the request duration reaches half-life. In this example, the duration of the request is 14 days. So, the request duration reaches half-life at day 7. So the request can't be forwarded earlier than day 8. Also, requests can't be forwarded on the last day of the request duration. So in the example, the latest the request can be forwarded is day 13.
+    在要求持續時間達到半生命後，才可將要求轉寄給替代核准者一天。 在此範例中，要求的持續時間為14天。 因此，要求持續時間到達第7天的半生命週期。 因此，要求無法轉送早于第8天。 此外，要求不能在要求持續時間的最後一天轉送。 因此，在此範例中，最新的要求可以轉送為第13天。
 
-## <a name="enable-requests"></a>Enable requests
+## <a name="enable-requests"></a>啟用要求
 
-1. If you want the access package to be made immediately available for users in the request policy to request, click **Yes** to enable.
+1. 如果您想要讓存取套件立即提供給要求原則中的使用者要求，請按一下 **[是]** 啟用。
 
-    You can always enable it in the future after you have finished creating the access package.
+    在您完成建立存取套件之後，隨時都可以在未來啟用它。
 
-    If you selected **None (administrator direct assignments only)** and you set enable to **No**, then administrators can't directly assign this access package.
+    如果您選取 **[無] （僅限系統管理員直接指派）** ，並將 [啟用] 設定為 [**否**]，則系統管理員無法直接指派此存取套件。
 
-    ![Access package - Policy- Enable policy setting](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
+    ![存取套件-原則-啟用原則設定](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. 按一下 [下一步]。

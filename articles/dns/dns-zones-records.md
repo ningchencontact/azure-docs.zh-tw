@@ -30,7 +30,7 @@ ms.locfileid: "74211013"
 
 網域名稱系統是網域階層。 階層從「根」網域開始，其名稱只是 ' **.** '。  下面接著最上層網域，例如 'com'、'net'、'org'、'uk' 或 'jp'。  再往下是第二層網域，例如 'org.uk' 或 'co.jp'。 DNS 階層中的網域散佈在全球，裝載在世界各地的 DNS 名稱伺服器上。
 
-A domain name registrar is an organization that allows you to purchase a domain name, such as `contoso.com`.  Purchasing a domain name gives you the right to control the DNS hierarchy under that name, for example allowing you to direct the name `www.contoso.com` to your company web site. 可以讓該註冊機構代表您，將網域裝載在其自有的名稱伺服器上；或允許您指定替代的名稱伺服器。
+網域註冊機構是一種組織，可讓您購買功能變數名稱，例如 `contoso.com`。  購買功能變數名稱可讓您控制該名稱底下的 DNS 階層，例如，可讓您將名稱 `www.contoso.com` 導向您的公司網站。 可以讓該註冊機構代表您，將網域裝載在其自有的名稱伺服器上；或允許您指定替代的名稱伺服器。
 
 Azure DNS 提供散佈全球、高可用性的名稱伺服器基礎結構，可用來裝載您的網域。 只要將您的網域裝載於 Azure DNS 中，就可以像管理其他 Azure 服務一樣，使用相同的認證、API、工具、計費方式和支援來管理 DNS 記錄。
 
@@ -88,7 +88,7 @@ CNAME 記錄集不能與其他具有相同名稱的記錄集共存。 例如，�
 
 可以修改 SOA 記錄除了 'Host' 屬性以外的所有屬性，因為依照預先設定，該屬性會參考 Azure DNS 所提供的主要名稱伺服器名稱。
 
-The zone serial number in the SOA record is not updated automatically when changes are made to the records in the zone. It can be updated manually by editing the SOA record, if necessary.
+對區域中的記錄進行變更時，不會自動更新 SOA 記錄中的區域序號。 如有需要，可以藉由編輯 SOA 記錄來手動更新。
 
 ### <a name="spf-records"></a>SPF 記錄
 
@@ -113,7 +113,7 @@ DNS 記錄中的多個字串，不應與 TXT 記錄集中的多個 TXT 記錄相
 
 ## <a name="tags-and-metadata"></a>標記和中繼資料
 
-### <a name="tags"></a>Tags
+### <a name="tags"></a>標籤
 
 標記是名稱-值組的清單，由 Azure Resource Manager 用來標示資源。  Azure Resource Manager 會使用標記來啟用 Azure 帳單篩選過的檢視，也可讓您設定標記需要的原則。 如需標記的詳細資訊，請參閱 [使用標記來組織您的 Azure 資源](../azure-resource-manager/resource-group-using-tags.md)。
 
@@ -135,13 +135,13 @@ Azure DNS 使用 Etag 以安全地處理相同資源的並行變更。 Etag 和 
 
 | 標頭 | 行為 |
 | --- | --- |
-| None |PUT 一定成功 (沒有 Etag 檢查) |
-| If-match \<etag> |唯有當資源存在且 Etag 符合時，PUT 才會成功 |
+| 無 |PUT 一定成功 (沒有 Etag 檢查) |
+| If-match \<etag > |唯有當資源存在且 Etag 符合時，PUT 才會成功 |
 | If-match * |唯有當資源存在時，PUT 才會成功 |
 | If-none-match * |唯有當資源不存在時，PUT 才會成功 |
 
 
-## <a name="limits"></a>Limits
+## <a name="limits"></a>限制
 
 使用 Azure DNS 時，會適用下列的預設限制︰
 

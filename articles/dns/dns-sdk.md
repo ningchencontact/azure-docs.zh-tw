@@ -1,7 +1,7 @@
 ---
 title: 使用 .NET SDK 建立 DNS 區域和記錄集
 titleSuffix: Azure DNS
-description: In this learning path, get started creating DNS zones and record sets in Azure DNS by using the .NET SDK.
+description: 在此學習路徑中，使用 .NET SDK 開始在 Azure DNS 中建立 DNS 區域和記錄集。
 services: dns
 documentationcenter: na
 author: asudbring
@@ -146,7 +146,7 @@ recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zo
 
 ## <a name="list-zones-and-record-sets"></a>列出區域和記錄集
 
-To list zones, use the *DnsManagementClient.Zones.List...* methods, which support listing either all zones in a given resource group or all zones in a given Azure subscription (across resource groups.) To list record sets, use *DnsManagementClient.RecordSets.List...* methods, which support either listing all record sets in a given zone or only those record sets of a specific type.
+若要列出區域，請使用*DnsManagementClient*方法，其支援列出指定資源群組中的所有區域，或指定 Azure 訂用帳戶中的所有區域（跨資源群組）。若要列出記錄集，請使用*DnsManagementClient*方法，其支援列出指定區域中的所有記錄集，或只有特定類型的記錄集。
 
 請注意，在列出區域和記錄集時，其結果可能會分頁。  下列範例示範如何逐一查看結果頁面 (範例中使用了 '2' 的人為小型頁面大小來強制分頁；實際上應該忽略此參數並使用預設頁面大小)。
 

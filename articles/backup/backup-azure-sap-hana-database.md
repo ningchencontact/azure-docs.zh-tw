@@ -10,7 +10,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74285871"
 ---
-# <a name="back-up-sap-hana-databases-in-azure-vms"></a>備份 Azure Vm 中的 SAP Hana 資料庫
+# <a name="back-up-sap-hana-databases-in-azure-vms"></a>將 SAP Hana 資料庫備份到 Azure VM
 
 SAP Hana 資料庫是需要低復原點目標（RPO）和長期保留的重要工作負載。 您可以使用[Azure 備份](backup-overview.md)來備份在 Azure 虛擬機器（vm）上執行的 SAP Hana 資料庫。
 
@@ -40,7 +40,7 @@ SAP Hana 資料庫是需要低復原點目標（RPO）和長期保留的重要�
 
 上線至公開預覽，如下所示：
 
-* 在入口網站中，[依照本文所述](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal)，向復原服務服務提供商註冊您的訂用帳戶識別碼。
+* 在入口網站中，[依照本文所](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal)述，向復原服務服務提供者註冊您的訂用帳戶識別碼。
 * 針對 PowerShell，請執行此 Cmdlet。 它應該會完成為「已註冊」。
 
     ```powershell

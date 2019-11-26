@@ -1,5 +1,5 @@
 ---
-title: Logging in Microsoft Authentication Library (MSAL) applications
+title: Microsoft 驗證程式庫（MSAL）應用程式中的記錄
 titleSuffix: Microsoft identity platform
 description: 了解 Microsoft 驗證程式庫 (MSAL) 應用程式中的記錄。
 services: active-directory
@@ -25,38 +25,38 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74452470"
 ---
-# <a name="logging-in-msal-applications"></a>Logging in MSAL applications
+# <a name="logging-in-msal-applications"></a>MSAL 應用程式中的記錄
 
-Microsoft Authentication Library (MSAL) apps generate log messages that can help diagnose issues. 應用程式可透過幾行程式碼來設定記錄，並針對詳細資料層級和是否要記錄個人和組織資料具有自訂控制。 We recommend you create an MSAL logging callback and provide a way for users to submit logs when they have authentication issues.
+Microsoft 驗證程式庫（MSAL）應用程式會產生記錄訊息，以協助診斷問題。 應用程式可透過幾行程式碼來設定記錄，並針對詳細資料層級和是否要記錄個人和組織資料具有自訂控制。 我們建議您建立 MSAL 記錄回呼，並提供一種方法，讓使用者在有驗證問題時提交記錄。
 
 ## <a name="logging-levels"></a>記錄層級
 
-MSAL provides several levels of logging detail:
+MSAL 提供數種層級的記錄詳細資料：
 
-- Error: Indicates something has gone wrong and an error was generated. 用來進行偵錯及識別問題。
-- Warning: There hasn't necessarily been an error or failure, but are intended for diagnostics and pinpointing problems.
-- Info: MSAL will log events intended for informational purposes not necessarily intended for debugging.
-- Verbose: Default. MSAL logs the full details of library behavior.
+- 錯誤：指出發生錯誤，並產生錯誤。 用來進行偵錯及識別問題。
+- 警告：不一定會發生錯誤或失敗，但適用于診斷和查明問題。
+- Info： MSAL 會記錄適用于資訊目的的事件，不一定是用於進行偵錯工具。
+- 詳細資訊：預設值。 MSAL 會記錄程式庫行為的完整詳細資料。
 
 ## <a name="personal-and-organizational-data"></a>個人和組織資料
 
-By default, the MSAL logger doesn't capture any highly sensitive personal or organizational data. The library provides the option to enable logging personal and organizational data if you decide to do so.
+根據預設，MSAL 記錄器不會捕捉任何高度敏感的個人或組織資料。 如果您決定要這麼做，程式庫會提供啟用記錄個人和組織資料的選項。
 
-For details about MSAL logging in a particular language, choose the tab matching your language:
+如需以特定語言 MSAL 記錄的詳細資訊，請選擇符合您語言的索引標籤：
 
 ## <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ## <a name="logging-in-msalnet"></a>MSAL.NET 中的記錄
 
  > [!NOTE]
- > See the [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) for samples of MSAL.NET logging and more.
+ > 如需 MSAL.NET 記錄的範例，請參閱[MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) 。
 
 在 MSAL 3.x 中，記錄必須在每個應用程式的建立期間，使用 `.WithLogging` 建立器修飾詞針對該應用程式進行個別設定。 此方法可接受選擇性參數：
 
-- `Level` enables you to decide which level of logging you want. 將它設定為 Errors 將只會取得錯誤
-- `PiiLoggingEnabled` enables you to log personal and organizational data if set to true. 此參數預設為 false，這會使您的應用程式不會記錄個人資料。
-- `LogCallback` is set to a delegate that does the logging. If `PiiLoggingEnabled` is true, this method will receive the messages twice: once with the `containsPii` parameter equals false and the message without personal data, and a second time with the `containsPii` parameter equals to true and the message might contain personal data. 在某些情況下 (當訊息不包含個人資料時)，這兩個訊息將會相同。
-- `DefaultLoggingEnabled` enables the default logging for the platform. 根據預設，它是 false。 如果您將它設定為 true，它會使用桌面/UWP 應用程式中的事件追蹤、iOS 上的 NSLog，以及 Android 上的 logcat。
+- `Level` 可讓您決定想要的記錄層級。 將它設定為 Errors 將只會取得錯誤
+- 如果設定為 true，`PiiLoggingEnabled` 可讓您記錄個人和組織的資料。 此參數預設為 false，這會使您的應用程式不會記錄個人資料。
+- `LogCallback` 設定為執行記錄的委派。 如果 `PiiLoggingEnabled` 為 true，則這個方法會收到兩次訊息：一次，其中 `containsPii` 參數等於 false，而不含個人資料的訊息，第二次的 `containsPii` 參數等於 true，而訊息可能包含個人資料。 在某些情況下 (當訊息不包含個人資料時)，這兩個訊息將會相同。
+- `DefaultLoggingEnabled` 會啟用平臺的預設記錄。 根據預設，它是 false。 如果您將它設定為 true，它會使用桌面/UWP 應用程式中的事件追蹤、iOS 上的 NSLog，以及 Android 上的 logcat。
 
 ```csharp
 class Program
@@ -87,14 +87,14 @@ class Program
 
 ## <a name="androidtabandroid"></a>[Android](#tab/android)
 
-## <a name="logging-in-msal-for-android-using-java"></a>Logging in MSAL for Android using Java
+## <a name="logging-in-msal-for-android-using-java"></a>使用 JAVA 登入適用于 Android 的 MSAL
 
-Turn logging on at app creation by creating a logging callback. The callback takes these parameters:
+藉由建立記錄回呼，在應用程式建立時開啟登入。 回呼會採用下列參數：
 
-- `tag` is a string passed to the callback by the library. It is associated with the log entry and can be used to sort logging messages.
-- `logLevel` enables you to decide which level of logging you want. The supported log levels are: `Error`, `Warning`, `Info`, and `Verbose`.
-- `message` is the content of the log entry.
-- `containsPII` specifies whether messages containing personal data, or organizational data are logged. By default, this is set to false, so that your application doesn't log personal data. If `containsPII` is `true`, this method will receive the messages twice: once with the `containsPII` parameter set to `false` and the `message` without personal data, and a second time with the `containsPii` parameter set to `true` and the message might contain personal data. 在某些情況下 (當訊息不包含個人資料時)，這兩個訊息將會相同。
+- `tag` 是程式庫傳遞至回呼的字串。 它會與記錄專案相關聯，並可用於排序記錄訊息。
+- `logLevel` 可讓您決定想要的記錄層級。 支援的記錄層級為： `Error`、`Warning`、`Info`和 `Verbose`。
+- `message` 是記錄專案的內容。
+- `containsPII` 指定是否記錄包含個人資料或組織資料的訊息。 根據預設，這會設定為 false，讓您的應用程式不會記錄個人資料。 如果 `true``containsPII`，這個方法將會收到兩次訊息：一次是將 `containsPII` 參數設為 `false`，而不含個人資料，第二次將 `message` 參數設定為 `containsPii`，而訊息可能包含個人資料。`true` 在某些情況下 (當訊息不包含個人資料時)，這兩個訊息將會相同。
 
 ```java
 private StringBuilder mLogs;
@@ -110,20 +110,20 @@ Logger.getInstance().setExternalLogger(new ILoggerCallback()
 });
 ```
 
-By default, the MSAL logger will not capture any personal identifiable information or organizational identifiable information.
-To enable the logging of personal identifiable information or organizational identifiable information:
+根據預設，MSAL 記錄器不會捕捉任何個人識別資訊或組織識別資訊。
+若要啟用個人識別資訊或組織識別資訊的記錄功能：
 
 ```java
 Logger.getInstance().setEnablePII(true);
 ```
 
-To disable logging personal data and organization data:
+若要停用記錄個人資料和組織資料：
 
 ```java
 Logger.getInstance().setEnablePII(false);
 ```
 
-By default logging to logcat is disabled. To enable:
+預設會停用記錄至 logcat。 若要啟用：
 
 ```java
 Logger.getInstance().setEnableLogcatLog(true);
@@ -131,12 +131,12 @@ Logger.getInstance().setEnableLogcatLog(true);
 
 ## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
- Enable logging in MSAL.js (JavaScript) by passing a logger object during the configuration for creating a `UserAgentApplication` instance. 此記錄器物件具有下列屬性：
+ 藉由在建立 `UserAgentApplication` 實例的設定期間傳遞記錄器物件，在 MSAL 中啟用記錄功能。 此記錄器物件具有下列屬性：
 
-- `localCallback`: a Callback instance that can be provided by the developer to consume and publish logs in a custom manner. 請依您想要將記錄重新導向的方式實作 localCallback 方法。
-- `level` (optional): the configurable log level. The supported log levels are: `Error`, `Warning`, `Info`, and `Verbose`. 預設值為 `Info`。
-- `piiLoggingEnabled` (optional): if set to true, logs personal and organizational data. By default this is false so that your application doesn't log personal data. 個人資料記錄永遠不會被寫入如 Console、Logcat 或 NSLog 等的預設輸出。
-- `correlationId` (optional): a unique identifier, used to map the request with the response for debugging purposes. 預設為 RFC4122 4 版 guid (128 位元)。
+- `localCallback`：可由開發人員提供的回呼實例，以自訂的方式取用和發行記錄。 請依您想要將記錄重新導向的方式實作 localCallback 方法。
+- `level` （選用）：可設定的記錄層級。 支援的記錄層級為： `Error`、`Warning`、`Info`和 `Verbose`。 預設值為 `Info`。
+- `piiLoggingEnabled` （選用）：如果設定為 true，則會記錄個人和組織資料。 根據預設，此值為 false，因此您的應用程式不會記錄個人資料。 個人資料記錄永遠不會被寫入如 Console、Logcat 或 NSLog 等的預設輸出。
+- `correlationId` （選用）：唯一識別碼，用來將要求對應至用於進行偵錯工具的回應。 預設為 RFC4122 4 版 guid (128 位元)。
 
 ```javascript
 function loggerCallback(logLevel, message, containsPii) {
@@ -163,9 +163,9 @@ var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 
 ## <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
 
-## <a name="msal-for-ios-and-macos-logging-objc"></a>MSAL for iOS and macOS logging-ObjC
+## <a name="msal-for-ios-and-macos-logging-objc"></a>適用于 iOS 和 macOS 記錄的 MSAL-ObjC
 
-Set a callback to capture MSAL logging and incorporate it in your own application's logging. The signature for the callback looks like this:
+設定回呼來捕捉 MSAL 記錄，並將它併入您自己的應用程式記錄中。 回呼的簽章看起來像這樣：
 
 ```objc
 /*!
@@ -182,7 +182,7 @@ Set a callback to capture MSAL logging and incorporate it in your own applicatio
 typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
 ```
 
-例如：
+例如︰
 
 ```objc
 [MSALGlobalConfig.loggerConfig setLogCallback:^(MSALLogLevel level, NSString *message, BOOL containsPII)
@@ -197,9 +197,9 @@ typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL cont
     }];
 ```
 
-### <a name="personal-data"></a>Personal data
+### <a name="personal-data"></a>個人資料
 
-By default, MSAL doesn't capture or log any personal data (PII). The library allows app developers to turn this on through a property in the MSALLogger class. By turning on `pii.Enabled`, the app takes responsibility for safely handling highly sensitive data and following regulatory requirements.
+根據預設，MSAL 不會捕捉或記錄任何個人資料（PII）。 程式庫可讓應用程式開發人員透過 MSALLogger 類別中的屬性來開啟此功能。 藉由開啟 `pii.Enabled`，應用程式會負責安全地處理高度敏感的資料，並遵循法規需求。
 
 ```objc
 // By default, the `MSALLogger` doesn't capture any PII
@@ -213,37 +213,37 @@ MSALGlobalConfig.loggerConfig.piiEnabled = NO;
 
 ### <a name="logging-levels"></a>記錄層級
 
-To set the logging level when you log using MSAL for iOS and macOS, use one of the following values:
+若要在使用 iOS 和 macOS 的 MSAL 記錄時設定記錄層級，請使用下列其中一個值：
 
-|層級  |描述 |
+|等級  |描述 |
 |---------|---------|
-| `MSALLogLevelNothing`| Disable all logging |
-| `MSALLogLevelError` | Default level, prints out information only when errors occur |
-| `MSALLogLevelWarning` | Warnings |
-| `MSALLogLevelInfo` |  Library entry points, with parameters and various keychain operations |
+| `MSALLogLevelNothing`| 停用所有記錄 |
+| `MSALLogLevelError` | 預設層級，只有在發生錯誤時才會列印資訊 |
+| `MSALLogLevelWarning` | 消息 |
+| `MSALLogLevelInfo` |  程式庫進入點，包含參數和各種 keychain 作業 |
 |`MSALLogLevelVerbose`     |  API 追蹤 |
 
-例如：
+例如︰
 
 ```objc
 MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
  ```
 
- ### <a name="log-message-format"></a>Log message format
+ ### <a name="log-message-format"></a>記錄訊息格式
 
-The message portion of MSAL log messages is in the format of `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+MSAL 記錄訊息的訊息部分格式為 `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
-例如：
+例如︰
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
-Providing correlation IDs and timestamps are helpful for tracking down issues. Timestamp and correlation ID information is available in the log message. The only reliable place to retrieve them is from MSAL logging messages.
+提供相互關聯識別碼和時間戳記有助於追蹤問題。 時間戳記和相互關聯識別碼資訊可在記錄訊息中取得。 唯一可取得的可靠位置是從 MSAL 記錄訊息。
 
 ## <a name="swifttabswift"></a>[Swift](#tab/swift)
 
-## <a name="msal-for-ios-and-macos-logging-swift"></a>MSAL for iOS and macOS logging-Swift
+## <a name="msal-for-ios-and-macos-logging-swift"></a>適用于 iOS 和 macOS 記錄的 MSAL-Swift
 
-Set a callback to capture MSAL logging and incorporate it in your own application's logging. The signature (represented in Objective-C) for the callback looks like this:
+設定回呼來捕捉 MSAL 記錄，並將它併入您自己的應用程式記錄中。 回呼的簽章（以目標-C 表示）如下所示：
 
 ```objc
 /*!
@@ -260,7 +260,7 @@ Set a callback to capture MSAL logging and incorporate it in your own applicatio
 typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
 ```
 
-例如：
+例如︰
 
 ```swift
 MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
@@ -274,9 +274,9 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 }
 ```
 
-### <a name="personal-data"></a>Personal data
+### <a name="personal-data"></a>個人資料
 
-By default, MSAL doesn't capture or log any personal data (PII). The library allows app developers to turn this on through a property in the MSALLogger class. By turning on `pii.Enabled`, the app takes responsibility for safely handling highly sensitive data and following regulatory requirements.
+根據預設，MSAL 不會捕捉或記錄任何個人資料（PII）。 程式庫可讓應用程式開發人員透過 MSALLogger 類別中的屬性來開啟此功能。 藉由開啟 `pii.Enabled`，應用程式會負責安全地處理高度敏感的資料，並遵循法規需求。
 
 ```swift
 // By default, the `MSALLogger` doesn't capture any PII
@@ -290,39 +290,39 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 ### <a name="logging-levels"></a>記錄層級
 
-To set the logging level when you log using MSAL for iOS and macOS, use one of the following values:
+若要在使用 iOS 和 macOS 的 MSAL 記錄時設定記錄層級，請使用下列其中一個值：
 
-|層級  |描述 |
+|等級  |描述 |
 |---------|---------|
-| `MSALLogLevelNothing`| Disable all logging |
-| `MSALLogLevelError` | Default level, prints out information only when errors occur |
-| `MSALLogLevelWarning` | Warnings |
-| `MSALLogLevelInfo` |  Library entry points, with parameters and various keychain operations |
+| `MSALLogLevelNothing`| 停用所有記錄 |
+| `MSALLogLevelError` | 預設層級，只有在發生錯誤時才會列印資訊 |
+| `MSALLogLevelWarning` | 消息 |
+| `MSALLogLevelInfo` |  程式庫進入點，包含參數和各種 keychain 作業 |
 |`MSALLogLevelVerbose`     |  API 追蹤 |
 
-例如：
+例如︰
 
 ```swift
 MSALGlobalConfig.loggerConfig.logLevel = .verbose
  ```
 
-### <a name="log-message-format"></a>Log message format
+### <a name="log-message-format"></a>記錄訊息格式
 
-The message portion of MSAL log messages is in the format of `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+MSAL 記錄訊息的訊息部分格式為 `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
-例如：
+例如︰
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
-Providing correlation IDs and timestamps are helpful for tracking down issues. Timestamp and correlation ID information is available in the log message. The only reliable place to retrieve them is from MSAL logging messages.
+提供相互關聯識別碼和時間戳記有助於追蹤問題。 時間戳記和相互關聯識別碼資訊可在記錄訊息中取得。 唯一可取得的可靠位置是從 MSAL 記錄訊息。
 
 ## <a name="javatabjava"></a>[Java](#tab/java)
 
-## <a name="msal-for-java-logging"></a>MSAL for Java logging
+## <a name="msal-for-java-logging"></a>適用于 JAVA 記錄的 MSAL
 
-MSAL for Java allows you to use the logging library that you are already using with your app, as long as it is compatible with SLF4J. MSAL for Java uses the [Simple Logging Facade for Java](http://www.slf4j.org/) (SLF4J) as a simple facade or abstraction for various logging frameworks, such as [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) and [Log4j](https://logging.apache.org/log4j/2.x/). SLF4J allows the user to plug in the desired logging framework at deployment time.
+MSAL for JAVA 可讓您使用已在應用程式中使用的記錄程式庫，前提是它與 SLF4J 相容。 MSAL for JAVA 會使用 JAVA （SLF4J）的[簡單記錄外觀](http://www.slf4j.org/)作為各種記錄架構的簡單外觀或抽象概念，例如[util。記錄](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html)、 [Logback](http://logback.qos.ch/)和[Log4j](https://logging.apache.org/log4j/2.x/)。 SLF4J 可讓使用者在部署階段插入所需的記錄架構。
 
-For example, to use Logback as the logging framework in your application, add the Logback dependency to the Maven pom file for your application:
+例如，若要在您的應用程式中使用 Logback 作為記錄架構，請將 Logback 相依性新增至應用程式的 Maven pom 檔案：
 
 ```xml
 <dependency>
@@ -332,7 +332,7 @@ For example, to use Logback as the logging framework in your application, add th
 </dependency>
 ```
 
-Then add the Logback configuration file:
+然後新增 Logback 設定檔：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -341,13 +341,13 @@ Then add the Logback configuration file:
 </configuration>
 ```
 
-SLF4J automatically binds to Logback at deployment time. MSAL logs will be written to the console.
+SLF4J 會在部署階段自動系結至 Logback。 MSAL 記錄將會寫入主控台。
 
-For instructions on how to bind to other logging frameworks, see the [SLF4J manual](http://www.slf4j.org/manual.html).
+如需如何系結至其他記錄架構的指示，請參閱[SLF4J 手冊](http://www.slf4j.org/manual.html)。
 
-### <a name="personal-and-organization-information"></a>Personal and organization information
+### <a name="personal-and-organization-information"></a>個人和組織資訊
 
-By default, MSAL logging does not capture or log any personal or organizational data. In the following example, logging personal or organizational data is off by default:
+根據預設，MSAL 記錄不會捕捉或記錄任何個人或組織的資料。 在下列範例中，記錄個人或組織的資料預設為關閉：
 
 ```java
     PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
@@ -355,9 +355,9 @@ By default, MSAL logging does not capture or log any personal or organizational 
             .build();
 ```
 
-Turn on personal and organizational data logging by setting `logPii()` on the client application builder. If you turn on personal or organizational data logging, your app must take responsibility for safely handling highly-sensitive data and complying with any regulatory requirements.
+藉由在用戶端應用程式產生器上設定 `logPii()`，來開啟個人和組織資料記錄。 如果您開啟個人或組織資料記錄，您的應用程式必須負責安全地處理高度敏感的資料，並遵守任何法規需求。
 
-In the following example, logging personal or organizational data is enabled:
+在下列範例中，會啟用記錄個人或組織資料：
 
 ```java
 PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
@@ -368,32 +368,32 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
 
 ## <a name="pythontabpython"></a>[Python](#tab/python)
 
-## <a name="msal-for-python-logging"></a>MSAL for Python logging
+## <a name="msal-for-python-logging"></a>適用于 Python 記錄的 MSAL
 
-Logging in MSAL Python uses the standard Python logging mechanism, for example `logging.info("msg")` You can configure MSAL logging as follows (and see it in action in the [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)):
+MSAL Python 中的記錄會使用標準的 Python 記錄機制，例如 `logging.info("msg")` 您可以依照下列方式設定 MSAL 記錄（並在[username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)中查看其運作方式）：
 
-### <a name="enable-debug-logging-for-all-modules"></a>Enable debug logging for all modules
+### <a name="enable-debug-logging-for-all-modules"></a>啟用所有模組的偵錯工具記錄
 
-By default, the logging in any Python script is turned off. If you want to enable debug logging for all of the modules in your entire Python script, use:
+根據預設，會關閉任何 Python 腳本中的記錄功能。 如果您想要針對整個 Python 腳本中的所有模組啟用 debug 記錄，請使用：
 
 ```python
 logging.basicConfig(level=logging.DEBUG)
 ```
 
-### <a name="silence-only-msal-logging"></a>Silence only MSAL logging
+### <a name="silence-only-msal-logging"></a>僅無聲 MSAL 記錄
 
-To silence only MSAL library logging, while enabling debug logging in all of the other modules in your Python script, turn off the logger used by MSAL Python:
+若只要 MSAL 程式庫記錄，同時在 Python 腳本的所有其他模組中啟用 debug 記錄，請關閉 MSAL Python 所使用的記錄器：
 
 ```Python
 logging.getLogger("msal").setLevel(logging.WARN)
 ```
 
-### <a name="personal-and-organizational-data-in-python"></a>Personal and organizational data in Python
+### <a name="personal-and-organizational-data-in-python"></a>Python 中的個人和組織資料
 
-MSAL for Python does not log personal data or organizational data. There is no property to turn personal or organization data logging on or off.
+適用于 Python 的 MSAL 不會記錄個人資料或組織資料。 沒有可開啟或關閉個人或組織資料記錄的屬性。
 
-You can use standard Python logging to log whatever you want, but you are responsible for safely handling sensitive data and following regulatory requirements.
+您可以使用標準的 Python 記錄來記錄任何您想要的內容，但您必須負責安全地處理敏感性資料及遵循法規需求。
 
-For more information about logging in Python, please refer to Python's  [Logging HOWTO](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).
+如需有關在 Python 中進行記錄的詳細資訊，請參閱 Python 的[記錄做法](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial)。
 
 ---

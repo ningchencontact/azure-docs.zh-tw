@@ -1,6 +1,6 @@
 ---
-title: Understand security best practices - Azure Digital Twins | Microsoft Docs
-description: Learn about security best practices for Azure Digital Twins and the Internet of Things.
+title: 瞭解安全性最佳做法-Azure 數位 Twins |Microsoft Docs
+description: 瞭解 Azure 數位 Twins 和物聯網的安全性最佳作法。
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -27,9 +27,9 @@ Azure Digital Twins 也會使用 Azure IoT 中的其他安全性功能，包括 
 > 若要確保 IoT 空間能獲得最大安全性，請檢閱其他安全性資源。 請務必包含您的裝置廠商。
 
 > [!TIP]
-> Use [Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/) to help detect IoT security threats and vulnerabilities.
+> 使用[適用于 iot 的 Azure 資訊安全中心](https://docs.microsoft.com/azure/asc-for-iot/)來協助偵測 iot 安全性威脅和弱點。
 
-## <a name="iot-security-best-practices"></a>IoT 安全性的最佳做法
+## <a name="iot-security-best-practices"></a>IoT 安全性最佳做法
 
 可以安全地保護 IoT 裝置的一些主要做法包括：
 
@@ -38,8 +38,8 @@ Azure Digital Twins 也會使用 Azure IoT 中的其他安全性功能，包括 
 > * 限制 IoT 空間內每個裝置、感應器及人員的角色。 如果遭到入侵，可將影響降至最低。
 > * 請考量可能會使用裝置 IP 位址篩選和連接埠限制。
 > * 限制 I/O 和裝置頻寬，以改善效能。 速率限制可以藉由防止拒絕服務的攻擊來改善安全性。
-> * Keep device firmware, operating system, and software up to date.
-> * Periodically audit and review device, software, network, and gateway security best practices as they continue to improve and evolve.
+> * 讓裝置的固件、作業系統和軟體保持在最新狀態。
+> * 在裝置、軟體、網路和閘道安全性最佳作法持續改善和演進時，定期進行審核及審查。
 
 可以安全地保護 IoT 空間的一些主要做法包括：
 
@@ -47,20 +47,20 @@ Azure Digital Twins 也會使用 Azure IoT 中的其他安全性功能，包括 
 > * 加密已儲存或永續性的資料。
 > * 需要定期變更或重新整理密碼或金鑰。
 > * 謹慎地依角色來限制存取權和權限。 請參閱後續的[角色型存取控制最佳做法](#role-based-access-control-best-practices)一節。
-> * Consider a divided network topology so that devices on each network are isolated from the others.
-> * 使用功能強大的加密。 Require long passwords, use secure protocols, and [multi-factor authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+> * 請考慮使用分割的網路拓撲，讓每個網路上的裝置與其他網路隔離。
+> * 使用功能強大的加密。 需要長密碼、使用安全通訊協定和[多重要素驗證](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)。
 
 [監視](./how-to-configure-monitoring.md) IoT 資源，以監看落在經常性作業範圍外的極端值、威脅或資源參數。 使用 Azure 分析進行監視管理。
 
 > [!IMPORTANT]
-> Read Azure [IoT security best practices](../iot-fundamentals/iot-security-best-practices.md) to begin a comprehensive IoT security strategy.
+> 閱讀 Azure [iot 安全性最佳做法](../iot-fundamentals/iot-security-best-practices.md)，以開始全方位的 IoT 安全性策略。
 
 > [!NOTE]
 > 如需事件處理和監視的詳細資訊，請參閱[使用 Azure Digital Twins 路由傳送事件和訊息](./concepts-events-routing.md)。
 
 ## <a name="azure-active-directory-best-practices"></a>Azure Active Directory 最佳做法
 
-Azure Digital Twins uses [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/) to authenticate users and protect applications. Azure Active Directory 支援各種新式架構的驗證。 全部都以 OAuth 2.0 或 OpenID Connect 之類的業界標準通訊協定為基礎。 若要保護 Azure Active Directory 的 IoT 空間，其中的一些主要做法包括：
+Azure 數位 Twins 會使用[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/)來驗證使用者及保護應用程式。 Azure Active Directory 支援各種新式架構的驗證。 全部都以 OAuth 2.0 或 OpenID Connect 之類的業界標準通訊協定為基礎。 若要保護 Azure Active Directory 的 IoT 空間，其中的一些主要做法包括：
 
 > [!div class="checklist"]
 > * 將 Azure Active Directory 應用程式祕密和金鑰儲存在安全的位置，例如 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)。

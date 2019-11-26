@@ -11,20 +11,20 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74211006"
 ---
-**Public DNS zones**
+**公用 DNS 區域**
 
 | 資源 | 預設限制 |
 | --- | --- |
-| Public DNS Zones per subscription |250 <sup>1</sup> |
-| Record sets per public DNS zone |10,000 <sup>1</sup> |
-| Records per record set in public DNS zone |20 |
-| Number of Alias records for a single Azure resource |20|
-| Private DNS zones per subscription |1000|
-| Record sets per private DNS zone |25000|
-| Records per record set for private DNS zones |20|
-| Virtual Network Links per private DNS zone |1000|
-| Virtual Networks Links per private DNS zones with auto-registration enabled |100|
-| Number of private DNS zones a virtual network can get linked to with auto-registration enabled |1|
-| Number of private DNS zones a virtual network can get linked |1000|
+| 每個訂用帳戶的公用 DNS 區域 |250 <sup>1</sup> |
+| 每個公用 DNS 區域的記錄集 |10000 <sup>1</sup> |
+| 公用 DNS 區域中每個記錄集的記錄 |20 |
+| 單一 Azure 資源的別名記錄數目 |20|
+| 每個訂用帳戶的私人 DNS 區域 |1000|
+| 每個私人 DNS 區域的記錄集 |25000|
+| 私人 DNS 區域的每個記錄集記錄 |20|
+| 每個私人 DNS 區域的虛擬網路連結 |1000|
+| 已啟用自動註冊的每個私人 DNS 區域的虛擬網路連結 |100|
+| 已啟用自動註冊的虛擬網路可連結的私人 DNS 區域數目 |1|
+| 虛擬網路可以連結的私人 DNS 區域數目 |1000|
 
-<sup>1</sup>If you need to increase these limits, contact Azure Support.
+<sup>1</sup>如果您需要增加這些限制，請聯絡 Azure 支援。

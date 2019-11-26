@@ -1,6 +1,6 @@
 ---
-title: 彈性資料庫工作 (預覽)
-description: Configure Elastic Database Jobs (preview) to run Transact-SQL (T-SQL) scripts across a set of one or more Azure SQL databases
+title: 彈性資料庫作業 (預覽)
+description: 設定彈性資料庫作業（預覽），以在一或多個 Azure SQL 資料庫中執行 Transact-sql （T-sql）腳本
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -27,19 +27,19 @@ ms.locfileid: "74420373"
 ## <a name="create-and-configure-the-agent"></a>建立和設定代理程式
 
 1. 建立或識別空的 S0 或更高版本的 SQL 資料庫。 此資料庫將在彈性作業代理程式建立期間作為「作業資料庫」。
-2. Create an Elastic Job agent in the [portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) or with [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
+2. 在[入口網站](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent)中或使用[PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent)建立彈性作業代理程式。
 
    ![建立彈性作業代理程式](media/elastic-jobs-overview/create-elastic-job-agent.png)
 
 ## <a name="create-run-and-manage-jobs"></a>建立、執行和管理作業
 
-1. Create a credential for job execution in the *Job database* using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
-2. Define the target group (the databases you want to run the job against) using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
+1. 使用[PowerShell](elastic-jobs-powershell.md)或[T-sql](elastic-jobs-tsql.md#create-a-credential-for-job-execution)，在*作業資料庫*中建立作業執行的認證。
+2. 使用[PowerShell](elastic-jobs-powershell.md)或[t-sql](elastic-jobs-tsql.md#create-a-target-group-servers)定義目標群組（您想要對其執行作業的資料庫）。
 3. 在將要執行作業的每個資料庫中建立作業代理程式認證 [(將使用者 (或角色) 新增至群組中的每個資料庫)](sql-database-control-access.md)。 如需範例，請參閱 [PowerShell 教學課程](elastic-jobs-powershell.md)。
-4. Create a job using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
+4. 使用[PowerShell](elastic-jobs-powershell.md)或[t-sql](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases)建立作業。
 5. 使用 [PowerShell](elastic-jobs-powershell.md) 或 [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases) 新增作業步驟。
-6. Run a job using [PowerShell](elastic-jobs-powershell.md#run-the-job) or [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
-7. Monitor job execution status using the portal, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) or [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
+6. 使用[PowerShell](elastic-jobs-powershell.md#run-the-job)或[t-sql](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job)執行作業。
+7. 使用入口網站、 [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions)或[t-sql](elastic-jobs-tsql.md#monitor-job-execution-status)監視作業執行狀態。
 
    ![入口網站](media/elastic-jobs-overview/elastic-job-executions-overview.png)
 
@@ -57,7 +57,7 @@ ms.locfileid: "74420373"
 
 ![彈性作業認證](media/elastic-jobs-overview/job-credentials.png)
 
-## <a name="security-best-practices"></a>安全性最佳做法
+## <a name="security-best-practices"></a>安全性最佳作法
 
 處理彈性作業有幾個最佳做法考量：
 
@@ -77,7 +77,7 @@ ms.locfileid: "74420373"
 
 若要確保在對 SQL 彈性集區中的資料庫執行作業時，資源不會負擔過重，則可以設定作業來限制作業可以同時執行的資料庫數目。
 
-Set the number of concurrent databases a job runs on by setting the `sp_add_jobstep` stored procedure's `@max_parallelism` parameter in T-SQL, or `Add-AzSqlElasticJobStep -MaxParallelism` in PowerShell.
+藉由在 T-sql 中設定 `sp_add_jobstep` 預存程式的 `@max_parallelism` 參數，或在 PowerShell 中 `Add-AzSqlElasticJobStep -MaxParallelism`，設定作業執行所在的並行資料庫數目。
 
 ## <a name="best-practices-for-creating-jobs"></a>建立作業的最佳做法
 

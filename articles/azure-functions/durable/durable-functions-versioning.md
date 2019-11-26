@@ -20,11 +20,11 @@ ms.locfileid: "74232747"
 
 有幾個重大變更的例子需要注意。 本文討論最常見的重大變更。 所有重大變更背後的主題都是：變更函式程式碼會影響新的和現有的函式協調流程。
 
-### <a name="changing-activity-or-entity-function-signatures"></a>Changing activity or entity function signatures
+### <a name="changing-activity-or-entity-function-signatures"></a>變更活動或實體函式簽章
 
-簽章變更是指函式的名稱、輸入或輸出有所變更。 If this kind of change is made to an activity or entity function, it could break any orchestrator function that depends on it. 如果您更新協調器函式來配合此變更，可能會中斷現有的執行中執行個體。
+簽章變更是指函式的名稱、輸入或輸出有所變更。 如果對活動或實體函式進行這種變更，它可能會中斷相依于它的任何協調器函式。 如果您更新協調器函式來配合此變更，可能會中斷現有的執行中執行個體。
 
-As an example, suppose we have the following orchestrator function.
+例如，假設我們有下列協調器函式。
 
 ```csharp
 [FunctionName("FooBar")]
@@ -47,11 +47,11 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> The previous C# examples target Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> 先前C#的範例是以 Durable Functions 2.x 為目標。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
-在協調器函式的所有新執行個體中，此變更不會有問題，但會中斷任何執行中的執行個體。 For example, consider the case where an orchestration instance calls a function named `Foo`, gets back a boolean value, and then checkpoints. 如果此時部署簽章變更，則通過檢查點的執行個體在繼續並重新呼叫 `context.CallActivityAsync<int>("Foo")` 時會立刻失敗。 This failure happens because the result in the history table is `bool` but the new code tries to deserialize it into `int`.
+在協調器函式的所有新執行個體中，此變更不會有問題，但會中斷任何執行中的執行個體。 例如，假設協調流程實例呼叫名為 `Foo`函式的情況下，取得布林值，然後檢查點。 如果此時部署簽章變更，則通過檢查點的執行個體在繼續並重新呼叫 `context.CallActivityAsync<int>("Foo")` 時會立刻失敗。 發生此失敗的原因是，歷程記錄資料表中的結果 `bool`，但新的程式碼會嘗試將它還原序列化成 `int`。
 
-This example is just one of many different ways that a signature change can break existing instances. 一般而言，如果協調器需要變更呼叫函式的方式，則變更就很可能會有問題。
+這個範例只是簽章變更可能中斷現有實例的許多不同方式之一。 一般而言，如果協調器需要變更呼叫函式的方式，則變更就很可能會有問題。
 
 ### <a name="changing-orchestrator-logic"></a>變更協調器邏輯
 
@@ -85,9 +85,9 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> The previous C# examples target Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> 先前C#的範例是以 Durable Functions 2.x 為目標。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
-此變更會在 **Foo** 和 **Bar** 之間新增呼叫 **SendNotification** 函式。 簽章不變。 當現有的執行個體在呼叫 **Bar** 之後繼續時，就發生問題。 During replay, if the original call to **Foo** returned `true`, then the orchestrator replay will call into **SendNotification**, which is not in its execution history. 結果，「永久性工作架構」會失敗，並傳回 `NonDeterministicOrchestrationException`，因為原本認為應該呼叫 **Bar**，但卻發現呼叫 **SendNotification**。 The same type of problem can occur when adding any calls to "durable" APIs, including `CreateTimer`, `WaitForExternalEvent`, etc.
+此變更會在 **Foo** 和 **Bar** 之間新增呼叫 **SendNotification** 函式。 簽章不變。 當現有的執行個體在呼叫 **Bar** 之後繼續時，就發生問題。 在重新執行期間，如果對**Foo**的原始呼叫傳回 `true`，則 orchestrator replay 會呼叫**SendNotification**，而不在其執行歷程記錄中。 結果，「永久性工作架構」會失敗，並傳回 `NonDeterministicOrchestrationException`，因為原本認為應該呼叫 **Bar**，但卻發現呼叫 **SendNotification**。 新增任何對「持久」 Api 的呼叫（包括 `CreateTimer`、`WaitForExternalEvent`等）時，可能會發生相同類型的問題。
 
 ## <a name="mitigation-strategies"></a>風險降低策略
 
@@ -101,11 +101,11 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 
 處理重大變更最簡單的方式，就是讓執行中的協調流程執行個體失敗。 新的執行個體會成功執行已變更的程式碼。
 
-Whether this kind of failure is a problem depends on the importance of your in-flight instances. 如果您正在進行開發，並不在意執行中的執行個體，這樣可能就很好。 However, you'll need to deal with exceptions and errors in your diagnostics pipeline. 如果想要避免這些事情，請考慮其他版本設定選項。
+這類失敗是否為問題，取決於您的進行中實例的重要性。 如果您正在進行開發，並不在意執行中的執行個體，這樣可能就很好。 不過，您需要處理診斷管線中的例外狀況和錯誤。 如果想要避免這些事情，請考慮其他版本設定選項。
 
 ### <a name="stop-all-in-flight-instances"></a>停止所有執行中的執行個體
 
-另一個選項是停止所有執行中的執行個體。 Stopping all instances can be done by clearing the contents of the internal **control-queue** and **workitem-queue** queues. The instances will be forever stuck where they are, but they will not clutter your logs with failure messages. This approach is ideal in rapid prototype development.
+另一個選項是停止所有執行中的執行個體。 藉由清除內部**控制佇列**和**工作專案佇列**佇列的內容，即可停止所有實例。 實例將會永遠停滯在何處，但它們不會使您的記錄發生失敗訊息的混亂。 這種方法非常適合用於快速原型開發。
 
 > [!WARNING]
 > 這些佇列的詳細資料可能隨著時間而變更，請勿依賴此技術來處理生產工作負載。
@@ -114,9 +114,9 @@ Whether this kind of failure is a problem depends on the importance of your in-f
 
 為了確保安全地部署重大變更，將重大變更與舊版並存部署就能萬無一失。 您可以採取下列任何技術：
 
-* Deploy all the updates as entirely new functions, leaving existing functions as-is. This can be tricky because the callers of the new function versions must be updated as well following the same guidelines.
+* 將所有更新部署為全新的函式，以保持現有的功能。 這可能會很棘手，因為新函式版本的呼叫端也必須遵循相同的指導方針進行更新。
 * 以不同的儲存體帳戶，將所有更新部署為新的函式應用程式。
-* Deploy a new copy of the function app with the same storage account but with an updated `taskHub` name. Side-by-side deployments is the recommended technique.
+* 使用相同的儲存體帳戶部署函式應用程式的新複本，但使用已更新的 `taskHub` 名稱。 並存部署是建議的技巧。
 
 ### <a name="how-to-change-task-hub-name"></a>如何變更工作中樞名稱
 
@@ -132,7 +132,7 @@ Whether this kind of failure is a problem depends on the importance of your in-f
 }
 ```
 
-#### <a name="functions-20"></a>Functions 2.0
+#### <a name="functions-20"></a>函數2。0
 
 ```json
 {
@@ -144,14 +144,14 @@ Whether this kind of failure is a problem depends on the importance of your in-f
 }
 ```
 
-The default value for Durable Functions v1.x is `DurableFunctionsHub`. Starting in Durable Functions v2.0, the default task hub name is the same as the function app name in Azure, or `TestHubName` if running outside of Azure.
+Durable Functions v1. x 的預設值是 `DurableFunctionsHub`。 從 Durable Functions v2.0 開始，預設的工作中樞名稱與 Azure 中的函式應用程式名稱相同，或 `TestHubName` （如果在 Azure 外部執行）。
 
-所有 Azure 儲存體實體都是依據 `hubName` 設定值來命名。 只要指定新名稱給工作中樞，就可以確保為應用程式的新版本建立個別的佇列和記錄資料表。 The function app, however, will stop processing events for orchestrations or entities created under the previous task hub name.
+所有 Azure 儲存體實體都是依據 `hubName` 設定值來命名。 只要指定新名稱給工作中樞，就可以確保為應用程式的新版本建立個別的佇列和記錄資料表。 不過，函數應用程式會停止處理協調流程的事件，或在先前的工作中樞名稱底下建立的實體。
 
 建議您將函式應用程式的新版本部署到新的[部署位置](../functions-deployment-slots.md)。 部署位置可讓您並存執行函式應用程式的多個複本，而且其中只有一個是作用中的「生產」位置。 當您準備將新的協調流程邏輯公開到現有的基礎結構時，只要將新的版本調換到生產位置即可，就是這麼簡單。
 
 > [!NOTE]
-> 當您對協調器函式使用 HTTP 和 Webhook 觸發程序時，此策略最理想。 For non-HTTP triggers, such as queues or Event Hubs, the trigger definition should [derive from an app setting](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) that gets updated as part of the swap operation.
+> 當您對協調器函式使用 HTTP 和 Webhook 觸發程序時，此策略最理想。 對於非 HTTP 觸發程式（例如佇列或事件中樞），觸發程序定義應該衍生自在交換作業中更新的[應用程式設定](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings)。
 
 ## <a name="next-steps"></a>後續步驟
 

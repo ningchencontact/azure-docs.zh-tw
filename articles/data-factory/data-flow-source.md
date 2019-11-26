@@ -1,6 +1,6 @@
 ---
-title: Source transformation in mapping data flow
-description: Learn how to set up a source transformation in mapping data flow.
+title: 對應資料流程中的來源轉換
+description: 瞭解如何在對應的資料流程中設定來源轉換。
 author: kromerm
 ms.author: makromer
 manager: anandsub
@@ -15,176 +15,176 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74217736"
 ---
-# <a name="source-transformation-for-mapping-data-flow"></a>Source transformation for mapping data flow 
+# <a name="source-transformation-for-mapping-data-flow"></a>對應資料流程的來源轉換 
 
-A source transformation configures your data source for the data flow. When designing data flows, your first step will always be configuring a source transformation. To add a source, click on the **Add Source** box in the data flow canvas.
+「來源」轉換會為數據流設定您的資料來源。 在設計資料流程時，您的第一個步驟一律會設定來源轉換。 若要新增來源，請按一下 [資料流程] 畫布中的 [**新增來源**] 方塊。
 
-Every data flow requires at least one source transformation, but you can add as many sources as necessary to complete your data transformations. You can join those sources together with a join, lookup, or a union transformation.
+每個資料流程都需要至少一個來源轉換，但您可以視需要新增多個來源來完成資料轉換。 您可以將這些來源與聯結、查閱或聯集轉換聯結在一起。
 
-Each source transformation is associated with exactly one Data Factory dataset. The dataset defines the shape and location of the data you want to write to or read from. If using a file-based dataset, you can use wildcards and file lists in your source to work with more than one file at a time.
+每個來源轉換只會與一個 Data Factory 資料集相關聯。 資料集會定義您想要寫入或讀取之資料的形狀和位置。 如果使用以檔案為基礎的資料集，您可以在來源中使用萬用字元和檔案清單，一次處理一個以上的檔案。
 
-## <a name="supported-connectors-in-mapping-data-flow"></a>Supported connectors in mapping data flow
+## <a name="supported-connectors-in-mapping-data-flow"></a>對應資料流程中支援的連接器
 
-Mapping Data Flow follows an extract, load, transform (ELT) approach and works with *staging* datasets that are all in Azure. Currently the following datasets can be used in a source transformation:
+對應資料流程遵循「解壓縮」、「載入」、「轉換」（ELT）方法，並適用于所有 Azure 中的*臨時*資料集。 目前，下列資料集可以用於來源轉換：
     
-* Azure Blob Storage (JSON, Avro, Text, Parquet)
-* Azure Data Lake Storage Gen1 (JSON, Avro, Text, Parquet)
-* Azure Data Lake Storage Gen2 (JSON, Avro, Text, Parquet)
+* Azure Blob 儲存體（JSON、Avro、Text、Parquet）
+* Azure Data Lake Storage Gen1 （JSON、Avro、Text、Parquet）
+* Azure Data Lake Storage Gen2 （JSON、Avro、Text、Parquet）
 * Azure SQL 資料倉儲
 * Azure SQL Database
 * Azure CosmosDB
 
-Azure Data Factory has access to over 80 native connectors. To include data from those other sources in your data flow, use the Copy Activity to load that data into one of the supported staging areas.
+Azure Data Factory 可以存取超過80的原生連接器。 若要在資料流程中包含來自其他來源的資料，請使用複製活動，將該資料載入其中一個支援的臨時區域。
 
 ## <a name="source-settings"></a>來源設定
 
-Once you have added a source, configure via the **Source Settings** tab. Here you can pick or create the dataset your source points at. You can also select schema and sampling options for your data.
+新增來源之後，請透過 [**來源設定**] 索引標籤進行設定。您可以在這裡挑選或建立來源點的資料集。 您也可以選取資料的架構和取樣選項。
 
-![Source settings tab](media/data-flow/source1.png "Source settings tab")
+![[來源設定] 索引標籤](media/data-flow/source1.png "[來源設定] 索引標籤")
 
-**Schema drift:** [Schema Drift](concepts-data-flow-schema-drift.md) is data factory's ability to natively handle flexible schemas in your data flows without needing to explicitly define column changes.
+**架構漂移：** [架構漂移](concepts-data-flow-schema-drift.md)是 data factory 能夠以原生方式處理您資料流程中的彈性架構，而不需要明確地定義資料行變更。
 
-* Check the **Allow schema drift** box if the source columns will change often. This setting allows all incoming source fields to flow through the transformations to the sink.
+* 如果來源資料行經常變更，請選取 [**允許架構漂移**] 方塊。 此設定可讓所有傳入的來源欄位流經接收的轉換。
 
-* Choosing **Infer drifted column types** will instruct data factory to detect and define data types for each new column discovered. With this feature turned off, all drifted columns will be of type string.
+* 選擇 [**推斷漂移資料行類型**] 將會指示 data factory 偵測並定義每個探索到的新資料行的資料類型。 關閉這項功能之後，所有漂移的資料行都是字串類型。
 
-**Validate schema:** If validate schema is selected, the data flow will fail to run if the incoming source data doesn't match the defined schema of the dataset.
+**驗證架構：** 如果選取了 [驗證架構]，當傳入的來源資料不符合資料集的定義架構時，資料流程將無法執行。
 
-**Skip line count:** The skip line count field specifies how many lines to ignore at the beginning of the dataset.
+**略過行計數：** [略過行計數] 欄位會指定資料集開頭要忽略的行數。
 
-**Sampling:** Enable sampling to limit the number of rows from your source. Use this setting when you test or sample data from your source for debugging purposes.
+**取樣：** 啟用取樣以限制來源的資料列數目。 當您從來源測試或取樣資料以進行調試時，請使用此設定。
 
-**Multiline rows:** Select multiline rows if your source text file contains string values that span multiple rows, i.e. newlines inside a value.
+**多行資料列：** 如果您的來源文字檔包含跨越多個資料列的字串值（也就是值內的分行符號），請選取 [多行資料列]。
 
-To validate your source is configured correctly, turn on debug mode and fetch a data preview. For more information, see [Debug mode](concepts-data-flow-debug-mode.md).
+若要驗證您的來源設定是否正確，請開啟 [偵測模式]，並提取資料預覽。 如需詳細資訊，請參閱[Debug mode](concepts-data-flow-debug-mode.md)。
 
 > [!NOTE]
-> When debug mode is turned on, the row limit configuration in debug settings will overwrite the sampling setting in the source during data preview.
+> 開啟 [偵錯模式] 時，[調試設定] 中的 [資料列限制] 設定將會在資料預覽期間覆寫來源中的取樣設定。
 
-## <a name="file-based-source-options"></a>File-based source options
+## <a name="file-based-source-options"></a>以檔案為基礎的來源選項
 
-If you're using a file-based dataset such as Azure Blob Storage or Azure Data Lake Storage, the **Source options** tab lets you manage how your source reads files.
+如果您使用以檔案為基礎的資料集，例如 Azure Blob 儲存體或 Azure Data Lake Storage，[**來源選項**] 索引標籤可讓您管理來源讀取檔案的方式。
 
-![Source options](media/data-flow/sourceOPtions1.png "Source options")
+![來源選項](media/data-flow/sourceOPtions1.png "來源選項")
 
-**Wildcard path:** Using a wildcard pattern will instruct ADF to loop through each matching folder and file in a single Source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the + sign that appears when hovering over your existing wildcard pattern.
+**萬用字元路徑：** 使用萬用字元模式會指示 ADF 在單一來源轉換中，迴圈處理每個相符的資料夾和檔案。 這是在單一流程內處理多個檔案的有效方式。 當滑鼠停留在現有的萬用字元模式上時，使用顯示的 + 符號新增多個萬用字元符合模式。
 
-From your source container, choose a series of files that match a pattern. Only container can be specified in the dataset. Your wildcard path must therefore also include your folder path from the root folder.
+從您的來源容器中，選擇符合模式的一系列檔案。 只有容器可以在資料集內指定。 因此，您的萬用字元路徑也必須包含根資料夾中的資料夾路徑。
 
-Wildcard examples:
+萬用字元範例：
 
-* ```*``` Represents any set of characters
-* ```**``` Represents recursive directory nesting
-* ```?``` Replaces one character
-* ```[]``` Matches one of more characters in the brackets
+* ```*``` 代表任何一組字元
+* ```**``` 代表遞迴目錄的嵌套
+* ```?``` 取代一個字元
+* ```[]``` 符合括弧中的一個或多個字元
 
-* ```/data/sales/**/*.csv``` Gets all csv files under /data/sales
-* ```/data/sales/20??/**``` Gets all files in the 20th century
-* ```/data/sales/2004/*/12/[XY]1?.csv``` Gets all csv files in 2004 in December starting with X or Y prefixed by a two-digit number
+* ```/data/sales/**/*.csv``` 取得/data/sales 下的所有 csv 檔案
+* ```/data/sales/20??/**``` 取得20世紀的所有檔案
+* ```/data/sales/2004/*/12/[XY]1?.csv``` 從 X 或 Y 前面加上兩位數的數位，取得2004中的所有 csv 檔案
 
-**Partition Root Path:** If you have partitioned folders in your file source with  a ```key=value``` format (for example, year=2019), then you can assign the top level of that partition folder tree to a column name in your data flow data stream.
+資料**分割根路徑：** 如果您的檔案來源中有 ```key=value``` 格式的資料分割資料夾（例如 year = 2019），則可以將該分割區資料夾樹狀結構的最上層指派給資料流程資料流程中的資料行名稱。
 
-First, set a wildcard to include all paths that are the partitioned folders plus the leaf files that you wish to read.
+首先，設定萬用字元以包含所有分割資料夾的路徑，加上您想要讀取的分葉檔案。
 
-![Partition source file settings](media/data-flow/partfile2.png "Partition file setting")
+![資料分割來源檔案設定](media/data-flow/partfile2.png "資料分割檔案設定")
 
-Use the Partition Root Path setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that ADF will add the resolved partitions found in each of your folder levels.
+使用 [資料分割根路徑] 設定來定義資料夾結構的最上層。 當您透過資料預覽來查看資料的內容時，您會看到 ADF 會新增在您的每個資料夾層級中找到的已解析磁碟分割。
 
-![Partition root path](media/data-flow/partfile1.png "Partition root path preview")
+![分割區根路徑](media/data-flow/partfile1.png "資料分割根路徑預覽")
 
-**List of files:** This is a file set. Create a text file that includes a list of relative path files to process. Point to this text file.
+檔案**清單：** 這是檔案集。 建立文字檔，其中包含要處理的相對路徑檔案清單。 指向這個文字檔。
 
-**Column to store file name:** Store the name of the source file in a column in your data. Enter a new column name here to store the file name string.
+**要儲存檔案名稱的資料行：** 將原始程式檔的名稱儲存在資料行中。 在此輸入新的資料行名稱，以儲存檔案名稱字串。
 
-**After completion:** Choose to do nothing with the source file after the data flow runs, delete the source file, or move the source file. The paths for the move are relative.
+**完成後：** 選擇在資料流程執行後，不要對來源檔案執行任何動作、刪除來源檔案，或移動來源檔案。 移動的路徑是相對的。
 
-To move source files to another location post-processing, first select "Move" for file operation. Then, set the "from" directory. If you're not using any wildcards for your path, then the "from" setting will be the same folder as your source folder.
+若要將原始程式檔移到另一個位置後置處理，請先選取 [移動] 進行檔案操作。 然後，設定 "from" 目錄。 如果您的路徑未使用任何萬用字元，則「來源」設定會與源資料夾位於相同的資料夾。
 
-If you have a source path with wildcard, your syntax will look like this below:
+如果您有具有萬用字元的來源路徑，您的語法看起來會像下面這樣：
 
 ```/data/sales/20??/**/*.csv```
 
-You can specify "from" as
+您可以指定 "from" 作為
 
 ```/data/sales```
 
-And "to" as
+和 "to" as
 
 ```/backup/priorSales```
 
-In this case, all files that were sourced under /data/sales are moved to /backup/priorSales.
+在此情況下，所有源自/data/sales 的檔案都會移至/backup/priorSales。
 
 > [!NOTE]
-> File operations run only when you start the data flow from a pipeline run (a pipeline debug or execution run) that uses the Execute Data Flow activity in a pipeline. File operations *do not* run in Data Flow debug mode.
+> 只有當您從管線執行（管線偵錯工具或執行回合）啟動資料流程，而該資料流程使用管線中的「執行資料流程」活動時，檔案作業才會執行。 檔案作業*不會*在資料流程的「資料流程」（debug）模式中執行。
 
-**Filter by last modified:** You can filter which files you process by specifying a date range of when they were last modified. All date-times are in UTC. 
+**依上次修改時間篩選：** 您可以藉由指定上次修改的日期範圍來篩選所處理的檔案。 所有日期時間都是 UTC 格式。 
 
 ### <a name="add-dynamic-content"></a>新增動態內容
 
-All source settings can be specified as expressions using the [Mapping Data flow's transformation expression language](data-flow-expression-functions.md). To add dynamic content, click or hover inside of the fields in the settings panel. Click the hyperlink for **Add dynamic content**. This will launch the expression builder where you can set values dynamically using expressions, static literal values, or parameters.
+所有的來源設定都可以使用[對應資料流程的轉換運算式語言](data-flow-expression-functions.md)，指定為運算式。 若要新增動態內容，請按一下或將滑鼠停留在 [設定] 面板中的欄位內。 按一下 [**新增動態內容**] 的超連結。 這會啟動 [運算式產生器]，您可以在其中使用運算式、靜態常值或參數來動態設定值。
 
-![參數](media/data-flow/params6.png "參數")
+![參數](media/data-flow/params6.png "parameters")
 
-## <a name="sql-source-options"></a>SQL source options
+## <a name="sql-source-options"></a>SQL 來源選項
 
-If your source is in SQL Database or SQL Data Warehouse, additional SQL-specific settings are available in the **Source Options** tab. 
+如果您的來源是 SQL Database 或 SQL 資料倉儲，則 [**來源選項**] 索引標籤中會提供其他 SQL 特定設定。 
 
-**Input:** Select whether you point your source at a table (equivalent of ```Select * from <table-name>```) or enter a custom SQL query.
+**輸入：** 選取您是要將來源指向資料表（相當於 ```Select * from <table-name>```）還是輸入自訂的 SQL 查詢。
 
-**Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups. 範例：```Select * from MyTable where customerId > 1000 and customerId < 2000```
+**查詢**：如果您在 [輸入] 欄位中選取 [查詢]，請輸入來源的 SQL 查詢。 此設定會覆寫您在資料集中選擇的任何資料表。 這裡不支援**Order By**子句，但您可以設定完整的 SELECT FROM 語句。 您也可以使用使用者定義資料表函數。 **select * From udfGetData （）** 是 SQL 中傳回資料表的 UDF。 此查詢會產生您可以在資料流程中使用的來源資料表。 使用查詢也是縮減資料列以進行測試或查閱的絕佳方式。 範例︰ ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Batch size**: Enter a batch size to chunk large data into reads.
+**批次大小**：輸入批次大小以將大型資料區塊為讀取。
 
-**Isolation Level**: The default for SQL sources in mapping data flow is read uncommitted. You can change the isolation level here to one of these values:
-* Read Committed
-* Read Uncommitted
+**隔離等級**：對應資料流程中 SQL 來源的預設值為讀取未認可。 您可以在這裡將隔離等級變更為下列其中一個值：
+* 讀取認可
+* 讀取未認可
 * 可重複讀取
-* Serializable
-* None (ignore isolation level)
+* 化
+* 無（忽略隔離等級）
 
-![Isolation Level](media/data-flow/isolationlevel.png "Isolation Level")
+![隔離等級](media/data-flow/isolationlevel.png "隔離等級")
 
 ## <a name="projection"></a>投射
 
-Like schemas in datasets, the projection in a source defines the data columns, types, and formats from the source data. For most dataset types such as SQL and Parquet, the projection in a source is fixed to reflect the schema defined in a dataset. When your source files aren't strongly typed (for example, flat csv files rather than Parquet files), you can define the data types for each field in the source transformation.
+如同資料集內的架構，來源中的投射會定義來源資料的資料行、類型和格式。 對於大部分的資料集類型（例如 SQL 和 Parquet），會修正來源中的投射，以反映資料集中所定義的架構。 當您的來源檔案不是強型別（例如，一般 csv 檔案，而不是 Parquet 檔案）時，您可以在來源轉換中定義每個欄位的資料類型。
 
-![Settings on the Projection tab](media/data-flow/source3.png "投射")
+![[投射] 索引標籤上的設定](media/data-flow/source3.png "投射")
 
-If your text file has no defined schema, select **Detect data type** so that Data Factory will sample and infer the data types. Select **Define default format** to autodetect the default data formats. 
+如果您的文字檔沒有已定義的架構，請選取 [偵測**資料類型**]，讓 Data Factory 將會取樣並推斷資料類型。 選取 [**定義預設格式**] 以自動偵測預設資料格式。 
 
-You can modify the column data types in a down-stream derived-column transformation. Use a select transformation to modify the column names.
+您可以在「向下串流衍生資料行」轉換中修改資料行資料類型。 使用 [選取] 轉換來修改資料行名稱。
 
-### <a name="import-schema"></a>Import schema
+### <a name="import-schema"></a>匯入架構
 
-Datasets like Avro and CosmosDB that support complex data structures do not require schema definitions to exist in the dataset. Therefore, you will be able to click the "Import Schema" button the Projection tab for these types of sources.
+支援複雜資料結構的資料集（例如 Avro 和 CosmosDB）不需要架構定義存在於資料集內。 因此，您可以按一下 [匯入架構] 按鈕，將這些來源類型的 [投射] 索引標籤。
 
-## <a name="cosmosdb-specific-settings"></a>CosmosDB specific settings
+## <a name="cosmosdb-specific-settings"></a>CosmosDB 特定設定
 
-When using CosmosDB as a source type, there are a few options to consider:
+使用 CosmosDB 做為來源類型時，有幾個選項需要考慮：
 
-* Include system columns: If you check this, ```id```, ```_ts```, and other system columns will be included in your data flow metadata from CosmosDB. When updating collections, it is important to include this so that you can grab the existing row id.
-* Page size: The number of documents per page of the query result. Default is "-1" which uses the service dynamic page up to 1000.
-* Throughput: Set an optional value for the number of RUs you'd like to apply to your CosmosDB collection for each execution of this data flow during the read operation. Minimum is 400.
-* Preferred regions: You can choose the preferred read regions for this process.
+* 包含系統資料行：如果您核取此項，```id```、```_ts```和其他系統資料行將會包含在 CosmosDB 的資料流程中繼資料中。 更新集合時，請務必包含此資訊，以便您可以抓取現有的資料列識別碼。
+* 頁面大小：查詢結果每頁的檔數目。 預設值為 "-1"，使用最多1000的服務動態頁面。
+* 輸送量：在讀取作業期間，針對此資料流程的每次執行，設定您想要套用至 CosmosDB 集合的 ru 數目的選擇性值。 最小值為400。
+* 慣用區域：您可以選擇此進程的慣用讀取區域。
 
-## <a name="optimize-the-source-transformation"></a>Optimize the source transformation
+## <a name="optimize-the-source-transformation"></a>優化來源轉換
 
-On the **Optimize** tab for the source transformation, you might see a **Source** partition type. This option is available only when your source is Azure SQL Database. This is because Data Factory tries to make connections parallel to run large queries against your SQL Database source.
+在來源轉換的 [**優化**] 索引標籤上，您可能會看到**來源**分割區類型。 只有當您的來源是 Azure SQL Database 時，才可以使用此選項。 這是因為 Data Factory 嘗試讓連接平行處理，以對您的 SQL Database 來源執行大型查詢。
 
-![Source partition settings](media/data-flow/sourcepart3.png "分割")
+![來源分割區設定](media/data-flow/sourcepart3.png "分割")
 
-You don't have to partition data on your SQL Database source, but partitions are useful for large queries. You can base your partition on a column or a query.
+您不需要分割 SQL Database 來源上的資料，但磁碟分割對於大型查詢很有用。 您可以根據資料行或查詢來建立資料分割的基礎。
 
-### <a name="use-a-column-to-partition-data"></a>Use a column to partition data
+### <a name="use-a-column-to-partition-data"></a>使用資料行來分割資料
 
-From your source table, select a column to partition on. Also set the number of partitions.
+從您的來源資料表中選取要分割的資料行。 同時設定分割區的數目。
 
-### <a name="use-a-query-to-partition-data"></a>Use a query to partition data
+### <a name="use-a-query-to-partition-data"></a>使用查詢來分割資料
 
-You can choose to partition the connections based on a query. Enter the contents of a WHERE predicate. For example, enter year > 1980.
+您可以選擇根據查詢來分割連接。 輸入 WHERE 述詞的內容。 例如，輸入 year > 1980。
 
-For more information on optimization within mapping data flow, see the [Optimize tab](concepts-data-flow-overview.md#optimize).
+如需有關對應資料流程內優化的詳細資訊，請參閱 [[優化]](concepts-data-flow-overview.md#optimize)索引標籤。
 
 ## <a name="next-steps"></a>後續步驟
 
-Begin building a [derived-column transformation](data-flow-derived-column.md) and a [select transformation](data-flow-select.md).
+開始建立[衍生的資料行轉換](data-flow-derived-column.md)和[選取轉換](data-flow-select.md)。

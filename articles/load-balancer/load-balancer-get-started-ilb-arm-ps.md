@@ -90,7 +90,7 @@ Select-AzSubscription -Subscriptionid "GUID of subscription"
 New-AzResourceGroup -Name NRP-RG -location "West US"
 ```
 
-Azure 資源管理員需要所有的資源群組指定一個位置。 此位置會作為資源群組中之資源的預設位置。 針對與建立負載平衡器相關的所有命令，一律使用相同的資源群組。
+Azure Resource Manager 需要所有的資源群組指定一個位置。 此位置會作為資源群組中之資源的預設位置。 針對與建立負載平衡器相關的所有命令，一律使用相同的資源群組。
 
 在範例中，我們已建立名為 **NRP-RG** 的資源群組，且位置為「美國西部」。
 
@@ -251,7 +251,7 @@ $backendnic2= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-b
 
 ### <a name="step-1-store-the-load-balancer-resource"></a>步驟 1：儲存負載平衡器資源
 
-將負載平衡器資源儲存在變數中 (如果您還沒這麼做)。 We're using the variable name **$lb**. For the attribute values in the script, use the names for the load balancer resources that were created in the previous steps.
+將負載平衡器資源儲存在變數中 (如果您還沒這麼做)。 我們會使用變數名稱 **$lb**。針對腳本中的屬性值，使用在先前步驟中建立的負載平衡器資源名稱。
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
@@ -295,7 +295,7 @@ Set-AzNetworkInterface -NetworkInterface $nic
 
 ### <a name="step-1-assign-the-load-balancer-object-to-a-variable"></a>步驟 1：將負載平衡器物件指派給變數
 
-使用 `Get-AzLoadBalancer` 命令將負載平衡器物件 (來自上一個範例) 指派給 **$slb** 變數：
+使用 **命令將負載平衡器物件 (來自上一個範例) 指派給**$slb`Get-AzLoadBalancer` 變數：
 
 ```azurepowershell-interactive
 $slb = Get-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
@@ -319,7 +319,7 @@ $slb | Set-AzLoadBalancer
 
 ## <a name="remove-an-existing-load-balancer"></a>移除現有負載平衡器
 
-使用 `Remove-AzLoadBalancer` 命令，刪除 **NRP-RG** 資源群組中的 **NRP-LB** 負載平衡器：
+使用 **命令，刪除**NRP-RG**資源群組中的**NRP-LB`Remove-AzLoadBalancer` 負載平衡器：
 
 ```azurepowershell-interactive
 Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG

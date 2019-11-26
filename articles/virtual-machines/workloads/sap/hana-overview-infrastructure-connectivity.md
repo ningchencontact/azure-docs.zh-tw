@@ -36,7 +36,7 @@ Microsoft 必須有下列資訊，才能部署 HANA 大型執行客體單位：
 - 針對每個 Azure 部署區域：
     - 將 Azure 虛擬網路連線到 HANA 大型執行個體的 ER-P2P 連線 /29 IP 位址範圍。
     - 用於 HANA 大型執行個體伺服器 IP 集區的 /24 CIDR 區塊。
-    - Optional when using [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) to enable direct routing from on-premises to HANA Large Instance units or routing between HANA Large Instance units in different Azure regions, you need to reserve another /29 IP address range. This particular range may not overlap with any of the other IP address ranges you defined before.
+    - 選擇性使用[ExpressRoute Global](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach)觸達以啟用從內部部署到 Hana 大型實例單位的直接路由，或在不同 Azure 區域中的 Hana 大型實例單位之間進行路由傳送時，您必須保留另一個/29 個 IP 位址範圍。 此特定範圍不能與您之前定義的任何其他 IP 位址範圍重迭。
 - 每個連線到 HANA 大型執行個體之 Azure 虛擬網路的虛擬網路位址空間屬性中所使用的 IP 位址範圍值。
 - 每個 HANA 大型執行個體系統的資料：
   - 所需的主機名稱 - 最好是完整的網域名稱。

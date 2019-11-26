@@ -80,7 +80,7 @@ ms.locfileid: "74280760"
 | certificateCommonName | 當您使用安全通訊端層（SSL）或傳輸層安全性（TLS）加密時，您必須輸入 [憑證一般名稱] 的值。 | 否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，就會使用預設的「Azure 整合執行階段」。 |否 |
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -151,7 +151,7 @@ ms.locfileid: "74280760"
 | 類型 | 複製活動來源的類型屬性必須設定為： **Db2Source** | yes |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`。 | 否 (如果已指定資料集中的「tableName」) |
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[

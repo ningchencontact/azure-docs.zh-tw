@@ -15,7 +15,7 @@ ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 2f8ba53080b10568a3ac74e9ad2a81114e1c7c93
 ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74206698"
@@ -31,7 +31,7 @@ Azure 受到執行 Windows Server 2016 之基礎結構的支援。 Windows Serve
 >
 > 如需詳細資訊，請參閱 [Windows Server 2016 的準確時間](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)。 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 電腦時鐘精確度的衡量方式，是依據電腦時鐘與國際標準時間 (UTC) 時間標準的接近程度。 UTC 是由多國的精準原子鐘樣本所定義；原子鐘在 300 年內只會誤差一秒。 但是直接讀取 UTC 需使用專用的硬體。 替代方式為系統將時間伺服器同步為 UTC，並從其他電腦存取以提供延展性和強固性。 每部電腦都有持續運作的時間同步服務，知道需使用哪些時間伺服器，且會定期檢查電腦時鐘是否需要修正，並視需要調整時間。 
 
@@ -71,7 +71,7 @@ Azure 主機會與內部 Microsoft 時間伺服器同步，這些時間伺服器
 
 ### <a name="host-only"></a>僅限主機 
 
-由於 NTP 伺服器 (例如 time.windows.com 和 ntp.ubuntu.com) 為公用，與其同步時間需透過網際網路傳送流量。 Varying packet delays can negatively affect quality of the time sync. Removing NTP by switching to host-only sync can sometimes improve your time sync results.
+由於 NTP 伺服器 (例如 time.windows.com 和 ntp.ubuntu.com) 為公用，與其同步時間需透過網際網路傳送流量。 不同的封包延遲可能會對時間同步的品質造成負面影響。藉由切換至僅限主機同步來移除 NTP，有時可以改善時間同步結果。
 
 如果在使用預設設定時發生時間同步問題，切換為僅限主機時間同步為合理的解決方式。 嘗試使用僅限主機同步，確認是否可改善您 VM 上的時間同步結果。 
 
@@ -145,11 +145,11 @@ refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 
 如果同時啟用 chrony 和 TimeSync 來源，您可以將其中一個標示為**建議使用**，這會將其他來源設定為備份。 由於 NTP 服務不會更新時鐘的大幅誤差 (除非經過很長的一段時間)，因此 VMICTimeSync 從暫停的 VM 事件復原時鐘的速度會比 NTP 工具更快。
 
-By default chronyd accelerates or slows the system clock to fix any time drift. If the drift becomes too big, chrony will fail to fix the drift. To overcome this the `makestep` parameter in **/etc/chrony.conf** can be changed to force a timesync if the drift exceeds the threshold specified.
+根據預設，chronyd 會加速或減緩系統時鐘，以修正任何時間漂移。 如果漂移變得太大，chrony 將無法修正漂移。 若要克服此情況，您可以變更 **/etc/chrony.conf**中的 `makestep` 參數，以在漂移超過指定的臨界值時強制執行 timesync。
  ```bash
 makestep 1.0 -1
 ```
-Here, chrony will force a time update if the drift is greater than 1 second. To apply the changes restart the chronyd service.
+在這裡，如果漂移大於1秒，chrony 將會強制執行時間更新。 若要套用變更，請重新開機 chronyd 服務。
 
 ```bash
 systemctl restart chronyd

@@ -17,20 +17,20 @@ ms.locfileid: "74226524"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>為 Azure 監視器中的記錄建立計量警示
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure 監視器支援的[計量警示類型](../../azure-monitor/platform/alerts-metric-near-real-time.md)具有優於[傳統警示](../../azure-monitor/platform/alerts-classic-portal.md)的優點。 計量適用於 [Azure 服務的大型清單](../../azure-monitor/platform/metrics-supported.md)。 此文章說明 `Microsoft.OperationalInsights/workspaces` 資源子集的使用量。
 
-You can use metric alerts on popular Log Analytics logs extracted as metrics as part of Metrics from Logs including resources in Azure or on-premises. 以下列出支援的 Log Analytics 解決方案：
+您可以針對從記錄中的計量（包括 Azure 或內部部署中的資源）所組成的熱門 Log Analytics 記錄，使用計量警示。 以下列出支援的 Log Analytics 解決方案：
 
 - Windows 和 Linux 電腦的[效能計數器](../../azure-monitor/platform/data-sources-performance-counters.md)
 - [代理程式健全狀況的活動訊號記錄](../../azure-monitor/insights/solution-agenthealth.md)
 - [更新管理](../../automation/automation-update-management.md)記錄
 - [事件資料](../../azure-monitor/platform/data-sources-windows-events.md)記錄
 
-在 Azure 中對以查詢為基礎的[記錄警示](../../azure-monitor/platform/alerts-log.md)使用**記錄的計量警示**有許多優點；以下列出一部分優點：
+在 Azure 中對以查詢為基礎的**記錄警示**使用[記錄的計量警示](../../azure-monitor/platform/alerts-log.md)有許多優點；以下列出一部分優點：
 
 - 計量警示提供近乎即時的監視功能，以及來自記錄來源的記錄計量警示分支資料，以確保一致性。
 - 計量警示具狀態，只會在引發警示和解決警示時各通知一次，因此與無狀態、只要符合警示條件就會在每個間隔持續引發的記錄警示並不相同。
@@ -56,9 +56,9 @@ You can use metric alerts on popular Log Analytics logs extracted as metrics as 
 在針對 Log Analytics 資料所收集記錄的計量發揮作用之前，必須先設定並提供下列各項：
 
 1. **使用中的 Log Analytics 工作區**：有效且使用中的 Log Analytics 工作區必須存在。 如需詳細資訊，請參閱[在 Azure 入口網站中建立 Log Analytics 工作區](../../azure-monitor/learn/quick-create-workspace.md)。
-2. **Agent is configured for Log Analytics Workspace**: Agent needs to be configured for Azure VMs (and/or) on-premises VMs to send data into the Log Analytics Workspace used in earlier step. 如需詳細資訊，請參閱 [Log Analytics - 代理程式概觀](../../azure-monitor/platform/agents-overview.md)。
-3. **Supported Log Analytics Solutions is installed**: Log Analytics solution should be configured and sending data into Log Analytics workspace - supported solutions are [Performance counters for Windows & Linux](../../azure-monitor/platform/data-sources-performance-counters.md), [Heartbeat records for Agent Health](../../azure-monitor/insights/solution-agenthealth.md), [Update management](../../automation/automation-update-management.md), and [Event data](../../azure-monitor/platform/data-sources-windows-events.md).
-4. **設定 Log Analytics 解決方案以傳送記錄**：Log Analytics 解決方案應啟用對應至 [Log Analytics 工作區所支援計量](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)的必要記錄/資料。 例如，您必須先在[效能計數器](../../azure-monitor/platform/data-sources-performance-counters.md)解決方案中設定其 *% Available Memory* 計數器。
+2. 已**針對 Log Analytics 工作區設定代理程式**：需要為 Azure vm （和/或）內部部署 vm 設定代理程式，以將資料傳送至先前步驟中使用的 Log Analytics 工作區。 如需詳細資訊，請參閱 [Log Analytics - 代理程式概觀](../../azure-monitor/platform/agents-overview.md)。
+3. **已安裝支援的 Log Analytics 解決方案**：應設定 log analytics 解決方案，並將資料傳送至 log analytics 工作區-支援的解決方案為[Windows & Linux 的效能計數器](../../azure-monitor/platform/data-sources-performance-counters.md)、[代理程式健全狀況的心跳記錄](../../azure-monitor/insights/solution-agenthealth.md)、[更新管理](../../automation/automation-update-management.md)和[事件資料](../../azure-monitor/platform/data-sources-windows-events.md)。
+4. **設定 Log Analytics 解決方案以傳送記錄**：Log Analytics 解決方案應啟用對應至 [Log Analytics 工作區所支援計量](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)的必要記錄/資料。 例如，您必須先在*效能計數器*解決方案中設定其 [% Available Memory](../../azure-monitor/platform/data-sources-performance-counters.md) 計數器。
 
 ## <a name="configuring-metric-alert-for-logs"></a>設定記錄的計量警示
 

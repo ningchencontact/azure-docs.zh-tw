@@ -42,7 +42,7 @@ ms.locfileid: "74211642"
 
 ## <a name="create-a-dns-record"></a>建立 DNS 記錄
 
-若要建立 DNS 記錄，請使用 `az network dns record-set <record-type> add-record` 命令 (其中 `<record-type>` 是記錄的類型，亦即 a, srv, txt, etc.) For help, see `az network dns record-set --help`.
+若要建立 DNS 記錄，請使用 `az network dns record-set <record-type> add-record` 命令 (其中 `<record-type>` 是記錄的類型，亦即 a、srv、txt 等）如需說明，請參閱 `az network dns record-set --help`。
 
 建立記錄時，您必須指定資源群組名稱、區域名稱、記錄集名稱、記錄類型，以及所建立記錄的詳細資料。 提供的記錄集名稱必須是「相對」名稱，表示它不能包含區域名稱。
 
@@ -82,7 +82,7 @@ az network dns record-set a create --resource-group myresourcegroup --zone-name 
 az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --name www --metadata "dept=finance" "environment=production"
 ```
 
-建立好空白記錄集之後，可依[建立 DNS 記錄](#create-a-dns-record)所述使用 `azure network dns record-set <record-type> add-record` 新增記錄。
+建立好空白記錄集之後，可依`azure network dns record-set <record-type> add-record`建立 DNS 記錄[所述使用 ](#create-a-dns-record) 新增記錄。
 
 ## <a name="create-records-of-other-types"></a>建立其他類型的記錄
 

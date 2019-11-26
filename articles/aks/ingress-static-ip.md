@@ -392,7 +392,7 @@ az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 - [Helm CLI][helm-cli]
 - [NGINX 輸入控制器][nginx-ingress]
-- [cert-manager][cert-manager]
+- [cert-管理員][cert-manager]
 
 您也可以：
 

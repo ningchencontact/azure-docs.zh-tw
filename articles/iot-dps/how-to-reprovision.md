@@ -1,6 +1,6 @@
 ---
-title: Reprovision devices in Azure IoT Hub Device Provisioning Service
-description: Learn how to reprovision devices with your device provisioning service instance, and why you might need to do this.
+title: 在 Azure IoT 中樞裝置布建服務中重新布建裝置
+description: 瞭解如何使用裝置布建服務實例重新布建裝置，以及您可能需要執行此動作的原因。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -26,7 +26,7 @@ ms.locfileid: "74229714"
 
 * **隔離**：類似於解決方案變更。 故障、遭入侵或已過期的裝置可能會重新指派給只能將裝置更新，讓裝置再次符合合規性要求的 IoT 中樞。 在裝置正常運作之後，就會移轉回其主要中樞。
 
-For more a more detailed overview of reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md).
+如需重新布建的更詳細總覽，請參閱[IoT 中樞裝置重新布建概念](concepts-device-reprovision.md)。
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>設定註冊配置原則
@@ -92,8 +92,8 @@ For more a more detailed overview of reprovisioning, see [IoT Hub Device reprovi
 
 ## <a name="next-steps"></a>後續步驟
 
-- To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
-- To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
+- 若要深入瞭解重新布建，請參閱[IoT 中樞裝置重新布建概念](concepts-device-reprovision.md) 
+- 若要深入瞭解解除布建，請參閱如何取消布建[先前自動布建的裝置](how-to-unprovision-devices.md) 
 
 
 

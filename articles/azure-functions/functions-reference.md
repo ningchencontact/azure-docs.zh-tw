@@ -1,5 +1,5 @@
 ---
-title: Guidance for developing Azure Functions
+title: 開發 Azure Functions 的指引
 description: 了解在 Azure 中開發函式所需的 Azure Functions 概念與技術，其中包含所有的程式設計語言和繫結。
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
@@ -42,12 +42,12 @@ function.json 檔案會定義函式的觸發程序、繫結和其他組態設定
 
 | 屬性 | 值/類型 | 註解 |
 | --- | --- | --- |
-| `type` |string |繫結類型。 例如： `queueTrigger` 。 |
+| `type` |字串 |繫結類型。 例如， `queueTrigger`。 |
 | `direction` |'in'、'out' |表示繫結用於將資料接收到函數，還是從函數傳送資料。 |
-| `name` |string |用於函式中所繫結資料的名稱。 在 C# 中，這是引數名稱；在 JavaScript 中，這是索引鍵/值清單中的索引鍵。 |
+| `name` |字串 |用於函式中所繫結資料的名稱。 在 C# 中，這是引數名稱；在 JavaScript 中，這是索引鍵/值清單中的索引鍵。 |
 
 ## <a name="function-app"></a>函式應用程式
-函數應用程式在 Azure 中提供您的函式可在其中執行的執行內容。 As such, it is the unit of deployment and management for your functions. 函式應用程式是由一或多個個別函式所組成，這些函式可一起管理、部署與調整。 All of the functions in a function app share the same pricing plan, deployment method, and runtime version. 請將函式應用程式視為用來組織及集體管理函式的方式。 To learn more, see [How to manage a function app](functions-how-to-use-azure-function-app-settings.md). 
+函數應用程式在 Azure 中提供您的函式可在其中執行的執行內容。 因此，這是您的函式部署和管理的單位。 函式應用程式是由一或多個個別函式所組成，這些函式可一起管理、部署與調整。 函數應用程式中的所有函式會共用相同的定價方案、部署方法和執行階段版本。 請將函式應用程式視為用來組織及集體管理函式的方式。 若要深入瞭解，請參閱[如何管理函數應用程式](functions-how-to-use-azure-function-app-settings.md)。 
 
 > [!NOTE]
 > 函式應用程式中的所有函式都必須以相同的語言撰寫。 在[舊版](functions-versions.md)的 Azure Functions 執行階段中，這不是必要的。
@@ -55,7 +55,7 @@ function.json 檔案會定義函式的觸發程序、繫結和其他組態設定
 ## <a name="folder-structure"></a>資料夾結構
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-以上是 Function 應用程式的預設 (且建議的) 資料夾結構。 如果您想要變更函式程式碼的檔案位置，請修改 _function.json_ 檔案的 `scriptFile` 區段。 我們也建議您使用[套件部署](deployment-zip-push.md)來將您的專案部署到 Azure 中的函數應用程式中。 您也可以使用諸如[持續整合與部署](functions-continuous-deployment.md)和 Azure DevOps 之類的現有工具。
+以上是 Function 應用程式的預設 (且建議的) 資料夾結構。 如果您想要變更函式程式碼的檔案位置，請修改 `scriptFile`function.json_檔案的_ 區段。 我們也建議您使用[套件部署](deployment-zip-push.md)來將您的專案部署到 Azure 中的函數應用程式中。 您也可以使用諸如[持續整合與部署](functions-continuous-deployment.md)和 Azure DevOps 之類的現有工具。
 
 > [!NOTE]
 > 如果手動部署封裝，請務必將您的 _host.json_ 檔案和函式資料夾直接部署至 `wwwroot` 資料夾。 您的部署中請勿包含 `wwwroot` 資料夾。 否則，您會得到 `wwwroot\wwwroot` 資料夾。
@@ -100,6 +100,6 @@ Azure Functions 的程式碼是開放原始碼，儲存於 GitHub 儲存機制�
 
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 * [撰寫 Azure Functions 並在本機進行測試](./functions-develop-local.md)
-* [Azure Functions 的最佳做法](functions-best-practices.md)
+* [Azure Functions 的最佳作法](functions-best-practices.md)
 * [Azure Functions C# 開發人員參考](functions-dotnet-class-library.md)
 * [Azure Functions NodeJS 開發人員參考](functions-reference-node.md)

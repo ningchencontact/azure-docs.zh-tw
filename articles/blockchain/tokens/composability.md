@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain Tokens composability
-description: Azure Blockchain Tokens composability provides flexibility to create tokens for advanced scenarios.
+title: Azure 區塊鏈權杖複合性
+description: Azure 區塊鏈 token 複合性提供彈性來建立高階案例的權杖。
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.reviewer: brendal
@@ -11,74 +11,74 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74325109"
 ---
-# <a name="azure-blockchain-tokens-composability"></a>Azure Blockchain Tokens composability
+# <a name="azure-blockchain-tokens-composability"></a>Azure 區塊鏈權杖複合性
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-Token composability provides flexibility to create tokens for advanced scenarios. You may have a complex scenario that cannot be implemented using the [four pre-built token templates](templates.md#base-token-types). Token composability allows you to design your own token templates by adding or removing defined behaviors to build your own token template. When creating a new token template, Azure Blockchain Tokens verifies all token grammar rules. Composed templates are saved in Azure Blockchain Tokens service for issuing on connected blockchain networks.
+Token 複合性可讓您彈性地建立適用于 advanced 案例的權杖。 您可能會有一個不能使用[四個預先建立的權杖範本](templates.md#base-token-types)來執行的複雜案例。 Token 複合性可讓您藉由新增或移除定義的行為來設計自己的權杖範本，以建立您自己的權杖範本。 建立新的權杖範本時，Azure 區塊鏈 token 會驗證所有權杖文法規則。 組成的範本會儲存在 Azure 區塊鏈 token 服務中，以發出連線的區塊鏈網路。
 
-You can use the [token behaviors](templates.md#token-behaviors) in the following sections to design your token template.
+您可以使用下列各節中的[權杖行為](templates.md#token-behaviors)來設計您的權杖範本。
 
-## <a name="burnable-b"></a>Burnable (b)
+## <a name="burnable-b"></a>Burnable （b）
 
-Ability to remove the tokens from supply.
+能夠移除提供的權杖。
 
-For example, when you redeem online credit card points for a gift card, the credit card points are burned.
+例如，當您兌換禮物卡的線上信用卡點時，會燒錄信用卡點。
 
-## <a name="delegable-g"></a>Delegable (g)
+## <a name="delegable-g"></a>可委派（g）
 
-Ability to delegate the actions taken on the token that you own.
+能夠委派您所擁有之權杖上所採取的動作。
 
-The delegate can perform actions as the owner of the token. For example, you could use a delegable token to implement a vote. A delegable token allows the vote token owner to have someone else vote on their behalf.
+委派可以執行動作做為權杖的擁有者。 例如，您可以使用可委派 token 來執行投票。 可委派 token 可讓投票權杖擁有者代表他人投票。
 
-## <a name="logable-l"></a>Logable (l)
+## <a name="logable-l"></a>Logable （l）
 
-Ability to log.
+能夠進行記錄。
 
-For example, you can issue a logable token for a movie distribution to each theater showing a specific movie. For the movie to be played, the showing must log a transaction for each showing because royalty payouts are per showing during the movie's release run. The actors build can use the movie tokens to validate payouts per movie showing per theater in the distribution.
+例如，您可以將電影發佈的 logable token 發行到每個顯示特定電影的劇院。 若要播放電影，顯示必須記錄每個顯示的交易，因為版稅支出是在電影的發行執行期間顯示。 動作專案組建可以使用電影權杖來驗證每個電影在散發中的支出。
 
-## <a name="mint-able-m"></a>Mint-able (m)
+## <a name="mint-able-m"></a>Mint 能夠（m）
 
-Ability to mint additional tokens for the token class. The minter role includes the mintable behavior.
+能夠 mint 權杖類別的其他權杖。 Minter 角色包含 mintable 行為。
 
-For example, a retail company, which wants to implement a loyalty program can use mintable tokens for their loyalty program. They can mint additional loyalty points for their customers as their customer base grows.  
+例如，想要實行忠誠度計畫的零售公司，可以針對其忠誠度計畫使用 mintable 權杖。 他們可以在客戶群成長時，為客戶 mint 額外的忠誠度積分。  
 
-## <a name="non-subdividable-or-whole-d"></a>Non-subdividable or whole (~d)
+## <a name="non-subdividable-or-whole-d"></a>非 subdividable 或整體（~ d）
 
-Restriction to prevent a token from being divided into smaller parts.
+限制以防止權杖分割成較小的部分。
 
-For example, a single art painting cannot be subdivided into multiple smaller parts. 
+例如，單一美工圖案無法細分為多個較小的部分。 
 
-## <a name="non-transferable-t"></a>Non-transferable (~t)
+## <a name="non-transferable-t"></a>不可轉移（~ t）
 
-Restriction to prevent a change of ownership from the initial token owner.
+限制，以防止初始權杖擁有者變更擁有權。
 
-For example, a university diploma is a non-transferable token. Once a diploma is given to a graduate, it cannot be transferred from the graduate to another person.
+例如，大學文憑是不可轉移的權杖。 一旦將文憑交給畢業，就無法從畢業轉移到其他人。
 
-## <a name="roles-r"></a>Roles (r)
+## <a name="roles-r"></a>角色（r）
 
-Ability to define roles within the token template class for specific behaviors.
+能夠在權杖範本類別中定義特定行為的角色。
 
-You can provide a list of role names that a token supports at the token creation time. When roles are specified, the user can assign roles to these behaviors. Currently, only the minter role is supported.
+您可以在權杖建立時提供權杖支援的角色名稱清單。 當指定角色時，使用者可以將角色指派給這些行為。 目前僅支援 minter 角色。
 
-## <a name="singleton-s"></a>Singleton (s)
+## <a name="singleton-s"></a>單一（s）
 
-Restriction to allow a supply of one token.
+允許提供一個權杖的限制。
 
-For example, a museum artifact is a singleton token. Museum artifacts are unique. A token representing an artifact only has a single item in the supply.
+例如，「博物館成品」是單一 token。 博物館構件是唯一的。 代表成品的 token 只有供應中的單一專案。
 
-## <a name="subdividable-d"></a>Subdividable (d)
+## <a name="subdividable-d"></a>Subdividable （d）
 
-Ability to divide a token into smaller parts.
+能夠將權杖分割成較小的部分。
 
-For example, a dollar can be subdivided into cents.
+例如，某個貨幣可以細分成美分。
 
-## <a name="transferable-t"></a>Transferable (t)
+## <a name="transferable-t"></a>可轉換（t）
 
-Ability to transfer ownership of the token.
+能夠轉移權杖的擁有權。
 
-For example, a property title is a transferable token, which can be transferred from one person to another when the property is sold.
+例如，屬性標題是可轉移的權杖，當銷售該屬性時，可以從某個人員傳輸到另一個人。
 
 ## <a name="next-steps"></a>後續步驟
 
-Learn about [Azure Blockchain Tokens account management](account-management.md).
+瞭解[Azure 區塊鏈 token 帳戶管理](account-management.md)。

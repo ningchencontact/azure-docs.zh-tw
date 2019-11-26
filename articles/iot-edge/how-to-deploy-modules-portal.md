@@ -22,7 +22,7 @@ ms.locfileid: "74457436"
 
 本文說明 Azure 入口網站如何引導您建立部署資訊清單，並且將部署推送到 IoT Edge 裝置。 如需根據裝置共用標籤，建立目標為多個裝置的部署資訊，請參閱[大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor.md) (英文)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶中的 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
 * 已安裝 IoT Edge 執行階段的 [IoT Edge 裝置](how-to-register-device.md#register-in-the-azure-portal)。
@@ -42,9 +42,9 @@ Azure 入口網站有一個精靈，可以引導您建立部署資訊清單，�
 
 ### <a name="add-modules"></a>新增模組
 
-1. In the **Container Registry Settings** section of the page, provide the credentials to access any private container registries that contain your module images.
+1. 在頁面的 [**容器登錄設定**] 區段中，提供認證以存取任何包含模組映射的私人容器登錄。
 
-1. In the **Deployment Modules** section of the page, select **Add**.
+1. 在頁面的 [**部署模組**] 區段中，選取 [**新增**]。
 
 1. 從下拉式清單中查看模組的類型：
 
@@ -54,14 +54,14 @@ Azure 入口網站有一個精靈，可以引導您建立部署資訊清單，�
 
 1. 選取 [IoT Edge 模組]。
 
-1. 請提供模組的名稱，然後指定容器映像。 例如：
+1. 請提供模組的名稱，然後指定容器映像。 例如︰
 
-   * **Name** - SimulatedTemperatureSensor
+   * **名稱**-SimulatedTemperatureSensor
    * **映像 URI** - mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 
 1. 視需要填寫選擇性欄位。 如需容器建立選項、重新啟動原則和所需狀態的詳細資訊，請參閱 [EdgeAgent 所需屬性](module-edgeagent-edgehub.md#edgeagent-desired-properties)。 如需模組對應項的詳細資訊，請參閱[定義或更新所需屬性](module-composition.md#define-or-update-desired-properties)。
 
-1. 選取 [儲存]。
+1. 選取 [ **儲存**]。
 
 1. 重複步驟 2-6 以將其他模組新增至您的部署。
 
@@ -91,7 +91,7 @@ Azure Marketplace 是集合了應用程式和服務的線上市集，您可以�
 
 1. 尋找模組並開始部署程序。
 
-   * Azure portal: Find a module and select **Create**.
+   * Azure 入口網站：尋找模組，然後選取 [**建立**]。
 
    * Azure Marketplace：
 

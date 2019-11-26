@@ -1,5 +1,5 @@
 ---
-title: How to create user-defined functions - in Azure Digital Twins | Microsoft Docs
+title: 如何建立使用者定義函數-在 Azure 數位 Twins 中 |Microsoft Docs
 description: 如何在 Azure Digital Twins 中建立使用者定義函式、比對器和角色指派。
 ms.author: alinast
 author: alinamstanciu
@@ -69,7 +69,7 @@ YOUR_MANAGEMENT_API_URL/matchers
 }
 ```
 
-| Value | 更換為 |
+| 值 | 更換為 |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | 裝載您執行個體的伺服器區域 |
 
@@ -109,7 +109,7 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Value | 更換為 |
+| 值 | 更換為 |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | 多部分內容界限名稱 |
 | YOUR_SPACE_IDENTIFIER | 空間識別碼  |
@@ -207,14 +207,14 @@ function process(telemetry, executionContext) {
    保留所需的角色識別碼。 它將會以下方的 JSON 主體屬性 **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) 來傳遞。
 
 1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) 將會是稍早建立的使用者定義函式識別碼。
-1. 藉由使用 `fullpath` 查詢您的空間來尋找 **path** (`YOUR_ACCESS_CONTROL_PATH`) 的值。
+1. 藉由使用 **查詢您的空間來尋找**path`YOUR_ACCESS_CONTROL_PATH` (`fullpath`) 的值。
 1. 複製傳回的 `spacePaths` 值。 您將會在下方用到該值。 提出已驗證的 HTTP GET 要求：
 
     ```URL
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | Value | 更換為 |
+    | 值 | 更換為 |
     | --- | --- |
     | YOUR_SPACE_NAME | 想要使用的空間名稱 |
 
@@ -234,11 +234,11 @@ function process(telemetry, executionContext) {
     }
     ```
 
-    | Value | 更換為 |
+    | 值 | 更換為 |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | 所需角色的識別碼 |
     | YOUR_USER_DEFINED_FUNCTION_ID | 您所要使用的使用者定義函式其識別碼 |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | The ID specifying the user-defined function type (`UserDefinedFunctionId`) |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | 指定使用者定義函數類型的識別碼（`UserDefinedFunctionId`） |
     | YOUR_ACCESS_CONTROL_PATH | 存取控制路徑 |
 
 >[!TIP]

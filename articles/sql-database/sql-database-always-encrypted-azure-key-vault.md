@@ -1,5 +1,5 @@
 ---
-title: Always Encrypted - Azure Key Vault
+title: Always Encrypted-Azure Key Vault
 description: 本文說明如何使用 SQL Server Management Studio 中的 [永遠加密精靈]，藉由資料加密來保護 SQL Database 中的機密資料。
 keywords: 資料加密, 加密金鑰, 雲端加密
 services: sql-database
@@ -21,7 +21,7 @@ ms.locfileid: "74421687"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>一律加密：保護機密資料，並將加密金鑰儲存在 Azure Key Vault 中
 
-本文說明如何使用 [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) 中的[一律加密精靈](https://msdn.microsoft.com/library/mt459280.aspx)，藉由資料加密來保護 SQL Database 中的機密資料。 它也包含示範如何將每個加密金鑰儲存在「Azure 金鑰保存庫」中的指示。
+本文說明如何使用 [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt459280.aspx) 中的[一律加密精靈](https://msdn.microsoft.com/library/hh213248.aspx)，藉由資料加密來保護 SQL Database 中的機密資料。 它也包含示範如何將每個加密金鑰儲存在「Azure 金鑰保存庫」中的指示。
 
 「一律加密」是 Azure SQL Database 和 SQL Server 中新的資料加密技術，不論是當機密資料在伺服器上待用時、在用戶端與伺服器之間移動時，還是使用中時，都可協助保護資料。 「一律加密」可確保機密資料在資料庫系統內一律不會以純文字顯示。 設定資料加密之後，只有具備金鑰存取權的用戶端應用程式或應用程式伺服器才可以存取純文字資料。 如需詳細資訊，請參閱 [一律加密 (資料庫引擎)](https://msdn.microsoft.com/library/mt163865.aspx)。
 
@@ -35,7 +35,7 @@ ms.locfileid: "74421687"
 - 建立資料庫資料表並將資料行加密。
 - 建立可插入、選取及顯示加密資料行資料的應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 針對本教學課程，您將需要：
 
@@ -43,7 +43,7 @@ ms.locfileid: "74421687"
 - [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 13.0.700.242 版或更新版本。
 - [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) 或更新版本 (於用戶端電腦上)。
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)。
-- [Azure PowerShell](/powershell/azure/overview) or [Azure CLI](/cli/azure/install-azure-cli)
+- [Azure PowerShell](/powershell/azure/overview)或[Azure CLI](/cli/azure/install-azure-cli)
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>讓用戶端應用程式能夠存取 SQL Database 服務
 
@@ -55,12 +55,12 @@ ms.locfileid: "74421687"
 
 既然您的用戶端應用程式已完成設定，您也已取得應用程式識別碼，現在即可建立金鑰保存庫並設定其存取原則，以便讓您和您的應用程式能夠存取保存庫的密碼 (Always Encrypted 金鑰)。 若要使用 SQL Server Management Studio 來建立新的資料行主要金鑰及設定加密，必須要有 create、get、list、sign、verify、wrapKey 及 unwrapKey 權限。
 
-您可以執行下列指令碼來快速建立金鑰保存庫。 For a detailed explanation of these commands and more information about creating and configuring a key vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md).
+您可以執行下列指令碼來快速建立金鑰保存庫。 如需這些命令的詳細說明，以及有關建立及設定金鑰保存庫的詳細資訊，請參閱[什麼是 Azure Key Vault？](../key-vault/key-vault-overview.md)。
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager （RM）模組，但所有未來的開發都是針對 Az .Sql 模組。 AzureRM 模組會繼續收到錯誤修正，直到2020年12月為止。  Az 模組和 AzureRm 模組中命令的引數本質上完全相同。 如需其相容性的詳細資訊，請參閱[新的 Azure PowerShell Az 模組簡介](/powershell/azure/new-azureps-module-az)。
 
 ```powershell
 $subscriptionName = '<subscriptionName>'
@@ -159,12 +159,12 @@ GO
 
 SSMS 提供一個精靈，可為您設定資料行主要金鑰、資料行加密金鑰及加密的資料行，來協助您輕鬆設定「一律加密」。
 
-1. 展開 [資料庫] > **空白** > ，藉由資料庫加密來保護 SQL Database 中的機密資料。
+1. 展開 [資料庫] >  > ，藉由資料加密來保護 SQL Database 中的機密資料。
 2. 在 [Patients] 資料表上按一下滑鼠右鍵，然後選取 [加密資料行] 以開啟「一律加密精靈」：
 
     ![加密資料行](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
 
-「一律加密」精靈包含下列區段︰[資料行選取]、主要金鑰組態、[驗證] 及 [摘要]。
+「一律加密」精靈包含下列區段︰[資料行選取]、[主要金鑰組態]、[驗證] 及 [摘要]。
 
 ### <a name="column-selection"></a>資料行選取
 
@@ -192,11 +192,11 @@ SSMS 提供一個精靈，可為您設定資料行主要金鑰、資料行加密
 
 您現在可以加密資料行，或儲存為 PowerShell 指令碼以供日後執行。 針對這個教學課程，請選取 [繼續以立即完成]，然後按 [下一步]。
 
-### <a name="summary"></a>總結
+### <a name="summary"></a>Summary
 
 確認設定全都正確，然後按一下 [完成] 以完成 [一律加密] 的設定。
 
-![總結](./media/sql-database-always-encrypted-azure-key-vault/summary.png)
+![Summary](./media/sql-database-always-encrypted-azure-key-vault/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>確認精靈的動作
 
@@ -219,7 +219,7 @@ SSMS 提供一個精靈，可為您設定資料行主要金鑰、資料行加密
 2. 將專案命名為 **AlwaysEncryptedConsoleAKVApp**，然後按一下 [確定]。
 3. 移至 [工具]  >  [NuGet 套件管理員]  >  [套件管理員主控台]，以安裝下列 NuGet 套件。
 
-Run these two lines of code in the Package Manager Console:
+在 [套件管理員主控台] 中執行下列兩行程式碼：
 
    ```powershell
    Install-Package Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider

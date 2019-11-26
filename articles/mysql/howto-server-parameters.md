@@ -35,9 +35,9 @@ MySQL 的 Azure 資料庫支援某些伺服器參數的組態。 本文說明如
 
 ## <a name="non-configurable-server-parameters"></a>無法設定的伺服器參數
 
-The InnoDB Buffer Pool size is not configurable and tied to your [pricing tier](concepts-service-tiers.md).
+InnoDB 緩衝集區大小無法設定並系結至您的[定價層](concepts-service-tiers.md)。
 
-|定價層|**vCore(s)**|**InnoDB Buffer Pool size in MB <br>(servers supporting up to 4 TB storage)**| **InnoDB Buffer Pool size in MB <br>(servers supporting up to 16 TB storage)**|
+|**定價層**|**vCore(s)**|**InnoDB 緩衝集區大小（MB） <br>（最多支援 4 TB 儲存空間的伺服器）**| **InnoDB 緩衝集區大小（MB） <br>（最多支援 16 TB 儲存體的伺服器）**|
 |:---|---:|---:|---:|
 |基本| 1| 832| |
 |基本| 2| 2560| |
@@ -57,7 +57,7 @@ The InnoDB Buffer Pool size is not configurable and tied to your [pricing tier](
 
 |**參數**|**固定值**|
 | :------------------------ | :-------- |
-|基本層中的 innodb_file_per_table|關|
+|基本層中的 innodb_file_per_table|關閉|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
 |innodb_log_file_size|512MB|

@@ -1,6 +1,6 @@
 ---
-title: View privacy-related info from the My Account portal - Azure AD
-description: Learn how your organization uses your privacy-related information from the Privacy page of the My Account portal.
+title: 從我的帳戶入口網站中，查看隱私權相關資訊-Azure AD
+description: 瞭解您的組織如何從我的帳戶入口網站的 [隱私權] 頁面使用您的隱私權相關資訊。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -19,9 +19,9 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231827"
 ---
-# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>View how your organization uses your privacy-related data
+# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>瞭解您的組織如何使用您的隱私權相關資料
 
-You can view how your organization uses your data from the **Privacy** page of the **My Account** portal.
+您可以從 [**我的帳戶**] 入口網站的 [**隱私權**] 頁面，查看您的組織如何使用您的資料。
 
 ## <a name="view-your-privacy-related-info"></a>檢視您的隱私權相關資訊
 
@@ -29,7 +29,7 @@ You can view how your organization uses your data from the **Privacy** page of t
 
 2. 從左側瀏覽窗格中選取 [隱私權]，或從 [隱私權] 區塊中選取 [檢閱隱私權] 連結。
 
-    ![My Account page, showing highlighted Privacy links](media/my-account-portal/my-account-portal-privacy.png)
+    ![[我的帳戶] 頁面，顯示反白顯示的隱私權連結](media/my-account-portal/my-account-portal-privacy.png)
 
 3. 檢閱資訊，包括：
 
@@ -39,14 +39,14 @@ You can view how your organization uses your data from the **Privacy** page of t
 
 ## <a name="next-steps"></a>後續步驟
 
-After viewing how your organization uses your data, you can:
+在您的組織如何使用您的資料之後，您可以：
 
-- View or manage your [security info](user-help-security-info-overview.md).
+- 查看或管理您的[安全性資訊](user-help-security-info-overview.md)。
 
-- View or manage your connected [devices](my-account-portal-devices-page.md).
+- 查看或管理已連線的[裝置](my-account-portal-devices-page.md)。
 
-- View or manage your [organizations](my-account-portal-organizations-page.md).
+- 查看或管理您的[組織](my-account-portal-organizations-page.md)。
 
-- View your [sign-in activity](my-account-portal-sign-ins-page.md).
+- 查看您的登[入活動](my-account-portal-sign-ins-page.md)。
 
-- You can also view your Microsoft Office-related contact preferences and privacy information from the [Office portal, Security & privacy page](https://portal.office.com/account/#security).
+- 您也可以從[Office 入口網站的 [安全性 & 隱私權] 頁面，](https://portal.office.com/account/#security)查看 Microsoft Office 相關的連絡人喜好設定和隱私權資訊。

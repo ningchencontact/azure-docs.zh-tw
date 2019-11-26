@@ -1,5 +1,5 @@
 ---
-title: Customize self-service password reset - Azure Active Directory
+title: 自訂自助式密碼重設-Azure Active Directory
 description: Azure AD 自助式密碼重設的自訂選項
 services: active-directory
 ms.service: active-directory
@@ -24,22 +24,22 @@ ms.locfileid: "74381929"
 
 ## <a name="customize-the-contact-your-administrator-link"></a>自訂 [請連絡您的系統管理員] 連結
 
-Self-service password reset users have a "Contact your administrator" link available to them in the password reset portal. If a user selects this link, it will do one of two things:
+自助密碼重設使用者在密碼重設入口網站中有提供他們「聯絡您的系統管理員」連結。 如果使用者選取此連結，則會執行兩個動作的其中一項：
 
-* If left in the default state:
-   * Email is sent to your administrators and asks them to provide assistance in changing the user's password. See the [sample email](#sample-email) below.
-* If customized:
-   * Sends your user to a webpage or email address specified by the administrator for assistance.
+* 如果處於預設狀態：
+   * 電子郵件會傳送給您的系統管理員，並要求他們提供變更使用者密碼的協助。 請參閱下面的[範例電子郵件](#sample-email)。
+* 若自訂：
+   * 將您的使用者傳送至系統管理員所指定的網頁或電子郵件地址以取得協助。
 
 > [!TIP]
-> If you customize this, we recommend setting this to something users are already familiar with for support
+> 如果您自訂此專案，建議您將此設定為已熟悉支援的使用者
 
 > [!WARNING]
-> If you customize this setting with an email address and account that needs a password reset the user may be unable to ask for assistance.
+> 如果您使用需要密碼重設的電子郵件地址和帳戶來自訂此設定，使用者可能會無法尋求協助。
 
 ### <a name="sample-email"></a>範例電子郵件
 
-![Sample request to reset email sent to Administrator][Contact]
+![重設傳送給系統管理員之電子郵件的範例要求][Contact]
 
 這封連絡人電子郵件會依下列順序傳送給下列收件者︰
 
@@ -76,8 +76,8 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwor
 
 * 在使用者輸入其使用者名稱之後
 * 如果使用者存取自訂的 URL，則會透過下列方式：
-   * By passing the `whr` parameter to the password reset page, like `https://login.microsoftonline.com/?whr=contoso.com`
-   * By passing the `username` parameter to the password reset page, like `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * 藉由將 `whr` 參數傳遞至密碼重設頁面，例如 `https://login.microsoftonline.com/?whr=contoso.com`
+   * 藉由將 `username` 參數傳遞至密碼重設頁面，例如 `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 如需有關如何設定公司商標的詳細資料，請參閱[將公司商標新增至 Azure AD 中的登入頁面](../fundamentals/customize-branding.md)一文。
 
@@ -100,7 +100,7 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwor
 * [什麼是密碼回寫，且為什麼我需要了解它？](howto-sspr-writeback.md)
 * [如何回報 SSPR 中的活動？](howto-sspr-reporting.md)
 * [SSPR 中的所有選項有哪些，以及它們有何意義？](concept-sspr-howitworks.md)
-* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
+* [我認為有些東西已中斷。如何? SSPR 疑難排解？](active-directory-passwords-troubleshoot.md)
 * [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)
 
-[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Contact your administrator for help with resetting your password email example"
+[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "請洽詢您的系統管理員，以取得重設密碼電子郵件範例的協助"

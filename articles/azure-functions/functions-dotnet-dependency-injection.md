@@ -1,6 +1,6 @@
 ---
-title: Use dependency injection in .NET Azure Functions
-description: Learn how to use dependency injection for registering and using services in .NET functions
+title: 在 .NET Azure Functions 中使用相依性插入
+description: 瞭解如何在 .NET 函式中使用相依性插入來註冊和使用服務
 author: craigshoemaker
 ms.topic: reference
 ms.date: 09/05/2019
@@ -13,27 +13,27 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74226978"
 ---
-# <a name="use-dependency-injection-in-net-azure-functions"></a>Use dependency injection in .NET Azure Functions
+# <a name="use-dependency-injection-in-net-azure-functions"></a>在 .NET Azure Functions 中使用相依性插入
 
-Azure Functions supports the dependency injection (DI) software design pattern, which is a technique to achieve [Inversion of Control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.
+Azure Functions 支援相依性插入（DI）軟體設計模式，這項技術可在類別及其相依性之間達成[控制反轉（IoC）](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) 。
 
-- Dependency injection in Azure Functions is built on the .NET Core Dependency Injection features. Familiarity with the [.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) is recommended. There are differences, however, in how you override dependencies and how configuration values are read with Azure Functions on the Consumption plan.
+- Azure Functions 中的相依性插入是以 .NET Core 相依性插入功能為基礎。 建議您熟悉[.Net Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)相依性插入。 不過，在覆寫相依性方面，以及如何使用取用方案 Azure Functions 讀取設定值的方式有一些差異。
 
-- Support for dependency injection begins with Azure Functions 2.x.
+- 相依性插入的支援是以 Azure Functions 2.x 開始。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-Before you can use dependency injection, you must install the following NuGet packages:
+您必須先安裝下列 NuGet 套件，才可以使用相依性插入：
 
-- [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
+- [Microsoft. Azure。擴充功能](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
-- [Microsoft.NET.Sdk.Functions package](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) version 1.0.28 or later
+- 1\.0.28 或更新版本的[函數套件](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/)
 
 ## <a name="register-services"></a>註冊伺服器
 
-To register services, create a method to configure and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an instance of `IFunctionsHostBuilder` and passes it directly into your method.
+若要註冊服務，請建立方法來設定並將元件新增至 `IFunctionsHostBuilder` 實例。  Azure Functions 主機會建立 `IFunctionsHostBuilder` 的實例，並將它直接傳遞至您的方法。
 
-To register the method, add the `FunctionsStartup` assembly attribute that specifies the type name used during startup.
+若要註冊方法，請加入 `FunctionsStartup` 元件屬性，以指定啟動期間所使用的型別名稱。
 
 ```csharp
 using System;
@@ -64,17 +64,17 @@ namespace MyNamespace
 
 ### <a name="caveats"></a>需要注意的事項
 
-A series of registration steps run before and after the runtime processes the startup class. Therefore, the keep in mind the following items:
+在執行時間處理啟動類別之前和之後執行的一系列註冊步驟。 因此，請記住下列專案：
 
-- *The startup class is meant for only setup and registration.* Avoid using services registered at startup during the startup process. For instance, don't try to log a message in a logger that is being registered during startup. This point of the registration process is too early for your services to be available for use. After the `Configure` method is run, the Functions runtime continues to register additional dependencies, which can affect how your services operate.
+- *Startup 類別僅適用于設定和註冊。* 避免在啟動過程中使用在啟動時註冊的服務。 例如，請勿嘗試在啟動期間註冊的記錄器中記錄訊息。 註冊程式的這個點太早無法使用您的服務。 執行 `Configure` 方法之後，函式執行時間會繼續註冊額外的相依性，這可能會影響服務的運作方式。
 
-- *The dependency injection container only holds explicitly registered types*. The only services available as injectable types are what are setup in the `Configure` method. As a result, Functions-specific types like `BindingContext` and `ExecutionContext` aren't available during setup or as injectable types.
+- 相依性*插入容器只會保存明確註冊的類型*。 唯一可用來做為得以插入類型的服務就是 `Configure` 方法中的設定。 因此，在安裝期間或得以插入類型中，不能使用如 `BindingContext` 和 `ExecutionContext` 之類的函數特定類型。
 
-## <a name="use-injected-dependencies"></a>Use injected dependencies
+## <a name="use-injected-dependencies"></a>使用插入的相依性
 
-Constructor injection is used to make your dependencies available in a function. The use of constructor injection requires that you do not use static classes.
+函式插入是用來讓您的相依性可在函式中使用。 使用「處理常式」插入時，您不需要使用靜態類別。
 
-The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function. This example uses the [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) package required to register an `HttpClient` at startup.
+下列範例示範如何將 `IMyService` 和 `HttpClient` 相依性插入 HTTP 觸發的函式中。 這個範例會使用在啟動時註冊 `HttpClient` 所需的[Microsoft Extensions. Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/)套件。
 
 ```csharp
 using System;
@@ -114,46 +114,46 @@ namespace MyNamespace
 }
 ```
 
-## <a name="service-lifetimes"></a>Service lifetimes
+## <a name="service-lifetimes"></a>服務存留期
 
-Azure Functions apps provide the same service lifetimes as [ASP.NET Dependency Injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes). For a Functions app, the different service lifetimes behave as follows:
+Azure Functions 應用程式提供與 ASP.NET 相依性[插入](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes)相同的服務存留期。 針對函式應用程式，不同的服務存留期的行為如下所示：
 
-- **Transient**: Transient services are created upon each request of the service.
-- **Scoped**: The scoped service lifetime matches a function execution lifetime. Scoped services are created once per execution. Later requests for that service during the execution reuse the existing service instance.
-- **Singleton**: The singleton service lifetime matches the host lifetime and is reused across function executions on that instance. Singleton lifetime services are recommended for connections and clients, for example `SqlConnection` or `HttpClient` instances.
+- **暫時性**：暫時性服務會在每個服務要求時建立。
+- 限**域**：限定範圍的服務存留期符合函式執行存留期。 限域服務會在每次執行時建立一次。 稍後在執行期間對該服務提出的要求會重複使用現有的服務實例。
+- **Singleton**：單一服務存留期會符合主機存留期，並會在該實例上的函式執行重複使用。 建議連接和用戶端使用單一存留期服務，例如 `SqlConnection` 或 `HttpClient` 實例。
 
-View or download a [sample of different service lifetimes](https://aka.ms/functions/di-sample) on GitHub.
+在 GitHub 上查看或下載[不同服務存留期的範例](https://aka.ms/functions/di-sample)。
 
-## <a name="logging-services"></a>Logging services
+## <a name="logging-services"></a>記錄服務
 
-If you need your own logging provider, register a custom type as an `ILoggerProvider` instance. Application Insights is added by Azure Functions automatically.
+如果您需要自己的記錄提供者，請將自訂類型註冊為 `ILoggerProvider` 實例。 Application Insights 由 Azure Functions 自動新增。
 
 > [!WARNING]
-> - Do not add `AddApplicationInsightsTelemetry()` to the services collection as it registers services that conflict with services provided by the environment.
-> - Do not register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality.
+> - 請勿將 `AddApplicationInsightsTelemetry()` 新增至服務集合，因為它會註冊與環境所提供之服務衝突的服務。
+> - 如果您使用內建的 Application Insights 功能，請勿註冊您自己的 `TelemetryConfiguration` 或 `TelemetryClient`。
 
-## <a name="function-app-provided-services"></a>Function app provided services
+## <a name="function-app-provided-services"></a>函數應用程式提供的服務
 
-The function host registers many services. The following services are safe to take as a dependency in your application:
+函數主機會註冊許多服務。 下列服務可安全地做為應用程式中的相依性：
 
 |服務類型|存留期|描述|
 |--|--|--|
-|`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Runtime configuration|
-|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Responsible for providing the ID of the host instance|
+|`Microsoft.Extensions.Configuration.IConfiguration`|實體|執行時間設定|
+|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|實體|負責提供主控制項實例的識別碼|
 
-If there are other services you want to take a dependency on, [create an issue and propose them on GitHub](https://github.com/azure/azure-functions-host).
+如果您想要取得相依性的其他服務，請[在 GitHub 上建立問題並加以提議](https://github.com/azure/azure-functions-host)。
 
-### <a name="overriding-host-services"></a>Overriding host services
+### <a name="overriding-host-services"></a>覆寫主機服務
 
-Overriding services provided by the host is currently not supported.  If there are services you want to override, [create an issue and propose them on GitHub](https://github.com/azure/azure-functions-host).
+目前不支援覆寫主機所提供的服務。  如果您想要覆寫服務，請[在 GitHub 上建立問題並加以提議](https://github.com/azure/azure-functions-host)。
 
-## <a name="working-with-options-and-settings"></a>Working with options and settings
+## <a name="working-with-options-and-settings"></a>使用選項和設定
 
-Values defined in [app settings](./functions-how-to-use-azure-function-app-settings.md#settings) are available in an `IConfiguration` instance, which allows you to read app settings values in the startup class.
+在 [[應用程式設定](./functions-how-to-use-azure-function-app-settings.md#settings)] 中定義的值會在 `IConfiguration` 實例中提供，可讓您讀取啟動類別中的應用程式設定值。
 
-You can extract values from the `IConfiguration` instance into a custom type. Copying the app settings values to a custom type makes it easy test your services by making these values injectable. Settings read into the configuration instance must be simple key/value pairs.
+您可以從 `IConfiguration` 實例中，將值解壓縮至自訂類型。 將應用程式設定值複製到自訂類型，可以讓這些值得以插入，輕鬆地測試您的服務。 讀入設定實例的設定必須是簡單的索引鍵/值組。
 
-Consider the following class that includes a property named consistent with an app setting.
+請考慮下列類別，其中包含名稱與應用程式設定一致的屬性。
 
 ```csharp
 public class MyOptions
@@ -162,7 +162,7 @@ public class MyOptions
 }
 ```
 
-From inside the `Startup.Configure` method, you can extract values from the `IConfiguration` instance into your custom type using the following code:
+從 `Startup.Configure` 方法中，您可以使用下列程式碼，將值從 `IConfiguration` 實例解壓縮至您的自訂類型：
 
 ```csharp
 builder.Services.AddOptions<MyOptions>()
@@ -172,9 +172,9 @@ builder.Services.AddOptions<MyOptions>()
                                            });
 ```
 
-Calling `Bind` copies values that have matching property names from the configuration into the custom instance. The options instance is now available in the IoC container to inject into a function.
+呼叫 `Bind` 會將具有相符屬性名稱的值從設定複製到自訂實例。 Options 實例現在可用於 IoC 容器中，以插入函式中。
 
-The options object is injected into the function as an instance of the generic `IOptions` interface. Use the `Value` property to access the values found in your configuration.
+Options 物件會插入至函式中，做為泛型 `IOptions` 介面的實例。 使用 `Value` 屬性來存取您的設定中找到的值。
 
 ```csharp
 using System;
@@ -191,14 +191,14 @@ public class HttpTrigger
 }
 ```
 
-Refer to [Options pattern in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) for more details regarding working with options.
+如需有關使用選項的詳細資訊，請參閱[ASP.NET Core 中的選項模式](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)。
 
 > [!WARNING]
-> Avoid attempting to read values from files like *local.settings.json* or *appsettings.{environment}.json* on the Consumption plan. Values read from these files related to trigger connections aren't available as the app scales because the hosting infrastructure has no access to the configuration information.
+> *請避免*嘗試從檔案（例如，appsettings）讀取值 *。 {環境}. json* （使用方式方案）。 因為裝載基礎結構無法存取設定資訊，所以無法在應用程式調整時使用從這些與觸發連線相關的檔案中讀取的值。
 
 ## <a name="next-steps"></a>後續步驟
 
 如需詳細資訊，請參閱下列資源：
 
-- [How to monitor your function app](functions-monitoring.md)
-- [Best practices for functions](functions-best-practices.md)
+- [如何監視您的函數應用程式](functions-monitoring.md)
+- [函數的最佳做法](functions-best-practices.md)

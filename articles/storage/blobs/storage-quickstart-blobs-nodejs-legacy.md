@@ -24,7 +24,7 @@ ms.locfileid: "74269694"
 
 ## <a name="prerequisites"></a>先決條件
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 在 [Azure 入口網站](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)中建立 Azure 儲存體帳戶。 如需建立帳戶的協助，請參閱[建立儲存體帳戶](../common/storage-quickstart-create-account.md)。
 

@@ -1,5 +1,5 @@
 ---
-title: Create a resilient access control management strategy - Azure AD
+title: 建立彈性的存取控制管理原則-Azure AD
 description: 本文件提供有關組織所應採用策略的指引，這些策略可提供靈活彈性，以在發生未預期的中斷情況期間降低鎖定風險
 services: active-directory
 author: martincoetzer
@@ -37,8 +37,8 @@ ms.locfileid: "74208562"
 本文件中有四個重點：
 
 * 使用緊急存取帳戶來避免系統管理員鎖定。
-* Implement MFA using Conditional Access (CA) rather than per-user MFA.
-* Mitigate user lockout by using multiple Conditional Access (CA) controls.
+* 使用條件式存取（CA），而不是每個使用者的 MFA 來執行 MFA。
+* 使用多個條件式存取（CA）控制項來減輕使用者鎖定的風險。
 * 為每個使用者佈建多個驗證方法或對等的方法，以降低使用者鎖定風險。
 
 ## <a name="before-a-disruption"></a>在中斷情況發生前
@@ -49,8 +49,8 @@ ms.locfileid: "74208562"
 
  身分識別是存取應用程式和資源之使用者的控制平面。 您的身分識別系統可控制哪些使用者及在哪些條件下 (例如存取控制措施或驗證需求)，使用者可以存取應用程式。 當因為未預期的情況導致使用者無法滿足一或多個驗證或存取控制需求以進行驗證時，組織可能會發生下列其中一種或同時發生兩種問題：
 
-* **Administrator lockout:** Administrators can’t manage the tenant or services.
-* **User lockout:** Users can’t access apps or resources.
+* **系統管理員鎖定：** 系統管理員無法管理租使用者或服務。
+* **使用者鎖定：** 使用者無法存取應用程式或資源。
 
 ### <a name="administrator-lockout-contingency"></a>系統管理員鎖定應變措施
 
@@ -58,11 +58,11 @@ ms.locfileid: "74208562"
 
 ### <a name="mitigating-user-lockout"></a>降低使用者鎖定風險
 
- To mitigate the risk of user lockout, use Conditional Access policies with multiple controls to give users a choice of how they will access apps and resources. 例如，藉由讓使用者能夠選擇使用 MFA 進行登入、從受控裝置進行登入**或**從公司網路進行登入，當其中一個存取控制措施無法供使用時，使用者便還有其他選項來繼續工作。
+ 若要降低使用者鎖定的風險，請使用具有多個控制項的條件式存取原則，讓使用者能夠選擇其存取應用程式和資源的方式。 例如，藉由讓使用者能夠選擇使用 MFA 進行登入、從受控裝置進行登入**或**從公司網路進行登入，當其中一個存取控制措施無法供使用時，使用者便還有其他選項來繼續工作。
 
 #### <a name="microsoft-recommendations"></a>Microsoft 建議
 
-Incorporate the following access controls in your existing Conditional Access policies for organization:
+在您現有的組織條件式存取原則中納入下列存取控制：
 
 1. 為倚賴不同通訊通道的每個使用者佈建多個驗證方法，例如 Microsoft Authenticator 應用程式 (網際網路型)、OATH 權杖 (於裝置上產生) 及 SMS (電話)。
 2. 在 Windows 10 裝置上部署「Windows Hello 企業版」以直接從裝置登入滿足 MFA 需求。
@@ -77,23 +77,23 @@ Incorporate the following access controls in your existing Conditional Access po
 
 **CA 風險降低原則集：**
 
-* Policy 1: Block access to people outside target groups
-  * Users and Groups: Include all users. 排除 AppUsers、CoreAdmins 及 EmergencyAccess
-  * Cloud Apps: Include all apps
-  * Conditions: (None)
-  * Grant Control: Block
-* Policy 2: Grant access to AppUsers requiring MFA OR trusted device.
-  * Users and Groups: Include AppUsers. 排除 CoreAdmins 和 EmergencyAccess
-  * Cloud Apps: Include all apps
-  * Conditions: (None)
-  * Grant Control: Grant access, require multi-factor authentication, require device to be compliant. For multiple controls: Require one of the selected controls.
+* 原則1：封鎖對目標群組外部人員的存取
+  * 使用者和群組：包含所有使用者。 排除 AppUsers、CoreAdmins 及 EmergencyAccess
+  * 雲端應用程式：包含所有應用程式
+  * 條件：（無）
+  * 授與控制：封鎖
+* 原則2：授與需要 MFA 或受信任裝置之 AppUsers 的存取權。
+  * 使用者和群組：包括 AppUsers。 排除 CoreAdmins 和 EmergencyAccess
+  * 雲端應用程式：包含所有應用程式
+  * 條件：（無）
+  * 授與控制權：授與存取權、需要多重要素驗證、要求裝置必須符合規範。 若為多個控制項：需要其中一個選取的控制項。
 
 ### <a name="contingencies-for-user-lockout"></a>使用者鎖定的應變措施
 
 或者，您的組織也可以建立應變原則。 若要建立應變原則，您必須定義商務持續性、營運成本、財務成本及安全性風險之間的取捨準則。 例如，您可以只針對一部分使用者、一部分應用程式、一部分用戶端或一部分位置，啟用應變原則。 應變原則可在沒有實作任何風險降低方法的情況下，於中斷情況發生期間，讓系統管理員和使用者能夠存取應用程式和資源。
 了解您在中斷情況發生期間的暴露情形，不僅有助於降低您的風險，也是您規劃程序中不可或缺的一部分。 若要建立您的應變計劃，請先判斷您組織的下列業務需求：
 
-1. Determine your mission critical apps ahead of time: What are the apps that you must give access to, even with a lower risk/security posture? 請為這些應用程式建立一份清單，並確定您的其他專案關係人 (業務、安全性、法務、領導階層) 都同意如果所有存取控制措施都消失，這些應用程式仍然必須繼續執行。 您可能最後會產生下列類別：
+1. 提早判斷您的任務關鍵性應用程式：您必須授與哪些應用程式的存取權，即使有較低的風險/安全性狀態？ 請為這些應用程式建立一份清單，並確定您的其他專案關係人 (業務、安全性、法務、領導階層) 都同意如果所有存取控制措施都消失，這些應用程式仍然必須繼續執行。 您可能最後會產生下列類別：
    * **類別 1 任務關鍵性應用程式**：無法使用的時間不能超過幾分鐘的應用程式，例如直接影響組織營收的應用程式。
    * **類別 2 重要應用程式**：企業需要在幾小時內可供存取的應用程式。
    * **類別 3 低優先順序的應用程式**：可以承受發生幾天中斷情況的應用程式。
@@ -109,7 +109,7 @@ Incorporate the following access controls in your existing Conditional Access po
 
 #### <a name="microsoft-recommendations"></a>Microsoft 建議
 
-A contingency Conditional Access policy is a **disabled policy** that omits Azure MFA, third-party MFA, risk-based or device-based controls. 而當您的組織決定啟用應變計劃時，系統管理員則可以啟用該原則，並停用一般的控制型原則。
+應變條件存取原則是**停用的原則**，省略了 Azure MFA、協力廠商 MFA、以風險為基礎或裝置型控制項。 而當您的組織決定啟用應變計劃時，系統管理員則可以啟用該原則，並停用一般的控制型原則。
 
 >[!IMPORTANT]
 > 當已備妥應變計劃時，停用會對使用者強制執行安全性的原則將會降低安全性狀態，即使只是暫時停用也一樣。
@@ -117,13 +117,13 @@ A contingency Conditional Access policy is a **disabled policy** that omits Azur
 * 如果一個認證類型或一個存取控制機制發生中斷會影響對您應用程式的存取，請設定一組遞補原則。 請設定一個狀態為停用且要求以「加入網域」作為控制措施的原則，用來作為需要協力廠商 MFA 提供者的作用中原則備份。
 * 藉由依循[密碼指引](https://aka.ms/passwordguidance) \(英文\) 白皮書中的做法，降低不要求使用 MFA 時不良執行者猜測密碼的風險。
 * 部署 [Azure AD 自助密碼重設 (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) 和 [Azure AD 密碼保護](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy)，以確保使用者不會使用一般密碼和您選擇禁止的字詞。
-* 使用在未達到特定驗證層級時，會限制應用程式內的存取而不直接切換回完整存取的原則。 例如：
+* 使用在未達到特定驗證層級時，會限制應用程式內的存取而不直接切換回完整存取的原則。 例如︰
   * 設定一個將受限工作階段宣告傳送給 Exchange 和 SharePoint 的備份原則。
   * 如果您的組織使用 Microsoft Cloud App Security，請考慮切換回會牽涉 MCAS 的原則，然後 MCAS 就會允許唯讀存取而非上傳。
 * 為您的原則命名，以確定在中斷期間可以輕易找到這些原則。 請在原則名稱中包含下列元素：
   * 原則的標籤號碼。
-  * 用來指出此原則僅供緊急狀況使用的文字。 For example: **ENABLE IN EMERGENCY**
-  * 適用的*中斷情況*。 For example: **During MFA Disruption**
+  * 用來指出此原則僅供緊急狀況使用的文字。 例如：**在緊急情況下啟用**
+  * 適用的*中斷情況*。 例如：**在 MFA 中斷期間**
   * 以序號顯示您必須啟動原則的順序。
   * 適用的應用程式。
   * 適用的控制項。
@@ -135,72 +135,72 @@ A contingency Conditional Access policy is a **disabled policy** that omits Azur
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-The following example: **Example A - Contingency CA policy to restore Access to mission-critical Collaboration Apps**, is a typical corporate contingency. 在此案例中，組織通常會針對所有 Exchange Online 和 SharePoint Online 存取要求使用 MFA，而在此情況下，中斷係指客戶的 MFA 提供者發生中斷狀況 (不論是 Azure MFA、內部部署 MFA 提供者，還是協力廠商 MFA)。 此原則可降低此中斷狀況的風險，方法是允許特定的目標使用者從受信任的 Windows 裝置存取這些應用程式，但只有在從受信任的公司網路存取應用程式時才允許。 它也會將緊急帳戶和核心系統管理員從這些限制中排除。 目標使用者將得以存取 Exchange Online 和 SharePoint Online，而其他使用者仍將因中斷而無法存取應用程式。 此範例將需要一個具名的網路位置 **CorpNetwork** 和一個安全性群組 **ContingencyAccess** (含有目標使用者)、一個名為 **CoreAdmins** 的群組 (含有核心系統管理員)，以及一個名為 **EmergencyAccess** 的群組 (含有緊急存取帳戶)。 此應變措施需要四個原則來提供所需的存取權。 
+下列範例是典型的公司應變，這是用**來還原對任務關鍵性共同作業應用程式之存取的範例 a 應變 CA 原則**。 在此案例中，組織通常會針對所有 Exchange Online 和 SharePoint Online 存取要求使用 MFA，而在此情況下，中斷係指客戶的 MFA 提供者發生中斷狀況 (不論是 Azure MFA、內部部署 MFA 提供者，還是協力廠商 MFA)。 此原則可降低此中斷狀況的風險，方法是允許特定的目標使用者從受信任的 Windows 裝置存取這些應用程式，但只有在從受信任的公司網路存取應用程式時才允許。 它也會將緊急帳戶和核心系統管理員從這些限制中排除。 目標使用者將得以存取 Exchange Online 和 SharePoint Online，而其他使用者仍將因中斷而無法存取應用程式。 此範例將需要一個具名的網路位置 **CorpNetwork** 和一個安全性群組 **ContingencyAccess** (含有目標使用者)、一個名為 **CoreAdmins** 的群組 (含有核心系統管理員)，以及一個名為 **EmergencyAccess** 的群組 (含有緊急存取帳戶)。 此應變措施需要四個原則來提供所需的存取權。 
 
 **範例 A - 用以還原對任務關鍵性共同作業應用程式之存取權的應變 CA 原則：**
 
-* Policy 1: Require Domain Joined devices for Exchange and SharePoint
-  * Name: EM001 - ENABLE IN EMERGENCY: MFA Disruption[1/4] - Exchange SharePoint - Require Hybrid Azure AD Join
-  * Users and Groups: Include ContingencyAccess. 排除 CoreAdmins 和 EmergencyAccess
-  * Cloud Apps: Exchange Online and SharePoint Online
-  * Conditions: Any
-  * Grant Control: Require Domain Joined
-  * State: Disabled
-* Policy 2: Block platforms other than Windows
-  * Name: EM002 - ENABLE IN EMERGENCY: MFA Disruption[2/4] - Exchange SharePoint - Block access except Windows
-  * Users and Groups: Include all users. 排除 CoreAdmins 和 EmergencyAccess
-  * Cloud Apps: Exchange Online and SharePoint Online
-  * Conditions: Device Platform Include All Platforms, exclude Windows
-  * Grant Control: Block
-  * State: Disabled
-* Policy 3: Block networks other than CorpNetwork
-  * Name: EM003 - ENABLE IN EMERGENCY: MFA Disruption[3/4] - Exchange SharePoint - Block access except Corporate Network
-  * Users and Groups: Include all users. 排除 CoreAdmins 和 EmergencyAccess
-  * Cloud Apps: Exchange Online and SharePoint Online
-  * Conditions: Locations Include any location, exclude CorpNetwork
-  * Grant Control: Block
-  * State: Disabled
-* Policy 4: Block EAS Explicitly
-  * Name: EM004 - ENABLE IN EMERGENCY: MFA Disruption[4/4] - Exchange - Block EAS for all users
-  * Users and Groups: Include all users
-  * Cloud Apps: Include Exchange Online
-  * Conditions: Client apps: Exchange Active Sync
-  * Grant Control: Block
-  * State: Disabled
+* 原則1： Exchange 和 SharePoint 需要加入網域的裝置
+  * 名稱： EM001-在緊急情況下啟用： MFA 中斷 [1/4]-Exchange SharePoint-需要混合式 Azure AD Join
+  * 使用者和群組：包括 ContingencyAccess。 排除 CoreAdmins 和 EmergencyAccess
+  * 雲端應用程式： Exchange Online 和 SharePoint Online
+  * 條件：任何
+  * 授與控制：需要加入網域
+  * 狀態：已停用
+* 原則2：封鎖 Windows 以外的平臺
+  * 名稱： EM002-在緊急情況下啟用： MFA 中斷 [2/4]-Exchange SharePoint-封鎖 Windows 以外的存取
+  * 使用者和群組：包含所有使用者。 排除 CoreAdmins 和 EmergencyAccess
+  * 雲端應用程式： Exchange Online 和 SharePoint Online
+  * 條件：裝置平臺包含所有平臺，排除 Windows
+  * 授與控制：封鎖
+  * 狀態：已停用
+* 原則3：封鎖 CorpNetwork 以外的網路
+  * 名稱： EM003-在緊急情況下啟用： MFA 中斷 [3/4]-Exchange SharePoint-封鎖公司網路以外的存取
+  * 使用者和群組：包含所有使用者。 排除 CoreAdmins 和 EmergencyAccess
+  * 雲端應用程式： Exchange Online 和 SharePoint Online
+  * 條件：位置包含任何位置，排除 CorpNetwork
+  * 授與控制：封鎖
+  * 狀態：已停用
+* 原則4：明確封鎖 EAS
+  * 名稱： EM004-在緊急情況下啟用： MFA 中斷 [4/4]-Exchange-封鎖所有使用者的 EAS
+  * 使用者和群組：包含所有使用者
+  * 雲端應用程式：包含 Exchange Online
+  * 條件：用戶端應用程式： Exchange Active Sync
+  * 授與控制：封鎖
+  * 狀態：已停用
 
 啟用順序：
 
 1. 將 ContingencyAccess、CoreAdmins 及 EmergencyAccess 從現有的 MFA 原則中排除。 確認 ContingencyAccess 中的使用者可以存取 SharePoint Online 和 Exchange Online。
-2. Enable Policy 1: Verify users on Domain Joined devices who are not in the exclude groups are able to access Exchange Online and SharePoint Online. 確認在排除群組中的使用者可以從任何裝置存取 SharePoint Online 和 Exchange。
-3. Enable Policy 2: Verify users who are not in the exclude group cannot get to SharePoint Online and Exchange Online from their mobile devices. 確認在排除群組中的使用者可以從任何裝置 (Windows/iOS/Android) 存取 SharePoint 和 Exchange。
-4. Enable Policy 3: Verify users who are not in the exclude groups cannot access SharePoint and Exchange off the corporate network, even with a domain joined machine. 確認在排除群組中的使用者可以從任何網路存取 SharePoint 和 Exchange。
-5. Enable Policy 4: Verify all users cannot get Exchange Online from the native mail applications on mobile devices.
+2. 啟用原則1：確認不在排除群組中加入網域的裝置上的使用者是否能夠存取 Exchange Online 和 SharePoint Online。 確認在排除群組中的使用者可以從任何裝置存取 SharePoint Online 和 Exchange。
+3. 啟用原則2：確認不在排除群組中的使用者無法從他們的行動裝置取得 SharePoint Online 和 Exchange Online。 確認在排除群組中的使用者可以從任何裝置 (Windows/iOS/Android) 存取 SharePoint 和 Exchange。
+4. 啟用原則3：確認不在排除群組中的使用者無法從公司網路存取 SharePoint 和 Exchange，即使已加入網域的電腦也是如此。 確認在排除群組中的使用者可以從任何網路存取 SharePoint 和 Exchange。
+5. 啟用原則4：確認所有使用者都無法從行動裝置上的原生郵件應用程式取得 Exchange Online。
 6. 停用 SharePoint Online 和 Exchange Online 的現有 MFA 原則。
 
 在這個接下來的範例 (**範例 B - 用以允許對 Salesforce 進行行動存取的應變 CA 原則**) 中，會還原一個商務應用程式的存取權。 在此案例中，客戶通常會要求只有當其銷售員工使用符合規範的裝置時，才允許他們從行動裝置存取 Salesforce (已針對使用 Azure AD 進行單一登入做設定)。 而在此情況下，中斷係指評估裝置合規性時發生問題，而中斷狀況發生在銷售小組需要存取 Salesforce 以完成交易的敏感時間。 這些應變原則將授與關鍵使用者從行動裝置存取 Salesforce 的權限，以便讓他們能夠繼續完成交易而不會中斷業務。 在此範例中，**SalesforceContingency** 包含所有需要保留存取權的銷售員工，而 **SalesAdmins** 則包含必要的 Salesforce 系統管理員。
 
 **範例 B - 應變 CA 原則：**
 
-* Policy 1: Block everyone not in the SalesContingency team
-  * Name: EM001 - ENABLE IN EMERGENCY: Device Compliance Disruption[1/2] - Salesforce - Block All users except SalesforceContingency
-  * Users and Groups: Include all users. 排除 SalesAdmins 和 SalesforceContingency
-  * Cloud Apps: Salesforce.
-  * Conditions: None
-  * Grant Control: Block
-  * State: Disabled
-* Policy 2: Block the Sales team from any platform other than mobile (to reduce surface area of attack)
-  * Name: EM002 - ENABLE IN EMERGENCY: Device Compliance Disruption[2/2] - Salesforce - Block All platforms except iOS and Android
-  * Users and Groups: Include SalesforceContingency. 排除 SalesAdmins
-  * Cloud Apps: Salesforce
-  * Conditions: Device Platform Include All Platforms, exclude iOS and Android
-  * Grant Control: Block
-  * State: Disabled
+* 原則1：封鎖不在 SalesContingency 小組中的所有人
+  * 名稱： EM001-在緊急情況下啟用：裝置合規性中斷 [1/2]-Salesforce-封鎖 SalesforceContingency 以外的所有使用者
+  * 使用者和群組：包含所有使用者。 排除 SalesAdmins 和 SalesforceContingency
+  * 雲端應用程式： Salesforce。
+  * 條件：無
+  * 授與控制：封鎖
+  * 狀態：已停用
+* 原則2：從行動以外的任何平臺封鎖銷售小組（以減少攻擊的介面區）
+  * 名稱： EM002-在緊急情況下啟用：裝置合規性中斷 [2/2]-Salesforce-封鎖 iOS 和 Android 以外的所有平臺
+  * 使用者和群組：包括 SalesforceContingency。 排除 SalesAdmins
+  * 雲端應用程式： Salesforce
+  * 條件：裝置平臺包含所有平臺，排除 iOS 和 Android
+  * 授與控制：封鎖
+  * 狀態：已停用
 
 啟用順序：
 
 1. 將 SalesAdmins 和 SalesforceContingency 從 Salesforce 的現有裝置合規性原則中排除。 確認 SalesforceContingency 群組中的使用者可以存取 Salesforce。
-2. Enable Policy 1: Verify users outside of SalesContingency cannot access Salesforce. 確認 SalesAdmins 和 SalesforceContingency 中的使用者可以存取 Salesforce。
-3. Enable Policy 2: Verify users in the SalesContingency group cannot access Salesforce from their Windows/Mac laptops but can still access from their mobile devices. 確認 SalesAdmin 仍可從任何裝置存取 Salesforce。
+2. 啟用原則1：確認 SalesContingency 以外的使用者無法存取 Salesforce。 確認 SalesAdmins 和 SalesforceContingency 中的使用者可以存取 Salesforce。
+3. 啟用原則2：確認 SalesContingency 群組中的使用者無法從他們的 Windows/Mac 膝上型電腦存取 Salesforce，但仍然可以從其行動裝置存取。 確認 SalesAdmin 仍可從任何裝置存取 Salesforce。
 4. 停用 Salesforce 的現有裝置合規性原則。
 
 ### <a name="deploy-password-hash-sync-even-if-you-are-federated-or-use-pass-through-authentication"></a>即使您已同盟或使用傳遞驗證，仍部署密碼雜湊同步
@@ -232,7 +232,7 @@ The following example: **Example A - Contingency CA policy to restore Access to 
 1. 作為變更控制策略的一部分，記載每個變更和先前狀態，如此才能在存取控制措施完全正常運作後，立即復原您實作的所有應變措施。
 2. 假設惡意執行者會在您已停用 MFA 時，嘗試透過密碼噴濺或網路釣魚來獲取密碼。 此外，不良執行者也可能已經有先前未授與任何資源存取權的密碼，而可在這段期間內嘗試使用。 針對關鍵使用者 (例如主管)，您可以藉由在停用其 MFA 之前重設其密碼，來局部降低此風險。
 3. 封存所有登入活動以識別在停用 MFA 的期間，哪些人存取了哪些資源。
-4. [Triage all risk detections reported](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) during this window.
+4. 分級在此視窗期間[回報的所有風險](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins)偵測。
 
 ## <a name="after-a-disruption"></a>在中斷情況發生後
 
@@ -242,24 +242,24 @@ The following example: **Example A - Contingency CA policy to restore Access to 
 2. 停用您的應變原則。 
 3. 將您在中斷情況發生期間所進行和記載的任何其他變更復原。
 4. 如果您使用了緊急存取帳戶，請記得重新產生認證，並在您的緊急存取帳戶程序中一併實際保護新的認證詳細資料。
-5. Continue to [triage all risk detections reported](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) after the disruption for suspicious activity.
+5. 繼續分級在可疑活動中斷之後[回報的所有風險](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins)偵測。
 6. [使用 PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) 來撤銷所有已簽發的重新整理權杖，以將一組使用者設為目標。 對於在中斷情況發生期間所使用的特殊權限帳戶來說，撤銷所有重新整理權杖是很重要的，此做法將強制他們重新驗證並符合所還原原則的控制措施。
 
 ## <a name="emergency-options"></a>緊急選項
 
- In case of an emergency and your organization did not previously implement a mitigation or contingency plan, then follow the recommendations in the [Contingencies for user lockout](#contingencies-for-user-lockout) section if they already use Conditional Access policies to enforce MFA.
+ 萬一發生緊急狀況，而您的組織先前未實行緩和措施或應變計劃，則請遵循[使用者鎖定的應變](#contingencies-for-user-lockout)一節中的建議，如果他們已經使用條件式存取原則來強制執行 MFA。
 如果組織使用個別使用者 MFA 舊版原則，則您可以考慮使用下列替代方案：
 
 1. 如果您有公司網路連出 IP 位址，您可以將它們新增為受信任的 IP，以只針對公司網路啟用驗證。
    1. 如果您沒有輸出 IP 位址的目錄，或是必須啟用公司網路內部及外部的存取權，您可以透過指定 0.0.0.0/1 與 128.0.0.0/1，將整個 IPv4 位址空間新增為受信任的 IP。
 
 >[!IMPORTANT]
- > If you broaden the trusted IP addresses to unblock access, risk detections associated with IP addresses (for example, impossible travel or unfamiliar locations) will not be generated.
+ > 如果您擴大受信任的 IP 位址以解除封鎖存取，則不會產生與 IP 位址相關聯的風險偵測（例如不可能的移動或不熟悉的位置）。
 
 >[!NOTE]
- > 只有在使用 [Azure AD Premium 授權](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing)的情況下，才能為 Azure MFA 設定[受信任的 IP](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings)。
+ > 只有在使用 [Azure AD Premium 授權](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings)的情況下，才能為 Azure MFA 設定[受信任的 IP](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing)。
 
-## <a name="learn-more"></a>了解更多
+## <a name="learn-more"></a>詳細資訊
 
 * [Azure AD 驗證文件](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [在 Azure AD 中管理緊急存取系統管理帳戶](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
@@ -268,5 +268,5 @@ The following example: **Example A - Contingency CA policy to restore Access to 
 * [如何設定混合式 Azure Active Directory 已聯結裝置](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Windows Hello 企業版部署指南](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [密碼指引 - Microsoft 研究](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf) \(英文\)
-* [What are conditions in Azure Active Directory Conditional Access?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [What are access controls in Azure Active Directory Conditional Access?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+* [Azure Active Directory 條件式存取中的條件為何？](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
+* [什麼是 Azure Active Directory 條件式存取中的存取控制？](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

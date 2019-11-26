@@ -22,7 +22,7 @@ ms.locfileid: "74457410"
 
 本文說明如何建立 JSON 部署資訊清單，然後使用該檔案將部署發送到 IoT Edge 裝置。 如需根據裝置共用標籤，建立目標為多個裝置的部署資訊，請參閱[大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor.md) (英文)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶中的 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
 * 已安裝 IoT Edge 執行階段的 [IoT Edge 裝置](how-to-register-device.md#register-with-visual-studio-code)。
@@ -111,7 +111,7 @@ ms.locfileid: "74457410"
 
    ![展開 [Azure IoT 中樞裝置] 區段](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
-1. 按一下 [Azure IoT 中樞裝置] 區段標題中的 **...** 。 若未看到省略符號，請將滑鼠暫留在標題上方。
+1. 按一下 [Azure IoT 中樞裝置] 區段標頭中的 [...]。 如果您沒有看到省略符號，將滑鼠停留在標頭上方。
 
 1. 選擇 [選取 IoT 中樞]。
 

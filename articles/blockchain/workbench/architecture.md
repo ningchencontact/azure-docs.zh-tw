@@ -1,6 +1,6 @@
 ---
 title: Azure Blockchain Workbench 架構
-description: Overview of Azure Blockchain Workbench Preview architecture and its components.
+description: 概述 Azure Blockchain Workbench 預覽架構及其元件。
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.reviewer: brendal
@@ -13,9 +13,9 @@ ms.locfileid: "74324888"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench 架構
 
-Azure Blockchain Workbench Preview simplifies blockchain application development by providing a solution using several Azure components. 您可以使用 Azure Marketplace 中的解決方案範本來部署 Blockchain Workbench。 範本可讓您挑選要部署的模組和元件，包括區塊鏈堆疊、用戶端應用程式類型及 IoT 整合支援。 Blockchain Workbench 一經部署，即可提供 Web 應用程式、iOS 應用程式和 Android 應用程式的存取權。
+Azure Blockchain Workbench Preview 藉由提供使用數個 Azure 元件的解決方案，來簡化區塊鏈應用程式開發。 您可以使用 Azure Marketplace 中的解決方案範本來部署 Blockchain Workbench。 範本可讓您挑選要部署的模組和元件，包括區塊鏈堆疊、用戶端應用程式類型及 IoT 整合支援。 Blockchain Workbench 一經部署，即可提供 Web 應用程式、iOS 應用程式和 Android 應用程式的存取權。
 
-![Blockchain Workbench architecture](./media/architecture/architecture.png)
+![Blockchain Workbench 架構](./media/architecture/architecture.png)
 
 ## <a name="identity-and-authentication"></a>身分識別和驗證
 
@@ -107,7 +107,7 @@ Azure 儲存體可用來儲存合約以及與合約相關聯的中繼資料。
 
 Blockchain Workbench 能夠使用區塊鏈商務邏輯來新增文件或其他媒體內容。 文件或媒體內容的雜湊會儲存在區塊鏈中，實際的文件或媒體內容則會儲存在 Azure 儲存體中。 相關聯的交易資訊會傳遞至輸入訊息代理人、加以封裝、簽署，並路由傳送至區塊鏈。 此程序會觸發事件，這些事件會透過輸出訊息代理人來共用。 SQL DB 會取用這項資訊，並將其傳送至 DB 以便稍後進行查詢。 下游系統也可取用這些事件以採取適當行動。
 
-## <a name="monitoring"></a>監視
+## <a name="monitoring"></a>監控
 
 Workbench 使用 Application Insights 和 Azure 監視器來提供應用程式記錄。 Application Insights 可用來儲存 Blockchain Workbench 中所記錄的所有資訊，並且會包含錯誤、警告和成功的作業。 Application Insights 可供開發人員用來對 Blockchain Workbench 的問題進行偵錯。 
 

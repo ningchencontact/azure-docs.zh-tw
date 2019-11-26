@@ -1,5 +1,5 @@
 ---
-title: Configure password writeback for SSPR - Azure Active Directory
+title: 設定 SSPR 的密碼回寫-Azure Active Directory
 description: 使用 Azure AD 和 Azure AD Connect 將密碼回寫到內部部署目錄
 services: active-directory
 ms.service: active-directory
@@ -59,14 +59,14 @@ ms.locfileid: "74381146"
 > 獨立的 Office 365 授權方案不支援「自助式密碼重設/變更/使用內部部署回寫來解鎖」，而且需要您具備上述其中一個方案，這項功能才能運作。
 >
 
-## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Active Directory permissions and on-premises password complexity policies 
+## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Active Directory 許可權和內部部署密碼複雜性原則 
 
 如果您想要在 SSPR 的範圍中，Azure AD Connect 公用程式中指定的帳戶必須設定好下列項目：
 
 * **重設密碼** 
 * **變更密碼** 
-* `lockoutTime` 的**寫入權限**
-* `pwdLastSet` 的**寫入權限**
+* **的**寫入權限`lockoutTime`
+* **的**寫入權限`pwdLastSet`
 * 下列其中一項的**延伸權限**：
    * 該樹系中「每個網域」的根物件
    * 要在 SSPR 範圍中的使用者組織單位 (OU)
@@ -99,7 +99,7 @@ ms.locfileid: "74381146"
     * **寫入 pwdLastSet**
 9. 選取 [套用]/[確定] 以套用變更並結束任何開啟的對話方塊。
 
-Since the source of authority is on premises, the password complexity policies apply from the same connected data source. Make sure you've changed the existing group policies for "Minimum password age". The group policy shouldn't be set to 1, which means password should be at least a day old before it can be updated. You need make sure it's set to 0. These settings can be found in `gpmc.msc` under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies**. Run `gpupdate /force` to ensure that the change takes effect. 
+由於授權來源是在內部部署，因此密碼複雜性原則會套用至相同的已連線資料來源。 請確定您已變更「密碼最短使用期限」的現有群組原則。 群組原則不應設定為1，這表示密碼必須至少為一天，才能進行更新。 您需要確定它是設定為0。 這些設定可在 電腦設定 > 原則 下的 `gpmc.msc` 中找到 **> Windows 設定 > 安全性設定 > 帳戶原則**。 執行 `gpupdate /force`，以確保變更會生效。 
 
 ## <a name="next-steps"></a>後續步驟
 

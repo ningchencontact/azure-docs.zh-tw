@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain Tokens templates
-description: Azure Blockchain Tokens templates are standardized and reusable templates that simplify the creation and deployment of ledger-based tokens.
+title: Azure 區塊鏈 token 範本
+description: Azure 區塊鏈 token 範本是標準化且可重複使用的範本，可簡化建立和部署以總帳為基礎的權杖。
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.reviewer: brendal
@@ -11,81 +11,81 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74324976"
 ---
-# <a name="azure-blockchain-tokens-templates"></a>Azure Blockchain Tokens templates
+# <a name="azure-blockchain-tokens-templates"></a>Azure 區塊鏈 token 範本
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-An Azure Blockchain Tokens template is a standardized and reusable template that simplifies the creation and deployment of ledger-based tokens. A template consists of a formula, which is based off the [Token Taxonomy Framework (TTF)](overview.md#token-taxonomy-framework) grammar. The grammar encompasses the base token type and the set of behaviors for the token.  
+Azure 區塊鏈 token 範本是一種標準化且可重複使用的範本，可簡化建立和部署以總帳為基礎的權杖。 範本是由根據[Token 分類法架構（.ttf）](overview.md#token-taxonomy-framework)文法的公式所組成。 文法包含基底 token 類型，以及權杖的行為集合。  
 
-For example, **τϜ{d,m,b,r}** token template describes a fungible base token that is sub-dividable, mintable, burnable, and has role support.
+例如， **τϜ {d，m，b，r}** token 範本描述變幻莫測基底 token，其為 dividable、mintable、burnable，並具有角色支援。
   
-## <a name="base-token-types"></a>Base token types
+## <a name="base-token-types"></a>基底 token 類型
 
-When defining and creating the ledger-based token for your particular asset, it is important to consider what base token to use.
+針對您的特定資產定義和建立以總帳為基礎的權杖時，請務必考慮要使用的基底權杖。
 
-### <a name="fungible"></a>Fungible
+### <a name="fungible"></a>變幻莫測
 
-Fungible tokens (𝜏F) have interchangeable value with each other as long as they are in the same class or series. One token has the same value as another token or a given quantity of tokens has the same value as another equal quantity. For example, a dollar is a fungible token. If two people are each holding a dollar bill, they can exchange these dollar bills without consequence. The dollar bills have equal value. 
+變幻莫測 token （τF）可以彼此交換值，只要它們位於相同的類別或數列中即可。 一個權杖的值與另一個權杖相同，或指定的權杖數量與另一個相同數量的值相同。 例如，貨幣是變幻莫測 token。 如果兩個人都持有美元帳單，他們就可以交換這些貨幣帳單而不會產生任何結果。 貨幣物料單具有相等的值。 
 
-### <a name="non-fungible"></a>Non-Fungible
+### <a name="non-fungible"></a>非變幻莫測
 
-Non-fungible tokens (𝜏N) are not interchangeable with other tokens of the same type as they typically have different values. For example, a property title is a non-fungible token. Property titles to two different apartments in an apartment complex are not necessarily of equal value, due to either the location of the unit or which floor the unit is on. The perceived value of the two property title tokens are not equal.
+非變幻莫測的權杖（τN）無法與相同類型的其他權杖互換，因為它們通常會有不同的值。 例如，屬性標題是不可變幻莫測的 token。 由於單位的位置或單位所在的樓層，屬性標題在單元複雜的兩個不同的單元中不一定是相等的值。 這兩個屬性標題標記的認知值不相等。
 
 ### <a name="hybrid"></a>混合式
 
-Hybrid tokens are tokens that have components of both fungible tokens and non-fungible tokens. A hybrid token is a base token type that owns a class of the other token type.
+混合式權杖是具有變幻莫測 token 和非變幻莫測 token 之元件的權杖。 「混合式權杖」是一種基底 token 類型，它擁有另一個 token 類型的類別。
 
-#### <a name="hybrid-non-fungible-base-with-fungible-segments"></a>Hybrid non-fungible base with fungible segments
+#### <a name="hybrid-non-fungible-base-with-fungible-segments"></a>具有變幻莫測區段的混合式非變幻莫測基底
 
-A hybrid non-fungible base with fungible segments token has a non-fungible base with fungible token segments.
-For example, a concert ticket is a hybrid token where the date and time of the concert is the non-fungible base token. The tickets in various seating sections for the given concert are the segments with fungible tokens. The tickets are exchangeable in their individual seating sections, but not across sections.
+具有變幻莫測區段權杖的混合式非變幻莫測基底，其具有具有變幻莫測 token 區段的非變幻莫測基底。
+例如，音樂會票證是混合式權杖，其中音樂會的日期和時間是非變幻莫測的基底 token。 給定音樂會的各種座位區段中的票證是具有變幻莫測 token 的區段。 這些票證會在其個別的座位區段中交換，但不會跨區段。
 
-#### <a name="hybrid-fungible-base-with-non-fungible-segments"></a>Hybrid fungible base with non-fungible segments
+#### <a name="hybrid-fungible-base-with-non-fungible-segments"></a>具有非變幻莫測區段的混合式變幻莫測基底
 
-A hybrid fungible base with a non-fungible segments token has a fungible base with non-fungible token segments. For example, a mortgage backed security is a hybrid token where multiple owners are the fungible base that is split across many owners. The security is interchangeable. The individual mortgages are the non-fungible segments that represent the specific mortgage backed security.
+具有非變幻莫測區段權杖的混合式變幻莫測基底具有非變幻莫測 token 區段的變幻莫測基底。 例如，以抵押支援的安全性是一種混合式權杖，其中多名擁有者是分散于許多擁有者的變幻莫測基底。 安全性是可互換的。 個別的還有房屋貨款是非變幻莫測的區段，代表特定的抵押支援安全性。
 
-## <a name="token-behaviors"></a>Token behaviors
+## <a name="token-behaviors"></a>權杖行為
 
-A token behavior defines capabilities or restrictions of the token. The behavior includes supporting properties that are a part of the token definition. Behaviors can be applied across all token types or just one. Behaviors can be internal or external depending on what the behavior effects. An internal behavior enables or restricts properties on the token itself. An external behavior enables or restricts the invocation of the behavior from an external actor.
+權杖行為會定義權杖的功能或限制。 此行為包含屬於權杖定義之一部分的支援屬性。 行為可以套用至所有 token 類型或只套用到其中一個。 行為可以是內部或外部，視行為的影響而定。 內部行為會啟用或限制權杖本身的屬性。 外部行為可讓或限制外部執行者的行為調用。
 
-For more information about Azure Blockchain Tokens supported Token Taxonomy Framework (TTF) token behaviors, see [token composability](composability.md).
+如需 Azure 區塊鏈 token 支援的權杖分類法架構（.TTF）權杖行為的詳細資訊，請參閱[token 複合性](composability.md)。
 
-## <a name="pre-built-token-templates"></a>Pre-built token templates
+## <a name="pre-built-token-templates"></a>預先建立的權杖範本
 
-Azure Blockchain Tokens provides four pre-built token templates that can be used without modification. You can call into these pre-built templates for most use cases to get started creating, deploying, and managing your tokens quickly.
+Azure 區塊鏈權杖提供四個預先建立的權杖範本，可在不修改的情況下使用。 您可以針對大部分的使用案例呼叫這些預先建立的範本，以快速開始建立、部署和管理您的權杖。
 
-### <a name="commodity-tokens"></a>Commodity tokens
+### <a name="commodity-tokens"></a>商品權杖
 
-Commodity tokens have consistent value and are transferrable. For example, a barrel of oil or a unit of energy.
+商品權杖具有一致的價值，且為可轉移。 例如，石油或能源的一個單位。
 
-**𝜏F{~d,t,m,b,r}** - fungible, whole, transferable, mintable, burnable, and have role support
+**τF {~ d，t，m，b，r}** -變幻莫測、整體、可轉換、mintable、burnable，並具有角色支援
 
-Many blockchain scenarios require transparency and visibility across the supply chain or multiple organizations. Commodity tokens are based off these common use cases. The tokens are interchangeable and consistent. The commodity token template is flexible and customizable with metadata.
+許多區塊鏈案例都需要供應鏈或多個組織的透明度和可見度。 商品權杖是以這些常見的使用案例為基礎。 權杖可互換且一致。 商用 token 範本具有彈性且可自訂的中繼資料。
 
-### <a name="qualified-tokens"></a>Qualified tokens
+### <a name="qualified-tokens"></a>限定的權杖
 
-Qualified tokens represent something earned and are usually associated with one entity and cannot be transferred. For example, a diploma or a parking violation.
+限定的權杖代表所獲得的內容，且通常與一個實體相關聯，而且無法傳送。 例如，文憑或停車違規。
 
-**𝜏N{s,~t}** - non-fungible, singleton, and non-transferable
+**τN {s，~ t}** -非變幻莫測、singleton 和不可轉移
 
-Various audit and attestation scenarios require that the ownership of the token cannot be changed. There is a set of use cases, which have a need to provide a qualified token whether the association is good or bad.
+各種不同的審查和證明案例都需要權杖的擁有權不能變更。 有一組使用案例，需要提供限定的 token，不論關聯性是否良好或不良。
 
-### <a name="asset-tokens"></a>Asset tokens
+### <a name="asset-tokens"></a>資產權杖
 
-Asset tokens have unique value dependent on the item and are not commoditized. For example, a museum artifact or a property title.
+資產權杖具有與專案相依的唯一值，而且不會商品化。 例如，博物館成品或屬性標題。
 
-**𝜏N{s,t}** - non-fungible, singleton, and transferable
+**τN {s，t}** -非變幻莫測、singleton 和可轉換
 
-Asset tokens may be confused with commodity tokens. The major difference between the two tokens is that asset tokens are inherently unique, and value is independent of the type of token it is. For example, a piece of art like an oil painting by an established artist is an asset token. However, an art print of the Mona Lisa is considered a commodity token. Similarly, a property title is an asset token since the value exists in the subjective qualities of the property.
+資產權杖可能與商品權杖混淆。 這兩個權杖的主要差異在於資產權杖本質上是唯一的，而值則與其本身的權杖類型無關。 例如，建立的演出者之類的一段藝術圖案，就是資產 token。 不過，蒙娜 Lisa 的美工圖案會視為商用 token。 同樣地，屬性標題是資產 token，因為該值存在於屬性的主觀特性中。
 
-### <a name="ticket-tokens"></a>Ticket tokens
+### <a name="ticket-tokens"></a>票證權杖
 
-Ticket tokens have consistent value but typically expire. For example, a plane ticket.
+票證權杖具有一致的值，但通常會過期。 例如，平面票證。
 
-**𝜏N{m,b,r}** - non-fungible, mintable, burnable, and have role support.
+**τN {m，b，r}** -非變幻莫測、mintable、burnable，並具有角色支援。
 
-Ticket tokens typically have an expiry date that makes them different from a regular commodity token. For example, an airplane ticket, concert ticket, or sports ticket all have options of assigned seating with specific dates of use. You cannot easily interchange tickets between dates or seating areas.
+票證權杖的到期日通常會與一般的商品權杖不同。 例如，飛機票證、音樂會票證或體育票證全都有指派的座位的選項，具有特定的使用日期。 您無法輕易地交換日期或座位區域之間的票證。
 
 ## <a name="next-steps"></a>後續步驟
 
-If you require more flexibility for your scenario, learn about creating your own token templates using [token composability](composability.md).
+如果您需要更多的案例彈性，請瞭解如何使用[權杖複合性](composability.md)建立您自己的權杖範本。

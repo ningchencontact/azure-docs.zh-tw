@@ -27,7 +27,7 @@ Azure Automation State Configuration 可讓您指定伺服器的組態，並且�
 > - 將節點設定指派給受控節點
 > - 檢查受控節點的合規性狀態
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要：
 
@@ -65,7 +65,7 @@ configuration TestConfig {
 ```
 
 > [!NOTE]
-> In more advanced scenarios where you require multiple modules to be imported that provide DSC Resources, make sure each module has a unique `Import-DscResource` line in your configuration.
+> 在需要匯入多個模組以提供 DSC 資源的更先進案例中，請確定每個模組在您的設定中都有唯一的 `Import-DscResource` 行。
 
 呼叫 `Import-AzureRmAutomationDscConfiguration` Cmdlet 以將設定上傳至您的自動化帳戶：
 
@@ -134,16 +134,16 @@ Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAcc
 根據預設，DSC 節點會每隔 30 分鐘檢查節點設定的合規性。
 如需如何變更合規性檢查間隔的詳細資訊，請參閱[設定本機組態管理員](/powershell/scripting/dsc/managing-nodes/metaConfig)。
 
-## <a name="working-with-partial-configurations"></a>Working with Partial Configurations
+## <a name="working-with-partial-configurations"></a>使用部分設定
 
-Azure Automation State Configuration supports usage of [partial configurations](/powershell/scripting/dsc/pull-server/partialconfigs).
-In this scenario, DSC is configured to manage multiple configurations independently, and each configuration is retrieved from Azure Automation.
-However, only one configuration can be assigned to a node per automation account.
-This means if you are using two configurations for a node you will require two automation accounts.
+Azure 自動化狀態設定支援[部分](/powershell/scripting/dsc/pull-server/partialconfigs)設定的使用方式。
+在此案例中，DSC 會設定為獨立管理多個設定，並從 Azure 自動化抓取每個設定。
+不過，每個自動化帳戶只能指派一個設定給一個節點。
+這表示如果您在節點上使用兩個設定，您將需要兩個自動化帳戶。
 
-For details about how to register a partial configuration from pull service, see the documentation for [partial configurations](https://docs.microsoft.com/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
+如需如何從提取服務註冊部分設定的詳細資訊，請參閱[部分](https://docs.microsoft.com/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode)設定的檔。
 
-For more information about how teams can work together to collaboratively manage servers using configuration as code see [Understanding DSC's role in a CI/CD Pipeline](/powershell/scripting/dsc/overview/authoringadvanced).
+如需有關小組如何搭配使用設定即程式碼共同管理伺服器的詳細資訊，請參閱[瞭解 DSC 在 CI/CD 管線中的角色](/powershell/scripting/dsc/overview/authoringadvanced)。
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>檢查受控節點的合規性狀態
 
@@ -160,32 +160,32 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 $reports[0]
 ```
 
-## <a name="removing-nodes-from-service"></a>Removing nodes from service
+## <a name="removing-nodes-from-service"></a>從服務移除節點
 
-When you add a node to Azure Automation State Configuration, the settings in Local Configuration Manager are set to register with the service and pull configurations and required modules to configure the machine.
-If you choose to remove the node from the service, you can do so using either the Azure portal or the Az cmdlets.
+當您將節點新增至 Azure 自動化狀態設定時，本機 Configuration Manager 中的設定會設為 [向服務註冊] 和 [提取設定] 和 [所需的模組] 來設定電腦。
+如果您選擇從服務中移除節點，您可以使用 Azure 入口網站或 Az Cmdlet 來執行此動作。
 
 > [!NOTE]
-> Unregistering a node from the service only sets the Local Configuration Manager settings so the node is no longer connecting to the service.
-> This does not effect the configuration that is currently applied to the node.
-> To remove the current configuration, use the [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) or delete the local configuration file (this is the only option for Linux nodes).
+> 從服務取消註冊節點時，只會設定本機 Configuration Manager 設定，讓節點不再連接至服務。
+> 這不會影響目前套用至節點的設定。
+> 若要移除目前的設定，請使用[PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1)或刪除本機設定檔案（這是 Linux 節點的唯一選項）。
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure 入口網站
 
-From Azure Automation, click on **State configuration (DSC)** in the table of contents.
-Next click **Nodes** to view the list of nodes that are registered with the service.
-Click on the name of the node you wish to remove.
-In the Node view that opens, click **Unregister**.
+從 Azure 自動化按一下目錄中的 [**狀態設定（DSC）** ]。
+接下來按一下 [**節點**]，以查看已向服務註冊的節點清單。
+按一下您要移除之節點的名稱。
+在開啟的節點視圖中，按一下 [**取消註冊**]。
 
 ### <a name="powershell"></a>PowerShell
 
-To unregister a node from Azure Automation State Configuration service using PowerShell, follow the documentation for the cmdlet [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
+若要使用 PowerShell 從 Azure 自動化狀態設定服務取消註冊節點，請遵循 Cmdlet [AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0)的檔。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要開始使用，請參閱[開始使用 Azure 自動化狀態設定](automation-dsc-getting-started.md)
+- 若要開始使用，請參閱[開始使用 Azure Automation State Configuration](automation-dsc-getting-started.md)。
 - 若要深入了解如何將節點上架，請參閱[將機器上架交由 Azure Automation State Configuration 管理](automation-dsc-onboarding.md)
 - 若要了解如何編譯 DSC 組態，以將它們指派給目標節點，請參閱[編譯 Azure Automation State Configuration 中的組態](automation-dsc-compile.md)
 - 如需 PowerShell Cmdlet 參考，請參閱 [Azure 自動化狀態設定 Cmdlet](/powershell/module/azurerm.automation/#automation)
 - 如需定價資訊，請參閱 [Azure 自動化狀態設定的定價](https://azure.microsoft.com/pricing/details/automation/)
-- 若要查看在持續部署管線中使用 Azure 自動化狀態設定的範例，請參閱[使用 Azure 自動化狀態設定和 Chocolatey 的持續部署](automation-dsc-cd-chocolatey.md)
+- 若要查看在持續部署管線中使用 Azure Automation State Configuration 的範例，請參閱[使用 Azure Automation State Configuration 和 Chocolatey 的持續部署](automation-dsc-cd-chocolatey.md)

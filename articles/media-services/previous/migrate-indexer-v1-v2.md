@@ -1,6 +1,6 @@
 ---
-title: Migrate from Indexer v1 and v2 to Azure Media Services Video Indexer | Microsoft Docs
-description: This topic discusses how to migrate from Azure Media Indexer v1 and v2 to Azure Media Services Video Indexer.
+title: 從索引子 v1 和 v2 遷移至 Azure 媒體服務影片索引子 |Microsoft Docs
+description: 本主題討論如何從 Azure 媒體索引子 v1 和 v2 遷移至 Azure 媒體服務影片索引子。
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -20,60 +20,60 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74464046"
 ---
-# <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Migrate from Media Indexer and Media Indexer 2 to Video Indexer
+# <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>從媒體索引子和媒體索引子2遷移到影片索引子
 
-The [Azure Media Indexer](media-services-index-content.md) media processor will be retired on October 1st of 2020. The [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) media processors will be retired on January 1 of 2020.  [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
+[Azure 媒體索引子](media-services-index-content.md)媒體處理器將于2020年10月1日淘汰。 [Azure 媒體索引子 2 Preview](media-services-process-content-with-indexer2.md)媒體處理器將于2020年1月1日淘汰。  [Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代這些舊版媒體處理器。
 
-Azure Media Services Video Indexer is built on Azure Media Analytics, Azure Cognitive Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). 它可讓您使用影片索引器的影片與音訊模型，從影片中擷取見解。 To see what scenarios Video Indexer can be used in, what features it offers, and how to get started, see [Video Indexer video and audio models](../video-indexer/video-indexer-overview.md). 
+Azure 媒體服務影片索引子建基於 Azure 媒體分析、Azure 認知搜尋、認知服務（例如臉部 API、Microsoft Translator、電腦視覺 API 和自訂語音服務）。 它可讓您使用影片索引器的影片與音訊模型，從影片中擷取見解。 若要查看影片索引子可以在哪些案例中使用、它所提供的功能，以及如何開始進行，請參閱[影片索引子的影片和音訊模型](../video-indexer/video-indexer-overview.md)。 
 
-You can extract insights from your video and audio files by using the [Azure Media Services v3 analyzer presets](../latest/analyzing-video-audio-files-concept.md) or directly by using the [Video Indexer APIs](https://api-portal.videoindexer.ai/). Currently, there is an overlap between features offered by the Video Indexer APIs and the Media Services v3 APIs.
+您可以使用[Azure 媒體服務 v3 分析器](../latest/analyzing-video-audio-files-concept.md)預設，或直接使用[影片索引子 api](https://api-portal.videoindexer.ai/)，從您的影片和音訊檔案中摘錄見解。 目前，影片索引子 Api 和媒體服務 v3 Api 所提供的功能有重迭。
 
 > [!NOTE]
-> To understand when you would want to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document](../video-indexer/compare-video-indexer-with-media-services-presets.md). 
+> 若要瞭解何時要使用影片索引子與媒體服務分析器預設值，請參閱[比較檔](../video-indexer/compare-video-indexer-with-media-services-presets.md)。 
 
-This article discusses the steps for migrating from the Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer.  
+本文討論從 Azure 媒體索引子和 Azure 媒體索引子2遷移至 Azure 媒體服務影片索引子的步驟。  
 
 ## <a name="migration-options"></a>移轉選項 
 
-|If you require  |然後在受影響的網域控制站上執行 |
+|如果您需要  |然後在受影響的網域控制站上執行 |
 |---|---|
-|a solution that provides a speech-to-text transcription for any media file format in a closed caption file formats: VTT, SRT, or TTML<br/>as well as additional audio insights such as: keywords, topic inferencing, acoustic events, speaker diarization, entities extraction and translation| update your applications to use the Azure Video Indexer capabilities through the Video Indexer v2 REST API or the Azure Media Services v3 Audio Analyzer preset.|
-|speech-to-text capabilities| use the Cognitive Services Speech API directly.|  
+|針對隱藏式輔助字幕檔案格式的任何媒體檔案格式，提供語音轉換文字轉譯的解決方案： VTT、SRT 或 TTML<br/>還有其他的音訊深入資訊，例如關鍵字、主題推斷、聲場活動、喇叭 diarization、實體的提取和轉譯。| 透過影片索引子 v2 REST API 或 Azure 媒體服務 v3 音訊分析器預設值，將您的應用程式更新為使用 Azure 影片索引子功能。|
+|語音轉換文字功能| 直接使用認知服務語音 API。|  
 
-## <a name="getting-started-with-video-indexer"></a>Getting started with Video Indexer
+## <a name="getting-started-with-video-indexer"></a>開始使用影片索引子
 
-The following section points you to relevant links: [How can I get started with Video Indexer?](https://docs.microsoft.com/azure/media-services/video-indexer/video-indexer-overview#how-can-i-get-started-with-video-indexer) 
+下一節會將您指向相關的連結：[如何開始使用影片索引子？](https://docs.microsoft.com/azure/media-services/video-indexer/video-indexer-overview#how-can-i-get-started-with-video-indexer) 
 
-## <a name="getting-started-with-media-services-v3-apis"></a>Getting started with Media Services v3 APIs
+## <a name="getting-started-with-media-services-v3-apis"></a>開始使用媒體服務 v3 Api
 
-Azure Media Services v3 API enables you to extract insights from your video and audio files through the [Azure Media Services v3 analyzer presets](../latest/analyzing-video-audio-files-concept.md). 
+Azure 媒體服務 v3 API 可讓您透過[Azure 媒體服務 v3 分析器](../latest/analyzing-video-audio-files-concept.md)預設值，從您的影片和音訊檔案中摘錄見解。 
 
-**AudioAnalyzerPreset** 可讓您從音訊檔案或視訊檔案擷取多個音訊深入資訊。 The output includes a VTT or TTML file for the audio transcript and a JSON file (with all the additional audio insights). The audio insights include keywords, speaker indexing, and speech sentiment analysis. AudioAnalyzerPreset also supports language detection for specific languages. For detailed information, see [Transforms](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset).
+**AudioAnalyzerPreset** 可讓您從音訊檔案或視訊檔案擷取多個音訊深入資訊。 輸出包含音訊文字記錄的 VTT 或 TTML 檔案，以及 JSON 檔案（包含所有其他的音訊深入解析）。 音訊深入解析包含關鍵字、說話者索引和語音情感分析。 AudioAnalyzerPreset 也支援特定語言的語言偵測。 如需詳細資訊，請參閱[轉換](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)。
 
 ### <a name="get-started"></a>開始使用
 
-To get started see:
+若要開始使用，請參閱：
 
 * [教學課程](../latest/analyze-videos-tutorial-with-api.md)
-* AudioAnalyzerPreset samples: [Java SDK](https://github.com/Azure-Samples/media-services-v3-java/tree/master/AudioAnalytics/AudioAnalyzer) or [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/AudioAnalytics/AudioAnalyzer)
-* VideoAnalyzerPreset samples: [Java SDK](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoAnalytics/VideoAnalyzer) or [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/VideoAnalytics/VideoAnalyzer)
+* AudioAnalyzerPreset 範例： [JAVA sdk](https://github.com/Azure-Samples/media-services-v3-java/tree/master/AudioAnalytics/AudioAnalyzer)或[.net sdk](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/AudioAnalytics/AudioAnalyzer)
+* VideoAnalyzerPreset 範例： [JAVA sdk](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoAnalytics/VideoAnalyzer)或[.net sdk](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/VideoAnalytics/VideoAnalyzer)
 
-## <a name="getting-started-with-cognitive-services-speech-services"></a>Getting started with Cognitive Services Speech Services
+## <a name="getting-started-with-cognitive-services-speech-services"></a>認知服務語音服務入門
 
-[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/) provides a speech-to-text service that transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. You can  use speech-to-text to [customize your own acoustic model, language model, or pronunciation model](../../cognitive-services/speech-service/how-to-custom-speech-train-model.md). For more information, see [Cognitive Services speech-to-text](../../cognitive-services/speech-service/speech-to-text.md). 
+[Azure 認知服務](https://docs.microsoft.com/azure/cognitive-services/)提供語音轉換文字服務，可即時可將音訊串流至文字，讓您的應用程式、工具或裝置可以取用或顯示。 您可以使用語音轉換文字[來自訂您自己的聲場模型、語言模型或發音模型](../../cognitive-services/speech-service/how-to-custom-speech-train-model.md)。 如需詳細資訊，請參閱[認知服務語音轉換文字](../../cognitive-services/speech-service/speech-to-text.md)。 
 
 > [!NOTE] 
-> The speech-to-text service does not take video file formats and only takes [certain audio formats](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#audio-formats). 
+> 語音轉換文字服務不會採用影片檔案格式，而且只會採用[特定的音訊格式](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#audio-formats)。 
 
-For more information about the text-to-speech service and how to get started, see [What is speech-to-text?](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-to-text)
+如需文字轉換語音服務以及如何開始使用的詳細資訊，請參閱[什麼是語音轉換文字？](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-to-text)
 
-## <a name="known-differences-from-deprecated-services"></a>Known differences from deprecated services 
+## <a name="known-differences-from-deprecated-services"></a>與已淘汰服務的已知差異 
 
-You will find that Video Indexer, Azure Media Services v3 AudioAnalyzerPreset, and Cognitive Services Speech Services services are more reliable and produces better quality output than the retired Azure Media Indexer 1 and Azure Media Indexer 2 processors.  
+您會發現影片索引子、Azure 媒體服務 v3 AudioAnalyzerPreset 和認知服務語音服務服務較可靠，並產生比淘汰的 Azure 媒體索引子1和 Azure 媒體索引子2處理器更佳的品質輸出。  
 
-Some known differences include: 
+一些已知的差異包括： 
 
-* Cognitive Services Speech Services does not support keyword extraction. However, Video Indexer and Media Services v3 AudioAnalyzerPreset both offer a more robust set of keywords in JSON file format. 
+* 認知服務語音服務不支援關鍵字解壓縮。 不過，影片索引子和媒體服務 v3 AudioAnalyzerPreset 都提供一組更健全的 JSON 檔案格式關鍵字。 
 
 ## <a name="need-help"></a>需要協助嗎？
 
@@ -81,7 +81,7 @@ Some known differences include:
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Legacy components](legacy-components.md)
-* [Pricing page](https://azure.microsoft.com/pricing/details/media-services/#encoding)
+* [舊版元件](legacy-components.md)
+* [定價頁面](https://azure.microsoft.com/pricing/details/media-services/#encoding)
 
 

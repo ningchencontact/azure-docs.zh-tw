@@ -1,7 +1,7 @@
 ---
-title: 'K-Means Clustering: Module Reference'
+title: K-表示叢集：模組參考
 titleSuffix: Azure Machine Learning
-description: Learn how to use the K-Means Clustering module in the Azure Machine Learning to train clustering models.
+description: 瞭解如何在 Azure Machine Learning 中使用 K 意指叢集模組來定型群集模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,129 +16,129 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74213920"
 ---
-# <a name="module-k-means-clustering"></a>Module: K-Means Clustering
+# <a name="module-k-means-clustering"></a>模組： K-表示群集
 
-This article describes how to use the *K-Means Clustering* module in Azure Machine Learning designer (preview) to create an untrained K-means clustering model. 
+本文說明如何在 Azure Machine Learning 設計工具（預覽）中使用*K 意指*叢集模組，以建立未定型的 k 意義群集模型。 
  
-K-means is one of the simplest and the best known *unsupervised* learning algorithms. You can use the algorithm for a variety of machine learning tasks, such as: 
+K-表示是其中一個最簡單且最知名的*不受監督*學習演算法。 您可以使用演算法來進行各種機器學習工作，例如： 
 
-* [Detecting abnormal data](https://msdn.microsoft.com/magazine/jj891054.aspx).
-* Clustering text documents.
-* Analyzing datasets before you use other classification or regression methods. 
+* 偵測[異常資料](https://msdn.microsoft.com/magazine/jj891054.aspx)。
+* 群集文字檔。
+* 在您使用其他分類或回歸方法之前，先分析資料集。 
 
-To create a clustering model, you:
+若要建立群集模型，您可以：
 
-* Add this module to your pipeline.
-* Connect a dataset.
-* Set parameters, such as the number of clusters you expect, the distance metric to use in creating the clusters, and so forth. 
+* 將此模組新增至您的管線。
+* 串連資料組。
+* 設定參數，例如您預期的叢集數目、用來建立叢集的距離度量等等。 
   
-After you've configured the module hyperparameters, you connect the untrained model to the [Train Clustering Model](train-clustering-model.md). Because the K-means algorithm is an unsupervised learning method, a label column is optional. 
+設定模組超參數之後，您可以將未定型的模型連接到[訓練叢集模型](train-clustering-model.md)。 因為 K 表示演算法是不受監督學習方法，所以標籤資料行是選擇性的。 
 
-+ If your data includes a label, you can use the label values to guide selection of the clusters and optimize the model. 
++ 如果您的資料包含標籤，您可以使用標籤值來引導選取叢集，並將模型優化。 
 
-+ If your data has no label, the algorithm creates clusters representing possible categories, based solely on the data.  
++ 如果您的資料沒有標籤，演算法會根據資料，建立代表可能分類的叢集。  
 
-##  <a name="understand-k-means-clustering"></a>Understand K-means clustering
+##  <a name="understand-k-means-clustering"></a>瞭解 K 意指叢集
  
-In general, clustering uses iterative techniques to group cases in a dataset into clusters that possess similar characteristics. These groupings are useful for exploring data, identifying anomalies in the data, and eventually for making predictions. Clustering models can also help you identify relationships in a dataset that you might not logically derive by browsing or simple observation. For these reasons, clustering is often used in the early phases of machine learning tasks, to explore the data and discover unexpected correlations.  
+一般而言，叢集會使用反復的技術，將資料集中的案例分組至具有類似特性的群集。 這些群組適用于流覽資料、識別資料中的異常，最後是進行預測。 群集模型也可協助您識別資料集內的關聯性，而您可能不會透過流覽或簡單的觀察來以邏輯方式衍生。 基於這些理由，叢集通常用於機器學習工作的早期階段，以探索資料並探索非預期的相互關聯。  
   
- When you configure a clustering model by using the K-means method, you must specify a target number *k* that indicates the number of *centroids* you want in the model. The centroid is a point that's representative of each cluster. The K-means algorithm assigns each incoming data point to one of the clusters by minimizing the within-cluster sum of squares. 
+ 當您使用 K 意指方法設定群集模型時，您必須指定目標數位*K* ，以指出您想要在模型中*距心*的數目。 距心是代表每個叢集的一個點。 K 表示演算法會將每個內送資料點指派給其中一個叢集，方法是將叢集中的平方總和降至最低。 
  
-When it processes the training data, the K-means algorithm begins with an initial set of randomly chosen centroids. Centroids serve as starting points for the clusters, and they apply Lloyd's algorithm to iteratively refine their locations. The K-means algorithm stops building and refining clusters when it meets one or more of these conditions:  
+當它處理定型資料時，K 表示演算法會從一組初始的隨機播放距心開始。 距心可做為叢集的起點，並會套用羅依的演算法，以反復縮小其位置。 K 表示演算法會在符合一或多個下列條件時，停止建立和調整叢集：  
   
--   The centroids stabilize, meaning that the cluster assignments for individual points no longer change and the algorithm has converged on a solution.  
+-   距心穩定，這表示個別點的叢集指派不再變更，而且演算法已在解決方案上聚合。  
   
--   The algorithm completed running the specified number of iterations.  
+-   演算法已完成執行指定的反覆運算次數。  
   
- After you've completed the training phase, you use the [Assign Data to Clusters](assign-data-to-clusters.md) module to assign new cases to one of the clusters that you found by using the K-means algorithm. You perform cluster assignment by computing the distance between the new case and the centroid of each cluster. Each new case is assigned to the cluster with the nearest centroid.  
+ 完成訓練階段之後，您可以使用 [[將資料指派給](assign-data-to-clusters.md)叢集] 模組，將新案例指派給您使用 K 型演算法找到的其中一個群集。 您可以藉由計算新案例和每個叢集的距心之間的距離來執行叢集指派。 每個新案例都會指派給具有最接近距心的叢集。  
 
-## <a name="configure-the-k-means-clustering-module"></a>Configure the K-Means Clustering module
+## <a name="configure-the-k-means-clustering-module"></a>設定 K 意指叢集模組
   
-1.  Add the **K-Means Clustering** module to your pipeline.  
+1.  將**K 意指**叢集模組新增至您的管線。  
   
-2.  To specify how you want the model to be trained, select the **Create trainer mode** option.  
+2.  若要指定您想要如何訓練模型，請選取 [**建立定型模式]** 選項。  
   
-    -   **Single Parameter**: If you know the exact parameters you want to use in the clustering model, you can provide a specific set of values as arguments.  
+    -   **單一參數**：如果您知道要在群集模型中使用的確切參數，您可以提供一組特定值做為引數。  
   
-3.  For **Number of centroids**, type the number of clusters you want the algorithm to begin with.  
+3.  針對 [**距心數目**]，輸入您想要開始使用演算法的叢集數目。  
   
-     The model isn't guaranteed to produce exactly this number of clusters. The algorithm starts with this number of data points and iterates to find the optimal configuration.  
+     模型不保證會產生確切的叢集數目。 此演算法會以此數目的資料點開始，並逐一查看以尋找最佳設定。  
   
-4.  The properties **Initialization** is used to specify the algorithm that's used to define the initial cluster configuration.  
+4.  屬性**初始化**是用來指定用來定義初始叢集設定的演算法。  
   
-    -   **First N**: Some initial number of data points are chosen from the dataset and used as the initial means. 
+    -   **前 N**個：從資料集選擇了一些初始的資料點數目，並做為初始方式使用。 
     
-         This method is also called the *Forgy method*.  
+         這個方法也稱為*Forgy 方法*。  
   
-    -   **Random**: The algorithm randomly places a data point in a cluster and then computes the initial mean to be the centroid of the cluster's randomly assigned points. 
+    -   **隨機**：演算法會隨機將資料點放在叢集中，然後計算初始平均值，以作為叢集隨機指派點的距心。 
 
-         This method is also called the *random partition* method.  
+         這個方法也稱為亂數據*分割*方法。  
   
-    -   **K-Means++** : This is the default method for initializing clusters.  
+    -   **K-表示 + +** ：這是初始化叢集的預設方法。  
   
-         The **K-means++** algorithm was proposed in 2007 by David Arthur and Sergei Vassilvitskii to avoid poor clustering by the standard K-means algorithm. **K-means++** improves upon standard K-means by using a different method for choosing the initial cluster centers.  
+         Arthur 和 Sergei Vassilvitskii 在2007中提議了**k 意指 + +** 演算法，以避免標準的 K 意指演算法的叢集不佳。 **K-表示 + +** 使用不同的方法來選擇初始叢集中心，以改善標準的 k 表示。  
   
     
-5.  For **Random number seed**, optionally type a value to use as the seed for the cluster initialization. This value can have a significant effect on cluster selection.  
+5.  針對 [**亂數字種子**]，選擇性地輸入要用來做為叢集初始化之種子的值。 此值可能會對叢集選取造成重大影響。  
   
-6.  For **Metric**, choose the function to use for measuring the distance between cluster vectors, or between new data points and the randomly chosen centroid. Azure Machine Learning supports the following cluster distance metrics:  
+6.  針對 [**度量**]，選擇要用於測量叢集向量之間的距離，或新資料點與隨機播放的距心之間的距離。 Azure Machine Learning 支援下列叢集距離計量：  
   
-    -   **Euclidean**: The Euclidean distance is commonly used as a measure of cluster scatter for K-means clustering. This metric is preferred because it minimizes the mean distance between points and the centroids.
+    -   **Euclidean**： Euclidean 距離通常用來做為 K 表示叢集的叢集散佈值。 這是慣用的標準，因為它會將點和距心之間的平均距離降至最低。
   
-7.  For **Iterations**, type the number of times the algorithm should iterate over the training data before it finalizes the selection of centroids.  
+7.  針對 [反復專案]，輸入演算法在完成距心選取**之前，應該**反覆運算定型資料的次數。  
   
-     You can adjust this parameter to balance accuracy against training time.  
+     您可以調整此參數，以平衡定型時間的準確度。  
   
-8.  For **Assign label mode**, choose an option that specifies how a label column, if it's present in the dataset, should be handled.  
+8.  針對 [**指派標籤模式]** ，選擇一個選項來指定標籤資料行是否存在於 dataset 中，應加以處理。  
   
-     Because K-means clustering is an unsupervised machine learning method, labels are optional. However, if your dataset already has a label column, you can use those values to guide the selection of the clusters, or you can specify that the values be ignored.  
+     因為 K 表示叢集是不受監督的機器學習方法，所以標籤是選擇性的。 不過，如果您的資料集已經有標籤資料行，您可以使用這些值來引導叢集的選取範圍，或者您可以指定忽略這些值。  
   
-    -   **Ignore label column**: The values in the label column are ignored and are not used in building the model.
+    -   **略過標籤資料行**： [標籤] 資料行中的值會被忽略，而且不會用於建立模型。
   
-    -   **Fill missing values**: The label column values are used as features to help build the clusters. If any rows are missing a label, the value is imputed by using other features.  
+    -   **填滿遺漏值**：標籤資料行值是用來協助建立叢集的功能。 如果有任何資料列遺漏標籤，則會使用其他功能來插補此值。  
   
-    -   **Overwrite from closest to center**: The label column values are replaced with predicted label values, using the label of the point that is closest to the current centroid.  
+    -   **從最接近中心覆寫**：標籤資料行值會以預測的標籤值取代，並使用最接近目前距心的點標籤。  
 
-8.  Select the **Normalize features** option if you want to normalize features before training.
+8.  如果您想要在定型之前先標準化功能，請選取 [正規化**功能**] 選項。
   
-     If you apply normalization, before training, the data points are normalized to `[0,1]` by MinMaxNormalizer.
+     如果您套用正規化，在定型之前，資料點會正規化為 MinMaxNormalizer `[0,1]`。
 
-10. Train the model.  
+10. 將模型定型。  
   
-    -   If you set **Create trainer mode** to **Single Parameter**, add a tagged dataset and train the model by using the [Train Clustering Model](train-clustering-model.md) module.  
+    -   如果您將 [**建立定型模式]** 設定為 [**單一參數**]，請加入已加上標籤的資料集，並使用[訓練叢集模型](train-clustering-model.md)模組來定型模型。  
   
 ### <a name="results"></a>結果
 
-After you've finished configuring and training the model, you have a model that you can use to generate scores. However, there are multiple ways to train the model, and multiple ways to view and use the results: 
+在您完成模型的設定和定型之後，您會有一個可用於產生分數的模型。 不過，有多種方式可以定型模型，以及多種方式來查看和使用結果： 
 
-#### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Capture a snapshot of the model in your workspace
+#### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>在您的工作區中捕捉模型的快照集
 
-If you used the [Train Clustering Model](train-clustering-model.md) module:
+如果您使用[訓練叢集模型](train-clustering-model.md)模組：
 
-1. Right-click the **Train Clustering Model** module.
+1. 以滑鼠右鍵按一下 [**定型群集模型**] 模組。
 
-2. Select **Trained model**, and then select **Save as Trained Model**.
+2. 選取 [**定型模型**]，然後選取 [**另存為定型模型**]。
 
-The saved model represents the training data at the time you saved the model. If you later update the training data used in the pipeline, it doesn't update the saved model. 
+儲存的模型代表您在儲存模型時的定型資料。 如果您稍後更新管線中使用的定型資料，它就不會更新已儲存的模型。 
 
-#### <a name="see-the-clustering-result-dataset"></a>See the clustering result dataset 
+#### <a name="see-the-clustering-result-dataset"></a>查看群集結果資料集 
 
-If you used the [Train Clustering Model](train-clustering-model.md) module:
+如果您使用[訓練叢集模型](train-clustering-model.md)模組：
 
-1. Right-click the **Train Clustering Model** module.
+1. 以滑鼠右鍵按一下 [**定型群集模型**] 模組。
 
-2. Select **Results dataset**, and then select **Visualize**.
+2. 選取 [**結果資料集**]，然後選取 [**視覺化**]。
 
-### <a name="tips-for-generating-the-best-clustering-model"></a>Tips for generating the best clustering model  
+### <a name="tips-for-generating-the-best-clustering-model"></a>產生最佳群集模型的秘訣  
 
-It is known that the *seeding* process that's used during clustering can significantly affect the model. Seeding means the initial placement of points into potential centroids.
+已知在叢集期間使用的*植*入程式可能會大幅影響模型。 植入表示指向潛在距心的初始位置。
  
-For example, if the dataset contains many outliers, and an outlier is chosen to seed the clusters, no other data points would fit well with that cluster, and the cluster could be a singleton. That is, it might have only one point.  
+例如，如果資料集包含許多極端值，而選擇了極端項來植入叢集，則沒有其他資料點適合該叢集，而且叢集可以是單一的。 也就是說，它可能只有一個點。  
   
-You can avoid this problem in a couple of ways:  
+您可以透過幾個方法來避免這個問題：  
   
--   Change the number of centroids and try multiple seed values.  
+-   變更距心的數目，並嘗試多個種子值。  
   
--   Create multiple models, varying the metric or iterating more.  
+-   建立多個模型、改變度量或逐一查看。  
   
-In general, with clustering models, it's possible that any given configuration will result in a locally optimized set of clusters. In other words, the set of clusters that's returned by the model suits only the current data points and isn't generalizable to other data. If you use a different initial configuration, the K-means method might find a different, superior, configuration. 
+一般而言，使用群集模型時，任何指定的設定都可能會導致本機優化的叢集集。 換句話說，模型所傳回的叢集集只會符合目前的資料點，而無法歸納成其他資料。 如果您使用不同的初始設定，K 意指方法可能會發現不同、更上層的設定。 

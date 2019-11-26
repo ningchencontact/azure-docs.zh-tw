@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub bindings for Azure Functions
-description: Understand how to use IoT Hub bindings in Azure Functions.
+title: Azure Functions 的 Azure IoT 中樞系結
+description: 瞭解如何在 Azure Functions 中使用 IoT 中樞系結。
 author: craigshoemaker
 ms.topic: reference
 ms.date: 03/05/2019
@@ -12,15 +12,15 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227261"
 ---
-# <a name="azure-iot-hub-bindings-for-azure-functions"></a>Azure IoT Hub bindings for Azure Functions
+# <a name="azure-iot-hub-bindings-for-azure-functions"></a>Azure Functions 的 Azure IoT 中樞系結
 
-This article explains how to work with Azure Functions bindings for IoT Hub. The IoT Hub support is based on the [Azure Event Hubs Binding](functions-bindings-event-hubs.md).
+本文說明如何使用 IoT 中樞的 Azure Functions 系結。 IoT 中樞支援是以[Azure 事件中樞](functions-bindings-event-hubs.md)系結為基礎。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
-For Azure Functions version 1.x, the IoT Hub bindings are provided in the [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet package, version 2.x. 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) GitHub 存放庫中。
+針對 Azure Functions 1.x 版，會在2.x 版中提供 IoT 中樞系結，分別是2.x 版[的 NuGet 套件。](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) GitHub 存放庫中。
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -31,7 +31,7 @@ For Azure Functions version 1.x, the IoT Hub bindings are provided in the [Micro
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 > [!IMPORTANT]
-> While the following code samples use the Event Hub API, the given syntax is applicable for IoT Hub functions.
+> 雖然下列程式碼範例會使用事件中樞 API，但指定的語法適用于 IoT 中樞函式。
 
 [!INCLUDE [functions-bindings-event-hubs](../../includes/functions-bindings-event-hubs.md)]
 

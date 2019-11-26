@@ -1,6 +1,6 @@
 ---
-title: Migrate from Windows Azure Media Encoder to Media Encoder Standard | Microsoft Docs
-description: This topic discusses how to migrate from Azure Media Encoder to the Media Encoder Standard media processor.
+title: 從 Windows Azure 媒體編碼器遷移至媒體編碼器標準 |Microsoft Docs
+description: 本主題討論如何從 Azure 媒體編碼器遷移至媒體編碼器標準媒體處理器。
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -20,15 +20,15 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74424033"
 ---
-# <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>Migrate from Windows Azure Media Encoder to Media Encoder Standard
+# <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>從 Windows Azure 媒體編碼器遷移至媒體編碼器標準
 
-This article discusses the steps for migrating from the legacy Windows Azure Media Encoder (WAME) media processor, which is being retired on March 1, 2020, to the Media Encoder Standard media processor.
+本文討論從舊版 Windows Azure 媒體編碼器（WAME）媒體處理器（即將于2020年3月1日淘汰）到媒體編碼器標準媒體處理器進行遷移的步驟。
 
-When encoding files with WAME, customers typically used a named preset string such as `H264 Adaptive Bitrate MP4 Set 1080p`. In order to migrate, your code needs to be updated to use the **Media Encoder Standard** media processor instead of WAME, and one of the equivalent [system presets](media-services-mes-presets-overview.md) like `H264 Multiple Bitrate 1080p`. 
+以 WAME 編碼檔案時，客戶通常會使用名為的預設字串，例如 `H264 Adaptive Bitrate MP4 Set 1080p`。 為了進行遷移，您的程式碼必須更新為使用**媒體編碼器標準**媒體處理器，而不是 WAME，以及其中一個對等[系統](media-services-mes-presets-overview.md)預設值，例如 `H264 Multiple Bitrate 1080p`。 
 
-## <a name="migrating-to-media-encoder-standard"></a>Migrating to Media Encoder Standard
+## <a name="migrating-to-media-encoder-standard"></a>遷移至媒體編碼器標準
 
-Here is a typical C# code sample that uses the legacy component. 
+以下是使用舊版C#元件的一般程式碼範例。 
 
 ```csharp
 // Declare a new job. 
@@ -45,7 +45,7 @@ ITask task = job.Tasks.AddNew("My encoding task",
     TaskOptions.None); 
 ```
 
-Here is the updated version that uses Media Encoder Standard.
+以下是使用媒體編碼器標準的更新版本。
 
 ```csharp
 // Declare a new job. 
@@ -64,15 +64,15 @@ ITask task = job.Tasks.AddNew("My encoding task",
 
 ### <a name="advanced-scenarios"></a>進階案例 
 
-If you had created your own encoding preset for WAME using its schema, there is an [equivalent schema for Media Encoder Standard](media-services-mes-schema.md).
+如果您已使用其架構為 WAME 建立自己的編碼預設值，則會有媒體編碼器標準的對[等架構](media-services-mes-schema.md)。
 
-## <a name="known-differences"></a>Known differences 
+## <a name="known-differences"></a>已知的差異 
 
-Media Encoder Standard is more robust, reliable, has better performance, and produces better quality output than the legacy WAME encoder. In addition,: 
+媒體編碼器標準更健全、可靠、效能更佳，並產生比舊版 WAME 編碼器更佳的品質輸出。 另外： 
 
-* Media Encoder Standard produces output files with a different naming convention than WAME.
-* Media Encoder Standard produces artifacts such as files containing the [input file metadata](media-services-input-metadata-schema.md) and the [output file(s) metadata](media-services-output-metadata-schema.md).
-* As documented on the [pricing page](https://azure.microsoft.com/pricing/details/media-services/#encoding) (especially in the FAQ section), when you encode videos using Media Encoder Standard, you get billed based on the duration of the files produced as output. With WAME, you would be billed based on the sizes of the input video file(s) and output video file(s).
+* 媒體編碼器標準會產生與 WAME 不同的命名慣例的輸出檔。
+* 媒體編碼器標準會產生成品，例如包含[輸入檔案中繼資料](media-services-input-metadata-schema.md)和[輸出檔案中繼資料](media-services-output-metadata-schema.md)的檔案。
+* 如[定價頁面](https://azure.microsoft.com/pricing/details/media-services/#encoding)（特別是在常見問題一節）中所述，當您使用媒體編碼器標準來編碼影片時，會根據輸出產生的檔案持續時間來計費。 使用 WAME 時，您會根據輸入影片檔案和輸出影片檔案的大小來計費。
 
 ## <a name="need-help"></a>需要協助嗎？
 
@@ -80,5 +80,5 @@ Media Encoder Standard is more robust, reliable, has better performance, and pro
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Legacy components](legacy-components.md)
-* [Pricing page](https://azure.microsoft.com/pricing/details/media-services/#encoding)
+* [舊版元件](legacy-components.md)
+* [定價頁面](https://azure.microsoft.com/pricing/details/media-services/#encoding)

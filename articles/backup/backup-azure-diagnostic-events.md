@@ -10,7 +10,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74281099"
 ---
-# <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>使用復原服務保存庫的診斷設定
+# <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>使用適用於復原服務保存庫的診斷設定
 
 Azure 備份會傳送可收集的診斷事件，並用於分析、警示和報告。 
 

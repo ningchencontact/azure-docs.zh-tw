@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Predict churn example'
+title: 設計工具：預測流失的範例
 titleSuffix: Azure Machine Learning
-description: Follow this classification example to predict churn with Azure Machine Learning designer & boosted decision trees.
+description: 遵循此分類範例，利用 Azure Machine Learning 設計工具 & 促進式決策樹來預測流失。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,61 +17,61 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74225140"
 ---
-# <a name="use-boosted-decision-tree-to-predict-churn-with-azure-machine-learning-designer"></a>Use boosted decision tree to predict churn with Azure Machine Learning designer
+# <a name="use-boosted-decision-tree-to-predict-churn-with-azure-machine-learning-designer"></a>使用促進式決策樹，利用 Azure Machine Learning 設計工具來預測流失
 
-**Designer (preview) sample 5**
+**設計工具（預覽）範例5**
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Learn how to build a complex machine learning pipeline without writing a single line of code using the designer (preview).
+瞭解如何使用設計工具（預覽）來建立複雜的機器學習管線，而不需要撰寫任何一行程式碼。
 
-This pipeline trains 2 **two-class boosted decision tree** classifiers to predict common tasks for customer relationship management (CRM) systems - customer churn. The data values and labels are split across multiple data sources and scrambled to anonymize customer information, however, we can still use the designer to combine data sets and train a model using the obscured values.
+此管線會訓練 2**個雙類別促進式決策樹**分類器，以預測客戶關係管理（CRM）系統的一般工作-客戶流失。 資料值和標籤會分割成多個資料來源，並以匿名的客戶資訊進行加密，不過，我們仍然可以使用設計工具來結合資料集，並使用遮蔽的值來定型模型。
 
-Because you're trying to answer the question "Which one?" this is called a classification problem, but you can apply the same logic shown in this sample to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
+因為您正試著回答「哪一個？」這個問題， 這稱為分類問題，但您可以套用此範例中所示的相同邏輯，以處理任何類型的機器學習服務問題，無論是回歸、分類、叢集等。
 
-Here's the completed graph for this pipeline:
+以下是此管線的完成圖形：
 
-![Pipeline graph](./media/how-to-designer-sample-classification-predict-churn/pipeline-graph.png)
+![管線圖表](./media/how-to-designer-sample-classification-predict-churn/pipeline-graph.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Click sample 5 to open it. 
+4. 按一下 [範例 5] 將其開啟。 
 
 ## <a name="data"></a>資料
 
-The data for this pipeline is from KDD Cup 2009. It has 50,000 rows and 230 feature columns. The task is to predict churn, appetency, and up-selling for customers who use these features. For more information about the data and the task, see the [KDD website](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
+此管線的資料來自 KDD 杯2009。 它有50000個數據列和230個功能資料行。 這項工作是針對使用這些功能的客戶，預測變換、appetency 和向上銷售。 如需有關資料和工作的詳細資訊，請參閱[KDD 網站](https://www.kdd.org/kdd-cup/view/kdd-cup-2009)。
 
-## <a name="pipeline-summary"></a>Pipeline summary
+## <a name="pipeline-summary"></a>管線摘要
 
-This sample pipeline in the designer shows binary classifier prediction of churn, appetency, and up-selling, a common task for customer relationship management (CRM).
+設計工具中的這個範例管線會顯示變換、appetency 和向上銷售的二元分類器預測，這是客戶關係管理（CRM）的一般工作。
 
-First, some simple data processing.
+首先，部分簡單的資料處理。
 
-- The raw dataset has many missing values. Use the **Clean Missing Data** module to replace the missing values with 0.
+- 原始資料集有許多遺漏值。 使用 [**清除遺漏的資料**] 模組，將遺漏的值取代為0。
 
-    ![Clean the dataset](./media/how-to-designer-sample-classification-predict-churn/cleaned-dataset.png)
+    ![清除資料集](./media/how-to-designer-sample-classification-predict-churn/cleaned-dataset.png)
 
-- The features and the corresponding churn are in different datasets. Use the **Add Columns** module to append the label columns to the feature columns. The first column, **Col1**, is the label column. From the visualization result we can see the dataset is unbalanced. There way more negative (-1) examples than positive examples (+1). We will use **SMOTE** module to increase underrepresented cases later.
+- 功能和對應的變換會在不同的資料集中。 使用 [**加入資料行**] 模組，將標籤資料行附加至特徵資料行。 第一個資料行**Col1**是標籤資料行。 從視覺效果的結果中，我們可以看到資料集不對稱。 與正面範例（+ 1）相比，有更多的負面（-1）範例。 我們會在稍後使用**SMOTE**模組來增加不具代表性案例。
 
-    ![Add the column dataset](./media/how-to-designer-sample-classification-predict-churn/added-column1.png)
+    ![加入資料行資料集](./media/how-to-designer-sample-classification-predict-churn/added-column1.png)
 
 
 
-- Use the **Split Data** module to split the dataset into train and test sets.
+- 使用**分割資料**模組，將資料集分割成定型和測試集。
 
-- Then use the Boosted Decision Tree binary classifier with the default parameters to build the prediction models. Build one model per task, that is, one model each to predict up-selling, appetency, and churn.
+- 然後使用「促進式決策樹」二進位分類器搭配預設參數來建立預測模型。 為每個工作建立一個模型，也就是每一個模型都可預測向上銷售、appetency 和變換。
 
-- In the right part of the pipeline, we use **SMOTE** module to increase the percentage of positive examples. The SMOTE percentage is set to 100 to double the positive examples. Learn more on how SMOTE module works with [SMOTE module reference0](../././algorithm-module-reference/SMOTE.md).
+- 在管線的右側部分，我們會使用**SMOTE**模組來增加正向範例的百分比。 SMOTE 百分比會設定為100，以將正的範例加倍。 深入瞭解 SMOTE 模組如何與[SMOTE 模組 reference0](../././algorithm-module-reference/SMOTE.md)搭配運作。
 
 ## <a name="results"></a>結果
 
-Visualize the output of the **Evaluate Model** module to see the performance of the model on the test set. 
+將 [**評估模型**] 模組的輸出視覺化，以查看測試集上模型的效能。 
 
 ![評估結果](./media/how-to-designer-sample-classification-predict-churn/evaluate-result.png)
 
- You can move the **Threshold** slider and see the metrics change for the binary classification task. 
+ 您可以移動 [**臨界值**] 滑杆，並查看二元分類工作的計量變更。 
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -79,11 +79,11 @@ Visualize the output of the **Evaluate Model** module to see the performance of 
 
 ## <a name="next-steps"></a>後續步驟
 
-Explore the other samples available for the designer:
+探索適用于設計工具的其他範例：
 
-- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
-- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
+- [範例 1-回歸：預測汽車的價格](how-to-designer-sample-regression-automobile-price-basic.md)
+- [範例 2-回歸：比較汽車價格預測的演算法](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [範例 3-使用特徵選取進行分類：收入預測](how-to-designer-sample-classification-predict-income.md)
+- [範例 4-分類：預測信用風險（區分成本）](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [範例 6-分類：預測航班延誤](how-to-designer-sample-classification-flight-delay.md)
+- [範例 7-文字分類：維琪百科 SP 500 資料集](how-to-designer-sample-text-classification.md)

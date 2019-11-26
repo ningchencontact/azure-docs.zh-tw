@@ -42,7 +42,7 @@ ms.locfileid: "74278996"
 
 ### <a name="to-set-up-your-security-questions"></a>設定安全性問題
 
-1. 登入您的公司或學校帳戶，然後移至您的 https://myprofile.microsoft.com/ 頁面。
+1. 登入您的公司或學校帳戶，然後前往 https://myprofile.microsoft.com/ 頁面。
 
     ![[我的設定檔] 頁面，顯示醒目提示的 [安全性資訊] 連結](media/security-info/securityinfo-myprofile-page.png)
 

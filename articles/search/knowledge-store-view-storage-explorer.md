@@ -1,7 +1,7 @@
 ---
-title: View a knowledge store (preview) with Storage Explorer
+title: 使用儲存體總管來觀看知識存放區（預覽）
 titleSuffix: Azure Cognitive Search
-description: 使用 Azure 入口網站的儲存體總管來檢視和分析 Azure 認知搜尋的知識存放區。 knowledge store is currently in public preview.
+description: 使用 Azure 入口網站的儲存體總管來檢視和分析 Azure 認知搜尋的知識存放區。 知識存放區目前為公開預覽狀態。
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -20,17 +20,17 @@ ms.locfileid: "74406561"
 > [!IMPORTANT] 
 > 知識存放區目前為公開預覽狀態。 預覽功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供預覽功能。 目前的入口網站支援有限，而且沒有 .NET SDK 支援。
 
-In this article, you'll learn by example how to connect to and explore a knowledge store using Storage Explorer in the Azure portal.
+在本文中，您將瞭解如何使用 Azure 入口網站中的儲存體總管連接到知識存放區，並加以探索。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-+ Follow the steps in [Create a knowledge store in Azure portal](knowledge-store-create-portal.md) or [Create an Azure Cognitive Search knowledge store by using REST](knowledge-store-create-rest.md) to create the sample knowledge store used in this walkthrough.
++ 遵循在 Azure 入口網站中[建立知識存放區](knowledge-store-create-portal.md)中的步驟，或[使用 REST 建立 Azure 認知搜尋知識存放](knowledge-store-create-rest.md)區，以建立本逐步解說中所使用的範例知識存放區。
 
 + 您也需要用來建立知識存放區的 Azure 儲存體帳戶名稱，以及其來自 Azure 入口網站的存取金鑰。
 
-## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>View, edit, and query a knowledge store in Storage Explorer
+## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>在儲存體總管中，查看、編輯和查詢知識存放區
 
-1. In the Azure portal, [open the Storage account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) that you used to create the knowledge store.
+1. 在 Azure 入口網站中，開啟您用來建立知識存放區的[儲存體帳戶](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/)。
 
 1. 在儲存體帳戶的左側瀏覽窗格中，按一下 [儲存體總管]。
 
@@ -58,8 +58,8 @@ In this article, you'll learn by example how to connect to and explore a knowled
 
 ## <a name="next-steps"></a>後續步驟
 
-Connect this knowledge store to Power BI for deeper analysis, or move forward with code, using the REST API and Postman to create a different knowledge store.
+將此知識存放區連接到 Power BI 以進行更深入的分析，或使用 REST API 和 Postman 來建立不同的知識存放區，以進行程式碼的繼續。
 
 > [!div class="nextstepaction"]
-> [Connect with Power BI](knowledge-store-connect-power-bi.md)
-> [Create a knowledge store in REST](knowledge-store-howto.md)
+> [與 Power BI 連接](knowledge-store-connect-power-bi.md)
+> [在 REST 中建立知識存放區](knowledge-store-howto.md)

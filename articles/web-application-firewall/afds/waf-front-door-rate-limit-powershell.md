@@ -18,7 +18,7 @@ ms.locfileid: "74186615"
 Azure Front 門板的 Azure Web 應用程式防火牆（WAF）速率限制規則會控制一分鐘期間內，單一用戶端 IP 允許的要求數。
 本文說明如何設定 WAF 速率限制規則，以控制從單一用戶端到使用 Azure PowerShell 的 URL 中包含 */promo*之 web 應用程式所允許的要求數目。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>先決條件
 開始設定速率限制原則之前，請先設定您的 PowerShell 環境，並建立 Front profile。

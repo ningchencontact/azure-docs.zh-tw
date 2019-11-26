@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple - Choose a load balancing solution for CloudSimple Private Clouds
-description: Describes the load balancing options deploying an application in a Private Cloud
+title: Azure VMware Solution by CloudSimple-選擇適用于 CloudSimple 私人雲端的負載平衡解決方案
+description: 說明在私人雲端中部署應用程式的負載平衡選項
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -15,32 +15,32 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74206508"
 ---
-# <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Choose a load balancing solution for CloudSimple Private Clouds
+# <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>選擇適用于 CloudSimple 私人雲端的負載平衡解決方案
 
-When deploying an application in a CloudSimple Private Cloud, you can choose any of several options for load balancing.
+在 CloudSimple 私用雲端中部署應用程式時，您可以選擇多個負載平衡選項。
 
-You can choose a virtual or software-based load balancer in your CloudSimple private cloud or even use Azure L7 load balancer running in your Azure subscription to front end your web tier VMs running in the CloudSimple Private Cloud. Here, we list a few options:
+您可以選擇 CloudSimple 私人雲端中的虛擬或軟體型負載平衡器，或甚至是使用 Azure 訂用帳戶中執行的 Azure L7 負載平衡器，在 CloudSimple 私人雲端中執行的 web 層 Vm 前端。 在這裡，我們會列出幾個選項：
 
-## <a name="virtual-load-balancers"></a>Virtual load balancers
+## <a name="virtual-load-balancers"></a>虛擬負載平衡器
 
-You can deploy virtual load balancer appliances in your VMware environment through the vCenter interface and configure them to front end your application traffic.
+您可以透過 vCenter 介面在 VMware 環境中部署虛擬負載平衡器設備，並將其設定為前端應用程式流量。
 
-Some popular vendors are: NginX: http://nginx.org/en/docs/http/load_balancing.html F5- BigIP - Traffic Manager: https://www.f5.com/products/big-ip-services/virtual-editions Citrix ADC: https://www.citrix.com/products/citrix-adc/
+有些熱門廠商是： NginX： http://nginx.org/en/docs/http/load_balancing.html F5-BigIP 流量管理員： https://www.f5.com/products/big-ip-services/virtual-editions Citrix ADC： https://www.citrix.com/products/citrix-adc/
 
-## <a name="azure-l7-load-balancer"></a>Azure L7 load balancer
+## <a name="azure-l7-load-balancer"></a>Azure L7 負載平衡器
 
-When you use Azure Application Gateway as a L7 load balancer for your application running in a Private Cloud, you don’t need to manage the load balancer software. The load balancer software is managed by Azure. All the web tier VMs in the Private Cloud use private IP addresses and don’t require additional NAT rules or public IPs addresses to resolve names. Web tier VMs communicate with the Azure Application Gateway over a private, low-latency, high-bandwidth connection.
+當您使用 Azure 應用程式閘道做為在私人雲端中執行之應用程式的 L7 負載平衡器時，您不需要管理負載平衡器軟體。 負載平衡器軟體是由 Azure 管理。 私人雲端中的所有 web 層 Vm 都會使用私人 IP 位址，而不需要額外的 NAT 規則或公用 Ip 位址來解析名稱。 Web 層 Vm 會透過私人、低延遲、高頻寬的連線與 Azure 應用程式閘道通訊。
 
-To learn more about how to configure this solution, refer to the solution guide on Using Azure Application Gateway as a L7 load balancer.
+若要深入瞭解如何設定此解決方案，請參閱使用 Azure 應用程式閘道作為 L7 負載平衡器的解決方案指南。
 
-## <a name="azure-internal-load-balancer"></a>Azure internal load balancer
+## <a name="azure-internal-load-balancer"></a>Azure 內部負載平衡器
 
-If you choose to run your application in a hybrid deployment where the web front-end tier is running within an Azure vNet in your Azure subscription and the DB tier of the application is running in VMware VMs in CloudSimple Private Cloud, you can use Azure internal load balancer (L4 load balancer) in front of your DB tier VMs for traffic management.
+如果您選擇在混合式部署中執行應用程式，其中 web 前端層是在 Azure 訂用帳戶中的 Azure vNet 內執行，而應用程式的 DB 層是在 CloudSimple 私用雲端的 VMware Vm 中執行，您可以使用 Azure 內部負載在您的 DB 層 Vm 前面的平衡器（L4 負載平衡器），用於流量管理。
 
-To learn more, see Azure [Internal Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer) documentation.
+若要深入瞭解，請參閱 Azure[內部 Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)檔。
 
-## <a name="global-server-load-balancer"></a>Global server load balancer
+## <a name="global-server-load-balancer"></a>全域伺服器負載平衡器
 
-If you are looking for a DNS-based load balancer, then you may either use third party solutions available in Azure Marketplace or go with the native Azure solution.
+如果您要尋找以 DNS 為基礎的負載平衡器，您可以使用 Azure Marketplace 或 go 中提供的協力廠商解決方案來搭配原生 Azure 解決方案。
 
-Azure Traffic Manager is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions and on-premises, while providing high availability and responsiveness. To learn more, see Azure [Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md) documentation.
+Azure 流量管理員是以 DNS 為基礎的流量負載平衡器，可讓您以最佳方式將流量分散到全球 Azure 區域和內部部署的服務，同時提供高可用性和回應性。 若要深入瞭解，請參閱 Azure[流量管理員](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)檔。

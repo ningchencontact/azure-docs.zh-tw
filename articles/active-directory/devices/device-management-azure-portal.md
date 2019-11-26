@@ -18,22 +18,22 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74420615"
 ---
-# <a name="manage-device-identities-using-the-azure-portal"></a>Manage device identities using the Azure portal
+# <a name="manage-device-identities-using-the-azure-portal"></a>使用 Azure 入口網站管理裝置身分識別
 
-With device identity management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance.
+透過 Azure Active Directory （Azure AD）中的裝置身分識別管理，您可以確保使用者會從符合安全性與合規性標準的裝置存取您的資源。
 
 本文：
 
-- Assumes that you are familiar with the [introduction to device identity management in Azure Active Directory](overview.md)
-- Provides you with information about managing your device identities using the Azure AD portal
+- 假設您已熟悉[中的裝置身分識別管理簡介 Azure Active Directory](overview.md)
+- 提供您使用 Azure AD 入口網站來管理裝置身分識別的相關資訊
 
-## <a name="manage-device-identities"></a>管理裝置識別
+## <a name="manage-device-identities"></a>管理裝置身分識別
 
-The Azure AD portal provides you with a central place to manage your device identities. 您可以使用[直接連結](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)或依照下列手動步驟，來前往該位置：
+Azure AD 入口網站可讓您集中管理您的裝置身分識別。 您可以使用[直接連結](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)或依照下列手動步驟，來前往該位置：
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. Search for and select **Azure Active Directory** or select it from the **Home** page.
+2. 搜尋並選取**Azure Active Directory**或從**首頁**中選取。
 
 3. 在 [管理] 區段中，按一下 [裝置]。
 
@@ -43,12 +43,12 @@ The Azure AD portal provides you with a central place to manage your device iden
 
 - 設定您的裝置設定
 - 尋找裝置
-- Perform device identity management tasks
-- Review device-related audit logs  
+- 執行裝置身分識別管理工作
+- 查看裝置相關的審核記錄  
   
 ## <a name="configure-device-settings"></a>設定裝置設定
 
-To manage your device identities using the Azure AD portal, your devices need to be either [registered or joined](overview.md) to Azure AD. 身為系統管理員，您可以透過設定裝置設定，來微調註冊和加入裝置的程序。
+若要使用 Azure AD 入口網站來管理您的裝置身分識別，您的裝置必須[註冊或加入](overview.md)Azure AD。 身為系統管理員，您可以透過設定裝置設定，來微調註冊和加入裝置的程序。
 
 ![設定裝置設定](./media/device-management-azure-portal/22.png)
 
@@ -56,22 +56,22 @@ To manage your device identities using the Azure AD portal, your devices need to
 
 ![管理 Intune 裝置](./media/device-management-azure-portal/21.png)
 
-- **Users may join devices to Azure AD** - This setting enables you to select the users who can register their devices as Azure AD joined devices. 預設值是 [全部]。
+- **使用者可以將裝置加入至 Azure AD** -此設定可讓您選取可以將其裝置註冊為 Azure AD 已加入裝置的使用者。 預設值是 [全部]。
 
 > [!NOTE]
-> **Users may join devices to Azure AD** setting is only applicable to Azure AD join on Windows 10.
+> **使用者可以將裝置加入 Azure AD**設定僅適用于 Windows 10 上的 Azure AD 加入。
 
 - **加入 Azure AD 的裝置上其他本機系統管理員** - 您可以選取哪些使用者會授與裝置的本機系統管理員權限。 新增至此處的使用者將會新增至 Azure AD 中的「裝置系統管理員」角色。 Azure AD 中的全域管理員和裝置擁有者預設會授與本機系統管理員權限。 此選項是可透過 Azure AD Premium 或 Enterprise Mobility Suite (EMS) 等產品使用的進階編輯功能。
-- **Users may register their devices with Azure AD** - You need to configure this setting to allow Windows 10 personal, iOS, Android, and macOs devices to be registered with Azure AD. If you select **None**, devices are not allowed to register with Azure AD. 需要先註冊 (registration)，才可註冊 (enrollment) Microsoft Intune 或適用於 Office 365 的行動裝置管理 (MDM)。 如果您已設定任一服務，則會選取 [全部] 且無法使用 [無]。
-- **Require Multi-Factor Auth to join devices** - You can choose whether users are required to provide an additional authentication factor to join their device to Azure AD. 預設值為 [ **否**]。 建議在註冊裝置時要求 Multi-Factor Authentication。 啟用此服務的 Multi-Factor Authentication 之前，您必須確定已為註冊其裝置的使用者設定 Multi-Factor Authentication。 如需不同 Azure Multi-Factor Authentication 服務的詳細資訊，請參閱[開始使用 Azure Multi-Factor Authentication](../authentication/concept-mfa-whichversion.md)。 
+- **使用者可以向 Azure AD 註冊其裝置**-您需要設定此設定，以允許 Azure AD 註冊 Windows 10 個人版、IOS、Android 和 macOs 裝置。 如果您選取 [**無**]，則不允許裝置向 Azure AD 註冊。 需要先註冊 (registration)，才可註冊 (enrollment) Microsoft Intune 或適用於 Office 365 的行動裝置管理 (MDM)。 如果您已設定任一服務，則會選取 [全部] 且無法使用 [無]。
+- **需要多重要素驗證才能加入裝置**-您可以選擇使用者是否需要提供額外的驗證因素，才能將其裝置加入 Azure AD。 預設值為 [ **否**]。 建議在註冊裝置時要求 Multi-Factor Authentication。 啟用此服務的 Multi-Factor Authentication 之前，您必須確定已為註冊其裝置的使用者設定 Multi-Factor Authentication。 如需不同 Azure Multi-Factor Authentication 服務的詳細資訊，請參閱[開始使用 Azure Multi-Factor Authentication](../authentication/concept-mfa-whichversion.md)。 
 
 > [!NOTE]
-> **Require Multi-Factor Auth to join devices** setting applies to devices that are either Azure AD joined or Azure AD registered. This setting does not apply to hybrid Azure AD joined devices.
+> [**需要多因素驗證才能加入裝置**] 設定會套用至已加入 Azure AD 或 Azure AD 註冊的裝置。 此設定不適用於已加入混合式 Azure AD 的裝置。
 
-- **Maximum number of devices** - This setting enables you to select the maximum number of Azure AD joined or Azure AD registered devices that a user can have in Azure AD. 如果使用者達到此配額，則在移除一或多個現有的裝置之前，將無法新增其他裝置。 預設值為 **20**。
+- **裝置數目上限**-這項設定可讓您選取使用者已加入的 Azure AD 數目上限，或在 Azure AD 中 Azure AD 已註冊裝置。 如果使用者達到此配額，則在移除一或多個現有的裝置之前，將無法新增其他裝置。 預設值為 **20**。
 
 > [!NOTE]
-> **Maximum number of devices** setting applies to devices that are either Azure AD joined or Azure AD registered. This setting does not apply to hybrid Azure AD joined devices.
+> [**裝置數目上限**] 設定適用于已加入 Azure AD 或 Azure AD 註冊的裝置。 此設定不適用於已加入混合式 Azure AD 的裝置。
 
 - **使用者可以在裝置間同步設定及應用程式資料** - 根據預設，這項設定會設定為 [無]。 選取特定使用者或群組，或是選取 [全部]，以便在使用者的 Windows 10 裝置間同步其設定及應用程式資料。 深入了解同步在 Windows 10 中的運作方式。
 此選項是可透過 Azure AD Premium 或 Enterprise Mobility Suite (EMS) 等產品使用的進階功能。
@@ -90,7 +90,7 @@ To manage your device identities using the Azure AD portal, your devices need to
 
 您可以透過這兩個選項移至檢視，該檢視：
 
-- Enables you to search for devices using the display name or device ID as filter.
+- 可讓您使用 [顯示名稱] 或 [裝置識別碼] 做為篩選準則來搜尋裝置。
 - 為您提供已註冊和已加入裝置的詳細概觀
 - 可讓您執行一般裝置管理工作
 
@@ -98,24 +98,24 @@ To manage your device identities using the Azure AD portal, your devices need to
 
 >[!TIP]
 >
->* If you see a device that is "Hybrid Azure AD joined" with a state "Pending" under the REGISTERED column, it indicates that the device has been synchronized from Azure AD connect and is waiting to complete registration from the client. Read more on how to [plan your Hybrid Azure AD join implementation](hybrid-azuread-join-plan.md). Additional information can be found in the article, [Devices frequently asked questions](faq.md).
+>* 如果您在已註冊的資料行下看到「混合式 Azure AD 聯結」的裝置，且狀態為「擱置」，表示裝置已從 Azure AD connect 同步處理，且正在等候從用戶端完成註冊。 深入瞭解如何[規劃您的混合式 Azure AD 聯結執行](hybrid-azuread-join-plan.md)。 如需其他資訊，請參閱[裝置](faq.md)的常見問題。
 >
->   ![Pending devices](./media/device-management-azure-portal/75.png)
+>   ![擱置裝置](./media/device-management-azure-portal/75.png)
 >
->* 就某些 iOS 裝置而言，包含單引號的裝置名稱可能會使用看起來像單引號的不同字元。 So searching for such devices is a little tricky - if you are not seeing search results correctly, ensure that the search string contains matching apostrophe character.
+>* 就某些 iOS 裝置而言，包含單引號的裝置名稱可能會使用看起來像單引號的不同字元。 因此，搜尋這類裝置有點棘手，如果您不會看到正確的搜尋結果，請確定搜尋字串包含相符的單引號字元。
 
-## <a name="device-identity-management-tasks"></a>Device identity management tasks
+## <a name="device-identity-management-tasks"></a>裝置身分識別管理工作
 
-As a global administrator or cloud device administrator, you can manage the registered or joined devices. Intune 服務管理員可以：
+身為全域管理員或雲端裝置管理員，您可以管理已註冊或已加入的裝置。 Intune 服務管理員可以：
 
 - 更新裝置 – 範例為啟用/停用裝置等每日作業
 - 刪除裝置 – 當裝置已淘汰且應在 Azure AD 中刪除時
 
-This section provides you with information about common device identity management tasks.
+本節提供一般裝置身分識別管理工作的相關資訊。
 
 ### <a name="manage-an-intune-device"></a>管理 Intune 裝置
 
-如果您是 Intune 管理員，您可以管理標示為 **Microsoft Intune** 的裝置。 If the device is not enrolled with Microsoft Intune the "Manage" option will be greyed out.
+如果您是 Intune 管理員，您可以管理標示為 **Microsoft Intune** 的裝置。 如果裝置未向註冊 Microsoft Intune 則 [管理] 選項會呈現灰色。
 
 ![管理 Intune 裝置](./media/device-management-azure-portal/31.png)
 
@@ -133,9 +133,9 @@ This section provides you with information about common device identity manageme
 
 **備註：**
 
-- You need to be a global administrator or cloud device administrator in Azure AD to enable / disable a device. 
-- Disabling a device prevents a device from successfully authenticating with Azure AD, thereby preventing the device from accessing your Azure AD resources that are guarded by device CA or using your WH4B credentials.
-- Disabling the device will revoke both the Primary Refresh Token (PRT) and any Refresh Tokens (RT) on the device.
+- 您必須是 Azure AD 中的全域管理員或雲端裝置系統管理員，才能啟用/停用裝置。 
+- 停用裝置會導致裝置無法成功地向 Azure AD 進行驗證，藉此防止裝置存取受裝置 CA 保護的 Azure AD 資源，或使用您的 WH4B 認證。
+- 停用裝置將會同時撤銷裝置上的主要重新整理權杖（PRT）和任何重新整理權杖（RT）。
 
 ### <a name="delete-an-azure-ad-device"></a>刪除 Azure AD 裝置
 
@@ -157,7 +157,7 @@ This section provides you with information about common device identity manageme
    - 移除所有附加至裝置的詳細資料，例如適用於 Windows 裝置的 BitLocker 金鑰。  
    - 代表無法復原的活動，除非必要，否則不建議使用。
 
-If a device is managed by another management authority (for example, Microsoft Intune), make sure that the device has been wiped / retired before deleting the device in Azure AD. Review how to [manage stale devices](device-management-azure-portal.md) before deleting any devices.
+如果裝置是由另一個管理授權單位（例如 Microsoft Intune）所管理，請確定已抹除/淘汰裝置，然後才在 Azure AD 中刪除裝置。 在刪除任何裝置之前，請先參閱如何[管理過時的裝置](device-management-azure-portal.md)。
 
 ### <a name="view-or-copy-device-id"></a>檢視或複製裝置識別碼
 
@@ -185,7 +185,7 @@ If a device is managed by another management authority (for example, Microsoft I
 
 ## <a name="audit-logs"></a>稽核記錄
 
-您可以透過活動記錄來取得裝置活動。 These logs include activities triggered by the device registration service and by users:
+您可以透過活動記錄來取得裝置活動。 這些記錄包含由裝置註冊服務和使用者所觸發的活動：
 
 - 建立裝置，以及在裝置上新增擁有者/使用者
 - 變更裝置設定
@@ -214,7 +214,7 @@ If a device is managed by another management authority (for example, Microsoft I
 - 活動資源類型
 - 活動
 - 日期範圍
-- 確定目標
+- 目標
 - 啟動者 (執行者)
 
 除了篩選，您還可以搜尋特定項目。
@@ -223,4 +223,4 @@ If a device is managed by another management authority (for example, Microsoft I
 
 ## <a name="next-steps"></a>後續步驟
 
-[How to manage stale devices in Azure AD](manage-stale-devices.md)
+[如何管理 Azure AD 中的過時裝置](manage-stale-devices.md)

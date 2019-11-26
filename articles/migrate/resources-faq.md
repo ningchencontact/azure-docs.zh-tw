@@ -176,7 +176,7 @@ Azure Migrate 設備會持續收集內部部署環境的相關資訊。 但評�
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>是否可使用現有的工作區進行相依性視覺化？
 
-是，您可以將現有的工作區附加至遷移專案，並將其用於相依性視覺效果。 [詳細資訊](concepts-dependency-visualization.md#how-does-it-work)。
+是，您可以將現有的工作區附加至遷移專案，並將其用於相依性視覺效果。 [深入了解](concepts-dependency-visualization.md#how-does-it-work)。
 
 ### <a name="can-i-export-the-dependency-visualization-report"></a>是否可以匯出相依性視覺效果報告？
 

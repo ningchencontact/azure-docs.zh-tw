@@ -1,6 +1,6 @@
 ---
-title: Create a premium Azure file share
-description: In this article, you learn how to create a premium Azure file share.
+title: 建立 premium Azure 檔案共用
+description: 在本文中，您將瞭解如何建立 premium Azure 檔案共用。
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -14,30 +14,30 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74209543"
 ---
-# <a name="how-to-create-an-premium-azure-file-share"></a>How to create an premium Azure file share
-Premium file shares are offered on solid-state disk (SSD) storage media and are useful for IO-intensive workloads, including hosting databases and high-performance computing (HPC). Premium file shares are hosted in a special purpose storage account kind, called a FileStorage account. Premium file shares are designed for high performance and enterprise scale applications, providing consistent low latency, high IOPS, and high throughput shares.
+# <a name="how-to-create-an-premium-azure-file-share"></a>如何建立 premium Azure 檔案共用
+高階檔案共用是在固態硬碟（SSD）儲存媒體上提供，適用于需要大量 IO 的工作負載，包括裝載資料庫和高效能運算（HPC）。 高階檔案共用裝載在特殊用途的儲存體帳戶類型中，稱為 FileStorage 帳戶。 Premium 檔案共用是針對高效能和企業級應用程式所設計，可提供一致的低延遲、高 IOPS 和高輸送量的共用。
 
-This article shows you how to create this new account type using [Azure portal](https://portal.azure.com/), Azure PowerShell, and Azure CLI.
+本文說明如何使用[Azure 入口網站](https://portal.azure.com/)、Azure PowerShell 和 Azure CLI 來建立這個新帳戶類型。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-To access Azure resources including premium Azure file shares, you'll need an Azure subscription. 如果您還沒有訂用帳戶，則先建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)，再開始操作。
+若要存取 Azure 資源（包括 premium Azure 檔案共用），您將需要 Azure 訂用帳戶。 如果您還沒有訂用帳戶，則先建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)，再開始操作。
 
-## <a name="create-a-premium-file-share-using-the-azure-portal"></a>Create a premium file share using the Azure portal
+## <a name="create-a-premium-file-share-using-the-azure-portal"></a>使用 Azure 入口網站建立 premium 檔案共用
 
 ### <a name="sign-in-to-azure"></a>登入 Azure
 
 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-### <a name="create-a-filestorage-storage-account"></a>Create a filestorage storage account
+### <a name="create-a-filestorage-storage-account"></a>建立 filestorage 儲存體帳戶
 
-Now you're ready to create your storage account.
+現在您已經準備好建立儲存體帳戶。
 
-每個儲存體帳戶都必須屬於 Azure 資源群組。 資源群組是用來群組 Azure 服務的邏輯容器。 當您建立儲存體帳戶時，可以選擇建立新的資源群組，或使用現有的資源群組。 This article shows how to create a new resource group.
+每個儲存體帳戶都必須屬於 Azure 資源群組。 資源群組是用來群組 Azure 服務的邏輯容器。 當您建立儲存體帳戶時，可以選擇建立新的資源群組，或使用現有的資源群組。 本文說明如何建立新的資源群組。
 
-1. In the Azure portal, select **Storage Accounts** on the left menu.
+1. 在 Azure 入口網站中，選取左側功能表上的 **儲存體帳戶**。
 
-    ![Azure portal main page select storage account](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
+    ![Azure 入口網站主頁面選取儲存體帳戶](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
 
 1. 在出現的 [儲存體帳戶] 視窗上，選擇 [新增]。
 1. 選取要在其中建立儲存體帳戶的訂用帳戶。
@@ -45,33 +45,33 @@ Now you're ready to create your storage account.
 
 1. 接下來，輸入儲存體帳戶的名稱。 您所選擇的名稱在整個 Azure 中必須是唯一的。 名稱的長度必須介於 3 到 24 個字元之間，且只能包含數字和小寫字母。
 1. 選取儲存體帳戶的位置，或使用預設位置。
-1. For **Performance** select **Premium**.
-1. Select **Account kind** and choose **FileStorage**.
-1. Leave **Replication** set to its default value of **Locally-redundant storage (LRS)** .
+1. 針對 [**效能**]，請選取 [ **Premium**]。
+1. 選取 [**帳戶種類**]，然後選擇 [ **FileStorage**]。
+1. 將 **[複寫] 保留為**預設值 **[本機-多餘儲存體（LRS）** ]。
 
-    ![How to create a storage account for a premium file share](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
+    ![如何建立 premium 檔案共用的儲存體帳戶](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
 1. 選取 [檢閱 + 建立]，以檢閱您的儲存體帳戶設定並建立帳戶。
 1. 選取 [建立]。
 
-Once your storage account resource has been created, navigate to it.
+建立儲存體帳戶資源之後，請流覽至它。
 
 ### <a name="create-a-premium-file-share"></a>建立進階檔案共用
 
-1. In the left menu for the storage account, scroll to the **File service** section, then select **Files**.
-1. Select **File share** to create a premium file share.
-1. Enter a name and a desired quota for your file share, then select **Create**.
+1. 在儲存體帳戶的左側功能表中，依序移至 [檔案**服務**] 區段，**然後選取 [** 檔案]。
+1. 選取 [檔案**共用**] 以建立 premium 檔案共用。
+1. 輸入檔案共用的名稱和所需的配額，然後選取 [**建立**]。
 
 > [!NOTE]
-> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.
+> 布建的共用大小是由共用配額所指定，檔案共用會依布建大小計費，如需詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/storage/files/)。
 
    ![建立進階檔案共用](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
 ### <a name="clean-up-resources"></a>清除資源
 
-If you would like to clean up the resources created in this article, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account as well as any other resources associated with the resource group.
+如果您想要清除在本文中建立的資源，只要刪除資源群組即可。 刪除資源群組也會刪除相關聯的儲存體帳戶，以及與資源群組相關聯的任何其他資源。
 
-## <a name="create-a-premium-file-share-using-powershell"></a>Create a premium file share using PowerShell
+## <a name="create-a-premium-file-share-using-powershell"></a>使用 PowerShell 建立 premium 檔案共用
 
 ### <a name="create-an-account-using-powershell"></a>使用 PowerShell 建立帳戶
 
@@ -79,13 +79,13 @@ If you would like to clean up the resources created in this article, you can sim
 
 然後升級您的 powershell 模組、登入您的 Azure 訂用帳戶、建立資源群組，然後建立儲存體帳戶。
 
-### <a name="upgrade-your-powershell-module"></a>Upgrade your PowerShell module
+### <a name="upgrade-your-powershell-module"></a>升級您的 PowerShell 模組
 
-To interact with a premium file share from with PowerShell, you'll need to install an Az.Storage module version 1.4.0, or the latest Az.Storage module.
+若要使用 PowerShell 與 premium 檔案共用互動，您必須安裝 Az. Storage 模組版本1.4.0 或最新的 Az. Storage 模組。
 
 從以提高的權限開啟 PowerShell 工作階段作為開始。
 
-Install the Az.Storage module:
+安裝 Az. Storage 模組：
 
 ```powershell
 Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
@@ -111,9 +111,9 @@ $location = "westus2"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-### <a name="create-a-filestorage-storage-account"></a>Create a FileStorage storage account
+### <a name="create-a-filestorage-storage-account"></a>建立 FileStorage 儲存體帳戶
 
-To create a filestorage storage account from PowerShell, use the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command:
+若要從 PowerShell 建立 filestorage 儲存體帳戶，請使用[new-azstorageaccount](/powershell/module/az.storage/New-azStorageAccount)命令：
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -121,10 +121,10 @@ $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fil
 
 ### <a name="create-a-premium-file-share"></a>建立進階檔案共用
 
-Now that you have a FileStorage account, you can create a premium file share. Use the [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet to create one.
+現在您已有 FileStorage 帳戶，您可以建立 premium 檔案共用。 使用[AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) Cmdlet 來建立一個。
 
 > [!NOTE]
-> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.
+> 布建的共用大小是由共用配額所指定，檔案共用會依布建大小計費，如需詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/storage/files/)。
 
 ```powershell
 New-AzStorageShare `
@@ -140,11 +140,11 @@ New-AzStorageShare `
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="create-a-premium-file-share-using-azure-cli"></a>Create a premium file share using Azure CLI
+## <a name="create-a-premium-file-share-using-azure-cli"></a>使用 Azure CLI 建立 premium 檔案共用
 
 若要啟動 Azure Cloud Shell，請登入 [Azure 入口網站](https://portal.azure.com)。
 
-If you want to log into your local installation of the CLI, first make sure you have the latest version, then run the login command:
+如果您想要登入本機安裝的 CLI，請先確定您有最新版本，然後執行 login 命令：
 
 ```cli
 az login
@@ -160,9 +160,9 @@ az group create `
     --location westus2
 ```
 
-### <a name="create-a-filestorage-storage-account"></a>Create a FileStorage storage account
+### <a name="create-a-filestorage-storage-account"></a>建立 FileStorage 儲存體帳戶
 
-To create a FileStorage storage account from the Azure CLI, use the [az storage account create](/cli/azure/storage/account) command.
+若要從 Azure CLI 建立 FileStorage 儲存體帳戶，請使用[az storage account create](/cli/azure/storage/account)命令。
 
 ```azurecli-interactive
 az storage account create `
@@ -175,7 +175,7 @@ az storage account create `
 
 ### <a name="get-the-storage-account-key"></a>取得儲存體帳戶金鑰
 
-Storage account keys control access to resources in a storage account, in this article, we use the key in order to create a premium file share. 當您建立儲存體帳戶時，系統會自動建立金鑰。 您可以使用 [az storage account keys list](/cli/azure/storage/account/keys) 命令取得儲存體帳戶的儲存體帳戶金鑰：
+儲存體帳戶金鑰可控制儲存體帳戶中資源的存取權，在本文中，我們會使用金鑰來建立高階檔案共用。 當您建立儲存體帳戶時，系統會自動建立金鑰。 您可以使用 [az storage account keys list](/cli/azure/storage/account/keys) 命令取得儲存體帳戶的儲存體帳戶金鑰：
 
 ```azurecli-interactive 
 STORAGEKEY=$(az storage account keys list \
@@ -186,10 +186,10 @@ STORAGEKEY=$(az storage account keys list \
 
 ### <a name="create-a-premium-file-share"></a>建立進階檔案共用
 
-Now that you have a filestorage account, you can create a premium file share. Use the [az storage share create](/cli/azure/storage/share) command to create one.
+現在您已有 filestorage 帳戶，您可以建立 premium 檔案共用。 使用[az storage share create](/cli/azure/storage/share)命令來建立一個。
 
 > [!NOTE]
-> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.
+> 布建的共用大小是由共用配額所指定，檔案共用會依布建大小計費，如需詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/storage/files/)。
 
 ```azurecli-interactive
 az storage share create \
@@ -208,7 +208,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-In this article, you've created a premium file share. To learn about the performance this account offers, continue to the performance tier section of the planning guide.
+在本文中，您已建立 premium 檔案共用。 若要瞭解此帳戶所提供的效能，請繼續進行《規劃指南》中的「效能層」一節。
 
 > [!div class="nextstepaction"]
-> [File share performance tiers](storage-files-planning.md#file-share-performance-tiers)
+> [檔案共用效能層級](storage-files-planning.md#file-share-performance-tiers)

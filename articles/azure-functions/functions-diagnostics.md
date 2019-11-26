@@ -1,6 +1,6 @@
 ---
-title: Azure Functions diagnostics Overview
-description: Learn how you can troubleshoot issues with your function app with Azure Functions diagnostics.
+title: Azure Functions 診斷總覽
+description: 瞭解如何使用 Azure Functions 診斷來疑難排解函數應用程式的問題。
 author: yunjchoi
 ms.topic: article
 ms.date: 11/01/2019
@@ -13,46 +13,46 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227013"
 ---
-# <a name="azure-functions-diagnostics-overview"></a>Azure Functions diagnostics overview
+# <a name="azure-functions-diagnostics-overview"></a>Azure Functions 診斷總覽
 
-When you’re running a function app, you want to be prepared for any issues that may arise, from 4xx errors to trigger failures. Azure Functions diagnostics is an intelligent and interactive experience to help you troubleshoot your function app with no configuration or extra cost. When you do run into issues with your function app, Azure Functions diagnostics points out what’s wrong to guide you to the right information to more easily and quickly troubleshoot and resolve the issue. This article shows you the basics of how to use Azure Functions diagnostics to more quickly diagnose and solve common function app issues.
+當您執行函式應用程式時，您想要針對任何可能發生的問題（從4xx 錯誤到觸發失敗）進行準備。 Azure Functions 診斷是一種智慧型且互動式的體驗，可協助您針對函式應用程式進行無設定或額外成本的疑難排解。 當您的函式應用程式發生問題時，Azure Functions 診斷會指出錯誤的原因，以引導您更輕鬆且快速地進行疑難排解並解決問題。 本文說明如何使用 Azure Functions 診斷，更快速地診斷和解決常見函數應用程式問題的基本概念。
 
-## <a name="start-azure-functions-diagnostics"></a>Start Azure Functions diagnostics
+## <a name="start-azure-functions-diagnostics"></a>啟動 Azure Functions 診斷
 
-To access Azure Functions diagnostics:
+若要存取 Azure Functions 診斷：
 
-1. Navigate to your function app in the [Azure portal](https://portal.azure.com).
-2. Select the **Platform features** tab.
-3. Select **Diagnose and solve problems** under **Resource Management**, which opens Azure Functions diagnostics.
-4. Choose a category that best describes the issue of your function app by using the keywords in the homepage tile. You can also type a keyword that best describes your issue in the search bar. For example, you could type `execution` to see a list of diagnostic reports related to your function app execution and open them directly from the homepage.
+1. 在[Azure 入口網站](https://portal.azure.com)中流覽至您的函數應用程式。
+2. 選取 [**平臺功能**] 索引標籤。
+3. 選取 [**資源管理**] 底下的 [**診斷並解決問題**]，這會開啟 Azure Functions 診斷。
+4. 使用 [首頁] 磚中的關鍵字，選擇最能描述函數應用程式問題的類別。 您也可以在搜尋列中輸入最能描述您問題的關鍵字。 例如，您可以輸入 `execution` 查看與函數應用程式執行相關的診斷報告清單，並直接從首頁開啟它們。
 
 ![首頁](./media/functions-diagnostics/homepage.png)
 
-## <a name="use-the-interactive-interface"></a>Use the Interactive interface
+## <a name="use-the-interactive-interface"></a>使用互動式介面
 
-Once you select a homepage category that best aligns with your function app's problem, Azure Functions diagnostics' interactive interface, Genie, can guide you through diagnosing and solving problem of your app. You can use the tile shortcuts provided by Genie to view the full diagnostic report of the problem category that you are interested. The tile shortcuts provide you a direct way of accessing your diagnostic metrics.
+一旦您選取最符合函式應用程式問題的首頁類別，Azure Functions 診斷的互動式介面 Genie，就可以引導您完成應用程式的診斷和解決問題。 您可以使用 Genie 所提供的磚快捷方式，來查看您感興趣之問題類別的完整診斷報告。 磚快捷方式可讓您直接存取診斷計量。
 
 ![Genie](./media/functions-diagnostics/genie.png)
 
-After selecting a tile, you can see a list of topics related to the issue described in the tile. These topics provide snippets of notable information from the full report. You can select any of these topics to investigate the issues further. Also, you can select **View Full Report** to explore all the topics on a single page.
+選取磚之後，您可以看到與磚中所述問題相關的主題清單。 這些主題提供完整報告中值得注意的資訊片段。 您可以選取任何這些主題，以進一步調查問題。 此外，您也可以選取 [**查看完整報表**]，以流覽單一頁面上的所有主題。
 
-![Preview of diagnostic report](./media/functions-diagnostics/preview-of-diagnostic-report.png)
+![診斷報表預覽](./media/functions-diagnostics/preview-of-diagnostic-report.png)
 
-## <a name="view-a-diagnostic-report"></a>View a diagnostic report
+## <a name="view-a-diagnostic-report"></a>查看診斷報表
 
-After you choose a topic, you can view a diagnostic report specific to your function app. Diagnostic reports use status icons to indicate if any specific issues with your app. You see detailed description of the issue, recommended actions, related-metrics, and helpful docs. Customized diagnostic reports are generated from a series of checks run on your function app. Diagnostic reports can be a useful tool for pinpointing problems in your function app and guiding you towards resolving the issue.
+選擇主題之後，您可以查看函式應用程式特定的診斷報告。 診斷報表會使用狀態圖示來指出您的應用程式是否有任何特定的問題。 您會看到問題的詳細描述、建議的動作、相關的計量，以及實用的檔。自訂的診斷報告是從函式應用程式上執行的一系列檢查所產生。 診斷報告可以用來在函數應用程式中查明問題，並引導您解決問題。
 
-## <a name="find-the-problem-code"></a>Find the problem code 
+## <a name="find-the-problem-code"></a>找出問題代碼 
 
-For script-based functions, you can use **Function Execution** and **Errors under Function App Down or Reporting Errors** to narrow down on the line of code causing exceptions or errors. This feature can be a useful tool for getting to the root cause and fixing issues from a specific line of code. This option isn't available for precompiled C# and Java functions.
+針對以腳本為基礎的函式，您可以使用**函數應用程式下**的**函數執行**和錯誤，或回報錯誤，以縮小造成例外狀況或錯誤的程式程式碼。 這項功能可以用來取得根本原因，並修正特定程式程式碼的問題。 此選項不適用於先行編譯C#和 JAVA 函式。
 
-![Diagnostic report on function execution errors](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
+![功能執行錯誤的診斷報告](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
 
-![Function exception](./media/functions-diagnostics/function-exception.png)
+![函式例外狀況](./media/functions-diagnostics/function-exception.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-You can ask questions or provide feedback on Azure Functions diagnostics at [UserVoice](https://feedback.azure.com/forums/355860-azure-functions). Please include `[Diag]` in the title of your feedback.
+您可以在[UserVoice](https://feedback.azure.com/forums/355860-azure-functions)提出問題或提供 Azure Functions 診斷的意見反應。 請在您的意見反應標題中包含 `[Diag]`。
 
 > [!div class="nextstepaction"]
-> [Monitor your function apps](functions-monitoring.md)
+> [監視您的函數應用程式](functions-monitoring.md)

@@ -1,5 +1,5 @@
 ---
-title: Template functions - deployment
+title: 範本函式-部署
 description: 描述 Azure Resource Manager 範本中用來擷取部署資訊的函式。
 ms.topic: conceptual
 ms.date: 11/19/2019
@@ -15,7 +15,7 @@ ms.locfileid: "74230226"
 資源管理員提供下列函式，以從與部署相關的範本和值的區段中取得值：
 
 * [部署](#deployment)
-* [environment](#environment)
+* [環境](#environment)
 * [參數](#parameters)
 * [變數](#variables)
 
@@ -137,11 +137,11 @@ ms.locfileid: "74230226"
 
 `environment()`
 
-Returns information about the Azure environment used for deployment.
+傳回用於部署之 Azure 環境的相關資訊。
 
 ### <a name="return-value"></a>傳回值
 
-This function returns properties for the current Azure environment.
+此函式會傳回目前 Azure 環境的屬性。
 
 ```json
 {
@@ -179,7 +179,7 @@ This function returns properties for the current Azure environment.
 
 ### <a name="example"></a>範例
 
-The following example template returns the environment object.
+下列範例範本會傳回環境物件。
 
 ```json
 {
@@ -195,7 +195,7 @@ The following example template returns the environment object.
 }
 ```
 
-The preceding example returns the following object when deployed to global Azure:
+上述範例會在部署至全域 Azure 時傳回下列物件：
 
 ```json
 {
@@ -237,11 +237,11 @@ The preceding example returns the following object when deployed to global Azure
 
 傳回參數值。 指定的參數名稱必須定義於範本的 parameters 區段中。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| parameterName |是 |string |要傳回的參數名稱。 |
+| parameterName |yes |字串 |要傳回的參數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -326,15 +326,15 @@ The preceding example returns the following object when deployed to global Azure
 
 先前範例中具有預設值的輸出如下：
 
-| Name | Type | Value |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| stringOutput | String | 選項 1 |
-| intOutput | Int | 1 |
-| objectOutput | Object | {"one": "a", "two": "b"} |
+| stringOutput | 字串 | 選項 1 |
+| intOutput | int | 1 |
+| objectOutput | 物件 | {"one": "a", "two": "b"} |
 | arrayOutput | 陣列 | [1, 2, 3] |
-| crossOutput | String | 選項 1 |
+| crossOutput | 字串 | 選項 1 |
 
-For more information about using parameters, see [Parameters in Azure Resource Manager template](template-parameters.md).
+如需使用參數的詳細資訊，請參閱[Azure Resource Manager 範本中的參數](template-parameters.md)。
 
 ## <a name="variables"></a>變數
 
@@ -342,11 +342,11 @@ For more information about using parameters, see [Parameters in Azure Resource M
 
 傳回變數的值。 指定的變數名稱必須定義於範本的 variables 區段中。
 
-### <a name="parameters"></a>參數
+### <a name="parameters"></a>parameters
 
-| 參數 | 必要項 | Type | 描述 |
+| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
 |:--- |:--- |:--- |:--- |
-| variableName |是 |String |要傳回的變數名稱。 |
+| variableName |yes |字串 |要傳回的變數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -418,14 +418,14 @@ For more information about using parameters, see [Parameters in Azure Resource M
 
 先前範例中具有預設值的輸出如下：
 
-| Name | Type | Value |
+| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
 | ---- | ---- | ----- |
-| exampleOutput1 | String | myVariable |
+| exampleOutput1 | 字串 | myVariable |
 | exampleOutput2 | 陣列 | [1, 2, 3, 4] |
-| exampleOutput3 | String | myVariable |
-| exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
+| exampleOutput3 | 字串 | myVariable |
+| exampleOutput4 |  物件 | {"property1": "value1", "property2": "value2"} |
 
-For more information about using variables, see [Variables in Azure Resource Manager template](template-variables.md).
+如需使用變數的詳細資訊，請參閱[Azure Resource Manager 範本中的變數](template-variables.md)。
 
 ## <a name="next-steps"></a>後續步驟
 * 如需有關 Azure Resource Manager 範本中各區段的說明，請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。

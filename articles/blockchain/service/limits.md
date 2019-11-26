@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain Service limits
-description: Overview of the service and functional limits in Azure Blockchain Service
+title: Azure 區塊鏈服務限制
+description: Azure 區塊鏈 Service 中的服務和功能限制總覽
 ms.date: 11/22/2019
 ms.topic: conceptual
 ms.reviewer: janders
@@ -11,51 +11,51 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74455653"
 ---
-# <a name="limits-in-azure-blockchain-service"></a>Limits in Azure Blockchain Service
+# <a name="limits-in-azure-blockchain-service"></a>Azure 區塊鏈 Service 中的限制
 
-Azure Blockchain Service has service and functional limits such as the number of nodes a member can have, consortium restrictions, and storage amounts.
+Azure 區塊鏈 Service 具有服務和功能限制，例如成員可以擁有的節點數目、聯盟限制和儲存體數量。
 
-## <a name="pricing-tier"></a>價格層
+## <a name="pricing-tier"></a>定價層
 
-Maximum limits on transactions and validator nodes depend on whether you provision Azure Blockchain Service at Basic or Standard pricing tiers.
+交易和驗證程式節點的最大限制取決於您是在基本或標準定價層布建 Azure 區塊鏈 Service。
 
-| 價格層 | Max transaction nodes | Max validator nodes |
+| 定價層 | 交易節點數上限 | 驗證器節點上限 |
 |:---|:---:|:---:|
 | 基本 | 10 | 1 |
-| Standard | 10 | 2 |
+| 標準 | 10 | 2 |
 
-Changing the pricing tier between Basic and Standard after member creation is not supported.
+不支援在建立成員之後變更基本和標準之間的定價層。
 
 ## <a name="storage-capacity"></a>儲存體容量
 
-The maximum amount of storage that can be used per node for ledger data and logs is 1.8 terabytes.
+每個節點可用於總帳資料和記錄的儲存體數量上限為 1.8 tb。
 
-Decreasing ledger and log storage size is not supported.
+不支援減少總帳和記錄儲存體大小。
 
-## <a name="consortium-limits"></a>Consortium limits
+## <a name="consortium-limits"></a>聯盟限制
 
-* **Consortium and member names must be unique** from other consortium and member names in the Azure Blockchain Service.
+* **聯盟和成員名稱必須**與 Azure 區塊鏈服務中的其他聯盟和成員名稱是唯一的。
 
-* **Member and consortium names cannot be changed**
+* **無法變更成員和聯盟名稱**
 
-* **All members in a consortium must be in the same pricing tier**
+* **聯盟中的所有成員都必須位於相同的定價層**
 
-* **All members that participate in a consortium must reside in the same region**
+* **參與聯盟的所有成員都必須位於相同的區域**
 
-    The first member created in a consortium dictates the region. Invited members to the consortium must reside in the same region as the first member. Limiting all members to the same region helps ensure network consensus is not negatively impacted.
+    聯盟中所建立的第一個成員會規定區域。 聯盟的受邀成員必須位於與第一個成員相同的區域中。 將所有成員限制在相同的區域，有助於確保網路共識不會受到負面影響。
 
-* **A consortium must have at least one administrator**
+* **聯盟必須至少有一位系統管理員**
 
-    If there is only one administrator in a consortium, they cannot remove themselves from the consortium or delete their member until another administrator is added or promoted in the consortium.
+    如果聯盟中只有一個系統管理員，他們就無法從聯盟移除自己，或刪除其成員，直到在聯盟中新增或升級另一個系統管理員為止。
 
-* **Members removed from the consortium cannot be added again**
+* **無法再次新增從聯盟移除的成員**
 
-    Rather, they must be reinvited to join the consortium and create a new member. Their existing member resource are not deleted to preserve historical transactions.
+    相反地，他們必須重複邀請，才能加入聯盟並建立新的成員。 不會刪除其現有的成員資源來保留歷程記錄交易。
 
-* **All members in a consortium must be using the same ledger version**
+* **聯盟中的所有成員都必須使用相同的總帳版本**
 
-    For more information on the patching, updates, and ledger versions available in Azure Blockchain Service, see [Patching, updates, and versions](ledger-versions.md).
+    如需有關 Azure 區塊鏈 Service 中可用修補、更新和總帳版本的詳細資訊，請參閱[修補、更新和版本](ledger-versions.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-Learn more about policies regarding systems patching and upgrades - [Patching, updates, and versions](ledger-versions.md).
+深入瞭解有關系統修補和升級的原則-[修補、更新和版本](ledger-versions.md)。

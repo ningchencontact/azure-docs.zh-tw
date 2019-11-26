@@ -1,5 +1,5 @@
 ---
-title: Azure Functions F# developer reference
+title: Azure Functions F#開發人員參考
 description: 了解如何使用 F# 指令碼來開發 Azure Functions。
 author: sylvanc
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
@@ -48,10 +48,10 @@ FunctionsProject
 
 其中有一個可用來設定函數應用程式的共用 [host.json](functions-host-json.md) 檔案。 每個函式都具有本身的程式碼檔案 (.fsx) 和繫結設定檔 (function.json)。
 
-在函式執行階段的[版本 2.x](functions-versions.md) 中所需的繫結延伸模組，是以 `bin` 資料夾中的實際程式庫檔案在 `extensions.csproj` 檔案中所定義。 在本機開發時，您必須[註冊繫結擴充功能](./functions-bindings-register.md#extension-bundles)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
+Functions 執行階段 [版本 2.x](functions-versions.md) 中所需的繫結延伸模組，是以 `extensions.csproj` 資料夾中的實際程式庫檔案在 `bin` 檔案中定義。 在本機開發時，您必須[註冊繫結擴充功能](./functions-bindings-register.md#extension-bundles)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
 
 ## <a name="binding-to-arguments"></a>繫結至引數
-如 [Azure Functions 觸發程序和繫結開發人員參考](functions-triggers-bindings.md)所述，每個繫結都支援某幾組引數。 例如，Blob 觸發程序支援的其中一個引數繫結是可使用 F# 記錄來表示的 POCO。 例如：
+如 [Azure Functions 觸發程序和繫結開發人員參考](functions-triggers-bindings.md)所述，每個繫結都支援某幾組引數。 例如，Blob 觸發程序支援的其中一個引數繫結是可使用 F# 記錄來表示的 POCO。 例如︰
 
 ```fsharp
 type Item = { Id: string }
@@ -65,7 +65,7 @@ F# Azure 函式會採用一個或多個引數。 在談論 Azure Functions 引�
 
 在上述範例中，`blob` 是輸入引數，而 `output` 是輸出引數。 請注意，我們使用 `byref<>` 做為 `output` (不必加上 `[<Out>]` 註解)。 使用 `byref<>` 類型可讓您的函式變更引數所指稱的記錄或物件。
 
-使用 F# 記錄做為輸入類型時，記錄定義必須標上 `[<CLIMutable>]` ，以便讓 Azure Functions 架構先適當地設定欄位，再將記錄傳遞給您的函式。 實際上， `[<CLIMutable>]` 會產生記錄屬性的 setter。 例如：
+使用 F# 記錄做為輸入類型時，記錄定義必須標上 `[<CLIMutable>]` ，以便讓 Azure Functions 架構先適當地設定欄位，再將記錄傳遞給您的函式。 實際上， `[<CLIMutable>]` 會產生記錄屬性的 setter。 例如︰
 
 ```fsharp
 [<CLIMutable>]
@@ -77,7 +77,7 @@ let Run(req: TestObject, log: ILogger) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
-F# 類別也可用於輸入和輸出引數。 針對類別，屬性通常需要 getter 和 setter。 例如：
+F# 類別也可用於輸入和輸出引數。 針對類別，屬性通常需要 getter 和 setter。 例如︰
 
 ```fsharp
 type Item() =
@@ -90,7 +90,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>記錄
-若要將輸出記錄至 F# 的[串流記錄](../app-service/troubleshoot-diagnostic-logs.md)，您的函式應該採用 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 類型的引數。 為求一致，我們建議將此引數命名為 `log`。 例如：
+若要將輸出記錄至 F# 的[串流記錄](../app-service/troubleshoot-diagnostic-logs.md)，您的函式應該採用 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 類型的引數。 為求一致，我們建議將此引數命名為 `log`。 例如︰
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -141,7 +141,7 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 * `System.Net.Http`
 * `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
-* `Microsoft.Azure.WebJobs.Host`答案中所述步驟，工作帳戶即會啟用。
+* `Microsoft.Azure.WebJobs.Host`。
 
 ## <a name="referencing-external-assemblies"></a>參考外部組件
 同樣地，在新增架構組件參考時也可以加上 `#r "AssemblyName"` 指示詞。
@@ -169,7 +169,7 @@ Azure Functions 裝載環境會自動加入下列組件︰
 * `Microsoft.Azure.WebJobs.Host`
 * `Microsoft.Azure.WebJobs.Extensions`
 * `System.Web.Http`
-* `System.Net.Http.Formatting`答案中所述步驟，工作帳戶即會啟用。
+* `System.Net.Http.Formatting`。
 
 此外，下列組件為特殊案例，可以使用簡單名稱來參考 (例如 `#r "AssemblyName"`)：
 
@@ -177,12 +177,12 @@ Azure Functions 裝載環境會自動加入下列組件︰
 * `Microsoft.WindowsAzure.Storage`
 * `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
-* `Microsoft.AspNEt.WebHooks.Common`答案中所述步驟，工作帳戶即會啟用。
+* `Microsoft.AspNEt.WebHooks.Common`。
 
 如果您需要參考私用組件，您可以將組件檔案上傳至您函式的相對 `bin` 資料夾，然後使用檔案名稱來參考它 (例如 `#r "MyAssembly.dll"`)。 如需如何將檔案上傳至函數資料夾的資訊，請參閱以下的＜封裝管理＞小節。
 
 ## <a name="editor-prelude"></a>編輯器序言
-支援 F# 編譯器服務的編輯器不會知道 Azure Functions 自動包含的命名空間和組件。 因此，最好在其中包含序言以協助編輯器找到您使用的組件，並明確開啟命名空間。 例如：
+支援 F# 編譯器服務的編輯器不會知道 Azure Functions 自動包含的命名空間和組件。 因此，最好在其中包含序言以協助編輯器找到您使用的組件，並明確開啟命名空間。 例如︰
 
 ```fsharp
 #if !COMPILED
@@ -202,7 +202,7 @@ let Run(blob: string, output: byref<string>, log: ILogger) =
 
 <a name="package"></a>
 
-## <a name="package-management"></a>套件管理
+## <a name="package-management"></a>封裝管理
 若要在 F# 函式中使用 NuGet 套件，請將 `project.json` 檔案新增至函式應用程式檔案系統中的函式資料夾。 以下的 `project.json` 範例檔案會對 `Microsoft.ProjectOxford.Face` 1.1.0 版新增 NuGet 封裝參考︰
 
 ```json
@@ -258,7 +258,7 @@ let Run(timer: TimerInfo, log: ILogger) =
 ```
 
 ## <a name="reusing-fsx-code"></a>重複使用 .fsx 程式碼
-您可以使用 `#load` 指示詞以使用其他 `.fsx` 檔案中的程式碼。 例如：
+您可以使用 `.fsx` 指示詞以使用其他 `#load` 檔案中的程式碼。 例如︰
 
 `run.fsx`
 
@@ -288,7 +288,7 @@ let mylog(log: ILogger, text: string) =
 如需詳細資訊，請參閱下列資源：
 
 * [F# 指南](/dotnet/articles/fsharp/index)
-* [Azure Functions 的最佳做法](functions-best-practices.md)
+* [Azure Functions 的最佳作法](functions-best-practices.md)
 * [Azure Functions 開發人員參考](functions-reference.md)
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 * [Azure Functions 測試](functions-test-a-function.md)

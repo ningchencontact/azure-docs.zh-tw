@@ -1,5 +1,5 @@
 ---
-title: Custom allocation policies with Azure IoT Hub Device Provisioning Service
+title: 使用 Azure IoT 中樞裝置布建服務的自訂配置原則
 description: 如何將自訂配置原則用於 Azure IoT 中樞裝置佈建服務
 author: wesmc7777
 ms.author: wesmc
@@ -18,9 +18,9 @@ ms.locfileid: "74228745"
 
 自訂配置原則可讓您進一步掌控將裝置指派給 IoT 中樞的方式。 此作業可藉由在 [Azure 函式](../azure-functions/functions-overview.md)中使用自訂程式碼將裝置指派給 IoT 中樞來完成。 裝置佈建服務會呼叫您的 Azure 函式程式碼，提供關於裝置和註冊的所有資訊。 您的函式程式碼會執行並傳回用來佈建裝置的 IoT 中樞資訊。
 
-By using custom allocation policies, you define your own allocation policies when the policies provided by the Device Provisioning Service don't meet the requirements of your scenario.
+藉由使用自訂配置原則，當裝置布建服務提供的原則不符合您案例的需求時，您可以定義自己的配置原則。
 
-For example, maybe you want to examine the certificate a device is using during provisioning and assign the device to an IoT hub based on a certificate property. Or, maybe you have information stored in a database for your devices and need to query the database to determine which IoT hub a device should be assigned to.
+例如，您可能想要在布建期間檢查裝置正在使用的憑證，並根據憑證屬性將裝置指派給 IoT 中樞。 或者，您的裝置可能有儲存在資料庫中的資訊，而且需要查詢資料庫，以判斷應該指派裝置的 IoT 中樞。
 
 本文將示範如何使用以 C# 撰寫的 Azure 函式設定自訂配置原則。 我們會建立兩個新的 IoT 中樞，分別代表 *Contoso 烤箱部門*和 *Contoso 熱泵部門*。 要求佈建的裝置必須具有包含下列其中一個尾碼的註冊識別碼，才能進行佈建：
 
@@ -29,42 +29,42 @@ For example, maybe you want to examine the certificate a device is using during 
 
 裝置會根據註冊識別碼的前述必要尾碼之一進行佈建。 我們將使用 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 中包含的佈建範例來模擬這些裝置。
 
-You perform the following steps in this article:
+您會在本文中執行下列步驟：
 
 * 使用 Azure CLI 建立兩個 Contoso 部門 IoT 中樞 (**Contoso 烤箱部門**和 **Contoso 熱泵部門**)
 * 使用 Azure 函式為自訂配置原則建立新的群組註冊
 * 建立兩個裝置模擬的裝置金鑰。
 * 設定適用於 Azure IoT C SDK 的開發環境
-* Simulate the devices and verify that they are provisioned according to the example code in the custom allocation policy
+* 模擬裝置，並確認已根據自訂配置原則中的範例程式碼進行布建
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 或更新版本，並啟用[使用 C++ 的桌面開發](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載。
 * 已安裝最新版的 [Git](https://git-scm.com/download/)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-the-provisioning-service-and-two-divisional-iot-hubs"></a>Create the provisioning service and two divisional IoT hubs
+## <a name="create-the-provisioning-service-and-two-divisional-iot-hubs"></a>建立布建服務和兩個部門 IoT 中樞
 
-In this section, you use the Azure Cloud Shell to create a provisioning service and two IoT hubs representing the **Contoso Toasters Division** and the **Contoso Heat Pumps division**.
+在本節中，您會使用 Azure Cloud Shell 來建立布建服務，以及兩個代表**Contoso 烤箱部門**和**contoso 熱泵部門**的 IoT 中樞。
 
 > [!TIP]
-> The commands used in this article create the provisioning service and other resources in the West US location. We recommend that you create your resources in the region nearest you that supports Device Provisioning Service. 執行 `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` 命令，或移至 [Azure 狀態](https://azure.microsoft.com/status/)頁面並搜尋「裝置佈建服務」，即可檢視可用的位置清單。 In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value is not case sensitive. 如果您使用多字格式來指定位置，此值會用引號括住；例如 `-- location "West US"`。
+> 本文中使用的命令會建立「美國西部」位置的布建服務和其他資源。 我們建議您在最接近支援裝置布建服務的區域中建立資源。 執行 `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` 命令，或移至 [Azure 狀態](https://azure.microsoft.com/status/)頁面並搜尋「裝置佈建服務」，即可檢視可用的位置清單。 在命令中，可以用一個單字或多字格式來指定位置。例如： westus、美國西部、美國西部等等。此值不區分大小寫。 如果您使用多字格式來指定位置，此值會用引號括住；例如 `-- location "West US"`。
 >
 
-1. 在 Azure Cloud Shell 中使用 [az group create](/cli/azure/group#az-group-create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
+1. 使用 Azure Cloud Shell 以 [az group create](/cli/azure/group#az-group-create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-    The following example creates a resource group named *contoso-us-resource-group* in the *westus* region. 建議您將此群組用於在本文中建立的所有資源。 This approach will make clean up easier after you're finished.
+    下列範例會在*westus*區域中建立名為*contoso-us 資源群組*的資源群組。 建議您將此群組用於在此文章中建立的所有資源。 當您完成之後，這種方法會讓清理變得更容易。
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location westus
     ```
 
-2. Use the Azure Cloud Shell to create a device provisioning service with the [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) command. The provisioning service will be added to *contoso-us-resource-group*.
+2. 使用 Azure Cloud Shell，透過[az iot dps create](/cli/azure/iot/dps#az-iot-dps-create)命令來建立裝置布建服務。 布建服務會加入至*contoso-資源群組*。
 
-    The following example creates a provisioning service named *contoso-provisioning-service-1098* in the *westus* location. You must use a unique service name. Make up your own suffix in the service name in place of **1098**.
+    下列範例會在*westus*位置中建立名為 contoso-布建服務 *-1098*的布建服務。 您必須使用唯一的服務名稱。 在服務名稱中加上您自己的尾碼，以取代**1098**。
 
     ```azurecli-interactive 
     az iot dps create --name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --location westus
@@ -72,9 +72,9 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
     此命令可能需要數分鐘才能完成。
 
-3. 在 Azure Cloud Shell 中使用 [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 命令建立 **Contoso 烤箱部門** IoT 中樞。 此 IoT 中樞將會新增至 *contoso-us-resource-group*。
+3. 在 Azure Cloud Shell 中使用 **az iot hub create** 命令建立 [Contoso 烤箱部門](/cli/azure/iot/hub#az-iot-hub-create) IoT 中樞。 此 IoT 中樞將會新增至 *contoso-us-resource-group*。
 
-    The following example creates an IoT hub named *contoso-toasters-hub-1098* in the *westus* location. You must use a unique hub name. 請在中樞名稱中設定您自己的尾碼來取代 **1098**。 自訂配置原則的範例程式碼在中樞名稱中必須要有 `-toasters-`。
+    下列範例會在*westus*位置中建立名為*contoso-烤箱-hub-1098*的 IoT 中樞。 您必須使用唯一的中樞名稱。 請在中樞名稱中設定您自己的尾碼來取代 **1098**。 自訂配置原則的範例程式碼在中樞名稱中必須要有 `-toasters-`。
 
     ```azurecli-interactive 
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
@@ -82,9 +82,9 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
     此命令可能需要數分鐘才能完成。
 
-4. 在 Azure Cloud Shell 中使用 [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 命令建立 **Contoso 熱泵部門** IoT 中樞。 此 IoT 中樞也會新增至 *contoso-us-resource-group*。
+4. 在 Azure Cloud Shell 中使用 **az iot hub create** 命令建立 [Contoso 熱泵部門](/cli/azure/iot/hub#az-iot-hub-create) IoT 中樞。 此 IoT 中樞也會新增至 *contoso-us-resource-group*。
 
-    The following example creates an IoT hub named *contoso-heatpumps-hub-1098* in the *westus* location. You must use a unique hub name. 請在中樞名稱中設定您自己的尾碼來取代 **1098**。 自訂配置原則的範例程式碼在中樞名稱中必須要有 `-heatpumps-`。
+    下列範例會在*westus*位置中建立名為*contoso-heatpumps-hub-1098*的 IoT 中樞。 您必須使用唯一的中樞名稱。 請在中樞名稱中設定您自己的尾碼來取代 **1098**。 自訂配置原則的範例程式碼在中樞名稱中必須要有 `-heatpumps-`。
 
     ```azurecli-interactive 
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
@@ -92,46 +92,46 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
     此命令可能需要數分鐘才能完成。
 
-## <a name="create-the-custom-allocation-function"></a>Create the custom allocation function
+## <a name="create-the-custom-allocation-function"></a>建立自訂配置函數
 
-In this section, you create an Azure function that implements your custom allocation policy. This function decides which divisional IoT hub a device should be registered to based on whether its registration ID contains the string **-contoso-tstrsd-007** or **-contoso-hpsd-088**. It also sets the initial state of the device twin based on whether the device is a toaster or a heat pump.
+在本節中，您會建立可執行自訂配置原則的 Azure 函式。 此函式會根據其註冊識別碼是否包含**contoso-tstrsd-007-007**或 **-contoso-contoso-hpsd-088**，決定裝置應註冊到哪個部門 IoT 中樞。 它也會根據裝置是 toaster 或熱泵，設定裝置對應項的初始狀態。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。 From your home page, select **+ Create a resource**.
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 從您的首頁選取 [ **+ 建立資源**]。
 
-2. In the *Search the Marketplace* search box, type "Function App". From the drop-down list select **Function App**, and then select **Create**.
+2. 在 [*搜尋 Marketplace* ] 搜尋方塊中，輸入 "函數應用程式"。 從下拉式清單中選取 [**函數應用程式**]，然後選取 [**建立**]。
 
-3. On **Function App** create page, under the **Basics** tab, enter the following settings for your new function app and select **Review + create**:
+3. 在**函數應用程式**建立 頁面的 **基本** 索引標籤下，為新的函式應用程式輸入下列設定，然後選取 **審查 + 建立**：
 
-    **Resource Group**: Select the **contoso-us-resource-group** to keep all resources created in this article together.
+    **資源群組**：選取 [ **contoso-us-資源群組**]，將本文中建立的所有資源一起保留在一起。
 
-    **Function App name**: Enter a unique function app name. This example uses **contoso-function-app-1098**.
+    **函數應用程式名稱**：輸入唯一的函式應用程式名稱。 這個範例會使用**contoso-function-應用程式-1098**。
 
-    **Publish**: Verify that **Code** is selected.
+    **Publish**：確認已選取 [程式**代碼**]。
 
-    **Runtime Stack**: Select **.NET Core** from the drop-down.
+    **執行時間堆疊**：從下拉式選單選取 [ **.net Core** ]。
 
-    **Region**: Select the same region as your resource group. This example uses **West US**.
+    **區域**：選取與您的資源群組相同的區域。 這個範例會使用**美國西部**。
 
     > [!NOTE]
-    > By default, Application Insights is enabled. Application Insights is not necessary for this article, but it might help you understand and investigate any issues you encounter with the custom allocation. If you prefer, you can disable Application Insights by selecting the **Monitoring** tab and then selecting **No** for **Enable Application Insights**.
+    > 預設會啟用 Application Insights。 這篇文章並不需要 Application Insights，但它可能會協助您瞭解並調查您使用自訂配置時遇到的任何問題。 如果您想要的話，可以藉由選取 **監視** 索引標籤，然後針對 **啟用 Application Insights**選取 **否** 來停用 Application Insights。
 
-    ![Create an Azure Function App to host the custom allocation function](./media/how-to-use-custom-allocation-policies/create-function-app.png)
+    ![建立 Azure 函數應用程式以裝載自訂配置函式](./media/how-to-use-custom-allocation-policies/create-function-app.png)
 
-4. On the **Summary** page, select **Create** to create the function app. Deployment may take several minutes. When it completes, select **Go to resource**.
+4. 在 [**摘要**] 頁面上，選取 [**建立**] 以建立函數應用程式。 部署可能需要幾分鐘的時間。 完成時，選取 [**移至資源**]。
 
-5. On the left pane of the function app **Overview** page, select **+** next to **Functions** to add a new function.
+5. 在 [函數應用程式**總覽**] 頁面的左窗格中，選取 [函式] 旁邊的 [ **+** ] **，以加入**新的函數。
 
-    ![Add a function to the Function App](./media/how-to-use-custom-allocation-policies/create-function.png)
+    ![將函式新增至函數應用程式](./media/how-to-use-custom-allocation-policies/create-function.png)
 
-6. On the **Azure Functions for .NET - getting started** page, for the **CHOOSE A DEPLOYMENT ENVIRONMENT** step, select the **In-portal** tile, then select **Continue**.
+6. 在 [**適用于 .net 的 Azure Functions-開始**使用] 頁面的 [**選擇部署環境**] 步驟中，選取 [**入口網站內**] 磚，然後選取 [**繼續**]。
 
-    ![Select the portal development environment](./media/how-to-use-custom-allocation-policies/function-choose-environment.png)
+    ![選取入口網站開發環境](./media/how-to-use-custom-allocation-policies/function-choose-environment.png)
 
-7. On the next page, for the **CREATE A FUNCTION** step, select the **Webhook + API** tile, then select **Create**. A function named **HttpTrigger1** is created, and the portal displays the contents of the **run.csx** code file.
+7. 在下一個頁面上，針對 [**建立**函式] 步驟選取 [ **Webhook + API** ] 磚，然後選取 [**建立**]。 隨即建立名為**HttpTrigger1**的函式，入口網站會顯示 **.csx**程式碼檔案的內容。
 
-8. Reference required Nuget packages. To create the initial device twin, the custom allocation function uses classes that are defined in two Nuget packages that must be loaded into the hosting environment. With Azure Functions, Nuget packages are referenced using a *function.host* file. In this step, you save and upload a *function.host* file.
+8. 參考所需的 Nuget 套件。 若要建立初始裝置對應項，自訂配置函式會使用必須載入至裝載環境的兩個 Nuget 套件中所定義的類別。 使用 Azure Functions，Nuget 套件會使用*函數. 主機*檔案來參考。 在此步驟中，您會儲存並上傳*函數. 主機*檔案。
 
-    1. Copy the following lines into your favorite editor and save the file on your computer as *function.host*.
+    1. 將下列幾行複製到您慣用的編輯器，並將該檔案儲存在您的電腦上做為*function. host*。
 
         ```xml
         <Project Sdk="Microsoft.NET.Sdk">  
@@ -145,15 +145,15 @@ In this section, you create an Azure function that implements your custom alloca
         </Project>
         ```
 
-    2. On the **HttpTrigger1** function, expand the **View Files** tab on the right side of the window.
+    2. 在**HttpTrigger1**函式中，展開視窗右側的 [ **View Files** ] 索引標籤。
 
-        ![Open view files](./media/how-to-use-custom-allocation-policies/function-open-view-files.png)
+        ![開啟 view files](./media/how-to-use-custom-allocation-policies/function-open-view-files.png)
 
-    3. Select **Upload**, browse to the **function.proj** file, and select **Open** to upload the file.
+    3. 選取 [**上傳**]，流覽至**函數 proj**檔案，然後選取 [**開啟**] 以上傳檔案。
 
-        ![Select upload file](./media/how-to-use-custom-allocation-policies/function-choose-upload-file.png)
+        ![選取上傳檔案](./media/how-to-use-custom-allocation-policies/function-choose-upload-file.png)
 
-9. Replace the code for the **HttpTrigger1** function with the following code and select **Save**:
+9. 使用下列程式碼取代**HttpTrigger1**函式的程式碼，然後選取 [**儲存**]：
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -294,13 +294,13 @@ In this section, you create an Azure function that implements your custom alloca
 
 ## <a name="create-the-enrollment"></a>建立註冊
 
-In this section, you'll create a new enrollment group that uses the custom allocation policy. 為了簡單起見，本文將在註冊中使用[對稱金鑰證明](concepts-symmetric-key-attestation.md)。 如需更安全的解決方案，請考慮使用 [X.509 憑證證明](concepts-security.md#x509-certificates)與信任鏈結。
+在本節中，您將建立使用自訂配置原則的新註冊群組。 為了簡單起見，此文章將在註冊中使用[對稱金鑰證明](concepts-symmetric-key-attestation.md)。 如需更安全的解決方案，請考慮使用 [X.509 憑證證明](concepts-security.md#x509-certificates)與信任鏈結。
 
-1. Still on the [Azure portal](https://portal.azure.com), open your provisioning service.
+1. 仍在[Azure 入口網站](https://portal.azure.com)上，開啟您的布建服務。
 
-2. Select **Manage enrollments** on the left pane, and then select the **Add enrollment group** button at the top of the page.
+2. 在左窗格中選取 [**管理**註冊]，然後選取頁面頂端的 [**新增註冊群組**] 按鈕。
 
-3. On **Add Enrollment Group**, enter the following information, and select the **Save** button.
+3. 在 [**新增註冊群組**] 上，輸入下列資訊，然後選取 [**儲存**] 按鈕。
 
     **群組名稱**：輸入 **contoso-custom-allocated-devices**。
 
@@ -312,15 +312,15 @@ In this section, you'll create a new enrollment group that uses the custom alloc
 
     ![為對稱金鑰證明新增自訂配置註冊群組](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
-4. On **Add Enrollment Group**, select **Link a new IoT hub** to link both of your new divisional IoT hubs.
+4. 在 [新增**註冊群組**] 上，選取 [**連結新的 iot 中樞**]，以連結您的新部門 IoT 中樞。
 
-    Execute this step for both of your divisional IoT hubs.
+    針對這兩個部門 IoT 中樞執行此步驟。
 
     **訂用帳戶**：如果您有多個訂用帳戶，請選擇您用來建立部門 IoT 中樞的訂用帳戶。
 
     **IoT 中樞**：選取您建立的其中一個部門中樞。
 
-    **存取原則**：選擇 **iothubowner**。
+    **存取原則**：選擇 [iothubowner]。
 
     ![連結部門 IoT 中樞與佈建服務](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
 
@@ -328,17 +328,17 @@ In this section, you'll create a new enrollment group that uses the custom alloc
 
     ![建立註冊的部門中樞群組](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
 
-6. On **Add Enrollment Group**, scroll down to the **Select Azure Function** section, select the Function app you created in the previous section. Then select the function you created and select Save to save the enrollment group.
+6. 在 [**新增註冊群組**] 上，向下卷到 [**選取 Azure**函式] 區段中，選取您在上一節中建立的函數應用程式。 然後選取您所建立的函式，並選取 [儲存] 以儲存註冊群組。
 
-    ![Select the function and save the enrollment group](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
+    ![選取函式並儲存註冊群組](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
 
-7. 儲存註冊之後，請重新加以開啟，並記下 [主要金鑰]。 您必須先儲存註冊，才能產生金鑰。 此金鑰將在後續用來產生模擬裝置的唯一裝置金鑰。
+7. 儲存註冊之後，請重新開啟它，並記下 [主要金鑰]。 您必須先儲存註冊，才能產生金鑰。 此金鑰將在後續用來產生模擬裝置的唯一裝置金鑰。
 
 ## <a name="derive-unique-device-keys"></a>衍生唯一的裝置金鑰
 
-In this section, you create two unique device keys. 一個金鑰將用於模擬的烤箱裝置。 另一個金鑰將用於模擬的熱泵裝置。
+在本節中，您會建立兩個唯一的裝置金鑰。 一個金鑰將用於模擬的烤箱裝置。 另一個金鑰將用於模擬的熱泵裝置。
 
-To generate the device key, you use the **Primary Key** you noted earlier to compute the [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the device registration ID for each device and convert the result into Base64 format. 如需關於為註冊群組建立衍生裝置金鑰的詳細資訊，請參閱[對稱金鑰證明](concepts-symmetric-key-attestation.md)的群組註冊小節。
+若要產生裝置金鑰，請使用您先前記下的**主要金鑰**來計算每個裝置之裝置註冊識別碼的[HMAC-SHA256](https://wikipedia.org/wiki/HMAC) ，並將結果轉換為 Base64 格式。 如需關於為註冊群組建立衍生裝置金鑰的詳細資訊，請參閱[對稱金鑰證明](concepts-symmetric-key-attestation.md)的群組註冊小節。
 
 針對本文的範例，請使用下列兩個裝置註冊識別碼，並計算這兩個裝置的裝置金鑰。 這兩種註冊識別碼都具有有效的尾碼，可用於自訂配置原則的範例程式碼：
 
@@ -347,7 +347,7 @@ To generate the device key, you use the **Primary Key** you noted earlier to com
 
 ### <a name="linux-workstations"></a>Linux 工作站
 
-If you're using a Linux workstation, you can use openssl to generate your derived device keys as shown in the following example.
+如果您使用 Linux 工作站，您可以使用 openssl 來產生衍生的裝置金鑰，如下列範例所示。
 
 1. 將 **KEY** 的值取代為您先前記下的 [主要金鑰]。
 
@@ -371,7 +371,7 @@ If you're using a Linux workstation, you can use openssl to generate your derive
 
 ### <a name="windows-based-workstations"></a>以 Windows 為基礎的工作站
 
-If you're using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
+如果您使用的是以 Windows 為基礎的工作站，您可以使用 PowerShell 來產生衍生的裝置金鑰，如下列範例所示。
 
 1. 將 **KEY** 的值取代為您先前記下的 [主要金鑰]。
 
@@ -400,13 +400,13 @@ If you're using a Windows-based workstation, you can use PowerShell to generate 
 
 ## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>準備 Azure IoT C SDK 開發環境
 
-In this section, you prepare the development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). SDK 包含模擬裝置的範例程式碼。 這個模擬的裝置將會嘗試在裝置開機順序期間進行佈建。
+在本節中，您會準備用來建立[Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)的開發環境。 SDK 包含模擬裝置的範例程式碼。 這個模擬裝置將會嘗試在裝置開機順序期間進行佈建。
 
 此節以 Windows 工作站為基礎來說明。 如需 Linux 範例，請參閱[如何針對多組織用戶佈建](how-to-provision-multitenant.md)中的 VM 設定。
 
 1. 下載 [CMake 建置系統](https://cmake.org/download/)。
 
-    在開始安裝 `CMake` **之前**，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
+    在開始安裝之前`CMake`，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
 
 2. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令以複製 Azure IoT C SDK GitHub 存放庫：
 
@@ -430,9 +430,9 @@ In this section, you prepare the development environment used to build the [Azur
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
-    If `cmake` doesn't find your C++ compiler, you might get build errors while running the command. If that happens, try running the command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
+    如果 `cmake` 找不到C++您的編譯器，您可能會在執行命令時收到組建錯誤。 如果發生這種情況，請嘗試在[Visual Studio 命令提示](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)字元中執行命令。
 
-    建置成功後，最後幾行輸出會類似於下列輸出：
+    建置成功後，最後幾行輸出會看起來類似下列輸出：
 
     ```cmd/sh
     $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -450,7 +450,7 @@ In this section, you prepare the development environment used to build the [Azur
 
 ## <a name="simulate-the-devices"></a>模擬裝置
 
-In this section, you update a provisioning sample named **prov\_dev\_client\_sample** located in the Azure IoT C SDK you set up previously.
+在本節中，您會更新名為 prov 的布建範例 **\_dev\_用戶端\_範例**位於您先前設定的 Azure IOT C SDK 中。
 
 此範例程式碼會模擬將佈建要求傳送至裝置佈建服務執行個體的裝置開機順序。 此開機順序會使烤箱裝置接受辨識，並使用自訂配置原則指派給 IoT 中樞。
 
@@ -458,7 +458,7 @@ In this section, you update a provisioning sample named **prov\_dev\_client\_sam
 
     ![從入口網站刀鋒視窗擷取裝置佈建服務端點資訊](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. 在 Visual Studio 中，開啟先前藉由執行 CMake 而產生的 **azure_iot_sdks.sln** 解決方案檔案。 該方案檔案應該位於下列位置：
+2. 在 Visual Studio 中，開啟先前藉由執行 CMake 而產生的 **azure_iot_sdks.sln** 解決方案檔案。 該方案檔案應位於下列位置：
 
     ```
     azure-iot-sdk-c\cmake\azure_iot_sdks.sln
@@ -485,14 +485,14 @@ In this section, you update a provisioning sample named **prov\_dev\_client\_sam
 
 ### <a name="simulate-the-contoso-toaster-device"></a>模擬 Contoso 烤箱裝置
 
-1. 若要模擬 toaster 裝置，請在 **prov\_dev\_client\_sample.c** 中尋找已標成註解之 `prov_dev_set_symmetric_key_info()` 的呼叫。
+1. 若要模擬 toaster 裝置，請在 `prov_dev_set_symmetric_key_info()`prov**dev\_client\_sample.c\_ 中尋找已標成註解之**  的呼叫。
 
     ```c
     // Set the symmetric key if using they auth type
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    Uncomment the function call and replace the placeholder values (including the angle brackets) with the toaster registration ID and derived device key you generated previously. 下列金鑰值 **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** 只是範例。
+    取消批註函式呼叫，並將預留位置值（包括角括弧）取代為您先前產生的 toaster 註冊識別碼和衍生裝置金鑰。 下列金鑰值 **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** 只是範例。
 
     ```c
     // Set the symmetric key if using they auth type
@@ -501,9 +501,9 @@ In this section, you update a provisioning sample named **prov\_dev\_client\_sam
 
     儲存檔案。
 
-2. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決方案。 In the prompt to rebuild the project, select **Yes**, to rebuild the project before running.
+2. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決。 在重建專案的提示中，選取 **[是]** ，以在執行之前重建專案。
 
-    The following output is an example of the simulated toaster device successfully booting up and connecting to the provisioning service instance to be assigned to the toasters IoT hub by the custom allocation policy:
+    下列輸出是模擬 toaster 裝置成功開機並聯機至布建服務實例的範例，其由自訂配置原則指派給烤箱 IoT 中樞：
 
     ```cmd
     Provisioning API Version: 1.3.6
@@ -521,7 +521,7 @@ In this section, you update a provisioning sample named **prov\_dev\_client\_sam
 
 ### <a name="simulate-the-contoso-heat-pump-device"></a>模擬 Contoso 熱泵裝置
 
-1. 若要模擬熱泵裝置，請使用您稍早產生的熱泵註冊識別碼和衍生裝置金鑰再次更新 **prov\_dev\_client\_sample.c** a 中的 `prov_dev_set_symmetric_key_info()`。 下列金鑰值 **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** 只是範例。
+1. 若要模擬熱泵裝置，請使用您稍早產生的熱泵註冊識別碼和衍生裝置金鑰再次更新 `prov_dev_set_symmetric_key_info()`prov**dev\_client\_sample.c\_ a 中的** 。 下列金鑰值 **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** 只是範例。
 
     ```c
     // Set the symmetric key if using they auth type
@@ -530,9 +530,9 @@ In this section, you update a provisioning sample named **prov\_dev\_client\_sam
 
     儲存檔案。
 
-2. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決方案。 In the prompt to rebuild the project, select **Yes** to rebuild the project before running.
+2. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決。 在重建專案的提示中，選取 **[是]** 以在執行之前重建專案。
 
-    The following output is an example of the simulated heat pump device successfully booting up and connecting to the provisioning service instance to be assigned to the Contoso heat pumps IoT hub by the custom allocation policy:
+    下列輸出是模擬的熱泵裝置的範例，其已成功開機並聯機至布建服務實例，以透過自訂配置原則指派給 Contoso 熱泵 IoT 中樞：
 
     ```cmd
     Provisioning API Version: 1.3.6
@@ -550,7 +550,7 @@ In this section, you update a provisioning sample named **prov\_dev\_client\_sam
 
 ## <a name="troubleshooting-custom-allocation-policies"></a>對自訂配置原則進行疑難排解
 
-The following table shows expected scenarios and the results error codes you might receive. 您可以利用此表格對 Azure Functions 的自訂配置原則失敗進行疑難排解。
+下表顯示預期的案例，以及您可能會收到的結果錯誤碼。 您可以利用此表格對 Azure Functions 的自訂配置原則失敗進行疑難排解。
 
 | 案例 | 佈建服務的註冊結果 | 佈建 SDK 結果 |
 | -------- | --------------------------------------------- | ------------------------ |
@@ -563,7 +563,7 @@ The following table shows expected scenarios and the results error codes you mig
 
 ## <a name="clean-up-resources"></a>清除資源
 
-If you plan to continue working with the resources created in this article, you can leave them. If you don't plan to continue using the resources, use the following steps to delete all of the resources created in this article to avoid unnecessary charges.
+如果您打算繼續使用在本文中建立的資源，可以將其保留。 如果您不打算繼續使用這些資源，請使用下列步驟來刪除在本文中建立的所有資源，以避免不必要的費用。
 
 以下步驟假設您依照指示在名為 **contoso-us-resource-group** 的相同資源群組中建立了此文章中的所有資源。
 
@@ -579,9 +579,9 @@ If you plan to continue working with the resources created in this article, you 
 
 3. 在結果清單中的資源群組右側，選取 [...]，然後按一下 [刪除資源群組]。
 
-4. You'll be asked to confirm the deletion of the resource group. 再次輸入您的資源群組名稱以進行確認，然後選取 [刪除]。 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
+4. 系統會要求您確認刪除資源群組。 再次輸入您的資源群組名稱以進行確認，然後選取 [刪除]。 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
 
 ## <a name="next-steps"></a>後續步驟
 
-* To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
-* To learn more Deprovisioning, see [How to deprovision devices that were previously autoprovisioned](how-to-unprovision-devices.md) 
+* 若要深入瞭解重新布建，請參閱[IoT 中樞裝置重新布建概念](concepts-device-reprovision.md) 
+* 若要深入瞭解取消布建，請參閱如何取消布建[先前可的裝置](how-to-unprovision-devices.md) 

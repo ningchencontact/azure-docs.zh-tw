@@ -57,7 +57,7 @@ ms.locfileid: "74274730"
 - 如果此選項設定為 [是]，則必須先將使用者指派給此應用程式，才能存取它。
 - 如果此選項設定為 [否]，則直接流覽至應用程式深層連結 URL 或應用程式 URL 的任何使用者都會被授與存取權
 - 不會影響應用程式是否會出現在應用程式存取面板上。 若要在存取面板上顯示應用程式，您需要將適當的使用者或群組指派給應用程式。
-- 僅適用于已針對 SAML 單一登入設定之雲端應用程式的函式、使用 Azure Active Directory 預先驗證的應用程式 Proxy 應用程式，或直接在使用 OAuth 2.0/的 Azure AD 應用程式平臺上建立的應用程式在使用者或系統管理員同意該應用程式之後，OpenID Connect 驗證。 請參閱[單一登入應用程式](what-is-single-sign-on.md)。 請參閱[設定使用者同意應用程式的方式](configure-user-consent.md)。
+- 僅適用于已針對 SAML 單一登入設定的雲端應用程式、使用 Azure Active Directory 預先驗證的應用程式 Proxy 應用程式，或在使用者或系統管理員同意該應用程式之後，直接在使用 OAuth 2.0/OpenID Connect 驗證的 Azure AD 應用程式平臺上建立的應用程式。 請參閱[單一登入應用程式](what-is-single-sign-on.md)。 請參閱[設定使用者同意應用程式的方式](configure-user-consent.md)。
 - 當應用程式設定為任何其他單一登入模式時，此選項不會有任何作用。
 
 ## <a name="assign-a-user-to-an-app---powershell"></a>將使用者指派給應用程式 - PowerShell

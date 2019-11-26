@@ -1,10 +1,10 @@
 ---
-title: Azure Functions warmup trigger
-description: Understand how to use the warmup trigger in Azure Functions.
+title: Azure Functions 準備觸發程式
+description: 瞭解如何在 Azure Functions 中使用準備觸發程式。
 documentationcenter: na
 author: alexkarcher-msft
 manager: gwallace
-keywords: azure functions, functions, event processing, warmup, cold start, premium, dynamic compute, serverless architecture
+keywords: azure 函式，函數，事件處理，準備，冷啟動，premium，動態計算，無伺服器架構
 ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
@@ -16,40 +16,40 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74328491"
 ---
-# <a name="azure-functions-warm-up-trigger"></a>Azure Functions warm-up trigger
+# <a name="azure-functions-warm-up-trigger"></a>Azure Functions 準備觸發程式
 
-This article explains how to work with the warmup trigger in Azure Functions. The warmup trigger is supported only for function apps running in a [Premium plan](functions-premium-plan.md). A warmup trigger  is invoked when an instance is added to scale a running function app. You can use a warmup trigger to pre-load custom dependencies during the [pre-warming process](./functions-premium-plan.md#pre-warmed-instances) so that your functions are ready to start processing requests immediately. 
+本文說明如何在 Azure Functions 中使用準備觸發程式。 只有在高階[方案](functions-premium-plan.md)中執行的函數應用程式才支援準備觸發程式。 新增實例以調整執行中函式應用程式時，會叫用準備觸發程式。 您可以使用準備觸發程式在[預先準備程式](./functions-premium-plan.md#pre-warmed-instances)期間預先載入自訂相依性，讓您的函式可以立即開始處理要求。 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="packages---functions-2x"></a>套件 - Functions 2.x
 
-The [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package, version **3.0.5 or higher** is required. 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub 存放庫中。 
+需要**3.0.5 或更高**版本的[Microsoft Azure webjob。](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub 存放庫中。 
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>觸發程序
 
-The warmup trigger lets you define a function that will be run on an instance when it is added to your running app. You can use a warmup function to open connections, load dependencies, or run any other custom logic before your app will begin receiving traffic. 
+準備觸發程式可讓您定義將在實例上執行的函式，並將其新增至執行中的應用程式。 您可以使用準備函式來開啟連線、載入相依性，或執行其他任何自訂邏輯，然後您的應用程式才會開始接收流量。 
 
-The warmup trigger is intended to create shared dependencies that will be used by the other functions in your app. [See examples of shared dependencies here](./manage-connections.md#client-code-examples).
+準備觸發程式是用來建立應用程式中其他函式將使用的共用相依性。 [請參閱這裡的共用](./manage-connections.md#client-code-examples)相依性範例。
 
-Note that the warmup trigger is only called during scale-up operations, not during restarts or other non-scale startups. You must ensure your logic can load all necessary dependencies without using the warmup trigger. Lazy loading is a good pattern to achieve this.
+請注意，只有在相應增加作業期間才會呼叫準備觸發程式，而不是在重新開機或其他非規模的新創公司。 您必須確保邏輯可以載入所有必要的相依性，而不需使用準備觸發程式。 消極式載入是達成此目標的良好模式。
 
 ## <a name="trigger---example"></a>觸發程序 - 範例
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that will run on each new instance when it is added to your app. A return value attribute isn't required.
+下列範例顯示[ C#函式，該](functions-dotnet-class-library.md)函式會在新增至您的應用程式時，在每個新的實例上執行。 不需要傳回值屬性。
 
 
-* Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
-* To use warmup as a .NET class library function, please make sure you have a package reference to **Microsoft.Azure.WebJobs.Extensions >= 3.0.5**
+* 您的函式必須命名為 ```warmup``` （不區分大小寫），而且每個應用程式只能有一個準備函數。
+* 若要使用準備做為 .NET 類別庫函式，請確定您有3.0.5 的套件參考 **>。**
     * ```<PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="3.0.5" />```
 
 
-Placeholder comments show where in the application to declare and initialize shared dependencies. 
-[Learn more about shared dependencies here](./manage-connections.md#client-code-examples).
+預留位置批註會顯示應用程式中用來宣告和初始化共用相依性的位置。 
+[在這裡深入瞭解共用](./manage-connections.md#client-code-examples)相依性。
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -73,12 +73,12 @@ namespace WarmupSample
     }
 }
 ```
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 
-The following example shows a warmup trigger in a *function.json* file and a [C# script function](functions-reference-csharp.md) that will run on each new instance when it is added to your app.
+下列範例顯示在函式 json 檔案中的準備觸發程式，以及在每個新實例上新增至您的應用程式時，將會在其中執行的[ C#腳本](functions-reference-csharp.md)函式 *。*
 
-Your function must be named ```warmup``` (case-insensitive), and there may only be one warmup function per app.
+您的函式必須命名為 ```warmup``` （不區分大小寫），而且每個應用程式只能有一個準備函數。
 
 以下是 *function.json* 檔案：
 
@@ -107,9 +107,9 @@ public static void Run(ILogger log)
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-The following example shows a warmup trigger in a *function.json* file and a [JavaScript function](functions-reference-node.md)  that will run on each new instance when it is added to your app.
+下列範例顯示函式 *. json*檔案中的準備觸發程式，以及在每個新實例上新增至您的應用程式時，將會在其中執行的[JavaScript 函數](functions-reference-node.md)。
 
-Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
+您的函式必須命名為 ```warmup``` （不區分大小寫），而且每個應用程式只能有一個準備函數。
 
 以下是 *function.json* 檔案：
 
@@ -138,9 +138,9 @@ module.exports = async function (context, warmupContext) {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-The following example shows a warmup trigger in a *function.json* file and a [Python function](functions-reference-python.md) that will run on each new instance when it is added to your app.
+下列範例顯示在函式 json 檔案中的準備觸發程式，以及在每個新實例上新增至您的應用程式時，將會在其中執行的[Python](functions-reference-python.md)函式 *。*
 
-Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
+您的函式必須命名為 ```warmup``` （不區分大小寫），而且每個應用程式只能有一個準備函數。
 
 以下是 *function.json* 檔案：
 
@@ -171,9 +171,9 @@ def main(warmupContext: func.Context) -> None:
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The following example shows a warmup trigger in a *function.json* file and a [Java functions](functions-reference-java.md)  that will run on each new instance when it is added to your app.
+下列範例顯示在函式 json 檔案中的準備觸發程式，以及在每個新實例上新增至您的應用程式時，將會在其中執行的[JAVA](functions-reference-java.md)函式 *。*
 
-Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
+您的函式必須命名為 ```warmup``` （不區分大小寫），而且每個應用程式只能有一個準備函數。
 
 以下是 *function.json* 檔案：
 
@@ -202,13 +202,13 @@ public void run( ExecutionContext context) {
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
-In [C# class libraries](functions-dotnet-class-library.md), the `WarmupTrigger` attribute is available to configure the function.
+在[ C#類別庫](functions-dotnet-class-library.md)中，可以使用 `WarmupTrigger` 屬性來設定函式。
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-This example demonstrates how to use the [warmup](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs) attribute.
+這個範例示範如何使用「準備[」屬性。](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs)
 
-Note that your function must be called ```Warmup``` and there can only be one warmup function per app.
+請注意，您的函式必須 ```Warmup``` 呼叫，而且每個應用程式只能有一個準備函數。
 
 ```csharp
  [FunctionName("Warmup")]
@@ -219,23 +219,23 @@ Note that your function must be called ```Warmup``` and there can only be one wa
         }
 ```
 
-For a complete example, see the [trigger example](#trigger---example).
+如需完整範例，請參閱[觸發程式範例](#trigger---example)。
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
-Attributes are not supported by C# Script.
+C#腳本不支援屬性。
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Attributes are not supported by JavaScript.
+JavaScript 不支援屬性。
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Attributes are not supported by Python.
+Python 不支援屬性。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The warmup trigger is not supported in Java as an attribute.
+JAVA 中不支援準備觸發程式做為屬性。
 
 ---
 
@@ -247,18 +247,18 @@ The warmup trigger is not supported in Java as an attribute.
 |---------|---------|----------------------|
 | **type** | n/a| 必要項目 - 必須設定為 `warmupTrigger`。 |
 | **direction** | n/a| 必要項目 - 必須設定為 `in`。 |
-| **name** | n/a| Required - the variable name used in function code.|
+| **name** | n/a| 必要-函式程式碼中使用的變數名稱。|
 
 ## <a name="trigger---usage"></a>觸發程序 - 使用方式
 
-No additional information is provided to a warmup triggered function when it is invoked.
+叫用時，不會提供任何額外的資訊給準備觸發的函式。
 
 ## <a name="trigger---limits"></a>觸發程序的 - 限制
 
-* The warmup trigger is only available to apps running on the [Premium plan](./functions-premium-plan.md).
-* The warmup trigger is only called during scale up operations, not during restarts or other non-scale startups. You must ensure your logic can load all necessary dependencies without using the warmup trigger. Lazy loading is a good pattern to achieve this.
-* The warmup trigger cannot be invoked once an instance is already running.
-* There can only be one warmup trigger function per function app.
+* 準備觸發程式僅適用于高階[方案](./functions-premium-plan.md)上執行的應用程式。
+* 只有在相應增加作業期間才會呼叫準備觸發程式，而不是在重新開機或其他非規模的新創公司。 您必須確保邏輯可以載入所有必要的相依性，而不需使用準備觸發程式。 消極式載入是達成此目標的良好模式。
+* 一旦實例已經在執行中，就無法叫用準備觸發程式。
+* 每個函式應用程式只能有一個預熱觸發函式。
 
 ## <a name="next-steps"></a>後續步驟
 

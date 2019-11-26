@@ -1,5 +1,5 @@
 ---
-title: Implement a geo-distributed solution
+title: 執行地理位置分散的解決方案
 description: 了解如何設定您的 Azure SQL 資料庫和應用程式來容錯移轉至複寫資料庫，並測試容錯移轉。
 services: sql-database
 ms.service: sql-database
@@ -29,17 +29,17 @@ ms.locfileid: "74421133"
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 若要完成本教學課程，請確定您已安裝下列項目：
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- A single database in Azure SQL Database. 若要建立一次使用，
+- Azure SQL Database 中的單一資料庫。 若要建立一次使用，
   - [入口網站](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
@@ -93,7 +93,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -Databas
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!IMPORTANT]
-> Run `az login` to sign in to Azure.
+> 執行 `az login` 以登入 Azure。
 
 ```powershell
 $admin = "<adminName>"
@@ -150,7 +150,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
    </dependency>
    ```
 
-1. 在 `dependencies` 區段之後新增 `properties` 區段來指定 Java 版本：
+1. 在 `properties` 區段之後新增 `dependencies` 區段來指定 Java 版本：
 
    ```xml
    <properties>
@@ -159,7 +159,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
    </properties>
    ```
 
-1. 在 `properties` 區段之後新增 `build` 區段來支援資訊清單檔：
+1. 在 `build` 區段之後新增 `properties` 區段來支援資訊清單檔：
 
    ```xml
    <build>
@@ -319,7 +319,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-You can check the role of the disaster recovery server during the test with the following command:
+您可以使用下列命令，在測試期間檢查損毀修復伺服器的角色：
 
 ```powershell
 (Get-AzSqlDatabaseFailoverGroup -FailoverGroupName $failoverGroup `
@@ -344,7 +344,7 @@ You can check the role of the disaster recovery server during the test with the 
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-You can check the role of the disaster recovery server during the test with the following command:
+您可以使用下列命令，在測試期間檢查損毀修復伺服器的角色：
 
 ```azure-cli
 az sql failover-group show --name $failoverGroup --resource-group $resourceGroup --server $drServer

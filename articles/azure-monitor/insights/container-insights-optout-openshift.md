@@ -1,6 +1,6 @@
 ---
-title: How to stop monitoring your Azure Red Hat OpenShift cluster | Microsoft Docs
-description: This article describes how you can stop monitoring of your Azure Red Hat OpenShift cluster with Azure Monitor for containers.
+title: 如何停止監視您的 Azure Red Hat OpenShift 叢集 |Microsoft Docs
+description: 本文說明如何使用適用于容器的 Azure 監視器來停止監視您的 Azure Red Hat OpenShift 叢集。
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
@@ -14,19 +14,19 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74384327"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>How to stop monitoring your Azure Red Hat OpenShift cluster with Azure Monitor for containers
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>如何使用適用于容器的 Azure 監視器停止監視您的 Azure Red Hat OpenShift 叢集
 
-After you enable monitoring of your Azure Red Hat OpenShift cluster, you can stop monitoring the cluster if you decide you no longer want to monitor it. This article shows how to accomplish this using the provided Azure Resource Manager templates.  
+當您啟用 Azure Red Hat OpenShift 叢集的監視之後，如果您決定不想再監視叢集，可以停止監視該叢集。 本文說明如何使用提供的 Azure Resource Manager 範本來完成這項工作。  
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 範本
 
-若要一致且重複地從資源群組中移除解決方案資源，有兩個 Azure Resource Manager 範本可供使用。 One is a JSON template specifying the configuration to stop monitoring and the other contains parameter values that you configure to specify the OpenShift cluster resource ID and Azure region that the cluster is deployed in. 
+若要一致且重複地從資源群組中移除解決方案資源，有兩個 Azure Resource Manager 範本可供使用。 其中一個是 JSON 範本，用來指定停止監視的設定，另一個則包含參數值，您可以將其設定為指定 OpenShift 叢集資源識別碼和叢集部署所在的 Azure 區域。 
 
 若您不熟悉使用範本部署資源的概念，請參閱：
 * [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../../azure-resource-manager/resource-group-template-deploy.md)
 * [使用 Resource Manager 範本與 Azure CLI 部署資源](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-如果您選擇使用 Azure CLI，必須先在本機安裝並使用 CLI。 You must be running the Azure CLI version 2.0.65 or later. 若要知道您使用的版本，請執行 `az --version`。 如果您需要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+如果您選擇使用 Azure CLI，必須先在本機安裝並使用 CLI。 您必須執行 Azure CLI 版2.0.65 或更新版本。 若要知道您使用的版本，請執行 `az --version`。 如果您需要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
 
 ### <a name="create-template"></a>建立範本
 
@@ -88,7 +88,7 @@ After you enable monitoring of your Azure Red Hat OpenShift cluster, you can sto
     }
     ```
 
-4. Edit the values for **aroResourceId** and **aroResourceLocation** by using the values of the OpenShift cluster, which you can find on the **Properties** page for the selected cluster.
+4. 使用 OpenShift 叢集的值來編輯**aroResourceId**和**aroResourceLocation**的值，您可以在所選取叢集的 [內容] 頁面上找到該**屬性**。
 
     ![容器屬性頁面](media/container-insights-optout-openshift/cluster-properties-page.png)
 
@@ -98,7 +98,7 @@ After you enable monitoring of your Azure Red Hat OpenShift cluster, you can sto
 
 ### <a name="remove-the-solution-using-azure-cli"></a>使用 Azure CLI 來移除解決方案
 
-Execute the following command with Azure CLI on Linux to remove the solution and clean up the configuration on your cluster.
+使用 Linux 上的 Azure CLI 執行下列命令，以移除解決方案並清除叢集上的設定。
 
 ```azurecli
 az login   
@@ -116,7 +116,7 @@ ProvisioningState       : Succeeded
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Execute the following PowerShell commands in the folder containing the template to remove the solution and clean up the configuration from your cluster.    
+在包含範本的資料夾中執行下列 PowerShell 命令，以移除解決方案並從您的叢集中清除設定。    
 
 ```powershell
 Connect-AzAccount
@@ -132,4 +132,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>後續步驟
 
-如果建立工作區只為了支援監視叢集，當您不再需要時，可以手動予以刪除。 If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace](../../log-analytics/log-analytics-manage-del-workspace.md). 
+如果建立工作區只為了支援監視叢集，當您不再需要時，可以手動予以刪除。 如果您不熟悉如何刪除工作區，請參閱[刪除 Azure Log Analytics 工作區](../../log-analytics/log-analytics-manage-del-workspace.md)。 

@@ -95,4 +95,4 @@ ms.locfileid: "74260678"
 請注意 `Post` 方法目前不會傳送快顯通知。 它會傳送只包含通知 ID 且非任何敏感內容的原始通知。 另外，針對您未在通知中樞上設定其認證的平台，請務必為傳送作業加上註解，因為他們將會導致錯誤。
 
 1. 為了可以從所有裝置存取此應用程式，我們現在可以將它重新部署到 Azure 網站。 以滑鼠右鍵按一下 **AppBackend** 專案，然後選取 [發佈]。
-2. 選取 Azure 網站作為您的發行目標。 Sign in with your Azure account and select an existing or new Website, and make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial. 按一下 [方案總管] 中的 [顯示所有檔案]。
+2. 選取 Azure 網站作為您的發行目標。 使用**您的 Azure**帳戶登入，並選取現有或新的網站，然後記下 [連線] 索引標籤中的 [**目的地 URL** ] 屬性。我們稍後會在本教學課程中將此 URL 稱為您的*後端端點*。 按一下 [發行]。

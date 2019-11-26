@@ -42,7 +42,7 @@ ms.locfileid: "74230104"
 在您可以產生 Azure Enterprise 合約 API 金鑰以設定 Cloudyn 之前，您必須啟用 Azure 帳單 API，方法是遵循下列文章中的指示：
 
 - [適用於企業客戶的報告 API 概觀](../billing/billing-enterprise-api.md)
-- **啟用對 API 的資料存取**下的 [Microsoft Azure 企業版入口網站報告 API](https://ea.azure.com/helpdocs/reportingAPI)
+- [啟用對 API 的資料存取](https://ea.azure.com/helpdocs/reportingAPI)下的 **Microsoft Azure 企業版入口網站報告 API**
 
 
 您可能也需要提供部門管理員、帳戶擁有者，以及企業管理員等權限，才能使用帳單 API「檢視費用」。
@@ -74,9 +74,9 @@ ms.locfileid: "74230104"
 
 首先，讓我們來看看造成使用者帳戶發生 initiallySuspended 的最常見案例。
 
-> Admin1 might be a Microsoft Cloud Solution Provider or Enterprise Agreement user. Their organization is ready to start using Cloudyn.  他透過 Azure 入口網站註冊，並登入 Cloudyn 入口網站。 As the person who registers the Cloudyn service and signs into the Cloudyn portal, Admin1 becomes the *primary administrator*. Admin1 不會建立任何使用者帳戶。 However, using the Cloudyn portal, they do create Azure accounts and set up an entity hierarchy. Admin1 informs Admin2, a tenant administrator, that they need to register with Cloudyn and sign in to the Cloudyn portal.
+> Admin1 可能是 Microsoft Cloud 的解決方案提供者或 Enterprise 合約使用者。 他們的組織已準備好開始使用 Cloudyn。  他透過 Azure 入口網站註冊，並登入 Cloudyn 入口網站。 註冊 Cloudyn 服務並登入 Cloudyn 入口網站的人員，Admin1 會成為*主要系統管理員*。 Admin1 不會建立任何使用者帳戶。 不過，使用 Cloudyn 入口網站時，他們會建立 Azure 帳戶並設定實體階層。 Admin1 會通知 Admin2，也就是租使用者系統管理員，他們需要向 Cloudyn 註冊並登入 Cloudyn 入口網站。
 >
-> Admin2 透過 Azure 入口網站註冊。 However when they try to sign in to the Cloudyn portal, they get an error saying their account is **suspended**. 主要管理員 Admin1 會收到帳戶暫時停權的通知。 Admin1 必須啟用 Admin2 的帳戶，授與適當實體的「管理員實體存取權」，然後允許使用者管理存取權並啟用使用者帳戶。
+> Admin2 透過 Azure 入口網站註冊。 不過，當他們嘗試登入 Cloudyn 入口網站時，他們會收到錯誤，指出其帳戶已**暫停**。 主要管理員 Admin1 會收到帳戶暫時停權的通知。 Admin1 必須啟用 Admin2 的帳戶，授與適當實體的「管理員實體存取權」，然後允許使用者管理存取權並啟用使用者帳戶。
 
 
 如果您收到要求允許使用者存取權的警示，則需要啟用使用者帳戶。
@@ -90,13 +90,13 @@ ms.locfileid: "74230104"
 
 Cloudyn 使用者帳戶使用單一登入從 Azure 連線。 如果使用者輸入錯誤的密碼，可能會被鎖住而無法進入 Cloudyn，但可能還是可以存取 Azure。
 
-If you change your e-mail address in Cloudyn from the default address in Azure, your account can get locked out. It might show "status initiallySuspended." 如果您的使用者帳戶被鎖住，請連絡其他系統管理員重設您的帳戶。
+如果您從 Azure 中的預設位址變更 Cloudyn 中的電子郵件地址，您的帳戶可能會遭到鎖定。它可能會顯示「狀態 initiallySuspended」。 如果您的使用者帳戶被鎖住，請連絡其他系統管理員重設您的帳戶。
 
 我們建議您至少建立兩個 Cloudyn 系統管理員帳戶，以免其中一個帳戶被鎖住。
 
 如果您無法登入 Cloudyn 入口網站，請確定您使用正確的 URL 登入 Cloudyn。 使用 [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade)。
 
-請避免使用 Cloudyn 直接 URL https://app.cloudyn.com 。
+請避免使用 Cloudyn 直接 URL https://app.cloudyn.com。
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>如何使用 Azure 認證啟用尚未啟用的帳戶？
 
@@ -154,8 +154,8 @@ Cloudyn 有下列資料重新整理時間軸：
 
 ## <a name="is-cloudyn-agent-based"></a>Cloudyn 是否以代理程式為基礎？
 
-不會。 不會使用代理程式。 VM 的 Azure 虛擬機器計量資料，是從 Microsoft Insights API 收集而來。 如果您想要收集來自 Azure VM 的計量資料，便必須啟用它們的診斷設定。
+號 不會使用代理程式。 VM 的 Azure 虛擬機器計量資料，是從 Microsoft Insights API 收集而來。 如果您想要收集來自 Azure VM 的計量資料，便必須啟用它們的診斷設定。
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>每份 Cloudyn 報告是否能顯示超過一個 AD 租用戶的資料？
 
-可以。 您可以針對您所擁有的每個 AD 租用戶[建立相對應的雲端帳戶實體](tutorial-user-access.md#create-and-manage-entities)。 如此一來，您便可以檢視所有的 Azure AD 租用戶資料，以及其他雲端平台提供者 (包括 Amazon Web Services 和 Google Cloud Platform)。
+是。 您可以針對您所擁有的每個 AD 租用戶[建立相對應的雲端帳戶實體](tutorial-user-access.md#create-and-manage-entities)。 如此一來，您便可以檢視所有的 Azure AD 租用戶資料，以及其他雲端平台提供者 (包括 Amazon Web Services 和 Google Cloud Platform)。

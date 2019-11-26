@@ -1,6 +1,6 @@
 ---
-title: Azure traffic analytics schema | Microsoft Docs
-description: Understand schema of Traffic Analytics to analyze Azure network security group flow logs.
+title: Azure 流量分析架構 |Microsoft Docs
+description: 瞭解流量分析的架構來分析 Azure 網路安全性群組流量記錄。
 services: network-watcher
 documentationcenter: na
 author: vinynigam
@@ -20,7 +20,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229427"
 ---
-# <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema and data aggregation in Traffic Analytics
+# <a name="schema-and-data-aggregation-in-traffic-analytics"></a>流量分析中的架構和資料匯總
 
 流量分析是一個雲端式解決方案，可顯示雲端網路中的使用者和應用程式活動。 「流量分析」會分析網路監看員網路安全性群組 (NSG) 流量記錄，讓您深入了解 Azure 雲端中的流量。 透過流量分析，您可以：
 
@@ -28,24 +28,24 @@ ms.locfileid: "74229427"
 - 透過開啟的連接埠、嘗試存取網際網路的應用程式，和連線至 Rogue 網路的虛擬機器 (VM) 等資訊，識別網路的安全性威脅並保護您的網路。
 - 了解各個 Azure 區域間和網際網路的流量模式，使網路部署達到最理想的效能和容量。
 - 找出導致網路連線失敗的網路設定錯誤。
-- Know network usage in bytes, packets, or flows.
+- 瞭解網路使用量（位元組、封包或流量）。
 
 ### <a name="data-aggregation"></a>資料彙總
 
-1. All  flow logs at an NSG between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t” are captured at one-minute intervals in the storage account as blobs before being processed by Traffic Analytics.
-2. Default processing interval of Traffic Analytics is 60 minutes. This means that every 60 mins Traffic Analytics picks blobs from storage for aggregation. If processing interval chosen is 10 mins, Traffic Analytics will pick blobs from storage account after every 10 mins.
-3. Flows that have the same Source IP, Destination IP, Destination port, NSG name, NSG rule, Flow Direction, and Transport layer protocol (TCP or UDP) (Note: Source port is excluded for aggregation) are clubbed into a single flow by Traffic Analytics
-4. This single record is decorated (Details in the section below) and ingested in Log Analytics by Traffic Analytics.This process can take upto 1 hour max.
-5. FlowStartTime_t field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”.
-6. For any resource in TA, the flows indicated in the UI are total flows seen by the NSG, but in Log Analytics user will see only the single, reduced record. To see all the flows, use the blob_id field,  which can be referenced from Storage. The total flow count for that record will match the individual flows seen in the blob.
+1. 在「FlowIntervalStartTime_t」和「FlowIntervalEndTime_t」之間的 NSG 中，所有流量記錄都會在儲存體帳戶中以一分鐘的間隔，以 blob 的形式在流量分析進行處理之前，以一分鐘為單位來捕捉。
+2. 流量分析的預設處理間隔為60分鐘。 這表示每個60分鐘的流量分析都會從儲存體挑選 blob 以進行匯總。 如果選擇的處理間隔為10分鐘，則流量分析會在每隔10分鐘後從儲存體帳戶挑選 blob。
+3. 具有相同來源 IP、目的地 IP、目的地埠、NSG 名稱、NSG 規則、流量方向和傳輸層通訊協定（TCP 或 UDP）的流程（注意：排除匯總的來源埠）會透過流量分析 clubbed 至單一流程
+4. 這項單一記錄已裝飾（下一節中的詳細資料），並由流量分析在 Log Analytics 中內嵌。此程式最多可能需要1小時的上限。
+5. FlowStartTime_t 欄位指出在「FlowIntervalStartTime_t」和「FlowIntervalEndTime_t」之間的流量記錄處理間隔中，第一次出現這類的匯總流程（相同的四個元組）。
+6. 對於 TA 中的任何資源，UI 中指出的流程是 NSG 所看到的流程總數，但在 Log Analytics 中，使用者只會看到單一的已縮減記錄。 若要查看所有流程，請使用 [blob_id] 欄位，其可從儲存體參考。 該記錄的流程計數總計會符合 blob 中所見的個別流程。
 
-The below query helps you looks at all flow logs from on-premises in the last 30 days.
+下列查詢可協助您查看過去30天內來自內部部署的所有流量記錄。
 ```
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
 | project Subnet_s  
 ```
-To view the blob path for the flows in the above mentioned query, use the query below:
+若要在上述查詢中查看流程的 blob 路徑，請使用下列查詢：
 
 ```
 let TableWithBlobId =
@@ -77,104 +77,104 @@ TableWithBlobId
 | project Subnet_s , BlobPath
 ```
 
-The above query constructs a URL to access the blob directly. The URL with place-holders is below:
+上述查詢會建立直接存取 blob 的 URL。 具有預留位置的 URL 如下所示：
 
 ```
 https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroup}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
 ```
 
-### <a name="fields-used-in-traffic-analytics-schema"></a>Fields used in Traffic Analytics schema
+### <a name="fields-used-in-traffic-analytics-schema"></a>用於流量分析架構的欄位
   > [!IMPORTANT]
-  > The Traffic Analytics Schema has been updated on 22nd August, 2019. The new schema provides source and destination IPs separately removing need to parse FlowDirection field making queries simpler. </br>
-  > FASchemaVersion_s updated from 1 to 2. </br>
-  > Deprecated fields: VMIP_s, Subscription_s, Region_s, NSGRules_s, Subnet_s, VM_s, NIC_s, PublicIPs_s, FlowCount_d </br>
-  > New fields: SrcPublicIPs_s, DestPublicIPs_s, NSGRule_s </br>
-  > Deprecated fields will be available until 22nd November, 2019.
+  > 已于2019年8月22日更新了流量分析架構。 新的架構提供來源和目的地 Ip，而不需要剖析 System.windows.frameworkelement.flowdirection 欄位，讓查詢更簡單。 </br>
+  > FASchemaVersion_s 從1更新為2。 </br>
+  > 已取代的欄位： VMIP_s、Subscription_s、Region_s、NSGRules_s、Subnet_s、VM_s、NIC_s、PublicIPs_s、FlowCount_d </br>
+  > 新欄位： SrcPublicIPs_s、DestPublicIPs_s、NSGRule_s </br>
+  > 2019年11月22日之前，已淘汰的欄位將可供使用。
 
-Traffic Analytics is built on top of Log Analytics, so you can run custom queries on data decorated by Traffic Analytics and set alerts on the same.
+流量分析是以 Log Analytics 為基礎，因此，您可以對由流量分析裝飾的資料執行自訂查詢，並在相同的上設定警示。
 
-Listed below are the fields in the schema and what they signify
+以下列出架構中的欄位，以及它們所代表的意義
 
 | 欄位 | 格式 | 註解 |
 |:---   |:---    |:---  |
-| TableName | AzureNetworkAnalytics_CL | Table for Traffic Analytics data
-| SubType_s | FlowLog | Subtype for the flow logs. Use only "FlowLog", other values of SubType_s are for internal workings of the product |
-| FASchemaVersion_s |   2   | Schema version. Does not reflect NSG Flow Log version |
-| TimeProcessed_t   | Date and Time in UTC  | Time at which the Traffic Analytics processed the raw flow logs from the storage account |
-| FlowIntervalStartTime_t | Date and Time in UTC |  Starting time of the flow log processing interval. This is time from which flow interval is measured |
-| FlowIntervalEndTime_t | Date and Time in UTC | Ending time of the flow log processing interval |
-| FlowStartTime_t | Date and Time in UTC |  First occurrence of the flow (which will get aggregated) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. This flow gets aggregated based on aggregation logic |
-| FlowEndTime_t | Date and Time in UTC | Last occurrence of the flow (which will get aggregated) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. In terms of flow log v2, this field contains the time when the last flow with the same four-tuple started (marked as “B” in the raw flow record) |
-| FlowType_s |  * IntraVNet <br> * InterVNet <br> * S2S <br> * P2S <br> * AzurePublic <br> * ExternalPublic <br> * MaliciousFlow <br> * Unknown Private <br> * Unknown | Definition in notes below the table |
-| SrcIP_s | 來源 IP 位址 | Will be blank in case of AzurePublic and ExternalPublic flows |
-| DestIP_s | 目的地 IP 位址 | Will be blank in case of AzurePublic and ExternalPublic flows |
-| VMIP_s | IP of the VM | Used for AzurePublic and ExternalPublic flows |
-| PublicIP_s | 公用 IP 位址 | Used for AzurePublic and ExternalPublic flows |
-| DestPort_d | 目的地連接埠 | Port at which traffic is incoming |
-| L4Protocol_s  | * T <br> * U  | Transport Protocol. T = TCP <br> U = UDP |
-| L7Protocol_s  | Protocol Name | Derived from destination port |
-| FlowDirection_s | * I = Inbound<br> * O = Outbound | Direction of the flow in/out of NSG as per flow log |
-| FlowStatus_s  | * A = Allowed by NSG Rule <br> *  D = Denied by NSG Rule  | Status of flow allowed/nblocked by NSG as per flow log |
-| NSGList_s | \<SUBSCRIPTIONID>\/<RESOURCEGROUP_NAME>\/<NSG_NAME> | Network Security Group (NSG) associated with the flow |
-| NSGRules_s | \<Index value 0)>\|\<NSG_RULENAME>\|\<Flow Direction>\|\<Flow Status>\|\<FlowCount ProcessedByRule> |  NSG rule that allowed or denied this flow |
-| NSGRule_s | NSG_RULENAME |  NSG rule that allowed or denied this flow |
-| NSGRuleType_s | * User Defined *  Default |   The type of NSG Rule used by the flow |
-| MACAddress_s | MAC 位址 | MAC address of the NIC at which the flow was captured |
-| Subscription_s | Subscription of the Azure virtual network/ network interface/ virtual machine is populated in this field | Applicable only for FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow, and UnknownPrivate flow types (flow types where only one side is azure) |
-| Subscription1_s | 訂用帳戶 ID | Subscription ID of virtual network/ network interface/ virtual machine to which the source IP in the flow belongs to |
-| Subscription2_s | 訂用帳戶 ID | Subscription ID of virtual network/ network interface/ virtual machine to which the destination IP in the flow belongs to |
-| Region_s | Azure region of virtual network/ network interface/ virtual machine to which the IP in the flow belongs to | Applicable only for FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow, and UnknownPrivate flow types (flow types where only one side is azure) |
-| Region1_s | Azure 地區 | Azure region of virtual network/ network interface/ virtual machine to which the source IP in the flow belongs to |
-| Region2_s | Azure 地區 | Azure region of virtual network to which the destination IP in the flow belongs to |
-| NIC_s | \<resourcegroup_Name>\/\<NetworkInterfaceName> |  NIC associated with the VM sending or receiving the traffic |
-| NIC1_s | <resourcegroup_Name>/\<NetworkInterfaceName> | NIC associated with the source IP in the flow |
-| NIC2_s | <resourcegroup_Name>/\<NetworkInterfaceName> | NIC associated with the destination IP in the flow |
-| VM_s | <resourcegroup_Name>\/\<NetworkInterfaceName> | Virtual Machine associated with the Network interface NIC_s |
-| VM1_s | <resourcegroup_Name>/\<VirtualMachineName> | Virtual Machine associated with the source IP in the flow |
-| VM2_s | <resourcegroup_Name>/\<VirtualMachineName> | Virtual Machine associated with the destination IP in the flow |
-| Subnet_s | <ResourceGroup_Name>/<VNET_Name>/\<SubnetName> | Subnet associated with the NIC_s |
-| Subnet1_s | <ResourceGroup_Name>/<VNET_Name>/\<SubnetName> | Subnet associated with the Source IP in the flow |
-| Subnet2_s | <ResourceGroup_Name>/<VNET_Name>/\<SubnetName>    | Subnet associated with the Destination IP in the flow |
-| ApplicationGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the Source IP in the flow |
-| ApplicationGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the Destination IP in the flow |
-| LoadBalancer1_s | \<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer associated with the Source IP in the flow |
-| LoadBalancer2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer associated with the Destination IP in the flow |
-| LocalNetworkGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the Source IP in the flow |
-| LocalNetworkGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the Destination IP in the flow |
-| ConnectionType_s | Possible values are VNetPeering, VpnGateway, and ExpressRoute |    Connection Type |
-| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | 連線名稱 |
-| ConnectingVNets_s | Space separated list of virtual network names | In case of hub and spoke topology, hub virtual networks will be populated here |
-| Country_s | Two letter country code (ISO 3166-1 alpha-2) | Populated for flow type ExternalPublic. All IP addresses in PublicIPs_s field will share the same country code |
-| AzureRegion_s | Azure region locations | Populated for flow type AzurePublic. All IP addresses in PublicIPs_s field will share the Azure region |
-| AllowedInFlows_d | | Count of inbound flows that were allowed. This represents the number of flows that shared the same four-tuple inbound to the network interface at which the flow was captured |
-| DeniedInFlows_d |  | Count of inbound flows that were denied. (Inbound to the network interface at which the flow was captured) |
-| AllowedOutFlows_d | | Count of outbound flows that were allowed (Outbound to the network interface at which the flow was captured) |
-| DeniedOutFlows_d  | | Count of outbound flows that were denied (Outbound to the network interface at which the flow was captured) |
-| FlowCount_d | 已被取代。 Total flows that matched the same four-tuple. In case of flow types ExternalPublic and AzurePublic, count will include the flows from various PublicIP addresses as well.
-| InboundPackets_d | Packets received as captured at the network interface where NSG rule was applied | This is populated only for the Version 2 of NSG flow log schema |
-| OutboundPackets_d  | Packets sent as captured at the network interface where NSG rule was applied | This is populated only for the Version 2 of NSG flow log schema |
-| InboundBytes_d |  Bytes received as captured at the network interface where NSG rule was applied | This is populated only for the Version 2 of NSG flow log schema |
-| OutboundBytes_d | Bytes sent as captured at the network interface where NSG rule was applied | This is populated only for the Version 2 of NSG flow log schema |
-| CompletedFlows_d  |  | This is populated with non-zero value only for the Version 2 of NSG flow log schema |
-| PublicIPs_s | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars |
-| SrcPublicIPs_s | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars |
-| DestPublicIPs_s | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars |
+| TableName | AzureNetworkAnalytics_CL | 適用于流量分析資料的資料表
+| SubType_s | FlowLog | 流量記錄的子類型。 僅使用 "FlowLog"，其他 SubType_s 值適用于產品的內部運作 |
+| FASchemaVersion_s |   2   | 架構版本。 不會反映 NSG 流量記錄版本 |
+| TimeProcessed_t   | 日期和時間（UTC）  | 流量分析從儲存體帳戶處理原始流量記錄的時間 |
+| FlowIntervalStartTime_t | 日期和時間（UTC） |  流量記錄處理間隔的開始時間。 這是測量流程間隔的時間 |
+| FlowIntervalEndTime_t | 日期和時間（UTC） | 流量記錄處理間隔的結束時間 |
+| FlowStartTime_t | 日期和時間（UTC） |  在「FlowIntervalStartTime_t」和「FlowIntervalEndTime_t」之間的流量記錄處理間隔中，第一次出現的流程（將會匯總）。 此流程會根據匯總邏輯進行匯總 |
+| FlowEndTime_t | 日期和時間（UTC） | 在「FlowIntervalStartTime_t」和「FlowIntervalEndTime_t」之間的流量記錄處理間隔中，最後一次出現的流程（將會匯總）。 就流量記錄 v2 而言，此欄位包含已啟動相同四個元組之最後一個流程的時間（在原始流程記錄中標示為 "B"） |
+| FlowType_s |  * IntraVNet <br> * Vnet 之間 <br> * S2S <br> * P2S <br> * AzurePublic <br> * ExternalPublic <br> * MaliciousFlow <br> * 未知的私用 <br> * 未知 | 資料表下方附注中的定義 |
+| SrcIP_s | 來源 IP 位址 | 會在 AzurePublic 和 ExternalPublic 流程的情況下為空白 |
+| DestIP_s | 目的地 IP 位址 | 會在 AzurePublic 和 ExternalPublic 流程的情況下為空白 |
+| VMIP_s | VM 的 IP | 用於 AzurePublic 和 ExternalPublic 流程 |
+| PublicIP_s | 公用 IP 位址 | 用於 AzurePublic 和 ExternalPublic 流程 |
+| DestPort_d | 目的地連接埠 | 傳入流量的埠 |
+| L4Protocol_s  | * T <br> * U  | 傳輸通訊協定。 T = TCP <br> U = UDP |
+| L7Protocol_s  | 通訊協定名稱 | 衍生自目的地埠 |
+| FlowDirection_s | * I = 輸入<br> * O = 輸出 | 流程流入/流出 NSG 的方向（依流量記錄） |
+| FlowStatus_s  | * A = NSG 規則允許的 <br> * D = 被 NSG 規則拒絕  | 依流量記錄 NSG 允許/nblocked 的流程狀態 |
+| NSGList_s | \<SUBSCRIPTIONID >\/< RESOURCEGROUP_NAME >\/< NSG_NAME > | 與流程相關聯的網路安全性群組（NSG） |
+| NSGRules_s | \<索引值0） >\|\<NSG_RULENAME >\|\<流程方向 >\|\<流程狀態 >\|\<FlowCount ProcessedByRule > |  允許或拒絕此流程的 NSG 規則 |
+| NSGRule_s | NSG_RULENAME |  允許或拒絕此流程的 NSG 規則 |
+| NSGRuleType_s | * 使用者定義 * 預設值 |   流程所使用的 NSG 規則類型 |
+| MACAddress_s | MAC 位址 | 已在其上捕獲流程之 NIC 的 MAC 位址 |
+| Subscription_s | Azure 虛擬網路/網路介面/虛擬機器的訂用帳戶已填入此欄位 | 僅適用于 FlowType = S2S、P2S、AzurePublic、ExternalPublic、MaliciousFlow 和 UnknownPrivate 流程類型（只有一個端為 azure 的流程類型） |
+| Subscription1_s | 訂用帳戶識別碼 | 流程中來源 IP 所屬之虛擬網路/網路介面/虛擬機器的訂用帳戶識別碼 |
+| Subscription2_s | 訂用帳戶識別碼 | 流程中目的地 IP 所屬之虛擬網路/網路介面/虛擬機器的訂用帳戶識別碼 |
+| Region_s | 流程中的 IP 所屬虛擬網路/網路介面/虛擬機器的 Azure 區域 | 僅適用于 FlowType = S2S、P2S、AzurePublic、ExternalPublic、MaliciousFlow 和 UnknownPrivate 流程類型（只有一個端為 azure 的流程類型） |
+| Region1_s | Azure 區域 | 流程中的來源 IP 所屬之虛擬網路/網路介面/虛擬機器的 Azure 區域 |
+| Region2_s | Azure 區域 | 流程中目的地 IP 所屬之虛擬網路的 Azure 區域 |
+| NIC_s | \<resourcegroup_Name >\/\<NetworkInterfaceName > |  與傳送或接收流量的 VM 相關聯的 NIC |
+| NIC1_s | < resourcegroup_Name >/\<NetworkInterfaceName > | 與流程中的來源 IP 相關聯的 NIC |
+| NIC2_s | < resourcegroup_Name >/\<NetworkInterfaceName > | 與流程中目的地 IP 相關聯的 NIC |
+| VM_s | < resourcegroup_Name >\/\<NetworkInterfaceName > | 與網路介面相關聯的虛擬機器 NIC_s |
+| VM1_s | < resourcegroup_Name >/\<VirtualMachineName > | 與流程中的來源 IP 相關聯的虛擬機器 |
+| VM2_s | < resourcegroup_Name >/\<VirtualMachineName > | 與流程中的目的地 IP 相關聯的虛擬機器 |
+| Subnet_s | < ResourceGroup_Name >/< VNET_Name >/\<SubnetName > | 與 NIC_s 相關聯的子網 |
+| Subnet1_s | < ResourceGroup_Name >/< VNET_Name >/\<SubnetName > | 與流程中的來源 IP 相關聯的子網 |
+| Subnet2_s | < ResourceGroup_Name >/< VNET_Name >/\<SubnetName >    | 與流程中目的地 IP 相關聯的子網 |
+| ApplicationGateway1_s | \<SubscriptionID >/\<ResourceGroupName >/\<ApplicationGatewayName > | 與流程中的來源 IP 相關聯的應用程式閘道 |
+| ApplicationGateway2_s | \<SubscriptionID >/\<ResourceGroupName >/\<ApplicationGatewayName > | 與流程中的目的地 IP 相關聯的應用程式閘道 |
+| LoadBalancer1_s | \<SubscriptionID >/\<ResourceGroupName >/\<LoadBalancerName > | 與流程中的來源 IP 相關聯的負載平衡器 |
+| LoadBalancer2_s | \<SubscriptionID >/\<ResourceGroupName >/\<LoadBalancerName > | 與流程中的目的地 IP 相關聯的負載平衡器 |
+| LocalNetworkGateway1_s | \<SubscriptionID >/\<ResourceGroupName >/\<LocalNetworkGatewayName > | 與流程中的來源 IP 相關聯的局域網路閘道 |
+| LocalNetworkGateway2_s | \<SubscriptionID >/\<ResourceGroupName >/\<LocalNetworkGatewayName > | 與流程中目的地 IP 相關聯的局域網路閘道 |
+| ConnectionType_s | 可能的值為 VNetPeering、VpnGateway 和 ExpressRoute |    連線類型 |
+| ConnectionName_s | \<SubscriptionID >/\<ResourceGroupName >/\<ConnectionName > | 連線名稱 |
+| ConnectingVNets_s | 以空格分隔的虛擬網路名稱清單 | 如果是中樞和輪輻拓撲，則會在此填入中樞虛擬網路 |
+| Country_s | 兩個字母的國家/地區代碼（ISO 3166-1 Alpha-2） | 已填入流程類型 ExternalPublic。 PublicIPs_s 欄位中的所有 IP 位址都會共用相同的國家/地區代碼 |
+| AzureRegion_s | Azure 區域位置 | 已填入流程類型 AzurePublic。 PublicIPs_s 欄位中的所有 IP 位址都會共用 Azure 區域 |
+| AllowedInFlows_d | | 允許的輸入流程計數。 這代表將相同的四個元組輸入至已在其上捕獲流程之網路介面的流程數目 |
+| DeniedInFlows_d |  | 已拒絕的傳入流量計數。 （輸入至已捕捉流程的網路介面） |
+| AllowedOutFlows_d | | 允許的輸出流程計數（輸出至已攔截流程的網路介面） |
+| DeniedOutFlows_d  | | 已拒絕的輸出流量計數（輸出到已攔截流程的網路介面） |
+| FlowCount_d | 已被取代。 符合相同四個元組的流程總數。 在 ExternalPublic 和 AzurePublic 流程類型的情況下，count 會包含來自各種 PublicIP 位址的流程。
+| InboundPackets_d | 在套用 NSG 規則的網路介面上接收為已捕捉的封包 | 這只會針對第2版的 NSG 流量記錄架構而填入。 |
+| OutboundPackets_d  | 在套用 NSG 規則的網路介面上以捕捉方式傳送的封包 | 這只會針對第2版的 NSG 流量記錄架構而填入。 |
+| InboundBytes_d |  在套用 NSG 規則的網路介面上收到的位元組已被捕獲 | 這只會針對第2版的 NSG 流量記錄架構而填入。 |
+| OutboundBytes_d | 在套用 NSG 規則的網路介面上，以捕捉的形式傳送的位元組 | 這只會針對第2版的 NSG 流量記錄架構而填入。 |
+| CompletedFlows_d  |  | 這只會針對 NSG 流量記錄架構的第2版填入非零值 |
+| PublicIPs_s | < PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|\<FLOW_ENDED_COUNT >\|\<OUTBOUND_PACKETS >\|\<INBOUND_PACKETS >\|\<OUTBOUND_BYTES >\|\<INBOUND_BYTES > | 以橫條分隔的專案 |
+| SrcPublicIPs_s | < SOURCE_PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|\<FLOW_ENDED_COUNT >\|\<OUTBOUND_PACKETS >\|\<INBOUND_PACKETS >\|\<OUTBOUND_BYTES >\|\<INBOUND_BYTES > | 以橫條分隔的專案 |
+| DestPublicIPs_s | < DESTINATION_PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|\<FLOW_ENDED_COUNT >\|\<OUTBOUND_PACKETS >\|\<INBOUND_PACKETS >\|\<OUTBOUND_BYTES >\|\<INBOUND_BYTES > | 以橫條分隔的專案 |
 
-### <a name="notes"></a>注意
+### <a name="notes"></a>注意事項
 
-1. In case of AzurePublic and ExternalPublic flows, the customer owned Azure VM IP is populated in VMIP_s field, while the Public IP addresses are being populated in the PublicIPs_s field. For these two flow types, we should use VMIP_s and PublicIPs_s instead of SrcIP_s and DestIP_s fields. For AzurePublic and ExternalPublicIP addresses, we aggregate further, so that the number of records ingested to customer log analytics workspace is minimal.(This field will be deprecated soon and we should be using SrcIP_ and DestIP_s depending on whether azure VM was the source or the destination in the flow)
-1. Details for flow types: Based on the IP addresses involved in the flow, we categorize the flows in to the following flow types:
-1. IntraVNet – Both the IP addresses in the flow reside in the same Azure Virtual Network.
-1. InterVNet - IP addresses in the flow reside in the two different Azure Virtual Networks.
-1. S2S – (Site To Site) One of the IP addresses belongs to Azure Virtual Network while the other IP address belongs to customer network (Site) connected to the Azure Virtual Network through VPN gateway or Express Route.
-1. P2S - (Point To Site) One of the IP addresses belongs to Azure Virtual Network while the other IP address belongs to customer network (Site) connected to the Azure Virtual Network through VPN gateway.
-1. AzurePublic - One of the IP addresses belongs to Azure Virtual Network while the other IP address belongs to Azure Internal Public IP addresses owned by Microsoft. Customer owned Public IP addresses won’t be part of this flow type. For instance, any customer owned VM sending traffic to an Azure Service (Storage endpoint) would be categorized under this flow type.
-1. ExternalPublic - One of the IP addresses belongs to Azure Virtual Network while the other IP address is a public IP that is not in Azure, is not reported as malicious in the ASC feeds that Traffic Analytics consumes for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”.
-1. MaliciousFlow - One of the IP addresses belong to azure virtual network while the other IP address is a public IP that is not in Azure and  is reported as malicious in the ASC feeds that Traffic Analytics consumes for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”.
-1. UnknownPrivate - One of the IP addresses belong to Azure Virtual Network while the other IP address belongs to private IP range as defined in RFC 1918 and could not be mapped by Traffic Analytics to a customer owned site or Azure Virtual Network.
-1. Unknown – Unable to map the either of the IP addresses in the flows with the customer topology in Azure as well as on-premises (site).
-1. Some field names are appended with \_s or \_d. These do NOT signify source and destination but indicate the data types string and decimal respectively.
+1. 在 AzurePublic 和 ExternalPublic 流程的情況下，客戶擁有的 Azure VM IP 會填入 VMIP_s 欄位中，而公用 IP 位址則會填入 PublicIPs_s 欄位中。 針對這兩種流程類型，我們應該使用 VMIP_s 和 PublicIPs_s，而不是 SrcIP_s 和 DestIP_s 欄位。 針對 AzurePublic 和 ExternalPublicIP 位址，我們會進一步匯總，使內嵌至客戶 log analytics 工作區的記錄數目最少。（此欄位即將淘汰，我們應該使用 SrcIP_ 和 DestIP_s，視 azure VM 是否為流程中的來源或目的地而定）
+1. 流量類型的詳細資料：根據流程中涉及的 IP 位址，我們會將流程分類為下列流程類型：
+1. IntraVNet –流程中的兩個 IP 位址都位於相同的 Azure 虛擬網路。
+1. Vnet 之間-流程中的 IP 位址位於兩個不同的 Azure 虛擬網路中。
+1. S2S –（站對站）其中一個 IP 位址屬於 Azure 虛擬網路，而另一個 IP 位址則屬於透過 VPN 閘道或 Express Route 連線到 Azure 虛擬網路的客戶網路（Site）。
+1. P2S-（點對站）其中一個 IP 位址屬於 Azure 虛擬網路，而另一個 IP 位址則屬於透過 VPN 閘道連線至 Azure 虛擬網路的客戶網路（網站）。
+1. AzurePublic-其中一個 IP 位址屬於 Azure 虛擬網路，而另一個 IP 位址屬於 Microsoft 所擁有的 Azure 內部公用 IP 位址。 客戶擁有的公用 IP 位址不是此流程類型的一部分。 例如，將流量傳送至 Azure 服務（儲存體端點）的任何客戶擁有的 VM，都會以此流程類型分類。
+1. ExternalPublic-其中一個 IP 位址屬於 Azure 虛擬網路，而另一個 IP 位址是不在 Azure 中的公用 IP，則在流量分析在 ASC 摘要中不會回報為惡意的FlowIntervalStartTime_t "和" FlowIntervalEndTime_t "。
+1. MaliciousFlow-其中一個 IP 位址屬於 azure 虛擬網路，而另一個 IP 位址是不在 Azure 中的公用 IP，且在 ASC 摘要中回報為惡意，而流量分析會在「FlowIntervalStartTime_t "和" FlowIntervalEndTime_t "。
+1. UnknownPrivate-其中一個 IP 位址屬於 Azure 虛擬網路，而另一個 IP 位址屬於私人 IP 範圍（如 RFC 1918 中所定義），而且無法由流量分析對應至客戶擁有的網站或 Azure 虛擬網路。
+1. 不明–無法將流程中的其中一個 IP 位址與 Azure 中的客戶拓撲以及內部部署（網站）對應。
+1. 某些功能變數名稱會附加 \_s 或 \_d。 這些不表示來源和目的地，但會分別表示資料類型字串和十進位數。
 
 ### <a name="next-steps"></a>後續步驟
-To get answers to frequently asked questions, see [Traffic analytics FAQ](traffic-analytics-faq.md) To see details about functionality, see [Traffic analytics documentation](traffic-analytics.md)
+若要取得常見問題的解答，請參閱使用[分析常見問題](traffic-analytics-faq.md)以查看功能的詳細資料，請參閱使用[分析檔](traffic-analytics.md)

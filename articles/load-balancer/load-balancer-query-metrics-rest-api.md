@@ -1,7 +1,7 @@
 ---
 title: 使用 REST API 來擷取計量
 titleSuffix: Azure Load Balancer
-description: In this article, get started using the Azure REST APIs to collect health and usage metrics for Azure Load Balancer.
+description: 在本文中，您可以開始使用 Azure REST Api 來收集 Azure Load Balancer 的健康情況和使用計量。
 services: sql-database
 author: asudbring
 manager: KumudD
@@ -17,9 +17,9 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74225249"
 ---
-# <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Get Load Balancer usage metrics using the REST API
+# <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>使用 REST API 取得 Load Balancer 使用計量
 
-Collect the number of bytes processed by a [Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) for an interval of time using the [Azure REST API](/rest/api/azure/).
+使用[Azure REST API](/rest/api/azure/)收集[Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview)在一段時間內處理的位元組數。
 
 REST API 的完整參考文件和其他範例可於 [Azure 監視器 REST 參考](/rest/api/monitor)中取得。 
 
@@ -42,17 +42,17 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="uri-parameters"></a>URI 參數
 
-| Name | 描述 |
+| 名稱 | 描述 |
 | :--- | :---------- |
 | subscriptionId | 可識別 Azure 訂用帳戶的訂用帳戶識別碼。 如果您有多個訂用帳戶，請參閱[使用多個訂用帳戶](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)。 |
 | resourceGroupName | 包含資源的資源群組名稱。 您可以從 Azure Resource Manager API、CLI 或入口網站取得這個值。 |
 | loadBalancerName | Azure Load Balancer 的名稱。 |
-| metric names | 以逗號分隔的有效 [Load Balancer 計量](/azure/load-balancer/load-balancer-standard-diagnostics)清單。 |
+| 度量名稱 | 以逗號分隔的有效 [Load Balancer 計量](/azure/load-balancer/load-balancer-standard-diagnostics)清單。 |
 | api-version | 要用於要求的 API 版本。<br /><br /> 本文件涵蓋 api-version `2018-01-01`，內含於上述 URL 中。  |
-| timespan | 查詢的時間範圍。 It's a string with the following format `startDateTime_ISO/endDateTime_ISO`. 此選用參數會設定為傳回此範例中一天份的資料。 |
+| timespan | 查詢的時間範圍。 這是一個字串，其格式為 `startDateTime_ISO/endDateTime_ISO`。 此選用參數會設定為傳回此範例中一天份的資料。 |
 | &nbsp; | &nbsp; |
 
-### <a name="request-body"></a>Request body
+### <a name="request-body"></a>要求本文
 
 這項作業不需要要求本文。
 

@@ -1318,7 +1318,7 @@ Azure 異地複寫可在 VM 中的每個 VHD 上本機運作，而且不會依�
 1. 未針對子網路或網路介面定義網路安全性群組。 可透過所謂的「網路安全性群組」來保護 Azure VM 的網路流量。 如需詳細資訊，請參閱 [什麼是網路安全性群組 (NSG)？][virtual-networks-nsg]
 2. 未針對網路介面定義 Azure Load Balancer   
 
-如[本文][virtual-machines-azure-resource-manager-architecture]所述，請參閱傳統模型與 ARM 之間的架構差異。
+如本文所述，請參閱傳統模型與 ARM 之間的架構[差異。][virtual-machines-azure-resource-manager-architecture]
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>透過網際網路設定 SAP 系統和 SAP GUI 連線能力
 
