@@ -1,22 +1,22 @@
 ---
-title: 使用 Azure 地圖服務的互動式地圖搜尋 | Microsoft Docs
+title: 快速入門：使用 Azure 地圖服務的互動式地圖搜尋
 description: Azure 快速入門 - 使用 Azure 地圖服務建立互動式地圖搜尋示範
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 092da53c3179d939ebf0472219338b8d8392fda6
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1b9d8c98391e7e2bac3492dcf696f098f5c6cf57
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554260"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903171"
 ---
-# <a name="create-an-interactive-search-map-by-using-azure-maps"></a>使用 Azure 地圖服務建立互動式地圖搜尋
+# <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>快速入門：使用 Azure 地圖服務建立互動式地圖搜尋
 
 本文示範 Azure 地圖服務建立地圖的功能，為使用者建立提供互動式搜尋體驗的地圖。 文中會逐步引導您完成下列基本步驟：
 * 建立您自己的 Azure 地圖服務帳戶。

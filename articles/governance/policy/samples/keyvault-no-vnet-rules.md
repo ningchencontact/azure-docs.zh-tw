@@ -1,21 +1,18 @@
 ---
 title: 範例 - 沒有 vNet 端點的金鑰保存庫
 description: 此原則定義範例會稽核 Key Vault 保存庫，以偵測無虛擬網路服務端點的執行個體。
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/26/2019
-ms.author: dacoulte
-ms.openlocfilehash: 7bcbcdf68b3c8f882a1e0fbb9953fea575f96556
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 078a781ca96df421d52179f5e8d25650def8a2f3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255735"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076211"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>範例 - 無虛擬網路端點的 Key Vault 保存庫
 
-此原則會稽核沒有虛擬網路端點的 Key Vault 保存庫。 用來強制執行您的安全需求。 如需詳細資訊，請參閱 [Key Vault 中的虛擬網路服務端點](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
+此範例會說明如何針對沒有虛擬網路端點的金鑰保存庫，[整合 Key Vault 與 Azure 原則](../../../key-vault/azure-policy.md)的稽核。 用來強制執行您的安全需求。 如需詳細資訊，請參閱 [Key Vault 中的虛擬網路服務端點](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
 
 您可以利用下列各項部署此範例原則：
 
@@ -187,4 +184,5 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 ## <a name="next-steps"></a>後續步驟
 
 - 檢閱其他 [Azure 原則範例](index.md)
+- 了解如何[整合 Azure Key Vault 與 Azure 原則](../../../key-vault/azure-policy.md)。
 - 檢閱 [Azure 原則定義結構](../concepts/definition-structure.md)

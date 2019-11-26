@@ -1,6 +1,6 @@
 ---
 title: 手動容錯移轉 Azure IoT 中樞 | Microsoft Docs
-description: 示範如何執行手動容錯移轉 Azure IoT 中樞
+description: 了解如何將 IoT 中樞手動容錯移轉至不同區域的，並確認它可正常運作，然後將其移轉回原始區域並再次加以檢查。
 author: robinsh
 manager: timlt
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 308e452f33ded9be3b88ff370ed34326de54895c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 42785e3ee636f24ca185f57a11d4ee1091db3e98
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876925"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890419"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>教學課程：執行手動容錯移轉 IoT 中樞
 
@@ -31,7 +31,7 @@ ms.locfileid: "69876925"
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 

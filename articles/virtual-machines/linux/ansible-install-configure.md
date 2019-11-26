@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - 在 Azure 中的 Linux 虛擬機器上安裝 Ansible | Microsoft Docs
+title: 快速入門 - 在 Azure 中的 Linux 虛擬機器上安裝 Ansible
 description: 在本快速入門中，您將了解如何安裝及設定 Ansible，以便管理 Ubuntu、CentOS 和 SLES 上的 Azure 資源
 keywords: ansible、azure、devops、bash、cloudshell、腳本、bash
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: d3302d999dd70a83be18ce610b9c3d44992c865c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: a1ea5814ffd201456a2751b37b77f3062cac789a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671852"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037062"
 ---
 # <a name="quickstart-install-ansible-on-linux-virtual-machines-in-azure"></a>快速入門：在 Azure 中的 Linux 虛擬機器上安裝 Ansible
 

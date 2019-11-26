@@ -1,5 +1,5 @@
 ---
-title: 教學課程：Azure Active Directory 與 Academy Attendanc 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 Academy Attendance 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 Academy Attendance 之間的單一登入。
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/26/2019
+ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 489284a83483bb20353818adf275303b027255ce
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2e3214572042f4a6d6cf5e6e160a4d37a9f2909d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641250"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082117"
 ---
-# <a name="tutorial-integrate-academy-attendance-with-azure-active-directory"></a>教學課程：整合 Academy Attendance 與 Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-academy-attendance"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Academy Attendance 整合
 
 在本教學課程中，您會了解如何整合 Academy Attendance 與 Azure Active Directory (Azure AD)。 在整合 Academy Attendance 與 Azure AD 時，您可以︰
 
@@ -37,7 +37,7 @@ ms.locfileid: "68641250"
 
 若要開始，您需要下列項目：
 
-* Azure AD 訂用帳戶。 如果沒有訂用帳戶，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的免費試用。
+* Azure AD 訂用帳戶。 如果沒有訂用帳戶，您可以取得[免費帳戶](https://azure.microsoft.com/free/)。
 * 已啟用 Academy Attendance 單一登入 (SSO) 的訂用帳戶。
 
 ## <a name="scenario-description"></a>案例描述
@@ -45,7 +45,10 @@ ms.locfileid: "68641250"
 在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
 
 * Academy Attendance 支援 **SP** 起始的 SSO
+
+
 * Academy Attendance 支援 **Just In Time** 使用者佈建
+
 
 ## <a name="adding-academy-attendance-from-the-gallery"></a>從資源庫新增 Academy Attendance
 
@@ -58,25 +61,26 @@ ms.locfileid: "68641250"
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **Academy Attendance**。
 1. 從結果面板選取 [Academy Attendance]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+
+## <a name="configure-and-test-azure-ad-single-sign-on-for-academy-attendance"></a>設定及測試適用於 Academy Attendance 的 Azure AD 單一登入
 
 以名為 **B.Simon** 的測試使用者，設定及測試與 Academy Attendance 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 Academy Attendance 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Academy Attendance 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
-2. **[設定 Academy Attendance SSO](#configure-academy-attendance-sso)** - 在應用程式端設定單一登入設定。
-3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B. Simon 測試 Azure AD 單一登入。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B. Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Academy Attendance 測試使用者](#create-academy-attendance-test-user)** - 使 Academy Attendance 中對應的 B. Simon 連結到該使用者在 Azure AD 中的代表項目。
-6. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
+    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+1. **[設定 Academy Attendance SSO](#configure-academy-attendance-sso)** - 在應用程式端設定單一登入設定。
+    1. **[建立 Academy Attendance 測試使用者](#create-academy-attendance-test-user)** - 使 Academy Attendance 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
-### <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Academy Attendance]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
-1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
+1. 在 [**選取單一登入方法**] 頁面上，選取 [**SAML**]。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
@@ -90,48 +94,26 @@ ms.locfileid: "68641250"
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [ 用戶端支援小組](mailto:support@yournextconcepts.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-1. Academy Attendance 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性]  區段中管理這些屬性的值。 下列螢幕擷取畫面說明如何設定判斷提示：
+1. Academy Attendance 應用程式需要特定格式的 SAML 判斷提示，要求您加入自訂屬性對應到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。
 
     ![image](common/edit-attribute.png)
 
     > [!NOTE]
     > Academy Attendance 支援兩種使用者角色：**講師**和**學生**。 在 Azure AD 中設定這些角色，以便您可以將使用者指派為適當的角色。 請參閱[這份](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)文件，該文件說明如何在 Azure AD 中建立自訂角色。
 
-1. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，使用 [編輯]  圖示來編輯宣告或使用 [新增宣告]  來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+1. 除了上述屬性外，Academy Attendance 應用程式還需要在 SAML 回應中多傳回幾個屬性，如下所示。 這些屬性也會預先填入，但您可以根據您的需求來檢閱這些屬性。
 
-    | Name |  來源屬性|
+    | 名稱 |  來源屬性|
     | --------- | --------------- |
     | 角色      | user.assignedroles |
 
-    a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
-
-    ![映像](common/new-save-attribute.png)
-
-    ![映像](common/new-attribute-details.png)
-
-    b. 在 [名稱]  文字方塊中，輸入該資料列所顯示的屬性名稱。
-
-    c. 讓 [命名空間]  保持空白。
-
-    d. 選取 [來源] 作為 [屬性]  。
-
-    e. 在 [來源屬性]  清單中，輸入該資料列所顯示的屬性值。
-
-    f. 按一下 [確定]  。
-
-    g. 按一下 [檔案]  。
-
-1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [中繼資料 XML]  ，然後選取 [下載]  來下載憑證，並將其儲存在電腦上。
+1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
 1. 在 [設定 Academy Attendance]  區段上，根據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
-
-### <a name="configure-academy-attendance-sso"></a>設定 Academy Attendance SSO
-
-若要在 **Academy Attendance** 端設定單一登入，您必須將從 Azure 入口網站下載的 [中繼資料 XML]  和複製的適當 URL 傳送給 [Academy Attendance 支援小組](mailto:support@yournextconcepts.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -163,11 +145,15 @@ ms.locfileid: "68641250"
 1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
 1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
+## <a name="configure-academy-attendance-sso"></a>設定 Academy Attendance SSO
+
+若要在 **Academy Attendance** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和複製的適當 URL 傳送給 [Academy Attendance 支援小組](mailto:support@yournextconcepts.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+
 ### <a name="create-academy-attendance-test-user"></a>建立 Academy Attendance 測試使用者
 
-本節會在 Academy Attendance 中建立名為 B. Simon 的使用者。 Academy Attendance 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Academy Attendance 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Academy Attendance 中建立名為 Britta Simon 的使用者。 Academy Attendance 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Academy Attendance 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
-### <a name="test-sso"></a>測試 SSO
+## <a name="test-sso"></a>測試 SSO 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
@@ -180,4 +166,6 @@ ms.locfileid: "68641250"
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [嘗試搭配 Azure AD 使用 Academy Attendance](https://aad.portal.azure.com/)
 

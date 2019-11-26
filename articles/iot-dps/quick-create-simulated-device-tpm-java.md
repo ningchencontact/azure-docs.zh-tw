@@ -1,23 +1,23 @@
 ---
-title: 使用 Java 將模擬 TPM 裝置佈建到 Azure IoT 中樞 | Microsoft Docs
+title: 快速入門：使用 Java 將模擬 TPM 裝置佈建到 Azure IoT 中樞
 description: Azure 快速入門 - 使用適用於 Azure IoT 中樞裝置佈建服務的 Java 裝置 SDK 來建立及佈建模擬 TPM 裝置。 本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/09/2018
+ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: a83f027cbfcf84beb43ceeb79971807366f22626
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d8dfb9bb74e1159c9e37f60595a74ae0d0d8f2f6
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102293"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904880"
 ---
-# <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>使用適用於 Azure IoT 中樞裝置佈建服務的 Java 裝置 SDK 來建立及佈建模擬 TPM 裝置
+# <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>快速入門：使用適用於 Azure IoT 中樞裝置佈建服務的 Java 裝置 SDK 來建立及佈建模擬 TPM 裝置
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
@@ -47,7 +47,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-1. 執行 [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) 模擬器。 按一下 [允許存取] ，以允許變更 [Windows 防火牆] 設定。 它會透過連接埠 2321年和 2322 上的通訊端接聽。 請勿關閉此視窗；您必須讓此模擬器保持執行，直到此快速入門指南結束。 
+1. 執行 [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) 模擬器。 按一下 [允許存取]  ，以允許變更 [Windows 防火牆]  設定。 它會透過連接埠 2321年和 2322 上的通訊端接聽。 請勿關閉此視窗；您必須讓此模擬器保持執行，直到此快速入門指南結束。 
 
     ```cmd/sh
     .\azure-iot-sdk-java\provisioning\provisioning-tools\tpm-simulator\Simulator.exe
@@ -68,7 +68,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
     cd provisioning/provisioning-samples/provisioning-tpm-sample
     ```
 
-1. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源] 按鈕，然後開啟您的裝置佈建服務。 記下您的_識別碼範圍_和_佈建服務全域端點_。
+1. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源]  按鈕，然後開啟您的裝置佈建服務。 記下您的_識別碼範圍_和_佈建服務全域端點_。
 
     ![裝置佈建服務資訊](./media/java-quick-create-simulated-device/extract-dps-endpoints.png)
 
@@ -95,21 +95,21 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 ## <a name="create-a-device-enrollment-entry"></a>建立裝置註冊項目
 
-1. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源] 按鈕，然後開啟您的裝置佈建服務。
+1. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源]  按鈕，然後開啟您的裝置佈建服務。
 
-1. 在裝置佈建服務摘要刀鋒視窗上，選取 [管理註冊]。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增個別註冊] 按鈕。 
+1. 在裝置佈建服務摘要刀鋒視窗上，選取 [管理註冊]  。 選取 [個別註冊]  索引標籤，然後按一下頂端的 [新增個別註冊]  按鈕。 
 
-1. 在 [新增註冊] 之下，輸入下列資訊：
-   - 選取 [TPM] 作為身分識別證明「機制」。
-   - 輸入先前所記下的 TPM 裝置 [註冊識別碼] 和 [簽署金鑰]。 
+1. 在 [新增註冊]  之下，輸入下列資訊：
+   - 選取 [TPM]  作為身分識別證明「機制」  。
+   - 輸入先前所記下的 TPM 裝置 [註冊識別碼]  和 [簽署金鑰]  。 
    - 選取與您的佈建服務連結的 IoT 中樞。
    - 輸入唯一的裝置識別碼。 替您的裝置命名時，務必避免使用敏感性資料。
    - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
-   - 完成後，按一下 [儲存] 按鈕。 
+   - 完成後，按一下 [儲存]  按鈕。 
 
      ![在入口網站刀鋒視窗中輸入裝置註冊資訊](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
 
-   註冊成功時，您裝置的「註冊識別碼」會出現在 [個別註冊] 索引標籤之下的清單中。 
+   註冊成功時，您裝置的「註冊識別碼」  會出現在 [個別註冊]  索引標籤之下的清單中。 
 
 
 ## <a name="simulate-the-device"></a>模擬裝置
@@ -118,7 +118,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
     ![Java TPM 裝置程式最終](./media/java-quick-create-simulated-device/program-final.png)
 
-1. 模擬裝置成功佈建到與佈建服務連結的 IoT 中樞時，裝置識別碼會出現在中樞的 [裝置總管] 刀鋒視窗上。
+1. 模擬裝置成功佈建到與佈建服務連結的 IoT 中樞時，裝置識別碼會出現在中樞的 [裝置總管]  刀鋒視窗上。
 
     ![已向 IoT 中樞註冊裝置](./media/java-quick-create-simulated-device/hubregistration.png) 
 
@@ -131,8 +131,8 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 1. 在您的電腦上關閉裝置用戶端範例輸出視窗。
 1. 在您的電腦上關閉 TPM 模擬器視窗。
-1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的裝置佈建服務。 開啟您服務的 [管理註冊] 刀鋒視窗，然後按一下 [個別註冊] 索引標籤。選取您在本快速入門中註冊的裝置之 [註冊識別碼]，然後按一下頂端的 [刪除] 按鈕。 
-1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的 IoT 中樞。 開啟您中樞的 [IoT 裝置] 刀鋒視窗，選取您在本快速入門中註冊之裝置的 [裝置識別碼]，然後按一下頂端的 [刪除] 按鈕。
+1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]  ，然後選取您的裝置佈建服務。 開啟您服務的 [管理註冊]  刀鋒視窗，然後按一下 [個別註冊]  索引標籤。選取您在本快速入門中註冊的裝置之 [註冊識別碼]  ，然後按一下頂端的 [刪除]  按鈕。 
+1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]  ，然後選取您的 IoT 中樞。 開啟您中樞的 [IoT 裝置]  刀鋒視窗，選取您在本快速入門中註冊之裝置的 [裝置識別碼]  ，然後按一下頂端的 [刪除]  按鈕。
 
 ## <a name="next-steps"></a>後續步驟
 

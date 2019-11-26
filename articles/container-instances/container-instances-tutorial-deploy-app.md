@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e14a3ba50d75161afa3325b3b7bcbfe96ea24cc3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f2890948dd15fa972104e4ef11001e83a2abd4f8
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325621"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73846587"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>教學課程：將容器應用程式部署至 Azure 容器執行個體
 
@@ -37,7 +37,9 @@ ms.locfileid: "68325621"
 
 ### <a name="get-registry-credentials"></a>取得登錄認證
 
-當您部署私人容器登錄 (類似[第二個教學課程](container-instances-tutorial-prepare-acr.md)中建立的容器登錄) 中裝載的映像時，必須提供用來存取登錄的認證。 如[使用來自 Azure 容器執行個體的 Azure Container Registry 進行驗證](../container-registry/container-registry-auth-aci.md)中所示，許多案例的最佳做法都是建立並設定具有登錄「提取」  權限的 Azure Active Directory 服務主體。 請參閱該文章，從中取得指令碼範例來建立具有必要權限的服務主體。 請記下服務主體識別碼和服務主體密碼。 在部署容器時會用到這些認證。
+當您部署私人 Azure 容器登錄 (類似於[第二個教學課程](container-instances-tutorial-prepare-acr.md)中建立的容器登錄) 中裝載的映像時，必須提供用來存取登錄的認證。 
+
+許多案例的最佳做法都是建立並設定具有登錄「提取」  權限的 Azure Active Directory 服務主體。 請參閱[使用來自 Azure 容器執行個體的 Azure Container Registry 進行驗證](../container-registry/container-registry-auth-aci.md)，從中取得範例指令碼以建立具有必要權限的服務主體。 請記下*服務主體識別碼*和*服務主體密碼*。 您在部署容器時會使用這些認證來存取登錄。
 
 您也需要容器登錄登入伺服器的完整名稱 (以您的登錄名稱取代 `<acrName>`)：
 

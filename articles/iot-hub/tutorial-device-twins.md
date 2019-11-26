@@ -1,24 +1,20 @@
 ---
 title: 從 Azure IoT 中樞同步處理裝置狀態 | Microsoft Docs
-description: 使用裝置對應項同步處理您的裝置與 IoT 中樞之間的狀態
+description: 了解如何使用裝置對應項設定您的雲端裝置，並從裝置接收狀態和合規性資料。
 services: iot-hub
-documentationcenter: ''
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/21/2019
 ms.custom: mvc
-ms.openlocfilehash: 4ad3013f6914abbf4c75676e7423848dff9d5e9a
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 647182389ec0ad4cb2b80a0676812961cb9be770
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330364"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890423"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 

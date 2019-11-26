@@ -1,18 +1,18 @@
 ---
-title: 教學課程 - 建立包含 Web 應用程式防火牆的應用程式閘道 - Azure 入口網站
+title: 教學課程：使用入口網站建立 - Web 應用程式防火牆
 description: 在本教學課程中，您將了解如何使用 Azure 入口網站建立具有 Web 應用程式防火牆的應用程式閘道。
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: d439703f1637282c73cd960923733460502c55bc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 68a9f051bf3d59cbf32377cb503e9ded0a54d5e9
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509742"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049229"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站建立包含 Web 應用程式防火牆的應用程式閘道
 

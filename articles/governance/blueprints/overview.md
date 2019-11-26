@@ -1,17 +1,14 @@
 ---
 title: Azure 藍圖概觀
 description: 了解 Azure 藍圖服務如何讓您在 Azure 環境中建立、定義及部署成品。
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/26/2019
 ms.topic: overview
-ms.service: blueprints
-ms.openlocfilehash: 86f58594ce1af91b19f70cbdb1114a90180e3b4f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: dadb7568a720d23f58d23896e84b3155ed2f12f4
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981718"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048298"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Azure 藍圖服務概觀
 
@@ -54,7 +51,7 @@ Azure 藍圖服務由散佈於世界各地的 [Azure Cosmos DB](../../cosmos-db/
 |資源  | 階層選項| 說明  |
 |---------|---------|---------|
 |資源群組 | 訂用帳戶 | 建立新的資源群組以供藍圖內的其他成品使用。  這些預留位置資源群組可讓您確切地以自己想要的方式組織資源，並針對包含的原則和角色指派成品以及 Azure Resource Manager 範本提供範圍限制器。 |
-|Azure Resource Manager 範本 | 訂用帳戶、資源群組 | 範本可用來撰寫複雜的環境。 範例環境：SharePoint 伺服器陣列、Azure Automation State Configuration 或 Log Analytics 工作區。 |
+|Azure Resource Manager 範本 | 訂用帳戶、資源群組 | 範本 (包括巢狀和連結的範本) 可用來撰寫複雜的環境。 範例環境：SharePoint 伺服器陣列、Azure Automation State Configuration 或 Log Analytics 工作區。 |
 |原則指派 | 訂用帳戶、資源群組 | 可讓原則或方案指派到藍圖所指派到的訂用帳戶。 原則或方案必須在藍圖定義位置的範圍內。 如果原則或方案具有參數，您可以在藍圖建立或是藍圖指派期間指派這些參數。 |
 |角色指派 | 訂用帳戶、資源群組 | 新增現有使用者或群組到內建角色，以確保適當人員一律擁有資源的正確存取權。 角色指派可針對整個訂用帳戶進行定義，或是以巢狀方式針對包含在藍圖內的特定資源群組定義。 |
 
@@ -117,7 +114,7 @@ Azure 藍圖服務由散佈於世界各地的 [Azure Cosmos DB](../../cosmos-db/
 如果這些內建角色不符合您的安全性需求，請考慮建立[自訂角色](../../role-based-access-control/custom-roles.md)。
 
 > [!NOTE]
-> 如果使用系統指派的受控識別，Azure 藍圖的服務主體在指派的訂用帳戶上需要**擁有者**角色才能進行部署。 如果使用入口網站，會針對部署自動授與此角色並撤銷。 如果使用 REST API，必須手動授與此角色，但在部署完成之後仍會自動撤銷。 如果使用使用者指派的受控識別，只有建立藍圖指派的使用者才需要**擁有者**權限。
+> 如果使用系統指派的受控識別，Azure 藍圖的服務主體在指派的訂用帳戶上需要**擁有者**角色才能進行部署。 如果使用入口網站，會針對部署自動授與此角色並撤銷。 如果使用 REST API，必須手動授與此角色，但在部署完成之後仍會自動撤銷。 如果使用的是使用者指派的受控識別，只有建立藍圖指派的使用者需要 `Microsoft.Blueprint/blueprintAssignments/write` 授權，這會包含在**擁有者**和**藍圖操作員**內建角色中。
 
 ## <a name="naming-limits"></a>命名限制
 

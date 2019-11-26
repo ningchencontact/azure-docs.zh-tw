@@ -1,20 +1,19 @@
 ---
-title: 搭配 Azure IoT 中樞來設定及使用計量和診斷記錄 | Microsoft Docs
-description: 搭配 Azure IoT 中樞來設定及使用計量和診斷記錄
+title: 搭配 Azure IoT 中樞來設定及使用計量和診斷記錄
+description: 了解如何搭配 Azure IoT 中樞來設定及使用計量和診斷記錄。 這會提供要分析的資料，以協助診斷您中樞可能發生的問題。
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 7349287945a56bb7674e364f515d0b763015ed59
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 88101aacab8b4745ce6bc9180521e66500086edd
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262323"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084367"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>教學課程：搭配 IoT 中樞來設定及使用計量和診斷記錄
 

@@ -13,12 +13,12 @@ ms.date: 10/25/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 12b8d6dff571c074d1f1422f75e33a8b12761bd9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 48c8390eff52466d11f781447c448d04ba567f31
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572159"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907133"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>在 Azure App Service 中新增 SSL 憑證
 
@@ -68,6 +68,10 @@ ms.locfileid: "73572159"
 - 不支援萬用字元憑證。
 - 不支援裸網域。
 - 不可匯出。
+
+> [!NOTE]
+> 免費憑證由 DigiCert 所發行。 針對某些最上層網域，您必須使用下列值建立 [CAA 網域記錄](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization)，以明確允許 DigiCert 作為憑證簽發者：`0 issue digicert.com`。
+> 
 
 若要建立免費的 App Service 受控憑證：
 
@@ -325,7 +329,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ### <a name="export-certificate"></a>匯出憑證
 
-因為 App Service 憑證是 [Key Vault 秘密](../key-vault/about-keys-secrets-and-certificates.md#key-vault-secrets)，所以您可以匯出其 PFX 複本，並將它用於其他 Azure 服務或 Azure 外部。
+由於 App Service 憑證是 [Key Vault 秘密](../key-vault/about-keys-secrets-and-certificates.md#key-vault-secrets)，因此您可以匯出其 PFX 複本，並將它用於其他 Azure 服務或 Azure 外部。
 
 若要將 App Service 憑證匯出為 PFX 檔案，請在 [Cloud Shell](https://shell.azure.com) 中執行下列命令。 如果您已[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)，則也可以在本機執行。 以您在[建立 App Service 憑證](#start-certificate-order)時使用的名稱取代預留位置。
 
@@ -344,7 +348,7 @@ az keyvault secret download \
     --encoding base64
 ```
 
-下載的 *appservicecertificate.pfx* 檔案是原始的 PKCS12 檔案，其中同時包含公開憑證和私人憑證。 每當系統提示您時，匯入密碼和 PEM 複雜密碼都是空字串。
+下載的 *appservicecertificate.pfx* 檔案是原始的 PKCS12 檔案，其中同時包含公開憑證和私人憑證。 每當系統提示您時，都請使用空字串作為匯入密碼和 PEM 複雜密碼。
 
 ### <a name="delete-certificate"></a>Delete certificate 
 

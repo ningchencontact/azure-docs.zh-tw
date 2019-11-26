@@ -1,5 +1,6 @@
 ---
-title: 教學課程 - 使用 Azure 入口網站建立裝載多個網站的應用程式閘道
+title: 教學課程：使用 Azure 入口網站來裝載多個網站
+titleSuffix: Azure Application Gateway
 description: 在本教學課程中，您將了解如何使用 Azure 入口網站建立裝載多個網站的應用程式閘道。
 services: application-gateway
 author: vhorne
@@ -7,18 +8,18 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: victorh
-ms.openlocfilehash: 73a313a6244971b65ba89fb7b676610d88acabfa
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: ca6be666a9b77532b4f1c61f6e3391c239e82c91
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498461"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075156"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站建立和設定應用程式閘道以裝載多個網站
 
 您可以使用 Azure 入口網站，在建立[應用程式閘道](overview.md)時[設定裝載多個站台](multiple-site-overview.md)。 在本教學課程中，您可以使用虛擬機器定義後端位址集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本教學課程假設您擁有多個網域，並使用 *www.contoso.com* 和 *www.fabrikam.com* 的範例。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立應用程式閘道
@@ -30,7 +31,7 @@ ms.locfileid: "68498461"
 
 ![多站台路由範例](./media/create-multiple-sites-portal/scenario.png)
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -157,9 +158,9 @@ ms.locfileid: "68498461"
     - **虛擬機器名稱**：輸入 *contosoVM* 作為虛擬機器的名稱。
     - **使用者名稱**：輸入 azureuser  作為系統管理員使用者名稱。
     - **密碼**：輸入Azure123456!  作為系統管理員密碼。
-4. 接受其他預設值，然後選取 [下一步：**磁碟]** 。  
+4. 接受其他預設值，然後選取 [下一步：  磁碟]。  
 5. 接受 [磁碟]  索引標籤的預設值，然後選取 [下一步：  網路功能]。
-6. 在 [網路]  索引標籤上，確認已選取 [myVNet]  作為[虛擬網路]  ，且 [子網路]  設為 [myBackendSubnet]  。 接受其他預設值，然後選取 [下一步：**管理]** 。<br>「應用程式閘道」可與其虛擬網路外的執行個體進行通訊，但您需要確保具有 IP 連線能力。
+6. 在 [網路]  索引標籤上，確認已選取 [myVNet]  作為[虛擬網路]  ，且 [子網路]  設為 [myBackendSubnet]  。 接受其他預設值，然後選取 [下一步：  管理]。<br>「應用程式閘道」可與其虛擬網路外的執行個體進行通訊，但您需要確保具有 IP 連線能力。
 7. 在 [管理]  索引標籤上，將 [開機診斷]  設為 [關閉]  。 接受其他預設值，然後選取 [檢閱 + 建立]  。
 8. 在 [檢閱 + 建立]  索引標籤上檢閱設定，並更正任何驗證錯誤，然後選取 [建立]  。
 9. 請等候虛擬機器建立完成，再繼續操作。
@@ -202,7 +203,7 @@ ms.locfileid: "68498461"
 
     ![新增後端伺服器](./media/create-multiple-sites-portal/edit-backend-pool.png)
 
-6. 選取 [ **儲存**]。
+6. 選取 [儲存]  。
 7. 重複執行，新增 *fabrikamVM* 並連接至 *fabrikamPool*。
 
 等候部署完成，再繼續進行下一個步驟。
@@ -219,7 +220,7 @@ ms.locfileid: "68498461"
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-1. 在瀏覽器的網址列中輸入您的網域名稱。 例如， [http://40.121.222.19](http://www.contoso.com )。
+1. 在瀏覽器的網址列中輸入您的網域名稱。 例如， [http://40.121.222.19](`http://www.contoso.com`)。
 
     ![在應用程式閘道中測試 contoso 網站](./media/create-multiple-sites-portal/application-gateway-iistest.png)
 

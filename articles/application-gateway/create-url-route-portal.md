@@ -1,18 +1,18 @@
 ---
-title: 教學課程 - 建立包含 URL 路徑型路由規則的應用程式閘道 - Azure 入口網站
+title: 教學課程：使用入口網站建立的 URL 路徑型路由規則 - Azure 應用程式閘道
 description: 在本教學課程中，您將了解如何使用 Azure 入口網站來建立應用程式閘道和虛擬機器擴展集的 URL 路徑型路由規則。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 2cb21eb98e698ab44d73ada195fdcb7d7aac8839
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: bc810ac7901d83f03d3f3ac2199561225326d261
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844650"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048144"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站建立包含 URL 路徑型路由規則的應用程式閘道
 
@@ -29,7 +29,7 @@ ms.locfileid: "70844650"
 
 ![URL 路由範例](./media/application-gateway-create-url-route-portal/scenario.png)
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -41,9 +41,9 @@ ms.locfileid: "70844650"
 
 在此範例中，您要建立三個虛擬機器，作為應用程式閘道的後端伺服器。 您也可以在虛擬機器上安裝 IIS，以確認應用程式閘道如預期般運作。
 
-1. 在 Azure 入口網站上，選取 [建立資源]  。
+1. 在 Azure 入口網站中，選取 [建立資源]  。
 2. 選取 [熱門] 清單中的 [Windows Server 2016 Datacenter]  。
-3. 針對虛擬機器，請輸入這些值：
+3. 依虛擬機器輸入這些值：
 
     - 針對 [資源群組]  ，選取 [新建]  ，然後輸入 myResourceGroupAG  。
     - **虛擬機器名稱**：myVM1 

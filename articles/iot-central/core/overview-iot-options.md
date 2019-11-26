@@ -9,18 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: f57d36f6f24aab44d13ea07d8706bf40b7dcf552
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2ec6e1d00d331a7bb8dd7182dd4b0c91dd3d25a7
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72937337"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049082"
 ---
 # <a name="compare-azure-iot-central-and-azure-iot-options"></a>Azure IoT 中心和 Azure IoT 選項比較
 
 Microsoft Azure IoT Central 和 Azure IoT 提供數個建置 IoT 解決方案的選項。 這些選項適用於不同的客戶需求：
 
-* [Azure IoT Central](overview-iot-central.md) 是一個軟體即服務 (SaaS) 解決方案，採用以模型為基礎的方法，可協助您建置企業級 IoT 解決方案，而無須具備雲端解決方案開發的專業知識。
+* [Azure IoT Central](overview-iot-central.md) 是一個 IoT 應用程式平台，採用以模型為基礎的方法，可協助您建置企業級 IoT 解決方案，而無須具備雲端解決方案開發的專業知識。
 
 * [Azure IoT 解決方案加速器](https://docs.microsoft.com/azure/iot-accelerators/)是[解決方案加速器](../../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)的企業級集合，建置於 Azure 平台即服務 (PaaS) 上，可協助您加速開發自訂的 IoT 解決方案。
 
@@ -42,7 +42,7 @@ Azure IoT 中樞是 Azure IoT 中心和 Azure IoT 解決方案加速器都會使
 |     | Azure IoT 中心 | Azure IoT 解決方案加速器 |
 | --- | ----------- | --------- |
 | 主要用途                      | 加速簡易 IoT 解決方案上市時間，不需要深入的服務自訂。                                                    | 加速開發需要最大彈性的自訂 IoT 解決方案。                                                                                                                             |
-| 存取基礎 PaaS 服務 | SaaS。 它是完全受控的解決方案，因此不會公開基礎服務。                                                                                            | 您可存取基礎 Azure 服務來加以管理，或視需要加以取代。                                                                                                                    |
+| 存取基礎 PaaS 服務 | 它是完全受控的解決方案，因此不會公開基礎服務。                                                                                            | 您可存取基礎 Azure 服務來加以管理，或視需要加以取代。                                                                                                                    |
 | 彈性                        | 中。 您可以使用以內建瀏覽器為基礎的使用者體驗，自訂解決方案模型和 UI 層面。 基礎結構無法自訂，因為並不會公開各種元件。 | 高。 微服務的程式碼是開放原始碼，您可以使用任何您認為合適的方式加以修改。 此外，您可以自訂部署基礎結構。                                               |
 | 技能層級                        | 低。 您需要有建立模型的技能來自訂解決方案。 不需要編寫程式碼的技能。                                                                          | 中高。 您必須具備 Java 或 .NET 技能以自訂解決方案後端。 您需要 JavaScript 技能來自訂視覺效果。                                                                       |
 | 開始使用的體驗             | 應用程式範本和裝置範本提供預先建置的模型。 可在幾分鐘內部署完成。                                                                                                  | 預先設定解決方案會實作 IoT 的常見案例。 可在幾分鐘內部署完成。                                                                                                                            |

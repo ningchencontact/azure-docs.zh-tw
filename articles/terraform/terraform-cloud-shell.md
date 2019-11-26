@@ -1,37 +1,35 @@
 ---
-title: 設定適用於 Terraform 的 Azure Cloud Shell
+title: 教學課程 - 設定適用於 Terraform 的 Azure Cloud Shell
 description: 使用 Terraform 與 Azure Cloud Shell 來簡化驗證與範本設定。
-services: terraform
-ms.service: azure
-keywords: terraform，devops，擴展集，虛擬機器， 網路，儲存體，模組
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: e0a59697a3e4da97cf082c4c771fe93ad33b6035
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 1259d5004bd547e33f65571333b6d0721d1253c0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173549"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078744"
 ---
-# <a name="terraform-cloud-shell-development"></a>Terraform Cloud Shell 開發 
+# <a name="tutorial-configure-azure-cloud-shell-for-terraform"></a>教學課程：設定適用於 Terraform 的 Azure Cloud Shell
 
-Terraform 非常適合從 macOS 終端機的 Bash 命令列，或在 Windows 或 Linux 上的 Bash 中運作。 在 [Azure Cloud Shell](/azure/cloud-shell/overview) 的 Bash 體驗中執行您的 Terraform 設定，具有可加速開發週期的一些獨特優點。
-
-此概念本文章涵蓋 Cloud Shell 功能，能協助您撰寫部署至 Azure 的 Terraform 指令碼。
+Terraform 適用於 macOS、Windows 或 Linux 中的 Bash 命令列。 在 [Azure Cloud Shell](/azure/cloud-shell/overview) 的 Bash 體驗中執行您的 Terraform 設定，具有一些獨特優點。 本教學課程將說明如何使用 Cloud Shell 來撰寫部署至 Azure 的 Terraform 指令碼。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="automatic-credential-configuration"></a>自動認證設定
 
-Terraform 已安裝且立即可在 Cloud Shell 中使用。 不使用任何額外的設定登入 Cloud Shell 來管理結礎結構時，使用 Azure 驗證 Terraform 指令碼。 自動驗證會略過手動建立 Active Directory 服務主體，及設定 Azure Terraform 提供者變數的必要。
+Terraform 已安裝且立即可在 Cloud Shell 中使用。 不使用任何額外的設定登入 Cloud Shell 來管理結礎結構時，使用 Azure 驗證 Terraform 指令碼。 自動驗證會略過兩個手動程序：
+- 建立 Azure Active Directory 服務主體
+- 設定 Azure Terraform 提供者變數
 
 
-## <a name="using-modules-and-providers"></a>使用模組和提供者
+## <a name="use-modules-and-providers"></a>使用模組和提供者
 
-Azure Terraform 模組需要認證才能存取和變更您的 Azure 訂用帳戶中的資源。 在 Cloud Shell 中工作時，會將下列程式碼新增至您的指令碼，以便在 Cloud Shell 中使用 Azure Terraform 模組：
+Azure Terraform 模組需要認證才能存取和修改 Azure 資源。 若要在 Cloud Shell 中使用 Terraform 模組，請新增下列程式碼：
+
 
 ```hcl
 # Configure the Microsoft Azure Provider
@@ -50,5 +48,5 @@ Azure CLI 隨附於 Cloud Shell，是在完成 `terraform apply` 或 `terraform 
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用模組登錄建立小 VM 叢集](terraform-create-vm-cluster-module.md)
-[使用自訂 HCL 建立小 VM 叢集](terraform-create-vm-cluster-with-infrastructure.md)
+> [!div class="nextstepaction"]
+> [使用模組登錄建立小型 VM 叢集](terraform-create-vm-cluster-module.md)

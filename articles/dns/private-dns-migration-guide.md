@@ -1,22 +1,29 @@
 ---
-title: 將舊版 Azure DNS 私人區域移轉至新的資源模型
+title: 將舊版 Azure DNS 私人區域遷移至新的資源模型
+titleSuffix: Azure DNS
 description: 本指南提供有關如何將舊版 DNS 私人區域移轉至最新的資源模型的逐步指示
 services: dns
-author: rohinkoul
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.author: rohink
-ms.openlocfilehash: 870f8f43fb37f3f58fc19f2fd544e77b1a3a3967
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.author: allensu
+ms.openlocfilehash: 3beac014ee69120df518e0358a5fdbef5818f7cf
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960559"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076738"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>將舊版 Azure DNS 私人區域移轉至新的資源模型
 
-目前的 Azure DNS 私人區域版本會提供新功能，並移除初始公開預覽的數個限制和約束。 不過，使用預覽 API 建立的私人 DNS 區域上無法使用這些優點。 若要取得新版本的優點，必須將舊版私人 DNS 區域資源移轉至新的資源模型。 移轉程序很簡單，我們提供了一個 PowerShell 指令碼來自動化此程序。 本指南提供將 Azure DNS 私人區域移轉至新資源模型的逐步指示。
+在公開預覽期間，私人 DNS 區域會使用 “dnszones” 資源來建立，然後將 “zoneType” 屬性設定為 “Private”。 2019 年 12 月 31 日之後將不支援這類區域，且必須遷移至 GA 資源模型，改為使用 “privateDnsZones” 資源類型，而不是 “dnszones”。 移轉程序很簡單，我們提供了一個 PowerShell 指令碼來自動化此程序。 本指南提供將 Azure DNS 私人區域移轉至新資源模型的逐步指示。
+
+找出需要移轉的 dnszones 資源；在 Azure CLI 中執行下列命令。
+```azurecli
+az account set --subscription <SubscriptionId>
+az network dns zone list --query "[?zoneType=='Private']"
+```
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -25,7 +32,7 @@ ms.locfileid: "71960559"
 請確定您已安裝 Azure PowerShell 的 Az.PrivateDns 模組。 若要安裝此模組，請開啟提升權限的 PowerShell 視窗 (管理模式)，並輸入下列命令
 
 ```powershell
-Install-Module -Name Az.PrivateDns -AllowPrerelease
+Install-Module -Name Az.PrivateDns
 ```
 
 >[!IMPORTANT]
@@ -44,6 +51,9 @@ install-script PrivateDnsMigrationScript
 ![安裝指令碼](./media/private-dns-migration-guide/install-migration-script.png)
 
 您還可以在 https://www.powershellgallery.com/packages/PrivateDnsMigrationScript 手動取得最新版的 PowerShell 指令碼
+
+>[!IMPORTANT]
+>移轉指令碼不得在 Azure Cloud Shell 中執行，必須在連線到網際網路的 VM 或本機電腦上執行。
 
 ## <a name="running-the-script"></a>執行指令碼
 

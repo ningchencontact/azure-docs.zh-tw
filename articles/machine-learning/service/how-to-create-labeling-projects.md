@@ -7,18 +7,18 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 76f995901814c90ff9fd78585c98d56b3478e8b4
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: ca3486610d6cf71ba315e407b58a2a2551ad6ee1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612760"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837491"
 ---
 # <a name="get-labels-for-data"></a>為資料加上標籤
 
 在機器學習專案中，該如何為大量資料加上標籤往往是令人頭痛的問題。 具有電腦視覺元件 (例如影像分類或物體偵測) 的 ML 專案，一般都需要數千個影像和對應的標籤。 
  
-Azure Machine Learning Studio 可讓您在集中的位置建立、管理及監視加上標籤專案。 加上標籤專案有助於讓資料、標籤和小組成員協調一致，從而讓您更有效率地管理加上標籤工作。 目前支援的工作有影像分類 (多標籤或多類別)，以及使用週框方塊來進行的物體識別。
+Azure Machine Learning 可讓您在集中的位置建立、管理及監視標籤專案。 加上標籤專案有助於讓資料、標籤和小組成員協調一致，從而讓您更有效率地管理加上標籤工作。 目前支援的工作有影像分類 (多標籤或多類別)，以及使用週框方塊來進行的物體識別。
 
 Azure 會追蹤進度，並維護未完成的加上標籤工作佇列。 加上標籤者不需要擁有 Azure 帳戶就能參與加上標籤工作。 在使用 Microsoft 帳戶 (MSA) 或 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 進行驗證後，加上標籤者就可以依照其可以工作的時間長短進行相應數量的加上標籤工作。 其可以使用鍵盤快速鍵來指派和變更標籤。 
 
@@ -43,7 +43,7 @@ Azure 會追蹤進度，並維護未完成的加上標籤工作佇列。 加上�
 
 ## <a name="create-a-labeling-project"></a>建立加上標籤專案
 
-加上標籤專案可從 [Azure Machine Learning Studio](https://ml.azure.com/) 進行管理。 [加上標籤專案]  頁面可讓您管理專案、小組和人員。 專案中會指派一或多個小組，而小組中會指派一或多個人員。 
+標籤專案可從 [Azure Machine Learning](https://ml.azure.com/) 進行管理。 [加上標籤專案]  頁面可讓您管理專案、小組和人員。 專案中會指派一或多個小組，而小組中會指派一或多個人員。 
 
 如果您的資料已儲存在 Azure Blob 儲存體中，則請先讓其可作為資料存放區來使用，然後才建立加上標籤專案。 如需相關資訊，請參閱[建立和註冊資料存放區](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores)。 
 
@@ -149,7 +149,7 @@ Azure 會追蹤進度，並維護未完成的加上標籤工作佇列。 加上�
 
 您可以隨時匯出機器學習實驗的標籤資料。 影像標籤可以匯出為 [COCO 格式](http://cocodataset.org/#format-data)或匯出為 Azure ML 資料集。 您可以在加上標籤專案的 [專案詳細資料]  頁面上找到 [匯出]  按鈕。
 
-COCO 檔案會建立在 Azure ML 工作區的預設 Blob 存放區中，而其所在的資料夾位於 **export/coco** 中。 您可以在 Studio 的 [資料集]  區段下，存取所匯出的 Azure ML 資料集。 [資料集詳細資料] 頁面也會提供程式碼範例，以供您從 Python 存取標籤。
+COCO 檔案會建立在 Azure ML 工作區的預設 Blob 存放區中，而其所在的資料夾位於 **export/coco** 中。 您可以在 Azure Machine Learning 的 [資料集]  區段底下，存取已匯出的 Azure ML 資料集。 [資料集詳細資料] 頁面也會提供程式碼範例，以供您從 Python 存取標籤。
 
 ![所匯出的資料集](media/how-to-create-labeling-projects/exported-dataset.png)
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: pafarley
-ms.openlocfilehash: b19f5a4f4f61285bc7b1a30073ea7d33d95420e0
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: d146c264ebc2d36f0842f464f4547520546fd363
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "73519400"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888281"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>教學課程：搭配 IoT 裝置使用自訂視覺來回報視覺狀態。
 
@@ -116,7 +116,7 @@ IoT Visual Alerts 應用程式會以連續迴圈的方式執行，並視需要�
 
 在應用程式下載已定型的模型之後，它將會切換到 **Scoring** \(評分\) 狀態，並開始以連續迴圈的方式為來自相機的影像評分。
 
-針對每個所擷取到的影像，應用程式將會在畫面上顯示名次最高的標籤。 如果它無法辨識視覺狀態，便會顯示 **No Matches** \(沒有相符項目\)。 應用程式也會將這些訊息傳送到 IoT 中樞，且如果偵測到某個類別，該訊息將會包含標籤、信賴分數，以及稱為 `detectedClassAlert` 的屬性；該屬性可由想要根據屬性進行快速訊息路由傳送的 IoT 中樞用戶端使用。
+針對每個所擷取到的影像，應用程式將會在畫面上顯示名次最高的標籤。 如果它無法辨識視覺狀態，便會顯示**沒有相符項目**。 應用程式也會將這些訊息傳送到 IoT 中樞，且如果偵測到某個類別，該訊息將會包含標籤、信賴分數，以及稱為 `detectedClassAlert` 的屬性；該屬性可由想要根據屬性進行快速訊息路由傳送的 IoT 中樞用戶端使用。
 
 此外，範例會使用 [Sense HAT 程式庫](https://github.com/emmellsoft/RPi.SenseHat) \(英文\) 來偵測它是否正在具有 Sense HAT 單元的 Raspberry Pi 上執行；這能使它可以利用該單元作為輸出顯示，並在偵測到類別時將所有燈設定為紅色，以及在未偵測到任何類別時關閉所有燈。
 

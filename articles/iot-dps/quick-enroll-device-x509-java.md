@@ -1,21 +1,21 @@
 ---
-title: 本快速入門說明如何使用 Java 向 Azure 裝置佈建服務註冊 X.509 裝置 | Microsoft Docs
+title: 快速入門：如何使用 Java 向 Azure 裝置佈建服務註冊 X.509 裝置
 description: 本快速入門同時使用群組註冊和個別註冊。 在本快速入門中，您會使用 Java 向 Azure IoT 中樞裝置佈建服務註冊 X.509 裝置。
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/20/2017
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 3eec6628ca7dbc16e0cc01701620f1699ba8d368
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8a1accf232b022bc3028f91d2151c00b98969f1f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412766"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904773"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>快速入門：使用 Java 向裝置佈建服務註冊 X.509 裝置
 
@@ -58,12 +58,12 @@ ms.locfileid: "50412766"
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-2. 在下載的原始程式碼中，瀏覽至 _azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_ 範例資料夾。 在您選擇的編輯器中開啟檔案 _/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_，並新增下列詳細資料：
+2. 在下載的原始程式碼中，瀏覽至 _azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_  範例資料夾。 在您選擇的編輯器中開啟檔案 _/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_  ，並新增下列詳細資料：
 
     1. 從入口網站針對佈建服務新增 `[Provisioning Connection String]`，如下所示：
         1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的佈建服務。 
-        2. 開啟 [共用存取原則]，並選取具有 EnrollmentWrite 權限的原則。
-        3. 複製 [主索引鍵連接字串]。 
+        2. 開啟 [共用存取原則]  ，並選取具有 EnrollmentWrite  權限的原則。
+        3. 複製 [主索引鍵連接字串]  。 
 
             ![從入口網站取得佈建連接字串](./media/quick-enroll-device-x509-java/provisioning-string.png)  
 
@@ -74,7 +74,7 @@ ms.locfileid: "50412766"
             ```
 
     2. 新增裝置群組的根憑證。 如果您需要範例根憑證，請使用 _X.509 憑證產生器_工具，如下所示：
-        1. 在命令視窗中，瀏覽至資料夾 _azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator_。
+        1. 在命令視窗中，瀏覽至資料夾 _azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator_  。
         2. 執行下列命令來建置工具：
 
                 ```cmd\sh
@@ -109,16 +109,16 @@ ms.locfileid: "50412766"
                         "-----END CERTIFICATE-----\n";
                 ```
 
-        9. 關閉命令視窗，或在出現提示要求「驗證碼」時，輸入 **n**。 
+        9. 關閉命令視窗，或在出現提示要求「驗證碼」  時，輸入 **n**。 
  
     3. (選擇性) 您可以透過範例程式碼來設定佈建服務：
         - 若要將此設定新增至範例，請遵循下列步驟：
-            1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至連結到您佈建服務的 IoT 中樞。 開啟中樞的 [概觀] 索引標籤，並複製 [主機名稱]。 將此 [主機名稱] 指派給 IOTHUB_HOST_NAME 參數。
+            1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至連結到您佈建服務的 IoT 中樞。 開啟中樞的 [概觀]  索引標籤，並複製 [主機名稱]  。 將此 [主機名稱]  指派給 IOTHUB_HOST_NAME  參數。
 
                 ```Java
                 private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
                 ```
-            2. 指派易記的名稱給 DEVICE_ID 參數，並保留 PROVISIONING_STATUS 作為預設的 ENABLED 值。 
+            2. 指派易記的名稱給 DEVICE_ID  參數，並保留 PROVISIONING_STATUS  作為預設的 ENABLED  值。 
 
         - 或者，如果您選擇不設定佈建服務，請確定在 _ServiceEnrollmentGroupSample.java_ 檔案中，將下列陳述式標記為註解或刪除：
 
@@ -161,22 +161,22 @@ ms.locfileid: "50412766"
 
 4. 觀察成功註冊的輸出視窗。
 
-5. 在 Azure 入口網站中，瀏覽至您的佈建服務。 按一下 [管理註冊]。 請注意，您 X.509 裝置的群組會顯示在 [註冊群組] 索引標籤之下，包含自動產生的群組名稱。 
+5. 在 Azure 入口網站中，瀏覽至您的佈建服務。 按一下 [管理註冊]  。 請注意，您 X.509 裝置的群組會顯示在 [註冊群組]  索引標籤之下，包含自動產生的群組名稱  。 
 
     ![確認在入口網站中成功註冊 X.509](./media/quick-enroll-device-x509-java/verify-x509-enrollment.png)  
 
 ## <a name="modifications-to-enroll-a-single-x509-device"></a>註冊單一 X.509 裝置的修改
 
-若要註冊單一 X.509 裝置，請修改[使用 Java 服務 SDK 向 IoT 中樞裝置佈建服務註冊 TPM 裝置](quick-enroll-device-tpm-java.md#javasample)中使用的個別註冊範例程式碼，如下所示：
+若要註冊單一 X.509 裝置，請修改[使用 Java 服務 SDK 向 IoT 中樞裝置佈建服務註冊 TPM 裝置](quick-enroll-device-tpm-java.md#javasample)中使用的個別註冊  範例程式碼，如下所示：
 
-1. 將 X.509 用戶端憑證的一般名稱複製到剪貼簿。 如果您要使用[上述範例程式碼區段](#javasample)中所示的 _X.509 憑證產生器_工具，請輸入憑證的_一般名稱_，或是使用預設的 **microsoftriotcore**。 使用這個**一般名稱**作為 REGISTRATION_ID 變數的值。 
+1. 將 X.509 用戶端憑證的一般名稱  複製到剪貼簿。 如果您要使用[上述範例程式碼區段](#javasample)中所示的 _X.509 憑證產生器_工具，請輸入憑證的_一般名稱_，或是使用預設的 **microsoftriotcore**。 使用這個**一般名稱**作為 REGISTRATION_ID  變數的值。 
 
     ```Java
     // Use common name of your X.509 client certificate
     private static final String REGISTRATION_ID = "[RegistrationId]";
     ```
 
-2. 將變數 TPM_ENDORSEMENT_KEY 重新命名為 PUBLIC_KEY_CERTIFICATE_STRING。 從 _X.509 憑證產生器_工具的輸出複製用戶端憑證或**用戶端憑證**，作為 PUBLIC_KEY_CERTIFICATE_STRING 變數的值。 
+2. 將變數 TPM_ENDORSEMENT_KEY  重新命名為 PUBLIC_KEY_CERTIFICATE_STRING  。 從 _X.509 憑證產生器_工具的輸出複製用戶端憑證或**用戶端憑證**，作為 PUBLIC_KEY_CERTIFICATE_STRING  變數的值。 
 
     ```Java
     // Rename the variable *TPM_ENDORSEMENT_KEY* as *PUBLIC_KEY_CERTIFICATE_STRING*
@@ -199,7 +199,7 @@ ms.locfileid: "50412766"
     Attestation attestation = X509Attestation.createFromClientCertificates(PUBLIC_KEY_CERTIFICATE_STRING);
     ```
 
-4. 使用[建置及執行個別註冊的範例程式碼](quick-enroll-device-tpm-java.md#runjavasample)一節中的步驟，儲存、建置及執行個別註冊範例檔案。
+4. 使用[建置及執行個別註冊的範例程式碼](quick-enroll-device-tpm-java.md#runjavasample)一節中的步驟，儲存、建置及執行個別註冊  範例檔案。
 
 
 ## <a name="clean-up-resources"></a>清除資源
@@ -207,7 +207,7 @@ ms.locfileid: "50412766"
 
 1. 在您的電腦上關閉 Java 範例輸出視窗。
 1. 在您的電腦上關閉 _X509 憑證產生器_ 視窗。
-1. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，按一下 [管理註冊]，然後選取 [註冊群組] 索引標籤。選取您使用本快速入門註冊之 X.509 裝置的群組名稱，然後按一下刀鋒視窗頂端的 [刪除] 按鈕。  
+1. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，按一下 [管理註冊]  ，然後選取 [註冊群組]  索引標籤。選取您使用本快速入門註冊之 X.509 裝置的群組名稱  ，然後按一下刀鋒視窗頂端的 [刪除]  按鈕。  
 
 ## <a name="next-steps"></a>後續步驟
 在本快速入門中，您已向裝置佈建服務註冊 X.509 裝置的模擬群組。 若要深入了解裝置佈建，請繼續在 Azure 入口網站中進行裝置佈建服務設定的教學課程。 

@@ -8,20 +8,20 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 8/13/2018
 ms.author: victorh
-ms.openlocfilehash: 6e85bd6ec51cff27fed6d0b2d9e73f94325e4d4f
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: df7897e5b0941f1763f1a10e51d49827bd2ca63d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500231"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839271"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>建立 Azure 防火牆測試環境
 
-此指令碼範例會建立防火牆和測試網路環境。 網路有一個 VNet，包含三個子網路：AzureFirewallSubnet 和 ServersSubnet 以及 JumpboxSubnet。 ServersSubnet 和 JumpboxSubnet 中各有一個 2 核心 Windows Server。
+此指令碼範例會建立防火牆和測試網路環境。 網路有一個 VNet，包含三個子網路：AzureFirewallSubnet  和 ServersSubnet  以及 JumpboxSubnet  。 ServersSubnet 和 JumpboxSubnet 中各有一個 2 核心 Windows Server。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-防火牆位於 AzureFirewallSubnet 中，並使用應用程式規則集合進行設定，其中包含單一規則可允許存取 www.microsoft.com。
+防火牆位於 AzureFirewallSubnet 中，並使用應用程式規則集合進行設定，其中包含允許存取 `www.microsoft.com` 的單一規則。
 
 所建立的使用者定義路由會將 ServersSubnet 中的網路流量指向通過防火牆，該防火牆會套用防火牆規則。
 

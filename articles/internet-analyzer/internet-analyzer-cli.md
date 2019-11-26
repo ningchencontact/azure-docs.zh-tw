@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 3ae3c3f66ce7301023217a91cd8c79783f3ef833
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2952f7f24e92b952daafa682eee9d4605537a37b
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509842"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839530"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>使用 CLI 建立 Internet Analyzer 測試 (預覽)
 
@@ -79,7 +79,7 @@ Internet Analyzer CLI 會公開下列類型的資源：
     az internet-analyzer test create --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --endpoint-a-name "contoso" --endpoint-a-endpoint "www.contoso.com/some/path/to/trans.gif" --endpoint-b-name "microsoft" --endpoint-b-endpoint "www.microsoft.com/another/path/to/trans.gif" --name "MyFirstInternetAnalyzerTest" --enabled-state Enabled
     ```
 
-    上述命令假設 www.contoso.com 與 www.microsoft.com 都在自訂路徑下裝載一個像素的影像 ([trans.gif](https://fpc.msedge.net/apc/trans.gif))。 如果未明確指定物件路徑，Internet Analyzer 預設會使用 `/apc/trans.gif` 作為物件路徑，這是預先設定的端點裝載一個像素的影像所在。 另請注意，您不需要指定結構描述 (https/http)；Internet Analyzer 僅支援 HTTPS 端點，因此會假設採用 HTTPS。
+    上述命令假設 `www.contoso.com` 和 `www.microsoft.com` 都在自訂路徑下裝載一個像素的影像 ([trans.gif](https://fpc.msedge.net/apc/trans.gif))。 如果未明確指定物件路徑，Internet Analyzer 預設會使用 `/apc/trans.gif` 作為物件路徑，這是預先設定的端點裝載一個像素的影像所在。 另請注意，您不需要指定結構描述 (https/http)；Internet Analyzer 僅支援 HTTPS 端點，因此會假設採用 HTTPS。
 
 11. 新的測試應該會出現在 Internet Analyzer 設定檔底下：
     ```azurecli-interactive

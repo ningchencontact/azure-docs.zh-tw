@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 06/04/2019
+ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: 175c5173091bee85a5c9fc4a50e9df5d3f73da13
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c7ef648dd2610c337bc9146e7a52c04d91907c8e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300910"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904919"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>教學課程：部署管理工具
 
@@ -103,9 +103,14 @@ ms.locfileid: "72300910"
 1. 選取具有您在範本中提供之名稱 (例如 Apr3UX) 的 Azure App Services 資源並瀏覽到與它關聯的 URL，例如 <https://rdmimgmtweb-210520190304.azurewebsites.net>。
 2. 使用您的 Windows 虛擬桌面認證登入。
 3. 當系統提示您選擇租用戶群組時，請從下拉式清單選取 [預設租用戶群組]  。
+4. 當您選取 [預設租用戶群組] 時，視窗的右側應該會出現一個功能表。 在此功能表上，尋找租用戶群組的名稱，並加以選取。
 
 > [!NOTE]
 > 若您有自訂租用戶群組，請手動輸入名稱，而不要從下拉式清單選擇。
+
+## <a name="report-issues"></a>報告問題
+
+如果您的管理工具或其他 Windows 虛擬桌面工具中發生任何問題，請依照[遠端桌面服務的 ARM 範本](https://github.com/Azure/RDS-Templates/blob/master/README.md)中的指示，在 GitHub 上報告問題。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 6/7/2017
-ms.openlocfilehash: 6bc0d8a1e938f2b8a97cab486d4679bfc445f6fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 531199303f7b00083bcd7139ac00ac36bde5c583
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58004070"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837523"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>從 Azure 入口網站在 Azure Linux VM 上建立 Jenkins 伺服器
 
@@ -33,7 +33,7 @@ Jenkins 支援由 Jenkins 伺服器將工作委派給一或多個代理程式的
 
 ## <a name="connect-to-jenkins"></a>連線到 Jenkins
 
-在網頁瀏覽器中，瀏覽至您的虛擬機器 (例如 http://jenkins2517454.eastus.cloudapp.azure.com/))。 Jenkins 主控台無法透過不安全的 HTTP 存取，因此頁面上會提供指示，以便從您的電腦使用 SSH 通道安全地存取 Jenkins 主控台。
+在網頁瀏覽器中瀏覽至您的虛擬機器 (例如 `http://jenkins2517454.eastus.cloudapp.azure.com/`)。 Jenkins 主控台無法透過不安全的 HTTP 存取，因此頁面上會提供指示，以便從您的電腦使用 SSH 通道安全地存取 Jenkins 主控台。
 
 ![將 Jenkins 解除鎖定](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 
@@ -55,7 +55,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 ![將 Jenkins 解除鎖定](./media/install-jenkins-solution-template/jenkins-unlock.png)
 
-在下一個頁面上選取 [安裝建議的外掛程式]，然後建立用來存取 Jenkins 儀表板的 Jenkins 系統管理使用者。
+在下一個頁面上選取 [安裝建議的外掛程式]  ，然後建立用來存取 Jenkins 儀表板的 Jenkins 系統管理使用者。
 
 ![Jenkins 已就緒！](./media/install-jenkins-solution-template/jenkins-welcome.png)
 
@@ -63,25 +63,25 @@ Jenkins 伺服器現在已準備要建置程式碼。
 
 ## <a name="create-your-first-job"></a>建立您的第一個作業
 
-從 Jenkins 主控台選取 [建立新的作業]，然後將它命名為 **mySampleApp** 並選取 [自由樣式專案]，然後選取 [確定]。
+從 Jenkins 主控台選取 [建立新的作業]  ，然後將它命名為 **mySampleApp** 並選取 [自由樣式專案]  ，然後選取 [確定]  。
 
 ![建立新的作業](./media/install-jenkins-solution-template/jenkins-new-job.png) 
 
-選取 [原始程式碼管理] 索引標籤，啟用 [Git]，並且在 [存放庫 URL] 欄位中輸入下列 URL：`https://github.com/spring-guides/gs-spring-boot.git`
+選取 [原始程式碼管理]  索引標籤，啟用 [Git]  ，並且在 [存放庫 URL]  欄位中輸入下列 URL：`https://github.com/spring-guides/gs-spring-boot.git`
 
 ![建立 Git 存放庫](./media/install-jenkins-solution-template/jenkins-job-git-configuration.png) 
 
-選取 [建置] 索引標籤，然後選取 [新增建置步驟]、[叫用 Gradle 指令碼]。 選取 [使用 Gradle 包裝函式]，然後在 [包裝函式位置] 中輸入 `complete` 並輸入 `build` 作為 [工作]。
+選取 [建置]  索引標籤，然後選取 [新增建置步驟]  、[叫用 Gradle 指令碼]  。 選取 [使用 Gradle 包裝函式]  ，然後在 [包裝函式位置]  中輸入 `complete` 並輸入 `build` 作為 [工作]  。
 
 ![使用要建置的 Gradle 包裝函式](./media/install-jenkins-solution-template/jenkins-job-gradle-config.png) 
 
-選取 [進階]，然後在 [根組建指令碼] 欄位中輸入 `complete`。 選取 [ **儲存**]。
+選取 [進階]  ，然後在 [根組建指令碼]  欄位中輸入 `complete`。 選取 [儲存]  。
 
 ![在 Gradle 包裝函式建置步驟中設定進階設定](./media/install-jenkins-solution-template/jenkins-job-gradle-advances.png) 
 
 ## <a name="build-the-code"></a>建置程式碼
 
-選取 [立即建置] 以編譯程式碼和封裝範例應用程式。 當您的組建完成時，選取專案的 [工作區] 連結。
+選取 [立即建置]  以編譯程式碼和封裝範例應用程式。 當您的組建完成時，選取專案的 [工作區]  連結。
 
 ![瀏覽至可從組建取得 JAR 檔案的工作區](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
 

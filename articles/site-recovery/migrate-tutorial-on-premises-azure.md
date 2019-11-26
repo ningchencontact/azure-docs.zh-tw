@@ -1,19 +1,19 @@
 ---
-title: 使用 Azure Site Recovery 將內部部署機器移轉至 Azure | Microsoft Docs
+title: 透過 Azure Site Recovery 遷移內部部署機器
 description: 本文說明如何使用 Azure Site Recovery 將內部部署機器移轉至 Azure。
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7534313a5862ececf4757be807e59b6df39f6430
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 24015810a295ef88b7d3e63bfc464ddddef6b55f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873354"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73939626"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>將內部部署機器移轉至 Azure
 
@@ -32,8 +32,7 @@ ms.locfileid: "70873354"
 
 
 > [!TIP]
-> Azure Migrate 服務現在提供新的無代理程式體驗，可將 VMware VM 遷移至 Azure。 [深入了解](https://aka.ms/migrateVMs-signup)。
-
+> 您現在可以使用 Azure Migrate 服務，從內部部署伺服器遷移至 Azure。 [深入了解](../migrate/migrate-services-overview.md)
 
 ## <a name="before-you-start"></a>開始之前
 

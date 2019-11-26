@@ -1,6 +1,6 @@
 ---
-title: 教學課程 - 將更新的容器映像推送至區域 Azure 應用程式部署
-description: 將修改的 Docker 映像推送至進行異地複寫的 Azure Container Registry，然後查看變更自動部署至在多個區域中執行的 Web 應用程式。 這是三段式教學課程的第三段。
+title: 教學課程 - 將更新推送至異地複寫的 Azure Container Registry
+description: 將更新的 Docker 映像推送至進行異地複寫的 Azure Container Registry，然後查看變更自動部署至在多個區域中執行的 Web 應用程式。 這是三段式教學課程的第三段。
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e01fdc41d0cc2e65951bd92378eb59f0fd35816a
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: adf6348e3b4c5fa728a0289ccd5bd3f289872108
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310422"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931382"
 ---
 # <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>教學課程：將更新的容器映像推送至進行異地複寫的容器登錄以進行區域 Web 應用程式部署
 

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: b5fa1557999ae851bccafbf8ee7c41f0b3614614
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 724a38cb516e5689f817e9ddeaa867b17274971b
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715925"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932037"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>教學課程：透過設計工具部署機器學習模型 (預覽)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -22,10 +22,10 @@ ms.locfileid: "73715925"
 您可以部署在[教學課程第一部分](tutorial-designer-automobile-price-train-score.md)中開發的預測模型，讓其他人有機會加以使用。 在第一部分中，您已將模型定型。 現在，是時候根據使用者輸入來產生新預測了。 在教學課程的這個部分中，您會：
 
 > [!div class="checklist"]
-> * 建立即時推斷管線
-> * 建立推斷叢集
-> * 部署即時端點
-> * 測試即時端點
+> * 建立即時推斷管線。
+> * 建立推斷叢集。
+> * 部署即時端點。
+> * 測試即時端點。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -37,9 +37,9 @@ ms.locfileid: "73715925"
 
 ### <a name="create-a-real-time-inference-pipeline"></a>建立即時推斷管線
 
-1. 在管線畫布上方，選取 [建立推斷管線]   > [即時推斷管線] 
+1. 在管線畫布上方，選取 [建立推斷管線]   > [即時推斷管線]  。
 
-    您的管線此時應會顯示如下：  
+    您的管線此時應會顯示如下： 
 
    ![此螢幕擷取畫面顯示管線在做好部署準備後的預期組態](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
 
@@ -50,8 +50,8 @@ ms.locfileid: "73715925"
     * 儲存的定型模型會加回管線中。
     * 會新增 **Web 服務輸入**和 **Web 服務輸出**模組。 這些模組會顯示使用者資料將在何處輸入模型，以及資料會傳回何處。
 
-    > [!Note]
-    > **訓練管線**會儲存在管線畫布頂端的新索引標籤下。 它也可在設計工具中呈現為已發佈的管線。
+    > [!NOTE]
+    > *訓練管線*會儲存在管線畫布頂端的新索引標籤下。 它也可在設計工具中呈現為已發佈的管線。
     >
 
 1. 選取 [執行]  ，並使用您在第一部分中使用的相同計算目標和實驗。
@@ -66,22 +66,22 @@ ms.locfileid: "73715925"
 
 在出現的對話方塊中，您可以從任何現有的 Azure Kubernetes Service (AKS) 叢集進行選取，以將模型部署至其中。 如果您沒有 AKS 叢集，請使用下列步驟建立一個。
 
-1. 在出現的對話方塊中選取 [計算]  ，以瀏覽至 [計算]  頁面。
+1. 在出現的對話方塊中選取 [計算]  ，以移至 [計算]  頁面。
 
 1. 在導覽功能區中，選取 [推斷叢集]   > [+ 新增]  。
 
-    ![顯示如何瀏覽至 [新增推斷叢集] 窗格的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
+    ![顯示如何移至 [新增推斷叢集] 窗格的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
 
 1. 在推斷叢集窗格中，設定新的 Kubernetes 服務。
 
-1. 輸入 "aks-compute" 作為**計算名稱**。
+1. 輸入 aks-compute  作為**計算名稱**。
     
-1. 選取附近可用的**區域**。
+1. 選取附近的適用區域作為**區域**。
 
 1. 選取 [建立]  。
 
-    > [!Note]
-    > 建立新的 AKS 服務需要約 15 分鐘。 您可以在 [推斷叢集]  頁面上查看佈建狀態
+    > [!NOTE]
+    > 建立新的 AKS 服務需要約 15 分鐘。 您可以在 [推斷叢集]  頁面上查看佈建狀態。
     >
 
 ## <a name="deploy-the-real-time-endpoint"></a>部署即時端點
@@ -98,11 +98,11 @@ ms.locfileid: "73715925"
 
     ![顯示如何設定新即時端點的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
 
-    當部署完成時，畫布上方會出現成功通知，這可能需要幾分鐘的時間。
+    完成部署之後，畫布上方會出現成功通知。 這可能需要幾分鐘的時間。
 
 ## <a name="test-the-real-time-endpoint"></a>測試即時端點
 
-部署完成後，您即可瀏覽至 [端點]  頁面，以測試您的即時端點。
+部署完成後，您即可移至 [端點]  頁面，以測試您的即時端點。
 
 1. 在 [端點]  頁面上，選取您部署的端點。
 
@@ -122,7 +122,7 @@ ms.locfileid: "73715925"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解在設計工具中建立、部署和使用機器學習模型的關鍵步驟。 若要深入了解如何使用設計工具來解決其他類型的問題，請參閱我們的其他範例管線。
+在本教學課程中，您已了解在如何設計工具中建立、部署和使用機器學習模型的關鍵步驟。 若要深入了解如何使用設計工具來解決其他類型的問題，請參閱我們的其他範例管線。
 
 > [!div class="nextstepaction"]
 > [信用風險分類範例](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)

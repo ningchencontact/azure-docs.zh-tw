@@ -1,26 +1,26 @@
 ---
-title: 使用 Azure CLI 設定裝置佈建服務 | Microsoft Docs
+title: 快速入門：使用 Azure CLI 來設定裝置佈建服務
 description: Azure 快速入門 - 使用 Azure CLI 設定 Azure IoT 中樞裝置佈建服務
 author: wesmc7777
 ms.author: wesmc
-ms.date: 02/26/2018
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3062fb640985498ba35e23f6310828a2bd59bfed
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: ef40d0df630fc369705a1365aa8d95317aa54cb3
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "60363711"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904712"
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>使用 Azure CLI 設定 IoT 中樞裝置佈建服務
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>快速入門：使用 Azure CLI 設定 IoT 中樞裝置佈建服務
 
 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 本快速入門詳細說明如何使用 Azure CLI 來建立 IoT 中樞和 IoT 中樞裝置佈建服務，以及將這兩項服務連結在一起。 
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 > [!IMPORTANT]
 > 您在本快速入門中建立的 IoT 中樞與佈建服務均可作為 DNS 端點公開探索。 如果您決定變更這些資源所用的名稱，請務必避免使用任何敏感性資訊。
@@ -137,4 +137,3 @@ az group delete --name my-sample-resource-group
 
 > [!div class="nextstepaction"]
 > [建立模擬裝置的快速入門](./quick-create-simulated-device.md)
-

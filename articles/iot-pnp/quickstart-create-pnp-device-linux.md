@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 203725ba109922a8704c0e31a6e61dc6eadf6bd9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 087f1d76aaab4b05425262e0c1fb87b168c99b95
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585924"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931226"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-linux"></a>快速入門：使用裝置功能模型建立 IoT 隨插即用預覽版裝置 (Linux)
 
@@ -57,11 +57,11 @@ _裝置功能模型_ (DCM) 可說明 IoT 隨插即用裝置的功能。 DCM 通�
 
 ## <a name="prepare-an-iot-hub"></a>準備 IoT 中樞
 
-您的 Azure 訂用帳戶中必須要有 Azure IoT 中樞，才能完成本快速入門。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+您的 Azure 訂用帳戶中也必須要有 Azure IoT 中樞，才能完成本快速入門。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 如果您沒有 IoT 中樞，可以依照下列步驟建立一個。
 
 如果您在本機使用 Azure CLI，`az` 版本應該是 **2.0.75** 或更新版本，Azure Cloud Shell 會使用最新版本。 使用 `az --version` 命令檢查電腦上所安裝的版本。
 
-新增適用於 Azure CLI 的 Microsoft Azure IoT 延伸模組：
+執行下列命令，將適用於 Azure CLI 的 Microsoft Azure IoT 擴充功能新增至您的 Cloud Shell 執行個體：
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -69,11 +69,11 @@ az extension add --name azure-cli-iot-ext
 
 本快速入門中的步驟需要 **0.8.5** 版或更新版本的延伸模組。 使用 `az extension list` 命令檢查您已安裝的版本，必要時，使用 `az extension update` 命令更新。
 
-如果沒有 IoT 中樞，請使用下列命令建立一個，並將 `{YourIoTHubName}` 取代為您選擇的唯一名稱。 如果您要在本機執行這些命令，請先使用 `az login` 登入您的 Azure 訂用帳戶。 如果您要在 Azure Cloud Shell 中執行這些命令，則會自動登入：
+如果沒有 IoT 中樞，請使用下列命令建立一個，並將 `<YourIoTHubName>` 取代為您選擇的唯一名稱。 如果您要在本機執行這些命令，請先使用 `az login` 登入您的 Azure 訂用帳戶。 如果您要在 Azure Cloud Shell 中執行這些命令，則會自動登入：
 
   ```azurecli-interactive
   az group create --name pnpquickstarts_rg --location centralus
-  az iot hub create --name {YourIoTHubName} \
+  az iot hub create --name <YourIoTHubName> \
     --resource-group pnpquickstarts_rg --sku S1
   ```
 
@@ -82,23 +82,23 @@ az extension add --name azure-cli-iot-ext
 > [!IMPORTANT]
 > 在公開預覽期間，IoT 隨插即用功能只能在**美國中部**、**歐洲北部**和**日本東部**區域中建立的 IoT 中樞上使用。
 
-執行下列命令，在 IoT 中樞為稱為 `mypnpdevice` 的裝置建立一個裝置身分識別。 將 `{YourIoTHubName}` 預留位置取代為您的 IoT 中樞名稱：
+執行下列命令，在 IoT 中樞建立裝置身分識別。 請將 **YourIoTHubName** 和 **YourDevice** 預留位置取代為您的實際名稱。
 
 ```azurecli-interactive
-az iot hub device-identity create --hub-name {YourIoTHubName} --device-id mypnpdevice
+az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDevice>
 ```
 
-執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_。 您稍後在本快速入門中會需要此連接字串：
+執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_。
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id mypnpdevice --output table
+az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
 ```
 
 ## <a name="author-your-model"></a>製作您的模型
 
 在本快速入門中，您會使用現有的範例裝置功能模型和相關聯的介面。
 
-1. 在您的主目錄中建立 `pnp_app` 目錄。 您可以使用此資料夾來存放裝置模型檔案和裝置程式碼 Stub。
+1. 在您的本機磁碟機中建立 `pnp_app` 目錄。 您可以使用此資料夾來存放裝置模型檔案和裝置程式碼 Stub。
 
     ```bash
     cd ~
@@ -121,16 +121,16 @@ az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --
 
 ## <a name="generate-the-c-code-stub"></a>產生 C 程式碼 Stub
 
-現在您已有 DCM 及其相關聯的介面，您可以產生實作模型的裝置程式碼。 若要在 VS Code 中產生 C 程式碼 Stub：
+既然您已經有 DCM 及其相關聯的介面，您可以產生實作模型的裝置程式碼。 若要在 VS Code 中產生 C 程式碼 Stub：
 
 1. 當 `pnp_app` 資料夾在 VS Code 中開啟時，使用 **Ctrl+Shift+P** 開啟命令選擇區、輸入 **IoT 隨插即用**，然後選取 [產生裝置程式碼 Stub]  。
 
     > [!NOTE]
-    > 第一次使用 IoT 隨插即用程式碼產生器公用程式時，需要幾秒鐘的時間才能下載。
+    > 第一次使用 IoT 隨插即用程式碼產生器公用程式時，需要幾秒鐘的時間才能自動下載並安裝。
 
 1. 選擇要用來產生裝置程式程式碼 Stub 的 **SampleDevice.capabilitymodel.json** 檔案。
 
-1. 輸入專案名稱 **sample_device**，這將是您的裝置應用程式名稱。
+1. 輸入專案名稱 **sample_device**。 這會是您裝置應用程式的名稱。
 
 1. 選擇 [ANSI C]  作為您的語言。
 
@@ -138,9 +138,9 @@ az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --
 
 1. 選擇 [Linux 上的 CMake 專案]  作為專案範本。
 
-1. 選擇 [透過原始程式碼 ]  作為包含 SDK 的方式。
+1. 選擇 [透過原始程式碼 ]  作為包含裝置 SDK 的方式。
 
-1. VS Code 會開啟新視窗，其中包含產生的裝置程式碼 Stub 檔案。
+1. 系統會在與 DCM 檔案相同的位置中建立一個名為 **sample_device** 的新資料夾，而且其中是產生的裝置程式碼 Stub 檔案。 VS Code 會開啟新的視窗來顯示這些內容。
     ![裝置程式碼](media/quickstart-create-pnp-device-linux/device-code.png)
 
 ## <a name="build-and-run-the-code"></a>建置並執行程式碼
@@ -173,7 +173,7 @@ az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --
 
     ```sh
     cd ~/pnp_app/sample_device/cmake
-    ./sample_device "{IoT Hub device connection string}"
+    ./sample_device "<device connection string>"
     ```
 
 1. 裝置應用程式會開始將資料傳送至 IoT 中樞。
@@ -202,18 +202,18 @@ az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --
 
 ### <a name="use-the-azure-iot-cli-to-validate-the-code"></a>使用 Azure IoT CLI 驗證程式碼
 
-當裝置用戶端範例啟動之後，您可以檢查它是否與 Azure CLI 一起運作。
+當裝置用戶端範例啟動之後，您可以檢查它是否與 Azure CLI 搭配運作。
 
 使用下列命令檢視範例裝置正在傳送的遙測。 您可能需要等候一或兩分鐘，才會在輸出中看到任何遙測：
 
 ```azurecli-interactive
-az iot dt monitor-events --hub-name {your IoT hub} --device-id mypnpdevice
+az iot dt monitor-events --hub-name <YourIoTHubNme> --device-id <YourDevice>
 ```
 
 使用下列命令檢視裝置所傳送的所有屬性：
 
 ```azurecli-interactive
-az iot dt list-properties --device-id mypnpdevice --hub-name {Your IoT hub name} --source private --repo-login "{Your company model repository connection string}"
+az iot dt list-properties --device-id <YourDevice> --hub-name <YourIoTHubNme> --source private --repo-login "<Your company model repository connection string>"
 ```
 
 ## <a name="next-steps"></a>後續步驟

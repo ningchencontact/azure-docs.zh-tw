@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - 使用 Azure 入口網站建立流量管理員設定檔以讓應用程式具有高可用性
+title: 快速入門：建立應用程式 HA 的設定檔 - Azure 入口網站 - Azure 流量管理員
 description: 本快速入門文章會說明如何建立流量管理員設定檔，以建置高可用性的 Web 應用程式。
 services: traffic-manager
 author: asudbring
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: allensu
-ms.openlocfilehash: 1f7fd3398c24eb82b1a2308f3b52df382c0aab7e
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b6a015c7462f082d5114a51d83cfacb0c550b026
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68224684"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032704"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立流量管理員設定檔
 
@@ -44,7 +44,7 @@ ms.locfileid: "68224684"
    - [執行個體詳細資料]   > [發行]  ：選取 [程式碼]  。
    - [執行個體詳細資料]   > [執行階段堆疊]  ：選取 [ASP.NET V4.7] 
    - [執行個體詳細資料]   > [作業系統]  ：選取 [Windows]  。
-   - [執行個體詳細資料]   > [區域]  ：選取 [美國東部]  。
+   - **執行個體詳細資料** > **區域**：選取 [美國東部]  。
    - [App Service 方案]   > [Windows 方案 (美國東部)]  ：選取 [新建]  ，然後輸入 **myAppServicePlanEastUS**
    - [App Service 方案]   > [SKU 與大小]  ：選取 [標準 S1]  。
    

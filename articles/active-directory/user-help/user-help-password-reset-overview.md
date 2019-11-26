@@ -1,5 +1,5 @@
 ---
-title: 重設您自己的公司或學校密碼概觀 - Azure Active Directory | Microsoft Docs
+title: 重設您自己的公司或學校密碼概觀 - Azure AD
 description: 關於在不需要系統管理員協助的情況下，如何註冊和重設公司或學校密碼的文章連結清單。
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15fbc526822f3b6659bc190ee67c6c17ff96b067
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 57d14ac3cbce6880604ad44b6aa71998ed061c10
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160615"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028498"
 ---
 # <a name="reset-your-own-work-or-school-password-overview"></a>重設您自己的公司或學校密碼概觀
 
@@ -34,5 +34,5 @@ ms.locfileid: "73160615"
 
 |文章 |說明 |
 |------|------------|
-| [註冊自助式密碼重設](active-directory-passwords-reset-register.md) ] 說明如何確認驗證方法並註冊自助式密碼重設，以便可以重設您自己的密碼。|
-| [重設您的密碼](active-directory-passwords-update-your-own-password.md) ] 說明如何將公司或學校帳戶的密碼加以重設或解除鎖定。|
+| [註冊自助式密碼重設](active-directory-passwords-reset-register.md) | 說明如何確認驗證方法並註冊自助式密碼重設，以便可以重設您自己的密碼。 |
+| [重設密碼](active-directory-passwords-update-your-own-password.md) | 說明如何將公司或學校帳戶的密碼加以重設或解除鎖定。 |

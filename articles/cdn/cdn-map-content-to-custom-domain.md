@@ -14,19 +14,19 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 81db1a7dc01b3d60ee6384f2026ed5ce692ff140
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 22283833ebb414372de16cbe4ce7d3986cd400a9
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666100"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837423"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>教學課程：將自訂網域新增至 Azure CDN 端點
 本教學課程說明如何將自訂網域新增至 Azure 內容傳遞網路 (CDN) 端點。 使用 CDN 端點來傳遞內容時，如果您想要在 CDN URL 中顯示您自己的網域名稱，則需要自訂網域。 有可見的網域名稱對您的客戶而言較為方便，並且也有助於宣傳商標。 
 
 當您在設定檔中建立 CDN 端點後，端點名稱 (azureedge.net 的子網域) 會包含在依預設傳遞 CDN 內容的 URL 中 (例如 https:\//contoso.azureedge.net/photo.png)。 為了方便起見，Azure CDN 會提供在自訂網域與 CDN 端點之間建立關聯的選項。 使用此選項時，您會在 URL 中使用自訂網域來傳遞內容，而不是使用端點名稱 (例如 https:\//www.contoso.com/photo.png)。 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 > - 建立 CNAME DNS 記錄。
 > - 將自訂網域與您的 CDN 端點產生關聯。
@@ -100,7 +100,7 @@ ms.locfileid: "67666100"
 
     - TTL：保留已選取的 [1 小時]  。
 
-6. 選取 [ **儲存**]。
+6. 選取 [儲存]  。
  
     CNAME 項目會新增至 DNS 記錄資料表。
 
@@ -145,7 +145,7 @@ ms.locfileid: "67666100"
  
 1. 確定您有在端點上快取的公用內容。 例如，如果您的 CDN 端點與儲存體帳戶相關聯，則 Azure CDN 會快取公用容器中的內容。 若要測試自訂網域，請確認您的容器設定為允許公用存取，且至少包含一個檔案。
 
-2. 在瀏覽器中，使用自訂網域瀏覽至檔案的位址。 例如，如果您的自訂網域是 [www.contoso.com](www.contoso.com)，則快取檔案的 URL 應會類似於下列 URL：http:\//www.contoso.com/my-public-container/my-file.jpg。 確認結果與您直接在 *&lt;endpoint hostname&gt;* .azureedge.net 上存取 CDN 端點時相同。
+2. 在瀏覽器中，使用自訂網域瀏覽至檔案的位址。 例如，如果您的自訂網域是 `www.contoso.com`，則快取檔案的 URL 應與以下 URL 類似：`http://www.contoso.com/my-public-container/my-file.jpg`。 確認結果與您直接在 *&lt;endpoint hostname&gt;* .azureedge.net 上存取 CDN 端點時相同。
 
 
 ## <a name="map-the-permanent-custom-domain"></a>對應永久自訂網域
@@ -198,7 +198,7 @@ ms.locfileid: "67666100"
 
     - TTL：保留已選取的 [1 小時]  。
 
-6. 選取 [ **儲存**]。
+6. 選取 [儲存]  。
  
     CNAME 項目會新增至 DNS 記錄資料表。
 

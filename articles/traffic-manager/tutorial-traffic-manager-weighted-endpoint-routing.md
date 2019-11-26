@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 將流量路由傳送至加權端點 - Azure 流量管理員
+title: 教學課程：將流量路由傳送至加權端點 - Azure 流量管理員
 description: 本教學課程文章說明如何使用流量管理員將流量路由至加權端點。
 services: traffic-manager
 author: asudbring
@@ -8,18 +8,18 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: allensu
-ms.openlocfilehash: f9e2b6f6a45279c52e19a63509c57fb34e739330
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 45ece08599722e04c4e6799fa5c3589cba1fca42
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258379"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037923"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>教學課程：使用流量管理員控制加權端點的流量路由
 
 本教學課程說明如何使用 Azure 流量管理員，透過加權路由方法控制端點之間的使用者流量路由。 在此路由方法中，您需要在流量管理員設定檔設定中指派權數給每個端點。 隨後，使用者流量會根據指派給每個端點的權數進行路由。 權數是 1 到 1,000 之間的整數。 指派給端點的權數值越高，其優先順序越高。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 在 IIS 上建立兩個執行基本網站的 VM。
@@ -29,7 +29,7 @@ ms.locfileid: "66258379"
 > * 在流量管理員設定檔中新增 VM 端點。
 > * 檢視流量管理員的運作。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -139,7 +139,7 @@ ms.locfileid: "66258379"
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | Name                   | 輸入 trafficmanager.net 區域內的唯一名稱。 它會產生 DNS 名稱 trafficmanager.net，用以存取流量管理員設定檔。                                   |
+    | 名稱                   | 輸入 trafficmanager.net 區域內的唯一名稱。 它會產生 DNS 名稱 trafficmanager.net，用以存取流量管理員設定檔。                                   |
     | 路由方法          | 選取 [加權]  路由方法。                                       |
     | 訂用帳戶            | 選取您的訂用帳戶。                          |
     | 資源群組          | 選取 [使用現有的]  ，然後選取 [myResourceGroupTM1]  。 |
@@ -158,7 +158,7 @@ ms.locfileid: "66258379"
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
     | 類型                    | 輸入 Azure 端點。                                   |
-    | Name           | 輸入 **myEastUSEndpoint**。                                        |
+    | 名稱           | 輸入 **myEastUSEndpoint**。                                        |
     | 目標資源類型           | 選取 [公用 IP 位址]  。                          |
     | 目標資源          | 選擇公用 IP 位址，以顯示相同訂用帳戶下具有公用 IP 位址的資源清單。 在 [資源]  中，選取名為 **myIISVMEastUS-ip** 的公用 IP 位址。 這是美國東部 IIS 伺服器 VM 的公用 IP 位址。|
     |  Weight      | 輸入 **100**。        |

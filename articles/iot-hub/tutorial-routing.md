@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure CLI 和 Azure 入口網站設定 Azure IoT 中樞的訊息路由 | Microsoft Docs
+title: 使用 Azure CLI 設定 Azure IoT 中樞的訊息路由
 description: 使用 Azure CLI 和 Azure 入口網站設定 Azure IoT 中樞的訊息路由
 author: robinsh
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 5019951ca9628bc3beb849bdb2b148b575bc8618
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 38a40d628b883c0e7ada824d47d3fdf3d29caf93
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535115"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084378"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>教學課程：使用 Azure CLI 和 Azure 入口網站設定 IoT 中樞訊息路由
 
@@ -26,11 +26,13 @@ ms.locfileid: "69535115"
 
 本教學課程使用 Azure CLI 來建立基底資源，然後使用 [Azure 入口網站](https://portal.azure.com)來示範如何設定訊息路由及設定虛擬裝置以便測試。
 
-有數個資源名稱必須是全域唯一的，例如 IoT 中樞名稱和儲存體帳戶名稱。 為求簡化，那些資源的名稱會加上稱為 randomValue  的隨機英數字元值。 randomValue 會在指令碼頂端產生一次，並於需要時加到整個指令碼的資源名稱後面。 如果您不想使用隨機值，則可將其設定為空字串，或設定為特定值。
-
 將下列指令碼複製並貼到 Cloud Shell，然後按 Enter 鍵。 系統便會一次執行一行指令碼。 這會建立本教學課程的基底資源，包括儲存體帳戶、IoT 中樞、服務匯流排命名空間和服務匯流排佇列。
 
-關於偵錯的附註：此指令碼會使用接續符號 (反斜線 `\`) 讓指令碼更容易讀取。 如果您有執行指令碼的問題，請確定反斜線後面沒有空格。
+有數個資源名稱必須是全域唯一的，例如 IoT 中樞名稱和儲存體帳戶名稱。 為求簡化，那些資源的名稱會加上稱為 randomValue  的隨機英數字元值。 randomValue 會在指令碼頂端產生一次，並於需要時加到整個指令碼的資源名稱後面。 如果您不想使用隨機值，則可將其設定為空字串，或設定為特定值。
+
+> [!TIP]
+> 關於偵錯的提示：此指令碼會使用接續符號 (反斜線 `\`) 讓指令碼更容易讀取。 如果您有執行指令碼的問題，請確定 Cloud Shell 執行的是 `bash`，而且反斜線後面沒有空格。
+>
 
 ```azurecli-interactive
 # This retrieves the subscription id of the account 
@@ -172,7 +174,7 @@ az servicebus queue create --name $sbQueueName \
 
    ![建立儲存體帳戶的路由查詢](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
 
-   選取 [ **儲存**]。 完成時會返回 [訊息路由] 窗格，您可以在其中看到儲存體的新路由查詢。 關閉 [路由] 窗格即會返回 [資源群組] 頁面。
+   選取 [儲存]  。 完成時會返回 [訊息路由] 窗格，您可以在其中看到儲存體的新路由查詢。 關閉 [路由] 窗格即會返回 [資源群組] 頁面。
 
 ### <a name="route-to-a-service-bus-queue"></a>路由傳送至服務匯流排佇列
 
@@ -208,7 +210,7 @@ az servicebus queue create --name $sbQueueName \
 
    ![建立服務匯流排佇列的路由查詢](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
-7. 選取 [ **儲存**]。 返回 [路由] 窗格中時，您會看到兩個新的路由顯示於此處。
+7. 選取 [儲存]  。 返回 [路由] 窗格中時，您會看到兩個新的路由顯示於此處。
 
    ![您剛設定的路由](./media/tutorial-routing/message-routing-show-both-routes.png)
 

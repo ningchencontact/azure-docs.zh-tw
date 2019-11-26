@@ -1,6 +1,6 @@
 ---
-title: 教學課程：使用 Azure 入口網站在 Azure Load Balancer 中設定連接埠轉送
-titlesuffix: Azure Load Balancer
+title: 教學課程：設定連接埠轉送 - Azure 入口網站
+titleSuffix: Azure Load Balancer
 description: 本教學課程說明如何使用 Azure Load Balancer 設定連接埠轉送，以對 Azure 虛擬網路中的 VM 建立連線。
 services: load-balancer
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: aa4837ec1fd8ef19eb6d0c77f946ef358becd542
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 6dda01543a6a7f447adefcc6cc3cfa3ea5da5492
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428236"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048854"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>教學課程：使用入口網站在 Azure Load Balancer 中設定連接埠轉送
 

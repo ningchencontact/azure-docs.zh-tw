@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e4449ac3519757bb9670d2d7fec53cb5f3ce152
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 66d8e13a4e042146ef2b99728e41e14f1dcb3435
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948288"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885364"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-g-suite"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 G Suite 整合
 
@@ -118,7 +118,7 @@ ms.locfileid: "71948288"
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [G Suite]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
-1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
+1. 在 [**選取單一登入方法**] 頁面上，選取 [**SAML**]。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
@@ -250,7 +250,9 @@ ms.locfileid: "71948288"
 
 ### <a name="create-g-suite-test-user"></a>建立 G Suite 測試使用者
 
-本節的目標是在 G Suite 軟體中建立名為 B.Simon 的使用者。 G Suite 支援預設啟用的自動佈建。 在這一節沒有您需要進行的動作。 如果 G Suite 軟體中還沒有使用者，當您嘗試存取 G Suite 軟體時，就會建立新的使用者。
+本節的目標是要[在 G Suite 中建立名為 B.Simon 的使用者](https://support.google.com/a/answer/33310?hl=en)。 在 G Suite 中手動建立使用者之後，使用者現在就可以使用其 Office 365 登入認證進行登入。
+
+G Suite 也支援自動使用者佈建。 若要設定自動使用者佈建，您必須先[設定 G Suite 來自動佈建使用者](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)。
 
 > [!NOTE]
 > 在測試單一登入之前，如果尚未在 Azure AD 中開啟佈建，請確定您的使用者已經存在於 G Suite 中。

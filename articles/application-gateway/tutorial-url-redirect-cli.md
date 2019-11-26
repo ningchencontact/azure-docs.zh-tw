@@ -1,19 +1,20 @@
 ---
-title: 教學課程 - 建立包含 URL 路徑型重新導向的應用程式閘道 - Azure CLI
+title: 教學課程：使用 CL 建立的 URL 路徑式重新導向
+titleSuffix: Azure Application Gateway
 description: 在本教學課程中，您將了解如何使用 Azure CLI，建立包含 URL 路徑型重新導向流量功能的應用程式閘道。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 7/30/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b2a06e47eec52d860aecdd2d9b57310cce5aeb27
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 23ddbdc62b2592a8fbfb7cdccaca52cbfe9aee62
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315943"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074433"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>教學課程：使用 Azure CLI 建立包含 URL 路徑型重新導向的應用程式閘道
 

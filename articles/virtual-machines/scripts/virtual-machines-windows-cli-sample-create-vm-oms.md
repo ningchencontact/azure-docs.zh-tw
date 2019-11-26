@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 範例 - 建立執行 Azure 監視器的 Azure VM | Microsoft Docs
+title: Azure CLI 範例 - 建立執行 Azure 監視器的 Azure VM
 description: Azure CLI 範例 - 建立執行 Windows Server 2016 VM 和 Azure 監視器的 Azure VM。
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc,seodec18
-ms.openlocfilehash: e5bee7a2b9d203909ccd11c4485ecc850688f4ff
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 77c5996a11b5223778bf0efbe33250f0db9f74f3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708225"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039914"
 ---
 # <a name="monitor-a-vm-with-azure-monitor-logs"></a>透過 Azure 監視器記錄來監視 VM
 

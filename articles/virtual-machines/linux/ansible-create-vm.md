@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - 使用 Ansible 在 Azure 中設定 Linux 虛擬機器 | Microsoft Docs
+title: 快速入門 - 使用 Ansible 在 Azure 中設定 Linux 虛擬機器
 description: 在本快速入門中，您將了解如何使用 Ansible 在 Azure 中建立 Linux 虛擬機器
 keywords: ansible, azure, devops, 虛擬機器
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 32d4486138f21bd99c3d75ee72ae5dd0df667e41
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 325b581910bc343f57a2da00ab3ed6e447c1e9e3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668635"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037082"
 ---
 # <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>快速入門：使用 Ansible 在 Azure 中設定 Linux 虛擬機器
 

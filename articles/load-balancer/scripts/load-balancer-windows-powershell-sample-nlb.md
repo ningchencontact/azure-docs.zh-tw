@@ -1,6 +1,6 @@
 ---
-title: PowerShell 範例 - 為目標為 VM 的流量進行負載平衡以達到高可用性 - Azure
-titlesuffix: Azure Load Balancer
+title: 平衡 VM 的流量負載以達到高可用性 - Azure PowerShell
+titleSuffix: Azure Load Balancer
 description: 此 Azure PowerShell 指令碼範例示範如何為目標為 VM 的流量進行負載平衡以達到高可用性
 services: load-balancer
 documentationcenter: load-balancer
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
-ms.openlocfilehash: 956a67897fa08fdd2c0d602ba514fcf58fabc292
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: ccc9ed364ce7ec5b18d04a71a8215675f7876b81
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273526"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075913"
 ---
 # <a name="azure-powershell-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Azure PowerShell 指令碼範例：使用 VM 平衡流量負載以達到高可用性
 

@@ -1,25 +1,25 @@
 ---
-title: Office 365 群組的到期日原則快速入門 - Azure Active Directory | Microsoft Docs
+title: 群組到期原則的快速入門 - Azure AD | Microsoft Docs
 description: Office 365 群組的到期日 - Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 05/06/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01cedadc115496fcf00df986b4ad4b9c5aab5139
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 16b6e4f521568c89e415e6e9fa621175052cf34d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606198"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026905"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>快速入門：設定 Office 365 群組 Azure Active Directory 中的到期日
 
@@ -27,9 +27,13 @@ ms.locfileid: "65606198"
 
 到期原則十分簡單：
 
-* 通知群組擁有者更新即將過期的群組
-* 刪除未更新的群組
-* 群組擁有者或 Azure AD 系統管理員可在 30 天內還原已刪除的 Office 365 群組
+- 具有使用者活動的群組會在到期時自動更新
+- 通知群組擁有者更新即將過期的群組
+- 刪除未更新的群組
+- 群組擁有者或 Azure AD 系統管理員可在 30 天內還原已刪除的 Office 365 群組
+
+> [!NOTE]
+> 群組現在使用 Azure AD 智慧，可根據群組最近的使用狀態，來自動進行更新。 此更新會根據 Office 365 服務 (例如 Outlook、SharePoint、Teams 和 Yammer 等) 上群組的使用者活動來決定。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 

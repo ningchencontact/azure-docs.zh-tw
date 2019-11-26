@@ -1,21 +1,21 @@
 ---
-title: 準備 Azure 資源以進行內部部署電腦的災害復原
+title: 準備 Azure 以使用 Azure Site Recovery 進行 Hyper-V 災害復原
 description: 了解如何準備 Azure，以使用 Azure Site Recovery 進行內部部署 Hyper-V VM 的災害復原
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6064c32e14ffba7edd51c2dae7787067d14e33c9
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ef623b95e104b485c6bfc8b2f489afeca436d81e
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814349"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084182"
 ---
-# <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>準備 Azure 資源以進行內部部署電腦的災害復原
+# <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>準備 Azure 資源以進行 Hyper-V 災害復原
 
  [Azure Site Recovery](site-recovery-overview.md) 可藉由確保商務應用程式在計劃性與非計劃性中斷期間持續執行，來協助提供商務持續性和災害復原 (BCDR)。 Site Recovery 會管理並協調內部部署機器和 Azure 虛擬機器 (VM) 的災害復原，包括複寫、容錯移轉和復原。
 
@@ -32,7 +32,7 @@ ms.locfileid: "70814349"
 > * 建立復原服務保存庫，以保存 VM 的中繼資料和組態資訊，以及其他複寫元件。
 > * 設定 Azure 網路。 在容錯移轉後建立的 Azure VM 會加入此網路。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="sign-in"></a>登入
 

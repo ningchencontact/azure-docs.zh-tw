@@ -127,7 +127,7 @@
               href: map-add-custom-html.md
             - name: 顯示流量
               href: map-show-traffic.md
-            - name: 與滑鼠事件互動
+            - name: 回應事件
               href: map-events.md
             - name: 讓應用程式可供存取
               href: map-accessibility.md

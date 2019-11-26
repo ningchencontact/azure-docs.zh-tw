@@ -1,6 +1,6 @@
 ---
-title: 快速入門：探索 Azure 時間序列深入解析預覽版示範環境 | Microsoft Docs
-description: 了解 Azure 時間序列深入解析預覽版示範環境的快速入門。
+title: 快速入門：探索預覽版示範環境 - Azure 時間序列深入解析 | Microsoft Docs
+description: 透過快速入門範例，了解 Azure 時間序列深入解析預覽版的示範環境。
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 10/24/2019
-ms.openlocfilehash: 25d6d1aa1cf7db0f448ec22ed7b5c84d840af3f5
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 61d13831ff0d8810cfdce35f86a0402cb1679ad1
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579657"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014763"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>快速入門：探索 Azure 時間序列深入解析預覽版示範環境
 

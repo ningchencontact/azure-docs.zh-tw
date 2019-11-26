@@ -2,7 +2,7 @@
   href: index.yml
 - name: 概觀
   items:
-    - name: Azure 原則的概觀
+    - name: 什麼是 Azure 原則？
       displayName: 'rbac, assign, initiative, parameters, count'
       href: overview.md
 - name: 快速入門

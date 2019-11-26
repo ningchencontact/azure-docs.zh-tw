@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 03998d214c1fb977741976eca7b878d0c6b577aa
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c733873a5545bb01f03abd8178ed2f371e2dd3aa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160384"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074074"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>教學課程：整合 MyWorkDrive 與 Azure Active Directory
 
@@ -100,9 +100,17 @@ ms.locfileid: "73160384"
 
 ### <a name="configure-myworkdrive-sso"></a>設定 MyWorkDrive SSO
 
-1. 在不同的網頁瀏覽器視窗中，以安全性系統管理員身分登入 MyWorkDrive。
+1. 若要自動執行 MyWorkDrive 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
 
-2. 在管理面板中的 MyWorkDrive 伺服器上按一下 **ENTERPRISE**，並執行下列步驟：
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+1. 將擴充功能新增至瀏覽器之後，按一下 [設定 MyWorkDrive]  便會將您導向到 MyWorkDrive 應用程式。 請從該處提供用以登入 MyWorkDrive 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 4。
+
+    ![設定組態](common/setup-sso.png)
+
+1. 如果您要手動設定 MyWorkDrive，請在不同的網頁瀏覽器視窗中，以安全性系統管理員身分登入 MyWorkDrive。
+
+1. 在管理面板中的 MyWorkDrive 伺服器上按一下 **ENTERPRISE**，並執行下列步驟：
 
     ![管理員](./media/myworkdrive-tutorial/tutorial_myworkdrive_admin.png)
 

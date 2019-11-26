@@ -1,23 +1,23 @@
 ---
-title: 使用 Python 向 Azure 裝置佈建服務註冊 TPM 裝置 | Microsoft Docs
+title: 快速入門：使用 Python 向 Azure 裝置佈建服務註冊 TPM 裝置
 description: Azure 快速入門 - 使用 Python 佈建服務 SDK 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置。 本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/26/2018
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 6e38d5f3a959d363347c8b266b7bbaf165f34937
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 49e7961200a2ab523997350fffa6606d65f60c8c
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249059"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903392"
 ---
-# <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>使用 Python 佈建服務 SDK 向 IoT 中樞裝置佈建服務註冊 TPM 裝置
+# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>快速入門：使用 Python 佈建服務 SDK 向 IoT 中樞裝置佈建服務註冊 TPM 裝置
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
 下列步驟說明如何使用 [Python 佈建服務 SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) 和範例 Python 應用程式的說明，以程式設計方式在 Azure IoT 中樞裝置佈建服務中建立 TPM 裝置的個別註冊。 雖然 Python 服務 SDK 在 Windows 和 Linux 電腦上都適用，本文會使用 Windows 開發電腦逐步引導您進行註冊程序。
@@ -99,7 +99,7 @@ ms.locfileid: "51249059"
 
 1. 觀察成功註冊的輸出。
 
-1. 在 Azure 入口網站中，瀏覽至您的佈建服務。 按一下 [管理註冊]。 請注意，您的 TPM 裝置會出現在 [個別註冊] 索引標籤下，並使用先前建立的名稱 `registrationid`。 
+1. 在 Azure 入口網站中，瀏覽至您的佈建服務。 按一下 [管理註冊]  。 請注意，您的 TPM 裝置會出現在 [個別註冊]  索引標籤下，並使用先前建立的名稱 `registrationid`。 
 
     ![確認入口網站中的 TPM 註冊成功](./media/quick-enroll-device-tpm-python/1.png)  
 
@@ -109,7 +109,7 @@ ms.locfileid: "51249059"
 
 1. 在您的電腦上關閉 Python 範例輸出視窗。
 1. 如果您建立了模擬的 TPM 裝置，請關閉 TPM 模擬器視窗。
-1. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，按一下 [管理註冊]，然後選取 [個別註冊] 索引標籤。選取您使用本快速入門建立之註冊項目的 [註冊識別碼]，然後按一下刀鋒視窗頂端的 [刪除] 按鈕。  
+1. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，按一下 [管理註冊]  ，然後選取 [個別註冊]  索引標籤。選取您使用本快速入門建立之註冊項目的 [註冊識別碼]  ，然後按一下刀鋒視窗頂端的 [刪除]  按鈕。  
 
 
 ## <a name="next-steps"></a>後續步驟

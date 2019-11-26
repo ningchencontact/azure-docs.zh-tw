@@ -1,5 +1,5 @@
 ---
-title: 適用於 SSH 和 RDP 的 Azure IoT 中樞裝置串流 C# 快速入門 (預覽) | Microsoft Docs
+title: 適用於 SSH 和 RDP 的 Azure IoT 中樞裝置串流 C# 快速入門
 description: 在本快速入門中，您會執行兩個範例 C# 應用程式，以啟用透過 IoT 中樞裝置串流進行 SSH 和 RDP 輸送的功能。
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: d84a20a554308e1705c304a18062a4a1d762a72b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d131e0112070dcc60e601b2859e8c9df8d40764a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901440"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084339"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>快速入門：使用 C# Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH 和 RDP 輸送 (預覽)
 

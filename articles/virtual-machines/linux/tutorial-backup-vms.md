@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 在 Azure 入口網站中備份 Linux 虛擬機器 | Microsoft Docs
+title: 教學課程 - 在 Azure 入口網站中備份 Linux 虛擬機器
 description: 在本教學課程中，您會學習如何使用 Azure 入口網站，以 Azure 備份保護 Linux 虛擬機器。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 890d4ab0dcbaa814b4ce3365025e4c35e4ba4c6b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2a53086b959f5b93d17d307a59682a44fe1f33a8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103531"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034591"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>教學課程：在 Azure 中備份和還原 Linux 虛擬機器的檔案
 

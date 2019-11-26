@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: fadbcf04f1cd474cf2d23963e88016d240272263
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: c20159d0583e18d0f5e71152fdb600d03db43224
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71279882"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73988541"
 ---
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -26,7 +26,7 @@ ms.locfileid: "71279882"
 請依照下列步驟來建立「適用於 PostgreSQL 的 Azure 資料庫」伺服器：
 1. 按一下 Azure 入口網站左上角的 [建立資源]  。
 2. 從 [新增]  頁面中選取 [資料庫]  ，然後從 [資料庫]  頁面中選取 [適用於 PostgreSQL 的 Azure 資料庫]  。
-3. 針對部署選項，按一下 [Hyperscale (Citus) 伺服器群組 - 預覽]  下方的 [建立]  按鈕。
+3. 針對部署選項，按一下 [Hyperscale (Citus) 伺服器群組]  下方的 [建立]  按鈕。
 4. 在新伺服器詳細資料表單中填寫下列資訊︰
    - 資源群組：按一下此欄位的文字方塊下方的 [新建]  連結。 輸入名稱，例如 **myresourcegroup**。
    - 伺服器群組名稱：輸入新伺服器群組的唯一名稱，該名稱也會用於伺服器子網域。
@@ -38,7 +38,7 @@ ms.locfileid: "71279882"
    > 必須有您在此處指定的伺服器系統管理員密碼，才能登入伺服器和其資料庫。 請記住或記錄此資訊，以供稍後使用。
 
 5. 按一下 [設定伺服器群組]  。 讓該區段中的設定維持不變，然後按一下 [儲存]  。
-6. 按一下畫面底部的 [下一步:  網路 >]。
+6. 按一下頁面底部的 [下一步:  網路 >]。
 
 7. 在 [網路]  索引標籤中，按一下 [公用端點]  選項按鈕。
    ![已選取公用端點](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)

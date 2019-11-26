@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 4c26431ee0d506dda547fb4027845baa15c9a134
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 773e55bd1908c04e1c73d998348d36b685524715
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997876"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075667"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos 模擬器進行本機開發和測試
 
@@ -416,6 +416,24 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 若要開啟資料總管，請在瀏覽器中瀏覽至下列 URL。 如上所示，回應訊息中提供模擬器端點。
 
     https://<emulator endpoint provided in response>/_explorer/index.html
+
+如果您在 Linux Docker 容器上執行 .NET 用戶端應用程式，並且在主機機器上執行 Azure Cosmos 模擬器，在此情況下，您無法從模擬器連線到 Azure Cosmos 帳戶。 因為應用程式不是在主機機器上執行，所以無法新增在 Linux 容器上註冊且符合模擬器端點的憑證。 
+
+因應措施是藉由傳遞 `HttpClientHandler` 執行個體，從用戶端應用程式停用伺服器的 SSL 憑證驗證，如下列 .Net 程式碼範例所示。 只有當您使用 `Microsoft.Azure.DocumentDB` Nuget 套件時，才適用此因應措施，`Microsoft.Azure.Cosmos` Nuget 套件不支援此方法：
+ 
+ ```csharp
+var httpHandler = new HttpClientHandler()
+{
+    ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+};
+ 
+using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+{
+    RunDatabaseDemo(client).GetAwaiter().GetResult();
+}
+```
+
+除了停用 SSL 憑證驗證之外，請務必使用 `/allownetworkaccess` 選項啟動模擬器，讓模擬器的端點可以從主機 IP 位址存取，而不是 `host.docker.internal` DNS。
 
 ## 在 Mac 或 Linux 上執行<a id="mac"></a>
 

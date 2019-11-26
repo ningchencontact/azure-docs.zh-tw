@@ -1,5 +1,5 @@
 ---
-title: 雙因素驗證和您的公司或學校帳戶概觀 - Azure Active Directory | Microsoft Docs
+title: 安全性驗證及您的公司或學校帳戶 - Azure AD
 description: 了解如何設定您的安全性驗證方法，以搭配您的公司或學校帳戶使用雙因素驗證。
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.date: 08/05/2019
 ms.author: lizross
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10f3b272978ea24b515e39a8a8cc1fd0bea73a4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e8cda4b04a4555ed7747bb9444c2a5ec2e266573
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615989"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028475"
 ---
-# <a name="overview-for-two-factor-verification-and-your-work-or-school-account"></a>雙因素驗證和您的公司或學校帳戶概觀
+# <a name="two-factor-verification-and-your-work-or-school-account"></a>雙因素驗證和您的公司或學校帳戶
 
 您收到來自 IT 人員或老闆的一封電子郵件，表示組織已對您的帳戶新增額外的安全性驗證。 所以這是什麼意思？ 這表示您的組織採取額外的步驟，以確保您在登入時就是您所表明的人員。 這個額外驗證 (也稱為雙因素驗證) 是透過您的使用者名稱、密碼及行動裝置或電話的組合進行。
 

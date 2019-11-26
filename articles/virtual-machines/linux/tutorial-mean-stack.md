@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 在 Azure 的 Linux 虛擬機器上建立 MEAN 堆疊 | Microsoft Docs
+title: 教學課程 - 在 Azure 的 Linux 虛擬機器上建立 MEAN 堆疊
 description: 在本教學課程中，您會了解如何在 Azure 中的 Linux VM 上建立 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆疊。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5a1d1f738d8f32777bc4a6ea7d04fb0abf2accf7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 50ccf0d6db5a50f7dd89732bc870ced6bcf1c2d7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300814"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034393"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>教學課程：在 Azure 中的 Linux 虛擬機器上建立 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆疊
 

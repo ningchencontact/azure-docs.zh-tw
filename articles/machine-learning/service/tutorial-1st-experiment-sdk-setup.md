@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 59844c5989abb03bbe5134c83c9653290c17d0a9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: b2434102e0355d5c26c501588c360f74eb98404d
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582486"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049148"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>教學課程：使用 Python SDK 開始建立您的第一個 ML 實驗
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -81,7 +81,7 @@ Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機
 
 1. 在頂端列中，選取要用來執行 Notebook 的 Notebook VM。 這些 VM 已預先設定執行 Azure Machine Learning 所需的一切。 您可以選取您工作區的任何使用者所建立的 VM。 
 
-1. 如果找不到任何 VM，請選取 [+ 新增計算]  來建立 VM。
+1. 如果找不到任何 VM，請選取 [+ 新增 VM]  來建立 VM。 
 
     1. 在建立 VM 時，請提供名稱。  此名稱的長度必須介於 2 到 16 個字元之間。 有效的字元是字母、數字和 - 字元，且在您的 Azure 訂用帳戶中必須是唯一的。
 

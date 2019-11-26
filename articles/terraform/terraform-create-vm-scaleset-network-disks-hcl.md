@@ -1,23 +1,21 @@
 ---
-title: 使用 Terraform 來建立 Azure 虛擬機器擴展集
-description: 關於使用 Terraform 設定以虛擬網路和受控已連結磁碟完成的 Azure 虛擬機器擴展集，並設定版本的教學課程
-services: terraform
-ms.service: azure
-keywords: terraform, devops, 虛擬機器, Azure, 擴展集, 網路, 儲存體, 模組
+title: 教學課程 - 使用 Terraform 建立 Azure 虛擬機器擴展集
+description: 了解如何使用 Terraform 來設定 Azure 虛擬機器擴展集及進行其版本管理。
+ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: a6bc0879d07cadc6c5b0b1a21b11b3075ec69719
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 11/07/2019
+ms.openlocfilehash: e2b7d816a02eaf47ef50bfd2d814f7b26a813446
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169870"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838398"
 ---
-# <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>使用 Terraform 來建立 Azure 虛擬機器擴展集
+# <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>教學課程：使用 Terraform 建立 Azure 虛擬機器擴展集
 
-[Azure 虛擬機器擴展集](/azure/virtual-machine-scale-sets)可讓您建立和管理一組完全相同、經過負載平衡的虛擬機器，其中的虛擬機器執行個體數目可以自動增加，或回應要求或定義的排程而減少。
+[Azure 虛擬機器擴展集](/azure/virtual-machine-scale-sets)可讓您設定相同的 VM。 VM 執行個體的數目可根據需求或排程進行調整。 如需詳細資訊，請參閱[在 Azure 入口網站中自動調整虛擬機器擴展集](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-portal)。
 
 在本教學課程中，您會了解如何使用 [Azure Cloud Shell](/azure/cloud-shell/overview) 來執行下列工作：
 
@@ -37,7 +35,7 @@ ms.locfileid: "71169870"
 
 - **安裝 Terraform**：請遵循 [Terraform 和設定 Azure 的存取](/azure/virtual-machines/linux/terraform-install-configure)一文中的指示
 
-- **建立 SSH 金鑰組**：如果您還沒有 SSH 金鑰組，請遵循[如何在 Azure 中建立和使用 Linux 虛擬機器的 SSH 公開和私密金鑰組](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)一文中的指示。
+- **建立 SSH 金鑰組**：如需詳細資訊，請參閱[如何在 Azure 中建立和使用 Linux VM 的 SSH 公開和私密金鑰組](/azure/virtual-machines/linux/mac-create-ssh-keys)。
 
 ## <a name="create-the-directory-structure"></a>建立目錄結構
 
@@ -73,10 +71,8 @@ ms.locfileid: "71169870"
 1. 建立名為 `variables.tf` 的檔案。
 
     ```bash
-    vi variables.tf
+    code variables.tf
     ```
-
-1. 選取 I 鍵輸入插入模式。
 
 1. 將下列程式碼貼到編輯器中：
 
@@ -100,13 +96,7 @@ ms.locfileid: "71169870"
    }
    ```
 
-1. 選取 Esc 鍵結束插入模式。
-
-1. 輸入下列命令來儲存檔案及結束 vi 編輯器：
-
-    ```bash
-    :wq
-    ```
+1. 儲存檔案 ( **&lt;Ctrl>S**) 並結束編輯器 ( **&lt;Ctrl>Q**)。
 
 ## <a name="create-the-output-definitions-file"></a>建立輸出定義檔
 在本節中，您要建立可描述部署後輸出的檔案。
@@ -116,27 +106,19 @@ ms.locfileid: "71169870"
 1. 建立名為 `output.tf` 的檔案。
 
     ```bash
-    vi output.tf
+    code output.tf
     ```
-
-1. 選取 I 鍵輸入插入模式。
 
 1. 請將下列程式碼貼到編輯器，以公開虛擬機器的完整網域名稱 (FQDN)。
    ：
 
    ```hcl
     output "vmss_public_ip" {
-        value = "${azurerm_public_ip.vmss.fqdn}"
+        value = azurerm_public_ip.vmss.fqdn
     }
    ```
 
-1. 選取 Esc 鍵結束插入模式。
-
-1. 輸入下列命令來儲存檔案及結束 vi 編輯器：
-
-    ```bash
-    :wq
-    ```
+1. 儲存檔案 ( **&lt;Ctrl>S**) 並結束編輯器 ( **&lt;Ctrl>Q**)。
 
 ## <a name="define-the-network-infrastructure-in-a-template"></a>在範本中定義網路基礎結構
 在本節中，您要在新的 Azure 資源群組中建立下列網路基礎結構：
@@ -150,18 +132,16 @@ ms.locfileid: "71169870"
 1. 建立名為 `vmss.tf` 的檔案來描述虛擬機器擴展集基礎結構。
 
     ```bash
-    vi vmss.tf
+    code vmss.tf
     ```
-
-1. 選取 I 鍵輸入插入模式。
 
 1. 請將下列程式碼貼到檔案的結尾，以公開虛擬機器的完整網域名稱 (FQDN)。
 
    ```hcl
    resource "azurerm_resource_group" "vmss" {
-    name     = "${var.resource_group_name}"
-    location = "${var.location}"
-    tags     = "${var.tags}"
+    name     = var.resource_group_name
+    location = var.location
+    tags     = var.tags
    }
 
    resource "random_string" "fqdn" {
@@ -174,35 +154,29 @@ ms.locfileid: "71169870"
    resource "azurerm_virtual_network" "vmss" {
     name                = "vmss-vnet"
     address_space       = ["10.0.0.0/16"]
-    location            = "${var.location}"
-    resource_group_name = "${azurerm_resource_group.vmss.name}"
-    tags                = "${var.tags}"
+    location            = var.location
+    resource_group_name = azurerm_resource_group.vmss.name
+    tags                = var.tags
    }
 
    resource "azurerm_subnet" "vmss" {
     name                 = "vmss-subnet"
-    resource_group_name  = "${azurerm_resource_group.vmss.name}"
-    virtual_network_name = "${azurerm_virtual_network.vmss.name}"
+    resource_group_name  = azurerm_resource_group.vmss.name
+    virtual_network_name = azurerm_virtual_network.vmss.name
     address_prefix       = "10.0.2.0/24"
    }
 
    resource "azurerm_public_ip" "vmss" {
     name                         = "vmss-public-ip"
-    location                     = "${var.location}"
-    resource_group_name          = "${azurerm_resource_group.vmss.name}"
+    location                     = var.location
+    resource_group_name          = azurerm_resource_group.vmss.name
     allocation_method = "Static"
-    domain_name_label            = "${random_string.fqdn.result}"
-    tags                         = "${var.tags}"
+    domain_name_label            = random_string.fqdn.result
+    tags                         = var.tags
    }
    ```
 
-1. 選取 Esc 鍵結束插入模式。
-
-1. 輸入下列命令來儲存檔案及結束 vi 編輯器：
-
-   ```bash
-   :wq
-   ```
+1. 儲存檔案 ( **&lt;Ctrl>S**) 並結束編輯器 ( **&lt;Ctrl>Q**)。
 
 ## <a name="provision-the-network-infrastructure"></a>佈建網路基礎結構
 在您建立組態檔 (.tf) 的目錄中，使用 Azure Cloud Shell 執行下列步驟：
@@ -219,9 +193,9 @@ ms.locfileid: "71169870"
    terraform apply
    ```
 
-   Terraform 會提示您輸入「位置」值，因為 **location** 變數會在 `variables.tf` 中定義，但一律不會設定。 您可以輸入任何有效的位置 - 例如「美國西部」，接著選取 [輸入]。 (使用括號括住任何包含空格的值。)
+   Terraform 會提示您輸入 `location` 值，因為 `location` 變數定義於 `variables.tf` 中，但一律不會設定。 您可以輸入任何有效的位置 - 例如「美國西部」，接著選取 [輸入]。 (使用括號括住任何包含空格的值。)
 
-1. Terraform 會列印 `output.tf` 檔案中所定義的輸出。 如下列螢幕擷取畫面所示，FQDN 會採用 &lt;id>.&lt;location>.cloudapp.azure.com 的格式。 ID 值是經計算的值，而位置則是您在執行 Terraform 時所提供的值。
+1. Terraform 會列印 `output.tf` 檔案中所定義的輸出。 如下列螢幕擷取畫面所示，FQDN 會採用下列格式：`<ID>.<location>.cloudapp.azure.com`。 ID 是經計算的值，而位置則是在執行 Terraform 時所提供的值。
 
    ![公用 IP 位址的虛擬機器擴展集完整網域名稱](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
 
@@ -245,7 +219,7 @@ ms.locfileid: "71169870"
 1. 開啟 `vmss.tf` 組態檔。
 
    ```bash
-   vi vmss.tf
+   code vmss.tf
    ```
 
 1. 請移至檔案的結尾，並選取 A 鍵來進入附加模式。
@@ -255,46 +229,46 @@ ms.locfileid: "71169870"
    ```hcl
    resource "azurerm_lb" "vmss" {
     name                = "vmss-lb"
-    location            = "${var.location}"
-    resource_group_name = "${azurerm_resource_group.vmss.name}"
+    location            = var.location
+    resource_group_name = azurerm_resource_group.vmss.name
 
     frontend_ip_configuration {
       name                 = "PublicIPAddress"
-      public_ip_address_id = "${azurerm_public_ip.vmss.id}"
+      public_ip_address_id = azurerm_public_ip.vmss.id
     }
 
-    tags = "${var.tags}"
+    tags = var.tags
    }
 
    resource "azurerm_lb_backend_address_pool" "bpepool" {
-    resource_group_name = "${azurerm_resource_group.vmss.name}"
-    loadbalancer_id     = "${azurerm_lb.vmss.id}"
+    resource_group_name = azurerm_resource_group.vmss.name
+    loadbalancer_id     = azurerm_lb.vmss.id
     name                = "BackEndAddressPool"
    }
 
    resource "azurerm_lb_probe" "vmss" {
-    resource_group_name = "${azurerm_resource_group.vmss.name}"
-    loadbalancer_id     = "${azurerm_lb.vmss.id}"
+    resource_group_name = azurerm_resource_group.vmss.name
+    loadbalancer_id     = azurerm_lb.vmss.id
     name                = "ssh-running-probe"
-    port                = "${var.application_port}"
+    port                = var.application_port
    }
 
    resource "azurerm_lb_rule" "lbnatrule" {
-      resource_group_name            = "${azurerm_resource_group.vmss.name}"
-      loadbalancer_id                = "${azurerm_lb.vmss.id}"
+      resource_group_name            = azurerm_resource_group.vmss.name
+      loadbalancer_id                = azurerm_lb.vmss.id
       name                           = "http"
       protocol                       = "Tcp"
-      frontend_port                  = "${var.application_port}"
-      backend_port                   = "${var.application_port}"
-      backend_address_pool_id        = "${azurerm_lb_backend_address_pool.bpepool.id}"
+      frontend_port                  = var.application_port
+      backend_port                   = var.application_port
+      backend_address_pool_id        = azurerm_lb_backend_address_pool.bpepool.id
       frontend_ip_configuration_name = "PublicIPAddress"
-      probe_id                       = "${azurerm_lb_probe.vmss.id}"
+      probe_id                       = azurerm_lb_probe.vmss.id
    }
 
    resource "azurerm_virtual_machine_scale_set" "vmss" {
     name                = "vmscaleset"
-    location            = "${var.location}"
-    resource_group_name = "${azurerm_resource_group.vmss.name}"
+    location            = var.location
+    resource_group_name = azurerm_resource_group.vmss.name
     upgrade_policy_mode = "Manual"
 
     sku {
@@ -326,9 +300,9 @@ ms.locfileid: "71169870"
 
     os_profile {
       computer_name_prefix = "vmlab"
-      admin_username       = "${var.admin_user}"
-      admin_password       = "${var.admin_password}"
-      custom_data          = "${file("web.conf")}"
+      admin_username       = var.admin_user
+      admin_password       = var.admin_password
+      custom_data          = file("web.conf")
     }
 
     os_profile_linux_config {
@@ -341,17 +315,15 @@ ms.locfileid: "71169870"
 
       ip_configuration {
         name                                   = "IPConfiguration"
-        subnet_id                              = "${azurerm_subnet.vmss.id}"
-        load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
+        subnet_id                              = azurerm_subnet.vmss.id
+        load_balancer_backend_address_pool_ids = [azurerm_lb_backend_address_pool.bpepool.id]
         primary = true
       }
     }
 
-    tags = "${var.tags}"
+    tags = var.tags
    }
    ```
-
-1. 選取 Esc 鍵結束插入模式。
 
 1. 輸入下列命令來儲存檔案及結束 vi 編輯器：
 
@@ -362,10 +334,8 @@ ms.locfileid: "71169870"
 1. 建立名為 `web.conf` 的檔案，作為擴展集所屬虛擬機器的 cloud-init 組態。
 
     ```bash
-    vi web.conf
+    code web.conf
     ```
-
-1. 選取 I 鍵輸入插入模式。
 
 1. 將下列程式碼貼到編輯器中：
 
@@ -374,8 +344,6 @@ ms.locfileid: "71169870"
    packages:
     - nginx
    ```
-
-1. 選取 Esc 鍵結束插入模式。
 
 1. 輸入下列命令來儲存檔案及結束 vi 編輯器：
 
@@ -386,7 +354,7 @@ ms.locfileid: "71169870"
 1. 開啟 `variables.tf` 組態檔。
 
     ```bash
-    vi variables.tf
+    code variables.tf
     ```
 
 1. 請移至檔案的結尾，並選取 A 鍵來進入附加模式。
@@ -409,13 +377,7 @@ ms.locfileid: "71169870"
     }
     ```
 
-1. 選取 Esc 鍵結束插入模式。
-
-1. 輸入下列命令來儲存檔案及結束 vi 編輯器：
-
-     ```bash
-     :wq
-     ```
+1. 儲存檔案 ( **&lt;Ctrl>S**) 並結束編輯器 ( **&lt;Ctrl>Q**)。
 
 1. 建立 Terraform 計劃以視覺化虛擬機器擴展集部署。 (您需要指定您選擇的密碼及資源的位置)。
 
@@ -442,7 +404,7 @@ ms.locfileid: "71169870"
     ![瀏覽至 FQDN 的結果](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
 ## <a name="add-an-ssh-jumpbox"></a>新增 SSH Jumpbox
-SSH jumpbox  是您在存取網路上其他伺服器時所「跳躍」通過的單一伺服器。 在此步驟中，您要設定下列資源：
+SSH Jumpbox  是您在存取網路上的其他伺服器時所「跳躍」通過的單一伺服器。 在此步驟中，您要設定下列資源：
 
 - 連線到與虛擬機器擴展集相同子網路的網路介面 (或 jumpbox)。
 
@@ -451,7 +413,7 @@ SSH jumpbox  是您在存取網路上其他伺服器時所「跳躍」通過的�
 1. 開啟 `vmss.tf` 組態檔。
 
    ```bash
-   vi vmss.tf
+   code vmss.tf
    ```
 
 1. 請移至檔案的結尾，並選取 A 鍵來進入附加模式。
@@ -461,33 +423,33 @@ SSH jumpbox  是您在存取網路上其他伺服器時所「跳躍」通過的�
    ```hcl
    resource "azurerm_public_ip" "jumpbox" {
     name                         = "jumpbox-public-ip"
-    location                     = "${var.location}"
-    resource_group_name          = "${azurerm_resource_group.vmss.name}"
+    location                     = var.location
+    resource_group_name          = azurerm_resource_group.vmss.name
     allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}-ssh"
-    tags                         = "${var.tags}"
+    tags                         = var.tags}
    }
 
    resource "azurerm_network_interface" "jumpbox" {
     name                = "jumpbox-nic"
-    location            = "${var.location}"
-    resource_group_name = "${azurerm_resource_group.vmss.name}"
+    location            = var.location
+    resource_group_name = azurerm_resource_group.vmss.name
 
     ip_configuration {
       name                          = "IPConfiguration"
-      subnet_id                     = "${azurerm_subnet.vmss.id}"
+      subnet_id                     = azurerm_subnet.vmss.id
       private_ip_address_allocation = "dynamic"
-      public_ip_address_id          = "${azurerm_public_ip.jumpbox.id}"
+      public_ip_address_id          = azurerm_public_ip.jumpbox.id
     }
 
-    tags = "${var.tags}"
+    tags = var.tags
    }
 
    resource "azurerm_virtual_machine" "jumpbox" {
     name                  = "jumpbox"
-    location              = "${var.location}"
-    resource_group_name   = "${azurerm_resource_group.vmss.name}"
-    network_interface_ids = ["${azurerm_network_interface.jumpbox.id}"]
+    location              = var.location
+    resource_group_name   = azurerm_resource_group.vmss.name
+    network_interface_ids = [azurerm_network_interface.jumpbox.id]
     vm_size               = "Standard_DS1_v2"
 
     storage_image_reference {
@@ -506,22 +468,22 @@ SSH jumpbox  是您在存取網路上其他伺服器時所「跳躍」通過的�
 
     os_profile {
       computer_name  = "jumpbox"
-      admin_username = "${var.admin_user}"
-      admin_password = "${var.admin_password}"
+      admin_username = var.admin_user
+      admin_password = var.admin_password
     }
 
     os_profile_linux_config {
       disable_password_authentication = false
     }
 
-    tags = "${var.tags}"
+    tags = var.tags
    }
    ```
 
 1. 開啟 `output.tf` 組態檔。
 
    ```bash
-   vi output.tf
+   code output.tf
    ```
 
 1. 請移至檔案的結尾，並選取 A 鍵來進入附加模式。
@@ -530,17 +492,11 @@ SSH jumpbox  是您在存取網路上其他伺服器時所「跳躍」通過的�
 
    ```hcl
    output "jumpbox_public_ip" {
-      value = "${azurerm_public_ip.jumpbox.fqdn}"
+      value = azurerm_public_ip.jumpbox.fqdn
    }
    ```
 
-1. 選取 Esc 鍵結束插入模式。
-
-1. 輸入下列命令來儲存檔案及結束 vi 編輯器：
-
-    ```bash
-    :wq
-    ```
+1. 儲存檔案 ( **&lt;Ctrl>S**) 並結束編輯器 ( **&lt;Ctrl>Q**)。
 
 1. 部署 Jumpbox。
 
@@ -566,9 +522,6 @@ terraform destroy
 解構程序可能需要幾分鐘的時間才能完成。
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您會了解如何使用 Terraform 來建立 Azure 虛擬機器擴展集。 以下有一些額外的資源，可協助您深入了解 Azure 上的 Terraform：
 
-[Microsoft.com 中的 Terraform 中樞](https://docs.microsoft.com/azure/terraform/)
-[Terraform Azure 提供者文件](https://aka.ms/terraform)
-[Terraform Azure 提供者來源](https://aka.ms/tfgit)
-[Terraform Azure 模組](https://aka.ms/tfmodules)
+> [!div class="nextstepaction"] 
+> [深入了解如何使用 Azure 中的 Terraform](/azure/terraform)

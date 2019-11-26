@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 10/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed1f1b6973d96fdc0bce560877720adfc5e33081
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: f2fea3bca40d8a5783448e68ea89c3b238a0104d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170896"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074025"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Amazon Web Services (AWS) 整合
 
@@ -81,7 +81,6 @@ ms.locfileid: "71170896"
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **Amazon Web Services (AWS)** 。
 1. 從結果面板選取 [Amazon Web Services (AWS)]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-amazon-web-services-aws"></a>設定和測試 Amazon Web Services (AWS) 的 Azure AD 單一登入
 
 以名為 **B.Simon** 的測試使用者，設定及測試與 Amazon Web Services (AWS) 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 Amazon Web Services (AWS) 中相關使用者之間的連結關聯性。
@@ -93,6 +92,7 @@ ms.locfileid: "71170896"
     1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
 1. **[設定 Amazon Web Services (AWS) SSO](#configure-amazon-web-services-aws-sso)** - 在應用程式端設定單一登入設定。
     1. **[建立 Amazon Web Services (AWS) 測試使用者](#create-amazon-web-services-aws-test-user)** 使 Amazon Web Services (AWS) 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
+    1. **[如何在 Amazon Web Services (AWS) 中設定角色佈建](#how-to-configure-role-provisioning-in-amazon-web-services-aws)**
 1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
 ## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
@@ -100,7 +100,7 @@ ms.locfileid: "71170896"
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Amazon Web Services (AWS)]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
-1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
+1. 在 [**選取單一登入方法**] 頁面上，選取 [**SAML**]。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
@@ -312,11 +312,13 @@ ms.locfileid: "71170896"
 
     c. 選取 [關閉]  。
 
-21. 在 Azure AD 管理入口網站的 AWS 應用程式中，移至[佈建]  。
+### <a name="how-to-configure-role-provisioning-in-amazon-web-services-aws"></a>如何在 Amazon Web Services (AWS) 中設定角色佈建
+
+1. 在 Azure AD 管理入口網站的 AWS 應用程式中，移至[佈建]  。
 
     ![醒目提示 [佈建] 的 AWS 應用程式螢幕擷取畫面](./media/amazon-web-service-tutorial/provisioning.png)
 
-22. 在 [用戶端祕密]  和 [祕密權杖]  欄位中，分別輸入存取金鑰和祕密。
+2. 在 [用戶端祕密]  和 [祕密權杖]  欄位中，分別輸入存取金鑰和祕密。
 
     ![[系統管理員認證] 對話方塊的螢幕擷取畫面](./media/amazon-web-service-tutorial/provisioning1.png)
 
@@ -328,7 +330,7 @@ ms.locfileid: "71170896"
 
     d. 選取 [儲存]  來儲存設定。
 
-23. 針對 [設定]  區段中的 [佈建狀態]  ，選取 [開啟]  。 然後選取 [儲存]  。
+3. 針對 [設定]  區段中的 [佈建狀態]  ，選取 [開啟]  。 然後選取 [儲存]  。
 
     ![醒目提示 [開啟] 的 [設定] 區段螢幕擷取畫面](./media/amazon-web-service-tutorial/provisioning2.png)
 

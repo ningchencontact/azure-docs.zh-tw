@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - Azure 中 Windows VM 的高可用性 | Microsoft Docs
+title: 教學課程 - Azure 中 Windows VM 的高可用性
 description: 在本教學課程中，您會了解如何使用 Azure PowerShell 在可用性設定組中部署高可用性的虛擬機器
 documentationcenter: ''
 services: virtual-machines-windows
@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b943a4476a6b0d639353816337deea96eb14fe24
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0f94f4d312cefec80a0f294e256ee1ad908b903c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101710"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068125"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立及部署高可用性的虛擬機器
 
 在本教學課程中，您可了解如何使用「可用性設定組」，增加虛擬機器 (VM) 的可用性和可靠性。 「可用性設定組」可確保您在 Azure 上部署的 VM 會分散到叢集中多個各自獨立的硬體節點。 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立可用性設定組

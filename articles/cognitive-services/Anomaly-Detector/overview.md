@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 09/05/2019
 ms.author: aahi
-ms.openlocfilehash: 3bd60ff1e732940bbb13c2e224084cf7e331266b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 706bd9c141b191632acee1c04745d64baaf50ee5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934868"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012065"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>什麼是異常偵測器 API？
 
@@ -72,7 +72,7 @@ Anomaly Detector API 是一種 RESTful Web 服務，因此可輕易地從任何�
 
 ## <a name="algorithms"></a>演算法
 
-* 請參閱技術部落格[介紹 Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)，以取得關於演算法的幕後資訊。
+* 如需深入了解相關演算法，請參閱 [Azure Anomaly Detector API 簡介](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)及 [Azure Anomaly Detector 中的 SR-CNN 演算法概觀](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798)。
 * 請參閱 [Microsoft 的時間序列異常偵測服務](https://arxiv.org/abs/1906.03821)這份文件 (KDD 2019 已接受)，以了解由 Microsoft 開發的 cutting-edge SR-CNN 演算法。
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]

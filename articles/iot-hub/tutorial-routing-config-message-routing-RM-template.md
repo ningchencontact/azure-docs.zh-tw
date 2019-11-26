@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Resource Manager 範本設定 Azure IoT 中樞的訊息路由 | Microsoft Docs
+title: 使用 Azure Resource Manager 範本設定 Azure IoT 中樞的訊息路由
 description: 使用 Azure Resource Manager 範本設定 Azure IoT 中樞的訊息路由
 author: robinsh
 manager: philmeagit st
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: d7b8c0685cf92341241575d3e67c09a759f5c190
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163287"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084397"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>教學課程：使用 Azure Resource Manager 範本設定 IoT 中樞的訊息路由
 
@@ -370,7 +370,7 @@ ms.locfileid: "66163287"
 
 執行指令碼來執行部署。 此指令碼的最後一行會擷取已設定要傳回的變數，也就是服務匯流排佇列的連接字串。
 
-此指令碼中會設定下列變數。
+指令碼會設定並使用下列變數：
 
 **$RGName** 是要作為範本部署目的地的資源群組名稱。 會先建立此欄位再部署範本。
 

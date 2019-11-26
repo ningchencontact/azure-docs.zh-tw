@@ -1,19 +1,20 @@
 ---
-title: 快速入門 - 使用 Azure 應用程式閘道引導網路流量 - Azure 入口網站 | Microsoft Docs
+title: 快速入門：使用入口網站引導網路流量
+titleSuffix: Azure Application Gateway
 description: 深入了解如何使用 Azure 入口網站建立 Azure 應用程式閘道，該應用程式閘道會將網路流量導向至後端集區中的虛擬機器。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 07/17/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 565620f477382ff81f854336dbee7bdb1ad06f01
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f5a20f80ea8eafa73cbef394dcfdde75087326b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469693"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074569"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure 入口網站
 
@@ -65,7 +66,7 @@ ms.locfileid: "73469693"
 
 1. 在 [前端]  索引標籤上，確認 [前端 IP 位址類型]  已被設為 [公用]  。 <br>您可以根據自己的使用案例，設定為公用或私人前端 IP。 在此範例中，您會選擇公用前端 IP。
    > [!NOTE]
-   > 對於應用程式閘道 v2 SKU，您只能選擇 [公用]  前端 IP 組態。 目前未針對此 v2 SKU 啟用私人前端 IP 設定。
+   > 對於應用程式閘道 v2 SKU，您只能選擇 [公用]  前端 IP 組態。 目前僅未針對此 v2 SKU 啟用私人前端 IP 設定。 您可以同時擁有公用和私人前端 IP 設定。
 
 2. 針對 [公用 IP 位址]  選擇 [新建]  ，然後針對公用 IP 位址名稱輸入 *myAGPublicIPAddress*，然後選取 [確定]  。 
 

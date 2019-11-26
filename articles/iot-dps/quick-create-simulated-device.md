@@ -1,20 +1,20 @@
 ---
-title: 使用 C 將模擬 TPM 裝置佈建到 Azure IoT 中樞 | Microsoft Docs
+title: 快速入門：使用 C 將模擬 TPM 裝置佈建到 Azure IoT 中樞
 description: 本快速入門使用個別註冊。 在此快速入門中，您將使用適用於 Azure IoT 中樞裝置佈建服務的 C 裝置 SDK 來建立及佈建模擬 TPM 裝置。
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ca6914967d855123c70bf746a9d68d2e045e76d9
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3df1bd879c10411800596ce7157be4554fcffaf6
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65908685"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903500"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>快速入門：使用 Azure IoT C SDK 佈建模擬 TPM 裝置
 
@@ -115,7 +115,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 3. 在 Visual Studio 的 [方案總管]  視窗中，瀏覽至 **Provision\_Tools** 資料夾。 以滑鼠右鍵按一下 **tpm_device_provision** 專案，然後選取 [設為起始專案]  。 
 
-4. 在 Visual Studio 功能表中，選取 [偵錯]   > [啟動但不偵錯]  以執行解決方案。 應用程式會讀取並顯示 [註冊識別碼]     和 [簽署金鑰]    。 複製這些值。 這些值會在下一節用於裝置註冊。 
+4. 在 Visual Studio 功能表中，選取 [偵錯]   > [啟動但不偵錯]  以執行解決方案。 應用程式會讀取並顯示 [註冊識別碼]  和 [簽署金鑰]  。 複製這些值。 這些值會在下一節用於裝置註冊。 
 
 
 <a id="portalenrollment"></a>
@@ -145,7 +145,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 在本節中，您將設定範例程式碼，以使用[進階訊息佇列通訊協定 (AMQP)](https://wikipedia.org/wiki/Advanced_Message_Queuing_Protocol) 將裝置的開機順序傳送至裝置佈建服務執行個體。 此開機順序會使裝置經過辨識，並指派給連結至裝置佈建服務執行個體的 IoT 中樞。
 
-1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀]  索引標籤，並複製 [識別碼範圍]     值。
+1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀]  索引標籤，並複製 [識別碼範圍]  值。
 
     ![從入口網站擷取裝置佈建服務端點資訊](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
@@ -220,4 +220,3 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 > [!div class="nextstepaction"]
 > [Azure 快速入門 - 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置](quick-enroll-device-tpm-java.md)
-

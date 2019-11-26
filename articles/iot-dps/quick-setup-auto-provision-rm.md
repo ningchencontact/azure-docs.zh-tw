@@ -1,29 +1,29 @@
 ---
-title: 使用 Azure Resource Manager 範本設定裝置佈建 | Microsoft Docs
+title: 快速入門：使用 Azure Resource Manager 範本設定裝置佈建
 description: Azure 快速入門 - 使用範本設定 Azure IoT 中樞裝置佈建服務
 author: wesmc7777
 ms.author: wesmc
-ms.date: 06/18/2018
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3360bfa7eed15f72fb78f698e837d887e9c8aa85
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: fdc75424c5c99e80c13ac086229da93411e3ce83
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126472"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903378"
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本設定 IoT 中樞裝置佈建服務
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>快速入門：使用 Azure Resource Manager 範本設定 IoT 中樞裝置佈建服務
 
 您可以使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)，以程式設計方式設定佈建裝置所需的 Azure 雲端資源。 下列步驟示範如何使用 Azure Resource Manager 範本來建立 IoT 中樞、新的 IoT 中樞裝置佈建服務，以及將這兩項服務連結在一起。 本快速入門使用 [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) 來執行建立資源群組及部署範本所需的程式設計步驟，但您可以輕鬆使用 [Azure 入口網站](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal)、[PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)、.NET、Ruby 或其他程式設計語言來執行這些步驟及部署您的範本。 
 
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+- 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 - 此快速入門需要您在本機執行 Azure CLI。 您必須安裝 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級 CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
 
@@ -39,7 +39,7 @@ ms.locfileid: "62126472"
 
     依照指示使用程式碼進行驗證，並透過網頁瀏覽器登入 Azure 帳戶。
 
-2. 如果您有多個 Azure 訂用帳戶，則登入 Azure 會授予您所有與認證相關聯之 Azure 帳戶的存取權。 使用下列[命令來列出可供您使用的 Azure 帳戶][lnk-az-account-command]︰
+2. 如果您有多個 Azure 訂用帳戶，則登入 Azure 會授予您所有與認證相關聯之 Azure 帳戶的存取權。 使用下列[命令列出 Azure 帳戶][lnk-az-account-command] \(英文\) 以供您使用：
     
     ```azurecli
     az account list 
@@ -51,7 +51,7 @@ ms.locfileid: "62126472"
     az account set --subscription {your subscription name or id}
     ```
 
-3. 當您建立 IoT 中樞和佈建服務之類的 Azure 雲端資源時，您可在資源群組中建立它們。 使用現有的資源群組，或執行下列[命令來建立資源群組][lnk-az-resource-command]：
+3. 當您建立 IoT 中樞和佈建服務之類的 Azure 雲端資源時，您可在資源群組中建立它們。 使用現有的資源群組，或執行下列[命令來建立資源群組][lnk-az-resource-command] (英文)：
     
     ```azurecli
      az group create --name {your resource group name} --location westus

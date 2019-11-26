@@ -3,42 +3,44 @@ title: 在 Azure 中建立 HTTP 觸發的 Python 函式
 description: 了解如何使用 Azure Functions Core Tools 和 Azure CLI 在 Azure 中建立您的第一個 Python 函式。
 author: ggailey777
 ms.author: glenga
-ms.date: 09/11/2019
+ms.date: 11/07/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: gwallace
-ms.openlocfilehash: 791348088d909785b36934c3b9a2ae00fc0acbb7
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 61465177c98a31a739946097ca615382175df3d4
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622040"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082761"
 ---
-# <a name="create-an-http-triggered-python-function-in-azure"></a>在 Azure 中建立 HTTP 觸發的 Python 函式
+# <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>快速入門：在 Azure 中建立 HTTP 觸發的 Python 函式
 
-本文說明如何使用命令列工具建立在 Azure Functions 中執行的 Python 專案。 您也可以建立一個由 HTTP 要求所觸發的函式。 最後，您會在 Azure 中發行專案，使其以[無伺服器函式](functions-scale.md#consumption-plan)的形式執行。
+本文說明如何使用命令列工具建立在 Azure Functions 中執行的 Python 專案。 您也可以建立一個由 HTTP 要求所觸發的函式。 在本機執行之後，您會在 Azure 中發行專案，使其以[無伺服器函式](functions-scale.md#consumption-plan)的形式執行。 
 
 本文是 Azure Functions 的兩個 Python 快速入門中的第一個。 當您完成本快速入門後，您可以[將 Azure 儲存體佇列輸出繫結新增至](functions-add-output-binding-storage-queue-python.md)您的函式。
+
+這也是本文的 [Visual Studio Code 版本](/azure/python/tutorial-vs-code-serverless-python-01)。
 
 ## <a name="prerequisites"></a>必要條件
 
 開始之前，您必須：
 
-+ 安裝 [Python 3.6.8](https://www.python.org/downloads/)。 此 Python 版本已通過 Functions 的驗證。 不支援 3.7 和更新版本。
++ 安裝 [Python 3.7.4](https://www.python.org/downloads/)。 此 Python 版本已通過 Functions 的驗證。 不支援 Python 3.8 和更新版本。
 
-+ 安裝 [Azure Functions Core Tools](./functions-run-local.md#v2) 2.7.1575 版或更新版本。
++ 安裝 [Azure Functions Core Tools](./functions-run-local.md#v2) 2.7.1846 版或更新版本。
 
-+ 安裝 [Azure CLI](/cli/azure/install-azure-cli) 2.x 版或更新版本。
++ 安裝 [Azure CLI](/cli/azure/install-azure-cli) 2.0.76 版或更新版本。
 
 + 擁有有效的 Azure 訂用帳戶。
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-and-activate-a-virtual-environment-optional"></a>建立並啟用虛擬環境 (選擇性)
+## <a name="create-and-activate-a-virtual-environment"></a>建立並啟用虛擬環境
 
-您應使用 Python 3.6. x 環境，在本機開發 Python 功能。 執行下列命令來建立並啟用名為 `.venv` 的虛擬環境。
+您應使用 Python 3.7 環境，在本機開發 Python 功能。 執行下列命令來建立並啟用名為 `.venv` 的虛擬環境。
 
 > [!NOTE]
 > 如果 Python 未在您的 Linux 發行版本上安裝 venv，您可以使用下列命令來安裝它：
@@ -63,43 +65,26 @@ py -m venv .venv
 
 ## <a name="create-a-local-functions-project"></a>建立本機 Functions 專案
 
-Functions 專案相當於 Azure 中的函式應用程式。 它可以有多個全都共用相同本機和裝載設定的函式。
+Functions 專案可以有多個全都共用相同本機和裝載設定的函式。
 
-1. 在虛擬環境中，執行下列命令：
+在虛擬環境中，執行下列命令：
 
-    ```console
-    func init MyFunctionProj
-    ```
+```console
+func init MyFunctionProj --python
+cd MyFunctionProj
+```
 
-1. 選取 **python** 作為您的背景工作角色執行階段。
-
-    此命令會建立 _MyFunctionProj_ 資料夾。 其中包含下列三個檔案：
-
-    * local.settings.json  ：可在執行於本機時用來儲存應用程式設定和連接字串。 此檔案不會發行至 Azure。
-    * requirements.txt  ：包含系統將在發佈至 Azure 時安裝的套件清單。
-    * host.json  ：包含會對函式應用程式中的所有函式產生影響的全域設定選項。 此檔案會發行至 Azure。
-
-1. 移至新的 MyFunctionProj  資料夾：
-
-    ```console
-    cd MyFunctionProj
-    ```
+`func init` 命令會建立 MyFunctionProj  資料夾。 此資料夾中的 Python 專案還沒有任何函式。 接下來，您將加入函式。
 
 ## <a name="create-a-function"></a>建立函式
 
-將函式新增至新專案。
+若要將函式新增至專案，請執行下列命令：
 
-1. 若要將函式新增至專案，請執行下列命令：
+```console
+func new --name HttpTrigger --template "HTTP trigger"
+```
 
-    ```console
-    func new
-    ```
-
-1. 使用向下箭號來選取 [HTTP 觸發程式]  範本。
-
-1. 當系統提示您輸入函式名稱時，請輸入 HttpTrigger  ，然後按 Enter。
-
-這些命令會建立名為_HttpTrigger_ 的子資料夾。 其中包含下列檔案：
+此命令會建立名為 HttpTrigger  的子資料夾，其中包含下列檔案：
 
 * *function.json*：定義函式、觸發程序和其他繫結的組態檔。 請注意在此檔案中，`scriptFile` 的值會指向包含此函式的檔案，而 `bindings` 陣列會定義引動過程觸發程序和繫結。
 
@@ -109,57 +94,32 @@ Functions 專案相當於 Azure 中的函式應用程式。 它可以有多個�
 
     傳回物件 (在 function.json  中定義為 `$return`)，是 [azure.functions.HttpResponse 類別](/python/api/azure-functions/azure.functions.httpresponse)的執行個體。 若要深入了解，請參閱 [Azure Functions HTTP 觸發程序和繫結](functions-bindings-http-webhook.md)。
 
+現在您可以在本機電腦上執行新的函式。
+
 ## <a name="run-the-function-locally"></a>在本機執行函式
 
-此函式會使用 Azure Functions 執行階段在本機執行。
+此命令會使用 Azure Functions 執行階段 (func.exe) 啟動函式應用程式：
 
-1. 此命令會啟動函式應用程式：
+```console
+func host start
+```
 
-    ```console
-    func host start
-    ```
+您應該會看到寫入輸出的下列資訊：
 
-    當 Azure Functions 主機啟動時，它會寫入類似下列輸出的內容。 輸出會在此截斷，以便更清楚地閱讀：
+```output
+Http Functions:
 
-    ```output
-    
-                      %%%%%%
-                     %%%%%%
-                @   %%%%%%    @
-              @@   %%%%%%      @@
-           @@@    %%%%%%%%%%%    @@@
-         @@      %%%%%%%%%%        @@
-           @@         %%%%       @@
-             @@      %%%       @@
-               @@    %%      @@
-                    %%
-                    %
-    
-    ...
-    
-    Content root path: C:\functions\MyFunctionProj
-    Now listening on: http://0.0.0.0:7071
-    Application started. Press Ctrl+C to shut down.
-    
-    ...
-    
-    Http Functions:
-    
-            HttpTrigger: http://localhost:7071/api/HttpTrigger
-    
-    [8/27/2018 10:38:27 PM] Host started (29486ms)
-    [8/27/2018 10:38:27 PM] Job host started
-    ```
+        HttpTrigger: http://localhost:7071/api/HttpTrigger    
+```
 
-1. 從執行階段輸出複製 `HttpTrigger` 函式的 URL，並將它貼到瀏覽器的網址列。
+從此輸出複製 `HttpTrigger` 函式的 URL，並將它貼到瀏覽器的網址列。 將查詢字串 `?name=<yourname>` 附加至此 URL 並執行要求。 下列螢幕擷取畫面會顯示本機函式傳回到瀏覽器的 GET 要求回應︰
 
-1. 將查詢字串 `?name=<yourname>` 附加至此 URL 並執行要求。 下列螢幕擷取畫面會顯示本機函式傳回到瀏覽器的 GET 要求回應︰
+![在瀏覽器中進行本機驗證](./media/functions-create-first-function-python/function-test-local-browser.png)
 
-    ![在瀏覽器中進行本機驗證](./media/functions-create-first-function-python/function-test-local-browser.png)
+使用 Ctrl+C 關閉您的函式應用程式執行。
 
-1. 選取 Ctrl+C 以關閉您的函式應用程式。
-
-您現在已經在本機執行您的函式，您可以開始在 Azure 中建立函數應用程式與其他必要資源。
+現在您已在本機執行函式，接下來您可以將函式程式碼部署至 Azure。  
+在部署應用程式之前，您必須先建立一些 Azure 資源。
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
@@ -167,7 +127,7 @@ Functions 專案相當於 Azure 中的函式應用程式。 它可以有多個�
 
 ## <a name="create-a-function-app-in-azure"></a>在 Azure 中建立函式應用程式
 
-函式應用程式會提供環境來執行函式程式碼。 它可讓您將多個函式群組為邏輯單位，以方便您管理、部署和共用資源。
+函式應用程式會提供環境來執行函式程式碼。 它可讓您將多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 
 
 執行下列命令。 使用唯一的函式應用程式名稱取代 `<APP_NAME>`。 使用儲存體帳戶名稱取代 `<STORAGE_NAME>`。 `<APP_NAME>` 也是函式應用程式的預設 DNS 網域。 此名稱在 Azure 中的所有應用程式之間必須是唯一的。
 
@@ -176,11 +136,11 @@ Functions 專案相當於 Azure 中的函式應用程式。 它可以有多個�
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --os-type Linux \
---consumption-plan-location westeurope  --runtime python \
+--consumption-plan-location westeurope  --runtime python --runtime-version 3.7 \
 --name <APP_NAME> --storage-account  <STORAGE_NAME>
 ```
 
-上述命令也會在相同的資源群組中佈建相關聯的 Azure Application Insights 執行個體。 您可以使用此執行個體來監視函式應用程式及檢視記錄。
+上述命令會建立執行 Python 3.7.4 的函式應用程式。 該命令也會在相同的資源群組中佈建相關聯的 Azure Application Insights 執行個體。 您可以使用此執行個體來監視函式應用程式及檢視記錄。 
 
 您現在已準備好將本機 Functions 專案發佈至 Azure 中的函式應用程式。
 
@@ -192,7 +152,7 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 func azure functionapp publish <APP_NAME> --build remote
 ```
 
-`--build remote` 選項會透過部署套件中的檔案，從遠端在 Azure 中建立 Python 專案。 
+`--build remote` 選項會透過部署套件中的檔案，從遠端在 Azure 中建立 Python 專案 (這是建議的方式)。 
 
 您會看到類似於下列訊息的輸出。 輸出會在此截斷，以便更清楚地閱讀：
 

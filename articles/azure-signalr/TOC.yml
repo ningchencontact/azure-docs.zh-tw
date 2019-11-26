@@ -61,6 +61,8 @@
   items:
     - name: 調整
       items:
+        - name: 單一執行個體
+          href: signalr-howto-scale-signalr.md
         - name: 多個執行個體
           href: signalr-howto-scale-multi-instances.md
     - name: 安全

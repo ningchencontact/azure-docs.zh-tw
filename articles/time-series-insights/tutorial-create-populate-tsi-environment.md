@@ -1,6 +1,6 @@
 ---
-title: 教學課程：建立 Azure Time Series Insights 環境 | Microsoft Docs
-description: 本教學課程可讓您了解如何建立已從模擬裝置填入資料的時間序列深入解析環境。
+title: 教學課程：建立環境 - Azure 時間序列深入解析 | Microsoft Docs
+description: 了解如何建立已從模擬裝置填入資料的時間序列深入解析環境。
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9ca60b876272df15d306ac7fba2dc61875db6d06
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: fad850da6a7fccb6b97b86532a8d246049942a8b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989658"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014651"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>教學課程：建立 Azure 時間序列深入解析環境
 

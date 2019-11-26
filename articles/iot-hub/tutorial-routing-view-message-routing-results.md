@@ -1,6 +1,6 @@
 ---
 title: 檢視 Azure IoT 中樞訊息路由結果 (.NET) | Microsoft Docs
-description: 檢視 Azure IoT 中樞訊息路由結果
+description: 使用本教學課程的第 1 部分設定所有資源之後，請新增將訊息路由至 Azure 串流分析的功能，並在 PowerBI 中檢視結果。
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: f34799bbf2142ba07c29915deae5b5dbe590c9fc
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: bfee4e64070e5f37eaa3d63280409f00c0ed8672
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330542"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890398"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>教學課程：第 2 部分 - 檢視路由的訊息
 
@@ -26,7 +26,7 @@ ms.locfileid: "67330542"
 
 以下是訊息的路由規則；這些規則已於本教學課程的第 1 部分完成設定，您將會在這個第二部分中看到其運作方式。
 
-|value |結果|
+|值 |結果|
 |------|------|
 |level="storage" |寫入至 Azure 儲存體。|
 |level="critical" |寫入至服務匯流排佇列。 邏輯應用程式會從佇列擷取訊息，並使用 Office 365 以電子郵件傳送訊息。|
@@ -52,9 +52,11 @@ ms.locfileid: "67330542"
 
    ![[建立邏輯應用程式] 畫面](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
-   選取 [建立]  。
+   選取 [建立]  。 部署應用程式可能需要幾分鐘的時間。
 
-2. 現在請移至邏輯應用程式。 取得邏輯應用程式最簡單的方式是選取 [資源群組]  ，選取您的資源群組 (本教學課程使用 **ContosoResources**)，然後從資源清單中選取邏輯應用程式。 Logic Apps 設計工具頁面隨即顯示 (您可能需要捲動至右側才能看到完整頁面)。 在 Logic Apps 設計工具頁面上，向下捲動直到您看到標示 [空白邏輯應用程式 +]  的圖格，然後加以選取。 預設索引標籤是 [提供給您]。 如果此窗格空無一物，請選取 [全部]  以查看所有可用的連接器和觸發程序。
+2. 現在請移至邏輯應用程式。 取得邏輯應用程式最簡單的方式是選取 [資源群組]  ，選取您的資源群組 (本教學課程使用 **ContosoResources**)，然後從資源清單中選取邏輯應用程式。 
+
+    Logic Apps 設計工具頁面隨即顯示 (您可能需要捲動至右側才能看到完整頁面)。 在 Logic Apps 設計工具頁面上，向下捲動直到您看到標示 [空白邏輯應用程式 +]  的圖格，然後加以選取。 預設索引標籤是 [提供給您]。 如果此窗格空無一物，請選取 [全部]  以查看所有可用的連接器和觸發程序。
 
 3. 從連接器清單中選取 [服務匯流排]  。
 
@@ -76,7 +78,7 @@ ms.locfileid: "67330542"
 
    ![佇列選項](./media/tutorial-routing-view-message-routing-results/logic-app-queue-options.png)
 
-7. 現在要設定在佇列中收到訊息時會傳送電子郵件的動作。 在 Logic Apps 設計工具中，選取 [+ 新增步驟]  以新增步驟，然後選取 [全部]  以查看所有可用的選項。 在 [選擇動作]  窗格中，尋找並選取 [Office 365 Outlook]  。 在觸發程序畫面上，選取 [傳送電子郵件/Office 365 Outlook]  。  
+7. 現在要設定在佇列中收到訊息時會傳送電子郵件的動作。 在 Logic Apps 設計工具中，選取 [+ 新增步驟]  以新增步驟，然後選取 [全部]  以查看所有可用的選項。 在 [選擇動作]  窗格中，尋找並選取 [Office 365 Outlook]  。 在 [動作] 畫面上，選取 [傳送電子郵件/Office 365 Outlook]  。  
 
    ![Office365 選項](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
@@ -86,7 +88,7 @@ ms.locfileid: "67330542"
 
    ![邏輯應用程式的電子郵件選項](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png)
 
-9. 選取 [ **儲存**]。 然後關閉 Logic Apps 設計工具。
+9. 選取 [儲存]  。 然後關閉 Logic Apps 設計工具。
 
 ## <a name="set-up-azure-stream-analytics"></a>設定 Azure 串流分析
 
@@ -108,13 +110,15 @@ ms.locfileid: "67330542"
 
    ![建立串流分析作業](./media/tutorial-routing-view-message-routing-results/stream-analytics-create-job.png)
 
-3. 選取 [建立]  來建立作業。 若要回到該作業，請選取 [資源群組]  。 本教學課程使用 **ContosoResources**。 選取資源群組，然後選取資源清單中的串流分析作業。
+3. 選取 [建立]  來建立作業。 部署可能需要幾分鐘的時間。
+
+    若要回到該作業，請選取 [資源群組]  。 本教學課程使用 **ContosoResources**。 選取資源群組，然後選取資源清單中的串流分析作業。
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>將輸入新增至串流分析作業
 
-4. 在 [作業拓撲]  下方，選取 [輸入]  。
+1. 在 [作業拓撲]  下方，選取 [輸入]  。
 
-5. 在 [輸入]  窗格中，選取 [新增資料流輸入]  並選取 IoT 中樞。 在顯示的畫面上，填寫下列欄位：
+2. 在 [輸入]  窗格中，選取 [新增資料流輸入]  並選取 IoT 中樞。 在顯示的畫面上，填寫下列欄位：
 
    **輸入別名**：本教學課程使用 **contosoinputs**。
 
@@ -128,13 +132,13 @@ ms.locfileid: "67330542"
 
    **共用存取原則名稱**：選取 [服務]  。 入口網站會為您填入共用存取原則金鑰。
 
-   **取用者群組**：選取您在本教學課程的步驟 1 中所設定的取用者群組。 本教學課程使用 **contosoconsumers**。
+   **取用者群組**：選取您在本教學課程的第 1 部分中設定的取用者群組。 本教學課程使用 **contosoconsumers**。
    
    對於其餘欄位，請採用預設值。 
 
    ![設定串流分析作業的輸入](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs.png)
 
-6. 選取 [ **儲存**]。
+3. 選取 [儲存]  。
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>將輸出新增至串流分析作業
 
@@ -154,7 +158,7 @@ ms.locfileid: "67330542"
 
    ![設定串流分析作業的輸出](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-outputs.png)
 
-4. 選取 [ **儲存**]。
+4. 選取 [儲存]  。
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>設定串流分析作業的查詢
 
@@ -166,7 +170,7 @@ ms.locfileid: "67330542"
 
    ![設定串流分析作業的查詢](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-query.png)
 
-4. 選取 [ **儲存**]。
+4. 選取 [儲存]  。
 
 5. 關閉 [查詢] 窗格。 您便會回到資源群組中的資源檢視。 選取該串流分析作業。 本教學課程將它稱為 **contosoJob**。
 
@@ -178,20 +182,20 @@ ms.locfileid: "67330542"
 
 ## <a name="run-simulated-device-app"></a>執行模擬裝置應用程式
 
-在本教學課程的第 1 部分中，您已設定裝置來模擬使用 IoT 裝置。 在本節中，您會下載 .NET 主控台應用程式，來模擬讓裝置將「裝置到雲端的訊息」傳送至 IoT 中樞 (假設您還未下載本教學課程第 1 部分中的應用程式和資源)。
+在本教學課程的第 1 部分中，您已設定裝置來模擬使用 IoT 裝置。 在本節中，您會下載 .NET 主控台應用程式，來模擬讓裝置將「裝置到雲端的訊息」傳送至 IoT 中樞 (假設您尚未下載第 1 部分中的應用程式和資源)。
 
 此應用程式會針對每個不同的訊息路由方式傳送訊息。 該下載中也有一個資料夾，內含完整的 Azure Resource Manager 範本和參數檔案，以及 Azure CLI 和 PowerShell 指令碼。
 
-如果您未從本教學課程步驟 1 中的存放庫下載檔案，請繼續進行，並立即從 [IoT 裝置模擬](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)下載檔案。 選取此連結會下載內含數個應用程式的存放庫；您要尋找的解決方案是 iot-hub/Tutorials/Routing/IoT_SimulatedDevice.sln。 
+如果您未從本教學課程第 1 部分中的存放庫下載檔案，請立即從 [IoT 裝置模擬](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)下載檔案。 選取此連結會下載內含數個應用程式的存放庫；您要尋找的解決方案是 iot-hub/Tutorials/Routing/IoT_SimulatedDevice.sln。 
 
-對解決方案檔案 (IoT_SimulatedDevice.sln) 按兩下以在 Visual Studio 中開啟程式碼，然後開啟 Program.cs。 以 IoT 中樞的主機名稱取代 `{iot hub hostname}`。 IoT 中樞主機名稱的格式是 **{iot-hub-name}.azure-devices.net**。 在此教學課程中，中樞主機名稱是 **ContosoTestHub.azure-devices.net**。 接下來，以您稍早設定模擬裝置時儲存的裝置金鑰取代 `{device key}`。 
+對解決方案檔案 (IoT_SimulatedDevice.sln) 按兩下以在 Visual Studio 中開啟程式碼，然後開啟 Program.cs。 以 IoT 中樞的主機名稱取代 `{your hub name}`。 IoT 中樞主機名稱的格式是 **{iot-hub-name}.azure-devices.net**。 在此教學課程中，中樞主機名稱是 **ContosoTestHub.azure-devices.net**。 接下來，以您稍早設定模擬裝置時儲存的裝置金鑰取代 `{your device key}`。 
 
    ```csharp
-        static string myDeviceId = "contoso-test-device";
-        static string iotHubUri = "ContosoTestHub.azure-devices.net";
+        static string s_myDeviceId = "Contoso-Test-Device";
+        static string s_iotHubUri = "ContosoTestHub.azure-devices.net";
         // This is the primary key for the device. This is in the portal. 
         // Find your IoT hub in the portal > IoT devices > select your device > copy the key. 
-        static string deviceKey = "{your device key here}";
+        static string s_deviceKey = "{your device key}";
    ```
 
 ## <a name="run-and-test"></a>執行和測試
@@ -212,7 +216,9 @@ ms.locfileid: "67330542"
    * 從服務匯流排佇列擷取訊息的邏輯應用程式可正常運作。
    * Outlook 的邏輯應用程式連接器可正常運作。 
 
-2. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [資源群組]  ，然後選取您的資源群組。 本教學課程使用 **ContosoResources**。 選取儲存體帳戶，選取 [Blob]  ，然後選取 [容器]。 本教學課程使用 **contosoresults**。 您應該會看到資料夾，然後您可以向下鑽研這些目錄，直到您看到一個或多個檔案。 開啟這些檔案的其中一個，其中會包含路由至儲存體帳戶的項目。 
+2. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [資源群組]  ，然後選取您的資源群組。 本教學課程使用 **ContosoResources**。 
+
+    選取儲存體帳戶，選取 [容器]  ，然後選取 [容器]。 本教學課程使用 **contosoresults**。 您應該會看到資料夾，然後您可以向下鑽研這些目錄，直到您看到一個或多個檔案。 開啟這些檔案的其中一個，其中會包含路由至儲存體帳戶的項目。 
 
    ![儲存體中的結果檔案](./media/tutorial-routing-view-message-routing-results/results-in-storage.png)
 
@@ -250,11 +256,11 @@ ms.locfileid: "67330542"
 
    折線圖已建立。 x 軸會顯示 UTC 時區的日期和時間。 y 軸會顯示感應器的溫度。
 
-6. 建立另一個折線圖以顯示一段時間的即時溼度。 若要設定第二個圖表，請遵循上述相同步驟，並將 **EventEnqueuedUtcTime** 放在 x 軸上，將 **humidity** 放在 y 軸上。
+6. 建立另一個折線圖以顯示一段時間的即時溼度。 若要設定第二個圖表，請依照第一個圖表的相同程序，將 **EventEnqueuedUtcTime** 放在 X 軸上 (**軸**)，並將 **humidity** 放在 Y 軸上 (**值**)。
 
    ![最終的 Power BI 報告與兩個圖表](./media/tutorial-routing-view-message-routing-results/power-bi-report.png)
 
-7. 選取 [儲存]  以儲存報告。
+7. 選取 [儲存]  ，並在出現提示時輸入報表的名稱，以儲存報表。
 
 您應該會看到兩個圖表的資料。 此結果表示下列陳述式為 true：
 
@@ -266,7 +272,7 @@ ms.locfileid: "67330542"
 
 ## <a name="clean-up-resources"></a>清除資源 
 
-如果您想要移除透過本教學課程的這兩個部分所建立的所有資源，請刪除資源群組。 此動作會同時刪除群組內含的所有資源。 在此案例中，則會移除 IoT 中樞、服務匯流排命名空間和佇列、邏輯應用程式、儲存體帳戶和資源群組本身。 
+如果您想要移除透過本教學課程的這兩個部分所建立的所有 Azure 資源，請刪除資源群組。 此動作會同時刪除群組內含的所有資源。 在此案例中，則會移除 IoT 中樞、服務匯流排命名空間和佇列、邏輯應用程式、儲存體帳戶和資源群組本身。 您也可以移除 Power BI 資源，並清除教學課程期間傳送的電子郵件。
 
 ### <a name="clean-up-resources-in-the-power-bi-visualization"></a>清除 Power BI 視覺效果中的資源
 
@@ -287,6 +293,10 @@ az group delete --name $resourceGroup
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup
 ```
+
+### <a name="clean-up-test-emails"></a>清除測試電子郵件
+
+您也可以從收件匣中刪除在裝置應用程式執行時透過邏輯應用程式產生的電子郵件數量。
 
 ## <a name="next-steps"></a>後續步驟
 

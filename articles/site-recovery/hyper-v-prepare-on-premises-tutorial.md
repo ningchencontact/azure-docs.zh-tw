@@ -1,18 +1,18 @@
 ---
-title: 準備內部部署 Hyper-V 伺服器以進行 Hyper-V VM 至 Azure 的災害復原
-description: 了解如何準備內部部署 Hyper-V VM 以便使用 Azure Site Recovery 服務來災害復原至 Azure。
+title: 使用 Azure Site Recovery 進行 Hyper-V VM 至 Azure 的災害復原準備
+description: 了解如何準備內部部署 Hyper-V VM 以便使用 Azure Site Recovery 來對 Azure 進行災害復原。
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b17e42378daf51543a2664315f2971d15c288611
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: b36e4688ebd6e929a56869a6bb191d98b2f1f432
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813721"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953996"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>準備內部部署 Hyper-V 伺服器以進行至 Azure 的災害復原
 

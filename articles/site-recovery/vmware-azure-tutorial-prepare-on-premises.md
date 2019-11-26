@@ -1,19 +1,19 @@
 ---
-title: 準備內部部署 VMware 伺服器以進行 VMware VM 至 Azure 的災害復原| Microsoft Docs
+title: 使用 Azure Site Recovery 進行 VMware VM 災害復原的準備
 description: 了解如何準備內部部署 VMware 伺服器，以使用 Azure Site Recovery 服務來進行 Azure 的災害復原。
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/22/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0f62ee1a79126f456b993c7caf2de3741637f710
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: c82f8130340dfc3848159a6f88db0a304a3ab149
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147811"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953754"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>準備內部部署 VMware 伺服器以進行 Azure 的災害復原
 

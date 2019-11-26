@@ -1,19 +1,19 @@
 ---
-title: Azure VPN 閘道 | Microsoft Docs
+title: 關於 Azure VPN 閘道
 description: 深入了解 VPN 閘道是什麼，以及您可以使用 VPN 閘道連線到 Azure 虛擬網路的方式。 包括 IPsec/IKE 站對站跨單位和 VNet 對 VNet 解決方案，以及點對站 VPN。
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 10/31/2019
+ms.date: 11/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 82e9003036f67ecd3b3ecd7d8ab6cd434fcfc438
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58a92536510d2f434154169cbefff60487a422fa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495706"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075453"
 ---
 # <a name="what-is-vpn-gateway"></a>什麼是 VPN 閘道？
 
@@ -53,7 +53,10 @@ VPN 閘道連線需仰賴多個具有特定設定的資源。 大部分的資源
 
 ## <a name="gwsku"></a>閘道 SKU
 
-建立虛擬網路閘道時，您必須指定想要使用的閘道 SKU。 根據工作負載、輸送量、功能和 SLA 的類型，選取符合您需求的 SKU。 如需閘道 SKU 的詳細資訊，包括支援功能、實際執行環境和開發測試和設定步驟，請參閱 [VPN 閘道設定 - 閘道 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) 一文。 如需舊版 SKU 的資訊，請參閱[使用舊版 SKU](vpn-gateway-about-skus-legacy.md)。
+建立虛擬網路閘道時，您必須指定想要使用的閘道 SKU。 根據工作負載、輸送量、功能和 SLA 的類型，選取符合您需求的 SKU。
+
+* 如需閘道 SKU 的詳細資訊，包括支援功能、實際執行環境和開發測試和設定步驟，請參閱 [VPN 閘道設定 - 閘道 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) 一文。
+* 如需舊版 SKU 的資訊，請參閱[使用舊版 SKU](vpn-gateway-about-skus-legacy.md)。
 
 ### <a name="benchmark"></a>依通道、連線和輸送量區分的閘道 SKU
 
@@ -92,7 +95,6 @@ VPN 閘道連線需仰賴多個具有特定設定的資源。 大部分的資源
 點對站 (P2S) VPN 閘道連線可讓您建立從個別用戶端電腦到您的虛擬網路的安全連線。 P2S 連線的建立方式是從用戶端電腦開始。 此解決方案適合於想要從遠端位置 (例如從住家或會議) 連線到 Azure VNet 的遠距工作者。 當您只有少數用戶端必須連線至 VNet 時，P2S VPN 也是很實用的解決方案 (而不是 S2S VPN)。
 
 如同 S2S 連線，P2S 連線不需要內部部署公眾對應 IP 位址或 VPN 裝置。 P2S 連線可與 S2S 連線透過相同的 VPN 閘道一起使用，前提是這兩個連線的所有設定需求都相容。 如需點對站連線的詳細資訊，請參閱[關於點對站 VPN](point-to-site-about.md)。
-
 
 ![Azure VPN 閘道點對站連接範例](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 

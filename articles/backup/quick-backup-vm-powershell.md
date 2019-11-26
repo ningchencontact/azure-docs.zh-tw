@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 268cac453ed68903c73b597ffeff2569c13e9db7
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 741c6c1f937988dcce41603417a1bc7dc95091cb
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747094"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073984"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中備份虛擬機器
 
@@ -106,18 +106,18 @@ ms.locfileid: "73747094"
 
 ## <a name="start-a-backup-job"></a>開始備份作業
 
-根據備份原則中指定的排程執行備份。 您也可以執行臨機操作備份：
+備份會依據備份原則中指定的排程執行。 您也可以執行隨選備份：
 
 - 第一個初始備份作業會建立完整復原點。
 - 在初始備份之後，每個備份作業都會建立增量復原點。
 - 增量復原點符合儲存和時間效率，因為它只會傳輸自上次備份後所做的變更。
 
-若要執行臨機操作備份，請您使用 [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem)。
+若要執行隨選備份，請您使用 [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem)。
 
 - 使用 [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer)，指定保留備份資料的保存庫容器。
-- 要備份的每個 VM 都會被視為一個項目。 若要開始備份作業，請使用[Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) 取得 VM 的相關資訊。
+- 要備份的每個 VM 都會被視為一個項目。 若要開始備份作業，您需使用 [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) 來取得 VM 的相關資訊。
 
-執行臨機操作備份作業，如下所示：
+執行隨選備份作業，如下所示：
 
 1. 指定容器，取得 VM 資訊，然後執行備份。
 

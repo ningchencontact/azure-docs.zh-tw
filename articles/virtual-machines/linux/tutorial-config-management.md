@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 在 Azure 中管理 Linux 虛擬機器組態 | Microsoft Docs
+title: 教學課程 - 在 Azure 中管理 Linux 虛擬機器組態
 description: 在本教學課程中，您將了解如何在 Linux 虛擬機器上識別變更及管理套件更新
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: bc5029e0ea2d743fffe258af8e66728269d0933e
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 5dd35ed2f4533d19cc3a59788d6422416dce13f5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374349"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034546"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>教學課程：在 Azure 中監視變更及更新 Linux 虛擬機器
 

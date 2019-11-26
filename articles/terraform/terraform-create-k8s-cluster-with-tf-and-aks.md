@@ -1,25 +1,23 @@
 ---
-title: 以 Azure Kubernetes Service (AKS) 和 Terraform 建立 Kubernetes 叢集
+title: 教學課程 - 使用 Azure Kubernetes Service (AKS) 和 Terraform 建立 Kubernetes 叢集
 description: 教學課程說明如何以 Azure Kubernetes Service 和 Terraform 建立 Kubernetes 叢集
-services: terraform
-ms.service: azure
-keywords: terraform, devops, 虛擬機器, Azure, kubernetes
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: d7e6b5c5b9b36e093986aa96a6ad9b401175deb2
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 11/07/2019
+ms.openlocfilehash: 1bfeef729bdb3f07fe2cc64cee4fd4f27c49ef67
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173491"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833615"
 ---
-# <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>以 Azure Kubernetes Service 和 Terraform 建立 Kubernetes 叢集
-[Azure Kubernetes Service (AKS)](/azure/aks/) 可以管理裝載 Kubernetes 的環境；因此，您不需具備容器協調流程專業知識，就能快速、輕鬆地部署及管理容器化應用程式。 也可透過佈建、升級與依需求調整資源，以無需讓應用程式離線的方式來消除進行中作業及維護之間的界線。
+# <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>教學課程：使用 Azure Kubernetes Service 和 Terraform 建立 Kubernetes 叢集
 
-在本教學課程中，您將了解如何執行下列工作，以使用 [Terraform](https://terraform.io) 和 AKS 建立 [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) 叢集：
+[Azure Kubernetes Service (AKS)](/azure/aks/) 會管理裝載的 Kubernetes 環境。 AKS 可讓您部署和管理容器化應用程式，而無須具備容器協調流程專業知識。 AKS 也可讓您直接執行許多常見的維護作業，而不需要先讓應用程式離線。 這些作業包括視需要佈建、升級及調整資源。
+
+在本教學課程中，您將了解如何執行下列工作：
 
 > [!div class="checklist"]
 > * 使用 HCL (HashiCorp 語言) 定義 Kubernetes 叢集
@@ -35,6 +33,7 @@ ms.locfileid: "71173491"
 - **Azure 服務主體**：請遵循[使用 Azure CLI 建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)一文中**建立服務主體**一節的指示。 記下 appId、displayName、密碼和租用戶欄位內的值。
 
 ## <a name="create-the-directory-structure"></a>建立目錄結構
+
 第一個步驟是先建立目錄，用來存放供練習使用的 Terraform 組態檔。
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
@@ -62,15 +61,14 @@ ms.locfileid: "71173491"
     ```
 
 ## <a name="declare-the-azure-provider"></a>宣告 Azure 提供者
+
 建立宣告 Azure 提供者的 Terraform 組態檔。
 
 1. 在 Cloud Shell 中建立名稱為 `main.tf` 的檔案。
 
     ```bash
-    vi main.tf
+    code main.tf
     ```
-
-1. 選取 I 鍵輸入插入模式。
 
 1. 將下列程式碼貼到編輯器中：
 
@@ -84,31 +82,24 @@ ms.locfileid: "71173491"
     }
     ```
 
-1. 選取 **Esc** 鍵結束插入模式。
-
-1. 輸入下列命令來儲存檔案及結束 vi 編輯器：
-
-    ```bash
-    :wq
-    ```
+1. 儲存檔案 ( **&lt;Ctrl>S**) 並結束編輯器 ( **&lt;Ctrl>Q**)。
 
 ## <a name="define-a-kubernetes-cluster"></a>定義 Kubernetes 叢集
+
 建立宣告 Kubernetes 叢集資源的 Terraform 組態檔。
 
 1. 在 Cloud Shell 中建立名稱為 `k8s.tf` 的檔案。
 
     ```bash
-    vi k8s.tf
+    code k8s.tf
     ```
-
-1. 選取 I 鍵輸入插入模式。
 
 1. 將下列程式碼貼到編輯器中：
 
     ```hcl
     resource "azurerm_resource_group" "k8s" {
-        name     = "${var.resource_group_name}"
-        location = "${var.location}"
+        name     = var.resource_group_name
+        location = var.location
     }
     
     resource "random_id" "log_analytics_workspace_name_suffix" {
@@ -118,17 +109,17 @@ ms.locfileid: "71173491"
     resource "azurerm_log_analytics_workspace" "test" {
         # The WorkSpace name has to be unique across the whole of azure, not just the current subscription/tenant.
         name                = "${var.log_analytics_workspace_name}-${random_id.log_analytics_workspace_name_suffix.dec}"
-        location            = "${var.log_analytics_workspace_location}"
-        resource_group_name = "${azurerm_resource_group.k8s.name}"
-        sku                 = "${var.log_analytics_workspace_sku}"
+        location            = var.log_analytics_workspace_location
+        resource_group_name = azurerm_resource_group.k8s.name
+        sku                 = var.log_analytics_workspace_sku
     }
 
     resource "azurerm_log_analytics_solution" "test" {
         solution_name         = "ContainerInsights"
-        location              = "${azurerm_log_analytics_workspace.test.location}"
-        resource_group_name   = "${azurerm_resource_group.k8s.name}"
-        workspace_resource_id = "${azurerm_log_analytics_workspace.test.id}"
-        workspace_name        = "${azurerm_log_analytics_workspace.test.name}"
+        location              = azurerm_log_analytics_workspace.test.location
+        resource_group_name   = azurerm_resource_group.k8s.name
+        workspace_resource_id = azurerm_log_analytics_workspace.test.id
+        workspace_name        = azurerm_log_analytics_workspace.test.name
 
         plan {
             publisher = "Microsoft"
@@ -137,36 +128,36 @@ ms.locfileid: "71173491"
     }
 
     resource "azurerm_kubernetes_cluster" "k8s" {
-        name                = "${var.cluster_name}"
-        location            = "${azurerm_resource_group.k8s.location}"
-        resource_group_name = "${azurerm_resource_group.k8s.name}"
-        dns_prefix          = "${var.dns_prefix}"
+        name                = var.cluster_name
+        location            = azurerm_resource_group.k8s.location
+        resource_group_name = azurerm_resource_group.k8s.name
+        dns_prefix          = var.dns_prefix
 
         linux_profile {
             admin_username = "ubuntu"
 
             ssh_key {
-                key_data = "${file("${var.ssh_public_key}")}"
+                key_data = file(var.ssh_public_key)
             }
         }
 
         agent_pool_profile {
             name            = "agentpool"
-            count           = "${var.agent_count}"
+            count           = var.agent_count
             vm_size         = "Standard_DS1_v2"
             os_type         = "Linux"
             os_disk_size_gb = 30
         }
 
         service_principal {
-            client_id     = "${var.client_id}"
-            client_secret = "${var.client_secret}"
+            client_id     = var.client_id
+            client_secret = var.client_secret
         }
 
         addon_profile {
             oms_agent {
             enabled                    = true
-            log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+            log_analytics_workspace_id = azurerm_log_analytics_workspace.test.id
             }
         }
 
@@ -176,29 +167,21 @@ ms.locfileid: "71173491"
     }
     ```
 
-    上述程式碼可設定叢集名稱、位置和 resource_group_name； 此外，也能設定屬於完整網域名稱 (FQDN) 一部分的 dns_prefix 值 (完整網域名稱可用來存取叢集)。
+    上述程式碼可設定叢集名稱、位置和資源群組名稱。 此外也會設定完整網域名稱 (FQDN) 的前置詞。 FQDN 可用來存取叢集。
 
-    **linux_profile** 記錄可讓您配置使用 SSH 登入背景工作角色節點的設定。
+    `linux_profile` 記錄可讓您設定使用 SSH 登入背景工作角色節點的設定。
 
-    透過 AKS，您只需要為背景工作角色節點付費。 **agent_pool_profile** 記錄可設定這些背景工作角色節點的詳細資料。 **agent_pool_profile 記錄**涵蓋要建立的背景工作角色節點數量，以及背景工作角色節點的類型。 若您日後需要擴充或縮減叢集規模，可修改此記錄中的 **count** 值。
+    透過 AKS，您只需要為背景工作角色節點付費。 `agent_pool_profile` 記錄可設定這些背景工作角色節點的詳細資料。 `agent_pool_profile record` 涵蓋要建立的背景工作角色節點數量，以及背景工作角色節點的類型。 若您日後需要相應增加或相應減少叢集，可修改此記錄中的 `count` 值。
 
-1. 選取 **Esc** 鍵結束插入模式。
-
-1. 輸入下列命令來儲存檔案及結束 vi 編輯器：
-
-    ```bash
-    :wq
-    ```
+1. 儲存檔案 ( **&lt;Ctrl>S**) 並結束編輯器 ( **&lt;Ctrl>Q**)。
 
 ## <a name="declare-the-variables"></a>宣告變數
 
 1. 在 Cloud Shell 中建立名稱為 `variables.tf` 的檔案。
 
     ```bash
-    vi variables.tf
+    code variables.tf
     ```
-
-1. 選取 I 鍵輸入插入模式。
 
 1. 將下列程式碼貼到編輯器中：
 
@@ -245,73 +228,65 @@ ms.locfileid: "71173491"
    }
     ```
 
-1. 選取 **Esc** 鍵結束插入模式。
-
-1. 輸入下列命令來儲存檔案及結束 vi 編輯器：
-
-    ```bash
-    :wq
-    ```
+1. 儲存檔案 ( **&lt;Ctrl>S**) 並結束編輯器 ( **&lt;Ctrl>Q**)。
 
 ## <a name="create-a-terraform-output-file"></a>建立 Terraform 輸出檔
+
 [Terraform 輸出檔](https://www.terraform.io/docs/configuration/outputs.html)可讓您定義 Terraform 套用方案後要對使用者醒目提示的值，以及讓您能使用 `terraform output` 命令查詢此輸出檔。 在本節中，您可建立允許透過 [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) 存取叢集的輸出檔。
 
 1. 在 Cloud Shell 中建立名稱為 `output.tf` 的檔案。
 
     ```bash
-    vi output.tf
+    code output.tf
     ```
-
-1. 選取 I 鍵輸入插入模式。
 
 1. 將下列程式碼貼到編輯器中：
 
     ```hcl
     output "client_key" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.client_key
     }
 
     output "client_certificate" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_certificate}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.client_certificate
     }
 
     output "cluster_ca_certificate" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.cluster_ca_certificate}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.cluster_ca_certificate
     }
 
     output "cluster_username" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.username}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.username
     }
 
     output "cluster_password" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.password}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.password
     }
 
     output "kube_config" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config_raw}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config_raw
     }
 
     output "host" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.host}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.host
     }
     ```
 
-1. 選取 **Esc** 鍵結束插入模式。
-
-1. 輸入下列命令來儲存檔案及結束 vi 編輯器：
-
-    ```bash
-    :wq
-    ```
+1. 儲存檔案 ( **&lt;Ctrl>S**) 並結束編輯器 ( **&lt;Ctrl>Q**)。
 
 ## <a name="set-up-azure-storage-to-store-terraform-state"></a>設定 Azure 儲存體以儲存 Terraform 狀態
-Terraform 可透過 `terraform.tfstate` 檔案在本機追蹤狀態。 此模式在單一人員環境中運作良好。 不過，在更常見的多人環境中，您必須追蹤使用 [Azure 儲存體](/azure/storage/)的伺服器的狀態。 在本節中，您可擷取必要的儲存體帳戶資訊 (帳戶名稱和帳戶金鑰)，以及建立儲存體容器，而系統會將 Terraform 狀態資訊儲存在該容器中。
+
+Terraform 可透過 `terraform.tfstate` 檔案在本機追蹤狀態。 此模式在單一人員環境中運作良好。 在多人環境中，可使用 [Azure 儲存體](/azure/storage/)來追蹤狀態。
+
+在本節中，您將了解如何執行下列工作：
+- 擷取儲存體帳戶資訊 (帳戶名稱和帳戶金鑰)
+- 建立用來儲存 Terraform 狀態資訊的儲存體容器。
 
 1. 在 Azure 入口網站中，選取左側功能表中的 [所有服務]  。
 
 1. 選取 [儲存體帳戶]  。
 
-1. 在 [儲存體帳戶]  索引標籤中，選取要讓 Terraform 儲存狀態的帳戶名稱。 例如，您可以使用第一次開啟 Cloud Shell 時建立的儲存體帳戶。  Cloud Shell 建立的儲存體帳戶名稱通常會以 `cs` 開頭，其後加上由數字和字母組成的隨機字串。 **請記下您選取的儲存體帳戶名稱，稍後需要用到。**
+1. 在 [儲存體帳戶]  索引標籤中，選取要讓 Terraform 儲存狀態的帳戶名稱。 例如，您可以使用第一次開啟 Cloud Shell 時建立的儲存體帳戶。  Cloud Shell 建立的儲存體帳戶名稱通常會以 `cs` 開頭，其後加上由數字和字母組成的隨機字串。 請記下您所選儲存體帳戶的名稱。 後續將會用到此值。
 
 1. 在 [儲存體帳戶] 索引標籤中，選取 [存取金鑰]  。
 
@@ -321,16 +296,17 @@ Terraform 可透過 `terraform.tfstate` 檔案在本機追蹤狀態。 此模式
 
     ![儲存體帳戶存取金鑰](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account-access-key.png)
 
-1. 在 Cloud Shell 中，為您的 Azure 儲存體帳戶建立容器 (使用適用於 Azure 儲存體帳戶的適當值，取代 &lt;YourAzureStorageAccountName> 和 &lt;YourAzureStorageAccountAccessKey> 預留位置中的值)。
+1. 透過 Cloud Shell，在 Azure 儲存體帳戶中建立容器。 請將預留位置取代為您的環境適用的值。
 
     ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
 ## <a name="create-the-kubernetes-cluster"></a>建立 Kubernetes 叢集
+
 在本節中，您可了解如何使用 `terraform init` 命令建立資源，即您在前述小節中建立的組態檔所定義的資源。
 
-1. 在 Cloud Shell 中初始化 Terraform (使用適用於 Azure 儲存體帳戶的適當值，取代 &lt;YourAzureStorageAccountName> 和 &lt;YourAzureStorageAccountAccessKey> 預留位置中的值)。
+1. 在 Cloud Shell 中，初始化 Terraform。 請將預留位置取代為您的環境適用的值。
 
     ```bash
     terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
@@ -340,11 +316,11 @@ Terraform 可透過 `terraform.tfstate` 檔案在本機追蹤狀態。 此模式
 
     ![「terraform 初始化」結果範例](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. 匯出服務主體認證。 將 &lt;your-client-id> 和 &lt;your-client-secret> 預留位置分別取代為與您服務主體相關聯的**應用程式識別碼**和**密碼**。
+1. 匯出服務主體認證。 請將預留位置取代為您服務主體中的適當值。
 
     ```bash
-    export TF_VAR_client_id=<your-client-id>
-    export TF_VAR_client_secret=<your-client-secret>
+    export TF_VAR_client_id=<service-principal-appid>
+    export TF_VAR_client_secret=<service-principal-password>
     ```
 
 1. 執行 `terraform plan` 命令以建立用來定義基礎結構元素的 Terraform 方案。 
@@ -367,12 +343,13 @@ Terraform 可透過 `terraform.tfstate` 檔案在本機追蹤狀態。 此模式
 
     ![「terraform 套用」結果範例](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-apply-complete.png)
 
-1. 在 Azure 入口網站中，選取左側功能表中的 [所有服務]  以查看針對新 Kuberneteses 叢集建立的資源。
+1. 在 Azure 入口網站中，選取左側功能表中的 [所有資源]  ，以查看針對新的 Kuberneteses 叢集建立的資源。
 
-    ![Cloud Shell 提示](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
+    ![Azure 入口網站中的所有資源](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 
 ## <a name="recover-from-a-cloud-shell-timeout"></a>從 Cloud Shell 逾時復原
-如果 Cloud Shell 工作階段逾時，您可執行下列步驟進行復原：
+
+如果 Cloud Shell 工作階段逾時，您可以執行下列步驟加以復原：
 
 1. 開啟 Cloud Shell 工作階段。
 
@@ -389,6 +366,7 @@ Terraform 可透過 `terraform.tfstate` 檔案在本機追蹤狀態。 此模式
     ```
     
 ## <a name="test-the-kubernetes-cluster"></a>測試 Kubernetes 叢集
+
 Kubernetes 工具可用來驗證新建立的叢集。
 
 1. 從 Terraform 狀態取得 Kubernetes 組態，並將其儲存在 kubectl 可讀取的檔案中。
@@ -414,12 +392,10 @@ Kubernetes 工具可用來驗證新建立的叢集。
     ![kubectl 工具可讓您驗證 Kubernetes 叢集的健康情況](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
 
 ## <a name="monitor-health-and-logs"></a>監視健康情況和記錄
-建立 AKS 叢集時，啟用了監視功能來擷取叢集節點和 pod 的健康狀態計量。 在 Azure 入口網站中可取得這些健康狀態度量。 如需容器健康情況監視的詳細資訊，請參閱[監視 Azure Kubernetes Service 健康情況](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)。
+
+建立 AKS 叢集時，啟用了監視功能來擷取叢集節點和 pod 的健康狀態計量。 在 Azure 入口網站中可取得這些健康狀態度量。 如需容器健康情況監視的詳細資訊，請參閱[監視 Azure Kubernetes Service 健康情況](/azure/azure-monitor/insights/container-insights-overview)。
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您可了解如何使用 Terraform 和 AKS 建立 Kubernetes 叢集。 以下有一些額外的資源，可協助您深入了解 Azure 上的 Terraform： 
 
- [Microsoft.com 中的 Terraform 中樞](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure 提供者文件](https://aka.ms/terraform)  
- [Terraform Azure 提供者來源](https://aka.ms/tfgit)  
- [Terraform Azure 模組](https://aka.ms/tfmodules)
+> [!div class="nextstepaction"] 
+> [深入了解如何使用 Azure 中的 Terraform](/azure/terraform)

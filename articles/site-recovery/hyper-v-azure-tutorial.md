@@ -1,19 +1,19 @@
 ---
-title: 使用 Site Recovery 設定內部部署 Hyper-V VM (不含 VMM) 至 Azure 的災害復原 | Microsoft Docs
+title: 使用 Azure Site Recovery 設定 Hyper-V 災害復原
 description: 了解如何使用 Site Recovery 服務來設定內部部署 Hyper-V VM (不含 VMM) 至 Azure 的災害復原。
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/07/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 44f72df28191d02a6d320671e0173eb1306e0c78
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 741d4718b5e6140f4ddd2bb22e1a2ec830763176
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845706"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74029938"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>設定 Hyper-V VM 至 Azure 的災害復原
 
@@ -21,7 +21,7 @@ ms.locfileid: "68845706"
 
 這是本系列的第三個教學課程。 其中說明如何設定內部部署 Hyper-V VM 至 Azure 的災害復原。 本教學課程採用不受 Microsoft System Center Virtual Machine Manager (VMM) 控管的 Hyper-V VM。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 選取複寫來源和目標。
@@ -31,6 +31,8 @@ ms.locfileid: "68845706"
 
 > [!NOTE]
 > 這些教學課程示範案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱 [Site Recovery 文件](https://docs.microsoft.com/azure/site-recovery)的**操作指南**一節中的文章。
+
+
 
 ## <a name="before-you-begin"></a>開始之前
 

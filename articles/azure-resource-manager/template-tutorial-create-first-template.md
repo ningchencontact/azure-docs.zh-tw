@@ -1,22 +1,22 @@
 ---
-title: 教學課程 - 建立及部署第一個 Azure Resource Manager 範本
-description: 描述建立第一個 Azure Resource Manager 範本的步驟。 您將了解範本檔案語法及部署儲存體帳戶的方式。
+title: 教學課程 - 建立及部署 Azure Resource Manager 範本
+description: 建立第一個 Azure Resource Manager 範本。 在本教學課程中，您將了解範本檔案語法及部署儲存體帳戶的方式。
 author: mumian
 manager: carmonmills
 ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e84c3bfa5a5f43ec652f12d70718ab63bd7a19e5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 463f9a54648a9e6950f839bd856ccf42bc66dca0
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029546"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074364"
 ---
 # <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>教學課程：建立及部署第一個 Azure Resource Manager 範本
 
-此教學課程將介紹 Resource Manager 範本。 其中示範如何建立入門範本，並將它部署至 Azure。 您將了解範本的結構，以及使用範本所需的工具。 完成此教學課程大約需要 **12 分鐘**，但實際時間則會根據您需要安裝的工具數目而有所不同。
+此教學課程將介紹 Azure Resource Manager 範本。 其中示範如何建立入門範本，並將它部署至 Azure。 您將了解範本的結構，以及使用範本所需的工具。 完成此教學課程大約需要 **12 分鐘**，但實際時間則會根據您需要安裝的工具數目而有所不同。
 
 此教學課程是系列中的第一個。 當您逐一完成本系列時，將會逐步修改起始範本，直到您已探索 Resource Manager 範本的所有核心部分為止。 這些元素都是適用於更複雜範本的建置組塊。 我們希望在本系列結束時，您能夠有信心地建立自己的範本，並準備好使用範本來將部署自動化。
 

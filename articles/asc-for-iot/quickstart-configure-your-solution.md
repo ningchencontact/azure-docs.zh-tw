@@ -1,6 +1,6 @@
 ---
-title: 設定適用於 IoT 的 Azure 資訊安全中心解決方案 | Microsoft Docs
-description: 了解如何使用適用於 IoT 的 Azure 資訊安全中心來設定端對端 IoT 解決方案。
+title: 快速入門：設定適用於 IoT 的 Azure 資訊安全中心解決方案
+description: 在本快速入門中，您將了解如何使用適用於 IoT 的 Azure 資訊安全中心來設定端對端 IoT 解決方案。
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2019
+ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: a546d153c6fe4f14ccc8c21308bd4a33385870c3
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e670df359cc33c9eaca089d0ed8f9614ef8c0468
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299697"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904143"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>快速入門：設定 IoT 解決方案
 

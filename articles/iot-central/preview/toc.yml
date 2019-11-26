@@ -71,6 +71,8 @@
           href: howto-version-device-template.md
         - name: 管理您的裝置
           href: howto-manage-devices.md
+        - name: 設定規則
+          href: howto-configure-rules.md
         - name: 分析您的裝置資料
           href: howto-create-analytics.md
         - name: 將圖格新增至您的儀表板

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ffa072f593a06a38e6e3d121fb76806e41bf568e
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 28705ea8a552f4d2e6653857c69ebb8d5f87b962
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605541"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907122"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>將實體或虛擬化伺服器遷移至 Azure 
 
@@ -123,7 +123,7 @@ ms.locfileid: "73605541"
 > [!NOTE]
 > 使用 Azure Migrate 伺服器移轉的代理程式型移轉，會以 Azure Site Recovery 服務的功能作為基礎。 某些需求可能會連結至 Site Recovery 文件。
 
-1. [檢查](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) VMware 伺服器需求。
+1. [確認](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements)伺服器需求。
 2. [確認](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements)移轉的 VM 支援需求。
 3. 確認 VM 設定。 您複寫到 Azure 的內部部署 VM 必須符合 [Azure VM 需求](migrate-support-matrix-vmware.md#azure-vm-requirements)。
 
@@ -265,7 +265,7 @@ ms.locfileid: "73605541"
 
     ![複寫 VM](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
-2. 在 [複寫]  > [來源設定]  [您的電腦虛擬化了嗎] >   中，選取 [是，使用 VMware vSphere]  。
+2. 在 [複寫]  > [來源設定]  [您的電腦虛擬化了嗎] >   中，選取 [未虛擬化/其他]  。
 3. 在 [內部部署設備]  中，選取您設定的 Azure Migrate 設備的名稱。
 4. 在 **vCenter Server** 中指定管理 VM 的 vCenter Server 名稱，或裝載 VM 的 vSphere Server 名稱。
 5. 在 [處理序伺服器]  中，選取複寫設備的名稱。

@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 835024f7c8d77d67a2f6321df658c2f5c2007e62
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1ff70a8a794cbc4c201512a0cf578eb0a890a5e4
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647109"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904426"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench 發生什麼事？
 
@@ -99,8 +99,8 @@ run = exp.submit(source_directory=script_folder,
 如需此服務的概觀，請參閱[什麼是 Azure Machine Learning？](overview-what-is-azure-ml.md)。
 
 使用您慣用的方法建立您的第一個實驗：
-  + [使用 Python 筆記本來定型和部署 ML 模型](tutorial-1st-experiment-sdk-setup.md)
-  + [使用 R Markdown 來定型和部署 ML 模型]( tutorial-1st-r-experiment.md) 
-  + [使用自動化機器學習來定型和部署 ML 模型](ui-tutorial-automobile-price-train-score.md) 
-  + [使用設計工具的拖放功能進行定型和部署](tutorial-first-experiment-automated-ml.md) 
-  + [使用機器學習 CLI 來定型和部署模型](tutorial-train-deploy-model-cli.md)
+  + [使用 Python 筆記本](tutorial-1st-experiment-sdk-setup.md)
+  + [使用 R Markdown]( tutorial-1st-r-experiment.md) 
+  + [使用自動化機器學習](ui-tutorial-automobile-price-train-score.md) 
+  + [使用設計工具的拖放功能](tutorial-first-experiment-automated-ml.md) 
+  + [使用 CLI 的 ML 擴充功能](tutorial-train-deploy-model-cli.md)

@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 在基底映像更新時自動執行容器映像建置 - Azure Container Registry 工作
+title: 教學課程 - 在基底映像更新時觸發映像建置 - Azure Container Registry
 description: 在本教學課程中，您將了解如何設定 Azure Container Registry 工作，以在基底映像更新時自動觸發雲端中的容器映像建置。
 services: container-registry
 author: dlepow
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 6b9a74ee6530d8fc195490b0f1414e6348e855f6
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 1beb66d8491b7dac84e9531558f8967e22086575
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743597"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931676"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>教學課程：在 Azure Container Registry 中更新基底映像時自動執行容器映像建置 
 

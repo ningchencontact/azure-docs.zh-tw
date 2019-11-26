@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 從 Azure 中的異地複寫 Docker 登錄部署應用程式
+title: 教學課程 - 從異地複寫的 Azure Container Registry 部署應用程式
 description: 使用異地複寫 Azure Container Registry 中的容器映像，將以 Linux 為基礎的 Web 應用程式部署至兩個不同的 Azure 區域。 這是三段式教學課程的第二段。
 services: container-registry
 author: dlepow
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ac4d78147820c2cf56549abbec7e1fbc873ea260
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 0aebc31e1b8e6849d4cc0aeccc0e0a79edf0e65d
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146907"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931405"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>教學課程：從異地複寫的 Azure Container Registry 部署 Web 應用程式
 

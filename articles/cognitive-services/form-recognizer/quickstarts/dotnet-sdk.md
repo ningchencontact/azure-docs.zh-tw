@@ -1,6 +1,6 @@
 ---
 title: 快速入門：適用於 .NET 的表單辨識器用戶端程式庫 | Microsoft Docs
-description: 開始使用適用於 .NET 的表單辨識器用戶端程式庫。
+description: 開始使用適用於 .NET 的表單辨識器用戶端程式庫，來定型、擷取、分析和取得結構化資料輸出。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: 74bb062713eac44310edcc8d1cdaed605e964681
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 6d360939a0196d7e5dc651ecf9a01ef5cbd2f689
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264445"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904614"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>快速入門：適用於 .NET 的表單辨識器用戶端程式庫
 
@@ -43,7 +43,7 @@ ms.locfileid: "72264445"
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-從試用版訂用帳戶或資源取得金鑰後，請為名為 `FORM_RECOGNIZER_KEY` 的金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
+從試用版訂用帳戶或資源取得金鑰後，請為名稱分別是 `FORM_RECOGNIZER_KEY` 和 `FORM_RECOGNIZER_ENDPOINT` 的金鑰及端點[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
 
 ### <a name="create-a-new-c-application"></a>建立新的 C# 應用程式
 
@@ -120,7 +120,6 @@ dotnet add package Microsoft.Azure.CognitiveServices.FormRecognizer --version 0.
 
 定義任何方法之前，請先將下列變數定義新增至 **Program** 類別的頂端。 您必須自行填入一些變數。 
 
-* 您可以在 Azure 入口網站的 [概觀]  區段中找到服務的端點值。 
 * 若要擷取您訓練資料的 SAS URL，請開啟 Microsoft Azure 儲存體總管、以滑鼠右鍵按一下您的容器，然後選取 [取得共用存取簽章]  。 確定 [讀取]  和 [列出]  權限均已勾選，再按一下 [建立]  。 然後，複製 [URL]  區段的值。 其格式應該為：`https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`。
 * 如果您需要分析範例表單，您可以使用[範例資料集](https://go.microsoft.com/fwlink/?linkid=2090451)中 **Test** 資料夾底下的其中一個檔案。 本指南僅使用 PDF 表單。
 

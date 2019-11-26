@@ -1,7 +1,7 @@
 ---
 title: 快速入門：C# SDK 查詢預測端點 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 使用 C# SDK 將使用者表達傳送給 LUIS 並接收預測。
+description: 本文將說明如何使用 C# SDK 將使用者語句傳送至 Azure 認知服務的 LUIS 應用程式，並接收預測。
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: d7cf46add464a089f15a5bd15a20cea7d17eed37
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f4612f7b3f76cbbfc0deac98668770f92ff054bc
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488678"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953415"
 ---
 # <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>快速入門：使用 C# .NET SDK 查詢 V2 預測端點
 
@@ -77,7 +77,7 @@ using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
 
 ## <a name="create-a-new-method-for-the-prediction"></a>建立新的預測方法
 
-建立新的方法 `GetPrediction` 來將查詢傳送給查詢預測端點。 此方法會先建立並設定所有必要物件，然後傳回 `Task` 與 [`LuisResult`](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-python) 預測結果。 
+建立新的方法 `GetPrediction` 來將查詢傳送給查詢預測端點。 此方法會先建立並設定所有必要物件，然後傳回 `Task` 與 [`LuisResult`](/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.luisresult) 預測結果。 
 
 ```csharp
 static async  Task<LuisResult> GetPrediction() {

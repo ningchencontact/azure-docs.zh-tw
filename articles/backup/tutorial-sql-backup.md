@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 28a804a57a4113b22efd5274ad00b3a216b700aa
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 96a9940826570bd687fdef5726bdc103139f9902
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747040"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074649"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>在 Azure VM 中備份 SQL Server 資料庫
 
@@ -23,7 +23,7 @@ ms.locfileid: "73747040"
 > * 建立和設定保存庫。
 > * 探索資料庫，並設定備份。
 > * 為資料庫設定自動保護。
-> * 執行臨機操作備份。
+> * 執行隨選備份。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -215,7 +215,7 @@ ms.locfileid: "73747040"
 
 14. 完成備份原則的編輯之後，請選取 [確定]  。
 
-## <a name="run-an-ad-hoc-backup"></a>執行臨機操作備份
+## <a name="run-an-on-demand-backup"></a>執行隨選備份
 
 1. 在復原服務保存庫中，選擇 [備份項目]。
 2. 按一下 [Azure VM 中的 SQL]。
@@ -233,7 +233,7 @@ ms.locfileid: "73747040"
 > * 建立和設定保存庫。
 > * 探索資料庫，並設定備份。
 > * 為資料庫設定自動保護。
-> * 執行臨機操作備份。
+> * 執行隨選備份。
 
 繼續下一個教學課程，從磁碟還原 Azure 虛擬機器。
 

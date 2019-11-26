@@ -15,25 +15,25 @@ ms.workload: service-fabric
 ms.date: 11/29/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 73e88e692b68d73c90176a6f5b8fce06bdf8b8c7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: cae88e142c3bca15e837db7f084eef68434a78ca
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035795"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903259"
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 範例
 
 下表包含 PowerShell 指令碼範例的連結，這個範例建立和管理 Service Fabric 叢集、應用程式和服務。
 
-[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-powershell.md)]
+[!INCLUDE [links to azure CLI and service fabric CLI](../../includes/service-fabric-powershell.md)]
 
 | | |
 |-|-|
 | **建立叢集** ||
 | [建立叢集 (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| 建立 Azure Service Fabric 叢集。 |
 | **管理叢集、節點和基礎結構** ||
-| [新增應用程式憑證](./scripts/service-fabric-powershell-add-application-certificate.md)| 將應用程式的 X.509 憑證加入到叢集中的所有節點。 |
+| [新增應用程式憑證](./scripts/service-fabric-powershell-add-application-certificate.md)| 建立 Key Vault 的 X509 憑證，並將其部署至叢集中的虛擬機器擴展集。 |
 | [更新叢集 VM 上的 RDP 連接埠範圍](./scripts/service-fabric-powershell-change-rdp-port-range.md)|對已部署之叢集中的叢集節點 VM 變更 RDP 連接埠範圍。|
 | [更新叢集節點 VM 的管理員使用者和密碼](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) | 更新叢集節點 VM 的管理員使用者名稱和密碼。 |
 | [在負載平衡器中開啟連接埠](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | 在 Azure 負載平衡器中開啟應用程式連接埠，以在特定連接埠上允許輸入流量。 |

@@ -1,24 +1,23 @@
 ---
-title: 在災害復原期間使用 Azure Site Recovery 將 Hyper-V VM 容錯移轉及容錯回復至 Azure | Microsoft Docs
+title: 在 Azure Site Recovery 中設定 Hyper-V VM 的容錯移轉和容錯回復
 description: 了解在災害復原期間如何使用 Azure Site Recovery 服務將 Hyper-V VM 容錯移轉及容錯回復至 Azure。
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/07/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4b9680b00905126d261562d7bec64bb931c1cda3
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a8c197c2f0875bb31d091fb5839730ee1568b471
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845721"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082639"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>將 Hyper-V VM 容錯移轉及容錯回復至 Azure
 
-本教學課程說明如何將 Hyper-V VM 容錯移轉至 Azure。 在容錯移轉之後，您可以容錯回復至可用的內部部署網站。 在本教學課程中，您了解如何：
+本教學課程說明如何將 Hyper-V VM 容錯移轉至 Azure。 在容錯移轉之後，您可以容錯回復至可用的內部部署網站。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 確認要檢查的 Hyper-V VM 屬性符合 Azure 需求
