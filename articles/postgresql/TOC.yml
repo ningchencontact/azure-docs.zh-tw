@@ -175,6 +175,10 @@
   items:
     - name: 單一伺服器
       items:
+        - name: 管理伺服器
+          items:
+            - name: Azure 入口網站
+              href: howto-create-manage-server-portal.md
         - name: Authentication
           items:
             - name: 建立使用者

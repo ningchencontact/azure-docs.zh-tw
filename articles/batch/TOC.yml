@@ -45,6 +45,8 @@
       href: batch-api-basics.md
     - name: API 和各項工具
       href: batch-apis-tools.md
+    - name: 最佳作法
+      href: best-practices.md
     - name: 配額和限制
       href: batch-quota-limit.md
     - name: 支援的 VM 大小
