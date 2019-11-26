@@ -1,18 +1,18 @@
 ---
 title: 了解計量警示在 Azure 監視器中的運作方式。
 description: 取得計量警示有何用途以及其在 Azure 監視器中如何運作的概觀。
-author: snehithm
-ms.author: snmuvva
-ms.date: 9/18/2018
+author: rboucher
+ms.author: robb
+ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 4dd95d32bad76a610b88a4362e7887efdfaf6af0
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: b92b4233b6ecd8743f98f7f0dd13e07ad4c76c81
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972052"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484245"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>了解計量警示在 Azure 監視器中的運作方式
 
@@ -27,32 +27,32 @@ Azure 監視器中的計量警示以多維度計量為基礎運作。 這些計�
 假設您已建立簡單的靜態閾值計量警示規則，如下所示：
 
 - 目標資源 (您要監視的 Azure 資源)：myVM
-- 計量：百分比 CPU
-- 條件類型：Static
-- 時間彙總 (針對未經處理的計量值執行的統計資料。 支援的時間匯總為最小、最大、平均、總計、計數):Average
-- 期間 (檢查計量值的回溯查看時段)：過去 5 分鐘
-- 頻率 (計量警示檢查條件是否符合的頻率)：1 分鐘
-- 運算子：大於
+- 計量：CPU 百分比
+- Condition Type: Static
+- 時間彙總 (針對未經處理的計量值執行的統計資料。 Supported time aggregations are Min, Max, Avg, Total, Count): Average
+- Period (The look back window over which metric values are checked): Over the last 5 mins
+- Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
+- Operator: Greater Than
 - 閾值：70
 
 從警示規則建立後開始，監視器會每隔 1 分鐘執行一次，並查看過去 5 分鐘的計量值，以及檢查這些值的平均是否超過 70。 如果條件符合，也就是說過去 5 分鐘的 CPU 百分比平均超過 70，則警示規則會引發啟動通知。 如果您已在與警示規則相關聯的動作群組中設定電子郵件或 Webhook 動作，您會收到兩者的啟動通知。
 
-當您在一個規則中使用多個條件時, 規則會將條件「and」在一起。  也就是說, 當警示中的所有條件都評估為 true 時, 就會引發警示, 並在其中一個條件不再為 true 時解決。 這種警示類型的範例會在「CPU 高於 90%」和「佇列長度超過300個專案」時發出警示。 
+When you are using multiple conditions in one rule, the rule "ands" the conditions together.  That is, the alert fires when all the conditions in the alert evaluate as true and resolve when one of the conditions is no longer true. And example of this type of alert would be alert when "CPU higher than 90%" and "queue length is over 300 items". 
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>具有動態條件類型的警示規則
 
 假設您已建立簡單的動態閾值計量警示規則，如下所示：
 
 - 目標資源 (您要監視的 Azure 資源)：myVM
-- 計量：百分比 CPU
-- 條件類型：動態
-- 時間彙總 (針對未經處理的計量值執行的統計資料。 支援的時間匯總為最小、最大、平均、總計、計數):Average
-- 期間 (檢查計量值的回溯查看時段)：過去 5 分鐘
-- 頻率 (計量警示檢查條件是否符合的頻率)：1 分鐘
-- 運算子：大於
-- 敏感度：中等
-- 回溯查看期間：4
-- 違規次數：4
+- 計量：CPU 百分比
+- Condition Type: Dynamic
+- 時間彙總 (針對未經處理的計量值執行的統計資料。 Supported time aggregations are Min, Max, Avg, Total, Count): Average
+- Period (The look back window over which metric values are checked): Over the last 5 mins
+- Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
+- Operator: Greater Than
+- Sensitivity: Medium
+- Look Back Periods: 4
+- Number of Violations: 4
 
 在警示規則建立後，動態閾值機器學習演算法會取得可用的歷史資料，計算最符合計量序列行為模式的閾值，並且根據新資料持續學習，讓閾值更準確。
 
@@ -64,7 +64,7 @@ Azure 監視器中的計量警示以多維度計量為基礎運作。 這些計�
 
 假設在後續檢查中，"myVM" 上的使用量一直高於閾值，除非解決該情況，否則不會再次引發警示規則。
 
-經過一段時間後, "myVM" 上的使用量就會恢復正常狀態 (低於閾值)。 警示規則會再監視該條件兩次，以傳送解決通知。 當連續三個期間的警示條件都不符合時，警示規則會傳送已解決/停用訊息，以減少不穩定情況下的雜訊。
+After some time, the usage on "myVM" comes back down to normal (goes below the threshold). 警示規則會再監視該條件兩次，以傳送解決通知。 當連續三個期間的警示條件都不符合時，警示規則會傳送已解決/停用訊息，以減少不穩定情況下的雜訊。
 
 透過 Webhook 或電子郵件傳送已解決通知時，Azure 入口網站中警示執行個體的狀態 (稱為監視器狀態)，也會設定為已解決。
 
@@ -75,12 +75,12 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 假設您有要用於網站的 App Service 方案。 您想要針對執行您網站/應用程式的多個執行個體監視其 CPU 使用量。 您可以使用計量警示規則，如下所示：
 
 - 目標資源：myAppServicePlan
-- 計量：百分比 CPU
-- 條件類型：Static
+- 計量：CPU 百分比
+- Condition Type: Static
 - 維度
   - 執行個體 = InstanceName1、InstanceName2
-- 時間彙總：Average
-- 期間：過去 5 分鐘
+- 時間彙總：平均
+- 期間 = 過去 5 分鐘內
 - 頻率：1 分鐘
 - 運算子：大於
 - 閾值：70
@@ -90,12 +90,12 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 假設您的 Web 應用程式預計會面臨大量需求，而您需要新增更多執行個體。 上述規則仍只會監視兩個執行個體。 不過，您可以建立規則，如下所示：
 
 - 目標資源：myAppServicePlan
-- 計量：百分比 CPU
-- 條件類型：Static
+- 計量：CPU 百分比
+- Condition Type: Static
 - 維度
   - 執行個體 = *
-- 時間彙總：Average
-- 期間：過去 5 分鐘
+- 時間彙總：平均
+- 期間 = 過去 5 分鐘內
 - 頻率：1 分鐘
 - 運算子：大於
 - 閾值：70
@@ -107,17 +107,17 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 假設您的 Web 應用程式有多個執行個體，而您不知道最適合的閾值為何。 上述規則一律會使用 70% 的閾值。 不過，您可以建立規則，如下所示：
 
 - 目標資源：myAppServicePlan
-- 計量：百分比 CPU
-- 條件類型：動態
+- 計量：CPU 百分比
+- Condition Type: Dynamic
 - 維度
   - 執行個體 = *
-- 時間彙總：Average
-- 期間：過去 5 分鐘
+- 時間彙總：平均
+- 期間 = 過去 5 分鐘內
 - 頻率：1 分鐘
 - 運算子：大於
-- 敏感度：中等
-- 回溯查看期間：1
-- 違規次數：1
+- Sensitivity: Medium
+- Look Back Periods: 1
+- Number of Violations: 1
 
 此規則會監視過去 5 分鐘的平均 CPU 使用量是否超過每個執行個體的預期行為。 同樣地，您可以在執行個體顯示時監視，而不需要再次修改計量警示規則。 每個執行個體都會取得符合計量序列行為模式的閾值，並且根據新資料持續變更，使閾值更為精確。 同樣地，每個執行個體都個別受到監視，而您也會個別得到通知。
 
@@ -143,41 +143,6 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 
 您可以在此[文章](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)中找到所支援資源類型的完整清單。
 
-如果您目前使用傳統計量警示，並且正在查看計量警示是否支援您正在使用的所有資源類型，下表顯示了傳統計量警示支援的資源類型，以及它們現在是否受到計量警示的支援。
-
-|傳統計量警示支援的資源類型 | 受計量警示支援 |
-|-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | 是 |
-| Microsoft.Batch/batchAccounts| 是|
-|Microsoft.Cache/redis| 是 |
-|Microsoft.ClassicCompute/virtualMachines | 否 |
-|Microsoft.ClassicCompute/domainNames/slots/roles | 否|
-|Microsoft.CognitiveServices/accounts | 否 |
-|Microsoft.Compute/virtualMachines | 是|
-|Microsoft.Compute/virtualMachineScaleSets| 是|
-|Microsoft.ClassicStorage/storageAccounts| 否 |
-|Microsoft.DataFactory/datafactories | 是|
-|Microsoft.DBforMySQL/servers| 是|
-|Microsoft.DBforPostgreSQL/servers| 是|
-|Microsoft.Devices/IotHubs | 否|
-|Microsoft.DocumentDB/databaseAccounts| 是|
-|Microsoft.EventHub/namespaces | 是|
-|Microsoft.Logic/workflows | 是|
-|Microsoft.Network/loadBalancers |是|
-|Microsoft.Network/publicIPAddresses| 是|
-|Microsoft.Network/applicationGateways| 是|
-|Microsoft.Network/expressRouteCircuits| 是|
-|Microsoft.Network/trafficManagerProfiles | 是|
-|Microsoft.Search/searchServices | 是|
-|Microsoft.ServiceBus/namespaces| 是 |
-|Microsoft.Storage/storageAccounts | 是|
-|Microsoft.StreamAnalytics/streamingjobs| 是|
-|Microsoft.TimeSeriesInsights/environments | 是|
-|Microsoft. Web/serverfarms | 是 |
-|Microsoft. Web/sites (不包括函式) | 是|
-|Microsoft. Web/hostingEnvironments/multiRolePools | 否|
-|Microsoft. Web/hostingEnvironments/workerPools| 否 |
-|Microsoft.SQL/Servers | 否 |
 
 ## <a name="next-steps"></a>後續步驟
 

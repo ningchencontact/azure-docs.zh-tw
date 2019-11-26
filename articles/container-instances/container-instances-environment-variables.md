@@ -1,31 +1,26 @@
 ---
-title: 在 Azure 容器執行個體中設定環境變數
+title: Set environment variables in container instance
 description: 了解如何在執行於 Azure 容器執行個體中的容器內設定環境變數
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/17/2019
-ms.author: danlep
-ms.openlocfilehash: 9cd62c378270da31079a38f89b040985105a4218
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d12d3204740f2971216636f9f5dd6403b17ecbff
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68326044"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483194"
 ---
-# <a name="set-environment-variables-in-container-instances"></a>在容器實例中設定環境變數
+# <a name="set-environment-variables-in-container-instances"></a>Set environment variables in container instances
 
 在您的容器執行個體中設定環境變數，可讓您提供由容器執行之應用程式或指令碼的動態設定。 這類似於 `--env` 命令列引數 `docker run`。 
 
-若要在容器中設定環境變數，請在建立容器執行個體時加以指定。 本文說明當您使用[Azure CLI](#azure-cli-example)、 [Azure PowerShell](#azure-powershell-example)和[Azure 入口網站](#azure-portal-example)啟動容器時, 設定環境變數的範例。 
+若要在容器中設定環境變數，請在建立容器執行個體時加以指定。 This article shows examples of setting environment variables when you start a container with the [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example), and the [Azure portal](#azure-portal-example). 
 
-例如, 如果您執行 Microsoft [aci-wordcount][aci-wordcount]容器映射, 您可以藉由指定下列環境變數來修改其行為:
+For example, if you run the Microsoft [aci-wordcount][aci-wordcount] container image, you can modify its behavior by specifying the following environment variables:
 
 *NumWords*：傳送至 STDOUT 的字詞數。
 
-*MinLength*：列入計算之字詞中的字元數下限。 較高的數目會略過常用字詞，例如 "of" 和 "the"。
+*MinLength*：列入計算之字詞中的字元數上限。 較高的數目會略過常用字詞，例如 "of" 和 "the"。
 
 如果您需要將祕密當成環境變數來傳遞，Azure 容器執行個體支援適用於 Windows 和 Linux 容器的[安全值](#secure-values)。
 
@@ -33,7 +28,7 @@ ms.locfileid: "68326044"
 
 ## <a name="azure-cli-example"></a>Azure CLI 的範例
 
-若要查看[aci wordcount][aci-wordcount]容器的預設輸出, 請先使用這個[az container create][az-container-create]命令來執行它 (未指定任何環境變數):
+To see the default output of the [aci-wordcount][aci-wordcount] container, run it first with this [az container create][az-container-create] command (no environment variables specified):
 
 ```azurecli-interactive
 az container create \
@@ -54,7 +49,7 @@ az container create \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
 
-一旦這兩個容器的狀態顯示為「已*終止*」 (使用[az container show][az-container-show]來檢查狀態), 請使用[az container logs][az-container-logs]顯示其記錄以查看輸出。
+Once both containers' state shows as *Terminated* (use [az container show][az-container-show] to check state), display their logs with [az container logs][az-container-logs] to see the output.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
@@ -88,7 +83,7 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
 
 在 PowerShell 中設定環境變數類似於 CLI，但是使用 `-EnvironmentVariable` 命令列引數。
 
-首先, 使用下列[new-azcontainergroup][new-Azcontainergroup]命令, 以預設設定啟動[aci wordcount][aci-wordcount]容器:
+First, launch the [aci-wordcount][aci-wordcount] container in its default configuration with this [New-AzContainerGroup][new-Azcontainergroup] command:
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
@@ -97,7 +92,7 @@ New-AzContainerGroup `
     -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
-現在, 請執行下列[new-azcontainergroup][new-Azcontainergroup]命令。 此命令會在填入陣列變數 `envVars` 後，指定 NumWords 和 MinLength 環境變數：
+Now run the following [New-AzContainerGroup][new-Azcontainergroup] command. 此命令會在填入陣列變數 `envVars` 後，指定 NumWords 和 MinLength 環境變數：
 
 ```azurepowershell-interactive
 $envVars = @{'NumWords'='5';'MinLength'='8'}
@@ -109,7 +104,7 @@ New-AzContainerGroup `
     -EnvironmentVariable $envVars
 ```
 
-當兩個容器的狀態都*終止*後 (使用[AzContainerInstanceLog][azure-instance-log]來檢查狀態), 請使用[AzContainerInstanceLog][azure-instance-log]命令提取其記錄。
+Once both containers' state is *Terminated* (use [Get-AzContainerInstanceLog][azure-instance-log] to check state), pull their logs with the [Get-AzContainerInstanceLog][azure-instance-log] command.
 
 ```azurepowershell-interactive
 Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
@@ -144,15 +139,15 @@ Azure:\
 
 ## <a name="azure-portal-example"></a>Azure 入口網站範例
 
-當您在 Azure 入口網站中啟動容器時, 若要設定環境變數, 請在建立容器時, 于 [ **Advanced** ] 頁面中指定它們。
+To set environment variables when you start a container in the Azure portal, specify them in the **Advanced** page when you create the container.
 
-1. 在 [ **Advanced** ] 頁面上, 將 [**重新開機原則**] 設定為 [*失敗時*]
-2. 在 **[環境變數**] `NumWords`底下, `5`針對第一個變數輸入值為的, `MinLength`然後`8`針對第二個變數輸入值為的。 
-1. 選取 [**審查 + 建立**] 以驗證並部署容器。
+1. On the **Advanced** page, set the **Restart policy** to *On failure*
+2. Under **Environment variables**, enter `NumWords` with a value of `5` for the first variable, and enter `MinLength` with a value of `8` for the second variable. 
+1. Select **Review + create** to verify and then deploy the container.
 
 ![顯示環境變數啟用按鈕和文字方塊的入口網站頁面][portal-env-vars-01]
 
-若要查看容器的記錄, 請在 [**設定**] 下選取 [**容器**], 然後按一下 [**記錄**] 類似於前面 CLI 和 PowerShell 區段中所示的輸出，您可以看到環境變數如何修改指令碼行為。 僅顯示五個字組，每個字組都至少有八個字元長。
+To view the container's logs, under **Settings** select **Containers**, then **Logs**. 類似於前面 CLI 和 PowerShell 區段中所示的輸出，您可以看到環境變數如何修改指令碼行為。 僅顯示五個字組，每個字組都至少有八個字元長。
 
 ![顯示容器記錄輸出的入口網站][portal-env-vars-02]
 
@@ -201,7 +196,7 @@ az container create --resource-group myResourceGroup --file secure-env.yaml
 
 ### <a name="verify-environment-variables"></a>確認環境變數
 
-執行[az container show][az-container-show]命令來查詢容器的環境變數:
+Run the [az container show][az-container-show] command to query your container's environment variables:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name securetest --query 'containers[].environmentVariables'
@@ -226,7 +221,7 @@ JSON 回應會顯示非安全環境變數的索引鍵與值，但只會顯示安
 ]
 ```
 
-使用[az container exec][az-container-exec]命令, 讓您能夠在執行中的容器中執行命令, 您可以確認已設定安全的環境變數。 執行下列命令，以在容器中啟動互動式 Bash 工作階段：
+With the [az container exec][az-container-exec] command, which enables executing a command in a running container, you can verify that the secure environment variable has been set. 執行下列命令，以在容器中啟動互動式 Bash 工作階段：
 
 ```azurecli-interactive
 az container exec --resource-group myResourceGroup --name securetest --exec-command "/bin/bash"
@@ -241,7 +236,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>後續步驟
 
-針對工作型案例，例如使用數個容器的大型資料集批次處理，可受益於執行階段上的自訂環境變數。 如需有關執行以工作為基礎之容器的詳細資訊, 請參閱[使用重新開機原則執行容器](container-instances-restart-policy.md)化工作。
+針對工作型案例，例如使用數個容器的大型資料集批次處理，可受益於執行階段上的自訂環境變數。 For more information about running task-based containers, see [Run containerized tasks with restart policies](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

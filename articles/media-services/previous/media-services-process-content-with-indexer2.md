@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: d03c3a15d9bccf93b73d36302f986dffd95c6428
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 60458365fd9ed3a9a72f5c2da82431fb55792a50
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309254"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464059"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>使用 Azure Media Indexer 2 Preview 編製媒體檔案索引
 
 > [!NOTE]
-> [Azure 媒體索引子 2](media-services-process-content-with-indexer2.md)媒體處理器將于2020年1月1日淘汰。 [Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代此舊版媒體處理器。 如需詳細資訊，請參閱[從 Azure 媒體索引子遷移和 Azure 媒體索引子2，到 Azure 媒體服務影片索引子](migrate-indexer-v1-v2.md)。
+> The [Azure Media Indexer 2](media-services-process-content-with-indexer2.md) media processor will be retired on January 1 of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces this legacy media processor. For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
 **Azure Media Indexer 2 Preview** 媒體處理器 (MP) 可讓您將媒體檔案和內容設為可供搜尋，並產生隱藏式輔助字幕追蹤。 相較於舊版的 [Azure Media Indexer](media-services-index-content.md)， **Azure Media Indexer 2 Preview** 編製索引速度更快，並提供更廣泛的語言支援。 支援的語言包括英文、西班牙文、法文、德文、義大利文、中文 (國語、簡體)、葡萄牙文、阿拉伯文、俄文和日文。
 
@@ -36,7 +36,7 @@ ms.locfileid: "71309254"
 
 您必須考量下列事項：
  
-* Azure 中國的世紀和 Azure Government 不支援索引子2。
+* Indexer 2 is not supported in Azure China 21Vianet and Azure Government.
 * 在編製內容索引時，請務必使用語音非常清楚的媒體檔案 (不含背景音樂、噪音、效果或麥克風雜音)。 適當內容的一些範例有：錄製的會議、演講或簡報。 下列內容可能不適合用來編製索引：電影、電視節目、任何具有混合音訊與音效的內容、錄製效果不良有背景噪音 (雜音) 的內容。
  
 ## <a name="input-and-output-files"></a>輸入和輸出檔案
@@ -46,13 +46,12 @@ ms.locfileid: "71309254"
 ### <a name="output-files"></a>輸出檔案
 索引工作可以產生下列格式的隱藏式輔助字幕檔案：  
 
-* **SAMI**
 * **TTML**
 * **WebVTT**
 
 這些格式的隱藏式輔助字幕 (CC) 檔案可以用來讓具有聽力障礙的人存取音訊和視訊檔案。
 
-## <a name="task-configuration-preset"></a>工作組態 (預設)
+## <a name="task-configuration-preset"></a>工作設定 (預設)
 以 **Azure 媒體索引器 2 預覽**建立索引工作時，您必須指定設定預設值。
 
 下列 JSON 會設定可用的參數。
@@ -87,7 +86,7 @@ Azure Media Indexer 2 Preview 支援下列語言的語音轉文字 (在工作設
 * 日文 [JaJp]
 * 俄文 [RuRu]
 * 英式英文 [EnGb]
-* 西班牙文（墨西哥） [EsMx] 
+* Spanish (Mexico) [EsMx] 
 
 ## <a name="supported-file-types"></a>支援的檔案類型
 

@@ -2,13 +2,13 @@
 title: Azure Lighthouse 案例中的租用戶、角色和使用者
 description: 了解 Azure Active Directory 租用戶、使用者和角色的概念，以及如何在 Azure Lighthouse 案例中使用它們。
 ms.date: 11/05/2019
-ms.topic: overview
-ms.openlocfilehash: 73c5cd592f07a23edaad23796e498ea9243c5d26
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: a1ad004c79f90f4642640405da9e8876b9202e98
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131351"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463941"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Azure Lighthouse 案例中的租用戶、角色和使用者
 

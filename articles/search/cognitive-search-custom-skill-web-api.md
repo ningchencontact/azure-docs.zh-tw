@@ -1,23 +1,23 @@
 ---
-title: 技能集中的自訂 Web API 技能
+title: Custom Web API skill in skillsets
 titleSuffix: Azure Cognitive Search
-description: 藉由向外呼叫 Web Api 來擴充 Azure 認知搜尋技能集的功能。 使用自訂 Web API 技能來整合您的自訂程式碼。
+description: Extend capabilities of Azure Cognitive Search skillsets by calling out to Web APIs. Use the Custom Web API skill to integrate your custom code.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: defe6711049e191ada1a2f6e46d6643debdca86e
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 29928d78c2cfc2f21def363341f8383c4efa89d2
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113805"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484120"
 ---
-# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Azure 認知搜尋擴充管線中的自訂 Web API 技能
+# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Custom Web API skill in an Azure Cognitive Search enrichment pipeline
 
-**自訂 WEB api**技能可讓您藉由向外呼叫提供自訂作業的 Web API 端點，來擴充 AI 擴充。 與內建的技能類似，**自訂 Web API** 技能具有輸入和輸出。 視輸入而定，您的 Web API 會在索引子執行時接收 JSON 承載，並輸出 JSON 承載作為回應，以及成功狀態碼。 預期回應應該具有您的自訂技能所指定的輸出。 任何其他的回應會被視為錯誤，並且不會執行任何擴充。
+The **Custom Web API** skill allows you to extend AI enrichment by calling out to a Web API endpoint providing custom operations. 與內建的技能類似，**自訂 Web API** 技能具有輸入和輸出。 Depending on the inputs, your Web API receives a JSON payload when the indexer runs, and outputs a JSON payload as a response, along with a success status code. 預期回應應該具有您的自訂技能所指定的輸出。 任何其他的回應會被視為錯誤，並且不會執行任何擴充。
 
 JSON 承載的結構會在本文件中進一步描述。
 
@@ -36,12 +36,12 @@ Microsoft.Skills.Custom.WebApiSkill
 
 | 參數名稱     | 描述 |
 |--------------------|-------------|
-| Uri | 要將_JSON_承載傳送至其中的 WEB API URI。 僅允許 **https** URI 配置 |
+| uri | The URI of the Web API to which the _JSON_ payload will be sent. 僅允許 **https** URI 配置 |
 | httpMethod | 傳送承載時使用的方法。 允許的方法為 `PUT` 和 `POST` |
 | httpHeaders | 機碼值組的集合，其中機碼代表標頭名稱，而值代表將與承載一起傳送至 Web API 的標頭值。 下列標頭禁止加入此集合：`Accept`、`Accept-Charset`、`Accept-Encoding`、`Content-Length`、`Content-Type`、`Cookie`、`Host`、`TE`、`Upgrade`、`Via` |
-| timeout | (選擇性) 指定時，表示進行 API 呼叫的 http 用戶端逾時。 其必須格式化為 XSD "dayTimeDuration" 值 ( [ISO 8601 持續時間](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。 例如，`PT60S` 為 60 秒。 如果沒有設定，則選擇的預設值為 30 秒。 [超時] 可以設定為最大值230秒，最小值為1秒。 |
+| timeout | (選擇性) 指定時，表示進行 API 呼叫的 http 用戶端逾時。 其必須格式化為 XSD "dayTimeDuration" 值 ( [ISO 8601 持續時間](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。 例如，`PT60S` 為 60 秒。 如果沒有設定，則選擇的預設值為 30 秒。 The timeout can be set to a maximum of 230 seconds and a minimum of 1 second. |
 | batchSize | (選擇性) 指出每個 API 呼叫將傳送多少「資料記錄」(請參閱下面的 _JSON_ 承載結構)。 如果未設定，則選擇的預設值為 1000。 我們建議您使用此參數在編製索引的輸送量和 API 負載之間達到適當的取捨 |
-| degreeOfParallelism | 選擇性指定時，表示索引子將會平行地對您提供的端點進行的呼叫次數。 如果您的端點在要求負載過高的情況下失敗，您可以減少這個值，如果您的端點能夠接受更多要求，而且您想要增加索引子的效能，則會引發此值。  如果未設定，則會使用預設值5。 DegreeOfParallelism 可以設定為最大值10，最小值為1。 |
+| degreeOfParallelism | (Optional) When specified, indicates the number of calls the indexer will make in parallel to the endpoint you have provided. You can decrease this value if your endpoint is failing under too high of a request load, or raise it if your endpoint is able to accept more requests and you would like an increase in the performance of the indexer.  If not set, a default value of 5 is used. The degreeOfParallelism can be set to a maximum of 10 and a minimum of 1. |
 
 ## <a name="skill-inputs"></a>技能輸入
 
@@ -137,10 +137,10 @@ Microsoft.Skills.Custom.WebApiSkill
 
 ## <a name="sample-output-json-structure"></a>範例輸出 JSON 結構
 
-「輸出」對應于從您的 Web API 傳回的回應。 Web API 應該只會傳回_JSON_承載（藉由查看 `Content-Type` 回應標頭來驗證），而且應符合下列條件約束：
+The "output" corresponds to the response returned from your Web API. The Web API should only return a _JSON_ payload (verified by looking at the `Content-Type` response header) and should satisfy the following constraints:
 
 * 應該有一個名為 `values` 的最上層實體，它應該是物件陣列。
-* 陣列中的物件數目應該與傳送至 Web API 的物件數目相同。
+* The number of objects in the array should be the same as the number of objects sent to the Web API.
 * 每個物件都應該有：
    * `recordId` 屬性
    * `data` 屬性，它是一個物件，其中的欄位是與 `output` 中的「名稱」相符的擴充，其值會被視為擴充。
@@ -197,12 +197,12 @@ Microsoft.Skills.Custom.WebApiSkill
 除了您的 Web API 無法使用或傳送不成功的狀態碼之外，下列各項被視為錯誤情況：
 
 * 如果 Web API 傳回成功狀態碼，但回應指出它不是 `application/json`，則回應被視為無效，並且不會執行任何擴充。
-* 如果回應  **陣列中有**無效`recordId` (包含原始請求中沒有的 `values` 或具有重複值) 記錄，則不會對**那些**記錄執行任何擴充。
+* 如果回應 `values` 陣列中有**無效** (包含原始請求中沒有的 `recordId` 或具有重複值) 記錄，則不會對**那些**記錄執行任何擴充。
 
 針對 Web API 無法使用或傳回 HTTP 錯誤的情況，將在索引子執行歷程記錄中加入有關 HTTP 錯誤的任何可用詳細資料的易懂錯誤。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [如何定義技能集](cognitive-search-defining-skillset.md)
-+ [將自訂技能新增至 AI 擴充管線](cognitive-search-custom-skill-interface.md)
-+ [範例：建立 AI 擴充的自訂技能（認知-搜尋-建立-自訂技能-example.md）
++ [Add custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
++ [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)

@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: c2769282a2e9afda22d2e03c653b0f62b05b98bc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e52433cfae1e889f07818f582fc3aef0752932ea
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174160"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482496"
 ---
-本文章之前，您應該先熟悉下列概念，或閱讀下列文章：
+Before reading this article, you should be familiar with the following concepts:
 
-- [Microsoft 身分識別平台概觀](../articles/active-directory/develop/v2-overview.md)
+- [Microsoft identity platform overview](../articles/active-directory/develop/v2-overview.md)
 - [驗證基本概念](../articles/active-directory/develop/authentication-scenarios.md)
 - [對象](../articles/active-directory/develop/v2-supported-account-types.md)
 - [應用程式與服務主體](../articles/active-directory/develop/app-objects-and-service-principals.md)

@@ -1,59 +1,59 @@
 ---
-title: Windows 虛擬桌面 MSIX 應用程式附加-Azure
-description: 如何設定 Windows 虛擬桌面的 MSIX 應用程式連接。
+title: Windows Virtual Desktop MSIX app attach - Azure
+description: How to set up MSIX app attach for Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: helohr
-ms.openlocfilehash: b6c56bbe86f2c81421a39ee85e06dec447382833
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: c5d6c671890f5e036d3f4cce6e880230c01048ed
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74288707"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483823"
 ---
 # <a name="set-up-msix-app-attach"></a>設定 MSIX 應用程式附加
 
 > [!IMPORTANT]
-> MSIX 應用程式附加目前為公開預覽狀態。
+> MSIX app attach is currently in public preview.
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-本主題將逐步引導您瞭解如何在 Windows 虛擬桌面環境中設定 MSIX 應用程式連接。
+This topic will walk you through how to set up MSIX app attach in a Windows Virtual Desktop environment.
 
-## <a name="requirements"></a>需求
+## <a name="requirements"></a>要求
 
-在您開始之前，您必須先設定 MSIX 應用程式附加：
+Before you get started, here's what you need to configure MSIX app attach:
 
-- 存取 Windows 測試人員入口網站以取得 Windows 10 的版本，並支援 MSIX 應用程式附加 Api。
-- 正常運作的 Windows 虛擬桌面部署。 如需相關資訊，請參閱[在 Windows 虛擬桌面中建立租](tenant-setup-azure-active-directory.md)使用者。
-- MSIX 封裝工具
-- Windows 虛擬桌面部署中將儲存 MSIX 套件的網路共用
+- Access to the Windows Insider portal to obtain the version of Windows 10 with support for the MSIX app attach APIs.
+- A functioning Windows Virtual Desktop deployment. For information, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+- The MSIX packaging tool
+- A network share in your Windows Virtual Desktop deployment where the MSIX package will be stored
 
-## <a name="get-the-os-image"></a>取得 OS 映射
+## <a name="get-the-os-image"></a>Get the OS image
 
-首先，您必須取得將用於 MSIX 應用程式的 OS 映射。 若要取得 OS 映射：
+First, you need to get the OS image you'll use for the MSIX app. To get the OS image:
 
-1. 開啟[Windows 測試人員入口網站](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0)並登入。
+1. Open the [Windows Insider portal](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) and sign in.
 
      >[!NOTE]
-     >您必須是 Windows 測試人員程式的成員，才能存取 Windows 測試人員入口網站。 若要深入瞭解 Windows 測試人員程式，請參閱我們的[Windows 測試人員檔](https://docs.microsoft.com/windows-insider/at-home/)。
+     >You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](https://docs.microsoft.com/windows-insider/at-home/).
 
-2. 向下流覽至 [**選取版本**] 區段，然後選取 [ **Windows 10 Insider PREVIEW Enterprise （FAST）-Build XXXXX**]。
+2. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build XXXXX**.
 
-3. 選取 [**確認**]，然後選取您想要使用的語言，再選取 [**確認**]。
+3. Select **Confirm**, then select the language you wish to use, and then select **Confirm** again.
     
      >[!NOTE]
-     >目前，英文是使用此功能進行測試的唯一語言。 您可以選取其他語言，但可能不會如預期顯示。
+     >At the moment, English is the only language that has been tested with the feature. You can select other languages, but they may not display as intended.
     
-4. 當下載連結產生時，請選取**64 位下載**，並將它儲存到您的本機硬碟。
+4. When the download link is generated, select the **64-bit Download** and save it to your local hard disk.
 
-## <a name="prepare-the-vhd-image-for-azure"></a>準備適用于 Azure 的 VHD 映射 
+## <a name="prepare-the-vhd-image-for-azure"></a>Prepare the VHD image for Azure 
 
-開始之前，您必須先建立主要 VHD 映射。 如果您尚未建立主要 VHD 映射，請移至[準備和自訂主要 vhd 映射](set-up-customize-master-image.md)，並依照此處的指示進行。 
+Before you get started, you'll need to create a master VHD image. If you haven't created your master VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there. 
 
-建立主要 VHD 映射之後，您必須停用 MSIX app 附加應用程式的自動更新。 若要停用自動更新，您必須在提高許可權的命令提示字元中執行下列命令：
+After you've created your master VHD image, you must disable automatic updates for MSIX app attach applications. To disable automatic updates, you'll need to run the following commands in an elevated command prompt:
 
 ```cmd
 rem Disable Store auto update:
@@ -73,144 +73,144 @@ rem Disable Windows Update:
 sc config wuauserv start=disabled
 ```
 
-接下來，準備適用于 Azure 的 VM VHD，並將產生的 VHD 磁片上傳至 Azure。 若要深入瞭解，請參閱[準備和自訂主要 VHD 映射](set-up-customize-master-image.md)。
+Next, prepare the VM VHD for Azure and upload the resulting VHD disk to Azure. To learn more, see [Prepare and customize a master VHD image](set-up-customize-master-image.md).
 
-將 VHD 上傳至 Azure 之後，請遵循[使用 Azure Marketplace 教學課程建立主機集](create-host-pools-azure-marketplace.md)區中的指示，建立以這個新映射為基礎的主機集區。
+Once you've uploaded the VHD to Azure, create a host pool that's based on this new image by following the instructions in the [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) tutorial.
 
-## <a name="prepare-the-application-for-msix-app-attach"></a>準備應用程式以進行 MSIX 應用程式附加 
+## <a name="prepare-the-application-for-msix-app-attach"></a>Prepare the application for MSIX app attach 
 
-如果您已經有 MSIX 套件，請直接跳到[設定 Windows 虛擬桌面基礎結構](#configure-windows-virtual-desktop-infrastructure)。 如果您想要測試繼承應用程式，請遵循[從 VM 上的桌面安裝程式建立 MSIX 套件](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm)中的指示，將繼承應用程式轉換成 MSIX 套件。
+If you already have an MSIX package, skip ahead to [Configure Windows Virtual Desktop infrastructure](#configure-windows-virtual-desktop-infrastructure). If you want to test legacy applications, follow the instructions in [Create an MSIX package from a desktop installer on a VM](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm) to convert the legacy application to an MSIX package.
 
-## <a name="generate-a-vhd-or-vhdx-package-for-msix"></a>為 MSIX 產生 VHD 或 VHDX 套件
+## <a name="generate-a-vhd-or-vhdx-package-for-msix"></a>Generate a VHD or VHDX package for MSIX
 
-套件是以 VHD 或 VHDX 格式來優化效能。 MSIX 需要 VHD 或 VHDX 套件才能正常運作。
+Packages are in VHD or VHDX format to optimize performance. MSIX requires VHD or VHDX packages to work properly.
 
-若要為 MSIX 產生 VHD 或 VHDX 套件：
+To generate a VHD or VHDX package for MSIX:
 
-1. [下載 msixmgr 工具](https://aka.ms/msixmgr)，並將 .ZIP 檔案夾儲存至工作階段主機 VM 中的資料夾。
+1. [Download the msixmgr tool](https://aka.ms/msixmgr) and save the .zip folder to a folder within a session host VM.
 
-2. 將 msixmgr 工具 .ZIP 檔案夾解壓縮。
+2. Unzip the msixmgr tool .zip folder.
 
-3. 將來源 MSIX 封裝放在您解壓縮 msixmgr 工具的相同資料夾中。
+3. Put the source MSIX package into the same folder where you unzipped the msixmgr tool.
 
-4. 在 PowerShell 中執行下列 Cmdlet 以建立 VHD：
+4. Run the following cmdlet in PowerShell to create a VHD:
 
     ```powershell
     New-VHD -SizeBytes <size>MB -Path c:\temp\<name>.vhd -Dynamic -Confirm:$false
     ```
 
     >[!NOTE]
-    >請確定 VHD 的大小夠大，足以容納擴充的 MSIX。 *
+    >Make sure the size of VHD is large enough to hold the expanded MSIX.*
 
-5. 執行下列 Cmdlet 來掛接新建立的 VHD：
+5. Run the following cmdlet to mount the newly created VHD:
 
     ```powershell
     $vhdObject = Mount-VHD c:\temp\<name>.vhd -Passthru
     ```
 
-6. 執行此 Cmdlet 來初始化 VHD：
+6. Run this cmdlet to initialize the VHD:
 
     ```powershell
     $disk = Initialize-Disk -Passthru -Number $vhdObject.Number
     ```
 
-7. 執行此 Cmdlet 來建立新的磁碟分割：
+7. Run this cmdlet to create a new partition:
 
     ```powershell
     $partition = New-Partition -AssignDriveLetter -UseMaximumSize -DiskNumber $disk.Number
     ```
 
-8. 執行此 Cmdlet 來格式化磁碟分割：
+8. Run this cmdlet to format the partition:
 
     ```powershell
     Format-Volume -FileSystem NTFS -Confirm:$false -DriveLetter $partition.DriveLetter -Force
     ```
 
-9. 在裝載的 VHD 上建立父資料夾。 這是必要步驟，因為 MSIX 應用程式附加需要父資料夾。 您可以將父資料夾命名為任何您喜歡的名稱。
+9. Create a parent folder on the mounted VHD. This step is mandatory as the MSIX app attach requires a parent folder. You can name the parent folder whatever you like.
 
-### <a name="expand-msix"></a>展開 MSIX
+### <a name="expand-msix"></a>Expand MSIX
 
-之後，您必須將 MSIX 映射解壓縮以「展開」。 若要將 MSIX 映射解壓縮：
+After that, you'll need to "expand" the MSIX image by unpacking it. To unpack the MSIX image:
 
-1. 以系統管理員身分開啟命令提示字元，並流覽至您下載並解壓縮 msixmgr 工具的資料夾。
+1. Open a command prompt as Administrator and navigate to the folder where you downloaded and unzipped the msixmgr tool.
 
-2. 執行下列 Cmdlet，將 MSIX 解壓縮至您在上一節中建立並掛接的 VHD。
+2. Run the following cmdlet to unpack the MSIX into the VHD you created and mounted in the previous section.
 
     ```powershell
     msixmgr.exe -Unpack -packagePath <package>.msix -destination "f:\<name of folder you created earlier>" -applyacls
     ```
 
-    完成解壓縮之後，應該會出現下列訊息：
+    The following message should appear once unpacking is done:
 
     `Successfully unpacked and applied ACLs for package: <package name>.msix`
 
     >[!NOTE]
-    > 如果您的網路內或在未連線到網際網路的裝置上使用來自 Microsoft Store 的套件，您必須從存放區取得套件授權，並安裝它們，才能成功執行應用程式。 請參閱[離線使用套件](#use-packages-offline)。
+    > If using packages from the Microsoft Store for Business (or Education) within your network, or on devices that are not connected to the internet, you will need to obtain the package licenses from the Store and install them to run the app successfully. See [Use packages offline](#use-packages-offline).
 
-3. 流覽至掛接的 VHD，並開啟應用程式資料夾，並確認套件內容存在。
+3. Navigate to the mounted VHD and open the app folder and confirm package content is present.
 
-4. 卸載 VHD。
+4. Unmount the VHD.
 
-## <a name="configure-windows-virtual-desktop-infrastructure"></a>設定 Windows 虛擬桌面基礎結構
+## <a name="configure-windows-virtual-desktop-infrastructure"></a>Configure Windows Virtual Desktop infrastructure
 
-根據設計，單一 MSIX 擴充的套件（您在上一節中建立的 VHD）可以在多個工作階段主機 Vm 之間共用，因為 Vhd 是以唯讀模式連接。
+By design, a single MSIX expanded package (the VHD you created in the previous section) can be shared between multiple session host VMs as the VHDs are attached in read-only mode.
 
-開始之前，請確定您的網路共用符合下列需求：
+Before you start, make sure your network share meets these requirements:
 
-- 共用與 SMB 相容。
-- 屬於工作階段主機集區的 Vm 具有共用的 NTFS 許可權。
+- The share is SMB compatible.
+- The VMs that are part of the session host pool have NTFS permissions to the share.
 
-### <a name="set-up-an-msix-app-attach-share"></a>設定 MSIX 應用程式附加共用 
+### <a name="set-up-an-msix-app-attach-share"></a>Set up an MSIX app attach share 
 
-在您的 Windows 虛擬桌面環境中，建立網路共用並將套件移至該處。
+In your Windows Virtual Desktop environment, create a network share and move the package there.
 
 >[!NOTE]
-> 建立 MSIX 網路共用的最佳做法是設定具有 NTFS 唯讀許可權的網路共用。
+> The best practice for creating MSIX network shares is to set up the network share with NTFS read-only permissions.
 
-## <a name="install-certificates"></a>安裝憑證
+## <a name="install-certificates"></a>Install certificates
 
-如果您的應用程式使用不是公開信任或自我簽署的憑證，以下是安裝它的方法：
+If your app uses a certificate that isn't public-trusted or was self-signed, here's how to install it:
 
-1. 以滑鼠右鍵按一下封裝，然後選取 [**屬性**]。
-2. 在出現的視窗中，選取 [**數位簽章**] 索引標籤。索引標籤上的清單中應該只有一個專案，如下圖所示。 選取該專案以反白顯示專案，然後選取 [De]
-3. 當 [數位信號詳細資料] 視窗出現時，選取 [**一般**] 索引標籤，然後選取 [**安裝憑證**]。
-4. 當安裝程式開啟時，選取 [**本機電腦**] 作為您的儲存位置，然後選取 **[下一步]** 。
-5. 如果安裝程式詢問您是否要允許應用程式對您的裝置進行變更，請選取 **[是]** 。
-6. 選取 **[將所有憑證放入下列存放區**]，然後選取 **[流覽]** 。
-7. 當 [選取證書存儲] 視窗出現時，選取 [**信任的人員**]，然後選取 **[確定]** 。
+1. Right-click the package and select **Properties**.
+2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab, as shown in the following image. Select that item to highlight the item, then select **De
+3. When the digital signal details window appears, select the **General** tab, then select **Install certificate**.
+4. When the installer opens, select **local machine** as your storage location, then select **Next**.
+5. If the installer asks you if you want to allow the app to make changes to your device, select **Yes**.
+6. Select **Place all certificates in the following store**, then select **Browse**.
+7. When the select certificate store window appears, select **Trusted people**, then select **OK**.
 8. 選取 [完成]。
 
-## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>準備 PowerShell 腳本以進行 MSIX 應用程式附加
+## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Prepare PowerShell scripts for MSIX app attach
 
-MSIX 應用程式附加有四個不同的階段，必須依照下列循序執行：
+MSIX app attach has four distinct phases that must be performed in the following order:
 
 1. 階段
-2. 註冊
-3. 登出
-4. 移
+2. Register
+3. Deregister
+4. Destage
 
-每個階段都會建立 PowerShell 腳本。 [這裡](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach)提供每個階段的範例腳本。
+Each phase creates a PowerShell script. Sample scripts for each phase are available [here](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
 
-### <a name="stage-the-powershell-script"></a>暫存 PowerShell 腳本
+### <a name="stage-the-powershell-script"></a>Stage the PowerShell script
 
-更新 PowerShell 腳本之前，請確定您在 VHD 中具有磁片區的磁片區 GUID。 若要取得磁片區 GUID：
+Before you update the PowerShell scripts, make sure you have the volume GUID of the volume in the VHD. To get the volume GUID:
 
-1.  在您要執行腳本的 VM 中，開啟 VHD 所在的網路共用。
+1.  Open the network share where the VHD is located inside the VM where you'll run the script.
 
-2.  以滑鼠右鍵按一下 VHD，然後選取 [**掛接**]。 這會將 VHD 掛接到磁碟機號。
+2.  Right-click the VHD and select **Mount**. This will mount the VHD to a drive letter.
 
-3.  掛接 VHD 之後，[檔案**瀏覽器**] 視窗隨即開啟。 捕捉父資料夾並更新 **\$parentFolder**變數
+3.  After you mount the VHD, the **File Explorer** window will open. Capture the parent folder and update the **\$parentFolder** variable
 
     >[!NOTE]
-    >如果您看不到父資料夾，這表示 MSIX 未正確擴充。 重做上一節，然後再試一次。
+    >If you don't see a parent folder, that means the MSIX wasn't expanded properly. Redo the previous section and try again.
 
-4.  開啟父資料夾。 如果正確展開，您會看到與封裝同名的資料夾。 更新 **\$packageName**變數以符合此資料夾的名稱。
+4.  Open the parent folder. If correctly expanded, you'll see a folder with the same name as the package. Update the **\$packageName** variable to match the name of this folder.
 
-    例如， `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`。
+    例如： `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe` 。
 
-5.  開啟命令提示字元，然後輸入**mountvol**。 此命令將會顯示磁片區及其 Guid 的清單。 複製磁片區的 GUID，其中磁碟機號符合您在步驟2中掛接 VHD 的磁片磁碟機。
+5.  Open a command prompt and enter **mountvol**. This command will display a list of volumes and their GUIDs. Copy the GUID of the volume where the drive letter matches the drive you mounted your VHD to in step 2.
 
-    例如，在 mountvol 命令的此範例輸出中，如果您將 VHD 掛接到 C 磁片磁碟機，您會想要將上述的值複製 `C:\`：
+    For example, in this example output for the mountvol command, if you mounted your VHD to Drive C, you'll want to copy the value above `C:\`:
 
     ```cmd
     Possible values for VolumeName along with current mount points are:
@@ -227,9 +227,9 @@ MSIX 應用程式附加有四個不同的階段，必須依照下列循序執行
     ```
 
 
-6.  使用您剛才複製的磁片區 GUID 來更新 **\$volumeGuid**變數。
+6.  Update the **\$volumeGuid** variable with the volume GUID you just copied.
 
-7. 開啟系統管理 PowerShell 提示字元，並使用適用于您環境的變數來更新下列 PowerShell 腳本。
+7. Open an Admin PowerShell prompt and update the following PowerShell script with the variables that apply to your environment.
 
     ```powershell
     #MSIX app attach staging sample
@@ -321,9 +321,9 @@ MSIX 應用程式附加有四個不同的階段，必須依照下列循序執行
     #endregion
     ```
 
-### <a name="register-powershell-script"></a>註冊 PowerShell 腳本
+### <a name="register-powershell-script"></a>Register PowerShell script
 
-若要執行註冊腳本，請執行下列 PowerShell Cmdlet，並將預留位置值取代為適用于您環境的值。
+To run the register script, run the following PowerShell cmdlets with the placeholder values replaced with values that apply to your environment.
 
 ```powershell
 #MSIX app attach registration sample
@@ -343,9 +343,9 @@ Add-AppxPackage -Path \$path -DisableDevelopmentMode -Register
 #endregion
 ```
 
-### <a name="deregister-powershell-script"></a>取消註冊 PowerShell 腳本
+### <a name="deregister-powershell-script"></a>Deregister PowerShell script
 
-針對此腳本，將 **\$packageName**的預留位置取代為您要測試之封裝的名稱。
+For this script, replace the placeholder for **\$packageName** with the name of the package you're testing.
 
 ```powershell
 #MSIX app attach deregistration sample
@@ -363,9 +363,9 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 #endregion
 ```
 
-### <a name="destage-powershell-script"></a>將 PowerShell 腳本移至
+### <a name="destage-powershell-script"></a>Destage PowerShell script
 
-針對此腳本，將 **\$packageName**的預留位置取代為您要測試之封裝的名稱。
+For this script, replace the placeholder for **\$packageName** with the name of the package you're testing.
 
 ```powershell
 #MSIX app attach de staging sample
@@ -389,30 +389,30 @@ rmdir $packageName -Force -Verbose
 #endregion
 ```
 
-## <a name="set-up-simulation-scripts-for-the-msix-app-attach-agent"></a>設定 MSIX 應用程式附加代理程式的模擬腳本
+## <a name="set-up-simulation-scripts-for-the-msix-app-attach-agent"></a>Set up simulation scripts for the MSIX app attach agent
 
-建立腳本之後，使用者可以手動執行它們，或將它們設定為自動啟動、登入、登出和關機腳本。 若要深入瞭解這些類型的腳本，請參閱[在群組原則中使用 sartup、關機、登入和登出腳本](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11))。
+After you create the scripts, users can manually run them or set them up to run automatically as startup, logon, logoff, and shutdown scripts. To learn more about these types of scripts, see [Using startup, shutdown, logon, and logoff scripts in Group Policy](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)).
 
-每一個自動腳本都會執行應用程式附加腳本的一個階段：
+Each of these automatic scripts runs one phase of the app attach scripts:
 
-- 啟動腳本會執行階段腳本。
-- 登入腳本會執行註冊腳本。
-- 登出腳本會執行取消註冊腳本。
-- 關機腳本會執行「上移」腳本。
+- The startup script runs the stage script.
+- The logon script runs the register script.
+- The logoff script runs the deregister script.
+- The shutdown script runs the destage script.
 
-## <a name="use-packages-offline"></a>離線使用套件
+## <a name="use-packages-offline"></a>Use packages offline
 
-如果您使用的是商務用[Microsoft Store](https://businessstore.microsoft.com/)的封裝，或是您的網路內或未連線到網際網路的裝置上的[Microsoft Store 教育](https://educationstore.microsoft.com/)版，您必須從 Microsoft Store 取得套件授權，並將其安裝在您的裝置上，才能成功執行應用程式。 如果您的裝置已上線，而且可以連接到商務用 Microsoft Store，則必須自動下載所需的授權，但如果您已離線，則必須手動設定授權。 
+If you're using packages from the [Microsoft Store for Business](https://businessstore.microsoft.com/) or the [Microsoft Store for Education](https://educationstore.microsoft.com/) within your network or on devices that aren't connected to the internet, you need to get the package licenses from the Microsoft Store and install them on your device to successfully run the app. If your device is online and can connect to the Microsoft Store for Business, the required licenses should download automatically, but if you're offline, you'll need to set up the licenses manually. 
 
-若要安裝授權檔案，您必須使用 PowerShell 腳本來呼叫 WMI 橋接器提供者中的 MDM_EnterpriseModernAppManagement_StoreLicenses02_01 類別。  
+To install the license files, you'll need to use a PowerShell script that calls the MDM_EnterpriseModernAppManagement_StoreLicenses02_01 class in the WMI Bridge Provider.  
 
-以下說明如何設定離線使用的授權： 
+Here's how to set up the licenses for offline use: 
 
-1. 從商務用 Microsoft Store 下載應用程式套件、授權和所需的架構。 您同時需要已編碼和未編碼的授權檔案。 您可以在[這裡](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app)找到詳細的下載指示。
-2. 在步驟3的腳本中更新下列變數：
-      1. `$contentID` 是來自未編碼授權檔案（.xml）的 ContentID 值。 您可以在您選擇的文字編輯器中開啟授權檔案。
-      2. `$licenseBlob` 是編碼授權檔案（. bin）中授權 blob 的整個字串。 您可以在您選擇的文字編輯器中開啟編碼的授權檔案。 
-3. 從系統管理員 PowerShell 提示字元執行下列腳本。 執行授權安裝的最佳位置是在[預備腳本](#stage-the-powershell-script)的結尾，也需要從系統管理員提示執行。
+1. Download the app package, licenses, and required frameworks from the Microsoft Store for Business. You need both the encoded and unencoded license files. Detailed download instructions can be found [here](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
+2. Update the following variables in the script for step 3:
+      1. `$contentID` is the ContentID value from the Unencoded license file (.xml). You can open the license file in a text editor of your choice.
+      2. `$licenseBlob` is the entire string for the license blob in the Encoded license file (.bin). You can open the encoded license file in a text editor of your choice. 
+3. Run the following script from an Admin PowerShell prompt. A good place to perform license installation is at the end of the [staging script](#stage-the-powershell-script) that also needs to be run from an Admin prompt.
 
 ```powershell
 $namespaceName = "root\cimv2\mdm\dmmap"
@@ -450,6 +450,6 @@ catch [Exception]
 
 ## <a name="next-steps"></a>後續步驟
 
-目前不支援這項功能，但您可以在[Windows 虛擬桌面 TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)向該社區提出問題。
+This feature isn't currently supported, but you can ask questions to the community at the [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-您也可以在[Windows 虛擬桌面意見反應中樞](https://aka.ms/MRSFeedbackHub)留下 Windows 虛擬桌面的意見反應，或在[MSIX 應用程式附加意見反應中樞](https://aka.ms/msixappattachfeedback)和[MSIX 封裝工具意見反應中樞](https://aka.ms/msixtoolfeedback)留下 MSIX 應用程式和封裝工具的意見反應。
+You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://aka.ms/MRSFeedbackHub), or leave feedback for the MSIX app and packaging tool at the [MSIX app attach feedback hub](https://aka.ms/msixappattachfeedback) and the [MSIX packaging tool feedback hub](https://aka.ms/msixtoolfeedback).

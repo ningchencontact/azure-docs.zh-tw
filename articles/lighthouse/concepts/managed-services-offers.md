@@ -2,17 +2,17 @@
 title: Azure Marketplace 中的受控服務供應項目
 description: 受控服務供應項目能允許服務提供者在 Azure Marketplace 中向客戶銷售資源管理供應項目。
 ms.date: 09/19/2019
-ms.topic: overview
-ms.openlocfilehash: 0f1ba749a5477f0c006e6666b841e82f4eeb193f
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: f7dcaa34b1fb471823acd74a7d9b05e42dd44161
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131866"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463993"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Azure Marketplace 中的受控服務供應項目
 
-此文章說明 [Azure Marketplace](https://azuremarketplace.microsoft.com) 中的新 [受控服務]  供應項目類型。 受控服務供應項目可讓您搭配 Azure 委派的資源管理向客戶提供資源管理服務。 您可以向所有潛在客戶提供這些供應項目，或僅向一或多個特定客戶提供。 由於您會直接向客戶收取與這些受控服務相關的費用，因此 Microsoft 不會向您收取任何費用。
+此文章說明 [Azure Marketplace](https://azuremarketplace.microsoft.com) 中的新 [受控服務] 供應項目類型。 受控服務供應項目可讓您搭配 Azure 委派的資源管理向客戶提供資源管理服務。 您可以向所有潛在客戶提供這些供應項目，或僅向一或多個特定客戶提供。 由於您會直接向客戶收取與這些受控服務相關的費用，因此 Microsoft 不會向您收取任何費用。
 
 ## <a name="understand-managed-services-offers"></a>了解受控服務供應項目
 

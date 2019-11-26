@@ -4,17 +4,17 @@ description: 本文提供針對 Azure 自動化混合式 Runbook 背景工作角
 services: automation
 ms.service: automation
 ms.subservice: ''
-author: bobbytreed
-ms.author: robreed
-ms.date: 02/12/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 39cf6126f6212b6e83f1974dae7aaab0038e69c6
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 31d81c6946fc256f5c22b93674469d7b87500173
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240990"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480713"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>混合式 Runbook 背景工作的疑難排解
 
@@ -22,7 +22,7 @@ ms.locfileid: "71240990"
 
 ## <a name="general"></a>一般
 
-混合式 Runbook 背景工作角色取決於與自動化帳戶通訊的代理程式，來註冊背景工作角色、接收 Runbook 作業及報告狀態。 Windows 的代理程式為 Microsoft Monitoring Agent。 Linux 的代理程式為適用於 Linux 的 OMS 代理程式。
+混合式 Runbook 背景工作角色取決於與自動化帳戶通訊的代理程式，來註冊背景工作角色、接收 Runbook 作業及報告狀態。 For Windows, this agent is the Log Analytics agent for Windows (also referred to as the Microsoft Monitoring Agent (MMA)). For Linux, it's the Log Analytics agent for Linux.
 
 ### <a name="runbook-execution-fails"></a>案例：Runbook 執行失敗
 
@@ -58,7 +58,7 @@ Runbook 在嘗試執行三次後會馬上暫止。 在某些情況下，Runbook 
 
 查閱 **Microsoft-SMA** 事件記錄檔，找出描述為「Win32 處理序結束，代碼為 [4294967295]」的對應事件。 此錯誤的原因是您尚未在 Runbook 中設定驗證，或尚未指定混合式背景工作角色群組的執行身分認證。 檢閱 [Runbook 權限](../automation-hrw-run-runbooks.md#runbook-permissions)，確認 Runbook 的驗證設定正確無誤。
 
-### <a name="no-cert-found"></a>案例：在混合式 Runbook 背景工作角色的憑證存放區中找不到憑證
+### <a name="no-cert-found"></a>Scenario: No certificate was found in the certificate store on Hybrid Runbook Worker
 
 #### <a name="issue"></a>問題
 
@@ -83,17 +83,17 @@ At line:3 char:1
 
 ## <a name="linux"></a>Linux
 
-Linux 混合式 Runbook 背景工作角色仰賴適用於 Linux 的 OMS 代理程式來與自動化帳戶通訊，以便註冊背景工作角色、接收 Runbook 作業和報告狀態。 如果註冊背景工作角色失敗，請參考以下一些可能的錯誤原因：
+The Linux Hybrid Runbook Worker depends on the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. 如果註冊背景工作角色失敗，請參考以下一些可能的錯誤原因：
 
-### <a name="oms-agent-not-running"></a>案例：適用於 Linux 的 OMS 代理程式未執行
+### <a name="oms-agent-not-running"></a>Scenario: The Log Analyics agent for Linux isn't running
 
 #### <a name="issue"></a>問題
 
-適用於 Linux 的 OMS 代理程式未執行
+The Log Analytics agent for Linux is not running
 
 #### <a name="cause"></a>原因
 
-如果適用於 Linux 的 OMS 代理程式未執行，就會讓 Linux 混合式 Runbook 背景工作角色無法與 Azure 自動化進行通訊。 代理程式無法執行的原因有很多種。
+If the agent isn't running, it prevents the Linux Hybrid Runbook Worker from communicating with Azure Automation. 代理程式無法執行的原因有很多種。
 
 #### <a name="resolution"></a>解析度
 
@@ -114,11 +114,11 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 * **diy/worker.conf** - 此處理序是 DIY 混合式背景工作處理序。 DIY 混合式背景工作處理序可用來在混合式 Runbook 背景工作角色上執行使用者 Runbook。 它與自動註冊的混合式背景工作處理序的主要差別在於會使用不同的設定。 如果已停用 Azure 自動化解決方案，而且未註冊 DIY Linux 混合式背景工作，就不會出現此處理序。
 
-如果適用於 Linux 的 OMS 代理程式未執行，請執行下列命令來啟動服務：`sudo /opt/microsoft/omsagent/bin/service_control restart`。
+If the agent isn't running, run the following command to start the service: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
 ### <a name="class-does-not-exist"></a>案例：指定的類別不存在
 
-如果您看到錯誤：**指定的類別不存在。** `/var/opt/microsoft/omsconfig/omsconfig.log` 中，表示適用於 Linux 的 OMS 代理程式需要更新。 請執行下列命令來重新安裝 OMS 代理程式：
+如果您看到錯誤：**指定的類別不存在...** in the  `/var/opt/microsoft/omsconfig/omsconfig.log` then the Log Analytics agent for Linux needs to be updated. Run the following command to reinstall the agent:
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -126,9 +126,9 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## <a name="windows"></a>Windows
 
-Windows 混合式 Runbook 背景工作角色取決於與自動化帳戶通訊的 Microsoft Monitoring Agent 來註冊背景工作角色、接收 Runbook 作業及報告狀態。 如果註冊背景工作角色失敗，請參考以下一些可能的錯誤原因：
+The Windows Hybrid Runbook Worker depends on the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. 如果註冊背景工作角色失敗，請參考以下一些可能的錯誤原因：
 
-### <a name="mma-not-running"></a>案例：Microsoft Monitoring Agent 未執行
+### <a name="mma-not-running"></a>Scenario: The Microsoft Monitoring Agent isn't running
 
 #### <a name="issue"></a>問題
 
@@ -146,15 +146,15 @@ Windows 混合式 Runbook 背景工作角色取決於與自動化帳戶通訊的
 
 #### <a name="issue"></a>問題
 
-在 **Application and Services Logs\Operations Manager** 事件記錄中，您會看到事件 4502 和 EventMessage 包含 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**，並具有如下描述：*服務 \<wsid\>.oms.opinsights.azure.com 所提供的憑證並非由 Microsoft 服務所使用的憑證授權單位發行。請連絡網路管理員，以查看它們是否正在執行可攔截 TLS/SSL 通訊的 Proxy。文章 KB3126513 內提供針對連線能力問題的其他疑難排解資訊。*
+In the **Application and Services Logs\Operations Manager** event log, you see event 4502 and EventMessage that contains **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** with the following description: *The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.*
 
 #### <a name="cause"></a>原因
 
-此問題是因 Proxy 或網路防火牆封鎖 Microsoft Azure 的通訊所引起。 確認電腦可透過連接埠 443 輸出存取 *.azure-automation.net。
+此問題是因 Proxy 或網路防火牆封鎖 Microsoft Azure 的通訊所引起。 確認電腦可透過連接埠 443 輸出存取 *.azure-automation.net。 
 
 #### <a name="resolution"></a>解析度
 
-記錄儲存每一個混合式背景工作角色本機的 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes 中。 您可以檢查 **Application and Services Logs\Microsoft-SMA\Operations** 和 **Application and Services Logs\Operations Manager** 事件記錄中，是否有任何警告或錯誤事件可能表示有連線能力或其他會影響角色上架到 Azure 自動化的問題，或正常作業時的問題。
+記錄儲存每一個混合式背景工作角色本機的 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes 中。 您可以檢查 **Application and Services Logs\Microsoft-SMA\Operations** 和 **Application and Services Logs\Operations Manager** 事件記錄中，是否有任何警告或錯誤事件可能表示有連線能力或其他會影響角色上架到 Azure 自動化的問題，或正常作業時的問題。 For additional help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/platform/agent-windows-troubleshoot.md).
 
 [Runbook 輸出和訊息](../automation-runbook-output-and-messages.md) 會從混合式背景工作角色傳送到 Azure 自動化，就像雲端中執行的 Runbook 工作一樣。 您也可以啟用詳細資訊和進度資料流，就像您在其他 Runbook 中的作法一樣。
 
@@ -188,7 +188,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="already-registered"></a>案例：您無法新增混合式 Runbook 背景工作角色
+### <a name="already-registered"></a>Scenario: You are unable to add a Hybrid Runbook Worker
 
 #### <a name="issue"></a>問題
 

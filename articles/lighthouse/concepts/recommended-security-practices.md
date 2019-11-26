@@ -1,14 +1,14 @@
 ---
 title: 建議的安全性作法
-description: 在使用 Azure 委派的資源管理時，請務必考慮安全性與存取控制。
+description: 使用 Azure 委派的資源管理時，請務必考慮安全性和存取控制。
 ms.date: 07/11/2019
-ms.topic: overview
-ms.openlocfilehash: e0f0a9d4cdd56ff1bca9b9faf493d3e0d68e558c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 18decc337722c1dc64fac94679d783dd55915ee6
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132462"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463894"
 ---
 # <a name="recommended-security-practices"></a>建議的安全性作法
 
@@ -28,12 +28,12 @@ ms.locfileid: "74132462"
 
 例如，您應該使用像這樣的結構：
 
-|群組名稱  |類型  |principalId  |角色定義  |角色定義識別碼  |
+|群組名稱  |Type  |principalId  |角色定義  |角色定義識別碼  |
 |---------|---------|---------|---------|---------|
 |結構設計師     |使用者群組         |\<principalId\>         |參與者         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |評量     |使用者群組         |\<principalId\>         |讀取者         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |VM 專家     |使用者群組         |\<principalId\>         |VM 參與者         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|自動化     |服務主體名稱 (SPN)         |\<principalId\>         |參與者         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Automation     |服務主體名稱 (SPN)         |\<principalId\>         |參與者         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 在您建立這些群組之後，便可以視需要指派使用者。 請僅加入真正需要存取權的使用者。 請務必定期檢閱群組成員，並移除已不再適合或需要包含在該群組內的任何使用者。
 

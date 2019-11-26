@@ -1,76 +1,76 @@
 ---
-title: 評估新 Azure 原則的影響
-description: 瞭解在 Azure 環境中引進新的原則時，所要遵循的流程。
+title: Evaluate the impact of a new Azure policy
+description: Understand the process to follow when introducing a new policy definition into your Azure environment.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: e39183b13d2b3cf8c7527f9372879372b2123648
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 562fa2378356ddc1eac48b6ea5c160ebf655d525
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279435"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463518"
 ---
-# <a name="evaluate-the-impact-of-a-new-azure-policy"></a>評估新 Azure 原則的影響
+# <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Evaluate the impact of a new Azure policy
 
-Azure 原則是一種功能強大的工具，可讓您管理 Azure 資源以符合商業標準，並滿足合規性需求。 當人員、進程或管線建立或更新資源時，Azure 原則審查要求。 當原則定義效果是[Append](./effects.md#deny)或[DeployIfNotExists](./effects.md#deployifnotexists)時，原則會改變要求或將其加入其中。 當原則定義效果為[Audit](./effects.md#audit)或[AuditIfNotExists](./effects.md#auditifnotexists)時，原則會導致建立活動記錄專案。 當原則定義的效果為 [[拒絕](./effects.md#deny)] 時，原則就會停止建立或修改要求。
+Azure Policy is a powerful tool for managing your Azure resources to business standards and to meet compliance needs. When people, processes, or pipelines create or update resources, Azure Policy reviews the request. When the policy definition effect is [Append](./effects.md#deny) or [DeployIfNotExists](./effects.md#deployifnotexists), Policy alters the request or adds to it. When the policy definition effect is [Audit](./effects.md#audit) or [AuditIfNotExists](./effects.md#auditifnotexists), Policy causes an Activity log entry to be created. And when the policy definition effect is [Deny](./effects.md#deny), Policy stops the creation or alteration of the request.
 
-當您知道已正確定義原則時，這些結果就會完全符合預期。 不過，請務必驗證新的原則是否如預期運作，再允許它變更或封鎖工作。 驗證必須確保只會將預期的資源判定為不符合規範，而且不會在結果中不正確地包含符合規範的資源（也稱為「_假肯定_」）。
+These outcomes are exactly as desired when you know the policy is defined correctly. However, it's important to validate a new policy works as intended before allowing it to change or block work. The validation must ensure only the intended resources are determined to be non-compliant and no compliant resources are incorrectly included (known as a _false positive_) in the results.
 
-驗證新原則定義的建議方法是遵循下列步驟：
+The recommended approach to validating a new policy definition is by following these steps:
 
-- 緊密定義原則
-- 審核您現有的資源
-- Audit 新的或已更新的資源要求
-- 將原則部署至資源
-- 連續監視
+- Tightly define your policy
+- Audit your existing resources
+- Audit new or updated resource requests
+- Deploy your policy to resources
+- 持續監視
 
-## <a name="tightly-define-your-policy"></a>緊密定義原則
+## <a name="tightly-define-your-policy"></a>Tightly define your policy
 
-請務必瞭解如何將商務原則實作為原則定義，以及 Azure 資源與其他 Azure 服務的關聯性。 此步驟是藉由[識別需求](../tutorials/create-custom-policy-definition.md#identify-requirements)和[判斷資源屬性](../tutorials/create-custom-policy-definition.md#determine-resource-properties)來完成。
-但請務必查看您的商務原則的狹窄定義以外的範圍。 您的原則狀態例如「所有虛擬機器必須 ...」嗎？ 使用 Vm 的其他 Azure 服務（例如 HDInsight 或 AKS）呢？ 定義原則時，我們必須考慮此原則如何影響其他服務所使用的資源。
+It's important to understand how the business policy is implemented as a policy definition and the relationship of Azure resources with other Azure services. This step is accomplished by [identifying the requirements](../tutorials/create-custom-policy-definition.md#identify-requirements) and [determining the resource properties](../tutorials/create-custom-policy-definition.md#determine-resource-properties).
+But it's also important to see beyond the narrow definition of your business policy. Does your policy state for example "All Virtual Machines must..."? What about other Azure services that make use of VMs, such as HDInsight or AKS? When defining a policy, we must consider how this policy impacts resources that are used by other services.
 
-基於這個理由，您的原則定義應該嚴格地定義，並著重于資源和您需要評估相容性的屬性。
+For this reason, your policy definitions should be as tightly defined and focused on the resources and the properties you need to evaluate for compliance as possible.
 
-## <a name="audit-existing-resources"></a>審核現有的資源
+## <a name="audit-existing-resources"></a>Audit existing resources
 
-在想要使用新的原則定義來管理新的或更新的資源之前，最好先查看它如何評估有限的現有資源子集，例如測試資源群組。 在您的原則指派上使用[強制模式](./assignment-structure.md#enforcement-mode)
-_停_用（DoNotEnforce），以防止觸發或建立活動記錄專案的[效果](./effects.md)。
+Before looking to manage new or updated resources with your new policy definition, it's best to see how it evaluates a limited subset of existing resources, such as a test resource group. Use the [enforcement mode](./assignment-structure.md#enforcement-mode)
+_Disabled_ (DoNotEnforce) on your policy assignment to prevent the [effect](./effects.md) from triggering or activity log entries from being created.
 
-此步驟讓您有機會評估現有資源上新原則的相容性結果，而不會影響工作流程。 檢查是否沒有符合規範的資源標示為不符合規範（_誤報_），而且所有您預期不相容的資源都會標示為正確。
-資源的初始子集如預期般驗證之後，就會慢慢地將評估擴展到所有現有的資源。
+This step gives you a chance to evaluate the compliance results of the new policy on existing resources without impacting work flow. Check that no compliant resources are marked as non-compliant (_false positive_) and that all the resources you expect to be non-compliant are marked correctly.
+After the initial subset of resources validates as expected, slowly expand the evaluation to all existing resources.
 
-以這種方式評估現有的資源也可讓您在完整執行新原則之前，先補救不符合規範的資源。 這項清除作業可以手動完成，或在原則定義效果為_DeployIfNotExists_時透過[補救](../how-to/remediate-resources.md)工作進行。
+Evaluating existing resources in this way also provides an opportunity to remediate non-compliant resources before full implementation of the new policy. This cleanup can be done manually or through a [remediation task](../how-to/remediate-resources.md) if the policy definition effect is _DeployIfNotExists_.
 
-## <a name="audit-new-or-updated-resources"></a>審核新的或更新的資源
+## <a name="audit-new-or-updated-resources"></a>Audit new or updated resources
 
-當您驗證新的原則定義在現有資源上正確報告後，就可以在建立或更新資源時查看原則的影響。 如果原則定義支援效果參數化，請使用[Audit](./effects.md#audit)。 此設定可讓您監視資源的建立和更新，以瞭解新的原則定義是否會針對不符合規範的資源觸發 Azure 活動記錄中的專案，而不會影響現有的工作或要求。
+Once you've validated your new policy definition is reporting correctly on existing resources, it's time to look at the impact of the policy when resources get created or updated. If the policy definition supports effect parameterization, use [Audit](./effects.md#audit). This configuration allows you to monitor the creation and updating of resources to see if the new policy definition triggers an entry in Azure Activity log for a resource that is non-compliant without impacting existing work or requests.
 
-建議您更新並建立符合原則定義的新資源，以查看是否正確地在預期的情況之下觸發_審核_效果。 在不應受觸發_Audit_效果的新原則定義影響的資源要求的 lookout 上。
-這些受影響的資源是另一個_誤報_範例，必須先在原則定義中修正，才能進行完整的執行。
+It's recommended to both update and create new resources that match your policy definition to see that the _Audit_ effect is correctly being triggered when expected. Be on the lookout for resource requests that shouldn't be impacted by the new policy definition that trigger the _Audit_ effect.
+These impacted resources are another example of _false positives_ and must be fixed in the policy definition before full implementation.
 
-在此測試階段變更原則定義的情況下，建議您先使用現有資源的審核來開始驗證程式。 針對新的或更新的資源， _false 肯定_的原則定義變更可能也會影響現有的資源。
+In the event the policy definition is changed at this stage of testing, it's recommended to begin the validation process over with the auditing of existing resources. A change to the policy definition for a _false positive_ on new or updated resources is likely to also have an impact on existing resources.
 
-## <a name="deploy-your-policy-to-resources"></a>將原則部署至資源
+## <a name="deploy-your-policy-to-resources"></a>Deploy your policy to resources
 
-當您使用現有的資源和新的或已更新的資源要求來完成新原則定義的驗證之後，就會開始執行原則的程式。 建議您先建立新原則定義的原則指派給所有資源的子集，例如資源群組。 驗證初始部署之後，將原則的範圍擴充為更廣泛且更廣泛的層級，例如訂用帳戶和管理群組。 這項擴充的達成方式是移除指派，並在目標範圍建立新的，直到它指派給新的原則定義所涵蓋的資源的完整範圍為止。
+After completing validation of your new policy definition with both existing resources and new or updated resource requests, you begin the process of implementing the policy. It's recommended to create the policy assignment for the new policy definition to a subset of all resources first, such as a resource group. After validating initial deployment, extend the scope of the policy to broader and broader levels, such as subscriptions and management groups. This expansion is achieved by removing the assignment and creating a new one at the target scopes until it's assigned to the full scope of resources intended to be covered by your new policy definition.
 
-在推出期間，如果資源位於應該豁免新原則定義的位置，請以下列其中一種方式解決這些問題：
+During rollout, if resources are located that should be exempt from your new policy definition, address them in one of the following ways:
 
-- 將原則定義更新為更明確，以減少非預期的影響
-- 變更原則指派的範圍（藉由移除並建立新的指派）
-- 將資源群組新增至原則指派的排除清單
+- Update the policy definition to be more explicit to reduce unintended impact
+- Change the scope of the policy assignment (by removing and creating a new assignment)
+- Add the group of resources to the exclusion list for the policy assignment
 
-對範圍（層級或排除）所做的任何變更都應該完整驗證，並與您的安全性和合規性組織溝通，以確保涵蓋範圍沒有任何缺口。
+Any changes to the scope (level or exclusions) should be fully validated and communicated with your security and compliance organizations to ensure there are no gaps in coverage.
 
-## <a name="monitor-your-policy-and-compliance"></a>監視您的原則與合規性
+## <a name="monitor-your-policy-and-compliance"></a>Monitor your policy and compliance
 
-執行和指派原則定義並不是最後一個步驟。 持續監視您新原則定義的資源[相容性](../how-to/get-compliance-data.md)層級，並設定適當的[Azure 監視器警示和通知](../../../azure-monitor/platform/alerts-overview.md)，以瞭解何時識別不符合規範的裝置。 此外，也建議您依照排程評估原則定義和相關指派，以驗證原則定義是否符合商務原則和合規性需求。 如果不再需要原則，則應該將其移除。 當基礎 Azure 資源演變並新增屬性和功能時，原則也需要及時更新。
+Implementing and assigning your policy definition isn't the final step. Continuously monitor the [compliance](../how-to/get-compliance-data.md) level of resources to your new policy definition and setup appropriate [Azure Monitor alerts and notifications](../../../azure-monitor/platform/alerts-overview.md) for when non-compliant devices are identified. It's also recommended to evaluate the policy definition and related assignments on a scheduled basis to validate the policy definition is meeting business policy and compliance needs. Policies should be removed if no longer needed. Policies also need updating from time to time as the underlying Azure resources evolve and add new properties and capabilities.
 
 ## <a name="next-steps"></a>後續步驟
 
-- 瞭解[原則定義結構](./definition-structure.md)。
-- 瞭解[原則指派結構](./assignment-structure.md)。
-- 瞭解如何以程式設計[方式建立原則](../how-to/programmatically-create.md)。
-- 瞭解如何[取得合規性資料](../how-to/get-compliance-data.md)。
-- 瞭解如何[補救不符合規範的資源](../how-to/remediate-resources.md)。
+- Learn about the [policy definition structure](./definition-structure.md).
+- Learn about the [policy assignment structure](./assignment-structure.md).
+- Understand how to [programmatically create policies](../how-to/programmatically-create.md).
+- Learn how to [get compliance data](../how-to/get-compliance-data.md).
+- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

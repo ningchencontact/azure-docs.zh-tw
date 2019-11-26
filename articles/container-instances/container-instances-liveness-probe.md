@@ -1,27 +1,22 @@
 ---
-title: 在 Azure 容器執行個體中設定活躍度探查
+title: Set up liveness probe on container instance
 description: 了解如何在 Azure 容器執行個體中設定活躍度探查，以重新啟動狀況不良的容器
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: danlep
-ms.openlocfilehash: 7f9696e9803e9ab168c59b6c5e7413a4f754a6ae
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 96d98d18a3f0ac666fb2c057216f7844b176d177
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904440"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481686"
 ---
 # <a name="configure-liveness-probes"></a>設定活躍度探查
 
-容器化應用程式可能會長時間執行，因而導致可能需要藉由重新開機容器來修復的狀態中斷。 Azure 容器實例支援活動探查，讓您可以設定容器群組中的容器，以便在重要功能無法運作時重新開機。 活動探查的行為就像是[Kubernetes 的活動探查](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)。
+Containerized applications may run for extended periods of time, resulting in broken states that may need to be repaired by restarting the container. Azure Container Instances supports liveness probes so that you can configure your containers within your container group to restart if critical functionality is not working. The liveness probe behaves like a [Kubernetes liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
 本文說明如何部署包含活躍度探查的容器群組，示範如何自動重新啟動模擬的狀況不良容器。
 
-Azure 容器實例也支援[就緒探查](container-instances-readiness-probe.md)，您可以進行設定，以確保只有當流量準備好時，才會到達容器。
+Azure Container Instances also supports [readiness probes](container-instances-readiness-probe.md), which you can configure to ensure that traffic reaches a container only when it's ready for it.
 
 ## <a name="yaml-deployment"></a>YAML 部署
 
@@ -65,17 +60,17 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="start-command"></a>啟動命令
 
-部署會定義當容器第一次開始執行（由 `command` 屬性定義，它會接受字串陣列）時要執行的啟動命令。 在此範例中，它將啟動 Bash 工作階段，並藉由傳遞下列命令，在 `healthy` 目錄內建立名為 `/tmp` 的檔案：
+The deployment defines a starting command to be run when the container first starts running, defined by the `command` property, which accepts an array of strings. 在此範例中，它將啟動 Bash 工作階段，並藉由傳遞下列命令，在 `/tmp` 目錄內建立名為 `healthy` 的檔案：
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- 然後，它會在刪除檔案前進入睡眠狀態30秒，然後進入10分鐘的睡眠狀態。
+ It will then sleep for 30 seconds before deleting the file, then enters a 10-minute sleep.
 
 ### <a name="liveness-command"></a>活躍度命令
 
-此部署定義的 `livenessProbe`，可支援做為活動檢查的 `exec` 活動命令。 如果此命令以非零值結束，即會終止並重新啟動容器，並發出信號表示找不到 `healthy` 檔案。 如果此命令已順利結束且結束代碼為 0，將不會採取任何動作。
+This deployment defines a `livenessProbe` that supports an `exec` liveness command that acts as the liveness check. 如果此命令以非零值結束，即會終止並重新啟動容器，並發出信號表示找不到 `healthy` 檔案。 如果此命令已順利結束且結束代碼為 0，將不會採取任何動作。
 
 `periodSeconds` 屬性會指定活躍度命令應該每隔 5 秒執行一次。
 
@@ -89,7 +84,7 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ![入口網站狀況不良的事件][portal-unhealthy]
 
-藉由檢視 Azure 入口網站中的事件，將在活躍度命令失敗時觸發類型為 `Unhealthy` 的事件。 後續的事件類型將是 `Killing`，表示容器刪除，因此可以開始重新啟動。 每次發生此事件時，容器的重新開機計數會遞增。
+藉由檢視 Azure 入口網站中的事件，將在活躍度命令失敗時觸發類型為 `Unhealthy` 的事件。 後續的事件類型將是 `Killing`，表示容器刪除，因此可以開始重新啟動。 The restart count for the container increments each time this event  occurs.
 
 重新啟動會就地完成，因此將保留像是公用 IP 位址和節點特定內容的資源。
 
@@ -99,7 +94,7 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ## <a name="liveness-probes-and-restart-policies"></a>活躍度探查和重新啟動原則
 
-重新啟動原則會取代活躍度探查所觸發的重新啟動行為。 例如，如果您設定 `restartPolicy = Never`*和*活動探查，容器群組將不會因為失敗的活動檢查而重新開機。 容器群組將改為遵守容器群組的 `Never` 重新啟動原則。
+重新啟動原則會取代活躍度探查所觸發的重新啟動行為。 For example, if you set a `restartPolicy = Never` *and* a liveness probe, the container group will not restart because of a failed liveness check. 容器群組將改為遵守容器群組的 `Never` 重新啟動原則。
 
 ## <a name="next-steps"></a>後續步驟
 

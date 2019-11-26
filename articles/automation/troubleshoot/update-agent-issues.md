@@ -2,19 +2,19 @@
 title: 了解 Azure 更新管理中的 Windows 代理程式檢查結果
 description: 了解如何針對「更新管理」代理程式的問題進行疑難排解。
 services: automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/22/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 11/25/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: d3099498c3abea428e04d94ca0fcd553e6a0fec6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 72fdfe912a5560ce0c0e3886dd3c56cf9534dc22
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886408"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480802"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>了解更新管理中的 Windows 代理程式檢查結果
 
@@ -27,7 +27,7 @@ ms.locfileid: "73886408"
 * **未設定**：找不到更新代理程式或尚未完成上線。
 
 > [!NOTE]
-> Azure 入口網站顯示的內容與電腦目前的狀態之間可能會稍有延遲。
+> There may be a slight delay between what the Azure portal shows and the current state of the machine.
 
 ## <a name="start-the-troubleshooter"></a>啟動疑難排解員
 
@@ -52,18 +52,18 @@ ms.locfileid: "73886408"
 
 作業系統檢查會確認「混合式 Runbook 背景工作角色」是否正在執行下列其中一個作業系統：
 
-|作業系統  |注意事項  |
+|作業系統  |注意  |
 |---------|---------|
 |Windows Server 2008 R2 RTM、Windows Server 2008 | 僅支援更新評估。         |
-|Windows Server 2008 R2 SP1 和更新版本 |必須要有 .NET Framework 4.6.1 或更新版本。 ([下載 .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> 需要 Windows PowerShell 5.1。  ([下載 Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 和更新版本 |.NET Framework 4.6 or later is required. ([下載 .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1 is required.  ([下載 Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
-### <a name="net-461"></a>.NET 4.6.1 +
+### <a name="net-462"></a>.NET 4.6.2
 
-.NET Framework 檢查會確認系統是否已安裝最少的[.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) 。
+The .NET Framework check verifies that the system has a minimum of [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) installed.
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-WMF 檢查會確認系統是否具有所需的 Windows Management Framework （WMF）版本- [Windows Management framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616)。
+The WMF check verifies that the system has the required version of the Windows Management Framework (WMF) - [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### <a name="tls-12"></a>TLS 1.2
 
@@ -107,7 +107,7 @@ Crypto 資料夾存取權檢查會判斷「本機系統帳戶」是否能夠存�
 
 ## <a name="troubleshoot-offline"></a>離線疑難排解
 
-您可以藉由在本機執行指令碼，對「混合式 Runbook 背景工作角色」使用疑難排解員。 您可以在「PowerShell 資源庫」中取得 [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) 指令碼。 您必須安裝 WMF 4.0 或更新版本，才能執行腳本。 若要下載最新版本的 PowerShell，請參閱[安裝各種版本的 powershell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell)。
+您可以藉由在本機執行指令碼，對「混合式 Runbook 背景工作角色」使用疑難排解員。 您可以在「PowerShell 資源庫」中取得 [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) 指令碼。 You must have WMF 4.0, or greater, installed to run the script. To download the latest version of PowerShell, see [Installing various versions of PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
 
 此指令碼的輸出會如下列範例所示：
 

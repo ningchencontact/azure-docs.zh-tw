@@ -1,6 +1,6 @@
 ---
-title: 下架 Azure Sentinel |Microsoft Docs
-description: 如何刪除您的 Azure Sentinel 實例。
+title: Offboard Azure Sentinel| Microsoft Docs
+description: How to delete your Azure Sentinel instance.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,74 +14,74 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: d3b9284282a7ee14cde2461598c81e6dfdfd9f72
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: a45f273078a622de5e256457fc45b6cb6cae512f
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316752"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464134"
 ---
-# <a name="remove-azure-sentinel-from-your-tenant"></a>從您的租使用者移除 Azure Sentinel
+# <a name="remove-azure-sentinel-from-your-tenant"></a>Remove Azure Sentinel from your tenant
 
-如果您不想再使用 Azure Sentinel，本文會說明如何將它從您的租使用者中移除。
+If you no longer want to use the Azure Sentinel, this article explains how to remove it from your tenant.
 
-## <a name="how-to-delete-azure-sentinel"></a>如何刪除 Azure Sentinel
+## <a name="how-to-delete-azure-sentinel"></a>How to delete Azure Sentinel
 
-在背景中，當您安裝 Azure Sentinel 時， **SecurityInsights**解決方案會安裝在您選取的工作區上。 因此，您必須做的第一件事就是移除**SecurityInsights**解決方案。
+In the background, when you install Azure Sentinel, the **SecurityInsights** solution is installed on your selected workspace. So the first thing you need to do is remove the **SecurityInsights** solution.
 
-1.  移至**Azure Sentinel**，然後依序接著 [設定 **]、[** **工作區設定**] 和 [**解決方案**]。
+1.  Go to **Azure Sentinel**, followed by **Configuration**, followed by **Workspace settings**, and then **Solutions**.
 
-2.  選取`SecurityInsights`並按一下它。
+2.  Select `SecurityInsights` and click on it.
 
-    ![尋找 SecurityInsights 解決方案](media/offboard/find-solution.png)
+    ![Find the SecurityInsights solution](media/offboard/find-solution.png)
 
-3.  在頁面頂端，選取 [**刪除**]。
+3.  At the top of the page select **Delete**.
 
     > [!IMPORTANT]
-    > 如果您刪除工作區，工作區和 Azure Sentinel 會從 Azure 監視器中的租使用者中移除。
+    > If you remove the workspace, it may affect other solutions and data sources that are using this workspace, including Azure Monitor. To check which solutions are using this workspace, see [List installed monitoring solutions](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions). To check which solutions' data is being ingested into the workspace, see [Understanding ingested data volume](../azure-monitor/platform/manage-cost-storage.md#understanding-ingested-data-volume).
 
-    ![刪除 SecurityInsights 解決方案](media/offboard/delete-solution.png)
+    ![Delete the SecurityInsights solution](media/offboard/delete-solution.png)
 
-## <a name="what-happens-behind-the-scenes"></a>幕後會發生什麼事？
+## <a name="what-happens-behind-the-scenes"></a>What happens behind the scenes?
 
-當您刪除解決方案時，Azure Sentinel 需要最多48小時的時間，才能完成刪除程式的第一個階段。
+When you delete the solution, Azure Sentinel takes up to 48 hours to complete the first phase of the deletion process.
 
-在識別中斷連線之後，就會開始進行脫離進程。
+After the disconnection is identified, the offboarding process begins.
 
-**這些連接器的設定已刪除：**
+**The configuration of these connectors is deleted:**
 -   Office 365
 
 -   AWS
 
--   Microsoft 服務安全性警示（Azure ATP，Microsoft Cloud App Security 包括 Cloud Discovery 影子 IT 報告、Azure AD Identity Protection、Microsoft Defender ATP、Azure 資訊安全中心）
+-   Microsoft services security alerts (Azure ATP, Microsoft Cloud App Security including Cloud Discovery Shadow IT reporting, Azure AD Identity Protection, Microsoft Defender ATP, Azure Security Center)
 
 -   威脅情報
 
--   常見的安全性記錄（包括 CEF 記錄、Barracuda 和 Syslog）（如果您有 Azure 資訊安全中心，將會繼續收集這些記錄）。
+-   Common security logs (including CEF-based logs, Barracuda, and Syslog) (If you have Azure Security Center, these logs will continue to be collected.)
 
--   Windows 安全性事件（如果您有 Azure 資訊安全中心，將會繼續收集這些記錄）。
+-   Windows Security Events (If you have Azure Security Center, these logs will continue to be collected.)
 
-在前48小時內，資料和警示規則（包括即時自動化設定）在 Azure Sentinel 中將無法再存取或查詢。
+Within the first 48 hours, the data and alert rules (including real-time automation configuration) will no longer be accessible or queryable in Azure Sentinel.
 
-**30天后，就會刪除這些資源：**
+**After 30 days these resources are deleted:**
 
--   事件（包括調查中繼資料）
+-   Incidents (including investigation metadata)
 
 -   警示規則
 
--   書籤
+-   Bookmarks
 
-您的腳本、儲存的活頁簿、儲存的搜尋查詢和筆記本不會被刪除。 **有些可能會因為移除的資料而中斷。您可以手動移除這些。**
+Your playbooks, saved workbooks, saved hunting queries, and notebooks are not deleted. **Some may break due to the removed data. You can remove those manually.**
 
-移除服務之後，有30天的寬限期，您可以重新啟用解決方案，而您的資料和警示規則將會還原，但已中斷連線的已設定連接器必須重新連接。
+After you remove the service, there is a grace period of 30 days during which you can re-enable the solution and your data and alert rules will be restored but the configured connectors that were disconnected must be reconnected.
 
 > [!NOTE]
-> 如果您移除此解決方案，您的訂用帳戶將會繼續向 Azure Sentinel 資源提供者註冊。 **您可以手動將它移除。**
+> If you remove the solution, your subscription will continue to be registered with the Azure Sentinel resource provider. **You can remove it manually.**
 
 
 
 
 ## <a name="next-steps"></a>後續步驟
-在本檔中，您已瞭解如何移除 Azure Sentinel 服務。 如果您改變主意，而且想要再次安裝它：
-- 快速入門[Azure Sentinel](quickstart-onboard.md)。
+In this document, you learned how to remove the Azure Sentinel service. If you change your mind and want to install it again:
+- Get started [on-boarding Azure Sentinel](quickstart-onboard.md).
 

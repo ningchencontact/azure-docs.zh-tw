@@ -2,13 +2,13 @@
 title: 跨租用戶管理體驗
 description: Azure 委派的資源管理能提供跨租用戶管理體驗。
 ms.date: 11/7/2019
-ms.topic: overview
-ms.openlocfilehash: 0d04a7a77a3f92cffb185ff829f0d678dac2a9ff
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 2db1cfd7cc8145ff3020bf232021b4f1a63b2ddd
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131928"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464024"
 ---
 # <a name="cross-tenant-management-experiences"></a>跨租用戶管理體驗
 
@@ -64,7 +64,7 @@ Azure 委派的資源管理能為管理多個客戶的資源提供更具彈性�
 
 - 檢視委派之訂用帳戶的警示，並能夠在所有訂用帳戶之間檢視警示
 - 檢視委派之訂用帳戶的活動記錄詳細資料
-- 記錄分析：來自多個租用戶中的遠端客戶工作區的查詢資料
+- Log analytics: Query data from remote customer workspaces in multiple tenants
 - 在客戶租用戶中建立警示，以透過 Webhook 在服務提供者租用戶中觸發自動化 (例如 Azure 自動化 Runbook 或 Azure Functions)
 
 [Azure 原則](https://docs.microsoft.com/azure/governance/policy/) \(部分機器翻譯\)：
@@ -122,7 +122,7 @@ Azure 委派的資源管理能為管理多個客戶的資源提供更具彈性�
 
 支援要求：
 
-- 從 Azure 入口網站中的 [說明 + 支援]  刀鋒視窗開啟委派資源的支援要求 (選取可供委派範圍使用的支援方案)
+- 從 Azure 入口網站中的 [說明 + 支援] 刀鋒視窗開啟委派資源的支援要求 (選取可供委派範圍使用的支援方案)
 
 ## <a name="current-limitations"></a>目前的限制
 在所有案例中，請留意下列目前限制：
@@ -135,4 +135,4 @@ Azure 委派的資源管理能為管理多個客戶的資源提供更具彈性�
 ## <a name="next-steps"></a>後續步驟
 
 - 將客戶上線至 Azure 委派的資源管理，方法是透過[使用 Azure Resource Manager 範本](../how-to/onboard-customer.md)或[將私人或公開受控服務供應項目發佈至 Azure Marketplace](../how-to/publish-managed-services-offers.md)。
-- 前往 Azure 入口網站中的 [我的客戶]  ，來[檢視和管理客戶](../how-to/view-manage-customers.md)。
+- 前往 Azure 入口網站中的 [我的客戶]，以[檢視及管理客戶](../how-to/view-manage-customers.md)。

@@ -2,13 +2,13 @@
 title: 讓客戶在 Azure 委派的資源管理中上線
 description: 了解如何讓客戶在 Azure 委派的資源管理中上線，讓其資源可透過您自己的租用戶來管理。
 ms.date: 11/7/2019
-ms.topic: overview
-ms.openlocfilehash: 61b639a65d42d64a828db896b7c815c3d8f84734
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: fde0e82ff2dcf048643524b5a2d076d66a4f5a50
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131267"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463948"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>讓客戶在 Azure 委派的資源管理中上線
 
@@ -36,9 +36,9 @@ ms.locfileid: "74131267"
 
 如果您還沒有此資訊，您可以使用下列其中一種方式來擷取此資訊。
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
-將滑鼠指標暫留在 Azure 入口網站右上角的帳戶名稱上，或選取 [切換目錄]  就能查看您的租用戶識別碼。 若要選取並複製您的租使用者識別碼，請在入口網站中搜尋 "Azure Active Directory"，然後選取 [屬性]  ，並複製 [目錄識別碼]  欄位中顯示的值。 若要尋找訂用帳戶的識別碼，請搜尋「訂用帳戶」，然後選取適當的訂用帳戶識別碼。
+將滑鼠指標暫留在 Azure 入口網站右上角的帳戶名稱上，或選取 [切換目錄] 就能查看您的租用戶識別碼。 若要選取並複製您的租使用者識別碼，請在入口網站中搜尋 "Azure Active Directory"，然後選取 [屬性]，並複製 [目錄識別碼] 欄位中顯示的值。 若要尋找訂用帳戶的識別碼，請搜尋「訂用帳戶」，然後選取適當的訂用帳戶識別碼。
 
 ### <a name="powershell"></a>PowerShell
 
@@ -121,8 +121,8 @@ az role definition list --name "<roleName>" | grep name
 
 |若要讓項目上線  |使用此 Azure Resource Manager 範本  |並修改此參數檔案 |
 |---------|---------|---------|
-|訂用帳戶   |[delegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
-|資源群組   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
+|Subscription   |[delegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
+|Resource group   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
 |訂用帳戶內的多個資源群組   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
 |訂用帳戶 (使用發佈至 Azure Marketplace 的供應項目時)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
@@ -192,7 +192,7 @@ az role definition list --name "<roleName>" | grep name
 這是訂用帳戶層級部署，因此無法在 Azure 入口網站中起始。 您可以使用 PowerShell 或 Azure CLI 完成部署，如下所示。
 
 > [!IMPORTANT]
-> 部署必須由客戶租用戶中的非來賓帳戶執行，且該租用戶對於要上線的訂用帳戶必須有[「擁有者」內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) \(部分機器翻譯\) (或包含要上線的資源群組)。 若要查看可委派訂用帳戶的所有使用者，客戶租用戶中的使用者可以在 Azure 入口網站中選取訂用帳戶並開啟 [存取控制 (IAM)]  ，然後[查看所有具有「擁有者」角色的使用者](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions)。
+> 部署必須由客戶租用戶中的非來賓帳戶執行，且該租用戶對於要上線的訂用帳戶必須有[「擁有者」內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) \(部分機器翻譯\) (或包含要上線的資源群組)。 若要查看可委派訂用帳戶的所有使用者，客戶租用戶中的使用者可以在 Azure 入口網站中選取訂用帳戶並開啟 [存取控制 (IAM)]，然後[查看所有具有「擁有者」角色的使用者](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions)。
 
 ### <a name="powershell"></a>PowerShell
 
@@ -238,12 +238,12 @@ az deployment create –-name <deploymentName \
 
 當客戶訂用帳戶已經成功地上線至 Azure 委派的資源管理時，服務提供者租用戶中的使用者將能夠查看訂用帳戶與其資源 (如果他們已透過上述程序獲授與其存取權，無論是以個人身分或以有適當權限的 Azure AD 群組成員身分)。 若要確認，請檢查並確定訂用帳戶以下列其中一種方式出現。  
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 在服務提供者的租用戶中：
 
 1. 瀏覽至 [[我的客戶] 頁面](view-manage-customers.md)。
-2. 選取 [客戶]  。
+2. 選取 [客戶]。
 3. 請確認您可以看到訂用帳戶顯示為您在 Resource Manager 範本中所提供的名稱。
 
 > [!IMPORTANT]
@@ -252,7 +252,7 @@ az deployment create –-name <deploymentName \
 在客戶租用戶中：
 
 1. 瀏覽至 [[服務提供者] 頁面](view-manage-service-providers.md)。
-2. 選取 [服務提供者供應項目]  。
+2. 選取 [服務提供者供應項目]。
 3. 請確認您可以看到訂用帳戶顯示為您在 Resource Manager 範本中所提供的名稱。
 
 > [!NOTE]
@@ -341,4 +341,4 @@ az managedservices assignment delete –assignment <id or full resourceId>
 ## <a name="next-steps"></a>後續步驟
 
 - 了解[跨租用戶管理體驗](../concepts/cross-tenant-management-experience.md)。
-- 前往 Azure 入口網站中的 [我的客戶]  ，以[檢視及管理客戶](view-manage-customers.md)。
+- 前往 Azure 入口網站中的 [我的客戶]，以[檢視及管理客戶](view-manage-customers.md)。

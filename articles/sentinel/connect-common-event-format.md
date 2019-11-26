@@ -1,6 +1,6 @@
 ---
-title: 將 CEF 資料連線至 Azure Sentinel 預覽 |Microsoft Docs
-description: 瞭解如何將 CEF 資料連線到 Azure Sentinel。
+title: Connect CEF data to Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect CEF data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,44 +12,44 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/14/2019
+ms.date: 11/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 92beb61125c9c6a41bafb9a0c477d81c34a2f5de
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0fbdba5c3fbfdfab5267407ccec9c611d74a5e02
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520659"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463988"
 ---
-# <a name="connect-your-external-solution-using-common-event-format"></a>使用一般事件格式來連接您的外部解決方案
+# <a name="connect-your-external-solution-using-common-event-format"></a>Connect your external solution using Common Event Format
 
 
 
-本文說明如何將 Azure Sentinel 與您的外部安全性解決方案連線，以在 Syslog 上傳送通用事件格式（CEF）訊息。 
+This article explains how to connect Azure Sentinel with your external security solutions that send Common Event Format (CEF) messages on top of Syslog. 
 
 > [!NOTE] 
-> 資料會儲存在您執行 Azure Sentinel 之工作區的地理位置中。
+> Data is stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
 ## <a name="how-it-works"></a>運作方式
 
-您需要在專用的 Linux 機器（VM 或內部部署）上部署代理程式，以支援設備與 Azure Sentinel 之間的通訊。 下圖說明 Azure 中 Linux VM 的事件設定。
+You need to deploy an agent on a dedicated Linux machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. The following diagram describes the setup in the event of a Linux VM in Azure.
 
  ![Azure 中的 CEF](./media/connect-cef/cef-syslog-azure.png)
 
-或者，如果您在另一個雲端或內部部署機器中使用 VM，則會有此設定。 
+Alternatively, this setup will exist if you use a VM in another cloud, or an on-premises machine. 
 
  ![內部部署的 CEF](./media/connect-cef/cef-syslog-onprem.png)
 
 
 ## <a name="security-considerations"></a>安全性考量
 
-請務必根據貴組織的安全性原則來設定電腦的安全性。 例如，您可以設定您的網路以配合公司網路安全性原則，並變更背景程式中的埠和通訊協定，以符合您的需求。 您可以使用下列指示來改善您的電腦安全性性設定：  [Azure 中的安全 VM](../virtual-machines/linux/security-policy.md)、[網路安全性的最佳作法](../security/fundamentals/network-best-practices.md)。
+Make sure to configure the machine's security according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. You can use the following instructions to improve your machine security configuration:  [Secure VM in Azure](../virtual-machines/linux/security-policy.md), [Best practices for Network security](../security/fundamentals/network-best-practices.md).
 
-若要在安全性解決方案和 Syslog 電腦之間使用 TLS 通訊，您必須將 Syslog daemon （rsyslog 或 Syslog）設定為在 TLS 中進行通訊：[使用 tls Rsyslog 加密 Syslog 流量](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html)，[使用 tls 加密記錄檔訊息–syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298)。
+To use TLS communication between the security solution and the Syslog machine, you will need to configure the Syslog daemon (rsyslog or syslog-ng) to communicate in TLS: [Encrypting Syslog Traffic with TLS -rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [Encrypting log messages with TLS –syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 
  
 ## <a name="prerequisites"></a>必要條件
-請確定您用來做為 proxy 的 Linux 機器正在執行下列其中一個作業系統：
+Make sure the Linux machine you use as a proxy is running one of the following operating systems:
 
 - 64 位元
   - CentOS 6 和 7
@@ -66,65 +66,65 @@ ms.locfileid: "73520659"
    - Debian GNU/Linux 8 和 9
    - Ubuntu Linux 14.04 LTS 和 16.04 LTS
  
- - Daemon 版本
-   - Syslog-ng： 2.1-3.22。1
-   - Rsyslog： v8
+ - Daemon versions
+   - Syslog-ng: 2.1 - 3.22.1
+   - Rsyslog: v8
   
- - 支援的 Syslog Rfc
+ - Syslog RFCs supported
    - Syslog RFC 3164
    - Syslog RFC 5424
  
-請確定您的電腦也符合下列需求： 
-- 權限
-    - 您的電腦上必須具有更高的許可權（sudo）。 
+Make sure your machine also meets the following requirements: 
+- 使用權限
+    - You must have elevated permissions (sudo) on your machine. 
 - 軟體需求
-    - 確定您的電腦上正在執行 Python
-## <a name="step-1-deploy-the-agent"></a>步驟1：部署代理程式
+    - Make sure you have Python running on your machine
+## <a name="step-1-deploy-the-agent"></a>STEP 1: Deploy the agent
 
-在此步驟中，您必須選取將作為 Azure Sentinel 與安全性解決方案之間的 proxy 的 Linux 機器。 您將必須在 proxy 電腦上執行腳本，其如下所示：
-- 會安裝 Log Analytics 代理程式，並視需要將它設定為透過 TCP 接聽埠514上的 Syslog 訊息，並將 CEF 訊息傳送至您的 Azure Sentinel 工作區。
-- 設定 Syslog daemon，使用埠25226將 CEF 訊息轉送到 Log Analytics 代理程式。
-- 設定 Syslog 代理程式來收集資料，並安全地將它傳送至 Log Analytics，並在其中進行剖析和擴充。
+In this step, you need to select the Linux machine that will act as a proxy between Azure Sentinel and your security solution. You will have to run a script on the proxy machine that:
+- Installs the Log Analytics agent and configures it as needed to listen for Syslog messages.
+- Configures the Syslog daemon to listen to Syslog messages using TCP port 514 and then forwards only the CEF messages to the Log Analytics agent using TCP port 25226.
+- Sets the Syslog agent to collect the data and send it securely to Azure Sentinel, where it is parsed and enriched.
  
  
-1. 在 Azure Sentinel 入口網站中，按一下 [**資料連線器**]，然後選取 **[一般事件格式（CEF）** ]，然後**開啟 [連接器] 頁面**。 
+1. In the Azure Sentinel portal, click **Data connectors** and select **Common Event Format (CEF)** and then **Open connector page**. 
 
-1. 在 **[安裝和設定 Syslog 代理程式**] 下，選取您的電腦類型： [Azure]、[其他雲端] 或 [內部部署]。 
+1. Under **Install and configure the Syslog agent**, select your machine type, either Azure, other cloud, or on-premises. 
    > [!NOTE]
-   > 因為下一個步驟中的腳本會安裝 Log Analytics 代理程式，並將電腦連接到您的 Azure Sentinel 工作區，請確定這部電腦未連線到任何其他工作區。
-1. 您的電腦上必須具有更高的許可權（sudo）。 請確定您的電腦上有 Python，並使用下列命令： `python –version`
+   > Because the script in the next step installs the Log Analytics agent and connects the machine to your Azure Sentinel workspace, make sure this machine is not connected to any other workspace.
+1. You must have elevated permissions (sudo) on your machine. Make sure that you have Python on your machine using the following command: `python –version`
 
-1. 在您的 proxy 電腦上執行下列腳本。
+1. Run the following script on your proxy machine.
    `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
-1. 當腳本正在執行時，請檢查以確定您未收到任何錯誤或警告訊息。
+1. While the script is running, check to make sure you don't get any error or warning messages.
 
 
-## <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>步驟2：設定您的安全性解決方案以傳送 CEF 訊息
+## <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>STEP 2: Configure your security solution to send CEF messages
 
-1. 在設備上，您必須設定這些值，讓應用裝置根據 Log Analytics 代理程式，將必要的記錄檔傳送至 Azure Sentinel Syslog 代理程式。 您可以在應用裝置中修改這些參數，只要您也在 Azure Sentinel 代理程式上的 Syslog daemon 中加以修改即可。
-    - 通訊協定 = TCP
-    - 埠 = 514
-    - 格式 = CEF
-    - IP 位址-請務必將 CEF 訊息傳送到您專用於此用途之虛擬機器的 IP 位址。
+1. On the appliance you need to set these values so that the appliance sends the necessary logs in the necessary format to the Azure Sentinel Syslog agent, based on the Log Analytics agent. You can modify these parameters in your appliance, as long as you also modify them in the Syslog daemon on the Azure Sentinel agent.
+    - Protocol = TCP
+    - Port = 514
+    - Format = CEF
+    - IP address - make sure to send the CEF messages to the IP address of the virtual machine you dedicated for this purpose.
 
    > [!NOTE]
-   > 此解決方案支援 Syslog RFC 3164 或 RFC 5424。
+   > This solution supports Syslog RFC 3164 or RFC 5424.
 
 
-1. 若要在 Log Analytics 中針對 CEF 事件使用相關的架構，請搜尋 `CommonSecurityLog`。
+1. To use the relevant schema in Log Analytics for the CEF events, search for `CommonSecurityLog`.
 
-## <a name="step-3-validate-connectivity"></a>步驟3：驗證連線能力
+## <a name="step-3-validate-connectivity"></a>STEP 3: Validate connectivity
 
-1. 開啟 Log Analytics，以確保使用 CommonSecurityLog 架構來接收記錄。<br> 可能需要20分鐘的時間，您的記錄才會開始出現在 Log Analytics 中。 
+1. Open Log Analytics to make sure that logs are received using the CommonSecurityLog schema.<br> It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
 
-1. 執行腳本之前，建議您從安全性解決方案傳送訊息，以確定它們正轉送至您設定的 Syslog proxy 電腦。 
-1. 您的電腦上必須具有更高的許可權（sudo）。 請確定您的電腦上有 Python，並使用下列命令： `python –version`
-1. 執行下列腳本，以檢查代理程式、Azure Sentinel 和安全性解決方案之間的連線能力。 它會檢查是否已正確設定背景程式轉送、接聽正確的埠，而且不會封鎖守護程式與 Log Analytics 代理程式之間的通訊。 此腳本也會傳送 mock 訊息 ' TestCommonEventFormat '，以檢查端對端連線能力。 <br>
+1. Before you run the script, we recommend that you send messages from your security solution to make sure they are being forwarded to the Syslog proxy machine you configured. 
+1. You must have elevated permissions (sudo) on your machine. Make sure that you have Python on your machine using the following command: `python –version`
+1. Run the following script to check connectivity between the agent, Azure Sentinel, and your security solution. It checks that the daemon forwarding is properly configured, listens on the correct ports, and that nothing is blocking communication between the daemon and the Log Analytics agent. The script also sends mock messages 'TestCommonEventFormat' to check end-to-end connectivity. <br>
  `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
 
 
 ## <a name="next-steps"></a>後續步驟
-在本檔中，您已瞭解如何將 CEF 設備連線到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
-- 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats.md)。
+In this document, you learned how to connect CEF appliances to Azure Sentinel. 若要深入了解 Azure Sentinel，請參閱下列文章：
+- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
 

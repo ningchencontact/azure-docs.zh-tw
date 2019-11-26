@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0398ff7eb8931acc400b326ff92deaf75f0aa97e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 2d5ca62bc032c12c568e2b8065630dcd8b687513
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882830"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483100"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步來實作密碼雜湊同步處理
 本文提供您所需資訊，以讓您將使用者密碼從內部部署 Active Directory 執行個體同步處理至雲端式 Azure Active Directory (Azure AD) 執行個體。
@@ -32,7 +32,7 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 
 密碼雜湊同步處理程序的實際資料流程，與使用者資料的同步處理類似。 不過，相較於其他屬性的標準目錄同步作業週期，密碼會更頻繁地進行同步。 密碼雜湊同步處理程序每 2 分鐘會執行一次。 您無法修改此程序的執行頻率。 當您同步處理密碼時，它便會覆寫現有的雲端密碼。
 
-第一次啟用密碼雜湊同步處理功能時，它會對範圍內的所有使用者執行初次密碼同步處理。 您無法明確定義一小組要同步處理的使用者密碼。 不過，如果有多個連接器，則可以使用[ADSyncAADPasswordSyncConfiguration](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant)指令程式來停用某些連接器的密碼雜湊同步處理，而不是其他連接器。
+第一次啟用密碼雜湊同步處理功能時，它會對範圍內的所有使用者執行初次密碼同步處理。 您無法明確定義一小組要同步處理的使用者密碼。 However, if there are multiple connectors, it is possible to disable password hash sync for some connectors but not others using the [Set-ADSyncAADPasswordSyncConfiguration](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant) cmdlet.
 
 當您變更內部部署密碼時，更新後的密碼將會進行同步處理，而這個動作大多會在幾分鐘內完成。
 密碼雜湊同步處理功能會自動重試失敗的同步處理嘗試。 若嘗試同步密碼期間發生錯誤，該錯誤會記錄在事件檢視器中。
@@ -85,59 +85,59 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 
 #### <a name="password-expiration-policy"></a>密碼到期原則
 
-如果使用者在密碼雜湊同步處理的範圍內，則雲端帳戶密碼預設會設定為*永不過期*。
+If a user is in the scope of password hash synchronization, by default the cloud account password is set to *Never Expire*.
 
 您可以使用內部部署環境中已過期的同步處理密碼，繼續登入雲端服務。 您的雲端密碼會於下一次您在內部部署環境中變更密碼時更新。
 
-##### <a name="public-preview-of-the-enforcecloudpasswordpolicyforpasswordsyncedusers-feature"></a>*EnforceCloudPasswordPolicyForPasswordSyncedUsers*功能的公開預覽
+##### <a name="public-preview-of-the-enforcecloudpasswordpolicyforpasswordsyncedusers-feature"></a>Public preview of the *EnforceCloudPasswordPolicyForPasswordSyncedUsers* feature
 
-如果有同步處理的使用者只與 Azure AD 整合式服務互動，而且也必須符合密碼到期原則，您 Azure AD 可以藉由啟用*EnforceCloudPasswordPolicyForPasswordSyncedUsers*功能。
+If there are synchronized users that only interact with Azure AD integrated services and must also comply with a password expiration policy, you can force them to comply with your Azure AD password expiration policy by enabling the *EnforceCloudPasswordPolicyForPasswordSyncedUsers* feature.
 
-停用*EnforceCloudPasswordPolicyForPasswordSyncedUsers*時（這是預設設定），Azure AD Connect 將同步處理使用者的 PasswordPolicies 屬性設定為 "DisablePasswordExpiration"。 這會在每次同步處理使用者的密碼時完成，並指示 Azure AD 忽略該使用者的雲端密碼到期原則。 您可以使用 Azure AD PowerShell 模組搭配下列命令來檢查屬性的值：
+When *EnforceCloudPasswordPolicyForPasswordSyncedUsers* is disabled (which is the default setting), Azure AD Connect sets the PasswordPolicies attribute of synchronized users to "DisablePasswordExpiration". This is done every time a user's password is synchronized and instructs Azure AD to ignore the cloud password expiration policy for that user. You can check the value of the attribute using the Azure AD PowerShell module with the following command:
 
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
 
 
-若要啟用 EnforceCloudPasswordPolicyForPasswordSyncedUsers 功能，請使用 MSOnline PowerShell 模組執行下列命令：
+To enable the EnforceCloudPasswordPolicyForPasswordSyncedUsers feature, run the following command using the MSOnline PowerShell module:
 
 `Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers -Enable $true`
 
-啟用之後，Azure AD 不會移至每個已同步處理的使用者，從 PasswordPolicies 屬性中移除 `DisablePasswordExpiration` 值。 相反地，當每位使用者下次在內部部署 AD 中變更其密碼時，此值會設定為 `None` 在下一個密碼同步處理期間。  
+Once enabled, Azure AD does not go to each synchronized user to remove the `DisablePasswordExpiration` value from the PasswordPolicies attribute. Instead, the value is set to `None` during the next password sync for each user when they next change their password in on-premises AD.  
 
-建議您先啟用 EnforceCloudPasswordPolicyForPasswordSyncedUsers，再啟用密碼雜湊同步處理，讓密碼雜湊的初始同步處理不會將 `DisablePasswordExpiration` 值新增至使用者的 PasswordPolicies 屬性。
+It is recommended to enable EnforceCloudPasswordPolicyForPasswordSyncedUsers, prior to enabling password hash sync, so that the initial sync of password hashes does not add the `DisablePasswordExpiration` value to the PasswordPolicies attribute for the users.
 
-預設 Azure AD 密碼原則會要求使用者每90天變更密碼一次。 如果您在 AD 中的原則也是90天，則這兩個原則應相符。 不過，如果 AD 原則不是90天，您可以使用 Set-msolpasswordpolicy PowerShell 命令，將 Azure AD 密碼原則更新為相符。
+The default Azure AD password policy requires users to change their passwords every 90 days. If your policy in AD is also 90 days, the two policies should match. However, if the AD policy is not 90 days, you can update the Azure AD password policy to match by using the Set-MsolPasswordPolicy PowerShell command.
 
-Azure AD 針對每個已註冊的網域支援不同的密碼到期原則。
+Azure AD supports a separate password expiration policy per registered domain.
 
-警告：如果已同步處理的帳戶在 Azure AD 中需要有未過期的密碼，您必須明確地將 `DisablePasswordExpiration` 值新增至 Azure AD 中 user 物件的 PasswordPolicies 屬性。  您可以藉由執行下列命令來完成此動作。
+Caveat: If there are synchronized accounts that need to have non-expiring passwords in Azure AD, you must explicitly add the `DisablePasswordExpiration` value to the PasswordPolicies attribute of the user object in Azure AD.  You can do this by running the following command.
 
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> 這項功能目前處於公開預覽狀態。
+> This feature is in Public Preview right now.
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon"></a>同步處理暫時密碼和「下次登入時強制密碼」的公開預覽
+#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon"></a>Public Preview of synchronizing temporary passwords and "Force Password on Next Logon"
 
-通常會強制使用者在第一次登入時變更其密碼，特別是在發生系統管理員密碼重設之後。  這通常稱為設定「暫時」密碼，並透過在 Active Directory （AD）中的使用者物件上核取 [使用者必須在下次登入時變更密碼] 旗標來完成。
+It is typical to force a user to change their password during their first logon, especially after an admin password reset occurs.  It is commonly known as setting a "temporary" password and is completed by checking the "User must change password at next logon" flag on a user object in Active Directory (AD).
   
-暫時密碼功能有助於確保認證的擁有權轉移會在第一次使用時完成，以將多個個人知道該認證的持續時間減到最短。
+The temporary password functionality helps to ensure that the transfer of ownership of the credential is completed on first use, to minimize the duration of time in which more than one individual has knowledge of that credential.
 
-若要支援同步處理使用者 Azure AD 中的暫時密碼，您可以啟用*ForcePasswordResetOnLogonFeature*功能，方法是在 Azure AD Connect 伺服器上執行下列命令，以特定的連接器名稱取代 <AAD Connector Name>您的環境：
+To support temporary passwords in Azure AD for synchronized users, you can enable the *ForcePasswordResetOnLogonFeature* feature, by running the following command on your Azure AD Connect server, replacing <AAD Connector Name> with the connector name specific to your environment:
 
 `Set-ADSyncAADCompanyFeature -ConnectorName "<AAD Connector name>" -ForcePasswordResetOnLogonFeature $true`
 
-您可以使用下列命令來判斷連接器名稱：
+You can use the following command to determine the connector name:
 
 `(Get-ADSyncConnector | where{$_.ListName -eq "Windows Azure Active Directory (Microsoft)"}).Name`
 
-警告：強制使用者在下次登入時變更其密碼時，需要同時變更密碼。  AD Connect 不會單獨收取「強制密碼變更」旗標，它是在密碼雜湊同步處理期間偵測到的密碼變更補充。
+Caveat:  Forcing a user to change their password on next logon requires a password change at the same time.  AD Connect will not pick up the force password change flag by itself, it is supplemental to the detected password change that occurs during password hash sync.
 
 > [!CAUTION]
-> 如果您未在 Azure AD 中啟用自助式密碼重設（SSPR），使用者在 Azure AD 重設其密碼時將會有令人混淆的體驗，然後嘗試使用新密碼登入 Active Directory，因為新密碼在中無效 Active Directory. 只有在租使用者上啟用 SSPR 和密碼回寫時，您才應該使用這項功能。
+> If you do not enable Self-service Password Reset (SSPR) in Azure AD users will have a confusing experience when they reset their password in Azure AD and then attempt to sign in in Active Directory with the new password, as the new password isn’t valid in Active Directory. You should only use this feature when SSPR and Password Writeback is enabled on the tenant.
 
 > [!NOTE]
-> 這項功能目前處於公開預覽狀態。
+> This feature is in Public Preview right now.
 
 #### <a name="account-expiration"></a>帳戶到期
 
@@ -158,38 +158,40 @@ Azure AD 針對每個已註冊的網域支援不同的密碼到期原則。
 - 一般而言，密碼雜湊同步處理比同盟服務更容易實作。 它不需要任何額外的伺服器，並且會排除高可用性同盟服務的相依性以驗證使用者。
 - 您也可以除了同盟之外，再啟用密碼雜湊同步處理。 您可以將它作為同盟服務發生中斷時的後援服務。
 
-## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Azure AD Domain Services 的密碼雜湊同步處理常式
+## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Password hash sync process for Azure AD Domain Services
 
-如果您使用 Azure AD Domain Services 為需要使用 Keberos、LDAP 或 NTLM 的應用程式和服務提供舊版驗證，某些額外的進程就是密碼雜湊同步處理流程的一部分。 Azure AD Connect 使用下列額外的程式，將密碼雜湊同步處理至 Azure AD 以用於 Azure AD Domain Services：
+If you use Azure AD Domain Services to provide legacy authentication for applications and services that need to use Keberos, LDAP, or NTLM, some additional processes are part of the password hash synchronization flow. Azure AD Connect uses the additional following process to synchronize password hashes to Azure AD for use in Azure AD Domain Services:
 
 > [!IMPORTANT]
-> Azure AD Connect 只有在為 Azure AD 租使用者啟用 Azure AD DS 時，才會同步處理舊版密碼雜湊。 如果您只使用 Azure AD Connect 來同步處理內部部署 AD DS 環境與 Azure AD，則不會使用下列步驟。
+> Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in an Azure AD DS managed domain to synchronize objects back to Azure AD.
 >
-> 如果您的繼承應用程式未使用 NTLM 驗證或 LDAP 簡單系結，我們建議您停用 Azure AD DS 的 NTLM 密碼雜湊同步處理。 如需詳細資訊，請參閱[停用弱式加密套件和 NTLM 認證雜湊同步](../../active-directory-domain-services/secure-your-domain.md)處理。
+> Azure AD Connect only synchronizes legacy password hashes when you enable Azure AD DS for your Azure AD tenant. The following steps aren't used if you only use Azure AD Connect to synchronize an on-premises AD DS environment with Azure AD.
+>
+> If your legacy applications don't use NTLM authentication or LDAP simple binds, we recommend that you disable NTLM password hash synchronization for Azure AD DS. For more information, see [Disable weak cipher suites and NTLM credential hash synchronization](../../active-directory-domain-services/secure-your-domain.md).
 
-1. Azure AD Connect 會抓取租使用者之 Azure AD Domain Services 實例的公開金鑰。
-1. 當使用者變更其密碼時，內部部署網域控制站會將密碼變更（雜湊）的結果儲存在兩個屬性中：
-    * NTLM 密碼雜湊的*unicodePwd* 。
-    * Kerberos 密碼雜湊的*supplementalCredentials* 。
-1. Azure AD Connect 透過目錄複寫通道偵測密碼變更（需要複寫到其他網域控制站的屬性變更）。
-1. 針對每個密碼已變更的使用者，Azure AD Connect 執行下列步驟：
-    * 產生隨機 AES 256 位對稱金鑰。
-    * 產生第一輪加密所需的隨機初始化向量。
-    * 從*supplementalCredentials*屬性解壓縮 Kerberos 密碼雜湊。
-    * 檢查 [Azure AD Domain Services 安全性設定*SyncNtlmPasswords* ] 設定。
-        * 如果停用此設定，則會產生隨機的高熵 NTLM 雜湊（與使用者的密碼不同）。 然後，此雜湊會與*supplementalCrendetials*屬性中的 exacted Kerberos 密碼雜湊結合成一個資料結構。
-        * 啟用時，會將*unicodePwd*屬性的值與從*supplementalCredentials*屬性解壓縮的 Kerberos 密碼雜湊結合成一個資料結構。
-    * 使用 AES 對稱金鑰來加密單一資料結構。
-    * 使用租使用者的 Azure AD Domain Services 公開金鑰來加密 AES 對稱金鑰。
-1. Azure AD Connect 會傳輸加密的 AES 對稱金鑰、包含密碼雜湊的加密資料結構，以及要 Azure AD 的初始化向量。
-1. Azure AD 會儲存加密的 AES 對稱金鑰、加密的資料結構，以及使用者的初始化向量。
-1. Azure AD 使用內部同步處理機制，透過加密的 HTTP 會話，將加密的 AES 對稱金鑰、加密的資料結構和初始化向量推送至 Azure AD Domain Services。
-1. Azure AD Domain Services 從 Azure Key vault 抓取租使用者實例的私密金鑰。
-1. 針對每一組加密的資料（代表單一使用者的密碼變更），Azure AD Domain Services 接著執行下列步驟：
-    * 會使用其私密金鑰來解密 AES 對稱金鑰。
-    * 使用 AES 對稱金鑰搭配初始化向量來解密包含密碼雜湊的加密資料結構。
-    * 將接收到的 Kerberos 密碼雜湊寫入 Azure AD Domain Services 網域控制站。 雜湊會儲存到使用者物件的*supplementalCredentials*屬性中，並加密為 Azure AD Domain Services 網域控制站的公開金鑰。
-    * Azure AD Domain Services 會將收到的 NTLM 密碼雜湊寫入 Azure AD Domain Services 網域控制站。 雜湊會儲存到使用者物件的*unicodePwd*屬性中，並加密為 Azure AD Domain Services 網域控制站的公開金鑰。
+1. Azure AD Connect retrieves the public key for the tenant's instance of Azure AD Domain Services.
+1. When a user changes their password, the on-premises domain controller stores the result of the password change (hashes) in two attributes:
+    * *unicodePwd* for the NTLM password hash.
+    * *supplementalCredentials* for the Kerberos password hash.
+1. Azure AD Connect detects password changes through the directory replication channel (attribute changes needing to replicate to other domain controllers).
+1. For each user whose password has changed, Azure AD Connect performs the following steps:
+    * Generates a random AES 256-bit symmetric key.
+    * Generates a random initialization vector needed for the first round of encryption.
+    * Extracts Kerberos password hashes from the *supplementalCredentials* attributes.
+    * Checks the Azure AD Domain Services security configuration *SyncNtlmPasswords* setting.
+        * If this setting is disabled, generates a random, high-entropy NTLM hash (different from the user's password). This hash is then combined with the exacted Kerberos password hashes from the *supplementalCrendetials* attribute into one data structure.
+        * If enabled, combines the value of the *unicodePwd* attribute with the extracted Kerberos password hashes from the *supplementalCredentials* attribute into one data structure.
+    * Encrypts the single data structure using the AES symmetric key.
+    * Encrypts the AES symmetric key using the tenant's Azure AD Domain Services public key.
+1. Azure AD Connect transmits the encrypted AES symmetric key, the encrypted data structure containing the password hashes, and the initialization vector to Azure AD.
+1. Azure AD stores the encrypted AES symmetric key, the encrypted data structure, and the initialization vector for the user.
+1. Azure AD pushes the encrypted AES symmetric key, the encrypted data structure, and the initialization vector using an internal synchronization mechanism over an encrypted HTTP session to Azure AD Domain Services.
+1. Azure AD Domain Services retrieves the private key for the tenant's instance from Azure Key vault.
+1. For each encrypted set of data (representing a single user's password change), Azure AD Domain Services then performs the following steps:
+    * Uses its private key to decrypt the AES symmetric key.
+    * Uses the AES symmetric key with the initialization vector to decrypt the encrypted data structure that contains the password hashes.
+    * Writes the Kerberos password hashes it receives to the Azure AD Domain Services domain controller. The hashes are saved into the user object's *supplementalCredentials* attribute that is encrypted to the Azure AD Domain Services domain controller's public key.
+    * Azure AD Domain Services writes the NTLM password hash it received to the Azure AD Domain Services domain controller. The hash is saved into the user object's *unicodePwd* attribute that is encrypted to the Azure AD Domain Services domain controller's public key.
 
 ## <a name="enable-password-hash-synchronization"></a>啟用密碼雜湊同步處理
 

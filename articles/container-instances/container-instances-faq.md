@@ -1,105 +1,101 @@
 ---
-title: Azure 容器實例-常見問題
-description: Azure 容器實例服務相關常見問題的解答
-services: container-instances
+title: 常見問題集
+description: Answers for frequently asked questions related to the Azure Container Instances service
 author: dkkapur
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 4/25/2019
-ms.author: dekapur
-ms.openlocfilehash: 29d31e2076e0ff5ddf4f84df13ac2eede482c052
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b5888efe210ab0f3794895d350c5647b6f685880
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326000"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484135"
 ---
-# <a name="frequently-asked-questions-about-azure-container-instances"></a>Azure 容器實例的相關常見問題
+# <a name="frequently-asked-questions-about-azure-container-instances"></a>Frequently asked questions about Azure Container Instances
 
-本文說明 Azure 容器實例的常見問題。
+This article addresses frequently asked questions about Azure Container Instances.
 
-## <a name="deployment"></a>部署
+## <a name="deployment"></a>Deployment
 
-### <a name="how-large-can-my-container-image-be"></a>我的容器映射可以有多大？
+### <a name="how-large-can-my-container-image-be"></a>How large can my container image be?
 
-Azure 容器實例上可部署的容器映射大小上限為 15 GB。 您可能可以根據部署時的確切可用性來部署較大的映射, 但不保證這點。
+The maximum size for a deployable container image on Azure Container Instances is 15 GB. You might be able to deploy larger images depending on the exact availability at the moment you deploy, but this is not guaranteed.
 
-容器映射的大小會影響部署所需的時間, 因此通常您會想要盡可能縮小容器映射。
+The size of your container image impacts how long it takes to deploy, so generally you want to keep your container images as small as possible.
 
-### <a name="how-can-i-speed-up-the-deployment-of-my-container"></a>如何加速容器的部署？
+### <a name="how-can-i-speed-up-the-deployment-of-my-container"></a>How can I speed up the deployment of my container?
 
-由於部署時間的其中一個主要 determinants 是影像大小, 因此請尋找減少大小的方式。 移除您不需要的圖層, 或減少映射中的圖層大小 (藉由挑選較輕的基本 OS 映射)。 例如, 如果您正在執行 Linux 容器, 請考慮使用 Alpine 作為基底映射, 而不是完整的 Ubuntu 伺服器。 同樣地, 針對 Windows 容器, 請盡可能使用 Nano Server 基底映射。 
+Because one of the main determinants of deployment times is the image size, look for ways to reduce the size. Remove layers you don't need, or reduce the size of layers in the image (by picking a lighter base OS image). For example, if you're running Linux containers, consider using Alpine as your base image rather than a full Ubuntu Server. Similarly, for Windows containers, use a Nano Server base image if possible. 
 
-您也應該在 Azure 容器映射中檢查預先快取的映射清單 (可透過列出快取的[影像](/rest/api/container-instances/listcachedimages)API 取得)。 您可以針對其中一個預先快取的影像來切換影像圖層。 
+You should also check the list of pre-cached images in Azure Container Images, available via the [List Cached Images](/rest/api/container-instances/listcachedimages) API. You might be able to switch out an image layer for one of the pre-cached images. 
 
-請參閱減少容器啟動時間的詳細[指引](container-instances-troubleshooting.md#container-takes-a-long-time-to-start)。
+See more [detailed guidance](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) on reducing container startup time.
 
-### <a name="what-windows-base-os-images-are-supported"></a>支援哪些 Windows 基本 OS 映射？
+### <a name="what-windows-base-os-images-are-supported"></a>What Windows base OS images are supported?
 
-#### <a name="windows-server-2016-base-images"></a>Windows Server 2016 基底映射
+#### <a name="windows-server-2016-base-images"></a>Windows Server 2016 base images
 
-* [Nano 伺服器](https://hub.docker.com/_/microsoft-windows-nanoserver): `10.0.14393.x`、`sac2016`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`、`10.0.14393.x`
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `10.0.14393.x`, `sac2016`
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,  `10.0.14393.x`
 
 > [!NOTE]
-> 不支援以半年通道版本1709或1803為基礎的 Windows 映像。
+> Windows images based on Semi-Annual Channel release 1709 or 1803 are not supported.
 
-#### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 和用戶端基底映射 (預覽)
+#### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 and client base images (preview)
 
-* [Nano 伺服器](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`、`10.0.17763.x`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`、 `1809`、`10.0.17763.x`
-* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`、`10.0.17763.x` 
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.x`
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.x`
+* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`, `10.0.17763.x` 
 
-### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>我應該在我的容器中使用什麼 .NET 或 .NET Core 映射層？ 
+### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>What .NET or .NET Core image layer should I use in my container? 
 
-使用符合您需求的最小映射。 針對 Linux, 您可以使用自 .NET Core 2.1 發行後所支援的*執行時間 alpine* .net Core 映射。 針對 Windows, 如果您使用完整 .NET Framework, 則必須使用 Windows Server Core 映射 (僅限執行時間的映射, 例如*4.7.2-windowsservercore-ltsc2016*)。 僅限執行時間的映射較小, 但不支援需要 .NET SDK 的工作負載。
+Use the smallest image that satisfies your requirements. For Linux, you could use a *runtime-alpine* .NET Core image, which has been supported since the release of .NET Core 2.1. For Windows, if you are using the full .NET Framework, then you need to use a Windows Server Core image (runtime-only image, such as  *4.7.2-windowsservercore-ltsc2016*). Runtime-only images are smaller but do not support workloads that require the .NET SDK.
 
-## <a name="availability-and-quotas"></a>可用性和配額
+## <a name="availability-and-quotas"></a>Availability and quotas
 
-### <a name="how-many-cores-and-memory-should-i-allocate-for-my-containers-or-the-container-group"></a>我應該為容器或容器群組配置多少核心和記憶體？
+### <a name="how-many-cores-and-memory-should-i-allocate-for-my-containers-or-the-container-group"></a>How many cores and memory should I allocate for my containers or the container group?
 
-這實際上取決於您的工作負載。 從小規模開始, 並測試效能以查看容器的執行方式。 [監視 CPU 和記憶體資源使用量](container-instances-monitor.md), 然後根據您在容器中部署的進程類型來新增核心或記憶體。 
+This really depends on your workload. Start small and test performance to see how your containers do. [Monitor CPU and memory resource usage](container-instances-monitor.md), and then add cores or memory based on the kind of processes that you deploy in the container. 
 
-請務必檢查您要部署之區域的[資源可用性](container-instances-region-availability.md#availability---general), 以取得每個容器群組可用的 CPU 核心和記憶體上限。 
+Make sure also to check the [resource availability](container-instances-region-availability.md#availability---general) for the region you are deploying in for the upper bounds on CPU cores and memory available per container group. 
 
-### <a name="what-underlying-infrastructure-does-aci-run-on"></a>ACI 執行所在的基礎結構為何？
+### <a name="what-underlying-infrastructure-does-aci-run-on"></a>What underlying infrastructure does ACI run on?
 
-Azure 容器實例的目標是無伺服器容器隨選服務, 因此我們希望您可以專注于開發容器, 而不必擔心基礎結構! 對於想要對效能進行比較的人而言, ACI 會在各種 Sku 的 Azure Vm 集上執行, 主要來自 F 和 D 系列。 我們預期這會在未來持續開發並優化服務時變更。 
+Azure Container Instances aims to be a serverless containers-on-demand service, so we want you to be focused on developing your containers, and not worry about the infrastructure! For those that are curious or wanting to do comparisons on performance, ACI runs on sets of Azure VMs of various SKUs, primarily from the F and the D series. We expect this to change in the future as we continue to develop and optimize the service. 
 
-### <a name="i-want-to-deploy-thousand-of-cores-on-aci---can-i-get-my-quota-increased"></a>我想要在 ACI 上部署一千個核心-我可以增加配額嗎？
+### <a name="i-want-to-deploy-thousand-of-cores-on-aci---can-i-get-my-quota-increased"></a>I want to deploy thousand of cores on ACI - can I get my quota increased?
  
-是 (有時)。 請參閱[配額和限制](container-instances-quotas.md)一文, 以瞭解目前的配額, 以及可依要求增加哪些限制。
+Yes (sometimes). See the [quotas and limits](container-instances-quotas.md) article for current quotas and which limits can be increased by request.
 
-### <a name="can-i-deploy-with-more-than-4-cores-and-16-gb-of-ram"></a>我可以使用4個以上的核心和 16 GB 的 RAM 來部署嗎？
+### <a name="can-i-deploy-with-more-than-4-cores-and-16-gb-of-ram"></a>Can I deploy with more than 4 cores and 16 GB of RAM?
 
-尚未提供。 目前, 這些是容器群組的最大上限。 使用特定需求或要求來聯絡 Azure 支援。 
+尚未提供。 Currently, these are the maximums for a container group. Contact Azure Support with specific requirements or requests. 
 
-### <a name="when-will-aci-be-in-a-specific-region"></a>ACI 何時會在特定區域中？
+### <a name="when-will-aci-be-in-a-specific-region"></a>When will ACI be in a specific region?
 
-目前的區域可用性已在[此](container-instances-region-availability.md#availability---general)發佈。 如果您有特定區域的需求, 請聯絡 Azure 支援。
+Current region availability is published [here](container-instances-region-availability.md#availability---general). If you have a requirement for a specific region, contact Azure Support.
 
-## <a name="features-and-scenarios"></a>功能和案例
+## <a name="features-and-scenarios"></a>Features and scenarios
 
-### <a name="how-do-i-scale-a-container-group"></a>如何? 調整容器群組的規模嗎？
+### <a name="how-do-i-scale-a-container-group"></a>How do I scale a container group?
 
-目前, 調整不適用於容器或容器群組。 如果您需要執行更多實例, 請使用我們的 API 來自動化, 並建立更多對服務建立容器群組的要求。 
+Currently, scaling is not available for containers or container groups. If you need to run more instances, use our API to automate and create more requests for container group creation to the service. 
 
-### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>在自訂 VNet 中執行的實例可使用哪些功能？
+### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>What features are available to instances running in a custom VNet?
 
-您可以在您選擇的 Azure 虛擬網路中部署容器群組, 並將私人 Ip 委派給容器群組, 以將 VNet 內的流量路由傳送到您的 Azure 資源。 將容器群組部署至虛擬網路目前為預覽狀態, 而這項功能的某些層面可能會在公開上市 (GA) 之前變更。 如需更新的資訊, 請參閱[預覽限制](container-instances-vnet.md#preview-limitations)。
+You can deploy container groups in an Azure virtual network of your choice, and delegate private IPs to the container groups to route traffic within the VNet across your Azure resources. Deployment of a container group into a virtual network is currently in preview, and some aspects of this feature may change prior to general availability (GA). See [Preview limitations](container-instances-vnet.md#preview-limitations) for updated information.
 
 ## <a name="pricing"></a>價格
 
-### <a name="when-does-the-meter-start-running"></a>計量開始執行的時間為何？
+### <a name="when-does-the-meter-start-running"></a>When does the meter start running?
 
-容器群組持續時間是從我們開始提取第一個容器的映射 (針對新的部署), 或您的容器群組重新開機 (如果已部署), 直到容器群組停止為止的時間計算。 請參閱[容器實例定價](https://azure.microsoft.com/pricing/details/container-instances/)的詳細資料。
+Container group duration is calculated from the time that we start to pull your first container's image (for a new deployment) or your container group is restarted (if already deployed), until the container group is stopped. See details at [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/).
 
-### <a name="do-i-stop-being-charged-when-my-containers-are-stopped"></a>當我的容器停止時, 是否要停止向我收費？
+### <a name="do-i-stop-being-charged-when-my-containers-are-stopped"></a>Do I stop being charged when my containers are stopped?
 
-當整個容器群組停止後, 計量就會停止執行。 只要容器群組中的容器正在執行, 我們就會保存資源, 以防您想要重新開機容器。 
+Meters stop running once your entire container group is stopped. As long as a container in your container group is running, we hold the resources in case you want to start the containers up again. 
 
 ## <a name="next-steps"></a>後續步驟
 
-* [深入瞭解](container-instances-overview.md)Azure 容器實例。
-* 針對 Azure 容器實例中[常見的問題進行疑難排解](container-instances-troubleshooting.md)。
+* [Learn more](container-instances-overview.md) about Azure Container Instances.
+* [Troubleshoot common issues](container-instances-troubleshooting.md) in Azure Container Instances.

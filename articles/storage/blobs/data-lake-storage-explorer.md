@@ -1,6 +1,6 @@
 ---
 title: Use Azure Storage Explorer with Azure Data Lake Storage Gen2
-description: In this quickstart, you learn how to use Azure Storage Explorer to create a container in an Azure Data Lake Storage Gen2 account, as well as a directory and a file. 接下來您會了解如何將檔案下載到本機電腦，以及如何檢視目錄中的所有檔案。
+description: Learn how to use Azure Storage Explorer to create a file system in an Azure Data Lake Storage Gen2 account, as well as a directory and a file. 接下來您會了解如何將檔案下載到本機電腦，以及如何檢視目錄中的所有檔案。
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 53f43945b13a9dae44eba752f935eb34d7aa498b
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: b300d96408bed621a0687c04a9c94021af009f95
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327626"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484470"
 ---
 # <a name="use-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Use Azure Storage Explorer with Azure Data Lake Storage Gen2
 
-在本快速入門中，您將了解如何使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)建立目錄和 Blob。 接下來您會了解如何將 Blob 下載到本機電腦，以及如何檢視目錄中的所有 Blob。 您也將了解如何建立 Blob 的快照集、管理目錄存取原則，以及建立共用的存取簽章。
+In this article, you'll learn how to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create a directory and a blob. 接下來您會了解如何將 Blob 下載到本機電腦，以及如何檢視目錄中的所有 Blob。 您也將了解如何建立 Blob 的快照集、管理目錄存取原則，以及建立共用的存取簽章。
 
 ## <a name="prerequisites"></a>必要條件
 

@@ -1,6 +1,6 @@
 ---
-title: 登入使用者的 Web 應用程式（總覽）-Microsoft 身分識別平臺
-description: 瞭解如何建立可登入使用者的 web 應用程式（總覽）
+title: Web app that signs in users (overview) - Microsoft identity platform
+description: Learn how to build a web app that signs in users (overview)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,76 +15,78 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68d47d4233aec62ec5f1955e52025b0d55221af8
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 316ab055a077b251e88421ab26997f8556a6e31f
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596707"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482502"
 ---
-# <a name="scenario-web-app-that-signs-in-users"></a>案例：登入使用者的 Web 應用程式
+# <a name="scenario-web-app-that-signs-in-users"></a>Scenario: Web app that signs in users
 
-瞭解您所需的一切，以建立使用 Microsoft 身分識別平臺登入使用者的 web 應用程式。
+Learn all you need to build a web app that uses the Microsoft identity platform to sign in users.
 
 ## <a name="prerequisites"></a>必要條件
 
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="getting-started"></a>開始使用
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-如果您想要建立登入使用者的第一個可攜（ASP.NET Core） web 應用程式，請遵循此快速入門：
+If you want to create your first portable (ASP.NET Core) web app that signs in users, follow this quickstart:
 
 > [!div class="nextstepaction"]
-> [快速入門： ASP.NET Core 登入使用者的 web 應用程式](quickstart-v2-aspnet-core-webapp.md)
+> [Quickstart: ASP.NET Core web app that signs in users](quickstart-v2-aspnet-core-webapp.md)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-如果您想要瞭解如何將登入新增至舊版 ASP.NET web 應用程式，請嘗試下列教學課程：
+If you want to understand how to add sign-in to an existing ASP.NET web application, try the following quickstart:
 
 > [!div class="nextstepaction"]
-> [快速入門： ASP.NET 可登入使用者的 web 應用程式](quickstart-v2-aspnet-webapp.md)
+> [Quickstart: ASP.NET web app that signs in users](quickstart-v2-aspnet-webapp.md)
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-如果您是 JAVA 開發人員，請嘗試下列快速入門：
+If you're a Java developer, try the following quickstart:
 
 > [!div class="nextstepaction"]
-> [快速入門：使用 Microsoft 將登入新增至 JAVA web 應用程式](quickstart-v2-java-webapp.md)
+> [Quickstart: Add sign-in with Microsoft to a Java web app](quickstart-v2-java-webapp.md)
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-如果您使用 Python 進行開發，請嘗試：
+If you develop with Python, try the following quickstart:
 
 > [!div class="nextstepaction"]
-> [快速入門：使用 Microsoft 將登入新增至 Python web 應用程式](quickstart-v2-python-webapp.md)
+> [Quickstart: Add sign-in with Microsoft to a Python web app](quickstart-v2-python-webapp.md)
 
 ---
 
 ## <a name="overview"></a>概觀
 
-您會將驗證新增至您的 web 應用程式，讓它能夠登入使用者。 新增驗證可讓您的 web 應用程式存取有限的設定檔資訊，例如，自訂您提供給其使用者的體驗。 Web apps 會在網頁瀏覽器中驗證使用者。 在此案例中，Web 應用程式會引導使用者的瀏覽器，將他們登入 Azure AD。 Azure AD 會透過使用者的瀏覽器傳回登入回應，其中包含關於安全性權杖中的使用者宣告。 登入使用者利用中介軟體連結[庫](scenario-web-app-sign-user-app-configuration.md#libraries-used-to-protect-web-apps)，簡化了[Open ID Connect](./v2-protocols-oidc.md) standard 通訊協定的使用。
+You add authentication to your web app so that it can sign in users. Adding authentication enables your web app to access limited profile information in order to customize the experience for users. 
 
-![Web 應用程式登入使用者](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
+Web apps authenticate a user in a web browser. In this scenario, the web app directs the user's browser to sign them in to Azure Active Directory (Azure AD). Azure AD returns a sign-in response through the user's browser, which contains claims about the user in a security token. Signing in users takes advantage of the [Open ID Connect](./v2-protocols-oidc.md) standard protocol, simplified by the use of middleware [libraries](scenario-web-app-sign-user-app-configuration.md#libraries-for-protecting-web-apps).
 
-在第二個階段中，您也可以讓應用程式代表登入的使用者呼叫 Web Api。 下一個階段是不同的案例，您可以在[Web 應用程式呼叫 Web api](scenario-web-app-call-api-overview.md)中找到
+![登入使用者的 Web 應用程式](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
+
+As a second phase, you can enable your application to call web APIs on behalf of the signed-in user. This next phase is a different scenario, which you'll find in [Web app that calls web APIs](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> 將登入新增至 web 應用程式時，是關於保護 web 應用程式，以及驗證使用者權杖，這是**中介軟體**程式庫的功能。 在 .NET 中，此案例不需要 Microsoft 驗證程式庫（MSAL），這是關於取得權杖以呼叫受保護的 Api。 只有當 web 應用程式需要呼叫 web Api 時，才會在後續的案例中引進驗證程式庫。
+> Adding sign-in to a web app is about protecting the web app and validating a user token, which is what  **middleware** libraries do. In the case of .NET, this scenario does not yet require the Microsoft Authentication Library (MSAL), which is about acquiring a token to call protected APIs. Authentication libraries will be introduced in the follow-up scenario, when the web app needs to call web APIs.
 
-## <a name="specifics"></a>瞭解
+## <a name="specifics"></a>Specifics
 
-- 在應用程式註冊期間，您必須提供一或多個（如果您將應用程式部署至數個位置）回復 Uri。 在某些情況下（ASP.NET/ASP.NET 核心），您必須啟用識別碼權杖。 最後，您會想要設定登出 URI，讓您的應用程式回應使用者登出。
-- 在應用程式的程式碼中，您必須提供您的 web 應用程式委派登入許可權。 您可能想要自訂權杖驗證（特別是在 ISV 案例中）。
-- Web 應用程式支援任何帳戶類型。 如需詳細資訊，請參閱[支援的帳戶類型](v2-supported-account-types.md)。
+- During the application registration, you'll need to provide one or several (if you deploy your app to several locations) reply URIs. In some cases (ASP.NET and ASP.NET Core), you'll need to enable the ID token. Finally, you'll want to set up a sign-out URI so that your application reacts to users signing out.
+- In the code for your application, you'll need to provide the authority to which your web app delegates sign-in. You might want to customize token validation (in particular, in partner scenarios).
+- Web applications support any account types. For more information, see [Supported account types](v2-supported-account-types.md).
 
 ## <a name="next-steps"></a>後續步驟
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
-> [應用程式註冊](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnetcore?tabs=aspnetcore)
+> [應用程式註冊](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnetcore)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 

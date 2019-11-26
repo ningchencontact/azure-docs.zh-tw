@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a1f377c3325797f2f55f051830014b1068c51327
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 2cd53c3c0b3e9acbb8a5a88c7696e8b3089c50c9
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74405583"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483385"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>使用 Azure 流量管理員來控制 Azure App Service 流量
 > [!NOTE]
@@ -34,7 +34,7 @@ ms.locfileid: "74405583"
 ## <a name="routing-methods"></a>路由方法
 Azure 流量管理員使用四種不同的路由方法。 下列清單說明 Azure App Service 專屬的這些方法。
 
-* **[優先順序](../traffic-manager/traffic-manager-routing-methods.md#priority)：** 所有流量都使用主要應用程式，並提供備份以免主要或備份應用程式無法使用。
+* **[優先順序](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)：** 所有流量都使用主要應用程式，並提供備份以免主要或備份應用程式無法使用。
 * **[加權](../traffic-manager/traffic-manager-routing-methods.md#weighted)︰** 將流量分配給一組應用程式 (不論是平均分配還是根據您定義的權數)。
 * **[效能](../traffic-manager/traffic-manager-routing-methods.md#performance)：** 當您的應用程式在不同地理位置時，使用「最靠近」的應用程式 (因為網路延遲最低)。
 * **[地理](../traffic-manager/traffic-manager-routing-methods.md#geographic)：** 依據產生 Web 應用程式 DNS 查詢的地理位置，將使用者導向特定應用程式。 

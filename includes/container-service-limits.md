@@ -5,28 +5,31 @@ services: container-service
 author: dlepow
 ms.service: container-service
 ms.topic: include
-ms.date: 10/11/2018
+ms.date: 11/22/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: a2729af6a689daa551fc01f585324d53a8770a9b
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 0695416c65eed2bbf0a19d5ed1ea0c53a7ece332
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67174342"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74485444"
 ---
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | :--- |
-| 每個訂用帳戶的群集上限 | 100 |
-| 每個叢集的節點數目上限 | 100 |
-| 每個節點的最大 pod 數：使用 Kubenet 的[基本網路][basic-networking]功能 | 110 |
-| 每個節點的最大 pod 數：使用 Azure Container 網路介面的[Advanced 網路][advanced-networking] | Azure CLI 部署：30<sup>1</sup><br />Azure Resource Manager 範本：30<sup>1</sup><br />入口網站部署：30 |
+| Maximum clusters per subscription | 100 |
+| Maximum nodes per cluster with Virtual Machine Availability Sets and Basic Load Balancer SKU  | 100 |
+| Maximum nodes per cluster with Virtual Machine Scale Sets and [Standard Load Balancer SKU][standard-load-balancer] | 800 (100 nodes per [node pool][node-pool]) |
+| Maximum pods per node: [Basic networking][basic-networking] with Kubenet | 110 |
+| Maximum pods per node: [Advanced networking][advanced-networking] with Azure Container Networking Interface | Azure CLI 部署：30<sup>1</sup><br />Azure Resource Manager template: 30<sup>1</sup><br />入口網站部署：30 |
 
-<sup>1</sup>當您使用 Azure CLI 或 Resource Manager 範本部署 Azure Kubernetes Service （AKS）叢集時，此值最多可設定為每個節點250個 pod。 您無法在已部署 AKS 叢集之後，或使用 Azure 入口網站部署叢集時，設定每個節點的最大 pod 數。<br />
+<sup>1</sup>When you deploy an Azure Kubernetes Service (AKS) cluster with the Azure CLI or a Resource Manager template, this value is configurable up to 250 pods per node. You can't configure maximum pods per node after you've already deployed an AKS cluster, or if you deploy a cluster by using the Azure portal.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking
 [advanced-networking]: ../articles/aks/concepts-network.md#azure-cni-advanced-networking
+[standard-load-balancer]: ../articles/load-balancer/load-balancer-standard-overview.md
+[node-pool]: ../articles/aks/use-multiple-node-pools.md
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

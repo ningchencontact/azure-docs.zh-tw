@@ -1,76 +1,79 @@
 ---
-title: 什麼是 Azure 中的應用程式範本 IoT Central |Microsoft Docs
-description: Azure IoT Central 應用程式範本可讓您跳到 IoT 解決方案開發。
+title: What are application templates in Azure IoT Central | Microsoft Docs
+description: Azure IoT Central application templates allow you to jump in to IoT solution development.
 author: philmea
 ms.author: philmea
 ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 3389744c44f7eb4f11a1c9a53ea9e370b83dd79b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: af1870ecc9714eceaf69f2892537e59f068c6a70
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890833"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480326"
 ---
 # <a name="what-are-application-templates"></a>什麼是應用程式範本？
 
-Azure IoT Central 中的應用程式範本是一項工具，可協助解決方案產生器 kickstart 其 IoT 解決方案開發。 您可以使用應用程式範本，讓所有專案都能充分自訂，並讓您的應用程式轉售給您的客戶。
+Application templates in Azure IoT Central are a tool to help solution builders kickstart their IoT solution development. You can use app templates for everything from getting a feel for what is possible, to fully customizing and your application for resale to your customers.
 
-應用程式範本包含：
+Application templates consist of:
 
 - 範例操作員儀表板
-- 範例裝置範本
-- 產生即時資料的模擬裝置
+- Sample device templates
+- Simulated devices producing real-time data
 - 預先設定的規則和作業
-- 豐富的檔，包括教學課程和 how-to
+- Rich documentation including tutorials and how-tos
 
-## <a name="preview-templates"></a>預覽範本
+## <a name="preview-templates"></a>Preview templates
 
-您選擇的應用程式範本會決定您的應用程式是否使用 IoT Central 的預覽功能，例如裝置隨插即用。
+Your choice of application template determines whether your application uses IoT Central preview features such as Plug and Play for devices.
 
-目前，使用_正式推出_功能的應用程式範本如下：
+Currently, the application templates that use _generally available_ features are:
 
-- 自訂 app > 自訂應用程式
-- 自訂應用程式 > 範例 Contoso
-- 自訂應用程式 > 範例 Devkits
+- Custom app > Custom application
+- Custom app > Sample Contoso
+- Custom app > Sample Devkits
 
-目前，使用_公開預覽_功能的應用程式範本如下：
+Currently, the application templates that use _public preview_ features are:
 
-- 自訂應用程式 > 預覽應用程式
-- 零售 > 連線的物流
-- 零售 > 數位散發中心
-- 零售 > 內商店分析–條件監視
-- 零售 > 內商店分析–結帳
-- 零售 > 智慧清查管理
-- 能源 > 智慧計量監控
-- 能源 > 日光面板監視
-- 政府 > 連線的垃圾管理
-- 政府 > 水耗用量監控
-- 政府 > 水品質監控
-- 醫療保健 > 持續患者監控
+- Custom app > Preview application
+- Retail > Connected logistics
+- Retail > Digital distribution center
+- Retail > In-store analytics – condition monitoring
+- Retail > In-store analytics – checkout
+- Retail > Smart inventory management
+- Energy > Smart meter monitoring
+- Energy > Solar panel monitoring
+- Government > Connected waste management
+- Government > Water consumption monitoring
+- Government > Water quality monitoring
+- Healthcare > Continuous patient monitoring
 
-## <a name="industry-focused-templates"></a>業界焦點的範本
+> [!NOTE]
+> The **Custom application, Sample Contoso, Sample Devkits** templates are currently  available in the **United States**, **Australia**, **Asia Pacific**, or in the **Europe** locations, while other templates are currently available only in **Europe** and **US** locations.
 
-Azure IoT Central 是與業界無關的應用程式平臺。 應用程式範本是現今適用于這些產業的業界焦點範例，未來會有更多：
+## <a name="industry-focused-templates"></a>Industry focused templates
+
+Azure IoT Central is an industry agnostic application platform. Application templates are industry focused examples available for these industries today, with more to come in the future:
 
 - [零售](../retail/overview-iot-central-retail-pnp.md)
-  - 連線物流
+  - 物聯物流
   - 數位配送中心
-  - 存放區內分析-條件監視
-  - 存放區內分析-簽出
-  - 智慧清查管理
+  - In-store analytics - condition monitoring
+  - In-store analytics - checkout
+  - Smart Inventory Management
 - [能源](../energy/overview-iot-central-energy.md)
-  - 智慧計量監視
-  - 日光面板監視
-- [身份證](../government/overview-iot-central-government.md)
+  - Smart meter monitoring
+  - Solar panel monitoring
+- [Government](../government/overview-iot-central-government.md)
   - 物聯廢棄物管理
   - 用水量監視
   - 水質監視
-- [醫療保健](../healthcare/overview-iot-central-healthcare.md)。
+- [Healthcare](../healthcare/overview-iot-central-healthcare.md).
   - 持續性患者監視
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已經知道 IoT Central 的應用程式範本，就可以開始[建立 IoT Central 應用程式](quick-deploy-iot-central.md)。
+Now that you know what IoT Central application templates are, get started by [creating an IoT Central Application](quick-deploy-iot-central.md).

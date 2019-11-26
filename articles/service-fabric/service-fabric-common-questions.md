@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 28a0418fd94c03f1fe308c7cd6f17b6d9a331fb0
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: dd514bb7c600c99518983855dae1d3b7fb8a1efb
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529364"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481645"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 的常見問題
 
@@ -104,7 +104,7 @@ ms.locfileid: "72529364"
 在我們努力改善體驗時，您的責任是升級。 您必須升級叢集的虛擬機器上的作業系統映像，一次一部 VM。 
 
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>如何將叢集節點類型 (虛擬機器擴展集) 中已連結的資料磁碟加密？
-可以。  如需詳細資訊，請參閱[使用連接的資料磁片建立](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks)叢集和[虛擬機器擴展集的 Azure 磁碟加密](../virtual-machine-scale-sets/disk-encryption-overview.md)。
+可以。  For more information, see [Create a cluster with attached data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) and [Azure Disk Encryption for Virtual Machine Scale Sets](../virtual-machine-scale-sets/disk-encryption-overview.md).
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>如何在叢集節點類型 (虛擬機器擴展集) 中使用低優先順序的 VM？
 不會。 不支援低優先順序的 VM。 
@@ -136,7 +136,7 @@ ms.locfileid: "72529364"
 您的應用程式可使用下列方法取得向 KeyVault 驗證所需的認證：
 
 答： 在您的應用程式建置/封裝作業期間，您可以將憑證提取到 SF 應用程式的資料套件中，並以此憑證向 KeyVault 驗證。
-B. 對於已啟用虛擬機器擴展集的 MSI，您可以為 SF 應用程式開發簡單的 PowerShell SetupEntryPoint，以[從 MSI 端點取得存取權杖](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)，然後[從 KeyVault 取出您的秘密](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret)。
+B. For virtual machine scale set MSI enabled hosts, you can develop a simple PowerShell SetupEntryPoint for your SF app to get [an access token from the MSI endpoint](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), and then [retrieve your secrets from KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>應用程式設計
 
@@ -146,7 +146,8 @@ B. 對於已啟用虛擬機器擴展集的 MSI，您可以為 SF 應用程式開
 
 - 建立會查詢另一個服務所有分割的服務，以提取所需資料。
 - 建立可接收來自另一個服務所有分割之資料的服務。
-- 定期從每個服務將資料推送至外部存放區。 只有在您要執行的查詢不是核心商業邏輯的一部分時，才適用此方法。
+- 定期從每個服務將資料推送至外部存放區。 This approach is only appropriate if the queries you're performing are not part of your core business logic, as the external store's data will be stale.
+- Alternatively, store data that must support querying across all records directly in a data store rather than in a reliable collection. This eliminates the issue with stale data, but doesn't allow the advantages of reliable collections to be leveraged.
 
 
 ### <a name="whats-the-best-way-to-query-data-across-my-actors"></a>在所有動作項目查詢資料的最佳方式為何？
@@ -192,4 +193,4 @@ B. 對於已啟用虛擬機器擴展集的 MSI，您可以為 SF 應用程式開
 
 ## <a name="next-steps"></a>後續步驟
 
-瞭解[核心 Service Fabric 概念](service-fabric-technical-overview.md)和[最佳做法](service-fabric-best-practices-overview.md)ice 網狀架構概念] （overview.md）和[最佳作法](service-fabric-best-practices-overview.md)
+Learn about [core Service Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md) ice Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md)

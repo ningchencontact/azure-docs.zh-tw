@@ -2,13 +2,13 @@
 title: Azure 委派的資源管理
 description: 受控服務供應項目能允許服務提供者在 Azure Marketplace 中向客戶銷售資源管理供應項目。
 ms.date: 07/11/2019
-ms.topic: overview
-ms.openlocfilehash: e79252d38e5e3363ef1d6a82ec060b896fa247a8
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: ccbd09cd51216f9076e3b5bd462ee2180ac8f3ab
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133381"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464017"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure 委派的資源管理
 
@@ -21,11 +21,11 @@ Azure 委派的資源管理可讓使用者以邏輯方式將資源從某個租�
 > [!NOTE]
 > Azure 委派的資源管理也可以用於[擁有多個 Azure AD 租用戶的企業內](enterprise.md)，以簡化跨租用戶管理。
 
-透過 Azure 委派的資源管理，授權使用者可以直接在客戶訂用帳戶的內容中作業，而不需要在該客戶租用戶中擁有帳戶，或是成為該客戶租用戶的共同擁有者。 他們也可以在 Azure 入口網站[新的 [我的客戶]  頁面中檢視及管理所有委派的客戶訂用帳戶](../how-to/view-manage-customers.md)。
+透過 Azure 委派的資源管理，授權使用者可以直接在客戶訂用帳戶的內容中作業，而不需要在該客戶租用戶中擁有帳戶，或是成為該客戶租用戶的共同擁有者。 他們也可以在 Azure 入口網站[新的 [我的客戶] 頁面中檢視及管理所有委派的客戶訂用帳戶](../how-to/view-manage-customers.md)。
 
 [跨租用戶管理體驗](cross-tenant-management-experience.md)可協助您更有效率地搭配 Azure 管理服務 (例如 Azure 原則、Azure 資訊安全中心等) 處理工作。 所有服務提供者活動都會在活動記錄中追蹤，其會同時儲存在服務提供者及客戶的租用戶中。 這表示客戶和服務提供者都可以輕鬆地識別與任何變更相關聯的使用者。
 
-當您將客戶上線至 Azure 委派的資源管理時，他們將能存取 Azure 入口網站中新的 [服務提供者]  頁面；客戶將能在其中[確認及管理其供應項目、服務提供者與委派的資源](../how-to/view-manage-service-providers.md)。 如果客戶想要撤銷某個服務提供者的存取權，便可以隨時在這裡那麼做。
+當您將客戶上線至 Azure 委派的資源管理時，他們將能存取 Azure 入口網站中新的 [服務提供者] 頁面；客戶將能在其中[確認及管理其供應項目、服務提供者與委派的資源](../how-to/view-manage-service-providers.md)。 如果客戶想要撤銷某個服務提供者的存取權，便可以隨時在這裡那麼做。
 
 您可以[將新的受控服務供應項目類型發佈至 Azure Marketplace](../how-to/publish-managed-services-offers.md)，以輕鬆地將客戶上線至 Azure 委派的資源管理。 或者，您也可以[部署 Azure Resource Manager 範本來完成上線程序](../how-to/onboard-customer.md)。
 
@@ -41,7 +41,7 @@ Azure 委派的資源管理可讓使用者以邏輯方式將資源從某個租�
 
 ## <a name="support-for-azure-delegated-resource-management"></a>適用於 Azure 委派的資源管理的支援
 
-如果您需要與 Azure 委派的資源管理相關的協助，則可以在 Azure 入口網站中建立支援要求。 針對 [問題類型]  ，請選擇 [技術]  。 選取訂用帳戶，然後選取 [委派的資源管理]  (位於 [監視與管理]  底下)。
+如果您需要與 Azure 委派的資源管理相關的協助，則可以在 Azure 入口網站中建立支援要求。 針對 [問題類型]，請選擇 [技術]。 選取訂用帳戶，然後選取 [委派的資源管理] (位於 [監視與管理] 底下)。
 
 ## <a name="next-steps"></a>後續步驟
 

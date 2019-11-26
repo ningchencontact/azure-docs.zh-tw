@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: a5a08bddb53afe8f698b0d96621cc116ee866070
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f239bab48e732755361fe734fdc24b37d3823c63
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209162"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481013"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Management concepts for user accounts, passwords, and administration in Azure Active Directory Domain Services
 
@@ -59,7 +59,10 @@ For users synchronized from an on-premises AD DS environment using Azure AD Conn
 
 一旦正確設定之後，可用的密碼雜湊就會儲存在 Azure AD DS 受控網域中。 如果您刪除 Azure AD DS 受控網域，此時儲存的任何密碼雜湊也會一併刪除。 Synchronized credential information in Azure AD can't be reused if you later create an Azure AD DS managed domain - you must reconfigure the password hash synchronization to store the password hashes again. 先前加入網域的 VM 或使用者將無法立即進行驗證 - Azure AD 需要在新的 Azure AD DS 受控網域中產生並儲存密碼雜湊。 如需詳細資訊，請參閱 [Azure AD DS 和 Azure AD Connect 的密碼雜湊同步程序][azure-ad-password-sync]。
 
-## <a name="forests-and-trusts"></a>Forests and trusts
+> [!IMPORTANT]
+> Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in an Azure AD DS managed domain to synchronize objects back to Azure AD.
+
+## <a name="forests-and-trusts"></a>樹系和信任
 
 A *forest* is a logical construct used by Active Directory Domain Services (AD DS) to group one or more *domains*. The domains then store objects for user or groups, and provide authentication services.
 

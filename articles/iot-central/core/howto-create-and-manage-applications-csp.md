@@ -1,5 +1,5 @@
 ---
-title: 從 CSP 入口網站建立和管理 Azure IoT Central 應用程式 |Microsoft Docs
+title: Create and manage Azure IoT Central applications from the CSP portal | Microsoft Docs
 description: 身為 CSP，如何代表您的客戶建立 Azure IoT Central 應用程式。
 services: iot-central
 ms.service: iot-central
@@ -8,24 +8,24 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 8e9c2077960dc64aa7bac13a53e0b3f74062aa55
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 1588a27453dbc223e6aa1dd993905d274e5e1242
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177250"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480331"
 ---
-# <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>從 CSP 入口網站建立和管理 Azure IoT Central 應用程式
+# <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Create and manage an Azure IoT Central application from the CSP portal
 
 雲端解決方案提供者 (CSP) 方案是 Microsoft 轉銷商方案。 其用意是要為我們的通路合作夥伴提供轉銷所有 Microsoft 商務線上服務的單站式方案。 深入了解[雲端解決方案提供者方案](https://partner.microsoft.com/cloud-solution-provider)。
 
 身為 CSP，您可以透過 [Microsoft 合作夥伴中心](https://partnercenter.microsoft.com/partner/home)代表您的客戶建立和管理 Microsoft Azure IoT Central 應用程式。 當 CSP 代表客戶建立 Azure IoT Central 應用程式時，就像其他 CSP 管理的 Azure 服務一樣，CSP 會管理客戶的帳單。 Azure IoT Central 的費用將會出現在 Microsoft 合作夥伴中心的總計費中。
 
-若要開始使用，請在 Microsoft 合作夥伴入口網站上登入您的帳戶，並選取您要為其建立 Azure IoT Central 應用程式的客戶。 從左側導覽至客戶的 [服務管理]。
+若要開始使用，請在 Microsoft 合作夥伴入口網站上登入您的帳戶，並選取您要為其建立 Azure IoT Central 應用程式的客戶。 Navigate to Service Management for the customer from the left nav.
 
 ![Microsoft 夥伴中心客戶、客戶檢視](media/howto-create-application-csp/image1.png)
 
-Azure IoT Central 會列為可供系統管理員使用的服務。 選取頁面上的 [Azure IoT Central] 連結，以建立新的應用程式或管理此客戶現有的應用程式。
+Azure IoT Central 會列為可供系統管理員使用的服務。 Select the Azure IoT Central link on the page to create new applications or manage existing applications for this customer.
 
 ![可用來管理的 Azure IoT Central](media/howto-create-application-csp/image2.png)
 
@@ -33,7 +33,7 @@ Azure IoT Central 會列為可供系統管理員使用的服務。 選取頁面�
 
 ![建立 CSP 的管理員](media/howto-create-application-csp/image3.png)
 
-若要建立 Azure IoT Central 應用程式，請選取左側功能表中的 [**組建**]。 選擇其中一個業界範本，或選擇 [**自訂應用**程式] 從頭開始建立應用程式。 這會載入 [應用程式建立] 頁面。 您必須完成此頁面上的所有欄位，然後選擇 [建立]。 您可以在下方找到更多關於每個欄位的詳細資訊。
+To create an Azure IoT Central application, select **Build** in the left menu. Choose one of the industry templates, or choose **Custom app** to create an application from scratch. 這會載入 [應用程式建立] 頁面。 您必須完成此頁面上的所有欄位，然後選擇 [建立]。 您可以在下方找到更多關於每個欄位的詳細資訊。
 
 ![建立 CSP 的應用程式頁面](media/howto-create-application-csp/image4.png)
 
@@ -71,12 +71,12 @@ Azure 訂用帳戶可讓您建立 Azure 服務執行個體。 Azure IoT Central 
 
 ## <a name="region"></a>地區
 
-選擇您想要建立 Azure IoT Central 應用程式的地區或[地理](https://azure.microsoft.com/global-infrastructure/geographies/)位置。 一般來說，您應該選擇最接近您裝置的區域，以取得最佳效能。
+Choose the region or [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you’d like to create your Azure IoT Central Application. Typically, you should choose the region that's closest physically to your devices to get optimal performance.
 
 > [!NOTE]
-> **預覽應用程式**範本目前僅**適用于北歐和** **美國中部**區域。
+> The preview application templates are currently only available in the **Europe** and **US** locations.
 
-若要深入瞭解，請參閱[azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)和[azure 地理](https://azure.microsoft.com/global-infrastructure/geographies/)位置。
+To learn more, see [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) and [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 您可以在[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central)頁面上，看到可以使用 Azure IoT 中心的區域。
 

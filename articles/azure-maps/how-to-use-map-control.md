@@ -1,6 +1,6 @@
 ---
-title: Azure 地圖服務中的 web 地圖控制項使用者入門 |Microsoft Docs
-description: 瞭解如何使用 Azure 地圖服務的地圖控制項用戶端 JAVAscript 程式庫。
+title: Getting started with web map control in Azure Maps | Microsoft Docs
+description: Learn how to use the Azure Maps map control client-side Javascript library.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2018
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ceb3b7315439aced7f781e8de5e62b49fd83818c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ff183261f67ff76f56fc034d8102e3aa3a4838a8
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833807"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480524"
 ---
-# <a name="use-the-azure-maps-map-control"></a>使用 Azure 地圖服務地圖控制項
+# <a name="use-the-azure-maps-map-control"></a>Use the Azure Maps map control
 
 地圖控制項用戶端 Javascript 程式庫可讓您將地圖和內嵌的 Azure 地圖服務功能轉譯到 Web 或行動裝置應用程式中。
 
@@ -46,7 +46,7 @@ ms.locfileid: "73833807"
     ```
 
     >[!Note]
-    > 藉由新增，您可以將 Typescript 定義匯入至您的應用程式：
+    > Typescript definitions can be imported into your application by adding:
     > ```Javascript
     > import * as atlas from 'azure-maps-control';
     > ```
@@ -66,7 +66,7 @@ ms.locfileid: "73833807"
     </style>
     ```
 
-4. 在頁面的主體中，新增 `<div>` 元素，並為它提供 `id`myMap**的**。
+4. 在頁面的主體中，新增 `<div>` 元素，並為它提供 **myMap** 的 `id`。
 
     ```HTML
     <body>
@@ -74,7 +74,7 @@ ms.locfileid: "73833807"
     </body>
     ```
 
-5. 若要初始化地圖控制項，請在 html 主體中定義新的區段，並建立指令碼。 在建立 `Map` 類別的實例時，傳入地圖 `<div>` 的 `id` 或 `HTMLElement` （例如 `document.getElementById('myMap')`）做為第一個參數。 使用您自己的 Azure 地圖服務帳戶金鑰或 Azure Active Directory (AAD) 認證來使用[驗證選項](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)驗證地圖。 如果您需要建立帳戶或尋找金鑰，請參閱[如何管理 Azure 地圖服務帳戶與金鑰](how-to-manage-account-keys.md)。 [語言] 選項會指定要用於地圖標籤和控制項的語言。 如需有關支援語言的資訊，請參閱[支援的語言](supported-languages.md)。 如果使用訂用帳戶金鑰進行驗證。
+5. 若要初始化地圖控制項，請在 html 主體中定義新的區段，並建立指令碼。 Pass in the `id` of the map `<div>` or an `HTMLElement` (for example, `document.getElementById('myMap')`) as the first parameter when creating an instance of the `Map` class. 使用您自己的 Azure 地圖服務帳戶金鑰或 Azure Active Directory (AAD) 認證來使用[驗證選項](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)驗證地圖。 如果您需要建立帳戶或尋找金鑰，請參閱[如何管理 Azure 地圖服務帳戶與金鑰](how-to-manage-account-keys.md)。 [語言] 選項會指定要用於地圖標籤和控制項的語言。 如需有關支援語言的資訊，請參閱[支援的語言](supported-languages.md)。 如果使用訂用帳戶金鑰進行驗證。
 
     ```HTML
     <script type="text/javascript">
@@ -108,9 +108,9 @@ ms.locfileid: "73833807"
     </script>
     ```
 
-    您可以在[這裡](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)找到示範如何整合 AZURE ACTIVE DIRECTORY （AAD）與 Azure 地圖服務的範例清單。 
+    A list of samples showing how to integrate Azure Active Directory (AAD) with Azure Maps can be found [here](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples). 
     
-    如需詳細資訊，請參閱[使用 Azure 地圖服務的驗證](azure-maps-authentication.md)檔。
+    For more information, see the [Authentication with Azure Maps](azure-maps-authentication.md) document and also the [Azure Maps Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples).
 
 6. 除此之外，將下列中繼標籤元素新增到頁面的標頭可能會對您很有幫助：
 
@@ -122,7 +122,7 @@ ms.locfileid: "73833807"
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
-7. 將它全部放在您的 HTML 檔案中看起來應該像下面這段程式碼：
+7. Putting it all together your HTML file should look something like the following code:
 
     ```HTML
     <!DOCTYPE html>
@@ -172,21 +172,21 @@ ms.locfileid: "73833807"
     </html>
     ```
 
-8. 在網頁瀏覽器中開啟此檔案，並檢視轉譯的地圖。 看起來應該類似下列程式碼：
+8. 在網頁瀏覽器中開啟此檔案，並檢視轉譯的地圖。 It should look like the following code:
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="如何使用地圖控制項" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">請參閱<a href='https://codepen.io'>CodePen</a>上的 如何透過 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>）<a href='https://codepen.io/azuremaps/pen/yZpEYL/'>使用地圖控制項</a>。
+    <iframe height="700" style="width: 100%;" scrolling="no" title="如何使用地圖控制項" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>How to use the map control</a> by Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
     </iframe>
 
-## <a name="localizing-the-map"></a>當地語系化對應
+## <a name="localizing-the-map"></a>Localizing the map
 
-Azure 地圖服務提供兩種不同的方式來設定地圖的語言和地區視圖。 第一個選項是將這項資訊新增至全域 `atlas` 命名空間，這會導致應用程式中的所有地圖控制項實例預設為這些設定。 以下會將語言設定為法文（"fr-fr"），並將地區視圖設為「自動」：
+Azure Maps provides two different ways of setting the language and regional view of the map. The first option is to add this information to the global `atlas` namespace, which will result in all map control instances in your app defaulting to these settings. The following sets the language to French ("fr-FR") and the regional view to "Auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');
 atlas.setView('Auto');
 ```
 
-第二個選項是在載入對應時，將此資訊傳入對應選項，如下所示：
+The second option is to pass this information into the map options when loading the map like:
 
 ```javascript
 map = new atlas.Map('myMap', {
@@ -203,13 +203,13 @@ map = new atlas.Map('myMap', {
 ```
 
 > [!Note]
-> 使用 Web SDK，可以使用不同的語言和區域設定，在相同的頁面上載入多個對應實例。 此外，您可以在使用對應的 [`setStyle`] 功能載入對應之後，更新這些設定。 
+> With the Web SDK it is possible to load multiple map instances on the same page with different language and region settings. Additionally, these settings can be update after the map has loaded by using the `setStyle` function of the map. 
 
-以下是語言設為 "fr-fr" 且地區視圖設為 "Auto" 的 Azure 地圖服務範例。
+Here is an example of Azure Maps with the language set to "fr-FR" and the regional view set to "Auto".
 
-![以法文顯示標籤的地圖影像](./media/how-to-use-map-control/websdk-localization.png)
+![Map image showing labels in French](./media/how-to-use-map-control/websdk-localization.png)
 
-支援的語言和區域觀點的完整清單記載于[此處](supported-languages.md)。
+A complete list of supported languages and regional views is documented [here](supported-languages.md).
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -223,7 +223,7 @@ map = new atlas.Map('myMap', {
 > [!div class="nextstepaction"]
 > [選擇地圖樣式](choose-map-style.md)
 
-若要將更多資料新增至您的對應：
+To add more data to your map:
 
 > [!div class="nextstepaction"]
 > [建立地圖](map-create.md)
@@ -231,7 +231,7 @@ map = new atlas.Map('myMap', {
 > [!div class="nextstepaction"]
 > [程式碼範例](https://docs.microsoft.com/samples/browse/?products=azure-maps)
 
-如需顯示如何整合 Azure Active Directory （AAD）與 Azure 地圖服務的範例清單，請參閱：
+For a list of samples showing how to integrate Azure Active Directory (AAD) with Azure Maps, see:
 
 > [!div class="nextstepaction"]
-> [AAD 驗證範例](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+> [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

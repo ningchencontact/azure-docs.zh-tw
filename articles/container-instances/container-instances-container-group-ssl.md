@@ -1,68 +1,62 @@
 ---
-title: 在 Azure 容器實例中啟用 SSL
-description: 為在 Azure 容器實例中執行的容器群組建立 SSL 或 TLS 端點
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Enable SSL in a container group
+description: Create an SSL or TLS endpoint for a container group running in Azure Container Instances
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: danlep
-ms.custom: ''
-ms.openlocfilehash: f11fb209f8d2ace51081fd81f453faf9505af27c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 7578ad6f8c451694a90dde00b74bf2e8c6c61109
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326073"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483483"
 ---
-# <a name="enable-an-ssl-endpoint-in-a-container-group"></a>在容器群組中啟用 SSL 端點
+# <a name="enable-an-ssl-endpoint-in-a-container-group"></a>Enable an SSL endpoint in a container group
 
-本文說明如何使用應用程式容器和執行 SSL 提供者的側車容器來建立[容器群組](container-instances-container-groups.md)。 藉由設定具有個別 SSL 端點的容器群組, 您可以為應用程式啟用 SSL 連線, 而不需要變更您的應用程式程式碼。
+This article shows how to create a [container group](container-instances-container-groups.md) with an application container and a sidecar container running an SSL provider. By setting up a container group with a separate SSL endpoint, you enable SSL connections for your application without changing your application code.
 
-您設定由兩個容器組成的容器群組:
-* 應用程式容器, 使用公用的 Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld)映射執行簡單的 web 應用程式。 
-* 執行公用[Nginx](https://hub.docker.com/_/nginx)映射的側車容器, 設定為使用 SSL。 
+You set up a container group consisting of two containers:
+* An application container that runs a simple web app using the public Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) image. 
+* A sidecar container running the public [Nginx](https://hub.docker.com/_/nginx) image, configured to use SSL. 
 
-在此範例中, 容器群組只會針對 Nginx 公開端口443及其公用 IP 位址。 Nginx 會將 HTTPS 要求路由傳送至隨附的 web 應用程式, 它會在內部接聽埠80。 您可以針對接聽其他埠的容器應用程式調整範例。
+In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container apps that listen on other ports.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-您可以使用 Azure Cloud Shell 或安裝在本機的 Azure CLI 來完成本文。 如果您想要在本機使用，建議使用 2.0.55 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+您可以使用 Azure Cloud Shell 或安裝在本機的 Azure CLI 來完成本文。 如果您想要在本機使用，建議使用 2.0.55 版或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 ## <a name="create-a-self-signed-certificate"></a>建立自我簽署憑證
 
-若要將 Nginx 設定為 SSL 提供者, 您需要 SSL 憑證。 本文說明如何建立及設定自我簽署的 SSL 憑證。 針對生產案例, 您應該從憑證授權單位單位取得憑證。
+To set up Nginx as an SSL provider, you need an SSL certificate. This article shows how to create and set up a self-signed SSL certificate. For production scenarios, you should obtain a certificate from a certificate authority.
 
-若要建立自我簽署的 SSL 憑證, 請使用 Azure Cloud Shell 和許多 Linux 散發套件中提供的[OpenSSL](https://www.openssl.org/)工具, 或在您的作業系統中使用類似的用戶端工具。
+To create a self-signed SSL certificate, use the [OpenSSL](https://www.openssl.org/) tool available in Azure Cloud Shell and many Linux distributions, or use a comparable client tool in your operating system.
 
-首先, 在本機工作目錄中建立憑證要求 (csr 檔案):
+First create a certificate request (.csr file) in a local working directory:
 
 ```console
 openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 ```
 
-依照提示來新增識別資訊。 針對 [一般名稱], 輸入與憑證相關聯的主機名稱。 當系統提示您輸入密碼時, 請按 Enter 而不輸入, 以略過加入密碼。
+Follow the prompts to add the identification information. For Common Name, enter the hostname associated with the certificate. When prompted for a password, press Enter without typing, to skip adding a password.
 
-執行下列命令, 從憑證要求建立自我簽署憑證 (.crt 檔案)。 例如:
+Run the following command to create the self-signed certificate (.crt file) from the certificate request. 例如：
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
 ```
 
-您現在應該會在目錄中看到三個檔案: 憑證要求`ssl.csr`()、私密金鑰 (`ssl.key`), 以及自我簽署憑證 (`ssl.crt`)。 您在`ssl.key`稍後`ssl.crt`的步驟中會使用和。
+You should now see three files in the directory: the certificate request (`ssl.csr`), the private key (`ssl.key`), and the self-signed certificate (`ssl.crt`). You use `ssl.key` and `ssl.crt` in later steps.
 
-## <a name="configure-nginx-to-use-ssl"></a>將 Nginx 設定為使用 SSL
+## <a name="configure-nginx-to-use-ssl"></a>Configure Nginx to use SSL
 
-### <a name="create-nginx-configuration-file"></a>建立 Nginx 設定檔
+### <a name="create-nginx-configuration-file"></a>Create Nginx configuration file
 
-在本節中, 您會建立 Nginx 的設定檔以使用 SSL。 首先, 將下列文字複製到名為`nginx.conf`的新檔案中。 在 Azure Cloud Shell 中, 您可以使用 Visual Studio Code 在您的工作目錄中建立檔案:
+In this section, you create a configuration file for Nginx to use SSL. Start by copying the following text into a new file named`nginx.conf`. In Azure Cloud Shell, you can use Visual Studio Code to create the file in your working directory:
 
 ```console
 code nginx.conf
 ```
 
-在`location`中, 請務必使用`proxy_pass`適用于應用程式的正確埠來設定。 在此範例中, 我們會為`aci-helloworld`容器設定埠80。
+In `location`, be sure to set `proxy_pass` with the correct port for app. In this example, we set port 80 for the `aci-helloworld` container.
 
 ```console
 # nginx Configuration File
@@ -126,9 +120,9 @@ http {
 }
 ```
 
-### <a name="base64-encode-secrets-and-configuration-file"></a>以 Base64 編碼的秘密和設定檔
+### <a name="base64-encode-secrets-and-configuration-file"></a>Base64-encode secrets and configuration file
 
-將 Nginx 設定檔、SSL 憑證和 SSL 金鑰編碼為 Base64。 在下一節中, 您會在用來部署容器群組的 YAML 檔案中輸入已編碼的內容。
+Base64-encode the Nginx configuration file, the SSL certificate, and the SSL key. In the next section, you enter the encoded contents in a YAML file used to deploy the container group.
 
 ```console
 cat nginx.conf | base64 -w 0 > base64-nginx.conf
@@ -136,19 +130,19 @@ cat ssl.crt | base64 -w 0 > base64-ssl.crt
 cat ssl.key | base64 -w 0 > base64-ssl.key
 ```
 
-## <a name="deploy-container-group"></a>部署容器群組
+## <a name="deploy-container-group"></a>Deploy container group
 
-現在, 藉由在[YAML](container-instances-multi-container-yaml.md)檔案中指定容器設定來部署容器群組。
+Now deploy the container group by specifying the container configurations in a [YAML file](container-instances-multi-container-yaml.md).
 
-### <a name="create-yaml-file"></a>建立 YAML 檔案
+### <a name="create-yaml-file"></a>Create YAML file
 
-將下列 YAML 複製到名為`deploy-aci.yaml`的新檔案中。 在 Azure Cloud Shell 中, 您可以使用 Visual Studio Code 在您的工作目錄中建立檔案:
+Copy the following YAML into a new file named `deploy-aci.yaml`. In Azure Cloud Shell, you can use Visual Studio Code to create the file in your working directory:
 
 ```console
 code deploy-aci.yaml
 ```
 
-輸入以`secret`base64 編碼的檔案內容, 其中有指示。 例如, `cat`每個 base64 編碼的檔案都會看到其內容。 在部署期間, 這些檔案會新增至容器群組中的[秘密磁片](container-instances-volume-secret.md)區。 在此範例中, 秘密磁片區會掛接至 Nginx 容器。
+Enter the contents of the base64-encoded files where indicated under `secret`. For example, `cat` each of the base64-encoded files to see its contents. During deployment, these files are added to a [secret volume](container-instances-volume-secret.md) in the container group. In this example, the secret volume is mounted to the Nginx container.
 
 ```YAML
 api-version: 2018-10-01
@@ -197,13 +191,13 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="deploy-the-container-group"></a>部署容器群組
 
-使用[az group create](/cli/azure/group#az-group-create)命令來建立資源群組:
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-使用[az container create](/cli/azure/container#az-container-create)命令來部署容器群組, 並傳遞 YAML 檔案做為引數。
+Deploy the container group with the [az container create](/cli/azure/container#az-container-create) command, passing the YAML file as an argument.
 
 ```azurecli
 az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
@@ -211,13 +205,13 @@ az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
 
 ### <a name="view-deployment-state"></a>檢視部署狀態
 
-若要查看部署的狀態, 請使用下列[az container show](/cli/azure/container#az-container-show)命令:
+To view the state of the deployment, use the following [az container show](/cli/azure/container#az-container-show) command:
 
 ```azurecli
 az container show --resource-group <myResourceGroup> --name app-with-ssl --output table
 ```
 
-若要成功部署, 輸出如下所示:
+For a successful deployment, output is similar to the following:
 
 ```console
 Name          ResourceGroup    Status    Image                                                    IP:ports             Network    CPU/Memory       OsType    Location
@@ -225,20 +219,20 @@ Name          ResourceGroup    Status    Image                                  
 app-with-ssl  myresourcegroup  Running   mcr.microsoft.com/azuredocs/nginx, aci-helloworld        52.157.22.76:443     Public     1.0 core/1.5 gb  Linux     westus
 ```
 
-## <a name="verify-ssl-connection"></a>確認 SSL 連線
+## <a name="verify-ssl-connection"></a>Verify SSL connection
 
-若要查看執行中的應用程式, 請在瀏覽器中流覽至其 IP 位址。 例如, 在此範例中顯示的 IP 位址是`52.157.22.76`。 因為 Nginx 伺服器`https://<IP-ADDRESS>`設定, 所以您必須使用來查看執行中的應用程式。 嘗試連接`http://<IP-ADDRESS>`失敗。
+To view the running application, navigate to its IP address in your browser. For example, the IP address shown in this example is `52.157.22.76`. You must use `https://<IP-ADDRESS>` to see the running application, because of the Nginx server configuration. Attempts to connect with `http://<IP-ADDRESS>` fail.
 
 ![顯示在 Azure 容器執行個體中執行之應用程式的瀏覽器螢幕擷取畫面](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 
 > [!NOTE]
-> 因為此範例使用自我簽署的憑證, 而不是來自憑證授權單位單位的憑證, 所以當透過 HTTPS 連線到網站時, 瀏覽器會顯示安全性警告。 這是預期的行為。
+> Because this example uses a self-signed certificate and not one from a certificate authority, the browser displays a security warning when connecting to the site over HTTPS. 這是預期的行為。
 >
 
 ## <a name="next-steps"></a>後續步驟
 
-本文說明如何設定 Nginx 容器, 以啟用對容器群組中執行之 web 應用程式的 SSL 連線。 針對接聽埠80以外埠的應用程式, 您可以調整此範例。 您也可以更新 Nginx 設定檔, 將埠 80 (HTTP) 上的伺服器連線自動重新導向至使用 HTTPS。
+This article showed you how to set up an Nginx container to enable SSL connections to a web app running in the container group. You can adapt this example for apps that listen on ports other than port 80. You can also update the Nginx configuration file to automatically redirect server connections on port 80 (HTTP) to use HTTPS.
 
-雖然本文使用側車中的 Nginx, 但您可以使用另一個 SSL 提供者, 例如[Caddy](https://caddyserver.com/)。
+While this article uses Nginx in the sidecar, you can use another SSL provider such as [Caddy](https://caddyserver.com/).
 
-在容器群組中啟用 SSL 的另一個方法, 是在具有[azure 應用程式閘道](../application-gateway/overview.md)的[azure 虛擬網路](container-instances-vnet.md)中部署群組。 閘道可以設定為 SSL 端點。 請參閱您可以調整的範例[部署範本](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet), 以在閘道上啟用 SSL 終止。
+Another approach to enabling SSL in a container group is to deploy the group in an [Azure virtual network](container-instances-vnet.md) with an [Azure application gateway](../application-gateway/overview.md). The gateway can be set up as an SSL endpoint. See a sample [deployment template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) you can adapt to enable SSL termination on the gateway.

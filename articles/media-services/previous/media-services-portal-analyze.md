@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 26a951ffaf0253371ffe69c6df798120f0464082
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 0e49e90209c7337081458b7c214d27b37d3b4da1
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881902"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74462609"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>使用 Azure 入口網站分析您的媒體 
 
 > [!IMPORTANT]
-> 查看一些媒體處理器的[淘汰計畫](media-services-analytics-overview.md#retirement-plans)。
+> Review the [retirement plans](media-services-analytics-overview.md#retirement-plans) of some media processors.
 
 ## <a name="overview"></a>概觀
 Azure 媒體服務分析是語音和視覺元件的集合 (具企業規模、相容性、安全性和遍及全球的觸角)，讓組織和企業從其影片檔輕鬆製作出能採取行動的深入見解內容。 如需更為詳細的 Azure 媒體服務分析概觀，請參閱[此主題](media-services-analytics-overview.md)。 
@@ -54,15 +54,11 @@ Azure 媒體服務分析是語音和視覺元件的集合 (具企業規模、相
 
 ### <a name="captions"></a>標題
 您可以選擇要從內容產生的標題格式。 索引工作可以產生下列格式的隱藏式輔助字幕檔案：  
-
-* **SAMI**
+ 
 * **TTML**
 * **WebVTT**
 
 這些格式的隱藏式輔助字幕 (CC) 檔案可以用來讓具有聽力障礙的人存取音訊和視訊檔案。
-
-### <a name="aib-file"></a>AIB 檔案
-如果您想要產生音訊索引 Blob 檔案以便與自訂 SQL Server IFilter 搭配使用，請選取此選項。 如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) 。
 
 ### <a name="keywords"></a>關鍵字
 如果您想要產生關鍵字 XML 檔案，請選取此選項。 此檔案包含從語音內容擷取的關鍵字，以及關鍵字的頻率和位移資訊。

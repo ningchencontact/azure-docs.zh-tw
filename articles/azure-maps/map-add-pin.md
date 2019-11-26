@@ -1,6 +1,6 @@
 ---
 title: 將符號圖層新增至 Azure 地圖服務 | Microsoft Docs
-description: 如何將符號新增至 Azure 地圖服務 Web SDK。
+description: How to add symbols to the Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,23 +9,31 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 10f6a7ef92bfd6558ed93e7fb40df9e48e1b92f5
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: fff73801d20333a6df5e7952d02ed664c17fe40b
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976166"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480615"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>將符號圖層新增至地圖
 
-符號可以連接到資料來源, 並用來在指定的點呈現圖示和/或文字。 符號圖層會使用 WebGL 來轉譯, 而且可以用來呈現地圖上的大型集合。 這一層可以在地圖上轉譯更多的點資料, 而且具有良好的效能, 而不是使用 HTML 標籤來達到的目標。 不過, 符號圖層不支援傳統的 CSS 和 HTML 專案來進行樣式設定。  
+A symbol can be connected up to a data source and used to render an icon and/or text at a given point. Symbol layers are rendered using WebGL and can be used to render large collections of points on the map. This layer can render a lot more point data on the map, with good performance, than what is achievable using HTML markers. However, the symbol layer doesn't support traditional CSS and HTML elements for styling.  
 
 > [!TIP]
-> 根據預設，符號圖層會轉譯資料來源中所有幾何圖形的座標。 若要限制圖層, 使其只轉譯點幾何特徵, `filter`請將圖層的`['==', ['geometry-type'], 'Point']`屬性`['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`設為, 或者, 如果您也想要包含 MultiPoint 功能, 則設定為。
+> 根據預設，符號圖層會轉譯資料來源中所有幾何圖形的座標。 To limit the layer such that it only renders point geometry features set the `filter` property of the layer to `['==', ['geometry-type'], 'Point']` or `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` if you want to include MultiPoint features as well.
+
+The maps image sprite manager, which is used to load custom images used by the symbol layer supports the following image formats:
+
+- JPEG
+- PNG
+- SVG
+- BMP
+- GIF (no animations)
 
 ## <a name="add-a-symbol-layer"></a>新增符號圖層
 
-若要將符號圖層新增至地圖並轉譯資料, 必須先建立資料來源並加入對應。 接著, 您可以在資料來源中建立並傳遞符號層, 以從取得資料。 最後, 您必須將資料加入資料來源中, 以便呈現內容。 下列程式碼顯示的程式碼, 應該在載入之後, 使用符號圖層來轉譯地圖上的單一點之後, 才會加入至地圖中。 
+To add a symbol layer to the map and render data, a data source first needs to be created and added the map. A symbol layer can then be created and passed in the data source to retrieve the data from. Finally, data needs to be added into the data source so that there is something to be rendered. The following code shows the code that should be added to the map after it has loaded to render a single point on the map using a symbol layer. 
 
 ```javascript
 //Create a data source and add it to the map.
@@ -42,14 +50,14 @@ map.layers.add(layer);
 dataSource.add(new atlas.data.Point([0, 0]));
 ```
 
-有四種不同類型的點資料可以新增至地圖:
+There are four different types of point data to that can be added to the map:
 
-- GeoJSON 點幾何-這個物件只包含某個點的座標, 其他則沒有。 `atlas.data.Point` Helper 類別可以用來輕鬆地建立這些物件。
-- GeoJSON MultiPoint geometry-此物件包含多個點的座標, 但不會有任何其他。 `atlas.data.MultiPoint` Helper 類別可以用來輕鬆地建立這些物件。
-- GeoJSON 功能-此物件是由任何 GeoJSON 幾何和一組屬性所組成, 其中包含與幾何相關聯的中繼資料。 `atlas.data.Feature` Helper 類別可以用來輕鬆地建立這些物件。
-- `atlas.Shape`類別與 GeoJSON 功能相似之處在于, 它是由 GeoJSON geometry 和一組屬性所組成, 其中包含與幾何相關聯的中繼資料。 如果 GeoJSON 物件已加入至資料來源, 則可以輕鬆地在圖層中轉譯, 不過, 如果更新該 GeoJSON 物件的座標屬性, 則資料來源和對應不會變更, 因為 JSON 物件中沒有任何機制可觸發更新。 Shape 類別提供用來更新其包含之資料的功能, 而且在進行變更時, 會自動通知和更新資料來源和對應。 
+- GeoJSON Point geometry - This object only contains a coordinate of a point and nothing else. The `atlas.data.Point` helper class can be used to easily create these objects.
+- GeoJSON MultiPoint geometry - This object contains the coordinates of multiple points but nothing else. The `atlas.data.MultiPoint` helper class can be used to easily create these objects.
+- GeoJSON Feature - This object consists of any GeoJSON geometry and a set of properties that contain metadata associated to the geometry. The `atlas.data.Feature` helper class can be used to easily create these objects.
+- `atlas.Shape` class is similar to the GeoJSON feature in that it consists of a GeoJSON geometry and a set of properties that contain metadata associated to the geometry. If a GeoJSON object is added to a data source it can easily be rendered in a layer, however, if the coordinates property of that GeoJSON object is updated, the data source and map don't change as there is no mechanism in the JSON object to trigger an update. The shape class provides functions for updating the data it contains, and when a change is made, the data source and map are automatically notified and updated. 
 
-下列程式碼範例會建立 GeoJSON 點幾何, 並將它傳遞`atlas.Shape`至類別, 以便輕鬆地進行更新。 地圖的中心最初是用來呈現符號。 [Click] 事件會加入至地圖中, 因此當它引發時, 會使用滑鼠按下的座標來搭配 shapes `setCoordinates`函式, 以更新地圖上符號的位置。
+The following code sample creates a GeoJSON Point geometry and passes it into the `atlas.Shape` class to make it easy to update. The center of the map is used initially to render a symbol. A click event is added to the map such that when it fires, the coordinates of where the mouse was clicked are used with the shapes `setCoordinates` function that updates the location of the symbol on the map.
 
 <br/>
 
@@ -57,11 +65,11 @@ dataSource.add(new atlas.data.Point([0, 0]));
 </iframe>
 
 > [!TIP]
-> 根據預設, 對於效能, 符號層會藉由隱藏重迭的符號來優化符號的轉譯。 當您放大隱藏符號時, 就會顯示出來。 若要停用此功能並隨時轉譯所有符號, 請將`allowOverlap` `iconOptions`選項的屬性設定為`true`。
+> By default, for performance, symbol layers optimize the rendering of symbols by hiding symbols that overlap. As you zoom in the hidden symbols become visible. To disable this feature and render all symbols at all times, set the `allowOverlap` property of the `iconOptions` options to `true`.
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>將自訂圖示新增至符號圖層
 
-使用 WebGL 來呈現符號圖層。 所有這類資源 (例如圖示影像) 必須載入 WebGL 內容中。 這個範例示範如何將自訂圖示新增至地圖資源, 然後用它來呈現地圖上具有自訂符號的點資料。 符號圖層的 `textField` 屬性需要指定運算式。 在此情況下, 我們想要轉譯溫度屬性, 但因為它是數位, 所以必須轉換成字串。 此外, 我們想要將 "° F" 附加至該檔案。 運算式可以用來執行此動作;`['concat', ['to-string', ['get', 'temperature']], '°F']`. 
+使用 WebGL 來呈現符號圖層。 所有這類資源 (例如圖示影像) 必須載入 WebGL 內容中。 This sample shows how to add a custom icon to the map resources and then use it to render point data with a custom symbol on the map. 符號圖層的 `textField` 屬性需要指定運算式。 In this case, we want to render the temperature property but since it's a number, it needs to be converted to a string. Additionally we want to append the "°F" to it. An expression can be used to do this; `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 
@@ -69,7 +77,7 @@ dataSource.add(new atlas.data.Point([0, 0]));
 </iframe>
 
 > [!TIP]
-> Azure 地圖服務 web SDK 提供數個可自訂的影像範本, 您可以搭配符號層使用。 如需詳細資訊, 請參閱[如何使用影像範本](how-to-use-image-templates-web-sdk.md)檔。
+> The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. For more infromation, see the [How to use image templates](how-to-use-image-templates-web-sdk.md) document.
 
 ## <a name="customize-a-symbol-layer"></a>自訂符號圖層 
 
@@ -81,7 +89,7 @@ dataSource.add(new atlas.data.Point([0, 0]));
 </iframe>
 
 > [!TIP]
-> 當您只想要使用符號圖層轉譯文字時, 您可以將圖示選項的`image`屬性設為, 以`'none'`隱藏圖示。
+> When you only want to render text with a symbol layer, you can hide the icon by setting the `image` property of the icon options to `'none'`.
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -102,7 +110,7 @@ dataSource.add(new atlas.data.Point([0, 0]));
 請參閱下列文章，以取得更多可新增至地圖的程式碼範例：
 
 > [!div class="nextstepaction"]
-> [建立資料來源](create-data-source-web-sdk.md)
+> [Create a data source](create-data-source-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [新增快顯](map-add-popup.md)
@@ -111,13 +119,13 @@ dataSource.add(new atlas.data.Point([0, 0]));
 > [使用資料驅動樣式運算式](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [如何使用影像範本](how-to-use-image-templates-web-sdk.md)
+> [How to use image templates](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [新增線條圖層](map-add-line-layer.md)
+> [Add a line layer](map-add-line-layer.md)
 
 > [!div class="nextstepaction"]
-> [新增多邊形圖層](map-add-shape.md)
+> [Add a polygon layer](map-add-shape.md)
 
 > [!div class="nextstepaction"]
 > [新增泡泡圖層](map-add-bubble-layer.md)
