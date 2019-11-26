@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 3bc1bfcf58d622151f0af9c6da693c5533bcf966
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9751435636519100ea13fd850508c99faeb87a92
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721603"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133301"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>快速入門：使用 Azure CLI 來啟動 Java Spring 應用程式
 
@@ -146,7 +146,16 @@ az spring-cloud app update -n gateway --is-public true
 az spring-cloud app show --name gateway | grep url
 ```
 
-瀏覽至由上一個命令所提供的 URL，以查看正在執行的 PiggyMetrics 應用程式。
+瀏覽至由上一個命令所提供的 URL，以執行 PiggyMetrics 應用程式。
+    ![正在執行 PiggyMetrics 的螢幕擷取畫面](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
+
+您也可以瀏覽 Azure 入口網站來尋找 URL。 
+1. 瀏覽到服務
+1. 選取**應用程式**
+1. 選取**閘道**
+
+    ![正在執行 PiggyMetrics 的螢幕擷取畫面](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
+1. 在 [閘道概觀]  頁面上尋找 URL ![正在執行 PiggyMetrics 的螢幕擷取畫面](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 ## <a name="next-steps"></a>後續步驟
 

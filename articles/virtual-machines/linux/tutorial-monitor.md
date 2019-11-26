@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 在 Azure 中監視 Linux 虛擬機器 | Microsoft Docs
+title: 教學課程 - 在 Azure 中監視 Linux 虛擬機器
 description: 在本教學課程中，您將了解如何監視在 Linux 虛擬機器上執行的效能和探索到的應用程式元件。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 9c6458eea2b1352e7d13ea6691eac4498182ecd3
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 4d338708b143c88f8f416185e351531e74963bba
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "71679403"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111999"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>教學課程：在 Azure 中監視 Linux 虛擬機器
 
@@ -133,7 +133,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 3. 在 [Insights (預覽)]  頁面上，選取 [立即試用]  。
 
-    ![為 VM 啟用適用於 VM 的 Azure 監視器](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![為 VM 啟用適用於 VM 的 Azure 監視器](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 4. 在 [將 Azure 監視器 Insights 上線]  頁面上，如果您目前在同一個訂用帳戶中有 Log Analytics 工作區，請在下拉式清單中選取它。  
 

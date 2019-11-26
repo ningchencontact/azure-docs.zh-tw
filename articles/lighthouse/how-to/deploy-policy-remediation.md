@@ -1,32 +1,28 @@
 ---
 title: 部署可補救的原則
 description: 了解如何讓客戶在 Azure 委派的資源管理中上線，讓其資源可透過您自己的租用戶來管理。
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
 ms.date: 10/11/2019
-ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 3bc85d202b9ba230130716aad34ce233037a3346
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 4522c9ebad741f5ec0cb7e56e68467312ef8f037
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301954"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463871"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>部署可在委派的訂用帳戶內補救的原則
 
-Azure Lighthouse 可讓服務提供者在委派的訂用帳戶內建立和編輯原則定義。 不過，若要部署使用[補救工作](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources)的原則 (也就是，具有 [deployIfNotExists](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) 或 [modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) 效果的原則)，您必須在客戶租用戶中建立[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。 Azure 原則可以使用此受控識別在原則內部署範本。 當您讓客戶上線進行 Azure 委派資源管理，以及當您部署原則本身時，必須執行下列步驟才能啟用此案例。
+[Azure Lighthouse](../overview.md) allows service providers to create and edit policy definitions within a delegated subscription. 不過，若要部署使用[補救工作](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources)的原則 (也就是，具有 [deployIfNotExists](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) 或 [modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) 效果的原則)，您必須在客戶租用戶中建立[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。 Azure 原則可以使用此受控識別在原則內部署範本。 當您讓客戶上線進行 Azure 委派資源管理，以及當您部署原則本身時，必須執行下列步驟才能啟用此案例。
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>建立可將角色指派給客戶租用戶中受控識別的使用者
 
 當您讓客戶上線進行 Azure 委派資源管理時，您會使用 [Azure Resource Manager 範本](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer#create-an-azure-resource-manager-template)以及 parameters 檔案，該檔案會定義您管理租用戶中將能夠存取客戶租用戶中委派資源的使用者、使用者群組和服務主體。 在您的 parameters 檔案中，每個使用者 (**principalId** ) 都會被指派一個[內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (**roleDefinitionId** )，以定義存取層級。
 
-若要允許 **principalId** 在客戶租用戶中建立受控識別，您必須將其 **roleDefinitionId** 設定為 [使用者存取管理員]  。 雖然此角色通常不受支援，但可在此特定案例中使用，可讓具有此權限的使用者將一個或多個特定內建角色指派給受控識別。 這些角色都定義於 **delegatedRoleDefinitionIds** 屬性中。 除了「使用者存取管理員」或「擁有者」以外，您可以在此包含任何內建角色。
+若要允許 **principalId** 在客戶租用戶中建立受控識別，您必須將其 **roleDefinitionId** 設定為 [使用者存取管理員]。 雖然此角色通常不受支援，但可在此特定案例中使用，可讓具有此權限的使用者將一個或多個特定內建角色指派給受控識別。 這些角色都定義於 **delegatedRoleDefinitionIds** 屬性中。 除了「使用者存取管理員」或「擁有者」以外，您可以在此包含任何內建角色。
 
 客戶上線之後，在此授權中建立的 **principalId** 就能夠將這些內建角色指派給客戶租用戶中的受控識別。 不過，他們不會有任何通常與「使用者存取管理員」角色相關聯的其他權限。
 
-以下範例顯示將具有「使用者存取管理員」角色的 **principalId**。 這位使用者能夠將兩個內建角色指派給客戶租用戶中的受控識別：參與者和記錄分析參與者。
+以下範例顯示將具有「使用者存取管理員」角色的 **principalId**。 This user will be able to assign two built-in roles to managed identities in the customer tenant: Contributor and Log Analytics Contributor.
 
 ```json
 {

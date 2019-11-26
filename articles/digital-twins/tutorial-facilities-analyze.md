@@ -1,5 +1,5 @@
 ---
-title: 教學課程：分析來自 Azure Digital Twins 設定的事件 | Microsoft Docs
+title: 教學課程：分析來自 Azure Digital Twins 設定的事件
 description: 了解如何透過本教學課程中的步驟，使用 Azure 時間序列深入解析對來自 Azure Digital Twins 空間的事件進行視覺化檢視和分析。
 services: digital-twins
 ms.author: alinast
@@ -8,15 +8,15 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/23/2019
-ms.openlocfilehash: af776372026bf9affcda03fa9188b854ebedfc73
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/12/2019
+ms.openlocfilehash: 3df0fa448e320cba6dd3aaba1bb1be09c1a8b49b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949809"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107674"
 ---
-# <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>教學課程：使用時間序列深入解析對來自 Azure Digital Twins 空間的事件進行視覺化檢視和分析
+# <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>教學課程：使用時間序列深入解析對來自 Azure Digital Twins 的事件進行視覺化檢視和分析
 
 在部署 Azure Digital Twins 執行個體、佈建空間並實作自訂函式來監視特定情況後，您便可以對來自空間的事件和資料進行視覺化檢視，以找出其中的趨勢和異常。
 

@@ -1,25 +1,22 @@
 ---
-title: Azure 的保留軟體成本 | Microsoft Docs
+title: Azure 的保留軟體成本
 description: 了解哪些軟體計量不包含在 Azure 保留的 VM 執行個體成本中。
-services: billing
-documentationcenter: ''
 author: yashar
 manager: yashar
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2019
+ms.date: 11/14/2019
 ms.author: banders
-ms.openlocfilehash: e74765ec09fb9cd2d219ceb3d784b4030c83e028
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 82a3dfa9534d58d425b15a433a69a224235e027f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719648"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111544"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>軟體的成本不包括在 Azure 保留的虛擬機器執行個體內
 
@@ -64,7 +61,7 @@ ms.locfileid: "71719648"
 |dc72ee45-2ab7-4698-b435-e2cf10d1f9f6|雲端服務 64 個 vCPU 授權|
 |7a803026-244c-4659-834c-11e6b2d6b76f|雲端服務 80 個 vCPU 授權|
 
-## <a name="rates-for-azure-meters"></a>Azure 計量的費率
+## <a name="get-rates-for-azure-meters"></a>取得 Azure 計量的費率
 
 您可以透過 Azure RateCard API 來取得這些計量中每一個的成本。 如需如何取得 Azure 計量表費率的資訊，請參閱[取得 Azure 訂用帳戶中所使用資源的價格和中繼資料資訊](/previous-versions/azure/reference/mt219004(v=azure.100))。
 

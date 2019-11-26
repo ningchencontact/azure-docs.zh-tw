@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 1db46e8562006e1b60e4f51ca88220aeca5fb2a8
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: b26fa822e17ad7e9444b75d4db516ea2ccf5340b
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687035"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129694"
 ---
 # <a name="what-is-azure-app-configuration"></a>什麼是 Azure 應用程式設定？
 
@@ -30,7 +30,7 @@ Azure 應用程式組態會提供集中管理應用程式設定和功能旗標�
 
 雲端式應用程式通常會在多個區域中的多個虛擬機器或容器上執行，並使用多個外部服務。 建立這類穩固且可調整的分散式應用程式是一項挑戰。
 
-為協助開發人員在建置應用程式時，能處理不斷提高的複雜度，現在有各式各樣的程式設計方法可使用。 例如，12-factor 應用程式會描述許多通過完整測試的架構模式和最佳做法，以搭配雲端應用程式使用。 本指南中的其中一個重要建議就是區隔組態與程式碼。 在此情況下，應用程式的組態設定應該保留在其可執行檔的外部，並從其執行階段環境或外部來源讀入。
+為協助開發人員在建置應用程式時，能處理不斷提高的複雜度，現在有各式各樣的程式設計方法可使用。 例如，[Twelve-Factor App](https://12factor.net/) 會描述許多通過完整測試的架構模式和最佳做法，以搭配雲端應用程式使用。 本指南中的其中一個重要建議就是區隔組態與程式碼。 在此情況下，應用程式的組態設定應該保留在其可執行檔的外部，並從其執行階段環境或外部來源讀入。
 
 任何應用程式都可使用應用程式設定，下列範例是可從中受益的應用程類型：
 

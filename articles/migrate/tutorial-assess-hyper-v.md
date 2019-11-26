@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b93d9ee65850749e79714b632584f1977ca88c81
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 1ff46ec437de671d5804eeb31a5d1fb0284a8946
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639991"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123528"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>使用 Azure Migrate 伺服器評估來評估 Hyper-V VM
 
@@ -35,7 +35,7 @@ ms.locfileid: "69639991"
 > [!NOTE]
 > 教學課程將會針對案例示範最簡單的部署路徑，讓您可以快速設定概念證明。 教學課程會在情況允許時都使用預設選項，且不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱操作說明文章。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -223,7 +223,7 @@ Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com Hyper
     - 即使叢集中的特定主機有問題，您還是可以新增叢集。
 4. 驗證之後，按一下 [儲存並開始探索]  來開始探索程序。
 
-這會開始探索。 所探索到 VM 的中繼資料會在大約 15 分鐘後出現在 Azure 入口網站中。
+這會開始探索。 每部主機大約耗用 1.5 分鐘，讓所探索到伺服器的中繼資料出現在 Azure 入口網站中。 
 
 ### <a name="verify-vms-in-the-portal"></a>在入口網站中確認 VM
 
@@ -263,7 +263,7 @@ Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com Hyper
 
     ![建立評估](./media/tutorial-assess-hyper-v/assessment-create.png)
 
-6. 評量建立好之後，可在 [伺服器]   >  **[Azure Migrate：伺服器評量]** 。
+6. 評量建立好之後，可在 伺服器   > **Azure Migrate：** 。
 7. 按一下 [匯出評估]  ，將其下載為 Excel 檔案。
 
 

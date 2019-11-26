@@ -1,19 +1,19 @@
 ---
-title: Azure IoT Edge 上的 Machine Learning 詳細逐步解說 | Microsoft Docs
+title: 教學課程：Azure IoT Edge 上的 Machine Learning 詳細逐步解說
 description: 這是一個高階教學課程，逐步解說在邊緣情節中建立端對端機器學習所需的各種工作。
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 916e48752431be41ff150c2ac84e66eb1e98e81f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 965c420fa29c4cf82517148c01e17d6d7dd6ea97
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064672"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106502"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>教學課程：使用 Azure Machine Learning 和 IoT Edge 的端對端解決方案
 

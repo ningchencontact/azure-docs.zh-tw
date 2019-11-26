@@ -1,22 +1,22 @@
 ---
-title: 使用 Azure Notebooks (Python) 規劃電動車的路線 | Microsoft Docs
-description: 使用 Azure 地圖服務路線規劃 API 和 Azure Notebooks 來規劃電動車的路線。
+title: 教學課程：使用 Azure Notebooks (Python) 規劃電動車的路線
+description: 教學課程：使用 Azure 地圖服務路線規劃 API 和 Azure Notebooks 來規劃電動車的路線。
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/01/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9cc7fc1ba8c7f55700505ea8fca0dea4f836e333
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 0f5964472b738bd3868bbf361b85fa4ad1f13b5c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243292"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109614"
 ---
-# <a name="route-electric-vehicles-by-using-azure-notebooks-python"></a>使用 Azure Notebooks (Python) 規劃電動車的路線
+# <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>教學課程：使用 Azure Notebooks (Python) 規劃電動車的路線
 
 Azure 地圖服務是以原生方式整合到 Azure 的地理空間服務 API 組合。 透過這些 API，開發人員、企業及 ISV 就能建立定位感知的應用程式和 IoT、行動性、物流及資產追蹤解決方案。 
 
@@ -41,7 +41,7 @@ Azure 地圖服務是以原生方式整合到 Azure 的地理空間服務 API �
 
 若要在 S1 定價層中建立 Azure 地圖服務帳戶訂用帳戶，請遵循[管理 Azure 地圖服務帳戶](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) \(部分機器翻譯\) 中的指示。 
 
-若要取得帳戶的主要訂用帳戶金鑰，請遵循[使用 Azure 地圖服務來搜尋附近景點](./tutorial-search-location.md#getkey)中的指示。
+若要取得帳戶的主要訂用帳戶金鑰，請依照[建立帳戶並取得您的金鑰](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-and-get-your-key)中的指示進行。
 
 ## <a name="create-an-azure-notebook"></a>建立 Azure 筆記本
 
@@ -281,7 +281,7 @@ display(Image(poiRangeMap))
 
 當您決定了可抵達範圍內所有可能的充電站後，您想要知道可在最短的時間內抵達哪個充電站。 
 
-下列指令碼會呼叫 Azure 地圖服務[矩陣路線規劃 API](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview) \(英文\)，其會傳回指定車輛位置前往每個充電站的行車時間和距離。 下一個資料格中的指令碼會剖析回應，以便依時間找到可抵達的最近充電站所在位置。
+下列指令碼會呼叫 Azure 地圖服務[矩陣路線規劃 API](https://docs.microsoft.com/rest/api/maps/route/postroutematrix) \(英文\)，其會傳回指定車輛位置前往每個充電站的行車時間和距離。 下一個資料格中的指令碼會剖析回應，以便依時間找到可抵達的最近充電站所在位置。
 
 若要找出可在最短時間內抵達的最近可抵達充電站，請執行下列資料格中的指令碼：
 
@@ -395,7 +395,7 @@ display(Image(staticMapImage))
 * [Post 幾何內搜尋](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)
 * [資料上傳](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
 * [轉譯 - 取得地圖影像](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Post 路線矩陣](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)
+* [Post 路線矩陣](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [取得路線指示](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
 如需 Azure 地圖服務 REST API 的完整清單，請參閱 [Azure 地圖服務 REST API](https://docs.microsoft.com/azure/azure-maps/#reference) \(部分機器翻譯\)。

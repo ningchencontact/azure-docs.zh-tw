@@ -1,5 +1,5 @@
 ---
-title: 教學課程：擷取來自 Azure Digital Twins 空間的事件 | Microsoft Docs
+title: 教學課程：擷取來自 Azure Digital Twins 空間的事件
 description: 了解如何使用本教學課程中的步驟，藉由整合 Azure Digital Twins 與 Logic Apps，接收來自空間的通知。
 services: digital-twins
 ms.author: alinast
@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/23/2019
-ms.openlocfilehash: 26976956722d77e2dfb8c17734c207b2667c0126
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/12/2019
+ms.openlocfilehash: 545e1757f4f3669957d8f6755cdbd9a2b29513b6
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949168"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129214"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>教學課程：使用 Logic Apps 接收來自 Azure Digital Twins 空間的通知
 
@@ -38,7 +38,7 @@ ms.locfileid: "71949168"
 - 執行中的 Digital Twins 執行個體。
 - 在工作電腦上下載並解壓縮 [Digital Twins C# 範例](https://github.com/Azure-Samples/digital-twins-samples-csharp)。
 - 在開發電腦上安裝 [.NET Core SDK 2.1.403 版或更新版本](https://www.microsoft.com/net/download)，以執行範例。 執行 `dotnet --version` 來確認是否已安裝正確版本。
-- 用來傳送通知電子郵件的 Office 365 帳戶。
+- 用來傳送通知電子郵件的 [Office 365](https://products.office.com/home) 帳戶。
 
 > [!TIP]
 > 如果您要佈建新的執行個體，請使用唯一的 Digital Twins 執行個體名稱。
@@ -63,7 +63,7 @@ ms.locfileid: "71949168"
 
 1. 從資源群組瀏覽至事件方格主題，選取 [概觀]  ，然後將 [主題端點]  的值複製到暫存檔。 您在後續章節中將會用到此 URL。 
 
-1. 選取 [存取金鑰]  ，然後將 **YOUR_KEY_1** 和 **YOUR_KEY_2** 複製到暫存檔。 下一節在建立端點時需要用到這些值。
+1. 選取 [存取金鑰]  ，然後將 [金鑰 1]  和 [金鑰 2]  複製到暫存檔。 下一節在建立端點時需要用到這些值。
 
     [![事件方格金鑰](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
 
@@ -85,9 +85,9 @@ ms.locfileid: "71949168"
       path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. 將預留位置 `<Primary connection string for your Event Grid>` 取代為 **YOUR_KEY_1** 的值。
+1. 將預留位置 `<Primary connection string for your Event Grid>` 替換為 [金鑰 1]  的值。
 
-1. 將預留位置 `<Secondary connection string for your Event Grid>` 取代為 **YOUR_KEY_2** 的值。
+1. 將預留位置 `<Secondary connection string for your Event Grid>` 替換為 [金鑰 2]  的值。
 
 1. 將 **path** 的預留位置替換為事件方格主題的路徑。 若要取得此路徑，請從**主題端點** URL 中移除 **https://** 和尾端的資源路徑。 此路徑的格式應該會類似：*yourEventGridName.yourLocation.eventgrid.azure.net*。
 
@@ -178,7 +178,7 @@ ms.locfileid: "71949168"
 
    a. 選取 [新增動作]  ，然後選取 [Office 365 Outlook]  。
 
-   b. 在 [動作]  的清單中，選取 [傳送電子郵件]  。 選取 [登入]  ，並使用電子郵件帳戶的認證。 如果出現提示，選取 [允許存取]  。
+   b. 在 [動作]  的清單中，選取 [傳送電子郵件 \(V2\)]  。 選取 [登入]  ，並使用電子郵件帳戶的認證。 如果出現提示，選取 [允許存取]  。
 
    c. 在 [收件者]  方塊中，輸入要用來接收通知的電子郵件識別碼。 在 [主旨]  中，輸入文字：**空間中空氣品質不佳的 Digital Twins 通知**。 然後從 [剖析 JSON]  的 [動態內容]  中選取 [TopologyObjectId]  。
 

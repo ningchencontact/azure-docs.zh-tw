@@ -1,19 +1,19 @@
 ---
-title: 設定 IoT Edge 裝置 - Azure IoT Edge 上的 Machine Learning | Microsoft Docs
-description: 將執行 Linux 的 Azure 虛擬機器設定為作為透明閘道的 Azure IoT Edge 裝置。
+title: 教學課程：設定 IoT Edge 裝置 - Azure IoT Edge 上的 Machine Learning
+description: 教學課程：將執行 Linux 的 Azure 虛擬機器設定為作為透明閘道的 Azure IoT Edge 裝置。
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6d8f67cf94e143cd67a525fa2cc675650fb59e65
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 714f0c335e2871fa1afe2f99d08870f0e39c488e
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494025"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113960"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>教學課程：設定 IoT Edge 裝置
 

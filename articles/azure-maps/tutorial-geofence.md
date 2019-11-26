@@ -1,22 +1,22 @@
 ---
-title: 使用 Azure 地圖服務建立地理柵欄 | Microsoft Docs
-description: 使用 Azure 地圖服務設定地理柵欄。
+title: 教學課程：使用 Azure 地圖服務建立地理柵欄
+description: 教學課程：使用 Azure 地圖服務設定地理柵欄。
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 62005546c653796773083eaf625820ab532a8a2c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694916"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107107"
 ---
-# <a name="set-up-a-geofence-by-using-azure-maps"></a>使用 Azure 地圖服務設定地理柵欄
+# <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>教學課程：使用 Azure 地圖服務設定地理柵欄
 
 本教學課程會引導您完成使用 Azure 地圖服務來設定地理柵欄的基本步驟。 我們在本教學課程中所講解的，是協助建築工地主任監視是否有潛在的危險設備移到指定建築區域外的案例。 建築工地會有昂貴的設備，且有嚴格的規範。 一般都會要求設備必須留置於建築工地內，未經許可不得移出。
 

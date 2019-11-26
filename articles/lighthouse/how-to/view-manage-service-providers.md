@@ -1,18 +1,14 @@
 ---
 title: 檢視和管理服務提供者
 description: 客戶可以使用 Azure 入口網站中的 [服務提供者] 頁面，檢視服務提供者、服務提供者供應項目與委派的資源的相關資訊。
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 11/15/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 0a7d39d95e35e30a16ce11db5b942024b6890438
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: baa5a77b481779ab511ff473aacda5d40e0d771c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286605"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132173"
 ---
 # <a name="view-and-manage-service-providers"></a>檢視和管理服務提供者
 
@@ -50,6 +46,12 @@ ms.locfileid: "72286605"
 客戶若要在 [提供者供應項目]  頁面新增服務提供者供應項目，可以選取 [新增供應項目]  。 服務提供者必須已經為此客戶發佈供應項目。 客戶接著可以從 [私人供應項目]  畫面中選取該供應項目，然後選取 [建立]  。
 
 如果客戶想要移除服務提供者供應項目，他們可以選取該供應項目列中的垃圾桶圖示。 確認刪除之後，該服務提供者將無法再存取先前委派給該供應項目的客戶資源。
+
+## <a name="update-service-provider-offers"></a>更新服務提供者供應項目
+
+在客戶新增供應項目之後，服務提供者可能會將相同供應項目的更新版本發佈到 Azure Marketplace。 例如，他們可能會想要新增新的角色定義。 如果已發佈新版本的供應項目，[提供者供應項目]  頁面會在該供應項目的資料列中顯示「更新」圖示。 客戶可以選取此圖示，以查看供應項目目前版本與新版本之間的差異。 
+
+在檢閱變更之後，客戶可以選擇更新至新版本。 一旦他們這麼做，在新版本中指定的授權和其他設定，將會套用至已針對該供應項目委派的任何訂用帳戶和/或資源群組。
 
 ## <a name="view-delegations"></a>檢視委派
 

@@ -1,19 +1,18 @@
 ---
-title: 使用 Azure Site Recovery 服務在 Azure Government 與公用區域之間移動 Azure IaaS VM | Microsoft Docs
-description: 使用 Azure Site Recovery，在 Azure Government 與公用區域之間移動 Azure IaaS VM。
-services: site-recovery
+title: 使用 Azure Site Recovery 在政府和公用區域之間移動 Azure VM
+description: 使用 Azure Site Recovery，在 Azure Government 與公用區域之間移動 Azure VM。
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: bff6268507c0d2ec0aa1eac0c7e2e9d2513ded58
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 2a749e9345fec0e91751641cd15805d7f7d62d95
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376131"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961419"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>在 Azure Government 和公用區域之間移動 Azure VM 
 
@@ -21,7 +20,7 @@ ms.locfileid: "70376131"
 
 除了針對商務持續性和災害復原 (BCDR) 使用 [Azure Site Recovery](site-recovery-overview.md) 服務來管理和協調內部部署電腦和 Azure VM 的災害復原之外，您也可以使用 Site Recovery 來管理將 Azure VM 移到次要區域。       
 
-本教學課程說明如何使用 Azure Site Recovery 在 Azure Government 與公用區域之間移動 Azure VM。 同樣的做法可延伸至在非相同地理叢集內的區域組之間移動 VM。 在本教學課程中，您了解如何：
+本教學課程說明如何使用 Azure Site Recovery 在 Azure Government 與公用區域之間移動 Azure VM。 同樣的做法可延伸至在非相同地理叢集內的區域組之間移動 VM。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 驗證必要條件

@@ -1,7 +1,7 @@
 ---
 title: 快速入門：使用 Bing 拼字檢查 REST API 和 PHP 進行拼字檢查
 titleSuffix: Azure Cognitive Services
-description: 開始使用 Bing 拼字檢查 API 來檢查拼字和文法。
+description: 這個簡單的 PHP 應用程式會將要求傳送至 Bing 拼字檢查 API，並傳回建議的更正清單。
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 15a550321c28703c7bb4d8155ffeb7791eafedc6
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 4437297c99e346209cf1f7a8973ea0f6f81894af
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423492"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110781"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>快速入門：使用 Bing 拼字檢查 REST API 和 PHP 進行拼字檢查
 
-使用本快速入門，第一次呼叫 Bing 拼字檢查 REST API。 這個簡單的 Python 應用程式會將要求傳送至 API，並傳回建議的更正清單。 雖然此應用程式是以 Python 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
+使用本快速入門，第一次呼叫 Bing 拼字檢查 REST API。 這個簡單的 PHP 應用程式會將要求傳送至 API 並傳回建議的修正清單。 雖然此應用程式是以 PHP 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
 ## <a name="prerequisites"></a>必要條件
 

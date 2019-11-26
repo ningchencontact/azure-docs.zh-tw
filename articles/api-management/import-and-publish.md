@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: apimpm
-ms.openlocfilehash: 6a1ae2966e8d5535a5fd9aeffb5ddc3a788f85ee
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bae762b4603b2f5f80447a16671fed4e37e62b95
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072111"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108533"
 ---
 # <a name="import-and-publish-your-first-api"></a>匯入和發佈您的第一個 API 
 
@@ -26,7 +26,7 @@ ms.locfileid: "70072111"
 
 一旦將此後端 API 匯入至 API 管理 (APIM)，APIM API 就會變成適用於此後端 API 的外觀。 當您匯入此後端 API 時，來源 API 和 APIM API 會完全相同。 APIM 可讓您根據需求自訂外觀，而不需碰觸到後端 API。 如需詳細資訊，請參閱[轉換及保護您的 API](transform-api.md)。 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 匯入第一個 API
@@ -75,7 +75,7 @@ ms.locfileid: "70072111"
 > [!TIP]
 > 如果您在匯入自己的 API 定義時發生問題，請[查看已知問題和限制的清單](api-management-api-import-restrictions.md)。
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>在 Azure 入口網站中測試新的 APIM API
+## <a name="test-the-new-api-in-the-azure-portal"></a>在 Azure 入口網站中測試新的 API
 
 ![測試 API 對應](./media/api-management-get-started/01-import-first-api-01.png)
 
@@ -88,23 +88,6 @@ ms.locfileid: "70072111"
 
     後端會回應 **200 確定**與部分資料。
 
-## <a name="call-operation"> </a>從開發人員入口網站呼叫作業
-
-您也可以從**開發人員入口網站**呼叫作業來測試 API。
-
-1. 瀏覽至**開發人員入口網站**。
-
-    ![開發人員入口網站](./media/api-management-get-started/developer-portal.png)
-
-2. 選取 [APIS]  ，按一下 [Demo Conference API]  ，然後按一下 [GetSpeakers]  。
-
-    此頁面會顯示查詢參數的欄位 (在此案例中沒有此欄位) 和標頭。 其中一個標頭是 "Ocp-Apim-Subscription-Key"，它適用於與此 API 相關聯之產品的訂用帳戶金鑰。 如果您建立了 APIM 執行個體，您就已經是系統管理員，因此會自動填入此金鑰。
-
-3. 按 [試試看]  。
-4. 按 [傳送]  。
-
-    叫用作業之後，開發人員入口網站就會顯示回應。  
-
 ## <a name="next-steps"> </a>後續步驟
 
 在本教學課程中，您已了解如何：
@@ -112,7 +95,6 @@ ms.locfileid: "70072111"
 > [!div class="checklist"]
 > * 匯入第一個 API
 > * 在 Azure 入口網站中測試 API
-> * 在開發人員入口網站中測試 API
 
 前進到下一個教學課程：
 

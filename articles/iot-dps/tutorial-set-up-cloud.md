@@ -1,22 +1,21 @@
 ---
-title: 在入口網站中為雲端設定 Azure IoT 中樞裝置佈建服務 | Microsoft Docs
-description: 在 Azure 入口網站中自動進行 IoT 中樞裝置佈建
+title: 教學課程：在入口網站中為雲端設定 Azure IoT 中樞裝置佈建服務
+description: 教學課程：使用 IoT 中樞裝置佈建服務 (DPS)，在 [Azure 入口網站](https://portal.azure.com)中設定雲端資源以進行裝置佈建
 author: wesmc7777
 ms.author: wesmc
-ms.date: 09/05/2017
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 41689b7596c9da350a9e0fec619e49d332a36d5b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e91627f934357cd67965ea8880db37ff9bfb3fb2
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826186"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112802"
 ---
-# <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>設定雲端資源以使用 IoT 中樞裝置佈建服務來佈建裝置
+# <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>教學課程：設定雲端資源以使用 IoT 中樞裝置佈建服務來佈建裝置
 
 本教學課程會示範如何使用 IoT 中樞裝置佈建服務來為雲端設定自動裝置佈建功能。 在本教學課程中，您會了解如何：
 
@@ -48,7 +47,7 @@ ms.locfileid: "73826186"
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **名稱** | 任何唯一的名稱 | -- | 
    | **訂用帳戶** | 您的訂用帳戶  | 如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
-   | **資源群組** | myResourceGroup | 如需有效的資源群組名稱，請參閱[命名規則和限制](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。 |
+   | **資源群組** | myResourceGroup | 如需有效的資源群組名稱，請參閱[命名規則和限制](/azure/architecture/best-practices/resource-naming)。 |
    | **位置** | 任何有效位置 | 如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 |   
 
    ![在入口網站中輸入關於裝置佈建服務的基本資訊](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)

@@ -1,5 +1,5 @@
 ---
-title: 快速入門：在 Windows 上執行語音裝置 SDK - 語音服務
+title: 快速入門：在 Windows 上執行語音裝置 SDK
 titleSuffix: Azure Cognitive Services
 description: 開始使用 Windows 語音裝置 SDK 的先決條件和指示。
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/10/2019
+ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: b1f23ffac26cb48493f013290654189162861a27
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e4da99d895ba7a6d9ce537ab513ce4cc248aff7a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468733"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111680"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>快速入門：在 Windows 上執行語音裝置 SDK 範例應用程式
 
-在本快速入門中，您將了解如何使用適用於 Windows 的語音裝置 SDK 建置具備語音功能的產品，或使用它作為[交談轉譯](conversation-transcription-service.md)裝置。 目前僅支援 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)。
+在本快速入門中，您將了解如何使用適用於 Windows 的語音裝置 SDK 建置具備語音功能的產品，或使用它作為[交談轉譯](conversation-transcription-service.md)裝置。 針對對話轉譯，只支援 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)。 針對其他語音，支援使用提供麥克風陣列幾何的線性麥克風陣列。
 
 此應用程式是使用語音 SDK 套件，以及 64 位元 Windows 上的 Eclipse Java IDE (v4.8) 來建置。 它會在 64 位元 Java 8 Runtime Environment (JRE) 上執行。
 
@@ -32,7 +32,7 @@ ms.locfileid: "73468733"
 本快速入門需要：
 
 * 作業系統：64 位元 Windows
-* [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
+* 麥克風陣列，例如 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)。
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/) \(英文\)
 * 僅限 [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 或 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)。
 * [Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
@@ -65,6 +65,29 @@ ms.locfileid: "73468733"
 
    ![套件總管的螢幕擷取畫面](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
+1. 開啟 pom.xml 檔案並加以編輯。
+
+    在檔案結尾的結尾標記 `</project>` 前面，建立 `repositories` 和 `dependencies` 元素，並確定 `version` 符合您目前的版本：
+    ```xml    
+    <repositories>
+         <repository>
+             <id>maven-cognitiveservices-speech</id>
+             <name>Microsoft Cognitive Services Speech Maven Repository</name>
+             <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+         </repository>
+    </repositories>
+ 
+    <dependencies>
+        <dependency>
+             <groupId>com.microsoft.cognitiveservices.speech</groupId>
+             <artifactId>client-sdk</artifactId>
+             <version>1.7.0</version>
+        </dependency>
+    </dependencies>
+   ```
+
+1. 將 **Windows-x64** 的內容複製到 Java 專案位置，例如 **C:\SDSDK\JRE-Sample-Release**
+
 1. 將`kws.table`、`participants.properties` 及 `Microsoft.CognitiveServices.Speech.extension.pma.dll`複製到專案資料夾 **target\classes**
 
 ## <a name="configure-the-sample-application"></a>設定範例應用程式
@@ -82,27 +105,25 @@ ms.locfileid: "73468733"
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    如果您使用交談轉譯，`Cts.java` 中也需要有您的語音金鑰和區域資訊：
+   如果您使用交談轉譯，`Cts.java` 中也需要有您的語音金鑰和區域資訊：
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
-    ```
+   ```
 
-1. 預設關鍵字是 "Computer"。 您也可以嘗試其中一個其他提供的關鍵字，例如 "Machine" 或 "Assistant"。 這些替代關鍵字的資源檔位於語音裝置 SDK 的 [keyword] 資料夾中。 例如，`C:\SDSDK\JRE-Sample-Release\keyword\Computer` 包含用於關鍵字 "Computer" 的檔案。
+1. 預設關鍵字是「Computer」。 您也可以嘗試其中一個其他提供的關鍵字，例如「Machine」或「Assistant」。 這些替代關鍵字的資源檔位於語音裝置 SDK 的 [keyword] 資料夾中。 例如，`C:\SDSDK\JRE-Sample-Release\keyword\Computer` 包含用於關鍵字「Computer」的檔案。
 
-   > [!TIP]
-   > 您也可以[建立自訂關鍵字](speech-devices-sdk-create-kws.md)。
+    > [!TIP]
+    > 您也可以[建立自訂關鍵字](speech-devices-sdk-create-kws.md)。
 
-    若要使用新的關鍵字，請更新 `FunctionsList.java` 中的下列兩行，並將關鍵字套件複製到您的應用程式。 例如，若要使用來自關鍵字套件 `kws-machine.zip` 的關鍵字 'Machine'：
+    若要使用新的關鍵字，請更新 `FunctionsList.java` 中的下列行，並將關鍵字複製到您的應用程式。 例如，若要使用來自關鍵字套件 `machine.zip` 的關鍵字「Machine」：
 
-   * 將關鍵字套件複製到專案資料夾 **target/classes** 中。
-
-   * 以關鍵字和套件名稱更新 `FunctionsList.java`：
+   * 將 `kws.table` 檔案從 zip 套件複製到專案資料夾 **target/classes**。
+   * 使用關鍵字名稱更新 `FunctionsList.java`：
 
      ```java
      private static final String Keyword = "Machine";
-     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
 ## <a name="run-the-sample-application-from-eclipse"></a>從 Eclipse 執行範例應用程式
@@ -121,23 +142,23 @@ ms.locfileid: "73468733"
 
 ## <a name="create-and-run-a-standalone-application"></a>建立及執行獨立應用程式
 
-1. 在 [套件總管]  中，以滑鼠右鍵按一下您的專案。 選擇 [匯出]  。 
+1. 在 [套件總管]  中，以滑鼠右鍵按一下您的專案。 選擇 [匯出]  。
 
 1. [匯出]  視窗隨即出現。 展開 [Java]  ，然後選取 [可執行的 JAR 檔案]  ，然後選取 [下一步]  。
 
-   ![[匯出] 視窗的螢幕擷取畫面](media/speech-devices-sdk/eclipse-export-windows.png) 
+   ![[匯出] 視窗的螢幕擷取畫面](media/speech-devices-sdk/eclipse-export-windows.png)
 
 1. [可執行的 JAR 檔案匯出]  視窗隨即出現。 選擇應用程式的 [匯出目的地]  ，然後選取 [完成]  。
- 
+
    ![可執行的 JAR 檔案匯出的螢幕擷取畫面](media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
 1. 請將 `kws.table`、`participants.properties`、`unimic_runtime.dll`、`pma.dll` 和 `Microsoft.CognitiveServices.Speech.extension.pma.dll` 放入上面所選的目的地資料夾，因為應用程式需要這些檔案。
 
 1. 執行獨立應用程式
 
-     ```powershell
-     java -jar SpeechDemo.jar
-     ```
+   ```powershell
+   java -jar SpeechDemo.jar
+   ```
 
 ## <a name="next-steps"></a>後續步驟
 

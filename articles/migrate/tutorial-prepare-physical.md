@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/07/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: df425f723aa6a5e261ed6dcd15abfe87b367ad68
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 176dfdabeee6299bba0eb17085be25ced3e97993
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747965"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091908"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>準備評估實體伺服器並將其移轉至 Azure
 
@@ -99,25 +99,25 @@ ms.locfileid: "73747965"
 
 ### <a name="verify-physical-server-settings"></a>確認實體伺服器設定
 
-1. 確認伺服器評量的[實體伺服器需求](migrate-support-matrix-hyper-v.md#assessment-hyper-v-host-requirements)。
-2. 確定已在實體伺服器上開啟[必要的連接埠](migrate-support-matrix-hyper-v.md#assessment-port-requirements)。
+1. 確認伺服器評量的[實體伺服器需求](migrate-support-matrix-physical.md#assessment-physical-server-requirements)。
+2. 確定已在實體伺服器上開啟[必要的連接埠](migrate-support-matrix-physical.md#assessment-port-requirements)。
 
 
 ### <a name="verify-appliance-settings"></a>確認設備設定
 
 在下一個教學課程中設定 Azure Migrate 設備並開始進行評量之前，請先準備設備部署。
 
-1. [確認](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements)設備需求。
-2. [檢閱](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access)設備需要存取的 Azure URL。
+1. [確認](migrate-support-matrix-physical.md#assessment-appliance-requirements)設備需求。
+2. [檢閱](migrate-support-matrix-physical.md#assessment-appliance-url-access)設備需要存取的 Azure URL。
 3. 檢閱設備將在探索和評量期間收集的資料。
-4. [注意](migrate-support-matrix-hyper-v.md#assessment-port-requirements)設備的連接埠存取需求。
+4. [注意](migrate-support-matrix-physical.md#assessment-port-requirements)設備的連接埠存取需求。
 
 
 ### <a name="set-up-an-account-for-physical-server-discovery"></a>設定用於實體伺服器探索的帳戶
 
 Azure Migrate 需要探索內部部署伺服器的權限。
 
-- **Windows：** 在要包含在探索中的所有 Windows 伺服器上，設定本機使用者帳戶。這個使用者帳戶必須新增至下列群組：       - 遠端桌面使用者       - 效能監視器使用者       - 效能記錄使用者
+- **Windows：** 在要包含在探索中的所有 Windows 伺服器上，設定本機使用者帳戶。這個使用者帳戶必須新增至下列群組：       - 遠端管理使用者       - 效能監視器使用者       - 效能記錄使用者
 - **Linux：** 您在要探索的 Linux 伺服器上必須要有根帳戶。
 
 

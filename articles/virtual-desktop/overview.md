@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 058cf516fd8d10cef1e1c93e5493f8c19bdc679d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 4db9e1e812390f173da89a508c1dbc6782f4454f
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607490"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74119992"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>什麼是 Windows 虛擬桌面？ 
 
@@ -73,11 +73,9 @@ Windows 虛擬桌面是可以在雲端執行的桌面與應用程式虛擬化服
 您的基礎結構需要下列項目才能支援 Windows 虛擬桌面：
 
 * [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
-* 與 Azure Active Directory 同步的 Windows Server Active Directory。 這可透過以下項目啟用：
-  * Azure AD Connect
-  * Azure AD 網域服務
-     >[!NOTE]
-     >如果您使用 Azure AD Domain Services，您的使用者就必須來自 Azure Active Directory。 目前不支援與來自 Windows Server AD 的使用者搭配使用 Azure AD Domain Services。
+* 與 Azure Active Directory 同步的 Windows Server Active Directory。 您可以使用下列其中一項來進行設定：
+  * Azure AD Connect (適用於混合式組織)
+  * Azure AD Domain Services (適用於混合式雲端組織)
 * Azure 訂用帳戶，含有包含或已連線到 Windows Server Active Directory 的虛擬網路
   
 您為 Windows 虛擬桌面建立的 Azure 虛擬機器必須：
@@ -100,7 +98,7 @@ Windows 虛擬桌面是可以在雲端執行的桌面與應用程式虛擬化服
 >[!NOTE]
 >對於可靠的 Windows 虛擬桌面部署而言，開啟這些 URL 是不可或缺的。 不支援封鎖這些 URL 的存取，而且會影響服務功能。 這些 URL 僅對應於 Windows 虛擬桌面的網站和資源，並不包含其他服務 (例如 Azure AD) 的 URL。
 
-Windows 虛擬桌面包含您交付給使用者的 Windows 桌面與應用程式，以及由 Microsoft 在 Azure 上裝載為服務的管理解決方案。 桌面和應用程式都可以部署在任何 Azure 區域的虛擬機器 (VM) 中，而這些 VM 的管理解決方案和資料都會位於美國 (美國東部 2 區域)。 這可能會導致資料轉送到美國。
+Windows 虛擬桌面包含您交付給使用者的 Windows 桌面與應用程式，以及由 Microsoft 在 Azure 上裝載為服務的管理解決方案。 桌面和應用程式都可以部署在任何 Azure 區域的虛擬機器 (VM) 中，而這些 VM 的管理解決方案和資料都會位於美國。 這可能會導致資料轉送到美國。
 
 為了達到最佳效能，請確定您的網路符合下列需求：
 
@@ -117,14 +115,16 @@ Windows 虛擬桌面包含您交付給使用者的 Windows 桌面與應用程式
 
 ## <a name="supported-virtual-machine-os-images"></a>支援的虛擬機器 OS 映像
 
-Windows 虛擬桌面支援下列 OS 映像：
+Windows 虛擬桌面支援下列 x64 作業系統映像：
 
-* Windows 10 企業版的多重工作階段
-* Windows 10 企業版
+* Windows 10 企業版的多重工作階段，1809 版或更新版本
+* Windows 10 企業版，1809 版或更新版本
 * Windows 7 企業版
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
+
+Windows 虛擬桌面不支援 x86 (32 位元) 作業系統映像。
 
 可用的自動化和部署選項取決於您所選的作業系統和版本，如下表所示： 
 

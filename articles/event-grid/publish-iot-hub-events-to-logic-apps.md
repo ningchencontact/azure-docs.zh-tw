@@ -1,6 +1,6 @@
 ---
-title: 使用 IoT 中樞事件來觸發 Azure Logic Apps | Microsoft Docs
-description: 使用 Azure Event Grid 的事件路由服務，建立自動化程序以根據 IoT 中樞事件執行 Azure Logic Apps 動作。
+title: 教學課程：使用 IoT 中樞事件來觸發 Azure Logic Apps
+description: 教學課程：使用 Azure Event Grid 的事件路由服務，建立自動化程序以根據 IoT 中樞事件執行 Azure Logic Apps 動作。
 services: iot-hub
 documentationcenter: ''
 author: kgremban
@@ -10,14 +10,14 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 11/11/2019
 ms.author: kgremban
-ms.openlocfilehash: 9c84e1a62ad8b67e398c62074c390711f4b0be28
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e003cb650b0589ab43c984850838c56cbbf1ff2f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079992"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106769"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>教學課程：使用 Logic Apps 來傳送 Azure IoT 中樞事件的相關電子郵件通知
 
@@ -37,31 +37,31 @@ Azure Event Grid 可讓您在下游商務應用程式中觸發動作，進而回
 
 ### <a name="create-a-logic-app-resource"></a>建立邏輯應用程式資源
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源] > [整合] > [邏輯應用程式]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源]   > [整合]   > [邏輯應用程式]  。
 
    ![建立邏輯應用程式](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
 2. 在訂用帳戶中為邏輯應用程式指定唯一的名稱，然後選取與您的 IoT 中樞相同的訂用帳戶、資源群組和位置。 
-3. 選取 [建立] 。
+3. 選取 [建立]  。
 
 4. 建立資源後，請瀏覽到您的邏輯應用程式。 
 
-5. Logic Apps 設計工具會顯示常見模式的範本，以便您更快開始使用。 在 [範本] 下的 [邏輯應用程式設計工具] 中，選擇 [空白邏輯應用程式]，以便從頭建置邏輯應用程式。
+5. Logic Apps 設計工具會顯示常見模式的範本，以便您更快開始使用。 在 [範本]  下的 [邏輯應用程式設計工具] 中，選擇 [空白邏輯應用程式]  ，以便從頭建置邏輯應用程式。
 
 ### <a name="select-a-trigger"></a>選取觸發程序
 
 觸發程序是啟動邏輯應用程式的特定事件。 在本教學課程中，啟動工作流程的觸發程序會透過 HTTP 接收要求。  
 
 1. 在連接器和觸發程序搜尋列中，輸入 **HTTP**。
-2. 選取 [要求 - 收到 HTTP 要求時] 作為觸發程序。 
+2. 選取 [要求 - 收到 HTTP 要求時]  作為觸發程序。 
 
    ![選取 HTTP 要求觸發程序](./media/publish-iot-hub-events-to-logic-apps/http-request-trigger.png)
 
-3. 選取 [使用範例承載來產生結構描述]。 
+3. 選取 [使用範例承載來產生結構描述]  。 
 
    ![選取 HTTP 要求觸發程序](./media/publish-iot-hub-events-to-logic-apps/sample-payload.png)
 
-4. 將下列 JSON 程式碼範例貼到文字方塊中，然後選取 [完成]：
+4. 將下列 JSON 程式碼範例貼到文字方塊中，然後選取 [完成]  ：
 
    ```json
    [{
@@ -115,7 +115,7 @@ Azure Event Grid 可讓您在下游商務應用程式中觸發動作，進而回
 
 動作是在觸發程序啟動邏輯應用程式工作流程之後發生的任何步驟。 在本教學課程中，從電子郵件提供者傳送電子郵件通知就是一個動作。 
 
-1. 選取 [新增步驟]。 這會開啟 [選擇動作] 的視窗。
+1. 選取 [新增步驟]  。 這會開啟 [選擇動作]  的視窗。
 
 2. 搜尋**電子郵件**。
 
@@ -123,7 +123,7 @@ Azure Event Grid 可讓您在下游商務應用程式中觸發動作，進而回
 
    ![選取電子郵件提供者連接器](./media/publish-iot-hub-events-to-logic-apps/o365-outlook.png)
 
-4. 選取 [傳送電子郵件] 動作。 
+4. 選取 [傳送電子郵件]  動作。 
 
 5. 如果出現提示，請登入您的電子郵件帳戶。 
 
@@ -141,8 +141,8 @@ Azure Event Grid 可讓您在下游商務應用程式中觸發動作，進而回
 
 離開 Logic Apps 設計工具之前，為觸發程序複製邏輯應用程式正在接聽的 URL。 您可以使用此 URL 來設定 Event Grid。 
 
-1. 按一下以展開 [收到 HTTP 要求時] 觸發程序設定方塊。 
-2. 選取 [HTTP POST URL] 旁的複製按鈕來複製其值。 
+1. 按一下以展開 [收到 HTTP 要求時]  觸發程序設定方塊。 
+2. 選取 [HTTP POST URL]  旁的複製按鈕來複製其值。 
 
    ![複製 HTTP POST URL](./media/publish-iot-hub-events-to-logic-apps/copy-url.png)
 
@@ -153,43 +153,43 @@ Azure Event Grid 可讓您在下游商務應用程式中觸發動作，進而回
 在本節中，您可將 IoT 中樞設定為在事件發生時進行發佈。 
 
 1. 在 Azure 入口網站中，瀏覽至您的 IoT 中樞。 
-2. 選取 [事件]。
+2. 選取 [事件]  。
 
    ![開啟 Event Grid 詳細資料](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
 
-3. 選取 [事件訂用帳戶]。 
+3. 選取 [事件訂用帳戶]  。 
 
    ![建立新的事件訂用帳戶](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. 使用下列值來建立事件訂用帳戶： 
-   * **事件類型**：取消核取 [訂閱所有事件類型]，然後從功能表中選取 [裝置已建立]。
-   * **端點詳細資料**：選取 [Web Hook] 作為 [端點類型]，然後點選端點，再貼上您從邏輯應用程式複製的 URL，並確認您的選取。
+   * **事件類型**：取消核取 [訂閱所有事件類型]，然後從功能表中選取 [裝置已建立]  。
+   * **端點詳細資料**：選取 [Web Hook]  作為 [端點類型]，然後點選端點，再貼上您從邏輯應用程式複製的 URL，並確認您的選取。
 
      ![選取端點 URL](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-   * **事件訂用帳戶詳細資料**：提供描述性的名稱，然後選取 [事件方格結構描述]。
+   * **事件訂用帳戶詳細資料**：提供描述性的名稱，然後選取 [事件方格結構描述]  。
 
    當您完成時，表單看起來應如下列範例所示： 
 
     ![事件訂用帳戶表單範例](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
-5. 您可以在這裡儲存事件訂用帳戶，並接收在 IoT 中樞內建立之每個裝置的通知。 但在此教學課程中，我們可使用選用欄位來篩選特定裝置。 選取表單頂端的 [其他功能]。 
+5. 您可以在這裡儲存事件訂用帳戶，並接收在 IoT 中樞內建立之每個裝置的通知。 但在此教學課程中，我們可使用選用欄位來篩選特定裝置。 選取表單頂端的 [其他功能]  。 
 
 6. 建立下列篩選條件：
 
    * **主旨開頭為**：輸入 `devices/Building1_` 以篩選建築物 1 中的裝置事件。
    * **主旨結尾為**：輸入 `_Temperature` 以篩選與溫度相關的裝置事件。
 
-5. 選取 [建立] 以儲存事件訂用帳戶。
+5. 選取 [建立]  以儲存事件訂用帳戶。
 
 ## <a name="create-a-new-device"></a>建立新的裝置
 
 建立新裝置來觸發事件通知電子郵件，從而測試應用程式邏輯。 
 
-1. 從您的 IoT 中樞，選取 [IoT 裝置]。 
-2. 選取 [新增] 。
-3. 在 [裝置識別碼] 中，輸入 `Building1_Floor1_Room1_Temperature`。
-4. 選取 [ **儲存**]。 
+1. 從您的 IoT 中樞，選取 [IoT 裝置]  。 
+2. 選取 [新增]  。
+3. 在 [裝置識別碼]  中，輸入 `Building1_Floor1_Room1_Temperature`。
+4. 選取 [儲存]  。 
 5. 您可以使用不同的裝置識別碼來新增多個裝置，以便測試事件訂用帳戶篩選條件。 請嘗試下列範例： 
    * Building1_Floor1_Room1_Light
    * Building1_Floor2_Room2_Temperature
@@ -209,18 +209,18 @@ Azure Event Grid 可讓您在下游商務應用程式中觸發動作，進而回
 如果不想遺失您在應用程式邏輯上所做的工作，請將它停用，而非刪除它。 
 
 1. 瀏覽至您的邏輯應用程式。
-2. 在 [概觀] 刀鋒視窗上選取 [刪除]或 [停用]。 
+2. 在 [概觀]  刀鋒視窗上選取 [刪除]  或 [停用]  。 
 
 每個訂用帳戶都可以有一個免費的 IoT 中樞。 如果您為本教學課程建立了免費中樞，則不必為了避免費用而將它刪除。
 
 1. 瀏覽至您的 IoT 中樞。 
-2. 在 [概觀] 刀鋒視窗上選取 [刪除]。 
+2. 在 [概觀]  刀鋒視窗上選取 [刪除]  。 
 
 即使要保留 IoT 中樞，您也可以刪除您所建立的事件訂用帳戶。 
 
-1. 在 IoT 中樞中，選取 [Event Grid]。
+1. 在 IoT 中樞中，選取 [Event Grid]  。
 2. 選取您想要移除的事件訂用帳戶。 
-3. 選取 [刪除] 。 
+3. 選取 [刪除]  。 
 
 ## <a name="next-steps"></a>後續步驟
 

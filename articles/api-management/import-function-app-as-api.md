@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 7e9215d7250628ed9177e097d127a1554a1f0ea0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0c4a95669eea1b98baea5f9a866598e000c0923c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073341"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107856"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>在 Azure API 管理中匯入 Azure 函式應用程式作為 API
 
@@ -142,7 +142,7 @@ Azure API 管理支援將 Azure 函式應用程式匯入為新的 API，或將�
 
 ![從函式應用程式新增](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-in-azure-portal"></a>在 Azure 入口網站中測試新的 API 管理 API
+## <a name="test-in-azure-portal"></a>在 Azure 入口網站中測試新的 API
 
 您可以直接從 Azure 入口網站呼叫作業。 使用 Azure 入口網站可方便您檢視和測試 API 的作業。  
 
@@ -157,26 +157,6 @@ Azure API 管理支援將 Azure 函式應用程式匯入為新的 API，或將�
 4. 選取 [傳送]  。
 
     後端會回應 **200 確定**與部分資料。
-
-## <a name="test-in-developer-portal"></a>從開發人員入口網站呼叫作業
-
-您也可以從開發人員入口網站呼叫作業，以測試 API。 
-
-1. 選取您在「匯入和發佈後端 API」 中建立的 API。
-
-2. 選取 [開發人員入口網站]  。
-
-    開發人員入口網站隨即開啟。
-
-3. 選取您所建立的 **API**。
-
-4. 選取您要測試的作業。
-
-5. 選取 [試試看]  。
-
-6. 選取 [傳送]  。
-    
-    叫用作業之後，開發人員入口網站會顯示 [回應狀態]  、[回應標頭]  ，以及任何的 [回應內容]  。
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Python 教學課程：在 AI 擴充管線中呼叫認知服務
+title: 教學課程：使用 REST API 在 Python 中建立技能集
 titleSuffix: Azure Cognitive Search
 description: 逐步說明使用 Jupyter Python 筆記本在 Azure 認知搜尋中進行資料擷取、自然語言和影像 AI 處理的範例。 擷取的資料會編製索引，而且可透過查詢輕鬆存取。
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: bb36ae551c48fc53756933e78ff0212f8ec1cdeb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1e404998c8f49852248a754e7134f439dcdf5b04
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790211"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113671"
 ---
-# <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-enrichment-pipeline"></a>Python 教學課程：在 Azure 認知搜尋擴充管線中呼叫認知服務 API
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>教學課程：使用 REST 和 Python 建立 AI 擴充管線
 
 在本教學課程中，您將了解在 Azure 認知搜尋中使用*認知技能*進行資料擴充程式設計的機制。 技能會受到自然語言處理 (NLP) 與認知服務中的映像分析功能所支援。 透過技能組合和設定，您可以擷取文字，以及映像或所掃描文件檔案的文字表示法。 您也可以偵測語言、實體、關鍵片語等。 其結果是，會以索引編製管線中的 AI 擴充資料在搜尋索引中建立豐富的額外內容。 
 

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: bc8b834e0dd128457910c46cc1a62382bbc28ee1
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 39a249fb75249505189e2af4872c3a3f61ebe2af
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721563"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133246"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站來啟動 Azure Spring Cloud 應用程式
 
@@ -56,14 +56,16 @@ az extension add --name spring-cloud
 
 1. 在網頁瀏覽器中，開啟 [Azure 入口網站中 Azure Spring Cloud 的這個連結](https://ms.portal.azure.com/#create/Microsoft.AppPlatform)。
 
-1. 選取 [Azure Spring Cloud]  以移至 [概觀] 頁面。 選取 [建立]  按鈕以開始使用。
-
-1. 填寫表單，並考慮下列指導方針：
+1. 填寫 Azure Spring Cloud [建立]  頁面上的表單。  請參考下列指引：
     - 服務名稱：指定您服務執行個體的名稱。  名稱長度必須為 4 到 32 個字元，且只能包含小寫字母、數字及連字號。  服務名稱的第一個字元必須是字母，且最後一個字元必須是字母或數字。
     - 訂用帳戶：選取您想要用來支付此資源費用的訂用帳戶。  請確定此訂用帳戶已新增至我們的 Azure Spring Cloud 允許清單。
     - 資源群組：為新資源建立新資源群組是最佳做法。
     - 位置：選取您服務執行個體的位置。 目前支援的位置包括美國東部、美國西部 2、歐洲西部和東南亞。
-    
+
+1. 按一下 [檢閱及建立]  。
+
+1. 確認規格，然後按一下 [建立]  。
+
 部署服務需要約 5 分鐘。  一旦部署之後，服務執行個體的 [概觀]  頁面隨即出現。
 
 ## <a name="set-up-your-configuration-server"></a>設定您的設定伺服器
@@ -72,7 +74,7 @@ az extension add --name spring-cloud
 
 1. 在 [預設存放庫]  區段中，將 [URI]  設定為 "https\://github.com/Azure-Samples/piggymetrics"、將 [標籤]  設定為 "config"，然後選取 [套用]  以儲存變更。
 
-    ![ASC 入口網站的螢幕擷取畫面](media/spring-cloud-tutorial-config-server/portal-config-server.png)
+    ![ASC 入口網站的螢幕擷取畫面](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>建置並部署微服務應用程式
 

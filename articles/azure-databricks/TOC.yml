@@ -226,7 +226,7 @@
       maintainContext: true
     - name: 資料
       items:
-        - name: Databricks 檔案系統
+        - name: Databricks 檔案系統 (DBFS)
           href: /azure/databricks/data/databricks-file-system
           maintainContext: true
         - name: 資料庫與資料表
@@ -242,7 +242,7 @@
             - name: 使用 JDBC 的 SQL 資料庫
               href: /azure/databricks/data/data-sources/sql-databases
               maintainContext: true
-            - name: 使用 Apache Spark 連接器的 Azure SQL Database
+            - name: 使用 Apache Spark 連接器的 SQL 資料庫
               href: /azure/databricks/data/data-sources/sql-databases-azure
               maintainContext: true
             - name: Azure Blob 儲存體
@@ -254,7 +254,7 @@
             - name: Azure Data Lake 儲存體
               href: /azure/databricks/data/data-sources/azure/azure-datalake
               maintainContext: true
-            - name: Azure Data Lake Storage 通道
+            - name: Azure Data Lake Storage 認證通道
               href: /azure/databricks/data/data-sources/azure/adls-passthrough
               maintainContext: true
             - name: Cosmos DB
@@ -629,10 +629,10 @@
               maintainContext: true
         - name: Spark SQL 範例
           items:
-            - name: 以成本為基礎的最佳化工具
+            - name: 成本型最佳化工具
               href: /azure/databricks/spark/latest/spark-sql/cbo
               maintainContext: true
-            - name: 資料略過索引
+            - name: 資料跳過索引
               href: /azure/databricks/spark/latest/spark-sql/dataskipping-index
               maintainContext: true
             - name: 使用 DBIO 對雲端儲存空間進行交易式寫入
@@ -641,7 +641,7 @@
             - name: 處理錯誤的記錄和檔案
               href: /azure/databricks/spark/latest/spark-sql/handling-bad-records
               maintainContext: true
-            - name: 用於高度並行的工作優先占用
+            - name: 用於高度並行的工作
               href: /azure/databricks/spark/latest/spark-sql/preemption
               maintainContext: true
             - name: 處理互動式工作流程中的大型查詢
@@ -764,16 +764,16 @@
               href: /azure/databricks/applications/deep-learning/data-prep/ddl-data
               maintainContext: true
             - name: 使用 Petastorm 載入資料
-              href: /azure/databricks//applications/deep-learning/data-prep/petastorm
+              href: /azure/databricks/applications/deep-learning/data-prep/petastorm
               maintainContext: true
             - name: 將 DataFrame 和資料集儲存至 TFRecord 檔案
-              href: /azure/databricks//applications/deep-learning/data-prep/dataset-to-tfrecords
+              href: /azure/databricks/applications/deep-learning/data-prep/dataset-to-tfrecords
               maintainContext: true
             - name: 使用 TensorFlow 從 TFRecord 檔案載入資料
-              href: /azure/databricks//applications/deep-learning/data-prep/tfrecords-to-tensorflow
+              href: /azure/databricks/applications/deep-learning/data-prep/tfrecords-to-tensorflow
               maintainContext: true
             - name: 使用 TensorFlow 將資料儲存至 TFRecord 檔案
-              href: /azure/databricks//applications/deep-learning/data-prep/tensorflow-to-tfrecords
+              href: /azure/databricks/applications/deep-learning/data-prep/tensorflow-to-tfrecords
               maintainContext: true
         - name: 單一節點訓練
           items:
@@ -1061,6 +1061,17 @@
         - name: 管理工作區儲存體
           href: /azure/databricks/administration-guide/workspace-storage/storage
           maintainContext: true
+        - name: 啟用叢集組態
+          items:
+            - name: 叢集組態概觀
+              href: /azure/databricks/administration-guide/clusters/index
+              maintainContext: true
+            - name: 啟用容器服務
+              href: /azure/databricks/administration-guide/clusters/container-services
+              maintainContext: true
+            - name: 啟用適用於 Genomics 的 Databricks Runtime
+              href: /azure/databricks/administration-guide/clusters/genomics-runtime
+              maintainContext: true
         - name: 管理虛擬網路
           items:
             - name: 虛擬網路概觀
@@ -1084,7 +1095,7 @@
     - name: 疑難排解
       items:
         - name: 常見問題
-          href: /azure/databricks//azure/azure-databricks/frequently-asked-questions-databricks
+          href: /azure/azure-databricks/frequently-asked-questions-databricks
           maintainContext: true
         - name: 系統管理
           items:

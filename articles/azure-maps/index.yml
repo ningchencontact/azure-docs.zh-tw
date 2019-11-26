@@ -45,6 +45,8 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/azure-maps/tutorial-geofence">設定地理柵欄</a>
+          - html: <a href="/azure-maps/tutorial-iot-hub-maps">空間分析</a>
+          - html: <a href=/azure/azure-maps/tutorial-ev-routing">使用 Azure Notebooks (Python) 進行 EV 路由</a>
   - title: 參考
     items:
       - type: list
@@ -52,6 +54,6 @@ sections:
         className: cardsW
         items:
           - title: JavaScript
-            html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">地圖控制項</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">地圖控制項</a></p><p><a href="https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/">繪圖工具模組</a></p><p><a href="https://docs.microsoft.com/javascript/api/azure-maps-rest/">服務模組</a></p>'
           - title: REST
             html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">資料服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">地理位置服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/mobility">行動服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">轉譯服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">路線規劃服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">搜尋服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">空間服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">時區服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">交通服務</a></p>'

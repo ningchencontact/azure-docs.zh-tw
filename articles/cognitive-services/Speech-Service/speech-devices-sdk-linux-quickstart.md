@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/10/2019
+ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 5c881551648e8fc6078405e34fa3280723009b20
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 18b96e9afbf2a83b917d6848b419fb76518035de
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490966"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090435"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>快速入門：在 Linux 上執行語音裝置 SDK 範例應用程式
 
@@ -80,11 +80,34 @@ ms.locfileid: "73490966"
 
    ![套件總管的螢幕擷取畫面](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
+1. 開啟 pom.xml 檔案並加以編輯。
+
+    在檔案結尾的結尾標記 `</project>` 前面，建立 `repositories` 和 `dependencies` 元素，並確定 `version` 符合您目前的版本：
+    ```xml    
+    <repositories>
+         <repository>
+             <id>maven-cognitiveservices-speech</id>
+             <name>Microsoft Cognitive Services Speech Maven Repository</name>
+             <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+         </repository>
+    </repositories>
+ 
+    <dependencies>
+        <dependency>
+             <groupId>com.microsoft.cognitiveservices.speech</groupId>
+             <artifactId>client-sdk</artifactId>
+             <version>1.7.0</version>
+        </dependency>
+    </dependencies>
+   ```
+
 1. 在 [套件總管]  中，以滑鼠右鍵按一下您的專案。 依序選擇 [屬性]  、[執行/偵錯設定]   > [新增...]  > [Java 應用程式]  。 
 
 1. [編輯組態]  視窗隨即出現。 在 [名稱]  欄位中輸入 **Main**，並在 [主要類別]  中使用 [搜尋]  來尋找和選取 [com.microsoft.cognitiveservices.speech.samples.FunctionsList]  。
 
    ![編輯啟動組態的螢幕擷取畫面](media/speech-devices-sdk/eclipse-edit-launch-configuration-linux.png)
+
+1. 將目標架構的音訊二進位檔從 **Linux-arm** 或 **Linux-x64** 複製到 Java 專案位置，例如 **/home/wcaltest/JRE-Sample-Release**
 
 1. 此外，從 [編輯組態]  視窗中選取 [環境]  頁面和 [新增]  。 [新增環境變數]  視窗隨即出現。 在 [名稱]  欄位中輸入 **LD_LIBRARY_PATH**，並在 [值]  欄位中輸入包含 *.so 檔案的資料夾，例如 **/home/wcaltest/JRE-Sample-Release**
 
@@ -113,20 +136,19 @@ ms.locfileid: "73490966"
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. 預設關鍵字是「Computer」。 您也可以嘗試其中一個其他提供的關鍵字，例如「Machine」或「Assistant」。 這些替代關鍵字的資源檔在「語音裝置 SDK」的 [keyword] 資料夾中。 例如，`/home/wcaltest/JRE-Sample-Release/keyword/Computer` 包含用於關鍵字「Computer」的檔案。
+1. 預設關鍵字是「Computer」。 您也可以嘗試其中一個其他提供的關鍵字，例如「Machine」或「Assistant」。 這些替代關鍵字的資源檔位於語音裝置 SDK 的 [keyword] 資料夾中。 例如，`/home/wcaltest/JRE-Sample-Release/keyword/Computer` 包含用於關鍵字「Computer」的檔案。
 
    > [!TIP]
    > 您也可以[建立自訂關鍵字](speech-devices-sdk-create-kws.md)。
 
-    若要使用新的關鍵字，請更新 `FunctionsList.java` 中的下列兩行，並將關鍵字套件複製到您的應用程式。 例如，若要使用來自關鍵字套件 `kws-machine.zip` 的關鍵字「Machine」：
+    若要使用新的關鍵字，請更新 `FunctionsList.java` 中的下列行，並將關鍵字複製到您的應用程式。 例如，若要使用來自關鍵字套件 `machine.zip` 的關鍵字「Machine」：
 
-   * 將關鍵字套件複製到專案資料夾 **target/classes** 中。
+   * 將 `kws.table` 檔案從 zip 套件複製到專案資料夾 **target/classes**。
 
-   * 以關鍵字和套件名稱更新 `FunctionsList.java`：
+   * 使用關鍵字名稱更新 `FunctionsList.java`：
 
      ```java
      private static final String Keyword = "Machine";
-     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
 ## <a name="run-the-sample-application-from-eclipse"></a>從 Eclipse 執行範例應用程式

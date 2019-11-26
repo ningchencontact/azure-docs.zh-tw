@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 6bc306551d158d4b996002de0bb5ab991a0bcbd9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 669ebbf595629e8093c51d76b0816edeb5f80f93
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467239"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007594"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>教學課程：在 Azure Notebook 中使用個人化工具
 
@@ -589,7 +589,7 @@ createChart(count,rewards)
 1. 輸入評估名稱所需的資料，以及迴圈評估的日期範圍。 日期範圍應僅包含您要專注進行評估的天數。 
     ![在 Azure 入口網站中，開啟個人化工具資源的 [評估] 頁面。 選取 [建立評估]。 輸入評估名稱和日期範圍。](./media/tutorial-azure-notebook/create-offline-evaluation.png)
 
-    執行此離線評估的目的，是要判斷此迴圈中使用的功能和動作是否有更好的學習原則。 若要找出更好的學習原則，請確定已開啟 [最佳化原則]  。
+    執行此離線評估的目的，是要判斷此迴圈中使用的功能和動作是否有更好的學習原則。 若要找出更好的學習原則，請確定已開啟 [最佳化探索]  。
 
 1. 選取 [確定]  來開始評估。 
 1. 此 [評估]  頁面會列出新的評估和其目前的狀態。 視您擁有的資料量而定，此評估可能需要一些時間。 您可以在幾分鐘後回到此頁面，以查看結果。 

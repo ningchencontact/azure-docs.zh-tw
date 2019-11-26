@@ -1,19 +1,19 @@
 ---
-title: 使用 IoT Central 建立智慧型電表分析應用程式 | Microsoft Docs
-description: 了解如何使用 Azure IoT Central 應用程式範本來建立智慧型電表監視應用程式。
+title: 教學課程：使用 IoT Central 建立智慧型電表分析應用程式
+description: 教學課程：了解如何使用 Azure IoT Central 應用程式範本來建立智慧型電表監視應用程式。
 author: op-ravi
 ms.author: omravi
-ms.date: 10/23/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: c7bb35e7de6400a0fad13845a3faa38ad21b6de7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a73f4d75811a384eb822d1f8594a22506509d560
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581247"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112546"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>教學課程：建立和逐步執行智慧型電表監視應用程式範本 
 
@@ -59,7 +59,7 @@ ms.locfileid: "73581247"
 
 新建立的智慧型電表應用程式就是您的應用程式，您可以隨時進行修改。 在修改之前，讓我們先確定應用程式已部署，並且能如預期般運作。
 
-若要確認應用程式的建立和資料模擬狀況，請移至 [儀表板]  。 如果您可以看到圖格上有一些資料，則表示您的應用程式部署已成功。 資料模擬可能需要幾分鐘的時間來產生資料，請等候 1-2 分鐘的時間。 
+若要確認應用程式的建立和資料模擬狀況，請移至 [儀表板]  。 如果您可以看到圖格上有一些資料，則表示您的應用程式部署已成功。 資料模擬可能需要幾分鐘的時間來產生資料，請等候 1-2 分鐘。 
 
 ## <a name="application-walk-through"></a>應用程式逐步解說
 在您成功部署應用程式範本之後，其中會隨附智慧型電表裝置範例、裝置模型和儀表板。 

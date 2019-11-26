@@ -1,5 +1,5 @@
 ---
-title: 快速入門：在 Android 上執行語音裝置 SDK - 語音服務
+title: 快速入門：在 Android 上執行語音裝置 SDK
 titleSuffix: Azure Cognitive Services
 description: 開始使用 Android 語音裝置 SDK 的先決條件和指示。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: acb041ce29d0340686a09764158063ad8d000c7c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c3eb6ec28879a7c53feb270e33857cd67dc06b0b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491313"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111683"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>快速入門：在 Android 上執行語音裝置 SDK 範例應用程式
 
@@ -29,46 +29,47 @@ ms.locfileid: "73491313"
 
 開始使用語音裝置 SDK 之前，您需要：
 
-* 請遵循[開發套件](get-speech-devices-sdk.md)隨附的指示來開啟裝置電源。
+- 請遵循[開發套件](get-speech-devices-sdk.md)隨附的指示來開啟裝置電源。
 
-* 下載最新版的[語音裝置 SDK](https://aka.ms/sdsdk-download)，並將 .zip 擷取至您的工作目錄。
-   > [!NOTE]
-   > Android-Sample-Release.zip 檔案包含 Android 範例應用程式，而本快速入門假設應用程式會解壓縮至 C:\SDSDK\Android-Sample-Release
+- 下載最新版的[語音裝置 SDK](https://aka.ms/sdsdk-download)，並將 .zip 擷取至您的工作目錄。
 
-* 取得[適用於語音服務的 Azure 訂用帳戶金鑰](get-started.md)
+  > [!NOTE]
+  > Android-Sample-Release.zip 檔案包含 Android 範例應用程式，而本快速入門假設應用程式會解壓縮至 C:\SDSDK\Android-Sample-Release
 
-* 如果您打算使用交談轉譯，則必須使用[環形麥克風裝置](get-speech-devices-sdk.md)，這項功能目前僅適用於 “centralus” 和 “eastasia” 區域的 "en-US" 和 "zh-CN"。 您在其中一個區域中必須具有語音金鑰，才能使用交談轉譯。
+- 取得[適用於語音服務的 Azure 訂用帳戶金鑰](get-started.md)
 
-* 如果您打算使用語音服務來識別使用者語句中的意圖 (或動作)，您將需要 [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) 訂用帳戶。 若要深入了解 LUIS 和意圖辨識，請參閱[使用 LUIS (C#) 辨識語音意圖](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)。
+- 如果您打算使用交談轉譯，則必須使用[環形麥克風裝置](get-speech-devices-sdk.md)，這項功能目前僅適用於 “centralus” 和 “eastasia” 區域的 "en-US" 和 "zh-CN"。 您在其中一個區域中必須具有語音金鑰，才能使用交談轉譯。
 
-    您可以[建立簡單 LUIS 模型](https://docs.microsoft.com/azure/cognitive-services/luis/)，或使用簡單 LUIS 模型 LUIS-example.json。 您可以從[語音裝置 SDK 下載網站](https://aka.ms/sdsdk-luis)取得範例 LUIS 模型。 若要將您模型的 JSON 檔案上傳到 [LUIS 入口網站](https://www.luis.ai/home)，請選取 [Import new app] \(匯入新應用程式\)  ，然後選取 JSON 檔案。
+- 如果您打算使用語音服務來識別使用者語句中的意圖 (或動作)，您將需要 [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) 訂用帳戶。 若要深入了解 LUIS 和意圖辨識，請參閱[使用 LUIS (C#) 辨識語音意圖](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)。
 
-* 在您的電腦上安裝 [Android Studio](https://developer.android.com/studio/) 和 [Vysor](https://vysor.io/download/)。
+  您可以[建立簡單 LUIS 模型](https://docs.microsoft.com/azure/cognitive-services/luis/)，或使用簡單 LUIS 模型 LUIS-example.json。 您可以從[語音裝置 SDK 下載網站](https://aka.ms/sdsdk-luis)取得範例 LUIS 模型。 若要將您模型的 JSON 檔案上傳到 [LUIS 入口網站](https://www.luis.ai/home)，請選取 [Import new app] \(匯入新應用程式\)  ，然後選取 JSON 檔案。
+
+- 在您的電腦上安裝 [Android Studio](https://developer.android.com/studio/) 和 [Vysor](https://vysor.io/download/)。
 
 ## <a name="set-up-the-device"></a>設定裝置
 
 1. 在您的電腦上啟動 Vysor。
 
-    ![Vysor](media/speech-devices-sdk/qsg-3.png)
+   ![Vysor](media/speech-devices-sdk/qsg-3.png)
 
 1. 您的裝置應該會列在 [Choose a device] \(選擇裝置\)  底下。 選取裝置旁邊的 [View] \(檢視\)  按鈕。
 
 1. 選取資料夾圖示，然後選取 [Settings] \(設定\)   > [WLAN]  ，以連線到您的無線網路。
 
-    ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
+   ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
 
-    > [!NOTE]
-    > 如果貴公司有關於將裝置連線到 Wi-Fi 系統的政策，您就必須取得 Mac 位址並連絡 IT 部門，以了解如何將其連線到公司的 Wi-Fi 系統。
-    >
-    > 若要尋找開發套件的 MAC 位址，請選取開發套件桌面上的檔案資料夾圖示。
-    >
-    >  ![Vysor 檔案資料夾](media/speech-devices-sdk/qsg-10.png)
-    >
-    > 選取 [Settings] \(設定)  。 搜尋 "mac address"，然後選取 [Mac address] \(Mac 位址\)   > [Advanced WLAN] \(進階 WLAN\)  。 記下出現在靠近對話方塊底部的 MAC 位址。
-    >
-    > ![Vysor MAC 位址](media/speech-devices-sdk/qsg-11.png)
-    >
-    > 有些公司針對裝置可連線到其 Wi-Fi 系統的時間長度可能有限制。 您可能需要在特定天數之後，將開發套件的 Wi-Fi 系統註冊延長。
+   > [!NOTE]
+   > 如果貴公司有關於將裝置連線到 Wi-Fi 系統的政策，您就必須取得 Mac 位址並連絡 IT 部門，以了解如何將其連線到公司的 Wi-Fi 系統。
+   >
+   > 若要尋找開發套件的 MAC 位址，請選取開發套件桌面上的檔案資料夾圖示。
+   >
+   > ![Vysor 檔案資料夾](media/speech-devices-sdk/qsg-10.png)
+   >
+   > 選取 [Settings] \(設定)  。 搜尋 "mac address"，然後選取 [Mac address] \(Mac 位址\)   > [Advanced WLAN] \(進階 WLAN\)  。 記下出現在靠近對話方塊底部的 MAC 位址。
+   >
+   > ![Vysor MAC 位址](media/speech-devices-sdk/qsg-11.png)
+   >
+   > 有些公司針對裝置可連線到其 Wi-Fi 系統的時間長度可能有限制。 您可能需要在特定天數之後，將開發套件的 Wi-Fi 系統註冊延長。
 
 ## <a name="run-the-sample-application"></a>執行範例應用程式
 
@@ -95,22 +96,22 @@ ms.locfileid: "73491313"
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    如果您使用交談轉譯，conversation.java 中也需要有您的語音金鑰和區域資訊：
+   如果您使用交談轉譯，conversation.java 中也需要有您的語音金鑰和區域資訊：
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
-    ```
+   ```
 
 1. 預設關鍵字是 "Computer"。 您也可以嘗試其中一個其他提供的關鍵字，例如 "Machine" 或 "Assistant"。 這些替代關鍵字的資源檔位於語音裝置 SDK 的 [keyword] 資料夾中。 例如 C:\SDSDK\Android-Sample-Release\keyword\Computer 便包含用於 "Computer" 關鍵字的檔案。
 
    > [!TIP]
    > 您也可以[建立自訂關鍵字](speech-devices-sdk-create-kws.md)。
 
-    若要使用新的關鍵字，請更新 `MainActivity.java` 中的下列兩行，並將關鍵字套件複製到您的應用程式。 例如，若要使用來自關鍵字套件 kws-machine.zip 的關鍵字 'Machine'：
+   若要使用新的關鍵字，請更新 `MainActivity.java` 中的下列兩行，並將關鍵字套件複製到您的應用程式。 例如，若要使用來自關鍵字套件 kws-machine.zip 的關鍵字 'Machine'：
 
-   * 將關鍵字套件複製到 “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\” 資料夾中。
-   * 以關鍵字和套件名稱更新 `MainActivity.java`：
+   - 將關鍵字套件複製到 “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\” 資料夾中。
+   - 以關鍵字和套件名稱更新 `MainActivity.java`：
 
      ```java
      private static final String Keyword = "Machine";
@@ -126,20 +127,20 @@ ms.locfileid: "73491313"
 
    下表列出支援的值：
 
-   |變數|意義|可用值|
-   |--------|-------|----------------|
-   |`DeviceGeometry`|實體麥克風設定|針對圓形裝置套件：`Circular6+1` |
-   |||針對線性裝置套件：`Linear4`|
-   |`SelectedGeometry`|軟體麥克風設定|針對使用所有麥克風的圓形開發套件：`Circular6+1`|
-   |||針對使用四個麥克風的圓形開發套件：`Circular3+1`|
-   |||針對使用所有麥克風的線性開發套件：`Linear4`|
-   |||針對使用兩個麥克風的線性開發套件：`Linear2`|
+   | 變數 | 意義 | 可用值 |
+   | -------- | ------- | ---------------- |
+   | `DeviceGeometry` | 實體麥克風設定 | 針對圓形裝置套件：`Circular6+1` |
+   |          |         | 針對線性裝置套件：`Linear4` |
+   | `SelectedGeometry` | 軟體麥克風設定 | 針對使用所有麥克風的圓形開發套件：`Circular6+1` |
+   |          |         | 針對使用四個麥克風的圓形開發套件：`Circular3+1` |
+   |          |         | 針對使用所有麥克風的線性開發套件：`Linear4` |
+   |          |         | 針對使用兩個麥克風的線性開發套件：`Linear2` |
 
 1. 若要建置應用程式，請在 [Run] \(執行\)  功能表上選擇 [Run 'app'] \(執行「應用程式」\)  。 隨即會顯示 [Select Deployment Target] \(選取部署目標\)  對話方塊。
 
 1. 選取您的裝置，然後選取 [OK] \(確定\)  ，以將應用程式部署到裝置。
 
-    ![[Select Deployment Target] \(選取部署目標\) 對話方塊](media/speech-devices-sdk/qsg-7.png)
+   ![[Select Deployment Target] \(選取部署目標\) 對話方塊](media/speech-devices-sdk/qsg-7.png)
 
 1. 「語音裝置 SDK」範例應用程式會啟動，並顯示下列選項：
 
@@ -153,17 +154,16 @@ ms.locfileid: "73491313"
 
 ## <a name="troubleshooting"></a>疑難排解
 
-   如果您無法連線到語音裝置。 在命令提示字元視窗中輸入下列命令。 這會傳回裝置清單：
+如果您無法連線到語音裝置。 在命令提示字元視窗中輸入下列命令。 這會傳回裝置清單：
 
-   ```powershell
-    adb devices
-   ```
+```powershell
+ adb devices
+```
 
-   > [!NOTE]
-   > 此命令會使用 Android Debug Bridge `adb.exe`，它是 Android Studio 安裝的一部分。 此工具位於 C:\Users\[使用者名稱]\AppData\Local\Android\Sdk\platform-tools。 您可以將此目錄新增至您的路徑，以便更方便地叫用 `adb`。 否則，您必須在叫用 `adb` 的每個命令中指定 adb.exe 的完整安裝路徑。
-   >
-   > 如果您看到 `no devices/emulators found` 錯誤，請確認您已接好 USB 纜線並確保使用高品質的纜線。
-   >
+> [!NOTE]
+> 此命令會使用 Android Debug Bridge `adb.exe`，它是 Android Studio 安裝的一部分。 此工具位於 C:\Users\[使用者名稱]\AppData\Local\Android\Sdk\platform-tools。 您可以將此目錄新增至您的路徑，以便更方便地叫用 `adb`。 否則，您必須在叫用 `adb` 的每個命令中指定 adb.exe 的完整安裝路徑。
+>
+> 如果您看到 `no devices/emulators found` 錯誤，請確認您已接好 USB 纜線並確保使用高品質的纜線。
 
 ## <a name="next-steps"></a>後續步驟
 

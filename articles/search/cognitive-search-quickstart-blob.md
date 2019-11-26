@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 入口網站中建立認知技能集
+title: 快速入門：在 Azure 入口網站中建立技能集
 titleSuffix: Azure Cognitive Search
 description: 使用「匯入資料」精靈將認知技能新增至索引管線。 認知技能包括光學字元辨識 (OCR) 和自然語言處理。
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 14d2751f55f3df26277b1210b9201eed61409c6b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2280b718fe949384bb67b1b606ab143ddca8e077
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792084"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113362"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Azure 認知搜尋的認知技能集
 

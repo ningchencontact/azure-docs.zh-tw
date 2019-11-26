@@ -1,5 +1,5 @@
 ---
-title: REST 教學課程：建置 AI 擴充管線，以從 JSON Blob 中擷取文字和結構
+title: 教學課程：從 JSON Blob 擷取文字和結構
 titleSuffix: Azure Cognitive Search
 description: 逐步解說使用 Postman 和 Azure 搜尋服務 REST API 對 JSON Blob 內容進行文字擷取和自然語言處理的範例。
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: cb05d85c32d7eaed002d3e3bacbe7fdbd17310eb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5dffafba0f0dc0dc108bf2c82929c157018d8dbb
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790198"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113669"
 ---
-# <a name="tutorial-add-structure-to-unstructured-content-with-ai-enrichment"></a>教學課程：使用 AI 擴充將結構新增至「非結構化內容」
+# <a name="tutorial-extract-text-and-structure-from-json-blobs-in-azure-using-rest-apis-azure-cognitive-search"></a>教學課程：使用 REST API 在 Azure 中從 JSON Blob 擷取文字和結構 (Azure 認知搜尋)
 
-如果您有非結構化的文字或影像，[AI 擴充管線](cognitive-search-concept-intro.md)可協助您擷取資訊，並建立適用於全文檢索搜尋或知識採礦案例的新內容。 雖然管線可以處理影像檔案 (JPG、PNG、TIFF)，但本教學課程著重於文字內容，並且會套用語言偵測和文字分析來建立可用於查詢、Facet 和篩選的新欄位和資訊。
+如果您在 Azure Blob 儲存體中有非結構化的文字或影像，[AI 擴充管線](cognitive-search-concept-intro.md)可協助您擷取資訊，並建立適用於全文檢索搜尋或知識採礦案例的新內容。 雖然管線可以處理影像檔案 (JPG、PNG、TIFF)，但本教學課程著重於文字內容，並且會套用語言偵測和文字分析來建立可用於查詢、Facet 和篩選的新欄位和資訊。
 
 > [!div class="checklist"]
 > * 我們將從 Azure Blob 儲存體中的完整文件 (非結構化文字) 開始，例如 PDF、MD、DOCX 和 PPTX。

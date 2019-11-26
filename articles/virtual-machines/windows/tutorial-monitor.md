@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 在 Azure 中監視 Windows 虛擬機器 | Microsoft Docs
+title: 教學課程 - 在 Azure 中監視 Windows 虛擬機器
 description: 在本教學課程中，您將了解如何監視在 Windows 虛擬機器上執行的效能和探索到的應用程式元件。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: a2f4083841c801db3edf1b2838b8d3271b700731
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 9e807927a10399b02c2c89359c2ffffaf87ba57b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679345"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112481"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>教學課程：在 Azure 中監視 Windows 虛擬機器
 
@@ -91,7 +91,7 @@ Get-AzVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "m
 
 3. 在 [Insights (預覽)]  頁面上，選取 [立即試用]  。
 
-    ![為 VM 啟用適用於 VM 的 Azure 監視器](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![為 VM 啟用適用於 VM 的 Azure 監視器](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 4. 在 [將 Azure 監視器 Insights 上線]  頁面上，如果您目前在同一個訂用帳戶中有 Log Analytics 工作區，請在下拉式清單中選取它。  
 

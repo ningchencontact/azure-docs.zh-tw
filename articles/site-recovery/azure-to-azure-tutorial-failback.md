@@ -1,25 +1,25 @@
 ---
-title: 使用 Azure Site Recovery 服務，容錯回復已複寫到次要 Azure 區域的 Azure VM，以進行災害復原。
-description: 了解如何使用 Azure Site Recovery 服務容錯回復 Azure VM。
+title: 使用 Azure Site Recovery 服務將 Azure VM 容錯回復至主要區域。
+description: 說明如何使用 Azure Site Recovery 服務將 Azure VM 容錯回復至主要區域。
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c8be547790452774992b9226ca8010532263aaff
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: c27b7bf29e5f124fdcfb886b658fd8e9d4cc48fe
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814527"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091353"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>在 Azure 區域之間容錯回復 Azure VM
 
 [Azure Site Recovery](site-recovery-overview.md) 服務可藉由管理及協調內部部署電腦與 Azure 虛擬機器 (VM) 的複寫、容錯移轉及容錯回復，為您的災害復原策略做出貢獻。
 
-本教學課程說明如何容錯回復單一 Azure VM。 在容錯移轉之後，您必須在主要區域可供使用時容錯回復到該處。 在本教學課程中，您了解如何：
+本教學課程說明如何容錯回復單一 Azure VM。 在容錯移轉之後，您必須在主要區域可供使用時容錯回復到該處。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > 
@@ -56,6 +56,9 @@ ms.locfileid: "70814527"
 8. VM 應會顯示為已容錯移轉且已容錯回復。
 
     ![主要和次要區域上的 VM](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
+
+> [!NOTE]
+> 對於執行 Site Recovery 延伸模組版本 9.28.x.x 以上的電腦，[更新彙總套件 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery 會在容錯回復完成且 VM 重新受到保護後，清除次要災害復原區域中的電腦。 不需要手動刪除次要區域中的 VM 和 NIC。 如果您在容錯回復之後完全停用複寫，除了 VM 和 NIC 之外，Site Recovery 還會清除災害復原區域中的磁碟。
 
 ## <a name="next-steps"></a>後續步驟
 

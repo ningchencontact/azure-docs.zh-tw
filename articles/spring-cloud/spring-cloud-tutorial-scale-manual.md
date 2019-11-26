@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.author: jeconnoc
 author: jpconnock
 ms.date: 10/06/2019
-ms.openlocfilehash: 31b2322bdf7b7c03ae8974d57ee1b44c2f6137b9
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: cce7562c74577f6fd545bcaed3ee3e0968fd40b4
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607518"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132902"
 ---
 # <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>教學課程：在 Azure Spring Cloud 中調整應用程式
 
@@ -31,11 +31,13 @@ ms.locfileid: "73607518"
 
 1. 瀏覽至您的 Azure Spring Cloud 的 [概觀]  頁面。
 
+1. 選取包含服務的資源群組。
+
 1. 移至左側功能表中 [應用程式]  索引標籤的 [設定]  標題底下。
 
 1. 選取您要調整的應用程式。 在此範例中，我們將會調整名為 "account-service" 的應用程式。 這應該會帶您前往應用程式的 [概觀]  頁面。
 
-1. 移至左側功能表中 [調整]  索引標籤的 [設定]  標題底下。 您應該會看到一份表單，其中包含我們稍早提到的每個調整屬性行。
+1. 移至左側功能表中 [調整]  索引標籤的 [設定]  標題底下。 您應該會看到調整屬性的選項，如下一節所示。
 
 ## <a name="scale-your-application"></a>調整您的應用程式
 
@@ -45,9 +47,11 @@ ms.locfileid: "73607518"
 
 * **記憶體/GB**：每個應用程式執行個體所允許的最大記憶體數量為 8GB。  應用程式的記憶體總數將會是此處所設定的值乘以應用程式執行個體的數目。
 
-* **執行個體計數**：在標準層中，您可以擴充至 20 個執行個體。 此值會變更微服務應用程式個別執行中執行個體的數目。
+* **應用程式執行個體計數**：在標準層中，您可以擴充至 20 個執行個體。 此值會變更微服務應用程式個別執行中執行個體的數目。
 
 請務必按一下 [儲存]  按鈕以套用您的調整設定。
+
+![Azure 入口網站中的調整服務](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
 幾秒鐘之後，您所做的變更將會顯示在 [概觀]  頁面中，並在 [應用程式執行個體]  索引標籤中提供更多詳細資料。調整不需要進行任何程式碼變更或重新部署。
 

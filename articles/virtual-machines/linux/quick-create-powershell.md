@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - 使用 Azure PowerShell 建立 Linux VM | Microsoft Docs
+title: 快速入門 - 使用 Azure PowerShell 建立 Linux VM
 description: 在本快速入門中，您會了解如何使用 Azure PowerShell 來建立 Linux 虛擬機器
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 88d028f48b75238e2123d939a832e3fa70fc0056
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 1e336ad05d70341365b63d806b249740113724d3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300876"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035199"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>快速入門：使用 PowerShell 在 Azure 中建立 Linux 虛擬機器
 

@@ -58,8 +58,6 @@
           href: configure-host-pool-load-balancing.md
     - name: 使用 Windows 虛擬桌面授權
       href: apply-windows-license.md
-    - name: 使用檔案共用建立主機集區的設定檔容器
-      href: create-host-pools-user-profile.md
     - name: 自訂工作階段主機映像
       items:
         - name: 設定主要 VHD 映像
@@ -72,7 +70,7 @@
       href: customize-feed-for-virtual-desktop-users.md
     - name: 部署診斷工具
       href: deploy-diagnostics.md
-    - name: 發佈應用程式
+    - name: 發佈內建應用程式
       href: publish-apps.md
     - name: 設定 MSIX 應用程式附加
       href: app-attach.md
@@ -124,6 +122,8 @@
       href: /powershell/windows-virtual-desktop/overview
     - name: REST API
       href: /rest/api/virtual-desktop/
+    - name: 支援的 RDP 檔案設定
+      href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json'
 - name: 資源
   items:
     - name: 體驗估算工具

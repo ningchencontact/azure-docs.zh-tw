@@ -2,15 +2,15 @@
 title: Azure 管理概觀 - Azure 控管
 description: 管理 Azure 應用程式與資源的區域概觀，並提供 Azure 管理工具內容的連結。
 ms.date: 12/06/2018
-ms.topic: article
-ms.openlocfilehash: e85d5162146fb716ed9f846dc5a828d83c669627
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
-ms.translationtype: MT
+ms.topic: overview
+ms.openlocfilehash: f91e439a5fb7c330fb29d300e83779083641875b
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013912"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132837"
 ---
-# <a name="overview-of-management-services-in-azure"></a>Azure 中的管理服務總覽
+# <a name="overview-of-management-services-in-azure"></a>Azure 管理服務概觀
 
 在 Azure 中治理是 Azure 管理的其中一個層面。 本文說明在 Azure 中部署及維護資源的各種管理領域。
 
@@ -36,7 +36,7 @@ ms.locfileid: "74013912"
 ## <a name="govern"></a>治理
 
 治理提供多項機制和流程，以便維持控制 Azure 中的應用程式與資源。 它同時也涉及規劃您的新措施，以及設定策略層級的優先順序。
-在 Azure 中的治理主要是透過兩個服務進行實作。 [Azure 原則](./policy/overview.md)可讓您建立、指派和管理原則定義，以強制執行資源的規則。 此功能可確保這些資源能夠符合公司的標準規範。 [Azure 成本管理](../cost-management/overview-cost-mgt.md)可讓您追蹤 Azure 資源和其他雲端提供者的雲端使用量和支出。
+在 Azure 中的治理主要是透過兩個服務進行實作。 [Azure 原則](./policy/overview.md)可讓您建立、指派和管理原則定義，以強制執行資源的規則。 此功能可確保這些資源能夠符合公司的標準規範。 針對您的 Azure 資源和其他雲端服務提供者，[Azure 成本管理](../cost-management/overview-cost-mgt.md)可讓您追蹤雲端使用量和費用。
 
 ## <a name="secure"></a>安全
 

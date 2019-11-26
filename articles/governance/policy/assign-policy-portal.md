@@ -1,14 +1,14 @@
 ---
-title: 建立原則以使用入口網站來稽核資源 - Azure 原則
+title: 建立原則以使用入口網站來稽核資源
 description: 這篇文章會引導您逐步完成建立原則定義來識別不相容的資源。
 ms.date: 12/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: e517173c74cd3fd37b50d327d32b668422428315
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ef89ea43ff3179877c0ac636083ed68946b6cc91
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960179"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128906"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>快速入門：建立原則指派以識別不相容資源
 

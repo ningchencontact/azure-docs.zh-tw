@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: a7cd61854176dc702f213211b14c2361b3e433ad
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5196dbbfb52ce75031a53764b371d6d34b43fba7
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825366"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091422"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-java"></a>快速入門：適用於 Java 的 Azure Blob 儲存體用戶端程式庫 v12
 
@@ -201,11 +201,11 @@ Azure Blob 儲存體已針對儲存大量非結構化資料最佳化。 非結�
 
 使用下列 Java 類別與這些資源互動：
 
-* [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient)：`BlobServiceClient` 類別可讓您操作 Azure 儲存體資源和 Blob 容器。 儲存體帳戶會為 Blob 服務提供最上層命名空間。
-* [BlobServiceClientBuilder](/java/api/com.azure.storage.blob.blobserviceclientbuilder)：`BlobServiceClientBuilder` 類別會提供 Fluent 產生器 API，協助設定和具現化 `BlobServiceClient` 物件。
-* [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient)：`BlobContainerClient` 類別可讓您操作 Azure 儲存體容器及其 Blob。
-* [BlobClient](/java/api/com.azure.storage.blob.blobclient)：`BlobClient` 類別可讓您操作 Azure 儲存體 Blob。
-* [BlobItem](/java/api/com.azure.storage.blob.blobitem)：`BlobItem` 類別代表從呼叫 `listBlobsFlat` 傳回的個別 Blob。
+* [BlobServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobServiceClient.html)：`BlobServiceClient` 類別可讓您操作 Azure 儲存體資源和 Blob 容器。 儲存體帳戶會為 Blob 服務提供最上層命名空間。
+* [BlobServiceClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobServiceClientBuilder.html)：`BlobServiceClientBuilder` 類別會提供 Fluent 產生器 API，協助設定和具現化 `BlobServiceClient` 物件。
+* [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html)：`BlobContainerClient` 類別可讓您操作 Azure 儲存體容器及其 Blob。
+* [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html)：`BlobClient` 類別可讓您操作 Azure 儲存體 Blob。
+* [BlobItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/models/BlobItem.html)：`BlobItem` 類別代表從呼叫 `listBlobsFlat` 傳回的個別 Blob。
 
 ## <a name="code-examples"></a>程式碼範例
 
@@ -243,7 +243,7 @@ String connectStr = System.getenv("CONNECT_STR");
 > [!IMPORTANT]
 > 容器名稱必須是小寫字母。 如需為容器和 Blob 命名的詳細資訊，請參閱[命名和參考容器、Blob 及中繼資料](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
 
-接下來，建立 [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) 類別的執行個體，然後呼叫 [create](/java/api/com.azure.storage.blob.blobcontainerclient.create) 方法，以實際在您的儲存體帳戶中建立容器。
+接下來，建立 [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html) 類別的執行個體，然後呼叫 [create](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#create--) 方法，以實際在您的儲存體帳戶中建立容器。
 
 將此程式碼加入到 `Main` 方法的結尾處：
 
@@ -263,8 +263,8 @@ BlobContainerClient containerClient = blobServiceClient.createBlobContainer(cont
 下列程式碼片段：
 
 1. 在本機 *data* 目錄中建立一個文字檔。
-1. 從[建立容器](#create-a-container)一節的容器上呼叫 [getBlobClient](/java/api/com.azure.storage.blob.blobcontainerclient.getblobclient) 方法，以取得 [BlobClient](/java/api/com.azure.storage.blob.blobclient) 物件的參考。
-1. 呼叫 [uploadFromFile](/java/api/com.azure.storage.blob.blobclient.uploadfromfile) 方法，將本機文字檔上傳至 Blob。 如果 Blob 不存在，此方法會建立 Blob，若已存在，則會加以覆寫。
+1. 從[建立容器](#create-a-container)一節的容器上呼叫 [getBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#getBlobClient-java.lang.String-) 方法，以取得 [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html) 物件的參考。
+1. 呼叫 [uploadFromFile](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html#uploadFromFile-java.lang.String-) 方法，將本機文字檔上傳至 Blob。 如果 Blob 不存在，此方法會建立 Blob，若已存在，則不會加以覆寫。
 
 將此程式碼加入到 `Main` 方法的結尾處：
 
@@ -290,7 +290,7 @@ blobClient.uploadFromFile(localPath + fileName);
 
 ### <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-呼叫 [listBlobsFlat](/java/api/com.azure.storage.blob.blobcontainerclient.listblobsflat) 方法，以列出容器中的 Blob。 在此案例中，只有一個 Blob 新增至容器，所以清單作業只會傳回一個 Blob。
+呼叫 [list_blobs](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#listBlobs--) 方法，以列出容器中的 Blob。 在此案例中，只有一個 Blob 新增至容器，所以清單作業只會傳回一個 Blob。
 
 將此程式碼加入到 `Main` 方法的結尾處：
 
@@ -305,7 +305,7 @@ for (BlobItem blobItem : containerClient.listBlobs()) {
 
 ### <a name="download-blobs"></a>下載 Blob
 
-呼叫 [downloadToFile](/java/api/com.azure.storage.blob.blobclient.downloadtofile) 方法，以下載先前建立的 Blob。 此範例程式碼會將 "DOWNLOAD" 的尾碼加入至檔案名稱，讓您可以在本機檔案系統中看到這兩個檔案。
+呼叫 [downloadToFile](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/specialized/BlobClientBase.html#downloadToFile-java.lang.String-) 方法，以下載先前建立的 Blob。 此範例程式碼會將 "DOWNLOAD" 的尾碼加入至檔案名稱，讓您可以在本機檔案系統中看到這兩個檔案。
 
 將此程式碼加入到 `Main` 方法的結尾處：
 
@@ -322,7 +322,7 @@ blobClient.downloadToFile(localPath + downloadFileName);
 
 ### <a name="delete-a-container"></a>刪除容器
 
-下列程式碼會使用 [delete](/java/api/com.azure.storage.blob.blobcontainerclient.delete) 方法移除整個容器，以清除應用程式所建立的資源。 它也會刪除應用程式所建立的本機檔案。
+下列程式碼會使用 [delete](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#delete--) 方法移除整個容器，以清除應用程式所建立的資源。 它也會刪除應用程式所建立的本機檔案。
 
 應用程式會在刪除 Blob、容器和本機檔案之前呼叫 `System.console().readLine()`，藉以暫停使用者輸入。 這是很好的機會，可以在刪除資源之前，先確認實際上已正確地建立這些資源。
 

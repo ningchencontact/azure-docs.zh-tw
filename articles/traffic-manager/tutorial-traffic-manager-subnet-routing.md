@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 流量管理員設定子網路流量路由方法
+title: 教學課程：設定子網路流量路由 - Azure 流量管理員
 description: 本文說明如何設定流量管理員，以將流量從使用者子網路路由傳送到特定端點。
 services: traffic-manager
 documentationcenter: ''
@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: allensu
-ms.openlocfilehash: da2d4816f3f7a99ac2d213d72d7e801cf630e165
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: c2fbb4a85347c8ee68376069474add865cc06c43
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304940"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048817"
 ---
-# <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>使用流量管理員根據使用者子網路將流量導向特定端點
+# <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>教學課程：使用流量管理員根據使用者子網路將流量導向特定端點
 
 本文說明如何設定子網路流量路由方法。 **子網路**流量路由方法可讓您將一組 IP 位址範圍對應至特定端點，而當流量管理員收到要求時，它會檢查要求的來源 IP，並傳回與它相關聯的端點。
 
 在本教學課程中，使用子網路路由時，流量會根據使用者的查詢 IP 位址而路由傳送至內部網站或生產網站。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 在 IIS 上建立兩部執行基本網站的 VM
@@ -34,7 +34,7 @@ ms.locfileid: "66304940"
 > * 在流量管理員設定檔中新增 VM 端點
 > * 檢視流量管理員的運作
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -154,7 +154,7 @@ ms.locfileid: "66304940"
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | Name                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
+    | 名稱                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
     | 路由方法          | 選取 [子網路]  路由方法。                                       |
     | 訂用帳戶            | 選取您的訂用帳戶。                          |
     | 資源群組          | 選取 [現有]  ，然後輸入 *myResourceGroupTM1*。 |
@@ -174,7 +174,7 @@ ms.locfileid: "66304940"
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
     | 類型                    | Azure 端點                                   |
-    | Name           | myInternalWebSiteEndpoint                                        |
+    | 名稱           | myInternalWebSiteEndpoint                                        |
     | 目標資源類型           | 公用 IP 位址                          |
     | 目標資源          | **選擇公用 IP 位址**以顯示具有相同訂用帳戶下公用 IP 位址的資源清單。 在 [資源]  中，選取名為 *myIISVMEastUS-ip* 的公用 IP 位址。 這是美國東部 IIS 伺服器 VM 的公用 IP 位址。|
     |  子網路路由設定    |   新增 *myVMEastUS* 測試 VM 的 IP 位址。 任何源自此 VM 的使用者查詢都會導向至 myInternalWebSiteEndpoint  。    |

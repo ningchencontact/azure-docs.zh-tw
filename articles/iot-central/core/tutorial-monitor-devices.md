@@ -1,20 +1,20 @@
 ---
-title: 在 Azure IoT Central 中監視您的裝置 | Microsoft Docs
-description: 身為操作員，您可以使用 Azure IoT Central 應用程式監視您的裝置。
+title: 教學課程：在 Azure IoT Central 中監視您的裝置
+description: 教學課程：身為操作員，您可以使用 Azure IoT Central 應用程式監視您的裝置。
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/09/2019
+ms.date: 11/13/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 78f0c8cf9efd8b264da3c1d80c8baeb9f03016cc
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: db3a9a6ba51394a0473f64a2ccede97e5283bba1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72938633"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106581"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>教學課程：使用 Azure IoT Central 監視您的裝置
 

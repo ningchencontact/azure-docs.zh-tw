@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.author: jeconnoc
 author: jpconnock
 ms.date: 10/18/2019
-ms.openlocfilehash: 6cf7b4a52ba3a7dbda5fa3fa558c4b68d09f4eb2
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 6742e1a5924fdcd1fe00f49ac790209a907d1bac
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646715"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132784"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-for-your-service"></a>教學課程：為您的服務設定 Spring Cloud Config Server
 
@@ -95,7 +95,7 @@ Azure Spring Cloud 支援 Azure DevOps、GitHub、GitLab 和 Bitbucket，以儲�
 | `password`      | `no`     | 用來存取 `Git` 存放庫伺服器的密碼，如果 `Git` 存放庫伺服器支援 `Http Basic Authentication`，則這是__必要項目__。 |
 
 > [!NOTE]
-> 某些 `Git` 存放庫伺服器 (例如 GitHub) 支援「個人權杖」或「存取權杖」作為 `HTTP Basic Authentication` 的密碼。 您也可以在這裡使用該類型的權杖作為密碼，而且「個人權杖」或「存取權杖」將不會過期。 但若是 Git 存放庫伺服器 (例如 BitBucket 和 Azure DevOps)，權杖將會在一或兩個小時後過期，讓該選項無法搭配 Azure Spring Cloud 使用。
+> 許多 `Git` 存放庫伺服器支援使用權杖，而不是 `HTTP Basic Authentication` 的密碼。 某些存放庫 (例如 GitHub) 可讓權杖無限期保存。 不過，有些 Git 存放庫伺服器 (包括 Azure DevOps) 會強制權杖在數小時內過期。 會導致權杖過期的存放庫不應使用權杖型驗證搭配 Azure Spring Cloud。
 
 ### <a name="git-repositories-with-pattern"></a>使用模式的 Git 存放庫
 
@@ -127,7 +127,9 @@ Azure Spring Cloud 支援 Azure DevOps、GitHub、GitLab 和 Bitbucket，以儲�
 
 1. 瀏覽至您的 Azure Spring Cloud 的 [概觀]  頁面。
 
-1. 移至左側功能表中 [Config Server]  索引標籤的 [設定]  標題底下。
+1. 選取要設定的服務。
+
+1. 在服務頁面上，選取左側功能表中 [設定]  標題底下的 [Config Server]  索引標籤。
 
 ![視窗螢幕擷取畫面](media/spring-cloud-tutorial-config-server/portal-config-server.png)
 

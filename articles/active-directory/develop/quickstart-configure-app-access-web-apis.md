@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30b0649f23403363ca4ab4101a2d5cf7a42d505b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: afa757020ff6de3be23403b78fd9a12c2de97016
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473702"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106602"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>快速入門：設定用戶端應用程式以存取 Web API
 
@@ -171,13 +171,40 @@ ms.locfileid: "73473702"
 若要新增權限以從用戶端存取資源 API：
 
 1. 從應用程式的 [概觀]  頁面，選取 [API 權限]  。
-1. 選取 [新增權限]  按鈕。
+1. 在 [設定的權限]  區段中，選取 [新增權限]  按鈕。
 1. 根據預設，此檢視可讓您選取 **Microsoft API**。 選取您感興趣的 API 區段：
     * **Microsoft API** - 可讓您選取 Microsoft API (例如 Microsoft Graph) 的權限。
     * **我的組織使用的 API** - 可讓您針對組織已公開的 API 或組織已整合的 API 選取其權限。
     * **我的 API** - 可讓您選取您所公開 API 的權限。
 1. 在選取 API 後，您就會看到 [要求 API 權限]  頁面。 如果 API 同時公開了委派權限和應用程式權限，請選取應用程式所需的權限類型。
 1. 完成時，選取 [新增權限]  。 您會回到 [API 權限]  頁面，權限已儲存在其中並新增至資料表。
+
+## <a name="understanding-api-permissions-and-admin-consent-ui"></a>了解 API 權限和系統管理員同意 UI
+
+### <a name="configured-permissions"></a>已設定權限
+
+本節說明已在應用程式物件上明確設定的權限 (屬於應用程式所需資源存取清單的權限)。 您可以在此資料表中新增或移除權限。 身為系統管理員，您也可以在本節中，授與/撤銷一組 API 權限或個別權限的系統管理員同意。
+
+### <a name="other-permissions-granted"></a>已授與的其他權限
+
+如果您的應用程式已在租用戶中註冊，您可能會看到一個額外的區段，標題為**授與租用戶的其他權限**。 本節顯示已授與租用戶的權限，但是尚未在應用程式物件上明確設定 (例如，動態要求和同意的權限)。 只有在至少有一個適用的權限時，才會顯示此區段。
+
+您可以將這一節中所顯示的一組 API 權限或個別權限新增至 [已設定權限]  區段。 身為系統管理員，您也可以在本節中撤銷個別 API 或權限的系統管理員同意。
+
+### <a name="admin-consent-button"></a>系統管理員同意按鈕
+
+如果您的應用程式已在租用戶中註冊，您會看到 [針對租用戶授與系統管理員同意]  按鈕。 如果您不是系統管理員，或未針對應用程式設定權限，則會停用此功能。
+此按鈕可讓系統管理員輕鬆地對於針對應用程式設定的權限授與系統管理員同意。 按一下 [系統管理員同意] 按鈕會啟動新的視窗，其中會出現同意提示，顯示所有已設定的權限。
+
+> [!NOTE]
+> 權限在針對應用程式進行設定與顯示在同意提示上之間有延遲。 如果您在同意提示中看不到所有已設定權限，請將其關閉然後重新啟動。
+
+如果您有已授與但未設定的權限，當您按一下 [系統管理員同意] 按鈕時，系統會提示您決定如何處理這些權限。 您可以將它們新增至已設定權限，或將其移除。
+
+同意提示會提供 [接受]  或 [取消]  的選項。 如果您選取 [接受]  ，系統會授與系統管理員同意。 如果您選取 [取消]  ，則不會授與系統管理員同意，而且您會看到一則錯誤訊息，指出已拒絕同意。
+
+> [!NOTE]
+> 授與系統管理員同意 (在同意提示中選取 [接受]  )，與系統管理員同意狀態反映在 UI 之間有延遲。
 
 ## <a name="next-steps"></a>後續步驟
 

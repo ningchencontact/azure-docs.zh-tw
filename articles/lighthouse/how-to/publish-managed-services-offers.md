@@ -1,18 +1,14 @@
 ---
 title: 將受控服務供應項目發佈到 Azure Marketplace
 description: 了解如何發佈將客戶上線至 Azure 委派資源管理的受控服務。
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
-ms.date: 10/17/2019
+ms.date: 11/15/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 4b2ce1253fd4421b36105fdbae68c6e89173a3c6
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 29f17e6227d3c50a4d9fe13f7525ac71f7550632
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615472"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131300"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>將受控服務供應項目發佈到 Azure Marketplace
 
@@ -81,10 +77,10 @@ ms.locfileid: "73615472"
 
 您必須為每個**授權**提供下列項目。 接著，您要新增多少使用者和角色定義，就視需要選取多少次 [新增授權]  。
 
-  - **Azure AD 物件識別碼**：使用者、使用者群組或應用程式的 Azure AD 識別碼，系統將會授與它們您客戶資源的特定權限 (按角色定義所描述)。
-  - **Azure AD 物件顯示名稱**：協助客戶了解此授權用途的易記名稱。 客戶會在委派資源時看到此名稱。
-  - **角色定義**：從清單中選取其中一個可用的 Azure AD 內建角色。 此角色將會決定 [Azure AD 物件識別碼]  欄位中的使用者，對於您的客戶資源會有那些權限。 如需這些角色的描述，請參閱[內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)和[適用於 Azure 委派資源管理的角色支援](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
-  - **可指派的角色**：如果您為此授權在 [角色定義]  中選取 [使用者存取系統管理員]，則這是必要項目。 若是如此，您必須在此新增一或多個可指派的角色。 [Azure AD 物件識別碼]  欄位中的使用者將能夠將這些**可指派的角色**指派給[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)，[部署可補救的原則](deploy-policy-remediation.md)時需要這些角色。 請注意，不會有其他一般與「使用者存取系統管理員」角色相關聯的權限套用至此使用者。 如果您未在此選取一個或多個角色，您的提交將不會通過認證。 (如果您沒有為此使用者的 [角色定義] 選取 [使用者存取系統管理員]，則此欄位無效。)
+- **Azure AD 物件識別碼**：使用者、使用者群組或應用程式的 Azure AD 識別碼，系統將會授與它們您客戶資源的特定權限 (按角色定義所描述)。
+- **Azure AD 物件顯示名稱**：協助客戶了解此授權用途的易記名稱。 客戶會在委派資源時看到此名稱。
+- **角色定義**：從清單中選取其中一個可用的 Azure AD 內建角色。 此角色將會決定 [Azure AD 物件識別碼]  欄位中的使用者，對於您的客戶資源會有那些權限。 如需這些角色的描述，請參閱[內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)和[適用於 Azure 委派資源管理的角色支援](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
+- **可指派的角色**：如果您為此授權在 [角色定義]  中選取 [使用者存取系統管理員]，則這是必要項目。 若是如此，您必須在此新增一或多個可指派的角色。 [Azure AD 物件識別碼]  欄位中的使用者將能夠將這些**可指派的角色**指派給[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)，[部署可補救的原則](deploy-policy-remediation.md)時需要這些角色。 請注意，不會有其他一般與「使用者存取系統管理員」角色相關聯的權限套用至此使用者。 如果您未在此選取一個或多個角色，您的提交將不會通過認證。 (如果您沒有為此使用者的 [角色定義] 選取 [使用者存取系統管理員]，則此欄位無效。)
 
 > [!TIP]
 > 在多數情況下，建議您指派權限給 Azure AD 使用者群組或服務主體，而不是指派給一系列個別使用者帳戶。 如此一來，當您的存取需求變更時，就可以新增或移除個別使用者的存取權，而不需要更新並重新發佈方案。 如需其他建議，請參閱 [Azure Lighthouse 案例中的租用戶、角色和使用者](../concepts/tenants-users-roles.md)。
@@ -141,64 +137,19 @@ ms.locfileid: "73615472"
 
 完成所有區段之後，下一步是將供應項目發佈至 Azure Marketplace。 選取 [發行]  按鈕來起始供應項目上線程序。 如需有關此程序的詳細資訊，請參閱[發行 Azure Marketplace 和 AppSource 供應項目](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer) \(部分機器翻譯\)。
 
+您可以隨時[發佈供應項目的更新版本](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-update-offer)。 例如，您可能會想要將新的角色定義新增至先前發佈的供應項目。 當您這麼做時，已新增供應項目的客戶會在 Azure 入口網站的 [[服務提供者  ](view-manage-service-providers.md)] 頁面中看到一個圖示，讓他們知道有可用的更新。 每個客戶都可以[檢閱變更](view-manage-service-providers.md#update-service-provider-offers)，並決定是否要更新為新的版本。 
+
 ## <a name="the-customer-onboarding-process"></a>客戶上線程序
 
-當客戶新增您的供應項目時，他們將能夠[委派一個或多個特定訂用帳戶或資源群組](view-manage-service-providers.md#delegate-resources)，然後讓這些項目上線，以進行 Azure 委派的資源管理。 如果客戶已接受供應項目，但未委派任何資源，則他們會在 Azure 入口網站中[**服務提供者**](view-manage-service-providers.md)頁面上的 [提供者供應項目]  區段頂端看到一個備註。 如果客戶租用戶中的使用者無法執行此委派，可能是因為他們沒有訂用帳戶的擁有者角色。 若要尋找可委派訂用帳戶的使用者，使用者可以在 Azure 入口網站中選取訂用帳戶並開啟 [存取控制 (IAM)]  ，然後[查看所有具有「擁有者」角色的使用者](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions)。
+客戶新增您的供應項目之後，他們將能夠[委派一個或多個特定訂用帳戶或資源群組](view-manage-service-providers.md#delegate-resources)，然後讓這些項目上線，以進行 Azure 委派的資源管理。 如果客戶已接受供應項目，但未委派任何資源，則他們會在 Azure 入口網站中[**服務提供者**](view-manage-service-providers.md)頁面上的 [提供者供應項目]  區段頂端看到一個備註。
 
-在訂用帳戶 (或訂用帳戶內的資源群組) 可以上線之前，訂用帳戶必須藉由手動註冊 **Microsoft.ManagedServices** 資源提供者來獲得上線的權限。 客戶租用戶中具有「參與者」或「擁有者」角色的使用者可以遵循 [Azure 資源提供者和類型](../../azure-resource-manager/resource-manager-supported-services.md)中所述的步驟來執行此動作。
+> [!IMPORTANT]
+> 委派必須由客戶租用戶中的非來賓帳戶執行，且該租用戶對於要上線的訂用帳戶必須有[「擁有者」內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) (部分機器翻譯) (或包含要上線的資源群組)。 若要查看可委派訂用帳戶的所有使用者，客戶租用戶中的使用者可以在 Azure 入口網站中選取訂用帳戶並開啟 [存取控制 (IAM)]  ，然後[查看所有具有「擁有者」角色的使用者](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions)。
 
-接著，客戶可使用下列其中一個方式來確認訂用帳戶已經可上線。
+客戶委派訂用帳戶 (或訂用帳戶內的一或多個資源群組) 之後，將會為該訂用帳戶註冊 **Microsoft.ManagedServices** 資源提供者，您租用戶中的使用者將能夠根據您供應項目中的授權存取委派的資源。
 
-### <a name="azure-portal"></a>Azure 入口網站
-
-1. 在 Azure 入口網站中，選取訂用帳戶。
-1. 選取 [資源提供者]  。
-1. 確認 [Microsoft.ManagedServices]  顯示為 [已註冊]  。
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-Set-AzContext -Subscription <subscriptionId>
-Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
-```
-
-這應該會傳回如下結果：
-
-```output
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationDefinitions}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationAssignments}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {operations}
-Locations         : {}
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-az account set –subscription <subscriptionId>
-az provider show --namespace "Microsoft.ManagedServices" --output table
-```
-
-這應該會傳回如下結果：
-
-```output
-Namespace                  RegistrationState
--------------------------  -------------------
-Microsoft.ManagedServices  Registered
-```
+> [!NOTE]
+> 此時，如果訂用帳戶使用 Azure Databricks，就無法委派訂用帳戶 (或訂用帳戶內的資源群組)。 同樣地，如果已委派訂用帳戶 (或訂用帳戶內的資源群組)，則目前無法在該訂用帳戶中建立 Databricks 工作區。
 
 ## <a name="next-steps"></a>後續步驟
 

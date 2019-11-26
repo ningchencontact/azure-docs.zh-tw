@@ -1,19 +1,19 @@
 ---
 title: 排序結果的 C# 教學課程
 titleSuffix: Azure Cognitive Search
-description: 此教學課程以「搜尋結果分頁 - Azure 認知搜尋」專案作為建置基礎，以新增搜尋結果排序功能。 了解如何根據主要屬性排序結果、如何排序主要屬性相同的結果，以及如何根據次要屬性排序結果。 最後，了解如何根據評分設定檔來排序結果。
+description: 本教學課程會示範如何排序搜尋結果。 它是以先前的飯店專案為基礎所建置，依主要屬性、次要屬性進行排序，並包含評分設定檔來新增提升準則。
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 8d0c8e2a4467fe56cc0633a7d501af0c6aeed22a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9230e555f9ea56ca4cda3fcabe1f9719e36a8f62
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794059"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112677"
 ---
 # <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>C# 教學課程：排序結果 - Azure 認知搜尋
 

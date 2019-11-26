@@ -1,5 +1,5 @@
 ---
-title: 尋找空閒會議室 - Azure Digital Twins | Microsoft Docs
+title: 快速入門：尋找空閒會議室 - Azure Digital Twins
 description: 在本快速入門中，您會執行兩個 .NET Core 應用程式範例，將模擬的動作和二氧化碳遙測資料傳送至 Azure Digital Twins 中的空間。 我們的目標是要在計算雲端中的處理能力後，從管理 API 尋找有新鮮空氣的空閒會議室。
 ms.author: alinast
 author: alinamstanciu
@@ -9,13 +9,13 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 10/03/2019
-ms.openlocfilehash: 3c9a806b936b9f167d1700c95b1e769926abb17b
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.date: 11/12/2019
+ms.openlocfilehash: 44ef646328f5f55d16dfa2d6906b78866292ebd9
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958901"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123190"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>快速入門：使用 Azure Digital Twins 尋找空閒會議室
 
@@ -59,6 +59,8 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
     - **Tenant**：輸入 Azure AD 租用戶的目錄識別碼，其同樣記載於上一節。
     - **BaseUrl**：Digital Twins 執行個體的管理 API URL 所用的格式為 `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`。 將此 URL 中的預留位置替換為執行個體在上一節的值。
 
+    儲存更新的檔案。
+
 ## <a name="provision-graph"></a>佈建圖形
 
 此步驟會佈建含有下列項目的 Digital Twins 空間圖形：
@@ -81,23 +83,25 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 
 1. 佈建步驟可能需要進行幾分鐘的時間。 它也會在 Digital Twins 執行個體內佈建 IoT 中樞。 這個過程會一直循環進行，直到 IoT 中樞顯示狀態為 `Running`。
 
-    [![佈建範例](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png#lightbox)
+    [![佈建範例 - 狀態=正在執行](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
 
 1. 執行結束時，請複製裝置的 `ConnectionString` 以便用於裝置模擬器範例。 您只需要複製下圖所述的字串。
 
-    [![複製連接字串](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
+    [![複製連接字串](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png)](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png#lightbox)
 
     >[!TIP]
     > 您可以使用 [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer) 檢視和修改空間圖形。
 
+保持主控台視窗開啟以供稍後使用。
+
 ## <a name="send-sensor-data"></a>傳送感應器資料
 
-遵循下列步驟來建置及執行模擬器感應器應用程式。
+遵循下列步驟來建置及執行感應器模擬器裝置應用程式。
 
-1. 開啟新的命令提示字元。 移至您下載到 digital-twins-samples-csharp-master 資料夾中的專案。
+1. 開啟新的命令提示字元。 移至您在 `digital-twins-samples-csharp-master` 資料夾中下載的專案。
 1. 執行 `cd device-connectivity`。
 1. 執行 `dotnet restore`。
-1. 編輯 [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) 以使用先前的 `ConnectionString` 來更新 DeviceConnectionString  。
+1. 編輯 [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) 以使用先前的 `ConnectionString` 來更新 DeviceConnectionString  。 儲存更新的檔案。
 1. 執行 `dotnet run` 來開始傳送感應器資料。 您會看到資料傳送到 Digital Twins，如下圖所示。
 
      [![裝置連線能力](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
@@ -111,32 +115,32 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 
 感應器範例會模擬兩個感應器的隨機資料值。 它們分別是動作和二氧化碳。 在範例中，有新鮮空氣的空閒會議室定義是會議室內沒有人。 其另外的定義是二氧化碳濃度低於 1,000 ppm。 如果情況不符，就表示沒有空閒會議室，要不然就是空氣品質不良。
 
-1. 開啟用來執行先前佈建步驟的命令提示字元。
+1. 開啟稍早用來執行佈建步驟的命令提示字元。
 1. 執行 `dotnet run GetAvailableAndFreshSpaces`。
 1. 查看這個命令提示字元和並排顯示的感應器資料命令提示字元。
 
-    一個命令提示字元會每隔五秒將模擬的動作和二氧化碳資料傳送至 Digital Twins。 另一個命令會即時讀取圖形，以根據隨機的模擬資料來找出有新鮮空氣的空閒會議室。 它會根據最後一次傳送的感應器資料，近乎即時地顯示下列其中一個情況：
-   - 有新鮮空氣的空閒會議室。
-   - 會議室有人使用或空中品質不良。
+    感應器資料命令提示字元會每隔五秒將模擬的動作和二氧化碳資料傳送至 Digital Twins。 另一個命令提示字元會即時讀取圖形，以根據隨機的模擬資料來找出有新鮮空氣的空閒會議室。 它會根據最後一次傳送的感應器資料，近乎即時地顯示下列其中一個情況：
+   - `Room is available and air is fresh`
+   - `Room is not available or air quality is poor`
 
      [![取得有新鮮空氣的空閒空間](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
 
-若要了解本快速入門所發生的情況以及已呼叫的 API，請使用 digital-twins-samples-csharp 中找到的程式碼工作區專案來開啟 [Visual Studio Code](https://code.visualstudio.com/Download)。 使用下列命令：
+若要了解本快速入門所發生的情況以及已呼叫的 API，請使用 `digital-twins-samples-csharp` 中找到的程式碼工作區專案來開啟 [Visual Studio Code](https://code.visualstudio.com/Download)。 使用下列命令：
 
-```plaintext
+```cmd
 <path>\occupancy-quickstart\src>code ..\..\digital-twins-samples.code-workspace
 ```
 
 教學課程會深入探索此程式碼。 其會告訴您如何修改組態資料，以及呼叫了哪些 API。 如需管理 API 的詳細資訊，請移至 Digital Twins Swagger 頁面：
 
-```plaintext
+```URL
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
 | 名稱 | 更換為 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Digital Twins 執行個體的名稱 |
-| YOUR_LOCATION | 裝載您執行個體的伺服器區域 |
+| YOUR_LOCATION | 您的執行個體裝載所在的伺服器區域 |
 
 或者，為求方便，瀏覽至 [Digital Twins Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger)。
 
@@ -153,11 +157,11 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 1. 從 [Azure 入口網站](https://portal.azure.com)左側的功能表中，選取 [所有資源]  。 然後，選取 Digital Twins 資源。 在 [所有資源]  窗格的頂端，選取 [刪除]  。
 
     > [!TIP]
-    > 如果您在刪除 Digital Twins 執行個體時遇到問題，已推出的服務更新中具有修正程式。 請重試刪除執行個體。
+    > 如果您先前在刪除 Digital Twins 執行個體時遇到問題，已推出的服務更新中具有修正程式。 請重試刪除執行個體。
 
 ## <a name="next-steps"></a>後續步驟
 
-本快速入門使用一個簡單案例，讓您了解如何尋找有良好工作條件的會議室。 若要深入分析此案例，請參閱本教學課程：
+本快速入門使用簡單的案例和範例應用程式，示範如何使用 Digital Twins 來尋找有良好工作條件的會議室。 若要深入分析此案例，請參閱本教學課程：
 
 >[!div class="nextstepaction"]
 >[教學課程：部署 Azure Digital Twins 及設定空間圖形](tutorial-facilities-setup.md)

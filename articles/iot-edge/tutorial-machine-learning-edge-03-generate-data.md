@@ -1,19 +1,19 @@
 ---
-title: 產生模擬裝置資料 - Azure IoT Edge 上的 Machine Learning | Microsoft Docs
-description: 建立能產生模擬遙測的虛擬裝置，以稍後使用這些資料來對機器學習模型進行定型。
+title: 教學課程：產生模擬裝置資料 - Azure IoT Edge 上的 Machine Learning
+description: 教學課程：建立能產生模擬遙測的虛擬裝置，以稍後使用這些資料來對機器學習模型進行定型。
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 666172e3685b923ca0d0e5fa02878341fcd0a216
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 51d93e5b83d203f3fa99b69cc5f2877bbfdb6fb1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543864"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112864"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>教學課程：產生模擬裝置資料
 
@@ -89,7 +89,7 @@ DeviceHarness 專案是以 C# 撰寫的 .NET Core 專案，並包含四個類別
 
 1. 開啟命令選擇區 (`Ctrl + Shift + P` 或 [檢視]   > [命令選擇區]  ) 來在 Visual Studio Code 中登入您的 Azure 訂用帳戶。
 
-1. 在提示字元中搜尋並選取 [Azure:登入]  。
+1. 在提示字元中搜尋並選取 [Azure:  登入]。
 
 1. 瀏覽器視窗隨即開啟，並提示您提供認證。 當系統將您重新導向至成功頁面之後，您便可以關閉瀏覽器。
 
