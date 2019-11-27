@@ -45,7 +45,7 @@ ms.locfileid: "74547153"
 * 作為來源時，請使用 KQL (Kusto) 查詢擷取資料。
 * 作為接收時，請將資料附加至目的地資料表。
 
-## <a name="getting-started"></a>快速入門
+## <a name="getting-started"></a>開始使用
 
 >[!TIP]
 >如需 Azure 資料總管連接器的逐步解說，請參閱[使用 Azure Data Factory 從資料庫將資料複製到 azure 資料總管](../data-explorer/data-factory-load-data.md)，並[從資料庫大量複製到 azure 資料總管](../data-explorer/data-factory-template.md)。
@@ -74,14 +74,14 @@ Azure 資料總管連接器會使用服務主體驗證。 請遵循下列步驟�
 
 以下是針對 Azure 資料總管已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | **Type**屬性必須設定為**AzureDataExplorer**。 | yes |
-| endpoint | Azure 資料總管叢集的端點 URL，格式為 `https://<clusterName>.<regionName>.kusto.windows.net`。 | yes |
-| database | 資料庫名稱。 | yes |
-| 租用戶 | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 這在[Kusto 連接字串](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)中稱為「授權識別碼」。 將滑鼠指標暫留在 Azure 入口網站的右上角，即可取出。 | yes |
-| servicePrincipalId | 指定應用程式的用戶端識別碼。 這在[Kusto 連接字串](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)中稱為「AAD 應用程式用戶端識別碼」。 | yes |
-| servicePrincipalKey | 指定應用程式的金鑰。 這在[Kusto 連接字串](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)中稱為「AAD 應用程式金鑰」。 將此欄位標記為**SecureString** ，將它安全地儲存在 Data Factory 中，或[參考儲存在 Azure Key Vault 中的安全資料](store-credentials-in-key-vault.md)。 | yes |
+| 類型 | **Type**屬性必須設定為**AzureDataExplorer**。 | 是 |
+| endpoint | Azure 資料總管叢集的端點 URL，格式為 `https://<clusterName>.<regionName>.kusto.windows.net`。 | 是 |
+| 資料庫 | 資料庫名稱。 | 是 |
+| tenant | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 這在[Kusto 連接字串](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)中稱為「授權識別碼」。 將滑鼠指標暫留在 Azure 入口網站的右上角，即可取出。 | 是 |
+| servicePrincipalId | 指定應用程式的用戶端識別碼。 這在[Kusto 連接字串](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)中稱為「AAD 應用程式用戶端識別碼」。 | 是 |
+| servicePrincipalKey | 指定應用程式的金鑰。 這在[Kusto 連接字串](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)中稱為「AAD 應用程式金鑰」。 將此欄位標記為**SecureString** ，將它安全地儲存在 Data Factory 中，或[參考儲存在 Azure Key Vault 中的安全資料](store-credentials-in-key-vault.md)。 | 是 |
 
 **連結服務屬性範例：**
 
@@ -112,9 +112,9 @@ Azure 資料總管連接器會使用服務主體驗證。 請遵循下列步驟�
 
 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | **Type**屬性必須設定為**AzureDataExplorerTable**。 | yes |
+| 類型 | **Type**屬性必須設定為**AzureDataExplorerTable**。 | 是 |
 | 資料表 | 連結服務所參考的資料表名稱。 | Yes (接收)：No (來源) |
 
 **資料集屬性範例：**
@@ -144,10 +144,10 @@ Azure 資料總管連接器會使用服務主體驗證。 請遵循下列步驟�
 
 若要從 Azure 資料總管複製資料，請將複製活動來源中的 **type** 屬性設定為 **AzureDataExplorerSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的**類型**屬性必須設定為： **AzureDataExplorerSource** | yes |
-| query | [KQL 格式](/azure/kusto/query/)中指定的唯讀要求。 使用自訂的 KQL 查詢作為參考。 | yes |
+| 類型 | 複製活動來源的**類型**屬性必須設定為： **AzureDataExplorerSource** | 是 |
+| query | [KQL 格式](/azure/kusto/query/)中指定的唯讀要求。 使用自訂的 KQL 查詢作為參考。 | 是 |
 | queryTimeout | 查詢要求超時之前的等候時間。預設值為10分鐘（00:10:00）;允許的最大值為1小時（01:00:00）。 | 否 |
 | noTruncation | 指出是否截斷傳回的結果集。 根據預設，在500000記錄或 64 mb 之後，會截斷結果。 強烈建議進行截斷，以確保活動的正確行為。 |否 |
 
@@ -191,9 +191,9 @@ Azure 資料總管連接器會使用服務主體驗證。 請遵循下列步驟�
 
 若要將資料複製到 Azure 資料總管，請將複製活動接收中的 type 屬性設定為 **AzureDataExplorerSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動接收器的**類型**屬性必須設定為： **AzureDataExplorerSink**。 | yes |
+| 類型 | 複製活動接收器的**類型**屬性必須設定為： **AzureDataExplorerSink**。 | 是 |
 | ingestionMappingName | Kusto 資料表上預先建立的[對應](/azure/kusto/management/mappings#csv-mapping)名稱。 若要將資料行從來源對應到 Azure 資料總管（適用于[所有支援的來源存放區和格式](copy-activity-overview.md#supported-data-stores-and-formats)，包括 CSV/JSON/Avro 格式），您可以使用複製活動資料[行對應](copy-activity-schema-and-type-mapping.md)（以名稱隱含或明確設定）和/或 Azure 資料總管對應。 | 否 |
 
 **範例：**
