@@ -1,6 +1,6 @@
 ---
 title: 使用 Visual Studio Azure Logic Apps 管理邏輯應用程式
-description: 使用 Visual Studio Cloud Explorer 管理邏輯應用程式和其他 Azure 資產
+description: 使用 Visual Studio 搭配 Cloud Explorer 來管理邏輯應用程式和其他 Azure 資產
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 05/07/2019
-ms.openlocfilehash: db4143b3bf75d1745245d5baae267a55ce71e95f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.date: 10/29/2019
+ms.openlocfilehash: e10683bcd5612db788d6dd5675425fec4130ffeb
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212607"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796339"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理邏輯應用程式
 
@@ -26,9 +26,9 @@ ms.locfileid: "71212607"
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂閱。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 如果您還沒有以下這些工具，請加以下載並安裝：
 
@@ -44,7 +44,7 @@ ms.locfileid: "71212607"
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
-  * 您想要的 Azure Logic Apps Tools for Visual Studio 版本：
+  * 適用於您所需版本之 Visual Studio 擴充功能的最新 Azure Logic Apps 工具：
 
     * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
@@ -66,7 +66,7 @@ ms.locfileid: "71212607"
 
 1. 開啟 Visual Studio。 在 [檢視] 功能表上選取 [Cloud Explorer]。
 
-1. 在 Cloud Explorer 中，選取 [**帳戶管理**]。 選取與您的邏輯應用程式相關聯的 Azure 訂用帳戶，然後選取 [套用 **]。** 例如:
+1. 在 Cloud Explorer 中，選取 [**帳戶管理**]。 選取與您的邏輯應用程式相關聯的 Azure 訂用帳戶，然後選取 [套用 **]。** 例如︰
 
    ![選取 [帳戶管理]](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -74,7 +74,7 @@ ms.locfileid: "71212607"
 
    * **資源群組**：在您的 Azure 訂用帳戶底下，Cloud Explorer 會顯示與該訂用帳戶相關聯的所有資源群組。 展開包含邏輯應用程式的資源群組，然後選取您的邏輯應用程式。
 
-   * **資源類型**：在您的 Azure 訂用帳戶中，展開 [Logic Apps]。 在 Cloud Explorer 顯示與您訂用帳戶相關聯的所有已部署邏輯應用程式後，選取您的邏輯應用程式。
+   * **資源類型**：在您的 Azure 訂用帳戶底下，展開 [邏輯應用程式]。 在 Cloud Explorer 顯示與您訂用帳戶相關聯的所有已部署邏輯應用程式後，選取您的邏輯應用程式。
 
 <a name="open-designer"></a>
 
@@ -99,7 +99,7 @@ ms.locfileid: "71212607"
 
 ## <a name="download-from-azure"></a>從 Azure 下載
 
-您可以從 [Azure 入口網站](https://portal.azure.com)下載邏輯應用程式，並將它們儲存為 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 範本。 之後您可以在本機使用 Visual Studio 編輯範本，並針對不同部署環境自訂邏輯應用程式。  下載邏輯應用程式會自動將其在 [Resource Manager 範本](../azure-resource-manager/template-deployment-overview.md)中的定義「參數化」，這也會使用 JavaScript 物件標記法 (JSON)。
+您可以從 [Azure 入口網站](https://portal.azure.com)下載邏輯應用程式，並將它們儲存為 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 範本。 之後您可以在本機使用 Visual Studio 編輯範本，並針對不同部署環境自訂邏輯應用程式。  下載邏輯應用程式會自動將其在 *Resource Manager 範本*中的定義「參數化」[](../azure-resource-manager/template-deployment-overview.md)，這也會使用 JavaScript 物件標記法 (JSON)。
 
 1. 在 Visual Studio 中，開啟 Cloud Explorer。 尋找並選取您想要從 Azure 下載的邏輯應用程式。
 
@@ -112,7 +112,7 @@ ms.locfileid: "71212607"
 
 1. 在設計工具工具列上，選取 [**下載**]。
 
-   ![選取 [下載]](./media/manage-logic-apps-with-visual-studio/download-logic-app.png)
+   ![從 Azure 入口網站下載邏輯應用程式](./media/manage-logic-apps-with-visual-studio/download-logic-app-from-portal.png)
 
 1. 當系統提示您輸入位置時，瀏覽至該位置，並以 JSON (.json) 檔案格式儲存邏輯應用程式定義的 Resource Manager 範本。
 
@@ -126,24 +126,74 @@ ms.locfileid: "71212607"
 
 1. 在 Visual Studio 中，開啟包含邏輯應用程式的 Azure 資源群組專案。
 
-1. 在方案總管中，開啟 [ **< 邏輯-應用程式名稱] > json**檔案的快捷方式功能表，然後選取 [**使用邏輯應用程式設計工具開啟**]。 (鍵盤：Ctrl+L)
+1. 在方案總管中，開啟 [ **< 邏輯-應用程式名稱] > json**檔案的快捷方式功能表，然後選取 [**使用邏輯應用程式設計工具開啟**]。 （鍵盤： Ctrl + L）
 
    ![使用邏輯應用程式設計工具開啟邏輯應用程式的 json 檔案](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
    > [!TIP]
-   > 如果您在 Visual Studio 2019 中沒有此命令，請檢查您是否有最新的 Visual Studio 更新。
+   > 如果您在 Visual Studio 2019 中沒有此命令，請檢查您是否有 Visual Studio 的最新更新和 Azure Logic Apps 工具延伸模組。
 
-1. 若要確保邏輯應用程式設計工具具有焦點，請選取設計工具的索引標籤或介面，讓 [屬性] 窗格顯示邏輯應用程式的 [**整合帳戶**] 屬性。
+1. 請確定邏輯應用程式設計工具具有焦點，方法是選取設計工具的索引標籤或介面，讓屬性視窗顯示邏輯應用程式的**整合帳戶**屬性。
 
-   ![[屬性] 窗格會顯示 [整合帳戶] 屬性](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties.png)
+   ![屬性視窗-「整合帳戶」屬性](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
 
-1. 開啟 [**整合帳戶**] 清單，然後選取您想要連結到邏輯應用程式的整合帳戶，例如：
+   > [!TIP]
+   > 如果屬性視窗尚未開啟，請從 [ **View** ] 功能表中選取 [**屬性視窗]** 。 （鍵盤：按 F4）
+
+1. 開啟**整合帳戶**屬性清單，然後選取您想要連結到邏輯應用程式的整合帳戶，例如：
 
    ![開啟 [整合帳戶] 屬性清單](./media/manage-logic-apps-with-visual-studio/select-integration-account.png)
 
 1. 當您完成時，請記得儲存您的 Visual Studio 解決方案。
 
-當您在 Visual Studio 中設定**整合帳戶**屬性，並將邏輯應用程式儲存為 Azure Resource Manager 範本時，該範本也會包含所選整合帳戶的參數宣告。 如需範本參數和邏輯應用程式的詳細資訊[，請參閱總覽：自動化邏輯應用程式](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)部署。
+當您在 Visual Studio 中設定**整合帳戶**屬性，並將邏輯應用程式儲存為 Azure Resource Manager 範本時，該範本也會包含所選整合帳戶的參數宣告。 如需範本參數和邏輯應用程式的詳細資訊，請參閱[總覽：自動化邏輯應用程式部署](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)。
+
+<a name="change-location"></a>
+
+## <a name="change-deployment-location"></a>變更部署位置
+
+在 Visual Studio 中，如果您的邏輯應用程式是以 JSON （. json）檔案的形式存在於您用來自動化部署的[Azure 資源群組專案](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)中，則該邏輯應用程式會設定為位置類型和特定位置。 此位置可以是 Azure 區域或現有的[整合服務環境（ISE）](connect-virtual-network-vnet-isolated-environment.md)。
+
+若要變更邏輯應用程式的位置類型或位置，您必須使用邏輯應用程式設計工具，從方案總管開啟邏輯應用程式的工作流程定義（json）檔案。 您無法使用 Cloud Explorer 來變更這些屬性。
+
+> [!IMPORTANT]
+> 將位置類型從**區域**變更為[**整合服務環境**](connect-virtual-network-vnet-isolated-environment-overview.md)，會影響邏輯應用程式的[定價模型](logic-apps-pricing.md#fixed-pricing)，用於計費、[限制](logic-apps-limits-and-config.md#integration-account-limits)、[整合帳戶支援](connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus)等等。 在您選取不同的位置類型之前，請確定您瞭解對邏輯應用程式所產生的影響。
+
+1. 在 Visual Studio 中，開啟包含邏輯應用程式的 Azure 資源群組專案。
+
+1. 在方案總管中，開啟 `<logic-app-name>.json` 檔案的快捷方式功能表，然後選取 [**使用邏輯應用程式設計工具開啟**]。 （鍵盤： Ctrl + L）
+
+   ![使用邏輯應用程式設計工具開啟邏輯應用程式的 json 檔案](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+
+   > [!TIP]
+   > 如果您在 Visual Studio 2019 中沒有此命令，請檢查您是否有 Visual Studio 的最新更新和 Azure Logic Apps 工具延伸模組。
+
+1. 請確定邏輯應用程式設計工具具有焦點，方法是選取設計工具的索引標籤或介面，讓屬性視窗顯示邏輯應用程式的 **[選擇位置類型**] 和 [**位置**] 屬性。 專案的 [位置類型] 設定為 [**區域**] 或 [**整合服務環境**]。
+
+   ![屬性視窗-「選擇位置類型」 & 「位置」屬性](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
+
+   > [!TIP]
+   > 如果屬性視窗尚未開啟，請從 [ **View** ] 功能表中選取 [**屬性視窗]** 。 （鍵盤：按 F4）
+
+1. 若要變更位置類型，請開啟 [**選擇位置類型**] 屬性清單，然後選取您想要的位置類型。
+
+   例如，如果 [位置類型] 是 [**整合服務環境**]，您可以選取 [**區域**]。
+
+   ![[選擇位置類型] 屬性-變更位置類型](./media/manage-logic-apps-with-visual-studio/change-location-type.png)
+
+1. 若要變更特定位置，請開啟 [**位置**] 屬性清單。 根據 [位置類型]，選取您想要的位置，例如：
+
+   * 選取不同的 Azure 區域：
+
+     ![開啟 [位置] 屬性清單，選取另一個 Azure 區域](./media/manage-logic-apps-with-visual-studio/change-azure-resource-group-region.png)
+
+   * 選取不同的 ISE：
+
+     ![開啟 [位置] 屬性清單，選取另一個 ISE](./media/manage-logic-apps-with-visual-studio/change-integration-service-environment.png)
+
+1. 當您完成時，請記得儲存您的 Visual Studio 解決方案。
+
+當您在 Visual Studio 中變更位置類型或位置，並將邏輯應用程式儲存為 Azure Resource Manager 範本時，該範本也會包含該位置類型和位置的參數宣告。 如需範本參數和邏輯應用程式的詳細資訊，請參閱[總覽：自動化邏輯應用程式部署](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)。
 
 <a name="refresh"></a>
 
@@ -157,19 +207,19 @@ ms.locfileid: "71212607"
 
 * 在 Visual Studio Cloud Explorer 中，開啟邏輯應用程式的捷徑功能表，然後選取 [重新整理]。
 
-![使用更新內容重新整理邏輯應用程式](./media/manage-logic-apps-with-visual-studio/refresh-logic-app.png)
+![使用更新內容重新整理邏輯應用程式](./media/manage-logic-apps-with-visual-studio/refresh-logic-app-with-updates-from-portal.png)
 
 ## <a name="publish-logic-app-updates"></a>發佈邏輯應用程式的更新
 
 當您準備好要將邏輯應用程式更新從 Visual Studio 部署到 Azure 時，請在邏輯應用程式設計工具工具列上，選取 [**發佈**]。
 
-![發佈更新後的邏輯應用程式](./media/manage-logic-apps-with-visual-studio/publish-logic-app.png)
+![將已更新的邏輯應用程式發佈至 Azure 入口網站](./media/manage-logic-apps-with-visual-studio/publish-logic-app-to-azure-portal.png)
 
 ## <a name="manually-run-your-logic-app"></a>手動執行邏輯應用程式
 
 您可以從 Visual Studio 手動觸發部署在 Azure 中的邏輯應用程式。 在邏輯應用程式設計工具工具列上，選取 [**執行觸發**程式]。
 
-![手動執行邏輯應用程式](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
+![手動執行邏輯應用程式的觸發程式](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
 
 ## <a name="review-run-history"></a>檢閱執行歷程記錄
 
@@ -177,37 +227,37 @@ ms.locfileid: "71212607"
 
 1. 在 Cloud Explorer 中，開啟邏輯應用程式的捷徑功能表，然後選取 [開啟執行歷程記錄]。
 
-   ![開啟執行歷程記錄](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
+   ![開啟邏輯應用程式的執行歷程記錄](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
-1. 若要檢閱特定執行的詳細資料，請對該執行按兩下。 例如:
+1. 若要檢閱特定執行的詳細資料，請對該執行按兩下。 例如︰
 
-   ![詳細的執行歷程記錄](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
+   ![查看特定執行的相關資訊](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
    > [!TIP]
    > 若要依屬性排序資料表，請選取該屬性的欄標題。
 
 1. 展開您要檢查其輸入和輸出的步驟，例如：
 
-   ![檢視每個步驟的輸入和輸出](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
+   ![檢視每個步驟的輸入和輸出](./media/manage-logic-apps-with-visual-studio/view-run-history-inputs-outputs.png)
 
 ## <a name="disable-or-enable-logic-app"></a>停用或啟用邏輯應用程式
 
 您可以在下一次觸發程序條件符合時停止引發觸發程序，而無需刪除您的邏輯應用程式。 停用邏輯應用程式可防止 Logic Apps 引擎建立和執行邏輯應用程式未來的工作流程執行個體。 在 Cloud Explorer 中，開啟邏輯應用程式的捷徑功能表，然後選取 [停用]。
 
-![停用邏輯應用程式](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
+![在 Cloud Explorer 中停用邏輯應用程式](./media/manage-logic-apps-with-visual-studio/disable-logic-app-cloud-explorer.png)
 
 > [!NOTE]
 > 當您停用邏輯應用程式後，就不會具現化新的執行。 所有進行中和擱置的執行將會繼續直到完成，這可能需要一些時間。
 
 若要重新開機邏輯應用程式，請在 Cloud Explorer 中，開啟邏輯應用程式的快捷方式功能表，然後選取 [**啟用**]。
 
-![啟用邏輯應用程式](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
+![在 Cloud Explorer 中啟用邏輯應用程式](./media/manage-logic-apps-with-visual-studio/enable-logic-app-cloud-explorer.png)
 
 ## <a name="delete-your-logic-app"></a>刪除邏輯應用程式
 
 若要從 Azure 入口網站刪除您的邏輯應用程式，請在 Cloud Explorer 中開啟邏輯應用程式的捷徑功能表，然後選取 [刪除]。
 
-![刪除邏輯應用程式](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
+![從 Azure 入口網站刪除邏輯應用程式](./media/manage-logic-apps-with-visual-studio/delete-logic-app-from-azure-portal.png)
 
 > [!NOTE]
 > 當您刪除邏輯應用程式後，就不會具現化新的執行。 所有進行中和擱置的執行都會取消。 如果您有數千個執行，加以取消可能需要很長的時間。 

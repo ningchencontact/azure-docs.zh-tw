@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: ef3dc13bd7d36e11f3109ef96a6f453b59afe145
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 0f94c89a52de138b261796cbef25c0acb57622c4
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809334"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73799709"
 ---
 ## <a name="trigger"></a>觸發程序
 
@@ -260,7 +260,7 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
-若要批次接收事件，請在 *function.json* 檔案中將 `cardinality` 設定為 `many`，如下列範例所示。
+若要批次接收事件，請在 `cardinality`function.json`many` 檔案中將 *設定為*，如下列範例所示。
 
 #### <a name="version-2x"></a>2\.x 版
 
@@ -392,7 +392,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 |**eventHubName** |**EventHubName** | 僅限 Functions 2.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
 |**consumerGroup** |**ConsumerGroup** | 選擇性屬性，可設定用來訂閱中樞內事件的[取用者群組](../articles/event-hubs/event-hubs-features.md#event-consumers)。 如果省略，則會使用 `$Default` 取用者群組。 |
 |**基數** | n/a | 適用於 JavaScript。 設定為 `many` 才能啟用批次處理。  如果省略或設訂為 `one`，會傳遞單一訊息至函數。 |
-|**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下[命名空間](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串至少必須具備讀取權限，才能啟動觸發程序。|
+|**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下**命名空間**的 [連接資訊][](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace) 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串至少必須具備讀取權限，才能啟動觸發程序。|
 |**路徑**|**EventHubName**|事件中樞的名稱。 可透過應用程式設定 `%eventHubName%` 參照|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
@@ -401,7 +401,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 事件中樞觸發程序提供數個[中繼資料屬性](../articles/azure-functions/./functions-bindings-expressions-patterns.md)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) 類別的屬性。
 
-|屬性|Type|描述|
+|屬性|在系統提示您進行確認時，輸入|描述|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|`PartitionContext` 執行個體。|
 |`EnqueuedTimeUtc`|`DateTime`|加入佇列的時間 (UTC)。|
@@ -643,7 +643,7 @@ def main(timer: func.TimerRequest) -> str:
 下列範例會示範 Java 函式如何將包含目前時間的訊息寫入事件中樞。
 
 ```java
-@}FunctionName("sendTime")
+@FunctionName("sendTime")
 @EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
 public String sendTime(
    @TimerTrigger(name = "sendTimeTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo)  {
@@ -681,21 +681,21 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 |**name** | n/a | 函式程式碼中所使用的變數名稱，代表事件。 |
 |**路徑** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
 |**eventHubName** |**EventHubName** | 僅限 Functions 2.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
-|**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下*命名空間*的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串必須具有傳送權限，才能將訊息傳送至事件資料流。|
+|**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下**命名空間**的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串必須具有傳送權限，才能將訊息傳送至事件資料流。|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>輸出 - 使用方式
 
-在 C# 和 C# 指令碼中，使用方法參數 (例如 `out string paramName`) 來傳送訊息。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 若要寫入多則訊息，您可以使用 `ICollector<string>` 或 `IAsyncCollector<string>` 取代 `out string`。
+在 C# 和 C# 指令碼中，使用方法參數 (例如 `out string paramName`) 來傳送訊息。 在 C# 指令碼中，`paramName` 是 `name`function.json*之* 屬性中指定的值。 若要寫入多則訊息，您可以使用 `ICollector<string>` 或 `IAsyncCollector<string>` 取代 `out string`。
 
-在 JavaScript 中，使用 `context.bindings.<name>` 存取輸出事件。 `<name>` 是 function.json 之 `name` 屬性中指定的值。
+在 JavaScript 中，使用 `context.bindings.<name>` 存取輸出事件。 `<name>` 是 function.json`name`*之* 屬性中指定的值。
 
 ## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
 
 | 繫結 | 參考 |
 |---|---|
-| Event Hub | [操作指南](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) \(英文\) |
+| 事件中樞 | [操作指南](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) \(英文\) |
 
 <a name="host-json"></a>  
 

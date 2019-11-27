@@ -1,5 +1,5 @@
 ---
-title: 使用時間序列深入解析將裝置模擬遙測資料視覺化 - Azure | Microsoft Docs
+title: 使用時間序列深入解析將模擬的遙測資料視覺化-Azure |Microsoft Docs
 description: 了解如何設定時間序列深入解析環境，來探索和分析裝置模擬解決方案加速器產生的的遙測資料。
 author: dominicbetts
 manager: timlt
@@ -8,24 +8,24 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 5d20adc11e0d679e12fd060e719593a50180db8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65835027"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889336"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>使用時間序列深入分析將從裝置模擬解決方案加速器傳送的遙測資料視覺化
 
 裝置模擬解決方案加速器可讓您從模擬裝置產生遙測資料，藉此測試您的 IoT 解決方案。 本操作指南會示範如何使用時間序列深入解析環境，來視覺化和分析模擬的遙測資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要遵循此操作指南中的步驟，您必須具備有效的 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+若要遵循此操作指南中的步驟，您必須具備有效的 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 此操作指南中的步驟假設您已將裝置模擬解決方案加速器部署至您的 Azure 訂用帳戶。 如果您尚未部署此解決方案加速器，請先遵循[部署與執行雲端式裝置模擬解決方案](quickstart-device-simulation-deploy.md)快速入門中的步驟。
 
-本文假設您解決方案加速器的名稱是 **contoso-simulation**。 完成下列步驟時，將 **contoso-simulation** 取代成為您解決方案加速器的名稱。
+本文假設解決您方案加速器的名稱是 **contoso-simulation**。 完成下列步驟時，將 **contoso-simulation** 取代成為您解決方案加速器的名稱。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -66,18 +66,18 @@ ms.locfileid: "65835027"
     | 設定 | 值 |
     | ------- | ----- |
     | 環境名稱 | 下列螢幕擷取畫面會使用名稱 **Contoso-TSI**。 當您完成此步驟時，請選擇您自己的唯一名稱。 |
-    | Subscription | 在下拉式清單中選取您的 Azure 訂用帳戶。 |
-    | Resource group | **contoso-simulation**。 使用解決方案加速器的名稱。 |
-    | Location | 此範例使用**美國東部**。 在和裝置模擬加速器相同的區域中建立環境。 |
+    | 訂閱 | 在下拉式清單中選取您的 Azure 訂用帳戶。 |
+    | 資源群組 | **contoso-simulation**。 使用解決方案加速器的名稱。 |
+    | 位置 | 此範例使用**美國東部**。 在和裝置模擬加速器相同的區域中建立環境。 |
     | SKU |**S1** |
-    | Capacity | **1** |
+    | 容量 | **1** |
 
     ![建立時間序列深入解析](./media/iot-accelerators-device-simulation-time-series-insights/new-time-series-insights-create.png)
 
     > [!NOTE]
     > 將時間序列深入解析環境新增至和解決方案加速器相同的資源群組中，表示當您刪除解決方案加速器時，該環境也會刪除。
 
-1. 按一下 [建立] 。 可能需要幾分鐘的時間來建立環境。
+1. 按一下頁面底部的 [新增]。 可能需要幾分鐘的時間來建立環境。
 
 ## <a name="create-event-source"></a>建立事件來源
 
@@ -98,7 +98,7 @@ ms.locfileid: "65835027"
     | 設定 | 值 |
     | ------- | ----- |
     | 事件來源名稱 | 下列螢幕擷取畫面會使用名稱 **contoso-iot-hub**。 當您完成此步驟時，請使用您自己的唯一名稱。 |
-    | Source | **IoT 中心** |
+    | 來源 | **IoT 中心** |
     | 匯入選項 | **從可用的訂用帳戶使用 IoT 中樞** |
     | 訂用帳戶識別碼 | 在下拉式清單中選取您的 Azure 訂用帳戶。 |
     | IoT 中樞名稱 | **contoso-simulation7d894**。 使用來自裝置模擬解決方案加速器的 IoT 中樞名稱。 |
@@ -110,7 +110,7 @@ ms.locfileid: "65835027"
 
     ![建立事件來源](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-source-create.png)
 
-1. 按一下 [建立] 。
+1. 按一下頁面底部的 [新增]。
 
 > [!NOTE]
 > 您可以[對其他使用者授與存取權](../../articles/time-series-insights/time-series-insights-data-access.md#grant-data-access)，使其能夠存取時間序列深入解析總管。
@@ -167,7 +167,7 @@ ms.locfileid: "65835027"
 
 如果您打算進一步探索，請讓解決方案加速器維持部署。
 
-如果您不再需要解決方案加速器，可加以選取，然後按一下 [刪除解決方案]，從[已佈建的解決方案](https://www.azureiotsolutions.com/Accelerators#dashboard)頁面中加以刪除。
+如果您不再需要解決方案加速器，可加以選取，然後按一下 [刪除解決方案][](https://www.azureiotsolutions.com/Accelerators#dashboard)，從**已佈建的解決方案**頁面中加以刪除。
 
 如果您已將時間序列深入解析環境新增至解決方案加速器的資源群組中，則當您刪除解決方案加速器時，該環境也會自動刪除。 否則，您必須從 Azure 入口網站手動移除時間序列深入解析環境。
 

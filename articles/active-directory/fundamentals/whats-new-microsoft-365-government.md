@@ -1,6 +1,6 @@
 ---
-title: 什麼是 Azure Active Directory，Microsoft 365 Government Azure Active Directory 中的新功能 |Microsoft Docs
-description: 深入了解 Azure Active directory (Azure AD) 中 Microsoft 365 Government 雲端執行個體，可能會影響您的某些變更。
+title: Microsoft 365 政府版中的 Azure AD 有哪些新功能？ | Microsoft Docs
+description: 瞭解 Microsoft 365 政府雲端實例中 Azure Active Directory （Azure AD）的一些變更，這可能會對您造成影響。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,54 +13,54 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b077c7b5efbad2add971d42ff31938b56f6bc33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 75e7c6809810a78c81348bd4bbeb808e103f453f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258890"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805291"
 ---
-# <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>什麼是 Azure Active Directory，Microsoft 365 Government 中的新功能
+# <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Microsoft 365 政府中的 Azure Active Directory 新功能
 
-Microsoft 365 Government 雲端執行個體，也就是適用於使用下列服務的客戶中，我們已到 Azure Active Directory (Azure AD) 進行一些變更：
+我們已對 Microsoft 365 政府雲端實例中的 Azure Active Directory （Azure AD）進行一些變更，這適用于使用下列服務的客戶：
 
 - Microsoft Azure Government
 
-- Microsoft 365 Government – GCC 高
+- Microsoft 365 政府-GCC High
 
-- Microsoft 365 Government – DoD
+- Microsoft 365 政府– DoD
 
-本文不適用於 Microsoft 365 Government – GCC 客戶。
+本文不適用於 Microsoft 365 政府– GCC 客戶。
 
-## <a name="changes-to-the-initial-domain-name"></a>初始網域名稱的變更
+## <a name="changes-to-the-initial-domain-name"></a>初始功能變數名稱的變更
 
-在貴組織的初始註冊以取得 Microsoft 365 政府版的線上服務，您必須選擇您的組織網域名稱， `<your-domain-name>.onmicrosoft.com`。 如果您已經有.com 尾碼的網域名稱，不會變更。
+在貴組織初次註冊 Microsoft 365 政府線上服務時，系統會要求您選擇組織的功能變數名稱，`<your-domain-name>.onmicrosoft.com`。 如果您已經有具有 .com 尾碼的功能變數名稱，將不會變更任何內容。
 
-不過，如果您要註冊新的 Microsoft 365 Government 服務，您需要選擇網域名稱使用`.us`後置詞。 因此，它會`<your-domain-name>.onmicrosoft.us`。
+不過，如果您要註冊新的 Microsoft 365 政府服務，系統會要求您選擇使用 `.us` 尾碼的功能變數名稱。 因此，它會 `<your-domain-name>.onmicrosoft.us`。
 
 >[!Note]
->此變更不適用於任何雲端服務提供者 (Csp) 所管理的客戶。
+>這項變更不適用於雲端服務提供者（Csp）所管理的任何客戶。
 
-## <a name="changes-to-portal-access"></a>若要存取入口網站的變更
+## <a name="changes-to-portal-access"></a>入口網站存取的變更
 
-中所示，我們已針對 Microsoft Azure Government，Microsoft 365 Government – GCC High 與 Microsoft 365 Government – DoD、 更新入口網站的端點[端點對應表](#endpoint-mapping)。
+我們已更新 Microsoft Azure Government、Microsoft 365 政府-GCC High 和 Microsoft 365 政府– DoD 的入口網站端點，如[端點對應表](#endpoint-mapping)所示。
 
-先前的客戶無法登入使用全球 Azure (portal.azure.com) 和 Office 365 (portal.office.com) 入口網站。 此更新中，客戶現在必須登入使用特定的 Microsoft Azure Government，Microsoft 365 Government-GCC High 與 Microsoft 365 Government DoD 入口網站。
+先前的客戶可以使用全球 Azure （portal.azure.com）和 Office 365 （portal.office.com）入口網站進行登入。 透過這項更新，客戶現在必須使用特定 Microsoft Azure Government、Microsoft 365 政府-GCC High 和 Microsoft 365 政府 DoD 入口網站登入。
 
 ## <a name="endpoint-mapping"></a>端點對應
 
-下表顯示的端點，讓所有客戶：
+下表顯示所有客戶的端點：
 
 | 名稱 | 端點詳細資料 |
 |------|------------------|
-| 入口網站 |Microsoft Azure 政府服務： https://portal.azure.us<p>Microsoft 365 Government – GCC 高： https://portal.office365.us<p>Microsoft 365 Government – DoD: https://portal.apps.mil |
-| Azure Active Directory 授權端點 | https://login.microsoftonline.us |
+| 入口網站 |Microsoft Azure Government： https://portal.azure.us<p>Microsoft 365 政府– GCC High： https://portal.office365.us<p>Microsoft 365 政府– DoD： https://portal.apps.mil |
+| Azure Active Directory 授權單位端點 | https://login.microsoftonline.us |
 | Azure Active Directory 圖形 API | https://graph.windows.net |
-| Microsoft Graph API 適用於 Microsoft 365 Government-GCC 高 | https://graph.microsoft.us |
-| 適用於 Microsoft 365 Government-DoD 的 Microsoft Graph API | https://dod-graph.microsoft.us |
+| 適用于 Microsoft 365 政府的 Microsoft Graph API-GCC High | https://graph.microsoft.us |
+| 適用于 Microsoft 365 政府的 Microsoft Graph API-DoD | https://dod-graph.microsoft.us |
 | Azure Government 服務端點 | 如需詳細資訊，請參閱[Azure Government 開發人員指南](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
-| Microsoft 365 Government-GCC High 的端點 | 如需詳細資訊，請參閱[Office 365 美國Government GCC High 的端點](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
-| Microsoft 365 Government-DoD | 如需詳細資訊，請參閱[Office 365 美國Government DoD 端點](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
+| Microsoft 365 政府-GCC 高階端點 | 如需詳細資訊，請參閱[Office 365 美國政府 GCC 高階端點](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
+| Microsoft 365 政府-DoD | 如需詳細資訊，請參閱[Office 365 美國政府 DoD 端點](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -70,6 +70,6 @@ Microsoft 365 Government 雲端執行個體，也就是適用於使用下列服�
 
 - [Azure Government AAD 授權單位端點更新](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
 
-- [美國政府雲端中的 Microsoft Graph 端點](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
+- [在美國政府雲端中 Microsoft Graph 端點](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
 
-- [Office 365 US Government GCC High 和 DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)
+- [Office 365 美國政府 GCC 高和 DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)

@@ -6,18 +6,18 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/11/2019
+ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 32c7a2a79c8d6a35008255b3c117f20d04ad7749
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3b498911999e224003710eced8e0c34989672800
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72927411"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809188"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>匯入和匯出 IoT 中樞大量的裝置身分識別
 
-每個 IoT 中樞都有一個身分識別登錄，您可用來在服務中建立各裝置的資源。 身分識別登錄也可讓您控制裝置面向端點的存取權。 本文說明如何在身分識別登錄中大量匯入和匯出裝置身分識別。
+每個 IoT 中樞都有一個身分識別登錄，您可用來在服務中建立各裝置的資源。 身分識別登錄也可讓您控制裝置面向端點的存取權。 本文說明如何在身分識別登錄中大量匯入和匯出裝置身分識別。 若要查看中的實用C#範例，並瞭解如何在將中樞複製到不同區域時使用這項功能，請參閱[如何複製 IoT 中樞](iot-hub-how-to-clone.md)。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -91,7 +91,7 @@ while(true)
 
 ## <a name="export-devices"></a>匯出裝置
 
-使用 **ExportDevicesAsync** 方法將整個 IoT 中樞身分識別登錄匯出到使用[共用存取簽章](../storage/common/storage-security-guide.md#authorization)的 [Azure 儲存體](../storage/index.yml) Blob 容器。
+使用 **ExportDevicesAsync** 方法將整個 IoT 中樞身分識別登錄匯出到使用[共用存取簽章](../storage/index.yml)的 [Azure 儲存體](../storage/common/storage-security-guide.md#authorization) Blob 容器。
 
 這個方法可讓您在所控制的 Blob 容器中建立可靠的裝置資訊備份。
 
@@ -215,13 +215,13 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 
 **ImportDevicesAsync** 方法會採用兩個參數：
 
-* 包含 [Azure 儲存體](../storage/index.yml) Blob 容器 URI 以作為作業之「輸入」的「字串」。 此 URI 必須包含可授與容器讀取權限的 SAS 權杖。 此容器必須包含名稱為 **devices.txt** 的 Blob，而此 Blob 包含要匯入到身分識別登錄的序列化裝置資料。 匯入資料必須包含 **ExportImportDevice** 作業建立 **devices.txt** Blob 時所使用之相同 JSON 格式的裝置資訊。 SAS 權杖必須包含這些權限：
+* 包含 *Azure 儲存體* Blob 容器 URI 以作為作業之「輸入」[](../storage/index.yml)的「字串」。 此 URI 必須包含可授與容器讀取權限的 SAS 權杖。 此容器必須包含名稱為 **devices.txt** 的 Blob，而此 Blob 包含要匯入到身分識別登錄的序列化裝置資料。 匯入資料必須包含 **ExportImportDevice** 作業建立 **devices.txt** Blob 時所使用之相同 JSON 格式的裝置資訊。 SAS 權杖必須包含這些權限：
 
    ```csharp
    SharedAccessBlobPermissions.Read
    ```
 
-* 包含 [Azure 儲存體](https://azure.microsoft.com/documentation/services/storage/) Blob 容器 URI 以作為作業之「輸出」的「字串」。 作業會在此容器中建立區塊 Blob，以儲存來自已完成之匯入 **作業**的任何錯誤資訊。 SAS 權杖必須包含這些權限：
+* 包含 *Azure 儲存體* Blob 容器 URI 以作為作業之「輸出」[](https://azure.microsoft.com/documentation/services/storage/)的「字串」。 作業會在此容器中建立區塊 Blob，以儲存來自已完成之匯入 **作業**的任何錯誤資訊。 SAS 權杖必須包含這些權限：
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
@@ -421,7 +421,11 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已了解如何對 IoT 中樞內的身分識別登錄執行大量操作。 遵循下列連結以深入了解如何管理 Azure IoT 中樞：
+在本文中，您已了解如何對 IoT 中樞內的身分識別登錄執行大量操作。 其中許多作業（包括如何將裝置從一個中樞移至另一個集線器）會用於[如何複製 IoT 中樞的管理註冊至 IoT 中樞的裝置一節](iot-hub-how-to-clone.md#managing-the-devices-registered-to-the-iot-hub)。 
+
+複製文章具有相關聯的實用範例，其位於此頁面上的 IoT C#範例：[適用于C#的 Azure iot 範例](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/)，其專案為 ImportExportDevicesSample。 您可以下載範例並試試看;[如何複製 IoT 中樞一](iot-hub-how-to-clone.md)文中有指示。
+
+若要深入瞭解如何管理 Azure IoT 中樞，請參閱下列文章：
 
 * [IoT 中樞計量](iot-hub-metrics.md)
 * [IoT 中樞記錄](iot-hub-monitor-resource-health.md)

@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 入口網站中建立影片索引器帳戶
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: 本文將說明如何在 Azure 入口網站中建立影片索引器帳戶。
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: 0f67b2e37e264febf11f3fa55b4469d392c59712
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: dc844392d64178cb9000db15af39f923521efc19
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815679"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838387"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>建立連線到 Azure 的影片索引器帳戶
 
@@ -25,7 +25,7 @@ ms.locfileid: "68815679"
 
 ## <a name="prerequisites"></a>先決條件
 
-* Azure 訂用帳戶。
+* Azure 訂閱。
 
     如果您還沒有 Azure 訂用帳戶，請先註冊 [Azure 免費試用版](https://azure.microsoft.com/free/)。
 
@@ -57,14 +57,14 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 
 ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="connect-to-azure"></a>連線至 Azure
+## <a name="connect-to-azure"></a>連接到 Azure
 
 > [!NOTE]
-> 如果您的 Azure 訂用帳戶使用以憑證為基礎的多重要素驗證, 請務必在已安裝必要憑證的裝置上執行下列步驟。
+> 如果您的 Azure 訂用帳戶使用以憑證為基礎的多重要素驗證，請務必在已安裝必要憑證的裝置上執行下列步驟。
 
 1. 瀏覽至[影片索引子](https://www.videoindexer.ai/)網站並登入。
 
-2. 按一下 [**建立新帳戶**] 按鈕:
+2. 按一下 [**建立新帳戶**] 按鈕：
 
     ![連線到 Azure](./media/create-account/connect-to-azure.png)
 
@@ -107,7 +107,7 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 
 1. 使用 [Azure 入口網站](https://portal.azure.com/)來建立 Azure 媒體服務帳戶，如[建立帳戶](../previous/media-services-portal-create-account.md)所示。
 
-    為您的媒體服務帳戶建立儲存體帳戶時, 請針對 [帳戶種類] 選取 [ **StorageV2** ], 並針對 [複寫欄位] 選擇 **[異地冗余 (GRS)** ]。
+    為您的媒體服務帳戶建立儲存體帳戶時，請針對 [帳戶種類] 選取 [ **StorageV2** ]，並針對 [複寫欄位] 選擇 **[異地冗余（GRS）** ]。
 
     ![新的 AMS 帳戶](./media/create-account/create-ams-account1.png)
 
@@ -136,7 +136,7 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 
 ### <a name="connect-manually"></a>手動連線
 
-在 [Video Indexer](https://www.videoindexer.ai/) 頁面的 [將 Video Indexer 連線到 Azure 訂用帳戶] 對話方塊中，選取 [切換為手動設定] 連結。
+在 **Video Indexer** 頁面的 [將 Video Indexer 連線到 Azure 訂用帳戶][](https://www.videoindexer.ai/) 對話方塊中，選取 [切換為手動設定] 連結。
 
 在對話方塊中，提供下列資訊︰
 
@@ -150,7 +150,7 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 |應用程式識別碼|您在上一節中建立的 Azure AD 應用程式識別碼 (具有所指定媒體服務帳戶的權限)。|
 |應用程式金鑰|您在上一節中建立的 Azure AD 應用程式金鑰。 |
 
-## <a name="considerations"></a>考量
+## <a name="considerations"></a>注意事項
 
 以下是 Azure 媒體服務的相關考量：
 
@@ -173,7 +173,7 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 
 ## <a name="next-steps"></a>後續步驟
 
-若要以程式設計方式與連線到 Azure 的試用帳戶和/或 Video Indexer 帳戶互動，請遵循以下指示：[使用 API](video-indexer-use-apis.md)。
+若要以程式設計方式與連線到 Azure 的試用帳戶和/或影片索引器帳戶互動，請遵循[使用 API](video-indexer-use-apis.md) 中的指示。
 
 您應使用連線至 Azure 時使用的相同 Azure AD 使用者。
 

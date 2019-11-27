@@ -1,5 +1,5 @@
 ---
-title: 監視和效能調整-Azure SQL Database |Microsoft Docs
+title: 監視和效能微調
 description: 透過評估和改進來調整 Azure SQL Database 效能的秘訣。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 5df9df1474489d7f1b1fb4e1089143cca63a3e42
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: e77af00dc3352af3265da90685e58b34c96bee81
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71935610"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825149"
 ---
 # <a name="monitoring-and-performance-tuning"></a>監視和效能微調
 
@@ -33,10 +33,10 @@ Azure SQL Database 提供的工具和方法可讓您輕鬆地監視使用方式�
 ## <a name="monitor-database-performance"></a>監視資料庫效能
 
 若要監視 Azure 中 SQL database 的效能，請從監視相對於所選資料庫效能層級的資源開始。 監視下列資源：
- - **CPU 使用量**：檢查資料庫是否有一段頗長的時間達到 100% 的 CPU 使用量。 高 CPU 使用率可能表示您需要識別並調整使用最多計算能力的查詢。 高 CPU 使用率也可能表示資料庫或實例應該升級至較高的服務層級。 
- - **等候統計資料**：使用[_os_wait_stats （transact-sql）](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)來判斷查詢正在等候的時間長度。 查詢可以等候資源、佇列等候或外部等候。 
- - **IO 使用**方式：請檢查資料庫是否達到基礎儲存體的 IO 限制。
- - **記憶體使用量**：資料庫或實例可用的記憶體數量與虛擬核心的數目成正比。 請確定記憶體足以應付工作負載。 分頁生命週期是其中一個參數, 可表示從記憶體中移除頁面的速度。
+ - **Cpu 使用量**：檢查資料庫是否有一段很長的時間，達到100% 的 CPU 使用量。 高 CPU 使用率可能表示您需要識別並調整使用最多計算能力的查詢。 高 CPU 使用率也可能表示資料庫或實例應該升級至較高的服務層級。 
+ - **等候統計資料**：使用[Sys.databases dm_os_wait_stats （transact-sql）](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)來判斷查詢正在等候的時間長度。 查詢可以等候資源、佇列等候或外部等候。 
+ - **Io 使用**方式：查看資料庫是否達到基礎儲存體的 IO 限制。
+ - **記憶體使用量**：資料庫或實例可用的記憶體數量與虛擬核心的數目成正比。 請確定記憶體足以應付工作負載。 分頁生命週期是其中一個參數，可表示從記憶體中移除頁面的速度。
 
 Azure SQL Database 服務包含工具和資源，可協助您進行疑難排解並修正潛在的效能問題。 您可以藉由查看[效能微調建議](sql-database-advisor.md)，找出改善和優化查詢效能的機會，而不需要變更資源。 
 
@@ -67,20 +67,20 @@ Azure SQL Database 服務包含工具和資源，可協助您進行疑難排解�
 工作負載中的效能問題可能是因 CPU 爭用（執行*相關*的條件）或正在等候某個事物的個別查詢（*等待相關*的條件）所造成。
 
 執行相關的問題可能是由下列原因所造成：
-- **編譯問題**：SQL 查詢最佳化工具可能會產生較佳的計畫，因為過期的統計資料、要處理的資料列數目的估計值不正確，或所需的記憶體估計不精確。 如果您知道查詢是在過去或另一個實例（受控實例或 SQL Server 實例）上更快執行，請比較實際的執行計畫，以查看它們是否不同。 請嘗試套用查詢提示或重建統計資料或索引，以取得更好的計畫。 請在 Azure SQL Database 中啟用自動計畫更正，以自動減輕這些問題。
-- **執行問題**：如果查詢計劃是最佳的，可能會達到資料庫的資源限制，例如記錄寫入輸送量。 或者，它可能使用應該重建的分散索引。 當大量的並行查詢需要相同的資源時，也可能會發生執行問題。 *等待相關*的問題通常與執行問題有關，因為未有效率執行的查詢可能會等候某些資源。
+- **編譯問題**： SQL 查詢最佳化工具可能會產生較佳的計畫，因為過期的統計資料、要處理的資料列數目的估計不正確，或所需的記憶體估計不精確。 如果您知道查詢是在過去或另一個實例（受控實例或 SQL Server 實例）上更快執行，請比較實際的執行計畫，以查看它們是否不同。 請嘗試套用查詢提示或重建統計資料或索引，以取得更好的計畫。 請在 Azure SQL Database 中啟用自動計畫更正，以自動減輕這些問題。
+- **執行問題**：如果查詢計劃是最佳的，它可能會達到資料庫的資源限制，例如記錄寫入輸送量。 或者，它可能使用應該重建的分散索引。 當大量的並行查詢需要相同的資源時，也可能會發生執行問題。 *等待相關*的問題通常與執行問題有關，因為未有效率執行的查詢可能會等候某些資源。
 
 等待相關的問題可能是由下列原因所造成：
 - **封鎖**：一個查詢可能會持有資料庫中物件的鎖定，而有些則嘗試存取相同的物件。 您可以使用 Dmv 或監視工具來識別封鎖查詢。
-- **IO 問題**：查詢可能正在等候頁面寫入資料或記錄檔。 在此情況下，請`INSTANCE_LOG_RATE_GOVERNOR`檢查`WRITE_LOG`DMV 中`PAGEIOLATCH_*`的、或等候統計資料。
-- **TempDB 問題**：如果工作負載使用臨時表，或計畫中有 TempDB 溢出，則查詢可能會有 TempDB 輸送量的問題。 
+- **IO 問題**：查詢可能正在等候頁面寫入資料或記錄檔。 在此情況下，請檢查 DMV 中的 `INSTANCE_LOG_RATE_GOVERNOR`、`WRITE_LOG`或 `PAGEIOLATCH_*` 等候統計資料。
+- **TempDB 問題**：如果工作負載使用臨時表，或計畫中有 tempdb 溢出，則查詢可能會有 tempdb 輸送量的問題。 
 - **記憶體相關問題**：如果工作負載沒有足夠的記憶體，則分頁生命預期可能會下降，或查詢可能會取得比所需更少的記憶體。 在某些情況下，查詢最佳化工具中的內建智慧功能將會修正記憶體相關問題。
  
 下列各節說明如何識別和疑難排解某些類型的問題。
 
 ## <a name="performance-problems-related-to-running"></a>與執行相關的效能問題
 
-一般的指導方針是，如果 CPU 使用量一致地等於或高於 80%，表示您的效能問題正在執行-相關。 執行相關的問題可能是因為 CPU 資源不足所造成。 或者，它可能與下列其中一個條件相關：
+一般的指導方針是，如果 CPU 使用量一致地等於或高於80%，表示您的效能問題正在執行-相關。 執行相關的問題可能是因為 CPU 資源不足所造成。 或者，它可能與下列其中一個條件相關：
 
 - 太多執行的查詢
 - 太多編譯的查詢
@@ -91,11 +91,11 @@ Azure SQL Database 服務包含工具和資源，可協助您進行疑難排解�
 - 使用[Azure 入口網站](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal)來監視 CPU 使用量百分比。
 - 使用下列[dmv](sql-database-monitoring-with-dmvs.md)：
 
-  - [_Db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV 會傳回 SQL 資料庫的 CPU、i/o 和記憶體耗用量。 每隔15秒的間隔會有一個資料列，即使資料庫中沒有任何活動。 歷程記錄資料會保留一個小時。
+  - [Dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV 會傳回 SQL 資料庫的 CPU、i/o 和記憶體耗用量。 每隔15秒的間隔會有一個資料列，即使資料庫中沒有任何活動。 歷程記錄資料會保留一個小時。
   - [Resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV 會傳回 AZURE SQL DATABASE 的 CPU 使用量和儲存體資料。 資料會收集並匯總五分鐘的間隔。
 
 > [!IMPORTANT]
-> 若要針對使用 _db_resource_stats 和 resource_stats Dmv 的 T-SQL 查詢進行 CPU 使用量問題的疑難排解，請參閱[識別 cpu 效能問題](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues)。
+> 若要針對使用 sys.databases dm_db_resource_stats 和 sys.databases resource_stats Dmv 的 T-SQL 查詢進行 CPU 使用量問題的疑難排解，請參閱[找出 cpu 效能問題](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues)。
 
 ### <a name="ParamSniffing"></a>具有 PSP 問題的查詢
 
@@ -105,10 +105,10 @@ Azure SQL Database 服務包含工具和資源，可協助您進行疑難排解�
 
 有數種因應措施可減輕 PSP 問題。 每個因應措施都有相關聯的取捨和缺點：
 
-- 在每次查詢執行時使用 [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 查詢提示。 此因應措施會交易編譯時間和增加的 CPU，以獲得更好的計劃品質。 此`RECOMPILE`選項通常無法用於需要高輸送量的工作負載。
+- 在每次查詢執行時使用 [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 查詢提示。 此因應措施會交易編譯時間和增加的 CPU，以獲得更好的計劃品質。 對於需要高輸送量的工作負載而言，通常不會有 `RECOMPILE` 選項。
 - 使用[選項（OPTIMIZE FOR ...）](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query)查詢提示，以產生足以滿足大部分參數值可能性的計畫之一般參數值來覆寫實際的參數值。 此選項需要充分了解最佳的參數值和相關聯的計畫特性。
 - 使用[選項（[針對未知的優化）](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) ] 查詢提示來覆寫實際的參數值，改為使用密度向量平均值。 您也可以在本機變數中捕捉傳入參數值，然後在述詞中使用區域變數，而不是使用參數本身來執行此動作。 針對此修正，平均密度必須*夠好*。
-- 使用[DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query)查詢提示來完全停用參數探查。
+- 使用[DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query)查詢提示，完全停用參數探查。
 - 使用[KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query)查詢提示來避免在快取中重新編譯。 這個因應措施假設已有足夠的一般計畫，也就是快取中的方案。 您也可以停用自動統計資料更新，以降低將會收回良好計畫的機會，並編譯新的錯誤計畫。
 - 藉由重寫查詢並在查詢文字中加入提示，以明確地使用[USE plan](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query)查詢提示來強制執行計畫。 或藉由使用查詢存放區或啟用[自動調整](sql-database-automatic-tuning.md)來設定特定計劃。
 - 使用程序的的巢狀集合取代單一程序，每個程序都可以根據條件式邏輯和相關聯的參數值來使用。
@@ -132,7 +132,7 @@ FROM t1 JOIN t2 ON t1.c1 = t2.c1
 WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
 ```
 
-在此範例中`t1.c1` ， `@p1`會採用`t2.c2` ，但會繼續將 GUID 當做常值。 在此情況下，如果您變更的值`c2`，則會將查詢視為不同的查詢，並會進行新的編譯。 為了減少此範例中的編譯，您也會將 GUID 參數化。
+在此範例中，`t1.c1` 會 `@p1`，但 `t2.c2` 會繼續採用 GUID 作為常值。 在此情況下，如果您變更 `c2`的值，則會將查詢視為不同的查詢，並會進行新的編譯。 為了減少此範例中的編譯，您也會將 GUID 參數化。
 
 下列查詢會依查詢雜湊顯示查詢計數，以判斷查詢是否已正確參數化：
 
@@ -179,9 +179,9 @@ ORDER BY count (distinct p.query_id) DESC
 
 - **伺服器資源差異**：當某個系統中的計畫與另一個系統中的方案不同時，資源可用性（例如可用的處理器數目）可能會影響所產生的計畫。  例如，如果一個系統有更多的處理器，可能會選擇平行計畫。 
 
-- **不同的統計資料**：與參考物件相關聯的統計資料可能已變更，或可能與原始系統的統計資料不同。  如果統計資料變更，而且發生重新編譯，則查詢最佳化工具會在其變更時，使用從開始的統計資料。 修訂過的統計資料「資料散發」和「頻率」可能與原始編譯的不同。  這些變更會用來建立基數估計值。 （*基數估計值*是預期會流經邏輯查詢樹狀結構的資料列數目）。基數估計值的變更可能會導致您選擇不同的實體運算子和相關聯的作業順序。  即使是統計資料的次要變更, 也可能會導致變更的查詢執行計畫。
+- **不同的統計資料**：與參考物件相關聯的統計資料可能已變更，或可能與原始系統的統計資料不同。  如果統計資料變更，而且發生重新編譯，則查詢最佳化工具會在其變更時，使用從開始的統計資料。 修訂過的統計資料「資料散發」和「頻率」可能與原始編譯的不同。  這些變更會用來建立基數估計值。 （*基數估計值*是預期會流經邏輯查詢樹狀結構的資料列數目）。基數估計值的變更可能會導致您選擇不同的實體運算子和相關聯的作業順序。  即使是統計資料的次要變更，也可能會導致變更的查詢執行計畫。
 
-- **變更的資料庫相容性層級或基數估計工具版本**：資料庫相容性層級的變更可以啟用可能會產生不同查詢執行計畫的新策略和功能。  除了資料庫相容性層級之外，已停用或啟用的追蹤旗標4199或資料庫範圍設定 QUERY_OPTIMIZER_HOTFIXES 的已變更狀態，也可能會在編譯時期影響查詢執行計畫選擇。  追蹤旗標9481（強制舊版 CE）和2312（強制預設 CE）也會影響計畫。 
+- **變更的資料庫相容性層級或基數估計工具版本**：資料庫相容性層級的變更可以啟用可能會產生不同查詢執行計畫的新策略和功能。  除了資料庫相容性層級之外，已停用或啟用的追蹤旗標4199或資料庫範圍設定的變更狀態 QUERY_OPTIMIZER_HOTFIXES 也會在編譯時期影響查詢執行計畫選擇。  追蹤旗標9481（強制舊版 CE）和2312（強制預設 CE）也會影響計畫。 
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>解決問題查詢或提供更多資源
 
@@ -203,7 +203,7 @@ ORDER BY count (distinct p.query_id) DESC
 
 找出驅動 CPU 問題的工作負載磁片區變更並不容易。 請考慮下列因素： 
 
-- **已變更的資源使用量**：例如，假設有一段長時間 CPU 使用量增加到 80% 的案例。  CPU 使用量本身並不表示工作負載磁片區已變更。 即使應用程式執行相同的工作負載，查詢執行計畫中的回歸和資料散發中的變更也可能會導致更多的資源使用量。
+- **已變更的資源使用量**：例如，假設 CPU 使用量增加到80% 長一段時間的情況。  CPU 使用量本身並不表示工作負載磁片區已變更。 即使應用程式執行相同的工作負載，查詢執行計畫中的回歸和資料散發中的變更也可能會導致更多的資源使用量。
 
 - **新查詢的外觀**：應用程式可能會在不同的時間驅動一組新的查詢。
 
@@ -215,16 +215,16 @@ ORDER BY count (distinct p.query_id) DESC
 
 這些方法通常用來顯示等候類型的最上層類別：
 
-- 使用[查詢存放區](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)來尋找一段時間內每個查詢的等候統計資料。 在查詢存放區中，等候類型會合併到等候類別中。 您可以在[query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table)中找到等候類別的對應至等候類型。
-- 使用[sys.databases _db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) ，傳回作業期間執行的執行緒所遇到之所有等候的相關資訊。 您可以使用這個匯總視圖來診斷 Azure SQL Database 的效能問題，以及特定查詢和批次。
-- 使用[sys.databases _os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) ，傳回有關在某些資源上等候的工作佇列的資訊。
+- 使用[查詢存放區](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)來尋找一段時間內每個查詢的等候統計資料。 在查詢存放區中，等候類型會合併到等候類別中。 您可以在 sys.databases 中找到等候類型的對應， [query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table)。
+- 使用[dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) ，傳回作業期間執行的執行緒所遇到之所有等候的相關資訊。 您可以使用這個匯總視圖來診斷 Azure SQL Database 的效能問題，以及特定查詢和批次。
+- 使用[dm_os_waiting_tasks sys.databases](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql)來傳回在某些資源上等待之工作佇列的相關資訊。
 
 在高 CPU 案例中，如果下列情況，查詢存放區和等候統計資料可能不會反映 CPU 使用量：
 
 - 高 CPU 耗用的查詢仍在執行中。
 - 發生容錯移轉時，耗用大量 CPU 的查詢正在執行。
 
-追蹤查詢存放區和等候統計資料的 Dmv 只會顯示成功完成和超時查詢的結果。 它們在語句完成之前，不會顯示目前正在執行之語句的資料。 使用動態管理檢視[_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)來追蹤目前執行中的查詢和相關聯的背景工作時間。
+追蹤查詢存放區和等候統計資料的 Dmv 只會顯示成功完成和超時查詢的結果。 它們在語句完成之前，不會顯示目前正在執行之語句的資料。 使用動態管理檢視[sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)來追蹤目前執行中的查詢和相關聯的背景工作時間。
 
 本文開頭附近的圖表說明最常見的等候：
 

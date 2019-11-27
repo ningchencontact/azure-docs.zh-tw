@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 730ccd7c64ac9ca87fb6da5add130feb3b6ce502
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73b99b9ebcd18e1eb5b670d0809d1f0f6cbf8f9a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201947"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582919"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>取得 Azure 資訊安全中心的全租用戶可見性
 本文可協助您先執行數個可充分發揮 Azure Security Center 效用的動作，以著手使用。 執行這些動作可讓您檢視所有連結至 Azure Active Directory 租用戶的 Azure 訂用帳戶，並以彙總的方式跨多個訂用帳戶套用安全性原則，以有效而大規模地管理組織的安全性狀態。
@@ -30,7 +30,7 @@ ms.locfileid: "71201947"
 Azure 管理群組可讓您有效管理訂用帳戶群組的存取、原則和報告，並藉由對根管理群組執行動作來有效管理整個 Azure 資產。 每個 Azure AD 租用戶都會有一個最上層管理群組，名為根管理群組。 這個根管理群組會建置於階層內，讓所有的管理群組和訂用帳戶摺疊於其中。 此群組可讓全域原則和 RBAC 指派套用於目錄層級。 
 
 當您執行下列任何動作時，即會自動建立根管理群組： 
-1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)中的 [管理群組]，以選擇使用 Azure 管理群組。
+1. 瀏覽至 **Azure 入口網站**中的 [管理群組][](https://portal.azure.com)，以選擇使用 Azure 管理群組。
 2. 透過 API 呼叫建立管理群組。
 3. 透過 PowerShell 建立管理群組。
 
@@ -114,7 +114,7 @@ Azure Active Directory 租用戶管理員並沒有 Azure 訂用帳戶的直接�
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 1. 安裝 [Azure PowerShell](/powershell/azure/install-az-ps)。
-2. 執行下列命令： 
+2. 執行以下命令： 
 
     ```azurepowershell
     # Login to Azure as a Global Administrator user
@@ -168,7 +168,7 @@ Azure Active Directory 租用戶管理員並沒有 Azure 訂用帳戶的直接�
 
 
 
-## <a name="adding-subscriptions-to-a-management-groups"></a>將訂用帳戶新增至管理群組
+## <a name="adding-subscriptions-to-a-management-group"></a>將訂用帳戶新增至管理群組
 您可以將訂用帳戶新增至已建立的管理群組。 下列步驟並非取得全租用戶可見性以及全域原則和存取管理的必要步驟。
 
 1. 在 [管理群組] 下，選取要新增訂用帳戶的管理群組。

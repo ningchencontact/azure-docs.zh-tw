@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 記憶體內部技術 | Microsoft Docs
+title: 記憶體內部技術
 description: SQL Database 記憶體內部技術大幅提升交易和分析工作負載的效能。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: 325dda3695e796bc0814954d3bd69b9b340133b8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: de60712451d4c2e8a7d931f7a09352f55be05694
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567954"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810272"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>使用 SQL Database 中的記憶體內部技術將效能最佳化
 
@@ -32,10 +32,10 @@ Azure SQL Database 中的記憶體內部技術可讓您改善應用程式的效�
 
 記憶體內部技術可以改善這些工作負載的效能，方法是使用基礎硬體上可用的查詢原生編譯或進階處理 (例如，批次處理和 SIMD 指令)，將應該處理的資料保留到記憶體中。 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>Overview
 
 Azure SQL Database 擁有下列記憶體內部技術︰
-- [記憶體內部 OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) 可增加每秒交易數量並減少交易處理的延遲。 受益於記憶體內部 OLTP 的案例包括︰高輸送量的交易處理 (例如股票交易和網路遊戲)、從事件或 IoT 裝置擷取資料、快取、資料載入，以及暫存資料表和資料表變數等案例。
+- *記憶體內部 OLTP[](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* 可增加每秒交易數量並減少交易處理的延遲。 受益於記憶體內部 OLTP 的案例包括︰高輸送量的交易處理 (例如股票交易和網路遊戲)、從事件或 IoT 裝置擷取資料、快取、資料載入，以及暫存資料表和資料表變數等案例。
 - 「叢集資料行存放區索引」可減少儲存體使用量 (最多 10 倍)，並提升報告和分析查詢的效能。 您可以將它用於資料超市中的事實資料表，在資料庫中容納更多資料並提升效能。 另外，您還可以將它用於操作資料庫中的歷史資料，則可封存並查詢多達 10 倍以上的資料。
 - 「非叢集資料行存放區索引」 (適用於 HTAP) 可讓您透過直接查詢操作資料庫，即時深入了解您的業務，而不必執行昂貴的擷取、轉換和載入 (ETL) 程序並等候資料倉儲填入資料。 非叢集資料行存放區索引可快速地對 OLTP 資料庫執行分析查詢，同時降低對操作工作負載的影響。
 - 適用於 HTAP 的「記憶體最佳化叢集資料行存放區索引」可讓您執行快速的交易處理，以及快速地「同時」針對相同的資料執行分析查詢。
@@ -51,8 +51,8 @@ Azure SQL Database 擁有下列記憶體內部技術︰
 - 由於使用記憶體內部 OLTP，[Quorum Business Solutions 能使其工作負載倍增，同時將 DTU 提高 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)。
 
   - DTU 表示「資料庫交易單位」，其中包含對資源耗用的測量。
-- 下列影片以範例工作負載示範資源耗用量的重大改善：[Azure SQL Database 中的記憶體內部 OLTP 影片](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)。
-  - 如需詳細資訊，請參閱部落格文章：[Azure SQL Database 中的記憶體內部 OLTP 部落格文章](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
+- 下列影片以範例工作負載示範資源耗用量的重大改進︰[Azure SQL Database 影片中的記憶體內部 OLTP](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)。
+  - 如需詳細資訊，請參閱部落格文章︰[Azure SQL Database 中的記憶體內 OLTP 部落格文章](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) \(英文\)
 
 > [!NOTE]  
 > 記憶體內部技術可用於進階和業務關鍵層 Azure SQL 資料庫，以及進階彈性集區。
@@ -82,18 +82,18 @@ Azure SQL Database 擁有下列記憶體內部技術︰
 
 - **記憶體最佳化資料列存放區**格式，其中每個資料列為不同的記憶體物件。 這是針對高效能 OLTP 工作負載進行最佳化的傳統記憶體內部 OLTP 格式。 有兩種類型的記憶體最佳化資料表，可用於記憶體最佳化資料列存放區格式：
   - 「持久性資料表」(SCHEMA_AND_DATA)，其中置於記憶體內的資料列會在伺服器重新啟動後予以保留。 這類型的資料表行為類似於傳統資料列存放區資料表，但具有記憶體內部最佳化的額外好處。
-  - *非持久性資料表*(SCHEMA_ONLY), 其中的資料列在重新開機後不會保留下來。 這種類型的資料表專為下列項目而設計：暫存資料 (例如，取代暫存資料表)，或是您需要快速載入資料，再將它移至某個永續性資料表的資料表 (所謂的暫存資料表)。
+  - *非持久性資料表*（SCHEMA_ONLY），其中的資料列在重新開機後不會保留。 這種類型的資料表專為下列項目而設計：暫存資料 (例如，取代暫存資料表)，或是您需要快速載入資料，再將它移至某個永續性資料表的資料表 (所謂的暫存資料表)。
 - **記憶體最佳化資料行存放區**格式，其中的資料會組織成單欄式格式。 此結構設計用於 HTAP 案例，在此案例中，您需要在執行 OLTP 工作負載的相同資料結構上執行分析查詢。
 
 > [!Note]
 > 記憶體內部 OLTP 技術則設計用於可完全位於記憶體中的資料結構。 因為記憶體內部資料不能卸載到磁碟，所以請確定您使用的資料庫具有足夠記憶體。 如需詳細資料，請參閱[記憶體內部 OLTP 的資料大小和儲存體上限](#data-size-and-storage-cap-for-in-memory-oltp)。
 
-記憶體內部 OLTP 的快速入門：[快速入門 1：可讓 T-SQL 擁有更快效能的記憶體內部 OLTP 技術](https://msdn.microsoft.com/library/mt694156.aspx) (可協助您開始著手的另一篇文章)
+有關記憶體內部 OLTP 的快速入門：[快速入門1：可加快 T-sql 效能的記憶體內部 Oltp 技術](https://msdn.microsoft.com/library/mt694156.aspx)（協助您開始使用的另一篇文章）
 
 技術的相關深入介紹影片︰
 
 - [Azure SQL Database 中的記憶體內部 OLTP](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (包含效能優點的示範，以及自行重現這些結果的步驟)
-- [In-Memory OLTP Videos:What it is and When/How to use it](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/) (記憶體內部 OLTP 影片︰其功能、使用時機和使用方式)
+- [記憶體內部 OLTP 影片︰其功能、使用時機和使用方式](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
 
 您可以透過程式設計的方式，來了解給定資料庫是否支援記憶體內部 OLTP。 您可以執行下列 Transact-SQL 查詢︰
 ```
@@ -140,7 +140,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 在將資料庫降級至標準層或基本層時，請移除所有記憶體最佳化資料表和資料表類型，以及所有原生編譯的 T-SQL 模組。 
 
-*相應減少業務關鍵層中的資源*：記憶體最佳化資料表中資料必須能夠容納於與資料庫層或受控實例層建立關聯 (或彈性集區中可用) 的記憶體內部 OLTP 儲存體。 如果您嘗試相應減少層，或將資料庫移入沒有足夠之可用記憶體內部 OLTP 儲存體的集區內，則作業會失敗。
+相應*減少業務關鍵層中的資源*：記憶體優化資料表中的資料必須符合與資料庫層或受控執行個體相關聯的記憶體內部 OLTP 儲存體，或可在彈性集區中使用。 如果您嘗試相應減少層，或將資料庫移入沒有足夠之可用記憶體內部 OLTP 儲存體的集區內，則作業會失敗。
 
 ## <a name="in-memory-columnstore"></a>記憶體內部資料行存放區
 
@@ -155,13 +155,13 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 技術的相關深入介紹影片：
 
-- [Columnstore Index:In-Memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/) (資料行存放區索引：記憶體內部分析影片 (來源：Ignite 2016))
+- [資料行存放區索引：記憶體內部分析影片 (來源：Ignite 2016)](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>資料行存放區索引的資料大小和儲存體
 
 資料行存放區索引不需要納入記憶體中。 因此，索引大小的唯一上限是整體資料庫大小上限，相關說明請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md) 一文。
 
-當您使用叢集資料行存放區索引時，基底表格儲存體會使用單資料行式壓縮。 壓縮可大幅降低使用者資料的儲存體使用量，這表示您可以在資料庫中容納更多資料。 若要再進一步壓縮，您可以使用[單資料行式封存壓縮](https://msdn.microsoft.com/library/cc280449.aspx#using-columnstore-and-columnstore-archive-compression)。 能達到多大壓縮量取決於資料性質，但 10 倍的壓縮並不罕見。
+當您使用叢集資料行存放區索引時，基底表格儲存體會使用單欄式壓縮。 壓縮可大幅降低使用者資料的儲存體使用量，這表示您可以在資料庫中容納更多資料。 若要再進一步壓縮，您可以使用[單資料行式封存壓縮](https://msdn.microsoft.com/library/cc280449.aspx#using-columnstore-and-columnstore-archive-compression)。 能達到多大壓縮量取決於資料性質，但 10 倍的壓縮並不罕見。
 
 例如，如果您的資料庫大小上限是 1 TB，而且您使用資料行存放區達到 10 倍壓縮，您總共可以在資料庫中容納 10 TB 的使用者資料。
 
@@ -180,7 +180,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ## <a name="next-steps"></a>後續步驟
 
-- [快速入門 1：快速入門 1：可讓 Transact-SQL 擁有更快效能的記憶體內部 OLTP 技術](https://msdn.microsoft.com/library/mt694156.aspx)
+- [快速入門1：可加快 T-sql 效能的記憶體內部 OLTP 技術](https://msdn.microsoft.com/library/mt694156.aspx)
 - [在現有的 Azure SQL 應用程式中使用記憶體內部 OLTP](sql-database-in-memory-oltp-migration.md)
 - 針對記憶體內部 OLAP [監視記憶體內部 OLTP 儲存體](sql-database-in-memory-oltp-monitoring.md)
 - [在 Azure SQL Database 中試用記憶體內部功能](sql-database-in-memory-sample.md)
@@ -198,7 +198,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="application-design"></a>應用程式設計
 
-- [In-Memory OLTP (In-Memory Optimization)](https://msdn.microsoft.com/library/dn133186.aspx)
+- [記憶體內部 OLTP (記憶體內部最佳化)](https://msdn.microsoft.com/library/dn133186.aspx)
 - [在現有的 Azure SQL 應用程式中使用記憶體內部 OLTP](sql-database-in-memory-oltp-migration.md)
 
 ### <a name="tools"></a>工具

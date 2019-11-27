@@ -1,5 +1,6 @@
 ---
-title: 在入口網站中建立 Azure App 的身分識別 | Microsoft Docs
+title: 在入口網站中建立 Azure 應用程式的身分識別
+titleSuffix: Microsoft identity platform
 description: 描述如何建立可以與 Azure 資源管理員中的角色型存取控制搭配使用來管理資源存取權的新 Active Directory 應用程式和服務主體。描述如何建立可以與 Azure 資源管理員中的角色型存取控制搭配使用來管理資源存取權的新 Active Directory 應用程式和服務主體。
 services: active-directory
 documentationcenter: na
@@ -16,16 +17,16 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9f8163a3695260234107ad41cc7be125adc9091
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 03ae780f86512ac401fcb7f6936e8f74cb595ca7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72324764"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473858"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>操作說明：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體
 
-本文說明如何建立可與角色型存取控制搭配使用的新 Azure Active Directory （Azure AD）應用程式和服務主體。 如果您擁有需要存取或修改資源的程式碼，您可以建立應用程式的身分識別。 此身分識別就是所謂的服務主體。 然後，您可以將必要的權限指派給服務主體。 本文說明如何使用入口網站來建立服務主體。 其中著重在說明單一租用戶應用程式，此應用程式的目的是只在一個組織內執行。 您通常會將單一租用戶應用程式用在組織內執行的企業營運系統應用程式。
+本文說明如何建立可與角色型存取控制搭配使用的新 Azure Active Directory （Azure AD）應用程式和服務主體。 如果您擁有需要存取或修改資源的程式碼，則可以建立應用程式的身分識別。 此身分識別就是所謂的服務主體。 然後，您可以將必要的權限指派給服務主體。 本文說明如何使用入口網站來建立服務主體。 其中著重在說明單一租用戶應用程式，此應用程式的目的是只在一個組織內執行。 您通常會將單一租用戶應用程式用在組織內執行的企業營運系統應用程式。
 
 > [!IMPORTANT]
 > 若不要建立服務主體，可考慮使用 Azure 資源的受控識別作為應用程式識別碼。 如果您的程式碼在支援受控識別的服務上執行，並存取支援 Azure AD authentication 的資源，則受控識別會是較好的選項。 若要深入了解 Azure 資源的受控識別，包含目前哪些服務支援該功能，請參閱[什麼是適用於 Azure 資源的受控識別？](../managed-identities-azure-resources/overview.md)。
@@ -46,11 +47,11 @@ ms.locfileid: "72324764"
 
 ## <a name="assign-the-application-to-a-role"></a>指派角色給應用程式
 
-若要存取您的訂用帳戶中的資源，您必須將應用程式指派給角色。 決定哪個角色可提供應用程式的適當權限。 若要深入了解可用的角色，請參閱 [RBAC：內建角色](../../role-based-access-control/built-in-roles.md)。
+若要存取您的訂用帳戶中的資源，您必須將應用程式指派給角色。 決定哪個角色可提供應用程式的適當權限。 如要深入了解可用的角色，請參閱 [RBAC：內建角色](../../role-based-access-control/built-in-roles.md)。
 
 您可以針對訂用帳戶、資源群組或資源的層級設定範圍。 較低的範圍層級會繼承較高層級的權限。 例如，為資源群組的讀取者角色新增應用程式，代表該角色可以讀取資源群組及其所包含的任何資源。
 
-1. 瀏覽至您想要讓應用程式指派至的範圍層級。 例如，若要在訂用帳戶範圍指派角色，請選取 [所有服務] 和 [訂用帳戶]。
+1. 在 Azure 入口網站中，選取您想要指派應用程式的範圍層級。 例如，若要在訂用帳戶範圍指派角色，請在 [**首頁**] 上搜尋並選取 [**訂閱**]，或選取 [**訂閱**]。
 
    ![例如，在訂用帳戶範圍指派角色](./media/howto-create-service-principal-portal/select-subscription.png)
 
@@ -72,7 +73,7 @@ ms.locfileid: "72324764"
 
 ## <a name="get-values-for-signing-in"></a>取得值以便登入
 
-以程式設計方式登入時，您需要將租用戶識別碼與您的驗證要求一起傳送。 您也需要應用程式識別碼和驗證金鑰。 若要取得這些值，請使用下列步驟︰
+以程式設計方式登入時，您需要將租用戶識別碼與驗證要求一起傳送。 您也需要應用程式識別碼和驗證金鑰。 若要取得這些值，請使用下列步驟︰
 
 1. 選取 **Azure Active Directory**。
 1. 在 Azure AD 中，從 [應用程式註冊] 選取您的應用程式。
@@ -123,10 +124,10 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 ## <a name="configure-access-policies-on-resources"></a>設定資源的存取原則
 請記住，您可能需要設定應用程式需要存取之資源的額外許可權。 例如，您也必須[更新金鑰保存庫的存取原則](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies)，讓您的應用程式存取金鑰、秘密或憑證。  
 
-1. 在  [Azure 入口網站](https://portal.azure.com)中，流覽至您的金鑰保存庫，然後選取 **存取原則**。  
+1. 在  [Azure 入口網站](https://portal.azure.com)中，流覽至您的金鑰保存庫，然後選取 **存取原則**]。  
 1. 選取 [**新增存取原則**]，然後選取您想要授與應用程式的金鑰、密碼和憑證許可權。  選取您先前建立的服務主體。
 1. 選取 [**新增**] 以新增存取原則，然後按一下 [**儲存**] 以認可您的變更。
-    @no__t 0Add 存取原則 @ no__t-1
+    ![新增存取原則](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## <a name="required-permissions"></a>所需的權限
 
@@ -164,5 +165,5 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要了解如何指定安全性原則，請參閱 [Azure 角色型存取控制](../../role-based-access-control/role-assignments-portal.md)。  
+* 如要了解如何指定安全性原則，請參閱 [Azure 角色型存取控制](../../role-based-access-control/role-assignments-portal.md)。  
 * 如需可授與或拒絕使用者的可用動作清單，請參閱 [Azure Resource Manager 資源提供者作業](../../role-based-access-control/resource-provider-operations.md)。

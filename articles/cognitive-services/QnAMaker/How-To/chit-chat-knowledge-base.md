@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a8ebd0b36c6ee8bf6762a70af9f4a7c09f6b118d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 418324ea0d50cb2f8ff4a30018a31e7807d52eac
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955161"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602589"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>在知識庫中新增閒聊
 
 將閒聊新增至您的 Bot，讓它變得更健談且吸引人。 QnA Maker 中的閒聊功能可讓您輕鬆地將預先填入的一組最常見閒聊，新增至您的資料庫 (KB)。 這可以是您 Bot 的特質起始點，並將節省您從頭撰寫它們的時間和成本。  
 
-此資料集有大約100個閒聊的案例, 也就是多個角色的語音, 例如專業、易記和詼諧。 選擇最類似您 Bot 聲音的角色。 假設有使用者查詢，QnA Maker 會嘗試將它與最接近的已知閒聊 QnA 比對。  
+此資料集有大約100個閒聊的案例，也就是多個角色的語音，例如專業、易記和詼諧。 選擇最類似您 Bot 聲音的角色。 假設有使用者查詢，QnA Maker 會嘗試將它與最接近的已知閒聊 QnA 比對。  
 
-以下是不同特質的一些範例。 您可以看到所有的個人化[資料集](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets), 以及特質的詳細資訊。
+以下是不同特質的一些範例。 您可以看到所有的個人化[資料集](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)，以及特質的詳細資訊。
 
-對於的使用者查詢`When is your birthday?`, 每個特性都有一個樣式的回應:
+對於 `When is your birthday?`的使用者查詢，每個特性都有一個樣式的回應：
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |風格|範例|
@@ -35,16 +35,29 @@ ms.locfileid: "68955161"
 |易記|我的年齡並不太長。|
 |詼諧|我是免費使用的。|
 |管也|我沒有年齡。|
-|熱心|我是 bot, 所以沒有時間。|
+|熱心|我是 bot，所以沒有時間。|
 ||
 
-> [!NOTE]
-> 閒聊支援目前僅以英文提供。 
+
+## <a name="language-support"></a>語言支援
+
+閒聊-支援下列語言的交談資料集：
+
+|語言|
+|--|
+|中文|
+|English|
+|法文|
+|德國|
+|義大利文|
+|日文|
+|韓文|
+|葡萄牙文|
+|西班牙文|
+
 
 ## <a name="add-chit-chat-during-kb-creation"></a>在知識庫建立期間新增閒聊
 在知識庫建立期間，新增來源 URL 和檔案之後，有可供新增閒聊的選項。 選擇您想要作為聊天基底的特質。 如果您不想新增閒聊，或如果您的資料來源中已經有閒聊支援，請選擇 [無]。 
-   
-![在建立期間新增閒聊](../media/qnamaker-how-to-chit-chat/create-kb-chit-chat.png)
 
 ## <a name="add-chit-chat-to-an-existing-kb"></a>在現有知識庫中新增閒聊
 選取您的知識庫，並瀏覽至 [設定] 頁面。 有一個連結可連到適當 **.tsv** 格式的所有閒聊資料集。 下載您想要的特質，然後將它上傳為檔案來源。 當您下載並上傳檔案時，務必不要編輯格式或中繼資料。 
@@ -56,7 +69,7 @@ ms.locfileid: "68955161"
 
 ![編輯閒聊 QnA](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
 
-若要查看中繼資料, 請選取工具列中的 [**查看選項**], 然後選取 [**顯示中繼資料**]。
+若要查看中繼資料，請選取工具列中的 [**查看選項**]，然後選取 [**顯示中繼資料**]。
 
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>新增其他閒聊問題和回答
 您可以新增不在預先定義集合中的新閒聊 QnA。 確保您不會複製閒聊集已經涵蓋的 QnA 配對。 當您新增任何新的閒聊 QnA 時，它會新增到您的**編輯**來源。 若要確保順位排定程式了解這是閒聊，請新增中繼資料索引鍵/值配對「編輯：閒聊」，如下圖所示：

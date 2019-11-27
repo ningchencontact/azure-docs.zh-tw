@@ -1,5 +1,5 @@
 ---
-title: 從內部部署的 HDFS 移動資料 | Microsoft Docs
+title: 從內部部署的 HDFS 移動資料
 description: 深入了解如何使用 Azure Data Factory 從內部部署的 HDFS 移動資料
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f28c7b94a9eb8131f0638a24a0d4b3cfccf062e5
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: ad5695f1bde1013b6a4c010f4a80256eac09fe63
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836301"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682568"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>使用 Azure Data Factory 從內部部署的 HDFS 移動資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -45,12 +45,12 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 
 雖然您可以在與 HDFS 相同的內部部署機器或 Azure VM 上安裝閘道器，仍建議您在個別的機器/Azure IaaS VM 上安裝。 在個別機器上安裝閘道器可減少資源爭用並改善效能。 當您在不同機器上安裝閘道器時，機器應該能夠存取具有 HDFS 的機器。
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>快速入門
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從 HDFS 來源移動資料。
 
-若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
+若要建立管線，最簡單的方式就是使用**複製精靈**。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。
 
-您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+您也可以使用下列工具來建立管線︰**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -65,15 +65,15 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 ## <a name="linked-service-properties"></a>連結服務屬性
 已連結的服務會將資料存放區連結到 Data Factory。 您需建立 **Hdfs** 類型的已連結服務，以將內部部署的 HDFS 連結到 Data Factory。 下表提供 HDFS 連結服務專屬 JSON 元素的描述。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要 |
 | --- | --- | --- |
-| type |類型屬性必須設定為：**Hdfs** |是 |
-| url |到 HDFS 的 URL |是 |
-| authenticationType |匿名或 Windows。 <br><br> 若要對 HDFS 連接器使用 **Kerberos 驗證**，請參閱[此章節](#use-kerberos-authentication-for-hdfs-connector)來據以設定您的內部部署環境。 |是 |
+| 類型 |類型屬性必須設為： **Hdfs** |yes |
+| url |到 HDFS 的 URL |yes |
+| authenticationType |匿名或 Windows。 <br><br> 若要對 HDFS 連接器使用 **Kerberos 驗證**，請參閱[此章節](#use-kerberos-authentication-for-hdfs-connector)來據以設定您的內部部署環境。 |yes |
 | userName |Windows 驗證的使用者名稱。 Kerberos 驗證請指定 `<username>@<domain>.com`。 |是 (適用於 Windows 驗證) |
 | password |Windows 驗證的密碼。 |是 (適用於 Windows 驗證) |
-| gatewayName |Data Factory 服務應該用來連接到 HDFS 的閘道器名稱。 |是 |
-| encryptedCredential |[新 AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue)輸出的存取認證。 |否 |
+| gatewayName |Data Factory 服務應該用來連接到 HDFS 的閘道器名稱。 |yes |
+| encryptedCredential |[新 AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue)的存取認證輸出。 |否 |
 
 ### <a name="using-anonymous-authentication"></a>使用匿名驗證
 
@@ -118,12 +118,12 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 
 每個資料集類型的 **typeProperties** 區段都不同，可提供資料存放區中的資料位置資訊。 **FileShare** 資料集類型 (包含 HDFS 資料集) 的 typeProperties 區段具有下列屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要 |
 | --- | --- | --- |
-| folderPath |資料夾的路徑。 範例： `myfolder`<br/><br/>使用逸出字元 ‘ \ ’ 當做字串中的特殊字元。 例如︰若為 folder\subfolder，請指定 folder\\\\subfolder；若為 d:\samplefolder，請指定 d:\\\\samplefolder。<br/><br/>您可以結合此屬性與 **partitionBy**，讓資料夾路徑以配量開始/結束日期時間為基礎。 |是 |
-| fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰ <br/><br/>`Data.<Guid>.txt` (例如::Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |否 |
+| folderPath |資料夾的路徑。 範例︰ `myfolder`<br/><br/>使用逸出字元 ‘ \ ’ 當做字串中的特殊字元。 例如︰若為 folder\subfolder，請指定 folder\\\\subfolder；若為 d:\samplefolder，請指定 d:\\\\samplefolder。<br/><br/>您可以結合此屬性與 **partitionBy**，讓資料夾路徑以配量開始/結束日期時間為基礎。 |yes |
+| fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰ <br/><br/>`Data.<Guid>.txt` （例如： Data. 0a405f8a-93ff-4c6f-b3be-f69616f1df7a .txt |否 |
 | partitionedBy |partitionedBy 可以用來指定時間序列資料的動態 folderPath 和 filename。 範例：folderPath 可針對每小時的資料進行參數化。 |否 |
-| format | 以下是支援的檔案類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 |
+| format | 支援下列格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 |
 | compression | 指定此資料的壓縮類型和層級。 支援的類型為：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**。 支援的層級為：**Optimal** 和 **Fastest**。 如需詳細資訊，請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md#compression-support)。 |否 |
 
 > [!NOTE]
@@ -169,9 +169,9 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 
 **FileSystemSource** 支援下列屬性：
 
-| 屬性 | 描述 | 允許的值 | 必要項 |
+| 屬性 | 描述 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| recursive |表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 |True/False (預設值為 False) |否 |
+| 遞迴 |表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 |True/False (預設值為 False) |否 |
 
 ## <a name="supported-file-and-compression-formats"></a>支援的檔案和壓縮格式
 請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md)文章以了解詳細資訊。
@@ -179,19 +179,19 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 ## <a name="json-example-copy-data-from-on-premises-hdfs-to-azure-blob"></a>JSON 範例：將資料從內部部署 HDFS 複製到 Azure Blob
 此範例示範如何將資料從內部部署 HDFS 複製到 Azure Blob 儲存體。 不過，您可以在 Azure Data Factory 中使用複製活動， **直接** 將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。  
 
-此範例提供下列 Data Factory 實體的 JSON 定義。 您可以使用這些定義來建立管線以將資料從 HDFS 複製到 Azure Blob 儲存體，使用[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或是[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)。
+此範例提供下列 Data Factory 實體的 JSON 定義。 您可以使用這些定義來建立管線，以使用[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)將資料從 HDFS 複製到 Azure Blob 儲存體。
 
 1. [OnPremisesHdfs](#linked-service-properties)類型的連結服務。
 2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)類型的連結服務。
-3. [FileShare](#dataset-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。
-4. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 類型的輸出[資料集](data-factory-create-datasets.md)。
-5. 具有使用 [FileSystemSource](#copy-activity-properties) 和 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。
+3. [FileShare](data-factory-create-datasets.md) 類型的輸入[資料集](#dataset-properties)。
+4. [AzureBlob](data-factory-create-datasets.md) 類型的輸出[資料集](data-factory-azure-blob-connector.md#dataset-properties)。
+5. 具有使用 [FileSystemSource](data-factory-create-pipelines.md) 和 [BlobSink](#copy-activity-properties) 之複製活動的[管線](data-factory-azure-blob-connector.md#copy-activity-properties)。
 
 此範例會每個小時將資料從內部部署 HDFS 複製到 Azure Blob。 範例後面的各節會說明這些範例中使用的 JSON 屬性。
 
 第一步是設定資料管理閘道。 如需相關指示，請參閱 [在內部部署位置和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 。
 
-**HDFS 連結服務：** 此範例使用 Windows 驗證。 請參閱 [HDFS 連結服務](#linked-service-properties) 章節以了解您可以使用的各種不同類型的驗證。
+**HDFS 已連結的服務：** 此範例使用 Windows 驗證。 請參閱 [HDFS 連結服務](#linked-service-properties) 章節以了解您可以使用的各種不同類型的驗證。
 
 ```JSON
 {
@@ -249,7 +249,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 
 **Azure Blob 輸出資料集：**
 
-資料會每小時寫入至新的 Blob (frequency：hour，interval：1)。 根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑。 資料夾路徑會使用開始時間的年、月、日和小時部分。
+資料會每小時寫入至新的 Blob (頻率：小時，間隔：1)。 根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑。 資料夾路徑會使用開始時間的年、月、日和小時部分。
 
 ```JSON
 {
@@ -380,7 +380,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
             REALM.com:
                 kdc = <your_kdc_server_address>
 
-**在 Azure Data Factory 中:**
+**在 Azure Data Factory 中：**
 
 * 使用 **Windows 驗證**以及您用來連線到 HDFS 資料來源的 Kerberos 主體名稱和密碼，來設定 HDFS 連接器。 檢查組態詳細資料上的 [HDFS 連結服務屬性](#linked-service-properties)區段。
 
@@ -395,7 +395,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 > [!NOTE]
 > 視需要，以您自己的個別領域和網域控制站取代下列教學課程中的 REALM.COM 和 AD.COM。
 
-**在 KDC 伺服器上:**
+**在 KDC 伺服器上︰**
 
 1. 編輯 **krb5.conf** 檔案中的 KDC 組態，讓 KDC 信任參考下列組態範本的 Windows 網域。 根據預設，此組態位於 **/etc/krb5.conf**。
 
@@ -435,7 +435,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 
    設定之後**重新啟動** KDC 服務。
 
-2. 準備名為主體**krbtgt/REALM.COM\@AD.COM**在 KDC 伺服器，使用下列命令：
+2. 使用下列命令，在 KDC 伺服器中準備名為**krbtgt/REALM\@AD.COM**的主體：
 
            Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
@@ -448,7 +448,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  建立 Windows 網域到 Kerberos 領域的信任關係。 password 是主體的密碼**krbtgt/REALM.COM\@AD.COM**。
+2.  建立 Windows 網域到 Kerberos 領域的信任關係。 [password] 是主要**krbtgt/領域 .com\@AD.COM**的密碼。
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 
@@ -456,7 +456,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 
     1. 移至 [伺服器管理員] > [群組原則管理] > [網域] > [群組原則物件] > [預設或作用中的網域原則]，然後進行編輯。
 
-    2. 在 [群組原則管理編輯器]  快顯視窗中，移至 [電腦設定] > [原則] > [Windows 設定] > [安全性設定] > [本機原則] > [安全性選項]，並設定 [網路安全性：  設定 Kerberos 允許的加密類型]。
+    2. 在 [群組原則管理編輯器] 快顯視窗中，移至 [電腦設定] > [原則] > [Windows 設定] > [安全性設定] > [本機原則] > [安全性選項]，並設定 [網路安全性: 設定 Kerberos 允許的加密類型]。
 
     3. 選取您想要在連線至 KDC 時使用的加密演算法。 一般來說，您可以直接選取所有選項。
 
@@ -468,11 +468,11 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 
 4.  建立網域帳戶與 Kerberos 主體之間的對應，以便在 Windows 網域中使用 Kerberos 主體。
 
-    1. 啟動 [系統管理工具] > [Active Directory 使用者和電腦]  。
+    1. 啟動 [系統管理工具] > [Active Directory 使用者和電腦]。
 
-    2. 按一下 [檢視]   > [進階功能]  來設定進階功能。
+    2. 按一下 [檢視] > [進階功能] 來設定進階功能。
 
-    3. 找到您要用以建立對應的帳戶，然後按一下滑鼠右鍵以檢視 [名稱對應]  > 按一下 [Kerberos 名稱]  索引標籤。
+    3. 找到您要用以建立對應的帳戶，然後按一下滑鼠右鍵以檢視 [名稱對應] > 按一下 [Kerberos 名稱] 索引標籤。
 
     4. 從領域中新增主體。
 
@@ -485,12 +485,12 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-**在 Azure Data Factory 中:**
+**在 Azure Data Factory 中：**
 
 * 使用 **Windows 驗證**以及您用來連線到 HDFS 資料來源的網域帳戶或 Kerberos 主體，來設定 HDFS 連接器。 檢查組態詳細資料上的 [HDFS 連結服務屬性](#linked-service-properties)區段。
 
 > [!NOTE]
-> 若要將來源資料集中的資料行對應至接收資料集中的資料行，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
+> 若要將來自來源資料集的資料行與來自接收資料集的資料行對應，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
 
 
 ## <a name="performance-and-tuning"></a>效能和微調

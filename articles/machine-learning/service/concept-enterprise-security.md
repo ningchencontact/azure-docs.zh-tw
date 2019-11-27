@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/07/2019
-ms.openlocfilehash: 309cef6ec058d8192bc7a6341b49a59c0000a305
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: e834c55ec35195ff627176603c7611abbf6adf1c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035567"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497503"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning 的企業安全性
 
@@ -31,7 +31,7 @@ ms.locfileid: "71035567"
 1. 用戶端會呈現權杖，以 Azure Resource Manager 和所有 Azure Machine Learning。
 1. Machine Learning 服務會為使用者計算目標提供 Machine Learning 的服務權杖（例如，Machine Learning Compute）。 在執行完成之後，使用者計算目標會使用此權杖來回呼 Machine Learning 服務。 範圍僅限於工作區。
 
-[![Azure Machine Learning 中的驗證](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
+[Azure Machine Learning 中的 ![驗證](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
 
 ### <a name="authentication-for-web-service-deployment"></a>Web 服務部署的驗證
 
@@ -39,8 +39,8 @@ Azure Machine Learning 針對 web 服務支援兩種形式的驗證：金鑰和�
 
 |驗證方法|Azure Container Instances|AKS|
 |---|---|---|
-|Key|預設為停用| 預設為啟用|
-|權杖| 無| 預設為停用 |
+|金鑰|預設為停用| 預設為啟用|
+|權杖| 尚未提供| 預設為停用 |
 
 #### <a name="authentication-with-keys"></a>使用金鑰進行驗證
 
@@ -49,9 +49,9 @@ Azure Machine Learning 針對 web 服務支援兩種形式的驗證：金鑰和�
 * 當您部署至 Azure Kubernetes Service （AKS）時，預設會啟用驗證。
 * 當您部署至 Azure 容器實例時，預設會停用驗證。
 
-若要啟用金鑰驗證，請`auth_enabled`在建立或更新部署時使用參數。
+若要啟用金鑰驗證，請在建立或更新部署時使用 `auth_enabled` 參數。
 
-如果已啟用金鑰驗證，您可以使用`get_keys`方法來取出主要和次要驗證金鑰：
+如果已啟用金鑰驗證，您可以使用 `get_keys` 方法來取得主要和次要驗證金鑰：
 
 ```python
 primary, secondary = service.get_keys()
@@ -68,9 +68,9 @@ print(primary)
 * 當您部署到 Azure Kubernetes Service 時，預設會停用權杖驗證。
 * 當您部署至 Azure 容器實例時，不支援權杖驗證。
 
-若要控制權杖驗證，請`token_auth_enabled`在建立或更新部署時使用參數。
+若要控制權杖驗證，請在建立或更新部署時使用 `token_auth_enabled` 參數。
 
-如果已啟用權杖驗證，您可以使用`get_token`方法來取出 JSON Web token （JWT）和該權杖的到期時間：
+如果已啟用權杖驗證，您可以使用 `get_token` 方法來取出 JSON Web Token （JWT）和該權杖的到期時間：
 
 ```python
 token, refresh_by = service.get_token()
@@ -78,7 +78,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> 您必須在權杖的`refresh_by`時間之後要求新的權杖。
+> 您必須在權杖的 `refresh_by` 時間之後，要求新的權杖。
 >
 > 強烈建議您在與 Azure Kubernetes Service 叢集相同的區域中建立您的 Azure Machine Learning 工作區。 
 >
@@ -86,27 +86,28 @@ print(token)
 >
 > 此外，您的叢集區域和工作區區域之間的距離愈大，提取權杖所需的時間就越長。
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>授權
 
 您可以建立多個工作區，而且每個工作區都可由多人共用。 當您共用工作區時，您可以藉由將這些角色指派給使用者來控制其存取權：
 
 * 擁有者
 * 參與者
-* 讀者
+* 讀取器
 
 下表列出一些主要 Azure Machine Learning 作業，以及可以執行它們的角色：
 
-| Azure Machine Learning 作業 | 擁有者 | 參與者 | 讀者 |
+| Azure Machine Learning 作業 | 擁有者 | 參與者 | 讀取器 |
 | ---- |:----:|:----:|:----:|
 | 建立工作區 | ✓ | ✓ | |
 | 共用工作區 | ✓ | |  |
+| 將工作區升級至 Enterprise edition | ✓ | |
 | 建立計算目標 | ✓ | ✓ | |
 | 附加計算目標 | ✓ | ✓ | |
 | 附加資料存放區 | ✓ | ✓ | |
 | 執行實驗 | ✓ | ✓ | |
 | 視圖執行/計量 | ✓ | ✓ | ✓ |
 | 註冊模型 | ✓ | ✓ | |
-| 建立映像 | ✓ | ✓ | |
+| 建立映射 | ✓ | ✓ | |
 | 部署 Web 服務 | ✓ | ✓ | |
 | 視圖模型/影像 | ✓ | ✓ | ✓ |
 | 呼叫 web 服務 | ✓ | ✓ | ✓ |
@@ -121,18 +122,18 @@ print(token)
 
 如需受控識別的詳細資訊，請參閱[適用于 Azure 資源的受控](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)識別。
 
-| Resource | Permissions |
+| 資源 | 權限 |
 | ----- | ----- |
 | 工作區 | 參與者 |
 | 儲存體帳戶 | 儲存體 Blob 資料參與者 |
 | 金鑰保存庫 | 存取所有金鑰、秘密、憑證 |
-| Azure 容器登錄 | 參與者 |
+| Azure Container Registry | 參與者 |
 | 包含工作區的資源群組 | 參與者 |
 | 包含金鑰保存庫的資源群組（如果與包含工作區的不同） | 參與者 |
 
 我們不建議系統管理員撤銷上表所述資源的受控識別存取權。 您可以使用 [重新同步金鑰] 作業來還原存取權。
 
-Azure Machine Learning 會針對每個工作區區域，在`aml-`您`Microsoft-AzureML-Support-App-`的訂用帳戶中建立額外的應用程式（名稱開頭為或）。 例如，如果您在美國東部有一個工作區，而在同一個訂用帳戶中有一個位於北歐的另一個工作區，您會看到這兩個應用程式。 這些應用程式可讓 Azure Machine Learning 協助您管理計算資源。
+Azure Machine Learning 會針對每個工作區區域，在您的訂用帳戶中，建立具有參與者層級存取權的其他應用程式（名稱開頭為 `aml-` 或 `Microsoft-AzureML-Support-App-`）。 例如，如果您在美國東部有一個工作區，而在同一個訂用帳戶中有一個位於北歐的另一個工作區，您會看到這兩個應用程式。 這些應用程式可讓 Azure Machine Learning 協助您管理計算資源。
 
 ## <a name="network-security"></a>網路安全性
 
@@ -158,7 +159,7 @@ Azure Machine Learning 會將快照、輸出和記錄儲存在與 Azure Machine 
 
 Azure Machine Learning 會在與 Azure Machine Learning 所管理之 Microsoft 訂用帳戶相關聯的 Azure Cosmos DB 實例中儲存計量和中繼資料。 Azure Cosmos DB 中儲存的所有資料都會使用 Microsoft 管理的金鑰進行待用加密。
 
-#### <a name="azure-container-registry"></a>Azure 容器登錄
+#### <a name="azure-container-registry"></a>Azure Container Registry
 
 登錄（Azure Container Registry）中的所有容器映射都會在待用時加密。 Azure 會在儲存映射前自動將其加密，並在 Azure Machine Learning 提取映射時立即將其解密。
 
@@ -187,25 +188,25 @@ SSH 密碼和計算目標（例如 Azure HDInsight 和 Vm）的金鑰會儲存�
 
 每個工作區都有相關聯的系統指派受控識別，其名稱與工作區相同。 此受控識別可存取金鑰保存庫中的所有金鑰、秘密和憑證。
 
-## <a name="monitoring"></a>監視
+## <a name="monitoring"></a>監控
 
-### <a name="metrics"></a>計量
+### <a name="metrics"></a>度量
 
-您可以使用 Azure 監視器計量來查看和監視 Azure Machine Learning 工作區的計量。 在 [Azure 入口網站](https://portal.azure.com)中，選取您的工作區，然後選取 [**計量**]：
+您可以使用 Azure 監視器計量來查看和監視 Azure Machine Learning 工作區的計量。 在  [Azure 入口網站](https://portal.azure.com)中，選取您的工作區，然後選取 **計量**]：
 
-[![顯示工作區範例計量的螢幕擷取畫面](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
+[![螢幕擷取畫面，其中顯示工作區的範例計量](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
 
 計量包含有關執行、部署和註冊的資訊。
 
 如需詳細資訊，請參閱[Azure 監視器中的計量](/azure/azure-monitor/platform/data-platform-metrics)。
 
-### <a name="activity-log"></a>活動記錄
+### <a name="activity-log"></a>活動記錄檔
 
 您可以查看工作區的活動記錄，以查看工作區上執行的各種作業。 此記錄檔包含基本資訊，例如作業名稱、事件起始端和時間戳記。
 
 此螢幕擷取畫面顯示工作區的活動記錄：
 
-[![螢幕擷取畫面，顯示工作區的活動記錄](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
+[![螢幕擷取畫面，其中顯示工作區的活動記錄](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
 
 評分要求詳細資料會儲存在 Application Insights 中。 當您建立工作區時，會在您的訂用帳戶中建立 Application Insights。 記錄的資訊包括 HTTPMethod、UserAgent、ComputeType、RequestUrl、StatusCode、RequestId 和 Duration 等欄位。
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 的查詢效能深入解析 | Microsoft Docs
+title: 查詢效能深入解析
 description: 查詢效能監視可識別最耗用 CPU 的 Azure SQL 資料庫查詢。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/03/2019
-ms.openlocfilehash: 659022f625604fe31c2ce47978d1132b20b7ffc8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 56daca0aa817d03298bad971506402739d71482e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567021"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821245"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Azure SQL Database 的查詢效能深入解析
 
@@ -32,7 +32,7 @@ ms.locfileid: "68567021"
 > [!TIP]
 > 若要對 Azure SQL Database 進行基本的效能監視，建議您使用查詢效能深入解析。 請留意本文所列的產品限制。 若要對資料庫效能大規模的進階監視，建議您使用 [Azure SQL 分析](../azure-monitor/insights/azure-sql.md)。 它具有可自動執行效能疑難排解的內建智慧。 若要自動調整一些最常見資料庫效能問題，建議您使用[自動調整](sql-database-automatic-tuning.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 「查詢效能深入解析」要求 [查詢存放區](https://msdn.microsoft.com/library/dn817826.aspx) 在您的資料庫上為作用中狀態。 依預設會為所有 Azure SQL 資料庫啟用此項目。 如果查詢存放區未執行，Azure 入口網站會提示您加以啟用。
 
@@ -40,7 +40,7 @@ ms.locfileid: "68567021"
 > 如果入口網站中出現「此資料庫的查詢存放區未正確設定」訊息，請參閱[最佳化查詢存放區組態](#optimize-the-query-store-configuration-for-query-performance-insight)。
 >
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>權限
 
 必須要有下列[角色型存取控制](../role-based-access-control/overview.md)權限，才能使用「查詢效能深入解析」︰
 
@@ -236,16 +236,16 @@ ms.locfileid: "68567021"
 
 保留期原則有兩種：
 
-* **以大小為依據**：此原則設為 [自動] 時，將會在收集的資料量接近容量上限時自動清除資料。
-* **以時間為基礎**：根據預設，此原則會設為 30 天。 如果查詢存放區的空間用盡，就會刪除 30 天之前的查詢資訊。
+* 以**大小為基礎**：如果此原則設定為 [**自動**]，則會在達到接近大小上限時自動清除資料。
+* **時間**型：根據預設，此原則設定為30天。 如果查詢存放區的空間用盡，就會刪除 30 天之前的查詢資訊。
 
 您可以將擷取原則設為：
 
-* **全部**：查詢存放區會擷取所有查詢。
-* **自動**：查詢存放區會忽略不常執行的查詢，以及編譯和執行持續時間微不足道的查詢。 執行次數、編譯持續時間和執行階段持續時間的閾值皆由內部決定。 這是預設選項。
-* **無**：查詢存放區會停止擷取新的查詢，不過仍然會收集已擷取查詢的執行階段統計資料。
+* **All**：查詢存放區會捕捉所有查詢。
+* **Auto**：查詢存放區忽略不常執行的查詢，以及具有無意義的編譯和執行持續時間的查詢。 執行次數、編譯持續時間和執行階段持續時間的閾值皆由內部決定。 這是預設選項。
+* **無**：查詢存放區會停止捕捉新的查詢，但仍會收集已捕捉之查詢的執行時間統計資料。
 
-建議您從 [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 或 Azure 入口網站執行下列命令，將所有原則設為 [自動]，並將清除原則設為 30 天。 (請將 `YourDB` 取代為資料庫名稱)。
+建議您從 **SSMS** 或 Azure 入口網站執行下列命令，將所有原則設為 [自動][](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)，並將清除原則設為 30 天。 (請將 `YourDB` 取代為資料庫名稱)。
 
 ```sql
     ALTER DATABASE [YourDB]
@@ -274,7 +274,7 @@ ms.locfileid: "68567021"
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 ```
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>Summary
 
 「查詢效能深入解析」可協助您了解查詢工作負載的影響，以及其與資料庫資源耗用量的關係。 使用此功能，您將了解資料庫上最耗用資源的查詢，並在發生問題前找出應最佳化的查詢。
 

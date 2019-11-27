@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/14/2019
+ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bf9b6a3ad40d46b628bfcdb3fa3e32b2419360c9
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: b1070314767f280ec9d15390dc838fa80b5508e2
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802117"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643584"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>存取 Azure AD B2C 稽核記錄
 
@@ -33,11 +33,11 @@ Audit log 事件只會保留**七天**。 如果您需要更長的保留期，�
 
 |活動類型 |描述  |
 |---------|---------|
-|Authorization |有關授權使用者存取 B2C 資源的活動（例如，存取 B2C 原則清單的系統管理員）。         |
+|授權 |有關授權使用者存取 B2C 資源的活動（例如，存取 B2C 原則清單的系統管理員）。         |
 |目錄 |當系統管理員使用 Azure 入口網站登入時，所抓取之目錄屬性的相關活動。 |
 |應用程式 | 在 B2C 應用程式上建立、讀取、更新和刪除（CRUD）作業。 |
-|Key |在 B2C 金鑰容器中儲存之金鑰的 CRUD 作業。 |
-|Resource |B2C 資源的 CRUD 作業。 例如，原則和識別提供者。
+|金鑰 |在 B2C 金鑰容器中儲存之金鑰的 CRUD 作業。 |
+|資源 |B2C 資源的 CRUD 作業。 例如，原則和識別提供者。
 |驗證 |驗證使用者認證和權杖發行。|
 
 如需使用者物件 CRUD 活動，請參閱**核心目錄**類別。
@@ -50,14 +50,14 @@ Audit log 事件只會保留**七天**。 如果您需要更長的保留期，�
 
 [活動詳細資料] 面板包含下列相關資訊：
 
-|Section|欄位|描述|
+|區段|欄位|描述|
 |-------|-----|-----------|
-| activities | Name | 發生了哪個活動。 例如，對*應用程式發出 id_token*，這會結束實際的使用者登入。 |
+| 活動 | 名稱 | 發生了哪個活動。 例如，對*應用程式發出 id_token*，這會結束實際的使用者登入。 |
 | 啟動者 (執行者) | ObjectId | 使用者所登入之 B2C 應用程式的**物件識別碼**。 此識別碼不會顯示在 Azure 入口網站中，但可透過 Microsoft Graph API 存取。 |
-| 啟動者 (執行者) | SPN | 使用者所登入之 B2C 應用程式的**應用程式識別碼**。 |
+| 啟動者 (執行者) | Spn | 使用者所登入之 B2C 應用程式的**應用程式識別碼**。 |
 | 目標 | ObjectId | 登入之使用者的**物件識別碼**。 |
 | 其他詳細資料 | TenantId | Azure AD B2C 租使用者的**租使用者識別碼**。 |
-| 其他詳細資料 | `PolicyId` | 用來將使用者登入之使用者流程（原則）的**原則識別碼**。 |
+| 其他詳細資料 | PolicyId | 用來將使用者登入之使用者流程（原則）的**原則識別碼**。 |
 | 其他詳細資料 | ApplicationId | 使用者所登入之 B2C 應用程式的**應用程式識別碼**。 |
 
 ## <a name="view-audit-logs-in-the-azure-portal"></a>查看 Azure 入口網站中的 audit 記錄
@@ -89,8 +89,7 @@ Azure 入口網站提供 Azure AD B2C 租使用者中 audit 記錄事件的存�
 
 若要允許以腳本或應用程式為基礎的 Azure AD 報告 API 存取，您需要在 Azure AD B2C 租使用者中註冊具有下列 API 許可權的 Azure Active Directory 應用程式：
 
-* Microsoft Graph
-  * 應用程式讀取所有稽核記錄資料
+* Microsoft Graph > 應用程式許可權 > AuditLog。全部
 
 您可以在 B2C 租使用者內的現有 Azure Active Directory 應用程式註冊上啟用這些許可權，或建立一個專門用於 audit 記錄自動化的新帳戶。
 
@@ -102,6 +101,8 @@ Azure 入口網站提供 Azure AD B2C 租使用者中 audit 記錄事件的存�
 
 ### <a name="assign-api-access-permissions"></a>指派 API 存取權限
 
+#### <a name="applicationstabapplications"></a>[](#tab/applications/)
+
 1. 在 [**已註冊的應用程式**總覽] 頁面上，選取 [**設定**]。
 1. 在 [ **API 存取**] 底下，選取 [**必要許可權**]。
 1. 選取 [**新增**]，然後**選取 API**。
@@ -109,6 +110,22 @@ Azure 入口網站提供 Azure AD B2C 租使用者中 audit 記錄事件的存�
 1. 在 [**應用程式許可權**] 底下，選取 [**讀取所有的審核記錄資料**]。
 1. 選取 [**選取**] 按鈕，然後選取 [**完成**]。
 1. 選取 [授與權限]，然後選取 [是]。
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[應用程式註冊 (預覽)](#tab/app-reg-preview/)
+
+1. 在 [管理] 之下選取 [API 權限]。
+1. 在 [已設定的權限] 底下，選取 [新增權限]。
+1. 選取 [ **Microsoft api** ] 索引標籤。
+1. 選取 [Microsoft Graph]。
+1. 選取 [應用程式權限]。
+1. 展開 [ **AuditLog** ]，然後選取 [ **AuditLog** ] 核取方塊。
+1. 選取 [新增權限]。 依照指示，稍等幾分鐘，然後再繼續進行下一個步驟。
+1. 選取 [授與管理員同意 (您的租用戶名稱)]。
+1. 如果您目前已登入的帳戶已獲指派*全域管理員*角色，或使用已獲指派*全域管理員*角色的 Azure AD B2C 租使用者中的帳戶登入，請選取該帳戶。
+1. 選取 [接受]。
+1. 選取 **[** 重新整理]，然後確認「已授與 ...」出現在*AuditLog*的 [**狀態**] 之下。 權限可能需要幾分鐘的時間來傳播。
+
+* * *
 
 ### <a name="create-client-secret"></a>建立用戶端密碼
 
@@ -118,7 +135,7 @@ Azure 入口網站提供 Azure AD B2C 租使用者中 audit 記錄事件的存�
 
 ### <a name="access-the-api"></a>存取 API
 
-若要透過 API 下載 Azure AD B2C audit 記錄事件，請篩選`B2C`類別目錄中的記錄。 若要依類別篩選，請`filter`在呼叫 Azure AD 報告 API 端點時使用查詢字串參數。
+若要透過 API 下載 Azure AD B2C audit 記錄事件，請篩選 `B2C` 類別目錄上的記錄檔。 若要依類別篩選，請在呼叫 Azure AD 報告 API 端點時，使用 `filter` 查詢字串參數。
 
 ```HTTP
 https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
@@ -128,15 +145,15 @@ https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByServi
 
 下列 PowerShell 腳本顯示如何查詢 Azure AD 報告 API 的範例。 查詢 API 之後，它會將記錄的事件列印到標準輸出，然後將 JSON 輸出寫入檔案。
 
-您可以在[Azure Cloud Shell](../cloud-shell/overview.md)中嘗試此腳本。 請務必使用您的應用程式識別碼、金鑰和 Azure AD B2C 租使用者的名稱來更新它。
+您可以在[Azure Cloud Shell](../cloud-shell/overview.md)中嘗試此腳本。 請務必使用您的應用程式識別碼、用戶端密碼和 Azure AD B2C 租使用者的名稱來更新它。
 
 ```powershell
 # This script requires the registration of a Web Application in Azure Active Directory:
 # https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api
 
 # Constants
-$ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a GUID (registered by Global Admin)
-$ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client secret/key
+$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID (registered by Global Admin)
+$ClientSecret   = "your-client-application-secret-here"   # Insert your application's client secret
 $tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant; for example, contoso.onmicrosoft.com
 $loginURL       = "https://login.microsoftonline.com"
 $resource       = "https://graph.microsoft.com"           # Microsoft Graph API resource URI

@@ -1,5 +1,5 @@
 ---
-title: 套用效能建議 - Azure SQL Database |Microsoft Docs
+title: 套用效能建議
 description: 使用 Azure 入口網站以找出可最佳化 Azure SQL Database 的效能建議。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: b6bcb2650cd11ed97b6e81fda6aaafe7fca61202
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5462a03accb3420b3f0fcec4624734c8f6d68859
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569592"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811582"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>尋找和套用效能建議
 
@@ -41,7 +41,7 @@ ms.locfileid: "68569592"
 | 影響 | 描述 |
 |:--- |:--- |
 | 高 |高影響建議提供最明顯的效能影響。 |
-| 中等 |中度影響建議會改善效能，但不顯著。 |
+| 中 |中度影響建議會改善效能，但不顯著。 |
 | 低 |低影響建議比沒有建議時提供更好的效能，但改善可能不顯著。 |
 
 
@@ -114,7 +114,7 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
 
 選取任何建議，然後按一下 [檢視指令碼]。 對資料庫執行這個指令碼，以手動套用建議。
 
-，因此建議您在建立這些索引之後監視索引，以確認它們能夠提高效能，且於必要時調整或刪除它們。 如需有關建立索引的詳細資訊，請參閱 [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)。 此外, 手動套用的建議將維持作用中狀態, 並顯示在建議的24-48 小時清單中。 系統自動將其收回之前。 如果您想要更快移除建議, 可以手動將它捨棄。
+，因此建議您在建立這些索引之後監視索引，以確認它們能夠提高效能，且於必要時調整或刪除它們。 如需有關建立索引的詳細資訊，請參閱 [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)。 此外，手動套用的建議將維持作用中狀態，並顯示在建議的24-48 小時清單中。 系統自動將其收回之前。 如果您想要更快移除建議，可以手動將它捨棄。
 
 ### <a name="canceling-recommendations"></a>取消建議
 
@@ -127,13 +127,13 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
 
 套用建議時可能不會立即執行。 入口網站會提供有關建議狀態的詳細資料。 索引有下列可能的狀態：
 
-| 狀態 | 描述 |
+| Status | 描述 |
 |:--- |:--- |
-| 擱置 |已收到套用建議命令，且已排程執行。 |
+| Pending |已收到套用建議命令，且已排程執行。 |
 | 執行中 |正在套用建議。 |
-| 正在驗證 |成功套用建議，而服務正在衡量益處。 |
+| Validating |成功套用建議，而服務正在衡量益處。 |
 | 成功 |已成功套用建議，並證實有益處。 |
-| Error |套用建議程序期間發生錯誤。 這可能是暫時性問題，也可能是資料表的結構描述變更，造成指令碼不再有效。 |
+| 錯誤 |套用建議程序期間發生錯誤。 這可能是暫時性問題，也可能是資料表的結構描述變更，造成指令碼不再有效。 |
 | 還原 |已套用建立但被認為無助於效能，正在自動還原。 |
 | 已還原 |已還原建議。 |
 
@@ -150,11 +150,11 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
 ![建議的索引](./media/sql-database-advisor-portal/details.png)
 
 ## <a name="monitoring-performance-impact-of-index-recommendations"></a>監視索引建議的效能影響
-成功實作建議之後 (目前僅提供索引作業和參數化查詢建議)，您可以按一下 [建議詳細資料] 頁面上的 **查詢深入解析** 來開啟 [查詢效能深入解析](sql-database-query-performance.md)，並查看排名最前面查詢對效能的影響。
+成功實作建議之後 (目前僅提供索引作業和參數化查詢建議)，您可以按一下 [建議詳細資料] 頁面上的 [查詢深入解析] 來開啟 [查詢效能深入解析][](sql-database-query-performance.md)，並查看排名最前面查詢對效能的影響。
 
 ![監視效能影響](./media/sql-database-advisor-portal/query-insights.png)
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>Summary
 Azure SQL Database 會提供可改善 SQL 資料庫效能的建議。 藉由提供 T-SQL 指令碼，您會獲得最佳化資料庫的協助，並最終改善查詢效能。
 
 ## <a name="next-steps"></a>後續步驟
