@@ -126,7 +126,7 @@
     - name: 專用主機
       href: dedicated-hosts.md
     - name: 維護和更新
-      href: maintenance-and-updates.md
+      href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 磁碟儲存體
       items:
         - name: 受控磁碟簡介
@@ -298,16 +298,30 @@
               href: ../extensions/agent-linux.md
             - name: 代理程式更新
               href: update-agent.md
-        - name: 預定的維修
-          href: maintenance-notifications.md
         - name: 減輕風險的理論式執行
           href: mitigate-se.md
-        - name: 排定的事件
-          href: scheduled-events.md
         - name: 監視中繼資料
           href: instance-metadata-service.md
         - name: 利用 REST 取得使用計量
           href: metrics-vm-usage-rest.md
+    - name: 平台維修
+      items:
+        - name: 維修通知
+          items:
+            - name: 概觀
+              href: maintenance-notifications.md
+            - name: CLI
+              href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: 入口網站
+              href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: PowerShell
+              href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: 維修控制
+          items:
+            - name: CLI
+              href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: 排定的事件
+          href: scheduled-events.md
     - name: 監視 VM
       items:
         - name: 適用於 VM 的 Azure 監視器

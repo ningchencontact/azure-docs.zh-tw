@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.author: cabailey
-ms.openlocfilehash: d1d048507946850192c1c6f8ca9024c6f9ddf8ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e72b9012b41f50b36ba7d92582d0c697e6db0683
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515118"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546857"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>在 Azure Sentinel 中使用搜尋 Livestream 來偵測威脅
 
 > [!IMPORTANT]
-> Azure Sentinel 中的搜尋 Livestream 目前為公開預覽狀態。
+> Azure Sentinel 中的搜尋 Livestream 目前為公開預覽狀態，並逐漸推出給租使用者。
 > 這項功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 
@@ -53,7 +53,7 @@ ms.locfileid: "73515118"
 2. 若要從搜尋查詢建立 Livestream 會話：
     
     1. 從 [**查詢**] 索引標籤中，找出要使用的搜尋查詢。
-    2. 以滑鼠右鍵按一下查詢，然後選取 [**新增至 Livestream**]。 例如：
+    2. 以滑鼠右鍵按一下查詢，然後選取 [**新增至 Livestream**]。 例如︰
     
     > [!div class="mx-imgBorder"]
     > ![從 Azure Sentinel 搜尋查詢建立 Livestream 會話](./media/livestream/livestream-from-query.png)
@@ -63,7 +63,7 @@ ms.locfileid: "73515118"
     1. 選取 [ **Livestream** ] 索引標籤
     2. 選取 [**移至 Livestream**]。
     
-4. 在 [ **Livestream** ] 分頁上：
+4. 在 [ **Livestream** ] 窗格上：
     
     - 如果您從查詢開始 Livestream，請檢查查詢，並進行您想要進行的任何變更。
     - 如果您從頭開始 Livestream，請建立您的查詢。 
@@ -83,7 +83,7 @@ ms.locfileid: "73515118"
 
 1. 在 Azure 入口網站中，流覽至  **Sentinel** > **威脅管理** > **搜尋** >  **Livestream**  索引標籤。
 
-2. 選取您想要查看或編輯的 Livestream 會話。 例如：
+2. 選取您想要查看或編輯的 Livestream 會話。 例如︰
     
     > [!div class="mx-imgBorder"]
     > ![從 Azure Sentinel 搜尋查詢建立 Livestream 會話](./media/livestream/livestream-tab.png)
@@ -92,11 +92,11 @@ ms.locfileid: "73515118"
 
 ## <a name="receive-notifications-when-new-events-occur"></a>在發生新事件時收到通知
 
-因為新事件的 Livestream 通知使用 Azure 入口網站通知，所以您會在每次使用 Azure 入口網站時看到這些通知。 例如：
+因為新事件的 Livestream 通知使用 Azure 入口網站通知，所以您會在每次使用 Azure 入口網站時看到這些通知。 例如︰
 
 ![Livestream 的 Azure 入口網站通知](./media/livestream/notification.png)
 
-選取通知以開啟 [ **Livestream** ] 分頁。
+選取通知以開啟 [ **Livestream** ] 窗格。
  
 ## <a name="elevate-a-livestream-session-to-an-alert"></a>將 Livestream 會話提升為警示
 

@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 712273ddfb8b6f781627e2cc7915a1f538f57b4d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4f9804ed0e7d6c83a4f6fc732f836fcecce1c2e7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090621"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548347"
 ---
 # <a name="streaming-ingestion-preview"></a>串流內嵌（預覽）
 
@@ -25,7 +25,7 @@ ms.locfileid: "71090621"
 > * [資料庫資料指標](/azure/kusto/management/databasecursor)。
 > * [資料對應](/azure/kusto/management/mappings)。 僅支援[預先建立的](/azure/kusto/management/tables#create-ingestion-mapping)資料對應。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 * 登入[WEB UI](https://dataexplorer.azure.com/)。
@@ -35,7 +35,7 @@ ms.locfileid: "71090621"
 
 1. 在 Azure 入口網站中，移至您的 Azure 資料總管叢集。 在 [設定] 中 **，選取 [** **設定**]。 
 1. **在 [設定**] 窗格中，選取 [**開啟**] 以啟用**串流**內嵌。
-1. 選取 [儲存]。
+1. 選取 [ **儲存**]。
  
     ![串流內嵌于](media/ingest-data-streaming/streaming-ingestion-on.png)
  
@@ -67,14 +67,13 @@ ms.locfileid: "71090621"
 1. 從所有相關的資料表和資料庫中卸載[串流內嵌原則](/azure/kusto/concepts/streamingingestionpolicy)。 串流的內嵌原則移除會觸發從初始儲存體到資料行存放區（範圍或分區）中的永久儲存體的串流內嵌資料移動。 視初始儲存體中的資料量和叢集的 CPU 和記憶體使用量而定，資料移動可以在數秒到幾個小時之間持續。
 1. 在 Azure 入口網站中，移至您的 Azure 資料總管叢集。 在 [設定] 中 **，選取 [** **設定**]。 
 1. **在 [設定**] 窗格中，選取 [**關閉**] 以停用**串流**內嵌。
-1. 選取 [儲存]。
+1. 選取 [ **儲存**]。
 
     ![串流內嵌已關閉](media/ingest-data-streaming/streaming-ingestion-off.png)
 
 ## <a name="limitations"></a>限制
 
-* 透過增加的 VM 和叢集大小，串流處理內嵌的效能和容量規模。 針對單一 D14 節點，建議的負載是每秒最多150個要求。
-* 目前，支援僅適用于8和16核心 Sku （D13、D14、L8 和 L16 也）。
+* 透過增加的 VM 和叢集大小，串流處理內嵌的效能和容量規模。 每個核心的並行擷取限制為6個擷取。 例如，針對16核心 Sku （例如 D14 和 L16 也），支援的最大負載為96並行擷取。 對於2個核心 Sku （例如 D11），支援的最大負載為12個並行擷取。
 * 每個內嵌要求的資料大小限制為 4 MB。
 * 架構更新（例如建立和修改資料表和內嵌對應）最多可能需要5分鐘的時間來處理串流內嵌服務。
 * 在叢集上啟用串流內嵌，即使資料不是透過串流內嵌，也會使用叢集機器的部分本機 SSD 磁片來串流內嵌資料，並減少用於熱快取的儲存體。

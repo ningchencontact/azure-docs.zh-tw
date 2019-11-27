@@ -374,8 +374,6 @@
               href: rest-speech-to-text.md
             - name: 文字轉換語音 REST API
               href: rest-text-to-speech.md
-            - name: Webhook REST API
-              href: webhooks.md
         - name: Swagger 文件
           href: swagger-documentation.md
 - name: 語音 SDK

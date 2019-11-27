@@ -1,26 +1,26 @@
 ---
-title: 管理適用於 MariaDB 的 Azure 資料庫-Azure 入口網站
-description: 瞭解如何從 Azure 入口網站管理適用於 MariaDB 的 Azure 資料庫伺服器。
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+title: 管理適用於 PostgreSQL 的 Azure 資料庫-Azure 入口網站
+description: 瞭解如何從 Azure 入口網站管理適用於 PostgreSQL 的 Azure 資料庫伺服器。
+author: rachel-msft
+ms.author: raagyema
+ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 7e09db9308f9ecf623ce0ab0d948ed1056dd21b1
+ms.date: 11/20/2019
+ms.openlocfilehash: bcddd64afca29ac9fdd5d284fc8f809ff9e2477d
 ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534377"
+ms.locfileid: "74535687"
 ---
-# <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>使用 Azure 入口網站管理適用於 MariaDB 的 Azure 資料庫伺服器
-本文說明如何管理您的適用於 MariaDB 的 Azure 資料庫伺服器。 管理工作包括計算和儲存體調整、系統管理員密碼重設，以及查看伺服器詳細資料。
+# <a name="manage-an-azure-database-for-postgresql-server-using-the-azure-portal"></a>使用 Azure 入口網站管理適用於 PostgreSQL 的 Azure 資料庫伺服器
+本文說明如何管理您的適用於 PostgreSQL 的 Azure 資料庫伺服器。 管理工作包括計算和儲存體調整、系統管理員密碼重設，以及查看伺服器詳細資料。
 
 ## <a name="sign-in"></a>登入
 登入 [Azure 入口網站](https://portal.azure.com)。
 
 ## <a name="create-a-server"></a>建立伺服器
-請造訪[快速入門](quickstart-create-mariadb-server-database-using-azure-portal.md)，以瞭解如何建立適用於 MariaDB 的 Azure 資料庫伺服器並開始使用。
+請造訪[快速入門](quickstart-create-server-database-portal.md)，以瞭解如何建立適用於 PostgreSQL 的 Azure 資料庫伺服器並開始使用。
 
 ## <a name="scale-compute-and-storage"></a>調整計算和儲存體
 
@@ -104,4 +104,4 @@ ms.locfileid: "74534377"
 
 ## <a name="next-steps"></a>後續步驟
 - 瞭解[備份和伺服器還原](howto-restore-server-portal.md)
-- 瞭解[適用於 MariaDB 的 Azure 資料庫中的微調和監視選項](concepts-monitoring.md)
+- 瞭解[適用於 PostgreSQL 的 Azure 資料庫中的微調和監視選項](concepts-monitoring.md)

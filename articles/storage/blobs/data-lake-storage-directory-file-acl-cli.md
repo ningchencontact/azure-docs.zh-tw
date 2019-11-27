@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 95bb43f1531b6234ccb90eb7d66404ccc66f60f3
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.openlocfilehash: dcd75cfefd53b3c9104052146607869515e1c86e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485142"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534287"
 ---
 # <a name="use-azure-cli-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>在 Azure Data Lake Storage Gen2 中使用檔案 & Acl 的 Azure CLI （預覽）
 
@@ -301,6 +301,6 @@ az storage blob directory metadata show -c my-file-system -d my-directory --acco
 * [範例](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
 * [Gen1 至 Gen2 對應](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
 * [提供意見反應](https://github.com/Azure/azure-cli-extensions/issues)
-* [已知的功能差距](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [已知問題](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [原始程式碼](https://github.com/Azure/azure-cli-extensions/tree/master/src) \(英文\)
 

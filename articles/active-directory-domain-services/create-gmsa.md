@@ -1,6 +1,6 @@
 ---
 title: Azure AD Domain Services 的群組受管理的服務帳戶 |Microsoft Docs
-description: 瞭解如何建立群組受管理的服務帳戶 (gMSA), 以與 Azure Active Directory Domain Services 受控網域搭配使用
+description: 瞭解如何建立群組受管理的服務帳戶（gMSA），以與 Azure Active Directory Domain Services 受控網域搭配使用
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -9,20 +9,22 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 1cfddf14d60b7d73bae283a18732c7c99ae22b4d
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a943d2a8453cb727e9d01e35b12ca90d939ee5e8
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898219"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546318"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>在 Azure AD Domain Services 中建立群組受管理的服務帳戶（gMSA）
 
-應用程式和服務通常需要身分識別，才能向其他資源進行驗證。 例如，web 服務可能需要向資料庫服務進行驗證。 如果應用程式或服務有多個實例（例如 web 伺服器陣列），則手動建立及設定這些資源的身分識別會耗費大量時間。 相反地，您可以在 Azure Active Directory Domain Services （Azure AD DS）受控網域中建立群組受管理的服務帳戶（gMSA）。 Windows 作業系統會自動管理 gMSA 的認證，這可簡化大型資源群組的管理。
+應用程式和服務通常需要身分識別，才能向其他資源進行驗證。 例如，web 服務可能需要向資料庫服務進行驗證。 如果應用程式或服務有多個實例（例如 web 伺服器陣列），則手動建立及設定這些資源的身分識別會耗費大量時間。
 
-本文說明如何在 Azure AD DS 受控網域中建立 gMSA。
+相反地，您可以在 Azure Active Directory Domain Services （Azure AD DS）受控網域中建立群組受管理的服務帳戶（gMSA）。 Windows 作業系統會自動管理 gMSA 的認證，這可簡化大型資源群組的管理。
+
+本文說明如何使用 Azure PowerShell 在 Azure AD DS 受控網域中建立 gMSA。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -59,6 +61,9 @@ ms.locfileid: "70898219"
 ## <a name="create-a-gmsa"></a>建立 gMSA
 
 首先，使用[ADOrganizationalUnit][New-AdOrganizationalUnit] Cmdlet 來建立自訂 OU。 如需建立和管理自訂 Ou 的詳細資訊，請參閱[AZURE AD DS 中的自訂 ou][create-custom-ou]。
+
+> [!TIP]
+> 若要完成這些步驟來建立 gMSA，請[使用您的管理 VM][tutorial-create-management-vm]。 此管理 VM 應該已有必要的 AD PowerShell Cmdlet 和與受控網域的連線。
 
 下列範例會在名為*contoso.com*的 Azure AD DS 受控網域中建立名為*myNewOU*的自訂 OU。 使用您自己的 OU 和受控功能變數名稱：
 

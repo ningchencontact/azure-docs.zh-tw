@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ccd8fc293d284150d7318242b71a46a99fec12fa
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
-ms.translationtype: HT
+ms.openlocfilehash: 0fc7eb6c3b582c4fc95d78397c4cb2820ebb4ea8
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406313"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534234"
 ---
 # <a name="deploy-farmbeats"></a>部署 FarmBeats
 
@@ -68,6 +68,9 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
 6. 依序選取 [**關閉**] 和 [我同意] 核取方塊，然後選取 [**建立**]。
 7. 您現在已成功簽署 marketplace 上的 Azure FarmBeats 使用者授權合約（EULA）。  
 7. 若要繼續進行部署，請遵循本指南的後續步驟。
+
+> [!NOTE]
+> 在 Azure Marketplace 中完成供應專案只會完成部分的安裝程式。 請遵循下列指示，在您的 Azure 訂用帳戶中完成 Azure FarmBeats 的部署。
 
 ## <a name="prepare"></a>準備
 

@@ -1,21 +1,16 @@
 ---
-title: 在 Azure 容器實例中設定就緒探查
+title: 在容器實例上設定準備就緒探查
 description: 瞭解如何設定探查，以確保 Azure 容器實例中的容器只會在準備好時才接收要求
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 10/17/2019
-ms.author: danlep
-ms.openlocfilehash: 9cdc8362c377be28a3ed1300b599dc8ebef9e903
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 5ebbcdeee231e3e67abd6758485a12984137997e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905572"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533552"
 ---
-# <a name="configure-readiness-probes"></a>設定就緒探查
+# <a name="configure-readiness-probes"></a>設定整備度探查
 
 針對服務流量的容器化應用程式，您可能會想要確認您的容器已準備好處理傳入的要求。 Azure 容器實例支援準備就緒探查以包含設定，因此在某些情況下無法存取您的容器。 準備就緒探查的行為就像是[Kubernetes 的準備探查](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)。 例如，容器應用程式可能需要在啟動期間載入大型資料集，而且您不想讓它在這段時間內接收要求。
 

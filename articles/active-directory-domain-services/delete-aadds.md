@@ -1,6 +1,6 @@
 ---
-title: 停用 Azure Active Directory Domain Services |Microsoft Docs '
-description: 瞭解如何使用 Azure 入口網站停用 Azure Active Directory Domain Services
+title: 刪除 Azure Active Directory Domain Services |Microsoft Docs
+description: 瞭解如何使用 Azure 入口網站來停用或刪除 Azure Active Directory Domain Services 受控網域
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 05c4e73c56b79c6e313ea15124bd0f3d17b2fc70
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 9f0b8a438a7c236c5e016673a59bfb691e9c2152
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842603"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546286"
 ---
-# <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>使用 Azure 入口網站停用 Azure Active Directory Domain Services
+# <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>使用 Azure 入口網站刪除 Azure Active Directory Domain Services 受控網域
 
 如果您不再需要受控網域，您可以刪除 Azure Active Directory Domain Services （Azure AD DS）實例。 沒有任何選項可關閉或暫時停用 Azure AD DS 受控網域。 刪除 Azure AD DS 受控網域不會刪除或對 Azure AD 租使用者造成不良影響。 本文說明如何使用 Azure 入口網站來刪除 Azure AD DS 受控網域。
 

@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: b47c80f3c23c26828037954c01608cc502c017c9
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.openlocfilehash: e749dc48b1834aedbfea048c49c1f9090e5b5bb8
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186604"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534315"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>建立具有異地區域冗余儲存體（切換）（預覽）的高可用性 Azure 儲存體應用程式
 
@@ -85,6 +85,11 @@ Microsoft 會繼續在其他 Azure 區域中啟用切換和 RA 切換。 請定�
 ## <a name="migrate-a-storage-account-to-gzrs-or-ra-gzrs"></a>將儲存體帳戶遷移至切換或 RA-切換
 
 您可以將任何現有的儲存體帳戶遷移至切換或 RA-切換。 從現有的 ZRS 帳戶遷移至切換或 RA-切換相當簡單，而從 LRS、GRS 或 RA-GRS 帳戶進行遷移比較複雜。 下列各節說明如何在任一情況下遷移。
+
+**已知的限制**
+
+- （RA-）切換帳戶目前不支援封存層。 如需詳細資訊，請參閱[Azure Blob 儲存體：經常性存取、非經常性存取和封存存取層](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)。
+- 受控磁片不支援（RA-）切換。 您可以在標準 HDD 儲存體上儲存標準 SSD 受控磁碟的快照集和影像，並在[LRS 和 ZRS 選項之間進行選擇](https://azure.microsoft.com/pricing/details/managed-disks/)。
 
 ### <a name="migrating-from-a-zrs-account"></a>從 ZRS 帳戶進行遷移
 

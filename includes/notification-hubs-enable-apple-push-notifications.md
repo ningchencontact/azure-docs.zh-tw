@@ -2,18 +2,18 @@
 title: 包含檔案
 description: 包含檔案
 services: notification-hubs
-author: spelluru
+author: sethmanheim
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 08/28/2018
-ms.author: spelluru
+ms.date: 11/21/2019
+ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 3e4549a21ec32f1a2c1c869c3b2e0bd8c2e4204e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ef2b98821b28d8a49e5f16bf1c6ac176eb8b5793
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446587"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407166"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>產生憑證簽署要求檔案
 
@@ -41,50 +41,52 @@ Apple Push Notification Service (APNs) 使用憑證來驗證您的通知服務�
 
 ## <a name="register-your-app-for-push-notifications"></a>針對推播通知註冊應用程式
 
-若要將通知推送至 iOS 應用程式，請向 Apple 註冊您的應用程式，並註冊進行推播通知。  
+若要將推播通知傳送至 iOS 應用程式，請向 Apple 註冊您的應用程式，並註冊進行推播通知。  
 
-1. 如果您尚未註冊應用程式，請瀏覽至 Apple Developer Center 上的 [iOS 佈建入口網站](https://go.microsoft.com/fwlink/p/?LinkId=272456)。 然後，以您的 Apple ID 登入，並依序選取 [識別碼]  、[應用程式識別碼]  、[+]  來註冊新的應用程式。
+1. 如果您尚未註冊應用程式，請瀏覽至 Apple Developer Center 上的 [iOS 佈建入口網站](https://go.microsoft.com/fwlink/p/?LinkId=272456)。 使用您的 Apple ID 登入入口網站，然後選取 [識別碼]  。 然後選取 [+]  以註冊新的應用程式。
 
     ![iOS 佈建入口網站應用程式識別碼頁面](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
-1. 將新應用程式的下列三個值予以更新，然後選取 [繼續]  ：
+2. 在 [註冊新識別碼]  畫面上，選取 [應用程式識別碼]  選項按鈕。 然後選取 [繼續]  。
 
-   * **名稱**：在 [應用程式識別碼描述]  區段的 [名稱]  方塊中輸入應用程式的描述性名稱。
+    ![iOS 佈建入口網站的 [註冊新識別碼] 頁面](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids-new.png)
 
-   * **套件組合識別碼**：在 [明確的應用程式識別碼]  區段中，以[應用程式分發指南](https://help.apple.com/xcode/mac/current/#/dev91fe7130a) (英文) 中所提的 `<Organization Identifier>.<Product Name>` 形式輸入 [套件組合識別碼]  。 [組織識別碼]  和 [產品名稱]  值必須符合當您建立 Xcode 專案時使用的組織識別碼和產品名稱。 在下列螢幕擷取畫面中，*NotificationHubs* 值會作為組織識別碼，*GetStarted* 值會作為產品名稱。 請確定**套件組合識別碼**值符合您 Xcode 專案中的值，好讓 Xcode 使用正確的發行設定檔。
+3. 將新應用程式的下列三個值予以更新，然後選取 [繼續]  ：
 
-   * **推播通知**：勾選 [應用程式服務]  區段中的 [推播通知]  選項。
+   * **描述**：輸入您應用程式的描述性名稱。
 
-     ![註冊新應用程式識別碼的表單](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
+   * **套件組合識別碼**：以[應用程式分發指南](https://help.apple.com/xcode/mac/current/#/dev91fe7130a) \(英文\) 中所提的 **Organization Identifier.Product Name** 形式輸入套件組合識別碼。 [組織識別碼]  和 [產品名稱]  值必須符合當您建立 Xcode 專案時使用的組織識別碼和產品名稱。 在下列螢幕擷取畫面中，**NotificationHubs** 值會作為組織識別碼，**GetStarted** 值會作為產品名稱。 請確定**套件組合識別碼**值符合您 Xcode 專案中的值，好讓 Xcode 使用正確的發行設定檔。
 
-     此動作會產生您的應用程式識別碼，並要求您確定此資訊。 選取 [註冊]  確認新的應用程式識別碼。
+      ![iOS 佈建入口網站的 [註冊應用程式識別碼] 頁面](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-bundle.png)
 
-     選取 [註冊]  之後，您會看見 [註冊完成]  畫面，如下圖所示。 選取 [完成]  。
+   * **推播通知**：勾選 [功能]  區段中的 [推播通知]  選項。
 
-     ![應用程式識別碼註冊完成並顯示權利](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
+      ![註冊新應用程式識別碼的表單](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-push.png)
 
-1. 在 Developer Center 的 [應用程式識別碼]  底下，找出您建立的應用程式識別碼，並選取該資料列。
+      此動作會產生您的應用程式識別碼，並要求您確定此資訊。 選取 [繼續]  ，然後選取 [註冊]  以確認新的應用程式識別碼。
 
-    ![應用程式識別碼清單](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
+      ![確認新的應用程式識別碼](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-register.png)
 
-    選取應用程式識別碼以顯示應用程式詳細資料，然後選取底部的 [編輯]  按鈕。
+      選取**註冊**之後，您會在 [憑證、識別碼與設定檔]  頁面中看到作為明細項目的新應用程式識別碼。
+
+4. 在 [憑證、識別碼與設定檔]  頁面的 [識別碼]  底下，找出您剛才建立的應用程式識別碼明細項目，然後選取其資料列以顯示 [編輯您的應用程式識別碼設定]  畫面。
+
+5. 向下瀏覽至已核取的 [推播通知]  選項，然後選取 [設定]  來建立憑證。
 
     ![編輯應用程式識別碼頁面](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
 
-1. 捲動到畫面底部，然後選取 [開發推播 SSL 憑證]  區段下方的 [建立憑證]  按鈕。
+6. [Apple 推播通知服務 SSL 憑證]  視窗隨即出現。 在 [開發 SSL 憑證]  區段下方，選取 [建立憑證]  按鈕。
 
     ![為應用程式識別碼建立憑證的按鈕](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
 
-    您現在會看到**新增 iOS 憑證**助理。
+    [建立新憑證]  畫面會隨即顯示。
 
     > [!NOTE]
     > 本教學課程使用開發憑證。 註冊生產憑證時，將使用同一個程序。 只要確定在傳送通知時使用相同的憑證類型即可。
 
-1. 選取 [選擇檔案]  ，瀏覽到您在第一個工作中儲存 CSR 檔案的位置，然後選取 [產生]  。
+1. 選取 [選擇檔案]  ，瀏覽到您在第一個工作中儲存 CSR 檔案的位置，然後按兩下憑證名稱來將其下載。 然後選取 [繼續]  。
 
-    ![產生的憑證 CSR 上傳頁面](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-cert-choose-csr.png)
-
-1. 在入口網站建立憑證之後，請選取 [下載]  按鈕，然後選取 [完成]  。
+1. 在入口網站建立憑證之後，請選取 [下載]  按鈕。 儲存憑證，並記住其儲存位置。
 
     ![產生的憑證 CSR 下載頁面](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-download-cert.png)
 
@@ -95,9 +97,7 @@ Apple Push Notification Service (APNs) 使用憑證來驗證您的通知服務�
     > [!NOTE]
     > 依預設，下載的開發憑證會名為 **aps_development.cer**。
 
-1. 選取下載的推播憑證 **aps_development.cer**。
-
-    此動作會將新的憑證安裝在金鑰鏈中，如下圖所示：
+1. 按兩下下載的推播憑證 **aps_development.cer**。 此動作會將新的憑證安裝在金鑰鏈中，如下圖所示：
 
     ![顯示新憑證的金鑰鏈存取憑證清單](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
 
@@ -108,38 +108,45 @@ Apple Push Notification Service (APNs) 使用憑證來驗證您的通知服務�
 
     ![以 p12 格式匯出憑證](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
 
-    記下匯出的 .p12 憑證的檔案名稱和位置。 其可用來啟用 APNs 驗證功能。
+    您可以選擇使用密碼來保護憑證，但這是選擇性的。 如果您想要略過密碼建立，請按一下 [確定]  。 記下匯出的 .p12 憑證的檔案名稱和位置。 其可用來啟用 APNs 驗證功能。
 
     > [!NOTE]
-    > 本教學課程會建立名為 **QuickStart.p12** 的檔案。 Your file name and location might be different.
+    > 您的 .p12 檔案名稱和位置可能與本教學課程中所顯示的不同。
 
 ## <a name="create-a-provisioning-profile-for-the-app"></a>建立應用程式的佈建設定檔
 
-1. 在 [iOS 佈建入口網站](https://go.microsoft.com/fwlink/p/?LinkId=272456)中，依序選取 [佈建設定檔]  和 [全部]  ，然後選取 [+]  來建立新的設定檔。 您會看到 [新增 iOS 佈建設定檔]  精靈。
+1. 返回 [iOS 佈建入口網站](https://go.microsoft.com/fwlink/p/?LinkId=272456)，選取 [憑證、識別碼與設定檔]  ，從左側功能表中選取 [設定檔]  ，然後選取 [+]  以建立新的設定檔。 [註冊新佈建設定檔]  的畫面會隨即出現。
+
+1. 在 [開發]  下，選取 [iOS 應用程式開發]  作為佈建設定檔類型，然後選取 [繼續]  。
 
     ![佈建設定檔清單](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
-
-1. 選取 [開發]  下的 [iOS 應用程式開發]  作為佈建設定檔類型，然後選取 [繼續]  。
 
 1. 接著，從 [應用程式識別碼]  下拉式清單選取您建立的應用程式識別碼，然後選取 [繼續]  。
 
     ![選取應用程式識別碼](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
 
-1. 在 [選取憑證]  視窗中，選取用於程式碼簽署的一般開發憑證，然後選取 [繼續]  。 此憑證不是您建立的推播憑證。
+1. 在 [選取憑證]  視窗中，選取用於程式碼簽署的開發憑證，然後選取 [繼續]  。 此憑證不是您建立的推播憑證。 如果沒有憑證存在，您必須加以建立。 如果憑證存在，請跳到下一個步驟。 若要建立開發憑證 (憑證不存在的話)：
 
-    ![選取憑證](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
+    1. 如果您看到 [沒有可用憑證]  ，請選取 [建立憑證]  。
+    2. 在 [軟體]  區段中，選取 [Apple 開發]  。 然後選取 [繼續]  。
+    3. 在 [建立新憑證]  畫面中，選取 [選擇檔案]  。
+    4. 瀏覽至您稍早建立的**憑證簽署要求**憑證並加以選取，然後選取 [開啟]  。
+    5. 選取 [繼續]  。
+    6. 下載開發憑證，並記住其儲存位置。
+
+1. 返回 [憑證、識別碼與設定檔]  頁面，從左側功能表中選取 [設定檔]  ，然後選取 [+]  以建立新的設定檔。 [註冊新佈建設定檔]  的畫面會隨即出現。
+
+1. 在 [選取憑證]  視窗中，選取您剛才建立的開發憑證。 然後選取 [繼續]  。
 
 1. 接下來，選取要用來測試的裝置，然後選取 [繼續]  。
 
-    ![選取裝置](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
-
-1. 最後，在 [設定檔名稱]  中為設定檔挑選名稱，然後選取 [產生]  。
+1. 最後，在 [佈建設定檔名稱]  中為設定檔選擇名稱，然後選取 [產生]  。
 
     ![選擇佈建設定檔名稱](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
-1. 當新的佈建設定檔建立好時，將其選取以下載並安裝在 Xcode 開發電腦上。 然後選取 [完成]  。
+1. 建立新的佈建設定檔後，請選取 [下載]  。 記住其儲存位置。
 
-    ![下載佈建設定檔](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
+1. 瀏覽至佈建設定檔的位置，然後按兩下來將其安裝在您的 Xcode 開發機器上。
 
 ## <a name="create-a-notification-hub"></a>建立通知中樞
 
@@ -155,12 +162,14 @@ Apple Push Notification Service (APNs) 使用憑證來驗證您的通知服務�
 
 1. 選取 [檔案] 圖示。
 
-1. 選取您先前匯出的 .p12 檔案。
+1. 選取您先前匯出的 .p12 檔案，然後選取 [開啟]  。
 
-1. 指定正確的密碼。
+1. 若有需要，請指定正確的密碼。
 
 1. 選取 [沙箱]  模式。 只有在您想傳送推播通知給從市集購買應用程式的使用者時，才可使用 [生產]  模式。
 
     ![在 Azure 入口網站中設定 APNS 憑證](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-apple-config-cert.png)
+
+1. 選取 [儲存]  。
 
 您現在已使用 APNs 來設定通知中樞。 您也擁有可用來註冊應用程式和傳送推播通知的連接字串。

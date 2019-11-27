@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 9e20445768334eb3272fb9534e5cc04e30c6f41f
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.openlocfilehash: fb69e0b797243a3403e8899d3f4ef23a9be9451d
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484973"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534266"
 ---
 # <a name="use-net-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>在 Azure Data Lake Storage Gen2 中使用 .NET for files & Acl （預覽）
 
@@ -294,6 +294,6 @@ public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient
 * [封裝（NuGet）](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6)
 * [範例](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake)
 * [Gen1 至 Gen2 對應](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
-* [已知的功能差距](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [已知問題](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [提供意見反應](https://github.com/Azure/azure-sdk-for-net/issues)
 

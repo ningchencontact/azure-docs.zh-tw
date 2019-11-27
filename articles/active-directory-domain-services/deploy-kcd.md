@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 89bc690e5a8c8d24d7732dd4e12f70a9f1f368af
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b6941a159c8be9f7d1921dd281f7366b078b30a7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842667"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546277"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>在 Azure Active Directory Domain Services 中設定 Kerberos 限制委派（KCD）
 
 當您執行應用程式時，可能需要這些應用程式才能存取不同使用者內容中的資源。 Active Directory Domain Services （AD DS）支援一種稱為*Kerberos 委派*的機制，可啟用此使用案例。 Kerberos*限制*委派（KCD）接著會建立此機制，以定義可在使用者內容中存取的特定資源。 Azure Active Directory Domain Services （Azure AD DS）受控網域會更安全地鎖定該傳統內部部署 AD DS 環境，因此請使用更安全的以*資源為基礎*的 KCD。
 
-本文說明如何在 Azure AD DS 受控網域中設定資源 basd Kerberos 限制委派。
+本文說明如何在 Azure AD DS 受控網域中設定以資源為基礎的 Kerberos 限制委派。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本文，您需要下列資源：
 
@@ -42,7 +42,9 @@ ms.locfileid: "70842667"
 
 Kerberos 委派可讓一個帳戶模擬另一個帳戶，以存取資源。 例如，存取後端 web 元件的 web 應用程式可以在建立後端連接時，以不同的使用者帳戶模擬自己。 Kerberos 委派並不安全，因為它不會限制模擬帳戶可以存取的資源。
 
-Kerberos 限制委派（KCD）會限制指定的伺服器或應用程式在模擬另一個身分識別時可以連接的服務或資源。 傳統 KCD 需要網域系統管理員許可權才能設定服務的網域帳戶，而且它會限制帳戶在單一網域上執行。 傳統的 KCD 也有幾個問題。 例如，在舊版的作業系統中，服務系統管理員沒有實用的方式可以得知哪些前端服務已委派給他們擁有的資源服務。 可以委派給資源服務的任何前端服務都是潛在的攻擊點。 如果裝載前端服務的伺服器已設定為委派給資源服務，則資源服務可能也會受到危害。
+Kerberos 限制委派（KCD）會限制指定的伺服器或應用程式在模擬另一個身分識別時可以連接的服務或資源。 傳統 KCD 需要網域系統管理員許可權才能設定服務的網域帳戶，而且它會限制帳戶在單一網域上執行。
+
+傳統的 KCD 也有幾個問題。 例如，在舊版的作業系統中，服務系統管理員沒有實用的方式可以得知哪些前端服務已委派給他們擁有的資源服務。 可以委派給資源服務的任何前端服務都是潛在的攻擊點。 如果裝載前端服務的伺服器已設定為委派給資源服務，則資源服務可能也會受到危害。
 
 在 Azure AD DS 受控網域中，您沒有網域系統管理員許可權。 因此，傳統以帳戶為基礎的 KCD 無法在受控網域的 Azure AD DS 中設定。 以資源為基礎的 KCD 可以改為使用，這也會更安全。
 

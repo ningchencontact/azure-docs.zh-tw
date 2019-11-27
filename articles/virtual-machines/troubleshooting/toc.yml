@@ -59,6 +59,8 @@
       href: linux-recovery-cannot-start-file-system-errors.md
     - name: 核心相關開機問題疑難排解
       href: 'https://support.microsoft.com/help/4091524'
+    - name: 復原已設定 LVM 的 VM 且不重新開機
+      href: chroot-logical-volume-manager.md
     - name: fstab 錯誤疑難排解
       href: linux-virtual-machine-cannot-start-fstab-errors.md
     - name: 詳細 SSH 疑難排解

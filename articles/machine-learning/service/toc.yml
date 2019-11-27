@@ -280,6 +280,9 @@
         - name: Azure App Service
           displayName: web app
           href: how-to-deploy-app-service.md
+        - name: Azure Functions
+          displayName: functions app
+          href: how-to-deploy-functions.md
         - name: Notebook 虛擬機器
           href: how-to-deploy-local-container-notebook-vm.md
         - name: 使用自訂 Docker 映像

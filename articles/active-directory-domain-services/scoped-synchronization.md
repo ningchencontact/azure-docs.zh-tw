@@ -9,18 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 5fe19d3800883782187ae15c0a6fc0cd9709f0e9
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 525ea421eb0fa0131fa91078b0619b8463f6fbb0
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842678"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546235"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>設定從 Azure AD 到 Azure Active Directory Domain Services 的範圍同步處理
 
-為了提供驗證服務，Azure Active Directory Domain Services （Azure AD DS）會同步處理 Azure AD 的使用者和群組。 在混合式環境中，內部部署 Active Directory Domain Services （AD DS）環境中的使用者和群組可以先使用 Azure AD Connect 同步處理 Azure AD，然後同步處理至 Azure AD DS。 根據預設，Azure AD 目錄中的所有使用者和群組都會同步處理到 Azure AD DS 受控網域。 如果您有特定需求，您可以改為選擇只同步處理一組已定義的使用者。
+為了提供驗證服務，Azure Active Directory Domain Services （Azure AD DS）會同步處理 Azure AD 的使用者和群組。 在混合式環境中，內部部署 Active Directory Domain Services （AD DS）環境中的使用者和群組可以先使用 Azure AD Connect 同步處理 Azure AD，然後同步處理至 Azure AD DS。
+
+根據預設，Azure AD 目錄中的所有使用者和群組都會同步處理到 Azure AD DS 受控網域。 如果您有特定需求，您可以改為選擇只同步處理一組已定義的使用者。
 
 本文說明如何建立使用範圍同步處理的 Azure AD DS 受控網域，然後變更或停用一組已設定範圍的使用者。
 
@@ -30,7 +32,7 @@ ms.locfileid: "70842678"
 
 下表概述如何使用限域同步處理：
 
-| 目前的狀態 | 所需狀態 | 必要設定 |
+| 目前狀態 | 期望狀態 | 必要設定 |
 | --- | --- | --- |
 | 已將現有的受控網域設定為同步處理所有使用者帳戶和群組。 | 您只想要同步處理屬於特定群組的使用者帳戶。 | 您無法從同步處理所有使用者變更為使用限域同步處理。 [刪除現有的受控網域](delete-aadds.md)，然後依照這篇文章中的步驟，重新建立已設定範圍同步處理的 Azure AD DS 受控網域。 |
 | 沒有現有的受控網域。 | 您想要建立新的受控網域，並只同步屬於特定群組的使用者帳戶。 | 請遵循本文中的步驟，建立已設定範圍同步處理的 Azure AD DS 受控網域。 |
@@ -38,7 +40,7 @@ ms.locfileid: "70842678"
 
 您可以使用 Azure 入口網站或 PowerShell 來設定限域的同步處理設定：
 
-| Action | | |
+| 動作 | | |
 |--|--|--|
 | 建立 Azure AD DS 受控網域和設定限域同步處理 | [Azure 入口網站](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
 | 修改限域同步處理 | [Azure 入口網站](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
@@ -53,7 +55,7 @@ ms.locfileid: "70842678"
 
 ## <a name="enable-scoped-synchronization-using-the-azure-portal"></a>使用 Azure 入口網站啟用限域同步處理
 
-1. 依照[教學課程來建立和設定 AZURE AD DS 實例](tutorial-create-instance.md)。 完成同步處理範圍以外的所有必要條件和部署步驟。
+1. 依照[教學課程來建立和設定 AZURE AD DS 實例](tutorial-create-instance-advanced.md)。 完成同步處理範圍以外的所有必要條件和部署步驟。
 1. 選擇 [在同步處理步驟設定**範圍**]，然後選取要與 Azure AD DS 實例同步的 Azure AD 群組。
 
 Azure AD DS 受控網域最多可能需要一小時的時間來完成部署。 在 Azure 入口網站中，您 Azure AD DS 受控網域的 [**總覽**] 頁面會顯示整個部署階段的目前狀態。
@@ -62,13 +64,13 @@ Azure AD DS 受控網域最多可能需要一小時的時間來完成部署。 �
 
 * 為虛擬網路更新 DNS 設定，讓虛擬機器可以找到受控網域來進行網域聯結或驗證。
     * 若要設定 DNS，請在入口網站中選取您的 Azure AD DS 受控網域。 在 [**總覽**] 視窗中，系統會提示您自動設定這些 DNS 設定。
-* [啟用密碼同步化以 Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) ，讓終端使用者可以使用其公司認證登入受控網域。
+* [啟用密碼同步化以 Azure AD Domain Services](tutorial-create-instance-advanced.md#enable-user-accounts-for-azure-ad-ds) ，讓終端使用者可以使用其公司認證登入受控網域。
 
 ## <a name="modify-scoped-synchronization-using-the-azure-portal"></a>使用 Azure 入口網站修改限域同步處理
 
 若要修改使用者應該同步處理到 Azure AD DS 受控網域的群組清單，請完成下列步驟：
 
-1. 在 Azure 入口網站中，選取您的 Azure AD DS 實例，例如*contoso.com*。
+1. 在 Azure 入口網站中，搜尋並選取  **Azure AD Domain Services**。 選擇您的實例，例如*contoso.com*。
 1. 從左側功能表中選取 [**同步**處理]。
 1. 若要新增群組，請選擇頂端的 [ **+ 選取群組**]，然後選擇要新增的群組。
 1. 若要從同步處理範圍中移除群組，請從目前同步處理的群組清單中選取它，然後選擇 [**移除群組**]。
@@ -80,7 +82,7 @@ Azure AD DS 受控網域最多可能需要一小時的時間來完成部署。 �
 
 若要針對 Azure AD DS 受控網域停用以群組為基礎的限域同步處理，請完成下列步驟：
 
-1. 在 Azure 入口網站中，選取您的 Azure AD DS 實例，例如*contoso.com*。
+1. 在 Azure 入口網站中，搜尋並選取  **Azure AD Domain Services**。 選擇您的實例，例如*contoso.com*。
 1. 從左側功能表中選取 [**同步**處理]。
 1. 將同步處理範圍從 [**範圍**] 設定為 [**全部**]，然後選取 [**儲存同步處理範圍**]。
 
@@ -88,7 +90,7 @@ Azure AD DS 受控網域最多可能需要一小時的時間來完成部署。 �
 
 ## <a name="powershell-script-for-scoped-synchronization"></a>適用于限域同步處理的 PowerShell 腳本
 
-若要使用 PowerShell 設定限域同步處理，請先將下列腳本儲存`Select-GroupsToSync.ps1`至名為的檔案。 此腳本會將 Azure AD DS 設定為從 Azure AD 同步處理選取的群組。 屬於指定群組的所有使用者帳戶會同步處理至 Azure AD DS 受控網域。
+若要使用 PowerShell 設定限域同步處理，請先將下列腳本儲存到名為 `Select-GroupsToSync.ps1`的檔案中。 此腳本會將 Azure AD DS 設定為從 Azure AD 同步處理選取的群組。 屬於指定群組的所有使用者帳戶會同步處理至 Azure AD DS 受控網域。
 
 此腳本用於本文中的其他步驟。
 
@@ -215,7 +217,9 @@ Write-Output "******************************************************************
 
 * 為虛擬網路更新 DNS 設定，讓虛擬機器可以找到受控網域來進行網域聯結或驗證。
     * 若要設定 DNS，請在入口網站中選取您的 Azure AD DS 受控網域。 在 [**總覽**] 視窗中，系統會提示您自動設定這些 DNS 設定。
-* [啟用密碼同步化以 Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) ，讓終端使用者可以使用其公司認證登入受控網域。
+* 如果您在支援可用性區域的區域中建立了 Azure AD DS 受控網域，請建立網路安全性群組，以限制 Azure AD DS 受控網域的虛擬網路中的流量。 建立的 Azure 標準負載平衡器需要進行這些規則。 此網路安全性群組會保護 Azure AD DS，而且受控網域必須能夠正確運作。
+    * 若要建立網路安全性群組和所需的規則，請在入口網站中選取您的 Azure AD DS 受控網域。 在 [**總覽**] 視窗中，系統會提示您自動建立及設定網路安全性群組。
+* [啟用密碼同步化以 Azure AD Domain Services](tutorial-create-instance-advanced.md#enable-user-accounts-for-azure-ad-ds) ，讓終端使用者可以使用其公司認證登入受控網域。
 
 ## <a name="modify-scoped-synchronization-using-powershell"></a>使用 Powershell 修改限域同步處理
 

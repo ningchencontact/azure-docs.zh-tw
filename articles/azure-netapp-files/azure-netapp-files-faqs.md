@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 11/26/2019
 ms.author: b-juche
-ms.openlocfilehash: 815ac261a29f710914347443f7882b9fe682229f
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5e69df816e67ddc346ac8452c9bdc8bbd68fa426
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173597"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546947"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>關於 Azure NetApp Files 的常見問題
 
@@ -142,6 +142,10 @@ Azure NetApp Files 目前支援每個訂用帳戶有一個 Active Directory 連�
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>支援哪些版本的 Windows Server Active Directory？
 
 Azure NetApp Files 支援 Active Directory Domain Services 的 Windows Server 2008r2SP1 2019 版。
+
+### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>為什麼我的 SMB 用戶端上的可用空間不會顯示布建大小？
+
+SMB 用戶端所報告的磁片區大小是 Azure NetApp Files 磁片區可以成長的大小上限。 如 SMB 用戶端所示，Azure NetApp Files 磁片區的大小不會反映磁片區的配額或大小。 您可以透過 Azure 入口網站或 API 取得 Azure NetApp Files 磁片區大小或配額。
 
 ## <a name="capacity-management-faqs"></a>容量管理常見問題
 
