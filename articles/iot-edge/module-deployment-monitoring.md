@@ -25,18 +25,18 @@ Azure IoT Edge 裝置會遵循類似其他 IoT 裝置類型的[裝置生命週�
 
 Azure IoT Edge 提供兩種方式來設定要在 IoT Edge 裝置上執行的模組：一個用於單一裝置上的開發和快速反覆運算 (您在 Azure IoT Edge [教學課程](tutorial-deploy-function.md)中使用過此方法)，另一個則用來管理大量 IoT Edge 裝置機群。 這兩種方法均可在 Azure 入口網站中以及利用程式設計方式來使用。 若要以群組或大量裝置作為目標，您可以在裝置對應項中使用[標記](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags)，以指定您想要將模組部署到哪些裝置。 下列步驟將討論如何部署到透過標記屬性識別的華盛頓州裝置群組。 
 
-本文著重於多群裝置的設定和監視階段，統稱為 IoT Edge 自動部署。 The overall deployment steps are as follows: 
+本文著重於多群裝置的設定和監視階段，統稱為 IoT Edge 自動部署。 整體部署步驟如下所示： 
 
-1. 操作員會定義部署，其中描述一組模組以及目標裝置。 Each deployment has a deployment manifest that reflects this information. 
+1. 操作員會定義部署，其中描述一組模組以及目標裝置。 每個部署都有一個會反映這項資訊的部署資訊清單。 
 2. IoT 中樞服務會與所有目標裝置通訊，利用所需模組來設定它們。 
-3. IoT 中樞服務會從 IoT Edge 裝置擷取狀態，並使其供操作員使用。  For example, an operator can see when an Edge device is not configured successfully or if a module fails during runtime. 
+3. IoT 中樞服務會從 IoT Edge 裝置擷取狀態，並使其供操作員使用。  例如，當 Edge 裝置未成功設定，或在執行時間期間模組失敗時，操作員可以看到。 
 4. 隨時都可針對部署設定符合目標條件的新 IoT Edge 裝置。 例如，若部署的目標是在華盛頓州的所有 IoT Edge 裝置，一旦將其佈建並新增至「華盛頓州」裝置群組之後，就會自動設定新的 IoT Edge 裝置。 
  
 本文說明用來設定及監視部署的每個相關元件。 如需建立和更新部署的逐步解說，請參閱[大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor.md)。
 
-## <a name="deployment"></a>Deployment
+## <a name="deployment"></a>部署
 
-IoT Edge 自動部署會指派 IoT Edge 模組映像，在一組目標 IoT Edge 裝置上當成執行個體來執行。 其運作方式是設定 IoT Edge 部署資訊清單，以包含具有對應初始化參數的模組清單。 A deployment can be assigned to a single device (based on Device ID) or to a group of devices (based on tags). Once an IoT Edge device receives a deployment manifest, it downloads and installs the container images from the respective container repositories, and configures them accordingly. Once a deployment is created, an operator can monitor the deployment status to see whether targeted devices are correctly configured.
+IoT Edge 自動部署會指派 IoT Edge 模組映像，在一組目標 IoT Edge 裝置上當成執行個體來執行。 其運作方式是設定 IoT Edge 部署資訊清單，以包含具有對應初始化參數的模組清單。 部署可以指派給單一裝置（根據裝置識別碼）或裝置群組（根據標記）。 一旦 IoT Edge 裝置接收到部署資訊清單之後，它會從各自的容器存放庫下載並安裝容器映射，並據以設定它們。 建立部署之後，操作員可以監視部署狀態，以查看是否已正確設定目標裝置。
 
 只有 IoT Edge 裝置能使用部署進行設定。 裝置必須具備下列必要項目，才能接收部署：
 
@@ -51,7 +51,7 @@ IoT Edge 自動部署會指派 IoT Edge 模組映像，在一組目標 IoT Edge 
 每個模組的設定中繼資料都會包括： 
 
 * 版本 
-* Type 
+* 在系統提示您進行確認時，輸入 
 * 狀態 (例如執行中或已停止) 
 * 重新啟動原則 
 * 映像和容器登錄
@@ -61,7 +61,7 @@ IoT Edge 自動部署會指派 IoT Edge 模組映像，在一組目標 IoT Edge 
 
 ### <a name="target-condition"></a>目標條件
 
-The target condition is continuously evaluated throughout the lifetime of the deployment. 任何符合需求的新裝置都會加入，並且任何不再符合需求的現有裝置都會遭到移除。 如果服務偵測到任何目標條件變更，部署將會重新啟動。 
+目標條件會在部署的整個存留期間持續進行評估。 任何符合需求的新裝置都會加入，並且任何不再符合需求的現有裝置都會遭到移除。 如果服務偵測到任何目標條件變更，部署將會重新啟動。 
 
 比方說，您的部署 A 具有目標條件 tags.environment = 'prod'。 當您開始進行部署時，有 10 個生產裝置。 模組已成功安裝在這 10 個裝置中。 IoT Edge 代理程式狀態會顯示為共 10 個裝置、10 項成功回應、0 項失敗回應，以及 0 項擱置回應。 現在，您再新增五個具有 tags.environment = 'prod' 的裝置。 服務偵測到變更，在嘗試部署到五個新裝置時，IoT Edge 代理程式狀態會變成共 15 個裝置、10 項成功回應、0 項失敗回應，以及 5 項擱置回應。
 
@@ -84,15 +84,15 @@ The target condition is continuously evaluated throughout the lifetime of the de
 
 ### <a name="priority"></a>優先順序
 
-優先順序會定義是否應將部署套用到相對於其他部署的目標裝置。 部署優先順序為正整數，以較大的數字表示較高的優先順序。 如果有多個部署將目標設為某個 IoT Edge 裝置，則會套用優先順序最高的部署。  Deployments with lower priorities are not applied, nor are they merged.  If a device is targeted with two or more deployments with equal priority, the most recently created deployment (determined by the creation timestamp) applies.
+優先順序會定義是否應將部署套用到相對於其他部署的目標裝置。 部署優先順序為正整數，以較大的數字表示較高的優先順序。 如果有多個部署將目標設為某個 IoT Edge 裝置，則會套用優先順序最高的部署。  不會套用優先順序較低的部署，也不會合並。  如果裝置的目標是兩個以上具有相同優先順序的部署，則會套用最近建立的部署（由建立時間戳記決定）。
 
 ### <a name="labels"></a>標籤 
 
-標籤是字串索引鍵/值組，可用來篩選和群組部署。 A deployment may have multiple labels. 標籤是選擇性的，不會對 IoT Edge 裝置的實際設定產生任何影響。 
+標籤是字串索引鍵/值組，可用來篩選和群組部署。 部署可能會有多個標籤。 標籤是選擇性的，不會對 IoT Edge 裝置的實際設定產生任何影響。 
 
 ### <a name="deployment-status"></a>部署狀態
 
-您可以監視部署，以判斷是否已針對任何目標 IoT Edge 裝置成功套用該部署。  A targeted Edge device will appear in one or more of the following status categories: 
+您可以監視部署，以判斷是否已針對任何目標 IoT Edge 裝置成功套用該部署。  目標 Edge 裝置會出現在下列一個或多個狀態類別中： 
 
 * **目標**會顯示符合部署目標條件的 IoT Edge 裝置。
 * **實際**會顯示另一個優先順序較高的部署並未設為目標的目標 IoT Edge 裝置。
@@ -106,7 +106,7 @@ The target condition is continuously evaluated throughout the lifetime of the de
 
 階段式推出會在下列階段和步驟中執行： 
 
-1. 建立 IoT Edge 裝置的測試環境，方法是佈建它們，並設定裝置對應項標記，例如 `tag.environment='test'`。 The test environment should mirror the production environment that the deployment will eventually target. 
+1. 建立 IoT Edge 裝置的測試環境，方法是佈建它們，並設定裝置對應項標記，例如 `tag.environment='test'`。 測試環境應會反映部署最終目標的生產環境。 
 2. 建立部署，其中包括所需的模組和設定。 目標條件應將目標設為測試 IoT Edge 裝置環境。   
 3. 在測試環境中驗證新的模組設定。
 4. 更新部署，藉由將新標記新增至目標條件，來包括生產 IoT Edge 裝置子集。 此外，確定部署的優先順序高於目前將目標設為那些裝置的其他部署。 
@@ -115,7 +115,7 @@ The target condition is continuously evaluated throughout the lifetime of the de
 
 ## <a name="rollback"></a>復原
 
-部署可以在接收到錯誤或設定錯誤的情況下復原。  Because a deployment defines the absolute module configuration for an IoT Edge device, an additional deployment must also be targeted to the same device at a lower priority even if the goal is to remove all modules.  
+部署可以在接收到錯誤或設定錯誤的情況下復原。  因為部署會定義 IoT Edge 裝置的絕對模組設定，所以即使目標是要移除所有模組，也必須以較低的優先順序將額外的部署目標設為相同的裝置。  
 
 依照以下順序執行復原： 
 

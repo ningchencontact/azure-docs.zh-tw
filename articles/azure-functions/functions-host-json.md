@@ -12,7 +12,7 @@ ms.locfileid: "74323083"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 host.json 參考  
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="選取您要使用的 Azure Functions 執行階段版本： "]
 > * [第 1 版](functions-host-json-v1.md)
 > * [第 2 版](functions-host-json.md)
 
@@ -115,9 +115,9 @@ ms.locfileid: "74323083"
 |---------|---------|---------| 
 |isEnabled|true|啟用或停用取樣。| 
 |maxTelemetryItemsPerSecond|20|取樣的開始臨界值。| 
-|EnableLiveMetrics |true|Enables live metrics collection.|
-|EnableDependencyTracking|true|Enables dependency tracking.|
-|EnablePerformanceCountersCollection|true|Enables Kudu performance counters collection.|
+|EnableLiveMetrics |true|啟用即時計量集合。|
+|EnableDependencyTracking|true|啟用相依性追蹤。|
+|EnablePerformanceCountersCollection|true|啟用 Kudu 效能計數器集合。|
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -137,7 +137,7 @@ ms.locfileid: "74323083"
 
 ## <a name="extensionbundle"></a>extensionBundle 
 
-Extension bundles lets you add a compatible set of Functions binding extensions to your function app. To learn more, see [Extension bundles for local development](functions-bindings-register.md#extension-bundles).
+擴充功能套件可讓您將一組相容的函式系結延伸模組，新增至函式應用程式。 若要深入瞭解，請參閱[本機開發的延伸](functions-bindings-register.md#extension-bundles)模組組合。
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
@@ -153,11 +153,11 @@ Extension bundles lets you add a compatible set of Functions binding extensions 
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-指出所有函式的逾時持續期間。 It follows the timespan string format. 在無伺服器的使用情況方案中，有效範圍是從 1 秒到 10 分鐘，而預設值是 5 分鐘。  
+指出所有函式的逾時持續期間。 它會遵循 timespan 字串格式。 在無伺服器的使用情況方案中，有效範圍是從 1 秒到 10 分鐘，而預設值是 5 分鐘。  
 
-In the Premium plan the valid range is from 1 second to 60 minutes, and the default value is 30 minutes.
+在 Premium 方案中，有效範圍是從1秒到60分鐘，而預設值為30分鐘。
 
-In a Dedicated (App Service) plan, there is no overall limit, and the default value is 30 minutes. A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
+在專用（App Service）方案中，沒有整體限制，而預設值為30分鐘。 值為 `-1` 表示不受限制的執行，但建議保留固定的上限。
 
 ```json
 {
@@ -242,7 +242,7 @@ In a Dedicated (App Service) plan, there is no overall limit, and the default va
 
 ## <a name="manageddependency"></a>managedDependency
 
-Managed dependency is a feature that is currently only supported with PowerShell based functions. It enables dependencies to be automatically managed by the service. When the `enabled` property is set to `true`, the `requirements.psd1` file is processed. Dependencies are updated when any minor versions are released. For more information, see [Managed dependency](functions-reference-powershell.md#dependency-management) in the PowerShell article.
+受控相依性是目前僅支援以 PowerShell 為基礎的函式的一項功能。 它可讓服務自動管理相依性。 當 [`enabled`] 屬性設定為 [`true`] 時，就會處理 `requirements.psd1` 檔。 發行任何次要版本時，會更新相依性。 如需詳細資訊，請參閱 PowerShell 文章中的[受控](functions-reference-powershell.md#dependency-management)相依性。
 
 ```json
 {
@@ -288,7 +288,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 |lockAcquisitionTimeout|00:01:00|執行階段將嘗試取得鎖定的時間量上限。| 
 |lockAcquisitionPollingInterval|n/a|鎖定取得嘗試之間的間隔。| 
 
-## <a name="version"></a>version
+## <a name="version"></a>版本
 
 目標為 v2 執行階段的函數應用程式必須要有 `"version": "2.0"` 版本字串。
 

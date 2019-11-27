@@ -1,6 +1,6 @@
 ---
-title: Registry webhook schema reference
-description: Reference for JSON payload for webhook requests in an Azure container registry, which are generated when webhooks are enabled for artifact push or delete events
+title: 登錄 webhook 架構參考
+description: Azure container registry 中 webhook 要求的 JSON 承載的參考，在啟用成品推送或刪除事件的 webhook 時，會產生此專案
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
@@ -12,7 +12,7 @@ ms.locfileid: "74455969"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure Container Registry Webhook 參考
 
-當某些動作對產生事件的容器登錄執行時，您可以針對產生事件的容器登錄[設定 Webhook](container-registry-webhook.md)。 For example, enable webhooks that are triggered when a container image or Helm chart is pushed to a registry, or deleted. 當 Webhook 觸發時，Azure Container Registry 就會發出 HTTP 或 HTTPS 要求，當中包含對您所指定端點之事件的相關資訊。 然後，您的端點就可以據此處理 webhook 並採取行動。
+當某些動作對產生事件的容器登錄執行時，您可以針對產生事件的容器登錄[設定 Webhook](container-registry-webhook.md)。 例如，啟用當容器映射或 Helm 圖表推送至登錄或刪除時所觸發的 webhook。 當 Webhook 觸發時，Azure Container Registry 就會發出 HTTP 或 HTTPS 要求，當中包含對您所指定端點之事件的相關資訊。 然後，您的端點就可以據此處理 webhook 並採取行動。
 
 下列各節詳細說明受支援事件所產生的 webhook 要求之結構描述。 事件區段包含事件類型的承載結構描述、範例要求承載，以及一或多個會觸發 webhook 的範例命令。
 
@@ -36,35 +36,35 @@ ms.locfileid: "74455969"
 
 ### <a name="push-event-payload"></a>推送事件裝載
 
-|元素|Type|描述|
+|元素|在系統提示您進行確認時，輸入|描述|
 |-------------|----------|-----------|
-|`id`|String|Webhook 事件的識別碼。|
-|`timestamp`|日期時間|Webhook 事件觸發的時間。|
-|`action`|String|觸發 webhook 事件的動作。|
+|`id`|字串|Webhook 事件的識別碼。|
+|`timestamp`|DateTime|Webhook 事件觸發的時間。|
+|`action`|字串|觸發 webhook 事件的動作。|
 |[目標](#target)|複雜類型|觸發 webhook 事件的事件目標。|
 |[要求](#request)|複雜類型|產生 webhook 事件的要求。|
 
-### <a name="target"></a>target
+### <a name="target"></a>設定
 
-|元素|Type|描述|
+|元素|在系統提示您進行確認時，輸入|描述|
 |------------------|----------|-----------|
-|`mediaType`|String|參考物件的 MIME 類型。|
+|`mediaType`|字串|參考物件的 MIME 類型。|
 |`size`|Int32|內容的位元組數目。 與長度欄位相同。|
-|`digest`|String|如 Registry V2 HTTP API 規格所定義的內容摘要。|
+|`digest`|字串|如 Registry V2 HTTP API 規格所定義的內容摘要。|
 |`length`|Int32|內容的位元組數目。 [與大小相同] 欄位。|
-|`repository`|String|存放庫名稱。|
-|`tag`|String|映像標記名稱。|
+|`repository`|字串|存放庫名稱。|
+|`tag`|字串|映像標記名稱。|
 
-### <a name="request"></a>request
+### <a name="request"></a>邀請
 
-|元素|Type|描述|
+|元素|在系統提示您進行確認時，輸入|描述|
 |------------------|----------|-----------|
-|`id`|String|起始事件之要求的識別碼。|
-|`host`|String|登錄執行個體的外部可存取主機名稱，如內送要求上的 HTTP 主機標頭所指定。|
-|`method`|String|產生事件的要求方法。|
-|`useragent`|String|要求的使用者代理程式標頭。|
+|`id`|字串|起始事件之要求的識別碼。|
+|`host`|字串|登錄執行個體的外部可存取主機名稱，如內送要求上的 HTTP 主機標頭所指定。|
+|`method`|字串|產生事件的要求方法。|
+|`useragent`|字串|要求的使用者代理程式標頭。|
 
-### <a name="payload-example-image-push-event"></a>Payload example: image push event
+### <a name="payload-example-image-push-event"></a>承載範例：影像推送事件
 
 ```JSON
 {
@@ -88,38 +88,38 @@ ms.locfileid: "74455969"
 }
 ```
 
-Example [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/) command that triggers the image **push** event webhook:
+觸發映射**推送**事件 webhook 的範例[Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/)命令：
 
 ```bash
 docker push myregistry.azurecr.io/hello-world:v1
 ```
 
-## <a name="chart-push-event"></a>Chart push event
+## <a name="chart-push-event"></a>圖表推送事件
 
-Webhook triggered when a Helm chart is pushed to a repository.
+當 Helm 圖推送至存放庫時，所觸發的 Webhook。
 
-### <a name="chart-push-event-payload"></a>Chart push event payload
+### <a name="chart-push-event-payload"></a>圖表推送事件裝載
 
-|元素|Type|描述|
+|元素|在系統提示您進行確認時，輸入|描述|
 |-------------|----------|-----------|
-|`id`|String|Webhook 事件的識別碼。|
-|`timestamp`|日期時間|Webhook 事件觸發的時間。|
-|`action`|String|觸發 webhook 事件的動作。|
+|`id`|字串|Webhook 事件的識別碼。|
+|`timestamp`|DateTime|Webhook 事件觸發的時間。|
+|`action`|字串|觸發 webhook 事件的動作。|
 |[目標](#helm_target)|複雜類型|觸發 webhook 事件的事件目標。|
 
-### <a name="helm_target"></a>target
+### <a name="helm_target"></a>設定
 
-|元素|Type|描述|
+|元素|在系統提示您進行確認時，輸入|描述|
 |------------------|----------|-----------|
-|`mediaType`|String|參考物件的 MIME 類型。|
+|`mediaType`|字串|參考物件的 MIME 類型。|
 |`size`|Int32|內容的位元組數目。|
-|`digest`|String|如 Registry V2 HTTP API 規格所定義的內容摘要。|
-|`repository`|String|存放庫名稱。|
-|`tag`|String|The chart tag name.|
-|`name`|String|The chart name.|
-|`version`|String|The chart version.|
+|`digest`|字串|如 Registry V2 HTTP API 規格所定義的內容摘要。|
+|`repository`|字串|存放庫名稱。|
+|`tag`|字串|圖表標記名稱。|
+|`name`|字串|圖表名稱。|
+|`version`|字串|圖表版本。|
 
-### <a name="payload-example-chart-push-event"></a>Payload example: chart push event
+### <a name="payload-example-chart-push-event"></a>承載範例：圖表推送事件
 
 ```JSON
 {
@@ -138,7 +138,7 @@ Webhook triggered when a Helm chart is pushed to a repository.
 }
 ```
 
-Example [Azure CLI](/cli/azure/acr) command that triggers the **chart_push** event webhook:
+觸發**chart_push**事件 webhook 的範例[Azure CLI](/cli/azure/acr)命令：
 
 ```azurecli
 az acr helm push wordpress-5.4.0.tgz --name MyRegistry
@@ -146,36 +146,36 @@ az acr helm push wordpress-5.4.0.tgz --name MyRegistry
 
 ## <a name="delete-event"></a>刪除事件
 
-Webhook triggered when an image repository or manifest is deleted. 刪除標記時不會觸發。
+刪除映射存放庫或資訊清單時，所觸發的 Webhook。 刪除標記時不會觸發。
 
 ### <a name="delete-event-payload"></a>刪除事件裝載
 
-|元素|Type|描述|
+|元素|在系統提示您進行確認時，輸入|描述|
 |-------------|----------|-----------|
-|`id`|String|Webhook 事件的識別碼。|
-|`timestamp`|日期時間|Webhook 事件觸發的時間。|
-|`action`|String|觸發 webhook 事件的動作。|
+|`id`|字串|Webhook 事件的識別碼。|
+|`timestamp`|DateTime|Webhook 事件觸發的時間。|
+|`action`|字串|觸發 webhook 事件的動作。|
 |[目標](#delete_target)|複雜類型|觸發 webhook 事件的事件目標。|
 |[要求](#delete_request)|複雜類型|產生 webhook 事件的要求。|
 
 ### <a name="delete_target"></a> 目標
 
-|元素|Type|描述|
+|元素|在系統提示您進行確認時，輸入|描述|
 |------------------|----------|-----------|
-|`mediaType`|String|參考物件的 MIME 類型。|
-|`digest`|String|如 Registry V2 HTTP API 規格所定義的內容摘要。|
-|`repository`|String|存放庫名稱。|
+|`mediaType`|字串|參考物件的 MIME 類型。|
+|`digest`|字串|如 Registry V2 HTTP API 規格所定義的內容摘要。|
+|`repository`|字串|存放庫名稱。|
 
 ### <a name="delete_request"></a> 要求
 
-|元素|Type|描述|
+|元素|在系統提示您進行確認時，輸入|描述|
 |------------------|----------|-----------|
-|`id`|String|起始事件之要求的識別碼。|
-|`host`|String|登錄執行個體的外部可存取主機名稱，如內送要求上的 HTTP 主機標頭所指定。|
-|`method`|String|產生事件的要求方法。|
-|`useragent`|String|要求的使用者代理程式標頭。|
+|`id`|字串|起始事件之要求的識別碼。|
+|`host`|字串|登錄執行個體的外部可存取主機名稱，如內送要求上的 HTTP 主機標頭所指定。|
+|`method`|字串|產生事件的要求方法。|
+|`useragent`|字串|要求的使用者代理程式標頭。|
 
-### <a name="payload-example-image-delete-event"></a>Payload example: image delete event
+### <a name="payload-example-image-delete-event"></a>承載範例：影像刪除事件
 
 ```JSON
 {
@@ -196,7 +196,7 @@ Webhook triggered when an image repository or manifest is deleted. 刪除標記�
   }
 ```
 
-會觸發**刪除** 事件 webhook 的範例 [Azure CLI](/cli/azure/acr) 命令：
+會觸發[刪除](/cli/azure/acr) 事件 webhook 的範例 **Azure CLI** 命令：
 
 ```azurecli
 # Delete repository
@@ -206,32 +206,32 @@ az acr repository delete --name MyRegistry --repository MyRepository
 az acr repository delete --name MyRegistry --image MyRepository:MyTag
 ```
 
-## <a name="chart-delete-event"></a>Chart delete event
+## <a name="chart-delete-event"></a>圖表刪除事件
 
-Webhook triggered when a Helm chart or repository is deleted. 
+刪除 Helm 圖表或儲存機制時觸發的 Webhook。 
 
-### <a name="chart-delete-event-payload"></a>Chart delete event payload
+### <a name="chart-delete-event-payload"></a>圖表刪除事件裝載
 
-|元素|Type|描述|
+|元素|在系統提示您進行確認時，輸入|描述|
 |-------------|----------|-----------|
-|`id`|String|Webhook 事件的識別碼。|
-|`timestamp`|日期時間|Webhook 事件觸發的時間。|
-|`action`|String|觸發 webhook 事件的動作。|
+|`id`|字串|Webhook 事件的識別碼。|
+|`timestamp`|DateTime|Webhook 事件觸發的時間。|
+|`action`|字串|觸發 webhook 事件的動作。|
 |[目標](#chart_delete_target)|複雜類型|觸發 webhook 事件的事件目標。|
 
 ### <a name="chart_delete_target"></a> 目標
 
-|元素|Type|描述|
+|元素|在系統提示您進行確認時，輸入|描述|
 |------------------|----------|-----------|
-|`mediaType`|String|參考物件的 MIME 類型。|
+|`mediaType`|字串|參考物件的 MIME 類型。|
 |`size`|Int32|內容的位元組數目。|
-|`digest`|String|如 Registry V2 HTTP API 規格所定義的內容摘要。|
-|`repository`|String|存放庫名稱。|
-|`tag`|String|The chart tag name.|
-|`name`|String|The chart name.|
-|`version`|String|The chart version.|
+|`digest`|字串|如 Registry V2 HTTP API 規格所定義的內容摘要。|
+|`repository`|字串|存放庫名稱。|
+|`tag`|字串|圖表標記名稱。|
+|`name`|字串|圖表名稱。|
+|`version`|字串|圖表版本。|
 
-### <a name="payload-example-chart-delete-event"></a>Payload example: chart delete event
+### <a name="payload-example-chart-delete-event"></a>承載範例：圖表刪除事件
 
 ```JSON
 {
@@ -250,7 +250,7 @@ Webhook triggered when a Helm chart or repository is deleted.
 }
 ```
 
-Example [Azure CLI](/cli/azure/acr) command that triggers the **chart_delete** event webhook:
+觸發**chart_delete**事件 webhook 的範例[Azure CLI](/cli/azure/acr)命令：
 
 ```azurecli
 az acr helm delete wordpress --version 5.4.0 --name MyRegistry

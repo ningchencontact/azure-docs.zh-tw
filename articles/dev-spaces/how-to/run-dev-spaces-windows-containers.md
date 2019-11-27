@@ -3,8 +3,8 @@ title: 與 Windows 容器互動
 services: azure-dev-spaces
 ms.date: 07/25/2019
 ms.topic: conceptual
-description: Learn how to run Azure Dev Spaces on an existing cluster with Windows containers
-keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Windows containers
+description: 瞭解如何在具有 Windows 容器的現有叢集上執行 Azure Dev Spaces
+keywords: Azure Dev Spaces，Dev Spaces，Docker，Kubernetes，Azure，AKS，Azure Kubernetes Service，容器，Windows 容器
 ms.openlocfilehash: 7410c0e38b84979f0977973b2d6ccf588e2b1230
 ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
@@ -12,15 +12,15 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74484001"
 ---
-# <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interact with Windows containers using Azure Dev Spaces
+# <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>使用 Azure Dev Spaces 與 Windows 容器互動
 
-You can enable Azure Dev Spaces on both new and existing Kubernetes namespaces. Azure Dev Spaces will run and instrument services that run on Linux containers. Those services can also interact with applications that run on Windows containers in the same namespace. This article shows you how to use Dev Spaces to run services in a namespace with existing Windows containers.
+您可以在新的和現有的 Kubernetes 命名空間上啟用 Azure Dev Spaces。 Azure Dev Spaces 將會執行並檢測在 Linux 容器上執行的服務。 這些服務也可以與在相同命名空間中的 Windows 容器上執行的應用程式互動。 本文說明如何在具有現有 Windows 容器的命名空間中，使用 Dev Spaces 來執行服務。
 
-## <a name="set-up-your-cluster"></a>Set up your cluster
+## <a name="set-up-your-cluster"></a>設定您的叢集
 
-This article assumes you already have a cluster with both Linux and Windows node pools. If you need to create a cluster with Linux and Windows node pools, you can follow the instructions [here][windows-container-cli].
+本文假設您已經有一個具有 Linux 和 Windows 節點集區的叢集。 如果您需要使用 Linux 和 Windows 節點集區建立叢集，您可以依照[此處][windows-container-cli]的指示進行。
 
-Connect to your cluster using [kubectl][kubectl], the Kubernetes command-line client. 若要設定 `kubectl` 以連線到 Kubernetes 叢集，請使用 [az aks get-credentials][az-aks-get-credentials] 命令。 此命令會下載憑證並設定 Kubernetes CLI 以供使用。
+使用[kubectl][kubectl]（Kubernetes 命令列用戶端）連接到您的叢集。 若要設定 `kubectl` 以連線到 Kubernetes 叢集，請使用 [az aks get-credentials][az-aks-get-credentials] 命令。 此命令會下載憑證並設定 Kubernetes CLI 以供使用。
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -32,7 +32,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl get nodes
 ```
 
-The following example output shows a cluster with both a Windows and Linux node. Make sure the status is *Ready* for each node before proceeding.
+下列範例輸出顯示同時具有 Windows 和 Linux 節點的叢集。 請確定每個節點的狀態都是 [*就緒*]，然後再繼續。
 
 ```console
 NAME                                STATUS   ROLES   AGE    VERSION
@@ -40,27 +40,27 @@ aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 aksnpwin987654                      Ready    agent   108s   v1.14.1
 ```
 
-Apply a [taint][using-taints] to your Windows nodes. The taint on your Windows nodes prevents Dev Spaces from scheduling Linux containers to run on your Windows nodes. The following command example command applies a taint to the *aksnpwin987654* Windows node from the previous example.
+將[污點][using-taints]套用至您的 Windows 節點。 Windows 節點上的污點可防止 Dev Spaces 排程 Linux 容器，以在您的 Windows 節點上執行。 下列命令範例命令會將污點套用至上一個範例中的 [ *aksnpwin987654* Windows] 節點。
 
 ```azurecli-interactive
 kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 ```
 
 > [!IMPORTANT]
-> When you apply a taint to a node, you must configure a matching toleration in your service's deployment template to run your service on that node. The sample application is already configured with a [matching toleration][sample-application-toleration-example] to the taint you configured in the previous command.
+> 當您將污點套用至節點時，您必須在服務的部署範本中設定相符的 toleration，才能在該節點上執行您的服務。 範例應用程式已經使用[對應的 toleration][sample-application-toleration-example]來設定您在上一個命令中設定的污點。
 
-## <a name="run-your-windows-service"></a>Run your Windows service
+## <a name="run-your-windows-service"></a>執行您的 Windows 服務
 
-Run your Windows service on your AKS cluster and verify it is in a *Running* state. This article uses a [sample application][sample-application] to demonstrate a Windows and Linux service running on your cluster.
+在 AKS 叢集上執行您的 Windows 服務，並確認它處於*執行中*狀態。 本文使用[範例應用程式][sample-application]來示範在您的叢集上執行的 Windows 和 Linux 服務。
 
-Clone the sample application from GitHub and navigate into the `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` directory:
+從 GitHub 複製範例應用程式，並流覽至 `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` 目錄：
 
 ```console
 git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-The sample application uses [Helm 2][helm-installed] to run the Windows service on your cluster. Install Helm on your cluster and grant it the correct permissions:
+範例應用程式會使用[Helm 2][helm-installed] ，在您的叢集上執行 Windows 服務。 在您的叢集上安裝 Helm，並對其授與正確的許可權：
 
 ```console
 helm init --wait
@@ -69,16 +69,16 @@ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admi
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
 ``` 
 
-Navigate to the `charts` directory and run the Windows service:
+流覽至 `charts` 目錄，然後執行 Windows 服務：
 
 ```console
 cd charts/
 helm install . --namespace dev
 ```
 
-The above command uses Helm to run your Windows service in the *dev* namespace. If you don't have a namespace named *dev*, it will be created.
+上述命令會使用 Helm 在*dev*命名空間中執行您的 Windows 服務。 如果您沒有名為*dev*的命名空間，則會建立它。
 
-Use the `kubectl get pods` command to verify your Windows service is running in your cluster. 
+使用 `kubectl get pods` 命令來確認您的 Windows 服務正在叢集中執行。 
 
 ```console
 $ kubectl get pods --namespace dev --watch
@@ -88,19 +88,19 @@ myapi-4b9667d123-1a2b3   0/1     ContainerCreating   0          47s
 myapi-4b9667d123-1a2b3   1/1     Running             0          98s
 ```
 
-## <a name="enable-azure-dev-spaces"></a>Enable Azure Dev Spaces
+## <a name="enable-azure-dev-spaces"></a>啟用 Azure Dev Spaces
 
-Enable Dev Spaces in the same namespace you used to run your Windows service. The following command enables Dev Spaces in the *dev* namespace:
+在您用來執行 Windows 服務的相同命名空間中啟用 Dev Spaces。 下列命令會在*dev*命名空間中啟用 dev Spaces：
 
 ```console
 az aks use-dev-spaces -g myResourceGroup -n myAKSCluster --space dev --yes
 ```
 
-## <a name="update-your-windows-service-for-dev-spaces"></a>Update your Windows service for Dev Spaces
+## <a name="update-your-windows-service-for-dev-spaces"></a>更新適用于 Dev Spaces 的 Windows 服務
 
-When you enable Dev Spaces on an existing namespace with containers that are already running, by default, Dev Spaces will try and instrument any new containers that run in that namespace. Dev Spaces will also try and instrument any new containers created for service already running in the namespace. To prevent Dev Spaces from instrumenting a container running in your namespace, add the *no-proxy* header to the `deployment.yaml`.
+當您使用已在執行的容器在現有命名空間上啟用 Dev Spaces 時，根據預設，Dev Spaces 會嘗試並檢測在該命名空間中執行的任何新容器。 開發人員空間也會嘗試並檢測為已在命名空間中執行的服務所建立的任何新容器。 若要避免 Dev Spaces 檢測在您的命名空間中執行的容器，請將*無 proxy*標頭新增至 `deployment.yaml`。
 
-Add `azds.io/no-proxy: "true"` to the `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml` file:
+將 `azds.io/no-proxy: "true"` 新增至 `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml` 檔案：
 
 ```yaml
 apiVersion: apps/v1
@@ -119,7 +119,7 @@ spec:
         azds.io/no-proxy: "true"
 ```
 
-Use `helm list` to list the deployment for your Windows service:
+使用 `helm list` 列出 Windows 服務的部署：
 
 ```cmd
 $ helm list
@@ -127,18 +127,18 @@ NAME            REVISION    UPDATED                     STATUS      CHART       
 gilded-jackal   1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
 ```
 
-In the above example, the name of your deployment is *gilded-jackal*. Update your Windows service with the new configuration using `helm upgrade`:
+在上述範例中，您的部署名稱是*gilded-jackal*。 使用 `helm upgrade`，以新的設定更新您的 Windows 服務：
 
 ```cmd
 $ helm upgrade gilded-jackal . --namespace dev
 Release "gilded-jackal" has been upgraded.
 ```
 
-Since you updated your `deployment.yaml`, Dev Spaces will not try and instrument your service.
+由於您已更新 `deployment.yaml`，因此 Dev Spaces 不會嘗試和檢測您的服務。
 
-## <a name="run-your-linux-application-with-azure-dev-spaces"></a>Run your Linux application with Azure Dev Spaces
+## <a name="run-your-linux-application-with-azure-dev-spaces"></a>使用 Azure Dev Spaces 執行您的 Linux 應用程式
 
-Navigate to the `webfrontend` directory and use the `azds prep` and `azds up` commands to run your Linux application on your cluster.
+流覽至 `webfrontend` 目錄，然後使用 `azds prep` 和 `azds up` 命令，在叢集上執行您的 Linux 應用程式。
 
 ```console
 cd ../../webfrontend-linux/
@@ -146,7 +146,7 @@ azds prep --public
 azds up
 ```
 
-The `azds prep --public` command generates the Helm chart and Dockerfiles for your application. The `azds up` command runs your service in the namespace.
+`azds prep --public` 命令會為您的應用程式產生 Helm 圖表和 Dockerfile。 `azds up` 命令會在命名空間中執行您的服務。
 
 ```console
 $ azds up
@@ -164,9 +164,9 @@ Service 'webfrontend' port 'http' is available at http://dev.webfrontend.abcdef0
 Service 'webfrontend' port 80 (http) is available via port forwarding at http://localhost:57648
 ```
 
-You can see the service running by opening the public URL, which is displayed in the output from the azds up command. In this example, the public URL is `http://dev.webfrontend.abcdef0123.eus.azds.io/`. Navigate to the service in a browser and click on *About* at the top. Verify you see a message from the *mywebapi* service containing the version of Windows the container is using.
+您可以藉由開啟公用 URL （顯示在 azds up 命令的輸出中），查看執行中的服務。 在此範例中，公用 URL 是 `http://dev.webfrontend.abcdef0123.eus.azds.io/`。 在瀏覽器中流覽至服務，然後按一下頂端的 [*關於*]。 確認您看到來自*mywebapi*服務的訊息，其中包含容器所使用的 Windows 版本。
 
-![Sample app showing Windows version from mywebapi](../media/run-dev-spaces-windows-containers/sample-app.png)
+![顯示來自 mywebapi 之 Windows 版本的範例應用程式](../media/run-dev-spaces-windows-containers/sample-app.png)
 
 ## <a name="next-steps"></a>後續步驟
 

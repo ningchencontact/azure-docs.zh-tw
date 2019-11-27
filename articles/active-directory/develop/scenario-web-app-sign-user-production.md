@@ -1,6 +1,6 @@
 ---
-title: Web app that signs in users (move to production) - Microsoft identity platform
-description: Learn how to build a web app that signs in users (move to production)
+title: 登入使用者（移至生產環境）的 Web 應用程式-Microsoft 身分識別平臺
+description: 瞭解如何建立可登入使用者（移至生產環境）的 web 應用程式
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -22,39 +22,39 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74481885"
 ---
-# <a name="web-app-that-signs-in-users-move-to-production"></a>Web app that signs in users: Move to production
+# <a name="web-app-that-signs-in-users-move-to-production"></a>登入使用者的 Web 應用程式：移至生產環境
 
-Now that you know how to get a token to call web APIs, learn how to move it to production.
+既然您已經知道如何取得權杖來呼叫 web Api，請瞭解如何將它移到生產環境。
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
-### <a name="scenario-for-calling-web-apis"></a>Scenario for calling web APIs
+### <a name="scenario-for-calling-web-apis"></a>呼叫 web Api 的案例
 
-After your web app signs in users, it can call web APIs on behalf of the signed-in users. Calling web APIs from the web app is the object of the following scenario:
+在您的 web 應用程式登入使用者之後，它可以代表登入的使用者呼叫 web Api。 從 web 應用程式呼叫 web Api 是下列案例的物件：
 
 > [!div class="nextstepaction"]
 > [呼叫 Web API 的 Web 應用程式](scenario-web-app-call-api-overview.md)
 
-### <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Deep dive: ASP.NET Core web app tutorial
+### <a name="deep-dive-aspnet-core-web-app-tutorial"></a>深入探討： ASP.NET Core web 應用程式教學課程
 
-Learn about other ways to sign in users with this ASP.NET Core tutorial: 
+深入瞭解使用此 ASP.NET Core 教學課程來登入使用者的其他方式： 
 
 > [!div class="nextstepaction"]
-> [Enable your web apps to sign in users and call APIs with the Microsoft identity platform for developers](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 
+> [讓您的 web 應用程式能夠使用 Microsoft 身分識別平臺來登入使用者並呼叫 Api，讓開發人員](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 
 
-This progressive tutorial has production-ready code for a web app, including how to add sign-in with accounts in:
+這個漸進式教學課程包含適用于 web 應用程式的生產就緒程式碼，包括如何在中新增帳戶登入：
 
-- Your organization
-- Multiple organizations
-- Work or school accounts, or personal Microsoft accounts
+- 您的組織
+- 多個組織
+- 公司或學校帳戶，或個人 Microsoft 帳戶
 - [Azure AD B2C](https://aka.ms/aadb2c)
-- National clouds
+- 國家雲端
 
-### <a name="sample-code-java-web-app"></a>Sample code: Java web app
+### <a name="sample-code-java-web-app"></a>範例程式碼： JAVA web 應用程式
 
-Learn more about the Java web app from this sample on GitHub: 
+從 GitHub 上的此範例深入瞭解 JAVA web 應用程式： 
 
 > [!div class="nextstepaction"]
-> [A Java Web application that signs in users with the Microsoft identity platform and calls Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)
+> [使用 Microsoft 身分識別平臺登入使用者並呼叫 Microsoft Graph 的 JAVA Web 應用程式](https://github.com/Azure-Samples/ms-identity-java-webapp)

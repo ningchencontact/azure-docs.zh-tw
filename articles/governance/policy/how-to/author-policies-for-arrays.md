@@ -1,6 +1,6 @@
 ---
-title: Author policies for array properties on resources
-description: Learn to work with array parameters and array language expressions, evaluate the [*] alias, and to append elements with Azure Policy definition rules.
+title: 在資源上撰寫陣列屬性的原則
+description: 瞭解如何使用陣列參數和陣列語言運算式、評估 [*] 別名，以及附加具有 Azure 原則定義規則的元素。
 ms.date: 03/06/2019
 ms.topic: conceptual
 ms.openlocfilehash: 96598918f0dbcc2f56e8ccc316844ee768306b75
@@ -10,23 +10,23 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74463509"
 ---
-# <a name="author-policies-for-array-properties-on-azure-resources"></a>Author policies for array properties on Azure resources
+# <a name="author-policies-for-array-properties-on-azure-resources"></a>在 Azure 資源上撰寫陣列屬性的原則
 
-Azure Resource Manager properties are commonly defined as strings and booleans. When a one-to-many relationship exists, complex properties are instead defined as arrays. In Azure Policy, arrays are used in several different ways:
+Azure Resource Manager 屬性通常會定義為字串和布林值。 當存在一對多關聯性時，複雜屬性會改定義為數組。 在 Azure 原則中，陣列會以數種不同的方式使用：
 
-- The type of a [definition parameter](../concepts/definition-structure.md#parameters), to provide multiple options
-- Part of a [policy rule](../concepts/definition-structure.md#policy-rule) using the conditions **in** or **notIn**
-- Part of a policy rule that evaluates the [\[\*\] alias](../concepts/definition-structure.md#understanding-the--alias) to evaluate specific scenarios such as **None**, **Any**, or **All**
-- In the [append effect](../concepts/effects.md#append) to replace or add to an existing array
+- [定義參數](../concepts/definition-structure.md#parameters)的類型，可提供多個選項
+- 使用或**notIn** **中**之條件的[原則規則](../concepts/definition-structure.md#policy-rule)的一部分
+- 評估[\[\*\] 別名](../concepts/definition-structure.md#understanding-the--alias)以評估特定案例（例如**None**、 **Any**或**All** ）的原則規則之一部分
+- 在取代或加入現有陣列的[附加效果](../concepts/effects.md#append)中
 
-This article covers each use by Azure Policy and provides several example definitions.
+本文涵蓋 Azure 原則的每個使用方式，並提供數個範例定義。
 
-## <a name="parameter-arrays"></a>Parameter arrays
+## <a name="parameter-arrays"></a>參數陣列
 
-### <a name="define-a-parameter-array"></a>Define a parameter array
+### <a name="define-a-parameter-array"></a>定義參數陣列
 
-Defining a parameter as an array allows the policy flexibility when more than one value is needed.
-This policy definition allows any single location for the parameter **allowedLocations** and defaults to _eastus2_:
+將參數定義為數組，可在需要一個以上的值時，允許原則彈性。
+此原則定義允許**allowedLocations**參數的任何單一位置，並預設為_eastus2_：
 
 ```json
 "parameters": {
@@ -42,9 +42,9 @@ This policy definition allows any single location for the parameter **allowedLoc
 }
 ```
 
-As **type** was _string_, only one value can be set when assigning the policy. If this policy is assigned, resources in scope are only allowed within a single Azure region. Most policies definitions need to allow for a list of approved options, such as allowing _eastus2_, _eastus_, and _westus2_.
+As**類型**為_字串_，指派原則時只能設定一個值。 如果指派此原則，則範圍內的資源只能在單一 Azure 區域中使用。 大部分的原則定義都需要允許已核准的選項清單，例如允許_eastus2_、 _eastus_和_westus2_。
 
-To create the policy definition to allow multiple options, use the _array_ **type**. The same policy can be rewritten as follows:
+若要建立原則定義以允許多個選項，請使用_陣列_**類型**。 相同的原則可以改寫如下：
 
 ```json
 "parameters": {
@@ -67,17 +67,17 @@ To create the policy definition to allow multiple options, use the _array_ **typ
 ```
 
 > [!NOTE]
-> Once a policy definition is saved, the **type** property on a parameter can't be changed.
+> 一旦儲存原則定義之後，就無法變更參數上的**type**屬性。
 
-This new parameter definition takes more than one value during policy assignment. With the array property **allowedValues** defined, the values available during assignment are further limited to the predefined list of choices. Use of **allowedValues** is optional.
+這個新的參數定義會在原則指派期間接受一個以上的值。 定義陣列屬性**allowedValues**之後，指派期間可用的值會進一步限制為預先定義的選項清單。 **AllowedValues**的使用是選擇性的。
 
-### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Pass values to a parameter array during assignment
+### <a name="pass-values-to-a-parameter-array-during-assignment"></a>指派期間將值傳遞給參數陣列
 
-When assigning the policy through the Azure portal, a parameter of **type** _array_ is displayed as a single textbox. The hint says "Use ; to separate values. (e.g. London;New York)". To pass the allowed location values of _eastus2_, _eastus_, and _westus2_ to the parameter, use the following string:
+透過 Azure 入口網站指派原則時，**類型**_陣列_的參數會顯示為單一文字方塊。 提示顯示「使用;來分隔值。 （例如倫敦;紐約）」。 若要將_eastus2_、 _eastus_和_westus2_的允許位置值傳遞給參數，請使用下列字串：
 
 `eastus2;eastus;westus2`
 
-The format for the parameter value is different when using Azure CLI, Azure PowerShell, or the REST API. The values are passed through a JSON string that also includes the name of the parameter.
+使用 Azure CLI、Azure PowerShell 或 REST API 時，參數值的格式會不同。 這些值會透過同時包含參數名稱的 JSON 字串傳遞。
 
 ```json
 {
@@ -91,18 +91,18 @@ The format for the parameter value is different when using Azure CLI, Azure Powe
 }
 ```
 
-To use this string with each SDK, use the following commands:
+若要將此字串與每個 SDK 搭配使用，請使用下列命令：
 
-- Azure CLI: Command [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) with parameter **params**
-- Azure PowerShell: Cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) with parameter **PolicyParameter**
-- REST API: In the _PUT_ [create](/rest/api/resources/policyassignments/create) operation as part of the Request Body as the value of the **properties.parameters** property
+- Azure CLI：命令[az policy 指派 create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) with parameter **params**
+- Azure PowerShell： Cmdlet [get-azpolicyassignment](/powershell/module/az.resources/New-Azpolicyassignment)與參數**PolicyParameter**
+- REST API：在_PUT_ [create](/rest/api/resources/policyassignments/create)作業中做為要求主體的一部分，作為 properties 屬性的值 **。**
 
-## <a name="policy-rules-and-arrays"></a>Policy rules and arrays
+## <a name="policy-rules-and-arrays"></a>原則規則和陣列
 
-### <a name="array-conditions"></a>Array conditions
+### <a name="array-conditions"></a>陣列條件
 
-The policy rule [conditions](../concepts/definition-structure.md#conditions) that an _array_
-**type** of parameter may be used with is limited to `in` and `notIn`. Take the following policy definition with condition `equals` as an example:
+可搭配使用_陣列_
+**類型**參數的原則規則[條件](../concepts/definition-structure.md#conditions)僅限於 `in` 和 `notIn`。 採用下列原則定義，並以條件 `equals` 做為範例：
 
 ```json
 {
@@ -130,20 +130,20 @@ The policy rule [conditions](../concepts/definition-structure.md#conditions) tha
 }
 ```
 
-Attempting to create this policy definition through the Azure portal leads to an error such as this error message:
+嘗試透過 Azure 入口網站建立此原則定義會導致錯誤，例如此錯誤訊息：
 
-- "The policy '{GUID}' could not be parameterized because of validation errors. Please check if policy parameters are properly defined. The inner exception 'Evaluation result of language expression '[parameters('allowedLocations')]' is type 'Array', expected type is 'String'.'."
+- 「原則 ' {GUID} ' 無法參數化，因為發生驗證錯誤。 請檢查是否已正確定義原則參數。 語言運算式 ' [參數（' allowedLocations '）] ' 的內部例外狀況 ' 評估結果為類型 ' Array '，預期的類型為 ' String '。 '。
 
-The expected **type** of condition `equals` is _string_. Since **allowedLocations** is defined as **type** _array_, the policy engine evaluates the language expression and throws the error. With the `in` and `notIn` condition, the policy engine expects the **type** _array_ in the language expression. To resolve this error message, change `equals` to either `in` or `notIn`.
+預期的條件**類型**`equals` 為_字串_。 由於**allowedLocations**是定義為**類型**_陣列_，原則引擎會評估語言運算式，並擲回錯誤。 使用 `in` 和 `notIn` 條件時，原則引擎會預期語言運算式中的**類型**_陣列_。 若要解決此錯誤訊息，請將 `equals` 變更為 `in` 或 `notIn`。
 
-### <a name="evaluating-the--alias"></a>Evaluating the [*] alias
+### <a name="evaluating-the--alias"></a>評估 [*] 別名
 
-Aliases that have **[\*]** attached to their name indicate the **type** is an _array_. Instead of evaluating the value of the entire array, **[\*]** makes it possible to evaluate each element of the array. There are three scenarios this per item evaluation is useful in: None, Any, and All.
+具有 **[\*]** 附加至其名稱的別名，表示該**類型**為_陣列_。 **[\*]** 可以評估陣列的每個元素，而不是評估整個陣列的值。 在下列三種情況下，每個專案評估適用于： None、Any 和 All。
 
-The policy engine triggers the **effect** in **then** only when the **if** rule evaluates as true.
-This fact is important to understand in context of the way **[\*]** evaluates each individual element of the array.
+只有當**if**規則評估為 true 時，原則**引擎才會觸發中的** **效果**。
+這一點很重要，請務必瞭解 **[\*]** 評估陣列的每個個別元素的方式。
 
-The example policy rule for the scenario table below:
+下列案例資料表的範例原則規則：
 
 ```json
 "policyRule": {
@@ -162,7 +162,7 @@ The example policy rule for the scenario table below:
 }
 ```
 
-The **ipRules** array is as follows for the scenario table below:
+下列案例資料表的**ipRules**陣列如下所示：
 
 ```json
 "ipRules": [
@@ -177,35 +177,35 @@ The **ipRules** array is as follows for the scenario table below:
 ]
 ```
 
-For each condition example below, replace `<field>` with `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`.
+針對下列每個條件範例，將 `<field>` 取代為 `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`。
 
-The following outcomes are the result of the combination of the condition and the example policy rule and array of existing values above:
+下列結果是條件和範例原則規則和上述現有值陣列的組合結果：
 
 |條件 |成果 |說明 |
 |-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |Nothing |One array element evaluates as false (127.0.0.1 != 127.0.0.1) and one as true (127.0.0.1 != 192.168.1.1), so the **notEquals** condition is _false_ and the effect isn't triggered. |
-|`{<field>,"notEquals":"10.0.4.1"}` |Policy effect |Both array elements evaluate as true (10.0.4.1 != 127.0.0.1 and 10.0.4.1 != 192.168.1.1), so the **notEquals** condition is _true_ and the effect is triggered. |
-|`"not":{<field>,"Equals":"127.0.0.1"}` |Policy effect |One array element evaluates as true (127.0.0.1 == 127.0.0.1) and one as false (127.0.0.1 == 192.168.1.1), so the **Equals** condition is _false_. The logical operator evaluates as true (**not** _false_), so the effect is triggered. |
-|`"not":{<field>,"Equals":"10.0.4.1"}` |Policy effect |Both array elements evaluate as false (10.0.4.1 == 127.0.0.1 and 10.0.4.1 == 192.168.1.1), so the **Equals** condition is _false_. The logical operator evaluates as true (**not** _false_), so the effect is triggered. |
-|`"not":{<field>,"notEquals":"127.0.0.1" }` |Policy effect |One array element evaluates as false (127.0.0.1 != 127.0.0.1) and one as true (127.0.0.1 != 192.168.1.1), so the **notEquals** condition is _false_. The logical operator evaluates as true (**not** _false_), so the effect is triggered. |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nothing |Both array elements evaluate as true (10.0.4.1 != 127.0.0.1 and 10.0.4.1 != 192.168.1.1), so the **notEquals** condition is _true_. The logical operator evaluates as false (**not** _true_), so the effect isn't triggered. |
-|`{<field>,"Equals":"127.0.0.1"}` |Nothing |One array element evaluates as true (127.0.0.1 == 127.0.0.1) and one as false (127.0.0.1 == 192.168.1.1), so the **Equals** condition is _false_ and the effect isn't triggered. |
-|`{<field>,"Equals":"10.0.4.1"}` |Nothing |Both array elements evaluate as false (10.0.4.1 == 127.0.0.1 and 10.0.4.1 == 192.168.1.1), so the **Equals** condition is _false_ and the effect isn't triggered. |
+|`{<field>,"notEquals":"127.0.0.1"}` |這裡 |一個陣列元素會評估為 false （127.0.0.1！ = 127.0.0.1），另一個為 true （127.0.0.1！ = 192.168.1.1），因此**notEquals**條件為_false_且不會觸發效果。 |
+|`{<field>,"notEquals":"10.0.4.1"}` |原則效果 |這兩個陣列元素會評估為 true （10.0.4.1！ = 127.0.0.1 和10.0.4.1！ = 192.168.1.1），因此**notEquals**條件為_true_ ，且會觸發效果。 |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |原則效果 |一個陣列元素會評估為 true （127.0.0.1 = = 127.0.0.1），另一個為 false （127.0.0.1 = = 192.168.1.1），因此**Equals**條件為_false_。 邏輯運算子會評估為 true （**不**是_false_），因此會觸發效果。 |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |原則效果 |這兩個陣列元素都評估為 false （10.0.4.1 = = 127.0.0.1 和 10.0.4.1 = = 192.168.1.1），因此**Equals**條件為_false_。 邏輯運算子會評估為 true （**不**是_false_），因此會觸發效果。 |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |原則效果 |一個陣列元素會評估為 false （127.0.0.1！ = 127.0.0.1），另一個為 true （127.0.0.1！ = 192.168.1.1），因此**notEquals**條件為_false_。 邏輯運算子會評估為 true （**不**是_false_），因此會觸發效果。 |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |這裡 |這兩個陣列元素會評估為 true （10.0.4.1！ = 127.0.0.1 和10.0.4.1！ = 192.168.1.1），因此**notEquals**條件為_true_。 邏輯運算子會評估為 false （**不**是_true_），因此不會觸發效果。 |
+|`{<field>,"Equals":"127.0.0.1"}` |這裡 |一個陣列元素會評估為 true （127.0.0.1 = = 127.0.0.1），另一個為 false （127.0.0.1 = = 192.168.1.1），因此**Equals**條件為_false_且不會觸發效果。 |
+|`{<field>,"Equals":"10.0.4.1"}` |這裡 |這兩個陣列元素都評估為 false （10.0.4.1 = = 127.0.0.1 和 10.0.4.1 = = 192.168.1.1），因此**Equals**條件為_false_且不會觸發效果。 |
 
-## <a name="the-append-effect-and-arrays"></a>The append effect and arrays
+## <a name="the-append-effect-and-arrays"></a>附加效果和陣列
 
-The [append effect](../concepts/effects.md#append) behaves differently depending on if the **details.field** is a **[\*]** alias or not.
+[附加效果](../concepts/effects.md#append)的行為會因 [**詳細資料] 欄位**是否為 **[\*]** 別名而有所不同。
 
-- When not a **[\*]** alias, append replaces the entire array with the **value** property
-- When a **[\*]** alias, append adds the **value** property to the existing array or creates the new array
+- 當不是 **[\*]** 別名時，append 會將整個陣列取代為**value**屬性
+- 當 **[\*]** 別名時，append 會將**value**屬性加入至現有的陣列，或建立新的陣列。
 
-For more information, see the [append examples](../concepts/effects.md#append-examples).
+如需詳細資訊，請參閱[附加範例](../concepts/effects.md#append-examples)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- Review examples at [Azure Policy samples](../samples/index.md).
+- 如[Azure 原則範例](../samples/index.md)，請參閱範例。
 - 檢閱 [Azure 原則定義結構](../concepts/definition-structure.md)。
 - 檢閱[了解原則效果](../concepts/effects.md)。
-- Understand how to [programmatically create policies](programmatically-create.md).
-- Learn how to [remediate non-compliant resources](remediate-resources.md).
+- 瞭解如何以程式設計[方式建立原則](programmatically-create.md)。
+- 瞭解如何[補救不符合規範的資源](remediate-resources.md)。
 - 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

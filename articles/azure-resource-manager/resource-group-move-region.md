@@ -25,7 +25,7 @@ Azure 地理位置、區域和可用性區域形成 Azure 全球基礎結構的�
 - **服務/功能的對齊**：移動資源以利用特定區域中可用的服務或功能。
 - **回應商務發展**：將資源移至區域以回應業務變更，例如合併或收購。
 - **鄰近**性：將資源移至您業務的本機區域。
-- **符合資料需求**：移動資源以符合資料常駐需求或資料分類需求。 [詳細資訊](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf)。
+- **符合資料需求**：移動資源以符合資料常駐需求或資料分類需求。 [深入了解](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf)。
 - **回應部署需求**：移動錯誤部署的資源，或移動以回應容量需求。 
 - 因區域解除委任而因應**解除**委任：移動資源。
 

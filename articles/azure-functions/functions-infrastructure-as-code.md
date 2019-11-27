@@ -1,5 +1,5 @@
 ---
-title: Automate resource deployment for a function app in Azure Functions
+title: 在 Azure Functions 中將函數應用程式的資源部署自動化
 description: 了解如何建置能部署函數應用程式的 Azure Resource Manager 範本。
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
@@ -23,19 +23,19 @@ ms.locfileid: "74230515"
 
 ## <a name="required-resources"></a>所需資源
 
-An Azure Functions deployment typically consists of these resources:
+Azure Functions 部署通常包含下列資源：
 
-| 資源                                                                           | 需求 | Syntax and properties reference                                                         |   |
+| 資源                                                                           | 需求 | 語法和屬性參考                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| 函數應用程式                                                                     | 必要項    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
-| [Azure 儲存體](../storage/index.yml)帳戶                                   | 必要項    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | 選用    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
-| A [hosting plan](./functions-scale.md)                                             | Optional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
+| 函數應用程式                                                                     | 必要    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
+| [Azure 儲存體](../storage/index.yml)帳戶                                   | 必要    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
+| [Application Insights](../azure-monitor/app/app-insights-overview.md)元件 | 選用    | [Microsoft Insights/元件](/azure/templates/microsoft.insights/components)         |   |
+| [主控方案](./functions-scale.md)                                             | 選擇性<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
-<sup>1</sup>A hosting plan is only required when you choose to run your function app on a [Premium plan](./functions-premium-plan.md) (in preview) or on an [App Service plan](../app-service/overview-hosting-plans.md).
+<sup>1</sup>只有當您選擇在[Premium 方案](./functions-premium-plan.md)（預覽）或[App Service 方案](../app-service/overview-hosting-plans.md)上執行函數應用程式時，才需要主控方案。
 
 > [!TIP]
-> While not required, it is strongly recommended that you configure Application Insights for your app.
+> 雖然不是必要的，但強烈建議您為應用程式設定 Application Insights。
 
 <a name="storage"></a>
 ### <a name="storage-account"></a>儲存體帳戶
@@ -59,7 +59,7 @@ An Azure Functions deployment typically consists of these resources:
 
 Azure Functions 執行階段會使用 `AzureWebJobsStorage` 連接字串來建立內部佇列。  在未啟用 Application Insights 的情況下，執行階段會使用 `AzureWebJobsDashboard` 連接字串來記錄至 Azure 資料表儲存體，並啟動入口網站中的 [監視] 索引標籤。
 
-這些屬性會在 `siteConfig` 物件的 `appSettings`集合中指定：
+這些屬性會在 `appSettings` 物件的 `siteConfig`集合中指定：
 
 ```json
 "appSettings": [
@@ -76,7 +76,7 @@ Azure Functions 執行階段會使用 `AzureWebJobsStorage` 連接字串來建�
 
 ### <a name="application-insights"></a>Application Insights
 
-Application Insights is recommended for monitoring your function apps. The Application Insights resource is defined with the type **Microsoft.Insights/components** and the kind **web**:
+建議使用 Application Insights 來監視您的函式應用程式。 Application Insights 資源是使用類型 [ **Microsoft Insights/元件**] 和 [種類**web**] 定義的：
 
 ```json
         {
@@ -95,7 +95,7 @@ Application Insights is recommended for monitoring your function apps. The Appli
         },
 ```
 
-In addition, the instrumentation key needs to be provided to the function app using the `APPINSIGHTS_INSTRUMENTATIONKEY` application setting. This property is specified in the `appSettings` collection in the `siteConfig` object:
+此外，您必須使用 `APPINSIGHTS_INSTRUMENTATIONKEY` 應用程式設定，將檢測金鑰提供給函式應用程式。 此屬性是在 `siteConfig` 物件的 `appSettings` 集合中指定：
 
 ```json
 "appSettings": [
@@ -108,14 +108,14 @@ In addition, the instrumentation key needs to be provided to the function app us
 
 ### <a name="hosting-plan"></a>主控方案
 
-The definition of the hosting plan varies, and can be one of the following:
-* [Consumption plan](#consumption) (default)
-* [Premium plan](#premium) (in preview)
+主控方案的定義會有所不同，而且可以是下列其中一項：
+* [耗用量方案](#consumption)（預設值）
+* [Premium 方案](#premium)（預覽）
 * [App Service 計劃](#app-service-plan)
 
 ### <a name="function-app"></a>函式應用程式
 
-The function app resource is defined by using a resource of type **Microsoft.Web/sites** and kind **functionapp**:
+函數應用程式資源是使用**functionapp** **類型的**資源來定義的：
 
 ```json
 {
@@ -131,18 +131,18 @@ The function app resource is defined by using a resource of type **Microsoft.Web
 ```
 
 > [!IMPORTANT]
-> If you are explicitly defining a hosting plan, an additional item would be needed in the dependsOn array: `"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
+> 如果您要明確定義主控方案，dependsOn 陣列中會需要額外的專案： `"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
 
-A function app must include these application settings：
+函數應用程式必須包含下列應用程式設定：
 
 | 設定名稱                 | 描述                                                                               | 值的範例                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
-| AzureWebJobsStorage          | A connection string to a storage account that the Functions runtime for internal queueing | See [Storage account](#storage)       |
-| FUNCTIONS_EXTENSION_VERSION  | The version of the Azure Functions runtime                                                | `~2`                                  |
-| FUNCTIONS_WORKER_RUNTIME     | The language stack to be used for functions in this app                                   | `dotnet`, `node`, `java`, or `python` |
-| WEBSITE_NODE_DEFAULT_VERSION | Only needed if using the `node` language stack, specifies the version to use              | `10.14.1`                             |
+| AzureWebJobsStorage          | 對儲存體帳戶的連接字串，可供內部佇列的執行時間使用 | 請參閱[儲存體帳戶](#storage)       |
+| FUNCTIONS_EXTENSION_VERSION  | Azure Functions 執行時間的版本                                                | `~2`                                  |
+| FUNCTIONS_WORKER_RUNTIME     | 要用於此應用程式中函式的語言堆疊                                   | `dotnet`、`node`、`java`或 `python` |
+| WEBSITE_NODE_DEFAULT_VERSION | 只有在使用 `node` 語言堆疊時，才需要指定要使用的版本              | `10.14.1`                             |
 
-These properties are specified in the `appSettings` collection in the `siteConfig` property:
+這些屬性是在 `siteConfig` 屬性的 `appSettings` 集合中指定：
 
 ```json
 "properties": {
@@ -171,17 +171,17 @@ These properties are specified in the `appSettings` collection in the `siteConfi
 
 <a name="consumption"></a>
 
-## <a name="deploy-on-consumption-plan"></a>Deploy on Consumption plan
+## <a name="deploy-on-consumption-plan"></a>部署使用方式方案
 
-取用方案會在您的程式碼執行時自動配置計算能力、視需要相應放大來處理負載，然後在程式碼未執行時相應減少。 You don't have to pay for idle VMs, and you don't have to reserve capacity in advance. 若要深入了解，請參閱 [Azure Functions 規模調整和主控](functions-scale.md#consumption-plan)。
+取用方案會在您的程式碼執行時自動配置計算能力、視需要相應放大來處理負載，然後在程式碼未執行時相應減少。 您不必支付閒置 Vm 的費用，也不需要事先保留容量。 若要深入了解，請參閱 [Azure Functions 規模調整和主控](functions-scale.md#consumption-plan)。
 
 如需範例 Azure Resource Manager 範本，請參閱[採用取用方案的函數應用程式]。
 
 ### <a name="create-a-consumption-plan"></a>建立取用方案
 
-A Consumption plan does not need to be defined. One will automatically be created or selected on a per-region basis when you create the function app resource itself.
+不需要定義耗用量方案。 當您建立函式應用程式資源本身時，每個區域會自動建立或選取一個。
 
-The Consumption plan is a special type of "serverfarm" resource. For Windows, you can specify it by using the `Dynamic` value for the `computeMode` and `sku` properties:
+取用方案是一種特殊類型的「伺服器陣列」資源。 針對 Windows，您可以使用 `computeMode` 和 `sku` 屬性的 `Dynamic` 值來指定它：
 
 ```json
 {  
@@ -204,15 +204,15 @@ The Consumption plan is a special type of "serverfarm" resource. For Windows, yo
 ```
 
 > [!NOTE]
-> The Consumption plan cannot be explicitly defined for Linux. It will be created automatically.
+> 無法為 Linux 明確定義取用方案。 它會自動建立。
 
-If you do explicitly define your consumption plan, you will need to set the `serverFarmId` property on the app so that it points to the resource ID of the plan. You should ensure that the function app has a `dependsOn` setting for the plan as well.
+如果您明確定義取用方案，您將需要在應用程式上設定 `serverFarmId` 屬性，使其指向方案的資源識別碼。 您應該確定函式應用程式也具有方案的 `dependsOn` 設定。
 
 ### <a name="create-a-function-app"></a>建立函數應用程式
 
 #### <a name="windows"></a>Windows
 
-On Windows, a Consumption plan requires two additional settings in the site configuration: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE`. 這些屬性能設定儲存函數應用程式程式碼和組態的儲存體帳戶和檔案路徑。
+在 Windows 上，取用方案在網站設定中需要另外兩項設定： `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 和 `WEBSITE_CONTENTSHARE`。 這些屬性能設定儲存函數應用程式程式碼和組態的儲存體帳戶和檔案路徑。
 
 ```json
 {
@@ -259,7 +259,7 @@ On Windows, a Consumption plan requires two additional settings in the site conf
 
 #### <a name="linux"></a>Linux
 
-On Linux, the function app must have its `kind` set to `functionapp,linux`, and it must have the `reserved` property set to `true`:
+在 Linux 上，函數應用程式必須將其 `kind` 設定為 `functionapp,linux`，而且必須將 `reserved` 屬性設定為 `true`：
 
 ```json
 {
@@ -301,13 +301,13 @@ On Linux, the function app must have its `kind` set to `functionapp,linux`, and 
 
 <a name="premium"></a>
 
-## <a name="deploy-on-premium-plan"></a>Deploy on Premium plan
+## <a name="deploy-on-premium-plan"></a>在 Premium 方案上部署
 
-The Premium plan offers the same scaling as the consumption plan but includes dedicated resources and additional capabilities. To learn more, see [Azure Functions Premium Plan](./functions-premium-plan.md).
+Premium 方案提供與取用方案相同的調整，但包含專用的資源和其他功能。 若要深入瞭解，請參閱[Azure Functions Premium 方案](./functions-premium-plan.md)。
 
 ### <a name="create-a-premium-plan"></a>建立進階方案
 
-A Premium plan is a special type of "serverfarm" resource. You can specify it by using either `EP1`, `EP2`, or `EP3` for the `sku` property value.
+Premium 方案是一種特殊類型的「伺服器陣列」資源。 您可以使用 [`EP1`]、[`EP2`] 或 [`sku`] 屬性值的 `EP3` 來指定它。
 
 ```json
 {
@@ -324,7 +324,7 @@ A Premium plan is a special type of "serverfarm" resource. You can specify it by
 
 ### <a name="create-a-function-app"></a>建立函數應用程式
 
-A function app on a Premium plan must have the `serverFarmId` property set to the resource ID of the plan created earlier. In addition, a Premium plan requires two additional settings in the site configuration: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE`. 這些屬性能設定儲存函數應用程式程式碼和組態的儲存體帳戶和檔案路徑。
+高階方案上的函式應用程式必須將 `serverFarmId` 屬性設定為稍早建立之方案的資源識別碼。 此外，Premium 方案在網站設定中需要另外兩項設定： `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 和 `WEBSITE_CONTENTSHARE`。 這些屬性能設定儲存函數應用程式程式碼和組態的儲存體帳戶和檔案路徑。
 
 ```json
 {
@@ -374,7 +374,7 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
 
 <a name="app-service-plan"></a> 
 
-## <a name="deploy-on-app-service-plan"></a>Deploy on App Service plan
+## <a name="deploy-on-app-service-plan"></a>在 App Service 方案上部署
 
 在 App Service 方案中，您的函數應用程式是依據基本、標準或進階 SKU 在專用的 VM 上執行，就像 Web 應用程式一樣。 如需 App Service 方案運作方式的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/overview-hosting-plans.md)。
 
@@ -382,7 +382,7 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
 
 ### <a name="create-an-app-service-plan"></a>建立應用程式服務方案
 
-An App Service plan is defined by a "serverfarm" resource.
+App Service 計畫是由 "伺服器陣列" 資源所定義。
 
 ```json
 {
@@ -400,7 +400,7 @@ An App Service plan is defined by a "serverfarm" resource.
 }
 ```
 
-To run your app on Linux, you must also set the `kind` to `Linux`:
+若要在 Linux 上執行您的應用程式，您也必須將 `kind` 設定為 `Linux`：
 
 ```json
 {
@@ -421,7 +421,7 @@ To run your app on Linux, you must also set the `kind` to `Linux`:
 
 ### <a name="create-a-function-app"></a>建立函數應用程式 
 
-A function app on an App Service plan must have the `serverFarmId` property set to the resource ID of the plan created earlier.
+App Service 計畫上的函式應用程式必須將 `serverFarmId` 屬性設定為稍早建立之方案的資源識別碼。
 
 ```json
 {
@@ -460,9 +460,9 @@ A function app on an App Service plan must have the `serverFarmId` property set 
 }
 ```
 
-Linux apps should also include a `linuxFxVersion` property under `siteConfig`. If you are just deploying code, the value for this is determined by your desired runtime stack:
+Linux 應用程式也應該在 `siteConfig`下包含 `linuxFxVersion` 屬性。 如果您只是部署程式碼，則此值取決於您所需的執行時間堆疊：
 
-| Stack            | 範例值                                         |
+| 協定            | 範例值                                         |
 |------------------|-------------------------------------------------------|
 | Python           | `DOCKER|microsoft/azure-functions-python3.6:2.0`      |
 | Javascript       | `DOCKER|microsoft/azure-functions-node8:2.0`          |
@@ -506,7 +506,7 @@ Linux apps should also include a `linuxFxVersion` property under `siteConfig`. I
 }
 ```
 
-If you are [deploying a custom container image](./functions-create-function-linux-custom-image.md), you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in [Web App for Containers](/azure/app-service/containers). Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
+如果您要[部署自訂容器映射](./functions-create-function-linux-custom-image.md)，則必須使用 `linuxFxVersion` 加以指定，並包含可讓您的映射提取的設定，如同[用於容器的 Web App](/azure/app-service/containers)。 此外，將 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 設定為 `false`，因為容器本身會提供您的應用程式內容：
 
 ```json
 {
@@ -562,12 +562,12 @@ If you are [deploying a custom container image](./functions-create-function-linu
 }
 ```
 
-## <a name="customizing-a-deployment"></a>Customizing a deployment
+## <a name="customizing-a-deployment"></a>自訂部署
 
 函數應用程式有許多子資源可供您用於部署，包括應用程式設定和原始檔控制選項。 您也可以選擇移除 **sourcecontrols** 子資源並改為使用不同的[部署選項](functions-continuous-deployment.md)。
 
 > [!IMPORTANT]
-> 若要使用 Azure Resource Manager 成功部署應用程式，請務必了解資源在 Azure 中部署的方式。 在下列範例中，將使用 **siteConfig** 套用高層級組態。 請務必將這些組態設定為高層級，因為它們會將資訊傳遞給 Functions 執行階段和部署引擎。 在套用子 **sourcecontrols/web** 資源之前，需要高層級資訊。 雖然也可以在子層級 **config/appSettings** 資源設定這些設定，在某些案例下，您的函數應用程式需在套用 **config/appSettings**「之前」完成部署。 例如，在搭配使用函數應用程式與 [Logic Apps](../logic-apps/index.yml) 時，您的函數為另一個資源的相依性。
+> 若要使用 Azure Resource Manager 成功部署應用程式，請務必了解資源在 Azure 中部署的方式。 在下列範例中，將使用 **siteConfig** 套用高層級組態。 請務必將這些組態設定為高層級，因為它們會將資訊傳遞給 Functions 執行階段和部署引擎。 在套用子 **sourcecontrols/web** 資源之前，需要高層級資訊。 雖然也可以在子層級 **config/appSettings** 資源設定這些設定，在某些案例下，您的函數應用程式需在套用 *config/appSettings*「之前」完成部署。 例如，在搭配使用函數應用程式與 [Logic Apps](../logic-apps/index.yml) 時，您的函數為另一個資源的相依性。
 
 ```json
 {
@@ -644,7 +644,7 @@ If you are [deploying a custom container image](./functions-create-function-linu
 
 ### <a name="deploy-to-azure-button"></a>部署至 Azure 按鈕
 
-以 GitHub 中 `azuredeploy.json` 檔案的原始路徑 [URL 編碼](https://www.bing.com/search?q=url+encode)版本取代 ```<url-encoded-path-to-azuredeploy-json>```。
+以 GitHub 中 ```<url-encoded-path-to-azuredeploy-json>``` 檔案的原始路徑 [URL 編碼](https://www.bing.com/search?q=url+encode)版本取代 `azuredeploy.json`。
 
 以下是使用 Markdown 的範例：
 
@@ -660,7 +660,7 @@ If you are [deploying a custom container image](./functions-create-function-linu
 
 ### <a name="deploy-using-powershell"></a>使用 PowerShell 進行部署
 
-The following PowerShell commands create a resource group and deploy a template that create a function app with its required resources. To run locally, you must have [Azure PowerShell](/powershell/azure/install-az-ps) installed. Run [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) to sign in.
+下列 PowerShell 命令會建立資源群組，並部署範本來建立具有所需資源的函式應用程式。 若要在本機執行，您必須安裝[Azure PowerShell](/powershell/azure/install-az-ps) 。 執行[`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount)以登入。
 
 ```powershell
 # Register Resource Providers if they're not already registered
@@ -677,7 +677,7 @@ $TemplateParams = @{"appName" = "<function-app-name>"}
 New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile template.json -TemplateParameterObject $TemplateParams -Verbose
 ```
 
-To test out this deployment, you can use a [template like this one](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json) that creates a function app on Windows in a Consumption plan. Replace `<function-app-name>` with a unique name for your function app.
+若要測試此部署，您可以使用[像這樣的範本](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json)，在取用方案中于 Windows 上建立函數應用程式。 以您函數應用程式的唯一名稱取代 `<function-app-name>`。
 
 ## <a name="next-steps"></a>後續步驟
 

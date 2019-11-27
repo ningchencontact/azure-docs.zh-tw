@@ -27,7 +27,7 @@ ms.locfileid: "74232455"
 
 ## <a name="dynatrace"></a>Dynatrace
 
-我們與 Dynatrace 整合之後，可以提供許多現成的功能來監視 Service Fabric 叢集。 在 VMSS 執行個體上安裝 Dynatrace OneAgent 可為您提供效能計數器，並將 Service Fabric 的拓撲向下部署至應用程式層級。 Dynatrace 也是內部部署監視的絕佳選擇。 Check out more of the features listed in the [announcement](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) and [instructions](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) to enable Dynatrace on your cluster. 
+我們與 Dynatrace 整合之後，可以提供許多現成的功能來監視 Service Fabric 叢集。 在 VMSS 執行個體上安裝 Dynatrace OneAgent 可為您提供效能計數器，並將 Service Fabric 的拓撲向下部署至應用程式層級。 Dynatrace 也是內部部署監視的絕佳選擇。 請查看[公告](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/)中列出的更多功能，以及在您的叢集上啟用 Dynatrace 的[指示](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/)。 
 
 ## <a name="datadog"></a>Datadog
 
@@ -47,7 +47,7 @@ ELK 堆疊是一系列開放原始碼技術：Elasticsearch、Logstash 和 Kiban
 
 ## <a name="humio"></a>Humio
 
-Humio is a log collection service that can gather logs from your applications and events from Service Fabric in the cloud or on-premises in real time. In addition to live observability, Humio offers state of the art analysis and visualization capabilities for viewing and collecting insights from your diagnostics. Humio has cost effective pricing plans and is built to scale while retaining it's lightening fast speed. It directly integrates with Service Fabric platform events and Application telemetry. You can read more about the Humio and Service Fabric integration [here](https://github.com/humio/service-fabric-humio).
+Humio 是一種記錄收集服務，可即時從雲端或內部部署中的 Service Fabric 收集應用程式和事件的記錄。 除了即時可檢視性之外，Humio 還提供最先進的分析和視覺效果功能，以從您的診斷中查看和收集見解。 Humio 具有符合成本效益的定價方案，並建立以進行調整，同時保持速度快速。 它會直接與 Service Fabric 平臺事件和應用程式遙測整合。 您可以在[這裡](https://github.com/humio/service-fabric-humio)閱讀更多有關 Humio 和 Service Fabric 整合的資訊。
 
 ## <a name="next-steps"></a>後續步驟
 

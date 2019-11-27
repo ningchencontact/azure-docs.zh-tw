@@ -1,6 +1,6 @@
 ---
-title: Conditional Access require managed device - Azure Active Directory
-description: Learn how to configure Azure Active Directory (Azure AD) device-based Conditional Access policies that require managed devices for cloud app access.
+title: 條件式存取需要受管理的裝置-Azure Active Directory
+description: 瞭解如何設定 Azure Active Directory （Azure AD）裝置型條件式存取原則，其需要受管理的裝置才能存取雲端應用程式。
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,24 +18,24 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74452390"
 ---
-# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>How To: Require managed devices for cloud app access with Conditional Access
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>作法：透過條件式存取要求受管理的裝置存取雲端應用程式
 
 在行動第一、雲端第一的世界中，Azure Active Directory (Azure AD) 可讓您從任何地方單一登入至應用程式和服務。 授權使用者可以從多種裝置 (包括行動裝置和個人裝置) 存取您的雲端應用程式。 不過，許多環境都至少會有些許應用程式只應由符合您的安全性與相容性標準的裝置存取。 這些裝置也稱為受控裝置。 
 
-This article explains how you can configure Conditional Access policies that require managed devices to access certain cloud apps in your environment. 
+本文說明如何設定條件式存取原則，以要求受管理的裝置存取您環境中的特定雲端應用程式。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-Requiring managed devices for cloud app access ties **Azure AD Conditional Access** and **Azure AD device management** together. 如果您還不熟悉上述其中一種領域，您應該先閱讀下列主題：
+需要受管理的裝置進行雲端應用程式存取系結**Azure AD 條件式存取**和**Azure AD 裝置管理**。 如果您還不熟悉上述其中一種領域，您應該先閱讀下列主題：
 
-- **[Conditional Access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** - This article provides you with a conceptual overview of Conditional Access and the related terminology.
+- **[Azure Active Directory 中的條件式存取](../active-directory-conditional-access-azure-portal.md)** -這篇文章會提供條件式存取和相關術語的概念總覽。
 - **[Azure Active Directory 中的裝置管理簡介](../devices/overview.md)** - 本文概略說明在組織的控制下可用來連接裝置的各種選項。 
 
 ## <a name="scenario-description"></a>案例描述
 
 要兼顧安全性與生產力並不容易。 在可存取雲端資源的裝置種類激增的情況下，使用者的生產力得以提升。 而另一方面，您應該不希望環境中的特定資源在保護層級不確定的情況下受到裝置存取。 對於受影響的資源，您應要求使用者只能使用受控裝置加以存取。 
 
-With Azure AD Conditional Access, you can address this requirement with a single policy that grants access:
+透過 Azure AD 條件式存取，您可以使用授與存取權的單一原則來解決這項需求：
 
 - 將存取權授與所選的雲端應用程式
 - 將存取權授與所選使用者和群組
@@ -49,11 +49,11 @@ With Azure AD Conditional Access, you can address this requirement with a single
 
 若要向 Azure AD 註冊裝置，您有三個選項： 
 
-- **Azure AD registered devices** - to get a personal device registered with Azure AD
-- **Azure AD joined devices** - to get an organizational Windows 10 device that is not joined to an on-premises AD registered with Azure AD. 
-- **Hybrid Azure AD joined devices** - to get a Windows 10 or supported down-level device that is joined to an on-premises AD registered with Azure AD.
+- **Azure AD 已註冊的裝置**-取得向 Azure AD 註冊的個人裝置
+- **Azure AD 加入的裝置**-用來取得未加入向 Azure AD 註冊之內部部署 AD 的組織 Windows 10 裝置。 
+- **混合式 Azure AD 加入的裝置**-取得 Windows 10 或受支援的下層裝置，其已加入向 Azure AD 註冊的內部部署 AD。
 
-These three options are discussed in the article [What is a device identity?](../devices/overview.md)
+這三個選項會在[什麼是裝置身分識別一](../devices/overview.md)文中討論。
 
 若要成為受控裝置，已註冊的裝置必須是**已加入混合式 Azure AD 的裝置**，或是**標示為符合規範的裝置**。  
 
@@ -61,7 +61,7 @@ These three options are discussed in the article [What is a device identity?](..
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>需要已加入混合式 Azure AD 的裝置
 
-In your Conditional Access policy, you can select **Require Hybrid Azure AD joined device** to state that the selected cloud apps can only be accessed using a managed device. 
+在您的條件式存取原則中，您可以選取 [**需要已加入混合式 Azure AD 的裝置**]，以指出選取的雲端應用程式只能使用受管理的裝置存取。 
 
 ![裝置型條件](./media/require-managed-devices/10.png)
 
@@ -80,7 +80,7 @@ In your Conditional Access policy, you can select **Require Hybrid Azure AD join
 此選項要求向 Azure AD 註冊裝置，而且裝置要由下列項目標示為符合規範：
          
 - Intune
-- 一個第三方行動裝置管理 (MDM) 系統，可透過 Azure AD 整合來管理 Windows 10 裝置。 不支援針對 Windows 10 以外的裝置 OS 類型使用的第三方 MDM 系統。
+- 一個第三方行動裝置管理 (MDM) 系統，可透過 Azure AD 整合來管理 Windows 10 裝置。 不支援針對 Windows 10 以外的裝置 OS 類型使用的協力廠商 MDM 系統。
  
 ![裝置型條件](./media/require-managed-devices/46.png)
 
@@ -92,8 +92,8 @@ In your Conditional Access policy, you can select **Require Hybrid Azure AD join
 - 裝置與其應用程式都符合公司安全性需求的規範
 
 > [!NOTE]
-> If you configure a policy to require compliant devices users may be prompted on Mac, iOS, and Android to select a device certificate during policy evaluation. This is a known behavior.
+> 如果您將原則設定為要求符合規範的裝置，使用者可能會在 Mac、iOS 和 Android 上出現提示，在原則評估期間選取裝置憑證。 這是已知的行為。
 
 ## <a name="next-steps"></a>後續步驟
 
-Before configuring a device-based Conditional Access policy in your environment, you should take a look at the [best practices for Conditional Access in Azure Active Directory](best-practices.md).
+在您的環境中設定裝置型條件式存取原則之前，您應該先參閱[Azure Active Directory 中條件式存取的最佳做法](best-practices.md)。

@@ -13,7 +13,7 @@ ms.locfileid: "74232849"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Durable Functions 中的監視器案例 - 天氣監看員範例
 
-監視模式是指工作流程中的彈性「週期性」程序，例如，輪詢直到符合特定條件。 本文會說明使用 [Durable Functions](durable-functions-overview.md) 來實作監視的範例。
+監視器模式指的是工作流程中的彈性「週期性」程序，例如，輪詢直到符合特定條件。 本文會說明使用 [Durable Functions](durable-functions-overview.md) 來實作監視的範例。
 
 [!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
@@ -50,11 +50,11 @@ ms.locfileid: "74232849"
 
 本文說明範例應用程式中的函式如下：
 
-* `E3_Monitor`：定期呼叫 `E3_GetIsClear` 的協調器函式。 如果 `E3_GetIsClear` 傳回 true，此函式會呼叫 `E3_SendGoodWeatherAlert`。
+* `E3_Monitor`：定期呼叫 `E3_GetIsClear` 的協調器函式。 如果 `E3_SendGoodWeatherAlert` 傳回 true，此函式會呼叫 `E3_GetIsClear`。
 * `E3_GetIsClear`：會檢查某地點目前天氣狀況的活動函式。
 * `E3_SendGoodWeatherAlert`：會透過 Twilio 傳送手機簡訊的活動函式。
 
-The following sections explain the configuration and code that is used for C# scripting and JavaScript. Visual Studio 開發適用的程式碼會顯示在文章結尾。
+下列各節說明用於C#腳本處理和 JavaScript 的設定和程式碼。 Visual Studio 開發適用的程式碼會顯示在文章結尾。
 
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>天氣監視協調流程 (Visual Studio Code 和 Azure 入口網站程式碼範例)
 
@@ -79,13 +79,13 @@ The following sections explain the configuration and code that is used for C# sc
 3. 呼叫 **E3_GetIsClear** 來判斷所要求之地點的天空是否晴朗。
 4. 如果天氣晴朗，則呼叫 **E3_SendGoodWeatherAlert** 以將簡訊通知傳送至要求的電話號碼。
 5. 建立長期計時器以在下一個輪詢間隔繼續進行協調流程。 為求簡單明瞭，這個範例會使用硬式編碼值。
-6. Continues running until the `CurrentUtcDateTime` (.NET) or `currentUtcDateTime` (JavaScript) passes the monitor's expiration time, or an SMS alert is sent.
+6. 會繼續執行，直到 `CurrentUtcDateTime` （.NET）或 `currentUtcDateTime` （JavaScript）通過監視的到期時間，或傳送 SMS 警示為止。
 
 您可以藉由傳送多個 **MonitorRequests** 來同時執行多個協調器執行個體。 您可以指定要監視的地點以及要作為簡訊通知傳送目的地的電話號碼。
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>強型別資料轉送 (僅限 .NET)
 
-The orchestrator requires multiple pieces of data, so [shared POCO objects](../functions-reference-csharp.md#reusing-csx-code) are used for strongly-typed data transfer in C# and C# script:  
+協調器需要多個資料片段，因此會在和C# C#腳本中使用[共用 POCO 物件](../functions-reference-csharp.md#reusing-csx-code)進行強型別資料傳輸：  
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]

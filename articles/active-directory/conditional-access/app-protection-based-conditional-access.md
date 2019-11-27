@@ -1,6 +1,6 @@
 ---
-title: App protection policies with Conditional Access - Azure Active Directory
-description: Learn how to require app protection policy for cloud app access with Conditional Access in Azure Active Directory.
+title: 具有條件式存取的應用程式保護原則-Azure Active Directory
+description: 瞭解如何在 Azure Active Directory 中使用條件式存取來要求應用程式保護原則以進行雲端應用程式存取。
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,353 +18,353 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381032"
 ---
-# <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Require app protection policy for cloud app access with Conditional Access (preview)
+# <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>需要使用條件式存取的應用程式保護原則進行雲端應用程式存取（預覽）
 
-您的員工使用行動裝置來處理個人和工作事務。 在維護員工的生產力時，您也希望能預防資料遺失。 With Azure Active Directory (Azure AD) Conditional Access, you can protect your corporate data by restricting access to your cloud apps. Use client apps with an app protection policy first.
+您的員工使用行動裝置來處理個人和工作事務。 在維護員工的生產力時，您也希望能預防資料遺失。 透過 Azure Active Directory （Azure AD）條件式存取，您可以藉由限制對雲端應用程式的存取，來保護您的公司資料。 請先使用具有應用程式保護原則的用戶端應用程式。
 
-This article explains how to configure Conditional Access policies that can require an app protection policy before access is granted to data.
+本文說明如何設定條件式存取原則，在授與資料存取權之前，可以要求應用程式保護原則。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
-With [Azure AD Conditional Access](overview.md), you can fine-tune how authorized users can access your resources. 例如，您可以將雲端應用程式的存取限制為受信任的裝置。
+透過[Azure AD 條件式存取](overview.md)，您可以微調授權使用者如何存取您的資源。 例如，您可以將雲端應用程式的存取限制為受信任的裝置。
 
-您可以使用 [Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)來協助保護公司資料。 Intune app protection policies don't require a mobile device management (MDM) solution. You can protect your company’s data with or without enrolling devices in a device management solution.
+您可以使用 [Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)來協助保護公司資料。 Intune 應用程式保護原則不需要使用行動裝置管理（MDM）解決方案。 不論是否在裝置管理解決方案中註冊裝置，都可以保護公司的資料。
 
-Azure Active Directory Conditional Access restricts access to your cloud apps to client applications that Intune has reported to Azure AD as receiving an app protection policy. For example, you can restrict access to Exchange Online to the Outlook app that has an Intune app protection policy.
+Azure Active Directory 條件式存取會將雲端應用程式的存取限制為 Intune 已回報要 Azure AD 為接收應用程式保護原則的用戶端應用程式。 例如，您可以將 Exchange Online 的存取限制為具有 Intune 應用程式保護原則的 Outlook 應用程式。
 
-In the Conditional Access terminology, these client apps are known to be policy protected with an *app protection policy*.  
+在條件式存取術語中，這些用戶端應用程式已知受到*應用程式保護原則*保護的原則。  
 
 ![條件式存取](./media/app-protection-based-conditional-access/05.png)
 
-For a list of policy-protected client apps, see [App protection policy requirement](technical-reference.md#approved-client-app-requirement).
+如需受原則保護的用戶端應用程式清單，請參閱[應用程式保護原則需求](technical-reference.md#approved-client-app-requirement)。
 
-You can combine app-protection-based Conditional Access policies with other policies, such as [device-based Conditional Access policies](require-managed-devices.md). This way, you can provide flexibility in how to protect data for both personal and corporate devices.
+您可以結合以應用程式保護為基礎的條件式存取原則與其他原則，例如[裝置型條件式存取原則](require-managed-devices.md)。 如此一來，您就可以在保護個人和公司裝置的資料時，提供彈性。
 
 > [!NOTE]
-> Conditional Access app protection policies cannot be applied to B2B users because the inviting organization has no visibility into the B2B user's home organization.
+> 條件式存取應用程式保護原則無法套用至 B2B 使用者，因為邀請的組織無法看到 B2B 使用者的主要組織。
 
-## <a name="benefits-of-app-protection-based-conditional-access-requirement"></a>Benefits of app protection-based Conditional Access requirement
+## <a name="benefits-of-app-protection-based-conditional-access-requirement"></a>以應用程式保護為基礎的條件式存取需求的優點
 
-Similar to compliance that's reported by Intune for iOS and Android for a managed device, Intune now reports to Azure AD if an app protection policy is applied. Conditional Access can use this policy as an access check. This new Conditional Access policy, the app protection policy, increases security. It protects against admin errors, such as:
+與受管理裝置的 iOS 和 Android Intune 所報告的相容性類似，Intune 現在會報告應用程式保護原則是否已套用 Azure AD。 條件式存取可以使用此原則做為存取檢查。 這個新的條件式存取原則（應用程式保護原則）會提高安全性。 它可防止系統管理員錯誤，例如：
 
-- Users who don't have an Intune license.
-- Users who can't receive an Intune app protection policy.
-- Intune app protection policy apps that aren't configured to receive a policy.
+- 沒有 Intune 授權的使用者。
+- 無法接收 Intune 應用程式保護原則的使用者。
+- 未設定為接收原則的 Intune 應用程式保護原則應用程式。
 
 ## <a name="before-you-begin"></a>開始之前
 
 本文假設您已熟悉以下各項：
 
-- The [app protection policy requirement](technical-reference.md#app-protection-policy-requirement) technical reference.
+- [應用程式保護原則需求](technical-reference.md#app-protection-policy-requirement)的技術參考。
 - [核准的用戶端應用程式需求](technical-reference.md#approved-client-app-requirement)技術參考。
-- The basic concepts of [Conditional Access in Azure Active Directory](overview.md).
-- How to [configure a Conditional Access policy](app-based-mfa.md).
+- [Azure Active Directory 中條件式存取](overview.md)的基本概念。
+- 如何[設定條件式存取原則](app-based-mfa.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-To create an app protection-based Conditional Access policy, you must:
+若要建立以應用程式保護為基礎的條件式存取原則，您必須：
 
-- Have an Enterprise Mobility + Security or an Azure Active Directory premium subscription + Intune.
-- Make sure the users are licensed for Enterprise Mobility + Security or Azure AD + Intune.
-- Make sure the client app is configured in Intune to receive an app protection policy.
-- Make sure the users are configured in Intune to receive an Intune app protection policy.
+- 擁有 Enterprise Mobility + Security 或 Azure Active Directory premium 訂用帳戶 + Intune。
+- 請確定使用者已獲得 Enterprise Mobility + Security 或 Azure AD + Intune 的授權。
+- 請確定已在 Intune 中設定用戶端應用程式，以接收應用程式保護原則。
+- 請確定已在 Intune 中設定使用者，以接收 Intune 應用程式保護原則。
 
-## <a name="app-protection-based-policy-for-exchange-online"></a>App protection-based policy for Exchange Online
+## <a name="app-protection-based-policy-for-exchange-online"></a>適用于 Exchange Online 的以應用程式保護為基礎的原則
 
-This scenario consists of an app protection-based Conditional Access policy for access to Exchange Online.
+此案例包含以應用程式保護為基礎的條件式存取原則，可存取 Exchange Online。
 
 ### <a name="scenario-playbook"></a>情節腳本
 
 此情節假設使用者：
 
-- Configures email by using a native mail application on iOS or Android to connect to Exchange.
-- Receives an email that indicates that access is available only by using the Outlook app.
-- Downloads the application with the link.
-- Opens the Outlook application and signs in with Azure AD credentials.
-- Is prompted to install either the **Microsoft Authenticator app** or the **Intune Company Portal** to continue.
-- Installs the application and returns to the Outlook app to continue.
-- Is prompted to register a device.
-- Can receive an Intune app protection policy.
-- Can access email.
+- 使用 iOS 或 Android 上的原生郵件應用程式來設定電子郵件，以連接到 Exchange。
+- 接收電子郵件，指出只有使用 Outlook 應用程式才能存取。
+- 使用連結下載應用程式。
+- 開啟 Outlook 應用程式，並使用 Azure AD 認證登入。
+- 系統會提示您安裝**Microsoft Authenticator 應用程式**或**Intune 公司入口網站**以繼續。
+- 會安裝應用程式，並返回 Outlook 應用程式以繼續。
+- 系統會提示您註冊裝置。
+- 可以接收 Intune 應用程式保護原則。
+- 可以存取電子郵件。
 
-Any Intune app protection policies must be on the application to access corporate data. The policies might prompt the user to restart the application or use an additional PIN. This is the case if the policies are configured for the application and platform.
+所有 Intune 應用程式保護原則都必須在應用程式上，才能存取公司資料。 這些原則可能會提示使用者重新開機應用程式，或使用額外的 PIN。 如果已針對應用程式和平臺設定原則，就會發生這種情況。
 
 ### <a name="configuration"></a>組態
 
-**Step 1: Configure an Azure AD Conditional Access policy for Exchange Online**
+**步驟1：設定 Exchange Online 的 Azure AD 條件式存取原則**
 
-For the Conditional Access policy in this step, configure the following components:
+針對此步驟中的條件式存取原則，請設定下列元件：
 
 ![條件式存取](./media/app-protection-based-conditional-access/01.png)
 
-1. Enter the name of your Conditional Access policy.
-1. Under **Assignments**, in **Users and groups**, select at least one user or group for each Conditional Access policy.
-1. In **Cloud apps**, select **Office 365 Exchange Online**.
+1. 輸入條件式存取原則的名稱。
+1. 在 [**指派**] 底下的 [**使用者和群組**] 中，為每個條件式存取原則至少選取一個使用者或群組。
+1. 在 [**雲端應用程式**] 中，選取 [ **Office 365 Exchange Online**]。
 
    ![條件式存取](./media/app-protection-based-conditional-access/07.png)
 
-1. In **Conditions**, configure **Device platforms** and **Client apps (preview)** :
-   1. In **Device platforms**, select **Android** and **iOS**.
+1. 在 [**條件**] 中，設定**裝置平臺**和**用戶端應用程式（預覽）** ：
+   1. 在 [**裝置平臺**] 中，選取 [ **Android**和**iOS**]。
 
       ![條件式存取](./media/app-protection-based-conditional-access/03.png)
 
-   1. In **Client apps (preview)** , select **Mobile apps and desktop clients** and **Modern authentication clients**.
+   1. 在**用戶端應用程式（預覽）** 中，選取 行動裝置**應用程式和桌面用戶端**和**新式驗證用戶端**
 
       ![條件式存取](./media/app-protection-based-conditional-access/91.png)
 
-1. Under **Access controls**, select **Require app protection policy (preview)** .
+1. 在 [**存取控制**] 底下，選取 **[需要應用程式保護原則（預覽）** ]。
 
    ![條件式存取](./media/app-protection-based-conditional-access/05.png)
 
-**Step 2: Configure an Azure AD Conditional Access policy for Exchange Online with ActiveSync (EAS)**
+**步驟2：使用 ActiveSync （EAS）設定適用于 Exchange Online 的 Azure AD 條件式存取原則**
 
-For the Conditional Access policy in this step, configure the following components:
+針對此步驟中的條件式存取原則，請設定下列元件：
 
 ![條件式存取](./media/app-protection-based-conditional-access/06.png)
 
-1. Enter the name of your Conditional Access policy.
-1. Under **Assignments**, in **Users and groups**, select at least one user or group for each Conditional Access policy.
-1. In **Cloud apps**, select **Office 365 Exchange Online**.
+1. 輸入條件式存取原則的名稱。
+1. 在 [**指派**] 底下的 [**使用者和群組**] 中，為每個條件式存取原則至少選取一個使用者或群組。
+1. 在 [**雲端應用程式**] 中，選取 [ **Office 365 Exchange Online**]。
 
    ![條件式存取](./media/app-protection-based-conditional-access/07.png)
 
-1. In **Conditions**, configure **Client apps (preview)** . 
+1. 在 [**條件**] 中，設定**用戶端應用程式（預覽）** 。 
 
-   1. In **Client apps (preview)** , select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
+   1. 在**用戶端應用程式（預覽）** 中，選取 行動裝置**應用程式和桌面用戶端**和**Exchange ActiveSync 用戶端**
 
       ![條件式存取](./media/app-protection-based-conditional-access/92.png)
 
-   1. Under **Access controls**, select **Require app protection policy (preview)** .
+   1. 在 [**存取控制**] 底下，選取 **[需要應用程式保護原則（預覽）** ]。
 
       ![條件式存取](./media/app-protection-based-conditional-access/05.png)
 
-**Step 3: Configure Intune app protection policy for iOS and Android client applications**
+**步驟3：設定適用于 iOS 和 Android 用戶端應用程式的 Intune 應用程式保護原則**
 
 ![條件式存取](./media/app-protection-based-conditional-access/09.png)
 
-For more information, see [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
+如需詳細資訊，請參閱[使用 Microsoft Intune 保護應用程式和資料](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune)。
 
-## <a name="app-protection-based-or-compliant-device-policy-for-exchange-online"></a>App protection-based or compliant device policy for Exchange Online
+## <a name="app-protection-based-or-compliant-device-policy-for-exchange-online"></a>適用于 Exchange Online 的以應用程式保護為基礎或相容的裝置原則
 
-This scenario consists of an app protection-based or compliant device Conditional Access policy for access to Exchange Online.
+此案例包含以應用程式保護為基礎或相容的裝置條件式存取原則，以存取 Exchange Online。
 
 ### <a name="scenario-playbook"></a>情節腳本
 
 此情節假設：
  
-- A user is already enrolled, with or without corporate devices.
-- Users who aren't enrolled and registered with Azure AD by using an app protected application need to register a device to access resources.
-- Enrolled users who use the app protected application don't have to re-register the device.
-- The user can receive an Intune app protection policy if not enrolled.
-- The user can access email with Outlook and an Intune app protection policy if not enrolled.
-- The user can access email with Outlook if the device is enrolled.
+- 使用者已註冊，且有或沒有公司裝置。
+- 未使用受保護應用程式來註冊並向 Azure AD 註冊的使用者，必須註冊裝置才能存取資源。
+- 使用受保護應用程式的已註冊使用者不需要重新註冊裝置。
+- 使用者可以接收 Intune 應用程式保護原則（若未註冊）。
+- 如果未註冊，使用者就可以使用 Outlook 和 Intune 應用程式保護原則來存取電子郵件。
+- 如果裝置已註冊，使用者就可以使用 Outlook 來存取電子郵件。
 
 ### <a name="configuration"></a>組態
 
-**Step 1: Configure an Azure AD Conditional Access policy for Exchange Online**
+**步驟1：設定 Exchange Online 的 Azure AD 條件式存取原則**
 
-For the Conditional Access policy in this step, configure the following components:
+針對此步驟中的條件式存取原則，請設定下列元件：
 
 ![條件式存取](./media/app-protection-based-conditional-access/62.png)
 
-1. Enter the name of your Conditional Access policy.
-1. Under **Assignments**, in **Users and groups**, select at least one user or group for each Conditional Access policy.
-1. In **Cloud apps**, select **Office 365 Exchange Online**. 
+1. 輸入條件式存取原則的名稱。
+1. 在 [**指派**] 底下的 [**使用者和群組**] 中，為每個條件式存取原則至少選取一個使用者或群組。
+1. 在 [**雲端應用程式**] 中，選取 [ **Office 365 Exchange Online**]。 
 
    ![條件式存取](./media/app-protection-based-conditional-access/07.png)
 
-1. In **Conditions**, configure **Device platforms** and **Client apps (preview)** . 
+1. 在 [**條件**] 中，設定**裝置平臺**和**用戶端應用程式（預覽）** 。 
  
-   1. In **Device platforms**, select **Android** and **iOS**.
+   1. 在 [**裝置平臺**] 中，選取 [ **Android**和**iOS**]。
 
       ![條件式存取](./media/app-protection-based-conditional-access/03.png)
 
-   1. In **Client apps (preview)** , select **Mobile apps and desktop clients** and **Modern authentication clients**.
+   1. 在**用戶端應用程式（預覽）** 中，選取 行動裝置**應用程式和桌面用戶端**和**新式驗證用戶端**
 
       ![條件式存取](./media/app-protection-based-conditional-access/91.png)
 
-5. Under **Access controls**, select the following options:
+5. 在 [**存取控制**] 底下，選取下列選項：
    - [裝置需要標記為合規]
-   - **Require app protection policy (preview)**
+   - **需要應用程式保護原則（預覽）**
    - [需要其中一個選取的控制項]   
  
       ![條件式存取](./media/app-protection-based-conditional-access/11.png)
 
-**Step 2: Configure an Azure AD Conditional Access policy for Exchange Online with ActiveSync**
+**步驟2：使用 ActiveSync 設定 Exchange Online 的 Azure AD 條件式存取原則**
 
-For the Conditional Access policy in this step, configure the following components:
+針對此步驟中的條件式存取原則，請設定下列元件：
 
 ![條件式存取](./media/app-protection-based-conditional-access/06.png)
 
-1. Enter the name of your Conditional Access policy.
-1. Under **Assignments**, in **Users and groups**, select at least one user or group for each Conditional Access policy.
-1. In **Cloud apps**, select **Office 365 Exchange Online**. 
+1. 輸入條件式存取原則的名稱。
+1. 在 [**指派**] 底下的 [**使用者和群組**] 中，為每個條件式存取原則至少選取一個使用者或群組。
+1. 在 [**雲端應用程式**] 中，選取 [ **Office 365 Exchange Online**]。 
 
    ![條件式存取](./media/app-protection-based-conditional-access/07.png)
 
-1. In **Conditions**, configure **Client apps (preview)** . 
+1. 在 [**條件**] 中，設定**用戶端應用程式（預覽）** 。 
 
-   In **Client apps (preview)** , select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
+   在**用戶端應用程式（預覽）** 中，選取 行動裝置**應用程式和桌面用戶端**和**Exchange ActiveSync 用戶端**
 
    ![條件式存取](./media/app-protection-based-conditional-access/92.png)
 
-1. Under **Access controls**, select the following options:
+1. 在 [**存取控制**] 底下，選取下列選項：
    - [裝置需要標記為合規]
-   - **Require app protection policy (preview)**
+   - **需要應用程式保護原則（預覽）**
    - [需要其中一個選取的控制項]
 
       ![條件式存取](./media/app-protection-based-conditional-access/11.png)
 
-**Step 3: Configure Intune app protection policy for iOS and Android client applications**
+**步驟3：設定適用于 iOS 和 Android 用戶端應用程式的 Intune 應用程式保護原則**
 
 ![條件式存取](./media/app-protection-based-conditional-access/09.png)
 
-For more information, see [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
+如需詳細資訊，請參閱[使用 Microsoft Intune 保護應用程式和資料](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune)。
 
-## <a name="app-protection-based-and-compliant-device-policy-for-exchange-online"></a>App protection-based and compliant device policy for Exchange Online
+## <a name="app-protection-based-and-compliant-device-policy-for-exchange-online"></a>適用于 Exchange Online 的應用程式保護型和相容裝置原則
 
-This scenario consists of an app-protection-based and compliant device Conditional Access policy for access to Exchange Online.
+此案例包含以應用程式保護為基礎且相容的裝置條件式存取原則，可存取 Exchange Online。
 
 ### <a name="scenario-playbook"></a>情節腳本
 
 此情節假設使用者：
  
-- Configures email by using a native mail application on iOS or Android to connect to Exchange.
-- Receives an email that indicates that access requires their device to be enrolled.
-- Downloads Intune Company Portal and signs in to the portal.
-- Checks mail and is asked to use the Outlook app.
-- Downloads the Outlook app.
-- Opens the Outlook app and enters the credentials used in the enrollment.
-- Can receive an Intune app protection policy.
-- Can access email with Outlook and an Intune app protection policy.
+- 使用 iOS 或 Android 上的原生郵件應用程式來設定電子郵件，以連接到 Exchange。
+- 收到電子郵件，指出存取需要註冊其裝置。
+- 下載 Intune 公司入口網站並登入入口網站。
+- 會檢查 mail，並要求使用 Outlook 應用程式。
+- 下載 Outlook 應用程式。
+- 開啟 Outlook 應用程式，並輸入註冊時所使用的認證。
+- 可以接收 Intune 應用程式保護原則。
+- 可以使用 Outlook 和 Intune 應用程式保護原則來存取電子郵件。
 
-Any Intune app protection policies are activated before access is granted to corporate data. The policies might prompt the user to restart the application or use an additional PIN. This is the case if the policies are configured for the application and platform.
+在授與公司資料的存取權之前，會啟用任何 Intune 應用程式保護原則。 這些原則可能會提示使用者重新開機應用程式，或使用額外的 PIN。 如果已針對應用程式和平臺設定原則，就會發生這種情況。
 
 ### <a name="configuration"></a>組態
 
-**Step 1: Configure an Azure AD Conditional Access policy for Exchange Online**
+**步驟1：設定 Exchange Online 的 Azure AD 條件式存取原則**
 
-For the Conditional Access policy in this step, configure the following components:
+針對此步驟中的條件式存取原則，請設定下列元件：
 
 ![條件式存取](./media/app-protection-based-conditional-access/01.png)
 
-1. Enter the name of your Conditional Access policy.
-1. Under **Assignments**, in **Users and groups**, select at least one user or group for each Conditional Access policy.
-1. In **Cloud apps**, select **Office 365 Exchange Online**. 
+1. 輸入條件式存取原則的名稱。
+1. 在 [**指派**] 底下的 [**使用者和群組**] 中，為每個條件式存取原則至少選取一個使用者或群組。
+1. 在 [**雲端應用程式**] 中，選取 [ **Office 365 Exchange Online**]。 
 
    ![條件式存取](./media/app-protection-based-conditional-access/07.png)
 
-1. In **Conditions**, configure **Device platforms** and **Client apps (preview)** . 
-   1. In **Device platforms**, select **Android** and **iOS**.
+1. 在 [**條件**] 中，設定**裝置平臺**和**用戶端應用程式（預覽）** 。 
+   1. 在 [**裝置平臺**] 中，選取 [ **Android**和**iOS**]。
 
       ![條件式存取](./media/app-protection-based-conditional-access/03.png)
 
-   1. In **Client apps (preview)** , select **Mobile apps and desktop clients** and **Modern authentication clients**.
+   1. 在**用戶端應用程式（預覽）** 中，選取 行動裝置**應用程式和桌面用戶端**和**新式驗證用戶端**
 
       ![條件式存取](./media/app-protection-based-conditional-access/91.png)
 
-1. Under **Access controls**, select the following options:
+1. 在 [**存取控制**] 底下，選取下列選項：
    - [裝置需要標記為合規]
-   - **Require app protection policy (preview)**
+   - **需要應用程式保護原則（預覽）**
    - [需要所有選取的控制項]   
  
       ![條件式存取](./media/app-protection-based-conditional-access/13.png)
 
-**Step 2: Configure an Azure AD Conditional Access policy for Exchange Online with ActiveSync**
+**步驟2：使用 ActiveSync 設定 Exchange Online 的 Azure AD 條件式存取原則**
 
-For the Conditional Access policy in this step, configure the following components:
+針對此步驟中的條件式存取原則，請設定下列元件：
 
 ![條件式存取](./media/app-protection-based-conditional-access/06.png)
 
-1. Enter the name of your Conditional Access policy.
-1. Under **Assignments**, in **Users and groups**, select at least one user or group for each Conditional Access policy.
-1. In **Cloud apps**, select **Office 365 Exchange Online**. 
+1. 輸入條件式存取原則的名稱。
+1. 在 [**指派**] 底下的 [**使用者和群組**] 中，為每個條件式存取原則至少選取一個使用者或群組。
+1. 在 [**雲端應用程式**] 中，選取 [ **Office 365 Exchange Online**]。 
 
    ![條件式存取](./media/app-protection-based-conditional-access/07.png)
 
-1. In **Conditions**, configure **Client apps (preview)** . 
+1. 在 [**條件**] 中，設定**用戶端應用程式（預覽）** 。 
 
-   In **Client apps (preview)** , select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
+   在**用戶端應用程式（預覽）** 中，選取 行動裝置**應用程式和桌面用戶端**和**Exchange ActiveSync 用戶端**
 
    ![條件式存取](./media/app-protection-based-conditional-access/92.png)
 
-1. Under **Access controls**, select the following options:
+1. 在 [**存取控制**] 底下，選取下列選項：
    - [裝置需要標記為合規]
-   - **Require app protection policy (preview)**
+   - **需要應用程式保護原則（預覽）**
    - [需要所有選取的控制項]   
  
       ![條件式存取](./media/app-protection-based-conditional-access/13.png)
 
-**Step 3: Configure Intune app protection policy for iOS and Android client applications**
+**步驟3：設定適用于 iOS 和 Android 用戶端應用程式的 Intune 應用程式保護原則**
 
 ![條件式存取](./media/app-protection-based-conditional-access/09.png)
 
-For more information, see [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
+如需詳細資訊，請參閱[使用 Microsoft Intune 保護應用程式和資料](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune)。
 
-## <a name="app-protection-based-or-app-based-policy-for-exchange-online-and-sharepoint-online"></a>App protection-based or app-based policy for Exchange Online and SharePoint Online
+## <a name="app-protection-based-or-app-based-policy-for-exchange-online-and-sharepoint-online"></a>適用于 Exchange Online 和 SharePoint Online 的應用程式保護型或以應用程式為基礎的原則
 
-This scenario consists of an app protection-based or approved apps policy for access to Exchange Online and SharePoint Online.
+此案例包含以應用程式保護為基礎或已核准的應用程式原則，可存取 Exchange Online 和 SharePoint Online。
 
 ### <a name="scenario-playbook"></a>情節腳本
 
 此情節假設使用者：
 
-- Configures client applications that are either on the list of apps that support the app protection policy requirement or the approved apps requirement.  
-- Uses client applications that meet the app protection policy requirement and can receive an Intune app protection policy.
-- Uses client applications that meet the approved apps policy requirement that supports Intune app protection policy.
-- Opens the application to access email or documents.
-- Opens the Outlook application and signs in with Azure AD credentials.
-- Is prompted to install either Microsoft Authenticator for iOS use or Intune Company Portal for Android use if they're not already installed.
-- Installs the application and can return to the Outlook app to continue.
-- Is prompted to register a device.
-- Can receive an Intune app protection policy.
-- Can access email with Outlook and an Intune app protection policy.
-- Can access sites and documents with an app not on the app protection policy requirement but listed in the approved app requirement.
+- 設定用戶端應用程式，其位於支援應用程式保護原則需求或已核准應用程式需求的應用程式清單上。  
+- 會使用符合應用程式保護原則需求的用戶端應用程式，並可接收 Intune 應用程式保護原則。
+- 使用符合支援 Intune 應用程式保護原則之已核准應用程式原則需求的用戶端應用程式。
+- 開啟應用程式，以存取電子郵件或檔。
+- 開啟 Outlook 應用程式，並使用 Azure AD 認證登入。
+- 系統會提示您安裝適用于 iOS 的 Microsoft Authenticator，或 Intune 公司入口網站適用于 Android 使用（如果尚未安裝）。
+- 會安裝應用程式，並可返回 Outlook 應用程式繼續進行。
+- 系統會提示您註冊裝置。
+- 可以接收 Intune 應用程式保護原則。
+- 可以使用 Outlook 和 Intune 應用程式保護原則來存取電子郵件。
+- 可以使用應用程式來存取網站和檔，而不是應用程式保護原則需求，但在已核准的應用程式需求中列出。
 
-Any Intune app protection policies are required before access is granted to corporate data. The policies might prompt the user to restart the application or use an additional PIN. This is the case if the policies are configured for the application and platform.
+在授與公司資料的存取權之前，所有 Intune 應用程式保護原則都是必要的。 這些原則可能會提示使用者重新開機應用程式，或使用額外的 PIN。 如果已針對應用程式和平臺設定原則，就會發生這種情況。
 
 **備註**
 
-- You can use this scenario if you want to support both app protection-based and app-based Conditional Access policies.
-- In this *OR* policy, apps with an app protection policy requirement are evaluated for access first before the approved client apps requirement.
+- 如果您想要同時支援以應用程式保護為基礎和以應用程式為基礎的條件式存取原則，您可以使用此案例。
+- 在此*原則*中，必須先評估具有應用程式保護原則需求的應用程式，以取得核准的用戶端應用程式需求之前的存取權。
 
 ### <a name="configuration"></a>組態
 
-**Step 1: Configure an Azure AD Conditional Access policy for Exchange Online**
+**步驟1：設定 Exchange Online 的 Azure AD 條件式存取原則**
 
-For the Conditional Access policy in this step, configure the following components:
+針對此步驟中的條件式存取原則，請設定下列元件：
 
 ![條件式存取](./media/app-protection-based-conditional-access/62.png)
 
-1. Enter the name of your Conditional Access policy.
-1. Under **Assignments**, in **Users and groups**, select at least one user or group for each Conditional Access policy.
-1. In **Cloud apps**, select **Office 365 Exchange Online**. 
+1. 輸入條件式存取原則的名稱。
+1. 在 [**指派**] 底下的 [**使用者和群組**] 中，為每個條件式存取原則至少選取一個使用者或群組。
+1. 在 [**雲端應用程式**] 中，選取 [ **Office 365 Exchange Online**]。 
 
    ![條件式存取](./media/app-protection-based-conditional-access/02.png)
 
-1. In **Conditions**, configure **Device platforms** and **Client apps (preview)** . 
-   1. In **Device platforms**, select **Android** and **iOS**.
+1. 在 [**條件**] 中，設定**裝置平臺**和**用戶端應用程式（預覽）** 。 
+   1. 在 [**裝置平臺**] 中，選取 [ **Android**和**iOS**]。
 
       ![條件式存取](./media/app-protection-based-conditional-access/03.png)
 
-   1. In **Client apps (preview)** , select **Mobile apps and desktop clients** and **Modern authentication clients**.
+   1. 在**用戶端應用程式（預覽）** 中，選取 行動裝置**應用程式和桌面用戶端**和**新式驗證用戶端**
 
       ![條件式存取](./media/app-protection-based-conditional-access/91.png)
 
-1. Under **Access controls**, select the following options:
-   - **Require approved client app**
-   - **Require app protection policy (preview)**
+1. 在 [**存取控制**] 底下，選取下列選項：
+   - **需要核准的用戶端應用程式**
+   - **需要應用程式保護原則（預覽）**
    - [需要其中一個選取的控制項]
  
       ![條件式存取](./media/app-protection-based-conditional-access/12.png)
 
-**Step 2: Configure Intune app protection policy for iOS and Android client applications**
+**步驟2：設定適用于 iOS 和 Android 用戶端應用程式的 Intune 應用程式保護原則**
 
 ![條件式存取](./media/app-protection-based-conditional-access/09.png)
 
-For more information, see [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
+如需詳細資訊，請參閱[使用 Microsoft Intune 保護應用程式和資料](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune)。
 
 ## <a name="next-steps"></a>後續步驟
 
 - 如果您想要知道如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](app-based-mfa.md)。
-- If you're ready to configure Conditional Access policies for your environment, see [Best practices for Conditional Access in Azure Active Directory](best-practices.md).
+- 如果您已經準備好設定環境的條件式存取原則，請參閱[Azure Active Directory 中條件式存取的最佳做法](best-practices.md)。

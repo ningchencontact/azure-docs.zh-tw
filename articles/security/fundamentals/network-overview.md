@@ -158,7 +158,7 @@ Azure 網路支援下列安全遠端存取案例︰
 
 您可能想要讓個別的開發人員或操作人員在 Azure 中管理虛擬機器和服務。 例如，假設您需要存取虛擬網路上的虛擬機器。 但您的安全性原則不允許以 RDP 或 SSH 方式遠端存取個別虛擬機器。 在此情況下，您可以使用[點對站 VPN](../../vpn-gateway/point-to-site-about.md) 連線。
 
-點對站 VPN 連線可讓您在使用者與虛擬網路之間設定私人的安全連線。 建立 VPN 連線時，使用者可以透過 VPN 連結以 RDP 或 SSH 方式連線到虛擬網路上的任何虛擬機器 (This assumes that the user can authenticate and is authorized.) Point-to-site VPN supports:
+點對站 VPN 連線可讓您在使用者與虛擬網路之間設定私人的安全連線。 建立 VPN 連線時，使用者可以透過 VPN 連結以 RDP 或 SSH 方式連線到虛擬網路上的任何虛擬機器 （這會假設使用者可以驗證並獲得授權）。點對站 VPN 支援：
 
 * 安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎的專屬 VPN 通訊協定。 SSL VPN 解決方案可以穿透防火牆，因為大部分防火牆都會開啟 SSL 使用的 TCP 連接埠 443。 SSTP 僅在 Microsoft 裝置上提供支援。 Azure 支援所有具有 SSTP (Windows 7 及更新版本) 的 Windows 版本。
 
@@ -322,10 +322,10 @@ Microsoft 提供在 Azure 平台中名為**基本**的 DDoS 保護。 此功能�
 * **永遠可用流量監視：** 您的應用程式流量模式受到全年無休的全天候監視，以尋找 DDoS 攻擊的指標。 超出保護原則時，就會執行安全防護功能。
 * **攻擊風險降低報**攻擊風險降低報告會使用彙總的網路流量資料，提供有關以您資源為目標的攻擊詳細資訊。
 * **攻擊風險降低流程記錄**攻擊風險降低流程記錄可讓您在作用中 DDoS 攻擊期間，近乎即時地查看丟棄的流量、轉送的流量及其他相關攻擊資料。
-* **Adaptive tuning:** Intelligent traffic profiling learns your application's traffic over time, and selects and updates the profile that is the most suitable for your service. 設定檔會隨著時間調整流量變更。 第 3 層至第 7 層保護：搭配 Web 應用程式防火牆使用時，可提供完整的堆疊 DDoS 保護。
+* **調適型微調：** 智慧型流量分析會在一段時間內學習您的應用程式流量，並選取及更新最適合您服務的設定檔。 設定檔會隨著時間調整流量變更。 第 3 層至第 7 層保護：搭配 Web 應用程式防火牆使用時，可提供完整的堆疊 DDoS 保護。
 * **廣泛的安全防護範圍：** 可利用全域功能降低超過 60 種不同攻擊類型的風險，以抵禦最大的已知 DDoS 攻擊。
 * **攻擊計量：** 透過 Azure 監視器可以存取每個攻擊的摘要計量。
-* **Attack alerting:** Alerts can be configured at the start and stop of an attack, and over the attack's duration, using built-in attack metrics. Alerts integrate into your operational software like Microsoft Azure Monitor logs, Splunk, Azure Storage, Email, and the Azure portal.
+* **攻擊警示：** 警示可以在開始和停止攻擊時設定，並在攻擊的持續時間內使用內建攻擊計量。 警示會整合到您的作業軟體，例如 Microsoft Azure 監視器記錄、Splunk、Azure 儲存體、電子郵件和 Azure 入口網站。
 * **成本保證：** 資料傳輸和應用程式相應放大服務會針對記載的 DDoS 攻擊計算點數。
 * **DDoS 快速回應**標準 DDoS 保護的客戶現在可以在攻擊進行期間，連絡 Rapid Response 小組。 DRR 可協助您在攻擊發生期間調查攻擊和自訂移轉，以及進行攻擊後的分析。
 
@@ -383,7 +383,7 @@ Azure 資訊安全中心可協助您預防、偵測和回應威脅，並加強�
 
 * [Azure 資訊安全中心簡介](../../security-center/security-center-intro.md)
 
-### <a name="virtual-network-tap"></a>Virtual Network TAP
+### <a name="virtual-network-tap"></a>虛擬網路 TAP
 
 Azure 虛擬網路 TAP (終端機存取點) 可讓您持續將虛擬機器網路流量串流到網路封包收集器或分析工具。 收集器或分析工具是由網路虛擬設備合作夥伴所提供。 您可以使用相同的虛擬網路 TAP 資源，以從相同或不同訂用帳戶中的多個網路介面彙總流量。
 
@@ -402,4 +402,4 @@ Azure 虛擬網路 TAP (終端機存取點) 可讓您持續將虛擬機器網路
 您也可以使用 [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/) (功能強大的資料視覺化工具) 來檢視和分析這些記錄。
 深入了解：
 
-* [Azure Monitor logs for Network Security Groups (NSGs)](../../virtual-network/virtual-network-nsg-manage-log.md)
+* [網路安全性群組（Nsg）的 Azure 監視器記錄](../../virtual-network/virtual-network-nsg-manage-log.md)

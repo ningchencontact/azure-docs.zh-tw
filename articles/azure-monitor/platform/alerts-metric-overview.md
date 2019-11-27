@@ -28,16 +28,16 @@ Azure 監視器中的計量警示以多維度計量為基礎運作。 這些計�
 
 - 目標資源 (您要監視的 Azure 資源)：myVM
 - 計量：CPU 百分比
-- Condition Type: Static
-- 時間彙總 (針對未經處理的計量值執行的統計資料。 Supported time aggregations are Min, Max, Avg, Total, Count): Average
-- Period (The look back window over which metric values are checked): Over the last 5 mins
-- Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
-- Operator: Greater Than
+- 條件類型：靜態
+- 時間彙總 (針對未經處理的計量值執行的統計資料。 支援的時間匯總為最小值、最大值、平均、總計、計數）：平均
+- 期間（檢查計量值的 [回顧] 視窗）：過去5分鐘內
+- 頻率（計量警示檢查條件是否符合的頻率）：1分鐘
+- 運算子：大於
 - 閾值：70
 
 從警示規則建立後開始，監視器會每隔 1 分鐘執行一次，並查看過去 5 分鐘的計量值，以及檢查這些值的平均是否超過 70。 如果條件符合，也就是說過去 5 分鐘的 CPU 百分比平均超過 70，則警示規則會引發啟動通知。 如果您已在與警示規則相關聯的動作群組中設定電子郵件或 Webhook 動作，您會收到兩者的啟動通知。
 
-When you are using multiple conditions in one rule, the rule "ands" the conditions together.  That is, the alert fires when all the conditions in the alert evaluate as true and resolve when one of the conditions is no longer true. And example of this type of alert would be alert when "CPU higher than 90%" and "queue length is over 300 items". 
+當您在一個規則中使用多個條件時，規則會將條件「and」在一起。  也就是說，當警示中的所有條件都評估為 true 時，就會引發警示，並在其中一個條件不再為 true 時解決。 這種警示類型的範例會在「CPU 高於90%」和「佇列長度超過300個專案」時發出警示。 
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>具有動態條件類型的警示規則
 
@@ -45,14 +45,14 @@ When you are using multiple conditions in one rule, the rule "ands" the conditio
 
 - 目標資源 (您要監視的 Azure 資源)：myVM
 - 計量：CPU 百分比
-- Condition Type: Dynamic
-- 時間彙總 (針對未經處理的計量值執行的統計資料。 Supported time aggregations are Min, Max, Avg, Total, Count): Average
-- Period (The look back window over which metric values are checked): Over the last 5 mins
-- Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
-- Operator: Greater Than
-- Sensitivity: Medium
-- Look Back Periods: 4
-- Number of Violations: 4
+- 條件類型：動態
+- 時間彙總 (針對未經處理的計量值執行的統計資料。 支援的時間匯總為最小值、最大值、平均、總計、計數）：平均
+- 期間（檢查計量值的 [回顧] 視窗）：過去5分鐘內
+- 頻率（計量警示檢查條件是否符合的頻率）：1分鐘
+- 運算子：大於
+- 敏感度：中
+- 回顧週期：4
+- 違規次數：4
 
 在警示規則建立後，動態閾值機器學習演算法會取得可用的歷史資料，計算最符合計量序列行為模式的閾值，並且根據新資料持續學習，讓閾值更準確。
 
@@ -64,7 +64,7 @@ When you are using multiple conditions in one rule, the rule "ands" the conditio
 
 假設在後續檢查中，"myVM" 上的使用量一直高於閾值，除非解決該情況，否則不會再次引發警示規則。
 
-After some time, the usage on "myVM" comes back down to normal (goes below the threshold). 警示規則會再監視該條件兩次，以傳送解決通知。 當連續三個期間的警示條件都不符合時，警示規則會傳送已解決/停用訊息，以減少不穩定情況下的雜訊。
+經過一段時間後，"myVM" 上的使用量就會恢復正常狀態（低於閾值）。 警示規則會再監視該條件兩次，以傳送解決通知。 當連續三個期間的警示條件都不符合時，警示規則會傳送已解決/停用訊息，以減少不穩定情況下的雜訊。
 
 透過 Webhook 或電子郵件傳送已解決通知時，Azure 入口網站中警示執行個體的狀態 (稱為監視器狀態)，也會設定為已解決。
 
@@ -76,7 +76,7 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 
 - 目標資源：myAppServicePlan
 - 計量：CPU 百分比
-- Condition Type: Static
+- 條件類型：靜態
 - 維度
   - 執行個體 = InstanceName1、InstanceName2
 - 時間彙總：平均
@@ -91,7 +91,7 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 
 - 目標資源：myAppServicePlan
 - 計量：CPU 百分比
-- Condition Type: Static
+- 條件類型：靜態
 - 維度
   - 執行個體 = *
 - 時間彙總：平均
@@ -108,16 +108,16 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 
 - 目標資源：myAppServicePlan
 - 計量：CPU 百分比
-- Condition Type: Dynamic
+- 條件類型：動態
 - 維度
   - 執行個體 = *
 - 時間彙總：平均
 - 期間 = 過去 5 分鐘內
 - 頻率：1 分鐘
 - 運算子：大於
-- Sensitivity: Medium
-- Look Back Periods: 1
-- Number of Violations: 1
+- 敏感度：中
+- 回顧期間：1
+- 違規次數：1
 
 此規則會監視過去 5 分鐘的平均 CPU 使用量是否超過每個執行個體的預期行為。 同樣地，您可以在執行個體顯示時監視，而不需要再次修改計量警示規則。 每個執行個體都會取得符合計量序列行為模式的閾值，並且根據新資料持續變更，使閾值更為精確。 同樣地，每個執行個體都個別受到監視，而您也會個別得到通知。
 

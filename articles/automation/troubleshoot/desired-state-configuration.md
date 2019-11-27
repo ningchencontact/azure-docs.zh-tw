@@ -20,36 +20,36 @@ ms.locfileid: "74231545"
 
 本文提供有關針對 Desired State Configuration (DSC) 問題進行疑難排解的資訊。
 
-## <a name="steps-to-troubleshoot-desired-state-configuration-dsc"></a>Steps to troubleshoot Desired State Configuration (DSC)
+## <a name="steps-to-troubleshoot-desired-state-configuration-dsc"></a>疑難排解 Desired State Configuration 的步驟（DSC）
 
-When you have errors compiling or deploying configurations in Azure State Configuration, here are a few steps to help you diagnose the issue.
+當您在 Azure 狀態設定中編譯或部署設定發生錯誤時，以下是可協助您診斷問題的幾個步驟。
 
-1. **Ensure your configuration compiles successfully on your local machine:**  Azure State Configuration is built on PowerShell DSC. You can find the documentation for the DSC language and syntax in the [PowerShell DSC Docs](https://docs.microsoft.com/powershell/scripting/overview).
+1. **請確定您的設定在本機電腦上成功編譯：** Azure 狀態設定建置於 PowerShell DSC 上。 您可以在[POWERSHELL dsc](https://docs.microsoft.com/powershell/scripting/overview)檔中找到 DSC 語言和語法的檔。
 
-   By compiling your DSC configuration on your local machine you can discover and resolve common errors, such as:
+   藉由在本機電腦上編譯 DSC 設定，您可以探索並解決常見錯誤，例如：
 
-   - **Missing Modules**
-   - **Syntax Errors**
-   - **Logic Errors**
+   - **遺失的模組**
+   - **語法錯誤**
+   - **邏輯錯誤**
 
-2. **View DSC logs on your Node:** If your configuration compiles successfully, but fails when applied to a Node, you can find detailed information in the logs. For information about where to find DSC logs, see [Where are the DSC Event Logs](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
+2. **在您的節點上查看 DSC 記錄：** 如果您的設定成功編譯，但套用至節點時失敗，您可以在記錄檔中找到詳細資訊。 如需有關哪裡可以找到 DSC 記錄的資訊，請參閱[Dsc 事件記錄檔的位置](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs)。
 
-   Furthermore, the [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) can assist you in parsing detailed information from the DSC logs. If you contact support, they will require these logs to diagnose your issue.
+   此外， [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics)可協助您剖析來自 DSC 記錄檔的詳細資訊。 如果您聯繫支援人員，他們將需要這些記錄來診斷您的問題。
 
-   You can install **xDscDiagnostics** on your local machine using the instructions found under [Install the stable version module](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
+   您可以使用[安裝穩定版本模組](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module)底下找到的指示，在本機電腦上安裝**xDscDiagnostics** 。
 
-   To install **xDscDiagnostics** on your Azure machine, you can use [az vm run-command](/cli/azure/vm/run-command) or [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). You can also use the **Run command** option from the portal, by following the steps found in [Run PowerShell scripts in your Windows VM with Run Command](../../virtual-machines/windows/run-command.md).
+   若要在您的 Azure 電腦上安裝**xDscDiagnostics** ，您可以使用[az vm run-command](/cli/azure/vm/run-command)或[Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)。 您也可以[依照在具有執行命令的 WINDOWS VM 中執行 PowerShell 腳本](../../virtual-machines/windows/run-command.md)中的步驟，使用入口網站中的 [**執行命令**] 選項。
 
-   For information on using **xDscDiagnostics**, see [Using xDscDiagnostics to analyze DSC logs](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), as well as [xDscDiagnostics Cmdlets](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
-3. **Ensure your Nodes and Automation workspace have the required modules:** Desired State Configuration depends on modules installed on the Node.  When using Azure Automation State Configuration, import any required modules into your automation account using the steps listed in [Import Modules](../shared-resources/modules.md#import-modules). Configurations can also have a dependency on specific versions of modules.  For more information, see, [Troubleshoot Modules](shared-resources.md#modules).
+   如需使用**xDscDiagnostics**的詳細資訊，請參閱[使用 XDSCDIAGNOSTICS 來分析 DSC 記錄](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs)檔，以及[xDscDiagnostics Cmdlet](https://github.com/PowerShell/xDscDiagnostics#cmdlets)。
+3. **請確定您的節點和自動化工作區具有必要的模組：** Desired State Configuration 取決於節點上安裝的模組。  使用 Azure 自動化狀態設定時，請使用匯[入模組](../shared-resources/modules.md#import-modules)中列出的步驟，將任何必要的模組匯入到您的自動化帳戶。 設定也可能相依于特定版本的模組。  如需詳細資訊，請參閱[疑難排解模組](shared-resources.md#modules)。
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>使用 Desired State Configuration (DSC) 時的常見錯誤
 
-### <a name="unsupported-characters"></a>Scenario: A configuration with special characters cannot be deleted from the portal
+### <a name="unsupported-characters"></a>案例：無法從入口網站刪除具有特殊字元的設定
 
 #### <a name="issue"></a>問題
 
-When attempting to delete a DSC configuration from the portal, you see the following error:
+嘗試從入口網站刪除 DSC 設定時，您會看到下列錯誤：
 
 ```error
 An error occurred while deleting the DSC configuration '<name>'.  Error-details: The argument configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
@@ -57,19 +57,19 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 #### <a name="cause"></a>原因
 
-This error is a temporary issue that is planned to be resolved.
+此錯誤是計畫要解決的暫時性問題。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
-* Use the Az Cmdlet "Remove-AzAutomationDscConfiguration" to delete the configuration.
-* The documentation for this cmdlet hasn't been updated yet.  Until then, refer to the documentation for the AzureRM module.
-  * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
+* 使用 Az Cmdlet "Remove-AzAutomationDscConfiguration" 來刪除設定。
+* 此 Cmdlet 的檔尚未更新。  在那之前，請參閱 AzureRM 模組的檔。
+  * [移除-Export-azurermautomationdscconfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
-### <a name="failed-to-register-agent"></a>Scenario: Failed to register Dsc Agent
+### <a name="failed-to-register-agent"></a>案例：無法註冊 Dsc 代理程式
 
 #### <a name="issue"></a>問題
 
-When attempting to run `Set-DscLocalConfigurationManager` or another DSC cmdlet you receive the error:
+嘗試執行 `Set-DscLocalConfigurationManager` 或另一個 DSC Cmdlet 時，您會收到錯誤：
 
 ```error
 Registration of the Dsc Agent with the server
@@ -84,11 +84,11 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 #### <a name="cause"></a>原因
 
-This error is normally caused by a firewall, the machine being behind a proxy server, or other network errors.
+此錯誤通常是由防火牆、位於 proxy 伺服器後方的電腦，或其他網路錯誤所造成。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
-Verify your machine has access to the proper endpoints for Azure Automation DSC and try again. For a list of ports and addresses needed, see [network planning](../automation-dsc-overview.md#network-planning)
+請確認您的電腦可存取適當的 Azure 自動化 DSC 端點，然後再試一次。 如需所需的埠和地址清單，請參閱[網路規劃](../automation-dsc-overview.md#network-planning)
 
 ### <a name="failed-not-found"></a>案例：節點處於失敗狀態，並發生「找不到」錯誤
 
@@ -104,13 +104,13 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 
 此錯誤通常發生在將節點指派給設定名稱 (例如 ABC)，而不是指派給節點設定名稱 (例如 ABC.WebServer) 的情況下。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
-* Make sure that you're assigning the node with "node configuration name" and not the "configuration name".
+* 請確定您指派的節點具有「節點設定名稱」，而不是「設定名稱」。
 * 您可以使用 Azure 入口網站或使用 PowerShell Cmdlet，將節點組態指派至節點。
 
-  * To assign a node configuration to a node using Azure portal, open the **DSC Nodes** page, then select a node and click on **Assign node configuration** button.
-  * To assign a node configuration to a node using PowerShell cmdlet, use **Set-AzureRmAutomationDscNode** cmdlet
+  * 若要使用 Azure 入口網站將節點設定指派給節點，請開啟 [ **DSC 節點**] 頁面，然後選取一個節點，再按一下 [**指派節點**設定] 按鈕。
+  * 若要使用 PowerShell Cmdlet 將節點設定指派給節點，請使用**unregister-azurermautomationdscnode** Cmdlet
 
 ### <a name="no-mof-files"></a>案例：編譯設定時，沒有產生任何節點設定 (MOF 檔案)
 
@@ -126,11 +126,11 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 當 DSC 設定中緊接在 **Node** 關鍵字後面的運算式評估為 `$null` 時，便不會產生任何節點設定。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
 下列任何一個解決方案都可以修正此問題：
 
-* Make sure that the expression next to the **Node** keyword in the configuration definition isn't evaluating to $null.
+* 請確定設定定義中**Node**關鍵字旁的運算式未評估為 $null。
 * 如果您在編譯組態時傳遞 ConfigurationData，請確定您傳遞的是組態向 [ConfigurationData](../automation-dsc-compile.md)要求的預期值。
 
 ### <a name="dsc-in-progress"></a>案例：DSC 節點報告變成停留在「進行中」狀態
@@ -147,9 +147,9 @@ No instance found with given property values
 
 您已將 WMF 版本升級，且有損毀的 WMI。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
-To fix the issue, follow the instructions in the [DSC known issues and limitations](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc) article.
+若要修正此問題，請依照[DSC 已知問題和限制](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc)一文中的指示進行。
 
 ### <a name="issue-using-credential"></a>案例：無法在 DSC 設定中使用認證
 
@@ -163,17 +163,17 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 #### <a name="cause"></a>原因
 
-You've used a credential in a configuration but didn’t provide proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration.
+您已在設定中使用認證，但未提供適當的**ConfigurationData** ，將每個節點設定的**PSDscAllowPlainTextPassword**設為 true。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
-* Make sure to pass in the proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration that is mentioned in the configuration. 如需詳細資訊，請參閱 [Azure 自動化 DSC 中的資產](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation)。
+* 請務必傳入適當的**ConfigurationData** ，以針對設定中所述的每個節點設定，將**PSDscAllowPlainTextPassword**設為 true。 如需詳細資訊，請參閱 [Azure 自動化 DSC 中的資產](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation)。
 
-### <a name="failure-processing-extension"></a>Scenario: Onboarding from dsc extension, "Failure processing extension" error
+### <a name="failure-processing-extension"></a>案例：從 dsc 延伸模組上線，「失敗處理延伸模組」錯誤
 
 #### <a name="issue"></a>問題
 
-When onboarding using DSC extension, a failure occurs containing the error:
+當使用 DSC 延伸模組上線時，會發生失敗，其中包含錯誤：
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -181,18 +181,18 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 #### <a name="cause"></a>原因
 
-This error typically occurs when the node is assigned a node configuration name that does not exist in the service.
+當節點指派的節點設定名稱不存在於服務中時，通常會發生此錯誤。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
-* Make sure that you're assigning the node with a node configuration name that exactly matches the name in the service.
-* You can choose to not include the node configuration name, which will result in onboarding the node but not assigning a node configuration
+* 請確定您所指派的節點的節點設定名稱與服務中的名稱完全相符。
+* 您可以選擇不包含節點設定名稱，這會導致節點上架，但不會指派節點設定
 
-### <a name="failure-linux-temp-noexec"></a>Scenario: Applying a configuration in Linux, a failure occurs with a general error
+### <a name="failure-linux-temp-noexec"></a>案例：在 Linux 中套用設定，發生一般錯誤時失敗
 
 #### <a name="issue"></a>問題
 
-When applying a configuration in Linux, a failure occurs containing the error:
+在 Linux 中套用設定時，會發生失敗，其中包含錯誤：
 
 ```error
 This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
@@ -200,27 +200,27 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>原因
 
-Customers have identified that if the `/tmp` location is set to `noexec`, the current version of DSC will fail to apply configurations.
+客戶已發現，如果 `/tmp` 位置設定為 `noexec`，DSC 的目前版本將無法套用設定。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
-* Remove the `noexec` option from the `/tmp` location.
+* 從 `/tmp` 位置移除 [`noexec`] 選項。
 
-### <a name="compilation-node-name-overlap"></a>Scenario: Node configuration names that overlap could result in bad release
+### <a name="compilation-node-name-overlap"></a>案例：重迭的節點設定名稱可能會導致錯誤的版本
 
 #### <a name="issue"></a>問題
 
-If a single configuration script is used to generate multiple node configurations, and some of the node configurations have a name that is a subset of others, an issue in the compilation service could result in assigning the wrong configuration.  This only occurs when using a single script to generate configurations with configuration data per node, and only when the name overlap occurs at the beginning of the string.
+如果使用單一設定腳本來產生多個節點設定，而某些節點設定的名稱是其他專案的子集，則編譯服務中的問題可能會導致指派錯誤的設定。  只有在使用單一腳本來產生具有每個節點之設定資料的設定，以及在字串開頭髮生名稱重迭時，才會發生這種情況。
 
-Example, if a single configuration script is used to generate configurations based on node data passed as a hashtable using cmdlets, and the node data includes a server named "server" and "1server".
+例如，如果使用單一設定腳本，根據使用 Cmdlet 當做雜湊表傳遞的節點資料來產生設定，則節點資料會包含名為 "server" 和 "1server" 的伺服器。
 
 #### <a name="cause"></a>原因
 
-Known issue with the compilation service.
+編譯服務的已知問題。
 
-#### <a name="resolution"></a>解析度
+#### <a name="resolution"></a>解決方案
 
-The best workaround would be to compile locally or in a CI/CD pipeline and upload the MOF files directly to the service.  If compilation in the service is a requirement, the next best workaround would be to split the compilation jobs so there is no overlap in names.
+最佳的解決方法是在本機或在 CI/CD 管線中進行編譯，並將 MOF 檔案直接上傳至服務。  如果服務中的編譯是需求，則下一個最佳的解決方法是分割編譯工作，讓名稱中沒有任何重迭。
 
 ## <a name="next-steps"></a>後續步驟
 

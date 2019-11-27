@@ -22,15 +22,15 @@ ms.locfileid: "74384001"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>使用 RBAC 和 Azure Resource Manager 範本管理對 Azure 資源的存取
 
-[角色型存取控制 (RBAC)](overview.md) 是您管理對 Azure 資源存取的機制。 In addition to using Azure PowerShell or the Azure CLI, you can manage access to Azure resources using [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). 如果您需要以一致性和重複的方式來部署資源，範本可以派上用場。 本文描述如何使用 RBAC 和範本來管理存取權。
+[角色型存取控制 (RBAC)](overview.md) 是您對 Azure 資源存取進行管理的機制。 除了使用 Azure PowerShell 或 Azure CLI 之外，您還可以使用[Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)來管理 Azure 資源的存取權。 如果您需要以一致性和重複的方式來部署資源，範本可以派上用場。 本文描述如何使用 RBAC 和範本來管理存取權。
 
-## <a name="get-object-ids"></a>Get object IDs
+## <a name="get-object-ids"></a>取得物件識別碼
 
-To assign a role, you need to specify the ID of the user, group, or application you want to assign the role to. The ID has the format: `11111111-1111-1111-1111-111111111111`. You can get the ID using the Azure portal, Azure PowerShell, or Azure CLI.
+若要指派角色，您必須指定要指派角色的使用者、群組或應用程式的識別碼。 識別碼的格式為： `11111111-1111-1111-1111-111111111111`。 您可以使用 Azure 入口網站、Azure PowerShell 或 Azure CLI 取得識別碼。
 
-### <a name="user"></a>User
+### <a name="user"></a>使用者
 
-To get the ID of a user, you can use the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) or [az ad user show](/cli/azure/ad/user#az-ad-user-show) commands.
+若要取得使用者的識別碼，您可以使用[AzADUser](/powershell/module/az.resources/get-azaduser)或[az ad user show](/cli/azure/ad/user#az-ad-user-show)命令。
 
 ```azurepowershell
 $objectid = (Get-AzADUser -DisplayName "{name}").id
@@ -42,7 +42,7 @@ objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 
 ### <a name="group"></a>群組
 
-To get the ID of a group, you can use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) or [az ad group show](/cli/azure/ad/group#az-ad-group-show) commands.
+若要取得群組的識別碼，您可以使用[AzADGroup](/powershell/module/az.resources/get-azadgroup)或[az ad group show](/cli/azure/ad/group#az-ad-group-show)命令。
 
 ```azurepowershell
 $objectid = (Get-AzADGroup -DisplayName "{name}").id
@@ -52,9 +52,9 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 ```
 
-### <a name="application"></a>Application
+### <a name="application"></a>應用程式
 
-To get the ID of a service principal (identity used by an application), you can use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) commands. For a service principal, use the object ID and **not** the application ID.
+若要取得服務主體（應用程式所使用的身分識別）的識別碼，您可以使用[new-azadserviceprincipal](/powershell/module/az.resources/get-azadserviceprincipal)或[az ad sp list](/cli/azure/ad/sp#az-ad-sp-list)命令。 針對服務主體，請使用物件識別碼，而**不**是應用程式識別碼。
 
 ```azurepowershell
 $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
@@ -64,16 +64,16 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## <a name="create-a-role-assignment-at-a-resource-group-scope-without-parameters"></a>Create a role assignment at a resource group scope (without parameters)
+## <a name="create-a-role-assignment-at-a-resource-group-scope-without-parameters"></a>在資源群組範圍建立角色指派（不含參數）
 
-在 RBAC 中，若要授與存取權，您可以建立角色指派。 The following template shows a basic way to create a role assignment. Some values are specified within the template. 下列範本會示範：
+在 RBAC 中，若要授與存取權，您可以建立角色指派。 下列範本顯示建立角色指派的基本方式。 某些值會在範本中指定。 下列範本會示範：
 
--  How to assign the [Reader](built-in-roles.md#reader) role to a user, group, or application at a resource group scope
+-  如何將[讀取](built-in-roles.md#reader)者角色指派給資源群組範圍中的使用者、群組或應用程式
 
-To use the template, you must do the following:
+若要使用範本，您必須執行下列動作：
 
-- Create a new JSON file and copy the template
-- Replace `<your-principal-id>` with the ID of a user, group, or application to assign the role to
+- 建立新的 JSON 檔案並複製範本
+- 以要指派角色的使用者、群組或應用程式的識別碼取代 `<your-principal-id>`
 
 ```json
 {
@@ -93,7 +93,7 @@ To use the template, you must do the following:
 }
 ```
 
-Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment in a resource group named ExampleGroup.
+以下是如何在名為 ExampleGroup 的資源群組中啟動部署的範例[new-azresourcegroupdeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)和[az group deployment create](/cli/azure/group/deployment#az-group-deployment-create)命令。
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json
@@ -103,21 +103,21 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac
 az group deployment create --resource-group ExampleGroup --template-file rbac-test.json
 ```
 
-The following shows an example of the Reader role assignment to a user for a resource group after deploying the template.
+以下顯示部署範本之後，對資源群組的使用者進行讀取者角色指派的範例。
 
-![Role assignment at resource group scope](./media/role-assignments-template/role-assignment-template.png)
+![資源群組範圍的角色指派](./media/role-assignments-template/role-assignment-template.png)
 
-## <a name="create-a-role-assignment-at-a-resource-group-or-subscription-scope"></a>Create a role assignment at a resource group or subscription scope
+## <a name="create-a-role-assignment-at-a-resource-group-or-subscription-scope"></a>在資源群組或訂用帳戶範圍建立角色指派
 
-The previous template isn't very flexible. The following template uses parameters and can be used at different scopes. 下列範本會示範：
+先前的範本並不具彈性。 下列範本會使用參數，而且可以在不同的範圍中使用。 下列範本會示範：
 
-- How to assign a role to a user, group, or application at either a resource group or subscription scope
+- 如何在資源群組或訂用帳戶範圍將角色指派給使用者、群組或應用程式
 - 如何將擁有者、參與者和讀者角色指定為參數
 
 若要使用範本，您必須指定下列輸入：
 
-- The ID of a user, group, or application to assign the role to
-- A unique ID that will be used for the role assignment, or you can use the default ID
+- 要指派角色之使用者、群組或應用程式的識別碼
+- 將用於角色指派的唯一識別碼，或者您可以使用預設識別碼
 
 ```json
 {
@@ -169,9 +169,9 @@ The previous template isn't very flexible. The following template uses parameter
 ```
 
 > [!NOTE]
-> This template is not idempotent unless the same `roleNameGuid` value is provided as a parameter for each deployment of the template. If no `roleNameGuid` is provided, by default a new GUID is generated on each deployment and subsequent deployments will fail with a `Conflict: RoleAssignmentExists` error.
+> 除非為範本的每個部署提供相同的 `roleNameGuid` 值，否則此範本不具等冪性。 如果未提供任何 `roleNameGuid`，則根據預設會在每個部署上產生新的 GUID，而後續部署將會失敗，並出現 `Conflict: RoleAssignmentExists` 錯誤。
 
-The scope of the role assignment is determined from the level of the deployment. Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment at a resource group scope.
+角色指派的範圍是從部署層級決定。 以下是如何在資源群組範圍內啟動部署的[new-azresourcegroupdeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)和[az group deployment](/cli/azure/group/deployment#az-group-deployment-create)命令範例。
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
@@ -181,7 +181,7 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac
 az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-Here are example [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) and [az deployment create](/cli/azure/deployment#az-deployment-create) commands for how to start the deployment at a subscription scope and specify the location.
+以下是如何在訂用帳戶範圍啟動部署並指定位置的[new-azdeployment](/powershell/module/az.resources/new-azdeployment)和[az 部署 create](/cli/azure/deployment#az-deployment-create)命令範例。
 
 ```azurepowershell
 New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
@@ -191,11 +191,11 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-## <a name="create-a-role-assignment-at-a-resource-scope"></a>Create a role assignment at a resource scope
+## <a name="create-a-role-assignment-at-a-resource-scope"></a>在資源範圍中建立角色指派
 
-If you need to create a role assignment at the level of a resource, the format of the role assignment is different. You provide the resource provider namespace and resource type of the resource to assign the role to. You also include the name of the resource in the name of the role assignment.
+如果您需要在資源層級建立角色指派，角色指派的格式會不同。 您會提供資源提供者的命名空間和資源類型，以指派角色給該資源。 您也可以將資源的名稱包含在角色指派的名稱中。
 
-For the type and name of the role assignment, use the following format:
+針對角色指派的類型和名稱，請使用下列格式：
 
 ```json
 "type": "{resource-provider-namespace}/{resource-type}/providers/roleAssignments",
@@ -205,12 +205,12 @@ For the type and name of the role assignment, use the following format:
 下列範本會示範：
 
 - 如何建立新的儲存體帳戶
-- How to assign a role to a user, group, or application at the storage account scope
+- 如何將角色指派給儲存體帳戶範圍的使用者、群組或應用程式
 - 如何將擁有者、參與者和讀者角色指定為參數
 
 若要使用範本，您必須指定下列輸入：
 
-- The ID of a user, group, or application to assign the role to
+- 要指派角色之使用者、群組或應用程式的識別碼
 
 ```json
 {
@@ -273,7 +273,7 @@ For the type and name of the role assignment, use the following format:
 }
 ```
 
-To deploy the previous template, you use the resource group commands. Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment at a resource scope.
+若要部署先前的範本，您可以使用資源群組命令。 以下是如何在資源範圍啟動部署的範例[new-azresourcegroupdeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)和[az group deployment create](/cli/azure/group/deployment#az-group-deployment-create)命令。
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Contributor
@@ -283,23 +283,23 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac
 az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Contributor
 ```
 
-The following shows an example of the Contributor role assignment to a user for a storage account after deploying the template.
+以下顯示部署範本之後，將儲存體帳戶的參與者角色指派給使用者的範例。
 
-![Role assignment at resource scope](./media/role-assignments-template/role-assignment-template-resource.png)
+![資源範圍的角色指派](./media/role-assignments-template/role-assignment-template-resource.png)
 
-## <a name="create-a-role-assignment-for-a-new-service-principal"></a>Create a role assignment for a new service principal
+## <a name="create-a-role-assignment-for-a-new-service-principal"></a>為新的服務主體建立角色指派
 
-If you create a new service principal and immediately try to assign a role to that service principal, that role assignment can fail in some cases. For example, if you create a new managed identity and then try to assign a role to that service principal in the same Azure Resource Manager template, the role assignment might fail. The reason for this failure is likely a replication delay. The service principal is created in one region; however, the role assignment might occur in a different region that hasn't replicated the service principal yet. To address this scenario, you should set the `principalType` property to `ServicePrincipal` when creating the role assignment.
+如果您建立新的服務主體，並立即嘗試將角色指派給該服務主體，在某些情況下，該角色指派可能會失敗。 例如，如果您建立新的受控識別，然後嘗試在相同的 Azure Resource Manager 範本中將角色指派給該服務主體，則角色指派可能會失敗。 此失敗的原因可能是複寫延遲。 服務主體會建立在一個區域中;不過，角色指派可能會發生在另一個尚未複寫服務主體的區域中。 若要解決此案例，您應該在建立角色指派時，將 `principalType` 屬性設定為 [`ServicePrincipal`]。
 
 下列範本會示範：
 
-- How to create a new managed identity service principal
-- How to specify the `principalType`
-- How to assign the Contributor role to that service principal at a resource group scope
+- 如何建立新的受控識別服務主體
+- 如何指定 `principalType`
+- 如何將參與者角色指派給資源群組範圍中的服務主體
 
 若要使用範本，您必須指定下列輸入：
 
-- The base name of the managed identity, or you can use the default string
+- 受控識別的基底名稱，或者您可以使用預設字串
 
 ```json
 {
@@ -341,7 +341,7 @@ If you create a new service principal and immediately try to assign a role to th
 }
 ```
 
-Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment at a resource group scope.
+以下是如何在資源群組範圍內啟動部署的[new-azresourcegroupdeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)和[az group deployment](/cli/azure/group/deployment#az-group-deployment-create)命令範例。
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup2 -TemplateFile rbac-test.json
@@ -351,13 +351,13 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup2 -TemplateFile rba
 az group deployment create --resource-group ExampleGroup2 --template-file rbac-test.json
 ```
 
-The following shows an example of the Contributor role assignment to a new managed identity service principal after deploying the template.
+以下顯示部署範本之後，將參與者角色指派給新的受控識別服務主體的範例。
 
-![Role assignment for a new managed identity service principal](./media/role-assignments-template/role-assignment-template-msi.png)
+![新受控識別服務主體的角色指派](./media/role-assignments-template/role-assignment-template-msi.png)
 
 ## <a name="next-steps"></a>後續步驟
 
 - [快速入門：使用 Azure 入口網站建立及部署 Azure Resource Manager 範本](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 - [了解 Azure Resource Manager 範本的的結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)
-- [Create resource groups and resources at the subscription level](../azure-resource-manager/deploy-to-subscription.md)
+- [在訂用帳戶層級建立資源群組和資源](../azure-resource-manager/deploy-to-subscription.md)
 - [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?term=rbac)

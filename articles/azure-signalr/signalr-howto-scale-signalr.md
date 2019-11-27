@@ -1,6 +1,6 @@
 ---
-title: Scale an instance of Azure SignalR Service
-description: Learn how to scale an Azure SignalR Service instance to add or reduce capacity, through Azure portal or Azure CLI.
+title: 調整 Azure SignalR Service 的實例
+description: 瞭解如何透過 Azure 入口網站或 Azure CLI 來調整 Azure SignalR Service 實例的規模，以增加或減少容量。
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
@@ -13,35 +13,35 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74464174"
 ---
-# <a name="how-to-scale-an-azure-signalr-service-instance"></a>How to scale an Azure SignalR Service instance?
-This article shows you how to scale your instance of Azure SignalR Service. There are two scenarios for scaling, scale up and scale out.
+# <a name="how-to-scale-an-azure-signalr-service-instance"></a>如何調整 Azure SignalR Service 實例？
+本文說明如何調整 Azure SignalR Service 的實例。 有兩種規模調整、相應增加和相應放大的案例。
 
-* [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more units, connections, messages, and more. You scale up by changing the pricing tier from Free to Standard.
-* [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increase the number of SignalR units. You can scale out to as many as 100 units.
+* 相應[增加](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)：取得更多單位、連線、訊息等等。 您可以將定價層從「免費」變更為「標準」，以相應增加規模。
+* [相應](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)放大：增加 SignalR 單位的數目。 您可以相應放大為最多100個單位。
 
-The scale settings take a few minutes to apply. They don't require you to change your code or redeploy your server application.
+調整規模設定需要幾分鐘的時間才會套用。 它們不會要求您變更程式碼或重新部署您的伺服器應用程式。
 
-For information about the pricing and capacities of individual SignalR Service, see [Azure SignalR Service Pricing Details](https://azure.microsoft.com/pricing/details/signalr-service/).  
+如需個別 SignalR Service 的定價和容量相關資訊，請參閱[Azure SignalR Service 定價詳細資料](https://azure.microsoft.com/pricing/details/signalr-service/)。  
 
 > [!NOTE]
-> Changing SignalR Service from **Free** tier to **Standard** tier or vice versa, the public service IP will be changed and it usually takes 3-60 minutes to propagate the change to DNS servers across the entire internet. Your service might be unreachable before DNS gets updated. Generally it’s not recommended to change your pricing tier too often.
+> 將 SignalR Service 從**免費**層變更為**標準**層，或相反地，公用服務 IP 將會變更，而且通常需要3-60 分鐘的時間，才能將變更傳播到整個網際網路上的 DNS 伺服器。 您的服務可能會在 DNS 更新前無法連線。 通常不建議您經常變更定價層。
 
 
-## <a name="scale-on-azure-portal"></a>Scale on Azure portal
+## <a name="scale-on-azure-portal"></a>相應縮小 Azure 入口網站
 
 1. 在瀏覽器中，開啟 [Azure 入口網站](https://portal.azure.com)。
 
-2. In your SignalR Service page, from the left menu, select **Scale**.
+2. 在 [SignalR Service] 頁面上，從左側功能表中選取 [**調整**]。
    
-3. Choose your pricing tier, and then click **Select**. You need to set the unit count for **Standard** Tier.
+3. 選擇您的定價層，然後按一下 [**選取**]。 您必須設定**標準**層的單位元數目。
    
-    ![Scale on Portal](./media/signalr-howto-scale/signalr-howto-scale.png)
+    ![在入口網站上調整](./media/signalr-howto-scale/signalr-howto-scale.png)
 
-4. 按一下 [儲存]。
+4. 按一下 [檔案]。
 
 ## <a name="scale-using-azure-cli"></a>使用 Azure CLI 進行調整
 
-This script creates a new SignalR Service resource of **Free** Tier and a new resource group, and scale it up to **Standard** Tier. 
+此腳本會建立**免費**層的新 SignalR Service 資源和新的資源群組，並將其相應增加至**標準**層。 
 
 ```azurecli-interactive
 #!/bin/bash
@@ -79,15 +79,15 @@ az signalr update \
 
 ## <a name="compare-pricing-tiers"></a>比較定價層
 
-For detailed information, such as included messages and connections for each pricing tier, see [SignalR Service Pricing Details](https://azure.microsoft.com/pricing/details/signalr-service/).
+如需詳細資訊（例如每個定價層的內含訊息和連線），請參閱[SignalR Service 定價詳細資料](https://azure.microsoft.com/pricing/details/signalr-service/)。
 
-For a table of service limits, quotas, and constraints in each tier, see [SignalR Service limits](../azure-subscription-service-limits.md#azure-signalr-service-limits).
+如需每個層級的服務限制、配額和條件約束表，請參閱[SignalR Service 限制](../azure-subscription-service-limits.md#azure-signalr-service-limits)。
 
 ## <a name="next-steps"></a>後續步驟
 
-In this guide, you learned about how to scale single SignalR Service instance.
+在本指南中，您已瞭解如何調整單一 SignalR Service 實例。
 
-Multiple endpoints are also supported for scaling, sharding and cross-region scenarios.
+縮放、分區化和跨區域案例也支援多個端點。
 
 > [!div class="nextstepaction"]
-> [scale SignalR Service with multiple instances](./signalr-howto-scale-multi-instances.md)
+> [具有多個實例的規模 SignalR Service](./signalr-howto-scale-multi-instances.md)

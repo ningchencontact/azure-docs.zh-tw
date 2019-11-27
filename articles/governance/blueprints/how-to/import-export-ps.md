@@ -1,6 +1,6 @@
 ---
-title: Import and export blueprints with PowerShell
-description: Learn how to work with your blueprint definitions as code. Share, source control, and manage them using the export and import commands.
+title: 使用 PowerShell 匯入和匯出藍圖
+description: 瞭解如何使用您的藍圖定義做為程式碼。 共用、原始檔控制，並使用 export 和 import 命令來管理它們。
 ms.date: 09/03/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2822fd1aea1911ba264113d43595346a612ebc50
@@ -10,38 +10,38 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74406362"
 ---
-# <a name="import-and-export-blueprint-definitions-with-powershell"></a>Import and export blueprint definitions with PowerShell
+# <a name="import-and-export-blueprint-definitions-with-powershell"></a>使用 PowerShell 匯入和匯出藍圖定義
 
-Azure Blueprints can be fully managed through Azure portal. As organizations advance in their use of Blueprints, they should start thinking of blueprint definitions as managed code. This concept is often referred to as Infrastructure as Code (IaC). Treating your blueprint definitions as code offers additional advantages beyond what Azure portal offers. These benefits include:
+Azure 藍圖可以透過 Azure 入口網站完全管理。 隨著組織繼續使用藍圖，他們應該開始將藍圖定義思考為受控碼。 這個概念通常稱為基礎結構即程式碼（IaC）。 將您的藍圖定義視為程式碼，除了 Azure 入口網站所提供的功能之外，還提供其他優點。 這些優點包括：
 
-- Sharing blueprint definitions
-- Backing up your blueprint definitions
-- Reusing blueprint definitions in different tenants or subscriptions
-- Placing the blueprint definitions in source control
-  - Automated testing of blueprint definitions in test environments
-  - Support of continuous integration and continuous deployment (CI/CD) pipelines
+- 共用藍圖定義
+- 備份您的藍圖定義
+- 在不同的租使用者或訂用帳戶中重複使用藍圖定義
+- 將藍圖定義放在原始檔控制中
+  - 測試環境中藍圖定義的自動化測試
+  - 支援持續整合與持續部署（CI/CD）管線
 
-Whatever your reasons, managing your blueprint definitions as code has benefits. This article shows how to use the `Import-AzBlueprintWithArtifact` and `Export-AzBlueprintWithArtifact` commands in the [Az.Blueprint](https://powershellgallery.com/packages/Az.Blueprint/) module.
+無論您的原因為何，以程式碼來管理您的藍圖定義都有其優點。 本文說明如何使用[Az. 藍圖](https://powershellgallery.com/packages/Az.Blueprint/)模組中的 `Import-AzBlueprintWithArtifact` 和 `Export-AzBlueprintWithArtifact` 命令。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-This article assumes a moderate working knowledge of Azure Blueprints. If you haven't done so yet, work through the following articles:
+本文假設您對 Azure 藍圖進行了中等程度的工作知識。 如果您尚未這麼做，請執行下列文章：
 
-- [Create a blueprint in the portal](../create-blueprint-portal.md)
-- Read about [deployment stages](../concepts/deployment-stages.md) and [the blueprint lifecycle](../concepts/lifecycle.md)
-- [Creating](../create-blueprint-powershell.md) and [managing](./manage-assignments-ps.md) blueprint definitions and assignments with PowerShell
+- [在入口網站中建立藍圖](../create-blueprint-portal.md)
+- 閱讀[部署階段](../concepts/deployment-stages.md)和[藍圖生命週期的](../concepts/lifecycle.md)相關資訊
+- 使用 PowerShell[建立](../create-blueprint-powershell.md)和[管理](./manage-assignments-ps.md)藍圖定義和指派
 
-如果尚未安裝 **Az.Blueprint** 模組，請依照[新增 Az.Blueprint 模組](./manage-assignments-ps.md#add-the-azblueprint-module)中的指示，從 PowerShell 資源庫安裝並驗證它。
+如果尚未安裝 [Az.Blueprint](./manage-assignments-ps.md#add-the-azblueprint-module) 模組，請依照**新增 Az.Blueprint 模組**中的指示，從 PowerShell 資源庫安裝並驗證它。
 
-## <a name="folder-structure-of-a-blueprint-definition"></a>Folder structure of a blueprint definition
+## <a name="folder-structure-of-a-blueprint-definition"></a>藍圖定義的資料夾結構
 
-Before looking at exporting and importing blueprints, let's look at how the files that make up the blueprint definition are structured. A blueprint definition should be stored in its own folder.
+在查看匯出和匯入藍圖之前，讓我們來看看組成藍圖定義的檔案如何結構化。 藍圖定義應該儲存在自己的資料夾中。
 
 > [!IMPORTANT]
-> If no value is passed to the **Name** parameter of the `Import-AzBlueprintWithArtifact` cmdlet, the name of the folder the blueprint definition is stored in is used.
+> 如果未將任何值傳遞至 `Import-AzBlueprintWithArtifact` Cmdlet 的**name**參數，則會使用藍圖定義儲存所在的資料夾名稱。
 
-Along with the blueprint definition, which must be named `blueprint.json`, are the artifacts that the blueprint definition is composed of. Each artifact must be in the subfolder named `artifacts`.
-Put together, the structure of your blueprint definition as JSON files in folders should look as follows:
+除了藍圖定義（必須命名為 `blueprint.json`），也是藍圖定義組成的構件。 每個成品都必須位於名為 `artifacts`的子資料夾中。
+將您的藍圖定義結構放在一起，如同資料夾中的 JSON 檔案，其外觀如下：
 
 ```text
 .
@@ -56,20 +56,20 @@ Put together, the structure of your blueprint definition as JSON files in folder
 
 ```
 
-## <a name="export-your-blueprint-definition"></a>Export your blueprint definition
+## <a name="export-your-blueprint-definition"></a>匯出您的藍圖定義
 
-The steps to exporting your blueprint definition are straightforward. Exporting the blueprint definition can be useful for sharing, backup, or placing into source control.
+匯出藍圖定義的步驟相當簡單。 匯出藍圖定義有助於共用、備份或放入原始檔控制。
 
-- **Blueprint** [required]
-  - Specifies the blueprint definition
-  - Use `Get-AzBlueprint` to get the reference object
-- **OutputPath** [required]
-  - Specifies the path to save the blueprint definition JSON files to
-  - The output files are in a subfolder with the name of the blueprint definition
-- **Version** (optional)
-  - Specifies the version to output if the **Blueprint** reference object contains references to more than one version.
+- **藍圖**[必要]
+  - 指定藍圖定義
+  - 使用 `Get-AzBlueprint` 取得參考物件
+- **OutputPath** [必要]
+  - 指定要儲存藍圖定義 JSON 檔案的路徑
+  - 輸出檔案位於具有藍圖定義名稱的子資料夾中
+- **版本**（選擇性）
+  - 如果**藍圖**參考物件包含一個以上版本的參考，則指定要輸出的版本。
 
-1. Get a reference to the blueprint definition to export from the subscription represented as `{subId}`:
+1. 取得藍圖定義的參考，以從以 `{subId}`表示的訂用帳戶匯出：
 
    ```azurepowershell-interactive
    # Login first with Connect-AzAccount if not using Cloud Shell
@@ -78,31 +78,31 @@ The steps to exporting your blueprint definition are straightforward. Exporting 
    $bpDefinition = Get-AzBlueprint -SubscriptionId '{subId}' -Name 'MyBlueprint' -Version '1.1'
    ```
 
-1. Use the `Export-AzBlueprintWithArtifact` cmdlet to export the specified blueprint definition:
+1. 使用 `Export-AzBlueprintWithArtifact` Cmdlet 來匯出指定的藍圖定義：
 
    ```azurepowershell-interactive
    Export-AzBlueprintWithArtifact -Blueprint $bpDefinition -OutputPath 'C:\Blueprints'
    ```
 
-## <a name="import-your-blueprint-definition"></a>Import your blueprint definition
+## <a name="import-your-blueprint-definition"></a>匯入您的藍圖定義
 
-Once you have either an [exported blueprint definition](#export-your-blueprint-definition) or have a manually created blueprint definition in the [required folder structure](#folder-structure-of-a-blueprint-definition), you can import that blueprint definition to a different management group or subscription.
+一旦您有匯出的[藍圖定義](#export-your-blueprint-definition)，或在[必要的資料夾結構](#folder-structure-of-a-blueprint-definition)中有手動建立的藍圖定義之後，您就可以將該藍圖定義匯入至不同的管理群組或訂用帳戶。
 
-For examples of built-in blueprint definitions, see the [Azure Blueprint GitHub repo](https://github.com/Azure/azure-blueprints/tree/master/samples/builtins).
+如需內建藍圖定義的範例，請參閱[Azure 藍圖 GitHub](https://github.com/Azure/azure-blueprints/tree/master/samples/builtins)存放庫。
 
-- **Name** [required]
-  - Specifies the name for the new blueprint definition
-- **InputPath** [required]
-  - Specifies the path to create the blueprint definition from
-  - Must match the [required folder structure](#folder-structure-of-a-blueprint-definition)
-- **ManagementGroupId** (optional)
-  - The management group ID to save the blueprint definition to if not the current context default
-  - Either **ManagementGroupId** or **SubscriptionId** must be specified
-- **SubscriptionId** (optional)
-  - The subscription ID to save the blueprint definition to if not the current context default
-  - Either **ManagementGroupId** or **SubscriptionId** must be specified
+- **名稱**[必要]
+  - 指定新藍圖定義的名稱
+- **InputPath** [必要]
+  - 指定建立藍圖定義的來源路徑
+  - 必須符合[所需的資料夾結構](#folder-structure-of-a-blueprint-definition)
+- **ManagementGroupId** （選擇性）
+  - 用來儲存藍圖定義的管理群組識別碼（如果不是目前的內容預設）
+  - 必須指定**ManagementGroupId**或**SubscriptionId**
+- **SubscriptionId** （選擇性）
+  - 用來儲存藍圖定義的訂用帳戶識別碼（如果不是目前的內容預設）
+  - 必須指定**ManagementGroupId**或**SubscriptionId**
 
-1. Use the `Import-AzBlueprintWithArtifact` cmdlet to import the specified blueprint definition:
+1. 使用 `Import-AzBlueprintWithArtifact` Cmdlet 匯入指定的藍圖定義：
 
    ```azurepowershell-interactive
    # Login first with Connect-AzAccount if not using Cloud Shell
@@ -110,14 +110,14 @@ For examples of built-in blueprint definitions, see the [Azure Blueprint GitHub 
    Import-AzBlueprintWithArtifact -Name 'MyBlueprint' -ManagementGroupId 'DevMG' -InputPath 'C:\Blueprints\MyBlueprint'
    ```
 
-Once the blueprint definition is imported, [assign it with PowerShell](./manage-assignments-ps.md#create-blueprint-assignments).
+一旦匯入藍圖定義，請[使用 PowerShell 加以指派](./manage-assignments-ps.md#create-blueprint-assignments)。
 
-For information about creating advanced blueprint definitions, see the following articles:
+如需建立 advanced 藍圖定義的詳細資訊，請參閱下列文章：
 
-- Use [static and dynamic parameters](../concepts/parameters.md).
-- Customize the [blueprint sequencing order](../concepts/sequencing-order.md).
-- Protect deployments with [blueprint resource locking](../concepts/resource-locking.md).
-- [Manage Blueprints as Code](https://github.com/Azure/azure-blueprints/blob/master/README.md).
+- 使用[靜態和動態參數](../concepts/parameters.md)。
+- 自訂[藍圖排序次序](../concepts/sequencing-order.md)。
+- 使用[藍圖資源鎖定](../concepts/resource-locking.md)來保護部署。
+- 將藍圖當做程式[代碼來管理](https://github.com/Azure/azure-blueprints/blob/master/README.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

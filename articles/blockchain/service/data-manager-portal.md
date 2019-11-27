@@ -1,6 +1,6 @@
 ---
-title: Configure Blockchain Data Manager using Azure portal - Azure Blockchain Service
-description: Create and manage Blockchain Data Manager for Azure Blockchain Service using the Azure portal.
+title: 使用 Azure 入口網站設定區塊鏈資料管理員-Azure 區塊鏈 Service
+description: 使用 Azure 入口網站建立和管理 Azure 區塊鏈服務的區塊鏈資料管理員。
 ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
@@ -13,27 +13,27 @@ ms.locfileid: "74455822"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>使用 Azure 入口網站設定區塊鏈資料管理員
 
-Configure Blockchain Data Manager for Azure Blockchain Service to capture blockchain data and send it to an Azure Event Grid Topic.
+設定 Azure 區塊鏈 Service 的區塊鏈資料管理員來捕獲區塊鏈資料，並將其傳送至 Azure 事件方格主題。
 
-To configure a Blockchain Data Manager instance, you:
+若要設定區塊鏈資料管理員實例，您可以：
 
-* Create a Blockchain Data Manager instance for an Azure Blockchain Service transaction node
-* Add your blockchain applications
+* 建立 Azure 區塊鏈 Service 交易節點的區塊鏈資料管理員實例
+* 新增您的區塊鏈應用程式
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
+* 完成[快速入門：使用 Azure 入口網站或快速入門建立區塊鏈成員](create-member.md) [：使用 Azure CLI 建立 Azure 區塊鏈 Service 區塊鏈成員](create-member-cli.md)
 * 建立[事件方格主題](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * 了解 [Azure 事件方格中的事件處理常式](../../event-grid/event-handlers.md)
 
 ## <a name="create-instance"></a>建立執行個體
 
-區塊鏈資料管理員執行個體都連線至 Azure 區塊鏈服務交易節點，並加以監視。 Only users with access to the transaction node can create a connection. 執行個體會從該交易節點中擷取所有的原始區塊和原始交易資料。
+區塊鏈資料管理員執行個體都連線至 Azure 區塊鏈服務交易節點，並加以監視。 只有具有交易節點存取權的使用者才能建立連線。 執行個體會從該交易節點中擷取所有的原始區塊和原始交易資料。
 
-輸出連線會將區塊鏈資料傳送至 Azure 事件方格。 您在建立執行個體時，會設定單一輸出連線。 區塊鏈資料管理員會針對任何指定的區塊鏈資料管理員執行個體，支援多個事件方格主題輸出連線。 您可將區塊鏈資料傳送至單一目的地，或將區塊鏈資料傳送至多個目的地。 To add another destination, just add additional outbound connections to the instance.
+輸出連線會將區塊鏈資料傳送至 Azure 事件方格。 您在建立執行個體時，會設定單一輸出連線。 區塊鏈資料管理員會針對任何指定的區塊鏈資料管理員執行個體，支援多個事件方格主題輸出連線。 您可將區塊鏈資料傳送至單一目的地，或將區塊鏈資料傳送至多個目的地。 若要加入另一個目的地，只要將額外的輸出連線加入實例。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. Go to the Azure Blockchain Service member you want to connect to Blockchain Data Manager. 選取 [區塊鏈資料管理員]。
+1. 移至您想要連接到區塊鏈資料管理員的 Azure 區塊鏈服務成員。 選取 [區塊鏈資料管理員]。
 1. 選取 [新增]。
 
     ![新增區塊鏈資料管理員](./media/data-manager-portal/add-instance.png)
@@ -42,29 +42,29 @@ To configure a Blockchain Data Manager instance, you:
 
     設定 | 描述
     --------|------------
-    Name | 為已連線的區塊鏈資料管理員輸入唯一名稱。 The Blockchain Data Manager name can contain lower case letters and numbers and has a maximum length of 20 characters.
-    交易節點 | Choose a transaction node. Only transaction nodes you have read access are listed.
+    名稱 | 為已連線的區塊鏈資料管理員輸入唯一名稱。 區塊鏈資料管理員名稱可包含小寫字母和數位，最大長度為20個字元。
+    交易節點 | 選擇交易節點。 只會列出您擁有讀取權限的交易節點。
     連接名稱 | 為用來傳送區塊鏈交易資料的輸出連線輸入唯一名稱。
-    事件方格端點 | Choose an event grid topic in the same subscription as the Blockchain Data Manager instance.
+    事件方格端點 | 在與區塊鏈資料管理員實例相同的訂用帳戶中，選擇事件方格主題。
 
 1. 選取 [確定]。
 
-    區塊鏈資料管理員執行個體不到一分鐘即可建立。 執行個體在部署後將會自動啟動。 A running Blockchain Data Manager instance captures blockchain events from the transaction node and sends data to the outbound connections.
+    區塊鏈資料管理員執行個體不到一分鐘即可建立。 執行個體在部署後將會自動啟動。 執行中的區塊鏈資料管理員實例會從交易節點中捕捉區塊鏈事件，並將資料傳送至輸出連線。
 
-    The new instance appears in the list of Blockchain Data Manager instances for the Azure Blockchain Service member.
+    新的實例會出現在 Azure 區塊鏈服務成員的區塊鏈資料管理員實例清單中。
 
-    ![List of Blockchain Data Member instances](./media/data-manager-portal/instance-list.png)
+    ![區塊鏈資料成員實例的清單](./media/data-manager-portal/instance-list.png)
 
-## <a name="add-blockchain-application"></a>Add blockchain application
+## <a name="add-blockchain-application"></a>新增區塊鏈應用程式
 
-If you add a blockchain application, Blockchain Data Manager decodes event and property state for the application. Otherwise, only raw block and raw transaction data is sent. Blockchain Data Manager also discovers contract addresses when the contract is deployed. You can add multiple blockchain applications to a Blockchain Data Manager instance.
+如果您新增區塊鏈應用程式，區塊鏈資料管理員會將應用程式的事件和屬性狀態解碼。 否則，只會傳送原始區塊和原始交易資料。 區塊鏈資料管理員也會在部署合約時探索合約位址。 您可以將多個區塊鏈應用程式新增至區塊鏈資料管理員實例。
 
 > [!IMPORTANT]
-> Currently, blockchain applications that declare Solidity [array types](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) or [mapping types](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) are not fully supported. Properties declared as array or mapping types will not be decoded in *ContractPropertiesMsg* or *DecodedContractEventsMsg* messages.
+> 目前，不完全支援宣告密度[陣列類型](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays)或[對應類型](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types)的區塊鏈應用程式。 宣告為數組或對應類型的屬性將不會在*ContractPropertiesMsg*或*DecodedContractEventsMsg*訊息中解碼。
 
-Blockchain Data Manager requires a smart contract ABI and deployed bytecode file to add the application.
+區塊鏈資料管理員需要智慧型合約 ABI 並部署的位元組程式碼檔案，才能新增應用程式。
 
-### <a name="get-contract-abi-and-bytecode"></a>Get Contract ABI and bytecode
+### <a name="get-contract-abi-and-bytecode"></a>取得合約 ABI 和位元組碼
 
 合約 ABI 會定義智慧型合約的介面。 此介面會說明如何與智慧型合約互動。 您可以使用[適用於 Ethereum 的 Azure 區塊鏈服務開發套件擴充功能](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)，將合約 ABI 複製到剪貼簿。
 
@@ -108,7 +108,7 @@ Blockchain Data Manager requires a smart contract ABI and deployed bytecode file
 
     | 欄位 | 描述 |
     |-------|-------------|
-    | Name  | 為容器命名。 例如 *smartcontract* |
+    | 名稱  | 為容器命名。 例如 *smartcontract* |
     | 公用存取層級 | 選擇 [私人 (沒有匿名存取)] |
 
 1. 選取 [確定] 以建立容器。
@@ -132,7 +132,7 @@ Blockchain Data Manager requires a smart contract ABI and deployed bytecode file
 1. 複製 **Blob SAS URL** 並加以儲存，以供下一節使用。
 1. 針對位元組程式碼 JSON Blob，重複[產生 URL](#generate-url) 步驟。
 
-### <a name="add-application-to-instance"></a>Add application to instance
+### <a name="add-application-to-instance"></a>將應用程式新增至實例
 
 1. 從執行個體清單中，選取您的區塊鏈資料管理員執行個體。
 1. 選取 [區塊鏈應用程式]。
@@ -144,7 +144,7 @@ Blockchain Data Manager requires a smart contract ABI and deployed bytecode file
 
     設定 | 描述
     --------|------------
-    Name | 輸入要追蹤的區塊鏈應用程式的唯一名稱。
+    名稱 | 輸入要追蹤的區塊鏈應用程式的唯一名稱。
     合約 ABI | 合約 ABI 檔案的 URL 路徑。 如需詳細資訊，請參閱[建立合約 ABI 和位元組程式碼 URL](#create-contract-abi-and-bytecode-url)。
     合約位元組程式碼 | 位元組程式碼檔案的 URL 路徑。 如需詳細資訊，請參閱[建立合約 ABI 和位元組程式碼 URL](#create-contract-abi-and-bytecode-url)。
 
@@ -156,17 +156,17 @@ Blockchain Data Manager requires a smart contract ABI and deployed bytecode file
 
 您可以刪除 Azure 儲存體帳戶，或用它來設定更多區塊鏈應用程式。 如果您要刪除 Azure 儲存體帳戶，您可以刪除資源群組。 刪除資源群組也會刪除相關聯的儲存體帳戶，以及與資源群組相關聯的任何其他資源。
 
-## <a name="stop-instance"></a>Stop instance
+## <a name="stop-instance"></a>停止實例
 
-Stop the Blockchain Manager instance when you want to stop capturing blockchain events and sending data to the outbound connections. When the instance is stopped, no charges are incurred for Blockchain Data Manager. 如需詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/blockchain-service)。
+當您想要停止捕獲區塊鏈事件並將資料傳送到輸出連線時，請停止區塊鏈 Manager 實例。 當實例停止時，區塊鏈資料管理員不會產生任何費用。 如需詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/blockchain-service)。
 
-1. Go to **Overview** and select **Stop**.
+1. 移至 **[總覽**]，然後選取 [**停止**]。
 
-    ![Stop instance](./media/data-manager-portal/stop-instance.png)
+    ![停止實例](./media/data-manager-portal/stop-instance.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-Try the next tutorial creating a blockchain transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
+請嘗試下一個教學課程使用區塊鏈資料管理員和 Azure Cosmos DB 建立區塊鏈交易訊息瀏覽器。
 
 > [!div class="nextstepaction"]
-> [Use Blockchain Data Manager to send data to Azure Cosmos DB](data-manager-cosmosdb.md)
+> [使用區塊鏈資料管理員將資料傳送至 Azure Cosmos DB](data-manager-cosmosdb.md)

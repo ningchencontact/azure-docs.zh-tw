@@ -105,7 +105,7 @@ public class TableStorage
 
 ### <a name="input---c-example---cloudtable"></a>輸入 - C# 範例 - CloudTable
 
-[Functions V2 執行階段](functions-versions.md)不支援 `IQueryable`。 替代方式是使用 Azure 儲存體 SDK，藉此利用 `CloudTable` 方法參數來讀取資料表。 以下為查詢 Azure Functions 記錄資料表的 2.x 函式範例：
+`IQueryable`Functions V2 執行階段[不支援 ](functions-versions.md)。 替代方式是使用 Azure 儲存體 SDK，藉此利用 `CloudTable` 方法參數來讀取資料表。 以下為查詢 Azure Functions 記錄資料表的 2.x 函式範例：
 
 ```csharp
 using Microsoft.Azure.WebJobs;
@@ -258,7 +258,7 @@ public class Person : TableEntity
 
 ### <a name="input---c-script-example---cloudtable"></a>輸入 - C# 指令碼範例 - CloudTable
 
-[Functions V2 執行階段](functions-versions.md)不支援 `IQueryable`。 替代方式是使用 Azure 儲存體 SDK，藉此利用 `CloudTable` 方法參數來讀取資料表。 以下為查詢 Azure Functions 記錄資料表的 2.x 函式範例：
+`IQueryable`Functions V2 執行階段[不支援 ](functions-versions.md)。 替代方式是使用 Azure 儲存體 SDK，藉此利用 `CloudTable` 方法參數來讀取資料表。 以下為查詢 Azure Functions 記錄資料表的 2.x 函式範例：
 
 ```json
 {
@@ -487,7 +487,7 @@ public int run(
 
 ## <a name="input---java-annotations"></a>輸入 - Java 註釋
 
-在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自資料表儲存體的參數使用 `@TableInput` 註釋。  This annotation can be used with native Java types, POJOs, or nullable values using Optional\<T>. 
+在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自資料表儲存體的參數使用 `@TableInput` 註釋。  此注釋可以搭配原生 JAVA 類型、Pojo 或可為 null 的值使用（選擇性）\<T >。 
 
 ## <a name="input---configuration"></a>輸入 - 組態
 
@@ -513,14 +513,14 @@ public int run(
 
 * **讀取 C# 或 C# 指令碼中的一個資料列**
 
-  請設定 `partitionKey` 和 `rowKey`。 使用方法參數 `T <paramName>` 存取資料表資料。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 `T` 通常是實作 `ITableEntity` 的型別或衍生自 `TableEntity`。 此案例中不使用 `filter` 和 `take` 屬性。 
+  請設定 `partitionKey` 和 `rowKey`。 使用方法參數 `T <paramName>` 存取資料表資料。 在 C# 指令碼中，`paramName` 是 `name`function.json*之* 屬性中指定的值。 `T` 通常是實作 `ITableEntity` 的型別或衍生自 `TableEntity`。 此案例中不使用 `filter` 和 `take` 屬性。 
 
 * **讀取 C# 或 C# 指令碼中的一或多個資料列**
 
-  使用方法參數 `IQueryable<T> <paramName>` 存取資料表資料。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 `T` 通常是實作 `ITableEntity` 的型別或衍生自 `TableEntity`。 您可以使用 `IQueryable` 方法，以執行任何所需的篩選條件。 此案例中不使用 `partitionKey`、`rowKey`、`filter` 和 `take` 屬性。  
+  使用方法參數 `IQueryable<T> <paramName>` 存取資料表資料。 在 C# 指令碼中，`paramName` 是 `name`function.json*之* 屬性中指定的值。 `T` 通常是實作 `ITableEntity` 的型別或衍生自 `TableEntity`。 您可以使用 `IQueryable` 方法，以執行任何所需的篩選條件。 此案例中不使用 `partitionKey`、`rowKey`、`filter` 和 `take` 屬性。  
 
   > [!NOTE]
-  > [Functions V2 執行階段](functions-versions.md)不支援 `IQueryable`。 替代方式是使用 Azure 儲存體 SDK，藉以[使用 CloudTable paramName 方法參數](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) \(英文\) 來讀取資料表。 如果您嘗試繫結至 `CloudTable`，並出現錯誤訊息，請確定您已參考[正確的儲存體 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
+  > `IQueryable`Functions V2 執行階段[不支援 ](functions-versions.md)。 替代方式是使用 Azure 儲存體 SDK，藉以[使用 CloudTable paramName 方法參數](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) \(英文\) 來讀取資料表。 如果您嘗試繫結至 `CloudTable`，並出現錯誤訊息，請確定您已參考[正確的儲存體 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
 
 * **讀取 JavaScript 中的一或多個資料列**
 
@@ -531,7 +531,7 @@ public int run(
 使用 Azure 資料表儲存體輸出繫結以寫入 Azure 儲存體帳戶中的資料表。
 
 > [!NOTE]
-> 此輸出繫結不支援更新現有的實體。 [從 Azure 儲存體 SDK](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-table-dotnet#delete-an-entity) 使用 `TableOperation.Replace` 作業來更新現有的實體。   
+> 此輸出繫結不支援更新現有的實體。 `TableOperation.Replace`從 Azure 儲存體 SDK[ 使用 ](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-table-dotnet#delete-an-entity) 作業來更新現有的實體。   
 
 ## <a name="output---example"></a>輸出 - 範例
 
@@ -771,11 +771,11 @@ public static MyPoco TableOutput(
 
 * **以任何語言寫入單一資料列**
 
-  在 C# 和 C# 指令碼中，使用方法參數 (例如 `out T paramName`) 或函式傳回值，藉此存取輸出資料表實體。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 如果分割區索引鍵和資料列索引鍵是由 *function.json* 檔案或 `Table` 屬性提供，`T` 可以是任何可序列化的型別。 否則，`T` 必須包含 `PartitionKey` 和 `RowKey` 屬性的型別。 在此案例中，`T` 通常會實作 `ITableEntity` 或衍生自 `TableEntity`，但不一定如此。
+  在 C# 和 C# 指令碼中，使用方法參數 (例如 `out T paramName`) 或函式傳回值，藉此存取輸出資料表實體。 在 C# 指令碼中，`paramName` 是 `name`function.json*之* 屬性中指定的值。 如果分割區索引鍵和資料列索引鍵是由 `T`function.json*檔案或* 屬性提供，`Table` 可以是任何可序列化的型別。 否則，`T` 必須包含 `PartitionKey` 和 `RowKey` 屬性的型別。 在此案例中，`T` 通常會實作 `ITableEntity` 或衍生自 `TableEntity`，但不一定如此。
 
 * **以 C# 或 C# 指令碼寫入一或多個資料列**
 
-  在 C# 和 C# 指令碼中，使用方法參數 `ICollector<T> paramName` 或 `IAsyncCollector<T> paramName` 存取輸出資料表實體。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 `T` 指定了您想要新增之實體的結構描述。 一般而言，`T` 會衍生自 `TableEntity` 或實作 `ITableEntity`，但不一定如此。 *function.json* 中的分割區索引鍵或資料列索引鍵值，或 `Table` 屬性建構函式不會在此案例中使用。
+  在 C# 和 C# 指令碼中，使用方法參數 `ICollector<T> paramName` 或 `IAsyncCollector<T> paramName` 存取輸出資料表實體。 在 C# 指令碼中，`paramName` 是 `name`function.json*之* 屬性中指定的值。 `T` 指定了您想要新增之實體的結構描述。 一般而言，`T` 會衍生自 `TableEntity` 或實作 `ITableEntity`，但不一定如此。 *function.json* 中的分割區索引鍵或資料列索引鍵值，或 `Table` 屬性建構函式不會在此案例中使用。
 
   替代方式是藉由使用 Azure 儲存體 SDK，利用 `CloudTable` 方法參數來寫入資料表。 如果您嘗試繫結至 `CloudTable`，並出現錯誤訊息，請確定您已參考[正確的儲存體 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。 如需繫結至 `CloudTable` 的程式碼範例，請參閱本文稍早之適用於 [C#](#input---c-example---cloudtable) 或 [C# 指令碼](#input---c-script-example---cloudtable)的輸入繫結範例。
 
@@ -787,7 +787,7 @@ public static MyPoco TableOutput(
 
 | 繫結 | 參考 |
 |---|---|
-| 表格 | [資料表錯誤碼](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| 資料表 | [資料表錯誤碼](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
 | Bob、資料表、佇列 | [儲存體錯誤碼](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Bob、資料表、佇列 | [疑難排解](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 

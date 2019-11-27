@@ -1,6 +1,6 @@
 ---
-title: Push and pull OCI artifact
-description: Push and pull Open Container Initiative (OCI) artifacts using a private container registry in Azure
+title: 推送和提取 OCI 成品
+description: 在 Azure 中使用私人容器登錄來推送和提取開放容器計畫（OCI）成品
 author: SteveLasker
 manager: gwallace
 ms.topic: article
@@ -13,40 +13,40 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456250"
 ---
-# <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Push and pull an OCI artifact using an Azure container registry
+# <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>使用 Azure container registry 推送和提取 OCI 成品
 
-You can use an Azure container registry to store and manage [Open Container Initiative (OCI) artifacts](container-registry-image-formats.md#oci-artifacts) as well as Docker and Docker-compatible container images.
+您可以使用 Azure container registry 來儲存和管理[開放容器計畫（OCI）構件](container-registry-image-formats.md#oci-artifacts)，以及 Docker 和 docker 相容的容器映射。
 
-To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://github.com/deislabs/oras) tool to push a sample artifact -  a text file - to an Azure container registry. Then, pull the artifact from the registry. You can manage a variety of OCI artifacts in an Azure container registry using different command-line tools appropriate to each artifact.
+為了示範這項功能，本文說明如何使用 OCI 登錄[作為儲存體（ORAS）](https://github.com/deislabs/oras)工具，將範例成品（文字檔）推送至 Azure container Registry。 然後，從登錄中提取成品。 您可以使用適用于每個成品的不同命令列工具，在 Azure container registry 中管理各種 OCI 構件。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 容器登錄庫** - 在 Azure 訂用帳戶中建立容器登錄庫。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。
-* **ORAS tool** - Download and install a current ORAS release for your operating system from the [GitHub repo](https://github.com/deislabs/oras/releases). The tool is released as a compressed tarball (`.tar.gz` file). Extract and install the file using standard procedures for your operating system.
-* **Azure Active Directory service principal (optional)** - To authenticate directly with ORAS, create a [service principal](container-registry-auth-service-principal.md) to access your registry. Ensure that the service principal is assigned a role such as AcrPush so that it has permissions to push and pull artifacts.
-* **Azure CLI (optional)** - To use an individual identity, you need a local installation of the Azure CLI. Version 2.0.71 or later is recommended. Run `az --version `to find the version. 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
-* **Docker (optional)** - To use an individual identity, you must also have Docker installed locally, to authenticate with the registry. Docker 提供可輕鬆在任何 [macOS][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系統上設定 Docker 的套件。
+* **ORAS 工具**-從[GitHub](https://github.com/deislabs/oras/releases)存放庫下載並安裝適用于您作業系統的最新 ORAS 版本。 此工具會以壓縮的 tarball （`.tar.gz` 檔案）發行。 使用適用于您作業系統的標準程式，解壓縮並安裝檔案。
+* **Azure Active Directory 服務主體（選用）** -若要直接使用 ORAS 進行驗證，請建立[服務主體](container-registry-auth-service-principal.md)來存取您的登錄。 請確定已將角色（例如 AcrPush）指派給服務主體，讓它有推送和提取成品的許可權。
+* **Azure CLI （選用）** -若要使用個別的身分識別，您需要 Azure CLI 的本機安裝。 建議使用2.0.71 或更新版本。 執行 `az --version `以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+* **Docker （選用）** -若要使用個別的身分識別，您也必須在本機安裝 Docker，才能向登錄進行驗證。 Docker 提供可輕鬆在任何 [macOS][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系統上設定 Docker 的套件。
 
 
-## <a name="sign-in-to-a-registry"></a>Sign in to a registry
+## <a name="sign-in-to-a-registry"></a>登入登錄
 
-This section shows two suggested workflows to sign into the registry, depending on the identity used. Choose the method appropriate for your environment.
+本節說明兩個建議的工作流程，以登入登錄，視所使用的身分識別而定。 選擇適用于您環境的方法。
 
-### <a name="sign-in-with-oras"></a>Sign in with ORAS
+### <a name="sign-in-with-oras"></a>使用 ORAS 登入
 
-Using a [service principal](container-registry-auth-service-principal.md) with push rights, run the `oras login` command to sign in to the registry using the service principal application ID and password. Specify the fully qualified registry name (all lowercase), in this case *myregistry.azurecr.io*. The service principal application ID is passed in the environment variable `$SP_APP_ID`, and the password in the variable `$SP_PASSWD`.
+使用[服務主體](container-registry-auth-service-principal.md)搭配推播許可權，執行 `oras login` 命令，以使用服務主體應用程式識別碼和密碼登入登錄。 指定完整的登錄名稱（全部小寫），在此案例中為*myregistry.azurecr.io*。 服務主體應用程式識別碼會在環境變數 `$SP_APP_ID`中傳遞，而變數中的密碼 `$SP_PASSWD`。
 
 ```bash
 oras login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 ```
 
-To read the password from Stdin, use `--password-stdin`.
+若要從 Stdin 讀取密碼，請使用 `--password-stdin`。
 
 ### <a name="sign-in-with-azure-cli"></a>使用 Azure CLI 登入
 
-[Sign in](/cli/azure/authenticate-azure-cli) to the Azure CLI with your identity to push and pull artifacts from the container registry.
+使用您的身分識別登入 Azure CLI，以從容器[登錄](/cli/azure/authenticate-azure-cli)推送和提取成品。
 
-Then, use the Azure CLI command [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) to access the registry. For example, to authenticate to a registry named *myregistry*:
+然後，使用 Azure CLI 命令[az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login)來存取登錄。 例如，若要向名為*myregistry*的登錄進行驗證：
 
 ```azurecli
 az login
@@ -54,17 +54,17 @@ az acr login --name myregistry
 ```
 
 > [!NOTE]
-> `az acr login` uses the Docker client to set an Azure Active Directory token in the `docker.config` file. The Docker client must be installed and running to complete the individual authentication flow.
+> `az acr login` 會使用 Docker 用戶端，在 `docker.config` 檔案中設定 Azure Active Directory token。 必須安裝並執行 Docker 用戶端，才能完成個別的驗證流程。
 
-## <a name="push-an-artifact"></a>Push an artifact
+## <a name="push-an-artifact"></a>推送成品
 
-Create a text file in a local working working directory with some sample text. For example, in a bash shell:
+在本機工作的工作目錄中建立文字檔，其中包含一些範例文字。 例如，在 bash shell 中：
 
 ```bash
 echo "Here is an artifact!" > artifact.txt
 ```
 
-Use the `oras push` command to push this text file to your registry. The following example pushes the sample text file to the `samples/artifact` repo. The registry is identified with the fully qualified registry name *myregistry.azurecr.io* (all lowercase). The artifact is tagged `1.0`. The artifact has an undefined type, by default, identified by the *media type* string following the filename `artifact.txt`. See [OCI Artifacts](https://github.com/opencontainers/artifacts) for additional types. 
+使用 `oras push` 命令，將此文字檔推送至您的登錄。 下列範例會將範例文字檔推送至 `samples/artifact` 存放庫。 登錄會以完整的登錄名稱*myregistry.azurecr.io* （全部小寫）識別。 成品已標記 `1.0`。 根據預設，成品具有未定義的類型，並以 `artifact.txt`檔案名後面的*媒體類型*字串識別。 如需其他類型，請參閱[OCI 構件](https://github.com/opencontainers/artifacts)。 
 
 ```bash
 oras push myregistry.azurecr.io/samples/artifact:1.0 \
@@ -72,7 +72,7 @@ oras push myregistry.azurecr.io/samples/artifact:1.0 \
     ./artifact.txt:application/vnd.unknown.layer.v1+txt
 ```
 
-Output for a successful push is similar to the following:
+成功推送的輸出如下所示：
 
 ```console
 Uploading 33998889555f artifact.txt
@@ -80,7 +80,7 @@ Pushed myregistry.azurecr.io/samples/artifact:1.0
 Digest: sha256:xxxxxxbc912ef63e69136f05f1078dbf8d00960a79ee73c210eb2a5f65xxxxxx
 ```
 
-To manage artifacts in your registry, if you are using the Azure CLI, run standard `az acr` commands for managing images. For example, get the attributes of the artifact using the [az acr repository show][az-acr-repository-show] command:
+若要在登錄中管理成品，如果您使用 Azure CLI，請執行標準 `az acr` 命令來管理映射。 例如，使用[az acr repository show][az-acr-repository-show]命令取得成品的屬性：
 
 ```azurecli
 az acr repository show \
@@ -106,33 +106,33 @@ az acr repository show \
 }
 ```
 
-## <a name="pull-an-artifact"></a>Pull an artifact
+## <a name="pull-an-artifact"></a>提取成品
 
-Run the `oras pull` command to pull the artifact from your registry.
+執行 `oras pull` 命令，從您的登錄提取成品。
 
-First remove the text file from your local working directory:
+首先，從您的本機工作目錄中移除文字檔：
 
 ```bash
 rm artifact.txt
 ```
 
-Run `oras pull` to pull the artifact, and specify the media type used to push the artifact:
+執行 `oras pull` 以提取成品，並指定用來推送成品的媒體類型：
 
 ```bash
 oras pull myregistry.azurecr.io/samples/artifact:1.0 \
     --media-type application/vnd.unknown.layer.v1+txt
 ```
 
-Verify that the pull was successful:
+確認提取成功：
 
 ```bash
 $ cat artifact.txt
 Here is an artifact!
 ```
 
-## <a name="remove-the-artifact-optional"></a>Remove the artifact (optional)
+## <a name="remove-the-artifact-optional"></a>移除成品（選擇性）
 
-To remove the artifact from your Azure container registry, use the [az acr repository delete][az-acr-repository-delete] command. The following example removes the artifact you stored there:
+若要從 Azure container registry 移除成品，請使用[az acr repository delete][az-acr-repository-delete]命令。 下列範例會移除您儲存在該處的成品：
 
 ```azurecli
 az acr repository delete \
@@ -142,8 +142,8 @@ az acr repository delete \
 
 ## <a name="next-steps"></a>後續步驟
 
-* Learn more about [the ORAS Library](https://github.com/deislabs/oras/tree/master/docs), including how to configure a manifest for an artifact
-* Visit the [OCI Artifacts](https://github.com/opencontainers/artifacts) repo for reference information about new artifact types
+* 深入瞭解[ORAS 程式庫](https://github.com/deislabs/oras/tree/master/docs)，包括如何設定成品的資訊清單
+* 請造訪[OCI 構件](https://github.com/opencontainers/artifacts)存放庫，以取得新成品類型的參考資訊
 
 
 

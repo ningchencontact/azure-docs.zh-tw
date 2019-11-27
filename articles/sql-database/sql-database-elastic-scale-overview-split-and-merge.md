@@ -1,5 +1,5 @@
 ---
-title: 在相應放大的雲端資料庫之間移動資料
+title: 在向外延展的雲端資料庫之間移動資料
 description: 說明如何使用彈性資料庫 API 透過自我託管服務操作分區和移動資料。
 services: sql-database
 ms.service: sql-database
@@ -18,13 +18,13 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74421566"
 ---
-# <a name="moving-data-between-scaled-out-cloud-databases"></a>在相應放大的雲端資料庫之間移動資料
+# <a name="moving-data-between-scaled-out-cloud-databases"></a>在向外延展的雲端資料庫之間移動資料
 
 如果您是軟體服務開發人員，您的應用程式突然出現巨量需求，您需要因應這種成長。 所以，您加入了更多的資料庫 (分區)。 您該如何將資料重新發佈到新的資料庫，卻不打斷資料的完整性？ 使用 **分割合併工具** 將資料從受條件約束的資料庫移到新的資料庫。  
 
 分割合併工具執行的方式如同 Azure Web 服務。 系統管理員或開發人員使用工具在不同的資料庫 (分區) 之間移動 Shardlet (分區的資料)。 此工具會使用分區對應管理來維護服務中繼資料資料庫，並確保一致的對應。
 
-![概觀][1]
+![Overview][1]
 
 ## <a name="download"></a>下載
 
@@ -180,7 +180,7 @@ ms.locfileid: "74421566"
 
 分割合併服務是以 Microsoft Azure 訂用帳戶中的雲端服務執行。 因此會對您的服務執行個體收取雲端服務的費用。 除非您經常執行分割/合併/移動作業，否則建議您刪除分割合併雲端服務。 這可以節省執行中或已部署的雲端服務執行個體的成本。 每當您需要執行分割或合併作業時，您可以重新部署和啟動可立即運作的組態。
 
-## <a name="monitoring"></a>監視
+## <a name="monitoring"></a>監控
 
 ### <a name="status-tables"></a>狀態資料表
 
@@ -219,7 +219,7 @@ ms.locfileid: "74421566"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 針對 NuGet 封裝所提供的 Web 和背景工作角色，若要使用診斷組態啟用監視和診斷，請使用 Azure PowerShell 執行下列命令：
 

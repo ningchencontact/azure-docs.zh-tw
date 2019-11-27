@@ -44,7 +44,7 @@ ms.locfileid: "74273688"
 
 每個 Azure 位置和訂用帳戶可以建立的網路安全性群組數目有所限制。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
-1. 從 Azure 入口網站功能表或 **[首頁]** 頁面，選取 [建立資源]。
+1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]。
 2. 選取 [網路]，然後選取 [網路安全性群組]。
 3. 輸入網路安全性群組的 [名稱]選取您的 [訂用帳戶]建立新的 [資源群組] 或選取現有的資源群組、選取 [位置]，然後選取 [建立]。
 

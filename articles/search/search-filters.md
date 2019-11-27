@@ -1,7 +1,7 @@
 ---
-title: Filter on search results
+title: 篩選搜尋結果
 titleSuffix: Azure Cognitive Search
-description: Filter by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Cognitive Search, a hosted cloud search service on Microsoft Azure.
+description: 依使用者安全性身分識別、語言、地理位置或數值進行篩選，以減少 Azure 認知搜尋（Microsoft Azure 上託管的雲端搜尋服務）中查詢的搜尋結果。
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -15,9 +15,9 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74406753"
 ---
-# <a name="filters-in-azure-cognitive-search"></a>Filters in Azure Cognitive Search 
+# <a name="filters-in-azure-cognitive-search"></a>Azure 認知搜尋中的篩選 
 
-A *filter* provides criteria for selecting documents used in an Azure Cognitive Search query. 未篩選的搜尋會包含索引中的所有文件。 篩選條件會將搜尋查詢的範圍設定為文件子集。 例如，篩選條件可以限制只對具有特定品牌或色彩且超過特定閾值之價格點的產品進行全文檢索搜尋。
+*篩選*條件提供選取 Azure 認知搜尋查詢中使用之檔的準則。 未篩選的搜尋會包含索引中的所有文件。 篩選條件會將搜尋查詢的範圍設定為文件子集。 例如，篩選條件可以限制只對具有特定品牌或色彩且超過特定閾值之價格點的產品進行全文檢索搜尋。
 
 某些搜尋體驗會強制實行篩選條件需求以作為實作的一部分，但是，當您想要使用「以值為基礎」的準則 (針對 "Simon & Schuster" 所發行的類別 "non-fiction"，將搜尋範圍設定為產品類型 "books") 來限制搜尋時，隨時都可使用篩選條件。
 
@@ -49,23 +49,23 @@ A *filter* provides criteria for selecting documents used in an Azure Cognitive 
 
  + `searchFields` 查詢參數會將搜尋限制為特定欄位。 例如，如果您的索引分別提供適用於英文和西班牙文描述的欄位，您可以使用 searchFields，將目標設定為要用來進行全文檢索搜尋的欄位。 
 
-+ `$select` 參數可用來指定要包含在結果集中的欄位，先有效地調整回應，然後將它傳送至呼叫應用程式。 This parameter does not refine the query or reduce the document collection, but if a smaller response is your goal, this parameter is an option to consider. 
++ `$select` 參數可用來指定要包含在結果集中的欄位，先有效地調整回應，然後將它傳送至呼叫應用程式。 此參數不會縮小查詢範圍或減少檔集合，但如果您的目標是較小的回應，則此參數是要考慮的選項。 
 
 如需其中任一個參數的詳細資訊，請參閱[搜尋文件 > 要求 > 查詢參數](https://docs.microsoft.com/rest/api/searchservice/search-documents#request) \(英文\)。
 
 
-## <a name="how-filters-are-executed"></a>How filters are executed
+## <a name="how-filters-are-executed"></a>如何執行篩選
 
-At query time, a filter parser accepts criteria as input, converts the expression into atomic Boolean expressions represented as a tree, and then evaluates the filter tree over filterable fields in an index.
+在查詢時，篩選剖析器會接受準則做為輸入，將運算式轉換成以樹狀結構表示的不可部分完成的布林運算式，然後在索引的可篩選欄位上評估篩選樹狀結構。
 
-Filtering occurs in tandem with search, qualifying which documents to include in downstream processing for document retrieval and relevance scoring. When paired with a search string, the filter effectively reduces the recall set of the subsequent search operation. 單獨使用時 (例如，當查詢字串空白時，其中 `search=*`)，篩選條件準則會是唯一的輸入。 
+篩選會與搜尋一併進行，以符合要在檔抓取和相關性評分的下游處理中包含哪些檔。 當與搜尋字串配對時，篩選準則會有效減少後續搜尋作業的重新叫用組。 單獨使用時 (例如，當查詢字串空白時，其中 `search=*`)，篩選條件準則會是唯一的輸入。 
 
 ## <a name="defining-filters"></a>定義篩選器
-Filters are OData expressions, articulated using a [subset of OData V4 syntax supported in Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+篩選器是 OData 運算式，使用[Azure 認知搜尋中支援的 Odata V4 語法子集](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)進行明確表述。 
 
-You can specify one filter for each **search** operation, but the filter itself can include multiple fields, multiple criteria, and if you use an **ismatch** function, multiple full-text search expressions. In a multi-part filter expression, you can specify predicates in any order (subject to the rules of operator precedence). 如果您嘗試以特定順序重新整理述詞，則不會有任何顯著的效能改善。
+您可以針對每個**搜尋**作業指定一個篩選準則，但篩選準則本身可以包含多個欄位、多個準則，而且如果您使用**ismatch**函數，多個全文檢索搜尋運算式。 在多部分的篩選條件運算式中，您可以依任何順序指定述詞（受限於運算子優先順序的規則）。 如果您嘗試以特定順序重新整理述詞，則不會有任何顯著的效能改善。
 
-One of the limits on a filter expression is the maximum size limit of the request. 整個要求 (包含篩選條件) 針對 POST 最多可有 16 MB，針對 GET 則是 8 KB。 There is also a limit on the number of clauses in your filter expression. 最佳經驗法則是，如果您有數百個子句，則必須承擔達到限制的風險。 我們建議以這類不會產生無大小限制之篩選條件的方式來設計您的應用程式。
+篩選條件運算式的其中一個限制是要求的大小上限。 整個要求 (包含篩選條件) 針對 POST 最多可有 16 MB，針對 GET 則是 8 KB。 您的篩選條件運算式中的子句數目也有限制。 最佳經驗法則是，如果您有數百個子句，則必須承擔達到限制的風險。 我們建議以這類不會產生無大小限制之篩選條件的方式來設計您的應用程式。
 
 下列範例會呈現數個 API 中的典型篩選條件定義。
 
@@ -93,23 +93,23 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
     var results = searchIndexClient.Documents.Search("*", parameters);
 ```
 
-## <a name="filter-usage-patterns"></a>Filter usage patterns
+## <a name="filter-usage-patterns"></a>篩選使用模式
 
-The following examples illustrate several usage patterns for filter scenarios. 如需更多概念，請參閱 [OData 運算式語法 > 範例](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples) \(英文\) 。
+下列範例說明篩選準則案例的數種使用模式。 如需更多概念，請參閱 [OData 運算式語法 > 範例](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples) \(英文\) 。
 
-+ 獨立的 **$filter** (不含查詢字串)，在篩選條件運算式能夠完全限定為感興趣的文件時很有用。 沒有查詢字串，就沒有語彙或語言分析、沒有計分且沒有排名。 Notice the search string is just an asterisk, which means "match all documents".
++ 獨立的 **$filter** (不含查詢字串)，在篩選條件運算式能夠完全限定為感興趣的文件時很有用。 沒有查詢字串，就沒有語彙或語言分析、沒有計分且沒有排名。 請注意，搜尋字串只是一個星號，這表示「符合所有檔」。
 
    ```
    search=*&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu'
    ```
 
-+ 查詢字串和 **$filter** 的組合，其中的篩選條件會建立子集，而查詢字串會提供字詞輸入，以便在篩選的子集上進行全文檢索搜尋。 The addition of terms (walking distance theaters) introduces search scores in the results, where documents that best match the terms are ranked higher. Using a filter with a query string is the most common usage pattern.
++ 查詢字串和 **$filter** 的組合，其中的篩選條件會建立子集，而查詢字串會提供字詞輸入，以便在篩選的子集上進行全文檢索搜尋。 新增詞彙（走距離電影院）會在結果中引進搜尋分數，其中最符合詞彙的檔會排名較高。 使用含有查詢字串的篩選是最常見的使用模式。
 
    ```
   search=walking distance theaters&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'&$count=true
    ```
 
-+ 複合式查詢 (以 "or" 分隔)，每個均有自己的篩選條件準則 (例如，'dog' 中的 'beagles' 或 'cat' 中的 'siamese')。 Expressions combined with `or` are evaluated individually, with the union of documents matching each expression sent back in the response. This usage pattern is achieved through the `search.ismatchscoring` function. You can also use the non-scoring version, `search.ismatch`.
++ 複合式查詢 (以 "or" 分隔)，每個均有自己的篩選條件準則 (例如，'dog' 中的 'beagles' 或 'cat' 中的 'siamese')。 與 `or` 結合的運算式會個別進行評估，並包含符合回應中傳回之每個運算式的檔聯集。 此使用模式是透過 `search.ismatchscoring` 函式來達成。 您也可以使用非計分版本，`search.ismatch`。
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -119,7 +119,7 @@ The following examples illustrate several usage patterns for filter scenarios. �
    $filter=search.ismatchscoring('luxury | high-end', 'Description') or Category eq 'Luxury'&$count=true
    ```
 
-  It is also possible to combine full-text search via `search.ismatchscoring` with filters using `and` instead of `or`, but this is functionally equivalent to using the `search` and `$filter` parameters in a search request. For example, the following two queries produce the same result:
+  您也可以使用 `and` 而不是 `or`，透過 `search.ismatchscoring` 結合全文檢索搜尋，但這在功能上等同于在搜尋要求中使用 `search` 和 `$filter` 參數。 例如，下列兩個查詢會產生相同的結果：
 
   ```
   $filter=search.ismatchscoring('pool') and Rating ge 4
@@ -135,32 +135,32 @@ The following examples illustrate several usage patterns for filter scenarios. �
 
 ## <a name="field-requirements-for-filtering"></a>進行篩選的欄位需求
 
-In the REST API, filterable is *on* by default for simple fields. 可篩選的欄位會增加索引大小；請務必針對您不打算在篩選條件中實際使用的欄位設定 `"filterable": false`。 如需適用於欄位定義之設定的詳細資訊，請參閱[建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\)。
+在 REST API 中，簡單欄位的可篩選預設為 [*開啟*]。 可篩選的欄位會增加索引大小；請務必針對您不打算在篩選條件中實際使用的欄位設定 `"filterable": false`。 如需適用於欄位定義之設定的詳細資訊，請參閱[建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\)。
 
-在 .NET SDK 中，可篩選預設為 *off*。 You can make a field filterable by setting the [IsFilterable property](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) of the corresponding [Field](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) object to `true`. You can also do this declaratively by using the [IsFilterable attribute](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). In the example below, the attribute is set on the `BaseRate` property of a model class that maps to the index definition.
+在 .NET SDK 中，可篩選預設為 *off*。 您可以將對應[欄位](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet)物件的[IsFilterable 屬性](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet)設定為 `true`，以篩選欄位。 您也可以使用[IsFilterable 屬性](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute)，以宣告方式執行這項操作。 在下列範例中，屬性是在對應至索引定義之模型類別的 `BaseRate` 屬性上設定。
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
     public double? BaseRate { get; set; }
 ```
 
-### <a name="making-an-existing-field-filterable"></a>Making an existing field filterable
+### <a name="making-an-existing-field-filterable"></a>將現有欄位設為可篩選
 
-You can't modify existing fields to make them filterable. Instead, you need to add a new field, or rebuild the index. For more information about rebuilding an index or repopulating fields, see [How to rebuild an Azure Cognitive Search index](search-howto-reindex.md).
+您無法修改現有的欄位，使其可進行篩選。 相反地，您需要加入新的欄位，或重建索引。 如需重建索引或重新填入欄位的詳細資訊，請參閱[如何重建 Azure 認知搜尋索引](search-howto-reindex.md)。
 
 ## <a name="text-filter-fundamentals"></a>文字篩選條件基本概念
 
-Text filters match string fields against literal strings that you provide in the filter. Unlike full-text search, there is no lexical analysis or word-breaking for text filters, so comparisons are for exact matches only. For example, assume a field *f* contains "sunny day", `$filter=f eq 'Sunny'` does not match, but `$filter=f eq 'sunny day'` will. 
+文字篩選準則會比對字串欄位與您在篩選準則中提供的常值字串。 不同于全文檢索搜尋，文字篩選不會有任何詞法分析或斷詞，因此比較僅適用于完全相符的專案。 例如，假設欄位*f*包含 "sunny day"，`$filter=f eq 'Sunny'` 不相符，但 `$filter=f eq 'sunny day'` 會。 
 
-文字字串會區分大小寫。 There is no lower-casing of upper-cased words: `$filter=f eq 'Sunny day'` will not find "sunny day".
+文字字串會區分大小寫。 大小寫不符合大寫的單字： `$filter=f eq 'Sunny day'` 將找不到 "sunny day"。
 
-### <a name="approaches-for-filtering-on-text"></a>Approaches for filtering on text
+### <a name="approaches-for-filtering-on-text"></a>篩選文字的方法
 
-| 方法 | 描述 | When to use |
+| 方法 | 描述 | 使用時機 |
 |----------|-------------|-------------|
-| [`search.in`](search-query-odata-search-in-function.md) | A function that matches a field against a delimited list of strings. | Recommended for [security filters](search-security-trimming-for-azure-search.md) and for any filters where many raw text values need to be matched with a string field. The **search.in** function is designed for speed and is much faster than explicitly comparing the field against each string using `eq` and `or`. | 
-| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | 此函式可讓您在相同的篩選條件運算式中，混用全文檢索搜尋作業以及純布林值篩選作業。 | Use **search.ismatch** (or its scoring equivalent, **search.ismatchscoring**) when you want multiple search-filter combinations in one request. 您也可以將它用於 *contains* 篩選條件，以篩選較大字串內的部分字串。 |
-| [`$filter=field operator string`](search-query-odata-comparison-operators.md) | 使用者定義的運算式，由欄位、運算子和值所組成。 | Use this when you want to find exact matches between a string field and a string value. |
+| [`search.in`](search-query-odata-search-in-function.md) | 符合欄位的函式，可針對字串的分隔清單。 | 建議用於[安全性篩選](search-security-trimming-for-azure-search.md)和任何篩選準則，其中有許多原始文字值需要與字串欄位相符。 **Search.in**函數是針對速度而設計的，比使用 `eq` 和 `or`，針對每個字串明確地比較欄位更快。 | 
+| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | 此函式可讓您在相同的篩選條件運算式中，混用全文檢索搜尋作業以及純布林值篩選作業。 | 當您想要在一個要求中有多個搜尋篩選器組合時，請使用**ismatch** （或其評分對等的**ismatchscoring**）。 您也可以將它用於 *contains* 篩選條件，以篩選較大字串內的部分字串。 |
+| [`$filter=field operator string`](search-query-odata-comparison-operators.md) | 使用者定義的運算式，由欄位、運算子和值所組成。 | 當您想要在字串欄位與字串值之間尋找完全相符專案時，請使用此專案。 |
 
 ## <a name="numeric-filter-fundamentals"></a>數值篩選條件基本概念
 
@@ -195,9 +195,9 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 若要使用更多範例，請參閱 [OData 篩選條件運算式語法 > 範例](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples) \(英文\)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
-+ [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
++ [全文檢索搜尋在 Azure 認知搜尋中的運作方式](search-lucene-query-architecture.md)
 + [搜尋文件 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 + [簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Lucene 查詢語法](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)

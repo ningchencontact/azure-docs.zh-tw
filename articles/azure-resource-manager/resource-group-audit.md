@@ -1,6 +1,6 @@
 ---
-title: View Azure activity logs to monitor resources
-description: 使用活動記錄檢閱使用者動作和錯誤。 Shows Azure portal PowerShell, Azure CLI, and REST.
+title: 查看 Azure 活動記錄以監視資源
+description: 使用活動記錄檢閱使用者動作和錯誤。 顯示 Azure 入口網站 PowerShell、Azure CLI 和 REST。
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 7b70d2a8c158b6f8b3dc87c22e5ca90f2861aebb
@@ -10,7 +10,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74422291"
 ---
-# <a name="view-activity-logs-to-monitor-actions-on-resources"></a>View activity logs to monitor actions on resources
+# <a name="view-activity-logs-to-monitor-actions-on-resources"></a>查看活動記錄以監視資源上的動作
 
 透過活動記錄，您可以判斷︰
 
@@ -20,17 +20,17 @@ ms.locfileid: "74422291"
 * 作業的狀態
 * 其他可能協助您研究作業的屬性值
 
-The activity log contains all write operations (PUT, POST, DELETE) for your resources. 不包含讀取作業 (GET)。 如需資源動作的清單，請參閱 [Azure Resource Manager 資源提供者作業](../role-based-access-control/resource-provider-operations.md)。 您可以使用活動記錄在進行疑難排解時發現錯誤，或是監視貴組織使用者修改資源的方式。
+活動記錄包含資源的所有寫入作業（PUT、POST、DELETE）。 不包含讀取作業 (GET)。 如需資源動作的清單，請參閱 [Azure Resource Manager 資源提供者作業](../role-based-access-control/resource-provider-operations.md)。 您可以使用活動記錄在進行疑難排解時發現錯誤，或是監視貴組織使用者修改資源的方式。
 
 活動記錄會保留 90 天。 您可以查詢任何的日期範圍，只要開始日期不是在過去 90 天以前。
 
 您可以透過入口網站、PowerShell、Azure CLI、Insights REST API 或 [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/)擷取活動記錄中的資訊。
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure 入口網站
 
-To view the activity logs through the portal, follow these steps:
+若要透過入口網站來查看活動記錄，請遵循下列步驟：
 
-1. On the Azure portal menu, select **Monitor**, or search for and select **Monitor** from any page.
+1. 在 [Azure 入口網站] 功能表上，選取 [**監視**]，或搜尋並從任何頁面選取 [**監視**]。
 
     ![選取監視器](./media/resource-group-audit/select-monitor-from-menu.png)
 
@@ -38,19 +38,19 @@ To view the activity logs through the portal, follow these steps:
 
     ![選取活動記錄](./media/resource-group-audit/select-activity-log.png)
 
-1. 您會看到最近作業的摘要。 系統會將一組預設篩選套用至作業。 Notice the information on the summary includes who started the action and when it happened.
+1. 您會看到最近作業的摘要。 系統會將一組預設篩選套用至作業。 請注意，摘要的資訊包括啟動動作的人員，以及發生的時間。
 
     ![檢視最近作業的摘要](./media/resource-group-audit/audit-summary.png)
 
-1. To quickly run a pre-defined set of filters, select **Quick Insights**.
+1. 若要快速執行一組預先定義的篩選器，請選取 [**快速見解**]。
 
-    ![Select quick insights](./media/resource-group-audit/select-quick-insights.png)
+    ![選取 [快速深入剖析]](./media/resource-group-audit/select-quick-insights.png)
 
-1. 選取其中一個選項。 For example, select **Failed deployments** to see errors from deployments.
+1. 選取其中一個選項。 例如，選取 [**失敗的部署**] 以查看部署中的錯誤。
 
-    ![Select failed deployments](./media/resource-group-audit/select-failed-deployments.png)
+    ![選取失敗的部署](./media/resource-group-audit/select-failed-deployments.png)
 
-1. Notice the filters have been changed to focus on deployment errors in the last 24 hours. Only operations that match the filters are displayed.
+1. 請注意，篩選準則已變更，以專注于過去24小時內的部署錯誤。 只會顯示符合篩選準則的作業。
 
     ![檢視篩選條件](./media/resource-group-audit/view-filters.png)
 
@@ -66,23 +66,23 @@ To view the activity logs through the portal, follow these steps:
 
     ![名稱篩選](./media/resource-group-audit/name-filters.png)
 
-1. 可在儀表板中使用篩選。 On the Azure portal menu, select **Dashboard**.
+1. 可在儀表板中使用篩選。 在 [Azure 入口網站] 功能表上，選取 [**儀表板**]。
 
     ![在儀表板上顯示篩選](./media/resource-group-audit/activity-log-on-dashboard.png)
 
-1. From the portal, you can view changes to a resource. Go back to the default view in Monitor, and select an operation that involved changing a resource.
+1. 您可以從入口網站中，查看對資源所做的變更。 返回 [監視器] 中的預設值，然後選取涉及變更資源的作業。
 
-    ![Select operation](./media/resource-group-audit/select-operation.png)
+    ![選取作業](./media/resource-group-audit/select-operation.png)
 
-1. Select **Change history (Preview)** and pick one of the available operations.
+1. 選取 [**變更歷程記錄（預覽）** ]，然後挑選其中一個可用的作業。
 
-    ![Select change history](./media/resource-group-audit/select-change-history.png)
+    ![選取變更歷程記錄](./media/resource-group-audit/select-change-history.png)
 
-1. The changes in the resource are displayed.
+1. 系統會顯示資源中的變更。
 
-    ![Show changes](./media/resource-group-audit/show-changes.png)
+    ![顯示變更](./media/resource-group-audit/show-changes.png)
 
-To learn more about change history, see [Get resource changes](../governance/resource-graph/how-to/get-resource-changes.md).
+若要深入瞭解變更歷程記錄，請參閱[取得資源變更](../governance/resource-graph/how-to/get-resource-changes.md)。
 
 ## <a name="powershell"></a>PowerShell
 
@@ -106,7 +106,7 @@ Get-AzLog -ResourceGroup ExampleGroup -StartTime 2019-05-05T06:00 -EndTime 2019-
 Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
 ```
 
-You can look up the actions taken by a particular user.
+您可以查詢特定使用者所採取的動作。
 
 ```azurepowershell-interactive
 Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
@@ -136,7 +136,7 @@ Get-AzLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller,
 Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
 ```
 
-You can use Resource Graph to see the change history for a resource. For more information, see [Get resource changes](../governance/resource-graph/how-to/get-resource-changes.md).
+您可以使用 Resource Graph 查看資源的變更歷程記錄。 如需詳細資訊，請參閱[取得資源變更](../governance/resource-graph/how-to/get-resource-changes.md)。
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -182,7 +182,7 @@ az monitor activity-log list -g ExampleGroup --offset 1d --query '[].{Operation:
 az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
 ```
 
-You can use Resource Graph to see the change history for a resource. For more information, see [Get resource changes](../governance/resource-graph/how-to/get-resource-changes.md).
+您可以使用 Resource Graph 查看資源的變更歷程記錄。 如需詳細資訊，請參閱[取得資源變更](../governance/resource-graph/how-to/get-resource-changes.md)。
 
 ## <a name="rest-api"></a>REST API
 
@@ -192,7 +192,7 @@ You can use Resource Graph to see the change history for a resource. For more in
 
 * Azure 活動記錄可以搭配 Power BI 用來更深入了解訂用帳戶中的動作。 請參閱 [在 Power BI 和其他工具中檢視和分析 Azure 活動記錄](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)。
 * 如要了解如何設定安全性原則，請參閱 [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)。
-* To view more details about the changes to your applications from the infrastructure layer all the way to application deployment, see [Use Application Change Analysis in Azure Monitor](../azure-monitor/app/change-analysis.md).
+* 若要深入瞭解從基礎結構層到應用程式部署的應用程式變更的詳細資料，請參閱[在 Azure 監視器中使用應用程式變更分析](../azure-monitor/app/change-analysis.md)。
 * 若要深入了解檢視部署作業的命令，請參閱[檢視部署作業](resource-manager-deployment-operations.md)。
 * 若要了解如何防止刪除所有使用者的資源，請參閱 [使用 Azure Resource Manager 鎖定資源](resource-group-lock-resources.md)。
 * 若要查看每個 Microsoft Azure Resource Manager 提供者可用的作業清單，請參閱 [Azure Resource Manager 資源提供者作業](../role-based-access-control/resource-provider-operations.md)

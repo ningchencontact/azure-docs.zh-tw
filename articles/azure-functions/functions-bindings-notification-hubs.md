@@ -21,7 +21,7 @@ ms.locfileid: "74231147"
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!IMPORTANT]
-> Google has [deprecated Google Cloud Messaging (GCM) in favor of Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). This output binding doesn't support FCM. To send notifications using FCM, use the [Firebase API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) directly in your function or use [template notifications](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+> Google 已[淘汰 Google 雲端通訊（GCM），取而代之的是 Firebase 雲端通訊（FCM）](https://developers.google.com/cloud-messaging/faq)。 此輸出系結不支援 FCM。 若要使用 FCM 傳送通知，請直接在您的函式中使用[FIREBASE API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) ，或使用[範本通知](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)。
 
 ## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
@@ -48,7 +48,7 @@ Functions 2.x 中不提供此繫結。
 
 ### <a name="c-script-template-example---out-parameter"></a>C# 指令碼範本範例 - out 參數
 
-這個範例會傳送在範本中包含 `message` 預留位置的[範本註冊](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)通知。
+這個範例會傳送在範本中包含 [ 預留位置的](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)範本註冊`message`通知。
 
 ```cs
 using System;
@@ -96,7 +96,7 @@ private static IDictionary<string, string> GetTemplateProperties(string message)
 
 ### <a name="c-script-template-example---json"></a>C# 指令碼範本範例 - JSON
 
-這個範例會使用有效的 JSON 字串來傳送在範本中包含 `message` 預留位置的[範本註冊](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)通知。
+這個範例會使用有效的 JSON 字串來傳送在範本中包含 [ 預留位置的](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)範本註冊`message`通知。
 
 ```cs
 using System;
@@ -135,7 +135,7 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 ### <a name="f-template-example"></a>F # 範本範例
 
-這個範例會傳送包含 `location` 和 `message` 的[範本註冊](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)通知。
+這個範例會傳送包含 [ 和 ](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) 的`location`範本註冊`message`通知。
 
 ```fsharp
 let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
@@ -144,7 +144,7 @@ let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
 
 ### <a name="javascript-template-example"></a>JavaScript 範本範例
 
-這個範例會傳送包含 `location` 和 `message` 的[範本註冊](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)通知。
+這個範例會傳送包含 [ 和 ](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) 的`location`範本註冊`message`通知。
 
 ```javascript
 module.exports = function (context, myTimer) {

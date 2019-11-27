@@ -21,10 +21,10 @@ ms.locfileid: "74420797"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>管理 Azure SQL Database 長期備份保留
 
-In Azure SQL Database, you can configure a single or a pooled database with a [long-term backup retention](sql-database-long-term-retention.md) policy (LTR) to automatically retain the database backups in separate Azure Blob storage containers for up to 10 years. 然後，您可以使用 Azure 入口網站或 PowerShell 來復原資料庫。
+在 Azure SQL Database 中，您可以使用[長期備份保留](sql-database-long-term-retention.md)原則（LTR）來設定單一或集區資料庫，以自動將資料庫備份保留在不同的 Azure Blob 儲存體容器中長達10年。 然後，您可以使用 Azure 入口網站或 PowerShell 來復原資料庫。
 
 > [!IMPORTANT]
-> [Azure SQL database managed instance](sql-database-managed-instance.md) does not currently support long-term backup retention.
+> [AZURE SQL database 受控實例](sql-database-managed-instance.md)目前不支援長期備份保留。
 
 ## <a name="using-azure-portal"></a>使用 Azure 入口網站
 
@@ -45,9 +45,9 @@ In Azure SQL Database, you can configure a single or a pooled database with a [l
 3. 完成時，按一下 [套用]。
 
 > [!IMPORTANT]
-> When you enable a long-term backup retention policy, it may take up to 7 days for the first backup to become visible and available to restore. For details of the LTR backup cadance, see [long-term backup retention](sql-database-long-term-retention.md).
+> 當您啟用長期備份保留原則時，最多可能需要7天的時間，第一次備份才會變成可見且可供還原。 如需 LTR 備份 cadance 的詳細資訊，請參閱[長期備份保留](sql-database-long-term-retention.md)。
 
-### <a name="view-backups-and-restore-from-a-backup"></a>View backups and restore from a backup
+### <a name="view-backups-and-restore-from-a-backup"></a>從備份中查看備份和還原
 
 檢視使用 LTR 原則針對特定資料庫保留的備份，然後從這些備份還原。
 
@@ -79,31 +79,31 @@ In Azure SQL Database, you can configure a single or a pooled database with a [l
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 下列各節說明如何使用 PowerShell 來設定長期備份保留、檢視 Azure SQL 儲存體中的備份，以及從 Azure SQL 儲存體中的備份還原。
 
 ### <a name="rbac-roles-to-manage-long-term-retention"></a>管理長期保留的 RBAC 角色
 
-For **Get-AzSqlDatabaseLongTermRetentionBackup** and **Restore-AzSqlDatabase**, you will need to have one of the following roles:
+針對**AzSqlDatabaseLongTermRetentionBackup**和**還原 set-azsqldatabase 搭配**，您必須具有下列其中一個角色：
 
-- Subscription Owner role or
-- SQL Server Contributor role or
-- Custom role with the following permissions:
+- 訂用帳戶擁有者角色或
+- SQL Server 參與者角色或
+- 具有下列許可權的自訂角色：
 
-   Microsoft.Sql/locations/longTermRetentionBackups/read  Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read  Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
+   Microsoft .Sql/位置/longTermRetentionBackups/讀取 Microsoft .Sql/位置/longTermRetentionServers/longTermRetentionBackups/讀取 Microsoft .sql/位置/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/讀取
 
-For **Remove-AzSqlDatabaseLongTermRetentionBackup**, you will need to have one of the following roles:
+針對**AzSqlDatabaseLongTermRetentionBackup**，您必須具有下列其中一個角色：
 
-- Subscription Owner role or
-- Custom role with the following permission:
+- 訂用帳戶擁有者角色或
+- 具有下列許可權的自訂角色：
 
    Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
 > [!NOTE]
-> The SQL Server Contributor role does not have permission to delete LTR backups.
+> SQL Server 參與者角色沒有刪除 LTR 備份的許可權。
 
-RBAC permissions could be granted in either *subscription* or *resource group* scope. However, to access LTR backups that belong to a dropped server, the permission must be granted in the *subscription* scope of that server.
+可以在*訂*用帳戶或*資源群組*範圍中授與 RBAC 許可權。 不過，若要存取屬於已卸載伺服器的 LTR 備份，則必須在該伺服器的*訂*用帳戶範圍中授與許可權。
 
 - Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
@@ -186,7 +186,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 
 > [!IMPORTANT]
-> 刪除 LTR 備份，便無法回復。 To delete an LTR backup after the server has been deleted you must have Subscription scope permission. 您可以篩選「刪除長期保留備份」作業，以在 Azure 監視器中設定每項刪除的通知。 活動記錄包含提出要求的人員和時間資訊。 如需詳細指示，請參閱[建立活動記錄警示](../azure-monitor/platform/alerts-activity-log.md)。
+> 刪除 LTR 備份，便無法回復。 若要在刪除伺服器後刪除 LTR 備份，您必須擁有訂用帳戶範圍許可權。 您可以篩選「刪除長期保留備份」作業，以在 Azure 監視器中設定每項刪除的通知。 活動記錄包含提出要求的人員和時間資訊。 如需詳細指示，請參閱[建立活動記錄警示](../azure-monitor/platform/alerts-activity-log.md)。
 
 ### <a name="restore-from-ltr-backups"></a>從 LTR 備份還原
 
@@ -199,7 +199,7 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 ```
 
 > [!IMPORTANT]
-> To restore from an LTR backup after the server has been deleted, you must have permissions scoped to the server's subscription and that subscription must be active. You must also omit the optional -ResourceGroupName parameter.
+> 若要在刪除伺服器後從 LTR 備份還原，您必須擁有伺服器訂閱的範圍許可權，而且該訂閱必須處於使用中狀態。 您也必須省略選擇性的-ResourceGroupName 參數。
 
 > [!NOTE]
 > 從這裡開始，您可以使用 SQL Server Management Studio 連線到已還原的資料庫來執行所需的工作，例如從還原的資料庫擷取一堆資料來複製到現有的資料庫，或刪除現有的資料庫，並將還原的資料庫重新命名為現有的資料庫名稱。 請參閱[還原時間點](sql-database-recovery-using-backups.md#point-in-time-restore)。

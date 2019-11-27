@@ -1,6 +1,6 @@
 ---
-title: Useful resources when working with Azure Sentinel| Microsoft Docs
-description: This document provides you with a list of useful resources when working with Azure Sentinel.
+title: 使用 Azure Sentinel 時的實用資源 |Microsoft Docs
+description: 本檔提供您使用 Azure Sentinel 時的實用資源清單。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -22,66 +22,66 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74484081"
 ---
-# <a name="useful-resources-for-working-with-azure-sentinel"></a>Useful resources for working with Azure Sentinel
+# <a name="useful-resources-for-working-with-azure-sentinel"></a>使用 Azure Sentinel 的實用資源
 
 
 
-This article lists resources that can help you get more information about working with Azure Sentinel.
+本文列出的資源可協助您取得有關使用 Azure Sentinel 的詳細資訊。
 
-Azure Logic Apps connectors: <https://docs.microsoft.com/connectors/>
+Azure Logic Apps 連接器： <https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>稽核與報告
-Audit logs of Azure Sentinel are maintained in [Azure Activity Logs](../azure-monitor/platform/activity-logs-overview.md).
+Azure Sentinel 的 Audit 記錄會保留在[Azure 活動記錄](../azure-monitor/platform/activity-logs-overview.md)中。
 
-The following supported operations can be audited.
+下列支援的作業可以進行審核。
 
 |作業名稱|    資源類型|
 |----|----|
-|Create or update workbook  |Microsoft.Insights/workbooks|
-|Delete Workbook    |Microsoft.Insights/workbooks|
-|Set Workflow   |Microsoft.Logic/workflows|
-|Delete Workflow    |Microsoft.Logic/workflows|
-|Create Saved Search    |Microsoft.OperationalInsights/workspaces/savedSearches|
-|Delete Saved Search    |Microsoft.OperationalInsights/workspaces/savedSearches|
-|Set Dashboard  |Microsoft.Portal/dashboards|
-|Delete Dashboard   |Microsoft.Portal/dashboards|
-|Update Alert Rules |Microsoft.SecurityInsights/alertRules|
-|Delete Alert Rules |Microsoft.SecurityInsights/alertRules|
-|Update Alert Rule Response Actions |Microsoft.SecurityInsights/alertRules|
-|Delete Alert Rule Response Actions |Microsoft.SecurityInsights/alertRules|
-|Update Bookmarks   |Microsoft.SecurityInsights/bookmarks|
-|Delete Bookmarks   |Microsoft.SecurityInsights/bookmarks|
-|Update Cases   |Microsoft.SecurityInsights/Cases|
-|Update Case Investigation  |Microsoft.SecurityInsights/Cases|
-|Create Case Comments   |Microsoft.SecurityInsights/Cases|
-|Update Data Connectors |Microsoft.SecurityInsights/dataConnectors|
-|Delete Data Connectors |Microsoft.SecurityInsights/dataConnectors|
-|Update Settings    |Microsoft.SecurityInsights/settings|
+|建立或更新活頁簿  |Microsoft Insights/活頁簿|
+|刪除活頁簿    |Microsoft Insights/活頁簿|
+|設定工作流程   |Microsoft.Logic/workflows|
+|刪除工作流程    |Microsoft.Logic/workflows|
+|建立已儲存的搜尋    |Microsoft.operationalinsights/workspace/savedSearches|
+|刪除已儲存的搜尋    |Microsoft.operationalinsights/workspace/savedSearches|
+|設定儀表板  |Microsoft 入口網站/儀表板|
+|刪除儀表板   |Microsoft 入口網站/儀表板|
+|更新警示規則 |SecurityInsights/alertRules|
+|刪除警示規則 |SecurityInsights/alertRules|
+|更新警示規則回應動作 |SecurityInsights/alertRules|
+|刪除警示規則回應動作 |SecurityInsights/alertRules|
+|更新書簽   |SecurityInsights/書簽|
+|刪除書簽   |SecurityInsights/書簽|
+|更新案例   |SecurityInsights/案例|
+|更新案例調查  |SecurityInsights/案例|
+|建立案例批註   |SecurityInsights/案例|
+|更新資料連線器 |SecurityInsights/dataConnectors|
+|刪除資料連線器 |SecurityInsights/dataConnectors|
+|更新設定    |SecurityInsights/settings|
 
-### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>View audit and reporting data in Azure Sentinel
+### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>查看 Azure Sentinel 中的 audit 和 reporting 資料
 
-You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform research and analytics on it.
+您可以從 Azure 活動記錄將資料串流處理到 Azure Sentinel，然後在其中對其執行研究和分析，以查看此資料。
 
-1. Connect the [Azure Activity](connect-azure-activity.md) data source. After doing this, audit events are streamed into a new table in the **Logs** screen called AzureActivity.
-2. Then, query the data using KQL, like you would any other table.
+1. 連接[Azure 活動](connect-azure-activity.md)資料來源。 這麼做之後，就會將 audit 事件串流至**Logs**畫面中名為 AzureActivity 的新資料表。
+2. 然後，使用 KQL 查詢資料，就像任何其他資料表一樣。
 
 
 
-## <a name="vendor-documentation"></a>Vendor documentation
+## <a name="vendor-documentation"></a>廠商檔
 
-| **廠商**  | **Use incident in Azure Sentinel** | **連結**|
+| **廠商**  | **在 Azure Sentinel 中使用事件** | **連結**|
 |----|----|----|
-| GitHub| Used to access Community page| <https://github.com/Azure/Azure-Sentinel> |
-| PaloAlto| Configure CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
-| PluralSight | Kusto Query Language course| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
+| GitHub| 用來存取 [社區] 頁面| <https://github.com/Azure/Azure-Sentinel> |
+| PaloAlto| 設定 CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
+| PluralSight | Kusto 查詢語言課程| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 
-## <a name="blogs-and-forums"></a>Blogs and forums
+## <a name="blogs-and-forums"></a>Blog 與論壇
 
-Post your questions on the [TechCommunity space](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) for Azure Sentinel.
+在[TechCommunity 空間](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel)張貼您的問題以 Azure Sentinel。
 
-View Azure Sentinel blog posts from the [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) and [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/).
+從[TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog)和[Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)觀看 Azure Sentinel 的 blog 文章。
 
 
 ## <a name="next-steps"></a>後續步驟
-In this document, you got a list of resources that are useful when you're working with Azure Sentinel. You'll find additional information about Azure security and compliance on the [Microsoft Azure Security and Compliance blog](https://blogs.msdn.com/b/azuresecurity/).
+在本檔中，您會在使用 Azure Sentinel 時，看到有用的資源清單。 您可以在[Microsoft Azure 安全性與合規性 blog](https://blogs.msdn.com/b/azuresecurity/)中找到有關 Azure 安全性與合規性的其他資訊。

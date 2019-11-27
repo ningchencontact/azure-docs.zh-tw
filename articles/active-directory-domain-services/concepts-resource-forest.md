@@ -1,6 +1,6 @@
 ---
-title: Resource forest concepts for Azure AD Domain Services | Microsoft Docs
-description: Learn what a resource forest is in Azure Active Directory Domain Services and how they benefit your organization in hybrid environment with limited user authentication options or security concerns.
+title: Azure AD Domain Services 的資源樹系概念 |Microsoft Docs
+description: 瞭解資源樹系的 Azure Active Directory Domain Services，以及如何在混合式環境中使用有限的使用者驗證選項或安全性考慮，讓您的組織受益。
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -17,106 +17,106 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233606"
 ---
-# <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Resource forest concepts and features for Azure Active Directory Domain Services
+# <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services 的資源樹系概念和功能
 
-Azure Active Directory Domain Services (AD DS) provides a sign-in experience for legacy, on-premises, line-of-business applications. Users, groups, and password hashes of on-premises and cloud users are synchronized to the Azure AD DS managed domain. These synchronized password hashes are what gives users a single set of credentials they can use for the on-premises AD DS, Office 365, and Azure Active Directory.
+Azure Active Directory Domain Services （AD DS）提供適用于舊版、內部部署、企業營運應用程式的登入體驗。 內部部署和雲端使用者的使用者、群組和密碼雜湊會同步處理到 Azure AD DS 受控網域。 這些已同步處理的密碼雜湊會提供使用者一組可用於內部部署 AD DS、Office 365 和 Azure Active Directory 的認證。
 
-Although secure and provides additional security benefits, some organizations can't synchronize those user passwords hashes to Azure AD or Azure AD DS. Users in an organization may not know their password because they only use smart card authentication. These limitations prevent some organizations from using Azure AD DS to lift and shift on-premises classic applications to Azure.
+雖然保護並提供額外的安全性優點，但某些組織無法將這些使用者密碼雜湊同步處理至 Azure AD 或 Azure AD DS。 組織中的使用者可能不知道他們的密碼，因為他們只會使用智慧卡驗證。 這些限制可防止某些組織使用 Azure AD DS 將內部部署傳統應用程式隨即轉移至 Azure。
 
-To address these needs and restrictions, you can create an Azure AD DS managed domain that uses a resource forest. This conceptual article explains what forests are, and how they trust other resources to provide a secure authentication method. Azure AD DS resource forests are currently in preview.
+若要解決這些需求和限制，您可以建立使用資源樹系的 Azure AD DS 受控網域。 這篇概念性文章說明哪些是樹系，以及它們如何信任其他資源來提供安全的驗證方法。 Azure AD DS 資源樹系目前為預覽狀態。
 
 > [!IMPORTANT]
-> Azure AD DS resource forests don't currently support Azure HDInsight or Azure Files. The default Azure AD DS user forests do support both of these additional services.
+> Azure AD DS 資源樹系目前不支援 Azure HDInsight 或 Azure 檔案儲存體。 預設 Azure AD DS 使用者樹系支援這兩個額外的服務。
 
-## <a name="what-are-forests"></a>What are forests?
+## <a name="what-are-forests"></a>什麼是樹系？
 
-A *forest* is a logical construct used by Active Directory Domain Services (AD DS) to group one or more *domains*. The domains then store objects for user or groups, and provide authentication services.
+*樹*系是 Active Directory Domain Services （AD DS）用來將一或多個*網域*分組的邏輯結構。 然後，網域會儲存使用者或群組的物件，並提供驗證服務。
 
-In Azure AD DS, the forest only contains one domain. On-premises AD DS forests often contain many domains. In large organizations, especially after mergers and acquisitions, you may end up with multiple on-premises forests that each then contain multiple domains.
+在 Azure AD DS 中，樹系僅包含一個網域。 內部部署 AD DS 樹系通常包含許多網域。 在大型組織中，尤其是在合併和收購之後，您最後可能會有多個內部部署樹系，每個樹系都包含多個網域。
 
-By default, an Azure AD DS managed domain is created as a *user* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. User accounts can directly authenticate against the Azure AD DS managed domain, such as to sign in to a domain-joined VM. A user forest works when the password hashes can be synchronized and users aren't using exclusive sign-in methods like smart card authentication.
+根據預設，系統會將 Azure AD DS 受控網域建立為*使用者*樹系。 這種類型的樹系會同步處理 Azure AD 的所有物件，包括在內部部署 AD DS 環境中建立的任何使用者帳戶。 使用者帳戶可以直接針對 Azure AD DS 受控網域進行驗證，例如登入已加入網域的 VM。 使用者樹系適用于可以同步處理密碼雜湊，而使用者不使用獨佔式登入方法（例如智慧卡驗證）的情況。
 
-In an Azure AD DS *resource* forest, users authenticate over a one-way forest *trust* from their on-premises AD DS. With this approach, the user objects and password hashes aren't synchronized to Azure AD DS. The user objects and credentials only exist in the on-premises AD DS. This approach lets enterprises host resources and application platforms in Azure that depend on classic authentication such LDAPS, Kerberos, or NTLM, but any authentication issues or concerns are removed. Azure AD DS resource forests are currently in preview.
+在 Azure AD DS*資源*樹系中，使用者會從其內部部署 AD DS 對單向樹系*信任*進行驗證。 使用此方法時，使用者物件和密碼雜湊不會同步處理至 Azure AD DS。 使用者物件和認證僅存在於內部部署 AD DS。 這種方法可讓企業裝載 Azure 中的資源和應用程式平臺，而這些是依賴傳統驗證（例如 LDAPS、Kerberos 或 NTLM），但會移除任何驗證問題或考慮。 Azure AD DS 資源樹系目前為預覽狀態。
 
-Resource forests also provide the capability to lift-and-shift your applications one component at a time. Many legacy on-premises applications are multi-tiered, often using a web server or front end and many database-related components. These tiers make it hard to lift-and-shift the entire application to the cloud in one step. With resource forests, you can lift your application to the cloud in phased approach, which makes it easier to move your application to Azure.
+資源樹系也提供一次將應用程式隨即轉移一個元件的功能。 許多舊版內部部署應用程式都是多層式的，通常使用 web 伺服器或前端，以及許多資料庫相關的元件。 這些層級讓整個應用程式難以隨即轉移到雲端，只需要一個步驟即可。 透過資源樹系，您可以分階段方式將應用程式提升至雲端，讓您更輕鬆地將應用程式移至 Azure。
 
-## <a name="what-are-trusts"></a>What are trusts?
+## <a name="what-are-trusts"></a>什麼是信任？
 
-Organizations that have more than one domain often need users to access shared resources in a different domain. Access to these shared resources requires that users in one domain authenticate to another domain. To provide these authentication and authorization capabilities between clients and servers in different domains, there must be a *trust* between the two domains.
+具有一個以上網域的組織通常需要使用者存取不同網域中的共用資源。 若要存取這些共用資源，使用者必須在一個網域中驗證另一個網域。 若要在不同網域中的用戶端與伺服器之間提供這些驗證和授權功能，這兩個網域之間必須有*信任關係*。
 
-With domain trusts, the authentication mechanisms for each domain trust the authentications coming from the other domain. Trusts help provide controlled access to shared resources in a resource domain (the *trusting* domain) by verifying that incoming authentication requests come from a trusted authority (the *trusted* domain). Trusts act as bridges that only allow validated authentication requests to travel between domains.
+使用網域信任時，每個網域的驗證機制會信任來自另一個網域的驗證。 信任有助於透過驗證傳入驗證要求是否來自受信任的授權單位（*受信任*的網域），藉此提供對資源網域（*信任*網域）中共用資源的控制存取。 信任的作用是只允許已驗證的驗證要求在網域之間移動的橋接器。
 
-How a trust passes authentication requests depends on how it's configured. Trusts can be configured in one of the following ways:
+信任通過驗證要求的方式，取決於其設定方式。 您可以透過下列其中一種方式來設定信任：
 
-* **One-way** - provides access from the trusted domain to resources in the trusting domain.
-* **Two-way** - provides access from each domain to resources in the other domain.
+* **單向-提供**從受信任網域到信任網域中資源的存取權。
+* **雙向**-提供從每個網域到另一個網域中資源的存取權。
 
-Trusts are also be configured to handle additional trust relationships in one of the following ways:
+信任也會設定為以下列其中一種方式處理其他信任關係：
 
-* **Nontransitive** - The trust exists only between the two trust partner domains.
-* **Transitive** - Trust automatically extends to any other domains that either of the partners trusts.
+* 非**轉移**-信任只存在於兩個信任夥伴網域之間。
+* 可**轉移**-信任會自動延伸至任一夥伴信任的任何其他網域。
 
-In some cases, trust relationships are automatically established when domains are created. Other times, you must choose a type of trust and explicitly establish the appropriate relationships. The specific types of trusts used and the structure of those trust relationships depend on how the Active Directory directory service is organized, and whether different versions of Windows coexist on the network.
+在某些情況下，建立網域時，會自動建立信任關係。 其他時候，您必須選擇一種信任類型，並明確地建立適當的關聯性。 使用的特定信任類型以及這些信任關係的結構，取決於如何組織 Active Directory 目錄服務，以及是否在網路上共存不同版本的 Windows。
 
-## <a name="trusts-between-two-forests"></a>Trusts between two forests
+## <a name="trusts-between-two-forests"></a>兩個樹系之間的信任
 
-You can extend domain trusts within a single forest to another forest by manually creating a one-way or two-way forest trust. A forest trust is a transitive trust that exists only between a forest root domain and a second forest root domain.
+您可以手動建立單向或雙向樹系信任，以將單一樹系中的網域信任延伸至另一個樹系。 樹系信任是只存在於樹系根域和第二個樹系根域之間的可轉移信任。
 
-* A one-way forest trust allows all users in one forest to trust all domains in the other forest.
-* A two-way forest trust forms a transitive trust relationship between every domain in both forests.
+* 單向樹系信任可讓一個樹系中的所有使用者信任另一個樹系中的所有網域。
+* 雙向樹系信任會形成兩個樹系中每個網域之間可轉移的信任關係。
 
-The transitivity of forest trusts is limited to the two forest partners. The forest trust doesn't extend to additional forests trusted by either of the partners.
+樹系信任的轉移能力僅限於這兩個樹系合作夥伴。 樹系信任不會延伸到任何合作夥伴所信任的其他樹系。
 
-![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
+![從 Azure AD DS 到內部部署 AD DS 的樹系信任圖表](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-You can create different domain and forest trust configurations depending on the Active Directory structure of the organization. Azure AD DS only supports a one-way forest trust. In this configuration, resources in Azure AD DS can trust all domains in an on-premises forest.
+您可以根據組織的 Active Directory 結構，建立不同的網域和樹系信任設定。 Azure AD DS 僅支援單向樹系信任。 在此設定中，Azure AD DS 中的資源可以信任內部部署樹系中的所有網域。
 
-## <a name="supporting-technology-for-trusts"></a>Supporting technology for trusts
+## <a name="supporting-technology-for-trusts"></a>信任的支援技術
 
-Trusts use various services and features, such as DNS to locate domain controllers in partnering forests. Trusts also depend on NTLM and Kerberos authentication protocols and on Windows-based authorization and access control mechanisms to help provide a secured communications infrastructure across Active Directory domains and forests. The following services and features help support successful trust relationships.
+信任會使用各種服務和功能，例如 DNS 來尋找合作樹系中的網域控制站。 信任也取決於 NTLM 和 Kerberos 驗證通訊協定，以及 Windows 型授權和存取控制機制，以協助在 Active Directory 網域和樹系之間提供安全的通訊基礎結構。 下列服務和功能有助於支援成功的信任關係。
 
 ### <a name="dns"></a>DNS
 
-AD DS needs DNS for domain controller (DC) location and naming. The following support from DNS is provided for AD DS to work successfully:
+AD DS 需要 DNS 來進行網域控制站（DC）位置和命名。 下列 DNS 支援是為了讓 AD DS 能夠順利工作而提供：
 
-* A name resolution service that lets network hosts and services to locate DCs.
-* A naming structure that enables an enterprise to reflect its organizational structure in the names of its directory service domains.
+* 可讓網路主機和服務尋找 Dc 的名稱解析服務。
+* 一種命名結構，可讓企業在其目錄服務網域的名稱中反映其組織結構。
 
-A DNS domain namespace is usually deployed that mirrors the AD DS domain namespace. If there's an existing DNS namespace before the AD DS deployment, the DNS namespace is typically partitioned for Active Directory, and a DNS subdomain and delegation for the Active Directory forest root is created. Additional DNS domain names are then added for each Active Directory child domain.
+通常會部署 DNS 網域命名空間，以鏡像 AD DS 網域命名空間。 如果 AD DS 部署之前有現有的 DNS 命名空間，則 DNS 命名空間通常會針對 Active Directory 進行分割，並建立 Active Directory 樹系根目錄的 DNS 子域和委派。 接著，會為每個 Active Directory 子域新增額外的 DNS 功能變數名稱。
 
-DNS is also used to support the location of Active Directory DCs. The DNS zones are populated with DNS resource records that enable network hosts and services to locate Active Directory DCs.
+DNS 也用來支援 Active Directory Dc 的位置。 DNS 區域會填入 DNS 資源記錄，讓網路主機和服務找出 Active Directory Dc。
 
-### <a name="applications-and-net-logon"></a>Applications and Net Logon
+### <a name="applications-and-net-logon"></a>應用程式和網路登入
 
-Both applications and the Net Logon service are components of the Windows distributed security channel model. Applications integrated with Windows Server and Active Directory use authentication protocols to communicate with the Net Logon service so that a secured path can be established over which authentication can occur.
+應用程式和 Net Logon 服務都是 Windows 分散式安全性通道模型的元件。 與 Windows Server 和 Active Directory 整合的應用程式會使用驗證通訊協定與 Net Logon 服務進行通訊，因此可以建立安全的路徑來進行驗證。
 
 ### <a name="authentication-protocols"></a>驗證通訊協定
 
-Active Directory DCs authenticate users and applications using one of the following protocols:
+Active Directory Dc 會使用下列其中一種通訊協定來驗證使用者和應用程式：
 
-* **Kerberos version 5 authentication protocol**
-    * The Kerberos version 5 protocol is the default authentication protocol used by on-premises computers running Windows and supporting third-party operating systems. This protocol is specified in RFC 1510 and is fully integrated with Active Directory, server message block (SMB), HTTP, and remote procedure call (RPC), as well as the client and server applications that use these protocols.
-    * When the Kerberos protocol is used, the server doesn't have to contact the DC. Instead, the client gets a ticket for a server by requesting one from a DC in the server account domain. The server then validates the ticket without consulting any other authority.
-    * If any computer involved in a transaction doesn't support the Kerberos version 5 protocol, the NTLM protocol is used.
+* **Kerberos 第5版驗證通訊協定**
+    * Kerberos 第5版通訊協定是執行 Windows 及支援協力廠商作業系統的內部部署電腦所使用的預設驗證通訊協定。 此通訊協定是在 RFC 1510 中指定，並且與 Active Directory、伺服器訊息區（SMB）、HTTP 和遠端程序呼叫（RPC），以及使用這些通訊協定的用戶端和伺服器應用程式完全整合。
+    * 使用 Kerberos 通訊協定時，伺服器不需要與 DC 聯繫。 相反地，用戶端會向伺服器帳戶網域中的 DC 要求一個票證，以取得伺服器的票證。 伺服器接著會驗證票證，而不會諮詢任何其他授權單位。
+    * 如果交易中涉及的任何電腦不支援 Kerberos 第5版通訊協定，則會使用 NTLM 通訊協定。
 
-* **NTLM authentication protocol**
-    * The NTLM protocol is a classic network authentication protocol used by older operating systems. For compatibility reasons, it's used by Active Directory domains to process network authentication requests that come from applications designed for earlier Windows-based clients and servers, and third-party operating systems.
-    * When the NTLM protocol is used between a client and a server, the server must contact a domain authentication service on a DC to verify the client credentials. The server authenticates the client by forwarding the client credentials to a DC in the client account domain.
-    * When two Active Directory domains or forests are connected by a trust, authentication requests made using these protocols can be routed to provide access to resources in both forests.
+* **NTLM 驗證通訊協定**
+    * NTLM 通訊協定是舊版作業系統所使用的傳統網路驗證通訊協定。 基於相容性的理由，Active Directory 網域會使用它來處理來自針對舊版 Windows 用戶端和伺服器和協力廠商作業系統所設計之應用程式的網路驗證要求。
+    * 在用戶端與伺服器之間使用 NTLM 通訊協定時，伺服器必須連線到 DC 上的網域驗證服務，以確認用戶端認證。 伺服器會藉由將用戶端認證轉送至用戶端帳戶網域中的 DC 來驗證用戶端。
+    * 當兩個 Active Directory 網域或樹系由信任連接時，會路由使用這些通訊協定所提出的驗證要求，以提供這兩個樹系中資源的存取權。
 
 ## <a name="authorization-and-access-control"></a>授權和存取控制
 
-Authorization and trust technologies work together to provide a secured communications infrastructure across Active Directory domains or forests. Authorization determines what level of access a user has to resources in a domain. Trusts facilitate cross-domain authorization of users by providing a path for authenticating users in other domains so their requests to shared resources in those domains can be authorized.
+授權和信任技術共同合作，在 Active Directory 網域或樹系之間提供安全的通訊基礎結構。 授權會決定使用者對網域中的資源所擁有的存取層級。 信任會提供一個路徑來驗證其他網域中的使用者，讓他們對這些網域中共用資源的要求可以獲得授權，藉此促進跨網域的使用者授權。
 
-When an authentication request made in a trusting domain is validated by the trusted domain, it's passed to the target resource. The target resource then determines whether to authorize the specific request made by the user, service, or computer in the trusted domain based on its access control configuration.
+當受信任網域驗證在信任網域中提出的驗證要求時，會將它傳遞至目標資源。 然後，目標資源會根據其存取控制設定，決定是否要授權由受信任網域中的使用者、服務或電腦所提出的特定要求。
 
-Trusts provide this mechanism to validate authentication requests that are passed to a trusting domain. Access control mechanisms on the resource computer determine the final level of access granted to the requestor in the trusted domain.
+信任提供此機制來驗證傳遞至信任網域的驗證要求。 資源電腦上的存取控制機制會決定授與受信任網域中要求者的最終存取層級。
 
 ## <a name="next-steps"></a>後續步驟
 
-To learn more about trusts, see [How do forest trusts work in Azure AD DS?][concepts-trust]
+若要深入瞭解信任，請參閱[樹系信任如何在 AZURE AD DS 中工作？][concepts-trust]
 
-To get started with creating an Azure AD DS managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain (preview)][create-forest-trust].
+若要開始建立具有資源樹系的 Azure AD DS 受控網域，請參閱[建立和設定 AZURE AD ds 受控網域][tutorial-create-advanced]。 接著，您可以對內部[部署網域（預覽）建立輸出樹系信任][create-forest-trust]。
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

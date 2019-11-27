@@ -178,7 +178,7 @@ ms.locfileid: "74278517"
 
 如果您在資料集中設定 `requestMethod`、`additionalHeaders`、`requestBody` 和 `paginationRules`，則仍會受到支援，但建議您繼續使用活動來源中的新模型。
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -322,7 +322,7 @@ ms.locfileid: "74278517"
 | Headers.*response_header* 或 Headers['response_header'] | 使用者定義的 "response_header" 會參考目前 HTTP 回應中的一個標頭名稱，其值會用來發出下一個要求。 |
 | JSONPath 運算式會以 "$" 開頭 (代表回應本文的根) | 回應本文應只包含一個 JSON 物件。 JSONPath 運算式應會傳回單一基本值，而這會用來發出下一個要求。 |
 
-**範例:**
+**範例：**
 
 Facebook 圖形 API 會傳回採用下列結構的回應，在該案例中，下個頁面的 URL 會在 ***paging.next*** 中指出：
 

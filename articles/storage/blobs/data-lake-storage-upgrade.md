@@ -1,6 +1,6 @@
 ---
-title: Upgrade Azure Data Lake Storage from Gen1 to Gen2
-description: Upgrade Azure Data Lake Storage from Gen1 to Gen2.
+title: 將 Azure Data Lake Storage 從 Gen1 升級至 Gen2
+description: 將 Azure Data Lake Storage 從 Gen1 升級至 Gen2。
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -15,17 +15,17 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74327872"
 ---
-# <a name="upgrade-azure-data-lake-storage-from-gen1-to-gen2"></a>Upgrade Azure Data Lake Storage from Gen1 to Gen2
+# <a name="upgrade-azure-data-lake-storage-from-gen1-to-gen2"></a>將 Azure Data Lake Storage 從 Gen1 升級至 Gen2
 
 如果您在巨量資料分析解決方案中使用 Azure Data Lake Storage Gen1，本指南可協助您將這些解決方案升級為使用 Azure Data Lake Storage Gen2。 您可以使用這份文件，評估您的解決方案對 Data Lake Storage Gen1 的相依性。 本指南也說明如何規劃及執行升級。
 
 我們將協助您完成下列工作：
 
-:heavy_check_mark: Assess your upgrade readiness
+： heavy_check_mark：評估升級準備就緒
 
-:heavy_check_mark: Plan for an upgrade
+： heavy_check_mark：規劃升級
 
-:heavy_check_mark: Perform the upgrade
+： heavy_check_mark：執行升級
 
 ## <a name="assess-your-upgrade-readiness"></a>評估您的升級整備程度
 
@@ -45,21 +45,21 @@ ms.locfileid: "74327872"
 
 **圖 2** 顯示如何使用特定技術實作這些元件的範例。
 
-**圖 1** 中的「儲存」功能是由 Data Lake Storage Gen1 提供 (**圖 2**)。 請注意資料流程中的各種元件如何使用 REST API 或 Java SDK 與 Data Lake Storage Gen1 互動。 也請注意，跨領域功能元件與 Data Lake Storage Gen1 互動的方式。 The Provisioning component uses Azure Resource templates, whereas the Monitoring component which uses Azure Monitor logs utilizes operational data that comes from Data Lake Storage Gen1.
+**圖 1** 中的「儲存」功能是由 Data Lake Storage Gen1 提供 (**圖 2**)。 請注意資料流程中的各種元件如何使用 REST API 或 Java SDK 與 Data Lake Storage Gen1 互動。 也請注意，跨領域功能元件與 Data Lake Storage Gen1 互動的方式。 布建元件會使用 Azure 資源範本，而使用 Azure 監視器記錄的監視元件會利用來自 Data Lake Storage Gen1 的運算元據。
 
 若要將解決方案從使用 Data Lake Storage Gen1 升級為 Data Lake Storage Gen2 方案，您需要複製資料和中繼資料，重新串連資料流程，然後所有元件都必須能夠使用 Data Lake Storage Gen2。
 
 下列各節提供資訊來協助您做出更好的決策：
 
-:heavy_check_mark: Platform capabilities
+： heavy_check_mark：平臺功能
 
-:heavy_check_mark: Programming interfaces
+： heavy_check_mark：程式設計介面
 
-:heavy_check_mark: Azure ecosystem
+： heavy_check_mark： Azure 生態系統
 
-:heavy_check_mark: Partner ecosystem
+： heavy_check_mark：合作夥伴生態系統
 
-:heavy_check_mark: Operational information
+： heavy_check_mark：操作資訊
 
 在每一節中，您將能夠判斷您升級的「必備條件」。 在您確定各項功能可用之後，或確定有合理的因應措施之後，請繼續本指南的進行[規劃升級](#planning-for-an-upgrade)一節。
 
@@ -72,25 +72,25 @@ ms.locfileid: "74327872"
 | 資料組織| 支援作為資料夾和檔案儲存的資料 | 支援作為物件/Blob 以及資料夾和檔案儲存的資料[連結](https://docs.microsoft.com/azure/storage/data-lake-storage/namespace) | 支援作為資料夾和檔案儲存的資料 – *現已推出* <br><br> 支援儲存成為物件/blob 的資料 - *尚無法使用* |
 | 命名空間| 階層式 | 階層式 |  *現已推出*  |
 | API  | 透過 HTTPS 的 REST API | 透過 HTTP/HTTPS 的 REST API| *現已推出* |
-| 伺服器端 API| [WebHDFS 相容的 REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx) | Azure Blob 服務 REST API [Data Lake Storage Gen2 REST API](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) | Data Lake Storage Gen2 REST API – *現已推出* <br><br> Azure Blob Service REST API – *Available now*       |
+| 伺服器端 API| [WebHDFS 相容的 REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx) | Azure Blob 服務 REST API [Data Lake Storage Gen2 REST API](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) | Data Lake Storage Gen2 REST API – *現已推出* <br><br> Azure Blob 服務 REST API –*現已推出*       |
 | Hadoop 檔案系統用戶端 | 是 ([Azure Data Lake Storage](https://hadoop.apache.org/docs/current/hadoop-azure-datalake/index.html)) | 是 ([ABFS](https://jira.apache.org/jira/browse/HADOOP-15407))  | *現已推出*  |  
 | 資料作業 - 授權  | 以 Azure Active Directory 身分識別為基礎的檔案和資料夾層級 POSIX 存取控制清單 (ACL)  | 以 Azure Active Directory 身分識別為基礎的檔案和資料夾層級 POSIX 存取控制清單 (ACL)。[共用金鑰](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)可供帳戶層級授權角色型存取控制 ([RBAC](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)) 來存取容器 | *現已推出* |
-| 資料作業 - 記錄  | 是 | 是 | *Available now* (Preview). See [known issues](data-lake-storage-known-issues.md).<br><br> Azure 的監視整合 – *尚無法使用* |
+| 資料作業 - 記錄  | yes | yes | *現已推出*（預覽）。 查看[已知問題](data-lake-storage-known-issues.md)。<br><br> Azure 的監視整合 – *尚無法使用* |
 | 待用資料加密 | 透明的伺服器端，在 Azure Key Vault 中使用服務管理的金鑰與客戶管理的金鑰 | 透明的伺服器端，在 Azure Key Vault 中使用服務管理的金鑰與客戶管理的金鑰 | 服務管理的金鑰 – *現已推出*<br><br> 客戶管理的金鑰 – *現已推出*  |
 | 管理作業 (例如帳戶建立) | [角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) | [角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) | *現已推出*|
-| 開發人員 SDK | .NET、Java、Python、Node.js  | .NET、JAVA、Python、Node.js、C++、Ruby、PHP、Go、Android、iOS| Blob SDK - *Available now*. Azure Data Lake Storage Gen2 SDK - *Not yet available*  |
+| 開發人員 SDK | .NET、Java、Python、Node.js  | .NET、JAVA、Python、Node.js、C++、Ruby、PHP、Go、Android、iOS| Blob SDK-*現已推出*。 Azure Data Lake Storage Gen2 SDK-尚未*提供*  |
 | |平行分析工作負載的效能最佳化。 高輸送量和 IOPS。 | 平行分析工作負載的效能最佳化。 高輸送量和 IOPS。 | *現已推出* |
 | 虛擬網路 (VNet) 支援  | [使用虛擬網路整合](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-network-security)  | [使用 Azure 儲存體的服務端點](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | *現已推出* |
 | 大小限制 | 帳戶大小、檔案大小或檔案數目沒有限制 | 帳戶大小或檔案數目沒有限制。 檔案大小限制為 5TB。 | *現已推出*|
-| 異地備援| 本地備援 (LRS) | Locally redundant (LRS) Zone redundant (ZRS) geo-redundant (GRS) Read-access geo-redundant (RA-GRS) See [here](https://docs.microsoft.com/azure/storage/common/storage-redundancy) for more information| *現已推出* |
+| 異地備援| 本地備援 (LRS) | 本機多餘（LRS）區域冗余（ZRS）異地冗余（GRS）讀取權限異地冗余（RA-GRS）如需詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/storage/common/storage-redundancy)| *現已推出* |
 | 區域可用性 | 請參閱 [這裡](https://azure.microsoft.com/regions/) | 所有 [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)                                                                                                                                                                                                                                                                                                                                       | *現已推出*                                                                                                                           |
 | 價格                                       | 請參閱 [價格](https://azure.microsoft.com/pricing/details/data-lake-store/)                                                                            | 請參閱 [價格](https://azure.microsoft.com/pricing/details/storage/data-lake/)                                                                                                                                                                                                                                                                                                                                         |                                                                                                                                           |
 | 可用性 SLA                            | [請參閱 SLA](https://azure.microsoft.com/support/legal/sla/data-lake-store/v1_0/)                                                                   | [請參閱 SLA](https://azure.microsoft.com/support/legal/sla/storage/v1_3/)                                                                                                                                                                                                                                                                                                                                                | *現已推出*                                                                                                                           |
-| 資料管理                             | 檔案到期                                                                                                                                        | 生命週期原則                                                                                                                                                                                                                                                                                                                                                                                                          | Lifecycle policies *Available now* (Preview). See [known issues](data-lake-storage-known-issues.md).                                                                                                                     |
+| 資料管理                             | 檔案到期                                                                                                                                        | 生命週期原則                                                                                                                                                                                                                                                                                                                                                                                                          | *立即可用*的生命週期原則（預覽）。 查看[已知問題](data-lake-storage-known-issues.md)。                                                                                                                     |
 
 ### <a name="programming-interfaces"></a>程式設計介面
 
-下表說明有哪些 API 集合可供您的自訂應用程式使用。 SDK support for ACL and directory-level operations are not yet supported.
+下表說明有哪些 API 集合可供您的自訂應用程式使用。 尚不支援 ACL 和目錄層級作業的 SDK 支援。
 
 |  API 集合                           |  Data Lake Storage Gen1                                                                                                                                                                                                                                                                                                   | Data Lake Storage Gen2 的可用性 - 採用共用金鑰驗證 | Data Lake Storage Gen2 的可用性 - 採用 OAuth 驗證                                                                                                  |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -120,7 +120,7 @@ ms.locfileid: "74327872"
 |                      | [Logic Apps](https://docs.microsoft.com/connectors/azuredatalake/)                                                                                                      | *現已推出*                                                                                                                                                          | *現已推出*                                                                                                                             |
 | IoT                  | [事件中樞 – 擷取](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-archive-eventhub-capture)                                                       | *現已推出*                                                                                                                                                          | *現已推出*                                                                                                                             |
 |                      | [串流分析](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-stream-analytics)                                                                   | *現已推出*                                                                                                                                                          | *現已推出*                                                                                                                             |
-| 消費          | [Power BI Desktop](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-power-bi)                                                                           | *現已推出*                                                                                                                                                          | *現已推出*                                                                                                                             |
+| 耗用量          | [Power BI Desktop](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-power-bi)                                                                           | *現已推出*                                                                                                                                                          | *現已推出*                                                                                                                             |
 |                      | [Excel](https://techcommunity.microsoft.com/t5/Excel-Blog/Announcing-the-Azure-Data-Lake-Store-Connector-in-Excel/ba-p/91677)                                                 | *尚未提供*                                                                                                                                                          | *尚未提供*                                                                                                                             |
 |                      | [分析服務](https://blogs.msdn.microsoft.com/analysisservices/2017/09/05/using-azure-analysis-services-on-top-of-azure-data-lake-storage/)                            | *尚未提供*                                                                                                                                                          | *尚未提供*                                                                                                                             |
 | 生產力         | [Azure 入口網站](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)                                                                      | *不支援*                                                                                                                                                              | 帳戶管理 *– 現已推出* <br><br>資料作業 *–*  *尚無法使用*                                                                   |
@@ -132,7 +132,7 @@ ms.locfileid: "74327872"
 
 下表顯示已修改成使用 Data Lake Storage Gen1 的第三方服務和產品清單。 其中也顯示哪些項目目前與 Data Lake Storage Gen2 相容。
 
-| 區域            | Partner  | 產品/服務  | Data Lake Storage Gen1 的可用性                                                                                                                                               | Data Lake Storage Gen2 的可用性 – 採用共用金鑰驗證                                                   | Data Lake Storage Gen2 的可用性 – 採用 OAuth                                                             |
+| 領域            | 合作夥伴  | 產品/服務  | Data Lake Storage Gen1 的可用性                                                                                                                                               | Data Lake Storage Gen2 的可用性 – 採用共用金鑰驗證                                                   | Data Lake Storage Gen2 的可用性 – 採用 OAuth                                                             |
 |---------------------|--------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | 分析架構 | Cloudera     | CDH                  | [連結](https://www.cloudera.com/documentation/enterprise/5-11-x/topics/admin_adls_config.html)                                                                                            | *尚未提供*                                                                                                  | [連結](https://www.cloudera.com/documentation/enterprise/latest/topics/admin_adls2_config.html)                                                                                                  |
 |                     | Cloudera     | Altus                | [連結](https://www.cloudera.com/more/news-and-blogs/press-releases/2017-09-27-cloudera-introduces-altus-data-engineering-microsoft-azure-hybrid-multi-cloud-data-analytic-workflows.html) | *不支援*                                                                                                                  | *尚未提供*                                                                                                  |
@@ -153,8 +153,8 @@ Data Lake Storage Gen1 會將特定資訊和資料推送給其他可協助您運
 |--------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | 計費資料 - 傳送給商務小組進行計費，而後提供給客戶的計量  | *現已推出*                                                                                             | *現已推出*                                                                                                                           |
 | 活動記錄                                                                                          | [連結](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs#audit-logs)   | 使用支援票證的特定期間記錄的一次性要求 – *現已可用* Azure 監視整合 – *尚未提供* |
-| 診斷記錄                                                                                        | [連結](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs#request-logs) | *Available now* (Preview). See [known issues](data-lake-storage-known-issues.md). <br>Azure Monitoring integration - *Not yet available* |
-| 計量                                                                                                | *不支援*                                                                                               | *現已推出 –* [連結](https://docs.microsoft.com/azure/storage/common/storage-metrics-in-azure-monitor)                          |
+| 診斷記錄                                                                                        | [連結](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs#request-logs) | *現已推出*（預覽）。 查看[已知問題](data-lake-storage-known-issues.md)。 <br>Azure 監視整合-尚未*提供* |
+| 度量                                                                                                | *不支援*                                                                                               | *現已推出 –* [連結](https://docs.microsoft.com/azure/storage/common/storage-metrics-in-azure-monitor)                          |
 
 ## <a name="planning-for-an-upgrade"></a>規劃升級
 
@@ -164,7 +164,7 @@ Data Lake Storage Gen1 會將特定資訊和資料推送給其他可協助您運
 
 升級的最重要部分就是決定策略。 這項決策會決定您可用的選擇。
 
-This table lists some well-known strategies that have been used to migrate databases, Hadoop clusters, etc. We'll adopt similar strategies in our guidance, and adapt them to our context.
+下表列出一些已用來遷移資料庫、Hadoop 叢集等的知名策略。我們將在我們的指引中採用類似的策略，並將其調整為我們的內容。
 
 | 策略                   | 優點                                                                                  | 缺點                                                           | 使用時機                                                                                                                                                                                             |
 |--------------------------------|-------------------------------------------------------------------------------------------|--------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -210,16 +210,16 @@ This table lists some well-known strategies that have been used to migrate datab
 
 #### <a name="tools-guidance"></a>工具指引
 
-| 策略                       | 工具                                                                                                             | 優點                                                                                                                             | 考量                                                                                                                                                                                                                                                                                                                |
+| 策略                       | 工具                                                                                                             | 優點                                                                                                                             | 注意事項                                                                                                                                                                                                                                                                                                                |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **隨即轉移**                 | [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2-from-gen1) | 受控雲端服務                                                                                                                | Both data and ACLs can be copied over currently.                                                                                                                                                                                                                                                                      |
+| **隨即轉移**                 | [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2-from-gen1) | 受控雲端服務                                                                                                                | 目前可以複製資料和 Acl。                                                                                                                                                                                                                                                                      |
 |                                    | [Distcp](https://hadoop.apache.org/docs/r1.2.1/distcp.html)                                                           | 知名 Hadoop 提供的工具權限，亦即可利用此工具複製 ACL                                                   | 需要可同時連線到 Data Lake Storage Gen1 和 Gen2 的叢集。                                                                                                                                                                                   |
-| **一次性複製和累加式複製** | Azure Data Factory                                                                                                    | 受控雲端服務                                                                                                                | Both data and ACLs can be copied over currently. 若要在 ADF 中支援累加式複製，必須以時間序列的方式組織資料。 累加式複製之間的最短間隔為 [15 分鐘](https://docs.microsoft.com/azure/data-factory/how-to-create-tumbling-window-trigger)。 |
+| **一次性複製和累加式複製** | Azure Data Factory                                                                                                    | 受控雲端服務                                                                                                                | 目前可以複製資料和 Acl。 若要在 ADF 中支援累加式複製，必須以時間序列的方式組織資料。 累加式複製之間的最短間隔為 [15 分鐘](https://docs.microsoft.com/azure/data-factory/how-to-create-tumbling-window-trigger)。 |
 | **平行採用**              | [WANdisco](https://docs.wandisco.com/bigdata/wdfusion/adls/)                                                           | 支援一致複寫：如果使用已連線到 Azure Data Lake Storage 的純 Hadoop 環境，則支援雙向複寫 | 如果未使用純 Hadoop 環境，則複寫可能延遲。                                                                                                                                                                                                                                                  |
 
-Note that there are third-parties that can handle the Data Lake Storage Gen1 to Data Lake Storage Gen2 upgrade without involving the above data/meta-data copying tools (For example: [Cloudera](https://blog.cloudera.com/blog/2017/08/use-amazon-s3-with-cloudera-bdr/)). 他們提供執行資料移轉及工作負載移轉的「一站式」體驗。 您可能必須針對其生態系統以外的任何工具，執行頻外升級。
+請注意，有協力廠商可以處理 Data Lake Storage Gen1 以 Data Lake Storage Gen2 升級，而不需涉及上述資料/中繼資料複製工具（例如： [Cloudera](https://blog.cloudera.com/blog/2017/08/use-amazon-s3-with-cloudera-bdr/)）。 他們提供執行資料移轉及工作負載移轉的「一站式」體驗。 您可能必須針對其生態系統以外的任何工具，執行頻外升級。
 
-#### <a name="considerations"></a>考量
+#### <a name="considerations"></a>注意事項
 
 * 在開始任何升級部分之前，您必須先手動建立 Data Lake Storage Gen2 帳戶，因為目前的指引不包含任何以您的 Gen1 帳戶資訊為基礎的自動 Gen2 帳戶程序。 請務必比較 [Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal) 和 [Gen2](https://docs.microsoft.com/azure/storage/data-lake-storage/quickstart-create-account) 的帳戶建立程序。
 
@@ -227,7 +227,7 @@ Note that there are third-parties that can handle the Data Lake Storage Gen1 to 
 
 * 如果您使用不會複製 ACL 的工具，或您不想複製 ACL，則需要在適當的最上層手動設定目的地的 ACL。 您可以使用儲存體總管來執行此作業。 確保這些 ACL 是預設 ACL，您複製的檔案和資料夾才能繼承它們。
 
-* 在 Data Lake Storage Gen1 中，您可以設定 ACL 的最高層級位於帳戶的根目錄。 In Data Lake Storage Gen2, however, the highest level you can set ACLs is at the root folder in a container, not the whole account. 因此，如果您想要在帳戶層級設定預設 ACL，則必須在 Data Lake Storage Gen2 帳戶中的所有檔案系統間複製這些 ACL。
+* 在 Data Lake Storage Gen1 中，您可以設定 ACL 的最高層級位於帳戶的根目錄。 不過，在 Data Lake Storage Gen2 中，您可以設定 Acl 的最高層級位於容器中的根資料夾，而不是整個帳戶。 因此，如果您想要在帳戶層級設定預設 ACL，則必須在 Data Lake Storage Gen2 帳戶中的所有檔案系統間複製這些 ACL。
 
 * 兩個儲存系統之間的檔案命名限制不同。 從 Data Lake Storage Gen2 複製到 Data Lake Storage Gen1 時，這些差異格外令人關切，因為後者有更多受限的條件約束。
 
@@ -237,11 +237,11 @@ Note that there are third-parties that can handle the Data Lake Storage Gen1 to 
 
 #### <a name="uri-changes"></a>URI 變更
 
-The main task here is to translate URI's that have a prefix of `adl://` into URI's that have an `abfss://` prefix.
+此處的主要工作是將具有 `abfss://` 前置詞 `adl://` 的 URI 轉譯為 URI。
 
 Data Lake Storage Gen1 的 URI 配置會在[這裡](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store)詳述，但大致上說，其為 *adl://mydatalakestore.azuredatalakestore.net/\<file_path\>。*
 
-The URI scheme for accessing Data Lake Storage Gen2 files is explained [here](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) in detail, but broadly speaking, it is `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`.
+[這裡](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)會詳細說明用來存取 Data Lake Storage Gen2 檔案的 URI 配置，但大致而言，這是 `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`。
 
 您必須瀏覽現有的應用程式，並確保已將 URI 適度變更為指向 Data Lake Storage Gen2 URI。 此外，您必須新增適當的認證。 最後，您淘汰原始應用程式並取代為新應用程式的方式必須密切符合您的整體升級策略。
 
@@ -301,7 +301,7 @@ The URI scheme for accessing Data Lake Storage Gen2 files is explained [here](..
 
 首先，確定可以與 Data Lake Storage Gen2 整合。
 
-Then, the elements called out above (For example: URI and credentials), will have to be changed. 您可以修改使用 Data Lake Storage Gen1 的現有執行個體，或者可以建立會使用 Data Lake Storage Gen2 的新執行個體。
+然後，就必須變更上面所呼叫的元素（例如： URI 和認證）。 您可以修改使用 Data Lake Storage Gen1 的現有執行個體，或者可以建立會使用 Data Lake Storage Gen2 的新執行個體。
 
 ### <a name="partner-ecosystem-upgrade"></a>夥伴生態系統升級
 
@@ -319,7 +319,7 @@ Then, the elements called out above (For example: URI and credentials), will hav
 
 ### <a name="post-upgrade"></a>升級後
 
-轉換作業完成之後，最終步驟會涉及徹底的驗證。 This would include but not be limited to verifying data has been copied over reliably, verifying ACLs have been set correctly, verifying end-to-end pipelines are functioning correctly etc. After the verifications have been completed, you can now turn off your old pipelines, delete your source Data Lake Storage Gen1 accounts and go full speed on your Data Lake Storage Gen2-based solutions.
+轉換作業完成之後，最終步驟會涉及徹底的驗證。 這包括但不限於確認資料已可靠地複製、驗證 Acl 是否已正確設定、驗證端對端管線是否正常運作等。完成驗證之後，您現在可以關閉舊的管線、刪除來源 Data Lake Storage Gen1 帳戶，並在 Data Lake Storage Gen2 架構的解決方案上獲得完整的速度。
 
 ## <a name="conclusion"></a>結論
 

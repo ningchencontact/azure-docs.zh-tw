@@ -1,6 +1,6 @@
 ---
-title: ADAL to MSAL migration guide for Python | Azure
-description: Learn how to migrate your Azure Active Directory Authentication Library (ADAL) Python app to the Microsoft Authentication Library (MSAL) for Python.
+title: 適用于 Python 的 MSAL 遷移指南的 ADAL |Azure
+description: 瞭解如何將您的 Azure Active Directory Authentication Library （ADAL） Python 應用程式遷移至適用于 Python 的 Microsoft 驗證程式庫（MSAL）。
 services: active-directory
 titleSuffix: Microsoft identity platform
 author: rayluo
@@ -24,59 +24,59 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74481936"
 ---
-# <a name="adal-to-msal-migration-guide-for-python"></a>ADAL to MSAL migration guide for Python
+# <a name="adal-to-msal-migration-guide-for-python"></a>適用于 Python 的 MSAL 遷移指南的 ADAL
 
-This article highlights changes you need to make to migrate an app that uses the Azure Active Directory Authentication Library (ADAL) to use the Microsoft Authentication Library (MSAL).
+本文重點說明您需要進行的變更，以遷移使用 Azure Active Directory Authentication Library （ADAL）的應用程式來使用 Microsoft Authentication Library （MSAL）。
 
-## <a name="difference-highlights"></a>Difference highlights
+## <a name="difference-highlights"></a>差異重點
 
-ADAL works with the Azure Active Directory v1.0 endpoint. The Microsoft Authentication Library (MSAL) works with the Microsoft identity platform--formerly known as the Azure Active Directory v2.0 endpoint. The Microsoft identity platform differs from Azure Active Directory v1.0 in that it:
+ADAL 適用于 Azure Active Directory v1.0 端點。 Microsoft 驗證程式庫（MSAL）適用于 Microsoft 身分識別平臺，先前稱為 Azure Active Directory v2.0 端點。 Microsoft 身分識別平臺與 Azure Active Directory v1.0 的不同之處在于：
 
 支援：
   - 公司和學校帳戶 (Azure AD 佈建的帳戶)
   - 個人帳戶 (例如 Outlook.com 或 Hotmail.com)
   - 透過 Azure AD B2C 供應項目自攜其電子郵件或社交身分識別 (例如 LinkedIn、Facebook、Google) 的客戶
 
-- Is standards compatible with:
-  - OAuth v2.0
-  - OpenID Connect (OIDC)
+- 標準與相容：
+  - OAuth v2。0
+  - OpenID Connect （OIDC）
 
-See [What's different about the Microsoft identity platform (v2.0) endpoint?](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison) for more details.
+如需詳細資訊，請參閱[Microsoft 身分識別平臺（v2.0）端點的差異](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison)。
 
 ### <a name="scopes-not-resources"></a>範圍，而非資源
 
-ADAL Python acquires tokens for resources, but MSAL Python acquires tokens for scopes. The API surface in MSAL Python does not have resource parameter anymore. You would need to provide scopes as a list of strings that declare the desired permissions and resources that are requested. To see some example of scopes, see [Microsoft Graph's scopes](https://docs.microsoft.com/graph/permissions-reference).
+ADAL Python 會取得資源的權杖，但 MSAL Python 會取得範圍的權杖。 MSAL Python 中的 API 介面已不再有資源參數。 您需要提供範圍做為字串清單，以宣告所需的許可權和所要求的資源。 若要查看範圍的一些範例，請參閱[Microsoft Graph 的範圍](https://docs.microsoft.com/graph/permissions-reference)。
 
 ### <a name="error-handling"></a>錯誤處理
 
-Azure Active Directory Authentication Library (ADAL) for Python uses the exception `AdalError` to indicate that there's been a problem. MSAL for  Python typically uses error codes, instead. For more information, see  [MSAL for Python error handling](https://docs.microsoft.com/azure/active-directory/develop/msal-handling-exceptions?tabs=python).
+適用于 Python 的 Azure Active Directory Authentication Library （ADAL）會使用例外狀況 `AdalError` 來表示發生問題。 MSAL for Python 通常會改為使用錯誤碼。 如需詳細資訊，請參閱[MSAL For Python error 處理](https://docs.microsoft.com/azure/active-directory/develop/msal-handling-exceptions?tabs=python)。
 
 ### <a name="api-changes"></a>API 變更
 
-The following table lists an API in ADAL for Python, and the one to use in its place in MSAL for Python:
+下表列出適用于 Python 的 ADAL 中的 API，以及要在 MSAL for Python 中使用的 API：
 
-| ADAL for Python API  | MSAL for Python API |
+| 適用于 Python API 的 ADAL  | 適用于 Python API 的 MSAL |
 | ------------------- | ---------------------------------- |
-| [AuthenticationContext](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext)  | [PublicClientApplication or ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__)  |
-| N/A  | [get_authorization_request_url()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.get_authorization_request_url)  |
-| [acquire_token_with_authorization_code()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_authorization_code) | [acquire_token_by_authorization_code()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.acquire_token_by_authorization_code) |
-| [acquire_token()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token) | [acquire_token_silent()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.acquire_token_silent) |
-| [acquire_token_with_refresh_token()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_refresh_token) | N/A |
-| [acquire_user_code()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_user_code) | [initiate_device_flow()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.initiate_device_flow) |
-| [acquire_token_with_device_code()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_device_code) and [cancel_request_to_get_token_with_device_code()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.cancel_request_to_get_token_with_device_code) | [acquire_token_by_device_flow()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_device_flow) |
-| [acquire_token_with_username_password()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_username_password) | [acquire_token_by_username_password()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_username_password) |
-| [acquire_token_with_client_credentials()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_client_credentials) and [acquire_token_with_client_certificate()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_client_certificate) | [acquire_token_for_client()](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client) |
-| N/A | [acquire_token_on_behalf_of()](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) |
-| [TokenCache()](https://adal-python.readthedocs.io/en/latest/#adal.TokenCache) | [SerializableTokenCache()](https://msal-python.readthedocs.io/en/latest/#msal.SerializableTokenCache) |
-| N/A | Cache with persistence, available from [MSAL Extensions](https://github.com/marstr/original-microsoft-authentication-extensions-for-python) |
+| [AuthenticationCoNtext](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext)  | [PublicClientApplication 或 ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__)  |
+| N/A  | [get_authorization_request_url （）](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.get_authorization_request_url)  |
+| [acquire_token_with_authorization_code （）](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_authorization_code) | [acquire_token_by_authorization_code （）](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.acquire_token_by_authorization_code) |
+| [acquire_token （）](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token) | [acquire_token_silent （）](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.acquire_token_silent) |
+| [acquire_token_with_refresh_token （）](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_refresh_token) | N/A |
+| [acquire_user_code （）](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_user_code) | [initiate_device_flow （）](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.initiate_device_flow) |
+| [acquire_token_with_device_code （）](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_device_code)和[cancel_request_to_get_token_with_device_code （）](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.cancel_request_to_get_token_with_device_code) | [acquire_token_by_device_flow （）](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_device_flow) |
+| [acquire_token_with_username_password （）](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_username_password) | [acquire_token_by_username_password （）](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_username_password) |
+| [acquire_token_with_client_credentials （）](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_client_credentials)和[acquire_token_with_client_certificate （）](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_client_certificate) | [acquire_token_for_client （）](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client) |
+| N/A | [acquire_token_on_behalf_of （）](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) |
+| [TokenCache （）](https://adal-python.readthedocs.io/en/latest/#adal.TokenCache) | [SerializableTokenCache()](https://msal-python.readthedocs.io/en/latest/#msal.SerializableTokenCache) |
+| N/A | 具有持續性的快取，可從[MSAL 擴充](https://github.com/marstr/original-microsoft-authentication-extensions-for-python)功能取得 |
 
-## <a name="migrate-existing-refresh-tokens-for-msal-python"></a>Migrate existing refresh tokens for MSAL Python
+## <a name="migrate-existing-refresh-tokens-for-msal-python"></a>遷移 MSAL Python 的現有重新整理權杖
 
-The Microsoft authentication library (MSAL) abstracts the concept of refresh tokens. MSAL Python provides an in-memory token cache by default so that you don't need to store, lookup, or update refresh tokens. Users will also see fewer sign-in prompts because refresh tokens can usually be updated without user intervention. For more information about the token cache, see [Custom token cache serialization in MSAL for Python](msal-python-token-cache-serialization.md).
+Microsoft 驗證程式庫（MSAL）會抽象化重新整理權杖的概念。 MSAL Python 預設會提供記憶體中的權杖快取，因此您不需要儲存、查閱或更新重新整理權杖。 使用者也會看到較少的登入提示，因為重新整理權杖通常可以在不需要使用者介入的情況下更新。 如需權杖快取的詳細資訊，請參閱[MSAL For Python 中的自訂權杖](msal-python-token-cache-serialization.md)快取序列化。
 
-The following code will help you migrate your refresh tokens managed by another OAuth2 library (including but not limited to ADAL Python) to be managed by MSAL for Python. One reason for migrating those refresh tokens is to prevent existing users from needing to sign in again when you migrate your app to MSAL for Python.
+下列程式碼將協助您將由另一個 OAuth2 程式庫（包括但不限於 ADAL Python）所管理的重新整理權杖，遷移至 MSAL for Python 管理。 遷移這些重新整理權杖的其中一個原因是，當您將應用程式遷移至適用于 Python 的 MSAL 時，讓現有使用者不需要再次登入。
 
-The method for migrating a refresh token is to use MSAL for Python to acquire a new access token using the previous refresh token. When the new refresh token is returned, MSAL for Python will store it in the cache. Here is an example of how to do it:
+遷移重新整理權杖的方法是使用適用于 Python 的 MSAL，以使用先前的重新整理權杖來取得新的存取權杖。 傳回新的重新整理權杖時，適用于 Python 的 MSAL 會將它儲存在快取中。 以下是如何執行此動作的範例：
 
 ```python
 from msal import PublicClientApplication

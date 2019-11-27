@@ -1,5 +1,5 @@
 ---
-title: Azure MFA user data collection - Azure Active Directory
+title: Azure MFA 使用者資料收集-Azure Active Directory
 description: Azure Multi-Factor Authentication 會使用哪些資訊協助進行使用者驗證？
 services: multi-factor-authentication
 ms.service: active-directory
@@ -89,7 +89,7 @@ MFA Server、NPS 擴充功能和 Windows Server 2016 Azure MFA AD FS Adapter 會
 - 國碼 (地區碼)
 - 電話號碼
 - 設有格式的電話號碼
-- 尾碼
+- 擴充功能
 - 清除分機
 - Blocked
 - 封鎖原因
@@ -109,14 +109,14 @@ MFA Server、NPS 擴充功能和 Windows Server 2016 Azure MFA AD FS Adapter 會
 - 國碼 (地區碼)
 - 電話號碼
 - 設有格式的電話號碼
-- 尾碼
+- 擴充功能
 - 清除分機
 - 略過原因
 - 完成時間戳記
 - 完成原因
 - 已使用的略過
 
-Changes (used to sync user changes to MFA Server or Azure AD):
+變更（用來同步處理 MFA Server 或 Azure AD 的使用者變更）：
 
 - 變更時間戳記
 - 使用者名稱
@@ -138,7 +138,7 @@ Changes (used to sync user changes to MFA Server or Azure AD):
 - 登入 MFA Server，瀏覽至 [使用者] 索引標籤，選取所需的使用者，然後按一下 [編輯] 按鈕。 建立每個索引標籤的螢幕擷取畫面 (Alt-PrtScn)，以便將目前的 MFA 設定提供給使用者。
 - 以 MFA Server 的命令列執行下列命令，根據您的安裝 `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` 來變更路徑，以產生 JSON 格式的檔案。
 - 系統管理員也可以選擇使用 Web 服務 SDK GetUserGdpr 作業，匯出針對特定使用者收集的所有 MFA 雲端服務資訊，或合併到較大的報告解決方案之中。
-- Search `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` and any backups for “\<username>” (include the quotes in the search) to find all instances of the user record being added or changed.
+- 搜尋「\<使用者名稱 >」（在搜尋中包含引號）中的 `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` 和任何備份，以尋找所新增或變更之使用者記錄的所有實例。
    - 在 MFA Server UX [記錄] 區段的 [記錄檔] 索引標籤中，取消勾選 [記錄使用者變更]，即可限制這些記錄 (而非刪除)。
    - 如果已設定 syslog，而且已在 MFA Server UX [記錄] 區段的 [Syslog] 索引標籤中勾選 [記錄使用者變更]，則會改從 syslog 收集記錄項目。
 - 其他存在於 MultiFactorAuthSvc.log 使用者名稱以及其他與驗證企圖有關的 MFA Server 記錄檔，則視為仍在使用中，且與使用 MultiFactorAuthGdpr.exe export 或 Web Service SDK GetUserGdpr 所提供的資訊重複。

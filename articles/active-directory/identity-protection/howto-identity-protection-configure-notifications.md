@@ -20,7 +20,7 @@ ms.locfileid: "74382162"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection 通知
 
-Azure AD Identity Protection sends two types of automated notification emails to help you manage user risk and risk detections:
+Azure AD Identity Protection 會傳送兩種類型的自動化通知電子郵件，協助您管理使用者風險和風險偵測：
 
 - 「偵測到具有風險的使用者」電子郵件
 - 每週精選文章電子郵件
@@ -31,23 +31,23 @@ Azure AD Identity Protection sends two types of automated notification emails to
 
 當偵測到具有風險的帳戶時，Azure AD Identity Protection 會產生主旨為**偵測到具有風險的使用者**的電子郵件警示來作為回應。 此電子郵件會包含 **[標幟為有風險的使用者](../reports-monitoring/concept-user-at-risk.md)** 報告的連結。 最佳做法是應立即調查具有風險的使用者。
 
-The configuration for this alert allows you to specify at what user risk level you want the alert to be generated. The email will be generated when the user's risk level reaches what you have specified; however, you will not receive new users at risk detected email alerts for this user after they move to this user risk level. For example, if you set the policy to alert on medium user risk and your user John moves to medium risk, you will receive the users at risk detected email for John. However, you will not receive a second user at risk detected alert if John then moves to high risk or has additional risk detections.
+此警示的設定可讓您指定要產生警示的使用者風險層級。 當使用者的風險層級達到您指定的值時，就會產生電子郵件;不過，在使用者移至此使用者風險層級之後，您將不會收到有風險的新使用者偵測到此使用者的電子郵件警示。 例如，如果您將原則設定為針對中型使用者風險發出警示，而您的使用者 John 移至中等風險，您會收到 John 偵測到有風險的使用者電子郵件。 不過，如果 John 接著進入高風險或有額外的風險偵測，您就不會收到第二位有風險的使用者偵測到警示。
 
 ![「偵測到具有風險的使用者」電子郵件](./media/howto-identity-protection-configure-notifications/01.png)
 
-### <a name="configure-users-at-risk-detected-alerts"></a>Configure users at risk detected alerts
+### <a name="configure-users-at-risk-detected-alerts"></a>設定具有風險偵測到警示的使用者
 
 如果您是系統管理員，您可以設定：
 
-- **The user risk level that triggers the generation of this email** - By default, the risk level is set to “High” risk.
+- **觸發此電子郵件產生的使用者風險層**級-根據預設，風險層級會設定為「高」風險。
 - **此電子郵件的收件者** - 收件者預設包含所有「全域管理員」。 「全域管理員」也可以新增其他「全域管理員」、「安全性管理員」、「安全性讀取者」作為收件者。
-   - Optionally you can **Add additional emails to receive alert notifications** this feature is a preview and users defined must have the appropriate permissions to view the linked reports in the Azure portal.
+   - （選擇性）您可以**新增其他電子郵件來接收警示通知**這項功能為預覽狀態，且定義的使用者必須具有適當的許可權，才能在 Azure 入口網站中查看連結的報表。
 
-Configure the users at risk email in the **Azure portal** under **Azure Active Directory** > **Security** > **Identity Protection** > **Users at risk detected alerts**.
+在**Azure 入口網站** **Azure Active Directory** > **安全性** > **Identity Protection** > 有**風險偵測到的使用者警示**中，設定有風險的使用者電子郵件。
 
 ## <a name="weekly-digest-email"></a>每週精選文章電子郵件
 
-The weekly digest email contains a summary of new risk detections.  
+每週摘要電子郵件包含新風險偵測的摘要。  
 其中包括：
 
 - 有風險的使用者
@@ -57,14 +57,14 @@ The weekly digest email contains a summary of new risk detections.
 
 ![每週精選文章電子郵件](./media/howto-identity-protection-configure-notifications/400.png)
 
-By default, recipients include all Global Admins. 「全域管理員」也可以新增其他「全域管理員」、「安全性管理員」、「安全性讀取者」作為收件者。
+根據預設，收件者包含所有全域管理員。 「全域管理員」也可以新增其他「全域管理員」、「安全性管理員」、「安全性讀取者」作為收件者。
 
-### <a name="configure-weekly-digest-email"></a>Configure weekly digest email
+### <a name="configure-weekly-digest-email"></a>設定每週摘要電子郵件
 
-As an administrator, you can switch sending a weekly digest email on or off and choose the users assigned to receive the email.
+身為系統管理員，您可以開啟或關閉傳送每週摘要電子郵件，然後選擇指派要接收電子郵件的使用者。
 
-Configure the weekly digest email in the **Azure portal** under **Azure Active Directory** > **Security** > **Identity Protection** > **Weekly digest**.
+在**Azure 入口網站** **Azure Active Directory** > **安全性** > **Identity Protection** > **每週摘要** 之下，設定每週摘要電子郵件。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)

@@ -1,5 +1,5 @@
 ---
-title: Use an Azure file share with Azure Storage | Microsoft Docs
+title: 使用 Azure 檔案共用搭配 Azure 儲存體 |Microsoft Docs
 description: 了解如何搭配 Windows 和 Windows Server 使用 Azure 檔案共用。
 author: todmccoy
 manager: dcscontentpm
@@ -17,29 +17,29 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233788"
 ---
-# <a name="how-to-recover-a-deleted-storage-account"></a>How to recover a deleted storage account
+# <a name="how-to-recover-a-deleted-storage-account"></a>如何復原已刪除的儲存體帳戶
 
-Azure Storage provides data resiliency through automated replicas, but doesn't prevent users or application code from corrupting data, whether accidentally or maliciously. Maintaining data fidelity during instances of application or user error requires more advanced techniques, such as copying the data to a secondary storage location with an audit log.
+Azure 儲存體透過自動化複本提供資料恢復功能，但不會防止使用者或應用程式程式碼損毀資料（不論是不小心或惡意）。 在應用程式或使用者錯誤的實例中維持資料精確度需要更先進的技術，例如將資料複製到具有 audit 記錄檔的次要儲存體位置。
 
-The following table provides overview of the scope of Storage Account Recovery depending on the replication strategy.
+下表提供儲存體帳戶復原範圍的總覽，視複寫策略而定。
 
-| |LRS|ZRS|GRS|RA - GRS|
+| |LRS|ZRS|GRS|RA-GRS|
 |---|---|---|---|---|
-|Storage Account Azure Resource Manager|是|是|是|是|
-|Storage Account Classic|是|是|是|是|
+|儲存體帳戶 Azure Resource Manager|yes|yes|yes|yes|
+|傳統儲存體帳戶|yes|yes|yes|yes|
 
-Gather the following information and file a support request with Microsoft Support:
+收集下列資訊，並使用 Microsoft 支援服務提出支援要求：
 
 * 儲存體帳戶名稱
-* Date of deletion
-* Storage account region
-* How was the storage account deleted?
-* What method deleted the storage account? (Portal, PowerShell, etc.)
+* 刪除日期
+* 儲存體帳戶區域
+* 如何刪除儲存體帳戶？
+* 哪些方法會刪除儲存體帳戶？ （入口網站、PowerShell 等）
 
-Important Points
+重要重點
 
-* It can generally take up to 15 days from the time of deletion for the storage service to perform garbage collection, so storage accounts recovery may not be recovered with an SLA.
-* Microsoft Support will try to recover the Container/Account on a best-effort basis and cannot guarantee the recovery.
+* 最多可能需要15天的時間來刪除儲存體服務，才能執行垃圾收集，因此無法使用 SLA 來復原儲存體帳戶。
+* Microsoft 支援服務將會嘗試以最佳方式復原容器/帳戶，而且無法保證修復。
 
 > [!NOTE]
-> The recovery may not be successful if the account has been re-created. If you have already re-created the account, you must delete it first before recovery can be attempted.
+> 如果帳戶已重新建立，則復原可能無法成功。 如果您已經重新建立帳戶，您必須先將它刪除，然後才能嘗試復原。

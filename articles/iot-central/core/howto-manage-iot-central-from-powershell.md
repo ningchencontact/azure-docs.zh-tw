@@ -1,6 +1,6 @@
 ---
 title: 從 Azure PowerShell 管理 IoT Central | Microsoft Docs
-description: This article describes how to create and manage your IoT Central applications from Azure PowerShell.
+description: 本文說明如何從 Azure PowerShell 建立和管理您的 IoT Central 應用程式。
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
@@ -19,11 +19,11 @@ ms.locfileid: "74480294"
 
 [!INCLUDE [iot-central-selector-manage](../../../includes/iot-central-selector-manage.md)]
 
-Instead of creating and managing IoT Central applications on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, you can use [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) to manage your applications.
+您可以使用[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)來管理應用程式，而不是在[Azure IoT Central 應用程式管理員](https://aka.ms/iotcentral)網站上建立和管理 IoT Central 應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -45,7 +45,7 @@ Install-Module Az.IotCentral
 
 ## <a name="create-an-application"></a>建立應用程式
 
-使用 [New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) \(英文\) Cmdlet 來在您的 Azure 訂用帳戶中建立 IoT Central 應用程式。 例如：
+使用 [New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) \(英文\) Cmdlet 來在您的 Azure 訂用帳戶中建立 IoT Central 應用程式。 例如︰
 
 ```powershell
 # Create a resource group for the IoT Central application
@@ -61,19 +61,19 @@ New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
   -DisplayName "My Custom Display Name"
 ```
 
-The script first creates a resource group in the east US location for the application. 下表說明搭配 **New-AzIotCentralApp** 命令使用的參數：
+腳本會先在「美國東部」位置為應用程式建立資源群組。 下表說明搭配 **New-AzIotCentralApp** 命令使用的參數：
 
 |參數         |描述 |
 |------------------|------------|
 |resourceGroupName |包含應用程式的資源群組。 此資源群組必須已經存在於您的訂用帳戶中。 |
-|Location |根據預設，此 Cmdlet 會使用來自資源群組的位置。 Currently, you can create an IoT Central application in the **United States**, **Australia**, **Asia Pacific**, or in the **Europe** locations.  |
-|Name              |應用程式在 Azure 入口網站中的名稱。 |
-|子網域         |應用程式 URL 中的子網域。 在範例中，應用程式 URL 是 https://mysubdomain.azureiotcentral.com 。 |
+|位置 |根據預設，此 Cmdlet 會使用來自資源群組的位置。 目前，您可以在**美國**、**澳大利亞**、**亞太地區**或**歐洲**地區建立 IoT Central 應用程式。  |
+|名稱              |應用程式在 Azure 入口網站中的名稱。 |
+|子網域         |應用程式 URL 中的子網域。 在範例中，應用程式 URL 是 https://mysubdomain.azureiotcentral.com。 |
 |SKU               |目前唯一的值是 **S1** (標準層)。 請參閱 [Azure IoT Central 價格](https://azure.microsoft.com/pricing/details/iot-central/)。 |
 |範本          | 要使用的應用程式範本。 如需詳細資訊，請參閱下列表格： |
 |displayName       |在 UI 中顯示的應用程式名稱。 |
 
-**Application templates with generally available features**
+**具有正式推出功能的應用程式範本**
 
 | 範本名稱            | 描述 |
 | ------------------------ | ----------- |
@@ -82,25 +82,25 @@ The script first creates a resource group in the east US location for the applic
 | iotc-devkit-sample@1.0.0 | 使用您可使用的裝置範本來建立應用程式，以連線 MXChip 或 Raspberry Pi 裝置。 如果您是以其中任一裝置進行試驗的裝置開發人員，請使用此範本。 |
 
 
-**Application templates with public preview features**
+**具有公開預覽功能的應用程式範本**
 
 | 範本名稱            | 描述 |
 | ------------------------ | ----------- |
-| iotc-pnp-preview@1.0.0   | Creates an empty plug and play preview application for you to populate with your own device templates and devices. |
-| iotc-condition@1.0.0     | Creates an application with a in-store analytics – condition monitoring template. Use this template to connect and monitor store environment. |
-| iotc-consumption@1.0.0   | Creates an application with water consumption monitoring template. Use this template to monitor and control water flow. |
-| iotc-distribution@1.0.0  | Creates an application with a Digital distribution template. Use this template to improve warehouse output efficiency by digitalizing key assets and actions. |
-| iotc-inventory@1.0.0     | Creates an application with a smart inventory management template. Use this template to automate receiving, product movement, cycle counting, and tracking of sensors. |
-| iotc-logistics@1.0.0     | Creates an application with a Connected logistics template. Use this template to track your shipment in real-time across air, water and land with location and condition monitoring. |
-| iotc-meter@1.0.0         | Creates an application with smart meter monitoring template. Use this template to monitor energy consumption, network status, and identify trends to improve customer support and smart meter management.  |
-| iotc-patient@1.0.0       | Creates an application with continuous patient monitoring template. Use this template to extend patient care, re-admissions, and manage diseases. |
-| iotc-power@1.0.0         | Creates an application with solar panel monitoring template. Use this template to monitor solar panel status, energy generation trends. |
-| iotc-quality@1.0.0       | Creates an application with water quality monitoring template. Use this template to digitally monitor water quality.|
-| iotc-store@1.0.0         | Creates an application with a in-store analytics – checkout template. Use this template to monitor and manage the checkout flow inside your store. |
-| iotc-waste@1.0.0         | Creates an application with a Connected waste management template. Use this template to monitor waste bins and dispatch field operators. |
+| iotc-pnp-preview@1.0.0   | 建立空白的隨插即用預覽應用程式，讓您填入自己的裝置範本和裝置。 |
+| iotc-condition@1.0.0     | 建立具有存放區內分析-條件監視範本的應用程式。 使用此範本來連接和監視存放區環境。 |
+| iotc-consumption@1.0.0   | 建立具有水耗用量監視範本的應用程式。 使用此範本來監視和控制水流程。 |
+| iotc-distribution@1.0.0  | 建立具有數位散發範本的應用程式。 使用此範本來 digitalizing 主要資產和動作，以改善倉儲輸出效率。 |
+| iotc-inventory@1.0.0     | 使用智慧清查管理範本建立應用程式。 使用此範本可將接收、產品移動、迴圈計數和感應器追蹤自動化。 |
+| iotc-logistics@1.0.0     | 使用已連線的物流範本建立應用程式。 使用此範本，透過位置和條件監視，在空中、水和土地之間即時追蹤您的出貨。 |
+| iotc-meter@1.0.0         | 使用智慧計量監視範本建立應用程式。 使用此範本來監視能源消耗、網路狀態，以及識別趨勢，以改善客戶支援和智慧計量管理。  |
+| iotc-patient@1.0.0       | 建立具有持續患者監視範本的應用程式。 使用此範本來擴充病人護理、重新許可及管理疾病。 |
+| iotc-power@1.0.0         | 使用「日光面板監視」範本建立應用程式。 使用此範本來監視日光面板狀態、能源產生趨勢。 |
+| iotc-quality@1.0.0       | 建立具有水品質監控範本的應用程式。 使用此範本以數位方式監視水品質。|
+| iotc-store@1.0.0         | 建立具有存放區內分析-結帳範本的應用程式。 使用此範本來監視和管理您的存放區內的簽出流程。 |
+| iotc-waste@1.0.0         | 建立具有連線垃圾管理範本的應用程式。 使用此範本來監視浪費區間和分派欄位運算子。 |
 
 > [!NOTE]
-> The preview application templates are currently only available in the **Europe** and **United States** locations.
+> 預覽應用程式範本目前僅適用于**歐洲**和**美國**地區。
 
 ## <a name="view-your-iot-central-applications"></a>檢視 IoT Central 應用程式
 
@@ -118,7 +118,7 @@ Set-AzIotCentralApp -Name "myiotcentralapp" `
 
 ## <a name="remove-an-application"></a>移除應用程式
 
-使用 [Remove-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Remove-AzIotCentralApp) \(英文\) Cmdlet 來刪除 IoT Central 應用程式。 例如：
+使用 [Remove-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Remove-AzIotCentralApp) \(英文\) Cmdlet 來刪除 IoT Central 應用程式。 例如︰
 
 ```powershell
 Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `

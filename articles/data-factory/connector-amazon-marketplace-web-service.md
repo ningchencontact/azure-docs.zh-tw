@@ -55,7 +55,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -122,7 +122,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | 類型 | 複製活動來源的 type 屬性必須設定為：**AmazonMWSSource** | yes |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`。 | 否 (如果已指定資料集中的「tableName」) |
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[

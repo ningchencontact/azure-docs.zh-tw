@@ -1,7 +1,7 @@
 ---
-title: AD FS support in Microsoft Authentication Library for Java
+title: 適用于 JAVA 的 Microsoft 驗證程式庫中的 AD FS 支援
 titleSuffix: Microsoft identity platform
-description: Learn about Active Directory Federation Services (AD FS) support in Microsoft Authentication Library for Java (MSAL4j).
+description: 瞭解適用于 JAVA 的 Microsoft 驗證程式庫（MSAL4j）中的 Active Directory 同盟服務（AD FS）支援。
 services: active-directory
 documentationcenter: dev-center-name
 author: sangonzal
@@ -25,32 +25,32 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74482093"
 ---
-# <a name="active-directory-federation-services-support-in-msal-for-java"></a>Active Directory Federation Services support in MSAL for Java
+# <a name="active-directory-federation-services-support-in-msal-for-java"></a>MSAL for JAVA 中的 Active Directory 同盟服務支援
 
-Active Directory Federation Services (AD FS) in Windows Server enables you to add OpenID Connect and OAuth 2.0 based authentication and authorization to your Microsoft Authentication Library for Java (MSAL for Java) app. Once integrated, your app can authenticate users in AD FS, federated through Azure AD. For more information about scenarios, see [AD FS Scenarios for Developers](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
+Windows Server 中的 Active Directory 同盟服務（AD FS）可讓您將 OpenID Connect 和 OAuth 2.0 型驗證和授權新增至您的 Microsoft Authentication Library for JAVA （MSAL for JAVA）應用程式。 整合之後，您的應用程式就可以在 AD FS 中驗證使用者，並透過 Azure AD 進行同盟。 如需案例的詳細資訊，請參閱[開發人員的 AD FS 案例](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers)。
 
-An app that uses MSAL for Java will talk to Azure Active Directory (Azure AD), which then federates to AD FS.
+使用 MSAL for JAVA 的應用程式將會與 Azure Active Directory （Azure AD）交談，然後則聯盟至 AD FS。
 
-MSAL for Java connects to Azure AD, which signs in users that are managed in Azure AD (managed users) or users managed by another identity provider such as AD FS (federated users). MSAL for Java doesn't  know that a user is federated. It simply talks to Azure AD.
+MSAL for JAVA 會連線到 Azure AD，其會登入 Azure AD （受管理的使用者）中管理的使用者，或由其他身分識別提供者（例如 AD FS （同盟使用者）所管理的使用者。 MSAL for JAVA 不知道使用者是同盟的。 它只會與 Azure AD 交談。
 
-The [authority](msal-client-application-configuration.md#authority) you use in this case is the usual authority (authority host name + tenant, common, or organizations).
+您在此案例中使用的[授權](msal-client-application-configuration.md#authority)單位是一般授權（授權主機名稱 + 租使用者、通用或組織）。
 
-## <a name="acquire-a-token-interactively-for-a-federated-user"></a>Acquire a token interactively for a federated user
+## <a name="acquire-a-token-interactively-for-a-federated-user"></a>以互動方式取得同盟使用者的權杖
 
-When you call `ConfidentialClientApplication.AcquireToken()` or `PublicClientApplication.AcquireToken()` with `AuthorizationCodeParameters` or `DeviceCodeParameters`, the user experience is typically:
+當您使用 `AuthorizationCodeParameters` 或 `DeviceCodeParameters`呼叫 `ConfidentialClientApplication.AcquireToken()` 或 `PublicClientApplication.AcquireToken()` 時，使用者體驗通常是：
 
-1. The user enters their account ID.
-2. Azure AD briefly displays "Taking you to your organization's page", and the user is redirected to the sign-in page of the identity provider. The sign-in page is usually customized with the logo of the organization.
+1. 使用者輸入其帳戶識別碼。
+2. Azure AD 短暫顯示「帶您前往貴組織的頁面」，然後將使用者重新導向至身分識別提供者的登入頁面。 登入頁面通常會以組織的標誌進行自訂。
 
-The supported AD FS versions in this federated scenario are:
-- Active Directory Federation Services FS v2
-- Active Directory Federation Services v3 (Windows Server 2012 R2)
-- Active Directory Federation Services v4 (AD FS 2016)
+此同盟案例中支援的 AD FS 版本如下：
+- Active Directory 同盟服務 FS v2
+- Active Directory 同盟服務 v3 （Windows Server 2012 R2）
+- Active Directory 同盟服務 v4 （AD FS 2016）
 
-## <a name="acquire-a-token-via-username-and-password"></a>Acquire a token via username and password
+## <a name="acquire-a-token-via-username-and-password"></a>透過使用者名稱和密碼取得權杖
 
-When you acquire a token using `ConfidentialClientApplication.AcquireToken()` or `PublicClientApplication.AcquireToken()` with `IntegratedWindowsAuthenticationParameters` or `UsernamePasswordParameters`, MSAL for Java gets the identity provider to contact based on the username. MSAL for Java gets a [SAML 1.1 token](reference-saml-tokens.md) token from the identity provider, which it then provides to Azure AD which returns the JSON Web Token (JWT).
+當您使用 `ConfidentialClientApplication.AcquireToken()` 或 `PublicClientApplication.AcquireToken()` 搭配 `IntegratedWindowsAuthenticationParameters` 或 `UsernamePasswordParameters`來取得權杖時，MSAL for JAVA 會根據使用者名稱讓身分識別提供者聯繫。 MSAL for JAVA 會從識別提供者取得[SAML 1.1 權杖](reference-saml-tokens.md)權杖，然後提供給傳回 JSON Web 權杖（JWT）的 Azure AD。
 
 ## <a name="next-steps"></a>後續步驟
 
-For the federated case, see [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)
+針對同盟案例，請參閱[使用主領域探索原則來設定應用程式的 Azure Active Directory 登入行為](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)

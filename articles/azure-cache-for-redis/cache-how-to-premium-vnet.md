@@ -1,5 +1,5 @@
 ---
-title: Configure a Virtual Network for a Premium Azure Cache for Redis
+title: 設定高階 Azure Cache for Redis 的虛擬網路
 description: 了解如何建立和管理進階層 Azure Cache for Redis 執行個體的虛擬網路支援
 author: yegu-ms
 ms.service: cache
@@ -21,7 +21,7 @@ Azure Cache for Redis 有不同的快取供應項目，可讓您彈性選擇快�
 > 
 > 
 
-如需有關其他進階快取功能的資訊，請參閱 [Azure Redis 快取進階層簡介](cache-premium-tier-intro.md)。
+如需其他進階快取功能的相關資訊，請參閱 [Azure Cache for Redis 進階層簡介](cache-premium-tier-intro.md)。
 
 ## <a name="why-vnet"></a>為何使用 VNet？
 [Azure 虛擬網路 (VNet)](https://azure.microsoft.com/services/virtual-network/) 部署除了為 Azure Cache for Redis 提供子網路、存取控制原則及其他可進一步限制存取的功能之外，也提供增強的安全性與隔離環境。
@@ -96,29 +96,29 @@ Azure Cache for Redis 裝載在 VNet 時，會使用下表中的連接埠。
 
 #### <a name="outbound-port-requirements"></a>輸出連接埠需求
 
-There are nine outbound port requirements. Outbound requests in these ranges are either outbound to other services necessary for the cache to function or internal to the Redis subnet for internode communication. For geo-replication, additional outbound requirements exist for communication between subnets of the primary and secondary cache.
+有九個輸出埠需求。 這些範圍內的輸出要求可能會輸出到其他需要的服務，以供快取運作或內部 Redis 子網進行節點間通訊。 針對異地複寫，主要與次要快取的子網之間的通訊有額外的輸出需求。
 
 | 連接埠 | 方向 | 傳輸通訊協定 | 目的 | 本機 IP | 遠端 IP |
 | --- | --- | --- | --- | --- | --- |
 | 80、443 |輸出 |TCP |Azure 儲存體/PKI 上 Redis 的相依項目 (網際網路) | (Redis 子網路) |* |
-| 443 | 輸出 | TCP | Redis dependency on Azure Key Vault | (Redis 子網路) | AzureKeyVault <sup>1</sup> |
-| 53 |輸出 |TCP/UDP |DNS 上 Redis 的相依項目 (網際網路/VNet) | (Redis 子網路) | 168.63.129.16 and 169.254.169.254 <sup>2</sup> and any custom DNS server for the subnet <sup>3</sup> |
+| 443 | 輸出 | TCP | Azure Key Vault 的 Redis 相依性 | (Redis 子網路) | AzureKeyVault <sup>1</sup> |
+| 53 |輸出 |TCP/UDP |DNS 上 Redis 的相依項目 (網際網路/VNet) | (Redis 子網路) | 168.63.129.16 和 169.254.169.254 <sup>2</sup>以及子網<sup>3</sup>的任何自訂 DNS 伺服器 |
 | 8443 |輸出 |TCP |Redis 內部通訊 | (Redis 子網路) | (Redis 子網路) |
 | 10221-10231 |輸出 |TCP |Redis 內部通訊 | (Redis 子網路) | (Redis 子網路) |
 | 20226 |輸出 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
 | 13000-13999 |輸出 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
-| 15000-15999 |輸出 |TCP |Internal communications for Redis and Geo-Replication | (Redis 子網路) |(Redis subnet) (Geo-replica peer subnet) |
+| 15000-15999 |輸出 |TCP |Redis 和異地複寫的內部通訊 | (Redis 子網路) |（Redis 子網）（異地複本對等子網） |
 | 6379-6380 |輸出 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
 
-<sup>1</sup> You can use the service tag 'AzureKeyVault' with Resource Manager Network Security Groups.
+<sup>1</sup>您可以使用服務標記 ' AzureKeyVault ' 搭配 Resource Manager 網路安全性群組。
 
-<sup>2</sup> These IP addresses owned by Microsoft are used to address the Host VM which serves Azure DNS.
+<sup>2</sup>這些由 Microsoft 所擁有的 IP 位址可用來處理 Azure DNS 的主機 VM。
 
-<sup>3</sup> Not needed for subnets with no custom DNS server, or newer redis caches that ignore custom DNS.
+<sup>3</sup>不需要有自訂 dns 伺服器的子網，或忽略自訂 dns 的較新 redis 快取。
 
-#### <a name="geo-replication-peer-port-requirements"></a>Geo-replication peer port requirements
+#### <a name="geo-replication-peer-port-requirements"></a>異地複寫對等埠需求
 
-If you are using georeplication between caches in Azure Virtual Networks, please note that the recommended configuration is to unblock ports 15000-15999 for the whole subnet in both inbound AND outbound directions to both caches, so that all the replica components in the subnet can communicate directly with each other even in the event of a future geo-failover.
+如果您在 Azure 虛擬網路中的快取之間使用 georeplication，請注意，建議的設定是在兩個快取的輸入和輸出方向解除封鎖整個子網的埠15000-15999，以便所有複本元件即使在未來的異地容錯移轉事件中，子網中的也可以直接彼此通訊。
 
 #### <a name="inbound-port-requirements"></a>輸入連接埠需求
 
@@ -126,16 +126,16 @@ If you are using georeplication between caches in Azure Virtual Networks, please
 
 | 連接埠 | 方向 | 傳輸通訊協定 | 目的 | 本機 IP | 遠端 IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |輸入 |TCP |對 Redis 進行的用戶端通訊，Azure 負載平衡 | (Redis 子網路) | (Redis subnet), Virtual Network, Azure Load Balancer <sup>1</sup> |
+| 6379, 6380 |輸入 |TCP |對 Redis 進行的用戶端通訊，Azure 負載平衡 | (Redis 子網路) | （Redis 子網），虛擬網路，Azure Load Balancer <sup>1</sup> |
 | 8443 |輸入 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
-| 8500 |輸入 |TCP/UDP |Azure 負載平衡 | (Redis 子網路) |Azure Load Balancer |
+| 8500 |輸入 |TCP/UDP |Azure 負載平衡 | (Redis 子網路) |Azure 負載平衡器 |
 | 10221-10231 |輸入 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路)，Azure Load Balancer |
 | 13000-13999 |輸入 |TCP |對 Redis 叢集的用戶端通訊，Azure 負載平衡 | (Redis 子網路) |虛擬網路，Azure Load Balancer |
-| 15000-15999 |輸入 |TCP |Client communication to Redis Clusters, Azure load Balancing, and Geo-Replication | (Redis 子網路) |Virtual Network, Azure Load Balancer, (Geo-replica peer subnet) |
-| 16001 |輸入 |TCP/UDP |Azure 負載平衡 | (Redis 子網路) |Azure Load Balancer |
+| 15000-15999 |輸入 |TCP |Redis 叢集、Azure 負載平衡和異地複寫的用戶端通訊 | (Redis 子網路) |虛擬網路、Azure Load Balancer、（異地複本對等子網） |
+| 16001 |輸入 |TCP/UDP |Azure 負載平衡 | (Redis 子網路) |Azure 負載平衡器 |
 | 20226 |輸入 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |
 
-<sup>1</sup> You can use the Service Tag 'AzureLoadBalancer' (Resource Manager) (or 'AZURE_LOADBALANCER' for classic) for authoring the NSG rules.
+<sup>1</sup>您可以使用服務標記 ' AzureLoadBalancer ' （Resource Manager）（或傳統的 ' AZURE_LOADBALANCER '）來撰寫 NSG 規則。
 
 #### <a name="additional-vnet-network-connectivity-requirements"></a>其他 VNET 網路連線需求
 
@@ -149,7 +149,7 @@ If you are using georeplication between caches in Azure Virtual Networks, please
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>如何確認我的快取是在 VNET 中運作？
 
 >[!IMPORTANT]
->When connecting to an Azure Cache for Redis instance that is hosted in a VNET, your cache clients must be in the same VNET or in a VNET with VNET peering enabled within the same Azure region. Global VNET Peering isn't currently supported. 這包括任何測試應用程式或診斷 Ping 工具。 不論用戶端應用程式裝載在哪個位置，都必須設定網路安全性群組以允許用戶端的網路流量觸達 Redis 執行個體。
+>連線到裝載在 VNET 中的 Azure Cache for Redis 實例時，您的快取用戶端必須位於相同的 VNET 中，或位於相同 Azure 區域內已啟用 VNET 對等互連的 VNET 中。 目前不支援全域 VNET 對等互連。 這包括任何測試應用程式或診斷 Ping 工具。 不論用戶端應用程式裝載在哪個位置，都必須設定網路安全性群組以允許用戶端的網路流量觸達 Redis 執行個體。
 >
 >
 
@@ -157,7 +157,7 @@ If you are using georeplication between caches in Azure Virtual Networks, please
 
 - [重新啟動](cache-administration.md#reboot)所有的快取節點。 如果無法觸達所有必要的快取相依性連線 (如[輸入連接埠需求](cache-how-to-premium-vnet.md#inbound-port-requirements)和[輸出連接埠需求](cache-how-to-premium-vnet.md#outbound-port-requirements)中所述)，快取將無法順利重新啟動。
 - 一旦快取節點重新啟動 (如 Azure 入口網站中的快取狀態所報告) 後，您可以執行下列測試：
-  - 使用 [tcping](https://www.elifulkerson.com/projects/tcping.php)，從與快取位於相同 VNET 中的電腦偵測快取端點 (使用連接埠 6380)。 例如：
+  - 使用 [tcping](https://www.elifulkerson.com/projects/tcping.php)，從與快取位於相同 VNET 中的電腦偵測快取端點 (使用連接埠 6380)。 例如︰
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -180,7 +180,7 @@ If you are using georeplication between caches in Azure Virtual Networks, please
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-如果您無法解析 DNS 名稱，某些用戶端程式庫就會包含像是 `sslHost` 的設定選項，其是由 StackExchange.Redis 用戶端所提供的。 這可讓您覆寫用於憑證驗證的主機名稱。 例如：
+如果您無法解析 DNS 名稱，某些用戶端程式庫就會包含像是 `sslHost` 的設定選項，其是由 StackExchange.Redis 用戶端所提供的。 這可讓您覆寫用於憑證驗證的主機名稱。 例如︰
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 

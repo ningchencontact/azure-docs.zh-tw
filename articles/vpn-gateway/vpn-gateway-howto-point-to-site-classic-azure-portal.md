@@ -43,7 +43,7 @@ ms.locfileid: "74424168"
 
 ![Point-to-Site-diagram](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 點對站憑證驗證連線需要下列先決條件：
 
@@ -61,25 +61,25 @@ ms.locfileid: "74424168"
 請使用下列值來建立測試環境，或參考這些值來進一步了解本文中的範例：
 
 - **建立虛擬網路 (傳統) 設定**
-   - **Name**: Enter *VNet1*.
-   - **Address space**: Enter *192.168.0.0/16*. 在此範例中，我們只使用一個位址空間。 您可以為 VNet 使用多個位址空間，如圖所示。
-   - **Subnet name**: Enter *FrontEnd*.
-   - **Subnet address range**: Enter *192.168.1.0/24*.
-   - **Subscription**: Select a subscription from the list of available subscriptions.
-   - **Resource group**: Enter *TestRG*. 選取 [新建] (如果資源群組不存在)。
-   - **Location**: Select **East US** from the list.
+   - **名稱**：輸入*VNet1*。
+   - **位址空間**：輸入*192.168.0.0/16*。 在此範例中，我們只使用一個位址空間。 您可以為 VNet 使用多個位址空間，如圖所示。
+   - **子網名稱**：輸入*前端*。
+   - **子網位址範圍**：輸入*192.168.1.0/24*。
+   - **訂**用帳戶：從可用的訂閱清單中選取訂用帳戶。
+   - **資源群組**：輸入*TestRG*。 選取 [新建] (如果資源群組不存在)。
+   - **位置**：從清單中選取 [**美國東部**]。
 
   - **VPN 連線設定**
-    - **Connection type**: Select **Point-to-site**.
-    - **Client Address Space**: Enter *172.16.201.0/24*. 使用這個點對站連線來連線到 VNet 的 VPN 用戶端，會收到來自指定集區的 IP 位址。
+    - **連線類型**：選取 [**點對站**]。
+    - **用戶端位址空間**：輸入*172.16.201.0/24*。 使用這個點對站連線來連線到 VNet 的 VPN 用戶端，會收到來自指定集區的 IP 位址。
 
 - **閘道閘道子網路設定**
-   - **Name**: Autofilled with *GatewaySubnet*.
-   - **Address range**: Enter *192.168.200.0/24*. 
+   - **名稱**：使用*GatewaySubnet*的自動填入。
+   - **位址範圍**：輸入*192.168.200.0/24*。 
 
 - **閘道組態設定**：
-   - **Size**: Select the gateway SKU that you want to use.
-   - **Routing Type**: Select **Dynamic**.
+   - **大小**：選取您要使用的閘道 SKU。
+   - **路由類型**：選取 [**動態**]。
 
 ## <a name="create-a-virtual-network-and-a-vpn-gateway"></a>建立虛擬網路和 VPN 閘道
 
@@ -89,7 +89,7 @@ ms.locfileid: "74424168"
 
 如果您還沒有虛擬網路 (VNet)，請建立一個。 已提供螢幕擷取畫面做為範例。 請務必將值取代為您自己的值。 若要使用 Azure 入口網站建立 VNet，請使用下列步驟：
 
-1. On the [Azure portal](https://portal.azure.com) menu or from the **Home** page, select **Create a resource**. [新增] 頁面隨即開啟。
+1. 在 [ [Azure 入口網站](https://portal.azure.com)] 功能表或 [**首頁**] 頁面上，選取 [**建立資源**]。 [新增] 頁面隨即開啟。
 
 2. 在 [搜尋 Marketplace] 欄位中，輸入「虛擬網路」，然後從傳回的清單中選取 [虛擬網路]。 [虛擬網路] 頁面隨即開啟。
 
@@ -113,11 +113,11 @@ ms.locfileid: "74424168"
 
     若要新增 DNS 伺服器，請從 VNet 頁面選取 [DNS 伺服器]。 然後，輸入所要使用 DNS 伺服器的 IP 位址，並選取 [儲存]。
 
-### <a name="part-2-create-a-gateway-subnet-and-a-dynamic-routing-gateway"></a>Part 2: Create a gateway subnet and a dynamic routing gateway
+### <a name="part-2-create-a-gateway-subnet-and-a-dynamic-routing-gateway"></a>第2部分：建立閘道子網和動態路由閘道
 
 在此步驟中，您會建立一個閘道子網路和一個動態路由閘道。 在傳統部署模型的 Azure 入口網站中，您可以透過相同的組態頁面來建立閘道子網路和閘道。 閘道子網路只能用於閘道服務。 切勿將任何項目直接部署至閘道子網路 (例如虛擬機器或其他服務)。
 
-1. In the Azure portal, go to the virtual network for which you want to create a gateway.
+1. 在 Azure 入口網站中，移至您想要建立閘道的虛擬網路。
 
 2. 在虛擬網路的頁面上，選取 [概觀]，然後在 [VPN 連線] 區段中，選取 [閘道]。
 
@@ -210,7 +210,7 @@ ms.locfileid: "74424168"
 >
 >
 
-1. To connect to your VNet, on the client computer, go to **VPN connections** in the Azure portal and locate the VPN connection that you created. VPN 連線的名稱會與虛擬網路相同。 選取 [ **連接**]。 如果出現關於憑證的快顯訊息，請選取 [繼續] 以使用較高的權限。
+1. 若要連接到您的 VNet，請在用戶端電腦上移至 Azure 入口網站中的 [ **vpn**連線]，並找出您所建立的 vpn 連線。 VPN 連線的名稱會與虛擬網路相同。 選取 [ **連接**]。 如果出現關於憑證的快顯訊息，請選取 [繼續] 以使用較高的權限。
 
 2. 在 [連線] 狀態頁面上，選取 [連線] 以便開始連線。 如果您看到 [選取憑證] 畫面，請確認所顯示的用戶端憑證是否正確。 如果不正確，請從下拉式清單中選取正確的憑證，然後選取 [確定]。
 
@@ -277,7 +277,7 @@ ms.locfileid: "74424168"
 
 1. 擷取用戶端憑證指紋。 如需詳細資訊，請參閱[做法：擷取憑證的指紋](https://msdn.microsoft.com/library/ms734695.aspx)。
 2. 將資訊複製到文字編輯器，並移除其空格，讓其成為連續字串。
-3. Go to the classic virtual network. 選取 [點對站 VPN 連線]，然後選取 [管理憑證] 來開啟 [憑證] 頁面。
+3. 移至傳統虛擬網路。 選取 [點對站 VPN 連線]，然後選取 [管理憑證] 來開啟 [憑證] 頁面。
 4. 選取 [撤銷清單] 來開啟 [撤銷清單] 頁面。 
 5. 選取 [新增憑證] 來開啟 [將憑證新增至撤銷清單] 頁面。
 6. 在 [指紋] 中，貼上連續一行文字且不含空格的憑證指紋。 選取 [確定] 以完成。

@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 地圖服務中新增影像圖層 | Microsoft Docs
-description: How to add an Image Layer to the Azure Maps Web SDK.
+description: 如何將影像圖層新增至 Azure 地圖服務 Web SDK。
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -29,16 +29,16 @@ ms.locfileid: "74480483"
 > [!TIP]
 > [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) 可讓您輕鬆快速地在地圖上覆蓋影像。 不過，如果影像很大，瀏覽器可能會很難載入它。 在此情況下，請考慮將影像分拆成小影像，再將小影像載入地圖作為 [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest)。
 
-The image layer supports the following image formats:
+影像層支援下列影像格式：
 
 - JPEG
 - PNG
 - BMP
-- GIF (no animations)
+- GIF （沒有動畫）
 
 ## <a name="add-an-image-layer"></a>新增映像圖層
 
-In the following code overlays an image of a [map of Newark New Jersey from 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) on the map. An [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) is created by passing a URL to an image and coordinates for the four corners in the format `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
+在下列程式碼中，會覆迭地圖上的[紐華克 New 1922 Jersey 對應](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg)影像。 [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest)的建立方式是將 URL 傳遞至影像，並以 `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`格式的四個角落座標。
 
 ```javascript
 //Create an image layer and add it to the map.
@@ -53,7 +53,7 @@ map.layers.add(new atlas.layer.ImageLayer({
 }));
 ```
 
-Below is the complete running code sample of the above functionality.
+以下是上述功能的完整執行程式碼範例。
 
 <br/>
 
@@ -62,9 +62,9 @@ Below is the complete running code sample of the above functionality.
 
 ## <a name="import-a-kml-ground-overlay"></a>匯入 KML Ground Overlay
 
-此範例說明如何在地圖上覆蓋 KML Ground Overlay 資訊來作為影像圖層。 KML ground overlays provide north, south, east, and west coordinates and a counter-clockwise rotation, whereas the image layer expects coordinates for each corner of the image. 此範例中的 KML Ground Overlay 是沙特爾主教座堂，其來源是 [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml)。
+此範例說明如何在地圖上覆蓋 KML Ground Overlay 資訊來作為影像圖層。 KML 地面重迭提供北部、南、東和西座標和逆時針旋轉，而影像圖層則需要影像每個角落的座標。 此範例中的 KML Ground Overlay 是沙特爾主教座堂，其來源是 [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml)。
 
-The following code uses the static `getCoordinatesFromEdges` function of the [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) class to calculate the four corners of the image from the north, south, east, west and rotation information from the KML ground overlay.
+下列程式碼會使用[ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest)類別的靜態 `getCoordinatesFromEdges` 函式，從 KML 地面重迭的北部、南部、東、west 和旋轉資訊來計算影像的四個角落。
 
 <br/>
 

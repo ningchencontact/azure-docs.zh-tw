@@ -31,7 +31,7 @@ ms.locfileid: "74279028"
 
 ## <a name="view-your-recent-sign-in-activity"></a>檢視您最近的登入活動
 
-1. 登入您的公司或學校帳戶，然後移至您的 https://myprofile.microsoft.com/ 頁面。
+1. 登入您的公司或學校帳戶，然後前往 https://myprofile.microsoft.com/ 頁面。
 
 2. 從左側流覽窗格中選取 [我的登**入（預覽）** ]，或從 [我的登**入（預覽）** ] 區塊選取 [**回顧最近的活動**] 連結。
 

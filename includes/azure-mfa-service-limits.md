@@ -13,12 +13,12 @@ ms.locfileid: "74224573"
 ---
 | 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
-| Maximum number of trusted IP addresses or ranges</a> per subscription |0 |50 |
-| Remember my devices, number of days |14 |60 |
-| Maximum number of app passwords |0 |無限制 |
+| 每個訂用帳戶</a> 的信任 IP 位址或範圍數目上限 |0 |50 |
+| 記住我的裝置，天數 |14 |60 |
+| 應用程式密碼的最大數目 |0 |沒有限制 |
 | MFA 呼叫期間允許 **X** 次嘗試 |1 |99 |
-| Two-way text message timeout seconds |60 |600 |
-| 預設一次性略過秒數 |300 |1,800 |
-| **X** 次連續 MFA 被拒後鎖定使用者帳戶 |Not set |99 |
-| **X** 分鐘後重設帳戶鎖定計數器 |Not set |9,999 |
-| **X** 分鐘後解除鎖定帳戶 |Not set |9,999 |
+| 雙向文字訊息超時秒數 |60 |600 |
+| 預設一次性略過秒數 |300 |1800 |
+| **X** 次連續 MFA 被拒後鎖定使用者帳戶 |未設定 |99 |
+| **X** 分鐘後重設帳戶鎖定計數器 |未設定 |9999 |
+| **X** 分鐘後解除鎖定帳戶 |未設定 |9999 |

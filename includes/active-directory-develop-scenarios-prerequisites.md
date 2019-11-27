@@ -21,9 +21,9 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74482496"
 ---
-Before reading this article, you should be familiar with the following concepts:
+在閱讀本文之前，您應該先熟悉下列概念：
 
-- [Microsoft identity platform overview](../articles/active-directory/develop/v2-overview.md)
+- [Microsoft 身分識別平臺總覽](../articles/active-directory/develop/v2-overview.md)
 - [驗證基本概念](../articles/active-directory/develop/authentication-scenarios.md)
 - [對象](../articles/active-directory/develop/v2-supported-account-types.md)
 - [應用程式與服務主體](../articles/active-directory/develop/app-objects-and-service-principals.md)

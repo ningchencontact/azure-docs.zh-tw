@@ -1,6 +1,6 @@
 ---
-title: PowerShell for DNS alias
-description: PowerShell cmdlets such as New-AzSqlServerDNSAlias enable you to redirect new client connections to a different Azure SQL Database server, without having to touch any client configuration.
+title: DNS 別名的 PowerShell
+description: PowerShell Cmdlet （例如 AzSqlServerDNSAlias）可讓您將新的用戶端連線重新導向至不同的 Azure SQL Database 伺服器，而不必接觸任何用戶端設定。
 keywords: dns sql database
 ms.custom: seo-lt-2019
 services: sql-database
@@ -24,9 +24,9 @@ ms.locfileid: "74420395"
 本文提供的 PowerShell 指令碼會示範如何管理 Azure SQL Database 的 DNS 別名。
 
 > [!NOTE]
-> This article has been updated to use either the Azure PowerShell Az module or Azure CLI. AzureRM 模組在至少 2020 年 12 月之前都還會持續收到錯誤 (Bug) 修正，因此您仍然可以持續使用。
+> 本文已更新為使用 Azure PowerShell Az 模組或 Azure CLI。 AzureRM 模組在至少 2020 年 12 月之前都還會持續收到錯誤 (Bug) 修正，因此您仍然可以持續使用。
 >
-> To learn more about the Az module and AzureRM compatibility, see [Introducing the Azure PowerShell Az module](/powershell/azure/new-azureps-module-az). For installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps) or [Install Azure CLI](/cli/azure/install-azure-cli).
+> 若要深入瞭解 Az 模組和 AzureRM 相容性，請參閱[Azure PowerShell az 模組簡介](/powershell/azure/new-azureps-module-az)。 如需安裝指示，請參閱[安裝 Azure PowerShell](/powershell/azure/install-az-ps)或[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 ## <a name="dns-alias-in-connection-string"></a>連接字串中的 DNS 別名
 
@@ -34,31 +34,31 @@ ms.locfileid: "74420395"
 
    `<yourServer>.database.windows.net`
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如果您想要執行本文中提供的 PowerShell 示範指令碼，則適用下列必要條件：
 
-- An Azure subscription and account, for free trial, see [Azure trials](https://azure.microsoft.com/free/)
-- Two Azure SQL database servers
+- Azure 訂用帳戶和帳戶：如需免費試用，請參閱[azure 試用](https://azure.microsoft.com/free/)
+- 兩部 Azure SQL database 伺服器
 
 ## <a name="example"></a>範例
 
-The following code example starts by assigning literal values to several variables.
+下列程式碼範例一開始會將常值指派給數個變數。
 
-To run the code, edit the placeholder values to match real values in your system.
+若要執行程式碼，請編輯預留位置值，以符合您系統中的實際值。
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-The cmdlets used are the following:
+使用的 Cmdlet 如下所示：
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Creates a DNS alias in the Azure SQL Database service system. The alias refers to database server 1.
-- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Get and list all the aliases assigned to SQL DB server 1.
-- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifies the server name that the alias is configured to refer to, from server 1 to server 2.
-- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remove the alias from database server 2, by using the name of the alias.
+- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias)：在 Azure SQL Database 服務系統中建立 DNS 別名。 別名參考資料庫伺服器1。
+- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias)：取得並列出指派給 SQL DB 伺服器1的所有別名。
+- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias)：修改別名已設定為參考的伺服器名稱（從伺服器1到伺服器2）。
+- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias)：使用別名的名稱，從資料庫伺服器2移除別名。
 
 若要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 
-Use `Get-Module -ListAvailable Az` in *powershell\_ise.exe*, to find the version.
+使用*powershell\_ise*中的 `Get-Module -ListAvailable Az` 來尋找版本。
 
 ```powershell
 $subscriptionName = '<subscriptionName>';
@@ -95,12 +95,12 @@ Remove-AzSqlServerDnsAlias –ResourceGroupName $resourceGroupName2 -ServerName 
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-The commands used are the following:
+使用的命令如下所示：
 
-- [az sql server dns-alias create](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Creates a DNS alias in the Azure SQL Database service system. The alias refers to database server 1.
-- [az sql server dns-alias show](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Get and list all the aliases assigned to SQL DB server 1.
-- [az sql server dns-alias set](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifies the server name that the alias is configured to refer to, from server 1 to server 2.
-- [az sql server dns-alias delete](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remove the alias from database server 2, by using the name of the alias.
+- [az sql server dns 別名 create](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias)：在 Azure SQL Database 服務系統中建立 dns 別名。 別名參考資料庫伺服器1。
+- [az sql server dns 別名 show](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias)：取得並列出指派給 sql DB 伺服器1的所有別名。
+- [az sql server dns-alias set](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias)：修改別名已設定為參考的伺服器名稱（從伺服器1到伺服器2）。
+- [az sql server dns-alias delete](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias)：使用別名的名稱，從資料庫伺服器2移除別名。
 
 若要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
@@ -141,4 +141,4 @@ az sql server dns-alias delete –-resource-group $resourceGroupName2 --server $
 
 ## <a name="next-steps"></a>後續步驟
 
-For a full explanation of the DNS alias feature for SQL Database, see [DNS alias for Azure SQL database](dns-alias-overview.md).
+如需 SQL Database 的 DNS 別名功能的完整說明，請參閱[AZURE SQL Database 的 dns 別名](dns-alias-overview.md)。

@@ -1,6 +1,6 @@
 ---
-title: Use the activity report to move AD FS apps to Azure Active Directory | Microsoft Docs'
-description: The Active Directory Federation Services (AD FS) application activity report lets you quickly migrate applications from AD FS to Azure Active Directory (Azure AD). This migration tool for AD FS identifies compatibility with Azure AD and gives migration guidance.
+title: 使用活動報告將 AD FS 應用程式移至 Azure Active Directory |Microsoft Docs '
+description: Active Directory 同盟服務（AD FS）應用程式活動報告可讓您快速地將應用程式從 AD FS 遷移至 Azure Active Directory （Azure AD）。 這個用於 AD FS 的遷移工具會識別與 Azure AD 的相容性，並提供遷移指引。
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -20,106 +20,106 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74420445"
 ---
-# <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Use the AD FS application activity report (preview) to migrate applications to Azure AD
+# <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>使用 AD FS 應用程式活動報告（預覽），將應用程式遷移至 Azure AD
 
-Many organizations use Active Directory Federation Services (AD FS) to provide single sign-on to cloud applications. There are significant benefits to moving your AD FS applications to Azure AD for authentication, especially in terms of cost management, risk management, productivity, compliance, and governance. But understanding which applications are compatible with Azure AD and identifying specific migration steps can be time consuming.
+許多組織會使用 Active Directory 同盟服務（AD FS）來提供雲端應用程式的單一登入。 將 AD FS 應用程式移至 Azure AD 進行驗證有很大的好處，特別是在成本管理、風險管理、生產力、合規性和治理方面。 但瞭解哪些應用程式與 Azure AD 相容，並識別特定的遷移步驟可能會很耗時。
 
-The AD FS application activity report (preview) in the Azure portal lets you quickly identify which of your applications are capable of being migrated to Azure AD. It assesses all AD FS applications for compatibility with Azure AD, checks for any issues, and gives guidance on preparing individual applications for migration. With the AD FS application activity report, you can:
+Azure 入口網站中的 AD FS 應用程式活動報告（預覽）可讓您快速識別哪些應用程式能夠遷移至 Azure AD。 它會評估所有 AD FS 應用程式，以與 Azure AD 相容、檢查是否有任何問題，並提供準備個別應用程式以進行遷移的指引。 透過 AD FS 應用程式活動報告，您可以：
 
-* **Discover AD FS applications and scope your migration.** The AD FS application activity report lists all the AD FS applications in your organization and indicates their readiness for migration to Azure AD.
-* **Prioritize applications for migration.** Get the number of unique users who have signed in to the application in the past 1, 7, or 30 days to help determine the criticality or risk of migrating the application.
-* **Run migration tests and fix issues.** The reporting service automatically runs tests to determine if an application is ready to migrate. The results are displayed in the AD FS application activity report as a migration status. If potential migration issues are identified, you get specific guidance on how to address the issues.
+* **探索 AD FS 應用程式並界定您的遷移範圍。** [AD FS 應用程式活動] 報表會列出組織中所有 AD FS 的應用程式，並指出他們是否已準備好遷移至 Azure AD。
+* **設定應用程式的優先順序以進行遷移。** 取得過去1、7或30天內已登入應用程式的唯一使用者數目，以協助判斷遷移應用程式的重要性或風險。
+* **執行遷移測試並修正問題。** 報表服務會自動執行測試，以判斷應用程式是否已準備好進行遷移。 結果會顯示在 [AD FS 應用程式活動報告] 中作為 [遷移] 狀態。 如果發現潛在的遷移問題，您會取得如何解決問題的特定指引。
 
-The AD FS application activity data is available to users who are assigned any of these admin roles: global administrator, report reader, security reader, application administrator, or cloud application administrator.
+AD FS 的應用程式活動資料可供指派給任何系統管理員角色的使用者使用：全域管理員、報告讀取者、安全性讀取者、應用程式系統管理員或雲端應用程式系統管理員。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* Your organization must be currently using AD FS to access applications.
-* Azure AD Connect Health must be enabled in your Azure AD tenant.
-   * [Learn more about Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)
-   * [Get started setting up Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
+* 您的組織目前必須使用 AD FS 來存取應用程式。
+* 必須在您的 Azure AD 租使用者中啟用 Azure AD Connect Health。
+   * [深入瞭解 Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)
+   * [開始設定 Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
 
-## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>Discover AD FS applications that can be migrated 
+## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>探索可遷移 AD FS 應用程式 
 
-The AD FS application activity report is available in the Azure portal under Azure AD **Usage & insights** reporting. The AD FS application activity report analyzes each AD FS application to determine if it can be migrated as-is, or if additional review is needed. 
+[AD FS 應用程式活動] 報告可在 Azure 入口網站的 [Azure AD**使用量] & [深入**解析] 報告中取得。 AD FS 的應用程式活動報表會分析每個 AD FS 應用程式，以判斷是否可以依需求遷移，或是否需要額外的審查。 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an admin role that has access to AD FS application activity data (global administrator, report reader, security reader, application administrator, or cloud application administrator).
+1. 使用可存取 AD FS 應用程式活動資料的系統管理員角色（全域管理員、報告讀取者、安全性讀取者、應用程式系統管理員或雲端應用程式系統管理員）登入[Azure 入口網站](https://portal.azure.com)。
 
-2. Select **Azure Active Directory**, and then select **Enterprise applications**.
+2. 選取 [ **Azure Active Directory**]，然後選取 [**企業應用程式**]。
 
-3. Under **Activity**, select **Usage & Insights (Preview)** , and then select **AD FS application activity** to open a list of all AD FS applications in your organization.
+3. 在 [**活動**] 底下，選取 **[Usage & Insights （預覽）** ]，然後選取 [ **AD FS 應用程式活動**] 以開啟組織中所有 AD FS 應用程式的清單。
 
-   ![AD FS application activity](media/migrate-adfs-application-activity/adfs-application-activity.png)
+   ![AD FS 應用程式活動](media/migrate-adfs-application-activity/adfs-application-activity.png)
 
-4. For each application in the AD FS application activity list, view the **Migration status**:
+4. 針對 [AD FS 應用程式活動] 清單中的每個應用程式，查看 [**遷移狀態**]：
 
-   * **Ready to migrate** means the AD FS application configuration is fully supported in Azure AD and can be migrated as-is.
+   * **準備好進行遷移**表示 AD FS 的應用程式設定在 Azure AD 中受到完整支援，而且可以依需求進行遷移。
 
-   * **Needs review** means some of the application's settings can be migrated to Azure AD, but you'll need to review the settings that can't be migrated as-is.
+   * [**需要審核**] 表示部分應用程式的設定可以遷移至 Azure AD，但您必須檢查無法依需求遷移的設定。
 
-   * **Additional steps required** means Azure AD doesn't support some of the application's settings, so the application can’t be migrated in its current state.
+   * **需要的其他步驟**表示 Azure AD 不支援部分應用程式的設定，因此無法以目前的狀態遷移應用程式。
 
-## <a name="evaluate-the-readiness-of-an-application-for-migration"></a>Evaluate the readiness of an application for migration 
+## <a name="evaluate-the-readiness-of-an-application-for-migration"></a>評估應用程式是否已準備好進行遷移 
 
-1. In the AD FS application activity list, click the status in the **Migration status** column to open migration details. You'll see a summary of the configuration tests that passed, along with any potential migration issues.
+1. 在 [AD FS 應用程式活動] 清單中，按一下 [**遷移狀態**] 欄中的狀態，以開啟 [遷移詳細資料]。 您會看到所傳遞之設定測試的摘要，以及任何可能的遷移問題。
 
-   ![Migration details](media/migrate-adfs-application-activity/migration-details.png)
+   ![遷移詳細資料](media/migrate-adfs-application-activity/migration-details.png)
 
-2. Click a message to open additional migration rule details. For a full list of the properties tested, see the [AD FS application configuration tests](#ad-fs-application-configuration-tests) table, below.
+2. 按一下訊息以開啟其他的遷移規則詳細資料。 如需已測試屬性的完整清單，請參閱下方的[AD FS 應用程式設定測試](#ad-fs-application-configuration-tests)資料表。
 
-   ![Migration rule details](media/migrate-adfs-application-activity/migration-rule-details.png)
+   ![遷移規則詳細資料](media/migrate-adfs-application-activity/migration-rule-details.png)
 
-### <a name="ad-fs-application-configuration-tests"></a>AD FS application configuration tests
+### <a name="ad-fs-application-configuration-tests"></a>AD FS 應用程式設定測試
 
-The following table lists all configuration tests that are performed on AD FS applications.
+下表列出在 AD FS 應用程式上執行的所有設定測試。
 
-|結果  |Pass/Warning/Fail  |描述  |
+|結果  |通過/警告/失敗  |描述  |
 |---------|---------|---------|
-|Test-ADFSRPAdditionalAuthenticationRules <br> At least one non-migratable rule was detected for AdditionalAuthentication.       | Pass/Warning          | The relying party has rules to prompt for multi-factor authentication (MFA). To move to Azure AD, translate those rules into Conditional Access policies. If you're using an on-premises MFA, we recommend that you move to Azure MFA. [Learn more about Conditional Access](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).        |
-|Test-ADFSRPAdditionalWSFedEndpoint <br> Relying party has AdditionalWSFedEndpoint set to true.       | 通過/失敗          | The relying party in AD FS allows multiple WS-Fed assertion endpoints. Currently, Azure AD only supports one. If you have a scenario where this result is blocking migration, [let us know](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints).     |
-|Test-ADFSRPAllowedAuthenticationClassReferences <br> Relying Party has set AllowedAuthenticationClassReferences.       | 通過/失敗          | This setting in AD FS lets you specify whether the application is configured to only allow certain authentication types. We recommend using Conditional Access to achieve this capability.  If you have a scenario where this result is blocking migration, [let us know](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695672-allow-in-azure-ad-to-specify-certain-authentication).  [Learn more about Conditional Access](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).          |
-|Test-ADFSRPAlwaysRequireAuthentication <br> AlwaysRequireAuthenticationCheckResult      | 通過/失敗          | This setting in AD FS lets you specify whether the application is configured to ignore SSO cookies and **Always Prompt for Authentication**. In Azure AD, you can manage the authentication session using Conditional Access policies to achieve similar behavior. [Learn more about configuring authentication session management with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).          |
-|Test-ADFSRPAutoUpdateEnabled <br> Relying Party has AutoUpdateEnabled set to true       | Pass/Warning          | This setting in AD FS lets you specify whether AD FS is configured to automatically update the application based on changes within the federation metadata. Azure AD doesn’t support this today but should not block the migration of the application to Azure AD.           |
-|Test-ADFSRPClaimsProviderName <br> Relying Party has multiple ClaimsProviders enabled       | 通過/失敗          | This setting in AD FS calls out the identity providers from which the relying party is accepting claims. In Azure AD, you can enable external collaboration using Azure AD B2B. [Learn more about Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b).          |
-|Test-ADFSRPDelegationAuthorizationRules      | 通過/失敗          | The application has custom delegation authorization rules defined. This is a WS-Trust concept that  Azure AD supports by using modern authentication protocols, such as OpenID Connect and OAuth 2.0. [Learn more about the Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc).          |
-|Test-ADFSRPImpersonationAuthorizationRules       | Pass/Warning          | The application has custom impersonation authorization rules defined. This is a WS-Trust concept that Azure AD supports by using modern authentication protocols, such as OpenID Connect and OAuth 2.0. [Learn more about the Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc).          |
-|Test-ADFSRPIssuanceAuthorizationRules <br> At least one non-migratable rule was detected for IssuanceAuthorization.       | Pass/Warning          | The application has custom issuance authorization rules defined in AD FS. Azure AD supports this functionality with Azure AD Conditional Access. [Learn more about Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview). <br> You can also restrict access to an application by user or groups assigned to the application. [Learn more about assigning users and groups to access applications](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups).            |
-|Test-ADFSRPIssuanceTransformRules <br> At least one non-migratable rule was detected for IssuanceTransform.       | Pass/Warning          | The application has custom issuance transform rules defined in AD FS. Azure AD supports customizing the claims issued in the token. To learn more, see [Customize claims issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).           |
-|Test-ADFSRPMonitoringEnabled <br> Relying Party has MonitoringEnabled set to true.       | Pass/Warning          | This setting in AD FS lets you specify whether AD FS is configured to automatically update the application based on changes within the federation metadata. Azure AD doesn’t support this today but should not block the migration of the application to Azure AD.           |
-|Test-ADFSRPNotBeforeSkew <br> NotBeforeSkewCheckResult      | Pass/Warning          | AD FS allows a time skew based on the NotBefore and NotOnOrAfter times in the SAML token. Azure AD automatically handles this by default.          |
-|Test-ADFSRPRequestMFAFromClaimsProviders <br> Relying Party has RequestMFAFromClaimsProviders set to true.       | Pass/Warning          | This setting in AD FS determines the behavior for MFA when the user comes from a different claims provider. In Azure AD, you can enable external collaboration using Azure AD B2B. Then, you can apply Conditional Access policies to protect guest access. Learn more about [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b) and [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).          |
-|Test-ADFSRPSignedSamlRequestsRequired <br> Relying Party has SignedSamlRequestsRequired set to true       | 通過/失敗          | The application is configured in AD FS to verify the signature in the SAML request. Azure AD accepts a signed SAML request; however, it will not verify the signature. Azure AD has different methods to protect against malicious calls. For example, Azure AD uses the reply URLs configured in the application to validate the SAML request. Azure AD will only send a token to reply URLs configured for the application. If you have a scenario where this result is blocking migration, [let us know](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/13394589-saml-signature).          |
-|Test-ADFSRPTokenLifetime <br> TokenLifetimeCheckResult        | Pass/Warning         | The application is configured for a custom token lifetime. The AD FS default is one hour. Azure AD supports this functionality using Conditional Access. To learn more, see [Configure authentication session management with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).          |
-|Relying Party is set to encrypt claims. This is supported by Azure AD       | 通過          | With Azure AD, you can encrypt the token sent to the application. To learn more, see [Configure Azure AD SAML token encryption](https://docs.microsoft.com/azure/active-directory/manage-apps/howto-saml-token-encryption).          |
-|EncryptedNameIdRequiredCheckResult      | 通過/失敗          | The application is configured to encrypt the nameID claim in the SAML token. With Azure AD, you can encrypt the entire token sent to the application. Encryption of specific claims is not yet supported. To learn more, see [Configure Azure AD SAML token encryption](https://docs.microsoft.com/azure/active-directory/manage-apps/howto-saml-token-encryption).         |
+|測試-ADFSRPAdditionalAuthenticationRules <br> 在 AdditionalAuthentication 中偵測到至少一個非可移轉的規則。       | 通過/警告          | 信賴憑證者的規則會提示多重要素驗證（MFA）。 若要移至 Azure AD，請將這些規則轉譯為條件式存取原則。 如果您使用的是內部部署 MFA，建議您移至 Azure MFA。 [深入瞭解條件式存取](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)。        |
+|測試-ADFSRPAdditionalWSFedEndpoint <br> 信賴憑證者的 AdditionalWSFedEndpoint 設為 true。       | 通過/失敗          | AD FS 中的信賴憑證者允許多個 WS-ADDRESSING 宣告端點。 目前，Azure AD 只支援一個。 如果您有此結果封鎖遷移的案例，請[讓我們知道](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints)。     |
+|測試-ADFSRPAllowedAuthenticationClassReferences <br> 信賴憑證者已設定 AllowedAuthenticationClassReferences。       | 通過/失敗          | AD FS 中的這項設定可讓您指定是否將應用程式設定為只允許特定的驗證類型。 我們建議使用條件式存取來達成這項功能。  如果您有此結果封鎖遷移的案例，請[讓我們知道](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695672-allow-in-azure-ad-to-specify-certain-authentication)。  [深入瞭解條件式存取](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)。          |
+|測試-ADFSRPAlwaysRequireAuthentication <br> AlwaysRequireAuthenticationCheckResult      | 通過/失敗          | AD FS 中的這項設定可讓您指定是否將應用程式設定為忽略 SSO cookie，並**一律提示進行驗證**。 在 Azure AD 中，您可以使用條件式存取原則來管理驗證會話，以達到類似的行為。 [深入瞭解如何使用條件式存取來設定驗證會話管理](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)。          |
+|測試-ADFSRPAutoUpdateEnabled <br> 信賴憑證者將 AutoUpdateEnabled 設定為 true       | 通過/警告          | AD FS 中的這項設定可讓您指定是否將 AD FS 設定為根據同盟中繼資料內的變更自動更新應用程式。 Azure AD 目前不支援這種方式，但不應該封鎖將應用程式遷移至 Azure AD。           |
+|測試-ADFSRPClaimsProviderName <br> 信賴憑證者已啟用多個 ClaimsProviders       | 通過/失敗          | AD FS 中的這項設定會呼叫信賴憑證者接受宣告的身分識別提供者。 在 Azure AD 中，您可以使用 Azure AD B2B 啟用外部共同作業。 [深入瞭解 AZURE AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)。          |
+|測試-ADFSRPDelegationAuthorizationRules      | 通過/失敗          | 應用程式已定義自訂委派授權規則。 這是使用新式驗證通訊協定（例如 OpenID Connect 和 OAuth 2.0） Azure AD 支援的 WS-TRUST 概念。 [深入瞭解 Microsoft 身分識別平臺](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc)。          |
+|測試-ADFSRPImpersonationAuthorizationRules       | 通過/警告          | 應用程式已定義自訂的模擬授權規則。 這是使用新式驗證通訊協定（例如 OpenID Connect 和 OAuth 2.0） Azure AD 支援的 WS-TRUST 概念。 [深入瞭解 Microsoft 身分識別平臺](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc)。          |
+|測試-ADFSRPIssuanceAuthorizationRules <br> 在 IssuanceAuthorization 中偵測到至少一個非可移轉的規則。       | 通過/警告          | 應用程式具有在 AD FS 中定義的自訂發佈授權規則。 Azure AD 透過 Azure AD 條件式存取來支援這種功能。 [深入瞭解條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)。 <br> 您也可以根據指派給應用程式的使用者或群組，限制應用程式的存取權。 [深入瞭解如何指派使用者和群組來存取應用程式](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups)。            |
+|測試-ADFSRPIssuanceTransformRules <br> 在 IssuanceTransform 中偵測到至少一個非可移轉的規則。       | 通過/警告          | 應用程式具有在 AD FS 中定義的自訂發行轉換規則。 Azure AD 支援自訂在權杖中發出的宣告。 若要深入瞭解，請參閱[針對企業應用程式自訂 SAML 權杖中發出的宣告](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)。           |
+|測試-ADFSRPMonitoringEnabled <br> 信賴憑證者的 MonitoringEnabled 設為 true。       | 通過/警告          | AD FS 中的這項設定可讓您指定是否將 AD FS 設定為根據同盟中繼資料內的變更自動更新應用程式。 Azure AD 目前不支援這種方式，但不應該封鎖將應用程式遷移至 Azure AD。           |
+|測試-ADFSRPNotBeforeSkew <br> NotBeforeSkewCheckResult      | 通過/警告          | AD FS 允許根據 SAML 權杖中的 NotBefore 和 NotOnOrAfter 時間來進行時間誤差。 Azure AD 預設會自動處理這種情況。          |
+|測試-ADFSRPRequestMFAFromClaimsProviders <br> 信賴憑證者的 RequestMFAFromClaimsProviders 設為 true。       | 通過/警告          | AD FS 中的這項設定會決定當使用者來自不同的宣告提供者時，MFA 的行為。 在 Azure AD 中，您可以使用 Azure AD B2B 啟用外部共同作業。 然後，您可以套用條件式存取原則來保護來賓存取。 深入瞭解[AZURE AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)和[條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)。          |
+|測試-ADFSRPSignedSamlRequestsRequired <br> 信賴憑證者將 SignedSamlRequestsRequired 設定為 true       | 通過/失敗          | 應用程式會在 AD FS 中設定，以驗證 SAML 要求中的簽章。 Azure AD 接受已簽署的 SAML 要求;不過，它不會驗證簽章。 Azure AD 有不同的方法可防範惡意的呼叫。 例如，Azure AD 會使用在應用程式中設定的回復 Url 來驗證 SAML 要求。 Azure AD 只會將權杖傳送至為應用程式設定的回復 Url。 如果您有此結果封鎖遷移的案例，請[讓我們知道](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/13394589-saml-signature)。          |
+|測試-ADFSRPTokenLifetime <br> TokenLifetimeCheckResult        | 通過/警告         | 應用程式會針對自訂權杖存留期進行設定。 AD FS 預設值為一小時。 Azure AD 使用條件式存取來支援這種功能。 若要深入瞭解，請參閱[使用條件式存取來設定驗證會話管理](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)。          |
+|信賴憑證者設定為加密宣告。 這受到 Azure AD 的支援       | 通過          | 使用 Azure AD，您可以加密傳送給應用程式的權杖。 若要深入瞭解，請參閱[設定 AZURE AD SAML 權杖加密](https://docs.microsoft.com/azure/active-directory/manage-apps/howto-saml-token-encryption)。          |
+|EncryptedNameIdRequiredCheckResult      | 通過/失敗          | 應用程式已設定為加密 SAML 權杖中的 nameID 宣告。 使用 Azure AD，您可以加密傳送至應用程式的整個權杖。 尚未支援特定宣告的加密。 若要深入瞭解，請參閱[設定 AZURE AD SAML 權杖加密](https://docs.microsoft.com/azure/active-directory/manage-apps/howto-saml-token-encryption)。         |
 
-## <a name="check-the-results-of-claim-rule-tests"></a>Check the results of claim rule tests
+## <a name="check-the-results-of-claim-rule-tests"></a>檢查宣告規則測試的結果
 
-If you have configured a claim rule for the application in AD FS, the experience will provide a granular analysis for all the claim rules. You'll see which claim rules can be moved to Azure AD and which ones need further review.
+如果您已在 AD FS 中為應用程式設定宣告規則，體驗將會針對所有宣告規則提供細微的分析。 您將會看到哪些宣告規則可移至 Azure AD，哪些則需要進一步審查。
 
-1. In the AD FS application activity list, click the status in the **Migration status** column to open migration details. You'll see a summary of the configuration tests that passed, along with any potential migration issues.
+1. 在 [AD FS 應用程式活動] 清單中，按一下 [**遷移狀態**] 欄中的狀態，以開啟 [遷移詳細資料]。 您會看到所傳遞之設定測試的摘要，以及任何可能的遷移問題。
 
-2. On the **Migration rule details** page, expand the results to display details about potential migration issues and to get additional guidance. For a detailed list of all claim rules tested, see the [Check the results of claim rule tests](#check-the-results-of-claim-rule-tests) table, below.
+2. 在 [**遷移規則詳細資料**] 頁面上，展開結果以顯示潛在遷移問題的詳細資料，並取得其他指引。 如需所有已測試之宣告規則的詳細清單，請參閱下方的[檢查宣告規則測試的結果](#check-the-results-of-claim-rule-tests)資料表。
 
-   The example below shows migration rule details for the IssuanceTransform rule. It lists the specific parts of the claim that need to be reviewed and addressed before you can migrate the application to Azure AD.
+   下列範例顯示 IssuanceTransform 規則的遷移規則詳細資料。 它會列出宣告的特定部分，必須先進行檢查並加以處理，才能將應用程式遷移至 Azure AD。
 
-   ![Migration rule details additional guidance](media/migrate-adfs-application-activity/migration-rule-details-guidance.png)
+   ![遷移規則詳細資料其他指引](media/migrate-adfs-application-activity/migration-rule-details-guidance.png)
 
-### <a name="claim-rule-tests"></a>Claim rule tests
+### <a name="claim-rule-tests"></a>宣告規則測試
 
-The following table lists all claim rule tests that are performed on AD FS applications.
+下表列出在 AD FS 應用程式上執行的所有宣告規則測試。
 
 |屬性  |描述  |
 |---------|---------|
-|UNSUPPORTED_CONDITION_PARAMETER      | The condition statement uses Regular Expressions to evaluate if the claim matches a certain pattern.  To achieve a similar functionality in Azure AD, you can use pre-defined transformation such as  IfEmpty(), StartWith(), Contains(), among others. For more information, see [Customize claims issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |
-|UNSUPPORTED_CONDITION_CLASS      | The condition statement has multiple conditions that need to be evaluated before running the issuance statement. Azure AD may support this functionality with the claim’s transformation functions where you can evaluate multiple claim values.  For more information, see [Customize claims issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |
-|UNSUPPORTED_RULE_TYPE      | The claim rule couldn’t be recognized. For more information on how to configure claims in Azure AD, see [Customize claims issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |
-|CONDITION_MATCHES_UNSUPPORTED_ISSUER      | The condition statement uses an Issuer that is not supported in Azure AD. Currently, Azure AD doesn’t source claims from stores different that Active Directory or Azure AD. If this is blocking you from migrating applications to Azure AD, [let us know](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695717-allow-to-source-user-attributes-from-external-dire).         |
-|UNSUPPORTED_CONDITION_FUNCTION      | The condition statement uses an aggregate function to issue or add a single claim regardless of the number of matches.  In Azure AD, you can evaluate the attribute of a user to decide what value to use for the claim with functions like IfEmpty(), StartWith(), Contains(), among others. For more information, see [Customize claims issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |
-|RESTRICTED_CLAIM_ISSUED      | The condition statement uses a claim that is restricted in Azure AD. You may be able to issue a restricted claim, but you can’t modify its source or apply any transformation. For more information, see [Customize claims emitted in tokens for a specific app in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping).          |
-|EXTERNAL_ATTRIBUTE_STORE      | The issuance statement uses an attribute store different that Active Directory. Currently, Azure AD doesn’t source claims from stores different that Active Directory or Azure AD. If this result is blocking you from migrating applications to Azure AD, [let us know](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695717-allow-to-source-user-attributes-from-external-dire).          |
-|UNSUPPORTED_ISSUANCE_CLASS      | The issuance statement uses ADD to add claims to the incoming claim set. In Azure AD, this may be configured as multiple claim transformations.  For more information, see [Customize claims issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping).         |
-|UNSUPPORTED_ISSUANCE_TRANSFORMATION      | The issuance statement uses Regular Expressions to transform the value of the claim to be emitted. To achieve similar functionality in Azure AD, you can use pre-defined transformation such as Extract(), Trim(), ToLower, among others. For more information, see [Customize claims issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |
+|UNSUPPORTED_CONDITION_PARAMETER      | 條件陳述式會使用正則運算式來評估宣告是否符合特定模式。  若要在 Azure AD 中達到類似的功能，您可以使用預先定義的轉換，例如 Defaultifempty （）、與 startwith （）、Contains （），以及其他專案。 如需詳細資訊，請參閱[針對企業應用程式自訂 SAML 權杖中發出的宣告](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)。          |
+|UNSUPPORTED_CONDITION_CLASS      | 條件陳述式具有多個必須在執行發行語句之前評估的條件。 Azure AD 可以使用宣告的轉換函式來支援這項功能，您可以在其中評估多個宣告值。  如需詳細資訊，請參閱[針對企業應用程式自訂 SAML 權杖中發出的宣告](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)。          |
+|UNSUPPORTED_RULE_TYPE      | 無法辨識宣告規則。 如需如何在 Azure AD 中設定宣告的詳細資訊，請參閱[針對企業應用程式自訂 SAML 權杖中發出的宣告](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)。          |
+|CONDITION_MATCHES_UNSUPPORTED_ISSUER      | 條件陳述式會使用 Azure AD 中不支援的簽發者。 目前，Azure AD 不是存放區中 Active Directory 或 Azure AD 不同的來源宣告。 如果這種情況導致您無法將應用程式遷移至 Azure AD，請[讓我們知道](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695717-allow-to-source-user-attributes-from-external-dire)。         |
+|UNSUPPORTED_CONDITION_FUNCTION      | 條件陳述式會使用彙總函式來發出或加入單一宣告，而不論相符專案的數目為何。  在 Azure AD 中，您可以使用 Defaultifempty （）、與 startwith （）、Contains （）等函數，評估使用者的屬性，以決定要用於宣告的值。 如需詳細資訊，請參閱[針對企業應用程式自訂 SAML 權杖中發出的宣告](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)。          |
+|RESTRICTED_CLAIM_ISSUED      | 條件陳述式會使用 Azure AD 中限制的宣告。 您可以發行受限制的宣告，但無法修改其來源或套用任何轉換。 如需詳細資訊，請參閱[在 Azure AD 中自訂特定應用程式在權杖中發出的宣告](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping)。          |
+|EXTERNAL_ATTRIBUTE_STORE      | 發行語句會使用 Active Directory 的屬性存放區。 目前，Azure AD 不是存放區中 Active Directory 或 Azure AD 不同的來源宣告。 如果此結果封鎖您將應用程式遷移至 Azure AD，請[讓我們知道](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695717-allow-to-source-user-attributes-from-external-dire)。          |
+|UNSUPPORTED_ISSUANCE_CLASS      | 發行語句會使用 ADD 將宣告新增至傳入的宣告集。 在 Azure AD 中，這可能會設定為多個宣告轉換。  如需詳細資訊，請參閱[針對企業應用程式自訂 SAML 權杖中發出的宣告](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping)。         |
+|UNSUPPORTED_ISSUANCE_TRANSFORMATION      | 發行語句會使用正則運算式來轉換要發出的宣告值。 若要在 Azure AD 中達到類似的功能，您可以使用預先定義的轉換，例如 [解壓縮（）]、[Trim （）]、[ToLower] 和其他。 如需詳細資訊，請參閱[針對企業應用程式自訂 SAML 權杖中發出的宣告](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)。          |
 
 
 ## <a name="next-steps"></a>後續步驟

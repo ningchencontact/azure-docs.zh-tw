@@ -1,5 +1,5 @@
 ---
-title: Enable multitenant applications - Azure Digital Twins | Microsoft Docs
+title: 啟用多租使用者應用程式-Azure 數位 Twins |Microsoft Docs
 description: 如何為 Azure Digital Twins 設定多租用戶 Azure Active Directory 應用程式。
 ms.author: alinast
 author: alinamstanciu
@@ -52,18 +52,18 @@ ms.locfileid: "74383343"
   - **客戶**的 Azure Active Directory 租用戶管理員必須取得[隨用隨付 Azure 訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0003p/)。
   - **客戶**的 Azure Active Directory 租用戶管理員接著必須[連結其租用戶與新訂用帳戶](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)。
 
-- **客戶**的 Azure Active Directory 租用戶管理員必須在 [Azure 入口網站](https://portal.azure.com)上執行下列步驟：
+- [客戶](https://portal.azure.com)的 Azure Active Directory 租用戶管理員必須在 **Azure 入口網站**上執行下列步驟：
 
-  1. Search for **Subscriptions** in the top Azure search field. 選取 **訂用帳戶** 。
+  1. 在頂端**的 Azure**搜尋服務欄位中搜尋訂用帳戶。 選取 [訂用帳戶]。
   1. 選取有要用於**開發人員**之應用程式的 Azure Active Directory 租用戶的訂用帳戶。
 
-     [![Azure Active Directory subscriptions](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
+     [![Azure Active Directory 訂閱](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
 
   1. 選取 [資源提供者]。
   1. 搜尋 **Microsoft.IoTSpaces**。
   1. 選取 [註冊]。
 
-     [![Azure Active Directory resource providers](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
+     [![Azure Active Directory 資源提供者](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
   
 ## <a name="next-steps"></a>後續步驟
 

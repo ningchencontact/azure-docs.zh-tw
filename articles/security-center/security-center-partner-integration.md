@@ -24,24 +24,24 @@ ms.locfileid: "74479386"
 這份文件可協助您管理已連線到 Azure 資訊安全中心的安全性解決方案，並且新增新的項目。
 
 > [!NOTE]
-> A subset of security solutions has been retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_solutions).
+> 安全性解決方案的子集已于2019年7月31日淘汰。 如需詳細資訊和替代服務，請參閱[淘汰資訊安全中心功能（2019年7月）](security-center-features-retirement-july2019.md#menu_solutions)。
 
 ## <a name="integrated-azure-security-solutions"></a>整合式 Azure 安全性解決方案
 資訊安全中心可以使得在 Azure 中啟用整合式安全性解決方案變得簡單。 優點包括：
 
-- **簡化部署**：資訊安全中心提供整合式合作夥伴解決方案的精簡佈建。 For solutions like antimalware and vulnerability assessment, Security Center can provision the agent on your virtual machines. For firewall appliances, Security Center can take care of much of the network configuration required.
+- **簡化部署**：資訊安全中心提供整合式合作夥伴解決方案的精簡佈建。 針對反惡意程式碼和弱點評估之類的解決方案，資訊安全中心可以在您的虛擬機器上布建代理程式。 對於防火牆設備，資訊安全中心可以處理所需的許多網路設定。
 - **整合偵測**：來自合作夥伴解決方案的安全性事件會自動收集、彙總以及顯示為資訊安全中心警示和事件的一部分。 這些事件也會與來自其他來源的偵測整合，以提供進階的威脅偵測功能。
 - **統一的健全狀況監視與管理**：客戶可以使用整合式的健康情況事件，一眼就能監視所有合作夥伴解決方案。 提供基本管理功能，而且可以讓您輕鬆使用夥伴解決方案存取進階設定。
 
-Currently, integrated security solutions include vulnerability assessment by [Qualys](https://www.qualys.com/public-cloud/#azure) and [Rapid7](https://www.rapid7.com/products/insightvm/) and Microsoft Application Gateway Web application firewall.
+目前，整合式安全性解決方案包含[Qualys](https://www.qualys.com/public-cloud/#azure)和[Rapid7](https://www.rapid7.com/products/insightvm/)和 Microsoft 應用程式閘道 Web 應用程式防火牆的弱點評量。
 
 > [!NOTE]
-> Security Center does not install the Microsoft Monitoring Agent on partner virtual appliances because most security vendors prohibit external agents running on their appliances.
+> 資訊安全中心不會在合作夥伴虛擬應用裝置上安裝 Microsoft Monitoring Agent，因為大部分的安全性廠商會禁止在其應用裝置上執行的外部代理程式。
 >
 >
 
 ## <a name="how-security-solutions-are-integrated"></a>安全性解決方案如何整合
-從資訊安全中心部署的 Azure 安全性解決方案會自動連線。 You can also connect other security data sources, including computers running on-premises or in other clouds.
+從資訊安全中心部署的 Azure 安全性解決方案會自動連線。 您也可以連接其他安全性資料來源，包括內部部署或其他雲端中執行的電腦。
 
 ![夥伴解決方案整合](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 
@@ -55,30 +55,30 @@ Currently, integrated security solutions include vulnerability assessment by [Qu
 
    ![資訊安全中心概觀](./media/security-center-partner-integration/overview.png)
 
-In **Security solutions**, you can see the health of integrated Azure security solutions and run basic management tasks.
+在 [**安全性解決方案**] 中，您可以看到整合式 Azure 安全性解決方案的健康情況，並執行基本管理工作。
 
 ### <a name="connected-solutions"></a>連線的解決方案
 
-The **Connected solutions** section includes security solutions that are currently connected to Security Center. It also shows the health status of each solution.  
+[**已連接的解決方案**] 區段包含目前連接到資訊安全中心的安全性解決方案。 它也會顯示每個解決方案的健全狀況狀態。  
 
 ![連線的解決方案](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
 合作夥伴解決方案的狀態可以是︰
 
-* Healthy (green) - no health issues.
-* Unhealthy (red) - there's a health issue that requires immediate attention.
+* 狀況良好（綠色）-沒有健康情況問題。
+* 狀況不良（紅色）-有一個需要立即注意的健康情況問題。
 * 健康情況問題 (橘色) - 解決方案已停止報告其健康情況。
-* Not reported (gray) - the solution hasn't reported anything yet and no health data is available. A solution's status may be unreported if it was connected recently and is still deploying.
+* 未報告（灰色）-解決方案尚未報告任何專案，且沒有可用的健康情況資料。 如果解決方案的狀態是最近連線且仍在部署中，則可能未報告。
 
 > [!NOTE]
-> 如果健康情況狀態資料無法使用，資訊安全中心就會顯示最後收到之事件的日期和時間，以指出解決方案是否進行報告。 If no health data is available and no alerts were received within the last 14 days, Security Center indicates that the solution is unhealthy or not reporting.
+> 如果健康情況狀態資料無法使用，資訊安全中心就會顯示最後收到之事件的日期和時間，以指出解決方案是否進行報告。 如果沒有可用的健康情況資料，而且在過去14天內未收到任何警示，資訊安全中心會指出解決方案狀況不良或未報告。
 >
 >
 
-1. Select **VIEW** for additional information and options such as:
+1. 選取 [ **VIEW** ] 取得其他資訊和選項，例如：
 
    - **解決方案主控台**。 開啟這個解決方案的管理體驗。
-   - **連結 VM**。 Opens the Link Applications page. 您可以在這裡將資源連接到合作夥伴解決方案。
+   - **連結 VM**。 開啟 [連結應用程式] 頁面。 您可以在這裡將資源連接到合作夥伴解決方案。
    - **刪除解決方案**。
    - **設定**。
 
@@ -86,14 +86,14 @@ The **Connected solutions** section includes security solutions that are current
 
 ### <a name="discovered-solutions"></a>探索到的解決方案
 
-Security Center automatically discovers security solutions running in Azure but not connected to Security Center and displays the solutions in the **Discovered solutions** section. These  solutions include Azure solutions, like [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), and partner solutions.
+資訊安全中心會自動探索在 Azure 中執行但未連線到資訊安全中心的安全性解決方案，並在 [探索到的**解決方案**] 區段中顯示解決方案。 這些解決方案包括 Azure 解決方案，例如[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)和合作夥伴解決方案。
 
 > [!NOTE]
-> 已探索解決方案功能的訂用帳戶層級需要資訊安全中心的標準層。 See [Pricing](security-center-pricing.md) to learn more about the pricing tiers.
+> 已探索解決方案功能的訂用帳戶層級需要資訊安全中心的標準層。 若要深入瞭解定價層，請參閱[定價](security-center-pricing.md)。
 >
 >
 
-Select **CONNECT** under a solution to integrate with Security Center and be notified of security alerts.
+選取解決方案下的 **[連線]** 以與資訊安全中心整合，並收到安全性警示的通知。
 
 ### <a name="add-data-sources"></a>新增資料來源
 
@@ -104,12 +104,12 @@ Select **CONNECT** under a solution to integrate with Security Center and be not
 ## <a name="exporting-data-to-a-siem"></a>將資料匯出至 SIEM
 
 > [!NOTE]
-> For details of a simpler method (currently in preview) for exporting data to a SIEM, see [Export security alerts and recommendations (Preview)](continuous-export.md). The new method does not use Activity Log as an intermediator and allows direct export from Security Center to Event Hubs (and then on to your SIEM), it also supports the export of Security Recommendations.
+> 如需將資料匯出至 SIEM 較簡單的方法（目前處於預覽階段）的詳細資訊，請參閱[匯出安全性警示和建議（預覽）](continuous-export.md)。 新方法不會使用「活動記錄」做為中間人，並允許從資訊安全中心直接匯出至事件中樞（然後再到 SIEM），它也支援匯出安全性建議。
 
 
-You can configure your SIEMs or other monitoring tools to receive Azure Security Center events.
+您可以設定您的 Siem 或其他監視工具來接收 Azure 資訊安全中心事件。
 
-All events from Azure Security Center are published to Azure Monitor's Azure [Activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Azure Monitor uses [a consolidated pipeline](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) to  stream the data to an Event Hub where it can then be pulled into your monitoring tool.
+Azure 資訊安全中心中的所有事件都會發佈至 Azure 監視器的 Azure[活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。 Azure 監視器會使用[合併管線](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)將資料串流至事件中樞，然後再將其提取到您的監視工具中。
 
 以下幾節說明如何設定資料以串流到事件中樞。 這些步驟假設您已經在 Azure 訂用帳戶中設定 Azure 資訊安全中心。
 
@@ -119,27 +119,27 @@ All events from Azure Security Center are published to Azure Monitor's Azure [Ac
 
 ### <a name="what-is-the-azure-security-data-exposed-to-siem"></a>公開至 SIEM 的 Azure 安全性資料為何？
 
-In this version, we expose the [security alerts.](../security-center/security-center-managing-and-responding-alerts.md) 在即將發行版本中，我們將使用安全性建議來擴充此資料集。
+在此版本中，我們會公開[安全性警示。](../security-center/security-center-managing-and-responding-alerts.md) 在即將發行版本中，我們將使用安全性建議來擴充此資料集。
 
-### <a name="how-to-set-up-the-pipeline"></a>How to set up the pipeline
+### <a name="how-to-set-up-the-pipeline"></a>如何設定管線
 
 #### <a name="create-an-event-hub"></a>建立事件中心
 
-Before you begin, [create an Event Hubs namespace](../event-hubs/event-hubs-create.md) - the destination for all your monitoring data.
+開始之前，請先[建立事件中樞命名空間](../event-hubs/event-hubs-create.md)-所有監視資料的目的地。
 
 #### <a name="stream-the-azure-activity-log-to-event-hubs"></a>將 Azure 活動記錄檔串流至事件中樞
 
-See the following article [stream activity log to Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+請參閱下列文章將[活動記錄串流至事件中樞](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
 
 #### <a name="install-a-partner-siem-connector"></a>安裝合作夥伴 SIEM 連接器 
 
 使用 Azure 監視器將監視資料路由傳送到事件中樞，可讓您輕鬆地與合作夥伴 SIEM 和監視工具整合。
 
-See the following article for the list of [supported SIEMs](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)
+請參閱下列文章，以取得[支援的 siem](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)清單
 
 ### <a name="example-for-querying-data"></a>查詢資料範例 
 
-Here are some Splunk queries you can use to pull alert data:
+以下是一些您可以用來提取警示資料的 Splunk 查詢：
 
 | **查詢描述** | **查詢** |
 |----|----|

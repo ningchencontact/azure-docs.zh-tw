@@ -1,6 +1,6 @@
 ---
-title: Conditional Access baseline policies - Azure Active Directory
-description: Baseline Conditional Access policies to protect organizations from common attacks
+title: 條件式存取基準原則-Azure Active Directory
+description: 基準條件式存取原則，以保護組織免于遭受常見的攻擊
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,75 +18,75 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74420579"
 ---
-# <a name="what-are-baseline-policies"></a>What are baseline policies?
+# <a name="what-are-baseline-policies"></a>什麼是基準原則？
 
-Baseline policies are a set of predefined policies that help protect organizations against many common attacks. These common attacks can include password spray, replay, and phishing. Baseline policies are available in all editions of Azure AD. Microsoft is making these baseline protection policies available to everyone because identity-based attacks have been on the rise over the last few years. The goal of these four policies is to ensure that all organizations have a baseline level of security enabled at no extra cost.  
+基準原則是一組預先定義的原則，可協助組織抵禦許多常見的攻擊。 這些常見的攻擊可能包括密碼噴灑、重新執行和網路釣魚。 基準原則適用于所有版本的 Azure AD。 Microsoft 將這些基準保護原則提供給所有人，因為以身分識別為基礎的攻擊已在過去幾年的增加。 這四個原則的目標是要確保所有組織都已啟用基準層級的安全性，而不需要額外成本。  
 
-Managing customized Conditional Access policies requires an Azure AD Premium license.
+管理自訂的條件式存取原則需要 Azure AD Premium 授權。
 
 ## <a name="baseline-policies"></a>基準原則
 
-![Conditional Access baseline policies in the Azure portal](./media/concept-baseline-protection/conditional-access-policies.png)
+![Azure 入口網站中的條件式存取基準原則](./media/concept-baseline-protection/conditional-access-policies.png)
 
-There are four baseline policies:
+有四個基準原則：
 
-* Require MFA for admins (preview)
-* End user protection (preview)
-* Block legacy authentication (preview)
-* Require MFA for service management (preview)
+* 需要系統管理員的 MFA （預覽）
+* 終端使用者保護（預覽）
+* 封鎖舊版驗證（預覽）
+* 服務管理需要 MFA （預覽）
 
-All four of these policies will impact legacy authentication flows like POP, IMAP, and older Office desktop clients.
+這四種原則都會影響舊版的驗證流程，例如 POP、IMAP 和較舊的 Office 桌面用戶端。
 
-### <a name="require-mfa-for-admins-preview"></a>Require MFA for admins (preview)
+### <a name="require-mfa-for-admins-preview"></a>需要系統管理員的 MFA （預覽）
 
-Due to the power and access that administrator accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification when they are used to sign in. In Azure Active Directory, you can get a stronger account verification by requiring administrators to register for and use Azure Multi-Factor Authentication.
+由於系統管理員帳戶擁有的能力和存取權，因此您應該特別小心對待它們。 若要改善特殊許可權帳戶的保護，其中一個常見的方法是在用來登入時需要更強大的帳戶驗證形式。 在 Azure Active Directory 中，您可以要求系統管理員註冊並使用 Azure 多重要素驗證，以取得更強的帳戶驗證。
 
-Require MFA for admins (preview) is a baseline policy that requires multi-factor authentication (MFA) for the following directory roles, considered to be the most privileged Azure AD roles:
+[要求系統管理員使用 MFA （預覽）] 是一項基準原則，其需要下列目錄角色的多重要素驗證（MFA），視為最具許可權的 Azure AD 角色：
 
 * 全域管理員
 * SharePoint 管理員
 * Exchange 系統管理員
 * 條件式存取系統管理員
 * 安全性系統管理員
-* Helpdesk administrator / Password administrator
+* 服務台管理員/密碼管理員
 * 計費管理員
 * 使用者管理員
 
-If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md).
+如果您的組織在腳本或程式碼中使用這些帳戶，請考慮將它們取代為[受控](../managed-identities-azure-resources/overview.md)識別。
 
-### <a name="end-user-protection-preview"></a>End user protection (preview)
+### <a name="end-user-protection-preview"></a>終端使用者保護（預覽）
 
-High privileged administrators aren’t the only ones targeted in attacks. Bad actors tend to target normal users. After gaining access, these bad actors can request access to privileged information on behalf of the original account holder or download the entire directory and perform a phishing attack on your whole organization. One common method to improve the protection for all users is to require a stronger form of account verification when a risky sign-in is detected.
+高特殊許可權的系統管理員並不是攻擊的唯一目標。 不良執行者通常會以一般使用者為目標。 取得存取權之後，這些不良的執行者就可以代表原始帳戶持有者要求存取許可權資訊，或下載整個目錄並在整個組織中執行網路釣魚攻擊。 有一個改善所有使用者保護的常見方法，就是在偵測到有風險的登入時，需要更強大的帳戶驗證形式。
 
-**End user protection (preview)** is a baseline policy that protects all users in a directory. Enabling this policy requires all users to register for Azure Multi-Factor Authentication within 14 days. Once registered, users will be prompted for MFA only during risky sign-in attempts. Compromised user accounts are blocked until password reset and risk dismissal. 
+**終端使用者保護（預覽）** 是保護目錄中所有使用者的基準原則。 若要啟用此原則，所有使用者都必須在14天內註冊 Azure 多重要素驗證。 註冊之後，只有在有風險的登入嘗試時，才會提示使用者進行 MFA。 遭盜用的使用者帳戶會遭到封鎖，直到重設密碼和風險關閉為止。 
 
 [!NOTE]
-Any users previously flagged for risk are blocked until password reset and risk dismissal upon policy activation.
+先前標示為有風險的任何使用者都會遭到封鎖，直到發生密碼重設和在原則啟用關閉的風險為止。
 
-### <a name="block-legacy-authentication-preview"></a>Block legacy authentication (preview)
+### <a name="block-legacy-authentication-preview"></a>封鎖舊版驗證（預覽）
 
-Legacy authentication protocols (ex: IMAP, SMTP, POP3) are protocols normally used by older mail clients to authenticate. Legacy protocols do not support multi-factor authentication. Even if you have a policy requiring multi-factor authentication for your directory, a bad actor can authenticate using one of these legacy protocols and bypass multi-factor authentication.
+舊版的驗證通訊協定（例如： IMAP、SMTP、POP3）是通常由較舊的郵件用戶端用來進行驗證的通訊協定。 舊版通訊協定不支援多重要素驗證。 即使您的原則要求您的目錄需要多重要素驗證，不良的執行者還是可以使用其中一種舊版通訊協定進行驗證，並略過多重要素驗證。
 
-The best way to protect your account from malicious authentication requests made by legacy protocols is to block them.
+保護您的帳戶免于舊版通訊協定所提出之惡意驗證要求的最佳方式，就是封鎖它們。
 
-The **Block legacy authentication (preview)** baseline policy blocks authentication requests that are made using legacy protocols. Modern authentication must be used to successfully sign in for all users. Used in conjunction with the other baseline policies, requests coming from legacy protocols will be blocked. In addition, all users will be required to MFA whenever required. This policy does not block Exchange ActiveSync.
+「**封鎖舊版驗證」（預覽）** 基準原則會封鎖使用舊版通訊協定所提出的驗證要求。 必須使用新式驗證才能成功登入所有使用者。 與其他基準原則一起使用時，將會封鎖來自舊版通訊協定的要求。 此外，所有使用者都需要在需要時進行 MFA。 此原則不會封鎖 Exchange ActiveSync。
 
-### <a name="require-mfa-for-service-management-preview"></a>Require MFA for service management (preview)
+### <a name="require-mfa-for-service-management-preview"></a>服務管理需要 MFA （預覽）
 
-Organizations use a variety of Azure services and manage them from Azure Resource Manager based tools like:
+組織會使用各種不同的 Azure 服務，並從以 Azure Resource Manager 為基礎的工具進行管理，例如：
 
-* Azure Portal
+* Azure 入口網站
 * Azure PowerShell
 * Azure CLI
 
-Using any of these tools to perform resource management is a highly privileged action. These tools can alter subscription-wide configurations, such as service settings and subscription billing.
+使用上述任何工具來執行資源管理是一項具有高度許可權的動作。 這些工具可以改變全訂用帳戶的設定，例如服務設定和訂用帳戶計費。
 
-To protect privileged actions, this **Require MFA for service management (preview)** policy will require multi-factor authentication for any user accessing Azure portal, Azure PowerShell, or Azure CLI.
+為了保護特殊許可權動作，這**需要服務管理（預覽）** 原則的 MFA，會要求任何存取 Azure 入口網站、Azure PowerShell 或 Azure CLI 的使用者進行多重要素驗證。
 
 ## <a name="next-steps"></a>後續步驟
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
-* [Common Conditional Access policies](concept-conditional-access-policy-common.md)
+* [一般條件式存取原則](concept-conditional-access-policy-common.md)
 * [可保護身分識別基礎結構的五個步驟](../../security/fundamentals/steps-secure-identity.md)
 * [什麼是 Azure Active Directory 中的條件式存取？](overview.md)

@@ -1,7 +1,7 @@
 ---
-title: Animated character detection with Video Indexer
+title: 使用影片索引子的動畫字元偵測
 titleSuffix: Azure Media Services
-description: This topic demonstrates how to use animated character detection with Video Indexer.
+description: 本主題示範如何使用影片索引子的動畫字元偵測。
 services: media-services
 author: Juliako
 manager: femila
@@ -17,165 +17,165 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74327490"
 ---
-# <a name="animated-character-detection-preview"></a>Animated character detection (preview)
+# <a name="animated-character-detection-preview"></a>動畫字元偵測（預覽）
 
-Azure Media Services Video Indexer supports detection, grouping, and recognition of characters in animated content via integration with [Cognitive Services custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). This functionality is available both through the portal and through the API.
+Azure 媒體服務影片索引子可透過與[認知服務自訂視覺](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)的整合，支援在動畫內容中偵測、分組和辨識字元。 這項功能可透過入口網站和 API 取得。
 
-After uploading an animated video with a specific animation model, Video Indexer extracts keyframes, detects animated characters in these frames, groups similar character, and chooses the best sample. Then, it sends the grouped characters to Custom Vision that identifies characters based on the models it was trained on. 
+使用特定的動畫模型上傳動畫影片之後，影片索引子會抽取主要畫面格、在這些框架中偵測動畫字元、將類似的字元分組，以及選擇最佳的範例。 然後，它會將分組的字元傳送至自訂視覺，以根據所定型的模型來識別字元。 
 
-Before you start training your model, the characters are detected namelessly. As you add names and train the model the Video Indexer will recognize the characters and name them accordingly.
+開始訓練模型之前，namelessly 會偵測到這些字元。 當您新增名稱並訓練模型時，影片索引子會辨識這些字元，並據以命名。
 
 ## <a name="flow-diagram"></a>流程圖
 
-The following diagram demonstrates the flow of the animated character detection process.
+下圖將示範動畫字元偵測程式的流程。
 
 ![流程圖](./media/animated-characters-recognition/flow.png)
 
 ## <a name="accounts"></a>帳戶
 
-Depending on a type of your Video Indexer account, different feature sets are available. For information on how to connect your account to Azure, see [Create a Video Indexer account connected to Azure](connect-to-azure.md).
+視您的影片索引子帳戶類型而定，有不同的功能集可供使用。 如需如何將您的帳戶連接到 Azure 的相關資訊，請參閱[建立連線到 azure 的影片索引子帳戶](connect-to-azure.md)。
 
-* Trial account: Video Indexer uses an internal Custom Vision account to create model and connect it to your Video Indexer account. 
-* Paid account: you connect your Custom Vision account to your Video Indexer account (if you don’t already have one, you need to create an account first).
+* 試用帳戶：影片索引子會使用內部自訂視覺帳戶來建立模型，並將它連接到您的影片索引子帳戶。 
+* 付費帳戶：您可以將自訂視覺帳戶連線到您的影片索引子帳戶（如果您還沒有帳戶，則必須先建立帳戶）。
 
-### <a name="trial-vs-paid"></a>Trial vs. paid
+### <a name="trial-vs-paid"></a>試用版與付費
 
-|功能|試用|付費|
+|功能|試用版|付費|
 |---|---|---|
-|Custom Vision account|Managed behind the scenes by Video Indexer. |Your Custom Vision account is connected to Video Indexer.|
-|Number of animation models|一個|Up to 100 models per account (Custom Vision limitation).|
-|Training the model|Video Indexer trains the model for new characters additional examples of existing characters.|The account owner trains the model when they are ready to make changes.|
-|Advanced options in Custom Vision|No access to the Custom Vision portal.|You can adjust the models yourself in the Custom Vision portal.|
+|自訂視覺帳戶|由影片索引子在幕後進行管理。 |您的自訂視覺帳戶已連線到影片索引子。|
+|動畫模型的數目|一個|每個帳戶最多100個模型（自訂視覺限制）。|
+|定型模型|影片索引子會為新字元定型模型，以取得現有字元的其他範例。|帳戶擁有者可以在準備好進行變更時，訓練模型。|
+|自訂視覺中的 Advanced 選項|沒有自訂視覺入口網站的存取權。|您可以在自訂視覺入口網站中自行調整模型。|
 
-## <a name="use-the-animated-character-detection-with-portal"></a>Use the animated character detection with portal 
+## <a name="use-the-animated-character-detection-with-portal"></a>使用入口網站的動畫字元偵測 
 
-This section describes the steps you need to take to start using the animated character detection model. 
+本節說明開始使用動畫字元偵測模型所需採取的步驟。 
 
-Since in  the trial accounts the Custom Vision integration is managed by Video Indexer, you can start creating and using the animated characters model and skip the following section ("Connect your Custom Vision account").
+因為在試用帳戶中，自訂視覺整合是由影片索引子所管理，所以您可以開始建立和使用動畫字元模型，並略過下一節（「連接您的自訂視覺帳戶」）。
 
-### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Connect your Custom Vision account (paid accounts only)
+### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>連接您的自訂視覺帳戶（僅限付費帳戶）
 
-If you own a Video Indexer paid account, you need to connect a Custom Vision account first. If you don't have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/home.md).
+如果您擁有影片索引子付費帳戶，您必須先連接自訂視覺帳戶。 如果您還沒有自訂視覺帳戶，請建立一個。 如需詳細資訊，請參閱[自訂視覺](../../cognitive-services/custom-vision-service/home.md)。
 
 > [!NOTE]
-> Both accounts need to be in the same region. The Custom Vision integration is currently not supported in the Japan region.
+> 這兩個帳戶都必須位於相同的區域。 日本地區目前不支援自訂視覺整合。
 
-#### <a name="connect-a-custom-vision-account-with-api"></a>Connect a Custom Vision account with API 
+#### <a name="connect-a-custom-vision-account-with-api"></a>使用 API 連接自訂視覺帳戶 
 
-Follow these steps to connect you Custom Vision account to Video Indexer, or to change the Custom Vision account that is currently connected to Video Indexer:
+請遵循下列步驟，將您自訂視覺帳戶連接到影片索引子，或變更目前連線到影片索引子的自訂視覺帳戶：
 
-1. Browse to [www.customvision.ai](https://www.customvision.ai) and login.
-1. Copy the following keys: 
+1. 流覽至[www.customvision.ai](https://www.customvision.ai)並登入。
+1. 複製下列機碼： 
 
-    * Training key (for the training resource)
-    * Prediction key (for the prediction resource)
-    * 端點 
-    * Prediction resource ID
+    * 定型金鑰（適用于訓練資源）
+    * 預測金鑰（適用于預測資源）
+    * Endpoint 
+    * 預測資源識別碼
     
     > [!NOTE]
-    > To provide all the keys you need to have two separate resources in Custom Vision, one for training and one for prediction.
-1. Browse and sign in to the [Video Indexer](https://vi.microsoft.com/).
-1. Click on the question mark on the top-right corner of the page and choose **API Reference**.
-1. Make sure you are subscribed to API Management by clicking **Products** tab. If you have an API connected you can continue to the next step, otherwise, subscribe. 
-1. On the developer portal, click the **Complete API Reference** and browse to **Operations**.  
-1. Select **Connect Custom Vision Account (PREVIEW)** and click **Try it**.
-1. Fill in the required fields as well as the access token and click **Send**. 
+    > 若要提供所有索引鍵，您必須在自訂視覺中有兩個不同的資源，一個用於定型，另一個用於預測。
+1. 流覽並登入[影片索引子](https://vi.microsoft.com/)。
+1. 按一下頁面右上角的問號，然後選擇 [ **API 參考**]。
+1. 按一下 [**產品**] 索引標籤，確認您已訂閱 API 管理。如果您已連接 API，您可以繼續進行下一個步驟，否則請訂閱。 
+1. 在開發人員入口網站上，按一下 [**完整 API 參考**]，然後流覽至 [**作業**]。  
+1. 選取 **[連線自訂視覺帳戶（預覽）]** ，然後按一下 [**試用**]。
+1. 填寫必要欄位以及存取權杖，然後按一下 [**傳送**]。 
 
-    For more information about how to get the Video Indexer access token go to the [developer portal](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?), and see the [relevant documentation](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
-1. Once the call return 200 OK response, your account is connected.
-1. To verify your connection by browse to the [Video Indexer](https://vi.microsoft.com/)) portal:
-1. Click on the **Content model customization** button in the top-right corner.
-1. Go to the **Animated characters** tab.
-1. Once you click on Manage models in Custom Vision”**, you will be transferred to the Custom Vision account you just connected.
+    如需如何取得影片索引子存取權杖的詳細資訊，請移至[開發人員入口網站](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)，並查看[相關的檔](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api)。  
+1. 一旦呼叫傳回 200 OK 回應，就會連接您的帳戶。
+1. 若要確認您的連線，請流覽至[影片索引子](https://vi.microsoft.com/)入口網站：
+1. 按一下右上角的 [**內容模型自訂**] 按鈕。
+1. 移至 [**動畫字元**] 索引標籤。
+1. 一旦您按一下 [管理自訂視覺中的模型] * *，您就會轉移到剛才連線的自訂視覺帳戶。
 
 > [!NOTE]
-> Currently, only models that were created via Video Indexer are supported. Models that are created through Custom Vision will not be available. In addition, the best practice is to edit models that were created through Video Indexer only through the Video Indexer platform, since changes made through Custom Vision may cause unintended results.
+> 目前只支援透過影片索引子建立的模型。 透過自訂視覺建立的模型將無法使用。 此外，最佳作法是只透過影片索引子平臺編輯透過影片索引子所建立的模型，因為透過自訂視覺所做的變更可能會導致非預期的結果。
 
-### <a name="create-an-animated-characters-model"></a>Create an animated characters model
+### <a name="create-an-animated-characters-model"></a>建立動畫字元模型
 
 1. 瀏覽至[影片索引子](https://vi.microsoft.com/)網站並登入。
-1. Click on the content model customization button on the top-right corner of the page.
+1. 按一下頁面右上角的 [內容模型自訂] 按鈕。
 
-    ![Content model customization](./media/animated-characters-recognition/content-model-customization.png)
-1. Go to the **Animated characters** tab in the model customization section.
-1. Click on **Add model**.
-1. Name you model and click enter to save the name.
+    ![內容模型自訂](./media/animated-characters-recognition/content-model-customization.png)
+1. 移至 [模型自訂] 區段中的 [**動畫字元**] 索引標籤。
+1. 按一下 [**加入模型**]。
+1. 命名您的模型，然後按一下 enter 來儲存名稱。
 
 > [!NOTE]
-> The best practice is to have one custom vision model for each animated series. 
+> 最佳做法是為每個動畫數列各有一個自訂視覺模型。 
 
-### <a name="index-a-video-with-an-animated-model"></a>Index a video with an animated model
+### <a name="index-a-video-with-an-animated-model"></a>使用動畫模型為影片編制索引
 
-1. Click on the **Upload** button from the top menu.
-1. Choose a video to upload (from a file or a URL).
-1. Click on **Advanced options**.
-1. Under **People / Animated characters** choose **Animation models**.
-1. If you have one model it will be chosen automatically, and if you have multiple models you can choose the relevant one out of the dropdown menu.
-1. Click on upload.
-1. Once the video is indexed, you will see the detected characters in the **Animated characters** section in the **Insights** pane.
+1. 按一下頂端功能表中的 [上**傳**] 按鈕。
+1. 選擇要上傳的影片（從檔案或 URL）。
+1. 按一下 [ **Advanced options**]。
+1. 在 [**人員/動畫字元**] 底下選擇 [**動畫模型**]。
+1. 如果您有一個模型，就會自動選擇它，如果您有多個模型，可以選擇下拉式功能表中的相關一個。
+1. 按一下 [上傳]。
+1. 建立影片的索引後，您會在 [**深入**解析] 窗格的 [**動畫字元**] 區段中看到偵測到的字元。
 
 > [!NOTE] 
-> Before tagging and training the model, all animated characters will be named “Unknown #X”. After you train the model they will also be recognized.
+> 在標記和定型模型之前，所有的動畫字元都會命名為「未知的 #X」。 在您將模型定型之後，也會一併辨識。
 
-### <a name="customize-the-animated-characters-models"></a>Customize the animated characters models
+### <a name="customize-the-animated-characters-models"></a>自訂動畫字元模型
 
-1. Tag and train the model.
+1. 標記和定型模型。
 
-    1. Tag the detected character by editing its name. Once a character is trained into the model, it will be recognized it the next video indexed with that model. 
-    1. To tag an animated character in your video, go to the **Insights** tab and click on the **Edit** button on the top-right corner of the window.
-    1. In the **Insights** pane, click on any of the detected animated characters and change their names from "Unknown #X" (or the name that was previously assigned to the character).
-    1. 輸入新名稱之後，按一下新名稱旁邊的核取圖示。 This saves the new name in the model in Video Indexer.
-    1. After you finished editing all names you want, you need to train the model.
+    1. 藉由編輯偵測到的字元名稱來標記。 一旦將一個字元定型到模型中，它就會被辨識為下一段以該模型編制索引的影片。 
+    1. 若要在影片中標記動畫字元，請移至 [**深入**解析] 索引標籤，然後按一下視窗右上角的 [**編輯**] 按鈕。
+    1. 在 [**深入**解析] 窗格中，按一下任何偵測到的動畫字元，並將其名稱從「未知的 #X」（或先前指派給該字元的名稱）變更。
+    1. 輸入新名稱之後，按一下新名稱旁邊的核取圖示。 這會將新名稱儲存在影片索引子的模型中。
+    1. 完成所有想要的名稱編輯之後，您必須將模型定型。
 
-        Open the customization page and click on the **Animated characters** tab and then click on the **Train** button to train your model.
+        開啟 [自訂] 頁面，並按一下 [**動畫字元**] 索引標籤，然後按一下 [**定型**] 按鈕來定型您的模型。
          
-        If you have a paid account, you can click the **Manage models in Customer Vision** link (as shown below). You will then be forwarded to the model's page in **Custom Vision**.
+        如果您有付費帳戶，您可以按一下 [**管理客戶願景中的模型**] 連結（如下所示）。 然後您會在**自訂視覺**中，將您轉送到模型的頁面。
  
-        ![Content model customization](./media/animated-characters-recognition/content-model-customization-tab.png)
+        ![內容模型自訂](./media/animated-characters-recognition/content-model-customization-tab.png)
 
-     1. Once trained, any video that will be indexed or reindexed with that model will recognize the trained characters. 
-    Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
+     1. 定型之後，任何會使用該模型編制索引或重新建立索引的影片都會辨識已定型的字元。 
+    可存取其自訂視覺帳戶的付費帳戶，可以在該處看到模型和已標記的影像。 深入瞭解如何[在自訂視覺中改善您的分類器](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier)。
 
-1. Delete an animated character.
+1. 刪除動畫字元。
 
-    1. To delete an animated character in your video insights, go to the **Insights** tab and click on the **Edit** button on the top-right corner of the window.
-    1. Choose the animated character and then click on the **Delete** button under their name.
+    1. 若要刪除影片深入解析中的動畫字元，請移至 [**深入**解析] 索引標籤，然後按一下視窗右上角的 [**編輯**] 按鈕。
+    1. 選擇動畫字元，然後按一下其名稱底下的 [**刪除**] 按鈕。
 
     > [!NOTE]
-    > This will delete the insight from this video but will not affect the model.
+    > 這會刪除這部影片的深入解析，但不會影響模型。
 
-1. Delete a model.
+1. 刪除模型。
 
-    1. Click on the **Content model customization** button on the top menu and go to the **Animated characters** tab.
-    1. Click on the ellipsis icon to the right of the model you wish to delete and then on the delete button.
+    1. 按一下頂端功能表上的 [**內容模型自訂**] 按鈕，然後移至 [**動畫字元**] 索引標籤。
+    1. 按一下您想要刪除之模型右邊的省略號圖示，然後在 [刪除] 按鈕上。
     
-    * Paid account: the model will be disconnected from Video Indexer and you will not be able to reconnect it.
-    * Trial account: the model will be deleted from Customs vision as well. 
+    * 付費帳戶：此模型將與影片索引子中斷連線，而且您將無法重新連接。
+    * 試用帳戶：此模型也會從海關願景中刪除。 
     
         > [!NOTE]
-        > In a trial account, you only have one model you can use. After you delete it, you can’t train other models.
+        > 在試用帳戶中，您只有一個可供使用的模型。 刪除之後，就無法訓練其他模型。
 
-## <a name="use-the-animated-character-detection-with-api"></a>Use the animated character detection with API 
+## <a name="use-the-animated-character-detection-with-api"></a>使用 API 的動畫字元偵測 
 
-1. Connect a Custom Vision account.
+1. 連接自訂視覺帳戶。
 
-    If you own a Video Indexer paid account, you need to connect a Custom Vision account first. <br/>
-    If you don’t have a Custom Vision account already, please create one. For more information, see [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home).
+    如果您擁有影片索引子付費帳戶，您必須先連接自訂視覺帳戶。 <br/>
+    如果您還沒有自訂視覺帳戶，請建立一個。 如需詳細資訊，請參閱[自訂視覺](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home)。
 
-    [Connect your Custom Vision account using API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
-1. Create an animated characters model.
+    [使用 API 連接您的自訂視覺帳戶](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag)。
+1. 建立動畫字元模型。
 
-    Use the [create animation model](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Animation-Model?&groupBy=tag) API.
-1. Index or re-index a video.
+    使用[建立動畫模型](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Animation-Model?&groupBy=tag)API。
+1. 為影片編制索引或重新編制索引。
 
-    Use the [re-indexing](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) API. 
-1. Customize the animated characters models.
+    使用[重新編制索引](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?)API。 
+1. 自訂動畫字元模型。
 
-    Use the [train animation model](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Train-Animation-Model?&groupBy=tag) API.
+    使用[訓練動畫模型](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Train-Animation-Model?&groupBy=tag)API。
 
 ### <a name="view-the-output"></a>檢視輸出
 
-See the animated characters in the generated JSON file.
+查看所產生 JSON 檔案中的動畫字元。
 
 ```json
 "animatedCharacters": [
@@ -208,9 +208,9 @@ See the animated characters in the generated JSON file.
 
 ## <a name="limitations"></a>限制
 
-* Currently, the "animation identification" capability is not supported in East-Asia region.
-* Characters that appear to be small or far in the video may not be identified properly if the video's quality is poor.
-* The recommendation is to use a model per set of animated characters (for example per an animated series).
+* 目前，東亞地區不支援「動畫識別」功能。
+* 如果影片的品質不佳，則可能無法正確識別在影片中顯示為小型或遠的字元。
+* 建議使用每一組動畫字元的模型（例如，每個動畫的數列）。
 
 ## <a name="next-steps"></a>後續步驟
 

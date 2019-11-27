@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain Service security
-description: Azure Blockchain Service data access and security concepts
+title: Azure 區塊鏈服務安全性
+description: Azure 區塊鏈服務資料存取和安全性概念
 ms.date: 11/22/2019
 ms.topic: conceptual
 ms.reviewer: janders
@@ -11,52 +11,52 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74455706"
 ---
-# <a name="azure-blockchain-service-security"></a>Azure Blockchain Service security
+# <a name="azure-blockchain-service-security"></a>Azure 區塊鏈服務安全性
 
 Azure 區塊鏈服務使用數個 Azure 功能來讓您的資料維持安全且可用。 我們使用隔離、加密與驗證來保護資料。
 
 ## <a name="isolation"></a>隔離
 
-Azure Blockchain Service resources are isolated in a private virtual network. Each transaction and validation node is a virtual machine (VM). VMs in one virtual network cannot communicate directly to VMs in a different virtual network. Isolation ensures communication remains private within the virtual network. For more information on Azure virtual network isolation, see [isolation in the Azure Public Cloud](../../security/fundamentals/isolation-choices.md#networking-isolation).
+Azure 區塊鏈服務資源會在私人虛擬網路中隔離。 每個交易和驗證節點都是虛擬機器（VM）。 一個虛擬網路中的 Vm 無法直接與不同虛擬網路中的 Vm 通訊。 隔離可確保在虛擬網路內的通訊保持私用。 如需 Azure 虛擬網路隔離的詳細資訊，請參閱[Azure 公用雲端中的隔離](../../security/fundamentals/isolation-choices.md#networking-isolation)。
 
-![VNET diagram](./media/data-security/vnet.png)
+![VNET 圖表](./media/data-security/vnet.png)
 
 ## <a name="encryption"></a>加密
 
-User data is stored in Azure storage. User data is encrypted in motion and at rest for security and confidentiality. For more information, see: [Azure Storage security guide](../../storage/common/storage-security-guide.md).
+使用者資料會儲存在 Azure 儲存體中。 使用者資料會在行動和待用時加密，以提供安全性和機密性。 如需詳細資訊，請參閱： [Azure 儲存體安全性指南](../../storage/common/storage-security-guide.md)。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
-Transactions can be sent to blockchain nodes via an RPC endpoint. Clients communicate with a transaction node using a reverse proxy server that handles user authentication and encrypts data over SSL.
+您可以透過 RPC 端點將交易傳送至區塊鏈節點。 用戶端會使用反向 proxy 伺服器與交易節點進行通訊，以處理使用者驗證，並透過 SSL 加密資料。
 
-![Authentication diagram](./media/data-security/authentication.png)
+![驗證圖表](./media/data-security/authentication.png)
 
-There are three modes of authentication for RPC access.
+有三種驗證模式可進行 RPC 存取。
 
 ### <a name="basic-authentication"></a>基本驗證
 
-Basic authentication uses an HTTP authentication header containing the user name and password. User name is the name of the blockchain node. Password is set during provisioning of a member or node. The password can be changed using the Azure portal or CLI.
+基本驗證會使用包含使用者名稱和密碼的 HTTP 驗證標頭。 [使用者名稱] 是區塊鏈節點的名稱。 在布建成員或節點期間設定密碼。 您可以使用 Azure 入口網站或 CLI 來變更密碼。
 
 ### <a name="access-keys"></a>存取金鑰
 
-Access keys use a randomly generated string included in the endpoint URL. Two access keys help enable key rotation. Keys can be regenerated from the Azure portal and CLI.
+存取金鑰會使用包含在端點 URL 中的隨機產生字串。 兩個存取金鑰有助於啟用金鑰輪替。 您可以從 Azure 入口網站和 CLI 重新產生金鑰。
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Azure Active Directory (Azure AD) uses a claim-based authentication mechanism where the user is authenticated by Azure AD using Azure AD user credentials. Azure AD provides cloud-based identity management and allows customers to use a single identity across an entire enterprise and access applications on the cloud. Azure Blockchain Service integrates with Azure AD enabling ID federation, single sign-on and multi-factor authentication. You can assign users, groups, and application roles in your organization for blockchain member and node access.
+Azure Active Directory （Azure AD）使用以宣告為基礎的驗證機制，其使用者是使用 Azure AD 使用者認證 Azure AD 進行驗證。 Azure AD 提供以雲端為基礎的身分識別管理，並可讓客戶在整個企業中使用單一身分識別，並存取雲端上的應用程式。 Azure 區塊鏈 Service 會與 Azure AD 啟用識別碼同盟、單一登入和多重要素驗證整合。 您可以為組織中的使用者、群組和應用程式角色指派區塊鏈成員和節點存取權。
 
-The Azure AD client proxy is available on [GitHub](https://github.com/Microsoft/azure-blockchain-connector/releases). The client proxy directs the user to the Azure AD sign-in page and obtains a bearer token upon successful authentication. Subsequently, the user connects an Ethereum client application such as Geth or Truffle to the client proxy's endpoint. Finally, when a transaction is submitted, the client proxy injects the bearer token in the http header and the reverse proxy validates the token using OAuth protocol.
+Azure AD 用戶端 proxy 可在[GitHub](https://github.com/Microsoft/azure-blockchain-connector/releases)上取得。 用戶端 proxy 會將使用者引導至 Azure AD 登入頁面，並在驗證成功時取得持有人權杖。 之後，使用者會將乙太坊用戶端應用程式（例如 Geth 或 Truffle）連接到用戶端 proxy 的端點。 最後，提交交易時，用戶端 proxy 會將持有人權杖插入 HTTP 標頭，而反向 proxy 會使用 OAuth 通訊協定來驗證權杖。
 
-## <a name="keys-and-ethereum-accounts"></a>Keys and Ethereum accounts
+## <a name="keys-and-ethereum-accounts"></a>金鑰和乙太坊帳戶
 
-When provisioning an Azure Blockchain Service member, an Ethereum account and a public and private key pair is generated. The private key is used to send transactions to the blockchain. The Ethereum account is the last 20 bytes of the public key's hash. The Ethereum account is also called a wallet.
+布建 Azure 區塊鏈服務成員時，會產生乙太坊帳戶和公用和私密金鑰組。 私密金鑰是用來將交易傳送至區塊鏈。 乙太坊帳戶是公開金鑰雜湊的最後20個位元組。 乙太坊帳戶也稱為「錢包」。
 
-The private and public key pair is stored as a keyfile in JSON format. The private key is encrypted using the password entered when the blockchain ledger service is created.
+私用和公開金鑰組會以 JSON 格式儲存為 keyfile。 私密金鑰會使用建立區塊鏈總帳服務時輸入的密碼進行加密。
 
-Private keys are used to digitally sign transactions. In private blockchains, a smart contract signed by a private key represents the signer's identity. To verify the validity of the signature, the receiver can compare the public key of the signer with the address computed from the signature.
+私密金鑰是用來數位簽署交易。 在私用區塊鏈中，由私用金鑰簽署的智慧合約代表簽署者的身分識別。 若要驗證簽章的有效性，接收者可以將簽署者的公開金鑰與從簽章計算出來的位址進行比較。
 
-Constellation keys are used to uniquely identify a Quorum node. Constellation keys are generated at the time of node provisioning and are specified in the privateFor parameter of a private transaction in Quorum.
+Constellation 金鑰可用來唯一識別仲裁節點。 Constellation 索引鍵會在節點布建時產生，並在仲裁的私用交易的 privateFor 參數中指定。
 
 ## <a name="next-steps"></a>後續步驟
 
-See [How to configure Azure Active Directory access for Azure Blockchain Service](configure-aad.md).
+請參閱[如何設定 Azure 區塊鏈 Service 的 Azure Active Directory 存取](configure-aad.md)。

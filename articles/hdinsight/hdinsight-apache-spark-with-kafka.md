@@ -17,7 +17,7 @@ ms.locfileid: "74327403"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>在 HDInsight 上使用 Apache Kafka 的 Apache Spark 串流 (DStream) 範例
 
-了解如何在 HDInsight 上使用 [DStreams](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html)，以 [Apache Spark](https://spark.apache.org/) 串流方式將資料送入或送出 [Apache Kafka](https://kafka.apache.org/)。 這個範例會使用在 Spark 叢集上執行的 [Jupyter Notebook](https://jupyter.org/)。
+了解如何在 HDInsight 上使用 [DStreams](https://spark.apache.org/)，以 [Apache Spark](https://kafka.apache.org/) 串流方式將資料送入或送出 [Apache Kafka](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html)。 這個範例會使用在 Spark 叢集上執行的 [Jupyter Notebook](https://jupyter.org/)。
 
 > [!NOTE]  
 > 本文件中的步驟建立 Azure 資源群組，其中包含 Spark on HDInsight 和 Kafka on HDInsight cluster 叢集。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Spark 叢集直接與 Kafka 叢集通訊。
@@ -29,7 +29,7 @@ ms.locfileid: "74327403"
 
 ## <a name="create-the-clusters"></a>建立叢集
 
-Apache Kafka on HDInsight doesn't provide access to the Kafka brokers over the public internet. 任何 Kafka 相關項目必須位於與 Kafka 叢集中節點相同的 Azure 虛擬網路。 例如，Kafka 和 Spark 叢集均位於 Azure 虛擬網路中。 下圖顯示叢集之間的通訊流動方式︰
+Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 代理程式的許可權。 任何 Kafka 相關項目必須位於與 Kafka 叢集中節點相同的 Azure 虛擬網路。 例如，Kafka 和 Spark 叢集均位於 Azure 虛擬網路中。 下圖顯示叢集之間的通訊流動方式︰
 
 ![Azure 虛擬網路中的 Spark 和 Kafka 叢集圖表](./media/hdinsight-apache-spark-with-kafka/apache-spark-kafka-vnet.png)
 
@@ -51,17 +51,17 @@ Apache Kafka on HDInsight doesn't provide access to the Kafka brokers over the p
 
 1. 使用下列資訊來填入 [自訂部署] 區段上的項目︰
 
-    |屬性 |Value |
+    |屬性 |值 |
     |---|---|
-    |Resource group|建立群組或選取現有的群組。|
-    |Location|選取靠近您的地理位置。|
-    |Base Cluster Name|此值會作為 Spark 和 Kafka 叢集的基底名稱。 例如，輸入 **hdistreaming** 可建立名為 __spark-hdistreaming__ 的 Spark 叢集，以及名為 **kafka-hdistreaming** 的 Kafka 叢集。|
+    |資源群組|建立群組或選取現有的群組。|
+    |位置|選取靠近您的地理位置。|
+    |基底叢集名稱|此值會作為 Spark 和 Kafka 叢集的基底名稱。 例如，輸入 **hdistreaming** 可建立名為 __spark-hdistreaming__ 的 Spark 叢集，以及名為 **kafka-hdistreaming** 的 Kafka 叢集。|
     |叢集登入使用者名稱|Spark 和 Kafka 叢集的系統管理員使用者名稱。|
     |叢集登入密碼|Spark 和 Kafka 叢集的系統管理員使用者密碼。|
     |SSH 使用者名稱|要為 Spark 和 Kafka 叢集建立的 SSH 使用者。|
     |SSH 密碼|Spark 和 Kafka 叢集的 SSH 使用者密碼。|
 
-    ![HDInsight custom deployment parameters](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
+    ![HDInsight 自訂部署參數](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
 
 1. 讀取**條款及條件**，然後選取 [我同意上方所述的條款及條件]。
 

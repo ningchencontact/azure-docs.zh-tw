@@ -1,6 +1,6 @@
 ---
-title: Per-user Multi-Factor Authentication - Azure Active Directory
-description: Enable MFA by changing user states in Azure Multi-Factor Authentication.
+title: 每個使用者的多重要素驗證-Azure Active Directory
+description: 藉由變更 Azure 多重要素驗證中的使用者狀態來啟用 MFA。
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -20,16 +20,16 @@ ms.locfileid: "74404220"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>如何要求使用者使用雙步驟驗證
 
-您可以採取下列方法之一來要求使用雙步驟驗證，這兩者都需要使用全域管理員帳戶。 第一種是為每個使用者啟用 Azure Multi-Factor Authentication (MFA)。 當您分別為每位使用者進行啟用時，這些使用者在每次登入時都會執行雙步驟驗證 (但有一些例外，例如當他們從受信任的 IP 位址登入時，或開啟了 _已記住裝置_ 功能)。 The second option is to set up a Conditional Access policy that requires two-step verification under certain conditions.
+您可以採取下列方法之一來要求使用雙步驟驗證，這兩者都需要使用全域管理員帳戶。 第一種是為每個使用者啟用 Azure Multi-Factor Authentication (MFA)。 當您分別為每位使用者進行啟用時，這些使用者在每次登入時都會執行雙步驟驗證 (但有一些例外，例如當他們從受信任的 IP 位址登入時，或開啟了_已記住裝置_功能)。 第二個選項是設定條件式存取原則，在某些情況下需要雙步驟驗證。
 
 > [!TIP]
-> Enabling Azure Multi-Factor Authentication using Conditional Access policies is the recommended approach. Changing user states is no longer recommended unless your licenses do not include Conditional Access as it will require users to perform MFA every time they sign in.
+> 使用條件式存取原則來啟用 Azure 多重要素驗證是建議的方法。 除非您的授權不包含條件式存取，否則不建議變更使用者狀態，因為它會要求使用者在每次登入時執行 MFA。
 
 ## <a name="choose-how-to-enable"></a>選擇啟用方式
 
-**藉由變更使用者狀態來啟用** - 這是要求使用雙步驟驗證的傳統方法，本文會加以討論。 這種方法適用於雲端 Azure MFA 和 Azure MFA Server。 Using this method requires users to perform two-step verification **every time** they sign in and overrides Conditional Access policies.
+**藉由變更使用者狀態來啟用** - 這是要求使用雙步驟驗證的傳統方法，本文會加以討論。 這種方法適用於雲端 Azure MFA 和 Azure MFA Server。 使用此方法時，使用者必須在**每次**登入時執行雙步驟驗證，並覆寫條件式存取原則。
 
-Enabled by Conditional Access policy - This is the most flexible means to enable two-step verification for your users. Enabling using Conditional Access policy only works for Azure MFA in the cloud and is a premium feature of Azure AD. 如需這個方法的詳細資訊，請參閱[部署雲端式 Azure Multi-Factor Authentication](howto-mfa-getstarted.md)。
+由條件式存取原則啟用-這是為您的使用者啟用雙步驟驗證最具彈性的方法。 啟用使用條件式存取原則僅適用于雲端中的 Azure MFA，而且是 Azure AD 的 premium 功能。 如需這個方法的詳細資訊，請參閱[部署雲端式 Azure Multi-Factor Authentication](howto-mfa-getstarted.md)。
 
 由 Azure AD Identity Protection 啟用 - 這個方法使用 Azure AD Identity Protection 風險原則，要求所有雲端應用程式進行只根據登入風險的雙步驟驗證。 這個方法需要 Azure Active Directory P2 授權。 如需這個方法的詳細資訊，請參閱 [Azure Active Directory Identity Protection](../identity-protection/howto-sign-in-risk-policy.md)
 
@@ -41,11 +41,11 @@ Enabled by Conditional Access policy - This is the most flexible means to enable
 
 Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同狀態：
 
-| 狀態 | 描述 | 受影響的非瀏覽器應用程式 | 受影響的瀏覽器應用程式 | 受影響的新式驗證 |
+| Status | 描述 | 受影響的非瀏覽器應用程式 | 受影響的瀏覽器應用程式 | 受影響的新式驗證 |
 |:---:|:---:|:---:|:--:|:--:|
 | 已停用 |未註冊 Azure MFA 之新使用者的預設狀態。 |否 |否 |否 |
-| 已啟用 |已在 Azure MFA 中註冊使用者，但使用者尚未註冊。 系統將在他們下一次登入時提示他們註冊。 |不會。  它們會繼續運作，直到註冊程序完成為止。 | 可以。 工作階段到期之後，必須進行 Azure MFA 註冊。| 可以。 存取權杖到期之後，必須進行 Azure MFA 註冊。 |
-| 已強制 |已註冊使用者，而且使用者已完成 Azure MFA 的註冊程序。 |可以。 應用程式需要應用程式密碼。 |可以。 在登入時需要使用 Azure MFA。 | 可以。 在登入時需要使用 Azure MFA。 |
+| 已啟用 |已在 Azure MFA 中註冊使用者，但使用者尚未註冊。 系統將在他們下一次登入時提示他們註冊。 |號  它們會繼續運作，直到註冊程序完成為止。 | 是。 工作階段到期之後，必須進行 Azure MFA 註冊。| 是。 存取權杖到期之後，必須進行 Azure MFA 註冊。 |
+| 已強制 |已註冊使用者，而且使用者已完成 Azure MFA 的註冊程序。 |是。 應用程式需要應用程式密碼。 |是。 在登入時需要使用 Azure MFA。 | 是。 在登入時需要使用 Azure MFA。 |
 
 使用者的狀態會反映系統管理員是否已在 Azure MFA 中註冊他們，以及他們是否已完成註冊程序。
 
@@ -66,10 +66,10 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 
 1. 使用上述步驟來取得 Azure Multi-Factor Authentication **使用者**頁面。
 2. 尋找您想要啟用 Azure MFA 的使用者。 建議您在頂端變更檢視方式。
-   ![Select the user to change status for from the users tab](./media/howto-mfa-userstates/enable1.png)
+   ![從 [使用者] 索引標籤中選取要變更狀態的使用者](./media/howto-mfa-userstates/enable1.png)
 3. 勾選其名稱旁的方塊。
 4. 在右邊的**快速步驟**下，選擇 [啟用] 或 [停用]。
-   ![Enable selected user by clicking Enable on the quick steps menu](./media/howto-mfa-userstates/user1.png)
+   ![按一下 [快速步驟] 功能表上的 [啟用]，以啟用選取的使用者](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
    > 「已啟用」的使用者會在註冊 Azure MFA 時自動切換為「已強制」。 請勿手動將使用者狀態變更為「已強制」。
@@ -134,11 +134,11 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
    ```
 
-### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Convert users from per-user MFA to Conditional Access based MFA
+### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>將使用者從每位使用者 MFA 轉換成以條件式存取為基礎的 MFA
 
-The following PowerShell can assist you in making the conversion to Conditional Access based Azure Multi-Factor Authentication.
+下列 PowerShell 可協助您轉換成以條件式存取為基礎的 Azure 多重要素驗證。
 
-Run this PowerShell in an ISE window or save as a .PS1 file to run locally.
+在 ISE 視窗中執行此 PowerShell 或另存新檔。PS1 要在本機執行的檔案。
 
 ```PowerShell
 # Sets the MFA requirement state
@@ -175,10 +175,10 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 > [!NOTE]
-> We recently changed the behavior and PowerShell script above accordingly. Previously, the script saved off the MFA methods, disabled MFA, and restored the methods. This is no longer necessary now that the default behavior for disable doesn't clear the methods.
+> 我們最近據此變更了上述行為和 PowerShell 腳本。 先前，腳本會儲存在 MFA 方法中，停用 MFA，並還原方法。 現在已不再需要，因為 disable 的預設行為並不會清除方法。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 系統會還是不會提示使用者執行 MFA 的原因？ 請參閱＜Azure Multi-Factor Authentication 中的報告＞文件中的 [Azure AD 登入報告](howto-mfa-reporting.md#azure-ad-sign-ins-report)一節。
+* 系統會還是不會提示使用者執行 MFA 的原因？ 請參閱[在 Azure 多重要素驗證文件中的 Azure AD 登入報告](howto-mfa-reporting.md#azure-ad-sign-ins-report)一節。
 * 若要設定信任的 IP、自訂語音訊息及詐騙警示等額外設定，請參閱[設定 Azure Multi-Factor Authentication 設定](howto-mfa-mfasettings.md)
 * 如需管理 Azure Multi-Factor Authentication 使用者設定的詳細資訊，請參閱[在雲端中管理 Azure Multi-Factor Authentication 的使用者設定](howto-mfa-userdevicesettings.md)一文

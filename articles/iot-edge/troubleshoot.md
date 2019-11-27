@@ -19,11 +19,11 @@ ms.locfileid: "74457255"
 
 如果您在您的環境中執行 Azure IoT Edge 時遇到問題，請使用本文作為疑難排解和解決方案的指引。
 
-## <a name="run-the-iotedge-check-command"></a>Run the iotedge 'check' command
+## <a name="run-the-iotedge-check-command"></a>執行 iotedge ' check ' 命令
 
-Your first step when troubleshooting IoT Edge should be to use the `check` command, which performs a collection of configuration and connectivity tests for common issues. The `check` command is available in [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) and later.
+疑難排解 IoT Edge 的第一個步驟應該是使用 `check` 命令，它會針對常見問題執行設定和連線測試的集合。 `check` 命令可在[release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7)和更新版本中取得。
 
-You can run the `check` command as follows, or include the `--help` flag to see a complete list of options:
+您可以如下所示執行 `check` 命令，或包含 `--help` 旗標，以查看完整的選項清單：
 
 * 在 Linux 上：
 
@@ -37,19 +37,19 @@ You can run the `check` command as follows, or include the `--help` flag to see 
   iotedge check
   ```
 
-The types of checks run by the tool can be classified as:
+此工具所執行的檢查類型可分類為：
 
-* Configuration checks: Examines details that could prevent Edge devices from connecting to the cloud, including issues with *config.yaml* and the container engine.
-* Connection checks: Verifies the IoT Edge runtime can access ports on the host device and all the IoT Edge components can connect to the IoT Hub.
-* Production readiness checks: Looks for recommended production best practices, such as the state of device certificate authority (CA) certificates and module log file configuration.
+* 設定檢查：檢查可能導致 Edge 裝置無法連線到雲端的詳細資料，包括*yaml*和容器引擎的問題。
+* 連線檢查：確認 IoT Edge 執行時間可以存取主機裝置上的埠，而且所有 IoT Edge 元件都可以連接到 IoT 中樞。
+* 生產環境就緒檢查：尋找建議的生產最佳做法，例如裝置憑證授權單位單位（CA）憑證和模組記錄檔設定的狀態。
 
-For a complete list of diagnostic checks, see [Built-in troubleshooting functionality](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+如需診斷檢查的完整清單，請參閱[內建的疑難排解功能](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md)。
 
 ## <a name="standard-diagnostic-steps"></a>標準的診斷步驟
 
-If you encounter an issue, you can learn more about the state of your IoT Edge device by reviewing the container logs and the messages that pass to and from the device. 可使用這一節中的命令與工具來收集資訊。
+如果您遇到問題，您可以藉由檢查容器記錄和從裝置傳遞的訊息，深入瞭解 IoT Edge 裝置的狀態。 可使用這一節中的命令與工具來收集資訊。
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Check the status of the IoT Edge Security Manager and its logs
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>檢查 IoT Edge 安全性管理員及其記錄的狀態
 
 在 Linux 上：
 - 若要檢視 IoT Edge 安全性管理員的狀態：
@@ -103,7 +103,7 @@ If you encounter an issue, you can learn more about the state of your IoT Edge d
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>如果 IoT Edge 安全性管理員未執行，請驗證您的 yaml 組態檔
 
 > [!WARNING]
-> YAML files cannot contain tabs as indentation. 請改用 2 個空格。
+> YAML 檔案不能包含索引標籤做為縮排。 請改用 2 個空格。
 
 在 Linux 上：
 
@@ -119,15 +119,15 @@ If you encounter an issue, you can learn more about the state of your IoT Edge d
 
 ### <a name="check-container-logs-for-issues"></a>檢查容器記錄的問題
 
-在 IoT Edge 安全性精靈開始執行後，請查看容器的記錄以偵測問題。 Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: edgeAgent and edgeHub. The IoT Edge agent logs typically provide info on the lifecycle of each container. The IoT Edge hub logs provide info on messaging and routing. 
+在 IoT Edge 安全性精靈開始執行後，請查看容器的記錄以偵測問題。 從您已部署的容器開始，然後查看組成 IoT Edge 執行時間的容器： edgeAgent 和 edgeHub。 IoT Edge 代理程式記錄通常會提供每個容器生命週期的相關資訊。 IoT Edge 中樞記錄檔會提供訊息和路由的相關資訊。 
 
    ```cmd
    iotedge logs <container name>
    ```
 
-### <a name="view-the-messages-going-through-the-iot-edge-hub"></a>View the messages going through the IoT Edge hub
+### <a name="view-the-messages-going-through-the-iot-edge-hub"></a>查看通過 IoT Edge 中樞的訊息
 
-You can view the messages going through the IoT Edge hub, and gather insights from verbose logs from the runtime containers. 若要開啟這些容器上的詳細資訊記錄，請在 yaml 組態檔中設定 `RuntimeLogLevel`。 若要開啟檔案：
+您可以查看通過 IoT Edge 中樞的訊息，並從執行時間容器中收集詳細資訊記錄的深入解析。 若要開啟這些容器上的詳細資訊記錄，請在 yaml 組態檔中設定 `RuntimeLogLevel`。 若要開啟檔案：
 
 在 Linux 上：
 
@@ -198,11 +198,11 @@ iotedge restart edgeAgent && iotedge restart edgeHub
    Start-Service iotedge
    ```
 
-## <a name="iot-edge-agent-stops-after-about-a-minute"></a>IoT Edge agent stops after about a minute
+## <a name="iot-edge-agent-stops-after-about-a-minute"></a>IoT Edge 代理程式會在大約一分鐘後停止
 
-The edgeAgent module starts and runs successfully for about a minute, then stops. The logs indicate that the IoT Edge agent attempts to connect to IoT Hub over AMQP, and then attempts to connect using AMQP over WebSocket. When that fails, the IoT Edge agent exits. 
+EdgeAgent 模組會啟動並順利執行約一分鐘，然後停止。 記錄指出 IoT Edge 代理程式會嘗試透過 AMQP 連線到 IoT 中樞，然後嘗試使用 AMQP over WebSocket 進行連接。 當失敗時，IoT Edge 代理程式就會結束。 
 
-Example edgeAgent logs:
+範例 edgeAgent 記錄：
 
 ```output
 2017-11-28 18:46:19 [INF] - Starting module management agent. 
@@ -211,9 +211,9 @@ Example edgeAgent logs:
 2017-11-28 18:46:49 [INF] - Edge agent attempting to connect to IoT Hub via AMQP over WebSocket... 
 ```
 
-**Root cause**
+**根本原因**
 
-A networking configuration on the host network is preventing the IoT Edge agent from reaching the network. 代理程式首先嘗試透過 AMQP (連接埠 5671) 進行連線。 如果連線失敗，代理程式會嘗試 Websocket (連接埠 443)。
+主機網路上的網路設定導致 IoT Edge 代理程式無法到達網路。 代理程式首先嘗試透過 AMQP (連接埠 5671) 進行連線。 如果連線失敗，代理程式會嘗試 Websocket (連接埠 443)。
 
 IoT Edge 執行階段會為每個模組設定要在其中通訊的網路。 在 Linux 上，此網路是橋接網路。 在 Windows 上則是使用 NAT。 此問題較常見於使用 Windows 容器 (使用 NAT 網路) 的 Windows 裝置。 
 
@@ -221,9 +221,9 @@ IoT Edge 執行階段會為每個模組設定要在其中通訊的網路。 在 
 
 確認指派給此橋接器/NAT 網路的 IP 位址能路由至網際網路。 有時候主機上的 VPN 組態會覆寫 IoT Edge 網路。 
 
-## <a name="iot-edge-hub-fails-to-start"></a>IoT Edge hub fails to start
+## <a name="iot-edge-hub-fails-to-start"></a>IoT Edge hub 無法啟動
 
-The edgeHub module fails to start, and prints the following message to the logs: 
+EdgeHub 模組無法啟動，並會將下列訊息列印到記錄檔： 
 
 ```output
 One or more errors occurred. 
@@ -232,20 +232,20 @@ One or more errors occurred.
 Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allocated\"}\n) 
 ```
 
-**Root cause**
+**根本原因**
 
-在主機機器上的某些其他程序已繫結連接埠 443。 The IoT Edge hub maps ports 5671 and 443 for use in gateway scenarios. 如果另一個程序已繫結此連接埠，則此連接埠對應會失敗。 
+在主機機器上的某些其他程序已繫結連接埠 443。 IoT Edge 中樞會對應埠5671和443，以用於閘道案例。 如果另一個程序已繫結此連接埠，則此連接埠對應會失敗。 
 
 **解決方案**
 
 尋找並停止正在使用連接埠 443 的程序。 此程序通常是網頁伺服器。
 
-## <a name="iot-edge-agent-cant-access-a-modules-image-403"></a>IoT Edge agent can't access a module's image (403)
-A container fails to run, and the edgeAgent logs show a 403 error. 
+## <a name="iot-edge-agent-cant-access-a-modules-image-403"></a>IoT Edge 代理程式無法存取模組的映射（403）
+容器無法執行，且 edgeAgent 記錄顯示403錯誤。 
 
-**Root cause**
+**根本原因**
 
-The Iot Edge agent doesn't have permissions to access a module's image. 
+Iot Edge 代理程式沒有存取模組映射的許可權。 
 
 **解決方案**
 
@@ -259,7 +259,7 @@ The Iot Edge agent doesn't have permissions to access a module's image.
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
 ```
 
-**Root cause**
+**根本原因**
 
 IoT Edge 執行階段只能支援少於 64 個字元的主機名稱。 實體機器通常不需要很長的主機名稱，但問題在虛擬機器上更常發生。 在 Azure 中代管的 Windows 虛擬機器自動產生的主機名稱通常很長。 
 
@@ -291,21 +291,21 @@ IoT Edge 執行階段只能支援少於 64 個字元的主機名稱。 實體機
 ## <a name="stability-issues-on-resource-constrained-devices"></a>資源受限裝置的穩定性問題 
 您可能會遇到受限裝置 (例如 Raspberry Pi) 的穩定性問題，尤其在該裝置當作閘道的時候。 徵兆包括 Edge 中樞模組的記憶體不足例外狀況，下游裝置無法連線，或裝置在幾小時後停止傳送遙測訊息。
 
-**Root cause**
+**根本原因**
 
-The IoT Edge hub, which is part of the IoT Edge runtime, is optimized for performance by default and attempts to allocate large chunks of memory. 此最佳化不適合用於受限邊緣裝置，而且可能會造成穩定性問題。
+IoT Edge 中樞（屬於 IoT Edge 執行時間的一部分）預設會針對效能進行優化，並嘗試配置大型記憶體區塊。 此最佳化不適合用於受限邊緣裝置，而且可能會造成穩定性問題。
 
 **解決方案**
 
-For the IoT Edge hub, set an environment variable **OptimizeForPerformance** to **false**. 作法有二：
+針對 IoT Edge 中樞，將環境變數**OptimizeForPerformance**設定為**false**。 作法有二：
 
 在 UI 中： 
 
-In the portal, navigate to **Device Details** > **Set Modules** > **Configure advanced Edge Runtime settings**. Create an environment variable for the Edge Hub module called *OptimizeForPerformance* that is set to *false*.
+在入口網站中，流覽至 **裝置詳細資料** > **設定模組** > 設定**advanced Edge Runtime 設定**。 為 Edge 中樞模組建立一個設定為*false*的環境變數，稱為*OptimizeForPerformance* 。
 
 ![將 OptimizeForPerformance 設定為 false](./media/troubleshoot/optimizeforperformance-false.png)
 
-**OR**
+**或**
 
 在部署資訊清單中：
 
@@ -325,7 +325,7 @@ In the portal, navigate to **Device Details** > **Set Modules** > **Configure ad
 ## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>無法在 Windows 上取得 IoT Edge 精靈記錄 (daemon log)
 如果您在 Windows 上使用 `Get-WinEvent` 時收到 EventLogException，請檢查您的登錄項目。
 
-**Root cause**
+**根本原因**
 
 `Get-WinEvent` PowerShell 命令須依賴存在的登錄項目，才能根據特定 `ProviderName` 尋找記錄。
 
@@ -350,42 +350,42 @@ Windows Registry Editor Version 5.00
 Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
 ```
 
-**Root cause**
+**根本原因**
 
 基於安全考量，IoT Edge 精靈會針對連線至 edgeHub 的所有模組強制執行處理序識別。 它會確認模組傳送的所有訊息都來自該模組的主要處理序識別碼。 如果傳送訊息之模組的來源處理序識別碼與最初確立的識別碼不同，它就會發出 404 錯誤訊息來拒絕該訊息。
 
 **解決方案**
 
-As of version 1.0.7, all module processes are authorized to connect. If upgrading to 1.0.7 isn't possible, complete the following steps. For more information, see the [1.0.7 release changelog](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
+從版本1.0.7，所有模組進程都有權連接。 如果無法升級至1.0.7，請完成下列步驟。 如需詳細資訊，請參閱[1.0.7 release 變更記錄](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1)。
 
-請確定自訂 IoT Edge 模組一律使用相同的處理序識別碼將訊息傳送給 edgeHub。 For instance, make sure to `ENTRYPOINT` instead of `CMD` command in your Docker file, since `CMD` will lead to one process ID for the module and another process ID for the bash command running the main program whereas `ENTRYPOINT` will lead to a single process ID.
+請確定自訂 IoT Edge 模組一律使用相同的處理序識別碼將訊息傳送給 edgeHub。 例如，請務必在 Docker 檔案中 `ENTRYPOINT` 而不是 `CMD` 命令，因為 `CMD` 會導致模組有一個處理序識別碼，而執行主要程式的 bash 命令有另一個處理序識別碼，而 `ENTRYPOINT` 會導致單一處理序識別碼。
 
 
 ## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>適用於 IoT Edge 部署的防火牆和連接埠設定規則
-Azure IoT Edge allows communication from an on-premises server to Azure cloud using supported IoT Hub protocols, see [choosing a communication protocol](../iot-hub/iot-hub-devguide-protocols.md). 為了加強安全性，Azure IoT Edge 和 Azure IoT 中樞之間的通訊通道一律會設定為輸出。 此設定根據[服務輔助通訊模式](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)，可有效減少惡意實體要探索的攻擊面。 僅當 Azure IoT 中樞需要將訊息推送到 Azure IoT Edge 裝置的特定案例時，才需要輸入通信。 使用安全的 TLS 通道保護雲端到裝置訊息，並且可以使用 X.509 憑證和 TPM 裝置模組進一步保護雲端。 「Azure IoT Edge 安全性管理員」會控管此通訊的建立方式，請參閱 [IoT Edge 安全性管理員](../iot-edge/iot-edge-security-manager.md)。
+Azure IoT Edge 允許使用支援的 IoT 中樞通訊協定，從內部部署伺服器到 Azure 雲端的通訊，請參閱[選擇通訊協定](../iot-hub/iot-hub-devguide-protocols.md)。 為了加強安全性，Azure IoT Edge 和 Azure IoT 中樞之間的通訊通道一律會設定為輸出。 此設定根據[服務輔助通訊模式](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)，可有效減少惡意實體要探索的攻擊面。 僅當 Azure IoT 中樞需要將訊息推送到 Azure IoT Edge 裝置的特定案例時，才需要輸入通信。 使用安全的 TLS 通道保護雲端到裝置訊息，並且可以使用 X.509 憑證和 TPM 裝置模組進一步保護雲端。 「Azure IoT Edge 安全性管理員」會控管此通訊的建立方式，請參閱 [IoT Edge 安全性管理員](../iot-edge/iot-edge-security-manager.md)。
 
-雖然 IoT Edge 提供增強的設定來保護 Azure IoT Edge 執行階段和已部署的模組，但它仍然倚賴基礎的機器和網路設定。 Hence, it is imperative to ensure proper network and firewall rules are set up for secure edge to cloud communication. The following table can be used as a guideline when configuration firewall rules for the underlying servers where Azure IoT Edge runtime is hosted:
+雖然 IoT Edge 提供增強的設定來保護 Azure IoT Edge 執行階段和已部署的模組，但它仍然倚賴基礎的機器和網路設定。 因此，請務必確定已設定適當的網路和防火牆規則，以提供安全的邊緣對雲端通訊。 當裝載 Azure IoT Edge 執行時間的基礎伺服器設定防火牆規則時，可以使用下表做為指導方針：
 
-|通訊協定|連接埠|傳入|傳出|指導方針|
+|通訊協定|Port|傳入|傳出|指引|
 |--|--|--|--|--|
 |MQTT|8883|已封鎖 (預設值)|已封鎖 (預設值)|<ul> <li>使用 MQTT 作為通訊協定時，請將「傳出」(輸出) 設定為「開放」。<li>IoT Edge 不支援適用於 MQTT 的 1883。 <li>應該將傳入 (輸入) 連線封鎖。</ul>|
 |AMQP|5671|已封鎖 (預設值)|開放 (預設值)|<ul> <li>IoT Edge 的預設通訊協定。 <li> 如果未設定 Azure IoT Edge 使用其他支援的通訊協定，或 AMQP 是所需的通訊協定，則必須設定為「開放」。<li>IoT Edge 不支援適用於 AMQP 的 5672。<li>當 Azure IoT Edge 使用不同的 IoT Hub 已支援通訊協定時，請封鎖此連接埠。<li>應該將傳入 (輸入) 連線封鎖。</ul></ul>|
 |HTTPS|443|已封鎖 (預設值)|開放 (預設值)|<ul> <li>設定連出 (輸出) 在 443 上開啟以進行 IoT Edge 佈建。 使用手動指令碼或 Azure IoT 裝置佈建服務 (DPS) 時，就需要此設定。 <li>「傳入」(輸入) 連線應該只有針對特定案例才設定為「開放」： <ul> <li>  如果您有透明閘道，而此閘道具有可能傳送方法要求的分葉裝置。 在此情況下，無須對外部網路開放連接埠 443，即可連線至 IoTHub 或透過 Azure IoT Edge 提供 IoTHub 服務。 因此，可將傳入規則限制成只從內部網路開放「傳入」(輸入)。 <li> 針對「用戶端到裝置」(C2D) 案例。</ul><li>IoT Edge 不支援適用於 HTTP 的 80。<li>如果無法在企業中設定非 HTTP 通訊協定 (例如 AMQP 或 MQTT)；則可透過 WebSocket 傳送訊息。 在該情況下，會使用連接埠 443 來進行 WebSocket 通訊。</ul>|
 
-## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Edge Agent module continually reports 'empty config file' and no modules start on the device
+## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Edge 代理程式模組持續報告 [空白的設定檔案]，且裝置上沒有任何模組啟動
 
-The device has trouble starting modules defined in the deployment. Only the edgeAgent is running but continually reporting 'empty config file...'.
+裝置在啟動部署中定義的模組時遇到問題。 只有 edgeAgent 正在執行，但持續回報「空的設定檔 ...」。
 
-**Root cause**
+**根本原因**
 
-By default, IoT Edge starts modules in their own isolated container network. The device may be having trouble with DNS name resolution within this private network.
+根據預設，IoT Edge 會在自己的隔離容器網路中啟動模組。 裝置在此私人網路內可能會發生 DNS 名稱解析問題。
 
 **解決方案**
 
 
-**Option 1: Set DNS server in container engine settings**
+**選項1：在容器引擎設定中設定 DNS 伺服器**
 
-Specify the DNS server for your environment in the container engine settings which will apply to all container modules started by the engine. Create a file named `daemon.json` specifying the DNS server to use. 例如：
+在 [容器引擎設定] 中，為您的環境指定 DNS 伺服器，這會套用至引擎啟動的所有容器模組。 建立名為 `daemon.json` 的檔案，以指定要使用的 DNS 伺服器。 例如︰
 
 ```
 {
@@ -393,27 +393,27 @@ Specify the DNS server for your environment in the container engine settings whi
 }
 ```
 
-The above example sets the DNS server to a publicly accessible DNS service. If the edge device cannot access this IP from its environment, replace it with DNS server address that is accessible.
+上述範例會將 DNS 伺服器設定為可公開存取的 DNS 服務。 如果 edge 裝置無法從其環境存取此 IP，請將它取代為可存取的 DNS 伺服器位址。
 
-Place `daemon.json` in the right location for your platform: 
+將 `daemon.json` 放在您平臺的正確位置： 
 
-| 平台 | Location |
+| 平台 | 位置 |
 | --------- | -------- |
 | Linux | `/etc/docker` |
-| Windows host with Windows containers | `C:\ProgramData\iotedge-moby\config` |
+| 具有 Windows 容器的 windows 主機 | `C:\ProgramData\iotedge-moby\config` |
 
-If the location already contains `daemon.json` file, add the **dns** key to it and save the file.
+如果該位置已經包含 `daemon.json` 檔案，請在其中新增**dns**金鑰並儲存檔案。
 
-*Restart the container engine for the updates to take effect*
+*重新開機容器引擎，更新才會生效*
 
 | 平台 | 命令 |
 | --------- | -------- |
 | Linux | `sudo systemctl restart docker` |
-| Windows (Admin Powershell) | `Restart-Service iotedge-moby -Force` |
+| Windows （系統管理員 Powershell） | `Restart-Service iotedge-moby -Force` |
 
-**Option 2: Set DNS server in IoT Edge deployment per module**
+**選項2：在每個模組的 IoT Edge 部署中設定 DNS 伺服器**
 
-You can set DNS server for each module's *createOptions* in the IoT Edge deployment. 例如：
+您可以在 IoT Edge 部署中，為每個模組的*createOptions*設定 DNS 伺服器。 例如︰
 
 ```
 "createOptions": {
@@ -425,7 +425,7 @@ You can set DNS server for each module's *createOptions* in the IoT Edge deploym
 }
 ```
 
-Be sure to set this for the *edgeAgent* and *edgeHub* modules as well. 
+也請務必為*edgeAgent*和*edgeHub*模組設定此程式。 
 
 ## <a name="next-steps"></a>後續步驟
 您在 IoT Edge 平台中發現到錯誤嗎？ [提交問題](https://github.com/Azure/iotedge/issues)，讓我們可以持續進行改善。 

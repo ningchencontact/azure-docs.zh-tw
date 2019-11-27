@@ -1,6 +1,6 @@
 ---
-title: Explore data using the explorer - Azure Time Series Insights  | Microsoft Docs
-description: Learn how to use the Azure Time Series Insights explorer to view your IoT data.
+title: 使用 explorer Azure 時間序列深入解析探索資料 |Microsoft Docs
+description: 瞭解如何使用 Azure 時間序列深入解析 explorer 來查看您的 IoT 資料。
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -21,110 +21,110 @@ ms.locfileid: "74327786"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure 時間序列深入解析總管
 
-This article describes the features and options in general availability for the Azure Time Series Insights [explorer web app](https://insights.timeseries.azure.com/). The Time Series Insights explorer demonstrates the powerful data visualization capabilities provided by the service and can be accessed within your own environment.
+本文說明 Azure 時間序列深入解析[explorer web 應用程式](https://insights.timeseries.azure.com/)正式運作的功能和選項。 時間序列深入解析 explorer 會示範服務所提供的功能強大的資料視覺化功能，並可在您自己的環境中進行存取。
 
-Azure Time Series Insights 是完全受控分析、儲存體及視覺效果服務，讓您可輕易同時探索及分析數十億筆的 IoT 事件。 它可為您提供資料的全域檢視，從而讓您快速驗證 IoT 解決方案，並避免關鍵任務裝置成本高昂的停機時間。 您可以幾近即時地探索隱藏趨勢、找出異常狀況，並進行根本原因分析。 時間序列深入解析總管目前處於公開預覽狀態。
+Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效果服務，讓您可輕易同時探索及分析數十億筆的 IoT 事件。 它可為您提供資料的全域檢視，從而讓您快速驗證 IoT 解決方案，並避免關鍵任務裝置成本高昂的停機時間。 您可以幾近即時地探索隱藏趨勢、找出異常狀況，並進行根本原因分析。 時間序列深入解析總管目前處於公開預覽狀態。
 
 > [!TIP]
-> For a guided tour through the demonstration environment, read the [Azure Time Series Insights quickstart](time-series-quickstart.md).
+> 如需示範環境的引導式導覽，請閱讀[Azure 時間序列深入解析快速入門](time-series-quickstart.md)。
 
 ## <a name="video"></a>影片
 
-### <a name="learn-about-querying-data-by-using-the-time-series-insights-explorer-br"></a>Learn about querying data by using the Time Series Insights explorer. </br>
+### <a name="learn-about-querying-data-by-using-the-time-series-insights-explorer-br"></a>瞭解如何使用時間序列深入解析 explorer 來查詢資料。 </br>
 
 > [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 >[!NOTE]
->See the preceding video <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Getting started with Time Series Insights by using an Azure IoT Solution Accelerator."</a>
+>請參閱先前的影片「<a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">使用 Azure IoT 解決方案加速器開始使用時間序列深入解析」。</a>
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在使用時間序列深入解析總管之前，您必須先：
 
-- 建立時間序列深入解析環境。 For more information, see [How to get started with Time Series Insights](./time-series-insights-get-started.md).
-- [Provide access](time-series-insights-data-access.md) to your account in the environment.
-- Add an [IoT hub](time-series-insights-how-to-add-an-event-source-iothub.md) or [event hub](time-series-insights-how-to-add-an-event-source-eventhub.md) event source to it.
+- 建立時間序列深入解析環境。 如需詳細資訊，請參閱[如何開始使用時間序列深入解析](./time-series-insights-get-started.md)。
+- 在環境中提供您帳戶的[存取權](time-series-insights-data-access.md)。
+- 將[IoT 中樞](time-series-insights-how-to-add-an-event-source-iothub.md)或[事件中樞](time-series-insights-how-to-add-an-event-source-eventhub.md)的事件來源新增至其中。
 
 ## <a name="explore-and-query-data"></a>探索及查詢資料
 
 在將事件來源連線至時間序列深入解析環境的幾分鐘內，您可以探索並查詢時間序列資料。
 
-1. To start, open the [Time Series Insights explorer](https://insights.timeseries.azure.com/) in your web browser. On the left side of the window, select an environment. 您可以存取的所有環境都會依字母順序列出。
+1. 若要開始，請在網頁瀏覽器中開啟 [[時間序列深入解析 explorer](https://insights.timeseries.azure.com/) ]。 在視窗左側，選取 [環境]。 您可以存取的所有環境都會依字母順序列出。
 
-1. After you select an environment, either use the **From** and **To** configurations at the top, or click and drag over the timespan you want. Select the magnifying glass in the upper-right corner, or right-click on the selected timespan and select **Search**.
+1. 選取環境之後，請使用頂端的 [**從**] 和 [**到**] 設定，或按一下並拖曳您想要的 timespan。 選取右上角的放大鏡，或以滑鼠右鍵按一下選取的 timespan，然後選取 [**搜尋**]。
 
-1. You also can refresh availability automatically every minute by selecting the **Auto On** button. The **Auto On** button only applies to the availability chart, not the content of the main visualization.
+1. 您也可以選取 [**自動開啟**] 按鈕，每分鐘自動重新整理可用性。 [**自動開啟**] 按鈕僅適用于 [可用性] 圖表，而不是主要視覺效果的內容。
 
-1. The Azure cloud icon takes you to your environment in the Azure portal.
+1. Azure 雲端圖示會帶您前往 Azure 入口網站中的環境。
 
-   [![Time Series Insights environment selection](media/time-series-insights-explorer/tsi-ga-explorer-environments.png)](media/time-series-insights-explorer/tsi-ga-explorer-environments.png#lightbox)
+   [![時間序列深入解析環境選擇](media/time-series-insights-explorer/tsi-ga-explorer-environments.png)](media/time-series-insights-explorer/tsi-ga-explorer-environments.png#lightbox)
 
 1. 接下來，您會看到一個圖表，顯示所選時間範圍期間所有事件的計數。 這裡您有許多控制項：
 
-    - **Terms Editor panel**: The term space is where you query your environment. It’s found on the left side of the screen:
-      - **MEASURE**: This drop-down list shows all numeric columns (**Doubles**).
-      - **SPLIT BY**: This drop-down list shows categorical columns (**Strings**).
-      - You can enable step interpolation, show minimum and maximum, and adjust the y-axis from the control panel next to **MEASURE**. You also can adjust whether data shown is a count, average, or sum of the data.
-      - You can add up to five terms to view on the same x-axis. Select **Add** to add a fresh term or use the **Clone this term** button to add a copy of an existing term.
+    - **詞彙編輯器面板**：字詞空間是您查詢環境的地方。 它位於畫面的左側：
+      - **量值**：這個下拉式清單會顯示所有數值資料行（**雙精度**浮點數）。
+      - **分割依據**：此下拉式清單會顯示類別資料行（**字串**）。
+      - 您可以啟用步驟插補、顯示最小和最大值，以及調整 [**測量**] 旁 [控制台] 中的 y 軸。 您也可以調整顯示的資料是資料的計數、平均值或總和。
+      - 您最多可以在同一個 X 軸上加入五個詞彙。 選取 [**新增**] 以新增新的字詞，或使用 [**複製此詞彙**] 按鈕來加入現有詞彙的複本。
 
-        [![Terms selection, filtering, and query panel](media/time-series-insights-explorer/tsi-ga-explorer-add-or-clone.png)](media/time-series-insights-explorer/tsi-ga-explorer-add-or-clone.png#lightbox)
+        [選取、篩選和查詢面板 ![詞彙](media/time-series-insights-explorer/tsi-ga-explorer-add-or-clone.png)](media/time-series-insights-explorer/tsi-ga-explorer-add-or-clone.png#lightbox)
 
-      - **Predicate**: Use the predicate to quickly filter your events by using the set of operands listed in the following table. If you conduct a search by selecting or clicking, the predicate automatically updates based on that search. 支援的運算元類型包括：
+      - 述**詞：使用**述詞，使用下表所列的一組運算元來快速篩選事件。 如果您選取或按一下來進行搜尋，述詞會根據該搜尋自動進行更新。 支援的運算元類型包括：
 
-         |作業  |支援的類型  |注意  |
+         |作業  |支援的類型  |注意事項  |
          |---------|---------|---------|
-         |**<** , **>** , **<=** , **>=**    |  **Double**, **DateTime**, **TimeSpan**       |         |
-         |**=** , **!=** , **<>**     | **String**, **Bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |         |
-         |**IN**     | **String**, **Bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |  All operands should be of the same type or be **NULL** constant.        |
-         |**HAS**     | **String**        |  Only constant string literals are allowed at the right side. Empty string and **NULL** aren't allowed.       |
+         |**<** 、 **>** 、 **<=** 、 **>=**    |  **Double**、 **DateTime**、 **TimeSpan**       |         |
+         |**=** 、 **！ =** 、 **<>**     | **String**、 **Bool**、 **Double**、 **DateTime**、 **TimeSpan**、 **Null**        |         |
+         |**IN**     | **String**、 **Bool**、 **Double**、 **DateTime**、 **TimeSpan**、 **Null**        |  所有運算元都應該是相同的類型，或為**Null**常數。        |
+         |**已**     | **String**        |  右側只允許常數位串常值。 不允許空字串和**Null** 。       |
 
-      - **Example queries**
+      - **範例查詢**
 
-         [![Example GA queries](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
+         [![GA 查詢範例](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
 
-1. You can use the **Interval Size** slider tool to zoom in and out of intervals over the same timespan. The slider provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, which allow you to see granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection to balance resolution, query speed, and granularity.
+1. 您可以使用 [**間隔大小**] 滑杆工具來放大和縮小相同 timespan 的間隔。 滑杆可讓您更精確地控制在大型時間配量之間的移動，這種方式會將平滑的趨勢向下顯示為小到毫秒，讓您能夠查看細微、高解析度的資料剪。 滑杆的預設起始點會設定為從您的選取範圍最理想的觀點，以平衡解析度、查詢速度和資料細微性。
 
-1. The **Time brush** tool makes it easy to navigate from one timespan to another.
+1. **時間筆刷**工具可讓您輕鬆地從一個 timespan 流覽至另一個時間範圍。
 
-1. Select the **Save** icon to save your current query and share it with other users of the environment. When you select the **Open** icon, you can see all of your saved queries and any shared queries of other users in environments you have access to.
+1. 選取**儲存**圖示以儲存您目前的查詢，並與環境的其他使用者共用。 當您選取 [**開啟**] 圖示時，您可以在您擁有存取權的環境中，看到所有已儲存的查詢和其他使用者的任何共用查詢。
 
-   [![Queries](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png)](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png#lightbox)
+   [![查詢](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png)](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png#lightbox)
 
 ## <a name="visualize-data"></a>顯現資料
 
-1. Use the **Perspective View** tool for a simultaneous view of up to four unique queries. The **Perspective View** button is in the upper-right corner of the chart.
+1. 使用 [**透視視圖**] 工具，即可同時查看最多四個唯一的查詢。 [**透視視圖**] 按鈕位於圖表的右上角。
 
-   [![Select queries to add to the perspective pane](media/time-series-insights-explorer/tsi-ga-explorer-perspective-panes.png)](media/time-series-insights-explorer/tsi-ga-explorer-perspective-panes.png#lightbox)
+   [![選取要加入至 [透視] 窗格的查詢](media/time-series-insights-explorer/tsi-ga-explorer-perspective-panes.png)](media/time-series-insights-explorer/tsi-ga-explorer-perspective-panes.png#lightbox)
 
-1. View a chart to visually explore your data, and use the **Chart** tools:
+1. 觀看圖表以視覺化方式流覽您的資料，並使用**圖表**工具：
 
-    - **Select** or **click** a specific timespan or a single data series.
-    - Within a timespan selection, you can zoom or explore events.
+    - **選取**或**按一下**特定的 timespan 或單一資料數列。
+    - 在 timespan 選取範圍內，您可以縮放或流覽事件。
     - 在資料序列內，您可以由另一個資料行分割序列、將序列新增為新的字詞、只顯示選取的序列、排除選取的序列、釘選該序列或從選取的序列探索事件。
-    - In the filter area to the left of the chart, you can see all displayed data series and reorder by value or name. You also can view all data series or any pinned or unpinned series. You can select a single data series and split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, pin that series, or explore events from the selected series.
-    - When you view multiple terms simultaneously, you can stack, unstack, see additional data about a data series, and use the same y-axis across all terms. Use the buttons in the upper-right corner of the chart.
+    - 在圖表左邊的 [篩選] 區域中，您可以看到所有顯示的資料序列，並依值或名稱重新排序。 您也可以查看所有資料數列或任何已釘選或取消固定的數列。 您可以選取單一資料序列，並依另一個資料行分割序列、將數列新增為新的字詞、只顯示選取的數列、排除選取的序列、釘選該數列，或從選取的數列探索事件。
+    - 當您同時查看多個詞彙時，可以堆疊、取消、查看有關資料數列的其他資料，並在所有詞彙上使用相同的 y 軸。 使用圖表右上角的按鈕。
 
-    [![Chart tool upper right corner option settings](media/time-series-insights-explorer/tsi-ga-example-chart-options.png)](media/time-series-insights-explorer/tsi-ga-example-chart-options.png#lightbox)
+    [![圖表工具右上角選項設定](media/time-series-insights-explorer/tsi-ga-example-chart-options.png)](media/time-series-insights-explorer/tsi-ga-example-chart-options.png#lightbox)
 
-1. Use the **heatmap** to quickly spot unique or anomalous data series in a given query. 只有一個搜尋字詞可視覺化為熱度圖。
+1. 使用**熱度圖**，快速找出給定查詢中的唯一或異常資料數列。 只有一個搜尋字詞可視覺化為熱度圖。
 
-    [![GA explorer heatmap charting ](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [![GA explorer 熱度圖圖表](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
-1. When you explore events by selecting or right-clicking, the **EVENTS** panel is made available. 在這裡，您可以看到所有未經處理的事件，並將您的事件匯出為 JSON 或 CSV 檔案。 Time Series Insights stores all raw data.
+1. 當您選取或以滑鼠右鍵按一下來流覽事件時，[**事件**] 面板就會成為可用。 在這裡，您可以看到所有未經處理的事件，並將您的事件匯出為 JSON 或 CSV 檔案。 時間序列深入解析儲存所有原始資料。
 
-    [![Events](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png)](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png#lightbox)
+    [![事件](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png)](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png#lightbox)
 
-1. Select the **STATS** tab after you explore events to expose patterns and column stats.
+1. 探索事件之後，請選取 [**統計**資料] 索引標籤，以公開模式和資料行統計資料。
 
-    - **Patterns**: This feature proactively surfaces the most statistically significant patterns in a selected data region. You don't have to look at thousands of events to understand what patterns require the most time and energy. With Time Series Insights, you can jump directly into these statistically significant patterns to continue conducting an analysis. 這項功能對於事後調查歷史資料也很有幫助。
-    - **Column Stats**: Column stats provide charts and tables that break down data from each column of the selected data series over the selected timespan.
+    - **模式**：這項功能會主動呈現所選資料區域中最具統計的重大模式。 您不需要查看數以千計的事件，即可瞭解哪些模式需要最多的時間和能源。 有了時間序列深入解析，您就可以直接跳到這些統計重要的模式，繼續進行分析。 這項功能對於事後調查歷史資料也很有幫助。
+    - 資料**行統計**資料：資料行統計資料提供的圖表和資料表，會在選取的時間範圍內，細分所選資料數列中每個資料行的資料。
 
-      [![STATS column charting and options](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png)](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png#lightbox)
+      [![統計資料行圖表和選項](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png)](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png#lightbox)
 
-Now you've seen the various features and options that are available within the Time Series Insights explorer web app.
+現在您已瞭解時間序列深入解析 explorer web 應用程式中可用的各種功能和選項。
 
 ## <a name="next-steps"></a>後續步驟
 
-- Learn how to [diagnose and solve problems](time-series-insights-diagnose-and-solve-problems.md) in your Time Series Insights environment.
+- 瞭解如何在您的時間序列深入解析環境中[診斷並解決問題](time-series-insights-diagnose-and-solve-problems.md)。
 
-- Take the guided [Azure Time Series Insights quickstart](time-series-quickstart.md) tour.
+- 進行引導式[Azure 時間序列深入解析快速入門](time-series-quickstart.md)導覽。

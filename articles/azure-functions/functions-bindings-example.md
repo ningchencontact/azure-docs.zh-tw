@@ -1,6 +1,6 @@
 ---
-title: Azure Functions trigger and binding example
-description: Learn to configure Azure Function bindings
+title: Azure Functions 觸發程式和系結範例
+description: 瞭解如何設定 Azure 函數系結
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
@@ -12,9 +12,9 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227234"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions trigger and binding example
+# <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions 觸發程式和系結範例
 
-This article demonstrates how to configure a [trigger and bindings](./functions-triggers-bindings.md) in an Azure Function.
+本文示範如何在 Azure 函數中設定[觸發程式和](./functions-triggers-bindings.md)系結。
 
 假設您想要每當新訊息出現在 Azure 佇列儲存體時，就在 Azure 表格儲存體寫入新的資料列。 此案例可以使用 Azure 佇列儲存體觸發程序和 Azure 表格儲存體輸出繫結來實作。 
 
@@ -52,7 +52,7 @@ This article demonstrates how to configure a [trigger and bindings](./functions-
 
 ## <a name="c-script-example"></a>C# 指令碼範例
 
-以下是可搭配此觸發程序和繫結使用的 C# 指令碼。 請注意，提供佇列訊息內容的參數名稱為 `order`；由於 *function.json* 中的 `name` 屬性值為 `order`，因此必須使用此名稱 
+以下是可搭配此觸發程序和繫結使用的 C# 指令碼。 請注意，提供佇列訊息內容的參數名稱為 `order`；由於 `name`function.json*中的* 屬性值為 `order`，因此必須使用此名稱 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -82,7 +82,7 @@ public class Person
 
 ## <a name="javascript-example"></a>JavaScript 範例
 
-The same *function.json* file can be used with a JavaScript function:
+相同的*函數. json*檔案可以與 JavaScript 函式搭配使用：
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -100,7 +100,7 @@ function generateRandomId() {
 }
 ```
 
-## <a name="class-library-example"></a>Class library example
+## <a name="class-library-example"></a>類別庫範例
 
 在類別庫中，會由屬性 (而非 function.json 檔案) 提供相同的觸發程序和繫結資訊 &mdash;佇列和資料表名稱、儲存體帳戶、輸入和輸出的函式參數&mdash;。 以下是範例：
 
@@ -130,9 +130,9 @@ public class Person
 }
 ```
 
-You now have a working function that is triggered by an Azure Queue and outputs data to Azure Table storage.
+您現在有一個可運作的函式，它會由 Azure 佇列觸發，並將資料輸出到 Azure 資料表儲存體。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Azure Functions binding expression patterns](./functions-bindings-expressions-patterns.md)
+> [Azure Functions 系結運算式模式](./functions-bindings-expressions-patterns.md)

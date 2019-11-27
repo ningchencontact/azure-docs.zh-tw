@@ -1,6 +1,6 @@
 ---
-title: Setup your environment for Blueprint Operator
-description: Learn how to configure your Azure environment for use with the Blueprint Operator built-in role-based access control (RBAC) role.
+title: 設定藍圖操作員的環境
+description: 瞭解如何設定您的 Azure 環境，以用於藍圖操作員內建的角色型存取控制（RBAC）角色。
 ms.date: 08/26/2019
 ms.topic: conceptual
 ms.openlocfilehash: 671ac3aaf42bddb3e775baec6838e4c271c4e855
@@ -12,27 +12,27 @@ ms.locfileid: "74406363"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>設定藍圖操作員環境
 
-The management of your blueprint definitions and blueprint assignments can be assigned to different teams. It's common for an architect or governance team to be responsible for the lifecycle management of your blueprint definitions while an operations team is responsible for managing assignments of those centrally controlled blueprint definitions.
+您的藍圖定義和藍圖指派的管理可以指派給不同的小組。 架構設計師或治理小組通常會負責藍圖定義的生命週期管理，而作業小組則負責管理這些集中控制之藍圖定義的指派。
 
-The **Blueprint Operator** built-in role-based access control (RBAC) is designed specifically for use in this type of scenario. The role allows for operations type teams to manage the assignment of the organizations blueprint definitions, but not the ability to modify them. Doing so requires some configuration in your Azure environment and this article explains the necessary steps.
+**藍圖操作員**內建的角色型存取控制（RBAC）是專為在這類案例中使用而設計的。 此角色可讓作業類型小組管理組織藍圖定義的指派，但無法修改其功能。 若要這麼做，您必須在 Azure 環境中進行一些設定，這篇文章會說明必要的步驟。
 
-## <a name="grant-permission-to-the-blueprint-operator"></a>Grant permission to the Blueprint Operator
+## <a name="grant-permission-to-the-blueprint-operator"></a>授與藍圖運算子的許可權
 
-The first step is to grant the **Blueprint Operator** role to the account or security group (recommended) that is going to be assigning blueprints. This action should be done at the highest level in the management group hierarchy that encompasses all of the management groups and subscriptions the operations team should have blueprint assignment access to. It's recommended to follow the principle of least privilege when granting these permissions.
+第一個步驟是將要指派藍圖的帳戶或安全性群組（建議）授與**藍圖操作員**角色。 此動作應在管理群組階層中的最高層級完成，其中包含作業小組應該具有藍圖指派存取權的所有管理群組和訂用帳戶。 建議您在授與這些許可權時，遵循最低許可權的原則。
 
-1. (Recommended) [Create a security group and add members](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
+1. 使用[建立安全性群組並新增成員](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
-1. [Add a role assignment](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) of **Blueprint Operator** to the account or security group
+1. 將**藍圖操作員**的[角色指派新增](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment)至帳戶或安全性群組
 
-## <a name="user-assign-managed-identity"></a>User-assign managed identity
+## <a name="user-assign-managed-identity"></a>使用者-指派受控識別
 
-A blueprint definition can use either system-assigned or user-assigned managed identities. However, when using the **Blueprint Operator** role, the blueprint definition needs to be configured to use a user-assigned managed identity. Additionally, the account or security group being granted the **Blueprint Operator** role needs to be granted the **Managed Identity Operator** role on the user-assigned managed identity. Without this permission, blueprint assignments fail because of lack of permissions.
+藍圖定義可以使用系統指派或使用者指派的受控識別。 不過，使用**藍圖操作員**角色時，藍圖定義必須設定為使用使用者指派的受控識別。 此外，授與**藍圖操作員**角色的帳戶或安全性群組，必須在使用者指派的受控識別上授與**受控識別操作員**角色。 若沒有此許可權，藍圖指派會因為許可權不足而失敗。
 
-1. [Create a user-assigned managed identity](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) for use by an assigned blueprint
+1. [建立使用者指派的受控識別](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)，供指派的藍圖使用
 
-1. [Add a role assignment](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) of **Managed Identity Operator** to the account or security group. Scope the role assignment to the new user-assigned managed identity.
+1. 將**受控識別操作員**的[角色指派新增](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment)至帳戶或安全性群組。 將角色指派的範圍限定為新使用者指派的受控識別。
 
-1. As the **Blueprint Operator**, [assign a blueprint](../create-blueprint-portal.md#assign-a-blueprint) that uses the new user-assigned managed identity.
+1. 作為**藍圖運算子**，指派使用新使用者指派受控識別的[藍圖](../create-blueprint-portal.md#assign-a-blueprint)。
 
 ## <a name="next-steps"></a>後續步驟
 

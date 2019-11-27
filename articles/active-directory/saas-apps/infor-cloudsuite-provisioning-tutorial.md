@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Infor CloudSuite for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Infor CloudSuite.
+title: 教學課程：使用 Azure Active Directory 設定 Infor CloudSuite 來自動布建使用者 |Microsoft Docs
+description: 瞭解如何設定 Azure Active Directory 以自動布建和取消布建使用者帳戶至 Infor CloudSuite。
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -22,71 +22,71 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74408712"
 ---
-# <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Tutorial: Configure Infor CloudSuite for automatic user provisioning
+# <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>教學課程：設定 Infor CloudSuite 來自動布建使用者
 
-The objective of this tutorial is to demonstrate the steps to be performed in Infor CloudSuite and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Infor CloudSuite.
+本教學課程的目的是要示範要在 Infor CloudSuite 和 Azure Active Directory （Azure AD）中執行的步驟，以設定 Azure AD 自動布建和取消布建使用者和/或群組至 Infor CloudSuite。
 
 > [!NOTE]
 > 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../manage-apps/user-provisioning.md)。
 >
 > 此連接器目前為公開預覽版。 如需有關預覽功能的一般 Microsoft Azure 使用規定詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中概述的案例假設您已經具有下列必要條件：
 
 * Azure AD 租用戶
-* [A Infor CloudSuite tenant](https://www.infor.com/products/infor-os)
-* A user account in Infor CloudSuite with Admin permissions.
+* [Infor CloudSuite 租使用者](https://www.infor.com/products/infor-os)
+* Infor CloudSuite 中具有系統管理員許可權的使用者帳戶。
 
-## <a name="assigning-users-to-infor-cloudsuite"></a>Assigning users to Infor CloudSuite
+## <a name="assigning-users-to-infor-cloudsuite"></a>將使用者指派給 Infor CloudSuite
 
-Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
+Azure Active Directory 使用稱為「*指派*」的概念，來判斷哪些使用者應接收所選應用程式的存取權。 在自動使用者布建的內容中，只有已指派給 Azure AD 中應用程式的使用者和/或群組會進行同步處理。
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Infor CloudSuite. Once decided, you can assign these users and/or groups to Infor CloudSuite by following the instructions here:
+在設定並啟用自動使用者布建之前，您應該決定 Azure AD 中的哪些使用者和/或群組需要存取 Infor CloudSuite。 一旦決定後，您可以遵循此處的指示，將這些使用者和/或群組指派給 Infor CloudSuite：
 * [將使用者或群組指派給企業應用程式](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-infor-cloudsuite"></a>Important tips for assigning users to Infor CloudSuite
+## <a name="important-tips-for-assigning-users-to-infor-cloudsuite"></a>將使用者指派給 Infor CloudSuite 的重要秘訣
 
-* It is recommended that a single Azure AD user is assigned to Infor CloudSuite to test the automatic user provisioning configuration. 其他使用者及/或群組可能會稍後再指派。
+* 建議將單一 Azure AD 使用者指派給 Infor CloudSuite，以測試自動使用者布建設定。 其他使用者及/或群組可能會稍後再指派。
 
-* When assigning a user to Infor CloudSuite, you must select any valid application-specific role (if available) in the assignment dialog. 具有**預設存取**角色的使用者會從佈建中排除。
+* 將使用者指派給 Infor CloudSuite 時，您必須在 [指派] 對話方塊中選取任何有效的應用程式特定角色（如果有的話）。 具有**預設存取**角色的使用者會從佈建中排除。
 
-## <a name="set-up-infor-cloudsuite-for-provisioning"></a>Set up Infor CloudSuite for provisioning
+## <a name="set-up-infor-cloudsuite-for-provisioning"></a>設定 Infor CloudSuite 以提供布建
 
-1. Sign in to your [Infor CloudSuite Admin Console](https://www.infor.com/customer-center). Click on the user icon and then navigate to **user management**.
+1. 登入您的[Infor CloudSuite 管理主控台](https://www.infor.com/customer-center)。 按一下 [使用者] 圖示，然後流覽至 [**使用者管理**]。
 
-    ![Infor CloudSuite Admin Console](media/infor-cloudsuite-provisioning-tutorial/admin.png)
+    ![Infor CloudSuite 管理主控台](media/infor-cloudsuite-provisioning-tutorial/admin.png)
 
-2.  Click on the menu icon on the left top corner of the screen. Click on **Manage**.
+2.  按一下畫面左上角的功能表圖示。 按一下 [**管理**]。
 
-    ![Infor CloudSuite Add SCIM](media/infor-cloudsuite-provisioning-tutorial/manage.png)
+    ![Infor CloudSuite 新增 SCIM](media/infor-cloudsuite-provisioning-tutorial/manage.png)
 
-3.  Navigate to **SCIM Accounts**.
+3.  流覽至**SCIM 帳戶**。
 
-    ![Infor CloudSuite SCIM Account](media/infor-cloudsuite-provisioning-tutorial/scim.png)
+    ![Infor CloudSuite SCIM 帳戶](media/infor-cloudsuite-provisioning-tutorial/scim.png)
 
-4.  Add an admin user by clicking on the plus icon. Provide a **SCIM Password** and type the same password under **Confirm Password**. Click on the folder icon to save the password. You will then see an **User Identifier** generated for the admin user.
+4.  按一下加號圖示來新增系統管理員使用者。 提供**SCIM 密碼**，並在 [**確認密碼**] 下輸入相同的密碼。 按一下資料夾圖示以儲存密碼。 接著，您會看到為系統管理員使用者所產生的**使用者識別碼**。
 
-    ![Infor CloudSuite Admin user](media/infor-cloudsuite-provisioning-tutorial/newuser.png)
+    ![Infor CloudSuite 管理員使用者](media/infor-cloudsuite-provisioning-tutorial/newuser.png)
     
-    ![Infor CloudSuite password](media/infor-cloudsuite-provisioning-tutorial/password.png)
+    ![Infor CloudSuite 密碼](media/infor-cloudsuite-provisioning-tutorial/password.png)
 
-    ![Infor CloudSuite identifier](media/infor-cloudsuite-provisioning-tutorial/identifier.png)
+    ![Infor CloudSuite 識別碼](media/infor-cloudsuite-provisioning-tutorial/identifier.png)
 
-5. To generate the bearer token, copy the **User Identifier** and **SCIM Password**. Paste them in notepad++ separated by a colon. Encode the string value by navigating to **Plugins > MIME Tools > Basic64 Encode**. 
+5. 若要產生持有人權杖，請複製 [**使用者識別碼**] 和 [ **SCIM 密碼**]。 將它們貼在 [記事本 + +] 中，並以冒號分隔。 藉由流覽至**外掛程式 > MIME 工具 > Basic64 編碼**來編碼字串值。 
 
-    ![Infor CloudSuite identifier](media/infor-cloudsuite-provisioning-tutorial/token.png)
+    ![Infor CloudSuite 識別碼](media/infor-cloudsuite-provisioning-tutorial/token.png)
 
-3.  Copy the bearer token. This value will be entered in the Secret Token field in the Provisioning tab of your Infor CloudSuite application in the Azure portal.
+3.  複製持有人權杖。 此值將會在 Azure 入口網站中 Infor CloudSuite 應用程式的 [布建] 索引標籤的 [密碼權杖] 欄位中輸入。
 
-## <a name="add-infor-cloudsuite-from-the-gallery"></a>Add Infor CloudSuite from the gallery
+## <a name="add-infor-cloudsuite-from-the-gallery"></a>從資源庫新增 Infor CloudSuite
 
-Before configuring Infor CloudSuite for automatic user provisioning with Azure AD, you need to add Infor CloudSuite from the Azure AD application gallery to your list of managed SaaS applications.
+將 Infor CloudSuite 設定為使用 Azure AD 自動布建使用者之前，您需要從 Azure AD 應用程式資源庫將 Infor CloudSuite 新增到受控 SaaS 應用程式清單中。
 
-**To add Infor CloudSuite from the Azure AD application gallery, perform the following steps:**
+**若要從 Azure AD 應用程式庫新增 Infor CloudSuite，請執行下列步驟：**
 
-1. In the **[Azure portal](https://portal.azure.com)** , in the left navigation panel, select **Azure Active Directory**.
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左側導覽窗格中，選取 [ **Azure Active Directory**]。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
@@ -94,27 +94,27 @@ Before configuring Infor CloudSuite for automatic user provisioning with Azure A
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. To add a new application, select the **New application** button at the top of the pane.
+3. 若要新增新的應用程式，請選取窗格頂端的 [**新增應用程式**] 按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. In the search box, enter **Infor CloudSuite**, select **Infor CloudSuite** in the results panel, and then click the **Add** button to add the application.
+4. 在搜尋方塊中，輸入**Infor CloudSuite**，在結果面板中選取 [ **Infor CloudSuite** ]，然後按一下 [**新增**] 按鈕以新增應用程式。
 
     ![結果清單中的 Infor CloudSuite](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-infor-cloudsuite"></a>Configuring automatic user provisioning to Infor CloudSuite 
+## <a name="configuring-automatic-user-provisioning-to-infor-cloudsuite"></a>設定自動使用者布建至 Infor CloudSuite 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Infor CloudSuite based on user and/or group assignments in Azure AD.
+本節將引導您逐步設定 Azure AD 布建服務，以根據 Azure AD 中的使用者和/或群組指派，在 Infor CloudSuite 中建立、更新和停用使用者和/或群組。
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Infor CloudSuite , following the instructions provided in the [Infor CloudSuite Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloud-suite-tutorial). 雖然自動使用者佈建和單一登入這兩個功能彼此補充，您可以分開設定它們。
+> 您也可以選擇啟用 Infor CloudSuite 的 SAML 型單一登入，請遵循[Infor CloudSuite 單一登入教學](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloud-suite-tutorial)課程中提供的指示。 雖然自動使用者佈建和單一登入這兩個功能彼此補充，您可以分開設定它們。
 
 > [!NOTE]
-> To learn more about Infor CloudSuite's SCIM endpoint, refer [this](https://docs.infor.com/mingle/12.0.x/en-us/minceolh/jho1449382121585.html#).
+> 若要深入瞭解 Infor CloudSuite 的 SCIM 端點，請參閱[此](https://docs.infor.com/mingle/12.0.x/en-us/minceolh/jho1449382121585.html#)。
 
-### <a name="to-configure-automatic-user-provisioning-for-infor-cloudsuite-in-azure-ad"></a>To configure automatic user provisioning for Infor CloudSuite in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-infor-cloudsuite-in-azure-ad"></a>在 Azure AD 中設定 Infor CloudSuite 的自動使用者布建：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。 Select **Enterprise Applications**, then select **All applications**.
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 選取 [**企業應用程式**]，然後選取 [**所有應用程式**]。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
@@ -124,45 +124,45 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. 選取 [佈建] 索引標籤。
 
-    ![Provisioning tab](common/provisioning.png)
+    ![布建索引標籤](common/provisioning.png)
 
 4. 將 [佈建模式] 設定為 [自動]。
 
-    ![Provisioning tab](common/provisioning-automatic.png)
+    ![布建索引標籤](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://mingle-t20b-scim.mingle.awsdev.infor.com/INFORSTS_TST/v2/scim` in **Tenant URL**. Input the bearer token value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Infor CloudSuite. If the connection fails, ensure your Infor CloudSuite account has Admin permissions and try again.
+5. 在 [**管理員認證**] 區段下，于 [**租使用者 URL**] 中輸入 `https://mingle-t20b-scim.mingle.awsdev.infor.com/INFORSTS_TST/v2/scim`。 輸入稍早在**秘密權杖**中所取得的持有人權杖值。 按一下 [**測試連接**] 以確保 Azure AD 可以連接到 Infor CloudSuite。 如果連線失敗，請確定您的 Infor CloudSuite 帳戶具有系統管理員許可權，然後再試一次。
 
     ![租用戶 URL + 權杖](common/provisioning-testconnection-tenanturltoken.png)
 
-6. 在 [通知電子郵件] 欄位中，輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選 [發生失敗時傳送電子郵件通知] 核取方塊。
+6. 在 [通知電子郵件] 欄位中，輸入應該收到佈建錯誤通知的個人或群組電子郵件地址，然後選取 [發生失敗時傳送電子郵件通知] 核取方塊。
 
     ![通知電子郵件](common/provisioning-notification-email.png)
 
-7. 按一下 [儲存]。
+7. 按一下 [檔案]。
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Infor CloudSuite**.
+8. **在 [對應**] 區段下，選取 [**同步處理 Azure Active Directory 使用者至 Infor CloudSuite**]。
 
-    ![Infor CloudSuite User Mappings](media/infor-cloudsuite-provisioning-tutorial/usermappings.png)
+    ![Infor CloudSuite 使用者對應](media/infor-cloudsuite-provisioning-tutorial/usermappings.png)
 
-9. Review the user attributes that are synchronized from Azure AD to Infor CloudSuite in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Infor CloudSuite for update operations. 選取 [儲存] 按鈕以認可所有變更。
+9. 在 [**屬性對應**] 區段中，檢查從 Azure AD 同步處理到 Infor CloudSuite 的使用者屬性。 選取為 [比對] 屬性**的屬性會**用來比對 Infor CloudSuite 中的使用者帳戶，以進行更新作業。 選取 [儲存] 按鈕以認可所有變更。
 
-    ![Infor CloudSuite User Attributes](media/infor-cloudsuite-provisioning-tutorial/userattributes.png)
+    ![Infor CloudSuite 使用者屬性](media/infor-cloudsuite-provisioning-tutorial/userattributes.png)
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Infor CloudSuite**.
+10. **在 [對應**] 區段下，選取 [**同步處理 Azure Active Directory 群組至 Infor CloudSuite**]。
 
-    ![Infor CloudSuite Group Mappings](media/infor-cloudsuite-provisioning-tutorial/groupmappings.png)
+    ![Infor CloudSuite 群組對應](media/infor-cloudsuite-provisioning-tutorial/groupmappings.png)
 
-11. Review the group attributes that are synchronized from Azure AD to Infor CloudSuite in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Infor CloudSuite for update operations. 選取 [儲存] 按鈕以認可所有變更。
+11. 在 [**屬性對應**] 區段中，檢查從 Azure AD 同步至 Infor CloudSuite 的群組屬性。 選取為 [比對] 屬性**的屬性會**用來比對 Infor CloudSuite 中的群組以進行更新作業。 選取 [儲存] 按鈕以認可所有變更。
 
-    ![Infor CloudSuite Group Attributes](media/infor-cloudsuite-provisioning-tutorial/groupattributes.png)
+    ![Infor CloudSuite 群組屬性](media/infor-cloudsuite-provisioning-tutorial/groupattributes.png)
 
 12. 若要設定範圍篩選，請參閱[範圍篩選教學課程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的下列指示。
 
-13. To enable the Azure AD provisioning service for Infor CloudSuite, change the **Provisioning Status** to **On** in the **Settings** section.
+13. 若要啟用 Infor CloudSuite 的 Azure AD 布建服務，請在 [**設定**] 區段中，將 [布建**狀態**] 變更為 [**開啟**]。
 
     ![佈建狀態已切換為開啟](common/provisioning-toggle-on.png)
 
-14. Define the users and/or groups that you would like to provision to Infor CloudSuite by choosing the desired values in **Scope** in the **Settings** section.
+14. 在 [**設定**] 區段的 [**範圍**] 中選擇所需的值，以定義您想要布建到 Infor CloudSuite 的使用者和/或群組。
 
     ![佈建範圍](common/provisioning-scope.png)
 
@@ -170,7 +170,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
     ![儲存雲端佈建設定](common/provisioning-configuration-save.png)
 
-此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Infor CloudSuite.
+此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [**同步處理詳細資料**] 區段來監視進度，並遵循連結來布建活動報告，其中描述 Infor CloudSuite 上的 Azure AD 布建服務所執行的所有動作。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 

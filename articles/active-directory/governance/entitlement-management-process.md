@@ -1,6 +1,6 @@
 ---
-title: Request process and email notifications in Azure AD entitlement management - Azure Active Directory
-description: Learn about the request process for an access package and when email notifications are sent in Azure Active Directory entitlement management.
+title: Azure AD 權利管理中的要求處理和電子郵件通知-Azure Active Directory
+description: 瞭解存取套件的要求程式，以及在 Azure Active Directory 權利管理中傳送電子郵件通知的時間。
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -23,136 +23,136 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74206994"
 ---
-# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Request process and email notifications in Azure AD entitlement management
+# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Azure AD 權利管理中的要求處理和電子郵件通知
 
-When a user submits a request to an access package, a process begins to deliver that access request. Azure AD entitlement management sends email notifications to approvers and requestors when key events occur during the process. This article describes the request process and the email notifications that are sent.
+當使用者將要求提交至存取套件時，處理常式就會開始傳遞該存取要求。 Azure AD 權利管理會在過程中發生重要事件時，將電子郵件通知傳送給核准者和要求者。 本文說明要求程式和傳送的電子郵件通知。
 
-## <a name="request-process"></a>Request process
+## <a name="request-process"></a>要求處理
 
-A user that needs access to an access package can submit an access request. Depending on the configuration of the policy, the request might require an approval. When a request is approved, a process begins to assign the user access to each resource in the access package. The following diagram shows an overview of the process and the different states:
+必須存取存取套件的使用者可以提交存取要求。 視原則的設定而定，要求可能需要核准。 當要求獲得核准時，處理常式會開始將存取封裝中每個資源的存取權指派給該使用者。 下圖顯示進程和不同狀態的總覽：
 
-![Approval process diagram](./media/entitlement-management-process/request-process.png)
+![核准流程圖表](./media/entitlement-management-process/request-process.png)
 
-| 狀況 | 描述 |
+| State | 描述 |
 | --- | --- |
-| Submitted | User submits a request. |
-| 等待核准 | If the policy for an access package requires approval, a request moves to pending approval. |
-| 已過期 | If no approvers approve a request within the approval request timeout, the request expires. To try again, the user will have to resubmit their request. |
-| Denied | Approver denies a request. |
-| 已核准 | Approver approves a request. |
-| 傳遞 | User has **not** been assigned access to all the resources in the access package. If this is an external user, the user may not have accessed the resource directory yet. They also may not have accepted the consent prompt. |
-| 已傳遞 | User has been assigned access to all the resources in the access package. |
-| Access extended | If extensions are allowed in the policy, the user extended the assignment. |
-| Access expired | User's access to the access package has expired. To get access again, the user will have to submit a request. |
+| 呈交 | 使用者提交要求。 |
+| 等待核准 | 如果存取套件的原則需要核准，則要求會移至 [待核准]。 |
+| 已過期 | 如果沒有核准者核准要求超時內的要求，要求就會過期。 若要再試一次，使用者將必須重新提交其要求。 |
+| 拒絕 | 核准者拒絕要求。 |
+| 已核准 | 核准者核准要求。 |
+| 傳遞 | 使用者尚未**獲**指派存取封裝中所有資源的存取權。 如果這是外部使用者，則使用者可能尚未存取資原始目錄。 他們可能也不接受同意提示。 |
+| 已傳遞 | 使用者已獲指派存取封裝中所有資源的存取權。 |
+| 存取擴充 | 如果原則中允許延伸模組，則使用者會擴充指派。 |
+| 存取已過期 | 使用者對存取套件的存取權已過期。 若要再次取得存取權，使用者必須提交要求。 |
 
 ## <a name="email-notifications"></a>電子郵件通知
 
-If you're an approver, you're sent email notifications when you need to approve an access request. You also receive notifications when an access request has been completed. You're also sent email notifications that indicate the status of your request if you're a requestor.
+如果您是核准者，當您需要核准存取要求時，就會傳送電子郵件通知給您。 當存取要求完成時，您也會收到通知。 如果您是要求者，也會傳送電子郵件通知，指出您的要求狀態。
 
-The following diagrams show when these email notifications are sent to either the approvers or the requestor. Reference the [email notifications table](entitlement-management-process.md#email-notifications-table) to find the corresponding number to the email notifications displayed in the diagrams.
+下圖顯示這些電子郵件通知何時傳送給核准者或要求者。 參考 [[電子郵件通知] 資料表](entitlement-management-process.md#email-notifications-table)，尋找圖表中顯示之電子郵件通知的對應號碼。
 
-### <a name="first-approvers-and-alternate-approvers"></a>First approvers and alternate approvers
-The following diagram shows the experience of first approvers and alternate approvers, and the email notifications they receive during the request process:
+### <a name="first-approvers-and-alternate-approvers"></a>第一位核准者和替代核准者
+下圖顯示第一個核准者和替代核准者的體驗，以及在要求程式期間收到的電子郵件通知：
 
-![First and alternate approvers process flow](./media/entitlement-management-process/first-approvers-and-alternate-with-escalation-flow.png)
+![第一個和替代的核准者處理流程](./media/entitlement-management-process/first-approvers-and-alternate-with-escalation-flow.png)
 
 ### <a name="requestors"></a>要求者
-The following diagram shows the experience of requestors and the email notifications they receive during the request process:
+下圖顯示要求者的體驗，以及在要求過程中所收到的電子郵件通知：
 
-![Requestor process flow](./media/entitlement-management-process/requestor-approval-request-flow.png)
+![要求者程式流程](./media/entitlement-management-process/requestor-approval-request-flow.png)
 
-### <a name="2-stage-approval"></a>2-stage approval
-The following diagram shows the experience of stage-1 and stage-2 approvers and the email notifications they receive during the request process:
+### <a name="2-stage-approval"></a>2階段核准
+下圖顯示第1階段和第2階段核准者的體驗，以及在要求過程中收到的電子郵件通知：
 
-![2-stage approval process flow](./media/entitlement-management-process/2stage-approval-with-request-timeout-flow.png)
+![2階段核准程式流程](./media/entitlement-management-process/2stage-approval-with-request-timeout-flow.png)
 
-### <a name="email-notifications-table"></a>Email notifications table
-The following table provides more detail about each of these email notifications. To manage these emails, you can use rules. For example, in Outlook, you can create rules to move the emails to a folder if the subject contains words from this table:
+### <a name="email-notifications-table"></a>電子郵件通知資料表
+下表提供每個電子郵件通知的詳細資訊。 若要管理這些電子郵件，您可以使用規則。 例如，您可以在 Outlook 中建立規則，將電子郵件移至資料夾（如果主旨包含此表格中的單字）：
 
-| # | 電子郵件主旨 | When sent | Sent to |
+| # | 電子郵件主旨 | 傳送時 | 傳送至 |
 | --- | --- | --- | --- |
-| 1 | Action required: Approve or deny forwarded request by *[date]* | This email will be sent to Stage-1 alternate approvers (after the request has been escalated) to take action. | Stage-1 alternate approvers |
-| 2 | Action required: Approve or deny request by *[date]* | This email will be sent to the first approver, if escalation is disabled, to take action. | First approver |
-| 3 | Reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to the first approver, if escalation is disabled. The email asks them to take action if they haven't. | First approver |
-| 4 | Approve or deny the request by *[time]* on *[date]* | This email will be sent to the first approver (if escalation is enabled) to take action. | First approver |
-| 5 | Action required reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to the first approver, if escalation is enabled. The email asks them to take action if they haven't. | First approver |
-| 6 | Request has expired for *[access_package]* | This email will be sent to the first approver and stage-1 alternate approvers after the request has expired. | First approver, stage-1 alternate approvers |
-| 7 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the first approver and stage-1 alternate approvers upon request completion. | First approver, stage-1 alternate approvers |
-| 8 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the first approver and stage-1 alternate approvers of a 2-stage request when the stage-1 request is approved. | First approver, stage-1 alternate approvers |
-| 9 | Request denied to *[access_package]* | This email will be sent to the requestor when their request is denied | Requestor |
-| 10 | Your request has expired for *[access_package]* | This email will be sent to the requestor at the end of a single or 2-stage request. The email notifies the requestor that the request expired. | Requestor |
-| 11 | Action required: Approve or deny request by *[date]* | This email will be sent to the second approver, if escalation is disabled, to take action. | Second approver |
-| 12 | Action required reminder: Approve or deny the request by *[date]* | This reminder email will be sent to the second approver, if escalation is disabled. The notification asks them to take action if they haven't yet. | Second approver |
-| 13 | Action required: Approve or deny the request by *[date]* for *[requestor]* | This email will be sent to second approver, if escalation is enabled, to take action. | Second approver |
-| 14 | Action required reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to the second approver, if escalation is enabled. The notification asks them to take action if they haven't yet. | Second approver |
-| 15 | Action required: Approve or deny forwarded request by *[date]* | This email will be sent to stage-2 alternate approvers, if escalation is enabled, to take action. | Stage-2 alternate approvers |
-| 16 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the second approver and stage-2 alternate approvers upon approving the request. | Second approver, Stage-2 alternate approvers |
-| 17 | A request has expired for *[access_package]* | This email will be sent to the second approver or alternate approvers, after the request expires. | Second approver, stage-2 alternate approvers |
-| 18 | You now have access to *[access_package]* | This email will be sent to the end users to start using their access. | Requestor |
-| 19 | Extend access for *[access_package]* by *[date]* | This email will be sent to the end users before their access expires. | Requestor |
-| 20 | Access has ended for *[access_package]* | This email will be sent to the end users after their access expires. | Requestor |
+| 1 | 必要動作：依 *[日期]* 核准或拒絕轉送的要求 | 此電子郵件將會傳送給第1階段的替代核准者（在要求呈報之後）以採取動作。 | 第1階段的替代核准者 |
+| 2 | 必要動作：依 *[日期]* 核准或拒絕要求 | 此電子郵件將會傳送給第一位核准者，如果已停用擴大，則採取動作。 | 第一位核准者 |
+| 3 | 提醒：為 [要求者 *]* 核准或拒絕 *[date]* 要求 | 如果已停用呈報，此提醒電子郵件將會傳送給第一位核准者。 此電子郵件會要求他們採取動作（如果尚未這麼做）。 | 第一位核准者 |
+| 4 | 以 [ *time]* 于 *[date]* 核准或拒絕要求 | 這封電子郵件會傳送給第一個核准者（如果已啟用擴大）以採取行動。 | 第一位核准者 |
+| 5 | 必要動作提醒： [要求者 *]* 的 *[日期]* 核准或拒絕要求 | 如果已啟用擴大，則會將此提醒電子郵件傳送給第一位核准者。 此電子郵件會要求他們採取動作（如果尚未這麼做）。 | 第一位核准者 |
+| 6 | *[Access_package]* 的要求已過期 | 此電子郵件將會在要求過期後，傳送給第一個核准者和第1階段的替代核准者。 | 第一次核准者，第1階段替代核准者 |
+| 7 | [要求者 *]* 已核准至 *[access_package]* | 這封電子郵件將會在要求完成時，傳送給第一個核准者和第1階段的替代核准者。 | 第一次核准者，第1階段替代核准者 |
+| 8 | [要求者 *]* 已核准至 *[access_package]* | 這封電子郵件將會傳送給第一次核准者，而當階段-1 要求獲得核准時，則是2階段要求的第1階段替代核准者。 | 第一次核准者，第1階段替代核准者 |
+| 9 | 拒絕要求至 *[access_package]* | 當要求遭到拒絕時，會將此電子郵件傳送給要求者 | 申請者 |
+| 10 | 您的要求已過期 *[access_package]* | 這封電子郵件將會在單一或2階段要求結束時傳送給要求者。 此電子郵件會通知要求者要求已過期。 | 申請者 |
+| 11 | 必要動作：依 *[日期]* 核准或拒絕要求 | 此電子郵件將會傳送給第二個核准者，如果已停用呈報，則採取動作。 | 第二核准者 |
+| 12 | 必要動作提醒：依 *[日期]* 核准或拒絕要求 | 如果已停用呈報，此提醒電子郵件將會傳送給第二個核准者。 通知會要求他們採取動作（如果尚未這麼做）。 | 第二核准者 |
+| 13 | 需要的動作： [要求者 *]* 的 *[日期]* 核准或拒絕要求 | 此電子郵件將會傳送給第二個核准者（如果已啟用擴大），以採取行動。 | 第二核准者 |
+| 14 | 必要動作提醒： [要求者 *]* 的 *[日期]* 核准或拒絕要求 | 如果已啟用擴大，此提醒電子郵件將會傳送給第二個核准者。 通知會要求他們採取動作（如果尚未這麼做）。 | 第二核准者 |
+| 15 | 必要動作：依 *[日期]* 核准或拒絕轉送的要求 | 這封電子郵件會傳送給第2階段的替代核准者（如果已啟用擴大），以採取行動。 | 第2階段替代核准者 |
+| 16 | [要求者 *]* 已核准至 *[access_package]* | 這封電子郵件將會傳送給第二個核准者，並在核准要求時，第2階段替代核准者。 | 第二個核准者，第2階段替代核准者 |
+| 17 | *[Access_package]* 的要求已過期 | 此電子郵件將會在要求到期後傳送給第二位核准者或替代核准者。 | 第二個核准者，第2階段替代核准者 |
+| 18 | 您現在可以存取 *[access_package]* | 這封電子郵件將會傳送給使用者，以開始使用他們的存取權。 | 申請者 |
+| 19 | 依 *[date]* 擴充 *[access_package]* 的存取權 | 這封電子郵件將會傳送給使用者，讓他們的存取權過期。 | 申請者 |
+| 20 | 已結束 *[access_package]* 的存取 | 這封電子郵件會在其存取權過期後傳送給終端使用者。 | 申請者 |
 
-### <a name="access-request-emails"></a>Access request emails
+### <a name="access-request-emails"></a>存取要求電子郵件
 
-When a requestor submits an access request for an access package configured to require approval, all approvers added to the policy will receive an email notification with details of the request. The details in the email include: requestor's name organization, and business justification; and the requested access start and end date (if provided). The details will also include when the request was submitted and when the request will expire.
+當要求者針對設定為需要核准的存取套件提交存取要求時，新增至該原則的所有核准者都會收到電子郵件通知，其中包含要求的詳細資料。 電子郵件中的詳細資料包括：要求者的名稱組織和商業理由;和要求的存取開始和結束日期（如果有提供）。 詳細資料也會包含提交要求的時間，以及要求到期的時間。
 
-The email includes a link approvers can click on to go to My Access to approve or deny the access request. Here is a sample email notification that is sent to the first approver or second approver (if 2-stage approval is enabled) to complete an access request:
+此電子郵件包含連結核准者可以按一下以前往我的存取權核准或拒絕存取要求。 以下是傳送給第一個核准者或第二個核准者（如果已啟用2階段核准）來完成存取要求的電子郵件通知範例：
 
-![Approve request to access package email](./media/entitlement-management-shared/approver-request-email.png)
+![核准存取封裝電子郵件的要求](./media/entitlement-management-shared/approver-request-email.png)
 
-Approvers can also receive a reminder email. The email asks the approver to make a decision on the request. Here is a sample email notification the approver receives to remind them to take action:
+核准者也可以收到提醒電子郵件。 此電子郵件會要求核准者對要求做出決策。 以下是核准者收到的電子郵件通知範例，提醒他們採取行動：
 
-![Reminder access request email](./media/entitlement-management-process/approver-access-request-reminder-email.png)
+![提醒存取要求電子郵件](./media/entitlement-management-process/approver-access-request-reminder-email.png)
 
-### <a name="alternate-approvers-request-emails"></a>Alternate approvers request emails
+### <a name="alternate-approvers-request-emails"></a>替代核准者要求電子郵件
 
-If the alternate approvers setting is enabled and the request is still pending, it will be forwarded. Alternate approvers will receive an email to approve or deny the request. You can enable alternate approvers in stage-1 and stage-2. Here is a sample email of the notification the alternate approvers receive:
+如果已啟用 [替代核准者] 設定，但要求仍處於擱置狀態，則會將它轉寄。 替代核准者將會收到一封電子郵件，以核准或拒絕要求。 您可以在第1階段和第2階段啟用替代核准者。 以下是替代核准者收到通知的電子郵件範例：
 
-![Alternate approvers request email](./media/entitlement-management-process/alternate-approver-email-fwd-request.png)
+![替代核准者要求電子郵件](./media/entitlement-management-process/alternate-approver-email-fwd-request.png)
 
-Both the approver and the alternate approvers can approve or deny the request.
+核准者和替代核准者都可以核准或拒絕要求。
 
-### <a name="approved-or-denied-emails"></a>Approved or denied emails
+### <a name="approved-or-denied-emails"></a>核准或拒絕的電子郵件
 
- When an approver receives an access request submitted by a requestor, they can approve or deny the access request. The approver needs to add a business justification for their decision. Here is a sample email sent to the approvers and alternate approvers after a request is approved:
+ 當核准者收到要求者所提交的存取要求時，他們可以核准或拒絕存取要求。 核准者必須為他們的決策增加商業理由。 以下是核准要求之後，傳送給核准者和替代核准者的電子郵件範例：
 
-![Approved request to access package email](./media/entitlement-management-process/approver-request-email-approved.png)
+![已核准存取封裝電子郵件的要求](./media/entitlement-management-process/approver-request-email-approved.png)
 
-When an access request is approved, and their access is provisioned, an email notification is sent to the requestor that they now have access to the access package. Here is a sample email notification that is sent to a requestor when they're granted access to an access package:
+當存取要求獲得核准，並布建其存取權時，系統會將電子郵件通知傳送給要求者，他們現在可以存取存取套件。 以下是將存取套件授與存取權時，傳送給要求者的電子郵件通知範例：
 
-![Approved requestor access request email](./media/entitlement-management-process/requestor-email-approved.png)
+![核准的要求者存取要求電子郵件](./media/entitlement-management-process/requestor-email-approved.png)
 
-When an access request is denied, an email notification is sent to the requestor. Here is a sample email notification that is sent to a requestor when their access request is denied:
+拒絕存取要求時，會傳送電子郵件通知給要求者。 以下是在拒絕存取要求時，傳送給要求者的電子郵件通知範例：
 
-![Requestor request denied email](./media/entitlement-management-process/requestor-email-denied.png)
+![要求者要求拒絕電子郵件](./media/entitlement-management-process/requestor-email-denied.png)
 
-### <a name="2-stage-approval-access-request-emails"></a>2-stage approval access request emails
+### <a name="2-stage-approval-access-request-emails"></a>2-階段核准存取要求電子郵件
 
-If 2-stage approval is enabled, at least two approvers must approve the request, one from each stage, before the requestor can receive access.
+如果已啟用2階段核准，則至少有兩個核准者必須核准要求（每個階段一個），然後要求者才能接收存取權。
 
-During stage-1, the first approver will receive the access request email and make a decision. If they approve the request, all first approvers and alternate approvers in stage-1 (if escalation is enabled) will receive notification that stage-1 is complete. Here is a sample email of the notification that is sent when stage-1 is complete:
+在階段1期間，第一位核准者將會收到存取要求電子郵件並做出決定。 如果他們核准要求，第1階段中的所有前核准者和替代核准者（如果已啟用擴大）將會收到階段-1 已完成的通知。 以下是第1階段完成時所傳送通知的範例電子郵件：
 
-![2-stage access request email](./media/entitlement-management-process/approver-request-email-2stage.png)
+![2階段存取要求電子郵件](./media/entitlement-management-process/approver-request-email-2stage.png)
 
-After the first or alternate approvers approve the request in stage-1, stage-2 begins. During stage-2, the second approver will receive the access request notification email. After the second approver or alternate approvers in stage-2 (if escalation is enabled) decide to approve or deny the request, notification emails are sent to the first and second approvers, and all alternate approvers in stage-1 and stage-2, as well as the requestor.
+第一或替代的核准者在階段1中核准要求之後，就會開始階段2。 在階段2期間，第二個核准者將會收到存取要求通知電子郵件。 第二次核准者或第2階段中的其他核准者（如果已啟用擴大）之後，決定核准或拒絕要求，通知電子郵件會傳送給第一個和第二個核准者，以及階段1和階段2中的所有替代核准者，以及要求者。
 
-### <a name="expired-access-request-emails"></a>Expired access request emails
+### <a name="expired-access-request-emails"></a>過期的存取要求電子郵件
 
-Access requests could expire if no approver has approved or denied the request. 
+如果沒有核准者核准或拒絕要求，存取要求可能會過期。 
 
-When the request reaches its configured expiration date and expires, it can no longer be approved or denied by the approvers. Here is a sample email of the notification sent to all of the first, second (if 2-stage approval is enabled), and alternate approvers:
+當要求達到其設定的到期日且過期時，核准者就無法再核准或拒絕此要求。 以下是傳送給所有第一個、第二個（如果已啟用2階段核准）和替代核准者的通知電子郵件範例：
 
-![Approvers expired access request email](./media/entitlement-management-process/approver-request-email-expired.png)
+![核准者過期的存取要求電子郵件](./media/entitlement-management-process/approver-request-email-expired.png)
 
-An email notification is also sent to the requestor, notifying them that their access request has expired, and that they need to resubmit the access request. The following diagram shows the experience of the requestor and the email notifications they receive when they request to extend access:
+電子郵件通知也會傳送給要求者，通知他們其存取要求已過期，而且需要重新提交存取要求。 下圖顯示要求者的體驗，以及他們在要求延伸存取時所收到的電子郵件通知：
 
-![Requestor extend access process flow](./media/entitlement-management-process/requestor-expiration-request-flow.png) 
+![要求者延伸存取程式流程](./media/entitlement-management-process/requestor-expiration-request-flow.png) 
 
-Here is a sample email notification that is sent to a requestor when their access request has expired:
+以下是當使用者的存取要求過期時，傳送給要求者的電子郵件通知範例：
 
-![Requestor expired access request email](./media/entitlement-management-process/requestor-email-request-expired.png)
+![要求者過期的存取要求電子郵件](./media/entitlement-management-process/requestor-email-request-expired.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Request access to an access package](entitlement-management-request-access.md)
-- [Approve or deny access requests](entitlement-management-request-approve.md)
+- [要求存取權套件](entitlement-management-request-access.md)
+- [核准或拒絕存取要求](entitlement-management-request-approve.md)

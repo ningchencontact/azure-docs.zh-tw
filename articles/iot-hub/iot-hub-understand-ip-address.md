@@ -1,6 +1,6 @@
 ---
-title: Understanding the IP address of your IoT hub | Microsoft Docs
-description: Understand how to query your IoT hub IP address and its properties. The IP address of your IoT hub can change during certain scenarios such as disaster recovery or regional failover.
+title: 瞭解 IoT 中樞的 IP 位址 |Microsoft Docs
+description: 瞭解如何查詢您的 IoT 中樞 IP 位址及其屬性。 IoT 中樞的 IP 位址可能會在特定情況下變更，例如嚴重損壞修復或區域性容錯移轉。
 author: philmea
 ms.author: philmea
 ms.service: iot-hub
@@ -14,17 +14,17 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383906"
 ---
-# <a name="iot-hub-ip-addresses"></a>IoT Hub IP addresses
+# <a name="iot-hub-ip-addresses"></a>IoT 中樞 IP 位址
 
-The IP address prefixes of IoT hub are published periodically under the *AzureIoTHub* [service tag](../virtual-network/service-tags-overview.md). To ensure proper operation, your IoT devices must have outbound connectivity to address prefixes listed under *AzureIoTHub* service tag. Your IoT application services need to additionally have outbound connectivity to address prefixes listed under *EventHub* service tag.
-
-
-## <a name="best-practices"></a>最佳做法
-
-* The IP address prefixes of IoT hub are subject to change. These changes are published periodically via service tags before taking effect. It is therefore important that you develop processes to regularly retrieve and use the latest service tags. This process can be automated via the [service tags discovery API](../virtual-network/service-tags-overview.md#service-tags-in-on-premises).
-* Use the *AzureIoTHub.[region name]* tag to identify IP prefixes used by IoT hub endpoints in a specific region. To account for datacenter disaster recovery, or [regional failover](iot-hub-ha-dr.md) ensure connectivity to IP prefixes of your IoT Hub's geo-pair region is also enabled.
+IoT 中樞的 IP 位址首碼會定期發佈在*AzureIoTHub* [服務](../virtual-network/service-tags-overview.md)標籤底下。 為確保作業正常運作，您的 IoT 裝置必須具有輸出連線能力，才能連到*AzureIoTHub* service 標記底下所列的位址首碼。 您的 IoT 應用程式服務必須額外擁有輸出連線能力，才能連至 [ *EventHub*服務標記] 底下所列的位址首碼。
 
 
-## <a name="support-for-ipv6"></a>Support for IPv6 
+## <a name="best-practices"></a>最佳作法
 
-IPv6 is currently not supported on IoT Hub.
+* IoT 中樞的 IP 位址首碼可能會變更。 這些變更會在生效之前透過服務標籤定期發佈。 因此，請務必開發處理常式，以定期取得並使用最新的服務標記。 此程式可透過[服務標記探索 API](../virtual-network/service-tags-overview.md#service-tags-in-on-premises)來自動化。
+* 使用*AzureIoTHub。 [區功能變數名稱稱]* 標記，用以識別特定區域中的 IoT 中樞端點所使用的 IP 首碼。 若要考慮資料中心的嚴重損壞修復，或[區域性容錯移轉](iot-hub-ha-dr.md)，請同時啟用您 IoT 中樞地理配對區域的 IP 首碼連線能力。
+
+
+## <a name="support-for-ipv6"></a>IPv6 的支援 
+
+IoT 中樞目前不支援 IPv6。

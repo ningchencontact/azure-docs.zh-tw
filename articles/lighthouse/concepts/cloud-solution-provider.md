@@ -2,19 +2,19 @@
 title: 雲端解決方案提供者方案考量
 description: 對於 CSP 合作夥伴，Azure 委派的資源管理可藉由啟用細微的權限劃分來協助改善安全性與控管。
 ms.date: 10/23/2019
-ms.topic: overview
-ms.openlocfilehash: 3ea32418cdf6808ad311d343d28ba2778740dbe4
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 7e1e371d8c31c45828ee0565545cb40145b40e92
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132518"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463971"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse 與雲端解決方案提供者計畫
 
 如果您是 [CSP (雲端解決方案提供者)](https://docs.microsoft.com/partner-center/csp-overview) 合作夥伴，則您可能已使用[管理代表 (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) 功能，存取透過 CSP 計畫為您的客戶建立的 Azure 訂用帳戶。 此存取權可讓您直接支援、設定及管理客戶的訂用帳戶。
 
-透過 [Azure Lighthouse](../overview.md)，您將可搭配使用 Azure 委派的資源管理與 AOBO。 這有助於您為使用者啟用更精細的權限來改善安全性，以及減少不必要的存取。 此外，效率和延展性也得以提高，因為使用者可在您的租用戶中使用單一登入跨多個客戶訂用帳戶工作。
+透過[Azure 燈塔](../overview.md)，您可以搭配 AOBO 使用 azure 委派的資源管理。 這有助於您為使用者啟用更精細的權限來改善安全性，以及減少不必要的存取。 此外，效率和延展性也得以提高，因為使用者可在您的租用戶中使用單一登入跨多個客戶訂用帳戶工作。
 
 > [!TIP]
 > 若要協助保護客戶資源，請務必檢閱並遵循我們的[建議安全做法](recommended-security-practices.md)及[合作夥伴安全性需求](https://docs.microsoft.com/partner-center/partner-security-requirements)。
@@ -34,9 +34,9 @@ ms.locfileid: "74132518"
 ![使用 AOBO 和 Azure 委派的資源管理進行租用戶管理](../media/csp-2.jpg)
 
 > [!NOTE]
-> [Azure 入口網站中的 [我的客戶]  頁面](../how-to/view-manage-customers.md)現在包含 [雲端解決方案提供者 \(預覽\)]  區段，其中會顯示[已簽署 Microsoft 客戶合約 (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) 且在 Azure 方案底下的 CSP 客戶帳單資訊和資源。 如需詳細資訊，請參閱[開始使用您的 Microsoft 合作夥伴合約計費帳戶](https://docs.microsoft.com/azure/billing/mpa-overview)。
+> Azure 入口網站中的 [ [**我的客戶**] 頁面](../how-to/view-manage-customers.md)現在包含 [**雲端解決方案提供者（預覽）** ] 區段，其中會顯示已[簽署 Microsoft 客戶合約（MCA）](https://docs.microsoft.com/partner-center/confirm-customer-agreement)且位於 Azure 方案底下之 CSP 客戶的帳單資訊和資源。 如需詳細資訊，請參閱[開始使用您的 Microsoft 合作夥伴合約計費帳戶](https://docs.microsoft.com/azure/billing/mpa-overview)。
 >
-> CSP 客戶可能會出現在本節中，不論他們是否已針對 Azure 委派的資源管理上線。 如果他們已上線，則他們也會出現在 [客戶]  區段中，如[檢視及管理客戶與委派的資源](../how-to/view-manage-customers.md)中所述。
+> CSP 客戶可能會出現在本節中，不論他們是否已針對 Azure 委派的資源管理上架。 如果有，則它們也會出現在 [**客戶**] 區段中，如[查看和管理客戶和委派的資源](../how-to/view-manage-customers.md)中所述。
 
 ## <a name="next-steps"></a>後續步驟
 

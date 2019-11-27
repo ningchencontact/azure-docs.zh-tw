@@ -20,7 +20,7 @@ ms.locfileid: "74451689"
      ![檢視資源或資源群組的標記](./media/resource-manager-tag-resources/view-tags.png)
 1. 若要新增標記，請選取 [按一下這裡以新增標記]。
 
-1. 提供名稱和值。 選取 [+] 以新增標記。
+1. 提供名稱和值。 選取 [ **]+** 以新增標記。
    
      ![新增標記](./media/resource-manager-tag-resources/add-tag.png)
 1. 視需要繼續新增標記。 完成時，選取 [儲存]。
@@ -46,13 +46,13 @@ ms.locfileid: "74451689"
 
      ![指派標記](./media/resource-manager-tag-resources/assign-tags.png)
 
-1. 在每個名稱和值之後，選取 [+]。 完成時，選取 [指派]。
+1. 在每個名稱和值之後，選取 [ **]+** 。 完成時，選取 [指派]。
 
      ![選取 [指派]](./media/resource-manager-tag-resources/select-assign.png)
 
 若要檢視具有標記的所有資源：
 
-1. On the Azure portal menu, select **All services**. Select **General**, then **Tags**.
+1. 在 [Azure 入口網站] 功能表上，選取 [**所有服務**]。 選取 **[一般**]、[**標記**]。
 
      ![依標記尋找](./media/resource-manager-tag-resources/find-tags-general.png)
 

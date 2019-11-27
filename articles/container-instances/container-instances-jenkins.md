@@ -1,6 +1,6 @@
 ---
-title: Jenkins build on container instance
-description: Learn how to configure a Jenkins server to run build jobs on-demand in Azure Container Instances
+title: 容器實例上的 Jenkins 組建
+description: 瞭解如何設定 Jenkins 伺服器，以視需要在 Azure 容器實例中執行組建作業
 ms.topic: article
 ms.date: 08/31/2018
 ms.openlocfilehash: e63ade82d4efeed40a9fba6f11d16131e8c728e7
@@ -14,7 +14,7 @@ ms.locfileid: "74484069"
 
 Azure 容器執行個體 (ACI) 可提供隨選且高載的隔離環境，以便執行容器化工作負載。 ACI 因為這些特性，而成為大規模執行 Jenkins 建置作業的絕佳平台。 本文逐步說明如何部署和使用透過 ACI 預先設定為建置目標的 Jenkins 伺服器。
 
-For more information on Azure Container Instances, see [About Azure Container Instances][about-aci].
+如需 Azure 容器實例的詳細資訊，請參閱[關於 Azure 容器實例][about-aci]。
 
 ## <a name="deploy-a-jenkins-server"></a>部署 Jenkins 伺服器
 
@@ -43,7 +43,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
    ![Jenkins 入口網站部署的額外設定](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. For service principal integration, select **Auto(MSI)** to have [managed identities for Azure resources][managed-identities-azure-resources] automatically create an authentication identity for the Jenkins instance. 選取 [手動] 以提供您自己的服務主體認證。
+4. 針對服務主體整合，選取 [**自動（MSI）** ]，讓[Azure 資源的受控][managed-identities-azure-resources]識別自動為 Jenkins 實例建立驗證身分識別。 選取 [手動] 以提供您自己的服務主體認證。
 
 5. 雲端代理程式可為 Jenkins 建置作業設定雲端式平台。 基於本文的緣故，請選取 **ACI**。 利用 ACI 雲端代理程式，每個 Jenkins 建置作業都是在容器執行個體中執行。
 
@@ -101,7 +101,7 @@ Jenkins 現在已設定並準備要建置和部署程式碼。 在此範例中�
 
    ![包含建置步驟選項的 [組建] 索引標籤](./media/container-instances-jenkins/jenkins-job-02.png)
 
-5. 選取 [儲存]。
+5. 選取 [ **儲存**]。
 
 ## <a name="run-the-build-job"></a>執行建置作業
 
@@ -123,13 +123,13 @@ Jenkins 現在已設定並準備要建置和部署程式碼。 在此範例中�
 
    ![已移除容器執行個體的資源群組](./media/container-instances-jenkins/jenkins-aci-none.png)
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>對 Jenkins 外掛程式進行疑難排解
+## <a name="troubleshooting-the-jenkins-plugin"></a>針對 Jenkins 外掛程式進行疑難排解
 
 如果您遇到任何有關 Jenkins 外掛程式的錯誤，請在 [Jenkins JIRA](https://issues.jenkins-ci.org/) 的特定元件中提交問題。
 
 ## <a name="next-steps"></a>後續步驟
 
-To learn more about Jenkins on Azure, see [Azure and Jenkins][jenkins-azure].
+若要深入瞭解 Azure 上的 Jenkins，請參閱[azure 和 Jenkins][jenkins-azure]。
 
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md

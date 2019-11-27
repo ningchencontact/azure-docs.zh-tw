@@ -14,7 +14,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74457371"
 ---
-# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Create a CI/CD pipeline for IoT Edge with Azure DevOps Projects
+# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>使用 Azure DevOps Projects 建立 IoT Edge 的 CI/CD 管線
 
 使用 DevOps Projects 為您的 IoT Edge 應用程式設定持續整合 (CI) 與持續傳遞 (CD)。 DevOps Projects 可簡化 Azure Pipelines 中建置與發行管線的初始設定。
 
@@ -36,7 +36,7 @@ DevOps Projects 會在 Azure DevOps 中建立 CI/CD 管線。 您可以建立新
 
    ![選取用來新建應用程式的語言](./media/how-to-devops-project/select-language.png)
 
-2. Select **Simple IoT** as your application framework, and then select **Next**.
+2. 選取 [**簡單 IoT** ] 作為您的應用程式架構，然後選取 **[下一步]** 。
 
    ![選取 Simple IoT 架構](media/how-to-devops-project/select-iot.png)
 
@@ -54,7 +54,7 @@ DevOps Projects 會在 Azure DevOps 中建立 CI/CD 管線。 您可以建立新
 
    4. 使用由您的專案名稱所產生的 IoT 中樞名稱，或是自行提供一個名稱。
 
-   5. Accept the default location, or choose one close to you. 
+   5. 接受預設位置，或選擇靠近您的位置。 
 
    5. 選取 [其他設定] 來設定 DevOps Projects 會代您建立的 Azure 資源。
 
@@ -64,7 +64,7 @@ DevOps Projects 會在 Azure DevOps 中建立 CI/CD 管線。 您可以建立新
 
 在幾分鐘後，Azure 入口網站中便會顯示 DevOps Projects 儀表板。 選取您的專案名稱來查看進度。 您可能需要重新整理該頁面。 系統會在您 Azure DevOps 組織的存放庫中設定範例 IoT Edge 應用程式、執行建置，然後將您的應用程式部署到 IoT Edge 裝置。 此儀表板可顯示您的程式碼存放庫、CI/CD 管線，和您在 Azure 中的應用程式。
 
-   ![View application in Azure portal](./media/how-to-devops-project/devops-portal.png)
+   ![在 Azure 入口網站中觀看應用程式](./media/how-to-devops-project/devops-portal.png)
 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>認可程式碼變更並執行 CI/CD
@@ -77,16 +77,16 @@ DevOps Projects 會在 Azure Repos 中為您的專案建立 Git 存放庫。 在
 
 2. 下列步驟會逐步引導您使用網頁瀏覽器來變更應用程式的程式碼。 如果您想要改為於本機複製您的存放庫，請選取視窗右上角的 [複製]。 使用所提供的 URL 來在 Visual Studio Code 或您偏好的開發工具中複製您的 Git 存放庫。 
 
-3. The repository already contains code for a module called **FilterModule** based on the application language that you chose in the creation process. Open the **modules/FilterModule/module.json** file.
+3. 此存放庫已根據您在建立程式中選擇的應用程式語言，包含稱為**FilterModule**之模組的程式碼。 開啟**模組/FilterModule/模組 json**檔案。
 
    ![在 Azure Repos 中開啟 module.json 檔案](./media/how-to-devops-project/open-module-json.png)
 
-4. Notice that this file uses [Azure DevOps build variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) in the **version** parameter. This configuration ensures that a new version of the module will be created every time a new build runs. 
+4. 請注意，此檔案會使用**version**參數中[Azure DevOps 的組建變數](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables)。 此設定可確保每次執行新組建時，都會建立新版本的模組。 
 
 
 ## <a name="examine-the-cicd-pipeline"></a>檢查 CI/CD 管線
 
-在先前的小節中，Azure DevOps Projects 已自動為您的 IoT Edge 應用程式設定完整的 CI/CD 管線。 現在請探索管線，並視需要進行自訂。 Use the following steps to familiarize yourself with the Azure DevOps build and release pipelines.
+在先前的小節中，Azure DevOps Projects 已自動為您的 IoT Edge 應用程式設定完整的 CI/CD 管線。 現在請探索管線，並視需要進行自訂。 請使用下列步驟來熟悉 Azure DevOps 組建和發行管線。
 
 1. 若要檢視 DevOps 專案中的建置管線，請選取專案儀表板功能表中的 [建置管線]。 此連結會開啟瀏覽器索引標籤和新專案的 Azure DevOps 建置管線。
 
@@ -104,9 +104,9 @@ DevOps Projects 會在 Azure Repos 中為您的專案建立 Git 存放庫。 在
 
 5. 選取 [儲存並排入佇列]，然後選取 [儲存]。
 
-6. Select **Triggers** from the build pipeline menu. DevOps Projects 已自動建立 CI 觸發程序，且每次對存放庫的認可都會啟動新的建置。  您可以選擇性地選擇要在 CI 程序中包含還是排除分支。
+6. 從 [組建管線] 功能表選取 [**觸發**程式]。 DevOps Projects 已自動建立 CI 觸發程序，且每次對存放庫的認可都會啟動新的建置。  您可以選擇性地選擇要在 CI 程序中包含還是排除分支。
 
-7. 選取 [保留期]。 根據您的案例，您可以指定原則來保留或移除特定數目的組建。
+7. 選取 [保留期]。 根據案例，您可以指定原則來保留或移除特定數目的組建。
 
 8. 選取 [記錄]。 [記錄] 窗格會包含組建近期變更的稽核線索。 Azure Pipelines 會追蹤對建置管線進行的任何變更，且可讓您比較版本。
 

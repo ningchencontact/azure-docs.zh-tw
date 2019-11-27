@@ -23,17 +23,17 @@ ms.locfileid: "74422534"
 「SQL 資料同步」是一種建置在 Azure SQL Database 上的服務，可讓您跨多個 SQL 資料庫和 SQL Server 執行個體，雙向同步您選取的資料。
 
 > [!IMPORTANT]
-> Azure SQL Data Sync does not support Azure SQL Database Managed Instance at this time.
+> Azure SQL 資料同步目前不支援 Azure SQL Database 受控執行個體。
 
 ## <a name="when-to-use-data-sync"></a>使用資料同步的時機
 
-Data Sync is useful in cases where data needs to be kept updated across several Azure SQL databases or SQL Server databases. 以下是資料同步主要的使用案例：
+資料同步在需要跨數個 Azure SQL 資料庫或 SQL Server 資料庫保持更新資料的情況下很有用。 以下是資料同步主要的使用案例：
 
 - **混合式資料同步：** 使用資料同步，您可以讓內部部署資料庫與 Azure SQL 資料庫之間的資料保持同步，以啟用混合式應用程式。 此功能對於考慮移轉至雲端，而且想要將部分應用程式放在 Azure 的客戶很有吸引力。
 - **分散式應用程式：** 在許多情況下，將不同的工作負載分散到不同的資料庫會有好處。 例如，如果您有大型的實際執行資料庫，但也必須針對這些資料執行報告或分析工作負載，此時有第二個資料庫分擔這額外的工作負載就很有幫助。 這個方法可以減少對您實際執行工作負載的效能影響。 您可以使用「資料同步」，讓這兩個資料庫保持同步。
-- **Globally Distributed Applications:** Many businesses span several regions and even several countries/regions. 若要盡可能降低網路延遲，最好讓資料靠近您所在的區域。 使用資料同步，您就可以輕鬆地讓全世界各個區域中的資料庫保持同步。
+- **全域散發的應用程式：** 許多企業都跨越數個區域，甚至數個國家/地區。 若要盡可能降低網路延遲，最好讓資料靠近您所在的區域。 使用資料同步，您就可以輕鬆地讓全世界各個區域中的資料庫保持同步。
 
-Data Sync isn't the preferred solution for the following scenarios:
+在下列案例中，資料同步不是慣用的解決方案：
 
 | 案例 | 某些建議的解決方案 |
 |----------|----------------------------|
@@ -51,7 +51,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 
 - **中樞資料庫**必須是 Azure SQL Database。
 - **成員資料庫**可以是 SQL 資料庫、內部部署 SQL Server 資料庫，或是在 Azure 虛擬機器上的 SQL Server 執行個體。
-- The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. 「同步處理資料庫」是由客戶建立，並由客戶擁有。
+- **同步資料庫**包含資料同步的中繼資料和記錄。同步資料庫必須是與中樞資料庫位於相同區域中的 Azure SQL Database。 「同步處理資料庫」是由客戶建立，並由客戶擁有。
 
 > [!NOTE]
 > 如果您使用內部部署資料庫當做成員資料庫，則必須[安裝和設定本機同步代理程式](sql-database-get-started-sql-data-sync.md#add-on-prem)。
@@ -67,7 +67,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 
 ## <a name="how-does-data-sync-work"></a>資料同步運作方式
 
-- **追蹤資料變更：** 資料同步使用 insert、update 和 delete 觸發程序追蹤變更。 變更會記錄在使用者資料庫中的資料表。 Note that BULK INSERT doesn't fire triggers by default. If FIRE_TRIGGERS isn't specified, no insert triggers execute. 新增 FIRE_TRIGGERS 選項，資料同步就能追蹤那些插入。 
+- **追蹤資料變更：** 資料同步使用 insert、update 和 delete 觸發程序追蹤變更。 變更會記錄在使用者資料庫中的資料表。 請注意，BULK INSERT 預設不會引發觸發程式。 如果未指定 FIRE_TRIGGERS，就不會執行 insert 觸發程式。 新增 FIRE_TRIGGERS 選項，資料同步就能追蹤那些插入。 
 - **同步處理資料：** 資料同步是以「中樞和輪輻」的模型設計。 中樞會與每個成員個別同步。 中樞的變更會下載到成員，然後成員的變更會上傳到中樞。
 - **解決衝突：** 資料同步提供兩個衝突解決選項：*中樞獲勝*或*成員獲勝*。
   - 如果您選取 [中樞獲勝]，中樞的變更永遠會覆寫成員的變更。
@@ -85,7 +85,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>在 Azure 入口網站中設定資料同步
 
 - [設定 Azure SQL 資料同步](sql-database-get-started-sql-data-sync.md)
-- Data Sync Agent - [適用於 Azure SQL Data Sync 的 Data Sync Agent](sql-database-data-sync-agent.md)
+- Data Sync Agent - [適用於 Azure SQL Data Sync Agent 的 Data Sync Agent](sql-database-data-sync-agent.md)
 
 ### <a name="set-up-data-sync-with-powershell"></a>使用 PowerShell 設定資料同步
 
@@ -104,7 +104,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 
 ### <a name="eventual-consistency"></a>最終一致性
 
-Since Data Sync is trigger-based, transactional consistency isn't guaranteed. Microsoft guarantees that all changes are made eventually and that Data Sync doesn't cause data loss.
+由於資料同步是以觸發程式為基礎，因此不保證交易一致性。 Microsoft 保證最終會進行所有變更，而且資料同步不會造成資料遺失。
 
 ### <a name="performance-impact"></a>效能影響
 
@@ -119,21 +119,21 @@ Since Data Sync is trigger-based, transactional consistency isn't guaranteed. Mi
 - 每個資料表都必須有主索引鍵。 請勿變更任何資料列的主索引鍵值。 如果您必須變更主索引鍵值，請刪除資料列，再利用新的主索引鍵值重新建立。
 
 > [!IMPORTANT]
-> Changing the value of an existing primary key will result in the following faulty behavior:
-> - Data between hub and member can be lost even though sync does not report any issue.
-> - Sync can fail because the tracking table has a non-existing row from source due to the primary key change.
+> 變更現有主鍵的值將會導致下列錯誤行為：
+> - 即使同步處理並未回報任何問題，中樞和成員之間的資料也可能會遺失。
+> - 同步處理可能會失敗，因為追蹤資料表具有來源的非現有資料列，因為主要金鑰變更。
 
 - 必須啟用快照集隔離。 如需詳細資訊，請參閱 [SQL Server 中的快照集隔離](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)。
 
 ### <a name="general-limitations"></a>一般限制
 
-- A table can't have an identity column that isn't the primary key.
-- A primary key can't have the following data types: sql_variant, binary, varbinary, image, xml.
+- 資料表不能有不是主要索引鍵的識別欄位。
+- 主鍵不能有下列資料類型： SQL_variant、binary、Varbinary、image、xml。
 - 當您使用下列資料類型作為主要索引鍵時請務必謹慎，原因是支援的有效位數只到秒：time、datetime、datetime2、datetimeoffset。
-- The names of objects (databases, tables, and columns) can't contain the printable characters period (.), left square bracket ([), or right square bracket (]).
-- Azure Active Directory authentication isn't supported.
-- Tables with same name but different schema (for example, dbo.customers and sales.customers) aren't supported.
-- Columns with User Defined Data Types aren't supported
+- 物件（資料庫、資料表和資料行）的名稱不能包含可列印的字元句點（.）、左方括弧（[）或右方括弧（]）。
+- 不支援 Azure Active Directory 驗證。
+- 不支援具有相同名稱但不同架構（例如，dbo. customers 和 sales）的資料表。
+- 不支援具有使用者定義資料類型的資料行
 
 #### <a name="unsupported-data-types"></a>不支援的資料類型
 
@@ -144,7 +144,7 @@ Since Data Sync is trigger-based, transactional consistency isn't guaranteed. Mi
 
 #### <a name="unsupported-column-types"></a>不支援的資料行類型
 
-資料同步無法同步處理唯讀或系統產生的資料行。 例如：
+資料同步無法同步處理唯讀或系統產生的資料行。 例如︰
 
 - 計算資料行。
 - 適用於時態表的系統所產生的資料行。
@@ -169,7 +169,7 @@ Since Data Sync is trigger-based, transactional consistency isn't guaranteed. Mi
 
 ### <a name="how-much-does-the-sql-data-sync-service-cost"></a>SQL 資料同步服務的成本為何？
 
-There's no charge for the SQL Data Sync service itself. However, you still collect data transfer charges for data movement in and out of your SQL Database instance. 如需詳細資訊，請參閱 [SQL Database 價格](https://azure.microsoft.com/pricing/details/sql-database/)。
+SQL 資料同步服務本身不收費。 不過，您仍然可以收集資料移入和移出 SQL Database 實例的資料傳輸費用。 如需詳細資訊，請參閱 [SQL Database 價格](https://azure.microsoft.com/pricing/details/sql-database/)。
 
 ### <a name="what-regions-support-data-sync"></a>哪些區域支援資料同步？
 
@@ -177,7 +177,7 @@ SQL 資料同步會在以下所有區域內上市。
 
 ### <a name="is-a-sql-database-account-required"></a>是否需要 SQL Database 帳戶？
 
-可以。 您必須具有可裝載中樞資料庫的 SQL Database 帳戶。
+是。 您必須具有可裝載中樞資料庫的 SQL Database 帳戶。
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>資料同步能否僅在 SQL Server 內部部署資料庫之間同步？
 
@@ -185,22 +185,22 @@ SQL 資料同步會在以下所有區域內上市。
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>我可以使用資料同步在屬於不同訂用帳戶的 SQL Database 之間進行同步嗎？
 
-可以。 您可以在不同訂用帳戶擁有的資源群組所屬的 SQL Database 之間進行同步。
+是。 您可以在不同訂用帳戶擁有的資源群組所屬的 SQL Database 之間進行同步。
 
 - 如果訂用帳戶屬於同一個租用戶，且您擁有所有訂用帳戶的權限，則可以在 Azure 入口網站中設定同步群組。
 - 否則，您必須使用 PowerShell 來新增屬於不同訂用帳戶的同步成員。
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Can I use Data Sync to sync between SQL Databases that belong to different clouds (like Azure Public Cloud and Azure China 21Vianet)
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>我可以使用資料同步在屬於不同雲端的 SQL 資料庫之間進行同步處理（例如 Azure 公用雲端和 Azure 中國世紀）
 
-可以。 您可以在屬於不同雲端的 SQL Database 之間進行同步處理，您必須使用 PowerShell 來新增屬於不同訂用帳戶的同步成員。
+是。 您可以在屬於不同雲端的 SQL Database 之間進行同步處理，您必須使用 PowerShell 來新增屬於不同訂用帳戶的同步成員。
 
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>能否使用資料同步將生產環境資料庫的資料植入空白資料庫，然後同步處理資料？
 
-可以。 請從原始結構描述編寫結構描述，藉此在新的資料庫中手動建立結構描述。 建立結構描述之後，請將資料表新增到同步群組，以複製資料並讓資料保持同步。
+是。 請從原始結構描述編寫結構描述，藉此在新的資料庫中手動建立結構描述。 建立結構描述之後，請將資料表新增到同步群組，以複製資料並讓資料保持同步。
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>應該使用 SQL 資料同步來備份及還原資料庫嗎？
 
-It isn't recommended to use SQL Data Sync to create a backup of your data. You can't back up and restore to a specific point in time because SQL Data Sync synchronizations are not versioned. Furthermore, SQL Data Sync does not back up other SQL objects, such as stored procedures, and doesn't do the equivalent of a restore operation quickly.
+不建議使用 SQL 資料同步來建立資料的備份。 您無法備份並還原到特定的時間點，因為 SQL 資料同步同步處理並未建立版本。 此外，SQL 資料同步不會備份其他 SQL 物件（例如預存程式），也不會快速執行相當於還原作業的作業。
 
 如需建議的備份技術，請參閱[複製 Azure SQL 資料庫](sql-database-copy.md)。
 
@@ -211,29 +211,29 @@ It isn't recommended to use SQL Data Sync to create a backup of your data. You c
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>SQL 資料同步是否支援定序？
 
-可以。 在下列案例中 SQL 資料同步可支援定序：
+是。 在下列案例中 SQL 資料同步可支援定序：
 
-- If the selected sync schema tables aren't already in your hub or member databases, then when you deploy the sync group, the service automatically creates the corresponding tables and columns with the collation settings selected in the empty destination databases.
+- 如果選取的同步架構資料表尚未存在於您的中樞或成員資料庫中，則當您部署同步處理群組時，服務會自動使用空的目的地資料庫中選取的定序設定來建立對應的資料表和資料行。
 - 如果要同步處理的資料表已存在於您的中樞和成員資料庫中，則 SQL 資料同步會要求主索引鍵資料行在中樞與成員資料庫之間有相同的定序，才能成功部署同步群組。 主索引鍵資料行以外的資料行沒有任何定序限制。
 
 ### <a name="is-federation-supported-in-sql-data-sync"></a>SQL 資料同步是否支援同盟？
 
-同盟根資料庫可使用於 SQL 資料同步服務 (無任何限制)。 You can't add the Federated Database endpoint to the current version of SQL Data Sync.
+同盟根資料庫可使用於 SQL 資料同步服務 (無任何限制)。 您無法將同盟資料庫端點新增至目前的 SQL 資料同步版本。
 
 ## <a name="next-steps"></a>後續步驟
 
 ### <a name="update-the-schema-of-a-synced-database"></a>更新已同步資料庫的結構描述
 
-是否必須更新同步群組中的資料庫結構描述？ Schema changes aren't automatically replicated. 如需某些解決方案，請參閱下列文章：
+是否必須更新同步群組中的資料庫結構描述？ 不會自動複寫架構變更。 如需某些解決方案，請參閱下列文章：
 
 - [在 Azure SQL 資料同步中自動執行結構描述變更複寫](sql-database-update-sync-schema.md)
 - [使用 PowerShell 更新現有同步群組中的同步結構描述](scripts/sql-database-sync-update-schema.md)
 
 ### <a name="monitor-and-troubleshoot"></a>監視及疑難排解
 
-Is SQL Data Sync doing as expected? 若要監視活動並針對問題進行疑難排解，請參閱下列文章：
+SQL 資料同步如預期般執行嗎？ 若要監視活動並針對問題進行疑難排解，請參閱下列文章：
 
-- [Monitor Azure SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
+- [使用 Azure 監視器記錄監視 Azure SQL 資料同步](sql-database-sync-monitor-oms.md)
 - [對 Azure SQL 資料同步的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>深入了解 Azure SQL Database

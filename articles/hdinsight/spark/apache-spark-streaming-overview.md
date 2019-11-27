@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight 中的 Spark 串流
-description: How to use Apache Spark Streaming applications on HDInsight Spark clusters.
+description: 如何在 HDInsight Spark 叢集上使用 Apache Spark 串流應用程式。
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -29,7 +29,7 @@ Spark 串流會使用名為 DStream 的*離散化資料流*表示傳入資料的
 
 DStream 會在原始事件資料的頂端提供抽象層。
 
-先以單一事件為例，例如從連接的控溫器讀取溫度。 When this event arrives at your Spark Streaming application, the event is stored in a reliable way, where it's replicated on multiple nodes. This fault-tolerance ensures that the failure of any single node won't result in the loss of your event. Spark 核心使用的資料結構會將資料散布到叢集中多個節點上，其中每個節點通常都會在記憶體內部維護自己的資料，以達到最好的效能。 此資料結構稱為*彈性分散式資料集* (resilient distributed dataset, RDD)。
+先以單一事件為例，例如從連接的控溫器讀取溫度。 當此事件抵達 Spark 串流應用程式時，事件會以可靠的方式儲存，並在其中複寫到多個節點。 此容錯功能可確保任何單一節點的失敗都不會導致事件遺失。 Spark 核心使用的資料結構會將資料散布到叢集中多個節點上，其中每個節點通常都會在記憶體內部維護自己的資料，以達到最好的效能。 此資料結構稱為*彈性分散式資料集* (resilient distributed dataset, RDD)。
 
 每個 RDD 皆代表在使用者定義的時間範圍 (稱為「批次間隔」) 內收集的事件。 當每個批次間隔過去後，新的 RDD 就會產生，並包含該間隔中的所有資料。 一組連續的 RDD 會被收集到 DStream。 例如，如果批次間隔長度為一秒，您的 DStream 就會每秒發出包含一個 RDD 的批次，該 RDD 會包含在這一秒期間內嵌的所有資料。 處理 DStream 時，溫度事件就會出現在這些批次的其中一個。 Spark 串流應用程式會處理包含事件的批次，並在最後處理儲存在每個 RDD 中的資料。
 
@@ -145,7 +145,7 @@ stream.foreachRDD { rdd =>
 ssc.start()
 ```
 
-Wait for about 30 seconds after starting the application above.  Then, you can query the DataFrame periodically to see the current set of values present in the batch, for example using this SQL query:
+啟動上述應用程式之後，請等候約30秒。  然後，您可以定期查詢資料框架，以查看目前在批次中的一組值，例如使用此 SQL 查詢：
 
 ```sql
 %%sql
@@ -154,7 +154,7 @@ SELECT * FROM demo_numbers
 
 輸出結果顯示如下：
 
-| value | time |
+| 值 | 分析 |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -222,7 +222,7 @@ ssc.start()
 
 在第一分鐘之後，會有 12 個項目 - 在該時間範圍內收集的兩個批次中，每一個批次各有 6 個項目。
 
-| value | time |
+| 值 | 分析 |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158
@@ -249,7 +249,7 @@ ssc.start()
 
 ![部署 Spark 串流應用程式](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-您也可以藉由 LIVY 端點，使用 GET 要求來檢查所有應用程式的狀態。 最後，您可以對 LIVY 端點發出 DELETE 要求，來終止執行中的應用程式。 如需 LIVY API 的詳細資料，請參閱[使用 Apache LIVY 執行遠端作業](apache-spark-livy-rest-interface.md)
+您也可以藉由 LIVY 端點，使用 GET 要求來檢查所有應用程式的狀態。 最後，您可以對 LIVY 端點發出 DELETE 要求，來終止執行中的應用程式。 如需 LIVY API 的詳細資訊，請參閱[使用 Apache LIVY 執行遠端作業](apache-spark-livy-rest-interface.md)
 
 ## <a name="next-steps"></a>後續步驟
 

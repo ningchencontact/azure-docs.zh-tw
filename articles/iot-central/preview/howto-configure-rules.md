@@ -1,6 +1,6 @@
 ---
 title: 在 Azure IoT Central 中設定規則和動作 | Microsoft Docs
-description: This how-to article shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
+description: 本操作說明文章會向您示範如何在 Azure IoT Central 應用程式中設定遙測型規則和動作。
 author: vavilla
 ms.author: vavilla
 ms.date: 11/11/2019
@@ -15,41 +15,41 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74484908"
 ---
-# <a name="configure-rules-preview-features"></a>Configure rules (preview features)
+# <a name="configure-rules-preview-features"></a>設定規則（預覽功能）
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 *此文章適用於操作員、建置人員及系統管理員。*
 
-Rules in IoT Central serve as a customizable response tool that trigger on actively monitored events from connected devices. The following sections describe how rules are evaluated.
+IoT Central 中的規則是可自訂的回應工具，它會觸發來自已連線裝置的主動監視事件。 下列各節說明如何評估規則。
 
-## <a name="select-target-devices"></a>Select target devices
+## <a name="select-target-devices"></a>選取目標裝置
 
-Use the target devices section to select on what kind of devices this rule will be applied. Filters allow you to further refine what devices should be included. The filters use properties on the device template to filter down the set of devices. Filters themselves don't trigger an action. In the following screenshot, the devices that are being targeted are of device template type **Refrigerator**. The filter states that the rule should only include **Refrigerators** where the **Manufactured State** property equals **Washington**.
+使用 [目標裝置] 區段，即可選取要套用此規則的裝置種類。 篩選器可讓您進一步精簡應包含的裝置。 篩選器會使用裝置範本上的屬性來篩選一組裝置。 篩選器本身不會觸發動作。 在下列螢幕擷取畫面中，目標裝置的裝置範本類型為 [**冰箱**]。 此篩選準則會指出此規則應該只包含 [**製造的狀態**] 屬性等於 [**華盛頓**] 的**位冰箱**。
 
 ![條件](media/howto-configure-rules/filters.png)
 
-## <a name="use-multiple-conditions"></a>Use multiple conditions
+## <a name="use-multiple-conditions"></a>使用多個條件
 
-Conditions are what rules trigger on. Currently, when you add multiple conditions to a rule, they're logically AND'd together. In other words, all conditions must be met for the rule to evaluate as true.  
+條件就是要在其中觸發的規則。 目前，當您將多個條件新增至規則時，它們會以邏輯方式在一起。 換句話說，必須符合所有條件，規則才會評估為 true。  
 
-In the following screenshot, the conditions check when the temperature is greater than 90 and the humidity is less than 10. When both of these statements are true, the rule evaluates to true and triggers an action.
+在下列螢幕擷取畫面中，當溫度大於90且濕度小於10時，條件會進行檢查。 當這兩個語句都是 true 時，規則會評估為 true 並觸發動作。
 
 ![條件](media/howto-configure-rules/conditions.png)
 
-## <a name="use-aggregate-windowing"></a>Use aggregate windowing
+## <a name="use-aggregate-windowing"></a>使用匯總視窗
 
-Rules evaluate aggregate time windows as tumbling windows. In the screenshot below, the time window is five minutes. Every five minutes, the rule evaluates on the last five minutes of data. The data is only evaluated once in the window to which it corresponds.
+規則會將 [匯總時間] 視窗評估為 [輪轉] 視窗。 在下面的螢幕擷取畫面中，時間範圍為5分鐘。 規則會每隔五分鐘評估一次最後五分鐘的資料。 資料只會在其對應的視窗中評估一次。
 
-![Tumbling Windows](media/howto-configure-rules/tumbling-window.png)
+![輪轉視窗](media/howto-configure-rules/tumbling-window.png)
 
-## <a name="use-rules-with-iot-edge-modules"></a>Use rules with IoT Edge modules
+## <a name="use-rules-with-iot-edge-modules"></a>使用規則搭配 IoT Edge 模組
 
-A restriction applies to rules that are applied to IoT Edge modules. Rules on telemetry from different modules aren't evaluated as valid rules. Take the following as an example. The first condition of the rule is on a temperature telemetry from Module A. The second condition of the rule is on a humidity telemetry on Module B. Since the two conditions are from different modules, this is an invalid set of conditions. The rule isn't valid and will throw an error on trying to save the rule.
+限制適用于套用至 IoT Edge 模組的規則。 來自不同模組之遙測的規則不會評估為有效規則。 請以下列範例為例。 此規則的第一個條件是來自模組 A 的溫度遙測。此規則的第二個條件是在模組 B 上的濕度遙測。由於這兩個條件來自不同的模組，這是一組不正確條件。 此規則無效，並會在嘗試儲存規則時擲回錯誤。
 
 ## <a name="next-steps"></a>後續步驟
 
-Now that you've learned how to configure a rule in your Azure IoT Central application, you can:
+既然您已瞭解如何在 Azure IoT Central 應用程式中設定規則，您可以：
 
 > [!div class="nextstepaction"]
-> [Analyze your data on the fly](howto-create-analytics.md)
+> [即時分析您的資料](howto-create-analytics.md)

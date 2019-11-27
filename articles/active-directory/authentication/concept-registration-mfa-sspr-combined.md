@@ -1,6 +1,6 @@
 ---
-title: Combined registration for SSPR and MFA - Azure Active Directory
-description: Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
+title: SSPR 與 MFA 的合併註冊-Azure Active Directory
+description: Azure AD 多重要素驗證和自助式密碼重設註冊（預覽）
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,134 +18,134 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381950"
 ---
-# <a name="combined-security-information-registration-preview"></a>Combined security information registration (preview)
+# <a name="combined-security-information-registration-preview"></a>結合的安全性資訊註冊（預覽）
 
-Before combined registration, users registered authentication methods for Azure Multi-Factor Authentication and self-service password reset (SSPR) separately. People were confused that similar methods were used for Multi-Factor Authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both Multi-Factor Authentication and SSPR.
+在合併註冊之前，使用者會分別為 Azure 多因素驗證和自助式密碼重設（SSPR）註冊驗證方法。 人們混淆了類似的方法用於多重要素驗證和 SSPR，但他們必須註冊這兩項功能。 現在，透過合併的註冊，使用者可以註冊一次，並獲得多重要素驗證和 SSPR 的優點。
 
-![My Profile showing registered Security info for a user](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![顯示使用者已註冊安全性資訊的設定檔](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-Before enabling the new experience, review this administrator-focused documentation and the user-focused documentation to ensure you understand the functionality and effect of this feature. Base your training on the [user documentation](../user-help/user-help-security-info-overview.md) to prepare your users for the new experience and help to ensure a successful rollout.
+在啟用新體驗之前，請先參閱此系統管理員導向的檔和以使用者為主的檔，以確保您瞭解這項功能的功能和效果。 以[使用者檔](../user-help/user-help-security-info-overview.md)為基礎進行訓練，讓您的使用者準備好新的體驗，並協助確保成功的推出。
 
-Azure AD combined security information registration is not currently available to national clouds like Azure US Government, Azure Germany, or Azure China 21Vianet.
+Azure 美國政府、Azure 德國或 Azure 中國世紀等國家雲端目前無法使用 Azure AD 結合的安全性資訊註冊。
 
 |     |
 | --- |
-| Combined security information registration for Multi-Factor Authentication and Azure Active Directory (Azure AD) self-service password reset is a public preview feature of Azure AD. 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。|
+| 多重要素驗證和 Azure Active Directory （Azure AD）自助式密碼重設的結合安全性資訊註冊是 Azure AD 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。|
 |     |
 
 > [!IMPORTANT]
-> Users who are enabled for both the original preview and the enhanced combined registration experience will see the new behavior. Users who are enabled for both experiences will see only the new My Profile experience. The new My Profile aligns with the look and feel of combined registration and provides a seamless experience for users. Users can see My Profile by going to [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
+> 已同時啟用原始預覽和增強合併註冊體驗的使用者，將會看到新的行為。 針對這兩種體驗啟用的使用者，只會看到新的 [我的設定檔] 體驗。 新的 [我的設定檔] 符合結合註冊的外觀與風格，並為使用者提供順暢的體驗。 使用者可以前往[https://myprofile.microsoft.com](https://myprofile.microsoft.com)查看我的設定檔。
 
 > [!NOTE] 
-> You might encounter an error message while trying to access the Security info option. For example, "Sorry, we can't sign you in". In this case, confirm that you don't have any configuration or group policy object that blocks third-party cookies on the web browser. 
+> 嘗試存取 [安全性資訊] 選項時，您可能會遇到錯誤訊息。 例如，「抱歉，我們無法將您登入」。 在此情況下，請確認您沒有任何設定或群組原則物件在網頁瀏覽器上封鎖協力廠商 cookie。 
 
-My Profile pages are localized based on the language settings of the computer accessing the page. Microsoft stores the most recent language used in the browser cache, so subsequent attempts to access the pages will continue to render in the last language used. If you clear the cache, the pages will re-render. If you want to force a specific language, you can add `?lng=<language>` to the end of the URL, where `<language>` is the code of the language you want to render.
+我的設定檔頁面面會根據存取頁面之電腦的語言設定來當地語系化。 Microsoft 會儲存瀏覽器快取中使用的最新語言，因此後續存取頁面的嘗試會繼續以所用的最後一個語言呈現。 如果您清除快取，頁面將會重新呈現。 如果您想要強制使用特定的語言，您可以將 `?lng=<language>` 新增至 URL 結尾，其中 `<language>` 是您想要轉譯之語言的程式碼。
 
-![Set up SSPR or other security verification methods](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
+![設定 SSPR 或其他安全性驗證方法](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
-## <a name="methods-available-in-combined-registration"></a>Methods available in combined registration
+## <a name="methods-available-in-combined-registration"></a>合併註冊中提供的方法
 
-Combined registration supports the following authentication methods and actions:
+合併的註冊支援下列驗證方法和動作：
 
-|   | Register | 變更 | 刪除 |
+|   | 註冊 | 變更 | 刪除 |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Yes (maximum of 5) | 否 | 是 |
-| Other authenticator app | Yes (maximum of 5) | 否 | 是 |
-| Hardware token | 否 | 否 | 是 |
-| 電話 | 是 | 是 | 是 |
-| 備用手機 | 是 | 是 | 是 |
+| Microsoft 驗證器 | 是（最多5個） | 否 | yes |
+| 其他驗證器應用程式 | 是（最多5個） | 否 | yes |
+| 硬體權杖 | 否 | 否 | yes |
+| 電話 | yes | yes | yes |
+| 備用手機 | yes | yes | yes |
 | 辦公室電話 | 否 | 否 | 否 |
-| 電子郵件 | 是 | 是 | 是 |
-| 安全性問題 | 是 | 否 | 是 |
-| 應用程式密碼 | 是 | 否 | 是 |
+| 電子郵件 | yes | yes | yes |
+| 安全性問題 | yes | 否 | yes |
+| 應用程式密碼 | yes | 否 | yes |
 
 > [!NOTE]
-> App passwords are available only to users who have been enforced for Multi-Factor Authentication. App passwords are not available to users who are enabled for Multi-Factor Authentication via a Conditional Access policy.
+> 應用程式密碼僅適用于已強制執行多重要素驗證的使用者。 應用程式密碼無法供透過條件式存取原則啟用多重要素驗證的使用者使用。
 
-Users can set one of the following options as the default Multi-Factor Authentication method:
+使用者可以將下列其中一個選項設定為預設的多重要素驗證方法：
 
-- Microsoft Authenticator – notification.
-- Authenticator app or hardware token – code.
-- Phone call.
-- Text message.
+- Microsoft Authenticator –通知。
+- 驗證器應用程式或硬體權杖-代碼。
+- 通話。
+- 文字訊息。
 
-As we continue to add more authentication methods to Azure AD, those methods will be available in combined registration.
+隨著我們繼續新增更多驗證方法來 Azure AD，這些方法將會在合併註冊中提供。
 
-## <a name="combined-registration-modes"></a>Combined registration modes
+## <a name="combined-registration-modes"></a>結合的註冊模式
 
-There are two modes of combined registration: interrupt and manage.
+結合註冊的模式有兩種： [中斷] 和 [管理]。
 
-- **Interrupt mode** is a wizard-like experience, presented to users when they register or refresh their security info at sign-in.
+- **中斷模式**是類似 wizard 的體驗，當使用者在登入時註冊或重新整理其安全性資訊時，會向他們呈現。
 
-- **Manage mode** is part of the user profile and allows users to manage their security info.
+- [**管理] 模式**是使用者設定檔的一部分，可讓使用者管理其安全性資訊。
 
-For both modes, users who have previously registered a method that can be used for Multi-Factor Authentication will need to perform Multi-Factor Authentication before they can access their security info.
+針對這兩種模式，先前已註冊可用於多重要素驗證之方法的使用者，必須先執行多重要素驗證，然後才能存取其安全性資訊。
 
-### <a name="interrupt-mode"></a>Interrupt mode
+### <a name="interrupt-mode"></a>中斷模式
 
-Combined registration respects both Multi-Factor Authentication and SSPR policies, if both are enabled for your tenant. These policies control whether a user is interrupted for registration during sign-in and which methods are available for registration.
+結合註冊會同時遵守多重要素驗證和 SSPR 原則（如果您的租使用者已啟用這兩者）。 這些原則會控制使用者是否在登入期間中斷註冊，以及可供註冊的方法。
 
-Here are several scenarios in which users might be prompted to register or refresh their security info:
+以下是幾個可能會提示使用者註冊或重新整理其安全性資訊的案例：
 
-- Multi-Factor Authentication registration enforced through Identity Protection: Users are asked to register during sign-in. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
-- Multi-Factor Authentication registration enforced through per-user Multi-Factor Authentication: Users are asked to register during sign-in. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
-- Multi-Factor Authentication registration enforced through Conditional Access or other policies: Users are asked to register when they use a resource that requires Multi-Factor Authentication. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
-- SSPR registration enforced: Users are asked to register during sign-in. They register only SSPR methods.
-- SSPR refresh enforced: Users are required to review their security info at an interval set by the admin. Users are shown their info and can confirm the current info or make changes if needed.
+- 透過身分識別保護強制執行多重要素驗證註冊：系統會要求使用者在登入期間進行註冊。 他們會註冊多因素驗證方法和 SSPR 方法（如果使用者已啟用 SSPR）。
+- 透過每個使用者的多重要素驗證強制執行多重要素驗證註冊：系統會要求使用者在登入期間進行註冊。 他們會註冊多因素驗證方法和 SSPR 方法（如果使用者已啟用 SSPR）。
+- 透過條件式存取或其他原則強制執行多重要素驗證註冊：當使用者使用需要多重要素驗證的資源時，系統會要求他們進行註冊。 他們會註冊多因素驗證方法和 SSPR 方法（如果使用者已啟用 SSPR）。
+- 強制執行 SSPR 登錄：系統會要求使用者在登入期間進行註冊。 它們只會註冊 SSPR 方法。
+- 強制執行 SSPR 重新整理：使用者必須以系統管理員所設定的間隔來檢查其安全性資訊。使用者會顯示其資訊，並可確認目前的資訊，或視需要進行變更。
 
-When registration is enforced, users are shown the minimum number of methods needed to be compliant with both Multi-Factor Authentication and SSPR policies, from most to least secure.
+強制執行註冊時，會顯示使用者最少需要符合多重要素驗證和 SSPR 原則的最小數目，從大部分到最不安全。
 
-例如：
+例如︰
 
-- A user is enabled for SSPR. The SSPR policy required two methods to reset and has enabled mobile app code, email, and phone.
-   - This user is required to register two methods.
-      - The user is shown authenticator app and phone by default.
-      - The user can choose to register email instead of authenticator app or phone.
+- 已啟用 SSPR 的使用者。 SSPR 原則需要兩個重設的方法，且已啟用行動裝置應用程式代碼、電子郵件和電話。
+   - 這位使用者必須註冊兩種方法。
+      - 根據預設，使用者會顯示為驗證器應用程式和電話。
+      - 使用者可以選擇註冊電子郵件，而不是驗證器應用程式或電話。
 
-This flowchart describes which methods are shown to a user when interrupted to register during sign-in:
+此流程圖說明當使用者在登入期間中斷註冊時，會向他們顯示哪些方法：
 
-![Combined security info flowchart](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
+![結合的安全性資訊流程圖](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
-If you have both Multi-Factor Authentication and SSPR enabled, we recommend that you enforce Multi-Factor Authentication registration.
+如果您同時啟用多重要素驗證和 SSPR，建議您強制執行多重要素驗證註冊。
 
-If the SSPR policy requires users to review their security info at regular intervals, users are interrupted during sign-in and shown all their registered methods. They can confirm the current info if it's up-to-date, or they can make changes if they need to.
+如果 SSPR 原則要求使用者定期檢查其安全性資訊，則使用者會在登入期間中斷，並顯示其所有已註冊的方法。 他們可以確認目前的資訊是否為最新狀態，或者可以在需要時進行變更。
 
-### <a name="manage-mode"></a>Manage mode
+### <a name="manage-mode"></a>管理模式
 
-Users can access manage mode by going to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) or by selecting **Security info** from My Profile. From there, users can add methods, delete or change existing methods, change the default method, and more.
+使用者可以前往 [ [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) ] 或從 [我的設定檔] 選取 [**安全性資訊**] 來存取 [管理] 模式。 使用者可以從該處新增方法、刪除或變更現有的方法、變更預設方法等等。
 
-## <a name="key-usage-scenarios"></a>Key usage scenarios
+## <a name="key-usage-scenarios"></a>金鑰使用案例
 
-### <a name="set-up-security-info-during-sign-in"></a>Set up security info during sign-in
+### <a name="set-up-security-info-during-sign-in"></a>在登入期間設定安全性資訊
 
-An admin has enforced registration.
+系統管理員已強制執行註冊。
 
-A user has not set up all required security info and goes to the Azure portal. After entering the user name and password, the user is prompted to set up security info. The user then follows the steps shown in the wizard to set up the required security info. If your settings allow it, the user can choose to set up methods other than those shown by default. After completing the wizard, users review the methods they set up and their default method for Multi-Factor Authentication. To complete the setup process, the user confirms the info and continues to the Azure portal.
+使用者尚未設定所有必要的安全性資訊，並前往 Azure 入口網站。 輸入使用者名稱和密碼之後，系統會提示使用者設定安全性資訊。 接著，使用者會遵循嚮導中顯示的步驟來設定所需的安全性資訊。 如果您的設定允許，使用者可以選擇設定預設顯示以外的方法。 完成嚮導之後，使用者會檢查他們所設定的方法，以及其多重要素驗證的預設方法。 若要完成安裝程式，使用者會確認資訊並繼續進行 Azure 入口網站。
 
-### <a name="set-up-security-info-from-my-profile"></a>Set up security info from My Profile
+### <a name="set-up-security-info-from-my-profile"></a>從我的設定檔設定安全性資訊
 
-An admin has not enforced registration.
+系統管理員未強制註冊。
 
-A user who hasn't yet set up all required security info goes to [https://myprofile.microsoft.com](https://myprofile.microsoft.com). The user selects **Security info** in the left pane. From there, the user chooses to add a method, selects any of the methods available, and follows the steps to set up that method. When finished, the user sees the method that was just set up on the Security info page.
+尚未設定所有必要安全性資訊的使用者會進入[https://myprofile.microsoft.com](https://myprofile.microsoft.com)。 使用者會在左窗格中選取 [**安全性資訊**]。 使用者可以從該處加入宣告方法、選取任何可用的方法，並遵循步驟來設定該方法。 完成後，使用者會看到剛剛在 [安全性資訊] 頁面上設定的方法。
 
-### <a name="delete-security-info-from-my-profile"></a>Delete security info from My Profile
+### <a name="delete-security-info-from-my-profile"></a>從我的設定檔刪除安全性資訊
 
-A user who has previously set up at least one method navigates to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). The user chooses to delete one of the previously registered methods. When finished, the user no longer sees that method on the Security info page.
+先前已設定至少一個方法流覽至[https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)的使用者。 使用者選擇刪除其中一個先前註冊的方法。 完成後，使用者就不會再于 [安全性資訊] 頁面上看到該方法。
 
-### <a name="change-the-default-method-from-my-profile"></a>Change the default method from My Profile
+### <a name="change-the-default-method-from-my-profile"></a>從我的設定檔變更預設方法
 
-A user who has previously set up at least one method that can be used for Multi-Factor Authentication navigates to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). The user changes the current default method to a different default method. When finished, the user sees the new default method on the Security info page.
+先前已設定一個可用於多重要素驗證之方法的使用者，會流覽至[https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)。 使用者會將目前的預設方法變更為不同的預設方法。 完成時，使用者會在 [安全性資訊] 頁面上看到新的預設方法。
 
 ## <a name="next-steps"></a>後續步驟
 
-[Force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-authentication-methods)
+[強制使用者重新註冊驗證方法](howto-mfa-userdevicesettings.md#manage-authentication-methods)
 
-[Enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
+[啟用租使用者中的合併註冊](howto-registration-mfa-sspr-combined.md)
 
-[SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
+[SSPR 和 MFA 使用方式和深入解析報告](howto-authentication-methods-usage-insights.md)
 
-[Available methods for Multi-Factor Authentication and SSPR](concept-authentication-methods.md)
+[多重要素驗證和 SSPR 的可用方法](concept-authentication-methods.md)
 
-[Configure self-service password reset](howto-sspr-deployment.md)
+[設定自助式密碼重設](howto-sspr-deployment.md)
 
-[Configure Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+[設定 Azure 多重要素驗證](howto-mfa-getstarted.md)

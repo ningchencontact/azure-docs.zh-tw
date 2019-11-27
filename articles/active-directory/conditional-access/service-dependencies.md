@@ -1,6 +1,6 @@
 ---
-title: Conditional Access service dependencies - Azure Active Directory
-description: Learn how conditions are used in Azure Active Directory Conditional Access to trigger a policy.
+title: 條件式存取服務相依性-Azure Active Directory
+description: 瞭解如何在 Azure Active Directory 條件式存取中使用條件來觸發原則。
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,48 +18,48 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74380019"
 ---
-# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>What are service dependencies in Azure Active Directory Conditional Access? 
+# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的服務相依性為何？ 
 
-With Conditional Access policies, you can specify access requirements to websites and services. For example, your access requirements can include requiring multi-factor authentication (MFA) or [managed devices](require-managed-devices.md). 
+透過條件式存取原則，您可以指定對網站和服務的存取需求。 例如，您的存取需求可能包括需要多重要素驗證（MFA）或[受管理的裝置](require-managed-devices.md)。 
 
-When you access a site or service directly, the impact of a related policy is typically easy to assess. For example, if you have a policy that requires MFA for SharePoint Online configured, MFA is enforced for each sign-in to the SharePoint web portal. However, it is not always straight-forward to assess the impact of a policy because there are cloud apps with dependencies to other cloud apps. For example, Microsoft Teams can provide access to resources in SharePoint Online. So, when you access Microsoft Teams in our current scenario, you are also subject to the SharePoint MFA policy.   
+當您直接存取網站或服務時，相關原則的影響通常很容易評估。 例如，如果您的原則需要設定 MFA for SharePoint Online，則會針對每個登入 SharePoint web 入口網站強制執行 MFA。 不過，因為有與其他雲端應用程式有相依性的雲端應用程式，所以不一定能夠直接進行評估原則的影響。 例如，Microsoft 小組可以提供 SharePoint Online 中資源的存取權。 因此，當您在我們目前的案例中存取 Microsoft 小組時，您也會受限於 SharePoint MFA 原則。   
 
 ## <a name="policy-enforcement"></a>強制執行原則 
 
-If you have a service dependency configured, the policy may be applied using early-bound or late-bound enforcement. 
+如果您已設定服務相依性，則可以使用早期繫結或晚期繫結強制來套用原則。 
 
-- **Early-bound policy enforcement** means a user must satisfy the dependent service policy before accessing the calling app. For example, a user must satisfy SharePoint policy before signing into MS Teams. 
-- **Late-bound policy enforcement** occurs after the user signs into the calling app. Enforcement is deferred to when calling app requests, a token for the downstream service. Examples include MS Teams accessing Planner and Office.com accessing SharePoint. 
+- **早期繫結的原則強制執行**表示使用者必須滿足相依的服務原則，才能存取呼叫的應用程式。 例如，使用者必須先滿足 SharePoint 原則，才能登入 MS 小組。 
+- 在使用者登入呼叫應用程式之後，會進行**晚期繫結的原則強制執行**。 在呼叫應用程式要求時，強制會延後到下游服務的權杖。 範例包括存取 Planner 的 MS 小組，以及存取 SharePoint 的 Office.com。 
 
-The diagram below illustrates MS Teams service dependencies. Solid arrows indicate early-bound enforcement the dashed arrow for Planner indicates late-bound enforcement. 
+下圖說明 MS 小組服務相依性。 實心箭號表示早期繫結強制執行 Planner 的虛線箭號表示晚期繫結強制。 
 
-![MS Teams service dependencies](./media/service-dependencies/01.png)
+![MS 小組服務相依性](./media/service-dependencies/01.png)
 
-As a best practice, you should set common policies across related apps and services whenever possible. Having a consistent security posture provides you with the best user experience. For example, setting a common policy across Exchange Online, SharePoint Online, Microsoft Teams, and Skype for business significantly reduces unexpected prompts that may arise from different policies being applied to downstream services. 
+最佳做法是，您應該盡可能在相關的應用程式和服務中設定一般原則。 擁有一致的安全性狀態，可為您提供最佳的使用者體驗。 例如，在 Exchange Online、SharePoint Online、Microsoft 團隊和商務用 Skype 之間設定通用原則，可大幅減少可能因不同原則套用至下游服務而產生的非預期提示。 
 
-The below table lists additional service dependencies, where the client apps must satisfy  
+下表列出額外的服務相依性，用戶端應用程式必須滿足這些相關性  
 
-| 用戶端應用程式         | Downstream service                          | Enforcement |
+| 用戶端應用程式         | 下游服務                          | 強制 |
 | :--                 | :--                                         | ---         | 
-| Azure Data Lake     | Microsoft Azure Management (portal and API) | Early-bound |
-| Microsoft Classroom | Exchange                                    | Early-bound |
-|                     | SharePoint                                  | Early-bound |
-| Microsoft Teams     | Exchange                                    | Early-bound |
-|                     | MS Planner                                  | Late-bound  |
-|                     | SharePoint                                  | Early-bound |
-|                     | 商務用 Skype Online                   | Early-bound |
-| Office Portal       | Exchange                                    | Late-bound  |
-|                     | SharePoint                                  | Late-bound  |
-| Outlook groups      | Exchange                                    | Early-bound |
-|                     | SharePoint                                  | Early-bound |
-| PowerApps           | Microsoft Azure Management (portal and API) | Early-bound |
-|                     | Windows Azure Active Directory              | Early-bound |
-| 隨附此逐步解說的專案             | Dynamics CRM                                | Early-bound |
-| 商務用 Skype  | Exchange                                    | Early-bound |
-| Visual Studio       | Microsoft Azure Management (portal and API) | Early-bound |
-| Microsoft Forms     | Exchange                                    | Early-bound |
-|                     | SharePoint                                  | Early-bound |
-| Microsoft To-Do     | Exchange                                    | Early-bound |
+| Azure 資料湖     | Microsoft Azure 管理（入口網站和 API） | 早期繫結 |
+| Microsoft 課堂 | Exchange                                    | 早期繫結 |
+|                     | SharePoint                                  | 早期繫結 |
+| Microsoft Teams     | Exchange                                    | 早期繫結 |
+|                     | MS Planner                                  | 晚期繫結  |
+|                     | SharePoint                                  | 早期繫結 |
+|                     | 商務用 Skype Online                   | 早期繫結 |
+| Office 入口網站       | Exchange                                    | 晚期繫結  |
+|                     | SharePoint                                  | 晚期繫結  |
+| Outlook 群組      | Exchange                                    | 早期繫結 |
+|                     | SharePoint                                  | 早期繫結 |
+| PowerApps           | Microsoft Azure 管理（入口網站和 API） | 早期繫結 |
+|                     | Windows Azure Active Directory              | 早期繫結 |
+| 隨附此逐步解說的專案             | Dynamics CRM                                | 早期繫結 |
+| 商務用 Skype  | Exchange                                    | 早期繫結 |
+| Visual Studio       | Microsoft Azure 管理（入口網站和 API） | 早期繫結 |
+| Microsoft Forms     | Exchange                                    | 早期繫結 |
+|                     | SharePoint                                  | 早期繫結 |
+| Microsoft To-Do     | Exchange                                    | 早期繫結 |
 
 ## <a name="next-steps"></a>後續步驟
 

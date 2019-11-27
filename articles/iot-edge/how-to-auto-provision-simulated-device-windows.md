@@ -1,5 +1,5 @@
 ---
-title: Automatically provision Windows devices with DPS - Azure IoT Edge | Microsoft Docs
+title: 使用 DPS 自動布建 Windows 裝置-Azure IoT Edge |Microsoft Docs
 description: 在您的 Windows 機器上使用模擬裝置，以透過裝置佈建服務測試 Azure IoT Edge 的自動裝置佈建
 author: kgremban
 manager: philmea
@@ -15,13 +15,13 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74457135"
 ---
-# <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Create and provision a simulated IoT Edge device with a virtual TPM on Windows
+# <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>在 Windows 上使用虛擬 TPM 建立及布建模擬的 IoT Edge 裝置
 
 Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動佈建，就像未啟用 Edge 的裝置一樣。 如果您不熟悉自動佈建程序，請先檢閱[自動佈建概念](../iot-dps/concepts-auto-provisioning.md)，再繼續作業。
 
-DPS supports symmetric key attestation for IoT Edge devices in both individual enrollment and group enrollment. For group enrollment, if you check “is IoT Edge device” option to be true in symmetric key attestation, all the devices that are registered under that enrollment group will be marked as IoT Edge devices. 
+DPS 支援在個別註冊和群組註冊中 IoT Edge 裝置的對稱金鑰證明。 針對群組註冊，如果您在對稱金鑰證明中核取 [IoT Edge 裝置] 選項設為 true，則在該註冊群組下註冊的所有裝置都會標示為 [IoT Edge 裝置]。 
 
-This article shows you how to test auto-provisioning on a simulated IoT Edge device with the following steps:
+本文說明如何使用下列步驟，在模擬的 IoT Edge 裝置上測試自動布建：
 
 * 建立 IoT 中樞裝置佈建服務 (DPS) 的執行個體。
 * 在 Windows 機器上建立模擬裝置與保護硬體的模擬信任平台模組 (TPM)。
@@ -29,12 +29,12 @@ This article shows you how to test auto-provisioning on a simulated IoT Edge dev
 * 安裝 IoT Edge 執行階段，並將裝置連線到 IoT 中樞。
 
 > [!NOTE]
-> TPM 2.0 is required when using TPM attestation with DPS and can only be used to create individual, not group, enrollments.
+> 使用 TPM 證明搭配 DPS 時需要 TPM 2.0，而且只能用來建立個別的群組，而不能用來註冊。
 
 > [!TIP]
-> This article describes testing auto-provisioning by using TPM attestation on virtual devices, but much of it applies when using physical TPM hardware as well.
+> 本文說明如何在虛擬裝置上使用 TPM 證明來測試自動布建，但大部分的功能也適用于使用實體 TPM 硬體時。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Windows 開發機器。 本文使用 Windows 10。
 * 使用中的 IoT 中樞。
@@ -46,19 +46,19 @@ This article shows you how to test auto-provisioning on a simulated IoT Edge dev
 裝置佈建服務開始執行之後，請從 [概觀] 頁面複製 [識別碼範圍] 的值。 當您設定 IoT Edge 執行階段時會用到此值。
 
 > [!TIP]
-> If you're using a physical TPM device, you need to determine the **Endorsement key**, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. You can derive a unique **Registration ID** for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
+> 如果您使用實體 TPM 裝置，您必須判斷**簽署金鑰**，這對每個 tpm 晶片而言都是唯一的，而且是從與其相關聯的 tpm 晶片製造商取得。 您可以藉由建立簽署金鑰的 SHA-256 雜湊，為您的 TPM 裝置衍生唯一的**註冊識別碼**。
 >
-> Follow the instructions in the article [How to manage device enrollments with Azure Portal](../iot-dps/how-to-manage-enrollments.md) to create your enrollment in DPS and then proceed with the [Install the IoT Edge runtime](#install-the-iot-edge-runtime) section in this article to continue.
+> 依照[如何使用 Azure 入口網站管理裝置](../iot-dps/how-to-manage-enrollments.md)註冊一文中的指示，在 DPS 中建立註冊，然後繼續進行本文中的[安裝 IoT Edge 運行](#install-the-iot-edge-runtime)時間一節，以繼續進行。
 
 ## <a name="simulate-a-tpm-device"></a>模擬 TPM 裝置
 
-在 Windows 開發機器上建立模擬 TPM 裝置。 Retrieve the **Registration ID** and **Endorsement key** for your device, and use them to create an individual enrollment entry in DPS.
+在 Windows 開發機器上建立模擬 TPM 裝置。 取出您裝置的**註冊識別碼**和**簽署金鑰**，並使用它們在 DPS 中建立個別的註冊專案。
 
 在 DPS 中建立註冊時，您就有機會宣告**初始裝置對應項狀態**。 在裝置對應項中，您可以根據解決方案中需要的任何計量 (例如區域、環境、位置或裝置類型) 來設定標記，進而將裝置分組。 這些標記會用來建立[自動部署](how-to-deploy-monitor.md)。
 
 選擇您想要用來建立模擬裝置的 SDK 語言並遵循步驟，直到您建立個別註冊。
 
-When you create the individual enrollment, select **True** to declare that the simulated TPM device on your Windows development machine is an **IoT Edge device**.
+當您建立個別註冊時，請選取 [ **True** ] 以宣告 Windows 開發電腦上的模擬 TPM 裝置是**IoT Edge 裝置**。
 
 模擬裝置和個別註冊指南：
 
@@ -74,32 +74,32 @@ When you create the individual enrollment, select **True** to declare that the s
 
 IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容器中執行，並可讓您將其他容器部署到裝置，以便您在邊緣上執行程式碼。
 
-You'll need the following information when provisioning your device:
+布建您的裝置時，您將需要下列資訊：
 
-* The DPS **ID Scope** value
-* The device **Registration ID** you created
+* DPS**識別碼範圍**值
+* 您所建立的裝置**註冊識別碼**
 
-Install the IoT Edge runtime on the device that is running the simulated TPM. You'll configure the IoT Edge runtime for automatic, not manual, provisioning.
+在執行模擬 TPM 的裝置上安裝 IoT Edge 執行時間。 您會將 IoT Edge 執行時間設定為自動布建，而不是手動布建。
 
 > [!TIP]
 > 在安裝和測試期間，請將執行 TPM 模擬器的視窗保持開啟。
 
-For more detailed information about installing IoT Edge on Windows, including prerequisites and instructions for tasks like managing containers and updating IoT Edge, see [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
+如需有關在 Windows 上安裝 IoT Edge 的詳細資訊，包括管理容器和更新 IoT Edge 等工作的必要條件和指示，請參閱[在 windows 上安裝 Azure IoT Edge 執行時間](how-to-install-iot-edge-windows.md)。
 
-1. 在系統管理員模式下開啟 [Azure PowerShell] 視窗。 Be sure to use an AMD64 session of PowerShell when installing IoT Edge, not PowerShell (x86).
+1. 在系統管理員模式下開啟 [Azure PowerShell] 視窗。 安裝 IoT Edge 時，請務必使用 PowerShell 的 AMD64 會話，而不是 PowerShell （x86）。
 
-1. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, and then downloads the moby runtime and the IoT Edge runtime. The command defaults to using Windows containers.
+1. **IoTEdge**命令會檢查您的 Windows 電腦是否在支援的版本上，開啟 [容器] 功能，然後下載 moby 執行時間和 IoT Edge 執行時間。 命令預設為使用 Windows 容器。
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
-1. At this point, IoT Core devices may restart automatically. Other Windows 10 or Windows Server devices may prompt you to restart. If so, restart your device now. Once your device is ready, run PowerShell as an administrator again.
+1. 此時，IoT 核心版裝置可能會自動重新開機。 其他 Windows 10 或 Windows Server 裝置可能會提示您重新開機。 若是如此，請立即重新開機您的裝置。 一旦您的裝置準備就緒，請再次以系統管理員身分執行 PowerShell。
 
-1. **Initialize-IoTEdge** 命令會設定機器的 IoT Edge 執行階段。 此命令預設為 Windows 容器的手動佈建。 Use the `-Dps` flag to use the Device Provisioning Service instead of manual provisioning.
+1. **Initialize-IoTEdge** 命令會設定機器的 IoT Edge 執行階段。 此命令預設為 Windows 容器的手動佈建。 使用 `-Dps` 旗標來使用裝置布建服務，而不是手動布建。
 
-   Replace the placeholder values for `{scope_id}` and `{registration_id}` with the data you collected earlier.
+   以您稍早收集的資料取代 `{scope_id}` 和 `{registration_id}` 的預留位置值。
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `

@@ -34,9 +34,9 @@ Azure Container Registry 會處理一些從現有登錄複製映像的常見案�
 > 如果您需要將相同的容器映像散佈到多個 Azure 區域，Azure Container Registry 也支援[異地複寫](container-registry-geo-replication.md)。 藉由異地複寫登錄 (需要進階 SKU)，您可以使用來自單一登錄的相同映像和標記名稱，為多個區域提供服務。
 >
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-如果您還沒有 Azure 容器登錄，請建立登錄。 For steps, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
+如果您還沒有 Azure 容器登錄，請建立登錄。 如需相關步驟，請參閱[快速入門：使用 Azure CLI 建立私人容器](container-registry-get-started-azure-cli.md)登錄。
 
 若要將映像匯入到 Azure 容器登錄，您的身分識別必須具有目標登錄的寫入權限 (至少是「參與者」角色)。 請參閱 [Azure Container Registry 角色和權限](container-registry-roles.md)。 
 
@@ -44,7 +44,7 @@ Azure Container Registry 會處理一些從現有登錄複製映像的常見案�
 
 ### <a name="import-from-docker-hub"></a>從 Docker Hub 匯入
 
-For example, use the [az acr import][az-acr-import] command to import the multi-architecture `hello-world:latest` image from Docker Hub to a registry named *myregistry*. 因為 `hello-world` 是來自 Docker Hub 的官方映像，此映像在預設 `library` 存放庫中。 在 `--source` 映像參數的值中包含存放庫名稱，以及選擇性包含標記。 (您可以選擇性依據其資訊清單摘要來識別映像，而不是依據標記，如此可確保映像的特定版本。)
+例如，使用[az acr import][az-acr-import]命令，將多架構 `hello-world:latest` 映射從 Docker Hub 匯入到名為*myregistry*的登錄。 因為 `hello-world` 是來自 Docker Hub 的官方映像，此映像在預設 `library` 存放庫中。 在 `--source` 映像參數的值中包含存放庫名稱，以及選擇性包含標記。 (您可以選擇性依據其資訊清單摘要來識別映像，而不是依據標記，如此可確保映像的特定版本。)
  
 ```azurecli
 az acr import --name myregistry --source docker.io/library/hello-world:latest --image hello-world:latest
@@ -118,7 +118,7 @@ az acr import --name myregistry --source docker.io/sourcerepo/sourceimage:tag --
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您會了解從公用登錄或其他私人登錄將容器映像匯入到 Azure 容器登錄。 For additional image import options, see the [az acr import][az-acr-import] command reference. 
+在本文中，您會了解從公用登錄或其他私人登錄將容器映像匯入到 Azure 容器登錄。 如需其他影像匯入選項，請參閱[az acr import][az-acr-import]命令參考。 
 
 
 <!-- LINKS - Internal -->

@@ -1,6 +1,6 @@
 ---
-title: Use follower database feature to attach databases in Azure Data Explorer
-description: Learn about how to attach databases in Azure Data Explorer using the follower database feature.
+title: 使用資料的資料庫功能，在 Azure 中附加資料庫資料總管
+description: 瞭解如何使用「資料後資料庫」功能，在 Azure 資料總管中附加資料庫。
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabilehner
@@ -14,34 +14,34 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74462019"
 ---
-# <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Use follower database to attach databases in Azure Data Explorer
+# <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>使用在 Azure 資料總管中的資料，來連接資料庫
 
-The **follower database** feature allows you to attach a database located in a different cluster to your Azure Data Explorer cluster. The **follower database** is attached in *read-only* mode, making it possible to view the data and run queries on the data that was ingested into the **leader database**. The follower database synchronizes changes in the leader databases. Due to the synchronization, there's a data lag of a few seconds to a few minutes in data availability. The length of the time lag depends on the overall size of the leader database metadata. The leader and follower databases use the same storage account to fetch the data. The storage is owned by the leader database. The follower database views the data without needing to ingest it. Since the attached database is a read-only database, the data, tables, and policies in the database can't be modified except for [caching policy](#configure-caching-policy), [principals](#manage-principals), and [permissions](#manage-permissions). Attached databases can't be deleted. They must be detached by the leader or follower and only then they can be deleted. 
+「後置**資料庫**」功能可讓您將位於不同叢集中的資料庫附加至您的 Azure 資料總管叢集。 「執行程式」**資料庫**是以*唯讀*模式附加，因此您可以在內嵌至**領導者資料庫**的資料上，查看資料並執行查詢。 「資料後」資料庫會同步處理領導者資料庫中的變更。 由於同步處理，資料可用性會有幾秒鐘到幾分鐘的資料延遲。 時間延遲的長度取決於領導者資料庫中繼資料的整體大小。 領導者和執行者資料庫會使用相同的儲存體帳戶來提取資料。 儲存區是由領導者資料庫所擁有。 「取用的資料庫」會在不需要內嵌資料的情況下，就能流覽資料。 因為附加的資料庫是唯讀資料庫，所以無法修改資料庫中的資料、資料表和原則，但快取[原則](#configure-caching-policy)、[主體](#manage-principals)和[許可權](#manage-permissions)除外。 無法刪除附加的資料庫。 它們必須由領導者或其他人卸離，然後才可以刪除。 
 
-Attaching a database to a different cluster using the follower capability is used as the infrastructure to share data between organizations and teams. The feature is useful to segregate compute resources to protect a production environment from non-production use cases. Follower can also be used to associate the cost of Azure Data Explorer cluster to the party that runs queries on the data.
+使用「進行中」功能將資料庫附加至不同的叢集，是用來做為基礎結構，以便在組織與小組之間共用資料。 此功能適用于隔離計算資源，以保護生產環境不受非生產使用案例的限制。 您也可以將 Azure 資料總管叢集的成本與對資料執行查詢的合作物件建立關聯。
 
-## <a name="which-databases-are-followed"></a>Which databases are followed?
+## <a name="which-databases-are-followed"></a>會遵循哪些資料庫？
 
-* A cluster can follow one database, several databases, or all databases of a leader cluster. 
-* A single cluster can follow databases from multiple leader clusters. 
-* A cluster can contain both follower databases and leader databases
+* 叢集可以遵循一個資料庫、數個資料庫或領導者叢集的所有資料庫。 
+* 單一叢集可以遵循來自多個領導者叢集的資料庫。 
+* 叢集可以同時包含進行中的資料庫和領導者資料庫
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 1. 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
-1. [Create cluster and DB](/azure/data-explorer/create-cluster-database-portal) for the leader and follower.
-1. [Ingest data](/azure/data-explorer/ingest-sample-data) to leader database using one of various methods discussed in [ingestion overview](/azure/data-explorer/ingest-data-overview).
+1. 為領導者和進行中[建立叢集和資料庫](/azure/data-explorer/create-cluster-database-portal)。
+1. 使用內嵌[總覽](/azure/data-explorer/ingest-data-overview)中所討論的各種方法之一，將[資料](/azure/data-explorer/ingest-sample-data)內嵌至領導者資料庫。
 
 ## <a name="attach-a-database"></a>連結資料庫
 
-There are various methods you can use to attach a database. In this article, we discuss attaching a database using C# or an Azure Resource Manager template. To attach a database, you must have permissions on the leader cluster and the follower cluster. For more information about permissions, see [manage permissions](#manage-permissions).
+您可以使用各種方法來附加資料庫。 在本文中，我們會討論如何使用C#或 Azure Resource Manager 範本附加資料庫。 若要附加資料庫，您必須擁有領導者叢集和消費者叢集的許可權。 如需許可權的詳細資訊，請參閱[管理許可權](#manage-permissions)。
 
-### <a name="attach-a-database-using-c"></a>Attach a database using C#
+### <a name="attach-a-database-using-c"></a>使用附加資料庫C#
 
-**Needed NuGets**
+**必要的 Nuget**
 
-* Install [Microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-* Install [Microsoft.Rest.ClientRuntime.Azure.Authentication for authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication).
+* 請安裝[kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/)。
+* 安裝[ClientRuntime 以進行驗證](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication)。
 
 
 ```Csharp
@@ -76,9 +76,9 @@ AttachedDatabaseConfiguration attachedDatabaseConfigurationProperties = new Atta
 var attachedDatabaseConfigurations = resourceManagementClient.AttachedDatabaseConfigurations.CreateOrUpdate(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationName, attachedDatabaseConfigurationProperties);
 ```
 
-### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Attach a database using an Azure Resource Manager template
+### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本附加資料庫
 
-In this section, you learn how to attach a database by using an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). 
+在本節中，您將瞭解如何使用[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)附加資料庫。 
 
 ```json
 {
@@ -161,41 +161,41 @@ In this section, you learn how to attach a database by using an [Azure Resource 
 
 ### <a name="deploy-the-template"></a>部署範本 
 
-You can deploy the Azure Resource Manager template by [using the Azure portal](https://portal.azure.com) or using powershell.
+您可以[使用 Azure 入口網站](https://portal.azure.com)或使用 powershell 來部署 Azure Resource Manager 範本。
 
-   ![template deployment](media/follower/template-deployment.png)
+   ![範本部署](media/follower/template-deployment.png)
 
 
-|**設定**  |**說明**  |
+|**設定**  |**描述**  |
 |---------|---------|
-|Follower Cluster Name     |  The name of the follower cluster       |
-|Attached Database Configurations Name    |    The name of the attached database configurations object. The name must be unique at the cluster level.     |
-|資料庫名稱     |      The name of the database to be followed. If you want to follow all the leader's databases, use '*'.   |
-|Leader Cluster Resource ID    |   The resource ID of the leader cluster.      |
-|Default Principals Modification Kind    |   The default principal modification kind. Can be `Union`, `Replace` or `None`. For more information about default principal modification kind, see [principal modification kind control command](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
-|Location   |   The location of all the resources. The leader and the follower must be in the same location.       |
+|進行中的叢集名稱     |  進行中的叢集名稱       |
+|附加的資料庫設定名稱    |    附加的資料庫設定物件的名稱。 名稱在叢集層級必須是唯一的。     |
+|資料庫名稱     |      要遵循的資料庫名稱。 如果您想要追蹤所有領導者的資料庫，請使用 ' * '。   |
+|領導者叢集資源識別碼    |   領導者叢集的資源識別碼。      |
+|預設主體修改種類    |   預設的主體修改種類。 可以是 `Union`、`Replace` 或 `None`。 如需預設主體修改種類的詳細資訊，請參閱[principal 修改種類控制命令](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind)。      |
+|位置   |   所有資源的位置。 領導人和進行者必須位於相同的位置。       |
  
-### <a name="verify-that-the-database-was-successfully-attached"></a>Verify that the database was successfully attached
+### <a name="verify-that-the-database-was-successfully-attached"></a>確認資料庫已成功附加
 
-To verify that the database was successfully attached, find your attached databases in the [Azure portal](https://portal.azure.com). 
+若要確認資料庫是否已成功附加，請在[Azure 入口網站](https://portal.azure.com)中尋找您附加的資料庫。 
 
-1. Navigate to the follower cluster and select **Databases**
-1. Search for new Read-only databases in the database list.
+1. 流覽至 [進行中] 叢集並選取 [**資料庫**]
+1. 在 [資料庫] 清單中搜尋新的唯讀資料庫。
 
-    ![Read-only follower database](media/follower/read-only-follower-database.png)
+    ![唯讀的進行中資料庫](media/follower/read-only-follower-database.png)
 
 或者：
 
-1. Navigate to the leader cluster and select **Databases**
-2. Check that the relevant databases are marked as **SHARED WITH OTHERS** > **Yes**
+1. 流覽至領導者叢集並選取 [**資料庫**]
+2. 檢查相關資料庫是否標示為**與其他人共用** > **是**
 
-    ![Read and write attached databases](media/follower/read-write-databases-shared.png)
+    ![讀取和寫入附加的資料庫](media/follower/read-write-databases-shared.png)
 
-## <a name="detach-the-follower-database-using-c"></a>Detach the follower database using C# 
+## <a name="detach-the-follower-database-using-c"></a>使用卸離後的資料庫C# 
 
-### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>Detach the attached follower database from the follower cluster
+### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>卸離已連接的資料來源資料庫與進行中的叢集
 
-Follower cluster can detach any attached database as follows:
+「進行中」叢集可以卸離任何附加的資料庫，如下所示：
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -217,9 +217,9 @@ var attachedDatabaseConfigurationsName = "adc";
 resourceManagementClient.AttachedDatabaseConfigurations.Delete(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationsName);
 ```
 
-### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>Detach the attached follower database from the leader cluster
+### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>從領導者叢集卸離附加的資料來源資料庫
 
-The leader cluster can detach any attached database as follows:
+領導者叢集可以卸離任何附加的資料庫，如下所示：
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -247,36 +247,36 @@ var followerDatabaseDefinition = new FollowerDatabaseDefinition()
 resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupName, leaderClusterName, followerDatabaseDefinition);
 ```
 
-## <a name="manage-principals-permissions-and-caching-policy"></a>Manage principals, permissions, and caching policy
+## <a name="manage-principals-permissions-and-caching-policy"></a>管理主體、許可權和快取原則
 
-### <a name="manage-principals"></a>Manage principals
+### <a name="manage-principals"></a>管理主體
 
-When attaching a database, specify the **"default principals modification kind"** . The default is keeping the leader database collection of [authorized principals](/azure/kusto/management/access-control/index#authorization)
+附加資料庫時，請指定「**預設主體修改種類**」。 預設會保留已[授權主體](/azure/kusto/management/access-control/index#authorization)的領導者資料庫集合
 
-|**種類** |**說明**  |
+|**種類** |**描述**  |
 |---------|---------|
-|**Union**     |   The attached database principals will always include the original database principals plus additional new principals added to the follower database.      |
-|**Replace**   |    No inheritance of principals from the original database. New principals must be created for the attached database.     |
-|**None**   |   The attached database principals include only the principals of the original database with no additional principals.      |
+|**並**     |   附加的資料庫主體一律會包含原始資料庫主體，加上加入至資料後資料庫的額外新主體。      |
+|**Replace**   |    不會繼承原始資料庫的主體。 必須為附加的資料庫建立新的主體。     |
+|**None**   |   附加的資料庫主體只包含原始資料庫的主體，且沒有其他主體。      |
 
-For more information about using control commands to configure the authorized principals, see [Control commands for managing a follower cluster](/azure/kusto/management/cluster-follower).
+如需使用控制命令來設定授權主體的詳細資訊，請參閱[控制管理使用](/azure/kusto/management/cluster-follower)中叢集的命令。
 
-### <a name="manage-permissions"></a>Manage permissions
+### <a name="manage-permissions"></a>管理許可權
 
-Managing read-only database permission is the same as for all database types. See [manage permissions in the Azure portal](/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
+管理唯讀資料庫許可權與所有資料庫類型相同。 請參閱[管理 Azure 入口網站中的許可權](/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal)。
 
-### <a name="configure-caching-policy"></a>Configure caching policy
+### <a name="configure-caching-policy"></a>設定快取原則
 
-The follower database administrator can modify the [caching policy](/azure/kusto/management/cache-policy) of the attached database or any of its tables on the hosting cluster. The default is keeping the leader database collection of database and table-level caching policies. You can, for example, have a 30 day caching policy on the leader database for running monthly reporting and a three day caching policy on the follower database to query only the recent data for troubleshooting. For more information about using control commands to configure the caching policy on the follower database or table, see [Control commands for managing a follower cluster](/azure/kusto/management/cluster-follower).
+「後向資料庫管理員」可以在主控叢集上修改附加資料庫或其任何資料表的快取[原則](/azure/kusto/management/cache-policy)。 預設值是保留資料庫和資料表層級快取原則的領導者資料庫集合。 例如，您可以在領導者資料庫上有30天的快取原則來執行每月報表，並在執行者資料庫上使用三天的快取原則，只查詢最近的資料進行疑難排解。 如需使用控制命令在資料後資料庫或資料表上設定快取原則的詳細資訊，請參閱[控制用於管理](/azure/kusto/management/cluster-follower)資料型叢集的命令。
 
 ## <a name="limitations"></a>限制
 
-* The follower and the leader clusters must be in the same region.
-* [Streaming ingestion](/azure/data-explorer/ingest-data-streaming) can't be used on a database that is being followed.
-* You can't delete a database that is attached to a different cluster before detaching it.
-* You can't delete a cluster that has a database attached to a different cluster before detaching it.
-* You can't stop a cluster that has attached follower or leader database(s). 
+* 「進行中」和「領導者」叢集必須位於相同的區域。
+* [資料流程](/azure/data-explorer/ingest-data-streaming)內嵌無法用於所遵循的資料庫。
+* 卸離另一個叢集之前，您無法刪除該資料庫。
+* 卸離資料庫之前，您無法刪除已附加至不同叢集的叢集。
+* 您無法停止已連接到或領導者資料庫的叢集。 
 
 ## <a name="next-steps"></a>後續步驟
 
-* For information about follower cluster configuration, see [Control commands for managing a follower cluster](/azure/kusto/management/cluster-follower).
+* 如需有關「進行中」叢集設定的詳細資訊，請參閱[控制管理使用](/azure/kusto/management/cluster-follower)中叢集的命令。

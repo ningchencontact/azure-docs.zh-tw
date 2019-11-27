@@ -1,5 +1,5 @@
 ---
-title: XEvent Event File code
+title: XEvent 事件檔案程式碼
 description: 提供 PowerShell 和 Transact-SQL 的兩階段程式碼範例，示範 Azure SQL Database 上擴充事件中的事件檔案目標。 此案例必須要有 Azure 儲存體。
 services: sql-database
 ms.service: sql-database
@@ -34,12 +34,12 @@ ms.locfileid: "74422470"
   - 將 Azure 儲存體容器指定為事件檔案目標。
   - 建立和啟動事件工作階段等等。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 - Azure 帳戶和訂用帳戶。 您可以註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - 您可以在當中建立資料表的任何資料庫。
@@ -54,7 +54,7 @@ ms.locfileid: "74422470"
 
 - 您必須安裝 [Azure PowerShell 模組](https://go.microsoft.com/?linkid=9811175) 。
 
-  - The modules provide commands such as - **New-AzStorageAccount**.
+  - 模組會提供如- **New-new-azstorageaccount**的命令。
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>第 1 階段：Azure 儲存體容器的 PowerShell 程式碼
 
@@ -74,7 +74,7 @@ ms.locfileid: "74422470"
 
 ### <a name="powershell-code"></a>PowerShell 程式碼
 
-This PowerShell script assumes you have already installed the Az module. For information, see [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
+此 PowerShell 腳本假設您已安裝 Az 模組。 如需相關資訊，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -442,9 +442,9 @@ GO
 
 ## <a name="output"></a>輸出
 
-Transact-SQL 指令碼完成時，按一下 **event_data_XML** 資料欄標題下的儲存格。 One **\<event>** element is displayed which shows one UPDATE statement.
+Transact-SQL 指令碼完成時，按一下 **event_data_XML** 資料欄標題下的儲存格。 隨即顯示一個 **\<事件 >** 元素，其中顯示一個 UPDATE 語句。
 
-Here is one **\<event>** element that was generated during testing:
+以下是測試期間所產生的一個 **\<事件 >** 元素：
 
 ```xml
 <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T19:18:45.420Z">

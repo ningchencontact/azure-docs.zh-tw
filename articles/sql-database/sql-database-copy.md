@@ -20,11 +20,11 @@ ms.locfileid: "74421340"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>複製 Azure SQL 資料庫的交易一致性複本
 
-Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database ([single database](sql-database-single-database.md)) on either the same server or a different server. 若要複製 SQL Database，您可使用 Azure 入口網站、PowerShell 或 T-SQL。
+Azure SQL Database 提供數種方法，可在相同伺服器或不同的伺服器上，建立現有 Azure SQL 資料庫（[單一資料庫](sql-database-single-database.md)）的交易一致複本。 若要複製 SQL Database，您可使用 Azure 入口網站、PowerShell 或 T-SQL。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>Overview
 
-資料庫複本是發生複製要求時的來源資料庫快照集。 You can select the same server or a different server. Also you can choose to keep its service tier and compute size, or use a different compute size within the same service tier (edition). 複製完成之後，複本會變成功能完整的獨立資料庫。 此時，您可以將它升級或降級成任何版本。 可以個別管理登入、使用者和權限。 The copy is created using the geo-replication technology and once seeding is completed the geo-replication link is automatically terminated. All the requirements for using geo-replication apply to the database copy operation. See [Active geo-replication overview](sql-database-active-geo-replication.md) for details.
+資料庫複本是發生複製要求時的來源資料庫快照集。 您可以選取相同的伺服器或不同的伺服器。 此外，您也可以選擇保留其服務層級和計算大小，或在相同的服務層級（版本）中使用不同的計算大小。 複製完成之後，複本會變成功能完整的獨立資料庫。 此時，您可以將它升級或降級成任何版本。 可以個別管理登入、使用者和權限。 此複本是使用異地複寫技術所建立，一旦植入完成，異地複寫連結就會自動終止。 使用異地複寫的所有需求都適用于資料庫複製作業。 如需詳細資訊，請參閱[主動式異地複寫總覽](sql-database-active-geo-replication.md)。
 
 > [!NOTE]
 > 當您建立資料庫複本時，會使用[自動資料庫備份](sql-database-automated-backups.md)。
@@ -47,21 +47,21 @@ Azure SQL Database provides several methods for creating a transactionally consi
 
 ## <a name="copy-a-database-by-using-powershell"></a>使用 PowerShell 來複製資料庫
 
-To copy a database, use the following examples.
+若要複製資料庫，請使用下列範例。
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-For PowerShell, use the [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet.
+針對 PowerShell，請使用[AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) Cmdlet。
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager （RM）模組，但所有未來的開發都是針對 Az .Sql 模組。 AzureRM 模組會繼續收到錯誤修正，直到2020年12月為止。  Az 模組和 AzureRm 模組中命令的引數本質上完全相同。 如需其相容性的詳細資訊，請參閱[新的 Azure PowerShell Az 模組簡介](/powershell/azure/new-azureps-module-az)。
 
 ```powershell
 New-AzSqlDatabaseCopy -ResourceGroupName "<resourceGroup>" -ServerName $sourceserver -DatabaseName "<databaseName>" `
     -CopyResourceGroupName "myResourceGroup" -CopyServerName $targetserver -CopyDatabaseName "CopyOfMySampleDatabase"
 ```
 
-The database copy is a asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
+資料庫複本是非同步作業，但是在接受要求之後，就會立即建立目標資料庫。 如果您需要在仍在進行時取消複製作業，請使用[set-azsqldatabase 搭配 Cmdlet 卸載](/powershell/module/az.sql/new-azsqldatabase)目標資料庫。
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -70,37 +70,37 @@ az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myRes
     --name "<databaseName>" --resource-group "<resourceGroup>" --server $sourceserver
 ```
 
-The database copy is a asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [az sql db delete](/cli/azure/sql/db#az-sql-db-delete) command.
+資料庫複本是非同步作業，但是在接受要求之後，就會立即建立目標資料庫。 如果您需要在仍在進行時取消複製作業，請使用[az sql db delete](/cli/azure/sql/db#az-sql-db-delete)命令來卸載目標資料庫。
 
 * * *
 
 如需完整範例指令碼，請參閱[將資料庫複製到新伺服器](scripts/sql-database-copy-database-to-new-server-powershell.md)。
 
-## <a name="rbac-roles-to-manage-database-copy"></a>RBAC roles to manage database copy
+## <a name="rbac-roles-to-manage-database-copy"></a>用來管理資料庫複製的 RBAC 角色
 
-To create a database copy, you will need to be in the following roles
-
-- 訂用帳戶擁有者，或是
-- SQL Server Contributor role or
-- Custom role on the source and target databases with following permission:
-
-   Microsoft.Sql/servers/databases/read  Microsoft.Sql/servers/databases/write
-
-To cancel a database copy, you will need to be in the following roles
+若要建立資料庫複本，您必須在下列角色中
 
 - 訂用帳戶擁有者，或是
-- SQL Server Contributor role or
-- Custom role on the source and target databases with following permission:
+- SQL Server 參與者角色或
+- 來源和目標資料庫上具有下列許可權的自訂角色：
 
-   Microsoft.Sql/servers/databases/read  Microsoft.Sql/servers/databases/write
+   Microsoft .Sql/servers/資料庫/讀取 Microsoft .Sql/伺服器/資料庫/寫入
 
-To manage database copy using Azure portal, you will also need the following permissions:
+若要取消資料庫複本，您必須在下列角色中
 
-   Microsoft.Resources/subscriptions/resources/read Microsoft.Resources/subscriptions/resources/write Microsoft.Resources/deployments/read Microsoft.Resources/deployments/write Microsoft.Resources/deployments/operationstatuses/read
+- 訂用帳戶擁有者，或是
+- SQL Server 參與者角色或
+- 來源和目標資料庫上具有下列許可權的自訂角色：
 
-If you want to see the operations under deployments in the resource group on the portal, operations across multiple resource providers including SQL operations, you will need these additional RBAC roles:
+   Microsoft .Sql/servers/資料庫/讀取 Microsoft .Sql/伺服器/資料庫/寫入
 
-   Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read
+若要使用 Azure 入口網站來管理資料庫複製，您也需要下列許可權：
+
+   Microsoft .Resources/訂用帳戶/資源/讀取 Microsoft .resources/訂用帳戶/資源/撰寫 Microsoft .Resources/部署/讀取 microsoft .resources/部署/撰寫 microsoft .resources/部署/operationstatuses/讀取
+
+如果您想要查看入口網站上資源群組中的 [部署] 底下的作業，跨多個資源提供者的作業（包括 SQL 作業），您將需要這些額外的 RBAC 角色：
+
+   Microsoft .Resources/訂用帳戶/resourcegroups/部署/作業/讀取 Microsoft .Resources/訂用帳戶/resourcegroups/部署/operationstatuses/讀取
 
 ## <a name="copy-a-database-by-using-transact-sql"></a>使用 Transact-SQL 來複製資料庫
 
@@ -131,14 +131,14 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 ```
 
 > [!IMPORTANT]
-> Both servers' firewalls must be configured to allow inbound connection from the IP of the client issuing the T-SQL COPY command.
+> 這兩部伺服器的防火牆都必須設定為允許來自發出 T-sql COPY 命令之用戶端 IP 的輸入連接。
 
-### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copy a SQL database to a different subscription
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>將 SQL 資料庫複製到不同的訂用帳戶
 
-You can use the steps described in the previous section to copy your database to a SQL Database server in a different subscription. Make sure you use a login that has the same name and password as the database owner of the source database and it is a member of the dbmanager role or is the server-level principal login. 
+您可以使用上一節所述的步驟，將您的資料庫複製到不同訂用帳戶中的 SQL Database 伺服器。 請確定您使用的登入與源資料庫的資料庫擁有者具有相同的名稱和密碼，而且它是 dbmanager 角色的成員，或者是伺服器層級主體登入。 
 
 > [!NOTE]
-> The [Azure portal](https://portal.azure.com) does not support copy to a different subscription because Portal calls the ARM API and it uses the subscription certificates to access both servers involved in geo-replication.  
+> [Azure 入口網站](https://portal.azure.com)不支援複製到不同的訂用帳戶，因為入口網站會呼叫 ARM API，並使用訂用帳戶憑證來存取與異地複寫相關的兩部伺服器。  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>監視複製作業的進度
 
@@ -151,7 +151,7 @@ You can use the steps described in the previous section to copy your database to
 > 如果您決定在進行複製時予以取消，請在新資料庫上執行 [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) 陳述式。 或者，在來源資料庫上執行 DROP DATABASE 陳述式也會取消複製程序。
 
 > [!IMPORTANT]
-> If you need to create a copy with a substantially smaller SLO than the source, the target database may not have sufficient resources to complete the seeding process and it can cause the copy operaion to fail. In this scenario use a geo-restore request to create a copy in a different server and/or a different region. See [Recover an Azure SQL database using database backups](sql-database-recovery-using-backups.md#geo-restore) for more informaion.
+> 如果您需要使用比來源更小的 SLO 來建立複本，目標資料庫可能沒有足夠的資源來完成植入程式，而且可能會導致複製 operaion 失敗。 在此案例中，請使用異地還原要求，在不同的伺服器和/或不同的區域中建立複本。 如需詳細需，請參閱[使用資料庫備份復原 AZURE SQL 資料庫](sql-database-recovery-using-backups.md#geo-restore)。
 
 ## <a name="resolve-logins"></a>解析登入
 
@@ -165,7 +165,7 @@ You can use the steps described in the previous section to copy your database to
 
 在 Azure SQL Database 中複製資料庫時，可能會發生下列錯誤。 如需詳細資訊，請參閱 [複製 Azure SQL Database](sql-database-copy.md)。
 
-| 錯誤碼 | 嚴重性 | 描述 |
+| 錯誤碼 | Severity | 描述 |
 | ---:| ---:|:--- |
 | 40635 |16 |IP 位址 '%.&#x2a;ls' 的用戶端已暫時停用。 |
 | 40637 |16 |建立資料庫副本目前已停用。 |

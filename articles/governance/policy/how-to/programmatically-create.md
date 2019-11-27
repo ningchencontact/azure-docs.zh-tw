@@ -1,6 +1,6 @@
 ---
 title: 以程式設計方式建立原則
-description: This article walks you through programmatically creating and managing policies for Azure Policy with Azure CLI, Azure PowerShell, and REST API.
+description: 本文會逐步引導您以程式設計方式建立和管理具有 Azure CLI、Azure PowerShell 和 REST API 之 Azure 原則的原則。
 ms.date: 01/31/2019
 ms.topic: conceptual
 ms.openlocfilehash: 98af714e5aaf8e103b81e77c9960589fa0ee6b77
@@ -12,11 +12,11 @@ ms.locfileid: "74463531"
 ---
 # <a name="programmatically-create-policies"></a>以程式設計方式建立原則
 
-本文會逐步引導您以程式設計方式建立及管理原則。 Azure Policy definitions enforce different rules and effects over your resources. 強制作業可確保資源會符合您的公司標準及服務等級協定規範。
+本文會逐步引導您以程式設計方式建立及管理原則。 Azure 原則定義會對您的資源強制執行不同的規則和效果。 強制作業可確保資源會符合您的公司標準及服務等級協定規範。
 
 如需合規性相關資訊，請參閱[取得合規性資料](get-compliance-data.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，請確定您已符合下列必要條件：
 
@@ -24,7 +24,7 @@ ms.locfileid: "74463531"
 
 1. 將您的 Azure PowerShell 模組更新為最新版本。 如需詳細資訊，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如需最新版本的詳細資訊，請參閱 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)。
 
-1. Register the Azure Policy Insights resource provider using Azure PowerShell to validate that your subscription works with the resource provider. 若要註冊資源提供者，您必須有權執行資源提供者的註冊動作作業。 這項作業包含在「參與者」和「擁有者」角色中。 執行下列命令以註冊資源提供者：
+1. 使用 Azure PowerShell 註冊 Azure 原則 Insights 資源提供者，以驗證您的訂用帳戶可搭配資源提供者使用。 若要註冊資源提供者，您必須有權執行資源提供者的註冊動作作業。 這項作業包含在「參與者」和「擁有者」角色中。 執行下列命令以註冊資源提供者：
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
@@ -87,7 +87,7 @@ ms.locfileid: "74463531"
 
    以您想要的資源群組名稱取代 _ContosoRG_。
 
-   The **Scope** parameter on `New-AzPolicyAssignment` works with management group, subscription, resource group, or a single resource. 此參數會使用 `Get-AzResourceGroup` 上 **ResourceId** 屬性傳回的完整資源路徑。 以下是每個容器的 **Scope** 模式。 請將 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源名稱、資源群組名稱、訂用帳戶 ID 及管理群組名稱。
+   `New-AzPolicyAssignment` 上的**範圍**參數適用于管理群組、訂用帳戶、資源群組或單一資源。 此參數會使用 **上**ResourceId`Get-AzResourceGroup` 屬性傳回的完整資源路徑。 以下是每個容器的 **Scope** 模式。 請將 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源名稱、資源群組名稱、訂用帳戶 ID 及管理群組名稱。
    `{rType}` 會取代為資源的**資源類型**，例如，如果是 VM，則為 `Microsoft.Compute/virtualMachines`。
 
    - 資源 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
@@ -141,7 +141,7 @@ ms.locfileid: "74463531"
 
    使用您訂用帳戶的 ID 來取代上述 {subscriptionId}，或使用[管理群組](../../management-groups/overview.md)的 ID 來取代 {managementGroupId}。
 
-   For more information about the structure of the query, see [Azure Policy Definitions – Create or Update](/rest/api/resources/policydefinitions/createorupdate) and [Policy Definitions – Create or Update At Management Group](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   如需查詢結構的詳細資訊，請參閱[Azure 原則定義–建立或更新](/rest/api/resources/policydefinitions/createorupdate)和[原則定義–在管理群組中建立或更新](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 使用下列程序來建立原則指派，並在資源群組層級指派原則定義。
 
@@ -216,14 +216,14 @@ ms.locfileid: "74463531"
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   `az policy assignment create` 上的 **--scope**參數可與管理群組、訂用帳戶、資源群組或單一資源搭配使用。 此參數使用完整資源路徑。 以下是每個容器的 **--scope** 模式。 請將 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源名稱、資源群組名稱、訂用帳戶 ID 及管理群組名稱。 `{rType}` 會取代為資源的**資源類型**，例如，如果是 VM，則為 `Microsoft.Compute/virtualMachines`。
+   **上的**--scope`az policy assignment create`參數可與管理群組、訂用帳戶、資源群組或單一資源搭配使用。 此參數使用完整資源路徑。 以下是每個容器的 **--scope** 模式。 請將 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源名稱、資源群組名稱、訂用帳戶 ID 及管理群組名稱。 `{rType}` 會取代為資源的**資源類型**，例如，如果是 VM，則為 `Microsoft.Compute/virtualMachines`。
 
    - 資源 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - 資源群組 - `/subscriptions/{subID}/resourceGroups/{rgName}`
    - 訂用帳戶 - `/subscriptions/{subID}`
    - 管理群組 - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-You can get the Azure Policy Definition ID by using PowerShell with the following command:
+您可以使用 PowerShell 搭配下列命令來取得 Azure 原則定義識別碼：
 
 ```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
@@ -244,5 +244,5 @@ az policy definition show --name 'Audit Storage Accounts with Open Public Networ
 - [Azure REST API 資源](/rest/api/resources/)
 - [Azure PowerShell 模組](/powershell/module/az.resources/#policies)
 - [Azure CLI 原則命令](/cli/azure/policy?view=azure-cli-latest)
-- [Azure Policy Insights resource provider REST API reference](/rest/api/policy-insights)
+- [Azure 原則 Insights 資源提供者 REST API 參考](/rest/api/policy-insights)
 - [使用 Azure 管理群組來組織資源](../../management-groups/overview.md)。

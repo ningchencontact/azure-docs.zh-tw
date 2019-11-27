@@ -1,6 +1,6 @@
 ---
 title: 將 SQL Server 資料庫備份到 Azure
-description: This article explains how to back up SQL Server to Azure. 本文也將說明 SQL Server 復原。
+description: 本文說明如何將 SQL Server 備份至 Azure。 本文也將說明 SQL Server 復原。
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.openlocfilehash: 39f2348a95be95a03dada45d48952dce99ec4ec7
@@ -51,7 +51,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 * 您可以透過 Azure 入口網站或 **PowerShell** 來設定 SQL Server 備份。 我們不支援 CLI。
 * 有兩種[部署](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)支援此解決方案 - Azure Resource Manager VM 和傳統 VM。
 * 執行 SQL Server 的 VM 需要有網際網路連線能力，才能存取 Azure 公用 IP 位址。
-* SQL Server **Failover Cluster Instance (FCI)** is not supported.
+* 不支援 SQL Server**容錯移轉叢集實例（FCI）** 。
 * 不支援鏡像資料庫和資料庫快照集的備份和還原作業。
 * 使用多個備份解決方案來備份獨立 SQL Server 執行個體或 SQL Always On 可用性群組可能會導致備份失敗；請避免這麼做。
 * 使用相同或不同的解決方案來備份可用性群組的兩個節點，也可能導致備份失敗。
@@ -59,8 +59,8 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 * 無法保護含有大量檔案的資料庫。 支援的檔案數目上限為 **1000** 個。  
 * 您最多可在保存庫中備份 **2000** 個 SQL Server 資料庫。 如果您有更多資料庫，則可以建立多個保存庫。
 * 您最多可以一次設定 **50** 個資料庫的備份；此限制有助於將備份負載最佳化。
-* We support databases up to **2 TB** in size; for sizes greater than that performance issues may come up.
-* To have a sense of as to how many databases can be protected per server, we need to consider factors such as bandwidth, VM size, backup frequency, database size, etc. [Download](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) the resource planner that gives the approximate number of databases you can have per server based on the VM resources and the backup policy.
+* 我們支援的資料庫大小上限為**2 TB** ;對於大於該效能問題的大小，可能會出現。
+* 若要瞭解每個伺服器可以保護多少個資料庫，我們必須考慮頻寬、VM 大小、備份頻率、資料庫大小等因素，並[下載](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx)資源規劃工具，以根據 VM 資源和備份原則來提供每個伺服器的大約資料庫數目。
 * 如果是可用性群組，則會根據幾個因素，從不同節點進行備份。 可用性群組的備份行為摘述於下方。
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Alaways On 可用性群組的備份行為
@@ -74,31 +74,31 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
 視備份喜好設定和備份類型 (完整/差異/記錄/只複製完整) 而定，會從特定節點 (主要/次要) 進行備份。
 
-* **Backup preference: Primary**
+* **備份喜好設定：主要**
 
 **備份類型** | **Node**
     --- | ---
     完整 | 主要
     差異 | 主要
-    記錄 |  主要
+    記錄檔 |  主要
     只複製完整 |  主要
 
-* **Backup preference: Secondary Only**
+* **備份喜好設定：僅次要**
 
 **備份類型** | **Node**
 --- | ---
 完整 | 主要
 差異 | 主要
-記錄 |  次要
+記錄檔 |  次要
 只複製完整 |  次要
 
-* **Backup preference: Secondary**
+* **備份喜好設定：次要**
 
 **備份類型** | **Node**
 --- | ---
 完整 | 主要
 差異 | 主要
-記錄 |  次要
+記錄檔 |  次要
 只複製完整 |  次要
 
 * **沒有備份喜好設定**
@@ -107,7 +107,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 --- | ---
 完整 | 主要
 差異 | 主要
-記錄 |  次要
+記錄檔 |  次要
 只複製完整 |  次要
 
 ## <a name="set-vm-permissions"></a>設定 VM 權限
@@ -176,7 +176,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
 7. 按一下 [確定]。
 8. 重複相同的步驟順序 (上述 1-7)，將 NT Service\AzureWLBackupPluginSvc 登入新增到 SQL Server 執行個體。 如果登入已存在，請確定其具有 sysadmin 伺服器角色，且在 [狀態] 下具有「授與權限連線到資料庫引擎，且 [登入] 為 [已啟用]」。
-9. After granting permission, **Rediscover DBs** in the portal: Vault **->** Backup Infrastructure **->** Workload in Azure VM:
+9. 授與許可權之後 **，會**在入口網站中重新探索資料庫：保存庫 **->** Azure VM 中的備份基礎結構 **->** 工作負載：
 
     ![在 Azure 入口網站中重新探索 DB](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Password protection monitor and logging- Azure Active Directory
+title: 密碼保護監視和記錄-Azure Active Directory
 description: 了解 Azure AD 密碼保護的監視和記錄
 services: active-directory
 ms.service: active-directory
@@ -22,7 +22,7 @@ ms.locfileid: "74381686"
 
 部署 Azure AD 密碼保護之後，監視和報告即為必要工作。 本文將深入探討以協助您了解各種監視技術，包括每個服務要將資訊記錄於何處，以及如何報告 Azure AD 密碼保護的使用情形。
 
-Monitoring and reporting are done either by event log messages or by running PowerShell cmdlets. The DC agent and proxy services both log event log messages. All PowerShell cmdlets described below are only available on the proxy server (see the AzureADPasswordProtection PowerShell module). The DC agent software does not install a PowerShell module.
+監視和報告是透過事件記錄檔訊息，或藉由執行 PowerShell Cmdlet 來完成。 DC 代理程式和 proxy 服務都會記錄事件記錄檔訊息。 以下所述的所有 PowerShell Cmdlet 僅適用于 proxy 伺服器（請參閱 AzureADPasswordProtection PowerShell 模組）。 DC 代理程式軟體不會安裝 PowerShell 模組。
 
 ## <a name="dc-agent-event-logging"></a>DC 代理程式事件記錄
 
@@ -96,9 +96,9 @@ PasswordSetErrors               : 1
 
 此 Cmdlet 的報告範圍可使用 –Forest、-Domain 或 –DomainController 參數其中之一來加以影響。 未指定參數意指 –Forest。
 
-`Get-AzureADPasswordProtectionSummaryReport` Cmdlet 的運作方式是查詢 DC 代理程式系統管理事件記錄檔，然後計算對應至每個顯示之結果類別的事件總數。 The following table contains the mappings between each outcome and its corresponding event ID:
+`Get-AzureADPasswordProtectionSummaryReport` Cmdlet 的運作方式是查詢 DC 代理程式系統管理事件記錄檔，然後計算對應至每個顯示之結果類別的事件總數。 下表包含每個結果和其相對應事件識別碼之間的對應：
 
-|Get-AzureADPasswordProtectionSummaryReport 屬性 |Corresponding event ID|
+|Get-AzureADPasswordProtectionSummaryReport 屬性 |對應的事件識別碼|
 | :---: | :---: |
 |PasswordChangesValidated |10014|
 |PasswordSetsValidated |10015|
@@ -269,11 +269,11 @@ HeartbeatUTC          : 2/16/2018 8:35:02 AM
 
 如果 HeartbeatUTC 值過時，這可能是一個徵兆：該網域控制站上的 Azure AD 密碼保護 DC 代理程式並未執行或已解除安裝，或者該機器已降級且不再是網域控制站。
 
-If the PasswordPolicyDateUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that machine is not working properly.
+如果 PasswordPolicyDateUTC 值過時，這可能是該電腦上的 Azure AD 密碼保護 DC 代理程式未正常運作的徵兆。
 
-## <a name="dc-agent-newer-version-available"></a>DC agent newer version available
+## <a name="dc-agent-newer-version-available"></a>DC 代理程式較新的可用版本
 
-The DC agent service will log a 30034 warning event to the Operational log upon detecting that a newer version of the DC agent software is available, for example:
+DC 代理程式服務會在偵測到較新版本的 DC 代理程式軟體可供使用時，將30034警告事件記錄到作業記錄檔，例如：
 
 ```text
 An update for Azure AD Password Protection DC Agent is available.
@@ -287,10 +287,10 @@ https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
 Current version: 1.2.116.0
 ```
 
-The event above does not specify the version of the newer software. You should go to the link in the event message for that information.
+上述事件不會指定較新軟體的版本。 您應該移至事件訊息中的連結以取得該資訊。
 
 > [!NOTE]
-> Despite the references to "autoupgrade" in the above event message, the DC agent software does not currently support this feature.
+> 雖然上述事件訊息中的 "autoupgrade" 參考，但 DC 代理程式軟體目前不支援這項功能。
 
 ## <a name="proxy-service-event-logging"></a>Proxy 服務事件記錄
 
@@ -335,7 +335,7 @@ HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters
 
 導致狀態變更的 PowerShell Cmdlet (例如 Register-AzureADPasswordProtectionProxy) 通常會將結果事件記錄到作業記錄。
 
-In addition, most of the Azure AD Password Protection PowerShell cmdlets will write to a text log located under:
+此外，大部分的 Azure AD 密碼保護 PowerShell Cmdlet 都會寫入至位於以下位置的文字記錄檔：
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
@@ -361,9 +361,9 @@ HeartbeatUTC          : 12/25/2018 6:35:02 AM
 
 如果 HeartbeatUTC 值過時，這可能是一個徵兆：該機器上的 Azure AD 密碼保護 Proxy 並未執行或已解除安裝。
 
-## <a name="proxy-agent-newer-version-available"></a>Proxy agent newer version available
+## <a name="proxy-agent-newer-version-available"></a>Proxy 代理程式較新的可用版本
 
-The Proxy service will log a 20002 warning event to the Operational log upon detecting that a newer version of the proxy software is available, for example:
+Proxy 服務會在偵測到較新版本的 Proxy 軟體可供使用時，將20002警告事件記錄到作業記錄檔，例如：
 
 ```text
 An update for Azure AD Password Protection Proxy is available.
@@ -378,9 +378,9 @@ Current version: 1.2.116.0
 .
 ```
 
-The event above does not specify the version of the newer software. You should go to the link in the event message for that information.
+上述事件不會指定較新軟體的版本。 您應該移至事件訊息中的連結以取得該資訊。
 
-This event will be emitted even if the Proxy agent is configured with autoupgrade enabled.
+即使在已啟用 autoupgrade 的情況下設定 Proxy 代理程式，仍會發出此事件。
 
 ## <a name="next-steps"></a>後續步驟
 

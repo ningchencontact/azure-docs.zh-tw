@@ -22,4 +22,4 @@ ms.locfileid: "74456638"
 
 ## <a name="next-steps"></a>後續步驟
 
-[IoT Hub glossary](../iot-hub/iot-hub-devguide-glossary.md)
+[IoT 中樞詞彙](../iot-hub/iot-hub-devguide-glossary.md)
