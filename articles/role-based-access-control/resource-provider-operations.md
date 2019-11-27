@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c413c03c000ef9ff1ebf742359551567d488584b
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 092c3b4ac6ce163e9fcf8aaad9e74f398559e9e2
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185721"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546326"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 

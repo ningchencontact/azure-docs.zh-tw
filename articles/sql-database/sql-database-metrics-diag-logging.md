@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/15/2019
-ms.openlocfilehash: 27810f2ee1bc95c924003cd8a5944860df40db14
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
-ms.translationtype: HT
+ms.openlocfilehash: 95953b4f052531c9804024410e225bb0b5c62aef
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420816"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539193"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
@@ -79,7 +79,7 @@ ms.locfileid: "74420816"
 > 彈性集區和受控實例有自己的個別診斷遙測，其來自其所包含的資料庫。 這一點很重要，因為診斷遙測會針對每個資源分別設定，如下所述。
 
 > [!NOTE]
-> 無法從資料庫診斷設定（雖然顯示在畫面上）來啟用安全性 Audit 和 SQLSecurityAuditEvents 記錄。 若要啟用 audit 記錄串流，請參閱[設定資料庫的審核](sql-database-auditing.md#subheading-2)，以及[Azure 監視器記錄和 Azure 事件中樞中的審核記錄](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)。
+> 若要啟用 audit 記錄串流，請參閱[設定資料庫的審核](sql-database-auditing.md#subheading-2)，以及[Azure 監視器記錄和 Azure 事件中樞中的審核記錄](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)。
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
@@ -145,7 +145,7 @@ ms.locfileid: "74420816"
 1. 針對您想要監視的每個資料庫重複這些步驟。
 
 > [!NOTE]
-> 無法從資料庫診斷設定（雖然顯示在螢幕上）啟用安全性 Audit 和 SQLSecurityAuditEvents 記錄。 若要啟用 audit 記錄串流，請參閱[設定資料庫的審核](sql-database-auditing.md#subheading-2)，以及[Azure 監視器記錄和 Azure 事件中樞中的審核記錄](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)。
+> 若要啟用 audit 記錄串流，請參閱[設定資料庫的審核](sql-database-auditing.md#subheading-2)，以及[Azure 監視器記錄和 Azure 事件中樞中的審核記錄](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)。
 
 > [!TIP]
 > 針對您想要監視的每個 Azure SQL Database 重複執行這些步驟。

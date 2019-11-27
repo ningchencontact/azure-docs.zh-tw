@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: ca3126c983d62cb28c543215b86ab9709a4736d8
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 29b3e4af33702c75e92b5e36c5521d9af12b1013
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083780"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533842"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>設定多層式 SAP NetWeaver 應用程式部署的災害復原
 
@@ -110,7 +110,7 @@ Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量�
 
 * 如需保護 Active Directory 和 DNS 的指引，請參閱[保護 Active Directory 和 DNS](site-recovery-active-directory.md) 文件。
 
-* 如需保護在 SQL Server 上執行之資料庫層的指引，請參閱[保護 SQL Server](site-recovery-active-directory.md) 文件。
+* 如需保護在 SQL Server 上執行之資料庫層的指引，請參閱[保護 SQL Server](site-recovery-sql.md) 文件。
 
 ## <a name="networking-configuration"></a>網路設定
 

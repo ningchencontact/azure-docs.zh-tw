@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2eeb5b184d54f406be721ac73d75aaef192ac6a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 66a4415203871c8397af2b8f1f96ca4f08d6bfcc
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224625"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547445"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>使用 Azure Resource Manager 來建立、列出及刪除使用者指派的受控識別
 
@@ -36,7 +36,7 @@ ms.locfileid: "74224625"
 - [刪除使用者指派的受控識別](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
   ## <a name="prerequisites"></a>先決條件
 
-- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-it-work)** 。
+- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-the-managed-identities-for-azure-resources-work)** 。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
 
 ## <a name="template-creation-and-editing"></a>範本建立和編輯

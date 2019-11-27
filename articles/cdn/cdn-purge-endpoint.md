@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: ff877810cb32d22cffd2af79880b6223c41d7d73
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 1bfbc1b730811e1111a08a957db3a747f90fb587
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593534"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546208"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>清除 Azure CDN 端點
-## <a name="overview"></a>總覽
+## <a name="overview"></a>Overview
 Azure CDN 邊緣節點會快取資產，直到資產的存留時間 (TTL) 到期。  資產的 TTL 到期之後，當用戶端從邊緣節點要求資產時，邊緣節點會建立資產新的更新的複本以服務用戶端的要求並儲存重新整理快取。
 
 若要確定使用者一律會取得最新的資產複本，最佳作法是為每個更新設定資產版本，然後將它們發佈為新的 URL。  CDN 會立即為下一個用戶端要求擷取新的資產。  有時您可能想要清除所有邊緣節點的快取內容，並強制它們全部擷取新的更新的資產。  可能是因為您的 Web 應用程式更新，或快速更新包含不正確資訊的資產。
@@ -48,13 +48,13 @@ Azure CDN 邊緣節點會快取資產，直到資產的存留時間 (TTL) 到期
     ![清除表單](./media/cdn-purge-endpoint/cdn-purge-form.png)
    
    > [!NOTE]
-   > 您也可以按一下 [CDN 端點] 刀鋒視窗中的 [清除]  按鈕，來開啟 [清除] 刀鋒視窗。  在此情況下，[URL]  欄位會預先填入該特定端點的服務位址。
+   > 您也可以按一下 [CDN 端點] 刀鋒視窗中的 [清除] 按鈕，來開啟 [清除] 刀鋒視窗。  在此情況下，[URL] 欄位會預先填入該特定端點的服務位址。
    > 
    > 
-4. 選取您希望從邊緣節點清除的資產。  如果您希望清除所有資產，請按一下 [清除]  核取方塊。  或者，在 [路徑]  文字方塊中輸入每個您想要清除之資產的路徑。 路徑支援下列格式。
-    1. **單一 URL 清除**：藉由指定完整的 URL，或不含副檔名，例如清除個別資產`/pictures/strasbourg.png`; `/pictures/strasbourg`
-    2. **萬用字元清除**：星號 (\*) 可作為萬用字元。 清除路徑中有 `/*` 之端點下的所有資料夾、子資料夾和檔案，或指定後接 `/*` 的資料夾來清除特定資料夾下的所有子資料夾和檔案，例如 `/pictures/*`。  請注意，來自 Akamai 的 Azure CDN 目前不支援萬用字元清除。 
-    3. **根網域清除**：清除路徑中有 "/" 之端點的根目錄。
+4. 選取您希望從邊緣節點清除的資產。  如果您希望清除所有資產，請按一下 [清除] 核取方塊。  或者，在 [路徑] 文字方塊中輸入每個您想要清除之資產的路徑。 路徑支援下列格式。
+    1. **單一 URL 清除**︰藉由指定完整 URL (含或不含副檔名) 來清除個別資產，例如 `/pictures/strasbourg.png`、`/pictures/strasbourg`
+    2. **萬用字元清除**︰星號 (\*) 可作為萬用字元。 清除路徑中有 `/*` 之端點下的所有資料夾、子資料夾和檔案，或指定後接 `/*` 的資料夾來清除特定資料夾下的所有子資料夾和檔案，例如 `/pictures/*`。  請注意，來自 Akamai 的 Azure CDN 目前不支援萬用字元清除。 
+    3. **根網域清除**︰清除路徑中有 "/" 之端點的根目錄。
    
    > [!TIP]
    > 路徑必須加以指定才能清除，且必須是符合下列[規則運算式](/dotnet/standard/base-types/regular-expression-language-quick-reference)的相對 URL。 **來自 Akamai 的 Azure CDN** 目前不支援**全部清除**和**萬用字元清除**。
@@ -62,14 +62,14 @@ Azure CDN 邊緣節點會快取資產，直到資產的存留時間 (TTL) 到期
    > > 查詢字串 `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
    > > 萬用字元清除 `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`。 
    > 
-   > 在您輸入文字之後會出現更多 [路徑]  文字方塊，讓您能夠建立多個資產的清單。  按一下刪節號 (...) 按鈕可以將資產從清單刪除。
+   > 在您輸入文字之後會出現更多 [路徑] 文字方塊，讓您能夠建立多個資產的清單。  按一下刪節號 (...) 按鈕可以將資產從清單刪除。
    > 
-5. 按一下 [清除]  按鈕。
+5. 按一下 [清除] 按鈕。
    
     ![清除按鈕](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> 清除要求需要大約 2 分鐘來處理**來自 Microsoft 的 Azure CDN**並**Azure CDN from Verizon** （標準和進階），並與大約 10 秒**Azure CDN來自 Akamai**。  Azure CDN 隨時都有在設定檔層級 50 個並行清除要求的限制。 
+> 清除要求需要大約10分鐘的時間來處理**來自 Microsoft 的 AZURE cdn**，大約2分鐘的**Azure cdn from Verizon** （standard 和 premium），以及大約10秒與**來自 Akamai 的 azure cdn**。  Azure CDN 隨時都有在設定檔層級 50 個並行清除要求的限制。 
 > 
 > 
 

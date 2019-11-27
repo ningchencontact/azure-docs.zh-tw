@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 602a319ce90e5a6d13829e218899f135413d762d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: c3300338ab37d502646c55411d658ad30581019f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275946"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74531820"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>透過 VPN 閘道診斷內部部署連線
 
@@ -42,7 +42,7 @@ Azure VPN 閘道可讓您建立混合式解決方案，以解決內部部署網�
 
 若要找到用於設定站對站組態的詳細逐步解說指南，請瀏覽︰[使用 Azure 入口網站建立具有網站間連線的 VNet](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)。
 
-其中一個重要組態步驟是設定 IPsec 通訊參數，設定若有任何錯誤將會導致內部部署網路與 Azure 之間的連線中斷。 目前 Azure VPN 閘道會設定為支援下列第 1 階段 IPsec 參數。 請注意，如先前所述，您無法修改這些設定。  如下表所示，Azure VPN 閘道支援的加密演算法有 AES256、AES128 及 3DES。
+其中一個重要組態步驟是設定 IPsec 通訊參數，設定若有任何錯誤將會導致內部部署網路與 Azure 之間的連線中斷。 目前 Azure VPN 閘道會設定為支援下列第 1 階段 IPsec 參數。 如下表所示，Azure VPN 閘道支援的加密演算法有 AES256、AES128 及 3DES。
 
 ### <a name="ike-phase-1-setup"></a>IKE 第 1 階段設定
 
@@ -53,7 +53,7 @@ Azure VPN 閘道可讓您建立混合式解決方案，以解決內部部署網�
 | 驗證方法 |預先共用金鑰 |預先共用金鑰 |
 | 加密演算法 |AES256 AES128 3DES |AES256 3DES |
 | 雜湊演算法 |SHA1(SHA128) |SHA1(SHA128)、SHA2(SHA256) |
-| 階段 1 安全性關聯 (SA) 存留期 (時間) |28,800 秒 |10,800 秒 |
+| 階段 1 安全性關聯 (SA) 存留期 (時間) |28,800 秒 |28,800 秒 |
 
 身為使用者，您必須設定 FortiGate，範例設定可於 [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt) 找到。 在不知不覺中，您已將 FortiGate 設定為使用 SHA-512 作為雜湊演算法。 此演算法並非原則式連線所支援的演算法，因此您的 VPN 連線會運作。
 

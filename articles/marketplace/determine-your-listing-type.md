@@ -2,19 +2,19 @@
 title: 決定您在 Azure Marketplace 中的發佈選項 | Azure
 description: 本文說明合作夥伴若要了解如何發佈應用程式到 Azure Marketplace 的資格條件和發佈需求。
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: jm-aditi-ms
+author: ellacroi
 manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 967d33cb7a9eb3ec922f9d85cfc2581b85bce537
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ed25b92dc759f687e35a8424558453a830369a57
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825911"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548363"
 ---
 # <a name="determine-your-publishing-option"></a>決定您的發佈選項
 您為供應項目選擇的發佈選項，與資格需求和市集 GTM 權益直接相關。 更重要的是，選取 [發佈選項] 和 [供應專案類型] 會定義使用者與您的 marketplace 供應專案互動的方式。
@@ -41,7 +41,7 @@ ms.locfileid: "73825911"
 
 ## <a name="understand-storefront-selection"></a>了解店面選取範圍
 
-您的供應專案將在其中呈現的店面、Azure Marketplace 和/或 AppSource，將會由您的供應專案詳細資料和目標物件，以及您在建立供應專案時所選取的類別和產業自動決定。 
+每個店面都有獨特的客戶需求。 您的供應專案將發佈的店面將取決於供應專案類型、提供交易功能和類別及/或產業選擇，以特定物件為目標。 
 
 >[!Note]
 >「交叉清單」（僅適用于 SaaS 應用程式）：當清單或試用版供應專案符合技術和企業使用者物件的準則時，您的供應專案將會列在這兩個店面。 在下方深入了解發佈選項。
@@ -50,7 +50,7 @@ ms.locfileid: "73825911"
 
 可用的發行選項提供不同的客戶參與，同時讓您存取潛在客戶共用和[商業 marketplace 權益](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)。  請注意與發佈選項對應的呼籲行動：
 
-| **發行選項**    | **說明**  |
+| **發行選項**    | **描述**  |
 | :------------------- | :-------------------|
 | **清單** | 應用程式或服務的簡易清單，可讓市集使用者向您要求透過**與我連絡**呼籲行動，與客戶聯繫。 |
 | **試用版** | 使用 marketplace 來增強探索功能並自動布建解決方案的試用體驗，讓潛在使用者在購買之前，在有限的時間內免費使用您的 SaaS、IaaS 或 Microsoft 應用程式內體驗。 用於試用發佈選項的呼籲行動有：**免費試用**或**試用產品**。 |

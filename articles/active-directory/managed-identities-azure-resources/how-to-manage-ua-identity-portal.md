@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06d25604ca1e8a59ca1da3c8e290d9052856b769
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 10caa9e5e61dc1dd0c1062583f55a7357c643ce5
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224634"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547451"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>使用 Azure 入口網站對使用者指派的受控識別建立、列出、刪除或指派角色
 
@@ -32,7 +32,7 @@ ms.locfileid: "74224634"
 
 ## <a name="prerequisites"></a>先決條件
 
-- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-it-work)** 。
+- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-the-managed-identities-for-azure-resources-work)** 。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
 
 ## <a name="create-a-user-assigned-managed-identity"></a>建立使用者指派的受控識別

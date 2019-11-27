@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 373a3a66044f996edee904c0073dcb0deb58a85b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: 490f2e7bb394d6593e51438c1e484a4677c963a3
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277989"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539355"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>網路安全性群組流量記錄簡介
 
@@ -87,6 +87,12 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 之後的文字是流量記錄範例。 如您所見，有多筆記錄遵循上一節所述的屬性清單。
 
 ## <a name="nsg-flow-logging-considerations"></a>NSG 流量記錄考量
+
+**儲存體帳戶考慮**： 
+
+1. 位置：使用的儲存體帳戶必須與 NSG 位於相同的區域。
+2. 無防火牆： NSG 流量記錄不會上架為[Azure 儲存體的受信任的 Microsoft 服務](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)。 請參閱[如何? 停用我的儲存體帳戶上的防火牆？](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-disable-the--firewall-on-my-storage-account)以停用防火牆。 
+3. 沒有服務端點：由於目前的限制，記錄只能直接發出至儲存體帳戶，而不是透過服務端點。 如需移除現有服務端點的協助，請參閱[如何? 使用服務端點的 NSG 流量記錄？](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-use-nsg-flow-logs-with-service-endpoints) 。
 
 **在附加至資源的所有 nsg 上啟用 NSG 流量記錄**： Azure 中的流量記錄設定于 NSG 資源上。 流量只會與一個 NSG 規則相關聯。 在利用多個 NSG 的情況下，建議在適用於資源子網路或網路介面的所有 NSG 上啟用 NSG 流量記錄，以確保會記錄所有的流量。 如需網路安全性群組的詳細資訊，請參閱[如何評估流量](../virtual-network/security-overview.md#how-traffic-is-evaluated)。 
 

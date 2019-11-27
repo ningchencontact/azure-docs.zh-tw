@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: ce0b917f34cab31227e721e119c72cd5d1f99bff
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7ee593a8db020134e13ea853f17f097d716f7814
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832009"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538193"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>網路效能監控解決方案常見問題集
 
@@ -24,7 +24,7 @@ ms.locfileid: "73832009"
 
 網路效能監視器會偵測網路問題，例如流量黑洞、路由錯誤，以及傳統網路監視方法無法偵測的問題。 此解決方案會在違反網路連結的臨界值時產生警示並通知您。 它可確實而及時地偵測網路效能問題，並將問題的來源限縮於特定網路區段或裝置。 
 
-您可以在線上深入了解 [網路效能監視器](https://docs.microsoft.com/azure/networking/network-monitoring-overview) 所支援的各種功能。
+您可以在線上深入了解[網路效能監視器](https://docs.microsoft.com/azure/networking/network-monitoring-overview)所支援的各種功能。
 
 ## <a name="set-up-and-configure-agents"></a>安裝及設定代理程式
 
@@ -183,6 +183,8 @@ NPM 使用追蹤路由的修改版本，來探索從來源代理程式到目的�
 * 路由器已設定為不顯示其身分識別。
 * 網路裝置不允許 ICMP_TTL_EXCEEDED 流量。
 * 防火牆阻止來自網路裝置的 ICMP_TTL_EXCEEDED 回應。
+
+當其中一個端點位於 Azure 中時，追蹤路由會顯示無法辨識的躍點，因為 Azure ndrastructure 不會向追蹤路由顯示身分識別。 
 
 ### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>我收到狀況不良測試的警示，但我在 NPM 的遺失和延遲圖表中看不到高的值。 如何? 檢查什麼狀況不良？
 如果來源與目的地之間的端對端延遲超出其之間任何路徑的臨界值，NPM 就會引發警示。 有些網路有多個路徑連接相同的來源和目的地。 NPM 引發警示是任何路徑狀況不良。 圖表中顯示的遺失和延遲是所有路徑的平均值，因此它可能不會顯示單一路徑的確切值。 若要瞭解臨界值被違反的位置，請尋找警示中的「子類型」資料行。 如果問題是由路徑所造成，則會 NetworkPath 子類型值（適用于效能監控測試）、EndpointPath （適用于服務連線能力監視測試）和 ExpressRoutePath （適用于 ExpressRotue 監視器測試）。 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3c4005643de55720864da1e87d8bea82b21749c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c512a867685b4480c7b31ac582e2cee069ee2447
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232242"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547408"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>使用 Azure PowerShell 來建立、列出及刪除使用者指派的受控識別
 
@@ -34,7 +34,7 @@ ms.locfileid: "74232242"
 
 ## <a name="prerequisites"></a>先決條件
 
-- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-it-work)** 。
+- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-the-managed-identities-for-azure-resources-work)** 。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
 - 如果您尚未安裝[最新版的 Azure PowerShell](/powershell/azure/install-az-ps)，請先安裝。
 - 如果您在本機執行 PowerShell，您也需要： 

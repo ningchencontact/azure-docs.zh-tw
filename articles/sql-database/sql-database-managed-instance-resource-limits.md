@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 10/02/2019
-ms.openlocfilehash: 08e378c4b5f6d8e17ac67a80401edf69611c0a13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/27/2019
+ms.openlocfilehash: 816cf7cc78d3dfcb783b09f039f468ef3b23a06b
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823343"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548376"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控實例資源限制的總覽
 
@@ -31,7 +31,7 @@ ms.locfileid: "73823343"
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
-| 硬體 | Intel E5 2673 v3 (Haswell) 2.4-GHz 處理器，附加 SSD 虛擬核心 = 1 PP (實體核心) | Intel E5 2673 v4 (Broadwell) 2.3-GHz 處理器，快速 NVMe SSD，虛擬核心 = 1 LP (超執行緒) |
+| 硬體 | Intel E5 2673 v3 (Haswell) 2.4-GHz 處理器，附加 SSD 虛擬核心 = 1 PP (實體核心) | Intel E5-2673 v4 （Broadwell） 2.3-GHz 和 Intel SP-8160 （Skylake）處理器，fast NVMe SSD，vCore = 1 LP （超執行緒） |
 | 虛擬核心數目 | 8 個、16 個、24 個虛擬核心 | 4、8、16、24、32、40、64、80虛擬核心 |
 | 最大記憶體（記憶體/核心比率） | 每個虛擬核心 7GB<br/>新增更多虛擬核心以取得更多記憶體。 | 每個虛擬核心 5.1 GB<br/>新增更多虛擬核心以取得更多記憶體。 |
 | 記憶體內部 OLTP 記憶體上限 | 實例限制： 1-每個 vCore 1.5 GB| 實例限制： 0.8-每個 vCore 1.65 GB |
@@ -105,7 +105,7 @@ ms.locfileid: "73823343"
 
 此外，也有實例層級的限制，例如最大記錄寫入輸送量 22 MB/s，因此您可能無法在整個記錄檔上連線到檔案，因為您達到實例輸送量限制。
 
-## <a name="supported-regions"></a>支援區域
+## <a name="supported-regions"></a>支援的區域
 
 受控實例只能在[支援的區域](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)中建立。 若要在目前不支援的區域中建立受控實例，您可以透過[Azure 入口網站傳送支援要求](#obtaining-a-larger-quota-for-sql-managed-instance)。
 
@@ -178,7 +178,7 @@ ms.locfileid: "73823343"
 
 5. 按一下 [下一步]。
 6. 在新支援要求的 [連絡資訊] 索引標籤上，輸入慣用的連絡方法 (電子郵件或電話) 和連絡人詳細資料。
-7. 按一下 [建立]。
+7. 按一下頁面底部的 [新增]。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67367d8e50cf0b0b8929dc398a059180d5cd7567
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 74bbc596321b4882ef99104e045ee2da752b125a
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224317"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547207"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>使用範本在 Azure VM 上設定 Azure 資源的受控識別
 
@@ -32,7 +32,7 @@ ms.locfileid: "74224317"
 
 ## <a name="prerequisites"></a>先決條件
 
-- 如果您不熟悉如何使用 Azure Resource Manager 部署範本，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-it-work)** 。
+- 如果您不熟悉如何使用 Azure Resource Manager 部署範本，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-the-managed-identities-for-azure-resources-work)** 。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
 
 ## <a name="azure-resource-manager-templates"></a>Azure 資源管理員範本

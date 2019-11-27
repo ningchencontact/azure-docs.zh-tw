@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 09/06/2019
-ms.openlocfilehash: 6d4c9dd08f2d00bc12f041748cc78363c9abecbd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/26/2019
+ms.openlocfilehash: 6dee7642ac7ac0544db5b88981483bd1ea0f745e
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822527"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539317"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>以 DTU 為基礎的購買模式的服務層
 
@@ -31,7 +31,7 @@ ms.locfileid: "73822527"
 
 服務層級的選擇主要視業務持續性、儲存體和效能需求而定。
 
-||基本|標準|高級|
+||基本|標準|高階|
 | :-- | --: |--:| --:|
 |目標工作負載|開發與生產|開發與生產|開發與生產|
 |執行時間 SLA|99.99%|99.99%|99.99%|
@@ -43,6 +43,12 @@ ms.locfileid: "73822527"
 |記憶體內部 OLTP|N/A|N/A|支援|
 |||||
 
+> [!IMPORTANT]
+> 基本、標準 S0、S1 和 S2 服務層提供少於一個 vCore （CPU）。  針對需要大量 CPU 的工作負載，建議使用 S3 或更高的服務層。 
+>
+>關於資料儲存區，基本、標準 S0 和 S1 服務層會放在標準分頁 Blob 上。 標準分頁 Blob 使用硬碟（HDD）為基礎的存放裝置媒體，最適合用於開發、測試及其他較不常存取效能變化的工作負載。
+>
+
 > [!NOTE]
 > 您可以在基本服務層級取得免費的 Azure SQL 資料庫，並搭配 Azure 免費帳戶來探索 Azure。 如需相關資訊，請參閱[使用您的免費 Azure 免費帳戶，建立受管理的雲端資料庫](https://azure.microsoft.com/free/services/sql-database/)。
 
@@ -50,7 +56,7 @@ ms.locfileid: "73822527"
 
 單一資料庫的計算大小會以資料庫交易單位 (DTU) 表示，而彈性集區的計算大小則會以彈性資料庫交易單位 (eDTU) 表示。 如需 DTU 和 eDTU 的詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-purchase-models.md#dtu-based-purchasing-model)。
 
-||基本|標準|高級|
+||基本|標準|高階|
 | :-- | --: | --: | --: |
 | 儲存體大小上限 | 2 GB | 1 TB | 4 TB  |
 | DTU 上限 | 5 | 3000 | 4000 | 
@@ -103,7 +109,7 @@ ms.locfileid: "73822527"
 
 工作負載包含九種交易類型，如下表所示。 每一筆交易都設計為反白顯示資料庫引擎和系統硬體中特定的一組系統特性，與其他交易呈現高度對比。 此方法可讓您更容易評估不同元件對整體效能的影響。 例如，「頻繁讀取」交易會從磁碟產生大量的讀取作業。
 
-| 交易類型 | 說明 |
+| 交易類型 | 描述 |
 | --- | --- |
 | 輕度讀取 |SELECT；記憶體中；唯讀 |
 | 中度讀取 |SELECT；大部分記憶體中；唯讀 |
@@ -164,7 +170,7 @@ ms.locfileid: "73822527"
 
 | 服務類別 | 輸送量測量 | 回應時間需求 |
 | --- | --- | --- |
-| 高級 |每秒交易 |0\.5 秒時第 95 個百分位數 |
+| 高階 |每秒交易 |0\.5 秒時第 95 個百分位數 |
 | 標準 |每分鐘交易 |1\.0 秒時第 90 個百分位數 |
 | 基本 |每小時交易 |2\.0 秒時第 80 個百分位數 |
 

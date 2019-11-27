@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7e4d51701fd8614831585aac03f2c8a909b2b847
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: f1e1ae76c44e66c04baaad110b87264279dfdaf1
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112747"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530988"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>如何使用 Azure 認知搜尋中的索引子為 Cosmos DB 資料編制索引 
 
@@ -48,7 +48,7 @@ Azure 認知搜尋中的 Cosmos DB 索引子可以編目透過不同通訊協定
 
 索引 Azure Cosmos DB 專案最簡單的方法是使用[Azure 入口網站](https://portal.azure.com/)中的 wizard。 藉由取樣資料並讀取容器的中繼資料，Azure 認知搜尋中的「匯[**入資料**](search-import-data-portal.md)」 wizard 可以建立預設索引、將來源欄位對應至目標索引欄位，以及在單一作業中載入索引。 根據來源資料的大小和複雜度，只需要幾分鐘的時間，您就可以擁有正常運作的全文檢索搜尋索引。
 
-我們建議使用相同的 Azure 訂用帳戶來進行 Azure 認知搜尋和 Azure Cosmos DB，最好是在相同的區域中。
+我們建議您針對 Azure 認知搜尋和 Azure Cosmos DB 使用相同的區域或位置，以取得較低的延遲，並避免頻寬費用。
 
 ### <a name="1---prepare-source-data"></a>1 - 準備來源資料
 

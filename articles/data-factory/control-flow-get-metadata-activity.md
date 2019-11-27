@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 039176f2c546aa933d3a87ded8b6ded94e485d74
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c62a7de1f16a3d7d286f48500117c256804c0f24
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280653"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546936"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>取得 Azure Data Factory 中的中繼資料活動
 
@@ -53,10 +53,11 @@ ms.locfileid: "74280653"
 | [Azure 檔案](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [檔案系統](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
 - 針對 Amazon S3 和 Google Cloud Storage，`lastModified` 會套用到 bucket 和金鑰，但不會套用至虛擬資料夾，而 `exists` 則適用于值區和金鑰，但不會套用至前置詞或虛擬資料夾。
 - 針對 Azure Blob 儲存體，`lastModified` 會套用至容器和 Blob，而不是虛擬資料夾。
+- `lastModified` 篩選目前適用于篩選子專案，而不是指定的資料夾/檔案本身。
 - 取得中繼資料活動不支援資料夾/檔案上的萬用字元篩選。
 
 **關係資料庫**

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: c691281f1ff0cf88d1ba61af43fad8e7782924aa
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1178c18b29c5e38d33e51ff0da5db683990daed3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278517"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546960"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 REST 端點複製資料
 
@@ -218,7 +218,7 @@ ms.locfileid: "74278517"
 | requestInterval | 傳送下一個頁面要求之前的等候時間。 預設值為 [00:00:01] |  否 |
 
 >[!NOTE]
->REST 連接器會忽略 `additionalHeaders`中指定的任何「接受」標頭。 由於 REST 連接器僅支援 JSON 中的回應，因此 tt 會自動產生 `Accept: application/json`的標頭。
+>REST 連接器會忽略 `additionalHeaders`中指定的任何「接受」標頭。 由於 REST 連接器僅支援 JSON 中的回應，因此它會自動產生 `Accept: application/json`的標頭。
 
 **範例1：使用 Get 方法搭配分頁**
 

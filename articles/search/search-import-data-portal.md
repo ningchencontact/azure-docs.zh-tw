@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6b4ae076ba08af5514caa09a2e8027a1cbc909dc
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: df7d0fde05c974ef4cec739236a3ac0aebd63ecc
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793684"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534544"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Azure 認知搜尋的匯入資料嚮導
 
@@ -43,7 +43,7 @@ ms.locfileid: "72793684"
 
 + 此 wizard 不支援反復專案或重複使用。 每次通過 wizard 時，都會建立新的索引、技能集和索引子設定。 只有資料來源可以保存並在嚮導內重複使用。 若要編輯或精簡其他物件，您必須使用 REST Api 或 .NET SDK 來取出和修改結構。
 
-+ 來源內容必須位於相同訂用帳戶下的服務中支援的 Azure 資料來源。
++ 來源內容必須位於支援的 Azure 資料來源中。
 
 + 取樣是針對來源資料的子集。 對於大型資料來源，嚮導可能會遺漏欄位。 如果取樣不足，您可能需要擴充架構，或更正推斷的資料類型。
 
@@ -55,7 +55,7 @@ ms.locfileid: "72793684"
 
 ## <a name="data-source-input"></a>資料來源輸入
 
-「匯**入資料**」 wizard 會使用 Azure 認知搜尋索引子所提供的內部邏輯來連接到外部資料源，這些是可取樣來源、讀取中繼資料、破解檔以讀取內容和結構，以及序列化內容作為後續匯入至 Azure 認知搜尋的 JSON。
+「匯**入資料**」嚮導會使用 Azure 認知搜尋索引子所提供的內部邏輯來連接到外部資料源，這些是配備來取樣來源、讀取中繼資料、破解檔以讀取內容和結構，以及將內容序列化為 JSON 以進行後續匯入至 Azure 認知搜尋。
 
 您只能從單一資料表、資料庫檢視或對等的資料結構匯入，但結構可以包含階層式或嵌套子結構。 如需詳細資訊，請參閱[如何建立複雜類型的模型](search-howto-complex-data-types.md)。
 
@@ -75,7 +75,7 @@ ms.locfileid: "72793684"
 
 在幕後，嚮導會建立、設定和叫用下列物件。 在嚮導執行之後，您可以在入口網站頁面中找到其輸出。 服務的 [總覽] 頁面包含索引、索引子、資料來源和技能集的清單。 您可以在入口網站中以完整 JSON 來查看索引定義。 針對其他定義，您可以使用[REST API](https://docs.microsoft.com/rest/api/searchservice/)來取得特定物件。
 
-| Object | 描述 | 
+| 物件 | 描述 | 
 |--------|-------------|
 | [資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 將連接資訊保存到來源資料，包括認證。 資料來源物件是以獨佔方式使用於索引子。 | 
 | [Index](https://docs.microsoft.com/rest/api/searchservice/create-index) | 用於全文檢索搜尋和其他查詢的實體資料結構。 | 

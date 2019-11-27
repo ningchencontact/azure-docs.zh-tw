@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 57eec1293867a6596eb93f20ba27d468498e4e61
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 143a05944799ff04f9c21384f85a4b00cc65b750
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278688"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545737"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的計時器觸發程序 
 
@@ -283,7 +283,10 @@ Azure Functions 使用[NCronTab](https://github.com/atifaziz/NCrontab)程式庫�
 
 CRON 運算式中的數字代表時間和日期，而非時間範圍。 例如，`hour` 欄位中的 5 代表上午 5:00，而非每隔 5 小時。
 
-CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON 運算式以另一個時區為基礎，請為名為 `WEBSITE_TIME_ZONE` 的函式應用程式建立應用程式設定。 將值設定為所需的時區名稱，如 [Microsoft 時區索引](https://technet.microsoft.com/library/cc749073)中所示。 
+CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON 運算式以另一個時區為基礎，請為名為 `WEBSITE_TIME_ZONE` 的函式應用程式建立應用程式設定。 將值設定為所需的時區名稱，如 [Microsoft 時區索引](https://technet.microsoft.com/library/cc749073)中所示。
+
+  > [!NOTE]
+  > Linux 使用量方案目前不支援 `WEBSITE_TIME_ZONE`。
 
 例如，*美加東部標準時間*是 UTC-05:00。 若要讓計時器觸發程式在每天的上午10:00 觸發，請使用下列 NCRONTAB 運算式來表示 UTC 時區：
 

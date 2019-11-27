@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3c70d2086fc5866b07c31966343397f8ccc809be
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: a732e80549747f7c683a73bf0f16c40d48decea6
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73846739"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546337"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -227,7 +227,7 @@ Azure 檔案同步和 DFS-R 如需並存使用：
 > 裸機 (BMR) 還原可能會導致非預期的結果，且目前不受支援。
 
 > [!Note]  
-> 已啟用雲端階層處理的磁碟區目前不支援 VSS 快照集 (包括 [舊版] 索引標籤)。 如果啟用了雲端階層處理，請使用 Azure 檔案共用快照集從備份還原檔案。
+> 有了第9版的 Azure 檔案同步代理程式，現在已在啟用雲端階層處理的磁片區上支援 VSS 快照集（包括 [先前的版本] 索引標籤）。 不過，您必須透過 PowerShell 啟用先前的版本相容性。 [了解作法](storage-files-deployment-guide.md)。
 
 ### <a name="encryption-solutions"></a>加密解決方案
 加密解決方案的支援取決於其實作方式。 Azure 檔案共用已知可用於：

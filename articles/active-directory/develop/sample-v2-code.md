@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84c94675ac5c69055cd2811df206f81af55d3c1e
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 8f4d081d9a52188ee4c4b6b2a854cb9e48c02f16
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927199"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533013"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft 身分識別平臺程式碼範例（v2.0 端點）
 
@@ -61,7 +61,7 @@ ms.locfileid: "73927199"
 | -------- | ------------------- | --------------------------------- |
 | ![此圖顯示 ASP.NET Core 標誌](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2。2 | [ASP.NET Core WebApp 登入使用者教學課程](https://aka.ms/aspnetcore-webapp-sign-in) | [ASP.NET Core Web 應用程式](https://aka.ms/aspnetcore-webapp-call-msgraph)中的相同範例會呼叫 Microsoft Graph 階段 |
 | ![此圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET 快速入門](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2) (英文)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) (英文) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
-| ![此圖顯示 JAVA 標誌](media/sample-v2-code/logo_java.png)  |                   | [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp)：呼叫 Microsoft GRAPH 的 MSAL4J web 應用程式 |
+| ![此圖顯示 JAVA 標誌](media/sample-v2-code/logo_java.png)  |                   | [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp)：呼叫 MICROSOFT GRAPH 的 MSAL4J web 應用程式 |
 | ![此圖顯示 node.js 標誌](media/sample-v2-code/logo_nodejs.png)  |                   | [Node.js 快速入門](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs) |
 | ![此圖顯示 Ruby 標誌](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
 
@@ -116,7 +116,6 @@ ms.locfileid: "73927199"
 | ![此圖顯示 node.js 標誌](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | NodeJS 和 passport 的 Web API （服務） [-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
 | ![此圖顯示 Python 標誌](media/sample-v2-code/logo_python.png)</p>Python | [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions)的 Web API （服務） |
 | ![此圖顯示 node.js 標誌](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | NodeJS 和 passport 的 Web API （服務） [-使用代表的 azure ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
-
 
 ## <a name="other-microsoft-graph-samples"></a>其他 Microsoft Graph 範例
 

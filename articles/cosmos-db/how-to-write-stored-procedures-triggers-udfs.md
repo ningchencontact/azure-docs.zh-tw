@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: cdac8321ec4ac7b2e13c5545a2483527118daae3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ffe002e4dced5b5020eb1436ca6d7d577402b077
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606265"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533176"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中撰寫預存程序、觸發程序和使用者定義函式
 
@@ -316,6 +316,17 @@ function tax(income) {
 ```
 
 如需如何註冊及使用「使用者定義函式」的範例，請參閱[如何在 Azure Cosmos DB 中使用使用者定義函式](how-to-use-stored-procedures-triggers-udfs.md#udfs)一文。
+
+## <a name="logging"></a>記錄 
+
+使用預存程式、觸發程式或使用者定義函數時，您可以使用 `console.log()` 命令來記錄這些步驟。 當 `EnableScriptLogging` 設定為 true （如下列範例所示）時，此命令會將字串集中在進行偵錯工具：
+
+```javascript
+var response = await client.ExecuteStoredProcedureAsync(
+document.SelfLink,
+new RequestOptions { EnableScriptLogging = true } );
+Console.WriteLine(response.ScriptLog);
+```
 
 ## <a name="next-steps"></a>後續步驟
 

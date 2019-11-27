@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5721879ee78a694c90e607d15f30f99394e49fc
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f757819e16db9908e80c5e7350c082dbf1573677
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183604"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547238"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>使用 REST API 呼叫在虛擬機器擴展集上設定 Azure 資源受控識別
 
@@ -35,7 +35,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ## <a name="prerequisites"></a>先決條件
 
-- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-it-work)** 。
+- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-the-managed-identities-for-azure-resources-work)** 。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
 - 若要執行本文中的管理作業，您的帳戶需要下列 Azure 角色型存取控制指派：
 

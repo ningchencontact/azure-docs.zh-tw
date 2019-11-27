@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 11/04/2019
-ms.openlocfilehash: 6c5b913835b2080f30ff3dd73e6a59c1043ecf5d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/27/2019
+ms.openlocfilehash: db5ac9465e6b897690c54484de25fde462741fb3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823284"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548386"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>什麼是 Azure SQL Database 受控實例？
 
@@ -53,18 +53,18 @@ ms.locfileid: "73823284"
 
 下表顯示受控執行個體的主要功能：
 
-|功能 | 說明|
+|功能 | 描述|
 |---|---|
 | SQL Server 版本/組建 | SQL Server 資料庫引擎 (最新穩定版) |
-| 受控自動化備份 | 是 |
-| 內建執行個體和資料庫的監視與計量 | 是 |
-| 自動軟體修補 | 是 |
-| 最新的資料庫引擎功能 | 是 |
+| 受控自動化備份 | yes |
+| 內建執行個體和資料庫的監視與計量 | yes |
+| 自動軟體修補 | yes |
+| 最新的資料庫引擎功能 | yes |
 | 每個資料庫的資料檔案 (ROWS) 數目 | 多個 |
 | 每個資料庫的記錄檔 (LOG) 數目 | 1 |
-| VNet - Azure Resource Manager 部署 | 是 |
+| VNet - Azure Resource Manager 部署 | yes |
 | VNet - 傳統部署模型 | 否 |
-| 入口網站支援 | 是|
+| 入口網站支援 | yes|
 | 內建的整合服務 (SSIS) | 否 - SSIS 屬於 [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | 內建的 Analysis Services (SSAS) | 否 - SSAS 是個別 [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
 | 內建的報告服務 (SSRS) | 否 - 使用 Power BI 或 SSRS IaaS |
@@ -77,7 +77,7 @@ ms.locfileid: "73823284"
 在 V 核心模型中，您可以選擇各硬體世代。
 
 - **第4代**邏輯 Cpu 是以 Intel E5-2673 v3 （Haswell） 2.4-GHz 處理器、附加 SSD、實體核心、每個核心 7 GB RAM，以及8到24虛擬核心之間的計算大小為基礎。
-- **第5代**邏輯 Cpu 是以 Intel E5-2673 v4 （Broadwell） 2.3-GHz 處理器、快速 NVMe SSD、超執行緒邏輯核心，以及4到80核心的計算大小為基礎。
+- **第5代**邏輯 Cpu 是以 Intel E5-2673 v4 （Broadwell） 2.3-GHz 和 Intel SP-8160 （Skylake）處理器、快速 NVMe SSD、超執行緒邏輯核心，以及4到80核心之間的計算大小為基礎。
 
 在[受控執行個體資源限制](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)中尋找關於硬體世代之間差異的詳細資訊。
 
@@ -122,7 +122,7 @@ ms.locfileid: "73823284"
 
 ## <a name="managed-instance-management-operations"></a>受控實例管理作業
 
-Azure SQL Database 提供管理作業，可讓您在不再需要時，用來自動部署新的受控實例、更新實例屬性和刪除實例。 本節提供管理作業及其一般持續時間的相關資訊。
+Azure SQL Database 提供管理作業，可讓您在不再需要時，用來自動部署新的受控執行個體、更新執行個體屬性和刪除執行個體。 本節提供管理作業及其一般持續時間的相關資訊。
 
 為了支援[Azure 虛擬網路（vnet）內的部署](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks)，並為客戶提供隔離和安全性，受控實例會依賴[虛擬叢集](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture)，這代表一組部署在其中的專屬獨立虛擬機器。客戶的虛擬網路子網。 基本上，空白子網中的每個受控實例部署都會產生新的虛擬叢集增建。
 
@@ -161,7 +161,7 @@ Azure SQL Database 提供管理作業，可讓您在不再需要時，用來自�
 |更新 |實例相應減少為4虛擬核心（一般用途）|-虛擬叢集調整大小（如果是第一次完成，可能需要建立虛擬叢集 * *）<br>-附加資料庫檔案|90% 的作業以4小時5分鐘完成|
 |更新 |實例相應減少為4虛擬核心（一般用途）|-虛擬叢集調整大小（如果是第一次完成，可能需要建立虛擬叢集 * *）<br>-Always On 可用性群組植入|90% 的作業會在4小時內完成，並將所有資料庫植入的時間（220 GB/小時）|
 |更新 |實例服務層級變更（一般用途到業務關鍵，反之亦然）|-虛擬叢集調整大小<br>-Always On 可用性群組植入|90% 的作業會在2.5 小時內完成，並將所有資料庫植入的時間（220 GB/小時）|
-|**操作**|實例刪除|所有資料庫的記錄尾備份|90% 作業會在最多1分鐘內完成。<br>注意：如果刪除子網中的最後一個實例，此作業會在12小時後排程刪除虛擬叢集 * * *|
+|**操作**|執行個體刪除|所有資料庫的記錄尾備份|90% 作業會在最多1分鐘內完成。<br>注意：如果刪除子網中的最後一個實例，此作業會在12小時後排程刪除虛擬叢集 * * *|
 |刪除|虛擬叢集刪除（作為使用者起始的作業）|虛擬叢集刪除|90% 的作業會在最多1.5 小時內完成|
 
 \* 虛擬叢集是根據硬體世代而建立的。

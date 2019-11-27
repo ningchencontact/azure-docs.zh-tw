@@ -12,12 +12,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: b5f839cc6216eb12bfd0a86009ec49e987279d6e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 922a2eb910a99a899bdb9f2b3e2392559ec9b0f3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889826"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548412"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL Database 和 SQL 資料倉儲資料探索 & 分類
 
@@ -128,8 +128,9 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 
 ![稽核記錄檔](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>使用 T-sql 管理資料分類
+### <a name="manage-classifications"></a>管理分類
 
+# <a name="t-sqltabazure-t-sql"></a>[T-SQL](#tab/azure-t-sql)
 您可以使用 T-SQL 新增/移除資料行分類，以及擷取整個資料庫的所有分類。
 
 > [!NOTE]
@@ -139,8 +140,7 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 - 從一或多個資料行移除分類：[DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - 檢視資料庫上的所有分類：[sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-### <a name="manage-classifications-using-rest-apis"></a>使用 Rest Api 管理分類
-
+# <a name="rest-apistabazure-rest-api"></a>[Rest Api](#tab/azure-rest-api)
 您也可以使用 REST API 以程式設計方式管理分類。 已發行的 REST API 支援下列作業：
 
 - [建立或更新](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate)-建立或更新指定資料行的敏感度標籤
@@ -152,12 +152,8 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 
 - [資料庫建議的清單](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase)-取得指定資料庫的建議敏感度標籤
 
-## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>使用 Azure PowerShell 管理資料探索和分類
-
-您可以使用 PowerShell 來取得 Azure SQL database 和受控實例中所有建議的資料行。
-
-### <a name="powershell-cmdlets-for-azure-sql-database"></a>適用于 Azure SQL database 的 PowerShell Cmdlet
-
+# <a name="powershell-cmdlet-for-azure-sqltabazure-portal-sqldb"></a>[適用于 Azure SQL 的 PowerShell Cmdlet](#tab/azure-portal-sqldb)
+您可以使用 PowerShell 來取得 Azure SQL 資料庫中所有建議的資料行。
 - [AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
 - [設定-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
 - [移除-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
@@ -165,8 +161,8 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 - [啟用-AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
 - [停用-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
-### <a name="powershell-cmdlets-for-managed-instance"></a>適用于受控實例的 PowerShell Cmdlet
-
+# <a name="powershell-cmdlets-for-managed-instancetabazure-powershell-mi"></a>[適用于受控執行個體的 PowerShell Cmdlet](#tab/azure-powershell-mi)
+您可以使用 PowerShell 來取得受控實例中所有建議的資料行。
 - [AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
 - [設定-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
 - [移除-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)

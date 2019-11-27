@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d14debff8baf4bdeb808b32e64b389ad0f9e2f38
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 443f1eb1576f2d6eb28d0de16f37e37912b707b9
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232203"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547346"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>了解如何在 Azure VM 上使用 Azure 資源受控識別來取得存取權杖 
 
@@ -45,7 +45,7 @@ ms.locfileid: "74232203"
 
 ## <a name="overview"></a>Overview
 
-用戶端應用程式可以要求用於存取指定資源的 Azure 資源受控識別：[僅限應用程式的存取權杖](../develop/developer-glossary.md#access-token)。 此權杖是[以 Azure 資源受控識別服務原則為基礎](overview.md#how-does-it-work)。 因此，用戶端不需要自行註冊就能取得本身服務主體下的存取權杖。 權杖在[需要用戶端認證的服務對服務呼叫](../develop/v1-oauth2-client-creds-grant-flow.md)中適合作為持有人權杖。
+用戶端應用程式可以要求用於存取指定資源的 Azure 資源受控識別：[僅限應用程式的存取權杖](../develop/developer-glossary.md#access-token)。 此權杖是[以 Azure 資源受控識別服務原則為基礎](overview.md#how-does-the-managed-identities-for-azure-resources-work)。 因此，用戶端不需要自行註冊就能取得本身服務主體下的存取權杖。 權杖在[需要用戶端認證的服務對服務呼叫](../develop/v1-oauth2-client-creds-grant-flow.md)中適合作為持有人權杖。
 
 |  |  |
 | -------------- | -------------------- |

@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 99589a4f11f91afa7d3c9f93d844654ccc69aab1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
-ms.translationtype: HT
+ms.openlocfilehash: 9c1a9a9e3b9e1c12c3960a8586c25436c8d937e0
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322950"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532889"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 進階方案
 
@@ -29,7 +29,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 
 在此範例中，請將 `<RESOURCE_GROUP>` 取代為您的資源群組，並使用您的方案名稱（在資源群組中是唯一的） `<PLAN_NAME>`。 指定[支援的 `<REGION>`](#regions)。 若要建立支援 Linux 的 Premium 方案，請包含 `--is-linux` 選項。
 
-建立計畫之後，您可以使用[az functionapp create](/cli/azure/functionapp#az-functionapp-create)來建立函數應用程式。 在入口網站中，會同時建立方案和應用程式。 
+建立計畫之後，您可以使用[az functionapp create](/cli/azure/functionapp#az-functionapp-create)來建立函數應用程式。 在入口網站中，會同時建立方案和應用程式。 如需完整 Azure CLI 腳本的範例，請參閱[在 Premium 方案中建立函數應用程式](scripts/functions-cli-create-premium-plan.md)。
 
 ## <a name="features"></a>特性
 

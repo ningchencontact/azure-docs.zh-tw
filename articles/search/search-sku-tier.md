@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9caadddf281c6df29f6e36057c7b28abcef0e1c4
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d691759f1075a08ad13ec1199eb8af7fd634f5a1
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112519"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534485"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>選擇 Azure 認知搜尋的定價層
 
@@ -216,7 +216,7 @@ L2 offers twice the overall storage capacity of L1.  Choose your tier based on t
 
 + 允許以查詢為依據的計量，並收集使用模式的資料（工作時間內的查詢，在離峰時段編制索引）。 使用此資料來通知服務布建決策。 雖然這不是每小時或每日的頻率，但是您可以動態調整資料分割和資源，以配合查詢磁片區中的計畫變更。 如果層級夠長，而足以保證採取動作，您也可以納入未規劃但持續的變更。
 
-+ 請記住，underprovisioning 的唯一缺點是，如果實際需求大於預測，您可能必須卸載服務。 為避免服務中斷，建議您在相同訂用帳戶中使用更高的定價層建立一個新服務，並讓此服務並行執行，直到所有應用程式和要求都以新端點為目標才停止。
++ 請記住，underprovisioning 的唯一缺點是，如果實際需求大於預測，您可能必須卸載服務。 為避免服務中斷，您會在較高的層級建立新的服務，並在所有應用程式和要求以新端點為目標之前並存執行。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/06/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82fa5019e740d16d0b97111fcf8dbc4f6c91d57b
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a2283ac076ef761fd098d75e7120e6557a959574
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184009"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547253"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>使用 PowerShell 為受控識別指派對資源的存取權
 
@@ -32,7 +32,7 @@ ms.locfileid: "74184009"
 
 ## <a name="prerequisites"></a>先決條件
 
-- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-it-work)** 。
+- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-the-managed-identities-for-azure-resources-work)** 。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
 - 如果您尚未安裝[最新版的 Azure PowerShell](/powershell/azure/install-az-ps)，請先安裝。
 

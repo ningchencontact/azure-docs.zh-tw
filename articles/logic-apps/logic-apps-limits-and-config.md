@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/19/2019
-ms.openlocfilehash: 5e52d60a6cf1d6c8fc248ca8ad8ab7199f5ce885
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 89b4a08a3ecb85abd56f0b2ae852123ac2883364
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483567"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547538"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -277,7 +277,7 @@ Azure Logic Apps 用於傳入和撥出電話的 IP 位址，取決於您的邏�
 
 * 若要支援 [Microsoft 管理的連接器](../connectors/apis-list.md)所進行的呼叫，請根據您邏輯應用程式的所在區域，使用這些連接器使用的「所有」[輸出](#outbound) IP 位址設定您的防火牆。 這些位址會出現在本節中的**輸出**標題底下，並且依照區域排序。 
 
-* 若要啟用在整合服務環境（ISE）中執行的邏輯應用程式通訊，請確定您已[開啟這些埠](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports)。
+* 若要啟用在整合服務環境（ISE）中執行的邏輯應用程式通訊，請確定您已[開啟這些埠](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise)。
 
 * 如果您的邏輯應用程式在存取使用[防火牆和防火牆規則](../storage/common/storage-network-security.md)的 Azure 儲存體帳戶時遇到問題，則您有[各種選項可啟用存取](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls)。
 

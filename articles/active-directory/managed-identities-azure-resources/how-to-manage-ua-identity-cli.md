@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 760de0d0bd1f11a34aa5c3998c923d1c7c80185d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c1e8587562ff452373fe2ee3b98fa20309e77cc7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232269"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547502"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>使用 Azure CLI 建立、列出和刪除使用者指派的受控識別
 
@@ -31,7 +31,7 @@ ms.locfileid: "74232269"
 
 ## <a name="prerequisites"></a>先決條件
 
-- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-it-work)** 。
+- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-the-managed-identities-for-azure-resources-work)** 。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
 - 若要執行 CLI 指令碼範例，您有三個選項：
     - 從 Azure 入口網站使用 [Azure Cloud Shell](../../cloud-shell/overview.md) (請參閱下一節)。

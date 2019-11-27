@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8660d5539d9cfc218667bc7bb077f9f6d1191eec
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: e24c97909870c4d76b07ec837e5f624a509bd1f2
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184145"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547278"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>使用 Azure 入口網站為受控識別指派對資源的存取權
 
@@ -30,7 +30,7 @@ ms.locfileid: "74184145"
 
 ## <a name="prerequisites"></a>先決條件
 
-- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-it-work)** 。
+- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-the-managed-identities-for-azure-resources-work)** 。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
 
 ## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>使用 RBAC 為受控識別指派對其他資源的存取權

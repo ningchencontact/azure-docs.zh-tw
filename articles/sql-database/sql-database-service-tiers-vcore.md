@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 11/25/2019
-ms.openlocfilehash: 94728f2e4be6a16d048b4ff97bedefd5e32957ed
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.date: 11/27/2019
+ms.openlocfilehash: c5c7883295a30aa217e722abd905f54b982761d3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481291"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547561"
 ---
 # <a name="vcore-model-overview"></a>虛擬核心模型概觀
 
@@ -98,7 +98,7 @@ VCore 模型中的硬體產生選項包括 Gen 4/5、M 系列（預覽）和 Fsv
 |硬體世代  |計算  |記憶體  |
 |:---------|:---------|:---------|
 |第4代     |-Intel E5-2673 v3 （Haswell） 2.4 GHz 處理器<br>-最多可布建24虛擬核心（1 vCore = 1 個實體核心）  |-每個 vCore 7 GB<br>-布建最多 168 GB|
-|Gen5     |**佈建計算**<br>-Intel E5-2673 v4 （Broadwell） 2.3 GHz 處理器<br>-最多可布建80虛擬核心（1 vCore = 1 個超執行緒）<br><br>**無伺服器計算**<br>-Intel E5-2673 v4 （Broadwell） 2.3 GHz 處理器<br>-自動相應增加至16個虛擬核心（1個 vCore = 1 個超執行緒）|**佈建計算**<br>-每個 vCore 5.1 GB<br>-布建最多 408 GB<br><br>**無伺服器計算**<br>-每個 vCore 自動相應增加至 24 GB<br>-自動調整至最多 48 GB 的最大值|
+|Gen5     |**佈建計算**<br>-Intel E5-2673 v4 （Broadwell） 2.3-GHz 和 Intel SP-8160 （Skylake）處理器<br>-最多可布建80虛擬核心（1 vCore = 1 個超執行緒）<br><br>**無伺服器計算**<br>-Intel E5-2673 v4 （Broadwell） 2.3-GHz 和 Intel SP-8160 （Skylake）處理器<br>-自動相應增加至16個虛擬核心（1個 vCore = 1 個超執行緒）|**佈建計算**<br>-每個 vCore 5.1 GB<br>-布建最多 408 GB<br><br>**無伺服器計算**<br>-每個 vCore 自動相應增加至 24 GB<br>-自動調整至最多 48 GB 的最大值|
 |Fsv2 系列     |-Intel 更強白金8168（SkyLake）處理器<br>-提供 3.4 GHz 的全部核心 turbo 主頻速度，以及最大的單一核心 turbo 頻率速度（3.7 GHz）。<br>-布建72虛擬核心（1 vCore = 1 個超執行緒）|-每個 vCore 1.9 GB<br>-布建 136 GB|
 |M 系列     |-Intel E7-8890 v3 2.5 GHz 處理器<br>-布建128虛擬核心（1 vCore = 1 個超執行緒）|-每 vCore 29 GB<br>-布建 3.7 TB|
 

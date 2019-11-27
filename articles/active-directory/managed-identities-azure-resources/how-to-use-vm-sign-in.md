@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3d6d128677d2e82f4750a7771885474bf284fb1
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184222"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547394"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>如何使用 Azure VM 的 Azure 資源受控識別進行登入 
 
@@ -41,7 +41,7 @@ ms.locfileid: "74184222"
 
 ## <a name="overview"></a>Overview
 
-Azure 資源的受控識別提供[服務主體物件](../develop/developer-glossary.md#service-principal-object)，這是[啟用 Azure 資源的受控識別時建立](overview.md#how-does-it-work)的物件。 服務主體可以獲得 Azure 資源的存取權，並可讓指令碼/命令列用戶端用來作為登入及存取資源時的身分識別。 傳統上，若要以受保護資源本身的身分識別來存取該資源，指令碼用戶端需要：  
+Azure 資源的受控識別提供[服務主體物件](../develop/developer-glossary.md#service-principal-object)，這是[啟用 Azure 資源的受控識別時建立](overview.md#how-does-the-managed-identities-for-azure-resources-work)的物件。 服務主體可以獲得 Azure 資源的存取權，並可讓指令碼/命令列用戶端用來作為登入及存取資源時的身分識別。 傳統上，若要以受保護資源本身的身分識別來存取該資源，指令碼用戶端需要：  
 
    - 向 Azure AD 註冊並獲得同意成為機密/Web 用戶端應用程式
    - 在其服務主體下登入，並使用應用程式的認證 (這可能會內嵌於指令碼中)

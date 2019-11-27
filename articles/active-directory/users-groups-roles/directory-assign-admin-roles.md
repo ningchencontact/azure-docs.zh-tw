@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5eefac10e2ab196affc4c4148348d19959fcfeec
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bdc178661cf4db8505a444d1f5575bb3d0375979
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74266906"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547530"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -326,6 +326,10 @@ ms.locfileid: "74266906"
 
 > [!NOTE]
 > 在 Microsoft Graph API、Azure AD Graph API 和 Azure AD PowerShell 中，會將此角色識別為「Power BI 服務管理員」。 在 [Azure 入口網站](https://portal.azure.com)中則是「Power BI 管理員」。
+
+### <a name="power-platform-administratorpower-platform-administrator-permissions"></a>[Power 平臺系統管理員](#power-platform-administrator-permissions)
+
+此角色中的使用者可以建立及管理環境、PowerApps、流程、資料遺失防護原則的所有層面。 此外，具備此角色的使用者能夠管理支援票證及監視服務的健康情況。
 
 ### <a name="privileged-authentication-administratorprivileged-authentication-administrator-permissions"></a>[特殊許可權驗證管理員](#privileged-authentication-administrator-permissions)
 
@@ -1345,12 +1349,31 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
 >
 >
-
 | **動作** | **描述** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.powerApps.powerBI/allEntities/allTasks | 管理 Power BI 的所有層面。 |
+| microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
+| microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
+| microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
+
+
+### <a name="power-platform-administrator-permissions"></a>Power Platform 系統管理員許可權
+
+可以建立及管理 Microsoft Dynamics 365、PowerApps 和 Microsoft Flow 的所有層面。 
+
+> [!NOTE]
+> 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
+>
+>
+| **動作** | **描述** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
+| microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
+| dynamics365/allEntities/allTasks | 管理 Dynamics 365 的所有層面。 |
+| microsoft flow/allEntities/allTasks | 管理 Microsoft Flow 的所有層面。 |
+| microsoft powerApps/allEntities/allTasks | 管理 PowerApps 的所有層面。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
@@ -1708,6 +1731,7 @@ Office 應用程式系統管理員 | Office 應用程式系統管理員 | 2b745b
 合作夥伴第 2 層支援 | 合作夥伴第 2 層支援 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 密碼管理員 | 密碼管理員 | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Power BI 服務管理員 | Power BI 系統管理員 | a9ea8996-122f-4c74-9520-8edcd192826c
+Power 平臺系統管理員 | Power 平臺系統管理員 | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
 特殊許可權驗證管理員 | 特殊許可權驗證管理員 | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 特殊權限角色管理員 | 特殊權限角色管理員 | e8611ab8-c189-46e8-94e1-60213ab1f814
 報告讀者 | 報表讀者 | 4a5d8f65-41da-4de4-8968-e035b65339cf

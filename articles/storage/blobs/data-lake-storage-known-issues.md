@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 9e1529517a812ac11f5a3023b699bd8f1332fc98
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.openlocfilehash: 3ea77eb5dd8a03f877164179e3accc3a6f6d0aef
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484413"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548326"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知問題
 
@@ -50,7 +50,14 @@ Blob Api 和 Data Lake Storage Gen2 Api 可以在相同的資料上運作。
 
 ## <a name="api-scope-for-data-lake-storage-client-library-for-sdk-powershell-and-cli"></a>適用于 SDK、Powershell 和 CLI 的 Data Lake Storage 用戶端程式庫的 API 範圍
 
-下列功能目前不支援適用于 PowerShell、Azure CLI、JAVA、Python 和 .NET SDK 的 data lake 用戶端程式庫： `RecursiveACL`、`setExpiry`、`Concat` 和 `ConcurrentAppend`。
+### <a name="filesystem-support-in-sdks"></a>Sdk 中的檔案系統支援
+
+- .NET、JAVA 和 Python 處於公開預覽狀態。 目前不支援其他 Sdk。
+- 取得和設定 Acl 作業目前不是遞迴的。
+
+### <a name="filesystem-support-in-powershell-and-azure-cli"></a>PowerShell 和 Azure CLI 中的檔案系統支援
+
+取得和設定 Acl 作業目前不是遞迴的。
 
 ## <a name="support-for-other-blob-storage-features"></a>其他 Blob 儲存體功能的支援
 
@@ -59,7 +66,7 @@ Blob Api 和 Data Lake Storage Gen2 Api 可以在相同的資料上運作。
 | 功能/工具    | 詳細資訊    |
 |--------|-----------|
 | **AzCopy** | 版本特定支援 <br><br>只使用最新版本的 AzCopy （[AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)）。 不支援舊版的 AzCopy （例如 AzCopy 8.1）。|
-| **Azure Blob 儲存體生命週期管理原則** | 支援所有存取層。 封存存取層目前為預覽狀態。 尚不支援刪除 blob 快照集。 |
+| **Azure Blob 儲存體生命週期管理原則** | 支援生命週期管理原則（預覽）。  支援所有存取層。 封存存取層目前為預覽狀態。 尚不支援刪除 blob 快照集。 <br><br> 目前有一些 bug 會影響生命週期管理原則和封存存取層。  在[這裡](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u)註冊生命週期管理原則和封存存取層的預覽。   |
 | **Azure 內容傳遞網路（CDN）** | 尚不支援|
 | **Azure 搜尋服務** |支援（預覽）|
 | **Azure 儲存體總管** | 版本特定的支援。 <br><br>僅使用 `1.6.0` 或更高版本。 <br> 目前有一個會影響版本 `1.11.0` 的儲存體 bug，在某些情況下可能會導致驗證錯誤。 即將推出儲存體錯誤的修正程式，但作為因應措施，建議您使用[免費下載](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes)的 `1.10.x` 版本。 `1.10.x` 不會受到儲存體錯誤的影響。|
@@ -69,7 +76,7 @@ Blob Api 和 Data Lake Storage Gen2 Api 可以在相同的資料上運作。
 | **Azure 入口網站中的儲存體總管** | 有限的支援。 尚不支援 Acl。 |
 | **診斷記錄** |支援診斷記錄（預覽）。<br><br>目前不支援在 Azure 入口網站中啟用記錄。 以下範例說明如何使用 PowerShell 來啟用記錄。 <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`。 <br><br>請務必將 `Blob` 指定為 `-ServiceType` 參數的值，如下列範例所示。 <br><br>目前，Azure 儲存體總管無法用於查看診斷記錄。 若要查看記錄，請使用 AzCopy 或 Sdk。
 | **不可變的儲存體** |尚不支援 <br><br>不可變的儲存體可讓您將資料儲存在[WORM （一次寫入，多次讀取）](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)狀態。|
-| **物件層級層** |支援非經常性存取和封存層。 封存層處於預覽狀態。 尚不支援其他所有存取層。|
+| **物件層級層** |支援非經常性存取和封存層。 封存層處於預覽狀態。 尚不支援其他所有存取層。 <br><br> 目前有一些 bug 會影響封存存取層。  在[這裡](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u)註冊封存存取層的預覽。|
 | **Powershell 和 CLI 支援** | 有限的功能 <br><br>支援 Blob 作業。 尚不支援使用目錄及設定存取控制清單（Acl）。 |
 | **靜態網站** |尚不支援 <br><br>具體來說，就是將檔案提供給[靜態網站](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)的能力。|
 | **協力廠商應用程式** | 有限支援 <br><br>使用 REST Api 來執行的協力廠商應用程式，如果您搭配 Data Lake Storage Gen2 使用，將會繼續工作。 <br>呼叫 Blob Api 的應用程式可能會有作用。|

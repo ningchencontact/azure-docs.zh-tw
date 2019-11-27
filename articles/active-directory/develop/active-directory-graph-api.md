@@ -12,31 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0b677e9a8faf55f121d80f5a6112fbdaf78e6c0
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 30c1b5a3600c48dc548561df3cd2f955347a7e64
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853340"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533025"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory 圖形 API
 
 > [!IMPORTANT]
->
-> 從 2019 年 2 月起，我們展開了將某些舊版 Azure Active Directory Graph API 汰換為 Microsoft Graph API 的程序。 
->
-> 如需詳細資料、更新及時間範圍，請參閱 Office 開發人員中心的 [Microsoft Graph 或 Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph)。
->
-> 應用程式於未來皆應該使用 Microsoft Graph API。 
+> 強烈建議您使用[Microsoft Graph](https://developer.microsoft.com/graph) ，而不要使用 Azure AD 圖形 API 來存取 Azure Active Directory （Azure AD）資源。 我們的開發工作現在是針對 Microsoft Graph，並沒有針對 Azure AD Graph API 規劃的進一步增強功能 。 Azure AD 圖形 API 可能仍適用的案例數量非常有限;如需詳細資訊，請參閱[Microsoft Graph 或 Azure AD 圖的圖表](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph)blog 文章，並[將 Azure AD 圖形應用程式遷移至 Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview)。
 
-
-
-本文適用於 Azure AD Graph API。 如需與 Microsoft Graph API 相關的類似資訊，請參閱[使用 Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api)。 
+本文適用於 Azure AD Graph API。 如需與 Microsoft Graph API 相關的類似資訊，請參閱[使用 Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api)。
 
 Azure Active Directory 圖形 API 支援以程式設計方式透過 REST API 端點存取 Azure AD。 應用程式可以使用 Azure AD 圖形 API 來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。 例如，Azure AD 圖形 API 支援對使用者物件執行下列常見的作業：
 
@@ -50,16 +43,16 @@ Azure Active Directory 圖形 API 支援以程式設計方式透過 REST API 端
 
 若要開始使用 Azure Active Directory Graph API，請參閱 [Azure AD Graph API 快速入門指南](active-directory-graph-api-quickstart.md)，或檢視[互動式 Azure AD Graph API 參考文件](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
 
-## <a name="features"></a>功能
+## <a name="features"></a>特性
 
 Azure AD 圖形 API 提供下列功能：
 
-* **REST API 端點**：Azure AD Graph API 是 RESTful 服務，由使用標準 HTTP 要求存取的端點所組成。 Azure AD 圖形 API 支援要求和回應的 XML 或 Javascript 物件標記法 (JSON) 內容類型。 如需詳細資訊，請參閱 [Azure AD Graph REST API 參考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
-* **使用 Azure AD 進行驗證**：必須在要求的 Authorization 標頭中附加 JSON Web Token (JWT)，以驗證 Azure AD Graph API 的每個要求。 您可以向 Azure AD 的權杖端點提出要求並提供有效的認證，以取得此權杖。 您可以使用 OAuth 2.0 用戶端認證流程或授權碼授與流程，以取得權杖來呼叫 Graph。 如需詳細資訊，請參閱 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)。
-* **以角色為基礎的授權 (RBAC)** ：在 Azure AD Graph API 中使用安全性群組執行 RBAC。 例如，如果您想要判斷使用者是否能夠存取特定的資源，應用程式可以呼叫 [檢查群組成員資格 (可移轉)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) 作業，它會傳回 true 或 false。
-* **差異查詢**：差異查詢可讓您追蹤兩段時間之間的目錄變更，而不必對 Azure AD Graph API 進行頻繁的查詢。 此類型的要求只會傳回前一個差異查詢要求與目前要求之間所做的變更。 如需詳細資訊，請參閱 [Azure AD Graph API 差異查詢](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query)。
+* **REST API 端點**：Azure AD 圖形 API 是 RESTful 服務，由使用標準 HTTP 要求存取的端點所組成。 Azure AD 圖形 API 支援要求和回應的 XML 或 Javascript 物件標記法 (JSON) 內容類型。 如需詳細資訊，請參閱 [Azure AD Graph REST API 參考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
+* **向 Azure AD 驗證**：必須在要求的 Authorization 標頭中附加 JSON Web Token (JWT)，以驗證 Azure AD 圖形 API 的每個要求。 您可以向 Azure AD 的權杖端點提出要求並提供有效的認證，以取得此權杖。 您可以使用 OAuth 2.0 用戶端認證流程或授權碼授與流程，以取得權杖來呼叫 Graph。 如需詳細資訊，請參閱 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)。
+* **以角色為基礎的授權 (RBAC)** ：在 Azure AD 圖形 API 中使用安全性群組執行 RBAC。 例如，如果您想要判斷使用者是否能夠存取特定的資源，應用程式可以呼叫 [檢查群組成員資格 (可移轉)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) 作業，它會傳回 true 或 false。
+* **差異查詢**：差異查詢可讓您追蹤兩段時間之間的目錄變更，而不必對 Azure AD 圖形 API 進行頻繁的查詢。 此類型的要求只會傳回前一個差異查詢要求與目前要求之間所做的變更。 如需詳細資訊，請參閱 [Azure AD Graph API 差異查詢](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query)。
 * **目錄擴充**：您可以將自訂屬性新增至目錄物件，而不需要用到外部資料存放區。 例如，如果應用程式需要每個使用者都有 Skype ID 屬性，您可以在目錄中註冊新的屬性，此屬性就可供每個使用者物件使用。 如需詳細資訊，請參閱 [Azure AD Graph API 目錄結構描述延伸模組](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)。
-* **受權限範圍保護**：Azure AD Graph API 會公開權限範圍，以供使用 OAuth 2.0 安全存取 Azure AD 資料。 其支援各種用戶端應用程式類型，包括︰
+* **受權限範圍保護**：Azure AD 圖形 API 會公開權限範圍，以供使用 OAuth 2.0 安全存取 Azure AD 資料。 其支援各種用戶端應用程式類型，包括︰
   
   * 透過登入使用者 (委派) 授權而獲得資料委派存取權的使用者介面
   * 未顯示登入使用者而在背景中作業，並使用應用程式所定義的角色型存取控制服務/精靈應用程式
