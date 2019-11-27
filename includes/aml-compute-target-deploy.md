@@ -25,9 +25,9 @@ ms.locfileid: "74549364"
 | [Azure Machine Learning 計算叢集](../articles/machine-learning/service/how-to-run-batch-predictions.md) | 預覽Batch&nbsp;推斷 | [是](../articles/machine-learning/service/how-to-run-batch-predictions.md)（機器學習管線） | &nbsp;  | 在無伺服器計算上執行批次評分。 支援一般和低優先順序的 Vm。 |
 | [Azure Functions](../articles/machine-learning/service/how-to-deploy-functions.md) | 預覽即時推斷 | &nbsp; | &nbsp; | &nbsp; |
 | [Azure IoT Edge](../articles/machine-learning/service/how-to-deploy-and-where.md#iotedge) | 預覽IoT&nbsp;模組 |  &nbsp; | &nbsp; | 在 IoT 裝置上部署和提供 ML 模型。 |
-| [Azure Data Box Edge](../articles/databox-online/data-box-edge-overview.md)   | Via IoT Edge |  &nbsp; | yes | 在 IoT 裝置上部署和提供 ML 模型。 |
+| [Azure Data Box Edge](../articles/databox-online/data-box-edge-overview.md)   | Via IoT Edge |  &nbsp; | 是 | 在 IoT 裝置上部署和提供 ML 模型。 |
 
 > [!NOTE]
-> 雖然計算目標（例如本機、Azure Machine Learning 計算實例和 Azure Machine Learning 計算叢集）支援用於定型和實驗的 GPU，但__在部署為 web 服務時__，使用 gpu 進行推斷僅在 Azure 上受到支援Kubernetes 服務。
+> 雖然計算目標（例如本機、Azure Machine Learning 計算實例和 Azure Machine Learning 計算叢集）支援用於定型和實驗的 GPU，但__在部署為 web 服務時__，只有在 Azure Kubernetes Service 上才支援使用 gpu 進行推斷。
 >
 > 只有在 Azure Machine Learning 計算上才支援使用__機器學習管線進行評分時__，使用 GPU 進行推斷。
