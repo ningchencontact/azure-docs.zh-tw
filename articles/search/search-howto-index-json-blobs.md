@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 18f3ed9cb2ef0f700e33e8b643b5e7d167d656a5
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 37fc78971124240077a59d4ad99aa06cc408dbae
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112720"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533961"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋中使用 Blob 索引子編制 JSON blob 的索引
 
@@ -33,7 +33,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔（剖析模式是 
 
 為 JSON 文件索引編製時，最簡單的方法是使用 [Azure 入口網站](https://portal.azure.com/)中的精靈。 藉由剖析 Azure Blob 容器中的中繼資料，[**匯入資料**](search-import-data-portal.md)精靈可以建立預設索引、將來源欄位對應至目標索引欄位，並在單一作業中載入索引。 根據來源資料的大小和複雜度，只需要幾分鐘的時間，您就可以擁有正常運作的全文檢索搜尋索引。
 
-我們建議您針對 Azure 認知搜尋和 Azure 儲存體使用相同的 Azure 訂用帳戶，最好是在相同的區域中。
+我們建議您針對 Azure 認知搜尋和 Azure 儲存體使用相同的區域或位置，以取得較低的延遲，並避免頻寬費用。
 
 ### <a name="1---prepare-source-data"></a>1 - 準備來源資料
 
@@ -110,7 +110,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔（剖析模式是 
 
 針對以程式碼為基礎的 JSON 索引編制，請使用[Postman](search-get-started-postman.md)和 REST API 來建立這些物件：
 
-+ [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [指數](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
 + [器](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 

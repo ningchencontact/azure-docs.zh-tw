@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 267177dcdec25b8561b219ae79e40ce61af994df
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 9146430f512b065553d4c5362af8655eb01c1206
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123839"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530962"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 區域之間的 Azure VM 嚴重損壞修復支援矩陣
 
@@ -194,7 +194,7 @@ RBAC 原則 | 不支援 | Vm 上以角色為基礎的存取控制（RBAC）原�
 **元件** | **支援** | **詳細資料**
 --- | --- | ---
 OS 磁碟的大小上限 | 2048 GB | [深入了解](../virtual-machines/windows/managed-disks-overview.md) VM 磁碟。
-暫存磁碟 | 不支援 | 暫存磁碟一律排除在複寫之外。<br/><br/> 請不要將任何永續性資料儲存於暫存磁碟上。 [詳細資訊](../virtual-machines/windows/managed-disks-overview.md)。
+暫存磁碟 | 不支援 | 暫存磁碟一律排除在複寫之外。<br/><br/> 請不要將任何永續性資料儲存於暫存磁碟上。 [深入了解](../virtual-machines/windows/managed-disks-overview.md)。
 資料磁碟的大小上限 | 適用于受控磁片的 8192 GB<br></br>4095 GB （非受控磁片）|
 資料磁片大小下限 | 不限制非受控磁片。 2 GB 適用于受控磁片 | 
 資料磁碟的數目上限 | 最多 64 個 (根據特定的 Azure VM 大小支援) | [深入了解](../virtual-machines/windows/sizes.md) VM 大小。
@@ -210,7 +210,7 @@ OS 磁碟的大小上限 | 2048 GB | [深入了解](../virtual-machines/windows/
 待用加密 (SSE) | 支援 | SSE 是儲存體帳戶上的預設設定。   
 待用加密（CMK） | 不支援 |   
 適用於 Windows OS 的 Azure 磁碟加密 (ADE) | 支援具有受控磁片的 Vm。 不支援使用非受控磁片的 Vm |
-適用於 Linux OS 的 Azure 磁碟加密 (ADE) | 不支援 |
+適用於 Linux OS 的 Azure 磁碟加密 (ADE) | 支援 |
 熱新增 | 支援 | 針對使用受控磁片的 Vm，支援為您新增至複寫 Azure VM 的資料磁片啟用複寫。
 熱移除磁片 | 不支援 | 如果您移除 VM 上的資料磁片，您必須停用複寫，然後再次為 VM 啟用複寫。
 排除磁碟 | 部門. 您必須使用[Powershell](azure-to-azure-exclude-disks.md)來設定。 |  預設會排除暫存磁片。
@@ -265,7 +265,7 @@ Azure DNS | 支援 |
 連至內部部署的 VPN 站對站連線<br/><br/>（不論是否有 ExpressRoute）| 支援 | 請確定 Udr 和 Nsg 的設定方式，不會將 Site Recovery 流量路由傳送到內部部署。 [深入了解](site-recovery-azure-to-azure-networking-guidance.md)    
 VNET 對 VNET 連線 | 支援 | [深入了解](site-recovery-azure-to-azure-networking-guidance.md)  
 虛擬網路服務端點 | 支援 | 如果您要限制只有儲存體帳戶可以存取虛擬網路，請確定受信任的 Microsoft 服務可以存取儲存體帳戶。
-加速網路 | 支援 | 必須在來源 VM 上啟用加速網路。 [詳細資訊](azure-vm-disaster-recovery-with-accelerated-networking.md)。
+加速網路 | 支援 | 必須在來源 VM 上啟用加速網路。 [深入了解](azure-vm-disaster-recovery-with-accelerated-networking.md)。
 
 
 

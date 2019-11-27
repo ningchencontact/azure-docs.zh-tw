@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: kumud
-ms.openlocfilehash: edc4cc32cd358bd37fdab46e323c59ec207b2d5a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: cdfcf6b379feb5cc71c173275601ce9c55d57d12
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293474"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539252"
 ---
 # <a name="read-nsg-flow-logs"></a>讀取 NSG 流量記錄
 
@@ -29,11 +29,11 @@ NSG 流量記錄會以[區塊 Blob](https://docs.microsoft.com/rest/api/storages
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="scenario"></a>狀況
+## <a name="scenario"></a>案例
 
 在以下案例中，儲存體帳戶中已經存有一個範例流程記錄檔。 您已了解如何選擇性讀取 NSG 流量記錄中最新的事件。 在本文中，您會使用 PowerShell，但本文中所討論的概念並不限於該程式設計語言，且適用於 Azure 儲存體 API 所支援的所有語言。
 
-## <a name="setup"></a>安裝程式
+## <a name="setup"></a>設定
 
 開始之前，您必須在帳戶中的一或多個網路安全性群組上，啟用網路安全性群組流程記錄。 如需有關啟用網路安全性流程記錄的指示，請參閱下列文章︰[網路安全性群組的流程記錄簡介](network-watcher-nsg-flow-logging-overview.md)。
 
@@ -85,7 +85,7 @@ function Get-NSGFlowLogBlockList  {
     )
     process {
         # Stores the block list in a variable from the block blob.
-        $blockList = $CloudBlockBlob.DownloadBlockList()
+        $blockList = $CloudBlockBlob.DownloadBlockListAsync()
 
         # Return the Block List
         $blockList
@@ -142,7 +142,7 @@ function Get-NSGFlowLogReadBlock  {
         $downloadArray = New-Object -TypeName byte[] -ArgumentList $maxvalue
 
         # Download the data into the ByteArray, starting with the current index, for the number of bytes in the current block. Index is increased by 3 when reading to remove preceding comma.
-        $CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index, $($blockList[$i].Length-1)) | Out-Null
+        $CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index, $($blockList[$i].Length)) | Out-Null
 
         # Increment the index by adding the current block length to the previous index
         $index = $index + $blockList[$i].Length
@@ -188,6 +188,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 
 ## <a name="next-steps"></a>後續步驟
 
-造訪[使用彈性堆疊](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)、[使用 Grafana](network-watcher-nsg-grafana.md)，以及[使用 Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)，以深入了解檢視 NSG 流量記錄的方式。 在下方可找到開放原始碼的 Azure Function 方法，能夠直接使用 Blob 並發送給各種記錄分析取用者：[Azure 網路監看員 NSG 流量記錄連接器](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector)。
+造訪[使用彈性堆疊](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)、[使用 Grafana](network-watcher-nsg-grafana.md)，以及[使用 Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)，以深入了解檢視 NSG 流量記錄的方式。 在這裡可以找到用來直接使用 blob 併發出至各種 log analytics 取用者的開放原始碼 Azure Function 方法： [Azure 網路監看員 NSG 流量記錄連接器](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector)。
 
 若要深入了解儲存體 Blob，請造訪：[Azure Functions Blob 儲存體繫結](../azure-functions/functions-bindings-storage-blob.md)

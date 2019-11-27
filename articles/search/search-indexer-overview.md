@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09a1b8e54726accf705515bf077f6a599f0f9b78
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: 2719bba0e88ba3125bd5ba163804e31885b286a2
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74266912"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534537"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Azure 認知搜尋中的索引子
 
@@ -69,7 +69,7 @@ Azure 認知搜尋中的*索引子*是一種編目程式，它會從外部 Azure
 > 雖然索引子不能為您產生索引，但入口網站中的 [匯入資料] 精靈有所幫助。 在大部分情況下，此精靈可以從來源中的現有中繼資料推斷索引結構描述，並呈現您可以在精靈作用中時以內嵌方式編輯的初步索引結構描述。 一旦在服務上建立索引後，在入口網站中的進一步編輯大部分都受限於新增欄位。 請考慮使用精靈進行建立，但非修改索引。 如需實際操作學習，請逐步執行[入口網站逐步解說](search-get-started-portal.md)。
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>步驟 3：建立和排程索引子
-索引子定義是一種結構，可將與資料內嵌相關的所有元素結合在一起。 必要的元素包括資料來源和索引。 選擇性元素包括排程和欄位對應。 只有當來源欄位和索引欄位清楚地對應時，欄位對應才是選擇性的。 索引子可以參考另一個服務的資料來源，只要該資料來源來自相同訂用帳戶即可。 如需結構化索引子的詳細資訊，請參閱[建立索引子（Azure 認知搜尋 REST API）](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)。
+索引子定義是一種結構，可將與資料內嵌相關的所有元素結合在一起。 必要的元素包括資料來源和索引。 選擇性元素包括排程和欄位對應。 只有當來源欄位和索引欄位清楚地對應時，欄位對應才是選擇性的。 如需結構化索引子的詳細資訊，請參閱[建立索引子（Azure 認知搜尋 REST API）](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)。
 
 <a id="RunIndexer"></a>
 

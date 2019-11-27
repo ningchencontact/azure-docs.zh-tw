@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 3fb021c06369d1f37dad83b3f9b27e039ddf8b5e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 75611dd36196c722254d694e9753deb982e2570d
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811277"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539327"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>使用 DTU 購買模型的單一資料庫資源限制
 
@@ -43,6 +43,12 @@ ms.locfileid: "73811277"
 | 並行工作階段數上限 | 300 |
 |||
 
+> [!IMPORTANT]
+> 基本服務層級提供少於一個 vCore （CPU）。  針對需要大量 CPU 的工作負載，建議使用 S3 或更高的服務層。 
+>
+>關於資料儲存體，基本服務層會放在標準分頁 Blob 上。 標準分頁 Blob 使用硬碟（HDD）為基礎的存放裝置媒體，最適合用於開發、測試及其他較不常存取效能變化的工作負載。
+>
+
 ### <a name="standard-service-tier"></a>標準服務層級
 
 | **計算大小** | **S0** | **S1** | **S2** | **S3** |
@@ -54,6 +60,12 @@ ms.locfileid: "73811277"
 | 並行背景工作 (要求) 數上限| 60 | 90 | 120 | 200 |
 | 並行工作階段數上限 |600 | 900 | 1200 | 2400 |
 ||||||
+
+> [!IMPORTANT]
+> 標準 S0、S1 和 S2 層提供少於一個 vCore （CPU）。  針對需要大量 CPU 的工作負載，建議使用 S3 或更高的服務層。 
+>
+>關於資料儲存，標準 S0 和 S1 服務層會放在標準分頁 Blob 上。 標準分頁 Blob 使用硬碟（HDD）為基礎的存放裝置媒體，最適合用於開發、測試及其他較不常存取效能變化的工作負載。
+>
 
 ### <a name="standard-service-tier-continued"></a>標準服務層級 (續)
 

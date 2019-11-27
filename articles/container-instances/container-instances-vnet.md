@@ -1,19 +1,14 @@
 ---
-title: 將容器執行個體部署至 Azure 虛擬網路
+title: 將容器群組部署至 Azure 虛擬網路
 description: 了解如何將容器群組部署至新的或現有的 Azure 虛擬網路。
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 07/11/2019
-ms.author: danlep
-ms.openlocfilehash: 05f1bcd5e80d7c06fbaca1abe89c84f6743a5979
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f211924eb74035f4bb30db2d2b848e0a2591de09
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034980"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533275"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>將容器執行個體部署至 Azure 虛擬網路
 
@@ -56,7 +51,7 @@ ms.locfileid: "72034980"
 * **公用 ip 或 DNS 標籤**-部署至虛擬網路的容器群組目前不支援使用公用 IP 位址或完整功能變數名稱將容器直接公開到網際網路
 * **內部名稱解析**-不支援透過內部 Azure DNS 在虛擬網路中的 Azure 資源名稱解析
 
-當您將容器群組部署至虛擬網路後，便需要[其他步驟](#delete-network-resources)來**刪除網路資源**。
+當您將容器群組部署至虛擬網路後，便需要**其他步驟**來[刪除網路資源](#delete-network-resources)。
 
 ## <a name="required-network-resources"></a>必要的網路資源
 
@@ -186,11 +181,11 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 您也可以使用 YAML 檔案將容器群組部署至現有的虛擬網路。 若要部署至虛擬網路中的子網路，您要在 YAML 中額外指定幾項屬性：
 
-* `ipAddress`:容器群組的 IP 位址設定。
-  * `ports`:要開啟的連接埠 (如果有的話)。
-  * `protocol`:已開啟連接埠的通訊協定 (TCP 或 UDP)。
-* `networkProfile`:為 Azure 資源指定網路設定，例如虛擬網路及子網路。
-  * `id`:`networkProfile` 的完整 Resource Manager 資源識別碼。
+* `ipAddress`：容器群組的 IP 位址設定。
+  * `ports`：要開啟的連接埠 (如果有)。
+  * `protocol`：已開啟連接埠的通訊協定 (TCP 或 UDP)。
+* `networkProfile`：為 Azure 資源指定網路設定，像是虛擬網路及子網路。
+  * `id`：`networkProfile` 的完整 Resource Manager 資源識別碼。
 
 若要使用 YAML 檔案將容器群組部署至虛擬網路，您需要先取得網路設定檔的識別碼。 執行[az network profile list][az-network-profile-list]命令，並指定包含您的虛擬網路和委派子網的資源組名。
 
@@ -236,7 +231,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-使用[az container create][az-container-create]命令來部署容器群組，並為 `--file` 參數指定 YAML 檔案名：
+使用[az container create][az-container-create]命令來部署容器群組，並指定 `--file` 參數的 YAML 檔案名：
 
 ```azurecli
 az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml

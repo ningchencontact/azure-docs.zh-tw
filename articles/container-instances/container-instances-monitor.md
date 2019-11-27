@@ -1,19 +1,14 @@
 ---
-title: 在 Azure 容器執行個體中監視容器
+title: 監視容器實例
 description: 如何在 Azure 容器執行個體中依照您的容器，監視計算資源 (例如 CPU 和記憶體) 耗用量。
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/24/2019
-ms.author: danlep
-ms.openlocfilehash: a26789bb41fb3fb1e7dec376b7e187f45745ea65
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: bd86161bc7840be599eb5ee9a20f6dbf143f5f22
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172263"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533638"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>在 Azure 容器執行個體中監視容器資源
 

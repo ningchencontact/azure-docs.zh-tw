@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1829c56f9804c5aa808461db98a5048d63f55446
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 6b135b14fb18904901ad78a1f5d9dc66c8a2bc67
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207287"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538809"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>如何：管理 Azure AD 中的過時裝置
 
@@ -89,7 +89,7 @@ Azure AD 中若有過時裝置，可能會干擾您組織中裝置的一般生�
 
 ### <a name="system-managed-devices"></a>由系統管理的裝置
 
-請勿刪除由系統管理的裝置。 這些通常是自動駕駛之類的裝置。 一旦刪除，就無法重新布建這些裝置。 新的 `get-msoldevice` Cmdlet 會根據預設排除由系統管理的裝置。 
+請勿刪除由系統管理的裝置。 這些通常是 Autopilot 之類的裝置。 一旦刪除，就無法重新布建這些裝置。 新的 `get-msoldevice` Cmdlet 會根據預設排除由系統管理的裝置。 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>混合式 Azure AD 已加入裝置
 
@@ -125,7 +125,7 @@ Azure AD 中若有過時裝置，可能會干擾您組織中裝置的一般生�
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>在 Azure 入口網站中清除過時裝置  
 
-雖然您可以在 Azure 入口網站中清除過時裝置，但使用 PowerShell 指令碼來處理此程序會更有效率。 若要使用時間戳記篩選，並篩選出由系統管理的裝置 (例如自動駕駛)，請使用最新的 PowerShell V1 模組。 目前尚不建議使用 PowerShell V2。
+雖然您可以在 Azure 入口網站中清除過時裝置，但使用 PowerShell 指令碼來處理此程序會更有效率。 使用最新的 PowerShell V1 模組來使用時間戳篩選器，並篩選掉系統管理的裝置，例如 Autopilot。 目前尚不建議使用 PowerShell V2。
 
 典型的執行階段包含下列步驟：
 

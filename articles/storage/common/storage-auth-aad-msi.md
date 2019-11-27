@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 11/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d77ab142e227cfaa6533395cc256d992e698dd17
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 66d867d33060aa931dbe42c534166e61ee7692fe
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495930"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534505"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>使用適用于 Azure 資源的 Azure Active Directory 和受控識別，授權對 blob 和佇列的存取
 
@@ -34,39 +34,92 @@ Azure Blob 和佇列儲存體支援使用 [Azure 資源的受控識別](../../ac
 
 如需受控識別的詳細資訊，請參閱[適用于 Azure 資源的受控](../../active-directory/managed-identities-azure-resources/overview.md)識別。
 
-## <a name="authenticate-with-the-azure-identity-library-preview"></a>使用 Azure 身分識別程式庫（預覽）進行驗證
+## <a name="authenticate-with-the-azure-identity-library"></a>使用 Azure 身分識別程式庫進行驗證
 
-適用于 .NET 的 Azure 身分識別用戶端程式庫（預覽）會驗證安全性主體。 當您的程式碼在 Azure 中執行時，安全性主體是適用于 Azure 資源的受控識別。
+Azure 身分識別用戶端程式庫的優點是，它可讓您使用相同的程式碼來驗證您的應用程式是在開發環境中或在 Azure 中執行。 在 Azure 環境中執行的程式碼中，用戶端程式庫會驗證適用于 Azure 資源的受控識別。 在開發環境中，受控識別不存在，因此用戶端程式庫會驗證使用者或服務主體，以供測試之用。
 
-當您的程式碼在開發環境中執行時，可能會自動處理驗證，或視您使用的工具而定，可能需要瀏覽器登入。 Microsoft Visual Studio 支援單一登入（SSO），讓作用中的 Azure AD 使用者帳戶自動用於驗證。 如需 SSO 的詳細資訊，請參閱[單一登入應用程式](../../active-directory/manage-apps/what-is-single-sign-on.md)。
-
-其他開發工具可能會提示您透過網頁瀏覽器登入。 您也可以使用服務主體，從開發環境進行驗證。 如需詳細資訊，請參閱[在入口網站中建立 Azure 應用程式](../../active-directory/develop/howto-create-service-principal-portal.md)的身分識別。
+適用于 .NET 的 Azure 身分識別用戶端程式庫會驗證安全性主體。 當您的程式碼在 Azure 中執行時，安全性主體是適用于 Azure 資源的受控識別。
 
 驗證之後，Azure 身分識別用戶端程式庫會取得權杖認證。 然後，此權杖認證會封裝在您建立來對 Azure 儲存體執行作業的服務用戶端物件中。 程式庫會藉由取得適當的權杖認證，順暢地為您處理這種情況。
 
 如需 Azure 身分識別用戶端程式庫的詳細資訊，請參閱[適用于 .net 的 azure 身分識別用戶端程式庫](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity)。
 
-## <a name="assign-rbac-roles-for-access-to-data"></a>指派 RBAC 角色以存取資料
+### <a name="assign-role-based-access-control-rbac-roles-for-access-to-data"></a>指派角色型存取控制（RBAC）角色以存取資料
 
 當 Azure AD 安全性主體嘗試存取 blob 或佇列資料時，該安全性主體必須擁有該資源的許可權。 無論安全性主體是 Azure 中的受控識別，或是在開發環境中執行程式碼的 Azure AD 使用者帳戶，都必須將 RBAC 角色指派給安全性主體，以授與 Azure 儲存體中 blob 或佇列資料的存取權。 如需透過 RBAC 指派許可權的相關資訊，請參閱[使用 Azure Active Directory 授權存取 Azure blob 和佇列](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights)中的 >指派存取權限的 RBAC 角色一節。
 
-## <a name="install-the-preview-packages"></a>安裝預覽套件
+### <a name="authenticate-the-user-in-the-development-environment"></a>在開發環境中驗證使用者
 
-本文中的範例會使用適用于 Blob 儲存體的 Azure 儲存體用戶端程式庫的最新預覽版本。 若要安裝預覽套件，請從 NuGet 套件管理員主控台執行下列命令：
+當您的程式碼在開發環境中執行時，可能會自動處理驗證，或視您使用的工具而定，可能需要瀏覽器登入。 Microsoft Visual Studio 支援單一登入（SSO），讓作用中的 Azure AD 使用者帳戶自動用於驗證。 如需 SSO 的詳細資訊，請參閱[單一登入應用程式](../../active-directory/manage-apps/what-is-single-sign-on.md)。
 
-```powershell
-Install-Package Azure.Storage.Blobs -IncludePrerelease
+其他開發工具可能會提示您透過網頁瀏覽器登入。
+
+### <a name="authenticate-a-service-principal-in-the-development-environment"></a>在開發環境中驗證服務主體
+
+如果您的開發環境不支援透過網頁瀏覽器進行單一登入或登入，則您可以使用服務主體從開發環境進行驗證。
+
+#### <a name="create-the-service-principal"></a>建立服務主體
+
+若要使用 Azure CLI 建立服務主體並指派 RBAC 角色，請呼叫[az ad sp create for rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)命令。 提供 Azure 儲存體資料存取角色，以指派給新的服務主體。 此外，請提供角色指派的範圍。 如需有關 Azure 儲存體提供之內建角色的詳細資訊，請參閱[Azure 資源的內建角色](../../role-based-access-control/built-in-roles.md)。
+
+如果您沒有足夠的許可權可將角色指派給服務主體，您可能需要要求帳戶擁有者或系統管理員執行角色指派。
+
+下列範例會使用 Azure CLI 建立新的服務主體，並使用帳戶範圍將**儲存體 Blob 資料讀取器**角色指派給它
+
+```azurecli-interactive
+az ad sp create-for-rbac \
+    --name <service-principal> \
+    --role "Storage Blob Data Reader" \
+    --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-本文中的範例也會使用適用于 .NET 的 Azure 身分[識別用戶端程式庫](https://www.nuget.org/packages/Azure.Identity/)的最新預覽版本，以 Azure AD 認證進行驗證。 若要安裝預覽套件，請從 NuGet 套件管理員主控台執行下列命令：
+`az ad sp create-for-rbac` 命令會以 JSON 格式傳回服務主體屬性的清單。 複製這些值，讓您可以在下一個步驟中使用它們來建立必要的環境變數。
+
+```json
+{
+    "appId": "generated-app-ID",
+    "displayName": "service-principal-name",
+    "name": "http://service-principal-uri",
+    "password": "generated-password",
+    "tenant": "tenant-ID"
+}
+```
+
+> [!IMPORTANT]
+> RBAC 角色指派可能需要幾分鐘的時間才能傳播。
+
+#### <a name="set-environment-variables"></a>設定環境變數
+
+Azure 身分識別用戶端程式庫會在執行時間讀取來自三個環境變數的值，以驗證服務主體。 下表描述要針對每個環境變數設定的值。
+
+|環境變數|值
+|-|-
+|`AZURE_CLIENT_ID`|服務主體的應用程式識別碼
+|`AZURE_TENANT_ID`|服務主體的 Azure AD 租使用者識別碼
+|`AZURE_CLIENT_SECRET`|為服務主體產生的密碼
+
+> [!IMPORTANT]
+> 設定環境變數之後，請關閉並重新開啟主控台視窗。 如果您使用 Visual Studio 或其他開發環境，您可能需要重新開機開發環境，才能讓它註冊新的環境變數。
+
+如需詳細資訊，請參閱[在入口網站中建立 Azure 應用程式](../../active-directory/develop/howto-create-service-principal-portal.md)的身分識別。
+
+## <a name="install-client-library-packages"></a>安裝用戶端程式庫套件
+
+本文中的範例會針對 Blob 儲存體使用最新版的 Azure 儲存體用戶端程式庫。 若要安裝套件，請從 NuGet 套件管理員主控台執行下列命令：
 
 ```powershell
-Install-Package Azure.Identity -IncludePrerelease
+Install-Package Azure.Storage.Blobs
+```
+
+本文中的範例也會使用[適用于 .net 的 Azure 身分識別用戶端程式庫](https://www.nuget.org/packages/Azure.Identity/)的最新版本，以 Azure AD 認證進行驗證。 若要安裝套件，請從 NuGet 套件管理員主控台執行下列命令：
+
+```powershell
+Install-Package Azure.Identity
 ```
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET 程式碼範例：建立區塊 Blob
 
-將下列 `using` 指示詞新增至您的程式碼，以使用 Azure 身分識別的預覽版本和 Azure 儲存體用戶端程式庫。
+將下列 `using` 指示詞新增至您的程式碼，以使用 Azure 身分識別和 Azure 儲存體用戶端程式庫。
 
 ```csharp
 using System;
@@ -122,5 +175,5 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 ## <a name="next-steps"></a>後續步驟
 
 - 若要深入瞭解 Azure 儲存體的 RBAC 角色，請參閱[使用 Rbac 管理儲存體資料的存取權限](storage-auth-aad-rbac.md)。
-- 若要深入了解如何從儲存體應用程式內授權容器和佇列的存取權，請參閱[使用 Azure AD 與儲存體應用程式](storage-auth-aad-app.md)。
+- 若要了解如何從儲存體應用程式內授權容器和佇列的存取權，請參閱[使用 Azure AD 與儲存體應用程式](storage-auth-aad-app.md)。
 - 若要瞭解如何使用 Azure AD 認證來執行 Azure CLI 和 PowerShell 命令，請參閱[使用 Azure AD 認證來執行 Azure CLI 或 powershell 命令，以存取 blob 或佇列資料](storage-auth-aad-script.md)。

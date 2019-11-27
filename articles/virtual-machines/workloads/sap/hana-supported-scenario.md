@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/06/2018
+ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f17e447f26ae4f7573941fc0c578a918ff45a145
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7ed63f5caa6b1f1c0072a92f6a60ad43c5431af0
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101222"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538327"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA 大型執行個體的支援案例
 本文件說明 HANA 大型執行個體 (HLI) 的支援案例以及其架構詳細資料。
@@ -31,15 +31,15 @@ ms.locfileid: "70101222"
 讓我們來了解文件中所用詞彙和定義。
 
 - SID：HANA 系統的系統識別碼。
-- HLI：HANA 大型執行個體。
+- HLI：Hana 大型執行個體。
 - DR：災害復原網站。
 - 標準 DR：具有僅用於 DR 用途專用資源的系統設定。
 - 多用途 DR：DR 網站上設定為使用非生產環境的系統，搭配設定為用於 DR 事件的生產執行個體。 
 - 單一 SID：已安裝一個執行個體的系統。
 - 多重 SID：已設定多個執行個體的系統。 也稱為 MCOS 環境。
+- HSR： SAP Hana 系統複寫。
 
-
-## <a name="overview"></a>總覽
+## <a name="overview"></a>Overview
 HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列清單涵蓋了案例及其設定詳細資料。 
 
 衍生的架構設計完全來自基礎結構觀點，您必須諮詢 SAP 或您的實作夥伴以進行 HANA 部署。 如果未列出您的案例，請連絡 Microsoft 帳戶小組以檢閱架構並為您提供解決方案。
@@ -55,7 +55,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 每個佈建的伺服器都已預先設定乙太網路介面集。 以下是每個 HLI 單位上設定的乙太網路介面詳細資訊。
 
-- **答**：此介面用於用戶端存取。
+- **A**：此介面用於用戶端存取。
 - **B**：此介面用於節點對節點通訊。 此介面已在所有伺服器上設定 (無論請求的拓撲為何)，但僅用於 
 - 相應放大案例。
 - **C**：此介面用於節點對儲存體連線能力。
@@ -67,10 +67,10 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 | B | 類型一 | eth2.tenant | eno3.tenant | 節點對節點 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | STONITH |
-| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 節點對節點 |
-| C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
-| D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
+| A | 類型二 | vlan\<tenantNo > | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo + 2 > | team0.tenant+2 | 節點對節點 |
+| C | 類型二 | vlan\<tenantNo + 1 > | team0.tenant+1 | 節點對儲存體 |
+| D | 類型二 | vlan\<tenantNo + 3 > | team0.tenant+3 | STONITH |
 
 您可以根據在 HLI 單位上設定的拓撲使用介面。 例如，介面 "B" 已針對節點對節點通訊進行設定，這在您設定相應擴充拓撲後很實用。 在單一節點向上擴充設定的情況下，則不會使用這個介面。 檢閱您所需的案例 (在本文件稍後)，以取得介面使用方式的詳細資訊。 
 
@@ -107,7 +107,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 在架構圖表中，下列標記法可用於圖形：
 
-![Legends.PNG](media/hana-supported-scenario/Legends.PNG)
+[![圖例 .PNG](media/hana-supported-scenario/Legends.png)](media/hana-supported-scenario/Legends.png#lightbox)
 
 下列清單顯示支援的案例：
 
@@ -124,7 +124,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 
 
-## <a name="1-single-node-with-one-sid"></a>1.具有一個 SID 的單一節點
+## <a name="1-single-node-with-one-sid"></a>1. 具有一個 SID 的單一節點
 
 此拓撲支援在相應增加設定中具有一個 SID 的一個節點。
 
@@ -141,10 +141,10 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 | B | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
-| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
-| C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
-| D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo > | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo + 2 > | team0.tenant+2 | 已設定但未使用 |
+| C | 類型二 | vlan\<tenantNo + 1 > | team0.tenant+1 | 節點對儲存體 |
+| D | 類型二 | vlan\<tenantNo + 3 > | team0.tenant+3 | 已設定但未使用 |
 
 ### <a name="storage"></a>儲存體
 下列裝載點已預先設定：
@@ -159,7 +159,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 ### <a name="key-considerations"></a>主要考量
 - /usr/sap/SID 是 /hana/shared/SID 的符號連結。
 
-## <a name="2-single-node-mcos"></a>2.單一節點 MCOS
+## <a name="2-single-node-mcos"></a>2. 單一節點 MCOS
 
 此拓撲支援在相應增加設定中具有多個 SID 的一個節點。
 
@@ -176,10 +176,10 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 | B | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
-| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
-| C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
-| D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo > | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo + 2 > | team0.tenant+2 | 已設定但未使用 |
+| C | 類型二 | vlan\<tenantNo + 1 > | team0.tenant+1 | 節點對儲存體 |
+| D | 類型二 | vlan\<tenantNo + 3 > | team0.tenant+3 | 已設定但未使用 |
 
 ### <a name="storage"></a>儲存體
 下列裝載點已預先設定：
@@ -199,7 +199,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 - /usr/sap/SID 是 /hana/shared/SID 的符號連結。
 - 磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
 
-## <a name="3-single-node-with-dr-normal"></a>3.具有 DR (標準) 的單一節點
+## <a name="3-single-node-with-dr-using-storage-replication"></a>3. 具有使用儲存體複寫之 DR 的單一節點
  
 此拓撲支援在相應增加設定中具有一或多個 SID 的一個節點，其中主要 SID 會以儲存體為基礎複寫至 DR 網站。 在圖表中，只會在主要網站上描述單一 SID，但多 SID (MCOS) 也受支援。
 
@@ -216,10 +216,10 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 | B | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
-| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
-| C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
-| D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo > | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo + 2 > | team0.tenant+2 | 已設定但未使用 |
+| C | 類型二 | vlan\<tenantNo + 1 > | team0.tenant+1 | 節點對儲存體 |
+| D | 類型二 | vlan\<tenantNo + 3 > | team0.tenant+3 | 已設定但未使用 |
 
 ### <a name="storage"></a>儲存體
 下列裝載點已預先設定：
@@ -240,7 +240,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 - **SKU 類型一類別**的開機磁碟區已複寫到 DR 節點。
 
 
-## <a name="4-single-node-with-dr-multipurpose"></a>4.具有 DR (多用途) 的單一節點
+## <a name="4-single-node-with-dr-multipurpose-using-storage-replication"></a>4. 使用儲存體複寫的單一節點與 DR （多用途）
  
 此拓撲支援在相應增加設定中具有一或多個 SID 的一個節點，其中主要 SID 會以儲存體為基礎複寫至 DR 網站。 在圖表中，只會在主要網站上描述單一 SID，但多 SID (MCOS) 也受支援。 在 DR 網站中，HLI 單位會用於 QA 執行個體，同時生產作業會從主要網站執行。 在 DR 容錯移轉 (或容錯移轉測試) 期間，會卸下 DR 網站的 QA 執行個體。
 
@@ -257,10 +257,10 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 | B | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
-| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
-| C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
-| D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo > | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo + 2 > | team0.tenant+2 | 已設定但未使用 |
+| C | 類型二 | vlan\<tenantNo + 1 > | team0.tenant+1 | 節點對儲存體 |
+| D | 類型二 | vlan\<tenantNo + 3 > | team0.tenant+3 | 已設定但未使用 |
 
 ### <a name="storage"></a>儲存體
 下列裝載點已預先設定：
@@ -289,7 +289,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 - 在 DR 上：資料、記錄備份、記錄、QA 的共用磁碟區 (標示為「QA 執行個體安裝」) 已針對 QA 執行個體安裝進行設定。
 - **SKU 類型一類別**的開機磁碟區已複寫到 DR 節點。
 
-## <a name="5-hsr-with-stonith"></a>5.具有 STONITH 的 HSR
+## <a name="5-hsr-with-stonith-for-high-availability"></a>5. 具有 STONITH 的 HSR 以提供高可用性
  
 此拓撲支援 HANA 系統複寫 (HSR) 設定的兩個節點。 這項組態僅支援節點上的單一 HANA 執行個體。 也就是說，「不」支援 MCOS 案例。
 
@@ -311,10 +311,10 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 | B | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 用於 STONITH |
-| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
-| C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
-| D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 用於 STONITH |
+| A | 類型二 | vlan\<tenantNo > | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo + 2 > | team0.tenant+2 | 已設定但未使用 |
+| C | 類型二 | vlan\<tenantNo + 1 > | team0.tenant+1 | 節點對儲存體 |
+| D | 類型二 | vlan\<tenantNo + 3 > | team0.tenant+3 | 用於 STONITH |
 
 ### <a name="storage"></a>儲存體
 下列裝載點已預先設定：
@@ -338,7 +338,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 - STONITH：已針對 STONITH 安裝程式設定 SBD。 不過，STONITH 的使用是選擇性的。
 
 
-## <a name="6-hsr-with-dr"></a>6.具有 DR 的 HSR
+## <a name="6-high-availability-with-hsr-and-dr-with-storage-replication"></a>6. 具有儲存體複寫的 HSR 和 DR 高可用性
  
 此拓撲支援 HANA 系統複寫 (HSR) 設定的兩個節點。 標準和多用途 DR 皆受支援。 這些組態僅支援節點上的單一 HANA 執行個體。 也就是說，這些組態「不」支援 MCOS 案例。
 
@@ -359,10 +359,10 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 | B | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 用於 STONITH |
-| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
-| C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
-| D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 用於 STONITH |
+| A | 類型二 | vlan\<tenantNo > | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo + 2 > | team0.tenant+2 | 已設定但未使用 |
+| C | 類型二 | vlan\<tenantNo + 1 > | team0.tenant+1 | 節點對儲存體 |
+| D | 類型二 | vlan\<tenantNo + 3 > | team0.tenant+3 | 用於 STONITH |
 
 ### <a name="storage"></a>儲存體
 下列裝載點已預先設定：
@@ -399,7 +399,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 - **SKU 類型一類別**的開機磁碟區已複寫到 DR 節點。
 
 
-## <a name="7-host-auto-failover-11"></a>7.主機自動容錯移轉 (1+1)
+## <a name="7-host-auto-failover-11"></a>7. 主機自動容錯移轉（1 + 1）
  
 此拓撲支援主機自動容錯移轉設定中的兩個節點。 其中一個節點具有主要/背景工作角色，另一個節點為待命。 **SAP 僅針對 S/4 HANA 支援此案例。** 請參閱 OSS 說明 “[2408419 - SAP S/4HANA - 多節點支援](https://launchpad.support.sap.com/#/notes/2408419)” 以取得詳細資料。
 
@@ -418,10 +418,10 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 | B | 類型一 | eth2.tenant | eno3.tenant | 節點對節點通訊 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
-| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 節點對節點通訊 |
-| C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
-| D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo > | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo + 2 > | team0.tenant+2 | 節點對節點通訊 |
+| C | 類型二 | vlan\<tenantNo + 1 > | team0.tenant+1 | 節點對儲存體 |
+| D | 類型二 | vlan\<tenantNo + 3 > | team0.tenant+3 | 已設定但未使用 |
 
 ### <a name="storage"></a>儲存體
 下列裝載點已預先設定：
@@ -441,7 +441,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 - 待命：磁碟區和裝載點已在待命單位上針對 HANA 執行個體安裝進行設定 (標示為「針對 HANA 安裝為必要」)。
  
 
-## <a name="8-scale-out-with-standby"></a>8.具待命相應放大
+## <a name="8-scale-out-with-standby"></a>8. 使用待命相應放大
  
 此拓撲支援相應放大組態中的多個節點。 其中一個節點具有主要角色，一或多個節點具有背景工作角色，一或多個節點為待命。 不過，在任何指定的時間點都只能有一個主要節點。
 
@@ -459,10 +459,10 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 | B | 類型一 | eth2.tenant | eno3.tenant | 節點對節點通訊 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
-| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 節點對節點通訊 |
-| C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
-| D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo > | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo + 2 > | team0.tenant+2 | 節點對節點通訊 |
+| C | 類型二 | vlan\<tenantNo + 1 > | team0.tenant+1 | 節點對儲存體 |
+| D | 類型二 | vlan\<tenantNo + 3 > | team0.tenant+3 | 已設定但未使用 |
 
 ### <a name="storage"></a>儲存體
 下列裝載點已預先設定：
@@ -476,7 +476,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 |/hana/logbackups/SID | 適用於生產 SID 的重做記錄 |
 
 
-## <a name="9-scale-out-without-standby"></a>9.不具待命相應放大
+## <a name="9-scale-out-without-standby"></a>9. 無待命相應放大
  
 此拓撲支援相應放大組態中的多個節點。 其中一個節點具有主要角色，一或多個節點具有背景工作角色。 不過，在任何指定的時間點都只能有一個主要節點。
 
@@ -495,10 +495,10 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 | B | 類型一 | eth2.tenant | eno3.tenant | 節點對節點通訊 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
-| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 節點對節點通訊 |
-| C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
-| D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo > | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo + 2 > | team0.tenant+2 | 節點對節點通訊 |
+| C | 類型二 | vlan\<tenantNo + 1 > | team0.tenant+1 | 節點對儲存體 |
+| D | 類型二 | vlan\<tenantNo + 3 > | team0.tenant+3 | 已設定但未使用 |
 
 ### <a name="storage"></a>儲存體
 下列裝載點已預先設定：
@@ -515,7 +515,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 ### <a name="key-considerations"></a>主要考量
 - /usr/sap/SID 是 /hana/shared/SID 的符號連結。
 
-## <a name="10-scale-out-with-dr"></a>10.具有 DR 的相應放大
+## <a name="10-scale-out-with-dr-using-storage-replication"></a>10. 使用儲存體複寫以 DR 向外延展
  
 此拓撲支援具 DR 相應放大中的多個節點。 標準和多用途 DR 皆受支援。 圖表中僅描繪單一用途 DR。 您可以要求此拓撲，不論是否具有待命節點。
 
@@ -534,10 +534,10 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 | B | 類型一 | eth2.tenant | eno3.tenant | 節點對節點通訊 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
-| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 節點對節點通訊 |
-| C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
-| D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo > | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo + 2 > | team0.tenant+2 | 節點對節點通訊 |
+| C | 類型二 | vlan\<tenantNo + 1 > | team0.tenant+1 | 節點對儲存體 |
+| D | 類型二 | vlan\<tenantNo + 3 > | team0.tenant+3 | 已設定但未使用 |
 
 ### <a name="storage"></a>儲存體
 下列裝載點已預先設定：
@@ -560,6 +560,239 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 -  在 DR 上：磁碟區和裝載點已在 DR HLI 單位上針對生產 HANA 執行個體安裝進行設定 (標示為「針對 HANA 安裝為必要」)。 
 - 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)文件。 
 - **SKU 類型一類別**的開機磁碟區已複寫到 DR 節點。
+
+
+## <a name="11-single-node-with-dr-using-hsr"></a>11. 使用 HSR 進行 DR 的單一節點
+ 
+此拓撲支援相應增加設定中的一個節點，其中包含一個 SID，並將 HANA 系統複寫至主要 SID 的 DR 網站。 在圖表中，只會在主要網站上描述單一 SID，但多 SID (MCOS) 也受支援。
+
+### <a name="architecture-diagram"></a>架構圖表  
+
+![single-node-hsr-dr-111 .png](media/hana-supported-scenario/single-node-hsr-dr-111.png)
+
+### <a name="ethernet"></a>乙太網路
+下列網路介面已預先設定：
+
+| NIC 邏輯介面 | SKU 類型 | 以 SUSE 作業系統命名 | 以 RHEL 作業系統命名 | 使用案例|
+| --- | --- | --- | --- | --- |
+| A | 類型一 | eth0.tenant | eno1.tenant | 用戶端至的 HSR |
+| B | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
+| C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
+| D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo > | team0.tenant | 用戶端至的 HSR |
+| B | 類型二 | vlan\<tenantNo + 2 > | team0.tenant+2 | 已設定但未使用 |
+| C | 類型二 | vlan\<tenantNo + 1 > | team0.tenant+1 | 節點對儲存體 |
+| D | 類型二 | vlan\<tenantNo + 3 > | team0.tenant+3 | 已設定但未使用 |
+
+### <a name="storage"></a>儲存體
+下列掛接點已預先設定在兩個單位（主要和 DR）上：
+
+| 裝載點 | 使用案例 | 
+| --- | --- |
+|/hana/shared/SID | 適用於 SID 的 HANA 安裝 | 
+|/hana/data/SID/mnt00001 | 適用於 SID 的資料檔案安裝 | 
+|/hana/log/SID/mnt00001 | 適用於 SID 的記錄檔安裝 | 
+|/hana/logbackups/SID | 適用於 SID 的重做記錄 |
+
+
+### <a name="key-considerations"></a>主要考量
+- /usr/sap/SID 是 /hana/shared/SID 的符號連結。
+- 針對 MCOS：磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
+- 主要節點使用 HANA 系統複寫來同步到 DR 節點。 
+- [全球範圍](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach)用來將 ExpressRoute 線路連結在一起，以在您的區域網路之間建立私人網路。
+
+
+
+## <a name="12-single-node-hsr-to-dr-cost-optimized"></a>12. 單一節點 HSR 至 DR （成本優化） 
+ 
+ 此拓撲支援相應增加設定中的一個節點，其中包含一個 SID，並將 HANA 系統複寫至主要 SID 的 DR 網站。 在圖表中，只會在主要網站上描述單一 SID，但多 SID (MCOS) 也受支援。 在 DR 網站中，HLI 單位會用於 QA 執行個體，同時生產作業會從主要網站執行。 在 DR 容錯移轉 (或容錯移轉測試) 期間，會卸下 DR 網站的 QA 執行個體。
+
+### <a name="architecture-diagram"></a>架構圖表  
+
+![single-node-hsr-dr-cost-optimized-121 .png](media/hana-supported-scenario/single-node-hsr-dr-cost-optimized-121.png)
+
+### <a name="ethernet"></a>乙太網路
+下列網路介面已預先設定：
+
+| NIC 邏輯介面 | SKU 類型 | 以 SUSE 作業系統命名 | 以 RHEL 作業系統命名 | 使用案例|
+| --- | --- | --- | --- | --- |
+| A | 類型一 | eth0.tenant | eno1.tenant | 用戶端至的 HSR |
+| B | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
+| C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
+| D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo > | team0.tenant | 用戶端至的 HSR |
+| B | 類型二 | vlan\<tenantNo + 2 > | team0.tenant+2 | 已設定但未使用 |
+| C | 類型二 | vlan\<tenantNo + 1 > | team0.tenant+1 | 節點對儲存體 |
+| D | 類型二 | vlan\<tenantNo + 3 > | team0.tenant+3 | 已設定但未使用 |
+
+### <a name="storage"></a>儲存體
+下列裝載點已預先設定：
+
+| 裝載點 | 使用案例 | 
+| --- | --- |
+|**在主要網站上**|
+|/hana/shared/SID | 適用於生產 SID 的 HANA 安裝 | 
+|/hana/data/SID/mnt00001 | 適用於生產 SID 的資料檔案安裝 | 
+|/hana/log/SID/mnt00001 | 適用於生產 SID 的記錄檔安裝 | 
+|/hana/logbackups/SID | 適用於生產 SID 的重做記錄 |
+|**在 DR 網站上**|
+|/hana/shared/SID | 適用於生產 SID 的 HANA 安裝 | 
+|/hana/data/SID/mnt00001 | 適用於生產 SID 的資料檔案安裝 | 
+|/hana/log/SID/mnt00001 | 適用於生產 SID 的記錄檔安裝 | 
+|/hana/logbackups/SID | 適用於生產 SID 的重做記錄 |
+|/hana/shared/QA-SID | 適用於 QA SID 的 HANA 安裝 | 
+|/hana/data/QA-SID/mnt00001 | 適用於 QA SID 的資料檔案安裝 | 
+|/hana/log/QA-SID/mnt00001 | 適用於 QA SID 的記錄檔安裝 |
+|/hana/logbackups/QA-SID | 適用於 QA SID 的重做記錄 |
+
+### <a name="key-considerations"></a>主要考量
+- /usr/sap/SID 是 /hana/shared/SID 的符號連結。
+- 針對 MCOS：磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
+- 在 DR 上：磁片區和掛接點已設定（標示為「DR 網站的生產實例」），以供在 DR 的 HANA 單位上安裝生產 HANA 實例。 
+- 在 DR 上：資料、記錄備份、記錄、QA 的共用磁碟區 (標示為「QA 執行個體安裝」) 已針對 QA 執行個體安裝進行設定。
+- 主要節點使用 HANA 系統複寫來同步到 DR 節點。 
+- [全球範圍](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach)用來將 ExpressRoute 線路連結在一起，以在您的區域網路之間建立私人網路。
+
+## <a name="13-high-availability-and-disaster-recovery-with-hsr"></a>13. 使用 HSR 的高可用性和嚴重損壞修復 
+ 
+ 此拓撲支援兩個節點，適用于本機區域高可用性的 HANA 系統複寫（HSR）設定。 針對 DR，DR 區域的第三個節點會使用 HSR （非同步模式）從主要網站進行同步處理。 
+
+### <a name="architecture-diagram"></a>架構圖表  
+
+![hana-system-replication-dr-131 .png](media/hana-supported-scenario/hana-system-replication-dr-131.png)
+
+### <a name="ethernet"></a>乙太網路
+下列網路介面已預先設定：
+
+| NIC 邏輯介面 | SKU 類型 | 以 SUSE 作業系統命名 | 以 RHEL 作業系統命名 | 使用案例|
+| --- | --- | --- | --- | --- |
+| A | 類型一 | eth0.tenant | eno1.tenant | 用戶端至的 HSR |
+| B | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
+| C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
+| D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo > | team0.tenant | 用戶端至的 HSR |
+| B | 類型二 | vlan\<tenantNo + 2 > | team0.tenant+2 | 已設定但未使用 |
+| C | 類型二 | vlan\<tenantNo + 1 > | team0.tenant+1 | 節點對儲存體 |
+| D | 類型二 | vlan\<tenantNo + 3 > | team0.tenant+3 | 已設定但未使用 |
+
+### <a name="storage"></a>儲存體
+下列裝載點已預先設定：
+
+| 裝載點 | 使用案例 | 
+| --- | --- |
+|**在主要網站上**|
+|/hana/shared/SID | 適用於生產 SID 的 HANA 安裝 | 
+|/hana/data/SID/mnt00001 | 適用於生產 SID 的資料檔案安裝 | 
+|/hana/log/SID/mnt00001 | 適用於生產 SID 的記錄檔安裝 | 
+|/hana/logbackups/SID | 適用於生產 SID 的重做記錄 |
+|**在 DR 網站上**|
+|/hana/shared/SID | 適用於生產 SID 的 HANA 安裝 | 
+|/hana/data/SID/mnt00001 | 適用於生產 SID 的資料檔案安裝 | 
+|/hana/log/SID/mnt00001 | 適用於生產 SID 的記錄檔安裝 | 
+|/hana/logbackups/SID | 適用於生產 SID 的重做記錄 |
+
+
+### <a name="key-considerations"></a>主要考量
+- /usr/sap/SID 是 /hana/shared/SID 的符號連結。
+- 在 DR 上：磁片區和掛接點已設定（標示為「生產 DR 實例」），以供在 DR 的 HANA 單元上進行生產 HANA 實例安裝。 
+- 主要網站節點使用 HANA 系統複寫取得與 DR 節點的同步處理。 
+- [全球範圍](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach)用來將 ExpressRoute 線路連結在一起，以在您的區域網路之間建立私人網路。
+
+## <a name="14-high-availability-and-disaster-recovery-with-hsr-cost-optimized"></a>14. 使用 HSR 的高可用性和嚴重損壞修復（成本優化）
+ 
+ 此拓撲支援兩個節點，適用于本機區域高可用性的 HANA 系統複寫（HSR）設定。 針對 DR，DR 區域的第三個節點會使用 HSR （非同步模式）從主要網站同步處理，而另一個實例則是（例如 QA）已從 DR 節點執行。 
+
+### <a name="architecture-diagram"></a>架構圖表  
+
+![hana-system-replication-dr-cost-optimized-141 .png](media/hana-supported-scenario/hana-system-replication-dr-cost-optimized-141.png)
+
+### <a name="ethernet"></a>乙太網路
+下列網路介面已預先設定：
+
+| NIC 邏輯介面 | SKU 類型 | 以 SUSE 作業系統命名 | 以 RHEL 作業系統命名 | 使用案例|
+| --- | --- | --- | --- | --- |
+| A | 類型一 | eth0.tenant | eno1.tenant | 用戶端至的 HSR |
+| B | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
+| C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
+| D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo > | team0.tenant | 用戶端至的 HSR |
+| B | 類型二 | vlan\<tenantNo + 2 > | team0.tenant+2 | 已設定但未使用 |
+| C | 類型二 | vlan\<tenantNo + 1 > | team0.tenant+1 | 節點對儲存體 |
+| D | 類型二 | vlan\<tenantNo + 3 > | team0.tenant+3 | 已設定但未使用 |
+
+### <a name="storage"></a>儲存體
+下列裝載點已預先設定：
+
+| 裝載點 | 使用案例 | 
+| --- | --- |
+|**在主要網站上**|
+|/hana/shared/SID | 適用於生產 SID 的 HANA 安裝 | 
+|/hana/data/SID/mnt00001 | 適用於生產 SID 的資料檔案安裝 | 
+|/hana/log/SID/mnt00001 | 適用於生產 SID 的記錄檔安裝 | 
+|/hana/logbackups/SID | 適用於生產 SID 的重做記錄 |
+|**在 DR 網站上**|
+|/hana/shared/SID | 適用於生產 SID 的 HANA 安裝 | 
+|/hana/data/SID/mnt00001 | 適用於生產 SID 的資料檔案安裝 | 
+|/hana/log/SID/mnt00001 | 適用於生產 SID 的記錄檔安裝 | 
+|/hana/logbackups/SID | 適用於生產 SID 的重做記錄 |
+|/hana/shared/QA-SID | 適用於 QA SID 的 HANA 安裝 | 
+|/hana/data/QA-SID/mnt00001 | 適用於 QA SID 的資料檔案安裝 | 
+|/hana/log/QA-SID/mnt00001 | 適用於 QA SID 的記錄檔安裝 |
+|/hana/logbackups/QA-SID | 適用於 QA SID 的重做記錄 |
+
+### <a name="key-considerations"></a>主要考量
+- /usr/sap/SID 是 /hana/shared/SID 的符號連結。
+- 在 DR 上：磁片區和掛接點已設定（標示為「生產 DR 實例」），以供在 DR 的 HANA 單元上進行生產 HANA 實例安裝。 
+- 在 DR 上：資料、記錄備份、記錄、QA 的共用磁碟區 (標示為「QA 執行個體安裝」) 已針對 QA 執行個體安裝進行設定。
+- 主要網站節點使用 HANA 系統複寫取得與 DR 節點的同步處理。 
+- [全球範圍](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach)用來將 ExpressRoute 線路連結在一起，以在您的區域網路之間建立私人網路。
+
+## <a name="15-scale-out-with-dr-using-hsr"></a>15. 使用 HSR 相應放大 DR
+ 
+此拓撲支援具 DR 相應放大中的多個節點。 您可以要求此拓撲，不論是否具有待命節點。 主要網站節點會使用 HANA 系統複寫（非同步模式）來同步至 DR 網站節點。
+
+
+### <a name="architecture-diagram"></a>架構圖表  
+
+[![scale-out-dr-hsr-151 .png](media/hana-supported-scenario/scale-out-dr-hsr-151.png)](media/hana-supported-scenario/scale-out-dr-hsr-151.png#lightbox)
+
+
+### <a name="ethernet"></a>乙太網路
+下列網路介面已預先設定：
+
+| NIC 邏輯介面 | SKU 類型 | 以 SUSE 作業系統命名 | 以 RHEL 作業系統命名 | 使用案例|
+| --- | --- | --- | --- | --- |
+| A | 類型一 | eth0.tenant | eno1.tenant | 用戶端至的 HSR |
+| B | 類型一 | eth2.tenant | eno3.tenant | 節點對節點通訊 |
+| C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
+| D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo > | team0.tenant | 用戶端至的 HSR |
+| B | 類型二 | vlan\<tenantNo + 2 > | team0.tenant+2 | 節點對節點通訊 |
+| C | 類型二 | vlan\<tenantNo + 1 > | team0.tenant+1 | 節點對儲存體 |
+| D | 類型二 | vlan\<tenantNo + 3 > | team0.tenant+3 | 已設定但未使用 |
+
+### <a name="storage"></a>儲存體
+下列裝載點已預先設定：
+
+| 裝載點 | 使用案例 | 
+| --- | --- |
+|**在主要節點上**|
+|HANA/shared | 適用於生產 SID 的 HANA 安裝 | 
+|/hana/data/SID/mnt00001 | 適用於生產 SID 的資料檔案安裝 | 
+|/hana/log/SID/mnt00001 | 適用於生產 SID 的記錄檔安裝 | 
+|/hana/logbackups/SID | 適用於生產 SID 的重做記錄 |
+|**在 DR 節點上**|
+|HANA/shared | 適用於生產 SID 的 HANA 安裝 | 
+|/hana/data/SID/mnt00001 | 適用於生產 SID 的資料檔案安裝 | 
+|/hana/log/SID/mnt00001 | 適用於生產 SID 的記錄檔安裝 | 
+|/hana/logbackups/SID | 適用於生產 SID 的重做記錄 |
+
+
+### <a name="key-considerations"></a>主要考量
+- /usr/sap/SID 是 /hana/shared/SID 的符號連結。
+- 在 DR 上：磁片區和掛接點是針對 DR 的的生產 HANA 實例安裝所設定。 
+- 主要網站節點使用 HANA 系統複寫來同步到 DR 節點。 
+- [全球範圍](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach)用來將 ExpressRoute 線路連結在一起，以在您的區域網路之間建立私人網路。
 
 
 ## <a name="next-steps"></a>後續步驟

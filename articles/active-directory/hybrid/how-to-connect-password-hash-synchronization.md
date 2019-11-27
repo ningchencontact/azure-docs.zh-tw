@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d5ca62bc032c12c568e2b8065630dcd8b687513
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.openlocfilehash: 6e77368c7c0c104e777595a16735a7cf1e797a48
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483100"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539013"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步來實作密碼雜湊同步處理
 本文提供您所需資訊，以讓您將使用者密碼從內部部署 Active Directory 執行個體同步處理至雲端式 Azure Active Directory (Azure AD) 執行個體。
@@ -160,7 +160,7 @@ Azure AD 針對每個已註冊的網域支援不同的密碼到期原則。
 
 ## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Azure AD Domain Services 的密碼雜湊同步處理常式
 
-如果您使用 Azure AD Domain Services 為需要使用 Keberos、LDAP 或 NTLM 的應用程式和服務提供舊版驗證，某些額外的進程就是密碼雜湊同步處理流程的一部分。 Azure AD Connect 使用下列額外的程式，將密碼雜湊同步處理至 Azure AD 以用於 Azure AD Domain Services：
+如果您使用 Azure AD Domain Services 為需要使用 Kerberos、LDAP 或 NTLM 的應用程式和服務提供舊版驗證，某些額外的進程就是密碼雜湊同步處理流程的一部分。 Azure AD Connect 使用下列額外的程式，將密碼雜湊同步處理至 Azure AD 以用於 Azure AD Domain Services：
 
 > [!IMPORTANT]
 > Azure AD Connect 應該只安裝並設定為與內部部署 AD DS 環境同步處理。 不支援在 Azure AD DS 受控網域中安裝 Azure AD Connect，以將物件同步處理回 Azure AD。

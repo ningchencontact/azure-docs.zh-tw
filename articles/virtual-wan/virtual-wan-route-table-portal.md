@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 3aa5660e5b777364ef9d684debe7e06f42acee6e
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.openlocfilehash: 6b78b97004498fdacccdf9408d59158424ff6c07
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482016"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534143"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>建立 Nva 的虛擬 WAN 中樞路由表： Azure 入口網站
 
@@ -31,7 +31,7 @@ ms.locfileid: "74482016"
 
     * NVA 不會部署在虛擬中樞內。 它必須部署在不同的 VNet。
 
-    *  NVA VNet 可能會有一或多個連線到它的虛擬網路。 在本文中，我們將 NVA VNet 稱為「間接輪輻 VNet」。 這些 Vnet 可以使用 VNet 對等互連連線到 NVA VNet。 在上圖中，會以黑色箭號來描述 Vnet 對等互連連結。
+    *  NVA VNet 可能會有一或多個連線到它的虛擬網路。 在本文中，我們將 NVA VNet 稱為「間接輪輻 VNet」。 這些 Vnet 可以使用 VNet 對等互連連線到 NVA VNet。 Vnet 對等互連連結是由上圖中的黑色箭號（vnet 1、Vnet 2 和 NVA Vnet）所描述。
 *  您已建立2個 Vnet。 它們將用來做為輪輻 Vnet。
 
     * 在此練習中，VNet 輪輻位址空間為： VNet1： 10.0.2.0/24 和 VNet2： 10.0.3.0/24。 如果您需要如何建立 VNet 的資訊，請參閱[建立虛擬網路](../virtual-network/quick-create-portal.md)。
@@ -79,7 +79,7 @@ ms.locfileid: "74482016"
 
 ## <a name="connections"></a>5. 建立 VNet 連線
 
-建立從每個間接輪輻 VNet （VNet1 和 VNet2）到中樞的連接。 然後，建立從 NVA VNet 到中樞的連線。 這些 Vnet 連線是由上圖中的藍色箭號所 dipicted。 
+從每個間接輪輻 VNet （VNet1 和 VNet2）建立 Vnet 連線到中樞。 這些 Vnet 連線是由上圖中的藍色箭號所描述。 然後，從 NVA VNet 建立 Vnet 連線至中樞（圖中的黑色箭號）。 
 
  在此步驟中，您可以使用下列值：
 

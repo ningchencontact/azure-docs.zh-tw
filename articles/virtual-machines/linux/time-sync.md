@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 2f8ba53080b10568a3ac74e9ad2a81114e1c7c93
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 1e459e96c128e20f44f1a5adcb18c5b1824c3bf5
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206698"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534129"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure 中的 Linux VM 時間同步
 
@@ -39,7 +39,7 @@ Azure 主機會與內部 Microsoft 時間伺服器同步，這些時間伺服器
 
 在獨立的硬體上，Linux OS 只會在開機時讀取主機硬體時鐘。 之後，則會使用 Linux 核心中的插斷計時器來維護時鐘。 在此設定中，時鐘會隨時間慢慢移動。 在 Azure 上的較新 Linux 發行版本中，VM 可以使用 Linux Integration Services (LIS) 隨附的 VMICTimeSync 提供者，更頻繁地從主機查詢時鐘更新。
 
-虛擬機器與主機的互動也可能會影響時鐘。 進行[記憶體保留維修](maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot)期間，VM 會暫停最多 30 秒。 比方說，維修開始之前 VM 時鐘顯示上午 10:00:00，並持續 28 秒。 VM 繼續執行後，VM 上的時鐘仍會顯示上午 10:00:00，也就是有 28 秒的誤差。 為了修正這個誤差，VMICTimeSync 服務會監視主機上發生的狀況，並提示您為了進行補償需在 VM 上做的變更。
+虛擬機器與主機的互動也可能會影響時鐘。 進行[記憶體保留維修](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot)期間，VM 會暫停最多 30 秒。 比方說，維修開始之前 VM 時鐘顯示上午 10:00:00，並持續 28 秒。 VM 繼續執行後，VM 上的時鐘仍會顯示上午 10:00:00，也就是有 28 秒的誤差。 為了修正這個誤差，VMICTimeSync 服務會監視主機上發生的狀況，並提示您為了進行補償需在 VM 上做的變更。
 
 若沒有時間同步功能，VM 上的時鐘將會累積錯誤。 若只有一部 VM，除非工作負載需要高度精準的計時功能，否則不會造成顯著的影響。 但是在多數情況下，我們都有多部互相連接並使用時間來追蹤交易的 VM，而且整個部署中的時間必須保持一致。 當 VM 之間的時間有所不同，可能會產生下列影響：
 

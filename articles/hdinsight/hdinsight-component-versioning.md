@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/21/2019
-ms.openlocfilehash: a2955fc72a652ec36304c7856f2ba9ed5f21d7df
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
-ms.translationtype: HT
+ms.openlocfilehash: b5687d659103eed0fcba70319aa37030bd85165a
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457552"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539113"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Apache Hadoop 元件和版本有哪些？
 
@@ -73,9 +73,9 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 從2017年
 | HDInsight 版本 | VM OS | 發行日期 | 支援到期日 | 停用日期 | 高可用性 |  Azure 入口網站中的可用性 |
 | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |2018 年 9 月 24 日 | | |yes |yes |
-| HDInsight 3.6 |Ubuntu 16.0.4 LTS |2017 年 4 月 4 日 | 2020年6月30日 |2020年12月31日 |yes |yes |
+| HDInsight 3.6 |Ubuntu 16.0.4 LTS |2017 年 4 月 4 日 | 2020年12月31日 |2020年12月31日 |yes |yes |
 
-Spark 2.1、2.2 & Kafka 1.0 支援將于年6月30日到期，並于12月 2020 31 2020 日淘汰。
+Spark 2.1、2.2 & Kafka 1.0 支援將于2020年6月30日到期。
 
 > [!NOTE]  
 > 當版本的支援到期之後，可能就無法透過 Microsoft Azure 入口網站取得它。 不過，您可透過 Windows PowerShell `Version`New-AzHDInsightCluster[ 命令中的 ](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 參數和 .NET SDK 持續取得叢集版本，直到版本停用日期為止。

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 11/27/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6cfad04d9b0dd3537d60f2651ed341d96bd0210
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a92dbeec706ff8c4f892632243353549295dd26b
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027120"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538781"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory 中群組的動態成員資格規則
 
@@ -32,7 +32,7 @@ ms.locfileid: "74027120"
 
 > [!NOTE]
 > 此功能需要一或多個動態群組成員中每個唯一使用者的 Azure AD Premium P1 授權。 您不需要將授權指派給使用者，使用者就能成為動態群組成員，但是您必須在租用戶中有最小數量的授權，才能涵蓋所有這類使用者。 例如，如果您租用戶中的所有動態群組總計有 1,000 位唯一使用者，則需要至少有 Azure AD Premium P1 的 1,000 個授權，才符合授權需求。
->
+> 屬於動態裝置群組成員的裝置不需要任何授權。
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Azure 入口網站中的規則產生器
 

@@ -1,20 +1,17 @@
 ---
-title: 從 Azure Container Registry 部署至 Azure 容器執行個體
+title: 從 Azure Container Registry 部署容器映射
 description: 了解如何使用 Azure Container Registry 中的容器映像，在 Azure 容器執行個體中部署容器。
 services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 502f178b66e7ba233552d7db4e095363c8bb8628
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: adc2c95874c1cc20e49506891c9972ebcfe71f94
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68325566"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533280"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>從 Azure Container Registry 部署至 Azure 容器執行個體
 
@@ -22,9 +19,9 @@ ms.locfileid: "68325566"
 
 ## <a name="prerequisites"></a>先決條件
 
-**Azure 容器登錄**：您需要 Azure 容器登錄，且登錄中至少有一個容器映像，才能完成本文中的步驟。 如果您需要登錄，請參閱[使用 Azure CLI 建立容器登錄](../container-registry/container-registry-get-started-azure-cli.md)。
+**Azure container registry**：您需要 azure container registry，以及至少一個登錄中的容器映射--以完成本文中的步驟。 如果您需要登錄，請參閱[使用 Azure CLI 建立容器登錄](../container-registry/container-registry-get-started-azure-cli.md)。
 
-**Azure CLI**：本文中的命令列範例使用 [Azure CLI](/cli/azure/)，並使用 Bash 殼層適用的格式。 您可以在本機[安裝 Azure CLI](/cli/azure/install-azure-cli) , 或使用[Azure Cloud Shell][cloud-shell-bash]。
+**Azure CLI**：本文中的命令列範例使用 [Azure CLI](/cli/azure/)，並使用 Bash 殼層適用的格式。 您可以在本機[安裝 Azure CLI](/cli/azure/install-azure-cli) ，或使用[Azure Cloud Shell][cloud-shell-bash]。
 
 ## <a name="configure-registry-authentication"></a>設定登錄驗證
 
@@ -50,7 +47,7 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 您現在需要建立服務主體，並將它的認證儲存在金鑰保存庫中。
 
-下列命令會使用[az ad sp create for-rbac][az-ad-sp-create-for-rbac]來建立服務主體, 並使用[az keyvault secret set][az-keyvault-secret-set]將服務主體的**密碼**儲存在保存庫中。
+下列命令會使用[az ad sp create for-rbac][az-ad-sp-create-for-rbac]來建立服務主體，並使用[az keyvault secret set][az-keyvault-secret-set]將服務主體的**密碼**儲存在保存庫中。
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
@@ -79,8 +76,8 @@ az keyvault secret set \
 
 您已建立 Azure Key Vault，並在其中儲存兩個祕密：
 
-* `$ACR_NAME-pull-usr`:服務主體識別碼，用來作為容器登錄**使用者名稱**。
-* `$ACR_NAME-pull-pwd`:服務主體密碼，用來作為容器登錄**密碼**。
+* `$ACR_NAME-pull-usr`：服務主體識別碼，作為容器登錄的**使用者名稱**。
+* `$ACR_NAME-pull-pwd`：服務主體密碼，作為容器登錄的**密碼**。
 
 現在，當您或應用程式和服務從登錄提取映像時，您可以依名稱參考這些祕密。
 
@@ -88,7 +85,7 @@ az keyvault secret set \
 
 現在，服務主體認證儲存在 Azure Key Vault 祕密中，應用程式和服務可以使用它們來存取您的私人登錄。
 
-首先, 使用[az acr show][az-acr-show]命令來取得登錄的登入伺服器名稱。 登入伺服器名稱全部都是小寫，類似 `myregistry.azurecr.io`。
+首先，使用[az acr show][az-acr-show]命令來取得登錄的登入伺服器名稱。 登入伺服器名稱全部都是小寫，類似 `myregistry.azurecr.io`。
 
 ```azurecli
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --resource-group $RES_GROUP --query "loginServer" --output tsv)
