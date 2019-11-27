@@ -25,12 +25,12 @@ ms.locfileid: "74480586"
 
 本文說明建立多用戶端、多執行緒檔案複製系統以將資料移至 Avere vFXT 叢集的策略。 它說明檔案傳輸概念和決策點，這些可用來以多個用戶端和簡單的複製命令進行有效率的資料複製。
 
-此外，也說明一些能夠提供幫助的公用程式。 The ``msrsync`` utility can be used to partially automate the process of dividing a dataset into buckets and using ``rsync`` commands. ``parallelcp`` 指令碼是另一個公用程式，可自動讀取來源目錄並發出複製命令。 Also, the ``rsync`` tool can be used in two phases to provide a quicker copy that still provides data consistency.
+此外，也說明一些能夠提供幫助的公用程式。 ``msrsync`` 公用程式可以用來將資料集分割成值區和使用 ``rsync`` 命令的部分自動化。 ``parallelcp`` 指令碼是另一個公用程式，可自動讀取來源目錄並發出複製命令。 此外，``rsync`` 工具也可以在兩個階段中使用，以提供更快速的複本，但仍能提供資料一致性。
 
 按一下連結來跳至某個小節：
 
 * [手動複製範例](#manual-copy-example) - 一個使用複製命令的完整說明
-* [Two-phase rsync example](#use-a-two-phase-rsync-process)
+* [兩階段 rsync 範例](#use-a-two-phase-rsync-process)
 * [部分自動化 (msrsync) 範例](#use-the-msrsync-utility)
 * [平行複製範例](#use-the-parallel-copy-script)
 
@@ -113,7 +113,7 @@ cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 
 ### <a name="when-to-add-mount-points"></a>新增掛接點的時機
 
-在您有足夠的平行執行緒針對單一目的地檔案系統掛接點執行之後，會遇到一個新增更多執行緒也不會提升輸送量的瓶頸點。 (Throughput will be measured in files/second or bytes/second, depending on your type of data.) Or worse, over-threading can sometimes cause a throughput degradation.
+在您有足夠的平行執行緒針對單一目的地檔案系統掛接點執行之後，會遇到一個新增更多執行緒也不會提升輸送量的瓶頸點。 （輸送量將根據您的資料類型，以每秒的檔案數或位元組/秒來測量）。或更糟的是，過度執行緒有時可能會導致輸送量降低。
 
 當發生這種情況時，您可以使用相同的遠端檔案系統掛接路徑，將用戶端掛接點新增至其他 vFXT 叢集 IP 位址：
 
@@ -240,7 +240,7 @@ for i in 1 2 3 4 ; do sed -n ${i}~4p /tmp/foo > /tmp/client${i}; done
 for i in 1 2 3 4 5; do sed -n ${i}~5p /tmp/foo > /tmp/client${i}; done
 ```
 
-And for six.... Extrapolate as needed.
+還有六個 ...。視需要推斷。
 
 ```bash
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
@@ -258,25 +258,25 @@ for i in 1 2 3 4 5 6; do for j in $(cat /tmp/client${i}); do echo "cp -p -R /mnt
 
 目標是要在多個用戶端上以平行方式同時為每個用戶端執行這些指令碼的多個執行緒。
 
-## <a name="use-a-two-phase-rsync-process"></a>Use a two-phase rsync process
+## <a name="use-a-two-phase-rsync-process"></a>使用兩階段 rsync 流程
 
-The standard ``rsync`` utility does not work well for populating cloud storage through the Avere vFXT for Azure system because it generates a large number of file create and rename operations to guarantee data integrity. However, you can safely use the ``--inplace`` option with ``rsync`` to skip the more careful copying procedure if you follow that with a second run that checks file integrity.
+標準 ``rsync`` 公用程式不適合透過 Avere vFXT for Azure 系統填入雲端存放裝置，因為它會產生大量的檔案建立和重新命名作業，以確保資料完整性。 不過，如果您遵循檢查檔案完整性的第二次執行，則可以安全地使用 ``--inplace`` 選項搭配 ``rsync`` 略過更小心的複製程式。
 
-A standard ``rsync`` copy operation creates a temporary file and fills it with data. If the data transfer completes successfully, the temporary file is renamed to the original filename. This method guarantees consistency even if the files are accessed during copy. But this method generates more write operations, which slows file movement through the cache.
+標準 ``rsync`` 複製作業會建立暫存檔案，並在其中填入資料。 如果資料傳輸成功完成，則暫存檔案會重新命名為原始的檔案名。 即使在複製期間存取檔案，這個方法還是會保證一致性。 但此方法會產生更多寫入作業，因而減緩透過快取移動檔案的速度。
 
-The option ``--inplace`` writes the new file directly in its final location. Files are not guaranteed to be consistent during transfer, but that is not important if you are priming a storage system for use later.
+選項 ``--inplace`` 會將新檔案直接寫入其最終位置。 在傳輸期間，檔案不保證是一致的，但如果您要預備儲存系統以供稍後使用，則這不重要。
 
-The second ``rsync`` operation serves as a consistency check on the first operation. Because the files have already been copied, the second phase is a quick scan to ensure that the files on the destination match the files on the source. If any files don't match, they are recopied.
+第二個 ``rsync`` 作業可作為第一個作業的一致性檢查。 因為檔案已經複製，所以第二個階段是快速掃描，以確保目的地上的檔案符合來源上的檔案。 如果有任何檔案不相符，則會重新複製這些檔案。
 
-You can issue both phases together in one command:
+您可以在一個命令中同時發出這兩個階段：
 
 ```bash
 rsync -azh --inplace <source> <destination> && rsync -azh <source> <destination>
 ```
 
-This method is a simple and time-effective method for datasets up to the number of files the internal directory manager can handle. (This is typically 200 million files for a 3-node cluster, 500 million files for a six-node cluster, and so on.)
+這個方法是一種簡單且有效的方法，適用于資料集，最多可達內部目錄管理員可以處理的檔案數目。 （這通常是3個節點叢集的200000000檔案、六個節點叢集的500000000檔案等）。
 
-## <a name="use-the-msrsync-utility"></a>Use the msrsync utility
+## <a name="use-the-msrsync-utility"></a>使用 msrsync 公用程式
 
 ``msrsync`` 工具也可用來將資料移至 Avere 叢集的後端核心檔案管理工具。 此工具的設計目的是要藉由執行多個平行的 ``rsync`` 處理序，將頻寬使用情況最佳化。 您可以從 GitHub 取得它，網址為 <https://github.com/jbd/msrsync>。
 
@@ -284,18 +284,18 @@ This method is a simple and time-effective method for datasets up to the number 
 
 使用四核心 VM 的初步測試在使用 64 個處理序時所顯示的效率最佳。 請使用 ``msrsync`` 選項 ``-p`` 將處理序數目設定為 64。
 
-You also can use the ``--inplace`` argument with ``msrsync`` commands. If you use this option, consider running a second command (as with [rsync](#use-a-two-phase-rsync-process), described above) to ensure data integrity.
+您也可以使用 ``--inplace`` 引數搭配 ``msrsync`` 命令。 如果您使用此選項，請考慮執行第二個命令（如同上面所述的[rsync](#use-a-two-phase-rsync-process)），以確保資料完整性。
 
-``msrsync`` can only write to and from local volumes. 來源和目的地必須在叢集的虛擬網路中可作為本機掛接來存取。
+``msrsync`` 只能在本機磁片區中寫入和。 來源和目的地必須在叢集的虛擬網路中可作為本機掛接來存取。
 
-To use ``msrsync`` to populate an Azure cloud volume with an Avere cluster, follow these instructions:
+若要使用 ``msrsync`` 來填入具有 Avere 叢集的 Azure 雲端磁片區，請遵循下列指示：
 
-1. Install ``msrsync`` and its prerequisites (rsync and Python 2.6 or later)
+1. 安裝 ``msrsync`` 及其必要條件（rsync 和 Python 2.6 或更新版本）
 1. 決定要複製的檔案和目錄總數。
 
-   For example, use the Avere utility ``prime.py`` with arguments ```prime.py --directory /path/to/some/directory``` (available by downloading url <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
+   例如，使用 Avere 公用程式 ``prime.py`` 搭配引數 ```prime.py --directory /path/to/some/directory``` （可透過下載 url <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>取得）。
 
-   If not using ``prime.py``, you can calculate the number of items with the GNU ``find`` tool as follows:
+   如果未使用 ``prime.py``，您可以使用 GNU ``find`` 工具來計算專案數，如下所示：
 
    ```bash
    find <path> -type f |wc -l         # (counts files)
@@ -305,13 +305,13 @@ To use ``msrsync`` to populate an Azure cloud volume with an Avere cluster, foll
 
 1. 將項目數除以 64 以決定每一處理序的項目數。 當您執行命令時，請將此數目與 ``-f`` 選項搭配使用來設定貯體的大小。
 
-1. Issue the ``msrsync`` command to copy files:
+1. 發出 ``msrsync`` 命令以複製檔案：
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
-   If using ``--inplace``, add a second execution without the option to check that the data is correctly copied:
+   如果使用 ``--inplace``，請新增第二次執行，而不選取檢查是否已正確複製資料的選項：
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv --inplace" <SOURCE_PATH> <DESTINATION_PATH> && msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>

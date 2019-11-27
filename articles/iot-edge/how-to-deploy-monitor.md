@@ -18,13 +18,13 @@ ms.locfileid: "74457357"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>使用 Azure 入口網站大規模部署和監視 IoT Edge 模組
 
-Create an **IoT Edge automatic deployment** in the Azure portal to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](/azure/iot-hub/iot-hub-automatic-device-management) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary. 
+在 Azure 入口網站中建立**IoT Edge 自動部署**，以一次管理許多裝置的持續部署。 IoT Edge 的自動部署是 IoT 中樞[自動裝置管理](/azure/iot-hub/iot-hub-automatic-device-management)功能的一部分。 部署是動態程式，可讓您將多個模組部署至多個裝置、追蹤模組的狀態和健全狀況，並在必要時進行變更。 
 
-For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
+如需詳細資訊，請參閱[瞭解單一裝置或大規模的 IoT Edge 自動部署](module-deployment-monitoring.md)。
 
 ## <a name="identify-devices-using-tags"></a>使用標記識別裝置
 
-在您可建立部署之前，必須能夠指定您要影響的裝置。 Azure IoT Edge 會使用裝置對應項中的 **tags** 來識別裝置。 Each device can have multiple tags that you define in any way that makes sense for your solution. 例如，如果您管理智慧建築的校園，便可以將下列標記新增至裝置：
+在您可建立部署之前，必須能夠指定您要影響的裝置。 Azure IoT Edge 會使用裝置對應項中的 **tags** 來識別裝置。 每個裝置都可以有多個以任何方式定義的標記，對您的解決方案而言是合理的。 例如，如果您管理智慧建築的校園，便可以將下列標記新增至裝置：
 
 ```json
 "tags":{
@@ -55,21 +55,21 @@ For more information, see [Understand IoT Edge automatic deployments for single 
 
 ### <a name="step-2-add-modules-optional"></a>步驟 2：新增模組 (選擇性)
 
-You can add up to 20 modules to a deployment. 
+您最多可以在部署中新增20個模組。 
 
-If you create a deployment with no modules, it removes any current modules from the target devices. 
+如果您建立不含模組的部署，它會從目標裝置移除任何目前的模組。 
 
 若要從 Azure 串流分析新增模組，請遵循下列步驟：
 
 1. 在頁面的 [部署模組] 區段中，按一下 [新增]。
 1. 選取 [Azure 串流分析模組]。
 1. 從下拉式功能表中選擇 [訂用帳戶]。
-1. Choose your IoT **Edge job** from the drop-down menu.
+1. 從下拉式功能表中選擇您的 IoT **Edge 作業**。
 1. 選取 [儲存]，將您的模組新增至部署。 
 
 若要新增自訂程式碼作為模組，或手動新增 Azure 服務模組，請遵循下列步驟：
 
-1. 在頁面的 [容器登錄設定] 區段中，為包含模組映像的私人容器登錄提供此部署的名稱和認證。 The IoT Edge Agent will report error 500 if it can't find the container registry credential for a Docker image.
+1. 在頁面的 [容器登錄設定] 區段中，為包含模組映像的私人容器登錄提供此部署的名稱和認證。 如果 IoT Edge 代理程式找不到 Docker 映射的 container registry 認證，將會報告錯誤500。
 1. 在頁面的 [部署模組] 區段中，按一下 [新增]。
 1. 選取 [IoT Edge 模組]。
 1. 為模組指定**名稱**。
@@ -77,14 +77,14 @@ If you create a deployment with no modules, it removes any current modules from 
 1. 指定任何應傳遞至容器的**容器建立選項**。 如需詳細資訊，請參閱 [docker create](https://docs.docker.com/engine/reference/commandline/create/)。
 1. 使用下拉式功能表來選取**重新啟動原則**。 從下列選項中選擇： 
    * **永遠**：如果模組基於任何原因而關閉，永遠都會重新啟動。
-   * **never** - The module never restarts if it shuts down for any reason.
-   * **on-failure** - The module restarts if it crashes, but not if it shuts down cleanly. 
-   * **on-unhealthy** - The module restarts if it crashes or returns an unhealthy status. 每個模組必須負責實作健康情況狀態函式。 
+   * **永不**-如果模組因任何原因而關閉，永遠不會重新開機。
+   * **失敗**時-模組會在損毀時重新開機，但如果它完全關閉則不會。 
+   * **狀況不良**-模組會在損毀或傳回狀況不良狀態時重新開機。 每個模組必須負責實作健康情況狀態函式。 
 1. 使用下拉功能表來選取模組的**預期狀態**。 從下列選項中選擇：
-   * **running** - Running is the default option. 模組將會在部署後立即開始執行。
-   * **stopped** - After being deployed, the module will remain idle until called upon to start by you or another module.
+   * [執行中] 是預設選項。 模組將會在部署後立即開始執行。
+   * **已停止**-部署之後，模組將會維持閒置，直到您或另一個模組開始呼叫為止。
 1. 如果您想要將標記或其他屬性新增至模組對應項，請選取 [設定模組對應項所需的屬性]。
-1. 輸入此模組的 [環境變數]。 Environment variables provide configuration information to a module.
+1. 輸入此模組的 [環境變數]。 環境變數會將設定資訊提供給模組。
 1. 選取 [儲存]，將您的模組新增至部署。 
 
 設定部署的所有模組之後，選取 [下一步] 移至步驟三。
@@ -95,7 +95,7 @@ If you create a deployment with no modules, it removes any current modules from 
 
 請使用[宣告路由](module-composition.md#declare-routes)中的資訊來新增或更新路由，然後選取 [下一步] 繼續檢閱區段。
 
-### <a name="step-4-specify-metrics-optional"></a>Step 4: Specify Metrics (optional)
+### <a name="step-4-specify-metrics-optional"></a>步驟4：指定計量（選擇性）
 
 計量能提供在套用設定內容後，裝置所回報各種狀態的摘要計數。
 
@@ -103,24 +103,24 @@ If you create a deployment with no modules, it removes any current modules from 
 
 1. 在 [計量準則] 輸入查詢。 查詢會以 IoT Edge 中樞模組對應項[所報告的屬性](module-edgeagent-edgehub.md#edgehub-reported-properties)作為基礎。 此計量代表查詢所傳回的資料列數目。
 
-   例如：
+   例如︰
 
    ```sql
    SELECT deviceId FROM devices
      WHERE properties.reported.lastDesiredStatus.code = 200
    ```
 
-### <a name="step-5-target-devices"></a>Step 5: Target Devices
+### <a name="step-5-target-devices"></a>步驟5：目標裝置
 
 使用裝置的 tags 屬性，將目標設為應該接收此部署的特定裝置。 
 
-由於多個部署可能會以相同裝置為目標，因此，您應該為每個部署提供優先順序號碼。 If there's ever a conflict, the deployment with the highest priority (larger values indicate higher priority) wins. 如果兩個部署具有相同的優先順序號碼，則最新建立的部署獲勝。 
+由於多個部署可能會以相同裝置為目標，因此，您應該為每個部署提供優先順序號碼。 如果發生衝突，最高優先順序的部署（較大的值表示較高的優先順序）獲勝。 如果兩個部署具有相同的優先順序號碼，則最新建立的部署獲勝。 
 
 1. 為部署**優先順序**輸入一個正整數。
-1. 輸入**目標條件**來判斷這個部署會將哪些裝置設為目標。 The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.devicemodel='4000x'`. 
+1. 輸入**目標條件**來判斷這個部署會將哪些裝置設為目標。 條件是以裝置對應項標記或裝置對應項報告屬性為基礎，且應符合運算式格式。 例如，`tags.environment='test'` 或 `properties.reported.devicemodel='4000x'`。 
 1. 選取 [下一步] 移到最後一個步驟。
 
-### <a name="step-6-review-deployment"></a>Step 6: Review Deployment
+### <a name="step-6-review-deployment"></a>步驟6：審查部署
 
 檢閱您的部署資訊，然後選取 [提交]。
 
@@ -128,11 +128,11 @@ If you create a deployment with no modules, it removes any current modules from 
 
 Azure Marketplace 是集合了應用程式和服務的線上市集，您可以在其中瀏覽各式各樣的企業應用程式和解決方案，這些項目皆已通過認證而可在 Azure 上執行並獲得最佳效能，包括 [IoT Edge 模組](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules)。 您也可以透過 Azure 入口網站，在 [建立資源] 底下存取 Azure Marketplace。
 
-You can deploy an IoT Edge module from either Azure Marketplace or the Azure portal:
+您可以從 Azure Marketplace 或 Azure 入口網站部署 IoT Edge 模組：
 
 1. 尋找模組並開始部署程序。
 
-   * Azure portal: Find a module and select **Create**.
+   * Azure 入口網站：尋找模組，然後選取 [**建立**]。
 
    * Azure Marketplace：
 
@@ -157,13 +157,13 @@ You can deploy an IoT Edge module from either Azure Marketplace or the Azure por
 
    ![檢視 IoT Edge 部署](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. 檢查部署清單。 For each deployment, you can view the following details:
+1. 檢查部署清單。 針對每個部署，您可以查看下列詳細資料：
    * **識別碼**：部署的名稱。
    * **目標條件**：用來定義目標裝置的標記。
    * **優先順序**：指派給部署的優先順序號碼。
    * **系統計量** - [設為目標] 會指定 IoT 中樞內符合目標條件的裝置對應項數目，而 [以套用] 則會指定已在 IoT 中樞內將部署內容套用到至模組對應項的裝置數目。 
-   * **Device metrics** - the number of IoT Edge devices in the deployment reporting success or errors from the IoT Edge client runtime.
-   * **Custom metrics** - the number of IoT Edge devices in the deployment reporting data for any metrics that you defined for the deployment.
+   * **裝置計量**-從 IoT Edge 用戶端執行時間報告成功或錯誤的部署中的 IoT Edge 裝置數目。
+   * **自訂計量**-部署中針對您為部署定義的任何計量報告資料的 IoT Edge 裝置數目。
    * **建立時間**：建立部署時的時間戳記。 當兩個部署具有相同的優先順序時，可使用此時間戳記來中斷繫結。 
 1. 選取您想要監視的部署。  
 1. 檢查部署詳細資料。 您可以使用索引標籤來檢閱部署的詳細資料。
@@ -192,7 +192,7 @@ You can deploy an IoT Edge module from either Azure Marketplace or the Azure por
    * 計量 - 您可以修改或刪除您已定義的計量，也可以新增計量。
    * 標籤
    * 優先順序
-1. 選取 [儲存]。
+1. 選取 [ **儲存**]。
 1. 依照[監視部署](#monitor-a-deployment)中的步驟監看變更推出的情形。 
 
 ## <a name="delete-a-deployment"></a>刪除部署
@@ -207,8 +207,8 @@ You can deploy an IoT Edge module from either Azure Marketplace or the Azure por
 
 1. 使用核取方塊來選取您想要刪除的部署。 
 1. 選取 [刪除]。
-1. 提示將會通知您，這個動作將刪除此部署，並將所有裝置還原成先前狀態。  This means that a deployment with a lower priority will apply.  If no other deployment is targeted, no modules will be removed. 如果您想要從裝置中移除所有模組，請建立不含模組的部署，並將其部署至相同的裝置。 Select **Yes** to continue. 
+1. 提示將會通知您，這個動作將刪除此部署，並將所有裝置還原成先前狀態。  這表示會套用優先順序較低的部署。  如果沒有其他部署的目標，將不會移除任何模組。 如果您想要從裝置中移除所有模組，請建立不含模組的部署，並將其部署至相同的裝置。 選取 **[是]** 以繼續。 
 
 ## <a name="next-steps"></a>後續步驟
 
-Learn more about [Deploying modules to IoT Edge devices](module-deployment-monitoring.md).
+深入瞭解如何[將模組部署到 IoT Edge 裝置](module-deployment-monitoring.md)。

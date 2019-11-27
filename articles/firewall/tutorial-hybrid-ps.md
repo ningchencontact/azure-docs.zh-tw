@@ -71,7 +71,7 @@ ms.locfileid: "74195769"
 
 若要檢閱相關的 Azure PowerShell 參考文件，請參閱 [Azure PowerShell 參考](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="declare-the-variables"></a>宣告變數
 

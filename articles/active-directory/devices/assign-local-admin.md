@@ -1,5 +1,5 @@
 ---
-title: How to manage local administrators on Azure AD joined devices
+title: 如何在已加入 Azure AD 的裝置上管理本機系統管理員
 description: 了解如何將 Azure 角色指派給 Windows 裝置的本機系統管理員群組。
 services: active-directory
 ms.service: active-directory
@@ -59,10 +59,10 @@ Azure AD 也會將 Azure AD 裝置管理員角色新增至本機系統管理員�
 >[!NOTE]
 > 此選項需要 Azure AD Premium 租用戶。 
 
-裝置管理員會指派給所有加入 Azure AD 的裝置。 您無法將裝置管理員的範圍設定為一組特定的裝置。 更新裝置管理員角色不一定會對受影響的使用者產生直接的影響。 On devices where a user is already signed into, the privilege update takes place when *both* the below actions happen:
+裝置管理員會指派給所有加入 Azure AD 的裝置。 您無法將裝置管理員的範圍設定為一組特定的裝置。 更新裝置管理員角色不一定會對受影響的使用者產生直接的影響。 在使用者已登入的裝置上，會在下列*兩個*動作發生時進行許可權更新：
 
-- 4 hours have passed for Azure AD to issue a new Primary Refresh Token with the appropriate privileges. 
-- User signs out and signs back in, not lock/unlock, to refresh their profile.
+- 已為 Azure AD 傳遞4小時，以適當的許可權發出新的主要重新整理權杖。 
+- 使用者登出並登入，而不是鎖定/解除鎖定，以重新整理其設定檔。
 
 ## <a name="manage-regular-users"></a>管理一般使用者
 
@@ -75,14 +75,14 @@ Azure AD 也會將 Azure AD 裝置管理員角色新增至本機系統管理員�
 
 除了使用 Azure AD Join 程序以外，您也可以手動提高一般使用者的權限，使其成為一個特定裝置的本機系統管理員。 若要執行此步驟，您必須已是本機系統管理員群組的成員。 
 
-Starting with the **Windows 10 1709** release, you can perform this task from **Settings -> Accounts -> Other users**. 選取 [新增工作或學校使用者]，並且在 [使用者帳戶] 下輸入使用者的 UPN，然後選取 [帳戶類型] 下的 [管理員]  
+從**Windows 10 1709**版本開始，您可以從 [**設定-> 帳戶-> 其他使用者**] 執行這項工作。 選取 [新增工作或學校使用者]，並且在 [使用者帳戶] 下輸入使用者的 UPN，然後選取 [帳戶類型] 下的 [管理員]  
  
 此外，您也可以使用命令提示字元來新增使用者：
 
 - 如果您的租用戶使用者是從內部部署 Active Directory 同步處理的，請使用 `net localgroup administrators /add "Contoso\username"`。
 - 如果您的租用戶使用者是在 Azure AD 中建立的，請使用 `net localgroup administrators /add "AzureAD\UserUpn"`
 
-## <a name="considerations"></a>考量 
+## <a name="considerations"></a>注意事項 
 
 您無法將群組指派給裝置管理員角色，而只能指派個別使用者。
 
@@ -93,4 +93,4 @@ Starting with the **Windows 10 1709** release, you can perform this task from **
 ## <a name="next-steps"></a>後續步驟
 
 - 若要取得在 Azure 入口網站中管理裝置的概觀，請參閱[使用 Azure 入口網站來管理裝置](device-management-azure-portal.md)
-- To learn more about device-based Conditional Access, see [configure Azure Active Directory device-based Conditional Access policies](../conditional-access/require-managed-devices.md).
+- 若要深入瞭解裝置型條件式存取，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](../conditional-access/require-managed-devices.md)。

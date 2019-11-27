@@ -18,7 +18,7 @@ ms.locfileid: "74232957"
 ## <a name="sample-use-cases"></a>範例使用案例
 
 > [!NOTE]
-> The following samples show how to use custom status feature in C# and JavaScript. The C# examples are written for Durable Functions 2.x and are not compatible with Durable Functions 1.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> 下列範例示範如何使用和 JavaScript 中C#的自訂狀態功能。 這些C#範例是針對 Durable Functions 2.x 而撰寫的，與 Durable Functions 1.x 不相容。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
 ### <a name="visualize-progress"></a>進度視覺化
 
@@ -142,7 +142,7 @@ module.exports = async function(context, req) {
 ```
 
 > [!NOTE]
-> 在 JavaScript 中，排程下一個 `yield` 或 `return` 動作時，將設定 `customStatus` 欄位。
+> 在 JavaScript 中，排程下一個 `customStatus` 或 `yield` 動作時，將設定 `return` 欄位。
 
 ### <a name="output-customization"></a>自訂輸出
 
@@ -333,9 +333,9 @@ GET /runtime/webhooks/durabletask/instances/instance123
 ```
 
 > [!WARNING]
-> 自訂狀態承載僅限為 16 KB 的 UTF-16 JSON 文字，因為它必須符合 Azure 資料表儲存體資料行的大小。 We recommend you use external storage if you need a larger payload.
+> 自訂狀態承載僅限為 16 KB 的 UTF-16 JSON 文字，因為它必須符合 Azure 資料表儲存體資料行的大小。 如果您需要較大的承載，建議使用外部儲存體。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Learn about durable timers](durable-functions-timers.md)
+> [瞭解持久計時器](durable-functions-timers.md)

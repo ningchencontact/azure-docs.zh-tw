@@ -24,7 +24,7 @@ ms.locfileid: "74464059"
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>使用 Azure Media Indexer 2 Preview 編製媒體檔案索引
 
 > [!NOTE]
-> The [Azure Media Indexer 2](media-services-process-content-with-indexer2.md) media processor will be retired on January 1 of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces this legacy media processor. For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+> [Azure 媒體索引子 2](media-services-process-content-with-indexer2.md)媒體處理器將于2020年1月1日淘汰。 [Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代此舊版媒體處理器。 如需詳細資訊，請參閱[從 Azure 媒體索引子遷移和 Azure 媒體索引子2，到 Azure 媒體服務影片索引子](migrate-indexer-v1-v2.md)。
 
 **Azure Media Indexer 2 Preview** 媒體處理器 (MP) 可讓您將媒體檔案和內容設為可供搜尋，並產生隱藏式輔助字幕追蹤。 相較於舊版的 [Azure Media Indexer](media-services-index-content.md)， **Azure Media Indexer 2 Preview** 編製索引速度更快，並提供更廣泛的語言支援。 支援的語言包括英文、西班牙文、法文、德文、義大利文、中文 (國語、簡體)、葡萄牙文、阿拉伯文、俄文和日文。
 
@@ -32,11 +32,11 @@ ms.locfileid: "74464059"
 
 本文章說明如何使用 **Azure Media Indexer 2 Preview** 建立索引工作。
 
-## <a name="considerations"></a>考量
+## <a name="considerations"></a>注意事項
 
 您必須考量下列事項：
  
-* Indexer 2 is not supported in Azure China 21Vianet and Azure Government.
+* Azure 中國的世紀和 Azure Government 不支援索引子2。
 * 在編製內容索引時，請務必使用語音非常清楚的媒體檔案 (不含背景音樂、噪音、效果或麥克風雜音)。 適當內容的一些範例有：錄製的會議、演講或簡報。 下列內容可能不適合用來編製索引：電影、電視節目、任何具有混合音訊與音效的內容、錄製效果不良有背景噪音 (雜音) 的內容。
  
 ## <a name="input-and-output-files"></a>輸入和輸出檔案
@@ -86,7 +86,7 @@ Azure Media Indexer 2 Preview 支援下列語言的語音轉文字 (在工作設
 * 日文 [JaJp]
 * 俄文 [RuRu]
 * 英式英文 [EnGb]
-* Spanish (Mexico) [EsMx] 
+* 西班牙文（墨西哥） [EsMx] 
 
 ## <a name="supported-file-types"></a>支援的檔案類型
 
@@ -119,7 +119,7 @@ Azure Media Indexer 2 Preview 支援下列語言的語音轉文字 (在工作設
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
 
-設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)所述。 
+設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)中所述。 
 
 #### <a name="example"></a>範例
 

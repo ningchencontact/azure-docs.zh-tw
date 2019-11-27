@@ -16,7 +16,7 @@ ms.locfileid: "74227075"
 
 本文示範如何對可處理儲存體帳戶所引發 Azure 事件方格事件的本機函式進行偵錯。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 建立或使用現有的函式應用程式
 - 建立或使用現有的儲存體帳戶
@@ -54,7 +54,7 @@ ngrok http -host-header=localhost 7071
 
 ![啟動 ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
 
-複製在執行 ngrok 時所產生的 **HTTPS** URL。 在設定事件方格事件端點時會使用此值。
+複製在執行 ngrok 時所產生的 *HTTPS* URL。 在設定事件方格事件端點時會使用此值。
 
 ## <a name="add-a-storage-event"></a>新增儲存體事件
 

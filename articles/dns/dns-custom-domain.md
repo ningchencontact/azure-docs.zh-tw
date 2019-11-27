@@ -1,6 +1,6 @@
 ---
-title: Integrate Azure DNS with your Azure resources - Azure DNS
-description: In this article, learn how to use Azure DNS along to provide DNS for your Azure resources.
+title: 將 Azure DNS 與您的 Azure 資源整合-Azure DNS
+description: 在本文中，您將瞭解如何使用 Azure DNS 來為您的 Azure 資源提供 DNS。
 services: dns
 author: asudbring
 ms.service: dns
@@ -16,9 +16,9 @@ ms.locfileid: "74212427"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>使用 Azure DNS 為 Azure 服務提供自訂網域設定
 
-Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有完整網域名稱 (FQDN) 的 Azure 資源。 An example is you have an Azure web app and you want your users to access it by either using contoso.com, or www\.contoso.com as an FQDN. 本文章會引導您使用 Azure DNS 設定您的 Azure 服務，以便使用自訂網域。
+Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有完整網域名稱 (FQDN) 的 Azure 資源。 例如，您有 Azure web 應用程式，而且您想要讓使用者使用 contoso.com 或 www\.contoso.com 做為 FQDN 來存取它。 本文章會引導您使用 Azure DNS 設定您的 Azure 服務，以便使用自訂網域。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 為了在您的自訂網域 Azure DNS，您必須先將您的網域委派給 Azure DNS。 如需如何設定名稱伺服器以便進行委派的指示，請參閱[將網域委派給 Azure DNS](./dns-delegate-domain-azure-dns.md)。 一旦將您的網域委派給您的 Azure DNS 區域，您就能夠設定所需的 DNS 記錄。
 
@@ -38,10 +38,10 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
-|屬性  |Value  |描述  |
+|屬性  |值  |描述  |
 |---------|---------|---------|
-|Name     | myFunctionApp        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
-|Type     | CNAME        | 使用 CNAME 記錄會使用別名。        |
+|名稱     | myFunctionApp        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
+|在系統提示您進行確認時，輸入     | CNAME        | 使用 CNAME 記錄會使用別名。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
 |Alias     | adatumfunction.azurewebsites.net        | 您正在為其建立別名的 DNS 名稱，在此範例中是 adatumfunction.azurewebsites.net (預設提供給函數應用程式的 DNS 名稱)。        |
@@ -54,7 +54,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 
 ## <a name="public-ip-address"></a>公用 IP 位址
 
-To configure a custom domain for services that use a public IP address resource such as Application Gateway, Load Balancer, Cloud Service, Resource Manager VMs, and, Classic VMs, an A record is used.
+若要為使用公用 IP 位址資源的服務（例如應用程式閘道、Load Balancer、雲端服務、Resource Manager Vm 和、傳統 Vm）設定自訂網域，則會使用 A 記錄。
 
 瀏覽至 [網路]  >  [公用 IP 位址]，選取公用 IP 資源，然後按一下 [設定]。 記下顯示的 IP 位址。
 
@@ -63,10 +63,10 @@ To configure a custom domain for services that use a public IP address resource 
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
 
-|屬性  |Value  |描述  |
+|屬性  |值  |描述  |
 |---------|---------|---------|
-|Name     | mywebserver        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
-|Type     | A        | 使用 A 記錄，因為該資源是 IP 位址。        |
+|名稱     | mywebserver        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
+|在系統提示您進行確認時，輸入     | A        | 使用 A 記錄，因為該資源是 IP 位址。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
 |IP 位址     | `<your ip address>`       | 公用 IP 位址。|
@@ -90,10 +90,10 @@ To configure a custom domain for services that use a public IP address resource 
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
 
-|屬性  |Value  |描述  |
+|屬性  |值  |描述  |
 |---------|---------|---------|
-|Name     | mywebserver        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
-|Type     | CNAME        | 使用 CNAME 記錄會使用別名。 如果資源使用 IP 位址，就會使用 A 記錄。        |
+|名稱     | mywebserver        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
+|在系統提示您進行確認時，輸入     | CNAME        | 使用 CNAME 記錄會使用別名。 如果資源使用 IP 位址，就會使用 A 記錄。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
 |Alias     | webserver.azurewebsites.net        | 您正在為其建立別名的 DNS 名稱，在此範例中是 webserver.azurewebsites.net (預設提供給 Web 應用程式的 DNS 名稱)。        |
@@ -111,7 +111,7 @@ To configure a custom domain for services that use a public IP address resource 
 
 若要深入了解自訂網域對應至 App Service，請造訪[將現有的自訂 DNS 名稱對應至 Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json)。
 
-To learn how to migrate an active DNS name, see [Migrate an active DNS name to Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).
+若要瞭解如何遷移使用中的 DNS 名稱，請參閱將作用中[的 dns 名稱遷移至 Azure App Service](../app-service/manage-custom-dns-migrate-domain.md)。
 
 如果您需要購買自訂網域，請造訪[購買 Azure Web Apps 的自訂網域名稱](../app-service/manage-custom-dns-buy-domain.md)，以深入了解 App Service 網域。
 
@@ -126,15 +126,15 @@ To learn how to migrate an active DNS name, see [Migrate an active DNS name to A
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
 
-|屬性  |Value  |描述  |
+|屬性  |值  |描述  |
 |---------|---------|---------|
-|Name     | asverify.mystorageaccount        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
-|Type     | CNAME        | 使用 CNAME 記錄會使用別名。        |
+|名稱     | asverify.mystorageaccount        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
+|在系統提示您進行確認時，輸入     | CNAME        | 使用 CNAME 記錄會使用別名。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | 您正在為其建立別名的 DNS 名稱，在此範例中是 asverify.adatumfunctiona9ed.blob.core.windows.net (預設提供給儲存體帳戶的 DNS 名稱)。        |
 
-按一下 [儲存體]  >  [儲存體帳戶] 以回到您的儲存體帳戶，選取您的儲存體帳戶，然後選取 [自訂網域]。 在文字方塊中輸入您建立的別名但不含 asverify 前置詞，核取 [使用間接 CNAME 驗證]，然後按一下 [儲存]。 一旦完成這個步驟，返回您的 DNS 區域，建立不含 asverify 前置詞的 CNAME 記錄。  此時，您就可以放心刪除具有 cdnverify 前置詞的 CNAME 記錄。
+按一下 [儲存體]  >  [儲存體帳戶] 以回到您的儲存體帳戶，選取您的儲存體帳戶，然後選取 [自訂網域]。 在文字方塊中輸入您建立的別名但不含 asverify 前置詞，核取 \*\*[使用間接 CNAME 驗證]，然後按一下 [儲存]。 一旦完成這個步驟，返回您的 DNS 區域，建立不含 asverify 前置詞的 CNAME 記錄。  此時，您就可以放心刪除具有 cdnverify 前置詞的 CNAME 記錄。
 
 ![Blob 儲存體自訂網域](./media/dns-custom-domain/indirectvalidate.png)
 
@@ -154,10 +154,10 @@ To learn how to migrate an active DNS name, see [Migrate an active DNS name to A
 
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
-|屬性  |Value  |描述  |
+|屬性  |值  |描述  |
 |---------|---------|---------|
-|Name     | cdnverify.mycdnendpoint        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
-|Type     | CNAME        | 使用 CNAME 記錄會使用別名。        |
+|名稱     | cdnverify.mycdnendpoint        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
+|在系統提示您進行確認時，輸入     | CNAME        | 使用 CNAME 記錄會使用別名。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
 |Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | 您正在為其建立別名的 DNS 名稱，在此範例中是 cdnverify.adatumcdnendpoint.azureedge.net (預設提供給儲存體帳戶的 DNS 名稱)。        |
