@@ -26,7 +26,7 @@ ms.locfileid: "74533842"
 
 本文說明如何使用 [Azure Site Recovery](site-recovery-overview.md) 保護 SAP NetWeaver 應用程式部署。 本文涵蓋在 Azure 上保護三層式 SAP NetWeaver 部署的最佳做法，也就是使用 Site Recovery 來複寫至另一個 Azure 資料中心。 其說明支援的案例和組態，以及如何執行測試容錯移轉 (災害復原演練) 和實際的容錯移轉。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 在開始之前，請確定您了解如何執行下列工作：
 
 * [將虛擬機器複寫至 Azure](azure-to-azure-walkthrough-enable-replication.md)
@@ -120,7 +120,7 @@ Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量�
 
 
 ## <a name="creating-a-recovery-plan"></a>建立復原方案
-復原計畫支援在容錯移轉期間對多層式應用程式中的各層進行排序。 排序有助於維持應用程式的一致性。 當您為多層式 Web 應用程式建立復原計畫時，請完成[使用 Site Recovery 建立復原計畫](site-recovery-create-recovery-plans.md)中所述的步驟。
+復原方案支援在容錯移轉期間對多層式應用程式中的各層進行排序。 排序有助於維持應用程式的一致性。 當您為多層式 Web 應用程式建立復原方案時，請完成[使用 Site Recovery 建立復原方案](site-recovery-create-recovery-plans.md)中所述的步驟。
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>將虛擬機器新增至容錯移轉群組
 

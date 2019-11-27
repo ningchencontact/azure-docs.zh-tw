@@ -27,7 +27,7 @@ ms.locfileid: "74542390"
 
 有了 Azure Machine Learning，您就可以從定型的機器學習模型建立 Docker 映射。 Azure Machine Learning 現在具有預覽功能，可將這些機器學習模型建立到函式應用程式中，以[部署至 Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure Machine Learning 工作區。 如需詳細資訊，請參閱[建立工作區](how-to-manage-workspace.md)文章。
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。

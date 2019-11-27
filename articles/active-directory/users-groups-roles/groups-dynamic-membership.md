@@ -70,7 +70,7 @@ user.department -eq "Sales"
 
 - 屬性
 - 運算子
-- 值
+- Value
 
 運算式內的部分順序很重要，可避免發生語法錯誤。
 
@@ -78,22 +78,22 @@ user.department -eq "Sales"
 
 有三種類型的屬性可用來建構成員資格規則。
 
-- 布林值
-- 字串
+- Boolean
+- String
 - 字串集合
 
 以下是您可用來建立單一運算式的使用者屬性。
 
 ### <a name="properties-of-type-boolean"></a>布林型別的屬性
 
-| properties | 允許的值 | 使用方式 |
+| 屬性 | 允許的值 | 用量 |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>字串類型的屬性
 
-| properties | 允許的值 | 使用方式 |
+| 屬性 | 允許的值 | 用量 |
 | --- | --- | --- |
 | city |任何字串值或 *null* |(user.city -eq "value") |
 | country |任何字串值或 *null* |(user.country -eq "value") |
@@ -105,7 +105,7 @@ user.department -eq "Sales"
 | givenName |任何字串值或 *null* |(user.givenName -eq "value") |
 | jobTitle |任何字串值或 *null* |(user.jobTitle -eq "value") |
 | mail |任何字串值或 *null* (使用者的 SMTP 位址) |(user.mail -eq "value") |
-| mailNickname |任何字串值 (使用者的郵件別名) |(user.mailNickName -eq "value") |
+| mailNickName |任何字串值 (使用者的郵件別名) |(user.mailNickName -eq "value") |
 | mobile |任何字串值或 *null* |(user.mobile -eq "value") |
 | objectId |使用者物件的 GUID |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | 已從內部部署環境同步至雲端之使用者的內部部署安全性識別碼 (SID)。 |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
@@ -124,7 +124,7 @@ user.department -eq "Sales"
 
 ### <a name="properties-of-type-string-collection"></a>字串集合類型的屬性
 
-| properties | 允許的值 | 使用方式 |
+| 屬性 | 允許的值 | 用量 |
 | --- | --- | --- |
 | otherMails |任何字串值 |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -138,7 +138,7 @@ user.department -eq "Sales"
 | 運算子 | 語法 |
 | --- | --- |
 | Not Equals |-ne |
-| Equals |-eq |
+| 等於 |-eq |
 | Not Starts With |-notStartsWith |
 | 開頭為 |-startsWith |
 | Not Contains |-notContains |
@@ -249,7 +249,7 @@ David 會評估為 true，Da 則會評估為 false。
 
 多重值屬性是相同類型之物件的集合。 它們可以用來建立使用 -any 和 -all 邏輯運算子的成員資格規則。
 
-| properties | 值 | 使用方式 |
+| 屬性 | 值 | 用量 |
 | --- | --- | --- |
 | assignedPlans | 集合中的每個物件都會公開下列字串屬性：capabilityStatus、service、servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |

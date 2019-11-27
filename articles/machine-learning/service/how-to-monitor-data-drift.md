@@ -43,9 +43,9 @@ ms.locfileid: "74539230"
 
 使用 Azure Machine Learning，資料漂移會透過資料集或部署進行監視。 若要監視資料漂移，基準資料集-通常會指定模型的訓練資料集。 第二個資料集（通常是從部署收集的模型輸入資料）會針對基準資料集進行測試。 這兩個資料集都會進行分析，並輸入至資料漂移監視服務。 機器學習模型已定型，可偵測這兩個資料集之間的差異。 模型的效能會轉換成漂移係數，測量兩個資料集之間的漂移程度。 使用[模型 interpretability](how-to-machine-learning-interpretability.md)時，會計算構成漂移係數的功能。 從資料集設定檔中，會追蹤每項功能的統計資訊。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- Azure 訂閱。 如果您沒有，請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
+- Azure 訂用帳戶。 如果您沒有，請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 - 安裝 Azure Machine Learning SDK for Python。 請依照 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 中的指示執行下列工作：
 
@@ -123,7 +123,7 @@ RunDetails(dd_run).show()
 在您提交 DataDriftDetector 回合之後，您可以在資料漂移工作的每次執行反復專案中查看儲存的漂移計量：
 
 
-|度量|描述|
+|計量|描述|
 --|--|
 wasserstein_distance|為一維數值散發定義的統計距離。|
 energy_distance|為一維數值散發定義的統計距離。|

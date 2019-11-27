@@ -24,10 +24,10 @@ ms.locfileid: "74534287"
 > 本文中所述的 `storage-preview` 擴充功能目前為公開預覽狀態。
 
  | [Gen1 至 Gen2 對應的](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)[範例](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support)， | [提供意見](https://github.com/Azure/azure-cli-extensions/issues)反應
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 > [!div class="checklist"]
-> * Azure 訂閱。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+> * Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 > * 已啟用階層命名空間（HNS）的儲存體帳戶。 請遵循[這些](data-lake-storage-quickstart-create-account.md)指示來建立一個。
 > * Azure CLI 版本 `2.0.67` 或更高版本。
 
@@ -296,7 +296,7 @@ az storage blob directory metadata update --metadata tag1=value1 tag2=value2 -c 
 az storage blob directory metadata show -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [範例](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
 * [Gen1 至 Gen2 對應](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)

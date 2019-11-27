@@ -48,7 +48,7 @@ ms.locfileid: "74533823"
   * Microsoft Azure 上 Windows 和 Linux 所需的 SAP 核心版本。
 * SAP Note [2015553] 列出 Azure 中 SAP 支援的 SAP 軟體部署先決條件。
 * SAP Note [2002167] 建議適用於 Red Hat Enterprise Linux 的作業系統設定
-* SAP Note [2009879] 提供適用於 Red Hat Enterprise Linux 的 SAP HANA 方針
+* SAP Note [2009879] 提供適用於 Red Hat Enterprise Linux 的 SAP Hana 指導方針
 * SAP Note [2178632] 包含在 Azure 中針對 SAP 回報的所有監視計量詳細資訊。
 * SAP Note [2191498] 包含 Azure 中 Linux 所需的 SAP Host Agent 版本。
 * SAP Note [2243692] 包含 Azure 中 Linux 上的 SAP 授權相關資訊。
@@ -92,7 +92,7 @@ ms.locfileid: "74533823"
 
 1. **[A]** 啟用 RHEL for SAP 存放庫
 
-   若要安裝必要的套件，請啟用下列存放庫。
+   若要安裝必要的封裝，請啟用下列存放庫。
 
    <pre><code>sudo subscription-manager repos --disable "*"
    sudo subscription-manager repos --enable=rhel-7-server-rpms
@@ -200,7 +200,7 @@ ms.locfileid: "74533823"
 
 STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下列步驟來建立服務主體。
 
-1. 移至 <https://portal.azure.com>
+1. 前往 <https://portal.azure.com>
 1. 開啟 [Azure Active Directory] 刀鋒視窗  
    移至 [屬性]，並記下目錄識別碼。 這是「租用戶識別碼」。
 1. 按一下 [應用程式註冊]
@@ -243,14 +243,14 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 
 將在上一章中建立的自訂角色「Linux 柵欄代理程式角色」指派給服務主體。 不要再使用「擁有者」角色！
 
-1. 移至 https://portal.azure.com
+1. 前往 https://portal.azure.com
 1. 開啟 [所有資源] 刀鋒視窗
 1. 選取第一個叢集節點的虛擬機器
 1. 選取 [存取控制 (IAM)]
 1. 按一下 [新增角色指派]
 1. 選取「Linux 柵欄代理程式角色」角色
 1. 輸入您先前建立的應用程式名稱
-1. 按一下 [儲存]。
+1. 按一下 [Save] (儲存)。
 
 針對第二個叢集節點重複上述步驟。
 

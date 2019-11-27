@@ -56,7 +56,7 @@ ms.locfileid: "74546850"
 
 ### <a name="examples"></a>範例
 
-下列範例顯示您可以指派給 `appRoles` 的 `users`。
+下列範例顯示您可以指派給 `users` 的 `appRoles`。
 
 > [!NOTE]
 >`id` 必須是唯一的 GUID。

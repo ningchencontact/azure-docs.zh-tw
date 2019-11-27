@@ -25,7 +25,7 @@ ms.locfileid: "74533479"
 
 下列區域和資源可供包含 Linux 和[支援的](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server 2016 容器的容器群組使用。
 
-| 位置 | 作業系統 | CPU | 記憶體 (GB) |
+| Location | OS | CPU | 記憶體 (GB) |
 | -------- | -- | :---: | :-----------: |
 | 加拿大中部、印度中部、美國中部、東亞、美國東部、美國東部 2、歐洲北部、美國中南部、東南亞、英國南部、美國西部 | Linux | 4 | 16 |
 | 歐洲西部、美國西部 2 | Linux | 4 | 14 |
@@ -39,7 +39,7 @@ ms.locfileid: "74533479"
 
 下列區域和資源可供包含 Windows Server 2019 容器 (預覽) 的容器群組使用。
 
-| 位置 | 作業系統 | CPU | 記憶體 (GB) |
+| Location | OS | CPU | 記憶體 (GB) |
 | -------- | -- | :---: | :-----------: |
 | 東南亞、歐洲北部、歐洲西部、美國中部、美國東部、美國西部、美國西部 2 | Windows | 4 | 16 |
 | 美國東部 2 | Windows | 2 | 3.5 |

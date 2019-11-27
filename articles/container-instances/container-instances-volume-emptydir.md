@@ -33,7 +33,7 @@ ms.locfileid: "74533240"
 
 若要在容器執行個體中掛接 emptyDir 磁碟區，您必須使用 [Azure Resource Manager 範本](/azure/templates/microsoft.containerinstance/containergroups)進行部署。
 
-首先，填入範本的容器群組 `volumes` 區段中的 `properties` 陣列。 接下來，針對您想要掛接 *emptyDir* 磁碟區所在容器群組中的每個容器，填入容器定義之 `volumeMounts` 區段中的 `properties` 陣列。
+首先，填入範本的容器群組 `properties` 區段中的 `volumes` 陣列。 接下來，針對您想要掛接 *emptyDir* 磁碟區所在容器群組中的每個容器，填入容器定義之 `properties` 區段中的 `volumeMounts` 陣列。
 
 例如，下列 Resource Manager 範本會建立一個由兩個容器 (個別掛接了 *emptyDir* 磁碟區) 組成的容器群組：
 

@@ -37,7 +37,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 安裝和設定此解決方案之前必須先具備下列項目。
 
@@ -103,14 +103,14 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 1. 選取 [ **API 許可權**]，然後按一下 [**新增許可權**]。
 1. 按一下 [ **Office 365 管理 api**]。 
 
-    ![選取 API](media/solution-office-365/select-api.png)
+    ![精選 API](media/solution-office-365/select-api.png)
 
 1. 在**您的應用程式需要何種許可權類型的情況**下，請針對**應用程式許可權**和**委派的許可權**選取下列選項：
    - 讀取您組織的服務健康情況資訊
    - 讀取您組織的活動資料
    - 讀取您組織的活動報告
 
-     ![選取 API](media/solution-office-365/select-permissions-01.png)![選取 API](media/solution-office-365/select-permissions-02.png)
+     ![精選 API](media/solution-office-365/select-permissions-01.png)![精選 API](media/solution-office-365/select-permissions-02.png)
 
 1. 按一下 [新增權限]。
 1. 按一下 **[授與管理員同意**]，然後在系統要求驗證時按一下 **[是]** 。
@@ -120,12 +120,12 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 
 1. 選取 [**憑證 & 密碼**]，然後選取 [**新增用戶端密碼**]。
 
-    ![之間的信任](media/solution-office-365/secret.png)
+    ![金鑰](media/solution-office-365/secret.png)
  
 1. 輸入新金鑰的 [描述] 和 [持續時間]。
 1. 按一下 [**新增**]，然後將產生的**值**儲存為用戶端密碼，以及先前收集到的其餘資訊。
 
-    ![之間的信任](media/solution-office-365/keys.png)
+    ![金鑰](media/solution-office-365/keys.png)
 
 ### <a name="add-admin-consent"></a>新增管理員同意
 
@@ -519,7 +519,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 一開始收集資料可能會需要幾個小時。 一旦開始收集資料，每次建立一筆記錄時，Office 365 都會將 [Webhook 通知](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) \(英文\) 連同詳細資料傳送至 Azure 監視器。 收到此記錄的幾分鐘內，即可將其用於 Azure 監視器。
 
-## <a name="using-the-solution"></a>使用方案
+## <a name="using-the-solution"></a>使用解決方案
 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
@@ -532,9 +532,9 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 此儀表板包含下表中的資料行。 每個資料行依計數列出前十個警示，這幾個警示符合該資料行中指定範圍和時間範圍的準則。 您可以按一下資料行底部的 [查看全部]，或按一下資料行標頭，以執行記錄搜尋來提供完整清單。
 
-| 資料欄 | 描述 |
+| Column | 描述 |
 |:--|:--|
-| 作業 | 提供所有受監視 Office 365 訂閱中之作用中使用者的相關資訊。 您也可以查看一段時間內發生的活動數。
+| Dynamics 365 | 提供所有受監視 Office 365 訂閱中之作用中使用者的相關資訊。 您也可以查看一段時間內發生的活動數。
 | Exchange | 顯示 Exchange Server 活動細目，例如 Add-Mailbox 權限或 Set-Mailbox。 |
 | SharePoint | 顯示使用者最常對 SharePoint 文件執行的活動。 當您從此圖格向下鑽研時，搜尋頁面會顯示這些活動的詳細資料，例如此活動的目標文件與位置。 例如，針對「已存取檔案」事件，您可以查看所存取的文件、其相關帳戶名稱，以及 IP 位址。 |
 | Azure Active Directory | 包含熱門使用者活動，例如「重設使用者密碼」和「登入嘗試」。 向下鑽研時，您可以像「結果狀態」一般地查看這些活動的詳細資料。 如果您想要監視 Azure Active Directory 上的可疑活動，這會很有幫助。 |
@@ -552,7 +552,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 在系統提示您進行確認時，輸入 | *OfficeActivity* |
+| Type | *OfficeActivity* |
 | ClientIP | 記錄活動時所使用之裝置的 IP 位址。 IP 位址會以 IPv4 或 IPv6 位址格式顯示。 |
 | OfficeWorkload | 記錄所指的 Office 365 服務。<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | 作業 | 使用者或管理員活動的名稱。  |
@@ -561,7 +561,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 | ResultStatus | 指出 (Operation 屬性中指定的) 動作是否成功。 可能的值為 Succeeded、PartiallySucceeded 或 Failed。 對於 Exchange 管理員活動，這個值將會是 True 或 False。 |
 | UserId | 執行動作導致記下該記錄之使用者的 UPN (使用者主體名稱)，例如 my_name@my_domain_name。 請注意，由系統帳戶 (例如 SHAREPOINT\system 或 NTAUTHORITY\SYSTEM) 所執行之活動的記錄也會包含在內。 | 
 | UserKey | UserId 屬性所識別之使用者的替代識別碼。  例如，針對由使用者在 SharePoint、商務用 OneDrive 及 Exchange 中所執行的事件，此屬性都會填入 Passport 唯一識別碼 (PUID)。 針對在其他服務中所發生的事件，以及由系統帳戶所執行的事件，此屬性也可能會將相同的值指定為 UserID 屬性|
-| UserType | 執行作業的使用者類型。<br><br>Admin<br>應用程式<br>DcAdmin<br>定期<br>Reserved<br>ServicePrincipal<br>系統 |
+| UserType | 執行作業的使用者類型。<br><br>Admin<br>Application<br>DcAdmin<br>Regular<br>保留<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory 基底
@@ -599,7 +599,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
 | AADTarget | 對之執行 (透過 Operation 屬性所識別的) 動作的使用者。 |
-| 執行者 | 執行動作的使用者或服務主體。 |
+| Actor | 執行動作的使用者或服務主體。 |
 | ActorContextId | 執行者所屬組織的 GUID。 |
 | ActorIpAddress | 以 IPV4 或 IPV6 位址格式顯示的執行者 IP 位址。 |
 | InterSystemsId | 在 Office 365 服務內跨元件追蹤動作的 GUID。 |
@@ -636,7 +636,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 | ModifiedObjectResolvedName |  這是 Cmdlet 所修改之物件的使用者易記名稱。 這只有在 Cmdlet 修改物件時才會記錄。 |
 | OrganizationName | 租用戶的名稱。 |
 | OriginatingServer | 執行 Cmdlet 之伺服器的名稱。 |
-| parameters | 搭配在 Operations 屬性中所識別的 Cmdlet 所使用之所有參數的名稱與值。 |
+| 參數 | 搭配在 Operations 屬性中所識別的 Cmdlet 所使用之所有參數的名稱與值。 |
 
 
 ### <a name="exchange-mailbox"></a>Exchange 信箱
@@ -670,7 +670,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
-| item | 表示對之執行作業的項目 | 
+| Item | 表示對之執行作業的項目 | 
 | SendAsUserMailboxGuid | 存取以傳送電子郵件之信箱的 Exchange GUID。 |
 | SendAsUserSmtp | 被模擬之使用者的 SMTP 位址。 |
 | SendonBehalfOfUserMailboxGuid | 存取以代為傳送電子郵件之信箱的 Exchange GUID。 |

@@ -41,7 +41,7 @@ ms.locfileid: "74539193"
 
 您可以使用下列其中一種方法來啟用及管理計量和診斷遙測記錄功能︰
 
-- Azure 入口網站
+- Azure Portal
 - PowerShell
 - Azure CLI
 - Azure 監視器 REST API
@@ -50,7 +50,7 @@ ms.locfileid: "74539193"
 當您啟用計量和診斷記錄時，您需要指定用來收集診斷遙測資料的 Azure 資源目的地。 可用的選項包括：
 
 - Azure SQL 分析
-- Azure 事件中心
+- Azure 事件中樞
 - Azure 儲存體
 
 您可以佈建新的 Azure 資源，或選取現有的資源。 使用 [診斷設定]選項選擇資源之後，指定要收集的資料。
@@ -63,17 +63,17 @@ ms.locfileid: "74539193"
 
 | 監視資料庫的遙測 | 單一資料庫和集區資料庫支援 | 實例資料庫支援 |
 | :------------------- | ----- | ----- |
-| [基本計量](#basic-metrics)：包含 DTU/cpu 百分比、DTU/cpu 限制、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆連線、會話百分比、背景工作百分比、儲存體、儲存體百分比和 XTP儲存體百分比。 | yes | 否 |
-| [實例和應用程式 Advanced](#advanced-metrics)：包含 tempdb 系統資料庫資料和記錄檔大小，以及所使用的 tempdb 百分比記錄檔。 | yes | 否 |
-| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics)：包含查詢執行時間統計資料的相關資訊，例如 CPU 使用率和查詢持續時間統計資料。 | yes | yes |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics)：包含查詢等候統計資料的相關資訊（您的查詢等候的時間），例如 CPU、記錄和鎖定。 | yes | yes |
-| [錯誤](#errors-dataset)：包含有關資料庫上 SQL 錯誤的資訊。 | yes | yes |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含和資料庫花費在不同等候類型的等候時間長度有關的資訊。 | yes | 否 |
-| [超時](#time-outs-dataset)：包含資料庫上之超時的相關資訊。 | yes | 否 |
-| [封鎖](#blockings-dataset)：包含有關資料庫上封鎖事件的資訊。 | yes | 否 |
-| [鎖死](#deadlocks-dataset)：包含有關資料庫上之鎖死事件的資訊。 | yes | 否 |
-| [AutomaticTuning](#automatic-tuning-dataset)：包含資料庫之自動調整建議的相關資訊。 | yes | 否 |
-| [SQLInsights](#intelligent-insights-dataset)：包含資料庫的效能 Intelligent Insights。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | yes | yes |
+| [基本計量](#basic-metrics)：包含 DTU/cpu 百分比、DTU/cpu 限制、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆連線、會話百分比、背景工作百分比、儲存體、儲存體百分比和 XTP 儲存體百分比。 | 是 | 否 |
+| [實例和應用程式 Advanced](#advanced-metrics)：包含 tempdb 系統資料庫資料和記錄檔大小，以及所使用的 tempdb 百分比記錄檔。 | 是 | 否 |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics)：包含查詢執行時間統計資料的相關資訊，例如 CPU 使用率和查詢持續時間統計資料。 | 是 | 是 |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics)：包含查詢等候統計資料的相關資訊（您的查詢等候的時間），例如 CPU、記錄和鎖定。 | 是 | 是 |
+| [錯誤](#errors-dataset)：包含有關資料庫上 SQL 錯誤的資訊。 | 是 | 是 |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含和資料庫花費在不同等候類型的等候時間長度有關的資訊。 | 是 | 否 |
+| [超時](#time-outs-dataset)：包含資料庫上之超時的相關資訊。 | 是 | 否 |
+| [封鎖](#blockings-dataset)：包含有關資料庫上封鎖事件的資訊。 | 是 | 否 |
+| [鎖死](#deadlocks-dataset)：包含有關資料庫上之鎖死事件的資訊。 | 是 | 否 |
+| [AutomaticTuning](#automatic-tuning-dataset)：包含資料庫之自動調整建議的相關資訊。 | 是 | 否 |
+| [SQLInsights](#intelligent-insights-dataset)：包含資料庫的效能 Intelligent Insights。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | 是 | 是 |
 
 > [!IMPORTANT]
 > 彈性集區和受控實例有自己的個別診斷遙測，其來自其所包含的資料庫。 這一點很重要，因為診斷遙測會針對每個資源分別設定，如下所述。
@@ -81,7 +81,7 @@ ms.locfileid: "74539193"
 > [!NOTE]
 > 若要啟用 audit 記錄串流，請參閱[設定資料庫的審核](sql-database-auditing.md#subheading-2)，以及[Azure 監視器記錄和 Azure 事件中樞中的審核記錄](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)。
 
-## <a name="azure-portal"></a>Azure 入口網站
+## <a name="azure-portal"></a>Azure Portal
 
 您可以在 Azure 入口網站中，針對每個單一、集區或實例資料庫使用 [**診斷設定**] 功能表，以設定診斷遙測的串流處理。 此外，也可以為資料庫容器分別設定診斷遙測：彈性集區和受控實例。 您可以設定下列目的地以串流診斷遙測： Azure 儲存體、Azure 事件中樞和 Azure 監視器記錄檔。
 
@@ -116,7 +116,7 @@ ms.locfileid: "74539193"
 1. 選取彈性集區診斷遙測的核取方塊： [**基本**計量]。
    ![設定彈性集區的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 1. 此外，請遵循下一節所述的步驟，為您想要監視的彈性集區中的每個資料庫設定診斷遙測的串流。
 
 > [!IMPORTANT]
@@ -138,10 +138,10 @@ ms.locfileid: "74539193"
 
 1. 輸入供您自己參考的設定名稱。
 1. 選取串流診斷資料的目的地資源： [封存**至儲存體帳戶**]、[**串流至事件中樞**] 或 [**傳送至 Log Analytics**]。
-1. 針對以事件為基礎的標準監視體驗，請選取下列資料庫診斷記錄遙測的核取方塊： **SQLInsights**、 **AutomaticTuning**、 **QueryStoreRuntimeStatistics**、 **QueryStoreWaitStatistics**、**錯誤**、 **DatabaseWaitStatistics**、**超時**、**區塊**和**鎖死**。
+1. 針對標準的事件監視體驗，請選取下列資料庫診斷記錄遙測的核取方塊： **SQLInsights**、 **AutomaticTuning**、 **QueryStoreRuntimeStatistics**、 **QueryStoreWaitStatistics**、**錯誤**、 **DatabaseWaitStatistics**、**超時**、**區塊**和**鎖死**。
 1. 如需以一分鐘為基礎的先進監視體驗，請選取 [**基本**計量] 的核取方塊。
    ![設定單一、集區式或實例資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 1. 針對您想要監視的每個資料庫重複這些步驟。
 
 > [!NOTE]
@@ -182,7 +182,7 @@ ms.locfileid: "74539193"
 
    ![設定受控執行個體的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 1. 此外，請遵循下一節所述的步驟，為您要監視的受控實例中的每個實例資料庫設定診斷遙測的串流。
 
 > [!IMPORTANT]
@@ -206,7 +206,7 @@ ms.locfileid: "74539193"
 1. 選取串流診斷資料的目的地資源： [封存**至儲存體帳戶**]、[**串流至事件中樞**] 或 [**傳送至 Log Analytics**]。
 1. 選取資料庫診斷遙測的核取方塊： [ **SQLInsights**]、[ **QueryStoreRuntimeStatistics**]、[ **QueryStoreWaitStatistics** ] 和 [**錯誤**]。
    ![設定實例資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 1. 針對您想要監視的每個實例資料庫重複這些步驟。
 
 > [!TIP]
@@ -259,7 +259,7 @@ ms.locfileid: "74539193"
 
 若要支援多個訂用帳戶，從[使用 PowerShell 啟用 Azure 資源計量記錄](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/)使用 PowerShell 指令碼。
 
-在執行指令碼 \< 將診斷資料從多個資源傳送至工作區時，提供工作區資源識別碼 \>$WSID`Enable-AzureRMDiagnostics.ps1` 做為參數。
+在執行指令碼 `Enable-AzureRMDiagnostics.ps1` 將診斷資料從多個資源傳送至工作區時，提供工作區資源識別碼 \<$WSID\> 做為參數。
 
 - 若要取得您診斷資料目的地的工作區識別碼 \<$WSID\>，請使用下列指令碼：
 
@@ -367,7 +367,7 @@ Azure SQL 分析是雲端解決方案，可以跨多個訂用帳戶大規模監�
 所選的資料串流到事件中樞之後，您很快就能啟用進階監視案例。 事件中樞是作為事件管線的大門。 資料收集到事件中樞之後，這些資料可以透過即時分析提供者或儲存體配接器來轉換和儲存。 事件中樞會讓事件串流的產生從這些事件的取用分離。 如此一來，事件消費者可以在自己的排程存取事件。 如需事件中樞的詳細資訊，請參閱：
 
 - [Azure 事件中樞是什麼？](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [開始使用事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [開始使用事件中樞](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 您可以在事件中樞使用串流的計量：
 
@@ -446,7 +446,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 如需有關 advanced 計量的詳細資訊，請參閱下表。
 
-|**計量**|**計量顯示名稱**|**描述**|
+|**度量**|**計量顯示名稱**|**說明**|
 |---|---|---|
 |tempdb_data_size| Tempdb 資料檔案大小 Kb |Tempdb 資料檔案大小（Kb）。 不適用於資料倉儲。 針對以 DTU 為基礎的購買模型，使用 vCore 購買模型或 100 DTU 和更新版本的資料庫，將可使用此計量。 |
 |tempdb_log_size| Tempdb 記錄檔大小 Kb |Tempdb 記錄檔大小（Kb）。 不適用於資料倉儲。 針對以 DTU 為基礎的購買模型，使用 vCore 購買模型或 100 DTU 和更新版本的資料庫，將可使用此計量。 |
@@ -463,7 +463,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure|
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：ResourceUsageStats |
 |資源|資源名稱 |
@@ -488,7 +488,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：QueryStoreRuntimeStatistics |
 |OperationName|作業名稱。 一律：QueryStoreRuntimeStatisticsEvent |
@@ -539,7 +539,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：QueryStoreWaitStatistics |
 |OperationName|作業名稱。 一律：QueryStoreWaitStatisticsEvent |
@@ -577,7 +577,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：Errors |
 |OperationName|作業名稱。 一律：ErrorEvent |
@@ -592,7 +592,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |訊息|純文字的錯誤訊息 |
 |user_defined_b|錯誤是否為使用者定義的位元 |
 |error_number_d|錯誤碼 |
-|Severity|錯誤的嚴重性 |
+|嚴重性|錯誤的嚴重性 |
 |state_d|錯誤的狀態 |
 |query_hash_s|失敗查詢的查詢雜湊 (如果有) |
 |query_plan_hash_s|失敗查詢的查詢計劃雜湊 (如果有) |
@@ -606,7 +606,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：DatabaseWaitStatistics |
 |OperationName|作業名稱。 一律：DatabaseWaitStatisticsEvent |
@@ -635,7 +635,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：Timeouts |
 |OperationName|作業名稱。 一律：TimeoutEvent |
@@ -658,7 +658,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：Blocks |
 |OperationName|作業名稱。 一律：BlockEvent |
@@ -682,7 +682,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC] |記錄檔記錄時的時間戳記 |
-|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：Deadlocks |
 |OperationName|作業名稱。 一律：DeadlockEvent |
@@ -703,7 +703,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|在系統提示您進行確認時，輸入|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |類別|類別名稱。 一律：AutomaticTuning |
 |資源|資源名稱 |
@@ -740,7 +740,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 若要了解事件中樞，請閱讀：
 
 - [Azure 事件中樞是什麼？](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [開始使用事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [開始使用事件中樞](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 若要瞭解如何根據 log analytics 的遙測設定警示，請參閱：
 

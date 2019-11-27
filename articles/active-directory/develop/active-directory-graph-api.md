@@ -31,7 +31,7 @@ ms.locfileid: "74533025"
 
 本文適用於 Azure AD Graph API。 如需與 Microsoft Graph API 相關的類似資訊，請參閱[使用 Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api)。
 
-Azure Active Directory 圖形 API 支援以程式設計方式透過 REST API 端點存取 Azure AD。 應用程式可以使用 Azure AD 圖形 API 來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。 例如，Azure AD 圖形 API 支援對使用者物件執行下列常見的作業：
+Azure Active Directory 圖形 API 支援以程式設計方式透過 REST API 端點存取 Azure AD。 應用程式可以使用 Azure AD Graph API 來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。 例如，Azure AD 圖形 API 支援對使用者物件執行下列常見的作業：
 
 * 在目錄中建立新的使用者
 * 取得使用者的詳細屬性，例如其群組
@@ -43,7 +43,7 @@ Azure Active Directory 圖形 API 支援以程式設計方式透過 REST API 端
 
 若要開始使用 Azure Active Directory Graph API，請參閱 [Azure AD Graph API 快速入門指南](active-directory-graph-api-quickstart.md)，或檢視[互動式 Azure AD Graph API 參考文件](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
 
-## <a name="features"></a>特性
+## <a name="features"></a>功能
 
 Azure AD 圖形 API 提供下列功能：
 

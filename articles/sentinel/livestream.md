@@ -53,7 +53,7 @@ ms.locfileid: "74546857"
 2. 若要從搜尋查詢建立 Livestream 會話：
     
     1. 從 [**查詢**] 索引標籤中，找出要使用的搜尋查詢。
-    2. 以滑鼠右鍵按一下查詢，然後選取 [**新增至 Livestream**]。 例如︰
+    2. 以滑鼠右鍵按一下查詢，然後選取 [**新增至 Livestream**]。 例如：
     
     > [!div class="mx-imgBorder"]
     > ![從 Azure Sentinel 搜尋查詢建立 Livestream 會話](./media/livestream/livestream-from-query.png)
@@ -83,7 +83,7 @@ ms.locfileid: "74546857"
 
 1. 在 Azure 入口網站中，流覽至  **Sentinel** > **威脅管理** > **搜尋** >  **Livestream**  索引標籤。
 
-2. 選取您想要查看或編輯的 Livestream 會話。 例如︰
+2. 選取您想要查看或編輯的 Livestream 會話。 例如：
     
     > [!div class="mx-imgBorder"]
     > ![從 Azure Sentinel 搜尋查詢建立 Livestream 會話](./media/livestream/livestream-tab.png)
@@ -92,7 +92,7 @@ ms.locfileid: "74546857"
 
 ## <a name="receive-notifications-when-new-events-occur"></a>在發生新事件時收到通知
 
-因為新事件的 Livestream 通知使用 Azure 入口網站通知，所以您會在每次使用 Azure 入口網站時看到這些通知。 例如︰
+因為新事件的 Livestream 通知使用 Azure 入口網站通知，所以您會在每次使用 Azure 入口網站時看到這些通知。 例如：
 
 ![Livestream 的 Azure 入口網站通知](./media/livestream/notification.png)
 

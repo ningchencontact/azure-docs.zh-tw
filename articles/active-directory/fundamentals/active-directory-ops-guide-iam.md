@@ -31,7 +31,7 @@ ms.locfileid: "74535323"
 
 管理 Azure Active Directory 需要持續執行重要的作業工作，以及可能不屬於首度發行專案的進程。 您必須設定這些工作來維護您的環境，這仍然很重要。 主要工作和其建議的擁有者包括：
 
-| 工作 | 擁有者 |
+| Task | 擁有者 |
 | :- | :- |
 | 定義處理常式如何建立 Azure 訂用帳戶 | 因組織而異 |
 | 決定誰取得 Enterprise Mobility + Security 授權 | IAM 作業小組 |
@@ -97,7 +97,7 @@ Azure AD Connect 在布建流程中扮演重要角色。 如果同步處理伺�
 
 ![Azure AD Connect 預備模式設定的螢幕擷取畫面](./media/active-directory-ops-guide/active-directory-ops-img1.png)
 
-#### <a name="stay-current"></a>保持最新狀態
+#### <a name="stay-current"></a>掌握最新消息
 
 Microsoft 會定期 Azure AD Connect 更新。 隨時保持最新的優勢，以利用每個新版本所提供的效能改進、bug 修正和新功能。
 
@@ -191,7 +191,7 @@ Azure Active Directory 透過 Microsoft 雲端服務的[群組型授權](https:/
 - [使用 IdFix 工具（Office 365）準備與 Office 365 同步處理的目錄屬性](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
 - [Azure AD Connect：在同步處理期間針對錯誤進行疑難排解](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>總結
 
 安全身分識別基礎結構有五個層面。 這份清單可協助您快速尋找並採取必要的動作，以保護及管理您組織中身分識別及其權利的生命週期。
 

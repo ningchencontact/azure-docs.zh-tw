@@ -91,7 +91,7 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 
 ##### <a name="public-preview-of-the-enforcecloudpasswordpolicyforpasswordsyncedusers-feature"></a>*EnforceCloudPasswordPolicyForPasswordSyncedUsers*功能的公開預覽
 
-如果有同步處理的使用者只與 Azure AD 整合式服務互動，而且也必須符合密碼到期原則，您 Azure AD 可以藉由啟用*EnforceCloudPasswordPolicyForPasswordSyncedUsers*功能。
+如果有同步處理的使用者只與 Azure AD 整合式服務互動，而且也必須符合密碼到期原則，您可以藉由啟用*EnforceCloudPasswordPolicyForPasswordSyncedUsers*功能，強制他們符合您 Azure AD 的密碼到期原則。
 
 停用*EnforceCloudPasswordPolicyForPasswordSyncedUsers*時（這是預設設定），Azure AD Connect 將同步處理使用者的 PasswordPolicies 屬性設定為 "DisablePasswordExpiration"。 這會在每次同步處理使用者的密碼時完成，並指示 Azure AD 忽略該使用者的雲端密碼到期原則。 您可以使用 Azure AD PowerShell 模組搭配下列命令來檢查屬性的值：
 
@@ -123,7 +123,7 @@ Azure AD 針對每個已註冊的網域支援不同的密碼到期原則。
   
 暫時密碼功能有助於確保認證的擁有權轉移會在第一次使用時完成，以將多個個人知道該認證的持續時間減到最短。
 
-若要支援同步處理使用者 Azure AD 中的暫時密碼，您可以啟用*ForcePasswordResetOnLogonFeature*功能，方法是在 Azure AD Connect 伺服器上執行下列命令，以特定的連接器名稱取代 <AAD Connector Name>您的環境：
+若要支援同步處理使用者 Azure AD 中的暫時密碼，您可以啟用*ForcePasswordResetOnLogonFeature*功能，方法是在 Azure AD Connect 伺服器上執行下列命令，以您環境專屬的連接器名稱取代 <AAD Connector Name>：
 
 `Set-ADSyncAADCompanyFeature -ConnectorName "<AAD Connector name>" -ForcePasswordResetOnLogonFeature $true`
 

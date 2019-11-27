@@ -24,7 +24,7 @@ ms.locfileid: "74546277"
 
 本文說明如何在 Azure AD DS 受控網域中設定以資源為基礎的 Kerberos 限制委派。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本文，您需要下列資源：
 

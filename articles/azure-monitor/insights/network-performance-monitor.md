@@ -33,7 +33,7 @@ ms.locfileid: "74545703"
 
 * [ExpressRoute 監視器](network-performance-monitor-expressroute.md)：透過 Azure ExpressRoute 監視分公司與 Azure 之間的端對端連線與效能。  
 
-您可以在線上深入了解[網路效能監視器](https://docs.microsoft.com/azure/networking/network-monitoring-overview)所支援的各種功能。
+您可以在線上深入了解 [網路效能監視器](https://docs.microsoft.com/azure/networking/network-monitoring-overview) 所支援的各種功能。
  
 ## <a name="supported-regions"></a>支援的區域
 NPM 可使用在下列其中一個區域裝載的工作區，監視世界各地的網路和應用程式之間的連線情形：
@@ -44,8 +44,8 @@ NPM 可使用在下列其中一個區域裝載的工作區，監視世界各地�
 * 日本東部
 * 東南亞
 * 澳大利亞東南部
-* 澳大利亞中部
-* 澳洲東部
+* 澳洲中部
+* 澳大利亞東部
 * 英國南部
 * 印度中部
 * 美國維吉尼亞州政府
@@ -99,7 +99,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
    ```
  
 
-### <a name="configure-the-solution"></a>設定解決方案 
+### <a name="configure-the-solution"></a>設定方案 
 
 1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) 將網路效能監視器解決方案新增至您的 OMS 工作區。 您也可以使用[從方案庫新增 Azure 監視器解決方案](../../azure-monitor/insights/solutions.md)中所述的程式。 
 2. 開啟 Log Analytics 工作區，然後選取 [概觀] 圖格。 
@@ -146,7 +146,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 1. 選取或清除您要監視或停止監視的節點。 
 2. 視需要選取 [用於監視]，或加以清除。 
-3. 選取 [ **儲存**]。 
+3. 選取 [儲存]。 
 
 
 設定您想要的功能：
@@ -245,7 +245,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 透過 [網路效能監控] 儀表板和向下切入頁以圖形方式公開的所有資料，在[記錄查詢](../log-query/log-query-overview.md)中也都有提供。 您可以對存放庫中的資料執行互動式分析，並且讓不同來源的資料相互關聯。 您也可以建立自訂警示和檢視，並將資料匯出至 Excel、Power BI 或可共用的連結。 儀表板中的 [**常用查詢**] 區域有一些實用的查詢，可供您用來做為起點來建立自己的查詢和報告。 
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>警示
 
 網路效能監控使用 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)的警示功能。
 
@@ -267,7 +267,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 通知則會依 [Azure 監視器定價頁面中的通知定價](https://azure.microsoft.com/pricing/details/monitor/)來個別計費。
 
 
-## <a name="pricing"></a>定價
+## <a name="pricing"></a>價格
 
 定價資訊可在[線上](network-performance-monitor-pricing-faq.md)查詢。
 

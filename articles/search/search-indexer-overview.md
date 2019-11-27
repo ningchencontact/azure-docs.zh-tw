@@ -36,7 +36,7 @@ Azure 認知搜尋中的*索引子*是一種編目程式，它會從外部 Azure
 
 一開始，會宣布新的索引子作為預覽功能。 預覽功能會在 API (REST 和 .NET) 中引進，然後在准許正式推出之後整合到入口網站中。 如果您正在評估新的索引子，您應該計劃撰寫程式碼。
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>使用權限
 
 與索引子相關的所有作業（包括狀態或定義的 GET 要求）都需要系統[管理員 api 金鑰](search-security-api-keys.md)。 
 

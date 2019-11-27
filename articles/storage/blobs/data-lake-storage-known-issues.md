@@ -74,7 +74,7 @@ Blob Api 和 Data Lake Storage Gen2 Api 可以在相同的資料上運作。
 | **Blobfuse** |尚不支援|
 | **自訂網域** |尚不支援|
 | **Azure 入口網站中的儲存體總管** | 有限的支援。 尚不支援 Acl。 |
-| **診斷記錄** |支援診斷記錄（預覽）。<br><br>目前不支援在 Azure 入口網站中啟用記錄。 以下範例說明如何使用 PowerShell 來啟用記錄。 <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`。 <br><br>請務必將 `Blob` 指定為 `-ServiceType` 參數的值，如下列範例所示。 <br><br>目前，Azure 儲存體總管無法用於查看診斷記錄。 若要查看記錄，請使用 AzCopy 或 Sdk。
+| **診斷記錄** |支援診斷記錄（預覽）。<br><br>目前不支援在 Azure 入口網站中啟用記錄。 以下範例說明如何使用 PowerShell 來啟用記錄。 <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`答案中所述步驟，工作帳戶即會啟用。 <br><br>請務必將 `Blob` 指定為 `-ServiceType` 參數的值，如下列範例所示。 <br><br>目前，Azure 儲存體總管無法用於查看診斷記錄。 若要查看記錄，請使用 AzCopy 或 Sdk。
 | **不可變的儲存體** |尚不支援 <br><br>不可變的儲存體可讓您將資料儲存在[WORM （一次寫入，多次讀取）](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)狀態。|
 | **物件層級層** |支援非經常性存取和封存層。 封存層處於預覽狀態。 尚不支援其他所有存取層。 <br><br> 目前有一些 bug 會影響封存存取層。  在[這裡](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u)註冊封存存取層的預覽。|
 | **Powershell 和 CLI 支援** | 有限的功能 <br><br>支援 Blob 作業。 尚不支援使用目錄及設定存取控制清單（Acl）。 |

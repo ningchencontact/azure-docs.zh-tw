@@ -30,7 +30,7 @@ ms.locfileid: "74539141"
 「共用電腦啟用」可讓您將 Office 365 ProPlus 部署到組織中由多位使用者存取的電腦。 如需有關共用電腦啟用的詳細資訊，請參閱[Office 365 ProPlus 的共用電腦啟用總覽](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus)。
 
 使用[Office 部署工具](https://www.microsoft.com/download/details.aspx?id=49117)來安裝 office。 Windows 10 企業版多會話僅支援下列版本的 Office：
-- Office 365 ProPlus
+- Office 365 專業增強版
 - 隨附于 Microsoft 365 商務版訂用帳戶的 Office 365 商務
 
 Office 部署工具需要設定 XML 檔案。 若要自訂下列範例，請參閱[Office 部署工具](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool)的設定選項。

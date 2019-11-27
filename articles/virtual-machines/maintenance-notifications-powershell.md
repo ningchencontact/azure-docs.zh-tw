@@ -22,7 +22,7 @@ ms.locfileid: "74535830"
 
 **本文適用于同時執行 Linux 和 Windows 的虛擬機器。**
 
-您可以使用 Azure Powershell 來查看 Vm 何時排程進行[維護](maintenance-notifications.md)。 使用 [ 參數時，可從 ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)Get-AzVM`-status` Cmdlet 取得預定進行的維修作業的相關資訊。
+您可以使用 Azure Powershell 來查看 Vm 何時排程進行[維護](maintenance-notifications.md)。 使用 `-status` 參數時，可從 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) Cmdlet 取得預定進行的維修作業的相關資訊。
   
 只在有預定進行的維修作業時，才會傳回維修資訊。 如果沒有排定會影響 VM 的維護，則 Cmdlet 不會傳回任何維護資訊。 
 
@@ -33,7 +33,7 @@ Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status
 
 下列是 MaintenanceRedeployStatus 下傳回的內容： 
 
-| 值 | 描述   |
+| Value | 描述   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 指出您目前是否可以在 VM 上開始維修 |
 | PreMaintenanceWindowStartTime         | 維修自助期間的開始，此時您可以在 VM 上起始維修 |

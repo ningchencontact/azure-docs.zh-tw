@@ -40,7 +40,7 @@ ms.locfileid: "74546235"
 
 您可以使用 Azure 入口網站或 PowerShell 來設定限域的同步處理設定：
 
-| 動作 | | |
+| 行動 | | |
 |--|--|--|
 | 建立 Azure AD DS 受控網域和設定限域同步處理 | [Azure 入口網站](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
 | 修改限域同步處理 | [Azure 入口網站](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |

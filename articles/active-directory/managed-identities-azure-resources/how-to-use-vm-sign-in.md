@@ -29,17 +29,17 @@ ms.locfileid: "74547394"
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 如果您打算使用本文中的 Azure PowerShell 或 Azure CLI 範例，請務必安裝最新版的 [Azure PowerShell](/powershell/azure/install-az-ps) 或 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
 
 > [!IMPORTANT]
-> - 本文中的所有範例指令碼都假設命令列用戶端在已啟用 Azure 資源受控識別的虛擬機器上執行。 在 Azure 入口網站中使用 VM「連線」功能，從遠端連線到您的 VM。 如需有關在虛擬機器上啟用 Azure 資源受控識別的詳細資訊，請參閱[使用 Azure 入口網站在虛擬機器上設定 Azure 資源的受控識別](qs-configure-portal-windows-vm.md)，或其中一篇變化文章 (使用 PowerShell、CLI、範本或 Azure SDK)。 
+> - 本文中的所有範例指令碼都假設命令列用戶端在已啟用 Azure 資源受控識別的虛擬機器上執行。 在 Azure 入口網站中使用 VM「連線」功能，從遠端連線到您的 VM。 如需有關在虛擬機器上啟用 Azure 資源受控識別的詳細資訊，請參閱[使用 Azure 入口網站在虛擬機器上設定 Azure 資源受控識別](qs-configure-portal-windows-vm.md)，或其中一篇變化文章 (使用 PowerShell、CLI、範本或 Azure SDK)。 
 > - 若要避免資源存取期間發生錯誤，虛擬機器的受控識別必須至少取得適當範圍 (該虛擬機器或更高層級) 的「讀者」存取權，以允許在虛擬機器上進行 Azure Resource Manager 作業。 如需詳細資訊，請參閱[使用 Azure 入口網站將 Azure 資源的受控識別指派給資源](howto-assign-access-portal.md)。
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 Azure 資源的受控識別提供[服務主體物件](../develop/developer-glossary.md#service-principal-object)，這是[啟用 Azure 資源的受控識別時建立](overview.md#how-does-the-managed-identities-for-azure-resources-work)的物件。 服務主體可以獲得 Azure 資源的存取權，並可讓指令碼/命令列用戶端用來作為登入及存取資源時的身分識別。 傳統上，若要以受保護資源本身的身分識別來存取該資源，指令碼用戶端需要：  
 

@@ -31,7 +31,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 
 建立計畫之後，您可以使用[az functionapp create](/cli/azure/functionapp#az-functionapp-create)來建立函數應用程式。 在入口網站中，會同時建立方案和應用程式。 如需完整 Azure CLI 腳本的範例，請參閱[在 Premium 方案中建立函數應用程式](scripts/functions-cli-create-premium-plan.md)。
 
-## <a name="features"></a>特性
+## <a name="features"></a>功能
 
 下列功能可供部署至 Premium 方案的函數應用程式使用。
 
@@ -94,16 +94,16 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |EP2|2|7 GB|250 GB|
 |EP3|4|14 GB|250 GB|
 
-## <a name="regions"></a>區域
+## <a name="regions"></a>地區
 
 以下是每個 OS 目前支援的區域。
 
-|區域| Windows | Linux |
+|地區| Windows | Linux |
 |--| -- | -- |
-|澳大利亞中部| ✔<sup>1</sup> | |
-|澳大利亞中部 2| ✔<sup>1</sup> | |
-|澳洲東部| ✔ | |
-|澳洲東南部 | ✔ | ✔ |
+|澳洲中部| ✔<sup>1</sup> | |
+|澳洲中部 2| ✔<sup>1</sup> | |
+|澳大利亞東部| ✔ | |
+|澳大利亞東南部 | ✔ | ✔ |
 |巴西南部| ✔<sup>2</sup> |  |
 |加拿大中部| ✔ |  |
 |美國中部| ✔ |  |

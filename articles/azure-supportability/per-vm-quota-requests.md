@@ -35,13 +35,13 @@ Resource Manager 針對虛擬機器支援兩種類型的 vCPU 配額。 **隨用
 
 您也可以透過單一支援案例來要求多個區域的配額。 如需詳細資訊，請參閱下面的步驟11。
 
-1. 從 https://portal.azure.com選取 [說明 **+ 支援**]。
+1. 從 https://portal.azure.com 選取 [說明 **+ 支援**]。
 
    ![說明 + 支援](./media/resource-manager-core-quotas-request/helpsupport.png)
  
 2.  選取 [新增支援要求]。 
 
-     ![新的支援要求](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+     ![新增支援要求](./media/resource-manager-core-quotas-request/newsupportrequest.png)
 
 3. 在 [問題類型] 下拉式選單中，選擇 [**服務與訂用帳戶限制（配額）** ]。
 
@@ -89,7 +89,7 @@ Resource Manager 針對虛擬機器支援兩種類型的 vCPU 配額。 **隨用
 
 1. 從 https://portal.azure.com 選取 [訂用帳戶]。
 
-   ![訂用帳戶](./media/resource-manager-core-quotas-request/subscriptions.png)
+   ![訂閱](./media/resource-manager-core-quotas-request/subscriptions.png)
 
 2. 選取需要增加配額的訂用帳戶。
 

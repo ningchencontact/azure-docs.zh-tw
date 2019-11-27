@@ -21,9 +21,9 @@ ms.locfileid: "74539294"
 > * [C#](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
 
-Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管可從事件中樞、巨量資料串流平台及事件內嵌服務進行內嵌 (載入資料)。 [事件中樞](/azure/event-hubs/event-hubs-about)可以近乎即時地每秒鐘處理數百萬個事件。 在本文中，您會建立事件中樞、從 Azure 資料總管連線到它，並查看整個系統的資料流程。
+「Azure 資料總管」是一項快速又彈性極佳的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管可從事件中樞、巨量資料串流平台及事件內嵌服務進行內嵌 (載入資料)。 [事件中樞](/azure/event-hubs/event-hubs-about)可以近乎即時地每秒鐘處理數百萬個事件。 在本文中，您會建立事件中樞、從 Azure 資料總管連線到它，並查看整個系統的資料流程。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -37,7 +37,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-## <a name="create-an-event-hub"></a>建立事件中心
+## <a name="create-an-event-hub"></a>建立事件中樞
 
 在本文中，您會產生範例資料，並將其傳送至事件中樞。 第一個步驟是建立事件中樞。 其做法是使用 Azure 入口網站中的 Azure Resource Manager 範本。
 
@@ -47,7 +47,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
     [部署至 Azure] 按鈕可將您帶往 Azure 入口網站，填寫部署表單。
 
-    ![部署至 Azure](media/ingest-data-event-hub/deploy-to-azure.png)
+    ![部署到 Azure](media/ingest-data-event-hub/deploy-to-azure.png)
 
 1. 選取用於建立事件中樞的訂用帳戶，然後建立一個名為 *test-hub-rg* 的資源群組。
 
@@ -61,9 +61,9 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
     **設定** | **建議的值** | **欄位描述**
     |---|---|---|
-    | 訂閱 | 您的訂用帳戶 | 選取您要用於事件中樞的 Azure 訂用帳戶。|
-    | 資源群組 | *test-hub-rg* | 建立新的資源群組。 |
-    | 位置 | 美國西部 | 為本文選取 [*美國西部*]。 至於生產系統，請選取最符合您需求的區域。 將事件中樞命名空間建立在與 Kusto 相同的 [位置] 可獲得最佳效能 (對於高輸送量的事件中樞命名空間格外重要)。
+    | Subscription | 您的訂用帳戶 | 選取您要用於事件中樞的 Azure 訂用帳戶。|
+    | Resource group | *test-hub-rg* | 建立新的資源群組。 |
+    | Location | 美國西部 | 為本文選取 [*美國西部*]。 至於生產系統，請選取最符合您需求的區域。 將事件中樞命名空間建立在與 Kusto 相同的 [位置] 可獲得最佳效能 (對於高輸送量的事件中樞命名空間格外重要)。
     | 命名空間名稱 | 唯一命名空間名稱 | 選擇可識別您命名空間的唯一名稱。 例如，*mytestnamespace*。 網域名稱 *servicebus.windows.net* 已附加至您提供的名稱。 名稱只能包含字母、數字和連字號。 名稱必須以字母開頭，且必須以字母或數字結尾。 此值長度必須介於 6 至 50 個字元之間。
     | 事件中樞名稱 | *test-hub* | 事件中樞位於命名空間之下，其會提供專屬的唯一範圍容器。 事件中樞名稱在命名空間內不可重複。 |
     | 取用者群組名稱 | *test-group* | 取用者群組能讓多個取用應用程式各自擁有獨立的事件串流檢視。 |
@@ -129,7 +129,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
      **設定** | **建議的值** | **欄位描述**
     |---|---|---|
-    | 資料表 | *TestTable* | 您在 **TestDatabase** 中建立的資料表。 |
+    | 表格 | *TestTable* | 您在 **TestDatabase** 中建立的資料表。 |
     | 資料格式 | *JSON* | 支援的格式為 Avro、CSV、JSON、多行 JSON、PSV、SOHSV、SCSV、TSV、TSVE 和 TXT。 支援的壓縮選項： GZip |
     | 資料行對應 | *TestMapping* | 您在**TestDatabase**中建立的[對應](/azure/kusto/management/mappings)，其會將傳入的 JSON 資料對應至**TestTable**的資料行名稱和資料類型。 需要 JSON、MULTILINE JSON 或 AVRO，而其他格式為選用性質。|
     | | |

@@ -9,12 +9,12 @@ author: ecfan
 ms.author: estfan
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 960733b7423ad1e22bd05a75d9b994cd85b1d30c
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: de184b189c00cce64932a3ab17d41ed84e197a7e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680360"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534095"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立和管理 B2B 企業整合的整合帳戶
 
@@ -40,7 +40,7 @@ ms.locfileid: "72680360"
 
 ## <a name="create-integration-account"></a>建立整合帳戶
 
-針對這項工作，您可以依照本節中的步驟， [Azure PowerShell](https://docs.microsoft.com//powershell/module/azurerm.logicapp/New-AzureRmIntegrationAccount)或[Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-create)來使用 Azure 入口網站。
+針對這項工作，您可以依照本節中的步驟， [Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount)或[Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-create)來使用 Azure 入口網站。
 
 1. 使用您的 Azure 帳戶認證登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -255,7 +255,7 @@ ms.locfileid: "72680360"
 
 ## <a name="delete-integration-account"></a>刪除整合帳戶
 
-針對這項工作，您可以依照本節中的步驟， [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete)或[Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/Remove-AzureRmIntegrationAccount)來使用 Azure 入口網站。
+針對這項工作，您可以依照本節中的步驟， [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete)或[Azure PowerShell](/powershell/module/az.logicapp/remove-azintegrationaccount)來使用 Azure 入口網站。
 
 1. 使用您的 Azure 帳戶認證登入 [Azure 入口網站](https://portal.azure.com)。
 

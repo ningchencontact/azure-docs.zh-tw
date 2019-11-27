@@ -31,7 +31,7 @@ ms.locfileid: "74539327"
 > [!IMPORTANT]
 > 如需調整指引和考慮，請參閱[調整單一資料庫](sql-database-single-database-scale.md)
 
-### <a name="basic-service-tier"></a>基本服務層級
+### <a name="basic-service-tier"></a>基本服務層
 
 | **計算大小** | **基本** |
 | :--- | --: |
@@ -49,7 +49,7 @@ ms.locfileid: "74539327"
 >關於資料儲存體，基本服務層會放在標準分頁 Blob 上。 標準分頁 Blob 使用硬碟（HDD）為基礎的存放裝置媒體，最適合用於開發、測試及其他較不常存取效能變化的工作負載。
 >
 
-### <a name="standard-service-tier"></a>標準服務層級
+### <a name="standard-service-tier"></a>標準服務層
 
 | **計算大小** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|
@@ -79,7 +79,7 @@ ms.locfileid: "74539327"
 | 並行工作階段數上限 |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
-### <a name="premium-service-tier"></a>高階服務層級
+### <a name="premium-service-tier"></a>進階服務層
 
 | **計算大小** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
@@ -94,7 +94,7 @@ ms.locfileid: "74539327"
 1024 gb 的 \*，以 256 GB 為增量，最高可達 4096 GB
 
 > [!IMPORTANT]
-> 所有區域目前均可使用進階層中超過 1 TB 的儲存體，但下列地區除外：中國東部、中國北部、德國中部、德國東北部、美國中西部、美國 DoD 地區和美國政府中部。 在這些區域中，進階層中的儲存空間上限為 1 TB。  如需詳細資訊，請參閱 [P11-P15 目前的限制](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)。  
+> 所有區域目前均可使用進階層中超過 1 TB 的儲存體，但下列地區除外：中國東部、中國北部、德國中部、德國東北部、美國中西部、美國 DoD 地區和美國政府中部。 在其他區域內，進階層中的儲存空間上限為 1 TB。  如需詳細資訊，請參閱 [P11-P15 目前的限制](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)。  
 > [!NOTE]
 > 如 `tempdb` 限制，請參閱[tempdb 限制](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)。
 

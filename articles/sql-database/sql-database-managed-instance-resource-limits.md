@@ -49,7 +49,7 @@ ms.locfileid: "74548376"
 | --- | --- | --- |
 | 4虛擬核心  | 3.14 GB | |   
 | 8虛擬核心  | 6.28 GB | 8 GB |
-| 16虛擬核心 | 15.77 GB | 20 GB |
+| 16虛擬核心 | 15.77 GB | 20GB |
 | 24虛擬核心 | 25.25 GB | 36 GB |
 | 32虛擬核心 | 37.94 GB | |
 | 40虛擬核心 | 52.23 GB | |
@@ -105,7 +105,7 @@ ms.locfileid: "74548376"
 
 此外，也有實例層級的限制，例如最大記錄寫入輸送量 22 MB/s，因此您可能無法在整個記錄檔上連線到檔案，因為您達到實例輸送量限制。
 
-## <a name="supported-regions"></a>支援的區域
+## <a name="supported-regions"></a>支援區域
 
 受控實例只能在[支援的區域](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)中建立。 若要在目前不支援的區域中建立受控實例，您可以透過[Azure 入口網站傳送支援要求](#obtaining-a-larger-quota-for-sql-managed-instance)。
 
@@ -178,7 +178,7 @@ ms.locfileid: "74548376"
 
 5. 按一下 [下一步]。
 6. 在新支援要求的 [連絡資訊] 索引標籤上，輸入慣用的連絡方法 (電子郵件或電話) 和連絡人詳細資料。
-7. 按一下頁面底部的 [新增]。
+7. 按一下 [建立]。
 
 ## <a name="next-steps"></a>後續步驟
 

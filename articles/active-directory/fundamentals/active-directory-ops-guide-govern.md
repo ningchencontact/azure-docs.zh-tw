@@ -31,7 +31,7 @@ ms.locfileid: "74535453"
 
 管理 Azure Active Directory 需要持續執行重要的作業工作和進程，這可能不是首度發行專案的一部分。 您必須設定這些工作來優化您的環境，這仍然很重要。 主要工作和其建議的擁有者包括：
 
-| 工作 | 擁有者 |
+| Task | 擁有者 |
 | :- | :- |
 | 封存 Azure AD SIEM 系統中的 audit 記錄 | InfoSec 營運小組 |
 | 探索管理不相容的應用程式 | IAM 作業小組 |
@@ -70,7 +70,7 @@ ms.locfileid: "74535453"
 |變更 AD FS 規則，例如授權、發行、MFA|使用群組宣告將目標設為使用者的子集。|
 |變更 AD FS 驗證體驗或類似的整個伺服器陣列變更|建立具有相同主機名稱的平行伺服器陣列、執行設定變更、使用 HOSTS 檔案、NLB 路由規則或類似的路由從用戶端進行測試。<br>如果目標平臺不支援主機檔案（例如行動裝置），則控制變更。|
 
-## <a name="access-reviews"></a>存取權檢閱
+## <a name="access-reviews"></a>存取檢閱
 
 ### <a name="access-reviews-to-applications"></a>存取應用程式的評論
 
@@ -128,7 +128,7 @@ ms.locfileid: "74535453"
 > [!NOTE]
 > Azure AD 權利管理需要 Azure AD Premium P2 授權。
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>總結
 
 安全身分識別管理有八個層面。 這份清單可協助您找出您應該採取的動作，以評估和證明授與對非特殊許可權和特殊許可權身分識別的存取權、audit 及控制環境的變更。
 

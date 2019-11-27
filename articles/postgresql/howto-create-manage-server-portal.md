@@ -16,7 +16,7 @@ ms.locfileid: "74535687"
 # <a name="manage-an-azure-database-for-postgresql-server-using-the-azure-portal"></a>使用 Azure 入口網站管理適用於 PostgreSQL 的 Azure 資料庫伺服器
 本文說明如何管理您的適用於 PostgreSQL 的 Azure 資料庫伺服器。 管理工作包括計算和儲存體調整、系統管理員密碼重設，以及查看伺服器詳細資料。
 
-## <a name="sign-in"></a>登入
+## <a name="sign-in"></a>Sign in
 登入 [Azure 入口網站](https://portal.azure.com)。
 
 ## <a name="create-a-server"></a>建立伺服器

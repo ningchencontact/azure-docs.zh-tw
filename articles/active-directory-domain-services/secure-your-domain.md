@@ -24,7 +24,7 @@ ms.locfileid: "74546229"
 
 本文說明如何停用 NTLM v1 和 TLS v1 密碼，並停用 NTLM 密碼雜湊同步處理。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本文，您需要下列資源：
 

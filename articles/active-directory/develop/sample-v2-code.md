@@ -39,7 +39,7 @@ ms.locfileid: "74533013"
 
 若要瞭解每個範例類型的基本案例，請參閱[Microsoft 身分識別平臺端點的應用程式類型](v2-app-types.md)。
 
-您也可以在 GitHub 上參與範例。 若要了解做法，請參閱 [Microsoft Azure Active Directory 範例與文件](https://github.com/Azure-Samples?page=3&query=active-directory)。
+您也可以在 GitHub 上參與範例。 若要了解做法，請參閱 [Microsoft Azure Active Directory 範例與文件](https://github.com/Azure-Samples?page=3&query=active-directory) (英文)。
 
 ## <a name="single-page-applications"></a>單頁應用程式
 
@@ -86,7 +86,7 @@ ms.locfileid: "74533013"
 
 | 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 Microsoft Graph |
 | ------------------ | -------- | ---------- | -------------------- |
-| 主控台 | ![此圖顯示 .NET Core 標誌](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [用戶端認證](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
+| Console | ![此圖顯示 .NET Core 標誌](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [用戶端認證](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
 | Web 應用程式 | ![此圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [用戶端認證](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) (英文) |
 
 ## <a name="headless-applications"></a>無周邊應用程式
@@ -121,7 +121,7 @@ ms.locfileid: "74533013"
 
 若要了解示範 Microsoft Graph API 不同使用模式 (包括使用 Azure AD 驗證) 的[範例](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) (英文) 和教學課程，請參閱 [Microsoft Graph 社群範例和教學課程](https://github.com/microsoftgraph/msgraph-community-samples) (英文).
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - [Azure Active Directory （v1.0）開發人員指南](v1-overview.md)
 - [Azure AD 圖形 API 的概念和參考](https://msdn.microsoft.com/library/azure/hh974476.aspx)

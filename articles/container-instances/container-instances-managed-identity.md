@@ -31,7 +31,7 @@ ms.locfileid: "74533686"
 您可以在執行中的容器使用受控身分識別，向任何[支援 Azure AD 驗證的服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)進行驗證，而無須在您的容器程式碼中管理認證。 針對不支援 AD 驗證的服務，您可以將祕密儲存在 Azure Key Vault 中，並使用受控識別來存取 Key Vault 以擷取認證。 如需有關使用受控識別的詳細資訊，請參閱[什麼是適用於 Azure 資源的受控識別？](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
-> 這項功能目前只能預覽。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。 目前，只有在 Linux 容器執行個體上才支援受控識別。
+> 此功能目前為預覽狀態。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。 目前，只有在 Linux 容器執行個體上才支援受控識別。
 >  
 
 ### <a name="enable-a-managed-identity"></a>啟用受控識別
@@ -58,7 +58,7 @@ ms.locfileid: "74533686"
 
 本文中的範例會在「Azure 容器執行個體」中使用受控識別來存取 Azure Key Vault 祕密。 
 
-首先，使用下列 *az group create* 命令，在 *eastus* 位置中建立一個名為 [myResourceGroup](/cli/azure/group?view=azure-cli-latest#az-group-create) 的資源群組：
+首先，使用下列 [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) 命令，在 *eastus* 位置中建立一個名為 *myResourceGroup* 的資源群組：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -112,7 +112,7 @@ az container create --resource-group myResourceGroup --name mycontainer --image 
 az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-輸出中的 `identity` 區段看起來會與以下類似，顯示容器群組中已設定身分識別。 `principalID` 底下的 `userAssignedIdentities` 是您在 Azure Active Directory 中所建立身分識別的服務主體：
+輸出中的 `identity` 區段看起來會與以下類似，顯示容器群組中已設定身分識別。 `userAssignedIdentities` 底下的 `principalID` 是您在 Azure Active Directory 中所建立身分識別的服務主體：
 
 ```console
 ...
@@ -261,7 +261,7 @@ curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-1
 
 ## <a name="enable-managed-identity-using-resource-manager-template"></a>使用 Resource Manager 範本來啟用受控識別
 
-若要使用 [Resource Manager 範本](container-instances-multi-container-group.md)在容器群組中啟用受控識別，請使用 `identity` 物件來設定 `Microsoft.ContainerInstance/containerGroups` 物件的 `ContainerGroupIdentity` 屬性。 下列程式碼片段顯示針對不同案例設定的 `identity` 屬性。 請參閱 [Resource Manager 範本參考](/azure/templates/microsoft.containerinstance/containergroups)。 請指定 `apiVersion` 的 `2018-10-01`。
+若要使用 [Resource Manager 範本](container-instances-multi-container-group.md)在容器群組中啟用受控識別，請使用 `ContainerGroupIdentity` 物件來設定 `Microsoft.ContainerInstance/containerGroups` 物件的 `identity` 屬性。 下列程式碼片段顯示針對不同案例設定的 `identity` 屬性。 請參閱 [Resource Manager 範本參考](/azure/templates/microsoft.containerinstance/containergroups)。 請指定 `2018-10-01` 的 `apiVersion`。
 
 ### <a name="user-assigned-identity"></a>使用者指派的身分識別
 
@@ -309,7 +309,7 @@ curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-1
 ## <a name="enable-managed-identity-using-yaml-file"></a>使用 YAML 檔案來啟用受控識別
 
 若要在使用 [YAML 檔案](container-instances-multi-container-yaml.md)來部署的容器群組中啟用受控識別，請包含下列 YAML。
-請指定 `apiVersion` 的 `2018-10-01`。
+請指定 `2018-10-01` 的 `apiVersion`。
 
 ### <a name="user-assigned-identity"></a>使用者指派的身分識別
 

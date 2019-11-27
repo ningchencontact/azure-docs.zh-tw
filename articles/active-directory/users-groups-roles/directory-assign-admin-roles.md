@@ -70,7 +70,7 @@ ms.locfileid: "74547530"
 
 ### <a name="authentication-administratorauthentication-administrator-permissions"></a>[驗證系統管理員](#authentication-administrator-permissions)
 
-具有此角色的使用者可以設定或重設非密碼認證，並且可以更新所有使用者的密碼。 驗證系統管理員可以要求使用者針對現有的非密碼認證（例如，MFA 或 FIDO）重新註冊，並撤銷**裝置上的 [記住 mfa**]，這會在非系統管理員的使用者登入或僅指派下列角色：
+具有此角色的使用者可以設定或重設非密碼認證，並且可以更新所有使用者的密碼。 驗證系統管理員可以要求使用者針對現有的非密碼認證（例如，MFA 或 FIDO）重新註冊，並撤銷**裝置上的 [記住 mfa**]，這會在下一次登入非系統管理員或僅指派下列角色的使用者登入時提示 mfa：
 
 * 驗證系統管理員
 * 目錄讀取器
@@ -79,7 +79,7 @@ ms.locfileid: "74547530"
 * 報告讀者
 
 > [!IMPORTANT]
-> 對於可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員，具備此角色的使用者可以變更認證。 變更使用者的認證表示可承擔該使用者身分識別和權限。 例如︰
+> 對於可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員，具備此角色的使用者可以變更認證。 變更使用者的認證表示可承擔該使用者身分識別和權限。 例如：
 >
 >- 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與驗證系統管理員。 透過此路徑，驗證系統管理員可以假設應用程式擁有者的身分識別，然後藉由更新應用程式的認證，進一步假設特殊許可權應用程式的識別。
 >- Azure 訂用帳戶擁有者，他們具有機密或私人資訊或者 Azure 中重要組態的存取權。
@@ -179,7 +179,7 @@ ms.locfileid: "74547530"
 
 ### <a name="device-administratordevice-administrators-permissions"></a>[裝置系統管理員](#device-administrators-permissions)
 
-此角色是只能指派為[裝置設定](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/)中的其他本機系統管理員。 具有此角色的使用者，會在已加入 Azure Active Directory 的所有 Windows 10 裝置上，成為本機電腦系統管理員。 它們並沒有在 Azure Active Directory 中管理裝置物件的能力。
+此角色僅供指派為[裝置設定](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/)中的其他本機系統管理員。 具有此角色的使用者，會在已加入 Azure Active Directory 的所有 Windows 10 裝置上，成為本機電腦系統管理員。 它們並沒有在 Azure Active Directory 中管理裝置物件的能力。
 
 ### <a name="directory-readersdirectory-readers-permissions"></a>[目錄讀取器](#directory-readers-permissions)
 
@@ -194,7 +194,7 @@ ms.locfileid: "74547530"
 
 ### <a name="directory-writersdirectory-writers-permissions"></a>[目錄寫入器](#directory-writers-permissions)
 
-這是舊版角色，用來指派給不支援[同意架構](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)的應用程式。 不應將它指派給任何使用者。
+這是舊版角色，可指派給不支援[同意架構](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)的應用程式。 不應將它指派給任何使用者。
 
 ### <a name="dynamics-365-administrator--crm-administratorcrm-service-administrator-permissions"></a>[Dynamics 365 管理員/CRM 管理員](#crm-service-administrator-permissions)
 
@@ -252,7 +252,7 @@ ms.locfileid: "74547530"
 
 ### <a name="guest-inviterguest-inviter-permissions"></a>[來賓邀請者](#guest-inviter-permissions)
 
-當 [成員可邀請] 使用者設定為 [否] 時，此角色中的使用者可以管理 Azure Active Directory B2B 來賓使用者的邀請 在[關於 Azure AD B2B 共同作業](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)中查看 B2B 共同作業的詳細資訊。 這不包含任何其他權限。
+當 [**成員可以邀請**] 使用者設定設為 [否] 時，此角色中的使用者可以管理 Azure Active Directory B2B 來賓使用者邀請。 在[關於 Azure AD B2B 共同作業](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)中查看 B2B 共同作業的詳細資訊。 這不包含任何其他權限。
 
 ### <a name="helpdesk-administratorhelpdesk-administrator-permissions"></a>[技術服務管理員](#helpdesk-administrator-permissions)
 
@@ -265,7 +265,7 @@ ms.locfileid: "74547530"
 * 報告讀者
 
 > [!IMPORTANT]
-> 具備此角色的使用者可以變更可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員密碼。 變更使用者的密碼表示可承擔該使用者身分識別和權限。 例如︰
+> 具備此角色的使用者可以變更可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員密碼。 變更使用者的密碼表示可承擔該使用者身分識別和權限。 例如：
 >
 >- 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與技術支援中心系統管理員。 技術支援中心系統管理員可以透過此路徑承擔應用程式擁有者的身分識別，然後藉由更新應用程式的認證，進一步承擔特殊權限應用程式的身分識別。
 >- Azure 訂用帳戶擁有者，他們可以存取機密或私人資訊，或 Azure 中的重要設定。
@@ -298,7 +298,7 @@ ms.locfileid: "74547530"
 
 ### <a name="message-center-readermessage-center-reader-permissions"></a>[訊息中心讀者](#message-center-reader-permissions)
 
-此角色中的使用者可以在 [Office 365 訊息中心](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093)內，為他們的組織監視所設服務 (例如 Exchange、Intune 和 Microsoft Teams) 的通知和諮詢健康情況更新。 訊息中心讀者每週會收到貼文的電子郵件摘要和更新，並且可以在 Office 365 中分享訊息中心的貼文。 在 Azure AD 中，指派至此角色的使用者只會有 Azure AD 服務的唯讀存取權，與使用者和群組一樣。 這個角色沒有檢視、建立或管理支援票證的存取權。
+此角色中的使用者可以在已設定的服務（例如 Exchange、Intune 和 Microsoft 小組）上，監視[Office 365 訊息中心](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093)內的通知和諮詢健康情況更新。 訊息中心讀者每週會收到貼文的電子郵件摘要和更新，並且可以在 Office 365 中分享訊息中心的貼文。 在 Azure AD 中，指派至此角色的使用者只會有 Azure AD 服務的唯讀存取權，與使用者和群組一樣。 這個角色沒有檢視、建立或管理支援票證的存取權。
 
 ### <a name="office-apps-administratoroffice-apps-administrator-permissions"></a>[Office 應用程式系統管理員](#office-apps-administrator-permissions)
 
@@ -452,7 +452,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 |只有非管理員或者下列任何有限管理員角色的使用者：<ul><li>目錄讀取器<li>來賓邀請者<li>服務台系統管理員<li>訊息中心讀取者<li>報告讀者<li>使用者管理員|<p>刪除及還原</p><p>停用和啟用</p><p>使重新整理權杖失效</p><p>管理包含使用者主體名稱的所有使用者屬性</p><p>重設密碼</p><p>更新 (FIDO) 裝置金鑰</p>|
 
 > [!IMPORTANT]
-> 具備此角色的使用者可以變更可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員密碼。 變更使用者的密碼表示可承擔該使用者身分識別和權限。 例如︰
+> 具備此角色的使用者可以變更可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員密碼。 變更使用者的密碼表示可承擔該使用者身分識別和權限。 例如：
 >
 >- 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與使用者系統管理員。 使用者系統管理員可以透過此路徑承擔應用程式擁有者的身分識別，然後藉由更新應用程式的認證，進一步承擔特殊權限應用程式的身分識別。
 >- Azure 訂用帳戶擁有者，他們具有機密或私人資訊或者 Azure 中重要組態的存取權。
@@ -468,7 +468,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 能夠建立及管理應用程式註冊與企業應用程式的所有層面。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/應用程式/appProxyAuthentication/更新 | 更新 Azure Active Directory 中服務主體的應用程式 Proxy 驗證屬性。 |
 | microsoft 目錄/應用程式/appProxyUrlSettings/更新 | 更新 Azure Active Directory 中的應用程式 proxy 內部和外部 URL。 |
@@ -522,7 +522,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 可建立與 [使用者可註冊應用程式] 設定不相關的應用程式註冊。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/應用程式/createAsOwner | 在 Azure Active Directory 中建立應用程式。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
 | microsoft 目錄/appRoleAssignments/createAsOwner | 在 Azure Active Directory 中建立 appRoleAssignments。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
@@ -533,7 +533,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 可存取以檢視、設定及重設所有非管理員使用者的驗證方法資訊。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/使用者/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
 | microsoft 目錄/使用者/Users.strongauthentication/更新 | 更新 MFA 認證資訊等增強式驗證屬性。 |
@@ -553,7 +553,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | devOps/allEntities/allTasks | 讀取和設定 Azure DevOps。 |
 
@@ -566,7 +566,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.azure.informationProtection/allEntities/allTasks | 管理 Azure 資訊保護的所有層面。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
@@ -578,7 +578,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 建立和管理使用者流程的所有層面。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft. aad. b2c/userFlows/allTasks | 在 Azure Active Directory B2C 中讀取和設定使用者流程。 |
 
@@ -586,7 +586,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 建立及管理所有使用者流程可用的屬性架構。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft. aad. b2c/userAttributes/allTasks | 在 Azure Active Directory B2C 中讀取和設定使用者屬性。 |
 
@@ -594,7 +594,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 在 Identity Experience Framework 中管理同盟和加密的秘密。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | trustFramework/索引鍵集/allTasks | 在 Azure Active Directory B2C 中讀取和設定金鑰集。 |
 
@@ -602,7 +602,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 在 Identity Experience Framework 中建立和管理信任架構原則。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | trustFramework/原則/allTasks | 在 Azure Active Directory B2C 中讀取和設定自訂原則。 |
 
@@ -615,7 +615,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/組織/基本/更新 | 更新 Azure Active Directory 中 organization 的基本屬性。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
@@ -629,7 +629,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 能夠建立及管理應用程式註冊與企業應用程式的所有層面，但應用程式 Proxy 除外。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/應用程式/物件/更新 | 在 Azure Active Directory 中更新 applications.audience 屬性。 |
 | microsoft 目錄/應用程式/驗證/更新 | 在 Azure Active Directory 中更新 applications.authentication 屬性。 |
@@ -672,7 +672,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 在 Azure AD 中管理裝置的完整存取。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
 | microsoft 目錄/裝置/Devices.bitlockerrecoverykeys/讀取 | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
@@ -692,7 +692,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.cloudAppSecurity/allEntities/allTasks | 建立和刪除所有資源，同時讀取及更新 microsoft.aad.cloudAppSecurity 中的標準屬性。 |
 | microsoft 目錄/administrativeUnits/allProperties/allTasks | 建立和刪除 administrativeUnits，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
@@ -759,7 +759,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
@@ -780,7 +780,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.cloudAppSecurity/allEntities/allTasks | 讀取和設定 Microsoft Cloud App Security。 |
 | microsoft.azure.informationProtection/allEntities/allTasks | 管理 Azure 資訊保護的所有層面。 |
@@ -798,7 +798,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 可以管理條件式存取功能。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/原則/Policies.conditionalaccess/基本/讀取 | 讀取 Azure Active Directory 中的 policies.conditionalAccess 屬性。 |
 | microsoft 目錄/原則/Policies.conditionalaccess/基本/更新 | 更新 Azure Active Directory 中的 policies.conditionalAccess 屬性。 |
@@ -818,7 +818,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
@@ -836,7 +836,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 | microsoft.office365.lockbox/allEntities/allTasks | 管理 Office 365 客戶加密箱的所有層面 |
@@ -850,7 +850,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
@@ -863,7 +863,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 指派給此角色的使用者會新增至已加入 Azure AD 的裝置上的本機系統管理員群組。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/groupSettings/基本/讀取 | 讀取 Azure Active Directory 中 groupSettings 的基本屬性。 |
 | microsoft 目錄/groupSettingTemplates/基本/讀取 | 讀取 Azure Active Directory 中 groupSettingTemplates 的基本屬性。 |
@@ -871,7 +871,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 ### <a name="directory-readers-permissions"></a>目錄讀取者許可權
 可讀取基本目錄資訊。 用來授與應用程式的存取權，不適用於使用者。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/administrativeUnits/基本/讀取 | 讀取 Azure Active Directory 中 administrativeUnits 的基本屬性。 |
 | microsoft 目錄/administrativeUnits/成員/讀取 | 讀取 Azure Active Directory 中的 administrativeUnits.members 屬性。 |
@@ -925,7 +925,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 僅供 Azure AD Connect 服務使用。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/組織/dirSync/更新 | 更新 Azure Active Directory 中的 organization.dirSync 屬性。 |
 | microsoft 目錄/原則/建立 | 在 Azure Active Directory 中建立原則。 |
@@ -960,7 +960,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 可讀取和寫入基本目錄資訊。 用來授與應用程式的存取權，不適用於使用者。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft. 目錄/群組/建立 | 在 Azure Active Directory 中建立 groups。 |
 | microsoft 目錄/群組/createAsOwner | 在 Azure Active Directory 中建立 groups。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
@@ -988,7 +988,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/群組/整合/appRoleAssignments/更新 | 更新 Azure Active Directory 中的 groups.unified 屬性。 |
 | microsoft 目錄/群組/統一/基本/更新 | 更新 Office 365 群組的基本屬性。 |
@@ -1007,7 +1007,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 設定要在直接同盟中使用的識別提供者。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft. aad. b2c/identityProviders/allTasks | 在 Azure Active Directory B2C 中讀取和設定識別提供者。 |
 
@@ -1019,7 +1019,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft commerce. 帳單/allEntities/讀取   | 閱讀 Office 365 帳單的所有層面。 |
 | microsoft 目錄/administrativeUnits/基本/讀取    | 讀取 Azure Active Directory 中 administrativeUnits 的基本屬性。 |
@@ -1084,7 +1084,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 ### <a name="group-administrator"></a>群組管理員
 可以管理群組和群組設定的所有層面，例如命名和到期原則
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/群組/基本/讀取 | 讀取 Azure Active Directory 中 Groups 的標準屬性。  |
 | microsoft 目錄/群組/基本/更新 | 更新 Azure Active Directory 中 groups 的基本屬性。 |
@@ -1106,7 +1106,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 ### <a name="guest-inviter-permissions"></a>來賓邀請者許可權
 能夠邀請不受 [成員能夠邀請來賓] 設定限制的來賓使用者。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/使用者/appRoleAssignments/讀取 | 讀取 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
 | microsoft 目錄/使用者/基本/讀取 | 讀取 Azure Active Directory 中 users 的基本屬性。 |
@@ -1123,7 +1123,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 能夠為非系統管理員與技術服務人員系統管理員重設密碼。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/裝置/Devices.bitlockerrecoverykeys/讀取 | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
 | microsoft 目錄/使用者/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
@@ -1143,7 +1143,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/連絡人/基本/更新 | 更新 Azure Active Directory 中 contacts 的基本屬性。 |
 | microsoft 目錄/連絡人/建立 | 在 Azure Active Directory 中建立 contacts。 |
@@ -1181,7 +1181,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
@@ -1191,7 +1191,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 可管理使用者和群組的產品授權。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/使用者/assignLicense | 管理 Azure Active Directory 中的使用者授權。 |
 | microsoft 目錄/使用者/usageLocation/更新 | 更新 Azure Active Directory 中的 users.usageLocation 屬性。 |
@@ -1208,7 +1208,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
@@ -1226,7 +1226,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 | microsoft.office365.messageCenter/messages/read | 讀取 microsoft.office365.messageCenter 中的訊息。 |
@@ -1240,7 +1240,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 | microsoft.office365.messageCenter/messages/read | 讀取 microsoft.office365.messageCenter 中的訊息。 |
@@ -1253,7 +1253,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
@@ -1273,7 +1273,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/連絡人/基本/更新 | 更新 Azure Active Directory 中 contacts 的基本屬性。 |
 | microsoft 目錄/連絡人/建立 | 在 Azure Active Directory 中建立 contacts。 |
@@ -1306,7 +1306,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/連絡人/基本/更新 | 更新 Azure Active Directory 中 contacts 的基本屬性。 |
 | microsoft 目錄/連絡人/建立 | 在 Azure Active Directory 中建立 contacts。 |
@@ -1336,7 +1336,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 可以重設非系統管理員和密碼管理員的密碼。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/使用者/密碼/更新 | 在 Azure Active Directory 中更新所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
@@ -1349,7 +1349,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
 >
 >
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
@@ -1367,7 +1367,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
 >
 >
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
@@ -1382,7 +1382,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 允許針對任何使用者（管理員或非系統管理員）來查看、設定及重設驗證方法資訊。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/使用者/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
 | microsoft 目錄/使用者/Users.strongauthentication/更新 | 更新 MFA 認證資訊等增強式驗證屬性。 |
@@ -1402,7 +1402,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | 建立和刪除所有資源，以及讀取和更新 microsoft.aad.privilegedIdentityManagement 中的標準屬性。 |
 | microsoft 目錄/servicePrincipals/Serviceprincipals.approleassignedto/allTasks | 讀取和設定 Azure Active Directory 中的 Serviceprincipals.approleassignedto 屬性。 |
@@ -1420,7 +1420,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
 | microsoft 目錄/Signinreports 所包含/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
@@ -1436,7 +1436,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.office365.messageCenter/messages/read | 讀取 microsoft.office365.messageCenter 中的訊息。 |
 | office365。 search/allEntities/allProperties/allTasks | 建立和刪除所有資源，以及讀取和更新 office365 中的所有屬性。 |
@@ -1454,7 +1454,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.office365.messageCenter/messages/read | 讀取 microsoft.office365.messageCenter 中的訊息。 |
 | office365/content/allProperties/allTasks | 建立和刪除內容，以及讀取和更新 office365 中的所有屬性。 |
@@ -1469,7 +1469,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/應用程式/原則/更新 | 更新 Azure Active Directory 中的 applications.policies 屬性。 |
 | microsoft 目錄/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
@@ -1499,7 +1499,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.cloudAppSecurity/allEntities/allTasks | 讀取和設定 Microsoft Cloud App Security。 |
 | microsoft.aad.identityProtection/allEntities/read | 讀取 microsoft.aad.identityProtection 中的所有資源。 |
@@ -1519,7 +1519,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
 | microsoft 目錄/裝置/Devices.bitlockerrecoverykeys/讀取 | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
@@ -1540,7 +1540,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
@@ -1557,7 +1557,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/群組/整合/appRoleAssignments/更新 | 更新 Azure Active Directory 中的 groups.unified 屬性。 |
 | microsoft 目錄/群組/統一/基本/更新 | 更新 Office 365 群組的基本屬性。 |
@@ -1581,7 +1581,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
@@ -1599,7 +1599,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
@@ -1614,7 +1614,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
@@ -1629,7 +1629,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 >
 >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/群組/Groups.hiddenmembers/讀取 | 讀取 Azure Active Directory 中的 groups.hiddenMembers 屬性。 |
 | microsoft 目錄/群組/整合/appRoleAssignments/更新 | 更新 Azure Active Directory 中的 groups.unified 屬性。 |
@@ -1648,7 +1648,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 ### <a name="user-administrator-permissions"></a>使用者系統管理員許可權
 能夠管理使用者與群組的所有層面，包含為受限制的管理員重設密碼。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft 目錄/appRoleAssignments/建立 | 在 Azure Active Directory 中建立 appRoleAssignments。 |
 | microsoft 目錄/appRoleAssignments/delete | 刪除 Azure Active Directory 中的 appRoleAssignments。 |
@@ -1746,7 +1746,7 @@ Microsoft Teams 通訊系統管理員 | Microsoft Teams 通訊系統管理員 | 
 Microsoft Teams 通訊支援工程師 | Microsoft Teams 通訊支援工程師 | f70938a0-fc10-4177-9e90-2178f8765737
 Microsoft Teams 通訊支援專家 | Microsoft Teams 通訊支援專家 | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Microsoft Teams 服務管理員 | Microsoft Teams 服務管理員 | 69091246-20e8-4a56-aa4d-066075b2a7a8
-使用者 | 使用者 | a0b1b346-4d3e-4e8b-98f8-753987be4970
+User | User | a0b1b346-4d3e-4e8b-98f8-753987be4970
 使用者帳戶管理員 | 使用者管理員 | fe930be7-5e62-47db-91af-98c3a49a38b1
 加入工作場所裝置 | 工作場所裝置加入 | c34f683f-4d5a-4403-affd-6615e00e3a7f
 
@@ -1766,4 +1766,4 @@ Microsoft Teams 服務管理員 | Microsoft Teams 服務管理員 | 69091246-20e
 
 * 若要深入了解如何將使用者指派為 Azure 訂用帳戶的系統管理員，請參閱[使用 RBAC 和 Azure 入口網站管理存取權](../../role-based-access-control/role-assignments-portal.md)
 * 若要深入了解如何在 Microsoft Azure 中控制資源存取，請參閱 [了解 Azure 中的資源存取](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* 如需 Azure Active Directory 如何與您 Azure 訂用帳戶產生關聯的詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* 如需有關 Azure Active Directory 與您的 Azure 訂用帳戶產生關聯之方式的詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

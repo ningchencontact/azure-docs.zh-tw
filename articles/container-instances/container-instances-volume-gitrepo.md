@@ -23,9 +23,9 @@ ms.locfileid: "74533223"
 
 當您掛接 *gitRepo* 磁碟區時，您可以設定三個屬性來設定磁碟區：
 
-| 屬性 | 必要 | 描述 |
+| 屬性 | 必要項 | 描述 |
 | -------- | -------- | ----------- |
-| `repository` | yes | 要複製之 Git 存放庫的完整 URL，包括 `http://` 或 `https://`。|
+| `repository` | 是 | 要複製之 Git 存放庫的完整 URL，包括 `http://` 或 `https://`。|
 | `directory` | 否 | 要在其中複製存放庫的目錄。 路徑不能包含或開頭為 "`..`"。  如果您指定 "`.`"，存放庫會複製到磁碟區的目錄中。 否則，Git 存放庫會複製到磁碟區目錄內指定名稱的子目錄中。 |
 | `revision` | 否 | 要複製之修訂的認可雜湊。 如果未指定，則 `HEAD` 修訂已複製。 |
 
@@ -60,7 +60,7 @@ drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
 
 ## <a name="mount-gitrepo-volume-resource-manager"></a>掛接 gitRepo 磁碟區：Resource Manager
 
-當您使用 [Azure Resource Manager 範本](/azure/templates/microsoft.containerinstance/containergroups)部署容器執行個體時，若要掛接 gitRepo 磁碟區，請先在範本的容器群組 `volumes` 區段中填入 `properties` 陣列。 然後，針對您想要掛接 gitRepo 磁碟區所在容器群組中的每個容器，填入容器定義 `volumeMounts` 區段中的 `properties` 陣列。
+當您使用 [Azure Resource Manager 範本](/azure/templates/microsoft.containerinstance/containergroups)部署容器執行個體時，若要掛接 gitRepo 磁碟區，請先在範本的容器群組 `properties` 區段中填入 `volumes` 陣列。 然後，針對您想要掛接 gitRepo 磁碟區所在容器群組中的每個容器，填入容器定義 `properties` 區段中的 `volumeMounts` 陣列。
 
 例如，下列 Resource Manager 範本會建立一個由單一容器組成的容器群組。 容器會複製由 *gitRepo* 磁碟區區塊所指定的兩個 GitHub 存放庫。 第二個磁碟區包含指定要複製到其中之目錄的其他屬性，和要複製之指定修訂的認可雜湊。
 

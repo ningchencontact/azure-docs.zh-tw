@@ -21,7 +21,7 @@ ms.locfileid: "74533088"
 
 Azure Active Directory B2C （Azure AD B2C）支援各種新式應用程式架構的驗證。 全部都以業界標準通訊協定 [OAuth 2.0](active-directory-b2c-reference-protocols.md) 或 [OpenID Connect](active-directory-b2c-reference-protocols.md) 為基礎。 本文描述您可以建立的應用程式類型，與您慣用的語言或平臺無關。 在您開始建置應用程式之前，也可協助您先了解一些高階案例。
 
-每個使用 Azure AD B2C 的應用程式都必須使用 [Azure 入口網站](active-directory-b2c-get-started.md)，在 [Azure AD B2C 租用戶](https://portal.azure.com/)中註冊。 應用程式註冊程序會收集和指派值，例如：
+每個使用 Azure AD B2C 的應用程式都必須使用 [Azure 入口網站](https://portal.azure.com/)，在 [Azure AD B2C 租用戶](active-directory-b2c-get-started.md)中註冊。 應用程式註冊程序會收集和指派值，例如：
 
 * 可唯一識別應用程式的**應用程式識別碼**。
 * 可用來將回應導回應用程式的**回覆 URL**。

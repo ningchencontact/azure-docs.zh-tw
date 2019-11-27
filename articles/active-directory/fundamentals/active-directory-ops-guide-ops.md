@@ -31,7 +31,7 @@ ms.locfileid: "74535297"
 
 管理 Azure Active Directory 需要持續執行重要的作業工作和進程，這可能不是首度發行專案的一部分。 您必須設定這些工作來優化您的環境，這仍然很重要。 主要工作和其建議的擁有者包括：
 
-| 工作 | 擁有者 |
+| Task | 擁有者 |
 | :- | :- |
 | 促進身分識別安全分數的改善 | InfoSec 營運小組 |
 | 維護 Azure AD Connect 伺服器 | IAM 作業小組 |
@@ -132,7 +132,7 @@ Azure AD： <o365mc@email2.microsoft.com>會使用兩個「寄件者」位址，
 - [Azure AD 存取評論](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 - [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations#enable-email-notifications)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/notifications)
-- [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
+- [Azure AD 特殊權限身分識別管理](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
 - [企業應用程式即將到期的憑證通知](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on#add-email-notification-addresses-for-certificate-expiration)
 - 企業應用程式佈建服務通知
 
@@ -172,7 +172,7 @@ Active Directory 系統管理層模型的設計目的是要使用一組緩衝區
 
 鎖定內部部署身分識別元件（例如 Azure AD Connect、AD FS 和 SQL 服務）的存取方式，與網域控制站相同。
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>總結
 
 安全身分識別基礎結構有七個層面。 這份清單可協助您找出您應該採取的動作，以將 Azure Active Directory （Azure AD）的作業優化。
 

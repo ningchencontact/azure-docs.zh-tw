@@ -16,7 +16,7 @@ ms.locfileid: "74533987"
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>使用 Azure 入口網站管理適用於 MySQL 的 Azure 資料庫伺服器
 本文說明如何管理適用于 MySQL 伺服器的 Afire 資料庫。 管理工作包括計算和儲存體調整、系統管理員密碼重設，以及查看伺服器詳細資料。
 
-## <a name="sign-in"></a>登入
+## <a name="sign-in"></a>Sign in
 登入 [Azure 入口網站](https://portal.azure.com)。
 
 ## <a name="create-a-server"></a>建立伺服器

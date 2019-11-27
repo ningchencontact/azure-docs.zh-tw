@@ -30,9 +30,9 @@ Azure 資源的受控識別能夠讓 Azure 服務向支援 Azure AD 驗證的服
 
 在本文中，您會了解如何使用 CURL 進行 REST API 呼叫，來建立、列出和刪除使用者指派的識別。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-the-managed-identities-for-azure-resources-work)** 。
+- 如果您不熟悉 Azure 資源受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-the-managed-identities-for-azure-resources-work)** 。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
 - 如果您使用的是 Windows，請安裝[適用於 Linux 的 Windows 子系統](https://msdn.microsoft.com/commandline/wsl/about)，或使用 Azure 入口網站中的 [Azure Cloud Shell](../../cloud-shell/overview.md)。
 - 如果您使用的是[適用於 Linux 的 Windows 子系統](https://msdn.microsoft.com/commandline/wsl/about)或[Linux 散發作業系統](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)，請[安裝 Azure CLI 本機主控台](/cli/azure/install-azure-cli)。
@@ -63,11 +63,11 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 |要求標頭  |描述  |
 |---------|---------|
 |*Content-Type*     | 必要。 設定為 `application/json`。        |
-|*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。        |
+|*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        |
 
 **要求本文**
 
-|名稱  |描述  |
+|Name  |描述  |
 |---------|---------|
 |location     | 必要。 資源位置。        |
 
@@ -86,7 +86,7 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 |要求標頭  |描述  |
 |---------|---------|
 |*Content-Type*     | 必要。 設定為 `application/json`。        |
-|*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。        |
+|*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        |
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>刪除使用者指派的受控識別
 
@@ -106,7 +106,7 @@ DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616
 |要求標頭  |描述  |
 |---------|---------|
 |*Content-Type*     | 必要。 設定為 `application/json`。        |
-|*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。        |
+|*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        |
 
 ## <a name="next-steps"></a>後續步驟
 

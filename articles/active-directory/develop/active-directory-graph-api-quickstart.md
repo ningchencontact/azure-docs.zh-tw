@@ -1,6 +1,6 @@
 ---
 title: 如何使用 Azure AD Graph API
-description: Azure Active Directory (Azure AD) Graph API 是透過 OData REST API 端點，以程式設計方式存取 Azure AD。 應用程式可以使用 Azure AD 圖形 API 來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。
+description: Azure Active Directory (Azure AD) Graph API 是透過 OData REST API 端點，以程式設計方式存取 Azure AD。 應用程式可以使用 Azure AD Graph API 來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。
 services: active-directory
 documentationcenter: n/a
 author: rwike77
@@ -31,7 +31,7 @@ ms.locfileid: "74533071"
 > [!IMPORTANT]
 > 強烈建議您使用[Microsoft Graph](https://developer.microsoft.com/graph) ，而不要使用 Azure AD 圖形 API 來存取 Azure Active Directory （Azure AD）資源。 我們的開發工作現在是針對 Microsoft Graph，並沒有針對 Azure AD Graph API 規劃的進一步增強功能 。 Azure AD 圖形 API 可能仍適用的案例數量非常有限;如需詳細資訊，請參閱[Microsoft Graph 或 Azure AD 圖的圖表](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph)blog 文章，並[將 Azure AD 圖形應用程式遷移至 Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview)。
 
-Azure AD 圖形 API 可透過 OData REST API 端點，以程式設計方式存取 Azure AD。 應用程式可以使用 Azure AD 圖形 API 來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。 例如，您可以使用 Azure AD Graph API 來建立新的使用者、檢視或更新使用者的屬性、變更使用者的密碼、檢查群組成員資格以進行角色型存取、停用或刪除使用者。 如需 Azure AD 圖形 API 功能和應用程式案例的詳細資訊，請參閱[Azure AD 圖形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)和[Azure AD 圖形 API 必要條件](https://msdn.microsoft.com/library/hh974476.aspx)。 Azure AD 圖形 API 僅適用于公司或學校/組織帳戶。
+Azure AD 圖形 API 可透過 OData REST API 端點，以程式設計方式存取 Azure AD。 應用程式可以使用 Azure AD Graph API 來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。 例如，您可以使用 Azure AD Graph API 來建立新的使用者、檢視或更新使用者的屬性、變更使用者的密碼、檢查群組成員資格以進行角色型存取、停用或刪除使用者。 如需 Azure AD 圖形 API 功能和應用程式案例的詳細資訊，請參閱[Azure AD 圖形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)和[Azure AD 圖形 API 必要條件](https://msdn.microsoft.com/library/hh974476.aspx)。 Azure AD 圖形 API 僅適用于公司或學校/組織帳戶。
 
 本文適用於 Azure AD Graph API。 如需與 Microsoft Graph API 相關的類似資訊，請參閱[使用 Microsoft Graph API](https://developer.microsoft.com/graph/docs/concepts/use_the_api)。
 
@@ -39,7 +39,7 @@ Azure AD 圖形 API 可透過 OData REST API 端點，以程式設計方式存�
 
 在 Graph API 中，若要存取您想要對其執行 CRUD 作業的目錄資料和物件 (亦即，資源或實體)，您可使用以「開放式資料 (OData) 通訊協定」為基礎的 URL。 Graph API 中使用的 URL 是由下列四個主要部分所組成：服務根目錄、租用戶識別碼、資源路徑和查詢字串選項： `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`。 在下列 URL 中取得範例： `https://graph.windows.net/contoso.com/groups?api-version=1.6`。
 
-* **服務根目錄**：在 Azure AD Graph API 中，服務根目錄一律為 https://graph.windows.net。
+* **服務根目錄**：在 Azure AD Graph API 中，服務根目錄一律為 https://graph.windows.net 。
 * **租用戶識別碼**：此區段可以是已驗證 (已註冊) 的網域名稱，在上述範例中為 contoso.com。 它也可以是租用戶物件識別碼，或是 “myorganization” 或 “me” 別名。 如需詳細資訊，請參閱[在 Azure AD 圖形 API 中定址實體和作業](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview)。
 * **資源路徑**： URL 的這個區段會識別要互動的資源（使用者、群組、特定的使用者或特定的群組等）。在上述範例中，它是用來處理該資源集的最上層「群組」。 您也可以為特定的實體定址，例如，“users/{objectId}” 或 “users/userPrincipalName”。
 * **查詢參數**：問號 (?) 可區隔資源路徑區段和查詢參數區段。 在 Azure AD Graph API 中，所有要求上都需要 “api-version” 查詢參數。 Azure AD Graph API 也支援下列 OData 查詢選項： **$filter**、 **$orderby**、 **$expand**、 **$top**及 **$format**。 目前不支援下列查詢選項： **$count**、 **$inlinecount** 和 **$skip**。 如需詳細資訊，請參閱 [Azure AD Graph API 中支援的查詢、篩選和分頁選項](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options)。

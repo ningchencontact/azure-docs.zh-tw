@@ -36,7 +36,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ```
 您可以使用[流量分析](traffic-analytics.md)來分析流量記錄，並取得網路流量的見解。
 
-在其他記錄上看到的保留原則也同樣適用於流量記錄。 您可以設定 1 天到 2147483647 天的記錄保留原則。 如果未設定保留原則，則會永遠保留記錄。
+在其他記錄上看到的保留原則也同樣適用於流量記錄。 您可以設定 1 天到 2147483647 天的記錄保留原則。 如果未設定保留原則，記錄會永久保留。
 
 > [!NOTE] 
 > 透過 NSG 流量記錄使用保留原則功能可能會產生大量的儲存體作業和相關成本。 如果您不需要保留原則功能，建議您將此值設為 0。
@@ -109,7 +109,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 
 > [!NOTE]
-> flowTuples 屬性中的值是逗號分隔清單。
+> \*flowTuples 屬性中的值是逗號分隔清單。
  
 ### <a name="version-1-nsg-flow-log-format-sample"></a>第 1 版 NSG 流量記錄格式範例
 ```json

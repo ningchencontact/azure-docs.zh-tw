@@ -35,7 +35,7 @@ ms.locfileid: "74533006"
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>什麼是應用程式物件，其來自何處？
 
-您可以在 Azure 入口網站中透過[應用程式註冊](app-objects-and-service-principals.md#application-object)體驗來管理[應用程式物件](https://aka.ms/appregistrations)。 應用程式物件會向 Azure AD 描述應用程式，而且您可以將其視為應用程式的定義，其可讓服務了解如何根據其設定對應用程式核發權杖。 應用程式物件只存在於其主目錄中，即使其為在其他目錄中支援服務主體的多租用戶應用程式也是如此。 應用程式物件可能包含下列任何項目 (以及此處未提及的其他資訊)：
+您可以在 Azure 入口網站中透過[應用程式註冊](https://aka.ms/appregistrations)體驗來管理[應用程式物件](app-objects-and-service-principals.md#application-object)。 應用程式物件會向 Azure AD 描述應用程式，而且您可以將其視為應用程式的定義，其可讓服務了解如何根據其設定對應用程式核發權杖。 應用程式物件只存在於其主目錄中，即使其為在其他目錄中支援服務主體的多租用戶應用程式也是如此。 應用程式物件可能包含下列任何項目 (以及此處未提及的其他資訊)：
 
 * 名稱、標誌和發行者
 * 重新導向 URI
@@ -57,7 +57,7 @@ ms.locfileid: "74533006"
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>什麼是服務主體，其來自何處？
 
-您可以在 Azure 入口網站中透過[企業應用程式](app-objects-and-service-principals.md#service-principal-object)體驗來管理[服務主體](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)。 服務主體可控管連線至 Azure AD 的應用程式，您可以將其視為目錄中應用程式的執行個體。 任何給定的應用程式最多可以有一個應用程式物件 (註冊於「主」目錄)，以及一或多個服務主體物件 (代表應用程式作用所在每個目錄中應用程式的執行個體)。 
+您可以在 Azure 入口網站中透過[企業應用程式](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)體驗來管理[服務主體](app-objects-and-service-principals.md#service-principal-object)。 服務主體可控管連線至 Azure AD 的應用程式，您可以將其視為目錄中應用程式的執行個體。 任何給定的應用程式最多可以有一個應用程式物件 (註冊於「主」目錄)，以及一或多個服務主體物件 (代表應用程式作用所在每個目錄中應用程式的執行個體)。 
 
 服務主體可包含：
 

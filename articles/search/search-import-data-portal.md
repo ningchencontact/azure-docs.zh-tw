@@ -75,7 +75,7 @@ ms.locfileid: "74534544"
 
 在幕後，嚮導會建立、設定和叫用下列物件。 在嚮導執行之後，您可以在入口網站頁面中找到其輸出。 服務的 [總覽] 頁面包含索引、索引子、資料來源和技能集的清單。 您可以在入口網站中以完整 JSON 來查看索引定義。 針對其他定義，您可以使用[REST API](https://docs.microsoft.com/rest/api/searchservice/)來取得特定物件。
 
-| 物件 | 描述 | 
+| Object | 描述 | 
 |--------|-------------|
 | [資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 將連接資訊保存到來源資料，包括認證。 資料來源物件是以獨佔方式使用於索引子。 | 
 | [Index](https://docs.microsoft.com/rest/api/searchservice/create-index) | 用於全文檢索搜尋和其他查詢的實體資料結構。 | 

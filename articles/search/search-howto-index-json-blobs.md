@@ -405,7 +405,7 @@ Blob 索引子會將 JSON 檔剖析成單一 Azure 認知搜尋檔。 索引子�
         }
     }
 
-假設搜尋索引有下列欄位︰`text` 類型的 `Edm.String`、`date` 類型的 `Edm.DateTimeOffset`、`tags` 類型的 `Collection(Edm.String)`。 請注意來源中的 "datePublished" 與索引中的 `date` 欄位之間的差異。 若要將 JSON 對應到所需形狀，請使用下列欄位對應︰
+假設搜尋索引有下列欄位︰`Edm.String` 類型的 `text`、`Edm.DateTimeOffset` 類型的 `date`、`Collection(Edm.String)` 類型的 `tags`。 請注意來源中的 "datePublished" 與索引中的 `date` 欄位之間的差異。 若要將 JSON 對應到所需形狀，請使用下列欄位對應︰
 
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
@@ -424,7 +424,7 @@ Blob 索引子會將 JSON 檔剖析成單一 Azure 認知搜尋檔。 索引子�
 >
 >
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [Azure 認知搜尋中的索引子](search-indexer-overview.md)
 + [使用 Azure 認知搜尋編制索引 Azure Blob 儲存體](search-howto-index-json-blobs.md)

@@ -45,7 +45,7 @@ ms.locfileid: "74548386"
 | **PaaS 支援** | **商務持續性** |
 | --- | --- |
 |無須硬體採購和管理 <br>沒有管理基礎結構的管理負擔 <br>快速佈建和服務調整 <br>自動修補和版本升級 <br>與其他 PaaS 資料服務整合 |99.99% 的 SLA 運作時間  <br>內建[高可用性](sql-database-high-availability.md) <br>使用[自動備份](sql-database-automated-backups.md)保護資料 <br>客戶可設定的備份保留期限 <br>使用者起始的[備份](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[資料庫還原時間點](sql-database-recovery-using-backups.md#point-in-time-restore)功能 |
-|**安全性與合規性** | **Management**|
+|**安全性與合規性** | **管理**|
 |隔離的環境 ([VNet 整合](sql-database-managed-instance-connectivity-architecture.md)、單一租用戶服務、專用的運算和儲存體) <br>[透明資料加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD 驗證](sql-database-aad-authentication.md)、單一登入支援 <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 伺服器主體（登入）</a>  <br>與 Azure SQL 資料庫遵循相同的合規性標準 <br>[SQL 稽核](sql-database-managed-instance-auditing.md) <br>[進階威脅防護](sql-database-managed-instance-threat-detection.md) |用於自動化服務佈建與調整的 Azure Resource Manager API <br>用於手動服務佈建與調整的 Azure 入口網站功能 <br>資料移轉服務
 
 > [!IMPORTANT]
@@ -56,15 +56,15 @@ ms.locfileid: "74548386"
 |功能 | 描述|
 |---|---|
 | SQL Server 版本/組建 | SQL Server 資料庫引擎 (最新穩定版) |
-| 受控自動化備份 | yes |
-| 內建執行個體和資料庫的監視與計量 | yes |
-| 自動軟體修補 | yes |
-| 最新的資料庫引擎功能 | yes |
+| 受控自動化備份 | 是 |
+| 內建執行個體和資料庫的監視與計量 | 是 |
+| 自動軟體修補 | 是 |
+| 最新的資料庫引擎功能 | 是 |
 | 每個資料庫的資料檔案 (ROWS) 數目 | 多個 |
 | 每個資料庫的記錄檔 (LOG) 數目 | 1 |
-| VNet - Azure Resource Manager 部署 | yes |
+| VNet - Azure Resource Manager 部署 | 是 |
 | VNet - 傳統部署模型 | 否 |
-| 入口網站支援 | yes|
+| 入口網站支援 | 是|
 | 內建的整合服務 (SSIS) | 否 - SSIS 屬於 [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | 內建的 Analysis Services (SSAS) | 否 - SSAS 是個別 [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
 | 內建的報告服務 (SSRS) | 否 - 使用 Power BI 或 SSRS IaaS |
@@ -99,7 +99,7 @@ ms.locfileid: "74548386"
 
 - 專為大多數有標準效能需求的商務應用程式所設計
 - 高效能的 Azure Blob 儲存體 (8 TB)
-- 根據可靠的 Azure Blob 儲存體和 [Azure Service Fabric](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) 內建的[高可用性](../service-fabric/service-fabric-overview.md)
+- 根據可靠的 Azure Blob 儲存體和 [Azure Service Fabric](../service-fabric/service-fabric-overview.md) 內建的[高可用性](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability)
 
 如需詳細資訊，請參閱[一般用途層中的儲存體層](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c)和[受控執行個體 (一般用途) 的儲存體效能最佳做法和考量](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/) \(英文\)。
 
@@ -113,7 +113,7 @@ ms.locfileid: "74548386"
 
 - 專為具有極高效能和 HA 需求的商務應用程式所設計
 - 提供超級快速的本機 SSD 儲存體 (在 Gen4 上可達 1 TB，而在 Gen5 上可達 4 TB)
-- 根據 [Always On 可用性群組](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)和 [Azure Service Fabric](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) 內建的[高可用性](../service-fabric/service-fabric-overview.md)。
+- 根據 [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)和 [Azure Service Fabric](../service-fabric/service-fabric-overview.md) 內建的[高可用性](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)。
 - 可用於報告和其他唯讀工作負載的其他內建[唯讀資料庫複本](sql-database-read-scale-out.md)
 - [記憶體內部 OLTP](sql-database-in-memory.md)，可用於具有高效能需求的工作負載  
 
@@ -124,7 +124,7 @@ ms.locfileid: "74548386"
 
 Azure SQL Database 提供管理作業，可讓您在不再需要時，用來自動部署新的受控執行個體、更新執行個體屬性和刪除執行個體。 本節提供管理作業及其一般持續時間的相關資訊。
 
-為了支援[Azure 虛擬網路（vnet）內的部署](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks)，並為客戶提供隔離和安全性，受控實例會依賴[虛擬叢集](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture)，這代表一組部署在其中的專屬獨立虛擬機器。客戶的虛擬網路子網。 基本上，空白子網中的每個受控實例部署都會產生新的虛擬叢集增建。
+為了支援[Azure 虛擬網路（vnet）內的部署](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks)，並為客戶提供隔離和安全性，受控實例會依賴[虛擬叢集](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture)，這代表一組在客戶的虛擬網路子網內部署的專屬獨立虛擬機器。 基本上，空白子網中的每個受控實例部署都會產生新的虛擬叢集增建。
 
 已部署的受控實例上的後續作業可能也會對其基礎虛擬叢集造成影響。 這會影響管理作業的持續時間，因為部署額外的虛擬機器時，會有額外負荷，當您規劃新的部署或現有受控實例的更新時，需要加以考慮。
 
@@ -150,10 +150,10 @@ Azure SQL Database 提供管理作業，可讓您在不再需要時，用來自�
 |類別  |作業  |長時間執行的區段  |預估持續時間  |
 |---------|---------|---------|---------|
 |**部署** |空白子網中的第一個實例|建立虛擬叢集|90% 的作業在4小時內完成|
-|部署 |非空白子網中另一個硬體世代的第一個實例（例如，第一個 Gen 5 實例，位於具有 Gen 4 實例的子網中）|虛擬叢集建立 *|90% 的作業在4小時內完成|
-|部署 |在空白或非空白的子網中，第一個建立4虛擬核心的實例|虛擬叢集建立 * *|90% 的作業在4小時內完成|
-|部署 |在非空白子網內建立的後續實例（第二、第三等實例）|虛擬叢集調整大小|90% 的作業在2.5 小時內完成|
-|**更新** |實例屬性變更（管理員密碼、AAD 登入、Azure Hybrid Benefit 旗標）|N/A|最多1分鐘|
+|Deployment |非空白子網中另一個硬體世代的第一個實例（例如，第一個 Gen 5 實例，位於具有 Gen 4 實例的子網中）|虛擬叢集建立 *|90% 的作業在4小時內完成|
+|Deployment |在空白或非空白的子網中，第一個建立4虛擬核心的實例|虛擬叢集建立 * *|90% 的作業在4小時內完成|
+|Deployment |在非空白子網內建立的後續實例（第二、第三等實例）|虛擬叢集調整大小|90% 的作業在2.5 小時內完成|
+|更新 |實例屬性變更（管理員密碼、AAD 登入、Azure Hybrid Benefit 旗標）|N/A|最多1分鐘|
 |更新 |實例儲存體相應增加/減少（一般用途服務層級）|-虛擬叢集調整大小<br>-附加資料庫檔案|90% 的作業在2.5 小時內完成|
 |更新 |實例儲存體相應增加/減少（商務關鍵服務層級）|-虛擬叢集調整大小<br>-Always On 可用性群組植入|90% 的作業會在2.5 小時內完成，並將所有資料庫植入的時間（220 GB/小時）|
 |更新 |實例計算（虛擬核心）相應增加和減少（一般用途）|-虛擬叢集調整大小<br>-附加資料庫檔案|90% 的作業在2.5 小時內完成|
@@ -227,7 +227,7 @@ Azure SQL Database 提供一組可用來保護資料的進階安全性功能。
 
 受控執行個體部署選項可讓您透過 [Azure Active Directory 整合](sql-database-aad-authentication.md)，集中管理資料庫使用者和其他 Microsoft 服務的身分識別。 這項功能簡化了權限管理並增強安全性。 Azure Active Directory 支援[多重要素驗證](sql-database-ssms-mfa-authentication-configure.md) (MFA)，以提高資料和應用程式安全性，同時支援單一登入程序。
 
-### <a name="authentication"></a>驗證
+### <a name="authentication"></a>Authentication
 
 受控執行個體驗證是指使用者連線到資料庫時如何證明他們的身分識別。 SQL Database 支援兩種驗證類型：  
 
@@ -238,7 +238,7 @@ Azure SQL Database 提供一組可用來保護資料的進階安全性功能。
 
   此驗證方法會使用由 Azure Active Directory 管理的身分識別，並且受控網域和整合式網域都支援此驗證。 [盡可能](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode)使用 Active Directory 驗證 (整合式安全性)。
 
-### <a name="authorization"></a>授權
+### <a name="authorization"></a>Authorization
 
 授權是指使用者可以在 Azure SQL Database 內執行的動作，這是由使用者帳戶的資料庫角色成員資格和物件層級權限所控制。 受控執行個體與 SQL Server 2017 具有相同的授權功能。
 
@@ -246,7 +246,7 @@ Azure SQL Database 提供一組可用來保護資料的進階安全性功能。
 
 受控執行個體部署選項鎖定的是透過將大量資料庫從內部部署或 IaaS 資料庫實作移轉的使用者案例。 受控執行個體支援數個資料庫移轉選項：
 
-### <a name="back-up-and-restore"></a>備份與還原  
+### <a name="back-up-and-restore"></a>備份和還原  
 
 移轉方法會利用 SQL 備份到 Azure Blob 儲存體。 透過 [T-SQL RESTORE 命令](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current)，儲存在 Azure 儲存體 Blob 的備份可以直接用來還原到受控執行個體。
 
@@ -292,17 +292,17 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 
 下表顯示數個透過 Transact SQL 使用的屬性，可用來檢測出應用程式正在使用受控執行個體，並擷取重要的屬性。
 
-|屬性|值|註解|
+|屬性|Value|註解|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|此值與 SQL Database 中的相同。|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|此值與 SQL Database 中的相同。|
 |`SERVERPROPERTY('EngineEdition')`|8|此值只會識別出受控執行個體。|
-|`@@SERVERNAME`、`SERVERPROPERTY ('ServerName')`|下列格式的完整執行個體 DNS 名稱：`<instanceName>`.`<dnsPrefix>`.database.windows.net，其中 `<instanceName>` 是客戶提供的名稱，而 `<dnsPrefix>` 是自動產生的部分名稱，確保全域 DNS 名稱是唯一的 (例如，"wcus17662feb9ce98")|範例：my-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`，`SERVERPROPERTY ('ServerName')`|下列格式的完整執行個體 DNS 名稱：`<instanceName>`.`<dnsPrefix>`.database.windows.net，其中 `<instanceName>` 是客戶提供的名稱，而 `<dnsPrefix>` 是自動產生的部分名稱，確保全域 DNS 名稱是唯一的 (例如，"wcus17662feb9ce98")|範例：my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>後續步驟
 
 - 若要了解如何建立您的第一個受控執行個體，請參閱[快速入門指南](sql-database-managed-instance-get-started.md)。
-- 如需功能與比較清單，請參閱 [SQL 的一般功能](sql-database-features.md)。
+- 如需功能與比較清單，請參閱[SQL 的一般功能](sql-database-features.md)。
 - 如需 VNet 組態的詳細資訊，請參閱[受控執行個體 VNet 組態](sql-database-managed-instance-connectivity-architecture.md)。
 - 如需建立受控執行個體，並從備份檔案還原資料庫的快速入門，請參閱[建立受控執行個體](sql-database-managed-instance-get-started.md)。
 - 如需使用 Azure 資料庫移轉服務 (DMS) 進行移轉的教學課程，請參閱[使用 DMS 的受控執行個體移轉](../dms/tutorial-sql-server-to-managed-instance.md)。

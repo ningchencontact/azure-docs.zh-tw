@@ -14,7 +14,7 @@ ms.locfileid: "74533599"
 
 > [!div class="op_single_selector"]
 > * [YAML](container-instances-multi-container-yaml.md)
-> * [資源管理員](container-instances-multi-container-group.md)
+> * [Resource Manager](container-instances-multi-container-group.md)
 >
 
 Azure 容器執行個體支援使用[容器群組](container-instances-container-groups.md)將多個容器部署至單一主機。 當建立應用程式側車以進行記錄、監視或任何其他設定（其中服務需要第二個附加的進程）時，容器群組會很有用。

@@ -51,7 +51,7 @@ ms.locfileid: "74533275"
 * **公用 ip 或 DNS 標籤**-部署至虛擬網路的容器群組目前不支援使用公用 IP 位址或完整功能變數名稱將容器直接公開到網際網路
 * **內部名稱解析**-不支援透過內部 Azure DNS 在虛擬網路中的 Azure 資源名稱解析
 
-當您將容器群組部署至虛擬網路後，便需要**其他步驟**來[刪除網路資源](#delete-network-resources)。
+當您將容器群組部署至虛擬網路後，便需要[其他步驟](#delete-network-resources)來**刪除網路資源**。
 
 ## <a name="required-network-resources"></a>必要的網路資源
 

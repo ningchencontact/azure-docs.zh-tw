@@ -46,7 +46,7 @@ Azure 身分識別用戶端程式庫的優點是，它可讓您使用相同的�
 
 ### <a name="assign-role-based-access-control-rbac-roles-for-access-to-data"></a>指派角色型存取控制（RBAC）角色以存取資料
 
-當 Azure AD 安全性主體嘗試存取 blob 或佇列資料時，該安全性主體必須擁有該資源的許可權。 無論安全性主體是 Azure 中的受控識別，或是在開發環境中執行程式碼的 Azure AD 使用者帳戶，都必須將 RBAC 角色指派給安全性主體，以授與 Azure 儲存體中 blob 或佇列資料的存取權。 如需透過 RBAC 指派許可權的相關資訊，請參閱[使用 Azure Active Directory 授權存取 Azure blob 和佇列](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights)中的 >指派存取權限的 RBAC 角色一節。
+當 Azure AD 安全性主體嘗試存取 blob 或佇列資料時，該安全性主體必須擁有該資源的許可權。 無論安全性主體是 Azure 中的受控識別，或是在開發環境中執行程式碼的 Azure AD 使用者帳戶，都必須將 RBAC 角色指派給安全性主體，以授與 Azure 儲存體中 blob 或佇列資料的存取權。 如需透過 RBAC 指派許可權的相關資訊，請參閱[使用 Azure Active Directory 授權存取 Azure blob 和佇列](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights)中的
 
 ### <a name="authenticate-the-user-in-the-development-environment"></a>在開發環境中驗證使用者
 
@@ -92,7 +92,7 @@ az ad sp create-for-rbac \
 
 Azure 身分識別用戶端程式庫會在執行時間讀取來自三個環境變數的值，以驗證服務主體。 下表描述要針對每個環境變數設定的值。
 
-|環境變數|值
+|環境變數|Value
 |-|-
 |`AZURE_CLIENT_ID`|服務主體的應用程式識別碼
 |`AZURE_TENANT_ID`|服務主體的 Azure AD 租使用者識別碼
@@ -175,5 +175,5 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 ## <a name="next-steps"></a>後續步驟
 
 - 若要深入瞭解 Azure 儲存體的 RBAC 角色，請參閱[使用 Rbac 管理儲存體資料的存取權限](storage-auth-aad-rbac.md)。
-- 若要了解如何從儲存體應用程式內授權容器和佇列的存取權，請參閱[使用 Azure AD 與儲存體應用程式](storage-auth-aad-app.md)。
+- 若要深入了解如何從儲存體應用程式內授權容器和佇列的存取權，請參閱[使用 Azure AD 與儲存體應用程式](storage-auth-aad-app.md)。
 - 若要瞭解如何使用 Azure AD 認證來執行 Azure CLI 和 PowerShell 命令，請參閱[使用 Azure AD 認證來執行 Azure CLI 或 powershell 命令，以存取 blob 或佇列資料](storage-auth-aad-script.md)。

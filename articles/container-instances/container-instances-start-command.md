@@ -42,7 +42,7 @@ ms.locfileid: "74533415"
 
 * [az container create][az-container-create]命令：使用 `--command-line` 參數傳遞字串。 範例： `--command-line "python myscript.py arg1 arg2"`）。
 
-* [新增-get-azurermcontainergroup][new-azurermcontainergroup]Azure PowerShell Cmdlet：傳遞具有 `-Command` 參數的字串。 範例： `-Command "echo hello"`.
+* [新增-get-azurermcontainergroup][new-azurermcontainergroup]Azure PowerShell Cmdlet：傳遞具有 `-Command` 參數的字串。 範例：`-Command "echo hello"`.
 
 * Azure 入口網站：在容器設定的 [**命令覆寫**] 屬性中，提供以逗號分隔的字串清單，不含引號。 範例： `python, myscript.py, arg1, arg2`）。 
 

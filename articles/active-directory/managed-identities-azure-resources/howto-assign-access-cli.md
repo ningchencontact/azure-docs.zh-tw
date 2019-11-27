@@ -28,9 +28,9 @@ ms.locfileid: "74547367"
 
 以受控識別設定 Azure 資源後，您可以為此受控識別提供對另一項資源的存取權，就像任何安全性主體一樣。 此範例說明如何使用 Azure CLI 為 Azure 虛擬機器或虛擬機器擴展集的受控識別提供對 Azure 儲存體帳戶的存取權。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-the-managed-identities-for-azure-resources-work)** 。
+- 如果您不熟悉 Azure 資源受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-the-managed-identities-for-azure-resources-work)** 。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
 - 若要執行 CLI 指令碼範例，您有三個選項：
     - 從 Azure 入口網站使用 [Azure Cloud Shell](../../cloud-shell/overview.md) (請參閱下一節)。
@@ -68,6 +68,6 @@ ms.locfileid: "74547367"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [適用於 Azure 資源的受控識別概觀](overview.md)
+- [Azure 資源受控識別概觀](overview.md)
 - 若要在 Azure 虛擬機器上啟用受控識別，請參閱[使用 Azure CLI 在 Azure VM 上設定 Azure 資源的受控識別](qs-configure-cli-windows-vm.md)。
 - 若要在 Azure 虛擬機器擴展集上啟用受控識別，請參閱[使用 Azure CLI 在虛擬機器擴展集上設定 Azure 資源的受控識別](qs-configure-cli-windows-vmss.md)。

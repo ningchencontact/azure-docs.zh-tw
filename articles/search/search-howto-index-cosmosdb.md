@@ -58,7 +58,7 @@ Azure 認知搜尋中的 Cosmos DB 索引子可以編目透過不同通訊協定
 
 ### <a name="2---start-import-data-wizard"></a>2 - 啟動匯入資料精靈
 
-您可以從 Azure 認知搜尋服務頁面中的命令列[啟動精靈](search-import-data-portal.md)，或者如果您要連線到 COSMOS DB SQL API，您可以在 Cosmos DB 帳戶左側的 [**設定**] 區段中按一下 [**新增 Azure 認知搜尋**]。流覽窗格。
+您可以從 [Azure 認知搜尋服務] 頁面的命令列[啟動精靈](search-import-data-portal.md)，或者如果您要連線至 COSMOS DB SQL API，您可以在 Cosmos DB 帳戶左側流覽窗格的 [**設定**] 區段中，按一下 [**新增 Azure 認知搜尋**]。
 
    ![入口網站中的匯入資料命令](./media/search-import-data-portal/import-data-cmd2.png "啟動匯入資料精靈")
 
@@ -254,7 +254,7 @@ Azure 認知搜尋中的 Cosmos DB 索引子可以編目透過不同通訊協定
 | Bool |Edm.Boolean、Edm.String |
 | 看起來像是整數的數字 |Edm.Int32、Edm.Int64、Edm.String |
 | 看起來像是浮點的數字 |Edm.Double、Edm.String |
-| 字串 |Edm.String |
+| String |Edm.String |
 | 基本類型的陣列，例如 ["a", "b", "c"] |Collection(Edm.String) |
 | 看起來像是日期的字串 |Edm.DateTimeOffset、Edm.String |
 | GeoJSON 物件，例如 { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
@@ -294,7 +294,7 @@ Azure 認知搜尋中的 Cosmos DB 索引子可以編目透過不同通訊協定
 
 ## <a name="indexing-changed-documents"></a>索引已變更的文件
 
-資料變更偵測原則是用來有效識別已變更的資料項目。 目前，唯一支援的原則是使用 Azure Cosmos DB 所提供之 `High Water Mark` (時間戳記) 屬性的 `_ts` 原則，指定方式如下：
+資料變更偵測原則是用來有效識別已變更的資料項目。 目前，唯一支援的原則是使用 Azure Cosmos DB 所提供之 `_ts` (時間戳記) 屬性的 `High Water Mark` 原則，指定方式如下：
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -359,7 +359,7 @@ Azure 認知搜尋中的 Cosmos DB 索引子可以編目透過不同通訊協定
         }
     }
 
-## <a name="NextSteps"></a>接續步驟
+## <a name="NextSteps"></a>後續步驟
 
 恭喜！ 您已瞭解如何使用索引子來整合 Azure Cosmos DB 與 Azure 認知搜尋。
 

@@ -46,7 +46,7 @@ Azure VPN 閘道可讓您建立混合式解決方案，以解決內部部署網�
 
 ### <a name="ike-phase-1-setup"></a>IKE 第 1 階段設定
 
-| **屬性** | **PolicyBased** | **路由式和標準或高效能 VPN 閘道** |
+| **屬性** | **原則式** | **路由式和標準或高效能 VPN 閘道** |
 | --- | --- | --- |
 | IKE 版本 |IKEv1 |IKEv2 |
 | Diffie-Hellman 群組 |群組 2 (1024 位元) |群組 2 (1024 位元) |
@@ -82,9 +82,9 @@ Azure 網路監看員疑難排解功能可讓您輕鬆地利用簡單的 PowerSh
 
 ### <a name="gateway"></a>閘道器
 
-| 錯誤類型 | 原因 | 記錄檔|
+| 錯誤類型 | 原因 | 記錄|
 |---|---|---|
-| NoFault | 未偵測到任何錯誤時。 |yes|
+| NoFault | 未偵測到任何錯誤時。 |是|
 | GatewayNotFound | 找不到閘道或閘道尚未佈建。 |否|
 | PlannedMaintenance |  閘道執行個體正在進行維護。  |否|
 | UserDrivenUpdate | 當正在更新使用者時。 這可能是調整大小作業。 | 否 |
@@ -92,26 +92,26 @@ Azure 網路監看員疑難排解功能可讓您輕鬆地利用簡單的 PowerSh
 | PlatformInActive | 平台發生問題。 | 否|
 | ServiceNotRunning | 基礎服務並未執行。 | 否|
 | NoConnectionsFoundForGateway | 閘道上沒有任何連線存在。 這只是警告。| 否|
-| ConnectionsNotConnected | 未進行任何連線。 這只是警告。| yes|
-| GatewayCPUUsageExceeded | 目前的閘道使用量 CPU 使用量 > 95%。 | yes |
+| ConnectionsNotConnected | 未進行任何連線。 這只是警告。| 是|
+| GatewayCPUUsageExceeded | 目前的閘道使用量 CPU 使用量 > 95%。 | 是 |
 
 ### <a name="connection"></a>連線
 
-| 錯誤類型 | 原因 | 記錄檔|
+| 錯誤類型 | 原因 | 記錄|
 |---|---|---|
-| NoFault | 未偵測到任何錯誤時。 |yes|
+| NoFault | 未偵測到任何錯誤時。 |是|
 | GatewayNotFound | 找不到閘道或閘道尚未佈建。 |否|
 | PlannedMaintenance | 閘道執行個體正在進行維護。  |否|
 | UserDrivenUpdate | 當正在更新使用者時。 這可能是調整大小作業。  | 否 |
 | VipUnResponsive | 無法連線到閘道的主要執行個體。 健全狀況探查失敗時便會發生這種狀況。 | 否 |
 | ConnectionEntityNotFound | 缺少連線組態。 | 否 |
 | ConnectionIsMarkedDisconnected | 連線標記為「已中斷連線」。 |否|
-| ConnectionNotConfiguredOnGateway | 基礎服務未設定連線。 | yes |
-| ConnectionMarkedStandby | 基礎服務標記為「待命」。| yes|
-| 驗證 | 預先共用的金鑰不相符。 | yes|
-| PeerReachability | 無法連線到對等閘道。 | yes|
-| IkePolicyMismatch | 對等閘道的 IKE 原則不受 Azure 支援。 | yes|
-| WfpParse Error | 剖析 WFP 記錄時發生錯誤。 |yes|
+| ConnectionNotConfiguredOnGateway | 基礎服務未設定連線。 | 是 |
+| ConnectionMarkedStandby | 基礎服務標記為「待命」。| 是|
+| Authentication | 預先共用的金鑰不相符。 | 是|
+| PeerReachability | 無法連線到對等閘道。 | 是|
+| IkePolicyMismatch | 對等閘道的 IKE 原則不受 Azure 支援。 | 是|
+| WfpParse Error | 剖析 WFP 記錄時發生錯誤。 |是|
 
 ## <a name="next-steps"></a>後續步驟
 

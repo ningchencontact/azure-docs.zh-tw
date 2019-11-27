@@ -25,7 +25,7 @@ ms.locfileid: "74548347"
 > * [資料庫資料指標](/azure/kusto/management/databasecursor)。
 > * [資料對應](/azure/kusto/management/mappings)。 僅支援[預先建立的](/azure/kusto/management/tables#create-ingestion-mapping)資料對應。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 * 登入[WEB UI](https://dataexplorer.azure.com/)。
@@ -35,7 +35,7 @@ ms.locfileid: "74548347"
 
 1. 在 Azure 入口網站中，移至您的 Azure 資料總管叢集。 在 [設定] 中 **，選取 [** **設定**]。 
 1. **在 [設定**] 窗格中，選取 [**開啟**] 以啟用**串流**內嵌。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
  
     ![串流內嵌于](media/ingest-data-streaming/streaming-ingestion-on.png)
  
@@ -54,7 +54,7 @@ ms.locfileid: "74548347"
 
 ### <a name="choose-the-appropriate-streaming-ingestion-type"></a>選擇適當的串流內嵌類型
 
-|   |事件中樞  |自訂內嵌  |
+|   |Event Hub  |自訂內嵌  |
 |---------|---------|---------|
 |內嵌初始化與可供查詢的資料之間的資料延遲   |    較長延遲     |   延遲較短      |
 |開發額外負荷    |   快速且輕鬆的設定，無需任何開發負擔    |   應用程式的高開發額外負荷，可處理錯誤並確保資料一致性     |
@@ -67,7 +67,7 @@ ms.locfileid: "74548347"
 1. 從所有相關的資料表和資料庫中卸載[串流內嵌原則](/azure/kusto/concepts/streamingingestionpolicy)。 串流的內嵌原則移除會觸發從初始儲存體到資料行存放區（範圍或分區）中的永久儲存體的串流內嵌資料移動。 視初始儲存體中的資料量和叢集的 CPU 和記憶體使用量而定，資料移動可以在數秒到幾個小時之間持續。
 1. 在 Azure 入口網站中，移至您的 Azure 資料總管叢集。 在 [設定] 中 **，選取 [** **設定**]。 
 1. **在 [設定**] 窗格中，選取 [**關閉**] 以停用**串流**內嵌。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
     ![串流內嵌已關閉](media/ingest-data-streaming/streaming-ingestion-off.png)
 

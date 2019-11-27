@@ -22,7 +22,7 @@ Log Analytics 工作區提供集中式位置，不僅可讓您從 Azure 資源�
 > [!NOTE]
 > 目前，您只能將來自 Linux 容器執行個體的事件資料傳送至 Log Analytics。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要在您的容器執行個體中啟用記錄，您必須具備下列項目：
 
@@ -48,9 +48,9 @@ Azure 容器執行個體必須具備將資料傳送至 Log Analytics 工作區�
 
 下列範例示範兩種使用單一[fluentd][fluentd]容器建立容器群組的方式： Azure CLI，以及具有 YAML 範本的 Azure CLI。 Fluentd 容器在其預設組態中會產生數行輸出。 此輸出會傳送到您的 Log Analytics 工作區，因此很適合用來示範記錄的檢視和查詢。
 
-### <a name="deploy-with-azure-cli"></a>使用 Azure CLI 進行部署
+### <a name="deploy-with-azure-cli"></a>使用 Azure CLI 部署
 
-若要使用 Azure CLI 進行部署，請在 `--log-analytics-workspace`az container create`--log-analytics-workspace-key` 命令中指定 [ 和 ][az-container-create] 參數。 在執行下列命令之前，請先將兩個工作區值取代為您在先前的步驟中取得的值 (並更新資源群組名稱)。
+若要使用 Azure CLI 進行部署，請在 [az container create][az-container-create] 命令中指定 `--log-analytics-workspace` 和 `--log-analytics-workspace-key` 參數。 在執行下列命令之前，請先將兩個工作區值取代為您在先前的步驟中取得的值 (並更新資源群組名稱)。
 
 ```azurecli-interactive
 az container create \
@@ -111,7 +111,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 ![Azure 入口網站中的記錄搜尋結果][log-search-01]
 
-## <a name="view-events"></a>檢視事件
+## <a name="view-events"></a>檢視活動
 
 您也可以在 Azure 入口網站中，檢視容器執行個體的事件。 事件包括執行個體的建立時間和啟動時間。 若要在 `ContainerEvent_CL` 資料表中檢視事件資料：
 

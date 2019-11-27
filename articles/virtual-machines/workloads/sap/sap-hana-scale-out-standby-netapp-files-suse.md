@@ -86,7 +86,7 @@ ms.locfileid: "74531402"
 * [使用網路檔案系統（NFS）的 NetApp 系統 SAP Hana](https://www.netapp.com/us/media/tr-4435.pdf)：一項設定指南，其中包含如何使用 NetApp 的 Azure NFS 來設定 SAP Hana 的相關資訊
 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 達到 HANA 高可用性的其中一個方法是設定主機自動容錯移轉。 若要設定主機自動容錯移轉，您可以將一或多個虛擬機器新增至 HANA 系統，並將它們設定為待命節點。 當作用中節點失敗時，待命節點會自動接管。 在 Azure 虛擬機器的呈現設定中，您可以使用[Azure NetApp Files 上的 NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/)來達成自動容錯移轉。  
 
@@ -249,7 +249,7 @@ Azure NetApp Files 磁片區的輸送量是磁片區大小和服務層級的功�
 
     d. 選取 [**網路**]，然後連接網路介面。 在 [**附加網路介面**] 下拉式清單中，選取已為 `storage` 和 `hana` 子網建立的網路介面。  
     
-    e. 選取 [ **儲存**]。 
+    e. 選取 [儲存]。 
  
     f. 針對其餘的虛擬機器（在我們的範例中為**hanadb2**和**hanadb3**），重複步驟 b 到 e。
  
@@ -853,5 +853,5 @@ Azure NetApp Files 磁片區的輸送量是磁片區大小和服務層級的功�
 * [適用于 SAP 的 Azure 虛擬機器規劃和執行][planning-guide]
 * [適用于 SAP 的 Azure 虛擬機器部署][deployment-guide]
 * [適用于 SAP 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
-* 若要了解如何建立高可用性並為 Azure 上的 SAP HANA (大型執行個體) 規劃災害復原，請參閱 [SAP HANA (大型執行個體) 在 Azure 上的高可用性和災害復原](hana-overview-high-availability-disaster-recovery.md)。
+* 若要了解如何建立高可用性並為 Azure 上的 SAP HANA 規劃災害復原，請參閱 [Azure 上的 SAP HANA (大型執行個體) 高可用性和災害復原](hana-overview-high-availability-disaster-recovery.md)。
 * 若要瞭解如何建立高可用性並規劃 Azure Vm 上 SAP Hana 的嚴重損壞修復，請參閱[azure 虛擬機器（vm）上 SAP Hana 的高可用性][sap-hana-ha]。

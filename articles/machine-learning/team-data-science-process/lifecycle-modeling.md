@@ -20,7 +20,7 @@ ms.locfileid: "74538231"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 生命週期的模型化階段
 
-本文將概要說明與 Team Data Science Process (TDSP) 模型化階段相關聯的目標、工作和交付項目。 此流程會提供建議的生命週期，供您建構資料科學專案。 生命週期可描繪出專案一般執行時 (通常會反覆進行) 的主要階段：
+本文將概要說明與 Team Data Science Process (TDSP) 模型化階段相關聯的目標、工作和交付項目。 此流程會提供建議的生命週期，供您建構資料科學專案。 生命週期會概述專案通常執行時經常反覆進行的主要階段：
 
    1. **了解商務**
    2. **資料取得與認知**
@@ -69,7 +69,7 @@ ms.locfileid: "74538231"
 
 我們透過 TDSP 提供[自動化模型和報告工具](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling) \(英文\)，其可透過多個演算法及參數掃掠來執行，以產生基準模型。 它也會產生基準模型報告，摘要說明每個模型和參數組合的效能 (包括變數重要性)。 此程序也會反覆進行，因為這可促成進一步的功能設計。 
 
-## <a name="artifacts"></a>構件
+## <a name="artifacts"></a>Artifacts
 此階段所產生的成品包括︰
 
    * [特徵集](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md) \(英文\)：**Data definition** 報告的 **Feature sets** 區段會說明針對模型化所開發的特徵。 它包含產生特徵的程式碼指標，以及特徵產生方式的描述。

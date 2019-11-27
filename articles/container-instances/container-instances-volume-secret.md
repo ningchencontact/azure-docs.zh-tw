@@ -21,7 +21,7 @@ ms.locfileid: "74533178"
 
 ## <a name="mount-secret-volume---azure-cli"></a>掛接秘密磁碟區 - Azure CLI
 
-若要使用 Azure CLI 來部署具有一或多個秘密的容器，請在[az container create][az-container-create]命令中包含 `--secrets` 和 `--secrets-mount-path` 參數。 此範例會在  *掛接由兩個祕密 ("mysecret1" 和 "mysecret2") 所組成的「秘密」* `/mnt/secrets`磁碟區：
+若要使用 Azure CLI 來部署具有一或多個秘密的容器，請在[az container create][az-container-create]命令中包含 `--secrets` 和 `--secrets-mount-path` 參數。 此範例會在 `/mnt/secrets` 掛接由兩個祕密 ("mysecret1" 和 "mysecret2") 所組成的「秘密」磁碟區：
 
 ```azurecli-interactive
 az container create \
@@ -53,7 +53,7 @@ Bye.
 
 當您透過 YAML 範本進行部署時，範本中的祕密值必須為 **Base64 編碼**。 不過，祕密值會出現於容器中檔案內的純文字。
 
-下列 YAML 範本可定義含有一個容器的容器群組，而該容器會在  *掛接「祕密」* `/mnt/secrets`磁碟區。 此祕密磁碟區有兩個祕密 "mysecret1" 和 "mysecret2"。
+下列 YAML 範本可定義含有一個容器的容器群組，而該容器會在 `/mnt/secrets` 掛接「祕密」磁碟區。 此祕密磁碟區有兩個祕密 "mysecret1" 和 "mysecret2"。
 
 ```yaml
 apiVersion: '2018-10-01'
@@ -95,11 +95,11 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
 
 除了 CLI 和 YAML 部署，您可以使用 Azure [Resource Manager 範例](/azure/templates/microsoft.containerinstance/containergroups)來部署容器群組。
 
-首先，填入範本的容器群組 `volumes` 區段中的 `properties` 陣列。 當您透過 Resource Manager 範本進行部署時，範本中的祕密值必須為 **Base64 編碼**。 不過，祕密值會出現於容器中檔案內的純文字。
+首先，填入範本的容器群組 `properties` 區段中的 `volumes` 陣列。 當您透過 Resource Manager 範本進行部署時，範本中的祕密值必須為 **Base64 編碼**。 不過，祕密值會出現於容器中檔案內的純文字。
 
-接下來，針對您想要掛接祕密磁碟區所在容器群組中的每個容器，填入容器定義之 `volumeMounts` 區段中的 `properties` 陣列。
+接下來，針對您想要掛接祕密磁碟區所在容器群組中的每個容器，填入容器定義之 `properties` 區段中的 `volumeMounts` 陣列。
 
-下列 Resource Manager 範本可定義含有一個容器的容器群組，而該容器會在  *掛接「祕密」* `/mnt/secrets`磁碟區。 此祕密磁碟區有兩個祕密 "mysecret1" 和 "mysecret2"。
+下列 Resource Manager 範本可定義含有一個容器的容器群組，而該容器會在 `/mnt/secrets` 掛接「祕密」磁碟區。 此祕密磁碟區有兩個祕密 "mysecret1" 和 "mysecret2"。
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]

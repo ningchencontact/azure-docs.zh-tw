@@ -25,10 +25,10 @@ ms.locfileid: "74533937"
 
 [Gen1 至 Gen2 對應](#gen1-gen2-map) | [提供意見](https://github.com/Azure/azure-powershell/issues)反應
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 > [!div class="checklist"]
-> * Azure 訂閱。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+> * Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 > * 已啟用階層命名空間（HNS）的儲存體帳戶。 請遵循[這些](data-lake-storage-quickstart-create-account.md)指示來建立一個。
 > * .NET Framework 已安裝4.7.2 或更新版本。 請參閱[下載 .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework)。
 > * PowerShell 版本 `5.1` 或更高版本。
@@ -380,7 +380,7 @@ Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse |
 |移除-AzDataLakeStoreItem|移除-AzDataLakeGen2Item|
 |設定-AzDataLakeStoreItemOwner <br>設定-AzDataLakeStoreItemPermission<br>設定-AzDataLakeStoreItemPermission<br>設定-AzDataLakeStoreItemAcl|更新-AzDataLakeGen2Item|
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [已知問題](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [搭配 Azure 儲存體使用 Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

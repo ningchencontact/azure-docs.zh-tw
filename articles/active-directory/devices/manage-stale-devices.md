@@ -53,7 +53,7 @@ Azure AD 中若有過時裝置，可能會干擾您組織中裝置的一般生�
 
 您有兩個選項可擷取活動時間戳記值：
 
-- Azure 入口網站**裝置頁面**上的[活動](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)資料行
+- Azure 入口網站[裝置頁面](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)上的**活動**資料行
 
     ![活動時間戳記](./media/manage-stale-devices/01.png)
 

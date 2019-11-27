@@ -24,7 +24,7 @@ ms.locfileid: "74538193"
 
 網路效能監視器會偵測網路問題，例如流量黑洞、路由錯誤，以及傳統網路監視方法無法偵測的問題。 此解決方案會在違反網路連結的臨界值時產生警示並通知您。 它可確實而及時地偵測網路效能問題，並將問題的來源限縮於特定網路區段或裝置。 
 
-您可以在線上深入了解[網路效能監視器](https://docs.microsoft.com/azure/networking/network-monitoring-overview)所支援的各種功能。
+您可以在線上深入了解 [網路效能監視器](https://docs.microsoft.com/azure/networking/network-monitoring-overview) 所支援的各種功能。
 
 ## <a name="set-up-and-configure-agents"></a>安裝及設定代理程式
 
@@ -69,7 +69,7 @@ ms.locfileid: "74538193"
 ### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>我可以使用的代理程式數目上限，或我看到錯誤」。您已達到設定限制」？
 NPM 將 IP 數目限制為每個工作區 5000 個 IP。 如果節點同時有 IPv4 和 IPv6 位址，這會當作該節點有 2 個 IP 來計算。 因此，5000 IP 的這項限制會決定代理程式數目上限。 您可以從 NPM 中的 [節點] 索引標籤 >> [設定] 刪除非使用中的代理程式。 NPM 也會維護所有已指派給裝載代理程式之 VM 的 Ip 歷程記錄，而且每個 ip 會計算為對該上限（5000個 ip）貢獻的個別 IP。 若要釋出工作區的 Ip，您可以使用 [節點] 頁面來刪除未使用的 Ip。
 
-## <a name="monitoring"></a>監控
+## <a name="monitoring"></a>監視
 
 ### <a name="how-are-loss-and-latency-calculated"></a>如何計算遺失和延遲
 來源代理程式會定期向目的地 IP 傳送 TCP SYN 要求 (如果選擇 TCP 做為監視用的通訊協定)，或傳送 ICMP ECHO 要求 (如果選擇 ICMP 做為監視用的通訊協定)，以確保來源到目的地的 IP 組合之間的所有路徑均在涵蓋範圍內。 會測量接收的封包百分比和封包往返時間，以計算每個路徑的遺失和延遲。 此資料會在輪詢間隔和所有路徑上彙總，以針對特定輪詢間隔的 IP 組合取得遺失和延遲的彙總值。
@@ -138,7 +138,7 @@ Microsoft 對等互連
 NPM 只會識別來源 IP 和目的地 IP 之間的基礎網路躍點 (交換器、路由器、伺服器等) 的 IP 和主機名稱， 也也會識別這些已識別躍點之間的延遲， 但不會個別監控這些基礎躍點。
 
 ### <a name="can-npm-be-used-to-monitor-network-connectivity-between-azure-and-aws"></a>NPM 是否可用來監控 Azure 與 AWS 之間的網路連線？
-是。 如需詳細資料，請參閱[使用 NPM 監控 Azure、AWS 和內部部署網路](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)一文 (英文)。
+可以。 如需詳細資料，請參閱[使用 NPM 監控 Azure、AWS 和內部部署網路](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)一文 (英文)。
 
 ### <a name="is-the-expressroute-bandwidth-usage-incoming-or-outgoing"></a>ExpressRoute 頻寬的用量是傳入還是傳出？
 頻寬用量是傳入和傳出頻寬的總和， 以位元/秒表示。
@@ -258,7 +258,7 @@ NPM 現在會在使用者有權存取的所有訂用帳戶中，探索 ExpressRo
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>在服務連線能力監視功能中，服務回應時間為 NA，但網路遺失以及延遲皆有效
 如果目標服務不是 Web 應用程式，但測試設定為 Web 測試，則會發生此情況。 編輯測試組態，然後選擇 [網路] (而不是 [Web]) 作為測試類型。
 
-## <a name="miscellaneous"></a>其他資訊
+## <a name="miscellaneous"></a>其他事項
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>是否會影響到用於監視的節點的效能？
 NPM 流程設定為當其所使用的主機 CPU 資源用量超過 5%，即會停止。 這是為了確保可以繼續將節點用於其一般工作負載，而不會影響效能。

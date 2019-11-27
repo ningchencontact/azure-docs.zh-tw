@@ -72,7 +72,7 @@ ms.locfileid: "74533155"
 
     - 如果您使用**Upsert**做為寫入行為，並將另一個唯一索引鍵設定為容器，此錯誤表示您的來源資料具有具有不同識別碼但已定義之唯一索引鍵具有相同值的資料列/物件。
 
-- **解決方式**： 
+- **解決方案**︰ 
 
     - 針對 cause1，將**Upsert**設定為寫入行為。
     - 針對原因2，請確定每份檔的定義唯一索引鍵都有不同的值。
@@ -136,7 +136,7 @@ ms.locfileid: "74533155"
     2. 如果您使用 Azure Key Vault 來儲存私密金鑰內容，或使用 programmatical 方式來撰寫 SFTP 連結服務，此錯誤表示私密金鑰內容不正確，可能不是以 base64 編碼。
     3. 不正確認證或私用金鑰內容。
 
-- **解決方式**： 
+- **解決方案**︰ 
 
     - 針對 [原因 #1]，請執行下列命令，將金鑰轉換成傳統金鑰格式，然後在 ADF 撰寫 UI 中使用它。
 
@@ -170,11 +170,11 @@ ms.locfileid: "74533155"
 
 - **原因**：如果錯誤訊息包含 "SqlException"，SQL database 會擲回錯誤，指出某些特定的作業失敗。
 
-- **建議**：如需詳細資訊，請依本參考檔中的 SQL 錯誤碼進行搜尋： https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors。 如果您需要進一步的協助，請洽詢 Azure SQL 支援。
+- **建議**：如需詳細資訊，請依本參考檔中的 SQL 錯誤碼進行搜尋： https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors 。 如果您需要進一步的協助，請洽詢 Azure SQL 支援。
 
 - **原因**：如果錯誤訊息包含「具有 IP 位址的用戶端 ...」不允許存取伺服器」，而且您正嘗試連接到 Azure SQL database，這通常是由 Azure SQL database 防火牆問題所造成。
 
-- **建議**：在 Azure SQL Server 防火牆設定中，啟用 [允許 Azure 服務和資源存取此伺服器] 選項。 參考檔： https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure。
+- **建議**：在 Azure SQL Server 防火牆設定中，啟用 [允許 Azure 服務和資源存取此伺服器] 選項。 參考檔： https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure 。
 
 
 ### <a name="error-code--sqloperationfailed"></a>錯誤碼： SqlOperationFailed
@@ -183,7 +183,7 @@ ms.locfileid: "74533155"
 
 - **原因**：如果錯誤訊息包含 "SqlException"，SQL database 會擲回錯誤，指出某些特定的作業失敗。
 
-- **建議**：如需詳細資訊，請依本參考檔中的 SQL 錯誤碼進行搜尋： https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors。 如果您需要進一步的協助，請洽詢 Azure SQL 支援。
+- **建議**：如需詳細資訊，請依本參考檔中的 SQL 錯誤碼進行搜尋： https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors 。 如果您需要進一步的協助，請洽詢 Azure SQL 支援。
 
 - **原因**：如果錯誤訊息包含 "PdwManagedToNativeInteropException"，通常是因為來源與接收資料行大小不相符所造成。
 
@@ -191,7 +191,7 @@ ms.locfileid: "74533155"
 
 - **原因**：如果錯誤訊息包含 "InvalidOperationException"，通常是因為不正確輸入資料所造成。
 
-- **建議**：若要找出發生問題的資料列，請在複製活動上啟用容錯功能，這可將有問題的資料列重新導向至儲存體，以供進一步調查。 參考檔： https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance。
+- **建議**：若要找出發生問題的資料列，請在複製活動上啟用容錯功能，這可將有問題的資料列重新導向至儲存體，以供進一步調查。 參考檔： https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance 。
 
 
 ### <a name="error-code--sqlunauthorizedaccess"></a>錯誤碼： SqlUnauthorizedAccess
@@ -285,7 +285,7 @@ ms.locfileid: "74533155"
 
 - **原因**： SQL 大量複製失敗，因為從 bcp 用戶端收到不正確資料行長度。
 
-- **建議**：若要找出發生問題的資料列，請在複製活動上啟用容錯功能，這可將有問題的資料列重新導向至儲存體，以供進一步調查。 參考檔： https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance。
+- **建議**：若要找出發生問題的資料列，請在複製活動上啟用容錯功能，這可將有問題的資料列重新導向至儲存體，以供進一步調查。 參考檔： https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance 。
 
 
 ### <a name="error-code--sqlconnectionisclosed"></a>錯誤碼： SqlConnectionIsClosed
@@ -381,7 +381,7 @@ ms.locfileid: "74533155"
 
 - **原因**： Blob 儲存體作業遇到問題。
 
-- **建議**：請在詳細資料中檢查錯誤。 請參閱 blob 說明文件： https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes。 如需協助，請聯絡儲存小組。
+- **建議**：請在詳細資料中檢查錯誤。 請參閱 blob 說明文件： https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes 。 如需協助，請聯絡儲存小組。
 
 
 
@@ -397,7 +397,7 @@ ms.locfileid: "74533155"
 
 - **原因**：當錯誤訊息包含「禁止」時，您所使用的服務主體或受控識別可能沒有足夠的許可權可以存取 ADLS Gen2。
 
-- **建議**：請參閱說明文件： https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication。
+- **建議**：請參閱說明文件： https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication 。
 
 - **原因**：當錯誤訊息包含 ' InternalServerError ' 時，ADLS Gen2 傳回錯誤。
 
@@ -408,7 +408,7 @@ ms.locfileid: "74533155"
 
 如需更多疑難排解協助，請嘗試下列資源：
 
-*  [Data Factory 部落格](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory 的 blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory 功能要求](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure 影片](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)

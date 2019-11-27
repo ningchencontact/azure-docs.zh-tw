@@ -31,7 +31,7 @@ ms.locfileid: "74535583"
 
 管理 Azure Active Directory 需要持續執行重要的作業工作和進程，這可能不是首度發行專案的一部分。 您必須設定這些工作來優化您的環境，這仍然很重要。 主要工作和其建議的擁有者包括：
 
-| 工作 | 擁有者 |
+| Task | 擁有者 |
 | :- | :- |
 | 管理 Azure AD 中單一登入（SSO）設定的生命週期 | IAM 作業小組 |
 | 設計 Azure AD 應用程式的條件式存取原則 | InfoSec 架構團隊 |
@@ -141,7 +141,7 @@ Microsoft 也建議您洽詢應用程式擁有者，以瞭解使用模式（如�
 #### <a name="device-trust-access-policies-recommended-reading"></a>建議閱讀的裝置信任存取原則
 
 - [如何：規劃混合式 Azure Active Directory 聯結執行](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-- [身分識別與裝置存取設定](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [身分識別與裝置存取組態](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### <a name="windows-hello-for-business"></a>Windows Hello 企業版
 
@@ -256,7 +256,7 @@ Microsoft Intune 應用程式管理（MAM）可讓您將資料保護控制項（
 #### <a name="conditional-access-recommended-reading"></a>條件式存取建議閱讀
 
 - [Azure Active Directory 中的條件式存取最佳做法](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
-- [身分識別與裝置存取設定](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [身分識別與裝置存取組態](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Azure Active Directory 條件式存取設定參考](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
 - [一般條件式存取原則](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
@@ -365,7 +365,7 @@ Microsoft Intune 應用程式管理（MAM）可讓您將資料保護控制項（
 - [Office 365 管理活動 API 參考](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
 - [如何使用 Azure Active Directory Power BI 內容套件](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-power-bi-content-pack-how-to)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>總結
 
 安全身分識別基礎結構有12個層面。 這份清單可協助您進一步保護和管理認證、定義驗證體驗、委派指派、測量使用方式，以及根據企業安全性狀態定義存取原則。
 

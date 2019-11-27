@@ -39,7 +39,7 @@ Azure FarmBeats 部署會在您的訂用帳戶內建立下列列出的資源：
 |2  |    Application Insights      |     資料中樞/加速器     |
 |3  |Azure Cache for Redis   |資料中樞   |
 |4  |       Azure 金鑰保存庫    |  資料中樞/加速器        |
-|5  |    時間序列深入解析       |     資料中樞      |
+|5  |    Time Series Insights       |     資料中樞      |
 |6 |      EventHub 命名空間    |  資料中樞       |
 |7  |    Azure Data Factory V2       |     資料中樞/加速器      |
 |8  |批次帳戶    |資料中樞   |
@@ -49,7 +49,7 @@ Azure FarmBeats 部署會在您的訂用帳戶內建立下列列出的資源：
 |12|      App Service      |  資料中樞/加速器       |
 |13 |    App Service 方案        |     資料中樞/加速器      |
 |14 |Azure 地圖服務帳戶     |加速器    |
-|15 |       時間序列深入解析      |  資料中樞     |
+|15 |       Time Series Insights      |  資料中樞     |
 
 Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azure 入口網站存取它。  
 
@@ -91,7 +91,7 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
 
 具有 sentinel 的帳戶可協助您將 sentinel 衛星影像從其官方網站下載至您的裝置。 請遵循下列步驟來建立免費帳戶：
 
-移至 https://scihub.copernicus.eu/dhus/#/self-registration。 在 [註冊] 頁面中，提供名字、姓氏、使用者名稱、密碼和電子郵件。
+移至 https://scihub.copernicus.eu/dhus/#/self-registration 。 在 [註冊] 頁面中，提供名字、姓氏、使用者名稱、密碼和電子郵件。
 驗證電子郵件將會傳送至已註冊的電子郵件地址以進行確認。 選取連結並確認。 您的註冊程式已完成。
 
 ## <a name="create-azure-ad-app-registration"></a>建立 Azure AD 應用程式註冊
@@ -163,7 +163,7 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
 |acceleratorWebsiteName |將資料中樞命名為唯一的 URL 前置詞|
 |acceleratorResourceGroup  | 命名您的加速器網站的唯一 URL 前置詞。|
 |datahubWebsiteName  | UUnique URL 前置詞以命名您的資料中樞網站。 |
-|sentinelUsername | 用來登入的使用者名稱： https://scihub.copernicus.eu/dhus/#/self-registration。|
+|sentinelUsername | 用來登入的使用者名稱： https://scihub.copernicus.eu/dhus/#/self-registration 。|
 |notificationEmailAddress  | 用來接收您在資料中樞內設定之任何警示通知的電子郵件地址。|
 |updateIfExists|選擇性只有在您想要升級現有的 Azure FarmBeats 實例時，才會將參數包含在輸入 Json 中。 如需升級，請查看其他詳細資料，例如 資源組名、位置等必須相同。|
 |aadAppClientId | [**選用**]只有在 Azure AD 應用程式已存在時，才會將參數包含在輸入 Json 中。  |
@@ -221,7 +221,7 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
      - 如果您同意，請輸入 ' Y '，您會繼續進行下一個步驟。
      - 如果您不同意條款，且部署將會終止，請輸入 ' N '。
 
-6. 然後，系統會提示您輸入部署的存取權杖。 複製產生的程式碼，並使用您的 Azure 認證登入 https://microsoft.com/devicelogin。
+6. 然後，系統會提示您輸入部署的存取權杖。 複製產生的程式碼，並使用您的 Azure 認證登入 https://microsoft.com/devicelogin 。
 
     > [!NOTE]
     > 權杖會在60分鐘後到期。 當它到期時，您可以重新開機，方法是再次輸入部署命令。
@@ -281,7 +281,7 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
     - 如果您同意，請輸入 ' Y '，您會繼續進行下一個步驟。
     - 如果您不同意條款，且部署將會終止，請輸入 ' N '。
 
-8. 系統會提示您輸入部署的存取權杖。 複製所產生的程式碼，並使用您的 Azure 認證登入 https://microsoft.com/devicelogin。
+8. 系統會提示您輸入部署的存取權杖。 複製所產生的程式碼，並使用您的 Azure 認證登入 https://microsoft.com/devicelogin 。
 9. 安裝程式現在會驗證並開始建立資源，這可能需要大約20分鐘的時間。 在這段期間 Cloud Shell 讓會話保持作用中狀態。
 10. 一旦部署成功完成，您將會收到下列輸出連結：
 
@@ -333,7 +333,7 @@ Azure FarmBeats 可讓您從 Azure Marketplace 下載。 您可以直接從 Azur
 遵循畫面上的指示：
 
 7. 安裝程式會在執行時間自動提示所需的輸入：
-8. 輸入用於部署的存取權杖。 複製所產生的程式碼，並使用您的 Azure 認證登入 https://microsoft.com/devicelogin。
+8. 輸入用於部署的存取權杖。 複製所產生的程式碼，並使用您的 Azure 認證登入 https://microsoft.com/devicelogin 。
 9. Sentinel 密碼
 10. 安裝程式現在會驗證並開始建立資源，這可能需要大約20分鐘的時間。
 11. 部署成功之後，您將會收到下列輸出連結：
