@@ -3,17 +3,13 @@ title: 教學課程 - 使用 Ansible 在 Azure App Service 中設定應用程式
 description: 了解如何在 Azure App Service 中建立具有 Java 8 和 Tomcat 容器執行階段的應用程式
 keywords: ansible、azure、devops、bash、劇本、Azure App Service、Web App、Java
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 5104db6bd7fa57600c7212e041263971ca4c91d4
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 2891ff47b17900c4c1c8e1c21f22495b65108fd5
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242057"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156564"
 ---
 # <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>教學課程：使用 Ansible 在 Azure App Service 中設定應用程式
 

@@ -4,19 +4,19 @@ description: 說明如何使用角色型存取控制 (RBAC) 來新增或變更 A
 author: genlin
 manager: dcscontentpm
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: banders
-ms.openlocfilehash: 2054fbb7d0a9f450ad487fc0f03d0af920c6cc4b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b6a269b1b267cb88c3c0cae42cffb3ba9684e291
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260932"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224137"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>新增或變更 Azure 訂用帳戶系統管理員
 

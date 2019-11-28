@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 0ffe85b6e005d2dc8fe077a5a08d8b0f11c73589
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ee08ba61aec23078227c40b92771d1728040c4cf
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929632"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228449"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>教學課程：使用設計工具預測汽車價格 (預覽)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -55,7 +55,7 @@ Azure Machine Learning 管線會將多個相依的機器學習和資料處理步
 
 1. 選取 [設計工具]  。
 
-    ![視覺效果工作區的螢幕擷取畫面，其中顯示如何存取設計工具](./media/ui-tutorial-automobile-price-train-score/launch-visual-interface.png)
+    ![視覺效果工作區的螢幕擷取畫面，其中顯示如何存取設計工具](./media/tutorial-designer-automobile-price-train-score/launch-visual-interface.png)
 
 1. 選取 [易於使用的預建模組]  。
 
@@ -69,7 +69,7 @@ Azure Machine Learning 管線會將多個相依的機器學習和資料處理步
 
 1. 選取資料集**汽車價格資料 (原始)** ，並將其拖曳到畫布上。
 
-   ![將資料拖曳到畫布](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
+   ![將資料拖曳到畫布](./media/tutorial-designer-automobile-price-train-score/drag-data.gif)
 
 ### <a name="visualize-the-data"></a>將資料視覺化
 
@@ -81,7 +81,7 @@ Azure Machine Learning 管線會將多個相依的機器學習和資料處理步
 
 1. 選取圖形圖示以將資料視覺化。
 
-    ![將資料視覺化](./media/ui-tutorial-automobile-price-train-score/visualize-data.png)
+    ![將資料視覺化](./media/tutorial-designer-automobile-price-train-score/visualize-data.png)
 
 1. 選取資料視窗中的不同資料行，以檢視各個資料行的相關資訊。
 
@@ -105,7 +105,7 @@ Azure Machine Learning 管線會將多個相依的機器學習和資料處理步
     > 將某個模組的輸出連接埠連線至另一個模組的輸入連接埠時，您會透過管線建立資料流程。
     >
 
-    ![連線模組](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
+    ![連線模組](./media/tutorial-designer-automobile-price-train-score/connect-modules.gif)
 
 1. 選取**選取資料集中的資料行**模組。
 
@@ -119,7 +119,7 @@ Azure Machine Learning 管線會將多個相依的機器學習和資料處理步
 
 1. 在右下方選取 [儲存]  按鈕，以關閉資料行選取器。
 
-    ![排除資料行](./media/ui-tutorial-automobile-price-train-score/exclude-column.png)
+    ![排除資料行](./media/tutorial-designer-automobile-price-train-score/exclude-column.png)
         
     [屬性] 窗格顯示 [自負虧損]  資料行已排除。
 
@@ -144,7 +144,7 @@ Azure Machine Learning 管線會將多個相依的機器學習和資料處理步
 
     您的管線此時應會顯示如下：
     
-    ![Select-column](./media/ui-tutorial-automobile-price-train-score/pipeline-clean.png)
+    ![Select-column](./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png)
 
 ## <a name="train-a-machine-learning-model"></a>訓練機器學習模型
 
@@ -188,7 +188,7 @@ Azure Machine Learning 管線會將多個相依的機器學習和資料處理步
 
 1. 將**分割資料**模組的訓練資料輸出 (左側連接埠) 連接到**訓練模型**模組的右側輸入。
 
-    ![此螢幕擷取畫面顯示「訓練模型」模組的正確組態。 「線性迴歸」模組連線至「訓練模型」模組的左側連接埠，「分割資料」模組連線至「訓練模型」的右側連接埠](./media/ui-tutorial-automobile-price-train-score/pipeline-train-model.png)
+    ![此螢幕擷取畫面顯示「訓練模型」模組的正確組態。 「線性迴歸」模組連線至「訓練模型」模組的左側連接埠，「分割資料」模組連線至「訓練模型」的右側連接埠](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
 1. 選取 **訓練模型** 模組。
 
@@ -200,7 +200,7 @@ Azure Machine Learning 管線會將多個相依的機器學習和資料處理步
 
     您的管線應會顯示如下：
 
-    ![此螢幕擷取畫面顯示管線在新增「訓練模型」模組之後的正確組態。](./media/ui-tutorial-automobile-price-train-score/pipeline-train-graph.png)
+    ![此螢幕擷取畫面顯示管線在新增「訓練模型」模組之後的正確組態。](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
 
 ## <a name="evaluate-a-machine-learning-model"></a>評估機器學習模型
 
@@ -216,7 +216,7 @@ Azure Machine Learning 管線會將多個相依的機器學習和資料處理步
 
     最終的管線應會顯示如下：
 
-    ![此螢幕擷取畫面顯示管線的正確組態。](./media/ui-tutorial-automobile-price-train-score/pipeline-final-graph.png)
+    ![此螢幕擷取畫面顯示管線的正確組態。](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
 
 ### <a name="run-the-pipeline"></a>執行管道
 
@@ -232,7 +232,7 @@ Azure Machine Learning 管線會將多個相依的機器學習和資料處理步
 
     您可以在這裡看到測試資料中的預測價格和實際價格。
 
-    ![此螢幕擷取畫面將「評分標籤」資料行醒目提示的輸出視覺效果](./media/ui-tutorial-automobile-price-train-score/score-result.png)
+    ![此螢幕擷取畫面將「評分標籤」資料行醒目提示的輸出視覺效果](./media/tutorial-designer-automobile-price-train-score/score-result.png)
 
 1. 選取 [評估模型]  模組以檢視其輸入。
 

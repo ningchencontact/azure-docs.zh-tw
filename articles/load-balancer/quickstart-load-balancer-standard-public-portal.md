@@ -1,6 +1,6 @@
 ---
 title: 快速入門：建立標準負載平衡器 - Azure 入口網站
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: 本快速入門說明如何使用 Azure 入口網站建立標準負載平衡器。
 services: load-balancer
 documentationcenter: na
@@ -15,22 +15,22 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: c8df0daac25a79bbbd67577c30b0a2da62d037da
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d15223dfe6d9ce710f2a3d402a49203ef169132e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273834"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225198"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立標準負載平衡器以平衡 VM 的負載
 
 負載平衡會將傳入要求分散於多部虛擬機器，藉此提供高可用性和範圍。 您可使用 Azure 入口網站建立負載平衡器，以平衡虛擬機器 (VM) 的負載。 本快速入門示範如何使用標準負載平衡器來平衡 VM 的負載。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 
 ## <a name="create-a-standard-load-balancer"></a>建立標準負載平衡器
 
@@ -41,9 +41,9 @@ ms.locfileid: "68273834"
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | Subscription               | 選取您的訂用帳戶。    |    
-    | Resource group         | 選取 [新建]  ，並在文字方塊中輸入 *myResourceGroupSLB*。|
-    | Name                   | *myLoadBalancer*                                   |
+    | 訂用帳戶               | 選取您的訂用帳戶。    |    
+    | 資源群組         | 選取 [新建]  ，並在文字方塊中輸入 *myResourceGroupSLB*。|
+    | 名稱                   | *myLoadBalancer*                                   |
     | 區域         | 選取 [西歐]  。                                        |
     | 類型          | 選取 [公用]  。                                        |
     | SKU           | 選取 [標準]  。                          |
@@ -75,7 +75,7 @@ ms.locfileid: "68273834"
     
     | 設定 | 值 |
     | ------- | ----- |
-    | Name | 輸入 *myHealthProbe*。 |
+    | 名稱 | 輸入 *myHealthProbe*。 |
     | 通訊協定 | 選取 [HTTP]  。 |
     | Port | 輸入 *80*。|
     | 間隔 | 輸入 *15* 作為探查嘗試之間的 [間隔]  秒數。 |
@@ -92,7 +92,7 @@ ms.locfileid: "68273834"
     
     | 設定 | 值 |
     | ------- | ----- |
-    | Name | 輸入 *myHTTPRule*。 |
+    | 名稱 | 輸入 *myHTTPRule*。 |
     | 通訊協定 | 選取 [TCP]  。 |
     | Port | 輸入 *80*。|
     | 後端連接埠 | 輸入 *80*。 |
@@ -112,11 +112,11 @@ ms.locfileid: "68273834"
 
     | 設定 | 值 |
     | ------- | ----- |
-    | Name | 輸入 *myVNet*。 |
+    | 名稱 | 輸入 *myVNet*。 |
     | 位址空間 | 輸入 *10.1.0.0/16*。 |
-    | Subscription | 選取您的訂用帳戶。|
-    | Resource group | 選取現有的資源 - *myResourceGroupSLB*。 |
-    | Location | 選取 [西歐]  。|
+    | 訂用帳戶 | 選取您的訂用帳戶。|
+    | 資源群組 | 選取現有的資源 - *myResourceGroupSLB*。 |
+    | 位置 | 選取 [西歐]  。|
     | 子網路 - 名稱 | 輸入 *myBackendSubnet*。 |
     | 子網路 - 位址範圍 | 輸入 *10.1.0.0/24*。 |
 1. 保留其餘的預設值，然後選取 [建立]  。
@@ -154,7 +154,7 @@ ms.locfileid: "68273834"
 
     | 設定 | VM 2| VM 3|
     | ------- | ----- |---|
-    | Name |  *myVM2* |*myVM3*|
+    | 名稱 |  *myVM2* |*myVM3*|
     | 可用性區域 | 2 |3|
     |公用 IP| **標準** SKU|**標準** SKU|
     | 公用 IP - 可用性區域| **區域備援** |**區域備援**|

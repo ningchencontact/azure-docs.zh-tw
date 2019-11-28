@@ -1,13 +1,10 @@
 ---
 title: 重新啟動已停用的 Azure for Students 訂用帳戶 | Microsoft Docs
 description: 說明您的 Azure for Students 訂用帳戶停用的原因，以及如何將它重新啟動。
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: ''
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -15,12 +12,12 @@ ms.workload: na
 ms.date: 03/01/2018
 ms.author: banders
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d41e9b7774bf8840db9e729d3aa9371f5bac04f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: cfabb3ad7ad150b38b8c90488710731ad29b80a3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "60615899"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226403"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>我的 Azure for Students 訂用帳戶為何停用，以及如何將它重新啟動？
 
@@ -34,7 +31,7 @@ Azure for Students 帳戶提供美金 100 元的點數，以及 12 個月數量�
 
 1. 使用您的 Azure for Students 帳戶認證登入。
 2. [餘額] 頁面可提供已使用和剩餘的點數資訊。 您可以在點數表下面找到您的點數到期日。  
-   
+
     ![顯示 Azure for Students 訂用帳戶點數資訊的螢幕擷取畫面](./media/billing-azurestudents-subscription-disabled/azurestudents-credit-balance.png)
 
 3. 若要檢查耗用 Azure 點數的服務使用量，請從左方導覽中選取 [使用量]  ，然後選取您的 Azure for Students 訂用帳戶。

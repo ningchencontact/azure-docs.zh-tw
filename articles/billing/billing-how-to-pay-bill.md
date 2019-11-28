@@ -2,25 +2,22 @@
 title: 支付 Microsoft Azure 帳單 | Microsoft Docs
 description: 說明如何在 Azure 入口網站中支付發票費用
 keywords: 帳單, 逾期, 餘額, 立即支付,
-services: billing
-documentationcenter: ''
 author: jureid
 manager: jureid
-editor: ''
 tags: billing, past due, pay now, bill, invoice, pay
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 4df0939137a529dd35f8f61ff90ee6da43ec5d61
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 68c9838fc374bd3bd8a4d25f3d6f1c4bdace8e95
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709673"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226194"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>如何支付 Microsoft Azure 帳單
 
@@ -50,7 +47,7 @@ ms.locfileid: "71709673"
 1. 在新的刀鋒視窗中，按一下 [選取付款方式]  以選擇現有信用卡，或新增一個信用卡。<!-- screenshot of select payment method link -->
 1. 選取付款方式後，按一下 [立即支付]  。
 
-在 [發票] 刀鋒視窗中，發票的狀態便會更新為 [已付]。 
+在 [發票] 刀鋒視窗中，發票的狀態便會更新為 [已付]。
 
 <!-- pay now from invoice blade -->
 

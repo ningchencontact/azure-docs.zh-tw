@@ -4,19 +4,19 @@ description: 了解如何讀取並了解詳細的使用量和費用
 author: bandersmsft
 manager: micflan
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 1842d32a838470d9b2af3a778c44c37464d32294
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 824c6b5de16889d43a952eacd5a0ce21388787d7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68954330"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74222955"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>了解 Azure 使用量和費用檔案中的詞彙
 
@@ -70,7 +70,7 @@ InvoiceSection | MCA | 請參閱 InvoiceSectionName。
 InvoiceSectionId<sup>1</sup> | EA、MCA | EA 部門或 MCA 發票區段的唯一識別碼。
 InvoiceSectionName | EA、MCA | EA 部門或 MCA 發票區段的名稱。
 IsAzureCreditEligible | 全部 | 指出費用是否有資格使用 Azure 點數來支付 (值：True、False)。
-Location | MCA | 正在執行資源的資料中心位置。
+位置 | MCA | 正在執行資源的資料中心位置。
 MeterCategory | 全部 | 計量的分類類別名稱。 例如，「雲端服務」  和「網路」  。
 MeterId<sup>1</sup> | 全部 | 計量的唯一識別碼。
 MeterName | 全部 | 計量的名稱。
@@ -137,5 +137,5 @@ UsageStart | Date
 
 ## <a name="next-steps"></a>後續步驟
 
-- [檢視及下載您 Microsoft Azure 發票](billing-download-azure-invoice.md)
+- [檢視及下載您的 Microsoft Azure 發票](billing-download-azure-invoice.md)
 - [檢視及下載您 Microsoft Azure 使用量和費用](billing-download-azure-daily-usage.md)

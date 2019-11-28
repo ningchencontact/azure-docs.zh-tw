@@ -1,5 +1,5 @@
 ---
-title: 教學課程：建立您的第一個 ML 實驗：設定
+title: 教學課程：建立第一個 ML 實驗
 titleSuffix: Azure Machine Learning
 description: 在本教學課程中，您會開始使用在 Jupyter 筆記本中執行的 Azure Machine Learning Python SDK。  在第一部分中，您會建立一個可在其中管理實驗和 ML 模型的工作區。
 services: machine-learning
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: b2434102e0355d5c26c501588c360f74eb98404d
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: d2247ba965c5e6db6e2da0218859d207d2fc61b8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049148"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276615"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>教學課程：使用 Python SDK 開始建立您的第一個 ML 實驗
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

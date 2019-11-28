@@ -1,19 +1,15 @@
 ---
 title: Jenkins 與 Azure 的概觀
 description: 在 Azure 中裝載 Jenkins 組建和部署自動化伺服器，以及使用 Azure 計算和儲存體資源來擴充您的持續整合和部署 (CI/CD) 管線。
-ms.service: jenkins
 keywords: jenkins, azure, devops, 概觀
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 9b4ceb144408e0ac1886aa3a7e0e0f48ac4baba3
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 84d9a62c432208893ac5ff960a5f7aec743680d1
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881955"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74479338"
 ---
 # <a name="azure-and-jenkins"></a>Azure 與 Jenkins
 
@@ -33,7 +29,7 @@ ms.locfileid: "72881955"
 
 ## <a name="scale-your-build-automation-on-demand"></a>依照需求調整您的組建自動化
 
-將組建代理程式新增至現有的 Jenkins 部署，以隨著組建數目以及您的作業和管線複雜度增加，調整您的 Jenkins 組建容量。 您可以使用 [Azure VM 代理程式外掛程式](jenkins-azure-vm-agents.md)，在 Azure 虛擬機器上執行這些組建代理程式。 如需詳細資訊，請參閱我們的[教學課程](/azure/jenkins/jenkins-azure-vm-agents)。
+將組建代理程式新增至現有的 Jenkins 部署，以隨著組建數目以及您的作業和管線複雜度增加，調整您的 Jenkins 組建容量。 您可以使用 [Azure VM 代理程式外掛程式](https://plugins.jenkins.io/azure-vm-agents)，在 Azure 虛擬機器上執行這些組建代理程式。 如需詳細資訊，請參閱我們的[教學課程](/azure/jenkins/jenkins-azure-vm-agents)。
 
 一旦使用 [Azure 服務主體](/azure/azure-resource-manager/resource-group-overview)進行設定，Jenkins 作業和管線即可使用此認證來：
 

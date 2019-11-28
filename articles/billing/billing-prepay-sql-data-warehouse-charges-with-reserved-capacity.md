@@ -4,16 +4,16 @@ description: 了解如何使用保留容量來節省 SQL 資料倉儲費用的�
 services: billing
 author: yashesvi
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 381a709c74f5fcf6bb1f89f07ad84d5e3af0c5e0
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 75e008a6a19baacec40a809530e3a1f624a33f2b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806272"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223613"
 ---
 # <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>使用保留容量來節省 SQL 資料倉儲費用的成本
 
@@ -50,8 +50,8 @@ SQL 資料倉儲保留大小應該以您取用的計算資料倉儲單位 (cDWU)
    - 針對隨用隨付訂用帳戶，費用是透過訂用帳戶的信用卡或發票付款方式收取。
 4. 選取範圍。 使用 [範圍] 清單來選擇訂用帳戶範圍。
    - **單一資源群組範圍** - 只會將保留折扣套用至所選資源群組中的相符資源。
-   - **單一訂用帳戶範圍** - 會將保留折扣套用至所選訂用帳戶中的相符資源。
-   - **共用範圍** - 會將保留折扣套用至計費內容中合格訂用帳戶的相符資源。 針對 Enterprise 合約客戶，計費內容為註冊。 針對使用隨用隨付費率的個別訂用帳戶，計費範圍是帳戶管理員所建立的所有合格訂用帳戶。
+   - **單一訂用帳戶範圍** — 會將保留折扣套用至所選訂用帳戶中的相符資源。
+   - **共用範圍** — 會將保留折扣套用至計費內容中合格訂用帳戶的相符資源。 針對 Enterprise 合約客戶，計費內容為註冊。 針對使用隨用隨付費率的個別訂用帳戶，計費範圍是帳戶管理員所建立的所有合格訂用帳戶。
    - 針對企業客戶，計費內容為 EA 註冊。
    - 針對隨用隨付客戶，共用範圍是帳戶系統管理員所建立的所有隨用隨付訂用帳戶。
 5. 選取 [區域] 以選擇保留容量涵蓋的 Azure 區域。
@@ -63,7 +63,7 @@ SQL 資料倉儲保留大小應該以您取用的計算資料倉儲單位 (cDWU)
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>取消、交換保留或進行退款
 
-您可以取消、交換保留或進行退款，但有某些限制。 如需詳細資訊，請參閱 [Azure 保留的自助式交換和退款](billing-azure-reservations-self-service-exchange-and-refund.md)。
+您可以取消、交換保留或進行退費，但有某些限制。 如需詳細資訊，請參閱 [Azure 保留的自助式交換和退款](billing-azure-reservations-self-service-exchange-and-refund.md)。
 
 保留折扣會自動套用至符合 SQL 資料倉儲保留容量範圍和區域的 SQL 資料倉儲執行個體數目。 您可以透過 [Azure 入口網站](https://portal.azure.com/)、PowerShell、CLI 或 API 來更新 SQL 資料倉儲保留容量的範圍。
 

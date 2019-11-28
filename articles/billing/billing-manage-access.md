@@ -8,7 +8,7 @@ manager: amberb
 editor: ''
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,18 +16,18 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 035d2e567b6aad23801ff043652ea143e3f6105b
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: c1f9ef78431b6b293972d4adbc0f64dc49d5c4b7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709609"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223828"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>管理對 Azure 帳單資訊的存取
 
 您可以在 Azure 入口網站中，為其他人提供您帳戶的計費資訊存取權。 計費角色的類型以及提供計費資訊存取權的指示，會因您的計費帳戶類型而異。 若要判斷您的計費帳戶類型，請參閱[檢查計費帳戶的類型](#check-the-type-of-your-billing-account)。
 
-本文適用於具有 Microsoft Online Service 方案帳戶的客戶。 如果您是具有 Enterprise 合約的 Azure 客戶 (EA) 和企業系統管理員，您可以在企業版入口網站中，將權限授與部門系統管理員和帳戶擁有者。 如需詳細資訊，請參閱[了解 Azure 中的 Azure Enterprise 合約系統管理角色](billing-understand-ea-roles.md)。 如果您是 Microsoft 客戶合約客戶，請參閱[了解 Azure 中的 Microsoft 客戶合約系統管理角色](billing-understand-mca-roles.md)。 
+本文適用於具有 Microsoft Online Service 方案帳戶的客戶。 如果您是具有 Enterprise 合約的 Azure 客戶 (EA) 和企業系統管理員，您可以在企業版入口網站中，將權限授與部門系統管理員和帳戶擁有者。 如需詳細資訊，請參閱[了解 Azure 中的 Azure Enterprise 合約系統管理角色](billing-understand-ea-roles.md)。 如果您是 Microsoft 客戶合約客戶，請參閱[了解 Azure 中的 Microsoft 客戶合約系統管理角色](billing-understand-mca-roles.md)。
 
 ## <a name="account-administrators-for-microsoft-online-service-program-accounts"></a>Microsoft Online Service 方案帳戶的帳戶管理員
 
@@ -60,9 +60,9 @@ ms.locfileid: "71709609"
 1. 針對 [成本管理 + 帳單]  進行搜尋。
 
     ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-manage-access/billing-search-cost-management-billing.png)
- 
+
 1. 從左側窗格中選取 [訂閱]  。 視存取權而定，您可能需要選取計費範圍，然後選取 [訂用帳戶]  。
- 
+
     ![顯示選取訂用帳戶的螢幕擷取畫面](./media/billing-manage-access/billing-select-subscriptions.png)
 
 1. 選取 [發票]  ，然後選取 [存取發票]  。
@@ -88,7 +88,7 @@ ms.locfileid: "71709609"
     ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-manage-access/billing-search-cost-management-billing.png)
 
 1. 從左側窗格中選取 [訂閱]  。 視存取權而定，您可能需要選取計費範圍，然後選取 [訂用帳戶]  。
- 
+
     ![顯示選取訂用帳戶的螢幕擷取畫面](./media/billing-manage-access/billing-select-subscriptions.png)
 
 1. 選取 [存取控制 (IAM)]  。

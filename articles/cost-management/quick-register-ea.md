@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 05/20/2019
 ms.topic: quickstart
 ms.custom: seodec18
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
-ms.openlocfilehash: 95d1292374e1ec408c107245cde4cd1e12270f50
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: f35541d01b9463112caf48bd8249469f97158c9f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967223"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229944"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>註冊 Azure Enterprise 合約並檢視成本資料
 
@@ -29,20 +29,20 @@ ms.locfileid: "65967223"
 
 ## <a name="register-with-cloudyn"></a>向 Cloudyn 註冊
 
-1. 在 Azure 入口網站中，按一下服務清單中的 [成本管理與帳單]。
-2. 在 [概觀] 下，按一下 [Cloudyn]  
+1. 在 Azure 入口網站中，按一下服務清單中的 [成本管理與帳單]  。
+2. 在 [概觀]  下，按一下 [Cloudyn]   
     ![在 Azure 入口網站中顯示的 Cloudyn 頁面](./media/quick-register-ea/cost-mgt-billing-service.png)
-3. 在 [Cloudyn] 頁面上，按一下 [移至 Cloudyn] 以在新視窗開啟 Cloudyn 註冊頁面。
-4. 在 Cloudyn 入口網站試用版註冊頁面上，輸入您的公司名稱，然後選取 [Azure 企業註冊系統管理員]。  
+3. 在 [Cloudyn]  頁面上，按一下 [移至 Cloudyn]  以在新視窗開啟 Cloudyn 註冊頁面。
+4. 在 Cloudyn 入口網站試用版註冊頁面上，輸入您的公司名稱，然後選取 [Azure 企業註冊系統管理員]  。  
 5. 輸入您的企業版入口網站註冊 API 金鑰。 如果您手邊沒有金鑰，請按一下[企業版入口網站](https://ea.azure.com)連結，並執行下列步驟：  
     ![在 [計費] 索引標籤上，貼上您的 API 金鑰](./media/quick-register-ea/trial-reg.png)
-   1. 登入 Azure 企業版網站，然後依序按一下 [報告]和 [API 存取金鑰]，然後複製您的主索引鍵。  
+   1. 登入 Azure 企業版網站，然後依序按一下 [報告]  和 [API 存取金鑰]  ，然後複製您的主索引鍵。  
     ![EA 入口網站中的 EA API 金鑰範例](./media/quick-register-ea/ea-key.png)
    3. 返回註冊頁面，並貼上您的 API 金鑰。
-6. 同意「使用條款」，然後驗證您的金鑰。 按一下 [下一步] 以授權 Cloudyn 收集 Azure 資源資料。 收集的資料包括您訂用帳戶的使用量、效能、計費和標籤資料。  
+6. 同意「使用條款」，然後驗證您的金鑰。 按一下 [下一步]  以授權 Cloudyn 收集 Azure 資源資料。 收集的資料包括您訂用帳戶的使用量、效能、計費和標籤資料。  
     ![成功 EA API 金鑰驗證的範例](./media/quick-register-ea/ea-key-validated.png)
-7. 在 [邀請其他利害關係人] 下，您可以輸入電子郵件地址來新增使用者。 完成時，按一下 [下一步]。 視您的 Azure 註冊大小而定，所有計費資料可能需要 24 小時才會新增至 Cloudyn。
-8. 按一下 [移至 Cloudyn] 開啟 Cloudyn 入口網站，然後您應該會在 [雲端帳戶管理] 頁面上看見您已註冊的 EA 帳戶資訊。
+7. 在 [邀請其他利害關係人]  下，您可以輸入電子郵件地址來新增使用者。 完成時，按一下 [下一步]  。 視您的 Azure 註冊大小而定，所有計費資料可能需要 24 小時才會新增至 Cloudyn。
+8. 按一下 [移至 Cloudyn]  開啟 Cloudyn 入口網站，然後您應該會在 [雲端帳戶管理]  頁面上看見您已註冊的 EA 帳戶資訊。
 
 若要觀看註冊 Enterprise 合約的教學課程影片，請參閱[如何尋找您的 EA 註冊識別碼和 API 金鑰以用於 Cloudyn](https://youtu.be/u_phLs_udig)。
 

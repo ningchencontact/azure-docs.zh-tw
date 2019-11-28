@@ -1,17 +1,14 @@
 ---
 title: 教學課程 - 使用 Terraform 建立 Azure 虛擬機器擴展集
 description: 了解如何使用 Terraform 來設定 Azure 虛擬機器擴展集及進行其版本管理。
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: e2b7d816a02eaf47ef50bfd2d814f7b26a813446
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ef2ce0a3ea8c50123cd51ab60a6b98894739d859
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838398"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159072"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>教學課程：使用 Terraform 建立 Azure 虛擬機器擴展集
 

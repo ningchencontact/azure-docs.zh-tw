@@ -5,22 +5,20 @@ services: billing
 documentationcenter: ''
 author: bandersmsft
 manager: dougeby
-editor: ''
 tags: billing
-ms.assetid: 204b15b2-6667-4b6c-8ea4-f32c06f287fd
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 54c4426fb8bdb1476b33defb5351b3fb0e6a0663
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 6a2cb3df5bf8a67c7b79a24fd8328267bf6c4dd0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718843"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224070"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>計費和成本管理的自動化案例
 
@@ -70,7 +68,7 @@ Web Direct 和企業客戶可以使用所有下列 API (除了註明的以外)�
 
 -   [Marketplace 費用 API](https://docs.microsoft.com/rest/api/consumption/marketplaces) \(英文\)：取得所有 Azure Marketplace 資源 (Azure 合作夥伴供應項目) 的費用和使用量資料。 您可以使用此資料來加總所有 Marketplace 資源的成本，或調查特定資源的成本/使用量。
 
--   [價位表 API](https://docs.microsoft.com/rest/api/consumption/pricesheet) \(英文\) (*僅限企業客戶*)：取得所有計量的自訂定價。 企業可以搭配使用此資料與使用量詳細資料和 Marketplace 使用量資訊，並使用使用量和 Marketplace 資料來計算成本。 
+-   [價位表 API](https://docs.microsoft.com/rest/api/consumption/pricesheet) \(英文\) (*僅限企業客戶*)：取得所有計量的自訂定價。 企業可以搭配使用此資料與使用量詳細資料和 Marketplace 使用量資訊，並使用使用量和 Marketplace 資料來計算成本。
 
 -   [保留建議 API](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations) \(英文\)：取得購買保留的 VM 執行個體之建議。 協助您分析預期節省成本和購買數量的建議。 如需詳細資訊，請參閱[適用於 Azure 保留自動化的 API ](billing-reservation-apis.md)。
 
@@ -80,14 +78,14 @@ Web Direct 和企業客戶可以使用所有下列 API (除了註明的以外)�
 
 -   [使用量詳細資料 API](https://docs.microsoft.com/rest/api/consumption/usagedetails) \(英文\)：取得來自 Microsoft 的所有 Azure 資源的費用和使用量資訊。 此資訊採用使用量詳細資料記錄格式，目前每天會針對每個計量發出一次。 您可以使用此資訊來加總所有資源的成本，或調查特定資源的成本/使用量。
 
--   [RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100)) \(英文\)：若您是 Web Direct 客戶，您可以取得計量費率。 然後，您可以使用傳回的資訊搭配其資源使用量資訊來手動計算預期的帳單。 
+-   [RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100)) \(英文\)：若您是 Web Direct 客戶，您可以取得計量費率。 然後，您可以使用傳回的資訊搭配其資源使用量資訊來手動計算預期的帳單。
 
 -   [未分級使用量 API](/previous-versions/azure/reference/mt219003(v=azure.100))：在 Azure 進行任何計量/計費之前，取得使用量資訊。
 
 ### <a name="billing"></a>計費
 -   [計費週期 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) \(英文\)：取得要分析的計費週期，以及該週期的發票識別碼。 您可以搭配使用發票識別碼和發票 API。
 
--   [發票 API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices)：以 PDF 格式取得計費週期的發票下載 URL。
+-   [發票 API](/rest/api/billing/2019-10-01-preview/invoices)：以 PDF 格式取得計費週期的發票下載 URL。
 
 ### <a name="enterprise-consumption"></a>企業使用量
 下列 API 僅適用於企業：
@@ -107,11 +105,11 @@ Web Direct 和企業客戶可以使用所有下列 API (除了註明的以外)�
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 ### <a name="whats-the-difference-between-the-enterprise-reporting-apis-and-the-consumption-apis-when-should-i-use-each"></a>企業報告 API 與使用量 API 之間有何差異？ 各自的使用時機為何？
-這些 API 有一組類似的功能，並且可以回答同一組計費與成本管理空間相關問題。 但它們的目標對象不同： 
+這些 API 有一組類似的功能，並且可以回答同一組計費與成本管理空間相關問題。 但它們的目標對象不同：
 
 - 企業報告 API 這類 API 適用於已經與 Microsoft 簽署 Enterprise 合約的客戶，該合約會授與他們存取協商承諾用量和自訂定價的權限。 這類 API 需要您可從[企業版入口網站](https://ea.azure.com)取得的金鑰。 如需這些 API 的說明，請參閱[適用於企業客戶的報告 API 概觀](billing-enterprise-api.md)。
 
-- 所有客戶皆可取得使用量 API，但有一些例外狀況。 如需詳細資訊，請參閱 [Azure 使用量 API 概觀](billing-consumption-api-overview.md)和[ Azure 使用量 API 參考](https://docs.microsoft.com/rest/api/consumption/)。 我們建議將所提供的 API 作為最新開發案例的解決方案。 
+- 所有客戶皆可取得使用量 API，但有一些例外狀況。 如需詳細資訊，請參閱 [Azure 使用量 API 概觀](billing-consumption-api-overview.md)和[ Azure 使用量 API 參考](https://docs.microsoft.com/rest/api/consumption/)。 我們建議將所提供的 API 作為最新開發案例的解決方案。
 
 ### <a name="whats-the-difference-between-the-usage-details-api-and-the-usage-api"></a>使用量詳細資料 API 與使用量 API 之間有何差異？
 這些 API 基本上提供不同的資料：
@@ -126,7 +124,7 @@ Web Direct 和企業客戶可以使用所有下列 API (除了註明的以外)�
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>發票 API 與使用量詳細資料 API 之間有何差異？
 這些 API 可提供相同資料的不同檢視：
 
-- [發票 API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) 僅適用於 Web Direct 客戶。 它根據每個計量類型的彙總收費，提供您帳單的每月彙總。 
+- [發票 API](/rest/api/billing/2019-10-01-preview/invoices) 僅適用於 Web Direct 客戶。 它根據每個計量類型的彙總收費，提供您帳單的每月彙總。
 
 - [使用量詳細資料 API](https://docs.microsoft.com/rest/api/consumption/usagedetails) \(英文\) 提供每天的細微使用量/成本記錄檢視。 企業和 Web Direct 客戶都可以使用。
 

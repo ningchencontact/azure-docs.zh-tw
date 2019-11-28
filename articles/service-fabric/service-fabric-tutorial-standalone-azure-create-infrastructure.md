@@ -3,7 +3,7 @@ title: 教學課程：在 Azure VM 上建立 Service Fabric 叢集的基礎結�
 description: 在本教學課程中，您將了解如何設定用來執行 Service Fabric 叢集的 Azure VM 基礎結構。
 services: service-fabric
 documentationcenter: .net
-author: v-vasuke
+author: jpconnock
 manager: jpconnock
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/22/2019
-ms.author: v-vasuke
+ms.author: jeconnoc
 ms.custom: mvc
-ms.openlocfilehash: c9dd9cf0f0fb6d20d6837b07ab46d376e379ca25
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b24b4d95827dbd398c0eba43dcbad9fbfeb51469
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177720"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166270"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>教學課程：建立用來裝載 Service Fabric 叢集的 Azure VM 基礎結構
 
@@ -90,12 +90,18 @@ Service Fabric 獨立叢集讓您能夠選擇自己的環境，並且在 Service
  
 4. 開啟 RDP 檔案，在系統提示時輸入您在 VM 設定中提供的使用者名稱和密碼。
 
-5. 一旦您連線到執行個體，就必須驗證遠端登錄是否已執行，並開啟必要連接埠。
+5. 一旦您連線到執行個體，您必須驗證遠端登錄已執行、啟用 SMB，並開啟為 SMB 和遠端登錄必要的連接埠。
+
+   若要啟用 SMB，PowerShell 命令如下：
+
+   ```powershell
+   netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
+   ```
 
 6. 若要在防火牆中開啟連接埠，應使用下列 PowerShell 命令：
 
    ```powershell
-   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139
+   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
    ```
 
 7. 針對您的其他執行個體重複此程序，再次記下私人 IP 位址。
@@ -111,6 +117,15 @@ Service Fabric 獨立叢集讓您能夠選擇自己的環境，並且在 Service
    ```
 
    如果您的輸出看起來像是 `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` 重複四次，表示執行個體之間的連線運作正常。
+
+3. 此時，請使用下列命令驗證您的 SMB 共用可運作：
+
+   ```
+   net use * \\172.31.20.163\c$
+   ```
+
+   它應傳回 `Drive Z: is now connected to \\172.31.20.163\c$.` 這樣的輸出。
+
 
    現在您的執行個體已適當地針對 Service Fabric 做好準備。
 

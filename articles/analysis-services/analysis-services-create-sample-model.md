@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f76ec20da73c778d024feea9df113de9e4aa0fe9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a72236843c13e139f33a669b54f108e91679c8c6
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573094"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326585"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>教學課程：從入口網站新增範例模型
 
@@ -73,6 +73,6 @@ ms.locfileid: "73573094"
 在本教學課程中，您已撩解如何將基本範例模型新增至您的伺服器。 您現在有一個模型資料庫，您可以從 SQL Server Management Studio 連線到該資料庫，並新增使用者角色。 若要深入了解，請繼續下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [教學課程：設定伺服器管理員和使用者角色](analysis-services-database-users.md)
+> [教學課程：設定伺服器管理員和使用者角色](tutorials/analysis-services-tutorial-roles.md)
 
 

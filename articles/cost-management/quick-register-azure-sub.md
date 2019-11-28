@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 05/20/2019
 ms.topic: quickstart
 ms.custom: seodec18
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
-ms.openlocfilehash: 6d5282a326af37e5653f21795438ba8965ae7fcc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d53ea540aaa155de4c9963b5e8dc288852ff6280
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967194"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229983"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>註冊個人 Azure 訂用帳戶並檢視成本資料
 
@@ -27,18 +27,18 @@ ms.locfileid: "65967194"
 
 ## <a name="register-with-cloudyn"></a>向 Cloudyn 註冊
 
-1. 在 Azure 入口網站中，按一下服務清單中的 [成本管理與帳單]。
-2. 在 [概觀] 下，按一下 [Cloudyn]  
+1. 在 Azure 入口網站中，按一下服務清單中的 [成本管理與帳單]  。
+2. 在 [概觀]  下，按一下 [Cloudyn]   
     ![在 Azure 入口網站中顯示的 Cloudyn 頁面](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
-3. 在 [成本管理] 頁面上，按一下 [移至 Cloudyn] 以在新視窗開啟 Cloudyn 註冊頁面。
-4. 在 Cloudyn 入口網站試用註冊頁面上，輸入您的公司名稱並選取 [Azure 個人訂用帳戶擁有者]，然後按一下 [下一步]。 您的帳戶名稱和租用戶識別碼便會自動加入表單。  
+3. 在 [成本管理]  頁面上，按一下 [移至 Cloudyn]  以在新視窗開啟 Cloudyn 註冊頁面。
+4. 在 Cloudyn 入口網站試用註冊頁面上，輸入您的公司名稱並選取 [Azure 個人訂用帳戶擁有者]  ，然後按一下 [下一步]  。 您的帳戶名稱和租用戶識別碼便會自動加入表單。  
     ![輸入註冊資訊所在的試用版註冊頁面](./media/quick-register-azure-sub/trial-reg-ind.png)
-5. 選取與您的訂用帳戶相關聯的 [供應項目識別碼 - 名稱]。 如果不確定訂用帳戶的「費率識別碼」，可以檢視您的 Azure 帳單，並尋找 [供應項目識別碼]。
-6. 同意使用條款，然後驗證您的資訊並按一下 [下一步]。
-7. 在 [收集其他資料] 頁面中，按一下 [下一步] 以授權 Cloudyn 收集 Azure 資源資料。 收集的資料包括您訂用帳戶的使用量、效能、計費和標籤資料。  
+5. 選取與您的訂用帳戶相關聯的 [供應項目識別碼 - 名稱]  。 如果不確定訂用帳戶的「費率識別碼」，可以檢視您的 Azure 帳單，並尋找 [供應項目識別碼]  。
+6. 同意使用條款，然後驗證您的資訊並按一下 [下一步]  。
+7. 在 [收集其他資料]  頁面中，按一下 [下一步]  以授權 Cloudyn 收集 Azure 資源資料。 收集的資料包括您訂用帳戶的使用量、效能、計費和標籤資料。  
     ![收集授權 Cloudyn 所在的其他資料頁面](./media/quick-register-azure-sub/gather-additional.png)
 8. 您的瀏覽器會進入 Cloudyn 的登入頁面。 使用您的 Azure 訂用帳戶認證來登入。
-9. 按一下 [移至 Cloudyn] 以開啟 Cloudyn 入口網站，然後就會在 [帳戶管理] 頁面上看見您的 Azure 訂用帳戶資訊。  
+9. 按一下 [移至 Cloudyn]  以開啟 Cloudyn 入口網站，然後就會在 [帳戶管理]  頁面上看見您的 Azure 訂用帳戶資訊。  
     ![顯示 Azure 訂用帳戶資訊的 [帳戶管理] 頁面](./media/quick-register-azure-sub/accounts-mgt.png)
 
 若要觀看有關註冊 Azure 訂用帳戶的教學課程影片，請觀看[使用 Cloudyn 尋找您的 Directory GUID 和費率識別碼](https://youtu.be/PaRjnyaNGMI)。

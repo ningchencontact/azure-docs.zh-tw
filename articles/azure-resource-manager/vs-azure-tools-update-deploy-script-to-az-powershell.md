@@ -2,16 +2,15 @@
 title: 更新 Visual Studio 的範本部署指令碼以使用 Az Powershell
 description: 將 Visual Studio 範本部署指令碼從 AzureRM 更新為 Az Powershell
 author: cweining
-ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.date: 09/27/2019
 ms.author: cweining
-ms.openlocfilehash: 483b20f0003994f88ec35cc9f31a77cf571804f3
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: c34cde5593b48c301826be3dd2641dc2490ee88d
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695682"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149057"
 ---
 # <a name="updating-the-visual-studio-template-deployment-script-to-use-az-powershell"></a>更新 Visual Studio 範本部署指令碼以使用 Az Powershell
 

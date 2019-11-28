@@ -3,19 +3,19 @@ title: 使用 Azure 免費帳戶來建立免費服務
 description: 了解如何建立 Azure 免費帳戶隨附的服務。
 author: amberbhargava
 manager: amberb
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 90fa6b0db180ca93d9b57178c32c5e156ecc3bb0
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 07bd127125e30ffb8ca365b8c34a27691394c619
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375814"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225063"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>建立 Azure 免費帳戶隨附的服務
 

@@ -1,17 +1,14 @@
 ---
 title: 教學課程 - 使用模組登錄以 Terraform 建立 Azure VM 叢集
 description: 了解如何在 Azure 中使用 Terraform 模組建立 Windows 虛擬機器叢集
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: ba99f9cdc20448398b339041aeab41fb75495e5d
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 3ddc80e8f5a81e89e4574ff6524055f12a4a618a
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969485"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185552"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-using-the-module-registry"></a>教學課程：使用模組登錄以 Terraform 建立 Azure VM 叢集
 
@@ -57,6 +54,7 @@ module mycompute {
     location = "East US 2"
     admin_password = "ComplxP@assw0rd!"
     vm_os_simple = "WindowsServer"
+    is_windows_image = "true"
     remote_port = "3389"
     nb_instances = 2
     public_ip_dns = ["unique_dns_name"]

@@ -4,23 +4,23 @@ description: 了解為什麼您看到 Azure 免費帳戶的費用。 了解如�
 author: amberbhargava
 manager: amberb
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: ca685e70fea8d02a16485b135d82575069889bfa
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 9f75b630dd26e2cdef009771ad5e09cc3d230449
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375917"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226444"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>避免 Azure 免費帳戶產生費用
 
-您可透過 [Azure 免費帳戶](https://azure.microsoft.com/free/)取得前 30 天 200 美元的 Azure 點數，以及 12 個月數量有限的免費服務。 若要了解免費服務的限額，請參閱 [Azure 免費帳戶常見問題集](https://azure.microsoft.com/free/free-account-faq/)。 只要您有未到期的點數，或只使用限制範圍內的免費服務，就不需付費。 
+您可透過 [Azure 免費帳戶](https://azure.microsoft.com/free/)取得前 30 天 200 美元的 Azure 點數，以及 12 個月數量有限的免費服務。 若要了解免費服務的限額，請參閱 [Azure 免費帳戶常見問題集](https://azure.microsoft.com/free/free-account-faq/)。 只要您有未到期的點數，或只使用限制範圍內的免費服務，就不需付費。
 
 讓我們看看 Azure 免費帳戶產生費用的一些原因。
 

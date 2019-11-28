@@ -1,18 +1,14 @@
 ---
 title: 將您的 Java 函式連線至 Azure 儲存體
 description: 了解如何使用佇列儲存體輸出繫結，將 HTTP 觸發的 Java 函式連線到 Azure 儲存體。
-author: ggailey777
-ms.author: glenga
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.service: azure-functions
-manager: gwallace
-ms.openlocfilehash: c78630af7d09cc911862c8e823c5dfeee9cabbd9
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f9c3445efbe14c27cad9de62f5b46f50965e3145
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333400"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231215"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>將您的 Java 函式連線至 Azure 儲存體
 

@@ -3,17 +3,13 @@ title: 教學課程 - 使用 Ansible 設定 Azure 虛擬網路對等互連
 description: 了解如何使用 Ansible 透過虛擬網路對等互連連線虛擬網路。
 keywords: ansible, azure, devops, bash, 劇本, 網路, 對等互連
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 180bdff48a2ace4dfee1d1cb10eb75a33d360f4c
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 78699a005d721b46a88a26452f5db68438793d34
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241244"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155723"
 ---
 # <a name="tutorial-configure-azure-virtual-network-peering-using-ansible"></a>教學課程：使用 Ansible 設定 Azure 虛擬網路對等互連
 

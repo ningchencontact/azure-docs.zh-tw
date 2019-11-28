@@ -6,14 +6,14 @@ author: bandersmsft
 ms.author: banders
 ms.date: 11/07/2019
 ms.topic: conceptual
-ms.service: billing
+ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 567beb9de0c0a8039d774270bdf61a7db437091e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d5fe93f1d3297fbdfb879a515c502025b49eab1e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888394"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224000"
 ---
 # <a name="get-started-with-the-azure-ea-portal"></a>開始使用 Azure EA 入口網站
 
@@ -397,9 +397,9 @@ MSDN 訂用帳戶會自動轉換成 MSDN 開發/測試，而 EA 供應項目將�
 
 ### <a name="advanced-report-download"></a>進階報告下載
 
-如需報告特定的日期範圍或帳戶，可以使用進階報告下載。 自 2016 年 8 月 30 日起，輸出檔的格式從 .xlsx 變更為 .csv，以容納較大的記錄集。
+如需報告特定的日期範圍或帳戶，可以使用進階報表下載。 自 2016 年 8 月 30 日起，輸出檔案的格式已從 .xlsx 變更為 .csv，以容納較大的記錄集。
 
-1. 選取 [進階報告下載]  。
+1. 選取 [進階報表下載]  。
 1. 選取 [適當日期範圍]  。
 1. 選取 [適當帳戶]  。
 1. 選取 [要求使用量資料]  。

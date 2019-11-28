@@ -3,17 +3,13 @@ title: 教學課程 - 使用 Ansible 設定 Azure 路由表
 description: 了解如何使用 Ansible 建立、管理和刪除 Azure 路由表。 另請了解如何建立和刪除路由。
 keywords: ansible, azure, devops, bash, 劇本, 網路, 路由, 路由表
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 0ffc00606eac4cf57cdf19072986373f5602aafa
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d1e44a98405bc1009f6f3d56d90fc1fd655d77d5
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614348"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156503"
 ---
 # <a name="tutorial-configure-azure-route-tables-using-ansible"></a>教學課程：使用 Ansible 設定 Azure 路由表
 

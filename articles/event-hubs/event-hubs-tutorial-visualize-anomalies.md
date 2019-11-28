@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 11/05/2019
-ms.openlocfilehash: 0cfff0196ebc20b9b01bc966b3590470d349e86e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3e228fb9d4223ad1d6d906b44ab63c35600faa56
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718004"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307342"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>教學課程：將傳送給 Azure 事件中樞之即時事件中的資料異常視覺化
 
@@ -156,7 +156,7 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## <a name="run-app-to-produce-test-event-data"></a>執行應用程式以產生測試用的事件資料
 
-[GitHub 上的事件中樞範例](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet)包括為您產生測試資料的[異常偵測器應用程式](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/AnomalyDetector)。 其藉由將信用卡交易寫入事件中樞來模擬信用卡的使用，包括偶爾在多個地點對相同信用卡寫入數個交易，使其標記為異常。 若要執行此應用程式，請遵循下列步驟： 
+[GitHub 上的事件中樞範例](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet)包括為您產生測試資料的[異常偵測器應用程式](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/AnomalyDetector)。 其藉由將信用卡交易寫入事件中樞來模擬信用卡的使用，包括偶爾在多個地點對相同信用卡寫入數個交易，使其標記為異常。 若要執行此應用程式，請遵循下列步驟： 
 
 1. 從 GitHub 下載 [Azure 事件中樞範例](https://github.com/Azure/azure-event-hubs/archive/master.zip)，並將它解壓縮到本機。
 

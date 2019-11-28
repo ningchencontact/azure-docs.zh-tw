@@ -3,17 +3,13 @@ title: 教學課程 - 使用 Ansible 在 Azure Kubernetes Service (AKS) 中設�
 description: 了解如何使用 Ansible 在 Azure Kubernetes Service(AKS) 叢集中設定 kubenet 網路
 keywords: ansible, azure, devops, bash, cloudshell, 劇本, aks, 容器, aks, kubernetes
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 04da0e8fb06d0a32c8e8bdc39d7722fc1c3fcdba
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: e3667ad7a561f56d5fddaacad705c53d1de9ac36
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242037"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156908"
 ---
 # <a name="tutorial-configure-azure-cni-networking-in-azure-kubernetes-service-aks-using-ansible"></a>教學課程：使用 Ansible 在 Azure Kubernetes Service (AKS) 中設定 Azure CNI 網路
 

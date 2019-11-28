@@ -1,22 +1,15 @@
 ---
 title: 使用 Visual Studio Code 在 Azure 中建立第一個函式
 description: 使用 Visual Studio Code 中的 Azure Functions 擴充功能建立簡單 HTTP 觸發函式並發佈至 Azure。
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: azure functions, 函式, 事件處理, 計算, 無伺服器架構
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 06/25/2019
-ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fbde3c939a23e4023c0403c27433717a11762b08
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: b89e6d75cd82a65dfbce29b949c4b7d463582bb9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622064"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230786"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>使用 Visual Studio Code 建立第一個函式
 

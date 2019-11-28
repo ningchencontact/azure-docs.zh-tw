@@ -3,18 +3,18 @@ title: 保留折扣如何套用至適用於 MySQL 的 Azure 資料庫
 description: 保留折扣如何套用至適用於 MySQL 的 Azure 資料庫
 author: kummanish
 ms.author: manishku
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2019
-ms.openlocfilehash: 905a0c77919e448a7c3387ca8fa35a8150780534
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7be3a7913559947be1291db35ac3531f152dfae9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608147"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223305"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mysql"></a>保留折扣如何套用至適用於 MySQL 的 Azure 資料庫
 

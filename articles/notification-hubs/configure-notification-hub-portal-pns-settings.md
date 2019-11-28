@@ -12,12 +12,12 @@ ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 9a17b96da376843c07a4324856bf8943aa385cac
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 951f03f581906e45946ef75742421ba27d405267
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212459"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406989"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>在 Azure 入口網站中設定通知中樞中的推播通知
 
@@ -47,7 +47,7 @@ Azure 通知中樞提供易於使用並可相應放大的推播引擎。使用�
    * 輸入 [金鑰識別碼]  、[搭售方案識別碼]  、[小組識別碼]  和 [權杖]  的值。
    * 選取 [沙箱]  模式。 或者，若要傳送推播通知給從市集購買應用程式的使用者，請選取 [生產]  模式。
 
-     ![Azure 入口網站中的 APNS 權杖設定螢幕擷取畫面](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+     ![Azure 入口網站中的 APNS 權杖設定螢幕擷取畫面](./media/configure-notification-hub-portal-pns-settings/notification-hubs-apple-config-token.png)
 
 如需詳細資訊，請參閱[使用 Azure 通知中樞將通知推播至 iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md)。
 

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: cd0fc90988048f98be46370d2c7836d9506cc44a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6d1c2eff9bc9ffe8a0fb2166d39c16360c0a79cc
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475266"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538929"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 在原生桌面用戶端驗證使用者
 
@@ -43,7 +43,7 @@ ms.locfileid: "73475266"
 
 ## <a name="configure-the-sample"></a>設定範例
 
-在本教學課程中，您會設定可從 GitHub 下載的範例。 範例 WPF 桌面應用程式會示範如何在 Azure AD B2C 中註冊、登入，並且可呼叫受保護的 Web API。 [下載 Zip 檔案](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip)、[瀏覽存放庫](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)，或從 GitHub 複製範例。
+在本教學課程中，您會設定可從 GitHub 下載的範例。 範例 WPF 桌面應用程式會示範如何在 Azure AD B2C 中註冊、登入，並且可呼叫受保護的 Web API。 [下載 Zip 檔案](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/msalv3.zip)、[瀏覽存放庫](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)，或從 GitHub 複製範例。
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git

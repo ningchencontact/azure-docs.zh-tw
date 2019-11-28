@@ -1,6 +1,6 @@
 ---
 title: 教學課程：區域內的 Load Balancer VM--Azure 入口網站
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: 本教學課程示範如何使用 Azure 入口網站以區域前端建立 Standard Load Balancer，以平衡可用性區域內的 VM 負載
 services: load-balancer
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 0ec9fae1ce4ef976d5f50e1d8d8412354706c5f8
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 07d4b206c5651bb708ed8b56437a8769dff46557
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273391"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225159"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過 Standard Load Balancer 來平衡可用性區域內的 VM 負載
 
@@ -41,7 +41,7 @@ ms.locfileid: "68273391"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 
 ## <a name="create-a-public-standard-load-balancer-instance"></a>建立公用 Standard Load Balancer 執行個體
 
@@ -52,9 +52,9 @@ Standard Load Balancer 只支援標準公用 IP 位址。 當您在建立負載�
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | Subscription               | 選取您的訂用帳戶。    |    
-    | Resource group         | 選取 [新建]  ，並在文字方塊中輸入 *MyResourceGroupZLB*。|
-    | Name                   | *myLoadBalancer*                                   |
+    | 訂用帳戶               | 選取您的訂用帳戶。    |    
+    | 資源群組         | 選取 [新建]  ，並在文字方塊中輸入 *MyResourceGroupZLB*。|
+    | 名稱                   | *myLoadBalancer*                                   |
     | 區域         | 選取 [西歐]  。                                        |
     | 類型          | 選取 [公用]  。                                        |
     | SKU           | 選取 [標準]  。                          |
@@ -118,7 +118,7 @@ Standard Load Balancer 只支援標準公用 IP 位址。 當您在建立負載�
 
 ### <a name="create-virtual-machines"></a>建立虛擬機器
 
-1. 在畫面的左上方，選取 [建立資源]   >  **[計算]**  > [Windows Server 2016 Datacenter]  。 針對虛擬機器，請輸入這些值：
+1. 在畫面的左上方，選取 [建立資源]   >  **[計算]**  > [Windows Server 2016 Datacenter]  。 依虛擬機器輸入這些值：
     - [myVM1]  作為虛擬機器的名稱。        
     - [azureuser]  作為系統管理員使用者名稱。    
     - [myResourceGroupZLB]  作為 [資源群組]  。 選取 [使用現有的]  ，然後選取 [myResourceGroupZLB]  。

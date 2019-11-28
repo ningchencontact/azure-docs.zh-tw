@@ -1,22 +1,18 @@
 ---
 title: 建立與 Azure Logic Apps 整合的函式
 description: 建立可整合 Azure Logic Apps 和 Azure 認知服務的函數，以將推文情感進行分類，並在偵測到不佳的情感時傳送通知。
-services: functions, logic-apps, cognitive-services
-keywords: 工作流程, 雲端應用程式, 雲端服務, 商務程序, 系統整合, 企業應用程式整合, EAI
 author: craigshoemaker
-manager: gwallace
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
-ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 11e0170464d8ed901253925eb62cce12d42c0008
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c7b8e41cc09137ee06e975d136dd999ba146731b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480020"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226616"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>建立與 Azure Logic Apps 整合的函式
 
@@ -26,7 +22,7 @@ Azure Functions 與 Logic Apps 設計工具中的 Azure Logic Apps 進行整合�
 
 ![此映像顯示邏輯應用程式設計工具中應用程式的前兩個步驟](media/functions-twitter-email/00-logic-app-overview.png)
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立認知服務 API 資源。
@@ -209,7 +205,7 @@ Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處�
 
 4. 在**要求本文**中，依序按一下 [分數]  和 [儲存]  。
 
-    ![分數](media/functions-twitter-email/17-function-input-score.png)
+    ![Score](media/functions-twitter-email/17-function-input-score.png)
 
 現在，當邏輯應用程式傳送出情感分數時，就會觸發您的函式。 函式會將以色彩標示的類別傳回至邏輯應用程式。 接下來，您要新增當函式傳回 **RED** 情感值時要傳送的電子郵件通知。 
 

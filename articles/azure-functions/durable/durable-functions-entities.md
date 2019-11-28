@@ -1,20 +1,16 @@
 ---
 title: 持久性實體 - Azure Functions
 description: 了解什麼是持久性實體，以及如何在 Azure Functions 的 Durable Functions 擴充功能中使用這些實體。
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: overview
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d62281b4ccb522b3a784428bcf0284730f120628
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: aa4d1c4bfab349659c42a34ca5a73f676a2ea2b8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904031"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232917"
 ---
 # <a name="entity-functions"></a>實體函式
 

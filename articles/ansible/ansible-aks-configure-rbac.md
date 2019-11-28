@@ -3,17 +3,13 @@ title: 教學課程 - 使用 Ansible 在 Azure Kubernetes Service (AKS) 中設�
 description: 了解如何使用 Ansible 在 Azure Kubernetes Service(AKS) 叢集中設定 RBAC
 keywords: ansible, azure, devops, bash, cloudshell, 劇本, aks, 容器, aks, kubernetes, azure active directory, rbac
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 36a6f5ade7a60a989d2e80f2405aaa2d1d50b756
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 1be123eb06bd2679169478daf27a7148d2a8b055
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242344"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156864"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>教學課程：使用 Ansible 在 Azure Kubernetes Service (AKS) 中設定角色型存取控制 (RBAC) 角色
 

@@ -1,23 +1,19 @@
 ---
 title: Azure Dev Spaces 簡介
-titleSuffix: Azure Dev Spaces
-author: zr-msft
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 05/07/2019
 ms.topic: overview
 description: Azure Dev Spaces 簡介
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: c87aee26f5f9a4c3f919150a22a8b2f5a7b57352
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 08214e4be866da592e4852ef718ee82fa2a27d08
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889741"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325800"
 ---
-# <a name="azure-dev-spaces"></a>Azure 開發人員空間
+# <a name="introduction-to-azure-dev-spaces"></a>Azure Dev Spaces 簡介
 
 Azure Dev Spaces 可為 Azure Kubernetes Service (AKS) 叢集中的小組提供快速、反覆的 Kubernetes 開發體驗。 Azure Dev Spaces 也可讓您以最少量的開發機器設定在 AKS 中偵測及測試應用程式的所有元件，而不需要複寫或模擬相依性。
 

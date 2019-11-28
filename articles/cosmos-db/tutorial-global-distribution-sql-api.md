@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b76fee17b64d50831d5bceca9d8512e7b7498d73
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 7c7ea4ca8fc28ef47e60d5010c804223c3cfab3b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720778"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173843"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>教學課程：使用 SQL API 來設定 Azure Cosmos DB 全域散發
 
@@ -80,12 +80,6 @@ await docClient.OpenAsync().ConfigureAwait(false);
 
 ## <a name="nodejsjavascript"></a>Node.js/JavaScript
 
-您不需變更任何程式碼即可使用 SDK。 在此情況下，SDK 會自動將讀取和寫入導向至目前寫入區域。
-
-在每個 SDK 的 1.8 版和更新版本中，適用於 DocumentClient 建構函式的 ConnectionPolicy 參數會有一個名為 DocumentClient.ConnectionPolicy.PreferredLocations 的新屬性。 這個參數是取得區域名稱清單的字串陣列。 名稱會按照 [Azure 區域][regions]頁面的 [區域名稱] 資料行格式化。 您也可以在方便的物件 AzureDocuments.Regions 中使用預先定義的常數
-
-目前的寫入和讀取端點分別適用於 DocumentClient.getWriteEndpoint 和 DocumentClient.getReadEndpoint。
-
 > [!NOTE]
 > 不應將端點的 URI 視為長時間執行的常數。 服務可能會隨時更新這些項目。 SDK 將會自動處理此變更。
 >
@@ -94,17 +88,14 @@ await docClient.OpenAsync().ConfigureAwait(false);
 以下是 Node.js/Javascript 的程式碼範例。
 
 ```JavaScript
-// Creating a ConnectionPolicy object
-var connectionPolicy = new DocumentBase.ConnectionPolicy();
-
 // Setting read region selection preference, in the following order -
 // 1 - West US
 // 2 - East US
 // 3 - North Europe
-connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe'];
+const preferredLocations = ['West US', 'East US', 'North Europe'];
 
 // initialize the connection
-var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
+const client = new CosmosClient{ endpoint, key, connectionPolicy: { preferredLocations } });
 ```
 
 ## <a name="python-sdk"></a>Python SDK

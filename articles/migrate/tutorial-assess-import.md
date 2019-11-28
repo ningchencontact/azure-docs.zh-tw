@@ -7,19 +7,16 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 856f7f7735435579ac14918ee8026f27b222773e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 7bf47731f2a3621e7bbdc1b104d94e97f2d03099
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715506"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158662"
 ---
 # <a name="assess-servers-using-imported-data"></a>使用匯入的資料評估伺服器
 
-> [!NOTE]
-> 如果您還沒在 Azure Migrate 入口網站中看到這項功能，請稍候。 其會在下週前後出現。
-
-本文說明如何使用 [Azure Migrate：伺服器評量](migrate-services-overview.md#azure-migrate-server-assessment-tool)，藉由使用 CSV 匯入伺服器中繼資料來評估內部部署伺服器。 使用此評量方法時，您無須設定 Azure Migrate 設備來建立評量。 此功能在下列情況下相當有用： 
+本文說明如何使用 [Azure Migrate：伺服器評量](migrate-services-overview.md#azure-migrate-server-assessment-tool)，藉由使用 CSV 匯入伺服器中繼資料來評估內部部署伺服器。 使用此評量方法時，您無須設定 Azure Migrate 設備來建立評量。 此功能在下列情況下相當有用：
 
 - 您想要在部署設備之前建立快速初始評量。
 - 您無法在組織中部署 Azure Migrate 設備。
@@ -49,7 +46,7 @@ ms.locfileid: "73715506"
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 
-## <a name="set-azure-permissions-for-azure-migrate"></a>設定 Azure Migrate 的 Azure 權限 
+## <a name="set-azure-permissions-for-azure-migrate"></a>設定 Azure Migrate 的 Azure 權限
 
 您的 Azure 帳戶必須有建立 Azure Migrate 專案的權限。
 
@@ -116,7 +113,7 @@ ms.locfileid: "73715506"
 
 **欄位名稱** | **必要** | **詳細資料**
 --- | --- | ---
-**伺服器名稱** | yes | 建議您指定 FQDN。 
+**伺服器名稱** | yes | 建議您指定 FQDN。
 **IP 位址** | 否 | 伺服器位址。
 **核心數目** | yes | 配置給伺服器的處理器核心數目。
 **記憶體** | yes | 配置給伺服器的 RAM 總計 (MB)。
@@ -144,7 +141,7 @@ ms.locfileid: "73715506"
 **Virtual Machine Manager 識別碼** | 否 | 這是 VMware vCenter 的 **InstanceUUid**。 Hyper-V 不需要此項目。
 **MAC 位址**| 否 | 伺服器 MAC 位址。
 **BIOS 識別碼** | 否 | 伺服器 BIOS 識別碼。
-**自訂伺服器識別碼**| 否 | 本機唯一的內部部署伺服器識別碼。 <br/> 可用來依本機識別碼追蹤匯入的伺服器。 
+**自訂伺服器識別碼**| 否 | 本機唯一的內部部署伺服器識別碼。 <br/> 可用來依本機識別碼追蹤匯入的伺服器。
 **應用程式 1 名稱** | 否 | 在伺服器上執行的工作負載名稱。<br/> 您可以藉由在範本中[新增資料行](#add-multiple-applications)，來新增更多應用程式的詳細資料。 您最多可以新增五個應用程式。
 **應用程式 1 類型** | 否 | 在伺服器中執行的工作負載類型
 **應用程式 1 版本** | 否 | 在伺服器上執行的工作負載版本。
@@ -162,7 +159,7 @@ ms.locfileid: "73715506"
 
 ### <a name="add-multiple-disks"></a>新增多個磁碟
 
-範本會提供第一個磁碟的預設欄位。  您最多可為 8 個磁碟新增類似的資料行。 
+範本會提供第一個磁碟的預設欄位。  您最多可為 8 個磁碟新增類似的資料行。
 
 例如，若要指定第二個磁碟的所有欄位，請新增資料行：
 
@@ -192,10 +189,10 @@ Application 2 name Application 2 type Application 2 version Application 2 licens
 
 1. 在 Azure Migrate > [探索機器]  中，瀏覽至已填入的範本。
 2. 按一下 [匯入]  。
-3. 匯入狀態隨即顯示。 
+3. 匯入狀態隨即顯示。
     - 如果狀態中出現警告，您可以修正相關狀況，或繼續作業而不加以處理。
     - 依照警告中的建議改善伺服器資訊，可提高評量的正確性。
-    - 若要檢視並修正出現的警告，請按一下 [下載警告詳細資料 .CSV]  。 這會下載 CSV，並新增警告。 您可以檢閱警告，並視需要修正問題。 
+    - 若要檢視並修正出現的警告，請按一下 [下載警告詳細資料 .CSV]  。 這會下載 CSV，並新增警告。 您可以檢閱警告，並視需要修正問題。
     如果狀態中出現錯誤 (匯入狀態為「失敗」  )，您必須先修正這些錯誤，才能繼續匯入。 若要這麼做，請下載此時已新增錯誤詳細資料的 CSV。 如有需要，請檢閱並解決錯誤。 然後，再次上傳修改過的檔案。
 4. 當匯入狀態「完成」  時，就會匯入伺服器資訊。
 
@@ -205,7 +202,7 @@ Application 2 name Application 2 type Application 2 version Application 2 licens
 
 ## <a name="updating-server-information"></a>更新伺服器資訊
 
-您可以使用相同的**伺服器名稱**再次上傳伺服器的資料，以更新伺服器資訊。 您無法修改 [伺服器名稱]  欄位。 
+您可以使用相同的**伺服器名稱**再次上傳伺服器的資料，以更新伺服器資訊。 您無法修改 [伺服器名稱]  欄位。
 
 目前不支援刪除伺服器。
 
@@ -300,21 +297,21 @@ Application 2 name Application 2 type Application 2 version Application 2 licens
 
 名稱 | 名稱
 --- | ---
-**A - H** | 
+**A - H** |
 Apple Mac OS X 10 | Asianux 3<br/>Asianux 4<br/>Asianux 5
-CentOS<br/>CentOS 4/5 | CoreOS Linux 
-Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD 
-**I - R** | 
+CentOS<br/>CentOS 4/5 | CoreOS Linux
+Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD
+**I - R** |
 IBM OS/2 | MS-DOS |
-Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11 
-Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora | 
-**S-T** | 
+Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11
+Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora |
+**S-T** |
 SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO UnixWare 7 | Serenity Systems eComStation 1<br/>Serenity Systems eComStation 2
 Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9 | SUSE Linux Enterprise 10<br/> SUSE Linux Enterprise 11<br/>SUSE Linux Enterprise 12<br/>SUSE Linux Enterprise 8/9<br/>SUSE Linux Enterprise 11<br/>SUSE openSUSE
-**U-Z** | 
+**U-Z** |
 Ubuntu Linux | VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6
 Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003 | Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
-    
+
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 3978b4ec302bf4dd2390f2390c967ca6e12e67d5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ee3f59bc9e9f8c7950d005b16433cde9267fea9a
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744403"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538990"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>快速入門：適用於 Python 的 Content Moderator 用戶端程式庫
 
@@ -104,8 +104,8 @@ pip install --upgrade azure-cognitiveservices-vision-contentmoderator
 下列程式碼會使用 Content Moderator 用戶端來分析文字主體，並將結果列印到主控台。 首先，在專案的根目錄建立 **text_files/** 資料夾，並新增 *content_moderator_text_moderation.txt* 檔案。 將您自己的文字新增至此檔案，或使用下列範例文字：
 
 ```
-Is this a grabage email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
-Crap is the profanity here. Is this information PII? phone 3144444444
+Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Crap is the profanity here. Is this information PII? phone 2065550111
 ```
 
 將參考新增至新的資料夾。

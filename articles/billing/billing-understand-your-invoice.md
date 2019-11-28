@@ -7,19 +7,19 @@ author: bandersmsft
 manager: jureid
 editor: ''
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
-ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 09aa3e83d588311807f7f2c5afeda0f282853a31
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "60369917"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225650"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>了解您 Microsoft Azure 發票上的字詞
 
@@ -99,7 +99,7 @@ ms.locfileid: "60369917"
 
 | 詞彙 |說明 |
 | --- | --- |
-| Name |識別使用量的最上層服務 |
+| 名稱 |識別使用量的最上層服務 |
 | 類型 |定義可能會影響費率的 Azure 服務類型 |
 | 資源 |識別耗用計量的量值單位 |
 | 區域 |針對以資料中心位置作為基礎所定價的某些服務，識別資料中心的位置 |

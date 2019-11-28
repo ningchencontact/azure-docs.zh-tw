@@ -1,17 +1,14 @@
 ---
 title: 教學課程 - 使用 Terraform 在 Azure 中建立內部部署虛擬網路
 description: 教學課程將說明如何在裝載本機資源的 Azure 中實作內部部署 VNet
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: df96b9340e9961387fd727eba898fe4db6a18821
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 361f9919fdd406a1fef6bbf2b7512dbc20266a54
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969394"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159213"
 ---
 # <a name="tutorial-create-on-premises-virtual-network-in-azure-using-terraform"></a>教學課程：使用 Terraform 在 Azure 中建立內部部署虛擬網路
 

@@ -3,17 +3,13 @@ title: 教學課程 - 使用 Ansible 從 Azure 共用映像庫建立 VM 或虛�
 description: 了解如何使用 Ansible，根據共用映像庫中的一般化映像來建立 VM 或虛擬機器擴展集。
 keywords: ansible, azure, devops, bash, 腳本, 虛擬機器, 虛擬機器擴展集, 共用映像庫
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 10/14/2019
-ms.openlocfilehash: 4b4190ddabe90af135ea64a8ba3d5905f23c457e
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: f784419736854095cc1bc5da14f3867ac3f7eb12
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808955"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155834"
 ---
 # <a name="tutorial-create-a-vm-or-virtual-machine-scale-set-from-the-azure-shared-image-gallery-using-ansible"></a>教學課程：使用 Ansible 從 Azure 共用映像庫建立 VM 或虛擬機器擴展集
 

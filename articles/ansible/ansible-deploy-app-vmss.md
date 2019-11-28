@@ -3,17 +3,13 @@ title: 教學課程 - 使用 Ansible 將應用程式部署至 Azure 中的虛擬
 description: 了解如何使用 Ansible 設定 Azure 虛擬機器擴展集，並在擴展集上部署應用程式
 keywords: ansible, azure, devops, bash, 腳本, 虛擬機器, 虛擬機器擴展集, vmss
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: f9035259d466a50b83fe0094d43bc0fe985e8c4e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 7c54790a3d988341caa65bdf0ce33c240f0580fb
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241722"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156400"
 ---
 # <a name="tutorial-deploy-apps-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>教學課程：使用 Ansible 將應用程式部署至 Azure 中的虛擬機器擴展集
 

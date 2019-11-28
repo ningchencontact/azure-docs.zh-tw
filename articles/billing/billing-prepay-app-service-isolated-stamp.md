@@ -4,16 +4,16 @@ description: 了解如何使用保留容量來節省 Azure App Service 隔離式
 services: billing
 author: yashesvi
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 5161f18499c082b7064eec2be612557ba09eec97
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 5aafc2288b9e6b7ef217ec386211af7c3739c08b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806367"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223661"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>使用保留容量來節省 Azure App Service 隔離式方案戳記費用的成本
 
@@ -52,8 +52,8 @@ ms.locfileid: "70806367"
     - 針對隨用隨付訂用帳戶，費用是透過訂用帳戶的信用卡或發票付款方式收取。
 1. 選取 [範圍]  以選擇訂用帳戶範圍。
     - **單一資源群組範圍** - 只會將保留折扣套用至所選資源群組中的相符資源。
-    - **單一訂用帳戶範圍** - 會將保留折扣套用至所選訂用帳戶中的相符資源。
-    - **共用範圍** - 會將保留折扣套用至計費內容中合格訂用帳戶的相符資源。 針對 Enterprise 合約客戶，計費內容為註冊。 針對使用隨用隨付費率的個別訂用帳戶，計費範圍是帳戶管理員所建立的所有合格訂用帳戶。
+    - **單一訂用帳戶範圍** — 會將保留折扣套用至所選訂用帳戶中的相符資源。
+    - **共用範圍** — 會將保留折扣套用至計費內容中合格訂用帳戶的相符資源。 針對 Enterprise 合約客戶，計費內容為註冊。 針對使用隨用隨付費率的個別訂用帳戶，計費範圍是帳戶管理員所建立的所有合格訂用帳戶。
 1. 選取 [區域]  以選擇保留容量涵蓋的 Azure 區域，並將保留新增至購物車。
 1. 選取隔離式方案類型，然後按一下 [選取]  。  
     ![範例 ](./media/billing-prepay-app-service-isolated-stamp/app-service-isolated-stamp-select.png)
@@ -64,7 +64,7 @@ ms.locfileid: "70806367"
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>取消、交換保留或進行退款
 
-您可以取消、交換保留或進行退款，但有某些限制。 如需詳細資訊，請參閱 [Azure 保留的自助式交換和退款](billing-azure-reservations-self-service-exchange-and-refund.md)。
+您可以取消、交換保留或進行退費，但有某些限制。 如需詳細資訊，請參閱 [Azure 保留的自助式交換和退款](billing-azure-reservations-self-service-exchange-and-refund.md)。
 
 ## <a name="discount-application-shown-in-usage-data"></a>使用量資料中顯示的折扣套用
 

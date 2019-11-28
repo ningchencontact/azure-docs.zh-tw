@@ -1,6 +1,6 @@
 ---
 title: 教學課程：建立內部負載平衡器 - Azure 入口網站
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: 本教學課程會示範如何使用 Azure 入口網站建立內部的基本負載平衡器。
 services: load-balancer
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 09a73b5d97e46797dd880f64383fdf03fd591f3d
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 1b9d943f540a0132abc6a70eba888aa5f8f46093
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273500"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225211"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>教學課程：在 Azure 入口網站中使用基本負載平衡器來平衡內部流量負載
 
@@ -91,9 +91,9 @@ ms.locfileid: "68273500"
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | Subscription               | 選取您的訂用帳戶。    |    
-    | Resource group         | 選取 [新建]  ，並在文字方塊中輸入 *MyResourceGroupLB*。|
-    | Name                   | *myLoadBalancer*                                   |
+    | 訂用帳戶               | 選取您的訂用帳戶。    |    
+    | 資源群組         | 選取 [新建]  ，並在文字方塊中輸入 *MyResourceGroupLB*。|
+    | 名稱                   | *myLoadBalancer*                                   |
     | 區域         | 選取 [西歐]  。                                        |
     | 類型          | 選取 [內部]  。                                        |
     | SKU           | 選取 [基本]  。                          |

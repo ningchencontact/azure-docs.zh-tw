@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 36f85b0906b67c5bee61b9e22101f7a0d117878a
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7762366f68bee2cd8c44e81bb22366c504ff1a73
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73126484"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484418"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>設定站對站 VPN 以用於 Azure 檔案儲存體
 您可以使用站對站 (S2S) VPN 連線，從內部部署網路透過 SMB 掛接 Azure 檔案共用，而不需要開啟連接埠 445。 您可以使用 [Azure VPN 閘道](../../vpn-gateway/vpn-gateway-about-vpngateways.md)來設定站對站 VPN，這是一個 Azure 資源供應項目 VPN 服務，會與儲存體帳戶或其他 Azure 資源一起部署在資源群組中。
@@ -113,5 +113,5 @@ ms.locfileid: "73126484"
 
 ## <a name="see-also"></a>另請參閱
 - [Azure 檔案儲存體網路概觀](storage-files-networking-overview.md)
-- [在 Linux 上設定點對站 (P2S) VPN 以用於 Azure 檔案儲存體](storage-files-configure-p2s-vpn-windows.md)
+- [在 Windows 上設定點對站 (P2S) VPN 以用於 Azure 檔案儲存體](storage-files-configure-p2s-vpn-windows.md)
 - [在 Linux 上設定點對站 (P2S) VPN 以用於 Azure 檔案儲存體](storage-files-configure-p2s-vpn-linux.md)
