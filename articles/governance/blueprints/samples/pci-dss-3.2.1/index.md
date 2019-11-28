@@ -1,14 +1,14 @@
 ---
-title: PCI-DSS v3.2.1 藍圖範例 - 概觀
+title: PCI-DSS v3.2.1 藍圖範例概觀
 description: 支付卡產業資料安全標準 v3.2.1 藍圖範例的概觀。 此藍圖範例可協助客戶評定特定控制措施。
 ms.date: 06/24/2019
 ms.topic: sample
-ms.openlocfilehash: 68623769764af658533571e171981fd77f5b3c02
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: f36b258c098871d22ea532f9a29acfcc582dfb87
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404021"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546530"
 ---
 # <a name="overview-of-the-pci-dss-v321-blueprint-sample"></a>PCI-DSS v3.2.1 藍圖範例概觀
 

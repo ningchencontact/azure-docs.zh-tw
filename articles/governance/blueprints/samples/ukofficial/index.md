@@ -1,14 +1,14 @@
 ---
-title: UK OFFICIAL 與 UK NHS 藍圖範例 - 概觀
+title: UK OFFICIAL 與 UK NHS 藍圖範例概觀
 description: 概述 UK OFFICIAL 與 UK NHS 藍圖範例架構。 此藍圖範例可協助客戶評定特定控制措施。
 ms.date: 06/26/2019
 ms.topic: sample
-ms.openlocfilehash: c058a4a9647ce6abc373a6fe2ee8d110f2541ea3
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: e6ba277c879f8569e32ec963aaa15a2e14fe78c0
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406618"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546386"
 ---
 # <a name="overview-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>UK OFFICIAL 與 UK NHS 藍圖範例概觀
 

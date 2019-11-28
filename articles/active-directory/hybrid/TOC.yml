@@ -322,6 +322,8 @@
       href: reference-connect-version-history.md
     - name: Azure AD Connect Health 版本記錄
       href: reference-connect-health-version-history.md
+    - name: Azure AD 傳遞驗證代理程式版本歷程
+      href: reference-connect-pta-version-history.md
     - name: 連接器版本記錄
       href: reference-connect-sync-connector-version-history.md
     - name: 帳戶和權限
