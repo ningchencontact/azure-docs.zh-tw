@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: diberry
-ms.openlocfilehash: 62ce0ac36223098d013cc75b7f62fc2c68e358ed
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: e03c7489268f3ad7076481de4498c5e202f654b6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953364"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280286"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding 的新功能
 
@@ -33,9 +33,9 @@ ms.locfileid: "73953364"
     * [阿拉伯文和印度](luis-language-support.md)文（公開預覽）。
 * 預先建置的模型
     * [預先](luis-reference-prebuilt-domains.md)建立的網域現已正式推出（GA）
-    * 在 V3 中，日文預先建立的[實體](luis-reference-prebuilt-entities.md#japanese-entity-support)不支援年齡、貨幣、數位、百分比。
-    * 義大利[建實體](luis-reference-prebuilt-entities.md#italian-entity-support)-年齡、貨幣、維度、數位、百分比解析已從 V2 變更。
-* 增強[preview.luis.ai 入口網站](https://preview.luis.ai)中的使用者體驗-改頭換面標記體驗，以啟用建立和調試複雜模型。 試用預覽入口網站教學課程：
+    * 在 V3 中不支援日文預先建立的[實體](luis-reference-prebuilt-entities.md#japanese-entity-support)-年齡、貨幣、數位和百分比。
+    * 義大利[建實體](luis-reference-prebuilt-entities.md#italian-entity-support)-從 V2 變更的年齡、貨幣、維度、數位和百分比解析。
+* [Preview.luis.ai 入口網站](https://preview.luis.ai)中增強的使用者體驗-改頭換面標記體驗，以啟用建立和調試複雜模型。 試用預覽入口網站教學課程：
     * [僅意圖](tutorial-intents-only.md)
     * [分解機器學習的實體](tutorial-machine-learned-entity.md) 
 * 預先語言理解功能-以較少的方式[建立複雜的語言模型](luis-concept-entity-types.md)。 

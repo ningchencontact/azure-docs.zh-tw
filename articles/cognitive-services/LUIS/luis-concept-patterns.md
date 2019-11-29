@@ -1,7 +1,7 @@
 ---
 title: 模式協助預測-LUIS
 titleSuffix: Azure Cognitive Services
-description: 模式可讓您取得更精確的意圖，而不需提供更多的語句。
+description: 模式可讓您取得更精確的意圖，而不需提供更多表達。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 6234a13d07ac024849d1c890d82ef03e19c11af4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 32b9b42ee0962353405616e501de95b19e40ea1a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012003"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280863"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>模式可改善預測精確度
-模式設計用來改善數個語句非常類似時的精確度。  模式可讓您取得更精確的意圖，而不需提供更多的語句。 
+模式設計用來改善數個語句非常類似時的精確度。  模式可讓您取得更精確的意圖，而不需提供更多表達。 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>模式可解決低意圖信賴度
 請考慮使用人力資源應用程式，該應用程式會報告與員工相關的組織圖。 若指定員工的名稱和關係，LUIS 就會傳回涉及的員工。 請考慮使用員工 Tom，其經理名字為 Alice，且其下小組名字為：Michael、Rebecca 和 Carl。
@@ -45,9 +45,9 @@ ms.locfileid: "74012003"
 
 ## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>模式不會改善機器學習的實體偵測
 
-模式主要是用來協助預測意圖和角色。 模式。任何實體都是用來將自由格式的實體解壓縮。 當模式使用實體時，模式不會協助偵測機器學習的實體。  
+模式主要是用來協助預測意圖和角色。 _模式。任何_實體都是用來將自由格式的實體解壓縮。 當模式使用實體時，模式不會協助偵測機器學習的實體。  
 
-如果將多個語句摺疊成單一模式，則不要期望看到改善的實體預測。 若要引發簡單實體，您需要新增語句或使用清單實體，否則您的模式不會引發。
+如果將多個語句摺疊成單一模式，則不要期望看到改善的實體預測。 若要引發簡單實體，您需要新增語句或使用清單實體，否則將不會引發您的模式。
 
 ## <a name="patterns-use-entity-roles"></a>模式可使用實體角色
 如果模式中有兩個以上的實體與內容相關，則模式會使用實體[角色](luis-concept-roles.md)來擷取關於實體的內容資訊。  
@@ -61,7 +61,7 @@ ms.locfileid: "74012003"
 ## <a name="pattern-only-apps"></a>僅限模式的應用程式
 只要有每個意圖的模式，您就可以使用沒有範例語句的意圖來建立應用程式。 針對僅限模式的應用程式，模式不應包含機器學習的實體，因為這需要範例語句。 
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 了解[最佳做法](luis-concept-best-practices.md)。
 
 ## <a name="pattern-syntax"></a>模式語法

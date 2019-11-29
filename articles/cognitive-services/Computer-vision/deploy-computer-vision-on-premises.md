@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 8d285bf60e356f15caf55271b0791e9adc97ac14
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 22ec16f66c463cde49adbc9c472e461169df5eeb
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481771"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383787"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>搭配 Kubernetes 和 Helm 使用電腦視覺容器
 
@@ -25,7 +25,7 @@ ms.locfileid: "73481771"
 
 在內部部署使用電腦視覺容器之前，請先遵循下列必要條件：
 
-|必要|目的|
+|必要項|目的|
 |--|--|
 | Azure 帳戶 | 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][free-azure-account]。 |
 | Kubernetes CLI | 需要[KUBERNETES CLI][kubernetes-cli] ，才能從容器登錄中管理共用認證。 Helm 之前也需要 Kubernetes，這是 Kubernetes 套件管理員。 |
@@ -77,7 +77,7 @@ secret "containerpreview" created
 若要確認是否已建立密碼，請使用 `secrets` 旗標來執行[`kubectl get`][kubectl-get] 。
 
 ```console
-kuberctl get secrets
+kubectl get secrets
 ```
 
 執行 `kubectl get secrets` 會列印所有設定的秘密。
@@ -244,9 +244,9 @@ replicaset.apps/read-57cb76bcf7   1         1         1       17s
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/using_helm/#installing-helm
-[helm-install-cmd]: https://helm.sh/docs/helm/#helm-install
+[helm-install-cmd]: https://helm.sh/docs/intro/using_helm/#helm-install-installing-a-package
 [tiller-install]: https://helm.sh/docs/install/#installing-tiller
-[helm-charts]: https://helm.sh/docs/developing_charts
+[helm-charts]: https://helm.sh/docs/topics/charts/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-test]: https://helm.sh/docs/helm/#helm-test

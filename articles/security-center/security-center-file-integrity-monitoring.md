@@ -1,6 +1,6 @@
 ---
 title: Azure 資訊安全中心的檔案完整性監視 | Microsoft Docs
-description: " 了解如何在 Azure 資訊安全中心啟用檔案完整性監視。 "
+description: 了解如何利用此逐步解說，在 Azure 資訊安全中心設定檔案完整性監視 (FIM)。
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: f7f5c257b23cd273a2cda40f874f5edfc62c0dbd
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: cfa767a42800ceaf78fe007a8468fe9113a2d412
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202189"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558776"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure 資訊安全中心的檔案完整性監視
 了解如何利用此逐步解說，在 Azure 資訊安全中心設定檔案完整性監視 (FIM)。
@@ -93,7 +93,7 @@ FIM 使用 Azure 變更追蹤解決方案來追蹤及識別您環境中的變更
 
 ![[檔案完整性監視] 儀表板][6]
 
-工作區的 FIM 儀表板會顯示下列資訊：
+工作區的 FIM 儀表板會顯示下列詳細資料：
 
 - 連線到工作區的電腦總數
 - 所選時段內發生的變更總數
@@ -109,9 +109,9 @@ FIM 使用 Azure 變更追蹤解決方案來追蹤及識別您環境中的變更
 - 所選時段內發生的變更總計
 - 檔案變更或登錄變更時的變更總計細目
 
-當您在搜尋欄位中輸入電腦名稱，或選取 [電腦] 索引標籤下所列的電腦時，[記錄搜尋] 會隨即開啟。[記錄搜尋] 會顯示電腦在所選時段內的所有變更。 您可以展開某項變更，以取得詳細資訊。
+當您在搜尋欄位中輸入電腦名稱稱，或選取 [電腦] 索引標籤底下所列的電腦時，就會開啟 [**記錄搜尋**]。 [記錄搜尋] 會顯示電腦所選時段內所做的所有變更。 您可以展開某項變更，以取得詳細資訊。
 
-![記錄檔搜尋][8]
+![記錄搜尋][8]
 
 [變更] 索引標籤 (如下所示) 會列出工作區在所選時段內的所有變更。 針對已變更的每個實體，儀表板會列出：
 
@@ -132,7 +132,7 @@ FIM 使用 Azure 變更追蹤解決方案來追蹤及識別您環境中的變更
 
    ![設定][11]
 
-   **工作區設定**隨即開啟，並顯示三個索引標籤：**Windows 登錄**、**Windows 檔案**和 **Linux 檔案**。 每個索引標籤會列出您可以在該類別中編輯的實體。 針對每個列出的實體，資訊安全中心會識別 FIM 已啟用 (True) 或未啟用 (False)。  編輯實體可讓您啟用或停用 FIM。
+   [工作區設定] 會隨即開啟並顯示三個索引標籤：[Windows 登錄]、[Windows 檔案] 和 [Linux 檔案]。 每個索引標籤會列出您可以在該類別中編輯的實體。 針對每個列出的實體，資訊安全中心會識別 FIM 已啟用 (True) 或未啟用 (False)。  編輯實體可讓您啟用或停用 FIM。
 
    ![工作區設定][12]
 
@@ -149,7 +149,7 @@ FIM 使用 Azure 變更追蹤解決方案來追蹤及識別您環境中的變更
 
 ## <a name="add-a-new-entity-to-monitor"></a>新增要監視的實體
 1. 返回 [檔案完整性監視] 儀表板，然後選取頂端的 [設定]。 [工作區設定] 會隨即開啟。
-2. 在 [工作區設定] 下，選取您要對於實體類型新增的索引標籤：[Windows 登錄]、[Windows 檔案] 或 [Linux 檔案]。 在此範例中，已選取 [Linux 檔案]。
+2. 在 [工作區設定] 下，選取您要新增之實體類型的索引標籤：[Windows 登錄]、[Windows 檔案] 或 [Linux 檔案]。 在此範例中，已選取 [Linux 檔案]。
 
    ![新增要監視的項目][14]
 
@@ -199,7 +199,7 @@ FIM 使用 Azure 變更追蹤解決方案來追蹤及識別您環境中的變更
 4. 選取 [移除] 以停用。
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您已了解如何使用資訊安全中心的檔案完整性監視 (FIM)。 如要深入了解資訊安全中心，請參閱下列主題：
+在本文中，您已瞭解如何使用資訊安全中心中的檔案完整性監視（FIM）。 若要深入瞭解資訊安全中心，請參閱下列頁面：
 
 * [設定安全性原則](tutorial-security-policy.md) - 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [管理安全性建議](security-center-recommendations.md) - 了解建議如何協助保護您的 Azure 資源。

@@ -1,6 +1,6 @@
 ---
 title: Azure 資訊安全中心疑難排解指南 | Microsoft Docs
-description: 本檔有助於疑難排解 Azure 資訊安全中心中的問題。
+description: 本指南適用于需要針對 Azure 資訊安全中心相關問題進行疑難排解的 IT 專業人員、安全性分析師和雲端系統管理員。
 services: security-center
 author: v-miegge
 manager: dcscontentpm
@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 073e500028634e3c35a482d8efc5f9ae169145e3
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b9650c3c30d95c85f505b640564ff416931676ea
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257693"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559216"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure 資訊安全中心疑難排解指南
 
@@ -74,7 +74,7 @@ ms.locfileid: "71257693"
 
 * **資訊安全中心自動安裝的代理程式**：在此案例中，您能夠在兩個位置 (資訊安全中心和記錄搜尋) 檢視警示。 您會收到電子郵件通知，指向資源所屬訂用帳戶的安全性原則中所設定的電子郵件地址。
 
-* **手動安裝在位於 Azure 中的 VM 上的代理程式**：在此案例中，如果您使用在2017年2月之前下載並手動安裝的代理程式，只有在您篩選工作區的訂用帳戶時，才可以在資訊安全中心入口網站中查看警示屬於。 如果您篩選資源所屬的訂用帳戶，您將不會看到任何警示。 您會收到電子郵件通知，指向工作區所屬之訂用帳戶的安全性原則中所設定的電子郵件地址。
+* **手動安裝在位於 Azure 中的 VM 上的代理程式**：在此案例中，如果您使用在2017年2月之前下載並手動安裝的代理程式，只有在您篩選工作區所屬的訂用帳戶時，才可以在資訊安全中心入口網站中查看警示。 如果您篩選資源所屬的訂用帳戶，您將不會看到任何警示。 您會收到電子郵件通知，指向工作區所屬之訂用帳戶的安全性原則中所設定的電子郵件地址。
 
 > [!NOTE]
 > 若要避免第二個案例中說明的行為，務必下載最新版的代理程式。
@@ -138,7 +138,7 @@ ms.locfileid: "71257693"
 
 ![Microsoft 支援服務](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 在本文件中，您已了解如何在「Azure 資訊安全中心」設定安全性原則。 若要深入了解「Azure 資訊安全中心」，請參閱下列主題：
 

@@ -8,20 +8,20 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7fb436ef8d915898bc8f36dd10766e71f63e4a59
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ca34a92dc69cb500efb55f575420d47607cd1a46
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575578"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132217"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>設定 Python 應用程式的 Azure 監視器（預覽）
 
 Azure 監視器透過與[OpenCensus](https://opencensus.io)的整合，支援 Python 應用程式的分散式追蹤、度量集合和記錄。 本文將逐步引導您完成設定 Python 的 OpenCensus，以及將您的監視資料傳送至 Azure 監視器的程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+- Azure 訂閱。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 - Python 安裝。 本文使用[Python 3.7.0](https://www.python.org/downloads/)，但較舊的版本可能會處理次要變更。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
@@ -38,13 +38,13 @@ Azure 監視器透過與[OpenCensus](https://opencensus.io)的整合，支援 Py
 
 1. [設定] 方塊隨即出現。 使用下表來填寫輸入欄位。
 
-   | 設定        | 值           | 說明  |
+   | 設定        | 值           | 描述  |
    | ------------- |:-------------|:-----|
    | **名稱**      | 全域唯一值 | 識別您要監視之應用程式的名稱 |
    | **資源群組**     | myResourceGroup      | 要裝載 Application Insights 資料之新資源群組的名稱 |
-   | **位置** | 美國東部 | 您附近或接近應用程式裝載位置附近的位置 |
+   | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | 美國東部 | 您附近或接近應用程式裝載位置附近的位置 |
 
-1. 選取 [ **建立**]。
+1. 選取 [建立]。
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>使用適用于 Azure 監視器的 OpenCensus Python SDK 進行檢測
 
@@ -109,7 +109,6 @@ SDK 會使用三個 Azure 監視器匯出工具，將不同類型的遙測傳送
     tracer = Tracer(
         exporter=AzureExporter(
             connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000'),
-        ),
         sampler=ProbabilitySampler(1.0),
     )
 
@@ -126,7 +125,7 @@ SDK 會使用三個 Azure 監視器匯出工具，將不同類型的遙測傳送
         main()
     ```
 
-4. 現在，當您執行 Python 腳本時，仍然應該提示您輸入值，但只會在 shell 中列印該值。 建立的 `SpanData` 將會傳送至 Azure 監視器。 您可以在 `dependencies` 下找到發出的 span 資料。
+4. 現在，當您執行 Python 腳本時，仍然應該提示您輸入值，但只會在 shell 中列印該值。 建立的 `SpanData` 將會傳送至 Azure 監視器。 您可以在 `dependencies`下找到發出的 span 資料。
 
 5. 如需在 OpenCensus 中取樣的詳細資訊，請參閱[OpenCensus 中的取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-fixed-rate-sampling-in-opencensus-python)。
 
@@ -215,7 +214,7 @@ SDK 會使用三個 Azure 監視器匯出工具，將不同類型的遙測傳送
     # TODO: replace the all-zero GUID with your instrumentation key.
     exporter = metrics_exporter.new_metrics_exporter(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-    )
+
     view_manager.register_exporter(exporter)
 
     def prompt():
@@ -233,7 +232,7 @@ SDK 會使用三個 Azure 監視器匯出工具，將不同類型的遙測傳送
         main()
     ```
 
-4. 匯出程式會以固定間隔將計量資料傳送至 Azure 監視器。 預設值為每15秒。 我們會追蹤單一計量，因此此計量資料（包含其內含的任何值和時間戳記）會每隔一段時間傳送。 您可以在 `customMetrics` 下找到資料。
+4. 匯出程式會以固定間隔將計量資料傳送至 Azure 監視器。 預設值為每15秒。 我們會追蹤單一計量，因此此計量資料（包含其內含的任何值和時間戳記）會每隔一段時間傳送。 您可以在 [`customMetrics`] 下找到資料。
 
 ### <a name="logs"></a>記錄
 
@@ -294,33 +293,9 @@ SDK 會使用三個 Azure 監視器匯出工具，將不同類型的遙測傳送
         main()
     ```
 
-4. 匯出程式會將記錄資料傳送至 Azure 監視器。 您可以在 `traces` 下找到資料。
+4. 匯出程式會將記錄資料傳送至 Azure 監視器。 您可以在 [`traces`] 下找到資料。
 
 5. 如需如何使用追蹤內容資料來擴充記錄檔的詳細資訊，請參閱 OpenCensus Python[記錄整合](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation)。
-
-## <a name="start-monitoring-in-the-azure-portal"></a>在 Azure 入口網站中開始監視
-
-1. 您現在可以在 Azure 入口網站中重新開啟 [Application Insights**總覽**] 窗格，以查看目前執行中應用程式的詳細資料。 選取 [**即時計量資料流**]。
-
-   ![[總覽] 窗格的螢幕擷取畫面，其中已選取紅色方塊中的 [即時計量資料流]](./media/opencensus-python/0005-overview-live-metrics-stream.png)
-
-2. 返回 [**總覽**] 窗格。 選取 [**應用程式對應**] 以取得相依性關聯性的視覺化版面配置，並在應用程式元件之間呼叫計時。
-
-   ![基本應用程式對應的螢幕擷取畫面](./media/opencensus-python/0007-application-map.png)
-
-   因為我們只追蹤一個方法呼叫，所以我們的應用程式對應並不有趣。 但是，應用程式對應可以進行調整，以視覺化更多分散式應用程式：
-
-   ![應用程式對應](media/opencensus-python/application-map.png)
-
-3. 選取 [**調查效能**] 以詳細分析效能，並判斷效能緩慢的根本原因。
-
-   ![效能詳細資料的螢幕擷取畫面](./media/opencensus-python/0008-performance.png)
-
-4. 若要開啟交易詳細資料的端對端體驗，請選取 [**範例**]，然後選取右窗格中出現的任何範例。 
-
-   雖然我們的範例應用程式只會顯示單一事件，但更複雜的應用程式可讓您流覽至個別事件的呼叫堆疊層級的端對端交易。
-
-   ![端對端交易介面的螢幕擷取畫面](./media/opencensus-python/0009-end-to-end-transaction.png)
 
 ## <a name="view-your-data-with-queries"></a>使用查詢來查看您的資料
 

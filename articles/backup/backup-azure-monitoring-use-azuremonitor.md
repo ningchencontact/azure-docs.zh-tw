@@ -4,12 +4,12 @@ description: 使用 Azure 監視器監視 Azure 備份工作負載並建立自�
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 66417071190fa45a746ce0b80a9de12968198bda
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bdb59e5ec461288c89e4c7d036488b5eaeb9472a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278284"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554867"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>使用 Azure 監視器進行大規模監視
 
@@ -37,7 +37,7 @@ Azure Resource Manager 資源（例如復原服務保存庫）會記錄排程作
 
 ![復原服務保存庫的診斷設定，以 Log Analytics 為目標](media/backup-azure-monitoring-laworkspace/diagnostic-setting-new.png)
 
-您可以將來自另一個訂用帳戶的 Log Analytics 工作區作為目標。 若要在單一位置監視跨訂用帳戶的保存庫，請為多個復原服務保存庫選取相同的 Log Analytics 工作區。 若要將 Azure 備份與 Log Analytics 工作區相關的所有資訊通道，請在出現的切換中選擇 [**特定資源**]，然後選取下列事件- **CoreAzureBackup**、 **AddonAzureBackupJobs**、 **AddonAzureBackupAlerts**、 **AddonAzureBackupPolicy**、 **AddonAzureBackupStorage**、 **AddonAzureBackupProtectedInstance**。 請參閱[這篇文章](https://aka.ms/AA6jkus)，以取得有關設定 LA 診斷設定的詳細資訊。
+您可以將來自另一個訂用帳戶的 Log Analytics 工作區作為目標。 若要在單一位置監視跨訂用帳戶的保存庫，請為多個復原服務保存庫選取相同的 Log Analytics 工作區。 若要將 Azure 備份與 Log Analytics 工作區相關的所有資訊通道，請在出現的切換中選擇 [**特定資源**]，然後選取下列事件- **CoreAzureBackup**、 **AddonAzureBackupJobs**、 **AddonAzureBackupAlerts**、 **AddonAzureBackupPolicy**、 **AddonAzureBackupStorage**、 **AddonAzureBackupProtectedInstance**。 請參閱[這篇文章](backup-azure-diagnostic-events.md)，以取得有關設定 LA 診斷設定的詳細資訊。
 
 > [!IMPORTANT]
 > 完成設定之後，您應該等待24小時，初始資料推送才能完成。 在初始資料推送之後，所有事件都會依照本文稍後的 [[頻率] 區段](#diagnostic-data-update-frequency)中的說明推送。

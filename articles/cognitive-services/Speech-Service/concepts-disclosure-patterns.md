@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: angle
-ms.openlocfilehash: dfa05ff114ea0976cb8d57f711eaacc016ea53cc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e0cb73f224f53441ad4f23298a035f95d59b9f7c
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836987"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559012"
 ---
 # <a name="disclosure-design-patterns"></a>公開設計模式
 既然您&#39;已經決定綜合語音體驗的正確[洩漏層級](concepts-disclosure-guidelines.md#disclosure-assessment)，那就&#39;是探索潛在設計模式的好時機。
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 您可以將各種公開的設計模式套用到您的綜合語音體驗。 如果您的洩漏評估結果是「高洩漏」，我們建議[**明確洩漏**](#explicit-disclosure)，這表示會立即溝通綜合語音的來源。 [**隱含洩漏**](#implicit-disclosure)包含提示和互動模式，無論所需的洩漏層級是高或低，都能受益于語音體驗。
 ![的洩漏模式種類](media/responsible-ai/disclosure-patterns/affordances.png)
 
@@ -167,7 +167,7 @@ ms.locfileid: "73836987"
 
 ![隱含提示的一致性](media/responsible-ai/disclosure-patterns/consistency.png)
 
-### <a name="implicit-cues-amp-feedback"></a>&amp; 意見反應的隱含提示
+### <a name="implicit-cues--feedback"></a>& 意見反應的隱含提示
 
 Anthropomorphism 可以用不同的方式來資訊清單，從代理程式的實際視覺表示，到語音、音效、光線模式、跳動的圖形，甚至裝置的震動。 定義您的角色時，請利用隱含提示和意見反應模式，而不要瞄準非常類似人為的頭像。 這是將更明確洩漏的需求降至最低的其中一種方式。
 

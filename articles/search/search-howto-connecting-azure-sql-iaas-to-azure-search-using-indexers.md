@@ -1,5 +1,5 @@
 ---
-title: 適用于搜尋索引的 Azure SQL 虛擬機器 VM 連線
+title: 用於搜尋索引的 Azure SQL VM 連線
 titleSuffix: Azure Cognitive Search
 description: 啟用加密連線並將防火牆設定為允許從 Azure 認知搜尋上的索引子連線到 Azure 虛擬機器（VM）上的 SQL Server。
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 57bea41d95b8859af55be777b17189861a445a12
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 426ec57b3dbce884e55ef7a11ccca32ed295d70d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792154"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111901"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>設定從 Azure 認知搜尋索引子到 Azure VM 上 SQL Server 的連線
 
-如[使用索引子將 Azure SQL Database 連線至 Azure 認知搜尋](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)中所述，Azure 認知搜尋支援針對**azure 虛擬機器上的 SQL Server**建立索引子（簡稱**SQL Azure vm** ），但有一些首先要負責的安全性相關必要條件。 
+如[使用索引子將 Azure SQL Database 連線至 Azure 認知搜尋](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)中所述，Azure 認知搜尋支援針對**azure 虛擬機器上的 SQL Server**建立索引子（簡稱**SQL Azure vm** ），但必須先處理幾個安全性相關的必要條件。 
 
 從 Azure 認知搜尋到 VM 上 SQL Server 的連線是公用的網際網路連接。 您通常對這些連線採取的所有安全性措施，在這裡也適用：
 
@@ -27,7 +27,7 @@ ms.locfileid: "72792154"
 ## <a name="enable-encrypted-connections"></a>啟用加密的連線
 Azure 認知搜尋需要透過公用網際網路連線的所有索引子要求的加密通道。 本節列出執行這項工作的步驟。
 
-1. 檢查憑證的屬性，以驗證主體名稱為 Azure VM 的完整網域名稱 (FQDN)。 您可以使用 CertUtils 之類的工具或憑證嵌入式管理單元來檢視屬性。 您可以在 [Azure 入口網站](https://portal.azure.com/)的 [公用 IP 位址/DNS 名稱標籤] 欄位中，從 VM 服務刀鋒視窗的 [程式集] 區段中取得 FQDN。
+1. 檢查憑證的屬性，以驗證主體名稱為 Azure VM 的完整網域名稱 (FQDN)。 您可以使用 CertUtils 之類的工具或憑證嵌入式管理單元來檢視屬性。 您可以在 **Azure 入口網站**的 [公用 IP 位址/DNS 名稱標籤][](https://portal.azure.com/) 欄位中，從 VM 服務刀鋒視窗的 [程式集] 區段中取得 FQDN。
    
    * 對於使用較新的 **Resource Manager** 範本建立的 VM，FQDN 的格式為 `<your-VM-name>.<region>.cloudapp.azure.com`
    * 對於建立為**傳統** VM 的較舊 VM，FQDN 的格式為 `<your-cloud-service-name.cloudapp.net>`。

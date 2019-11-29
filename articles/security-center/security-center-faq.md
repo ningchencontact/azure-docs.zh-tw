@@ -1,6 +1,6 @@
 ---
 title: Azure 資訊安全中心常見問題集 (FAQ) | Microsoft Docs
-description: 這個常見問題集回答「Azure 資訊安全中心」的相關問題。
+description: 此常見問題會回答有關 Azure 資訊安全中心的問題，這是可協助您預防、偵測及回應威脅的產品。
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: memildin
-ms.openlocfilehash: bbb34a0a9d8035ce8cbfd3f3283677133370a9f2
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 896db06204188c4347fbdced0b1bb3f216f56ef9
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316729"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558670"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 資訊安全中心常見問題集 (FAQ)
 這個常見問題集回答「Azure 資訊安全中心」的相關問題，此資訊安全中心是一項針對 Microsoft Azure 資源的安全性提供更深入的洞悉和更佳控制的服務，可協助您預防、偵測及回應威脅。
@@ -29,13 +29,13 @@ ms.locfileid: "71316729"
 >
 
 ## <a name="general-questions"></a>一般問題
-### <a name="what-is-azure-security-center"></a>什麼是 Azure 資訊安全中心？
+### <a name="what-is-azure-security-center"></a>何謂 Azure 資訊安全中心？
 Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控制權，以預防、偵測並回應威脅。 它提供您訂用帳戶之間的整合式安全性監視和原則管理，協助您偵測可能會忽略的威脅，且適用於廣泛的安全性解決方案生態系統。
 
 ### <a name="how-do-i-get-azure-security-center"></a>我要如何取得 Azure 資訊安全中心？
 「Azure 資訊安全中心」是藉由您的 Microsoft Azure 訂用帳戶啟用，並可從 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)存取。 ([登入入口網站](https://portal.azure.com)，選取 [瀏覽]，然後捲動至 [資訊安全中心])。  
 
-## <a name="billing"></a>帳務
+## <a name="billing"></a>計費
 ### <a name="how-does-billing-work-for-azure-security-center"></a>Azure 資訊安全中心如何計費？
 資訊安全中心提供兩個層級：
 
@@ -46,7 +46,7 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 ### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>如何追蹤組織中的哪些人在 Azure 資訊安全中心中執行定價層變更
 Azure 訂用帳戶可能有多個具有變更定價層許可權的系統管理員。 若要找出哪些使用者執行了定價層變更，請使用 Azure 活動記錄。 如需詳細資訊，請參閱[這裡](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)。
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>使用權限
 Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md)，以提供可在 Azure 中指派給使用者、群組與服務的[內建角色](../role-based-access-control/built-in-roles.md)。
 
 資訊安全中心會評估資源的組態，以識別安全性問題與弱點。 在「資訊安全中心」中，當您獲指派為資源所屬的訂用帳戶或資源群組「擁有者」、「參與者」或「讀取者」角色時，您只會看到與資源相關的項目。
@@ -57,7 +57,7 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 資訊安全中心會從您的 Azure 虛擬機器（Vm）、虛擬機器擴展集、IaaS 容器和非 Azure 電腦（包括內部部署）收集資料，以監視安全性弱點和威脅。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄，並將資料複製到工作區進行分析。
 
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>在資訊安全中心所建立的工作區上，我是否需支付 Azure 監視器記錄的費用？
-資料分割 資訊安全中心建立的工作區，而針對每個節點計費的 Azure 監視器記錄設定，則不會產生 Azure 監視器記錄費用。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案：
+不會。 資訊安全中心建立的工作區，而針對每個節點計費的 Azure 監視器記錄設定，則不會產生 Azure 監視器記錄費用。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案：
 
 - **免費層** – 資訊安全中心在預設工作區啟用 'SecurityCenterFree' 解決方案。 免費層不會向您收費。
 - **標準層** – 資訊安全中心在預設工作區啟用 'Security' 解決方案。
@@ -126,7 +126,7 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 ### 如果我直接在電腦上安裝 Microsoft Monitoring Agent，而不是延伸模組（直接代理程式），該怎麼辦？<a name="directagentinstalled"></a>
 如果 Microsoft Monitoring Agent 直接安裝在 VM （而不是 Azure 擴充功能）上，資訊安全中心會安裝 Microsoft Monitoring Agent 延伸模組，而且可能會將 Microsoft Monitoring Agent 升級至最新版本。
 安裝的代理程式會繼續向其已設定的工作區報告，此外也會向資訊安全中心中設定的工作區報告（Windows 電腦上支援多路連接）。
-如果設定的工作區是使用者工作區（而不是資訊安全中心的預設工作區），您將需要在其上安裝 "Security/" SecurityCenterFree "解決方案，資訊安全中心才能開始處理從 Vm 和向該電腦報告的事件區域.
+如果設定的工作區是使用者工作區（而不是資訊安全中心的預設工作區），您將需要在其上安裝 "Security/" SecurityCenterFree "解決方案，資訊安全中心才能開始處理向該工作區報告的 Vm 和電腦的事件。
 
 針對 Linux 電腦，尚不支援代理程式多路連接-因此，如果偵測到現有的代理程式安裝，將不會進行自動布建，且不會改變電腦的設定。
 
@@ -145,7 +145,7 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 
 1. 如果您的訂用帳戶設定為標準層，請開啟該訂用帳戶的安全性原則，並選取**免費**層。
 
-   ![定價層][1]
+   ![價格層][1]
 
 2. 接下來，在 [**安全性原則-資料收集**] 頁面上選取 [**關閉**] 來關閉自動布建。
    ![資料收集][2]
@@ -176,7 +176,7 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 
 您可以將代理程式連線到任何現有的自訂工作區，或資訊安全中心建立的工作區。 如果自訂工作區並沒有啟用的 'Security' 或 'SecurityCenterFree' 解決方案，則您必須套用解決方案。 若要套用，請選取自訂工作區或訂用帳戶，並透過 [**安全性原則-定價層**] 頁面來套用定價層。
 
-   ![定價層][1]
+   ![價格層][1]
 
 資訊安全中心會根據選取的定價層，在工作區上啟用正確的解決方案。
 
@@ -218,7 +218,7 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 如果客戶提供[安全性連絡資訊](security-center-provide-security-contact-details.md)，當資訊安全中心在 VM 上偵測到可疑的活動時，客戶就會收到通知電子郵件。 資訊安全中心的安全性警示儀表板也會顯示警示。
 
 ### <a name="will-security-center-work-using-an-oms-gateway"></a>資訊安全中心使用 OMS 閘道來進行工作嗎？
-是的。 Azure 資訊安全中心利用 Azure 監視器，使用 Microsoft Monitoring Agent 從 Azure Vm 和伺服器收集資料。
+可以。 Azure 資訊安全中心利用 Azure 監視器，使用 Microsoft Monitoring Agent 從 Azure Vm 和伺服器收集資料。
 若要收集資料，每部 VM 和伺服器都必須使用 HTTPS 連接到網際網路。 連接可以是 direct、使用 proxy 或透過[OMS 閘道](../azure-monitor/platform/gateway.md)。
 
 ### <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>Monitoring Agent 是否會影響伺服器的效能？

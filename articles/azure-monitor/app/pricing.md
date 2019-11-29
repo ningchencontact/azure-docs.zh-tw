@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: DaleKoetke
 ms.author: dalek
-ms.date: 10/28/2019
+ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 1749fb4c27a1bfa3048ec0e35c8a09556b0e995b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c08de444b691e7bdc1a378e307637fed15b390c3
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007744"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559082"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
@@ -24,7 +24,7 @@ Application Insights 的設計，是為了取得監視 web 應用程式的可用
 
 如果您有關於 Application Insights 定價運作方式的疑問，請在我們的[論壇](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights&filter=alltypes&sort=lastpostdesc)中張貼問題。
 
-## <a name="pricing-model"></a>定價模式
+## <a name="pricing-model"></a>計價模式
 
 [Azure 應用程式 Insights][start]的定價是以資料量內嵌為基礎的**隨用隨付**模型，並可選擇性地保留較長的資料。 每項 Application Insights 資源都是個別計費的服務，並且會計入到您的 Azure 訂用帳戶帳單。 資料量是以 Application Insights 從應用程式接收的未壓縮 JSON 資料套件大小來測量。 使用[即時計量資料流](../../azure-monitor/app/live-stream.md)並不會產生任何資料量費用。
 
@@ -69,7 +69,7 @@ Application Insights 費用會加到您的 Azure 帳單中。 您可以在 Azure
 ### <a name="using-data-volume-metrics"></a>使用資料量計量
 <a id="understanding-ingested-data-volume"></a>
 
-若要深入瞭解您的資料磁片區，請選取 Application Insights 資源的**計量**，並新增新的圖表。 針對圖表計量，請在 [以**記錄為基礎的度量**] 底下選取 [**資料點磁片**區]。 按一下 [套用**分割**]，然後選取 [依**需 telemetryitem 摘要類型**群組]。
+若要深入瞭解您的資料磁片區，請選取 Application Insights 資源的**計量**，並新增新的圖表。 針對圖表計量，請在 [以**記錄為基礎的度量**] 底下選取 [**資料點磁片**區]。 按一下 [套用**分割**]，然後選取 [群組依據] **`Telemetryitem` 類型**。
 
 ![使用計量查看資料量](./media/pricing/10-billing.png)
 
@@ -124,7 +124,7 @@ dependencies
 Azure 在[Azure 成本管理 + 計費](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json)中樞提供了大量有用的功能。 例如，「成本分析」功能可讓您查看 Azure 資源的花費。 依資源類型新增篩選器（至 Application Insights 的 microsoft insights/元件）可讓您追蹤費用。
 
 [從 Azure 入口網站下載您的使用量](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal)，即可取得更多使用方式的瞭解。
-在下載的試算表中，您可以看到每天每個 Azure 資源的使用量。 在此 Excel 試算表中，您可以藉由先篩選「計量類別」資料行來顯示「Application Insights」和「Log Analytics」，然後在「包含」的「實例識別碼」資料行上新增篩選，來找到您 Application Insights 資源的使用量。[microsoft insights/元件]。  大部分的 Application Insights 使用量都會以 Log Analytics 計量類別的計量報告，因為所有 Azure 監視器元件都有單一記錄後端。  只有舊版定價層和多重步驟 web 測試的 Application Insights 資源，會以 Application Insights 的計量類別來報告。  使用量會顯示在 [取用的數量] 資料行中，每個專案的單位會顯示在 [測量單位] 資料行中。  有更多詳細資料可協助您[瞭解您的 Microsoft Azure 帳單](https://docs.microsoft.com/azure/billing/billing-understand-your-bill)。 
+在下載的試算表中，您可以看到每天每個 Azure 資源的使用量。 在此 Excel 試算表中，您可以藉由先篩選「計量類別」資料行來顯示「Application Insights」和「Log Analytics」，然後在「包含 microsoft Insights/元件」的「實例識別碼」資料行上新增篩選，來找到您 Application Insights 資源的使用量。  大部分的 Application Insights 使用量都會以 Log Analytics 計量類別的計量報告，因為所有 Azure 監視器元件都有單一記錄後端。  只有舊版定價層和多重步驟 web 測試的 Application Insights 資源，會以 Application Insights 的計量類別來報告。  使用量會顯示在 [取用的數量] 資料行中，每個專案的單位會顯示在 [測量單位] 資料行中。  有更多詳細資料可協助您[瞭解您的 Microsoft Azure 帳單](https://docs.microsoft.com/azure/billing/billing-understand-your-bill)。 
 
 
 ## <a name="managing-your-data-volume"></a>管理您的資料量 
@@ -203,7 +203,7 @@ Application Insights 資源的預設保留期為90天。 您可為每項 Applica
 
 ![調整每日遙測資料量上限](./media/pricing/pricing-005.png)
 
-您也可以使用[Powershell 以程式設計](powershell.md#set-the-data-retention)方式使用 `retentionInDays` 參數來設定保留期。 此外，如果您將資料保留期設定為30天，您可以使用 `immediatePurgeDataOn30Days` 參數來觸發立即清除較舊的資料，這可能適用于合規性相關案例。 這種清除功能只會透過 Azure Resource Manager 公開，而且應該小心使用。 
+您也可以使用[Powershell 以程式設計](powershell.md#set-the-data-retention)方式使用 `retentionInDays` 參數來設定保留期。 此外，如果您將資料保留期設定為30天，您可以使用 `immediatePurgeDataOn30Days` 參數來觸發立即清除較舊的資料，這可能適用于合規性相關案例。 這種清除功能只會透過 Azure Resource Manager 公開，而且應該小心使用。 資料量上限的每日重設時間可以使用 Azure Resource Manager 設定 `dailyQuotaResetTime` 參數。 
 
 ## <a name="data-transfer-charges-using-application-insights"></a>使用 Application Insights 的資料傳輸費用
 
@@ -269,7 +269,7 @@ Application Insights 資源的預設保留期為90天。 您可為每項 Applica
   * 如果您的應用程式使用 SDK 來將 **roleInstance** 設為自訂值，依預設將使用那個相同的值來判斷節點計數。 
   * 如果您使用新的 SDK 版本搭配從用戶端電腦或行動裝置執行的應用程式，則節點計數可能會傳回很大的數位（因為用戶端機器或行動裝置數目龐大）。 
 
-## <a name="automation"></a>自動化
+## <a name="automation"></a>Automation
 
 您可以使用 Azure 資源管理來撰寫腳本，以設定定價層。 [了解作法](powershell.md#price)。
 

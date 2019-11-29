@@ -2,7 +2,7 @@
 title: 報表的 Azure 監視器活頁簿 |Microsoft Docs
 description: 瞭解如何使用 Azure 監視器活頁簿來 Azure Active Directory 報表。
 services: active-directory
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 10/30/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b88648ce68a7359a842ec975d8633d6200b1a507
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200132"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014369"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>如何使用 Azure Active Directory 報表 Azure 監視器活頁簿
 
@@ -54,7 +54,7 @@ ms.locfileid: "73200132"
  
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用監視器活頁簿，您需要：
 
@@ -109,14 +109,14 @@ ms.locfileid: "73200132"
 
 - 應用程式
 
-- 使用者人數
+- 使用者
 
 ![登入分析](./media/howto-use-azure-monitor-workbooks/43.png)
 
 
 針對每個趨勢，您會獲得下列類別的明細：
 
-- Location
+- 位置
 
     ![依位置登入](./media/howto-use-azure-monitor-workbooks/45.png)
 
@@ -143,7 +143,7 @@ ms.locfileid: "73200132"
 
 - 應用程式
 
-- 使用者人數
+- 使用者
 
 - 通訊協定
 
@@ -167,7 +167,7 @@ ms.locfileid: "73200132"
 
 - 應用程式
 
-- 使用者人數
+- 使用者
 
 ![使用條件式存取登入](./media/howto-use-azure-monitor-workbooks/49.png)
 
@@ -179,7 +179,7 @@ ms.locfileid: "73200132"
 
 ## <a name="conditional-access-insights"></a>條件式存取深入解析
 
-### <a name="overview"></a>概觀
+### <a name="overview"></a>Overview
 
 活頁簿包含登入記錄查詢，可協助 IT 系統管理員監視其租使用者中條件式存取原則的影響。 您能夠報告已授與或拒絕存取的使用者人數。 此活頁簿包含在登入時，有多少使用者會根據這些使用者的屬性略過條件式存取原則的見解。 其中包含每個條件的詳細資料，以便每個條件都可以內容相關原則的影響，包括裝置平臺、裝置狀態、用戶端應用程式、登入風險、位置和應用程式。
 
@@ -206,8 +206,8 @@ ms.locfileid: "73200132"
 - **裝置平臺**
 - **用戶端應用程式**
 - **登入風險**
-- **位置**
-- **應用程式**
+- <bpt id="p1">**</bpt>Location<ept id="p1">**</ept>
+- <bpt id="p1">**</bpt>Applications<ept id="p1">**</ept>
 
 ![條件式存取狀態](./media/howto-use-azure-monitor-workbooks/device-platform.png)
 
@@ -240,7 +240,7 @@ ms.locfileid: "73200132"
 
 - 應用程式
 
-- 使用者人數
+- 使用者
 
 ![藉由授與控制項來登入](./media/howto-use-azure-monitor-workbooks/50.png)
 
@@ -280,7 +280,7 @@ ms.locfileid: "73200132"
 
 - 應用程式
 
-- 使用者人數
+- 使用者
 
 ![對登入進行疑難排解](./media/howto-use-azure-monitor-workbooks/52.png)
 

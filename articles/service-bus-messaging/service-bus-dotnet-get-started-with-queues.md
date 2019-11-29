@@ -12,25 +12,25 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/27/2019
 ms.author: aschhab
-ms.openlocfilehash: cecd37c16d34c0cd6cf7a4d98732762d16073864
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c1f9c8a03a503444c7c45d5374b67e5b453a8931
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884123"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561610"
 ---
 # <a name="get-started-with-service-bus-queues"></a>開始使用服務匯流排佇列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 在本教學課程中，您會建立 .NET Core 主控台應用程式，以在服務匯流排佇列中傳送和接收訊息。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs)。
 - [.NET Core SDK](https://www.microsoft.com/net/download/windows)，2.0 版或更新版本。
-- Azure 訂閱。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
-- 如果您沒有要使用的佇列，請遵循[使用 Azure 入口網站建立服務匯流排佇列一](service-bus-quickstart-portal.md)文中的步驟來建立佇列。
+- Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或是[註冊免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+- 如果您沒有可用的佇列，請執行[使用 Azure 入口網站建立服務匯流排佇列](service-bus-quickstart-portal.md)一文中的步驟，以建立佇列。
 
   - 閱讀服務匯流排佇列的快速總覽。
   - 建立服務匯流排命名空間。
@@ -74,17 +74,11 @@ ms.locfileid: "73884123"
 
     輸入命名空間的連接字串做為 `ServiceBusConnectionString` 變數。 輸入您的佇列名稱。
 
-1. 以下列這一行程式碼取代 `Main()` 的預設內容：
+1. 使用下列**非同步**`Main` 方法來取代 `Main()` 方法。 它會呼叫您將在下一個步驟中新增的 SendMessagesAsync 方法，以將訊息傳送至佇列。 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-
-1. 直接在 `Main()` 後面，新增下列非同步 `MainAsync()` 方法，以呼叫傳送訊息方法：
-
-    ```csharp
-    static async Task MainAsync()
-    {
+    public static async Task Main(string[] args)
+    {    
         const int numberOfMessages = 10;
         queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
 
@@ -100,7 +94,6 @@ ms.locfileid: "73884123"
         await queueClient.CloseAsync();
     }
     ```
-
 1. 直接在 `MainAsync()` 方法後面，新增下列 `SendMessagesAsync()` 方法，以執行傳送 `numberOfMessagesToSend` 指定之訊息數目的工作（目前設定為10）：
 
     ```csharp
@@ -147,25 +140,20 @@ namespace CoreSenderApp
         const string QueueName = "<your_queue_name>";
         static IQueueClient queueClient;
 
-        static void Main(string[] args)
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
-
-        static async Task MainAsync()
-        {
+        public static async Task Main(string[] args)
+        {    
             const int numberOfMessages = 10;
             queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
-
+    
             Console.WriteLine("======================================================");
             Console.WriteLine("Press ENTER key to exit after sending all the messages.");
             Console.WriteLine("======================================================");
-
-            // Send Messages
+    
+            // Send messages.
             await SendMessagesAsync(numberOfMessages);
-
+    
             Console.ReadKey();
-
+    
             await queueClient.CloseAsync();
         }
 
@@ -235,14 +223,8 @@ namespace CoreSenderApp
 1. 以下列這一行程式碼取代 `Main()` 的預設內容：
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-
-1. 直接在 `Main()` 後面，新增下列非同步 `MainAsync()` 方法，以呼叫 `RegisterOnMessageHandlerAndReceiveMessages()` 方法：
-
-    ```csharp
-    static async Task MainAsync()
-    {
+    public static async Task Main(string[] args)
+    {    
         queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
 
         Console.WriteLine("======================================================");

@@ -8,12 +8,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 57303c41d90f6205c284c7de67bb8643aa3cd368
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c816c9877a9c796ee76310f2452f3505531c3018
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888059"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555021"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Azure Cosmos DB 的先進威脅防護
 
@@ -101,5 +101,5 @@ Azure Cosmos DB 的先進威脅防護提供一層額外的安全性情報，可�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入瞭解[Azure Cosmos DB 中的診斷記錄](https://docs.microsoft.com/azure/cosmos-db/logging#turn-on-logging-in-the-azure-portal)
+* 深入瞭解[Azure Cosmos DB 中的診斷記錄](monitor-cosmos-db.md#diagnostic-settings)
 * 深入了解 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)

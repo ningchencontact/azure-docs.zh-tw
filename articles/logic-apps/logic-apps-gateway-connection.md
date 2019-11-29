@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: e0354f96036cce968e6b6909a18f97ff48347eda
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 20cdcfdd3795a7614c054ed96b82cc99fc2c5894
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796260"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068902"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>從 Azure Logic Apps 連線到內部部署資料來源
 
@@ -27,9 +27,9 @@ ms.locfileid: "73796260"
 
 如需如何使用閘道與其他服務的資訊，請參閱下列文章：
 
-* [Microsoft Power BI 內部部署資料閘道](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [自動執行內部部署資料閘道的電源](https://flow.microsoft.com/documentation/gateway-manage/)
-* [Microsoft Power Apps 內部部署資料閘道](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Microsoft Power 自動化內部部署資料閘道](/power-automate/gateway-reference)
+* [Microsoft Power BI 內部部署資料閘道](/power-bi/service-gateway-onprem)
+* [Microsoft Power Apps 內部部署資料閘道](/powerapps/maker/canvas-apps/gateway-reference)
 * [Azure Analysis Services 內部部署資料閘道](../analysis-services/analysis-services-gateway.md)
 
 <a name="supported-connections"></a>
@@ -53,7 +53,7 @@ ms.locfileid: "73796260"
 
 Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不過，這些作業對[其裝載大小有限制](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)。 雖然閘道本身不會產生額外成本，但[Logic Apps 定價模式](../logic-apps/logic-apps-pricing.md)適用于 Azure Logic Apps 中的這些連接器和其他作業。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 您已在[本機電腦上安裝內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md)。
 
@@ -81,12 +81,12 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
 
 1. 在 [**建立連線閘道**] 底下，為您的閘道資源提供此資訊。 當您完成時，選取 [建立]。
 
-   | 屬性 | 說明 |
+   | 屬性 | 描述 |
    |----------|-------------|
    | **資源名稱** | 提供閘道資源的名稱，其中只包含字母、數位、連字號（`-`）、底線（`_`）、括弧（`(`、`)`）或句點（`.`）。 |
    | **訂用帳戶** | 為用於閘道安裝的 Azure 帳戶選取 Azure 訂用帳戶。 預設的訂用帳戶會由您用來登入的 Azure 帳戶來決定。 |
    | **資源群組** | 您想要使用的[Azure 資源群組](../azure-resource-manager/resource-group-overview.md) |
-   | **位置** | [閘道安裝](../logic-apps/logic-apps-gateway-install.md)期間為閘道雲端服務選取的相同區域或位置。 否則，您的閘道安裝將不會出現在 [**安裝名稱**] 清單中。 您的邏輯應用程式位置可能與閘道資源位置不同。 |
+   | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | [閘道安裝](../logic-apps/logic-apps-gateway-install.md)期間為閘道雲端服務選取的相同區域或位置。 否則，您的閘道安裝將不會出現在 [**安裝名稱**] 清單中。 您的邏輯應用程式位置可能與閘道資源位置不同。 |
    | **安裝名稱** | 選取只有在符合下列條件時，才會出現在清單中的閘道安裝： <p><p>-閘道安裝會使用與您想要建立的閘道資源相同的區域。 <br>-閘道安裝未連結至另一個 Azure 閘道資源。 <br>-閘道安裝會連結到您用來建立閘道資源的相同 Azure 帳戶。 <br>-您的 Azure 帳戶屬於單一[Azure Active Directory （Azure AD）租使用者或目錄](../active-directory/fundamentals/active-directory-whatis.md#terminology)，而且是用來安裝閘道的相同帳戶。 <p><p>如需詳細資訊，請參閱[常見問題](#faq)一節。 |
    |||
 
@@ -153,7 +153,7 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
 
 1. 如果尚未選取，請在您的閘道資源功能表上選取 [內部部署資料閘道]。 在 [閘道資源] 工具列上，選取 [**刪除**]。
 
-   例如：
+   例如︰
 
    ![刪除 Azure 中的閘道資源](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
 

@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 資訊安全中心管理使用者資料 | Microsoft Docs
-description: " 了解如何在 Azure 資訊安全中心管理使用者資料。 "
+description: 瞭解如何在 Azure 資訊安全中心中管理使用者資料。 管理使用者資料包含了存取、刪除或匯出資料的能力。
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 0d05650ff349cb9e9750b0cefe0de217a986b32a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 20d269c1614c82c8783d0e65149961c118c16a95
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254603"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559222"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>在 Azure 資訊安全中心管理使用者資料
 本文提供有關如何在 Azure 資訊安全中心管理使用者資料的資訊。 管理使用者資料包含了存取、刪除或匯出資料的能力。

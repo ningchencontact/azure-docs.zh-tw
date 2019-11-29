@@ -12,15 +12,15 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 11/27/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44db2b0b42175f7968852ad9a0f7769b05e2c008
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1f9914b84b63f271c7dd7d1b8f7dbc3b69511605
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038170"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561194"
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>管理 Azure 中 Windows 虛擬機器的可用性 
 
@@ -33,3 +33,7 @@ ms.locfileid: "74038170"
 ## <a name="next-steps"></a>後續步驟
 若要深入了解如何對虛擬機器進行負載平衡，請參閱 [對虛擬機器進行負載平衡](tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
+查看在 IaaS 中的 SQL Server 上執行多層式應用程式的參考架構
+
+* [Azure 上具有 SQL Server 的 Windows 多層式應用程式](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [在多個 Azure 區域中執行多層式應用程式以獲得高可用性](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

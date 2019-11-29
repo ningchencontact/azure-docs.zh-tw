@@ -1,21 +1,17 @@
 ---
-title: 管理 & 監視器 Microsoft Azure 復原服務代理程式備份
-description: 瞭解如何使用 Azure 備份服務來管理和監視 Microsoft Azure 復原服務代理程式備份。
+title: 管理和監視 MARS 代理程式備份
+description: 瞭解如何使用 Azure 備份服務來管理和監視 Microsoft Azure 復原服務（MARS）代理程式備份。
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: dacurwin
-ms.openlocfilehash: 88a914a2a4d3d62918b01674d6d21f2f011e2c2e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: edb672f97f467378176bf6cdf04fe8e22cc5e51b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834308"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173073"
 ---
-# <a name="manage-microsoft-azure-recovery-services-agent-backups-by-using-the-azure-backup-service"></a>使用 Azure 備份服務管理 Microsoft Azure 復原服務代理程式備份
+# <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>使用 Azure 備份服務管理 Microsoft Azure 復原服務（MARS）代理程式備份
 
 本文說明如何管理使用 Microsoft Azure 復原服務代理程式備份的檔案和資料夾。
 
@@ -39,7 +35,7 @@ ms.locfileid: "73834308"
     ![選取要備份的專案](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 6. 在 [**選取要備份的專案**] 頁面中，按 **[下一步]** 。
-7. 在 [**指定備份排程**] 頁面中，指定您要進行每日或每週備份的時間。 然後按 [下一步]。
+7. 在 [**指定備份排程**] 頁面中，指定您要進行每日或每週備份的時間。 然後按一下 [確定](英文)。
 
     - 執行備份時，會建立復原點。
     - 在您的環境中建立的復原點數目取決於您的備份排程。
@@ -52,7 +48,7 @@ ms.locfileid: "73834308"
 
     ![每週排程](./media/backup-configure-vault/week-schedule.png)
 
-10. 在 [**選取保留原則**] 頁面上，指定儲存資料歷程記錄複本的方式。 然後按 [下一步]。
+10. 在 [**選取保留原則**] 頁面上，指定儲存資料歷程記錄複本的方式。 然後按一下 [確定](英文)。
 
     - 保留設定會指定應該儲存的復原點，以及儲存的時間長度。
     - 例如，當您設定每日保留設定時，您會指出在指定的每日保留期間，最新的復原點會保留指定的天數。 或者，另一個範例是，您可以指定每月的保留原則，表示每個月30日所建立的復原點應該儲存12個月。
@@ -62,7 +58,7 @@ ms.locfileid: "73834308"
             -在每個月午夜和下午6:00 的星期六進行的備份會保留12個月。
             -3 月最後一周的星期六所進行的備份會保留10年。
 
-           ![Retention example](./media/backup-configure-vault/retention-example.png)
+    ![保留範例](./media/backup-configure-vault/retention-example.png)
 
 11. 在 **[選擇初始備份類型**] 中，決定您是否要透過網路進行初始備份，或使用離線備份（如需離線備份的詳細資訊，請參閱這[篇文章](backup-azure-backup-import-export.md)）。 若要透過網路進行初始備份，請選取 **[自動透過網路**]，然後按 **[下一步]** 。
 
@@ -165,7 +161,7 @@ ms.locfileid: "73834308"
     ![修改或停止排定的備份。](./media/backup-azure-manage-mars/mars-actions.png)
 1. 在 [**選取原則專案**] 頁面中，選取 [**修改檔案和資料夾的備份排程** **] 按 [下一步]** 。
     ![修改或停止排定的備份。](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
-1. 從 [**修改或停止排定的備份**] 頁面，選取 [**停止使用此備份排程]，但保留已儲存的備份，直到排程重新開機為止**。 然後，選取 [下一步]。  
+1. 從 [**修改或停止排程備份**] 頁面，選取 [**停止使用此備份排程]，但保留儲存的備份，直到重新開機排程為止**。 然後，選取 [下一步]。  
     ![修改或停止排定的備份。](./media/backup-azure-manage-mars/stop-schedule-backup.png)
 1. 在 [**暫停排定的備份**] 中，按一下 **[完成]** ![修改或停止排定的備份中的資訊。](./media/backup-azure-manage-mars/pause-schedule-backup.png)
 1. 在 [**修改備份**程式] 中，檢查您的排程備份暫停狀態成功，然後按一下 [**關閉**] 以完成。
@@ -209,4 +205,4 @@ ms.locfileid: "73834308"
 ## <a name="next-steps"></a>後續步驟
 
 - 如需有關支援的案例和限制的詳細資訊，請參閱[MARS 的支援矩陣](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)。
-- 深入瞭解[特定備份原則保留行為](backup-configure-vault.md#ad-hoc-backup-policy-retention-behavior)。
+- 深入瞭解[隨選備份原則保留行為](backup-configure-vault.md#on-demand-backup-policy-retention-behavior)。

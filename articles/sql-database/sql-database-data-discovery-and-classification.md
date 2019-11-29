@@ -12,12 +12,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 922a2eb910a99a899bdb9f2b3e2392559ec9b0f3
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 7a8fe0f21ea8b31fb26727e2220f7395e2d71c2c
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548412"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555364"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL Database 和 SQL 資料倉儲資料探索 & 分類
 
@@ -128,7 +128,15 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 
 ![稽核記錄檔](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-### <a name="manage-classifications"></a>管理分類
+## <a id="subheading-4"></a>權限
+
+下列內建角色可以讀取 Azure SQL database 的資料分類： `Owner`、`Reader`、`Contributor`、`SQL Security Manager` 和 `User Access Administrator`。
+
+下列內建角色可以修改 Azure SQL database 的資料分類： `Owner`、`Contributor``SQL Security Manager`。
+
+深入瞭解[適用于 Azure 資源的 RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+
+## <a id="subheading-5"></a>管理分類
 
 # <a name="t-sqltabazure-t-sql"></a>[T-SQL](#tab/azure-t-sql)
 您可以使用 T-SQL 新增/移除資料行分類，以及擷取整個資料庫的所有分類。
@@ -152,8 +160,10 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 
 - [資料庫建議的清單](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase)-取得指定資料庫的建議敏感度標籤
 
-# <a name="powershell-cmdlet-for-azure-sqltabazure-portal-sqldb"></a>[適用于 Azure SQL 的 PowerShell Cmdlet](#tab/azure-portal-sqldb)
-您可以使用 PowerShell 來取得 Azure SQL 資料庫中所有建議的資料行。
+# <a name="powershell-cmdlettabazure-powelshell"></a>[PowerShell Cmdlet](#tab/azure-powelshell)
+您可以使用 PowerShell 來取得 Azure SQL 資料庫和受控實例中的所有建議資料行。
+
+### <a name="powershell-cmdlet-for-azure-sql-database"></a>適用于 Azure SQL database 的 PowerShell Cmdlet
 - [AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
 - [設定-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
 - [移除-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
@@ -161,8 +171,7 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 - [啟用-AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
 - [停用-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
-# <a name="powershell-cmdlets-for-managed-instancetabazure-powershell-mi"></a>[適用于受控執行個體的 PowerShell Cmdlet](#tab/azure-powershell-mi)
-您可以使用 PowerShell 來取得受控實例中所有建議的資料行。
+### <a name="powershell-cmdlets-for-managed-instance"></a>適用于受控執行個體的 PowerShell Cmdlet
 - [AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
 - [設定-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
 - [移除-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
@@ -170,22 +179,17 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 - [啟用-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
 - [停用-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
-## <a name="permissions"></a>使用權限
+---
 
-下列內建角色可以讀取 Azure SQL database 的資料分類： `Owner`、`Reader`、`Contributor`、`SQL Security Manager` 和 `User Access Administrator`。
-
-下列內建角色可以修改 Azure SQL database 的資料分類： `Owner`、`Contributor``SQL Security Manager`。
-
-深入瞭解[適用于 Azure 資源的 RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
-
-## <a id="subheading-5"></a>後續步驟
+## <a id="subheading-6"></a>後續步驟
 
 - 深入了解[進階資料安全性](sql-database-advanced-data-security.md)。
 - 請考慮設定 [Azure SQL Database 稽核](sql-database-auditing.md)，以監視和稽核對已分類敏感性資料的存取。
 
 <!--Anchors-->
-[SQL data discovery & classification overview]: #subheading-1
+[What is data discovery & classification]: #subheading-1
 [Discovering, classifying & labeling sensitive columns]: #subheading-2
 [Auditing access to sensitive data]: #subheading-3
-[Automated/Programmatic classification]: #subheading-4
-[Next Steps]: #subheading-5
+[Permissions]: #subheading-4
+[Manage classifications]: #subheading-5
+[Next Steps]: #subheading-6

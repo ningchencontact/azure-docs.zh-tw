@@ -1,23 +1,24 @@
 ---
-title: 建立裝載多個網站的應用程式閘道 - Azure CLI
+title: 使用 CLI 裝載多個網站
+titleSuffix: Azure Application Gateway
 description: 了解如何使用 Azure CLI，以建立裝載多個網站的應用程式閘道。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: eceb380112002ef951d6d5e74998d944da01bd7a
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0a92d0f7d17f6bb83efbe94434c25072975dbe57
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688225"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047348"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>使用 Azure CLI 建立裝載多個網站的應用程式閘道
 
-您可以使用 Azure CLI，在建立[應用程式閘道](overview.md)時設定[裝載多個網站](multiple-site-overview.md)。 在本文中，您可以使用虛擬機器擴展集來定義後端位址集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本文假設您擁有多個網域，並使用 *www\.contoso.com* 和 *www\.fabrikam.com* 範例。
+您可以使用 Azure CLI，在建立[應用程式閘道](multiple-site-overview.md)時設定[裝載多個網站](overview.md)。 在本文中，您可以使用虛擬機器擴展集來定義後端位址集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本文假設您擁有多個網域，並使用 *www\.contoso.com* 和 *www\.fabrikam.com* 範例。
 
 在本文中，您將了解：
 
@@ -33,11 +34,11 @@ ms.locfileid: "68688225"
 
 如果您想要的話，可以使用 [Azure PowerShell](tutorial-multiple-sites-powershell.md) 完成本程序。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI, 本文會要求您執行 Azure CLI 版2.0.4 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 版2.0.4 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -51,7 +52,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>建立網路資源
 
-使用 [az network vnet create](/cli/azure/network/vnet) 建立虛擬網路以及名為 myAGSubnet 的子網路。 然後您可以使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet) 新增後端伺服器所需的子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip) 建立名為 myAGPublicIPAddress 的公用 IP 位址。
+使用 *az network vnet create* 建立虛擬網路以及名為 myAGSubnet[](/cli/azure/network/vnet) 的子網路。 然後您可以使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet) 新增後端伺服器所需的子網路。 使用 *az network public-ip create* 建立名為 myAGPublicIPAddress[](/cli/azure/network/public-ip) 的公用 IP 位址。
 
 ```azurecli-interactive
 az network vnet create \
@@ -142,9 +143,9 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>新增路由規則
 
-規則會依照其列出的順序進行處理。 流量會使用符合的第一個規則來導向, 而不論其是否明確。 例如，如果您在相同的連接埠上同時使用基本接聽程式的規則和多站台接聽程式的規則，則必須將多站台接聽程式的規則列於基本接聽程式的規則之前，多站台規則才能如預期般運作。 
+規則會依照其列出的順序進行處理。 流量會使用符合的第一個規則來導向，而不論其是否明確。 例如，如果您在相同的連接埠上同時使用基本接聽程式的規則和多站台接聽程式的規則，則必須將多站台接聽程式的規則列於基本接聽程式的規則之前，多站台規則才能如預期般運作。 
 
-在此範例中, 您會建立兩個新的規則, 並刪除部署應用程式閘道時所建立的預設規則。 您可以使用 [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create) 來新增規則。
+在此範例中，您會建立兩個新的規則，並刪除部署應用程式閘道時所建立的預設規則。 您可以使用 [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create) 來新增規則。
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -231,7 +232,7 @@ az network public-ip show \
   --output tsv
 ```
 
-不建議使用 A 記錄, 因為當應用程式閘道重新開機時, VIP 可能會變更。
+不建議使用 A 記錄，因為當應用程式閘道重新開機時，VIP 可能會變更。
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 

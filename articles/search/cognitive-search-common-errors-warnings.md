@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a86c809e239a84b2ec6910c47a17b935c440c741
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 472c4a75f5a4253220383ae79d88d5b90cec4795
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287004"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555052"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>針對 Azure 認知搜尋中的常見索引子錯誤和警告進行疑難排解
 
@@ -34,9 +34,9 @@ ms.locfileid: "74287004"
 
 | 屬性 | 描述 | 範例 |
 | --- | --- | --- |
-| 金鑰 | 受錯誤或警告影響之檔的檔識別碼。 | https://coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
+| key | 受錯誤或警告影響之檔的檔識別碼。 | HTTPs：\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
 | 名稱 | 描述發生錯誤或警告之位置的作業名稱。 這是由下列結構所產生： [category]。[子類別]。[resourceType]。ResourceName | DocumentExtraction azureblob. myBlobContainerName 擴充. WebApiSkill. mySkillName. SearchIndex. OutputFieldMapping。 myOutputFieldNameKnowledgeStore. Table. myTableName |
-| 訊息 | 錯誤或警告的高層級描述。 | 因為 Web Api 要求失敗，所以無法執行技能。 |
+| message | 錯誤或警告的高層級描述。 | 因為 Web Api 要求失敗，所以無法執行技能。 |
 | 詳細資料 | 可能有助於診斷問題的任何其他詳細資料，例如執行自訂技能失敗時的 WebApi 回應。 | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 來源，Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` 。堆疊追蹤的其餘部分 。 |
 | documentationLink | 相關檔的連結，其中包含用來偵測及解決問題的詳細資訊。 此連結通常會指向此頁面上的下列其中一節。 | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
@@ -46,7 +46,7 @@ ms.locfileid: "74287004"
 
 索引子無法從資料來源讀取檔。 發生這種情況的原因可能是：
 
-| 原因 | 詳細資料/範例 | 解決方案 |
+| 原因 | 詳細資料/範例 | 解析度 |
 | --- | --- | --- |
 | 跨不同檔的欄位類型不一致 | 值的類型與資料行類型不相符。 無法將 `'{47.6,-122.1}'` 儲存在 [作者] 資料行中。  預期的類型為 JArray。 | 請確定每個欄位的類型在不同的檔中都相同。 例如，如果第一個檔 `'startTime'` 欄位是日期時間，而第二個檔是字串，則會遇到此錯誤。 |
 | 來自資料來源之基礎服務的錯誤 | （從 Cosmos DB） `{"Errors":["Request rate is large"]}` | 檢查您的儲存體實例，以確保其狀況良好。 您可能需要調整您的縮放/分割。 |
@@ -57,7 +57,7 @@ ms.locfileid: "74287004"
 ## <a name="error-could-not-extract-document-content"></a>錯誤：無法解壓縮檔內容
 具有 Blob 資料來源的索引子無法從檔解壓縮內容（例如，PDF 檔案）。 發生這種情況的原因可能是：
 
-| 原因 | 詳細資料/範例 | 解決方案 |
+| 原因 | 詳細資料/範例 | 解析度 |
 | --- | --- | --- |
 | blob 超過大小限制 | 檔是 `'150441598'` 個位元組，超過您目前服務層級的檔解壓縮 `'134217728'` 位元組大小上限。 | [blob 索引錯誤](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob 具有不支援的內容類型 | 檔具有不支援的內容類型 `'image/png'` | [blob 索引錯誤](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
@@ -69,7 +69,7 @@ ms.locfileid: "74287004"
 ## <a name="error-could-not-parse-document"></a>錯誤：無法剖析檔
 索引子從資料來源讀取檔，但將檔內容轉換成指定的欄位對應架構時發生問題。 發生這種情況的原因可能是：
 
-| 原因 | 詳細資料/範例 | 解決方案 |
+| 原因 | 詳細資料/範例 | 解析度 |
 | --- | --- | --- |
 | 缺少檔索引鍵 | 檔索引鍵不能遺失或空白 | 確保所有檔都具有有效的檔索引鍵 |
 | 檔索引鍵無效 | 檔索引鍵的長度不能超過1024個字元 | 修改檔索引鍵以符合驗證需求。 |
@@ -81,9 +81,9 @@ ms.locfileid: "74287004"
 ## <a name="error-could-not-execute-skill"></a>錯誤：無法執行技能
 索引子無法在技能集中執行技能。
 
-| 原因 | 詳細資料/範例 | 解決方案 |
+| 原因 | 詳細資料/範例 | 解析度 |
 | --- | --- | --- |
-| 暫時性連線問題 | 發生暫時性錯誤。 請稍後再試一次。 | 偶爾會發生非預期的連線問題。 請稍後再試著透過索引子執行檔。 |
+| 暫時性連線問題 | 發生暫時性錯誤。 請稍後再試。 | 偶爾會發生非預期的連線問題。 請稍後再試著透過索引子執行檔。 |
 | 潛在的產品 bug | 發生意外錯誤。 | 這表示不明的失敗類別，可能表示有產品錯誤。 請提出[支援票證](https://ms.portal.azure.com/#create/Microsoft.Support)以取得協助。 |
 | 技能在執行期間發生錯誤 | （來自合併技能）有一或多個位移值無效，無法剖析。 專案已插入至文字結尾 | 請使用錯誤訊息中的資訊來修正問題。 這種失敗會需要採取動作來解決。 |
 
@@ -140,7 +140,7 @@ ms.locfileid: "74287004"
 
 已讀取並處理檔，但索引子無法將它新增至搜尋索引。 發生這種情況的原因可能是：
 
-| 原因 | 詳細資料/範例 | 解決方案 |
+| 原因 | 詳細資料/範例 | 解析度 |
 | --- | --- | --- |
 | 欄位包含太大的詞彙 | 檔中的詞彙大於[32 KB 的限制](search-limits-quotas-capacity.md#api-request-limits) | 您可以確保欄位未設定為可篩選、facetable 或可排序，藉以避免這項限制。
 | 檔太大，無法編制索引 | 檔大於[api 要求大小上限](search-limits-quotas-capacity.md#api-request-limits) | [如何為大型資料集編制索引](search-howto-large-index.md)
@@ -195,7 +195,7 @@ ms.locfileid: "74287004"
 }
 ```
 
-| 原因 | 詳細資料/範例 | 解決方案 |
+| 原因 | 詳細資料/範例 | 解析度 |
 | --- | --- | --- |
 | 技能輸入的類型錯誤 | 所需的技能輸入 `X` 不是預期的類型 `String`。 所需的技能輸入 `X` 不是預期的格式。 | 某些技能預期特定類型的輸入，例如[情感技能](cognitive-search-skill-sentiment.md)預期 `text` 為字串。 如果輸入指定非字串值，則技能不會執行，而且不會產生任何輸出。 請確定您的資料集具有類型的輸入值一致，或使用[自訂 WEB API 技能](cognitive-search-custom-skill-web-api.md)來前置處理輸入。 如果您要在陣列上逐一查看技能，請檢查技能內容和輸入是否有 `*` 在正確的位置。 通常內容和輸入來源的結尾都應該是陣列的 `*`。 |
 | 缺少技能輸入 | 缺少必要的技能輸入 `X`。 | 如果您的所有檔都收到此警告，則輸入路徑中很可能出現錯誤，您應該仔細檢查屬性名稱的大小寫、路徑中的額外或遺失 `*`，以及來自資料來源的檔會定義所需的輸入。 |
@@ -208,7 +208,7 @@ ms.locfileid: "74287004"
 
 如果您知道您的資料集全都使用一種語言，則應該移除[LanguageDetectionSkill](cognitive-search-skill-language-detection.md)和 `languageCode` 技能輸入，並改為使用該技能的 `defaultLanguageCode` 技能參數，並假設該技術支援該語言。
 
-如果您知道您的資料集包含多個語言，因此您需要[LanguageDetectionSkill](cognitive-search-skill-language-detection.md)和 `languageCode` 輸入，請考慮新增[ConditionalSkill](cognitive-search-skill-conditional.md) ，以使用不受支援的語言來篩選掉文字，然後才傳入下游技能的文字。  以下是此 EntityRecognitionSkill 可能顯示的範例：
+如果您知道您的資料集包含多個語言，因此您需要[LanguageDetectionSkill](cognitive-search-skill-language-detection.md)和 `languageCode` 輸入，請考慮新增[ConditionalSkill](cognitive-search-skill-conditional.md) ，以使用不受支援的語言來篩選掉文字，然後再將文字傳遞給下游技能。  以下是此 EntityRecognitionSkill 可能顯示的範例：
 
 ```json
 {

@@ -1,5 +1,5 @@
 ---
-title: 關於 Azure 中使用 Azure Site Recovery 進行 Azure 災害復原的網路功能 | Microsoft Docs
+title: 關於使用 Azure Site Recovery 的 Azure VM 嚴重損壞修復中的網路功能
 description: 提供使用 Azure Site Recovery 複寫 Azure VM 的網路功能概觀。
 services: site-recovery
 author: sujayt
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: sutalasi
-ms.openlocfilehash: fc97f9d78e84882675c3dd011a64e1e50c4cc907
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 09cd814ade25be438a17b83fb73e74b89c14e22f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968335"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954201"
 ---
-# <a name="about-networking-in-azure-to-azure-replication"></a>關於 Azure 中進行 Azure 複寫的網路功能
+# <a name="about-networking-in-azure-vm-disaster-recovery"></a>關於 Azure VM 嚴重損壞修復中的網路功能
 
 
 
@@ -35,7 +35,7 @@ ms.locfileid: "72968335"
 
 ![客戶環境](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-通常會使用防火牆和網路安全性群組 (NSG) 來保護網路。 防火牆會使用以 URL 或 IP 為基礎的白名單來控制網路連線能力。 NSG 提供規則，使用 IP 位址範圍來控制網路連線能力。
+通常會使用防火牆和網路安全性群組 (NSG) 來保護網路。 防火牆會使用以 URL 或 IP 為基礎的允許清單來控制網路連線能力。 NSG 提供規則，使用 IP 位址範圍來控制網路連線能力。
 
 >[!IMPORTANT]
 > Site Recovery 不支援使用經過驗證的 Proxy 來控制網路連線能力，而且無法啟用複寫。
@@ -62,7 +62,7 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
     - 允許這些位址，方可從 VM 將該資料寫入到快取儲存體帳戶。
 - 建立 [Azure Active Directory (AAD) 服務標籤](../virtual-network/security-overview.md#service-tags)型 NSG 規則，以允許存取對應至 AAD 的所有 IP 位址
     - 如果未來將新的位址新增至 Azure Active Directory (AAD)，您必須建立新的 NSG 規則。
-- Site Recovery 服務端點 IP 位址 - 在 [XML 檔案](https://aka.ms/site-recovery-public-ips)中提供，並依據您的目標位置。 建議您允許存取標記 **"AzureSiteRecovery"** ，以取得 Site Recovery 服務存取權。
+- Site Recovery 服務端點 IP 位址 - 在 [XML 檔案](https://aka.ms/site-recovery-public-ips)中提供，並依據您的目標位置。 
 - 建議您在測試 NSG 上建立必要的 NSG 規則，並確認沒有問題後，再於生產 NSG 上建立規則。
 
 
@@ -85,8 +85,8 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
    日本東部 | 52.185.150.140 | 138.91.1.105
    日本西部 | 52.175.146.69 | 138.91.17.38
    巴西南部 | 191.234.185.172 | 23.97.97.36
-   澳大利亞東部 | 104.210.113.114 | 191.239.64.144
-   澳大利亞東南部 | 13.70.159.158 | 191.239.160.45
+   澳洲東部 | 104.210.113.114 | 191.239.64.144
+   澳洲東南部 | 13.70.159.158 | 191.239.160.45
    加拿大中部 | 52.228.36.192 | 40.85.226.62
    加拿大東部 | 52.229.125.98 | 40.86.225.142
    美國中西部 | 52.161.20.168 | 13.78.149.209
@@ -100,15 +100,15 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
    法國中部 | 52.143.138.106 | 52.143.136.55
    法國南部 | 52.136.139.227 |52.136.136.62
    澳大利亞中部| 20.36.34.70 | 20.36.46.142
-   澳洲中部 2| 20.36.69.62 | 20.36.74.130
+   澳大利亞中部 2| 20.36.69.62 | 20.36.74.130
    南非西部 | 102.133.72.51 | 102.133.26.128
    南非北部 | 102.133.160.44 | 102.133.154.128
-   US Gov 維吉尼亞州 | 52.227.178.114 | 23.97.0.197
+   美國政府維吉尼亞州 | 52.227.178.114 | 23.97.0.197
    US Gov 愛荷華州 | 13.72.184.23 | 23.97.16.186
-   US Gov 亞利桑那州 | 52.244.205.45 | 52.244.48.85
-   US Gov 德克薩斯州 | 52.238.119.218 | 52.238.116.60
-   US DoD 東部 | 52.181.164.103 | 52.181.162.129
-   US DoD 中部 | 52.182.95.237 | 52.182.90.133
+   美國政府亞利桑那州 | 52.244.205.45 | 52.244.48.85
+   美國政府德克薩斯州 | 52.238.119.218 | 52.238.116.60
+   美國 DoD 東部 | 52.181.164.103 | 52.181.162.129
+   美國國防部中央 | 52.182.95.237 | 52.182.90.133
    中國北部 | 40.125.202.254 | 42.159.4.151
    中國北部 2 | 40.73.35.193 | 40.73.33.230
    中國東部 | 42.159.205.45 | 42.159.132.40
@@ -127,9 +127,6 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
 - 如果您使用 NSG 規則來控制輸出連線，請針對所有必要的 IP 位址範圍，將「允許 HTTPS 輸出」規則應用至連接埠：443。
 - 此範例假設 VM 來源位置為「美國東部」，而目標位置為「美國中部」。
 
-> [!NOTE]
-> 建議使用**AzureSiteRecovery 標記**而非 IP 位址，以允許存取**Site Recovery 服務**。
-
 ### <a name="nsg-rules---east-us"></a>NSG 規則：美國東部
 
 1. 在 NSG 上針對 "Storage.EastUS" 建立輸出 HTTPS (443) 安全性規則，如以下螢幕擷取畫面所示。
@@ -142,7 +139,7 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
 
 3. 針對那些對應至目標位置的站台復原 IP，建立輸出 HTTPS (443) 規則：
 
-   **位置** | **Site Recovery 位址** |  **Site Recovery 監視 IP 位址**
+   <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **Site Recovery 位址** |  **Site Recovery 監視 IP 位址**
     --- | --- | ---
    美國中部 | 40.69.144.231 | 52.165.34.144
 
@@ -156,7 +153,7 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
 
 3. 針對那些對應至來源位置的站台復原 IP 建立輸出 HTTPS (443) 規則：
 
-   **位置** | **Site Recovery 位址** |  **Site Recovery 監視 IP 位址**
+   <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **Site Recovery 位址** |  **Site Recovery 監視 IP 位址**
     --- | --- | ---
    美國東部 | 13.82.88.226 | 104.45.147.24
 

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: eb5085db10c5763a4173f460eabde6afcccd5aff
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 514f4b26a708a6fec30a1f54cfe6da6d1b58b79d
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000456"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555525"
 ---
 # <a name="get-started-with-device-management-python"></a>開始使用裝置管理 (Python)
 
@@ -63,10 +63,6 @@ ms.locfileid: "71000456"
     pip install azure-iot-device
     ```
 
-   > [!NOTE]
-   > Iothub-服務用戶端的 pip 套件僅適用于 Windows 作業系統。 針對 Linux/Mac OS，請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
-   >
-
 2. 使用文字編輯器，在工作目錄中建立名為**dmpatterns_getstarted_device .py**的檔案。
 
 3. 在 **dmpatterns_getstarted_device.py** 檔案的開頭新增下列 `import` 陳述式。
@@ -78,7 +74,7 @@ ms.locfileid: "71000456"
     from azure.iot.device import IoTHubDeviceClient, MethodResponse
     ```
 
-4. 新增**CONNECTION_STRING**變數。 將`{deviceConnectionString}`預留位置值取代為您的裝置連接字串。 您先前已在[註冊 IoT 中樞的新裝置](#register-a-new-device-in-the-iot-hub)中複製此連接字串。  
+4. 新增**CONNECTION_STRING**變數。 將 `{deviceConnectionString}` 的預留位置值取代為您的裝置連接字串。 您先前已在[註冊 IoT 中樞的新裝置](#register-a-new-device-in-the-iot-hub)中複製此連接字串。  
 
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
@@ -161,7 +157,7 @@ ms.locfileid: "71000456"
     ```
 
    > [!NOTE]
-   > Azure iothub-服務用戶端和 iothub 裝置用戶端的 pip 套件目前僅適用于 Windows 作業系統。 針對 Linux/Mac OS，請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
+   > Azure iothub-服務用戶端的 pip 套件目前僅適用于 Windows 作業系統。 針對 Linux/Mac OS，請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
    >
 
 2. 使用文字編輯器，在工作目錄中建立名為**dmpatterns_getstarted_service .py**的檔案。
@@ -175,7 +171,7 @@ ms.locfileid: "71000456"
     from iothub_service_client import IoTHubDeviceMethod, IoTHubError, IoTHubDeviceTwin
     ```
 
-4. 新增下列變數宣告。 將預留位置值取代為您先前在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中所複製的 iot 中樞連接字串。 `{IoTHubConnectionString}` 以您在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中註冊的裝置識別碼取代預留位置值。`{deviceId}`
+4. 新增下列變數宣告。 使用您先前在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中所複製的 IoT 中樞連接字串，取代 `{IoTHubConnectionString}` 的預留位置值。 將 `{deviceId}` 預留位置的值取代為您在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中註冊的裝置識別碼。
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"

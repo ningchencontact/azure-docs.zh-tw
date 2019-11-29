@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 3d2895fa8d45ad594963d3f26cbe04fd968f5fcc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 309a2592dbac2918aeb532fbe91e33d296f4e5a5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487531"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280893"
 ---
 # <a name="intents-in-your-luis-app"></a>LUIS 應用程式中的意圖
 
@@ -47,13 +47,13 @@ ms.locfileid: "73487531"
 |V3|`show-all-intents=true`|
 
 ## <a name="intent-compared-to-entity"></a>意圖與實體的比較
-意圖代表 bot 應為使用者採取的動作，並以整個語句為基礎。 一個語句只能有一個最高分的意圖，但可以有許多個實體。 
+意圖代表應用程式應該為使用者採取的動作，而且是以整個語句為基礎。 一個語句只能有一個最高分的意圖，但可以有許多個實體。 
 
 <a name="how-do-intents-relate-to-entities"></a>
 
 當_使用者想要_在您的用戶端應用程式中觸發動作時（例如呼叫 checkweather （）函式），建立意圖。 然後建立實體來代表執行動作所需的參數。 
 
-|意圖   | 實體 | 範例語句   | 
+|Intent   | 單位 | 範例語句   | 
 |------------------|------------------------------|------------------------------|
 | CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` | 

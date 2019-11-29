@@ -1,18 +1,14 @@
 ---
 title: 使用 Azure 備份伺服器來備份 VMware VM
-description: 使用 Azure 備份伺服器，備份在 VMware vCenter/ESXi 伺服器上執行的 VMware VM。
-author: dcurwin
-manager: carmonm
-ms.service: backup
+description: 在本文中，您將瞭解如何使用 Azure 備份伺服器來備份在 VMware vCenter/ESXi 伺服器上執行的 VMware Vm。
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: dacurwin
-ms.openlocfilehash: 3d8983835c587ffeec9dd2bc418f1c01afbeb571
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: d1c8ec249e010d75bbe96f5c70072f41b9738370
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264514"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173366"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>使用 Azure 備份伺服器來備份 VMware VM
 
@@ -66,7 +62,7 @@ ms.locfileid: "72264514"
    - 根憑證檔案，其副檔名的開頭是編號序列，例如 .0 和 .1。
    - CRL 檔案，其副檔名的開頭是序列，例如 .r0 和 .r1。 與憑證相關聯的 CRL 檔案。
 
-         ![Downloaded certificates](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
+    ![已下載的憑證](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
 
 6. 在 **certs** 資料夾中，以滑鼠右鍵按一下根憑證檔案 > [重新命名]。
 
@@ -82,7 +78,7 @@ ms.locfileid: "72264514"
 
 10. 在 [憑證存放區] 頁面上，選取 [將所有憑證放入以下的存放區]，然後按一下 [瀏覽] 來選擇憑證存放區。
 
-         ![Certificate storage](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
+    ![憑證存放區](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
 11. 在 [選取憑證存放區] 中，選取 [信任的根憑證授權] 作為憑證的目的地資料夾，然後按一下 [確定]。
 
@@ -100,11 +96,9 @@ ms.locfileid: "72264514"
 
 1. 複製以下文字並貼到 .txt 檔案中。
 
-      ```text
-      Windows Registry Editor Version 5.00
-      [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
-      "IgnoreCertificateValidation"=dword:00000001
-      ```
+       ```text
+      Windows 登錄編輯程式5.00 版 [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare] "IgnoreCertificateValidation" = dword：00000001
+       ```
 
 2. 使用名稱 **DisableSecureAuthentication.reg**，將檔案儲存在 Azure 備份伺服器電腦上。
 
@@ -130,7 +124,7 @@ Azure 備份伺服器需要具有存取 v-Center Server/ESXi 主機權限的使�
    - 若要選取 VirtualMachine 權限，您必須深入父子式階層中的好幾層。
    - 您不需要選取父代權限內的所有子權限。
 
-             ![Parent child privilege hierarchy](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
+    ![父子式權限階層](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
 ### <a name="role-permissions"></a>角色權限
 
@@ -165,7 +159,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
 2. 在 [vCenter 使用者和群組] 面板中，選取 [使用者] 索引標籤，然後按一下 [新增使用者] 圖示 (+ 符號)。
 
-         ![vCenter Users and Groups panel](./media/backup-azure-backup-server-vmware/usersandgroups.png)
+    ![[vCenter 使用者和群組] 面板](./media/backup-azure-backup-server-vmware/usersandgroups.png)
 
 3. 在 [新增使用者] 對話方塊中，新增使用者資訊 > [確定]。 在此程序中，使用者名稱是 BackupAdmin。
 
@@ -221,7 +215,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
 2. 在 [實際執行伺服器新增精靈] > [選取實際執行伺服器類型] 頁面上，選取 [VMware 伺服器] 然後按一下 [下一步]。
 
-         ![Production Server Addition Wizard](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
+    ![生產伺服器新增精靈](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
 3. 在 [選取電腦] [伺服器名稱/IP 位址] 中，指定 VMware 伺服器的 FQDN 或 IP 位址。 如果所有 ESXi 伺服器均由相同的 vCenter 管理，您可以指定 vCenter 名稱。 否則，請新增 ESXi 主機。
 
@@ -233,7 +227,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![指定認證](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. 按一下 [新增] 以將 VMware 伺服器新增到伺服器清單。 然後按 [下一步]。
+6. 按一下 [新增] 以將 VMware 伺服器新增到伺服器清單。 然後按一下 [確定](英文)。
 
     ![新增 VMWare 伺服器和認證](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -261,14 +255,14 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
 1. 在 [選取保護群組類型] 頁面上，選取 [伺服器]，然後按 [下一步]。 [選取群組成員] 頁面隨即出現。
 
-1. 在 [**選取群組成員**] 中，選取您想要備份的 vm （或 vm 資料夾）。 然後按 [下一步]。
+1. 在 [**選取群組成員**] 中，選取您想要備份的 vm （或 vm 資料夾）。 然後按一下 [確定](英文)。
 
     - 當您選取資料夾時，也會選取該資料夾內的 VM 或資料夾以進行備份。 您可以將不想備份的資料夾或 VM 取消選取。
 1. 如果 VM 或資料夾已經過備份，您就無法加以選取。 這可確保不會為 VM 建立重複的復原點。
 
-         ![Select group members](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
+    ![選擇群組成員](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. 在 [選取資料保護方法] 頁面上，輸入保護群組的名稱和保護設定。 若要備份至 Azure，請將短期保護設定為 [磁碟]，並啟用線上保護。 然後按 [下一步]。
+1. 在 [選取資料保護方法] 頁面上，輸入保護群組的名稱和保護設定。 若要備份至 Azure，請將短期保護設定為 [磁碟]，並啟用線上保護。 然後按一下 [確定](英文)。
 
     ![選擇資料保護方式](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -287,45 +281,45 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
    - **資料大小：** 保護群組中的資料大小。
    - **磁碟空間：** 保護群組的建議磁碟空間數量。 如果您想要修改此設定，您配置的總空間應該稍微大於您預估每個資料來源將成長的數量。
    - **共置資料：** 如果您開啟共置功能，受保護的多個資料來源可以對應至單一複本和復原點磁碟區。 不支援所有工作負載的共置。
-   - **自動成長：** 如果您啟用此設定，而且受保護群組中的資料成長超過初始配置，則 Azure 備份伺服器會嘗試增加 25% 的磁碟大小。
-   - **儲存體集區詳細資料：** 顯示儲存體集區的目前狀態，包括總計和剩餘的磁碟大小。
+   - **自動成長：** 如果您開啟此設定，如果受保護群組中的資料成長到超過初始配置，Azure 備份伺服器會嘗試增加25% 的磁片大小。
+   - **儲存集區詳細資料：** 顯示儲存體集區的狀態，包括總計和剩餘的磁碟大小。
 
-         ![Review disk allocation](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
+    ![檢閱磁碟配置](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
 
 1. 在 [選擇複本的建立方式] 頁面中，指定您要如何進行初始備份，然後按一下 [下一步]。
    - 預設值是 [自動透過網路] 和 [立即]。
    - 如果您使用預設值，建議您指定離峰時間。 選擇 [稍後] 並指定日期與時間。
    - 對於大量資料或較差的網路狀況，請考慮使用卸除式媒體來離線複寫資料。
 
-         ![Choose replica creation method](./media/backup-azure-backup-server-vmware/replica-creation.png)
+    ![選擇複本的建立方式](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. 在 [一致性檢查選項] 中，選取如何及何時自動執行一致性檢查。 然後按 [下一步]。
+1. 在 [一致性檢查選項] 中，選取如何及何時自動執行一致性檢查。 然後按一下 [確定](英文)。
       - 當複本資料變得不一致時，或依據設定的排程，您可以執行一致性檢查。
       - 如果您不想設定自動一致性檢查，可以執行手動檢查。 若要這樣做，以滑鼠右鍵按一下保護群組 > [執行一致性檢查]。
 
-1. 在 [指定線上保護資料] 頁面中，選取要備份的 VM 或 VM 資料夾。 您可以個別地選取成員，或按一下 [全選] 來選擇所有成員。 然後按 [下一步]。
+1. 在 [指定線上保護資料] 頁面中，選取要備份的 VM 或 VM 資料夾。 您可以個別地選取成員，或按一下 [全選] 來選擇所有成員。 然後按一下 [確定](英文)。
 
-          ![Specify online protection data](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
+    ![指定線上保護資料](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. 在 [指定線上備份排程] 頁面上，指定要從本機儲存體將資料備份至 Azure 的頻率。
 
-    - 資料的雲端復原點將會根據排程來產生。 然後按 [下一步]。
+    - 資料的雲端復原點將會根據排程來產生。 然後按一下 [確定](英文)。
     - 復原點在產生後會傳輸至 Azure 中的復原服務保存庫。
 
-          ![Specify online backup schedule](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
+    ![指定線上備份排程](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
 1. 在 [指定線上保留原則] 頁面上，指定從每日/每週/每月/每年備份至 Azure 所建立的資料復原點要保留的時間長度。 然後按一下 [下一步]。
 
     - 您可以在 Azure 中保留資料的時間長度沒有限制。
     - 唯一的限制是每個受保護的執行個體不能有超過 9999 個復原點。 在此範例中，受保護的執行個體是 VMware 伺服器。
 
-          ![Specify online retention policy](./media/backup-azure-backup-server-vmware/retention-policy.png)
+    ![指定線上保留期原則](./media/backup-azure-backup-server-vmware/retention-policy.png)
 
 1. 在 [摘要] 頁面上檢閱設定，然後按一下 [建立群組]。
 
-         ![Protection group member and setting summary](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+    ![保護群組成員和設定的摘要](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
-## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
+## <a name="vmware-vsphere-67"></a>VMWare vSphere 6。7
 
 若要備份 vSphere 6.7，請執行下列動作：
 
@@ -335,25 +329,26 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
 - 設定登錄機碼，如下所示：
 
-```text
- Windows Registry Editor Version 5.00
+       ```text
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
-"SystemDefaultTlsVersions"=dword:00000001
-"SchUseStrongCrypto"=dword:00000001
+        Windows Registry Editor Version 5.00
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
-"SystemDefaultTlsVersions"=dword:00000001
-"SchUseStrongCrypto"=dword:00000001
+        [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
+       "SystemDefaultTlsVersions"=dword:00000001
+       "SchUseStrongCrypto"=dword:00000001
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
-"SystemDefaultTlsVersions"=dword:00000001
-"SchUseStrongCrypto"=dword:00000001
+       [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
+       "SystemDefaultTlsVersions"=dword:00000001
+       "SchUseStrongCrypto"=dword:00000001
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
-"SystemDefaultTlsVersions"=dword:00000001
-"SchUseStrongCrypto"=dword:00000001
-```
+       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
+       "SystemDefaultTlsVersions"=dword:00000001
+       "SchUseStrongCrypto"=dword:00000001
+
+       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+       "SystemDefaultTlsVersions"=dword:00000001
+       "SchUseStrongCrypto"=dword:00000001
+       ```
 
 ## <a name="next-steps"></a>後續步驟
 

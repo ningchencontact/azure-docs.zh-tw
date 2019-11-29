@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/03/2019
-ms.openlocfilehash: 2844b48b3d832e8d9ec659ba657879d683016aee
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 762e7d4a7356c11171355b5325e77569e9acb1e2
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217666"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555093"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>使用 Azure Data Factory 將資料從內部部署 Netezza 伺服器遷移至 Azure 
 
@@ -156,7 +156,7 @@ Azure Data Factory 提供無伺服器架構，允許各種層級的平行處理�
 
 在自我裝載的 IR 機器上持續監視 CPU 和記憶體使用量，並準備好在您看到 CPU 和記憶體完全使用時，相應增加機器或相應放大至多部電腦。 
 
-當您遇到節流錯誤（如 Azure Data Factory 複製活動所回報）時，請減少 Azure Data Factory 中的並行或 `parallelCopies` 設定，或考慮增加網路和資料的頻寬或 i/o 作業每秒（IOPS）限制商店. 
+當您遇到節流錯誤（如 Azure Data Factory 複製活動所回報）時，請減少 Azure Data Factory 中的並行或 `parallelCopies` 設定，或考慮增加網路和資料存放區的頻寬或 i/o 作業每秒（IOPS）限制。 
 
 
 ### <a name="estimate-your-pricing"></a>預估您的定價 
@@ -190,7 +190,7 @@ Azure Data Factory 提供無伺服器架構，允許各種層級的平行處理�
 
 如需詳細資訊，請參閱下列文章和指南：
 
-- [使用 Azure Data Factory 將內部部署關聯式資料倉儲資料庫中的資料移轉至 Azure](https://azure.microsoft.com/mediahandler/files/resourcefiles/data-migration-from-on-premises-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/Data_migration_from_on-prem_RDW_to_ADLS_using_ADF.pdf)
+- [使用 Azure Data Factory 將內部部署關聯式資料倉儲資料庫中的資料移轉至 Azure](https://azure.microsoft.com/resources/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/)
 - [Netezza 連接器](https://docs.microsoft.com/azure/data-factory/connector-netezza)
 - [ODBC 連接器](https://docs.microsoft.com/azure/data-factory/connector-odbc)
 - [Azure Blob 儲存體連接器](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)

@@ -1,6 +1,6 @@
 ---
 title: Azure 資訊安全中心的資料收集 | Microsoft Docs
-description: " 了解如何在 Azure 資訊安全中心啟用資料收集。 "
+description: 本文說明如何安裝 Log Analytics 代理程式，並設定 Log Analytics 工作區來儲存收集的資料。
 services: security-center
 author: memildin
 manager: rkarlin
@@ -8,17 +8,17 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 8aa0adf03aef2085ed2374bcfc7ea774d002061c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4b67e7a2ee9f2d734d927b3488cc15ca310f4295
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162683"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559048"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure 資訊安全中心的資料收集
 資訊安全中心會從您的 Azure 虛擬機器（Vm）、虛擬機器擴展集、IaaS 容器和非 Azure （包括內部部署）電腦收集資料，以監視是否有安全性弱點和威脅。 系統會使用 Log Analytics 代理程式來收集資料，這會從電腦讀取各種安全性相關設定和事件記錄，並將資料複製到您的工作區進行分析。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄 (Windows 事件記錄)、執行中程序、電腦名稱、IP 位址和已登入的使用者。 Log Analytics 代理程式也會將損毀傾印檔案複製到您的工作區。
 
-必須收集資料，才能掌握遺漏的更新、設定錯誤的 OS 安全性設定、端點保護啟用，以及健康情況和威脅偵測。 
+需要進行資料收集，以提供遺失的更新、設定錯誤的 OS 安全性設定、endpoint protection 狀態，以及健康情況和威脅偵測的可見度。 
 
 本文說明如何安裝 Log Analytics 代理程式，並設定 Log Analytics 工作區來儲存收集的資料。 需要執行這兩項作業，才能啟用資料收集。 
 

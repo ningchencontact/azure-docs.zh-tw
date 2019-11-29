@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd144f1922456520075c1863ec347e85eb3889db
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f2ae0d79076a0137b3756721675267d89990bf5a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379866"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554032"
 ---
 # <a name="use-microsoft-authenticator-or-microsoft-intune-company-portal-on-xamarin-applications"></a>在 Xamarin 應用程式上使用 Microsoft Authenticator 或 Microsoft Intune 公司入口網站
 
@@ -182,7 +182,7 @@ public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth";
 
 MSAL.NET 目前僅支援 Xamarin iOS 平臺。 它尚不支援 Xamarin. Android 平臺的代理程式。
 
-MSAL Android 原生程式庫已支援它。 如需詳細資訊，請參閱[在 Android 中](https://docs.microsoft.com/azure/active-directory/develop/brokered-auth.md)進行代理驗證
+MSAL Android 原生程式庫已支援它。 如需詳細資訊，請參閱[在 Android 中](brokered-auth.md)進行代理驗證
 
 ## <a name="next-steps"></a>後續步驟
 

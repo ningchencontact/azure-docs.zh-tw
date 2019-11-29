@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 11/21/2019
 ms.author: aahi
-ms.openlocfilehash: 5933c7ec56ded971e4daf96ea6d4302c04921f2f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ae5222dcd05740ecb9747037b315c4e920b3eabd
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031432"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326632"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文字分析中使用已命名的實體識別
 
@@ -33,14 +33,14 @@ ms.locfileid: "74031432"
 
 ## <a name="named-entity-recognition-v3-public-preview"></a>命名實體辨識 v3 公開預覽
 
-[下一版的命名實體]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)辨識現已提供公開預覽。 它提供實體連結和命名實體辨識的更新。 
+下一版的命名實體辨識現已提供公開預覽。 它提供實體連結和命名實體辨識的更新。 使用[API 測試主控台](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)來試用。
 
 :::row:::
     :::column span="":::
         **功能**
     :::column-end:::
     ::: column span="":::
-        **描述** 
+        **說明** 
     :::column-end:::
 :::row-end:::
 <!-- expanded types and subtypes row-->
@@ -99,27 +99,29 @@ NER
 > [!NOTE]
 > 命名實體識別（NER）第2版支援下列實體。 [NER v3](#named-entity-recognition-v3-public-preview)處於公開預覽狀態，可大幅擴充文字中辨識之實體的數目和深度。   
 
-| 在系統提示您進行確認時，輸入  | SubType | 範例 |
+| Type  | SubType | 範例 |
 |:-----------   |:------------- |:---------|
-| Person        | N/A\*         | "Jeff"、"Bill Gates"     |
-| 位置      | N/A\*         | "Redmond, Washington"、"Paris"  |
-| 組織  | N/A\*         | "Microsoft"   |
-| 數量      | 數字        | "6"、"six"     |
-| 數量      | 百分比    | "50%"、"fifty percent"|
-| 數量      | 序數       | "2nd"、"second"     |
+| 人物        | N/A\*         | "Jeff"、"Bill Gates"     |
+| Location      | N/A\*         | 「華盛頓州雷德蒙德」、「巴黎」  |
+| 組織  | N/A\*         | Microsoft   |
+| 數量      | Number        | 「6」、「六」     |
+| 數量      | 百分比    | 「50%」、「百分之五十」|
+| 數量      | 序號       | 「第 2」、「第二」     |
 | 數量      | 年齡           | "90 day old"、"30 years old"    |
-| 數量      | 貨幣      | "$10.99"     |
-| 數量      | 維度     | "10 miles"、"40 cm"     |
-| 數量      | 溫度   | "32 degrees"    |
-| DateTime      | N/A\*         | "6:30PM February 4, 2012"      |
-| DateTime      | Date          | "May 2nd, 2017"、"05/02/2017"   |
-| DateTime      | 時間          | "8am"、"8:00"  |
-| DateTime      | 日期範圍     | "May 2nd to May 5th"    |
-| DateTime      | 時間範圍     | "6pm to 7pm"     |
-| DateTime      | 持續時間      | "1 minute and 45 seconds"   |
-| DateTime      | Set           | "every Tuesday"     |
+| 數量      | 貨幣      | 「美金 $10.99 元」     |
+| 數量      | 維度     | 「10 英哩」、「40 公分」     |
+| 數量      | 溫度   | 「32 度」    |
+| 日期時間      | N/A\*         | 「2012 年 2 月 4 日下午 6:30」      |
+| 日期時間      | 日期          | 「2017 年 5 月 2 日」、「05/02/2017」   |
+| 日期時間      | 時間          | "8am"、"8:00"  |
+| 日期時間      | 日期範圍     | 「5 月 2 日到 5 月 5 日」    |
+| 日期時間      | 時間範圍     | 「下午 6 點到下午 7 點」     |
+| 日期時間      | 課程時間      | 「1 分鐘又 45 秒」   |
+| 日期時間      | 設定           | 「每個星期二」     |
 | URL           | N/A\*         | "HTTPs：\//www.bing.com"    |
 | 電子郵件         | N/A\*         | "support@contoso.com" |
+| 美國電話號碼  | N/A\*         | （僅限美國電話號碼）"（312） 555-0176" |
+| IP 位址    | N/A\*         | 10.0.0.100 |
 
 \* 依輸入和擷取的實體而定，某些實體可能會省略 `SubType`。  列出的所有支援實體類型僅適用于英文、簡體中文、法文、德文和西班牙文等語言。
 
@@ -133,7 +135,7 @@ NER
 
 如需目前支援的語言，請參閱[這份清單](../text-analytics-supported-languages.md)。
 
-文件大小必須少於 5,120 個字元，而且您最多可以針對每個集合擁有 1,000 個項目 (識別碼)。 集合會在要求本文中提交。 下列範例是您可能會提交至實體連結末端的內容說明。
+文件大小必須少於 5,120 個字元，而且您最多可以針對每個集合擁有 1,000 個項目 (識別碼)。 集合會在要求主體中提交。 下列範例是您可能會提交至實體連結末端的內容說明。
 
 ```json
     {
@@ -158,14 +160,14 @@ NER
 
 + 建立一個 **POST** 要求。 請參閱此要求的 API 檔：[實體 api](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ 使用 Azure 上的文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，設定關鍵字組解壓縮的 HTTP 端點。 您必須包含 `/text/analytics/v2.1/entities`。 例如： `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`。
++ 使用 Azure 上的文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，設定關鍵字組解壓縮的 HTTP 端點。 您必須包含 `/text/analytics/v2.1/entities`。 例如： `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities` 。
 
 + 設定要求標頭以包含文字分析作業[的存取金鑰](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)。
 
 + 在要求本文中，提供您準備用於此分析的 JSON 文件集合
 
 > [!Tip]
-> 使用 [Postman](text-analytics-how-to-call-api.md) 或開啟**文件** \(英文\) 中的 [API 測試主控台](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)來建立要求結構，並將它 POST 到服務。
+> 使用 [Postman](text-analytics-how-to-call-api.md) 或開啟[文件](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) \(英文\) 中的 **API 測試主控台**來建立要求結構，並將它 POST 到服務。
 
 ## <a name="step-2-post-the-request"></a>步驟 2：張貼要求
 
@@ -337,13 +339,13 @@ NER
     }
 ```
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>總結
 
 在本文中，您已了解在認知服務中使用文字分析的實體連結概念和工作流程。 摘要說明：
 
 + [實體 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) \(英文\) 僅針對特定語言提供。
 + 要求本文中的 JSON 文件包含識別碼、文字和語言代碼。
-+ 使用對您訂用帳戶有效的個人化`/entities`存取金鑰和端點[，將要求 POST 到 ](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) 端點。
++ 使用對您訂用帳戶有效的個人化[存取金鑰和端點](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)，將要求 POST 到 `/entities` 端點。
 + 由連結實體 (包含每個文件識別碼的信賴分數、位移和網頁連結) 組成的回應輸出可用於任何應用程式
 
 ## <a name="next-steps"></a>後續步驟

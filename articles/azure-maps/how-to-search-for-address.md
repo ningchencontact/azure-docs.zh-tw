@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Azure 地圖服務搜尋服務來搜尋地址 | Microsoft Docs
+title: 使用 Azure 地圖服務搜尋服務尋找位址 |Microsoft Docs
 description: 了解如何使用 Azure 地圖服務搜尋服務來搜尋地址
 author: walsehgal
 ms.author: v-musehg
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a41a811e9313f79c9c3165e02cb5eaa4353b65ab
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 9ce6459dd65c75c6fcff5591d4e4667e4b0c75fa
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914461"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928485"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>使用 Azure 地圖服務搜尋服務來尋找地址
 
@@ -26,7 +26,7 @@ ms.locfileid: "70914461"
 * 進行[反向位址搜尋](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)，以搜尋街道位址
 * 使用[搜尋位址反向交叉街道 API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)搜尋交叉街道
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要對地圖服務 API 進行呼叫，您需要有地圖服務帳戶和金鑰。 如需建立帳戶的相關資訊，請遵循[管理帳戶](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account)中的指示，然後依照[取得主要金鑰](./tutorial-search-location.md#getkey)中的步驟來抓取您帳戶的主要訂用帳戶金鑰。
 
@@ -46,19 +46,19 @@ ms.locfileid: "70914461"
 
     ![模糊搜尋](./media/how-to-search-for-address/fuzzy_search_url.png)
 
-    | 參數 | 建議值 |
+    | 參數 | 建議的值 |
     |---------------|------------------------------------------------|
-    | HTTP 方法 | GET |
+    | HTTP method | GET |
     | 要求 URL | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
-    | Authorization | 無授權 |
+    | 授權 | 無授權 |
 
-    URL 路徑中的 **Json** 屬性會判斷回應格式。 您在整篇文章中使用 json，以方便使用並提升可讀性。 您可以在[地圖服務功能性 API 參考](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)的＜取得搜尋模糊＞定義中找到可用的回應格式。
+    URL 路徑中的 **Json** 屬性會判斷回應格式。 您在整篇文章中使用 json，以方便使用並提升可讀性。 您可以在**地圖服務功能性 API 參考**的＜取得搜尋模糊＞[](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)定義中找到可用的回應格式。
 
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
 
     ![模糊搜尋](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Key | 值 |
+    | 金鑰 | 值 |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<您的 Azure 地圖服務金鑰\> |
@@ -72,7 +72,7 @@ ms.locfileid: "70914461"
 
 5. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | Key | 值 |
+    | 金鑰 | 值 |
     |------------------|-------------------------|
     | countrySet | US |
   
@@ -84,7 +84,7 @@ ms.locfileid: "70914461"
 
     ![模糊搜尋](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | Key | 值 |
+    | 金鑰 | 值 |
     |-----|------------|
     | lat | 47.620525 |
     | lon | -122.349274 |
@@ -98,17 +98,17 @@ ms.locfileid: "70914461"
 
     ![地址搜尋](./media/how-to-search-for-address/address_search_url.png)
   
-    | 參數 | 建議值 |
+    | 參數 | 建議的值 |
     |---------------|------------------------------------------------|
-    | HTTP 方法 | GET |
+    | HTTP method | GET |
     | 要求 URL | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) |
-    | Authorization | 無授權 |
+    | 授權 | 無授權 |
 
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
   
     ![地址搜尋](./media/how-to-search-for-address/address_search_params.png)
   
-    | Key | 值 |
+    | 金鑰 | 值 |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<您的 Azure 地圖服務金鑰\> |
@@ -125,7 +125,7 @@ ms.locfileid: "70914461"
 
 6. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | Key | 值 |
+    | 金鑰 | 值 |
     |-----|------------|
     | typeahead | true |
 
@@ -139,17 +139,17 @@ ms.locfileid: "70914461"
   
     ![反向地址搜尋 URL](./media/how-to-search-for-address/reverse_address_search_url.png)
   
-    | 參數 | 建議值 |
+    | 參數 | 建議的值 |
     |---------------|------------------------------------------------|
-    | HTTP 方法 | GET |
+    | HTTP method | GET |
     | 要求 URL | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
-    | Authorization | 無授權 |
+    | 授權 | 無授權 |
   
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
   
     ![反向位址搜尋參數](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | Key | 值 |
+    | 金鑰 | 值 |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<您的 Azure 地圖服務金鑰\> |
@@ -161,7 +161,7 @@ ms.locfileid: "70914461"
   
 5. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | Key | 值 |
+    | 金鑰 | 值 |
     |-----|------------|
     | number | true |
 
@@ -169,7 +169,7 @@ ms.locfileid: "70914461"
   
 6. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | Key | 值 |
+    | 金鑰 | 值 |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -177,7 +177,7 @@ ms.locfileid: "70914461"
 
 7. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | Key | 值 |
+    | 金鑰 | 值 |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -185,7 +185,7 @@ ms.locfileid: "70914461"
 
 8. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | Key | 值 |
+    | 金鑰 | 值 |
     |-----|------------|
     | roadUse | true |
 
@@ -199,15 +199,15 @@ ms.locfileid: "70914461"
   
     ![反向地址交叉街道搜尋](./media/how-to-search-for-address/reverse_address_search_url.png)
   
-    | 參數 | 建議值 |
+    | 參數 | 建議的值 |
     |---------------|------------------------------------------------|
-    | HTTP 方法 | GET |
+    | HTTP method | GET |
     | 要求 URL | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
-    | Authorization | 無授權 |
+    | 授權 | 無授權 |
   
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
   
-    | Key | 值 |
+    | 金鑰 | 值 |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<您的 Azure 地圖服務金鑰\> |

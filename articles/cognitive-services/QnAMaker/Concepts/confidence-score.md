@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 11/19/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a80c61efbcbff569f5fed53734def3979ed70616
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e2f7136ea7b973386eeb746a74ad09fadb490e83
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820757"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229109"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 知識庫的信賴分數
 當使用者查詢與某個知識庫相符時，QnA Maker 會傳回相關的答案以及信賴分數。 此分數表示該答案針對指定之使用者查詢正確比對的信賴度。 
@@ -71,8 +71,16 @@ ms.locfileid: "73820757"
 多個回應有類似的信賴分數時，表示查詢過於不具體，因此有多個同等可能性的相符答案。 請嘗試進一步調整 QnA，以便每個 QnA 實體的意圖彼此相異。
 
 
-## <a name="confidence-score-differences"></a>信賴分數差異
-在測試和發佈的知識庫版本之間，即使內容相同，不過答案的信賴分數可能會略微變化。 這是因為測試的內容和已發佈的知識庫位於不同的 Azure 認知搜尋索引中。 發佈知識庫時，知識庫的問題與答案內容會從測試索引移到 Azure 搜尋服務中的生產索引。 請查看[發佈](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base)作業的運作方式。
+## <a name="confidence-score-differences-between-test-and-production"></a>測試與生產環境之間的信賴分數差異
+在測試和發佈的知識庫版本之間，即使內容相同，不過答案的信賴分數可能會略微變化。 這是因為測試的內容和已發佈的知識庫位於不同的 Azure 認知搜尋索引中。 
+
+測試索引會保存您知識庫的所有 QnA 組。 當查詢測試索引時，查詢會套用至整個索引，然後將結果限制為該特定知識庫的資料分割。 如果測試查詢結果對您驗證知識庫的能力有負面影響，您可以：
+* 使用下列其中一項來組織您的知識庫：
+    * 1個資源限制為 1 KB：將您的單一 QnA 資源（和產生的 Azure 認知搜尋測試索引）限制為單一知識庫。 
+    * 2個資源-1 個用於測試，1個用於生產環境：有兩個 QnA Maker 資源，使用一個用於測試（具有自己的測試和生產索引），另一個用於產品（也有自己的測試和生產索引）
+* 而且，在同時查詢測試和生產知識庫時，一律會使用相同的參數（例如 **[top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)** ）
+
+發佈知識庫時，知識庫的問題與答案內容會從測試索引移到 Azure 搜尋服務中的生產索引。 請查看[發佈](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base)作業的運作方式。
 
 如果您在不同的區域中有知識庫，每個區域都會使用自己的 Azure 認知搜尋索引。 由於會使用不同的索引，因此，分數將不會完全相同。 
 
@@ -92,7 +100,7 @@ ms.locfileid: "73820757"
 
     ![選取 [應用程式設定]，然後編輯 QnA Maker 的 DefaultAnswer](../media/qnamaker-concepts-confidencescore/change-response.png)
 
-4. 重新啟動 App Service
+4. 重新啟動您的應用程式服務
 
     ![變更 DefaultAnswer 之後，請重新啟動 QnA Maker Appservice](../media/qnamaker-faq/qnamaker-appservice-restart.png)
 

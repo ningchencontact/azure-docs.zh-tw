@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f06da43e758c24da65664b34dd83f876a00e3a0
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 0501da153567f3b95804d8a8a6576d8cf199762c
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174907"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554009"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>在 Azure AD 權利管理中查看、新增和移除存取套件的指派
 
@@ -76,6 +76,24 @@ ms.locfileid: "73174907"
 1. 按一下 [**新增**]，將選取的使用者直接指派給存取封裝。
 
     幾分鐘後 **，按一下 [** 重新整理] 以查看 [指派] 清單中的使用者。
+
+## <a name="remove-an-assignment"></a>移除指派
+
+**先決條件角色：** 全域管理員、使用者系統管理員、目錄擁有者或存取套件管理員
+
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
+
+1. 在左側功能表中，按一下 [**存取套件**]，然後開啟存取封裝。
+
+1. 在左側功能表中，按一下 [**指派**]。
+ 
+1. 按一下您要從存取套件中移除其指派之使用者旁邊的核取方塊。 
+
+1. 按一下左窗格頂端附近的 [**移除**] 按鈕。 
+ 
+    ![指派-從存取套件移除使用者](./media/entitlement-management-access-package-assignments/remove-assignment-select-remove-assignment.png)
+
+    系統會顯示通知，告知您已移除指派。 
 
 ## <a name="next-steps"></a>後續步驟
 

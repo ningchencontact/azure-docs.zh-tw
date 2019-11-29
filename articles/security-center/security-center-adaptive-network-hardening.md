@@ -1,6 +1,6 @@
 ---
 title: Azure 資訊安全中心中的彈性網路強化 |Microsoft Docs
-description: " 瞭解如何在 Azure 資訊安全中心中啟用彈性網路強化功能。 "
+description: 瞭解如何根據實際的流量模式、您的網路安全性群組（NSG）規則進行強化，並進一步改善您的安全性狀態。
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 060a5a6a356574e04a3492cdeadd93ddf9a38535
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: fb1e381f9b956a0c6414a82505aced2cbdb2d680
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255233"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559284"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Azure 資訊安全中心中的彈性網路強化
 瞭解如何在 Azure 資訊安全中心中設定彈性網路強化功能。
@@ -33,17 +33,17 @@ ms.locfileid: "72255233"
 ![網路強化視圖](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
 > [!NOTE]
-> 下列埠支援彈性網路強化建議：22，3389，21，23，445，4333，3306，1433，1434，53，20，5985，5986，5432，139，66，1128
+> 下列埠支援彈性網路強化建議：22、3389、21、23、445、4333、3306、1433、1434、53、20、5985、5986、5432、139、66、1128
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>查看彈性網路強化警示和規則
 
-1. 在資訊安全中心中，選取 [**網路**] [ -> ] [彈性**網路強化**]。 網路 Vm 會列在三個不同的索引標籤底下：
-   * **狀況不良的資源**：目前有執行彈性網路強化演算法所觸發之建議和警示的 Vm。 
-   * **狀況良好的資源**：沒有警示和建議的 Vm。
-   * 未**掃描的資源**：因下列其中一個原因而無法執行彈性網路強化演算法的 Vm：
-      * **Vm 是傳統 vm**：僅支援 Azure Resource Manager 的 Vm。
-      * **沒有足夠的資料可供使用**：為了產生精確的流量強化建議，資訊安全中心需要至少30天的流量資料。
-      * **VM 不受 ASC 標準保護**：只有設定為資訊安全中心標準定價層的 Vm 才符合這項功能的資格。
+1. 在資訊安全中心中，選取 [**網路** -> 彈性**網路強化**]。 網路 Vm 會列在三個不同的索引標籤底下：
+   * **狀況不良的資源**：目前有執行彈性網路強化演算法所觸發之建議和警示的 vm。 
+   * **狀況良好的資源**：不含警示和建議的 vm。
+   * 未**掃描的資源**：由於下列其中一個原因，而無法執行調適型網路強化演算法的 vm：
+      * **Vm 是傳統 vm**：僅支援 Azure Resource Manager 的 vm。
+      * **沒有足夠的資料可供使用**：若要產生精確的流量強化建議，資訊安全中心需要至少30天的流量資料。
+      * **VM 不受 ASC 標準保護**：只有設定為資訊安全中心標準定價層的 vm 才符合這項功能的資格。
 
      ![狀況不良的資源](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
@@ -83,7 +83,7 @@ ms.locfileid: "72255233"
 * 您無法將「允許」規則變更成「拒絕」規則。 
 
   > [!NOTE]
-  > 建立和修改「拒絕」規則是直接在 NSG 上執行，如需詳細資訊，請參閱[建立、變更或刪除網路安全性群組](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)。
+  > 建立和修改「拒絕」規則是直接在 NSG 上完成。 如需詳細資訊，請參閱[建立、變更或刪除網路安全性群組](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)。
 
 * [**拒絕所有流量**] 規則是唯一會在此處列出的「拒絕」規則類型，而且無法修改。 不過，您可以刪除它（請參閱[刪除規則](#delete-rule)）。
   > [!NOTE]

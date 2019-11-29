@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: 0cab6eb38459a632f1e7bd1a21e6a7251d33f683
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: b151043babd6c67a17f704bb671a415fcc3ba7b2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647409"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280905"
 ---
 # <a name="machine-learned-features"></a>機器學習的功能 
 
-在機器學習中，*功能*是您的系統觀察 & 學習之資料的特性或屬性（attribute）。 在 Language Understanding （LUIS）中，功能會描述並說明您的意圖和實體有何意義。
+在機器學習中，_功能_是您的系統觀察 & 學習之資料的特性或屬性（attribute）。 在 Language Understanding （LUIS）中，功能會描述並說明您的意圖和實體有何意義。
 
 在[預覽 LUIS 入口網站](https://preview.luis.ai)中，功能是描述項 _，因為它們是用_來_說明_意圖或實體。  
 
@@ -57,7 +57,7 @@ ms.locfileid: "73647409"
 
 ### <a name="how-to-use-a-phrase-list"></a>如何使用片語清單
 
-當您的意圖或實體具有很重要的單字或片語時，請[建立片語清單](luis-how-to-add-features.md)清單，例如：
+當您的意圖或實體具有很重要的單字或片語時，請[建立片語清單](luis-how-to-add-features.md)，例如：
 
 * 業界術語
 * 俚語
@@ -82,11 +82,11 @@ ms.locfileid: "73647409"
 
 ### <a name="entity-as-a-feature-to-another-entity"></a>實體做為另一個實體的功能
 
-當實體（a）的偵測對（B）很重要時，應該將實體（A）當做功能加入另一個實體（B）。
+當實體（A）的偵測對實體（B）的預測很重要時，應該將實體（A）當做功能加入另一個實體（B）。
 
 例如，如果偵測到街道位址實體（A），則尋找街道位址（A）會為出貨位址實體（B）的預測增加權數。 
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 了解[最佳做法](luis-concept-best-practices.md)。
 
 ## <a name="next-steps"></a>後續步驟

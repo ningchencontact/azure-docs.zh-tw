@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure CLI 來建立具有區域前端的 Standard Load Balancer
-titlesuffix: Azure Load Balancer
+title: 具有區域性公用 IP 位址前端的 Standard Load Balancer-Azure CLI
+titleSuffix: Azure Load Balancer
 description: 了解如何使用 Azure CLI 來建立具有區域公用 IP 位址前端的公用 Standard Load Balancer
 services: load-balancer
 documentationcenter: na
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: allensu
-ms.openlocfilehash: 7da41456a4f4bb88d402d27b42b31f6d4adfa7f6
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b9c3a88df6801566bc927cfc18fda0adfa05a5ae
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274306"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076038"
 ---
-#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>使用 Azure CLI 來建立具有區域前端的 Standard Load Balancer
+#  <a name="create-a-standard-load-balancer-with-zonal-public-ip-address-frontend-using-azure-cli"></a>使用 Azure CLI 建立具有區域公用 IP 位址前端的 Standard Load Balancer
 
 本文會逐步說明如何使用標準公用 IP 位址，來建立具有區域前端的公用 [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard)。 在此案例中，您需為前端和後端執行個體指定特定區域，以讓您的資料路徑和資源與特定區域搭配運作。
 
-如需關於搭配使用可用性區域和標準 Load Balancer 的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
+如需有關搭配標準 Load Balancer 使用可用性區域的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
  
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -95,7 +95,7 @@ az network lb probe create \
 ```
 
 ## <a name="create-load-balancer-rule-for-port-80"></a>建立用於連接埠 80 的負載平衡器規則
-負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端 IP 集區，以及所需的來源和目的地連接埠。 使用 [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create) 建立負載平衡器規則 *myLoadBalancerRuleWeb*，用來接聽前端集區 *myFrontEndPool* 中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 *myBackEndPool* (也是使用連接埠 80)。
+負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端 IP 集區，以及所需的來源和目的地連接埠。 使用 *az network lb rule create* 建立負載平衡器規則 myLoadBalancerRuleWeb[](/cli/azure/network/lb/rule#az-network-lb-rule-create)，用來接聽前端集區 myFrontEndPool 中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 myBackEndPool (也是使用連接埠 80)。
 
 ```azurecli-interactive
 az network lb rule create \
@@ -115,7 +115,7 @@ az network lb rule create \
 
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
 
-使用 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)，在 myResourceGroup 中建立名為 *myVnet*且子網路名為 *mySubnet* 的虛擬網路。
+使用 *az network vnet create*，在 myResourceGroup 中建立名為 *myVnet*且子網路名為 [mySubnet](/cli/azure/network/vnet#az-network-vnet-create) 的虛擬網路。
 
 
 ```azurecli-interactive
@@ -128,7 +128,7 @@ az network vnet create \
 
 ### <a name="create-a-network-security-group"></a>建立網路安全性群組
 
-使用 [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).來建立名為 *myNetworkSecurityGroup* 的網路安全性群組，以定義對您虛擬網路的輸入連線。
+使用 *az network nsg create*.來建立名為 [myNetworkSecurityGroup](/cli/azure/network/nsg#az-network-nsg-create) 的網路安全性群組，以定義對您虛擬網路的輸入連線。
 
 ```azurecli-interactive
 az network nsg create \
@@ -136,7 +136,7 @@ az network nsg create \
 --name myNetworkSecurityGroup
 ```
 
-使用 [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) 來針對連接埠 80 建立名為 *myNetworkSecurityGroupRule* 的安全性群組規則。
+使用 *az network nsg rule create* 來針對連接埠 80 建立名為 [myNetworkSecurityGroupRule](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) 的安全性群組規則。
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -250,7 +250,7 @@ done
 若要查看負載平衡器如何將流量分散到區域 1 內執行您應用程式的 VM，您可以強制重新整理 Web 瀏覽器。
 
 ## <a name="next-steps"></a>後續步驟
-- 深入了解[標準負載平衡器](./load-balancer-standard-overview.md)。
+- 深入了解[標準 Load Balancer](./load-balancer-standard-overview.md)。
 
 
 

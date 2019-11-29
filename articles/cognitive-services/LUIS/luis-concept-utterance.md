@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: diberry
-ms.openlocfilehash: 8069b3b9c9a226e29a3eae3261948ee92291726d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7412677773b60a1894a6ece7251e797bfddee091
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486625"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280802"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>了解適合您 LUIS 應用程式的語句
 
@@ -60,17 +60,17 @@ ms.locfileid: "73486625"
 |我想要取得電腦，如何著手呢？|
 |我何時可擁有電腦？| 
 
-此處不變的核心字詞為「電腦」。 可使用桌上型電腦、膝上型電腦、工作站，甚至只稱為機器來替代。 LUIS 可運用智慧從上下文推斷出同義字，但當在建立用於定型的語句時，最好還是更改用字。
+這裡的核心詞彙「電腦」並不會有任何不同。 可使用桌上型電腦、膝上型電腦、工作站，甚至只稱為機器來替代。 LUIS 可以智慧地從內容推斷同義字，但當您建立定型的語句時，一定會改變它們。
 
 ## <a name="example-utterances-in-each-intent"></a>每個意圖的範例語句
 
-每個意圖都必須至少要有 15 個範例語句。 如果是沒有任何範例語句的意圖，則無法將 LUIS 定型。 如果是有一個或少數範例語句的意圖，LUIS 會無法準確地預測該意圖。 
+每個意圖都必須至少要有 15 個範例語句。 如果是沒有任何範例語句的意圖，則無法將 LUIS 定型。 如果您有一或多個範例語句的意圖，LUIS 可能無法精確預測意圖。 
 
 ## <a name="add-small-groups-of-15-utterances-for-each-authoring-iteration"></a>對每個製作反覆項目新增多個 15 個語句構成的群組
 
 請不要在模型的每個反覆項目中新增大量語句。 新增 15 個語句。 再次[定型](luis-how-to-train.md)、[發佈](luis-how-to-publish-app.md)及[測試](luis-interactive-test.md)。  
 
-LUIS 會利用由 LUIS 模型建立者精挑細選的語句來建置有效的模型。 新增太多語句只會導致產生混淆，並沒有用。  
+LUIS 會利用由 LUIS 模型建立者精挑細選的語句來建置有效的模型。 新增太多語句只會導致產生混淆，並沒有用。
 
 最好從少量語句開始，然後[檢閱端點語句](luis-how-to-review-endpoint-utterances.md)，以正確地預測意圖和擷取實體。
 
@@ -112,11 +112,11 @@ LUIS 會利用由 LUIS 模型建立者精挑細選的語句來建置有效的模
 
 如果標點符號不正規化，LUIS 預設不會忽略標點符號，因為有些用戶端應用程式可能會對這些標記有重要性。 請確定您的範例語句應有使用標點符號和不使用標點符號兩種版本，讓這兩種樣式傳回相同的相對分數。 
 
-請確定模型會在[範例語句](luis-concept-utterance.md) (含標點符號和不含標點符號) 或在更容易使用特殊語法來忽略標點符號的[模式](luis-concept-patterns.md)中處理標點符號：`I am applying for the {Job} position[.]`
+請確定模型會在範例語句（包含和不含標點符號）中處理標點符號，或在[模式](luis-concept-patterns.md)中，使用特殊語法更容易忽略標點符號： `I am applying for the {Job} position[.]`
 
 如果標點符號在您的用戶端應用程式中沒有特定意義，請考慮以正規化標點符號來[忽略標點符號](#utterance-normalization)。 
 
-### <a name="ignoring-words-and-punctuation"></a>忽略單字和標點符號
+### <a name="ignoring-words-and-punctuation"></a>忽略字組和標點符號
 
 如果您想要忽略模式中的特定單字或標點符號，請搭配使用[模式](luis-concept-patterns.md#pattern-syntax)與_略_過方括弧的語法，`[]`。 
 
@@ -132,7 +132,7 @@ LUIS 會利用由 LUIS 模型建立者精挑細選的語句來建置有效的模
 
 在將模型定型、發佈及接收[端點](luis-glossary.md#endpoint)查詢之後，請[檢閱 LUIS 所建議的語句](luis-how-to-review-endpoint-utterances.md)。 LUIS 會選取對意圖或實體而言分數低的端點語句。 
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 檢閱[最佳做法](luis-concept-best-practices.md)，並將其套用為一般撰寫週期的一部分。
 

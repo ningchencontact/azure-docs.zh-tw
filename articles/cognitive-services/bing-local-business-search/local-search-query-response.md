@@ -1,5 +1,5 @@
 ---
-title: 傳送並使用 Bing 當地商家搜尋 API 查詢和回應
+title: 傳送和使用 API 查詢和回應-Bing 當地企業搜尋
 titleSuffix: Azure Cognitive Services
 description: 使用本文了解如何使用 Bing 當地商家搜尋 API 來傳送和使用搜尋查詢。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
-ms.openlocfilehash: 31f81d76ff433d5f2e634b9a8f5fac50f8425f49
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 25bcdb89002fec4f9b67b091996d7bf80bcf21c8
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906366"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326729"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>傳送並使用 Bing 當地商家搜尋 API 查詢和回應
 
@@ -23,7 +23,7 @@ ms.locfileid: "69906366"
 
 ## <a name="creating-a-request"></a>建立要求
 
-若要將要求傳送至 Bing 當地商家搜尋 API，請在將 `q=` 參數新增至 API 端點之前將搜尋詞彙新增至該參數，並包含 `Ocp-Apim-Subscription-Key` 標頭。 例如:
+若要將要求傳送至 Bing 當地商家搜尋 API，請在將 `q=` 參數新增至 API 端點之前將搜尋詞彙新增至該參數，並包含 `Ocp-Apim-Subscription-Key` 標頭。 例如：
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
@@ -60,11 +60,11 @@ API 所傳回的 JSON 結果會包含下列屬性：
 * 位址
 * entityPresentationInfo
 * 地區
-* ID
-* name
+* id
+* 名稱
 * routeablePoint
 * telephone
-* url
+* URL
 
 如需關於標頭、參數、市場代碼、回應物件、錯誤的一般資訊，請參閱 [Bing 當地搜尋 API v7](local-search-reference.md) 參考。
 

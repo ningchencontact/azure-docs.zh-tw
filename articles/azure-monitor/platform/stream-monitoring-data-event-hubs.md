@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 84cb2b465735532ff44e35ab7a2fe4e9bb224e61
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: f282fce8070d440bdd3a518b4444eb0e67110961
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150009"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559071"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>將 Azure 監視資料串流至事件中樞
 Azure 監視器為 Azure、其他雲端和內部部署中的應用程式和服務，提供完整的完整堆疊監視解決方案。 除了使用 Azure 監視器來分析該資料，並將它運用在不同的監視案例中，您可能需要將它傳送至環境中的其他監視工具。 在大部分情況下，將監視資料串流至外部工具的最有效方法是使用[Azure 事件中樞](/azure/event-hubs/)。 本文提供如何將來自不同來源的監視資料串流至事件中樞的簡短描述，以及詳細指引的連結。
@@ -57,7 +57,7 @@ Azure 監視器為 Azure、其他雲端和內部部署中的應用程式和服�
 | sumologic | [從事件中樞收集 Azure Audit 應用程式的記錄](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)中有提供設定 SumoLogic 以取用來自事件中樞之資料的指示。 |
 | ArcSight | ArcSight Azure 事件中樞智慧連接器可作為[ArcSight 智慧連接器集合](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)的一部分。 |
 | Syslog 伺服器 | 如果您想要將 Azure 監視器資料直接串流到 syslog 伺服器，您可以使用以[Azure function 為基礎的解決方案](https://github.com/miguelangelopereira/azuremonitor2syslog/)。
-| LogRhythm | [這裡](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)提供從事件中樞設定 LogRhythm 以收集記錄檔的指示。 
+| LogRhythm | [這裡](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)提供設定 LogRhythm 以從事件中樞收集記錄的指示。 
 
 
 ## <a name="next-steps"></a>後續步驟

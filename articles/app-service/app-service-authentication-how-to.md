@@ -42,7 +42,7 @@ ms.locfileid: "72900127"
 
 在 [當要求未經驗證時所要採取的動作] 中，選取 [允許匿名要求 (無動作)]。
 
-在登入頁面或導覽列、或是您應用程式的任何其他位置中，將登入連結新增至您啟用的每個提供者 (`/.auth/login/<provider>`)。 例如：
+在登入頁面或導覽列、或是您應用程式的任何其他位置中，將登入連結新增至您啟用的每個提供者 (`/.auth/login/<provider>`)。 例如︰
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -64,7 +64,7 @@ ms.locfileid: "72900127"
 
 在用戶端導向的登入中，應用程式會以手動方式將使用者登入提供者，然後將驗證權杖提交給 App Service 進行驗證 (請參閱[驗證流程](overview-authentication-authorization.md#authentication-flow))。 此驗證本身並不會實際為您授與所需應用程式資源的存取權，但成功的驗證會給予您可用來存取應用程式資源的工作階段權杖。 
 
-若要驗證提供者權杖，App Service 應用程式必須先以所需的提供者進行設定。 在執行階段，在您從提供者擷取驗證權杖之後，請將權杖公佈到 `/.auth/login/<provider>` 進行驗證。 例如： 
+若要驗證提供者權杖，App Service 應用程式必須先以所需的提供者進行設定。 在執行階段，在您從提供者擷取驗證權杖之後，請將權杖公佈到 `/.auth/login/<provider>` 進行驗證。 例如︰ 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -95,7 +95,7 @@ Content-Type: application/json
 }
 ```
 
-在取得此工作階段權杖之後，您可以藉由將 `X-ZUMO-AUTH` 標頭新增至 HTTP 要求，來存取受保護的應用程式資源。 例如： 
+在取得此工作階段權杖之後，您可以藉由將 `X-ZUMO-AUTH` 標頭新增至 HTTP 要求，來存取受保護的應用程式資源。 例如︰ 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -116,13 +116,13 @@ X-ZUMO-AUTH: <authenticationToken_value>
 <a href="/.auth/logout">Sign out</a>
 ```
 
-成功登出預設會將用戶端重新導向到 URL `/.auth/logout/done`。 您可以新增 `post_logout_redirect_uri` 查詢參數來變更登出後重新導向頁面。 例如：
+成功登出預設會將用戶端重新導向到 URL `/.auth/logout/done`。 您可以新增 `post_logout_redirect_uri` 查詢參數來變更登出後重新導向頁面。 例如︰
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
 ```
 
-建議您將值 `post_logout_redirect_uri` [編碼](https://wikipedia.org/wiki/Percent-encoding)。
+建議您將值 [ ](https://wikipedia.org/wiki/Percent-encoding)編碼`post_logout_redirect_uri`。
 
 使用完整的 URL，URL 必須裝載於相同的網域，或設定為應用程式允許的外部重新導向 URL。 在下列範例中，將重新導向至不在相同的網域中裝載的 `https://myexternalurl.com`：
 
@@ -177,7 +177,7 @@ App Service 會使用特殊標頭，將使用者宣告傳遞至您的應用程�
 
 ## <a name="refresh-identity-provider-tokens"></a>重新整理識別提供者權杖
 
-當提供者的存取權杖 (而非[工作階段權杖](#extend-session-token-expiration-grace-period)) 到期時，您必須於再次使用該權杖之前重新驗證使用者。 您可以向應用程式的 `/.auth/refresh` 端點發出 `GET` 呼叫，以避免權杖到期。 一經呼叫，App Service 就會自動重新整理已驗證使用者在權杖放區中的存取權杖。 您應用程式程式碼的後續權杖要求會取得重新整理過的權杖。 不過，若要進行權杖重新整理，權杖存放區必須包含您提供者的[重新整理權杖](https://auth0.com/learn/refresh-tokens/)。 每個提供者會記載其重新整理權杖的取得方法，而下列清單僅為簡短摘要：
+當提供者的存取權杖 (而非[工作階段權杖](#extend-session-token-expiration-grace-period)) 到期時，您必須於再次使用該權杖之前重新驗證使用者。 您可以向應用程式的 `GET` 端點發出 `/.auth/refresh` 呼叫，以避免權杖到期。 一經呼叫，App Service 就會自動重新整理已驗證使用者在權杖放區中的存取權杖。 您應用程式程式碼的後續權杖要求會取得重新整理過的權杖。 不過，若要進行權杖重新整理，權杖存放區必須包含您提供者的[重新整理權杖](https://auth0.com/learn/refresh-tokens/)。 每個提供者會記載其重新整理權杖的取得方法，而下列清單僅為簡短摘要：
 
 - **Google**：將 `access_type=offline` 查詢字串參數附加至您的 `/.auth/login/google` API 呼叫。 如果是使用 Mobile Apps SDK，您可以將參數新增至其中一個 `LogicAsync` 多載 (請參閱 [Google 重新整理權杖](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens))。
 - **Facebook**：不提供重新整理權杖。 長時間執行的權杖會在 60 天內到期 (請參閱 [Facebook 到期和存取權杖的擴充功能](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension))。
@@ -186,7 +186,7 @@ App Service 會使用特殊標頭，將使用者宣告傳遞至您的應用程�
 - **Azure Active Directory**：在 [https://resources.azure.com](https://resources.azure.com) 中，執行下列步驟：
     1. 在頁面的頂端，選取 [讀取/寫入]。
     2. 在左側瀏覽器中，巡覽至 [訂用帳戶] >  **_\<subscription\_name_**  > **resourceGroups** >  **_\<resource\_group\_name>_**  > **providers** > **Microsoft.Web** > **sites** >  **_\<app\_name>_**  > **config** > **authsettings**。 
-    3. 按一下 [編輯]。
+    3. 按一下 [ **編輯**]。
     4. 修改下列屬性。 將 _\<app\_id>_ 取代為所要存取服務的 Azure Active Directory 應用程式識別碼。
 
         ```json
@@ -232,7 +232,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Microsoft 帳戶和 Azure Active Directory 都可讓您從多個網域登入。 例如，Microsoft 帳戶允許 _outlook.com_、_live.com_ 和 _hotmail.com_ 帳戶。 Azure AD 允許登入帳戶有任意數目的自訂網域。 不過，您可能會想要將使用者直接帶到您自己的品牌 Azure AD 登入頁面（例如 `contoso.com`）。 若要建議登入帳戶的功能變數名稱，請遵循下列步驟。
 
-在 [https://resources.azure.com](https://resources.azure.com) 中，巡覽至 [訂用帳戶] >  **_\< subscription\_ name_**  > **resourceGroups** >  **_\< resource\_ group\_ name>_**  > **providers** > **Microsoft.Web** > **sites** >  **_\< app\_ name>_**  > **config** > **authsettings**。 
+在 [https://resources.azure.com](https://resources.azure.com) 中，巡覽至 [訂用帳戶] >  **_\<subscription\_name_**  > **resourceGroups** >  **_\<resource\_group\_name>_**  > **providers** > **Microsoft.Web** > **sites** >  **_\<app\_name>_**  > **config** > **authsettings**。 
 
 按一下 [編輯]、修改下列屬性，然後按一下 [放置]。 請務必將 _\<domain\_name>_ 取代為您需要的網域。
 
@@ -278,7 +278,7 @@ Microsoft 帳戶和 Azure Active Directory 都可讓您從多個網域登入。 
 
 ### <a name="identity-provider-level"></a>識別提供者層級
 
-識別提供者可能會提供特定的「金鑰授權」。 例如：
+識別提供者可能會提供特定的「金鑰授權」。 例如︰
 
 - 針對[Azure App Service](configure-authentication-provider-aad.md)，您可以直接在 Azure AD 中[管理企業層級的存取](../active-directory/manage-apps/what-is-access-management.md)。 如需指示，請參閱[如何移除使用者對應用程式的存取權](../active-directory/manage-apps/methods-for-removing-user-access.md)。
 - 對於[google](configure-authentication-provider-google.md)，屬於[組織](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations)的 google API 專案可以設定為只允許您組織中的使用者存取（請參閱[Google 的**設定 OAuth 2.0**支援頁面](https://support.google.com/cloud/answer/6158849?hl=en)）。

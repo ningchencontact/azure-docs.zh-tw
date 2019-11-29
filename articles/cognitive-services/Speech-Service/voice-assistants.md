@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: bd808c0c71e02483b4c4b06e612720c1802869a0
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 403768bc81b476dd144d5e4496f3501a3001da8a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577964"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195928"
 ---
 # <a name="about-voice-assistants"></a>關於語音助理
 
-使用 Azure 語音服務的語音助理可讓開發人員為其應用程式和體驗建立自然、人類類似的對話介面。
+使用 Azure 語音服務的語音助理能賦予開發人員建立自然、擬人的對話介面，供其應用程式和體驗之用。
 
 語音助理服務可讓您在裝置與小幫手執行之間快速可靠地進行互動，使用（1） Bot Framework 的 Direct Line 語音通道，或（2）整合式自訂命令（預覽）服務來完成工作。
 
@@ -39,13 +39,14 @@ ms.locfileid: "73577964"
 如果您還不確定想要協助程式處理的內容，建議[Direct Line 語音](direct-line-speech.md)做為最佳的預設選擇。 它可以與一組豐富的工具和撰寫協助工具整合，例如[虛擬小幫手解決方案和企業範本](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview)，以及用來建立通用模式和使用現有知識來源的[QnA Maker 服務](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview)。
 
 [自訂命令（預覽）](custom-commands.md)提供簡化的撰寫和裝載體驗，特別針對自然語言命令和控制項案例量身打造。
-   ![助理解決方案的比較](media/voice-assistants/assistant-solution-comparison.png "Comparison assistant 解決方案」）
+
+   ![助理解決方案的比較](media/voice-assistants/assistant-solution-comparison.png "助理解決方案的比較")
 
 ## <a name="core-features"></a>核心功能
 
 無論您選擇[Direct Line 語音](direct-line-speech.md)或[自訂命令（預覽）](custom-commands.md)來建立助理互動，都可以使用一組豐富的自訂功能，針對您的品牌、產品和特性自訂您的小幫手。
 
-| 類別 | 特性 |
+| 類別 | 功能 |
 |----------|----------|
 |[Custom 關鍵字](speech-devices-sdk-create-kws.md) | 使用者可以使用自訂關鍵字（例如 "嗨 Contoso"）來開始與助理交談。 應用程式會使用語音 SDK 中的自訂關鍵字引擎來執行這項工作，您可以使用[這裡產生](speech-devices-sdk-create-kws.md)的自訂關鍵字來設定。 語音助理可以使用服務端關鍵字驗證來改善關鍵字啟用的精確度（與裝置本身的比較）。
 |[語音轉換文字](speech-to-text.md) | 語音助理會使用 Azure 語音服務的[語音轉換文字，](speech-to-text.md)將即時音訊轉換成已辨識的文字。 這項文字已轉譯，可供您的小幫手和用戶端應用程式使用。
@@ -55,7 +56,7 @@ ms.locfileid: "73577964"
 
 我們提供的快速入門是為了讓您在10分鐘內執行程式碼而設計的。 此表格包含依語言組織的語音助理快速入門清單。
 
-| 快速入門 | 平台 | API 參考資料 |
+| 快速入門 | 平台 | API 參考 |
 |------------|----------|---------------|
 | C#，UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | Java | Windows、macOS、Linux | [Browse](https://aka.ms/csspeech/javaref) |
@@ -65,7 +66,7 @@ ms.locfileid: "73577964"
 
 您可以在 GitHub 上取得用來建立語音助理的範例程式碼。 這些範例涵蓋了用來以數種熱門的程式設計語言連接到您的小幫手的用戶端應用程式。
 
-* [語音助理範例（SDK）](https://aka.ms/csspeech/samples)
+* [語音助理範例 (SDK)](https://aka.ms/csspeech/samples) \(英文\)
 * [教學課程：使用語音 SDK 語音啟用您的助理C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## <a name="tutorial"></a>教學課程

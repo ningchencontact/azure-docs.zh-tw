@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: fb72ed337219f58481c094d68342dbf6f26493c7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4a09389cfd9a5e61c1d73440545c76df7c9eadb2
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260667"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74566226"
 ---
 ## <a name="for-users-in-your-directory"></a>適用于您目錄中的使用者
 
@@ -106,6 +106,14 @@ ms.locfileid: "74260667"
 - 對每個選取的核准者進行核准，並不需要進行單一或2階段核准。
 - 核准決策是以第一次審核要求的核准者為基礎。
 
+如需如何將核准者新增至要求原則的示範，請觀看下列影片：
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4cZfg]
+
+如需如何將多階段核准新增至要求原則的示範，請觀看下列影片：
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4d1Jw]
+
 請遵循下列步驟來指定存取封裝要求的核准設定：
 
 1. 若要要求核准所選使用者的要求，請將 [**需要核准**] 切換設定為 **[是]** 。 或者，若要自動核准要求，請將切換設定為 [**否**]。
@@ -115,7 +123,6 @@ ms.locfileid: "74260667"
 1. 現在判斷要求是否需要單一或2階段核准。 設定**多個階段**切換為**1**以進行單一階段核准，或將2階段核准的切換設定為**2** 。
 
     ![存取套件-要求-核准設定](./media/active-directory-entitlement-management-request-policy/approval.png)
-
 
 選取您需要多少階段之後，請使用下列步驟來新增核准者： 
 

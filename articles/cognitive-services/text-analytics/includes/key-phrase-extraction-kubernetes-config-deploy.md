@@ -7,14 +7,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 5ec535fe2ce23a2ead1163e870aae97fd104ef09
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 35e7b85d31e9696f04dce610b6f2cf942543dc68
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130060"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383428"
 ---
 ### <a name="deploy-the-key-phrase-extraction-container-to-an-aks-cluster"></a>將關鍵片語擷取容器部署至 AKS 叢集
 
@@ -24,7 +24,7 @@ ms.locfileid: "71130060"
     az login
     ```
 
-1. 登入 AKS 叢集。 以`your-cluster-name`適當`your-resource-group`的值取代和。
+1. 登入 AKS 叢集。 以適當的值取代 `your-cluster-name` 和 `your-resource-group`。
 
     ```azurecli
     az aks get-credentials -n your-cluster-name -g -your-resource-group
@@ -37,7 +37,7 @@ ms.locfileid: "71130060"
     ```
 
     > [!WARNING]
-    > 如果您的 Azure 帳戶有多個可用的訂用帳戶， `az aks get-credentials`且該命令傳回錯誤，則常見的問題是您使用了錯誤的訂閱。 將 Azure CLI 會話的內容設定為使用您用來建立資源的相同訂用帳戶，然後再試一次。
+    > 如果您的 Azure 帳戶有多個可用的訂用帳戶，且 `az aks get-credentials` 命令傳回錯誤，則常見的問題是您使用錯誤的訂閱。 將 Azure CLI 會話的內容設定為使用您用來建立資源的相同訂用帳戶，然後再試一次。
     > ```azurecli
     >  az account set -s subscription-id
     > ```
@@ -48,7 +48,7 @@ ms.locfileid: "71130060"
     code .
     ```
 
-1. 在文字編輯器中，建立名為*keyphrase*的新檔案，並在其中貼上下列 yaml。 請務必將和`billing/value` `apikey/value`取代為您自己的資訊。
+1. 在文字編輯器中，建立名為*keyphrase*的新檔案，並在其中貼上下列 yaml。 請務必以您自己的資訊取代 `billing/value` 和 `apikey/value`。
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -66,6 +66,13 @@ ms.locfileid: "71130060"
             image: mcr.microsoft.com/azure-cognitive-services/keyphrase
             ports:
             - containerPort: 5000
+            resources:
+              requests:
+                memory: 2Gi
+                cpu: 1
+              limits:
+                memory: 4Gi
+                cpu: 1
             env:
             - name: EULA
               value: "accept"
@@ -88,10 +95,10 @@ ms.locfileid: "71130060"
     ```
 
 1. 儲存檔案，然後關閉文字編輯器。
-1. 以`apply` *keyphrase. yaml*檔案作為目標來執行 Kubernetes 命令：
+1. 執行 Kubernetes `apply` 命令，並將*keyphrase. yaml*檔案作為其目標：
 
     ```console
-    kuberctl apply -f keyphrase.yaml
+    kubectl apply -f keyphrase.yaml
     ```
 
     命令成功套用部署設定後，會出現類似下列輸出的訊息：

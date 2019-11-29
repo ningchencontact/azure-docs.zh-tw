@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: d308623a323fecd39efa90639da71fb981936fe5
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 6cf6cfb005155b85278935af6f266dfebcbb44c6
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930583"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554953"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>快速入門：在 Python 中針對長格式音訊進行非同步合成（預覽）
 
@@ -24,13 +24,13 @@ ms.locfileid: "73930583"
 > [!NOTE]
 > 適用于長格式音訊的非同步合成僅能與[自訂類神經語音](../../how-to-custom-voice.md#custom-neural-voices)搭配使用。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本快速入門需要：
 
 * Python 2.7. x 或3.x。
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)]、[ [Visual Studio Code](https://code.visualstudio.com/download) 或您慣用的文字編輯器。
-* Azure 訂用帳戶和語音服務訂用帳戶金鑰。 [建立 Azure 帳戶](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account)，並[建立語音資源](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)以取得金鑰。 建立語音資源時，請確定您的定價層已設定為**S0**，且 location 已設定為支援的[區域](../../regions.md#standard-and-neural-voices)。
+* Azure 訂用帳戶和語音服務訂用帳戶金鑰。 [建立 Azure 帳戶](../../get-started.md#try-the-speech-service-using-a-new-azure-account)，並[建立語音資源](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)以取得金鑰。 建立語音資源時，請確定您的定價層已設定為**S0**，且 location 已設定為支援的[區域](../../regions.md#standard-and-neural-voices)。
 
 ## <a name="create-a-project-and-import-required-modules"></a>建立專案，並匯入所需的模組
 

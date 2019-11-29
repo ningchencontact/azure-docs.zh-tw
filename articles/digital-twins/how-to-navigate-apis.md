@@ -1,5 +1,5 @@
 ---
-title: 瀏覽 Azure Digital Twins API | Microsoft Docs
+title: 流覽 Api-Azure 數位 Twins |Microsoft Docs
 description: 了解查詢 Azure Digital Twins 管理 API 的常見模式。
 ms.author: alinast
 author: alinamstanciu
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/27/2019
-ms.openlocfilehash: 5df8bb0ba0323692bddf94ae2888e8fcf1ad24a9
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 135c760919f094f7b2d242ad37cc1cadb614e36e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063274"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009995"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>如何使用 Azure Digital Twins 管理 API
 
@@ -39,7 +39,7 @@ Azure Digital Twins 管理 API 可為您的 IoT 應用程式提供強大功能�
 
 * [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers)：這些 api 可讓您指定您想要從傳入的裝置資料評估的條件。 如需詳細資訊，請參閱[這篇文章](concepts-user-defined-functions.md#matchers)。 
 
-* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions)：這些 api 可讓您建立、刪除或更新自訂函式，該函式會在*比對器*所定義的條件發生時執行，以處理來自您的安裝程式的資料。 如需自訂函式 (也稱為「使用者定義函式」) 的詳細資訊，請參閱[這篇文章](concepts-user-defined-functions.md#user-defined-functions)。 
+* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions)：這些 api 可讓您建立、刪除或更新自訂函式，該函式會在*比對器*所定義的條件發生時執行，以處理來自您的安裝程式的資料。 如需自訂函式 (也稱為「使用者定義函式」[](concepts-user-defined-functions.md#user-defined-functions)) 的詳細資訊，請參閱*這篇文章*。 
 
 * [/endpoints](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Endpoints)：這些 api 可讓您建立端點，讓您的數位 Twins 解決方案可以與其他 Azure 服務通訊，以進行資料儲存和分析。 如需詳細資訊，請閱讀[這篇文章](concepts-events-routing.md)。 
 
@@ -116,4 +116,4 @@ Digital Twins API 支援使用下列參數篩選和瀏覽整個空間圖形：
 
 若要深入瞭解您的 API 端點，請閱讀[如何使用數位 Twins Swagger](./how-to-use-swagger.md)。
 
-若要查看 OData 語法和可用的比較運算子，請閱讀[Azure 搜尋服務中的 odata 比較運算子](../search/search-query-odata-comparison-operators.md)。
+若要查看 OData 語法和可用的比較運算子，請參閱[Azure 認知搜尋中的 odata 比較運算子](../search/search-query-odata-comparison-operators.md)。

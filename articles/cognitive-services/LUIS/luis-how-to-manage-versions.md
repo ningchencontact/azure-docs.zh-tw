@@ -9,26 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: aa1cbd08bdf8d92653a8f30ae67ecd813e563999
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 138b84a9b7f54782fd6254304a3fdcf4dba83182
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467508"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74221912"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>使用版本進行編輯和測試而不影響預備或生產應用程式
 
 版本可讓您建置及發佈不同的模型。 理想的做法是先將目前作用中的模型複製到不同的應用程式[版本](luis-concept-version.md)，再對模型進行變更。 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
 若要使用版本，請在 [我的應用程式] 頁面上選取應用程式的名稱來開啟應用程式，接著選取頂端列中的 [管理]，然後選取左側導覽中的 [版本]。 
 
 版本清單會顯示發行的版本、發行的位置，以及目前使用中的版本。 
 
-[![管理區段，版本頁面](./media/luis-how-to-manage-versions/versions-import.png "[版本] 頁面的 [管理] 區段")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
+> [!div class="mx-imgBorder"]
+> [![管理區段，版本頁面](./media/luis-how-to-manage-versions/versions-import.png "[版本] 頁面的 [管理] 區段")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## <a name="clone-a-version"></a>複製版本
 
@@ -45,15 +44,18 @@ ms.locfileid: "73467508"
 
 ## <a name="set-active-version"></a>設定使用中版本
 
-從清單中選取版本，然後從工具列中選取 [設成作用中]。 
+從清單中選取版本，然後從工具列中選取 [**啟動**]。 
 
-[![[管理] 區段、[版本] 頁面、[建立版本] 動作](./media/luis-how-to-manage-versions/versions-other.png "[管理] 區段、[版本] 頁面、[建立版本] 動作")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+> [!div class="mx-imgBorder"]
+> [![[管理] 區段、[版本] 頁面、[建立版本] 動作](./media/luis-how-to-manage-versions/versions-other.png "[管理] 區段、[版本] 頁面、[建立版本] 動作")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>匯入版本
 
-1. 從工具列中選取 [匯入版本]。 
+您可以匯入 `.json` 或應用程式的 `.lu` 版本。
 
-2. 在 [匯入新版本] 快顯視窗中，輸入新的版本名稱 (10 個字元)。 如果應用程式中已有 JSON 檔案中的版本，您就只需要設定版本識別碼。
+1. 從工具列中選取 [匯**入**]，然後選取格式。 
+
+2. 在 [匯入新版本] 快顯視窗中，輸入新的版本名稱 (10 個字元)。 如果檔案中的版本已存在於應用程式中，您只需要設定版本識別碼。
 
     ![管理區段, 版本頁面, 匯入新版本](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 

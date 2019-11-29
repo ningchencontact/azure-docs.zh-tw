@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 15c7c6664b0c17d02f1f4e9120c9509fda21e0f4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 96aa7517a3418ab30b0b6a1736eea950ecf4a731
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467540"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533794"
 ---
 # <a name="add-contributors-to-your-app"></a>將參與者新增至您的應用程式
 
 應用程式擁有者可以將參與者新增至應用程式。 這些共同作業者可以修改模型、訓練及發佈應用程式。 
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 [!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
 
@@ -56,8 +54,6 @@ ms.locfileid: "73467540"
 1. 從右上方功能表中選取 [管理]，然後選取左側功能表中的 [共同作業者]。
 
 1. 從工具列中選取 [新增共同作業者]。
-
-    [![新增共同作業者](./media/luis-how-to-collaborate/add-collaborator.png "新增共同作業者")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
 
 1. 輸入共同作業者用來登入 LUIS 入口網站的電子郵件地址。
 
@@ -93,7 +89,7 @@ LUIS 使用標準 Azure Active Directory (Azure AD) 同意流程。
 
 如果租用戶系統管理員只希望特定使用者使用 LUIS，則有一些可能的解決方式：
 * 提供「管理員同意」(同意 Azure AD 的所有使用者)，然後將 [企業應用程式屬性] 之下的 [需要使用者指派] 設定為 [是]，最後只將想要的使用者指派/新增至應用程式。 使用此方法，系統管理員仍提供應用程式的「管理員同意」，不過，能夠控制可以存取該應用程式的使用者。
-* 第二個解決方式是使用 [Azure AD Graph API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview)，以同意每個特定的使用者。 
+* 第二個解決方案是使用[Microsoft Graph 中的 Azure AD 身分識別和存取管理 API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) ，為每個特定使用者提供同意。 
 
 深入了解 Azure Active Directory 使用者和同意： 
 * [將您的應用程式限制](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md)為僅供一組使用者存取

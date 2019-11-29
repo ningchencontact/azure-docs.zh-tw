@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: d9cb86c1c19649052e4796fd0a8909ce08381d55
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e0b5b95a7524b60a7c3367035a15a7158fa7908a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487575"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280845"
 ---
 # <a name="prebuilt-models"></a>預先建置的模型
 
@@ -26,7 +26,7 @@ ms.locfileid: "73487575"
 
 LUIS 提供三種類型的預建模型。 您可以隨時將各個模型新增至您的應用程式。 
 
-|模型類型|包括|
+|模型類型|包含|
 |--|--|
 |[網域](luis-reference-prebuilt-domains.md)|意圖、語句、實體|
 |對應方式|意圖、語句|
@@ -34,7 +34,7 @@ LUIS 提供三種類型的預建模型。 您可以隨時將各個模型新增�
 
 ## <a name="prebuilt-domains"></a>預先建置的定義域
 
-Language Understanding （LUIS）提供*預先*建立的網域，這是預先定型的[意圖](luis-how-to-add-intents.md)和[實體](luis-concept-entity-types.md)模型，可針對網域或常見的用戶端應用程式類別一起使用。 
+Language Understanding （LUIS）提供預先定型的*網域*，這是針對網域或通用類別的用戶端應用程式一起使用的[意圖](luis-how-to-add-intents.md)和[實體](luis-concept-entity-types.md)預先訓練模型。 
 
 預先建置的定義域已定型，並已準備好新增到您的 LUIS 應用程式。 將預先建立的定義域新增至您的應用程式之後，就可以完全自訂這些意圖和實體。 
 
@@ -44,13 +44,13 @@ Language Understanding （LUIS）提供*預先*建立的網域，這是預先定
 
 ### <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>變更預建網域意圖的行為
 
-您可能會發現，預建網域包含的意圖類似於您希望存在 LUIS 應用程式中，但行為不同的意圖。 例如，[**位置**] 預建網域會提供一個 `MakeReservation` 的意圖來進行餐廳保留，但您希望您的應用程式使用該意圖來進行飯店預訂。 在這種情況下，您可以藉由將範例語句新增至關於進行飯店預訂的意圖來修改該意圖的行為。 然後重新訓練應用程式。 
+您可能會發現，預建網域包含的意圖類似於您希望存在 LUIS 應用程式中，但行為不同的意圖。 例如，[**位置**] 預建網域會提供一個 `MakeReservation` 的意圖來進行餐廳保留，但您希望您的應用程式使用該意圖來進行飯店預訂。 在此情況下，您可以修改該意圖的行為，方法是將範例語句新增至有關進行飯店預訂的意圖，然後重新定型應用程式。 
 
 您可以在[預建網域參考](./luis-reference-prebuilt-domains.md)中發現完整的預建網域清單。
 
 ## <a name="prebuilt-intents"></a>預先建置的意圖
 
-LUIS 會從預先建立的網域提供預先建立的意圖及其語句。 您可以新增意圖而不新增整個定義域。 新增意圖是將意圖和其語句新增至應用程式的過程。 意圖名稱和語句清單都可供修改。  
+LUIS 會為其每個預建網域提供預先建立的意圖及其語句。 您可以新增意圖而不新增整個定義域。 新增意圖是將意圖和其語句新增至應用程式的過程。 意圖名稱和語句清單都可供修改。  
 
 ## <a name="prebuilt-entities"></a>預先建置實體
 

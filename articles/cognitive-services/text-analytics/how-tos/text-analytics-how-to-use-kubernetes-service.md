@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: db1c26805f76b0ca8991a562531b4476b6899d86
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 3264ec5a83277e6bb4befad46cd1337175e911c5
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130092"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383450"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>將文字分析容器部署至 Azure Kubernetes Service
 
@@ -25,7 +25,7 @@ ms.locfileid: "71130092"
 
 此程序需要必須安裝並在本機執行的多個工具。 請勿使用 Azure Cloud Shell。 您需要下列項目：
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 * 文字編輯器，例如[Visual Studio Code](https://code.visualstudio.com/download)。
 * 已安裝[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 。
 * 已安裝[KUBERNETES CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 。

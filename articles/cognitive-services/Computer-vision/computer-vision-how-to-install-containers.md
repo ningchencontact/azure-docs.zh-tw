@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/21/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 2b6918e9b334ee8a906a477ee1c3e7e4d86e8551
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c65ed214747fd6a3729c2e9acff5489f5fa1b9d7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481782"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323617"
 ---
-# <a name="install-and-run-read-containers"></a>安裝和執行讀取容器
+# <a name="install-and-run-read-containers-preview"></a>安裝和執行讀取容器（預覽）
 
 容器可讓您在自己的環境中執行電腦視覺 Api。 容器非常適合用於特定的安全性和資料控管需求。 在本文中，您將瞭解如何下載、安裝及執行電腦視覺容器。
 
@@ -30,11 +30,15 @@ ms.locfileid: "73481782"
 
 使用容器之前，您必須符合下列必要條件：
 
-|必要|目的|
+|必要項|目的|
 |--|--|
 |Docker 引擎| 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> **在 Windows 上**，也必須將 Docker 設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。| 
 |電腦視覺資源 |若要使用此容器，您必須具備：<br><br>Azure**電腦視覺**資源和相關聯的 API 金鑰端點 URI。 這兩個值都可在資源的 [總覽] 和 [金鑰] 頁面上取得，而且必須要有才能啟動容器。<br><br>**{API_KEY}** ： [**金鑰**] 頁面上有兩個可用的資源金鑰之一<br><br>**{ENDPOINT_URI}** ： [**總覽**] 頁面上所提供的端點|
+
+## <a name="request-access-to-the-private-container-registry"></a>要求私人容器登錄的存取
+
+[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -68,7 +72,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
 
 容器位於[主機電腦](#the-host-computer)上時，請透過下列程序來使用容器。
 
-1. 使用所需的計費設定[執行容器](#run-the-container-with-docker-run)。 [ 命令有相關](computer-vision-resource-container-config.md)範例`docker run`可供參考。 
+1. 使用所需的計費設定[執行容器](#run-the-container-with-docker-run)。 `docker run` 命令有相關[範例](computer-vision-resource-container-config.md)可供參考。 
 1. [查詢容器的預測端點](#query-the-containers-prediction-endpoint)。 
 
 ## <a name="run-the-container-with-docker-run"></a>透過 `docker run` 執行容器
@@ -92,7 +96,7 @@ ApiKey={API_KEY}
 * 公開 TCP 埠5000，並為容器配置虛擬 TTY。
 * 在容器結束之後自動將其移除。 容器映像仍可在主機電腦上使用。
 
-[ 命令有相關](./computer-vision-resource-container-config.md#example-docker-run-commands)範例`docker run`可供參考。 
+`docker run` 命令有相關[範例](./computer-vision-resource-container-config.md#example-docker-run-commands)可供參考。 
 
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](#billing)。
@@ -111,13 +115,13 @@ ApiKey={API_KEY}
 
 ### <a name="asynchronous-read"></a>非同步讀取
 
-您可以使用 `POST /vision/v2.0/read/core/asyncBatchAnalyze` 和 `GET /vision/v2.0/read/operations/{operationId}` 作業，以非同步方式讀取影像，類似于電腦視覺服務如何使用這些對應的 REST 作業。 非同步 POST 方法會傳回 `operationId`，做為 HTTP GET 要求的識別碼使用。
+您可以使用 `POST /vision/v2.0/read/core/asyncBatchAnalyze` 和 `GET /vision/v2.0/read/operations/{operationId}` 作業，以非同步方式讀取影像，類似于電腦視覺服務如何使用這些對應的 REST 作業。 非同步 POST 方法會傳回用來做為 HTTP GET 要求之識別碼的 `operationId`。
 
-從 swagger UI 中，選取 [`asyncBatchAnalyze`]，以在瀏覽器中展開。 然後選取 [立即**試用**] > **選擇 [** 檔案]。 在此範例中，我們將使用下列影像：
+從 swagger UI 中選取 `asyncBatchAnalyze`，以在瀏覽器中展開。 然後選取 [立即**試用**] > **選擇 [** 檔案]。 在此範例中，我們將使用下列影像：
 
 ![索引標籤與空格](media/tabs-vs-spaces.png)
 
-當非同步 POST 順利執行時，它會傳回**HTTP 202**狀態碼。 作為回應的一部分，有一個 `operation-location` 標頭，其中包含要求的結果端點。
+當非同步 POST 順利執行時，它會傳回**HTTP 202**狀態碼。 作為回應的一部分，會有一個 `operation-location` 標頭，其中包含要求的結果端點。
 
 ```http
  content-length: 0
@@ -217,7 +221,7 @@ ApiKey={API_KEY}
 
 ### <a name="synchronous-read"></a>同步讀取
 
-您可以使用 `POST /vision/v2.0/read/core/Analyze` 作業來同步讀取影像。 當影像完整讀取時，只有，API 才會傳回 JSON 回應。 唯一的例外狀況是如果發生錯誤。 當發生錯誤時，會傳回下列 JSON：
+您可以使用 `POST /vision/v2.0/read/core/Analyze` 作業，以同步方式讀取影像。 當影像完整讀取時，只有，API 才會傳回 JSON 回應。 唯一的例外狀況是如果發生錯誤。 當發生錯誤時，會傳回下列 JSON：
 
 ```json
 {
@@ -296,22 +300,22 @@ export interface Word {
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 在本文中，您已了解下載、安裝及執行電腦視覺容器的概念和工作流程。 摘要說明：
 
 * 電腦視覺提供適用于 Docker 的 Linux 容器，封裝讀取。
 * 容器映射是從 Azure 中的「容器預覽」容器登錄下載。
-* 容器映像在 Docker 中執行。
+* 容器映像是在 Docker 中執行。
 * 您可以藉由指定容器的主機 URI，使用 REST API 或 SDK 來呼叫讀取容器中的作業。
-* 在具現化容器時，您必須指定計費資訊。
+* 將容器具現化時，您必須指定帳單資訊。
 
 > [!IMPORTANT]
 > 認知服務容器在未連線至 Azure 以進行計量的情況下，將無法被授權以執行。 客戶必須啟用容器以持續與計量服務進行帳單資訊的通訊。 認知服務容器不會將客戶資料 (例如正在分析的影像或文字) 傳送至 Microsoft。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 檢閱[設定容器](computer-vision-resource-container-config.md)，以取得設定的資訊
+* 檢閱[設定容器](computer-vision-resource-container-config.md)以了解組態設定
 * 檢閱[電腦視覺概觀](Home.md)，以深入了解辨識印刷和手寫的文字
 * 參閱[電腦視覺 API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)，以取得容器支援的方法之詳細資訊。
 * 參閱[常見問題集 (FAQ)](FAQ.md) 來解決與電腦視覺功能相關的問題。

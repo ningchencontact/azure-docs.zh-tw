@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: f8793975d920e24924fca7c2ae366f70972e6ab7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 925d21d22806ab2854be29b9648aab78138741ec
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468625"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422618"
 ---
 # <a name="support-and-help-options"></a>支援和協助選項
 
@@ -37,7 +37,7 @@ ms.locfileid: "73468625"
 
 當有新版本可用時，就會立即更新[版本](https://aka.ms/csspeech/whatsnew)資訊。 這些附注包含新功能、改進和 bug 修正的相關資訊。
 
-## <a name="search"></a>搜尋
+## <a name="search"></a>Search
 
 您可能會在下列項目中發現需要的答案：文件、範例或 [Stack Overflow](https://www.stackoverflow.com) 問題的解答。
 
@@ -62,16 +62,7 @@ Azure 客戶可以在 Azure 入口網站中建立和管理支援要求。
 
 Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 Microsoft 小組成員會在這裡直接參與以協助您解決問題。
 
-若無法透過搜尋找到問題的解答，請將新問題提交至 Stack Overflow。 制訂問題時，請使用下列其中一個標記：
-
-|元件/區域  |標記  |
-|---------|---------|
-|語音辨識 |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|語音合成 |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|語音翻譯 |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|語音意圖 |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|一般語音 SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-|語音助理 | [[microsoft-認知 + 虛擬助理 + botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
+如果您無法透過搜尋找到問題的解答，請使用[microsoft 認知-語音](https://stackoverflow.com/questions/tagged/microsoft-cognitive-speech)標記將新問題提交至 Stack Overflow。
 
 > [!TIP]
 > Stack Overflow 的下列貼文包含如何提出問題以及新增原始程式碼的提示。 遵循這些指導方針有助於增加社群成員快速評估並回應您問題的機會：  

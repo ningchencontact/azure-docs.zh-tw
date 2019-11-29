@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 資訊安全中心管理端點保護 | Microsoft Docs
-description: 了解如何管理 Azure 資訊安全中心中的端點保護問題。
+description: 瞭解資訊安全中心的端點保護監視，以及如何修復任何發生的問題。
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: memildin
-ms.openlocfilehash: b1bcce1e94a64253986ad9b1fd77874ba0a39839
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 70b7f511c32013a5dbc9369a2dfba2b8cd5f9145
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202080"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558618"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>使用 Azure 資訊安全中心管理端點保護
-Azure 資訊安全中心會監視反惡意程式碼軟體的狀態，並在 [端點保護問題] 刀鋒視窗下報告此狀態。 資訊安全中心會強調問題所在，例如偵測到威脅和防護不足，這些問題會造成虛擬機器 (VM) 和電腦容易遭受反惡意程式碼軟體威脅。 您可以使用 [端點保護問題] 的資訊，找出可解決找出的問題的方案。
+Azure 資訊安全中心會監視反惡意程式碼防護的狀態，並在 [Endpoint protection 問題] 頁面底下回報此情況。 資訊安全中心會強調問題所在，例如偵測到威脅和防護不足，這些問題會造成虛擬機器 (VM) 和電腦容易遭受反惡意程式碼軟體威脅。 您可以使用 [端點保護問題] 的資訊，找出可解決找出的問題的方案。
 
 資訊安全中心會報告下列端點保護問題：
 
@@ -30,7 +30,7 @@ Azure 資訊安全中心會監視反惡意程式碼軟體的狀態，並在 [端
 - 端點保護健康情況：
 
   - 簽章已過期 - VM 和電腦上已安裝反惡意程式碼軟體解決方案，但是該解決方案沒有最新的反惡意程式碼軟體簽章。
-  - 沒有即時保護 - VM 和電腦上已安裝反惡意程式碼軟體解決方案，但是並未設定即時保護。   該服務可能已停用，或者資訊安全中心可能因為不支援該解決方案而無法取得狀態。 如需支援的解決方案清單，請參閱[夥伴整合](security-center-services.md#endpoint-supported)。
+  - 沒有即時保護 - VM 和電腦上已安裝反惡意程式碼軟體解決方案，但是並未設定即時保護。 該服務可能已停用，或者資訊安全中心可能因為不支援該解決方案而無法取得狀態。 如需支援的解決方案清單，請參閱[夥伴整合](security-center-services.md#endpoint-supported)。
   - 未回報 – 已安裝反惡意程式碼軟體解決方案，但是未報告資料。
   - 未知 - 已安裝反惡意程式碼軟體解決方案，但是其狀態為未知或報告未知錯誤。
 
@@ -40,7 +40,7 @@ Azure 資訊安全中心會監視反惡意程式碼軟體的狀態，並在 [端
     >
 
 ## <a name="implement-the-recommendation"></a>實作建議
-端點保護會以建議的形式在資訊安全中心中呈現。  如果您的環境容易遭受反惡意程式碼軟體威脅，在 [建議] 下和 [計算] 下會顯示這項建議。 若要查看**端點保護問題儀表板**，您必須遵循計算工作流程。
+端點保護會以建議的形式在資訊安全中心中呈現。 如果您的環境容易遭受反惡意程式碼軟體威脅，在 [建議] 下和 [計算] 下會顯示這項建議。 若要查看**端點保護問題儀表板**，您必須遵循計算工作流程。
 
 在此範例中，我們使用 [計算]。  我們將探討如何在 Azure VM 和非 Azure 電腦上安裝反惡意程式碼軟體。
 
@@ -104,11 +104,11 @@ Azure 資訊安全中心會監視反惡意程式碼軟體的狀態，並在 [端
 若要深入了解資訊安全中心，請參閱下列文件：
 
 * [設定 Azure 資訊安全中心的安全性原則](tutorial-security-policy.md) -- 了解如何設定安全性原則。
-* [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md) -- 了解建議如何協助保護您的 Azure 資源。
+* [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md) -- 了解建議如何協助您保護您的 Azure 資源。
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md) -- 了解如何監視 Azure 資源的健全狀況。
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) -- 了解如何管理與回應安全性警示。
 * [使用 Azure 資訊安全中心監視合作夥伴解決方案](security-center-partner-solutions.md) -- 了解如何監視合作夥伴解決方案的健全狀況。
-* [Azure 資訊安全中心常見問題集](security-center-faq.md) -- 尋找有關使用服務的常見問題。
+* [Azure 安全性中心常見問題集](security-center-faq.md) -- 尋找使用服務的常見問題。
 * [Azure 安全性部落格](https://blogs.msdn.com/b/azuresecurity/) -- 尋找有關 Azure 安全性與相容性的部落格文章。
 
 <!--Image references-->

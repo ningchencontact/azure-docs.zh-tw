@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 2f8b0fe83e10beb3b65dca08e18b03f4fc11947e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 9cec4c436c6e8ea08e37ec0ddd8a9a01e493447c
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457104"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561705"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio 2019 來開發和偵測模組，以進行 Azure IoT Edge
 
@@ -28,7 +28,7 @@ Azure IoT Edge Tools for Visual Studio 提供下列優點：
 
 本文說明如何使用適用于 Visual Studio 2019 的 Azure IoT Edge 工具來開發您的 IoT Edge 模組。 您也將學習如何將專案部署到 Azure IoT Edge 裝置。 目前，Visual Studio 2019 提供以 C 和C#撰寫之模組的支援。 支援的裝置架構為 Windows X64 和 Linux X64 或 ARM32。 如需有關支援的作業系統、語言和架構的詳細資訊，請參閱[語言和架構支援](module-development.md#language-and-architecture-support)。
   
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 此文章假設您使用執行 Windows 的電腦或虛擬機器作為開發電腦。 在 Windows 電腦上，您可以開發 Windows 或 Linux 模組。 若要開發 Windows 模組，請使用執行 1809/組建17763或更新版本的 Windows 電腦。 若要開發 Linux 模組，請使用符合[Docker Desktop 需求](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)的 Windows 電腦。 
 
@@ -105,6 +105,8 @@ Visual Studio 中的 Azure IoT Edge 專案範本可建立可以在 Azure IoT 中
 1. 選取 **[確定]** ，以使用C#或 C 的模組來建立 Azure IoT Edge 解決方案。
 
 現在您已有**AzureIoTEdgeApp1**或**AzureIoTEdgeApp1**專案，以及您的方案中的**IotEdgeModule1**專案。 每個**AzureIoTEdgeApp1**專案都有一個 `deployment.template.json` 檔案，該檔案會定義您想要為您的 IoT Edge 方案建立及部署的模組，也會定義模組之間的路由。 預設解決方案具有**SimulatedTemperatureSensor**模組和**IotEdgeModule1**模組。 **SimulatedTemperatureSensor**模組會將模擬的資料產生到**IotEdgeModule1**模組，而**IotEdgeModule1**模組中的預設程式碼會直接將收到的訊息傳送至 Azure IoT 中樞。
+
+若要查看模擬的溫度感應器如何運作，請參閱[SimulatedTemperatureSensor 的原始碼](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor)。
 
 **IotEdgeModule1**專案是 .net Core 2.1 主控台應用程式（如果它是C#模組）。 它包含執行 Windows 容器或 Linux 容器之 IoT Edge 裝置所需的 Dockerfiles。 `module.json` 檔案描述模組的中繼資料。 實際的模組程式碼（採用 Azure IoT 裝置 SDK 作為相依性）可在 `Program.cs` 或 `main.c` 檔案中找到。
 
@@ -222,7 +224,7 @@ Visual Studio 中的 Azure IoT Edge 專案範本可建立可以在 Azure IoT 中
 
 在您用來設定 IoT Edge 裝置的快速入門文章中，您使用 Azure 入口網站部署了模組。 您也可以使用適用於 Visual Studio 的 Cloud Explorer 來部署模組。 您已備妥對於您的案例準備的部署資訊清單 (`deployment.json` 檔案)，您只需要選取要接收部署的裝置即可。
 
-1. 依序按一下 [檢視] **[Cloud Explorer]**  >  以開啟 **Cloud Explorer**。 請確定您已登入 Visual Studio 2019。
+1. 依序按一下 [檢視] > [Cloud Explorer] 以開啟 **Cloud Explorer**。 請確定您已登入 Visual Studio 2019。
 
 1. 在 **Cloud Explorer** 中，展開您的訂用帳戶，尋找您的 Azure IoT 中樞與您要部署的 Azure IoT Edge 裝置。
 

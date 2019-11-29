@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 101cfacf071292d00556656b0df9c6bf9c15f414
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 158a99b1691e59fa58207f3c9291ca9d37a6679c
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515878"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538124"
 ---
 # <a name="why-use-batch-transcription"></a>為何使用 Batch 轉譯？
 
@@ -65,7 +65,7 @@ Batch 轉譯 API 支援下列格式：
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
   "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
-  "locale": "<locale to us, for example en-US>",
+  "locale": "<locale to use, for example en-US>",
   "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
@@ -82,31 +82,25 @@ Batch 轉譯 API 支援下列格式：
 
 ### <a name="configuration-properties"></a>組態屬性
 
-使用這些選擇性屬性來設定轉譯:
+使用這些選擇性屬性來設定轉譯：
 
 | 參數 | 描述 |
 |-----------|-------------|
 | `ProfanityFilterMode` | 指定如何處理辨識結果中的不雅內容。 接受的值為 `None` (會停用不雅內容過濾)、`masked` (為以星號取代不雅內容)、`removed` (會移除結果中的所有不雅內容) 或 `tags` (會新增「不雅內容」標記)。 預設設定為 `masked`。 |
 | `PunctuationMode` | 指定如何處理辨識結果中的標點符號。 接受的值為`None` (會停用標點符號)、`dictated` (暗示明確的標點符號)、`automatic` (會讓解碼器處理標點符號) 或 `dictatedandautomatic` (暗示口述的標點符號或自動)。 |
  | `AddWordLevelTimestamps` | 指定是否將字組層級時間戳記新增至輸出。 接受的值為`true` 會啟用字組層級時間戳記，而 `false` (預設值) 會停用。 |
- | `AddSentiment` | 指定應該將情感新增至語句。 接受的值`true`為, 可讓每個`false`語句的情感和 (預設值) 停用它。 |
- | `AddDiarization` | 指定應該在輸入上執行 diarization 分析, 這應該是包含兩個語音的 mono 通道。 接受`true`的值為, 可讓`false` diarization 和 (預設值) 停用它。 它也需要`AddWordLevelTimestamps`設定為 true。|
+ | `AddSentiment` | 指定應該將情感新增至語句。 接受的值為 `true`，可讓每個語句的情感和 `false` （預設值）停用它。 |
+ | `AddDiarization` | 指定應該在輸入上執行 diarization 分析，這應該是包含兩個語音的 mono 通道。 接受的值為 `true`，可讓 diarization 和 `false` （預設值）停用它。 它也需要 `AddWordLevelTimestamps` 設定為 true。|
 
 ### <a name="storage"></a>儲存體
 
-批次轉譯支援[Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)來讀取音訊, 並將轉譯寫入儲存體。
+批次轉譯支援[Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)來讀取音訊，並將轉譯寫入儲存體。
 
-## <a name="webhooks"></a>webhooks
+## <a name="speaker-separation-diarization"></a>說話者分隔（Diarization）
 
-輪詢轉譯狀態可能不是最高效能, 也不能提供最佳的使用者體驗。 若要輪詢狀態, 您可以註冊回呼, 這會在長時間執行的轉譯工作完成時通知用戶端。
+Diarization 是在一段音訊中分隔喇叭的程式。 我們的批次管線支援 Diarization，而且能夠在 mono 通道錄製上辨識兩個喇叭。
 
-如需詳細資訊, 請參閱[webhook](webhooks.md)。
-
-## <a name="speaker-separation-diarization"></a>說話者分隔 (Diarization)
-
-Diarization 是在一段音訊中分隔喇叭的程式。 我們的批次管線支援 Diarization, 而且能夠在 mono 通道錄製上辨識兩個喇叭。
-
-若要要求針對 diarization 處理您的音訊轉譯要求, 您只需要在 HTTP 要求中新增相關的參數, 如下所示。
+若要要求針對 diarization 處理您的音訊轉譯要求，您只需要在 HTTP 要求中新增相關的參數，如下所示。
 
  ```json
 {
@@ -122,30 +116,30 @@ Diarization 是在一段音訊中分隔喇叭的程式。 我們的批次管線�
 }
 ```
 
-Word 層級時間戳記也必須「開啟」, 因為上述要求中的參數表示。
+Word 層級時間戳記也必須「開啟」，因為上述要求中的參數表示。 
 
-對應的音訊將包含數位所識別的喇叭 (目前只支援兩個語音, 因此喇叭會被視為「喇叭1」和「喇叭2」), 後面接著轉譯輸出。
+對應的音訊將包含數位所識別的喇叭（目前只支援兩個語音，因此喇叭會被視為「喇叭1」和「喇叭2」），後面接著轉譯輸出。
 
-另請注意, Diarization 無法用於身歷聲記錄。 此外, 所有 JSON 輸出都會包含喇叭標記。 如果未使用 diarization, 它會顯示「喇叭:Null ' (在 JSON 輸出中)。
+另請注意，Diarization 無法用於身歷聲記錄。 此外，所有 JSON 輸出都會包含喇叭標記。 如果未使用 diarization，它會在 JSON 輸出中顯示「喇叭： Null」。
 
 > [!NOTE]
-> Diarization 適用于所有區域和所有地區設定!
+> Diarization 適用于所有區域和所有地區設定！
 
-## <a name="sentiment"></a>情感
+## <a name="sentiment"></a>人氣
 
-情感是 Batch 轉譯 API 中的一項新功能, 而且是撥接中心網域中的重要功能。 客戶可以使用其`AddSentiment`要求的參數
+情感是 Batch 轉譯 API 中的一項新功能，而且是撥接中心網域中的重要功能。 客戶可以將 `AddSentiment` 參數用於其要求
 
 1.  取得客戶滿意度的見解
-2.  取得代理程式效能的深入解析 (接受呼叫的小組)
+2.  取得代理程式效能的深入解析（接受呼叫的小組）
 3.  找出呼叫使用負方向的確切時間點
-4.  找出否定的正值呼叫時, 會發生什麼狀況
-5.  識別客戶喜歡什麼, 以及他們對產品或服務不喜歡什麼
+4.  找出否定的正值呼叫時，會發生什麼狀況
+5.  識別客戶喜歡什麼，以及他們對產品或服務不喜歡什麼
 
-情感是每個音訊區段的計分, 其中音訊區段定義為語句 (位移) 開始與位元組資料流程結尾的偵測無聲之間的時間間隔。 該區段內的整個文字會用來計算情感。 我們不會針對整個呼叫或每個通道的整個語音計算任何匯總情感值。 這些匯總會留給網域擁有者進一步套用。
+情感是每個音訊區段的計分，其中音訊區段定義為語句（位移）開始與位元組資料流程結尾的偵測無聲之間的時間間隔。 該區段內的整個文字會用來計算情感。 我們不會針對整個呼叫或每個通道的整個語音計算任何匯總情感值。 這些匯總會留給網域擁有者進一步套用。
 
 情感會套用在詞法形式上。
 
-JSON 輸出範例如下所示:
+JSON 輸出範例如下所示：
 
 ```json
 {
@@ -180,17 +174,17 @@ JSON 輸出範例如下所示:
   ]
 }
 ```
-此功能會使用情感模型, 其目前為搶鮮版 (Beta)。
+此功能會使用情感模型，其目前為搶鮮版（Beta）。
 
 ## <a name="sample-code"></a>範例程式碼
 
-您可以在`samples/batch`子目錄內的[GitHub 範例存放庫](https://aka.ms/csspeech/samples)中取得完整範例。
+`samples/batch` 子目錄內的[GitHub 範例存放庫](https://aka.ms/csspeech/samples)中提供完整範例。
 
 您自訂的範例程式碼要有訂用帳戶資訊、服務區域、指向音訊檔的 SAS URI 以轉譯，以及模型識別碼，以防您想要使用自訂原音或語言模型。
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 
-範例程式碼將設定用戶端並提交轉譯要求。 接著會輪詢狀態資訊並列印轉譯進度的詳細資料。
+範例程式碼會設定用戶端，並提交轉譯要求。 接著會輪詢狀態資訊並列印轉譯進度的詳細資料。
 
 [!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchstatus)]
 
@@ -212,4 +206,4 @@ JSON 輸出範例如下所示:
 
 ## <a name="next-steps"></a>後續步驟
 
-* [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
+* [取得語音試用訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)

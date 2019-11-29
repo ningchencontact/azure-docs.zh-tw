@@ -1,27 +1,22 @@
 ---
-title: 建立有多站台裝載的應用程式閘道 - Azure CLI | Microsoft Docs
+title: 使用 CLI Azure 應用程式閘道裝載多個網站
 description: 了解如何使用 Azure CLI，以建立裝載多個站台的應用程式閘道。
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: ce5701d4125123798c6b6a654e4fa4a4887778a3
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 5edc2e5228146aee913027a83e495d94c003e237
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717274"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047341"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>使用 Azure CLI，以建立有多站台裝載的應用程式閘道
 
-您可以使用 Azure CLI，在建立[應用程式閘道](application-gateway-introduction.md)時設定[裝載多個網站](application-gateway-multi-site-overview.md)。 在本教學課程中，您可以使用虛擬機器擴展集建立後端集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本教學課程假設您擁有多個網域，並使用 *www.contoso.com* 和 *www.fabrikam.com* 的範例。
+您可以使用 Azure CLI，在建立[應用程式閘道](application-gateway-multi-site-overview.md)時設定[裝載多個網站](application-gateway-introduction.md)。 在本教學課程中，您可以使用虛擬機器擴展集建立後端集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本教學課程假設您擁有多個網域，並使用 *www.contoso.com* 和 *www.fabrikam.com* 的範例。
 
 在本文中，您將了解：
 
@@ -34,7 +29,7 @@ ms.locfileid: "68717274"
 
 ![多站台路由範例](./media/tutorial-multisite-cli/scenario.png)
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -52,7 +47,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>建立網路資源 
 
-使用 [az network vnet create](/cli/azure/network/vnet) 建立名為 myVNet 的虛擬網路，以及名為 myAGSubnet 的子網路。 然後您可以使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet) 新增名為 myBackendSubnet 的子網路，後端伺服器需要該子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip) 建立名為 myAGPublicIPAddress 的公用 IP 位址。
+使用 *az network vnet create* 建立名為 myVNet 的虛擬網路，以及名為 myAGSubnet[](/cli/azure/network/vnet) 的子網路。 然後您可以使用 *az network vnet subnet create* 新增名為 myBackendSubnet[](/cli/azure/network/vnet/subnet) 的子網路，後端伺服器需要該子網路。 使用 *az network public-ip create* 建立名為 myAGPublicIPAddress[](/cli/azure/network/public-ip) 的公用 IP 位址。
 
 ```azurecli-interactive
 az network vnet create \
@@ -102,7 +97,7 @@ az network application-gateway create \
 
 ### <a name="add-the-backend-pools"></a>新增後端集區
 
-使用 [az network application-gateway address-pool create](/cli/azure/network/application-gateway)，以新增包含後端伺服器所需且名為 *contosoPool* 和 *fabrikamPool* 的後端集區。
+使用 *az network application-gateway address-pool create*，以新增包含後端伺服器所需且名為 *contosoPool* 和 [fabrikamPool](/cli/azure/network/application-gateway) 的後端集區。
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -117,9 +112,9 @@ az network application-gateway address-pool create \
 
 ### <a name="add-listeners"></a>新增接聽程式
 
-需要接聽程式才能讓應用程式閘道將流量適當地路由到後端集區。 在本教學課程中，您會為兩個網域建立兩個接聽程式。 在此範例中，會為 *www.contoso.com* 和 *www.fabrikam.com* 網域建立接聽程式。 
+需要接聽程式才能讓應用程式閘道將流量適當地路由到後端集區。 在本教學課程中，您會為兩個網域建立兩個接聽程式。 在此範例中，會為 www.contoso.com 和 www.fabrikam.com 網域建立接聽程式。 
 
-使用 [az network application-gateway http-listener create](/cli/azure/network/application-gateway)，以新增路由流量時所需且名為 *contosoListener* 和 *fabrikamListener* 的接聽程式。
+使用 *az network application-gateway http-listener create*，以新增路由流量時所需且名為 *contosoListener* 和 [fabrikamListener](/cli/azure/network/application-gateway) 的接聽程式。
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -237,7 +232,7 @@ az network public-ip show \
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 設定網路

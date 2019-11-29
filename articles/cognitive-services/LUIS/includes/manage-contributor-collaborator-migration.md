@@ -8,14 +8,14 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 09/02/2018
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 591e6f1fc114994dd29b0f41d92fc4f099b6ea49
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 3064211fe44a416a6288b86c977ed7e2337a7ccd
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70256818"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451665"
 ---
 來自共同作業者的貢獻管理取決於應用程式的目前狀態。
 

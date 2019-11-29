@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: fff5ad379aa11a0aae14b33f9f82f6da9c794517
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 5cc473635543a22fd7e7223f4a5715f78457a897
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643741"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561755"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>自動調整 Azure HDInsight 叢集規模
 
@@ -28,9 +28,9 @@ Azure HDInsight 的叢集自動調整功能會自動相應增加和減少叢集�
 
 | 版本 | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| 不含 ESP 的 HDInsight 3。6 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
+| 不含 ESP 的 HDInsight 3。6 | 是2。3| 是 | 否 | 否 | 否 | 否 | 否 |
 | 不含 ESP 的 HDInsight 4。0 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
-| 使用 ESP 的 HDInsight 3。6 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
+| 使用 ESP 的 HDInsight 3。6 | 是2。3 | 是 | 否 | 否 | 否 | 否 | 否 |
 | 使用 ESP 的 HDInsight 4。0 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
 
 ## <a name="how-it-works"></a>運作方式
@@ -88,7 +88,7 @@ HDInsight 服務會計算需要多少個新的背景工作節點，以符合目�
 
     ![啟用背景工作節點以負載為基礎的自動調整](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png)
 
-背景工作節點的初始數目必須介於最小值和最大值 (含) 之間。 此值會定義叢集建立時的初始大小。 背景工作節點的最小數目應該設定為三個或多個。 》一文中的指示來佈建虛擬裝置，並與該虛擬裝置連線。 將您的叢集調整至少於三個節點，可能會導致它因為檔案複寫不完整而停滯于安全模式。 如需詳細資訊，請參閱[在安全模式中停滯]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode)。
+背景工作節點的初始數目必須介於最小值和最大值 (含) 之間。 此值會定義叢集建立時的初始大小。 背景工作節點的最小數目應該設定為三個或多個。 。 將您的叢集調整至少於三個節點，可能會導致它因為檔案複寫不完整而停滯于安全模式。 如需詳細資訊，請參閱[在安全模式中停滯]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode)。
 
 ### <a name="create-a-cluster-with-schedule-based-autoscaling"></a>建立具有以排程為基礎之自動調整的叢集
 
@@ -208,7 +208,7 @@ https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{res
 
 請參閱上一節關於[啟用以負載為基礎的自動](#load-based-autoscaling)調整，以取得所有裝載參數的完整描述。
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 ### <a name="choosing-load-based-or-schedule-based-scaling"></a>選擇以負載為基礎或以排程為基礎的調整
 
@@ -233,7 +233,7 @@ https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{res
 
 請不要將叢集調整為少於三個節點。 將您的叢集調整至少於三個節點，可能會導致它因為檔案複寫不完整而停滯于安全模式。 如需詳細資訊，請參閱[在安全模式中停滯]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode)。
 
-## <a name="monitoring"></a>監控
+## <a name="monitoring"></a>監視
 
 ### <a name="cluster-status"></a>叢集狀態
 
@@ -249,7 +249,7 @@ Azure 入口網站中所列的叢集狀態可協助您監視自動調整活動�
 | 更新  | 正在更新叢集自動調整設定。  |
 | HDInsight 設定  | 叢集擴充或相應減少作業進行中。  |
 | 更新錯誤  | HDInsight 在自動調整設定更新期間發生問題。 客戶可以選擇重試更新或停用自動調整。  |
-| 錯誤  | 叢集發生問題，因此無法使用。 刪除此叢集並建立一個新叢集。  |
+| Error  | 叢集發生問題，因此無法使用。 刪除此叢集並建立一個新叢集。  |
 
 若要查看您叢集中目前的節點數目，請移至叢集 [**總覽**] 頁面上的 [叢集**大小**] 圖表，或按一下 [**設定**] 底下的 [叢集**大小**]。
 

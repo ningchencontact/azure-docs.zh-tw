@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: radeltch
-ms.openlocfilehash: 5de28055a1b573b3326b717614f481b0e1158f1a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d7c2bfbe3f277bbaf652191977434ea5fe4dbffd
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064675"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555304"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>使用適用于 SAP 應用程式的 Azure NetApp Files （SMB）在 Windows 上的 Azure Vm 上進行 SAP NetWeaver 的高可用性
 
@@ -78,12 +78,12 @@ ms.locfileid: "74064675"
 * SAP 附注[662452](https://launchpad.support.sap.com/#/notes/662452)有建議（停用8.3 名稱產生），以解決資料存取期間的檔案系統效能/錯誤不佳。
 * [在 Azure 上的 SAP ASCS/SCS 實例的 Windows 容錯移轉叢集和檔案共用上安裝 SAP NetWeaver 高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-file-share) 
 * [Azure 虛擬機器 SAP NetWeaver 的高可用性架構和案例](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
-* [在 ASCS 叢集中設定中新增探查埠](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-file-share#create-a-new-sap-service-and-sap-instance-resources)
-* [在容錯移轉叢集上安裝（A） SCS 實例](https:\www.sap.com\documents\2017\07\f453332f-c97c-0010-82c7-eda71af511fa.html) 
+* [在 ASCS 叢集中設定中新增探查埠](sap-high-availability-installation-wsfc-file-share.md)
+* [在容錯移轉叢集上安裝（A） SCS 實例](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 * [建立適用于 Azure NetApp Files 的 SMB 磁片區](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#requirements-for-active-directory-connections)
 * [使用 Azure NetApp Files 在 Microsoft Azure 的 NetApp SAP 應用程式][anf-sap-applications-azure]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 SAP 已針對在 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 執行個體叢集處理，為叢集共用磁碟開發新的方法和替代方案。 除了使用叢集共用磁片，您可以使用 SMB 檔案共用來部署 SAP 全域主機檔案。 Azure NetApp Files 支援使用 Active Directory SMBv3 （搭配 NFS）與 NTFS ACL。 Azure NetApp Files 會自動提供高可用性（因為它是 PaaS 服務）。 這些功能讓 Azure NetApp Files 成為裝載 SAP global 的 SMB 檔案共用的絕佳選項。  
 同時支援[Azure Active Directory （AD）網域服務](https://docs.microsoft.com/azure/active-directory-domain-services/overview)和[Active Directory Domain Services （AD DS）](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) 。 您可以使用現有的 Active Directory 網域控制站搭配 Azure NetApp Files。 網域控制站可以在 Azure 中做為虛擬機器，或透過 ExpressRoute 或 S2S VPN 在內部部署。 在本文中，我們將使用 Azure VM 中的網域控制站。  

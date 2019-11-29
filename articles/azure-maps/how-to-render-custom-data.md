@@ -1,6 +1,6 @@
 ---
 title: 如何在 Azure 地圖服務中的點陣地圖上轉譯自訂資料 |Microsoft Docs
-description: 在 Azure 地圖服務的點陣地圖上轉譯自訂資料。
+description: 在本文中，您將瞭解如何使用 Azure 地圖服務靜態影像服務，在點陣地圖上轉譯自訂資料。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6619fd842f225a6d362a4b308dde6e35b43677c9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 41166d57a8ea9b9cf34f76ecce318351d5131794
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915763"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559986"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>在點陣地圖上轉譯自訂資料
 
@@ -35,7 +35,7 @@ ms.locfileid: "70915763"
 > [!Note]
 > 本節中的程式需要定價層 S0 或 S1 中的 Azure 地圖服務帳戶。
 
-Azure 地圖服務帳戶 S0 層僅支援`pins`參數的單一實例。 它可讓您使用自訂映射，轉譯最多五個在 URL 要求中指定的圖釘。
+Azure 地圖服務帳戶 S0 層僅支援 `pins` 參數的單一實例。 它可讓您使用自訂映射，轉譯最多五個在 URL 要求中指定的圖釘。
 
 若要呈現具有標籤和自訂影像的圖釘，請完成下列步驟：
 
@@ -48,7 +48,7 @@ Azure 地圖服務帳戶 S0 層僅支援`pins`參數的單一實例。 它可讓
 3. 選取 [建立器] 索引標籤上的 [取得 HTTP] 方法，然後輸入下列 URL 來建立 GET 要求。
 
     ```HTTP
-    https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttp%3A%2F%2Fazuremapscodesamples.azurewebsites.net%2FCommon%2Fimages%2Fpushpins%2Fylw-pushpin.png
+    https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttps%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FAzureMapsCodeSamples%2Fmaster%2FAzureMapsCodeSamples%2FCommon%2Fimages%2Ficons%2Fylw-pushpin.png
     ```
     以下是所產生的映射：
 
@@ -68,7 +68,7 @@ Azure 地圖服務帳戶 S0 層僅支援`pins`參數的單一實例。 它可讓
     https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
     ```
 
-2. 在 [**參數**] 索引標籤上，輸入下列索引鍵/值組，用於 POST 要求 URL。 `subscription-key`將值取代為您的 Azure 地圖服務訂用帳戶金鑰。
+2. 在 [**參數**] 索引標籤上，輸入下列索引鍵/值組，用於 POST 要求 URL。 以您的 Azure 地圖服務訂用帳戶金鑰取代 `subscription-key` 值。
     
     ![Postman 中的索引鍵/值參數](./media/how-to-render-custom-data/postman-key-vals.png)
 
@@ -154,7 +154,7 @@ Azure 地圖服務帳戶 S0 層僅支援`pins`參數的單一實例。 它可讓
    }
    ```
 
-7. 使用從資料上傳 API 收到的值來轉譯地圖上的功能。`udId` 若要這麼做，請在您于上一節中建立的集合中開啟新的索引標籤。 在 [建立器] 索引標籤上選取 [取得 HTTP] 方法，然後輸入此 URL 來提出 GET 要求：
+7. 使用從資料上傳 API 收到的 `udId` 值來轉譯地圖上的功能。 若要這麼做，請在您于上一節中建立的集合中開啟新的索引標籤。 在 [建立器] 索引標籤上選取 [取得 HTTP] 方法，然後輸入此 URL 來提出 GET 要求：
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -190,7 +190,7 @@ Azure 地圖服務帳戶 S0 層僅支援`pins`參數的單一實例。 它可讓
 > 本節中的程式需要定價層 S1 中的 Azure 地圖服務帳戶。
 
 
-您可以使用`sc`縮放樣式修飾詞，讓圖釘及其標籤變大或變小。 這個修飾詞會採用大於零的值。 1 的值是標準比例。 大於 1 的值會使圖釘變大，小於 1 的值會使它們變小。 如需樣式修飾詞的詳細資訊，請參閱[靜態映射服務路徑參數](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters)。
+您可以使用 `sc` 縮放樣式修飾詞，讓圖釘及其標籤變大或變小。 這個修飾詞會採用大於零的值。 1 的值是標準比例。 大於 1 的值會使圖釘變大，小於 1 的值會使它們變小。 如需樣式修飾詞的詳細資訊，請參閱[靜態映射服務路徑參數](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters)。
 
 
 遵循下列步驟，使用自訂標籤來轉譯圓形和圖釘：

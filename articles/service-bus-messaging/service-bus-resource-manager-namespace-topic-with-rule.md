@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 11/27/2019
 ms.author: spelluru
-ms.openlocfilehash: 6631528c9d1f2dfc6dcd3e9d6da81115a9ece637
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dc61fb8e066c6189b5607a6e1cd479cb812466f7
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832070"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561557"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立服務匯流排命名空間與主題、訂用帳戶和規則
 
@@ -179,9 +179,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列主題，以瞭解如何建立訂用帳戶篩選：[使用 Azure Resource Manager 範本來建立服務匯流排命名空間與主題、訂用帳戶和規則](service-bus-resource-manager-namespace-topic-with-rule.md)
-
-藉由查看下列文章，瞭解如何管理這些資源：
+檢視下列文章以了解如何管理這些資源︰
 
 * [管理 Azure 服務匯流排](service-bus-management-libraries.md)
 * [使用 PowerShell 管理服務匯流排](service-bus-manage-with-ps.md)

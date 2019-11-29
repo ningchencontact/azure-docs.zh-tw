@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 11/21/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1450d6b41d9a193f8069509aacd3343ae646c6ac
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: cc4ead968a0ee2c9890c1cd24a6b70516b2b2e74
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307029"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326792"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>在 QnA Maker 中編輯知識庫
 
@@ -36,14 +36,14 @@ QnA Maker 可讓您提供方便使用的編輯方式，藉以管理知識庫的�
  
 1. 選取 [Settings] \(設定)。 您可以在這裡編輯必要的欄位：[服務名稱]。
   
-    |目標|Action|
+    |目標|行動|
     |--|--|
     |新增 URL|您可以藉由按一下 [管理知識庫] -> [+ 新增 URL] 連結來新增 URL，以便將新的常見問題集內容新增至知識庫。|
     |刪除 URL|您可以選取刪除圖示 (即垃圾桶)，以刪除現有 URL。|
-    |重新整理 URL 內容|如果您想要讓知識庫搜耙現有 URL 的最新內容，請選取 [重新整理] 核取方塊。 這會讓知識庫更新為最新的 URL 內容。|
+    |重新整理內容|如果您想要讓知識庫搜耙現有 URL 的最新內容，請選取 [重新整理] 核取方塊。 這會以最新的 URL 內容一次更新知識庫。 這不會設定週期性更新排程。|
     |新增檔案|您可以藉由選取 [管理知識庫] 和 [+ 新增檔案]，將受支援的檔案文件新增為知識庫的一部分|
-    |匯入|您也可以藉由選取 [匯入知識庫] 按鈕，匯入任何現有的知識庫。 |
-    |Update|知識庫的更新取決於當建立與知識庫相關聯的 QnA Maker 服務時，所使用的**管理定價層**。 如有需要，您也可以從 Azure 入口網站更新管理層。
+    |Import|您也可以藉由選取 [匯入知識庫] 按鈕，匯入任何現有的知識庫。 |
+    |更新|知識庫的更新取決於當建立與知識庫相關聯的 QnA Maker 服務時，所使用的**管理定價層**。 如有需要，您也可以從 Azure 入口網站更新管理層。
 
 1. 變更知識庫完成之後，選取頁面右上角的 [儲存並訓練] 以維持變更。    
 
@@ -81,15 +81,15 @@ QnA Maker 可讓您提供方便使用的編輯方式，藉以管理知識庫的�
 
 ## <a name="manage-large-knowledge-bases"></a>管理大型知識庫
 
-* **資料來源群組**：QnA 是按照擷取資料的資料來源分組。 您可以展開或摺疊資料來源。
+* **資料來源群組**： qna 會依其解壓縮的來來源資料源分組。 您可以展開或摺疊資料來源。
 
     ![使用 QnA Maker 資料來源列來摺疊和展開資料來源問題和答案](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
 
-* **搜尋知識庫**：您可以使用知識庫資料表頂端的文字方塊來搜尋知識庫。 按一下輸入來搜尋問題、答案或中繼資料內容。 按一下 X 圖示移除搜尋篩選條件。
+* **搜尋知識庫**：您可以在知識庫資料表頂端的文字方塊中輸入來搜尋知識庫。 按一下輸入來搜尋問題、答案或中繼資料內容。 按一下 X 圖示移除搜尋篩選條件。
 
     ![使用問題和答案上方的 QnA Maker 搜尋方塊，將檢視縮小為僅限符合篩選條件的項目](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
 
-* **分頁**：快速瀏覽資料來源以管理大型知識庫
+* **分頁**：快速地移至資料來源以管理大型知識庫
 
     ![使用問題和答案上方的 QnA Maker 分頁功能來瀏覽問題和答案頁面](../media/qnamaker-how-to-edit-kb/pagination.png)
 

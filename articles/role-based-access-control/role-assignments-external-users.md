@@ -16,12 +16,12 @@ ms.date: 09/12/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 5ed9088bcc5776fe1fb0d09e6ae771adabb1b879
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 51945940a0f0fd0346e9437c4ad0631f989e0a92
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802676"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555554"
 ---
 # <a name="manage-access-to-azure-resources-for-external-guest-users-using-rbac"></a>使用 RBAC 管理外部來賓使用者對 Azure 資源的存取
 
@@ -45,7 +45,7 @@ ms.locfileid: "71802676"
 
 1. 請確定您組織的外部協同作業設定已設定為允許您邀請來賓。 如需詳細資訊，請參閱[啟用 B2B 外部共同作業和管理可以邀請來賓的人員](../active-directory/b2b/delegate-invitations.md)。
 
-1. 在 Azure 入口網站中，按一下  **Azure Active Directory**  > **使用者** >  **新增來賓使用者**。
+1. 在 Azure 入口網站中，按一下  **Azure Active Directory** > **使用者** > **新增來賓使用者**。
 
     ![Azure 入口網站中的新來賓使用者功能](./media/role-assignments-external-users/invite-guest-user.png)
 
@@ -155,7 +155,7 @@ ms.locfileid: "71802676"
 
 1. 在顯示的移除角色指派訊息中，按一下 [是]。
 
-1. 在左側導覽列中，按一下 [ **Azure Active Directory**  > **使用者**]。
+1. 在左側導覽列中，按一下 [ **Azure Active Directory** > **使用者**]。
 
 1. 按一下您要移除的來賓使用者。
 
@@ -206,4 +206,4 @@ ms.locfileid: "71802676"
 - [在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者](../active-directory/b2b/add-users-administrator.md)
 - [Azure Active Directory B2B 共同作業使用者的屬性](../active-directory/b2b/user-properties.md)
 - [B2B 共同作業邀請電子郵件的元素-Azure Active Directory](../active-directory/b2b/invitation-email-elements.md)
-- [將來賓使用者新增為共同管理員](classic-administrators.md#adding-a-guest-user-as-a-co-administrator)
+- [將來賓使用者新增為共同管理員](classic-administrators.md#add-a-guest-user-as-a-co-administrator)

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 4170db596d3d4f4b197120770afa2f6e8b0f8a1c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 3d9373067c78f1fe0fa0b414886c30f2ed3c1c9f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132622"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325873"
 ---
-# <a name="install-and-run-speech-service-containers"></a>安裝和執行語音服務容器
+# <a name="install-and-run-speech-service-containers-preview"></a>安裝和執行語音服務容器（預覽）
 
 容器可讓您在自己的環境中執行某些語音服務 Api。 容器非常適合用於特定的安全性和資料控管需求。 在本文中，您將瞭解如何下載、安裝及執行語音容器。
 
@@ -26,7 +26,7 @@ ms.locfileid: "74132622"
 > [!IMPORTANT]
 > 所有語音容器目前都是[公開「閘道」預覽](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio)的一部分。 當語音容器進行公開上市（GA）時，將會發出公告。
 
-| 函數 | 特性 | 新版 |
+| 函式 | 功能 | 新版 |
 |--|--|--|
 | 語音轉文字 | 使用中繼結果，將連續即時語音或批次音訊錄音可將成文字。 | 2.0.0 |
 | 自訂語音轉換文字 | 使用自[定義語音入口網站](https://speech.microsoft.com/customspeech)中的自訂模型，將連續即時語音或批次錄音可將為具有中繼結果的文字。 | 2.0.0 |
@@ -35,11 +35,11 @@ ms.locfileid: "74132622"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 使用語音容器之前的必要條件如下：
 
-| 必要 | 目的 |
+| 必要項 | 目的 |
 |--|--|
 | Docker 引擎 | 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> **在 Windows 上**，也必須將 Docker 設定為支援 Linux 容器。<br><br> |
 | 熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。 |
@@ -155,10 +155,10 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 
 #### <a name="speech-to-text-locales"></a>語音轉換文字地區設定
 
-除了 `latest` 以外的所有標記都會採用下列格式，其中 `<culture>` 會指出地區設定容器：
+除了 `latest` 以外的所有標記都會採用下列格式，而且會區分大小寫：
 
 ```
-<major>.<minor>.<patch>-<platform>-<culture>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<prerelease>
 ```
 
 下列標記是格式的範例：
@@ -197,10 +197,10 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 #### <a name="text-to-speech-locales"></a>文字轉換語音的地區設定
 
-除了 `latest` 以外的所有標記都會採用下列格式，其中 `<culture>` 會指出地區設定，而 `<voice>` 則表示容器的語音：
+除了 `latest` 以外的所有標記都會採用下列格式，而且會區分大小寫：
 
 ```
-<major>.<minor>.<patch>-<platform>-<culture>-<voice>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
 ```
 
 下列標記是格式的範例：
@@ -233,7 +233,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 
 容器位於[主機電腦](#the-host-computer)上時，請透過下列程序來使用容器。
 
-1. 使用所需的計費設定[執行容器](#run-the-container-with-docker-run)。 [ 命令有相關](speech-container-configuration.md#example-docker-run-commands)範例`docker run`可供參考。
+1. 使用所需的計費設定[執行容器](#run-the-container-with-docker-run)。 `docker run` 命令有相關[範例](speech-container-configuration.md#example-docker-run-commands)可供參考。
 1. [查詢容器的預測端點](#query-the-containers-prediction-endpoint)。
 
 ## <a name="run-the-container-with-docker-run"></a>透過 `docker run` 執行容器
@@ -371,7 +371,7 @@ ApiKey={API_KEY}
 
 ## <a name="query-the-containers-prediction-endpoint"></a>查詢容器的預測端點
 
-| 容器 | Endpoint | 通訊協定 |
+| 容器 | 端點 | 通訊協定 |
 |--|--|--|
 | 語音轉文字 | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
 | 自訂語音轉換文字 | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
@@ -416,7 +416,7 @@ ApiKey={API_KEY}
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>總結
 
 在本文中，您已瞭解下載、安裝及執行語音容器的概念和工作流程。 摘要說明：
 

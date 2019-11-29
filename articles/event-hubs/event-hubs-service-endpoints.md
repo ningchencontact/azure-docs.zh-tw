@@ -9,18 +9,18 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 03/12/2019
+ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: 5b02b79980ebe5ea91a1cf16d3ea453ebef3bf08
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9b8b3600acc33e177e65002ba69dcf98a20c2253
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279786"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555337"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>將虛擬網路服務端點搭配 Azure 事件中樞使用
 
-事件中樞與[虛擬網路（VNet）服務端點][vnet-sep]的整合，可讓您安全地從工作負載（例如系結至虛擬網路的虛擬機器）存取訊息功能，同時保護兩者的網路流量路徑結束.
+將事件中樞與[虛擬網路（VNet）服務端點][vnet-sep]整合，可讓您安全地從工作負載（例如，系結至虛擬網路的虛擬機器）存取訊息功能，而兩端的網路流量路徑都受到保護。
 
 一旦設定為系結到至少一個虛擬網路子網服務端點，個別的事件中樞命名空間就不會再接受來自虛擬網路中任何來自于授權子網的流量。 從虛擬網路的角度來看，將事件中樞命名空間繫結至服務端點，會設定從虛擬網路子網路到傳訊服務的隔離式網路通道。 
 
@@ -30,9 +30,10 @@ ms.locfileid: "74279786"
 >[!WARNING]
 > 實作「虛擬網路」整合可防止其他 Azure 服務與「事件中樞」進行互動。
 >
-> 實作「虛擬網路」時，不支援受信任的 Microsoft 服務。
+> 實作虛擬網路時，不支援受信任的 Microsoft 服務。
 >
 > 無法與「虛擬網路」搭配運作的常見 Azure 案例 (請注意，這**不是**完整的清單) -
+> - 與 Azure 監視器整合。 您無法將來自**其他**Azure 服務的診斷記錄串流到事件中樞。 不過，您可以在事件中樞本身上啟用 Azure 診斷記錄。 當您啟用防火牆（IP 篩選）時，這是相同的情況。
 > - Azure 串流分析
 > - 與 Azure 事件方格的整合
 > - Azure IoT 中樞路由
@@ -45,11 +46,11 @@ ms.locfileid: "74279786"
 > [!IMPORTANT]
 > 事件中樞的**標準**和**專用**層級支援虛擬網路。 基本層中不支援虛擬網路。
 
-## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 整合所實現的進階安全性案例 
+## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 整合所啟用的進階安全性案例 
 
 需要嚴格且劃分的安全性，以及虛擬網路子網在劃分服務之間提供分割的解決方案，仍然需要位於這些區間之服務之間的通訊路徑。
 
-區間之間的任何立即 IP 路由，包括那些運輸 HTTPS over TCP/IP，會帶來上層網路的弱點危害風險。 傳訊服務提供完全隔離的通訊路徑，在該路徑中，若通訊雙方之間轉換訊息，甚至會將訊息寫入到磁碟。 兩個都繫結到相同事件中樞執行個體的不同虛擬網路，當中的工作負載可以透過訊息有效且可靠地通訊，並且保留各自的網路隔離界限完整性。
+區間之間的任何立即 IP 路由，包括那些運輸 HTTPS over TCP/IP，會帶來上層網路的弱點危害風險。 傳訊服務提供完全隔離的通訊路徑，在其中，當訊息在對象之間轉換時，甚至會寫入到磁碟。 兩個都繫結到相同事件中樞執行個體的不同虛擬網路，當中的工作負載可以透過訊息有效且可靠地通訊，並且保留各自的網路隔離界限完整性。
  
 這表示您的安全性敏感雲端解決方案，不只獲得 Azure 可靠、可擴充的領先業界非同步傳訊功能的存取權，而且它們現在可以使用傳訊來建立安全解決方案區間之間的通訊路徑，這些區間本質上比任何對等通訊模式 (包括 HTTPS 和其他 TLS 保護的通訊端通訊協定) 更為安全。
 
@@ -75,11 +76,11 @@ ms.locfileid: "74279786"
 > 雖然無法使用任何拒絕規則，但 Azure Resource Manager 範本是將預設動作設定為不會限制連線的 **"Allow"** 。
 > 在建立「虛擬網路」或「防火牆」規則時，我們必須將 ***"defaultAction"***
 > 
-> 從
+> from
 > ```json
 > "defaultAction": "Allow"
 > ```
-> 收件人
+> 更新成
 > ```json
 > "defaultAction": "Deny"
 > ```

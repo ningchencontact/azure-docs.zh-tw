@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddc0a3788075701fb4633895e7b22fff2c15f60b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 81697293be235c12ca009c76a9fd9d3975e232fc
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173695"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554117"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>要求存取 Azure AD 權利管理中的存取套件
 
@@ -35,7 +35,7 @@ ms.locfileid: "73173695"
 
 **先決條件角色：** 申請者
 
-1. 從您正在使用的專案或商務經理尋找電子郵件或訊息。 電子郵件應該包含您需要存取的存取套件連結。 連結的開頭為 `myaccess`，包含目錄提示，並以存取套件識別碼結尾。
+1. 從您正在使用的專案或商務經理尋找電子郵件或訊息。 電子郵件應該包含您需要存取的存取套件連結。 此連結會以 `myaccess`開頭，包括目錄提示，並以存取套件識別碼結尾。
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 
@@ -80,6 +80,30 @@ ms.locfileid: "73173695"
 如果您要求存取已套用多項原則的存取封裝，可能會要求您選取原則。 例如，存取套件管理員可能會為兩個內部員工群組設定具有兩個原則的存取封裝。 第一個原則可能會允許存取60天，而且需要核准。 第二個原則可能允許存取2天，而不需要核准。 如果您遇到這種情況，您必須選取您想要使用的原則。
 
 ![我的存取權入口網站-要求存取-多個原則](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+## <a name="resubmit-a-request"></a>重新提交要求
+
+當您要求存取封裝的存取權時，您的要求可能會遭到拒絕，或者當核准者沒有時間回應時，您的要求可能會過期。 如果您需要存取權，您可以再試一次，然後重新提交您的要求。 下列程式說明如何重新提交存取要求：
+
+**先決條件角色：** 申請者
+
+1. 登入**我的存取權**入口網站。
+
+1. 按一下左側導覽功能表中的 [**要求歷程記錄**]。
+
+1. 尋找您要重新提交要求的存取套件。
+
+1. 按一下核取記號以選取存取封裝。
+
+1. 按一下所選存取套件右邊的藍色 [**視圖**] 連結。
+    
+    ![選取存取套件和視圖連結](./media/entitlement-management-request-access/resubmit-request-select-request-and-view.png)
+
+    右側會開啟一個窗格，其中包含存取封裝的要求歷程記錄。
+    
+    ![選取 [重新提交] 按鈕](./media/entitlement-management-request-access/resubmit-request-select-resubmit.png)
+
+1. 按一下窗格底部的 [**重新提交**] 按鈕。
 
 ## <a name="cancel-a-request"></a>取消要求
 

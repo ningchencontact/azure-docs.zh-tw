@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0f3b7826fdcc16d3094785507ec8263da39d6284
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 1d8e473afa2c8e7c0abf58e2dbc9caea030f2f5f
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881521"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554976"
 ---
 # <a name="what-is-custom-speech"></a>什麼是自訂語音？
 
@@ -43,7 +43,7 @@ ms.locfileid: "70881521"
 
 ## <a name="set-up-your-azure-account"></a>設定您的 Azure 帳戶
 
-必須要有語音服務訂用帳戶，才能使用[自訂語音入口網站](https://speech.microsoft.com/customspeech)來建立自訂模型。 請依照下列指示來建立標準語音服務訂用帳戶：[建立語音訂用](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account)帳戶。
+必須要有語音服務訂用帳戶，才能使用[自訂語音入口網站](https://speech.microsoft.com/customspeech)來建立自訂模型。 請依照下列指示來建立標準語音服務訂用帳戶：[建立語音訂用](get-started.md#try-the-speech-service-using-a-new-azure-account)帳戶。
 
 > [!NOTE]
 > 請務必建立標準（S0）訂閱，不支援免費試用（F0）訂用帳戶。
@@ -59,7 +59,7 @@ ms.locfileid: "70881521"
 
 像是資料、模型、測試和端點等內容，會組織成[自訂語音入口網站](https://speech.microsoft.com/customspeech)中的**專案**。 每個專案都是網域和國家/地區所特有。 例如，您可以針對在美國使用英文的撥接中心建立專案。
 
-若要建立您的第一個專案，請選取 [**語音轉換文字]/[自訂語音**]，然後按一下 [**新增專案**]。 依照 wizard 提供的指示來建立您的專案。 建立專案之後，您應該會看到四個索引標籤：**資料**、**測試**、**定型**和**部署**。 使用[後續步驟](#next-steps)中提供的連結，以瞭解如何使用每個索引標籤。
+若要建立您的第一個專案，請選取 [**語音轉換文字]/[自訂語音**]，然後按一下 [**新增專案**]。 依照 wizard 提供的指示來建立您的專案。 建立專案之後，您應該會看到四個索引標籤： [**資料**]、[**測試**]、[**訓練**] 和 [**部署**]。 使用[後續步驟](#next-steps)中提供的連結，以瞭解如何使用每個索引標籤。
 
 ## <a name="next-steps"></a>後續步驟
 

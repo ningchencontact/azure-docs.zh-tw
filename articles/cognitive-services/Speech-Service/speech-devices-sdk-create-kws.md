@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/18/2019
 ms.author: erhopf
-ms.openlocfilehash: bf9afb66163532b4095e0d30b1167010320abbf8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9a5b5de71ee290b39603968cf4309171689e22e4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490931"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184835"
 ---
 # <a name="create-a-custom-keyword-by-using-the-speech-service"></a>使用語音服務建立自訂關鍵字
 
@@ -46,7 +46,7 @@ ms.locfileid: "73490931"
 
 ## <a name="create-your-keyword"></a>建立關鍵字
 
-您必須先使用 Microsoft 自訂關鍵字產生服務來建立關鍵字，才可以在裝置上使用自訂關鍵字。 在您提供關鍵字之後，服務會產生一個檔案，您可以將它部署到開發工具組，以便在裝置上啟用關鍵字。
+在您可以使用自訂關鍵字之前，您必須使用[語音 Studio](https://aka.ms/sdsdk-speechportal)上的[自訂關鍵字](https://aka.ms/sdsdk-wakewordportal)頁來建立關鍵字。 在您提供關鍵字之後，它會產生一個檔案，您可以將它部署到您的裝置。
 
 1. 移至[語音 Studio](https://aka.ms/sdsdk-speechportal)並登**入**，或者，如果您還沒有語音訂用帳戶，請選擇 [[**建立訂用**](https://go.microsoft.com/fwlink/?linkid=2086754)帳戶]。
 
@@ -62,7 +62,7 @@ ms.locfileid: "73490931"
 
     ![下載您的關鍵字](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
 
-1. 將 .zip 檔案儲存到您的電腦。 您將需要此檔案，才能將自訂關鍵字部署至開發工具組。
+1. 將 .zip 檔案儲存到您的電腦。 您將需要此檔案，才能將自訂關鍵字部署至您的裝置。
 
 ## <a name="next-steps"></a>後續步驟
 

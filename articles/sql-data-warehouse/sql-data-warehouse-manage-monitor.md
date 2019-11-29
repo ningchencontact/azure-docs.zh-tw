@@ -10,17 +10,17 @@ ms.subservice: manage
 ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 629ba904d055977fe70f749a46fbbec71be71b79
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b71d3b4824d8c1c73f40c8c6d87db315aabd423b
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083657"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555481"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>使用 DMV 監視工作負載
 本文說明如何使用動態管理檢視 (DMV) 來監視您的工作負載。 這包括調查 Azure SQL 資料倉儲中的查詢執行。
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>使用權限
 若要查詢此文章中的 DMV，您需要「檢視資料庫狀態」或「控制」權限。 通常授與「檢視資料庫狀態」是慣用的權限，因為它較具限制性。
 
 ```sql
@@ -63,7 +63,7 @@ ORDER BY total_elapsed_time DESC;
 
 從前述的查詢結果中，記下您想要調查之查詢的 **要求 ID** 。
 
-因為有大量作用中的執行中查詢，所以已**暫停**狀態的查詢可能會排入佇列。 這些查詢也會出現在[sys.databases](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)中，dm_pdw_waits 會等待 UserConcurrencyResourceType 類型的查詢。 如需有關並行限制的資訊，請參閱[效能層級](/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu#performance-tiers-and-data-warehouse-units)或[適用於工作負載管理的資源類別](resource-classes-for-workload-management.md)。 查詢也會因其他原因 (例如物件鎖定) 而等候。  如果您的查詢正在等候資源，請參閱本文稍後的 [檢查查詢是否正在等候資源][Investigating queries waiting for resources] 。
+因為有大量作用中的執行中查詢，所以已**暫停**狀態的查詢可能會排入佇列。 這些查詢也會出現在[sys.databases](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)中，dm_pdw_waits 會等待 UserConcurrencyResourceType 類型的查詢。 如需並行限制的詳細資訊，請參閱 Azure SQL 資料倉儲或資源類別的[記憶體和並行限制](memory-concurrency-limits.md)，[以進行工作負載管理](resource-classes-for-workload-management.md)。 查詢也會因其他原因 (例如物件鎖定) 而等候。  如果您的查詢正在等候資源，請參閱本文稍後的 [檢查查詢是否正在等候資源][Investigating queries waiting for resources] 。
 
 若要簡化[dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)資料表中查詢的查閱，請使用[標籤][LABEL]將批註指派給查詢，以便在 [sys.databases] dm_pdw_exec_requests 視圖中查閱。
 
@@ -206,7 +206,7 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-如果您的查詢會耗用大量的記憶體，或收到與 tempdb 的配置相關的錯誤訊息，可能是因為有非常大的 CREATE TABLE，因為在中執行的[select （CTAS）](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)或[INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql)語句失敗最後的資料移動作業。 在最後一個 INSERT SELECT 之前，這通常會被識別為分散式查詢計畫中的 ShuffleMove 作業。  使用[dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)來監視 ShuffleMove 作業。 
+如果您的查詢會耗用大量的記憶體，或收到與 tempdb 的配置相關的錯誤訊息，可能是因為在最後一個資料移動作業中執行的[select （CTAS）](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)或[INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql)語句非常 CREATE TABLE 大而失敗。 在最後一個 INSERT SELECT 之前，這通常會被識別為分散式查詢計畫中的 ShuffleMove 作業。  使用[dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)來監視 ShuffleMove 作業。 
 
 最常見的緩和措施是將您的 CTAS 或 INSERT SELECT 語句分割成多個 load 語句，讓資料磁片區不會超過每個節點 tempdb 限制的1TB。 您也可以將叢集調整為較大的大小，以將 tempdb 大小分散到多個節點，以減少每個個別節點上的 tempdb。
 

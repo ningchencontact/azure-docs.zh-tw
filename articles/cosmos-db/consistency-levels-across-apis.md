@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 6779e434339935b64440d7cf617c8946338e36e3
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c72c65c9d27810ce4ec2df0062dc41d83ed37a6b
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756987"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559112"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>一致性層級與 Azure Cosmos DB API
 
@@ -25,7 +25,7 @@ Azure Cosmos DB 為熱門資料庫提供與有線通訊協定相容的 Api 原�
 
 ## <a id="cassandra-mapping"></a>Apache Cassandra 與 Azure Cosmos DB 一致性層級之間的對應
 
-不同于 AzureCosmos DB，Apache Cassandra 本身並不提供精確定義的一致性保證。  取而代之的是，Apache Cassandra 會提供寫入一致性層級和讀取一致性層級，以實現高可用性、一致性和延遲的取捨。 使用 Azure Cosmos DB 的 Cassandra API 時： 
+與 Azure Cosmos DB 不同的是，Apache Cassandra 並不會以原生方式提供精確定義的一致性保證。  取而代之的是，Apache Cassandra 會提供寫入一致性層級和讀取一致性層級，以實現高可用性、一致性和延遲的取捨。 使用 Azure Cosmos DB 的 Cassandra API 時： 
 
 * Apache Cassandra 的寫入一致性層級會對應至 Azure Cosmos 帳戶上設定的預設一致性層級。 
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdc178661cf4db8505a444d1f5575bb3d0375979
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 3b85c5c6c5642d10c8d917ed9785d0fcf48a5e68
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547530"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554123"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -185,7 +185,7 @@ ms.locfileid: "74547530"
 
 此角色中的使用者可以讀取基本目錄資訊。 此角色應用於：
 * 授與一組特定的來賓使用者讀取權限，而不是將其授與所有來賓使用者。
-* 授與一組特定的非系統管理員使用者存取 Azure 入口網站時，[僅限系統管理員存取 Azure AD 入口網站] 設定為 [是]。
+* 將一組特定的非系統管理員使用者存取權授與 Azure 入口網站在「僅限系統管理員存取 Azure AD 入口網站」設定為 [是] 時。
 * 將目錄. Read 的存取權授與服務主體。 All 不是選項。
 
 ### <a name="directory-synchronization-accountsdirectory-synchronization-accounts-permissions"></a>[目錄同步處理帳戶](#directory-synchronization-accounts-permissions)
@@ -238,7 +238,7 @@ ms.locfileid: "74547530"
 >- [Azure AD 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)-全域讀取器無法讀取企業應用程式的布建模式。
 >- [M365 系統管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage)-全域讀取者無法讀取客戶加密箱要求。 您在 M365 系統管理中心的左窗格中，找不到 [**支援**] 下的 [**客戶加密箱要求**] 索引標籤。
 >- [M365 安全性中心](https://security.microsoft.com/homepage)-全域讀取者無法讀取敏感度和保留標籤。 您在 M365 的 [安全性中心] 的左窗格中，找不到 [**敏感度卷**標]、[**保留標籤**] 和 [**標籤分析**]
->- [Office 安全性 & 合規性中心](https://protection.microsoft.com)-全域讀取器無法讀取 SCC audit 記錄檔或執行內容搜尋。
+>- [Office 安全性 & 合規性中心](https://sip.protection.office.com/homepage)-全域讀取器無法讀取 SCC audit 記錄檔或執行內容搜尋。
 >- [小組系統管理中心](https://admin.teams.microsoft.com)-全域讀者無法讀取**小組生命週期**、**分析 & 報告**、 **IP 電話裝置管理**和**應用程式類別目錄**。
 >- [特殊許可權[存取管理（PAM）](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) ] 不支援 [全域讀取者] 角色。
 >- [Azure 資訊保護](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)-全域讀取器僅支援[集中報告](https://docs.microsoft.com/azure/information-protection/reports-aip)，而當您的 Azure AD 組織不在[統一標籤平臺](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)上時。
@@ -248,7 +248,7 @@ ms.locfileid: "74547530"
 
 ### <a name="group-administratorgroup-administrator"></a>[群組管理員](#group-administrator)
 
-此角色中的使用者可以建立/管理群組及其設定（例如命名和到期原則）。 請務必瞭解，將使用者指派給這個角色，讓他們能夠在除了 Outlook 以外的各種工作負載（例如小組、SharePoint、Yammer）上管理租使用者中的所有群組。 此外，使用者也可以跨各種不同的系統管理員入口網站管理各種群組設定，例如 Microsoft 系統管理中心、Azure 入口網站，以及特定工作負載（例如小組和 SharePoint 系統管理中心）。
+此角色中的使用者可以建立/管理群組及其設定（例如命名和到期原則）。 請務必瞭解，將使用者指派給這個角色，讓他們能夠在除了 Outlook 以外的各種工作負載（例如小組、SharePoint、Yammer）上管理租使用者中的所有群組。 此外，使用者也可以在各種不同的系統管理入口網站（例如 Microsoft 系統管理中心、Azure 入口網站，以及小組和 SharePoint 系統管理中心之類的工作負載）中管理各種群組設定。
 
 ### <a name="guest-inviterguest-inviter-permissions"></a>[來賓邀請者](#guest-inviter-permissions)
 

@@ -1,17 +1,14 @@
 ---
-title: 連結 Azure 部署的範本 | Microsoft Docs
+title: 連結部署的範本
 description: 描述如何在「Azure 資源管理員」範本中使用連結的範本，以建立模組化範本方案。 示範如何傳遞參數值、指定參數檔案，以及動態建立 URL。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.author: tomfitz
-ms.openlocfilehash: 59af553f4080ca86e964b75234e4d812297d8541
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 985520963ba9fab1a7f71e1af76bba4390c751ad
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827339"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149700"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 資源時使用連結和巢狀的範本
 
@@ -83,14 +80,14 @@ ms.locfileid: "71827339"
 > [!NOTE]
 > 對於巢狀範本，您無法使用巢狀範本中定義的參數或變數。 您可以使用來自主要範本的參數和變數。 在上述範例中，`[variables('storageName')]` 會從主要範本擷取值，而不是巢狀範本。 這項限制不適用於外部範本。
 >
-> 針對在嵌套範本內定義的兩個資源, 以及一個資源相依于另一個資源, 相依性的值只是相依資源的名稱:
+> 針對在嵌套範本內定義的兩個資源，以及一個資源相依于另一個資源，相依性的值只是相依資源的名稱：
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"
 > ],
 > ```
 >
-> 您不能在`reference`已部署于嵌套範本中的資源之嵌套範本的 [輸出] 區段中使用函式。 若要傳回巢狀範本中已部署資源的值，請將巢狀範本轉換成連結範本。
+> 您不能在已部署于嵌套範本中之資源的嵌套範本的 [輸出] 區段中，使用 `reference` 函式。 若要傳回巢狀範本中已部署資源的值，請將巢狀範本轉換成連結的範本。
 
 巢狀範本需要與標準範本[相同的屬性](resource-group-authoring-templates.md)。
 
@@ -157,7 +154,7 @@ ms.locfileid: "71827339"
 
 ## <a name="using-copy"></a>使用複製
 
-若要使用嵌套的範本來建立資源的多個實例, 請在 [ **Microsoft Resources/部署**] 資源層級上新增 copy 元素。
+若要使用嵌套的範本來建立資源的多個實例，請在 [ **Microsoft Resources/部署**] 資源層級上新增 copy 元素。
 
 下列範例範本顯示如何搭配使用複製與嵌套的範本。
 
@@ -383,7 +380,7 @@ ms.locfileid: "71827339"
 
 在部署歷程記錄中，Resource Manager 會以個別部署的方式處理每一個範本。 因此，具有三個連結或巢狀範本的主要範本在部署歷程記錄中會顯示為：
 
-![部署記錄](./media/resource-group-linked-templates/deployment-history.png)
+![部署歷程記錄](./media/resource-group-linked-templates/deployment-history.png)
 
 您可以使用歷程記錄中的這些個別項目，以在部署後擷取輸出值。 下列範本會建立公用 IP 位址，並輸出 IP 位址：
 
@@ -558,7 +555,7 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 |主要的範本  |連結的範本 |描述  |
 |---------|---------| ---------|
-|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[連結的範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | 從連結的範本傳回字串。 |
+|[](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[連結的範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | 從連結的範本傳回字串。 |
 |[使用公用 IP 位址的負載平衡器](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[連結的範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |從連結的範本傳回公用 IP 位址，並且在負載平衡器中設定該值。 |
 |[多個 IP 位址](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [連結的範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |在連結的範本中建立數個公用 IP 位址。  |
 

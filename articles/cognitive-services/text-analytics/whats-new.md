@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: aahi
-ms.openlocfilehash: 15beb8d3e326f04f1ae61c26f00e9428d95f6bc4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6ef23c03f01cd8e83d4327f358eaf12209659ce8
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031380"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286446"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>文字分析 API 有哪些新功能？
 
@@ -29,8 +29,8 @@ ms.locfileid: "74031380"
     * 電話號碼
     * IP 位址
 
-* 識別個人資訊實體類型的[新端點](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii)（僅限英文版）
-* [實體]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)辨識和[實體連結]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking)的個別端點。
+* 識別個人資訊實體類型的[新端點](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii)（僅限英文版）
+* [實體](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)辨識和[實體連結](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking)的個別端點。
 
 實體連結支援英文和西班牙文。 NER 語言支援會因實體類型而異。 
 
@@ -39,12 +39,12 @@ ms.locfileid: "74031380"
 
 ## <a name="sentiment-analysis-v3-public-preview---october-2019"></a>情感分析 v3 公開預覽-2019 年10月
 
-[下一版的情感分析](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)現已開放公開預覽，並大幅改善了 API 文字分類和計分的精確度和詳細資料。 它還提供：
+[下一版的情感分析](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)現已開放公開預覽，並大幅改善了 API 文字分類和計分的精確度和詳細資料。 它還提供：
 
 * 自動標記文字中的不同情緒。
 * 在檔和句子層級上情感分析和輸出。 
 
-它支援英文（`en`）、日文（`ja`）、簡體中文（`zh-Hans`）、繁體中文（`zh-Hant`）、法文（`fr`）、義大利文（`it`）、西班牙文（`es`）、荷蘭文（`nl`）、葡萄牙文（`pt`）和德文（`de`），並可在下欄區域中取得： `Australia East`、`Central Canada`、`Central US`、`East Asia`、`East US`、`East US 2`、`North Europe`和 `Southeast Asia`。`South Central US``UK South``West Europe``West US 2` 
+它支援英文（`en`）、日文（`ja`）、簡體中文（`zh-Hans`）、繁體中文（`zh-Hant`）、法文（`fr`）、義大利文（`it`）、西班牙文（`es`）、荷蘭文（`nl`）、葡萄牙文（`pt`）和德文（`de`），並可在下欄區域中取得： `Australia East`、`Central Canada`、`Central US`、`East Asia`、`East US`、`East US 2`、`North Europe`和 `Southeast Asia`。 
 
 > [!div class="nextstepaction"]
 > [深入瞭解情感分析 v3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)

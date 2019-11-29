@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: ebc86d1cf91cf79ab83b0f49d9898a91d8be8a75
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 628547e8254bb0055cf1f09af50e79b68311a759
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500272"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74221747"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>在 LUIS 入口網站中測試您的 LUIS 應用程式
 
 [測試](luis-concept-test.md)應用程式是一種反復的進程。 在您定型 LUIS 應用程式之後，請使用範例語句來測試它，查看它是否能正確地辨識意圖和實體。 若為否，請更新 LUIS 應用程式、訓練，並重新測試。 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 <!-- anchors for H2 name changes -->
 <a name="train-your-app"></a>
@@ -30,13 +30,20 @@ ms.locfileid: "73500272"
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
 
+## <a name="train-before-testing"></a>測試前訓練
+
+若要針對最新版本的作用中應用程式進行測試，請從頂端功能表中選取 [**訓練**]，然後再進行測試。 
+
 ## <a name="test-an-utterance"></a>測試語句
+
+測試語句不應該與應用程式中的任何範例語句完全相同。 測試語句應該包含您預期使用者的文字選擇、片語長度和實體使用方式。 
 
 1. 在 [我的應用程式] 頁面上選取應用程式名稱，來存取應用程式。 
 
 1. 若要存取 [測試] 滑出面板，請選取應用程式上方面板中的 [測試]。
 
-    ![定型和測試應用程式頁面](./media/luis-how-to-interactive-test/test.png)
+    > [!div class="mx-imgBorder"]
+    > ![訓練 & 測試應用程式 頁面](./media/luis-how-to-interactive-test/test.png)
 
 1. 在文字方塊中輸入語句，並選取 Enter。 您可以針對 [測試] 輸入任意數目的測試語句，但一次只能輸入一個語句。
 
@@ -66,7 +73,7 @@ ms.locfileid: "73500272"
 
 ## <a name="view-sentiment-results"></a>檢視情感結果
 
-若已在 [**發行**] **[ 頁面上設定 [情感分析]](luis-how-to-publish-app.md#enable-sentiment-analysis)** ，測試結果將會包含在語句中找到的情感。 
+若已在 [[發行](luis-how-to-publish-app.md#enable-sentiment-analysis)] 頁面上設定 [情感分析]，測試結果將會包含在語句中找到的情感。 
 
 ![具有情感分析之 [測試] 窗格的影像](./media/luis-how-to-interactive-test/sentiment.png)
 
@@ -92,28 +99,29 @@ ms.locfileid: "73500272"
 
 若您有數個 LUIS 端點，請使用 [測試] 面板 [發行] 窗格上的 [其他設定] 連結，以變更用於測試的端點。 若您不確定該使用哪一個端點，請選取預設的 [Starter_Key]。 
 
-![已醒目提示 [其他選項] 的 [測試] 面板](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+> [!div class="mx-imgBorder"]
+> 已反白顯示其他設定連結的 ![測試面板](media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
 
+<!--
+###  View Bing Spell Check corrections in test panel
 
-### <a name="view-bing-spell-check-corrections-in-test-panel"></a>在 [測試] 面板中檢視 Bing 拼字檢查的修正
+Requirements to view the spelling corrections: 
 
-檢視拼字修正的需求： 
+* Published app
+* Bing Spell Check [service key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). The service key is not stored and needs to be reset for each browser session. 
 
-* 已發行的應用程式
-* Bing 拼字檢查[服務金鑰](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)。 該服務金鑰並不會儲存，並需要針對每個瀏覽器工作階段進行重設。 
+Use the following procedure to include the [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) service  in the Test pane results. 
 
-使用下列程序以在 [測試] 窗格結果中包含 [Bing 拼字檢查 v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 服務。 
+1. In the **Test** pane, enter an utterance. When the utterance is predicted, select **[Inspect](#inspect-score)** underneath the utterance you entered. 
 
-1. 在 [測試] 窗格中輸入語句。 當系統預測出該語句時，請選取位於您所輸入語句下方的 [**檢查[]](#inspect-score)** 。 
+1. When the **Inspect** panel opens, select **[Compare with Published](#compare-with-published-version)**. 
 
-1. 當 [檢查] 面板開啟時，選取 [**與已發行比較[]](#compare-with-published-version)** 。 
+1. When the **Published** panel opens, select **[Additional Settings](#additional-settings-in-test-panel)**.
 
-1. 當 [已發行] 面板開啟時，選取 [**其他設定[]](#additional-settings-in-test-panel)** 。
+1. In the pop-up dialog, check **Enable Bing Spell Check** and enter the key, then select **Done**. 
+    ![Enter Bing Spell Check service key](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
 
-1. 在快顯對話方塊中，勾選 [**啟用 Bing 拼寫檢查**] 並輸入金鑰，然後選取 [**完成**]。 
-    ![輸入 Bing 拼字檢查服務金鑰](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
-
-1. 輸入具有錯誤拼字的查詢 (例如 `book flite to seattle`)，然後選取 Enter。 在傳送至 LUIS 的查詢中，系統會取代單字 `flite` 的錯誤拼字，因此結果的 JSON 會同時顯示原始的查詢 (`query`)，以及已修正拼字的查詢 (`alteredQuery`)。
+1. Enter a query with an incorrect spelling such as `book flite to seattle` and select enter. The incorrect spelling of the word `flite` is replaced in the query sent to LUIS and the resulting JSON shows both the original query, as `query`, and the corrected spelling in the query, as `alteredQuery`.
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="import-a-dataset-file-for-batch-testing"></a>
@@ -125,6 +133,7 @@ ms.locfileid: "73500272"
 <a name="view single-point utterance data"></a>
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+-->
 
 ## <a name="batch-testing"></a>批次測試
 請參閱批次測試的[概念](luis-concept-batch-test.md)，並了解[如何](luis-how-to-batch-test.md)測試語句批次。
