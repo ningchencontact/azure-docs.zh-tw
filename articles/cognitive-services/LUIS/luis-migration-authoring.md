@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 86a7575c173b4515eaf0f690bcd00c6fb70ee581
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 44baac5eb4e8887594ba05498901ba664380005f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492722"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280763"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>遷移至 Azure 資源撰寫金鑰
 
-Language Understanding （LUIS）編寫驗證從電子郵件帳戶變更為 Azure 資源。 
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+Language Understanding （LUIS）編寫驗證從電子郵件帳戶變更為 Azure 資源。 目前不需要切換至 Azure 資源，未來將會強制執行。
 
 ## <a name="why-migrate"></a>為何要移轉？
 

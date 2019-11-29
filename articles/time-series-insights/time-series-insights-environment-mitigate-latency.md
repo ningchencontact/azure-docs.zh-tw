@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7ea98baa9cb202e2584c18998c5ab96d1c1f9e5a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f29bd4ab679d734c3acce967a5d60784b9884ba6
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012648"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561318"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>監視與降低節流，以減少 Azure 時間序列深入解析中的延遲
 
@@ -42,13 +42,13 @@ ms.locfileid: "74012648"
 
 警示有助於您協助診斷並減少您環境所造成的延遲問題。
 
-1. 在 Azure 入口網站中，選取 **警示**。
+1. 在 Azure 入口網站中，選取您的時間序列深入解析環境。 然後選取 [**警示**]。
 
-   [![警示](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
+   [![將警示新增至您的時間序列深入解析環境](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
 1. 接著會顯示 [**建立規則**] 面板。 選取 [**條件**] 底下的 [**新增**]。
 
-   [![新增警示](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
+   [![新增警示窗格](media/environment-mitigate-latency/mitigate-latency-add-pane.png)](media/environment-mitigate-latency/mitigate-latency-add-pane.png#lightbox)
 
 1. 接下來，設定信號邏輯的確切條件。
 
@@ -56,7 +56,7 @@ ms.locfileid: "74012648"
 
    從該處，您可以使用下列某些條件來設定警示：
 
-   |度量  |描述  |
+   |計量  |描述  |
    |---------|---------|
    |**輸入接收的位元組**     | 從事件來源讀取的未經處理位元組計數。 未經處理的計數通常會包含屬性名稱和值。  |  
    |**輸入接收的無效訊息**     | 從所有的 Azure 事件中樞或 Azure IoT 中樞事件來源讀取的無效訊息計數。      |
@@ -70,7 +70,7 @@ ms.locfileid: "74012648"
 
 1. 設定所需的信號邏輯之後，請以視覺化方式檢查選擇的警示規則。
 
-   [![輸入](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+   [![延遲視圖和圖表](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png)](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png#lightbox)
 
 ## <a name="throttling-and-ingress-management"></a>節流與輸入管理
 

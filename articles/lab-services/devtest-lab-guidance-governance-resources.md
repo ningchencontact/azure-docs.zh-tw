@@ -1,6 +1,6 @@
 ---
-title: 治理 Azure DevTest Labs 基礎結構
-description: 此文章提供治理 Azure DevTest Labs 基礎結構的指導方針。
+title: Azure DevTest Labs 基礎結構的治理-資源
+description: 本文說明組織內 Azure DevTest Labs 資源的對齊與管理。
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: c5514a43602106cf045b575d289e02b591468359
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ba9be7b4761e6633ffe3063b6bdba53c56b93bd
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60561640"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561640"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>治理 Azure DevTest Labs 基礎結構 - 資源
 此文章將說明如何在組織內調整與管理適用於 DevTest Labs 的資源。 
@@ -28,7 +28,7 @@ ms.locfileid: "60561640"
 ### <a name="question"></a>問題
 如何在 Azure 訂用帳戶內調整 DevTest Labs 資源？
 
-### <a name="answer"></a>Answer
+### <a name="answer"></a>答案
 在組織開始使用 Azure 進行一般應用程式開發之前，IT 規劃人員應該先檢閱如何引進功能以作為其整體服務組合的一部分。 檢閱的領域應該能夠消除下列顧慮：
 
 - 如何測量與應用程式開發生命週期相關聯的成本？
@@ -53,7 +53,7 @@ ms.locfileid: "60561640"
 ### <a name="question"></a>問題
 如何在 DevTest Labs 環境中維護命名慣例？
 
-### <a name="answer"></a>Answer
+### <a name="answer"></a>答案
 您可能想要將目前的企業命名慣例擴充到 Azure 作業，並使其在整個 DevTest Labs 環境中保持一致。
 
 部署 DevTest Labs 時，我們建議您具備特定的起始原則。 您可以透過中央指令碼和 JSON 範本來部署這些原則，以強制保持一致性。 命名原則可透過在訂用帳戶層級套用的 Azure 原則來實作。 如需適用於 Azure 原則的 JSON 範例，請參閱 [Azure 原則範例](../governance/policy/samples/index.md)。
@@ -63,7 +63,7 @@ ms.locfileid: "60561640"
 ### <a name="question"></a>問題 
 如何判斷每個實驗室的使用者比例，以及整個組織中所需的實驗室總數？
 
-### <a name="answer"></a>Answer
+### <a name="answer"></a>答案
 我們建議將與相同開發專案相關聯的業務單位和開發群組關聯至同一個實驗室。 這樣就能將相同類型的原則、映像及關機原則套用到這兩個群組。 
 
 您可能也需要考慮地理界限。 例如，位於美國東部 (US) 的開發人員可能會使用佈建於美國東部 2 的實驗室。 此外，可能會將位於德克薩斯州達拉斯和科羅拉多州丹佛的開發人員重新導向來使用位於美國中南部的資源。 如果要與外部協力廠商共同合作，則可能會將他們指派到不是由內部開發人員所使用的實驗室。 
@@ -75,16 +75,16 @@ ms.locfileid: "60561640"
 ### <a name="question"></a>問題
 如何防止刪除實驗室內的資源？
 
-### <a name="answer"></a>Answer
-我們建議您在實驗室層級設定適當的權限，這樣一來，就只有授權的使用者可以刪除資源或變更實驗室原則。 開發人員應該放置於 **DevTest Labs 使用者**群組內。 首席開發人員或基礎結構負責人都應該是 **DevTest Labs 擁有者**。 我們建議您只有兩位實驗室擁有者。 此原則會擴充到程式碼存放庫以避免損毀。 實驗室使用者有權使用資源，但無法更新實驗室原則。 請參閱下列文章，其中列出每個內建群組在實驗室中擁有的角色和權限：[在 Azure DevTest Labs 中新增擁有者和使用者](devtest-lab-add-devtest-user.md)。
+### <a name="answer"></a>答案
+我們建議您在實驗室層級設定適當的權限，這樣一來，就只有授權的使用者可以刪除資源或變更實驗室原則。 開發人員應該放置於 **DevTest Labs 使用者**群組內。 首席開發人員或基礎結構負責人都應該是 **DevTest Labs 擁有者**。 我們建議您只有兩位實驗室擁有者。 此原則會擴充到程式碼存放庫以避免損毀。 實驗室使用者有權使用資源，但無法更新實驗室原則。 請參閱下列文章，其中列出每個內建群組在實驗室中所擁有的角色和權限：[在 Azure DevTest Labs 中新增擁有者和使用者](devtest-lab-add-devtest-user.md)。
 
 ## <a name="move-lab-to-another-resource-group"></a>將實驗室移至另一個資源群組 
 
 ### <a name="question"></a>問題
 它支援將實驗室移到另一個資源群組嗎？
 
-### <a name="answer"></a>Answer
-是的。 從您的實驗室首頁瀏覽至 [資源群組] 頁面。 接著，選取工具列上的 [移動]  ，然後選取您想要移至不同資源群組的實驗室。 當您建立實驗室時，即會自動為您建立資源群組。 不過，您可能想要將該實驗室移至不同的資源群組，以遵循企業命名慣例。 
+### <a name="answer"></a>答案
+可以。 從您的實驗室首頁瀏覽至 [資源群組] 頁面。 接著，選取工具列上的 [移動]，然後選取您想要移至不同資源群組的實驗室。 當您建立實驗室時，即會自動為您建立資源群組。 不過，您可能想要將該實驗室移至不同的資源群組，以遵循企業命名慣例。 
 
 ## <a name="next-steps"></a>後續步驟
 請參閱[管理成本與擁有權](devtest-lab-guidance-governance-cost-ownership.md)。

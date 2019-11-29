@@ -11,17 +11,17 @@ ms.author: sanpil
 author: sanpil
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e731ff55aa4b37d0777cf9eefb14bb111b73070
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 329fa301917fec368b0e76ab970d8ece72aa66c5
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173995"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561412"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-在本文中，您將了解如何使用 [Azure Machine Learning SDK](concept-ml-pipelines.md) 來建立、發佈、執行及追蹤[機器學習管線](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)。  使用**ML 管線**建立工作流程，以拼接各種 ML 階段，然後將該管線發佈到您的 Azure Machine Learning 工作區，以供稍後存取或與其他人共用。  ML 管線適用于批次評分案例，使用各種計算、重複使用步驟而不是重新執行，以及與其他人共用 ML 工作流程。
+在本文中，您將了解如何使用 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 來建立、發佈、執行及追蹤[機器學習管線](concept-ml-pipelines.md)。  使用**ML 管線**建立工作流程，以拼接各種 ML 階段，然後將該管線發佈到您的 Azure Machine Learning 工作區，以供稍後存取或與其他人共用。  ML 管線適用于批次評分案例，使用各種計算、重複使用步驟而不是重新執行，以及與其他人共用 ML 工作流程。
 
 雖然您可以使用另一種稱為[Azure 管線](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml)的管線來進行 ML 工作的 CI/CD 自動化，但該類型的管線永遠不會儲存在您的工作區中。 [比較這些不同的管線](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)。
 
@@ -33,7 +33,7 @@ ML 管線會使用遠端計算目標來進行計算，以及與該管線相關�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 建立 [Azure Machine Learning 工作區](how-to-manage-workspace.md)以保存您的所有管線資源。
 
@@ -130,7 +130,7 @@ iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 't
 
 ## <a name="set-up-compute-target"></a>設定計算目標
 
-在 Azure Machine Learning 中，__計算__（或__計算目標__）一詞是指在機器學習管線中執行計算步驟的機器或叢集。   如需完整的計算目標清單，以及了解如何建立這些目標並將其連結至您的工作區，請參閱[用於模型定型的計算目標](how-to-set-up-training-targets.md)。  不論您是要將模型定型還是執行管線步驟，建立和/或連結計算目標的程序都相同。 在您建立並連結計算目標之後，請在您的`ComputeTarget`管線步驟[中使用 ](#steps) 物件。
+在 Azure Machine Learning 中，__計算__（或__計算目標__）一詞是指在機器學習管線中執行計算步驟的機器或叢集。   如需完整的計算目標清單，以及了解如何建立這些目標並將其連結至您的工作區，請參閱[用於模型定型的計算目標](how-to-set-up-training-targets.md)。  不論您是要將模型定型還是執行管線步驟，建立和/或連結計算目標的程序都相同。 在您建立並連結計算目標之後，請在您的[管線步驟](#steps)中使用 `ComputeTarget` 物件。
 
 > [!IMPORTANT]
 > 不支援從遠端作業內部對計算目標執行管理作業。 由於機器學習管線會作為遠端作業提交，因此請勿從管線內對計算目標使用管理作業。
@@ -139,7 +139,7 @@ iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 't
 
 * Azure Machine Learning Compute
 * Azure Databricks 
-* Azure 資料湖分析
+* Azure Data Lake Analytics
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning Compute
 
@@ -184,7 +184,7 @@ Azure Databricks 是 Azure 雲端中的 Apache Spark 型環境。 它可與 Azur
 * __Databricks 工作區名稱__： Azure Databricks 工作區的名稱。
 * __Databricks 存取權杖__：用來驗證 Azure Databricks 的存取權杖。 若要產生存取權杖，請參閱[驗證](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html)文件。
 
-下列程式碼示範如何搭配 Azure Machine Learning SDK 來連結 Azure Databricks 作為計算目標：
+下列程式碼示範如何使用 Azure Machine Learning SDK 連結 Azure Databricks 做為計算目標（__Databricks 工作區必須存在於與 AML 工作區相同的訂__用帳戶中）：
 
 ```python
 import os
@@ -366,7 +366,7 @@ dataframe = iris_dataset.to_pandas_dataframe()
 當您提交管線時，Azure Machine Learning 會檢查每個步驟的相依性，並上傳您指定之來原始目錄的快照集。 如果未指定來源目錄，則會上傳目前的本機目錄。 快照集也會儲存為您工作區中實驗的一部分。
 
 > [!IMPORTANT]
-> 若要防止檔案包含在快照中, 請在目錄中建立 [.gitignore](https://git-scm.com/docs/gitignore) `.amlignore`或檔案, 並在其中新增檔案。 檔案會使用與 `.amlignore`.gitignore[ 檔案相同的語法和模式。](https://git-scm.com/docs/gitignore) 如果兩個檔案都存在，則會優先使用 `.amlignore` 檔案。
+> 若要防止檔案包含在快照中，請在目錄中建立[.gitignore](https://git-scm.com/docs/gitignore)或 `.amlignore` 檔案，並在其中新增檔案。 `.amlignore` 檔案使用與[.gitignore](https://git-scm.com/docs/gitignore)檔案相同的語法和模式。 如果兩個檔案都存在，則會優先使用 `.amlignore` 檔案。
 >
 > 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshots)。
 

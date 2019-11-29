@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: 729371ede8df3dc21f70bc5742de52f2be874507
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 0fc23a63ba9c54896212f0a3f398b33514fbb5f1
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029996"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555351"
 ---
 # <a name="get-started-with-device-twins-python"></a>開始使用裝置對應項 (Python)
 
@@ -56,7 +56,7 @@ ms.locfileid: "72029996"
    ```
 
    > [!NOTE]
-   > Azure iothub-服務用戶端的 pip 套件目前僅適用于 Windows 作業系統。 針對 Linux/Mac OS，請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
+   > Azure iothub-服務用戶端的 pip 套件目前僅適用于 Windows 作業系統。 針對 Linux/Mac OS，請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
    >
 
 2. 使用文字編輯器，建立新的 **AddTagsAndQuery.py** 檔案。
@@ -70,7 +70,7 @@ ms.locfileid: "72029996"
    from iothub_service_client import IoTHubDeviceTwin, IoTHubError
    ```
 
-4. 新增下列程式碼。 以您在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中複製的 IoT 中樞連接字串取代 `[IoTHub Connection String]`。 以您在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中註冊的裝置識別碼取代 `[Device Id]`。
+4. 新增下列程式碼。 以您在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中複製的 IoT 中樞連接字串取代 `[IoTHub Connection String]`。 以您在在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中註冊的裝置識別碼取代 `[Device Id]`。
   
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -171,7 +171,7 @@ ms.locfileid: "72029996"
     from azure.iot.device import IoTHubModuleClient
     ```
 
-4. 新增下列程式碼。 以您在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中所複製的裝置連接字串，取代 `[IoTHub Device Connection String]` 預留位置值。
+4. 新增下列程式碼。 以您在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中所複製的裝置連接字串，取代 `[IoTHub Device Connection String]` 的預留位置值。
 
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"

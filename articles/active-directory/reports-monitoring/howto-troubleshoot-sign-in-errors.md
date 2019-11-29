@@ -3,7 +3,7 @@ title: 如何針對登入錯誤報表進行疑難排解 |Microsoft Docs
 description: 了解如何在 Azure 入口網站中使用 Azure Active Directory 報告對登入錯誤進行疑難排解
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 692fd2034fb70feffe02320eea5cdb9a3d163475
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: ec5fe7f62e8537a7f687202d365eb37d43b48b78
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819705"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008068"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>操作說明：使用 Azure Active Directory 報告對登入錯誤進行疑難排解
 
@@ -32,11 +32,11 @@ Azure Active Directory (Azure AD) 中的[登入報告](concept-sign-ins.md)可�
 
 此外，登入報告也可協助您對組織中使用者的登入失敗進行疑難排解。 在本指南中，您會了解如何從登入報告中將失敗的登入隔離出來，並藉此了解失敗的根本原因。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您需要：
 
-* 具有進階 (P1/P2) 授權的 Azure AD 租用戶。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md)以升級您的 Azure Active Directory 版本。
+* 具有進階 (P1/P2) 授權的 Azure AD 租用戶。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 來升級 Azure Active Directory 版本。
 * 租使用者的「**全域管理員**」、「**安全性系統管理員**」、「**安全性讀取**者」或「**報告讀取**者」角色的使用者。 此外，任何使用者都可以存取自己的登入資訊。 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>使用登入報告對登入錯誤進行疑難排解
@@ -53,13 +53,13 @@ Azure Active Directory (Azure AD) 中的[登入報告](concept-sign-ins.md)可�
         
 5. 您也可以在詳細資料視窗的 [疑難排解和支援] 索引標籤中找到這項資訊。
 
-    ![疑難排解及支援](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
+    ![疑難排解和支援](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
 6. 失敗原因會說明錯誤。 例如，在上述案例中，失敗原因是**不正確使用者名稱或密碼，或不正確內部部署使用者名稱或密碼**。 若要修正，只需使用正確的使用者名稱和密碼再登入一次。
 
-7. 您可以在[登入錯誤碼參考](reference-sign-ins-error-codes.md)中搜尋錯誤碼 (在此範例中為 **50126**)，以取得其他詳細資訊和修復意見。 
+7. 您可以在**登入錯誤碼參考**中搜尋錯誤碼 (在此範例中為 [50126](reference-sign-ins-error-codes.md))，以取得其他詳細資訊和修復意見。 
 
-8. 如果所有解決方案均失敗，或採取建議動作後問題仍持續發生，請遵循 [疑難排解和支援] 索引標籤中的步驟來[提出支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)。 
+8. 如果所有解決方案均失敗，或採取建議動作後問題仍持續發生，請遵循 [疑難排解和支援][](../fundamentals/active-directory-troubleshooting-support-howto.md) 索引標籤中的步驟來**提出支援票證**。 
 
 ## <a name="next-steps"></a>後續步驟
 

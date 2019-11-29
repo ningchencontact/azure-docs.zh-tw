@@ -8,25 +8,25 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: aahi
-ms.openlocfilehash: 693a81cfb15407541311d7ab053bb2ab6a267b29
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: a4c911fa077c2ec332974fb2f0c5abcdef21307c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799734"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284088"
 ---
 ## <a name="general-entity-types"></a>一般實體類型：
 
-### <a name="person"></a>Person
+### <a name="person"></a>人物
 文字中的已辨識名稱和其他人員。
 語言：
 * 公開預覽： `English`
 
-| 子類型名稱 | 說明             |
+| 子類型名稱 | 描述             |
 |--------------|-------------------------|
 | N/A          | 識別的名稱，例如 `Bill Gates`，`Marie Curie` |
 
-### <a name="location"></a>位置
+### <a name="location"></a>Location
 
 自然和人為地標、結構和地理位置功能。
 
@@ -35,7 +35,7 @@ ms.locfileid: "73799734"
 
 * 公開預覽： `English`
 
-| 子類型名稱 | 說明                                                                                      |
+| 子類型名稱 | 描述                                                                                      |
 |--------------|--------------------------------------------------------------------------------------------------|
 | N/A          | 位置，例如 `Atlantic Ocean`、`library`、`Eiffel Tower`、`Statue of Liberty` |
 
@@ -45,22 +45,22 @@ ms.locfileid: "73799734"
 
 * 公開預覽： `English`
 
-| 子類型名稱 | 說明                                                                                      |
+| 子類型名稱 | 描述                                                                                      |
 |--------------|--------------------------------------------------------------------------------------------------|
 | N/A          | 組織（例如 `Microsoft`） `NASA` `National Oceanic and Atmospheric Administration` |
 
 ### <a name="phone-number"></a>電話號碼
 
-電話號碼。 
+電話號碼（僅限美國電話號碼）。 
 
 語言：
 
 
 * 公開預覽： `English`
 
-| 子類型名稱 | 說明                                  |
+| 子類型名稱 | 描述                                  |
 |----------|----------------------------------------------|
-| N/A         | 電話號碼，例如 `+1 123-123-123`。 |
+| N/A         | 美國電話號碼，例如 `(312) 555-0176`。 |
 
 ### <a name="email"></a>電子郵件
 
@@ -71,7 +71,7 @@ ms.locfileid: "73799734"
 
 * 公開預覽： `English`
 
-| 子類型名稱 | 說明                                  |
+| 子類型名稱 | 描述                                  |
 |----------|----------------------------------------------|
 | N/A         | 電子郵件地址，例如 `support@contoso.com` |
 
@@ -84,7 +84,7 @@ ms.locfileid: "73799734"
 
 * 公開預覽： `English`
 
-| 子類型名稱 | 說明                                           |
+| 子類型名稱 | 描述                                           |
 |----------|-------------------------------------------------------|
 | N/A         | 網站的 Url，例如 `https://www.bing.com`。 |
 
@@ -99,9 +99,9 @@ ms.locfileid: "73799734"
 
 | 子類型名稱    | 範例                     |
 |-------------|------------------------------|
-| N/A         | `6`、`six`                   |
-| 百分比  | `50%`、`fifty percent`       |
-| 序數     | `2nd`、`second`              |
-| 貨幣    | `$10.99`、`€30.00`           |
-| 維度   | `10 miles`、`40 cm`          |
-| 溫度 | `32 degrees`、`10°C`         |
+| N/A         | `6`，`six`                   |
+| 百分比  | `50%`，`fifty percent`       |
+| 序號     | `2nd`，`second`              |
+| 貨幣    | `$10.99`，`€30.00`           |
+| 維度   | `10 miles`，`40 cm`          |
+| 溫度 | `32 degrees`，`10°C`         |

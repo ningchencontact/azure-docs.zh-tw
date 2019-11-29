@@ -1,6 +1,6 @@
 ---
 title: Azure 資訊安全中心的信賴分數 | Microsoft Docs
-description: " 了解如何使用 Azure 資訊安全中心的信賴分數。 "
+description: 資訊安全中心會產生信賴分數，以協助您的小組判斷威脅是否合法，以及如何分級和設定警示的優先順序。
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: 0f0380ca4a285d9cb4a8472a40c77130a8f63035
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b7e53291e10db17f848553b17dae2f84bdb08b7
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202372"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558969"
 ---
 # <a name="alert-confidence-score"></a>警示信賴分數 
 
@@ -53,7 +53,7 @@ Azure 資訊安全中心可讓您檢視在 Azure 中執行的各項資源，並�
 本文說明了如何使用信賴分數來排定警示調查的優先順序。 如要深入了解資訊安全中心，請參閱下列主題：
 
 * [Azure 資訊安全中心常見問題集](security-center-faq.md)-- 尋找有關使用服務的常見問題。
-* [Azure 資訊安全中心的安全性健康狀態監視](security-center-monitoring.md)--了解如何監視 Azure 資源的健康狀態。
+* [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md)-- 了解如何監視 Azure 資源的健全狀況。
 
 
 

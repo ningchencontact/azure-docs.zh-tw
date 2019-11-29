@@ -1,18 +1,14 @@
 ---
 title: Azure 備份支援矩陣
 description: 摘要說明 Azure 備份服務的支援設定和限制。
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.author: dacurwin
-ms.openlocfilehash: 5adcf252fed4ac94ae4261886b24eb087424bdbe
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 2c33c71e579cc6fa5d01ba086fb1a9a4fc9c142c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533139"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172076"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure 備份的支援矩陣
 
@@ -45,7 +41,7 @@ Azure 備份使用復原服務保存庫來協調和管理備份。 它也會使�
 
 如果您想要備份內部部署機器，以下是支援的這是什麼：
 
-**機器** | **備份的內容** | **位置** | **功能**
+**機器** | **備份的內容** | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **特性**
 --- | --- | --- | ---
 **透過 MARS 代理程式直接備份 Windows 機器** | 檔案、資料夾、系統狀態 | 備份至復原服務保存庫。 | 一天備份三次<br/><br/> 無應用程式感知備份<br/><br/> 還原檔案、資料夾、磁片區
 **透過 MARS 代理程式直接備份 Linux 機器** | 不支援備份
@@ -65,7 +61,7 @@ Azure 備份使用復原服務保存庫來協調和管理備份。 它也會使�
 
 如果您想要備份 Azure Vm，以下是支援的這是什麼：
 
-**機器** | **備份的內容** | **位置** | **功能**
+**機器** | **備份的內容** | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **特性**
 --- | --- | --- | ---
 **使用 VM 擴充功能的 Azure VM 備份** | 整個 VM | 備份至保存庫。 | 當您為 VM 啟用備份時安裝的延伸模組。<br/><br/> 一天備份一次。<br/><br/> 適用于 Windows Vm 的應用程式感知備份;Linux Vm 的檔案一致備份。 您可以使用自訂腳本來設定 Linux 機器的應用程式一致性。<br/><br/> 還原 VM 或磁片。<br/><br/> 無法將 Azure VM 備份至內部部署位置。
 **使用 MARS 代理程式的 Azure VM 備份** | 檔案、資料夾、系統狀態 | 備份至保存庫。 | 一天備份三次。<br/><br/> 如果您想要備份特定的檔案或資料夾，而不是整個 VM，則 MARS 代理程式可以與 VM 擴充功能一起執行。
@@ -116,10 +112,10 @@ Azure 備份支援傳輸中和待用資料的加密。
 
 **機器** | **傳輸中** | **待用**
 --- | --- | ---
-**不含 DPM/MABS 的內部部署 Windows 機器** | ![是][green] | ![是][green]
-**Azure VM** | ![是][green] | ![是][green]
-**使用 DPM 的內部部署 Windows 機器或 Azure Vm** | ![是][green] | ![是][green]
-**具有 MABS 的內部部署 Windows 機器或 Azure Vm** | ![是][green] | ![是][green]
+**不含 DPM/MABS 的內部部署 Windows 機器** | ![yes][green] | ![yes][green]
+**Azure VM** | ![yes][green] | ![yes][green]
+**使用 DPM 的內部部署 Windows 機器或 Azure Vm** | ![yes][green] | ![yes][green]
+**具有 MABS 的內部部署 Windows 機器或 Azure Vm** | ![yes][green] | ![yes][green]
 
 ## <a name="compression-support"></a>壓縮支援
 
@@ -130,16 +126,16 @@ Azure 備份支援傳輸中和待用資料的加密。
 
 **機器** | **壓縮到 MABS DPM (TCP)** | **壓縮至保存庫（HTTPS）**
 --- | --- | ---
-**直接備份內部部署 Windows 機器** | NA | ![是][green]
+**直接備份內部部署 Windows 機器** | NA | ![yes][green]
 **使用 VM 擴充功能來備份 Azure Vm** | NA | NA
-**使用 MABS/DPM 在內部部署/Azure 機器上備份** | ![是][green] | ![是][green]
+**使用 MABS/DPM 在內部部署/Azure 機器上備份** | ![yes][green] | ![yes][green]
 
 ## <a name="retention-limits"></a>保留期限
 
 **設定** | **限制**
 --- | ---
 **每個受保護的實例（機器或工作負載）的最大復原點** | 9999
-**復原點的最大到期時間** | 無限制
+**復原點的最大到期時間** | 沒有限制
 **DPM/MABS 的備份頻率上限** | 每隔 15 分鐘 (SQL Server)<br/><br/> 針對其他工作負載一小時一次
 **備份至保存庫的頻率上限** | 內部**部署 Windows 機器或執行 MARS 的 Azure vm：** 每天三個<br/><br/> **DPM/MABS：** 每天兩個<br/><br/> **AZURE VM 備份：** 一天一次
 **復原點保留期** | 每日、每週、每月、每年

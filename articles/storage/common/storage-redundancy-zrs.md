@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 46975cf7762e2d92e5112911bd491f372cb22a31
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: a86d94110e78b7ace0e963469e9f236f7cc72ab4
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544617"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555477"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>用來建立高可用性 Azure 儲存體應用程式的區域冗余儲存體（ZRS）
 
@@ -22,9 +22,9 @@ ms.locfileid: "74544617"
 
 ## <a name="support-coverage-and-regional-availability"></a>支援涵蓋範圍和區域可用性
 
-ZRS 目前支援標準的一般用途 v2 和 FileStorage 儲存體帳戶類型。 如需有關儲存體帳戶類型的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](storage-account-overview.md)。
+ZRS 目前支援標準的一般用途 v2、FileStorage 和 BlockBlobStorage 儲存體帳戶類型。 如需有關儲存體帳戶類型的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](storage-account-overview.md)。
 
-ZRS 適用于區塊 blob、非磁片分頁 blob、標準檔案共用、資料表和佇列。
+一般用途 v2 ZRS 帳戶支援區塊 blob、非磁片分頁 blob、標準檔案共用、資料表和佇列。
 
 針對一般用途 v2 帳戶，ZRS 已在下欄區域正式推出：
 

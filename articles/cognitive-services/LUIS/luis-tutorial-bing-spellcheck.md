@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 238b76040559148c48aa67b99e856a5987b71a7e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 51b0d02443df872a7fae13116ea77b13d05055fa
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123169"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225454"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>使用 Bing 拼字檢查更正拼錯的字組
 
@@ -26,6 +26,7 @@ ms.locfileid: "74123169"
 
 
 ## <a name="create-first-key-for-bing-spell-check-v7"></a>為 Bing 拼字檢查 V7 建立第一個金鑰
+
 您的[第一個 Bing 拼字檢查 API v7 金鑰](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)是免費的。 
 
 ![建立免費金鑰](./media/luis-tutorial-bing-spellcheck/free-key.png)
@@ -61,9 +62,10 @@ ms.locfileid: "74123169"
 
 10. 複製第一個金鑰。 您只需要兩個金鑰中的其中一個。 
 
-## <a name="using-the-key-in-luis-test-panel"></a>在 LUIS 測試面板中使用金鑰
-LUIS 中有兩個地點可使用金鑰。 第一個是在[測試面板](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel)中。 金鑰不會儲存到 LUIS 中，但卻是工作階段變數。 每次您希望測試面板將 Bing 拼字檢查 API v7 服務套用至語句時，都需要設定金鑰。 請參閱測試面板中有關設定金鑰的[指示](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel)。
-
+<!--
+## Using the key in LUIS test panel
+There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
+-->
 ## <a name="adding-the-key-to-the-endpoint-url"></a>將金鑰新增至端點 URL
 對於您想要套用拼字校正的每項查詢，端點查詢需要以查詢字串參數傳入的金鑰。 您可能有可呼叫 LUIS 的聊天機器人，或者您可以直接呼叫 LUIS 端點 API。 不論端點的呼叫方式為何，每次呼叫都必須包含所需的資訊，拼字校正才能正常運作。
 
@@ -74,7 +76,7 @@ LUIS 中有兩個地點可使用金鑰。 第一個是在[測試面板](luis-int
 ## <a name="send-misspelled-utterance-to-luis"></a>將拼錯的語句傳送至 LUIS
 1. 在網頁瀏覽器中，複製上述字串，並以您自己的值取代 `region`、`appId`、`luisKey` 和 `bingKey`。 如果端點區域不同於您的發佈[區域](luis-reference-regions.md)，請務必使用端點區域。
 
-2. 新增拼錯的語句，例如 "How far is the mountainn?"。 在英文中，包含一個 `mountain` 的 `n` 是正確的拼法。 
+2. 新增拼錯的語句，例如 "How far is the mountainn?"。 在英文中，包含一個 `n` 的 `mountain` 是正確的拼法。 
 
 3. 選取 Enter 將查詢傳送至 LUIS。
 

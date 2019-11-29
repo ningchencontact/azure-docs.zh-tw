@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 4cbca96ed95167615f3ff2876e27e546d08d92f5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d721ceb25b3ce2408563a0bed16457d05affe7b4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501012"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280874"
 ---
 # <a name="design-with-intent-and-entity-models"></a>使用意圖和實體模型設計 
 
@@ -37,7 +37,7 @@ LUIS 支援使用 V3 撰寫 Api 來進行_模型分解_，將模型細分成較�
 * [機器學習的實體](#machine-learned-entities)
     * [子元件](#entity-subcomponents-help-extract-data)（也是機器學習的實體）
         * 功能所提供的[描述](#descriptors-are-features)項 
-        * 非機器學習的實體（例如，正則運算式和清單）所提供的[條件約束](#constraints-are-text-rules)
+        * 非機器學習的實體（例如正則運算式和清單）所提供的[條件約束](#constraints-are-text-rules)
 
 ## <a name="v2-authoring-models"></a>V2 撰寫模型
 
@@ -134,7 +134,7 @@ LUIS 支援使用 V2 撰寫 Api 的複合實體。 這會提供類似的模型�
 
 此語句_必須_具有意圖，而且_可能會_有實體：
 
-`Buy a airline ticket from Seattle to Cairo`
+`Buy an airline ticket from Seattle to Cairo`
 
 這個語句有單一的意圖：
 

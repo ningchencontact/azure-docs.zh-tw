@@ -11,18 +11,18 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: c71fb8a7e18439817023874146e22c29a5af3b12
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: cb37bd0c83956b9858639a78d4995e14811498e5
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123696"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559330"
 ---
 # <a name="hyperscale-service-tier"></a>超大規模資料庫服務層級
 
 Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引擎架構為基礎，以確保 99.99% 的可用性 (即使在基礎結構失敗的情況下)。 Azure SQL Database 中使用三個架構模型：
 - 一般目的/標準 
--  超大規模資料庫
+-  Hyperscale
 -  業務關鍵/進階
 
 Azure SQL Database 中的超大規模服務層是以虛擬核心為基礎的購買模型中的最新服務層。 此服務層級是可高度擴充的儲存體和計算效能層，可利用 Azure 架構以相應放大 Azure SQL Database 的儲存體和計算資源，而大幅超過一般用途和商務關鍵性服務層級的可用限制。
@@ -72,7 +72,7 @@ Azure SQL Database 中的超大規模資料庫服務層級提供下列額外功�
 
 - **儲存體**：
 
-  您設定超大規模資料庫時，不需要指定資料大小上限。 在超大規模層中，會依據資料庫實際使用的儲存體向您收費。 儲存體會自動設定介於 10 GB 到 100 TB 之間，以動態方式在 10 GB 到 40 GB 之間進行調整。  
+  您設定超大規模資料庫時，不需要指定資料大小上限。 Hyperscale 層會依據資料庫實際使用的儲存體向您收費。 儲存體會自動設定介於 10 GB 到 100 TB 之間，以動態方式在 10 GB 到 40 GB 之間進行調整。  
 
 如需有關超大規模定價的詳細資訊，請參閱 [Azure SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -86,7 +86,7 @@ Azure SQL Database 中的超大規模資料庫服務層級提供下列額外功�
 
 超大規模資料庫資料庫包含下列不同類型的元件：
 
-### <a name="compute"></a>計算
+### <a name="compute"></a>運算
 
 計算節點就是關聯式引擎的所在位置，因此會發生所有語言元素、查詢處理等等。 所有與超大規模資料庫的使用者互動都是透過這些計算節點進行。 計算節點具有 SSD 快取 (在上圖中標示為 RBPEX (復原緩衝集區延伸模組))，可減少擷取資料頁面所需的網路來回行程次數。 有一個主要計算節點可以處理所有讀寫工作負載和交易。 有一或多個次要計算節點作為容錯移轉的熱待命節點，以及作為用於卸載讀取工作負載的唯讀計算節點 (如果想要使用此功能)。
 
@@ -102,7 +102,7 @@ Azure SQL Database 中的超大規模資料庫服務層級提供下列額外功�
 
 Azure 儲存體包含資料庫中的所有資料檔案。 頁面伺服器會將 Azure 儲存體的資料檔案保持在最新狀態。 此儲存體用於備份目的，也用於 Azure 區域之間的複寫。 備份是使用資料檔案的儲存體快照集來執行。 不論資料大小為何，使用快照集的還原作業都是快速的。 資料可以還原到資料庫的備份保留期限內的任何時間點。
 
-## <a name="backup-and-restore"></a>備份與還原
+## <a name="backup-and-restore"></a>備份及還原
 
 備份是以檔案快照集為基礎，因此幾乎瞬間完成。 儲存體和計算區隔可讓您將備份/還原作業向下推送至儲存層，以降低主要計算複本的處理負擔。 因此，資料庫備份不會影響主要計算節點的效能;同樣地，還原會藉由還原到檔案快照集來完成，因此這不是資料作業的大小。 Restore 是一種持續時間的作業，甚至可以在數分鐘內還原多 tb 的資料庫，而不需要數小時或數天。 藉由還原現有的備份來建立新的資料庫也會利用這項功能：在相同的邏輯伺服器內建立資料庫複本以供開發或測試之用（即使大小較大的資料庫），在幾分鐘內就會雖可行。
 
@@ -166,8 +166,8 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
 
-- 澳洲東部
-- 澳洲東南部
+- 澳大利亞東部
+- 澳大利亞東南部
 - 巴西南部
 - 加拿大中部
 - 美國中部
@@ -239,7 +239,7 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
 | 問題 | 描述 |
 | :---- | :--------- |
 | 邏輯伺服器的 [管理備份] 窗格不會顯示超大規模資料庫資料庫將會從 SQL server 篩選  | 超大規模資料庫有不同的管理備份方法，因此長期保留和時間點備份保留設定不會套用/失效。 據此，超大規模資料庫不會出現在 [管理備份] 窗格中。 |
-| 還原時間點 | 一旦將資料庫移轉至超大規模資料庫服務層級之後，就不支援在遷移之前還原至時間點。|
+| 時間點還原 | 一旦將資料庫移轉至超大規模資料庫服務層級之後，就不支援在遷移之前還原至時間點。|
 | 將非超大規模資料庫 DB 還原至 Hypserscale，反之亦然 | 您無法將超大規模資料庫資料庫還原至非超大規模資料庫資料庫，也不能將非超大規模資料庫資料庫還原至超大規模資料庫資料庫。|
 | 如果資料庫的一個或多個資料檔案大於 1 TB，則遷移會失敗 | 在某些情況下，您可以將大型檔案壓縮為小於 1 TB，藉此解決此問題。 如果在遷移程式期間遷移正在使用的資料庫，請確定沒有任何檔案大於 1 TB。 使用下列查詢來判斷資料庫檔案的大小。 `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | 受控執行個體 | 超大規模資料庫資料庫目前不支援 Azure SQL Database 受控執行個體。 |
@@ -251,6 +251,7 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
 | 資料庫複製 | 您還不能在 Azure SQL 超大規模資料庫中使用資料庫複製來建立新的資料庫。 |
 | TDE/AKV 整合 | Azure SQL Database 超大規模資料庫尚不支援使用 Azure Key Vault （通常稱為自備金鑰或 BYOK）的透明資料庫加密，不過，已完全支援具有服務管理金鑰的 TDE。 |
 |智慧型資料庫功能 | 除了 [強制計畫] 選項之外，超大規模資料庫上還不支援所有其他自動調整選項：選項可能會顯示為已啟用，但不會有任何建議或動作。 |
+| 壓縮資料庫 | Azure SQL 超大規模資料庫資料庫目前不支援 DBCC SHRINKDATABASE 或 DBCC SHRINKFILE。 |
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -258,4 +259,4 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
 - 如需服務層級的資訊，請參閱[服務層級](sql-database-service-tiers.md)
 - 如需伺服器和訂用帳戶層級的限制資訊，請參閱[邏輯伺服器上的資源限制概觀](sql-database-resource-limits-logical-server.md)。
 - 如需單一資料庫的購買模型限制相關資訊，請參閱[適用於單一資料庫的 Azure SQL Database 以虛擬核心為基礎的購買模型限制](sql-database-vcore-resource-limits-single-databases.md)。
-- 如需功能與比較清單，請參閱 [SQL 的一般功能](sql-database-features.md)。
+- 如需功能與比較清單，請參閱[SQL 的一般功能](sql-database-features.md)。

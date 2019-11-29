@@ -48,13 +48,13 @@ ms.locfileid: "70012578"
      從現有訂用帳戶選取訂用帳戶。
    * **資源群組**   
      使用現有的資源群組或建立新群組。
-   * **位置**  
+   * <bpt id="p1">**</bpt>Location<ept id="p1">**</ept>  
      選取您想要帳戶及其子資源位在哪個區域。  
 
      ![新增 NetApp 帳戶](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 
 
-5. 按一下 [建立]。     
+5. 按一下頁面底部的 [新增]。     
    您剛建立的 NetApp 帳戶現在會出現在 [Azure NetApp Files] 刀鋒視窗中。 
 
 > [!NOTE] 

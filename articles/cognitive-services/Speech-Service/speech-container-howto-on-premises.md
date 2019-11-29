@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: b413bc6d29f1b08949b50570cb5baa2eb758d779
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 42585ae09435e67b7cdea0b437681e2ce044ecd3
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491021"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383661"
 ---
 # <a name="use-speech-service-container-with-kubernetes-and-helm"></a>使用語音服務容器搭配 Kubernetes 和 Helm
 
@@ -25,7 +25,7 @@ ms.locfileid: "73491021"
 
 在內部部署使用語音容器之前，請先遵循下列必要條件：
 
-|必要|目的|
+|必要項|目的|
 |--|--|
 | Azure 帳戶 | 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][free-azure-account]。 |
 | 容器登錄存取 | 為了讓 Kubernetes 將 docker 映射提取到叢集，它需要容器登錄的存取權。 |
@@ -77,7 +77,7 @@ secret "mcr" created
 若要確認是否已建立密碼，請使用 `secrets` 旗標來執行[`kubectl get`][kubectl-get] 。
 
 ```console
-kuberctl get secrets
+kubectl get secrets
 ```
 
 執行 `kubectl get secrets` 會列印所有設定的秘密。
@@ -275,13 +275,13 @@ Helm 圖表是階層式的。 階層式允許圖表繼承，它也會已經考�
 [azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
-[helm-install]: https://helm.sh/docs/using_helm/#installing-helm
-[helm-install-cmd]: https://helm.sh/docs/helm/#helm-install
+[helm-install]: https://helm.sh/docs/intro/install/
+[helm-install-cmd]: https://helm.sh/docs/intro/using_helm/#helm-install-installing-a-package
 [tiller-install]: https://helm.sh/docs/install/#installing-tiller
-[helm-charts]: https://helm.sh/docs/developing_charts
+[helm-charts]: https://helm.sh/docs/topics/charts/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[helm-test]: https://helm.sh/docs/helm/#helm-test
+[helm-test]: https://v2.helm.sh/docs/helm/#helm-test
 [ms-helm-hub]: https://hub.helm.sh/charts/microsoft
 [ms-helm-hub-speech-chart]: https://hub.helm.sh/charts/microsoft/cognitive-services-speech-onpremise
 

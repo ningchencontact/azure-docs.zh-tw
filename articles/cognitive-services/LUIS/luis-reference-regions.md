@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: fe4436afe56e631ae308b70ae35b1fb4a7c32e11
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4f8e5d1c5ac3b0383fee5a901d2bb34edab8dae2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669176"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225482"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>撰寫和發佈區域及相關聯的金鑰
 
@@ -29,9 +29,9 @@ ms.locfileid: "73669176"
 
 |LUIS|撰寫區域|Azure 區功能變數名稱稱|
 |--|--|--|
-|[www.luis.ai][www.luis.ai]|美國<br>非歐洲<br>非澳大利亞| `westus`|
-|[au.luis.ai][au.luis.ai]|澳大利亞| `australiaeast`|
-|[eu.luis.ai][eu.luis.ai]|歐洲|`westeurope`|
+|[www.luis.ai][www.luis.ai] <br>[preview.luis.ai](https://preview.luis.ai)|美國<br>非歐洲<br>非澳大利亞| `westus`|
+|[au.luis.ai][au.luis.ai] <br>[preview.au.luis.ai](https://preview.au.luis.ai)|澳洲| `australiaeast`|
+|[eu.luis.ai][eu.luis.ai] <br>[preview.eu.luis.ai](https://preview.eu.luis.ai)|歐洲|`westeurope`|
 
 撰寫區域具有[配對的故障時區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 
 
@@ -53,7 +53,7 @@ ms.locfileid: "73669176"
 
 ## <a name="publishing-to-europe"></a>發行至歐洲
 
-若要發行至歐洲區域，您僅能在 https://eu.luis.ai 建立 LUIS 應用程式。 若您嘗試使用歐洲區域的金鑰於其他區域發行，LUIS 會顯示警告訊息。 請改用 https://eu.luis.ai。 在[https://eu.luis.ai][eu.luis.ai]建立的 LUIS 應用程式不會自動遷移到其他區域。 若要移轉它，請匯出然後再匯入該 LUIS 應用程式。
+若要發行至歐洲區域，您僅能在 https://eu.luis.ai 建立 LUIS 應用程式。 若您嘗試使用歐洲區域的金鑰於其他區域發行，LUIS 會顯示警告訊息。 請改用 https://eu.luis.ai 。 在[https://eu.luis.ai][eu.luis.ai]建立的 LUIS 應用程式不會自動遷移到其他區域。 若要移轉它，請匯出然後再匯入該 LUIS 應用程式。
 
 ## <a name="europe-publishing-regions"></a>歐洲發行地區
 
@@ -66,13 +66,13 @@ ms.locfileid: "73669176"
 
 ## <a name="publishing-to-australia"></a>發行至澳大利亞
 
-若要發行至澳大利亞區域，您僅能在 https://au.luis.ai 建立 LUIS 應用程式。 若您嘗試使用澳大利亞區域的金鑰於其他區域發行，LUIS 會顯示警告訊息。 請改用 https://au.luis.ai。 在[https://au.luis.ai][au.luis.ai]建立的 LUIS 應用程式不會自動遷移到其他區域。 若要移轉它，請匯出然後再匯入該 LUIS 應用程式。
+若要發行至澳大利亞區域，您僅能在 https://au.luis.ai 建立 LUIS 應用程式。 若您嘗試使用澳大利亞區域的金鑰於其他區域發行，LUIS 會顯示警告訊息。 請改用 https://au.luis.ai 。 在[https://au.luis.ai][au.luis.ai]建立的 LUIS 應用程式不會自動遷移到其他區域。 若要移轉它，請匯出然後再匯入該 LUIS 應用程式。
 
 ## <a name="australia-publishing-regions"></a>澳大利亞發行地區
 
  全球區域 | 撰寫 API 區域和編寫網站| 發行與查詢區域<br>`API region name`   |  端點 URL 格式   |
 |-----|------|------|------|
-| [澳大利亞](#publishing-to-australia) | `australiaeast`<br>[au.luis.ai][au.luis.ai]| 澳洲東部<br>`australiaeast`     |  https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| [澳大利亞](#publishing-to-australia) | `australiaeast`<br>[au.luis.ai][au.luis.ai]| 澳大利亞東部<br>`australiaeast`     |  https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 
 ## <a name="publishing-to-other-regions"></a>發行至其他區域
 

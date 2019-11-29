@@ -35,7 +35,7 @@ DDoS 是一種嘗試耗盡應用程式資源的攻擊類型。 目標是影響�
 
 下一節提供在 Azure 上建置 DDoS 復原服務的規範性指引。
 
-### <a name="design-for-security"></a>安全設計
+### <a name="design-for-security"></a>安全性設計
 
 確保安全性在應用程式的整個生命週期 (從設計和實作到部署與作業) 中具有優先順序。 應用程式可能存在一些錯誤 (bug)，可允許數量相對較低的要求過度使用大量資源，因而導致服務中斷。 
 
@@ -46,7 +46,7 @@ DDoS 是一種嘗試耗盡應用程式資源的攻擊類型。 目標是影響�
 
 ### <a name="design-for-scalability"></a>延展性設計
 
-延展性是指系統能夠處理負載增加的能力。 設計您的應用程式以[水準調整](/azure/architecture/guide/design-principles/scale-out)，以符合擴大負載的需求，特別是在發生 DDoS 攻擊的情況下。 如果您的應用程式相依於服務的單一執行個體，它會建立單一失敗點。 佈建多個執行個體可讓系統更有彈性且更具延展性。
+延展性是指系統能夠處理負載增加的能力。 將您的應用程式設計為可[水平調整](/azure/architecture/guide/design-principles/scale-out)以滿足放大負載的需求，遭遇 DDoS 攻擊時尤其需要。 如果您的應用程式相依於服務的單一執行個體，它會建立單一失敗點。 佈建多個執行個體可讓系統更有彈性且更具延展性。
 
 對於 [Azure App Service](/azure/app-service/app-service-value-prop-what-is)，請選擇可提供多個執行個體的 [App Service 方案](/azure/app-service/overview-hosting-plans)。 對於 Azure 雲端服務，設定您的每個角色以使用[多個執行個體](/azure/cloud-services/cloud-services-choose-me)。 對於 [Azure 虛擬機器](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)，確保虛擬機器 (VM) 架構包含多個 VM，而且每個 VM 都包含於[可用性設定組](/azure/virtual-machines/virtual-machines-windows-manage-availability)中。 建議您使用[虛擬機器擴展集](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)，自動調整功能。
 
@@ -54,7 +54,7 @@ DDoS 是一種嘗試耗盡應用程式資源的攻擊類型。 目標是影響�
 
 深層防禦背後的概念是使用各種不同的防禦策略來管理風險。 將應用程式中的安全性防禦分層，可降低成功攻擊的機會。 建議您使用 Azure 平台的內建功能，為您的應用程式實作安全設計。
 
-例如，攻擊的風險會隨著應用程式大小 (*介面區*) 而提高。 您可以使用白名單來關閉負載平衡器 ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) 和 [Azure 應用程式閘道](/azure/application-gateway/application-gateway-create-probe-portal)) 上不需要的公開 IP 位址空間和接聽連接埠，來減少介面區。 [網路安全性群組 (NSG)](/azure/virtual-network/security-overview) 是減少攻擊面的另一種方法。
+例如，攻擊的風險會隨著應用程式大小 (*介面區*) 而提高。 您可以使用允許清單來關閉負載平衡器 ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) 和 [Azure 應用程式閘道](/azure/application-gateway/application-gateway-create-probe-portal)) 上不需要的公開 IP 位址空間和接聽連接埠，來減少介面區。 [網路安全性群組 (NSG)](/azure/virtual-network/security-overview) 是減少攻擊面的另一種方法。
 您可以使用[服務標記](/azure/virtual-network/security-overview#service-tags)和[應用程式安全性群組](/azure/virtual-network/security-overview#application-security-groups)，將建立安全性規則與設定網路安全性的複雜性近可能降低，直到成為應用程式結構的自然延伸。
 
 應盡可能將 Azure 服務部署於[虛擬網路](/azure/virtual-network/virtual-networks-overview)上。 此種做法可讓服務資源透過私人 IP 位址進行通訊。 根據預設，來自虛擬網路的 Azure 服務流量會使用公用 IP 位址作為來源 IP 位址。 使用[服務端點](/azure/virtual-network/virtual-network-service-endpoints-overview)，會在從虛擬網路存取 Azure 服務時，將服務流量切換為使用虛擬網路私人位址作為來源 IP 位址。
@@ -179,7 +179,7 @@ Microsoft 身為重要的基礎結構提供者，會最先收到威脅的警告�
 
 ### <a name="alerts-during-an-attack"></a>攻擊時的警示
 
-Azure 標準 DDoS 保護會識別 DDoS 攻擊並降低風險，無須使用者介入。 在受保護的公用 IP 上執行風險降低作業時，若想收到通知，可以在 [是否正遭受 DDoS 攻擊] 計量上[設定警示](/azure/virtual-network/ddos-protection-manage-portal)。 可以選擇為其他 DDoS 計量建立警示，以了解攻擊的範圍、要卸除的流量及其他詳細資料。
+Azure 標準 DDoS 保護會識別 DDoS 攻擊並降低風險，無須使用者介入。 在受保護的公用 IP 上執行風險降低作業時，若想收到通知，可以在 [是否正遭受 DDoS 攻擊][](/azure/virtual-network/ddos-protection-manage-portal) 計量上**設定警示**。 可以選擇為其他 DDoS 計量建立警示，以了解攻擊的範圍、要卸除的流量及其他詳細資料。
 
 #### <a name="when-to-contact-microsoft-support"></a>連絡 Microsoft 支援服務的時機
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 11/12/2019
 ms.author: swmachan
-ms.openlocfilehash: b4daa04a4dbf87006147fb0d44d7b128a6d8ecf4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d58383b20e4311f8ab9490dc241722eee2e44ad6
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835775"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184798"
 ---
 # <a name="translator-text-api-30-translate"></a>翻譯工具文字 API 3.0 翻譯
 
@@ -31,26 +31,35 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 ## <a name="request-parameters"></a>要求參數
 
-在查詢字串上傳遞的要求參數為：
+在查詢字串上傳遞的要求參數如下：
+
+### <a name="required-parameters"></a>必要參數
 
 <table width="100%">
   <th width="20%">查詢參數</th>
   <th>描述</th>
   <tr>
     <td>api-version</td>
-    <td><em>必要參數</em>。<br/>用戶端要求的 API 版本。 值必須是 <code>3.0</code>。</td>
+    <td>必要參數。<br/>用戶端要求的 API 版本。 值必須為 <code>3.0</code>。</td>
   </tr>
   <tr>
-    <td>從</td>
-    <td>選擇性參數。<br/>指定輸入文字的語言。 使用 <a href="./v3-0-languages.md"> 範圍查閱</a>支援語言<code>translation</code>，以尋找可用於翻譯的來源語言。 若未指定 <code>from</code> 參數，則會套用自動語言偵測來判斷來源語言。 <br/><br/>使用<a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">動態字典</a>功能時，您必須使用 <code>from</code> 參數，而不是自動偵測。</td>
+    <td>更新成</td>
+    <td>必要參數。<br/>指定輸出文字的語言。 目標語言必須是 <code>translation</code> 範圍內包含的<a href="./v3-0-languages.md">支援語言</a>之一。 例如，使用 <code>to=de</code> 翻譯為德文。<br/>在查詢字串中重複參數，可能會同時翻譯為多種語言。 例如，使用 <code>to=de&to=it</code> 翻譯為德文和義大利文。</td>
   </tr>
+</table>
+
+### <a name="optional-parameters"></a>選擇性參數
+
+<table width="100%">
+  <th width="20%">查詢參數</th>
+  <th>描述</th>
   <tr>
-    <td>收件人</td>
-    <td><em>必要參數</em>。<br/>指定輸出文字的語言。 目標語言必須是 <a href="./v3-0-languages.md"> 範圍內包含的</a>支援語言<code>translation</code>之一。 例如，使用 <code>to=de</code> 翻譯為德文。<br/>在查詢字串中重複參數，可能會同時翻譯為多種語言。 例如，使用 <code>to=de&to=it</code> 翻譯為德文和義大利文。</td>
-  </tr>
+    <td>from</td>
+    <td>選擇性參數。<br/>指定輸入文字的語言。 使用 <code>translation</code> 範圍查閱<a href="./v3-0-languages.md">支援語言</a>，以尋找可用於翻譯的來源語言。 若未指定 <code>from</code> 參數，則會套用自動語言偵測來判斷來源語言。 <br/><br/>使用<a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">動態字典</a>功能時，您必須使用 <code>from</code> 參數，而不是自動偵測。</td>
+  </tr>  
   <tr>
     <td>textType</td>
-    <td>選擇性參數。<br/>定義要翻譯的文字是純文字還是 HTML 文字。 任何 HTML 都需要格式正確的完整項目。 可能的值為：<code>plain</code> (預設) 或 <code>html</code>。</td>
+    <td>選擇性參數。<br/>定義要翻譯的文字是純文字還是 HTML 文字。 任何 HTML 都需要是格式正確的完整項目。 可能的值為：<code>plain</code> (預設) 或 <code>html</code>。</td>
   </tr>
   <tr>
     <td>category</td>
@@ -110,11 +119,11 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td><em>選擇性</em>。<br/>用於識別唯一要求的 GUID，由用戶端產生。 若您使用名為 <code>ClientTraceId</code> 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
+    <td><em>選用</em>。<br/>用戶端產生用以唯一識別要求的 GUID。 若您使用名為 <code>ClientTraceId</code> 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
   </tr>
 </table> 
 
-## <a name="request-body"></a>要求本文
+## <a name="request-body"></a>Request body
 
 要求的本文是 JSON 陣列。 每個陣列項目都是字串屬性名為 `Text` 的 JSON 物件，其代表要翻譯的字串。
 
@@ -133,11 +142,11 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 成功的回應是輸入陣列的每個字串各有一個結果的 JSON 陣列。 結果物件包含下列屬性：
 
-  * `detectedLanguage`：物件，透過下列屬性描述偵測到的語言：
+  * `detectedLanguage`：物件，透過下列屬性描述偵測到語言：
 
       * `language`：字串，代表偵測到語言的代碼。
 
-      * `score`：浮點值，表示結果的信賴度。 分數介於 0 與 1 之間，低分數表示信賴度徧低。
+      * `score`：浮點值，表示結果的信賴度。 分數介於 0 與 1 之間，分數低表示信賴度偏低。
 
     只有在要求自動偵測語言時，`detectedLanguage` 屬性才會存在於結果物件中。
 
@@ -186,7 +195,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 ## <a name="response-status-codes"></a>回應狀態碼
 
-以下是要求可能會傳回的 HTTP 狀態碼。 
+以下是要求傳回的可能 HTTP 狀態碼。 
 
 <table width="100%">
   <th width="20%">狀態碼</th>
@@ -197,7 +206,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>400</td>
-    <td>缺少其中一個查詢參數或無效。 請先修正要求參數再重試。</td>
+    <td>缺少其中一個查詢參數，或查詢參數無效。 請先修正要求參數再重試。</td>
   </tr>
   <tr>
     <td>401</td>
@@ -205,7 +214,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>403</td>
-    <td>此要求未經授權。 請查看詳細錯誤訊息。 這通常表示試用訂用帳戶提供的所有免費翻譯都已用完。</td>
+    <td>要求未經授權。 請查看詳細錯誤訊息。 這通常表示試用訂用帳戶提供的所有免費翻譯都已用完。</td>
   </tr>
   <tr>
     <td>408</td>
@@ -217,11 +226,11 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>500</td>
-    <td>發生意外錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 <code>X-RequestId</code> 的要求識別碼，以及來自要求標頭 <code>X-ClientTraceId</code> 的用戶端識別碼。</td>
+    <td>發生意外錯誤。 如果錯誤仍然存在，請回報以下資訊：失敗的日期和時間、回應標頭 <code>X-RequestId</code> 中的要求識別碼、要求標頭 <code>X-ClientTraceId</code> 中的用戶端識別碼。</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>伺服器暫時無法使用。 重試要求。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 <code>X-RequestId</code> 的要求識別碼，以及來自要求標頭 <code>X-ClientTraceId</code> 的用戶端識別碼。</td>
+    <td>暫時無法使用伺服器。 重試要求。 如果錯誤仍然存在，請回報以下資訊：失敗的日期和時間、回應標頭 <code>X-RequestId</code> 中的要求識別碼、要求標頭 <code>X-ClientTraceId</code> 中的用戶端識別碼。</td>
   </tr>
 </table> 
 
@@ -354,7 +363,7 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>動作</th>
+  <th>行動</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>此為預設行為。 粗話會從來源傳遞到目標。<br/><br/>
@@ -364,7 +373,7 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
   </tr>
   <tr>
     <td><code>Deleted</code></td>
-    <td>從輸出中移除不雅字眼，且不予取代。<br/><br/>
+    <td>將會從輸出中移除不雅字眼，但不予取代。<br/><br/>
     <strong>範例來源 (日文)</strong>：彼はジャッカスです。<br/>
     <strong>範例翻譯 (英文)</strong>：He is a.
     </td>
@@ -381,7 +390,7 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
   </tr>
 </table> 
 
-例如︰
+例如：
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
@@ -505,7 +514,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ### <a name="translate-with-dynamic-dictionary"></a>使用動態字典翻譯
 
-如果已經知道想要套用至單字或片語的翻譯，則可以在要求內以標記來提供。 動態字典僅適用於專有名稱和產品名稱這類複合名詞。
+若您已經知道您想要套用至字組或片語的翻譯，則可以提供它作為要求內的標記。 動態字典僅適用於正確名稱和產品名稱這類複合名詞。
 
 要提供的標記會使用下列語法。
 
@@ -531,4 +540,4 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 ]
 ```
 
-此功能的運作方式與 `textType=text` 或 `textType=html` 相同。 應該謹慎使用此功能。 自訂翻譯的適當且最適合方式是使用 Custom Translator。 Custom Translator 會完全利用內容和統計機率。 如果您已經或能夠建立定型資料，以便在上下文中顯示您的單字或片語，則會得到更好的結果。 [深入了解 Custom Translator](../customization.md)。
+此功能的運作方式與 `textType=text` 或 `textType=html` 相同。 應該謹慎使用此功能。 自訂翻譯的適當且最適合方式是使用 Custom Translator。 Custom Translator 會完全利用內容和統計機率。 若您有或可以建立內容中顯示您工作或片語的訓練資料，則會取得較好的效果。 [深入了解 Custom Translator](../customization.md)。

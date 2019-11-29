@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: 259ea23c05f0c0a138ad54b6efd11aad2061cf7a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1da8ab3015730c6b3e1962301a34b1ad43b1aad6
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500225"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143686"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>訓練您 LUIS 應用程式的作用中版本 
 
@@ -26,22 +26,15 @@ ms.locfileid: "73500225"
 
 定型會套用至 LUIS 入口網站中的作用中版本。 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
 ## <a name="how-to-train-interactively"></a>若要以互動方式定型
 
 若要在 [LUIS 入口網站](https://www.luis.ai)中開始反覆程序，您必須至少先將 LUIS 應用程式定型一次。 請在訓練之前，確定每個意圖都至少有一個語調。
 
 1. 在 [我的應用程式] 頁面上選取應用程式名稱，來存取應用程式。 
 
-2. 在應用程式中，選取上方面板中的 [訓練]。 
+1. 在應用程式中，選取上方面板中的 [訓練]。 
 
-3. 訓練完成時，綠色通知列會顯示在瀏覽器頂端。
-
-<!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
-
->[!NOTE]
->若應用程式中有一或多個未包含範例語調的意圖，則無法訓練應用程式。 新增所有意圖的語調。 如需詳細資訊，請參閱[新增範例語調](luis-how-to-add-example-utterances.md)。
+1. 訓練完成時，瀏覽器頂端會出現通知。
 
 ## <a name="training-date-and-time"></a>訓練日期和時間
 
@@ -49,20 +42,7 @@ ms.locfileid: "73500225"
 
 ## <a name="train-with-all-data"></a>以所有資料進行訓練
 
-訓練會使用一小部分的負面取樣。 
-
-如果您想要使用所有資料，而不是小型的負面取樣，請使用[API](#version-settings-api-use-of-usealltrainingdata)。
-
-<!--
-
- or the [LUIS portal setting](#luis-portal-setting-to-use-all-training-data)
-
-### LUIS portal setting to use all training data
-
-!!!IGNITE
-
-
--->
+訓練會使用一小部分的負面取樣。 如果您想要使用所有資料，而不是小型的負面取樣，請使用[API](#version-settings-api-use-of-usealltrainingdata)。
 
 ### <a name="version-settings-api-use-of-usealltrainingdata"></a>版本設定 API 使用 UseAllTrainingData
 
@@ -80,5 +60,5 @@ ms.locfileid: "73500225"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 LUIS 標示建議的語調](luis-how-to-review-endpoint-utterances.md) 
-* [使用功能來改善 LUIS 應用程式效能](luis-how-to-add-features.md) 
+* [互動式測試](luis-interactive-test.md)
+* [批次測試](luis-how-to-batch-test.md)

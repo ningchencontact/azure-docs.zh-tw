@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: 7de1a1e24c2863b90fe5f1f3ff19124318912cff
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 1f2b293acdc77e25e6b932c47d466cc28a04a2b6
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132684"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383664"
 ---
 # <a name="add-entities-to-extract-data"></a>新增實體以將資料解壓縮 
 
@@ -46,10 +46,10 @@ ms.locfileid: "74132684"
 |實體類型|在 LUIS 入口網站中建立實體的位置|
 |--|--|
 |已採用機器學習的實體|實體或意圖詳細資料|
-|列出實體|實體或意圖詳細資料|
+|清單實體|實體或意圖詳細資料|
 |規則運算式實體|實體|
 |Pattern.any 實體|實體|
-|預先建置的實體|實體|
+|預建實體|實體|
 |預先建立的網域實體|實體|
 
 您可以從 [**實體**] 頁面建立所有實體，也可以在 [**意圖詳細資料**] 頁面上的範例語句中，建立幾個實體做為標記實體的一部分。 您只能在 [**意圖詳細資料**] 頁面的範例語句中_標示_實體。 
@@ -66,7 +66,7 @@ ms.locfileid: "74132684"
 |--|--|
 |[列出實體](#add-list-entities-for-exact-matches)|正式名稱清單和同義字做為替代形式|
 |規則運算式實體|使用正則運算式實體來比對文字|
-|[預先建立的實體](tutorial-machine-learned-entity.md#add-prebuilt-number-to-app-to-help-extract-data)|符合一般資料類型，例如數位、電子郵件、日期|
+|[預先建立的實體](tutorial-machine-learned-entity.md#add-prebuilt-number-to-help-extract-data)|符合一般資料類型，例如數位、電子郵件、日期|
 |預先建立的網域實體|使用選取的主體網域進行比對|
 |[Pattern.any](#add-a-patternany-entity)| 若要比對可能會輕易與周圍文字混淆的實體|  
 
@@ -179,14 +179,18 @@ LUIS 不允許您變更實體的類型，因為它不知道要新增或移除哪
 
 ## <a name="next-steps"></a>後續步驟
 
-深入瞭解模式：
+> [!div class="nextstepaction"] 
+> [使用預先建立的模型](howto-add-prebuilt-models.md) 
 
-* [模式概念](luis-concept-patterns.md)
-* [模式語法](reference-pattern-syntax.md)
+深入了解：
+* 如何[定型](luis-how-to-train.md)
+* [測試](luis-interactive-test.md)方式
+* 如何[發佈](luis-how-to-publish-app.md)
+* 模式
+    * [概念](luis-concept-patterns.md)
+    * [語法](reference-pattern-syntax.md)
+* [預先建立的實體 GitHub 存放庫](https://github.com/Microsoft/Recognizers-Text)
+* [資料提取概念](luis-concept-data-extraction.md)
 
-如需預先建置的實體詳細資訊，請參閱 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 專案。 
 
-如需實體如何顯示在 JSON 端點查詢回應中的相關資訊，請參閱[資料擷取](luis-concept-data-extraction.md)
-
-既然您已新增意圖、語句和實體，您就會擁有基本的 LUIS 應用程式。 了解如何為您的應用程式[定型](luis-how-to-train.md)、[測試](luis-interactive-test.md)及[發佈](luis-how-to-publish-app.md)。
  

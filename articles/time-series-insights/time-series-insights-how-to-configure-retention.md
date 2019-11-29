@@ -8,20 +8,20 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa905d1686939346827d07419a62fd6f299387ec
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 954e61aec5b622d44435a8a5b196fdbfed33c564
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012604"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561228"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>在時間序列深入解析中設定保留期
 
 本文說明如何在 Azure 時間序列深入解析中，設定 [資料保留時間] 和 [超過儲存空間限制的行為]。
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>總結
 
 每個 Azure 時間序列深入解析環境都有設定**資料保留時間**的設定。 可設定的值為 1 到 400 天。 資料會依環境儲存容量或保留持續時間 (1-400) 進行刪除，以先達到者為準。
 
@@ -38,7 +38,7 @@ ms.locfileid: "74012604"
 
 1. 找出您的現有時間序列深入解析環境。 在 Azure 入口網站左側的功能表中選取 [所有資源]。 選取 Time Series Insights 環境。
 
-1. 在 [設定] 標題之下，選取 [設定]。
+1. 在 [**設定**] 標題下，選取 [**儲存體**設定]。
 
     [![選取 [設定]，然後設定](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
@@ -50,7 +50,7 @@ ms.locfileid: "74012604"
 
     [![資料保留-接受並儲存。](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
-1. 接受核取方塊，表示您已複習檔，並瞭解資料遺失的潛在風險。 選取 [儲存] 以設定變更。
+1. 請參閱檔，以瞭解資料遺失的潛在風險。 選取 [儲存] 以設定變更。
 
 ## <a name="next-steps"></a>後續步驟
 

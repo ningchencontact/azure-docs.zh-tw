@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 6ec98d1f7956ef1460909f62384a931400b596c4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2fa4bcb9db6f836346167b76e609a1437df88b04
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579637"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555002"
 ---
-# <a name="audio-content-creation"></a>建立音訊內容
+# <a name="audio-content-creation"></a>音訊內容建立
 
 [建立音訊內容](https://aka.ms/audiocontentcreation)是一種線上工具，可讓您針對應用程式和產品自訂及微調 Microsoft 的文字到語音轉換輸出。 您可以使用此工具來微調公用和自訂語音，以取得更精確的自然運算式，並管理您在雲端中的輸出。
 
 音訊內容建立工具是以[語音合成標記語言（SSML）](speech-synthesis-markup.md)為基礎。 為了簡化自訂和微調，音訊內容的建立可讓您以視覺化方式即時檢查文字轉換語音的輸出。
 
-## <a name="how-does-it-work"></a>運作方式
+## <a name="how-does-it-work"></a>怎麼運作的呢？
 
 下圖顯示微調和匯出自訂的語音轉換文字輸出所需的步驟。 若要深入瞭解每個步驟，請使用下列連結。
 
@@ -43,7 +43,7 @@ ms.locfileid: "73579637"
 
 請遵循下列步驟來建立語音資源，並將它與語音 Studio 連線。
 
-1. 請遵循這些指示來[註冊 Azure 帳戶](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account)，並[建立語音資源](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)。 請確定您的定價層已設定為**S0**。 如果您使用其中一個類神經語音，請務必在[支援的區域](regions.md#standard-and-neural-voices)中建立您的資源。
+1. 請遵循這些指示來[註冊 Azure 帳戶](get-started.md#try-the-speech-service-using-a-new-azure-account)，並[建立語音資源](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)。 請確定您的定價層已設定為**S0**。 如果您使用其中一個類神經語音，請務必在[支援的區域](regions.md#standard-and-neural-voices)中建立您的資源。
 2. 登入[音訊內容建立](https://aka.ms/audiocontentcreation)。
 3. 選取現有的專案，或按一下 **[新建]。**
 4. 您可以隨時使用 [**設定**] 選項（位於頂端導覽）修改訂閱。
@@ -104,11 +104,11 @@ Welcome to use Audio Content Creation to customize audio output for your product
 | wav | riff-riff-16khz-16bit-mono-pcm-dxil 16 位-mono-pcm | riff-24khz-dxil 16 位-mono-pcm |
 | mp3 | 音訊-riff-16khz-16bit-mono-pcm-128kbitrate-單聲道-mp3 | 音訊-24khz-160kbitrate-單聲道-mp3 |
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [長音訊 API](https://aka.ms/long-audio-api)
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [語音 Studio](https://speech.microsoft.com)
+> [Speech Studio](https://speech.microsoft.com) \(英文\)

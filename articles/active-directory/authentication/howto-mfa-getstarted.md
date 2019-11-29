@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cab4b57513f90a5cbe80724d4937f8d0f87b5517
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 6e91a82442b2d436736719d629f70c8dec0e5a6c
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381789"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558544"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>規劃以雲端為基礎的 Azure 多因素驗證部署
 
@@ -24,7 +24,7 @@ ms.locfileid: "74381789"
 
 [Azure 多重要素驗證（MFA）](concept-mfa-howitworks.md)可協助保護資料和應用程式的存取。 它使用第二種形式的驗證來提供一層額外的安全性。 組織可以使用[條件式存取](../conditional-access/overview.md)，讓解決方案符合他們的特定需求。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始部署 Azure 多重要素驗證之前，必須考慮一些必要專案。
 
@@ -80,7 +80,7 @@ Azure Active Directory Identity Protection 偵測到的部分風險偵測會即�
 
 ## <a name="define-network-locations"></a>定義網路位置
 
-我們建議組織使用條件式存取來定義使用[命名位置](../conditional-access/location-condition.md#named-locations)的網路。 如果您的組織使用 Identity Protection，請考慮使用以風險為基礎的原則，而不是命名位置。
+我們建議組織使用條件式存取，以使用[命名位置](../conditional-access/location-condition.md#named-locations)定義其網路。 如果您的組織使用 Identity Protection，請考慮使用以風險為基礎的原則，而不是命名位置。
 
 ### <a name="configuring-a-named-location"></a>設定命名位置
 
@@ -240,7 +240,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
     * 按一下 [選取]。
 1. 略過 [工作階段] 區段。
 1. 將 [啟用原則] 切換為 [開啟]。
-1. 按一下頁面底部的 [新增]。
+1. 按一下 [建立]。
 
 ## <a name="plan-integration-with-on-premises-systems"></a>規劃與內部部署系統的整合
 
@@ -277,7 +277,7 @@ NPS 擴充功能可作為 RADIUS 與雲端式 Azure MFA 之間的介面卡，以
 
 選擇當未向 MFA 註冊的使用者嘗試進行驗證時，會發生什麼事。 使用登錄路徑 `HKLM\Software\Microsoft\AzureMFA` 中的登錄設定 `REQUIRE_USER_MATCH` 來控制功能行為。 此設定具有單一設定選項。
 
-| 金鑰 | 值 | 預設值 |
+| 索引鍵 | Value | 預設值 |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | 未設定 (相當於 TRUE) |
 
@@ -347,7 +347,7 @@ Azure MFA 的報告
 
 Azure 多因素驗證透過 Azure 入口網站提供報告：
 
-| 報告 | 位置 | 描述 |
+| 報告 | Location | 描述 |
 | --- | --- | --- |
 | 使用方式和詐騙警示 | Azure AD > 登入 | 提供整體使用量、使用者摘要和使用者詳細資料的相關資訊；以及在指定的日期範圍期間所提交的詐騙警示歷程記錄。 |
 
@@ -359,4 +359,4 @@ Azure 多因素驗證透過 Azure 入口網站提供報告：
 
 * [驗證方法有哪些？](concept-authentication-methods.md)
 * [啟用 Azure Multi-Factor Authentication 的聚合式註冊和 Azure AD 自助密碼重設](concept-registration-mfa-sspr-converged.md)
-* 系統會還是不會提示使用者執行 MFA 的原因？ 請參閱[在 Azure 多重要素驗證文件中的 Azure AD 登入報告](howto-mfa-reporting.md#azure-ad-sign-ins-report)一節。
+* 系統會還是不會提示使用者執行 MFA 的原因？ 請參閱＜Azure Multi-Factor Authentication 中的報告＞文件中的 [Azure AD 登入報告](howto-mfa-reporting.md#azure-ad-sign-ins-report)一節。

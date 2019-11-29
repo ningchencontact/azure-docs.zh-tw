@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: helohr
-ms.openlocfilehash: c5d6c671890f5e036d3f4cce6e880230c01048ed
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 54f2c39260ecaf643b0f2add8758ceb866e71afe
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483823"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561123"
 ---
 # <a name="set-up-msix-app-attach"></a>設定 MSIX 應用程式附加
 
@@ -22,7 +22,7 @@ ms.locfileid: "74483823"
 
 本主題將逐步引導您瞭解如何在 Windows 虛擬桌面環境中設定 MSIX 應用程式連接。
 
-## <a name="requirements"></a>需求
+## <a name="requirements"></a>要求
 
 在您開始之前，您必須先設定 MSIX 應用程式附加：
 
@@ -185,7 +185,7 @@ sc config wuauserv start=disabled
 MSIX 應用程式附加有四個不同的階段，必須依照下列循序執行：
 
 1. 階段
-2. 註冊
+2. Register
 3. 登出
 4. 移
 
@@ -206,7 +206,7 @@ MSIX 應用程式附加有四個不同的階段，必須依照下列循序執行
 
 4.  開啟父資料夾。 如果正確展開，您會看到與封裝同名的資料夾。 更新 **\$packageName**變數以符合此資料夾的名稱。
 
-    例如， `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`。
+    例如： `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe` 。
 
 5.  開啟命令提示字元，然後輸入**mountvol**。 此命令將會顯示磁片區及其 Guid 的清單。 複製磁片區的 GUID，其中磁碟機號符合您在步驟2中掛接 VHD 的磁片磁碟機。
 
@@ -307,8 +307,7 @@ MSIX 應用程式附加有四個不同的階段，必須依照下列循序執行
 
     $packageManager = [Windows.Management.Deployment.PackageManager]::new()
 
-    $path = $msixJunction + $parentFolder + $packageName # needed if we do the
-    pbisigned.vhd
+    $path = $msixJunction + $parentFolder + $packageName # needed if we do the pbisigned.vhd
 
     $path = ([System.Uri]$path).AbsoluteUri
 

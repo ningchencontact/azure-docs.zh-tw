@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 5697ae4c8864e0b9c4cbfc9e1e1048e1c3d60f77
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: afb576c265ccdd4a014ed678331f030a0442a197
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837204"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286614"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>如何呼叫文字分析 REST API
 
@@ -25,10 +25,9 @@ ms.locfileid: "73837204"
 
 文字分析是無狀態的，因此不會有資料資產需要管理。 系統會上傳您的文字、於接收到時便進行分析，並立即將結果傳回至呼叫應用程式。
 
-> [!Tip]
-> 若要進行單次呼叫以了解 API 的運作方式，您可以從內建的 **API 測試主控台** (可於任何 [API 文件頁面](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) \(英文\) 取得) 傳送 POST 要求。 不需任何設定，而唯一的需求便是將存取金鑰和 JSON 文件貼至要求內。 
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -40,11 +39,11 @@ ms.locfileid: "73837204"
 
 您目前可以針對所有文字分析作業提交相同的文件：情感、關鍵片語、語言偵測，以及實體識別。 (未來結構描述很有可能會針對每個分析而有所不同)。
 
-| 元素 | 有效值 | 必要？ | 使用方式 |
+| 元素 | 有效值 | 必要？ | 用量 |
 |---------|--------------|-----------|-------|
-|`id` |資料類型是字串，但實際上文件識別碼通常是整數。 | 必要 | 系統會使用您所提供的識別碼作為輸出的結構。 語言代碼、關鍵片語及情感分數會針對要求中的每個識別碼產生。|
-|`text` | 非結構化原始文字，最多5120個字元。 | 必要 | 針對語言偵測，文字可以透過任何語言表示。 針對情感分析、關鍵片語擷取及實體識別，文字必須為[支援的語言](../text-analytics-supported-languages.md)。 |
-|`language` | 適用於[支援語言](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)的 2 個字元 [ISO 639-1](../text-analytics-supported-languages.md) 代碼 | 視情況而異 | 針對情感分析、關鍵片語擷取及實體連結為必要，針對語言偵測為選擇性。 排除它將不會產生錯誤，但分析的效果會因此而減弱。 語言代碼應該對應至您提供的 `text`。 |
+|`id` |資料類型是字串，但實際上文件識別碼通常是整數。 | 必要項 | 系統會使用您所提供的識別碼作為輸出的結構。 語言代碼、關鍵片語及情感分數會針對要求中的每個識別碼產生。|
+|`text` | 非結構化原始文字，最多5120個字元。 | 必要項 | 針對語言偵測，文字可以透過任何語言表示。 針對情感分析、關鍵片語擷取及實體識別，文字必須為[支援的語言](../text-analytics-supported-languages.md)。 |
+|`language` | 適用於[支援語言](../text-analytics-supported-languages.md)的 2 個字元 [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 代碼 | 視情況而異 | 針對情感分析、關鍵片語擷取及實體連結為必要，針對語言偵測為選擇性。 排除它將不會產生錯誤，但分析的效果會因此而減弱。 語言代碼應該對應至您提供的 `text`。 |
 
 如需限制的詳細資訊，請參閱[文字分析概觀 > 資料限制](../overview.md#data-limits)。 
 
@@ -91,7 +90,7 @@ ms.locfileid: "73837204"
 
    在 Postman 中，回應會以單一 JSON 文件的形式顯示在下一個視窗中，且在要求中所提供的每個文件識別碼都會有一個項目。
 
-## <a name="see-also"></a>另請參閱 
+## <a name="see-also"></a>請參閱 
 
  [文字分析概觀](../overview.md)  
  [常見問題集 (FAQ)](../text-analytics-resource-faq.md)

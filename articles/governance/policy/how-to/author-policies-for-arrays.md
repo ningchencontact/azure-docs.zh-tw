@@ -1,14 +1,14 @@
 ---
 title: 在資源上撰寫陣列屬性的原則
 description: 瞭解如何使用陣列參數和陣列語言運算式、評估 [*] 別名，以及附加具有 Azure 原則定義規則的元素。
-ms.date: 03/06/2019
+ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 96598918f0dbcc2f56e8ccc316844ee768306b75
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 035f300d01efe80cc44687d3779d7a5fb6be2fc3
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463509"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555156"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>在 Azure 資源上撰寫陣列屬性的原則
 
@@ -16,7 +16,9 @@ Azure Resource Manager 屬性通常會定義為字串和布林值。 當存在�
 
 - [定義參數](../concepts/definition-structure.md#parameters)的類型，可提供多個選項
 - 使用或**notIn** **中**之條件的[原則規則](../concepts/definition-structure.md#policy-rule)的一部分
-- 評估[\[\*\] 別名](../concepts/definition-structure.md#understanding-the--alias)以評估特定案例（例如**None**、 **Any**或**All** ）的原則規則之一部分
+- 評估[\[\*\] 別名](../concepts/definition-structure.md#understanding-the--alias)的原則規則之一部分：
+  - 如**None**、 **Any**或**All**等案例
+  - 具有**計數**的複雜案例
 - 在取代或加入現有陣列的[附加效果](../concepts/effects.md#append)中
 
 本文涵蓋 Azure 原則的每個使用方式，並提供數個範例定義。
@@ -138,10 +140,10 @@ As**類型**為_字串_，指派原則時只能設定一個值。 如果指派�
 
 ### <a name="evaluating-the--alias"></a>評估 [*] 別名
 
-具有 **[\*]** 附加至其名稱的別名，表示該**類型**為_陣列_。 **[\*]** 可以評估陣列的每個元素，而不是評估整個陣列的值。 在下列三種情況下，每個專案評估適用于： None、Any 和 All。
+具有附加至其名稱之 **\[\*\]** 的別名，表示該**類型**為_陣列_。 **\[\*\]** 可以評估陣列的每個元素，而不是評估整個陣列的值。 有三個標準案例：每個專案評估適用于 . None、Any 和 All。 針對複雜的案例，請使用[count](../concepts/definition-structure.md#count)。
 
 只有當**if**規則評估為 true 時，原則**引擎才會觸發中的** **效果**。
-這一點很重要，請務必瞭解 **[\*]** 評估陣列的每個個別元素的方式。
+這一點很重要，請務必瞭解 **\[\*\]** 評估陣列的每個個別元素的方式。
 
 下列案例資料表的範例原則規則：
 
@@ -194,10 +196,10 @@ As**類型**為_字串_，指派原則時只能設定一個值。 如果指派�
 
 ## <a name="the-append-effect-and-arrays"></a>附加效果和陣列
 
-[附加效果](../concepts/effects.md#append)的行為會因 [**詳細資料] 欄位**是否為 **[\*]** 別名而有所不同。
+[附加效果](../concepts/effects.md#append)的行為會因 [**詳細資料] 欄位**是 **\[\*\]** 別名而有所不同。
 
-- 當不是 **[\*]** 別名時，append 會將整個陣列取代為**value**屬性
-- 當 **[\*]** 別名時，append 會將**value**屬性加入至現有的陣列，或建立新的陣列。
+- 當不是 **\[\*\]** 別名時，append 會將整個陣列取代為**value**屬性
+- 當 **\[\*\]** 別名時，append 會將**value**屬性加入至現有的陣列，或建立新的陣列。
 
 如需詳細資訊，請參閱[附加範例](../concepts/effects.md#append-examples)。
 

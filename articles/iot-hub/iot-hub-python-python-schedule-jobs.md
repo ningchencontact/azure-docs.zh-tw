@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.author: robinsh
-ms.openlocfilehash: f1fbfcaa80a3d1781878fe3d6eb14558a3b298a5
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c424c18538a4e428c0e713bb814c2febe28d2d04
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999505"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555564"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>排程及廣播作業 (Python)
 
@@ -29,9 +29,9 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 
 從下列文章深入了解這當中的每一項功能：
 
-* 裝置對應項和屬性：[開始使用裝置 twins](iot-hub-python-twin-getstarted.md)和[教學課程：如何使用裝置對應項屬性](tutorial-device-twins.md)
+* 裝置對應項和屬性：[開始使用裝置對應項](iot-hub-python-twin-getstarted.md)和[教學課程：如何使用裝置對應項屬性](tutorial-device-twins.md)
 
-* 直接方法：[IoT 中樞開發人員指南-直接方法](iot-hub-devguide-direct-methods.md)和[教學課程：直接方法](quickstart-control-device-python.md)
+* 直接方法： [IoT 中樞開發人員指南-直接方法](iot-hub-devguide-direct-methods.md)和[教學課程：直接方法](quickstart-control-device-python.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -74,10 +74,6 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
     ```cmd/sh
     pip install azure-iot-device
     ```
-
-   > [!NOTE]
-   > Azure iothub-服務用戶端的 pip 套件目前僅適用于 Windows 作業系統。 針對 Linux/Mac OS，請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
-   >
 
 2. 使用文字編輯器，在工作目錄中建立新的 **simDevice.py** 檔案。
 
@@ -189,12 +185,12 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
     ```
 
    > [!NOTE]
-   > Azure iothub-服務用戶端和 iothub 裝置用戶端的 pip 套件目前僅適用于 Windows 作業系統。 針對 Linux/Mac OS，請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
+   > Azure iothub-服務用戶端的 pip 套件目前僅適用于 Windows 作業系統。 針對 Linux/Mac OS，請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
    >
 
 2. 使用文字編輯器，在工作目錄中建立新的 **scheduleJobService.py** 檔案。
 
-3. 在 scheduleJobService.py 檔案`import`的開頭新增下列語句和變數。 將預留位置取代為您先前在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中所複製的 iot 中樞連接字串。 `{IoTHubConnectionString}` 以您在在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中註冊的裝置識別碼取代預留位置：`{deviceId}`
+3. 在**scheduleJobService.py**檔案開頭處新增下列 `import` 語句和變數。 使用您先前在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中所複製的 IoT 中樞連接字串來取代 `{IoTHubConnectionString}` 預留位置。 以您在在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中註冊的裝置識別碼取代 `{deviceId}` 預留位置：
 
     ```python
     import sys

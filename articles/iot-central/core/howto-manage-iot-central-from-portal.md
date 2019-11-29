@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 2133819ce7c298e2f73fdc5a68b80b64f9e72ea7
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c86df7c50e59309f921c60738870407e74a23219
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480409"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555208"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>從 Azure 入口網站管理 IoT Central
 
@@ -41,7 +41,7 @@ ms.locfileid: "74480409"
 
 填寫表單中的所有欄位。 此表單類似于您在[Azure IoT Central 應用程式管理員](https://aka.ms/iotcentral)網站上填寫來建立應用程式的表單。 如需詳細資訊，請參閱[建立 IoT Central 應用程式](quick-deploy-iot-central.md)快速入門。
 
-您可以選取 [**範例 Contoso**]、[**自訂應用程式**] 和 [**範例 Devkits** ] 作為應用程式範本，以建立具有一般功能的 IoT Central 應用程式，所有其他應用程式範本都會使用公開預覽功能。
+您可以選取 [**範例 Contoso**]、[**自訂應用程式**] 和 [**範例 Devkits** ] 作為應用程式範本，以建立具有正式運作功能的 IoT Central 應用程式，所有其他應用程式範本都會使用公開預覽功能。
 
 ![建立 IoT Central 表單](media/howto-manage-iot-central-from-portal/image6a.png)
 

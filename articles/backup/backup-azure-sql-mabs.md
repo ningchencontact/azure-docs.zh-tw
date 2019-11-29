@@ -1,19 +1,14 @@
 ---
-title: 使用 Azure 備份伺服器進行 SQL Server 工作負載的 Azure 備份
-description: 使用 Azure 備份伺服器來備份 SQL Server 資料庫的簡介
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
+title: 使用 Azure 備份伺服器備份 SQL Server
+description: 在本文中，您將瞭解使用 Microsoft Azure 備份 Server （MABS）備份 SQL Server 資料庫的設定步驟。
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: dacurwin
-ms.openlocfilehash: f36560dbaea5b3efe29d38ca750fc732b9281360
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: d5e0c49e2cad77e42960fafec9311b31d4cf2601
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969128"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172669"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>使用 Azure 備份伺服器將 SQL Server 備份至 Azure
 
@@ -106,7 +101,7 @@ ms.locfileid: "72969128"
 14. 按一下 [下一步] 並選取適當的選項，以便將初始備份複本傳輸至 Azure。 您可以選擇 [自動透過網路] 或 [離線備份]。
 
     * **自動透過網路** 會依據選擇的備份排程，將備份資料傳輸至 Azure。
-    * [在 Azure 備份中離線備份工作流程](backup-azure-backup-import-export.md)說明 [離線備份] 的運作方式。
+    * **在 Azure 備份中離線備份工作流程**說明 [離線備份][](backup-azure-backup-import-export.md) 的運作方式。
 
     選擇相關的傳輸機制以將初始備份複本傳送至 Azure，然後按一下 [下一步]。
 15. 在 [摘要] 畫面中檢閱原則詳細資料後，按一下 [建立群組] 按鈕以完成工作流程。 您可以按一下 [關閉] 按鈕並在 [監視] 工作區中監視工作進度。
@@ -156,4 +151,4 @@ ms.locfileid: "72969128"
 
 ### <a name="next-steps"></a>後續步驟
 
-•    [Azure 備份常見問題集](backup-azure-backup-faq.md)
+* [Azure 備份常見問題集](backup-azure-backup-faq.md)

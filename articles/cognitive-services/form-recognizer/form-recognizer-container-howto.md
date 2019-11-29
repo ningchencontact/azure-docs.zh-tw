@@ -7,32 +7,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: f26fe9768930c9d8b99a06e3ea8b51ed1657bcb2
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 21582a5a17a3c6f67182173bfe08d80c48765f7d
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904497"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325845"
 ---
-# <a name="install-and-run-form-recognizer-containers"></a>安裝及執行表單辨識器容器
+# <a name="install-and-run-form-recognizer-containers-preview"></a>安裝和執行表單辨識器容器（預覽）
 
 Azure 表單辨識器會套用機器學習技術，以識別並從表單中解壓縮索引鍵/值組和資料表。 它會將值和資料表專案與索引鍵/值配對產生關聯，然後輸出包含原始檔案中之關聯性的結構化資料。 
 
 若要降低複雜性並輕鬆地將自訂表單辨識器模型整合到您的工作流程自動化程式或其他應用程式中，您可以使用簡單的 REST API 來呼叫模型。 只需要五個表單檔（或一個空白表單和兩個填滿表單），因此您可以快速、精確地取得結果，並針對您的特定內容量身打造。 不需要大量的手動介入或廣泛的資料科學專業知識。 而且它不需要資料標記或資料批註。
 
-|函數|特性|
+|函式|功能|
 |-|-|
 |表單辨識器| <li>處理 PDF、PNG 和 JPG 檔案<li>以相同版面配置的最少五種形式，訓練自訂模型 <li>解壓縮索引鍵/值組和資料表資訊 <li>使用 Azure 認知服務電腦視覺 API 辨識文字功能，從表單內的影像偵測及解壓縮印刷文字<li>不需要注釋或標籤|
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 使用表單辨識器容器之前，您必須符合下列必要條件：
 
-|必要|目的|
+|必要項|目的|
 |--|--|
 |Docker 引擎| 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> 在 Windows 上，您也必須將 Docker 設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 對於 Docker 概念（例如登錄、存放庫、容器和容器映射），您應該具備基本的瞭解，以及基本 `docker` 命令的知識。|
@@ -122,14 +122,14 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 在容器位於[主機電腦](#the-host-computer)上之後，請使用下列程式來處理容器。
 
-1. 使用所需的計費設定[執行容器](#run-the-container-by-using-the-docker-run-command)。 [ 命令有相關](form-recognizer-container-configuration.md#example-docker-run-commands)範例`docker run`可供參考。
+1. 使用所需的計費設定[執行容器](#run-the-container-by-using-the-docker-run-command)。 `docker run` 命令有相關[範例](form-recognizer-container-configuration.md#example-docker-run-commands)可供參考。
 1. [查詢容器的預測端點](#query-the-containers-prediction-endpoint)。
 
 ## <a name="run-the-container-by-using-the-docker-run-command"></a>使用 docker run 命令執行容器
 
 將 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令執行容器。 如需如何取得 `{COMPUTER_VISION_ENDPOINT_URI}`、`{COMPUTER_VISION_API_KEY}`、`{FORM_RECOGNIZER_ENDPOINT_URI}` 和 `{FORM_RECOGNIZER_API_KEY}` 值的詳細資訊，請參閱[收集必要參數](#gathering-required-parameters)。
 
-命令的[範例](form-recognizer-container-configuration.md#example-docker-run-commands)可供使用。`docker run`
+`docker run` 命令的[範例](form-recognizer-container-configuration.md#example-docker-run-commands)可供使用。
 
 ### <a name="form-recognizer"></a>表單辨識器
 
@@ -186,7 +186,7 @@ ApiKey={COMPUTER_VISION_API_KEY}
 
 ### <a name="run-separate-containers-with-docker-compose"></a>透過 Docker Compose 執行個別的容器
 
-針對裝載在相同主機本機上的表單辨識器和文字辨識器組合，請參閱下列範例 Docker Compose YAML 檔案。 `{COMPUTER_VISION_API_KEY}` 和 `formrecognizer` 容器的文字辨識器 `ocr` 必須相同。 `{COMPUTER_VISION_ENDPOINT_URI}` 只能在 `ocr` 容器中使用，因為 `formrecognizer` 容器會使用 `ocr` 名稱和埠。 
+針對裝載在相同主機本機上的表單辨識器和文字辨識器組合，請參閱下列範例 Docker Compose YAML 檔案。 `formrecognizer` 和 `ocr` 容器的文字辨識器 `{COMPUTER_VISION_API_KEY}` 必須相同。 `{COMPUTER_VISION_ENDPOINT_URI}` 只能在 `ocr` 容器中使用，因為 `formrecognizer` 容器會使用 `ocr` 名稱和埠。 
 
 ```docker
 version: '3.3'
@@ -241,7 +241,7 @@ services:
 
 ## <a name="query-the-containers-prediction-endpoint"></a>查詢容器的預測端點
 
-|容器|Endpoint|
+|容器|端點|
 |--|--|
 |form-recognizer|http://localhost:5000
 
@@ -319,7 +319,7 @@ formrecognizer_config =
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>總結
 
 在本文中，您已了解下載、安裝及執行表單辨識器容器的概念和工作流程。 摘要說明：
 

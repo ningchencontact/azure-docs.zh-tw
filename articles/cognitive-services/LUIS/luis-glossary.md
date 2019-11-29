@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 22e8fa8fb6999828076ea5f8f34b1f601b920013
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f78b4c50f4cd65f3dc32c48cea81b705dc44de1
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499561"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325955"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>常用詞彙和概念的語言理解詞彙
 Language Understanding (LUIS) 詞彙說明使用 LUIS API Service 時可能遇到的字詞。
@@ -30,17 +30,16 @@ Language Understanding (LUIS) 詞彙說明使用 LUIS API Service 時可能遇�
 
 ## <a name="authoring-key"></a>編寫金鑰
 
-先前命名為「程式設計」金鑰。 用來編寫應用程式。 不用於生產環境層級的端點查詢。 如需詳細資訊，請參閱[金鑰限制](luis-boundaries.md#key-limits)。   
+先前命名為「程式設計」金鑰。 用來編寫應用程式。 不用於生產環境層級的端點查詢。 如需詳細資訊，請參閱[金鑰限制](luis-boundaries.md#key-limits)。
 
-## <a name="batch-test-json-file"></a>批次文字 JSON 檔案
+## <a name="batch-test-json-file"></a>批次測試 JSON 檔案
 
 批次測試是能夠以一致且已知的使用者語句測試集來驗證目前 LUIS 應用程式的模型。 批次測試是在[JSON 格式](luis-concept-batch-test.md#batch-file-format)的檔案中定義。
 
-另請參閱： 
+另請參閱：
 * [概念](luis-concept-batch-test.md)
 * [如何](luis-how-to-batch-test.md)
 * [教學課程](luis-tutorial-batch-testing.md)
-
 
 ## <a name="collaborator"></a>共同作業者
 
@@ -60,7 +59,7 @@ Language Understanding (LUIS) 詞彙說明使用 LUIS API Service 時可能遇�
 
 ## <a name="endpoint"></a>端點
 
-[LUIS 端點](https://go.microsoft.com/fwlink/?linkid=2092356) URL 是您編寫和發佈 [LUIS 應用程式](#luis-app)之後，送出 LUIS 查詢的位置。 端點 URL 包含已發佈應用程式的區域，以及應用程式識別碼。 您可以在應用程式的**[金鑰和端點](luis-how-to-azure-subscription.md)** 頁面上找到端點，或者可以從 [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API 取得端點 URL。
+[LUIS 端點](https://go.microsoft.com/fwlink/?linkid=2092356) URL 是您編寫和發佈 [LUIS 應用程式](#luis-app)之後，送出 LUIS 查詢的位置。 端點 URL 包含已發佈應用程式的區域，以及應用程式識別碼。 您可以在應用程式的[金鑰和端點](luis-how-to-azure-subscription.md)頁面上找到端點，或者可以從 [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API 取得端點 URL。
 
 ## <a name="entity"></a>實體
 
@@ -155,7 +154,7 @@ LUIS 配額是 [Azure 訂用帳戶層](https://aka.ms/luis-price-tier)的限制�
 
 ## <a name="subscription-key"></a>訂用帳戶金鑰
 
-訂用帳戶金鑰是與[您在 Azure 中建立](luis-how-to-azure-subscription.md)之 LUIS 服務相關聯的**預測端點**金鑰。 這個金鑰不是[編寫金鑰](#programmatic-key)。 如果您有端點金鑰，則應該針對任何端點要求使用，而不是針對撰寫金鑰使用。 您可以在 [LUIS **網站中**金鑰和端點](luis-how-to-azure-subscription.md)[頁面](luis-reference-regions.md)底部的端點 URL 內，查看您目前的端點金鑰。 這是 **subscription-key** 名稱/值組的值。
+訂用帳戶金鑰是與[您在 Azure 中建立](luis-how-to-azure-subscription.md)之 LUIS 服務相關聯的**預測端點**金鑰。 這個金鑰不是[編寫金鑰](#programmatic-key)。 如果您有端點金鑰，則應該針對任何端點要求使用，而不是針對撰寫金鑰使用。 您可以在 [LUIS](luis-reference-regions.md) 網站中[金鑰和端點頁面](luis-how-to-azure-subscription.md)底部的端點 URL 內，查看您目前的端點金鑰。 這是 **subscription-key** 名稱/值組的值。
 
 ## <a name="test"></a>測試
 

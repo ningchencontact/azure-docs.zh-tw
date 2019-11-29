@@ -1,5 +1,5 @@
 ---
-title: 針對 Microsoft 對等互連設定路由篩選：Azure ExpressRoute - 入口網站 | Microsoft Docs
+title: ExpressRoute：路由篩選-Microsoft 對等互連： Azure 入口網站
 description: 本文說明如何使用 Azure 入口網站針對 Microsoft 對等互連設定路由篩選。
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/01/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: c49b1fa1e2e8421146f5d5012de983c14934c23c
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 0b8e06ad5688374e5ab4aaa72d8485e6da797afe
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122930"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037448"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>針對 Microsoft 對等互連設定路由篩選：Azure 入口網站
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Office 365 服務（例如 Exchange Online、SharePoint Online 和商務用 Skyp
 您必須具有透過 ExpressRoute 使用 Office 365 服務的授權，才能在上面連結路由篩選與 Office 365 服務。 如果您未獲授權透過 ExpressRoute 使用 Office 365 服務，連結路由篩選的作業會失敗。 如需授權程序的詳細資訊，請參閱 [Azure ExpressRoute for Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)。
 
 > [!IMPORTANT]
-> 在 2017 年 8 月 1 日以前設定之 ExpressRoute 線路的 Microsoft 對等互連，會透過 Microsoft 對等互連公告所有服務首碼，即使未定義路由篩選也一樣。 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連不會公告任何前置詞，直到路由篩選連結至線路為止。
+> 在 2017 年 8 月 1 日以前設定之 ExpressRoute 線路的 Microsoft 對等互連會透過 Microsoft 對等互連公告所有服務前置詞，即使未定義路由篩選也一樣。 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連不會公告任何前置詞，直到路由篩選連結至線路為止。
 > 
 > 
 
@@ -73,11 +73,11 @@ Office 365 服務（例如 Exchange Online、SharePoint Online 和商務用 Skyp
 
 ## <a name="prefixes"></a>步驟 1：取得前置詞和 BGP 社群值的清單
 
-### <a name="1-get-a-list-of-bgp-community-values"></a>1.取得 BGP 社群值的清單
+### <a name="1-get-a-list-of-bgp-community-values"></a>1. 取得 BGP 社區值的清單
 
-與服務相關的 BGP 社群值可透過 [ExpressRoute 路由需求](expressroute-routing.md) 頁面中提供的 Microsoft 對等互連存取。
+與服務相關的 BGP 社群值可透過 [ExpressRoute 路由需求][](expressroute-routing.md) 頁面中提供的 Microsoft 對等互連存取。
 
-### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2.製作您想要使用的值清單
+### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. 建立您想要使用的值清單
 
 建立您想要在路由篩選中使用的[BGP 社區值](expressroute-routing.md#bgp)清單。 
 
@@ -85,7 +85,7 @@ Office 365 服務（例如 Exchange Online、SharePoint Online 和商務用 Skyp
 
 路由篩選只能有一個規則，且規則的類型必須是 'Allow'。 此規則可以具有與其相關聯的 BGP 社群值清單。
 
-### <a name="1-create-a-route-filter"></a>1.建立路由篩選
+### <a name="1-create-a-route-filter"></a>1. 建立路由篩選
 您可以選取建立新資源的選項來建立路由篩選。 按一下 [建立資源]  >  [網路]  >  [RouteFilter]，如下圖所示：
 
 ![建立路由篩選](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
@@ -94,7 +94,7 @@ Office 365 服務（例如 Exchange Online、SharePoint Online 和商務用 Skyp
 
 ![建立路由篩選](./media/how-to-routefilter-portal/CreateRouteFilter.png)
 
-### <a name="2-create-a-filter-rule"></a>2.建立篩選規則
+### <a name="2-create-a-filter-rule"></a>2. 建立篩選規則
 
 您可以為路由篩選選取管理規則索引標籤，以新增及更新規則。
 

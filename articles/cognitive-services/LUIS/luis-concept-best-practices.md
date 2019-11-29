@@ -1,7 +1,7 @@
 ---
-title: 最佳做法-LUIS
+title: 建立 LUIS 應用程式的最佳作法
 titleSuffix: Azure Cognitive Services
-description: 了解從 LUIS 應用程式的模型獲得最佳結果的 LUIS 最佳做法。
+description: 瞭解最佳作法，以取得 LUIS 應用程式模型的最佳結果。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 64d67edaf5affbc908fba7b6c261096589bc84d0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b4be79338db71ad83204fae971da0b77885a8070
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487613"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280917"
 ---
-# <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>使用認知服務建置語言理解應用程式的最佳做法
+# <a name="best-practices-for-building-a-language-understanding-luis-app"></a>建立語言理解（LUIS）應用程式的最佳作法
 使用應用程式撰寫流程來建立 LUIS 應用程式： 
 
 * 組建語言模型（意圖和實體）

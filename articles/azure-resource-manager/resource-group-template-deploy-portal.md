@@ -1,17 +1,14 @@
 ---
-title: 使用 Azure 入口網站部署 Azure 資源 | Microsoft Docs
+title: 使用 Azure 入口網站部署資源
 description: 使用 Azure 入口網站和 Azure 資源管理，將您的資源部署至訂用帳戶中的資源群組。
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.author: tomfitz
-ms.openlocfilehash: 249afcaad85d9031e0972d4fcfc185b5ff890f65
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 6a8842a9fbda11bf48d45152c167d7b072f38119
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390338"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150763"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 範本與 Azure 入口網站來部署資源
 
@@ -28,7 +25,7 @@ ms.locfileid: "72390338"
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-1. 若要建立新的資源群組，請從 [ Azure 入口網站](https://portal.azure.com)中選取 [**資源群組**]。
+1. 若要建立新的資源群組，請從 [ [Azure 入口網站](https://portal.azure.com)中選取 [**資源群組**]。
 
    ![選取資源群組](./media/resource-group-template-deploy-portal/select-resource-groups.png)
 
@@ -52,7 +49,7 @@ ms.locfileid: "72390338"
 
 建立資源群組之後，您可以從 Marketplace 將資源部署到群組。 Marketplace 針對常見的案例提供預先定義的解決方案。
 
-1. 若要開始部署，請從 [Azure 入口網站](https://portal.azure.com)中選取 [**建立資源**]。
+1. 若要開始部署，請從 [ [Azure 入口網站](https://portal.azure.com)中選取 [**建立資源**]。
 
    ![新增資源](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -89,7 +86,7 @@ ms.locfileid: "72390338"
 1. 您會看到數個建立範本的選項：
 
     - **在編輯器中建立您自己的範本**：使用入口網站範本編輯器建立範本。  編輯器能夠加入資源範本架構。
-    - **一般範本**：建立 Linux 虛擬機器、Windows 虛擬機器、web 應用程式和 Azure SQL 資料庫共有四個常見的 templatess。
+    - **一般範本**：建立 Linux 虛擬機器、Windows 虛擬機器、web 應用程式和 Azure SQL 資料庫共有四個常見的範本。
     - **載入 GitHub 快速入門範本**：使用現有的[快速入門範本](https://azure.microsoft.com/resources/templates/)。
 
    ![檢視選項](./media/resource-group-template-deploy-portal/see-options.png)
@@ -113,7 +110,7 @@ ms.locfileid: "72390338"
     "storageAccountName": "[concat('azstore', uniquestring(resourceGroup().id))]"
     ```
 
-1. 選取 [儲存]。 現在您會看到入口網站範本部署介面。 請注意您在範本中定義的兩個參數。
+1. 選取 [ **儲存**]。 現在您會看到入口網站範本部署介面。 請注意您在範本中定義的兩個參數。
 1. 輸入或選取屬性值：
 
     - **訂用帳戶**：選取 Azure 訂用帳戶。

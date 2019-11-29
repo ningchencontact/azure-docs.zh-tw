@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中建立和管理使用多個 NIC 的 Windows VM | Microsoft Docs
+title: 在 Azure 中建立及管理使用多個 Nic 的 Windows Vm
 description: 了解如何使用 Azure PowerShell 或 Resource Manager 範本，建立和管理連結多個 NIC 的 Windows VM。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: d10844a52505331418e3bc4e9b36d00a5a7e7b6f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0e826442c816f83c875b907bbf3054793ebb382a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102619"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033138"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>建立及管理具有多個 NIC 的 Windows 虛擬機器
 Azure 中的虛擬機器 (VM) 可以連結多個虛擬網路介面卡 (NIC)。 常見案例是有不同的子網路可用於前端和後端連線。 您可以將 VM 上的多個 NIC 關聯至多個子網路，但這些子網路必須位於相同虛擬網路 (VNet) 中。 本文詳述如何建立已連結多個 NIC 的 VM。 您也了解如何新增或移除現有 VM 中的 NIC。 不同的 [VM 大小](sizes.md) 支援不同數量的 NIC，因此可據以調整您的 VM。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myVnet* 和 *myVM*。
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="create-a-vm-with-multiple-nics"></a>建立具有多個 NIC 的 VM
 首先，建立資源群組。 下列範例會在 EastUs 位置建立名為 myResourceGroup 的資源群組：
@@ -139,7 +139,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     $vm = Get-AzVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-3. 下列範例會使用 [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) 建立虛擬 NIC，其名稱為 myNic3 並已連結至 mySubnetBackEnd。 接著會使用 [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface)，將虛擬 NIC 連結至 myResourceGroup 中名為 myVM 的 VM：
+3. 下列範例會使用 [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) 建立虛擬 NIC，其名稱為 myNic3 並已連結至 mySubnetBackEnd。 接著會使用 *Add-AzVMNetworkInterface*，將虛擬 NIC 連結至 myResourceGroup 中名為 myVM[](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface) 的 VM：
 
     ```powershell
     # Get info for the back end subnet
@@ -204,7 +204,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     $nicId = (Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
     ```
 
-4. 使用 [Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface) 移除 NIC，然後使用 [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) 更新 VM。 下列範例會移除前一個步驟中 `$nicId` 所取得的 myNic3：
+4. 使用 [Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface) 移除 NIC，然後使用 [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) 更新 VM。 下列範例會移除前一個步驟中  *所取得的 myNic3*`$nicId`：
 
     ```powershell
     Remove-AzVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
@@ -291,7 +291,7 @@ Azure 將預設閘道指派給連接至虛擬機器的第一個 (主要) 網路�
               0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
     ```
 
-    **閘道**下使用 *192.168.1.1* 列出的路由，是根據主要網路介面預設會在該處的路由。 **閘道**下包含 *192.168.2.1* 的路由是您新增的路由。
+    *閘道*下使用 **192.168.1.1** 列出的路由，是根據主要網路介面預設會在該處的路由。 *閘道*下包含 **192.168.2.1** 的路由是您新增的路由。
 
 ## <a name="next-steps"></a>後續步驟
 嘗試建立具有多個 NIC 的 VM 時，請檢閱 [Windows VM 大小](sizes.md)。 請注意每個 VM 大小所支援的 NIC 數目上限。 

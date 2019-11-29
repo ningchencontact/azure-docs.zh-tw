@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: 14157ed22ea40a2157f696e91c59af9b58110bf2
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: dd4444bf42bcc8dda95f8fa37b42a365538efa85
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819947"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482870"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>使用 Azure 入口網站建立認知服務資源
 
@@ -64,7 +64,7 @@ ms.locfileid: "72819947"
     |--|--|
     | **名稱** | 認知服務資源的描述性名稱。 例如， *MyCognitiveServicesResource*。 |
     | **訂用帳戶** | 選取您其中一個可用的 Azure 訂用帳戶。 |
-    | **位置** | 您的認知服務執行個體的位置。 位置不同可能會造成延遲，但不會影響您資源執行階段的可用性。 請記住您的 Azure 位置，因為您在呼叫 Azure 認知服務時可能需要它。 |
+    | **位置** | 您的認知服務執行個體的位置。 位置不同可能會造成延遲，但不會影響您資源執行階段的可用性。 |
     | **定價層** | 認知服務帳戶的費用取決於您選擇的選項和使用方式。 如需詳細資訊，請參閱 API [定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/)。
     | **資源群組** | 將包含您認知服務資源的 Azure 資源群組。 您可以建立新的群組，或將群組新增到既有的群組。 |
 
@@ -78,7 +78,7 @@ ms.locfileid: "72819947"
     |--|--|
     | **名稱** | 認知服務資源的描述性名稱。 例如， *TextAnalyticsResource*。 |
     | **訂用帳戶** | 選取您其中一個可用的 Azure 訂用帳戶。 |
-    | **位置** | 您的認知服務執行個體的位置。 位置不同可能會造成延遲，但不會影響您資源執行階段的可用性。 請記住您的 Azure 位置，因為您在呼叫 Azure 認知服務時可能需要它。 |
+    | **位置** | 您的認知服務執行個體的位置。 位置不同可能會造成延遲，但不會影響您資源執行階段的可用性。 |
     | **定價層** | 認知服務帳戶的費用取決於您選擇的選項和使用方式。 如需詳細資訊，請參閱 API [定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/)。
     | **資源群組** | 將包含您認知服務資源的 Azure 資源群組。 您可以建立新的群組，或將群組新增到既有的群組。 |
 
@@ -87,6 +87,7 @@ ms.locfileid: "72819947"
     按一下 [建立]。
 
     ***
+
 
 ## <a name="get-the-keys-for-your-resource"></a>取得資源的金鑰
 

@@ -1,14 +1,14 @@
 ---
 title: 原則定義結構的詳細資料
 description: 說明如何使用原則定義來建立組織中 Azure 資源的慣例。
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: afb06771422b2f8117383b0bde711dc3e1a4d238
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 93b03622f03c095a61291f4a6d25284e5052c35a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279464"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555185"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -22,7 +22,7 @@ ms.locfileid: "74279464"
 - 模式
 - 參數
 - 顯示名稱
-- Description
+- 說明
 - 原則規則
   - 邏輯評估
   - 效果
@@ -63,7 +63,7 @@ ms.locfileid: "74279464"
 
 所有 Azure 原則範例都位於[Azure 原則的範例](../samples/index.md)。
 
-## <a name="mode"></a>模式
+## <a name="mode"></a>Mode
 
 根據原則是以 Azure Resource Manager 屬性或資源提供者屬性為目標，設定**模式**。
 
@@ -90,7 +90,7 @@ ms.locfileid: "74279464"
 > [!NOTE]
 > 資源提供者模式只支援內建原則定義，並在預覽期間不支援方案。
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>參數
 
 參數可減少原則定義數量來幫助您簡化原則管理。 將參數想像成就像表單上的欄位一樣 – `name``address`、`city``state`。 這些參數一律保持不變，不過它們的值則會根據填寫表單的個人而有所變更。
 在建立原則時，參數也是以相同的方式運作。 藉由在原則定義中納入參數，您便可以針對不同的案例使用不同的值，來重複使用該原則。
@@ -145,7 +145,7 @@ ms.locfileid: "74279464"
 }
 ```
 
-此範例參考**參數屬性**中示範的 [allowedLocations](#parameter-properties) 參數。
+此範例參考[參數屬性](#parameter-properties)中示範的 **allowedLocations** 參數。
 
 ### <a name="strongtype"></a>strongType
 
@@ -308,7 +308,7 @@ ms.locfileid: "74279464"
 }
 ```
 
-### <a name="value"></a>值
+### <a name="value"></a>Value
 
 條件也可以使用 **value** 形成。 **value** 會檢查 [parameters](#parameters)、[支援的範本函式](#policy-functions)或常值的條件。
 **value** 已和任何支援的 [condition](#conditions) 配對。
@@ -318,7 +318,7 @@ ms.locfileid: "74279464"
 
 #### <a name="value-examples"></a>Value 範例
 
-此原則規則範例使用 **value** 來將 `resourceGroup()` 函式和傳回的 **name** 屬性與 **的**like`*netrg` 條件比較。 規則會拒絕名稱結尾是 `Microsoft.Network/*` 的任何資源群組中，任何不屬於type`*netrg` 的任何資源。
+此原則規則範例使用 **value** 來將 `resourceGroup()` 函式和傳回的 **name** 屬性與 `*netrg` 的 **like** 條件比較。 規則會拒絕名稱結尾是 `*netrg` 的任何資源群組中，任何不屬於 `Microsoft.Network/*` **type** 的任何資源。
 
 ```json
 {
@@ -394,7 +394,147 @@ ms.locfileid: "74279464"
 
 使用修改過的原則規則，`if()` 在嘗試取得值少於三個字元的 `substring()` 之前，檢查**名稱**的長度。 如果**名稱**太短，則會改為傳回值「不是以 abc 開頭」，並與**abc**比較。 簡短名稱不是**abc**開頭的資源仍會失敗原則規則，但在評估期間不會再造成錯誤。
 
-### <a name="effect"></a>效果
+### <a name="count"></a>計數
+
+計算資源裝載中陣列成員數目符合條件運算式的條件，可以使用**計數**運算式來形成。 常見的案例是檢查「至少其中一個」、「全部」、「全部」或「無」陣列成員是否符合條件。 **count**會評估條件運算式的每個陣列成員，並加總_true_結果，然後再與運算式運算子進行比較。
+
+**計數**運算式的結構為：
+
+```json
+{
+    "count": {
+        "field": "<[*] alias>",
+        "where": {
+            /* condition expression */
+        }
+    },
+    "<condition>": "<compare the count of true condition expression array members to this value>"
+}
+```
+
+下列屬性會與**count**搭配使用：
+
+- **count. field** （必要）：包含陣列的路徑，而且必須是陣列別名。 如果陣列遺失，運算式會評估為_false_ ，而不考慮條件運算式。
+- **count。 where** （選擇性）： [\*\] alias](#understanding-the--alias)陣列成員的**count. 欄位**中，個別評估每個\[的條件運算式。 如果未提供此屬性，則會將路徑為 ' field ' 的所有陣列成員評估為_true_。 任何[條件](../concepts/definition-structure.md#conditions)都可以在此屬性內使用。
+  [邏輯運算子](#logical-operators)可以在此屬性內使用，以建立複雜的評估需求。
+- **\<條件\>** （必要）：值會與符合計數的專案數進行比較（ **where**條件運算式）。 應該使用數值[條件](../concepts/definition-structure.md#conditions)。
+
+#### <a name="count-examples"></a>計數範例
+
+範例1：檢查陣列是否為空的
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]"
+    },
+    "equals": 0
+}
+```
+
+範例2：只檢查一個陣列成員，以符合條件運算式
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My unique description"
+        }
+    },
+    "equals": 1
+}
+```
+
+範例3：檢查是否至少有一個陣列成員符合條件運算式
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My common description"
+        }
+    },
+    "greaterOrEquals": 1
+}
+```
+
+範例4：檢查所有物件陣列成員是否符合條件運算式
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "description"
+        }
+    },
+    "equals": "[length(field(Microsoft.Network/networkSecurityGroups/securityRules[*]))]"
+}
+```
+
+範例5：檢查所有字串陣列成員是否符合條件運算式
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+            "like": "*@contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+範例6：在**值**中使用**欄位**，以檢查所有陣列成員是否符合條件運算式
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "value": "[last(split(first(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]')), '@'))]",
+            "equals": "contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+範例7：檢查至少有一個陣列成員符合條件運算式中的多個屬性
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "allOf": [
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                    "equals": "Inbound"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                    "equals": "Allow"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                    "equals": "3389"
+                }
+            ]
+        }
+    },
+    "greater": 0
+}
+```
+
+### <a name="effect"></a>影響
 
 Azure 原則支援下列類型的效果：
 
@@ -490,14 +630,15 @@ Azure 原則支援下列類型的效果：
 
 ### <a name="understanding-the--alias"></a>了解 [*] 別名
 
-許多可用的別名都有會一個顯示為「正常」名稱的版本，和另一個附加 **[\*]** 的版本。 例如︰
+其中有幾個可用的別名，其版本會顯示為「一般」名稱，另一個則會附加 **\[\*\]** 。 例如：
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 ' Normal ' 別名會將欄位表示為單一值。 此欄位適用于完全相符的比較案例，因為整個值集合必須完全依照定義，而不是更多或更少。
 
-**[\*]** 別名可讓您比較陣列中每個元素的值，以及每個專案的特定屬性。 這個方法可讓您比較「如果沒有 '、' （如果有的話）」和「if 所有」案例的元素屬性。 使用**ipRules [\*]** ，範例會驗證每個_動作_是否為「_拒絕_」，但不會擔心有多少規則存在或 IP_值_為何。 此範例規則會檢查是否有任何相符的**ipRules [\*]. value** to **10.0.4.1** ，而且只有在找不到至少一個相符專案時，才會套用**effectType** ：
+**\[\*\]** 別名可以比較陣列中每個元素的值，以及每個專案的特定屬性。 這個方法可讓您比較「如果沒有 '、' （如果有的話）」和「if 所有」案例的元素屬性。 如需更複雜的案例，請使用 [[計數](#count)條件] 運算式。 使用**ipRules\[\*\]** ，範例會驗證每個_動作_是否為「_拒絕_」，但不會擔心有多少規則存在或 IP_值_為何。
+此範例規則會檢查是否有任何相符的**ipRules\[\*\]值** **，而且只有**在找不到至少一個相符專案時，才會套用**effectType** ：
 
 ```json
 "policyRule": {
@@ -518,6 +659,8 @@ Azure 原則支援下列類型的效果：
     }
 }
 ```
+
+
 
 如需詳細資訊，請參閱[評估 [\*] 別名](../how-to/author-policies-for-arrays.md#evaluating-the--alias)。
 
