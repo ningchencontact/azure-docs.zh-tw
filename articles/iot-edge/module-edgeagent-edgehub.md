@@ -1,5 +1,5 @@
 ---
-title: EdgeAgent 和 EdgeHub 預期屬性參考 - Azure IoT Edge | Microsoft Docs
+title: 代理程式和中樞模組 twins 的屬性-Azure IoT Edge
 description: 檢閱 edgeAgent 和 edgeHub 模組對應項的特定屬性及其值
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1ab45a6bde9ead69a7ea23dd095de84b8ff01334
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 731c51894126a6de75c9fc25e4e7bdb3dfa4dd03
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456698"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665792"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>IoT Edge 代理程式和 IoT Edge 中樞模組對應項的屬性
 
@@ -31,31 +31,31 @@ IoT Edge 代理程式和 IoT Edge 中樞是構成 IoT Edge 執行階段的兩個
 
 IoT Edge 代理程式的模組對應項稱為 `$edgeAgent`，並且會協調裝置與 IoT 中樞上執行之 IoT Edge 代理程式之間的通訊。 在單一裝置或規模部署時，在特定裝置上套用部署資訊清單時，會設定預期屬性。 
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | -------- | ----------- | -------- |
-| schemaVersion | 必須為「1.0」 | yes |
-| runtime.type | 必須為「docker」 | yes |
-| runtime.settings.minDockerVersion | 此部署資訊清單需要設定為最小 Docker 版本 | yes |
+| schemaVersion | 必須為「1.0」 | 是 |
+| runtime.type | 必須為「docker」 | 是 |
+| runtime.settings.minDockerVersion | 此部署資訊清單需要設定為最小 Docker 版本 | 是 |
 | runtime.settings.loggingOptions | stringified JSON，包含 IoT Edge 代理程式容器的記錄選項。 [Docker 記錄選項](https://docs.docker.com/engine/admin/logging/overview/) | 否 |
 | runtime.settings.registryCredentials<br>.{registryId}.username | 容器登錄的使用者名稱。 Azure Container Registry 的使用者名稱通常是登錄名稱。<br><br> 非公用的任何模組映像都需要登錄認證。 | 否 |
 | runtime.settings.registryCredentials<br>.{registryId}.password | 容器登錄的密碼。 | 否 |
 | runtime.settings.registryCredentials<br>.{registryId}.address | 容器登錄的位址。 Azure Container Registry 的位址通常是 {登錄名稱}.azurecr.io。 | 否 |  
-| systemModules.edgeAgent.type | 必須為「docker」 | yes |
-| systemModules.edgeAgent.settings.image | IoT Edge 代理程式映像的 URI。 目前，IoT Edge 代理程式無法自行更新。 | yes |
+| systemModules.edgeAgent.type | 必須為「docker」 | 是 |
+| systemModules.edgeAgent.settings.image | IoT Edge 代理程式映像的 URI。 目前，IoT Edge 代理程式無法自行更新。 | 是 |
 | systemModules.edgeAgent.settings<br>.createOptions | stringified JSON，包含 IoT Edge 代理程式容器的建立選項。 [Docker 建立選項](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | 否 |
 | systemModules.edgeAgent.configuration.id | 部署此模組之部署的識別碼。 | 使用部署來套用資訊清單時，IoT 中樞會設定這個屬性。 非部署資訊清單的一部分。 |
-| systemModules.edgeHub.type | 必須為「docker」 | yes |
-| systemModules.edgeHub.status | 必須為「執行中」 | yes |
-| systemModules.edgeHub.restartPolicy | 必須為「永遠」 | yes |
-| systemModules.edgeHub.settings.image | IoT Edge 中樞映像的 URI。 | yes |
+| systemModules.edgeHub.type | 必須為「docker」 | 是 |
+| systemModules.edgeHub.status | 必須為「執行中」 | 是 |
+| systemModules.edgeHub.restartPolicy | 必須為「永遠」 | 是 |
+| systemModules.edgeHub.settings.image | IoT Edge 中樞映像的 URI。 | 是 |
 | systemModules.edgeHub.settings<br>.createOptions | stringified JSON，包含 IoT Edge 中樞容器的建立選項。 [Docker 建立選項](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | 否 |
 | systemModules.edgeHub.configuration.id | 部署此模組之部署的識別碼。 | 使用部署來套用資訊清單時，IoT 中樞會設定這個屬性。 非部署資訊清單的一部分。 |
-| modules.{moduleId}.version | 使用者定義的字串，表示此模組的版本。 | yes |
-| modules.{moduleId}.type | 必須為「docker」 | yes |
-| modules.{moduleId}.status | {"running" \| "stopped"} | yes |
-| modules.{moduleId}.restartPolicy | {「永不」 \| 「失敗時」 \| 「狀況不良」 \| "always"} | yes |
+| modules.{moduleId}.version | 使用者定義的字串，表示此模組的版本。 | 是 |
+| modules.{moduleId}.type | 必須為「docker」 | 是 |
+| modules.{moduleId}.status | {"running" \| "stopped"} | 是 |
+| modules.{moduleId}.restartPolicy | {「永不」 \| 「失敗時」 \| 「狀況不良」 \| "always"} | 是 |
 | 模組.{moduleId}. imagePullPolicy | {「建立中」 \| 「永不」} | 否 |
-| modules.{moduleId}.settings.image | 模組映像的 URI。 | yes |
+| modules.{moduleId}.settings.image | 模組映像的 URI。 | 是 |
 | modules.{moduleId}.settings.createOptions | stringified JSON，包含模組容器的建立選項。 [Docker 建立選項](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | 否 |
 | modules.{moduleId}.configuration.id | 部署此模組之部署的識別碼。 | 使用部署來套用資訊清單時，IoT 中樞會設定這個屬性。 非部署資訊清單的一部分。 |
 
@@ -79,8 +79,8 @@ IoT Edge 代理程式報告屬性包含三個主要部分資訊：
 | lastDesiredVersion | 此整數代表 IoT Edge 代理程式處理之所需屬性的最後版本。 |
 | lastDesiredStatus.code | 此狀態碼會參考 IoT Edge 代理程式看到的最後所需屬性。 允許的值：`200` 成功、`400` 無效的設定、`412` 無效的結構描述版本、`417` 預期屬性是空的、`500` 失敗 |
 | lastDesiredStatus.description | 狀態的文字描述 |
-| deviceHealth | 如果所有模組的執行階段狀態為 `healthy`、`running` 時，則為 `stopped`，否則為 `unhealthy` |
-| configurationHealth.{deploymentId}.health | 如果部署 {deploymentId} 設定之所有模組的執行階段狀態為 `healthy` 或 `running` 時，則為 `stopped`，否則為 `unhealthy` |
+| deviceHealth | 如果所有模組的執行階段狀態為 `running`、`stopped` 時，則為 `healthy`，否則為 `unhealthy` |
+| configurationHealth.{deploymentId}.health | 如果部署 {deploymentId} 設定之所有模組的執行階段狀態為 `running` 或 `stopped` 時，則為 `healthy`，否則為 `unhealthy` |
 | runtime.platform.OS | 報告裝置上執行的作業系統 |
 | runtime.platform.architecture | 報告裝置上的 CPU 架構 |
 | systemModules.edgeAgent.runtimeStatus | IoT Edge 代理程式的報告狀態：{"running" \| "unhealthy"} |
@@ -106,9 +106,9 @@ IoT Edge 中樞的模組對應項稱為 `$edgeHub`，並且會協調裝置與 Io
 
 | 屬性 | 描述 | 部署資訊清單中的必要項目 |
 | -------- | ----------- | -------- |
-| schemaVersion | 必須為「1.0」 | yes |
+| schemaVersion | 必須為「1.0」 | 是 |
 | routes.{routeName} | 字串，表示 IoT Edge 中樞路由。 如需詳細資訊，請參閱宣告[路由](module-composition.md#declare-routes)。 | `routes` 元素可以存在但為空白。 |
-| storeAndForwardConfiguration.timeToLiveSecs | 如果從路由端點中斷連線（不論 IoT 中樞或本機模組），IoT Edge 中樞會保留訊息的時間（以秒為單位）。 值可以是任何正整數。 | yes |
+| storeAndForwardConfiguration.timeToLiveSecs | 如果從路由端點中斷連線（不論 IoT 中樞或本機模組），IoT Edge 中樞會保留訊息的時間（以秒為單位）。 值可以是任何正整數。 | 是 |
 
 ## <a name="edgehub-reported-properties"></a>EdgeHub 的報告屬性
 

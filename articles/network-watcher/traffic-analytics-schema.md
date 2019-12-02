@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: a678039b3386c3df290327238d3bf968a803d2c1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229427"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666370"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>流量分析中的架構和資料匯總
 
@@ -122,11 +122,11 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 | NSGRuleType_s | * 使用者定義 * 預設值 |   流程所使用的 NSG 規則類型 |
 | MACAddress_s | MAC 位址 | 已在其上捕獲流程之 NIC 的 MAC 位址 |
 | Subscription_s | Azure 虛擬網路/網路介面/虛擬機器的訂用帳戶已填入此欄位 | 僅適用于 FlowType = S2S、P2S、AzurePublic、ExternalPublic、MaliciousFlow 和 UnknownPrivate 流程類型（只有一個端為 azure 的流程類型） |
-| Subscription1_s | 訂用帳戶識別碼 | 流程中來源 IP 所屬之虛擬網路/網路介面/虛擬機器的訂用帳戶識別碼 |
-| Subscription2_s | 訂用帳戶識別碼 | 流程中目的地 IP 所屬之虛擬網路/網路介面/虛擬機器的訂用帳戶識別碼 |
+| Subscription1_s | 訂用帳戶 ID | 流程中來源 IP 所屬之虛擬網路/網路介面/虛擬機器的訂用帳戶識別碼 |
+| Subscription2_s | 訂用帳戶 ID | 流程中目的地 IP 所屬之虛擬網路/網路介面/虛擬機器的訂用帳戶識別碼 |
 | Region_s | 流程中的 IP 所屬虛擬網路/網路介面/虛擬機器的 Azure 區域 | 僅適用于 FlowType = S2S、P2S、AzurePublic、ExternalPublic、MaliciousFlow 和 UnknownPrivate 流程類型（只有一個端為 azure 的流程類型） |
-| Region1_s | Azure 區域 | 流程中的來源 IP 所屬之虛擬網路/網路介面/虛擬機器的 Azure 區域 |
-| Region2_s | Azure 區域 | 流程中目的地 IP 所屬之虛擬網路的 Azure 區域 |
+| Region1_s | Azure 地區 | 流程中的來源 IP 所屬之虛擬網路/網路介面/虛擬機器的 Azure 區域 |
+| Region2_s | Azure 地區 | 流程中目的地 IP 所屬之虛擬網路的 Azure 區域 |
 | NIC_s | \<resourcegroup_Name >\/\<NetworkInterfaceName > |  與傳送或接收流量的 VM 相關聯的 NIC |
 | NIC1_s | < resourcegroup_Name >/\<NetworkInterfaceName > | 與流程中的來源 IP 相關聯的 NIC |
 | NIC2_s | < resourcegroup_Name >/\<NetworkInterfaceName > | 與流程中目的地 IP 相關聯的 NIC |
@@ -143,7 +143,7 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 | LocalNetworkGateway1_s | \<SubscriptionID >/\<ResourceGroupName >/\<LocalNetworkGatewayName > | 與流程中的來源 IP 相關聯的局域網路閘道 |
 | LocalNetworkGateway2_s | \<SubscriptionID >/\<ResourceGroupName >/\<LocalNetworkGatewayName > | 與流程中目的地 IP 相關聯的局域網路閘道 |
 | ConnectionType_s | 可能的值為 VNetPeering、VpnGateway 和 ExpressRoute |    連線類型 |
-| ConnectionName_s | \<SubscriptionID >/\<ResourceGroupName >/\<ConnectionName > | 連線名稱 |
+| ConnectionName_s | \<SubscriptionID >/\<ResourceGroupName >/\<ConnectionName > | 連接名稱。 對於 flowtype P2S，這會格式化為 <gateway name>_<VPN Client IP> |
 | ConnectingVNets_s | 以空格分隔的虛擬網路名稱清單 | 如果是中樞和輪輻拓撲，則會在此填入中樞虛擬網路 |
 | Country_s | 兩個字母的國家/地區代碼（ISO 3166-1 Alpha-2） | 已填入流程類型 ExternalPublic。 PublicIPs_s 欄位中的所有 IP 位址都會共用相同的國家/地區代碼 |
 | AzureRegion_s | Azure 區域位置 | 已填入流程類型 AzurePublic。 PublicIPs_s 欄位中的所有 IP 位址都會共用 Azure 區域 |
@@ -161,7 +161,7 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 | SrcPublicIPs_s | < SOURCE_PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|\<FLOW_ENDED_COUNT >\|\<OUTBOUND_PACKETS >\|\<INBOUND_PACKETS >\|\<OUTBOUND_BYTES >\|\<INBOUND_BYTES > | 以橫條分隔的專案 |
 | DestPublicIPs_s | < DESTINATION_PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|\<FLOW_ENDED_COUNT >\|\<OUTBOUND_PACKETS >\|\<INBOUND_PACKETS >\|\<OUTBOUND_BYTES >\|\<INBOUND_BYTES > | 以橫條分隔的專案 |
 
-### <a name="notes"></a>注意事項
+### <a name="notes"></a>注意
 
 1. 在 AzurePublic 和 ExternalPublic 流程的情況下，客戶擁有的 Azure VM IP 會填入 VMIP_s 欄位中，而公用 IP 位址則會填入 PublicIPs_s 欄位中。 針對這兩種流程類型，我們應該使用 VMIP_s 和 PublicIPs_s，而不是 SrcIP_s 和 DestIP_s 欄位。 針對 AzurePublic 和 ExternalPublicIP 位址，我們會進一步匯總，使內嵌至客戶 log analytics 工作區的記錄數目最少。（此欄位即將淘汰，我們應該使用 SrcIP_ 和 DestIP_s，視 azure VM 是否為流程中的來源或目的地而定）
 1. 流量類型的詳細資料：根據流程中涉及的 IP 位址，我們會將流程分類為下列流程類型：

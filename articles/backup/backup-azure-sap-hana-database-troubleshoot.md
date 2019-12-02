@@ -3,12 +3,12 @@ title: 針對 SAP Hana 資料庫備份錯誤進行疑難排解
 description: 說明如何針對使用 Azure 備份備份 SAP Hana 資料庫時可能發生的常見錯誤進行疑難排解。
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: b4c39c631963a358dcdc9d1eafe954a85a9499ad
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: e8bb1d3328f95b647a788c53afe3ac1455eefa13
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554852"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665333"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>針對 Azure 上 SAP Hana 資料庫的備份進行疑難排解
 
@@ -20,61 +20,61 @@ ms.locfileid: "74554852"
 
 ## <a name="common-user-errors"></a>一般使用者錯誤
 
-###  <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection 
+### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection
 
-| 錯誤訊息      | 無法連接到 HANA 系統                             |
+| 錯誤訊息      | <span style="font-weight:normal">無法連接到 HANA 系統</span>                        |
 | ------------------ | ------------------------------------------------------------ |
-| 可能的原因    | SAP Hana 實例可能已關閉。<br/>不會設定 Azure 備份與 HANA 資料庫互動所需的許可權。 |
-| 建議動作 | 檢查 SAP Hana 資料庫是否已啟動。 如果資料庫已啟動且正在執行，請檢查是否已設定所有必要的許可權。 如果遺漏任何許可權，請執行[preregistration 腳本](https://aka.ms/scriptforpermsonhana)來新增遺失的許可權。 |
+| **可能的原因**    | SAP Hana 實例可能已關閉。<br/>不會設定 Azure 備份與 HANA 資料庫互動所需的許可權。 |
+| **建議的動作** | 檢查 SAP Hana 資料庫是否已啟動。 如果資料庫已啟動且正在執行，請檢查是否已設定所有必要的許可權。 如果遺漏任何許可權，請執行[preregistration 腳本](https://aka.ms/scriptforpermsonhana)來新增遺失的許可權。 |
 
-###  <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid 
+### <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid
 
-| 錯誤訊息      | 指定的 SAP Hana 實例無效或找不到 |
+| 錯誤訊息      | <span style="font-weight:normal">指定的 SAP Hana 實例無效或找不到</span>  |
 | ------------------ | ------------------------------------------------------------ |
-| 可能的原因    | 單一 Azure VM 上的多個 SAP Hana 實例無法備份。 |
-| 建議動作 | 在您要備份的 SAP Hana 實例上執行[preregistration 腳本](https://aka.ms/scriptforpermsonhana)。 如果問題仍然持續發生，請洽詢 Microsoft 支援服務。 |
+| **可能的原因**    | 單一 Azure VM 上的多個 SAP Hana 實例無法備份。 |
+| **建議的動作** | 在您要備份的 SAP Hana 實例上執行[preregistration 腳本](https://aka.ms/scriptforpermsonhana)。 如果問題仍然持續發生，請洽詢 Microsoft 支援服務。 |
 
-###  <a name="usererrorhanaunsupportedoperation"></a>UserErrorHanaUnsupportedOperation 
+### <a name="usererrorhanaunsupportedoperation"></a>UserErrorHanaUnsupportedOperation
 
-| 錯誤訊息      | 不支援指定的 SAP Hana 作業             |
+| 錯誤訊息      | <span style="font-weight:normal">不支援指定的 SAP Hana 作業</span>              |
 | ------------------ | ------------------------------------------------------------ |
-| 可能的原因    | 適用于 SAP Hana 的 Azure 備份不支援在 SAP Hana 原生用戶端上執行的增量備份和動作（Studio/駕駛中心/DBA 環境） |
-| 建議動作 | 如需詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support)。 |
+| **可能的原因**    | 適用于 SAP Hana 的 Azure 備份不支援在 SAP Hana 原生用戶端上執行的增量備份和動作（Studio/駕駛中心/DBA 環境） |
+| **建議的動作** | 如需詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support)。 |
 
-###  <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType 
+### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType
 
-| 錯誤訊息      | 此 SAP Hana 資料庫不支援要求的備份類型 |
+| 錯誤訊息      | <span style="font-weight:normal">此 SAP Hana 資料庫不支援要求的備份類型</span>  |
 | ------------------ | ------------------------------------------------------------ |
-| 可能的原因    | Azure 備份不支援使用快照集進行增量備份和備份 |
-| 建議動作 | 如需詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support)。 |
+| **可能的原因**    | Azure 備份不支援使用快照集進行增量備份和備份 |
+| **建議的動作** | 如需詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support)。 |
 
-###  <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure 
+### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
 
-| 錯誤訊息      | 備份記錄鏈已中斷                                   |
+| 錯誤訊息      | <span style="font-weight:normal">備份記錄鏈已中斷</span>                                    |
 | ------------------ | ------------------------------------------------------------ |
-| 可能的原因    | 記錄備份目的地可能已從 backint 更新至檔案系統，或可能已變更 backint 可執行檔 |
-| 建議動作 | 觸發完整備份以解決問題                   |
+| **可能的原因**    | 記錄備份目的地可能已從 backint 更新至檔案系統，或可能已變更 backint 可執行檔 |
+| **建議的動作** | 觸發完整備份以解決問題                   |
 
-###  <a name="usererrorincomaptiblesrctargetsystsemsforrestore"></a>UserErrorIncomaptibleSrcTargetSystsemsForRestore 
+### <a name="usererrorincomaptiblesrctargetsystsemsforrestore"></a>UserErrorIncomaptibleSrcTargetSystsemsForRestore
 
-| 錯誤訊息      | 還原的來源和目標系統不相容   |
+| 錯誤訊息      | <span style="font-weight:normal">還原的來源和目標系統不相容</span>    |
 | ------------------ | ------------------------------------------------------------ |
-| 可能的原因    | 還原的目標系統與來源不相容 |
-| 建議動作 | 請參閱 SAP 附注[1642148](https://launchpad.support.sap.com/#/notes/1642148) ，以瞭解目前支援的還原類型 |
+| **可能的原因**    | 還原的目標系統與來源不相容 |
+| **建議的動作** | 請參閱 SAP 附注[1642148](https://launchpad.support.sap.com/#/notes/1642148) ，以瞭解目前支援的還原類型 |
 
-###  <a name="usererrorsdctomdcupgradedetected"></a>UserErrorSDCtoMDCUpgradeDetected 
+### <a name="usererrorsdctomdcupgradedetected"></a>UserErrorSDCtoMDCUpgradeDetected
 
-| 錯誤訊息      | 已偵測到 MDC 升級 SDC                                  |
+| 錯誤訊息      | <span style="font-weight:normal">已偵測到 MDC 升級 SDC</span>                                   |
 | ------------------ | ------------------------------------------------------------ |
-| 可能的原因    | SAP Hana 實例已從 SDC 升級至 MDC。 更新之後，備份將會失敗。 |
-| 建議動作 | 遵循[從 SAP Hana 1.0 升級到2.0 一節](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20)中所列的步驟來解決問題 |
+| **可能的原因**    | SAP Hana 實例已從 SDC 升級至 MDC。 更新之後，備份將會失敗。 |
+| **建議的動作** | 遵循[從 SAP Hana 1.0 升級到2.0 一節](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20)中所列的步驟來解決問題 |
 
-###  <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration 
+### <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration
 
-| 錯誤訊息      | 偵測到不正確 backint 設定                       |
+| 錯誤訊息      | <span style="font-weight:normal">偵測到不正確 backint 設定</span>                       |
 | ------------------ | ------------------------------------------------------------ |
-| 可能的原因    | 針對 Azure 備份不正確地指定了支援參數 |
-| 建議動作 | 檢查是否已設定下列（backint）參數：<br/>\* [catalog_backup_using_backint： true]<br/>\* [enable_accumulated_catalog_backup： false]<br/>\* [parallel_data_backup_backint_channels： 1]<br/>\* [log_backup_timeout_s：900）]<br/>\* [backint_response_timeout： 7200]<br/>如果主機中有以 backint 為基礎的參數，請將它們移除。 如果參數不存在於主機層級，但已在資料庫層級手動修改，請將它們還原為適當的值，如先前所述。 或者，執行 [[停止保護] 並保留](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database)Azure 入口網站中的備份資料，然後選取 [**繼續備份**]。 |
+| **可能的原因**    | 針對 Azure 備份不正確地指定了支援參數 |
+| **建議的動作** | 檢查是否已設定下列（backint）參數：<br/>\* [catalog_backup_using_backint： true]<br/>\* [enable_accumulated_catalog_backup： false]<br/>\* [parallel_data_backup_backint_channels： 1]<br/>\* [log_backup_timeout_s：900）]<br/>\* [backint_response_timeout： 7200]<br/>如果主機中有以 backint 為基礎的參數，請將它們移除。 如果參數不存在於主機層級，但已在資料庫層級手動修改，請將它們還原為適當的值，如先前所述。 或者，執行 [[停止保護] 並保留](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database)Azure 入口網站中的備份資料，然後選取 [**繼續備份**]。 |
 
 ## <a name="restore-checks"></a>還原檢查
 

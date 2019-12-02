@@ -1,5 +1,5 @@
 ---
-title: 持續整合與持續部署 - Azure IoT Edge | Microsoft Docs
+title: 持續整合 & 持續部署-Azure IoT Edge
 description: 設定持續整合和持續部署 - Azure IoT Edge 搭配 Azure DevOps、Azure Pipelines
 author: shizn
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 85f77d1132af63681ee92cfd2bde82a71d8ed999
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 463de1f49ad8fd21c355395bec3a55d9d40474e6
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457235"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666353"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Azure IoT Edge 的持續整合與持續部署
 
@@ -27,7 +27,7 @@ ms.locfileid: "74457235"
    - **Azure IoT Edge-產生部署資訊清單**會接受 deployment. template json 檔案和變數，然後產生最後的 IoT Edge 部署資訊清單檔案。
    - **Azure IoT Edge 部署至 IoT Edge 裝置**有助於建立單一/多個 IoT Edge 裝置的 IoT Edge 部署。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure Repos 存放庫。 如果您沒有存放庫，可以[在專案中建立新的 Git 存放庫](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav) \(英文\)。
 * 已認可並推送至您存放庫的 IoT Edge 解決方案。 若要建立用於測試本文的新範例解決方案，請遵循[在 Visual Studio Code 中針對模組進行開發與偵錯](how-to-vs-code-develop-module.md)，或[在 Visual Studio Code 中對 C# 模組進行開發與偵錯](how-to-visual-studio-develop-csharp-module.md)中的步驟。

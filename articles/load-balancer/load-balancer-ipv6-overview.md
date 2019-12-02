@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 07dd3ee507f31099e32f18143d2beedf76e83c36
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 4f4baea1c293a1707d87780044a21ff675cb7f98
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077013"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666200"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure Load Balancer 的 IPv6 概觀
 
@@ -37,7 +37,7 @@ ms.locfileid: "74077013"
 
 部署之後，已啟用 IPv4 或 IPv6 的網際網路用戶端可以與網際網路面向的 Azure Load Balancer 公用 IPv4 或 IPv6 位址 (或主機名稱) 進行通訊。 負載平衡器會使用網路位址轉譯 (NAT) 將 IPv6 封包傳送至 VM 的私人 IPv6 位址。 IPv6 網際網路用戶端無法與 VM 的 IPv6 位址直接通訊。
 
-## <a name="features"></a>特性
+## <a name="features"></a>功能
 
 透過 Azure Resource Manager部署的原生 IPv6 支援提供︰
 
@@ -46,7 +46,7 @@ ms.locfileid: "74077013"
 3. 由輸入和輸出起始的原生 IPv6 連線
 4. 支援的通訊協定 - 如 TCP、UDP、HTTP(S) - 提供完整的服務架構
 
-## <a name="benefits"></a>優點
+## <a name="benefits"></a>優勢
 
 這項功能具有下列主要優點：
 
@@ -78,7 +78,6 @@ ms.locfileid: "74077013"
 * **目前不支援**變更 IPv6 的 loadDistributionMethod 參數。
 * **目前不支援**保留的 IPv6 IP (其中 IPAllocationMethod = 靜態)。
 * 不支援 NAT64 (IPv6 至 IPv4 的轉譯)。
-* 標準 SKU 負載平衡器目前不支援 IPv6 位址。
 
 ## <a name="next-steps"></a>後續步驟
 

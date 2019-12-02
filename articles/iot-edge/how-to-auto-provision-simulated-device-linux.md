@@ -1,5 +1,5 @@
 ---
-title: 使用 DPS 自動布建 Linux 裝置-Azure IoT Edge |Microsoft Docs
+title: 在 Linux VM 上使用虛擬 TPM 布建裝置-Azure IoT Edge
 description: 在 Linux VM 上使用模擬的 TPM 來測試 Azure IoT Edge 的 Azure 裝置佈建服務
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 292ae570d4f2ddd0c09e667860ee2ba01b9fc6b8
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8f664a2c503367410507ccba3bc9078d34acbe17
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457178"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666336"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>在 Linux 虛擬機器上使用虛擬 TPM 建立及布建 IoT Edge 裝置
 
@@ -34,7 +34,7 @@ ms.locfileid: "74457178"
 >
 > 如果您使用實體裝置，您可以直接跳至本文中的[從實體裝置取出](#retrieve-provisioning-information-from-a-physical-device)布建資訊一節。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * [已啟用 Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) 的 Windows 開發機器。 本文使用執行 Ubuntu Server VM 的 Windows 10。
 * 使用中的 IoT 中樞。
@@ -176,7 +176,7 @@ ms.locfileid: "74457178"
 
    5. 視需要提供裝置的識別碼。 您可以使用裝置識別碼，將個別裝置設為模組部署的目標。 如果您未提供裝置識別碼，則會使用註冊識別碼。
 
-   6. 視需要將標記值新增至 [初始裝置對應項狀態]。 您可以使用標記將裝置群組設定為模組部署的目標。 例如︰ 
+   6. 視需要將標記值新增至 [初始裝置對應項狀態]。 您可以使用標記將裝置群組設定為模組部署的目標。 例如： 
 
       ```json
       {
@@ -189,7 +189,7 @@ ms.locfileid: "74457178"
       }
       ```
 
-   7. 選取 [ **儲存**]。 
+   7. 選取 [儲存]。 
 
 現在此裝置已有註冊，IoT Edge 執行時間可以在安裝期間自動布建裝置。 
 
@@ -262,7 +262,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容
    sudo systemctl restart iotedge
    ```
 
-確認有看到 IoT Edge 執行階段正在執行。 
+確認 IoT Edge 執行階段正在執行。 
 
    ```bash
    sudo systemctl status iotedge

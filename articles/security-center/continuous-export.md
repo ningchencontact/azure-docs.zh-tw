@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: cd26ed446ce676bcec85d8e413d3ec37ac236869
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: f994f4ec6d41fa0aab37e36d713eaefb22e85b28
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521991"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665048"
 ---
 # <a name="export-security-alerts-and-recommendations-preview"></a>匯出安全性警示和建議（預覽）
 
-Azure 資訊安全中心會產生詳細的安全性警示和建議。 您可以在入口網站中或透過程式設計工具來觀看這些程式。 您可能也需要匯出這項資訊，或將它傳送至環境中的其他監視工具。 
+Azure 資訊安全中心會產生詳細的安全性警示和建議。 您可以在入口網站中或透過程式設計工具來查看它們。 您可能也需要匯出這項資訊，或將它傳送至環境中的其他監視工具。 
 
 本文說明（預覽）工具組，可讓您以手動或持續的方式來匯出警示和建議。
 
@@ -73,6 +73,29 @@ Azure 資訊安全中心會產生詳細的安全性警示和建議。 您可以�
 安全性警示和建議會分別儲存在*SecurityAlert*和*SecurityRecommendations*資料表中。 包含這些資料表的 Log Analytics 解決方案名稱，取決於您是在免費或標準層（請參閱[定價](security-center-pricing.md)）：安全性或 SecurityCenterFree。
 
 ![Log Analytics 中的 * SecurityAlert * 資料表](./media/continuous-export/log-analytics-securityalert-solution.png)
+
+###  <a name="view-exported-security-alerts-and-recommendations-in-azure-monitor"></a>在 Azure 監視器中查看匯出的安全性警示和建議
+
+在某些情況下，您可以選擇在[Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)中，查看匯出的安全性警示和（或）建議。 
+
+Azure 監視器針對各種 Azure 警示（包括診斷記錄、計量警示，以及根據 Log Analytics 工作區查詢的自訂警示）提供統一的警示體驗。
+
+若要從 Azure 監視器中的資訊安全中心查看警示和建議，請根據 Log Analytics 查詢來設定警示規則（記錄警示）：
+
+1. 在 Azure 監視器的 [**警示**] 頁面上，按一下 [**新增警示規則**]。
+
+    ![Azure 監視器的 [警示] 頁面](./media/continuous-export/azure-monitor-alerts.png)
+
+1. 在 [建立規則] 頁面中，設定您的新規則（使用您在 Azure 監視器中設定[記錄警示規則](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)的相同方式：
+
+    * 針對 [**資源**]，選取您匯出安全性警示和建議的 Log Analytics 工作區。
+
+    * 針對 [**條件**]，選取 [**自訂記錄搜尋**]。 在出現的頁面中，設定 [查詢]、[回顧期間] 和 [頻率週期]。 在搜尋查詢中，您可以輸入*SecurityAlert*或*SecurityRecommendation* ，以查詢當您啟用連續匯出至 Log Analytics 功能時，資訊安全中心連續匯出的資料類型。 
+    
+    * （選擇性）設定您想要觸發的[動作群組](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)。 動作群組可以觸發電子郵件傳送、ITSM 票證、Webhook 等等。
+    ![Azure 監視器警示規則](./media/continuous-export/azure-monitor-alert-rule.png)
+
+您現在會在 Azure 監視器警示中看到新的 Azure 資訊安全中心警示或建議（視您的設定而定），並自動觸發動作群組（如果有提供的話）。
 
 ## <a name="manual-one-time-export-of-security-alerts"></a>手動一次匯出安全性警示
 

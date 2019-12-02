@@ -1,5 +1,5 @@
 ---
-title: 針對生產環境準備裝置和部署 - Azure IoT Edge | Microsoft Docs
+title: 準備在生產環境中部署您的解決方案-Azure IoT Edge
 description: 瞭解如何將您的 Azure IoT Edge 解決方案從開發到生產環境，包括以適當的憑證設定您的裝置，以及針對未來的程式碼更新進行部署計畫。
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1d8ba8452f5f2d4ab05083e1a97fa0b9ba75017f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a19fdfaf70dffb7f0bcb8001475fee89b2d05086
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457316"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665809"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>準備在生產環境中部署 IoT Edge 解決方案
 
@@ -72,7 +72,7 @@ IoT Edge 裝置可以是任何項目，包括 Raspberry Pi、膝上型電腦或�
 
 一旦您的 IoT Edge 裝置連線，請務必在未來的部署中繼續設定這兩個執行階段模組的 UpstreamProtocol 變數。 [設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊](how-to-configure-proxy-support.md)中提供此程序的範例。
 
-## <a name="deployment"></a>部署
+## <a name="deployment"></a>Deployment
 
 * **實用**
     * 與上游的通訊協定一致
@@ -148,7 +148,7 @@ timeToLiveSecs 參數的預設值是 7200 秒，也就是兩小時。
 
 如需標籤慣例的範例，請參閱[更新 IoT Edge 執行階段](how-to-update-iot-edge.md#understand-iot-edge-tags)，了解 IoT Edge 如何使用循環標籤 (rolling tag) 和特定標籤來追蹤版本。 
 
-## <a name="networking"></a>網路
+## <a name="networking"></a>網路功能
 
 * **實用**
     * 檢閱輸出/輸入設定
@@ -173,7 +173,7 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 此檢查清單是防火牆規則的起始點：
 
-   | URL (\* = 萬用字元) | 輸出 TCP 連接埠 | 使用方式 |
+   | URL (\* = 萬用字元) | 輸出 TCP 連接埠 | 用量 |
    | ----- | ----- | ----- |
    | mcr.microsoft.com  | 443 | Microsoft 容器登錄 |
    | global.azure-devices-provisioning.net  | 443 | DPS 存取 (選用) |
@@ -224,7 +224,7 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 將此資訊新增（或附加）至名為 `daemon.json` 的檔案，並將它放在您裝置平臺的正確位置。
 
-| 平台 | 位置 |
+| 平台 | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
@@ -233,7 +233,7 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 **選項：調整每個容器模組的記錄檔設定**
 
-您可以在每個模組的**createOptions**中執行此動作。 例如︰
+您可以在每個模組的**createOptions**中執行此動作。 例如：
 
 ```yml
 "createOptions": {

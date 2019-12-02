@@ -1,5 +1,5 @@
 ---
-title: 從 Azure 入口網站建立自動部署 - Azure IoT Edge | Microsoft Docs
+title: 在 Azure 入口網站 Azure IoT Edge 中大規模部署模組
 description: 使用 Azure 入口網站為 IoT Edge 裝置群組建立自動部署
 keywords: ''
 author: kgremban
@@ -9,12 +9,12 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 286bab7b7fdbe42190c32dabb42c59d6fc094b2a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 068845bf8cda7ce6abf11eefad0ed176688b34c5
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457357"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665843"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>使用 Azure 入口網站大規模部署和監視 IoT Edge 模組
 
@@ -103,7 +103,7 @@ ms.locfileid: "74457357"
 
 1. 在 [計量準則] 輸入查詢。 查詢會以 IoT Edge 中樞模組對應項[所報告的屬性](module-edgeagent-edgehub.md#edgehub-reported-properties)作為基礎。 此計量代表查詢所傳回的資料列數目。
 
-   例如︰
+   例如：
 
    ```sql
    SELECT deviceId FROM devices
@@ -192,7 +192,7 @@ Azure Marketplace 是集合了應用程式和服務的線上市集，您可以�
    * 計量 - 您可以修改或刪除您已定義的計量，也可以新增計量。
    * 標籤
    * 優先順序
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 1. 依照[監視部署](#monitor-a-deployment)中的步驟監看變更推出的情形。 
 
 ## <a name="delete-a-deployment"></a>刪除部署

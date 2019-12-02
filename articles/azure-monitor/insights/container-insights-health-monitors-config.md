@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 7a774adb33646635832dba5505abf57b2703de5d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7d4400b563a1d0b8bf094f946a37d7ff4a17e7cf
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279703"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664942"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>適用于容器的 Azure 監視器健全狀況監視設定指南
 
@@ -63,7 +63,7 @@ ms.locfileid: "74279703"
 
 ### <a name="unit-monitors"></a>單位監視
 
-|**監視名稱** | 監視類型 | **描述** | **參數** | **值** |
+|**監視名稱** | 監視類型 | **說明** | **參數** | **值** |
 |-----------------|--------------|-----------------|---------------|-----------|
 |節點記憶體使用率 |單位監視 |此監視會使用 cadvisor 報告的資料，每分鐘評估節點的記憶體使用量。 |ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||
 |節點 CPU 使用率 |單位監視 |此監視會使用 cadvisor 報告的資料，每分鐘檢查節點的 CPU 使用率。 | ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||
@@ -75,14 +75,14 @@ ms.locfileid: "74279703"
 
 ### <a name="aggregate-monitors"></a>匯總監視
 
-|**監視名稱** | **描述** | **演算法** |
+|**監視名稱** | **說明** | **演算法** |
 |-----------------|-----------------|---------------|
 |節點 |此監視器是所有節點監視的匯總。 其符合健全狀況狀態最差的子系監視狀態：<br> 節點 CPU 使用率<br> 節點記憶體使用率<br> 節點狀態 | 最差|
 |節點集區 |此監視會報告節點集區*agentpool*中所有節點的結合健全狀況狀態。 這是三個狀態監視器，其狀態是根據節點集區中節點80% 的最差狀態，以節點狀態的嚴重性遞減順序排序（也就是「重大」、「警告」、「狀況良好」）。|百分比 |
 |節點（節點集區的父系） |這是所有節點集區的匯總監視。 其狀態是以其子監視的最差狀態為基礎（也就是存在於叢集中的節點集區）。 |最差 |
 |Cluster （節點的父系/<br> Kubernetes 基礎結構） |這是符合健全狀況狀態最差之子監視狀態的父監視，也就是 kubernetes 基礎結構和節點。 |最差 |
 |Kubernetes 基礎結構 |此監視會報告叢集之受管理基礎結構元件的健全狀況狀態組合。 其狀態會計算為其子監視狀態的「最差」，亦即 kube-系統工作負載和 API 伺服器狀態。 |最差|
-|系統工作負載 |此監視會報告 kube 系統工作負載的健全狀況狀態。 此監視符合健全狀況狀態最差的子系監視狀態，也就是「**就緒狀態**監視器」中的 pod 和工作負載中的容器。 |最差 |
+|系統工作負載 |此監視會報告 kube 系統工作負載的健全狀況狀態。 此監視符合健全狀況狀態最差的子系監視狀態，也就是**處於就緒狀態**的 pod （監視和工作負載中的容器）。 |最差 |
 |容器 |此監視會報告給定工作負載中容器的整體健全狀況狀態。 此監視符合健全狀況狀態最差的子監視狀態，也就是**CPU 使用率**和**記憶體使用率**監視器。 |最差 |
 
 ## <a name="next-steps"></a>後續步驟

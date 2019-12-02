@@ -1,5 +1,5 @@
 ---
-title: 將 Azure Blob 儲存體模組部署到裝置-Azure IoT Edge |Microsoft Docs
+title: 將模組上的 blob 儲存體部署至您的裝置-Azure IoT Edge
 description: 將 Azure Blob 儲存體模組部署到您的 IoT Edge 裝置，即可在邊緣儲存資料。
 author: arduppal
 ms.author: arduppal
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
 manager: mchad
-ms.openlocfilehash: e5241e078cd8d36a9e43b4b55a649c1e24c85345
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: b89532038b00e28eb7c43232683349652af6bc3f
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456875"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665860"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>將 IoT Edge 模組上的 Azure Blob 儲存體部署至您的裝置
 
 有數種方式可以將模組部署到 IoT Edge 裝置，而且所有工作都適用于 IoT Edge 模組上的 Azure Blob 儲存體。 兩個最簡單的方法是使用 Azure 入口網站或 Visual Studio Code 範本。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - Azure 訂用帳戶中的 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
 - 已安裝 IoT Edge 執行階段的 [IoT Edge 裝置](how-to-register-device.md)。
@@ -122,7 +122,7 @@ Azure 入口網站會引導您建立部署資訊清單，並將部署推送至 I
 
    如需部署模組之後，如何設定 deviceToCloudUploadProperties 和 deviceAutoDeleteProperties 的詳細資訊，請參閱[編輯模組](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)對應項。 如需所需屬性的詳細資訊，請參閱[定義或更新所需屬性](module-composition.md#define-or-update-desired-properties)。
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 1. 選取 [下一步] 繼續前往路由區段。
 
@@ -157,10 +157,10 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
 
    依照命令選擇區中的提示建立解決方案。
 
-   | 欄位 | 值 |
+   | 欄位 | Value |
    | ----- | ----- |
    | 選取資料夾 | 選擇開發電腦上的位置，以供 Visual Studio Code 建立方案檔。 |
-   | 提供解決方案名稱 | 輸入解決方案的描述性名稱或接受預設值 **SqlSolution**。 |
+   | 提供解決方案名稱 | 輸入解決方案的描述性名稱或接受預設值 **EdgeSolution**。 |
    | 選取模組範本 | 選擇 [現有模組 (輸入完整映像 URL)]。 |
    | 提供模組名稱 | 輸入模組的全部小寫名稱，例如**azureblobstorageoniotedge**。<br /><br />針對 IoT Edge 模組上的 Azure Blob 儲存體，請務必使用小寫名稱。 IoT Edge 在參考模組時會區分大小寫，且儲存體 SDK 預設為小寫。 |
    | 提供模組的 Docker 映像 | 提供映像 URI：**mcr.microsoft.com/azure-blob-storage:latest** |

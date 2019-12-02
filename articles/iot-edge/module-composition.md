@@ -1,5 +1,5 @@
 ---
-title: 宣告具有部署資訊清單的模組和路由 - Azure IoT Edge | Microsoft Docs
+title: 使用部署資訊清單部署模組 & 路由-Azure IoT Edge
 description: 了解部署資訊清單如何宣告要部署哪些模組、如何加以部署，以及如何在其間建立訊息路由。
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 935cdbf54360dc0e2a98936d9c589405040cd85d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 31a83d3edb1bc297fc53b089384ab940482e5b28
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457444"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665826"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>了解如何在 IoT Edge 中部署模組及建立路由
 

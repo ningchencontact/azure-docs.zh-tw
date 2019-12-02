@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 11/29/2019
 ms.author: juliako
-ms.openlocfilehash: 255c98965026266348a66bb98a1741eaf04a1d38
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d06be1b5301889a1fcb8ff1390d8618bbb88c03f
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839146"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666472"
 ---
 # <a name="upload-and-index-your-videos"></a>上傳影片及編製影片索引  
 
@@ -27,11 +27,11 @@ ms.locfileid: "73839146"
 
 本文將示範如何根據 URL 使用[上傳影片](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API 來上傳影片及編製影片索引。 文章中的程式碼範例包含加上註解的程式碼，用來說明如何上傳位元組陣列。 <br/>本文也會探討一些可以在 API 上設定的參數，以變更 API 的程序和輸出。
 
-上傳您的視訊之後，影片索引器會選擇性地對視訊進行編碼 (如文章中所討論)。 建立 Video Indexer 帳戶時，您可以選擇免費試用帳戶 (您可取得特定的免費編製索引分鐘數) 或付費選項 (您不會受限於配額)。 使用免費試用時，影片索引器最多可為網站使用者提供 600 分鐘的免費編製索引，以及為 API 使用者提供 2400 分鐘的免費索引編製。 使用付費選項時，您建立的影片索引器帳戶會[連線到您的 Azure 訂用帳戶和 Azure 媒體服務帳戶](connect-to-azure.md)。 您需支付已編製索引的分鐘數，以及媒體帳戶相關費用。 
+上傳您的視訊之後，影片索引器會選擇性地對視訊進行編碼 (如文章中所討論)。 建立影片索引器帳戶時，您可以選擇免費試用帳戶 (您可取得特定的免費編製索引分鐘數) 或付費選項 (您不會受限於配額)。 使用免費試用時，影片索引器最多可為網站使用者提供 600 分鐘的免費編製索引，以及為 API 使用者提供 2400 分鐘的免費索引編製。 使用付費選項時，您建立的影片索引器帳戶會[連線到您的 Azure 訂用帳戶和 Azure 媒體服務帳戶](connect-to-azure.md)。 您需支付已編製索引的分鐘數，以及媒體帳戶相關費用。 
 
 ## <a name="uploading-considerations-and-limitations"></a>上傳考慮和限制
  
-- 影片的名稱不能超過80個字元。
+- 影片名稱不得超過 80 個字元。
 - 根據 URL 上傳您的影片時（慣用），端點必須使用 TLS 1.2 （或更高版本）來保護。
 - [使用 URL 的上傳大小] 選項限制為 [30GB]。
 - 要求 URL 長度限制為6144個字元，其中查詢字串 URL 長度限制為4096個字元。
@@ -61,7 +61,7 @@ ms.locfileid: "73839146"
 - 索引狀態變更： 
     - 屬性：    
     
-        |名稱|說明|
+        |Name|描述|
         |---|---|
         |id|影片識別碼|
         |state|影片狀態|  
@@ -69,7 +69,7 @@ ms.locfileid: "73839146"
 - 在影片中識別到的人員：
   - 屬性
     
-      |名稱|說明|
+      |Name|描述|
       |---|---|
       |id| 影片識別碼|
       |faceId|影片索引中出現的臉部識別碼|
@@ -78,7 +78,7 @@ ms.locfileid: "73839146"
         
     - 範例： HTTPs：\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
-#### <a name="notes"></a>注意事項
+#### <a name="notes"></a>注意
 
 - 影片索引器會傳回原始 URL 中提供的任何現有參數。
 - 提供的 URL 必須進行編碼。
@@ -87,9 +87,10 @@ ms.locfileid: "73839146"
 
 如果原始或外部錄影包含背景雜訊，請使用此參數。 此參數會用來設定索引編製程序。 您可以指定下列值：
 
-- `Default` – 使用音訊和視訊來編製索引及擷取深入解析
 - `AudioOnly` – 只使用音訊 (忽略視訊) 來編製索引及擷取深入解析
+- `Default` – 使用音訊和視訊來編製索引及擷取深入解析
 - `DefaultWithNoiseReduction` – 從音訊及視訊編製索引及擷取深入解析的同時，在音訊串流上套用減少雜訊演算法
+- 僅使用影片 `VideoOnly` 編制索引並將見解解壓縮 
 
 價格取決於選取的索引編製選項。  
 
@@ -285,7 +286,7 @@ public class AccountContractSlim
 
 下表列出上傳作業可能會傳回的狀態碼。
 
-|狀態碼|ErrorType (在回應本文中)|說明|
+|狀態碼|ErrorType (在回應本文中)|描述|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|指定帳戶中已有正在處理的相同影片。|
 |400|VIDEO_ALREADY_FAILED|不到 2 小時前，指定帳戶中有相同的影片處理失敗。 API 用戶端應該等待至少 2 小時，才能重新上傳影片。|

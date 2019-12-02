@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: ed297a1005f67a14db1da15aba2c47c98e83df9c
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 9d55d91dbb2e62e87c34dc8ea8a23fb375eb9a53
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885036"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665352"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>在 Azure 監視器中使用應用程式變更分析（預覽）
 
@@ -23,7 +23,7 @@ ms.locfileid: "73885036"
 > [!IMPORTANT]
 > 變更分析目前為預覽狀態。 此預覽版本是在沒有服務等級協定的情況下提供。 不建議將此版本用於生產工作負載。 某些功能可能不受支援，或可能有限制的功能。 如需詳細資訊，請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 變更分析會偵測各種類型的變更，從基礎結構層到應用程式部署都是如此。 這是訂用帳戶層級的 Azure 資源提供者，可檢查訂用帳戶中的資源變更。 變更分析會針對各種診斷工具提供資料，以協助使用者瞭解哪些變更可能會造成問題。
 
@@ -102,7 +102,7 @@ ms.locfileid: "73885036"
 
    ![[應用程式當機] 選項的螢幕擷取畫面](./media/change-analysis/enable-changeanalysis.png)
 
-1. 開啟 [**變更分析**]，然後選取 [**儲存**]。 此工具會顯示應用程式服務方案下的所有 web 應用程式。 您可以使用 [方案層級] 切換，針對方案下的所有 web 應用程式開啟變更分析。
+1. 開啟 [**變更分析**]，然後選取 [**儲存**]。 此工具會顯示 App Service 方案下的所有 web 應用程式。 您可以使用 [方案層級] 切換，針對方案下的所有 web 應用程式開啟變更分析。
 
     ![[啟用變更分析] 使用者介面的螢幕擷取畫面](./media/change-analysis/change-analysis-on.png)
 

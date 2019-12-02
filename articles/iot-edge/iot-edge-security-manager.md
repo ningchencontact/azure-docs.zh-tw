@@ -1,5 +1,5 @@
 ---
-title: 了解安全性管理員如何保護裝置 (軟體) - Azure IoT Edge | Microsoft Docs
+title: Azure IoT Edge 安全性管理員-Azure IoT Edge
 description: 管理 IoT Edge 裝置安全性立場和安全性服務的完整性。
 services: iot-edge
 keywords: 安全性、安全性元素、enclave、TEE、IoT Edge
@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 90cb7cf0a30ea0ebfe00454288de25ddf6e58d52
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 871f2ec029379f37fc02bcd79847fa04091f0507
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457525"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666064"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge 安全性管理員
 

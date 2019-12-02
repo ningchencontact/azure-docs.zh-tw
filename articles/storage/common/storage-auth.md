@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c20f699a2d2270d11935b0216b1655390ece211c
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: b7669f9ec804a8fd2801474a845af7e029ee5235
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671068"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664041"
 ---
 # <a name="authorizing-access-to-azure-storage"></a>授權存取 Azure 儲存體
 
@@ -36,8 +36,13 @@ ms.locfileid: "71671068"
 
 - 適用于檔案的**Azure AD Domain Services （DS）整合（預覽）** 。 Azure 檔案儲存體支援透過 Azure AD DS 的伺服器訊息區（SMB）進行身分識別型驗證。 這會提供 RBAC，讓您更精細地控制用戶端對儲存體帳戶中資源的存取權。 如需有關使用網域服務 Azure AD 整合檔案的詳細資訊，請參閱[SMB 存取的 Azure 檔案儲存體 Azure Active Directory 網域服務（AAD DS）驗證支援的總覽（預覽）](../files/storage-files-active-directory-overview.md)。
 
-- **共用金鑰授權**，適用於 Blob、檔案、佇列和資料表。 使用共用金鑰的用戶端會在每個要求中，傳遞使用儲存體帳戶存取金鑰所簽署的標頭。 如需詳細資訊，請參閱[使用共用金鑰進行授權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)。
+- **共用金鑰授權**，適用於 Blob、檔案、佇列和資料表。 使用共用金鑰的用戶端會在每個要求中，傳遞使用儲存體帳戶存取金鑰所簽署的標頭。 如需詳細資訊，請參閱[使用共用金鑰進行授權](/rest/api/storageservices/authenticate-with-shared-key/)。
 - **共用存取簽章**，適用於 Blob、檔案、佇列和資料表。 共用存取簽章 (SAS) 可提供儲存體帳戶資源的有限委派存取權。 對簽章的有效時間間隔或對其授與的權限新增條件約束，可讓您彈性管理存取權。 如需詳細資訊，請參閱[使用共用存取簽章 (SAS)](storage-sas-overview.md)。
 - **匿名公開讀取存取**，適用於容器和 Blob。 不需要授權。 如需詳細資訊，請參閱 [管理對容器與 Blob 的匿名讀取權限](../blobs/storage-manage-access-to-resources.md)。  
 
-根據預設，Azure 儲存體中的所有資源都會受到保護，並只供帳戶擁有者使用。 雖然您可以使用上述任何授權策略來對用戶端授與儲存體帳戶資源的存取權，但 Microsoft 建議您盡可能使用 Azure AD，以獲得最大安全性並方便您使用。 
+根據預設，Azure 儲存體中的所有資源都會受到保護，並只供帳戶擁有者使用。 雖然您可以使用上述任何授權策略來對用戶端授與儲存體帳戶資源的存取權，但 Microsoft 建議您盡可能使用 Azure AD，以獲得最大安全性並方便您使用。
+
+## <a name="next-steps"></a>後續步驟
+
+- [Azure Active Directory 文件](/azure/active-directory/)
+- [Microsoft 身分識別平臺的演進](/azure/active-directory/develop/about-microsoft-identity-platform)

@@ -1,26 +1,26 @@
 ---
-title: 設定客戶管理的金鑰，以從 Azure CLI Azure 儲存體加密
-description: 瞭解如何使用 Azure CLI 來設定 Azure 儲存體加密的客戶管理金鑰。 客戶管理的金鑰可讓您建立、輪替、停用及撤銷存取控制。
+title: 使用 Azure CLI Azure 儲存體，以 Azure Key Vault 設定客戶管理的金鑰
+description: 瞭解如何使用 Azure CLI，以 Azure 儲存體加密的 Azure Key Vault 來設定客戶管理的金鑰。 客戶管理的金鑰可讓您建立、輪替、停用及撤銷存取控制。
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 10/15/2019
+ms.topic: how-to
+ms.date: 11/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 18209816b5b73f58a8112efca0363b31dd47bd91
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: df65267924cfbfdc856b81928c4b6d7029f61184
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374277"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665962"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-azure-cli"></a>設定客戶管理的金鑰，以從 Azure CLI Azure 儲存體加密
+# <a name="configure-customer-managed-keys-for-azure-storage-by-using-azure-cli"></a>使用 Azure CLI 設定 Azure 儲存體的客戶管理金鑰
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-本文說明如何使用 Azure CLI 以客戶管理的金鑰來設定金鑰保存庫。
+本文說明如何使用 Azure CLI，以客戶管理的金鑰設定 Azure Key Vault。 若要瞭解如何使用 Azure CLI 建立金鑰保存庫，請參閱[快速入門：使用 Azure CLI 從 Azure Key Vault 設定和取出秘密](../../key-vault/quick-create-cli.md)。
 
 > [!IMPORTANT]
 > 若要使用客戶管理的金鑰搭配 Azure 儲存體加密，需要在金鑰保存庫上設定兩個屬性： [虛**刪除**] 和 [**不要清除**]。 預設不會啟用這些屬性。 若要啟用這些屬性，請使用 PowerShell 或 Azure CLI。

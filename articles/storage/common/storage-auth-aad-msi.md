@@ -9,12 +9,12 @@ ms.date: 11/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ea1d286d00564587a9692dac1b04c5bbb04742cc
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 3e24cb2d4b5b82f6878647cdd631bd8ebca16199
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561480"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666151"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>使用適用于 Azure 資源的 Azure Active Directory 和受控識別，授權對 blob 和佇列的存取
 
@@ -103,19 +103,7 @@ Azure 身分識別用戶端程式庫會在執行時間讀取來自三個環境�
 
 如需詳細資訊，請參閱[在入口網站中建立 Azure 應用程式](../../active-directory/develop/howto-create-service-principal-portal.md)的身分識別。
 
-## <a name="install-client-library-packages"></a>安裝用戶端程式庫套件
-
-本文中的範例會針對 Blob 儲存體使用最新版的 Azure 儲存體用戶端程式庫。 若要安裝套件，請從 NuGet 套件管理員主控台執行下列命令：
-
-```powershell
-Install-Package Azure.Storage.Blobs
-```
-
-本文中的範例也會使用[適用于 .net 的 Azure 身分識別用戶端程式庫](https://www.nuget.org/packages/Azure.Identity/)的最新版本，以 Azure AD 認證進行驗證。 若要安裝套件，請從 NuGet 套件管理員主控台執行下列命令：
-
-```powershell
-Install-Package Azure.Identity
-```
+[!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET 程式碼範例：建立區塊 Blob
 

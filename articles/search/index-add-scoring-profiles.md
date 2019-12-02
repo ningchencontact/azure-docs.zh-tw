@@ -7,7 +7,7 @@ author: Brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/28/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 60442ab101423d0a91fa35a7a12a0b930417af71
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 516637b812afece1966006ce6d894dd1e32e6293
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113614"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666302"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>將評分設定檔新增至 Azure 認知搜尋索引
 
@@ -37,7 +37,7 @@ ms.locfileid: "74113614"
  為了讓您對評分設定檔的外觀有所認識，下列範例會顯示名為 'geo' 的簡易設定檔。 此評分設定檔，會提升有搜尋字詞在 **hotelName** 欄位的項目。 其也會使用 `distance` 函數，優先列出與目前的位置相距十公里以內的項目。 如果有人搜尋 'inn' 一詞，而 'inn' 剛好是飯店名稱的一部分，則文件中只要包含具有 'inn'、且位於目前所在位置半徑 10 公里範圍內的飯店，就會出現在搜尋結果中的較高位置。  
 
 
-```  
+```json
 "scoringProfiles": [
   {  
     "name":"geo",
@@ -92,7 +92,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  此範例說明具有兩個評分設定檔 (`boostGenre`、`newAndHighlyRated`) 的索引結構描述。 任何以其中一個設定檔做為查詢參數而對此索引所做的查詢，都將使用該設定檔為結果集評分。  
 
-```  
+```json
 {  
   "name": "musicstoreindex",  
   "fields": [  
@@ -169,7 +169,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 |||  
 |-|-|  
 |**權數**|指定將相對權數指派給欄位的名稱值組。 在[範例](#bkmk_ex)中，albumTitle、內容類型和 artistName 欄位分別會提升 1.5、5 和 2。 為何內容類型提升的程度遠比其他多？ 如果是對帶有同質性的資料進行搜尋 (如同 `musicstoreindex` 中的 ’genre')，則相對加權可能需要較大的變異數。 例如，在 `musicstoreindex`中，'rock' 不僅以類型的形式出現，也出現在相同措詞的類型說明中。 如果您要讓類型的權數高於類型說明，則類型欄位需要更高的相對權數。|  
-|**函式**|在特定內容需要額外計算時使用。 有效值為 `freshness`、`magnitude`、`distance` 和 `tag`。 每個函數都有其獨特的參數。<br /><br /> -   `freshness` 應使用於當您想要依項目的新舊程度進行提升時。 此函式僅適用於 `datetime` 欄位 (edm.DataTimeOffset)。 請注意，`boostingDuration` 屬性僅適用于 `freshness` 函數。<br />-   `magnitude` 應使用於當您想要依數值的高低程度進行提升時。 呼叫此函數的案例，包含依毛利率、最高價格、最低價格或下載次數進行提升。 此函數僅適用於雙精確度浮點數和整數欄位。<br />     針對 `magnitude` 函式，若您想要反轉高至低的模式 (例如，比高價格項目優先提升低價格的項目)，則可將範圍反轉。 假設價格範圍為 $100 美元到 $1 美元，您會將 `boostingRangeStart` 設定為 100，並將 `boostingRangeEnd` 設定為 1，以在較低的價格項目提升。<br />-   `distance` 應使用於當您想要依鄰近性或地理位置進行提升時。 此函數僅適用於 `Edm.GeographyPoint` 欄位。<br />-   `tag` 。 此函數僅適用於 `Edm.String` 和 `Collection(Edm.String)` 欄位。<br /><br /> **使用函式的規則**<br /><br /> 函式類型 (`freshness`、`magnitude`、`distance`)、`tag` 必須是小寫。<br /><br /> 函數不可包含 null 或空值。 明確而言，如果您包含欄位名稱，則必須加以設定。<br /><br /> 函數只能套用至可篩選的欄位。 如需可篩選欄位的詳細資訊，請參閱[建立索引&#40;Azure 認知搜尋 REST API&#41; ](https://docs.microsoft.com/rest/api/searchservice/create-index) 。<br /><br /> 函數只能套用至索引的欄位集合中定義的欄位。|  
+|**函式**|在特定內容需要額外計算時使用。 有效值為 `freshness`、`magnitude`、`distance` 和 `tag`。 每個函數都有對其唯一的參數。<br /><br /> -   `freshness` 應使用於當您想要依項目的新舊程度進行提升時。 此函式僅適用於 `datetime` 欄位 (edm.DataTimeOffset)。 請注意，`boostingDuration` 屬性僅適用于 `freshness` 函數。<br />-   `magnitude` 應使用於當您想要依數值的高低程度進行提升時。 呼叫此函數的案例，包含依毛利率、最高價格、最低價格或下載次數進行提升。 此函數僅可用於雙精度浮點數和整數欄位。<br />     針對 `magnitude` 函式，若您想要反轉高至低的模式 (例如，比高價格項目優先提升低價格的項目)，則可將範圍反轉。 假設價格範圍為 $100 美元到 $1 美元，您會將 `boostingRangeStart` 設定為 100，並將 `boostingRangeEnd` 設定為 1，以在較低的價格項目提升。<br />-   `distance` 應使用於當您想要依鄰近性或地理位置進行提升時。 此函數只能搭配使用 `Edm.GeographyPoint` 欄位。<br />-   `tag` 。 此函數僅適用於 `Edm.String` 和 `Collection(Edm.String)` 欄位。<br /><br /> **使用函式的規則**<br /><br /> 函式類型 (`freshness`、`magnitude`、`distance`)、`tag` 必須是小寫。<br /><br /> 函數不可包含 null 或空值。 明確而言，如果您包含欄位名稱，則必須加以設定。<br /><br /> 函數只能套用至可篩選的欄位。 如需可篩選欄位的詳細資訊，請參閱[建立索引&#40;Azure 認知搜尋 REST API&#41; ](https://docs.microsoft.com/rest/api/searchservice/create-index) 。<br /><br /> 函數只能套用至索引的欄位集合中定義的欄位。|  
 
  索引定義之後，請上傳索引結構描述 (接著上傳文件)，以建置索引。 如需這些作業的指示，請參閱[建立索引&#40;azure 認知搜尋&#41; REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)以及[新增、更新或刪除檔&#40;azure 認知搜尋 REST API&#41; ](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 。 索引建置後，您應會有可運作的評分設定檔可處理您的搜尋資料。  
 
@@ -234,14 +234,14 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
 |屬性|描述|  
 |---------------|-----------------|  
-|`Name`|必要。 這是評分設定檔的名稱。 它會遵循欄位的相同命名慣例。 它必須以字母開頭，且不可包含點、冒號或 @ 符號，而且開頭不可以是片語 'azureSearch' (區分大小寫)。|  
-|`Text`|包含「權數」屬性。|  
-|`Weights`|選用。 指定欄位名稱和相對權數的名稱值組。 相對權數必須是正整數或浮點數。 最大值為 int32.MaxValue。<br /><br /> 您可以指定不含對應權數的欄位名稱。 權數可用來指出某欄位相對於其他欄位的重要性。|  
-|`Functions`|選用。 評分函式只能套用至可篩選的欄位。|  
-|`Type`|計分函數的必要項目。 指出要使用的函數類型。 有效值包括量級、有效性、距離和標記。 您可以在每個評分設定檔中包含多個函數。 函數名稱必須是小寫。|  
-|`Boost`|計分函數的必要項目。 做為原始分數之乘數的正數。 此值不可等於 1。|  
-|`Fieldname`|計分函數的必要項目。 計分函數只能套用至屬於索引的欄位集合、並且可篩選的欄位。 此外，每個函式類型都有額外的限制 (有效性與日期時間欄位搭配使用，量級與整數或雙精確度浮點數欄位搭配，距離與位置欄位搭配)。 每個函數定義只能指定一個欄位。 例如，若要在相同的設定檔中使用量級兩次，您必須包含兩個定義量級，每個欄位各一個。|  
-|`Interpolation`|計分函數的必要項目。 定義從範圍開始到範圍結束提升分數的增加斜率。 有效值包括線性 (預設值)、常數、二次方程式和對數。 如需詳細資訊，請參閱 [設定內插補點](#bkmk_interpolation) 。|  
+|`name`|必要。 這是評分設定檔的名稱。 它會遵循欄位的相同命名慣例。 它必須以字母開頭，且不可包含點、冒號或 @ 符號，而且開頭不可以是片語 'azureSearch' (區分大小寫)。|  
+|`text`|包含權數屬性。|  
+|`weights`|選用。 包含成對的名稱/值，每個指定一個功能變數名稱和相對權數。 相對權數必須是正整數或浮點數。<br /><br /> 權數是用來指出某個可搜尋欄位相對於另一個欄位的重要性。|  
+|`functions`|選用。 評分函式只能套用至可篩選的欄位。|  
+|`type`|計分函數的必要項目。 指出要使用的函數類型。 有效值包括量級、有效性、距離和標記。 您可以在每個評分設定檔中包含多個函數。 函數名稱必須是小寫。|  
+|`boost`|計分函數的必要項目。 做為原始分數之乘數的正數。 此值不可等於 1。|  
+|`fieldname`|計分函數的必要項目。 計分函數只能套用至屬於索引的欄位集合、並且可篩選的欄位。 此外，每個函式類型都有額外的限制 (有效性與日期時間欄位搭配使用，量級與整數或雙精確度浮點數欄位搭配，距離與位置欄位搭配)。 每個函數定義只能指定一個欄位。 例如，若要在相同的設定檔中使用量級兩次，您必須包含兩個定義量級，每個欄位各一個。|  
+|`interpolation`|計分函數的必要項目。 定義從範圍開始到範圍結束提升分數的增加斜率。 有效值包括線性 (預設值)、常數、二次方程式和對數。 如需詳細資訊，請參閱 [設定內插補點](#bkmk_interpolation) 。|  
 |`magnitude`|量級計分函數可用來根據數值欄位的值範圍改變排名。 最常見的使用範例包括：<br /><br /> -   **星級評等：** 根據「星級評等」欄位內的值改變計分。 當兩個項目相關時，會先顯示具有更高評等的項目。<br />-   **邊界：** 當兩份檔相關時，零售商可能會想要先提升具有較高邊界的檔。<br />-   **按一下計數：** 如果應用程式會追蹤對產品或頁面的點擊動作，您可以使用量值來提升通常會取得最多流量的專案。<br />-   **下載計數：** 對於追蹤下載的應用程式，量級函數可讓您提升下載次數最多的專案。|  
 |`magnitude` &#124; `boostingRangeStart`|設定計算量級分數之範圍的起始值。 此值必須是整數或浮點數。 就 1 到 4 的星級評等而言，這會是 1。 就超過 50% 的利潤而言，這會是 50。|  
 |`magnitude` &#124; `boostingRangeEnd`|設定計算量級分數之範圍的結束值。 此值必須是整數或浮點數。 就 1 到 4 的星級評等而言，這會是 4。|  
@@ -261,10 +261,10 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
 |||  
 |-|-|  
-|`Linear`|對於在最大和最小範圍內的項目，套用至項目的提升將會已持續遞減的量執行。 線性是評分設定檔的預設插補。|  
-|`Constant`|對於在開始和結束範圍內的項目，將會對排名結果套用常數提升。|  
-|`Quadratic`|相較於採用持續遞減提升的線性插補，二次方程式一開始會以較小的步調減少，等到接近結束範圍時，再以較大的間隔減少。 標記計分函數中不允許此插補選項。|  
-|`Logarithmic`|相較於採用持續遞減提升的線性插補，對數一開始會以較大的步調減少，等到接近結束範圍時，再以較小的間隔減少。 標記計分函數中不允許此插補選項。|  
+|`linear`|對於在最大和最小範圍內的項目，套用至項目的提升將會已持續遞減的量執行。 線性是評分設定檔的預設插補。|  
+|`constant`|對於在開始和結束範圍內的項目，將會對排名結果套用常數提升。|  
+|`quadratic`|相較於採用持續遞減提升的線性插補，二次方程式一開始會以較小的步調減少，等到接近結束範圍時，再以較大的間隔減少。 標記計分函數中不允許此插補選項。|  
+|`logarithmic`|相較於採用持續遞減提升的線性插補，對數一開始會以較大的步調減少，等到接近結束範圍時，再以較小的間隔減少。 標記計分函數中不允許此插補選項。|  
 
  ![圖形上的常數、線性、二次方、log10 線](media/scoring-profiles/azuresearch_scorefunctioninterpolationgrapht.png "AzureSearch_ScoreFunctionInterpolationGrapht")  
 
@@ -275,16 +275,16 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  下表提供數個範例。  
 
-|持續時間|boostingDuration|  
+|課程時間|boostingDuration|  
 |--------------|----------------------|  
 |1 天|"P1D"|  
 |2 天又 12 個小時|"P2DT12H"|  
-|15 Minuten|"PT15M"|  
+|15 分鐘|"PT15M"|  
 |30 天 5 小時 10 分鐘又 6.334 秒|"P30DT5H10M6.334S"|  
 
  如需更多範例，請參閱 [XML 結構描述：資料類型 (W3.org 網站)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)。  
 
-## <a name="see-also"></a>另請參閱  
+## <a name="see-also"></a>請參閱  
  [Azure 認知搜尋 REST](https://docs.microsoft.com/rest/api/searchservice/)   
  [建立索引&#40;Azure 認知搜尋 REST API&#41; ](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [Azure 認知搜尋 .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

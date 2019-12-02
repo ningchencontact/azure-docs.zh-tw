@@ -1,26 +1,26 @@
 ---
-title: 針對來自 Azure 入口網站的 Azure 儲存體加密設定客戶管理的金鑰
-description: 瞭解如何使用 Azure 入口網站來設定 Azure 儲存體加密的客戶管理金鑰。 客戶管理的金鑰可讓您建立、輪替、停用及撤銷存取控制。
+title: 使用 Azure 入口網站 Azure 儲存體，以 Azure Key Vault 設定客戶管理的金鑰
+description: 瞭解如何使用 Azure 入口網站，以 Azure 儲存體加密的 Azure Key Vault 來設定客戶管理的金鑰。 客戶管理的金鑰可讓您建立、輪替、停用及撤銷存取控制。
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 10/15/2019
+ms.topic: how-to
+ms.date: 11/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 74ca6f15baeeb9fe8adad4bda80e313a4b4cf03a
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: b72f30a636d0177edb8b3254d14be941b2d4e6bc
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376231"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665897"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>針對來自 Azure 入口網站的 Azure 儲存體加密設定客戶管理的金鑰
+# <a name="configure-customer-managed-keys-for-azure-storage-by-using-the-azure-portal"></a>使用 Azure 入口網站設定 Azure 儲存體的客戶管理金鑰
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-本文說明如何使用[Azure 入口網站](https://portal.azure.com/)，以客戶管理的金鑰來設定金鑰保存庫。 若要瞭解如何使用 Azure 入口網站建立金鑰保存庫，請參閱[快速入門：使用 Azure 入口網站從 Azure Key Vault 設定和取出秘密](../../key-vault/quick-create-portal.md)。 
+本文說明如何使用[Azure 入口網站](https://portal.azure.com/)，以客戶管理的金鑰設定 Azure Key Vault。 若要瞭解如何使用 Azure 入口網站建立金鑰保存庫，請參閱[快速入門：使用 Azure 入口網站從 Azure Key Vault 設定和取出秘密](../../key-vault/quick-create-portal.md)。
 
 > [!IMPORTANT]
 > 若要使用客戶管理的金鑰搭配 Azure 儲存體加密，需要在金鑰保存庫上設定兩個屬性： [虛**刪除**] 和 [**不要清除**]。 預設不會啟用這些屬性。 若要啟用這些屬性，請使用 PowerShell 或 Azure CLI。

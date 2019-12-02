@@ -1,6 +1,6 @@
 ---
 title: 什麼是 IoT 的 Azure 資訊安全中心 |Microsoft Docs
-description: 瞭解 IoT 功能與服務的 Azure 資訊安全中心。
+description: 深入瞭解 IoT 功能和服務的 Azure 資訊安全中心，並瞭解 IoT 的 Azure 資訊安全中心如何在所有 IoT 資產上提供完整的 IoT 安全性。
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 36514c342f8ed8d988f26fcb69daf30c42ee5cf3
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1b428af1f1c01a3b1b1429f51d76ebfdeb4c1cc6
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176639"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664959"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>適用於 IoT 的 Azure 資訊安全中心的簡介
 

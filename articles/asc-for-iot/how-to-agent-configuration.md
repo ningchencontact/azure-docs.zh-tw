@@ -1,6 +1,6 @@
 ---
 title: 設定 IoT 代理程式的 Azure 資訊安全中心 |Microsoft Docs
-description: 瞭解如何設定代理程式以搭配 IoT 的 Azure 資訊安全中心使用。
+description: 瞭解如何設定 IoT 安全性代理程式的 Azure 資訊安全中心，以便與 IoT 安全性服務的 Azure 資訊安全中心搭配使用。
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 095c8fa080d96c9dc6d40261ee5afc559e9ca06b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 6adb918bbc6d4718be8518019394582a6a843fb8
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933891"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664831"
 ---
 # <a name="tutorial-configure-security-agents"></a>教學課程：設定安全性代理程式
 
@@ -31,7 +31,7 @@ ms.locfileid: "70933891"
 > * 藉由編輯對應項屬性來變更代理程式列為
 > * 探索預設設定
 
-## <a name="agents"></a>Agent
+## <a name="agents"></a>代理程式
 
 Azure 資訊安全中心 IoT 安全性代理程式會從 IoT 裝置收集資料，並執行安全性動作來減輕偵測到的弱點。 安全性代理程式設定可使用一組您可以自訂的模組對應項屬性進行控制。 一般而言，這些屬性的次要更新不常發生。  
 
@@ -122,31 +122,31 @@ IoT 安全性代理程式的 Azure 資訊安全中心會在**azureiotsecurity**�
 
 | Name| 狀態 | 有效值| 預設值| 描述 |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|highPriorityMessageFrequency|必要： false |有效值：ISO 8601 格式的持續時間 |預設值：PT7M |傳送高優先順序訊息之前的最大時間間隔。|
-|lowPriorityMessageFrequency |必要： false|有效值：ISO 8601 格式的持續時間 |預設值：PT5H |傳送低優先順序訊息之前的最長時間。| 
-|snapshotFrequency |需要： false|有效值：ISO 8601 格式的持續時間 |預設值 PT13H |建立裝置狀態快照的時間間隔。| 
+|highPriorityMessageFrequency|必要： false |有效值： ISO 8601 格式的持續時間 |預設值： PT7M |傳送高優先順序訊息之前的最大時間間隔。|
+|lowPriorityMessageFrequency |必要： false|有效值： ISO 8601 格式的持續時間 |預設值： PT5H |傳送低優先順序訊息之前的最長時間。| 
+|snapshotFrequency |需要： false|有效值： ISO 8601 格式的持續時間 |預設值 PT13H |建立裝置狀態快照的時間間隔。| 
 |maxLocalCacheSizeInBytes |必要： false |有效值： |預設值：2560000，大於8192 | 代理程式的訊息快取允許的最大儲存空間（以位元組為單位）。 在傳送訊息之前，允許在裝置上儲存訊息的最大空間量。| 
-|maxMessageSizeInBytes |必要： false |有效值：大於8192、小於262144的正數位 |預設值：204800 |代理程式至雲端訊息的允許大小上限。 此設定會控制每個訊息中傳送的最大資料量。 |
-|eventPriority${EventName} |必要： false |有效值：高、低、關閉 |預設值： |每個代理程式產生的事件的優先順序 | 
+|maxMessageSizeInBytes |必要： false |有效值：大於8192、小於262144的正數 |預設值：204800 |代理程式至雲端訊息的允許大小上限。 此設定會控制每個訊息中傳送的最大資料量。 |
+|eventPriority $ {事件名稱} |必要： false |有效值： [高]、[低]、[關閉] |預設值： |每個代理程式產生的事件的優先順序 | 
 
 ### <a name="supported-security-events"></a>支援的安全性事件
 
-|事件名稱| PropertyName | Default Value| 快照事件| 詳細資料狀態  |
+|事件名稱| PropertyName | 預設值| 快照事件| 詳細資料狀態  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|診斷事件|eventPriorityDiagnostic| 關閉| 偽| 代理程式相關的診斷事件。 請使用此事件來進行詳細資訊記錄。| 
-|組態錯誤 |eventPriorityConfigurationError |低 |偽 |代理程式無法剖析設定。 針對架構驗證設定。| 
-|已卸載事件統計資料 |eventPriorityDroppedEventsStatistics |低 |真|代理程式相關事件統計資料。 |
-|訊息統計資料|eventPriorityMessageStatistics |低 |真 |代理程式相關的訊息統計資料。 |
-|連線的硬體|eventPriorityConnectedHardware |低 |真 |所有連線到裝置的硬體快照集。|
-|接聽連接埠|eventPriorityListeningPorts |高 |真 |裝置上所有已開啟接聽埠的快照集。|
-|進程建立 |eventPriorityProcessCreate |低 |偽 |審核裝置上的進程建立。|
-|進程終止|eventPriorityProcessTerminate |低 |偽 |審核裝置上的處理終止。| 
-|系統資訊 |eventPrioritySystemInformation |低 |真 |系統資訊的快照集（例如：OS 或 CPU）。| 
-|本機使用者| eventPriorityLocalUsers |高 |真|系統內已註冊之本機使用者的快照集。 |
-|登入|  eventPriorityLogin |高|偽|對裝置（本機和遠端登入）進行登入事件的審核。|
-|連接建立 |eventPriorityConnectionCreate|低|偽|審核從裝置建立的 TCP 連線。 |
-|防火牆設定| eventPriorityFirewallConfiguration|低|真|裝置防火牆設定（防火牆規則）的快照集。 |
-|OS 基準| eventPriorityOSBaseline| 低|真|裝置作業系統基準檢查的快照。|
+|診斷事件|eventPriorityDiagnostic| 關| 否| 代理程式相關的診斷事件。 請使用此事件來進行詳細資訊記錄。| 
+|組態錯誤 |eventPriorityConfigurationError |低 |否 |代理程式無法剖析設定。 針對架構驗證設定。| 
+|已卸載事件統計資料 |eventPriorityDroppedEventsStatistics |低 |是|代理程式相關事件統計資料。 |
+|訊息統計資料|eventPriorityMessageStatistics |低 |是 |代理程式相關的訊息統計資料。 |
+|連線的硬體|eventPriorityConnectedHardware |低 |是 |所有連線到裝置的硬體快照集。|
+|接聽連接埠|eventPriorityListeningPorts |高 |是 |裝置上所有已開啟接聽埠的快照集。|
+|進程建立 |eventPriorityProcessCreate |低 |否 |審核裝置上的進程建立。|
+|進程終止|eventPriorityProcessTerminate |低 |否 |審核裝置上的處理終止。| 
+|系統資訊 |eventPrioritySystemInformation |低 |是 |系統資訊的快照（例如： OS 或 CPU）。| 
+|本機使用者| eventPriorityLocalUsers |高 |是|系統內已註冊之本機使用者的快照集。 |
+|登入|  eventPriorityLogin |高|否|對裝置（本機和遠端登入）進行登入事件的審核。|
+|連接建立 |eventPriorityConnectionCreate|低|否|審核從裝置建立的 TCP 連線。 |
+|防火牆設定| eventPriorityFirewallConfiguration|低|是|裝置防火牆設定（防火牆規則）的快照集。 |
+|OS 基準| eventPriorityOSBaseline| 低|是|裝置作業系統基準檢查的快照。|
 |
  
 
