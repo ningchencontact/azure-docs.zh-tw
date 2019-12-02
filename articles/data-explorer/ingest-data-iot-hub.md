@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 9f1bd795af2802af642d48b4a16a55425c5f4c7f
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: cbad0e5409dfaa25eda040e3c7409b49728a4169
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028480"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667415"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>將資料從 IoT 中樞內嵌到 Azure 資料總管（預覽）
 
@@ -20,17 +20,15 @@ ms.locfileid: "72028480"
 > * [入口網站](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
+> * [Azure Resource Manager 範本](data-connection-iot-hub-resource-manager.md)
 
-Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供來自 IoT 中樞的內嵌（資料載入），這是一種龐大的資料串流平臺和 IoT 內嵌服務。
+「Azure 資料總管」是一項快速又彈性極佳的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供來自 IoT 中樞的內嵌（資料載入），這是一種龐大的資料串流平臺和 IoT 內嵌服務。
 
 ## <a name="prerequisites"></a>必要條件
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
-
 * 建立具有資料庫名稱*testdb*[的測試叢集和資料庫](create-cluster-database-portal.md)。
-
 * 用於模擬裝置的[範例應用程式](https://github.com/Azure-Samples/azure-iot-samples-csharp)和檔。
-
 * 用於執行範例應用程式的 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)。
 
 ## <a name="create-an-iot-hub"></a>建立 Iot 中樞
@@ -82,7 +80,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     **設定** | **欄位描述**
     |---|---|
     | 資料連線名稱 | 您想要在 Azure 中建立的連線名稱資料總管
-    | IoT 中樞 | IoT 中樞名稱 |
+    | IoT Hub | IoT 中樞名稱 |
     | 共用存取原則 | 共用存取原則的名稱。 必須擁有讀取權限 |
     | 取用者群組 |  在 IoT 中樞內建端點中定義的取用者群組 |
     | 事件系統屬性 | [IoT 中樞事件系統屬性](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages)。 加入系統屬性時，[建立](/azure/kusto/management/tables#create-table)或[更新](/azure/kusto/management/tables#alter-table-and-alter-merge-table)資料表架構和[對應](/azure/kusto/management/mappings)以包含選取的屬性。 | | | 
@@ -97,7 +95,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
      **設定** | **建議的值** | **欄位描述**
     |---|---|---|
-    | 資料表 | *TestTable* | 您在**testdb**中建立的資料表。 |
+    | 表格 | *TestTable* | 您在**testdb**中建立的資料表。 |
     | 資料格式 | *JSON* | 支援的格式為 Avro、CSV、JSON、多行 JSON、PSV、SOHSV、SCSV、TSV、TSVE 和 TXT。 |
     | 資料行對應 | *TestMapping* | 您在**testdb**中建立的[對應](/azure/kusto/management/mappings)，其會將傳入的 JSON 資料對應至**testdb**的資料行名稱和資料類型。 對 JSON、多行 JSON 和 AVRO 而言是必要的，而且對於其他格式則為選擇性。|
     | | |
@@ -116,7 +114,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 1. 在您選擇的文字編輯器中開啟 **SimulatedDevice.cs** 檔案。
 
-    將 `s_connectionString` 變數的值，取代為向[IoT 中樞註冊裝置](#register-a-device-to-the-iot-hub)中的裝置連接字串。 然後將變更儲存到 **SimulatedDevice.cs** 檔案。
+    將 `s_connectionString` 變數的值取代為 [[向 IoT 中樞註冊裝置](#register-a-device-to-the-iot-hub)] 中的裝置連接字串。 然後將變更儲存到 **SimulatedDevice.cs** 檔案。
 
 1. 在本機終端機視窗中，執行下列命令以安裝模擬裝置應用程式所需的套件：
 

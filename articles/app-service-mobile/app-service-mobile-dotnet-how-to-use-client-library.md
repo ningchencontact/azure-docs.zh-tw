@@ -1,33 +1,25 @@
 ---
-title: 使用 App Service Mobile Apps 受控用戶端程式庫 |Microsoft Docs
+title: 使用受管理的用戶端程式庫
 description: 了解如何搭配 Windows 和 Xamarin 應用程式使用 Azure App Service Mobile App 的 .NET 用戶端程式庫。
-services: app-service\mobile
-documentationcenter: ''
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 1a56c6eed8b6a78587ea272c44f01d16e8a2b88d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 741d286126bedb8b92828486927283fa9887658e
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388710"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668473"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何針對 Azure Mobile Apps 使用受控用戶端
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
+> Visual Studio App Center 支援使用端對端及整合服務中心來開發行動應用程式。 開發人員可以使用**建置**、**測試**和**散發**服務來設定持續整合及傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用情況，並使用**推送**服務與使用者互動。 開發人員也可以利用**驗證**來驗證其使用者，並使用**資料**來保存及同步雲端中的應用程式資料。
 >
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+> 如果您想要在行動應用程式中整合雲端服務，請立即註冊 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) \(英文\)。
 
 ## <a name="overview"></a>概觀
 本指南將示範如何在 Windows 和 Xamarin 應用程式中針對 Azure App Service Mobile Apps 使用受控用戶端程式庫，來執行一般案例。 如果您不熟悉 Mobile Apps，應考慮先完成 [Azure Mobile Apps 快速入門][1] 教學課程。 在本指南中，我們會著重於用戶端受控 SDK。 若要深入瞭解 Mobile Apps 的伺服器端 Sdk，請參閱[.Net SERVER sdk][2]或[node.js 伺服器 sdk][3]的檔。
@@ -73,7 +65,7 @@ public class TodoItem
 使用下列其中一種方法，從 [NuGet][9]針對 Mobile Apps 安裝受控用戶端 SDK 封裝：
 
 * **Visual Studio** 以滑鼠右鍵按一下您的專案、按一下 [管理 NuGet 套件]，搜尋 `Microsoft.Azure.Mobile.Client` 套件，然後按一下 [安裝]。
-* **Xamarin Studio**以滑鼠右鍵按一下您的專案，然後按一下 **新增** >**新增 NuGet 套件**，搜尋 `Microsoft.Azure.Mobile.Client` 套件，然後按一下 **新增套件**。
+* **Xamarin Studio**以滑鼠右鍵按一下您的專案，然後按一下 [**新增**] >**新增 NuGet 套件**，搜尋 `Microsoft.Azure.Mobile.Client` 套件，然後按一下 [**新增套件**]。
 
 在您的主要活動檔案中，記得加入下列 **using** 陳述式：
 

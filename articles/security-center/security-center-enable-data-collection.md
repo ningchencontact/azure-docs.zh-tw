@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 4b67e7a2ee9f2d734d927b3488cc15ca310f4295
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: ae645f15672693466ba87f2364c756ed164ce629
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559048"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74669175"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure 資訊安全中心的資料收集
 資訊安全中心會從您的 Azure 虛擬機器（Vm）、虛擬機器擴展集、IaaS 容器和非 Azure （包括內部部署）電腦收集資料，以監視是否有安全性弱點和威脅。 系統會使用 Log Analytics 代理程式來收集資料，這會從電腦讀取各種安全性相關設定和事件記錄，並將資料複製到您的工作區進行分析。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄 (Windows 事件記錄)、執行中程序、電腦名稱、IP 位址和已登入的使用者。 Log Analytics 代理程式也會將損毀傾印檔案複製到您的工作區。
@@ -211,7 +211,7 @@ ms.locfileid: "74559048"
 - 預先存在的 VM 擴充功能已存在<br>
     - 當監視代理程式安裝為擴充功能時，延伸模組設定只允許報告至單一工作區。 資訊安全中心不會覆寫既存的使用者工作區連線。 如果已安裝「安全性」或「securityFree」解決方案，資訊安全中心會將 VM 中的安全性資料儲存在已連線的工作區中。 資訊安全中心可以將延伸模組版本升級為此程式中的最新版本。  
     - 若要查看現有擴充功能將資料傳送到哪個工作區，請執行測試以[驗證與 Azure 資訊安全中心的連線](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/)。 或者，您可以開啟 Log Analytics 工作區、選取工作區、選取 VM，以及查看 Log Analytics 代理程式連線。 
-    - 如果您的環境中的 Log Analytics 代理程式已安裝在用戶端工作站上，並向現有的 Log Analytics 工作區報告，請檢查[Azure 資訊安全中心支援的作業系統](security-center-os-coverage.md)清單，以確定您的作業系統是支援. 如需詳細資訊，請參閱[現有的 log analytics 客戶](security-center-faq.md#existingloganalyticscust)。
+    - 如果您的環境中的 Log Analytics 代理程式已安裝在用戶端工作站上，並向現有的 Log Analytics 工作區報告，請檢查[Azure 資訊安全中心支援的作業系統](security-center-os-coverage.md)清單，以確定您的作業系統受到支援。 如需詳細資訊，請參閱[現有的 log analytics 客戶](security-center-faq.md#existingloganalyticscust)。
  
 ### 關閉自動佈建 <a name="offprovisioning"></a>
 您可以在安全性原則中關閉從資源自動佈建，隨時關閉這項設定。 
@@ -288,7 +288,7 @@ ms.locfileid: "74559048"
 
       - 在 Windows VM 上安裝時：
         
-            Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
+            Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -settings $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
     
       - 在 Linux VM 上安裝時：
         

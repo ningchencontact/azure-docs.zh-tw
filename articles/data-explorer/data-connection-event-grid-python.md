@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 11ae18714d1806aac1cc4f55ce6511fc12498440
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 16f944146cf97666fd9866607ff436a49d5fb031
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800432"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667729"
 ---
 # <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-python"></a>使用 Python 建立 Azure 資料總管的 Event Grid 資料連線
 
@@ -20,19 +20,16 @@ ms.locfileid: "72800432"
 > * [入口網站](ingest-data-event-grid.md)
 > * [C#](data-connection-event-grid-csharp.md)
 > * [Python](data-connection-event-grid-python.md)
+> * [Azure Resource Manager 範本](data-connection-event-grid-resource-manager.md)
 
 「Azure 資料總管」是一項快速又彈性極佳的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管可從事件中樞、IoT 中樞和寫入 blob 容器的 blob，提供內嵌（資料載入）。 在本文中，您會使用 Python 建立 Azure 資料總管的 Event Grid 資料連線。
 
 ## <a name="prerequisites"></a>必要條件
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
-
 * 建立叢集[和資料庫](create-cluster-database-csharp.md)
-
 * 建立[資料表和資料行對應](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
-
 * 設定[資料庫和資料表原則](database-table-policies-csharp.md)（選擇性）
-
 * 建立[具有事件方格訂用帳戶的儲存體帳戶](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account)。
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]

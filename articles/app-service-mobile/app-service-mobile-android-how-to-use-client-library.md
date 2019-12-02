@@ -1,31 +1,24 @@
 ---
-title: 如何使用 Android 版 Azure Mobile Apps SDK | Microsoft Docs
+title: 如何使用適用于 Android 的 SDK
 description: 如何使用 Android 版 Azure Mobile Apps SDK
-services: app-service\mobile
-documentationcenter: android
-author: elamalani
-manager: crdun
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 991f3c8939c0f9e270423ff30282b02f110eb39e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 32e0584478031226ed52d6ed5f6849f7ad6d3cfe
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388925"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668898"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用 Android 版 Azure Mobile Apps SDK
 
 > [!NOTE]
-> Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
+> Visual Studio App Center 支援使用端對端及整合服務中心來開發行動應用程式。 開發人員可以使用**建置**、**測試**和**散發**服務來設定持續整合及傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用情況，並使用**推送**服務與使用者互動。 開發人員也可以利用**驗證**來驗證其使用者，並使用**資料**來保存及同步雲端中的應用程式資料。
 >
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+> 如果您想要在行動應用程式中整合雲端服務，請立即註冊 [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) \(英文\)。
 
 本指南說明如何使用適用於 Mobile Apps 的 Android 用戶端 SDK 來實作常見案例，例如：
 
@@ -315,7 +308,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-上述範例會傳回所有結果 (最多為伺服器所設定的最大頁面大小)。  `.execute()` 方法會在後端執行查詢。  在傳輸到 Mobile Apps 後端之前，查詢會轉換成[OData v3][19]查詢。  在收到時，Mobile Apps 後端在 SQL Azure 執行個體上執行查詢之前，會將查詢轉換成 SQL 陳述式。  因為網路活動需要一些時間，所以 `.execute()` 方法會傳回[`ListenableFuture<E>`][18]。
+上述範例會傳回所有結果 (最多為伺服器所設定的最大頁面大小)。  `.execute()` 方法會在後端執行查詢。  在傳輸到 Mobile Apps 後端之前，查詢會轉換成[OData v3][19]查詢。  在收到時，Mobile Apps 後端在 SQL Azure 執行個體上執行查詢之前，會將查詢轉換成 SQL 陳述式。  由於網路活動需要一些時間，因此 `.execute()` 方法會傳回[`ListenableFuture<E>`][18]。
 
 ### <a name="filtering"></a>篩選傳回的資料
 

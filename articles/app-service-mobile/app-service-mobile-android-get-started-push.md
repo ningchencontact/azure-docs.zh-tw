@@ -1,25 +1,17 @@
 ---
-title: 使用 Mobile Apps 將推播通知新增至 Android 應用程式 | Microsoft Docs
+title: 將推播通知新增至 Android 應用程式
 description: 了解如何使用 Mobile Apps 將推播通知傳送至 Android 應用程式。
-services: app-service\mobile
-documentationcenter: android
-manager: crdun
-editor: ''
-author: elamalani
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 539859ba73c8a26d6f7e8f25b9e7453d987a52bd
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: ce4ebe9e8874e779b8da16e9c30fcfc3ca46754e
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389017"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668601"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>將推播通知新增至 Android 應用程式
 
@@ -30,13 +22,13 @@ ms.locfileid: "72389017"
 >
 > 如果您想要在行動應用程式中整合雲端服務，請立即註冊 [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) \(英文\)。
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 在本教學課程中，您會將推播通知新增至 [Android 快速入門]專案，以便在每次插入一筆記錄時傳送推播通知至裝置。
 
 如果您不要使用下載的快速入門伺服器專案，則需要推播通知擴充套件。 如需詳細資訊，請參閱[使用 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您需要下列項目：
 
@@ -63,7 +55,7 @@ ms.locfileid: "72389017"
 
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
-## <a name="add-push-notifications-to-your-app"></a>將推播通知新增至應用程式
+## <a name="add-push-notifications-to-your-app"></a>在您的應用程式中新增推播通知
 
 本節中，您必須更新用戶端 Android 應用程式，以處理推播通知。
 
@@ -98,4 +90,4 @@ ms.locfileid: "72389017"
 
 <!-- URLs -->
 [Android 快速入門]: app-service-mobile-android-get-started.md
-[將 Firebase 新增至 Android 專案]: https://firebase.google.com/docs/android/setup \(英文\)
+[將 Firebase 新增至 Android 專案]: https://firebase.google.com/docs/android/setup

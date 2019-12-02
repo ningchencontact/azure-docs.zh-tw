@@ -1,5 +1,5 @@
 ---
-title: 自動調整和區域-多餘應用程式閘道 v2
+title: 自動調整規模和區域備援應用程式閘道 v2
 description: 本文介紹 Azure 應用程式 Standard_v2 和 WAF_v2 SKU，其中包括自動調整和區域多餘的功能。
 services: application-gateway
 author: vhorne
@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/09/2019
 ms.author: victorh
-ms.openlocfilehash: 8f3a732d5d6128ff38f81f715113e87710b11c47
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 66978f313f5cb3881f8befc61289d7de0f4214cb
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847262"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668155"
 ---
-# <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>自動調整和區域-多餘應用程式閘道 v2 
+# <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>自動調整規模和區域備援應用程式閘道 v2 
 
 應用程式閘道和 Web 應用程式防火牆（WAF）也適用于 Standard_v2 和 WAF_v2 SKU。 V2 SKU 提供效能增強功能，並新增對靜態 Vip 的自動調整、區域冗余和支援等重要新功能的支援。 標準和 WAF SKU 下的現有功能會繼續在新的 v2 SKU 中受到支援，但[比較](#differences-with-v1-sku)一節中會列出一些例外狀況。
 
@@ -35,7 +35,7 @@ ms.locfileid: "73847262"
 
 ## <a name="supported-regions"></a>支援區域
 
-Standard_v2 和 WAF_v2 SKU 適用于下欄區域：美國中北部、美國中南部、美國西部、美國西部2、美國東部、美國東部2、美國中部、北歐、西歐、東南亞、法國中部、英國西部、日本東部、日本西部、澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、東亞、韓國中部、南韓南部、印度南部、英國南部、印度中部、印度西部、印度南部。
+Standard_v2 和 WAF_v2 SKU 適用于下欄區域：美國中北部、美國中南部、美國西部、美國西部2、美國東部、美國東部2、美國中部、北歐、西歐、東南亞、法國中部、英國西部、日本東部、日本西部、澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、東亞、韓國中部、南韓南部、英國南部、印度中部、印度西部、印度南部。
 
 ## <a name="pricing"></a>價格
 

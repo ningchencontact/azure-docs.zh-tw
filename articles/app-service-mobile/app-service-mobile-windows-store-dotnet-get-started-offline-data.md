@@ -1,25 +1,17 @@
 ---
-title: 使用 Mobile Apps 啟用通用 Windows 平台 (UWP) 應用程式的離線同步處理 | Microsoft Docs
+title: 啟用 UWP 應用程式的離線同步處理
 description: 了解如何使用 Azure 行動應用程式快取及同步處理通用 Windows 平台 (UWP) 應用程式中的離線資料。
-documentationcenter: windows
-author: elamalani
-manager: crdun
-editor: ''
-services: app-service\mobile
 ms.assetid: 8fe51773-90de-4014-8a38-41544446d9b5
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 1f15bd86debd98104a408c00650f5acfab94c526
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 66ae11fb0532ae2a138eb8590eb92de15e997dfa
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388580"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668396"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>啟用 Windows 應用程式離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -29,18 +21,18 @@ ms.locfileid: "72388580"
 >
 > 如果您想要在行動應用程式中整合雲端服務，請立即註冊 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) \(英文\)。
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 本教學課程說明如何使用 Azure 行動應用程式後端在通用 Windows 平台 (UWP) 應用程式中新增離線支援。 離線同步處理可讓使用者與行動應用程式進行互動 (檢視、新增或修改資料)，即使沒有網路連接也可以。 變更會儲存在本機資料庫中。 裝置恢復上線後，這些變更就會與遠端後端進行同步處理。
 
-在本教學課程中，您將會更新[建立 Windows 應用程式]教學課程中的 UWP 應用程式專案，以支援 Azure Mobile Apps 的離線功能。 如果您不要使用下載的快速入門伺服器專案，必須將資料存取擴充套件新增至您的專案。 如需伺服器擴充套件的詳細資訊，請參閱 [使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
+在本教學課程中，您將會更新[建立 Windows 應用程式]教學課程中的 UWP 應用程式專案，以支援 Azure Mobile Apps 的離線功能。 如果您不要使用下載的快速入門伺服器專案，必須將資料存取擴充套件新增至您的專案。 如需伺服器擴充套件的詳細資訊，請參閱 [使用 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
 若要深入了解離線同步處理功能，請參閱 [Azure Mobile Apps 中的離線資料同步處理]主題。
 
-## <a name="requirements"></a>需求  
+## <a name="requirements"></a>要求  
 本教學課程需要下列必要條件：
 
 * 執行於 Windows 8.1 或更新版本的 Visual Studio 2013。
-* 完成 [建立 Windows 應用程式][建立 windows 應用程式]。
+* 完成 [建立 Windows 應用程式][建立 Windows 應用程式]。
 * [Azure 行動服務 SQLite 存放區][sqlite store nuget]
 * [適用於通用 Windows 平台開發的 SQLite](https://marketplace.visualstudio.com/items?itemName=SQLiteDevelopmentTeam.SQLiteforUniversalWindowsPlatform) 
 
@@ -65,7 +57,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 
     您也可以透過停用裝置的 WiFi 和行動電話通訊網路，或使用飛航模式來示範離線行為。
 2. 按 **F5** 以建置並執行應用程式。 請注意，應用程式啟動後同步處理無法重新整理。
-3. 輸入新項目，並注意每次您按一下 [儲存] [] 時，推送都會失敗並具有 **CancelledByNetworkError**狀態。 不過，新的 todo 項目在可推送至行動應用程式後端之前，都會存留在本機存放區中。  在生產應用程式中，如果您隱藏這些例外狀況，用戶端應用程式的行為會如同它仍連線到行動應用程式後端。
+3. 輸入新項目，並注意每次您按一下 **[儲存]** 時，推送都會失敗並具有 [CancelledByNetworkError] 狀態。 不過，新的 todo 項目在可推送至行動應用程式後端之前，都會存留在本機存放區中。  在生產應用程式中，如果您隱藏這些例外狀況，用戶端應用程式的行為會如同它仍連線到行動應用程式後端。
 4. 關閉應用程式並重新加以開啟，以驗證您所建立的新項目持續存留於本機存放區中。
 5. (選擇性) 在 Visual Studio 中，開啟 [伺服器總管]。 瀏覽至 [Azure]->[SQL Database 中您的資料庫]。 在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]。 現在您可以瀏覽至您的 SQL Database 資料表和其內容。 確認後端資料庫中的資料沒有變更。
 6. (選擇性) 使用 REST 工具 (例如 Fiddler 或 Postman) 來查詢您的行動後端 (使用表單 `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`中的 GET 查詢)。
@@ -91,7 +83,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 
 如需這些概念的詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理](app-service-mobile-offline-data-sync.md#how-sync-works)。
 
-## <a name="more-info"></a>其他資訊
+## <a name="more-info"></a>詳細資訊
 下列主題提供其他關於 Mobile Apps 離線同步處理功能的背景資訊︰
 
 * [Azure Mobile Apps 中的離線資料同步處理]

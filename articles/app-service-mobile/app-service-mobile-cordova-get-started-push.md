@@ -1,34 +1,26 @@
 ---
-title: 使用 Azure App Service 的 Mobile Apps 功能新增推播通知至 Apache Cordova 應用程式 | Microsoft Docs
+title: 將推播通知新增至 Apache Cordova 應用程式
 description: 了解如何使用 Mobile Apps 將推播通知傳送至 Apache Cordova 應用程式。
-services: app-service\mobile
-documentationcenter: javascript
-manager: crdun
-editor: ''
-author: elamalani
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 7a7e64b32a084075fe96cbd4ab7a0d28fc0f8e19
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 6ec214c0f1a4f8333bf88790de8d2936fce39002
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388859"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668921"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>新增推播通知至您的 Apache Cordova 應用程式
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 > [!NOTE]
-> Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
+> Visual Studio App Center 支援使用端對端及整合服務中心來開發行動應用程式。 開發人員可以使用**建置**、**測試**和**散發**服務來設定持續整合及傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用情況，並使用**推送**服務與使用者互動。 開發人員也可以利用**驗證**來驗證其使用者，並使用**資料**來保存及同步雲端中的應用程式資料。
 >
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+> 如果您想要在行動應用程式中整合雲端服務，請立即註冊 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) \(英文\)。
 
 ## <a name="overview"></a>概觀
 
@@ -106,7 +98,7 @@ Apache Cordova 應用程式原本就不會處理裝置或網路功能。  這些
 
 #### <a name="install-the-device-plugin"></a>安裝裝置外掛程式
 
-遵循您安裝推播外掛程式時的相同程序。 從核心外掛程式清單中新增裝置外掛程式。 （若要尋找，請選取 [**外掛程式**] [ > **核心**]）。您需要此外掛程式才能取得平臺名稱。
+遵循您安裝推播外掛程式時的相同程序。 從核心外掛程式清單中新增裝置外掛程式。 （若要尋找，請選取 [**外掛程式**] > [**核心**]）。您需要此外掛程式才能取得平臺名稱。
 
 #### <a name="register-your-device-when-the-application-starts"></a>在應用程式啟動時註冊您的裝置 
 
@@ -182,7 +174,7 @@ Apache Cordova 應用程式原本就不會處理裝置或網路功能。  這些
     pushRegistration.on('error', handleError);
     }
     ```
-3. 面向在上述程式碼中，將 `Your_Project_ID` 取代為您應用程式從[Google Developer 主控台][18]的數值專案識別碼。
+3. 面向在上述程式碼中，將 `Your_Project_ID` 取代為您的 app 在[Google 開發人員主控台][18]中的數值專案識別碼。
 
 ## <a name="optional-configure-and-run-the-app-on-android"></a>(選擇性) 在 Android 上設定和執行應用程式
 
@@ -200,7 +192,7 @@ Apache Cordova 應用程式原本就不會處理裝置或網路功能。  這些
 
 #### <a name="configure-your-cordova-app-for-android"></a>針對 Android 設定您的 Cordova 應用程式
 
-在 Cordova 應用程式中，開啟 **config.xml**。 然後，將 `Your_Project_ID` 取代為您的應用程式從[Google Developer Console][18]的數值專案識別碼。
+在 Cordova 應用程式中，開啟 **config.xml**。 然後，將 `Your_Project_ID` 取代為您的應用程式從[Google Developer 主控台][18]的數值專案識別碼。
 
 ```xml
 <plugin name="phonegap-plugin-push" version="1.7.1" src="https://github.com/phonegap/phonegap-plugin-push.git">

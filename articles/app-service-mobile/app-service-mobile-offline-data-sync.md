@@ -1,32 +1,24 @@
 ---
-title: Azure Mobile Apps 中的離線資料同步處理 | Microsoft Docs
+title: 離線資料同步
 description: Azure 行動應用程式離線資料同步處理功能的概念參考與概觀
-documentationcenter: windows
 author: conceptdev
-manager: crdun
-editor: ''
-services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: dcab966aed125e43fff49299a46a2e8bbb938d66
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 9238ebd06a4aa532d20a2a98499963a75780f025
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388601"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668423"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Azure Mobile Apps 中的離線資料同步
 
 > [!NOTE]
-> Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
+> Visual Studio App Center 支援使用端對端及整合服務中心來開發行動應用程式。 開發人員可以使用**建置**、**測試**和**散發**服務來設定持續整合及傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用情況，並使用**推送**服務與使用者互動。 開發人員也可以利用**驗證**來驗證其使用者，並使用**資料**來保存及同步雲端中的應用程式資料。
 >
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+> 如果您想要在行動應用程式中整合雲端服務，請立即註冊 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) \(英文\)。
 
 ## <a name="what-is-offline-data-sync"></a>什麼是離線資料同步處理？
 離線資料同步處理是 Azure 行動應用程式的用戶端和伺服器 SDK 功能，可讓開發人員建立不需要網路連線就能運作的應用程式。
@@ -74,7 +66,7 @@ ms.locfileid: "72388601"
 * **推送**：推送是同步處理內容的作業，會傳送自上一次推送之後的所有 CUD 變更。 請注意，您無法只傳送個別資料表的變更，因為這樣作業傳送順序可能會發生錯誤。 推送會對 Azure 行動應用程式後端執行一系列的 REST 呼叫，再由後端修改伺服器資料庫。
 * **提取**：提取會以各資料表為基礎執行，並且可以使用佇列來自訂，以抓取伺服器資料的特定子集。 然後 Azure 行動用戶端 SDK 會將該結果資料插入本機存放區。
 * **隱含推送**：如果對有擱置中本機更新的資料表執行提取，則提取會先在同步處理內容上執行 `push()`。 此推送有助於將已排入佇列的變更與來自伺服器的新資料之間的衝突降到最低。
-* **增量同步處理**：提取作業的第一個參數是「查詢名稱」，此參數只在用戶端使用。 如果您使用非 null 的查詢名稱，Azure Mobile SDK 會執行*增量同步*處理。每次提取作業傳回一組結果時，該結果集最新的 `updatedAt` 時間戳記會儲存在 SDK 本機系統資料表中。 後續的提取作業只會擷取該時間戳記之後的記錄。
+* **增量同步處理**：提取作業的第一個參數是「查詢名稱」，此參數只在用戶端使用。 如果您使用非 null 的查詢名稱，Azure Mobile SDK 會執行*增量同步*處理。每次提取作業傳回一組結果時，該結果集最新的 `updatedAt` 時間戳記就會儲存在 SDK 本機系統資料表中。 後續的提取作業只會擷取該時間戳記之後的記錄。
 
   若要使用增量同步處理，您的伺服器必須傳回有意義的 `updatedAt` 值，也必須支援依據此欄位排序。 不過，由於 SDK 會在 updatedAt 欄位上加入自己的排序，所以您不能使用本身具備 `orderBy` 子句的提取查詢。
 

@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: d3f5ef9d2c3359dc61c32d4971100b096b004f2f
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: da701dc91781ef72c29e6454e79523073810dbe4
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881555"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667489"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>訂閱 Event Grid 通知，以便將 Blob 擷取至 Azure 資料總管
 
@@ -20,6 +20,7 @@ ms.locfileid: "72881555"
 > * [入口網站](ingest-data-event-grid.md)
 > * [C#](data-connection-event-grid-csharp.md)
 > * [Python](data-connection-event-grid-python.md)
+> * [Azure Resource Manager 範本](data-connection-event-grid-resource-manager.md)
 
 Azure 資料總管是一項快速又可調整的資料探索服務，可用於處理記錄和遙測資料。 它會從寫入至 Blob 容器的 Blob 提供連續擷取 (資料載入)。 
 

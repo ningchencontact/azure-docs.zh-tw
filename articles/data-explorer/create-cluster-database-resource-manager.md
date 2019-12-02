@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 49c55b580abdaea6c876a0fac4e7dd4e73d496af
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: eddfb9a8f2e3c034e50dc3bc1cdf4983a6163079
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643837"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667844"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立 Azure 資料總管叢集和資料庫
 
@@ -22,9 +22,9 @@ ms.locfileid: "73643837"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
-> * [ARM 範本](create-cluster-database-resource-manager.md)
+> * [Azure Resource Manager 範本](create-cluster-database-resource-manager.md)
 
-Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 
+「Azure 資料總管」是一項快速又彈性極佳的資料探索服務，可用於處理記錄和遙測資料。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 
 
 在本文中，您會使用[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)來建立 Azure 資料總管叢集和資料庫。 本文說明如何定義要部署哪些資源，以及如何定義執行部署時所指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。 如需建立範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本](/azure/azure-resource-manager/resource-group-authoring-templates)。 如需在範本中使用的 JSON 語法和屬性，請參閱[Kusto 資源類型](/azure/templates/microsoft.kusto/allversions)。
 
@@ -94,7 +94,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 }
 ```
 
-若要尋找更多範本範例，請參閱[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)。
+若要尋找更多範本範例，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)。
 
 ## <a name="deploy-the-template-and-verify-template-deployment"></a>部署範本並驗證範本部署
 
@@ -108,7 +108,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
     [部署至 Azure] 按鈕可將您帶往 Azure 入口網站，填寫部署表單。
 
-    ![部署至 Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
+    ![部署到 Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
 
     您可以使用表單來[編輯和部署 Azure 入口網站中的範本](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template)。
 
@@ -121,7 +121,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 #### <a name="deploy-the-template-using-powershell"></a>使用 powershell 部署範本
 
-1. 從下列程式碼區塊中選取 [**試試看**]，然後依照指示登入 Azure Cloud shell。
+1. 選取下列程式碼區塊中的 [試用]，然後依照指示登入 Azure Cloud Shell。
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -137,7 +137,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     ```
 
 1. 選取 [複製] 來複製 PowerShell 指令碼。
-1. 以滑鼠右鍵按一下 [shell] 主控台，然後選取 [**貼**上]。
+1. 以滑鼠右鍵按一下殼層主控台，然後選取 [貼上]。
 建立 Azure 資料總管叢集和資料庫需要幾分鐘的時間。
 
 #### <a name="verify-the-deployment-using-powershell"></a>使用 PowerShell 驗證部署
@@ -155,26 +155,7 @@ Get-AzKustoCluster -ResourceGroupName $resourceGroupName -Name $clusterName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-## <a name="clean-up-resources"></a>清除資源
-
-不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。 
-
-### <a name="clean-up-resources-using-the-azure-portal"></a>使用 Azure 入口網站清除資源
-
-遵循[清除資源](create-cluster-database-portal.md#clean-up-resources)中的步驟，以刪除 Azure 入口網站中的資源。
-
-### <a name="clean-up-resources-using-powershell"></a>使用 PowerShell 清除資源
-
-如果 Cloud Shell 仍為開啟狀態，您就不需要複製/執行第一行（讀取主機）。
-
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
-$resourceGroupName = "${projectName}rg"
-
-Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
-
-Write-Host "Press [ENTER] to continue ..."
-```
+[!INCLUDE [data-explorer-clean-resources](../../includes/data-explorer-clean-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

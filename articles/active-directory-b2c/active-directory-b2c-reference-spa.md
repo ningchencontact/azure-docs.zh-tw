@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ab8c8a582b90976ada20b1e970c9e9648d14b2a9
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: c8ac3b2ada99634f8f35c211f2dd7695f9174ce9
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596444"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667985"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用 OAuth 2.0 隱含流程的單一頁面登入
 
@@ -35,9 +35,9 @@ Azure AD B2C 會擴充標準的 OAuth 2.0 隱含流程，功能更強大，而�
 
 ## <a name="send-authentication-requests"></a>傳送驗證要求
 
-當您的 web 應用程式需要驗證使用者並執行使用者流程時，它可以將使用者導向至 `/authorize` 端點。 使用者會根據使用者流程採取動作。
+當您的 web 應用程式需要驗證使用者並執行使用者流程時，它可以將使用者導向 `/authorize` 端點。 使用者會根據使用者流程採取動作。
 
-在此要求中，用戶端會在 `scope` 參數和要執行的使用者流程中，指出它需要從使用者取得的許可權。 若要瞭解要求的運作方式，請嘗試將要求貼入瀏覽器並加以執行。 將 `{tenant}` 取代為您的 Azure AD B2C 租用戶名稱。 以您先前在租使用者中註冊之應用程式的應用程式識別碼取代 `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`。 以您在租使用者中建立的原則名稱取代 `{policy}`，例如 `b2c_1_sign_in`。
+在此要求中，用戶端會在 `scope` 參數和要執行的使用者流程中，指出它需要從使用者取得的許可權。 若要瞭解要求的運作方式，請嘗試將要求貼入瀏覽器並加以執行。 將 `{tenant}` 取代為您的 Azure AD B2C 租用戶名稱。 將 `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` 取代為您先前在租使用者中註冊之應用程式的應用程式識別碼。 以您在租使用者中建立的原則名稱取代 `{policy}`，例如 `b2c_1_sign_in`。
 
 ```HTTP
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
@@ -53,7 +53,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | 參數 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 |出租| 是 | Azure AD B2C 租使用者的名稱|
-|策略| 是| 要執行的使用者流程。 指定您在 Azure AD B2C 租使用者中建立的使用者流程名稱。 例如： `b2c_1_sign_in`、`b2c_1_sign_up` 或 `b2c_1_edit_profile`。 |
+|策略| 是| 要執行的使用者流程。 指定您在 Azure AD B2C 租使用者中建立的使用者流程名稱。 例如： `b2c_1_sign_in`、`b2c_1_sign_up`或 `b2c_1_edit_profile`。 |
 | client_id | 是 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
 | response_type | 是 | 必須包含 OpenID Connect 登入的 `id_token` 。 它也可能包含回應類型 `token`。 如果您使用 `token`，您的應用程式就能立即從授權端點接收存取權杖，而不需向授權端點進行第二次要求。  如果您使用 `token` 回應類型，`scope` 參數就必須包含範圍，以指出要對哪個資源發出權杖。 |
 | redirect_uri | 否 | 應用程式的重新導向 URI，您的應用程式可在此傳送及接收驗證回應。 除了必須是 URL 編碼，它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符。 |
@@ -166,7 +166,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | 參數 | 必要？ | 描述 |
 | --- | --- | --- |
 |出租| 必要項 | Azure AD B2C 租使用者的名稱|
-策略| 必要項| 要執行的使用者流程。 指定您在 Azure AD B2C 租使用者中建立的使用者流程名稱。 例如： `b2c_1_sign_in`、`b2c_1_sign_up` 或 `b2c_1_edit_profile`。 |
+策略| 必要項| 要執行的使用者流程。 指定您在 Azure AD B2C 租使用者中建立的使用者流程名稱。 例如： `b2c_1_sign_in`、`b2c_1_sign_up`或 `b2c_1_edit_profile`。 |
 | client_id |必要項 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
 | response_type |必要項 |必須包含 OpenID Connect 登入的 `id_token` 。  它也可能包含回應類型 `token`。 如果您在這裡使用 `token`，應用程式就能立即從授權端點接收存取權杖，而不需向授權端點進行第二次要求。 如果您使用 `token` 回應類型，`scope` 參數就必須包含範圍，以指出要對哪個資源發出權杖。 |
 | redirect_uri |建議 |應用程式的重新導向 URI，您的應用程式可在此傳送及接收驗證回應。 它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符，不過必須是 URL 編碼格式。 |
@@ -249,5 +249,5 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 GitHub 上的此範例旨在協助您開始使用以[node.js][github-hello-js]建立的簡單 web 應用程式中的 Azure AD B2C，並使用快顯樣式驗證。
 
 <!-- Links - EXTERNAL -->
-[github-hello-js-example]: https://github.com/azure-ad-b2c/apps/tree/master/spa/javascript-hellojs-singlepageapp-popup
+[github-hello-js-example]: https://github.com/Azure-Samples/active-directory-b2c-javascript-hellojs-singlepageapp
 [github-hello-js]: https://github.com/MrSwitch/hello.js

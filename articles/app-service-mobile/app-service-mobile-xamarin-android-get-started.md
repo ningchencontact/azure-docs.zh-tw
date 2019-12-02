@@ -1,33 +1,25 @@
 ---
-title: 開始使用適用於 Xamarin.Android 應用程式的Azure 行動應用程式
-description: 遵循此教學課程，可開始使用 Azure Mobile Apps 進行 Xamarin Android 開發。
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
-editor: ''
+title: 開始使用 Xamarin Android 應用程式
+description: 遵循此教學課程，以開始使用 Azure Mobile Apps 進行 Xamarin Android 開發。
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 038ca0bd7690ac90470d9a739a47d0f634f1297b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 1bac9ac03971765f1afc4f15ff3de6cc4b7d3883
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388481"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668678"
 ---
 # <a name="create-a-xamarinandroid-app"></a>建立 Xamarin.Android 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 > [!NOTE]
-> Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
+> Visual Studio App Center 支援使用端對端及整合服務中心來開發行動應用程式。 開發人員可以使用**建置**、**測試**和**散發**服務來設定持續整合及傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用情況，並使用**推送**服務與使用者互動。 開發人員也可以利用**驗證**來驗證其使用者，並使用**資料**來保存及同步雲端中的應用程式資料。
 >
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+> 如果您想要在行動應用程式中整合雲端服務，請立即註冊 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) \(英文\)。
 
 ## <a name="overview"></a>概觀
 本教學課程將示範如何將雲端後端服務加入至 Xamarin.Android 應用程式。 如需詳細資訊，請參閱 [什麼是 Mobile Apps？](app-service-mobile-value-prop.md)。
@@ -57,11 +49,11 @@ ms.locfileid: "72388481"
 ## <a name="run-the-xamarinandroid-app"></a>執行 Xamarin Android 應用程式
 1. 開啟 [Xamarin] 專案。
 
-2. 移至  [Azure 入口網站](https://portal.azure.com/)，然後流覽至您所建立的行動應用程式。 在 [`Overview`] 分頁上，尋找您的行動應用程式的公用端點 URL。 範例-我的應用程式名稱 "test123" 的 sitename 將會 https://test123.azurewebsites.net 。
+2. 移至  [Azure 入口網站](https://portal.azure.com/)，然後流覽至您所建立的行動應用程式。 在 [`Overview`] 分頁上，尋找您的行動應用程式的公用端點 URL。 範例-應用程式名稱 "test123" 的 sitename 將會 https://test123.azurewebsites.net 。
 
-3. 開啟此資料夾中 `ToDoActivity.cs` 的檔案-[xamarin]/[z]/[ToDoActivity]。 應用程式名稱為 `ZUMOAPPNAME`。
+3. 開啟此資料夾中的檔案 `ToDoActivity.cs`-xamarin. android/z/ToDoActivity。 應用程式名稱為 `ZUMOAPPNAME`。
 
-4. 在 `ToDoActivity` 類別中，將 `ZUMOAPPURL` 變數取代為上述公用端點。
+4. 在 `ToDoActivity` 類別中，將 `ZUMOAPPURL` 變數取代為上面的公用端點。
 
     `const string applicationURL = @"ZUMOAPPURL";`
 

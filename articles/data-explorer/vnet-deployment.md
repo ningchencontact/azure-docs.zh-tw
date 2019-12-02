@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: a7a9efbf6fd9c3dbe6b16d12a54f743d5b0820ba
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8dec673408b706a92a29f418af3bef4cc05a8d2d
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838222"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668580"
 ---
 # <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>將 Azure 資料總管部署至您的虛擬網路（預覽）
 
@@ -64,6 +64,9 @@ IP 位址總數：
 [Azure 服務端點](/azure/virtual-network/virtual-network-service-endpoints-overview)可讓您將 azure 多租使用者資源保護到您的虛擬網路。
 將 Azure 資料總管叢集部署至您的子網，可讓您在限制 Azure 資料總管子網的基礎資源時，使用[事件中樞](/azure/event-hubs/event-hubs-about)或[事件方格](/azure/event-grid/overview)來設定資料連線。
 
+> [!NOTE]
+> 搭配使用 EventGrid 安裝與[儲存體](/azure/storage/common/storage-introduction)和 [事件中樞] 時，訂用帳戶中所使用的儲存體帳戶可以透過服務端點鎖定至 Azure 資料總管的子網，同時允許[防火牆](/azure/storage/common/storage-network-security)設定中的受信任 azure 平臺服務，但事件中樞無法啟用服務端點，因為它不支援受信任的[azure 平臺服務](/azure/event-hubs/event-hubs-service-endpoints)。
+
 ## <a name="dependencies-for-vnet-deployment"></a>VNet 部署的相依性
 
 ### <a name="network-security-groups-configuration"></a>網路安全性群組設定
@@ -74,9 +77,9 @@ IP 位址總數：
 
 | **使用**   | **From**   | **To**   | **通訊協定**   |
 | --- | --- | --- | --- |
-| 管理  |[ADX 管理位址](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement （ServiceTag） | ADX 子網：443  | TCP  |
-| 健康狀況監視  | [ADX 健全狀況監視位址](#health-monitoring-addresses)  | ADX 子網：443  | TCP  |
-| ADX 內部通訊  | ADX 子網：所有埠  | ADX 子網：所有埠  | 全部  |
+| 管理性  |[ADX 管理位址](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement （ServiceTag） | ADX 子網：443  | TCP  |
+| 狀況監控  | [ADX 健全狀況監視位址](#health-monitoring-addresses)  | ADX 子網：443  | TCP  |
+| ADX 內部通訊  | ADX 子網：所有埠  | ADX 子網：所有埠  | 所有  |
 | 允許 Azure 負載平衡器輸入（健康情況探查）  | AzureLoadBalancer  | ADX 子網：80443  | TCP  |
 
 #### <a name="outbound-nsg-configuration"></a>輸出 NSG 設定
@@ -90,18 +93,18 @@ IP 位址總數：
 | Azure 監視器設定下載  | ADX 子網  | [Azure 監視器設定端點位址](#azure-monitor-configuration-endpoint-addresses)：443 | TCP  |
 | Active Directory （如果適用） | ADX 子網 | AzureActiveDirectory：443 | TCP |
 | 憑證授權單位 | ADX 子網 | 網際網路：80 | TCP |
-| 內部通訊  | ADX 子網  | ADX 子網：所有埠  | 全部  |
+| 內部通訊  | ADX 子網  | ADX 子網：所有埠  | 所有  |
 | `sql\_request` 和 `http\_request` 外掛程式所使用的埠  | ADX 子網  | 網際網路：自訂  | TCP  |
 
 ### <a name="relevant-ip-addresses"></a>相關的 IP 位址
 
 #### <a name="azure-data-explorer-management-ip-addresses"></a>Azure 資料總管管理 IP 位址
 
-| 區域 | 位址 |
+| 地區 | 位址 |
 | --- | --- |
-| 澳大利亞中部 | 20.37.26.134 |
+| 澳洲中部 | 20.37.26.134 |
 | 澳大利亞 Central2 | 20.39.99.177 |
-| 澳洲東部 | 40.82.217.84 |
+| 澳大利亞東部 | 40.82.217.84 |
 | 澳大利亞東南部 | 20.40.161.39 |
 | BrazilSouth | 191.233.25.183 |
 | 加拿大中部 | 40.82.188.208 |
@@ -136,11 +139,11 @@ IP 位址總數：
 
 #### <a name="health-monitoring-addresses"></a>健全狀況監視位址
 
-| 區域 | 位址 |
+| 地區 | 位址 |
 | --- | --- |
-| 澳大利亞中部 | 191.239.64.128 |
-| 澳大利亞中部 2 | 191.239.64.128 |
-| 澳洲東部 | 191.239.64.128 |
+| 澳洲中部 | 191.239.64.128 |
+| 澳洲中部 2 | 191.239.64.128 |
+| 澳大利亞東部 | 191.239.64.128 |
 | 澳大利亞東南部 | 191.239.160.47 |
 | 巴西南部 | 23.98.145.105 |
 | 加拿大中部 | 168.61.212.201 |
@@ -175,7 +178,7 @@ IP 位址總數：
 
 #### <a name="azure-monitor-configuration-endpoint-addresses"></a>Azure 監視器設定端點位址
 
-| 區域 | 位址 |
+| 地區 | 位址 |
 | --- | --- |
 | 澳大利亞中部 | 52.148.86.165 |
 | 澳大利亞中部 2 | 52.148.86.165 |
@@ -251,7 +254,7 @@ crl3.digicert.com:80
 
 例如，針對**美國西部**區域，必須定義下列 udr：
 
-| 名稱 | 位址首碼 | 下一個躍點 |
+| Name | 位址首碼 | 下一個躍點 |
 | --- | --- | --- |
 | ADX_Management | 13.64.38.225/32 | Internet |
 | ADX_Monitoring | 23.99.5.162/32 | Internet |
