@@ -568,6 +568,8 @@
               href: cassandra-import-data.md
         - name: 使用說明指南
           items:
+            - name: 變更摘要
+              href: cassandra-change-feed.md
             - name: 儲存和管理 Spring 資料
               href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
               maintainContext: true

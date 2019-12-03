@@ -1,26 +1,17 @@
 ---
-title: App Service 方案概觀 - Azure | Microsoft Docs
-description: 了解 Azure App Service 之應用程式服務方案的運作方式，以及在管理經驗上帶來的效益。
+title: App Service 方案
+description: 瞭解 App Service 方案如何在 Azure App Service 中工作、如何向客戶收費，以及如何根據您的需求進行調整。
 keywords: App Service, Azure App Service, 級別, 可調整, 延展性, App Service 方案, App Service 成本
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 78440185b4a26bccc8ffb0258416a19aa929af6b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c0b28bd7a854d1b4a8b387e40fb045d47160768d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470248"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672273"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 方案概觀
 
