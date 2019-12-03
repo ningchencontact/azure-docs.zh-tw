@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: aac20034fb4a528e48d5b383f39205a952878539
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 06d7b7abe7741c465f3d40a90340e03b2c24f258
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900700"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707507"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>變更 Azure 中 SQL Server 虛擬機器的授權模型
 本文說明如何使用新的 SQL VM 資源提供者**microsoft.sqlvirtualmachine**，在 Azure 中變更 SQL Server 虛擬機器（VM）的授權模型。
@@ -36,17 +36,18 @@ Azure Hybrid Benefit 允許在 Azure 虛擬機器上使用具有軟體保證（�
 若要指出在 Azure VM 上使用 Azure Hybrid Benefit 進行 SQL Server 並符合規範，您有三個選項：
 
 - 使用來自 Azure Marketplace 的自備授權 SQL Server 映射來布建虛擬機器。 此選項僅適用于具有 Enterprise 合約的客戶。
-- 使用 Azure Marketplace 的隨用隨付 SQL Server 映射並啟用 Azure Hybrid Benefit 來布建虛擬機器。
-- 在 Azure VM 上自行安裝 SQL Server、手動[註冊 SQL SERVER VM](virtual-machines-windows-sql-register-with-resource-provider.md)，以及啟動 Azure Hybrid Benefit。
+- 使用 Azure Marketplace 的隨用隨付 SQL Server 映射來布建虛擬機器，並啟動 Azure Hybrid Benefit。
+- 在 Azure VM 上自行安裝 SQL Server、手動[向 SQL VM 資源提供者註冊](virtual-machines-windows-sql-register-with-resource-provider.md)，然後啟動 Azure Hybrid Benefit。
 
-布建 VM 時，會設定 SQL Server 的授權類型。 之後可以隨時變更。 在授權模型之間切換不會產生停機時間、不會重新開機 VM、不新增額外費用，而且會立即生效。 事實上，啟用 Azure Hybrid Benefit 可*降低*成本。
+布建 VM 時，會設定 SQL Server 的授權類型。 之後可以隨時變更。 在授權模型之間切換並不會造成停機、不會重新開機 VM 或 SQL Server 服務，也不會增加任何額外的成本，而且會立即生效。 事實上，啟用 Azure Hybrid Benefit 可*降低*成本。
 
 ## <a name="prerequisites"></a>必要條件
 
-使用 SQL VM 資源提供者需要 SQL Server IaaS 延伸模組。 因此，您需要下列各項：
+變更 SQL Server VM 的授權模型具有下列需求： 
+
 - [Azure 訂用帳戶](https://azure.microsoft.com/free/)。
-- [軟體保證](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default)。 
 - 向[SQL vm 資源提供者](virtual-machines-windows-sql-register-with-resource-provider.md)註冊的[SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) 。
+- [軟體保證](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default)是使用[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)的需求。 
 
 
 ## <a name="change-the-license-for-vms-already-registered-with-the-resource-provider"></a>變更已向資源提供者註冊之 Vm 的授權 

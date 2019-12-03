@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: e218877ee0d29e493a31091ccbce406ed888f8cc
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 8a464a8a635e0531eba2f9cc6fbceeb9edcea8bb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114730"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705967"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>從 Power BI 中的時間序列深入解析將資料視覺化
 
@@ -29,10 +29,13 @@ Azure 時間序列深入解析是在雲端中儲存、管理、查詢和視覺�
 
 如果您還沒有訂用帳戶，請務必註冊[免費的 Azure 訂](https://azure.microsoft.com/free/)用帳戶。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 下載並安裝最新版本的[Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-* 建立或建立[AZURE 時間序列深入解析 GA 實例](time-series-insights-get-started.md)或[Azure 時間序列深入解析 Preview 實例](time-series-insights-update-how-to-manage.md)
+* 建立或建立[Azure 時間序列深入解析 Preview 實例](time-series-insights-update-how-to-manage.md)
+
+> [!IMPORTANT]
+> 在針對**暖存放區**設定的時間序列深入解析 Preview*隨用隨付*環境中，目前支援 Power BI 連接器。
 
 ## <a name="connect-data-from-time-series-insights-to-power-bi"></a>將資料從時間序列深入解析連線到 Power BI
 
@@ -45,7 +48,7 @@ Azure 時間序列深入解析是在雲端中儲存、管理、查詢和視覺�
 
 ### <a name="export-data-into-power-bi-desktop"></a>將資料匯出至 Power BI desktop
 
-開始進行之前：
+若要開始進行：
 
 1. 開啟時間序列深入解析 Preview Explorer，並策展您的資料。
 1. 一旦您建立了您滿意的視圖，請流覽至 [**其他動作**] 下拉式功能表，然後按一下 [**連接到 Power BI]** 。 
@@ -65,12 +68,12 @@ Azure 時間序列深入解析是在雲端中儲存、管理、查詢和視覺�
 
        [![連接](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
-   1. 如果您尚未為暖存放區設定時間序列深入解析實例，您將會收到警告。
+   1. 如果您尚未為**暖存放區**設定時間序列深入解析實例，您將會收到警告。
 
        [![連接](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
        > [!TIP]
-       > 您可以在 Azure 入口網站中，為暖存放區設定現有的實例。
+       > 您可以在 Azure 入口網站中，為**暖存放區**設定現有的實例。
 
 1. 選取 [**將查詢複製到剪貼**簿]。
 1. 現在，啟動 Power BI Desktop。

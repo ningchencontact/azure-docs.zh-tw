@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 31a1c7cd72d57b9c680452d5e84f8fe78f47cebb
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 106cd870a8ba52917ecabe6266bbb2c376296d79
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71693322"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704265"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>瞭解健全狀況狀態，並在 Azure Active Directory Domain Services 中解決已擱置的網域
 
@@ -35,13 +35,13 @@ Azure AD DS 受控網域可能處於下列其中一種狀態：
 * [執行中](#running-state)
 * [需要注意](#needs-attention-state)
 * [掛](#suspended-state)
-* [刪除](#deleted-state)
+* [已刪除](#deleted-state)
 
 ## <a name="running-state"></a>執行狀態
 
 已正確設定並在沒有問題的情況下執行的 Azure AD DS 受控網域會處於 [*正在*執行] 狀態。 這是受控網域所需的狀態。
 
-### <a name="what-to-expect"></a>預期的情況
+### <a name="what-to-expect"></a>未來展望
 
 * Azure 平臺可以定期監視受控網域的健全狀況。
 * 受控網域的網域控制站會定期進行修補和更新。
@@ -56,7 +56,7 @@ Azure AD DS 受控網域可能處於下列其中一種狀態：
 
 如需詳細資訊，請參閱[如何針對 AZURE AD DS 受控網域的警示進行疑難排解][resolve-alerts]。
 
-### <a name="what-to-expect"></a>預期的情況
+### <a name="what-to-expect"></a>未來展望
 
 當 Azure AD DS 受控網域處於「*需要注意*」狀態時，Azure 平臺可能無法定期監視、修補、更新或備份資料。 在某些情況下（例如，使用不正確網路設定），可能無法連線到受控網域的網域控制站。
 
@@ -72,12 +72,12 @@ Azure AD DS 受控網域可能處於下列其中一種狀態：
 基於下列其中一個原因，Azure AD DS 受控網域進入**暫停**狀態：
 
 * 有一或多個重大警示未在 15 天內解決。
-    * 重大警示可能是因為設定錯誤而使 Azure AD DS 所需資源的存取遭到封鎖而導致的。 例如，受控網域中的警示 [AADDS104：網路錯誤][alert-nsg]並未在 15 天內解決。
+    * 重大警示可能是因為設定錯誤而使 Azure AD DS 所需資源的存取遭到封鎖而導致的。 例如，受控網域中的 [AADDS104：網路錯誤][alert-nsg]警示並未在 15 天內解決。
 * Azure 訂用帳戶有帳單問題，或 Azure 訂用帳戶已過期。
 
 當 Azure 平臺無法管理、監視、修補或備份網域時，受控網域就會暫停。 受控網域會維持在*暫停*狀態15天。 若要維護受控網域的存取權，請立即解決重大警示。
 
-### <a name="what-to-expect"></a>預期的情況
+### <a name="what-to-expect"></a>未來展望
 
 當 Azure AD DS 受控網域處於「已*暫停*」狀態時，會發生下列行為：
 
@@ -96,7 +96,7 @@ Azure AD DS 受控網域可能處於下列其中一種狀態：
 若要還原處于「已*暫停*」狀態之 Azure AD DS 受控網域的健康情況，請完成下列步驟：
 
 1. 在 Azure 入口網站中，搜尋並選取 **網域服務**。
-1. 從清單中選擇您的 Azure AD DS 受控網域（例如*contoso.com*），然後選取 [**健康**情況]。
+1. 從清單中選擇您的 Azure AD DS 受控網域（例如*aadds.contoso.com*），然後選取 [**健康**情況]。
 1. 視暫停的原因而定，選取警示，例如*AADDS503*或*AADDS504*。
 1. 選擇警示中提供的解決連結，並遵循步驟來解決此問題。
 
@@ -108,7 +108,7 @@ Azure AD DS 受控網域可能處於下列其中一種狀態：
 
 如果 Azure AD DS 受控網域處於*暫停*狀態15天，則會被刪除。 此進程無法復原。
 
-### <a name="what-to-expect"></a>預期的情況
+### <a name="what-to-expect"></a>未來展望
 
 當 Azure AD DS 受控網域進入*已刪除*狀態時，會看到下列行為：
 

@@ -1,6 +1,6 @@
 ---
-title: 使用 RBAC 管理外部來賓使用者對 Azure 資源的存取 |Microsoft Docs
-description: 了解如何使用角色型存取控制 (RBAC) 來管理組織外部使用者的 Azure 資源存取權。
+title: 使用 Azure RBAC 和 Azure 入口網站新增或移除外部來賓使用者的角色指派
+description: 瞭解如何使用 Azure 角色型存取控制（RBAC），為組織外部的使用者授與 Azure 資源的存取權。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,20 +12,26 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 09/12/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 51945940a0f0fd0346e9437c4ad0631f989e0a92
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: db43a3cce27da5f40986968b6573bfd58a1d3cb7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555554"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707873"
 ---
-# <a name="manage-access-to-azure-resources-for-external-guest-users-using-rbac"></a>使用 RBAC 管理外部來賓使用者對 Azure 資源的存取
+# <a name="add-or-remove-role-assignments-for-external-guest-users-using-azure-rbac-and-the-azure-portal"></a>使用 Azure RBAC 和 Azure 入口網站新增或移除外部來賓使用者的角色指派
 
-以角色為基礎的存取控制（RBAC）可針對大型組織，以及與外部共同作業者、廠商或需要存取您環境中特定資源的兼職的小型企業，提供更好的安全性管理，但不一定是整個基礎結構或任何計費相關範圍。 您可以使用[AZURE ACTIVE DIRECTORY B2B](../active-directory/b2b/what-is-b2b.md)中的功能，與外部來賓使用者共同作業，而且您可以使用 RBAC 僅授與來賓使用者在您的環境中所需的許可權。
+[Azure 角色型存取控制（RBAC）](overview.md)可讓大型組織以及適用于外部共同作業者、廠商或需要存取您環境中特定資源，但不一定是整個基礎結構或任何計費相關範圍的小型和中型企業，進行更好的安全性管理。 您可以使用[AZURE ACTIVE DIRECTORY B2B](../active-directory/b2b/what-is-b2b.md)中的功能，與外部來賓使用者共同作業，而且您可以使用 RBAC 僅授與來賓使用者在您的環境中所需的許可權。
+
+## <a name="prerequisites"></a>必要條件
+
+若要新增或移除角色指派，您必須具有：
+
+- `Microsoft.Authorization/roleAssignments/write` 和 `Microsoft.Authorization/roleAssignments/delete` 權限，例如[使用者存取系統管理員](built-in-roles.md#user-access-administrator)或[擁有者](built-in-roles.md#owner)
 
 ## <a name="when-would-you-invite-guest-users"></a>何時會邀請來賓使用者？
 
@@ -61,9 +67,9 @@ ms.locfileid: "74555554"
 
 如需有關邀請程式的詳細資訊，請參閱[AZURE ACTIVE DIRECTORY B2B 共同作業邀請兌換](../active-directory/b2b/redemption-experience.md)。
 
-## <a name="grant-access-to-a-guest-user"></a>授與來賓使用者的存取權
+## <a name="add-a-role-assignment-for-a-guest-user"></a>新增來賓使用者的角色指派
 
-在 RBAC 中，若要授與存取權，您必須指派角色。 若要授與來賓使用者的存取權，您可以遵循與成員使用者、群組、服務主體或受控識別[相同的步驟](role-assignments-portal.md#add-a-role-assignment)。 請遵循下列步驟，將存取權授與不同範圍的來賓使用者。
+在 RBAC 中，若要授與存取權，您必須指派角色。 若要新增來賓使用者的角色指派，請遵循與成員使用者、群組、服務主體或受控識別[相同的步驟](role-assignments-portal.md#add-a-role-assignment)。 請遵循下列步驟，為不同範圍的來賓使用者新增角色指派。
 
 1. 在 Azure 入口網站中，按一下 [所有服務]。
 
@@ -95,9 +101,9 @@ ms.locfileid: "74555554"
 
     ![虛擬機器參與者的角色指派](./media/role-assignments-external-users/access-control-role-assignments.png)
 
-## <a name="grant-access-to-a-guest-user-not-yet-in-your-directory"></a>將存取權授與您的目錄中尚未存在的來賓使用者
+## <a name="add-a-role-assignment-for-a-guest-user-not-yet-in-your-directory"></a>為尚未在您目錄中的來賓使用者新增角色指派
 
-在 RBAC 中，若要授與存取權，您必須指派角色。 若要授與來賓使用者的存取權，您可以遵循與成員使用者、群組、服務主體或受控識別[相同的步驟](role-assignments-portal.md#add-a-role-assignment)。
+若要新增來賓使用者的角色指派，請遵循與成員使用者、群組、服務主體或受控識別[相同的步驟](role-assignments-portal.md#add-a-role-assignment)。
 
 如果來賓使用者尚未在您的目錄中，您可以直接從 [新增角色指派] 窗格邀請使用者。
 
@@ -179,7 +185,7 @@ ms.locfileid: "74555554"
 
 ### <a name="guest-user-cannot-browse-users-groups-or-service-principals-to-assign-roles"></a>來賓使用者無法流覽使用者、群組或服務主體來指派角色
 
-來賓使用者具有受限的目錄權限。 即使來賓使用者是範圍中的[擁有](built-in-roles.md#owner)者，如果他們嘗試建立角色指派以授與其他人存取權，他們就無法流覽使用者、群組或服務主體的清單。
+來賓使用者具有受限的目錄權限。 即使來賓使用者是範圍中的[擁有](built-in-roles.md#owner)者，如果他們嘗試新增角色指派以授與其他人存取權，他們就無法流覽使用者、群組或服務主體的清單。
 
 ![來賓使用者無法流覽安全性主體來指派角色](./media/role-assignments-external-users/directory-no-browse.png)
 

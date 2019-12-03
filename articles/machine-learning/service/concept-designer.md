@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 73facea2b99ee038b16053fd818d93d35da4cbdd
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9301f3e685116c8496dd5e0ec986218a046f0c98
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196156"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707709"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>什麼是 Azure Machine Learning 設計工具（預覽）？ 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -45,7 +45,7 @@ Azure Machine Learning 設計工具可讓您以視覺化方式連接互動式畫
     + 發行**批次推斷管線**，以使用先前定型的模型對新資料進行預測。
 + 將**即時推斷管線**[部署](#deploy)至即時端點，以即時預測新的資料。
 
-![設計工具中的定型、批次推斷和即時推斷的工作流程圖](media/ui-concept-visual-interface/designer-workflow-diagram.png)
+![設計工具中的定型、批次推斷和即時推斷的工作流程圖](media/concept-designer/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>管線
 
@@ -80,7 +80,7 @@ Azure Machine Learning 設計工具可讓您以視覺化方式連接互動式畫
 
 模組可能有一組參數可用來設定模組的內部演算法。 當您在畫布上選取模組時，模組的參數會顯示在畫布右邊的 [屬性] 窗格中。 您可以在此窗格中修改參數來調整模型。 您可以在設計工具中設定個別模組的計算資源。 
 
-![模組屬性](media/ui-concept-visual-interface/properties.png)
+![模組屬性](media/concept-designer/properties.png)
 
 如需流覽可用機器學習服務演算法程式庫的協助，請參閱[演算法 & 模組參考總覽](../algorithm-module-reference/module-reference.md)
 
@@ -88,7 +88,7 @@ Azure Machine Learning 設計工具可讓您以視覺化方式連接互動式畫
 
 使用您工作區中的計算資源來執行管線，並將部署的模型裝載為即時端點或管線端點（適用于批次推斷）。 支援的計算目標包括：
 
-| 計算目標 | 訓練 | 部署 |
+| 計算目標 | 訓練 | Deployment |
 | ---- |:----:|:----:|
 | Azure Machine Learning Compute | ✓ | |
 | Azure Kubernetes Service | | ✓ |
@@ -103,11 +103,11 @@ Azure Machine Learning 設計工具可讓您以視覺化方式連接互動式畫
 
 若要瞭解如何部署您的模型，請參閱[教學課程：使用設計工具部署機器學習服務模型](tutorial-designer-automobile-price-deploy.md)。
 
-## <a name="publish"></a>Publish
+## <a name="publish"></a>發佈
 
 您也可以將管線發佈至**管線端點**。 與即時端點類似，管線端點可讓您使用 REST 呼叫從外部應用程式提交新的管線執行。 不過，您無法使用管線端點即時傳送或接收資料。
 
-已發佈的管線具有彈性，可以用來定型或重新訓練模型、執行批次推斷、處理新的資料，以及其他更多作業。 您可以將多個管線發行至單一管線端點，並指定要執行哪個管線版本。
+已發佈的管線具有彈性，可以用來定型或重新訓練模型、[執行批次推斷](how-to-run-batch-predictions-designer.md)、處理新的資料，以及其他更多作業。 您可以將多個管線發行至單一管線端點，並指定要執行哪個管線版本。
 
 已發佈的管線會在您于每個模組的管線草稿中定義的計算資源上執行。
 

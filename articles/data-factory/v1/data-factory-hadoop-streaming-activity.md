@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c56961b28750f3ba6450c26c897c1ef6c54b3ed8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a7f07365da699a40f5b51917104a68a62affa3d9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73667494"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703374"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop 資料流活動轉換資料
 > [!div class="op_single_selector" title1="轉換活動"]
@@ -33,7 +33,7 @@ ms.locfileid: "73667494"
 > * [.NET 自訂活動](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用 Hadoop 串流來轉換資料](../transform-data-using-hadoop-streaming.md)。
+> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用 Hadoop 串流來轉換資料](../transform-data-using-hadoop-streaming.md)。
 
 
 您可以使用 HDInsightStreamingActivity 活動從 Azure Data Factory 管線叫用 Hadoop 串流工作。 下列 JSON 片段會示範在管線 JSON 檔案中使用 HDInsightStreamingActivity 的語法。 
@@ -227,5 +227,5 @@ HDInsight 叢集會使用範例程式 (wc.exe 和 cat.exe) 和資料 (將 davinc
 * [Pig 活動](data-factory-pig-activity.md)
 * [MapReduce 活動](data-factory-map-reduce.md)
 * [叫用 Spark 程式](data-factory-spark.md)
-* [叫用 R 指令碼](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [叫用 R 指令碼](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

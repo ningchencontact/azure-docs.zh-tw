@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 2351e6a63723156cce646a6a1cdda837b18a8f91
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 5429ebb611f852f7672d89de190ddd68dbcb01cf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456817"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707786"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>針對適用於 Azure 資源的 RBAC 進行疑難排解
 
@@ -90,7 +90,7 @@ CanDelegate        : False
 }
 ```
 
-這不是保留這些角色指派的問題，但您可以使用與其他角色指派類似的步驟來移除它們。 如需有關如何移除角色指派的詳細資訊，請參閱[Azure 入口網站](role-assignments-portal.md#remove-role-assignments)、 [Azure PowerShell](role-assignments-powershell.md#remove-access)或[Azure CLI](role-assignments-cli.md#remove-access)
+這不是保留這些角色指派的問題，但您可以使用與其他角色指派類似的步驟來移除它們。 如需有關如何移除角色指派的詳細資訊，請參閱[Azure 入口網站](role-assignments-portal.md#remove-a-role-assignment)、 [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)或[Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
 
 在 PowerShell 中，如果您嘗試使用物件識別碼和角色定義名稱移除角色指派，而且有一個以上的角色指派符合您的參數，您會收到錯誤訊息：「提供的資訊未對應至角色指派」。 以下顯示錯誤訊息的範例：
 
@@ -162,14 +162,14 @@ Web 應用程式因為幾個互有關聯的資源而顯得複雜。 以下是具
 
 這些項目都需要具備「虛擬機器」的**寫入**權：
 
-* Endpoints  
+* 端點  
 * IP 位址  
 * 磁碟  
 * 擴充功能  
 
 這些項目都需要同時具備「虛擬機器」與所屬之「資源群組」(連同網域名稱) 的**寫入**權：  
 
-* 可用性集合  
+* 可用性設定組  
 * 負載平衡集合  
 * 警示規則  
 

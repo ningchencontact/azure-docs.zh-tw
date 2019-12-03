@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 1016fbc1478ec713d50a2f04bcc80d08288b03f3
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 73a76c4442bb8af70168e54a294f2cb100ff653c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827229"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703662"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>針對 Azure AD Domain Services 受控網域的網域聯結問題進行疑難排解
 
@@ -32,8 +32,8 @@ ms.locfileid: "71827229"
 
 1. 請確定 VM 已連線至已啟用 Azure AD DS 的相同或對等互連虛擬網路。 如果沒有，VM 就找不到並聯機到網域，以便加入。
     * 如果 VM 未連線到相同的虛擬網路，請確認虛擬網路對等互連或 VPN 連線為*作用中或* *已連接*，以允許流量正確流動。
-1. 嘗試使用 Azure AD DS 受控網域的功能變數名稱（例如 `ping contoso.com`） ping 網域。
-    * 如果 ping 回應失敗，請嘗試在入口網站中，針對您 Azure AD DS 受控網域（例如 `ping 10.0.0.4`）的 [總覽] 頁面上所顯示的網域，偵測其 IP 位址。
+1. 嘗試使用 Azure AD DS 受控網域的功能變數名稱（例如 `ping aadds.contoso.com`） ping 網域。
+    * 如果 ping 回應失敗，請嘗試在入口網站中，針對您的 Azure AD DS 受控網域（例如 `ping 10.0.0.4`），ping 所顯示網域的 IP 位址。
     * 如果您可以順利 ping IP 位址，而不是網域，則 DNS 可能設定不正確。 請確定您已設定虛擬網路的 Azure AD DS 受控網域 DNS 伺服器。
 1. 請嘗試排清虛擬機器上的 DNS 解析程式快取，例如 `ipconfig /flushdns`。
 

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: 33a63b8a887594747aba03e19c107653e438853f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 27d9b3061794e5673d5ab24fe30d44f46e217c64
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217736"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702045"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>對應資料流程的來源轉換 
 
@@ -123,7 +123,7 @@ Azure Data Factory 可以存取超過80的原生連接器。 若要在資料流�
 
 所有的來源設定都可以使用[對應資料流程的轉換運算式語言](data-flow-expression-functions.md)，指定為運算式。 若要新增動態內容，請按一下或將滑鼠停留在 [設定] 面板中的欄位內。 按一下 [**新增動態內容**] 的超連結。 這會啟動 [運算式產生器]，您可以在其中使用運算式、靜態常值或參數來動態設定值。
 
-![參數](media/data-flow/params6.png "parameters")
+![參數](media/data-flow/params6.png "參數")
 
 ## <a name="sql-source-options"></a>SQL 來源選項
 
@@ -131,7 +131,7 @@ Azure Data Factory 可以存取超過80的原生連接器。 若要在資料流�
 
 **輸入：** 選取您是要將來源指向資料表（相當於 ```Select * from <table-name>```）還是輸入自訂的 SQL 查詢。
 
-**查詢**：如果您在 [輸入] 欄位中選取 [查詢]，請輸入來源的 SQL 查詢。 此設定會覆寫您在資料集中選擇的任何資料表。 這裡不支援**Order By**子句，但您可以設定完整的 SELECT FROM 語句。 您也可以使用使用者定義資料表函數。 **select * From udfGetData （）** 是 SQL 中傳回資料表的 UDF。 此查詢會產生您可以在資料流程中使用的來源資料表。 使用查詢也是縮減資料列以進行測試或查閱的絕佳方式。 範例︰ ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+**查詢**：如果您在 [輸入] 欄位中選取 [查詢]，請輸入來源的 SQL 查詢。 此設定會覆寫您在資料集中選擇的任何資料表。 這裡不支援**Order By**子句，但您可以設定完整的 SELECT FROM 語句。 您也可以使用使用者定義資料表函數。 **select * From udfGetData （）** 是 SQL 中傳回資料表的 UDF。 此查詢會產生您可以在資料流程中使用的來源資料表。 使用查詢也是縮減資料列以進行測試或查閱的絕佳方式。 範例：```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
 **批次大小**：輸入批次大小以將大型資料區塊為讀取。
 
@@ -156,7 +156,7 @@ Azure Data Factory 可以存取超過80的原生連接器。 若要在資料流�
 
 ### <a name="import-schema"></a>匯入架構
 
-支援複雜資料結構的資料集（例如 Avro 和 CosmosDB）不需要架構定義存在於資料集內。 因此，您可以按一下 [匯入架構] 按鈕，將這些來源類型的 [投射] 索引標籤。
+支援複雜資料結構的資料集（例如 Avro 和 CosmosDB）不需要架構定義存在於資料集內。 因此，您將能夠在這些來源類型的 [**投射**] 索引標籤上，按一下 [匯**入架構**] 按鈕。
 
 ## <a name="cosmosdb-specific-settings"></a>CosmosDB 特定設定
 

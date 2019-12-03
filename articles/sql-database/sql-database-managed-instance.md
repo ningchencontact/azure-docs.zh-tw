@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 11/27/2019
-ms.openlocfilehash: db5ac9465e6b897690c54484de25fde462741fb3
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 1a9c24846606c53fefa1ffc1de59f358524020c4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548386"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707633"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>什麼是 Azure SQL Database 受控實例？
 
@@ -250,7 +250,7 @@ Azure SQL Database 提供一組可用來保護資料的進階安全性功能。
 
 移轉方法會利用 SQL 備份到 Azure Blob 儲存體。 透過 [T-SQL RESTORE 命令](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current)，儲存在 Azure 儲存體 Blob 的備份可以直接用來還原到受控執行個體。
 
-- 如需示範如何還原 Wide World Importers - 標準資料庫備份檔案的快速入門，請參閱[還原備份檔案至受控執行個體](sql-database-managed-instance-get-started-restore.md)。 本快速入門顯示，您必須將備份檔案上傳到 Azure Blog 儲存體，並使用共用存取簽章 (SAS) 金鑰保護其安全。
+- 如需示範如何還原 Wide World Importers - 標準資料庫備份檔案的快速入門，請參閱[還原備份檔案至受控執行個體](sql-database-managed-instance-get-started-restore.md)。 本快速入門說明您必須將備份檔案上傳至 Azure blob 儲存體，並使用共用存取簽章（SAS）金鑰來保護它。
 - 如需從 URL 還原的資訊，請參閱[從 URL 原生還原](sql-database-managed-instance-migrate.md#native-restore-from-url)。
 
 > [!IMPORTANT]

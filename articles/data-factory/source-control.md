@@ -5,19 +5,19 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: naF
 ms.topic: conceptual
 ms.date: 01/09/2019
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 264c60c719ffdd94664ae3a85fc67894d14f394d
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 904165c4a221e1db30f9aa1ce1f2ce7b21cf04ed
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484452"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703824"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory 中的原始檔控制
 
@@ -71,7 +71,7 @@ Azure Data Factory 的使用者介面體驗（UX）有兩種適用于視覺製�
 
 [設定] 窗格會顯示下列 Azure Repos 程式碼存放庫設定：
 
-| 設定 | 描述 | 值 |
+| 設定 | 描述 | Value |
 |:--- |:--- |:--- |
 | **存放庫類型** | Azure Repos 程式碼存放庫的類型。<br/> | Azure DevOps Git 或 GitHub |
 | **Azure Active Directory** | 您的 Azure AD 租用戶名稱。 | `<your tenant name>` |
@@ -138,14 +138,14 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 
 [設定] 窗格會顯示下列 GitHub 存放庫設定：
 
-| **設定** | **描述**  | **值**  |
+| **設定** | **說明**  | **值**  |
 |:--- |:--- |:--- |
 | **存放庫類型** | Azure Repos 程式碼存放庫的類型。 | GitHub |
 | **使用 GitHub Enterprise** | 選取 GitHub Enterprise 的核取方塊 | 未選取（預設值） |
-| **GitHub Enterprise URL** | GitHub Enterprise 的根 URL。 例如： https://github.mydomain.com。 只有在選取 **使用 GitHub Enterprise**時才需要 | `<your GitHub enterprise url>` |                                                           
+| **GitHub Enterprise URL** | GitHub Enterprise 的根 URL。 例如： https://github.mydomain.com 。 只有在選取 **使用 GitHub Enterprise**時才需要 | `<your GitHub enterprise url>` |                                                           
 | **GitHub 帳戶** | 您的 GitHub 帳戶名稱。 您可以從 HTTPs：\//github.com/{account name}/{repository name} 找到此名稱。 瀏覽到此頁面時，系統會提示您輸入 GitHub 帳戶的 GitHub OAuth 認證。 | `<your GitHub account name>` |
 | **存放庫名稱**  | 您的 GitHub 程式碼存放庫名稱。 GitHub 帳戶包含 Git 存放庫，可用來管理原始程式碼。 您可以建立新的存放庫，或使用帳戶中既有的存放庫。 | `<your repository name>` |
-| **共同作業分支** | 用於發行的 GitHub 共同作業分支。 預設為主要。 如果您想要從其他分支發行資源，請變更此設定。 | `<your collaboration branch>` |
+| **共同作業分支** | 用於發行的 GitHub 共同作業分支。 根據預設，它是 master。 如果您想要從其他分支發行資源，請變更此設定。 | `<your collaboration branch>` |
 | **根資料夾** | 在您 GitHub 共同作業分支中的根資料夾。 |`<your root folder name>` |
 | **將現有的 Data Factory 資源匯入存放庫** | 指定是否要從 UX 撰寫畫布將現有的 data factory 資源匯入到 GitHub 存放庫。 選取此方塊可將您的資料處理站資源以 JSON 格式匯入到相關聯的 Git 存放庫。 此動作會將每個資源個別匯出 (亦即，已連結的服務和資料集會匯出至個別的 JSON)。 若未選取此方塊，則不會匯入現有資源。 | 已選取 (預設值) |
 | **要匯入資源的分支** | 指定要匯入資料處理站資源 (管線、資料集、連結服務等等) 的分支。 您可以將資源匯入下列其中一個分支：a. 共同作業 b. 新建 c. 使用現有的 |  |
@@ -186,7 +186,7 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 
 ### <a name="configure-publishing-settings"></a>設定發佈設定
 
-若要設定發佈分支 (亦即儲存 Resource Manager 範本的分支)，請將 `publish_config.json` 檔案新增至共同作業分支中的根資料夾。 Data Factory 會讀取此檔案、尋找 `publishBranch` 欄位，然後使用所提供的值來建立新分支 (如果尚未存在)。 接著，它會將所有 Resource Manager 範本都儲存到指定的位置。 例如︰
+若要設定發佈分支 (亦即儲存 Resource Manager 範本的分支)，請將 `publish_config.json` 檔案新增至共同作業分支中的根資料夾。 Data Factory 會讀取此檔案、尋找 `publishBranch` 欄位，然後使用所提供的值來建立新分支 (如果尚未存在)。 接著，它會將所有 Resource Manager 範本都儲存到指定的位置。 例如：
 
 ```json
 {
@@ -225,7 +225,7 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 
 ## <a name="best-practices-for-git-integration"></a>Git 整合的最佳做法
 
-### <a name="permissions"></a>權限
+### <a name="permissions"></a>使用權限
 
 通常您不會希望每個小組成員都擁有更新處理站的許可權。 建議使用下列許可權設定：
 

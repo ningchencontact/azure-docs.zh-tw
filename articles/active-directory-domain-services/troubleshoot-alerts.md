@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 3286d3e786fc5b0e7a772f5b0e3caa3acf38671e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 459aeaefc07e3f55b0829f0ad378992104982941
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257938"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703946"
 ---
-# <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>已知問題：Azure Active Directory Domain Services 中的常見警示和解決方式
+# <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>已知問題： Azure Active Directory Domain Services 中的常見警示和解決方式
 
 作為應用程式身分識別和驗證的核心部分，Azure Active Directory Domain Services （Azure AD DS）有時會發生問題。 如果您遇到問題，有一些常見的警示和相關的疑難排解步驟可協助您再次執行專案。 您也可以隨時[開啟 Azure 支援要求][azure-support]，以取得額外的疑難排解協助。
 
@@ -28,7 +28,7 @@ ms.locfileid: "71257938"
 
 ### <a name="alert-message"></a>警示訊息
 
-*與受控網域相關聯的 Azure AD 目錄可能已遭刪除。受控網域已不在支援的設定中。Microsoft 無法監視、管理、修補及同步處理受控網域。*
+*與受控網域相關聯的 Azure AD 目錄可能已刪除。受控網域已不在支援的設定中。Microsoft 無法監視、管理、修補及同步處理您的受控網域。*
 
 ### <a name="resolution"></a>解析度
 
@@ -58,7 +58,7 @@ Azure AD DS 受控網域的健康狀態會在兩小時內自動更新，並移�
 
 ### <a name="alert-message"></a>警示訊息
 
-*您於其中啟用 Azure AD Domain Services 之虛擬網路的 IP 位址範圍位於公用 IP 範圍中。Azure AD Domain Services 必須在具有私人 IP 位址範圍的虛擬網路中啟用。此設定會影響 Microsoft 監視、管理、修補及同步處理受控網域的能力。*
+*您已啟用 Azure AD Domain Services 之虛擬網路的 IP 位址範圍是在公用 IP 範圍中。必須在具有私人 IP 位址範圍的虛擬網路中啟用 Azure AD Domain Services。此設定會影響 Microsoft 監視、管理、修補及同步處理受控網域的能力。*
 
 ### <a name="resolution"></a>解析度
 
@@ -86,7 +86,7 @@ Azure AD DS 受控網域的健康狀態會在兩小時內自動更新，並移�
 
 ### <a name="alert-message"></a>警示訊息
 
-*與受控網域相關聯的 Azure 訂用帳戶已遭到刪除。Azure AD Domain Services 需要有使用中的訂用帳戶，才能繼續正常運作。*
+*與您的受控網域相關聯的 Azure 訂用帳戶已刪除。 Azure AD Domain Services 需要有效的訂用帳戶，才能繼續正常運作。*
 
 ### <a name="resolution"></a>解析度
 
@@ -96,11 +96,11 @@ Azure AD DS 需要有效的訂用帳戶，且無法移至不同的訂用帳戶�
 1. 從現有的 Azure AD 目錄中[刪除 AZURE AD DS 受控網域](delete-aadds.md)。
 1. [建立替代 AZURE AD DS 受控網域](tutorial-create-instance.md)。
 
-## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107：您的 Azure 訂用帳戶已停用
+## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107：Azure 訂用帳戶已停用
 
 ### <a name="alert-message"></a>警示訊息
 
-*與受控網域相關聯的 Azure 訂用帳戶不在使用中。Azure AD Domain Services 需要有使用中的訂用帳戶，才能繼續正常運作。*
+*與您的受控網域相關聯的 Azure 訂用帳戶未啟用。 Azure AD Domain Services 需要有效的訂用帳戶，才能繼續正常運作。*
 
 ### <a name="resolution"></a>解析度
 
@@ -115,17 +115,17 @@ Azure AD DS 需要有效的訂用帳戶。 如果與 Azure AD DS 受控網域相
 
 ### <a name="alert-message"></a>警示訊息
 
-*Azure AD Domain Services 所使用的訂用帳戶已移至另一個目錄。Azure AD 網域服務必須在相同目錄中有有效的訂用帳戶才能正確運作。*
+*Azure AD Domain Services 使用的訂用帳戶已移至另一個目錄。Azure AD Domain Services 必須在相同的目錄中有有效的訂用帳戶，才能正常運作。*
 
 ### <a name="resolution"></a>解析度
 
-Azure AD DS 需要有效的訂用帳戶，且無法移至不同的訂用帳戶。 如果已移動與 Azure AD DS 受控網域相關聯的 Azure 訂用帳戶，請將該訂用帳戶移回前一個目錄，或從現有的目錄中[刪除受控網域](delete-aadds.md)，並[建立替代的 Azure AD DS 管理所選訂用帳戶中的網域](tutorial-create-instance.md)。
+Azure AD DS 需要有效的訂用帳戶，且無法移至不同的訂用帳戶。 如果已移動與 Azure AD DS 受控網域相關聯的 Azure 訂用帳戶，請將訂用帳戶移回前一個目錄，或從現有的目錄中[刪除您的受控網域](delete-aadds.md)，然後[在所選的訂用帳戶中建立替代的 Azure AD DS 受控網域](tutorial-create-instance.md)。
 
 ## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109：找不到您受控網域的資源
 
 ### <a name="alert-message"></a>警示訊息
 
-*用於受控網域的資源已遭刪除。Azure AD Domain Services 需要這項資源才能正常運作。*
+*已刪除用於受控網域的資源。需要此資源，Azure AD Domain Services 才能正常運作。*
 
 ### <a name="resolution"></a>解析度
 
@@ -133,7 +133,7 @@ Azure AD DS 會建立可正常運作的特定資源，例如公用 IP 位址、N
 
 當其中一個必要資源被刪除時，就會產生此警示。 如果資源刪除時間不到4小時前，Azure 平臺可能會自動重新建立已刪除的資源。 下列步驟概述如何檢查資源刪除的健全狀況狀態和時間戳記：
 
-1. 在 Azure 入口網站中，搜尋並選取 **網域服務**。 選擇您的 Azure AD DS 受控網域，例如*contoso.com*。
+1. 在 Azure 入口網站中，搜尋並選取 **網域服務**。 選擇您的 Azure AD DS 受控網域，例如*aadds.contoso.com*。
 1. 在左側導覽中，選取 [**健康**情況]。
 1. 在 [健康情況] 頁面中，選取識別碼為*AADDS109*的警示。
 1. 警示在第一次找到時，會有時間戳記。 如果該時間戳記小於4小時前，Azure 平臺可能會自動重新建立資源，並自行解決警示。
@@ -156,7 +156,7 @@ Azure AD DS 的虛擬網路子網必須有足夠的 IP 位址可用於自動建�
 
 ### <a name="alert-message"></a>警示訊息
 
-*Azure AD Domain Services 用來為您的網域提供服務的服務主體未獲授權，無法管理 Azure 訂用帳戶的資源。服務主體必須取得權限，才能為您的受控網域提供服務。*
+*Azure AD Domain Services 用來為您的網域提供服務的服務主體未獲授權，無法管理 Azure 訂用帳戶上的資源。服務主體必須取得許可權，才能為您的受控網域進行服務。*
 
 ### <a name="resolution"></a>解析度
 
@@ -169,7 +169,7 @@ Azure AD DS 的虛擬網路子網必須有足夠的 IP 位址可用於自動建�
 
 ### <a name="alert-message"></a>警示訊息
 
-*我們發現此網域中的虛擬網路子網路可能沒有足夠的 IP 位址。在啟用 Azure AD Domain Services 的子網路內，需要至少有兩個可用的 IP 位址。我們建議在該子網路內至少要有 3-5 個備用 IP 位址。如果在子網路內部署其他虛擬機器，因而耗盡可用的 IP 位址數目，或子網路中的可用 IP 位址數目有限時，就可能會發生這種情況。*
+*我們識別出此網域中的虛擬網路子網可能沒有足夠的 IP 位址。Azure AD Domain Services 需要在其啟用的子網內至少有兩個可用的 IP 位址。我們建議在子網內至少有3-5 的備用 IP 位址。如果在子網內部署其他虛擬機器，因而耗盡可用的 IP 位址數目，或子網中的可用 IP 位址數目有所限制，就可能發生這種情況。*
 
 ### <a name="resolution"></a>解析度
 
@@ -242,7 +242,7 @@ Azure AD DS 受控網域的健康狀態會在兩小時內自動更新，並移�
 
 ### <a name="alert-message"></a>警示訊息
 
-*受控網域前次是在 [date] 與 Azure AD 同步處理。* 使用者可能無法登入受控網域，或者群組成員資格可能無法與 Azure AD 同步。
+*受控網域上次與 [date] 上的 Azure AD 同步處理。使用者可能無法登入受控網域，或群組成員資格可能不會與 Azure AD 同步。*
 
 ### <a name="resolution"></a>解析度
 
@@ -285,7 +285,7 @@ Azure AD DS 需要有效的訂用帳戶。 如果與 Azure AD DS 受控網域相
 
 ### <a name="alert-message"></a>警示訊息
 
-受控網域因為無效的組態而造成擱置。此服務已無法針對受控網域管理、修補或更新網域控制站很長一段時間。
+*因為設定無效，所以已暫止受控網域。服務已有很長一段時間無法管理、修補或更新受控網域的網域控制站。*
 
 ### <a name="resolution"></a>解析度
 

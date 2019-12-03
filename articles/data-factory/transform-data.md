@@ -11,12 +11,12 @@ ms.date: 07/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 268c1e66010720d1da052183165ce1cea50a1095
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 40157228e3bb2ab7625d703a25dd1e820ca1bc07
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092018"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703591"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory 中的資料轉換
 > [!div class="op_single_selector"]
@@ -28,13 +28,13 @@ ms.locfileid: "74092018"
 > * [HDInsight Spark](transform-data-using-spark.md)
 > * [機器學習服務](transform-data-using-machine-learning.md) 
 > * [預存程序](transform-data-using-stored-procedure.md)
-> * [資料湖分析 U-SQL](transform-data-using-data-lake-analytics.md)
+> * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
 > * [Databricks Notebook](transform-data-databricks-notebook.md)
 > * [Databricks Jar](transform-data-databricks-jar.md)
 > * [Databricks Python](transform-data-databricks-python.md)
 > * [.NET 自訂](transform-data-using-dotnet-custom-activity.md)
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 本文說明 Azure Data Factory 中的資料轉換活動，可讓您用來將原始資料轉換和處理成大規模的預測和深入解析。 轉換活動會在計算環境中執行，例如 Azure Databricks 或 Azure HDInsight。 它會提供每個轉換活動的詳細資訊文章連結。
 
 Data Factory 支援下列可個別或與其他活動鏈結而加入至 [管線](concepts-pipelines-activities.md) 的資料轉換活動。
@@ -96,12 +96,12 @@ Data Factory 管線中的 Azure Databricks Python 活動會在 Azure Databricks 
 ### <a name="custom-activity"></a>自訂活動
 如果您需要以 Data Factory 不支援的方法轉換資料，可以利用自己的資料處理邏輯建立自訂活動，然後在管線中使用活動。 您可以將自訂 .NET 活動設定為使用 Azure Batch 服務或 Azure HDInsight 叢集來執行。 如需詳細資訊請參閱 [使用自訂活動](transform-data-using-dotnet-custom-activity.md) 。 
 
-您可以建立自訂活動，以便在已安裝 R 的 HDInsight 叢集上執行 R 指令碼。 請參閱 [使用 Azure Data Factory 執行 R 指令碼](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)。 
+您可以建立自訂活動，以便在已安裝 R 的 HDInsight 叢集上執行 R 指令碼。 請參閱 [使用 Azure Data Factory 執行 R 指令碼](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)。 
 
 ### <a name="compute-environments"></a>計算環境
 您需要為計算環境建立連結服務，然後在定義轉換活動時使用該連結服務。 Data Factory 支援兩種類型的資計算環境。 
 
-- **隨選**：在此情況下，運算環境完全由 Data Factory 管理。 Data Factory 服務會在工作提交前自動建立運算環境以處理資料，而在工作完成時予以移除。 您可以針對工作執行、叢集管理及啟動載入動作，設定和控制隨選計算環境的細微設定。 
+- **隨選**：在此情況下，運算環境完全受控於 Data Factory。 Data Factory 服務會在工作提交前自動建立運算環境以處理資料，而在工作完成時予以移除。 您可以針對工作執行、叢集管理及啟動載入動作，設定和控制隨選計算環境的細微設定。 
 - **攜帶您自己的裝置**：在此情況下，您可以註冊自己的運算環境 (例如 HDInsight 叢集)，做為 Data Factory 中的連結服務。 運算環境由您自行管理，而 Data Factory 會使用它來執行活動。 
 
 如需了解 Data Factory 所支援的計算服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。 

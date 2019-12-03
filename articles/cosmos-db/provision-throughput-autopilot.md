@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 584fedc2ebe93b2a3cfd8a3b538a410d29aebe9d
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2259343d2c7bca1f60a5256efcd572e6cc21b565
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383096"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706042"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>在 autopilot 模式中建立 Azure Cosmos 容器和資料庫（預覽）
 
@@ -65,7 +65,7 @@ Azure Cosmos DB 可讓您以手動或 autopilot 模式在容器上布建輸送�
 | **布建的輸送量** | 手動布建 | 根據工作負載使用模式自動和立即調整。 |
 | **要求/作業的速率限制（429）**  | 如果耗用量超過布建的容量，則可能會發生。 | 如果耗用的輸送量是在您以 autopilot 模式選擇的最大輸送量內，則不會發生。   |
 | **容量規劃** |  您必須進行初始容量規劃，並布建所需的輸送量。 |    您不必擔心容量規劃。 系統會自動負責容量規劃和容量管理。 |
-| **價格** | 每小時手動布建 RU/秒。 | 針對單一寫入區域帳戶，您需支付每小時使用的輸送量，方法是使用 autopilot RU/秒的每小時費率。 <br/><br/>針對具有多個寫入區域的帳戶，autopilot 不會額外收費。 您需支付每小時使用的輸送量，並使用相同的多宿主 RU/秒費率。 |
+| **定價** | 每小時手動布建 RU/秒。 | 針對單一寫入區域帳戶，您需支付每小時使用的輸送量，方法是使用 autopilot RU/秒的每小時費率。 <br/><br/>針對具有多個寫入區域的帳戶，autopilot 不會額外收費。 您需支付每小時使用的輸送量，並使用相同的多宿主 RU/秒費率。 |
 | **最適合工作負載類型** |  可預測且穩定的工作負載|   無法預測和可變的工作負載  |
 
 ## <a id="enable-autopilot"></a>從 Azure 入口網站啟用 autopilot

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24279ff81daf0a350aa5234e78f27a99b7e4a03e
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 4b64c420290bec687388690f1c901c2ae789a3c8
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528011"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707556"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>使用 NSG 存取和 Azure 防禦
 
@@ -58,7 +58,7 @@ Azure 防禦會特別部署至 AzureBastionSubnet。
 * **診斷記錄和其他專案：** 443到 AzureCloud 的輸出。 尚不支援此服務標籤內的區域標記。
 * **目標 VM：** 3389和22的輸出至 VirtualNetwork
 
-您可以在此[快速入門範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion)中參考 NSG 規則範例。
+您可以在此[快速入門範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg)中參考 NSG 規則範例。
 
 ## <a name="next-steps"></a>後續步驟
 

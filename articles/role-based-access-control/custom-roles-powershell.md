@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure PowerShell 建立適用於 Azure 資源的自訂角色 | Microsoft Docs
-description: 了解如何使用 Azure PowerShell 來為 Azure 資源建立包含角色型存取控制 (RBAC) 之自訂角色。 這包括如何列出、建立、更新及刪除自訂角色。
+title: 使用 Azure PowerShell 建立或更新 Azure 資源的自訂角色 |Microsoft Docs
+description: 瞭解如何使用 Azure PowerShell，透過角色型存取控制（RBAC）為 Azure 資源列出、建立、更新或刪除自訂角色。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,22 +14,22 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ad1185cab2b2bd2d0fea10f21b7859fd9ab1339f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fa4ff5f35df0f541d8a7e633df024af81676e58b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158458"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703102"
 ---
-# <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>使用 Azure PowerShell 建立適用於 Azure 資源的自訂角色
+# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-powershell"></a>使用 Azure PowerShell 建立或更新 Azure 資源的自訂角色
 
-如果[適用於 Azure 資源的內建角色](built-in-roles.md)無法滿足您組織的特定需求，您可以建立自己的自訂角色。 本文說明如何使用 Azure PowerShell 來建立和管理自訂角色。
+如果[適用於 Azure 資源的內建角色](built-in-roles.md)無法滿足您組織的特定需求，您可以建立自己的自訂角色。 本文說明如何使用 Azure PowerShell 列出、建立、更新或刪除自訂角色。
 
-如需如何建立自訂角色的逐步教學課程，請參閱[教學課程：建立使用 Azure PowerShell 的 Azure 資源的自訂角色](tutorial-custom-role-powershell.md)。
+如需如何建立自訂角色的逐步教學課程，請參閱[教學課程：使用 Azure PowerShell 建立適用于 Azure 資源的自訂角色](tutorial-custom-role-powershell.md)。
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要建立自訂角色，您需要：
 
@@ -71,7 +71,7 @@ Virtual Machine Operator     True
 
 ## <a name="list-a-custom-role-definition"></a>列出自訂角色定義
 
-若要列出自訂角色定義，請使用[Get AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition)。 當您使用內建的角色，這會是相同的命令。
+若要列出自訂角色定義，請使用[get-azroledefinition](/powershell/module/az.resources/get-azroledefinition)。 這是您用於內建角色的相同命令。
 
 ```azurepowershell
 Get-AzRoleDefinition <role name> | ConvertTo-Json
@@ -106,7 +106,7 @@ PS C:\> Get-AzRoleDefinition "Virtual Machine Operator" | ConvertTo-Json
 }
 ```
 
-下列範例會列出角色的動作：
+下列範例只會列出角色的動作：
 
 ```azurepowershell
 (Get-AzRoleDefinition <role name>).Actions
@@ -158,7 +158,7 @@ Start Virtual Machine                          Microsoft.Compute/virtualMachines
 
 使用 PowerShell 建立自訂角色時，您可以使用其中一個[內建角色](built-in-roles.md)當作起點，或者可以從頭開始。 本節的範例是以內建角色當作起點，然後使用較高權限來自訂它。 編輯屬性來新增您所需的 `Actions`、`NotActions` 或 `AssignableScopes`，然後將變更儲存為新角色。
 
-下列範例會從[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)內建角色開始，來建立稱為「虛擬機器操作員」  (Virtual Machine Operator) 的自訂角色。 新角色會授與對 *Microsoft.Compute*、*Microsoft.Storage* 和 *Microsoft.Network* 資源提供者之所有讀取作業的存取權，以及授與對啟動、重新啟動和監視虛擬機器的存取權。 自訂角色可用於兩個訂用帳戶中。
+下列範例會從[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)內建角色開始，來建立稱為「虛擬機器操作員」(Virtual Machine Operator) 的自訂角色。 新角色會授與對 *Microsoft.Compute*、*Microsoft.Storage* 和 *Microsoft.Network* 資源提供者之所有讀取作業的存取權，以及授與對啟動、重新啟動和監視虛擬機器的存取權。 自訂角色可用於兩個訂用帳戶中。
 
 ```azurepowershell
 $role = Get-AzRoleDefinition "Virtual Machine Contributor"
@@ -182,7 +182,7 @@ $role.AssignableScopes.Add("/subscriptions/11111111-1111-1111-1111-111111111111"
 New-AzRoleDefinition -Role $role
 ```
 
-下列範例示範建立「虛擬機器操作員」  自訂角色的另一種方法。 它一開始會建立新的 `PSRoleDefinition` 物件。 動作作業會指定於 `perms` 變數中，並設定為 `Actions` 屬性。 從[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)內建角色讀取 `NotActions`，藉以設定 `NotActions` 屬性。 由於[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)沒有任何 `NotActions`，因此不需要這一行，但它會顯示如何從另一個角色擷取資訊。
+下列範例示範建立「虛擬機器操作員」自訂角色的另一種方法。 它一開始會建立新的 `PSRoleDefinition` 物件。 動作作業會指定於 `perms` 變數中，並設定為 `Actions` 屬性。 從[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)內建角色讀取 `NotActions`，藉以設定 `NotActions` 屬性。 由於[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)沒有任何 `NotActions`，因此不需要這一行，但它會顯示如何從另一個角色擷取資訊。
 
 ```azurepowershell
 $role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
@@ -360,6 +360,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>後續步驟
 
-- [教學課程：使用 Azure PowerShell 為 Azure 資源建立自訂角色](tutorial-custom-role-powershell.md)
+- [教學課程：使用 Azure PowerShell 建立適用于 Azure 資源的自訂角色](tutorial-custom-role-powershell.md)
 - [適用於 Azure 資源的自訂角色](custom-roles.md)
 - [Azure Resource Manager 資源提供者作業](resource-provider-operations.md)

@@ -7,24 +7,24 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 11/11/2019
-ms.openlocfilehash: 8fb1c6c65ab9c38ef16cfbc20435b35d0c7a7ce5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5a43d7e23c9d6550e8985599786ff968050f19c1
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279606"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707493"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>如何更新容器的 Azure 監視器以啟用計量
 
 適用于容器的 Azure 監視器引進了從 Azure Kubernetes Services （AKS）叢集節點和 pod 收集計量，並將其寫入 Azure 監視器計量存放區的支援。 這項變更的目的是在呈現效能圖表中的匯總計算（Avg、Count、Max、Min、Sum）時傳遞改良的時效性，支援在 Azure 入口網站儀表板中釘選效能圖表，以及支援計量警示。
 
 >[!NOTE]
->這項功能目前不支援 Red Hat OpenShift 叢集。
+>這項功能目前不支援 Azure Red Hat OpenShift 叢集。
 >
 
 下列計量會在這項功能中啟用：
 
-| 計量命名空間 | 度量 | 描述 |
+| 計量命名空間 | 計量 | 描述 |
 |------------------|--------|-------------|
 | 深入解析。容器/節點 | cpuUsageMillicores、cpuUsagePercentage、memoryRssBytes、memoryRssPercentage、memoryWorkingSetBytes、memoryWorkingSetPercentage、nodesCount | 這些是*節點*計量和包含*主機*作為維度，而且也包括<br> 節點的名稱，做為*主機*維度的值。 |
 | 深入解析。容器/pod | podCount | 這些是*pod*計量，其中包含下列維度： ControllerName、Kubernetes 命名空間、名稱、階段。 |
@@ -33,7 +33,7 @@ ms.locfileid: "74279606"
 
 任一進程都會將**監視計量發行者**角色指派給叢集的服務主體，讓代理程式所收集的資料可以發佈到您的叢集資源。 監視計量發行者只有將計量推送至資源的許可權，它無法改變任何狀態、更新資源或讀取任何資料。 如需角色的進一步資訊，請參閱[監視計量發行者角色](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始之前，請確認下列事項：
 

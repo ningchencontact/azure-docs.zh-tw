@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 6209d899131a91754c200da831b3739833ade22c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 6bb61f419f4c6d277a9b1c666db92595642cb0e6
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132236"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706604"
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
 
@@ -60,7 +60,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>將遙測傳送至 Azure 入口網站
 
-根據預設，Application Insights JavaScript SDK 會 autocollects 一些遙測專案，這有助於判斷應用程式的健康情況和基礎使用者體驗。 其中包含：
+根據預設，Application Insights JavaScript SDK 會 autocollects 一些遙測專案，這有助於判斷應用程式的健康情況和基礎使用者體驗。 這些區域包括：
 
 - 應用程式中未攔截到的**例外**狀況，包括的相關資訊
     - 堆疊追蹤
@@ -97,7 +97,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>組態
 大部分設定欄位的名稱都是，讓它們可以預設為 false。 除了 `instrumentationKey`以外，所有欄位都是選擇性的。
 
-| 名稱 | 預設值 | 描述 |
+| Name | 預設值 | 描述 |
 |------|---------|-------------|
 | instrumentationKey | null | **必要**<br>從 Azure 入口網站取得的檢測金鑰。 |
 | accountId | null | 選擇性的帳戶識別碼，如果您的應用程式將使用者群組為帳戶。 不含空格、逗號、分號、等於或分隔號 |
@@ -168,11 +168,11 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ![](./media/javascript/performance-operations.png)
 
-### <a name="dependencies"></a>相依性
+### <a name="dependencies"></a>相依項目
 
 ![](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>Analytics 
+### <a name="analytics"></a>分析 
 
 若要查詢 JavaScript SDK 所收集的遙測資料，請選取 [**記錄（分析）** ] 按鈕中的 [查看]。 藉由新增 `client_Type == "Browser"`的 `where` 語句，您只會看到來自 JavaScript SDK 的資料，而其他 Sdk 所收集的任何伺服器端遙測也會被排除。
  
@@ -251,7 +251,7 @@ SDK V2 版本中的重大變更：
 
 ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
 --- | --- | --- | --- | --- |
-最新✔ | 最新✔ | 9 + ✔ | 最新✔ | 最新✔ |
+Chrome 最新✔ |  Firefox 最新✔ | IE 9 + & Edge ✔ | Opera 最新✔ | Safari 最新✔ |
 
 ## <a name="open-source-sdk"></a>開放原始碼 SDK
 

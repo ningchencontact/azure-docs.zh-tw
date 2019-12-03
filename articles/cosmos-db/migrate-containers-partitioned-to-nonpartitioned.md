@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3a13f8928ba243195c30200dae0525e72c1c161b
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 1afca920a8146ce5501900bcc9e36bdebcccca09
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71844413"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706080"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>將非資料分割的容器遷移至分割的容器
 
@@ -24,7 +24,7 @@ Azure Cosmos DB 支援建立不含分割區索引鍵的容器。 目前，您可
 
 ## <a name="migrate-container-using-the-system-defined-partition-key"></a>使用系統定義的分割區索引鍵來遷移容器
 
-為了支援遷移，Azure Cosmos DB 在所有沒有分割區索引鍵的`/_partitionkey`容器上，提供名為的系統定義資料分割索引鍵。 遷移容器之後，您就無法變更分割區索引鍵定義。 例如，遷移至資料分割容器的容器定義如下所示：
+為了支援遷移，Azure Cosmos DB 會在沒有分割索引鍵的所有容器上，提供名為 `/_partitionkey` 的系統定義資料分割索引鍵。 遷移容器之後，您就無法變更分割區索引鍵定義。 例如，遷移至資料分割容器的容器定義如下所示：
 
 ```json
 {
@@ -38,7 +38,7 @@ Azure Cosmos DB 支援建立不含分割區索引鍵的容器。 目前，您可
 }
 ```
 
-遷移容器之後，您可以藉由`_partitionKey`擴充屬性和檔的其他屬性來建立檔。 `_partitionKey`屬性代表檔的資料分割索引鍵。
+遷移容器之後，您可以填入 [`_partitionKey`] 屬性以及檔的其他屬性來建立檔。 `_partitionKey` 屬性代表檔的資料分割索引鍵。
 
 選擇正確的分割區索引鍵，對於使用已布建的輸送量而言非常重要。 如需詳細資訊，請參閱[如何選擇分割區索引鍵一](partitioning-overview.md)文。
 
@@ -91,11 +91,11 @@ ItemResponse<DeviceInformationItem> readResponse =
 
 ```
 
-如需完整範例，請參閱[.net 範例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples)GitHub 存放庫。
+如需完整範例，請參閱[.net 範例][1]GitHub 存放庫。
                       
 ## <a name="migrate-the-documents"></a>遷移檔
 
-使用資料分割索引鍵屬性增強容器定義時，不會自動遷移容器內的檔。 這表示系統分割區索引鍵`/_partitionKey`屬性路徑不會自動新增至現有的檔。 若要重新`_partitionKey`分割現有的檔，您必須閱讀不含分割區索引鍵的檔，並以檔中的屬性重寫它們。
+使用資料分割索引鍵屬性增強容器定義時，不會自動遷移容器內的檔。 這表示系統分割區索引鍵屬性 `/_partitionKey` 路徑不會自動新增至現有的檔。 若要重新分割現有的檔，請閱讀不含分割區索引鍵的檔，然後使用檔中的 `_partitionKey` 屬性來重寫它們。
 
 ## <a name="access-documents-that-dont-have-a-partition-key"></a>存取沒有分割區索引鍵的檔
 
@@ -110,7 +110,7 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 
 ```
 
-如需如何重新分割檔的完整範例，請參閱[.net 範例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples)GitHub 存放庫。 
+如需如何重新分割檔的完整範例，請參閱[.net 範例][1]GitHub 存放庫。 
 
 ## <a name="compatibility-with-sdks"></a>與 Sdk 的相容性
 
@@ -124,3 +124,5 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 * [Azure Cosmos DB 中的要求單位](request-units.md)
 * [在容器和資料庫中佈建輸送量](set-throughput.md)
 * [使用 Azure Cosmos 帳戶](account-overview.md)
+
+[1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration

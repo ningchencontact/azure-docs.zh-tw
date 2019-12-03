@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: iainfou
-ms.openlocfilehash: 961b54a4d7c9caee98497e5d2b8db86284084d15
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: dddbc15a80fe741b9ad1634aac18cb13819dc235
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73023867"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704417"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>使用 PowerShell 啟用 Azure Active Directory Domain Services
 
@@ -128,17 +128,17 @@ $Vnet= New-AzVirtualNetwork `
 
 ## <a name="create-an-azure-ad-ds-managed-domain"></a>建立 Azure AD DS 受控網域
 
-現在讓我們建立一個 Azure AD DS 受控網域。 設定您的 Azure 訂用帳戶識別碼，然後提供受控網域的名稱，例如*contoso.com*。 您可以使用[get-azsubscription][Get-AzSubscription] Cmdlet 來取得訂用帳戶識別碼。
+現在讓我們建立一個 Azure AD DS 受控網域。 設定您的 Azure 訂用帳戶識別碼，然後提供受控網域的名稱，例如*aadds.contoso.com*。 您可以使用[get-azsubscription][Get-AzSubscription] Cmdlet 來取得訂用帳戶識別碼。
 
-如果您選擇支援可用性區域的區域，Azure AD DS 資源會分散到不同的區域，以供額外的重複使用。
+如果您選擇支援可用性區域的區域，Azure AD DS 資源會跨區域分散，以供額外的備援。
 
 「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。
 
-您不需要針對要在區域間散發 Azure AD DS 進行設定。 Azure 平臺會自動處理資源的區域散發。 如需詳細資訊及查看區域可用性，請參閱[什麼是 Azure 中的可用性區域？][availability-zones]。
+您不需要針對要跨區域分散的 Azure AD DS 進行設定。 Azure 平台會自動處理在區域之間分散資源。 如需詳細資訊及查看區域可用性，請參閱[什麼是 Azure 中的可用性區域？][availability-zones]。
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso.com"
+$ManagedDomainName = "aadds.contoso.com"
 
 # Enable Azure AD Domain Services for the directory.
 New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
@@ -172,7 +172,7 @@ $ResourceGroupName = "myResourceGroup"
 $VnetName = "myVnet"
 $AzureLocation = "westus"
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso.com"
+$ManagedDomainName = "aadds.contoso.com"
 
 # Connect to your Azure AD directory.
 Connect-AzureAD

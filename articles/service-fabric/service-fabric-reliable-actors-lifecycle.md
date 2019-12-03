@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: f81fde441a2f0dc2504601f82e5b890eb6e216de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a8e95c634a1d30b7c566fcd907cb06f34043fa9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105287"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706484"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>動作項目生命週期、自動記憶體回收，以及手動刪除
 第一次呼叫動作項目的方法時就會啟動動作項目。 如果有一段可設定的時間未使用動作項目，動作項目就會停用 (由動作項目執行階段進行記憶體回收)。 動作項目與其狀態也可以隨時進行手動刪除。
@@ -94,7 +94,7 @@ public class Program
     }
 }
 ```
-對於每個作用中動作項目，動作項目執行階段會持續追蹤動作項目已閒置 (亦即未使用) 的時間。 動作項目執行階段每隔 `ScanIntervalInSeconds` 就會檢查每個動作項目，查看其是否可進行記憶體回收，如果已閒置 `IdleTimeoutInSeconds`，就會將其回收。
+對於每個作用中動作項目，動作項目執行階段會持續追蹤動作項目已閒置 (亦即未使用) 的時間。 動作專案執行時間會每個 `ScanIntervalInSeconds` 檢查每個動作專案，以查看是否可以進行垃圾收集，並在它已閒置而無法 `IdleTimeoutInSeconds`時加以標示。
 
 只要使用動作項目，其閒置時間就會重設為 0。 在此之後，只有當動作項目再次閒置達 `IdleTimeoutInSeconds`時，才會將動作項目作為記憶體回收。 請回想一下，當動作項目介面方法或動作項目提醒回撥執行時，動作項目會視為已使用。 如果動作項目的計時器回撥執行時， **不會** 將動作項目視為已使用。
 

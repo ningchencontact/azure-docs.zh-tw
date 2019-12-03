@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 11/21/2019
-ms.openlocfilehash: 965ebdb5b6450a0826872ac31d96d8e61b7542f5
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 07d84175325226af755712ec38ab93b901bbd361
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382265"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707516"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>使用適用于容器的 Azure 監視器來設定 Azure Red Hat OpenShift 叢集
 
 適用于容器的 Azure 監視器可為 Azure Kubernetes Service （AKS）和 AKS 引擎叢集提供豐富的監視體驗。 本文說明如何啟用[Azure Red Hat OpenShift](../../openshift/intro-openshift.md)上所裝載之 Kubernetes 叢集的監視，以達到類似的監視體驗。
 
 >[!NOTE]
->Red Hat OpenShift 的支援現在是公開預覽的功能。
+>Azure Red Hat OpenShift 的支援目前是公開預覽中的一項功能。
 >
 
 您可以使用下列支援的方法，針對新的或 Azure Red Hat OpenShift 的一或多個現有部署啟用容器的 Azure 監視器：
@@ -36,7 +36,7 @@ ms.locfileid: "74382265"
 - 從叢集節點和 pod[收集計量](container-insights-update-metrics.md)，並將其儲存在 Azure 監視器計量資料庫中
 - 健全狀況功能
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 若要啟用及存取容器 Azure 監視器中的功能，您至少必須是 Azure 訂用帳戶中 Azure*參與者*角色的成員，以及 log analytics 工作區的[*log analytics 參與者*](../platform/manage-access.md#manage-access-using-azure-permissions)角色的成員，其已設定為使用 Azure 監視器的容器。
 

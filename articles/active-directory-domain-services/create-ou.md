@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 7d651849f5c8d930d99e87931eed5b823e90113c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e202eed8e3694245b5b4527578c02cfb518723f4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474767"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705350"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>在 Azure AD Domain Services 受控網域中建立組織單位（OU）
 
@@ -66,11 +66,11 @@ Azure AD DS 受控網域包含兩個內建的 Ou- *AADDC 電腦*和*AADDC 使用
 1. 登入您的管理 VM。 如需如何使用 Azure 入口網站進行連線的步驟，請參閱連線[到 Windows SERVER VM][connect-windows-server-vm]。
 1. 從 [開始] 畫面中，選取 [系統**管理工具**]。 已安裝在教學課程中的可用管理工具清單，以[建立管理 VM][tutorial-create-management-vm]。
 1. 若要建立和管理 Ou，請從系統管理工具清單中選取 [ **Active Directory 管理中心**]。
-1. 在左窗格中，選擇您的 Azure AD DS 受控網域，例如*contoso.com*。 隨即顯示現有 Ou 和資源的清單：
+1. 在左窗格中，選擇您的 Azure AD DS 受控網域，例如*aadds.contoso.com*。 隨即顯示現有 Ou 和資源的清單：
 
     ![在 Active Directory 管理中心中選取您的 Azure AD DS 受控網域](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
 
-1. [**工作] 窗格**會顯示在 Active Directory 管理中心的右邊。 在網域下（例如*contoso.com*），選取 [**新增 > 組織單位**]。
+1. [**工作] 窗格**會顯示在 Active Directory 管理中心的右邊。 在網域下（例如*aadds.contoso.com*），選取 [**新增 > 組織單位**]。
 
     ![在 Active Directory 管理中心中選取 建立新的 OU 選項](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 

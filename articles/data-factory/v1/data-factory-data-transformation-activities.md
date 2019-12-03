@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3af01ef76421e95f74a65fe597cafff5fa9ef39e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5b3e2db9b9769dee7599a2446b272e04cc0bedf7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682618"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703380"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory 中的資料轉換
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "73682618"
 
 ## <a name="overview"></a>概觀
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 中的資料轉換活動](../transform-data.md)。
+> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 中的資料轉換活動](../transform-data.md)。
 
 本文說明 Azure Data Factory 中的資料轉換活動，您可用來轉換未經處理資料，並將其處理為預測和見解。 轉換活動會在計算環境中執行，例如 Azure HDInsight 叢集或 Azure Batch。 它會提供每個轉換活動的詳細資訊文章連結。
 
@@ -73,7 +73,7 @@ Data Lake Analytics U-SQL 活動會在 Azure Data Lake Analytics 叢集上執行
 ## <a name="net-custom-activity"></a>.NET 自訂活動
 如果您需要以 Data Factory 不支援的方法轉換資料，可以利用自己的資料處理邏輯建立自訂活動，然後在管線中使用活動。 您可以將自訂 .NET 活動設定為使用 Azure Batch 服務或 Azure HDInsight 叢集來執行。 如需詳細資訊請參閱 [使用自訂活動](data-factory-use-custom-activities.md) 。 
 
-您可以建立自訂活動，以便在已安裝 R 的 HDInsight 叢集上執行 R 指令碼。 請參閱 [使用 Azure Data Factory 執行 R 指令碼](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)。 
+您可以建立自訂活動，以便在已安裝 R 的 HDInsight 叢集上執行 R 指令碼。 請參閱 [使用 Azure Data Factory 執行 R 指令碼](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)。 
 
 ## <a name="compute-environments"></a>計算環境
 您需要為計算環境建立連結服務，然後在定義轉換活動時使用該連結服務。 Data Factory 支援兩種類型的資計算環境。 
@@ -83,7 +83,7 @@ Data Lake Analytics U-SQL 活動會在 Azure Data Lake Analytics 叢集上執行
 
 如需了解 Data Factory 所支援的計算服務，請參閱 [計算連結服務](data-factory-compute-linked-services.md) 一文。 
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 Azure Data Factory 支援下列資料轉換活動和活動計算環境。 可將轉換活動個別加入管線，或先與其他活動鏈結再加入管線。
 
 | 資料轉換活動 | 計算環境 |

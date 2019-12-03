@@ -12,14 +12,14 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25d1aec836f66ae2ebc007e920cf6ef8a4450919
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 944ecaaceedbff6ed1f86c4b8eb5786ce2b5bae5
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473330"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706231"
 ---
-# <a name="plan-an-automatic-user-provisioning-deployment"></a>規劃自動使用者布建部署
+# <a name="plan-an-automatic-user-provisioning-deployment"></a>規劃自動使用者佈建部署
 
 許多組織都依賴軟體即服務（SaaS）應用程式，例如 ServiceNow、Zscaler 和可供使用者生產力的時差。 在過去，IT 人員依賴手動布建方法（例如上傳 CSV 檔案），或使用自訂腳本來安全地管理每個 SaaS 應用程式中的使用者身分識別。 這些進程容易出錯、不安全，而且難以管理。
 
@@ -98,7 +98,7 @@ Azure AD 布建服務會藉由連接到每個應用程式廠商所提供的使�
 
 #### <a name="automatic-user-provisioning-for-cloud-only-enterprises"></a>為僅限雲端的企業自動布建使用者
 
-在此範例中，使用者建立會在 Azure AD 中進行，而 Azure AD 布建服務會管理對目標（SaaS）應用程式的自動使用者布建：
+在此範例中，使用者建立會在 Azure AD 中進行，而 Azure AD 布建服務會管理對目標（SaaS）應用程式的自動使用者布建。
 
 ![圖片2](media/auto-user-provision-dp/cloudprovisioning.png)
 
@@ -112,16 +112,17 @@ Azure AD 布建服務會藉由連接到每個應用程式廠商所提供的使�
 
 #### <a name="automatic-user-provisioning-for-cloud-hr-applications"></a>雲端 HR 應用程式的自動使用者布建 
 
-在此範例中，使用者和或群組會建立在雲端 HR 應用程式中（例如 Workday）。
+在此範例中，使用者和或群組是在雲端 HR 應用程式（例如 Workday 和 SuccessFactors）中建立的。 Azure AD 的布建服務和 Azure AD Connect 布建代理程式會將使用者資料從雲端 HR 應用程式租使用者布建到 AD。 當帳戶在 AD 中更新之後，它會透過 Azure AD Connect 與 Azure AD 同步處理，而電子郵件地址和使用者名稱屬性則可回寫到雲端 HR 應用程式租使用者。
 
 ![圖片2](media/auto-user-provision-dp/workdayprovisioning.png)
 
-1. 在雲端 HR 系統中建立的帳戶
-1. 資料會透過 Azure AD 布建服務和布建代理程式流入內部部署 AD。
-1. Azure AD Connect 將資料同步處理至 Azure AD
-1. [電子郵件] 和 [使用者名稱] 屬性可以回寫到雲端 HR 應用程式。
-
-如需解決方案架構和部署的詳細資訊，請參閱[教學課程：設定 Workday 來自動](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial)布建使用者。
+1.  **Hr 小組**會在雲端 hr 應用程式租使用者中執行交易。
+2.  **Azure AD**布建服務會從雲端 HR 應用程式租使用者執行排程週期，並識別需要處理以與 AD 同步的變更。
+3.  **Azure AD**布建服務會使用包含 AD 帳戶建立/更新/啟用/停用作業的要求承載，叫用 Azure AD Connect 布建代理程式。
+4.  **Azure AD Connect 布建代理程式**會使用服務帳戶來管理 AD 帳戶資料。
+5.  **Azure AD Connect**在 AD 中執行差異同步處理以提取更新。
+6.  **AD**更新會與 Azure AD 同步處理。 
+7.  **Azure AD**布建服務回寫電子郵件屬性，以及從 Azure AD 到雲端 HR 應用程式租使用者的使用者名稱。
 
 ## <a name="plan-the-deployment-project"></a>規劃部署專案
 

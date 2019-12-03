@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f1e1ae76c44e66c04baaad110b87264279dfdaf1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 33c26ff15095928d6050a77794b74480e364bfb6
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530988"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707765"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>如何使用 Azure 認知搜尋中的索引子為 Cosmos DB 資料編制索引 
 
@@ -246,7 +246,7 @@ Azure 認知搜尋中的 Cosmos DB 索引子可以編目透過不同通訊協定
 > [!NOTE]
 > 針對已分割的集合，預設檔索引鍵是 Azure Cosmos DB 的 `_rid` 屬性，而 Azure 認知搜尋會自動將其重新命名為 `rid`，因為功能變數名稱的開頭不能是底線字元。 此外，Azure Cosmos DB `_rid` 值包含 Azure 認知搜尋金鑰中的無效字元。 因此，`_rid` 值採用 Base64 編碼。
 > 
-> 針對 MongoDB 集合，Azure 認知搜尋會自動將 `_id` 屬性重新命名為 `doc_id`。  
+> 針對 MongoDB 集合，Azure 認知搜尋會自動將 `_id` 屬性重新命名為 `id`。  
 
 ### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>JSON 資料類型與 Azure 認知搜尋資料類型之間的對應
 | JSON 資料類型 | 相容的目標索引欄位類型 |

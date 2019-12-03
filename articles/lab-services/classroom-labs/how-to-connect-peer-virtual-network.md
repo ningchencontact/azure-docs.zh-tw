@@ -1,6 +1,6 @@
 ---
-title: 連線至對等網路中 Azure 實驗室服務 |Microsoft Docs
-description: 了解如何與做為對等的另一個網路連接您的實驗室網路。 比方說，連接您的內部部署學校/大專院校網路與在 Azure 中的實驗室的虛擬網路。
+title: 連接到 Azure 實驗室服務中的對等網路 |Microsoft Docs
+description: 瞭解如何將您的實驗室網路與其他網路連線，做為對等。 例如，將您的內部部署學校/大學網路與實驗室在 Azure 中的虛擬網路連線。
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,44 +13,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: c9b305beae1b385d4714e3a80e6843c7e76a4f60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d3f6acef7491a07f94eec0b2c3b2f3bcd9c01a33
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411020"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701675"
 ---
-# <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>連接您的實驗室網路與 Azure 實驗室服務中的對等虛擬網路 
-本文章提供您的實驗室網路與另一個網路對等互連的相關資訊。 
+# <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>將實驗室的網路與 Azure 實驗室服務中的對等虛擬網路連線 
+本文提供與您的實驗室網路與其他網路對等互連的相關資訊。 
 
-## <a name="overview"></a>總覽
-虛擬網路對等互連可讓您順暢地連接 Azure 虛擬網路。 經過對等互連後，所有虛擬網路就可以作為一個整體來進行連線。 透過 Microsoft 骨幹基礎結構的對等互連的虛擬網路中的虛擬機器之間的流量會路由傳送，就像在相同的虛擬網路上，透過私人 IP 位址只有虛擬機器之間路由傳送。 如需詳細資訊，請參閱[虛擬網路對等互連](../../virtual-network/virtual-network-peering-overview.md)。
+## <a name="overview"></a>概觀
+虛擬網路對等互連可讓您順暢地連接 Azure 虛擬網路。 經過對等互連後，所有虛擬網路就可以作為一個整體來進行連線。 對等互連虛擬網路中虛擬機器之間的流量會透過 Microsoft 骨幹基礎結構路由傳送，就像流量只會透過私人 IP 位址在相同虛擬網路中的虛擬機器之間路由傳送。 如需詳細資訊，請參閱[虛擬網路對等互連](../../virtual-network/virtual-network-peering-overview.md)。
 
-您可能需要您的實驗室網路連線與對等虛擬網路在某些情況下，包括下列項目：
+在某些案例中，您可能需要將實驗室的網路與對等虛擬網路連線，包括下列各項：
 
-- 實驗室中的虛擬機器已連接到內部部署授權伺服器，以取得授權的軟體
-- 實驗室中的虛擬機器需要存取資料集 （或任何其他檔案），在大學的網路共用上。 
+- 實驗室中的虛擬機器具有連接到內部部署授權伺服器以取得授權的軟體
+- 實驗室中的虛擬機器需要存取大學網路共用上的資料集（或任何其他檔案）。 
 
-可能是特定的內部部署網路連線到 Azure 虛擬網路透過[ExpressRoute](../../expressroute/expressroute-introduction.md)或是[虛擬網路閘道](../../vpn-gateway/vpn-gateway-about-vpngateways.md)。 這些服務必須設定外部 Azure 實驗室服務。 若要深入了解在內部部署網路連線到 Azure 中使用 ExpressRoute，請參閱 [ExpressRoute 概觀]） (.../expressroute/expressroute-introduction.md)。 在內部部署連線能力使用虛擬網路閘道，閘道器，指定虛擬網路，和實驗室帳戶必須位於相同區域中。
+某些內部部署網路會透過[ExpressRoute](../../expressroute/expressroute-introduction.md)或[虛擬網路閘道](../../vpn-gateway/vpn-gateway-about-vpngateways.md)連線至 Azure 虛擬網路。 這些服務必須在 Azure 實驗室服務外部設定。 若要深入瞭解如何使用 ExpressRoute 將內部部署網路連接至 Azure，請參閱[ExpressRoute 總覽](../../expressroute/expressroute-introduction.md)。 針對使用虛擬網路閘道的內部部署連線能力，閘道、指定的虛擬網路和實驗室帳戶必須全部位於相同的區域。
 
-## <a name="configure-at-the-time-of-lab-account-creation"></a>在實驗室帳戶建立時設定
-新實驗室帳戶建立期間，您可以挑選現有的虛擬網路中顯示**對等虛擬網路**下拉式清單中。 選取的虛擬網路是 connected(peered) 實驗室帳戶下建立的實驗室。 所有虛擬機器建立後進行的實驗室中這項變更對資源的存取權的對等互連的虛擬網路。 
+## <a name="configure-at-the-time-of-lab-account-creation"></a>在建立實驗室帳戶時設定
+在建立新的實驗室帳戶期間，您可以選擇在 [**對等虛擬網路**] 下拉式清單中顯示的現有虛擬網路。 選取的虛擬網路已連接（對等互連）至實驗室帳戶所建立的實驗室。 在進行這項變更之後，在實驗室中建立的所有虛擬機器都可以存取對等互連虛擬網路上的資源。 
 
-![選取對等互連的 VNet](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
+![選取 VNet 對等互連](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 
 > [!NOTE]
-> 建立實驗室帳戶的詳細逐步指示，請參閱[設定實驗室帳戶](tutorial-setup-lab-account.md)
+> 如需建立實驗室帳戶的詳細逐步指示，請參閱[設定實驗室帳戶](tutorial-setup-lab-account.md)
 
 
-## <a name="configure-after-the-lab-is-created"></a>建立實驗室之後設定
-相同的屬性可從**Labs 組態**索引標籤**實驗室帳戶**頁面上，如果您沒有對等網路設定實驗室帳戶建立時。 變更此設定僅適用於在變更後所建立的實驗室。 您可以看到映像中，您可以啟用或停用**對等虛擬網路**適用於實驗室帳戶中的實驗室。 
+## <a name="configure-after-the-lab-is-created"></a>在建立實驗室之後設定
+如果您在建立實驗室帳戶時未設定對等網路，則可以從 [**實驗室帳戶**] 頁面的 [**實驗室**設定] 索引標籤中啟用相同的屬性。 對此設定所做的變更，只會套用到變更後所建立的實驗室。 如您在映射中所見，您可以在實驗室帳戶中啟用或停用實驗室的「**對等虛擬網路**」。 
 
-![啟用或停用建立實驗室之後，對等互連的 VNet](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer-existing-lab.png) 
+![建立實驗室之後，啟用或停用 VNet 對等互連](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer-existing-lab.png) 
 
-當您選取的虛擬網路**對等虛擬網路**欄位中，**挑選實驗室位置允許實驗室建立者**選項會停用。 這是因為實驗室帳戶中的實驗室，必須位於與實驗室帳戶，才能連線對等虛擬網路中的資源相同的區域。 
+當您選取虛擬網路作為 [**對等虛擬網路**] 欄位時，會停用 [**允許實驗室建立者選擇實驗室位置**] 選項。 這是因為實驗室帳戶中的實驗室必須與實驗室帳戶位在相同的區域中，才能與對等虛擬網路中的資源連線。 
 
 > [!IMPORTANT]
-> 變更此設定僅適用於之後進行變更時，不是以現有的實驗室所建立的實驗室。 
+> 此設定變更僅適用于在進行變更時所建立的實驗室，而不會套用至現有的實驗室。 
 
 
 ## <a name="next-steps"></a>後續步驟

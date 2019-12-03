@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 9f35c9c3c6c974c79dc849425fc91b532aed4d22
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 3e1a754d39025136866712cb57026e827c986f6a
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755694"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705006"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>使用 Resource Manager 範本將 Windows Server 虛擬機器加入 Azure Active Directory Domain Services 受控網域
 
@@ -93,7 +93,7 @@ Resource Manager 範本可讓您在程式碼中定義 Azure 基礎結構。 Vm �
     | 現有的子網名稱      | 現有虛擬網路子網的名稱，例如*工作負載*。 |
     | DNS 標籤首碼          | 輸入要用於 VM 的 DNS 名稱，例如*myvm*。 |
     | VM 大小                   | 指定 VM 大小，例如*Standard_DS2_v2*。 |
-    | 要加入的網域            | Azure AD DS 受控網域 DNS 名稱，例如*contoso.com*。 |
+    | 要加入的網域            | Azure AD DS 受控網域 DNS 名稱，例如*aadds.contoso.com*。 |
     | 網域使用者名稱           | Azure AD DS 受控網域中的使用者帳戶，應該用來將 VM 加入受控網域。 此帳戶必須是*AZURE AD DC 系統管理員*群組的成員。 |
     | 網域密碼           | 先前設定中所指定使用者帳戶的密碼。 |
     | 選用 OU 路徑          | 要在其中新增 VM 的自訂 OU。 如果您未指定此參數的值，VM 會新增至預設*AAD DC 電腦*OU。 |

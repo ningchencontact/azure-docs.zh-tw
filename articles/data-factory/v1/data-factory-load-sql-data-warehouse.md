@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 05dcff2276a799b1debc76e4f85fbbac6606eb59
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 47ee1682118fd761d55625428e3522de92b9e38a
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682539"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703413"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>使用 Data Factory 在 15 分鐘內將 1 TB 載入至 Azure SQL 資料倉儲
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[使用 Data Factory 從 Azure SQL 資料倉儲來回複製資料](../connector-azure-sql-data-warehouse.md)。
+> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱[使用 Data Factory 從 Azure SQL 資料倉儲來回複製資料](../connector-azure-sql-data-warehouse.md)。
 
 
 [Azure SQL 資料倉儲](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)是一種雲端架構、相應放大的資料庫，可處理巨量關聯式與非關聯式資料。  SQL 資料倉儲是以巨量平行處理 (MPP) 架構為基礎，最適用於企業資料倉儲工作負載。  它透過單獨調整儲存體和計算的彈性，來提供雲端彈性。
@@ -47,7 +47,7 @@ ms.locfileid: "73682539"
 
 ## <a name="prerequisites"></a>必要條件
 * Azure Blob 儲存體︰這項實驗使用 Azure Blob 儲存體 (GRS) 來儲存 TPC-H 測試資料集。  如果您沒有 Azure 儲存體帳戶，請參閱[如何建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)。
-* [TPC-H](http://www.tpc.org/tpch/) 資料︰我們將使用 TPC-H 作為測試資料集。  若要這麼做，您必須使用 TPC-H 工具組中的 `dbgen`，以協助您產生資料集。  您可以從 `dbgen`TPC Tools[ 下載 ](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) 的原始程式碼並自行進行編譯，或者從 [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools) 下載編譯過的二進位檔。  使用下列命令執行 dbgen.exe，以針對分散到 10 個檔案的 `lineitem` 資料表產生 1 TB 一般檔案：
+* [TPC-H](http://www.tpc.org/tpch/) 資料︰我們將使用 TPC-H 作為測試資料集。  若要這麼做，您必須使用 TPC-H 工具組中的 `dbgen`，以協助您產生資料集。  您可以從 [TPC Tools](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) 下載 `dbgen` 的原始程式碼並自行進行編譯，或者從 [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools) 下載編譯過的二進位檔。  使用下列命令執行 dbgen.exe，以針對分散到 10 個檔案的 `lineitem` 資料表產生 1 TB 一般檔案：
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
   * `Dbgen -s 1000 -S **2** -C 10 -T L -v`
@@ -203,7 +203,7 @@ ms.locfileid: "73682539"
 
     ![複製精靈 - 成功對話方塊](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 以下是執行 Azure SQL 資料倉儲資料庫的一些最佳作法：
 
 * 載入至 CLUSTERED COLUMNSTORE INDEX 時，請使用較大的資源類別。

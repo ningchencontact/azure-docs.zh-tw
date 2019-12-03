@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: ad96d0a04b03e070a7108832370749377d723826
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b106b1da5d012309e8d92c8e9555ee3982602e12
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821753"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707656"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>將受控實例中的 SQL database 還原至先前的時間點
 
@@ -230,7 +230,7 @@ az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
 直接連接到受控實例並啟動 SQL Server Management Studio。 然後，執行下列 Transact-sql （T-sql）查詢。 查詢會將還原的資料庫名稱變更為您想要覆寫之已卸載資料庫的名稱。
 
 ```sql
-ALTER WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
+ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 ```
 
 使用下列其中一種方法來連線到受控實例中的資料庫：

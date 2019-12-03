@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: f8a83fccefe3310fe1a582ef44d72cfbef7e9469
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 1320448b88fa3851196a3dfcb3107921721d364d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133079"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707671"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
@@ -98,7 +98,7 @@ ms.locfileid: "74133079"
 
 + Azure Machine Learning studio：在 [設定**執行**] 區段中選取 [ **View 特徵化] 設定** [，其中包含下列步驟](how-to-create-portal-experiments.md)。
 
-+ Python SDK：指定[`AutoMLConfig` 類別](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)的 `"feauturization": auto' / 'off' / FeaturizationConfig`。
++ Python SDK：指定[`AutoMLConfig` 類別](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)的 `"feauturization": auto' / 'off' / FeaturizationConfig`。
 
 
 ## <a name="time-series-forecasting"></a>時間序列預測

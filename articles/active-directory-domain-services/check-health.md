@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: iainfou
-ms.openlocfilehash: 50b142acb457d16abeb24f22d56b653a38aca76d
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 501214f87a65c71436e262608f7e9b3471cc9775
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898257"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705417"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>檢查 Azure Active Directory Domain Services 受控網域的健康情況
 
@@ -29,7 +29,7 @@ Azure Active Directory Domain Services （Azure AD DS）會執行一些背景工
 Azure AD DS 受控網域的健全狀況狀態是使用 Azure 入口網站來查看。 您可以看到上次備份時間和與 Azure AD 同步處理的資訊，以及指出受控網域健康情況發生問題的任何警示。 若要查看 Azure AD DS 受控網域的健全狀況狀態，請完成下列步驟：
 
 1. 在 Azure 入口網站中，搜尋並選取  **Azure AD Domain Services**。
-1. 選取您的 Azure AD DS 受控網域，例如*contoso.com*。
+1. 選取您的 Azure AD DS 受控網域，例如*aadds.contoso.com*。
 1. 在 [Azure AD DS 資源] 視窗的左側，選取 [**健康**情況]。 下列範例螢幕擷取畫面顯示狀況良好的 Azure AD DS 受控網域，以及上一次備份和 Azure AD 同步處理的狀態：
 
     ![顯示 Azure Active Directory Domain Services 狀態的 Azure 入口網站中的健康情況頁面總覽](./media/check-health/health-page.png)
@@ -40,7 +40,7 @@ Azure AD DS 受控網域的健全狀況狀態是使用 Azure 入口網站來查�
 
 | 狀態 | 圖示 | 說明 |
 | --- | :----: | --- |
-| Running | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Azure AD DS 受控網域已正確執行，且沒有任何重大或警告警示。 網域可能會有資訊警示。 |
+| 執行中 | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Azure AD DS 受控網域已正確執行，且沒有任何重大或警告警示。 網域可能會有資訊警示。 |
 | 需要注意（警告） | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Azure AD DS 受控網域上沒有重大警示，但有一或多個應解決的警告警示。 |
 | 需要注意（重大） | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | 必須解決 Azure AD DS 受控網域上的一或多個重大警示。 您可能也會有警告和/或資訊警示。 |
 | 正在部署 | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | 正在部署 Azure AD DS 網域。 |
@@ -49,11 +49,11 @@ Azure AD DS 受控網域的健全狀況狀態是使用 Azure 入口網站來查�
 
 Azure AD DS 受控網域的健全狀況狀態會顯示兩種類型的資訊-監視和警示。 監視會顯示完成核心背景工作的時間。 警示會提供資訊或建議，以改善受控網域的穩定性。
 
-### <a name="monitors"></a>監視
+### <a name="monitors"></a>監視器
 
 監視是定期檢查 Azure AD DS 受控網域的區域。 如果 Azure AD DS 受控網域有任何作用中警示，可能會導致其中一個監視器回報問題。 Azure AD Domain Services 目前會監視下欄區域：
 
-* 備份
+* Backup
 * 與 Azure AD 的同步處理
 
 #### <a name="backup-monitor"></a>備份監視器

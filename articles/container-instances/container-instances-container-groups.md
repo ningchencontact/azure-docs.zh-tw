@@ -4,12 +4,12 @@ description: 瞭解 Azure 容器實例中的容器群組，這是共用生命週
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 9fbf9fea7da0896ee6c0e248d18e18d52798fbd7
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: bba0aa35ef52d498bdb2028c7180f01b6c5f81ec
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482111"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706319"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances 中的容器群組
 
@@ -34,7 +34,7 @@ ms.locfileid: "74482111"
 > [!NOTE]
 > 多容器群組目前僅支援 Linux 容器。 針對 Windows 容器，Azure 容器實例僅支援部署單一實例。 雖然我們正致力於將所有功能帶入 Windows 容器，但是您可以在服務[總覽](container-instances-overview.md#linux-and-windows-containers)中找到目前的平臺差異。
 
-## <a name="deployment"></a>部署
+## <a name="deployment"></a>Deployment
 
 以下是兩種部署多容器群組的常見方式：使用[Resource Manager 範本][resource-manager template]或[YAML][yaml-file]檔案。 當您部署容器實例時，如果需要部署其他 Azure 服務資源（例如， [Azure 檔案儲存體共用][azure-files]），建議使用 Resource Manager 範本。 由於 YAML 格式的本質較簡潔，當您的部署只包含容器實例時，建議使用 YAML 檔案。 如需您可以設定之屬性的詳細資訊，請參閱[Resource Manager 範本參考](/azure/templates/microsoft.containerinstance/containergroups)或[YAML 參考](container-instances-reference-yaml.md)檔。
 
@@ -48,15 +48,15 @@ Azure 容器實例會藉由新增群組中實例的[資源要求][resource-reque
 
 ### <a name="resource-usage-by-instances"></a>依實例的資源使用量
 
-每個容器實例都會配置其資源要求中指定的資源。 不過，群組中的容器實例所使用的資源，需視您設定其選擇性[資源限制][resource-limits]屬性的方式而定。
+每個容器實例都會配置其資源要求中指定的資源。 不過，群組中的容器實例所使用的資源，需視您設定其選擇性[資源限制][resource-limits]屬性的方式而定。 資源限制必須小於必要的[資源要求][resource-requests]屬性。
 
 * 如果您未指定資源限制，實例的最大資源使用量就會與資源要求相同。
 
 * 如果您指定實例的資源限制，可以針對其工作負載調整實例的資源使用量，以減少或增加相對於資源要求的使用量。 您可以設定的最大資源限制是配置給群組的總資源。
     
-    例如，在有兩個實例要求1個 CPU 的群組中，您的其中一個容器可能會執行需要比另一個更多 Cpu 執行的工作負載。
+例如，在有兩個實例要求1個 CPU 的群組中，您的其中一個容器可能會執行需要比另一個更多 Cpu 執行的工作負載。
 
-    在此案例中，您可以為一個實例設定 0.5 CPU 的資源限制，並將第二個 cpu 的限制設為2個。 此設定會將第一個容器的資源使用量限制為 0.5 CPU，讓第二個容器可以使用最多一個完整的2個 Cpu （如果有的話）。
+在此案例中，您可以為一個實例設定 0.5 CPU 的資源限制，並將第二個 cpu 的限制設為2個。 此設定會將第一個容器的資源使用量限制為 0.5 CPU，讓第二個容器可以使用最多一個完整的2個 Cpu （如果有的話）。
 
 如需詳細資訊，請參閱容器群組 REST API 中的[ResourceRequirements][resource-requirements]屬性。
 
@@ -66,7 +66,7 @@ Azure 容器實例會藉由新增群組中實例的[資源要求][resource-reque
 
 * 如需容器群組中的資源**上限**，請參閱部署區域中 Azure 容器實例的[資源可用性][region-availability]。
 
-## <a name="networking"></a>網路
+## <a name="networking"></a>網路功能
 
 容器群組會共用 IP 位址以及該 IP 位址上的連接埠命名空間。 若要讓外部用戶端能夠連線到該群組內的容器，您必須從該容器公開該 IP 位址上的連接埠。 因為群組中的容器會共用埠命名空間，所以不支援埠對應。 群組內的容器可以透過 localhost 在其公開的埠上透過 localhost 彼此連接，即使這些埠不會在群組的 IP 位址外部公開。
 
@@ -76,7 +76,7 @@ Azure 容器實例會藉由新增群組中實例的[資源要求][resource-reque
 
 您可以指定要在容器群組內掛接的外部磁碟區。 您可以將這些磁碟區對應到群組之個別容器內的特定路徑。
 
-## <a name="common-scenarios"></a>常見案例
+## <a name="common-scenarios"></a>一般狀況
 
 如果您想要將單一功能性工作分割成少量的容器映像，多個容器的群組會很實用。 然後，這些映像就可以由不同小組傳遞，且具有個別的資源需求。
 

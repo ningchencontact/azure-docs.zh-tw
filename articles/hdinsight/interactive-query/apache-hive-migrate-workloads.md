@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 3d55e0e7ecbd52b6d96c657e333c5557388f2721
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 9f49a9224ed123b76f4d300c27a8dd5822e50ea3
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406499"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706028"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>將 Azure HDInsight 3.6 Hive 工作負載遷移至 HDInsight 4。0
 
@@ -73,13 +73,13 @@ HDInsight 3.6 和 HDInsight 4.0 需要不同的中繼存放區架構，而且無
 
 使用下表中的值。 將 `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` 取代為**複製**之 Hive 中繼存放區的適當值，並以空格分隔。 指定 SQL server 名稱時，請勿包含 ". database.windows.net"。
 
-|屬性 | 值 |
+|屬性 | Value |
 |---|---|
 |指令碼類型|- 自訂|
-|名稱|Hive 升級|
+|Name|Hive 升級|
 |Bash 指令碼 URI|`https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh`|
-|節點類型|前端|
-|parameters|SQLSERVERNAME DATABASENAME 使用者名稱密碼|
+|節點類型|Head|
+|參數|SQLSERVERNAME DATABASENAME 使用者名稱密碼|
 
 > [!Warning]  
 > 無法反轉將 HDInsight 3.6 中繼資料架構轉換成 HDInsight 4.0 架構的升級。
@@ -174,14 +174,14 @@ alter table myacidtable compact 'major';
 
 在 HDInsight 4.0 中，HiveCLI 已由 Beeline 取代。 HiveCLI 是 Hiveserver 1 的 thrift 用戶端，而 Beeline 是提供存取 Hiveserver 2 的 JDBC 用戶端。 Beeline 也可以用來連接到任何其他與 JDBC 相容的資料庫端點。 Beeline 在 HDInsight 4.0 上是現成可用的，不需要任何安裝。
 
-在 HDInsight 3.6 中，與 Hive 伺服器互動的 GUI 用戶端是 Ambari Hive 視圖。 HDInsight 4.0 以 Hortonworks Data Analytics Studio （DAS）取代 Hive 視圖。 DAS 不會隨附現成的 HDInsight 叢集，且不是正式支援的套件。 不過，您可以使用[腳本動作](../hdinsight-hadoop-customize-cluster-linux.md)，在叢集上安裝 DAS，如下所示：
+在 HDInsight 3.6 中，與 Hive 伺服器互動的 GUI 用戶端是 Ambari Hive 視圖。 HDInsight 4.0 不會隨附 Ambari View。 我們提供了一種方法，讓我們的客戶使用資料分析 Studio （DAS），這不是核心的 HDInsight 服務。 DAS 不會隨附現成的 HDInsight 叢集，且不是正式支援的套件。 不過，您可以使用[腳本動作](../hdinsight-hadoop-customize-cluster-linux.md)，在叢集上安裝 DAS，如下所示：
 
-|屬性 | 值 |
+|屬性 | Value |
 |---|---|
 |指令碼類型|- 自訂|
-|名稱|轉移|
+|Name|轉移|
 |Bash 指令碼 URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
-|節點類型|前端|
+|節點類型|Head|
 
 等待5到10分鐘，然後使用此 URL 啟動資料分析 Studio： `https://CLUSTERNAME.azurehdinsight.net/das/`。
 

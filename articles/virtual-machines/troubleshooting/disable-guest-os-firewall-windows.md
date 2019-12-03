@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 6883d046078b5dccd2f1e83e87b41ca83edc92e3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 2c3f733ad5af46c16a6880b8988754fd81ddabb0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030595"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705542"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>停用 Azure VM 中的客體 OS 防火牆
 
@@ -27,13 +27,13 @@ ms.locfileid: "72030595"
 
 ## <a name="solution"></a>方案
 
-本文所述程序是作為因應措施使用，讓您專注於修正真正的問題，也就是如何正確設定防火牆規則。 此為啟用 Windows 防火牆元件的 Microsoft 最佳做法。 設定防火牆規則的方式取決於所需的 VM 存取權層級而定。
+本文所述程序是作為因應措施使用，讓您專注於修正真正的問題，也就是如何正確設定防火牆規則。 Microsoft 的最佳作法是啟用 Windows 防火牆元件。 設定防火牆規則的方式取決於所需的 VM 存取層級。
 
 ### <a name="online-solutions"></a>線上解決方案 
 
 如果 VM 為連線狀態，並可透過相同虛擬網路上的其他 VM 來存取，您即可使用另一部 VM 來進行這些緩解措施。
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>降低風險 1：自訂腳本延伸模組或執行命令功能
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>緩解措施 1：自訂指令碼延伸模組或執行命令功能
 
 如果您具備使用中的 Azure 代理程式，即可使用[自訂指令碼延伸模組](../extensions/custom-script-windows.md)或[執行命令](../windows/run-command.md)功能 (僅限 Resource Manager VM)，從遠端執行下列指令碼。
 
@@ -54,13 +54,13 @@ ms.locfileid: "72030595"
 >   ```
 >   不過，只要套用此原則，您就會被移出遠端工作階段。 這個問題的永久解決之道是修改套用至此電腦的原則。
 
-#### <a name="mitigation-2-remote-powershell"></a>降低風險 2：遠端 Powershell
+#### <a name="mitigation-2-remote-powershell"></a>緩解措施 2：遠端 Powershell
 
 1.  針對您無法使用 RDP 連線來連接的 VM，連線到與此 VM 相同虛擬網路的某部 VM。
 
 2.  開啟 PowerShell 主控台視窗。
 
-3.  執行下列命令：
+3.  執行以下命令：
 
     ```powershell
     Enter-PSSession (New-PSSession -ComputerName "<HOSTNAME>" -Credential (Get-Credential) -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck)) 
@@ -72,13 +72,13 @@ ms.locfileid: "72030595"
 > [!Note]
 > 如果防火牆是透過群組原則物件所設定，則此方法可能無法使用，因為此命令只會變更本機登錄專案。 如果已備有原則，該原則會覆寫這項變更。 
 
-#### <a name="mitigation-3-pstools-commands"></a>降低風險 3：PSTools 命令
+#### <a name="mitigation-3-pstools-commands"></a>緩解措施 3：PSTools 命令
 
 1.  在要對其進行疑難排解的 VM 上，下載 [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools)。
 
 2.  開啟 CMD 執行個體，然後透過其 DIP 存取 VM。
 
-3.  執行下列命令：
+3.  執行以下命令：
 
     ```cmd
     psexec \\<DIP> -u <username> cmd
@@ -86,7 +86,7 @@ ms.locfileid: "72030595"
     psservice restart mpssvc
     ```
 
-#### <a name="mitigation-4-remote-registry"></a>降低風險 4：遠端登錄 
+#### <a name="mitigation-4-remote-registry"></a>緩解措施 4：遠端登錄 
 
 請遵循下列步驟使用[遠端登錄](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)。
 
@@ -118,7 +118,7 @@ ms.locfileid: "72030595"
 
 如果任何方法皆無法存取 VM，則自訂指令碼延伸模組會失敗，且您必須直接透過系統磁碟，在 [離線] 模式下工作。 若要這樣做，請遵循下列步驟：
 
-1.  [將系統磁碟連結至復原 VM](troubleshoot-recovery-disks-portal-windows.md)。
+1.  [將系統磁碟連結至復原虛擬機器](troubleshoot-recovery-disks-portal-windows.md)。
 
 2.  啟動復原 VM 的遠端桌面連線。
 
@@ -160,6 +160,6 @@ ms.locfileid: "72030595"
     reg unload HKLM\BROKENSOFTWARE
     ```
 
-10. [中斷連結系統磁碟並重新建立 VM](troubleshoot-recovery-disks-portal-windows.md)。
+10. [中斷連結系統磁碟，並重新建立虛擬機器](troubleshoot-recovery-disks-portal-windows.md)。
 
 11. 檢查問題是否已解決。

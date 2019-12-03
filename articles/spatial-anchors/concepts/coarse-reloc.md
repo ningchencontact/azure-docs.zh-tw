@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f03d2fba01dadc443da19416871a93a72289c0c6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 87179cbce9fa99d4c3422ce88b630312b5080481
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74270156"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706248"
 ---
 # <a name="coarse-relocalization"></a>粗略地重新當地語系化
 
@@ -128,9 +128,9 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 
 |             | 室內 | 戶外 |
 |-------------|---------|----------|
-| GPS         | 關閉 | 另一 |
-| WiFi        | 另一 | On （選擇性） |
-| BLE 信標 | On （選擇性加上注意事項，請參閱下文） | 關閉 |
+| GPS         | 關 | 開啟 |
+| WiFi        | 開啟 | On （選擇性） |
+| BLE 信標 | On （選擇性加上注意事項，請參閱下文） | 關 |
 
 
 ### <a name="enabling-gps"></a>啟用 GPS
@@ -495,7 +495,7 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-Azure 空間錨點只會追蹤清單上的藍牙信號。 不過，已設計成具有列出之 Uuid 的惡意指標，仍然可能會對服務的品質造成負面影響。 基於這個理由，您應該只在可以控制其部署的策劃空間中使用信號。
+Azure 空間錨點只會追蹤清單上的藍牙信號。 已設計成具有允許清單之 Uuid 的惡意信號，仍然可能會對服務的品質造成負面影響。 基於這個理由，您應該只在可以控制其部署的策劃空間中使用信號。
 
 ## <a name="querying-with-sensor-data"></a>使用感應器資料查詢
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: cc72cb4134e6492478805421e448df26a8dc4554
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: d74e28ce470c23bbc8ee2081532a198c260ccea5
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622419"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706372"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 設定多層式 SharePoint 應用程式的災害復原，以便進行災害復原
 
@@ -82,7 +82,7 @@ Site Recovery 與應用程式無關，而且應該與在支援的電腦上執行
 
 * 如需保護 Active Directory 和 DNS 的指引，請參閱[保護 Active Directory 和 DNS](site-recovery-active-directory.md) 文件。
 
-* 如需保護在 SQL Server 上執行之資料庫層的指引，請參閱[保護 SQL Server](site-recovery-active-directory.md) 文件。
+* 如需保護在 SQL Server 上執行之資料庫層的指引，請參閱[保護 SQL Server](site-recovery-sql.md) 文件。
 
 ## <a name="networking-configuration"></a>網路設定
 

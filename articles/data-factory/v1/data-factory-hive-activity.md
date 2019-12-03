@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f159f672c999d7877ef89cd78d23c4a608ccf1ab
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d153f8c316cbb76e063f07f7f823c8d9c4a21f87
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666985"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703361"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hive 活動轉換資料 
 > [!div class="op_single_selector" title1="轉換活動"]
@@ -33,7 +33,7 @@ ms.locfileid: "73666985"
 > * [.NET 自訂活動](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用 Hive 活動來轉換資料](../transform-data-using-hadoop-hive.md)。
+> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用 Hive 活動來轉換資料](../transform-data-using-hadoop-hive.md)。
 
 Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Hive 活動會在[您自己](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或[隨選的](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 架構 HDInsight 叢集上執行 Hive 查詢。 本文是根據 [資料轉換活動](data-factory-data-transformation-activities.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。
 
@@ -72,7 +72,7 @@ Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Hive 活
 }
 ```
 ## <a name="syntax-details"></a>語法詳細資料
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | 名稱 |活動的名稱 |是 |
 | 說明 |說明活動用途的文字 |否 |
@@ -246,5 +246,5 @@ FROM HiveSampleIn Group by ProfileID
 * [MapReduce 活動](data-factory-map-reduce.md)
 * [Hadoop 串流活動](data-factory-hadoop-streaming-activity.md)
 * [叫用 Spark 程式](data-factory-spark.md)
-* [叫用 R 指令碼](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [叫用 R 指令碼](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

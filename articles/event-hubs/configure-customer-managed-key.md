@@ -6,17 +6,20 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 63fe6c4a2d02489b5e25100aa6aa23407bbe6bc7
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 3af951d120282767bd71bc569d8c0bfe39dafffe
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809377"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705455"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>使用 Azure 入口網站，設定客戶管理的金鑰來加密待用 Azure 事件中樞資料
+# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal-preview"></a>使用 Azure 入口網站（預覽），設定客戶管理的金鑰來加密待用 Azure 事件中樞資料
 Azure 事件中樞使用 Azure 儲存體服務加密（Azure SSE）提供待用資料的加密。 事件中樞依賴 Azure 儲存體來儲存資料，而且根據預設，與 Azure 儲存體一起儲存的所有資料都會使用 Microsoft 管理的金鑰進行加密。 
+
+>[!NOTE]
+> 此功能目前為預覽狀態。 我們建議您不要在生產環境中使用 in。
 
 ## <a name="overview"></a>概觀
 Azure 事件中樞現在支援使用 Microsoft 管理的金鑰或客戶管理的金鑰（攜帶您自己的金鑰– BYOK）來加密待用資料的選項。 這項功能可讓您建立、輪替、停用及撤銷用來加密待用資料 Azure 事件中樞的客戶管理金鑰的存取權。

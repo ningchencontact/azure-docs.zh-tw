@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 044a63274f7f24831b1f791982f36898199616a6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 11/20/2019
+ms.openlocfilehash: 37b8ad0fc09644d746c3528c174d1bf95d546d0f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052502"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706270"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight：常見問題
 
@@ -90,7 +90,7 @@ Azure HDInsight 叢集具有不同類型的虛擬機器或節點。 每種節點
 
 不過，Microsoft 支援服務小組只能在下列情況下提供支援：
 
-- 載入腳本時所發生的問題或錯誤。 執行自訂腳本期間發生的任何錯誤都不在支援票證的範圍內。
+- 載入腳本時所發生的問題或錯誤。 在執行自訂指令碼期間所發生的任何錯誤，則不在支援票證的處理範圍內。
 
 - 屬於叢集建立程式的其他應用程式。 
 
@@ -180,6 +180,11 @@ Hive 中繼存放區用來儲存 Hive 伺服器所使用之資料來源的中繼
 - 邊緣節點：您可以將另一個邊緣節點新增至叢集，如在[HDInsight 中的 Apache Hadoop 叢集上使用空白邊緣節點](hdinsight-apps-use-edge-node.md)中所述。
 
 - 獨立節點：您可以將獨立虛擬機器新增到相同的子網，並使用 `https://<CLUSTERNAME>-int.azurehdinsight.net`的私用端點，從該虛擬機器存取叢集。 如需詳細資訊，請參閱[控制網路流量](hdinsight-plan-virtual-network-deployment.md#networktraffic)。
+
+### <a name="should-i-store-data-on-the-local-disk-of-an-edge-node"></a>我應該將資料儲存在邊緣節點的本機磁片上嗎？
+
+否，將資料儲存在本機磁片上並不是個好主意。 如果節點失敗，則儲存在本機的所有資料都將遺失。 建議您將資料儲存在 Azure Data Lake Storage Gen2 或 Azure Blob 儲存體中，或藉由裝載 Azure 檔案儲存體共用來儲存資料。
+
 
 ### <a name="can-i-add-an-existing-hdinsight-cluster-to-another-virtual-network"></a>我可以將現有的 HDInsight 叢集新增到另一個虛擬網路嗎？
 

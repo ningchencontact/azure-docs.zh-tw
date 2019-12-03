@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: cd0a9a66f3014a39a73cf04badfc67cd2ff4c3de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6ab1e3e01f66e071e3d16b196b3ecdcd30c2620
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61363199"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701799"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>了解和使用 IoT 中樞的模組對應項
 
@@ -113,7 +113,7 @@ ms.locfileid: "61363199"
 
 ### <a name="desired-property-example"></a>所需屬性範例
 
-在上述範例中，解決方案後端和模組應用程式會使用 `telemetryConfig` 模組對應項的所需屬性和報告屬性，以同步處理此模組的遙測設定。 例如:
+在上述範例中，解決方案後端和模組應用程式會使用 `telemetryConfig` 模組對應項的所需屬性和報告屬性，以同步處理此模組的遙測設定。 例如：
 
 1. 解決方案後端會以所需組態值來設定所需屬性。 以下是含有所需屬性集的文件部分︰
 
@@ -176,7 +176,7 @@ ms.locfileid: "61363199"
 
   - 屬性
 
-    | 名稱 | 值 |
+    | Name | Value |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  傳送通知的時間 |
@@ -266,7 +266,7 @@ ms.locfileid: "61363199"
 
 ## <a name="module-twin-size"></a>模組對應項大小
 
-「IoT 中樞」會對 `tags`、`properties/desired` 和 `properties/reported` 的個別總計值 (排除唯讀元素) 分別強制執行 8 KB 大小的限制。
+IoT 中樞會在 `tags`的值上強制執行 8 KB 大小限制，並在 `properties/desired` 和 `properties/reported`的值上使用 32 KB 大小限制。 這些總計是唯讀元素的專屬專案。
 
 大小的計算方式是計算所有字元的數量，並排除在字串常數之外的 UNICODE 控制字元 (區段 C0 和 C1) 和空格。
 
@@ -275,7 +275,7 @@ IoT 中樞會拒絕 (並出現錯誤) 將會讓這些文件的大小增加到超
 ## <a name="module-twin-metadata"></a>模組對應項中繼資料
 
 IoT 中樞會為模組對應項所需屬性和報告屬性中的每個 JSON 物件保有上次更新的時間戳記。 時間戳記採用 UTC 格式，並以 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 格式 `YYYY-MM-DDTHH:MM:SS.mmmZ` 進行編碼。
-例如:
+例如：
 
 ```json
 {

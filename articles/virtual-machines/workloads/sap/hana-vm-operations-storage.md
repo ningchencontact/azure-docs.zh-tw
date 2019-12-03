@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/27/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8419ce5c5c7144008027a93f985d1f6ffdc1ced4
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 26994c3488feb5f2c1522960ba4d2664bdbc80f4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669117"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707480"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 虛擬機器儲存體設定
 
@@ -65,7 +65,7 @@ RAID 下的 Azure VHD 數目累計，是從 IOPS 和儲存體輸送量端累計�
 當調整 VM 大小或決定 VM 時，也請注意整體 VM I/O 輸送量。 [記憶體最佳化的虛擬機器大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)一文中說明整體虛擬機器儲存體輸送量。
 
 ## <a name="linux-io-scheduler-mode"></a>Linux I/O 排程器模式
-Linux 有數個不同的 I/O 排程模式。 透過 Linux 廠商和 SAP 的一般建議是將磁片區的 i/o 排程器模式從**cfq**模式重新設定為**noop**模式。 詳細資料記載於 [SAP 附註編號 1984798](https://launchpad.support.sap.com/#/notes/1984787) \(英文\)。 
+Linux 有數個不同的 I/O 排程模式。 透過 Linux 廠商和 SAP 的一般建議是將磁片區的 i/o 排程器模式從**cfq**模式重新設定為**noop**模式。 [#1984787 的 SAP 附注](https://launchpad.support.sap.com/#/notes/1984787)中會參考詳細資料。 
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>適用于 Azure M 系列虛擬機器的進階儲存體和 Azure 寫入加速器解決方案

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b85c5c6c5642d10c8d917ed9785d0fcf48a5e68
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 5d4bdd554fb7c8817ada80a294f3ecb1c6c85b00
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554123"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707038"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -246,7 +246,7 @@ ms.locfileid: "74554123"
 > 這些功能目前正在開發中。
 >
 
-### <a name="group-administratorgroup-administrator"></a>[群組管理員](#group-administrator)
+### <a name="group-administratorgroup-administrator-permissions"></a>[群組管理員](#group-administrator-permissions)
 
 此角色中的使用者可以建立/管理群組及其設定（例如命名和到期原則）。 請務必瞭解，將使用者指派給這個角色，讓他們能夠在除了 Outlook 以外的各種工作負載（例如小組、SharePoint、Yammer）上管理租使用者中的所有群組。 此外，使用者也可以在各種不同的系統管理入口網站（例如 Microsoft 系統管理中心、Azure 入口網站，以及小組和 SharePoint 系統管理中心之類的工作負載）中管理各種群組設定。
 
@@ -279,7 +279,9 @@ ms.locfileid: "74554123"
 
 ### <a name="intune-administratorintune-service-administrator-permissions"></a>[Intune 系統管理員](#intune-service-administrator-permissions)
 
-此角色的使用者具有 Microsoft Intune Online (如其存在) 的全域權限。 此外，此角色包含管理使用者和裝置的能力，可相關聯原則以及建立和管理群組。 如需詳細資訊，請參閱[將角色型系統管理控制用於 Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
+此角色的使用者具有 Microsoft Intune Online (如其存在) 的全域權限。 此外，此角色包含管理使用者和裝置的能力，可相關聯原則以及建立和管理群組。 以角色為[基礎的系統管理控制（RBAC）與 Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)的詳細資訊。
+
+此角色可以建立和管理所有安全性群組。 不過，Intune 系統管理員沒有 Office 群組的系統管理許可權。 這表示系統管理員無法更新租使用者中所有 Office 群組的擁有者或成員資格。 不過，他/她可以管理他所建立的 Office 群組，這是他/她的使用者權限之一部分。 因此，他/她所建立的任何 Office 群組（而不是安全性群組），都應該根據其250的配額來計算。
 
 > [!NOTE]
 > 在 Microsoft Graph API、Azure AD Graph API 和 Azure AD PowerShell 中，會將此角色識別為「Intune 服務管理員」。 在 [Azure 入口網站](https://portal.azure.com)中則是「Intune 管理員」。
@@ -1081,8 +1083,8 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 | microsoft.office365.usageReports/allEntities/read | 讀取 Office 365 使用量報告。 |
 | office365. Microsoft.office365.webportal/allEntities/standard/read   | 讀取 office365. Microsoft.office365.webportal 中所有資源的標準屬性。 |
 
-### <a name="group-administrator"></a>群組管理員
-可以管理群組和群組設定的所有層面，例如命名和到期原則
+### <a name="group-administrator-permissions"></a>群組系統管理員許可權
+可以管理群組和群組設定（例如命名和到期原則）的所有層面。
 
 | **動作** | **說明** |
 | --- | --- |

@@ -220,7 +220,7 @@ ms.locfileid: "74075156"
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-1. 在瀏覽器的網址列中輸入您的網域名稱。 例如， [http://40.121.222.19](`http://www.contoso.com`)。
+1. 在瀏覽器的網址列中輸入您的網域名稱。 例如， `http://www.contoso.com`。
 
     ![在應用程式閘道中測試 contoso 網站](./media/create-multiple-sites-portal/application-gateway-iistest.png)
 

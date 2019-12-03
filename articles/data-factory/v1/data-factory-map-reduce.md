@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6d32cd12989262ebeaafee60a02bb7ea2a9b1e32
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 598a16d25ba375b984a966cba190181edbda3d15
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139286"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703142"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>從 Data Factory 叫用 MapReduce 程式
 > [!div class="op_single_selector" title1="轉換活動"]
@@ -33,13 +33,13 @@ ms.locfileid: "70139286"
 > * [.NET 自訂活動](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用 MapReduce 活動來轉換資料](../transform-data-using-hadoop-map-reduce.md)。
+> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用 MapReduce 活動來轉換資料](../transform-data-using-hadoop-map-reduce.md)。
 
 
 Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight MapReduce 活動會在[您自己](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或[隨選](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)的 Windows/Linux 架構 HDInsight 叢集上執行 MapReduce 程式。 本文是根據 [資料轉換活動](data-factory-data-transformation-activities.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。
 
 > [!NOTE] 
-> 如果您是 Azure Data Factory 的新手，請在閱讀本文之前先閱讀 [Azure Data Factory 簡介](data-factory-introduction.md)，以及研習[建置第一個資料管線](data-factory-build-your-first-pipeline.md)。  
+> 如果您是 Azure Data Factory 的新手，請在閱讀本文章之前閱讀 [Azure Data Factory 簡介](data-factory-introduction.md)，以及進行教學課程：[建置您的第一個資料管線](data-factory-build-your-first-pipeline.md)。  
 
 ## <a name="introduction"></a>簡介
 Azure Data Factory 中的「管線」會使用連結的計算服務，來處理連結的儲存體服務中的資料。 它包含一系列活動，其中每個活動都會執行特定的處理作業。 本文說明如何使用「HDInsight MapReduce 活動」。
@@ -112,7 +112,7 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
    您可以使用「HDInsight MapReduce 活動」，在 HDInsight 叢集上執行任何 MapReduce Jar 檔案。 在下列管線的範例 JSON 定義中，已設定讓「HDInsight 活動」執行 Mahout JAR 檔案。
 
 ## <a name="sample-on-github"></a>GitHub 上的範例
-您可以從以下位置下載使用 HDInsight MapReduce 活動的範例：[GitHub 上的 Data Factory 範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample)。  
+您可以從 [GitHub 上的 Data Factory 範例](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON/MapReduce_Activity_Sample)下載使用「HDInsight MapReduce 活動」的範例。  
 
 ## <a name="running-the-word-count-program"></a>執行字數統計程式
 本範例中的管線會在 Azure HDInsight 叢集上執行字數統計 Map/Reduce 程式。   
@@ -179,11 +179,11 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 ```
 
 ### <a name="pipeline"></a>管線
-此範例中的管線只有一個以下類型的活動：HDInsightMapReduce。 JSON 中的幾個重要屬性如下： 
+此範例中的管線只含有一個類型為 HDInsightMapReduce 的活動。 JSON 中的幾個重要屬性如下： 
 
 | 屬性 | 注意 |
 |:--- |:--- |
-| Type |類型必須設為 **HDInsightMapReduce**。 |
+| 類型 |類型必須設為 **HDInsightMapReduce**。 |
 | className |類別的名稱是： **wordcount** |
 | jarFilePath |包含類別的 Jar 檔案路徑。 如果您複製/貼上下列程式碼，請記得變更叢集的名稱。 |
 | jarLinkedService |包含 Jar 檔案的 Azure 儲存體連結服務。 這個連結服務會參考與 HDInsight 叢集關聯的儲存體。 |
@@ -250,5 +250,5 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 * [Pig 活動](data-factory-pig-activity.md)
 * [Hadoop 串流活動](data-factory-hadoop-streaming-activity.md)
 * [叫用 Spark 程式](data-factory-spark.md)
-* [叫用 R 指令碼](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [叫用 R 指令碼](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

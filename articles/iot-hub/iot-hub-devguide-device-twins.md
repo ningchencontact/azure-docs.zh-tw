@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 406f6f7a3db5f63fb50242a93f021c481631adaa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a800336fb6fda8a0ed0af71f243936d29e8079e7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209706"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706837"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解和使用 Azure IoT 中樞的裝置對應項
 
@@ -119,7 +119,7 @@ ms.locfileid: "74209706"
 
 ### <a name="desired-property-example"></a>所需屬性範例
 
-在上述範例中，解決方案後端和裝置應用程式會使用 `telemetryConfig` 裝置對應項的所需屬性和報告屬性，以同步處理此裝置的遙測組態。 例如︰
+在上述範例中，解決方案後端和裝置應用程式會使用 `telemetryConfig` 裝置對應項的所需屬性和報告屬性，以同步處理此裝置的遙測組態。 例如：
 
 1. 解決方案後端會以所需組態值來設定所需屬性。 以下是含有所需屬性集的文件部分︰
 
@@ -158,7 +158,7 @@ ms.locfileid: "74209706"
 
 * **依識別碼擷取裝置對應項**。 此作業會傳回裝置對應項文件，包括標籤以及所需屬性、報告屬性和系統屬性。
 
-* **部份更新裝置對應項**。 此作業可讓解決方案後端局部地更新裝置對應項中的標籤或所需屬性。 部分更新會以 JSON 文件的形式來表示，以新增或更新任何屬性。 設定為 `null` 的屬性會遭到移除。 下列範例會以 `{"newProperty": "newValue"}` 值建立新的所需屬性、以 `existingProperty` 覆寫 `"otherNewValue"` 的現有值，並移除 `otherOldProperty`。 不會對現有的所需屬性或標籤進行任何變更︰
+* **部份更新裝置對應項**。 此作業可讓解決方案後端局部地更新裝置對應項中的標籤或所需屬性。 部分更新會以 JSON 文件的形式來表示，以新增或更新任何屬性。 設定為 `null` 的屬性會遭到移除。 下列範例會以 `{"newProperty": "newValue"}` 值建立新的所需屬性、以 `"otherNewValue"` 覆寫 `existingProperty` 的現有值，並移除 `otherOldProperty`。 不會對現有的所需屬性或標籤進行任何變更︰
 
    ```json
    {
@@ -180,9 +180,9 @@ ms.locfileid: "74209706"
 
 * **接收對應項通知**。 這項作業可以在對應項修改時通知方案後端。 若要這樣做，您的 IoT 解決方案必須建立路由，並將資料來源設為等於 *twinChangeEvents*。 根據預設，預先不存在這類路由，因此不會傳送任何對應項通知。 如果變更率太高，或基於其他原因，例如內部失敗，IoT 中樞可能只會傳送一個包含所有變更的通知。 因此，如果您的應用程式需要可靠地稽核和記錄所有中間狀態，您應該使用裝置到雲端的訊息。 對應項通知訊息包含屬性和內文。
 
-  - properties
+  - 屬性
 
-    | 名稱 | 值 |
+    | Name | Value |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  傳送通知的時間 |
@@ -196,7 +196,7 @@ ms.locfileid: "74209706"
 
     訊息系統屬性前面會加上 `$` 符號。
 
-  - 內文
+  - body
         
     本節包含所有對應項變更 (JSON 格式)。 它使用的格式與修補程式的格式相同，差別在於它可以包含所有對應項區段︰tags、properties.reported、properties.desired，而且包含 “$metadata” 項目。 例如，
 
@@ -285,7 +285,7 @@ ms.locfileid: "74209706"
 
 ## <a name="device-twin-size"></a>裝置對應項大小
 
-「IoT 中樞」會對 `tags`、`properties/desired` 和 `properties/reported` 的個別總計值 (排除唯讀元素) 分別強制執行 8 KB 大小的限制。
+IoT 中樞會在 `tags`的值上強制執行 8 KB 大小限制，並在 `properties/desired` 和 `properties/reported`的值上使用 32 KB 大小限制。 這些總計是唯讀元素的專屬專案。
 
 大小的計算方式是計算所有字元的數量，並排除在字串常數之外的 UNICODE 控制字元 (區段 C0 和 C1) 和空格。
 
@@ -295,7 +295,7 @@ IoT 中樞會拒絕 (並出現錯誤) 將會讓這些文件的大小增加到超
 
 IoT 中樞會為裝置對應項所需屬性和報告屬性的每個 JSON 物件保有上次更新的時間戳記。 時間戳記採用 UTC 格式，並以 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 格式 `YYYY-MM-DDTHH:MM:SS.mmmZ` 進行編碼。
 
-例如︰
+例如：
 
 ```json
 {

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 525ea421eb0fa0131fa91078b0619b8463f6fbb0
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: e6645a131766b7ec055ba1c8bb639f054f50c80b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546235"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704393"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>設定從 Azure AD 到 Azure Active Directory Domain Services 的範圍同步處理
 
@@ -70,7 +70,7 @@ Azure AD DS 受控網域最多可能需要一小時的時間來完成部署。 �
 
 若要修改使用者應該同步處理到 Azure AD DS 受控網域的群組清單，請完成下列步驟：
 
-1. 在 Azure 入口網站中，搜尋並選取  **Azure AD Domain Services**。 選擇您的實例，例如*contoso.com*。
+1. 在 Azure 入口網站中，搜尋並選取  **Azure AD Domain Services**。 選擇您的實例，例如*aadds.contoso.com*。
 1. 從左側功能表中選取 [**同步**處理]。
 1. 若要新增群組，請選擇頂端的 [ **+ 選取群組**]，然後選擇要新增的群組。
 1. 若要從同步處理範圍中移除群組，請從目前同步處理的群組清單中選取它，然後選擇 [**移除群組**]。
@@ -82,7 +82,7 @@ Azure AD DS 受控網域最多可能需要一小時的時間來完成部署。 �
 
 若要針對 Azure AD DS 受控網域停用以群組為基礎的限域同步處理，請完成下列步驟：
 
-1. 在 Azure 入口網站中，搜尋並選取  **Azure AD Domain Services**。 選擇您的實例，例如*contoso.com*。
+1. 在 Azure 入口網站中，搜尋並選取  **Azure AD Domain Services**。 選擇您的實例，例如*aadds.contoso.com*。
 1. 從左側功能表中選取 [**同步**處理]。
 1. 將同步處理範圍從 [**範圍**] 設定為 [**全部**]，然後選取 [**儲存同步處理範圍**]。
 
@@ -194,11 +194,11 @@ Write-Output "******************************************************************
 
 1. 現在，建立 Azure AD DS 受控網域，並啟用以群組為基礎的範圍同步處理。 在 *-Properties*參數中包含 *"filteredSync" = "Enabled"* 。
 
-    設定您的 Azure 訂用帳戶識別碼，然後提供受控網域的名稱，例如*contoso.com*。 您可以使用[get-azsubscription][Get-AzSubscription] Cmdlet 來取得訂用帳戶識別碼。 將 [資源組名]、[虛擬網路名稱] 和 [區域] 設定為先前步驟中所使用的值，以建立支援的 Azure 資源：
+    設定您的 Azure 訂用帳戶識別碼，然後提供受控網域的名稱，例如*aadds.contoso.com*。 您可以使用[get-azsubscription][Get-AzSubscription] Cmdlet 來取得訂用帳戶識別碼。 將 [資源組名]、[虛擬網路名稱] 和 [區域] 設定為先前步驟中所使用的值，以建立支援的 Azure 資源：
 
    ```powershell
    $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso.com"
+   $ManagedDomainName = "aadds.contoso.com"
    $ResourceGroupName = "myResourceGroup"
    $VnetName = "myVnet"
    $AzureLocation = "westus"

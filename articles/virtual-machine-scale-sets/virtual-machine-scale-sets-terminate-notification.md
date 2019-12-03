@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: vashan
-ms.openlocfilehash: 7269c76236b7cbe60995d84e85857da596bec961
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: d3d7f92b3803114321bc7420b5c4ba059aabcb9d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264673"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705929"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Azure 虛擬機器擴展集實例的終止通知（預覽）
 擴展集實例可以選擇接收實例終止通知，並將預先定義的延遲時間設定為終止作業。 終止通知會透過 Azure Metadata Service- [Scheduled Events](../virtual-machines/windows/scheduled-events.md)傳送，這會提供影響力作業的通知和延遲，例如重新開機和重新部署。 預覽解決方案會將另一個事件–終止–新增至 Scheduled Events 清單，而終止事件的相關延遲將取決於使用者在其擴展集模型設定中所指定的延遲限制。
@@ -67,7 +67,7 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 >只有在使用 API 版本2019-03-01 和更新版本時，才能啟用擴展集實例上的終止通知
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-建立新的擴展集時，您可以使用[get-azvmssvm](/powershell/module/az.compute/new-azvmss) Cmdlet，在擴展集上啟用終止通知。
+建立新的擴展集時，您可以使用[get-azvmss](/powershell/module/az.compute/new-azvmss) Cmdlet，在擴展集上啟用終止通知。
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -84,7 +84,7 @@ New-AzVmss `
 
 上述範例會建立新的擴展集，並啟用具有5分鐘預設超時時間的終止通知。 建立新的擴展集時，參數*TerminateScheduledEvents*不需要值。 若要變更 timeout 值，請透過*TerminateScheduledEventNotBeforeTimeoutInMinutes*參數指定所需的時間。
 
-使用[get-azvmssvm](/powershell/module/az.compute/update-azvmss) Cmdlet，在現有的擴展集上啟用終止通知。
+使用[get-azvmss](/powershell/module/az.compute/update-azvmss) Cmdlet，在現有的擴展集上啟用終止通知。
 
 ```azurepowershell-interactive
 Update-AzVmss `
@@ -157,8 +157,8 @@ DocumentIncarnation 是 ETag，透過它很容易就能檢查自從上次查詢�
 -   不需要等待超時時間–您可以在收到事件之後以及事件的*NotBefore*時間到期之前，隨時啟動終止作業。
 -   在超時時強制刪除-預覽在產生事件之後，不會提供擴充超時值的任何功能。 當超時時間過期時，將會處理暫止的終止事件，而且 VM 將會被刪除。
 -   可修改的超時值–您可以在刪除實例之前隨時修改 timeout 值，方法是修改擴展集模型上的*notBeforeTimeout*屬性，並將 VM 實例更新為最新的模型。
--   核准所有暫止的刪除–如果 VM_1 上有未核准的暫止刪除，而且您已在 VM_2 上核准另一個終止事件，則必須等到 VM_1 的終止事件核准，或已過其超時時間之後，才會刪除 VM_2。 當您核准 VM_1 的 terminate 事件之後，VM_1 和 VM_2 都會被刪除。
--   核准所有同時刪除–延伸上述範例，如果 VM_1 和 VM_2 具有相同的*NotBefore*時間，則必須核准這兩個終止事件，或在超時時間到期之前，都不會刪除 VM。
+-   核准所有暫止的刪除–如果 VM_1 上有未核准的暫止刪除，而且您已核准 VM_2 上的另一個終止事件，則 VM_2 不會刪除，直到 VM_1 的終止事件已核准，或其超時時間已過。 一旦您核准 VM_1 的終止事件之後，VM_1 和 VM_2 都會被刪除。
+-   核准所有同時刪除–延伸上述範例，如果 VM_1 且 VM_2 具有相同的*NotBefore*時間，則必須核准這兩個終止事件，或在超時時間到期之前，都不會刪除 VM。
 
 ## <a name="troubleshoot"></a>疑難排解
 ### <a name="failure-to-enable-scheduledeventsprofile"></a>無法啟用 scheduledEventsProfile

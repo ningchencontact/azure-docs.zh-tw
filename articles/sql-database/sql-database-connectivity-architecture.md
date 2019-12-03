@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 0ac9247f5156eb1b766aec7403b2dc8473114659
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 6f6c64acf814b39d38138ed0e6a9c6075b693c7d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483720"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707990"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 連線架構
 
@@ -45,7 +45,7 @@ Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定�
 
 - **Proxy：** 在此模式中，所有連線都會透過 Azure SQL Database 閘道進行 proxy，因而導致延遲增加並減少整個。 針對使用此模式的連線，用戶端需要允許來自用戶端的輸入和輸出通訊，以在埠1433上 Azure SQL Database 閘道 IP 位址。
 
-- **預設：** 這是在建立之後所有伺服器上生效的連線原則，除非您明確地將連線原則變更為 `Proxy` 或 `Redirect`。 預設原則會針對源自 Azure （例如從 Azure 虛擬機器）的所有用戶端連線`Redirect`，並 `Proxy`所有源自于的用戶端連線（例如來自您本機工作站的連線）
+- **預設：** 這是在建立之後所有伺服器上生效的連線原則，除非您明確地將連線原則變更為 `Proxy` 或 `Redirect`。 預設原則會針對源自 Azure （例如從 Azure 虛擬機器）的所有用戶端連線`Redirect`，並 `Proxy`所有源自外部的用戶端連線（例如，來自您的本機工作站的連線）。
 
  我們強烈建議透過 `Proxy` 連線原則 `Redirect` 連線原則，以取得最低延遲和最高輸送量。不過，您必須符合如上面所述允許網路流量的額外需求。 如果用戶端是 Azure 虛擬機器，您可以使用具有[服務](../virtual-network/security-overview.md#service-tags)標籤的網路安全性群組（NSG）來完成此動作。 如果用戶端是從內部部署工作站進行連線，則您可能需要與網路系統管理員合作，以允許網路流量通過您的公司防火牆。
 
@@ -72,11 +72,11 @@ Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定�
 如何將流量遷移至特定區域中新閘道的詳細資料，請參閱下列文章： [Azure SQL Database 流量遷移至較新的閘道](sql-database-gateway-migration.md)
 
 
-| 區域名稱          | 閘道 IP 位址 |
+| 地區名稱          | 閘道 IP 位址 |
 | --- | --- |
-| 澳大利亞中部    | 20.36.105.0 |
+| 澳洲中部    | 20.36.105.0 |
 | 澳大利亞 Central2   | 20.36.113.0 |
-| 澳洲東部       | 13.75.149.87, 40.79.161.1 |
+| 澳大利亞東部       | 13.75.149.87, 40.79.161.1 |
 | 澳大利亞東南部 | 191.239.192.109, 13.73.109.251 |
 | 巴西南部         | 104.41.11.5, 191.233.200.14 |
 | 加拿大中部       | 40.85.224.249      |
@@ -119,7 +119,7 @@ Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定�
 
 若要變更 Azure SQL Database 伺服器的 Azure SQL Database 連線原則，請使用 [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) \(英文\) 命令。
 
-- 如果您的連線原則設定為 `Proxy`，所有網路封包都會流經 Azure SQL Database 閘道。 對於此設定，您必須只允許輸出至 Azure SQL Database 閘道 IP。 和使用 `Proxy` 的設定相比，使用 `Redirect` 的設定較為延遲。
+- 如果您的連線原則設定為 `Proxy`，所有網路封包都會流經 Azure SQL Database 閘道。 對於此設定，您必須只允許輸出至 Azure SQL Database 閘道 IP。 和使用 `Redirect` 的設定相比，使用 `Proxy` 的設定較為延遲。
 - 如果您的連線原則設為 `Redirect`，則所有網路封包都會直接流到資料庫叢集。 對於此設定，您需要允許輸出至多個 IP。
 
 ## <a name="script-to-change-connection-settings-via-powershell"></a>透過 PowerShell 變更連線設定的指令碼

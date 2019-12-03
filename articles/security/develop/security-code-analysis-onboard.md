@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: aaf59de2425e0725958847477f1043a5b7fac68a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 77be6d8518774a1e2656e23024490dd9c1431865
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839355"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707259"
 ---
 # <a name="onboarding-and-installing"></a>上架和安裝
 
@@ -53,7 +53,8 @@ ms.locfileid: "73839355"
 
 1. 將延伸模組與您的 Azure DevOps 組織共用之後，請移至您的 Azure DevOps 組織頁面。 這類頁面的範例 URL 是 `https://dev.azure.com/contoso`。
 1. 選取您名稱旁邊的 [購物包] 圖示，然後選取 [**管理延伸**模組]。
-1. 選取 [Microsoft 安全性程式碼分析] 延伸模組，然後開啟 Azure DevOps UI wizard 以開始安裝。
+1. 選取 [**共用**]。
+1. 選取 [Microsoft 安全性程式碼分析] 延伸模組，選取 [**安裝**]。
 1. 從下拉式清單中，選擇要在其中安裝擴充功能的 Azure DevOps 組織。
 1. 選取 [安裝]。 安裝完成之後，您就可以開始使用延伸模組。
 
