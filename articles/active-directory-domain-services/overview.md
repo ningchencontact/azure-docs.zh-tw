@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 3d4ac9ed9b8d5162f820f7e981d3380b95cf41e4
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e5e6a2fe856915a3625f22bffa91403e3c036a22
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172821"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481350"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>什麼是 Azure Active Directory Domain Services？
 
@@ -94,6 +94,9 @@ Azure AD DS 受控網域已設定為從 Azure AD 執行單向同步，以提供�
     * 同步的身分識別資訊包括使用者帳戶與群組成員資格。
 * Litware 的 IT 小組為在此 (或對等的) 虛擬網路中的 Azure AD 租用戶啟用 Azure AD DS。
 * 部署在 Azure 虛擬網路中的應用程式與 VM 之後可以使用網域加入、LDAP 讀取、LDAP 繫結、NTLM 與 Kerberos 驗證，以及群組原則等 Azure AD DS 功能。
+
+> [!IMPORTANT]
+> Azure AD Connect 應該只會為了與內部部署 AD DS 環境同步處理而安裝和設定。 不支援在 Azure AD DS 受控網域中安裝 Azure AD Connect，以將物件同步處理回 Azure AD。
 
 ### <a name="azure-ad-ds-for-cloud-only-organizations"></a>僅限雲端的組織的 Azure AD DS
 
