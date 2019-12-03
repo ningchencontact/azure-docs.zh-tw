@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: d0e19c8483321189cb38a4eebdbf7b2cb89785ef
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0503ebc7a585210f95eb58b0f11ae1dd0a835264
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933031"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278615"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>開始使用 Azure 監視器中的查詢
 
@@ -239,4 +239,7 @@ Perf
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何[撰寫搜尋查詢](search-queries.md)
+- 深入了解如何依照[在 Azure 監視器記錄查詢中使用字串](string-operations.md)的指示，在記錄查詢中使用字串資料。
+- 深入了解如何依照 [Azure 監視器記錄查詢中的進階彙總](advanced-aggregations.md)的指示，在記錄查詢中彙總資料。
+- 了解如何依照 [Azure 監視器記錄查詢中的聯結](joins.md) 的指示，從多個資料表聯結資料。
+- 在 [KQL 語言參考](/azure/kusto/query/)中取得整個 Kusto 查詢語言的相關文件。
