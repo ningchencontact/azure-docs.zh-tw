@@ -1,5 +1,5 @@
 ---
-title: 將應用程式新增至 Azure Active Directory 租用戶 | Microsoft Docs
+title: 快速入門：將應用程式新增至 Azure Active Directory 租用戶
 description: 本快速入門會使用 Azure 入口網站，將資源庫應用程式新增至 Azure Active Directory (Azure AD) 租用戶。
 services: active-directory
 author: msmimart
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/29/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5ee40f6fcd77465b67a7c409493027fefa48ca9
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 650a4f643f170fc64dd0e0643d645a7dcbffdfbc
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062988"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420474"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>快速入門：新增應用程式到您的 Azure Active Directory 租用戶
 

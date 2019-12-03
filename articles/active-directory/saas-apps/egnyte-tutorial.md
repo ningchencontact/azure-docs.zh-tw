@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 2/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e53f3adbf7f9909d3590a0bc34dadc49d498291d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7201b7d3f9f7e8333b18a087f58b6211101b1304
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73157288"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233562"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>教學課程：Azure Active Directory 與 Egnyte 整合
 
@@ -243,7 +243,7 @@ Egnyte 與 Azure AD 整合提供下列優點：
     >
 
 >[!NOTE]
->您可以使用任何其他的 Egnyte 使用者帳戶建立工具或 Egnyte 提供的 API 來佈建 AAD 使用者帳戶。
+>您可以使用任何其他的 Egnyte 使用者帳戶建立工具或 Egnyte 提供的 API，來佈建 Azure AD 使用者帳戶。
 >
 
 ### <a name="test-single-sign-on"></a>測試單一登入 

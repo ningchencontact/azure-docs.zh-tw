@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c098b67ab2782fa3cf29b5b19aa198f899ba69c0
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 332229dbcb35a209721fc9b457ebf1e804eaca5f
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890624"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561043"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 C IoT Edge 模組
 
@@ -383,7 +383,9 @@ ms.locfileid: "73890624"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已建立包含程式碼的 IoT Edge 模組，可篩選您 IoT Edge 裝置所產生的原始資料。 當您準備好建置自己的模組時，可以進一步了解如何[開發自己的 IoT Edge 模組](module-development.md)或如何[使用 Visual Studio 開發模組](how-to-visual-studio-develop-module.md)。 您可以繼續進行後續教學課程，以了解 Azure IoT Edge 如何協助您部署 Azure 雲端服務，以在邊緣處理和分析資料。
+在本教學課程中，您已建立包含程式碼的 IoT Edge 模組，可篩選您 IoT Edge 裝置所產生的原始資料。 當您準備好建置自己的模組時，可以進一步了解如何[開發自己的 IoT Edge 模組](module-development.md)或如何[使用 Visual Studio 開發模組](how-to-visual-studio-develop-module.md)。 如需 IoT Edge 模組 (包括模擬溫度模組) 的範例，請參閱 [IoT Edge 模組範例](https://github.com/Azure/iotedge/tree/master/edge-modules)和 [IoT C SDK 範例](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples)。 
+
+您可以繼續進行後續教學課程，以了解 Azure IoT Edge 如何協助您部署 Azure 雲端服務，以在邊緣處理和分析資料。
 
 > [!div class="nextstepaction"]
 > [Functions](tutorial-deploy-function.md)

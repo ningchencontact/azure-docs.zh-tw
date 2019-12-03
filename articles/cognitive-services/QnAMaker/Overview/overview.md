@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 08/01/2019
+ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: d647875895e33254b51fb8c3d11aa40c6c1ed71f
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 944ddb7f83a4d10861e5a16dbc69b8f9e4dabfe0
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973795"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422677"
 ---
 # <a name="what-is-the-qna-maker-service"></a>什麼是 QnA Maker 服務？
 
@@ -26,9 +26,9 @@ QnA Maker 的用戶端應用程式是任何可透過自然語言與使用者溝�
 ## <a name="when-to-use-qna-maker"></a>QnA Maker 的使用時機
 
 * **當您有靜態資訊時** - 當回答知識庫中有靜態資訊時，請使用 QnA Maker。 此知識庫是依據需求所自訂的，且您已使用 [PDF 和 URL](../concepts/data-sources-supported.md) 等文件建置好。
-* **當您想要為要求、問題或命令提供相同的答案時** - 當不同使用者提交相同問題時，系統會傳回相同的答案給他們。 
+* **當您想要為要求、問題或命令提供相同的答案時** - 當不同使用者提交相同問題時，系統會傳回相同的答案。 
 * **當您想要根據中繼資訊來篩選靜態資訊時** - 新增[中繼資料](../how-to/metadata-generateanswer-usage.md)標籤，以提供與用戶端應用程式使用者和資訊相關的其他篩選選項。 常見的中繼資料資訊包括[閒聊](../how-to/chit-chat-knowledge-base.md)、內容類型或格式、內容用途和內容有效期限。
-* **當您想要管理包含靜態資訊的聊天機器人對話時** - 您的知識會取得使用者的對話文字或命令，並做出回答。 如果答案是預先決定對話流程的一部分 (在您的知識庫中會以[多回合內容](../how-to/multiturn-conversation.md)來表示)，則聊天機器人可以輕鬆地提供此流程。  
+* **當您想要管理包含靜態資訊的聊天機器人對話時** - 您的知識庫會取得使用者的交談文字或命令，並做出回答。 如果答案是預先決定對話流程的一部分 (在您的知識庫中會以[多回合內容](../how-to/multiturn-conversation.md)來表示)，則聊天機器人可以輕鬆地提供此流程。  
 
 ## <a name="use-qna-maker-knowledge-base-in-a-chat-bot"></a>在聊天機器人中使用 QnA Maker 知識庫
 
@@ -40,14 +40,17 @@ QnA Maker 的用戶端應用程式是任何可透過自然語言與使用者溝�
 |:--|:--|
 |1|用戶端應用程式傳送使用者的問題  (以自己的話語表達的文字)「如何以程式設計方式更新知識庫？」 到知識庫端點。|
 |2|QnA Maker 使用訓練好的知識庫來提供正確解答，以及任何可用來精簡搜尋以獲得最佳解答的後續提示。 QnA Maker 會傳回 JSON 格式的回應。|
-|3|用戶端應用程式使用 JSON 回應來決定如何繼續對話。 這些決定可能包括顯示最佳解答或呈現更多選擇來精簡搜尋以獲得最佳解答。 |
+|3|用戶端應用程式使用 JSON 回應來決定如何繼續對話。 這些決定可能包括顯示最佳解答和呈現更多選擇來精簡搜尋以獲得最佳解答。 |
 |||
 
 ## <a name="what-is-a-knowledge-base"></a>什麼是知識庫？ 
 
 QnA Maker 會在問答集的知識庫中[匯入您的內容](../concepts/data-sources-supported.md)。 匯入程序會擷取結構化和半結構化內容各部分之間關聯性的相關資訊，來表示問答集之間的關聯性。 您可以編輯這些問答集或新增問答集。  
 
-問答集的內容包含特定答案的所有替代問題、用來在搜尋期間篩選答案選擇的中繼資料標籤，以及可供繼續精簡搜尋的後續提示。
+問答集的內容包括：
+* 問題的所有替代形式
+* 在搜尋期間用來篩選答案選擇的中繼資料標籤
+* 後續提示，以繼續精簡搜尋
 
 ![問題和答案與中繼資料的範例](../media/qnamaker-overview-learnabout/example-question-and-answer-with-metadata.png)
 
@@ -55,7 +58,7 @@ QnA Maker 會在問答集的知識庫中[匯入您的內容](../concepts/data-so
 
 ## <a name="create-manage-and-publish-to-a-bot-without-code"></a>不使用程式碼而在聊天機器人中進行建立、管理和發佈動作
 
-QnA Maker 入口網站可提供完整的知識庫撰寫體驗。 您可以將文件 (以其目前的格式) 匯入到知識庫。 這些文件 (例如常見問題集、產品手冊、試算表或網頁) 會轉換成問答集。 系統會分析每個問答集來提供後續提示，且這些問答集各自都會與其他問答集連結。 最終的 Markdown 格式支援豐富的呈現方式，包括影像和連結。 
+QnA Maker 入口網站可提供完整的知識庫撰寫體驗。 您可以將文件 (以其目前的格式) 匯入到知識庫。 這些文件 (例如常見問題集、產品手冊、試算表或網頁) 會轉換成問答集。 系統會分析每個問答集來提供後續提示，且這些問答集各自都會與其他問答集連結。 最終的 Markdown  格式支援豐富的呈現方式，包括影像和連結。 
 
 知識庫編輯完成後，請將知識庫發佈至運作中的 [Azure Web 應用程式聊天機器人](https://azure.microsoft.com/services/bot-service/) (不必撰寫任何程式碼)。 在 [Azure 入口網站](https://portal.azure.com)中測試聊天機器人，或下載並繼續開發。 
 
@@ -81,9 +84,9 @@ QnA Maker 提供撰寫、定型及發佈功能以及共同作業權限來整合�
 
 **步驟 2**：在 [QnA Maker](https://www.qnamaker.ai) 入口網站中建立知識庫。 新增[檔案和 URL](../concepts/data-sources-supported.md) 以建立知識庫。  
 
-**步驟 3**：使用 [cURL](../quickstarts/get-answer-from-kb-using-curl.md) 或 [Postman](../quickstarts/get-answer-from-kb-using-postman.md) 從自訂端點發佈知識庫並進行測試。 
+**步驟 3**：使用 [cURL 或 Postman](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) 從自訂端點發佈知識庫並進行測試。 
 
-**步驟 4**：從用戶端應用程式以程式設計方式呼叫知識庫的端點，並讀取 JSON 回應以顯示最適合使用者的答案。  
+**步驟 4**：從您的用戶端應用程式，以程式設計方式呼叫您知識庫的端點。 用戶端應用程式會處理 JSON 回應，以向使用者顯示最佳答案。  
 
 ## <a name="next-steps"></a>後續步驟
 QnA Maker 可提供建置、管理和部署自訂知識庫所需的所有項目。 

@@ -1,20 +1,15 @@
 ---
-title: 快速入門 - 在入口網站中建立登錄 - Azure Container Registry
+title: 快速入門 - 在入口網站中建立登錄
 description: 快速了解如何使用 Azure 入口網站在 Azure Container Registry 中建立私人 Docker 登錄。
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: bcf0874266aa83a4b4b932670557854c4688d400
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c5e6de0fdb7d0e46fa9be28483fd894289baf1a3
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931636"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455215"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立私人容器登錄
 

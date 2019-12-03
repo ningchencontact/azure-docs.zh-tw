@@ -1,22 +1,22 @@
 ---
-title: Azure Active Directory 使用者驗證 - Azure Active Directory
+title: 驗證和保護使用者 - Azure Active Directory
 description: 身為 Azure AD 系統管理員，要如何在保護使用者驗證的同時減少使用者所受到的影響？
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 07/11/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2f53243e49cc961f50ef09cf43a7ed174a82a9c
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ccbb754f03f77ce0571912a5443dc9b18c66b463
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65997276"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381111"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>驗證有哪些可用的方法？
 

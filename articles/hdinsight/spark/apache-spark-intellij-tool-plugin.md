@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: b2705f209b2acf1198ea555a5de2f79987a4d0e3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b417823d0ec7ed838186d53c1bb25400a148e0e9
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494238"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533899"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>教學課程：使用 Azure Toolkit for IntelliJ 建立適用於 HDInsight 叢集的 Apache Spark 應用程式
 
@@ -336,8 +336,6 @@ ms.locfileid: "73494238"
 
 ### <a name="spark-livy-interactive-session-consolescala"></a>Spark Livy 互動式工作階段主控台 (Scala)
 
-僅在 IntelliJ 2018.2 和 2018.3 上提供支援。
-
 1. 從功能表列中，瀏覽至 [執行]   > [編輯組態...]  。
 
 2. 在 [執行/偵錯組態]  視窗中，從左側窗格瀏覽至 [HDInsight 上的 Apache Spark]   > [HDInsight 上的 Spark]  。
@@ -366,6 +364,25 @@ ms.locfileid: "73494238"
 將一些程式碼傳送至本機主控台或 Livy 互動式工作階段主控台 (Scala)，方便您預見指令碼結果。 您可以在 Scala 檔案中醒目提示某些程式碼，然後以滑鼠右鍵按一下 [將選取項目傳送至 Spark 主控台]  。 所選的程式碼會傳送至主控台並加以執行。 結果會在主控台中顯示於程式碼之後。 主控台會檢查是否有錯誤。  
 
    ![將選取項目傳送至 Spark 主控台](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
+
+## <a name="integrate-with-hdinsight-identity-broker-hib"></a>與 HDInsight Identity Broker (HIB) 整合 
+
+### <a name="connect-to-your-hdinsight-esp-cluster-with-id-broker-hib"></a>連線到 HDInsight ESP cluster with Id Broker (HIB)
+您可以遵循一般步驟來登入 Azure 訂用帳戶，以連線到 HDInsight ESP cluster with Id Broker (HIB)。 登入之後，您會在 Azure Explorer 中看到叢集清單。 如需詳細，請參閱[連線至 HDInsight 叢集](#connect-to-your-hdinsight-cluster)。
+
+### <a name="run-a-spark-scala-application-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>在 HDInsight ESP cluster with Id Broker (HIB) 上執行 Spark Scala 應用程式
+您可以遵循一般步驟，將作業提交至 HDInsight ESP cluster with Id Broker (HIB)。 如需詳細指示，請參閱[在 HDInsight Spark 叢集上執行 Spark Scala 應用程式](#run-a-spark-scala-application-on-an-hdinsight-spark-cluster)。
+
+我們會將所需的檔案上傳到以您的登入帳戶命名的資料夾，而您可以在組態檔中看到上傳路徑。
+
+   ![組態中的上傳路徑](./media/apache-spark-intellij-tool-plugin/upload-path-in-the-configuration.png)
+
+### <a name="spark-console-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>HDInsight ESP cluster with Id Broker (HIB) 上的 Spark 主控台
+您可以在 HDInsight ESP cluster with Id Broker (HIB) 上執行 Spark 本機主控台 (Scala)，或執行 Spark Livy 互動式工作階段主控台 (Scala)。 如需詳細指示，請參閱 [Spark 主控台](#spark-console)。
+
+   > [!NOTE]  
+   > 針對 HDInsight ESP cluster with Id Broker (HIB)，目前不受支援[連結叢集](#link-a-cluster)和[從遠端進行 Apache Spark 應用程式偵錯](#debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster)。
+
 
 ## <a name="reader-only-role"></a>僅限讀取者角色
 

@@ -1,6 +1,7 @@
 ---
-title: 記錄往返 VM 的流量 - 教學課程 - Azure 入口網站 | Microsoft Docs
-description: 了解如何使用網路監看員的 NSG 流量記錄功能來記錄往返 VM 的流量。
+title: 教學課程：使用 Azure 入口網站記錄往返 VM 的網路流量
+titleSuffix: Azure Network Watcher
+description: 在本教學課程中，了解如何使用網路監看員的 NSG 流量記錄功能來記錄往返 VM 的流量。
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -17,12 +18,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3e5490a4d74f10532764029f7a83788e3e39b592
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a5d600e761ce3c3cebbe155c6be7e0f5a377eb32
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636206"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419626"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站記錄往返於虛擬機器的網路流量
 
@@ -35,7 +36,7 @@ ms.locfileid: "69636206"
 > * 下載記錄的資料
 > * 檢視記錄的資料
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="create-a-vm"></a>建立 VM
 
@@ -45,12 +46,12 @@ ms.locfileid: "69636206"
 
     |設定|值|
     |---|---|
-    |Name|myVm|
+    |名稱|myVm|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
-    |Subscription| 選取您的訂用帳戶。|
-    |Resource group| 選取 [新建]  ，然後輸入 **myResourceGroup**。|
-    |Location| 選取 [美國東部] |
+    |訂用帳戶| 選取您的訂用帳戶。|
+    |資源群組| 選取 [新建]  ，然後輸入 **myResourceGroup**。|
+    |位置| 選取 [美國東部] |
 
 4. 選取 VM 的大小，然後選取 [選取]  。
 5. 在 [設定]  底下，接受所有預設值，然後選取 [確定]  。
@@ -88,9 +89,9 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
 
     | 設定        | 值                                                        |
     | ---            | ---   |
-    | Name           | 3-24 個字元長，只能包含小寫英文字母和數字，並且必須是所有 Azure 儲存體帳戶中唯一的名稱。                                                               |
-    | Location       | 選取 [美國東部]                                            |
-    | Resource group | 選取 [使用現有的]  ，然後選取 [myResourceGroup]  |
+    | 名稱           | 3-24 個字元長，只能包含小寫英文字母和數字，並且必須是所有 Azure 儲存體帳戶中唯一的名稱。                                                               |
+    | 位置       | 選取 [美國東部]                                            |
+    | 資源群組 | 選取 [使用現有的]  ，然後選取 [myResourceGroup]  |
 
     建立儲存體帳戶可能需要一分鐘的時間。 建好儲存體帳戶之前，請不要繼續其餘步驟。 如果您使用現有儲存體帳戶，而不是新建一個，請確定在所選儲存體帳戶的 [設定]  下方，[防火牆與虛擬網路]  的 [所有網路]  (預設值) 已選取。 在所有情況下，儲存體帳戶必須與 NSG 位在同一個區域中。 
     
@@ -217,7 +218,7 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
 | 443         | 目的地連接埠       | 流量流向的目的地連接埠。 因為流量已流向連接埠 443，記錄檔中名為 **UserRule_default-allow-rdp** 的規則會處理此流量。                                                |
 | T            | 通訊協定               | 流量的通訊協定是 TCP (T) 或 UDP (U)。                                  |
 | O            | 方向              | 流量是輸入 (I) 或輸出 (O)。                                     |
-| 具有使用            | 動作                 | 允許 (A) 或拒絕 (D) 流量。  
+| A            | 動作                 | 允許 (A) 或拒絕 (D) 流量。  
 | C            | 流程狀態 **僅限第 2 版** | 擷取流程的狀態。 可能的狀態為 **B**：開始，當流量建立時。 不提供統計資料。 **C**：繼續進行中的流量。 提供 5 分鐘間隔的統計資料。 **E**：結束，當流量終止時。 提供統計資料。 |
 | 30 | 已傳送的封包數 - 來源到目的地 **僅限第 2 版** | 上次更新之後從來源傳送到目的地的 TCP 或 UDP 封包總數。 |
 | 16978 | 已傳送的位元組數 - 來源到目的地 **僅限第 2 版** | 上次更新之後從來源傳送到目的地的 TCP 或 UDP 封包位元組總數。 封包位元組包括封包標頭與承載。 |

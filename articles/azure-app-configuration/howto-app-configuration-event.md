@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: d41ce06279536e3479b96d8d7afedf81624dbc9b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 32a3131c8ff6a01a35fbe42750384dd303a23140
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326590"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185182"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>快速入門：使用 Azure CLI 將 Azure 應用程式組態事件路由傳送至 Web 端點
 
@@ -80,7 +80,7 @@ az group deployment create \
 
 ## <a name="subscribe-to-your-app-configuration"></a>訂閱應用程式組態
 
-您可訂閱主題，告知 Event Grid 您想要追蹤的事件，以及要將事件傳送至何處。 下列範例可訂閱您所建立的應用程式組態，從 Web 應用程式傳遞 URL 作為事件通知的端點。 以事件訂用帳戶的名稱來取代 `<event_subscription_name>`。 對於 `<resource_group_name>` 和 `<appconfig_name>`，使用您稍早建立的值。
+您可訂閱主題，告知 Event Grid 您想要追蹤的事件，以及要將事件傳送至何處。 下列範例會訂閱您所建立的應用程式組態，從 Web 應用程式傳遞 URL 作為事件通知的端點。 以事件訂用帳戶的名稱來取代 `<event_subscription_name>`。 對於 `<resource_group_name>` 和 `<appconfig_name>`，使用您稍早建立的值。
 
 Web 應用程式的端點必須包含的尾碼 `/api/updates/`。
 

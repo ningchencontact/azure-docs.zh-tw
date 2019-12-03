@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 5642ce6065c4b76bdbd6d772c74fed894de0888f
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 177caaa5400c10ed8de80b04a3305dce7cae77d6
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73892454"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407012"
 ---
 # <a name="tutorial-define-a-new-iot-device-type-in-your-azure-iot-central-application-preview-features"></a>教學課程：在 Azure IoT Central 應用程式中定義新的 IoT 裝置類型 (預覽功能)
 
@@ -28,9 +28,9 @@ ms.locfileid: "73892454"
 - 傳送位置屬性
 - 傳送風扇馬達錯誤事件
 - 傳送風扇運轉狀態
-- 可寫入的風扇速度屬性
-- 用來重新啟動裝置的命令
-- 可讓您檢視裝置整體的儀表板
+- 提供可寫入的風扇速度屬性
+- 提供用來重新啟動裝置的命令
+- 透過儀表板為您提供裝置的整體檢視
 
 透過此裝置範本，操作員可以建立並連接實際的風扇裝置。 這些風扇全都會有量值、屬性和命令，可供操作員用來監視和管理風扇。 操作員可使用裝置儀表板和表單來與風扇裝置互動。
 
@@ -42,36 +42,36 @@ ms.locfileid: "73892454"
 身為建置者，您可以利用數個選項來建立裝置範本：
 
 - 在 IoT Central 中設計裝置範本，然後在您的裝置程式碼中實作其裝置功能模型。
-- 從 [Azure IoT 認證裝置目錄](https://aka.ms/iotdevcat)匯入裝置功能模型，然後新增您的 IoT Central 應用程式所需的任何雲端屬性、自訂和儀表板。
+- 從 [Azure IoT 認證裝置目錄](https://aka.ms/iotdevcat)匯入裝置功能模型。 然後，新增 IoT Central 應用程式所需的任何雲端屬性、自訂項目和儀表板。
 - 使用 Visual Studio Code 建立裝置功能模型。 從模型實作您的裝置程式碼。 手動將裝置功能模型匯入您的 IoT Central 應用程式中，然後新增您的 IoT Central 應用程式所需的任何雲端屬性、自訂和儀表板。
 - 使用 Visual Studio Code 建立裝置功能模型。 從模型實作裝置程式碼，並使用裝置優先連線將實際的裝置連線至 IoT Central 應用程式。 IoT Central 會從公用存放庫中為您尋找並匯入裝置功能模型。 然後，您便可以將 IoT Central 應用程式所需的任何雲端屬性、自訂和儀表板新增至裝置範本中。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本教學課程，您必須要有 Azure IoT 中心應用程式。 按照此快速入門[建立 Azure IoT Central 應用程式](quick-deploy-iot-central.md) (英文)。
+若要完成本教學課程，您必須[建立 Azure IoT Central 應用程式](quick-deploy-iot-central.md)。
 
 ## <a name="create-a-device-template-from-the-device-catalog"></a>從裝置目錄建立裝置範本
 
-身為建置者，您可以使用 [Azure IoT 裝置目錄](https://catalog.azureiotsolutions.com/alldevices)中所列的 IoT 隨插即用認證裝置，快速地開始打造解決方案。 IoT Central 會與裝置目錄整合，以便讓您能夠從這些 IoT 隨插即用認證裝置匯入裝置功能模型。 若要在 IoT Central 中，從其中一個裝置建立裝置範本：
+身為建置者，您可以使用 IoT 隨插即用認證裝置，快速地開始打造解決方案。 請參閱 [Azure IoT 裝置目錄](https://catalog.azureiotsolutions.com/alldevices)中的清單。 IoT Central 會與裝置目錄整合，以便從這些 IoT 隨插即用認證裝置匯入裝置功能模型。 若要在 IoT Central 中，從其中一個裝置建立裝置範本：
 
 1. 移至 IoT Central 應用程式中的 [裝置範本]  頁面。
-1. 選取 [+ 新增]  ，然後從下面所列的目錄中選取任何一個 IoT 隨插即用認證裝置。 IoT Central 會根據這個裝置功能模型來建立裝置範本。
+1. 選取 [+ 新增]  ，然後從目錄中選取任何一個 IoT 隨插即用認證裝置。 IoT Central 會根據這個裝置功能模型來建立裝置範本。
 1. 將任何雲端屬性、自訂或檢視新增至裝置範本。
-1. 選取 [發佈]  以發佈此裝置範本，讓範本可供操作員用來檢視及連接裝置。
+1. 選取 [發佈]  ，讓範本可供操作員用來檢視及連接裝置。
 
 ## <a name="create-a-device-template-from-scratch"></a>從頭開始建立裝置範本
 
 裝置範本包含：
 
 - 「裝置功能模型」  ，可指定裝置所實作的遙測、屬性和命令。 這些功能會組織成一或多個介面。
-- 「雲端屬性」  ，可定義 IoT Central 應用程式所儲存的裝置相關資訊。 例如，雲端屬性可記錄裝置上次收到的資料。 此資訊一律不會與裝置共用。
+- 「雲端屬性」  ，可定義 IoT Central 應用程式所儲存的裝置相關資訊。 例如，雲端屬性可記錄上次服務裝置的日期。 此資訊一律不會與裝置共用。
 - 「自訂」  ，可讓建置者覆寫裝置功能模型中的某些定義。 例如，建置者可覆寫裝置屬性的名稱。 屬性名稱會出現在 IoT Central 的儀表板和表單中。
 - 「儀表板和表單」  ，可讓建置者建立 UI，而讓操作員能夠監視和管理與應用程式連線的裝置。
 
 若要在 IoT Central 中建立裝置範本：
 
 1. 移至 IoT Central 應用程式中的 [裝置範本]  頁面。
-1. 選取 [+ 新增]  ，然後選取 [自訂]  。
+1. 選取 [+ 新增]   > [自訂]  。
 1. 輸入範本的名稱，例如**環境感應器**。
 1. 按 **Enter** 鍵。 IoT Central 便會建立空白的裝置範本。
 
@@ -79,7 +79,7 @@ ms.locfileid: "73892454"
 
 您可以從範本的首頁重新命名或刪除範本。
 
-將裝置功能模型新增至範本後，就可以將其發佈。 直到發佈範本之後，您才能根據此範本連接裝置，從而讓操作員得以在 [裝置]  頁面中看到裝置。
+將裝置功能模型新增至範本後，就可以將其發佈。 直到發佈範本後，您才能根據此範本連接裝置，從而讓操作員得以在 [裝置]  頁面中看到裝置。
 
 ## <a name="create-a-capability-model"></a>建立功能模型
 
@@ -109,7 +109,7 @@ ms.locfileid: "73892454"
 
     - 從頭開始建立自訂介面。
     - 從檔案匯入現有介面。 裝置建置者可能已使用 Visual Studio Code 來撰寫適用於裝置的介面。
-    - 選擇其中一個標準介面，例如**裝置資訊**介面。 標準介面會指定許多裝置通用的功能。 這些標準介面是由 Microsoft Azure IoT 發佈的，您無法對其設定版本或進行編輯。
+    - 選擇其中一個標準介面，例如 [裝置資訊]  介面。 標準介面會指定許多裝置通用的功能。 這些標準介面是由 Azure IoT 發佈的，您無法對其設定版本或進行編輯。
 
 1. 在建立介面之後，請選擇 [編輯身分識別]  來變更介面的顯示名稱。
 
@@ -128,7 +128,7 @@ ms.locfileid: "73892454"
 | 功能類型 | 遙測。 |
 | 語意類型 | 遙測的語意類型，例如溫度、狀態或事件。 所選擇的語意類型會決定下列哪些欄位可供使用。 |
 | 結構描述 | 遙測的資料類型，例如雙精度浮點數、字串或向量。 可用的選項取決於語意類型。 結構描述不適用於事件和狀態這兩種語意類型。 |
-| 嚴重性 | 僅適用於事件語意類型。 **錯誤**、**資訊**或**警告**。 |
+| 嚴重性 | 僅適用於事件語意類型。 嚴重性為 [錯誤]  、[資訊]  或 [警告]  。 |
 | 狀態值 | 僅適用於狀態語意類型。 會定義可能的狀態值，每個狀態值都會有顯示名稱、名稱、列舉類型和值。 |
 | 單位 | 遙測值的單位，例如 **mph**、 **%** 或 **&deg;C**。 |
 | 顯示單位 | 要在儀表板和表單上使用的顯示單位。 |
@@ -137,7 +137,7 @@ ms.locfileid: "73892454"
 
 ### <a name="properties"></a>properties
 
-屬性代表時間點數值。 例如，裝置可以使用屬性來報告其嘗試到達的目標溫度。 您可以從 IoT Central 設定可寫入的屬性。
+屬性代表時間點值。 例如，裝置可以使用屬性來報告其嘗試到達的目標溫度。 您可以從 IoT Central 設定可寫入的屬性。
 
 下表顯示屬性功能的組態設定：
 
@@ -149,7 +149,7 @@ ms.locfileid: "73892454"
 | 語意類型 | 屬性的語意類型，例如溫度、狀態或事件。 所選擇的語意類型會決定下列哪些欄位可供使用。 |
 | 結構描述 | 屬性的資料類型，例如雙精度浮點數、字串或向量。 可用的選項取決於語意類型。 結構描述不適用於事件和狀態這兩種語意類型。 |
 | 可寫入 | 如果屬性無法寫入，裝置可以向 IoT Central 報告屬性值。 如果屬性可寫入，則裝置可以向 IoT Central 報告屬性值，IoT Central 也可以向裝置傳送屬性更新。
-| 嚴重性 | 僅適用於事件語意類型。 **錯誤**、**資訊**或**警告**。 |
+| 嚴重性 | 僅適用於事件語意類型。 嚴重性為 [錯誤]  、[資訊]  或 [警告]  。 |
 | 狀態值 | 僅適用於狀態語意類型。 會定義可能的狀態值，每個狀態值都會有顯示名稱、名稱、列舉類型和值。 |
 | 單位 | 屬性值的單位，例如 **mph**、 **%** 或 **&deg;C**。 |
 | 顯示單位 | 要在儀表板和表單上使用的顯示單位。 |
@@ -166,8 +166,8 @@ ms.locfileid: "73892454"
 | ----- | ----------- |
 | 顯示名稱 | 儀表板和表單上所用命令的顯示名稱。 |
 | 名稱 | 命令的名稱。 IoT Central 會從顯示名稱產生此欄位的值，但如有必要，您也可以選擇自己所要使用的值。 |
-| 功能類型 | 命令 |
-| 命令 | SynchronousExecutionType。 |
+| 功能類型 | 命令。 |
+| 命令 | `SynchronousExecutionType` 。 |
 | 註解 | 有關命令功能的任何註解。 |
 | 說明 | 命令功能的說明。 |
 | 要求 | 若啟用，則為要求參數的定義，包括：名稱、顯示名稱、結構描述、單位和顯示單位。 |
@@ -175,7 +175,7 @@ ms.locfileid: "73892454"
 
 ## <a name="manage-an-interface"></a>管理介面
 
-如果您尚未發佈介面，則可以編輯介面所定義的功能。 介面一經發佈，就必須建立新版本的裝置範本，並設定介面版本以進行任何變更。 不需要設定版本的變更 (例如，顯示名稱或單位) 則可在 [自訂]  區段中進行。
+如果您尚未發佈介面，則可以編輯介面所定義的功能。 在您發佈介面之後，如果想要進行任何變更，您就必須建立新版本的裝置範本並設定介面版本。 您可以在 [自訂]  區段中進行不需要設定版本的變更 (例如，顯示名稱或單位)。
 
 如果您想要在其他功能模型中重複使用介面，也可以將介面匯出為 JSON 檔案。
 
@@ -204,13 +204,13 @@ ms.locfileid: "73892454"
 
 ### <a name="generate-default-views"></a>產生預設檢視
 
-產生預設檢視，是開始將重要裝置資訊視覺化的快速方式。 您最多會為裝置範本產生三個預設檢視：
+產生預設檢視是將重要裝置資訊視覺化的快速方式。 您最多可為裝置範本產生三個預設檢視：
 
-- **命令**，會提供具有裝置命令的檢視，並可讓操作員將命令分派至裝置。
-- **概觀**，會提供具有裝置遙測的檢視，以顯示圖表和計量。
-- **關於**，會提供具有裝置資訊的檢視，以顯示裝置屬性。
+- [命令]  會提供具有裝置命令的檢視，並可讓操作員將命令分派至裝置。
+- [概觀]  為檢視提供裝置遙測，以顯示圖表和計量。
+- [關於]  為檢視提供裝置資訊，以顯示裝置屬性。
 
-選取 [產生預設檢視]  之後，您就會看到預設檢視自動新增至裝置範本的 [檢視]  區段底下。
+選取 [產生預設檢視]  之後，您會看到預設檢視自動新增至裝置範本的 [檢視]  區段底下。
 
 ## <a name="add-dashboards"></a>新增儀表板
 
@@ -218,18 +218,22 @@ ms.locfileid: "73892454"
 
 若要將儀表板新增至裝置範本：
 
-- 移至裝置範本，然後選取 [檢視]  。
-- 然後選擇 [將裝置視覺化]  。
-- 在 [儀表板名稱]  中輸入儀表板的名稱。
-- 從靜態、屬性、雲端屬性、遙測和命令圖格的清單，將圖格新增至儀表板。 將您想要新增的圖格拖放至儀表板。
-- 若要在單一圖表圖格上繪製多個遙測值，請選取遙測值，然後選取 [結合]  。
-- 設定您所新增的每個圖格，以自訂其顯示資料的方式，設定方法是選取齒輪圖示，或選取圖表圖格上的 [變更設定]  按鈕。
-- 在儀表板上排列圖格和調整其大小。
-- 儲存變更。
+1. 移至裝置範本，然後選取 [檢視]  。
+1. 選擇 [將裝置視覺化]  。
+1. 在 [儀表板名稱]  中輸入儀表板的名稱。
+1. 從靜態、屬性、雲端屬性、遙測和命令圖格的清單，將圖格新增至儀表板。 將您想要新增的圖格拖放至儀表板。
+1. 若要在單一圖表圖格上繪製多個遙測值，請選取遙測值，然後選取 [結合]  。
+1. 設定您新增的每個圖格，以自訂其顯示資料的方式。 若要這麼做，請選取齒輪圖示，或選取圖表圖格上的 [變更設定]  。
+1. 在儀表板上排列圖格和調整其大小。
+1. 儲存變更。
 
 ### <a name="configure-preview-device-to-view-dashboard"></a>設定預覽裝置以檢視儀表板
 
-若要檢視和測試儀表板，您可以選取 [設定預覽裝置]  ，這可讓您看到儀表板發佈之後，操作員所將看到的樣貌。 此選項可讓您驗證檢視所顯示的資料是否正確。 您可以選擇的項目有「沒有預覽裝置」、「您為裝置範本所設定的實際測試裝置」或「應用程式中的現有裝置 (藉由使用裝置識別碼)」。
+若要檢視和測試您的儀表板，請選取 [設定預覽裝置]  。 這可讓您在儀表板發佈之後，看見如操作員所見的儀表板。 使用此選項來驗證檢視所顯示的資料是否正確。 您可選擇下列項目：
+
+- 沒有預覽裝置。
+- 您為裝置範本設定的實際測試裝置。
+- 應用程式中的現有裝置 (使用裝置識別碼)。
 
 ## <a name="add-forms"></a>新增表單
 
@@ -238,7 +242,7 @@ ms.locfileid: "73892454"
 若要將表單新增至裝置範本：
 
 1. 移至裝置範本，然後選取 [檢視]  。
-1. 然後選擇 [編輯裝置和雲端資料]  。
+1. 選擇 [編輯裝置和雲端資料]  。
 1. 在 [表單名稱]  中輸入表單的名稱。
 1. 選取要用來配置表單的資料行數目。
 1. 將屬性新增至表單上的現有區段，或在選取屬性後選擇 [新增區段]  。 使用區段來將表單上的屬性分組。 您可以對區段新增標題。
@@ -254,119 +258,123 @@ ms.locfileid: "73892454"
 
 若要發佈裝置範本，請移至裝置範本，然後選取 [發佈]  。
 
-在您發佈裝置範本後，操作員便可移至 [裝置]  頁面，並新增會使用裝置範本的實際或模擬裝置。 您可以在進行變更時，繼續修改和儲存裝置範本；不過，若想要推送這些變更以便讓操作員在 [裝置]  頁面下檢視，每次都必須選取 [發佈]  。
+在您發佈裝置範本後，操作員便可移至 [裝置]  頁面，並新增會使用裝置範本的實際或模擬裝置。 當您進行變更時，您可以繼續修改並儲存裝置範本。 當您要將這些變更推送給操作員，以在 [裝置]  頁面之下檢視時，您每次都必須選取 [發佈]  。
 
 ## <a name="define-a-new-iot-gateway-device-type-preview-features"></a>定義新的 IoT 閘道裝置類型 (預覽功能)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-本教學課程將為建置者說明如何使用閘道裝置範本在 Azure IoT Central 應用程式中定義新的 Azure IoT 裝置類型。 
+本教學課程將為建置者說明如何使用閘道裝置範本在 IoT Central 應用程式中定義新的 IoT 裝置類型。 
 
 在本節中，您會建立**智慧建築**裝置範本。 智慧建築閘道裝置：
 
 * 傳送遙測資料，例如溫度和佔用量。
 * 可寫入的屬性在雲端上有所更新時 (例如遙測資料傳送間隔)，加以回應。
 * 回應命令，例如重設溫度。
-* 允許與其他裝置功能模型的關聯性
+* 允許與其他裝置功能模型的關聯性。
 
 ### <a name="create-iot-device-templates"></a>建立 IoT 裝置範本
 
-您將會建立 IoT 裝置範本。 
+建立 IoT 裝置範本的方式如下： 
 
-在左側導覽中按一下 [裝置範本]、按一下 [+ 新增]  、選取 [IoT 裝置]  圖格，然後選取 [佔用量感應器] 圖格並按 [下一步:  自訂]
+1. 在左側導覽中，選取 [裝置範本]  。 然後選取 [+ 新增]  ，接著選取 [IoT 裝置]  圖格和佔用量感應器圖格。 完成時，選取 [下一步:  自訂]。
 
-![IoT 裝置](./media/tutorial-define-iot-device-type/gateway-downstream-new.png)
+   ![[裝置範本] 頁面和選項的螢幕擷取畫面](./media/tutorial-define-iot-device-type/gateway-downstream-new.png)
 
-您將會看到檢閱頁面。 按一下 [建立]  按鈕。 
+1. 在 [檢閱]  頁面上，選取 [建立]  。 
 
-![IoT 裝置](./media/tutorial-define-iot-device-type/gateway-downstream-review.png)
+   ![[檢閱] 頁面的螢幕擷取畫面](./media/tutorial-define-iot-device-type/gateway-downstream-review.png)
 
-新的裝置範本隨即建立。 
+1. 新的裝置範本隨即建立。 
 
-![IoT 裝置](./media/tutorial-define-iot-device-type/occupancy-sensor.png)
+   ![新裝置範本的螢幕擷取畫面](./media/tutorial-define-iot-device-type/occupancy-sensor.png)
 
-您會為 S1 感應器建立裝置範本。 
+為 S1 感應器建立裝置範本的方式如下：
 
-在左側導覽中按一下 [裝置範本]、按一下 [+ 新增]  、選取 [IoT 裝置]  圖格，然後選取 [佔用量感應器] 圖格並按 [下一步:  自訂]
+1. 在左側導覽中，選取 [裝置範本]  。 然後選取 [+ 新增]  ，接著選取 [IoT 裝置]  圖格和佔用量感應器圖格。 完成時，選取 [下一步:  自訂]。
 
-![IoT 裝置](./media/tutorial-define-iot-device-type/s1-sensor.png)
+   ![[裝置範本] 頁面和選項的螢幕擷取畫面](./media/tutorial-define-iot-device-type/s1-sensor.png)
 
-您將會看到檢閱頁面。 按一下 [建立]  按鈕。 
+1. 在 [檢閱]  頁面上，選取 [建立]  。 
 
-![下游裝置](./media/tutorial-define-iot-device-type/s1-review.png)
+   ![[檢閱] 頁面的螢幕擷取畫面](./media/tutorial-define-iot-device-type/s1-review.png)
 
-新的裝置範本隨即建立。 
+1. 新的裝置範本隨即建立。 
 
-![下游裝置](./media/tutorial-define-iot-device-type/s1-template.png)
+   ![新裝置範本的螢幕擷取畫面](./media/tutorial-define-iot-device-type/s1-template.png)
 
 ## <a name="create-an-iot-gateway-device-template"></a>建立 IoT 閘道裝置範本
 
-您可以選擇建立 IoT 閘道裝置範本。 閘道裝置會與透過閘道裝置連線至 IoT Central 的下游裝置有所關聯。 
+您可以選擇建立 IoT 閘道裝置範本。 閘道裝置與透過閘道裝置連線至 IoT Central 的下游裝置有所關聯。 
 
 ### <a name="downstream-device-relationships-with-gateway-device"></a>下游裝置與閘道裝置的關聯性
 
-IoT 裝置可以連線至 Azure IoT 閘道裝置 
+IoT 裝置可以連線至 IoT 閘道裝置。
 
-![Central 應用程式頁面](./media/tutorial-define-iot-device-type/gatewaypattern.png)
+![閘道裝置與下游裝置之間關聯性的圖表](./media/tutorial-define-iot-device-type/gatewaypattern.png)
 
-身為建置者，您可以在應用程式中建立和編輯 Azure IoT 閘道裝置範本。 發佈裝置範本之後，您可以連接實作裝置範本的實際裝置。
+身為建置者，您可以在應用程式中建立和編輯 IoT 閘道裝置範本。 發佈裝置範本之後，您可以連接實作裝置範本的實際裝置。
 
-### <a name="select-device-template-type"></a>選取裝置範本類型 
+### <a name="select-a-device-template-type"></a>選取裝置範本類型 
 
-若要將新的裝置範本新增至應用程式，請移至 [裝置範本]  頁面。 若要這樣做，請選取左側窗格上的 [裝置範本]  索引標籤。
+若要將新的裝置範本新增至應用程式：
 
-![Central 應用程式頁面](./media/tutorial-define-iot-device-type/devicetemplate.png)
+1. 從左窗格中選取 [裝置範本]  索引標籤。
 
-按一下 [+ 新增]  以開始建立新裝置範本。
+   ![[裝置範本] 頁面的螢幕擷取畫面](./media/tutorial-define-iot-device-type/devicetemplate.png)
 
-![裝置範本 - 新增](./media/tutorial-define-iot-device-type/devicetemplatenew.png)
+1. 選取 [+ 新增]  以開始建立新的裝置範本。
 
-![裝置範本選取 - 閘道](./media/tutorial-define-iot-device-type/gateway-review.png)
+   ![已醒目提示「新增」的 [裝置範本] 頁面幕擷取畫面](./media/tutorial-define-iot-device-type/devicetemplatenew.png)
 
-會將您帶往裝置範本類型選取頁面。 選取 [Azure IoT]  圖格，然後按一下底部的 [下一步:  自訂] 按鈕
+   ![[自訂裝置] 頁面的螢幕擷取畫面](./media/tutorial-define-iot-device-type/gateway-review.png)
 
-選取 [閘道] 核取方塊，然後按一下 [建立]  
+1. 在 [選取範本類型]  頁面上，選取 [Azure IoT]  ，然後選取 [下一步：  自訂]。
 
-![裝置範本選取 - 閘道](./media/tutorial-define-iot-device-type/gateway-customize.png)
+   ![[選取範本類型] 頁面的螢幕擷取畫面](./media/tutorial-define-iot-device-type/gateway-customize.png)
 
-您會看到檢閱頁面，請按一下 [建立]  
+1. 選取閘道核取方塊，然後選取 [建立]  。
 
-![裝置範本 - 閘道](./media/tutorial-define-iot-device-type/gateway-review.png)
+   ![已醒目提示閘道的 [自訂裝置] 頁面螢幕擷取畫面](./media/tutorial-define-iot-device-type/gateway-review.png)
 
-輸入閘道範本名稱**智慧建築閘道範本**。 按一下 [自訂]  圖格。
+1. 在 [檢閱] 頁面上，選取 [建立]  。 
 
-新增**裝置資訊**標準介面。
+1. 輸入閘道範本名稱**智慧建築閘道範本**。 選取 [自訂]  圖格。
+
+1. 新增**裝置資訊**標準介面。
 
 ### <a name="add-relationships"></a>新增關聯性
 
-您可以針對將連線至閘道裝置的裝置，在裝置功能模型中新增下游關聯性。
+您可以針對連線至閘道裝置的裝置，在裝置功能模型中新增下游關聯性。
 
-建立與下游裝置功能模型的關聯性。 按一下 [儲存] 
+建立與下游裝置功能模型的關聯性。 選取 [儲存]  。
 
-![裝置範本 - 閘道](./media/tutorial-define-iot-device-type/gateway-occupancy-s1-rel.png)
+![已醒目提示各種選項的 [智慧建築閘道範本] 螢幕擷取畫面](./media/tutorial-define-iot-device-type/gateway-occupancy-s1-rel.png)
 
 ### <a name="add-cloud-properties"></a>新增雲端屬性
 
 裝置範本可包含雲端屬性。 雲端屬性僅存在於 IoT Central 應用程式中，且一律不會傳送至或接收自裝置。
 
-1. 依序選取 [雲端屬性]  和 [+ 新增雲端屬性]  。 請使用下表中的資訊，將雲端屬性新增至您的裝置範本。
+1. 選取 [雲端屬性]   > [+ 新增雲端屬性]  。 請使用下表中的資訊，將雲端屬性新增至您的裝置範本。
 
     | 顯示名稱      | 語意類型 | 結構描述 |
     | ----------------- | ------------- | ------ |
     | 上次維修日期 | None          | Date   |
     | 客戶名稱     | None          | 字串 |
 
-2. 選取 [儲存]  以儲存變更：
+2. 選取 [儲存]  。
 
 ### <a name="add-customizations"></a>新增自訂
 
-當您需要修改介面，或將 IoT Central 特有的功能新增至不需要您控制裝置功能模型版本的功能時，請使用自訂。 當功能模型處於草稿或已發佈狀態時，您可以自訂欄位。 您只能自訂不會中斷介面相容性的欄位。 例如，您可以：
+若要修改介面，或將 IoT Central 特有的功能新增至不需要您控制裝置功能模型版本的功能時，請使用自訂。 當功能模型處於草稿或已發佈狀態時，您可以自訂欄位。 您只能自訂不會中斷介面相容性的欄位。 例如，您可以：
 
 - 自訂功能的顯示名稱和單位。
 - 新增在圖表上顯示值時所要使用的預設色彩。
 - 指定屬性的初始、最小和最大值。
 
-您無法自訂功能名稱或功能類型。 按一下 [儲存] 
+您無法自訂功能名稱或功能類型。
+
+完成自訂之後，請選取 [儲存]  。
 
 ### <a name="create-views"></a>建立檢視
 
@@ -377,9 +385,9 @@ IoT 裝置可以連線至 Azure IoT 閘道裝置
 
 ### <a name="generate-default-views"></a>產生預設檢視
 
-在本教學課程中，請按一下 [產生預設檢視]。 系統會產生 [概觀] 和 [關於] 儀表板。 
+如果選取 [產生預設檢視]  ，則可產生 [概觀]  和 [關於]  儀表板。 
 
-## <a name="publish-device-template"></a>發佈裝置範本
+## <a name="publish-a-device-template"></a>發佈裝置範本
 
 您必須先發佈裝置範本，才能建立模擬的環境感應器或連接實際的環境感應器。
 
@@ -389,46 +397,46 @@ IoT 裝置可以連線至 Azure IoT 閘道裝置
 
 2. 選取 [發佈]  。
 
-3. 在 [發佈裝置範本]  對話方塊中，選擇[發佈]  ：
+3. 在 [發佈裝置範本]  對話方塊中，選擇 [發佈]  。
 
-裝置範本發佈後，將會顯示在 [裝置]  頁面上，並且對操作員顯示。 在已發佈的裝置範本中，您無法直接編輯裝置功能模型而不建立新版本。 不過，您可以直接在已發佈的裝置範本中更新雲端屬性、自訂和檢視，而無須進行版本控制。 進行任何變更之後，請選取 [發佈]  ，將這些變更推送給您的操作員。
+裝置範本發佈後，將會顯示在 [裝置]  頁面上，並且對操作員顯示。 在已發佈的裝置範本中，您無法直接編輯裝置功能模型而不建立新版本。 不過，您可以直接在已發佈的裝置範本中更新雲端屬性、自訂和檢視。 這些更新不會導致新版本建立。 進行任何變更之後，請選取 [發佈]  ，將這些變更推送給您的操作員。
 
-## <a name="create-gateway-simulated-device"></a>建立閘道模擬裝置
+## <a name="create-a-gateway-simulated-device"></a>建立閘道模擬裝置
 
 從裝置總管建立模擬的智慧建築閘道。 
 
-![裝置範本 - 閘道](./media/tutorial-define-iot-device-type/smartbuildingdevice.png)
+![[建立新裝置] 對話方塊的螢幕擷取畫面](./media/tutorial-define-iot-device-type/smartbuildingdevice.png)
 
 ## <a name="create-downstream-simulated-devices"></a>建立下游模擬裝置
 
 從裝置總管建立模擬的佔用量感應器。 
 
-![裝置範本 - 佔用量](./media/tutorial-define-iot-device-type/occupancydevice.png)
+![[建立新裝置] 對話方塊的螢幕擷取畫面](./media/tutorial-define-iot-device-type/occupancydevice.png)
 
-從裝置總管建立模擬的 s1 感應器。 
+從裝置總管建立模擬的 S1 感應器。 
 
-![裝置範本 - s1](./media/tutorial-define-iot-device-type/s1device.png)
+![[建立新裝置] 對話方塊的螢幕擷取畫面](./media/tutorial-define-iot-device-type/s1device.png)
 
-## <a name="add-downstream-devices-relationships-to-gateway-device"></a>將下游裝置關聯性新增至閘道裝置
+## <a name="add-downstream-devices-relationships-to-a-gateway-device"></a>將下游裝置關聯性新增至閘道裝置
 
-選取 [S1 感應器] 和 [佔用量感應器]，然後按一下 [連線至閘道]  。 
+選取 [S1 感應器] 和 [佔用量感應器]，然後選取 [連線至閘道]  。 
 
-![裝置範本 - s1](./media/tutorial-define-iot-device-type/connecttogateway.png)
+![已醒目提示 [連線到閘道] 的 [佔用量感應器] 螢幕擷取畫面](./media/tutorial-define-iot-device-type/connecttogateway.png)
 
-選取閘道裝置範本、閘道裝置執行個體，然後按一下 [聯結]  。
+選取閘道裝置範本和閘道裝置執行個體，然後選取 [聯結]  。
 
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解如何：
 
-* 將新的 IoT 閘道建立為裝置範本
+* 將新的 IoT 閘道建立為裝置範本。
 * 建立雲端屬性。
 * 建立自訂。
 * 定義裝置遙測的視覺效果。
-* 新增關聯性
+* 新增關聯性。
 * 發佈您的裝置範本。
 
-以下是建議進行的下一個步驟：
+接著，您可以：
 
 > [!div class="nextstepaction"]
 > [連接裝置](tutorial-connect-pnp-device.md)

@@ -8,16 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/07/2019
+ms.date: 11/20/2019
 ms.author: erhopf
-ms.openlocfilehash: f3f28cdd8c3c77a5cde2ead86c49b41d54bab5d7
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: bee3b64ece3faac6258fe4d017f12833b12e370d
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961171"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74536367"
 ---
-在本快速入門中，您將使用[語音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)，以互動方式從麥克風擷取的音訊資料中辨識語音。 在滿足幾個必要條件之後，從麥克風辨識語音只需採取幾個步驟：
+在本快速入門中，您會使用[語音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)，以互動方式辨識來自麥克風輸入的語音，以及從擷取的音訊取得文字轉譯。 您可以輕鬆地將此功能整合到您的應用程式或裝置中，以便進行一般辨識工作，例如轉譯交談。 此功能也可用來進行更複雜的整合，例如使用 Bot Framework 搭配語音 SDK 來建置語音助理。
+
+在滿足幾個必要條件之後，從麥克風辨識語音只需採取幾個步驟：
 
 > [!div class="checklist"]
 > * 從您的訂用帳戶金鑰和區域建立 `SpeechConfig` 物件。

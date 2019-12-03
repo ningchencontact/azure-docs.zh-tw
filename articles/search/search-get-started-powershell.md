@@ -1,7 +1,7 @@
 ---
 title: 快速入門：使用 REST API 在 PowerShell 中建立搜尋索引
 titleSuffix: Azure Cognitive Search
-description: 說明如何使用 PowerShell 的 Invoke-RestMethod 與 Azure 認知搜尋 REST API 建立索引、載入資料以及執行查詢。
+description: 在此 REST API 快速入門中，您將了解如何使用 PowerShell 的 Invoke-RestMethod 與 Azure 認知搜尋 REST API 建立索引、載入資料以及執行查詢。
 manager: nitinme
 author: heidisteen
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 11/04/2019
-ms.openlocfilehash: e9b2b8e8b3585bc747efb5b2916ddf1fe07d3645
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: db474b7e880ec2d65b9b9a71194964740e4fb329
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792241"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406922"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>快速入門：使用 REST API 在 PowerShell 中建立 Azure 認知搜尋索引
 > [!div class="op_single_selector"]
@@ -391,7 +391,7 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 
 $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
 ```
-## <a name="clean-up"></a>清除 
+## <a name="clean-up-resources"></a>清除資源
 
 使用您自己的訂用帳戶時，在專案結束後確認您是否還需要您建立的資源，是很好的做法。 讓資源繼續執行可能會產生費用。 您可以個別刪除資源，或刪除資源群組以刪除整組資源。
 

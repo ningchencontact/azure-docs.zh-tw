@@ -1,5 +1,5 @@
 ---
-title: 教學課程：分析來自 Azure Digital Twins 設定的事件
+title: 教學課程：在時間序列深入解析中分析事件 - Azure Digital Twins|Microsoft Docs
 description: 了解如何透過本教學課程中的步驟，使用 Azure 時間序列深入解析對來自 Azure Digital Twins 空間的事件進行視覺化檢視和分析。
 services: digital-twins
 ms.author: alinast
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 3df0fa448e320cba6dd3aaba1bb1be09c1a8b49b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c52bf372f21d9c2ef3d1a148aadd899435ad4181
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107674"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383066"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>教學課程：使用時間序列深入解析對來自 Azure Digital Twins 的事件進行視覺化檢視和分析
 
@@ -54,6 +54,8 @@ ms.locfileid: "74107674"
 
 1. 搜尋並選取 [事件中樞]  。 選取 [建立]  。
 
+    [![建立事件中樞命名空間](./media/tutorial-facilities-analyze/create-event-hubs.png)](./media/tutorial-facilities-analyze/create-event-hubs.png#lightbox)
+
 1. 輸入事件中樞命名空間的 [名稱]  。 選擇 [標準]  **定價層**、[訂用帳戶]  、用於 Digital Twins 執行個體的 [資源群組]  ，以及 [位置]  。 選取 [建立]  。
 
 1. 在事件中樞命名空間部署中，選取 [概觀]  窗格，然後選取 [移至資源]  。
@@ -77,7 +79,10 @@ ms.locfileid: "74107674"
 
     [![事件中樞連接字串](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)](./media/tutorial-facilities-analyze/event-hub-connection-strings.png#lightbox)
 
-1. 開啟所建立的 ManageSend 原則，然後將 [連接字串 - 主要金鑰]  和 [連接字串 - 次要金鑰]  的值複製到暫存檔。 下一節在建立事件中樞的端點時需要用到這些值。
+    > [!TIP]
+    > 請確認您是為事件中樞執行個體建立 SAS 原則，而不是命名空間。
+
+1. 開啟所建立的 ManageSend  原則，然後將 [連接字串 - 主要金鑰]  和 [連接字串 - 次要金鑰]  的值複製到暫存檔。 下一節在建立事件中樞的端點時需要用到這些值。
 
 ### <a name="create-an-endpoint-for-the-event-hub"></a>建立事件中樞的端點
 
@@ -105,13 +110,13 @@ ms.locfileid: "74107674"
 
 1. 將預留位置 `Primary_connection_string_for_your_event_hub` 替換為事件中樞的 [連接字串 - 主要金鑰]  值。 確定此連接字串的格式如下：
 
-   ```plaintext
+   ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
 1. 將預留位置 `Secondary_connection_string_for_your_event_hub` 替換為事件中樞的 [連接字串 - 次要金鑰]  值。 確定此連接字串的格式如下： 
 
-   ```plaintext
+   ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 

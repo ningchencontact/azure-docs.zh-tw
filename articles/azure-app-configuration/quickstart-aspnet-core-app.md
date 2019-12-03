@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 10/11/2019
 ms.author: yegu
-ms.openlocfilehash: 4e08192788329e7a835ddb0b6b3f1aa01b2c73e1
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 91712b3f730317e65cda7b48c8f5636b2fb9ab2c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299947"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185098"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式設定建立 ASP.NET Core 應用程式
 
@@ -30,7 +30,7 @@ ms.locfileid: "72299947"
 - Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>建立應用程式設定存放區
+## <a name="create-an-app-configuration-store"></a>建立應用程式組態存放區
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -81,7 +81,7 @@ ms.locfileid: "72299947"
 
 祕密管理員工具能儲存專案樹狀結構外開發工作的敏感性資料。 此作法能協助避免於原始程式碼內意外共用應用程式祕密。 如需秘密管理員的詳細資訊，請參閱[在 ASP.NET Core 中的開發中安全儲存應用程式秘密](https://docs.microsoft.com/aspnet/core/security/app-secrets)
 
-## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式設定存放區
+## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式組態存放區
 
 1. 透過執行下列命令，將參考新增至 `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet 套件：
 
@@ -95,7 +95,7 @@ ms.locfileid: "72299947"
     ```
 3. 將名為 ConnectionStrings:AppConfig  的祕密新增至祕密管理員。
 
-    此祕密會包含用來存取應用程式設定存放區的連接字串。 請以應用程式設定存放區的連接字串取代下列命令中的值。
+    此祕密會包含用來存取應用程式組態存放區的連接字串。 請將下列命令中的值取代為應用程式組態存放區的連接字串。
 
     此命令必須在和 *.csproj* 檔案相同的目錄中執行。
 
@@ -216,7 +216,7 @@ ms.locfileid: "72299947"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已建立新的應用程式設定存放區，並透過[應用程式設定提供者](https://go.microsoft.com/fwlink/?linkid=2074664)將其與 ASP.NET Core Web 應用程式搭配使用。 若要深入了解如何使用應用程式組態，請繼續進行下一個教學課程，其中會示範如何將 Web 應用程式設定為以動態方式重新整理設定。
+在本快速入門中，您已建立新的應用程式組態存放區，並透過[應用程式組態提供者](https://go.microsoft.com/fwlink/?linkid=2074664)將其與 ASP.NET Core Web 應用程式搭配使用。 若要了解如何將 ASP.NET Core 應用程式設定為以動態方式重新整理組態設定，請繼續進行下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [在 ASP.NET Core 應用程式中使用動態設定](./enable-dynamic-configuration-aspnet-core.md)
+> [啟用動態組態](./enable-dynamic-configuration-aspnet-core.md)

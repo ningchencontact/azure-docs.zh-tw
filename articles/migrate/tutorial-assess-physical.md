@@ -5,20 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 9339a03fcb3f67402c0aab030cb69a45e1b42b45
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 56b7cc6e95cb85b5508199287cc77aedeebc8b81
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123505"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280555"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>使用 Azure Migrate 來評定實體伺服器：伺服器評量
-
-> [!NOTE]
-> 如果您還沒在 Azure Migrate 入口網站中看到這項功能，請稍候。 其會在下週前後出現。
- 
 
 此文章說明如何使用 Azure Migrate 來評定內部部署實體伺服器：伺服器評量工具。
 
@@ -108,11 +104,12 @@ Azure Migrate：伺服器評定會執行輕量型設備。
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 使用方式範例：```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller\AzureMigrateInstaller.ps1 SHA256```
 
-3.  針對 1.19.05.10 版的設備，產生的雜湊應符合這些設定。
+3.  針對最新的設備版本，產生的雜湊應符合這些設定。
 
   **演算法** | **雜湊值**
   --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+  MD5 | 96fd99581072c400aa605ab036a0a7c0
+  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
 
 ### <a name="run-the-azure-migrate-installer-script"></a>執行 Azure Migrate 安裝程式指令碼
 
@@ -135,7 +132,7 @@ Azure Migrate：伺服器評定會執行輕量型設備。
     ```
     PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
-指令碼會在成功完成時啟動設備 Web 應用程式。 
+指令碼會在成功完成時啟動設備 Web 應用程式。
 
 如果發生任何問題，您可以存取位於 C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>時間戳記</em>.log 的指令碼記錄，以進行疑難排解。
 
@@ -166,7 +163,7 @@ Azure Migrate：伺服器評定會執行輕量型設備。
 ### <a name="register-the-appliance-with-azure-migrate"></a>向 Azure Migrate 註冊設備
 
 1. 按一下 [登入]  。 如果未出現，請確定您已在瀏覽器中停用快顯封鎖程式。
-2. 在新的索引標籤上，使用您的 Azure 認證登入。 
+2. 在新的索引標籤上，使用您的 Azure 認證登入。
     - 使用您的使用者名稱和密碼登入。
     - 不支援使用 PIN 登入。
 3. 成功登入後，返回 Web 應用程式。
@@ -188,7 +185,7 @@ Azure Migrate：伺服器評定會執行輕量型設備。
     - 若要移除伺服器，請選取 > [刪除]  。
 4. 驗證之後，按一下 [儲存並開始探索]  來開始探索程序。
 
-這會開始探索。 每部伺服器大約耗用 1.5 分鐘，讓所探索到伺服器的中繼資料出現在 Azure 入口網站中。 
+這會開始探索。 每部伺服器大約耗用 1.5 分鐘，讓所探索到伺服器的中繼資料出現在 Azure 入口網站中。
 
 ### <a name="verify-servers-in-the-portal"></a>在入口網站中驗證伺服器
 

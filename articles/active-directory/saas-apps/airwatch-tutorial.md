@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f0a684c6a38ba3a95438941f668b36b23d278df
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 772b37816b83c275bae927d825434dc3ca76a35c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227658"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231998"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>教學課程：整合 AirWatch 與 Azure Active Directory
 
@@ -93,7 +93,7 @@ ms.locfileid: "68227658"
 
 1. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，使用 [編輯]  圖示來編輯宣告或使用 [新增宣告]  來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 
-    | Name |  來源屬性|
+    | 名稱 |  來源屬性|
     |---------------|----------------|
     | UID | user.userprincipalname |
     | | |
@@ -228,18 +228,18 @@ ms.locfileid: "68227658"
 
 3. 在 [使用者]  功能表中，按一下 [清單檢視]  ，然後按一下 [新增] > [新增使用者]  。
   
-   ![新增使用者](./media/airwatch-tutorial/ic791930.png "新增使用者")
+   ![加入使用者](./media/airwatch-tutorial/ic791930.png "新增使用者")
 
 4. 在 [新增/編輯使用者]  對話方塊中，執行下列步驟：
 
-   ![新增使用者](./media/airwatch-tutorial/ic791931.png "新增使用者")
+   ![加入使用者](./media/airwatch-tutorial/ic791931.png "新增使用者")
 
    a. 在相關的文字方塊中，輸入您想要佈建之有效 Azure Active Directory 帳戶的 [使用者名稱]  、[密碼]  、[確認密碼]  、[名字]  、[姓氏]  、[電子郵件地址]  。
 
    b. 按一下 [檔案]  。
 
 > [!NOTE]
-> 您可以使用任何其他的 AirWatch 使用者帳戶建立工具或 AirWatch 提供的 API 來佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 AirWatch 使用者帳戶建立工具或 AirWatch 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-sso"></a>測試 SSO
 

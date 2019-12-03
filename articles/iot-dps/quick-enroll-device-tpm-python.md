@@ -1,26 +1,29 @@
 ---
-title: 快速入門：使用 Python 向 Azure 裝置佈建服務註冊 TPM 裝置
-description: Azure 快速入門 - 使用 Python 佈建服務 SDK 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置。 本快速入門使用個別註冊。
+title: 使用 Python 向 Azure 裝置佈建服務註冊 TPM 裝置
+description: 快速入門 - 使用 Python 佈建服務 SDK 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置。 本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 49e7961200a2ab523997350fffa6606d65f60c8c
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 9774ba9ba94bdaf4f9219a65be2a223ff00ff489
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903392"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554024"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>快速入門：使用 Python 佈建服務 SDK 向 IoT 中樞裝置佈建服務註冊 TPM 裝置
+
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
-下列步驟說明如何使用 [Python 佈建服務 SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) 和範例 Python 應用程式的說明，以程式設計方式在 Azure IoT 中樞裝置佈建服務中建立 TPM 裝置的個別註冊。 雖然 Python 服務 SDK 在 Windows 和 Linux 電腦上都適用，本文會使用 Windows 開發電腦逐步引導您進行註冊程序。
+下列步驟說明如何使用 [V1 Python 佈建服務 SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) 和範例 Python 應用程式的說明，以程式設計方式在 Azure IoT 中樞裝置佈建服務中建立 TPM 裝置的個別註冊。 雖然 Python 服務 SDK 在 Windows 和 Linux 電腦上都適用，本文會使用 Windows 開發電腦逐步引導您進行註冊程序。
+
+> [!IMPORTANT]
+> 本文僅適用於已淘汰的 V1 Python SDK。 尚未在 V2 中提供適用於 Iot 中樞裝置佈建服務的裝置和服務用戶端。 小組目前正努力將 V2 帶至功能同位。
 
 繼續之前，請務必[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)。
 
@@ -33,7 +36,7 @@ ms.locfileid: "73903392"
 
 1. 選擇下列其中一個選項：
 
-    - 建置和編譯 **Azure IoT Python SDK**。 請遵循[這些指示](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)來建置 Python 套件。 如果您使用 Windows 作業系統，則請同時安裝 [Visual C++ 可轉散發套件](https://www.microsoft.com/download/confirmation.aspx?id=48145)，以允許使用 Python 的原生 DLL。
+    - 建置和編譯 **Azure IoT Python SDK**。 請遵循[這些指示](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md)來建置 Python 套件。 如果您使用 Windows 作業系統，則請同時安裝 [Visual C++ 可轉散發套件](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)，以允許使用 Python 的原生 DLL。
 
     - [安裝或升級 *pip* (Python 套件管理系統)](https://pip.pypa.io/en/stable/installing/)，並透過下列命令安裝套件：
 
@@ -99,7 +102,7 @@ ms.locfileid: "73903392"
 
 1. 觀察成功註冊的輸出。
 
-1. 在 Azure 入口網站中，瀏覽至您的佈建服務。 按一下 [管理註冊]  。 請注意，您的 TPM 裝置會出現在 [個別註冊]  索引標籤下，並使用先前建立的名稱 `registrationid`。 
+1. 在 Azure 入口網站中，瀏覽至您的佈建服務。 選取 [管理註冊]  。 請注意，您的 TPM 裝置會出現在 [個別註冊]  索引標籤下，並使用先前建立的名稱 `registrationid`。 
 
     ![確認入口網站中的 TPM 註冊成功](./media/quick-enroll-device-tpm-python/1.png)  
 
@@ -109,7 +112,7 @@ ms.locfileid: "73903392"
 
 1. 在您的電腦上關閉 Python 範例輸出視窗。
 1. 如果您建立了模擬的 TPM 裝置，請關閉 TPM 模擬器視窗。
-1. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，按一下 [管理註冊]  ，然後選取 [個別註冊]  索引標籤。選取您使用本快速入門建立之註冊項目的 [註冊識別碼]  ，然後按一下刀鋒視窗頂端的 [刪除]  按鈕。  
+1. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，選取 [管理註冊]  ，然後選取 [個別註冊]  索引標籤。選取您使用本快速入門所建立註冊項目的 [註冊識別碼]  旁的核取方塊，然後按窗格頂端的 [刪除]  按鈕。
 
 
 ## <a name="next-steps"></a>後續步驟

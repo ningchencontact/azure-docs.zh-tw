@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 11/05/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 7546d5c6089a7867b1f8b5bf45d23c81bddd0da9
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 660235331c2c2d800b52f6e29d0011b9616a748c
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647899"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158489"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>快速入門：適用於 .NET 的 Azure Key Vault 用戶端程式庫 (SDK v3)
 
@@ -46,9 +46,7 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 
 ### <a name="create-new-net-console-app"></a>建立新的 .NET 主控台應用程式
 
-在您慣用的編輯器或 IDE 中，建立新的 .NET Core 應用程式。
-
-在主控台視窗中，使用 `dotnet new` 命令建立名為 `akv-dotnet` 的新主控台應用程式。
+在主控台視窗中，使用 `dotnet new` 命令建立名為 `akv-dotnet` 的新 .NET 主控台應用程式。
 
 
 ```console
@@ -169,7 +167,7 @@ setx akvClientSecret <your-clientSecret>
 
 ### <a name="save-a-secret"></a>儲存秘密
 
-現在，應用程式已進行過驗證，因此您可以使用 [SetSecretAsync 方法](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync)將祕密放入金鑰保存庫中。這會用到金鑰保存庫的 URL，其格式為 `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`。 其也需要祕密的名稱 -- 我們使用的是「mySecret」。  您可以將這些字串指派給變數以便能重複使用。
+現在，應用程式已進行過驗證，因此您可以使用 [SetSecretAsync 方法](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync)將祕密放入金鑰保存庫中。這會用到金鑰保存庫的 URL，其格式為 `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`。 其也需要祕密的名稱 -- 我們使用的是「mySecret」。 
 
 [!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=setsecret)]
 

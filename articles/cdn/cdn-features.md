@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/28/2019
+ms.date: 11/15/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 6826c1340de16891933b290eb29bd4fb8d120974
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 64b906c8a6b52d9c9655f3fe2b13d504d8eed4cb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127927"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278082"
 ---
 # <a name="compare-azure-cdn-product-features"></a>比較 Azure CDN 產品功能
 
@@ -41,11 +41,11 @@ Azure 內容傳遞網路 (CDN) 包含四項產品：**來自 Microsoft 的標準
 | [全域伺服器負載平衡 (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [快速清除](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** 來自 Akamai 的 Azure CDN 目前不支援「全部清除」和「萬用字元清除」。 |**&#x2713;** |**&#x2713;** |
 | [資產預先載入](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
-| 快取/標頭設定 (使用[快取規則](cdn-caching-rules.md))  |  |**&#x2713;** |**&#x2713;** | |
-| 可自訂的規則式內容傳遞引擎 (使用[規則引擎](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| 快取/標頭設定 (使用 [規則引擎](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| URL 重新導向/重寫 (使用 [規則引擎](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| 行動裝置規則 (使用 [規則引擎](cdn-rules-engine.md))  |  | | |**&#x2713;** |
+| 快取/標頭設定 (使用[快取規則](cdn-caching-rules.md))  |**&#x2713;** 使用[標準規則引擎](cdn-standard-rules-engine.md)  |**&#x2713;** |**&#x2713;** | |
+| 可自訂的規則式內容傳遞引擎 |**&#x2713;** 使用[標準規則引擎](cdn-standard-rules-engine.md)  | | |**&#x2713;** 使用[規則引擎](cdn-rules-engine.md) |
+| 快取/標頭設定  |**&#x2713;** 使用[標準規則引擎](cdn-standard-rules-engine.md) | | |**&#x2713;** 使用[進階規則引擎](cdn-rules-engine.md) |
+| URL 重新導向/重寫 |**&#x2713;** 使用[標準規則引擎](cdn-standard-rules-engine.md)  | | |**&#x2713;** 使用[進階規則引擎](cdn-rules-engine.md) |
+| 行動裝置規則  |**&#x2713;** 使用[標準規則引擎](cdn-standard-rules-engine.md) | | |**&#x2713;** 使用[進階規則引擎](cdn-rules-engine.md) |
 | [查詢字串快取](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 雙重堆疊 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 支援](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |

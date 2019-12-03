@@ -1,21 +1,16 @@
 ---
-title: Azure 快速入門 - 使用 Azure CLI 來備份 VM
+title: 快速入門 - 使用 Azure CLI 來備份 VM
 description: 在此快速入門中，了解如何建立復原服務保存庫、在 VM 上啟用保護，以及使用 Azure CLI 建立初始復原點。
-author: dcurwin
-manager: carmonm
-tags: azure-resource-manager, virtual-machine-backup
-ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 0d16237e0d5dc0e2176a2a9f600ca0be96328717
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: a359e47a70f6a1a9e0957b4e1c3965c8db12339a
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747138"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171979"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>使用 CLI 在 Azure 中備份虛擬機器
 

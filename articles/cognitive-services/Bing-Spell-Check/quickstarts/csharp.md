@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Bing 拼字檢查 REST API 和 C# 進行檢查拼字
+title: 快速入門：使用 REST API 和 C# 進行拼字檢查 - Bing 拼字檢查
 titleSuffix: Azure Cognitive Services
 description: 開始使用 Bing 拼字檢查 REST API 來檢查拼字和文法。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: 93b5c395a0d121305c092229d862bf9ecaa4789c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e51c1220e120d157ea4a413b95a7beb20c950518
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72936051"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378917"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>快速入門：使用 Bing 拼字檢查 REST API 和 C# 進行檢查拼字
 

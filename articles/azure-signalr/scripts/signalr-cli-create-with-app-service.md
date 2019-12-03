@@ -1,19 +1,19 @@
 ---
-title: Azure CLI 指令碼範例 - 使用 App Service 建立 SignalR 服務
-description: Azure CLI 指令碼範例 - 使用 App Service 建立 SignalR 服務
+title: 使用 Azure CLI 建立與 App Service 運作的 SignalR Service
+description: 使用 Azure CLI 建立與 App Service 運作的 SignalR Service。 了解 Azure SignalR Service 的所有 CLI 命令。
 author: sffamily
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 04/20/2018
+ms.date: 11/13/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: 09855c45f0a621ef1f51ba7c87443c40b02e00bd
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: eb45adb699ef0f97782e6cdb8e141e254b3993f9
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73578855"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158033"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>使用 App Service 建立 SignalR 服務
 

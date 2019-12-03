@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: fd75cc392bb30d15b665190eef8fbea39d692ee3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: dfa5fbcf5df8ee314aab3e4a8228d81e7e14565b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160332"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233524"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>教學課程：Azure Active Directory 與 New Relic 整合
 
@@ -225,7 +225,7 @@ New Relic 與 Azure AD 整合提供下列優點：
     c. 按一下 [新增此使用者]  。
 
 >[!NOTE]
->您可以使用任何其他的 New Relic 使用者帳戶建立工具或 New Relic 提供的 API 來佈建 AAD 使用者帳戶。
+>您可以使用任何其他的 New Relic 使用者帳戶建立工具或 New Relic 提供的 API，來佈建 Azure AD 使用者帳戶。
 > 
 
 ### <a name="test-single-sign-on"></a>測試單一登入 

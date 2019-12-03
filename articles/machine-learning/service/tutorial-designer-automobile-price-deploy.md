@@ -1,7 +1,7 @@
 ---
 title: 教學課程：透過設計工具部署機器學習模型
 titleSuffix: Azure Machine Learning
-description: 了解如何在 Azure Machine Learning 設計工具中建置預測性分析解決方案 (預覽)。 使用拖放模組進行機器學習模型的定型、評分和部署。
+description: 本教學課程說明如何在 Azure Machine Learning 設計工具中建置預測性分析解決方案 (預覽)。 使用拖放模組進行機器學習模型的定型、評分和部署。
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 724a38cb516e5689f817e9ddeaa867b17274971b
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 31b06f3ad102f39d1a9f95dee2bd98b5d0a3b310
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932037"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483313"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>教學課程：透過設計工具部署機器學習模型 (預覽)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "73932037"
 
     您的管線此時應會顯示如下： 
 
-   ![此螢幕擷取畫面顯示管線在做好部署準備後的預期組態](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
+   ![此螢幕擷取畫面顯示管線在做好部署準備後的預期組態](./media/tutorial-designer-automobile-price-deploy/real-time-inference-pipeline.png)
 
     當您選取 [建立推斷管線]  時，會發生若干情況：
     
@@ -70,7 +70,7 @@ ms.locfileid: "73932037"
 
 1. 在導覽功能區中，選取 [推斷叢集]   > [+ 新增]  。
 
-    ![顯示如何移至 [新增推斷叢集] 窗格的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
+    ![顯示如何移至 [新增推斷叢集] 窗格的螢幕擷取畫面](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
 
 1. 在推斷叢集窗格中，設定新的 Kubernetes 服務。
 
@@ -96,7 +96,7 @@ ms.locfileid: "73932037"
 
 1. 選取 [部署]  。
 
-    ![顯示如何設定新即時端點的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+    ![顯示如何設定新即時端點的螢幕擷取畫面](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
 
     完成部署之後，畫布上方會出現成功通知。 這可能需要幾分鐘的時間。
 
@@ -106,7 +106,7 @@ ms.locfileid: "73932037"
 
 1. 在 [端點]  頁面上，選取您部署的端點。
 
-    ![顯示即時端點索引標籤的螢幕擷取畫面，其中醒目提示了最近建立的端點](./media/ui-tutorial-automobile-price-deploy/endpoints.png)
+    ![顯示即時端點索引標籤的螢幕擷取畫面，其中醒目提示了最近建立的端點](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
 
 1. 選取 [測試]  。
 
@@ -114,7 +114,7 @@ ms.locfileid: "73932037"
 
     入口網站會將測試要求提交至端點，並顯示結果。 雖然對輸入資料會產生價格值，但該值並不會用來產生預測值。
 
-    ![顯示如何測試即時端點的螢幕擷取畫面，其中醒目提示了價格的評分標籤](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
+    ![顯示如何測試即時端點的螢幕擷取畫面，其中醒目提示了價格的評分標籤](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 Windows VM 系統指派的受控識別來存取 Azure Key Vault
+title: 教學課程`:` 使用受控識別來存取 Azure Key Vault - Windows - Azure AD
 description: 本教學課程會逐步引導您使用 Windows VM 系統指派的受控識別，以存取 Azure Key Vault。
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6f144eb16c2b898750d699b659fc88b2dd8c12a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 106252b7c77f9ee3d6b9bdebafce3441d9c4b090
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000039"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224234"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure Key Vault 
 

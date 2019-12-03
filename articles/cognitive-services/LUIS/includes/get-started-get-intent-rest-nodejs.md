@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/18/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 10216b52ded61328a73e5401549a59e6abc4667a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: b158f3738e5d5e33c831e7312c167e5185d19e95
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125436"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414571"
 ---
 ## <a name="prerequisites"></a>必要條件
 
 * [Node.js](https://nodejs.org/) (英文) 程式設計語言 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* 公用應用程式識別碼：df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* 公用應用程式識別碼：`df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>取得 LUIS 金鑰
 
@@ -27,7 +27,7 @@ ms.locfileid: "74125436"
 
 ## <a name="get-intent-programmatically"></a>以程式設計方式取得意圖
 
-使用 Node.js 查詢預測端點 GET [API](https://aka.ms/luis-apim-v3-prediction) 取得預測結果。
+使用 Node.js 查詢[預測端點](https://aka.ms/luis-apim-v3-prediction)並取得預測結果。
 
 1. 將下列程式碼片段複製到名為 `predict.js` 的檔案：
 
@@ -76,24 +76,24 @@ ms.locfileid: "74125436"
     getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
     ```
 
-1. 設定下列值：
+1. 取代下列值：
 
-    * `YOUR-KEY` 使用您的入門金鑰
-    * `YOUR-ENDPOINT` 使用您的端點 URL
+    * `YOUR-KEY` 取代為您的入門金鑰。
+    * `YOUR-ENDPOINT` 取代為您的端點 URL。 例如： `westus2.api.cognitive.microsoft.com` 。
 
-1. 藉由在命令列執行下列命令來安裝相依性： 
+1. 使用以下命令安裝 `request`、`request-promise` 和 `querystring` 相依性： 
 
     ```console
     npm install request request-promise querystring
     ```
 
-1. 使用下列命令來執行程式碼：
+1. 使用以下命令執行您的應用程式：
 
     ```console
     node predict.js
     ```
 
- 1. 檢閱 JSON 格式的預測回應：   
+ 1. 檢閱預測回應，其以 JSON 格式傳回：   
     
     ```console
     {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}

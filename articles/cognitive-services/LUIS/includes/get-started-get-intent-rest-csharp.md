@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 9ab477ffd7001f0f492f63355baaee26827db845
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 2d3a000040ff1b4f6e0ae548b578e8be014dc06a
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125438"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414452"
 ---
 ## <a name="prerequisites"></a>必要條件
 
 * [.NET Core V2.2+](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* 公用應用程式識別碼：df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* 公用應用程式識別碼：`df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>取得 LUIS 金鑰
 
@@ -27,7 +27,7 @@ ms.locfileid: "74125438"
 
 ## <a name="get-intent-programmatically"></a>以程式設計方式取得意圖
 
-使用 C# 查詢預測端點 GET [API](https://aka.ms/luis-apim-v3-prediction) 取得預測結果。 
+使用 C# (.NET Core) 查詢[預測端點](https://aka.ms/luis-apim-v3-prediction)並取得預測結果。
 
 1. 建立以 C# 語言為目標的新主控台應用程式，其專案和資料夾名稱為 `predict-with-rest`。 
 
@@ -35,12 +35,14 @@ ms.locfileid: "74125438"
     dotnet new console -lang C# -n predict-with-rest
     ```
 
-1. 使用下列 dotnet CLI 命令安裝必要的相依項目。
+1. 變更為您剛才建立的 `predict-with-rest` 目錄，並使用下列命令安裝必要的相依性：  
 
     ```console
+    cd predict-with-rest
     dotnet add package System.Net.Http
     ```
-1. 使用下列程式碼覆寫 Program.cs：
+
+1. 在您慣用的 IDE 或編輯器中開啟 `Program.cs`。 然後使用下列程式碼覆寫 `Program.cs`：
     
    ```csharp
     using System;
@@ -102,10 +104,10 @@ ms.locfileid: "74125438"
 
 1. 取代下列值：
 
-    * `YOUR-KEY` 使用您的入門金鑰
-    * `YOUR-ENDPOINT` 使用您的端點，例如 `westus2.api.cognitive.microsoft.com`
+    * `YOUR-KEY` 取代為您的入門金鑰。
+    * `YOUR-ENDPOINT` 取代為您的端點。 例如： `westus2.api.cognitive.microsoft.com` 。
 
-1. 建置主控台應用程式。 
+1. 使用以下命令建置主控台應用程式： 
 
     ```console
     dotnet build
@@ -117,7 +119,7 @@ ms.locfileid: "74125438"
     dotnet run
     ```
 
-1. 檢閱 JSON 格式的預測回應：
+1. 檢閱預測回應，其以 JSON 格式傳回：
 
     ```console
     Hit ENTER to exit...

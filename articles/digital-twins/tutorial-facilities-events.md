@@ -1,5 +1,5 @@
 ---
-title: 教學課程：擷取來自 Azure Digital Twins 空間的事件
+title: 教學課程：擷取來自 IoT 空間的裝置事件 - Azure Digital Twins| Microsoft Docs
 description: 了解如何使用本教學課程中的步驟，藉由整合 Azure Digital Twins 與 Logic Apps，接收來自空間的通知。
 services: digital-twins
 ms.author: alinast
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 545e1757f4f3669957d8f6755cdbd9a2b29513b6
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 492fa7f4989a40ea1d5ec91a4fbf4dbbe79ef6ce
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129214"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383266"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>教學課程：使用 Logic Apps 接收來自 Azure Digital Twins 空間的通知
 

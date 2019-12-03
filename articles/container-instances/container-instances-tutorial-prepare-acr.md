@@ -1,20 +1,15 @@
 ---
-title: 教學課程 - 準備 Azure 容器執行個體的容器登錄
+title: 教學課程 - 準備容器登錄以部署映像
 description: Azure 容器執行個體教學課程第 2 部分 (共 3 部分) - 準備 Azure Container Registry 並推送映像
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b3c907eacb14ed65410a60fcf22ebe99fd8cc3bb
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d8a14acb196b257d96792444fe41e7e9f6b73592
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325613"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533330"
 ---
 # <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>教學課程：部署 Azure Container Registry 並推送容器映像
 

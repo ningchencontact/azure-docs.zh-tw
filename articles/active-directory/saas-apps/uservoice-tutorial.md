@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: c0c259d3d05232aa70016771e2a2bce7622730a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a3302f1ca615fe5005be9ed1f09995ebf432eb7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087628"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232010"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>教學課程：Azure Active Directory 與 UserVoice 整合
 
@@ -140,7 +140,7 @@ UserVoice 與 Azure AD 整合提供下列優點：
 
 3. 在 [Web 入口網站]  索引標籤的 [使用者驗證]  區段中，按一下 [編輯]  ，以開啟 [編輯使用者驗證]  對話頁面。
    
-    ![[Web 入口網站] 索引標籤](./media/uservoice-tutorial/ic777520.png "Web 入口網站")
+    ![Web 入口網站索引標籤](./media/uservoice-tutorial/ic777520.png "Web 入口網站")
 
 4. 在 [編輯使用者驗證]  對話頁面上執行下列步驟：
    
@@ -226,7 +226,7 @@ UserVoice 與 Azure AD 整合提供下列優點：
 
 5. 按一下 [加入管理員]  。
    
-    ![新增管理員](./media/uservoice-tutorial/ic777813.png "新增管理員")
+    ![新增管理員](./media/uservoice-tutorial/ic777813.png "加入管理員")
 
 6. 在 [邀請管理員]  對話方塊中，執行下列步驟：
    
@@ -237,7 +237,7 @@ UserVoice 與 Azure AD 整合提供下列優點：
     b. 按一下 [邀請]  。
 
 > [!NOTE]
-> 您可以使用任何其他的 UserVoice 使用者帳戶建立工具或 UserVoice 提供的 API 來佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 UserVoice 使用者帳戶建立工具或 UserVoice 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

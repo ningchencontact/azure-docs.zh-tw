@@ -1,20 +1,15 @@
 ---
-title: 大規模備份 Azure 虛擬機器
+title: 教學課程 - 大規模備份 Azure 虛擬機器
 description: 在本教學課程中，您將了解如何建立復原服務保存庫、定義備份原則，以及同時備份多部虛擬機器。
-keywords: 虛擬機器備份; 虛擬機器備份; 備份 VM; 備份 VM; 備份 Azure VM; 備份與災害復原
-author: dcurwin
-manager: carmonm
-ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
-ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 99a842704325e38cbf1ab9203a56a25bc2273827
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6034202649e6d9bce75f0069316b79b55e533490
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747026"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171843"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>使用 Azure 入口網站備份多部虛擬機器
 
@@ -37,7 +32,7 @@ ms.locfileid: "73747026"
 
 1. 在左側功能表中，選取 [所有服務]  ，然後在服務清單中鍵入*復原服務*。 當您輸入時，會一邊篩選資源清單。 當您在清單中看到復原服務保存庫時，選取它以開啟 [復原服務保存庫] 功能表。
 
-    ![開啟 [復原服務保存庫] 功能表](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
+    ![開啟 [復原服務保存庫] 功能表](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png)
 
 2. 在 [復原服務保存庫]  功能表中，按一下 [新增]  開啟 [復原服務保存庫] 功能表。
 

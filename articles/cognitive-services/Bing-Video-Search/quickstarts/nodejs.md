@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Bing 影片搜尋 REST API 和 Node.js 來搜尋影片
+title: 快速入門：使用 REST API 和 Node.js 來搜尋影片 - Bing 影片搜尋
 titleSuffix: Azure Cognitive Services
 description: 透過本快速入門，使用 JavaScript 將影片搜尋要求傳送至 Bing 影片搜尋 REST API。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 786302b882fbd59932af17ccc6a390fa41b30ac9
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e9d7aeabceb77597d826d6c76dbdddc625ad45cc
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932962"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383803"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>快速入門：使用 Bing 影片搜尋 REST API 和 Node.js 來搜尋影片
 

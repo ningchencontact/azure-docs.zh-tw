@@ -1,22 +1,22 @@
 ---
-title: 在 Azure Data Factory 中使用 Databricks Notebook 活動執行 Databricks Notebook
+title: 使用 Databricks Notebook 活動執行 Databricks Notebook
 description: 了解如何在 Azure data factory 中使用 Databricks Notebook 活動，針對 databricks 作業叢集執行 Databricks Notebook。
 services: data-factory
-documentationcenter: ''
-author: nabhishek
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 03/12/2018
 ms.author: abnarain
+author: nabhishek
+manager: shwang
 ms.reviewer: douglasl
-ms.openlocfilehash: b6426017b7608742866cedb08b5ac9298400d433
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.custom: seo-lt-2019
+ms.date: 03/12/2018
+ms.openlocfilehash: 7ad7c8e70d8669612baf00f19d3695dc7fab07f5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140896"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217868"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用 Databricks Notebook 活動執行 Databricks Notebook
 
@@ -32,7 +32,7 @@ ms.locfileid: "70140896"
 
   - 監視管道執行。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 如需此功能的簡介與示範，請觀看下列 11 分鐘長的影片：
 

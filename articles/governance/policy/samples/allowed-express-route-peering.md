@@ -1,14 +1,14 @@
 ---
 title: 範例 - 允許的 ExpressRoute 同儕節點位置
-description: 此原則定義範例會要求 ExpressRoute 使用指定的對等互連位置。
+description: 此原則定義範例會要求 ExpressRoute 使用參數中定義的指定對等互連位置。
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 8b991c5b83f5d4ca23963aef089795acd5b96bd6
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 915cdc95dc5117e329c2a6af8108a1b157730d7e
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076461"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463446"
 ---
 # <a name="sample---allowed-peering-location-for-expressroute"></a>範例 - 允許的 ExpressRoute 對等互連位置
 

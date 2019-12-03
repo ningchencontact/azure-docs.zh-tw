@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2019
+ms.date: 11/23/2019
 ms.author: allensu
-ms.openlocfilehash: 95ef493ed44da8fd8372c11f15c3ab712961783e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48ce72104c4cc08fc26777aa7111b705c57317f5
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071014"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420274"
 ---
 # <a name="what-is-traffic-manager"></a>什麼是流量管理員？
 Azure 流量管理員是 DNS 型流量負載平衡器，可讓您跨全球的 Azure 區域將流量最佳分散至服務，同時提供高可用性和回應性。
@@ -26,7 +26,8 @@ Azure 流量管理員是 DNS 型流量負載平衡器，可讓您跨全球的 Az
 
 >[!NOTE]
 > Azure 會為您的案例提供一套完整受控的負載平衡解決方案。 如果您要尋找傳輸層安全性 (TLS) 通訊協定終止 (「SSL 卸載」) 或每一 HTTP/HTTPS 要求的應用程式層處理，請檢閱[應用程式閘道](../application-gateway/application-gateway-introduction.md)。 如果您要尋求區域性負載平衡，請檢閱[負載平衡器](../load-balancer/load-balancer-overview.md)。 視需要結合這些解決方案，可能有益於您的端對端案例。
-
+>
+> 如需 Azure 負載平衡選項的比較，請參閱 [Azure 中的負載平衡選項概觀](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)。
 流量管理員提供下列功能︰
 
 ## <a name="increase-application-availability"></a>提高應用程式可用性

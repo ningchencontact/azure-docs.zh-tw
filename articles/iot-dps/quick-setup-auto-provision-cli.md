@@ -1,20 +1,19 @@
 ---
-title: 快速入門：使用 Azure CLI 來設定裝置佈建服務
-description: Azure 快速入門 - 使用 Azure CLI 設定 Azure IoT 中樞裝置佈建服務
+title: 使用 Azure CLI 設定 Azure IoT 中樞裝置佈建服務
+description: 快速入門 - 使用 Azure CLI 設定 Azure IoT 中樞裝置佈建服務
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ef40d0df630fc369705a1365aa8d95317aa54cb3
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 6406929c3abc3612da2c27edc45e10fd84883d73
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904712"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228554"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>快速入門：使用 Azure CLI 設定 IoT 中樞裝置佈建服務
 
@@ -23,9 +22,8 @@ Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 > [!IMPORTANT]
-> 您在本快速入門中建立的 IoT 中樞與佈建服務均可作為 DNS 端點公開探索。 如果您決定變更這些資源所用的名稱，請務必避免使用任何敏感性資訊。
+> 您在本快速入門中建立的 IoT 中樞與佈建服務，均可作為 DNS 端點公開探索。 如果您決定變更這些資源所用的名稱，請務必避免使用任何敏感性資訊。
 >
-
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -49,17 +47,17 @@ az group create --name my-sample-resource-group --location westus
 
 使用 [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 命令建立 IoT 中樞。
 
-下列範例會在 westus  位置建立名為 my-sample-hub  的 IoT 中樞。  
+下列範例會在 westus  位置建立名為 my-sample-hub  的 IoT 中樞。 IoT 中樞名稱在 Azure 中必須是全域唯一的，因此您可以在範例名稱中新增唯一的首碼或尾碼，或選擇新的名稱。 請確定您的名稱遵循 IoT 中樞的適當命名慣例：長度應為 3-50 個字元，且只能包含大寫或小寫英數字元或連字號 ('-')。 
 
 ```azurecli-interactive 
 az iot hub create --name my-sample-hub --resource-group my-sample-resource-group --location westus
 ```
 
-## <a name="create-a-provisioning-service"></a>建立佈建服務
+## <a name="create-a-device-provisioning-service"></a>建立裝置佈建服務
 
-使用 [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) 命令建立佈建服務。 
+使用 [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) 命令建立裝置佈建服務。 
 
-下列範例會在 westus  位置建立名為 my-sample-dps  的佈建服務。  
+下列範例會在 westus  位置建立名為 my-sample-dps  的佈建服務。 您也必須為自己的佈建服務選擇全域唯一的名稱。 請確定名稱遵循 IoT 中樞裝置佈建服務的適當命名慣例：長度應為 3-64 個字元，且只能包含大寫或小寫英數字元或連字號 ('-')。
 
 ```azurecli-interactive 
 az iot dps create --name my-sample-dps --resource-group my-sample-resource-group --location westus
@@ -69,12 +67,11 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 > 此範例會在美國西部位置建立佈建服務。 執行 `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` 命令，或移至 [Azure 狀態](https://azure.microsoft.com/status/)頁面並搜尋「裝置佈建服務」，即可檢視可用的位置清單。 在命令中，可指定一個字或多字格式的位置；例如：uswest、West US、WEST US 等等。此值不區分大小寫。 如果您使用多字格式來指定位置，此值會用引號括住；例如 `-- location "West US"`。
 >
 
-
 ## <a name="get-the-connection-string-for-the-iot-hub"></a>取得 IoT 中樞的連接字串
 
 您需要 IoT 中樞的連接字串，才能將它與裝置佈建服務連結。 使用 [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) 命令取得連接字串，並使用其輸出來設定將在連結兩項資源時使用的變數。 
 
-下列範例會將 hubConnectionString  變數設定為連接字串的值，作為中樞之 iothubowner  原則的主索引鍵。 您可以使用 `--policy-name` 參數來指定不同的原則。 此命令會使用 Azure CLI [查詢](/cli/azure/query-azure-cli)和[輸出](/cli/azure/format-output-azure-cli#tsv-output-format)選項，從命令輸出中擷取連接字串。
+下列範例會將 hubConnectionString  變數設定為連接字串的值，作為中樞的 iothubowner  原則的主索引鍵 (`--policy-name` 參數可用來指定不同的原則)。 請將 my-sample-hub  取代為您先前選擇的唯一 IoT 中樞名稱。 此命令會使用 Azure CLI [查詢](/cli/azure/query-azure-cli)和[輸出](/cli/azure/format-output-azure-cli#tsv-output-format)選項，從命令輸出中擷取連接字串。
 
 ```azurecli-interactive 
 hubConnectionString=$(az iot hub show-connection-string --name my-sample-hub --key primary --query connectionString -o tsv)
@@ -94,25 +91,30 @@ echo $hubConnectionString
 
 使用 [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create) 命令來連結 IoT 中樞與佈建服務。 
 
-下列範例會在 westus  位置建立名為 my-sample-hub  的 IoT 中樞，以及建立名為 my-sample-dps  的裝置佈建服務。 它會使用上一個步驟的 hubConnectionString  變數中儲存之 my-sample-hub  的連接字串。
+下列範例會在 westus  位置建立名為 my-sample-hub  的 IoT 中樞，以及建立名為 my-sample-dps  的裝置佈建服務。 請將這些名稱取代為您先前選擇的唯一 IoT 中樞和裝置佈建服務名稱。 此命令會使用在先前的步驟中儲存在 hubConnectionString  變數中之 IoT 中樞的連接字串。
 
 ```azurecli-interactive 
 az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample-resource-group --connection-string $hubConnectionString --location westus
 ```
 
+此命令可能需要數分鐘才能完成。
+
 ## <a name="verify-the-provisioning-service"></a>驗證佈建服務
 
 使用 [az iot dps show](/cli/azure/iot/dps#az-iot-dps-show) 命令取得佈建服務的詳細資料。
 
-下列範例會取得名為 my-sample-dps  的佈建服務詳細資料。 連結的 IoT 中樞會顯示在 properties.iotHubs  集合中。
+下列範例會取得名為 my-sample-dps  的佈建服務詳細資料。 請將此名稱取代為您自己的裝置佈建服務名稱。
 
 ```azurecli-interactive
 az iot dps show --name my-sample-dps
 ```
+連結的 IoT 中樞會顯示在 properties.iotHubs  集合中。
+
+![驗證佈建服務](./media/quick-setup-auto-provision-cli/verify-provisioning-service.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 
-此集合中的其他快速入門會以本快速入門為基礎。 如果您打算繼續進行後續的快速入門或教學課程，請勿清除在此快速入門中建立的資源。 如果您不打算繼續執行，可以使用下列命令來刪除佈建服務、IoT 中樞或資源群組及其所有資源。
+此集合中的其他快速入門會以本快速入門為基礎。 如果您打算繼續進行後續的快速入門或教學課程，請勿清除在此快速入門中建立的資源。 如果您不打算繼續執行，可以使用下列命令來刪除佈建服務、IoT 中樞或資源群組及其所有資源。 請將下方列出的資源名稱取代為您自己的資源名稱。
 
 若要刪除佈建服務，請執行 [az iot dps delete](/cli/azure/iot/dps#az-iot-dps-delete) 命令：
 

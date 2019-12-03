@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/08/2019
+ms.date: 11/23/2019
 ms.author: sharadag
-ms.openlocfilehash: 96dae96e16ce033ce15a8f1e9386e5252562654a
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: e92e51e8aabf24f1c5c4db31e2e203f391620ecc
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796216"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423482"
 ---
 # <a name="what-is-azure-front-door-service"></a>Azure 前端服務是什麼？
 Azure Front Door Service 可讓您針對最佳效能和立即全域容錯移轉以獲得高可用性最佳化，定義、管理及監視網路流量的全域路由。 透過 Front Door，您可以將全球 (多區域) 消費者和企業應用程式轉換成健全、高效能的個人化新式應用程式、API，以及觸及 Azure 全球對象的內容。
@@ -26,6 +26,8 @@ Front Door 會在第 7 層或 HTTP/HTTPS 層上運作，並使用任一傳播通
 
 >[!NOTE]
 > Azure 會為您的案例提供一套完整受控的負載平衡解決方案。 如果您要尋找 DNS 型全域路由，而且**沒有**傳輸層安全性 (TLS) 通訊協定終止 (「SSL 卸載」) 或每一 HTTP/HTTPS 要求的需求，請檢閱[流量管理員](../traffic-manager/traffic-manager-overview.md)。 如果您要尋求區域中伺服器之間的負載平衡，請針對應用程式層檢閱[應用程式閘道](../application-gateway/application-gateway-introduction.md)，並針對網路層負載平衡檢閱[負載平衡器](../load-balancer/load-balancer-overview.md)。 視需要結合這些解決方案，可能有益於您的端對端案例。
+>
+> 如需 Azure 負載平衡選項的比較，請參閱 [Azure 中的負載平衡選項概觀](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)。
 
 Front Door 包含下列功能︰
 

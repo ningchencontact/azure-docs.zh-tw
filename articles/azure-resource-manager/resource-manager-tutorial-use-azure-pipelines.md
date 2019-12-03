@@ -1,24 +1,16 @@
 ---
-title: 透過 Azure Pipelines 的持續整合| Microsoft Docs
+title: 透過 Azure Pipelines 的持續整合
 description: 了解如何持續建置、測試及部署 Azure Resource Manager 範本。
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: carmonm
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: daf1e85835401f618d2804285cdb9579360aef15
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 457d2a8868283eed2e211ff26ce77156eee68e01
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052211"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326417"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>教學課程：Azure Resource Manager 範本與 Azure Pipelines 的持續整合
 
@@ -50,7 +42,7 @@ Azure DevOps 提供開發人員服務，以支援小組規劃工作、共同作�
 * **GitHub 帳戶**，您會用它為您的範本建立存放庫。 如果您沒有帳戶，可以[免費](https://github.com)建立一個。 如需使用 GitHub 存放庫的詳細資訊，請參閱[建置 GitHub 存放庫](/azure/devops/pipelines/repos/github)。
 * **安裝 Git**。 此教學課程的指示使用 *Git Bash* 或 *Git Shell*。 如需指示，請參閱 [安裝 Git]( https://www.atlassian.com/git/tutorials/install-git)。
 * **Azure DevOps 組織**。 如果您沒有組織，您可以免費建立一個。 請參閱[建立組織或專案集合]( https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops)。
-* **[Visual Studio Cod](https://code.visualstudio.com/) 搭配 Resource Manager Tools 擴充功能**。 請參閱[安裝延伸模組](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
+* Visual Studio Code 搭配 Resource Manager Tools 擴充功能。 請參閱[使用 Visual Studio Code 建立 Azure Resource Manager 範本](./resource-manager-tools-vs-code.md)。
 
 ## <a name="prepare-a-github-repository"></a>準備 GitHub 存放庫
 

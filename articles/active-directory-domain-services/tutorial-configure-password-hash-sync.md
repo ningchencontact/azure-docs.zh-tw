@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 41e61376d12d447dd480a39ef7200db6af7cca89
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 3a1d99ad282190c61f652179dd08a810c9444064
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172860"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481161"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>教學課程：在混合式環境的 Azure Active Directory Domain Services 中啟用密碼同步處理
 
@@ -51,6 +51,9 @@ Azure AD Connect 可用來將內部部署 AD DS 環境中的物件 (例如使用
 若要在受控網域上驗證使用者，Azure AD DS 需要格式適用於 NTLM 和 Kerberos 驗證的密碼雜湊。 除非您為租用戶啟用 Azure AD DS，否則 Azure AD 不會以 NTLM 或 Kerberos 驗證所需的格式儲存密碼雜湊。 基於安全性考量，Azure AD 也不會儲存任何純文字形式的密碼認證。 因此，Azure AD 無法根據使用者的現有認證自動產生這些 NTLM 或 Kerberos 密碼雜湊。
 
 Azure AD Connect 可以設定成會同步處理 Azure AD DS 所需的 NTLM 或 Kerberos 密碼雜湊。 請確定您已完成[啟用 Azure AD Connect 以進行密碼雜湊同步處理][enable-azure-ad-connect]的步驟。 如果您有 Azure AD Connect 的現有執行個體，請[下載並更新至最新版本][azure-ad-connect-download]，以確定您可以同步處理 NTLM 和 Kerberos 的舊版密碼雜湊。 此功能無法在舊版的 Azure AD Connect 中使用，或與舊版 DirSync 工具搭配使用。 您必須要有 Azure AD Connect *1.1.614.0* 版或更新版本。
+
+> [!IMPORTANT]
+> Azure AD Connect 應該只會為了與內部部署 AD DS 環境同步處理而安裝和設定。 不支援在 Azure AD DS 受控網域中安裝 Azure AD Connect，以將物件同步處理回 Azure AD。
 
 ## <a name="enable-synchronization-of-password-hashes"></a>啟用密碼雜湊的同步處理
 

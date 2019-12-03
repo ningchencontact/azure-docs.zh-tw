@@ -1,5 +1,5 @@
 ---
-title: 快速入門：如何使用 Java 向 Azure 裝置佈建服務註冊 X.509 裝置
+title: 使用 Java 向 Azure 裝置佈建服務註冊 X.509 裝置
 description: 本快速入門同時使用群組註冊和個別註冊。 在本快速入門中，您會使用 Java 向 Azure IoT 中樞裝置佈建服務註冊 X.509 裝置。
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 8a1accf232b022bc3028f91d2151c00b98969f1f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 983e410c6f6298c6b251fdc2a4aff5c677d26906
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904773"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423034"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>快速入門：使用 Java 向裝置佈建服務註冊 X.509 裝置
 
@@ -207,7 +206,7 @@ ms.locfileid: "73904773"
 
 1. 在您的電腦上關閉 Java 範例輸出視窗。
 1. 在您的電腦上關閉 _X509 憑證產生器_ 視窗。
-1. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，按一下 [管理註冊]  ，然後選取 [註冊群組]  索引標籤。選取您使用本快速入門註冊之 X.509 裝置的群組名稱  ，然後按一下刀鋒視窗頂端的 [刪除]  按鈕。  
+1. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，選取 [管理註冊]  ，然後選取 [註冊群組]  索引標籤。選取您使用本快速入門所註冊 X.509 裝置的 [群組名稱]  旁的核取方塊，然後按窗格頂端的 [刪除]  按鈕。  
 
 ## <a name="next-steps"></a>後續步驟
 在本快速入門中，您已向裝置佈建服務註冊 X.509 裝置的模擬群組。 若要深入了解裝置佈建，請繼續在 Azure 入口網站中進行裝置佈建服務設定的教學課程。 

@@ -1,24 +1,16 @@
 ---
-title: 對 Resource Manager 部署進行疑難排解 | Microsoft Docs
+title: 針對部署進行疑難排解
 description: 了解如何對 Azure Resource Manager 範本部署進行監視和疑難排解。 顯示活動記錄和部署歷程記錄。
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4ad32ed83d731a26b6bb72fca230d00d5465c45a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 32f3f55df2b87b35672d811c63a21b956a8a4b52
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390201"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325347"
 ---
 # <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>教學課程：對 Resource Manager 範本的部署進行疑難排解
 
@@ -26,7 +18,7 @@ ms.locfileid: "72390201"
 
 範本部署有兩種類型的相關錯誤：
 
-- **驗證錯誤**來自可在部署之前判斷的情況。 其中包含您範本中的語法錯誤，或者嘗試部署會超出您訂用帳戶配額的資源。 
+- **驗證錯誤**來自可在部署之前判斷的情況。 其中包含您範本中的語法錯誤，或者嘗試部署會超出您訂用帳戶配額的資源。
 - **部署錯誤**來自在部署程序期間發生的狀況。 其中包括嘗試存取以平行方式部署的資源。
 
 這兩種錯誤類型都會傳回錯誤碼，以供您針對部署進行疑難排解。 這兩種錯誤類型都會出現在活動記錄檔中。 不過，驗證錯誤不會出現在部署歷程記錄中，因為部署永遠不會啟動。
@@ -47,7 +39,7 @@ ms.locfileid: "72390201"
 
 若要完成本文，您需要：
 
-- [Visual Studio Code](https://code.visualstudio.com/) 搭配 [Resource Manager Tools 擴充功能](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
+* Visual Studio Code 搭配 Resource Manager Tools 擴充功能。 請參閱[使用 Visual Studio Code 建立 Azure Resource Manager 範本](./resource-manager-tools-vs-code.md)。
 
 ## <a name="create-a-problematic-template"></a>建立有問題的範本
 

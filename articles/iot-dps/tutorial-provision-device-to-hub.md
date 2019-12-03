@@ -1,20 +1,19 @@
 ---
-title: 教學課程：使用 Azure IoT 中樞裝置佈建服務來佈建裝置
-description: 教學課程：使用 Azure IoT 中樞裝置佈建服務將裝置佈建到單一 IoT 中樞
+title: 使用 Azure IoT 中樞裝置佈建服務來佈建裝置
+description: 教學課程 - 使用 Azure IoT 中樞裝置佈建服務將裝置佈建到單一 IoT 中樞
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: be0b926b6beae2cb339ca232d2b792f50834d801
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 6be3832163d4aa857b15f73671985b96d864b730
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112048"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228299"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>教學課程：使用 Azure IoT 中樞裝置佈建服務將裝置佈建到 IoT 中樞
 

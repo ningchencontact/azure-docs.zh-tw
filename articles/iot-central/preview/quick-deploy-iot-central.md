@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: c639cb059d773042b7f45160dea18bfc2130cae9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1fcaf694e7a628232ea252585d6d9a507a9850da
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896276"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287041"
 ---
 # <a name="create-an-azure-iot-central-application-preview-features"></a>建立 Azure IoT Central 應用程式 (預覽功能)
 
@@ -46,13 +46,13 @@ ms.locfileid: "73896276"
 
 1. 選擇您要使用 7 天免費試用版來建立此應用程式，還是要使用隨用隨付訂用帳戶。
     - **試用版**應用程式可以免費試用七天，且最多可支援五個裝置。 此類應用程式可在到期前隨時轉換成隨用隨付。 如果您建立試用版應用程式，則必須輸入連絡資訊，並選擇是否要收到來自 Microsoft 的資訊和提示。
-    - **隨用隨付**應用程式會依據個別裝置收費，前兩個裝置免費。 深入了解 [IoT Central 價格](https://aka.ms/iotcentral-pricing)。 如果您建立隨用隨付應用程式，則必須選取*目錄*、*Azure 訂用帳戶*和*區域*：
+    - **隨用隨付**應用程式會依據個別裝置收費，前兩個裝置免費。 深入了解 [IoT Central 價格](https://aka.ms/iotcentral-pricing)。 如果您建立隨用隨付應用程式，則必須選取*目錄*、*Azure 訂用帳戶*和*位置*：
         - *目錄*是您將用來建立應用程式的 Azure Active Directory (AAD)。 Azure AD 中包含使用者身分識別、認證和其他組織資訊。 如果您沒有 Azure AD，系統會在您建立 Azure 訂用帳戶時為您建立。
         - *Azure 訂用帳戶*可讓您建立 Azure 服務執行個體。 IoT Central 會在您的訂用帳戶中佈建資源。 如果您沒有 Azure 訂用帳戶，您可以在 [Azure 註冊頁面](https://aka.ms/createazuresubscription)上建立一個。 建立 Azure 訂用帳戶之後，請瀏覽回到 [建立應用程式]  頁面。 新的訂用帳戶會出現在 [Azure 訂用帳戶]  下拉式清單中。
-        - *區域*是用來儲存裝置資料的實體位置。 一般而言，您應選擇實際上最接近您裝置的區域，以取得最佳效能，以及確保資料主權合規性。 選擇區域後，即無法將應用程式移到不同的區域。
+        - *位置*是您要在其中建立應用程式的[地理位置](https://azure.microsoft.com/global-infrastructure/geographies/)。 一般而言，您應選擇實際上與您的裝置最接近的位置，以取得最佳效能。 Azure IoT Central 公開預覽目前適用於**美國**或**歐洲**。 選擇位置後，即無法將應用程式移到不同的位置。
 
         > [!NOTE]
-        > 在公開預覽期間，**預覽應用程式**的唯一可用區域為**歐洲北部**和**美國中部**。
+        > 在公開預覽期間，**預覽應用程式**唯一的適用位置為**歐洲**和**美國**。
 
 1. 檢閱條款和條件，然後選取頁面底部的 [建立]  。
 

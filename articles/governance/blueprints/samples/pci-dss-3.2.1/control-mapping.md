@@ -1,83 +1,83 @@
 ---
-title: PCI-DSS 3.2.1 藍圖範例-控制項對應
-description: 將付款卡產業資料安全標準 v 3.2.1 藍圖範例的控制項對應到 Azure 原則和 RBAC。
+title: PCI-DSS v3.2.1 藍圖範例控制項
+description: 支付卡產業資料安全性標準 v3.2.1 藍圖範例與 Azure 原則和 RBAC 的控制項對應。
 ms.date: 06/24/2019
-ms.topic: conceptual
-ms.openlocfilehash: d3e72f923ea3d752d829731d1f741bda090ae9fd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.topic: sample
+ms.openlocfilehash: 38db59a7f0b93e2c87b3c7acdfbcc2b8cbd11489
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037272"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546579"
 ---
-# <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>PCI-DSS 3.2.1 藍圖範例的控制項對應
+# <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>PCI-DSS v3.2.1 藍圖範例的控制項對應
 
-下列文章將詳細說明 Azure 藍圖 PCI-DSS v 3.2.1 藍圖範例如何對應至 PCI-DSS 的3.2.1 控制項。 如需控制項的詳細資訊，請參閱[PCI-DSS 3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf)。
+下列文章將詳細說明 Azure 藍圖 PCI-DSS v3.2.1 藍圖範例與 PCI-DSS v3.2.1 控制項的對應情形。 如需控制項的詳細資訊，請參閱 [PCI-DSS v3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf)。
 
-以下是**PCI-DSS 3.2.1： 2018**控制項的對應。 使用右側的導覽區可直接跳到特定的控制項對應。 許多對應的控制項都是以 [Azure 原則](../../../policy/overview.md)方案進行實作的。 若要檢閱完整方案，請在 Azure 入口網站中開啟 [原則]，然後選取 [定義] 頁面。 然後，尋找並選取 [ **\[預覽]\] AUDIT PCI v 3.2.1：2018控制及部署特定的 VM 延伸模組，以支援 Audit 需求**內建原則計畫。
+以下是 **PCI-DSS v3.2.1:2018** 控制項的對應。 使用右側的導覽區可直接跳到特定的控制項對應。 許多對應的控制項都是以 [Azure 原則](../../../policy/overview.md)方案進行實作的。 若要檢閱完整方案，請在 Azure 入口網站中開啟 [原則]  ，然後選取 [定義]  頁面。 然後，找出並選取 **\[預覽\] 稽核 PCI v3.2.1:2018 控制項並部署特定的 VM 擴充功能，以支援稽核需求**內建原則計畫。
 
 > [!IMPORTANT]
 > 下列每個控制措施都與一或多個 [Azure 原則](../../../policy/overview.md)定義相關聯。 這些原則可協助您使用工具[存取合規性](../../../policy/how-to/get-compliance-data.md)；不過，控制措施和一或多個原則之間，通常不是 1：1 或完整對應。 因此，Azure 原則中的**符合規範**只是指原則本身，這不保證您符合控制措施所有需求的規範。 此外，合規性標準包含目前未由任何 Azure 原則定義解決的控制措施。 因此，Azure 原則中的合規性只是整體合規性狀態的部分觀點。 此合規性藍圖範例的控制措施與 Azure 原則定義之間的關聯，可能會隨著時間而改變。 若要檢視變更歷程記錄，請參閱 [GitHub 認可歷程記錄](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md) \(英文\)。
 
-## <a name="132-and-134-boundary-protection"></a>1.3.2 和1.3.4 界限保護
+## <a name="132-and-134-boundary-protection"></a>1.3.2 和 1.3.4 界限保護
 
-此藍圖藉由指派[Azure 原則](../../../policy/overview.md)定義來監視具有寬鬆規則的網路安全性群組，協助您管理和控制網路。 太寬鬆的規則可能會允許非預期的網路存取，您應加以檢閱。 此藍圖會指派一個 Azure 原則定義來監視未受保護的端點、應用程式和儲存體帳戶。 不受防火牆保護的端點和應用程式，以及存取不受限制的儲存體帳戶，都可能允許資訊系統內所包含的資訊受到非預期的存取。
+此藍圖指派了 [Azure 原則](../../../policy/overview.md)定義，以監視使用寬鬆規則的網路安全性群組，藉此協助您管理和控制網路。 太寬鬆的規則可能會允許非預期的網路存取，您應加以檢閱。 此藍圖可指派一項 Azure 原則定義，以監視未受保護的端點、應用程式和儲存體帳戶。 不受防火牆保護的端點和應用程式，以及存取不受限制的儲存體帳戶，都可能允許資訊系統內所包含的資訊受到非預期的存取。
 
 - 稽核不受限制的儲存體帳戶網路存取
 - 應限制透過網際網路面向端點存取
 
-## <a name="34a-41-41g-41h-and-653-cryptographic-protection"></a>3.4. a、4.1、4.1. g、4.1 和6.5.3 密碼編譯保護
+## <a name="34a-41-41g-41h-and-653-cryptographic-protection"></a>3.4.a、4.1、4.1.g、4.1.h 和 6.5.3 密碼編譯保護
 
-此藍圖藉由指派[Azure 原則](../../../policy/overview.md)定義來強制執行您的原則，以強制使用特定的如何控制項，並使用弱式密碼編譯設定來進行審核。 了解您的 Azure 資源在哪些層面可能使用非最佳化的密碼編譯組態，有助於您採取更正措施，以確保資源會根據您的資訊安全性原則進行設定。 具體而言，此藍圖所指派的原則需要 SQL 資料庫上的透明資料加密;在儲存體帳戶和自動化帳戶變數上審核遺失的加密。 另外還有一些原則，可處理與儲存體帳戶、函式應用程式、WebApp、API Apps 和 Redis 快取之間的不安全連線，以及未加密 Service Fabric 通訊的審核。
+此藍圖指派了 [Azure 原則](../../../policy/overview.md)定義，以強制執行特定的密碼編譯控制項及稽核弱式密碼編譯設定的使用，藉此協助您強制執行密碼編譯控制項的使用原則。 了解您的 Azure 資源在哪些層面可能使用非最佳化的密碼編譯組態，有助於您採取更正措施，以確保資源會根據您的資訊安全性原則進行設定。 具體而言，此藍圖所指派的原則定義會要求在 SQL 資料庫上進行透明資料加密，以及稽核儲存體帳戶和自動化帳戶變體是否缺少加密。 另外還有一些原則，可稽核與儲存體帳戶、Function Apps、WebApp、API Apps 和 Redis 快取之間的不安全連線，以及稽核未加密的 Service Fabric 通訊。
 
 - 函式應用程式應只可經由 HTTPS 存取
 - Web 應用程式應只可經由 HTTPS 存取
 - API 應用程式應只可經由 HTTPS 存取
 - 應在 SQL 資料庫上啟用透明資料加密
 - 應在虛擬機器上套用磁碟加密
-- 自動化帳戶變數應加密
+- 應加密自動化帳戶變數
 - 應該只允許對 Redis Cache 的安全連線
 - 應啟用儲存體帳戶的安全傳輸
 - Service Fabric 叢集應將 ClusterProtectionLevel 屬性設定為 EncryptAndSign
 - 應在 SQL 資料庫上啟用透明資料加密
 - 部署 SQL DB 透明資料加密
 
-## <a name="51-62-66-and-1121-vulnerability-scanning-and-system-updates"></a>5.1、6.2、6.6 和11.2.1 弱點掃描和系統更新
+## <a name="51-62-66-and-1121-vulnerability-scanning-and-system-updates"></a>5.1、6.2、6.6 和 11.2.1 弱點掃描和系統更新
 
-此藍圖藉由指派[Azure 原則](../../../policy/overview.md)定義來監視 Azure 資訊安全中心中遺漏的系統更新、作業系統弱點、SQL 弱點和虛擬機器弱點，協助您執行資訊系統弱點。 Azure 資訊安全中心提供報告功能，可讓您即時深入檢視已部署 Azure 資源的安全性狀態。
+此藍圖指派了 [Azure 原則](../../../policy/overview.md)定義，以監視 Azure 資訊安全中心內的遺漏系統更新、作業系統弱點、SQL 弱點和虛擬機器弱點，藉此協助您管理資訊系統弱點。 Azure 資訊安全中心提供報告功能，可讓您即時深入檢視已部署 Azure 資源的安全性狀態。
 
 - 在 Azure 資訊安全中心中監視缺少的 Endpoint Protection
 - 為 Windows Server 部署預設的 Microsoft IaaSAntimalware 延伸模組
-- 在 SQL 伺服器上部署威脅偵測
+- 在 SQL Server 上部署威脅偵測
 - 您應在機器上安裝系統更新
 - 您應在機器上修復安全性組態的弱點
 - 應修復 SQL 資料庫的弱點
 - 弱點評量解決方案應修復弱點
 
-## <a name="711-712-and-713-separation-of-duties"></a>7.1.1. 7.1.2 和7.1.3 職責分離
+## <a name="711-712-and-713-separation-of-duties"></a>7.1.1。 7.1.2 和 7.1.3 職責區分
 
-只有一個 Azure 訂用帳戶擁有者時，無法建立系統管理備援。 相反地，若有過多 Azure 訂用帳戶擁有者，因擁有者帳戶遭到入侵而產生缺口的可能性就會增加。 此藍圖會指派[Azure 原則](../../../policy/overview.md)定義來審核 azure 訂用帳戶的擁有者數目，以協助您維護適當數目的 azure 訂用帳戶擁有者。 管理訂用帳戶擁有者權限可協助您實作適當的權責區分。
+只有一個 Azure 訂用帳戶擁有者時，無法建立系統管理備援。 相反地，若有過多 Azure 訂用帳戶擁有者，因擁有者帳戶遭到入侵而產生缺口的可能性就會增加。 此藍圖指派了 [Azure 原則](../../../policy/overview.md)定義，以稽核 Azure 訂用帳戶的擁有者數目，藉此協助您維護適當數量的 Azure 訂用帳戶擁有者。 管理訂用帳戶擁有者權限可協助您實作適當的權責區分。
 
 - 應將一個以上的擁有者指派給您的訂用帳戶
 - 應針對您的訂用帳戶指定最多 3 位擁有者 
 
-## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3.2、7.2.1、8.3.1 和8.3.1 許可權存取權的管理
+## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3.2、7.2.1、8.3.1.a 和 8.3.1.b 管理特殊權限的存取權
 
-此藍圖藉由指派[Azure 原則](../../../policy/overview.md)定義來審查外部帳戶的擁有者、寫入和/或讀取權限，以及具有擁有者和/或未啟用多重要素驗證之寫入權限的員工帳戶，協助您限制和控制特殊許可權存取權限。 Azure 會實作角色型存取控制 (RBAC)，以管理有權存取 Azure 資源的人員。 了解自訂 RBAC 規則的實作之處，有助於您確認需求和適當的實作，因為自訂的 RBAC 規則很容易發生錯誤。 此藍圖也會指派[Azure 原則](../../../policy/overview.md)定義，以審核 SQL server Azure Active Directory 驗證的使用。 使用 Azure Active Directory 驗證可簡化版權管理，並集中管理資料庫使用者和其他 Microsoft 的身分識別  
-伺服器.
+此藍圖指派了 [Azure 原則](../../../policy/overview.md)定義，用以稽核具有擁有者、寫入及/或讀取權限的外部帳戶，和具有擁有者及/或寫入權限且未啟用多重要素驗證的員工帳戶，以協助您限制及控制特殊權限的存取權。 Azure 會實作角色型存取控制 (RBAC)，以管理有權存取 Azure 資源的人員。 了解自訂 RBAC 規則的實作之處，有助於您確認需求和適當的實作，因為自訂的 RBAC 規則很容易發生錯誤。 此藍圖還指派了 [Azure 原則](../../../policy/overview.md)定義，用以稽核將 Azure Active Directory 驗證用於 SQL Server 的情形。 使用 Azure Active Directory 驗證可針對資料庫使用者及其他 Microsoft 服務，簡化權限管理及集中管理身分識別  
+。
  
 - 具有擁有者權限的外部帳戶應該從您的訂用帳戶中移除
 - 應從訂用帳戶移除具有寫入權限的外部帳戶
 - 具有讀取權限的外部帳戶應該從您的訂用帳戶中移除
 - 應在您訂用帳戶上具有擁有者權限的帳戶上啟用 MFA
-- MFA 應啟用具有您訂用帳戶寫入權限的帳戶
+- 應在您訂用帳戶上具有寫入權限的帳戶上啟用 MFA
 - 應在您訂用帳戶上具有讀取權限的帳戶上啟用 MFA
 - 應針對 SQL 伺服器佈建 Azure Active Directory 管理員
 - 稽核自訂 RBAC 規則的使用方式
 
-## <a name="812-and-815-least-privilege-and-review-of-user-access-rights"></a>8.1.2 和8.1.5 最低許可權和使用者存取權限檢查
+## <a name="812-and-815-least-privilege-and-review-of-user-access-rights"></a>8.1.2 和 8.1.5 最低權限和檢閱使用者存取權限
 
-Azure 會實行角色型存取控制（RBAC），以協助您管理可存取 Azure 資源的人員。 您可以使用 Azure 入口網站，檢閱可存取 Azure 資源的人員及其權限。 此藍圖會指派[Azure 原則](../../../policy/overview.md)定義來審查應優先進行審查的帳戶，包括以較高的許可權來折舊帳戶和外部帳戶。
+Azure 會實作角色型存取控制 (RBAC)，以協助您管理有權存取 Azure 資源的人員。 您可以使用 Azure 入口網站，檢閱可存取 Azure 資源的人員及其權限。 此藍圖指派了 [Azure 原則](../../../policy/overview.md)定義來稽核應優先檢閱的帳戶，包括已停用的帳戶和已提高權限的外部帳戶。
 
 - 已取代帳戶應該從您的訂用帳戶中移除
 - 具有擁有者權限的已取代帳戶應該從您的訂用帳戶中移除
@@ -87,23 +87,23 @@ Azure 會實行角色型存取控制（RBAC），以協助您管理可存取 Azu
 
 ## <a name="813-removal-or-adjustment-of-access-rights"></a>8.1.3 移除或調整存取權限
 
-Azure 會實行角色型存取控制（RBAC），以協助您管理可存取 Azure 資源的人員。 您可以使用 Azure Active Directory 和 RBAC 來更新使用者角色，以反映組織的變更。 必要時可以封鎖帳戶的登入 (或移除帳戶)，而立即移除對 Azure 資源的存取權限。 此藍圖會指派[Azure 原則](../../../policy/overview.md)定義來審查應視為移除的折舊帳戶。
+Azure 會實作角色型存取控制 (RBAC)，以協助您管理有權存取 Azure 資源的人員。 使用 Azure Active Directory 和 RBAC，可更新使用者角色以反映組織變更。 必要時可以封鎖帳戶的登入 (或移除帳戶)，而立即移除對 Azure 資源的存取權限。 此藍圖指派了 [Azure 原則](../../../policy/overview.md)定義來稽核應考慮移除的停用帳戶。
 
 - 已取代帳戶應該從您的訂用帳戶中移除
 - 具有擁有者權限的已取代帳戶應該從您的訂用帳戶中移除
 
-## <a name="823ab-824ab-and-825-password-based-authentication"></a>8.2.3，b，8.2.4，b，8.2.5 密碼型驗證
+## <a name="823ab-824ab-and-825-password-based-authentication"></a>8.2.3.a,b、8.2.4.a,b 和 8.2.5 密碼式驗證
 
-此藍圖藉由指派[Azure 原則](../../../policy/overview.md)定義來協助您強制執行強式密碼，以審核不會強制執行最小強度和其他密碼需求的 Windows vm。 確知有哪些 VM 違反密碼強度原則可協助您採取更正措施，以確保所有 VM 使用者帳戶的密碼均符合原則。
+此藍圖指派了 [Azure 原則](../../../policy/overview.md)定義，用以稽核未強制執行最低強度和其他密碼需求的 Windows VM，以協助您強制執行強式密碼。 確知有哪些 VM 違反密碼強度原則可協助您採取更正措施，以確保所有 VM 使用者帳戶的密碼均符合原則。
 
-- \[預覽\]：不包含最大密碼存留期70天的 Windows Vm
-- \[Preview\]：部署需求以審查不具有最大密碼存留期70天的 Windows Vm
-- \[Preview\]：將不會將最小密碼長度限制為14個字元的 Windows Vm
-- \[Preview\]：部署需求以審查不會將最小密碼長度限制為14個字元的 Windows Vm
-- \[Preview\]：可允許重複使用前24個密碼的 Windows Vm
-- \[Preview\]：部署需求以審查允許重複使用前24個密碼的 Windows Vm
+- \[預覽\]：稽核最大密碼存留期不是 70 天的 Windows VM
+- \[預覽\]：部署需求以稽核最大密碼存留期不是 70 天的 Windows VM
+- \[預覽\]：稽核最小密碼長度未限制為 14 個字元的 Windows 虛擬機器
+- \[預覽\]：部署需求以稽核最小密碼長度未限制為 14 個字元的 Windows VM
+- \[預覽\]：稽核允許重複使用前 24 個舊密碼的 Windows 虛擬機器
+- \[預覽\]：部署需求以稽核允許重複使用前 24 個舊密碼的 Windows VM
 
-## <a name="103-and-1054-audit-generation"></a>10.3 和 10.5.4 Audit 產生
+## <a name="103-and-1054-audit-generation"></a>10.3 和 10.5.4 稽核產生
 
 此藍圖指派了 [Azure 原則](../../../policy/overview.md)定義，稽核 Azure 資源的記錄設定，以協助您確保會記錄系統事件。
 診斷記錄能讓您了解 Azure 資源內所執行的作業。 Azure 記錄會依賴已同步處理的內部時鐘，來對所有資源內的事件建立與時間相互關聯的記錄。
@@ -112,23 +112,23 @@ Azure 會實行角色型存取控制（RBAC），以協助您管理可存取 Azu
 - 稽核診斷設定
 - 稽核 SQL 伺服器層級稽核設定
 - 在 SQL 伺服器上部署稽核
-- 儲存體帳戶應遷移至新的 Azure Resource Manager 資源
-- 虛擬機器應該遷移至新的 Azure Resource Manager 資源
+- 儲存體帳戶應移轉至新的 Azure Resource Manager 資源
+- 虛擬機器應移轉到新的 Azure Resource Manager 資源
 
 ## <a name="1236-and-1237-information-security"></a>12.3.6 和12.3.7 資訊安全性
 
-此藍圖藉由指派[Azure 原則](../../../policy/overview.md)定義來管理和控制您的網路，以審核可接受的網路位置和環境所允許的核准公司產品。 這些可透過每個原則中的原則參數，自訂每個公司。
+此藍圖指派了 [Azure 原則](../../../policy/overview.md)定義，以稽核可接受的網路位置及該環境允許的已核准公司產品，藉此協助您管理和控制您的網路。 每家公司都可以透過上述每個原則中的原則參數來自訂這些定義。
 
 - 允許的位置
-- 允許的資源群組位置
+- 允許資源群組的位置
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已複習過「PCI-DSS 3.2.1」藍圖的控制項對應，請流覽下列文章以瞭解此範例的總覽和部署方式：
+您已檢閱過 PCI-DSS v3.2.1 藍圖的控制項對應，請瀏覽下列文章以了解概觀及如何部署此範例：
 
 > [!div class="nextstepaction"]
-> [Pci-dss 3.2.1 藍圖-總覽](./index.md)
-> [PCI-dss v 3.2.1 藍圖-部署步驟](./deploy.md)
+> [PCI-DSS v3.2.1 藍圖 - 概觀](./index.md)
+> [PCI-DSS v3.2.1 藍圖 - 部署步驟](./deploy.md)
 
 有關藍圖及其使用方式的其他文件：
 

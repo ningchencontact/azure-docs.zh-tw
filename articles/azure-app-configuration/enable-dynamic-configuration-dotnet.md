@@ -13,12 +13,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7e28cdacce8eac4774683013ae1c30ca34ebfaad
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 7cb76d5836055ce352373fa13449e27d81e84022
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821625"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185241"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>教學課程：在 .NET Framework 應用程式中使用動態組態
 
@@ -31,16 +31,15 @@ ms.locfileid: "72821625"
 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
-> * 將應用程式設定為可依需求使用應用程式設定存放區來更新其設定。
-> * 在您應用程式的控制器中插入最新的設定。
-
+> * 設定您的 .NET Framework 應用程式，使其在應用程式組態存放區發生變更時更新其組態。
+> * 在您的應用程式中插入最新的組態。
 ## <a name="prerequisites"></a>必要條件
 
 - Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.1 或更新版本](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>建立應用程式設定存放區
+## <a name="create-an-app-configuration-store"></a>建立應用程式組態存放區
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -52,7 +51,7 @@ ms.locfileid: "72821625"
 
     目前先讓 [標籤]  和 [內容類型]  保持空白。
 
-## <a name="create-a-net-console-app"></a>建立 .NET 主控台應用程式
+## <a name="create-a-net-framework-console-app"></a>建立.NET Framework 主控台應用程式
 
 1. 啟動 Visual Studio，然後選取 [檔案]   > [新增]   > [專案]  。
 
@@ -99,7 +98,7 @@ ms.locfileid: "72821625"
         PrintMessage().Wait();
     }
     ```
-    `ConfigureRefresh` 方法可用來指定相關設定，以用來在系統觸發重新整理作業時，使用應用程式設定存放區來更新組態資料。 您可以藉由在提供給 `AddAzureAppConfiguration` 方法的選項上呼叫 `GetRefresher` 方法來擷取 `IConfigurationRefresher` 的執行個體，而且此執行個體上的 `Refresh` 方法可用來在程式碼中的任意處觸發重新整理作業。
+    `ConfigureRefresh` 方法可用來指定相關設定，以用來在系統觸發重新整理作業時，使用應用程式組態存放區來更新組態資料。 您可以藉由在提供給 `AddAzureAppConfiguration` 方法的選項上呼叫 `GetRefresher` 方法來擷取 `IConfigurationRefresher` 的執行個體，而且此執行個體上的 `Refresh` 方法可用來在程式碼中的任意處觸發重新整理作業。
 
     > [!NOTE]
     > 組態設定的預設快取到期時間為 30 秒，但可加以複寫，方法是在以引數形式傳遞至 `ConfigureRefresh` 方法的選項初始設定式上呼叫 `SetCacheExpiration` 方法。
@@ -121,7 +120,7 @@ ms.locfileid: "72821625"
 
 ## <a name="build-and-run-the-app-locally"></a>於本機建置並執行應用程式
 
-1. 設定名為 **ConnectionString** 的環境變數，並將其設定為應用程式設定存放區的存取金鑰。 如果您使用 Windows 命令提示字元，請執行下列命令，然後重新啟動命令提示字元以讓變更生效：
+1. 設定名為 **ConnectionString** 的環境變數，並將其設定為應用程式組態存放區的存取金鑰。 如果您使用 Windows 命令提示字元，請執行下列命令，然後重新啟動命令提示字元以讓變更生效：
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -156,7 +155,7 @@ ms.locfileid: "72821625"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已新增 Azure 受控服務識別來簡化應用程式設定的存取，以及改善您應用程式的認證管理。 若要了解如何新增可簡化應用程式組態存取的 Azure 受控服務識別，請繼續進行下一個教學課程。
+在本教學課程中，您已啟用 .NET Framework 應用程式，以動態方式從應用程式組態重新整理組態設定。 若要了解如何使用 Azure 受控服務識別來簡化對應用程式組態的存取，請繼續進行下一個教學課程。
 
 > [!div class="nextstepaction"]
 > [受控識別整合](./howto-integrate-azure-managed-service-identity.md)

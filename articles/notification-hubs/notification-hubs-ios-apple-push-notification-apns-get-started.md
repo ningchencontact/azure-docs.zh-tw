@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 通知中樞將通知推送至 iOS 應用程式 | Microsoft Docs
+title: 使用 Azure 通知中樞將推播通知傳送至 iOS 應用程式 | Microsoft Docs
 description: 在本教學課程中，您將了解如何使用 Azure 通知中樞，將推播通知傳送至 iOS 應用程式。
 services: notification-hubs
 documentationcenter: ios
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 452ccfc796fcd2a390c7380f4c6b2ced2057dc3b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 032ca8d4ecbcf1fc7f3c22cbe5a0ee934fc5e17c
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822343"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407366"
 ---
-# <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 iOS 應用程式
+# <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將推播通知傳送至 iOS 應用程式
 
 > [!div class="op_single_selector"]
 > * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
@@ -71,15 +71,13 @@ ms.locfileid: "73822343"
 
 2. 設定新專案的選項時，請務必使用您在 Apple 開發人員入口網站上設定套件組合識別碼時使用的相同**產品名稱**和**組織識別碼**。
 
-    ![Xcode - 專案選項][11]
-
-3. 在 [專案導覽器] 中，按一下您的專案名稱，再按一下 [一般]  索引標籤，然後尋找 [簽署]  。 請務必要選取適合您 Apple 開發人員帳戶的團隊。 XCode 應該會根據您的套件組合識別碼，自動提取您先前建立的佈建設定檔。
+3. 在 [專案導覽] 底下，選取 [目標]  下的專案名稱，然後選取 [簽署與功能]  索引標籤。請務必要為您的 Apple 開發人員帳戶選取適合的**團隊**。 XCode 應該會根據您的套件組合識別碼，自動提取您先前建立的佈建設定檔。
 
     如果畫面未顯示您在 Xcode 中建立的新佈建設定檔，請嘗試重新整理簽署身分識別的設定檔。 按一下功能表列上的 Xcode  ，再依序按一下 [喜好設定]  、[帳戶]  索引標籤、[檢視詳細資料]  按鈕、您的簽署身分識別，然後按一下右下角的 [重新整理] 按鈕。
 
     ![Xcode - 佈建設定檔][9]
 
-4. 選取 [功能]  索引標籤，並務必要啟用推播通知
+4. 在 [簽署與功能]  索引標籤中，選取 [+ 功能]  。  按兩下 [推播通知]  加以啟用。
 
     ![Xcode - 推播功能][12]
 
@@ -124,73 +122,360 @@ ms.locfileid: "73822343"
 
         ![解壓縮 Azure SDK][10]
 
-6. 將新的標頭檔新增至名為 `HubInfo.h`的專案。 此檔案會保存通知中樞的常數。 新增下列定義，然後以您的「中樞名稱」  以及先前記下的「DefaultListenSharedAccessSignature」  取代字串常值預留位置。
+6. 將新的標頭檔新增至名為 **Constants.h** 的專案。 若要這麼做，請以滑鼠右鍵按一下專案名稱並選取 [新增檔案...]  。然後選取 [標頭檔]  。 此檔案會保存通知中樞的常數。 然後，選取 [下一步]  。 將檔案命名為 **Constants.h**。
+
+7. 將下列程式碼新增至 Constants.h 檔案：
 
     ```objc
-    #ifndef HubInfo_h
-    #define HubInfo_h
+    #ifndef Constants_h
+    #define Constants_h
 
-    #define HUBNAME @"<Enter the name of your hub>"
-    #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
+    extern NSString* const NHInfoConnectionString;
+    extern NSString* const NHInfoHubName;
+    extern NSString* const NHUserDefaultTags;
 
-    #endif /* HubInfo_h */
+    #endif /* Constants_h */
     ```
 
-7. 開啟 `AppDelegate.h` 檔案並新增下列 import 指示詞：
+8. 新增 Constants.h 的實作檔。 若要這麼做，請以滑鼠右鍵按一下專案名稱並選取 [新增檔案...]  。選取 [Objective-C檔案]  ，然後選取 [下一步]  。 將檔案命名 **Constants.m**。
+
+    ![新增 .m 檔案](media/notification-hubs-ios-get-started/new-file-objc.png)
+
+9. 開啟 **Constants.m** 檔案，並以下列程式碼取代其內容。 以您先前從入口網站取得的中樞名稱和 **DefaultListenSharedAccessSignature**，分別取代字串常值預留位置 `NotificationHubConnectionString` 和 `NotificationHubConnectionString`：
+
+    ```objc
+    #import <Foundation/Foundation.h>
+    #import "Constants.h"
+
+    NSString* const NHInfoConnectionString = @"NotificationHubConnectionString";
+    NSString* const NHInfoHubName = @"NotificationHubName";
+    NSString* const NHUserDefaultTags = @"notification_tags";
+    ```
+
+10. 開啟專案的 **AppDelegate.h** 檔案，並以下列程式碼取代其內容：
+
+    ```objc
+    #import <UIKit/UIKit.h>
+    #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
+    #import <UserNotifications/UserNotifications.h> 
+
+    @interface AppDelegate : UIResponder <UIApplicationDelegate,UNUserNotificationCenterDelegate>
+
+    @property (strong, nonatomic) UIWindow *window;
+
+    - (void)handleRegister;
+    - (void)handleUnregister;
+
+    @end
+
+    ```
+
+11. 在專案的 **AppDelegate.m** 檔案中，新增下列 `import` 陳述式：
+
+    ```objc
+    #import "Constants.h"
+    #import "NotificationDetailViewController.h"
+    ```
+
+12. 此外在 **AppDelegate.m** 檔案中，根據您的 iOS 版本在 `didFinishLaunchingWithOptions` 方法內新增以下這行程式碼。 此程式碼會向 APN 註冊裝置控制代碼：
+
+    ```objc
+    [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
+    ```
+
+13. 在相同的 **AppDelegate.m** 檔案中，使用下列程式碼取代 `didFinishLaunchingWithOptions` 之後的所有程式碼：
+
+    ```objc
+    // Tells the app that a remote notification arrived that indicates there is data to be fetched.
+
+    - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+        NSLog(@"Received remote (silent) notification");
+        [self logNotificationDetails:userInfo];
+
+        //
+        // Let the system know the silent notification has been processed.
+        //
+        completionHandler(UIBackgroundFetchResultNoData);
+    }
+
+    // Tells the delegate that the app successfully registered with Apple Push Notification service (APNs).
+
+    - (void) application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+        NSMutableSet *tags = [[NSMutableSet alloc] init];
+
+        // Load and parse stored tags
+        NSString *unparsedTags = [[NSUserDefaults standardUserDefaults] valueForKey:NHUserDefaultTags];
+        if (unparsedTags.length > 0) {
+            NSArray *tagsArray = [unparsedTags componentsSeparatedByString: @","];
+            [tags addObjectsFromArray:tagsArray];
+        }
+
+        // Register the device with the Notification Hub.
+        // If the device has not already been registered, this will create the registration.
+        // If the device has already been registered, this will update the existing registration.
+        //
+        SBNotificationHub* hub = [self getNotificationHub];
+        [hub registerNativeWithDeviceToken:deviceToken tags:tags completion:^(NSError* error) {
+            if (error != nil) {
+                NSLog(@"Error registering for notifications: %@", error);
+            } else {
+                [self showAlert:@"Registered" withTitle:@"Registration Status"];
+            }
+        }];
+    }
+
+    // UNUserNotificationCenterDelegate methods
+    //
+    // Asks the delegate how to handle a notification that arrived while the app was running in the  foreground.
+
+    - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+        NSLog(@"Received notification while the application is in the foreground");
+
+        // The system calls this delegate method when the app is in the foreground. This allows the app to handle the notification
+        // itself (and potentially modify the default system behavior).
+
+        // Handle the notification by displaying custom UI.
+        //
+        [self showNotification:notification.request.content.userInfo];
+
+        // Use 'options' to specify which default behaviors to enable.
+        // - UNAuthorizationOptionBadge: Apply the notification's badge value to the app’s icon.
+        // - UNAuthorizationOptionSound: Play the sound associated with the notification.
+        // - UNAuthorizationOptionAlert: Display the alert using the content provided by the notification.
+        //
+        // In this case, do not pass UNAuthorizationOptionAlert because the notification was handled by the app.
+        //
+        completionHandler(UNAuthorizationOptionBadge | UNAuthorizationOptionSound);
+    }
+
+    // Asks the delegate to process the user's response to a delivered notification.
+    //
+
+    - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler {
+        NSLog(@"Received notification while the application is in the background");
+
+        // The system calls this delegate method when the user taps or responds to the system notification.
+
+        // Handle the notification response by displaying custom UI
+        //
+        [self showNotification:response.notification.request.content.userInfo];
+
+        // Let the system know the response has been processed.
+        //
+        completionHandler();
+    }
+
+    // App logic and helpers
+
+    - (SBNotificationHub *)getNotificationHub {
+        NSString *hubName = [[NSBundle mainBundle] objectForInfoDictionaryKey:NHInfoHubName];
+        NSString *connectionString = [[NSBundle mainBundle] objectForInfoDictionaryKey:NHInfoConnectionString];
+
+        return [[SBNotificationHub alloc] initWithConnectionString:connectionString notificationHubPath:hubName];
+    }
+
+    - (void)handleRegister {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+
+        UNAuthorizationOptions options =  UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
+        [center requestAuthorizationWithOptions:(options) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            if (error != nil) {
+                NSLog(@"Error requesting for authorization: %@", error);
+            }
+        }];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+
+    - (void)handleUnregister {
+        //
+        // Unregister the device with the Notification Hub.
+        //
+        SBNotificationHub *hub = [self getNotificationHub];
+        [hub unregisterNativeWithCompletion:^(NSError* error) {
+            if (error != nil) {
+                NSLog(@"Error unregistering for push: %@", error);
+            } else {
+                [self showAlert:@"Unregistered" withTitle:@"Registration Status"];
+            }
+        }];
+    }
+
+    - (void)logNotificationDetails:(NSDictionary *)userInfo {
+        if (userInfo != nil) {
+            UIApplicationState state = [UIApplication sharedApplication].applicationState;
+            BOOL background = state != UIApplicationStateActive;
+            NSLog(@"Received %@notification: \n%@", background ? @"(background) " : @"", userInfo);
+        }
+    }
+
+    - (void)showAlert:(NSString *)message withTitle:(NSString *)title {
+        if (title == nil) {
+            title = @"Alert";
+        }
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:alert animated:YES completion:nil];
+    }
+
+    - (void)showNotification:(NSDictionary *)userInfo {
+        [self logNotificationDetails:userInfo];
+
+        NotificationDetailViewController *notificationDetail = [[NotificationDetailViewController alloc] initWithUserInfo:userInfo];
+        [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:notificationDetail animated:YES completion:nil];
+    }
+
+    @end
+    ```
+
+    此程式碼會使用您在 **Constants.h** 中指定的連接資訊連接到通知中心。 然後，它可提供裝置權杖給通知中樞，讓通知中樞能夠傳送通知。
+
+### <a name="notificationdetailviewcontroller"></a>NotificationDetailViewController
+
+1. 類似先前的指示，新增另一個名為 **NotificationDetailViewController.h**的標頭檔。 將新標頭檔的內容取代為下列程式碼：
+
+    ```objc
+    #import <UIKit/UIKit.h>
+
+    NS_ASSUME_NONNULL_BEGIN
+
+    @interface NotificationDetailViewController : UIViewController
+
+    @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+    @property (strong, nonatomic) IBOutlet UILabel *bodyLabel;
+    @property (strong, nonatomic) IBOutlet UIButton *dismissButton;
+
+    @property (strong, nonatomic) NSDictionary *userInfo;
+
+    - (id)initWithUserInfo:(NSDictionary *)userInfo;
+
+    @end
+
+    NS_ASSUME_NONNULL_END
+    ```
+
+2. 新增實作檔 **NotificationDetailViewController.m**。 將檔案的內容取代為下列程式碼，其可實作 `UIViewController` 方法：
+
+    ```objc
+    #import "NotificationDetailViewController.h"
+
+    @interface NotificationDetailViewController ()
+
+    @end
+
+    @implementation NotificationDetailViewController
+
+    - (id)initWithUserInfo:(NSDictionary *)userInfo {
+        self = [super initWithNibName:@"NotificationDetail" bundle:nil];
+        if (self) {
+            _userInfo = userInfo;
+        }
+        return self;
+    }
+
+    - (void)viewDidLayoutSubviews {
+        [self.titleLabel sizeToFit];
+        [self.bodyLabel sizeToFit];
+    }
+
+    - (void)viewDidLoad {
+        [super viewDidLoad];
+
+        NSString *title = nil;
+        NSString *body = nil;
+
+        NSDictionary *aps = [_userInfo valueForKey:@"aps"];
+        NSObject *alertObject = [aps valueForKey:@"alert"];
+        if (alertObject != nil) {
+            if ([alertObject isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *alertDict = (NSDictionary *)alertObject;
+                title = [alertDict valueForKey:@"title"];
+                body = [alertObject valueForKey:@"body"];
+            } else if ([alertObject isKindOfClass:[NSString class]]) {
+                body = (NSString *)alertObject;
+            } else {
+                NSLog(@"Unable to parse notification content. Unexpected format: %@", alertObject);
+            }
+        }
+
+        if (title == nil) {
+            title = @"<unset>";
+        }
+
+        if (body == nil) {
+            body = @"<unset>";
+        }
+
+        self.titleLabel.text = title;
+        self.bodyLabel.text = body;
+    }
+
+    - (IBAction)handleDismiss:(id)sender {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+
+    @end
+    ```
+
+### <a name="viewcontroller"></a>ViewController
+
+1. 在專案的 **ViewController.h** 檔案中，新增下列 `import` 陳述式：
 
     ```objc
     #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
     #import <UserNotifications/UserNotifications.h>
-    #import "HubInfo.h"
     ```
 
-8. 根據您的 iOS 版本，在 `AppDelegate.m` 檔案的 `didFinishLaunchingWithOptions` 方法中新增下列程式碼。 此程式碼會向 APN 註冊裝置控制代碼：
+2. 此外，在 **ViewController.h**中的 `@interface` 宣告之後，新增下列屬性宣告：
 
     ```objc
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
-
-    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    @property (strong, nonatomic) IBOutlet UITextField *tagsTextField;
+    @property (strong, nonatomic) IBOutlet UIButton *registerButton;
+    @property (strong, nonatomic) IBOutlet UIButton *unregisterButton;
     ```
 
-9. 在相同檔案中新增下列方法：
+3. 在專案的 **ViewController.m** 實作檔中，將檔案的內容取代為下列程式碼：
 
     ```objc
-    (void) application:(UIApplication *) application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
-     SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
-                                 notificationHubPath:HUBNAME];
+    #import "ViewController.h"
+    #import "Constants.h"
+    #import "AppDelegate.h"
 
-     [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError* error) {
-         if (error != nil) {
-             NSLog(@"Error registering for notifications: %@", error);
-         }
-         else {
-             [self MessageBox:@"Registration Status" message:@"Registered"];
-         }
-     }];
-     }
+    @interface ViewController ()
 
-    (void)MessageBox:(NSString *) title message:(NSString *)messageText
-    {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:messageText preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alert addAction:okAction];
-        [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:alert animated:YES completion:nil];
+    @end
+
+    @implementation ViewController
+
+    // UIViewController methods
+
+    - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+        // Simple method to dismiss keyboard when user taps outside of the UITextField.
+        [self.view endEditing:YES];
     }
-    ```
 
-    此程式碼會使用您在 HubInfo.h 中指定的連接資訊連接到通知中心。 然後，它可提供裝置權杖給通知中樞，讓通知中樞能夠傳送通知。
+    - (void)viewDidLoad {
+        [super viewDidLoad];
 
-10. 如果應用程式在作用中時收到通知，您可以在相同檔案中新增下列方法以顯示 **UIAlert** ：
-
-    ```objc
-    (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
-      NSLog(@"%@", userInfo);
-      [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
+        // Load raw tags text from storage and initialize the text field
+        self.tagsTextField.text = [[NSUserDefaults standardUserDefaults] valueForKey:NHUserDefaultTags];
     }
+
+    - (IBAction)handleRegister:(id)sender {
+        // Save raw tags text in storage
+        [[NSUserDefaults standardUserDefaults] setValue:self.tagsTextField.text forKey:NHUserDefaultTags];
+
+    // Delegate processing the register action to the app delegate.
+    [[[UIApplication sharedApplication] delegate] performSelector:@selector(handleRegister)];
+    }
+
+    - (IBAction)handleUnregister:(id)sender {
+        [[[UIApplication sharedApplication] delegate] performSelector:@selector(handleUnregister)];
+    }
+
+    @end
     ```
 
-11. 為了確認應用程式能夠順利運作，在裝置上建置並執行應用程式。
+4. 為了確認應用程式能夠順利運作，在裝置上建置並執行應用程式。
 
 ## <a name="send-test-push-notifications"></a>傳送測試推播通知
 
@@ -222,16 +507,12 @@ ms.locfileid: "73822343"
 >[將通知推送至特定裝置](notification-hubs-ios-xplat-segmented-apns-push-notification.md)
 
 <!-- Images. -->
-[6]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png
-[7]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png
 [8]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app.png
 [9]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app2.png
 [10]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app3.png
 [11]: ./media/notification-hubs-ios-get-started/notification-hubs-xcode-product-name.png
 [12]: ./media/notification-hubs-ios-get-started/notification-hubs-enable-push.png
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
-[31]: ./media/notification-hubs-ios-get-started/notification-hubs-ios-ui.png
-[32]: ./media/notification-hubs-ios-get-started/notification-hubs-storyboard-view.png
 [33]: ./media/notification-hubs-ios-get-started/notification-hubs-test1.png
 [35]: ./media/notification-hubs-ios-get-started/notification-hubs-test3.png
 

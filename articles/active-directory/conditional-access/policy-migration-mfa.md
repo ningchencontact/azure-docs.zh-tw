@@ -1,22 +1,22 @@
 ---
-title: 在 Azure 入口網站中移轉要求多重要素驗證的傳統原則
+title: 遷移條件式存取原則 - Azure Active Directory
 description: 本文示範在 Azure 入口網站中移轉要求多重要素驗證的傳統原則。
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: tutorial
-ms.date: 06/13/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4819c283a136057ad7c3ffd755fd9e157d99a1bf
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: ca00ae62ba114aecef48117fd8a54b7f2e962dfd
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509446"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380316"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>在 Azure 入口網站中移轉要求多重要素驗證的傳統原則
 

@@ -1,14 +1,14 @@
 ---
 title: 範例 - 對資源群組強制執行標籤及值
-description: 此原則定義範例會要求對資源群組使用標籤和值。
+description: 此原則定義範例需要資源群組上參數中定義的標籤和值。
 ms.date: 01/31/2019
 ms.topic: sample
-ms.openlocfilehash: 1a4bf9d27971b149e3df422987f58d0f184181c2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d04c48e2633e1a23990723c91a66cf8ec219b160
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076264"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463616"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>範例 - 對資源群組強制執行標籤及其值
 

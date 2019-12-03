@@ -1,5 +1,5 @@
 ---
-title: 什麼是 Azure Active Directory B2B 共同作業？ - Azure Active Directory | Microsoft Docs
+title: 什麼是 Azure Active Directory 中的 B2B 共同作業？
 description: Azure Active Directory B2B 共同作業支援來賓使用者存取權，以便您可以安全地共用資源，並與外部夥伴共同作業。
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62bc550a809d596b5378c03aa95877db5e15febb
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 18d60614a07895c7e9468d35b2d389a28129af4d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019518"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271657"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>什麼是 Azure Active Directory B2B 中的來賓使用者存取權？
 

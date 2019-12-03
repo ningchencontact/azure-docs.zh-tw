@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 773e55bd1908c04e1c73d998348d36b685524715
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: df662353f7c9c788158ce2dfe05385f022289466
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075667"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539107"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos 模擬器進行本機開發和測試
 
@@ -27,7 +27,7 @@ Azure Cosmos 模擬器提供 Azure Cosmos DB 服務的高逼真度模擬。 它�
 
 您可以使用 [Azure Cosmos DB 資料移轉工具](https://github.com/azure/azure-documentdb-datamigrationtool) \(英文\)，在 Azure Cosmos 模擬器與 Azure Cosmos DB 服務之間移轉資料。
 
-您可以在 Windows Docker 容器上執行 Azure Cosmos 模擬器，請參閱 [Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) \(英文\) 以了解 docker pull 命令，以及 [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) \(英文\) 以了解模擬器來源程式碼。
+您可以在 Windows Docker 容器上執行 Azure Cosmos 模擬器，請參閱 [Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) 以了解 docker pull 命令，以及 [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) 以了解 `Dockerfile` 和詳細資訊。
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>模擬器和服務之間的差異
 

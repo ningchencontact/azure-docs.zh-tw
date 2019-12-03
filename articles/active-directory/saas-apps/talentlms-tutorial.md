@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0243a3e0ed83abc1edead5ecece4fd5c6ff1cad9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 970ab9de270b1227884a13ac578d4c439043b20c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089155"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>教學課程：Azure Active Directory 與 TalentLMS 整合
 
@@ -229,7 +229,7 @@ TalentLMS 與 Azure AD 整合提供下列優點：
 
 1. 在 [加入使用者]  對話頁面上，執行下列步驟：
 
-    ![新增使用者](./media/talentlms-tutorial/IC777299.png "新增使用者")  
+    ![加入使用者](./media/talentlms-tutorial/IC777299.png "新增使用者")  
 
     a. 在 [名字]  文字方塊中，輸入使用者的名字，例如 **Britta**。
 
@@ -240,7 +240,7 @@ TalentLMS 與 Azure AD 整合提供下列優點：
     d. 按一下 [新增使用者]  。
 
 > [!NOTE]
-> 您可以使用任何其他的 TalentLMS 使用者帳戶建立工具或 TalentLMS 提供的 API 來佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 TalentLMS 使用者帳戶建立工具或 TalentLMS 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

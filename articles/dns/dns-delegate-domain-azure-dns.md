@@ -1,18 +1,18 @@
 ---
-title: 教學課程 - 在 Azure DNS 中裝載您的網域和子網域
-description: 本教學課程說明如何設定 Azure DNS 以裝載 DNS 區域。
+title: 教學課程：裝載您的網域和子網域 - Azure DNS
+description: 在本文中，您將了解如何設定 Azure DNS 以裝載 DNS 區域。
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
-ms.author: victorh
-ms.openlocfilehash: 99a3ca0115611f45ed080c39767d13e087b8efb8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: allensu
+ms.openlocfilehash: 062a5beaec30d510d37af436e00f4d57785245cd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464240"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212203"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>教學課程：在 Azure DNS 上裝載您的網域
 

@@ -6,13 +6,13 @@ ms.author: jonels
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 05/06/2019
-ms.openlocfilehash: 9d4389ed2c0cc5d7b632380fba691ae2e9a6b257
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/25/2019
+ms.openlocfilehash: 9ea0610811f6906526afe55d577e04a8decd5f49
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466746"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481669"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>什麼是 Azure Database for PostgreSQL？
 適用於 PostgreSQL 的 Azure 資料庫是 Microsoft 雲端中專為開發人員建置的關聯式資料庫服務。 此服務是以開放原始碼 [PostgreSQL](https://www.postgresql.org/) 資料庫引擎的社群版本作為基礎，可供用於兩種部署選項：單一伺服器和超大規模 (Citus)。
@@ -20,13 +20,14 @@ ms.locfileid: "73466746"
 ## <a name="azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
 單一伺服器部署選項可提供：
 
-- 內建高可用性但沒有任何額外成本 (99.99% SLA)
+- 內建[高可用性](concepts-high-availability.md)但沒有任何額外成本 (99.99% SLA)
 - 可預測的效能，使用隨用隨付定價方式
-- 在幾秒內就能完成的隨需垂直調整
-- 監視和警示，以快速評估調整大小的影響
-- 受到保護，可保護機密的待用資料和移動中資料
-- 最多 35 天的自動化備份和時間點還原
+- 在幾秒內就能完成的[隨需垂直調整](concepts-pricing-tiers.md)
+- [監視和警示](concepts-monitoring.md)以評估您的伺服器
 - 企業級安全性與合規性
+- [受到保護以保護](concepts-security.md)機密的待用資料和移動中資料
+- 最多 35 天的[自動備份和指定時間點還原](concepts-business-continuity.md)
+
 
 上述所有功能幾乎不需要管理，而且免費提供。 這些功能可讓您專注於快速開發應用程式及加快上市時間，而不是將寶貴的時間和資源耗費在管理虛擬機器和基礎結構上。 您可以繼續使用所選擇的開放原始碼工具及平台來開發應用程式，而不需要學習新技能。
 
@@ -42,11 +43,6 @@ ms.locfileid: "73466746"
 - 多租用戶應用程式、即時作業分析和高輸送量交易式工作負載的絕佳支援
 
 針對 PostgreSQL 所建置的應用程式可以在超大規模 (Citus) 上執行分散式查詢，只要有標準[連線程式庫](./concepts-connection-libraries.md)並進行些許變更即可。
-
-## <a name="data-security"></a>資料安全性
-適用於 PostgreSQL 的 Azure 資料庫承襲 Azure 資料庫服務的資料安全性傳統。 其功能可限制存取、保護待用和移動中資料，並協助您監視活動。 如需 Azure 平台安全性的相關資訊，請造訪 [Azure 信任中心](https://azure.microsoft.com/overview/trusted-cloud/) \(英文\)。
-
-適用於 PostgreSQL 的 Azure 資料庫服務，針對待用資料儲存體加密是使用符合 FIPS 140-2 的加密模組。 資料 (包含備份) 會在磁碟上加密，但不包括執行查詢時所建立的暫存檔案。 該服務使用包含在 Azure 儲存體加密中的 AES 256 位元加密，且金鑰是由系統進行管理。 儲存體加密會一律啟用，且無法停用。 根據預設，適用於 PostgreSQL 的 Azure 資料庫服務要求跨網路以及資料庫與用戶端應用程式之間的動態資料必須有安全連線。
 
 ## <a name="contacts"></a>連絡人
 若您對適用於 PostgreSQL 的 Azure 資料庫有任何疑問或建議，請傳送電子郵件給適用於 PostgreSQL 的 Azure 資料庫小組 ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com))。 此地址僅供提問一般問題，不可用來傳送支援票證。

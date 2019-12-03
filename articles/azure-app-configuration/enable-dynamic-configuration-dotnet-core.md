@@ -13,12 +13,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: e56aba81b2e6b8e66aeb2c3e5284843055713826
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: ae753758a3cd5b7dfa8794ccf98f7a8a063f5b18
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316080"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185185"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>教學課程：使用 .NET Core 應用程式中的動態設定
 
@@ -33,8 +33,8 @@ ms.locfileid: "71316080"
 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
-> * 將應用程式設定為可依需求使用應用程式設定存放區來更新其設定。
-> * 在您應用程式的控制器中插入最新的設定。
+> * 設定您的 .NET Core 應用程式，使其在應用程式組態存放區發生變更時更新其組態。
+> * 在您的應用程式中使用最新的組態。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -90,14 +90,14 @@ class Program
 }
 ```
 
-`ConfigureRefresh` 方法可用來指定相關設定，以用來在系統觸發重新整理作業時，使用應用程式設定存放區來更新組態資料。 您可以藉由在提供給 `AddAzureAppConfiguration` 方法的選項上呼叫 `GetRefresher` 方法來擷取 `IConfigurationRefresher` 的執行個體，而且此執行個體上的 `Refresh` 方法可用來在程式碼任意處觸發重新整理作業。
+`ConfigureRefresh` 方法可用來指定相關設定，以用來在系統觸發重新整理作業時，使用應用程式組態存放區來更新組態資料。 您可以藉由在提供給 `AddAzureAppConfiguration` 方法的選項上呼叫 `GetRefresher` 方法來擷取 `IConfigurationRefresher` 的執行個體，而且此執行個體上的 `Refresh` 方法可用來在程式碼任意處觸發重新整理作業。
     
 > [!NOTE]
 > 組態設定的預設快取到期時間為 30 秒，但可加以複寫，方法是在以引數形式傳遞至 `ConfigureRefresh` 方法的選項初始設定式上呼叫 `SetCacheExpiration` 方法。
 
 ## <a name="build-and-run-the-app-locally"></a>於本機建置並執行應用程式
 
-1. 設定名為 **ConnectionString** 的環境變數，並將其設定為應用程式設定存放區的存取金鑰。 如果您使用 Windows 命令提示字元，請執行下列命令，然後重新啟動命令提示字元以讓變更生效：
+1. 設定名為 **ConnectionString** 的環境變數，並將其設定為應用程式組態存放區的存取金鑰。 如果您使用 Windows 命令提示字元，請執行下列命令，然後重新啟動命令提示字元以讓變更生效：
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -140,7 +140,7 @@ class Program
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已新增 Azure 受控服務識別來簡化應用程式設定的存取，以及改善您應用程式的認證管理。 若要深入了解「應用程式組態」的使用方式，請繼續進行 Azure CLI 範例。
+在本教學課程中，您已啟用 .NET Core 應用程式，以動態方式從應用程式組態重新整理組態設定。 若要了解如何使用 Azure 受控服務識別來簡化對應用程式組態的存取，請繼續進行下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [CLI 範例](./cli-samples.md)
+> [受控識別整合](./howto-integrate-azure-managed-service-identity.md)

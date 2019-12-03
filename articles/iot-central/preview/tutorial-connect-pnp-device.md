@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 5d5815467444afeb5f08380eea6868336044d237
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: be03684f89382f198c13540bbdfb3de5bf8513a6
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73892324"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404559"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>教學課程：使用裝置功能模型建立 IoT 隨插即用裝置，並將其連線至您的 IoT Central 應用程式
 
@@ -34,7 +34,7 @@ _裝置功能模型_ (DCM) 可說明 [IoT 隨插即用](../../iot-pnp/overview-i
 
 若要完成本教學課程，您必須在本機電腦上安裝下列軟體：
 
-* [Visual Studio (Community、Professional 或 Enterprise)](https://visualstudio.microsoft.com/downloads/) - 在安裝 Visual Studio 時，請確實包含 **NuGet 套件管理員**元件和**使用 C++ 的桌面開發**工作負載。
+* 具有 **C++ 建置工具**和 **NuGet 套件管理員元件**工作負載的 [Visual Studio 建置工具](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16)。 或者如果您已安裝具有相同工作負載的 [Visual Studio (Community、Professional 或 Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019、2017 或 2015。
 * [Git](https://git-scm.com/download/)。
 * [CMake](https://cmake.org/download/) - 當您安裝 **CMake** 時，請選取 [將 CMake 新增至系統路徑]  選項。
 * [Visual Studio Code](https://code.visualstudio.com/)。
@@ -55,23 +55,27 @@ _裝置功能模型_ (DCM) 可說明 [IoT 隨插即用](../../iot-pnp/overview-i
 
 ## <a name="prepare-the-development-environment"></a>準備開發環境
 
-### <a name="get-azure-iot-device-sdk-for-c"></a>適用於 C 的 Azure IoT 裝置 SDK
+在本教學課程中，您會使用 [Vcpkg](https://github.com/microsoft/vcpkg) 程式庫管理員，在您的開發環境中安裝 Azure IoT C 裝置 SDK。
 
-準備可用來建置 Azure IoT C 裝置 SDK 的開發環境。
+1. 開啟命令提示字元。 執行下列命令來安裝 Vcpkg：
 
-1. 開啟命令提示字元。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
+    ```cmd
+    git clone https://github.com/Microsoft/vcpkg.git
+    cd vcpkg
 
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
+    .\bootstrap-vcpkg.bat
     ```
 
-    預期此作業需要幾分鐘的時間才能完成。
+    接著，若要連結使用者範圍的[整合](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md)，請執行下列命令。 第一次執行此命令時，需要系統管理員權限：
 
-1. 在存放庫本機複本的根目錄中建立 `central_app` 資料夾。 您可以使用此資料夾來存放裝置模型檔案和裝置程式碼 Stub。
+    ```cmd
+    .\vcpkg.exe integrate install
+    ```
 
-    ```cmd/sh
-    cd azure-iot-sdk-c
-    mkdir central_app
+1. 安裝 Azure IoT C 裝置 SDK Vcpkg：
+
+    ```cmd
+    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
     ```
 
 ## <a name="generate-device-key"></a>產生裝置金鑰
@@ -89,7 +93,7 @@ _裝置功能模型_ (DCM) 可說明 [IoT 隨插即用](../../iot-pnp/overview-i
 1. 開啟命令提示字元並執行下列命令，以產生裝置金鑰：
 
     ```cmd/sh
-    dps-keygen  -di:mxchip-01 -mk:{Primary Key from previous step}
+    dps-keygen -di:mxchip-001 -mk:{Primary Key from previous step}
     ```
 
     記下產生的_裝置金鑰_，您將在本教學課程的後續步驟中使用此值。
@@ -98,7 +102,7 @@ _裝置功能模型_ (DCM) 可說明 [IoT 隨插即用](../../iot-pnp/overview-i
 
 在本教學課程中，您會使用 MxChip IoT DevKit 裝置的公用 DCM。 您不需要以實際的 DevKit 裝置執行程式碼；在本教學課程中，您會編譯要在 Windows 上執行的程式碼。
 
-1. 使用 VS Code 開啟 `azure-iot-sdk-c\central_app` 資料夾。
+1. 建立名為 `central_app` 的資料夾，並在 VS Code 中開啟。
 
 1. 使用 **Ctrl+Shift+P** 開啟命令選擇區，輸入 **IoT 隨插即用**，然後選取 [開啟模型存放庫]  。 選取 [公用存放庫]  。 VS Code 會顯示公用模型存放庫中的 DCM 清單。
 
@@ -124,9 +128,11 @@ _裝置功能模型_ (DCM) 可說明 [IoT 隨插即用](../../iot-pnp/overview-i
 
 1. 選擇 [ANSI C]  作為您的語言。
 
-1. 選擇 [CMake 專案]  作為您的專案類型。 請勿選擇 [MXChip IoT DevKit 專案]  ，此選項適用於您有實際的 DevKit 裝置時。
-
 1. 選擇 [透過 DPS (裝置佈建服務) 對稱金鑰]  作為連線方法。
+
+1. 選擇 [Windows 上的 CMake 專案]  作為專案類型。 請勿選擇 [MXChip IoT DevKit 專案]  ，此選項適用於您有實際的 DevKit 裝置時。
+
+1. 選擇 [透過 Vcpkg]  作為包含 SDK 的方式。
 
 1. VS Code 會開啟新視窗，其中包含在 `devkit_device` 資料夾中產生的裝置程式碼 Stub 檔案。
 
@@ -136,35 +142,37 @@ _裝置功能模型_ (DCM) 可說明 [IoT 隨插即用](../../iot-pnp/overview-i
 
 您可以使用裝置 SDK 來建置產生的裝置程式碼 Stub。 您建置的應用程式會模擬 **MXChip IoT DevKit** 裝置，並連線至您的 IoT Central 應用程式。 應用程式會傳送遙測資料和屬性，並接收命令。
 
-1. 在 VS Code 中，開啟 `azure-iot-sdk-c` 資料夾中的 `CMakeLists.txt` 檔案。 請確定您開啟的是 `azure-iot-sdk-c` 資料夾中的 `CMakeLists.txt` 檔案，而不是 `devkit_device` 資料夾中的檔案。
+1. 在命令提示字元中，於 `devkit_device` 資料夾中建立一個 `cmake` 子目錄，並瀏覽至該資料夾：
 
-1. 在編譯時，在 `CMakeLists.txt` 檔案底部新增以下這一行，以包含裝置程式碼 Stub 資料夾：
-
-    ```txt
-    add_subdirectory(central_app/devkit_device)
-    ```
-
-1. 在資料夾 `azure-iot-sdk-c` 中建立 `cmake` 資料夾，並在命令提示字元中瀏覽至該資料夾：
-
-    ```cmd\sh
+    ```cmd
     mkdir cmake
     cd cmake
     ```
 
-1. 執行下列命令，以建置裝置 SDK 和產生的程式碼 Stub：
+1. 執行下列命令，以建置產生的程式碼 Stub。 將 `<directory of your Vcpkg repo>` 預留位置取代為 **Vcpkg** 存放庫複本的路徑：
 
-    ```cmd\sh
-    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
-    cmake --build . -- /m /p:Configuration=Release
+    ```cmd
+    cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
+
+    cmake --build . -- /p:Configuration=Release
     ```
 
-1. 組件順利完成後，請在相同的命令提示字元中執行您的應用程式。 以您先前記下的值取代 `scopeid` 和 `primarykey`：
+    如果您使用的是 Visual Studio 2017 或 2015，則需要根據您所使用的建置工具來指定 CMake 產生器：
 
-    ```cmd\sh
-    .\central_app\devkit_device\Release\devkit_device.exe scopeid primarykey mxchip-001
+    ```cmd
+    # Either
+    cmake .. -G "Visual Studio 15 2017" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
+    # or
+    cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
     ```
 
-1. 裝置應用程式會開始將資料傳送至您的 IoT Central 應用程式。
+1. 組件順利完成後，請在相同的命令提示字元中執行您的應用程式。 以您先前記下的值取代 `<scopeid>` 和 `<devicekey>`：
+
+    ```cmd
+    .\Release\devkit_device.exe mxchip-001 <scopeid> <devicekey>
+    ```
+
+1. 裝置應用程式會開始將資料傳送至 IoT 中樞。 有時候，您會在第一次執行前一個命令時看到 `Error registering device for DPS` 錯誤。 如果您看到此錯誤，請重試命令。
 
 ## <a name="view-the-device"></a>檢視裝置
 

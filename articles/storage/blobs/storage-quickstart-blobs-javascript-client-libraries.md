@@ -1,6 +1,6 @@
 ---
-title: Azure 快速入門 - 在瀏覽器中使用 JavaScript 和 HTML 建立物件儲存體中的 Blob
-description: 了解如何在 HTML 網頁中使用 JavaScript 以 BlobService 的執行個體上傳、列出及刪除 Blob。
+title: 快速入門：瀏覽器中適用於 JavaScript 的 Azure Blob 儲存體 v2
+description: 了解如何在 HTML 網頁中使用 JavaScript v2 SDK 以 BlobService 的執行個體上傳、列出及刪除 Blob。
 keywords: 儲存體, Javascript, Html
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,12 +8,12 @@ ms.date: 08/29/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 3dbd78f9c233515c675cd511924b3d4600b72fbd
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 1bf71f899a38fa4ce36f8f0ffc78de0c64f6c3f3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173101"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270048"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 

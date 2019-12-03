@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: f4ebbd4f37422c5aa2fea07a243eb624ec9e2961
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: e8f6f9ca610c515deca6ed1bdbee54f40cacf427
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687030"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184944"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式組態建立 Java Spring 應用程式
 
@@ -31,7 +31,7 @@ ms.locfileid: "71687030"
 - 受支援的 [Java 開發套件 (JDK)](https://docs.microsoft.com/java/azure/jdk) 第 8 版。
 - [Apache Maven](https://maven.apache.org/download.cgi) 3.0 版或更新版本。
 
-## <a name="create-an-app-configuration-store"></a>建立應用程式設定存放區
+## <a name="create-an-app-configuration-store"></a>建立應用程式組態存放區
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -58,7 +58,7 @@ ms.locfileid: "71687030"
 
 3. 在指定先前的選項之後，選取 [產生專案]  。 出現提示時，將專案下載至本機電腦上的路徑。
 
-## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式設定存放區
+## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式組態存放區
 
 1. 當您在本機系統上擷取檔案之後，就可以開始編輯簡單的 Spring Boot 應用程式。 在應用程式的根目錄中尋找 pom.xml  檔案。
 
@@ -68,7 +68,7 @@ ms.locfileid: "71687030"
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M4</version>
+        <version>1.1.0.M5</version>
     </dependency>
     ```
 
@@ -119,7 +119,7 @@ ms.locfileid: "71687030"
     }
     ```
 
-6. 在應用程式的資源目錄下建立名為 `bootstrap.properties` 的新檔案，然後將下列幾行新增至該檔案。 以適當的應用程式設定存放區屬性取代範例值。
+6. 在應用程式的資源目錄下建立名為 `bootstrap.properties` 的新檔案，然後將下列幾行新增至該檔案。 將範例值取代為應用程式組態存放區的適當屬性。
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
@@ -138,7 +138,7 @@ ms.locfileid: "71687030"
       ```shell
       curl -X GET http://localhost:8080/
       ```
-    您會看到您在應用程式設定存放區中輸入的訊息。
+    您會看到您在應用程式組態存放區中輸入的訊息。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -146,9 +146,7 @@ ms.locfileid: "71687030"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已建立新的應用程式設定存放區，並將其與 Java Spring 應用程式搭配使用。 如需詳細資訊，請參閱 [Azure 上的 Spring](https://docs.microsoft.com/java/azure/spring-framework/)。
-
-若要深入了解如何使用應用程式設定，請繼續進行下一個示範驗證的教學課程。
+在本快速入門中，您已建立新的應用程式組態存放區，並將其與 Java Spring 應用程式搭配使用。 如需詳細資訊，請參閱 [Azure 上的 Spring](https://docs.microsoft.com/java/azure/spring-framework/)。 若要了解如何使用 Azure 受控服務識別來簡化對應用程式組態的存取，請繼續進行下一個教學課程。
 
 > [!div class="nextstepaction"]
 > [受控識別整合](./howto-integrate-azure-managed-service-identity.md)

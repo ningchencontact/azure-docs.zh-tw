@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 28666aaac4ec221acca00d937d54a753a4e6a055
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 1c375370ec6bae2775ad758688825b92cbbbca50
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172650"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407033"
 ---
 ::: zone target="docs"
 
@@ -123,28 +123,7 @@ ms.locfileid: "71172650"
 2. 確保裝置的資料副本完整且 [準備寄送]  執行成功。
 3. 關閉裝置電源並移除纜線。
 4. 纏繞裝置隨附的電源線，並將其安全地放在裝置背後。
-5. 寄送電子郵件給 Quantium Solutions 要求取貨。 請參閱 Azure 入口網站上指定的服務參考號碼。 使用以下電子郵件範本：*Request for reverse shipping label with TAU code*。 務必在電子郵件中包含下列詳細資料： 
-
-    ```
-    To: Azure@quantiumsolutions.com
-    Subject: Pickup request for Azure｜Reference number：XXX XXX XXX
-    Body: 
-    - Company name：
-    - Address:
-    - Contact name:
-    - Contact number:
-    - Requested pickup date: mm/dd
-    ```
-6. Quantium Solutions 澳洲分公司會透過電子郵件將退貨運送標籤傳送給您。
-7. 列印退貨標籤並將它貼在運送外盒上。
-8. 將包裹交給承運商。
-
-如有需要，您可以寄送電子郵件到 Azure@quantiumsolutions.com 或致電 Quantium Solution Support。
-
-對於透過電話的訂單相關查詢：
-
-- 先傳送取貨的電子郵件。
-- 提供您手機上的訂單名稱。
+5. 透過 [DHL 連結](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference)線上預約取貨服務。
 
 ::: zone target="chromeless"
 

@@ -1,22 +1,18 @@
 ---
-title: 使用 Node.js 和 VS Code 透過 Azure Dev Spaces 進行小組開發
-titleSuffix: Azure Dev Spaces
+title: 使用 Node.js 和 Visual Studio Code 進行小組開發
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
-ms.openlocfilehash: d3eecce7e5704752e0a5ea18b2a5d0f668978028
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 374a6f0944c7d2fe8d97ea2fa4610ba63598ee2e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129294"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325495"
 ---
-# <a name="team-development-with-azure-dev-spaces-using-nodejs-and-vs-code"></a>使用 Node.js 和 VS Code 透過 Azure Dev Spaces 進行小組開發
+# <a name="team-development-using-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>在 Azure Dev Spaces 中使用 Node.js 和 Visual Studio Code 進行小組開發
 
 在本教學課程中，您將了解一組開發人員如何使用 Dev Spaces 同時在相同的 Kubernetes 叢集中共同作業。
 

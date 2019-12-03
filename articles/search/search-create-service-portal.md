@@ -1,19 +1,19 @@
 ---
 title: 快速入門：在入口網站中建立搜尋服務
 titleSuffix: Azure Cognitive Search
-description: 在 Azure 入口網站中佈建 Azure 認知搜尋資源。 選擇資源群組、區域、SKU 或定價層。
+description: 在本入口網站快速入門中，了解如何在 Azure 入口網站中設定 Azure 認知搜尋資源。 選擇資源群組、區域、SKU 或定價層。
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 75a7cce55627a981d0d0b0f23a119fac6de920ef
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ec794f66866f9773f8b7c0fc57b644d8a13d697a
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112111"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534555"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>快速入門：在入口網站中建立 Azure 認知搜尋服務
 
@@ -41,7 +41,7 @@ Azure 認知搜尋是一項可用來在自訂應用程式中插入搜尋體驗�
 
 ## <a name="choose-a-subscription"></a>選擇訂用帳戶
 
-設定訂用帳戶識別碼和資源群組是您的第一個步驟。 如果您有一個以上的訂用帳戶，請選擇一個同樣具有資料或檔案儲存體服務的訂用帳戶。 Azure 認知搜尋可透過[索引子  ](search-indexer-overview.md)自動偵測 Azure 資料表和 Blob 儲存體、SQL Database 和 Azure Cosmos DB 以進行索引編製，但僅適用於相同訂用帳戶下的服務。
+如果您有多個訂用帳戶，請針對您的搜尋服務選擇一個訂用帳戶。
 
 ## <a name="set-a-resource-group"></a>設定資源群組
 

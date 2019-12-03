@@ -1,14 +1,14 @@
 ---
 title: 範例 - 強制執行標記相符模式
-description: 此原則定義範例要求資源必須符合標記值的相符模式。
+description: 此原則定義範例要求資源符合特定日期格式的標籤值相符模式。
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: e56d5d401f525f94bce4567204a7f18074fb1a90
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a2d5f85f02a2197e9e213b7e9fd7dfec7adc7813
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076296"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463352"
 ---
 # <a name="sample---enforce-tag-match-pattern-for-tag-values"></a>範例 - 對標記值強制執行標記相符模式
 

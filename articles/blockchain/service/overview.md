@@ -1,21 +1,15 @@
 ---
 title: Azure 區塊鏈服務概觀
 description: Azure 區塊鏈服務的概觀
-services: azure-blockchain
-keywords: 區塊鏈
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 11/21/2019
 ms.topic: overview
-ms.service: azure-blockchain
 ms.reviewer: janders
-manager: femila
-ms.openlocfilehash: 9fcf75a07d1caf7b411c315d11ce984cbe35df75
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 02cc955822987e3be6f5a2184fc49e5510b29626
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577190"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455895"
 ---
 # <a name="what-is-azure-blockchain-service"></a>什麼是 Azure 區塊鏈服務？
 
@@ -31,7 +25,7 @@ Azure 區塊鏈服務旨在支援多個總帳通訊協定。 目前使用 [IBFT]
 
 ## <a name="network-deployment-and-operations"></a>網路部署和作業
 
-部署 Azure 區塊鏈服務可透過 Azure 入口網站、Azure CLI，以及使用 Azure 區塊鏈擴充功能的 Visual Studio Code 來完成。  部署已簡化，包括佈建交易和驗證程式節點、適用於安全性隔離的 Azure 虛擬網路，以及服務管理的儲存體。  此外，部署新的區塊鏈成員時，使用者也會建立或加入聯盟。  聯盟讓不同 Azure 訂用帳戶中的多個合作對象能夠在共用區塊鏈上彼此安全地通訊。  這個簡化的部署可將區塊鏈網路部署從數天降至數分鐘。
+部署 Azure 區塊鏈服務是透過 Azure 入口網站、Azure CLI，或透過 Azure 區塊鏈擴充功能的 Visual Studio Code 來完成。 部署已簡化，包括佈建交易和驗證程式節點、適用於安全性隔離的 Azure 虛擬網路，以及服務管理的儲存體。  此外，部署新的區塊鏈成員時，使用者也會建立或加入聯盟。  聯盟讓不同 Azure 訂用帳戶中的多個合作對象能夠在共用區塊鏈上彼此安全地通訊。  這個簡化的部署可將區塊鏈網路部署從數天降至數分鐘。
 
 ### <a name="performance-and-service-tiers"></a>效能和服務層級
 
@@ -43,13 +37,13 @@ Azure 區塊鏈服務提供兩個服務層級：「基本」  和「標準」  �
 
 ### <a name="security-and-maintenance"></a>安全性和維護
 
-佈建第一個區塊鏈成員之後，您就能夠將其他交易節點新增至成員。  根據預設，交易節點會透過防火牆規則來保護，而且必須設定以供存取。  此外，所有交易節點都會透過 TLS 來加密移動中的資料。  有多個選項可用來保護交易節點存取，包括防火牆規則、基本驗證、存取金鑰，以及 Azure Active Directory 整合。 如需詳細資訊，請參閱[設定交易節點](configure-transaction-nodes.md)和[設定 Azure Active Directory 存取](configure-aad.md)。
+佈建第一個區塊鏈成員之後，您就能夠將其他交易節點新增至成員。  根據預設，交易節點會透過防火牆規則來保護，且必須設定以供存取。  此外，所有交易節點都會透過 TLS 來加密移動中的資料。  有多個選項可用來保護交易節點存取，包括防火牆規則、基本驗證、存取金鑰，以及 Azure Active Directory 整合。 如需詳細資訊，請參閱[設定交易節點](configure-transaction-nodes.md)和[設定 Azure Active Directory 存取](configure-aad.md)。
 
 Azure 區塊鏈服務是一個受控服務，可確保您的區塊鏈成員節點會以最新的主機作業系統和總帳軟體堆疊更新進行修補，並設定為高可用性 (僅限標準層)，從而消除了傳統 IaaS 區塊鏈節點所需的許多 DevOps。  如需修補和更新的詳細資訊，請參閱[支援的 Azure 區塊鏈服務總帳版本](ledger-versions.md)。
 
 ### <a name="monitoring-and-logging"></a>監視和記錄
 
-此外，Azure 區塊鏈服務透過 Azure 監視器服務來提供豐富的計量，讓您能夠深入解析節點的 CPU、記憶體和儲存體使用方式，以及區塊鏈網路活動的實用深入解析，例如，已進行採礦的交易和區塊、交易佇列深度，以及使用中的連線。  您可以自訂計量，以檢視對區塊鏈應用程式很重要的深入解析。  此外，您也可以透過警示來定義閾值，讓使用者可以觸發動作，例如，傳送電子郵件或簡訊、執行邏輯應用程式、Azure 函式或傳送至自訂定義的 Webhook。
+此外，Azure 區塊鏈服務可透過 Azure 監視器服務提供豐富的計量，進而提供節點的 CPU、記憶體和儲存體使用量深入解析。  Azure 監視器也會提供區塊鏈網路活動的實用深入解析，例如已挖掘的交易和區塊、交易佇列深度和作用中連線。  您可以自訂計量，以檢視對區塊鏈應用程式很重要的深入解析。  此外，您也可以透過警示來定義閾值，讓使用者可以觸發動作，例如，傳送電子郵件或簡訊、執行邏輯應用程式、Azure 函式或傳送至自訂定義的 Webhook。
 
 ![度量](./media/overview/metrics.png)
 
@@ -65,7 +59,11 @@ Azure 區塊鏈服務是一個受控服務，可確保您的區塊鏈成員節�
 
 ## <a name="develop-using-familiar-development-tools"></a>使用熟悉的開發工具進行開發
 
-根據開放原始碼的 Quorum Ethereum 總帳，您可以使用與現有 Ethereum 應用程式相同的方式，來開發適用於 Azure 區塊鏈服務的應用程式。 透過與領先業界的夥伴合作，Azure 區塊鏈開發套件 Visual Studio Code 擴充功能可讓開發人員運用熟悉的工具 (例如 Truffle Suite) 來建置智慧型合約。 開發人員可以使用 Azure 區塊鏈開發套件擴充功能，來建立或連線到現有的聯盟，讓您可以從一個 IDE 建置和部署智慧型合約。 您可以使用 Azure 區塊鏈 Visual Studio Code 擴充功能，來建立或連線到現有的聯盟，讓您可以從一個 IDE 建置和部署智慧型合約。 如需詳細資訊，請參閱 [VS Code Marketplace 中的 Azure 區塊鏈開發套件](https://aka.ms/vscodebcextension) \(英文\) 和 [Azure 區塊鏈開發套件使用者指南](https://aka.ms/vscodebcextensionwiki ) \(英文\)。
+根據開放原始碼的 Quorum Ethereum 總帳，您可以使用與現有 Ethereum 應用程式相同的方式，來開發適用於 Azure 區塊鏈服務的應用程式。 透過與領先業界的夥伴合作，Azure 區塊鏈開發套件 Visual Studio Code 擴充功能可讓開發人員運用熟悉的工具 (例如 Truffle Suite) 來建置智慧型合約。 開發人員可以使用 Azure 區塊鏈開發套件擴充功能，來建立或連線到現有的聯盟，讓您可以從一個 IDE 建置和部署智慧型合約。 您可以使用 Azure 區塊鏈 Visual Studio Code 擴充功能，來建立或連線到現有的聯盟，讓您可以從一個 IDE 建置和部署智慧型合約。 如需詳細資訊，請參閱 [VS Code Marketplace 中的 Azure 區塊鏈開發套件](https://aka.ms/vscodebcextension) \(英文\) 和 [Azure 區塊鏈開發套件使用者指南](https://aka.ms/vscodebcextensionwiki) \(英文\)。
+
+## <a name="publish-blockchain-data"></a>發佈區塊鏈資料
+
+Azure 區塊鏈服務的區塊鏈資料管理員會將 Azure 區塊鏈服務交易資料擷取、轉換及傳遞至 Azure 事件方格主題，以提供可靠且可擴充區塊鏈總帳與 Azure 服務的整合。 您可以使用區塊鏈資料管理員來整合離鏈應用程式和資料存放區。 如需詳細資訊，請參閱[適用於 Azure 區塊鏈服務的區塊鏈資料管理員](data-manager.md)。
 
 ## <a name="support-and-feedback"></a>支援與意見反應
 

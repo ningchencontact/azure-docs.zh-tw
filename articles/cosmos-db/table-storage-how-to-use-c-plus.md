@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 48222bf3f964f8c728f980f839c460862a8212ca
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b8fa0a3cebd87f4da1a47c605ba21b0cb10a2517
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818637"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74220057"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>如何搭配 C++ 使用 Azure 表格儲存體和 Azure Cosmos DB 資料表 API
 
@@ -49,14 +49,14 @@ ms.locfileid: "72818637"
 
 請透過下列方法安裝 Azure Storage Client Library for C++：
 
-* Linux。 遵循 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 中提供的指示進行。  
-* Windows。 在 Visual Studio 中，選取 [工具] > [NuGet 套件管理員] > [套件管理員主控台]  。 在 [套件管理主控台]  中執行下列命令：
+* **Linux：** 依照 [Azure Storage Client Library for C++ 讀我檔案：在 Linux 上開始使用](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux)頁面中提供的指示操作。
+* **Windows：** 在 Windows 上，請使用 [vcpkg](https://github.com/microsoft/vcpkg) 作為相依性管理員。 請依照[快速入門](https://github.com/microsoft/vcpkg#quick-start)來初始化 vcpkg。 然後，使用下列命令安裝二進位檔：
 
-  ```powershell
-  Install-Package wastorage
-  ```
+```powershell
+.\vcpkg.exe install azure-storage-cpp
+```
 
-如需**套件管理主控台**的詳細資訊，請參閱[在 Visual Studio 中使用套件管理員主控台安裝及管理套件](/nuget/tools/package-manager-console)。
+您可以在[讀我檔案](https://github.com/Azure/azure-storage-cpp#download--install)檔案中找到建置原始程式碼及匯出至 Nuget 的指南。
 
 ### <a name="configure-access-to-the-table-client-library"></a>設定資料表用戶端程式庫的存取權
 

@@ -1,23 +1,23 @@
 ---
-title: 快速入門：使用 C# 將模擬 X.509 裝置佈建到 Azure IoT 中樞
-description: Azure 快速入門 - 使用適用於 Azure IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 X.509 裝置。 本快速入門使用個別註冊。
+title: 使用 C# 將模擬 X.509 裝置佈建到 Azure IoT 中樞
+description: 快速入門 - 使用適用於 Azure IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 X.509 裝置。 本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: c89b854eb5b87d76a24335e646553bda401f1a3a
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 0513884e7869bc14627259ea98a85f4966147d9b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903510"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276339"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>快速入門：使用適用於 IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 X.509 裝置
+
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 這些步驟會示範如何使用[適用於 C# 的 Azure IoT 範例](https://github.com/Azure-Samples/azure-iot-samples-csharp)，在執行 Windows OS 的開發電腦上，模擬 X.509 裝置。 此範例也會使用裝置佈建服務，將模擬的裝置連線至 IoT 中樞。
@@ -72,18 +72,18 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
     ![ 輸入 PFX 密碼](./media/quick-create-simulated-device-x509-csharp/generate-certificate.png)  
 
 
-4. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源]  按鈕，然後開啟您的佈建服務。
+4. 登入 Azure 入口網站，選取左側功能表上的 [所有資源]  按鈕，然後開啟您的佈建服務。
 
-5. 在裝置佈建服務摘要刀鋒視窗上，選取 [管理註冊]  。 選取 [個別註冊]  索引標籤，然後按一下頂端的 [新增個別註冊]  按鈕。 
+5. 從 [裝置佈建服務] 功能表中，選取 [管理註冊]  。 選取 [個別註冊]  索引標籤，然後選取頂端的 [新增個別註冊]  按鈕。 
 
-6. 在 [新增註冊]  面板之下，輸入下列資訊：
+6. 在 [新增註冊]  面板中，輸入下列資訊：
    - 選取 [X.509]  作為身分識別證明「機制」  。
-   - 在 [主要 .pem 或 .cer 憑證檔案]  之下，按一下 [選取檔案]  以選取在先前步驟中建立的憑證檔案 **certificate.cer**。
+   - 在 [主要 .pem 或 .cer 憑證檔案]  之下，選擇 [選取檔案]  以選取在先前的步驟中建立的憑證檔案 **certificate.cer**。
    - 將 [裝置識別碼]  保留空白。 您的裝置會進行佈建，其裝置識別碼在 X.509 憑證中會設為一般名稱 (CN)，**iothubx509device1**。 這也就是用於個別註冊項目之註冊識別碼的名稱。 
    - 您可以選擇性地提供下列資訊：
        - 選取與您的佈建服務連結的 IoT 中樞。
        - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
-   - 完成後，按一下 [儲存]  按鈕。 
+   - 完成後，按 [儲存]  按鈕。 
 
      [![在入口網站中新增 X.509 證明的個別註冊](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
     
@@ -119,8 +119,8 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 1. 在您的電腦上關閉裝置用戶端範例輸出視窗。
 1. 在您的電腦上關閉 TPM 模擬器視窗。
-1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]  ，然後選取您的裝置佈建服務。 在 [所有資源]  刀鋒視窗的頂端，按一下 [刪除]  。  
-1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]  ，然後選取您的 IoT 中樞。 在 [所有資源]  刀鋒視窗的頂端，按一下 [刪除]  。  
+1. 從 Azure 入口網站的左側功能表中，選取 [所有資源]  ，然後選取您的裝置佈建服務。 在 [概觀]  刀鋒視窗頂端，按下窗格頂端的 [刪除]  。  
+1. 從 Azure 入口網站的左側功能表中，選取 [所有資源]  ，然後選取您的 IoT 中樞。 在 [概觀]  刀鋒視窗頂端，按下窗格頂端的 [刪除]  。  
 
 ## <a name="next-steps"></a>後續步驟
 

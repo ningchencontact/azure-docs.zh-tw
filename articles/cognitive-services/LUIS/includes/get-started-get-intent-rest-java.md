@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: cac3ee99598f8bcb29bd15c60063159b51f71923
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 4e2fb81b19694136896b1dee07c3bd74c63fc01b
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125434"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414567"
 ---
 ## <a name="prerequisites"></a>必要條件
 
 * [JDK SE](https://aka.ms/azure-jdks) (英文) (Java 開發套件，標準版)
 * [Visual Studio Code](https://code.visualstudio.com/) 或您最愛的 IDE
-* 公用應用程式識別碼：df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* 公用應用程式識別碼：`df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>取得 LUIS 金鑰
 
@@ -27,16 +27,15 @@ ms.locfileid: "74125434"
 
 ## <a name="get-intent-programmatically"></a>以程式設計方式取得意圖
 
-使用 JAVA 查詢預測端點 GET [API](https://aka.ms/luis-apim-v3-prediction) 取得預測結果。
+使用 Java 查詢[預測端點](https://aka.ms/luis-apim-v3-prediction)並取得預測結果。
 
-1. 建立名為 `lib` 的子目錄，並複製下列 java 程式庫：
+1. 建立名為 `lib` 的子目錄，並在下列的 java 程式庫中複製：
 
     * [commons-logging-1.2.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/commons-logging-1.2.jar)
     * [httpclient-4.5.3.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpclient-4.5.3.jar)
     * [httpcore-4.4.6.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpcore-4.4.6.jar)
 
 1. 複製下列程式碼，以在名為 `Predict.java` 的檔案中建立類別：
-
 
     ```java
     import java.io.*;
@@ -108,7 +107,7 @@ ms.locfileid: "74125434"
 1. 取代下列值：
 
     * `YOUR-KEY` 使用您的入門金鑰
-    * `YOUR-ENDPOINT` 使用您的端點，例如 `westus2.api.cognitive.microsoft.com`
+    * `YOUR-ENDPOINT` 取代為您的端點。 例如： `westus2.api.cognitive.microsoft.com` 。
 
 
 1. 從命令列編譯 java 程式： 
@@ -123,7 +122,7 @@ ms.locfileid: "74125434"
     java -cp ":lib/*" Predict
     ```
 
-1. 檢閱 JSON 格式的預測回應：
+1. 檢閱預測回應，其以 JSON 格式傳回：
 
     ```console
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}

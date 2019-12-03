@@ -1,20 +1,17 @@
 ---
-title: Azure 中的私人 Docker 容器登錄 - 概觀
+title: 受控容器登錄
 description: Azure 容器登錄庫服務的簡介，此服務提供雲端式管理的私人 Docker Registry。
-services: container-registry
 author: stevelas
-manager: gwallace
-ms.service: container-registry
 ms.topic: overview
 ms.date: 06/28/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 2262948a8368f9448d876166b712ebaf670b5a56
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: fceaf312f35356acf18c0873a467ed43d11ddd83
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70994366"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454933"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure 中的私人 Docker 容器登錄的簡介
 

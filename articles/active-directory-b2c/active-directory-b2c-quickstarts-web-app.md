@@ -1,6 +1,6 @@
 ---
 title: 快速入門 - 設定使用 Azure Active Directory B2C 登入 ASP.NET 應用程式
-description: 執行範例 ASP.NET Web 應用程式，而該應用程式使用 Azure Active Directory B2C 來提供帳戶登入。
+description: 在本快速入門中，執行範例 ASP.NET Web 應用程式，而該應用程式使用 Azure Active Directory B2C 來提供帳戶登入。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 446f891538f926342e1a4e3e5f5bca0cc791b27e
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 114e82147b03fb500197a2129b7960101f85a455
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065810"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420188"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>快速入門：設定使用 Azure Active Directory B2C 登入 ASP.NET 應用程式
 

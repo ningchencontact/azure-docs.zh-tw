@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: a480e459fdbbf135b00ee46d1513eddb0f36e09e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e777387437b572eb11ebb7999d87a172b54738bb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73479606"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151248"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立和加密 Linux 虛擬機器
 
@@ -23,36 +23,9 @@ ms.locfileid: "73479606"
 
 登入 [Azure 入口網站](https://portal.azure.com)。
 
-## <a name="create-a-key-vault"></a>建立金鑰保存庫
-
-1. 選取 Azure 入口網站左上角的 [建立資源]  選項。
-1. 在 [搜尋] 方塊中輸入 **Key Vault**。
-1. 從結果清單中，選取 [Key Vault]  。
-1. 在 [Key Vault] 區段上，選取 [建立]  。
-1. 在 [建立金鑰保存庫]  畫面上，選擇新金鑰保存庫的唯一名稱。
-
-    > [!Important]
-    > 每個金鑰保存庫必須有唯一的名稱。 下列範例會建立名為 *myADEKV* 的 Key Vault，但您必須為自己的 Key Vault 命名不同名稱。
-
-1. 選取一個**訂用帳戶**。
-1.  在 [資源群組]  下方，選取 [新建]  。 在快顯視窗中輸入 *myResourceGroup* 作為資源群組的名稱，然後選擇 [確定]  。 
-
-    ![資源群組建立畫面](./media/disk-encryption/portal-qs-keyvaultcreation.png)
-
-1. 在 [位置]  下拉式功能表中選擇 [美國東部]  。
-1. 將其他的選項保留預設值。
-1. 選取 [存取原則]，這會將您帶到新畫面。
-1. 選取 [為磁碟區加密啟用對 Azure 磁碟加密的存取] 旁邊的核取方塊。
-
-    ![ResourceGroup 建立畫面](./media/disk-encryption/portal-qs-keyvault-enable-encryption.png)
-
-1. 在 [存取原則] 畫面底部，按一下 [檢閱 + 建立]。
-1. 檢閱之後，按一下 [建立]。
-
 ## <a name="create-a-virtual-machine"></a>建立虛擬機器
 
 1. 選擇 Azure 入口網站左上角的 [建立資源]  。
-
 1. 在 [新增] 頁面中，選取 [熱門] 底下的 [Ubuntu Server 18.04 LTS]  。
 1. 在 [基本]  索引標籤中的 [專案詳細資料]  底下，確認已選取正確的訂用帳戶。
 1. 針對 [資源群組]  ，選取您先前製作金鑰保存庫時所建立的資源群組 (例如 **myResourceGroup**)。
@@ -73,15 +46,24 @@ ms.locfileid: "73479606"
 1. 在左側邊欄中，選取 [磁碟]  。
 1. 在 [磁碟] 畫面上，選取 [加密]  。 
 
-    ![磁碟和加密選取項目](./media/disk-encryption/portal-qs-disks-to-encryption.png)
+    ![磁碟和加密選取項目](../media/disk-encryption/portal-qs-disks-to-encryption.png)
 
 1. 在加密畫面的 [要加密的磁碟]  底下，選擇 [OS 和資料磁碟]  。
-1. 在 [加密設定]  底下，按一下 [選取金鑰保存庫與金鑰以進行加密]。
-1. 在右側邊欄中，選取您稍早建立的金鑰保存庫名稱作為 [金鑰保存庫]  的值，然後按一下 [選取]  。
+1. 在 [加密設定]  底下，選擇 [選取金鑰保存庫與金鑰以進行加密]  。
+1. 在 [從 Azure Key Vault 選取金鑰]  畫面上，選取 [新建]  。
 
-    ![磁碟和加密選取項目](./media/disk-encryption/portal-qs-encrypt-vm-screen.png)
-1. 在加密畫面的頂端，按一下 [儲存]。 快顯視窗會警告您 VM 將會重新開機。 按一下 [是]  。
+    ![磁碟和加密選取項目](../media/disk-encryption/portal-qs-keyvault-create.png)
 
+1. 在 [建立金鑰保存庫]  畫面上，確定資源群組與您用來建立 VM 的相同。
+1. 為您的金鑰保存庫提供名稱。  Azure 中的每個金鑰保存庫都必須有唯一的名稱。
+1. 在 [存取原則]  索引標籤上，勾選 [用於磁碟區加密的 Azure 磁碟加密]  方塊。
+
+    ![磁碟和加密選取項目](../media/disk-encryption/portal-qs-keyvault-enable.png)
+
+1. 選取 [檢閱 + 建立]  。  
+1. 在金鑰保存庫通過驗證後，選取 [建立]  。 此時您會回到 [從 Azure Key Vault 中選取金鑰]  畫面。
+1. 將 [金鑰]  欄位保留為空白，然後選擇 [選取]  。
+1. 在加密畫面頂端，按一下 [儲存]  。 快顯視窗會警告您 VM 將會重新開機。 按一下 [是]  。
 
 ## <a name="clean-up-resources"></a>清除資源
 

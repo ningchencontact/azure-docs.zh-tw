@@ -1,19 +1,16 @@
 ---
-title: 教學課程 - 從 Azure 入口網站匯出 Azure Resource Manager 範本
+title: 教學課程 - 從 Azure 入口網站匯出範本
 description: 了解如何使用匯出的範本來完成範本開發。
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6e4f246cac0ecc1ab5942e522595f59c3625db8f
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6c22a8e2b479ed7d3a225bc649d89f5302d0f536
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243215"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406018"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>教學課程：從 Azure 入口網站使用匯出的範本
 
@@ -25,7 +22,7 @@ ms.locfileid: "72243215"
 
 您必須擁有含 Resource Manager 工具延伸模組的 Visual Studio Code，以及 Azure PowerShell 或 Azure CLI。 如需詳細資訊，請參閱[範本工具](template-tutorial-create-first-template.md#get-tools)。
 
-## <a name="review-your-template"></a>檢閱範本
+## <a name="review-template"></a>檢閱範本
 
 在上一個教學課程結束時，您的範本會具有下列 JSON：
 
@@ -52,7 +49,7 @@ ms.locfileid: "72243215"
 1. 選取 [檢閱及建立]  。
 1. 選取 [建立]  。 建立資源需要一些時間。
 
-## <a name="export-the-template"></a>匯出範本
+## <a name="export-template"></a>匯出範本
 
 1. 選取 [前往資源]  。
 
@@ -71,7 +68,7 @@ ms.locfileid: "72243215"
 > [!IMPORTANT]
 > 通常，匯出的範本會比您在建立範本時所需的更詳細。 例如，匯出範本中的 SKU 物件具有五個屬性。 此範本可以運作，但您可以只使用 **name** 屬性。 您可以從匯出的範本開始，然後視需要進行修改以符合您的需求。
 
-## <a name="revise-the-existing-template"></a>修訂現有範本
+## <a name="revise-existing-template"></a>修訂現有範本
 
 匯出的範本會提供您所需的大部分 JSON，但您需要針對範本進行自訂。 請特別注意您的範本與匯出範本間參數和變數的差異。 很明顯地，匯出程式並不知道您已定義於範本中的參數和變數。
 
@@ -81,7 +78,7 @@ ms.locfileid: "72243215"
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json?range=1-77&highlight=28-31,50-69)]
 
-## <a name="deploy-the-template"></a>部署範本
+## <a name="deploy-template"></a>部署範本
 
 使用 Azure CLI 或 Azure PowerShell 來部署範本。
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dc4c29d3a12902b3ce01f9505cba5ac02e921eb
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 0c5fdc1c937136eb512eccf1d4df02a4fcdc3911
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67625353"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533095"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Microsoft 身分識別平台的演化
 
@@ -52,7 +52,7 @@ Microsoft 身分識別平台是 Azure Active Directory (Azure AD) 開發人員�
 
 Azure 入口網站 **[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)** 體驗是一項入口網站體驗，可用來管理已與 Microsoft 身分識別平台整合的所有應用程式。 如果您過去都使用應用程式註冊入口網站，請開始改用 Azure 入口網站應用程式註冊體驗。
 
-若要與 Azure AD B2C 整合 (在驗證社交或本機身分識別時)，您必須在 B2C 租用戶中註冊您的應用程式。 這項體驗也是 Azure 入口網站的一部分。
+若要與 Azure AD B2C 整合 (在驗證社交或本機身分識別時)，您必須在 Azure AD B2C 租用戶中註冊您的應用程式。 這項體驗也是 Azure 入口網站的一部分。
 
 **Microsoft Graph 中的應用程式 API** 目前為預覽狀態。 使用此 API 可讓您以程式設計方式設定與 Microsoft 身分識別平台整合的應用程式，以驗證任何 Microsoft 身分識別。 不過，在此 API 開始正式運作前，您應使用 Azure AD Graph 1.6 API 和應用程式資訊清單。
 

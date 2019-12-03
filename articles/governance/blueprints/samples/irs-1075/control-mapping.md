@@ -1,14 +1,14 @@
 ---
-title: IRS 1075 藍圖範例 - 控制項對應
+title: IRS 1075 藍圖範例控制項
 description: IRS 1075 藍圖範例的控制項對應。 每個控制項都會對應至一或多個可協助評量的 Azure 原則。
-ms.date: 08/07/2019
+ms.date: 11/20/2019
 ms.topic: sample
-ms.openlocfilehash: b56e1a2c8a71e3bb7927dc487e0c2f1e7709d413
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 86570012000e660b53b2c3c7291b9ca98576a004
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032200"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546832"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>IRS 1075 藍圖範例的控制項對應
 
@@ -325,6 +325,7 @@ Azure 儲存體的進階威脅防護可偵測儲存體帳戶中異常而且可�
 
 > [!div class="nextstepaction"]
 > [IRS 1075 藍圖 - 概觀](./index.md)
+> [IRS 1075 藍圖 - 部署步驟](./deploy.md)
 
 有關藍圖及其使用方式的其他文件：
 

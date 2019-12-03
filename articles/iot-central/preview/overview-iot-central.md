@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 5e84b8777fc7671a19b6d8974f1309eb5af35bd3
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 8cfcbddfc8d50855860af655847f997fb2a01711
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048021"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74479710"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>什麼是 IoT Central (預覽功能)？
 
@@ -51,7 +51,7 @@ Web UI 可讓您監視裝置狀況、建立規則，以及在數百萬個裝置�
 - 不支援陣列結構描述類型。
 - 不支援應用程式範本匯出和應用程式複製。
 - 僅支援 C 裝置 SDK 和 Node.js 裝置與服務 SDK。
-- 這僅適用於歐洲北部和美國中部區域。
+- 僅適用於美國與歐洲。
 - 裝置功能模型必須具有在相同檔案中以內嵌方式定義的所有介面。
 
 ## <a name="personas"></a>角色
@@ -140,6 +140,10 @@ IoT Central 應用程式完全由 Microsoft 裝載，可降低管理您的應用
 身為解決方案建置者，您可以定義對來自所連線裝置之資料串流操作的自訂規則和動作。 操作員可以在裝置層級啟用或停用這些規則，以控制和自動執行應用程式內的工作。
 
 管理員可以利用[使用者角色和權限](howto-administer.md)，管理對您應用程式的存取。
+
+## <a name="quotas"></a>配額
+
+每個 Azure 訂用帳戶都有預設配額，而此配額會對 IoT 解決方案的範圍造成影響。 目前，IoT Central 會將您可在訂用帳戶中部署的應用程式數目限制為 10 個。 如果您需要提高此限制，請連絡 [Microsoft 支援服務](https://azure.microsoft.com/support/options/)。
 
 ## <a name="next-steps"></a>後續步驟
 

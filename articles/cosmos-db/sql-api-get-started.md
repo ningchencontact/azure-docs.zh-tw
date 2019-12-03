@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
-ms.openlocfilehash: a8af36da7b9043492f1ed3c77dcc1b35dc2936fe
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 78b88f4e4e60d1f79263bfd9d7dfaf0cabc70de6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132575"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173901"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>教學課程：建置 .NET 主控台應用程式來管理 Azure Cosmos DB SQL API 帳戶中的資料
 
@@ -259,7 +259,7 @@ ms.locfileid: "74132575"
 1. 選取 F5 鍵執行您的應用程式。
 
    > [!NOTE]
-   > 如果您收到「503 服務無法使用例外狀況」，可能是因為直接模式所需的[連接埠](performance-tips.md#networking)遭到防火牆封鎖。 若要修正此問題，請開啟必要的[連接埠](performance-tips.md#networking)或嘗試使用閘道模式，如下所示。
+   > 如果您收到「503 服務無法使用例外狀況」錯誤，可能是因為直接連線模式所需的[連接埠](performance-tips.md#networking)遭到防火牆封鎖。 若要修正此問題，請開啟所需的連接埠，或使用閘道模式連線，如下列程式碼所示：
    ```csharp
      // Create a new instance of the Cosmos Client in Gateway mode
      this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()

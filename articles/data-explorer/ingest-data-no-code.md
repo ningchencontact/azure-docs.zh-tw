@@ -1,20 +1,20 @@
 ---
-title: 教學課程：在 Azure 資料總管中內嵌診斷和活動記錄資料，而不需任何一行程式碼
-description: 在本教學課程中，您將了解如何將資料內嵌至 Azure 資料總管 (不需任何一行程式碼)，然後查詢該資料。
+title: 教學課程：在 Azure 資料總管中擷取監視資料，而完全不需使用程式碼
+description: 在本教學課程中，您將了解如何將監視資料擷取至 Azure 資料總管 (完全不需使用程式碼)，然後查詢該資料。
 author: orspod
 ms.author: orspodek
-ms.reviewer: jasonh
+ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 04/29/2019
-ms.openlocfilehash: 187aa4b02e389c485b24ad7de256422d1880182b
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.date: 11/17/2019
+ms.openlocfilehash: 97faa445a286574aa5fc05d084d21c0740bc8a8b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872592"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173863"
 ---
-# <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>教學課程：在 Azure 資料總管中內嵌資料，而不需任何一行程式碼
+# <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>教學課程：在 Azure 資料總管中擷取和查詢監視資料 
 
 本教學課程將教導您如何直接將診斷和活動記錄中的資料內嵌至 Azure 資料總管叢集，而不需撰寫程式碼。 透過這個簡單的擷取方法，您可以快速開始查詢 Azure 資料總管，以進行資料分析。
 
@@ -24,24 +24,29 @@ ms.locfileid: "64872592"
 > * 在 Azure 資料總管資料庫中建立資料表和擷取對應。
 > * 使用更新原則將內嵌的資料格式化。
 > * 建立[事件中樞](/azure/event-hubs/event-hubs-about)並將期連線至 Azure 資料總管。
-> * 將資料從 [Azure 監視器診斷記錄](/azure/azure-monitor/platform/diagnostic-logs-overview)和 [Azure 監視器活動記錄](/azure/azure-monitor/platform/activity-logs-overview)串流至事件中樞。
+> * 將資料從 Azure 監視器[診斷計量和記錄](/azure/azure-monitor/platform/diagnostic-settings)與[活動記錄](/azure/azure-monitor/platform/activity-logs-overview)串流至事件中樞。
 > * 使用 Azure 資料總管查詢內嵌的資料。
 
 > [!NOTE]
-> 在相同的 Azure 位置或區域中建立所有資源。 這是 Azure 監視器診斷記錄的需求。
+> 在相同的 Azure 位置或區域中建立所有資源。 
 
 ## <a name="prerequisites"></a>必要條件
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 * [Azure 資料總管叢集和資料庫](create-cluster-database-portal.md)。 在本教學課程中，資料庫名稱為 *TestDatabase*。
 
-## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Azure 監視器資料提供者：診斷和活動記錄
+## <a name="azure-monitor-data-provider-diagnostic-metrics-and-logs-and-activity-logs"></a>Azure 監視器資料提供者：診斷計量和記錄與活動記錄
 
-檢視並了解以下 Azure 監視器診斷和活動記錄所提供的資料。 我們將根據這些資料結構描述建立擷取管線。 請注意，記錄 (Log) 中的每個事件都具有記錄 (Record) 陣列。 本教學課程稍後將會分割此記錄陣列。
+檢視並了解以下 Azure 監視器診斷計量和記錄與活動記錄所提供的資料。 您將根據這些資料結構描述建立擷取管線。 請注意，記錄 (Log) 中的每個事件都具有記錄 (Record) 陣列。 本教學課程稍後將會分割此記錄陣列。
 
-### <a name="diagnostic-logs-example"></a>診斷記錄範例
+### <a name="examples-of-diagnostic-metrics-and-logs-and-activity-logs"></a>診斷計量和記錄與活動記錄的範例
 
-Azure 診斷記錄是由 Azure 服務發出的計量，以提供關於該服務作業的資料。 資料會以 1 分鐘的時間粒紋進行彙總。 以下範例顯示 Azure 資料總管對於查詢持續時間的計量事件結構描述：
+Azure 診斷計量和記錄與活動記錄是由 Azure 服務發出的記錄，以提供與該服務的作業有關的資料。 
+
+# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[診斷計量](#tab/diagnostic-metrics)
+#### <a name="example"></a>範例
+
+診斷計量會以 1 分鐘的時間粒紋進行彙總。 以下是 Azure 資料總管計量事件結構描述在查詢持續時間內的範例：
 
 ```json
 {
@@ -52,7 +57,7 @@ Azure 診斷記錄是由 Azure 服務發出的計量，以提供關於該服務�
         "minimum": 0,
         "maximum": 0,
         "average": 0,
-        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "resourceId": "/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/<cluster-name>",
         "time": "2018-12-20T17:00:00.0000000Z",
         "metricName": "QueryDuration",
         "timeGrain": "PT1M"
@@ -63,7 +68,7 @@ Azure 診斷記錄是由 Azure 服務發出的計量，以提供關於該服務�
         "minimum": 0,
         "maximum": 0,
         "average": 0,
-        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "resourceId": "/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/<cluster-name>",
         "time": "2018-12-21T17:00:00.0000000Z",
         "metricName": "QueryDuration",
         "timeGrain": "PT1M"
@@ -72,7 +77,64 @@ Azure 診斷記錄是由 Azure 服務發出的計量，以提供關於該服務�
 }
 ```
 
-### <a name="activity-logs-example"></a>活動記錄範例
+# <a name="diagnostic-logstabdiagnostic-logs"></a>[診斷記錄](#tab/diagnostic-logs)
+#### <a name="example"></a>範例
+
+以下是 Azure 資料總管[診斷擷取記錄](using-diagnostic-logs.md#diagnostic-logs-schema)的範例：
+
+```json
+{
+    "time": "2019-08-26T13:22:36.8804326Z",
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/<cluster-name>",
+    "operationName": "MICROSOFT.KUSTO/CLUSTERS/INGEST/ACTION",
+    "operationVersion": "1.0",
+    "category": "FailedIngestion",
+    "resultType": "Failed",
+    "correlationId": "d59882f1-ad64-4fc4-b2ef-d663b6cc1cc5",
+    "properties": {
+        "OperationId": "00000000-0000-0000-0000-000000000000",
+        "Database": "Kusto",
+        "Table": "Table_13_20_prod",
+        "FailedOn": "2019-08-26T13:22:36.8804326Z",
+        "IngestionSourceId": "d59882f1-ad64-4fc4-b2ef-d663b6cc1cc5",
+        "Details":
+        {
+            "error": 
+            {
+                "code": "BadRequest_DatabaseNotExist",
+                "message": "Request is invalid and cannot be executed.",
+                "@type": "Kusto.Data.Exceptions.DatabaseNotFoundException",
+                "@message": "Database 'Kusto' was not found.",
+                "@context": 
+                {
+                    "timestamp": "2019-08-26T13:22:36.7179157Z",
+                    "serviceAlias": "<cluster-name>",
+                    "machineName": "KEngine000001",
+                    "processName": "Kusto.WinSvc.Svc",
+                    "processId": 5336,
+                    "threadId": 6528,
+                    "appDomainName": "Kusto.WinSvc.Svc.exe",
+                    "clientRequestd": "DM.IngestionExecutor;a70ddfdc-b471-4fc7-beac-bb0f6e569fe8",
+                    "activityId": "f13e7718-1153-4e65-bf82-8583d712976f",
+                    "subActivityId": "2cdad9d0-737b-4c69-ac9a-22cf9af0c41b",
+                    "activityType": "DN.AdminCommand.DataIngestPullCommand",
+                    "parentActivityId": "2f65e533-a364-44dd-8d45-d97460fb5795",
+                    "activityStack": "(Activity stack: CRID=DM.IngestionExecutor;a70ddfdc-b471-4fc7-beac-bb0f6e569fe8 ARID=f13e7718-1153-4e65-bf82-8583d712976f > DN.Admin.Client.ExecuteControlCommand/5b764b32-6017-44a2-89e7-860eda515d40 > P.WCF.Service.ExecuteControlCommandInternal..IAdminClientServiceCommunicationContract/c2ef9344-069d-44c4-88b1-a3570697ec77 > DN.FE.ExecuteControlCommand/2f65e533-a364-44dd-8d45-d97460fb5795 > DN.AdminCommand.DataIngestPullCommand/2cdad9d0-737b-4c69-ac9a-22cf9af0c41b)"
+                },
+                "@permanent": true
+            }
+        },
+        "ErrorCode": "BadRequest_DatabaseNotExist",
+        "FailureStatus": "Permanent",
+        "RootActivityId": "00000000-0000-0000-0000-000000000000",
+        "OriginatesFromUpdatePolicy": false,
+        "ShouldRetry": false,
+        "IngestionSourcePath": "https://c0skstrldkereneus01.blob.core.windows.net/aam-20190826-temp-e5c334ee145d4b43a3a2d3a96fbac1df/3216_test_3_columns_invalid_8f57f0d161ed4a8c903c6d1073005732_59951f9ca5d143b6bdefe52fa381a8ca.zip"
+    }
+}
+```
+# <a name="activity-logstabactivity-logs"></a>[活動記錄](#tab/activity-logs)
+#### <a name="example"></a>範例
 
 Azure 活動記錄為訂用帳戶層級的記錄，可針對在訂用帳戶中資源上所執行的作業提供深入解析。 以下是用來檢查存取的活動記錄事件範例：
 
@@ -81,7 +143,7 @@ Azure 活動記錄為訂用帳戶層級的記錄，可針對在訂用帳戶中�
     "records": [
     {
         "time": "2018-12-26T16:23:06.1090193Z",
-        "resourceId": "/SUBSCRIPTIONS/F80EB51C-C534-4F0B-80AB-AEBC290C1C19/RESOURCEGROUPS/CLEANUPSERVICE/PROVIDERS/MICROSOFT.WEB/SITES/CLNB5F73B70-DCA2-47C2-BB24-77B1A2CAAB4D/PROVIDERS/MICROSOFT.AUTHORIZATION",
+        "resourceId": "/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.WEB/SITES/CLNB5F73B70-DCA2-47C2-BB24-77B1A2CAAB4D/PROVIDERS/MICROSOFT.AUTHORIZATION",
         "operationName": "MICROSOFT.AUTHORIZATION/CHECKACCESS/ACTION",
         "category": "Action",
         "resultType": "Start",
@@ -105,7 +167,7 @@ Azure 活動記錄為訂用帳戶層級的記錄，可針對在訂用帳戶中�
     },
     {
         "time": "2018-12-26T16:23:06.3040244Z",
-        "resourceId": "/SUBSCRIPTIONS/F80EB51C-C534-4F0B-80AB-AEBC290C1C19/RESOURCEGROUPS/CLEANUPSERVICE/PROVIDERS/MICROSOFT.WEB/SITES/CLNB5F73B70-DCA2-47C2-BB24-77B1A2CAAB4D/PROVIDERS/MICROSOFT.AUTHORIZATION",
+        "resourceId": "/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.WEB/SITES/CLNB5F73B70-DCA2-47C2-BB24-77B1A2CAAB4D/PROVIDERS/MICROSOFT.AUTHORIZATION",
         "operationName": "MICROSOFT.AUTHORIZATION/CHECKACCESS/ACTION",
         "category": "Action",
         "resultType": "Success",
@@ -130,6 +192,7 @@ Azure 活動記錄為訂用帳戶層級的記錄，可針對在訂用帳戶中�
     }]
 }
 ```
+---
 
 ## <a name="set-up-an-ingestion-pipeline-in-azure-data-explorer"></a>在 Azure 資料總管中設定擷取管線
 
@@ -143,34 +206,65 @@ Azure 活動記錄為訂用帳戶層級的記錄，可針對在訂用帳戶中�
 
 ### <a name="create-the-target-tables"></a>建立目標資料表
 
-Azure 監視器記錄的結構不是表格式的。 您將操作資料，並將每個事件展開為一或多個記錄。 未經處理的資料將針對活動記錄內嵌至名為 *ActivityLogsRawRecords* 的中繼資料表，並針對診斷記錄內嵌至名為 *DiagnosticLogsRawRecords* 的中繼資料表。 屆時會操作並展開資料。 使用更新原則，接著會針對活動記錄將展開的資料內嵌至 *ActivityLogsRecords* 資料表，並針對診斷記錄內嵌至 *DiagnosticLogsRecords*。 這表示您必須建立兩個不同的資料表以用來內嵌活動記錄，並建立兩個不同的資料表以用來內嵌診斷記錄。
+Azure 監視器記錄的結構不是表格式的。 您將操作資料，並將每個事件展開為一或多個記錄。 未經處理的資料將針對活動記錄擷取至名為 *ActivityLogsRawRecords* 的中繼資料表，並針對診斷計量和記錄擷取至名為 *DiagnosticRawRecords* 的中繼資料表。 屆時會操作並展開資料。 使用更新原則時，會針對活動記錄將展開的資料擷取至 *ActivityLogs* 資料表、診斷計量的資料會擷取至 *DiagnosticMetrics*，診斷記錄的資料則擷取至 *DiagnosticLogs*。 這表示您必須建立兩個不同的資料表用以擷取活動記錄，並建立三個不同的資料表用以擷取診斷計量和記錄。
 
 使用 Azure 資料總管 Web UI，在 Azure 資料總管資料庫中建立目標資料表。
 
-#### <a name="the-diagnostic-logs-table"></a>診斷記錄資料表
+# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[診斷計量](#tab/diagnostic-metrics)
+#### <a name="create-tables-for-the-diagnostic-metrics"></a>建立診斷計量的資料表
 
-1. 在 *TestDatabase* 資料庫中建立名為 *DiagnosticLogsRecords* 的資料表，用以儲存診斷記錄的記錄。 請使用下列 `.create table` 控制命令：
+1. 在 *TestDatabase* 資料庫中建立名為 *DiagnosticMetrics* 的資料表，用以儲存診斷計量記錄。 請使用下列 `.create table` 控制命令：
 
     ```kusto
-    .create table DiagnosticLogsRecords (Timestamp:datetime, ResourceId:string, MetricName:string, Count:int, Total:double, Minimum:double, Maximum:double, Average:double, TimeGrain:string)
+    .create table DiagnosticMetrics (Timestamp:datetime, ResourceId:string, MetricName:string, Count:int, Total:double, Minimum:double, Maximum:double, Average:double, TimeGrain:string)
     ```
 
 1. 選取 [執行]  以建立資料表。
 
     ![執行查詢](media/ingest-data-no-code/run-query.png)
 
-1. 使用下列查詢，在 *TestDatabase* 資料庫中建立名為 *DiagnosticLogsRawRecords* 的中繼資料資料表，以用來操作資料。 選取 [執行]  以建立資料表。
+1. 使用下列查詢，在 *TestDatabase* 資料庫中建立名為 *DiagnosticRawRecords* 的中繼資料資料表，用來處理資料。 選取 [執行]  以建立資料表。
 
     ```kusto
-    .create table DiagnosticLogsRawRecords (Records:dynamic)
+    .create table DiagnosticRawRecords (Records:dynamic)
     ```
 
-#### <a name="the-activity-logs-tables"></a>活動記錄資料表
-
-1. 在 *TestDatabase* 資料庫中建立名為 *ActivityLogsRecords* 的資料表，用以接收活動記錄的記錄。 若要建立資料表，請執行下列 Azure 資料總管查詢：
+1. 為中繼資料表設定零[保留原則](/azure/kusto/management/retention-policy)：
 
     ```kusto
-    .create table ActivityLogsRecords (Timestamp:datetime, ResourceId:string, OperationName:string, Category:string, ResultType:string, ResultSignature:string, DurationMs:int, IdentityAuthorization:dynamic, IdentityClaims:dynamic, Location:string, Level:string)
+    .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
+    ```
+
+# <a name="diagnostic-logstabdiagnostic-logs"></a>[診斷記錄](#tab/diagnostic-logs)
+#### <a name="create-tables-for-the-diagnostic-logs"></a>建立診斷記錄的資料表 
+
+1. 在 *TestDatabase* 資料庫中建立名為 *DiagnosticLogs* 的資料表，用以儲存診斷記錄的記錄。 請使用下列 `.create table` 控制命令：
+
+    ```kusto
+    .create table DiagnosticLogs (Timestamp:datetime, ResourceId:string, OperationName:string, Result:string, OperationId:string, Database:string, Table:string, IngestionSourceId:string, IngestionSourcePath:string, RootActivityId:string, ErrorCode:string, FailureStatus:string, Details:string)
+    ```
+
+1. 選取 [執行]  以建立資料表。
+
+1. 使用下列查詢，在 *TestDatabase* 資料庫中建立名為 *DiagnosticRawRecords* 的中繼資料資料表，用來處理資料。 選取 [執行]  以建立資料表。
+
+    ```kusto
+    .create table DiagnosticRawRecords (Records:dynamic)
+    ```
+
+1. 為中繼資料表設定零[保留原則](/azure/kusto/management/retention-policy)：
+
+    ```kusto
+    .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
+    ```
+
+# <a name="activity-logstabactivity-logs"></a>[活動記錄](#tab/activity-logs)
+#### <a name="create-tables-for-the-activity-logs"></a>建立活動記錄的資料表 
+
+1. 在 *TestDatabase* 資料庫中建立名為 *ActivityLogs* 的資料表，用以接收活動記錄的記錄。 若要建立資料表，請執行下列 Azure 資料總管查詢：
+
+    ```kusto
+    .create table ActivityLogs (Timestamp:datetime, ResourceId:string, OperationName:string, Category:string, ResultType:string, ResultSignature:string, DurationMs:int, IdentityAuthorization:dynamic, IdentityClaims:dynamic, Location:string, Level:string)
     ```
 
 1. 在 *TestDatabase* 資料庫中建立名為 *ActivityLogsRawRecords* 中繼資料資料表，以便操作資料：
@@ -179,35 +273,101 @@ Azure 監視器記錄的結構不是表格式的。 您將操作資料，並將�
     .create table ActivityLogsRawRecords (Records:dynamic)
     ```
 
-<!--
-     ```kusto
-     .alter-merge table ActivityLogsRawRecords policy retention softdelete = 0d
-    <[Retention](/azure/kusto/management/retention-policy) for an intermediate data table is set at zero retention policy.
--->
+1. 為中繼資料表設定零[保留原則](/azure/kusto/management/retention-policy)：
+
+    ```kusto
+    .alter-merge table ActivityLogsRawRecords policy retention softdelete = 0d
+    ```
+---
 
 ### <a name="create-table-mappings"></a>建立資料表對應
 
  由於資料格式為 `json`，因此需要資料對應。 `json` 對應會將每個 json 路徑對應至資料表資料行名稱。
 
-#### <a name="table-mapping-for-diagnostic-logs"></a>診斷記錄的資料表對應
+# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[診斷計量/診斷記錄](#tab/diagnostic-metrics+diagnostic-logs) 
+#### <a name="map-diagnostic-metrics-and-logs-to-the-table"></a>將診斷計量和記錄對應至資料表
 
-若要將診斷記錄的資料對應至資料表，請使用下列查詢：
+若要將診斷計量和記錄資料對應至資料表，請使用下列查詢：
 
 ```kusto
-.create table DiagnosticLogsRawRecords ingestion json mapping 'DiagnosticLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
+.create table DiagnosticRawRecords ingestion json mapping 'DiagnosticRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-#### <a name="table-mapping-for-activity-logs"></a>活動記錄的資料表對應
+# <a name="activity-logstabactivity-logs"></a>[活動記錄](#tab/activity-logs)
+#### <a name="map-activity-logs-to-the-table"></a>將活動記錄對應至資料表
 
-若要將活動記錄的資料對應至資料表，請使用下列查詢：
+若要將活動記錄資料對應至資料表，請使用下列查詢：
 
 ```kusto
 .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
+---
 
-### <a name="create-the-update-policy-for-log-data"></a>建立記錄資料的更新原則
+### <a name="create-the-update-policy-for-metric-and-log-data"></a>建立計量和記錄資料的更新原則
 
-#### <a name="activity-log-data-update-policy"></a>活動記錄資料更新原則
+# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[診斷計量](#tab/diagnostic-metrics)
+#### <a name="create-data-update-policy-for-diagnostics-metrics"></a>建立診斷計量的資料更新原則
+
+1. 建立可展開診斷計量記錄集合的[函式](/azure/kusto/management/functions)，讓集合中的每個值能夠取得不同的資料列。 使用 [`mv-expand`](/azure/kusto/query/mvexpandoperator) 運算子：
+     ```kusto
+    .create function DiagnosticMetricsExpand() {
+        DiagnosticRawRecords
+        | mv-expand events = Records
+        | where isnotempty(events.metricName)
+        | project
+            Timestamp = todatetime(events.time),
+            ResourceId = tostring(events.resourceId),
+            MetricName = tostring(events.metricName),
+            Count = toint(events.count),
+            Total = todouble(events.total),
+            Minimum = todouble(events.minimum),
+            Maximum = todouble(events.maximum),
+            Average = todouble(events.average),
+            TimeGrain = tostring(events.timeGrain)
+    }
+    ```
+
+2. 將[更新原則](/azure/kusto/concepts/updatepolicy)新增至目標資料表。 此原則會對 *DiagnosticRawRecords* 中繼資料資料表中任何新擷取的資料自動執行查詢，並將其結果擷取至 *DiagnosticMetrics* 資料表：
+
+    ```kusto
+    .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True"}]'
+    ```
+
+# <a name="diagnostic-logstabdiagnostic-logs"></a>[診斷記錄](#tab/diagnostic-logs)
+#### <a name="create-data-update-policy-for-diagnostics-logs"></a>建立診斷記錄的資料更新原則
+
+1. 建立可展開診斷記錄之記錄集合的[函式](/azure/kusto/management/functions)，讓集合中的每個值能夠取得不同的資料列。 您將在 Azure 資料總管叢集上啟用擷取記錄，並使用[擷取記錄結構描述](/azure/data-explorer/using-diagnostic-logs#diagnostic-logs-schema)。 您將建立一個用於成功和失敗擷取的資料表，而某些欄位將是空的，以供成功的擷取使用 (例如 ErrorCode)。 使用 [`mv-expand`](/azure/kusto/query/mvexpandoperator) 運算子：
+
+    ```kusto
+    .create function DiagnosticLogsExpand() {
+        DiagnosticRawRecords
+        | mv-expand events = Records
+        | where isnotempty(events.operationName)
+        | project
+            Timestamp = todatetime(events.time),
+            ResourceId = tostring(events.resourceId),
+            OperationName = tostring(events.operationName),
+            Result = tostring(events.resultType),
+            OperationId = tostring(events.properties.OperationId),
+            Database = tostring(events.properties.Database),
+            Table = tostring(events.properties.Table),
+            IngestionSourceId = tostring(events.properties.IngestionSourceId),
+            IngestionSourcePath = tostring(events.properties.IngestionSourcePath),
+            RootActivityId = tostring(events.properties.RootActivityId),
+            ErrorCode = tostring(events.properties.ErrorCode),
+            FailureStatus = tostring(events.properties.FailureStatus),
+            Details = tostring(events.properties.Details)
+    }
+    ```
+
+2. 將[更新原則](/azure/kusto/concepts/updatepolicy)新增至目標資料表。 此原則會對 *DiagnosticRawRecords* 中繼資料資料表中任何新擷取的資料自動執行查詢，並將其結果擷取至 *DiagnosticLogs* 資料表：
+
+    ```kusto
+    .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True"}]'
+    ```
+
+# <a name="activity-logstabactivity-logs"></a>[活動記錄](#tab/activity-logs)
+#### <a name="create-data-update-policy-for-activity-logs"></a>建立活動記錄的資料更新原則
 
 1. 建立可展開活動記錄之記錄集合的[函式](/azure/kusto/management/functions)，讓集合中的每個值都能收到不同的資料列。 使用 [`mv-expand`](/azure/kusto/query/mvexpandoperator) 運算子：
 
@@ -216,55 +376,30 @@ Azure 監視器記錄的結構不是表格式的。 您將操作資料，並將�
         ActivityLogsRawRecords
         | mv-expand events = Records
         | project
-            Timestamp = todatetime(events["time"]),
-            ResourceId = tostring(events["resourceId"]),
-            OperationName = tostring(events["operationName"]),
-            Category = tostring(events["category"]),
-            ResultType = tostring(events["resultType"]),
-            ResultSignature = tostring(events["resultSignature"]),
-            DurationMs = toint(events["durationMs"]),
+            Timestamp = todatetime(events.time),
+            ResourceId = tostring(events.resourceId),
+            OperationName = tostring(events.operationName),
+            Category = tostring(events.category),
+            ResultType = tostring(events.resultType),
+            ResultSignature = tostring(events.resultSignature),
+            DurationMs = toint(events.durationMs),
             IdentityAuthorization = events.identity.authorization,
             IdentityClaims = events.identity.claims,
-            Location = tostring(events["location"]),
-            Level = tostring(events["level"])
+            Location = tostring(events.location),
+            Level = tostring(events.level)
     }
     ```
 
-2. 將[更新原則](/azure/kusto/concepts/updatepolicy)新增至目標資料表。 此原則會對 *ActivityLogsRawRecords* 中繼資料資料表中任何新內嵌的資料自動執行查詢，並將其結果內嵌到 *ActivityLogsRecords* 資料表中：
+2. 將[更新原則](/azure/kusto/concepts/updatepolicy)新增至目標資料表。 此原則會對 *ActivityLogsRawRecords* 中繼資料資料表中任何新擷取的資料自動執行查詢，並將其結果擷取至 *ActivityLogs* 資料表中：
 
     ```kusto
-    .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    .alter table ActivityLogs policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
-
-#### <a name="diagnostic-log-data-update-policy"></a>診斷記錄資料更新原則
-
-1. 建立可展開診斷記錄之記錄集合的[函式](/azure/kusto/management/functions)，讓集合中的每個值都能收到不同的資料列。 使用 [`mv-expand`](/azure/kusto/query/mvexpandoperator) 運算子：
-     ```kusto
-    .create function DiagnosticLogRecordsExpand() {
-        DiagnosticLogsRawRecords
-        | mv-expand events = Records
-        | project
-            Timestamp = todatetime(events["time"]),
-            ResourceId = tostring(events["resourceId"]),
-            MetricName = tostring(events["metricName"]),
-            Count = toint(events["count"]),
-            Total = todouble(events["total"]),
-            Minimum = todouble(events["minimum"]),
-            Maximum = todouble(events["maximum"]),
-            Average = todouble(events["average"]),
-            TimeGrain = tostring(events["timeGrain"])
-    }
-    ```
-
-2. 將[更新原則](/azure/kusto/concepts/updatepolicy)新增至目標資料表。 此原則會對 *DiagnosticLogsRawRecords* 中繼資料資料表中任何新內嵌的資料自動執行查詢，並將其結果內嵌至 *DiagnosticLogsRecords* 資料表：
-
-    ```kusto
-    .alter table DiagnosticLogsRecords policy update @'[{"Source": "DiagnosticLogsRawRecords", "Query": "DiagnosticLogRecordsExpand()", "IsEnabled": "True"}]'
-    ```
+---
 
 ## <a name="create-an-azure-event-hubs-namespace"></a>建立 Azure 事件中樞命名空間
 
-Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在本教學課程中，我們將透過事件中樞來路由計量。 您將在下列步驟中，建立診斷記錄的事件中樞命名空間和事件中樞。 Azure 監視器會建立活動記錄的事件中樞 *insights-operational-logs*。
+Azure 診斷設定能夠將計量和記錄匯出至儲存體帳戶或事件中樞。 在本教學課程中，我們將透過事件中樞來路由計量和記錄。 您將在下列步驟中建立診斷計量和記錄的事件中樞命名空間和事件中樞。 Azure 監視器會建立活動記錄的事件中樞 *insights-operational-logs*。
 
 1. 在 Azure 入口網站中使用 Azure Resource Manager 範本建立事件中樞。 若要依照本文中的其餘步驟操作，請以滑鼠右鍵按一下 [部署至 Azure]  按鈕，然後選取 [在新視窗中開啟]  。 [部署至 Azure]  按鈕可將您帶往 Azure 入口網站。
 
@@ -282,17 +417,18 @@ Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在�
     | **資源群組** | *test-resource-group* | 建立新的資源群組。 |
     | **位置** | 選取最符合您需求的區域。 | 在與其他資源相同的位置建立事件中樞命名空間。
     | **命名空間名稱** | *AzureMonitoringData* | 選擇可識別您命名空間的唯一名稱。
-    | **事件中樞名稱** | *DiagnosticLogsData* | 事件中樞位於命名空間之下，其會提供專屬的唯一範圍容器。 |
+    | **事件中樞名稱** | *DiagnosticData* | 事件中樞位於命名空間之下，其會提供專屬的唯一範圍容器。 |
     | **取用者群組名稱** | *adxpipeline* | 建立取用者群組名稱。 取用者群組能讓多個取用應用程式各自擁有獨立的事件串流檢視。 |
     | | |
 
-## <a name="connect-azure-monitor-logs-to-your-event-hub"></a>將 Azure 監視器記錄連線到事件中樞
+## <a name="connect-azure-monitor-metrics-and-logs-to-your-event-hub"></a>將 Azure 監視器計量和記錄連線至事件中樞
 
-現在，您必須將診斷記錄和活動記錄連線到事件中樞。
+現在，您必須將診斷計量和記錄與活動記錄連線至事件中樞。
 
-### <a name="connect-diagnostic-logs-to-your-event-hub"></a>將診斷記錄連線到事件中樞
+# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[診斷計量/診斷記錄](#tab/diagnostic-metrics+diagnostic-logs) 
+### <a name="connect-diagnostic-metrics-and-logs-to-your-event-hub"></a>將診斷計量和記錄連線至您的事件中樞
 
-選取要從中匯入計量的資源。 有數個資源類型支援匯出診斷記錄的作業，包括事件中樞命名空間、Azure Key Vault、Azure IoT 中樞和 Azure 資料總管叢集。 本教學課程中，我們將使用 Azure 資料總管叢集作為資源。
+選取要從中匯入計量的資源。 有數個資源類型支援匯出診斷資料的作業，包括事件中樞命名空間、Azure Key Vault、Azure IoT 中樞和 Azure 資料總管叢集。 在本教學課程中，我們將使用 Azure 資料總管叢集作為資源，我們會檢閱查詢效能計量和擷取結果記錄。
 
 1. 在 Azure 入口網站中選取您的 Kusto 叢集。
 1. 選取 [診斷設定]  ，然後選取 [開啟診斷]  連結。 
@@ -301,7 +437,8 @@ Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在�
 
 1. [診斷設定]  窗格隨即開啟。 請執行下列步驟：
    1. 將您的診斷記錄資料命名為 *ADXExportedData*。
-   1. 在 [計量]  下方，選取 [AllMetrics]  核取方塊 (選擇性)。
+   1. 在 [記錄]  底下，選取 [SucceededIngestion]  和 [FailedIngestion]  核取方塊。
+   1. 在 [計量]  底下，選取 [查詢效能]  核取方塊。
    1. 選取 [串流至事件中樞]  核取方塊。
    1. 選取 [設定]  。
 
@@ -309,12 +446,13 @@ Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在�
 
 1. 在 [選取事件中樞]  窗格中，設定如何將診斷記錄中的資料匯出至您所建立的事件中樞：
     1. 在 [選取事件中樞命名空間]  清單中，選取 [AzureMonitoringData]  。
-    1. 在 [選取事件中樞名稱]  清單中，選取 [diagnosticlogsdata]  。
+    1. 在 [選取事件中樞名稱]  清單中，選取 [DiagnosticData]  。
     1. 在 [選取事件中樞原則名稱]  清單中，選取 [RootManagerSharedAccessKey]  。
     1. 選取 [確定]  。
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]  。
 
+# <a name="activity-logstabactivity-logs"></a>[活動記錄](#tab/activity-logs)
 ### <a name="connect-activity-logs-to-your-event-hub"></a>將活動記錄連線到事件中樞
 
 1. 在 Azure 入口網站的左側功能表中，選取 [活動記錄]  。
@@ -337,6 +475,7 @@ Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在�
       1. 選取 [確定]  。
       1. 在視窗的左上角，選取 [儲存]  。
    將會建立名稱為 *insights-operational-logs* 的事件中樞。
+---
 
 ### <a name="see-data-flowing-to-your-event-hubs"></a>查看流向事件中樞的資料
 
@@ -350,9 +489,9 @@ Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在�
 
 ## <a name="connect-an-event-hub-to-azure-data-explorer"></a>將事件中樞連線至 Azure 資料總管
 
-現在，您必須建立診斷記錄和活動記錄的資料連線。
+現在，您必須建立診斷計量和記錄與活動記錄的資料連線。
 
-### <a name="create-the-data-connection-for-diagnostic-logs"></a>建立診斷記錄的資料連線
+### <a name="create-the-data-connection-for-diagnostic-metrics-and-logs-and-activity-logs"></a>建立診斷計量和記錄與活動記錄的資料連線
 
 1. 在您名為 *kustodocs* 的 Azure 資料總管叢集中，選取左側功能表中的 [資料庫]  。
 1. 在 [資料庫]  視窗中，選取您的 *TestDatabase* 資料庫。
@@ -362,13 +501,17 @@ Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在�
 
     ![事件中樞資料連線](media/ingest-data-no-code/event-hub-data-connection.png)
 
+# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[診斷計量/診斷記錄](#tab/diagnostic-metrics+diagnostic-logs) 
+
+1. 在 [資料連線]  視窗中使用下列設定：
+
     資料來源：
 
     **設定** | **建議的值** | **欄位描述**
     |---|---|---|
     | **資料連線名稱** | *DiagnosticsLogsConnection* | 您想要在 Azure 資料總管中建立的連線名稱。|
     | **事件中樞命名空間** | *AzureMonitoringData* | 您先前選擇用來辨識命名空間的名稱。 |
-    | **事件中樞** | *diagnosticlogsdata* | 您建立的事件中樞。 |
+    | **事件中樞** | *DiagnosticData* | 您建立的事件中樞。 |
     | **取用者群組** | *adxpipeline* | 在您所建立事件中樞中定義的取用者群組。 |
     | | |
 
@@ -378,16 +521,14 @@ Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在�
 
      **設定** | **建議的值** | **欄位描述**
     |---|---|---|
-    | **資料表** | *DiagnosticLogsRawRecords* | 您在 *TestDatabase* 資料庫中建立的資料表。 |
+    | **資料表** | *DiagnosticRawRecords* | 您在 *TestDatabase* 資料庫中建立的資料表。 |
     | **資料格式** | *JSON* | 在資料表中使用的格式。 |
-    | **資料行對應** | *DiagnosticLogsRecordsMapping* | 您在 *TestDatabase* 資料庫中建立的對應，會將傳入的 JSON 資料對應至 *DiagnosticLogsRawRecords* 資料表的資料行名稱與資料類型。|
+    | **資料行對應** | *DiagnosticRawRecordsMapping* | 您在 *TestDatabase* 資料庫中建立的對應，會將傳入的 JSON 資料對應至 *DiagnosticRawRecords* 資料表的資料行名稱與資料類型。|
     | | |
 
 1. 選取 [建立]  。  
 
-### <a name="create-the-data-connection-for-activity-logs"></a>建立活動記錄的資料連線
-
-重複執行「建立診斷記錄的資料連線」一節中的步驟，以建立活動記錄的資料連線。
+# <a name="activity-logstabactivity-logs"></a>[活動記錄](#tab/activity-logs)
 
 1. 在 [資料連線]  視窗中使用下列設定：
 
@@ -413,17 +554,19 @@ Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在�
     | | |
 
 1. 選取 [建立]  。  
+---
 
 ## <a name="query-the-new-tables"></a>查詢新的資料表
 
 您現在已有具備資料流程的管線。 根據預設，透過叢集擷取需要 5 分鐘的時間，因此請等待幾分鐘讓資料完成傳送，再開始查詢。
 
-### <a name="an-example-of-querying-the-diagnostic-logs-table"></a>查詢診斷記錄資料表的範例
+# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[診斷計量](#tab/diagnostic-metrics)
+### <a name="query-the-diagnostic-metrics-table"></a>查詢診斷計量資料表
 
-下列查詢會分析 Azure 資料總管診斷記錄中的查詢持續時間資料：
+下列查詢會從 Azure 資料總管中的診斷計量記錄分析查詢持續時間資料：
 
 ```kusto
-DiagnosticLogsRecords
+DiagnosticMetrics
 | where Timestamp > ago(15m) and MetricName == 'QueryDuration'
 | summarize avg(Average)
 ```
@@ -436,12 +579,33 @@ DiagnosticLogsRecords
 |   | 00:06.156 |
 | | |
 
-### <a name="an-example-of-querying-the-activity-logs-table"></a>查詢活動記錄資料表的範例
+# <a name="diagnostic-logstabdiagnostic-logs"></a>[診斷記錄](#tab/diagnostic-logs)
+### <a name="query-the-diagnostic-logs-table"></a>查詢診斷記錄資料表
+
+此管線會透過事件中樞產生擷取。 您將檢閱這些擷取的結果。
+下列查詢會分析一分鐘內增加的擷取數，包含 `Database`、`Table` 和 `IngestionSourcePath` 在每個間隔內的範例：
+
+```kusto
+DiagnosticLogs
+| where Timestamp > ago(15m) and OperationName has 'INGEST'
+| summarize count(), any(Database, Table, IngestionSourcePath) by bin(Timestamp, 1m)
+```
+
+查詢結果：
+
+|   |   |
+| --- | --- |
+|   |  count_ | any_Database | any_Table | any_IngestionSourcePath
+|   | 00:06.156 | TestDatabase | DiagnosticRawRecords | https://rtmkstrldkereneus00.blob.core.windows.net/20190827-readyforaggregation/1133_TestDatabase_DiagnosticRawRecords_6cf02098c0c74410bd8017c2d458b45d.json.zip
+| | |
+
+# <a name="activity-logstabactivity-logs"></a>[活動記錄](#tab/activity-logs)
+### <a name="query-the-activity-logs-table"></a>查詢活動記錄資料表
 
 下列查詢會分析 Azure 資料總管活動記錄中的資料：
 
 ```kusto
-ActivityLogsRecords
+ActivityLogs
 | where OperationName == 'MICROSOFT.EVENTHUB/NAMESPACES/AUTHORIZATIONRULES/LISTKEYS/ACTION'
 | where ResultType == 'Success'
 | summarize avg(DurationMs)
@@ -455,9 +619,10 @@ ActivityLogsRecords
 |   | 768.333 |
 | | |
 
+---
+
 ## <a name="next-steps"></a>後續步驟
 
-了解如何使用下列文件，對您從 Azure 資料總管擷取的資料撰寫更多查詢：
-
-> [!div class="nextstepaction"]
-> [撰寫 Azure 資料總管的查詢](write-queries.md)
+* 了解如何使用[撰寫 Azure 資料總管的查詢](write-queries.md)，對您從 Azure 資料總管擷取的資料撰寫更多查詢。
+* [使用診斷記錄來監視 Azure 資料總管擷取作業](using-diagnostic-logs.md)
+* [使用計量來監視叢集健康情況](using-metrics.md)

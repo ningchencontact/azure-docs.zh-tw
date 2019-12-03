@@ -1,6 +1,6 @@
 ---
-title: 教學課程 - 使用 RBAC 與 Azure PowerShell 為群組授與 Azure 資源的存取權 |Microsoft Docs
-description: 了解如何使用角色型存取控制 (RBAC) 和 Azure PowerShell 為群組授與 Azure 資源的存取權。
+title: 教學課程 - 使用 RBAC 與 Azure PowerShell 為群組授與 Azure 資源的存取權
+description: 在本教學課程中，了解如何使用角色型存取控制 (RBAC) 和 Azure PowerShell 為群組授與 Azure 資源的存取權。
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 7f080682baf42c5852e167a20bfbad7f00fe8bd3
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: fb26e603ebb867bda47a93162ffef9bf716d3db6
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343684"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74418600"
 ---
 # <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>教學課程：使用 RBAC 與 Azure PowerShell 為群組授與 Azure 資源的存取權
 
 [角色型存取控制 (RBAC)](overview.md) 是您對 Azure 資源存取進行管理的機制。 在本教學課程中，您會使用 Azure PowerShell 為群組授與在訂用帳戶中檢視任何項目以及管理資源群組中所有項目的存取權。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 在不同範圍授與群組存取權
 > * 列出存取權
 > * 移除存取
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -237,11 +237,11 @@ ms.locfileid: "56343684"
 
 ## <a name="optional-list-access-using-the-azure-portal"></a>(選擇性) 使用 Azure 入口網站列出存取權
 
-1. 若要查看角色指派在 Azure 入口網站中的顯示情形，請檢視訂用帳戶的 [存取控制 (IAM)] 刀鋒視窗。
+1. 若要查看角色指派在 Azure 入口網站中的顯示情形，請檢視訂用帳戶的 [存取控制 (IAM)]  刀鋒視窗。
 
     ![訂用帳戶範圍的群組角色指派](./media/tutorial-role-assignments-group-powershell/role-assignments-subscription.png)
 
-1. 檢視資源群組的 [存取控制 (IAM)] 刀鋒視窗。
+1. 檢視資源群組的 [存取控制 (IAM)]  刀鋒視窗。
 
     ![資源群組範圍的群組角色指派](./media/tutorial-role-assignments-group-powershell/role-assignments-resource-group.png)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 50f6762c8046850da1e4541f2ccb7688542f7d54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1fb1a1bc7bfd8b3cc9d7758bf8e80d8759f9357e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67098481"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227471"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>教學課程：Azure Active Directory 與 Kudos 整合
 
@@ -213,18 +213,18 @@ Kudos 與 Azure AD 整合提供下列優點：
 
 1. 按一下 [使用者]  索引標籤，然後按一下 [新增使用者]  。
 
-   ![使用者管理員](./media/kudos-tutorial/ic787809.png "使用者管理員")
+   ![使用者管理員](./media/kudos-tutorial/ic787809.png "使用者管理")
 
 1. 在 [加入使用者]  區段中，執行下列步驟：
 
-    ![加入使用者](./media/kudos-tutorial/ic787810.png "加入使用者")
+    ![新增使用者](./media/kudos-tutorial/ic787810.png "加入使用者")
 
     a. 在相關的文字方塊中輸入您想要佈建之有效 Azure Active Directory 帳戶的 [名字]  、[姓氏]  、[電子郵件]  及其他詳細資料。
 
     b. 按一下 [建立使用者]  。
 
 > [!NOTE]
-> 您可以使用任何其他的 Kudos 使用者帳戶建立工具或 Kudos 提供的 API，佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 Kudos 使用者帳戶建立工具或 Kudos 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

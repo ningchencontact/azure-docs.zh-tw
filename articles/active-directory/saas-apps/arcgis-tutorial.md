@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4afd7697272775b8d5558d9c091eeea0d2b9adf
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 74cf0c1e055570df7702465df79dcdfbd8ea9e9f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158018"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232099"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>教學課程：Azure Active Directory 與 ArcGIS Online 整合
 
@@ -223,7 +223,7 @@ ms.locfileid: "73158018"
    
      ![加入並檢閱](./media/arcgis-tutorial/ic784749.png "加入並檢閱")
     
-     a. 輸入您想要佈建之有效 AAD 帳戶的 [電子郵件]  、[名字]  和 [姓氏]  。
+     a. 輸入您想要佈建的有效 Azure AD 帳戶的**電子郵件**、**名字**和**姓氏**。
   
      b. 按一下 [新增並檢閱]  。
 5. 檢閱您已輸入的資料，然後按一下 [新增成員]  。

@@ -1,5 +1,5 @@
 ---
-title: 快速入門：如何使用 Node.js 向 Azure 裝置佈建服務註冊 X.509 裝置
+title: 使用 Node.js 向 Azure 裝置佈建服務註冊 X.509 裝置
 description: 本快速入門使用群組註冊。 在本快速入門中，您會使用 Node.js 服務 SDK 向 Azure IoT 中樞裝置佈建服務註冊 X.509 裝置
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 3b2c27b8fc595dae39ed7374ec3647e6b4ba6f23
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 6056859cf1742fc4bda6056ad7c1c78059a8407a
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903420"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423262"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>快速入門：使用 Node.js 向裝置佈建服務註冊 X.509 裝置
 
@@ -112,13 +111,13 @@ ms.locfileid: "73903420"
 ## <a name="run-the-enrollment-group-sample"></a>執行註冊群組範例
  
 1. 若要執行範例，您需要佈建服務的連接字串。 
-    1. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源]  按鈕，然後開啟您的裝置佈建服務。 
-    2. 按一下 [共用存取原則]  ，然後按一下您要用來開啟其屬性的存取原則。 在 [存取原則]  視窗中，複製並記下主要索引鍵連接字串。 
+    1. 登入 Azure 入口網站，選取左側功能表上的 [所有資源]  按鈕，然後開啟您的裝置佈建服務。 
+    2. 按一下 [共用存取原則]  ，然後選取您要用來開啟其屬性的存取原則。 在 [存取原則]  視窗中，複製並記下主要索引鍵連接字串。 
 
        ![從入口網站取得佈建服務連接字串](./media/quick-enroll-device-x509-node/get-service-connection-string.png) 
 
 
-3. 如[準備測試憑證](quick-enroll-device-x509-node.md#prepare-test-certificates)中所述，您還需要 .pem 檔案，且其中必須包含先前已上傳至佈建服務、並已向佈建服務驗證的 X.509 中繼或根 CA 憑證。 若要檢查您的憑證是否已上傳和驗證，請在 Azure 入口網站的 [裝置佈建服務摘要] 頁面上，按一下 [憑證]  。 找出需要用於群組註冊的憑證，並確認其狀態值已驗證  。
+3. 如[準備測試憑證](quick-enroll-device-x509-node.md#prepare-test-certificates)中所述，您還需要 .pem 檔案，且其中必須包含先前已上傳至佈建服務、並已向佈建服務驗證的 X.509 中繼或根 CA 憑證。 若要檢查您的憑證是否已上傳和驗證，請在 Azure 入口網站的 [裝置佈建服務摘要] 頁面上，選取 [憑證]  。 找出需要用於群組註冊的憑證，並確認其狀態值已驗證  。
 
     ![入口網站中已驗證的憑證](./media/quick-enroll-device-x509-node/verify-certificate.png) 
 
@@ -140,8 +139,8 @@ ms.locfileid: "73903420"
 如果您打算探索 Node.js 服務範例，請勿清除本快速入門中建立的資源。 如果您不打算繼續，請使用下列步驟來刪除本快速入門建立的所有 Azure 資源。
  
 1. 在您的電腦上關閉 Node.js 範例輸出視窗。
-2. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，按一下 [管理註冊]  ，然後選取 [註冊群組]  索引標籤。選取您使用本快速入門建立之註冊項目的 [註冊識別碼]  ，然後按一下刀鋒視窗頂端的 [刪除]  按鈕。  
-3. 在 Azure 入口網站中，從您的裝置佈建服務中按一下 [憑證]  ，按一下您為本快速入門上傳的憑證，然後按一下 [憑證詳細資料]  視窗頂端的 [刪除]  按鈕。  
+2. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，選取 [管理註冊]  ，然後選取 [註冊群組]  索引標籤。選取您使用本快速入門所註冊 X.509 裝置的 [群組名稱]  旁的核取方塊，然後按窗格頂端的 [刪除]  按鈕。    
+3. 在 Azure 入口網站中，從您的裝置佈建服務中選取 [憑證]  ，選取您為本快速入門上傳的憑證，然後選取 [憑證詳細資料]  視窗頂端的 [刪除]  按鈕。  
  
 ## <a name="next-steps"></a>後續步驟
 在本快速入門中，您已使用 Azure IoT 中樞裝置佈建服務，建立了 X.509 中繼或根 CA 憑證的群組註冊。 若要深入了解裝置佈建，請繼續在 Azure 入口網站中進行裝置佈建服務設定的教學課程。 

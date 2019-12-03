@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/23/2019
+ms.date: 11/21/2019
 ms.author: aahi
-ms.openlocfilehash: f7a62d1d2b695726421ba990d0f118eb3ae199da
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 33c9c708adcc196bc7d9b2e8a066d18e4dd20608
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031448"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326612"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>範例：使用文字分析來偵測情感
 
@@ -36,7 +36,7 @@ ms.locfileid: "74031448"
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>情感分析 V3 公開預覽
 
-[下一版情感分析](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) 現在已有公開預覽版。 其大幅改善了 API 文字分類和評分的精確度和詳細資料。
+下一版情感分析現在已有公開預覽版。 其大幅改善了 API 文字分類和評分的精確度和詳細資料。 請試著使用 [API 測試主控台](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)來執行。
 
 > [!NOTE]
 > * 情感分析 v3 的要求格式和[資料限制](../overview.md#data-limits)與前版相同。

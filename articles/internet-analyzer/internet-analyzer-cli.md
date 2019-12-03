@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 2952f7f24e92b952daafa682eee9d4605537a37b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d474442086e2a114f26df279ab2682cd7628a5f5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839530"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184273"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>使用 CLI 建立 Internet Analyzer 測試 (預覽)
 
@@ -132,5 +132,6 @@ Internet Analyzer CLI 會公開下列類型的資源：
 
 ## <a name="next-steps"></a>後續步驟
 
-* 閱讀 [Internet Analyzer 常見問題集](internet-analyzer-faq.md)
+* 瀏覽 [Internet Analyzer CLI 參考](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest)，以取得支援的命令和使用方式範例的完整清單。
+* 請參閱 [Internet Analyzer 常見問題集](internet-analyzer-faq.md)。
 * 深入了解如何內嵌 [Internet Analyzer 用戶端](internet-analyzer-embed-client.md)以及如何建立[自訂端點](internet-analyzer-custom-endpoint.md)。 

@@ -1,19 +1,19 @@
 ---
-title: 快速入門 - 使用 Azure 空間錨點來建立 Unity Android 應用程式 | Microsoft Docs
+title: 快速入門：建立 Unity Android 應用程式
 description: 在本快速入門中，您將了解如何使用 Spatial Anchors 建置搭配 Unity 的 Android 應用程式。
 author: craigktreasure
-manager: aliemami
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3ba50b8317e85d09aeaf32c1acc62342ee2683bc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 213cf9b64f2c43274192c22efa2fa5a7dfbce5e5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847720"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277066"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>快速入門：使用 Azure 空間錨點來建立 Unity Android 應用程式
 

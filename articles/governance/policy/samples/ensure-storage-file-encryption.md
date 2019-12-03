@@ -1,14 +1,14 @@
 ---
 title: 範例 - 確保儲存體檔案加密
-description: 此原則定義範例會要求針對儲存體帳戶啟用檔案加密。
+description: 此原則定義範例會要求針對所有 Azure 儲存體帳戶啟用檔案加密。
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 0c0bb16d05b733ca7eabd665eab2ffea77de2b99
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e10c9a83b0a523848a7c50bc7e2161e92afbca07
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74070056"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463432"
 ---
 # <a name="sample---ensure-storage-file-encryption"></a>範例 - 確保儲存體檔案加密
 

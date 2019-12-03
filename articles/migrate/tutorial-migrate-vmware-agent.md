@@ -1,19 +1,19 @@
 ---
-title: 使用代理程式型 Azure Migrate 伺服器移轉將內部部署 VMware VM 遷移至 Azure | Microsoft Docs
-description: 本文將說明如何使用 Azure Migrate 伺服器移轉執行從內部部署機器遷移至 Azure 的代理程式型移轉
+title: 使用代理程式型 Azure Migrate 伺服器移轉來遷移 VMware VM
+description: 了解如何使用 Azure Migrate 執行 VMware VM 的代理程式型移轉。
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07e91abc1130505abc84f6687be7edd04522fa76
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 581014b89627905e3206705dffade5ba19443b65
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720183"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196286"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>將 VMware VM 遷移至 Azure (代理程式型)
 

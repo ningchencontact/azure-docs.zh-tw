@@ -1,6 +1,6 @@
 ---
-title: 教學課程 - 使用 RBAC 與 Resource Manager 範本為使用者授與 Azure 資源的存取權 | Microsoft Docs
-description: 了解如何使用角色型存取控制 (RBAC) 和 Azure Resource Manager 範本為使用者授與 Azure 資源的存取權。
+title: 教學課程 - 使用 RBAC 和 Resource Manager 範本為使用者授與 Azure 資源的存取權
+description: 在本教學課程中，了解如何使用角色型存取控制 (RBAC) 和 Azure Resource Manager 範本為使用者授與 Azure 資源的存取權。
 services: role-based-access-control,azure-resource-manager
 documentationCenter: ''
 author: rolyon
@@ -13,26 +13,26 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
-ms.openlocfilehash: edb20221862e6439b3bc574995f4037cbc95f8f9
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: ed143f85b4372348baa1d74b4ec7a7447943a74f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668867"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74418483"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>教學課程：使用 RBAC 和 Resource Manager 範本為使用者授與 Azure 資源的存取權
 
 [角色型存取控制 (RBAC)](overview.md) 是您管理對 Azure 資源存取的機制。 在本教學課程中，您會建立資源群組並對使用者授與存取權，讓其在資源群組中建立和管理虛擬機器。 本教學課程著重於部署 Resource Manager 範本來授與存取權的程序。 如需開發 Resource Manager 範本的詳細資訊，請參閱 [Resource Manager 文件](/azure/azure-resource-manager/)和[範本參考](/azure/templates/microsoft.authorization/allversions
 )。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 對使用者授與資源群組範圍的存取權
 > * 驗證部署
 > * 清除
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 

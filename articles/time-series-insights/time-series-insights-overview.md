@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 10/10/2019
+ms.date: 11/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa15e9c50cb5cd694a7a6adad352459536292b85
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 042e969b4a0dfea0910a0ef81fae264792cfd85f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012580"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327644"
 ---
 # <a name="what-is-azure-time-series-insights"></a>什麼是 Azure 時間序列深入解析？
 
@@ -84,13 +84,16 @@ Azure 時間序列深入解析會擷取每個新事件並將其各自儲存為�
 1. 上傳參考資料。 這不是一項額外服務。
 1. 在幾分鐘內使用時間序列深入解析總管查看您的資料。
 
-## <a name="time-series-insights-explorer"></a>時間序列深入解析總管
+## <a name="explorer"></a>總管
 
-此圖可顯示透過時間序列深入解析總管檢視的時間序列深入解析資料範例。
+使用 Azure 時間序列深入解析總管來檢視、分析及探索資料中的趨勢。
 
-![時間序列深入解析總管](media/time-series-insights-explorer/explorer4.png)
+![時間序列深入解析總管](media/overview/time-series-insights-explorer-panel.png)
+
+了解如何使用 [Azure 時間序列深入解析總管](time-series-insights-explorer.md)，並從您的資料中擷取深入解析。
 
 ## <a name="next-steps"></a>後續步驟
 
 - 探索 Azure 時間序列深入解析正式可用的[免費示範環境](./time-series-quickstart.md)。
+
 - 深入了解如何[規劃時間序列深入解析](time-series-insights-environment-planning.md)環境。

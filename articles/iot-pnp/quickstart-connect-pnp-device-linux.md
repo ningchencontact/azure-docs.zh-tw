@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 38a6deb8d021c5e6a20d765cc7aee5b86042f557
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 802578c79fa086c74a56db8d47f83ae96d6b0194
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585974"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74152131"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-to-iot-hub"></a>快速入門：將在 Linux 上執行的範例 IoT 隨插即用預覽版裝置應用程式連線至 IoT 中樞
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-to-iot-hub-c-linux"></a>快速入門：將在 Linux 上執行的範例 IoT 隨插即用預覽版裝置應用程式連線至 IoT 中樞 (C Linux)
 
 本快速入門說明如何在 Linux 上建置範例 IoT 隨插即用裝置應用程式、將其連線至您的 IoT 中樞，並使用 Azure CLI 檢視它傳送至中樞的資訊。 範例應用程式以 C 撰寫，並且包含在適用於 C 的 Azure IoT 裝置 SDK 中。解決方案開發人員可以使用 Azure CLI 了解 IoT 隨插即用裝置的功能，而不需檢視任何裝置程式碼。
 
@@ -43,15 +43,14 @@ gcc --version
 
 ## <a name="prepare-an-iot-hub"></a>準備 IoT 中樞
 
-您的 Azure 訂用帳戶中也必須要有 Azure IoT 中樞，才能完成本快速入門。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+您的 Azure 訂用帳戶中也必須要有 Azure IoT 中樞，才能完成本快速入門。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 如果您沒有 IoT 中樞，請依照[下列指示建立一個](../iot-hub/iot-hub-create-using-cli.md)。
 
 > [!IMPORTANT]
 > 在公開預覽期間，IoT 隨插即用功能只能在**美國中部**、**歐洲北部**和**日本東部**區域中建立的 IoT 中樞上使用。
 
-如果您在本機使用 Azure CLI，`az` 版本應該是 **2.0.73** 或更新版本，Azure Cloud Shell 會使用最新版本。 使用 `az --version` 命令檢查電腦上所安裝的版本。
+如果您在本機使用 Azure CLI，`az` 版本應為 **2.0.73** 或更新版本；Azure Cloud Shell 會使用最新版本。 使用 `az --version` 命令檢查電腦上所安裝的版本。
 
-新增適用於 Azure CLI 的 Microsoft Azure IoT 延伸模組：
-
+執行下列命令，將適用於 Azure CLI 的 Microsoft Azure IoT 擴充功能新增至您的 Cloud Shell 執行個體：
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
@@ -66,31 +65,29 @@ az login
 
 如果您要使用 Azure Cloud Shell，系統會將您自動登入。
 
-如果您沒有 IoT 中樞，請依照[下列指示建立一個](../iot-hub/iot-hub-create-using-cli.md)。 在公開預覽期間，IoT 隨插即用適用於北歐、美國中部和日本東部區域。 請務必在這其中一個區域建立您的中樞。
-
-執行下列命令，在 IoT 中樞建立裝置身分識別。 將 **YourIoTHubName** 預留位置取代為您實際的 IoT 中樞名稱：
+執行下列命令，在 IoT 中樞建立裝置身分識別。 將 **YourIoTHubName** 和 **YourDeviceID** 預留位置取代為您自行選擇的「IoT 中樞名稱」  和「裝置識別碼」  。
 
 ```azurecli-interactive
-az iot hub device-identity create --hub-name [YourIoTHubName] --device-id mydevice
+az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>
 ```
 
-執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
+執行下列命令，以針對您剛註冊的裝置取得「裝置連接字串」  (請記下以供後續使用)：
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id mydevice --output table
+az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
 ```
 
 ## <a name="prepare-the-development-environment"></a>準備開發環境
 
-在本快速入門中，您會準備可用來複製及建立 Azure IoT C 裝置 SDK 的開發環境。
+在本快速入門中，您會準備可用來複製及建置 Azure IoT 中樞裝置 C SDK 的開發環境。
 
-開啟命令提示字元。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
+在您選擇的目錄中開啟命令提示字元。 執行下列命令，將 [Azure IoT C SDK 和程式庫](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫複製到下列位置：
 
 ```bash
 git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
 ```
 
-此命令需要幾分鐘才能完成。
+預期此作業需要幾分鐘的時間才能完成。
 
 ## <a name="build-the-code"></a>建置程式碼
 
@@ -129,9 +126,9 @@ git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
 
 1. 在裝置 SDK 根資料夾的 `digitaltwin_client/samples/digitaltwin_sample_environmental_sensor` 資料夾中選取檔案 `EnvironmentalSensor.interface.json`。 選取 [開啟]  ，然後選取 [儲存]  ，將介面檔案上傳到您的存放庫。
 
-1. 依序選取 [公司存放庫]  和 [連接字串]  。 記下第一個公司模型存放庫連接字串，您稍後會在本快速入門中使用它。
+1. 依序選取 [公司存放庫]  和 [連接字串]  。 請記下第一個_公司模型存放庫連接字串_，您稍後會在本快速入門中加以使用。
 
-## <a name="run-the-sample"></a>執行範例
+## <a name="run-the-device-sample"></a>執行裝置範例
 
 在 SDK 中執行範例應用程式，以模擬將遙測傳送到 IoT 中樞的 IoT 隨插即用裝置。 若要執行範例應用程式：
 
@@ -144,10 +141,10 @@ git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
 1. 執行可執行檔：
 
     ```bash
-    ./digitaltwin_sample_device "{your device connection string}"
+    ./digitaltwin_sample_device "<YourDeviceConnectionString>"
     ```
 
-模擬的裝置會開始傳送遙測、接聽命令，以及接聽屬性更新。
+裝置現在已可接收命令和屬性更新，並已開始將遙測資料傳送至中樞。 完成後續步驟後，請讓範例保持執行狀態。
 
 ### <a name="use-the-azure-iot-cli-to-validate-the-code"></a>使用 Azure IoT CLI 驗證程式碼
 
@@ -156,14 +153,15 @@ git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
 使用下列命令檢視範例裝置正在傳送的遙測。 您可能需要等候一或兩分鐘，才會在輸出中看到任何遙測：
 
 ```azurecli-interactive
-az iot dt monitor-events --hub-name {your IoT hub} --device-id mydevice
+az iot dt monitor-events --hub-name <YourIoTHubName> --device-id <YourDeviceID>
 ```
 
 使用下列命令檢視裝置所傳送的屬性：
 
 ```azurecli-interactive
-az iot dt list-properties --hub-name {your IoT hub} --device-id mydevice --interface sensor --source private --repo-login "{your company model repository connection string}"
+az iot dt list-properties --hub-name <YourIoTHubName> --device-id <YourDeviceID> --interface sensor --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
 ```
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

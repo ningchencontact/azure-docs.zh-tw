@@ -1,5 +1,5 @@
 ---
-title: B2B 共同作業的自助式註冊入口網站 - Azure Active Directory | Microsoft Docs
+title: B2B 共同作業的自助式註冊入口網站 - Azure AD
 description: Azure Active Directory B2B 共同作業讓企業合作夥伴選擇性地存取您的公司應用程式，以支援公司間的關係
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28db43a345fb29a7529136ddfb929f5a48ccb1f8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 794a13a3f863c732d4e7ed8cedcbd73f7cbc0d0b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785441"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272114"
 ---
 # <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Azure AD B2B 共同作業註冊的自助入口網站
 

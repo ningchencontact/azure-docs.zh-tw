@@ -1,19 +1,19 @@
 ---
-title: 快速入門 - 使用 Azure Spatial Anchors 建立 HoloLens 應用程式 | Microsoft Docs
+title: 快速入門：使用 DirectX 建立 HoloLens 應用程式
 description: 在本快速入門中，您將了解如何使用 Spatial Anchors 建置 HoloLens 應用程式。
 author: craigktreasure
-manager: aliemami
+manager: virivera
 services: azure-spatial-anchors
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7069a3c8b266938e974d1b7130a349e0c9b66b5c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 3814a12657b2634ede02eda83c7e7bcdf78cd7e2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111822"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277106"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>快速入門：在 C++/WinRT 和 DirectX 中使用 Azure Spatial Anchors 建立 HoloLens 應用程式
 

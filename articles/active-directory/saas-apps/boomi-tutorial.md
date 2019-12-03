@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1044a78d9bf1b52a7b0dd9e47d7db6d98b45299c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 2469745edb5b8b3696478603cfe874bcabc8c1ff
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081973"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231961"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Boomi 整合
 
@@ -189,7 +189,7 @@ ms.locfileid: "74081973"
     f. 按一下 [確定]  。
 
     > [!NOTE]
-    > 使用者的密碼是透過識別提供者來管理的，因此他們不會收到附上 AtomSphere 帳戶登入密碼的「歡迎使用」通知電子郵件。 您可以使用任何其他的 Boomi 使用者帳戶建立工具或 Boomi 提供的 API 來佈建 AAD 使用者帳戶。
+    > 使用者的密碼是透過識別提供者來管理的，因此他們不會收到附上 AtomSphere 帳戶登入密碼的「歡迎使用」通知電子郵件。 您可以使用任何其他的 Boomi 使用者帳戶建立工具或 Boomi 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ## <a name="test-sso"></a>測試 SSO
 

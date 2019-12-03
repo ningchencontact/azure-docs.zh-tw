@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 28c7166c3569505d595c55178cf721ee432bd642
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 514c9655a1d303c444cc8c183ed6b73fd3422cf8
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024168"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533210"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>使用 Azure Cosmos DB 模擬器建置工作在 Azure DevOps 中設定 CI/CD 管線
 
@@ -150,6 +150,24 @@ namespace todo.Tests
 在建置完成之後，請觀察您的測試是否通過，所有測試都是針對來自建置工作的 Cosmos DB 模擬器而執行！
 
 ![儲存並執行組建](./media/tutorial-setup-ci-cd/buildComplete_1.png)
+
+## <a name="set-up-using-yaml"></a>使用 YAML 進行設定
+
+如果您要使用 YAML 工作來設定 CI/CD 管線，您可以定義 YAML 工作，如下列程式碼所示：
+
+```yml
+- task: azure-cosmosdb.emulator-public-preview.run-cosmosdbemulatorcontainer.CosmosDbEmulator@2
+  displayName: 'Run Azure Cosmos DB Emulator'
+
+- script: yarn test
+  displayName: 'Run API tests (Cosmos DB)'
+  env:
+    HOST: $(CosmosDbEmulator.Endpoint)
+    # Hardcoded key for emulator, not a secret
+    AUTH_KEY: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+    # The emulator uses a self-signed cert, disable TLS auth errors
+    NODE_TLS_REJECT_UNAUTHORIZED: '0'
+```
 
 ## <a name="next-steps"></a>後續步驟
 

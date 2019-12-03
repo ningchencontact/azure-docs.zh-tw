@@ -1,14 +1,14 @@
 ---
 title: 範例 - 強制執行標籤及其值
-description: 此原則定義範例需要標記名稱和值，且各自要設定為參數。
+description: 此原則定義範例需要每個 Azure 資源上參數中定義的標籤名稱和值。
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: b48bd1e38264bc98a2ec7b4c5b1a6a929babffaf
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d405b5cbe2bdb7b96c74d665171714d1890ef624
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076258"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463332"
 ---
 # <a name="sample---enforce-tag-and-its-value"></a>範例 - 強制執行標籤及其值
 

@@ -1,18 +1,14 @@
 ---
-title: 使用 Azure 備份服務備份 Azure 檔案儲存體檔案共用
+title: 教學課程 - 備份 Azure 檔案儲存體檔案共用
 description: 在本教學課程中，您將了解如何使用 Azure 入口網站來設定復原服務保存庫，以及備份 Azure 檔案共用。
-author: dcurwin
-ms.author: dacurwin
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.service: backup
-manager: carmonm
-ms.openlocfilehash: a8b08f87441f9b4c67f718dfe9f0c894d0730a5f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f3c1956a0344d300fff9a745a4733b7bef45a367
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747045"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171873"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>在 Azure 入口網站中備份 Azure 檔案共用
 

@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 2a1fbe8d47af8a2215b0d0a3d81fbe67a62d4755
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 84272336a9f70f663e134e16fe88c7e43bb73548
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474405"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208649"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>教學課程：建立並設定 Azure Active Directory Domain Services 執行個體
 
@@ -92,6 +92,10 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
     「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。
 
     您不需要針對要跨區域分散的 Azure AD DS 進行設定。 Azure 平台會自動處理在區域之間分散資源。 如需詳細資訊及查看區域可用性，請參閱[什麼是 Azure 中的可用性區域？][availability-zones]
+
+1. *樹系*是 Active Directory Domain Services 用來將一或多個網域分組的邏輯建構。 根據預設，Azure AD DS 受控網域會建立為*使用者*樹系。 這種類型的樹系會同步 Azure AD 中的所有物件，包括在內部部署 AD DS 環境中建立的任何使用者帳戶。 *資源*樹系只會同步直接在 Azure AD 中建立的使用者和群組。 資源樹系目前為預覽狀態。 如需*資源*樹系的詳細資訊，包括您使用某一樹系的原因，以及如何建立與內部部署 AD DS 網域之間的樹系信任，請參閱 [Azure AD DS 資源樹系概觀][resource-forests]。
+
+    在本教學課程中，請選擇建立*使用者*樹系。
 
     ![設定 Azure AD Domain Services 執行個體的基本設定](./media/tutorial-create-instance/basics-window.png)
 
@@ -192,6 +196,9 @@ Azure AD 租用戶必須先[設定為可進行自助式密碼重設][configure-s
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
+[skus]: overview.md
+[resource-forests]: concepts-resource-forest.md
 [availability-zones]: ../availability-zones/az-overview.md
 
 <!-- EXTERNAL LINKS -->

@@ -1,23 +1,18 @@
 ---
-title: 快速入門：將 Docker 容器部署至 Azure 容器執行個體 - Azure CLI
+title: 快速入門 - 將 Docker 容器部署至容器執行個體 - Azure CLI
 description: 在本快速入門中，您可以使用 Azure CLI 快速地部署在隔離式 Azure 容器執行個體中執行的容器化的 Web 應用程式
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
-ms.author: danlep
 ms.custom:
 - seo-python-october2019
 - seodec18
 - mvc
-ms.openlocfilehash: 65c067792499017a7e00fdbb6199e591981683f8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ab079c7ad5d741d5a569e042ae8939cbeeff203b
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429218"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533571"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>快速入門：使用 Azure CLI 部署容器執行個體
 

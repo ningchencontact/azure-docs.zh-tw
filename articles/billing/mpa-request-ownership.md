@@ -5,23 +5,23 @@ author: amberbhargava
 manager: amberb
 editor: banders
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: banders
-ms.openlocfilehash: 312808517c80041cb45e2e8ac46566c1f59884e1
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: d68d95619b6aa6e8098c282977866c4bc21a357c
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376785"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561060"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>將 Azure 訂用帳戶的帳單擁有權交給您的 MPA 帳戶
 
-若要為受控服務和 Azure 使用量提供單一合併發票，雲端解決方案提供者 (CSP) 可從具有 Enterprise 合約 (EA) 的客戶接管 Azure 訂用帳戶的帳單擁有權。
+若要為受控服務和 Azure 使用量提供單一合併發票，雲端解決方案提供者 (CSP) 可從具有直接 Enterprise 合約 (EA) 的客戶接管 Azure 訂用帳戶的帳單擁有權。
 
 這項功能僅適用於已認證為 [Azure 專家 MSP](https://partner.microsoft.com/membership/azure-expert-msp) 的 CSP 直接帳單合作夥伴。 它受限於 Microsoft 控管和原則，而且可能需要對特定客戶進行審查與核准。
 

@@ -1,24 +1,16 @@
 ---
-title: 建立多個資源執行個體 - Azure Resource Manager
+title: 建立多個資源執行個體
 description: 了解如何建立 Azure Resource Manager 範本以建立多個 Azure 資源執行個體。
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b1233ff4695a1f715801d78d70ea80ab84be2a36
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: df41094d163b8e3ecb78827df1a52dafab0aec1f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528261"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326523"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>教學課程：使用 Resource Manager 範本建立多個資源執行個體
 
@@ -39,7 +31,7 @@ ms.locfileid: "72528261"
 
 若要完成本文，您需要：
 
-* [Visual Studio Code](https://code.visualstudio.com/) 搭配 [Resource Manager Tools 擴充功能](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
+* Visual Studio Code 搭配 Resource Manager Tools 擴充功能。 請參閱[使用 Visual Studio Code 建立 Azure Resource Manager 範本](./resource-manager-tools-vs-code.md)。
 
 ## <a name="open-a-quickstart-template"></a>開啟快速入門範本
 
@@ -57,7 +49,7 @@ ms.locfileid: "72528261"
 
 ## <a name="edit-the-template"></a>編輯範本
 
-現有的範本會建立一個儲存體帳戶。 您會自訂範本以建立三個儲存體帳戶。  
+現有的範本會建立一個儲存體帳戶。 您會自訂範本以建立三個儲存體帳戶。
 
 從 Visual Studio Code 進行下列四個變更：
 

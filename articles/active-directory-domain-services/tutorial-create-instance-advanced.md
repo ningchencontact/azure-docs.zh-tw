@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 7bafcb1508cdb01c4fe27a9d02db63c4f00efd74
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 334a5c3c76f1ebaf4c8c36020110ef9c0bcc8d69
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172528"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208729"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>教學課程：建立並設定包含進階設定選項的 Azure Active Directory Domain Services 執行個體
 
@@ -56,7 +56,7 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 
 若要啟動 [啟用 Azure AD Domain Services]  精靈，請完成下列步驟：
 
-1. 在 Azure 入口網站的左上角選取 [+ 建立資源]  。
+1. 從 Azure 入口網站功能表或 **[首頁]** 頁面，選取 [建立資源]  。
 1. 在搜尋列中輸入 [Domain Services]  ，然後從搜尋建議中選擇 [Azure AD Domain Services]  。
 1. 在 [Azure AD Domain Services] 頁面中，選取 [建立]  。 [啟用 Azure AD Domain Services]  精靈隨即啟動。
 1. 選取您要在其中建立受控網域的 Azure **訂用帳戶**。
@@ -75,7 +75,7 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 >
 > 在這些教學課程和操作說明文章中，contoso.com  的自訂網域會作為簡短的範例。 在所有命令中，指定其中可能包含唯一首碼的自有網域名稱。
 >
-> 如需詳細資訊，請參閱[選取網域的命名首碼][naming-prefix]。
+> 如需詳細資訊，請參閱 [選取網域的命名首碼][naming-prefix]。
 
 下列 DNS 名稱限制也適用於此：
 
@@ -93,6 +93,10 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
     「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。
 
     您不需要針對要跨區域分散的 Azure AD DS 進行設定。 Azure 平台會自動處理在區域之間分散資源。 如需詳細資訊及查看區域可用性，請參閱[什麼是 Azure 中的可用性區域？][availability-zones]
+
+1. *樹系*是 Active Directory Domain Services 用來將一或多個網域分組的邏輯建構。 根據預設，Azure AD DS 受控網域會建立為*使用者*樹系。 這種類型的樹系會同步 Azure AD 中的所有物件，包括在內部部署 AD DS 環境中建立的任何使用者帳戶。 *資源*樹系只會同步直接在 Azure AD 中建立的使用者和群組。 資源樹系目前為預覽狀態。 如需*資源*樹系的詳細資訊，包括您使用某一樹系的原因，以及如何建立與內部部署 AD DS 網域之間的樹系信任，請參閱 [Azure AD DS 資源樹系概觀][resource-forests]。
+
+    在本教學課程中，請選擇建立*使用者*樹系。
 
     ![設定 Azure AD Domain Services 執行個體的基本設定](./media/tutorial-create-instance-advanced/basics-window.png)
 
@@ -242,7 +246,7 @@ Azure AD 租用戶必須先[設定為可進行自助式密碼重設][configure-s
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[resource-forests]: concepts-resource-forest.md
 [availability-zones]: ../availability-zones/az-overview.md
 
 <!-- EXTERNAL LINKS -->
-[naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

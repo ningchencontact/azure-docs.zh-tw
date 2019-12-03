@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1f8041ecea7c297c6eafdedfbedaae62f61e0e8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d368b6cd809ccf4e428974bf7c82c01bc5e035b7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090586"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233410"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>教學課程：Azure Active Directory 與 SimpleNexus 整合
 
@@ -186,7 +186,7 @@ SimpleNexus 與 Azure AD 整合提供下列優點：
 若要讓 Azure AD 使用者能夠登入 SimpleNexus，必須將他們佈建到 SimpleNexus。 SimpleNexus 須由租用戶系統管理員手動執行佈建工作。
 
 > [!NOTE]
-> 您可以使用任何其他的 SimpleNexus 使用者帳戶建立工具或 SimpleNexus 提供的 API 來佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 SimpleNexus 使用者帳戶建立工具或 SimpleNexus 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9307bbe58afc45468f222f5b510585d528de532a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 81594e6a21372f2b4dacedbda638cc87bad966db
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158033"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227556"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>教學課程：Azure Active Directory 與 IdeaScale 整合
 
@@ -241,7 +241,7 @@ IdeaScale 與 Azure AD 整合提供下列優點：
     > Azure Active Directory 帳戶的持有者會收到一封包含連結的電子郵件，可在啟用帳戶前進行確認。
 
 > [!NOTE]
-> 您可以使用任何其他的 IdeaScale 使用者帳戶建立工具或 IdeaScale 提供的 API，來佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 IdeaScale 使用者帳戶建立工具或 IdeaScale 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

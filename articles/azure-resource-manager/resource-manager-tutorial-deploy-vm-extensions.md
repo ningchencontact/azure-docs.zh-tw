@@ -1,22 +1,16 @@
 ---
-title: 部署 VM 擴充功能 - Azure Resource Manager 範本
+title: 使用範本部署 VM 擴充功能
 description: 了解如何使用 Azure Resource Manager 範本部署虛擬機器擴充功能
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5eb7a8d82f7f61e18afc49c61444354dcde77b5e
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: c18e5959a1ec52d9f10f27f456a466669e7b99c9
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533441"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325366"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>教學課程：使用 Azure Resource Manager 範本部署虛擬機器擴充功能
 
@@ -37,7 +31,7 @@ ms.locfileid: "72533441"
 
 若要完成本文，您需要：
 
-* [Visual Studio Code](https://code.visualstudio.com/) 搭配 Resource Manager Tools 擴充功能。 請參閱[安裝擴充功能](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
+* Visual Studio Code 搭配 Resource Manager Tools 擴充功能。 請參閱[使用 Visual Studio Code 建立 Azure Resource Manager 範本](./resource-manager-tools-vs-code.md)。
 * 為了提高安全性，請使用為虛擬機器系統管理員帳戶產生的密碼。 以下是用於產生密碼的範例：
 
     ```azurecli-interactive

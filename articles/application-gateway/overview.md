@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: a51276cd54a88c5e566afef0d06673f14b5862cf
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a61b1a44419ac35efa5888de2b5a6e4988dfb512
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572040"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422307"
 ---
 # <a name="what-is-azure-application-gateway"></a>什麼是 Azure 應用程式閘道？
 
@@ -26,6 +26,11 @@ Azure 應用程式閘道是網路流量負載平衡器，可讓您管理 Web 應
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
 這類型的路由也稱為應用程式層 (OSI 層 7) 負載平衡。 Azure 應用程式閘道可以進行 URL 型路由等作業。
+
+>[!NOTE]
+> Azure 會為您的案例提供一套完整受控的負載平衡解決方案。 如果您需要高效能、低延遲、Layer 4 負載平衡，請參閱[什麼是 Azure Load Balancer？](../load-balancer/load-balancer-overview.md) 如果您要尋找全域 DNS 負載平衡，請參閱[什麼是流量管理員？](../traffic-manager/traffic-manager-overview.md) 結合這些解決方案，可能有益於您的端對端案例。
+>
+> 如需 Azure 負載平衡選項的比較，請參閱 [Azure 中的負載平衡選項概觀](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)。
 
 Azure 應用程式閘道包含下列功能︰
 

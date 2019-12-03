@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 0f1aca75045f674fa45f5ad00c14a37c1abe7aea
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7d3b7f8982a24856818cbb6ce86060beac969fc2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160423"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233501"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>教學課程：Azure Active Directory 與 Mozy Enterprise 整合
 
@@ -208,7 +208,7 @@ Mozy Enterprise 與 Azure AD 整合提供下列優點：
 為了讓 Azure AD 使用者能夠登入 Mozy Enterprise，必須將他們佈建到 Mozy Enterprise 中。 在 Mozy Enterprise 的情況下，需以手動方式佈建。
 
 >[!NOTE]
->您可以使用任何其他的 Mozy Enterprise 使用者帳戶建立工具或 Mozy Enterprise 提供的 API 來佈建 AAD 使用者帳戶。
+>您可以使用任何其他的 Mozy Enterprise 使用者帳戶建立工具或 Mozy Enterprise 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 **若要佈建使用者帳戶，請執行下列步驟：**
 

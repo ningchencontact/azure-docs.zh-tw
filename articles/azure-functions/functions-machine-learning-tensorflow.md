@@ -1,21 +1,17 @@
 ---
-title: 教學課程：在 Azure Functions 中使用 Python 和 TensorFlow 來進行機器學習推斷 | Microsoft Docs
+title: 在 Azure Functions 中使用 Python 和 TensorFlow 來進行機器學習推斷
 description: 本教學課程示範如何在 Azure Functions 中套用 TensorFlow 機器學習模型
-services: functions
 author: anthonychu
-manager: gwallace
-ms.service: azure-functions
-ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: 491adb2719dc7c05a2943634e83027376c9327c3
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e7c4e1bbd23d43d5e11ab8b26c3d4e1215b4946b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082735"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230512"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>教學課程：在 Azure Functions 中使用 Python 和 TensorFlow 來套用機器學習模型
 

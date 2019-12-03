@@ -1,14 +1,14 @@
 ---
 title: 範例 - 使用受控磁碟來建立 VM
-description: 此原則定義範例會要求虛擬機器使用受控磁碟。
+description: 此原則定義範例會要求虛擬機器和虛擬機器擴展集使用受控磁碟。
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 0ad21e255e771cd94c6f2eb794e20dc9b67f49d5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e849f30c57a6e9776eec561d79cbb263f647b45e
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069777"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463036"
 ---
 # <a name="sample---create-vm-using-managed-disk"></a>範例 - 使用受控磁碟來建立 VM
 

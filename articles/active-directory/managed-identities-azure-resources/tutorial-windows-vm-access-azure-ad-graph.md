@@ -1,5 +1,5 @@
 ---
-title: 使用 Windows VM 系統指派的受控識別來存取 Azure AD Graph API
+title: 教學課程`:` 使用 Windows VM 受控識別來存取 Azure AD Graph
 description: 本教學課程會逐步引導您使用 Windows VM 系統指派的受控識別，以存取 Azure AD Graph API。
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60938f26c27b9f94046b1be8e3d0cb6b247017c9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 43ef467adb8970d410404c151d0028ee4cda92b9
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997779"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183012"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure AD Graph API
 
@@ -144,7 +144,7 @@ Azure AD Graph：
 
 若要使用 VM 的系統指派受控識別對 Azure AD Graph 進行驗證，您需要從 VM 提出要求。
 
-1. 在入口網站中，瀏覽至 [虛擬機器] 並移至您的 Windows VM，在 [概觀] 刀鋒視窗中按一下 [連線]。  
+1. 在入口網站中，瀏覽至 [虛擬機器]  並移至您的 Windows VM，在 [概觀]  刀鋒視窗中按一下 [連線]  。  
 2. 輸入您建立 Windows VM 時使用的**使用者名稱**和**密碼**。
 3. 現在您已經建立虛擬機器的遠端桌面連線，請在遠端工作階段中開啟 PowerShell。  
 4. 使用 Powershell 的 Invoke-WebRequest，向 Azure 資源端點的本機受控識別提出要求，以取得 Azure AD Graph 的存取權杖。

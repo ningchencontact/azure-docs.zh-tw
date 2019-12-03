@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 150c4b458724562fc35ef97e190c898a289c6122
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fae7b80fd4d2fcec32bbef5e4cdf18e576412a86
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102912"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231969"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Sugar CRM 整合
 
@@ -78,7 +78,7 @@ ms.locfileid: "71102912"
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Sugar CRM]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
-1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
+1. 在 [**選取單一登入方法**] 頁面上，選取 [**SAML**]。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
@@ -147,15 +147,15 @@ ms.locfileid: "71102912"
 
 1. 移至 [管理]  。
 
-    ![管理](./media/sugarcrm-tutorial/ic795888.png "管理")
+    ![管理員](./media/sugarcrm-tutorial/ic795888.png "Admin")
 
 1. 在 [管理]  區段中，按一下 [密碼管理]  。
 
-    ![管理](./media/sugarcrm-tutorial/ic795889.png "管理")
+    ![系統管理](./media/sugarcrm-tutorial/ic795889.png "系統管理")
 
 1. 按一下 [啟用 SAML 驗證]  。
 
-    ![管理](./media/sugarcrm-tutorial/ic795890.png "管理")
+    ![系統管理](./media/sugarcrm-tutorial/ic795890.png "系統管理")
 
 1. 在 [SAML 驗證]  區段中，執行下列步驟：
 
@@ -179,11 +179,11 @@ ms.locfileid: "71102912"
 
 1. 移至 [管理]  。
 
-    ![管理](./media/sugarcrm-tutorial/ic795888.png "管理")
+    ![管理員](./media/sugarcrm-tutorial/ic795888.png "Admin")
 
 1. 在 [管理]  區段中，按一下 [使用者管理]  。
 
-    ![管理](./media/sugarcrm-tutorial/ic795893.png "管理")
+    ![系統管理](./media/sugarcrm-tutorial/ic795893.png "系統管理")
 
 1. 移至 [使用者] \> [建立新的使用者]  。
 
@@ -206,7 +206,7 @@ ms.locfileid: "71102912"
     b. 按一下 [檔案]  。
 
 > [!NOTE]
-> 您可以使用任何其他的 Sugar CRM 使用者帳戶建立工具或 Sugar CRM 提供的 API 來佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 Sugar CRM 使用者帳戶建立工具或 Sugar CRM 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ## <a name="test-sso"></a>測試 SSO 
 

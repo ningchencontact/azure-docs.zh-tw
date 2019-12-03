@@ -1,14 +1,14 @@
 ---
-title: 範例 - SWIFT CSP-CSCF v2020 藍圖 - 控制項對應
+title: SWIFT CSP-CSCF v2020 藍圖範例控制項
 description: SWIFT CSP-CSCF v2020 藍圖範例的控制項對應。 每個控制項都會對應至一或多個可協助評量的 Azure 原則。
 ms.date: 09/24/2019
 ms.topic: sample
-ms.openlocfilehash: 0e5b45ec86acbe7c55aed0aa1611f499316e9118
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1826e4820f06fc3a858ce6cd5f8906baaa9808cc
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037832"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546518"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>SWIFT CSP-CSCF v2020 藍圖範例的控制項對應
 

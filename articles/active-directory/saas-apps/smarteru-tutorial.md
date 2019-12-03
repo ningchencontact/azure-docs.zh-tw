@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 07c7a15ea713bb6f73e1174a681dcccb5e79e289
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61d7a2a7e4a60794710d602dab6b54e894bfc475
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090526"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>教學課程：Azure Active Directory 與 SmarterU 整合
 
@@ -221,7 +221,7 @@ SmarterU 與 Azure AD 整合提供下列優點：
     d. 按一下 [檔案]  。
 
 > [!NOTE]
-> 您可以使用任何其他的 SmarterU 使用者帳戶建立工具或 SmarterU 提供的 API 來佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 SmarterU 使用者帳戶建立工具或 SmarterU 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

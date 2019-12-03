@@ -1,22 +1,17 @@
 ---
-title: Azure 快速入門 - 使用 Azure 入口網站來備份 VM
+title: 快速入門 - 使用 Azure 入口網站來備份 VM
 description: 在此快速入門中，了解如何建立復原服務保存庫、在 Azure VM 上啟用保護，以及使用 Azure 入口網站備份 VM。
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-tags: azure-resource-manager, virtual-machine-backup
-ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/17/2018
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 2d740c8d078770267669a0be749ca8d5d210bb72
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 430a560f3ae8e9abc6c5e7a34c24d9d2f262fd79
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083173"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171995"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>在 Azure 中備份虛擬機器
 

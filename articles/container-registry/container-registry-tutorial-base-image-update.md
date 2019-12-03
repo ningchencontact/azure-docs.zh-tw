@@ -1,20 +1,15 @@
 ---
-title: 教學課程 - 在基底映像更新時觸發映像建置 - Azure Container Registry
+title: 教學課程 - 在基底映像更新時觸發映像建置
 description: 在本教學課程中，您將了解如何設定 Azure Container Registry 工作，以在基底映像更新時自動觸發雲端中的容器映像建置。
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/12/2019
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 1beb66d8491b7dac84e9531558f8967e22086575
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b89bf0364165822368647b4c5b773bf422902aec
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931676"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456138"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>教學課程：在 Azure Container Registry 中更新基底映像時自動執行容器映像建置 
 
@@ -272,10 +267,10 @@ az ad sp delete --id http://$ACR_NAME-pull
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何使用工作，在映像的基底映像有所更新時自動觸發容器映像建置。 接下來請了解關於容器登錄驗證的資訊。
+在本教學課程中，您已了解如何使用工作，在映像的基底映像有所更新時自動觸發容器映像建置。 現在，請繼續進行下一個教學課程，了解如何根據定義的排程觸發工作。
 
 > [!div class="nextstepaction"]
-> [Azure Container Registry 中的驗證](container-registry-authentication.md)
+> [依照排程執行工作](container-registry-tasks-scheduled.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

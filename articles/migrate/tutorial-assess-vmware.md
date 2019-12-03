@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/11/2019
+ms.date: 11/19/2019
 ms.author: hamusa
-ms.openlocfilehash: 46bf756a729441bd3bc4b2b00aaa2c79fa06c0b8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 595b6705b4e876ce5b42a7de831136cb0b62b1f5
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521244"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196453"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>使用 Azure Migrate 評估 VMware VM：伺服器評量
 
@@ -108,8 +108,8 @@ Azure Migrate：伺服器評量會執行輕量型 VMware VM 設備。
 
   **演算法** | **雜湊值**
   --- | ---
-  MD5 | 27230f3b012187860281b912ee661709
-  SHA256 | c0a5b5998b7f38ac6e57ea9a808ecc4295795e18f9ca99c367585068883f06e7
+  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
+  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ### <a name="create-the-appliance-vm"></a>建立設備 VM
@@ -172,7 +172,7 @@ Azure Migrate：伺服器評量會執行輕量型 VMware VM 設備。
 
 ### <a name="specify-vcenter-server-details"></a>指定 vCenter Server 詳細資料
 1. 在 [指定 vCenter Server 詳細資料]  中，指定 vCenter Server 的名稱 (FQDN) 或 IP 位址。 您可以保留預設的連接埠，或指定您 vCenter Server 接聽的自訂連接埠。
-2. 在 [使用者名稱]  和 [密碼]  中，指定設備要用來探索 vCenter Server 上之 VM 的唯讀帳戶認證。 請確定帳戶具有[探索所需的權限](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions)。 您可以藉由限制 vCenter 帳戶的存取來界定探索的範圍；[請從此處](tutorial-assess-vmware.md#scoping-discovery)深入了解探索範圍。
+2. 在 [使用者名稱]  和 [密碼]  中，指定設備要用來在 vCenter Server 上探索 VM 的 vCenter Server 帳戶認證。 請確定帳戶具有[探索所需的權限](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions)。 您可以藉由限制 vCenter 帳戶的存取來界定探索的範圍；[請從此處](tutorial-assess-vmware.md#scoping-discovery)深入了解探索範圍。
 3. 按一下 [驗證連線]  以確定設備可以連線到 vCenter Server。
 
 ### <a name="specify-vm-credentials"></a>指定 VM 認證
@@ -222,7 +222,7 @@ Azure Migrate：伺服器評量會執行輕量型 VMware VM 設備。
 
     同樣地，進行伺服器移轉時，已指派這些[權限](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions)的使用者定義角色 (可命名為 <em>Azure _Migrate</em>) 必須套用至要移轉的 VM 裝載所在之所有父物件的 vCenter 使用者帳戶。
 
-![指派權限](./media/tutorial-assess-vmware/assign-perms.png)
+  ![指派權限](./media/tutorial-assess-vmware/assign-perms.png)
 
 - 替代方法是在資料中心層級指派使用者帳戶和角色，並將其傳播到子物件。 然後，針對您不想要探索/移轉的每個物件 (例如 VM)，為帳戶提供**無存取**角色。 此組態相當繁瑣。 它會意外公開存取控制，因為會對每個新的子物件自動授與從父物件繼承的存取權。 因此建議採用第一種方法。
 

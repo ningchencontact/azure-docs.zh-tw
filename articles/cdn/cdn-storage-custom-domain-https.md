@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 341383c232718349f091a9c92207bb27cf87cc48
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e6415c9e8e0ab8743042891a2d0d422dffe37bdb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083025"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279129"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>教學課程：使用 Azure CDN 自訂網域透過 HTTPS 存取儲存體 Blob
 
@@ -43,11 +43,15 @@ Azure CDN 會忽略任何新增至 SAS 權杖的限制。 例如，所有 SAS �
 如果您為相同的 Blob 端點建立多個 SAS URL，則請考慮使用啟用查詢字串快取。 這麼做確保將每個 URL 都視為唯一實體。 如需詳細資訊，請參閱[使用查詢字串控制 Azure CDN 快取行為](cdn-query-string.md)。
 
 ## <a name="http-to-https-redirection"></a>HTTP 到 HTTPS 重新導向
-您可以選擇使用 [Azure CDN 規則引擎](cdn-verizon-premium-rules-engine.md)建立 [URL 重新導向規則](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)，以將 HTTP 流量重新導向至 HTTPS。 此選項需要**來自 Verizon 的 Azure CDN 進階**設定檔。
+您可以選擇使用[標準規則引擎](cdn-standard-rules-engine.md)或 [Verizon 進階規則引擎](cdn-verizon-premium-rules-engine.md)建立 URL 重新導向規則，以將 HTTP 流量重新導向至 HTTPS。 標準規則引擎僅適用於來自 Microsoft 的 Azure CDN 設定檔，而 Verizon 進階規則引擎僅適用於來自 Verizon 的 Azure CDN 進階設定檔。
 
-![URL 重新導向規則](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
+![Microsoft 重新導向規則](./media/cdn-storage-custom-domain-https/cdn-standard-redirect-rule.png)
 
-在此規則中，*Cdn-endpoint-name* 指的是針對您可從下拉式清單中選取為 CDN 端點設定的名稱。 *origin-path* 值指的是您靜態內容所在原始儲存體帳戶的路徑。 如果您將所有靜態內容裝載在單一容器中，則請將 origin-path  取代為該容器的名稱。
+在上述規則中，保留 [主機名稱]、[路徑]、[查詢字串] 和 [片段]，會致使在重新導向時使用傳入的值。 
+
+![Verizon 重新導向規則](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
+
+在上述規則中，*Cdn-endpoint-name* 指的是針對您可從下拉式清單中選取為 CDN 端點設定的名稱。 *origin-path* 值指的是您靜態內容所在原始儲存體帳戶的路徑。 如果您將所有靜態內容裝載在單一容器中，則請將 origin-path  取代為該容器的名稱。
 
 ## <a name="pricing-and-billing"></a>價格和計費
 當您透過 Azure CDN 存取 Blob 時，需支付 POP 伺服器與原點 (Blob 儲存體) 之間流量的 [Blob 儲存體價格](https://azure.microsoft.com/pricing/details/storage/blobs/)，以及從 POP 伺服器存取資料的 [Azure CDN 定價](https://azure.microsoft.com/pricing/details/cdn/)。

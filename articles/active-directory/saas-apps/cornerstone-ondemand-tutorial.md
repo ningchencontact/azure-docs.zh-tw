@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e25b1da7a91dc52aed680bc587dfc20aaee876c4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 363b5b2dc2891166f779c98c6de1487bc45047a3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989561"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227624"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-ondemand"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Cornerstone OnDemand 整合
 
@@ -141,7 +141,7 @@ ms.locfileid: "68989561"
 若要設定使用者佈建，請將您要佈建的 Azure AD 使用者的相關資訊 (例如名稱、電子郵件) 傳送給 [Cornerstone OnDemand 支援小組](mailto:moreinfo@csod.com)。
 
 >[!NOTE]
->您可以使用任何其他的 Cornerstone OnDemand 使用者帳戶建立工具或 Cornerstone OnDemand 所提供的 API 來佈建 AAD 使用者帳戶。
+>您可以使用任何其他的 Cornerstone OnDemand 使用者帳戶建立工具或 Cornerstone OnDemand 所提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ## <a name="test-sso"></a>測試 SSO 
 

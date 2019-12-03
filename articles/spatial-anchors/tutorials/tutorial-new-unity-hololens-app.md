@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用 Azure Spatial Anchors 新建 HoloLens Unity 應用程式的逐步指示 | Microsoft Docs
+title: 教學課程：建立新的 HoloLens Unity 應用程式
 description: 在本教學課程中，您將了解如何使用 Azure Spatial Anchors 建立新的 HoloLens Unity 應用程式。
 author: julianparismorgan
 manager: vriveras
@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 07/05/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7e7d4a542146fb8d342cce6c34f9d97e72349f84
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0d63f2df17804d5cc171f94a34ebc5831be384fb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561384"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276910"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>教學課程：使用 Azure Spatial Anchors 新建 HoloLens Unity 應用程式的逐步指示
 
@@ -40,9 +40,9 @@ ms.locfileid: "68561384"
 
 **設定專案設定**
 
-現在我們將設定一些 Unity 專案設定，以利將 Windows 全像攝影版 SDK 設為開發目標。 
+現在我們將設定一些 Unity 專案設定，以利將 Windows 全像攝影版 SDK 設為開發目標。
 
-首先，我們將設定應用程式的品質設定。 
+首先，我們將設定應用程式的品質設定。
 1. 選取 [編輯]   > [專案設定]   > [品質] 
 2. 在 **Windows 市集**標誌下方的資料行中，按一下 [預設]  資料列上的箭號，然後選取 [非常低]  。 當 [Windows 市集]  資料行和 [非常低]  資料列中的方塊呈現為綠色時，即表示已正確套用設定。
 
@@ -53,7 +53,7 @@ ms.locfileid: "68561384"
 3. 展開 [XR 設定]  群組。
 4. 在 [轉譯]  區段中核取 [支援虛擬實境]  核取方塊，以新增 [虛擬實境 SDK]  清單。
 5. 確認 **Windows Mixed Reality** 出現在清單中。 如果沒有，請選取清單底部的 **+** 按鈕，然後選擇 [Windows Mixed Reality]  。
- 
+
 > [!NOTE]
 > 若未看到 Windows 市集圖示，請仔細檢查以確定您在安裝之前已選取 Windows 市集 .NET 指令碼後端。 如果沒有，您可能需要以正確的 Windows 安裝重新安裝 Unity。
 
@@ -76,9 +76,9 @@ ms.locfileid: "68561384"
 6. 選取 [新增元件]  ，然後搜尋 [空間對應 Collider]  並加以新增。
 
 **建立我們的指令碼**
-1. 在 [專案]  窗格中，於 **Assets** 資料夾下方建立新的資料夾 **Scripts**。 
-2. 以滑鼠右鍵按一下該資料夾，然後選取 [建立]  > [C# 指令碼]  。 將其標題指定為 **AzureSpatialAnchorsScript**。 
-3. 移至 [GameObject]   -> [建立空的]  。 
+1. 在 [專案]  窗格中，於 **Assets** 資料夾下方建立新的資料夾 **Scripts**。
+2. 以滑鼠右鍵按一下該資料夾，然後選取 [建立]  > [C# 指令碼]  。 將其標題指定為 **AzureSpatialAnchorsScript**。
+3. 移至 [GameObject]   -> [建立空的]  。
 4. 加以選取，然後在 [偵測器]  中將其從 **GameObject** 重新命名為 **MixedRealityCloud**。 選取 [新增元件]  ，然後搜尋並新增 **AzureSpatialAnchorsScript**。
 
 **建立圓球預製項目**
@@ -93,13 +93,13 @@ ms.locfileid: "68561384"
 若要測試是否一切都正常運作，請在 **Unity** 中建置您的應用程式，並從 **Visual Studio** 加以部署。 請依照 [**MR Basics 100：開始使用 Unity** 課程](https://docs.microsoft.com/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio)第 6 章的指示執行此作業。 您應該會看到 Unity 的開始畫面，和隨後的全新顯示畫面。
 
 ## <a name="place-an-object-in-the-real-world"></a>將物件放在實際環境中
-我們將使用您的應用程式建立及放置物件。 開啟我們在[部署應用程式](#trying-it-out)時建立的 Visual Studio 解決方案。 
+我們將使用您的應用程式建立及放置物件。 開啟我們在[部署應用程式](#trying-it-out)時建立的 Visual Studio 解決方案。
 
 首先，請在您的 `Assembly-CSharp (Universal Windows)\Scripts\AzureSpatialAnchorsScript.cs` 中新增下列匯入項目：
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=19-24)]
 
-然後，在您的 `AzureSpatialAnchorsScript` 類別中新增下列成員變數： 
+然後，在您的 `AzureSpatialAnchorsScript` 類別中新增下列成員變數：
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-42,48-52,60-79)]
 
@@ -107,13 +107,13 @@ ms.locfileid: "68561384"
 1. 在 **Unity** 中，選取 [階層]  窗格中的 **MixedRealityCloud** 物件。
 2. 按一下您在 [專案]  窗格中儲存的**圓球**預製項目。 將您按住的**圓球**拖曳到 [偵測器]  窗格中位於 [Azure Spatial Anchors 指令碼 (指令碼)]  下方的 [圓球預製項目]  區域上。
 
-您現在應已將**圓球**設為指令碼上的預製項目。 從 **Unity** 進行建置，然後重新開啟產生的 **Visual Studio** 解決方案，如您[立即試用](#trying-it-out)中所做的。 
+您現在應已將**圓球**設為指令碼上的預製項目。 從 **Unity** 進行建置，然後重新開啟產生的 **Visual Studio** 解決方案，如您[立即試用](#trying-it-out)中所做的。
 
 在 **Visual Studio** 中，重新開啟 `AzureSpatialAnchorsScript.cs`。 在 `Start()` 方法中新增下列程式碼。 此程式碼將會連結 `GestureRecognizer`，而在出現空中點選及呼叫 `HandleTap` 時加以偵測。
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=81-90,93&highlight=4-10)]
 
-現在，我們必須在 `Update()` 下方新增下列 `HandleTap()` 方法。 它會執行光線投射，並取得要放置圓球的命中點。 
+現在，我們必須在 `Update()` 下方新增下列 `HandleTap()` 方法。 它會執行光線投射，並取得要放置圓球的命中點。
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-277,299-300,304-312)]
 
@@ -125,9 +125,9 @@ ms.locfileid: "68561384"
 
 ## <a name="set-up-the-dispatcher-pattern"></a>設定發送器模式
 
-在使用 Unity 時，所有的 Unity API (例如您用來執行 UI 更新的 API) 都必須在主執行緒上執行。 但在我們所將撰寫的程式碼中，我們會在其他執行緒上取得回呼。 我們想要在這些回呼中更新 UI，因此需要透過某種方式從端執行緒切換到主執行緒。 若要從端執行緒執行主執行緒上的程式碼，我們會使用發送器模式。 
+在使用 Unity 時，所有的 Unity API (例如您用來執行 UI 更新的 API) 都必須在主執行緒上執行。 但在我們所將撰寫的程式碼中，我們會在其他執行緒上取得回呼。 我們想要在這些回呼中更新 UI，因此需要透過某種方式從端執行緒切換到主執行緒。 若要從端執行緒執行主執行緒上的程式碼，我們會使用發送器模式。
 
-我們將新增成員變數 dispatchQueue，這是一個動作佇列。 我們會將動作推送到佇列上，然後清除佇列，並在主執行緒上執行動作。 
+我們將新增成員變數 dispatchQueue，這是一個動作佇列。 我們會將動作推送到佇列上，然後清除佇列，並在主執行緒上執行動作。
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=38-51&highlight=6-9)]
 
@@ -141,13 +141,13 @@ ms.locfileid: "68561384"
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>取得 Azure Spatial Anchors SDK
 
-現在，我們將下載 Azure Spatial Anchors SDK。 移至 [Azure Spatial Anchors GitHub 發行頁面](https://github.com/Azure/azure-spatial-anchors-samples/releases)。 在資產下方，下載 **AzureSpatialAnchors.unitypackage** 檔案。 
+現在，我們將下載 Azure Spatial Anchors SDK。 移至 [Azure Spatial Anchors GitHub 發行頁面](https://github.com/Azure/azure-spatial-anchors-samples/releases)。 在資產下方，下載 **AzureSpatialAnchors.unitypackage** 檔案。
 
 在 Unity 中移至 [資產]  ，然後按一下 [匯入套件]   > [自訂套件...]  。瀏覽至套件並選取 [開啟]  。
 
 在新顯示的 [匯入 Unity 套件]  視窗中，選取左下方的 [無]  。 然後，在 [AzureSpatialAnchorsPlugin]   > [外掛程式]  下方，選取 [一般]  、[編輯器]  和 [HoloLens]  。 按一下右下角的 [匯入]  。
 
-現在，我們必須還原 Nuget 套件以取得 Azure Spatial Anchors SDK。 從 **Unity** 進行建置，然後開啟並重新建置產生的 **Visual Studio** 解決方案，如[立即試用](#trying-it-out)中所詳述。 
+現在，我們必須還原 Nuget 套件以取得 Azure Spatial Anchors SDK。 從 **Unity** 進行建置，然後開啟並重新建置產生的 **Visual Studio** 解決方案，如[立即試用](#trying-it-out)中所詳述。
 
 在您的 **Visual Studio** 解決方案中，將下列匯入新增至您的 `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs`：
 
@@ -210,7 +210,7 @@ ms.locfileid: "68561384"
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=200-206&highlight=4-5)]
 
- 
+
 現在，我們將新增會在找到 CloudSpatialAnchor 時建立並放置綠色圓球的程式碼。 此外也會再次啟用螢幕點選，讓您能夠再次重複整個案例：建立另一個本機錨點、加以上傳，並再次將其找出。
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=228-265)]

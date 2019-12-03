@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 6d2955a77c06f371975a7a14675eedceab7c98ae
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 5054ee9a23458944257a8010aaab6268d25042a7
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125435"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414471"
 ---
 ## <a name="prerequisites"></a>必要條件
 
 * [Go](https://golang.org/) (英文) 程式設計語言  
 * [Visual Studio Code](https://code.visualstudio.com/)
-* 公用應用程式識別碼：df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* 公用應用程式識別碼：`df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>取得 LUIS 金鑰
 
@@ -27,7 +27,7 @@ ms.locfileid: "74125435"
 
 ## <a name="get-intent-programmatically"></a>以程式設計方式取得意圖
 
-使用 Go 查詢預測端點 GET [API](https://aka.ms/luis-apim-v3-prediction) 取得預測結果。
+使用 Go 查詢[預測端點](https://aka.ms/luis-apim-v3-prediction)並取得預測結果。
 
 1. 建立名為 `predict.go` 的新檔案。 新增下列程式碼：
     
@@ -85,8 +85,8 @@ ms.locfileid: "74125435"
 
 1. 取代下列值：
 
-    * `YOUR-KEY` 使用您的入門金鑰
-    * `YOUR-ENDPOINT` 使用您的端點，例如 `westus2.api.cognitive.microsoft.com`
+    * `YOUR-KEY` 取代為您的入門金鑰。
+    * `YOUR-ENDPOINT` 取代為您的端點。 例如： `westus2.api.cognitive.microsoft.com` 。
 
 1. 在您建立檔案所在的相同目錄中使用命令提示字元，輸入下列命令以編譯 Go 檔案：
 

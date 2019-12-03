@@ -10,18 +10,18 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 087b3a61902c533648b5d6e1b4b763f88ee5d794
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cbfb0ddb0ee901545443fc127f80a1837c7bde9b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669670"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278591"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>快速入門：在 LUIS 入口網站中建立新的應用程式
 
 [!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
-在本快速入門中，會請您在 [LUIS 入口網站](https://www.luis.ai)中建立新的應用程式。 首先要建立應用程式、**意圖**和**實體**的基本部分。 然後藉由在互動式測試面板中提供範例使用者語句進行測試，以取得預測意圖。
+在本快速入門中，您會在 LUIS 入口網站中建立新的應用程式。 首先要建立應用程式、**意圖**和**實體**的基本部分。 然後藉由在互動式測試面板中提供範例使用者語句進行測試，以取得預測意圖。
 
 建立應用程式是免費的，而且不需要 Azure 訂用帳戶。 您準備要部署您的應用程式時，請參閱[部署應用程式的快速入門](get-started-portal-deploy-app.md)。 文中會示範如何建立 Azure 認知服務資源，並將該服務指派給應用程式。
 

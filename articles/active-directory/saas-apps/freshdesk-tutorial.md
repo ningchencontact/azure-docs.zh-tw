@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: add43f081ca6059651725cd6f817d4cce127b74b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e75a45bc4ccd2614520fda39e09996c2286bdbd0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73155769"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227622"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>教學課程：Azure Active Directory 與 FreshDesk 整合
 
@@ -272,7 +272,7 @@ FreshDesk 需以手動的方式佈建。
     >Azure AD 帳戶的持有者會收到一封包含連結的電子郵件，以在啟用帳戶前進行確認。
     >
     >[!NOTE]
-    >您可以使用任何其他的 Freshdesk 使用者帳戶建立工具或 Freshdesk 提供的 API 將 AAD 使用者帳戶佈建至 Freshdesk。
+    >您可以使用任何其他的 Freshdesk 使用者帳戶建立工具或 Freshdesk 提供的 API，將 Azure AD 使用者帳戶佈建至 Freshdesk。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

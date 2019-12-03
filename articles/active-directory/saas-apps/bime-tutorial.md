@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f792798e724387b6917c23d1bde0c2c68fa8a270
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7774fd55a64df198a9b025a67ce377deebefe8fe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73157677"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232079"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>教學課程：Azure Active Directory 與 Bime 整合
 
@@ -231,7 +231,7 @@ Bime 與 Azure AD 整合提供下列優點：
     d. 按一下 [檔案]  。
 
 > [!NOTE]
-> 您可以使用任何其他的 Bime 使用者帳戶建立工具或 Bime 提供的 API 來佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 Bime 使用者帳戶建立工具或 Bime 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

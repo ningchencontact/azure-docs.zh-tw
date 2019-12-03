@@ -1,21 +1,21 @@
 ---
-title: 教學課程：使用 Spark 以 Azure Databricks 存取 Azure Data Lake Storage Gen2 資料 | Microsoft Docs
+title: 教學課程：Azure Data Lake Storage Gen2、Azure Databricks 和 Spark | Microsoft Docs
 description: 本教學課程顯示如何在 Azure Databricks 叢集上執行 Spark 查詢，以存取 Azure Data Lake Storage Gen2 儲存體帳戶中的資料。
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 0607c2b848a486e24654081bd7937cb734394e58
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: bbe936fd572a8e23fb6e7c5da4a4bffef1c8bf7e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331819"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327529"
 ---
-# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>教學課程：使用 Spark 以 Azure DataBricks 存取 Data Lake Storage Gen2 資料
+# <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>教學課程：Azure Data Lake Storage Gen2、Azure Databricks 和 Spark
 
 本教學課程說明如何將 Azure Databricks 叢集連線至已啟用 Azure Data Lake Storage Gen2 功能之 Azure 儲存體帳戶中所儲存的資料。 此連線可讓您以原生方式從叢集對資料執行查詢和分析。
 
@@ -139,7 +139,7 @@ ms.locfileid: "72331819"
 
 2. 在左側選取 [工作區]  。 從 [工作區]  下拉式清單選取 [建立]   > [Notebook]  。
 
-    ![在 Databricks 中建立 Notebook](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "在 Databricks 中建立 Notebook")
+    ![在 Databricks 中建立筆記本](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "在 Databricks 中建立筆記本")
 
 3. 在 [建立 Notebook]  對話方塊中，輸入 Notebook 的名稱。 選取 [Python]  作為語言，然後選取您先前建立的 Spark 叢集。
 

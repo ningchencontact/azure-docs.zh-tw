@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 12e6d292779d497d907bb68eece3fc2338f072fd
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 13afdf4d6c45927c60e8de9fd228f70b7c0a3c68
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602071"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286533"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>教學課程：使用 Azure Databricks 對串流資料進行情感分析
 
@@ -102,7 +102,7 @@ ms.locfileid: "73602071"
     接受下列值以外的所有其他預設值：
 
    * 輸入叢集的名稱。
-   * 針對本文，使用 **5.2** 執行階段建立叢集。
+   * 針對本文，請使用 6.0  執行階段建立叢集。
    * 請確定您已選取 [在活動\_\_分鐘後終止]  核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
 
    選取符合您技術準則和[預算](https://azure.microsoft.com/pricing/details/databricks/?WT.mc_id=sparkeventhubs-docs-alehall)的叢集背景工作角色和驅動程式節點大小。

@@ -1,6 +1,6 @@
 ---
-title: 透過 Azure 入口網站建立 Azure Cosmos 帳戶、容器及項目。
-description: 透過 Azure 入口網站建立 Azure Cosmos 帳戶、容器及項目。
+title: 從 Azure 入口網站建立 Azure Cosmos 資料庫。
+description: 使用 Azure 入口網站建立 Azure Cosmos 資料庫、容器和項目。
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/01/2019
-ms.openlocfilehash: e0a9f4fa6ca5ff7447d2ffaef3eab2f3c54fdeae
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b42a442564812f4386eb94b9bd7b7c9aff9e9f29
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241266"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74220738"
 ---
-# <a name="quickstart-create-an-azure-cosmos-account-container-and-items-with-the-azure-portal"></a>快速入門：透過 Azure 入口網站建立 Azure Cosmos 帳戶、容器及項目
+# <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>快速入門：從 Azure 入口網站建立 Azure Cosmos 帳戶、資料庫、容器和項目
 
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](create-cosmosdb-resources-portal.md)
@@ -87,7 +87,7 @@ Azure 訂用帳戶或免費的 Azure Cosmos DB 試用帳戶
      }
      ```
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]  。
    
    ![將 json 資料複製在 Azure 入口網站的 [資料總管] 中並選取 [儲存]](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
    

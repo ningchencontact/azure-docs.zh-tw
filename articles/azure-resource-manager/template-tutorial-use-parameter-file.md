@@ -1,19 +1,16 @@
 ---
-title: 教學課程 - 使用參數檔案以協助部署 Azure Resource Manager 範本
+title: 教學課程 - 使用參數檔案來部署範本
 description: 使用包含用來部署 Azure Resource Manager 範本之值的參數檔。
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fa29ea3d2f6edbbb016ce5c0c74415a5e765e85a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1b01e9ece2d194d76c7184a676f17d626c41a011
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177542"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405979"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>教學課程：使用參數檔案來部署 Resource Manager 範本
 
@@ -25,7 +22,7 @@ ms.locfileid: "72177542"
 
 您必須擁有含 Resource Manager 工具延伸模組的 Visual Studio Code，以及 Azure PowerShell 或 Azure CLI。 如需詳細資訊，請參閱[範本工具](template-tutorial-create-first-template.md#get-tools)。
 
-## <a name="review-your-template"></a>檢閱範本
+## <a name="review-template"></a>檢閱範本
 
 範本有許多您可在部署期間提供的參數。 在上一個教學課程結束時，您的範本看起來如下：
 
@@ -49,7 +46,7 @@ ms.locfileid: "72177542"
 
 此檔案是適用於實際執行環境的參數檔案。 請注意，它會針對儲存體帳戶使用 Standard_GRS、使用 **contoso** 前置詞來為資源命名，並將 **Environment** 標記設定為 **Production**。 在真正的實際執行環境中，您也想要將應用程式服務與免費的 SKU 搭配使用，但我們將繼續使用該 SKU 來進行此教學課程。
 
-## <a name="deploy-the-template"></a>部署範本
+## <a name="deploy-template"></a>部署範本
 
 使用 Azure CLI 或 Azure PowerShell 來部署範本。
 
@@ -119,7 +116,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>驗證部署
+## <a name="verify-deployment"></a>驗證部署
 
 您可以從 Azure 入口網站探索資源群組，藉以確認部署。
 

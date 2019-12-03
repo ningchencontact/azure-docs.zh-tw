@@ -1,5 +1,5 @@
 ---
-title: 使用 Windows VM 使用者指派的受控識別來存取 Azure Resource Manager
+title: 教學課程`:` 使用受控識別來存取 Azure Resource Manager - Windows - Azure AD
 description: 本教學課程會逐步引導您在 Windows VM 上利用使用者指派的受控識別，以存取 Azure Resource Manager。
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/10/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6fc7e13cf5ea3991f81d53edcabe0980d799cb0
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 0999492f0d9c7d28da3ac896792fb2d7b898fd18
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59520858"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224208"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>教學課程：在 Windows VM 上利用使用者指派的受控識別來存取 Azure Resource Manager
 
@@ -50,7 +50,7 @@ ms.locfileid: "59520858"
 - 若要執行本教學課程中所需的資源建立和角色管理步驟，您的帳戶必須在適當的範圍 (您的訂用帳戶或資源群組) 上具備「擁有者」權限。 如果您需要角色指派的協助，請參閱[使用角色型存取控制來管理 Azure 訂用帳戶資源的存取權](/azure/role-based-access-control/role-assignments-portal)。
 - [安裝最新版的 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 
 - 執行 `Connect-AzAccount` 來建立與 Azure 的連線。
-- 安裝[最新版的 PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget)。
+- 安裝[最新版的 PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget)。
 - 執行 `Install-Module -Name PowerShellGet -AllowPrerelease` 以取得 `PowerShellGet` 模組的搶鮮版 (執行此命令以安裝 `Az.ManagedServiceIdentity` 模組後，您可能需要以 `Exit` 退出目前的 PowerShell 工作階段)。
 - 執行 `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` 以安裝 `Az.ManagedServiceIdentity` 模組的發行前版本，以執行本文中由使用者指派的身分識別作業。
 
@@ -120,7 +120,7 @@ CanDelegate: False
 
 1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站
 
-2. 在入口網站中，瀏覽至 [虛擬機器]，並移至您的 Windows 虛擬機器，在 [概觀]中按一下 [連線]。
+2. 在入口網站中，瀏覽至 [虛擬機器]  ，並移至您的 Windows 虛擬機器，在 [概觀]  中按一下 [連線]  。
 
 3. 輸入您建立 Windows VM 時使用的**使用者名稱**和**密碼**。
 

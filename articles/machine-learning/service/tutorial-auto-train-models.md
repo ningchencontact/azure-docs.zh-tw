@@ -1,7 +1,7 @@
 ---
-title: 迴歸模型教學課程：自動化 ML
+title: 迴歸教學課程：自動化 ML
 titleSuffix: Azure Machine Learning
-description: 了解如何使用自動化機器學習來產生機器學習模型。 Azure Machine Learning 可以用自動化方式，為您執行資料前處理、演算法選擇及超參數選擇。 然後使用 Azure Machine Learning 來部署最終模型。
+description: 在此教學課程中，您會了解如何使用自動化機器學習來產生機器學習模型。 Azure Machine Learning 可以用自動化方式，為您執行資料前處理、演算法選擇及超參數選擇。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: 23441fb64293647698921c17c06731ab413b7699
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2a47b6851d9c3250913783c8a63b666e8a8474d9
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582463"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483556"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>教學課程：使用自動化機器學習預測計程車車資
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

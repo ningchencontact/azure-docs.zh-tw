@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 07874988c97044ede59c18b8f85a425483679431
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7548d7d7b808472b3f5446fadfe800584f61b1df
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089539"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233343"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>教學課程：Azure Active Directory 與 SumoLogic 整合
 
@@ -250,7 +250,7 @@ SumoLogic 與 Azure AD 整合提供下列優點：
     d. 按一下 [檔案]  。
 
 > [!NOTE]
-> 您可以使用任何其他的 SumoLogic 使用者帳戶建立工具或 SumoLogic 提供的 API 來佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 SumoLogic 使用者帳戶建立工具或 SumoLogic 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

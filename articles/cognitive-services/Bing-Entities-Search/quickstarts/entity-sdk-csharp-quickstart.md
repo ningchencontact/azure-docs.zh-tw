@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用適用於 C# 的 Bing 實體搜尋 SDK 來搜尋實體
+title: 快速入門：使用適用於 C# 的 SDK 搜尋實體 - Bing 實體搜尋
 titleSuffix: Azure Cognitive Services
 description: 使用本快速入門，透過適用於 C# 的 Bing 實體搜尋 SDK 來搜尋實體。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: 20f76c0adfcbd756c71769979214ea975cb5d6d9
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: f9036e78934ac14017a0437583109c91732ce4b3
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360592"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323817"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>使用適用於 C# 的 Bing 實體搜尋 SDK 來傳送搜尋要求
 

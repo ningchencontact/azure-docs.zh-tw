@@ -1,19 +1,16 @@
 ---
-title: 教學課程 - 將變數新增至 Azure Resource Manager 範本
+title: 教學課程 - 將變數新增至範本
 description: 將變數新增至 Azure Resource Manager 範本，以簡化語法。
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fb577c0c0f00da3735da98fc2e94f3610c9bd80d
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 0598da3c060b8a8055ffb045fe4aae60b3806060
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001460"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406040"
 ---
 # <a name="tutorial-add-variables-to-your-resource-manager-template"></a>教學課程：將變數新增至 Resource Manager 範本
 
@@ -25,7 +22,7 @@ ms.locfileid: "72001460"
 
 您必須擁有含 Resource Manager 工具延伸模組的 Visual Studio Code，以及 Azure PowerShell 或 Azure CLI。 如需詳細資訊，請參閱[範本工具](template-tutorial-create-first-template.md#get-tools)。
 
-## <a name="review-your-template"></a>檢閱範本
+## <a name="review-template"></a>檢閱範本
 
 在上一個教學課程結束時，您的範本會具有下列 JSON：
 
@@ -53,7 +50,7 @@ ms.locfileid: "72001460"
 
 最後，請注意，儲存體名稱現在會設定為變數，而不是參數。
 
-## <a name="deploy-the-template"></a>部署範本
+## <a name="deploy-template"></a>部署範本
 
 讓我們來部署範本。 部署此範本會比先前的範本更容易，因為您只需提供儲存體名稱的前置詞。
 
@@ -82,7 +79,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>驗證部署
+## <a name="verify-deployment"></a>驗證部署
 
 您可以從 Azure 入口網站探索資源群組，藉以確認部署。
 

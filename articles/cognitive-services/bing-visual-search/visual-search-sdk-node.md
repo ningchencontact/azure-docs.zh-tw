@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用適用於 Node.js 的 Bing 圖像式搜尋 SDK 來取得影像見解
+title: 快速入門：使用適用於 Node.js 的 SDK 來取得影像見解 - Bing 圖像式搜尋
 titleSuffix: Azure Cognitive Services
 description: 使用本快速入門，開始使用 Node.js SDK 從 Bing 圖像式搜尋服務取得影像見解。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: fd69179c98e999323936daf7e83b165126c20381
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 494ef8b76f9767b43e5e1d739c47933ee0f3c40d
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111580"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383574"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>快速入門：使用適用於 Node.js 的 Bing 圖像式搜尋 SDK 來取得影像見解
 

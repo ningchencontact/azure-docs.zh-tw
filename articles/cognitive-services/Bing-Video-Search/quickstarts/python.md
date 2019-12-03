@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Bing 影片搜尋 REST API 和 Python 來搜尋影片
+title: 快速入門：使用 REST API 和 Python 來搜尋影片 - Bing 影片搜尋
 titleSuffix: Azure Cognitive Services
 description: 使用本快速入門，以使用 Python 將要求傳送至 Bing 影片搜尋 REST API。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 36d4035913b8e9b7c3e4a12fa208608ffa55151e
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 270117430b997921e0df486b1760db317bcb1611
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500678"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383780"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>快速入門：使用 Bing 影片搜尋 REST API 和 Python 來搜尋影片
 

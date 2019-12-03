@@ -1,21 +1,21 @@
 ---
-title: C# 教學課程：從 Azure SQL 資料庫中編製資料索引
+title: 教學課程：使用 C# 為 Azure SQL 資料庫中的資料編製索引
 titleSuffix: Azure Cognitive Search
-description: C# 程式碼範例會示範如何連線至 Azure SQL 資料庫、擷取可搜尋的資料，並將其載入至 Azure 認知搜尋索引。
+description: 在此 C# 教學課程中，連線至 Azure SQL 資料庫、擷取可搜尋的資料，並將其載入至 Azure 認知搜尋服務索引。
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 4e8097eeb07420bee4ba30eb0fedbe5d4db2db9d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 36215403f99cc86ab4fb111ce95a6b3190063d7b
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113318"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406719"
 ---
-# <a name="c-tutorial-import-azure-sql-database-using-azure-cognitive-search-indexers"></a>C# 教學課程：使用 Azure 認知搜尋索引子匯入 Azure SQL 資料庫
+# <a name="tutorial-import-azure-sql-database-in-c-using-azure-cognitive-search-indexers"></a>教學課程：透過 Azure 認知搜尋索引子來使用 C# 匯入 Azure SQL 資料庫
 
 了解如何設定索引子，以便從範例 Azure SQL 資料庫擷取可搜尋的資料。 [索引子](search-indexer-overview.md)是 Azure 認知搜尋的元件，可搜耙外部資料來源，以內容填入[搜尋索引](search-what-is-an-index.md)。 在所有索引子中，最廣泛使用的是 Azure SQL Database 的索引子。 
 

@@ -1,19 +1,19 @@
 ---
-title: 快速入門 - 使用 Azure Spatial Anchors 建立 Xamarin Android 應用程式 | Microsoft Docs
+title: 快速入門：建立 Xamarin Android 應用程式
 description: 在本快速入門中，您將了解如何使用 Spatial Anchors 建置搭配 Xamarin 的 Android 應用程式。
 author: craigktreasure
-manager: virivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0958961f1e66be130dd2be816f6002dd34465dc6
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 2976104c72179fede3b39816663ac8196d7539ec
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931419"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277016"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>快速入門：使用 Azure Spatial Anchors 建立 Xamarin Android 應用程式
 

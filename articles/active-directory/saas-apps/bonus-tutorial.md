@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f605398896c93d15b7475c05c79361fdcefcfcab
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ea9c88f8eb8ac7b72f11ff286d2294df8cb70860
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442783"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232051"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>教學課程：Azure Active Directory 與 Bonusly 整合
 
@@ -207,7 +207,7 @@ ms.locfileid: "67442783"
 若要讓 Azure AD 使用者可以登入 Bonusly，必須將他們佈建到 Bonusly。 Bonusly 需以手動方式佈建。
 
 > [!NOTE]
-> 您可使用任何其他的 Bonusly 使用者帳戶建立工具，或是使用 Bonusly 提供的 API 來佈建 AAD 使用者帳戶。 
+> 您可使用任何其他的 Bonusly 使用者帳戶建立工具，或是使用 Bonusly 提供的 API，來佈建 Azure AD 使用者帳戶。 
 
 **若要設定使用者佈建，請執行下列步驟：**
 
@@ -227,11 +227,11 @@ ms.locfileid: "67442783"
 
 1. 按一下 [新增使用者]  。
 
-    ![新增使用者](./media/bonus-tutorial/ic781044.png "新增使用者")
+    ![加入使用者](./media/bonus-tutorial/ic781044.png "新增使用者")
 
 1. 在 [加入使用者]  對話方塊中，執行下列步驟：
 
-    ![新增使用者](./media/bonus-tutorial/ic781045.png "新增使用者")  
+    ![加入使用者](./media/bonus-tutorial/ic781045.png "新增使用者")  
 
     a. 在 [名字]  文字方塊中，輸入使用者的名字，例如 **Britta**。
 

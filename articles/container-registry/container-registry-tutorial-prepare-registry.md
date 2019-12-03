@@ -1,20 +1,15 @@
 ---
-title: 教學課程 - 建立異地複寫的 Azure Container Registry
+title: 教學課程 - 建立異地複寫的登錄
 description: 建立 Azure Container Registry、設定異地複寫、準備 Docker 映像並將其部署至登錄。 三段式教學課程的第一段。
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5a2aedfe93aa27f839c416c27ac028db1e650295
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 70dc664d27fde3b7cf9fe4e5e3a99c041236ac16
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931364"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454431"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>教學課程：準備異地複寫的 Azure Container Registry
 

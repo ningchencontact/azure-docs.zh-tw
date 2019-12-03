@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: c7ef648dd2610c337bc9146e7a52c04d91907c8e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ad0c67cea6a5a9b487cd47aa7c10d10da1438050
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904919"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384290"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>教學課程：部署管理工具
 
@@ -63,10 +63,9 @@ ms.locfileid: "73904919"
 ### <a name="guidance-for-template-parameters"></a>範本參數的指導方針
 以下說明如何輸入參數來設定工具：
 
-- 這是 RD 訊息代理程式 URL：https:\//rdbroker.wvd.microsoft.com/
-- 這是資源 URL：https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
-- 在已停用 MFA 的情況下使用您的 AAD 認證來登入 Azure。 請參閱[執行 Azure Resource Manager 範本需要什麼](#what-you-need-to-run-the-azure-resource-manager-template)。
-- 為應用程式使用將在您的 Azure Active Directory 中為管理工具註冊的為依名稱，例如 Apr3UX。
+- 針對 **isServicePrincipal** 參數，請選取 [false]  。
+- 針對認證，請輸入已停用多重要素驗證的 Azure Active Directory 認證。 這些認證將是您用來登入 Azure 並建立 Azure AD 應用程式和 Azure Web 應用程式資源的認證。 若要深入了解，請參閱[執行 Azure Resource Manager 範本需要什麼](#what-you-need-to-run-the-azure-resource-manager-template)。
+- 針對 **applicationName**，請使用將在您 Azure Active Directory 中註冊的唯一名稱。 此名稱也會用於 Web 應用程式 URL。 例如，您可以使用類似 "Apr3UX" 的名稱。
 
 ## <a name="provide-consent-for-the-management-tool"></a>為管理工具提供同意
 

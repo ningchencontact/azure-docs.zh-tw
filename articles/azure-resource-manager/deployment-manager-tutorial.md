@@ -1,19 +1,16 @@
 ---
 title: 搭配使用 Azure 部署管理員與 Resource Manager 範本 | Microsoft Docs
 description: 使用 Resource Manager 範本與 Azure 部署管理員來部署 Azure 資源。
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3f10093b1d3087e87279258d04d86fc3d47ba313
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: db130da9943007e647adf77411b456914af9886f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285900"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307023"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>教學課程：使用 Azure 部署管理員搭配 Resource Manager 範本 (公開預覽)
 
@@ -56,7 +53,7 @@ ms.locfileid: "72285900"
 
 * 開發 [Azure Resource Manager 範本](./resource-group-overview.md)的某些體驗。
 * Azure PowerShell。 如需詳細資訊，請參閱[開始使用 Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
-* 部署管理員 Cmdlet。 若要安裝這些發行前版本的 Cmdlet，您需要最新版的 PowerShellGet。 若要取得最新版本，請參閱[安裝 PowerShellGet](/powershell/gallery/installing-psget)。 安裝 PowerShellGet 之後，請關閉 PowerShell 視窗。 開啟已提升權限的新 PowerShell 視窗，然後使用下列命令：
+* 部署管理員 Cmdlet。 若要安裝這些發行前版本的 Cmdlet，您需要最新版的 PowerShellGet。 若要取得最新版本，請參閱[安裝 PowerShellGet](/powershell/scripting/gallery/installing-psget)。 安裝 PowerShellGet 之後，請關閉 PowerShell 視窗。 開啟已提升權限的新 PowerShell 視窗，然後使用下列命令：
 
     ```powershell
     Install-Module -Name Az.DeploymentManager
@@ -189,9 +186,6 @@ Write-Host $url
 
 您必須建立使用者指派的受控識別，並為您的訂用帳戶設定存取控制。
 
-> [!IMPORTANT]
-> 使用者指派的受控識別必須位於與[首度發行](#create-the-rollout-template)相同的位置。 目前，部署管理員資源 (包括首度發行) 只能在美國中部或美國東部 2 建立。 不過，這只適用於 Deployment Manager 資源 (例如服務拓撲、服務、服務單位、首度發行、和步驟)。 您的目標資源可以部署到任何支援的 Azure 區域。 例如，在本教學課程中，Deployment Manager 資源會部署到美國中部，但服務會部署到美國東部和美國西部。 未來將會提高此限制。
-
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 建立[使用者指派的受控識別](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)。
 3. 在入口網站中，從左側功能表中選取 [訂用帳戶]  ，然後選取您的訂用帳戶。
@@ -214,7 +208,7 @@ Write-Host $url
 範本包含下列參數：
 
 * **projectName**：此名稱用來建立部署管理員資源的名稱。 例如，若使用 "jdoe"，服務拓撲名稱將是 **jdoe**ServiceTopology。  資源名稱會定義在此範本的變數區段中。
-* **azureResourcelocation**：為了簡化本教學課程，所有資源都會共用此位置，除非另有指定。 目前，Azure 部署管理員資源只能在**美國中部**或**美國東部 2** 建立。
+* **azureResourcelocation**：為了簡化本教學課程，所有資源都會共用此位置，除非另有指定。
 * **artifactSourceSASLocation**：部署的服務單位範本和參數檔案儲存所在 Blob 容器的 SAS URI。  請參閱[準備成品](#prepare-the-artifacts)。
 * **templateArtifactRoot**：範本和參數儲存所在 Blob 容器的位移路徑。 預設值為 **templates/1.0.0.0**。 除非您要變更[準備成品](#prepare-the-artifacts)中說明的資料夾結構，否則請勿變更此值。 本教學課程會使用相對路徑。  完整路徑由 **artifactSourceSASLocation**、**templateArtifactRoot** 和 **templateArtifactSourceRelativePath** (或 **parametersArtifactSourceRelativePath**) 串連建構而成。
 * **targetSubscriptionID**：要部署並計費的部署管理員資源的訂用帳戶識別碼。 在本教學課程中請使用您的訂用帳戶識別碼。
@@ -269,7 +263,7 @@ Write-Host $url
 ![Azure 部署管理員教學課程首度發行範本參數](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
 * **projectName**：此名稱用來建立部署管理員資源的名稱。 例如，若使用 "jdoe"，首度發行檔案名稱將是 **jdoe**Rollout。  名稱會定義在範本的變數區段中。
-* **azureResourcelocation**：為了簡化本教學課程，所有部署管理員資源都會共用此位置，除非另有指定。 目前，Azure 部署管理員資源只能在**美國中部**或**美國東部 2** 建立。
+* **azureResourcelocation**：為了簡化本教學課程，所有部署管理員資源都會共用此位置，除非另有指定。
 * **artifactSourceSASLocation**：部署的服務單位範本和參數檔案儲存所在的根目錄 (Blob 容器) 的 SAS URI。  請參閱[準備成品](#prepare-the-artifacts)。
 * **binaryArtifactRoot**：預設值為 **binaries/1.0.0.0**。 除非您要變更[準備成品](#prepare-the-artifacts)中說明的資料夾結構，否則請勿變更此值。 本教學課程會使用相對路徑。  完整路徑由 CreateWebApplicationParameters.json 中指定的 **artifactSourceSASLocation**、**binaryArtifactRoot** 和 **deployPackageUri** 串連建構而成。  請參閱[準備成品](#prepare-the-artifacts)。
 * **managedIdentityID**：執行部署動作的使用者指派受控識別。 請參閱[建立使用者指派的受控識別](#create-the-user-assigned-managed-identity)。
@@ -311,7 +305,7 @@ Write-Host $url
 2. 填入參數值：
 
     * **projectName**：輸入含有 4-5 個字元的字串。 此名稱用來建立唯一的 Azure 資源名稱。
-    * **azureResourceLocation**：目前，Azure 部署管理員資源只能在**美國中部**或**美國東部 2** 建立。
+    * **azureResourceLocation**：指定 Azure 位置。
     * **artifactSourceSASLocation**：輸入部署的服務單位範本和參數檔案儲存所在的根目錄 (Blob 容器) 的 SAS URI。  請參閱[準備成品](#prepare-the-artifacts)。
     * **binaryArtifactRoot**：除非您變更了成品的資料夾結構，否則在本教學課程中請使用 **binaries/1.0.0.0**。
     * **managedIdentityID**：輸入使用者指派的受控識別。 請參閱[建立使用者指派的受控識別](#create-the-user-assigned-managed-identity)。 語法為：

@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Bing 影片搜尋 REST API 和 Java 來搜尋影片
+title: 快速入門：使用 REST API 和 Java 來搜尋影片 - Bing 影片搜尋
 titleSuffix: Azure Cognitive Services
 description: 透過本快速入門，使用 Java 將影片搜尋要求傳送至 Bing 影片搜尋 REST API。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: aahi
-ms.openlocfilehash: 0823c115f47bb6bff0396cd154164183cf46d8e4
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 30234758761e06c65e621c7f512ed8cafa02e090
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500690"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378653"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>快速入門：使用 Bing 影片搜尋 REST API 和 Java 來搜尋影片
 

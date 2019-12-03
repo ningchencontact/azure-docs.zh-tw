@@ -1,6 +1,6 @@
 ---
-title: 檢視租用戶應用程式 - Azure Active Directory | Microsoft Docs
-description: 使用 Azure 入口網站檢視 Azure Active Directory (Azure AD) 租用戶中的應用程式。
+title: 快速入門 - 使用 Azure Active Directory 檢視租用戶應用程式
+description: 在本快速入門中，使用 Azure 入口網站來檢視 Azure Active Directory (Azure AD) 租用戶中的應用程式。
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,14 +16,14 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 764c7c048dd0398b495ee31421a8e2bc9f8169ee
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 1d40e968bb7079d50e3fa18889ae996c9b59c90f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477185"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421812"
 ---
-# <a name="view-your-azure-active-directory-tenant-applications"></a>檢視您的 Azure Active Directory 租用戶應用程式
+# <a name="quickstart-view-your-azure-active-directory-tenant-applications"></a>快速入門：檢視您的 Azure Active Directory 租用戶應用程式
 
 本快速入門將使用 Azure 入口網站來檢視 Azure Active Directory (Azure AD) 租用戶中的應用程式。
 

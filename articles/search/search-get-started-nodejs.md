@@ -1,7 +1,7 @@
 ---
 title: 快速入門：使用 REST API 在 Node.js 中建立搜尋索引
 titleSuffix: Azure Cognitive Search
-description: Azure 認知搜尋的 Node.js 範例，示範如何對 JavaScript 建立、載入資料以及從 JavaScript 查詢資料。
+description: 在此 Node.js 快速入門中，了解如何使用 JavaScript 和 REST API 來建立索引、載入資料，以及在 Azure 認知搜尋上執行查詢。
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 8b7308b5289ba747dba90716b495ca1ba6afb209
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: fd8a053eb4ff0805b95dc11db4206e1dd2edb184
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719982"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406926"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>快速入門：使用 REST API 在 Node.js 中建立 Azure 認知搜尋索引
 > [!div class="op_single_selector"]
@@ -684,11 +684,12 @@ async queryAsync(searchTerm) {
 
 `run` 函式的整體行為是要刪除 Azure 認知搜尋索引 (如果有的話)、建立索引、新增一些資料，以及執行一些查詢。  
 
-## <a name="clean-up"></a>清除 
+## <a name="clean-up-resources"></a>清除資源
 
 使用您自己的訂用帳戶時，在專案結束後確認您是否還需要您建立的資源，是很好的做法。 讓資源繼續執行可能會產生費用。 您可以個別刪除資源，或刪除資源群組以刪除整組資源。
 
 您可以使用左導覽窗格中的 [所有資源]  或 [資源群組]  連結，在入口網站中尋找和管理資源。
+
 如果您使用免費服務，請記住您會有三個索引、索引子和資料來源的限制。 您可以在入口網站中刪除個別項目，以避免超出限制。 
 
 ## <a name="next-steps"></a>後續步驟

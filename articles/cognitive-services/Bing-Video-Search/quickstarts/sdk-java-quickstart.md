@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用適用於 Java 的 Bing 影片搜尋 SDK 來搜尋影片
+title: 快速入門：使用適用於 Java 的 SDK 來搜尋影片 - Bing 影片搜尋
 titleSuffix: Azure Cognitive Services
 description: 透過本快速入門，使用適用於 Java 的 Bing 影片搜尋 SDK 來傳送影片搜尋要求。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 3051f663f277c216fe18513b816bb86478a2efbd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cbe5f0023b16aec1ed68e7a78ddb3103f40eb85b
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446998"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378601"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>快速入門：使用適用於 Java 的 Bing 影片搜尋 SDK 來執行影片搜尋
 

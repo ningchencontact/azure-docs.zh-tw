@@ -1,20 +1,19 @@
 ---
-title: 快速入門：使用 Node.js 將模擬 TPM 裝置佈建到 Azure IoT 中樞
-description: Azure 快速入門 - 使用適用於 Azure IoT 中樞裝置佈建服務的 Node.js 裝置 SDK 來建立及佈建模擬 TPM 裝置。 本快速入門使用個別註冊。
+title: 快速入門 - 使用 Node.js 將模擬 TPM 裝置佈建到 Azure IoT 中樞
+description: 快速入門 - 使用適用於 Azure IoT 中樞裝置佈建服務的 Node.js 裝置 SDK 來建立及佈建模擬 TPM 裝置。 本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1495b8b62f775fcc8ae68fe08d9736beb72d67c6
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 942bc64153e1c35e3fb9c5bbb989607b7e443e9a
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903540"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423471"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>快速入門：使用適用於 IoT 中樞裝置佈建服務的 Node.js 裝置 SDK 來建立及佈建模擬 TPM 裝置
 
@@ -136,18 +135,18 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 ## <a name="create-a-device-entry"></a>建立裝置項目
 
-1. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源]  按鈕，然後開啟您的裝置佈建服務。
+1. 登入 Azure 入口網站，選取左側功能表上的 [所有資源]  按鈕，然後開啟您的裝置佈建服務。
 
-1. 在裝置佈建服務摘要刀鋒視窗上，選取 [管理註冊]  。 選取 [個別註冊]  索引標籤，然後按一下頂端的 [新增個別註冊]  按鈕。 
+1. 從 [裝置佈建服務] 功能表中，選取 [管理註冊]  。 選取 [個別註冊]  索引標籤，然後選取頂端的 [新增個別註冊]  按鈕。 
 
-1. 在 [新增註冊]  之下，輸入下列資訊：
+1. 在 [新增註冊]  面板中，輸入下列資訊：
    - 選取 [TPM]  作為身分識別證明「機制」  。
-   - 輸入 TPM 裝置的 [註冊識別碼]  和 [簽署金鑰]  。
+   - 針對 TPM 裝置，輸入先前所記下的 [註冊識別碼]  和 [簽署金鑰]  值。
+   - 選取與您的佈建服務連結的 IoT 中樞。
    - 您可以選擇性地提供下列資訊：
-       - 選取與您的佈建服務連結的 IoT 中樞。
-       - 輸入唯一的裝置識別碼。 替您的裝置命名時，務必避免使用敏感性資料。
+       - 輸入唯一的 [裝置識別碼]  。 替您的裝置命名時，務必避免使用敏感性資料。 如果您選擇不提供名稱，則會改用註冊識別碼來識別裝置。
        - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
-   - 完成後，按一下 [儲存]  按鈕。 
+   - 完成後，按 [儲存]  按鈕。 
 
      ![在入口網站刀鋒視窗中輸入裝置註冊資訊](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
@@ -156,7 +155,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 ## <a name="register-the-device"></a>註冊裝置
 
-1. 在 Azure 入口網站中，選取裝置佈建服務的 **概觀** 刀鋒視窗，並記下 **_全域裝置端點_** 和 **_識別碼範圍_** 值。
+1. 在 Azure 入口網站中，選取裝置佈建服務的 [概觀]  刀鋒視窗，並記下 [全域裝置端點]  和 [識別碼範圍]  值。
 
     ![從入口網站刀鋒視窗擷取裝置佈建服務端點資訊](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
@@ -248,8 +247,8 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 1. 在您的電腦上關閉裝置用戶端範例輸出視窗。
 1. 在您的電腦上關閉 TPM 模擬器視窗。
-1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]  ，然後選取您的裝置佈建服務。 開啟您服務的 [管理註冊]  刀鋒視窗，然後按一下 [個別註冊]  索引標籤。選取您在本快速入門中註冊的裝置之 [註冊識別碼]  ，然後按一下頂端的 [刪除]  按鈕。 
-1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]  ，然後選取您的 IoT 中樞。 開啟您中樞的 [IoT 裝置]  刀鋒視窗，選取您在本快速入門中註冊之裝置的 [裝置識別碼]  ，然後按一下頂端的 [刪除]  按鈕。
+1. 從 Azure 入口網站的左側功能表中，選取 [所有資源]  ，然後選取您的裝置佈建服務。 開啟您服務的 [管理註冊]  刀鋒視窗，然後選取 [個別註冊]  索引標籤。選取您在本快速入門中所註冊裝置的 [註冊識別碼]  旁的核取方塊，然後按窗格頂端的 [刪除]  按鈕。 
+1. 從 Azure 入口網站的左側功能表中，選取 [所有資源]  ，然後選取您的 IoT 中樞。 開啟您中樞的 [IoT 裝置]  刀鋒視窗，選取您在本快速入門所註冊裝置的 [裝置識別碼]  旁的核取方塊，然後按窗格頂端的 [刪除]  按鈕。
 
 
 ## <a name="next-steps"></a>後續步驟

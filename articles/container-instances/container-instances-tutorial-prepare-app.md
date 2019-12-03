@@ -1,20 +1,15 @@
 ---
-title: 教學課程 - 準備 Azure 容器執行個體的容器映像
+title: 教學課程 - 準備容器映像以供部署
 description: Azure 容器執行個體教學課程第 1 部分 (共 3 部分) - 在容器映像中準備應用程式以部署至 Azure 容器執行個體
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 719237f63d387cf56ab7947f8f168e0aa4351376
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 487dca97dc47bf214bedf38f44b2d29a71567cbb
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68325576"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533332"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>教學課程：建立容器影像以部署至 Azure 容器執行個體
 

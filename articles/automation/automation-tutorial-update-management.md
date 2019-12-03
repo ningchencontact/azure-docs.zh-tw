@@ -1,20 +1,20 @@
 ---
 title: 管理 Azure VM 的更新和修補程式
-description: 本文提供概觀，說明如何使用 Azure 自動化更新管理來管理 Azure Windows VM 的更新和修補程式。
+description: 本文提供概觀，說明如何使用 Azure 自動化更新管理來管理 Azure VM 和非 Azure VM 的更新和修補程式。
 services: automation
-author: zjalexander
+author: mgoedtel
 ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 12/04/2018
-ms.author: zachal
+ms.date: 11/20/2019
+ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 65bbf58d8514f9fea082b839f57e9aaf3417dc14
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 65ce4234da3f44de11522a626d2c0d10524e4673
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469740"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278788"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>管理 Azure VM 的更新和修補程式
 
@@ -51,15 +51,15 @@ ms.locfileid: "73469740"
 1. 選取您要啟用更新管理的 VM。
 1. 在 VM 頁面的 [作業]  區段下，選取 [更新管理]  。 [啟用更新管理]  頁面隨即開啟。
 
-執行驗證來判斷此 VM 是否已啟用更新管理。 此驗證包括檢查 Azure Log Analytics 工作區及連結的自動化帳戶，以及更新管理解決方案是否在工作區中。
+執行驗證來判斷此 VM 是否已啟用更新管理。 此驗證的工作包括檢查 Log Analytics 工作區及連結的自動化帳戶，以及工作區中是否啟用更新管理解決方案。
 
-[Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 工作區可用來收集功能和服務 (例如更新管理) 所產生的資料。 工作區提供單一位置來檢閱和分析來自多個來源的資料。
+[Log Analytics](../azure-monitor/platform/data-platform-logs.md) 工作區可用來收集功能和服務 (例如更新管理) 所產生的資料。 工作區提供單一位置來檢閱和分析來自多個來源的資料。
 
-驗證程序也會查看 VM 是否以 Microsoft Monitoring Agent (MMA) 和自動化混合式 Runbook 背景工作角色佈建。 此代理程式可用來與 Azure 自動化通訊，以及取得更新狀態的相關資訊。 此代理程式需要以開啟的連接埠 443 與 Azure 自動化服務通訊，以及下載更新。
+驗證程序也會檢查 VM 是否佈建了記錄分析代理程式和自動化混合式 Runbook 背景工作角色。 此代理程式可用來與 Azure 自動化通訊，以及取得更新狀態的相關資訊。 此代理程式需要以開啟的連接埠 443 與 Azure 自動化服務通訊，以及下載更新。
 
 如果在上線期間遺漏下列任何必要條件，就會自動新增：
 
-* [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 工作區
+* [Log Analytics](../azure-monitor/platform/data-platform-logs.md) 工作區
 * [自動化帳戶](./automation-offering-get-started.md)
 * [混合式 Runbook 背景工作角色](./automation-hybrid-runbook-worker.md) (已在 VM 上啟用)
 
@@ -71,9 +71,9 @@ ms.locfileid: "73469740"
 
 ## <a name="view-update-assessment"></a>檢視更新評量
 
-啟用 [更新管理] 之後，[更新管理]  窗格隨即開啟。 如果遺失任何更新，[遺失更新]  索引標籤上會顯示遺失的更新清單。
+啟用 [更新管理] 之後，[更新管理]  窗格隨即開啟。 如果發現遺失了任何更新，[遺失更新]  索引標籤上會顯示遺失的更新清單。
 
-在 [資訊連結]  之下，選取更新連結即可在新視窗中開啟更新的支援文章。 您可以在此視窗中了解關於更新的重要資訊。
+在 [資訊連結]  底下選取更新連結，可開啟更新的支援文章。 您可以了解關於更新的重要資訊。
 
 ![檢視更新狀態](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 

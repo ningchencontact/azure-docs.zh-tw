@@ -1,14 +1,14 @@
 ---
-title: 建立原則以使用入口網站來稽核資源
-description: 這篇文章會引導您逐步完成建立原則定義來識別不相容的資源。
-ms.date: 12/06/2018
+title: 快速入門：使用入口網站進行新原則指派
+description: 在本快速入門中，您會使用 Azure 入口網站建立 Azure 原則指派，以識別不符合規範的資源。
+ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: ef89ea43ff3179877c0ac636083ed68946b6cc91
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: ac876b546ea3bda7541db61e0ab68842a3845541
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128906"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482318"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>快速入門：建立原則指派以識別不相容資源
 
@@ -16,6 +16,8 @@ ms.locfileid: "74128906"
 本快速入門會逐步引導您完成程序來建立原則指派，以識別出未使用受控磁碟的虛擬機器。
 
 在此程序結束時，您將會成功識別出未使用受控磁碟的虛擬機器。 它們「不符合」  原則指派的規範。
+
+## <a name="prerequisites"></a>必要條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -88,7 +90,7 @@ ms.locfileid: "74128906"
 
 1. 選取 Azure 原則分頁左半部的 [合規性]  (或 [指派]  )，並找出您所建立的 [稽核不是使用受控磁碟的 VM]  原則指派。
 
-1. 以滑鼠右鍵按一下 [稽核不是使用受控磁碟的 VM]  原則指派，並選取 [刪除指派] 
+1. 以滑鼠右鍵按一下 [稽核不是使用受控磁碟的 VM]  原則指派，並選取 [刪除指派]  。
 
    ![從 [合規性] 頁面刪除指派](./media/assign-policy-portal/delete-assignment.png)
 

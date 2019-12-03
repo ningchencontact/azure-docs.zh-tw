@@ -1,14 +1,14 @@
 ---
-title: 使用 PowerShell 執行第一個查詢
-description: 本文將引導您完成為 Azure PowerShell 啟用 Resource Graph 模組並執行第一個查詢的步驟。
-ms.date: 10/18/2019
+title: 快速入門：您的第一個 PowerShell 查詢
+description: 在本快速入門中，您將依照步驟為 Azure PowerShell 啟用 Resource Graph 模組，並執行第一個查詢。
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 6aaddcfc6cae16501ba6544f9789aa3ac1d13136
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: dd96324671f46f98d5b6c8bae1839a5b02d38b23
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958770"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304150"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 執行您的第一個 Resource Graph 查詢
 
@@ -16,7 +16,11 @@ ms.locfileid: "73958770"
 
 在此程序結束後，模組即已新增至所選的 Azure PowerShell 安裝中，並執行您的第一個 Resource Graph 查詢。
 
+## <a name="prerequisites"></a>必要條件
+
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="add-the-resource-graph-module"></a>新增 Resource Graph 模組
 
@@ -28,7 +32,7 @@ Azure Resource Graph 模組需要下列軟體：
 
 - Azure PowerShell 1.0.0 或更新版本。 如果尚未安裝，請依照[這些指示](/powershell/azure/install-az-ps)操作。
 
-- PowerShellGet 2.0.1 或更新版本。 如果未安裝或更新，請依照[這些指示](/powershell/gallery/installing-psget)操作。
+- PowerShellGet 2.0.1 或更新版本。 如果未安裝或更新，請依照[這些指示](/powershell/scripting/gallery/installing-psget)操作。
 
 ### <a name="install-the-module"></a>安裝模組
 
@@ -103,10 +107,7 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 
 ## <a name="next-steps"></a>後續步驟
 
-- 取得有關[查詢語言](./concepts/query-language.md)的詳細資訊。
-- 深入了解如何[探索資源](./concepts/explore-resources.md)。
-- 使用 [Azure 入口網站](first-query-portal.md)執行您的第一個查詢。
-- 使用 [Azure CLI](first-query-azurecli.md) 執行第一個查詢。
-- 請參閱[入門查詢](./samples/starter.md)的範例。
-- 請參閱[進階查詢](./samples/advanced.md)的範例。
-- 在 [UserVoice](https://feedback.azure.com/forums/915958-azure-governance) \(英文\) 上提供意見反應。
+在本快速入門中，您已將 Resource Graph 模組新增至 Azure PowerShell 環境，並執行第一個查詢。 若要深入了解 Resource Graph 語言，請繼續前往查詢語言詳細資料頁面。
+
+> [!div class="nextstepaction"]
+> [取得有關查詢語言的詳細資訊](./concepts/query-language.md)

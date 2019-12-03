@@ -1,18 +1,18 @@
 ---
-title: 在 Azure 入口網站中建立和共用查詢
-description: 在本教學課程中，您將了解如何建立 Resource Graph 查詢，並在 Azure 入口網站中與其他人共用該查詢。
-ms.date: 10/23/2019
+title: 教學課程：在 Azure 入口網站中管理查詢
+description: 在本教學課程中，您將建立 Resource Graph 查詢，並在 Azure 入口網站中與其他人共用新查詢。
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: 65b96da3bd9064f34d75d5e87f1fcf55336d9893
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 00cb3f95112804c81beb6bce6fc35891e6197e60
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958564"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74303954"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>教學課程：在 Azure 入口網站中建立和共用 Azure Resource Graph 查詢
 
-Azure Resource Graph Explorer 可讓您直接在 Azure 入口網站中儲存 Resource Graph 查詢。 查詢分成兩種類型：_私人_和_共用_。 私人查詢會儲存在您的 Azure 入口網站設定中。 共用查詢是一種 Resource Manager 資源，可以使用角色型存取控制 (RBAC) 來管理，並使用資源鎖定加以保護。
+Azure Resource Graph Explorer 可讓您直接在 Azure 入口網站中儲存 Resource Graph 查詢。 查詢分成兩種類型：_私人_和_共用_。 私人查詢會儲存在您的 Azure 入口網站設定中。 共用查詢是一種 Resource Manager 資源，可以使用角色型存取控制 (RBAC) 來管理，並使用資源鎖定加以保護。 這兩種類型的查詢都會在待用時加密。
 
 將查詢儲存在 Azure 入口網站中，可讓您省下在尋找慣用或常用查詢時可能耗費的時間。 在共用查詢時，您將協助小組成員透過重複的動作實現一致性和效率的目標。
 
@@ -54,7 +54,7 @@ Azure Resource Graph Explorer 可讓您直接在 Azure 入口網站中儲存 Res
 1. 選取 [開啟查詢]  。 請確定類型為 [私人查詢]  。 此時，已儲存的名稱「依作業系統計算 VM 計數」  會出現在 [查詢名稱]  清單中。 當您選取已儲存查詢的標題連結時，該查詢會載入至具有該查詢名稱的新索引標籤中。
 
    > [!NOTE] 
-   >當已儲存的查詢開啟，且索引標籤顯示其名稱時，若選取 [儲存]  按鈕，將會以已進行的任何變更來更新該查詢。 若要從這個開啟的查詢建立新儲存的查詢，請選取 [另存新檔]  並繼續操作，如同儲存全新的查詢一般。
+   > 當已儲存的查詢開啟，且索引標籤顯示其名稱時，若選取 [儲存]  按鈕，將會以已進行的任何變更來更新該查詢。 若要從這個開啟的查詢建立新儲存的查詢，請選取 [另存新檔]  並繼續操作，如同儲存全新的查詢一般。
 
 1. 若要刪除已儲存的查詢，請再次選取 [開啟查詢]  ，並確認 [類型]  欄位設定為 [私人查詢]  。 在已儲存的 `Count VMs by OS` 查詢的資料列上，選取 [刪除]  (垃圾桶圖示)。 在確認對話方塊中選取 [是]  ，以完成查詢的刪除作業。
    然後，關閉 [開啟查詢]  窗格。
@@ -153,9 +153,7 @@ Resources
 
 ## <a name="next-steps"></a>後續步驟
 
-- 使用 [Azure 入口網站](../first-query-portal.md)執行您的第一個查詢。
-- 取得有關[查詢語言](../concepts/query-language.md)的詳細資訊。
-- 深入了解如何[探索資源](../concepts/explore-resources.md)。
-- 請參閱[入門查詢](../samples/starter.md)的範例。
-- 請參閱[進階查詢](../samples/advanced.md)的範例。
-- 在 [UserVoice](https://feedback.azure.com/forums/915958-azure-governance) \(英文\) 上提供意見反應。
+在本教學課程中，您已建立私人和共用查詢。 若要深入了解 Resource Graph 語言，請繼續前往查詢語言詳細資料頁面。
+
+> [!div class="nextstepaction"]
+> [取得有關查詢語言的詳細資訊](../concepts/query-language.md)

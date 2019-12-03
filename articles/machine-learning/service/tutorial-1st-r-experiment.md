@@ -1,5 +1,5 @@
 ---
-title: 教學課程：您第一個使用 R 的 ML 實驗
+title: 教學課程：您第一個使用 R 的 ML 模型
 titleSuffix: Azure Machine Learning
 description: 在本教學課程中，您將了解 Azure Machine Learning 中的基本設計模式，並使用 R 套件 azuremlsdk 和插入點來定型羅吉斯迴歸模型，以預測車禍造成傷亡的可能性。
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: 72ab2717cea479de6150f435398f164c7c9d5937
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 52dc0ff27ad2f04b9faeab24c6bdba68d9ec138e
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092270"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307276"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>教學課程：使用 Azure Machine Learning 以 R 定型及部署您的第一個模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

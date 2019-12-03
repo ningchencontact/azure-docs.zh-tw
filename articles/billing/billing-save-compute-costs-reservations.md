@@ -3,16 +3,16 @@ title: 什麼是 Azure 保留項目？
 description: 了解 Azure Reservations 和定價，以節省虛擬機器、SQL 資料庫、Azure Cosmos DB 及其他資源的成本。
 author: yashesvi
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 11/22/2019
 ms.author: banders
-ms.openlocfilehash: a002f5a1657454ff5048ab695e62eccd268a5891
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: df15bcc0e4a3ef7629abf7b62f8ff36caf732150
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580100"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420138"
 ---
 # <a name="what-are-azure-reservations"></a>什麼是 Azure 保留項目？
 
@@ -36,6 +36,12 @@ Azure Reservations 可協助您透過承諾虛擬機器、Azure Blob 儲存體�
 - **SQL Database 保留的 vCore**：保留僅包含計算成本。 授權為分開計費。
 - **SQL 資料倉儲**：保留涵蓋 cDWU 使用量。 但未涵蓋與 SQL 資料倉儲使用量相關的儲存或網路費用。
 - **App Service 戳記費用**：保留涵蓋戳記使用量。 但不會套用至背景工作角色，因此任何其他與戳記相關聯的資源也會分開收費。
+- 適用於 MySQL 的 Azure 資料庫
+- 適用於 PostgreSQL 的 Azure 資料庫
+- 適用於 MariaDB 的 Azure 資料庫
+- Azure 資料總管
+- 高階 SSD 受控磁碟
+
 
 針對 Windows 虛擬機器和 SQL 資料庫，您可以利用 [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) 來涵蓋授權成本。
 

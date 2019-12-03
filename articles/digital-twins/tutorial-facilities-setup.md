@@ -1,5 +1,5 @@
 ---
-title: 教學課程：部署 Azure Digital Twins
+title: 教學課程：部署預覽環境和空間圖形 - Azure Digital Twins| Microsoft Docs
 description: 了解如何使用本教學課程中步驟，部署 Azure Digital Twins 執行個體及設定空間資源。
 services: digital-twins
 ms.author: alinast
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 4d4e7e47b82c46cca53fab0540a4867031eaab85
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 20174a4eafb4e72fb62eeff6df2d129b91016b9e
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107753"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383017"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>教學課程：部署 Azure Digital Twins 預覽版及設定空間圖形
 

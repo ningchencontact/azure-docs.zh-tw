@@ -1,6 +1,6 @@
 ---
 title: 什麼是 Azure 資訊安全中心？| Microsoft Docs
-description: 了解 Azure 資訊安全中心、其主要功能及運作方式。
+description: 本頁面說明資訊安全中心的主要優點 - 探索您的安全性狀態，並以雲端和內部部署資源的涵蓋範圍加以改善。
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: e02fd0de00b8feed15fcd51b657afcc015d816f2
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 378ad4fde94e8bccfbdad9765545675822d202ff
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202102"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558624"
 ---
 # <a name="what-is-azure-security-center"></a>什麼是 Azure 資訊安全中心？
 

@@ -1,14 +1,14 @@
 ---
-title: 建立原則以使用 PowerShell 來稽核資源
-description: 使用 Azure PowerShell 建立 Azure 原則指派，以識別不相容資源。
-ms.date: 03/11/2019
+title: 快速入門：使用 PowerShell 進行新原則指派
+description: 在本快速入門中，使用 Azure PowerShell 建立 Azure 原則指派，以識別不符合規範的資源。
+ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 796606e1e34e753e49a9083fca5a441cacf6d03c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 3ce823a7abfe16e4433128dcdfe073dfcfaeba50
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960119"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482395"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立 Azure 原則指派，以識別不相容資源
 
@@ -17,11 +17,12 @@ ms.locfileid: "73960119"
 Azure PowerShell 模組可用來從命令列或在指令碼中管理 Azure 資源。
 本指南說明如何使用 Az 模組建立原則指派。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
-
 ## <a name="prerequisites"></a>必要條件
 
+- 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+
 - 開始之前，請確定已安裝最新版 Azure PowerShell。 如需詳細資訊，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
+
 - 使用 Azure PowerShell 註冊 Azure 原則見解資源提供者。 註冊資源提供者，以確保您的訂用帳戶可搭配它使用。 若要註冊資源提供者，您必須有權註冊資源提供者作業。 這項作業包含在「參與者」和「擁有者」角色中。 執行下列命令以註冊資源提供者：
 
   ```azurepowershell-interactive
@@ -29,7 +30,9 @@ Azure PowerShell 模組可用來從命令列或在指令碼中管理 Azure 資�
   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
-  如需註冊及檢視資源提供者的詳細資訊，請參閱[資源提供者和類型](../../azure-resource-manager/resource-manager-supported-services.md)
+  如需註冊及檢視資源提供者的詳細資訊，請參閱[資源提供者和類型](../../azure-resource-manager/resource-manager-supported-services.md)。
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-policy-assignment"></a>建立原則指派
 
@@ -51,8 +54,8 @@ New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs wit
 上述命令會使用下列資訊：
 
 - **Name** - 指派的實際名稱。 例如，我們使用了 audit-vm-manageddisks  。
-- **DisplayName** - 原則指派的顯示名稱。 在此案例中，您會使用*稽核沒有受控磁碟指派的虛擬機器*。
-- **定義** – 原則定義，這是您用來建立指派的根基。 在此案例中，即為原則定義*稽核沒有受控磁碟的虛擬機器*的 ID。
+- **DisplayName** - 原則指派的顯示名稱。 在此案例中，您會使用_稽核沒有受控磁碟指派的虛擬機器_。
+- **定義** – 原則定義，這是您用來建立指派的根基。 在此案例中，即為原則定義_稽核沒有受控磁碟的虛擬機器_的 ID。
 - **範圍** – 範圍會決定在哪些資源或資源群組上強制執行原則指派。 範圍從訂用帳戶到資源群組。 請務必將 &lt;scope&gt; 取代為您的資源群組。
 
 您現在可以識別不相容的資源，以了解環境的相容性狀態。

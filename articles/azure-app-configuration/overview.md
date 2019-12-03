@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b26fa822e17ad7e9444b75d4db516ea2ccf5340b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 01644054868ffc08738e67654ba181c76e7aed39
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129694"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185072"
 ---
 # <a name="what-is-azure-app-configuration"></a>什麼是 Azure 應用程式設定？
 
@@ -58,12 +58,12 @@ Azure 應用程式組態會提供集中管理應用程式設定和功能旗標�
 
 ## <a name="use-app-configuration"></a>使用應用程式設定
 
-您可以透過 Microsoft 提供的用戶端程式庫，將應用程式設定存放區新增至您的應用程式，這是最簡單的方式。 以下是適用於不同程式設計語言和架構的最佳方法。
+您可以透過 Microsoft 提供的用戶端程式庫，將應用程式組態存放區新增至您的應用程式，這是最簡單的方式。 以下是適用於不同程式設計語言和架構的最佳方法。
 
 | 程式設計語言和架構 | 如何連接 |
 |---|---|
 | .NET Core 和 ASP.NET Core | 適用於 .NET Core 的應用程式設定提供者 |
-| .NET 和 ASP.NET | 適用於 .NET 的應用程式設定建立器 |
+| .NET Framework 和 ASP.NET | 適用於 .NET 的應用程式設定建立器 |
 | Java Spring | 適用於 Spring Cloud 的應用程式設定用戶端 |
 | 其他 | 應用程式設定 REST API |
 
@@ -72,7 +72,7 @@ Azure 應用程式組態會提供集中管理應用程式設定和功能旗標�
 * [ASP.NET Core 快速入門](./quickstart-aspnet-core-app.md)
 * [.NET Core 快速入門](./quickstart-dotnet-core-app.md)
 * [.NET Framework 快速入門](./quickstart-dotnet-app.md)
-* [Azure 函式快速入門](./quickstart-azure-function-csharp.md)
+* [Azure Functions 快速入門](./quickstart-azure-functions-csharp.md)
 * [Java Spring 快速入門](./quickstart-java-spring-app.md)
 * [ASP.NET Core 功能旗標快速入門](./quickstart-feature-flag-aspnet-core.md)
 * [Spring Boot 功能旗標快速入門](./quickstart-feature-flag-spring-boot.md)

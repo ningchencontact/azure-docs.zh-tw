@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
-ms.openlocfilehash: e6a8a25e88d4193562c818f30efd5eb017c372fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 663958ae367162eaeb336c819d1d219dc74a2cbe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089299"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233274"
 ---
 # <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>教學課程：整合 Syncplicity 與 Azure Active Directory
 
@@ -122,7 +122,7 @@ ms.locfileid: "67089299"
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
-在本節中，您會在 Azure 入口網站中建立名稱為 B.Simon 的測試使用者。
+在本節中，您將在 Azure 入口網站中建立名為 B.Simon 的測試使用者。
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 1. 在畫面頂端選取 [新增使用者]  。
@@ -152,7 +152,7 @@ ms.locfileid: "67089299"
 
 ### <a name="create-syncplicity-test-user"></a>建立 Syncplicity 測試使用者
 
-AAD 使用者必須先佈建到 Syncplicity 應用程式，才可以登入。 本節描述如何建立 Syncplicity 內的 AAD 使用者帳戶。
+Azure AD 使用者必須先佈建到 Syncplicity 應用程式，才可以登入。 本節說明如何建立 Syncplicity 中的 Azure AD 使用者帳戶。
 
 **若要將使用者帳戶佈建到 Syncplicity，請執行下列步驟：**
 
@@ -167,7 +167,7 @@ AAD 使用者必須先佈建到 Syncplicity 應用程式，才可以登入。 �
     ![帳戶資訊](./media/syncplicity-tutorial/ic769765.png "帳戶資訊")
 
     > [!NOTE]
-    > AAD 帳戶的持有者會收到電子郵件，其中包含可確認並啟動帳戶的連結。
+    > Azure AD 帳戶的持有者會收到電子郵件，其中包含可確認並啟用帳戶的連結。
 
 1. 選取要讓新使用者成為成員的公司群組，然後按一下 [下一步]  。
 
@@ -181,7 +181,7 @@ AAD 使用者必須先佈建到 Syncplicity 應用程式，才可以登入。 �
     ![Syncplicity 資料夾](./media/syncplicity-tutorial/ic769773.png "Syncplicity 資料夾")
 
 > [!NOTE]
-> 您可以使用任何其他的 Syncplicity 使用者帳戶建立工具或 Syncplicity 提供的 API 來佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 Syncplicity 使用者帳戶建立工具或 Syncplicity 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-sso"></a>測試 SSO
 

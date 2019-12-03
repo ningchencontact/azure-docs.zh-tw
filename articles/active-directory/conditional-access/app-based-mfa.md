@@ -1,22 +1,22 @@
 ---
-title: 快速入門 - 透過 Azure Active Directory 條件式存取來要求特定應用程式必須使用多重要素驗證 (MFA) | Microsoft Docs
+title: 透過條件式存取要求使用 Azure MFA - Azure Active Directory
 description: 在此快速入門中，您會了解如何使用 Azure Active Directory (Azure AD) 的條件式存取，將驗證需求與可存取的雲端應用程式類型繫結在一起。
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: quickstart
-ms.date: 01/30/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a23f8fc10e0e5a19be1f93cc6d6e5e8e301f86d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 55c9188a1320b92aafa5fc67a253b42b6b107711
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474006"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381086"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>快速入門：透過 Azure Active Directory 條件式存取來要求特定應用程式必須使用 MFA
 

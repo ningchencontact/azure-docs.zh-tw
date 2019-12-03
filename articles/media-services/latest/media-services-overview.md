@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 09/17/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 61ffd4857ca9a330a4cb0eeace89791fc0973f70
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c17f1094e562960e851204b40281f5b04c1d40ce
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575100"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186067"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure 媒體服務 v3 概觀
 
@@ -53,6 +53,10 @@ Azure 媒體服務是雲端式平台，可讓您建置的解決方案擁有廣�
 
 > [!TIP]
 > 在開始開發之前，請檢閱：<br/>* [基本概念](concepts-overview.md) (包括重要概念，例如封裝、編碼和保護)<br/>* [使用媒體服務 v3 API 進行開發](media-services-apis-overview.md) (包括存取 API、命名慣例等的詳細資訊)
+
+### <a name="sdks"></a>SDK
+
+開始使用 [Azure 媒體服務 v3 用戶端 SDK](media-services-apis-overview.md#sdks) 進行開發。
 
 ### <a name="quickstarts"></a>快速入門  
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 10/15/2019
+ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 67d6bb0bf880de0b4bf6878128e2ed27e130b18d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 62cf9a03960e895f403ec8fa09407ff61252ecb2
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718999"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483078"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-net"></a>快速入門：適用於 .NET 的 Anomaly Detector 用戶端程式庫
 
@@ -26,12 +26,13 @@ ms.locfileid: "73718999"
 * 以批次要求方式偵測整個時間序列資料集的異常狀況
 * 偵測您的時間序列中最新資料點的異常狀態
 
-[程式庫參考文件](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [套件 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [程式碼範例](https://github.com/Azure-Samples/anomalydetector)
+[程式庫參考文件](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [套件 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [在 GitHub 上尋找程式碼](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)
 
 ## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 * 最新版 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
+* Anomaly Detector 金鑰和端點
 
 ## <a name="setting-up"></a>設定
 
@@ -41,15 +42,15 @@ ms.locfileid: "73718999"
 
 ### <a name="create-a-new-net-core-application"></a>建立新的 .NET Core 應用程式
 
-在主控台視窗中 (例如 cmd、PowerShell 或 Bash)，使用 dotnet `new` 命令建立名為 `anomaly-detector-quickstart` 的新主控台應用程式。 此命令會建立簡單的 "Hello World" 專案，內含單一 C# 原始程式檔：*Program.cs*。 
+在主控台視窗中 (例如 cmd、PowerShell 或 Bash)，使用 `dotnet new` 命令建立名為 `anomaly-detector-quickstart` 的新主控台應用程式。 此命令會建立簡單的 "Hello World" 專案，內含單一 C# 原始程式檔：*Program.cs*。 
 
-```console
+```dotnetcli
 dotnet new console -n anomaly-detector-quickstart
 ```
 
 將目錄變更為新建立的應用程式資料夾。 您可以使用下列命令來建置應用程式：
 
-```console
+```dotnetcli
 dotnet build
 ```
 
@@ -67,7 +68,7 @@ Build succeeded.
 
 在應用程式目錄中，使用下列命令安裝適用於 .NET 的 Anomaly Detector 用戶端程式庫：
 
-```console
+```dotnetcli
 dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector --version 0.8.0-preview
 ```
 
@@ -131,24 +132,10 @@ Anomaly Detector 回應會是 [EntireDetectResponse](https://docs.microsoft.com/
 
 ## <a name="run-the-application"></a>執行應用程式
 
-從應用程式目錄使用 dotnet `run` 命令來執行應用程式。
+使用 `dotnet run` 命令，從您的應用程式目錄執行應用程式。
 
-```dotnet
+```dotnetcli
 dotnet run
 ```
 
-## <a name="clean-up-resources"></a>清除資源
-
-如果您想要清除和移除認知服務訂用帳戶，則可以刪除資源或資源群組。 刪除資源群組也會刪除與資源群組相關聯的任何其他資源。
-
-* [入口網站](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## <a name="next-steps"></a>後續步驟
-
-> [!div class="nextstepaction"]
->[使用 Azure Databricks 串流異常偵測](../tutorials/anomaly-detection-streaming-databricks.md)
-
-* 什麼是 [Anomaly Detector API？](../overview.md)
-* 使用 Anomaly Detector API 時的[最佳做法](../concepts/anomaly-detection-best-practices.md)。
-* 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs) 上找到。
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

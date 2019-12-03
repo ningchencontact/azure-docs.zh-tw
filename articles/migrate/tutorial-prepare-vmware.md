@@ -1,24 +1,24 @@
 ---
-title: 使用 Azure Migrate 準備 VMware VM 以進行評量並移轉至 Azure | Microsoft Docs
-description: 說明如何使用 Azure Migrate 來準備內部部署 VMware VM 的評量並將其移轉至 Azure。
+title: 使用 Azure Migrate 準備 VMware VM 以進行評量/移轉
+description: 了解如何使用 Azure Migrate 準備進行 VMware VM 的評量/移轉。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4cc04e9ab0acdc9d0cdff77ed1de7bea1c1362d4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cc1eb4c4fce1398365145b2f3d63db984635d667
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498478"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196245"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>準備 VMware VM 以進行評量並移轉至 Azure
 
 本文將協助您使用 [Azure Migrate](migrate-services-overview.md) 來準備內部部署 VMware VM 的評量並 (或) 將其移轉至 Azure。
 
-[Azure Migrate](migrate-overview.md) 會提供工具中樞，協助您探索和評估應用程式、基礎結構和工作負載，並且將這些項目遷移至 Microsoft Azure。 此中樞包含 Azure Migrate 工具和第三方獨立軟體廠商 (ISV) 供應項目。 
+[Azure Migrate](migrate-overview.md) 會提供工具中樞，協助您探索和評估應用程式、基礎結構和工作負載，並且將這些項目遷移至 Microsoft Azure。 此中樞包含 Azure Migrate 工具和第三方獨立軟體廠商 (ISV) 供應項目。
 
 
 本教學課程是一個系列中的第一篇，說明如何評估及遷移 VMware VM。 在本教學課程中，您會了解如何：
@@ -38,9 +38,9 @@ ms.locfileid: "73498478"
 
 您需要這些權限。
 
-**Task** | **權限** 
---- | --- | ---
-**建立 Azure Migrate 專案** | 您的 Azure 帳戶需要可建立專案的權限。 
+**Task** | **權限**
+--- | ---
+**建立 Azure Migrate 專案** | 您的 Azure 帳戶需要可建立專案的權限。
 **註冊 Azure Migrate 設備** | Azure Migrate 會使用輕量的 Azure Migrate 設備搭配 Azure Migrate 伺服器評量來評估 VMware VM，以及搭配 Azure Migrate 伺服器移轉來執行[無代理程式移轉](server-migrate-overview.md)。 此設備會探索 VM，並將 VM 的中繼資料和效能資料傳送至 Azure Migrate。<br/><br/>在註冊期間，Azure Migrate 會建立兩個可唯一識別設備的 Azure Active Directory (Azure AD) 應用程式，並且需要可建立這些應用程式的權限。<br/> - 第一個應用程式會與 Azure Migrate 服務端點進行通訊。<br/> - 第二個應用程式會存取在註冊期間建立的 Azure Key Vault，以儲存 Azure AD 的應用程式資訊和設備組態設定。
 **建立 Key Vault** | 若要使用 Azure Migrate 伺服器移轉來遷移 VMware VM，Azure Migrate 會建立 Key Vault 來管理訂用帳戶中複寫儲存體帳戶的存取金鑰。 若要建立保存庫，您在 Azure Migrate 專案所在的資源群組上必須有角色指派權限。
 
@@ -62,7 +62,7 @@ ms.locfileid: "73498478"
 
 > [!NOTE]
 > - 除了前述權限外，應用程式在訂用帳戶上沒有任何其他存取權限。
-> - 只有當您註冊新的設備時，才需要這些權限。 完成設備的設定後，您可以移除權限。 
+> - 只有當您註冊新的設備時，才需要這些權限。 完成設備的設定後，您可以移除權限。
 
 
 #### <a name="grant-account-permissions"></a>授與帳戶權限
@@ -76,7 +76,7 @@ ms.locfileid: "73498478"
 
 
 
-#### <a name="assign-application-developer-role"></a>指派應用程式開發人員角色 
+#### <a name="assign-application-developer-role"></a>指派應用程式開發人員角色
 
 租用戶/全域管理員可為帳戶指派應用程式開發人員角色。 [深入了解](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)。
 
@@ -90,7 +90,7 @@ ms.locfileid: "73498478"
     - 若要執行伺服器評量，「參與者」  權限就已足夠。
     - 若要執行無代理程式的伺服器移轉，您應具有「擁有者」  (或「參與者」  及「使用者存取系統管理員」  ) 權限。
 
-3. 如果您沒有必要權限，請向資源群組擁有者提出要求。 
+3. 如果您沒有必要權限，請向資源群組擁有者提出要求。
 
 
 
@@ -99,7 +99,7 @@ ms.locfileid: "73498478"
 若要準備 VMware VM 評量，您必須：
 
 - **確認 VMware 設定**。 確定您想要遷移的 vCenter Server 和 VM 符合需求。
-- **設定評量帳戶**。 Azure Migrate 需要存取 vCenter Server，才能探索用於評量的 VM。 您需要唯讀帳戶來存取 Azure Migrate。
+- **設定評量帳戶**。 Azure Migrate 需要存取 vCenter Server，才能探索用於評量的 VM。
 - **確認設備需求**。 確認用於評量的 Azure Migrate 設備有何部署需求。
 
 ### <a name="verify-vmware-settings"></a>確認 VMware 設定
@@ -110,7 +110,13 @@ ms.locfileid: "73498478"
 
 ### <a name="set-up-an-account-for-assessment"></a>設定用於評量的帳戶
 
-Azure Migrate 需要存取 vCenter Server，才能探索用於評估和無代理程式移轉的 VM。 若只是要進行評量，請設定一個可使用 vCenter Server 的唯讀帳戶。
+Azure Migrate 需要存取 vCenter Server，才能探索用於評估和無代理程式移轉的 VM。
+
+- 如果您打算探索應用程式，或以無代理程式的方式將相依性視覺化，請建立 vCenter Server 帳戶，並使其具有唯讀存取權以及針對 [虛擬機器]   > [客體作業]  啟用的權限。
+
+  ![vCenter Server 帳戶權限](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
+
+- 如果您不打算執行應用程式探索和無代理程式相依性視覺效果，請為 vCenter Server 設定唯讀帳戶。
 
 ### <a name="verify-appliance-settings-for-assessment"></a>確認用於評量的設備設定
 
@@ -120,7 +126,7 @@ Azure Migrate 需要存取 vCenter Server，才能探索用於評估和無代理
 2. 如果您使用以 URL 為基礎的防火牆 Proxy，[請檢閱](migrate-support-matrix-vmware.md#assessment-url-access-requirements)設備需要存取的 Azure URL。 請確定 Proxy 會解析在查詢 URL 時所收到的任何 CNAME 記錄。
 3. 請檢閱設備在探索和評量期間收集的[效能資料](migrate-appliance.md#collected-performance-data-vmware)和[中繼資料](migrate-appliance.md#collected-metadata-vmware)。
 4. [請注意](migrate-support-matrix-vmware.md#assessment-port-requirements)設備所存取的連接埠。
-5. 在 vCenter Server 上，確定您的帳戶有權使用 OVA 檔案建立 VM。 您可以使用 OVA 檔案，將 Azure Migrate 設備部署為 VMware VM。 
+5. 在 vCenter Server 上，確定您的帳戶有權使用 OVA 檔案建立 VM。 您可以使用 OVA 檔案，將 Azure Migrate 設備部署為 VMware VM。
 
 如果您使用以 URL 為基礎的 firewall.proxy，請允許必要 [Azure URL](migrate-support-matrix-vmware.md#assessment-url-access-requirements) 的存取權。
 
@@ -142,7 +148,7 @@ Azure Migrate 需要存取 vCenter Server，才能探索用於評估和無代理
 
 請檢閱 VMware VM 進行[代理程式型移轉](server-migrate-overview.md)時的需求。
 
-1. [檢閱](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) VMware 伺服器需求。 
+1. [檢閱](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) VMware 伺服器需求。
 2. 設定具有[必要權限](migrate-support-matrix-vmware.md#agent-based-migration-vcenter-server-permissions)的帳戶。 讓 Azure Migrate 可存取 vCenter Server 並使用 Azure Migrate 伺服器移轉進行代理程式型移轉。
 3. [檢閱](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements)透過代理程式型移轉將 VMware VM 遷移至 Azure 時的需求，包括在每個要遷移的 VM 上安裝行動服務。
 4. 注意 [URL 存取](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements)。
@@ -151,14 +157,13 @@ Azure Migrate 需要存取 vCenter Server，才能探索用於評估和無代理
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您：
- 
-> [!div class="checklist"] 
+
+> [!div class="checklist"]
 > * 設定 Azure 權限。
 > * 準備VMware 以進行評估及移轉。
 
 
 請繼續進行第二個教學課程，以設定 Azure Migrate 專案，並評估要遷移至 Azure 的 VMware VM。
 
-> [!div class="nextstepaction"] 
-> [評估 VMware VM](./tutorial-assess-vmware.md) 
-
+> [!div class="nextstepaction"]
+> [評估 VMware VM](./tutorial-assess-vmware.md)

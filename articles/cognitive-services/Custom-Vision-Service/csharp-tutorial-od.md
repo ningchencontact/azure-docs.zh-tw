@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用適用於 C# 的自訂視覺 SDK 建立物件偵測專案
+title: 快速入門：使用適用於 C# 的 SDK 建立物件偵測專案 - 自訂視覺
 titleSuffix: Azure Cognitive Services
 description: 建立專案、新增標籤、上傳影像、為您的專案定型，並使用 .NET SDK 和 C# 來偵測物件。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: de8858b1b47e36a4d8b86f317f7471118fa4a772
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 7baa3e2de00997496edb5b445f8426d899ac65a4
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "73519497"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383727"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>快速入門：使用自訂視覺 .NET SDK 建立物件偵測專案
 
@@ -41,7 +41,7 @@ ms.locfileid: "73519497"
 
 ## <a name="understand-the-code"></a>了解程式碼
 
-開啟 _Program.cs_ 檔案，並檢查程式碼。 分別為您名為 `CUSTOM_VISION_TRAINING_KEY` 和 `CUSTOM_VISION_PREDICTION_KEY` 的定型和預測金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) 指令碼會尋找這些項目。
+開啟 _Program.cs_ 檔案，並檢查程式碼。 分別為您名為 `CUSTOM_VISION_TRAINING_KEY` 和 `CUSTOM_VISION_PREDICTION_KEY` 的定型和預測金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。 指令碼會尋找這些項目。
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_keys)]
 

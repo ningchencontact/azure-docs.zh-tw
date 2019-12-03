@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/09/2019
 ms.author: lcozzens
-ms.openlocfilehash: 17b2e7272d499ce99d40d2ee52de1c7a5a1d0d04
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 36cfe79f5c2735e6d6737d471430deb989905cdc
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329804"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185050"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式設定建立 .NET Framework 應用程式
 
@@ -31,7 +31,7 @@ ms.locfileid: "72329804"
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>建立應用程式設定存放區
+## <a name="create-an-app-configuration-store"></a>建立應用程式組態存放區
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -51,7 +51,7 @@ ms.locfileid: "72329804"
 
 1. 在 [設定您的新專案]  中，輸入專案名稱。 在 [架構]  底下，選取 [.NET Framework 4.7.1]  或更高版本。 按一下頁面底部的 [新增]  。
 
-## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式設定存放區
+## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式組態存放區
 
 1. 以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]  。 在 [瀏覽]  索引標籤上，搜尋下列 NuGet 套件並新增至您的專案。 如果您找不到它們，請選取 [包括發行前版本]  核取方塊。
 
@@ -81,7 +81,7 @@ ms.locfileid: "72329804"
     </appSettings>
     ```
 
-   從環境變數 `ConnectionString` 讀取應用程式設定存放區的連接字串。 在 `appSettings` 區段的 `configBuilders` 屬性中，於 `MyConfigStore` 之前新增 `Environment` 設定建立器。
+   從環境變數 `ConnectionString` 中讀取應用程式組態存放區的連接字串。 在 `appSettings` 區段的 `configBuilders` 屬性中，於 `MyConfigStore` 之前新增 `Environment` 設定建立器。
 
 1. 開啟 *Program.cs*，並藉由呼叫 `ConfigurationManager` 將 `Main` 方法更新為使用應用程式設定。
 
@@ -96,7 +96,7 @@ ms.locfileid: "72329804"
 
 ## <a name="build-and-run-the-app-locally"></a>於本機建置並執行應用程式
 
-1. 將名為 **ConnectionString** 的環境變數設定為應用程式設定存放區的連接字串。 如果您使用 Windows 命令提示字元，請執行下列命令：
+1. 將名為 **ConnectionString** 的環境變數設定為應用程式組態存放區的連接字串。 如果您使用 Windows 命令提示字元，請執行下列命令：
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -112,7 +112,7 @@ ms.locfileid: "72329804"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已建立新的應用程式設定存放區，並將其與 .NET Framework 主控台應用程式搭配使用。 若要深入了解如何使用應用程式設定，請繼續進行下一個示範驗證的教學課程。
+在本快速入門中，您已建立新的應用程式組態存放區，並將其與 .NET Framework 主控台應用程式搭配使用。 `ConfiguratoinManager` 的值 `AppSettings` 在應用程式啟動之後不會變更。 不過，應用程式組態 .NET Standard 組態提供者程式庫也可以在 .NET Framework 應用程式中使用。 若要了解如何讓 .NET Framework 應用程式以動態方式重新整理組態設定，請繼續進行下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [受控識別整合](./howto-integrate-azure-managed-service-identity.md)
+> [啟用動態組態](./enable-dynamic-configuration-dotnet.md)

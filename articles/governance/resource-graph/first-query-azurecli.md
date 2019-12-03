@@ -1,14 +1,14 @@
 ---
-title: 使用 Azure CLI 執行第一個查詢
-description: 此文章將引導您完成為 Azure CLI 啟用 Resource Graph 延伸模組並執行第一個查詢的步驟。
-ms.date: 10/18/2019
+title: 快速入門：您的第一個 Azure CLI 查詢
+description: 在本快速入門中，您將依照步驟為 Azure CLI 啟用 Resource Graph 延伸模組，並執行第一個查詢。
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: b74e4314a7755bb067831f955ca02d62485abe4f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: e75152c720d94f084b43f855452e5e8ce4dc6bc8
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958961"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304130"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>快速入門：使用 Azure CLI 執行您的第一個 Resource Graph 查詢
 
@@ -16,13 +16,17 @@ ms.locfileid: "73958961"
 
 在此程序結束時，延伸模組將新增到您選擇的 Azure CLI 安裝中，並執行您的第一個 Resource Graph 查詢。
 
+## <a name="prerequisites"></a>必要條件
+
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="add-the-resource-graph-extension"></a>新增 Resource Graph 延伸模組
 
 若要讓 Azure CLI 可查詢 Azure Resource Graph，您必須新增延伸模組。 此延伸模組適用於可使用 Azure CLI 的任何地方，包括 [Windows 10 的 Bash](/windows/wsl/install-win10)、[Cloud Shell](https://shell.azure.com) (獨立與內部入口網站)、[Azure CLI Docker 映像](https://hub.docker.com/r/microsoft/azure-cli/)，或在本機安裝。
 
-1. 確認已安裝最新的 Azure CLI (至少 **2.0.45**)。 如果尚未安裝，請依照[這些指示](/cli/azure/install-azure-cli-windows?view=azure-cli-latest)操作。
+1. 確認已安裝最新的 Azure CLI (至少 **2.0.76**)。 如果尚未安裝，請依照[這些指示](/cli/azure/install-azure-cli-windows?view=azure-cli-latest)操作。
 
 1. 在您選擇的 Azure CLI 環境中，使用下列命令匯入：
 
@@ -87,10 +91,7 @@ az extension remove -n resource-graph
 
 ## <a name="next-steps"></a>後續步驟
 
-- 取得有關[查詢語言](./concepts/query-language.md)的詳細資訊。
-- 深入了解如何[探索資源](./concepts/explore-resources.md)。
-- 使用 [Azure 入口網站](first-query-portal.md)執行您的第一個查詢。
-- 使用 [Azure PowerShell](first-query-powershell.md) 執行第一個查詢。
-- 請參閱[入門查詢](./samples/starter.md)的範例。
-- 請參閱[進階查詢](./samples/advanced.md)的範例。
-- 在 [UserVoice](https://feedback.azure.com/forums/915958-azure-governance) \(英文\) 上提供意見反應。
+在本快速入門中，您已將 Resource Graph 延伸模組新增至 Azure CLI 環境，並執行您的第一個查詢。 若要深入了解 Resource Graph 語言，請繼續前往查詢語言詳細資料頁面。
+
+> [!div class="nextstepaction"]
+> [取得有關查詢語言的詳細資訊](./concepts/query-language.md)

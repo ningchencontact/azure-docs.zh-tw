@@ -1,14 +1,14 @@
 ---
 title: 範例 - 允許的 ExpressRoute SKU
-description: 此原則定義範例會要求 ExpressRoute 使用已核准的 SKU。
+description: 此原則定義範例會要求 ExpressRoute 使用參數中定義的已核准 SKU。
 ms.date: 01/29/2019
 ms.topic: sample
-ms.openlocfilehash: a9fa0e98a2973cbaa689358c0922b0eda23dd042
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e4bd9dfe9c9851f80fe7e6f7b93a1c251e163bf7
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072031"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463722"
 ---
 # <a name="sample---allowed-expressroute-skus"></a>範例 - 允許的 ExpressRoute SKU
 

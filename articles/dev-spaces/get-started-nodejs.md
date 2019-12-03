@@ -1,22 +1,18 @@
 ---
-title: 使用 VS Code 在雲端建立 Kubernetes Node.js 開發環境
-titleSuffix: Azure Dev Spaces
+title: 建立 Kubernetes 開發人員空間：Visual Studio Code 和 Node.js
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
-ms.openlocfilehash: 30f912e9c1573b32247bb3c2a3f7d4026436748b
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 32ff7554ca599b7d50a4c815083b97eda8b4e57e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503015"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327309"
 ---
-# <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>在使用 Node.js 的 Azure Dev Spaces 上開始使用
+# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>建立 Kubernetes 開發人員空間：搭配 Azure Dev Spaces 使用 Visual Studio Code 和 Node.js
 
 在本指南中，您將了解如何：
 

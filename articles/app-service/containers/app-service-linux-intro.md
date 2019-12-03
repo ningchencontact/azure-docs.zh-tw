@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 1bbcd5e4f8c6a429def84ad77d7dd93fa11b7324
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 966eb6068ff545dde284463866bfeee3d5074069
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819677"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559014"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux 上的 Azure App Service 簡介
 
@@ -67,7 +67,12 @@ Linux 上的 App Service 只在[免費、基本、標準和進階](https://azure
 
 ## <a name="troubleshooting"></a>疑難排解
 
-當您的應用程式無法啟動或您想要檢查應用程式的記錄時，請檢查 LogFiles 目錄中的 Docker 記錄。 您可以透過 SCM 網站或 FTP 來存取此目錄。 若要從您的容器記錄 `stdout` 和 `stderr`，您必須啟用 [App Service 記錄]  下的 [Docker 容器記錄]  。 設定會立即生效。 App Service 會偵測變更，且自動重新啟動容器。
+> [!NOTE]
+> [Azure 監視 (預覽)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview) 有新的整合式記錄功能。 
+>
+>
+
+當您的應用程式無法啟動或您想要檢查應用程式的記錄時，請檢查 LogFiles 目錄中的 Docker 記錄。 您可以透過 SCM 網站或 FTP 來存取此目錄。 若要從您的容器記錄 `stdout` 和 `stderr`，您必須啟用 [App Service 記錄]  下的 [應用程式記錄]  。 設定會立即生效。 App Service 會偵測變更，且自動重新啟動容器。
 
 您可以在 [開發工具]  功能表中從 [進階工具]  存取 SCM 網站。
 

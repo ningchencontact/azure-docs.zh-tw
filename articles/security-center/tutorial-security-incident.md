@@ -1,6 +1,6 @@
 ---
 title: 事件回應教學課程 - Azure 資訊安全中心
-description: Azure 資訊安全中心教學課程 - 回應安全性事件
+description: 在本教學課程中，您將了解如何將安全性警示分級、判斷事件的根本原因和範圍，以及搜尋安全性資料。
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: cd3f99fe82c9a8e5e760aa3be3bed1ad5d9bd5e9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 49e2af8fd2d71e1e5103f5337d5c7104c2904322
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663650"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559191"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>教學課程：回應安全性事件
 資訊安全中心會使用進階的分析和威脅情報，持續分析混合式雲端工作負載，提醒您發生惡意活動。 此外，您可以將警示從其他的安全性產品和服務整合到資訊安全中心，並以您自己的指標或情報來源作為基礎建立自訂警示。 一旦有警示產生，您便需要迅速採取行動來進行調查並加以修復。 在本教學課程中，您將了解如何：

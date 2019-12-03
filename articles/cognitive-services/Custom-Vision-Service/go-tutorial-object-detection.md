@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用適用於 Go 的自訂視覺 SDK 建立物件偵測專案
+title: 快速入門：使用適用於 Go 的 SDK 建立物件偵測專案 - 自訂視覺
 titleSuffix: Azure Cognitive Services
 description: 建立專案、新增標籤、上傳影像、為您的專案定型，並使用 Go SDK 來偵測物件。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
-ms.openlocfilehash: 050d0593f64c939c687601eb25677f2356f4ba51
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: d0734763ca1dd5ab3162ca00748361bee29cefc1
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73519079"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378746"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>快速入門：使用自訂視覺 Go SDK 建立物件偵測專案
 

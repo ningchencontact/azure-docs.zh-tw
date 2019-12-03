@@ -1,16 +1,16 @@
 ---
 title: Azure 藍圖概觀
 description: 了解 Azure 藍圖服務如何讓您在 Azure 環境中建立、定義及部署成品。
-ms.date: 08/26/2019
+ms.date: 11/21/2019
 ms.topic: overview
-ms.openlocfilehash: dadb7568a720d23f58d23896e84b3155ed2f12f4
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048298"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74321772"
 ---
-# <a name="overview-of-the-azure-blueprints-service"></a>Azure 藍圖服務概觀
+# <a name="what-is-azure-blueprints"></a>什麼是 Azure 藍圖？
 
 正如「藍圖」可讓工程師或架構設計人員勾勒出專案的設計參數一樣，Azure 藍圖可讓雲端架構人員和中央資訊技術人員定義一組可重複使用的 Azure 資源，其中實作並遵循組織的標準、模式和需求。 Azure 藍圖可讓開發小組在知道他們是以符合組織合規性進行建置的情況下，快速地建置及建立新環境，並包含一組內建元件 (例如網路) 以加速開發和交貨。
 
@@ -62,7 +62,8 @@ Azure 藍圖服務由散佈於世界各地的 [Azure Cosmos DB](../../cosmos-db/
 ### <a name="blueprint-parameters"></a>藍圖參數
 
 藍圖可以傳遞參數給原則/方案，或是 Azure Resource Manager 範本。
-當任一「成品」  新增到藍圖時，作者可決定要為每個藍圖指派已定義的值，或是允許每個藍圖指派在指派時間提供值。 此彈性可提供選擇是要為藍圖的所有使用者定義預先決定的值，或是在指派時再做出決定。
+當任一「成品」  新增到藍圖時，作者可決定要為每個藍圖指派已定義的值，或是允許每個藍圖指派在指派時間提供值。
+此彈性可提供選擇是要為藍圖的所有使用者定義預先決定的值，或是在指派時再做出決定。
 
 > [!NOTE]
 > 藍圖可以有自己專屬的參數，但目前只有在藍圖是從 REST API 而非透過入口網站建立時才能建立這些參數。
@@ -71,7 +72,8 @@ Azure 藍圖服務由散佈於世界各地的 [Azure Cosmos DB](../../cosmos-db/
 
 ### <a name="blueprint-publishing"></a>藍圖發佈
 
-藍圖最初建立時，它被視為處於**草稿**模式。 當它準備好指派時，必須是**已發佈**。 發佈需要定義**版本**字串 (字母、數字和連字號，長度上限為 20 個字元)，以及選擇性的**變更附註**。 **版本**可區別相同藍圖日後的變更，並允許個別指派每個版本。 此版本控制也表示相同藍圖的不同**版本**可指派給相同的訂用帳戶。 當對藍圖進行其他變更時，**已發佈**的**版本**仍會存在 (**未發佈的變更**也是如此)。 一旦變更完成，更新過的藍圖會是**已發佈**、具有新的唯一**版本**，並且可立即指派。
+藍圖最初建立時，它被視為處於**草稿**模式。 當它準備好指派時，必須是**已發佈**。 發佈需要定義**版本**字串 (字母、數字和連字號，長度上限為 20 個字元)，以及選擇性的**變更附註**。 **版本**可區別相同藍圖日後的變更，並允許個別指派每個版本。 此版本控制也表示相同藍圖的不同**版本**可指派給相同的訂用帳戶。 對藍圖進行其他變更時，**已發佈的**
+**版本**仍會存在 (**未發佈的變更也是如此**)。 一旦變更完成，更新過的藍圖會是**已發佈**、具有新的唯一**版本**，並且可立即指派。
 
 ## <a name="blueprint-assignment"></a>藍圖指派
 
@@ -135,5 +137,6 @@ Azure 藍圖服務由散佈於世界各地的 [Azure Cosmos DB](../../cosmos-db/
 
 ## <a name="next-steps"></a>後續步驟
 
-- [建立藍圖 - 入口網站](create-blueprint-portal.md)
-- [建立藍圖 - REST API](create-blueprint-rest-api.md)
+- [建立藍圖 - 入口網站](./create-blueprint-portal.md)。
+- [建立藍圖 - PowerShell](./create-blueprint-powershell.md)。
+- [建立藍圖 - REST API](./create-blueprint-rest-api.md)。

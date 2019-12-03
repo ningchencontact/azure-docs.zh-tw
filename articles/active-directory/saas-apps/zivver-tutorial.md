@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: cc78b08c25ada2bf1ed67f4c27246bc873823516
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 02b292c5db3d20f56d7b8291ea31d8da9863809b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68943126"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233248"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>教學課程：Azure Active Directory 與 ZIVVER 整合
 
@@ -32,7 +32,7 @@ ZIVVER 與 Azure AD 整合提供下列優點：
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
-如果您沒有 Azure 訂用帳戶，請在開始前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -113,12 +113,12 @@ ZIVVER 與 Azure AD 整合提供下列優點：
 
 6. 除了以上屬性外，ZIVVER 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
 
-    | Name | 命名空間 | 來源屬性|
+    | 名稱 | 命名空間 | 來源屬性|
     | ---------------| --------------- |
     | ZivverAccountKey | https:\//zivver.com/SAML/Attributes | user.objectid |
 
     >[!NOTE]
-    >如果您要搭配使用混合式設定與 Active Directory 內部部署和 Azure AD Connect 工具，VALUE 應該設定為 `user.objectGUID`
+    >如果您要搭配使用混合式設定與 Active Directory 內部部署和 Azure AD Connect 工具，則 VALUE 應設定為 `user.objectGUID`
 
     a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
 

@@ -1,14 +1,14 @@
 ---
-title: 建立和管理原則來強制執行相容性
-description: 使用 Azure 原則來強制執行標準、符合法規合規性與稽核需求、控制成本、維護安全性與效能一致性，並且強制整個企業的設計原則。
-ms.date: 02/04/2019
+title: 教學課程：建立原則來強制執行合規性
+description: 在本教學課程中，您會使用原則來強制執行標準、控制成本、維護安全性，以及強加全企業的設計原則。
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: abbe4334767a48cf6444ce5aa7822cc8a79f9f69
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 75a1d892a88f2b5bbdbec2a1b8d525245bb1e86f
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959534"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482322"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>教學課程：建立和管理原則來強制執行相容性
 
@@ -20,7 +20,11 @@ ms.locfileid: "73959534"
 > - 解決不相容或拒絕的資源
 > - 在整個組織中實作新的原則
 
-如果您想要指派原則以識別現有資源的目前合規性狀態，快速入門文章會說明如何執行這項操作。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+如果您想要指派原則以識別現有資源的目前合規性狀態，快速入門文章會說明如何執行這項操作。
+
+## <a name="prerequisites"></a>必要條件
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="assign-a-policy"></a>指派原則
 
@@ -443,7 +447,7 @@ az policy definition list
 
 1. 以滑鼠右鍵按一下資料列，或選取定義 (或指派) 結尾的省略符號，然後選取 [刪除定義]  (或 [刪除指派]  )。
 
-## <a name="next-steps"></a>後續步驟
+## <a name="review"></a>審核
 
 在本教學課程中，您已成功完成下列工作：
 
@@ -452,6 +456,8 @@ az policy definition list
 > - 建立及指派計畫定義，以追蹤多個資源的相容性
 > - 解決不相容或拒絕的資源
 > - 在整個組織中實作新的原則
+
+## <a name="next-steps"></a>後續步驟
 
 若要深入了解原則定義的結構，請閱讀這篇文章：
 

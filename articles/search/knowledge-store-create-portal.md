@@ -2,18 +2,18 @@
 title: 在 Azure 入口網站中建立知識存放區 (預覽)
 titleSuffix: Azure Cognitive Search
 description: 使用「匯入資料」精靈建立用來保存擴充內容的知識存放區。 連線至知識存放區以進行其他應用程式的分析，或將擴充的內容傳送到下游程序。 此功能目前為公開預覽狀態。
-author: lisaleib
+author: HeidiSteen
+ms.author: heidist
 manager: nitinme
-ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 56053a942604a6f1cb935e6bddcae85ffc5a9e54
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a8cc368b2949d9a65034ee4f989b8603dfa01027
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720101"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533948"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Azure 認知搜尋知識存放區
 
@@ -56,7 +56,7 @@ ms.locfileid: "73720101"
 
 <!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. Get a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
 
-1. [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在相同訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
+1. [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
 
 現在您已準備就緒，可移至「匯入資料」精靈。
 

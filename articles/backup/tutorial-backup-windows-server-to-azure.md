@@ -1,20 +1,15 @@
 ---
-title: 將 Windows Server 備份到 Azure
+title: 教學課程 - 將 Windows Server 備份至 Azure
 description: 本教學會詳細說明如何將內部部署 Windows Server 備份至復原服務保存庫。
-author: dcurwin
-manager: carmonm
-keywords: Windows Server 備份; 備份 Windows Server; 備份與災害復原
-ms.service: backup
 ms.topic: tutorial
 ms.date: 08/22/2018
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: d57d25eff9548bea9d29f8aa908e9e1721495bd9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 906901ce4792e8b363a3a9b77c9bf6bb4b59aec5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073936"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226468"
 ---
 # <a name="back-up-windows-server-to-azure"></a>將 Windows Server 備份到 Azure
 
@@ -28,7 +23,7 @@ ms.locfileid: "74073936"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 <https://portal.azure.com.> 登入 Azure 入口網站
+在 https://portal.azure.com 登入 Azure 入口網站。
 
 ## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 

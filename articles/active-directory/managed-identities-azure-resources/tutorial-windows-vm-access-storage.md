@@ -1,5 +1,5 @@
 ---
-title: 使用 Windows VM 系統指派的受控識別來存取 Azure 儲存體
+title: 教學課程`:` 使用受控識別來存取 Azure 儲存體 - Windows - Azure AD
 description: 本教學課程會逐步引導您使用 Windows VM 系統指派的受控識別，以存取 Azure 儲存體。
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 147ee2450a6a67f8ca02149105533401d038a53a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2449307936839d50fe0d48a0536ca4dd9c8d85c3
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191090"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74181911"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>教學課程：使用 Windows VM 系統指派的受控識別，透過存取金鑰來存取 Azure 儲存體
 
@@ -49,12 +49,12 @@ ms.locfileid: "65191090"
 
 如果您還沒有帳戶，您現在將建立一個儲存體帳戶。 您也可以略過此步驟，並將存取現有儲存體帳戶金鑰的權利，授予 VM 系統指派的受控識別。 
 
-1. 按一下 Azure 入口網站左上角的 [+/建立新服務] 按鈕。
-2. 按一下 [儲存體]，然後按一下 [儲存體帳戶]，就會顯示新的 [建立儲存體帳戶] 面板。
+1. 按一下 Azure 入口網站左上角的 [+/建立新服務]  按鈕。
+2. 按一下 [儲存體]  ，然後按一下 [儲存體帳戶]  ，就會顯示新的 [建立儲存體帳戶] 面板。
 3. 輸入儲存體帳戶的名稱，您稍後將會使用它。  
-4. [部署模型] 和 [帳戶類型] 應該分別設定為「資源管理員」和「一般用途」。 
-5. 確定 [訂用帳戶] 和 [資源群組] 符合您在上一個步驟中建立 VM 時指定的值。
-6. 按一下頁面底部的 [新增] 。
+4. [部署模型]  和 [帳戶類型]  應該分別設定為「資源管理員」和「一般用途」。 
+5. 確定 [訂用帳戶]  和 [資源群組]  符合您在上一個步驟中建立 VM 時指定的值。
+6. 按一下頁面底部的 [新增]  。
 
     ![建立新的儲存體帳戶](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -63,9 +63,9 @@ ms.locfileid: "65191090"
 稍後我們將上傳和下載檔案到新的儲存體帳戶。 由於檔案需要 Blob 儲存體，我們需要建立 Blob 容器，用來儲存檔案。
 
 1. 巡覽回到您新建立的儲存體帳戶。
-2. 按一下左側 [Blob 服務] 下的 [容器] 連結。
-3. 按一下頁面上方的 [+ 容器]，[新的容器] 面板隨即會滑出。
-4. 指定容器的名稱，選取存取層級，然後按一下 [確定]。 稍後在教學課程中將會用到您指定的名稱。 
+2. 按一下左側 [Blob 服務] 下的 [容器]  連結。
+3. 按一下頁面上方的 [+ 容器]  ，[新的容器] 面板隨即會滑出。
+4. 指定容器的名稱，選取存取層級，然後按一下 [確定]  。 稍後在教學課程中將會用到您指定的名稱。 
 
     ![建立儲存體容器](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
@@ -74,12 +74,12 @@ ms.locfileid: "65191090"
 Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用 VM 系統指派的受控識別，從 Resource Manager 中擷取儲存體帳戶存取金鑰，然後使用金鑰來存取儲存體。  在此步驟中，您會將存取儲存體帳戶金鑰的權利，授予 VM 系統指派的受控識別。   
 
 1. 巡覽回到您新建立的儲存體帳戶。  
-2. 按一下左側面板中的 [存取控制 (IAM)] 連結。  
-3. 按一下頁面頂端的 [+ 新增角色指派]，以新增虛擬機器的新角色指派。
-4. 在頁面右側中，將 [角色] 設定為 [儲存體帳戶金鑰操作員服務角色]。 
-5. 在下一個下拉式清單中，將 [存取權指派給] 設定為資源 [虛擬機器]。  
-6. 接下來，請確保 [訂用帳戶] 下拉式清單中已列出適當的訂用帳戶，然後將 [資源群組] 設定為 [所有資源群組]。  
-7. 最後，在 [選取] 的下拉式清單中，選擇您的 Windows 虛擬機器，然後按一下 [儲存]。 
+2. 按一下左側面板中的 [存取控制 (IAM)]  連結。  
+3. 按一下頁面頂端的 [+ 新增角色指派]  ，以新增虛擬機器的新角色指派。
+4. 在頁面右側中，將 [角色]  設定為 [儲存體帳戶金鑰操作員服務角色]。 
+5. 在下一個下拉式清單中，將 [存取權指派給]  設定為資源 [虛擬機器]。  
+6. 接下來，請確保 [訂用帳戶]  下拉式清單中已列出適當的訂用帳戶，然後將 [資源群組]  設定為 [所有資源群組]。  
+7. 最後，在 [選取]  的下拉式清單中，選擇您的 Windows 虛擬機器，然後按一下 [儲存]  。 
 
     ![替代映像文字](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
@@ -89,7 +89,7 @@ Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用 V
 
 在這部分的課程中，需要用到 Azure Resource Manager PowerShell Cmdlet。  如果您沒有安裝它，請[下載最新版本](https://docs.microsoft.com/powershell/azure/overview)之後再繼續。
 
-1. 在 Azure 入口網站中，瀏覽至 [虛擬機器]，移至您的 Windows 虛擬機器，然後在 [概觀] 頁面中，按一下頂端的 [連線]。 
+1. 在 Azure 入口網站中，瀏覽至 [虛擬機器]  ，移至您的 Windows 虛擬機器，然後在 [概觀]  頁面中，按一下頂端的 [連線]  。 
 2. 輸入您建立 Windows VM 時新增的**使用者名稱**和**密碼**。 
 3. 現在您已經建立虛擬機器的**遠端桌面連線**，請在遠端工作階段中開啟 PowerShell。
 4. 使用 Powershell 的 Invoke-WebRequest，向 Azure 資源端點的本機受控識別提出要求，以取得 Azure Resource Manager 的存取權杖。

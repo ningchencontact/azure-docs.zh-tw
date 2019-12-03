@@ -1,14 +1,14 @@
 ---
 title: 範例 - 針對 VM 網路介面使用列出的 vNet
-description: 此原則定義範例會要求網路介面使用已核准的虛擬網路。
+description: 此原則定義範例會要求網路介面使用參數中定義的已核准虛擬網路。
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 64414f3c52da0c1368898abb5d032b3a728b2bda
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 367edbe2f127c363a19e345f7d55ba125006c999
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076132"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463101"
 ---
 # <a name="sample---use-approved-vnet-for-vm-network-interfaces"></a>範例 - 針對 VM 網路介面使用已核准的 vNet
 

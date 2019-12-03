@@ -1,20 +1,15 @@
 ---
-title: 什麼是 Azure Container Instances？
+title: Azure 中的無伺服器容器
 description: Azure Container Instances 服務提供最簡單快速的方法，讓您無需管理虛擬機器或採用更高層級的協調器，就能在 Azure 中執行隔離的容器。
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: overview
 ms.date: 04/25/2019
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: a07eda709c813e68bc3e4f08b6aab3f93dec65a6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c8f243bc2bda83a467688ac5828219cd015c8326
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325750"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533536"
 ---
 # <a name="what-is-azure-container-instances"></a>什麼是 Azure Container Instances？
 

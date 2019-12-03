@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 Azure 入口網站建立 Azure Front Door 的 Web 應用程式防火牆原則
+title: 教學課程：建立 Azure Front Door 的 WAF 原則 - Azure 入口網站
 description: 在此教學課程中，您將了解如何使用 Azure 入口網站建立 Web 應用程式防火牆 (WAF) 原則。
 author: vhorne
 ms.service: web-application-firewall
@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: tutorial
 ms.date: 09/07/2019
 ms.author: victorh
-ms.openlocfilehash: 602a8620ef35ea247c5865d97495ea43a7d7d93c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 991111e01713afe48355aac44a151b98fa828c5f
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73508902"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186732"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站在 Azure Front Door 上建立 Web 應用程式防火牆原則
 

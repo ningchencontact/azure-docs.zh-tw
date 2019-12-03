@@ -1,19 +1,19 @@
 ---
-title: Azure Spatial Anchors 的相關常見問題集 | Microsoft Docs
-description: Azure Spatial Anchors 是一個受控雲端服務和開發人員平台，可在 HoloLens、iOS 和 Android 裝置之間支援跨裝置、多使用者的混合實境體驗。 這些常見問題集可解決服務在技術方面的相關問題。
+title: 常見問題集
+description: Azure Spatial Anchors 服務的相關常見問題。
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 06936a196813dacfc1fc9d02945bee4119b7eea8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ac7fefd8ecabd40070b422c169befe64c08f12a8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927502"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277089"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors 的相關常見問題集
 

@@ -1,7 +1,7 @@
 ---
 title: 教學課程：批次評分的 ML 管線
 titleSuffix: Azure Machine Learning
-description: 建立機器學習管線，用以在 Azure Machine Learning 中的影像分類模型上執行批次評分。 機器學習管線會以速度、可攜性和重複使用性來將工作流程最佳化，讓您可將心力放在專業知識和機器學習上，而不是基礎結構和自動化。
+description: 在本教學課程中，建立機器學習管線，用以在 Azure Machine Learning 中的影像分類模型上執行批次評分。 機器學習管線會以速度、可攜性和重複使用性來將工作流程最佳化，讓您可將心力放在專業知識和機器學習上，而不是基礎結構和自動化。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: ccd29952693ecbc1db5927d5deabae874b6e9933
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 11d57031405939e37afade9a9452c5d3a8b9e1e4
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796702"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483290"
 ---
-# <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>建置 Azure Machine Learning 管線並用它進行批次評分
+# <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>教學課程：建置 Azure Machine Learning 管線進行批次評分
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 

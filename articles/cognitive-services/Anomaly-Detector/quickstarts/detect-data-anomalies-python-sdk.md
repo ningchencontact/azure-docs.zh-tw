@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 10/15/2019
+ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 926d7043ea6f56c1ba6d13fd4586fc6f6d59cfa8
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: f58f4f9c89e2c0bfb7d9eca6d39dab3f25b21990
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554696"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483340"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>快速入門：適用於 Python 的 Anomaly Detector 用戶端程式庫
 
@@ -26,11 +26,12 @@ ms.locfileid: "72554696"
 * 以批次要求方式偵測整個時間序列資料集的異常狀況
 * 偵測您的時間序列中最新資料點的異常狀態
 
-[程式庫參考文件](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [套件 (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [程式碼範例](https://github.com/Azure-Samples/anomalydetector)
+[程式庫參考文件](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [套件 (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [在 GitHub 上尋找範例程式碼](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/python-sdk-sample.py)
 
 ## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
+* Anomaly Detector 金鑰和端點
 * [Python 3.x](https://www.python.org/)
 * [Pandas 資料分析程式庫](https://pandas.pydata.org/)
  
@@ -114,18 +115,4 @@ Anomaly Detector 回應是 [LastDetectResponse](https://docs.microsoft.com/pytho
 
 使用 `python` 命令及您的檔案名稱來執行應用程式。
  
-## <a name="clean-up-resources"></a>清除資源
-
-如果您想要清除和移除認知服務訂用帳戶，則可以刪除資源或資源群組。 刪除資源群組也會刪除與資源群組相關聯的任何其他資源。
-
-* [入口網站](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## <a name="next-steps"></a>後續步驟
-
-> [!div class="nextstepaction"]
->[使用 Azure Databricks 串流異常偵測](../tutorials/anomaly-detection-streaming-databricks.md)
-
-* 什麼是 [Anomaly Detector API？](../overview.md)
-* 使用 Anomaly Detector API 時的[最佳做法](../concepts/anomaly-detection-best-practices.md)。
-* 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs) 上找到。
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

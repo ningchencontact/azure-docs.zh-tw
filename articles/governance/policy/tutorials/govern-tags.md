@@ -1,14 +1,14 @@
 ---
-title: 管理標籤治理
-description: 使用 Azure 原則的 Modify 效果，在新的和現有的資源上建立和強制執行標籤治理模型。
-ms.date: 11/04/2019
+title: 教學課程：管理標籤治理
+description: 在本教學課程中，使用 Azure 原則的 Modify 效果，在新的和現有的資源上建立和強制執行標籤治理模型。
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: edb74bce5758ae040a6170a8e73be75fc228b001
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e3d6e279b293ea8063c690f9fb69a6f183b2838d
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069667"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482255"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>教學課程：使用 Azure 原則管理標籤治理
 
@@ -21,7 +21,16 @@ Azure 原則的 [Modify](../concepts/effects.md#modify) 效果可用來協助您
 - 已有數以千計的資源，但沒有標籤治理
 - 已有需要變更的現有分類法
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+在本教學課程中，您將完成下列工作：
+
+> [!div class="checklist"]
+> - 識別您的商務需求
+> - 將每項需求對應至原則定義
+> - 將標籤原則分組成一個計畫
+
+## <a name="prerequisites"></a>必要條件
+
+若要完成此教學課程，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="identify-requirements"></a>識別需求
 
@@ -184,6 +193,16 @@ Azure 原則的 [Modify](../concepts/effects.md#modify) 效果可用來協助您
 在建立上述標籤原則後，請將其加入標籤治理的單一方案中，並將其指派給管理群組或訂用帳戶。 方案和其中包含的原則接著會評估現有資源的合規性，並針對與原則規則中的 **if** 屬性相符的新資源或更新資源變更要求。 不過，原則並不會自動以定義的標籤變更來更新不符合規範的現有資源。
 
 如同 [deployIfNotExists](../concepts/effects.md#deployifnotexists) 原則，**Modify** 原則也會使用補救工作來改變不符合規範的現有資源。 依照[如何補救資源](../how-to/remediate-resources.md)的指示識別不符合規範的 **Modify** 資源，並將標籤更正為您已定義的分類。
+
+## <a name="clean-up-resources"></a>清除資源
+
+如果您已完成使用本教學課程中的資源，請使用下列步驟來刪除前面建立的任何指派或定義：
+
+1. 選取 Azure 原則頁面左側 [製作]  下的 [定義]  (如果您嘗試刪除指派，則選取 [指派]  )。
+
+1. 搜尋您要移除的新計畫或原則定義 (或指派)。
+
+1. 以滑鼠右鍵按一下資料列，或選取定義 (或指派) 結尾的省略符號，然後選取 [刪除定義]  (或 [刪除指派]  )。
 
 ## <a name="review"></a>審核
 

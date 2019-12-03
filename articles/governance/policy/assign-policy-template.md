@@ -1,14 +1,14 @@
 ---
-title: 使用 Resource Manager 範本建立指派
-description: 這篇文章會引導您逐步使用 Resource Manager 範本來建立原則指派，以識別不相容資源。
-ms.date: 03/13/2019
+title: 快速入門：使用範本進行新原則指派
+description: 在本快速入門中，使用 Resource Manager 範本建立原則指派以識別不符合規範的資源。
+ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 0695f0b5993f996ff35296be609d9978f57907f1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 61bffcdeb5d562fe18df98fda091d5d6aa4b4051
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960156"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482369"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>快速入門：使用 Resource Manager 建立原則指派以識別不相容資源
 
@@ -16,6 +16,8 @@ ms.locfileid: "73960156"
 本快速入門會逐步引導您完成程序來建立原則指派，以識別出未使用受控磁碟的虛擬機器。
 
 在此程序結束時，您將會成功識別出未使用受控磁碟的虛擬機器。 它們「不符合」  原則指派的規範。
+
+## <a name="prerequisites"></a>必要條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -29,7 +31,7 @@ ms.locfileid: "73960156"
 [!code-json[policy-assignment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
 
 > [!NOTE]
-> Azure 原則服務是免費的。  如需詳細資訊，請參閱 [Azure 原則概觀](./overview.md)。
+> Azure 原則服務是免費的。 如需詳細資訊，請參閱 [Azure 原則概觀](./overview.md)。
 
 1. 選取以下影像來登入 Azure 入口網站並開啟範本：
 
@@ -40,7 +42,7 @@ ms.locfileid: "73960156"
    | 名稱 | 值 |
    |------|-------|
    | 訂用帳戶 | 選取 Azure 訂用帳戶。 |
-   | 資源群組 | 選取 [新建]  指定名稱，然後選取 [確定]  。 在螢幕擷取畫面中，資源群組名稱為 *mypolicyquickstart\<MMDD 格式的日期>rg*。 |
+   | 資源群組 | 選取 [新建]  指定名稱，然後選取 [確定]  。 在螢幕擷取畫面中，資源群組名稱為 _mypolicyquickstart\<MMDD 格式的日期\>rg_。 |
    | 位置 | 選取區域。 例如，**美國中部**。 |
    | 原則指派名稱 | 指定原則指派名稱。 若有需要，您可以使用原則定義顯示。 例如，「稽核未使用受控磁碟的 VM」  。 |
    | Rg 名稱 | 指定您要指派原則的資源群組名稱。 在本快速入門中，使用預設值 [resourceGroup().name]  。 **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)** 是擷取資源群組的範本函式。 |
@@ -53,7 +55,7 @@ ms.locfileid: "73960156"
 
 - 若要尋找更多範例範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular)。
 - 若要查看範本參考，請前往 [Azure 範本參考](/azure/templates/microsoft.authorization/allversions)。
-- 若要了解如何開發 Resource Manager 範本，請參閱 [Azure Resource Manager 文件](/azure/azure-resource-manager/)。
+- 若要了解如何開發 Resource Manager 範本，請參閱 [Azure Resource Manager 文件](../../azure-resource-manager/resource-group-overview.md)。
 - 若要了解訂用帳戶層級的部署，請參閱[在訂用帳戶層級建立資源群組和資源](../../azure-resource-manager/deploy-to-subscription.md)。
 
 ## <a name="identify-non-compliant-resources"></a>識別不相容的資源

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef24d55089938f6721eb6461f57797bca9ed82fe
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7550ba7f375cb7d8b291c0adf7f0ebded16f0990
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159492"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>教學課程：Azure Active Directory 與 Lynda.com 整合
 
@@ -189,7 +189,7 @@ Lynda.com 與 Azure AD 整合有下列優點：
 如果尚無可用的使用者帳戶，Lynda.com 會自動予以建立。
 
 > [!NOTE]
-> 您可以使用 Lynda.com 提供的任何其他 Lynda.com 使用者帳戶建立工具或 API，佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 Lynda.com 使用者帳戶建立工具或 Lynda.com 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

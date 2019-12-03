@@ -1,5 +1,5 @@
 ---
-title: 如何在 Objective-C 中使用裝置上感應器建立和尋找錨點 | Microsoft Docs
+title: Objective-C 中的粗略重新定位
 description: 深入說明如何在 Objective-C 中使用裝置上感應器建立和尋找錨點。
 author: bucurb
 manager: dacoghl
@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d08f578ddf17c2666c88081dc7b10c89d04beeb4
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: d60bb9dbb546db1af6f689dbdcb485354fb7174e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093104"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277230"
 ---
 # <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-objective-c"></a>如何在 Objective-C 中使用裝置上感應器建立和尋找錨點
 

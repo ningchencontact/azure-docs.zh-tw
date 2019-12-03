@@ -1,20 +1,20 @@
 ---
-title: 管理 Azure 中的私人端點
-description: 了解如何使用 Azure 入口網站建立私人端點
+title: 快速入門 - 管理 Azure 中的私人端點
+description: 在本快速入門中，了解如何使用 Azure 入口網站建立私人端點
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: d8d7c0232110d3d5b040debc3a24941988d4ee29
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.author: allensu
+ms.openlocfilehash: 2cb3c1d798e48017604d72d8a438d6a1071199ea
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372234"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419758"
 ---
-# <a name="create-a-private-endpoint-using-azure-portal"></a>使用 Azure 入口網站建立私人端點
+# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>快速入門：使用 Azure 入口網站建立私人端點
 
 私人端點是 Azure 中私人連結的基本要素。 其可讓 Azure 資源 (例如虛擬機器 (VM)) 與私人連結資源進行私密通訊。 在本快速入門中，您將了解如何使用 Azure 入口網站在 Azure 虛擬網路上建立 VM，以及建立具有 Azure 私人端點的 SQL Database 伺服器。 然後，您就可以從 VM 安全地存取 SQL Database 伺服器。
 
@@ -241,4 +241,3 @@ ms.locfileid: "72372234"
 ## <a name="next-steps"></a>後續步驟
 
 在本快速入門中，您在虛擬網路、SQL 資料庫伺服器和私人端點上建立了 VM 以進行私用存取。 您從網際網路連線到其中一個 VM，然後使用私人連結安全地與 SQL 資料庫伺服器進行通訊。 若要深入了解私人端點，請參閱[什麼是 Azure 私人端點？](private-endpoint-overview.md)。
-

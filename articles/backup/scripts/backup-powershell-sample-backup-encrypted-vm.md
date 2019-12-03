@@ -1,19 +1,15 @@
 ---
-title: Azure PowerShell 指令碼範例 - 備份 Azure VM
+title: PowerShell 指令碼範例 - 備份 Azure VM
 description: 在本文中，您將了解如何使用 Azure PowerShell 指令碼範例來備份 Azure 虛擬機器。
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: sample
 ms.date: 03/05/2019
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: fe2fa6d77f7ec59ef73ac0e8779dcfbd660c0680
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ad4d290961bd39659283795f6a58ccb815b639b0
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747115"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171796"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>使用 PowerShell 備份已加密的 Azure 虛擬機器
 

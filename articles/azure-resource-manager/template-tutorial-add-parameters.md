@@ -1,19 +1,16 @@
 ---
-title: 教學課程 - 將參數新增至 Azure Resource Manager 範本
+title: 教學課程 - 將參數新增至範本
 description: 將參數新增至 Azure Resource Manager 範本，以使其可重複使用。
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f5e631994223d6362512ed0ddc89d1d3c884fbd4
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 28c171dfa067ec9b3eff2e0d7e5d5dd0a0c274c0
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001507"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406080"
 ---
 # <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>教學課程：將參數新增至 Resource Manager 範本
 
@@ -25,7 +22,7 @@ ms.locfileid: "72001507"
 
 您必須擁有含 Resource Manager 工具延伸模組的 Visual Studio Code，以及 Azure PowerShell 或 Azure CLI。 如需詳細資訊，請參閱[範本工具](template-tutorial-create-first-template.md#get-tools)。
 
-## <a name="review-your-template"></a>檢閱範本
+## <a name="review-template"></a>檢閱範本
 
 在上一個教學課程結束時，您的範本會具有下列 JSON：
 
@@ -33,7 +30,7 @@ ms.locfileid: "72001507"
 
 您可能已注意到此範本有問題。 儲存體帳戶名稱是硬式編碼的。 您每次只能使用此範本來部署相同的儲存體帳戶。 若要部署不同名稱的儲存體帳戶，您必須建立新的範本，這顯然不是將部署自動化的實用方式。
 
-## <a name="make-your-template-reusable"></a>讓範本可重複使用
+## <a name="make-template-reusable"></a>讓範本可重複使用
 
 為了讓範本可重複使用，我們會新增可用來傳入儲存體帳戶名稱的參數。 下列範例中反白顯示的 JSON 會顯示範本中已變更的內容。 **storageName** 參數會識別為字串。 最大長度會設為 24 個字元，以避免任何名稱太長。
 
@@ -41,7 +38,7 @@ ms.locfileid: "72001507"
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json?range=1-26&highlight=4-10,15)]
 
-## <a name="deploy-the-template"></a>部署範本
+## <a name="deploy-template"></a>部署範本
 
 讓我們來部署範本。 下列範例會使用 Azure CLI 或 PowerShell 來部署範本。 請注意，您會提供儲存體帳戶名稱作為部署命令中的其中一個值。 針對儲存體帳戶名稱，提供您在上一個教學課程中使用的相同名稱。
 
@@ -87,7 +84,7 @@ az group deployment create \
 
 **storageSKU** 參數有預設值。 當部署期間未指定值時，就會使用此值。 它也有一份允許的值清單。 這些值符合建立儲存體帳戶所需的值。 您不希望範本的使用者傳入無法使用的 SKU。
 
-## <a name="redeploy-the-template"></a>重新部署範本
+## <a name="redeploy-template"></a>重新部署範本
 
 您已準備好再次進行部署。 因為預設 SKU 會設為 **Standard_LRS**，所以您不需要提供該參數的值。
 

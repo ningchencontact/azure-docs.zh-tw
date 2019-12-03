@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 5a6d3c53206d917b5b87f26b7fb351bc5acf5937
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 391ae72a9e2bc78ed120cf4f5fdf844a6248566a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095209"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233476"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>教學課程：Azure Active Directory 與 Overdrive 整合
 
@@ -186,7 +186,7 @@ Overdrive 與 Azure AD 整合提供下列優點：
 本節會在 Overdrive 中建立名為 Britta Simon 的使用者。 Overdrive 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Overdrive 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 >[!NOTE]
->您可以使用任何其他的 OverDrive 使用者帳戶建立工具或 OverDrive 提供的 API 來佈建 AAD 使用者帳戶。
+>您可以使用任何其他的 OverDrive 使用者帳戶建立工具或 OverDrive 提供的 API，來佈建 Azure AD 使用者帳戶。
 >
 
 ### <a name="test-single-sign-on"></a>測試單一登入 

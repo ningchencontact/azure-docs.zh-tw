@@ -1,14 +1,14 @@
 ---
-title: 從藍圖範例建立環境
-description: 使用藍圖範例建立藍圖定義，以設定兩個資源群組及其各自的角色指派。
-ms.date: 03/05/2019
+title: 教學課程：新環境的藍圖範例
+description: 在本教學課程中，您將使用藍圖範例建立藍圖定義，以設定兩個資源群組及其各自的角色指派。
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: d23e9b7242c58e4da5fcfe5ef4d29d9f9df6f754
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: f9cc892ab8feadacbdfd00e55fab9f40d7cb2397
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960277"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74321741"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>教學課程：從藍圖範例建立環境
 
@@ -183,9 +183,7 @@ ms.locfileid: "73960277"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解[藍圖生命週期](../concepts/lifecycle.md)
-- 了解如何使用[靜態與動態參數](../concepts/parameters.md)
-- 了解如何使用[藍圖資源鎖定](../concepts/resource-locking.md) (英文)
-- 了解如何自訂[藍圖排序順序](../concepts/sequencing-order.md) (英文)
-- 了解如何[更新現有的指派](../how-to/update-existing-assignments.md)
-- 使用[一般疑難排解](../troubleshoot/general.md)來解決藍圖指派期間發生的問題
+在本教學課程中，您已了解如何從範例定義建立新的藍圖。 若要深入了解 Azure 藍圖，請繼續閱讀藍圖生命週期文章。
+
+> [!div class="nextstepaction"]
+> [了解藍圖生命週期](../concepts/lifecycle.md)

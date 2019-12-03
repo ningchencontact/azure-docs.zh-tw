@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 AzCopy 將內部部署資料移轉至 Azure 儲存體 | Microsoft Docs
+title: 教學課程：使用 AzCopy 將內部部署資料遷移至 Azure 儲存體 | Microsoft Docs
 description: 在本教學課程中，您將使用 AzCopy 從 Blob、資料表以及檔案內容，來回移轉資料或複製資料。 輕鬆地將資料從您的本機儲存體移轉至 Azure 儲存體。
 author: normesta
 ms.service: storage
@@ -8,18 +8,18 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 5f09ae7dc625ad579e31fd49d70331f30e6a708a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f7155053072b3533503765dc6f4fbf185d21f0d4
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844899"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327508"
 ---
-#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>教學課程：使用 AzCopy 將內部部署資料移轉至雲端儲存體
+#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>教學課程：使用 AzCopy 將內部部署資料遷移至雲端儲存體
 
 AzCopy 是命令列工具，可使用簡單的命令從 Azure Blob 儲存體、Azure 檔案和 Azure 資料表儲存體來回複製資料。 這些命令的設計目的是獲得最佳效能。 您可以使用 AzCopy 在檔案系統和儲存體帳戶之間，或者儲存體帳戶之間複製資料。 AzCopy 可用來將本機 (內部) 資料複製到儲存體帳戶。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立儲存體帳戶。 

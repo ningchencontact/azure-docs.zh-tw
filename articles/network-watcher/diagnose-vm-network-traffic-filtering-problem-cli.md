@@ -1,5 +1,6 @@
 ---
-title: 診斷虛擬機器網路流量篩選問題 - 快速入門 - Azure CLI | Microsoft Docs
+title: 快速入門：診斷 VM 網路流量篩選問題 - Azure CLI
+titleSuffix: Azure Network Watcher
 description: 在本快速入門中，您將了解如何使用 Azure 網路監看員的 IP 流量驗證功能來診斷虛擬機器網路流量篩選問題。
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,18 +18,18 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 460513e4818cbef8fca0cd1b84d69b3021afaab7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 251f72ab4f4d53fc2c836f06c78a1faa291b3a8a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690436"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276083"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>快速入門：診斷虛擬機器網路流量篩選問題 - Azure CLI
 
 本快速入門中，您可部署虛擬機器 (VM)，然後檢查送至 IP 位址和 URL 以及來自 IP 位址的通訊。 您可判斷通訊失敗的原因及其解決方式。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

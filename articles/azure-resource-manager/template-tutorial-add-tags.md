@@ -1,19 +1,16 @@
 ---
-title: 教學課程 - 將標記新增至 Azure Resource Manager 範本中的資源
+title: 教學課程 - 將標記新增至範本中的資源
 description: 將標記新增至您在 Azure Resource Manager 範本中部署的資源。 標記可讓您以邏輯方式組織資源。
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8b6ff50f7254a51bcdf37ecb0afd8f0041a2c5da
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 078d85b3120baf5b8bea9c305fb1f97763f8df59
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177574"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406073"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>教學課程：在 Resource Manager 範本中新增標記
 
@@ -25,7 +22,7 @@ ms.locfileid: "72177574"
 
 您必須擁有含 Resource Manager 工具延伸模組的 Visual Studio Code，以及 Azure PowerShell 或 Azure CLI。 如需詳細資訊，請參閱[範本工具](template-tutorial-create-first-template.md#get-tools)。
 
-## <a name="review-your-template"></a>檢閱範本
+## <a name="review-template"></a>檢閱範本
 
 您先前的範本已部署儲存體帳戶、App Service 方案和 Web 應用程式。
 
@@ -41,7 +38,7 @@ ms.locfileid: "72177574"
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
 
-## <a name="deploy-the-template"></a>部署範本
+## <a name="deploy-template"></a>部署範本
 
 現在可以開始部署範本並查看結果。
 
@@ -71,7 +68,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>驗證部署
+## <a name="verify-deployment"></a>驗證部署
 
 您可以從 Azure 入口網站探索資源群組，藉以確認部署。
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: d2c03143eca9f335c440dfcaee766e205b5c0730
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a683923ba48b1f354f90ac94d746cb92f359e7a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087157"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>教學課程：Azure Active Directory 與 Wikispaces 整合
 
@@ -200,7 +200,7 @@ Wikispaces 與 Azure AD 整合提供下列優點：
    
     ![邀請人員](./media/wikispaces-tutorial/ic787208.png "邀請人員")
    
-    a. 在相關的文字方塊中，輸入您想要佈建之有效 AAD 帳戶 **使用者名稱或電子郵件地址** 。
+    a. 在相關的文字方塊中，輸入您想要佈建的有效 Azure AD 帳戶的**使用者名稱或電子郵件地址**。
    
     b. 按一下 [ **傳送**]。  
       
@@ -208,7 +208,7 @@ Wikispaces 與 Azure AD 整合提供下列優點：
     > Azure Active Directory 帳戶的持有者會收到一封包含連結的電子郵件，以在啟用帳戶前進行確認。
     
 > [!NOTE]
-> 您可以使用任何其他的 Wikispaces 使用者帳戶建立工具或 Wikispaces 提供的 API 來佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 Wikispaces 使用者帳戶建立工具或 Wikispaces 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

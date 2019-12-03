@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 80dab733d5a4e7c04ee75e289a0bc33b88cc811f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 1c403d4d9b5c95c1cb1079b951a26dcaabb805fe
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597175"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405877"
 ---
 # <a name="quickstart-qna-maker-client-library-for-net"></a>快速入門：適用於 .NET 的 QnA Maker 用戶端程式庫
 
@@ -49,15 +49,15 @@ Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入�
 
 在您慣用的編輯器或 IDE 中，建立新的 .NET Core 應用程式。 
 
-在主控台視窗中 (例如 cmd、PowerShell 或 Bash)，使用 dotnet `new` 命令建立名為 `qna-maker-quickstart` 的新主控台應用程式。 此命令會建立簡單的 "Hello World" C# 專案，內含單一原始程式檔：`Program.cs`。 
+在主控台視窗中 (例如 cmd、PowerShell 或 Bash)，使用 `dotnet new` 命令建立名為 `qna-maker-quickstart` 的新主控台應用程式。 此命令會建立簡單的 "Hello World" C# 專案，內含單一原始程式檔：*Program.cs*。 
 
-```console
+```dotnetcli
 dotnet new console -n qna-maker-quickstart
 ```
 
 將目錄變更為新建立的應用程式資料夾。 您可以使用下列命令來建置應用程式：
 
-```console
+```dotnetcli
 dotnet build
 ```
 
@@ -75,7 +75,7 @@ Build succeeded.
 
 在應用程式目錄中，使用下列命令安裝適用於 .NET 的 QnA Maker 用戶端程式庫：
 
-```console
+```dotnetcli
 dotnet add package Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker --version 1.0.0
 ```
 
@@ -189,11 +189,11 @@ var client = new QnAMakerClient(new ApiKeyServiceClientCredentials(subscriptionK
 
 ## <a name="run-the-application"></a>執行應用程式
 
-從應用程式目錄使用 dotnet `run` 命令來執行應用程式。
+使用 `dotnet run` 命令，從您的應用程式目錄執行應用程式。
 
-本文中的所有程式碼片段均[可用](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py)，並可以單一檔案的形式執行。
+本文中的所有程式碼片段都是[可用](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py)的，並可以單一檔案的形式執行。
 
-```console
+```dotnetcli
 dotnet run
 ```
 

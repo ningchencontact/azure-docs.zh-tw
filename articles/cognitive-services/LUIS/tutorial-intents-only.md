@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 1e39126324de486d118f808b37672c9fd08af711
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4d096ee829a425af3763c212daf5049acccf9f19
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822752"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325891"
 ---
-# <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>教學課程：建置 LUIS 應用程式來判斷使用者的用意
+# <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>教學課程：建置 LUIS 應用程式來判斷使用者意圖
 
 在本教學課程中，您會建立自訂應用程式，以根據語句 (文字) 預測使用者的用意。 
 
@@ -58,7 +58,7 @@ ms.locfileid: "73822752"
 
 ## <a name="create-a-new-intent"></a>建立新意圖 
 
-1. 在[預覽 LUIS 入口網站](https://preview.luis.ai)中，從應用程式的 [建置]  區段中選取 [+ 建立]  。 輸入下面所列的新意圖名稱，然後選取 [完成]  。
+1. 在入口網站中，從應用程式的 [建置]  區段中選取 [+ 建立]  。 輸入新意圖名稱 `OrderPizza`，然後選取 [完成]  。
 
     當使用者想要訂購披薩時，系統就會預測 `OrderPizza` 意圖。 
 
@@ -122,7 +122,7 @@ ms.locfileid: "73822752"
 
     這與範例語句並不完全相同，因此若要查看 LUIS 是否能了解以此意圖應預測的內容，這是很好的測試。
 
-    最後一個查詢字串參數是 `q`，也就是語句**查詢**。 此語句與所有範例語句不同。 這是很好的測試，而且應傳回 `OrderPizza` 意圖作為評分最高的意圖。 
+    最後一個查詢字串參數是 `query`，也就是語句**查詢**。 此語句與所有範例語句不同。 這是很好的測試，而且應傳回 `OrderPizza` 意圖作為評分最高的意圖。 
 
     ```JSON
     {
@@ -148,7 +148,7 @@ ms.locfileid: "73822752"
     }
     ```
 
-    實體陣列是空的，因為此應用程式目前沒有任何實體。 
+    實體陣列是空的，因為此應用程式目前沒有任何實體 (語句中要擷取的資料單位)。 
 
     JSON 結果會將評分最高的意圖識別為 **`prediction.topIntent`** 屬性。 所有分數都介於 1 到 0，分數越好者越接近 1。 
 
@@ -205,4 +205,4 @@ ms.locfileid: "73822752"
 本教學課程已在端點上建立 LUIS 應用程式、建立意圖、新增每個意圖的範例語句、將範例語句新增至 None 意圖、進行訓練、發佈及測試。 這些是建置 LUIS 模型的基本步驟。 
 
 > [!div class="nextstepaction"]
-> [在此應用程式中新增預先建置的意圖和實體](tutorial-machine-learned-entity.md)
+> [將可分解實體新增至此應用程式](tutorial-machine-learned-entity.md)

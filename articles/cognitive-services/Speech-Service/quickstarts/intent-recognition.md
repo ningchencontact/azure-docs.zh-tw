@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 0ae332bf08a0e45dd0c2f380ef41bbaf2202b5fd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b385c9bed1a6cf2aa1163d35fade69ddc15ff8b3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682024"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280435"
 ---
-# <a name="quickstart-recognize-speech-intents-and-entities-with-luis"></a>快速入門：使用 LUIS 辨識語音、意圖和實體
+# <a name="quickstart-recognize-speech-intents-and-entities-with-language-understanding-luis"></a>快速入門：使用 Language Understanding (LUIS) 來辨識語音、意圖和實體
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/intent-recognition/header.md)]

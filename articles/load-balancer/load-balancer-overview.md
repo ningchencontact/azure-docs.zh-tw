@@ -1,6 +1,6 @@
 ---
 title: 什麼是 Azure Load Balancer？
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Azure 負載平衡器功能、架構和實作的概觀。 了解 Load Balancer 的運作方式，並將其用於雲端。
 services: load-balancer
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/08/2019
+ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: be293a925e507468d96be4c9f6b47f30eea5f025
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 335549f4ccae01fa36921e0e4668fa15e8b33835
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888692"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423900"
 ---
 # <a name="what-is-azure-load-balancer"></a>什麼是 Azure Load Balancer？
 
@@ -41,7 +41,9 @@ Azure Load Balancer 提供兩種定價層或 *SKU*：基本和標準。 它們�
 * 藉由使用公用 Load Balancer，為虛擬網路內的 VM 提供[輸出連線能力](load-balancer-outbound-connections.md)。
 
 >[!NOTE]
-> Azure 會為您的案例提供一套完整受控的負載平衡解決方案。 如果您要尋找傳輸層安全性 (TLS) 通訊協定終止 (「SSL 卸載」) 或每一 HTTP/HTTPS 要求的應用程式層處理，請參閱[什麼是 Azure 應用程式閘道](../application-gateway/application-gateway-introduction.md)。 如果您要尋找全域 DNS 負載平衡，請參閱[什麼是流量管理員](../traffic-manager/traffic-manager-overview.md)。 結合這些解決方案，可能有益於您的端對端案例。
+> Azure 會為您的案例提供一套完整受控的負載平衡解決方案。 如果您要尋找傳輸層安全性 (TLS) 通訊協定終止 (「SSL 卸載」) 或每一 HTTP/HTTPS 要求的應用程式層處理，請參閱[什麼是 Azure 應用程式閘道？](../application-gateway/overview.md) 如果您要尋找全域 DNS 負載平衡，請參閱[什麼是流量管理員？](../traffic-manager/traffic-manager-overview.md) 結合這些解決方案，可能有益於您的端對端案例。
+>
+> 如需 Azure 負載平衡選項的比較，請參閱 [Azure 中的負載平衡選項概觀](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)。
 
 ## <a name="what-are-load-balancer-resources"></a>什麼是 Load Balancer 資源？
 

@@ -1,21 +1,15 @@
 ---
 title: 將 MetaMask 連線至 Azure 區塊鏈服務網路
 description: 使用 MetaMask 連線至 Azure 區塊鏈服務網路，並部署智慧型合約。
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 09/12/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
-ms.reviewer: jackyhsu
-manager: femila
-ms.openlocfilehash: b89e75d406a738fb685bb3294dca8d79a2b9170c
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.reviewer: janders
+ms.openlocfilehash: 21e45b80a9a08dd6bdeefb0ab01fadabaa08cbce
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70966588"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456043"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>快速入門：使用 MetaMask 連線並部署智慧型合約
 
@@ -144,4 +138,4 @@ Remix 是以瀏覽器為基礎的 Solidity 開發環境。 搭配使用 MetaMask
 在本快速入門中，您已使用 MetaMask 瀏覽器擴充功能連線至 Azure 區塊鏈服務交易節點、部署智慧型合約，並將交易傳送到區塊鏈。 請嘗試進行下一個教學課程，使用適用於 Ethereum 和 Truffle 的 Azure 區塊鏈開發套件，透過交易建立、建置、部署及執行智慧型合約函式。
 
 > [!div class="nextstepaction"]
-> [使用 Visual Studio Code 建立、建置及部署智慧型合約](send-transaction.md)
+> [在 Azure 區塊鏈服務上建立、建立和部署智慧型合約](send-transaction.md)

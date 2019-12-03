@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 11/05/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: bbe40083159d433c0b5746834e1c530b23b03851
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: e4147fbb27c8538f801f6c49f8b535a283faf50f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648124"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325938"
 ---
-用戶端應用程式必須知道語句是否對應用程式沒有意義或不適當。 **None** 意圖會在建立過程中新增至每個應用程式，以判斷用戶端應用程式是否無法回答語句。
+用戶端應用程式必須知道語句是否對應用程式沒有意義或不適當。 **None** 意圖會在建立過程中新增至每個應用程式，以判斷用戶端應用程式是否不應回答語句。
 
 如果 LUIS 針對語句傳回 [None]  意圖時，用戶端應用程式可以詢問使用者是否想要結束交談，或提供更多有關繼續交談的指示。 
 
@@ -25,10 +25,12 @@ ms.locfileid: "73648124"
 
 1. 選取左面板中的 [意圖]  。
 
-1. 選取 [無]  意圖。 新增您的使用者可能輸入但與您的應用程式無關的三個語句：
+1. 選取 [無]  意圖。 新增您的使用者可能輸入、但與您的比薩訂購應用程式無關的三個語句。
 
-    |`None` 範例表達|
+    |`None` 範例語句|
     |--|
     |`Barking dogs are annoying`|
     |`Order a pizza for me`|
     |`Penguins in the ocean`|
+
+    這些範例不應使用您在主題領域中預期的文字，例如 `pizza`、`cheese`、`crust`、`pickup` `deliver`。

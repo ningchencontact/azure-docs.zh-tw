@@ -9,13 +9,13 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 09/23/2019
-ms.openlocfilehash: 0253a46cd73679c7c2f50a1e37d26d67578e342e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/15/2019
+ms.openlocfilehash: 7bccc75b4a70e98f069d1ffb86909368105b9a32
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006427"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167717"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>快速入門：探索 Azure 時間序列深入解析
 
@@ -38,45 +38,47 @@ ms.locfileid: "74006427"
 
 1. 時間序列深入解析快速導覽頁面隨即顯示。 選取 [下一步]  開始快速導覽。
 
-   [![選取 [下一步]](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
+   [![快速入門歡迎畫面 - 選取 [下一步]](media/quickstart/quickstart-welcome.png)](media/quickstart/quickstart-welcome.png#lightbox)
 
 ## <a name="explore-the-demo-environment"></a>探索示範環境
 
 1. [時間選取面板]  隨即顯示。 您可以使用這個面板來選取要視覺化的時間範圍。
 
-   [![時間選取面板](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
+   [![時間選取面板](media/quickstart/quickstart-time-selection-panel.png)](media/quickstart/quickstart-time-selection-panel.png#lightbox)
 
 1. 選取時間範圍，並將其拖曳至區域中。 然後選取 [搜尋]  。
 
-   [![選取時間範圍](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
+   [![選取時間範圍](media/quickstart/quickstart-select-time.png)](media/quickstart/quickstart-select-time.png#lightbox)
 
    時間序列深入解析會顯示您所指定之時間範圍的圖表視覺效果。 您可以在折線圖內執行各種動作。 例如，您可以篩選、釘選、排序和堆疊。
 
    若要返回 [時間選取面板]  ，請選取向下箭號，如下所示：
 
-   [![圖表](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
+   [![圖表](media/quickstart/quickstart-select-down-arrow.png)](media/quickstart/quickstart-select-down-arrow.png#lightbox)
 
 1. 選取 [字詞面板]  中的 [新增]  以新增新的搜尋字詞。
 
-   [![新增項目](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
+   [![新增搜尋字詞面板](media/quickstart/quickstart-add-terms.png)](media/quickstart/quickstart-add-terms.png#lightbox)
 
 1. 在圖表中，您可以選取區域、以滑鼠右鍵按一下區域，並選取 [探索事件]  。
 
-   [![探索事件](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
+   [![探索事件](media/quickstart/quickstart-explore-events.png)](media/quickstart/quickstart-explore-events.png#lightbox)
 
    您探索的區域中會顯示未經處理資料的格線。
 
-   [![格線檢視](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
+   [![探索事件 - 方格資料檢視](media/quickstart/quickstart-explore-events-grid-data.png)](media/quickstart/quickstart-explore-events-grid-data.png#lightbox)
 
 ## <a name="select-and-filter-data"></a>選取和篩選資料
 
 1. 編輯您的字詞以變更圖表中的值。 新增另一個字詞來交叉關聯不同類型的值。
 
-   [![新增字詞](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
+   [![新增字詞](media/quickstart/quickstart-add-a-term.png)](media/quickstart/quickstart-add-a-term.png#lightbox)
 
-1. 在 [篩選序列]  方塊中輸入篩選條件字詞，以進行即興的序列篩選。 針對快速入門，請輸入 **Station5** 來交叉關聯該站台的溫度和壓力。
+1. 將 [篩選序列]  方塊保留為空白，以查看所有選取的搜尋字詞，或是在 [篩選序列]  方塊中輸入篩選條件字詞，以進行即興的序列篩選。
 
-   [![篩選序列](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
+   [![篩選序列](media/quickstart/quickstart-filter-series.png)](media/quickstart/quickstart-filter-series.png#lightbox)
+
+   針對快速入門，請輸入 **Station5** 來交叉關聯該站台的溫度和壓力。
 
 在您完成快速入門之後，可以使用範例資料集進行實驗，以建立不同的視覺效果。
 

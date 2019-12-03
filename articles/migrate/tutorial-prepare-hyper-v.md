@@ -1,25 +1,25 @@
 ---
-title: 使用 Azure Migrate 準備 Hyper-V VM 以進行評量並移轉至 Azure | Microsoft Docs
-description: 說明如何使用 Azure Migrate 來準備 Hyper-V VM 的評量並將其移轉至 Azure。
+title: 使用 Azure Migrate 準備 Hyper-V VM 以進行評量/移轉
+description: 了解如何使用 Azure Migrate 準備進行 VMware VM 的評量/移轉。
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/16/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2f45f70f1c131e1690997cda18a8d612d3af9dee
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: f93528e2a35661f8a233aea476a958a079d7cd59
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010312"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196252"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>準備 Hyper-V VM 的評量並將其移轉至 Azure
 
 本文將說明如何使用 [Azure Migrate](migrate-services-overview.md) 來準備內部部署的 Hyper-V VM 評量並將其移轉至 Azure。
 
-[Azure Migrate](migrate-overview.md) 會提供工具中樞，協助您探索和評估應用程式、基礎結構和工作負載，並且將這些項目遷移至 Microsoft Azure。 此中樞包含 Azure Migrate 工具和第三方獨立軟體廠商 (ISV) 供應項目。 
+[Azure Migrate](migrate-overview.md) 會提供工具中樞，協助您探索和評估應用程式、基礎結構和工作負載，並且將這些項目遷移至 Microsoft Azure。 此中樞包含 Azure Migrate 工具和第三方獨立軟體廠商 (ISV) 供應項目。
 
 本教學課程是一個系列中的第一篇，說明如何評估 Hyper-V VM 並將其遷移至 Azure。 在本教學課程中，您會了解如何：
 
@@ -42,7 +42,7 @@ ms.locfileid: "71010312"
 
 您需要 Azure Migrate 部署的設定權限。
 
-- 讓 Azure 帳戶可建立 Azure Migrate 專案的權限。 
+- 讓 Azure 帳戶可建立 Azure Migrate 專案的權限。
 - 讓帳戶可註冊 Azure Migrate 設備的權限。 用於 Hyper-V 探索和移轉的設備。 在註冊設備期間，Azure Migrate 會建立兩個可唯一識別設備的 Azure Active Directory (Azure AD) 應用程式：
     - 第一個應用程式會與 Azure Migrate 服務端點進行通訊。
     - 第二個應用程式會存取在註冊期間建立的 Azure Key Vault，以儲存 Azure AD 的應用程式資訊和設備組態設定。
@@ -70,7 +70,7 @@ ms.locfileid: "71010312"
 值得注意的是：
 
 - 除了所述的訂用帳戶外，應用程式沒有任何其他訂用帳戶的存取權限。
-- 只有當您註冊新的設備時，才需要這些權限。 完成設備的設定後，您可以移除權限。 
+- 只有當您註冊新的設備時，才需要這些權限。 完成設備的設定後，您可以移除權限。
 
 
 #### <a name="grant-account-permissions"></a>授與帳戶權限
@@ -87,7 +87,7 @@ ms.locfileid: "71010312"
 
 
 
-#### <a name="assign-application-developer-role"></a>指派應用程式開發人員角色 
+#### <a name="assign-application-developer-role"></a>指派應用程式開發人員角色
 
 租用戶/全域管理員可為帳戶指派應用程式開發人員角色。 [深入了解](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)。
 
@@ -98,7 +98,7 @@ ms.locfileid: "71010312"
 
 1. 確認 Hyper-V 主機設定。
 2. 在每部主機上設定 PowerShell 遠端功能，讓 Azure Migrate 設備可以透過 WinRM 連線在主機上執行 PowerShell 命令。
-3. 如果 VM 磁碟位於遠端 SMB 存放裝置，則需要委派認證。 
+3. 如果 VM 磁碟位於遠端 SMB 存放裝置，則需要委派認證。
     - 啟用 CredSSP 委派，讓 Azure Migrate 設備可作為用戶端，並將認證委派給主機。
     - 您可以讓每部主機成為設備的委派，如下所述。
     - 之後，當您設定設備時，您就可以在設備上啟用委派。
@@ -122,7 +122,7 @@ ms.locfileid: "71010312"
 - 檢查主機是否正在執行支援的 Hyper-V 版本和 Hyper-V 角色。
 - 啟用 WinRM 服務，並在主機上開啟埠 5985 (HTTP) 和 5986 (HTTPS) (用於收集中繼資料)。
 - 在主機上啟用 PowerShell 遠端功能。
-- 檢查由主機管理的所有 VM 是否都已啟用 Hyper-V 整合服務。 
+- 檢查由主機管理的所有 VM 是否都已啟用 Hyper-V 整合服務。
 - 視需要在主機上啟用 CredSSP。
 
 執行指令碼，如下所示：
@@ -133,7 +133,7 @@ ms.locfileid: "71010312"
     ```
     C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
     ```
-    使用方式範例： 
+    使用方式範例：
     ```
     C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1
     SHA256
@@ -215,7 +215,7 @@ Azure Migrate 需要可探索內部部署 VM 的權限。
 
 每部 VM 上都應啟用 Integration Services，才能讓 Azure Migrate 在 VM 上擷取作業系統資訊。
 
-在您想要探索和評估的 VM 上，對每部 VM 啟用 [Hyper-V Integration Services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)。 
+在您想要探索和評估的 VM 上，對每部 VM 啟用 [Hyper-V Integration Services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)。
 
 ## <a name="prepare-for-hyper-v-migration"></a>準備 Hyper-V 移轉
 
@@ -226,12 +226,12 @@ Azure Migrate 需要可探索內部部署 VM 的權限。
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您：
- 
-> [!div class="checklist"] 
+
+> [!div class="checklist"]
 > * 設定 Azure 帳戶權限。
 > * 準備 Hyper-V 主機和 VM 以進行評量和移轉。
 
 請繼續進行下一個教學課程，以建立 Azure Migrate 專案，並評估要遷移至 Azure 的 Hyper-V VM
 
-> [!div class="nextstepaction"] 
-> [評估 Hyper-V VMs](./tutorial-assess-hyper-v.md) 
+> [!div class="nextstepaction"]
+> [評估 Hyper-V VMs](./tutorial-assess-hyper-v.md)

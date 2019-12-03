@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用適用於 Python 的 Bing 新聞搜尋 SDK 來執行新聞搜尋
+title: 快速入門：使用適用於 Python 的 SDK 來執行新聞搜尋 - Bing 新聞搜尋
 titleSuffix: Azure Cognitive Services
 description: 使用此快速入門以運用「適用於 Python 的 Bing 新聞搜尋 SDK」來搜尋新聞，並處理回應。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 2f6185ca6c2ddd44be2c12a81cedf1adcc2e30cd
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 2f3d8c88e7949265f12405760acbccebb89d1df5
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339017"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379063"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>快速入門：使用適用於 Python 的 Bing 新聞搜尋 SDK 來執行新聞搜尋
 

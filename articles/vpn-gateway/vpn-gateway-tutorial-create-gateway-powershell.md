@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 建立和管理 Azure VPN 閘道 | Microsoft Docs
+title: 教學課程 - 使用 Azure VPN 閘道建立和管理閘道
 description: 教學課程 - 使用 Azure PowerShell 模組建立和管理 VPN 閘道
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: bfec1493492fb1e8e9bd7394aae3db8983f4cff9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b144a70ee88138966d9cc38a56e1cff1e63fca1b
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495660"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74424138"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>教學課程：使用 PowerShell 建立和管理 VPN 閘道
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: c205b4dd4871ed53e32dce72f12cc2dcfb3baf41
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0a293d74c9e37a6771c5bb246b74bda38db3b7c3
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73892024"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406472"
 ---
 # <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>教學課程：在 Azure IoT Central 應用程式中定義新的 Azure IoT Edge 裝置類型 (預覽功能)
 
@@ -22,29 +22,29 @@ ms.locfileid: "73892024"
 
 本教學課程將為建置者說明如何使用裝置範本在 Azure IoT Central 應用程式中定義新的 Azure IoT Edge 裝置類型。 
 
-若要深入了解 Azure IoT Edge，請[參閱這篇文章](overview-iot-central.md)。 
+如需概觀，請參閱[什麼是 IoT Central (預覽功能)？](overview-iot-central.md) 
 
-Azure IoT Edge 是由三個元件組成：
-* **IoT Edge 模組**是執行 Azure 服務、第三方服務或自有程式碼的容器。 這類模組會部署到 IoT Edge 裝置，並在這些裝置本機上執行。
+IoT Edge 是由三個元件組成：
+* **IoT Edge 模組**是執行 Azure 服務、夥伴服務或自有程式碼的容器。 這類模組會部署到 IoT Edge 裝置，並在這些裝置本機上執行。
 * **IoT Edge 執行階段**會在每個 IoT Edge 裝置上執行，並管理部署到每個裝置的模組。
-* **雲端式介面**可讓您在遠端監視及管理 IoT Edge 裝置。 IoT Central 會是雲端介面。
+* **雲端式介面**可讓您在遠端監視及管理 IoT Edge 裝置。 IoT Central 是雲端介面。
 
-**Azure IoT Edge** 裝置可以作為閘道裝置，具有連線到 Azure IoT Edge 裝置的下游裝置。 在本篇教學課程中，會探討下游裝置的連線模式。
+**Azure IoT Edge** 裝置可以作為閘道裝置，具有連線到 IoT Edge 裝置的下游裝置。 本教學課程會分享有關下游裝置連線模式的詳細資訊。
 
 **裝置範本**會定義裝置和 IoT Edge 模組的功能。 功能包括了模組傳送的遙測資料、模組屬性，以及模組回應的命令。
 
-在本教學課程中，您會建立**環境感應器**裝置範本。 環境感應器裝置：
+在本教學課程中，您會建立環境感應器裝置範本。 環境感應器裝置：
 
 * 傳送遙測資料，例如溫度。
-* 可寫入的屬性在雲端上有所更新時 (例如遙測資料傳送間隔)，加以回應。
+* 可寫入的屬性在雲端上有所更新時加以回應 (例如遙測資料傳送間隔)。
 * 回應命令，例如重設溫度。
 
-另外，在本教學課程中，會建立**環境閘道**裝置範本。 環境閘道裝置：
+另外，在本教學課程中，您會建立環境閘道裝置範本。 環境閘道裝置：
 
 * 傳送遙測資料，例如溫度。
-* 可寫入的屬性在雲端上有所更新時 (例如遙測資料傳送間隔)，加以回應。
+* 可寫入的屬性在雲端上有所更新時加以回應 (例如遙測資料傳送間隔)。
 * 回應命令，例如重設溫度。
-* 允許與其他裝置功能模型的關聯性
+* 允許與其他裝置功能模型的關聯性。
 
 
 在本教學課程中，您會了解如何：
@@ -52,62 +52,62 @@ Azure IoT Edge 是由三個元件組成：
 > [!div class="checklist"]
 > * 建立新 Azure IoT Edge 裝置的裝置範本。
 > * 上傳部署資訊清單。
-> * 建立功能，包括每個模組的遙測、屬性和命令
+> * 建立功能，包括每個模組的遙測、屬性和命令。
 > * 定義模組遙測的視覺效果。
-> * 將關聯性新增至下游裝置範本
+> * 將關聯性新增至下游裝置範本。
 > * 發佈您的裝置範本。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本教學課程，您必須要有 Azure IoT 中心應用程式。 按照此快速入門[建立 Azure IoT Central 應用程式](quick-deploy-iot-central.md) (英文)。
+若要完成本教學課程，您必須[建立 Azure IoT Central 應用程式](quick-deploy-iot-central.md)。
 
 
-## <a name="downstream-device-relationships-with-gateway--modules"></a>下游裝置與閘道和模組的關聯性
+## <a name="downstream-device-relationships-with-a-gateway-and-modules"></a>下游裝置與閘道和模組的關聯性
 
-下游裝置可以透過 $edgeHub 模組連接到 Azure IoT Edge 閘道裝置。 此 Azure IoT Edge 裝置在此案例中會變成透明閘道
+下游裝置可以透過 `$edgeHub` 模組連接到 IoT Edge 閘道裝置。 此 IoT Edge 裝置在此案例中會變成透明閘道。
 
-![Central 應用程式頁面](./media/tutorial-define-edge-device-type/gateway-transparent.png)
+![透明閘道的圖表](./media/tutorial-define-edge-device-type/gateway-transparent.png)
 
-下游裝置可以透過自訂模組連接到 Azure IoT Edge 閘道裝置。 在下列案例中，下游裝置是透過 Modbus 自訂模組連接，而下游裝置可以透過 $edgeHub 模組連接到 Azure IoT Edge 閘道裝置。
+下游裝置也可以透過自訂模組連接到 IoT Edge 閘道裝置。 在下列案例中，下游裝置會透過 Modbus 自訂模組來連接。
 
-![Central 應用程式頁面](./media/tutorial-define-edge-device-type/gateway-module.png)
+![自訂模組連接的圖表](./media/tutorial-define-edge-device-type/gateway-module.png)
 
-下游裝置可以透過自訂模組連接到 Azure IoT Edge 閘道裝置。 在下列案例中，下游裝置會透過 Modbus 自訂模組來連接。 
+下圖顯示透過兩種模組類型 (自訂和 `$edgeHub`) 連接到 IoT Edge 閘道裝置的連線。  
 
-![Central 應用程式頁面](./media/tutorial-define-edge-device-type/gateway-module-transparent.png)
+![透過兩個連接模組連接的圖表](./media/tutorial-define-edge-device-type/gateway-module-transparent.png)
 
-下游裝置可以透過多個自訂模組連接到 Azure IoT Edge 閘道裝置。 在下列案例中，下游裝置是透過 Modbus 自訂模組連接，而 BLE 自訂模組和下游裝置可以透過 $edgeHub 模組連接到 Azure IoT Edge 閘道裝置。 
+最後，下游裝置可以透過多個自訂模組連接到 IoT Edge 閘道裝置。 下圖顯示透過 Modbus 自訂模組、BLE 自訂模組和 `$edgeHub` 模組連接的下游裝置。 
 
-![Central 應用程式頁面](./media/tutorial-define-edge-device-type/gateway-module2-transparent.png)
+![透過多個自訂模組連接的圖表](./media/tutorial-define-edge-device-type/gateway-module2-transparent.png)
 
 
 ## <a name="create-a-template"></a>建立範本
 
-身為建置者，您可以在應用程式中建立和編輯 Azure IoT Edge 裝置範本。 發佈裝置範本之後，您可以連接實作裝置範本的實際裝置。
+身為建置者，您可以在應用程式中建立和編輯 IoT Edge 裝置範本。 發佈裝置範本之後，您可以連接實作裝置範本的實際裝置。
 
 ### <a name="select-device-template-type"></a>選取裝置範本類型 
 
-若要將新的裝置範本新增至應用程式，請移至 [裝置範本]  頁面。 若要這樣做，請選取左側窗格上的 [裝置範本]  索引標籤。
+若要將新的裝置範本新增至應用程式，請選取左側窗格上的 [裝置範本]  。
 
-![Central 應用程式頁面](./media/tutorial-define-edge-device-type/edgedevicetemplate.png)
+![醒目提示裝置範本的預覽應用程式螢幕擷取畫面](./media/tutorial-define-edge-device-type/edgedevicetemplate.png)
 
-按一下 [+ 新增]  以開始建立新裝置範本。
+選取 [+ 新增]  以開始建立新的裝置範本。
 
-![裝置範本 - 新增](./media/tutorial-define-edge-device-type/edgedevicetemplatenew.png)
+![已醒目提示「新增」的 [裝置範本] 頁面幕擷取畫面](./media/tutorial-define-edge-device-type/edgedevicetemplatenew.png)
 
-會將您帶往裝置範本類型選取頁面。 請選取 [Azure IoT Edge]  圖格，然後按一下 [下一步] **：按一下底部的**  按鈕
+在 [選取範本類型]  頁面上，選取 [Azure IoT Edge]  ，然後選取 [下一步：  自訂]。
 
-![裝置範本選取 - Azure IoT Edge](./media/tutorial-define-edge-device-type/selectiotedge.png)
+![[選取範本類型] 頁面的螢幕擷取畫面](./media/tutorial-define-edge-device-type/selectiotedge.png)
 
 ### <a name="customize-device-template"></a>自訂裝置範本
 
-Azure IoT Edge 可讓您以模組形式部署和管理商務邏輯。 **Azure IoT Edge 模組**是 IoT Edge 管理的最小計算單位，可以包含 Azure 服務 (例如 Azure 串流分析) 或您自己的解決方案特定程式碼。 若要了解如何開發、部署和維護模組，請參閱 [IoT Edge 模組](../../iot-edge/iot-edge-modules.md)。
+在 IoT Edge 中，您可以透過模組形式來部署和管理商務邏輯。 IoT Edge 模組是 IoT Edge 管理的最小計算單位，可以包含 Azure 服務 (例如 Azure 串流分析) 或您自己的解決方案特定程式碼。 若要了解如何開發、部署和維護模組，請參閱 [IoT Edge 模組](../../iot-edge/iot-edge-modules.md)。
 
-概括而言，部署資訊清單是以其所需屬性設定的模組對應項清單。 部署資訊清單會告知 IoT Edge 裝置 (或裝置群組) 要安裝哪些模組，以及如何設定它們。 部署資訊清單包含每個模組對應項的所需屬性。 IoT Edge 裝置會回報每個模組的報告屬性。
+概括而言，部署資訊清單是以其所需屬性設定的模組對應項清單。 部署資訊清單會告知 IoT Edge 裝置 (或裝置群組) 要安裝哪些模組，以及如何設定。 部署資訊清單包含每個模組對應項的所需屬性。 IoT Edge 裝置會回報每個模組的報告屬性。
 
-請使用 Visual Studio Code 建立部署資訊清單， 按照如何建立[部署資訊清單](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)的文件操作。
+請使用 Visual Studio Code 建立部署資訊清單， 若要深入了解，請參閱[適用於 Visual Studio Code 的 Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)。
 
-以下是含有一個模組的基本部署資訊清單，作為供本教學課程使用的範例。 複製下列 JSON 並儲存為 json 檔案。 
+以下是含有一個模組的基本部署資訊清單，作為供本教學課程使用的範例。 複製下列 JSON 並儲存為 .json 檔案。 
 
    ```JSON
    {
@@ -176,58 +176,53 @@ Azure IoT Edge 可讓您以模組形式部署和管理商務邏輯。 **Azure Io
    }
    ```
 
-**上傳 Azure IoT Edge 部署資訊清單**
+#### <a name="upload-an-iot-edge-deployment-manifest"></a>上傳 IoT Edge 部署資訊清單
 
-按一下 [瀏覽]  按鈕 
+在 [自訂裝置]  頁面上的 [上傳 Azure IoT Edge 部署資訊清單]  底下，選取 [瀏覽]  。 
 
-![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/edgedevicetemplateuploadmanifest.png)
+![已醒目提示 [瀏覽] 的 [自訂裝置] 頁面螢幕擷取畫面](./media/tutorial-define-edge-device-type/edgedevicetemplateuploadmanifest.png)
 
-如果您打算建立 Azure IoT Edge 閘道裝置範本，請務必選取 [Gateway device with downstream devices]\(閘道裝置與下游裝置\)  核取方塊
+如果您打算建立 IoT Edge 閘道裝置範本，請務必選取 [具有下游裝置的閘道裝置]  。
 
-![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-upload.png)
+![[自訂裝置] 頁面的螢幕擷取畫面，其中已醒目提示具有下游裝置的閘道裝置](./media/tutorial-define-edge-device-type/gateway-upload.png)
 
-您會看到可供選取檔案的對話方塊。 請選取部署資訊清單檔，然後按一下 [開啟]  按鈕。
+在檔案選取對話方塊中，請選取部署資訊清單檔，然後選取 [開啟]  。
 
-會對照結構描述向部署資訊清單檔進行驗證。 驗證成功之後，請按一下 [檢閱]  按鈕
+IoT Edge 會根據結構描述來驗證部署資訊清單檔。 如果驗證成功，請選取 [檢閱]  。
 
-![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/deploymentmanifestvalidate.png)
+![[自訂裝置] 頁面的螢幕擷取畫面，其中已醒目提示部署資訊清單和檢閱](./media/tutorial-define-edge-device-type/deploymentmanifestvalidate.png)
 
-以下是 IoT Central 中部署資訊清單生命週期的流程。
+下列流程圖說明 IoT Central 中的部署資訊清單生命週期。
 
-![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/dmflow.png)
+![部署資訊清單生命週期的流程圖](./media/tutorial-define-edge-device-type/dmflow.png)
 
-[檢閱] 頁面會列出部署資訊清單的詳細資料。 部署資訊清單中的模組清單會顯示在 [檢閱] 頁面上。 在本教學課程中，會看到列出了 SimulatedTemperatureSensor 模組。 按一下 [建立]  按鈕。
+接下來，您會看到 [檢閱] 頁面，其中會列出部署資訊清單的詳細資料。 此頁面會顯示部署資訊清單中的模組清單。 在本教學課程中，您會看到其中已列出 `SimulatedTemperatureSensor` 模組。 選取 [建立]  。
 
-![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/edgedevicetemplatereview.png)
+![[檢閱] 頁面的螢幕擷取畫面，其中已醒目提示 [模組] 和 [建立]](./media/tutorial-define-edge-device-type/edgedevicetemplatereview.png)
 
-如果您已選取閘道裝置，就會看到此 [檢閱] 頁面
+如果您已選取閘道裝置，您會看到下列檢閱頁面。
 
-![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-review.png)
+![[檢閱] 頁面的螢幕擷取畫面，其中已醒目提示 Azure IoT Edge 閘道](./media/tutorial-define-edge-device-type/gateway-review.png)
 
 
-會顯示建立新裝置範本的進度環，代表正在 IoT Central 中建立裝置範本。
+您會以模組功能模型來建立裝置範本。 在本教學課程中，您會以 `SimulatedTemperatureSensor` 模組功能模型來建立裝置範本。 
 
-裝置範本是以模組功能模型所建立。 在本教學課程中，會看到建立了 SimulatedTemperatureSensor 模組功能模型。 
+請將裝置範本的標題變更為**環境感應器裝置範本**。
 
-請將裝置範本的標題變更為「環境感應器裝置範本」。
+![裝置範本的螢幕擷取畫面，其中已醒目提示更新的標題](./media/tutorial-define-edge-device-type/edgedevicetemplatelanding.png)
 
-![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/edgedevicetemplatelanding.png)
+在 IoT Edge 裝置中，IoT 隨插即用模型如下所示：
+* 每個 IoT Edge 裝置範本都有一個裝置功能模型。
+* 部署資訊清單中列出的每個自訂模組，都會產生模組功能模型。
+* 系統會在每個模組功能模型和裝置功能模型之間建立關聯性。
+* 模組功能模型會實作模組介面。
+* 每個模組介面都包含遙測、屬性和命令。
 
-Azure IoT Edge 裝置隨插即用的建模方式會按以下步驟完成
-* 每個 Azure IoT Edge 裝置範本都有一個**裝置功能模型**
-* 部署資訊清單中列出的每個自訂模組，都會產生**模組功能模型**
-* 系統會在每個模組功能模型和裝置功能模型之間建立**關聯性**
-* 模組功能模型會實作**模組介面**
-* 每個模組介面包含
-   - 遙測
-   - properties
-   - 命令
+![IoT Edge 模型的圖表](./media/tutorial-define-edge-device-type/edgemodelling.png)
 
-![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/edgemodelling.png)
+#### <a name="add-capabilities-to-a-module-capability-model"></a>將功能加入模組功能模型
 
-**將功能加入模組功能模型**
-
-以下是來自 SimulatedTemperatureSensor 模組的輸出範例
+以下是 `SimulatedTemperatureSensor` 模組中的範例輸出：
 ```json
 {
 
@@ -244,79 +239,81 @@ Azure IoT Edge 裝置隨插即用的建模方式會按以下步驟完成
 }
 ```
 
-請將功能新增至 SimulatedTemperatureSensor 模組，如此會反映上述的 JSON。 
+您可以將功能新增至 `SimulatedTemperatureSensor` 模組，以反映上述輸出。 
 
-* 按一下 [管理]  SimulatedTemperatureSensor 模組功能模型的介面。 按一下 [新增功能]  。 
+1. 若要管理 `SimulatedTemperatureSensor` 模組功能模型的介面，請選取 [管理]   > [新增功能]  。 
 
-    ![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplateaddcapability.png)
+    ![醒目提示 [新增功能] 的環境感應器範本螢幕擷取畫面](./media/tutorial-define-edge-device-type/edgetemplateaddcapability.png)
   
-* 因為機器是複雜類型，請新增為物件類型
+1. 新增作為物件類型的機器。
   
-    ![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplatemachineobject.png)
+    ![環境感應器範本功能頁面的螢幕擷取畫面，其中已醒目提示結構描述](./media/tutorial-define-edge-device-type/edgetemplatemachineobject.png)
 
-    按一下 [定義]  。 在快顯視窗中，將物件名稱變更為機器，並建立屬性溫度、壓力，然後按一下 [套用] 
+1. 選取 [定義]  。 在顯示的對話方塊中，將物件名稱變更為 [機器]  。 建立溫度和壓力屬性，然後選取 [套用]  。
   
-    ![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplatemachineattributes.png)
+    ![醒目提示各種選項的屬性對話方塊螢幕擷取畫面](./media/tutorial-define-edge-device-type/edgetemplatemachineattributes.png)
   
-* 因為環境是複雜類型，請新增為物件類型
+1. 新增**環境**作為物件類型。
 
-    按一下 [定義]  。 在快顯視窗中，將物件名稱變更為環境，並建立屬性溫度、濕度，然後按一下 [套用] 
+1. 選取 [定義]  。 在顯示的對話方塊中，將物件名稱變更為**環境**。 建立溫度和濕度屬性，然後選取 [套用]  。
   
-    ![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplateambientattributes.png)
+    ![醒目提示各種選項的屬性對話方塊螢幕擷取畫面](./media/tutorial-define-edge-device-type/edgetemplateambientattributes.png)
 
   
-* 將 timeCreated 新增為 DateTime 類型，然後按一下 [儲存] 
+1. 將 `timeCreated` 新增為 `DateTime` 類型，然後選取 [儲存]  。
   
-    ![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplateallattributes.png)
+    ![醒目提示 [儲存] 的環境感應器範本螢幕擷取畫面](./media/tutorial-define-edge-device-type/edgetemplateallattributes.png)
 
 
 ### <a name="add-relationships"></a>新增關聯性
 
-如果您選取 Azure IoT Edge 裝置作為閘道裝置，對於將會連接到閘道裝置的裝置，則可以將下游關聯性新增到裝置功能模型上。
+如果您選取 IoT Edge 裝置作為閘道裝置，對於要連接到閘道裝置的裝置，則可以將下游關聯性新增到裝置功能模型上。
   
-  ![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-add-relationship.png)
+  ![醒目提示 [新增關聯性] 的環境閘道範本螢幕擷取畫面](./media/tutorial-define-edge-device-type/gateway-add-relationship.png)
 
-可以在裝置或模組新增關聯性。
+您可以在裝置或模組上新增關聯性。
   
-  ![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-relationship-types.png)
+  ![醒目提示裝置和模組層級關聯性的環境閘道範本螢幕擷取畫面](./media/tutorial-define-edge-device-type/gateway-relationship-types.png)
 
 
-您可以選取下游裝置功能模型，也可以選取星號。 
+您可以選取下游裝置功能模型，或是選取星號。 
   
-  ![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-downstream-rel.png)
+  ![醒目提示 [目標] 的環境閘道範本螢幕擷取畫面](./media/tutorial-define-edge-device-type/gateway-downstream-rel.png)
 
-  本教學課程會選取星號，即表示允許任何的下游關聯性。 按一下 [儲存] 
+  在本教學課程中，請選取星號。 此選項可允許任何下游關聯性。 然後選取 [儲存]  。
 
-  ![裝置範本 - Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-add-relationship-asterix.png)
+  ![醒目提示 [目標] 的環境閘道範本螢幕擷取畫面](./media/tutorial-define-edge-device-type/gateway-add-relationship-asterix.png)
 
 
 ### <a name="add-cloud-properties"></a>新增雲端屬性
 
 裝置範本可包含雲端屬性。 雲端屬性僅存在於 IoT Central 應用程式中，且一律不會傳送至或接收自裝置。
 
-1. 依序選取 [雲端屬性]  和 [+ 新增雲端屬性]  。 請使用下表中的資訊，將雲端屬性新增至您的裝置範本。
+1. 選取 [雲端屬性]   > [+ 新增雲端屬性]  。 請使用下表中的資訊，將雲端屬性新增至您的裝置範本。
 
     | 顯示名稱      | 語意類型 | 結構描述 |
     | ----------------- | ------------- | ------ |
     | 上次維修日期 | None          | Date   |
     | 客戶名稱     | None          | 字串 |
 
-2. 選取 [儲存]  以儲存變更：
+2. 選取 [儲存]  。
 
   
-    ![雲端屬性 - Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplatecloudproperties.png)
+    ![醒目提示 [儲存] 的環境感應器範本螢幕擷取畫面](./media/tutorial-define-edge-device-type/edgetemplatecloudproperties.png)
 
 ### <a name="add-customizations"></a>新增自訂
 
-當您需要修改介面，或將 IoT Central 特有的功能新增至不需要您控制裝置功能模型版本的功能時，請使用自訂。 當功能模型處於草稿或已發佈狀態時，您可以自訂欄位。 您只能自訂不會中斷介面相容性的欄位。 例如，您可以：
+若要修改介面，或將 IoT Central 特有的功能新增至不需要您控制裝置功能模型版本的功能時，請使用自訂。 當功能模型處於草稿或已發佈狀態時，您可以自訂欄位。 您只能自訂不會中斷介面相容性的欄位。 例如，您可以：
 
 - 自訂功能的顯示名稱和單位。
 - 新增在圖表上顯示值時所要使用的預設色彩。
 - 指定屬性的初始、最小和最大值。
 
-您無法自訂功能名稱或功能類型。 按一下 [儲存] 
+您無法自訂功能名稱或功能類型。
+
+完成自訂之後，請選取 [儲存]  。
   
-![自訂 - Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplatecustomize.png)
+![環境感應器範本自訂頁面的螢幕擷取畫面](./media/tutorial-define-edge-device-type/edgetemplatecustomize.png)
 
 
 ### <a name="create-views"></a>建立檢視
@@ -328,27 +325,27 @@ Azure IoT Edge 裝置隨插即用的建模方式會按以下步驟完成
 
 ### <a name="configure-a-view-to-visualize-devices"></a>設定將裝置視覺化的檢視
 
-裝置儀表板可讓操作員使用圖表和計量將裝置視覺化。 身為建置者，您可以定義要在裝置儀表板上顯示哪些資訊。 您可以為裝置定義多個儀表板。 若要建立將環境感應器遙測資料視覺化的儀表板，請選取 [檢視]  ，然後**將裝置視覺化**：
+裝置儀表板可讓操作員使用圖表和計量將裝置視覺化。 身為建置者，您可以定義要在裝置儀表板上顯示哪些資訊。 您可以為裝置定義多個儀表板。 若要建立將環境感應器遙測資料視覺化的儀表板，請選取 [檢視]   > [將裝置視覺化]  ：
 
   
-![檢視 - Azure IoT Edge](./media/tutorial-define-edge-device-type/visualizingthedevice.png)
+![環境感應器範本檢視頁面的螢幕擷取畫面，其中已醒目提示 [將裝置視覺化]](./media/tutorial-define-edge-device-type/visualizingthedevice.png)
 
 
-環境遙測和機器遙測是複雜物件，若要建立圖表，請執行下列動作
+環境遙測和機器遙測都是複雜物件。 若要建立圖表：
 
-拖曳 [環境遙測]，然後選取折線圖。 
+1. 拖曳 [環境遙測]  ，然後選取 [折線圖]  。 
   
-![檢視 - Azure IoT Edge](./media/tutorial-define-edge-device-type/sensorambientchart.png)
+   ![醒目提示環境遙測和折線圖的環境感應器範本螢幕擷取畫面](./media/tutorial-define-edge-device-type/sensorambientchart.png)
 
-按一下 [設定] 圖示，然後選取溫度和濕度，將資料視覺化，然後按一下 [更新設定]  按鈕。 
+1. 選取設定圖示。 選取 [溫度]  和 [濕度]  ，將資料視覺化，然後選取 [更新設定]  按鈕。 
   
-![檢視 - Azure IoT Edge](./media/tutorial-define-edge-device-type/sensorambienttelemetrychart.png)
+   ![醒目提示各種選項的環境感應器範本螢幕擷取畫面](./media/tutorial-define-edge-device-type/sensorambienttelemetrychart.png)
 
-選取 [儲存]  以儲存檢視：
+1. 選取 [儲存]  。
 
 您可以新增更多顯示其他屬性或遙測值的圖格。 您也可以新增靜態文字、連結和影像。 若要移動儀表板上的圖格或調整其大小，請將滑鼠指標移至圖格上方，然後將圖格拖曳到新位置或調整其大小。
   
-![檢視 - Azure IoT Edge](./media/tutorial-define-edge-device-type/viewsdashboard.png)
+![環境感應器範本儀表板檢視的螢幕擷取畫面](./media/tutorial-define-edge-device-type/viewsdashboard.png)
 
 ### <a name="add-a-device-form"></a>新增裝置表單
 
@@ -356,23 +353,19 @@ Azure IoT Edge 裝置隨插即用的建模方式會按以下步驟完成
 
 若要建立表單以檢視和編輯環境感應器屬性：
 
-流覽至**環境感應器**範本中的 [檢視]  。 選取 [編輯裝置和雲端資料]  圖格來新增檢視。
+1. 在**環境感應器範本**中，移至 [檢視]  。 選取 [編輯裝置和雲端資料]  圖格來新增檢視。
   
-![檢視 - Azure IoT Edge](./media/tutorial-define-edge-device-type/editingdeviceandclouddata.png)
+   ![環境感應器範本檢視頁面的螢幕擷取畫面，其中已醒目提示編輯裝置和雲端資料](./media/tutorial-define-edge-device-type/editingdeviceandclouddata.png)
 
-輸入表單名稱**環境感應器屬性**。
+1. 輸入表單名稱**環境感應器屬性**。
 
-將 [客戶名稱]  和 [上次維修日期]  雲端屬性拖曳到表單上的現有區段。
+1. 將 [客戶名稱]  和 [上次維修日期]  雲端屬性拖曳到表單上的現有區段。
   
-![檢視 - Azure IoT Edge](./media/tutorial-define-edge-device-type/views-properties.png)
+   ![醒目提示各種選項的環境感應器範本檢視頁面螢幕擷取畫面](./media/tutorial-define-edge-device-type/views-properties.png)
 
-選取 [儲存]  以儲存檢視。
+1. 選取 [儲存]  。
 
-### <a name="generate-default-views"></a>產生預設檢視
-
-Azure IoT Edge 範本不支援產生預設檢視的功能 
-
-## <a name="publish-device-template"></a>發佈裝置範本
+## <a name="publish-a-device-template"></a>發佈裝置範本
 
 您必須先發佈裝置範本，才能建立模擬的環境感應器或連接實際的環境感應器。
 
@@ -382,29 +375,29 @@ Azure IoT Edge 範本不支援產生預設檢視的功能
 
 2. 選取 [發佈]  。
   
-    ![檢視 - 發佈](./media/tutorial-define-edge-device-type/edgetemplatepublish.png)
+    ![醒目提示 [發佈] 的環境感應器範本螢幕擷取畫面](./media/tutorial-define-edge-device-type/edgetemplatepublish.png)
 
-1. 在 [發佈裝置範本]  對話方塊中，選擇[發佈]  ：
+1. 在 [發佈裝置範本]  對話方塊中，選擇 [發佈]  。
   
-    ![檢視 - 發佈](./media/tutorial-define-edge-device-type/edgepublishtemplate.png)
+    ![醒目提示 [發佈] 的 [發佈裝置範本] 對話方塊螢幕擷取畫面](./media/tutorial-define-edge-device-type/edgepublishtemplate.png)
 
-裝置範本發佈後，將會顯示在 [裝置]  頁面上，並且對操作員顯示。 在已發佈的裝置範本中，您無法直接編輯裝置功能模型而不建立新版本。 不過，您可以直接在已發佈的裝置範本中更新雲端屬性、自訂和檢視，而無須進行版本控制。 進行任何變更之後，請選取 [發佈]  ，將這些變更推送給您的操作員。
+裝置範本發佈後，將會顯示在 [裝置]  頁面上，並且對操作員顯示。 在已發佈的裝置範本中，您無法直接編輯裝置功能模型而不建立新版本。 不過，您可以直接在已發佈的裝置範本中更新雲端屬性、自訂和檢視。 這些更新不會導致新版本建立。 進行任何變更之後，請選取 [發佈]  ，將這些變更推送給您的操作員。
   
-![檢視 - 發佈](./media/tutorial-define-edge-device-type/publishedtemplate.png)
+![已發佈範本的裝置範本清單螢幕擷取畫面](./media/tutorial-define-edge-device-type/publishedtemplate.png)
 
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解如何：
 
-* 建立新的 Edge 作為分葉裝置範本
-* 從上傳的部署資訊清單產生模組
-* 新增複雜類型的遙測和屬性
+* 建立新的 Edge 作為分葉裝置範本。
+* 從上傳的部署資訊清單產生模組。
+* 新增複雜類型的遙測和屬性。
 * 建立雲端屬性。
 * 建立自訂。
 * 定義裝置遙測的視覺效果。
 * 發佈您的 Edge 裝置範本。
 
-現在，您已在 Azure IoT Central 應用程式中建立裝置範本，以下是建議的後續步驟：
+現在，您已在 Azure IoT Central 應用程式中建立裝置範本，接下來您可以執行下列動作：
 
 > [!div class="nextstepaction"]
 > [連接裝置](./tutorial-connect-pnp-device.md)

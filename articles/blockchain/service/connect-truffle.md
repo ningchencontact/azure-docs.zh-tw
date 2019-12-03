@@ -1,25 +1,19 @@
 ---
-title: 使用 Truffle 連線
+title: 使用 Truffle 連線至 Azure 區塊鏈服務
 description: 使用 Truffle 連線至 Azure 區塊鏈服務網路
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
-ms.date: 08/29/2019
+ms.date: 11/20/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
-ms.reviewer: jackyhsu
-manager: femila
-ms.openlocfilehash: ea64e3fe4789ac0558463ded81c8179db83469d5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.reviewer: janders
+ms.openlocfilehash: 9ea96aa32072775fe6fb9563442f5e3564d37ea5
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932586"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455791"
 ---
-# <a name="quickstart-use-truffle-to-connect-to-a-transaction-node"></a>快速入門：使用 Truffle 連線到交易節點
+# <a name="quickstart-use-truffle-to-connect-to-azure-blockchain-service"></a>快速入門：使用 Truffle 連線至 Azure 區塊鏈服務
 
-Truffle 是可用來連線至 Azure 區塊鏈服務交易節點的區塊鏈開發環境。
+在本快速入門中，使用 Truffle 連線到 Azure 區塊鏈服務交易節點。 您接著會使用 Truffle 互動式主控台來呼叫 **web3** 方法，以與您的區塊鏈網路互動。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -58,12 +52,15 @@ Truffle 是可用來連線至 Azure 區塊鏈服務交易節點的區塊鏈開�
 
 若要設定 Truffle 專案，您需要 Azure 入口網站中的某些交易節點資訊。
 
-### <a name="transaction-node-endpoint-addresses"></a>交易節點端點位址
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 移至您的 Azure 區塊鏈服務成員。 選取 [交易節點]  和預設交易節點連結。
 
-1. 在 Azure 入口網站中，瀏覽至預設交易節點，然後選取 [交易節點] > [連接字串]  。
-1. 從 **HTTPS (存取金鑰 1)** 複製並儲存端點 URL。 稍後在本教學課程中，智慧型合約組態檔會需要用到端點位址。
+    ![選取預設交易節點](./media/connect-truffle/transaction-nodes.png)
 
-    ![交易端點位址](./media/connect-truffle/endpoint.png)
+1. 選取 [連接字串]  。
+1. 從 [HTTPS (存取金鑰 1)]  複製連接字串。 您在下一節將需要此字串。
+
+    ![連接字串](./media/connect-truffle/connection-string.png)
 
 ### <a name="edit-configuration-file"></a>編輯組態檔
 
@@ -100,7 +97,7 @@ Truffle 是可用來連線至 Azure 區塊鏈服務交易節點的區塊鏈開�
 
     Truffle 會連線到預設交易節點並提供互動式主控台。
 
-    您可以在 **web3** 物件上呼叫方法，來與交易節點互動。
+    您可以在 **web3** 物件上呼叫方法，進而與您的區塊鏈網路互動。
 
 1. 呼叫 **getBlockNumber** 方法以傳回目前的區塊數目。
 
@@ -122,9 +119,9 @@ Truffle 是可用來連線至 Azure 區塊鏈服務交易節點的區塊鏈開�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已建立連線至 Azure 區塊鏈服務預設交易節點的 Truffle 專案。
+在本快速入門中，您已使用 Truffle 連線至 Azure 區塊鏈服務的預設交易節點，並已使用互動式主控台來傳回目前的區塊鏈區塊號碼。
 
-請嘗試進行下一個教學課程，使用適用於 Ethereum 和 Truffle 的 Azure 區塊鏈開發套件，透過交易建立、建置、部署及執行智慧型合約函式。
+請嘗試進行下一個教學課程，使用適用於 Ethereum 的 Azure 區塊鏈開發套件，透過交易建立、建置、部署及執行智慧型合約函式。
 
 > [!div class="nextstepaction"]
-> [使用  Visual Studio Code 建立、建置和部署智慧型合約](send-transaction.md)
+> [在 Azure 區塊鏈服務上建立、建立和部署智慧型合約](send-transaction.md)

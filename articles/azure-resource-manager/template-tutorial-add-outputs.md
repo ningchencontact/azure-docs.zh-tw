@@ -1,19 +1,16 @@
 ---
-title: 教學課程 - 將輸出新增至 Azure Resource Manager 範本
+title: 教學課程 - 將輸出新增至範本
 description: 將輸出新增至 Azure Resource Manager 範本，以簡化語法。
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 458833372d5bd03a04e4df7d6e915cddb4bb05c7
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 654d3f7cbf6362d982549c86e6f54fea1e890cfc
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001531"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405989"
 ---
 # <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>教學課程：將輸出新增至 Resource Manager 範本
 
@@ -25,7 +22,7 @@ ms.locfileid: "72001531"
 
 您必須擁有含 Resource Manager 工具延伸模組的 Visual Studio Code，以及 Azure PowerShell 或 Azure CLI。 如需詳細資訊，請參閱[範本工具](template-tutorial-create-first-template.md#get-tools)。
 
-## <a name="review-your-template"></a>檢閱範本
+## <a name="review-template"></a>檢閱範本
 
 在上一個教學課程結束時，您的範本會具有下列 JSON：
 
@@ -49,7 +46,7 @@ ms.locfileid: "72001531"
 
 最後，它會從儲存體帳戶傳回 **primaryEndpoints** 屬性
 
-## <a name="deploy-the-template"></a>部署範本
+## <a name="deploy-template"></a>部署範本
 
 您已經準備好部署範本，並查看傳回的值。
 

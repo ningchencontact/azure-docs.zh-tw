@@ -1,7 +1,7 @@
 ---
 title: 快速入門：使用 .NET在 C# 中建立搜尋索引
 titleSuffix: Azure Cognitive Search
-description: 說明如何使用 C# 與 Azure 認知搜尋 .NET SDK 建立索引、載入資料以及執行查詢。
+description: 在此 C# 快速入門中，了解如何使用 Azure 認知搜尋 .NET SDK 來建立索引、載入資料以及執行查詢。
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 45d24286a511ff60db33e149627932b0768c543b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 1d8eaea4a6eded769542921851fb0c74a3c9d58b
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112035"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406765"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>快速入門：在 C# 中使用 .NET SDK 建立 Azure 認知搜尋索引
 > [!div class="op_single_selector"]
@@ -548,7 +548,7 @@ Hotels 索引由簡單與複雜欄位組成，其中簡單欄位是 "HotelName" 
 
     輸出包括與之前相同的訊息，加上查詢資訊與結果。
 
-## <a name="clean-up"></a>清除
+## <a name="clean-up-resources"></a>清除資源
 
 使用您自己的訂用帳戶時，在專案結束後確認您是否還需要您建立的資源，是很好的做法。 讓資源繼續執行可能會產生費用。 您可以個別刪除資源，或刪除資源群組以刪除整組資源。
 

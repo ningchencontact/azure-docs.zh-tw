@@ -8,28 +8,57 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 8ee22a2a8a12eb85439e191bc21e6cf391bea3f8
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 99f312521727658788e96a57b619a7c0e3d4751b
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612857"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456564"
 ---
 # <a name="what-is-language-understanding-luis"></a>何謂 Language Understanding Intelligent Service (LUIS)？
 
-Language Understanding Intelligent Service (LUIS) 是一種 API 雲端式服務，可將自訂機器學習智慧套用至使用者的對話、自然語言文字中，以預測整體意義，並找出相關的詳細資訊。 
+Language Understanding Intelligent Service (LUIS) 是一種 API 雲端式服務，可將自訂機器學習智慧套用至自然語言文字中，以預測整體意義，並找出相關的詳細資訊。 
 
-LUIS 的用戶端應用程式是任何對話應用程式，可與使用者透過自然語言溝通以完成工作。 用戶端應用程式的例子包括社群媒體應用程式、聊天機器人，以及具備語音功能的桌面應用程式。  
+例如，當用戶端應用程式傳送文字時，`find me a wireless keyboard for $30`，LUIS 會回應下列 JSON 物件。 
+
+```JSON
+{
+    "query": "find me a wireless keyboard for $30",
+    "prediction": {
+        "topIntent": "Finditem",
+        "intents": {
+            "Finditem": {
+                "score": 0.934672
+            }
+        },
+        "entities": {
+            "item": [
+                "wireless keyboard"
+            ],
+            "money": [
+        {
+            "number": 30,
+            "units": "Dollar"
+        }
+           ]
+        }
+        
+    }
+}
+```
+在上述範例中， _**意圖**_ 或片語的整體意義是使用者正嘗試尋找項目。 LUIS 擷取的詳細資訊片段稱為**實體**  。 在此情況下，實體就是使用者所尋找的項目名稱，以及他們想要花費的金額。
+
+用戶端應用程式會使用 LUIS 傳回的 JSON、_意圖_ (類別)，以及_實體_ (已擷取的詳細資訊) 來驅動用戶端應用程式中的動作。 LUIS 的用戶端應用程式通常是交談式應用程式，可與使用者透過自然語言溝通以完成工作。 用戶端應用程式的例子包括社群媒體應用程式、聊天機器人，以及具備語音功能的桌面應用程式。 
 
 ![3 個使用認知服務 Language Understanding (LUIS) 的用戶端應用程式概念影像](./media/luis-overview/luis-entry-point.png "3 個使用認知服務 Language Understanding (LUIS) 的用戶端應用程式概念影像")
 
-## <a name="use-luis-in-a-chat-bot"></a>在聊天機器人中使用 LUIS
+## <a name="example-use-luis-in-a-chat-bot"></a>在聊天機器人中使用 LUIS 的範例
 
 <a name="Accessing-LUIS"></a>
 
-LUIS 應用程式發佈後，用戶端應用程式會將語句 (文字) 傳送至 LUIS 自然語言處理端點 [API][endpoint-apis]，並以 JSON 回應的形式接收結果。 聊天機器人是 LUIS 的常見用戶端應用程式之一。
+用戶端應用程式會將語句 (文字) 傳送至已發佈的 LUIS 自然語言處理端點 [API][endpoint-apis]，並以 JSON 回應的形式接收結果。 聊天機器人是 LUIS 的常見用戶端應用程式之一。
 
 
 ![LUIS 使用聊天機器人來預測具有自然語言理解 (NLP) 的使用者文字概念影像](./media/luis-overview/LUIS-chat-bot-request-response.svg "LUIS 使用聊天機器人來預測具有自然語言理解 (NLP) 的使用者文字概念影像")
@@ -37,8 +66,8 @@ LUIS 應用程式發佈後，用戶端應用程式會將語句 (文字) 傳送�
 |步驟|動作|
 |:--|:--|
 |1|用戶端應用程式將使用者_語句_ (其個人風格的文字) "I want to call my HR rep." 傳送至 LUIS 端點作為 HTTP 要求。|
-|2|LUIS 可讓您製作自訂語言模型，讓應用程式更加智慧化。 機器學習的語言模型會採用使用者的非結構化輸入文字，並傳回 JSON 格式的回應，其具有最高的意圖 `HRContact`。 JSON 最基本的端點回應包含查詢語句和評分最高的意圖。 它也可以擷取「連絡人類型  」實體之類的資料。|
-|3|用戶端應用程式使用 JSON 回應來決定如何達成使用者要求。 這些決策可包含 Bot Framework 程式碼中的決策樹和對其他服務的呼叫。 |
+|2|LUIS 會將機器學習到的語言模型套用至使用者的非結構化輸入文字，並傳回 JSON 格式的回應，其具有最高的意圖 `HRContact`。 JSON 最基本的端點回應包含查詢語句和評分最高的意圖。 它也可以擷取「連絡人類型  」實體之類的資料。|
+|3|用戶端應用程式使用 JSON 回應來決定如何達成使用者要求。 這些決策可包含 Bot 中的決策樹和對其他服務的呼叫。 |
 
 LUIS 應用程式會提供智慧，讓用戶端應用程式得以做出聰明的選擇。 LUIS 不會提供這些選擇。 
 
@@ -47,16 +76,16 @@ LUIS 應用程式會提供智慧，讓用戶端應用程式得以做出聰明的
 
 ## <a name="natural-language-processing"></a>自然語言處理
 
-您的 LUIS 應用程式包含領域特定自然語言模型。 您可以從預先建立的領域模型開始使用 LUIS 應用程式、自行建置模型，或以自己的自訂資訊融合預先建立的領域片段。
+您的 LUIS 應用程式包含領域專屬的自然語言模型 (可一起運作)。 您可以從一或多個預先建立的模型開始使用 LUIS 應用程式、建置自己的模型，或以自己的自訂資訊融合預先建立的模型。
 
-* **預先建立的模型** LUIS 有許多預先建立的領域模型，包括意圖、語句和預先建立的實體。 您可以使用預先建立的實體，而不需要使用預先建立模型的意圖和語句。 [預先建立的領域模型](luis-how-to-use-prebuilt-domains.md)包含您所需的整體設計，是快速著手使用 LUIS 的好方法。
+* **預先建立的模型** LUIS 有許多預先建立的領域，包含可一起運作以完成常見使用案例的意圖和實體模型。 這些領域包括可加以檢查和編輯的標記語句，並允許您加以自訂。 [預先建立的領域模型](luis-how-to-use-prebuilt-domains.md)包含您所需的整體設計，是快速著手使用 LUIS 的好方法。 此外，也有預先建立的實體，例如您可從預先建立的領域獨立使用的貨幣和數字。
 
-* **自訂模型** LUIS 提供您幾種方式來識別您自己的自訂模型，包括意圖和實體。 實體包括機器學習實體、特定或常值實體，以及機器學習和常值的組合。
+* **自訂模型** LUIS 提供您幾種方式來建置自己的自訂模型，包括意圖和實體。 實體包括機器學習到的實體、模式比對實體，以及機器學習到與模式比對的組合。
 
-## <a name="build-the-luis-model"></a>建置 LUIS 模型
-使用[撰寫](https://go.microsoft.com/fwlink/?linkid=2092087) API 或使用 [LUIS](https://www.luis.ai) 入口網站建置模型。
+## <a name="build-the-luis-app"></a>建置 LUIS 應用程式
+使用[撰寫](https://go.microsoft.com/fwlink/?linkid=2092087) API 或透過 [LUIS 入口網站](https://www.luis.ai)建置應用程式。
 
-LUIS 模型的首要組件是使用者意向的類別，名為 **[意圖](luis-concept-intent.md)** 。 每個意圖都需要使用者 **[語句](luis-concept-utterance.md)** 的範例。 每個語句都提供需要擷取的資料。 
+LUIS 應用程式的開頭為輸入文字的類別，稱之為 **[意圖](luis-concept-intent.md)** 。 每個意圖都需要使用者 **[語句](luis-concept-utterance.md)** 的範例。 每個語句都提供需要擷取的資料。 
 
 |範例使用者語句|Intent|擷取的資料|
 |-----------|-----------|-----------|
@@ -100,8 +129,8 @@ JSON 最基本的端點回應包含查詢語句和評分最高的意圖。 它�
 
 <a name="using-luis"></a>
 
-## <a name="development-lifecycle"></a>開發生命週期
-LUIS 會提供工具、版本控制和與其他 LUIS 作者的共同作業，以便整合到完整的[開發生命週期](luis-concept-app-iteration.md)。 
+## <a name="iterative-development-lifecycle"></a>反覆式開發生命週期
+LUIS 會提供工具、版本控制和與其他 LUIS 作者的共同作業，以便整合到完整的反覆式[開發生命週期](luis-concept-app-iteration.md)。 
 
 ## <a name="implementing-luis"></a>實作 LUIS
 Language Understanding (LUIS) 在作為 REST API 時，可以與任何具有 HTTP 要求的產品、服務或架構搭配使用。 下列清單包含最常與 LUIS 搭配使用的 Microsoft 產品和服務。
@@ -128,7 +157,7 @@ LUIS 最上層的用戶端應用程式是：
 ## <a name="next-steps"></a>後續步驟
 
 * [新功能](whats-new.md)
-* 使用[預先建立](luis-get-started-create-app.md)或[自訂](luis-quickstart-intents-only.md)領域撰寫新的 LUIS 應用程式。
+* 使用[預先建立](luis-get-started-create-app.md)或[自訂](luis-quickstart-intents-only.md)領域撰寫新的 LUIS 應用程式
 * 對公用 IoT 應用程式[查詢預測端點](luis-get-started-get-intent-from-browser.md)。 
 * LUIS 的[開發人員資源](developer-reference-resource.md)。 
 

@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c6da3270de94fd0d5525f28cdd31039f5bd85dbd
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 5330c99f4d42f591944ddc5c58ac98bea6387da5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594066"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278155"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>教學課程：設定 Azure CDN 快取規則
 
 > [!NOTE] 
-> Azure CDN 快取規則僅適用於**來自 Verizon 的 Azure CDN 標準**和**來自 Akamai 的 Azure CDN 標準**。 針對**來自 Verizon 的 Azure CDN Premium**，您可以使用 [管理]  入口網站中的 [Azure CDN 規則引擎](cdn-rules-engine.md)來執行類似功能。
+> 快取規則僅適用於「**來自 Verizon 的 Azure CDN 標準**」和「**來自 Akamai 的 Azure CDN 標準**」的設定檔。 針對**來自 Microsoft 的 Azure CDN** 設定檔，您必須使用 [標準規則引擎](cdn-standard-rules-engine-reference.md)。針對**來自 Verizon 的 Azure CDN 進階**設定檔，您必須使用 [管理]  入口網站中的 [Verizon 進階規則引擎](cdn-rules-engine.md)來執行類似功能。
  
 
 本教學課程說明如何使用 Azure 內容傳遞網路 (CDN) 快取規則，以全域及自訂條件 (例如 URL 路徑和副檔名) 的方式設定或修改預設快取到期行為。 Azure CDN 提供兩種類型的快取規則：
@@ -32,7 +32,7 @@ ms.locfileid: "67594066"
 
 - 自訂快取規則：您可以針對設定檔中的每個端點設定一或多個自訂快取規則。 自訂快取規則會比對特定路徑和副檔名、會依序處理，並會覆寫全域快取規則 (如果已設定)。 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 > - 開啟快取規則頁面。
 > - 建立全域快取規則。

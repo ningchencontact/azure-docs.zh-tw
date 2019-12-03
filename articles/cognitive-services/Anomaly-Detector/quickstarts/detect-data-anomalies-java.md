@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 6d54ec8df08e7c3d76a97c2531c21b1fd4d130b9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 6b79470194c5e8dc9b8d51f8b528cb4e51f7daf2
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554743"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483019"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>快速入門：使用 Anomaly Detector REST API 與 Java 偵測時間序列資料中的異常狀況
 
@@ -26,12 +26,12 @@ ms.locfileid: "72554743"
 | 以批次方式偵測異常狀況                        | JSON 回應包含時間序列資料中每個資料點的異常狀態 (和其他資料)，以及偵測到的任何異常狀況的位置。 |
 | 偵測最新資料點的異常狀態 | JSON 回應包含時間序列資料中最新資料點的異常狀態 (和其他資料)。                                                                                                                                         |
 
- 雖然此應用程式是以 Java 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
+ 雖然此應用程式是以 Java 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。 您可以在 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java) 上找到此快速入門的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 
 - [Java&trade; 開發套件 (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 或更新版本。
-
+- Anomaly Detector 金鑰和端點
 - 從 Maven 存放庫匯入這些程式庫
     - [Java 中的 JSON](https://mvnrepository.com/artifact/org.json/json) 套件
     - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) 套件
@@ -71,7 +71,7 @@ ms.locfileid: "72554743"
 
 6. 建立 `HttpEntity` 物件以儲存回應內容。 使用 `getEntity()` 取得內容。 如果回應不是空的，請將它傳回。
 
-[!code-java[API request method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=request)]
+    [!code-java[API request method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=request)]
 
 ## <a name="detect-anomalies-as-a-batch"></a>以批次方式偵測異常狀況
 
@@ -81,11 +81,11 @@ ms.locfileid: "72554743"
 
 3. 否則，在資料集中尋找異常狀況的位置。 回應的 `isAnomaly` 欄位包含與指定的資料點是否為異常相關的布林值。 取得 JSON 陣列並逐一查看，然後列印任何 `true` 值的索引。 如果有找到，這些值會對應到異常資料點的索引。
 
-[!code-java[Method for batch detection](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectBatch)]
+    [!code-java[Method for batch detection](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectBatch)]
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>偵測最新資料點的異常狀態
 
-* 建立名為 `detectAnomaliesLatest()` 的方法，以偵測資料集中最後一個資料點的異常狀態。 使用端點、URL、訂用帳戶金鑰和 json 資料呼叫上方建立的 `sendRequest()` 方法。 取得結果，並將它列印到主控台。
+建立名為 `detectAnomaliesLatest()` 的方法，以偵測資料集中最後一個資料點的異常狀態。 使用端點、URL、訂用帳戶金鑰和 json 資料呼叫上方建立的 `sendRequest()` 方法。 取得結果，並將它列印到主控台。
 
 [!code-java[Latest point detection method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectLatest)]
 
@@ -95,7 +95,7 @@ ms.locfileid: "72554743"
 
 2. 呼叫上面建立的兩個異常偵測函式。
 
-[!code-java[Main method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=main)]
+    [!code-java[Main method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=main)]
 
 ### <a name="example-response"></a>範例回應
 
@@ -103,11 +103,4 @@ ms.locfileid: "72554743"
 * [批次偵測回應範例](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [最新資料點偵測回應範例](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
-## <a name="next-steps"></a>後續步驟
-
-> [!div class="nextstepaction"]
->[使用 Azure Databricks 串流異常偵測](../tutorials/anomaly-detection-streaming-databricks.md)
-
-* 什麼是 [Anomaly Detector API？](../overview.md)
-* 使用 Anomaly Detector API 時的[最佳做法](../concepts/anomaly-detection-best-practices.md)。
-* 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs) 上找到。
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

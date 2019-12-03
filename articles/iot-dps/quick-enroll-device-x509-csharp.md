@@ -1,5 +1,5 @@
 ---
-title: 快速入門：如何使用 C# 向 Azure 裝置佈建服務註冊 X.509 裝置
+title: 使用 C# 向 Azure 裝置佈建服務註冊 X.509 裝置
 description: 本快速入門使用群組註冊。 在本快速入門中，使用 C# 向 Azure IoT 中樞裝置佈建服務註冊 X.509 裝置。
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: e43448337f787115c479f2f53ca57b7a20120108
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 3df9afa35b3ae9f7360a5d4b890d3fce209a4b12
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903425"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423339"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>快速入門：使用 C# 向裝置佈建服務註冊 X.509 裝置
 
@@ -80,13 +79,13 @@ ms.locfileid: "73903425"
 
 1. 開啟 Visual Studio，然後選取 [建立新專案]  。 在 [建立新專案]  中，針對 C# 專案範本選擇 [主控台應用程式 (.NET Core)]  ，然後選取 [下一步]  。
 
-1. 將專案命名為 CreateEnrollmentGroup  ，然後選取 [建立]  。
+1. 將專案命名為 CreateEnrollmentGroup  ，然後按 [建立]  。
 
     ![設定 Visual C# Windows 傳統桌面專案](media//quick-enroll-device-x509-csharp/configure-app-vs2019.png)
 
-1. 在 [方案總管]  中，以滑鼠右鍵按一下 [CreateEnrollmentGroup]  專案，然後選取 [管理 NuGet 套件]  。
+1. 若在 Visual Studio 中開啟解決方案，請在 [方案總管]  窗格中，以滑鼠右鍵按一下 [CreateEnrollmentGroup]  專案，然後選取 [管理 NuGet 套件]  。
 
-1. 在 [NuGet 套件管理員]  中選取 [瀏覽]  ，搜尋並選擇 **Microsoft.Azure.Devices.Provisioning.Service**，然後選取 [安裝]  。
+1. 在 [NuGet 套件管理員]  中選取 [瀏覽]  ，搜尋並選擇 **Microsoft.Azure.Devices.Provisioning.Service**，然後按 [安裝]  。
 
     ![NuGet 封裝管理員視窗](media//quick-enroll-device-x509-csharp/add-nuget.png)
 
@@ -103,12 +102,12 @@ ms.locfileid: "73903425"
 1. 將下列欄位新增至 `Program` 類別，並進行列出的變更。  
 
    ```csharp
-   private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
+   private static string ProvisioningConnectionString = "{ProvisioningServiceConnectionString}";
    private static string EnrollmentGroupId = "enrollmentgrouptest";
    private static string X509RootCertPath = @"{Path to a .cer or .pem file for a verified root CA or intermediate CA X.509 certificate}";
    ```
 
-   * 使用您想要為其建立註冊的佈建服務連接字串，取代 `ProvisioningConnectionString` 預留位置值。
+   * 使用您想要為其建立註冊的佈建服務連接字串，取代 `ProvisioningServiceConnectionString` 預留位置值。
 
    * 將 `X509RootCertPath` 預留位置值更換為 .pem 或 .cer 檔案的路徑。 此檔案包含中繼或根 CA X.509 憑證 (先前已上傳並向佈建服務驗證) 的公開部分。
 
@@ -168,7 +167,7 @@ ms.locfileid: "73903425"
 
 ## <a name="run-the-enrollment-group-sample"></a>執行註冊群組範例
   
-在 Visual Studio 中執行此範例，以建立註冊群組。 成功建立時，命令提示字元視窗會顯示新註冊群組的屬性。
+在 Visual Studio 中執行此範例，以建立註冊群組。 命令提示字元視窗隨即出現，並開始顯示確認訊息。 成功建立時，命令提示字元視窗會顯示新註冊群組的屬性。
 
 您可以確認註冊群組是否已建立。 前往裝置佈建服務摘要，選取 [管理註冊]  ，然後選取 [註冊群組]  。 您應會看到對應至您在此範例中使用之註冊識別碼的新註冊項目。
 
@@ -182,9 +181,9 @@ ms.locfileid: "73903425"
 
 1. 在您的電腦上關閉 C# 範例輸出視窗。
 
-1. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，選取 [管理註冊]  ，然後選取 [註冊群組]  。 針對使用本快速入門建立的註冊項目選取其 [註冊識別碼]  ，然後選取 [刪除]  。
+1. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，選取 [管理註冊]  ，然後選取 [註冊群組]  。 針對使用本快速入門建立的註冊項目選取其 [註冊識別碼]  ，然後按 [刪除]  。
 
-1. 從 Azure 入口網站的裝置佈建服務中選取 [憑證]  ，選擇您為本快速入門上傳的憑證，然後選取 [憑證詳細資料]  頂端的 [刪除]  。  
+1. 從 Azure 入口網站的裝置佈建服務中選取 [憑證]  ，選擇您為本快速入門上傳的憑證，然後按 [憑證詳細資料]  頂端的 [刪除]  。  
 
 ## <a name="next-steps"></a>後續步驟
 

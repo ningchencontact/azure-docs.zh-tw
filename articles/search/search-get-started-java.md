@@ -1,20 +1,20 @@
 ---
 title: 快速入門：使用 REST API 在 Java 中建立搜尋索引
 titleSuffix: Azure Cognitive Search
-description: 說明如何使用 Java 與 Azure 認知搜尋 REST API 來建立索引、載入資料以及執行查詢。
+description: 在此 Java 快速入門中，了解如何使用 Azure 認知搜尋 REST API 來建立索引、載入資料以及執行查詢。
 manager: nitinme
-author: lisaleib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 9f30c30276db6daa0b4afdf3e6bdd8e617dedc52
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5e53167a083b5e89bd88a45452929dd40f0868f2
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792806"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406721"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>快速入門：使用 REST API 在 Java 中建立 Azure 認知搜尋索引
 > [!div class="op_single_selector"]
@@ -817,7 +817,7 @@ ms.locfileid: "72792806"
 
     尋找每個查詢及其結果的摘要。 執行完成時應出現「建置成功」訊息和零 (0) 結束代碼。
 
-## <a name="clean-up"></a>清除
+## <a name="clean-up-resources"></a>清除資源
 
 如果您使用自己的訂用帳戶，當專案結束時，建議您移除不再需要的資源。 讓資源繼續執行可能會產生費用。 您可以個別刪除資源，或刪除資源群組以刪除整組資源。
 
@@ -827,10 +827,7 @@ ms.locfileid: "72792806"
 
 ## <a name="next-steps"></a>後續步驟
 
-在此 Java 快速入門中，您已執行一系列的工作來建立索引、連同文件加以載入，以及執行查詢。 如果您熟悉基本概念，建議您閱讀下列文章以進行更深度的學習。
+在此 Java 快速入門中，您已執行一系列的工作來建立索引、連同文件加以載入，以及執行查詢。 如果您熟悉基本概念，建議您閱讀下列文章來了解使用 REST 的索引子作業。
 
-+ [索引作業](/rest/api/searchservice/index-operations)
-
-+ [文件作業](/rest/api/searchservice/document-operations)
-
-+ [索引子作業](/rest/api/searchservice/indexer-operations)
+> [!div class="nextstepaction"]
+> [索引子作業](/rest/api/searchservice/indexer-operations)

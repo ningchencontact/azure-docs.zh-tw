@@ -1,19 +1,16 @@
 ---
-title: 搭配使用 Azure 部署管理員與 Resource Manager 範本 | Microsoft Docs
+title: 使用 Azure 部署管理員搭配範本
 description: 使用 Resource Manager 範本與 Azure 部署管理員來部署 Azure 資源。
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b381c4be5d0c56e14ccd01657542ef3bff2f8894
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 0ce37a744cdf22beddcef433fca1a64252e1673d
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285681"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149889"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>教學課程：在 Azure 部署管理員 (公開預覽版) 中使用健康情況檢查
 

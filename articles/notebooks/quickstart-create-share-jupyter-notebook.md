@@ -1,23 +1,14 @@
 ---
 title: 在 Azure 上建立和共用 Jupyter Notebook
 description: 在 Azure Notebooks 上快速建立和執行 Jupyter Notebook，並與他人共用。
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 19e8217bf88427c353fdd4c90c9f421445b7c81a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 71220fa5aa0367d1cb1694582b4f96459a3016e7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970164"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277509"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>快速入門：建立及共用筆記本
 
@@ -42,7 +33,7 @@ ms.locfileid: "71970164"
 
 1. 幾分鐘後，Azure Notebooks 會帶您瀏覽至新的專案。 選取 [+ 新增]  下拉式清單 (可能只顯示為 **+** )，然後選取 [Notebook]  ，將 Notebook 新增至專案：
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "新的空專案和新增 Notebook 命令")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
 1. 在顯示的 [建立新的 Notebook]  快顯視窗中輸入 Notebook 的檔案名稱，例如 *HelloWorldInPython.ipynb* ( *.ipynb* 表示 IronPython (Jupyter) Notebook)，然後選取 [Python 3.6]  作為語言 (也稱為*核心*)：
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3ba2f59799629873553fe261abebf59529ad94d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 0e08ef72dca09f873ad1cfcc91e132063b88406b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "73570633"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227527"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Freshservice 整合
 
@@ -155,7 +155,7 @@ ms.locfileid: "73570633"
 
 4. 在頂端的功能表中，按一下 [系統管理員]  。
 
-    ![管理](./media/freshservice-tutorial/ic790814.png "管理")
+    ![管理員](./media/freshservice-tutorial/ic790814.png "Admin")
 
 5. 在 [客戶入口網站]  中，按一下 [安全性]  。
 
@@ -187,7 +187,7 @@ ms.locfileid: "73570633"
 
 2. 在頂端的功能表中，按一下 [系統管理員]  。
 
-    ![管理](./media/freshservice-tutorial/ic790814.png "管理")
+    ![管理員](./media/freshservice-tutorial/ic790814.png "Admin")
 
 3. 在 [使用者管理]  區段中，按一下 [要求者]  。
 
@@ -210,7 +210,7 @@ ms.locfileid: "73570633"
     >  
 
 > [!NOTE]
-> 您可以使用任何其他的 FreshService 使用者帳戶建立工具或 FreshService 提供的 API 來佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 FreshService 使用者帳戶建立工具或 FreshService 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ## <a name="test-sso"></a>測試 SSO
 

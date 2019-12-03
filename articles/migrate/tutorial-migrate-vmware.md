@@ -1,18 +1,18 @@
 ---
-title: 使用無代理程式 Azure Migrate 伺服器遷移將內部部署 VMware VM 遷移至 Azure | Microsoft Docs
-description: 說明如何使用 Azure Migrate 來執行內部部署 VMware VM 至 Azure 的無代理程式移轉。
+title: 使用無代理程式 Azure Migrate 伺服器移轉來遷移 VMware VM
+description: 了解如何使用 Azure Migrate 執行 VMware VM 的無代理程式移轉。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ec7d10a1d9fec43c149c068fb408211db76d19eb
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 2b4aad83abc92170df5a7e7cfa7f7751b49b3424
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309385"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196408"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>將 VMware VM 遷移至 Azure (無代理程式)
 
@@ -20,7 +20,7 @@ ms.locfileid: "70309385"
 
 [Azure Migrate](migrate-services-overview.md) 提供集中式中樞，可追蹤內部部署應用程式和工作負載及 AWS/GCP VM 執行個體的探索、評估和移轉 (以 Azure 為目標)。 該中樞能提供 Azure Migrate 工具以進行評估和移轉，也提供協力廠商獨立軟體廠商 (ISV) 的供應項目。
 
-本教學課程是系列中的第三篇，將示範如何使用 Azure Migrate 伺服器評估和移轉來評估 VMware VM 並將其遷移至 Azure。 在本教學課程中，您了解如何：
+本教學課程是系列中的第三篇，將示範如何使用 Azure Migrate 伺服器評估和移轉來評估 VMware VM 並將其遷移至 Azure。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 準備 VM 以進行移轉。
@@ -30,7 +30,7 @@ ms.locfileid: "70309385"
 > * 執行測試移轉，確定一切都沒問題。
 > * 執行完整的 VM 移轉。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="migration-methods"></a>移轉方法
 
@@ -48,12 +48,11 @@ ms.locfileid: "70309385"
 
 開始進行本教學課程之前，您必須：
 
-1. [了解](migrate-architecture.md) VMware 移轉架構。
-2. [完成本系列的第一個教學課程](tutorial-prepare-vmware.md)，設定 Azure 和 VMware 以進行移轉。 具體而言，在本教學課程中，您需要：
+1. [完成本系列的第一個教學課程](tutorial-prepare-vmware.md)，設定 Azure 和 VMware 以進行移轉。 具體而言，在本教學課程中，您需要：
     - [準備 Azure](tutorial-prepare-vmware.md#prepare-azure) 以進行移轉。
     - [準備內部部署環境](tutorial-prepare-vmware.md#prepare-for-agentless-vmware-migration)以進行移轉。
     
-3. 建議您先嘗試使用 Azure Migrate 伺服器評估來評估 VMware VM，再將其遷移至 Azure。 若要設定評估，請[完成本系列的第二個教學課程](tutorial-assess-vmware.md)。 如果您不想要評估 VM，則可以略過此教學課程。 雖然我們建議您試用評估，但並非一定要先執行評估才能嘗試移轉。
+2. 建議您先嘗試使用 Azure Migrate 伺服器評估來評估 VMware VM，再將其遷移至 Azure。 若要設定評估，請[完成本系列的第二個教學課程](tutorial-assess-vmware.md)。 如果您不想要評估 VM，則可以略過此教學課程。 雖然我們建議您試用評估，但並非一定要先執行評估才能嘗試移轉。
 
 
 

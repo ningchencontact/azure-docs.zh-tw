@@ -4,22 +4,25 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/08/2019
-ms.openlocfilehash: a7ae6cb1231e4c202dfd0a39602c03b33099d088
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 5089af4a4e1714d49b844a1b6823487a3f6a8dcf
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554710"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483020"
 ---
 藉由建立下列其中一項 Azure 資源來開始使用 Anomaly Detector 服務。
 
-* [試用資源](https://azure.microsoft.com/try/cognitive-services/#decision) (不需要 Azure 訂用帳戶)： 
+* <a href="https://azure.microsoft.com/try/cognitive-services/#decision" target="_blank" rel="noopener">建立試用資源 (在新索引標籤中開啟)</a>
+    * 不需要 Azure 訂用帳戶： 
     * 可免費使用 7 天。 註冊之後，即可在 [Azure 網站](https://azure.microsoft.com/try/cognitive-services/my-apis/)上取得試用金鑰與端點。 
     * 如果您想要試用 Anomaly Detector，但沒有 Azure 訂用帳戶，這是很好的選擇。
 
-* [Anomaly Detector 資源](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector)：
-    * 您可以透過 [Azure 入口網站](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade) 取得該資源，直到將其刪除為止。
+* <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector" target="_blank" rel="noopener">建立 Anomaly Detector 資源 (在新索引標籤中開啟)</a>：
+    * 您可以透過 Azure 入口網站取得該資源，直到將其刪除為止。
     * 使用免費定價層來試用服務，之後可升級至付費層以用於實際執行環境。
+
+
 
 ### <a name="create-an-environment-variable"></a>建立環境變數
 
@@ -37,8 +40,8 @@ ms.locfileid: "72554710"
 #### <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```console
-setx ANOMALY_DETECTOR_KEY your-anomaly-detector-key
-setx ANOMALY_DETECTOR_ENDPOINT your-anomaly-detector-endpoint
+setx ANOMALY_DETECTOR_KEY <replace-with-your-anomaly-detector-key>
+setx ANOMALY_DETECTOR_ENDPOINT <replace-with-your-anomaly-detector-endpoint>
 ```
 
 新增環境變數之後，請重新啟動主控台視窗。
@@ -46,8 +49,8 @@ setx ANOMALY_DETECTOR_ENDPOINT your-anomaly-detector-endpoint
 #### <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```bash
-export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
-export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
+export ANOMALY_DETECTOR_KEY=<replace-with-your-anomaly-detector-key>
+export ANOMALY_DETECTOR_ENDPOINT=<replace-with-your-anomaly-detector-endpoint>
 ```
 
 新增環境變數之後，從主控台視窗執行 `source ~/.bashrc`，讓變更生效。
@@ -57,8 +60,8 @@ export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
 編輯 `.bash_profile`，然後新增環境變數：
 
 ```bash
-export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
-export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
+export ANOMALY_DETECTOR_KEY=<replace-with-your-anomaly-detector-key>
+export ANOMALY_DETECTOR_ENDPOINT=<replace-with-your-anomaly-detector-endpoint>
 ```
 
 新增環境變數之後，從主控台視窗執行 `source .bash_profile`，讓變更生效。

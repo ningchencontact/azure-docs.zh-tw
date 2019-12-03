@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 08/07/2019
+ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 1b586af569a9406d7fe9fa3d05c198f62f32744f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 97bb86dc702802fd071015364cf205c4f1bb11d5
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672008"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422722"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>快速入門：適用於 Python 的 Language Understanding (LUIS) 撰寫用戶端程式庫
 
@@ -39,7 +39,46 @@ ms.locfileid: "73672008"
 
 ### <a name="get-your-language-understanding-luis-starter-key"></a>取得您的 Language Understanding (LUIS) 入門金鑰
 
-取得您的[入門金鑰](luis-how-to-azure-subscription.md#starter-key)，並為金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) (名為 `LUIS_AUTHORING_KEY`)，為金鑰的區域建立環境變數 `LUIS_REGION`。
+藉由建立 LUIS 撰寫資源，取得您的[入門金鑰](luis-how-to-azure-subscription.md#starter-key)。 請保留您的金鑰和金鑰區域，以進行下一個步驟。
+
+### <a name="create-an-environment-variable"></a>建立環境變數
+
+使用金鑰和金鑰區域，建立兩個環境變數以進行驗證：
+
+* `LUIS_AUTHORING_KEY` - 用於驗證您要求的資源金鑰。
+* `LUIS_REGION` - 與您的金鑰相關聯的區域。 例如 `westus` 。
+
+請使用適合您作業系統的指示。
+
+#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+```console
+setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
+setx LUIS_REGION <replace-with-your-luis-region>
+```
+
+新增環境變數之後，請重新啟動主控台視窗。
+
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
+export LUIS_REGION=<replace-with-your-luis-region>
+```
+
+新增環境變數之後，從主控台視窗執行 `source ~/.bashrc`，讓變更生效。
+
+#### <a name="macostabunix"></a>[macOS](#tab/unix)
+
+編輯 `.bash_profile`，然後新增環境變數：
+
+```bash
+export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key> 
+export LUIS_REGION=<replace-with-your-luis-region>
+```
+
+新增環境變數之後，從主控台視窗執行 `source .bash_profile`，讓變更生效。
+***
 
 ### <a name="install-the-python-library-for-luis"></a>安裝 Python LUIS 程式庫
 

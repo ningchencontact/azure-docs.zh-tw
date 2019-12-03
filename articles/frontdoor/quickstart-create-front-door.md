@@ -1,5 +1,5 @@
 ---
-title: Azure 快速入門 - 使用 Azure 入口網站建立 Front Door 設定檔以讓應用程式具有高可用性
+title: 快速入門：建立 Front Door 設定檔以達到應用程式的高可用性
 description: 本快速入門文章將說明如何建立 Front Door，以供高可用性且高效能的全域 Web 應用程式使用。
 services: front-door
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 6bcd5bcc2463ec1ab9dcc97644d5046c31bfc78b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67a4f9eb3290ba09a2c19325464cf7ad224856e7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461981"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184504"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>快速入門：為高可用性的全球 Web 應用程式建立 Front Door
 
@@ -26,7 +26,7 @@ ms.locfileid: "61461981"
 
 本快速入門所述的案例包含兩個在不同 Azure 區域中執行的 Web 應用程式執行個體。 根據相等的[加權和相同優先順序的後端](front-door-routing-methods.md)來建立 Front Door 設定，有助於將使用者流量導向至正在執行應用程式的網站後端中最接近的一組。 Front Door 會持續監視 Web 應用程式，並在最接近的網站無法使用時，自動容錯移轉至下一個可用的後端。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure 
 在 https://portal.azure.com 登入 Azure 入口網站。
@@ -39,7 +39,7 @@ ms.locfileid: "61461981"
 
      | 設定         | 值     |
      | ---              | ---  |
-     | Name           | 輸入 Web 應用程式的唯一名稱  |
+     | 名稱           | 輸入 Web 應用程式的唯一名稱  |
      | 資源群組          | 選取 [新增]  ，然後輸入 *myResourceGroupFD1* |
      | App Service 方案/位置         | 選取 [ **新增**]。  在 App Service 方案中，輸入「myAppServicePlanEastUS」  ，然後選取 [確定]  。 
      |      位置  |   美國東部        |
@@ -51,7 +51,7 @@ ms.locfileid: "61461981"
 
      | 設定         | 值     |
      | ---              | ---  |
-     | Name           | 輸入 Web 應用程式的唯一名稱  |
+     | 名稱           | 輸入 Web 應用程式的唯一名稱  |
      | 資源群組          | 選取 [新增]  ，然後輸入 *myResourceGroupFD2* |
      | App Service 方案/位置         | 選取 [ **新增**]。  在 App Service 方案中，輸入「myAppServicePlanWestEurope」  ，然後選取 [確定]  。 
      |      位置  |   西歐      |

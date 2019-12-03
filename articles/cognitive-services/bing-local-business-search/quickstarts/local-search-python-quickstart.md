@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - 傳送查詢至以 Python 撰寫的 Bing 當地企業搜尋 API
+title: 快速入門 - 傳送查詢至以 Python 撰寫的 API - Bing 當地企業搜尋
 titleSuffix: Azure Cognitive Services
 description: 使用本文開始使用以 Python 撰寫的 Bing 當地商家搜尋 API。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 11/06/2019
 ms.author: aahi
-ms.openlocfilehash: ec13555b478404c7e2169af5bcb33f37d8afc5bb
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: da8a0a7c27294838f8f5c4459eda890c1cbbec7a
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796147"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326677"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>快速入門：傳送查詢至以 Python 撰寫的 Bing 當地商家搜尋 API
 

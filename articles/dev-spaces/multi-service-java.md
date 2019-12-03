@@ -1,22 +1,18 @@
 ---
-title: 使用 Java 和 VS Code 執行多個相依服務
-titleSuffix: Azure Dev Spaces
+title: 執行多個相依服務：Java 和 Visual Studio Code
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 11/21/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
-ms.openlocfilehash: a93bda3392962a1c35e2bb2433d285ed497075d2
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 3fe19997ab54f02b6a5f029abbdb69d5ea6532f7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503124"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325719"
 ---
-# <a name="multi-service-development-with-azure-dev-spaces"></a>使用 Azure Dev Spaces 進行多服務開發
+# <a name="running-multiple-dependent-services-java-and-visual-studio-code-with-azure-dev-spaces"></a>執行多個相依服務：搭配 Azure Dev Spaces 使用 Java 和 Visual Studio Code
 
 在本教學課程中，您將了解如何使用 Azure Dev Spaces 來開發多服務應用程式，以及享有 Dev Spaces 提供的一些附加好處。
 

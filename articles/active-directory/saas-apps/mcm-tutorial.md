@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f8663d59c263b6fa24e23e286f8eb4e75b888da
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 96966e4b9db5af40eee233d746d5790bbb769455
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159440"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227502"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>教學課程：Azure Active Directory 與 MCM 整合
 
@@ -186,7 +186,7 @@ MCM 與 Azure AD 整合提供下列優點：
 在本節中，您要在 MCM 中建立名為 Britta Simon 的使用者。 請與 [MCM 支援小組](https://mcmtechnology.com/support/)合作，在 MCM 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 >[!NOTE]
->您可以使用任何其他的 MCM 使用者帳戶建立工具或 MCM 提供的 API，佈建 AAD 使用者帳戶。
+>您可以使用任何其他的 MCM 使用者帳戶建立工具或 MCM 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

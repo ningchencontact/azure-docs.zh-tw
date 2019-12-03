@@ -1,19 +1,15 @@
 ---
-title: Azure 備份 PowerShell 範例
+title: PowerShell 範例
 description: 本文提供 PowerShell 指令碼範例的連結，這些範例使用了 Azure 備份來備份及還原資料。
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: sample
 ms.date: 01/31/2019
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 4283871d17f01a3b70884e898397794ae7e4eb84
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: fc7108c0f785edf9305db09a8f78298018c5e66a
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747096"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171968"
 ---
 # <a name="azure-backup-powershell-samples"></a>Azure 備份 PowerShell 範例
 

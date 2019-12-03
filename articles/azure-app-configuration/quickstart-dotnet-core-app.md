@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 149542965737b2703bc18e985bfaf4d90c8dab29
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 986bda4ab95985820e61c93bbe82431fb50c983b
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709419"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185021"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>快速入門：使用應用程式設定建立 .NET Core 應用程式
 
@@ -30,7 +30,7 @@ ms.locfileid: "71709419"
 - Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>建立應用程式設定存放區
+## <a name="create-an-app-configuration-store"></a>建立應用程式組態存放區
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -52,7 +52,7 @@ ms.locfileid: "71709419"
 
         dotnet new console
 
-## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式設定存放區
+## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式組態存放區
 
 1. 透過執行下列命令，將參考新增至 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 套件：
 
@@ -84,7 +84,7 @@ ms.locfileid: "71709419"
 
 ## <a name="build-and-run-the-app-locally"></a>於本機建置並執行應用程式
 
-1. 設定名為 **ConnectionString** 的環境變數，並將其設定為應用程式設定存放區的存取金鑰。 如果您使用 Windows 命令提示字元，請執行下列命令，然後重新啟動命令提示字元以讓變更生效：
+1. 設定名為 **ConnectionString** 的環境變數，並將其設定為應用程式組態存放區的存取金鑰。 如果您使用 Windows 命令提示字元，請執行下列命令，然後重新啟動命令提示字元以讓變更生效：
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -110,7 +110,7 @@ ms.locfileid: "71709419"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已建立新的應用程式設定存放區，並透過[應用程式設定提供者](https://go.microsoft.com/fwlink/?linkid=2074664)將其與 .NET Corek 主控台應用程式搭配使用。 若要深入了解如何使用應用程式設定，請繼續進行下一個示範驗證的教學課程。
+在本快速入門中，您已建立新的應用程式組態存放區，並透過[應用程式組態提供者](https://go.microsoft.com/fwlink/?linkid=2074664)將其與 .NET Corek 主控台應用程式搭配使用。 若要了解如何將 .NET Core 應用程式設定為以動態方式重新整理組態設定，請繼續進行下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [受控識別整合](./howto-integrate-azure-managed-service-identity.md)
+> [啟用動態組態](./enable-dynamic-configuration-dotnet-core.md)

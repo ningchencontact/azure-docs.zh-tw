@@ -1,24 +1,16 @@
 ---
-title: 保護成品 - Azure Resource Manager 範本
+title: 保護範本中的成品
 description: 了解如何保護 Azure Resource Manager 範本中使用的成品。
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d9570c30e2870a136bd97ed5fc2304d6f0d280c9
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: b37f7e284b655a362c5a4231a7c1da3719762644
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528283"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326431"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>教學課程：保護 Azure Resource Manager 範本部署中的成品
 
@@ -41,7 +33,7 @@ ms.locfileid: "72528283"
 
 若要完成本文，您需要：
 
-* [Visual Studio Code](https://code.visualstudio.com/) 搭配 Resource Manager Tools 擴充功能。 請參閱[安裝延伸模組](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
+* Visual Studio Code 搭配 Resource Manager Tools 擴充功能。 請參閱[使用 Visual Studio Code 建立 Azure Resource Manager 範本](./resource-manager-tools-vs-code.md)。
 * 檢閱[本教學課程：使用 Azure Resource Manager 範本匯入 SQL BACPAC 檔案](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)。 本教學課程中使用的範本就是該教學課程中開發的範本。 本文會提供完整範本的下載連結。
 * 為了提高安全性，請使用為 SQL Server 系統管理員帳戶產生的密碼。 以下是用於產生密碼的範例：
 

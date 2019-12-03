@@ -1,14 +1,14 @@
 ---
 title: 範例 - 稽核 SQL Server 稽核設定
-description: 此原則定義範例會使用 auditIfNotExists 稽核 SQL Server 稽核設定。
+description: 此原則定義範例會使用 auditIfNotExists 稽核參數中定義的 SQL Server 稽核設定。
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 5a0d758bd96937ca443d434b76d22aaefc618687
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 7eba24c0916297dba0649024874aed7ba0fac2f6
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069801"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463121"
 ---
 # <a name="sample---audit-sql-server-audit-settings"></a>範例 - 稽核 SQL Server 稽核設定
 

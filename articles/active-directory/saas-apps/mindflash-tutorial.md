@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: a7e7498411e68b83f8c05d50f52f73f97df9f797
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 78d4f44e9fe2310fab485804e0aaf70aa0dfbdb0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160583"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233531"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>教學課程：Azure Active Directory 與 Mindflash 整合
 
@@ -208,7 +208,7 @@ Mindflash 與 Azure AD 整合提供下列優點：
     b. 按一下 [新增]  。
 
 >[!NOTE]
->您可以使用任何其他的 Mindflash 使用者帳戶建立工具或 Mindflash 提供的 API，佈建 AAD 使用者帳戶。 
+>您可以使用任何其他的 Mindflash 使用者帳戶建立工具或 Mindflash 提供的 API，來佈建 Azure AD 使用者帳戶。 
 > 
 
 ### <a name="test-single-sign-on"></a>測試單一登入 

@@ -1,22 +1,22 @@
 ---
-title: 快速入門 - 必須接受使用規定，才可存取受 Azure Active Directory 條件式存取保護的雲端應用程式 |Microsoft Docs
+title: 條件式存取需要使用規定 - Azure Active Directory
 description: 在本快速入門中，您將了解如何要求必須接受使用規定，才可存取由 Azure Active Directory 條件式存取授予的指定雲端應用程式。
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: quickstart
-ms.date: 12/14/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba684209b497792cd2f520f6b530168959e62d7f
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3dd1b4cf554e773f49a15ac5cedcbcc5b3e710b9
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67506922"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380092"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>快速入門：必須接受使用規定才可存取雲端應用程式
 
@@ -29,7 +29,7 @@ ms.locfileid: "67506922"
 
 ![建立原則](./media/require-tou/5555.png)
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -105,7 +105,7 @@ ms.locfileid: "67506922"
 
 1. 在 [新增]  頁面的 [名稱]  文字方塊中，輸入「Isabella 必須接受 TOU」  。
 
-   ![Name](./media/require-tou/71.png)
+   ![名稱](./media/require-tou/71.png)
 
 1. 在 [指派]  區段中，按一下 [使用者和群組]  。
 

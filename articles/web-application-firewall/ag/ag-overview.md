@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 4ba2772ffb89809c2262880385207a12c74882cc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 1a210ff7da57147762dcf13e1dda7fee26dbe5f0
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067138"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384119"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Azure 應用程式閘道上的 Web 應用程式防火牆
 
@@ -89,7 +89,12 @@ Azure 應用程式閘道上的 Azure Web 應用程式防火牆 (WAF) 可為 Web 
 
 應用程式閘道也支援自訂規則。 您可以透過自訂規則來建立自己的規則，當每個要求通過 WAF 時，這些規則就會受到評估。 這些規則的優先順序會高於受控規則集中的其餘規則。 如果有一組條件符合，即會採取動作來允許或封鎖要求。 
 
-如需詳細資訊，請參閱[應用程式閘道的自訂規則。](custom-waf-rules-overview.md)
+在自訂規則中，現在已可使用 Geomatch 運算子的公開預覽版。 如需詳細資訊，請參閱 [Geomatch 自訂規則](custom-waf-rules-overview.md#geomatch-custom-rules-preview)。
+
+> [!NOTE]
+> 適用於自訂規則的 Geomatch 運算子目前處於公開預覽狀態，並且提供預覽服務等級的協定。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+
+如需有關自訂規則詳細資訊，請參閱[應用程式閘道的自訂規則。](custom-waf-rules-overview.md)
 
 ### <a name="bot-mitigation-preview"></a>Bot 風險降低 (預覽)
 

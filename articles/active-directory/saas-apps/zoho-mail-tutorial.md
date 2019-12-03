@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8fc58b9cdec1a68dd12b7f70f7521a024f358ce
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3b5d0e52e927a44d5bce5314e724c1c753809ce0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161046"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231932"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>教學課程：Azure Active Directory 與 Zoho 整合
 
@@ -209,7 +209,7 @@ Zoho 與 Azure AD 整合提供下列優點：
 若要讓 Azure AD 使用者可以登入 Zoho Mail，必須將他們佈建到 Zoho Mail。 Zoho Mail 需以手動的方式佈建。
 
 > [!NOTE]
-> 您可以使用任何其他的 Zoho Mail 使用者帳戶建立工具或 Zoho Mail 提供的 API，佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 Zoho Mail 使用者帳戶建立工具或 Zoho Mail 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>若要佈建使用者帳戶，請執行下列步驟：
 

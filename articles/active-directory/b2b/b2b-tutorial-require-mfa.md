@@ -1,6 +1,6 @@
 ---
-title: 教學課程：B2B 的多重要素驗證 - Azure Active Directory | Microsoft Docs
-description: 了解當您使用 Azure AD B2B 來與外部使用者和合作夥伴組織共同作業時，如何要求使用多重要素驗證 (MFA)。
+title: 教學課程 - B2B 的多重要素驗證 - Azure AD
+description: 在本教學課程中，了解當您使用 Azure AD B2B 來與外部使用者和合作夥伴組織共同作業時，如何要求使用多重要素驗證 (MFA)。
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16a2438133f545c57d1046a0c4db94135f8a426d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bddf1642b2013567fbc23278b3d8d32692601d55
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113189"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420587"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>教學課程：為 B2B 來賓使用者強制執行多重要素驗證
 

@@ -8,69 +8,38 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 2dd5d197851b0090ac1af7bbde5a1ad1b951c785
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0d89be9da55c97a5b49157251896d3a513c2c6db
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569903"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74152079"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub"></a>快速入門：將在 Windows 上執行的範例 IoT 隨插即用預覽版裝置應用程式連線至 IoT 中樞
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub-c-windows"></a>快速入門：將在 Windows 上執行的範例 IoT 隨插即用預覽版裝置應用程式連線至 IoT 中樞 (C Windows)
 
-本快速入門說明如何建置範例 IoT 隨插即用裝置應用程式、將其連線至您的 IoT 中樞，並使用 Azure IoT 檔案總管工具來檢視它傳送至中樞的資訊。 範例應用程式以 C 撰寫，並且包含在適用於 C 的 Azure IoT 裝置 SDK 中。解決方案開發人員可使用 Azure IoT 檔案總管工具直接了解 IoT 隨插即用裝置的功能，而不需檢視任何裝置程式碼。
+本快速入門說明如何建置範例 IoT 隨插即用裝置應用程式、將其連線至您的 IoT 中樞，並使用 Azure IoT 檔案總管工具來檢視它傳送至中樞的資訊。 範例應用程式是以 C 撰寫的，並且包含在 Azure IoT 中樞裝置 C SDK 中。 解決方案開發人員可使用 Azure IoT 檔案總管工具直接了解 IoT 隨插即用裝置的功能，而不需檢視任何裝置程式碼。
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門，您必須在本機電腦上安裝下列軟體：
 
-* 具有 **C++ 建置工具**和 **NuGet 套件管理員元件**工作負載的 [Visual Studio 建置工具](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16)。 或者如果您已安裝具有相同工作負載的 [Visual Studio (Community、Professional 或 Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019、2017 或 2015。
+* [Visual Studio (Community、Professional 或 Enterprise)](https://visualstudio.microsoft.com/downloads/) - 在安裝 Visual Studio 時，請確實包含 **NuGet 套件管理員**元件和**使用 C++ 的桌面開發**工作負載。
 * [Git](https://git-scm.com/download/)。
 * [CMake](https://cmake.org/download/)。
 
 ### <a name="install-the-azure-iot-explorer"></a>安裝 Azure IoT 檔案總管
 
-從[最新版本](https://github.com/Azure/azure-iot-explorer/releases)頁面下載並安裝 Azure IoT 檔案總管工具。
+從工具的 [存放庫](https://github.com/Azure/azure-iot-explorer/releases) 頁面下載並安裝最新版的 **Azure IoT 檔案總管**，方法是，選取 [資產] 下的 .msi 檔案，以取得最新的更新。
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="prepare-an-iot-hub"></a>準備 IoT 中樞
-
-您的 Azure 訂用帳戶中也必須要有 Azure IoT 中樞，才能完成本快速入門。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
-
-> [!NOTE]
-> 在公開預覽期間，IoT 隨插即用功能只能在**美國中部**、**歐洲北部**和**日本東部**區域中建立的 IoT 中樞上使用。
-
-新增適用於 Azure CLI 的 Microsoft Azure IoT 延伸模組：
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-執行下列命令，在 IoT 中樞建立裝置身分識別。 請將 **YourIoTHubName** 和 **YourDevice** 預留位置取代為您的實際名稱。 如果您沒有 IoT 中樞，請依照[下列指示建立一個](../iot-hub/iot-hub-create-using-cli.md)：
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
-```
-
-執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id [YourDevice] --output table
-```
-
-執行下列命令，以取得中樞的 _IoT 中樞連接字串_：
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub-windows.md](../../includes/iot-pnp-prepare-iot-hub-windows.md)]
 
 ## <a name="prepare-the-development-environment"></a>準備開發環境
 
-### <a name="get-azure-iot-device-sdk-for-c"></a>適用於 C 的 Azure IoT 裝置 SDK
+在本快速入門中，您會準備可用來複製及建置 Azure IoT 中樞裝置 C SDK 的開發環境。
 
-在本快速入門中，您會準備可用來複製及建立 Azure IoT C 裝置 SDK 的開發環境。
-
-開啟命令提示字元。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
+在您選擇的目錄中開啟命令提示字元。 執行下列命令，將 [Azure IoT C SDK 和程式庫](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫複製到下列位置：
 
 ```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
@@ -80,7 +49,7 @@ git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
 
 ## <a name="build-the-code"></a>建置程式碼
 
-您所建置的應用程式會模擬連線至 IoT 中樞的裝置。 應用程式會傳送遙測資料和屬性，並接收命令。
+您可以使用裝置 SDK 建置包含的範例程式碼。 您所建置的應用程式會模擬連線至 IoT 中樞的裝置。 應用程式會傳送遙測資料和屬性，並接收命令。
 
 1. 在裝置 SDK 根資料夾中建立 `cmake` 子目錄，並瀏覽至該資料夾：
 
@@ -102,31 +71,31 @@ git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
 
 ## <a name="run-the-device-sample"></a>執行裝置範例
 
-將 IoT 中樞裝置連接字串傳入作為參數，以執行您的應用程式。
+在 SDK 中執行範例應用程式，以模擬將遙測傳送到 IoT 中樞的 IoT 隨插即用裝置。 若要執行範例應用程式，請使用下列命令，並傳入_裝置連接字串_作為參數。
 
 ```cmd\sh
 cd digitaltwin_client\samples\digitaltwin_sample_device\Release
 copy ..\EnvironmentalSensor.interface.json .
-digitaltwin_sample_device.exe "[IoT Hub device connection string]"
+digitaltwin_sample_device.exe "<YourDeviceConnectionString>"
 ```
 
-裝置應用程式會開始將資料傳送至 IoT 中樞。
+裝置現在已可接收命令和屬性更新，並已開始將遙測資料傳送至中樞。 完成後續步驟後，請讓範例保持執行狀態。
 
 ## <a name="use-the-azure-iot-explorer-to-validate-the-code"></a>使用 Azure IoT 檔案總管來驗證程式碼
 
-1. 開啟 Azure IoT 檔案總管，您會看到 [應用程式組態]  頁面。
+1. 開啟 Azure IoT 檔案總管。 您會看到 [應用程式設定]  頁面。
 
-1. 輸入您的 IoT 中樞連接字串，然後按一下 [連線]  。
+1. 輸入您的 IoT 中樞連接字串  ，然後選取 [連線]  。
 
-1. 連線之後，您會看到 [裝置概觀] 頁面。
+1. 連線之後，您會看到**裝置**概觀頁面。
 
-1. 若要新增公司存放庫，請依序選取 [設定]  、[+ 新增]  和 [在連線的裝置上]  。
+1. 若要確保工具可從您的裝置讀取介面模型定義，請選取 [設定]  。 在 [設定] 功能表中，[在已連線的裝置上]  可能已出現在 [隨插即用設定] 中；如果沒有，請選取 [+ 新增模組定義來源]  ，然後選取 [在已連線的裝置上]  加以新增。
 
-1. 在 [裝置概觀] 頁面上，尋找您先前建立的裝置身分識別，並加以選取以檢視更多詳細資料。
+1. 回到**裝置**概觀頁面，尋找您先前建立的裝置身分識別。 當裝置應用程式仍在命令提示字元中執行時，請在 Azure IoT 檔案總管中檢查裝置的**線上狀態**是否會回報為「已連線」  (如果不是，請按 **重新整理**，直到變成已連線為止)。 選取裝置以檢視更多詳細資料。
 
-1. 展開識別碼為 **urn:YOUR_COMPANY_NAME_HERE:EnvironmentalSensor:1** 的介面，以查看 IoT 隨插即用基本項目 - 屬性、命令和遙測資料。
+1. 展開識別碼為 **urn:YOUR_COMPANY_NAME_HERE:EnvironmentalSensor:1** 的介面，以顯示介面和 IoT 隨插即用基本項目 — 屬性、命令和遙測資料。
 
-1. 選取 [遙測]  頁面，以檢視裝置正在傳送的遙測資料。
+1. 選取 [遙測]  頁面並按 [啟動]  ，以檢視裝置正在傳送的遙測資料。
 
 1. 選取 [屬性 (不可寫入)]  頁面，以檢視裝置所報告的不可寫入屬性。
 
@@ -134,13 +103,15 @@ digitaltwin_sample_device.exe "[IoT Hub device connection string]"
 
 1. 展開屬性**名稱**，以新名稱更新，然後選取 [更新可寫入屬性]  。 
 
-1. 若要查看 [報告屬性]  資料行中顯示的新名稱，請按一下頁面頂端的 [重新整理]  按鈕。
+1. 若要查看 [報告屬性]  資料行中顯示的新名稱，請選取頁面頂端的 [重新整理]  按鈕。
 
 1. 選取 [命令]  頁面，以檢視裝置支援的所有命令。
 
-1. 展開 **blink** 命令，並設定新的閃爍時間間隔。 選取 [傳送命令]  ，以在裝置上呼叫命令。
+1. 展開 **blink** 命令，並設定新的閃爍時間間隔。 選取 [傳送命令]  ，以便在裝置上呼叫命令。
 
-1. 移至模擬裝置，以確認命令是否如預期執行。
+1. 前往模擬裝置的命令提示字元，並閱讀已列印的確認訊息，以確認命令是否如預期般執行。
+
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

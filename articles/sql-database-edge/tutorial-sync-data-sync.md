@@ -1,6 +1,6 @@
 ---
-title: 使用 SQL 資料同步來同步處理 Azure SQL Database Edge 的資料 | Microsoft Docs
-description: 了解如何在 Azure SQL Database Edge 與 SQL 資料同步之間同步處理資料
+title: 使用 SQL 資料同步來同步 Azure SQL Database Edge 中的資料 | Microsoft Docs
+description: 了解如何使用 Azure SQL 資料同步來同步 Azure SQL Database Edge 中的資料
 keywords: sql database edge, 同步處理 sql database edge 的資料, sql database edge 資料同步處理
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -9,46 +9,46 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 857cee30ac4c1002fb7ca57d6be5fa461a14e9ee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7c38ba6dbabef4affd8672295a93d46fd4b0e494
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509192"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384172"
 ---
-# <a name="tutorial-sync-data-from-sql-database-edge-to-azure-sql-database-using-sql-data-sync"></a>教學課程：使用 SQL 資料同步將 SQL Database Edge 中的資料同步處理至 Azure SQL Database
+# <a name="tutorial-sync-data-from-sql-database-edge-to-azure-sql-database-by-using-sql-data-sync"></a>教學課程：使用 SQL 資料同步將 SQL Database Edge 中的資料同步至 Azure SQL Database
 
-在本教學課程中，您將了解如何使用 SQL 資料同步的*同步群組*，以累加方式將 Azure SQL Database Edge 中的資料同步處理至 Azure SQL Database。 「SQL 資料同步」是一種建置在 Azure SQL Database 上的服務，可讓您跨多個 SQL 資料庫和 SQL Server 執行個體，雙向同步您選取的資料。 如需 Azure SQL 資料同步的詳細資訊，請參閱 [Azure SQL 資料同步](../sql-database/sql-database-sync-data.md)。
+在本教學課程中，您將了解如何使用 Azure SQL 資料同步的「同步群組」  ，以累加方式將 Azure SQL Database Edge 中的資料同步至 Azure SQL Database。 「SQL 資料同步」是一種建置在 Azure SQL Database 上的服務，可讓您跨多個 SQL 資料庫和 SQL Server 執行個體，雙向同步您選取的資料。 如需 SQL 資料同步的詳細資訊，請參閱 [Azure SQL 資料同步](../sql-database/sql-database-sync-data.md)。
 
-由於 Azure SQL Database Edge 是以最新版的 [Microsoft SQL Server 資料庫引擎](/sql/sql-server/sql-server-technical-documentation/)為建置基礎，因此適用於內部部署 SQL Server 執行個體的任何資料同步處理機制，也都可用來將資料同步至在 Edge 裝置上執行的 SQL Database Edge 執行個體，或進行反向操作。
+由於 SQL Database Edge 是以最新版的 [SQL Server 資料庫引擎](/sql/sql-server/sql-server-technical-documentation/)為建置基礎，因此適用於內部部署 SQL Server 執行個體的任何資料同步處理機制，也都可用來將資料同步至在 Edge 裝置上執行的 SQL Database Edge 執行個體，或進行反向操作。
 
 ## <a name="prerequisites"></a>必要條件
 
-本教學課程需要已設定 [Azure SQL 資料同步代理程式](../sql-database/sql-database-data-sync-agent.md)的 Windows 電腦。
+本教學課程需要 Windows 電腦，並且需要已設定[適用於 Azure SQL 資料同步的 Data Sync Agent](../sql-database/sql-database-data-sync-agent.md)。
 
 ## <a name="before-you-begin"></a>開始之前
 
-* 建立 Azure SQL Database。 如需關於如何使用 Azure 入口網站建立 Azure SQL Database 的詳細資訊，請參閱[在 Azure SQL Database 中建立單一資料庫](../sql-database/sql-database-single-database-get-started.md?tabs=azure-portal)。
+* 建立 Azure SQL 資料庫。 如需關於如何使用 Azure 入口網站建立 Azure SQL 資料庫的詳細資訊，請參閱[在 Azure SQL Database 中建立單一資料庫](../sql-database/sql-database-single-database-get-started.md?tabs=azure-portal)。
 
 * 在您的 Azure SQL Database 部署中建立資料表和其他必要物件。
 
 * 在您的 Azure SQL Database Edge 部署中建立必要的資料表和物件。 如需詳細資訊，請參閱[將 SQL Database DAC 套件用於 SQL Database Edge](stream-analytics.md)。
 
-* 將 Azure SQL Database Edge 執行個體註冊至 Azure SQL 資料同步代理程式。 如需詳細資訊，請參閱[新增內部部署 SQL Server 資料庫](../sql-database/sql-database-get-started-sql-data-sync.md#add-on-prem)。
+* 將 Azure SQL Database Edge 執行個體註冊至適用於 Azure SQL 資料同步的 Data Sync Agent。如需詳細資訊，請參閱[新增內部部署 SQL Server 資料庫](../sql-database/sql-database-get-started-sql-data-sync.md#add-on-prem)。
 
-## <a name="sync-data-between-an-azure-sql-database-and-sql-database-edge"></a>在 Azure SQL Database 與 SQL Database Edge 之間同步處理資料
+## <a name="sync-data-between-an-azure-sql-database-and-sql-database-edge"></a>在 Azure SQL 資料庫與 SQL Database Edge 之間同步資料
 
-要使用 SQL 資料同步設定 Azure SQL Database 與 SQL Database Edge 執行個體之間的同步處理，必須執行三個主要步驟。  
+要使用 SQL 資料同步設定 Azure SQL 資料庫與 SQL Database Edge 執行個體之間的同步，必須執行三個主要步驟：  
 
-1. 使用 Azure 入口網站建立同步群組。 若要建立同步群組，請參閱[使用 Azure 入口網站建立同步群組](../sql-database/sql-database-get-started-sql-data-sync.md#create-sync-group)。 相同的*中樞*資料庫可用來建立多個不同的同步群組，以將不同 SQL Database Edge 執行個體的資料同步處理至 Azure 中的一或多個 SQL Database。
+1. 使用 Azure 入口網站建立同步群組。 如需詳細資訊，請參閱[建立同步群組](../sql-database/sql-database-get-started-sql-data-sync.md#create-sync-group)。 您可以使用單一「中樞」  資料庫來建立多個同步群組，以將不同 SQL Database Edge 執行個體的資料同步至 Azure 中的一個或多個 SQL 資料庫。
 
-2. 將同步成員新增至同步群組。 若要將成員新增至同步群組，請參閱[將成員新增至 SQL 資料群組](../sql-database/sql-database-get-started-sql-data-sync.md#add-sync-members)。
+2. 將同步成員新增至同步群組。 如需詳細資訊，請參閱[新增同步成員](../sql-database/sql-database-get-started-sql-data-sync.md#add-sync-members)。
 
-3. 設定同步群組，以選取將包含在此同步處理中的資料表。 若要設定同步群組，請參閱[設定同步群組](../sql-database/sql-database-get-started-sql-data-sync.md#add-sync-members)。
+3. 設定同步群組，以選取將包含在同步中的資料表。 如需詳細資訊，請參閱[設定同步群組](../sql-database/sql-database-get-started-sql-data-sync.md#add-sync-members)。
 
-完成上述步驟後，您會有一個包含 Azure SQL Database 和 SQL Database Edge 執行個體的同步群組。
+完成上述步驟後，您會有一個包含 Azure SQL 資料庫和 SQL Database Edge 執行個體的同步群組。
 
-如需 SQL 資料同步的詳細資訊，請參閱下列文章：
+如需有關「SQL 資料同步」的詳細資訊，請參閱下列文章：
 
 * [適用於 Azure SQL Data Sync 的 Data Sync Agent](../sql-database/sql-database-data-sync-agent.md)
 
@@ -60,4 +60,4 @@ ms.locfileid: "73509192"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 Powershell 在 Azure SQL Database 與 Azure SQL Database Edge 之間進行同步處理](../sql-database/scripts/sql-database-sync-data-between-azure-onprem.md)。 在本教學課程中，請將 *OnPremiseServer* 資料庫詳細資料取代為 Azure SQL Database Edge 詳細資料。
+* [使用 PowerShell 在 Azure SQL Database 與 Azure SQL Database Edge 之間進行同步](../sql-database/scripts/sql-database-sync-data-between-azure-onprem.md)。 在本教學課程中，請將 `OnPremiseServer` 資料庫詳細資料取代為 Azure SQL Database Edge 詳細資料。

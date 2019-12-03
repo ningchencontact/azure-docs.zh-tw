@@ -1,5 +1,5 @@
 ---
-title: 使用 Windows VM 系統指派的受控識別來存取 Azure Cosmos DB
+title: 教學課程`:` 使用受控識別來存取 Azure Cosmos DB - Windows - Azure AD
 description: 本教學課程會逐步引導您在 Windows VM 上使用系統指派的受控識別，以存取 Azure Cosmos DB。
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/10/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e5858fe392629d61b3f0b8833db3af959a16a8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 97a89e87dad1e940f30e255a919f3f2cf25f21d7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66227698"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224252"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure Cosmos DB
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 76b7c9436b8d1d466a69df7e5427991df0a9c63e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 277548c859370a700973d9f60556fe38e94548b0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125432"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280455"
 ---
 ## <a name="prerequisites"></a>必要條件
 
@@ -25,7 +25,7 @@ ms.locfileid: "74125432"
 > [!div class="checklist"]
 >
 > * [建立 Azure 語音資源](../../../../get-started.md)
-> * [建立 LUIS 應用程式並取得端點金鑰](../../../../quickstarts/create-luis.md)
+> * [建立 Language Understanding (LUIS) 應用程式並取得端點金鑰](../../../../quickstarts/create-luis.md)
 > * [設定開發環境](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [建立空的範例專案](../../../../quickstarts/create-project.md?tabs=windows)
 

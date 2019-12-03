@@ -1,25 +1,17 @@
 ---
-title: 使用 Resource Manager 範本中的 Azure Key Vault
+title: 使用範本中的 Azure Key Vault
 description: 了解如何使用 Azure Key Vault 在 Resource Manager 範本部署期間傳遞安全的參數值
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 5dfc186e5d047de76e16ec145f5f0afe94b8d2f4
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: ebb61bfd0fd1d39a9c1b17126fdd0e576e5629a2
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533607"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326384"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-resource-manager-template-deployment"></a>教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault
 
@@ -47,7 +39,7 @@ ms.locfileid: "72533607"
 
 若要完成本文，您需要：
 
-* [Visual Studio Code](https://code.visualstudio.com/) 搭配 [Resource Manager Tools 擴充功能](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
+* Visual Studio Code 搭配 Resource Manager Tools 擴充功能。 請參閱[使用 Visual Studio Code 建立 Azure Resource Manager 範本](./resource-manager-tools-vs-code.md)。
 * 為了提高安全性，請使用為 VM 系統管理員帳戶產生的密碼。 以下是用於產生密碼的範例：
 
     ```azurecli-interactive

@@ -1,5 +1,5 @@
 ---
-title: Azure 虛擬 WAN：建立 ExpressRoute 連線
+title: 教學課程 - 使用 Azure 虛擬 WAN 來建立 ExpressRoute 連線
 description: 在本教學課程中，深入了解如何使用 Azure 虛擬 WAN 建立與 Azure 和內部部署環境的 ExpressRoute 連線。
 services: virtual-wan
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 5a394f93c5cc606c26ffa1cc64bf1d61617b05b8
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f9277fae00471bf67682015e017ae6dfa351ad65
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014935"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422875"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>教學課程：使用 Azure 虛擬 WAN 來建立 ExpressRoute 關聯
 

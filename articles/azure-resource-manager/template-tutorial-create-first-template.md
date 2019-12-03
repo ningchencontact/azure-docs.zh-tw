@@ -1,18 +1,16 @@
 ---
-title: 教學課程 - 建立及部署 Azure Resource Manager 範本
+title: 教學課程 - 建立及部署範本
 description: 建立第一個 Azure Resource Manager 範本。 在本教學課程中，您將了解範本檔案語法及部署儲存體帳戶的方式。
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 463f9a54648a9e6950f839bd856ccf42bc66dca0
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9650b8c67e3fd5c786b066c53e78b106935e11e1
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074364"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406027"
 ---
 # <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>教學課程：建立及部署第一個 Azure Resource Manager 範本
 
@@ -96,7 +94,7 @@ az login
 ---
 ## <a name="create-resource-group"></a>建立資源群組
 
-部署範本時，您必須指定將包含資源的資源群組。 執行部署命令之前，使用 Azure CLI 或 Azure PowerShell 來建立資源群組。 選取下列程式碼區段中的索引標籤，以在 Azure PowerShell 和 Azure CLI 之間進行選擇。
+部署範本時，您必須指定將包含資源的資源群組。 執行部署命令之前，使用 Azure CLI 或 Azure PowerShell 來建立資源群組。 選取下列程式碼區段中的索引標籤，以在 Azure PowerShell 和 Azure CLI 之間進行選擇。 本文中的 CLI 範例是針對 Bash Shell 所撰寫。
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -133,7 +131,7 @@ New-AzResourceGroupDeployment `
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-$templateFile="{provide-the-path-to-the-template-file}"
+templateFile="{provide-the-path-to-the-template-file}"
 az group deployment create \
   --name blanktemplate \
   --resource-group myResourceGroup \

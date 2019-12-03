@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring Boot
 ms.workload: tbd
 ms.date: 09/26/2019
 ms.author: mametcal
-ms.openlocfilehash: fe943913f9d33923438efb91630c5a85c4d1b748
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: cae1e7b205869fd41850c1adfaeae97658dd02f0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687218"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184956"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>快速入門：將功能旗標新增至 Spring Boot 應用程式
 

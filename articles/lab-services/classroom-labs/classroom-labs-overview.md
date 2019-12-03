@@ -1,6 +1,6 @@
 ---
-title: 關於 Azure 實驗室服務 | Microsoft Azure
-description: 了解實驗室服務如何協助您輕鬆搭配虛擬機器建立、管理及保護實驗室，以供開發人員、測試人員、教育工作者、學生及其他人員使用。
+title: 關於 Azure 實驗室服務中的教室實驗室 | Microsoft Docs
+description: 了解如何在雲端快速設定教室實驗室環境 - 以具有課程所需軟體的範本 VM 來設定實驗室，並將 VM 複本提供給課程中的每個學生使用。
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/30/2019
+ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 67ebce2130bf5594d3c8c671934f7141a02eb60d
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: bbbea0c943758c2682f7b166e461807d2914f790
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694658"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561685"
 ---
 # <a name="introduction-to-classroom-labs"></a>教室實驗室簡介
 Azure 實驗室服務可讓您在雲端中快速設定教室實驗室環境。 教育工作者可建立教室實驗室、佈建 Windows 或 Linux 虛擬機器、在教室中安裝必要的軟體和工具實驗室，然後使其可供學生使用。 教室中的學生可連線至實驗室中的虛擬機器 (VM)，並將這些機器用於專案、指派、教室練習等。 

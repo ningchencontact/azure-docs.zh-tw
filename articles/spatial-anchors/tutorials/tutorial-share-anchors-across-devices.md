@@ -1,19 +1,19 @@
 ---
-title: 教學課程 - 跨工作階段和裝置來共用 Azure Spatial Anchors | Microsoft Docs
+title: 教學課程：跨工作階段和裝置共用錨點
 description: 在本教學課程中，您將了解如何在 Unity 中透過後端服務於 Adroid/iOS 裝置之間共用 Azure Spatial Anchors 識別碼。
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e8a60d5d90b684698d6fcb612278bcae6d4ed08e
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: f0029fcf8e9efdea529212a7cca49cc8660c623f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882319"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276954"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>教學課程：跨工作階段和裝置來共用 Azure Spatial Anchors
 

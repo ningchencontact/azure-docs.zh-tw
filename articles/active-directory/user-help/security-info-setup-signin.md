@@ -1,6 +1,6 @@
 ---
 title: 經由登入提示設定安全性資訊 (預覽) - Azure AD
-description: 當您在組織的登入頁面中看見提示時，如何設定公司或學校帳戶的安全性資訊。
+description: 當您在組織的登入頁面中看見提示時，如何設定公司或學校帳戶的安全性資訊 (預覽)。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ae1856c7934c658bd244445306b4bb78c666e38
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 710e43aec82c5d154b2e17a20abb2ce4dd481129
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820294"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278988"
 ---
-# <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>經由登入頁面的提示設定您的安全性資訊 (預覽)
+# <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>經由登入提示設定安全性資訊 (預覽)
 
 如果您在登入公司或學校帳戶後隨即看見設定安全性資訊的提示，您可以依照下列步驟進行設定。
 

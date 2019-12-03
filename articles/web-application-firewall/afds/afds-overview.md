@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: overview
-ms.date: 09/28/2019
+ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: ce70260c6033d22b20675d6f3872c2ffa6368252
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b646035f6a952f679059abab86d94179f447f9ff
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495625"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406218"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Azure Front Door 上的 Azure Web 應用程式防火牆
 
@@ -92,16 +92,16 @@ Azure 管理的規則集可讓您以簡單的方式部署防護，以抵禦一�
 在評估預設規則集中的規則之前，一律會套用自訂規則。 如果要求符合自訂規則，則會套用對應的規則動作來將要求封鎖或傳遞至後端，而不會進一步叫用任何自訂規則或預設規則集中的規則。 此外，您可以選擇從 WAF 原則中移除預設規則集。
 
 
-### <a name="bot-protection-rule-preview"></a>Bot 保護規則 (預覽)
+### <a name="bot-protection-rule-set-preview"></a>Bot 保護規則集 (預覽)
 
-您可以為 WAF 啟用受控的 Bot 保護規則集，以針對已知的惡意 IP 位址所發出的要求採取自訂動作。 這些 IP 位址皆來自 Microsoft 威脅情報摘要。 包括 Azure 資訊安全中心在內的多項服務皆使用 [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence)，其同時也支援 Microsoft 威脅情報的運作。
+您可以為 WAF 啟用受控的 Bot 保護規則集，以針對已知 Bot 類別所發出的要求採取自訂動作。 支援的 Bot 類別有三種：惡意 Bot、善意 Bot 和未知 Bot。 WAF 平台會管理 Bot 簽章，並執行動態更新。 惡意 Bot 的惡意 IP 位址皆來自 Microsoft 威脅情報摘要。 包括 Azure 資訊安全中心在內的多項服務皆使用 [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence)，其同時也支援 Microsoft 威脅情報的運作。 善意 Bot 包含已驗證的搜尋引擎。 未知類別包含額外的 Bot 群組。 您可以設定自訂動作，以針對不同類型的 Bot 進行封鎖、允許、記錄或重新導向作業。
 
 ![Bot 保護規則集](../media/afds-overview/botprotect2.png)
 
 > [!IMPORTANT]
 > Bot 保護規則集目前處於公開預覽狀態，並且提供預覽服務等級的協定。 可能不支援特定功能，或可能已經限制功能。  如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-如果啟用 Bot 保護，符合惡意 Bot 用戶端 IP 的傳入要求會記錄在 FrontdoorWebApplicationFirewallLog 記錄中。 您可以從儲存體帳戶、事件中樞或記錄分析中存取 WAF 記錄。 
+如果啟用 Bot 保護，符合 Bot 規則的傳入要求會記錄在 FrontdoorWebApplicationFirewallLog 記錄中。 您可以從儲存體帳戶、事件中樞或記錄分析中存取 WAF 記錄。
 
 ## <a name="configuration"></a>組態
 

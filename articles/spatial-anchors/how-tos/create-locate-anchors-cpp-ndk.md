@@ -1,19 +1,19 @@
 ---
-title: 如何在 C++/NDK 中使用 Azure Spatial Anchors 建立和尋找錨點 | Microsoft Docs
+title: 在 C++/NDK 中建立及尋找錨點
 description: 深入說明如何在 C++/NDK 中使用 Azure Spatial Anchors 建立和尋找錨點。
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2578202c2464248c1c765368d308ca669d918057
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9592de0bfb53d0ba3f37cf3d34c6cd7ce3d4d65d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562534"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270289"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>如何在 C++/NDK 中使用 Azure Spatial Anchors 建立和尋找錨點
 

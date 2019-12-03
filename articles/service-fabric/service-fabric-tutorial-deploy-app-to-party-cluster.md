@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 4767f43171e8576fcf35ba7304c48b05b85745c4
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 37c27ae71eddcb5a35b9baeae250bee232c7acb7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553583"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213208"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>教學課程：將 Service Fabric 應用程式部署至 Azure 中的叢集
 
@@ -48,7 +48,7 @@ ms.locfileid: "72553583"
 * [安裝 Service Fabric SDK](service-fabric-get-started.md)。
 
 > [!NOTE]
-> 免費帳戶可能不符合建立虛擬機器的需求。 這將使您無法完成本教學課程。
+> 免費帳戶可能不符合建立虛擬機器的需求。 這將使您無法完成本教學課程。 此外，在與叢集相關聯的金鑰保存庫上建立憑證時，非工作或非學校帳戶可能會發生權限問題。 如果您遇到與憑證建立相關的錯誤，請改為使用入口網站來建立叢集。 
 
 ## <a name="download-the-voting-sample-application"></a>下載投票應用程式範例
 

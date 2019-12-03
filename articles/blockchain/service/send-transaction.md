@@ -1,21 +1,17 @@
 ---
-title: 使用 Visual Studio Code - Azure 區塊鏈服務
+title: 建立、建置和部署智慧型合約的教學課程 - Azure 區塊鏈服務
 description: 本教學課程說明如何在 Visual Studio Code 中使用適用於 Ethereum 的 Azure 區塊鏈開發套件擴充功能，在 Azure 區塊鏈服務上建立、建置及部署智慧型合約。
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/20/2019
 ms.topic: tutorial
-ms.service: azure-blockchain
 ms.reviewer: chrisseg
-ms.openlocfilehash: 13a5993a14e386dc7d24c7464610bbf1ace4b9cb
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2d2cb174656f5ed8f13d4463d416455ebb3f9ec9
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329233"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325176"
 ---
-# <a name="tutorial-usevisual-studio-code-to-create-buildanddeploysmartcontracts"></a>教學課程：使用  Visual Studio Code 建立、建製 和 部署 智慧型 合約
+# <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>教學課程：在 Azure 區塊鏈服務上建立、建置和部署智慧型合約
 
 在本教學課程中，在 Visual Studio Code 中使用適用於 Ethereum 的 Azure 區塊鏈開發套件擴充功能，在 Azure 區塊鏈服務上建立、建置及部署智慧型合約。 您也可使用 Truffle 以透過交易執行智慧型合約函式。
 
@@ -32,6 +28,21 @@ ms.locfileid: "72329233"
 ## <a name="prerequisites"></a>必要條件
 
 * 完成[快速入門：使用 Visual Studio Code 連線至聯盟網路](connect-vscode.md)
+* [Visual Studio Code](https://code.visualstudio.com/Download)
+* [適用於 Ethereum 的 Azure 區塊鏈服務開發套件擴充功能](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
+* [Node.js 10.15.x 或更新版本](https://nodejs.org/download)
+* [Git 2.10.x 或更新版本](https://git-scm.com)
+* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) 將 python.exe 新增至您的路徑。 Azure 區塊鏈服務開發套件需要您的路徑中有 Python 2.7.15 版。
+* [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
+* [Ganache CLI 6.0.0](https://github.com/trufflesuite/ganache-cli)
+
+在 Windows 上，node-gyp 模組需要已安裝的 C++ 編譯器。 您可以使用 MSBuild 工具：
+
+* 如果已安裝 Visual Studio 2017，請將 npm 設定為使用 MSBuild 工具搭配 `npm config set msvs_version 2017 -g` 命令
+* 如果已安裝 Visual Studio 2019，請設定 npm 的 MSBuild 工具路徑。 例如， `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
+* 否則，請在提升權限的「以系統管理員身分執行」  命令殼層中，使用 `npm install --global windows-build-tools` 來安裝獨立的 VS Build 工具。
+
+如需 node-gyp 的詳細資訊，請參閱 [GitHub 上的 node-gyp 存放庫](https://github.com/node-gyp)。
 
 ## <a name="create-a-smart-contract"></a>建立智慧型合約
 
@@ -165,7 +176,7 @@ Truffle 就會在區塊鏈網路上執行指令碼。
 
 ![指令碼輸出](./media/send-transaction/execute-get.png)
 
-請注意，此值不是 **Hello, blockchain!** 。 相反地，所傳回的值是預留位置。 當您變更和部署合約時，合約會取得新的合約位址，而狀態變數則會是智慧型合約函式中的指派值。 Truffle 範例 **2_deploy_contracts.js** 移轉指令碼會部署智慧型合約，並以引數的形式傳遞預留位置值。 建構函式會將 **RequestMessage** 狀態變數設定為預留位置值，系統所傳回的便是此值。
+請注意，此值不是 **Hello, blockchain!** 。 相反地，所傳回的值是預留位置。 當您變更和部署合約時，變更的合約會部署於新的位址，且智慧型合約建構函式中會指派狀態變數的值。 Truffle 範例 **2_deploy_contracts.js** 移轉指令碼會部署智慧型合約，並以引數的形式傳遞預留位置值。 建構函式會將 **RequestMessage** 狀態變數設定為預留位置值，系統所傳回的便是此值。
 
 1. 若要設定 **RequestMessage** 狀態變數並查詢值，請再次執行 **sendrequest.js** 和 **getmessage.js** 指令碼。
 

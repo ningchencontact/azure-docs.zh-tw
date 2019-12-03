@@ -8,17 +8,17 @@ ms.author: kgremban
 ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 1aebe97b27902d37587ec6ac7009a5076b732f0f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.custom: mvc
+ms.openlocfilehash: fbf03dd6d585f1357f8f3cebf08de25e437286ac
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840122"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560992"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>教學課程：開發適用於 Linux 裝置的 Java IoT Edge 模組
 
-您可以使用 Azure IoT Edge 模組來部署程式碼，直接在 IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署能篩選感應器資料的 IoT Edge 模組。 您將會使用模擬的 IoT Edge 裝置，其建立方法詳述於在 [Linux](quickstart-linux.md) 中的模擬裝置上部署 Azure IoT Edge 的快速入門中。 在本教學課程中，您了解如何：    
+您可以使用 Azure IoT Edge 模組來部署程式碼，直接在 IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署能篩選感應器資料的 IoT Edge 模組。 您將會使用模擬的 IoT Edge 裝置，其建立方法詳述於在 [Linux](quickstart-linux.md) 中的模擬裝置上部署 Azure IoT Edge 的快速入門中。 在本教學課程中，您會了解如何：    
 
 > [!div class="checklist"]
 > * 使用 Visual Studio Code 來根據 Azure IoT Edge maven 範本套件和 Azure IoT Java 裝置 SDK，建立 IoT Edge Java 模組。
@@ -289,7 +289,9 @@ ms.locfileid: "68840122"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已建立包含程式碼的 IoT Edge 模組，可篩選您 IoT Edge 裝置所產生的原始資料。 當您準備好建置自己的模組時，可以進一步了解如何[開發自己的 IoT Edge 模組](module-development.md)或如何[使用 Visual Studio Code 開發模組](how-to-vs-code-develop-module.md)。 您可以繼續進行後續教學課程，以了解 Azure IoT Edge 如何協助您部署 Azure 雲端服務，以在邊緣處理和分析資料。
+在本教學課程中，您已建立包含程式碼的 IoT Edge 模組，可篩選您 IoT Edge 裝置所產生的原始資料。 當您準備好建置自己的模組時，可以進一步了解如何[開發自己的 IoT Edge 模組](module-development.md)或如何[使用 Visual Studio Code 開發模組](how-to-vs-code-develop-module.md)。 如需 IoT Edge 模組 (包括模擬溫度模組) 的範例，請參閱 [IoT Edge 模組範例](https://github.com/Azure/iotedge/tree/master/edge-modules)。 
+
+您可以繼續進行後續教學課程，以了解 Azure IoT Edge 如何協助您部署 Azure 雲端服務，以在邊緣處理和分析資料。
 
 > [!div class="nextstepaction"]
 > [Functions](tutorial-deploy-function.md)

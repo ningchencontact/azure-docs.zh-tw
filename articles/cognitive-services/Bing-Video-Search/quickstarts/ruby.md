@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Bing 影片搜尋 REST API 和 Ruby 來搜尋影片
+title: 快速入門：使用 REST API 和 Ruby 來搜尋影片 - Bing 影片搜尋
 titleSuffix: Azure Cognitive Services
 description: 使用本快速入門，以使用 Ruby 將要求傳送至 Bing 影片搜尋 REST API。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 1303abb204881833413bf0465909582e49535e1c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 1f1cde38aa49488a73ce98cc1a9210ed22ebee73
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500650"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378626"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>快速入門：使用 Bing 影片搜尋 REST API 和 Ruby 來搜尋影片
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/04/2019
 ms.author: aahi
-ms.openlocfilehash: 19421788eea59ea250efbaa656266da49dc3b42f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f11d23207a21af5c73831d0edd5ffc9eaa59c119
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73742742"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280664"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Text Analytics API 的範例使用者案例
 
@@ -41,7 +41,7 @@ Text Analytics API 是雲端式服務，可對文字提供進階自然語言處�
 
 ## <a name="monitor-your-products-social-media-feeds"></a>監視產品的社交媒體摘要
 
-監視產品 Twitter 或 Facebook 頁面上的使用者產品意見反應。 使用這些資料分析客戶對新產品推出的情緒、擷取關於功能和功能要求的關鍵片語，或在發生客戶抱怨時解決它們。
+監視產品 Twitter 或 Facebook 頁面上的使用者產品意見反應。 使用這些資料分析客戶對新產品推出的情緒、擷取關於功能和功能要求的關鍵片語，或在發生客戶抱怨時解決它們。 請參閱範例 [Microsoft Flow 範本](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/)。
 
 ![說明如何使用關鍵片語擷取監視您的產品及公司對社交社交媒體的意見反應的影像](media/use-cases/social-feed.svg)
 

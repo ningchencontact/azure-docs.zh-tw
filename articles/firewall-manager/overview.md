@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 11/05/2019
+ms.date: 11/21/2019
 ms.author: victorh
-ms.openlocfilehash: df649eab1f0e2946078f8efd3cdd6ab68c3b7938
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 897819928ab0bcf48b58428014c03aea6b2145fd
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580196"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267960"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>什麼是 Azure 防火牆管理員預覽？
 
@@ -75,6 +75,7 @@ Azure 防火牆管理員預覽有下列已知問題：
 |目前不支援流量分割|目前不支援 Office 365 和 Azure 公用 PaaS 流量分割。 因此，若為 V2I 或 B2I 選取第三方提供者，也會透過合作夥伴服務傳送所有的 Azure 公用 PaaS 和 Office 365 流量。|目前正在調查中樞的流量分割。
 |每個區域一個中樞|每個區域不能有超過一個中樞|在區域中建立多個虛擬 WAN。|
 |基本原則必須位於與本機原則相同的區域中|在與基底原則相同的區域中建立您所有的本機原則。 您仍可將在某個區域中建立的原則套用到另一個區域的安全中樞上。|目前正在調查中。|
+|安全虛擬中樞無法執行中樞間通訊|目前尚不支援安全虛擬中樞對安全虛擬中樞的通訊。|目前正在調查中。|
 
 ## <a name="next-steps"></a>後續步驟
 

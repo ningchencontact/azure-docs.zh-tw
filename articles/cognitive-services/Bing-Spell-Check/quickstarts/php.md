@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Bing 拼字檢查 REST API 和 PHP 進行拼字檢查
+title: 快速入門：使用 REST API 和 PHP 檢查拼字 - Bing 拼字檢查
 titleSuffix: Azure Cognitive Services
 description: 這個簡單的 PHP 應用程式會將要求傳送至 Bing 拼字檢查 API，並傳回建議的更正清單。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 4437297c99e346209cf1f7a8973ea0f6f81894af
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 8c95f0960c098ad56affc641996f1b52681d473e
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110781"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383857"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>快速入門：使用 Bing 拼字檢查 REST API 和 PHP 進行拼字檢查
 

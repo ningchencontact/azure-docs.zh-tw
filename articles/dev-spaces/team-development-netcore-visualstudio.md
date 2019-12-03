@@ -1,8 +1,6 @@
 ---
-title: 使用 .NET Core 和 Visual Studio 透過 Azure Dev Spaces 進行小組開發
-titleSuffix: Azure Dev Spaces
+title: 在 Azure Dev Spaces 中使用 .NET Core 和 Visual Studio 進行小組開發
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
 author: DrEsteban
@@ -10,15 +8,15 @@ ms.author: stevenry
 ms.date: 12/09/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s '
-ms.openlocfilehash: 53c870ad135fe13eb3bf7556678cac29352911aa
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
+ms.openlocfilehash: 895d2edbb268eab9944909ecda7193ce945bbf39
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442936"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325541"
 ---
-# <a name="team-development-with-azure-dev-spaces"></a>使用 Azure Dev Spaces 進行小組開發
+# <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>在 Azure Dev Spaces 中使用 .NET Core 和 Visual Studio 進行小組開發
 
 在本教學課程中，您將了解一組開發人員如何使用 Dev Spaces 同時在相同的 Kubernetes 叢集中共同作業。
 
@@ -123,7 +121,7 @@ ms.locfileid: "67442936"
 
 Azure 開發人員空間的這個內建功能，可讓您在共用環境中端對端測試程式碼，而不需要每位開發人員在其空間中重新建立服務的完整堆疊。 使用此路由時，您必須在應用程式的程式碼中轉送傳播標頭，如本指南的上一個步驟所說明。
 
-### <a name="test-code-running-in-the-devscott-space"></a>測試在 dev/scott  空間中執行的程式碼
+### <a name="test-code-running-in-the-_devscott_-space"></a>測試在 dev/scott  空間中執行的程式碼
 若要搭配 webfrontend  來測試新版的 mywebapi  ，請在瀏覽器中開啟到 webfrontend  的公用存取點 URL (例如， http://dev.webfrontend.123456abcdef.eus.azds.io) )，然後移至 [關於] 頁面。 您應該會看到原始訊息「來自 webfrontend 的 Hello 和來自 mywebapi 的 Hello」。
 
 現在，請將 "scott.s." 部分新增到 URL，讓它成為 http\://scott.s.dev.webfrontend.123456abcdef.eus.azds.io，並重新整理瀏覽器。 系統應會叫用您在 mywebapi  專案中設定的中斷點。 請按 f5 繼續作業，而您此時應會在瀏覽器中看到新的訊息「來自 webfrontend 和 mywebapi 的 Hello 現在顯示了新的內容。」 這是因為您已更新的程式碼在 mywebapi  中的路徑執行於 dev/scott  空間中。

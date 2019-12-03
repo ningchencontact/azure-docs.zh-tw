@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 10/14/2019
+ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 571626da0f3f43c8c2a2e33e1147418158c5473b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: e24436cef11cc07571adb55bca63add5bda783c4
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754208"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483405"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>快速入門：使用異常偵測器 REST API 與 Python 偵測時間序列資料中的異常行為
 
@@ -26,12 +26,12 @@ ms.locfileid: "72754208"
 | 以批次方式偵測異常狀況                        | JSON 回應包含時間序列資料中每個資料點的異常狀態 (和其他資料)，以及偵測到的任何異常狀況的位置。 |
 | 偵測最新資料點的異常狀態 | JSON 回應包含時間序列資料中最新資料點的異常狀態 (和其他資料)。                                                                                                                                         |
 
- 雖然此應用程式是以 Python 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
+ 雖然此應用程式是以 Python 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。 您可以在 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/python-detect-anomalies.py) 上找到此快速入門的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 
 - [Python 2.x 或 3.x](https://www.python.org/downloads/)
-
+- Anomaly Detector 金鑰和端點
 - Python 的[要求程式庫](https://pypi.org/project/requests/)
 
 - JSON 檔案包含時間序列資料點。 此快速入門的範例資料可以在 [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json) 上找到。
@@ -68,7 +68,7 @@ ms.locfileid: "72754208"
 
 3. 使用 `requests.post()` 傳送要求。 針對完整要求 URL 合併您的端點與異常偵測 URL，並包含標頭和 json 要求資料。 然後傳回回應。
 
-[!code-python[request method](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=request)]
+    [!code-python[request method](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=request)]
 
 ## <a name="detect-anomalies-as-a-batch"></a>偵測批次異常行為
 
@@ -80,7 +80,7 @@ ms.locfileid: "72754208"
 
 4. 否則，在資料集中尋找異常狀況的位置。 回應的 `isAnomaly` 欄位包含與指定的資料點是否為異常相關的布林值。 逐一查看清單，並列印任何 `True` 值的索引。 如果有找到，這些值會對應到異常資料點的索引。
 
-[!code-python[detection as a batch](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectBatch)]
+    [!code-python[detection as a batch](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectBatch)]
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>偵測最新資料點的異常狀態
 
@@ -88,11 +88,11 @@ ms.locfileid: "72754208"
 
 2. 在結果上呼叫 `json.dumps()` 以將其格式化，並列印到主控台。
 
-[!code-python[Latest point detection](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectLatest)]
+    [!code-python[Latest point detection](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectLatest)]
 
 ## <a name="send-the-request"></a>傳送要求
 
-1. 呼叫上面所建立的異常偵測方法。
+呼叫上面所建立的異常偵測方法。
 
 [!code-python[Method calls](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=methodCalls)]
 
@@ -102,11 +102,4 @@ ms.locfileid: "72754208"
 * [批次偵測回應範例](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [最新資料點偵測回應範例](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
-## <a name="next-steps"></a>後續步驟
-
-> [!div class="nextstepaction"]
->[使用 Azure Databricks 串流異常偵測](../tutorials/anomaly-detection-streaming-databricks.md)
-
-* 什麼是 [Anomaly Detector API？](../overview.md)
-* 使用 Anomaly Detector API 時的[最佳做法](../concepts/anomaly-detection-best-practices.md)。
-* 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs) 上找到。
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

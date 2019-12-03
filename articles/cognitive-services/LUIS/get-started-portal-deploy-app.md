@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 279ec4e8a6d9a9d473cc511b4ec690391cdbd634
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 65af2caa2272549b5ad562ff3c38b90e3ea43fd5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669430"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278550"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>快速入門：在 LUIS 入口網站中部署應用程式
 
@@ -29,6 +29,7 @@ LUIS 應用程式準備將表達預測傳回用戶端應用程式 (例如聊天�
 
 * 取得 [Azure 訂用帳戶](https://azure.microsoft.com/free)。
 * 完成[先前的入口網站快速入門](get-started-portal-build-app.md)，或[下載並匯入應用程式](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json)。
+* 如果您的應用程式版本早於 Azure 資源驗證，請[遷移至 Azure 資源](luis-migration-authoring.md)。 當電子郵件驗證生效時，某些入口網站頁面的外觀會有所不同。
 
 ## <a name="create-the-endpoint-resource"></a>建立端點資源
 
@@ -60,7 +61,7 @@ LUIS 應用程式準備將表達預測傳回用戶端應用程式 (例如聊天�
 
 每當您為 LUIS 建立新資源時，都需要將資源指派給 LUIS 應用程式。 指派之後，除非您建立新的資源，否則不需要再次執行此步驟。 您可以建立新的資源，以擴充您的應用程式區域，或支援更多預測查詢數目。
 
-1. 登入 [LUIS 入口網站](https://www.luis.ai)，從應用程式清單中選擇 **myEnglishApp** 應用程式。
+1. 登入 [LUIS 入口網站](https://preview.luis.ai)，從應用程式清單中選擇 **myEnglishApp** 應用程式。
 
 1. 選取右上方功能表中的 [管理]  ，然後選取 [Azure 資源]  。
 
@@ -86,7 +87,7 @@ LUIS 應用程式準備將表達預測傳回用戶端應用程式 (例如聊天�
 
 ## <a name="prediction-endpoint-request"></a>預測端點要求
 
-URL 結尾的 `query=` 是使用者的語句附加至 GET 要求的所在。 在 `query=` 後面，輸入於先前快速入門結尾使用的相同使用者表達：
+在預覽入口網站中，URL 結尾的 `query=` 是使用者的語句附加至 GET 要求之處。 在 `query=` 後面，輸入於先前快速入門結尾使用的相同使用者表達：
 
 ```Is there a form named hrf-234098```
 

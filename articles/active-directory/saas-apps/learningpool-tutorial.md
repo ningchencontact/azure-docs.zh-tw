@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c6f5b2b67ec38ef690f932e189bd2fd9f0dd6da
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5bc0b395fcc874190b67bd99262c3a1c9294c0ac
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159579"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229284"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>教學課程：Azure Active Directory 與 Learningpool Act 整合
 
@@ -228,7 +228,7 @@ Learningpool Act 與 Azure AD 整合提供下列優點：
 使用者必須由您的 [Learningpool Act 支援小組](https://www.Learningpool.com/support)建立。
 
 > [!NOTE]
-> 您可以使用任何其他的 Learningpool Act 使用者帳戶建立工具或 Learningpool Act 提供的 API，佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 Learningpool Act 使用者帳戶建立工具或 Learningpool Act 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

@@ -1,5 +1,5 @@
 ---
-title: 快速入門：如何使用 Python 向 Azure 裝置佈建服務註冊 X.509 裝置
+title: 使用 Python 向 Azure 裝置佈建服務註冊 X.509 裝置
 description: 本快速入門使用群組註冊。 在本快速入門中，您會使用 Python 向 Azure IoT 中樞裝置佈建服務註冊 X.509 裝置
 author: wesmc7777
 ms.author: wesmc
@@ -7,21 +7,24 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 23ae0bd9e66cbb592db0ec9adea5e4332a9aa19b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ef24195ac1a3d342ac5dcbfe099a2bed429d6197
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904730"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555412"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>快速入門：使用 Python 向裝置佈建服務註冊 X.509 裝置
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-藉由建立[註冊群組](concepts-service.md#enrollment-group)或[個別註冊](concepts-service.md#individual-enrollment)，可將裝置註冊到佈建服務執行個體。 本快速入門說明如何使用 Python 以程式設計方式建立中繼或根 CA X.509 憑證的[註冊群組](concepts-service.md#enrollment-group)。 註冊群組可針對共用憑證鏈結中通用簽署憑證的裝置，控制對於佈建服務的存取權。 註冊群組可使用 [Python 佈建服務 SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) 和範例 Python 應用程式來建立。 經由 *Python 佈建服務 SDK* 建立個別註冊的功能仍在建置中。 若要深入了解，請參閱[使用 X.509 憑證控制對於佈建服務的裝置存取](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)。 如需使用以 X.509 憑證為基礎的公開金鑰基礎結構 (PKI) 搭配 Azure IoT 中樞和裝置佈建服務的詳細資訊，請參閱 [X.509 CA 憑證安全性概觀](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview)。
+藉由建立[註冊群組](concepts-service.md#enrollment-group)或[個別註冊](concepts-service.md#individual-enrollment)，可將裝置註冊到佈建服務執行個體。 本快速入門說明如何使用 Python 以程式設計方式建立中繼或根 CA X.509 憑證的[註冊群組](concepts-service.md#enrollment-group)。 註冊群組可針對共用憑證鏈結中通用簽署憑證的裝置，控制對於佈建服務的存取權。 註冊群組可使用 [V1 Python 佈建服務 SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) 和範例 Python 應用程式來建立。 經由 *Python 佈建服務 SDK* 建立個別註冊的功能仍在建置中。 若要深入了解，請參閱[使用 X.509 憑證控制對於佈建服務的裝置存取](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)。 如需使用以 X.509 憑證為基礎的公開金鑰基礎結構 (PKI) 搭配 Azure IoT 中樞和裝置佈建服務的詳細資訊，請參閱 [X.509 CA 憑證安全性概觀](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview)。
+
+> [!IMPORTANT]
+> 本文僅適用於已淘汰的 V1 Python SDK。 尚未在 V2 中提供適用於 Iot 中樞裝置佈建服務的裝置和服務用戶端。 小組目前正努力將 V2 帶至功能同位。
+
 
 本快速入門預期您已建立 IoT 中樞和裝置佈建服務執行個體。 如果您尚未建立這些資源，請先完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)快速入門，再繼續閱讀本文。
 
@@ -29,14 +32,11 @@ ms.locfileid: "73904730"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
 ## <a name="prerequisites"></a>必要條件
 
 - 安裝 [Python 2.x 或 3.x](https://www.python.org/downloads/)。 請務必使用安裝程式所需的 32 位元或 64 位元安裝。 在安裝期間出現系統提示時，務必將 Python 新增至平台特有的環境變數。
 - [安裝或升級 pip  (Python 套件管理系統)](https://pip.pypa.io/en/stable/installing/)。
 - 安裝 [Git](https://git-scm.com/download/)。
-
-
 
 ## <a name="prepare-test-certificates"></a>準備測試憑證
 
@@ -141,7 +141,7 @@ ms.locfileid: "73904730"
 
 1. 在您的電腦上關閉 Java 範例輸出視窗。
 1. 在您的電腦上關閉 _X509 憑證產生器_ 視窗。
-1. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，按一下 [管理註冊]  ，然後選取 [註冊群組]  索引標籤。選取您使用本快速入門註冊之 X.509 裝置的群組名稱  ，然後按一下刀鋒視窗頂端的 [刪除]  按鈕。  
+1. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，選取 [管理註冊]  ，然後選取 [註冊群組]  索引標籤。選取您使用本快速入門所註冊 X.509 裝置的 [群組名稱]  旁的核取方塊，然後按窗格頂端的 [刪除]  按鈕。    
 
 
 ## <a name="next-steps"></a>後續步驟

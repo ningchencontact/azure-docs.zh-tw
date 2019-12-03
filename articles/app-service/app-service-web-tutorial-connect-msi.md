@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 09/16/2019
+ms.date: 11/18/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b39c1596dd16f8ec6235878abdbf37492abd1ea8
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: f10d3ee78dffb32db01a48ccf935e5443fae08b6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177082"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227454"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教學課程：使用受控識別保護來自 App Service 的 Azure SQL Database 連線
 
@@ -33,8 +33,8 @@ ms.locfileid: "72177082"
 > [!NOTE]
 > 本教學課程所涵蓋的步驟支援下列版本：
 > 
-> - .NET Framework 4.7.2 和更新版本。
-> - .NET Core 2.2 和更新版本。
+> - .NET Framework 4.7.2
+> - .NET Core 2.2
 >
 
 您將了解：
@@ -113,7 +113,7 @@ az login --allow-no-subscriptions
 在 Visual Studio 中，開啟套件管理員主控台，並新增 NuGet 套件 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)：
 
 ```powershell
-Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.0
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.1
 ```
 
 在 Web.config  中，從檔案頂端開始處理，並進行下列變更：
@@ -145,7 +145,7 @@ Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.0
 在 Visual Studio 中，開啟套件管理員主控台，並新增 NuGet 套件 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)：
 
 ```powershell
-Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.0
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.1
 ```
 
 在 [ASP.NET Core 和 SQL Database 教學課程](app-service-web-tutorial-dotnetcore-sqldb.md)中完全不會使用連接字串 `MyDbConnection`，因為本機開發環境會使用 Sqlite 資料庫檔案，Azure 生產環境則會使用來自 App Service 的連接字串。 在使用 Active Directory 驗證時，您會希望這兩個環境使用相同的連接字串。 在 appsettings.json  中，將 `MyDbConnection` 連接字串的值取代為：
@@ -184,8 +184,8 @@ var conn = (System.Data.SqlClient.SqlConnection)Database.GetDbConnection();
 conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
 ```
 
-> [!TIP]
-> 為了方便說明，此示範程式碼是同步的。 如需詳細資訊，請參閱[建構函式的非同步指南](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#constructors)。
+> [!NOTE]
+> 為了能簡單明瞭地說明，此示範程式碼是同步的。
 
 這就是要連線至 SQL Database 所需的所有項目。 在 Visual Studio 中進行偵錯時，程式碼會使用您在[設定 Visual Studio](#set-up-visual-studio) 中所設定的 Azure AD 使用者。 稍後，您會設定 SQL Database 伺服器以允許來自 App Service 應用程式受控識別的連線。 `AzureServiceTokenProvider` 類別會快取記憶體中的權杖，並在到期之前從 Azure AD 擷取權杖。 您不需使用任何自訂程式碼來重新整理權杖。
 
@@ -217,20 +217,18 @@ az webapp identity assign --resource-group myResourceGroup --name <app-name>
 }
 ```
 
-### <a name="add-managed-identity-to-an-azure-ad-group"></a>將受控識別新增至 Azure AD 群組
+### <a name="grant-permissions-to-managed-identity"></a>將權限授與受控識別
 
-若要為此身分識別授與對 SQL Database 的存取權，您必須將其新增至 [Azure AD 群組](../active-directory/fundamentals/active-directory-manage-groups.md)。 在 Cloud Shell 中，將其新增至名為 myAzureSQLDBAccessGroup  的新群組，如下列指令碼所示：
-
-```azurecli-interactive
-groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
-msiobjectid=$(az webapp identity show --resource-group myResourceGroup --name <app-name> --query principalId --output tsv)
-az ad group member add --group $groupid --member-id $msiobjectid
-az ad group member list -g $groupid
-```
-
-如果您想要查看每個命令的完整 JSON 輸出，請拿掉 `--query objectId --output tsv` 參數。
-
-### <a name="grant-permissions-to-azure-ad-group"></a>為 Azure AD 群組授與權限
+> [!NOTE]
+> 如有需要，您可以將身分識別新增至 [Azure AD 群組](../active-directory/fundamentals/active-directory-manage-groups.md)，然後將 SQL Database 存取權授與 Azure AD 群組，而不是身分識別。 例如，下列命令會將上一個步驟中的受控識別新增至名為 _myAzureSQLDBAccessGroup_ 的新群組：
+> 
+> ```azurecli-interactive
+> groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
+> msiobjectid=$(az webapp identity show --resource-group myResourceGroup --name <app-name> --query principalId --output tsv)
+> az ad group member add --group $groupid --member-id $msiobjectid
+> az ad group member list -g $groupid
+> ```
+>
 
 在 Cloud Shell 中，使用 SQLCMD 命令登入 SQL Database。 請將 _\<server-name>_ 取代為您的 SQL Database 伺服器名稱，將 _\<db-name>_ 取代為您的應用程式使用的資料庫名稱，並將 _\<aad-user-name>_ 和 _\<aad-password>_ 取代為您 Azure AD 使用者的認證。
 
@@ -241,12 +239,14 @@ sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P 
 在您所需資料庫的 SQL 提示字元中執行下列命令，以新增 AD 群組，並授與您的應用程式所需的權限。 例如， 
 
 ```sql
-CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
-ALTER ROLE db_datareader ADD MEMBER [myAzureSQLDBAccessGroup];
-ALTER ROLE db_datawriter ADD MEMBER [myAzureSQLDBAccessGroup];
-ALTER ROLE db_ddladmin ADD MEMBER [myAzureSQLDBAccessGroup];
+CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
+ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
+ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
+ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
+
+*\<identity-name>* 是 Azure AD 中的受控識別名稱。 此名稱是由系統指派的，因此一律會與您 App Service 應用程式的名稱相同。 若要為 Azure AD 群組授與權限，請改用群組的顯示名稱 (例如 *myAzureSQLDBAccessGroup*)。
 
 輸入 `EXIT` 以返回 Cloud Shell 提示字元。
 

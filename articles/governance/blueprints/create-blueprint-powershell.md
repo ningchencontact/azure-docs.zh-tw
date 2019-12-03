@@ -1,32 +1,26 @@
 ---
-title: 使用 PowerShell 建立藍圖
-description: 使用 Azure 藍圖可透過 PowerShell 建立、定義和部署成品。
-ms.date: 08/21/2019
+title: 快速入門：使用 PowerShell 建立藍圖
+description: 在本快速入門中，您將在 PowerShell 中使用 Azure 藍圖建立、定義和部署成品。
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 4cc181a7e0b07448d6dd538cfb1621d1efa43a80
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ed337fa040804159dae3194de1befc43ff2b698f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960434"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327472"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>快速入門：使用 PowerShell 定義和指派 Azure 藍圖
 
 了解如何建立及指派有助於定義常用模式的藍圖，以根據 Resource Manager 範本、原則、安全性等，開發出可重複使用並可快速部署的組態。 在本教學課程中，您將了解如何使用 Azure 藍圖在您的組織中處理藍圖的建立、發佈和指派等常見工作，例如：
 
-> [!div class="checklist"]
-> - 建立新藍圖並新增各種支援成品
-> - 變更仍在**草稿**狀態的現有藍圖
-> - 將藍圖標示為**已發佈**，代表藍圖已可供指派
-> - 將藍圖指派給現有的訂用帳戶
-> - 檢查指派的藍圖的狀態和進度
-> - 移除已指派給訂用帳戶的藍圖
+## <a name="prerequisites"></a>必要條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free)。
 
-## <a name="prerequisites"></a>必要條件
-
 如果尚未安裝 **Az.Blueprint** 模組，請依照[新增 Az.Blueprint 模組](./how-to/manage-assignments-ps.md#add-the-azblueprint-module)中的指示，從 PowerShell 資源庫安裝並驗證它。
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-blueprint"></a>建立藍圖
 
@@ -397,9 +391,7 @@ Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解[藍圖生命週期](./concepts/lifecycle.md)。
-- 了解如何使用[靜態與動態參數](./concepts/parameters.md)。
-- 了解如何自訂[藍圖排序順序](./concepts/sequencing-order.md)。
-- 了解如何使用[藍圖資源鎖定](./concepts/resource-locking.md)。
-- 了解如何[更新現有的指派](./how-to/update-existing-assignments.md)。
-- 使用[一般疑難排解](./troubleshoot/general.md)來解決藍圖指派期間發生的問題。
+在本快速入門中，您已使用 PowerShell 建立、指派及移除藍圖。 若要深入了解 Azure 藍圖，請繼續閱讀藍圖生命週期文章。
+
+> [!div class="nextstepaction"]
+> [了解藍圖生命週期](./concepts/lifecycle.md)

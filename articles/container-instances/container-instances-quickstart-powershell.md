@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - 將 Docker 容器部署至 Azure 容器執行個體 - PowerShell
+title: 快速入門 - 將 Docker 容器部署至容器執行個體 - PowerShell
 description: 在本快速入門中，您可以使用 Azure PowerShell 快速地部署在隔離式 Azure 容器執行個體中執行的容器化的 Web 應用程式
 services: container-instances
 author: dlepow
@@ -7,14 +7,13 @@ manager: gwallace
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7fe199d2ac228ddb0ccfd1e5bc980e680e160acf
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 9901b3f18973365dc9ceb8c85ff8587b6c2ea894
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325834"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533613"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 部署容器執行個體
 
@@ -24,7 +23,7 @@ ms.locfileid: "68325834"
 
 ![在瀏覽器中檢視部署至 Azure Container Instances 的應用程式][qs-powershell-01]
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

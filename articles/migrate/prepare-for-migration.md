@@ -1,19 +1,19 @@
 ---
-title: 準備內部部署電腦，以使用 Azure Migrate 移轉至 Azure
-description: 此文章描述如何準備內部部署電腦，以使用 Azure Migrate 移轉至 Azure。
+title: 使用 Azure Migrate 準備電腦以進行移轉
+description: 了解如何使用 Azure Migrate 準備內部部署電腦以進行移轉。
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/03/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 61b4f41a0b36945413e45a357a5ca73ac75ceb98
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2c13bc79fccc74da431ba1a6399870b261b24c57
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480115"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196428"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>準備內部部署電腦以移轉至 Azure
 
@@ -46,8 +46,7 @@ ms.locfileid: "73480115"
 
 - 針對 VMware VM，Azure Migrate 伺服器移轉支援[無代理程式或代理程式型移轉](server-migrate-overview.md)。 確認 VMware VM 需求/支援以進行[無代理程式](migrate-support-matrix-vmware.md#migration---limitations)和[代理程式型](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements)移轉。
 - 確認 Hyper-V VM 的[移轉需求和支援](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements)。
-- 確認內部部署實體電腦或其他虛擬化伺服器的[移轉需求和支援](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements)。 這些需求與 VMware VM 需求類似。
-
+- 確認內部部署實體電腦或其他虛擬化伺服器的[移轉需求和支援](migrate-support-matrix-physical.md)。 
 
 
 

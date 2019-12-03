@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: a9245ab5a2d51ee3995ff0c614cafaebdc20d00f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6786b44aca9ceed3cec5daf0f858a51e2dd12833
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67098792"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>教學課程：Azure Active Directory 與 Kintone 整合
 
@@ -236,18 +236,18 @@ Kintone 與 Azure AD 整合提供下列優點：
 
 1. 按一下 [新使用者]  。
 
-    ![新使用者](./media/kintone-tutorial/ic785889.png "新使用者")
+    ![新增使用者](./media/kintone-tutorial/ic785889.png "新增使用者")
 
 1. 在 [新增使用者]  區段中，執行下列步驟：
 
-    ![新使用者](./media/kintone-tutorial/ic785890.png "新使用者")
+    ![新增使用者](./media/kintone-tutorial/ic785890.png "新增使用者")
 
     a. 在相關文字方塊中輸入您想要佈建之有效 Azure AD 帳戶的 [顯示名稱]  、[登入名稱]  、[新密碼]  、[確認密碼]  、[電子郵件地址]  及其他詳細資料。
 
     b. 按一下 [檔案]  。
 
 > [!NOTE]
-> 您可以使用任何其他的 Kintone 使用者帳戶建立工具或 Kintone 提供的 API，佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 Kintone 使用者帳戶建立工具或 Kintone 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

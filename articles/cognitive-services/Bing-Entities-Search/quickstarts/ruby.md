@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Ruby 將搜尋要求傳送至 Bing 實體搜尋 REST API
+title: 快速入門：將搜尋要求傳送至以 Ruby 撰寫的 REST API - Bing 實體搜尋
 titleSuffix: Azure Cognitive Services
 description: 使用此快速入門以運用 Ruby 來傳送要求給「Bing 實體搜尋 REST API」，並接收 JSON 回應。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 08/26/2019
 ms.author: aahi
-ms.openlocfilehash: e892d9917d0cc295236ee5e134348248dd4817a1
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 076fad8c1fc6fdd4bccf07f5eb3223800eddd4a0
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034519"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323546"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>搭配使用 Bing 實體搜尋 API 與 Ruby 的快速入門
 

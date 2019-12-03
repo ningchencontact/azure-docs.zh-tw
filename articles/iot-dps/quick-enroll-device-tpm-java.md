@@ -1,21 +1,20 @@
 ---
-title: 快速入門：使用 Java 向 Azure 裝置佈建服務註冊 TPM 裝置
-description: Azure 快速入門 - 使用 Java 服務 SDK 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置。 本快速入門使用個別註冊。
+title: 使用 Java 向 Azure 裝置佈建服務註冊 TPM 裝置
+description: 快速入門 - 使用 Java 服務 SDK 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置。 本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 88ce16a658e760f69cdf17c9bb4de78fceca927a
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 4e6e5eb876bbf93c8228c2440a90aad608a24af9
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903492"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422914"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>快速入門：使用 Java 服務 SDK 向 IoT 中樞裝置佈建服務註冊 TPM 裝置
 
@@ -136,7 +135,7 @@ ms.locfileid: "73903492"
 
 4. 觀察成功註冊的輸出視窗。 
 
-5. 在 Azure 入口網站中，瀏覽至您的佈建服務。 按一下 [管理註冊]  ，然後選取 [個別註冊]  索引標籤。請注意，現在會列出您的模擬 TPM 裝置註冊識別碼  。 
+5. 在 Azure 入口網站中，瀏覽至您的佈建服務。 選取 [管理註冊]  ，然後選取 [個別註冊]  索引標籤。請注意，現在會列出您的模擬 TPM 裝置註冊識別碼  。 
 
     ![確認入口網站中的 TPM 註冊成功](./media/quick-enroll-device-tpm-java/verify-tpm-enrollment.png)  
 
@@ -145,7 +144,7 @@ ms.locfileid: "73903492"
 
 1. 在您的電腦上關閉 Java 範例輸出視窗。
 1. 將您所建立要模擬 TPM 裝置的 TPM 模擬器視窗關閉。
-1. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，按一下 [管理註冊]  ，然後選取 [個別註冊]  索引標籤。選取您使用本快速入門註冊的裝置之 [註冊識別碼]  ，然後按一下刀鋒視窗頂端的 [刪除]  按鈕。 
+1. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，選取 [管理註冊]  ，然後選取 [個別註冊]  索引標籤。選取您使用本快速入門所建立註冊項目的 [註冊識別碼]  旁的核取方塊，然後按窗格頂端的 [刪除]  按鈕。
 
 ## <a name="next-steps"></a>後續步驟
 在本快速入門中，您已向裝置佈建服務註冊模擬 TPM 裝置。 若要深入了解裝置佈建，請繼續在 Azure 入口網站中進行裝置佈建服務設定的教學課程。 

@@ -1,19 +1,16 @@
 ---
-title: 教學課程 - 使用 Azure 快速入門範本 | Microsoft Docs
+title: 教學課程 - 使用快速入門範本
 description: 了解如何使用 Azure 快速入門範本來完成範本開發。
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a29d86d105579dda7c12b885e2977406f7b598a4
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 1ddae445fb912b4bb60f257f667784b17b0d6ea5
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001492"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405941"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>教學課程：使用 Azure 快速入門範本
 
@@ -25,7 +22,7 @@ ms.locfileid: "72001492"
 
 您必須擁有含 Resource Manager 工具延伸模組的 Visual Studio Code，以及 Azure PowerShell 或 Azure CLI。 如需詳細資訊，請參閱[範本工具](template-tutorial-create-first-template.md#get-tools)。
 
-## <a name="review-your-template"></a>檢閱範本
+## <a name="review-template"></a>檢閱範本
 
 在上一個教學課程結束時，您的範本會具有下列 JSON：
 
@@ -33,7 +30,7 @@ ms.locfileid: "72001492"
 
 此範本適用於部署儲存體帳戶和 App Service 方案，但您可能想要在其中新增網站。 您可以使用預先建置的範本，快速探索部署資源所需的 JSON。
 
-## <a name="find-a-template"></a>尋找範本
+## <a name="find-template"></a>尋找範本
 
 1. 開啟 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)。
 1. 在 [搜尋]  中，輸入**部署 Linux Web 應用程式**。
@@ -44,13 +41,13 @@ ms.locfileid: "72001492"
 
     ![Resource Manager 範本快速入門網站](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
 
-## <a name="revise-the-existing-template"></a>修訂現有範本
+## <a name="revise-existing-template"></a>修訂現有範本
 
 將快速入門範本與現有範本合併：
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json?range=1-108&highlight=32-45,49,85-100)]
 
-WebApp 名稱在 Azure 上必須是唯一的。 為避免名稱重複，已將 **webAppPortalName** 變數從 **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** 更新為 **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"** 。
+Web 應用程式名稱在 Azure 上必須是唯一的。 為避免名稱重複，已將 **webAppPortalName** 變數從 **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** 更新為 **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"** 。
 
 在 `Microsoft.Web/serverfarms` 定義的結尾新增逗號，以將資源定義與 `Microsoft.Web/sites` 定義分開。
 
@@ -60,7 +57,7 @@ WebApp 名稱在 Azure 上必須是唯一的。 為避免名稱重複，已將 *
 
 **serverFarmId** 屬性會使用 [resourceId](resource-group-template-functions-resource.md#resourceid) 函式。 此函式會取得資源的唯一識別碼。 在此案例中，它會取得 App Service 方案的唯一識別碼。 Web 應用程式會與一個特定的 App Service 方案相關聯。
 
-## <a name="deploy-the-template"></a>部署範本
+## <a name="deploy-template"></a>部署範本
 
 使用 Azure CLI 或 Azure PowerShell 來部署範本。
 

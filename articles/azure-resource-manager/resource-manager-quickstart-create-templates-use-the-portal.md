@@ -1,24 +1,16 @@
 ---
-title: 部署 Resource Manager 範本 - Azure 入口網站
+title: 部署範本 - Azure 入口網站
 description: 了解如何使用 Azure 入口網站建立您的第一個 Azure Resource Manager 範本，以及如何加以部署。
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 299e1f3bc5915d547c4b463e770427d480836179
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9a747dbdda4b822c70edaa5a08c30db80328c321
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834279"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150548"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立及部署 Azure Resource Manager 範本
 

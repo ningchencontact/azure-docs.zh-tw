@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 82f662dd00805cf53c0581fb0a2b3322a0207a11
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e17205af1ede845ea77b04f6f2b4c6babf3bc450
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005717"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482142"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>教學課程：使用 Azure 虛擬 WAN 來建立站對站連線
 
@@ -249,7 +249,7 @@ ms.locfileid: "74005717"
 * VPN 裝置頁面上的指示不是針對虛擬 WAN 所撰寫，但您也可以從組態檔使用虛擬 WAN 的值，手動設定 VPN 裝置。 
 * 適用於 VPN 閘道的可下載裝置組態指令碼不適用於虛擬 WAN，因為組態不同。
 * 新的虛擬 WAN 可以支援 IKEv1 和 IKEv2。
-* 虛擬 WAN 只能使用路由式 VPN 裝置和裝置指示。
+* 虛擬 WAN 可以使用原則式與路由式 VPN 裝置和裝置指示。
 
 ## <a name="viewwan"></a>檢視您的虛擬 WAN
 

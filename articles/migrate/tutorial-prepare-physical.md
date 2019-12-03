@@ -1,27 +1,23 @@
 ---
-title: 使用 Azure Migrate 伺服器評量準備要進行評量的實體伺服器
-description: 說明如何使用 Azure Migrate 伺服器評量來準備評估實體伺服器並將其移轉至 Azure。
+title: 使用 Azure Migrate 準備實體伺服器以進行評量/移轉
+description: 了解如何使用 Azure Migrate 準備進行實體伺服器的評量/移轉。
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/07/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 176dfdabeee6299bba0eb17085be25ced3e97993
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 363549662a17a87513c8426347909142ee405cae
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091908"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196388"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>準備評估實體伺服器並將其移轉至 Azure
 
 本文將說明如何使用 [Azure Migrate](migrate-services-overview.md) 來準備評估內部部署實體伺服器。
-
-
-> [!NOTE]
-> 如果您還沒在 Azure Migrate 入口網站中看到某些功能，請稍候。 它們將會在下週前後出現。
 
 [Azure Migrate](migrate-overview.md) 會提供工具中樞，協助您探索和評估應用程式、基礎結構和工作負載，並且將這些項目遷移至 Microsoft Azure。 此中樞包含 Azure Migrate 工具和第三方獨立軟體廠商 (ISV) 供應項目。 
 
@@ -45,7 +41,7 @@ ms.locfileid: "74091908"
 
 您需要 Azure Migrate 部署的設定權限。
 
-- 讓 Azure 帳戶可建立 Azure Migrate 專案的權限。 
+- 讓 Azure 帳戶可建立 Azure Migrate 專案的權限。
 - 讓帳戶可註冊 Azure Migrate 設備的權限。 用於 Hyper-V 探索和移轉的設備。 在註冊設備期間，Azure Migrate 會建立兩個可唯一識別設備的 Azure Active Directory (Azure AD) 應用程式：
     - 第一個應用程式會與 Azure Migrate 服務端點進行通訊。
     - 第二個應用程式會存取在註冊期間建立的 Azure Key Vault，以儲存 Azure AD 的應用程式資訊和設備組態設定。
@@ -73,7 +69,7 @@ ms.locfileid: "74091908"
 值得注意的是：
 
 - 除了所述的訂用帳戶外，應用程式沒有任何其他訂用帳戶的存取權限。
-- 只有當您註冊新的設備時，才需要這些權限。 完成設備的設定後，您可以移除權限。 
+- 只有當您註冊新的設備時，才需要這些權限。 完成設備的設定後，您可以移除權限。
 
 
 #### <a name="grant-account-permissions"></a>授與帳戶權限
@@ -88,7 +84,7 @@ ms.locfileid: "74091908"
 > [!NOTE]
 > 這是一個不敏感的預設設定。 [深入了解](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance)。
 
-#### <a name="assign-application-developer-role"></a>指派應用程式開發人員角色 
+#### <a name="assign-application-developer-role"></a>指派應用程式開發人員角色
 
 租用戶/全域管理員可為帳戶指派應用程式開發人員角色。 [深入了解](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)。
 
@@ -124,12 +120,12 @@ Azure Migrate 需要探索內部部署伺服器的權限。
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您：
- 
-> [!div class="checklist"] 
+
+> [!div class="checklist"]
 > * 設定 Azure 帳戶權限。
 > * 準備好要進行評估的實體伺服器。
 
 請繼續進行下一個教學課程，以建立 Azure Migrate 專案，並評估要移轉至 Azure 的實體伺服器
 
-> [!div class="nextstepaction"] 
-> [評估實體伺服器](./tutorial-assess-physical.md) 
+> [!div class="nextstepaction"]
+> [評估實體伺服器](./tutorial-assess-physical.md)

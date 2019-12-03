@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 指令碼範例 - 匯入到 Azure 應用程式設定存放區 | Microsoft Docs
+title: Azure CLI 指令碼範例 - 匯入至 Azure 應用程式組態存放區 | Microsoft Docs
 description: 提供匯入到 Azure 應用程式設定存放區的相關資訊和範例指令碼
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,22 +14,22 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cd1e54fc6cfbf254da010c03dfaa859a0ee8213c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 6399039a68279a5b734fb3d7cb5bfad60e2c35e1
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029823"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185001"
 ---
 # <a name="import-to-an-azure-app-configuration-store"></a>匯入到 Azure 應用程式設定存放區
 
-此範例指令碼會將索引鍵/值匯入 Azure 應用程式設定存放區。
+此範例指令碼會將索引鍵/值設定匯入至 Azure 應用程式組態存放區。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 Azure CLI，本文會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 若要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 您必須先執行下列命令，以安裝 Azure 應用程式設定 CLI 擴充功能：
 
@@ -48,14 +48,14 @@ az appconfig kv import --name myTestAppConfigStore --source file --path ~/Import
 
 ## <a name="script-explanation"></a>指令碼說明
 
-此指令碼會使用下列命令來匯入應用程式設定存放區。 下表中的每個命令都會連結至命令特定的文件。
+此指令碼會使用下列命令來匯入至應用程式組態存放區。 下表中的每個命令都會連結至命令特定的文件。
 
 | 命令 | 注意 |
 |---|---|
-| [az appconfig import](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-import) | 匯入到應用程式設定存放區資源。 |
+| [az appconfig kv import](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-import) | 匯入至應用程式組態存放區資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](/cli/azure)。
 
-您可以在 [Azure 應用程式設定文件](../cli-samples.md)中找到其他的應用程式設定 CLI 指令碼範例。
+您可以在 [Azure 應用程式組態 CLI 範例](../cli-samples.md)中找到其他的應用程式組態 CLI 指令碼範例。

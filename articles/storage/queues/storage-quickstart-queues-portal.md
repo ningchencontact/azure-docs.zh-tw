@@ -1,6 +1,6 @@
 ---
-title: Azure 快速入門 - 使用 Azure 入口網站在 Azure 儲存體中建立佇列 | Microsoft Docs
-description: 在此快速入門中，您會使用 Azure 入口網站建立佇列。 然後，您可以使用 Azure 入口網站新增訊息、檢視訊息的屬性，以及清除佇列中的訊息。
+title: 快速入門：在入口網站中建立 Azure 儲存體佇列
+description: 使用 Azure 入口網站建立佇列。 然後，您可以使用 Azure 入口網站新增訊息、檢視訊息的屬性，以及清除佇列中的訊息。
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/06/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.openlocfilehash: d2f7b01c03b877a3dede496fc02f0d0cc9525cef
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 2876d2a680aa41372557a9f04c1d6a5eed56b8ae
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721322"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269236"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>快速入門：透過 Azure 入口網站建立佇列並新增訊息
 

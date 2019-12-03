@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: eab5714cb43816c617190fc394f6156ab08ff51d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 772fd74446b43869721afe38fb107cfff8404e99
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838719"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539080"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>快速入門：透過 Microsoft Genomics 服務執行工作流程
 
@@ -47,7 +47,8 @@ ms.locfileid: "73838719"
 
 
 您可以按一下頂端功能表列中的 [通知] 來監視部署程序。
-![Microsoft Genomics 通知](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "MMicrosoft Genomics 通知)
+
+![Microsoft Genomics 通知](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "Microsoft Genomics 通知")
 
 
 

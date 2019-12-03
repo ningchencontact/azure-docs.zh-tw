@@ -1,18 +1,18 @@
 ---
 title: 什麼是 Azure Private DNS？
-description: Microsoft Azure 上的私人 DNS 主機服務概觀。
+description: 在本文中，請先參閱 Microsoft Azure 上的私人 DNS 主機服務概觀。
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
-ms.author: victorh
-ms.openlocfilehash: 152087ab3dc20dfc95cfeaa0353d961917d362d6
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.author: allensu
+ms.openlocfilehash: 2e457dcccfd89d2dcf94a0cc3728cfee9bb1a611
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959342"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74210641"
 ---
 # <a name="what-is-azure-private-dns"></a>什麼是 Azure Private DNS？
 

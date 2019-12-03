@@ -1,5 +1,5 @@
 ---
-title: 使用 Linux VM 系統指派的受控識別來存取 Azure Data Lake Store
+title: 教學課程`:` 使用受控識別來存取 Azure Data Lake Store - Linux - Azure AD
 description: 本教學課程說明如何使用 Linux VM 系統指派的受控識別，來存取 Azure Data Lake Store。
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 474165219d7740e63bb5e0a62d08069109a52c31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f12ec41b661ac2cb462c6bf9ef62d6d831ebac0a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66236138"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224275"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>教學課程：使用 Linux VM 系統指派的受控識別來存取 Azure Data Lake Store
 
@@ -28,7 +28,7 @@ ms.locfileid: "66236138"
 
 本教學課程說明如何將系統指派的受控識別用於 Linux 虛擬機器 (VM)，以存取 Azure Data Lake Store。 您會了解如何： 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 將您的 VM 存取權授與 Azure Data Lake Store。

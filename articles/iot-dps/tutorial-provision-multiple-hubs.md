@@ -1,20 +1,19 @@
 ---
-title: 教學課程：使用 Azure IoT 中樞裝置佈建服務來跨負載平衡 IoT 中樞佈建裝置
-description: 教學課程：在 Azure 入口網站中跨負載平衡 IoT 中樞進行裝置佈建服務自動裝置佈建
-author: sethmanheim
-ms.author: sethm
+title: 使用 Azure IoT 中樞裝置佈建服務在負載平衡的中樞間佈建裝置
+description: 教學課程 - 在 Azure 入口網站中，在負載平衡的 IoT 中樞間進行裝置佈建服務的自動裝置佈建
+author: wesmc7777
+ms.author: wesmc
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6cd5dcb1fd96ac0fda75bf89dcf7259695cf971d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: fb3002e5f195bd3dca32a3500c6789f90e9ea0d6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112774"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229459"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>教學課程：跨負載平衡 IoT 中樞來佈建裝置
 

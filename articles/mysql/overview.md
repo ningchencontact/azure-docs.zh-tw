@@ -6,13 +6,13 @@ ms.service: mysql
 ms.author: andrela
 ms.custom: mvc
 ms.topic: overview
-ms.date: 08/13/2019
-ms.openlocfilehash: f193dceaf26361fececde9df9df6769e2a971543
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 11/25/2019
+ms.openlocfilehash: 680b5e9ef8e7e8ed59d3b502b49fc1b45d016e80
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178114"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483523"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>什麼是 Azure Database for MySQL？
 
@@ -48,11 +48,7 @@ ms.locfileid: "72178114"
 Azure 領先業界的 99.99% 可用性服務等級協定 (SLA) (Microsoft 受控資料中心的全球網路提供支援)，可協助讓您的應用程式 24 小時全年無休地運作。 使用每一 Azure Database for MySQL 伺服器，您可以利用內建的安全性、容錯功能，以及可能需要另外設計、購買、建置和管理的資料保護功能。 使用 Azure Database for MySQL，您可以使用時間點還原將伺服器回復成先前的狀態，最久可至 35 天前。
 
 ## <a name="secure-your-data"></a>保護您的資料
-Azure 資料庫服務一向重視資料安全性，Azure Database for MySQL 以限制存取、保護靜止和移動中資料及協助監視活動等功能承襲了這項傳統。 如需 Azure 平台安全性的相關資訊，請造訪 [Azure 信任中心](https://www.microsoft.com/en-us/trustcenter/security) \(英文\)。
-
-適用於 MySQL 的 Azure 資料庫服務針對待用資料儲存體加密是使用符合 FIPS 140-2 的加密模組。 資料 (包含備份) 會在磁碟上加密，但不包括執行查詢時所建立的暫存檔案。 該服務使用包含在 Azure 儲存體加密中的 AES 256 位元加密，且金鑰是由系統進行管理。 儲存體加密會一律啟用，且無法停用。
-
-根據預設，適用於 MySQL 的 Azure 資料庫服務已設為針對跨網路的動態資料需要 [SSL 連線安全性](./concepts-ssl-connection-security.md)。 在您的資料庫伺服器和用戶端應用程式之間強制使用 SSL 連線，可將伺服器與應用程式之間的資料流加密，有助於抵禦「中間人」攻擊。 (選擇性) 如果您的用戶端應用程式不支援 SSL 連線能力，您可以停用需要 SSL 才能連接到您資料庫服務的功能。
+Azure 資料庫服務一向重視資料安全性，Azure Database for MySQL 以限制存取、保護靜止和移動中資料及協助監視活動等功能承襲了這項傳統。 如需 Azure 平台安全性的相關資訊，請造訪 [Azure 信任中心](https://www.microsoft.com/trustcenter/security) \(英文\)。 如需適用於 MySQL 的 Azure 資料庫安全性功能的詳細資訊，請參閱[安全性概觀](concepts-security.md)。
 
 ## <a name="contacts"></a>連絡人
 若您對適用於 MySQL 的 Azure 資料庫有任何疑問或需要建議，請傳送電子郵件給適用於 MySQL 的 Azure 資料庫小組 ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com))。 此電子郵件地址不是技術支援的別名。

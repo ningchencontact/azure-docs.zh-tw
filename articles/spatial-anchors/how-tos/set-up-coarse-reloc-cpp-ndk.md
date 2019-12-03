@@ -1,5 +1,5 @@
 ---
-title: 如何在 C++/NDK 中使用裝置上感應器建立和尋找錨點 | Microsoft Docs
+title: C++/NDK 中的粗略重新定位
 description: 深入說明如何在 C++/NDK 中使用裝置上感應器建立和尋找錨點。
 author: bucurb
 manager: dacoghl
@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f5de4ae050ff01bc86f8c1e11a2afb2887fd8bd7
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: e505e6a8a3c9f28905c1b1fc3d90dbeee959a793
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093024"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277254"
 ---
 # <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-cndk"></a>如何在 C++/NDK 中使用裝置上感應器建立和尋找錨點
 

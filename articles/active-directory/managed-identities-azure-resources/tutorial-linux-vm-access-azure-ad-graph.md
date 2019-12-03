@@ -1,5 +1,5 @@
 ---
-title: 使用 Linux VM 系統指派的受控識別來存取 Azure AD Graph API
+title: 教學課程`:` 使用 Linux VM 受控識別來存取 Azure AD Graph API
 description: 本教學課程會逐步引導您使用 Linux VM 系統指派的受控識別，以存取 Azure AD Graph API。
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 481cb560daa26e59de2c78cc64bab9fb168eed58
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 68d560e7d326cc2ddc47ed9f689dc8e31f8ab9ff
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445404"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183651"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>教學課程：使用 Linux VM 系統指派的受控識別來存取 Azure AD Graph API
 
@@ -134,7 +134,7 @@ Azure AD Graph：
 
 若要完成這些步驟，您需要 SSH 用戶端。 如果您使用 Windows，您可以在[適用於 Linux 的 Windows 子系統](https://msdn.microsoft.com/commandline/wsl/about)中使用 SSH 用戶端。 如果您需要設定 SSH 用戶端金鑰的協助，請參閱[如何在 Azure 上搭配 Windows 使用 SSH 金鑰](../../virtual-machines/linux/ssh-from-windows.md)，或[如何在 Azure 中建立和使用 Linux VM 的 SSH 公開和私密金鑰組](../../virtual-machines/linux/mac-create-ssh-keys.md)。
 
-1. 在入口網站中，瀏覽至 [Linux VM]，並在 [概觀] 中按一下 [連線]。  
+1. 在入口網站中，瀏覽至 [Linux VM]，並在 [概觀]  中按一下 [連線]  。  
 2. 使用您所選擇的 SSH 用戶端來**連線**到 VM。 
 3. 在終端機視窗中，使用 CURL 向 Azure 資源端點的本機受控識別提出要求，以取得 Azure AD Graph 的存取權杖。  
     

@@ -1,18 +1,18 @@
 ---
-title: Azure Migrate 中的新功能 | Microsoft Docs
-description: 提供 Azure Migrate 服務的概觀。
+title: Azure Migrate 中的新功能
+description: 了解 Azure Migrate 服務中的新功能和最新更新。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/06/2019
+ms.date: 11/18/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: af9305aafc3a77df9d7c4cffa65f6c61c53ad8a4
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: b3b8e24e7d84e492aeaba64573b6e909707bc5a5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715386"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185760"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate 中的新功能
 
@@ -22,12 +22,7 @@ ms.locfileid: "73715386"
 
 ## <a name="update-november-2019"></a>更新 (2019 年 11 月)
 
-
-
 Azure Migrate 加入了一些新功能：
-
-> [!NOTE]
-> 如果您還沒在 Azure Migrate 入口網站中看到某些功能，請稍候。 它們將會在下週前後出現。
 
 - **實體伺服器評量**。 除了已支援的實體伺服器移轉之外，現在也支援內部部署實體伺服器的評量。
 - **以匯入為基礎的評量**。 現在支援使用 CSV 檔案中提供的中繼資料和效能資料來進行機器評量。
@@ -45,9 +40,9 @@ Azure Migrate 新增了新的評量和移轉工具：
 
 ## <a name="release-version-july-2019"></a>發行版本 (2019 年 7 月)
 
-目前的 Azure Migrate 版本已於 2019 年 7 月發行。 
+目前的 Azure Migrate 版本已於 2019 年 7 月發行。
 
-- **目前的版本**：使用此版本來建立 Azure Migrate 專案、探索內部部署電腦，以及協調評量與移轉。 
+- **目前的版本**：使用此版本來建立 Azure Migrate 專案、探索內部部署電腦，以及協調評量與移轉。
 - **先前版本**：針對使用舊版 Azure Migrate (僅支援內部部署 VMware VM 的評量) 的客戶，您現在應該改為使用目前的版本。 在舊版中，您已無法建立新的 Azure Migrate 專案，或是執行新的探索。 您仍然可以存取現有的專案。 若要這樣做，請在 Azure 入口網站 > [所有服務]  中搜尋 **Azure Migrate**。 在 [Azure Migrate] 的通知中，會有可存取舊 Azure Migrate 專案的連結。
 
 
@@ -65,7 +60,7 @@ Azure Migrate 新增了新的評量和移轉工具：
     - 該設備會持續探索伺服器中繼資料與效能資料，以用於評量及移轉的目的。  
 - **VMware VM 移轉**：Azure Migrate 伺服器移轉會提供數種方法，來將內部部署 VMware VM 移轉至 Azure。  其中一個是使用 Azure Migrate 設備的無代理程式移轉，而另一個則是使用複寫設備，且會在您想要移轉的每部 VM 上部署代理程式的代理程式型移轉。 [深入了解](server-migrate-overview.md)
  - **資料庫評量及移轉**：從 Azure Migrate，您可以使用 Azure Data Migration Assistant 來針對內部部署資料庫進行移轉上的評量。 您可以使用 Azure 資料庫移轉服務來移轉資料庫。
-- **Web 應用程式移轉**：您可以搭配 Azure App Service 使用公用端點 URL 來存取 Web 應用程式。 針對內部 .NET 應用程式的部署，您可以下載並執行 App Service 移轉小幫手。 
+- **Web 應用程式移轉**：您可以搭配 Azure App Service 使用公用端點 URL 來存取 Web 應用程式。 針對內部 .NET 應用程式的部署，您可以下載並執行 App Service 移轉小幫手。
 - **資料箱**：在 Azure Migrate 中使用 Azure 資料箱將大量離線檔案匯入 Azure。
 
 

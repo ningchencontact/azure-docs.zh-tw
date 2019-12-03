@@ -10,12 +10,12 @@ ms.subservice: luis
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: b65bf177d98d5b0bcbaf9e9eaf06707b43ed7032
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 47913f86edcf83825254775705e38310f3c2c6b4
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647430"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325900"
 ---
 若要在聊天機器人或其他應用程式中收到 LUIS 預測，您必須將應用程式發佈到端點。 
 
@@ -27,7 +27,7 @@ ms.locfileid: "73647430"
 
     ![LUIS 發佈到端點](../media/howto-publish/publish-app-popup.png)
 
-3. 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
+3. 當您在頁面頂端看到確認成功的狀態列時，就表示發佈完成。
 
     ![LUIS 發佈到端點](../media/howto-publish/publish-endpoint-success.png)
 

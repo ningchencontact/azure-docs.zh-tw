@@ -1,19 +1,19 @@
 ---
 title: 快速入門：在 Azure 入口網站中建立技能集
 titleSuffix: Azure Cognitive Search
-description: 使用「匯入資料」精靈將認知技能新增至索引管線。 認知技能包括光學字元辨識 (OCR) 和自然語言處理。
+description: 在本入口網站快速入門中，了解如何使用「匯入資料」精靈，在 Azure 認知搜尋中將認知技能新增至索引編製管線。 這些技能包括光學字元辨識 (OCR) 和自然語言處理。
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 2280b718fe949384bb67b1b606ab143ddca8e077
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 5e891627b337a0a3a15d0ebfa2b9cc95f27feca4
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113362"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533126"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Azure 認知搜尋的認知技能集
 
@@ -31,7 +31,7 @@ ms.locfileid: "74113362"
 
 1. [下載範例資料](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)，其中有不同類型的小型檔案集。 將檔案解壓縮。
 
-1. [建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)，或在您目前的訂用帳戶下方[尋找現有帳戶](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/)。 
+1. [建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)，或[尋找現有帳戶](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/)。 
 
    選擇與 Azure 認知搜尋相同的區域。 如果您想要稍後在另一個逐步解說中試用知識存放區功能，請選擇 [StorageV2 (一般用途 V2)] 帳戶類型。 否則，請選擇任何類型。
 
@@ -41,7 +41,7 @@ ms.locfileid: "74113362"
 
    ![Azure Blob 儲存體中的來源檔案](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-1. [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在相同訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
+1. [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
 
 <!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. In many tutorials, especially those that use the REST API, you will need a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
 
@@ -152,7 +152,7 @@ CTRL-F 也可協助您判斷指定的結果集中有多少文件。 針對 Azure
 
 最後，您已了解可以藉由查詢索引來驗證內容。 最終，Azure 認知搜尋所提供的就是可搜尋的索引，且您可以使用[簡單](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)或[完全展開的查詢語法](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)加以查詢。 包含擴充欄位的索引都彼此類似。 無論您想要加入標準或[自訂分析器](search-analyzers.md)、[評分設定檔](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)、[同義字](search-synonyms.md)、[多面向篩選](search-filters-facets.md)、地理搜尋，或任何其他 Azure 認知搜尋功能，全都沒有問題。
 
-## <a name="clean-up"></a>清除
+## <a name="clean-up-resources"></a>清除資源
 
 使用您自己的訂用帳戶時，在專案結束後確認您是否還需要您建立的資源，是很好的做法。 讓資源繼續執行可能會產生費用。 您可以個別刪除資源，或刪除資源群組以刪除整組資源。
 
@@ -160,12 +160,12 @@ CTRL-F 也可協助您判斷指定的結果集中有多少文件。 針對 Azure
 
 如果您使用免費服務，請記住您會有三個索引、索引子和資料來源的限制。 您可以在入口網站中刪除個別項目，以避免超出限制。 
 
+> [!Tip]
+> 如果您想要重複此練習，或嘗試不同的 AI 擴充逐步解說，請刪除入口網站中的索引子。 刪除索引子，會將認知服務處理的免費每日交易計數器重設回零。
+
 ## <a name="next-steps"></a>後續步驟
 
 您可以使用入口網站、.NET SDK 或 REST API 來建立技能集。 若要進一步精進知識，請使用 Postman 和更多範例資料來試用 REST API。
 
 > [!div class="nextstepaction"]
 > [教學課程：使用 AI 擴充將結構新增至「非結構化內容」](cognitive-search-tutorial-blob.md)
-
-> [!Tip]
-> 如果您想要重複此練習，或嘗試不同的 AI 擴充逐步解說，請刪除入口網站中的索引子。 刪除索引子，會將認知服務處理的免費每日交易計數器重設回零。

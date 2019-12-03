@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: cba0a9a003b53eeb102e14c00cb91f344ebbe3d6
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 0aecf2284e448f879bc20391c8528f8efde42d94
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821875"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184964"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>快速入門：將功能旗標新增至 .NET Framework 應用程式
 
@@ -33,7 +33,7 @@ ms.locfileid: "72821875"
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>建立應用程式設定存放區
+## <a name="create-an-app-configuration-store"></a>建立應用程式組態存放區
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -45,7 +45,7 @@ ms.locfileid: "72821875"
 
 1. 在 [設定您的新專案]  中，輸入專案名稱。 在 [架構]  底下，選取 [.NET Framework 4.7.1]  或更高版本。 按一下頁面底部的 [新增]  。
 
-## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式設定存放區
+## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式組態存放區
 
 1. 以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]  。 在 [瀏覽]  索引標籤上，搜尋下列 NuGet 套件並新增至您的專案。 如果您找不到它們，請選取 [包括發行前版本]  核取方塊。
 
@@ -91,7 +91,7 @@ ms.locfileid: "72821875"
 
 ## <a name="build-and-run-the-app-locally"></a>於本機建置並執行應用程式
 
-1. 將名為 **ConnectionString** 的環境變數設定為應用程式設定存放區的連接字串。 如果您使用 Windows 命令提示字元，請執行下列命令：
+1. 將名為 **ConnectionString** 的環境變數設定為應用程式組態存放區的連接字串。 如果您使用 Windows 命令提示字元，請執行下列命令：
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 

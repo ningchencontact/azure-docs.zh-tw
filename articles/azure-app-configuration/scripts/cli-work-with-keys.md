@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 11/08/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: d89fa4c067e511e6210e8c1473bf1856297fc1de
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 51697aa426a638ad536390c4114df5faa18a41ef
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904083"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184877"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>在 Azure 應用程式設定存放區中搭配使用索引鍵/值
 
@@ -88,12 +88,12 @@ az appconfig kv list --name $appConfigName
 
 | 命令 | 注意 |
 |---|---|
-| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig) | 建立或更新索引鍵/值。 |
-| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig) | 列出應用程式設定存放區中的索引鍵/值。 |
-| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig) | 刪除索引鍵/值。 |
+| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-set) | 建立或更新索引鍵/值。 |
+| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | 列出應用程式設定存放區中的索引鍵/值。 |
+| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-delete) | 刪除索引鍵/值。 |
 
 ## <a name="next-steps"></a>後續步驟
 
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](/cli/azure)。
 
-您可以在 [Azure 應用程式設定文件](../cli-samples.md)中找到其他的應用程式設定 CLI 指令碼範例。
+您可以在 [Azure 應用程式組態 CLI 範例](../cli-samples.md)中找到其他的應用程式組態 CLI 指令碼範例。

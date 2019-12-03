@@ -1,27 +1,19 @@
 ---
 title: 什麼是 Microsoft Flow、Logic Apps、Azure Functions 和 WebJobs？ - Azure
 description: 比較已針對整合工作最佳化的 Microsoft 雲端服務：Microsoft Flow、Logic Apps、Azure Functions 和 WebJobs。
-services: functions, logic-apps
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: microsoft flow, 流程, logic apps, azure functions, 函數, azure webjobs, webjobs, 事件處理, 動態計算, 無伺服器架構
-ms.service: azure-functions
 ms.topic: overview
 ms.date: 04/09/2018
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e599ff280481549f68822d96f97b85f2516b1593
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: a20729e7c47e6bf2ad77e47fa228495d8b482aab
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082756"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278636"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>什麼是 Microsoft Flow、Logic Apps、Azure Functions 和 WebJobs？
 
-本文會比較下列 Microsoft 雲端服務：
-
+本文會比較下列 Microsoft 雲端 
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
@@ -56,8 +48,8 @@ Functions 和 Logic Apps 都是可啟用無伺服器工作負載的 Azure 服務
 
 對於 Azure Functions，您可以透過撰寫程式碼和使用 [Durable Functions 擴充功能](durable/durable-functions-overview.md)來開發協調流程。 對於 Logic apps，您可以使用 GUI 或編輯組態檔來建立協調流程。
 
-您可以在建置協調流程時混合搭配服務，從邏輯應用程式呼叫函式和從函式呼叫邏輯應用程式。 選擇如何建置每個協調流程，取決於服務的功能或您的個人喜好。 下表列出這些服務之間的一些主要差異：
- 
+您可以在建置協調流程時混合搭配服務，從邏輯應用程式呼叫函式和從函式呼叫邏輯應用程式。 選擇如何建置每個協調流程，取決於服務的功能或您的個人喜好。 下表列出其間的一些主要差異：
+
 |  | 長期函式 | Logic Apps |
 | --- | --- | --- |
 | 開發 | Code First (命令式) | Designer First (宣告式) |

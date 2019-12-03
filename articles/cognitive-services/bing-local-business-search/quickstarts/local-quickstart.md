@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - 傳送查詢至以 C# 撰寫的 Bing 當地企業搜尋 API
+title: 快速入門 - 傳送查詢至以 C# 撰寫的 API - Bing 當地企業搜尋
 titleSuffix: Azure Cognitive Services
 description: 使用此快速入門開始向 Bing 當地商家搜尋 API 傳送要求，該 API 是 Azure 認知服務。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 04/26/2019
 ms.author: rosh
-ms.openlocfilehash: d14e9dd8d02db7ca0131927682804fe81b750d97
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 439f775fb6124c847631467caabe3f48cfa6b645
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072333"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326716"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>快速入門：傳送查詢至以 C# 撰寫的 Bing 當地商家搜尋 API
 

@@ -1,21 +1,20 @@
 ---
 title: Azure 原則的概觀
 description: Azure 原則是 Azure 中的一個服務，您可以在 Azure 環境中用來建立、指派和管理原則定義。
-ms.date: 12/06/2018
+ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: e6b74eb2ffe15256523e46f0c246ba9f4d399c4d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: db6a7c592213b0ef8a17466300c37c859e96476b
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959332"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484008"
 ---
-# <a name="overview-of-the-azure-policy-service"></a>Azure 原則服務的概觀
+# <a name="what-is-azure-policy"></a>什麼是 Azure 原則？
 
 控管可驗證貴組織是否能夠透過富有效率及效益的 IT 使用方式來達成其目標。 透過在商務目標與 IT 專案之間建立明確見地符合此需求。
 
-您公司是否遇到似乎永遠無法解決的大量 IT 問題？
-良好的 IT 控管包括規劃您的方案，以及在策略層級上設定優先順序，以協助管理及避免問題。 此策略性需求是 Azure 原則存在的理由。
+您公司是否遇到似乎永遠無法解決的大量 IT 問題？ 良好的 IT 控管包括規劃您的方案，以及在策略層級上設定優先順序，以協助管理及避免問題。 此策略性需求是 Azure 原則存在的理由。
 
 Azure 原則是 Azure 中的一個服務，您可以用來建立、指派和管理原則。 這些原則會對您的資源強制執行不同的規則和效果，讓這些資源能符合公司標準和服務等級協定的規範。 Azure 原則會透過評估您的資源是否符合指派的策略來滿足此需求。 例如，您可以設定原則，在環境中只允許特定 SKU 大小的虛擬機器。 實作此原則之後，會評估新資源和現有資源的合規性。 使用適當類型的原則，現有的資源就可以合規。 稍後在本文件中，我們將介紹更多關於如何使用 Azure 原則來建立及實作原則的詳細資料。
 
@@ -35,7 +34,7 @@ Azure 原則在下列兩個資源提供者中有數個權限，一般稱之為�
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-許多內建角色都會授與 Azure 原則資源的權限。 **資源原則參與者 (預覽)** 角色包含大部分的 Azure 原則作業。 **擁有者**則具有完整權限。 **參與者**和**讀取者**都可以使用所有讀取的 Azure 原則作業，但**參與者**也可以觸發修復。
+許多內建角色都會授與 Azure 原則資源的權限。 [資源原則參與者]  角色包含大部分的 Azure 原則作業。 **擁有者**則具有完整權限。 **參與者**和**讀取者**都可以使用所有讀取的 Azure 原則作業，但**參與者**也可以觸發修復。
 
 沒有任何內建角色具有所需的權限，請建立[自訂角色](../../role-based-access-control/custom-roles.md)。
 
@@ -81,6 +80,9 @@ Azure 原則在下列兩個資源提供者中有數個權限，一般稱之為�
 
 計畫定義是針對達到單一主要目標而量身打造的原則定義集合。 計畫定義可讓管理及指派原則定義更為簡單。 其簡化方式是將一組原則組成單一項目。 例如，您可以建立一個標題為**在 Azure 資訊安全中心啟用監視**的計畫，目標是要在您的 Azure 資訊安全中心監視所有可用的安全性建議。
 
+> [!NOTE]
+> SDK (例如 Azure CLI 和 Azure PowerShell) 會使用名為 **PolicySet** 的屬性和參數來參考計畫。
+
 在這項計畫之下，您可能會有如下的原則定義：
 
 - **在資訊安全中心監視未加密的 SQL Database** – 適用於監視未加密的 SQL 資料庫和伺服器。
@@ -125,11 +127,12 @@ Azure 原則在下列兩個資源提供者中有數個權限，一般稱之為�
 - 在建立定義和指派時，請考慮組織階層。 建議您在較高的層級建立定義，例如管理群組或訂用帳戶層級。 接著，在下一個子層級建立指派。 如果您在管理群組建立定義，可以將指派的範圍縮小為該管理群組內的訂用帳戶或資源群組。
 
 - 即使是針對單一原則定義，也建議您建立並指派計畫定義。
-例如，您有原則定義 *policyDefA*，並建立計畫定義 *initiativeDefC* 下建立該定義。 如果您稍後針對 *policyDefB* 建立另一個目標類似 *policyDefA* 的原則定義，您可以在 *initiativeDefC* 底下加入該定義，並一起進行追蹤。
+  例如，您有原則定義 *policyDefA*，並建立計畫定義 *initiativeDefC* 下建立該定義。 如果您稍後針對 *policyDefB* 建立另一個目標類似 *policyDefA* 的原則定義，您可以在 *initiativeDefC* 底下加入該定義，並一起進行追蹤。
 
 - 一旦您建立了計畫指派之後，則加入至計畫的原則定義也會成為該計畫指派的一部分。
 
-- 評估計畫指派時，也會評估該計畫內的所有原則。 如果您需要個別評估原則，最好不要包含在計畫中。
+- 評估計畫指派時，也會評估該計畫內的所有原則。
+  如果您需要個別評估原則，最好不要包含在計畫中。
 
 ## <a name="video-overview"></a>影片概觀
 
@@ -141,8 +144,6 @@ Azure 原則在下列兩個資源提供者中有數個權限，一般稱之為�
 
 現在您已大概了解 Azure 原則，以及一些重要概念，以下是建議的後續步驟：
 
-- [使用入口網站指派原則定義](assign-policy-portal.md)。
-- [使用 Azure CLI 指派原則定義](assign-policy-azurecli.md)。
-- [使用 PowerShell 指派原則定義](assign-policy-powershell.md)。
-- 透過[使用 Azure 管理群組來組織資源](..//management-groups/overview.md)來檢閱何謂管理群組。
-- 檢視 Channel 9 上的[透過 Azure 原則控管您的 Azure 環境](https://channel9.msdn.com/events/Build/2018/THR2030) \(英文\)。
+- [使用入口網站指派原則定義](./assign-policy-portal.md)。
+- [使用 Azure CLI 指派原則定義](./assign-policy-azurecli.md)。
+- [使用 PowerShell 指派原則定義](./assign-policy-powershell.md)。

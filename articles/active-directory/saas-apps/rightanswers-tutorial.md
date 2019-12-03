@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: f242b2e33b50aa955446ae2b1f62421d39e58418
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8b1f7590e13be97841aae95ec47eaaa61ab004a9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098892"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233482"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>教學課程：Azure Active Directory 與 RightAnswers 整合
 
@@ -191,7 +191,7 @@ RightAnswers 與 Azure AD 整合提供下列優點：
 第一次嘗試單一登入時，會視需要自動建立使用者。
 
 > [!NOTE]
-> 您可以使用任何其他的 RightAnswers 使用者帳戶建立工具或 RightAnswers 提供的 API 來佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 RightAnswers 使用者帳戶建立工具或 RightAnswers 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

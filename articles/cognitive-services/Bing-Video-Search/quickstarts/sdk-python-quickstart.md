@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用適用於 Python 的 Bing 影片搜尋 SDK 來搜尋影片
+title: 快速入門：使用適用於 Python 的 SDK 來搜尋影片 - Bing 影片搜尋
 titleSuffix: Azure Cognitive Services
 description: 透過本快速入門，使用適用於 Python 的 Bing 影片搜尋 SDK 來傳送影片搜尋要求
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 5fb6b2b349712a04b79564f9b748538a5cc32d73
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 62f929f3428ef7534d833e54b0b8f492636b8a7e
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446990"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378759"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-python"></a>快速入門：使用適用於 Python 的 Bing 影片搜尋 SDK 來執行影片搜尋
 

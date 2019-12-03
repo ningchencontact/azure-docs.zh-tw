@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 Azure Digital Twins 監視空間
+title: 教學課程：監視 IoT 裝置空間 - Azure Digital Twins| Microsoft Docs
 description: 了解如何依照本教學課程中的步驟，使用 Azure Digital Twins 來佈建空間資源及監視運作狀況。
 services: digital-twins
 ms.author: alinast
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 6c9403f8355d2f842226c9c7257803edd3215829
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 80fd1275f3bf9585ff8e40a94d0de2d422baec71
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107493"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383231"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>教學課程：使用 Azure Digital Twins 預覽版來佈建建築物及監視運作狀況
 

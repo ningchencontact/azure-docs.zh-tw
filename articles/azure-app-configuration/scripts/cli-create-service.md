@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8a58b73f3f3acb8d7c6ced9e0086687b54fff734
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: cd150368898b3f02b4366debbe775ece76b23043
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029802"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184895"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>建立 Azure 應用程式設定存放區
 
@@ -71,16 +71,16 @@ echo "$connstring"
 
 ## <a name="script-explanation"></a>指令碼說明
 
-此指令碼使用下列命令來建立新資源群組與應用程式設定存放區。 下表中的每個命令都會連結至命令特定的文件。
+此指令碼使用下列命令來建立新的資源群組與應用程式組態存放區。 下表中的每個命令都會連結至命令特定的文件。
 
 | 命令 | 注意 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
-| [az appconfig create](/cli/azure/ext/appconfig/appconfig) | 建立應用程式設定存放區資源。 |
-| [az appconfig key list](/cli/azure/ext/appconfig/appconfig/kv) | 列出應用程式設定存放區中儲存的索引鍵。 |
+| [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | 建立應用程式組態存放區資源。 |
+| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | 列出應用程式組態存放區中儲存的索引鍵。 |
 
 ## <a name="next-steps"></a>後續步驟
 
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](/cli/azure)。
 
-您可以在 [Azure 應用程式設定文件](../cli-samples.md)中找到其他的應用程式設定 CLI 指令碼範例。
+您可以在 [Azure 應用程式組態 CLI 範例](../cli-samples.md)中找到其他的應用程式組態 CLI 指令碼範例。

@@ -1,14 +1,14 @@
 ---
-title: 使用藍圖鎖定保護新資源
-description: 在此教學課程中，您將了解如何使用 Azure 藍圖資源鎖定的「唯讀」和「請勿刪除」選項來保護新部署的資源。
-ms.date: 03/28/2019
+title: 教學課程：使用鎖定保護新資源
+description: 在本教學課程中，您將使用 Azure 藍圖資源鎖定的「唯讀」和「請勿刪除」選項來保護新部署的資源。
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: e2adbb1e47222055753d4b3690646daa83b32bf1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ee57ff0c08f4fb8aa710dd2fa4dcef664484973d
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960258"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327452"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>教學課程：使用 Azure 藍圖資源鎖定保護新資源
 
@@ -25,7 +25,7 @@ ms.locfileid: "73960258"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free)。
 
 ## <a name="create-a-blueprint-definition"></a>建立藍圖定義
 
@@ -53,9 +53,10 @@ ms.locfileid: "73960258"
    1. 選取 [新增]  以將成品新增至藍圖。
 
 1. 在資源群組下新增範本：
-   1. 選取 [RGtoLock]  項目下方的 [新增成品]  資料列。 
-   1. 在 [成品類型]  下選取 [Azure Resource Manager 範本]  ，並將 [成品顯示名稱]  設為 [儲存體帳戶]  ，將 [描述]  保留為空白。 
-   1. 在 [範本]  索引標籤中，將以下的 Resource Manager 範本貼到編輯器方塊。 貼到範本之後，請選取 [新增]  ，以將成品新增至藍圖。
+   1. 選取 [RGtoLock]  項目下方的 [新增成品]  資料列。
+   1. 在 [成品類型]  下選取 [Azure Resource Manager 範本]  ，並將 [成品顯示名稱]  設為 [儲存體帳戶]  ，將 [描述]  保留為空白。
+   1. 在 [範本]  索引標籤中，將以下的 Resource Manager 範本貼到編輯器方塊。
+      貼到範本之後，請選取 [新增]  ，以將成品新增至藍圖。
 
    ```json
    {
@@ -224,9 +225,7 @@ ms.locfileid: "73960258"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解[藍圖生命週期](../concepts/lifecycle.md)。
-- 了解如何使用[靜態與動態參數](../concepts/parameters.md)。
-- 了解如何使用[藍圖資源鎖定](../concepts/resource-locking.md)。
-- 了解如何自訂[藍圖排序順序](../concepts/sequencing-order.md)。
-- 了解如何[更新現有的指派](../how-to/update-existing-assignments.md)。
-- 藍圖指派期間的[問題疑難排解](../troubleshoot/general.md)。
+在本教學課程中，您已了解如何使用 Azure 藍圖來保護已部署的新資源。 若要深入了解 Azure 藍圖，請繼續閱讀藍圖生命週期文章。
+
+> [!div class="nextstepaction"]
+> [了解藍圖生命週期](../concepts/lifecycle.md)

@@ -1,5 +1,5 @@
 ---
-title: 如何在 C# 中使用裝置上感應器建立和尋找錨點 | Microsoft Docs
+title: Unity 中的粗略重新定位
 description: 深入說明如何在 C# 中使用裝置上感應器建立和尋找錨點。
 author: bucurb
 manager: dacoghl
@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 409eb2e6bb9d77ac7a204fe119d9a73cc493933f
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 8b960ee168a1af66cafc52082138097cda240c9a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092974"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277159"
 ---
 # <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-c"></a>如何在 C# 中使用裝置上感應器建立和尋找錨點
 

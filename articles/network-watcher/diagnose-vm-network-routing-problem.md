@@ -1,5 +1,6 @@
 ---
-title: 診斷虛擬機器網路路由問題 - 教學課程 - Azure 入口網站 | Microsoft Docs
+title: 教學課程：診斷 VM 網路路由問題 - Azure 入口網站
+titleSuffix: Azure Network Watcher
 description: 在本教學課程中，您將了解如何使用 Azure 網路監看員的下一個躍點功，來診斷虛擬機器網路路由問題。
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,16 +18,16 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3ad9cd8b620b55aaa17e84343a82ac361081de44
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f9c7139dc9c27ed5b4f97f38e98b4663e9676288
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684524"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276036"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站診斷虛擬機器網路路由問題
 
-當您部署虛擬機器 (VM) 時，Azure 會為其建立數個預設路由。 您可以建立自訂路由來覆寫 Azure 的預設路由。 有時候，自訂路由可能會導致 VM 無法與其他資源通訊。 在本教學課程中，您了解如何：
+當您部署虛擬機器 (VM) 時，Azure 會為其建立數個預設路由。 您可以建立自訂路由來覆寫 Azure 的預設路由。 有時候，自訂路由可能會導致 VM 無法與其他資源通訊。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立 VM
@@ -36,7 +37,7 @@ ms.locfileid: "64684524"
 
 如果您想要，也可以使用 [Azure CLI](diagnose-vm-network-routing-problem-cli.md) 或 [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md) 來診斷虛擬機器網路路由問題。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
@@ -50,7 +51,7 @@ ms.locfileid: "64684524"
 
     |設定|值|
     |---|---|
-    |Name|myVm|
+    |名稱|myVm|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |訂用帳戶| 選取您的訂用帳戶。|

@@ -1,19 +1,19 @@
 ---
 title: 在 Azure 入口網站中建立搜尋索引
 titleSuffix: Azure Cognitive Search
-description: 使用「匯入資料」精靈，在 Azure 認知搜尋中建立、載入及查詢您的第一個搜尋索引。
+description: 在本入口網站快速入門中，了解如何使用「匯入資料」精靈，在 Azure 認知搜尋中建立、載入及查詢您的第一個搜尋索引。
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: ee4e9bd5487382ebb6f57996aac5d3de1ff6162a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: be2425d97573e7990ea7f0dfd4c2d999e85fe922
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890108"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407004"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Azure 認知搜尋索引
 > [!div class="op_single_selector"]
@@ -25,14 +25,7 @@ ms.locfileid: "73890108"
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 
-使用入口網站快速掌握概念，並在短短幾分鐘內撰寫對索引的有趣查詢。
-
-> [!div class="checklist"]
-> * 以裝載於 Azure 上免費公開範例資料集開始使用
-> * 執行 Azure 認知搜尋中的**匯入資料**精靈，以載入資料並產生索引
-> * 在入口網站中監視索引編製進度
-> * 檢視現有的索引和加以修改的選項
-> * 使用**搜尋總管**探索全文檢索搜尋、篩選器、Facet、模糊搜尋和地理搜尋功能
+使用入口網站的**匯入資料**精靈和**搜尋總管**工具，快速掌握概念，並在短短幾分鐘內撰寫對索引的有趣查詢。
 
 如果這些工具限制過多，建議您參考[使用 .NET 進行 Azure 認知搜尋程式設計的程式碼型簡介](search-howto-dotnet-sdk.md)，或使用[發出 REST API 呼叫的 Postman](search-get-started-postman.md)。 
 
@@ -265,7 +258,7 @@ Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳
 
 您也已了解如何在入口網站中尋找索引、索引子和資料來源。 日後若有任何新的資料來源，您就可以使用入口網站以最省力的方式快速檢查其定義或欄位集合。
 
-## <a name="clean-up"></a>清除
+## <a name="clean-up-resources"></a>清除資源
 
 使用您自己的訂用帳戶時，在專案結束後確認您是否還需要您建立的資源，是很好的做法。 讓資源繼續執行可能會產生費用。 您可以個別刪除資源，或刪除資源群組以刪除整組資源。
 
@@ -275,8 +268,7 @@ Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳
 
 ## <a name="next-steps"></a>後續步驟
 
-您可以使用程式設計工具深入探索 Azure 認知搜尋：
+雖然入口網站很適合用於初始探索和小型工作，但在初期檢閱 API 將協助您了解更深層級的概念和工作流程：
 
-* [使用 .NET SDK 建立索引](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [使用 REST API 建立索引](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [使用 Postman 或 Fiddler 與 Azure 認知搜尋 REST API 建立索引](search-get-started-postman.md)
+> [!div class="nextstepaction"]
+> [使用 .NET SDK 建立索引](https://docs.microsoft.com/azure/search/search-create-index-dotnet)

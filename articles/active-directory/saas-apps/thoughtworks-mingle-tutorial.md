@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4ea2a88c92dcd52e99bb98563cf76d2c5501ef6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a12d4dca61734275ef0e56dfe2a800c64dc52540
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088757"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233298"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>教學課程：Azure Active Directory 與 Thoughtworks Mingle 整合
 
@@ -130,7 +130,7 @@ ms.locfileid: "67088757"
 
 2. 按一下 [管理]  索引標籤，然後按一下 [SSO 組態]  。
    
-    ![[管理] 索引標籤](./media/thoughtworks-mingle-tutorial/ic785157.png "SSO 組態")
+    ![管理索引標籤](./media/thoughtworks-mingle-tutorial/ic785157.png "SSO 組態")
 
 3. 在 [SSO 組態]  區段中，執行下列步驟：
    
@@ -212,7 +212,7 @@ ms.locfileid: "67088757"
 
 5. 在 [新增使用者]  對話頁面上，執行下列步驟：
    
-    ![[新增使用者] 對話方塊](./media/thoughtworks-mingle-tutorial/ic785163.png "[新增使用者]")  
+    ![新增使用者對話方塊](./media/thoughtworks-mingle-tutorial/ic785163.png "新增使用者")  
  
     a. 在相關的文字方塊中，輸入您要佈建之有效 Azure AD 帳戶的 [登入名稱]  、[顯示名稱]  、[選擇密碼]  、[確認密碼]  。 
 
@@ -221,7 +221,7 @@ ms.locfileid: "67088757"
     c. 按一下 [建立這個設定檔]  。
 
 >[!NOTE]
->您可以使用任何其他的 Thoughtworks Mingle 使用者帳戶建立工具或 Thoughtworks Mingle 提供的 API 來佈建 AAD 使用者帳戶。
+>您可以使用任何其他的 Thoughtworks Mingle 使用者帳戶建立工具或 Thoughtworks Mingle 提供的 API，來佈建 Azure AD 使用者帳戶。
 > 
 
 ### <a name="test-single-sign-on"></a>測試單一登入 

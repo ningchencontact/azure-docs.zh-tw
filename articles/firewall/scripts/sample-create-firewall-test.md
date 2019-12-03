@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 指令碼範例 - 建立 Azure 防火牆測試環境
-description: Azure PowerShell 指令碼範例 - 建立 Azure 防火牆測試環境。
+title: 建立 Azure 防火牆測試環境
+description: 此指令碼範例會建立防火牆和測試網路環境。 此網路具有一個 VNet 和三個子網路。
 services: virtual-network
 author: vhorne
 ms.service: firewall
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 8/13/2018
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: df7897e5b0941f1763f1a10e51d49827bd2ca63d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 6cb0eafce354ba54dd161fee52efe46677ad2765
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839271"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195892"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>建立 Azure 防火牆測試環境
 

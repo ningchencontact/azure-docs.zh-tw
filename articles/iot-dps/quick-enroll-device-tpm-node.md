@@ -1,21 +1,20 @@
 ---
-title: 快速入門：使用 Node.js 向 Azure 裝置佈建服務註冊 TPM 裝置
-description: Azure 快速入門 - 使用 Node.js 服務 SDK 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置。 本快速入門使用個別註冊。
+title: 使用 Node.js 向 Azure 裝置佈建服務註冊 TPM 裝置
+description: 快速入門 - 使用 Node.js 服務 SDK 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置。 本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 02d5ec3b7ddd960e15b75fd3aa6691a187b5911a
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 890ad28d99bfc53fa8a3fb40caf0469b31aeee61
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903478"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422960"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>快速入門：使用 Node.js 服務 SDK 向 IoT 中樞裝置佈建服務註冊 TPM 裝置
 
@@ -71,8 +70,8 @@ ms.locfileid: "73903478"
 ## <a name="run-the-individual-enrollment-sample"></a>執行個別註冊範例
   
 1. 若要執行範例，您需要佈建服務的連接字串。 
-    1. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源]  按鈕，然後開啟您的裝置佈建服務。 
-    2. 按一下 [共用存取原則]  ，然後按一下您要用來開啟其屬性的存取原則。 在 [存取原則]  視窗中，複製並記下主要索引鍵連接字串。 
+    1. 登入 Azure 入口網站，選取左側功能表上的 [所有資源]  按鈕，然後開啟您的裝置佈建服務。 
+    2. 選取 [共用存取原則]  ，然後選取您要用來開啟其屬性的存取原則。 在 [存取原則]  視窗中，複製並記下主要索引鍵連接字串。 
 
        ![從入口網站取得佈建服務連接字串](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 
 
@@ -93,7 +92,7 @@ ms.locfileid: "73903478"
 
     ![註冊命令輸出中的屬性](./media/quick-enroll-device-tpm-node/output.png) 
 
-4. 請確認已建立個別註冊。 在 Azure 入口網站的 [裝置佈建服務摘要] 刀鋒視窗上，選取 [管理註冊]  。 選取 [個別註冊]  索引標籤，按一下新的註冊項目 (第一個  ) 來驗證簽署金鑰和項目的其他屬性。
+4. 請確認已建立個別註冊。 在 Azure 入口網站的 [裝置佈建服務摘要] 刀鋒視窗上，選取 [管理註冊]  。 選取 [個別註冊]  索引標籤，選取新的註冊項目 (第一個  ) 來驗證簽署金鑰和項目的其他屬性。
 
     ![入口網站中的註冊屬性](./media/quick-enroll-device-tpm-node/verify-enrollment-portal.png) 
  
@@ -104,7 +103,7 @@ ms.locfileid: "73903478"
 
 1. 在您的電腦上關閉 Node.js 範例輸出視窗。
 1. 如果您建立了模擬的 TPM 裝置，請關閉 TPM 模擬器視窗。
-2. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，按一下 [管理註冊]  ，然後選取 [個別註冊]  索引標籤。選取您使用本快速入門建立之註冊項目的 [註冊識別碼]  ，然後按一下刀鋒視窗頂端的 [刪除]  按鈕。 
+2. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，選取 [管理註冊]  ，然後選取 [個別註冊]  索引標籤。選取您使用本快速入門所建立註冊項目的 [註冊識別碼]  旁的核取方塊，然後按窗格頂端的 [刪除]  按鈕。 
  
 ## <a name="next-steps"></a>後續步驟
 在本快速入門中，您已透過程式設計方式建立 TPM 裝置的個別註冊項目，並選擇性地在電腦上建立 TPM 模擬裝置，且使用 Azure IoT 中樞裝置佈建服務將它佈建到 IoT 中樞。 若要深入了解裝置佈建，請繼續在 Azure 入口網站中進行裝置佈建服務設定的教學課程。 

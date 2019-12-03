@@ -1,6 +1,6 @@
 ---
-title: 教學課程 - 使用 Azure CLI 建立適用於 Azure 資源的自訂角色 | Microsoft Docs
-description: 使用 Azure CLI 開始為 Azure 資源建立自訂角色。
+title: 教學課程 - 使用 Azure CLI 為 Azure 資源建立自訂角色
+description: 在本教學課程中，使用 Azure CLI 開始為 Azure 資源建立自訂角色。
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: de1805d91f48b5718ecf293c2b8672ba40fb81a9
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 29b0bea851466b5173711441a5a7927c796c9926
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588155"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419593"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>教學課程：使用 Azure CLI 為 Azure 資源建立自訂角色
 
 如果[適用於 Azure 資源的內建角色](built-in-roles.md)無法滿足您組織的特定需求，您可以建立自己的自訂角色。 在此教學課程中，您會使用 Azure CLI 建立名為讀者支援票證的自訂角色。 自訂角色可讓使用者檢視訂用帳戶的平面管理中的一切，也可開啟支援票證。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立自訂角色
@@ -32,7 +32,7 @@ ms.locfileid: "56588155"
 > * 更新自訂角色
 > * 刪除自訂角色
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 

@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 PHP 將搜尋要求傳送至 Bing 實體搜尋 REST API
+title: 快速入門：將搜尋要求傳送至以 PHP 撰寫的 REST API - Bing 實體搜尋
 titleSuffix: Azure Cognitive Services
 description: 使用此快速入門以運用 PHP 來傳送要求給「Bing 實體搜尋 REST API」，並接收 JSON 回應。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 5d57924a22ee097cfe7f492d18b8f84e7e658f41
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 2328313e15fafb3c0f96fdb77f3023afc1e4774f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478965"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323591"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>快速入門：使用 PHP 將搜尋要求傳送至 Bing 實體搜尋 REST API
 

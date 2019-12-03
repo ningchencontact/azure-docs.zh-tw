@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20d5db9656dbcab31d73e504f1ca67fd577aec8e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 6deeb224f8c70dabcf8c5a29e80e87414ea32657
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72439753"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561433"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 JIRA SAML SSO by Microsoft 整合
 
@@ -60,8 +60,8 @@ ms.locfileid: "72439753"
 
 ## <a name="supported-versions-of-jira"></a>支援的 JIRA 版本
 
-* JIRA 核心和軟體：6.4 到 8.2.4
-* JIRA Service Desk 3.0.0 到 4.2.1
+* JIRA 核心和軟體：6.4 至 8.5.1
+* JIRA Service Desk 3.0.0 至 4.5.1
 * JIRA 也支援 5.2。 如需詳細資訊，請按一下[適用於 JIRA 5.2 的 Microsoft Azure Active Directory 單一登入](jira52microsoft-tutorial.md)
 
 > [!NOTE]
@@ -102,7 +102,7 @@ ms.locfileid: "72439753"
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [JIRA SAML SSO by Microsoft]  應用程式整合分頁上，尋找 [管理]  區段並選取 [單一登入]  。
-1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
+1. 在 [**選取單一登入方法**] 頁面上，選取 [**SAML**]。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
    ![編輯基本 SAML 組態](common/edit-urls.png)

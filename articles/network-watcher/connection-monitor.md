@@ -1,6 +1,6 @@
 ---
-title: 監視網路通訊 - 教學課程 - Azure 入口網站 | Microsoft Docs
-description: 了解如何使用 Azure 網路監看員的連線監視功能，監視兩部虛擬機器之間的網路通訊。
+title: 教學課程 - 使用 Azure 入口網站監視網路通訊
+description: 在本教學課程中，了解如何使用 Azure 網路監看員的連線監視功能，監視兩部虛擬機器之間的網路通訊。
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 5cac4a46fb35ef955903018028abbe7588c94dc7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9d01060a966d55d26d7fc308ee352fb79cc73363
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233897"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419704"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站監視兩部虛擬機器之間的網路通訊
 
-虛擬機器 (VM) 與另一個端點 (例如另一部虛擬機器) 之間的成功通訊，對於您的組織很重要。 有時候，系統引入的組態變更會中斷通訊。 在本教學課程中，您了解如何：
+虛擬機器 (VM) 與另一個端點 (例如另一部虛擬機器) 之間的成功通訊，對於您的組織很重要。 有時候，系統引入的組態變更會中斷通訊。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立兩部虛擬機器
@@ -33,7 +33,7 @@ ms.locfileid: "66233897"
 > * 產生連線監視計量的警示
 > * 診斷兩部虛擬機器之間的通訊問題，並且了解可以如何解決
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -51,7 +51,7 @@ ms.locfileid: "66233897"
 
     |設定|值|
     |---|---|
-    |Name|myVm1|
+    |名稱|myVm1|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |訂用帳戶| 選取您的訂用帳戶。|
@@ -74,7 +74,7 @@ ms.locfileid: "66233897"
 |步驟|設定|值|
 |---|---|---|
 | 1 | 選取某個版本的 **Ubuntu Server** |                                                                         |
-| 3 | Name                                  | myVm2                                                                   |
+| 3 | 名稱                                  | myVm2                                                                   |
 | 3 | 驗證類型                   | 貼上您的 SSH 公開金鑰，或選取 [密碼]  ，然後輸入密碼。 |
 | 3 | 資源群組                        | 選取 [使用現有項目]  ，然後選取 [myResourceGroup]  。                 |
 | 6 | 擴充功能                            | **適用於 Linux 的網路監看員代理程式**                                             |
@@ -93,7 +93,7 @@ ms.locfileid: "66233897"
 
     | 設定                  | 值               |
     | ---------                | ---------           |
-    | Name                     | myVm1-myVm2(22)     |
+    | 名稱                     | myVm1-myVm2(22)     |
     | 來源                   |                     |
     | 虛擬機器          | myVm1               |
     | 目的地              |                     |
@@ -152,7 +152,7 @@ ms.locfileid: "66233897"
     | 目的地連接埠範圍 | 22             |
     | 動作                  | 拒絕           |
     | 優先順序                | 100            |
-    | Name                    | DenySshInbound |
+    | 名稱                    | DenySshInbound |
 
 5. 因為連線監視會每隔 60 秒進行探查，所以請稍候幾分鐘，然後在入口網站左側，依序選取 [網路監看員]  、[連線監視]  ，然後再次選取 [myVm1-myVm2(22)]  監視。 現在結果會不同，如下圖所示：
 

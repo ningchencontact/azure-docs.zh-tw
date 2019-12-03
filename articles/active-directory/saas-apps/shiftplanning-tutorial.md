@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a144bec0a610a5a47e8a9bf3ff6a5de05b239ed
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: fd7cfe93aa39982836944230f860c603c7117ceb
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159982"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233441"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>教學課程：Azure Active Directory 與 Humanity 整合
 
@@ -229,12 +229,12 @@ ms.locfileid: "73159982"
 
     ![儲存員工](./media/shiftplanning-tutorial/iC786625.png "儲存員工")
 
-    a. 在相關的文字方塊中，輸入您想要佈建之有效 AAD 帳戶的 [名字]  、[姓氏]  和 [電子郵件]  。
+    a. 在相關的文字方塊中，輸入您想要佈建的有效 Azure AD 帳戶的**名字**、**姓氏**和**電子郵件**。
 
     b. 按一下 [儲存員工]  。
 
 > [!NOTE]
-> 您可以使用任何其他的 Humanity 使用者帳戶建立工具或 Humanity 提供的 API 來佈建 AAD 使用者帳戶。
+> 您可以使用任何其他的 Humanity 使用者帳戶建立工具或 Humanity 提供的 API，來佈建 Azure AD 使用者帳戶。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

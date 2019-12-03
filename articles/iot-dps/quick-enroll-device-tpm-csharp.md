@@ -1,21 +1,20 @@
 ---
-title: 快速入門：使用 C# 向 Azure 裝置佈建服務註冊 TPM 裝置
-description: Azure 快速入門 - 使用 C# 服務 SDK 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置。 本快速入門使用個別註冊。
+title: 使用 C# 向 Azure 裝置佈建服務註冊 TPM 裝置
+description: 快速入門 - 使用 C# 服務 SDK 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置。 本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 70f9c9d2ec488854a1b386b872f10e4f54c45a1c
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: a95a50e5931f42e442e11fe593a151dd273449e8
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904743"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423020"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>快速入門：使用 C# 服務 SDK 向 IoT 中樞裝置佈建服務註冊 TPM 裝置
 
@@ -52,13 +51,13 @@ ms.locfileid: "73904743"
 
 1. 開啟 Visual Studio，然後選取 [建立新專案]  。 在 [建立新專案]  中，針對 C# 選擇 [主控台應用程式 (.NET Core)]  專案範本，然後選取 [下一步]  。
 
-1. 將專案命名為 *CreateTpmEnrollment*，然後選取 [建立]  。
+1. 將專案命名為 *CreateTpmEnrollment*，然後按 [建立]  。
 
     ![設定 Visual C# Windows 傳統桌面專案](media/quick-enroll-device-tpm-csharp/configure-tpm-app-vs2019.png)
 
-1. 在 [方案總管]  中，以滑鼠右鍵按一下 [CreateTpmEnrollment]  專案，然後選取 [管理 NuGet 套件]  。
+1. 當解決方案在 Visual Studio 中開啟時，在 [方案總管]  窗格中，以滑鼠右鍵按一下 **CreateTpmEnrollment** 專案。 選取 [管理 NuGet 套件]  。
 
-1. 在 [NuGet 套件管理員]  中選取 [瀏覽]  ，搜尋並選擇 **Microsoft.Azure.Devices.Provisioning.Service**，然後選取 [安裝]  。
+1. 在 [NuGet 套件管理員]  中選取 [瀏覽]  ，搜尋並選擇 **Microsoft.Azure.Devices.Provisioning.Service**，然後按 [安裝]  。
 
    ![NuGet 封裝管理員視窗](media//quick-enroll-device-tpm-csharp/add-nuget.png)
 
@@ -71,10 +70,10 @@ ms.locfileid: "73904743"
    using Microsoft.Azure.Devices.Provisioning.Service;
    ```
 
-1. 將下列欄位新增至 `Program` 類別，並進行列出的變更。
+1. 將下列欄位新增至 `Program` 類別，並進行下面所列的變更。
 
    ```csharp
-   private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
+   private static string ProvisioningConnectionString = "{ProvisioningServiceConnectionString}";
    private const string RegistrationId = "sample-registrationid-csharp";
    private const string TpmEndorsementKey =
        "AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEAxsj2gUS" +
@@ -88,7 +87,7 @@ ms.locfileid: "73904743"
    private const ProvisioningStatus OptionalProvisioningStatus = ProvisioningStatus.Enabled;
    ```
 
-   * 使用您想要為其建立註冊的佈建服務連接字串，取代 `ProvisioningConnectionString` 預留位置值。
+   * 使用您想要為其建立註冊的佈建服務連接字串，取代 `ProvisioningServiceConnectionString` 預留位置值。
 
    * 您可能會選擇性地變更註冊 ID、簽署金鑰、裝置識別碼和佈建狀態。
 
@@ -143,7 +142,7 @@ ms.locfileid: "73904743"
   
 在 Visual Studio 中執行此範例，為您的 TPM 裝置建立個別註冊。
 
-成功建立時，命令提示字元視窗會顯示新個別註冊的屬性。
+命令提示字元視窗隨即出現，並開始顯示確認訊息。 成功建立時，命令提示字元視窗會顯示新個別註冊的屬性。
 
 您可以確認個別註冊是否已建立。 前往裝置佈建服務摘要，選取 [管理註冊]  ，然後選取 [個別註冊]  。 您應會看到對應至您在此範例中使用之註冊識別碼的新註冊項目。
 
@@ -159,13 +158,13 @@ ms.locfileid: "73904743"
 
 1. 在您的電腦上關閉 C# 範例輸出視窗。
 
-1. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，選取 [管理註冊]  ，然後選取 [個別註冊]  索引標籤。針對使用本快速入門建立的註冊項目選取其 [註冊識別碼]  ，然後選取 [刪除]  。
+1. 在 Azure 入口網站中，瀏覽至您的裝置佈建服務，選取 [管理註冊]  ，然後選取 [個別註冊]  索引標籤。選取您使用本快速入門所建立註冊項目的 [註冊識別碼]  旁的核取方塊，然後按窗格頂端的 [刪除]  按鈕。
 
 1. 如果您已遵循[使用 C# 裝置 SDK 來建立及佈建模擬的 TPM 裝置](quick-create-simulated-device-tpm-csharp.md)中的步驟來建立模擬的 TPM 裝置，請執行下列步驟：
 
     1. 關閉模擬裝置的 TPM 模擬器視窗和範例輸出視窗。
 
-    1. 在 Azure 入口網站中，瀏覽至已佈建您的裝置的 IoT 中樞。 在 [Explorer]  底下的功能表中選取 [IoT 裝置]  ，選取您裝置旁的核取方塊，然後選取 [刪除]  。
+    1. 在 Azure 入口網站中，瀏覽至已佈建您的裝置的 IoT 中樞。 在 [總管]  底下的功能表中，選取 [IoT 裝置]  ，選取您在本快速入門所註冊裝置的 [裝置識別碼]  旁的核取方塊，然後按窗格頂端的 [刪除]  按鈕。
 
 ## <a name="next-steps"></a>後續步驟
 

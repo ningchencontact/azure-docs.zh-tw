@@ -1,18 +1,14 @@
 ---
-title: 在 Linux 從 Azure 入口網站建立函式應用程式 | Microsoft Docs
+title: 在 Linux 從 Azure 入口網站建立函式應用程式
 description: 了解如何使用 Azure 入口網站來建立您的第一個 Azure 函式以進行無伺服器執行。
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 02/28/2019
-ms.author: glenga
-ms.openlocfilehash: 89755e8b70a490f1c5746b23e0d36c5d90b624c1
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: fdc2d9c7b5945e48cc87f3edd918498c3d45f55e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571660"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233096"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>在 Azure App Service 方案中建立 Linux 上的函式應用程式
 

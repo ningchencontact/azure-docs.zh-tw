@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 480e21994846f5b2adb85bcf846df2a7cdda4bda
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7969300e9865c943c0f3759277bd26529c0c5464
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444458"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184893"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>從 Azure 應用程式設定存放區匯出
 
@@ -48,14 +48,14 @@ az appconfig kv export --name myTestAppConfigStore --file ~/Export.json
 
 ## <a name="script-explanation"></a>指令碼說明
 
-此指令碼會使用下列命令從應用程式設定存放區匯出。 下表中的每個命令都會連結至命令特定的文件。
+此指令碼會使用下列命令從應用程式組態存放區匯出。 下表中的每個命令都會連結至命令特定的文件。
 
 | 命令 | 注意 |
 |---|---|
-| [az appconfig export](/cli/azure/ext/appconfig/appconfig) | 從應用程式設定存放區資源匯出。 |
+| [az appconfig kv export](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-export) | 從應用程式組態存放區資源匯出。 |
 
 ## <a name="next-steps"></a>後續步驟
 
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](/cli/azure)。
 
-您可以在 [Azure 應用程式設定文件](../cli-samples.md)中找到其他的應用程式設定 CLI 指令碼範例。
+您可以在 [Azure 應用程式組態 CLI 範例](../cli-samples.md)中找到其他的應用程式組態 CLI 指令碼範例。
