@@ -1,25 +1,16 @@
 ---
-title: 設定 Google 驗證 - Azure App Service
-description: 瞭解如何為您的 App Service 應用程式設定 Google 驗證。
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
+title: 設定 Google 驗證
+description: 瞭解如何設定 Google 驗證做為 App Service 應用程式的身分識別提供者。
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/02/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 917fa87a0cd0f7b0615a5139a7c15311f866739a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 81ce3e393d308323c8d5a3d688c16c9b45e7be9d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176975"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670819"
 ---
 # <a name="configure-your-app-service-app-to-use-google-login"></a>將您的 App Service 應用程式設定為使用 Google 登入
 
@@ -32,8 +23,8 @@ ms.locfileid: "72176975"
 ## <a name="register"> </a>向 Google 註冊您的應用程式
 
 1. 依照 google 登[入伺服器端應用程式](https://developers.google.com/identity/sign-in/web/server-side-flow)的 google 檔，建立用戶端識別碼和用戶端密碼。 不需要進行任何程式碼變更。 只要使用下列資訊：
-    - 針對**授權的 JavaScript 來源**，請使用 `https://<app-name>.azurewebsites.net`，並以您的應用程式名稱在 *\<app-name >* 中。
-    - 若為已授權的重新**導向 URI**，請使用 `https://<app-name>.azurewebsites.net/.auth/login/google/callback`。
+    - 針對**授權的 JavaScript 來源**，請在 *\<應用*程式名稱 > 中，使用 `https://<app-name>.azurewebsites.net` 與您的應用程式名稱。
+    - 如需授權的重新**導向 URI**，請使用 `https://<app-name>.azurewebsites.net/.auth/login/google/callback`。
 1. 複製 [應用程式識別碼] 和 [應用程式密碼] 的值。
 
     > [!IMPORTANT]
@@ -42,7 +33,7 @@ ms.locfileid: "72176975"
 ## <a name="secrets"> </a>將 Google 資訊新增至應用程式
 
 1. 在[Azure 入口網站]中，移至您的 App Service 應用程式。
-1. 選取 [**設定**] [ >  個**驗證/授權**]，並確定**App Service 驗證**已**開啟**。
+1. 選取 [**設定**] > [**驗證/授權**]，並確定**App Service 驗證**已**開啟**。
 1. 選取 [ **Google**]，然後貼上您先前取得的 [應用程式識別碼] 和 [應用程式密碼] 值。 啟用應用程式所需的任何範圍。
 1. 選取 [確定]。
 

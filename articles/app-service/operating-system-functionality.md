@@ -1,25 +1,16 @@
 ---
-title: App Service 上的作業系統功能 - Azure
-description: 了解 Azure App Service 上 Web 應用程式、行動應用程式後端和 API Apps 可以使用的作業系統功能
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: mollybos
+title: 作業系統功能
+description: 瞭解 Windows Azure App Service 中的 OS 功能。 瞭解您的應用程式所取得的檔、網路和登錄存取類型。
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b108814caaace83cd417dc8858e27ed01d54c39e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066773"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671617"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service 上的作業系統功能
 本文說明在 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)上執行的所有 Windows 應用程式可用的一般基礎作業系統功能。 此功能包含檔案、網路、登錄存取、診斷記錄和事件。 
@@ -60,11 +51,11 @@ App Service 中的各種磁碟機，包含本機磁碟機和網路磁碟機。
 - 應用程式磁碟機，包含 App Service 專用的 Azure 封裝 cspkg 檔案 (客戶無法存取)
 - 「使用者」磁碟機 (C:\ 磁碟機)，它的大小會隨著虛擬機器大小而異。 
 
-請務必在您應用程式增加之際監視磁碟使用狀況。 如果達到磁碟配額時，可能會對您的應用程式造成不良影響。 例如: 
+請務必在您應用程式增加之際監視磁碟使用狀況。 如果達到磁碟配額時，可能會對您的應用程式造成不良影響。 例如： 
 
 - 應用程序可能會擲回錯誤，指出磁碟上沒有足夠的空間。
 - 瀏覽至 Kudu 主控台時，您可能會看到磁碟錯誤。
-- 從 Azure DevOps 或 Visual Studio 的部署可能會`ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`失敗, 並出現。
+- Azure DevOps 或 Visual Studio 的部署可能會因 `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`而失敗。
 - 您的應用程式可能會效能變慢。
 
 <a id="NetworkDrives"></a>
@@ -95,7 +86,7 @@ App Service 中的每個應用程式都會以隨機獨特的低權限背景工�
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>網路存取
-應用程式程式碼可以使用 TCP/IP 和 UDP 型通訊協定，對公開外部服務的網際網路可存取端點進行輸出網路連線。 應用程式可以使用這些相同的通訊協定來連線到 Azure 中的服務, 例如, 藉由建立 SQL Database 的 HTTPS 連線。
+應用程式程式碼可以使用 TCP/IP 和 UDP 型通訊協定，對公開外部服務的網際網路可存取端點進行輸出網路連線。 應用程式可以使用這些相同的通訊協定來連線到 Azure 中的服務，例如，藉由建立 SQL Database 的 HTTPS 連線。
 
 此外，應用程式可以在有限的情況下建立一個本機回送連線，並且讓應用程式在該本機回送通訊端上接聽。 這項功能主要是讓在本機回送通訊端上接聽的應用程式成為其功能的一部分。 每個應用程式都會看到「私人」回送連線。 應用程式 "A" 無法接聽由應用程式 "B" 建立的本機回送通訊端。
 

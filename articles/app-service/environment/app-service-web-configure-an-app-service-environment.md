@@ -1,25 +1,18 @@
 ---
-title: 如何設定 App Service 環境 v1 - Azure
-description: 設定、管理和監視 App Service 環境 v1
-services: app-service
-documentationcenter: ''
+title: 設定 ASE v1
+description: 設定、管理和監視 App Service 環境 v1。 本檔僅為使用舊版 v1 ASE 的客戶提供。
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b8a05b7e8466187202e6a4d11efce288238cc19b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b37708e27887b20604a1fe921f14e51387793737
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069941"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687268"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>設定 App Service 環境 v1
 
@@ -27,7 +20,7 @@ ms.locfileid: "70069941"
 > 這篇文章是關於 App Service 環境 v1。  有較新版本的 App Service 環境，更易於使用，並且可以在功能更強大的基礎結構上執行。 若要深入了解新版本，請從 [App Service 環境簡介](intro.md)開始。
 > 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 Azure App Service Environment 是由數個主要元件所組成：
 
 * 在 Azure App Service 環境託管服務中執行的計算資源
@@ -44,7 +37,7 @@ Azure App Service Environment 是由數個主要元件所組成：
 但是您可以設定資源集區的數量和大小。 在 ASE 中，您有 4 個大小選項，標記為 P1 到 P4。 如需大小及其價格的詳細資訊，請參閱 [App Service 價格](https://azure.microsoft.com/pricing/details/app-service/)。
 變更數量或大小的作業稱為調整作業。  一次只能執行一項調整作業。
 
-**前端**：前端是您 ASE 中所裝載之應用程式的 HTTP/HTTPS 端點。 請勿在前端中執行工作負載。
+**前端**：前端是您保留在 ASE 中之應用程式的 HTTP/HTTPS 端點。 請勿在前端中執行工作負載。
 
 * ASE 是以兩個 P2 開始，這對於開發/測試工作負載及低階生產工作負載而言已經足夠。 強烈建議針對中度到重度生產工作流程使用 P3。
 * 對於中度到重度生產工作流程而言，建議至少有 4 個 P3 以確保在排定的維護工作開始執行時有足夠的前端在執行中。 排定的維護活動一次會關閉一個前端。 這會減少維護活動期間整體可用的前端容量。
@@ -68,9 +61,9 @@ Azure App Service Environment 是由數個主要元件所組成：
 * 將您需要較大大小之裝載應用程式的 App Service 方案重新指派至新設定的背景工作集區。 這是一項快速作業，應在一分鐘以內即可完成。  
 * 如果您不再需要那些未使用的執行個體，請相應減少第一個背景工作集區。 此作業需要幾分鐘才能完成。
 
-**自動調整**：自動調整是可協助您管理計算資源耗用狀況的其中一項工具。 您可以針對前端或背景工作集區執行自動調整。 您可以執行下列作業：早上增加任何集區類型的執行個體，而晚上減少執行個體。 或者，可以在背景工作集區中可用的背景工作數目低於特定臨界值時，新增執行個體。
+**自動調整**可協助您管理計算資源耗用狀況的其中一項工具。 您可以針對前端或背景工作集區執行自動調整。 您可以執行下列作業：早上增加任何集區類型的執行個體，而晚上減少執行個體。 或者，可以在背景工作集區中可用的背景工作數目低於特定臨界值時，新增執行個體。
 
-如果您想要設定自動調整規則計算資源集區的度量，請記住佈建需要的時間。 如需有關自動調整 App Service 環境的詳細資訊, 請參閱[如何在 App Service 環境中設定自動][ASEAutoscale]調整。
+如果您想要設定自動調整規則計算資源集區的度量，請記住佈建需要的時間。 如需有關自動調整 App Service 環境的詳細資訊，請參閱[如何在 App Service 環境中設定自動][ASEAutoscale]調整。
 
 ### <a name="storage"></a>儲存體
 每個 ASE 各設有 500 GB 的儲存體。 此空間會用於 ASE 中的所有應用程式。 此儲存空間屬於 ASE 的一部分，且目前無法切換為使用您的儲存空間。 如果您調整虛擬網路路由或安全性，您仍然需要允許存取 Azure 儲存體，否則 ASE 無法運作。
@@ -88,7 +81,7 @@ Azure App Service Environment 是由數個主要元件所組成：
 * 將子網路用於裝載 ASE 後，就無法變更子網路的位址範圍。 因此，建議子網路至少包含 64 個位置以適應未來 ASE 成長。
 * 除了 ASE 以外，子網路中可能沒有其他項目。
 
-不同于包含 ASE 的託管服務,[虛擬網路][virtualnetwork]和子網都是在使用者控制之下。  您可以透過虛擬網路 UI 或 Powershell 管理您的虛擬網路。  ASE 可以部署在傳統或 Resource Manager VNet 中。  傳統和 Resource Manager Vnet 之間的入口網站和 API 經驗會稍有不同，但 ASE 經驗相同。
+不同于包含 ASE 的託管服務，[虛擬網路][virtualnetwork]和子網都是在使用者控制之下。  您可以透過虛擬網路 UI 或 Powershell 管理您的虛擬網路。  ASE 可以部署在傳統或 Resource Manager VNet 中。  傳統和 Resource Manager Vnet 之間的入口網站和 API 經驗會稍有不同，但 ASE 經驗相同。
 
 用來裝載 ASE 的 VNet 可以使用私人 RFC1918 IP 位址或使用公用 IP 位址。  如果您想要使用 RFC1918 (10.0.0.0/8、172.16.0.0/12、192.168.0.0/16) 所未涵蓋的 IP 範圍，您必須在建立 ASE 之前，建立 VNet 和子網路以供 ASE 使用。
 
@@ -96,14 +89,14 @@ Azure App Service Environment 是由數個主要元件所組成：
 
 比方說，您可以使用 VNET 整合，與您的訂用帳戶中未連接到 ASE 所在虛擬網路的虛擬網路整合。 您仍可使用混合式連線來存取其他網路中的資源，一如既往。  
 
-如果您的虛擬網路設定了 ExpressRoute VPN，則應留意 ASE 的某些路由需求。 某些使用者定義的路由 (UDR) 組態與 ASE 不相容。 如需在具有 ExpressRoute 的虛擬網路中執行 ASE 的詳細資訊, 請參閱[在具有 expressroute 的虛擬網路中執行 App Service 環境][ExpressRoute]。
+如果您的虛擬網路設定了 ExpressRoute VPN，則應留意 ASE 的某些路由需求。 某些使用者定義的路由 (UDR) 組態與 ASE 不相容。 如需在具有 ExpressRoute 的虛擬網路中執行 ASE 的詳細資訊，請參閱[在具有 expressroute 的虛擬網路中執行 App Service 環境][ExpressRoute]。
 
 #### <a name="securing-inbound-traffic"></a>保護輸入流量
 有兩種主要方法可控制您的 ASE 的輸入流量。  您可以使用網路安全性 (NSG) 來控制哪些 IP 位址可以存取 ASE (請參閱 [如何在 App Service 環境中控制輸入流量](app-service-app-service-environment-control-inbound-traffic.md) )，您也可以使用內部負載平衡器 (ILB) 設定您的 ASE。  如果您要將使用 USG 的存取權限制為您的 ILB ASE，這些功能也可以一起使用。
 
 當您建立 ASE 時，它會在您的 VNet 中建立 VIP。  VIP 類型有兩種：外部和內部。  當您使用外部 VIP 建立 ASE 時，可以透過網際網路可路由 IP 位址存取 ASE 中的應用程式。 如果您選取內部，您的 ASE 會使用 ILB 進行設定，將無法透過網際網路直接存取。  ILB ASE 仍需要外部 VIP，但它只用來進行 Azure 管理和維護。  
 
-在 ILB ASE 建立期間，您會提供 ILB ASE 所用的子網域，而且必須針對您所指定的子網域管理自己的 DNS。  因為您設定了子網域名稱，所以也需要管理用於 HTTPS 存取的憑證。  建立 ASE 之後，系統會提示您提供憑證。  若要深入瞭解如何建立和使用 ILB ASE, 請參閱[使用具有 App Service 環境的內部 Load Balancer][ILBASE]。 
+在 ILB ASE 建立期間，您會提供 ILB ASE 所用的子網域，而且必須針對您所指定的子網域管理自己的 DNS。  因為您設定了子網域名稱，所以也需要管理用於 HTTPS 存取的憑證。  建立 ASE 之後，系統會提示您提供憑證。  若要深入瞭解如何建立和使用 ILB ASE，請參閱[使用具有 App Service 環境的內部 Load Balancer][ILBASE]。 
 
 ## <a name="portal"></a>入口網站
 您可以使用 Azure 入口網站中的 UI 來管理和監視 App Service 環境。 如果您有 ASE，則可能會在資訊看板上看到 App Service 符號。 這個符號用來代表 Azure 入口網站中的 App Service 環境：
@@ -136,9 +129,9 @@ ASE 刀鋒視窗中有一個包含幾項重要功能的 [設定] 區段：
 
 ![設定刀鋒視窗和屬性][4]
 
-[設定] > [IP 位址]：當您在 ASE 中建立 IP「安全通訊端層」(SSL) 應用程式時，需要一個 IP SSL 位址。 若要取得該位址，您的 ASE 需要擁有一些可配置的 IP SSL 位址。 建立 ASE 後，它會有一個 IP SSL 可供此用途使用，但您可以新增更多位址。 其他 IP SSL 位址需付費, 如[App Service 定價][AppServicePricing]所示 (在 SSL 連線一節中)。 額外的價格是 IP SSL 價格。
+**設定** > ：當您在 ASE 中建立 IP 安全通訊端層 (SSL) 應用程式時，您需要一個 IP SSL 位址。 若要取得該位址，您的 ASE 需要擁有一些可配置的 IP SSL 位址。 建立 ASE 後，它會有一個 IP SSL 可供此用途使用，但您可以新增更多位址。 其他 IP SSL 位址需付費，如[App Service 定價][AppServicePricing]所示（在 SSL 連線一節中）。 額外的價格是 IP SSL 價格。
 
-[設定] > [前端集區] / [背景工作集區]：這些資源集區刀鋒視窗除了提供可充分調整該資源集區的控制權之外，也可讓您僅查看該資源集區上的資訊。  
+[設定] > [前端集區] / [背景工作集區]：這些資源集區刀鋒視窗每一個都可讓您檢視該資源集區的資訊，以及提供充分調整該資源集區所需的控制。  
 
 每個資源集區的基準刀鋒視窗分別會提供一個圖表，內附該資源集區的計量。 就像 ASE 刀鋒視窗中的圖表，您可以進入圖表，並設定所需的警示。 從 ASE 刀鋒視窗為特定的資源集區設定警示，效果等同於從資源集區進行設定。 在背景工作集區的 [設定] 刀鋒視窗中，您可存取在此背景工作集區中執行的所有應用程式或 App Service 方案。
 
@@ -191,7 +184,7 @@ ASE 刀鋒視窗中有一個包含幾項重要功能的 [設定] 區段：
 
 ![刪除 App Service 環境 UI][9]  
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 若要開始使用 App Service 環境，請參閱 [如何建立 App Service 環境](app-service-web-how-to-create-an-app-service-environment.md)。
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]

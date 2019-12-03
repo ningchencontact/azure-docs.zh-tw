@@ -1,26 +1,17 @@
 ---
-title: 驗證和授權 - Azure App Service | Microsoft Docs
-description: Azure App Service 的驗證/授權功能的概念性參考和概觀
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
+title: 驗證與授權
+description: 瞭解 Azure App Service 中內建的驗證和授權支援，以及它如何協助保護您的應用程式免于未經授權的存取。
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 2179f4e7d5350cdf9d82413e4f70647c20c3c399
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: ff0eb102d37f285279c041ff91b7a89e157259eb
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808745"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672250"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service 中的驗證和授權
 
@@ -32,8 +23,10 @@ Azure App Service 提供內建的驗證和授權支援，因此您在 Web 應用
 
 若要有安全的驗證和授權，必須對安全性有深入了解，包括同盟、加密、[JSON Web 權杖 (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) 管理、[授與類型](https://oauth.net/2/grant-types/)等等。 App Service 會提供這些公用程式，以便您可以將更多的時間和精力花在為客戶提供商務價值上。
 
-> [!NOTE]
-> 您不需要使用 App Service 來進行驗證和授權。 許多 Web 架構都會搭載安全性功能，您可以視需要加以使用。 如果您需要的彈性高於 App Service 所提供的彈性，也可以撰寫您自己的公用程式。  
+> [!IMPORTANT]
+> 您不需要使用驗證/AuthO 的 App Service。 許多 Web 架構都會搭載安全性功能，您可以視需要加以使用。 如果您需要的彈性高於 App Service 所提供的彈性，也可以撰寫您自己的公用程式。  
+>
+> 不過，如果您使用任何非 App Service 的遠端驗證選項，請記住[Chrome 80 會對其 SameSite 的 cookie 進行重大變更](https://www.chromestatus.com/feature/5088147346030592)（發行日期約于2020年3月），而您的應用程式驗證機制可能會在用戶端瀏覽器更新時中斷。 ASP.NET Core 檔提供如何在您的應用程式中解決此情況的資訊，網址為[HTTP：瀏覽器 SameSite 變更會影響驗證](/dotnet/core/compatibility/3.0-3.1#http-browser-samesite-changes-impact-authentication)。 其中包含有關如何針對主要瀏覽器測試這種重大變更的實用指引，不論您是否使用 ASP.NET Core。
 >
 
 如需原生行動應用程式的專屬資訊，請參閱 [Azure App Service 的行動應用程式使用者驗證和授權](../app-service-mobile/app-service-mobile-auth.md)。

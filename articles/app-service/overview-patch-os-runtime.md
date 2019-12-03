@@ -1,24 +1,15 @@
 ---
-title: OS 和執行階段修補頻率 - Azure App Service | Microsoft Docs
-description: 說明 Azure App Service 如何更新 OS 和執行階段，以及要如何取得更新公告。
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
+title: OS 和執行時間修補步調
+description: 瞭解 Azure App Service 如何更新 OS 和執行時間、應用程式的執行時間和修補程式等級，以及您可以如何取得更新宣告。
 ms.topic: article
 ms.date: 02/02/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3469c4f11a075ceb958e35e4cfc87a78e60b3882
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1a56fed04399325be315d8d977e5a72223bddac5
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074124"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688578"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure App Service 中的 OS 和執行階段修補
 
@@ -84,7 +75,7 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 
 下表說明如何找到 Windows 的版本和執行應用程式之語言執行階段的版本：
 
-| 內容 | 所在位置 | 
+| 資訊 | 所在位置 | 
 |-|-|
 | Windows 版本 | 請參閱 `https://<appname>.scm.azurewebsites.net/Env.cshtml` (在 [系統資訊] 底下) |
 | .NET 版本 | 位於 `https://<appname>.scm.azurewebsites.net/DebugConsole`，在命令提示字元中執行下列命令： <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
@@ -98,7 +89,7 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 >
 >
 
-## <a name="more-resources"></a>其他資源
+## <a name="more-resources"></a>更多資源
 
 [信任中心：安全性](https://www.microsoft.com/en-us/trustcenter/security)  
 [Azure App Service 上的 64 位元 ASP.NET Core](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

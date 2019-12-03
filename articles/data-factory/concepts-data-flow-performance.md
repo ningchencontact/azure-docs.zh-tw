@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 10/07/2019
-ms.openlocfilehash: 20a08345d8335b4857ca9777efb55f953ee63e9f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9ae6ff5fb5a5bfc6ba9299e06bad9afafc1403f3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681542"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671580"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>對應資料流程效能和微調指南
 
@@ -120,6 +120,14 @@ ms.locfileid: "73681542"
 ```DateFiles/*_201907*.txt```
 
 藉由使用萬用字元，您的管線將只會包含一個資料流程活動。 這會比對 Blob 存放區進行查閱的效果更好，然後使用 ForEach 搭配內的「執行資料流程」活動，逐一查看所有相符的檔案。
+
+### <a name="optimizing-for-cosmosdb"></a>針對 CosmosDB 優化
+
+在 CosmosDB 接收上設定輸送量和批次屬性，只會在從管線資料流程活動的資料流程執行期間生效。 在您的資料流程執行之後，CosmosDB 會接受原始的集合設定。
+
+* 批次大小：計算資料的粗略資料列大小，並確認 rowSize * 批次大小小於2000000。 如果是，請增加批次大小以取得更佳的輸送量
+* 輸送量：在這裡設定較高的輸送量設定，以允許檔更快速寫入 CosmosDB。 請記住，以高輸送量設定為基礎的較高 RU 成本。
+*   寫入輸送量預算：使用小於每分鐘的 ru 總數的值。 如果您的資料流程具有大量 Spark partitiongs，設定預算輸送量會允許在這些分割區之間進行更多的平衡。
 
 ## <a name="next-steps"></a>後續步驟
 

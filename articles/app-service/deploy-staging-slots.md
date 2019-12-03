@@ -1,26 +1,16 @@
 ---
-title: 針對 Azure App Service 中的 Web 應用程式設定預備環境 | Microsoft Docs
-description: 了解如何針對 Azure App Service 中的 Web 應用程式使用預備發行。
-services: app-service
-documentationcenter: ''
-author: cephalin
-writer: cephalin
-manager: jpconnoc
-editor: mollybos
+title: 設定預備環境
+description: 瞭解如何將應用程式部署到非生產位置，以及進行進入生產環境。 增加可靠性並消除部署中的應用程式停機時間。
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
-ms.author: cephalin
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7f98ba9851216737712b6be1ec29156ba0b1a68b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1fec6de65fade0bbb35907f9c69334e16d9193bf
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382274"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671747"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
 <a name="Overview"></a>
@@ -242,7 +232,7 @@ ms.locfileid: "74382274"
 
 1. 移至您應用程式的資源頁面，然後選取 [**部署**位置]。
 
-2. 針對您要路由到的位置，在其 [流量百分比] 資料行中指定百分比 (介於 0 到 100 之間)，以代表您要路由的總流量。 選取 [ **儲存**]。
+2. 針對您要路由到的位置，在其 [流量百分比] 資料行中指定百分比 (介於 0 到 100 之間)，以代表您要路由的總流量。 選取 [儲存]。
 
     ![設定流量百分比](./media/web-sites-staged-publishing/RouteTraffic.png)
 

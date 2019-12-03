@@ -1,27 +1,25 @@
 ---
-title: 使用 Webjob 執行背景工作-Azure App Service
-description: 了解如何在 Azure App Service Web 應用程式、API 應用程式或行動裝置應用程式中，使用 WebJobs 執行背景工作。
+title: 使用 WebJobs 執行背景工作
+description: 瞭解如何在 Azure App Service 中使用 Webjob 執行背景工作。 選擇各種不同的腳本格式，並使用 CRON 運算式來執行。
 author: ggailey777
-manager: gwallace
-s.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
-ms.service: app-service
+ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 293227352f27a724228136532c88e35fe877feb2
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 4c568c95a5dbc1799a765c95a2b224de53dfbe9f
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312178"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684200"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>在 Azure App Service 中使用 Webjob 執行背景工作
 
 本文說明如何使用 [Azure 入口網站](https://portal.azure.com)來部署 WebJob，以便上傳可執行檔或指令碼。 如需如何使用 Visual Studio 開發和部署 WebJobs 的詳細資訊，請參閱[使用 Visual Studio 部署 WebJobs](webjobs-dotnet-deploy-vs.md)。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 WebJobs 是一項 [Azure App Service](index.yml) 功能，可讓您在與 Web 應用程式、API 應用程式或行動應用程式相同的內容中執行程式或指令碼。 使用 WebJob 不會產生額外的費用。
 
 > [!IMPORTANT]
@@ -81,8 +79,8 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **名稱** | myContinuousWebJob | App Service 應用程式中唯一的名稱。 開頭必須是字母或數字，而且不能含有 "-" 和 "_" 之外的特殊字元。 |
    | **檔案上傳** | ConsoleApp.zip | .zip 檔案包含您的可執行檔或指令碼檔案，以及執行程式或指令碼所需的任何支援檔案。 支援的可執行檔或指令碼檔案類型會列在[支援的檔案類型](#acceptablefiles)一節。 |
-   | **型別** | 連續 | [WebJob 類型](#webjob-types)在本文稍早已有提及。 |
-   | **縮放** | 多重執行個體 | 僅適用於連續 WebJob。 決定程式或指令碼是在所有執行個體上執行，或是只在一個執行個體上執行。 在多個執行個體上執行的選項不適用於免費或共用[定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。 | 
+   | **類型** | 連續 | [WebJob 類型](#webjob-types)在本文稍早已有提及。 |
+   | **調整** | 多重執行個體 | 僅適用於連續 WebJob。 決定程式或指令碼是在所有執行個體上執行，或是只在一個執行個體上執行。 在多個執行個體上執行的選項不適用於免費或共用[定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。 | 
 
 4. 按一下 [確定]。
 
@@ -119,7 +117,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **名稱** | myTriggeredWebJob | App Service 應用程式中唯一的名稱。 開頭必須是字母或數字，而且不能含有 "-" 和 "_" 之外的特殊字元。|
    | **檔案上傳** | ConsoleApp.zip | .zip 檔案包含您的可執行檔或指令碼檔案，以及執行程式或指令碼所需的任何支援檔案。 支援的可執行檔或指令碼檔案類型會列在[支援的檔案類型](#acceptablefiles)一節。 |
-   | **型別** | 觸發 | [WebJob 類型](#webjob-types)在本文稍早已有提及。 |
+   | **類型** | 觸發 | [WebJob 類型](#webjob-types)在本文稍早已有提及。 |
    | **觸發程序** | 手動 | |
 
 4. 按一下 [確定]。
@@ -157,7 +155,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **名稱** | myScheduledWebJob | App Service 應用程式中唯一的名稱。 開頭必須是字母或數字，而且不能含有 "-" 和 "_" 之外的特殊字元。 |
    | **檔案上傳** | ConsoleApp.zip | .zip 檔案包含您的可執行檔或指令碼檔案，以及執行程式或指令碼所需的任何支援檔案。 支援的可執行檔或指令碼檔案類型會列在[支援的檔案類型](#acceptablefiles)一節。 |
-   | **型別** | 觸發 | [WebJob 類型](#webjob-types)在本文稍早已有提及。 |
+   | **類型** | 觸發 | [WebJob 類型](#webjob-types)在本文稍早已有提及。 |
    | **觸發程序** | 已排程 | 若要讓排程可靠地運作，請啟用 [永遠開啟] 功能。 [永遠開啟] 僅適用於基本、標準和進階定價層。|
    | **CRON 運算式** | 0 0/20 * * * * | [CRON 運算式](#ncrontab-expressions)將於下一節中說明。 |
 
@@ -169,7 +167,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="ncrontab-expressions"></a>NCRONTAB 運算式
 
-您可以在入口網站中輸入[NCRONTAB 運算式](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)，或在 WebJob *.zip*檔案的根目錄包含 `settings.job` 檔案，如下列範例所示：
+您可以在入口網站中輸入[NCRONTAB 運算式](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)，或在 WebJob *.zip*檔案的根目錄中包含 `settings.job` 檔案，如下列範例所示：
 
 ```json
 {

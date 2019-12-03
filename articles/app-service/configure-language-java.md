@@ -1,25 +1,20 @@
 ---
-title: 設定 Windows JAVA 應用程式-Azure App Service |Microsoft Docs
-description: 瞭解如何設定 JAVA 應用程式，以在 Azure App Service 中的預設 Windows 實例上執行。
+title: 設定 Windows JAVA 應用程式
+description: 瞭解如何設定 JAVA 應用程式，以在 Azure App Service 的 Windows VM 實例上執行。 本文說明最常見的設定工作。
 keywords: azure app service，web 應用程式，windows，oss，java
-services: app-service
 author: jasonfreeberg
-manager: jeconnock
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad9ee8a21390126f20da4037a438a2655b8b5d47
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: dec5d1c7c7664bf72d92e5aca4333ba64db26d02
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012264"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671900"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Windows JAVA 應用程式
 
@@ -49,7 +44,7 @@ Azure App Service 可讓 JAVA 開發人員在完全受控的 Windows 服務上�
 
 ### <a name="app-logging"></a>應用程式記錄
 
-透過 Azure 入口網站或 [Azure CLI](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) 啟用[應用程式記錄](/cli/azure/webapp/log#az-webapp-log-config)，設定 App Service 將應用程式的標準主控台輸出和標準主控台錯誤資料流寫入至本機檔案系統或 Azure Blob 儲存體。 設定後的 12 個小時會停用記錄至本機 App Service 檔案系統執行個體。 如果您需要較長的保留期，則請設定應用程式將輸出寫入至 Blob 儲存體容器。 您的 JAVA 和 Tomcat 應用程式記錄可在 */LogFiles/Application/* 目錄中找到。
+透過 Azure 入口網站或 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) 啟用[應用程式記錄](troubleshoot-diagnostic-logs.md#enable-application-logging-windows)，設定 App Service 將應用程式的標準主控台輸出和標準主控台錯誤資料流寫入至本機檔案系統或 Azure Blob 儲存體。 設定後的 12 個小時會停用記錄至本機 App Service 檔案系統執行個體。 如果您需要較長的保留期，則請設定應用程式將輸出寫入至 Blob 儲存體容器。 您的 JAVA 和 Tomcat 應用程式記錄可在 */LogFiles/Application/* 目錄中找到。
 
 如果您的應用程式使用 [Logback](https://logback.qos.ch/) 或 [Log4j](https://logging.apache.org/log4j) 追蹤，則您可以使用[在 Application Insights 中探索 Java 追蹤記錄](/azure/application-insights/app-insights-java-trace-logs)中的記錄架構設定指示，將這些要檢閱的追蹤轉送至 Azure Application Insights。
 
@@ -193,18 +188,18 @@ public int getServerPort()
 5. 將已解壓縮的新 New relic JAVA 代理程式檔案上傳至 */home/site/wwwroot/apm*底下的目錄。 您的代理程式檔案應位於 */home/site/wwwroot/apm/newrelic*中。
 6. 在 */home/site/wwwroot/apm/newrelic/newrelic.yml*修改 YAML 檔案，並將預留位置授權值取代為您自己的授權金鑰。
 7. 在 Azure 入口網站中，瀏覽至您在 App Service 中的應用程式，並建立新的應用程式設定。
-    - 如果您的應用程式使用 **Java SE**，請使用 `JAVA_OPTS` 值建立名為 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` 的環境變數。
-    - 如果您使用 **Tomcat**，請使用 `CATALINA_OPTS` 值建立名為 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` 的環境變數。
+    - 如果您的應用程式使用 **Java SE**，請使用 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` 值建立名為 `JAVA_OPTS` 的環境變數。
+    - 如果您使用 **Tomcat**，請使用 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` 值建立名為 `CATALINA_OPTS` 的環境變數。
 
 ### <a name="configure-appdynamics"></a>設定 AppDynamics
 
 1. 在 [AppDynamics.com](https://www.appdynamics.com/community/register/) 建立 AppDynamics 帳戶
-2. 從 AppDynamics 網站下載 JAVA 代理程式，檔案名會類似*AppServerAgent-x*的名稱。
+2. 從 AppDynamics 網站下載 JAVA 代理程式，檔案名會類似*AppServerAgent-x*的名稱。 *
 3. 使用[Kudu 主控台](https://github.com/projectkudu/kudu/wiki/Kudu-console)來建立新的目錄 */home/site/wwwroot/apm*。
 4. 將 JAVA 代理程式檔案上傳至 */home/site/wwwroot/apm*底下的目錄。 您的代理程式檔案應位於 */home/site/wwwroot/apm/appdynamics*中。
 5. 在 Azure 入口網站中，瀏覽至您在 App Service 中的應用程式，並建立新的應用程式設定。
-    - 如果您使用 **Java SE**，請使用 `JAVA_OPTS` 值建立名為 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` 的環境變數，其中 `<app-name>` 是您的 App Service 名稱。
-    - 如果您使用 **Tomcat**，請使用 `CATALINA_OPTS` 值建立名為 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` 的環境變數，其中 `<app-name>` 是您的 App Service 名稱。
+    - 如果您使用 **Java SE**，請使用 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` 值建立名為 `JAVA_OPTS` 的環境變數，其中 `<app-name>` 是您的 App Service 名稱。
+    - 如果您使用 **Tomcat**，請使用 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` 值建立名為 `CATALINA_OPTS` 的環境變數，其中 `<app-name>` 是您的 App Service 名稱。
 
 >  如果您已經有 `JAVA_OPTS` 或 `CATALINA_OPTS` 的環境變數，請將 `-javaagent:/...` 選項附加至目前值的結尾。
 
@@ -214,7 +209,7 @@ public int getServerPort()
 
 這些指示適用於所有資料庫連線。 您將必須在預留位置中填入您所選資料庫的驅動程式類別名稱和 JAR 檔案。 下表提供常見資料庫的類別名稱和驅動程式下載。
 
-| 資料庫   | 驅動程式類別名稱                             | JDBC 驅動程式                                                                      |
+| 資料庫   | 驅動程式類別名稱                             | JDBC Driver                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [下載](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [下載](https://dev.mysql.com/downloads/connector/j/) (請選取 [Platform Independent] \(不受平台影響\)) |
@@ -231,7 +226,7 @@ public int getServerPort()
 </appSettings>
 ```
 
-或者，在 Azure 入口網站的 [**設定** > **應用程式設定**] 頁面中設定環境變數。
+或者，在 Azure 入口網站的 [設定 ** > ** **應用程式設定**] 頁面中設定環境變數。
 
 接著，決定資料來源應僅供在 Tomcat Servlet 上執行的一個應用程式還是所有應用程式使用。
 
@@ -239,7 +234,7 @@ public int getServerPort()
 
 1. 在您專案的*中繼 INF/* 目錄中，建立一個*內容 .xml*檔案。 建立*中繼 INF/* 目錄（如果不存在）。
 
-2. 在*內容 .xml*中，新增 `Context` 元素，以將資料來源連結至 JNDI 位址。 以上表中您驅動程式的類別名稱取代 `driverClassName` 預留位置。
+2. 在*內容 .xml*中，新增 `Context` 專案，以將資料來源連結至 JNDI 位址。 以上表中您驅動程式的類別名稱取代 `driverClassName` 預留位置。
 
     ```xml
     <Context>
@@ -296,7 +291,7 @@ public int getServerPort()
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK 版本和維護
 
-Azure 支援的 Java Development Kit (JDK) 是透過 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) 提供的 [Zulu](https://www.azul.com/)。
+Azure 支援的 Java Development Kit (JDK) 是透過 [Azul Systems](https://www.azul.com/) 提供的 [Zulu](https://www.azul.com/downloads/azure-only/zulu/)。
 
 主要版本更新將透過 Windows Azure App Service 中的新執行時間選項來提供。 客戶會更新為設定其 App Service 部署的這些新版 Java，以及負責測試並確定主要更新符合其需求。
 
@@ -320,7 +315,7 @@ Azure 支援的 Java Development Kit (JDK) 是透過 [Azul Systems](https://www.
 
 ### <a name="runtime-support"></a>執行階段支援
 
-開發人員如果具有[合格的支援方案](/azure/azure-supportability/how-to-create-azure-support-request)，便可透過 Azure 支援服務，針對 Azul Zulu JDK [開立問題](https://azure.microsoft.com/support/plans/)。
+開發人員如果具有[合格的支援方案](https://azure.microsoft.com/support/plans/)，便可透過 Azure 支援服務，針對 Azul Zulu JDK [開立問題](/azure/azure-supportability/how-to-create-azure-support-request)。
 
 ## <a name="next-steps"></a>後續步驟
 

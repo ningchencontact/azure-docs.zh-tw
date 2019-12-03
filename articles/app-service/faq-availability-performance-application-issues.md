@@ -1,26 +1,20 @@
 ---
-title: 應用程式效能常見問題集 - Azure App Service | Microsoft Docs
-description: 對於 Azure App Service 的 Web 應用程式功能之中的可用性、效能和應用程式問題的常見問題集獲得解答。
-services: app-service\web
-documentationcenter: ''
+title: 應用程式效能常見問題
+description: 取得 Azure App Service 中可用性、效能和應用程式問題常見問題的解答。
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9cd529424a022edfa64f9053a53cbbe9f756637e
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a5af98aae420193b8316a48aa60550cef70a9c4a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122078"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671698"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web 應用程式的應用程式效能常見問題集
 
@@ -42,7 +36,7 @@ ms.locfileid: "71122078"
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>如何針對高記憶體耗用量案例進行疑難排解？
 
-在某些高記憶體耗用量案例中，您的應用程式可能真正需要更多運算資源。 在此情況下，請考慮調整為較高的服務層級，讓應用程式取得所需的所有資源。 若是其他情況，程式碼中的錯誤可能會導致記憶體流失。 程式碼撰寫慣例也可能會增加記憶體耗用量。 深入了解什麼觸發高記憶體耗用量是兩部分的處理序。 首先，建立處理序傾印，然後分析處理序傾印。 Azure 網站擴充功能資源庫的損毀診斷程式可以有效率地執行這兩個步驟。 如需詳細資訊，請參閱[擷取及分析 Web 應用程式間歇高記憶體的傾印檔案](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)。
+在某些高記憶體耗用量案例中，您的應用程式可能真正需要更多運算資源。 在此情況下，請考慮調整為較高的服務層級，讓應用程式取得所需的所有資源。 若是其他情況，程式碼中的錯誤可能會導致記憶體流失。 程式碼撰寫慣例也可能會增加記憶體耗用量。 深入瞭解觸發高記憶體耗用量是兩部分的程式。 首先，建立處理序傾印，然後分析處理序傾印。 Azure 網站擴充功能資源庫的損毀診斷程式可以有效率地執行這兩個步驟。 如需詳細資訊，請參閱[擷取及分析 Web 應用程式間歇高記憶體的傾印檔案](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)。
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>如何使用 PowerShell 自動化 App Service Web 應用程式？
 
@@ -179,7 +173,7 @@ Kestrel 1.0.2 版已經修正這個問題。 此版本隨附於 ASP.NET Core 1.0
 
 如果您使用 App Service 的本機快取功能，App Service 執行個體之「記錄檔」和「資料」資料夾的資料夾結構會受到影響。 使用本機快取時，會在儲存體的「記錄檔」和「資料」資料夾中建立子資料夾。 子資料夾會使用「唯一識別碼」+ 時間戳記的命名模式。 每個子資料夾都對應到將要用來執行或已用來執行 Web 應用程式的 VM 執行個體。
 
-若要判斷您是否使用本機快取，請檢查您的 App Service [應用程式設定] 索引標籤。如果使用本機快取，應用程式設定 `WEBSITE_LOCAL_CACHE_OPTION` 會設定為 `Always`。
+若要判斷您是否使用本機快取，請檢查您 App Service 的 [**應用程式設定**] 索引標籤。如果使用本機快取，應用程式設定 `WEBSITE_LOCAL_CACHE_OPTION` 會設定為 `Always`。
 
 如果您不是使用本機快取，但是也遇到此問題，請提交支援要求。
 

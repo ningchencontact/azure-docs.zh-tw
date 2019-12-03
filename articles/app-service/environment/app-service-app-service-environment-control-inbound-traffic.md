@@ -1,29 +1,22 @@
 ---
-title: 控制 App Service 環境的連入流量 - Azure
-description: 了解如何設定網路安全性規則，以控制 App Service 環境的輸入流量。
-services: app-service
-documentationcenter: ''
+title: 控制輸入流量 v1
+description: 瞭解做法控制 App Service 環境的輸入流量。 本檔僅為使用舊版 v1 ASE 的客戶提供。
 author: ccompy
-manager: erikre
-editor: ''
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: c887ae5568bfd0f72f8d90daecd95547ed7b8b7d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: aa43d44a691fa9151959e8817596bdfc9bba65f0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070410"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687400"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>如何控制 App Service 環境的輸入流量
-## <a name="overview"></a>總覽
-可以在 Azure Resource Manager 虛擬網路**或**傳統部署模型[虛擬網路][virtualnetwork]中建立 App Service 環境。  建立 APP Service 環境時，可以定義新的虛擬網路和新的子網路。  或者亦可在先前既存的虛擬網路和既存的子網路中建立 APP Service 環境。  在 2016 年 6 月所進行的變更之後，ASE 也可以部署到使用公用位址範圍或 RFC1918 位址空間 (也就是私人位址) 的虛擬網路。  如需建立 App Service 環境的詳細資訊, 請參閱[如何建立 App Service 環境][HowToCreateAnAppServiceEnvironment]。
+## <a name="overview"></a>概觀
+可以**在 Azure Resource Manager**虛擬網路**或**傳統部署模型[虛擬網路][virtualnetwork]中建立 App Service 環境。  建立 APP Service 環境時，可以定義新的虛擬網路和新的子網路。  或者亦可在先前既存的虛擬網路和既存的子網路中建立 APP Service 環境。  在 2016 年 6 月所進行的變更之後，ASE 也可以部署到使用公用位址範圍或 RFC1918 位址空間 (也就是私人位址) 的虛擬網路。  如需建立 App Service 環境的詳細資訊，請參閱[如何建立 App Service 環境][HowToCreateAnAppServiceEnvironment]。
 
 App Service 環境必須一律建立於子網路中，因為子網路可提供網路界限以便用來鎖定上游裝置和服務背後的輸入流量，因此只接受來自特定上游 IP 位址的 HTTP 和 HTTPS 流量。
 
@@ -38,10 +31,10 @@ App Service 環境必須一律建立於子網路中，因為子網路可提供�
 
 以下是 App Service 環境所使用的連接埠清單。 除非明確註明，否則所有連接埠為 **TCP**：
 
-* 454：Azure 基礎結構用來透過 SSL 管理及維護「App Service 環境」的**必要連接埠**。  不會封鎖對此連接埠的流量。  此連接埠一律繫結至 ASE 的公用 VIP。
-* 455：Azure 基礎結構用來透過 SSL 管理及維護「App Service 環境」的**必要連接埠**。  不會封鎖對此連接埠的流量。  此連接埠一律繫結至 ASE 的公用 VIP。
-* 80：在「App Service 環境」的「App Service 方案」中執行之應用程式的連入 HTTP 流量預設連接埠。  在啟用 ILB 的 ASE 上，此連接埠繫結至 ASE 的 ILB 位址。
-* 443：在「App Service 環境」的「App Service 方案」中執行之應用程式的連入 SSL 流量預設連接埠。  在啟用 ILB 的 ASE 上，此連接埠繫結至 ASE 的 ILB 位址。
+* 454：Azure 基礎結構透過 SSL 用來管理和維護 App Service 環境的**必要連接埠**。  不會封鎖對此連接埠的流量。  此連接埠一律繫結至 ASE 的公用 VIP。
+* 455：Azure 基礎結構透過 SSL 用來管理和維護 App Service 環境的**必要連接埠**。  不會封鎖對此連接埠的流量。  此連接埠一律繫結至 ASE 的公用 VIP。
+* 80：對於在 App Service 環境的 App Service 方案中執行的應用程式，其輸入 HTTP 流量的預設連接埠。  在啟用 ILB 的 ASE 上，此連接埠繫結至 ASE 的 ILB 位址。
+* 443：對於在 App Service 環境的 App Service 方案中執行的應用程式，其輸入 SSL 流量的預設連接埠。  在啟用 ILB 的 ASE 上，此連接埠繫結至 ASE 的 ILB 位址。
 * 21：FTP 的控制通道。  如果未使用 FTP，就可以安全地封鎖此連接埠。  在啟用 ILB 的 ASE 上，此連接埠可以繫結至 ASE 的 ILB 位址。
 * 990：FTPS 的控制通道。  如果未使用 FTPS，就可以安全地封鎖此連接埠。  在啟用 ILB 的 ASE 上，此連接埠可以繫結至 ASE 的 ILB 位址。
 * 10001-10020：FTP 的資料通道。  如同控制通道，若未使用 FTP，即可安全地封鎖這些連接埠。  在啟用 ILB 的 ASE 上，此連接埠可以繫結至 ASE 的 ILB 位址。
@@ -52,14 +45,14 @@ App Service 環境必須一律建立於子網路中，因為子網路可提供�
 ## <a name="outbound-connectivity-and-dns-requirements"></a>輸出連線和 DNS 需求
 若要讓 App Service Environment 正確運作，它還需要不同端點的輸出存取權。 [ExpressRoute 的網路組態](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) 文章的＜需要的網路連線＞一節中有提供 ASE 所使用的外部端點完整清單。
 
-App Service 環境需要針對虛擬網路設定的有效 DNS 基礎結構。  如果 DNS 設定在建立 App Service 環境之後因為任何原因而變更，開發人員可以強制 App Service 環境挑選新的 DNS 組態。  使用位於[Azure 入口網站][NewPortal]的 [App Service 環境管理] 分頁頂端的 [重新開機] 圖示觸發輪流環境重新開機, 會導致環境挑選新的 DNS 設定。
+App Service 環境需要針對虛擬網路設定的有效 DNS 基礎結構。  如果 DNS 設定在建立 App Service 環境之後因為任何原因而變更，開發人員可以強制 App Service 環境挑選新的 DNS 組態。  使用位於[Azure 入口網站][NewPortal]的 [App Service 環境管理] 分頁頂端的 [重新開機] 圖示觸發輪流環境重新開機，會導致環境挑選新的 DNS 設定。
 
 也建議事先在虛擬網路上設定任何自訂 DNS 伺服器，再建立 App Service 環境。  如果在建立 App Service 環境時變更虛擬網路的 DNS 組態，則會導致 App Service 環境建立程序失敗。  同樣地，若自訂 DNS 伺服器存在於 VPN 閘道的另一端，且 DNS 伺服器無法連線或使用，則 App Service 環境建立程序也會失敗。
 
 ## <a name="creating-a-network-security-group"></a>建立網路安全性群組
-如需有關網路安全性群組如何工作的完整詳細資訊, 請參閱下列[資訊][NetworkSecurityGroups]。  下面的「Azure 服務管理」範例說明網路安全性群組的重點，其中是將焦點放在設定網路安全群組並套用到包含 App Service Environment 的子網路。
+如需有關網路安全性群組如何工作的完整詳細資訊，請參閱下列[資訊][NetworkSecurityGroups]。  下面的「Azure 服務管理」範例說明網路安全性群組的重點，其中是將焦點放在設定網路安全群組並套用到包含 App Service Environment 的子網路。
 
-**注意：** 您可以使用 [Azure 入口網站](https://portal.azure.com)以圖形方式設定網路安全性群組，或透過 Azure PowerShell 進行設定。
+**注意︰** 您可以使用 [Azure 入口網站](https://portal.azure.com) 或透過 Azure PowerShell，利用圖形方式設定網路安全性群組。
 
 網路安全性群組首次會建立為與訂用帳戶相關聯的獨立實體。 由於網路安全性群組建立於 Azure 區域，所以請確保網路安全性群組建立於與 App Service 環境相同的區域中。
 
@@ -116,10 +109,10 @@ App Service 環境需要針對虛擬網路設定的有效 DNS 基礎結構。  �
 
 當 ASE 上的 app 設定為使用 IP-SSL 時，外部客戶將不會看到且不需要擔心特殊連接埠配對對應。  應用程式流量會正常流向設定的 IP-SSL 位址。  將流量路由到包含 ASE 的子網路時，在路由流量最後階段期間，特殊連接埠組合的轉譯會於內部自動發生。 
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 若要開始使用 App Service 環境，請參閱 [App Service 環境簡介][IntroToAppServiceEnvironment]
 
-如需從 App Service 環境安全地連線到後端資源的詳細資訊, 請參閱[從 App Service 環境安全地連接到後端資源][SecurelyConnecttoBackend]
+如需從 App Service 環境安全地連線到後端資源的詳細資訊，請參閱[從 App Service 環境安全地連接到後端資源][SecurelyConnecttoBackend]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

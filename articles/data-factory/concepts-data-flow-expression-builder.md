@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/17/2019
-ms.openlocfilehash: 3664a7c311e15ce3aa61fc71f98a46e3f2618143
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 0eb2c2692ed2444a85e7253c6fdd8734385ff881
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184703"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672257"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>對應資料流程運算式產生器
 
@@ -104,7 +104,13 @@ regex_replace('100 and 200', '(\\d+)', 'digits')
 
 ```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
 
-請注意，若要在時間戳記輸出中包含字串常值，您必須將轉換包裝在 toString （）內。
+請注意，若要在時間戳記輸出中包含字串常值，您必須將轉換包裝在 ```toString()```內。
+
+以下說明如何將秒數從 Epoch 轉換成日期或時間戳記：
+
+```toTimestamp(1574127407*1000l)```
+
+請注意上述運算式結尾處的尾端 "l"。 這表示轉換成長期的語法。
 
 ## <a name="handling-column-names-with-special-characters"></a>處理含有特殊字元的資料行名稱
 

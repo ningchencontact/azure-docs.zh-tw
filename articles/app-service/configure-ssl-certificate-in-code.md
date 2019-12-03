@@ -1,25 +1,16 @@
 ---
-title: 在程式碼 Azure App Service 中使用 SSL 憑證 |Microsoft Docs
-description: 了解如何使用用戶端憑證來連線至需要這些憑證的遠端資源。
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
+title: 在程式碼中使用 SSL 憑證
+description: 瞭解如何在您的程式碼中使用用戶端憑證。 使用用戶端憑證對遠端資源進行驗證，或對其執行密碼編譯工作。
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 1546ded1977e1e26792189e1d992d106d3d77ef2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d783b61c372c7d0f8cca13106bf297ab9b55c424
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271291"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671885"
 ---
 # <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>在您的程式碼中使用 SSL 憑證，Azure App Service
 
@@ -29,7 +20,7 @@ ms.locfileid: "74271291"
 
 當您讓 App Service 管理您的 SSL 憑證時，您可以分開維護憑證以及應用程式程式碼，並保護您的敏感性資料。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要遵循本操作說明指南：
 
@@ -159,7 +150,7 @@ var cert = new X509Certificate2(bytes);
 
 若要瞭解如何從 node.js、PHP、Python、JAVA 或 Ruby 中的檔案載入 SSL 憑證，請參閱個別語言或 web 平臺的檔。
 
-## <a name="more-resources"></a>其他資源
+## <a name="more-resources"></a>更多資源
 
 * [使用 SSL 繫結保護自訂 DNS 名稱](configure-ssl-bindings.md)
 * [強制使用 HTTPS](configure-ssl-bindings.md#enforce-https)

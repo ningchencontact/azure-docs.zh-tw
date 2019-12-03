@@ -1,24 +1,18 @@
 ---
-title: 鎖定 App Service 環境的連出流量 - Azure
-description: 描述如何與 Azure 防火牆整合來保護輸出流量
-services: app-service
-documentationcenter: na
+title: 鎖定輸出流量
+description: 瞭解如何與 Azure 防火牆整合，以保護從 App Service 環境內的輸出流量。
 author: ccompy
-manager: stefsch
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 936fd797786d05edd7cf0f729af33c95ad3b3c56
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: c78749d9d0f0bd4b1dadb8dc0d2f6dd84408a95e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74405665"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687222"
 ---
 # <a name="locking-down-an-app-service-environment"></a>鎖定 App Service 環境
 
@@ -96,7 +90,7 @@ Azure 防火牆可以將記錄傳送至 Azure 儲存體、事件中樞或 Azure 
  
 當您不知道所有應用程式相依性時，第一次讓應用程式運作時，將 Azure 防火牆與 Azure 監視器記錄整合會很有用。 您可以從[Azure 監視器中的分析記錄資料](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)，深入瞭解 Azure 監視器記錄。
  
-## <a name="dependencies"></a>相依性
+## <a name="dependencies"></a>相依項目
 
 當您想要設定 Azure 防 火牆以外的防火牆設備時，才需要下列資訊。 
 
@@ -108,7 +102,7 @@ Azure 防火牆可以將記錄傳送至 Azure 儲存體、事件中樞或 Azure 
 
 #### <a name="service-endpoint-capable-dependencies"></a>服務端點功能相依性 
 
-| Endpoint |
+| 端點 |
 |----------|
 | Azure SQL |
 | Azure 儲存體 |
@@ -116,7 +110,7 @@ Azure 防火牆可以將記錄傳送至 Azure 儲存體、事件中樞或 Azure 
 
 #### <a name="ip-address-dependencies"></a>IP 位址相依性
 
-| Endpoint | 詳細資料 |
+| 端點 | 詳細資料 |
 |----------| ----- |
 | \*:123 | NTP 時鐘檢查。 在連接埠 123 上的多個端點檢查流量 |
 | \*:12000 | 此連接埠用於某些系統監視。 如果遭到封鎖，則某些問題將難以分級，但您的 ASE 會繼續運作 |
@@ -133,7 +127,7 @@ Azure 防火牆可以將記錄傳送至 Azure 儲存體、事件中樞或 Azure 
 
 #### <a name="fqdn-httphttps-dependencies"></a>FQDN HTTP/HTTPS 相依性 
 
-| Endpoint |
+| 端點 |
 |----------|
 |graph.windows.net:443 |
 |login.live.com:443 |
@@ -214,7 +208,7 @@ Azure 防火牆可以將記錄傳送至 Azure 儲存體、事件中樞或 Azure 
 
 #### <a name="wildcard-httphttps-dependencies"></a>萬用字元 HTTP/HTTPS 相依性 
 
-| Endpoint |
+| 端點 |
 |----------|
 |gr-Prod-\*.cloudapp.net:443 |
 | \*.management.azure.com:443 |
@@ -224,7 +218,7 @@ Azure 防火牆可以將記錄傳送至 Azure 儲存體、事件中樞或 Azure 
 
 #### <a name="linux-dependencies"></a>Linux 相依項目 
 
-| Endpoint |
+| 端點 |
 |----------|
 |wawsinfraprodbay063.blob.core.windows.net:443 |
 |registry-1.docker.io:443 |
@@ -256,7 +250,7 @@ Azure 防火牆可以將記錄傳送至 Azure 儲存體、事件中樞或 Azure 
 
 對於 US Gov，您仍然需要為儲存體、SQL 和事件中樞設定服務端點。  您也可以使用 Azure 防火牆，以及本檔稍早的指示。 如果您需要使用自己的輸出防火牆裝置，則端點如下所示。
 
-| Endpoint |
+| 端點 |
 |----------|
 | \*。 ctldl.windowsupdate.com:80 |
 | \*。 management.usgovcloudapi.net:80 |

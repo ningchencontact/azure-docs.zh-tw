@@ -1,18 +1,18 @@
 ---
-title: 開發指令碼動作來自訂 Azure HDInsight 叢集
-description: 了解如何使用 Bash 指令碼來自訂 HDInsight 叢集。 指令碼動作可讓您變更叢集組態設定或安裝其他軟體的叢集建立期間或之後執行指令碼。
+title: 開發腳本動作以自訂 Azure HDInsight 叢集
+description: 瞭解如何使用 Bash 腳本來自訂 HDInsight 叢集。 腳本動作可讓您在叢集建立期間或之後執行腳本，以變更叢集配置設定或安裝其他軟體。
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/22/2019
-ms.openlocfilehash: 66132a2a6a7b5b89bca0767efe7c194ca3dec051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/28/2019
+ms.openlocfilehash: 23d2c771c8918099c0db2b68c290e7d90077932a
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687456"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687732"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 開發指令碼動作
 
@@ -26,7 +26,7 @@ ms.locfileid: "64687456"
 
 | 使用此方法來套用指令碼... | 在叢集建立期間... | 在執行中的叢集上... |
 | --- |:---:|:---:|
-| Azure 入口網站 |✓ |✓ |
+| Azure Portal |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
 | Azure 傳統 CLI |&nbsp; |✓ |
 | HDInsight .NET SDK |✓ |✓ |
@@ -73,9 +73,9 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-### <a name="bps10"></a> 目標的作業系統版本
+### <a name="bps10"></a>以作業系統版本為目標
 
-以 Linux 為基礎的 HDInsight 所根據的是 Ubuntu Linux 散發套件。 不同 HDInsight 版本仰賴不同的 Ubuntu 版本，這可能會改變指令碼的運作方式。 例如，HDInsight 3.4 及更早版本所根據的是使用 Upstart 的 Ubuntu 版本。 3\.5 版和更高版本根據的是 Ubuntu 16.04，其使用的是 Systemd。 Systemd 和 Upstart 仰賴不同的命令，因此應將指令碼撰寫為適用兩者。
+HDInsight 是以 Ubuntu Linux 散發套件為基礎。 不同 HDInsight 版本仰賴不同的 Ubuntu 版本，這可能會改變指令碼的運作方式。 例如，HDInsight 3.4 及更早版本所根據的是使用 Upstart 的 Ubuntu 版本。 3\.5 版和更高版本根據的是 Ubuntu 16.04，其使用的是 Systemd。 Systemd 和 Upstart 仰賴不同的命令，因此應將指令碼撰寫為適用兩者。
 
 HDInsight 3.4 和 3.5 之間的另一個重要差異在於，`JAVA_HOME` 現在指向 Java 8。 下列程式碼示範如何判斷指令碼是在 Ubuntu 14 或 16 上執行：
 
@@ -133,11 +133,11 @@ fi
 
 指令碼必須具有等冪性。 如果指令碼執行多次，則每次都應該讓叢集回到相同狀態。
 
-例如，如果一個會修改組態檔的指令碼執行多次，則不應該新增重複的項目。
+例如，如果執行多次，修改設定檔的腳本不應新增重複的專案。
 
 ### <a name="bPS5"></a>確保叢集架構具有高可用性
 
-以 Linux 為基礎的 HDInsight 叢集提供在叢集裡作用中的兩個前端節點，且指令碼動作會針對兩個節點執行。 如果您安裝的元件只需要一個前端節點，請勿在這兩個前端節點上都安裝元件。
+以 Linux 為基礎的 HDInsight 叢集提供在叢集裡作用中的兩個前端節點，且指令碼動作會針對兩個節點執行。 如果您安裝的元件只預期一個前端節點，請勿在這兩個前端節點上安裝元件。
 
 > [!IMPORTANT]  
 > HDInsight 隨附的服務已設計為在兩個前端節點之間視需要容錯移轉。 這項功能不會延伸至透過指令碼動作所安裝的自訂元件。 如果自訂元件需要有高可用性時，您必須實作自己的容錯移轉機制。
@@ -146,7 +146,7 @@ fi
 
 您安裝在叢集上的元件可能預設設定是使用 Apache Hadoop 分散式檔案系統 (HDFS) 儲存體。 HDInsight 使用 Azure 儲存體或 Data Lake Storage 作為預設儲存體。 兩者都提供 HDFS 相容的檔案系統，即使刪除叢集，也能保存資料。 您可能需要將您所安裝的元件設定為使用 WASB 或 ADL，而非 HDFS。
 
-對於大部分作業，您不需要指定檔案系統。 例如，以下會將複製 hadoop common.jar 檔案從本機檔案系統叢集儲存體：
+對於大部分的作業，您不需要指定檔案系統。 例如，下列程式會將 hadoop-common 檔案從本機檔案系統複製到叢集存放區：
 
 ```bash
 hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
@@ -161,13 +161,13 @@ HDInsight 會記錄指令碼輸出，並將輸出寫入 STDOUT 和 STDERR。 您
 > [!NOTE]  
 > 只有在成功建立叢集之後，才能使用 Apache Ambari。 如果您在叢集建立期間使用指令碼動作，但建立失敗，請參閱 [使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) 的疑難排解一節，以取得存取記錄資訊的其他方式。
 
-大部分的公用程式和安裝套件已經將資訊寫入 STDOUT 和 STDERR，不過您可以新增其他記錄。 若要將文字傳送到 STDOUT，請使用 `echo`。 例如:
+大部分的公用程式和安裝套件已經將資訊寫入 STDOUT 和 STDERR，不過您可以新增其他記錄。 若要將文字傳送到 STDOUT，請使用 `echo`。 例如：
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-根據預設，`echo` 會將字串傳送至 STDOUT。 若要將其導向至 STDERR，請在 `echo` 之前加入 `>&2`。 例如:
+根據預設，`echo` 會將字串傳送至 STDOUT。 若要將其導向至 STDERR，請在 `echo` 之前加入 `>&2`。 例如：
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -188,7 +188,7 @@ line 1: #!/usr/bin/env: No such file or directory
 
 ### <a name="bps9"></a> 使用重試邏輯從暫時性錯誤復原
 
-下載檔案時，使用 apt-get 安裝封裝的動作，或其他透過網際網路傳輸資料的動作，可能會因為暫時性網路錯誤而失敗。 例如，您正進行通訊的遠端資源可能正處於容錯移轉至備份節點的程序中。
+下載檔案時，使用 apt 取得安裝封裝，或透過網際網路傳送資料的其他動作，動作可能會因為暫時性網路錯誤而失敗。 例如，您正在進行通訊的遠端資源可能正在容錯移轉至備份節點。
 
 若要讓您的指令碼從暫時性錯誤中復原，可以實作重試邏輯。 下列函式示範如何實作重試邏輯。 在失敗之前，它會重試作業三次。
 
@@ -237,7 +237,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 | 協助程式使用方式 | 描述 |
 | --- | --- |
-| `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |從來源 URI 將檔案下載到指定的檔案路徑中。 根據預設，不會覆寫現有的檔案。 |
+| `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |從來源 URI 將檔案下載到指定的檔案路徑中。 根據預設，它不會覆寫現有的檔案。 |
 | `untar_file TARFILE DESTDIR` |將 tar 檔案解壓縮 (使用 `-xf`) 至目的地目錄。 |
 | `test_is_headnode` |如果在叢集前端節點上執行，則會傳回 1，否則傳回 0。 |
 | `test_is_datanode` |如果目前節點是資料 (背景工作角色) 節點，則會傳回 1，否則傳回 0。 |
@@ -256,7 +256,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 在某些情況下，您的指令碼可能需要參數。 例如，使用 Ambari REST API 時，您可能需要叢集的系統管理員密碼。
 
-傳遞至指令碼的參數稱為「位置參數」  ，並且指派至 `$1` 作為第一個參數，指派至 `$2` 作為第二個參數，依此類推。 `$0` 包含指令碼本身的名稱。
+傳遞至指令碼的參數稱為「位置參數」，並且指派至 `$1` 作為第一個參數，指派至 `$2` 作為第二個參數，依此類推。 `$0` 包含指令碼本身的名稱。
 
 當作參數傳遞給指令碼的值必須以單引號 (') 括住。 這麼做可確保傳遞的值會被視為常值。
 
@@ -288,7 +288,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 * __可公開讀取的 URI__。 例如，在 OneDrive、Dropbox 或其他檔案裝載服務上儲存之資料的 URL。
 
-* 與 HDInsight 叢集相關聯的 __Azure Data Lake Storage 帳戶__。 如需搭配 HDInsight 使用 Azure Data Lake Storage 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
+* 與 HDInsight 叢集相關聯的 __Azure Data Lake Storage 帳戶__。 如需使用 Azure Data Lake Storage 搭配 HDInsight 的詳細資訊，請參閱[快速入門：在 hdinsight 中設定](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)叢集。
 
     > [!NOTE]  
     > HDInsight 用來存取 Data Lake Storage 的服務主體必須具有指令碼的讀取存取權。
@@ -313,9 +313,9 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 您可以透過下列方法，使用指令碼動作來自訂 HDInsight 叢集︰
 
-* Azure 入口網站
+* Azure Portal
 * Azure PowerShell
-* Azure 資源管理員範本
+* Azure Resource Manager 範本
 * HDInsight .NET SDK。
 
 如需有關如何使用每種方法的詳細資訊，請參閱[如何使用指令碼動作](hdinsight-hadoop-customize-cluster-linux.md)。
@@ -329,15 +329,15 @@ Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。 請�
 
 ## <a name="troubleshooting"></a>疑難排解
 
-使用您所開發的指令碼時可能會遇到下列錯誤：
+以下是您在使用已開發的腳本時可能會遇到的錯誤：
 
 **錯誤**：`$'\r': command not found`。 有時候後面接續 `syntax error: unexpected end of file`。
 
-*原因*：當指令碼中以 CRLF 作為行尾結束符號時，就會造成此錯誤。 Unix 系統預期只有 LF 當做行尾結束符號。
+原因：這個錯誤的原因是指令碼中以 CRLF 作為行尾結束符號。 Unix 系統預期只有 LF 當做行尾結束符號。
 
 此問題最常發生在於 Windows 環境中撰寫指令碼時，因為 CRLF 是 Windows 上許多文字編輯器中常見的行尾結束符號。
 
-*解決方式*：如果您的文字編輯器提供選項，請選取 Unix 格式或 LF 作為行尾結束符號。 您也可以在 Unix 系統上使用下列命令，將 CRLF 變更為 LF：
+*解決*方式：如果它是文字編輯器中的選項，請選取 Unix 格式或 LF 做為行尾結束符號。 您也可以在 Unix 系統上使用下列命令，將 CRLF 變更為 LF：
 
 > [!NOTE]  
 > 下列命令大致相當於將 CRLF 行尾結束符號變更為 LF。 根據您的系統上可用的公用程式，選取其中一個。
@@ -351,15 +351,15 @@ Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。 請�
 
 **錯誤**：`line 1: #!/usr/bin/env: No such file or directory`。
 
-*原因*：將指令碼儲存為含有「位元組順序標記」(BOM) 的 UTF-8 時，就會發生此錯誤。
+*原因*：指令碼儲存為具有位元組順序標記 (BOM) 的 UTF-8 時，就會發生這個錯誤。
 
-*解決方式*：將檔案儲存為 ASCII，或不含 BOM 的 UTF-8。 您也可以在 Linux 或 Unix 系統上使用下列命令，以建立不具有 BOM 的檔案：
+*解決方式*：將檔案儲存為 ASCII，或不具有 BOM 的 UTF-8。 您也可以在 Linux 或 Unix 系統上使用下列命令，以建立不具有 BOM 的檔案：
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
 以包含 BOM 的檔案取代 `INFILE`。 `OUTFILE` 應該是新檔案的名稱，且包含不具有 BOM 的指令碼。
 
-## <a name="seeAlso"></a>接續步驟
+## <a name="seeAlso"></a>後續步驟
 
 * 深入了解 [使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)
 * 使用 [HDInsight.NET SDK 參考](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) ，深入了解如何建立 .NET 應用程式來管理 HDInsight

@@ -1,25 +1,16 @@
 ---
-title: 設定 Facebook 驗證 - Azure App Service
-description: 瞭解如何為您的 App Service 應用程式設定 Facebook 驗證
-services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: syntaxc4
-editor: ''
+title: 設定 Facebook 驗證
+description: 瞭解如何將 Facebook 驗證設定為 App Service 應用程式的身分識別提供者。
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2019
-ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: fb8497f3b9b887e2fd06b350bcc25ac8faaa7b43
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: cd9c8a1bab3616b9b4eb1fe97ee3a9b2307ba77b
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177000"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671944"
 ---
 # <a name="configure-your-app-service-app-to-use-facebook-login"></a>將您的 App Service 應用程式設定為使用 Facebook 登入
 
@@ -34,7 +25,7 @@ ms.locfileid: "72177000"
 1. 前往[Facebook 開發人員]網站，並使用您的 Facebook 帳號憑證登入。
 
    如果您沒有適用于開發人員的 Facebook 帳戶，請選取 [**開始**使用]，並遵循註冊步驟。
-1. 選取**我的應用程式** >  [**新增新的應用程式**]。
+1. 選取**我的應用程式** > **新增應用程式**。
 1. 在 [**顯示名稱**] 欄位中：
    1. 輸入應用程式的唯一名稱。
    1. 提供您的**連絡人電子郵件**。
@@ -42,11 +33,11 @@ ms.locfileid: "72177000"
    1. 完成安全性檢查。
 
    新 Facebook 應用程式的開發人員儀表板隨即開啟。
-1. 選取 [**儀表板**]  > **Facebook 登**入  > **設定** > **Web**。
+1. 選取 **儀表板** > **Facebook 登**入 > **設定** > **Web**。
 1. 在左側導覽的 [ **Facebook 登**入] 底下，選取 [**設定**]。
 1. 在 [**有效的 OAuth 重新導向 uri** ] 欄位中，輸入 `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback`。 請記得以您的 Azure App Service 應用程式名稱取代 `<app-name>`。
 1. 選取 [Save Changes] \(儲存變更\)。
-1. 在左窗格中，選取 [**設定**] [ > ] [**基本**]。 
+1. 在左窗格中，選取 [**設定**] > [**基本**]。 
 1. 在 [**應用程式密碼**] 欄位中，選取 [**顯示**]。 複製 [**應用程式識別碼**] 和 [**應用程式密碼**] 的值。 您稍後會使用它們來設定 Azure 中的 App Service 應用程式。
 
    > [!IMPORTANT]
@@ -55,12 +46,12 @@ ms.locfileid: "72177000"
 
 1. 您用來註冊應用程式的 Facebook 帳戶是應用程式的系統管理員。 此時，只有系統管理員可以登入此應用程式。
 
-   若要驗證其他 Facebook 帳戶，請選取 [**應用程式審核**]，並啟用 [ **\<your-應用程式名稱 > 公用**]，以啟用一般公用，以使用 Facebook 驗證來存取應用程式。
+   若要驗證其他 Facebook 帳戶，請選取 [**應用程式審核**]，並啟用 [**將 \<您的應用程式名稱 > 公用**]，以啟用使用 Facebook 驗證來存取應用程式的一般公用。
 
 ## <a name="secrets"> </a>將 Facebook 資訊加入應用程式
 
 1. 登入[Azure 入口網站]，然後流覽至您的 App Service 應用程式。
-1. 選取 [**設定**] [ >  個**驗證/授權**]，並確定**App Service 驗證**已**開啟**。
+1. 選取 [**設定**] > [**驗證/授權**]，並確定**App Service 驗證**已**開啟**。
 1. 選取 [ **Facebook**]，然後貼上您先前取得的 [應用程式識別碼] 和 [應用程式密碼] 值。 啟用應用程式所需的任何範圍。
 1. 選取 [確定]。
 

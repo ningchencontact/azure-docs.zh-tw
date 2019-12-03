@@ -1,25 +1,16 @@
 ---
-title: 在 Azure 中購買自訂網域名稱 - App Service
-description: 了解如何在 Azure App Service 中購買搭配 Web 應用程式的自訂網域名稱。
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
+title: 購買自訂功能變數名稱
+description: 瞭解如何購買 App Service 網域，並將其作為應用程式 Azure App Service 的自訂網域。
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1354f48843f8006b4a6180a2cea60e735413e446
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0723a3b0c96339ba86b98ab851c44d2a65e6f34b
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470433"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672386"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>針對 Azure App Service 購買自訂網域名稱
 
@@ -66,7 +57,7 @@ App Service 網域是直接在 Azure 中管理的頂層網域。 它們可以讓
 
 ### <a name="scale-up-the-app-service-plan"></a>相應增加 App Service 方案
 
-選取任何非免費層 (**D1**、**B1** **B2** **B3**或「生產」類別中的任何一層)。 如需其他選項，請按一下 [查看其他選項]。
+選取任何非免費層 (**D1**、**B1**、**B2**、**B3** 或「生產」類別中的任何一層)。 如需其他選項，請按一下 [查看其他選項]。
 
 按一下 [套用]。
 
@@ -115,7 +106,7 @@ App Service 網域是直接在 Azure 中管理的頂層網域。 它們可以讓
 
 接下來，請為網域選取所需選項。 請參閱下表中的說明：
 
-| 設定 | 建議的值 | 說明 |
+| 設定 | 建議的值 | 描述 |
 |-|-|-|
 |隱私權保護 | 啟用 | 選擇加入「隱私權保護」，此服務已 _免費_ 包含在購買價格中。 有些頂層網域受控於不支援隱私權保護的註冊機構，會將之列在 [隱私權保護] 頁面中。 |
 | 指派預設主機名稱 | **www** 和 **\@** | 如有需要，請選取所需的主機名稱繫結。 網域購買作業完成時，即可從選取的主機名稱存取應用程式。 如果應用程式受 [Azure 流量管理員](https://azure.microsoft.com/services/traffic-manager/)管理，您就不會看到指派根網域 (@) 的選項，因為流量管理員不支援 A 記錄。 您可以在網域購買完成之後變更主機名稱指派。 |

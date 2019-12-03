@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 8fada1d944a3d6bb6c0f85b3fd456581b2b0bdc6
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.custom: hdinsightactive
+ms.date: 11/27/2019
+ms.openlocfilehash: cbdf4a4c9e7f3816a0a5b280c81bfa60b65d9769
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720022"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687931"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>授權 Apache Ambari 檢視的使用者
 
@@ -28,7 +28,7 @@ Active Directory 使用者可以使用其網域認證來登入叢集節點。 �
 
 ## <a name="access-the-ambari-management-page"></a>存取 Ambari 管理頁面
 
-若要移至 **Ambari 管理頁面**，請在 [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) 上瀏覽至 **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** 。 輸入您建立叢集時所定義的叢集系統管理員使用者名稱和密碼。 接著，從 Ambari 儀表板中，選取 [admin] \(系統管理員\) 功能表底下的 [Manage Ambari] \(管理 Ambari\)：
+若要取得[Apache Ambari WEB UI](hdinsight-hadoop-manage-ambari.md)上的**Ambari 管理頁面**，請流覽至 `https://CLUSTERNAME.azurehdinsight.net`。 輸入您建立叢集時所定義的叢集系統管理員使用者名稱和密碼。 接著，從 Ambari 儀表板中，選取 [admin] \(系統管理員\) 功能表底下的 [Manage Ambari] \(管理 Ambari\)：
 
 ![Apache Ambari 儀表板管理](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
 
@@ -46,7 +46,7 @@ Active Directory 使用者可以使用其網域認證來登入叢集節點。 �
 
 ### <a name="add-users-through-powershell"></a>透過 PowerShell 新增使用者
 
-以適當的值取代 `CLUSTERNAME`、`NEWUSER` 和 `PASSWORD`，以編輯下列變數。
+以適當的值取代 `CLUSTERNAME`、`NEWUSER`和 `PASSWORD`，以編輯下列變數。
 
 ```powershell
 # Set-ExecutionPolicy Unrestricted
@@ -135,7 +135,7 @@ Write-Output $zookeeperHosts
 
 ### <a name="add-users-through-curl"></a>透過捲曲新增使用者
 
-以適當的值取代 `CLUSTERNAME`、`ADMINPASSWORD`、`NEWUSER` 和 `USERPASSWORD` 來編輯下面的變數。 腳本是設計來搭配 bash 來執行。 Windows 命令提示字元需要稍微修改。
+以適當的值取代 `CLUSTERNAME`、`ADMINPASSWORD`、`NEWUSER`和 `USERPASSWORD`，以編輯下面的變數。 腳本是設計來搭配 bash 來執行。 Windows 命令提示字元需要稍微修改。
 
 ```bash
 export clusterName="CLUSTERNAME"
@@ -232,7 +232,7 @@ Ambari 隨附 [Apache Hive](https://hive.apache.org/) 和 [Apache TEZ](https://t
 
 ![Apache Ambari 角色功能表連結許可權](./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "Apache Ambari 角色功能表連結許可權")
 
-在此頁面上，有兩個不同的檢視，可供您用來管理使用者和群組的角色：[區塊] 和 [清單]。
+在此頁面上，有兩個不同的檢視，可供您用來管理使用者和群組的角色：[Block] \(區塊\) 和 [List] \(清單\)。
 
 ### <a name="block-view"></a>[區塊] 檢視
 
@@ -242,13 +242,13 @@ Ambari 隨附 [Apache Hive](https://hive.apache.org/) 和 [Apache TEZ](https://t
 
 ### <a name="list-view"></a>[清單] 檢視
 
-[清單] 檢視會在兩個類別中提供快速編輯功能：[使用者] 和 [群組]。
+[List] \(清單\) 檢視提供快速編輯功能，分成兩個類別：[Users] \(使用者\) 和 [Groups] \(群組\)。
 
 * [List] \(清單\) 檢視的 [Users] \(使用者\) 類別會顯示所有使用者的清單，可讓您從下拉式清單中選取每個使用者的角色。
 
     ![Apache Ambari 角色清單視圖-使用者](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-*  [List] \(清單\) 檢視的 [Groups] \(群組\) 類別會顯示所有群組，以及指派給每個群組的角色。 在我們的範例中，群組清單是透過同步處理，從叢集 [Domain] \(網域\) 設定之 [Access user group] \(存取使用者群組\) 屬性中指定的 Azure AD 群組取得。 請參閱[建立啟用 ESP 的 HDInsight 叢集](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp)。
+* [List] \(清單\) 檢視的 [Groups] \(群組\) 類別會顯示所有群組，以及指派給每個群組的角色。 在我們的範例中，群組清單是透過同步處理，從叢集 [Domain] \(網域\) 設定之 [Access user group] \(存取使用者群組\) 屬性中指定的 Azure AD 群組取得。 請參閱[建立啟用 ESP 的 HDInsight 叢集](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp)。
 
     ![Apache Ambari 角色清單視圖-群組](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

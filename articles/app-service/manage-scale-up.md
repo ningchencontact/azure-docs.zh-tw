@@ -1,24 +1,16 @@
 ---
-title: 相應增加功能和容量 - Azure App Service | Microsoft Docs
-description: 了解如何在 Azure App Service 中相應增加應用程式的規模，以增加容量和功能。
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
+title: 相應增加功能和容量
+description: 瞭解如何在 Azure App Service 中相應增加應用程式。 取得更多的 CPU、記憶體、磁碟空間和額外的功能。
 ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/19/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 91a6681c2ef4a6d0ac01889e6e92e752975e90a5
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 37120377f87bee53f73fe4d3dd7ced59551a491f
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74089463"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672317"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>在 Azure App Service 中相應增加應用程式
 
@@ -26,7 +18,7 @@ ms.locfileid: "74089463"
 
 * [相應增加](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)︰取得更多的 CPU、記憶體、磁碟空間和額外的功能，例如專用虛擬機器 (VM)、自訂網域和憑證、預備位置，以及自動調整等等。 您可以藉由變更應用程式所屬的 App Service 方案定價層來相應增加。
 * [相應放大](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)︰增加執行您的應用程式的 VM 執行個體數目。
-  視您的定價層而定，您可以相應放大為30個實例。 [隔離](environment/intro.md)層中的 **App Service 環境**，進一步將您的相應放大計數增加到 100 個執行個體。 如需相應放大的詳細資訊，請參閱[手動或自動調整執行個體計數](../monitoring-and-diagnostics/insights-how-to-scale.md)。 您可以在該文章中了解如何使用自動調整，也就是根據預先定義的規則與排程，自動調整執行個體計數。
+  視您的定價層而定，您可以相應放大為30個實例。 **隔離**層中的 [App Service 環境](environment/intro.md)，進一步將您的相應放大計數增加到 100 個執行個體。 如需相應放大的詳細資訊，請參閱[手動或自動調整執行個體計數](../monitoring-and-diagnostics/insights-how-to-scale.md)。 您可以在該文章中了解如何使用自動調整，也就是根據預先定義的規則與排程，自動調整執行個體計數。
 
 這些調整設定只需幾秒鐘便能套用，且影響範圍遍及 [App Service 方案](../app-service/overview-hosting-plans.md)內的所有應用程式。
 在此過程中，您不需要變更程式碼或重新部署應用程式。
@@ -83,7 +75,7 @@ ms.locfileid: "74089463"
 
 <a name="Next Steps"></a>
 
-## <a name="more-resources"></a>其他資源
+## <a name="more-resources"></a>更多資源
 
 [手動或自動調整執行個體計數](../monitoring-and-diagnostics/insights-how-to-scale.md)  
 [設定 App Service 的 PremiumV2 層](app-service-configure-premium-tier.md)

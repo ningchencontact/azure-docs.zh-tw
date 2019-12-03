@@ -1,25 +1,16 @@
 ---
-title: 設定 TLS 相互驗證 - Azure App Service
-description: 了解如何設定應用程式在 TLS 上使用用戶端憑證驗證。
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: jimbe
+title: 設定 TLS 相互驗證
+description: 瞭解如何在 TLS 上驗證用戶端憑證。 Azure App Service 可以讓應用程式程式碼使用用戶端憑證進行驗證。
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/01/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a07fa597305771ed3f4da01f2819297fc9cd3d77
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: aa4d0b5089c07cbbeb3d40224518b9eb9a927585
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271700"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672130"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>設定 Azure App Service 的 TLS 相互驗證
 

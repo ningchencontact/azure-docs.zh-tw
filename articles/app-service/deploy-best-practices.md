@@ -1,26 +1,18 @@
 ---
-title: 部署最佳作法-Azure App Service |Microsoft Docs
-description: 瞭解部署至 Azure App Service 的主要元件。
+title: 部署最佳做法
+description: 瞭解部署到 Azure App Service 的主要機制。 尋找特定語言的建議和其他注意事項。
 keywords: azure app service，web 應用程式，部署，部署，管線，組建
-services: app-service
-documentationcenter: ''
 author: jasonfreeberg
-manager: ''
-editor: ''
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.custom: ''
-ms.openlocfilehash: 121ea4b7e29510ef86b61350ed97ffca5d133d56
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: d3959b9a86ccc2d42cbf7bd188ce86bf4b7a2e63
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199483"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670096"
 ---
 # <a name="deployment-best-practices"></a>部署最佳作法
 

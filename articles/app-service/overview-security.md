@@ -1,25 +1,16 @@
 ---
-title: 安全性概觀 - Azure App Service | Microsoft Docs
+title: 安全性
 description: 深入了解 App Service 如何協助保護您的應用程式，以及您如何進一步鎖定您的應用程式免於遭受威脅。
 keywords: azure app service, web 應用程式, 行動應用程式, api 應用程式, 函數應用程式, 安全性, 安全, 保護, 受保護, 合規性, 符合規範, 憑證, https, ftps, tls, 信任, 加密, 已加密, ip 限制, 驗證, 授權, authn, autho, msi, 受控服務身分識別, 受控識別, 祕密, 修補, 修補程式, 版本, 隔離, 網路隔離, ddos, mitm
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/24/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 07dbbb956dcf6f1204bef2af3a28a0af3eeb5226
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 28394689048e730aa0c84e3bf807ef3afb898b1e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470092"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688565"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service 中的安全性
 
@@ -53,7 +44,7 @@ App Service 可讓您利用 [HTTPS](https://wikipedia.org/wiki/HTTPS) 保護您�
 
 為了保護應用程式以抵禦所有未加密的 (HTTP) 連線，App Service 會提供單鍵設定來強制使用 HTTPS。 不安全的要求會在觸達您應用程式的程式碼之前離開。 如需詳細資訊，請參閱[強制使用 HTTPS](configure-ssl-bindings.md#enforce-https)。
 
-業界標準 (例如 [PCI DSS](https://wikipedia.org/wiki/Transport_Layer_Security)) 不再將 [TLS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) 1.0 視為安全的。 App Service 可讓您藉由[強制使用 TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions) 來停用過時的通訊協定。
+業界標準 (例如 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)) 不再將 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 視為安全的。 App Service 可讓您藉由[強制使用 TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions) 來停用過時的通訊協定。
 
 App Service 同時支援使用 FTP 和 FTPS 來部署您的檔案。 不過，應該使用 FTPS，而不是 FTP (如果全都可行)。 如有其中一個或兩個通訊協定都不在使用中，您應該[停用它們](deploy-ftp.md#enforce-ftps)。
 
@@ -94,7 +85,7 @@ App Service 驗證和授權支援多個驗證提供者，包括 Azure Active Dir
 
 ### <a name="resources-inside-an-azure-virtual-network"></a>Azure 虛擬網路內的資源
 
-您的應用程式可以透過[虛擬網路整合](/azure/virtual-network/)來存取 [Azure 虛擬網路](web-sites-integrate-with-vnet.md)中的資源。 使用點對站 VPN 可建立與虛擬網路的整合。 應用程式可接著使用其私人 IP 位址，存取虛擬網路中的資源。 不過，點對站連線仍會在 Azure 中周遊共用的網路。 
+您的應用程式可以透過[虛擬網路整合](web-sites-integrate-with-vnet.md)來存取 [Azure 虛擬網路](/azure/virtual-network/)中的資源。 使用點對站 VPN 可建立與虛擬網路的整合。 應用程式可接著使用其私人 IP 位址，存取虛擬網路中的資源。 不過，點對站連線仍會在 Azure 中周遊共用的網路。 
 
 若要完全隔離您的資源與 Azure 中共用網路的連線，請在 [App Service 環境](environment/intro.md)中建立您的應用程式。 App Service 環境一律會部署至專用的虛擬網路，因此您的應用程式與虛擬網路內的資源之間的連線會完全隔離。 如需 App Service 環境中的其他層面，請參閱[網路隔離](#network-isolation)。
 

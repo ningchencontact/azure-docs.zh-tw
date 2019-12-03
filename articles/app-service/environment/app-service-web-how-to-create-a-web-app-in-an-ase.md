@@ -1,25 +1,18 @@
 ---
-title: 在 App Service 環境 v1 中建立 Web 應用程式 - Azure
-description: 了解如何在 App Service 環境 v1 中建立 Web 應用程式和 App Service 方案
-services: app-service
-documentationcenter: ''
+title: 在 ASE v1 中建立 web 應用程式
+description: 瞭解如何在 App Service 環境 v1 中建立 web 應用程式。 本檔僅為使用舊版 v1 ASE 的客戶提供。
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: 983ba055-e9e4-495a-9342-fd3708dcc9ac
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cc40c2296e583ab93a7c34d709cfbf1334ae3926
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8fb121999176e43f07283e970d7336a7c569eaca
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069853"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688709"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>在 App Service 環境 v1 中建立 Web 應用程式
 
@@ -27,7 +20,7 @@ ms.locfileid: "70069853"
 > 這篇文章是關於 App Service 環境 v1。  有較新版本的 App Service 環境，更易於使用，並且可以在功能更強大的基礎結構上執行。 若要深入了解新版本，請從 [App Service 環境簡介](intro.md)開始。
 > 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 本教學課程說明如何在 [App Service 環境 v1](app-service-app-service-environment-intro.md) (ASE) 中建立 Web 應用程式和 App Service 方案。 
 
 > [!NOTE]
@@ -65,7 +58,7 @@ ms.locfileid: "70069853"
     在 ASE 建立期間選取您的 ASP 後，您會在 [名稱] 之下看到子網域更新
 
 ## <a name="createplan"></a> 建立 App Service 方案
-當您在 App Service 環境中建立 App Service 方案時，您的背景工作角色選擇會因為在 ASE 中沒有共用的背景工作角色而有所不同。  您必須使用的背景工作角色也就是由系統管理員配置給 ASE 的背景工作角色。這代表在建立新的方案時，配置給 ASE 背景工作集區的背景工作角色數目，必須超過該背景工作集區中所有方案的執行個體總數。  如果您的 ASE 背景工作集區中沒有足夠的背景工作角色來建立方案，則您需要與 ASE 系統管理員合作來新增背景工作角色。
+當您在 App Service 環境中建立 App Service 方案時，您的背景工作角色選擇會因為在 ASE 中沒有共用的背景工作角色而有所不同。  您必須使用的背景工作角色，是由系統管理員配置給 ASE 的工作者。 這表示若要建立新的方案，您需要將更多背景工作配置到 ASE 背景工作角色集區，而不是該背景工作集區中所有計劃的實例總數。  如果您的 ASE 背景工作集區中沒有足夠的背景工作角色來建立方案，則您需要與 ASE 系統管理員合作來新增背景工作角色。
 
 而 App Service 環境所裝載的 App Service 方案還有另一項差異，那就是缺少價格選取項目。  當您有 App Service 環境時，您會支付系統所使用的計算資源費用，但該環境中的方案不會有附加的費用。  當您建立 App Service 方案時，您通常會選取決定費率的價格方案。  App Service 環境基本上是您可以在其中建立內容的私人位置。  您可支付環境費用，而非裝載您的內容。
 

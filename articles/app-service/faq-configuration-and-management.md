@@ -1,25 +1,19 @@
 ---
-title: 設定常見問題集 - Azure App Service | Microsoft Docs
-description: 對於 Azure App Service 的 Web 應用程式功能的設定和管理問題，取得常見問題集的解答。
-services: app-service\web
-documentationcenter: ''
+title: 設定常見問題
+description: 取得 Azure App Service 設定和管理問題的常見問題解答。
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 111ee6cda46677b3b0fc39f5a84268e6ac192da9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc13b0939563f93c31683b432b0410035d892de0
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470525"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672495"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的設定和管理常見問題集
 
@@ -69,7 +63,7 @@ ms.locfileid: "73470525"
 2. 在 [應用程式設定] 底下，新增以下設定：
     * 索引鍵 = WEBSITE_TIME_ZONE
     * 值 = 您想要的時區
-3. 選取 [ **儲存**]。
+3. 選取 [儲存]。
 
 針對在 Windows 上執行的應用程式服務，請參閱[預設時區](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones)文章中的 [**時區**] 資料行以取得接受的值。 針對在 Linux 上執行的應用程式服務，將[TZ 資料庫名稱](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)設定為時區值。 以下是一個 TZ 資料庫名稱：北美洲/Adak 的範例。
 
@@ -147,7 +141,7 @@ PCI DSS 3.1 版憑證需要停用傳輸層安全性 (TLS) 1.0。 目前，停用
 Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
 ```
 
-### <a name="resolution"></a>解決方案
+### <a name="resolution"></a>解析度
 
 例外狀況是「混合式連線管理員」問題所造成的，該問題在那之後已修正。 請務必[更新混合式連線管理員](https://go.microsoft.com/fwlink/?LinkID=841308)以解決此問題。
 

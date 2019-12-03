@@ -1,32 +1,25 @@
 ---
-title: App Service 環境 v1 簡介 - Azure
-description: 了解可提供安全、VNet 聯結、專用延展單位的 App Service 環境 v1 功能，以便執行您所有的應用程式。
-services: app-service
-documentationcenter: ''
+title: ASE v1 簡介
+description: 瞭解 App Service 環境 v1 功能。 本檔僅為使用舊版 v1 ASE 的客戶提供。
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 32450d0c5fbb5599b286921b9653ae68faf40ecf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f655b7793bfbb5bbeddfc2f1f8e7bc973dabeb4c
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070144"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687367"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>App Service 環境 v1 簡介
 
 > [!NOTE]
 > 這篇文章是關於 App Service 環境 v1。  有較新版本的 App Service 環境，更易於使用，並且可以在功能更強大的基礎結構上執行。 若要深入了解新版本，請從 [App Service 環境簡介](intro.md)開始。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 App Service 環境是[Azure App Service](../overview.md)的[高階服務方案][PremiumTier]選項，可提供完全隔離且專用的環境，以便安全地大規模執行 Azure App Service 應用程式，包括 Web Apps、Mobile Apps 和 API Apps。  
 
@@ -77,7 +70,7 @@ App Service Environment 可以是具有公用 IP 位址的網際網路對向，�
 
 如需有關 App Service 環境如何搭配虛擬網路和內部部署網路使用的詳細資訊，請參閱下列有關[網路架構][NetworkArchitectureOverview]、[控制輸入流量][ControllingInboundTraffic]，以及[安全地連線至後端][SecurelyConnectingToBackends]的文章。 
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 若要開始使用 App Service 環境，請參閱[如何建立 App Service 環境][HowToCreateAnAppServiceEnvironment]
 

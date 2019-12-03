@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ad1cb3b08f92923ef45b48d79ad8bbdc3277d370
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 88a1280fb4a91d7ba45f2d0cfe92e604cd66ff0b
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131969"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672591"
 ---
 # <a name="troubleshooting"></a>疑難排解
 
@@ -39,7 +39,17 @@ ms.locfileid: "74131969"
 3. 如果沒有**傳入訊息**，請聯絡您的裝置合作夥伴。  
 4. 如果有內送**訊息**，請使用資料中樞和加速器記錄，以及已捕獲的遙測來 farmbeatssupport@microsoft.com。
 
-請參閱檔中的[記錄一節](#collect-logs-manually)，以瞭解如何下載記錄。    
+請參閱檔中的[記錄一節](#collect-logs-manually)，以瞭解如何下載記錄。  
+
+### <a name="dont-have-the-eventhub-connection-string"></a>沒有 Eventhub 連接字串
+
+**更正動作**：請造訪 Datahub swagger，並遵循下列步驟：
+1. 流覽至合作夥伴 API
+2. 按一下 [> 立即試用-> 執行]
+3. 記下您感興趣之感應器合作夥伴的合作夥伴識別碼
+4. 返回合作夥伴 API，然後按一下 GET/{id}
+5. 指定步驟3中的識別碼，然後按一下 [執行]
+6. API 回應應具有 EventHub 連接字串
 
 ### <a name="device-appears-offline"></a>裝置顯示為離線
 
@@ -84,7 +94,7 @@ ms.locfileid: "74131969"
 
 ## <a name="accelerator-troubleshooting"></a>加速器疑難排解
 
-### <a name="access-control"></a>存取控制
+### <a name="access-control"></a>Access Control
 
 **新增角色指派時發生錯誤**
 
@@ -130,7 +140,7 @@ ms.locfileid: "74131969"
 **作業失敗訊息**：糟糕，發生錯誤。 您嘗試存取的頁面是（暫時）無法使用。 
 
 矯正**措施：**
-1.  開啟 [Sentinel URL] （在瀏覽器中 https://scihub.copernicus.eu/dhus/)，並檢查是否可存取網站。 
+1.  開啟 [Sentinel URL] （在瀏覽器中 https://scihub.copernicus.eu/dhus/) ，並檢查是否可存取網站。 
 2.  如果無法存取網站，請檢查是否有任何防火牆/公司網路等等會封鎖網站，並採取必要的步驟以允許上述 URL。 
 3.  重新執行失敗的作業，或在5-7 天的日期範圍內執行附屬索引作業，並檢查工作是否成功。  
 
@@ -142,7 +152,7 @@ ms.locfileid: "74131969"
 
 1.  如果在 Sentinel 伺服器上進行了任何維護活動，就會發生此問題。 
 2.  如果任何作業/管線因上述原因而失敗，請在一段時間後重新提交作業。 
-3.  使用者可以造訪 https://scihub.copernicus.eu/news/，以查看任何已規劃/非計畫的 Sentinel 維護活動的相關資訊。  
+3.  使用者可以造訪 https://scihub.copernicus.eu/news/ ，以查看任何已規劃/非計畫的 Sentinel 維護活動的相關資訊。  
 4.  重新執行失敗的作業，或在5-7 天的日期範圍內執行附屬索引作業，並檢查工作是否成功。
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>已達到的 Sentinel 最大連接數目
@@ -162,7 +172,7 @@ ms.locfileid: "74131969"
 
 **更正動作**：如果在 Sentinel 伺服器上進行任何維護活動，就會發生此問題。 
 1.  如果任何作業/管線因上述原因而失敗，請在一段時間後重新提交作業。 
-2.  使用者可以造訪 https://scihub.copernicus.eu/news/，以查看任何已規劃/非計畫的 Sentinel 維護活動的相關資訊。  
+2.  使用者可以造訪 https://scihub.copernicus.eu/news/ ，以查看任何已規劃/非計畫的 Sentinel 維護活動的相關資訊。  
 3.  請重新執行失敗的工作，或在5-7 天的日期範圍內執行附屬索引作業，並檢查工作是否成功。
 
 

@@ -1,26 +1,17 @@
 ---
-title: 在入口網站中設定應用程式-Azure App Service
-description: 瞭解如何在 Azure 入口網站中設定 App Service 應用程式的一般設定。
+title: 在入口網站中設定應用程式
+description: 瞭解如何在 Azure 入口網站中設定 App Service 應用程式的一般設定。 應用程式設定、連接字串、平臺、語言堆疊、容器等。
 keywords: azure app service，web 應用程式，應用程式設定，環境變數
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c22f88487fd8b34d48d3012c706bb0415760b21e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 45de3b79263fd43a93fcea73c271ede4bc5f96fe
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470932"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671955"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>在 Azure 入口網站中設定 App Service 應用程式
 
@@ -34,7 +25,7 @@ ms.locfileid: "73470932"
 
 ![應用程式設定](./media/configure-common/open-ui.png)
 
-針對 ASP.NET 和 ASP.NET Core 開發人員，在 App Service 中設定應用程式設定，就像是在 web.config 或*appsettings*的 *`<appSettings>` 中設定*一樣，但 App Service 中的值會覆寫*web.config*或 appsettings 中的值 *。* . 您*可以在 web.config 或* *appsettings*中保留開發設定（例如，本機 MySQL 密碼），但 App Service 中的生產秘密（例如 Azure MySQL 資料庫密碼）則是安全的。 當您在本機進行調試時，相同的程式碼會使用您的開發設定，並在部署至 Azure 時使用您的生產密碼。
+針對 ASP.NET 和 ASP.NET Core 開發人員，在 App Service 中設定應用程式設定，就像是在 web.config 或*appsettings*的 *`<appSettings>` 中設定*一樣，但 App Service 中的值會覆寫*web.config*或*appsettings*中的值。 您*可以在 web.config 或* *appsettings*中保留開發設定（例如，本機 MySQL 密碼），但 App Service 中的生產秘密（例如 Azure MySQL 資料庫密碼）則是安全的。 當您在本機進行調試時，相同的程式碼會使用您的開發設定，並在部署至 Azure 時使用您的生產密碼。
 
 同樣地，其他語言堆疊也會在執行時間取得應用程式設定作為環境變數。 如需語言堆疊的特定步驟，請參閱：
 
@@ -104,7 +95,7 @@ ms.locfileid: "73470932"
 * SQL Server： `SQLCONNSTR_`
 * MySQL： `MYSQLCONNSTR_`
 * SQL Database： `SQLAZURECONNSTR_`
-* 自訂： `CUSTOMCONNSTR_`
+* 自訂：`CUSTOMCONNSTR_`
 
 例如，名為*connectionstring1*的 MySql 連接字串可以做為環境變數 `MYSQLCONNSTR_connectionString1`存取。 如需語言堆疊的特定步驟，請參閱：
 
@@ -251,7 +242,7 @@ ms.locfileid: "73470932"
 
 - [在 Azure App Service 中設定自訂網域名稱]
 - [在 Azure App Service 中設定預備環境]
-- [在 Azure App Service 中使用 SSL 系結保護自訂 DNS 名稱](configure-ssl-bindings.md)
+- [在 Azure App Service 中使用 SSL 繫結保護自訂 DNS 名稱](configure-ssl-bindings.md)
 - [啟用診斷記錄](troubleshoot-diagnostic-logs.md)
 - [在 Azure App Service 中調整應用程式規模]
 - [在 Azure App Service 中監視基本概念]

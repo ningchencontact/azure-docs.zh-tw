@@ -1,25 +1,17 @@
 ---
-title: 從雲端資料夾同步內容 - Azure App Service
-description: 了解如何從雲端資料夾透過內容同步處理，將您的應用程式部署至 Azure App Service。
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
+title: 從雲端資料夾同步內容
+description: 瞭解如何透過從雲端資料夾（包括 OneDrive 或 Dropbox）的內容同步處理，將您的應用程式部署至 Azure App Service。
 ms.assetid: 88d3a670-303a-4fa2-9de9-715cc904acec
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/03/2018
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 033a9adfd81dc52858ab58e3170e69af6f56c323
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c55894bff9501d3ffb9aa843a9eaa240a213180e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070635"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671742"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>將雲端資料夾的內容同步處理到 Azure App Service
 本文說明如何將您的內容從 Dropbox 和 OneDrive 同步處理到 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)。 

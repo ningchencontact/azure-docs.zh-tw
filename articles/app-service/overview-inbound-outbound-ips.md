@@ -1,24 +1,15 @@
 ---
-title: 輸入/輸出 IP 位址 - Azure App Service | Microsoft Docs
-description: 說明 App Service 是如何使用輸入和輸出 IP 位址的，以及如何為應用程式尋找這些位址的相關資訊。
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
+title: 輸入/輸出 IP 位址
+description: 瞭解輸入和輸出 IP 位址在 Azure App Service 中的使用方式、變更時間，以及如何尋找您的應用程式位址。
 ms.topic: article
 ms.date: 06/06/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 26033192ee841262345b0fc7f6aec76872379070
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: aebce04fe2f1b055a4d498021dcd25144cd122a9
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470173"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671594"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service 中的輸入和輸出 IP 位址
 

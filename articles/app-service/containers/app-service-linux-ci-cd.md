@@ -1,26 +1,19 @@
 ---
-title: 以用於容器的 Web App 進行持續部署 - Azure App Service | Microsoft Docs
-description: 如何在用於容器的 Web App 中設定持續部署。
+title: 自訂 Linux 容器的 CI/CD
+description: 瞭解如何在 Azure App Service 中設定持續部署至自訂的 Linux 容器。 Docker Hub 和 ACR 支援持續部署。
 keywords: azure app service, linux, docker, acr,oss
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 1dc776f0a61ac1a29ab3fe3ebdd542469863cd50
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d43491de7500204ed470757a1b744017a8180b57
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071363"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687622"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>使用用於容器的 Web 應用程式進行持續部署
 

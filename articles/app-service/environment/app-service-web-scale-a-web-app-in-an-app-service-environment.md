@@ -1,27 +1,20 @@
 ---
-title: 如何調整 App Service 環境中應用程式的規模 - Azure
-description: 在 App Service 環境中調整應用程式
-services: app-service
-documentationcenter: ''
+title: 在 ASE v1 中調整應用程式
+description: 在 App Service 環境中調整應用程式。 本檔僅為使用舊版 v1 ASE 的客戶提供。
 author: ccompy
-manager: stefsch
-editor: jimbe
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 711dc4d59785418d6637eb144b644948ed495e2c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 43849ca7084f2237c37ad537c50f4e94ac4ea7c0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069719"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688669"
 ---
-# <a name="scaling-apps-in-an-app-service-environment"></a>在 App Service 環境中調整應用程式
+# <a name="scaling-apps-in-an-app-service-environment-v1"></a>在 App Service 環境 v1 中調整應用程式
 在 Azure App Service 中，您通常有三件事可以調整：
 
 * 定價方案
@@ -30,7 +23,7 @@ ms.locfileid: "70069719"
 
 在 ASE 中不需要選取或變更定價方案。  就功能而言，它已經是 Premium 定價功能層級。  
 
-關於背景工作角色大小，ASE 系統管理員可以指派要用於每個背景工作角色集區的計算資源大小。  這表示您可以有具 P4 計算資源的背景工作集區 1，以及具 P1 計算資源的背景工作集區 2 (如有需要的話)。  它們並沒有大小順序。  如需大小及其價格的詳細資訊, 請參閱這裡的檔[Azure App Service 定價][AppServicePricing]。  以下是 App Service 環境中的 Web 應用程式和 App Service 方案的調整選項：
+關於背景工作角色大小，ASE 系統管理員可以指派要用於每個背景工作角色集區的計算資源大小。  這表示您可以有具 P4 計算資源的背景工作集區 1，以及具 P1 計算資源的背景工作集區 2 (如有需要的話)。  它們並沒有大小順序。  如需大小及其價格的詳細資訊，請參閱這裡的檔[Azure App Service 定價][AppServicePricing]。  以下是 App Service 環境中的 Web 應用程式和 App Service 方案的調整選項：
 
 * 背景工作集區選取
 * 執行個體數目
@@ -39,7 +32,7 @@ ms.locfileid: "70069719"
 
 ![][1]
 
-ASP 相應增加的數量無法超過 ASP 所在背景工作集區中可用的計算資源數量。  如果背景工作集區中需要計算資源，您必須讓 ASE 系統管理員增加資源。  如需有關重新設定 ASE 的資訊，請參閱以下資訊：[如何設定 App Service 環境][HowtoConfigureASE]。  您也可能需利用 ASE 自動調整功能，以根據排程或計量增加容量。  若要取得設定 ASE 環境本身自動調整的詳細資訊, 請參閱[如何設定 App Service 環境的自動][ASEAutoscale]調整。
+ASP 相應增加的數量無法超過 ASP 所在背景工作集區中可用的計算資源數量。  如果背景工作集區中需要計算資源，您必須讓 ASE 系統管理員增加資源。  如需重新設定 ASE 的詳細資訊，請閱讀以下資訊：[如何設定 App Service 環境][HowtoConfigureASE]。  您也可能需利用 ASE 自動調整功能，以根據排程或計量增加容量。  若要取得設定 ASE 環境本身自動調整的詳細資訊，請參閱[如何設定 App Service 環境的自動][ASEAutoscale]調整。
 
 您可以使用來自不同背景工作集區或相同背景工作集區的計算資源，建立多個 App Service 方案。  例如，如果在背景工作集區 1 中有 (10) 個可用的計算資源，您可以選擇使用 (6) 個計算資源建立一個 App Service 方案，而第二個 App Service 方案使用 (4) 個計算資源。
 
@@ -50,7 +43,7 @@ ASP 相應增加的數量無法超過 ASP 所在背景工作集區中可用的�
 
 ![][2] 
 
-在 ASE 中的 ASP 自動調整規則與一般運作方式相同。  您可以選取 [調整依據] 下方的 [CPU 百分比]，根據 CPU 百分比建立 ASP 的自動調整規則，或使用 [排程和效能規則] 建立更複雜的規則。  若要查看設定自動調整的更完整詳細資料, 請使用此處的指南[在 Azure App Service 中調整應用程式規模][AppScale]。 
+在 ASE 中的 ASP 自動調整規則與一般運作方式相同。  您可以選取 [調整依據] 下方的 [CPU 百分比]，根據 CPU 百分比建立 ASP 的自動調整規則，或使用 [排程和效能規則] 建立更複雜的規則。  若要查看設定自動調整的更完整詳細資料，請使用此處的指南[在 Azure App Service 中調整應用程式規模][AppScale]。 
 
 ### <a name="worker-pool-selection"></a>背景工作集區選取
 如前所述，背景工作角色集區選項需透過 ASP UI 存取。  開啟您想要調整的 ASP 刀鋒視窗，選取 [背景工作集區]。  您會看到您已在 App Service 環境中設定的所有背景工作集區。  如果您只有一個背景工作集區，您只會看到一個集區列出。  若要變更 ASP 所在的背景工作角色集區，您只需選取 App Service 方案所要移入的背景工作角色集區。  
@@ -64,8 +57,8 @@ ASP 相應增加的數量無法超過 ASP 所在背景工作集區中可用的�
 > 
 > 
 
-## <a name="getting-started"></a>使用者入門
-若要開始使用 App Service 環境, 請參閱[如何建立 App Service 環境][HowtoCreateASE]
+## <a name="getting-started"></a>開始使用
+若要開始使用 App Service 環境，請參閱[如何建立 App Service 環境][HowtoCreateASE]
 
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/aseappscale-aspblade.png

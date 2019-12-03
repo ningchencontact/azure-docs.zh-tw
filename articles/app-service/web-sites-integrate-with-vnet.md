@@ -1,24 +1,18 @@
 ---
-title: 將應用程式與 Azure 虛擬網路整合 - Azure App Service
-description: 示範如何將 Azure App Service 中的應用程式連接到新的或現有的 Azure 虛擬網路
-services: app-service
-documentationcenter: ''
+title: 整合應用程式與 Azure 虛擬網路
+description: 瞭解 Azure App Service 如何與 Azure 虛擬網路整合，以及如何將應用程式連線到虛擬網路。
 author: ccompy
-manager: stefsch
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a6d0cba41e694e154da32a878cb4c076aae13e65
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 71dc37fc000b2f195478e06f7e755fa8df926444
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034717"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688296"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>將您的應用程式與 Azure 虛擬網路整合
 本檔說明 Azure App Service 虛擬網路整合功能，以及如何使用[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)中的應用程式進行設定。 [Azure 虛擬網路][VNETOverview]（vnet）可讓您將許多 Azure 資源放在非網際網路可路由網路中。  
@@ -112,9 +106,9 @@ VNet 整合不支援的事項包括：
 若要中斷您應用程式與 VNet 的連線，請選取 [中斷連線]。 這會重新啟動 Web 應用程式。 
 
 
-#### <a name="web-app-for-containers"></a>適用於容器的 Web 應用程式
+#### <a name="web-app-for-containers"></a>Web App for Containers
 
-如果您將 Linux 上的 App Service 與內建映射搭配使用，區域 VNet 整合功能就能運作，而不需要進行其他變更。 如果您使用用於容器的 Web App，您需要修改 docker 映射，才能使用 VNet 整合。 在您的 docker 映射中，使用埠環境變數作為主要 web 伺服器的接聽埠，而不是使用硬式編碼的埠號碼。 埠環境變數會在容器啟動時，由 App Service 平臺自動設定。 如果您使用 SSH，則在使用區域 VNet 整合時，必須將 SSH daemon 設定為接聽 SSH_PORT 環境變數所指定的埠號碼。
+如果您將 Linux 上的 App Service 與內建映射搭配使用，區域 VNet 整合功能就能運作，而不需要進行其他變更。 如果您使用用於容器的 Web App，您需要修改 docker 映射，才能使用 VNet 整合。 在您的 docker 映射中，使用埠環境變數作為主要 web 伺服器的接聽埠，而不是使用硬式編碼的埠號碼。 埠環境變數會在容器啟動時，由 App Service 平臺自動設定。 如果您使用 SSH，則在使用區域 VNet 整合時，SSH 背景程式必須設定為接聽 SSH_PORT 環境變數所指定的埠號碼。
 
 ### <a name="service-endpoints"></a>服務端點
 
@@ -142,14 +136,14 @@ App Service 中的應用程式會裝載于背景工作角色上。 基本和較�
 * 最多可在 App Service 方案中與五個 Vnet 整合 
 * 可讓 App Service 方案中的多個應用程式使用相同的 VNet，而不會影響 App Service 方案所能使用的總次數。  如果您有6個應用程式在相同的 App Service 方案中使用相同的 VNet，則會計算為使用1個 VNet。 
 * 需要使用點對站 VPN 設定的虛擬網路閘道
-* 因閘道上的 SLA 而支援 99.9% 的 SLA
+* 因閘道上的 SLA 而支援99.9% 的 SLA
 
 此功能不支援：
 * 搭配 Linux 應用程式使用
 * 透過 ExpressRoute 存取資源 
 * 跨服務端點存取資源 
 
-### <a name="getting-started"></a>使用者入門
+### <a name="getting-started"></a>開始使用
 
 在將 Web 應用程式連接至虛擬網路之前，請留意以下事項：
 
@@ -244,25 +238,25 @@ ASP VNet 整合 UI 會向您顯示 ASP 中的應用程式所使用的所有 VNet
 1. 移至入口網站中的 [App Service 方案] > [網路] > [VNet 整合 UI]。  選取您的應用程式連線到的 VNet。 在路由區段中，新增與您的應用程式所連線到的 VNet 對等互連之 VNet 的位址範圍。  
 
 
-## <a name="pricing-details"></a>價格詳細資料
+## <a name="pricing-details"></a>定價詳細資料
 除了 ASP 定價層費用以外，區域 VNet 整合功能不需額外付費。
 
 使用閘道所需的 VNet 整合功能有三個相關費用：
 
-* ASP 定價層費用-您的應用程式必須在標準、Premium 或 PremiumV2 App Service 方案中。 如需有關這些成本的更多詳細資料，請參閱這裡：[App Service 定價][ASPricing]。 
+* ASP 定價層費用-您的應用程式必須在標準、Premium 或 PremiumV2 App Service 方案中。 您可以在這裡看到這些成本的詳細資料： [App Service 定價][ASPricing]。 
 * 資料傳輸成本-資料輸出需要付費，即使 VNet 位於相同的資料中心也一樣。 這些費用會在[資料傳輸定價詳細資料][DataPricing]中說明。 
 * VPN 閘道成本-點對站 VPN 需要 VNet 閘道的成本。 詳細資料位於[VPN 閘道定價][VNETPricing]頁面。
 
 
 ## <a name="troubleshooting"></a>疑難排解
-儘管功能易於設定，這不表示您的體驗不會遇到問題。 如果您在存取所需端點時遇到問題，有一些公用程式，您可以用來從應用程式主控台測試連線功能。 有兩個您可以使用的主控台。 一個是 Kudu 主控台，另一個則是 Azure 入口網站中的主控台。 若要從您的應用程式觸達 Kudu 主控台，請移至 [工具] -> [Kudu]。 您也可以連線到位於 [sitename]. azurewebsites. net 的 Kudo 主控台。 網站載入後，請移至 [調試主控台] 索引標籤。若要前往 Azure 入口網站裝載的主控台，請從您的應用程式移至 [工具] -> [主控台]。 
+儘管功能易於設定，這不表示您的體驗不會遇到問題。 如果您在存取所需端點時遇到問題，有一些公用程式，您可以用來從應用程式主控台測試連線功能。 有兩個您可以使用的主控台。 一個是 Kudu 主控台，另一個則是 Azure 入口網站中的主控台。 若要從您的應用程式觸達 Kudu 主控台，請移至 [工具] -> [Kudu]。 您也可以連線到位於 [sitename]. azurewebsites. net 的 Kudo 主控台。 網站載入後，請移至 調試主控台 索引標籤。若要進入 Azure 入口網站裝載的主控台，請從您的應用程式移至 工具-> 主控台。 
 
 #### <a name="tools"></a>工具
-由於安全性限制，工具 **ping**、**nslookup** 和 **tracert** 無法透過主控台運作。 為了填滿此空隙，已加入兩個不同的工具。 為了測試 DNS 功能，已加入名為 nameresolver.exe的工具。 其語法為：
+由於安全性限制，工具 **ping**、**nslookup** 和 **tracert** 無法透過主控台運作。 為了填滿此空隙，已加入兩個不同的工具。 為了測試 DNS 功能，已加入名為 nameresolver.exe的工具。 語法為：
 
     nameresolver.exe hostname [optional: DNS Server]
 
-您可以使用 **nameresolver** 來檢查應用程式依賴的主機名稱。 如此一來您可以測試是否有任何項目未正確設定，而無法與 DNS 搭配，或可能對 DNS 伺服器沒有存取權。 您可以查看您的應用程式將在主控台中使用的 DNS 伺服器，方法是查看環境變數 WEBSITE_DNS_SERVER 和 WEBSITE_DNS_ALT_SERVER。
+您可以使用 **nameresolver** 來檢查應用程式依賴的主機名稱。 如此一來您可以測試是否有任何項目未正確設定，而無法與 DNS 搭配，或可能對 DNS 伺服器沒有存取權。 您可以查看您的應用程式將在主控台中使用的 DNS 伺服器，方法是查看環境變數 WEBSITE_DNS_SERVER 並 WEBSITE_DNS_ALT_SERVER。
 
 下一個工具可讓您測試主機是否可與 TCP 連線，以及連接埠組合。 此工具稱為 **tcpping**，語法如下：
 
@@ -302,7 +296,7 @@ ASP VNet 整合 UI 會向您顯示 ASP 中的應用程式所使用的所有 VNet
 
 其他偵錯步驟包括：
 
-* 連線至 VNet 中的 VM，並嘗試從該處連接資源 host:port。 若要測試 TCP 存取，請使用 PowerShell 命令 **test-netconnection**。 其語法為：
+* 連線至 VNet 中的 VM，並嘗試從該處連接資源 host:port。 若要測試 TCP 存取，請使用 PowerShell 命令 **test-netconnection**。 語法為：
 
       test-netconnection hostname [optional: -Port]
 

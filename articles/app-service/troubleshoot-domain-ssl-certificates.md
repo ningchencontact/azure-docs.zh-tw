@@ -1,25 +1,19 @@
 ---
-title: 針對網域和 SSL 憑證問題進行疑難排解 - Azure App Service | Microsoft Docs
-description: 在 Azure App Service 中對網域和 SSL 憑證問題進行疑難排解
-services: app-service\web
-documentationcenter: ''
+title: 針對網域和 SSL 憑證進行疑難排解
+description: 尋找在 Azure App Service 中設定網域或 SSL 憑證時可能會遇到之常見問題的解決方案。
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 778836661ff15c334823f95fef42acadb3e8b649
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2260dddd74d7ed64eb19158a5360ed2e4c09b4a9
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470140"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688352"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>在 Azure App Service 中對網域和 SSL 憑證問題進行疑難排解
 
@@ -266,7 +260,7 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 
     **解決方案**：確認您的 CNAME 或 A 記錄設定正確。 若要將自訂網域對應至應用程式，請建立 CNAME 記錄或 A 記錄。 如果您想要使用根網域，必須使用 A 和 TXT 記錄：
 
-    |記錄類型|Host|指向|
+    |記錄類型|主機|指向|
     |------|------|-----|
     |A|@|應用程式的 IP 位址|
     |TXT|@|`<app-name>.azurewebsites.net`|
@@ -312,7 +306,7 @@ App Service 網域會使用 GoDaddy 進行網域註冊，並 Azure DNS 來裝載
 
 **我可以在訂用帳戶中使用另一個 Azure App Service 應用程式中的網域嗎？**
 
-是。 當您存取 Azure 入口網站中的 [自訂網域和 SSL] 分頁時，您會看到已購買的網域。 您可以將應用程式設定為使用其中任何一個網域。
+可以。 當您存取 Azure 入口網站中的 [自訂網域和 SSL] 分頁時，您會看到已購買的網域。 您可以將應用程式設定為使用其中任何一個網域。
 
 **我可以將網域從一個訂用帳戶轉移到另一個訂用帳戶嗎？**
 

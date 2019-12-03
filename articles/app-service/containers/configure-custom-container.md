@@ -1,24 +1,14 @@
 ---
-title: 設定自訂容器-Azure App Service |Microsoft Docs
-description: 瞭解如何設定 node.js 應用程式以在 Azure App Service 中工作
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jpconnock
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+title: 設定自訂的 Linux 容器
+description: 瞭解如何在 Azure App Service 中設定自訂的 Linux 容器。 本文說明最常見的設定工作。
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: cephalin
-ms.openlocfilehash: 7290e2b09c316a97bfb88744307e185aef72852a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d9d6311e69ba4e3893da81a16b06c8baed78cdcd
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668975"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671872"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>設定 Azure App Service 的自訂 Linux 容器
 
@@ -146,10 +136,10 @@ wordpress:
 
 #### <a name="supported-options"></a>支援的選項
 
-- 命令
+- command
 - entrypoint
 - Environment
-- image
+- 映像
 - 連接埠
 - restart
 - 服務

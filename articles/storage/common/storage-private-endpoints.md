@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 06b96bf548be45952e1ff21f0433a1607ab36501
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e9781d9c277d19257d9b00bea3106adb3b04ffd6
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227889"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672513"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>使用 Azure 儲存體的私用端點（預覽）
 
@@ -32,7 +32,9 @@ ms.locfileid: "74227889"
 
 VNet 中的應用程式可以**使用相同的連接字串和授權機制**，順暢地透過私人端點連接到儲存體服務，否則會使用它們。 私人端點可以與儲存體帳戶支援的所有通訊協定搭配使用，包括 REST 和 SMB。
 
-當您在 VNet 中建立儲存體服務的私人端點時，會將同意要求傳送給儲存體帳戶擁有者。 如果要求建立私人端點的使用者也是儲存體帳戶的擁有者，則會自動核准此同意要求。
+私人端點可以在使用[服務端點](/azure/virtual-network/virtual-network-service-endpoints-overview.md)的子網中建立。 因此，子網中的用戶端可以使用私人端點連接到一個儲存體帳戶，同時使用服務端點來存取其他使用者。
+
+當您在 VNet 中為儲存體服務建立私人端點時，便會傳送同意要求給儲存體帳戶擁有者來核准。 如果要求建立私人端點的使用者也是儲存體帳戶的擁有者，則會自動核准此同意要求。
 
 儲存體帳戶擁有者可以透過[Azure 入口網站](https://portal.azure.com)中儲存體帳戶的 [*私人端點*] 索引標籤，來管理同意要求和私人端點。
 
@@ -70,13 +72,13 @@ VNet 中的應用程式可以**使用相同的連接字串和授權機制**，�
 
 ## <a name="dns-changes-for-private-endpoints"></a>私人端點的 DNS 變更
 
-具有私人端點之儲存體帳戶的 DNS CNAME 資源記錄，會更新為前置詞為 '*privatelink*' 之子域中的別名。 根據預設，我們也會建立連結至 VNet 的[私人 DNS 區域](../../dns/private-dns-overview.md)，其對應至前置詞為 '*privatelink*' 的子域，且包含私人端點的 DNS a 資源記錄。
+當您建立私人端點時，儲存體帳戶的 DNS CNAME 資源記錄會更新為前置詞為 '*privatelink*' 之子域中的別名。 根據預設，我們也會建立與 '*privatelink*' 子域對應的[私人 DNS 區域](../../dns/private-dns-overview.md)，並以 DNS 做為私人端點的資源記錄。
 
 當您從具有私用端點的 VNet 外部解析儲存體端點 URL 時，它會解析為儲存體服務的公用端點。 從裝載私用端點的 VNet 解析時，儲存體端點 URL 會解析為私人端點的 IP 位址。
 
 針對上述範例，當從裝載私人端點的 VNet 外部解析時，儲存體帳戶 ' StorageAccountA ' 的 DNS 資源記錄將會是：
 
-| 名稱                                                  | 在系統提示您進行確認時，輸入  | 值                                                 |
+| Name                                                  | Type  | Value                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<儲存體服務公用端點\>                   |
@@ -86,14 +88,14 @@ VNet 中的應用程式可以**使用相同的連接字串和授權機制**，�
 
 StorageAccountA 的 DNS 資源記錄（當由裝載私用端點的 VNet 中的用戶端解析時）會是：
 
-| 名稱                                                  | 在系統提示您進行確認時，輸入  | 值                                                 |
+| Name                                                  | Type  | Value                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
 
 這種方法可讓您**使用相同的連接字串**來存取儲存體帳戶，以用於裝載私人端點的 vnet 上的用戶端，以及 vnet 外的用戶端。
 
-如果您在網路上使用自訂 DNS 伺服器，用戶端必須能夠將儲存體帳戶端點的 FQDN 解析為私人端點 IP 位址。 為此，您必須將 DNS 伺服器設定為將私人連結子域委派給 VNet 的私人 DNS 區域，或使用私人端點 IP 位址來設定 '*StorageAccountA.privatelink.blob.core.windows.net*' 的 A 記錄。 
+如果您在網路上使用自訂 DNS 伺服器，用戶端必須能夠將儲存體帳戶端點的 FQDN 解析為私人端點 IP 位址。 您應該將 DNS 伺服器設定為將私人連結子域委派給 VNet 的私人 DNS 區域，或使用私人端點 IP 位址來設定 '*StorageAccountA.privatelink.blob.core.windows.net*' 的 A 記錄。
 
 > [!TIP]
 > 使用自訂或內部部署 DNS 伺服器時，您應該將 DNS 伺服器設定為將 ' privatelink ' 子域中的儲存體帳戶名稱解析為私人端點 IP 位址。 若要這麼做，您可以將 ' privatelink ' 子域委派給 VNet 的私人 DNS 區域，或在 DNS 伺服器上設定 DNS 區域，並新增 DNS A 記錄。
@@ -111,12 +113,12 @@ StorageAccountA 的 DNS 資源記錄（當由裝載私用端點的 VNet 中的�
 
 #### <a name="resources"></a>資源
 
-如需設定自己的 DNS 伺服器以支援私人端點的其他指引，請參閱下列文章：
+如需有關設定您自己的 DNS 伺服器以支援私人端點的詳細資訊，請參閱下列文章：
 
 - [Azure 虛擬網路中的資源名稱解析](/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
 - [私人端點的 DNS 設定](/private-link/private-endpoint-overview#dns-configuration)
 
-## <a name="pricing"></a>定價
+## <a name="pricing"></a>價格
 
 如需定價詳細資料，請參閱 [Azure Private Link 定價](https://azure.microsoft.com/pricing/details/private-link)。
 
@@ -125,9 +127,6 @@ StorageAccountA 的 DNS 資源記錄（當由裝載私用端點的 VNet 中的�
 ### <a name="copy-blob-support"></a>複製 Blob 支援
 
 在預覽期間，我們不支援在來源儲存體帳戶受到防火牆保護時，針對透過私人端點存取的儲存體帳戶所發出的[複製 Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob)命令。
-
-### <a name="subnets-with-service-endpoints"></a>具有服務端點的子網
-目前，您無法在具有服務端點的子網中建立私用端點。 因應措施是，您可以在相同的 VNet 中針對服務端點和私人端點建立個別的子網。
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>具有私人端點的 Vnet 中用戶端的儲存體存取條件約束
 

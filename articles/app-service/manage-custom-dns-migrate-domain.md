@@ -1,25 +1,17 @@
 ---
-title: 移轉作用中的 DNS 名稱 - Azure App Service | Microsoft Docs
+title: 遷移 active DNS 名稱
 description: 了解如何在完全不停機的情況下，將已指派給即時網站的自訂 DNS 網域名稱移轉至 Azure App Service。
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/21/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 172003b13807720df2431a3610947b36d8303fed
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 79bd0a19a9bd8ebd100ed80ca0206656d73ef76c
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470358"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672365"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>將作用中的 DNS 名稱移轉至 Azure App Service
 
@@ -73,7 +65,7 @@ ms.locfileid: "73470358"
 
 ![[自訂網域] 功能表](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-在 [自訂網域] 頁面中，選取 [新增主機名稱] **+ 旁的**  圖示。
+在 [自訂網域] 頁面中，選取 [新增主機名稱] 旁的 **+** 圖示。
 
 ![新增主機名稱](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
@@ -119,7 +111,7 @@ ms.locfileid: "73470358"
 
 在 `contoso.com` 根網域範例中，重新對應 A 或 CNAME 記錄，如下表中的範例所示： 
 
-| FQDN 範例 | 記錄類型 | Host | 值 |
+| FQDN 範例 | 記錄類型 | 主機 | Value |
 | - | - | - | - |
 | contoso.com (根網域) | A | `@` | 來自[複製應用程式的 IP 位址](#info)的 IP 位址 |
 | www\.contoso.com （sub） | CNAME | `www` | _&lt;應用程式名稱>.azurewebsites.net_ |

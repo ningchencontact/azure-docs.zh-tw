@@ -1,26 +1,17 @@
 ---
-title: 使用 FTP/S 部署內容 - Azure App Service | Microsoft Docs
-description: 了解如何使用 FTP 或 FTPS 將您的應用程式部署至 Azure App Service。
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: 使用 FTP/S 部署內容
+description: 了解如何使用 FTP 或 FTPS 將您的應用程式部署至 Azure App Service。 藉由停用未加密的 FTP 來改善網站安全性。
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/18/2019
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 6e8a6820b3cf3031f11ab04d9baf4a7888491c81
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: bccf4fa0b17f261d41c0a80d9f75fe391f591bfb
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098086"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671712"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 將您的應用程式部署至 Azure App Service
 
@@ -72,7 +63,7 @@ ms.locfileid: "71098086"
 
 為了增強安全性，您應該只允許 FTP over SSL。 如果您不使用 FTP 部署，您也可以停用 FTP 和 FTPS。
 
-在[Azure 入口網站](https://portal.azure.com)的應用程式資源頁面中，從左側導覽**中選取** >  **[設定] [一般設定**]。
+在[Azure 入口網站](https://portal.azure.com)的應用程式資源頁面中，從左側導覽**中選取** **[設定] [ > 一般設定**]。
 
 若要停用未加密的 FTP，請選取 [僅在**FTP 狀態**中**FTPS** ]。 若要完全停用 FTP 和 FTPS，請選取 [**停用**]。 完成時，按一下 [儲存]。 如果**只使用 FTPS**，您必須流覽至 web 應用程式的 [ **tls/SSL 設定**] 分頁，以強制執行 tls 1.2 或更高版本。 TLS 1.0 和 1.1 不支援 [僅限 FTPS] 功能。
 
@@ -89,7 +80,7 @@ ms.locfileid: "71098086"
 ## <a name="troubleshoot-ftp-deployment"></a>疑難排解 FTP 部署
 
 - [如何疑難排解 FTP 部署？](#how-can-i-troubleshoot-ftp-deployment)
-- [我無法連線到 FTP 及發佈我的程式碼。如何解決此問題？](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+- [我無法 FTP 及發佈我的程式碼。如何解決此問題？](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
 - [如何透過被動模式連線到 Azure App Service 中的 FTP？](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
 
 ### <a name="how-can-i-troubleshoot-ftp-deployment"></a>如何疑難排解 FTP 部署？
@@ -115,6 +106,6 @@ Azure App Service 支援透過主動與被動模式進行連線。 建議使用�
 
 如需更多的進階部署案例，請嘗試[使用 Git 部署至 Azure ](deploy-local-git.md)。 Git 型部署至 Azure 可啟用版本控制、封裝還原、MSBuild 等等。
 
-## <a name="more-resources"></a>其他資源
+## <a name="more-resources"></a>更多資源
 
 * [Azure App Service 部署認證](deploy-configure-credentials.md)

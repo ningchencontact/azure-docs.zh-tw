@@ -1,24 +1,17 @@
 ---
-title: 開始使用 WebJobs SDK - Azure
+title: 開始使用 WebJobs SDK
 description: 使用 WebJobs SDK 進行事件驅動幕後處理的簡介。 了解如何存取 Azure 服務和第三方服務中的資料。
-services: app-service\web, storage
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 2b2b8fe383ff4ee3d4b23c2c6e555b44e0cc088c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 33ae3f9f928a55f50f4ecd0c6c98790a384e880b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390078"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684188"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>開始使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
@@ -26,7 +19,7 @@ ms.locfileid: "72390078"
 
 本文說明如何將 Webjob 部署為 .NET Core 主控台應用程式。 若要將 Webjob 部署為 .NET Framework 主控台應用程式，請參閱[webjob 作為 .NET Framework 主控台應用程式](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps)。 如果您對僅支援 .NET Framework 的 Webjob SDK 2.x 版感興趣，請參閱[使用 Visual Studio Azure App Service 開發及部署 webjob](webjobs-dotnet-deploy-vs.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 使用**Azure 開發**工作負載[安裝 Visual Studio 2019](/visualstudio/install/) 。 如果您已有 Visual Studio 但沒有該工作負載，請選取 [工具] > [取得工具和功能] 來新增該工作負載。
 
@@ -100,7 +93,7 @@ ms.locfileid: "72390078"
    using Microsoft.Extensions.Logging;
    ```
 
-1. 呼叫 [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) 上的 [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) 方法。 [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) 方法會將主控台記錄新增至組態。
+1. 呼叫 [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) 上的 [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) 方法。 [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) 方法會將主控台記錄新增至組態。
 
     ```cs
     builder.ConfigureLogging((context, b) =>
@@ -150,7 +143,7 @@ ms.locfileid: "72390078"
     Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.4
     ```
 
-2. 在 `ConfigureWebJobs` 擴充方法中，在 `AddAzureStorage`[`HostBuilder` 執行個體上呼叫 ](/dotnet/api/microsoft.extensions.hosting.hostbuilder) 方法以初始化儲存體延伸模組。 此時，`ConfigureWebJobs` 方法如下列範例所示：
+2. 在 `ConfigureWebJobs` 擴充方法中，在 [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) 執行個體上呼叫 `AddAzureStorage` 方法以初始化儲存體延伸模組。 此時，`ConfigureWebJobs` 方法如下列範例所示：
 
     ```cs
     builder.ConfigureWebJobs(b =>
@@ -278,7 +271,7 @@ WebJobs SDK 會在 Azure 中的 [應用程式設定] 尋找儲存體連接字串
 
 1. 再次執行此專案。
 
-   因為您在 `QueueTrigger` 函式中使用 `ProcessQueueMessage` 屬性，所以 WeJobs SDK 執行階段會在啟動時接聽佇列訊息。 它會在名為 queue 的佇列中發現新佇列訊息並呼叫此函式。
+   因為您在 `ProcessQueueMessage` 函式中使用 `QueueTrigger` 屬性，所以 WeJobs SDK 執行階段會在啟動時接聽佇列訊息。 它會在名為 queue 的佇列中發現新佇列訊息並呼叫此函式。
 
    由於[佇列輪詢指數輪詢](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm)，它可能會需要 2 分鐘的時間，讓執行階段尋找訊息及叫用函式。 在[開發模式](webjobs-sdk-how-to.md#host-development-settings)中執行可以縮短此等候時間。
 
@@ -327,19 +320,19 @@ WebJobs SDK 會在 Azure 中的 [應用程式設定] 尋找儲存體連接字串
 
 1. 在 [連接字串] 中，新增下列項目。
 
-   |名稱  |連接字串  |資料庫類型|
+   |Name  |連接字串  |資料庫類型|
    |---------|---------|------|
    |AzureWebJobsStorage | {您先前複製的儲存體連接字串}|自訂|
 
 1. 如果 [應用程式設定] 方塊沒有 Application Insights 檢測金鑰，請新增您先前複製的檢測金鑰。 (視您建立 App Service 應用程式的方式而言，檢測金鑰可能已經存在。)
 
-   |名稱  |值  |
+   |Name  |Value  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {檢測金鑰} |
 
 1. 使用來自您所用 Application Insights 資源的檢測金鑰取代 {檢測金鑰}。
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 1. 將 Application Insights 連接新增至專案，以便您可以在本機執行。 在 appsettings.json 檔案中新增 `APPINSIGHTS_INSTRUMENTATIONKEY` 欄位，如下列範例所示：
 

@@ -1,25 +1,18 @@
 ---
-title: 混合式連線 - Azure App Service | Microsoft Docs
-description: 如何建立和使用混合式連線以存取不同網路的資源
-services: app-service
-documentationcenter: ''
+title: 混合式連接
+description: 瞭解如何在 Azure App Service 中建立及使用混合式連接，以存取不同網路中的資源。
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ff2dac5d27cfffb92922038c1d1c67cd5118557a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: ffc5ee32541cfbbda2ae54fd229c1436f133d730
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082384"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671515"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service 混合式連線 #
 
@@ -63,7 +56,7 @@ ms.locfileid: "74082384"
 - 支援 LDAP，因為它需要 UDP。
 - 支援 Active Directory，因為您無法將 App Service 背景工作角色加入網域。
 
-### <a name="prerequisites"></a>先決條件 ###
+### <a name="prerequisites"></a>必要條件 ###
  - 需要 Windows App service。 它只能在 Windows 中使用。  
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>在您的應用程式中新增和建立混合式連線 ##
@@ -107,9 +100,9 @@ ms.locfileid: "74082384"
 | 定價方案 | 方案中可用的混合式連線數目 |
 |----|----|
 | 基本 | 5 |
-| 標準 | 25 |
-| 高階 | 200 |
-| 隔離 | 200 |
+| Standard | 25 |
+| 高級 | 200 |
+| 隔離式 | 200 |
 
 App Service 方案 UI 會顯示您正在使用的混合式連線數目，以及由哪些應用程式使用。  
 
@@ -119,7 +112,7 @@ App Service 方案 UI 會顯示您正在使用的混合式連線數目，以及�
 
 可用於 App Service 方案的混合式連線端點數目有其上限。 不過，每個使用的混合式連線，則可用於方案中任何數目的應用程式上。 例如，一個在「App Service 方案」中 5 個個別應用程式上使用的「混合式連線」，只算 1 個「混合式連線」。
 
-### <a name="pricing"></a>定價 ###
+### <a name="pricing"></a>價格 ###
 
 除了有 App Service 方案 SKU 的需求，還有使用混合式連線的額外成本。 混合式連線所使用的每個接聽程式皆會產生費用。 接聽程式是混合式連線管理員。 如果由兩個混合式連線管理員支援的混合式連線有五個，那就有 10 個接聽程式。 如需詳細資訊，請參閱[服務匯流排價格][sbpricing]。
 
@@ -146,7 +139,7 @@ App Service 方案 UI 會顯示您正在使用的混合式連線數目，以及�
 1. 選取您要讓 HCM 轉送的「混合式連線」。
 ![混合式連線的螢幕擷取畫面][9]
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 現在可以看到您新增的「混合式連線」。 您也可以選取已設定的混合式連線，以查看詳細資料。
 
@@ -162,7 +155,7 @@ App Service 方案 UI 會顯示您正在使用的混合式連線數目，以及�
 > 「Azure 轉送」需倚賴「Web 通訊端」來取得連線能力。 此功能只有在 Windows Server 2012 或更新版本上才有提供。 因此，Windows Server 2012 以前的所有版本皆不支援 HCM。
 >
 
-### <a name="redundancy"></a>備援性 ###
+### <a name="redundancy"></a>備援 ###
 
 每個 HCM 都可以支援多個「混合式連線」。 此外，任何指定的「混合式連線」也都可以受到多個 HCM 支援。 預設行為是在任何給定端點所設定的 HCM 之間路由傳送流量。 如果您想要讓來自您網路的「混合式連線」具有高可用性，請在不同電腦上執行多個 HCM。 轉送服務用來將流量散發至 HCM 的負載分配演算法會隨機指派。 
 
@@ -237,7 +230,7 @@ App Service 方案 UI 會顯示您正在使用的混合式連線數目，以及�
 
 如果您的端點有命令列用戶端，您可以從應用程式主控台測試連線能力。 例如，您可以使用捲曲來測試對 web 伺服器端點的存取。
 
-## <a name="biztalk-hybrid-connections"></a>BizTalk 混合式連線 ##
+## <a name="biztalk-hybrid-connections"></a>BizTalk 混合式連接 ##
 
 此功能的舊有形式稱為「BizTalk 混合式連線」。 此功能的已於 2018 年 5 月 31 日結束服務，並且已停止運作。 BizTalk 混合式連線已從所有應用程式中移除，而且無法透過入口網站或 API 存取。 如果您的混合式連線管理員中仍有這些較舊的連線設定，則您會看到「已中止」狀態，而且底部會顯示服務結束的聲明。
 

@@ -3,18 +3,18 @@ title: 修正 Azure HDInsight 中的 Hive 記憶體不足錯誤
 description: 修正 HDInsight 中的 Hive 記憶體不足錯誤。 客戶案例是一個橫跨許多大型資料表的查詢。
 keywords: 記憶體不足錯誤, OOM, Hive 設定
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
+ms.topic: troubleshooting
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: hrasheed
-ms.openlocfilehash: 2e7328b95aecc8e644d7b9e2ec407a62551fff79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/28/2019
+ms.openlocfilehash: add55c29bb93d8dce9ad69bd9850a1db02ea5afe
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712780"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687758"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>修正 Azure HDInsight 中的 Apache Hive 記憶體不足錯誤
 
@@ -24,26 +24,28 @@ ms.locfileid: "64712780"
 
 某個客戶執行了 Hive 查詢：
 
-    SELECT
-        COUNT (T1.COLUMN1) as DisplayColumn1,
-        …
-        …
-        ….
-    FROM
-        TABLE1 T1,
-        TABLE2 T2,
-        TABLE3 T3,
-        TABLE5 T4,
-        TABLE6 T5,
-        TABLE7 T6
-    where (T1.KEY1 = T2.KEY1….
-        …
-        …
+```sql
+SELECT
+    COUNT (T1.COLUMN1) as DisplayColumn1,
+    …
+    …
+    ….
+FROM
+    TABLE1 T1,
+    TABLE2 T2,
+    TABLE3 T3,
+    TABLE5 T4,
+    TABLE6 T5,
+    TABLE7 T6
+where (T1.KEY1 = T2.KEY1….
+    …
+    …
+```
 
 此查詢的一些細微差異：
 
-* T1 是大型資料表 TABLE1 的別名，其中包含多個 STRING 資料行類型。
-* 其他資料表的規模沒有那麼大，但還是有許多資料行。
+* T1 是大型資料表 TABLE1 的別名，其中有許多字串資料行類型。
+* 其他資料表並不大，但是有許多資料行。
 * 所有資料表都會彼此聯結，在某些情況下，是透過 TABLE1 和其他資料表中的多個資料行來聯結。
 
 此 Hive 查詢在一個有 24 個節點的 A3 HDInsight 叢集上花費 26 分鐘完成執行。 該客戶注意到下列警告訊息：
@@ -79,12 +81,11 @@ ms.locfileid: "64712780"
 
 當使用較大的虛擬機器 (例如 D12) 時，該錯誤仍然存在。
 
-
 ## <a name="debug-the-out-of-memory-error"></a>針對記憶體不足錯誤進行偵錯
 
 我們的支援小組和工程小組一起發現造成記憶體不足錯誤的其中一個問題是一個 [Apache JIRA 中所述的已知問題](https://issues.apache.org/jira/browse/HIVE-8306)：
 
-    When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesn't take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
+"當 hive. noconditionaltask = true 時，我們會檢查 noconditionaltask，而且如果地圖聯結中的資料表大小總和小於 noconditionaltask。此計畫會產生對應聯結，問題在於計算不會採用將不同雜湊表執行所引進的額外負荷視為結果，如果輸入大小的總和小於 noconditionaltask 大小的小型邊界查詢，將會達到 OOM。」
 
 hive-site.xml 檔案中的 **hive.auto.convert.join.noconditionaltask** 已設定為 **true**：
 
@@ -100,18 +101,16 @@ hive-site.xml 檔案中的 **hive.auto.convert.join.noconditionaltask** 已設�
 </property>
 ```
 
-對應聯結有可能是「Java 堆積空間」記憶體不足錯誤的原因。 如部落格文章 [HDInsight 中的 Hadoop Yarn 記憶體設定](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx)中所述，使用 Tez 執行引擎時，所使用的堆積空間實際上是屬於 Tez 容器。 查看下面說明 Tez 容器記憶體的影像。
+可能是因為「對應聯結」是「JAVA 堆積空間記憶體不足」錯誤的原因。 如部落格文章 [HDInsight 中的 Hadoop Yarn 記憶體設定](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx)中所述，使用 Tez 執行引擎時，所使用的堆積空間實際上是屬於 Tez 容器。 查看下面說明 Tez 容器記憶體的影像。
 
 ![Tez 容器記憶體圖表：Hive 記憶體不足錯誤](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
-如部落格文章所建議，下列兩個記憶體設定會定義堆積的容器記憶體：**hive.tez.container.size** 和 **hive.tez.java.opts**。 從我們的經驗來看，記憶體不足例外狀況並不代表容器大小太小。 它表示 Java 堆積大小 (hive.tez.java.opts) 太小。 因此，每當您看到記憶體不足時，可嘗試增加 **hive.tez.java.opts**。 必要時，您可能需要增加 **hive.tez.container.size**。 **Java.opts** 設定應該大約為 **container.size** 的 80%。
+如部落格文章所建議，下列兩個記憶體設定會定義堆積的容器記憶體：**hive.tez.container.size** 和 **hive.tez.java.opts**。 從我們的經驗來看，記憶體不足例外狀況並不表示容器大小太小。 它表示 Java 堆積大小 (hive.tez.java.opts) 太小。 因此，每當您看到記憶體不足時，可嘗試增加 **hive.tez.java.opts**。 必要時，您可能需要增加 **hive.tez.container.size**。 **Java.opts** 設定應該大約為 **container.size** 的 80%。
 
 > [!NOTE]  
 > **hive.tez.java.opts** 設定必須一律小於 **hive.tez.container.size**。
-> 
-> 
 
-由於 D12 機器具有 28 GB 記憶體，因此我們決定使用 10 GB (10240 MB) 的容器大小並指派 80% 給 java.opts：
+因為 D12 機器有 28 GB 的記憶體，所以我們決定使用 10 GB （10240 MB）的容器大小，並將80% 指派給 java。選擇：
 
     SET hive.tez.container.size=10240
     SET hive.tez.java.opts=-Xmx8192m

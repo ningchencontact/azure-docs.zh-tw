@@ -1,17 +1,17 @@
 ---
 title: 存取 Azure Cosmos DB 中的變更摘要
 description: 本文說明可用來在 Azure Cosmos DB 中讀取和存取變更摘要的不同選項。
-author: markjbrown
-ms.author: mjbrown
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 3d30c9f946f97f06c1a3ba1cd2e77e1ab151a572
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.date: 11/25/2019
+ms.openlocfilehash: fc7e78a44d03af8952c1e178a3e92b1ee0c6fe66
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754877"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688122"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>讀取 Azure Cosmos DB 變更摘要
 
@@ -31,7 +31,13 @@ Azure Functions 是最簡單且建議的選項。 當您建立 Cosmos DB 的 Azu
 
 ## <a name="using-the-azure-cosmos-db-sql-api-sdk"></a>使用 Azure Cosmos DB SQL API SDK
 
-使用 SDK 時，您會取得變更摘要的低階控制。 您可以管理檢查點、存取特定的邏輯分割區索引鍵等。如果您有多個讀取器，可以使用 `ChangeFeedOptions` 將讀取負載分配至不同的執行緒或不同的用戶端。 
+使用 SDK 時，您會取得變更摘要的低階控制。 您可以管理檢查點、存取特定的邏輯分割區索引鍵等。如果您有多個讀取器，可以使用 `ChangeFeedOptions` 將讀取負載分配至不同的執行緒或不同的用戶端。
+
+## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>變更 Cassandra 和 MongoDB Api 中的摘要
+
+變更摘要功能會呈現為 MongoDB API 中的變更資料流程，並在 Cassandra API 中使用述詞進行查詢。 若要深入瞭解 MongoDB API 的執行詳細資料，請參閱[適用于 mongodb 的 AZURE COSMOS DB API 中的變更串流](mongodb-change-streams.md)。
+
+原生 Apache Cassandra 提供變更資料捕獲（CDC），這是一種機制，用來標示特定資料表的封存，並在達到可設定的 CDC 記錄大小磁片時拒絕這些資料表的寫入。 Azure Cosmos DB API for Cassandra 中的變更摘要功能可增強透過 CQL 查詢具有述詞之變更的能力。 若要深入瞭解執行詳細資料，請參閱[Cassandra 的 AZURE COSMOS DB API 中的變更](cassandra-change-feed.md)摘要。
 
 ## <a name="next-steps"></a>後續步驟
 

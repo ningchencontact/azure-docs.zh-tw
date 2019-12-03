@@ -1,24 +1,16 @@
 ---
-title: 備份應用程式 - Azure App Service
-description: 了解如何在 Azure App Service 中建立應用程式的備份。
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
+title: 備份應用程式
+description: 了解如何在 Azure App Service 中建立應用程式的備份。 執行手動或排程備份。 包含附加的資料庫以自訂備份。
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a56abbcb72afc1f45683259d3bd3bf13309cda07
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 783737729601bfef3bee8741a097d4319349f18e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886058"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671648"
 ---
 # <a name="back-up-your-app-in-azure"></a>在 Azure 中備份應用程式
 [Azure App Service](overview.md) 中的「備份與還原」功能可讓您以手動或透過排程方式，輕鬆建立應用程式備份。 您可以將備份設定為最多保留一段無限的時間。 您可以透過覆寫現有的應用程式或還原到另一個應用程式，將應用程式還原到先前狀態的快照。
@@ -114,7 +106,7 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
 <a name="partialbackups"></a>
 
 ## <a name="configure-partial-backups"></a>設定部分備份
-有時您並不想要備份應用程式上的所有項目。 以下是一些範例：
+有時您並不想要備份應用程式上的所有項目。 以下提供一些範例：
 
 * 您為包含永不變更的靜態內容 (例如舊部落格文章或影像) 的應用程式 [設定每週備份](#configure-automated-backups) 。
 * 您應用程式的內容超過 10 GB (這是一次可備份的數量上限)。
@@ -126,7 +118,7 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
 > 備份中的個別資料庫可以是4GB 的上限，但備份的總大小上限為 10 GB
 
 ### <a name="exclude-files-from-your-backup"></a>從備份中排除檔案
-假設您有一個應用程式，其中包含已經備份過一次且不會再變更的記錄檔和靜態映像。 在這類情況下，您可以將這些資料夾和檔案排除，而不儲存在您未來的備份中。 若要將檔案和資料夾從您的備份中排除，請在應用程式的 `_backup.filter` 資料夾中建立 `D:\home\site\wwwroot` 檔案。 請在此檔案中指定您想要排除的檔案和資料夾清單。 
+假設您有一個應用程式，其中包含已經備份過一次且不會再變更的記錄檔和靜態映像。 在這類情況下，您可以將這些資料夾和檔案排除，而不儲存在您未來的備份中。 若要將檔案和資料夾從您的備份中排除，請在應用程式的 `D:\home\site\wwwroot` 資料夾中建立 `_backup.filter` 檔案。 請在此檔案中指定您想要排除的檔案和資料夾清單。 
 
 您可以流覽至 `https://<app-name>.scm.azurewebsites.net/DebugConsole`來存取檔案。 如果出現提示，登入您的 Azure 帳戶。
 
@@ -142,14 +134,14 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
 \site\wwwroot\Images\2013
 ```
 
-使用 `_backup.filter`ftp`D:\home\site\wwwroot\` 或任何其他方法，將 [ 檔案上傳到您站台的 ](deploy-ftp.md) 目錄。 如有需要，您可以使用 Kudu `DebugConsole` 直接建立檔案，然後在該處插入內容。
+使用 [ftp](deploy-ftp.md) 或任何其他方法，將 `_backup.filter` 檔案上傳到您站台的 `D:\home\site\wwwroot\` 目錄。 如有需要，您可以使用 Kudu `DebugConsole` 直接建立檔案，然後在該處插入內容。
 
 以平常執行備份的相同方式執行備份：[手動](#create-a-manual-backup)或[自動](#configure-automated-backups)。 現在，會將 `_backup.filter` 中指定的所有檔案和資料夾，從所排定或手動起始的未來備份中排除。 
 
 > [!NOTE]
-> 以您 [還原定期備份](web-sites-restore.md)的相同方式還原您網站的部分備份。 還原程序會執行正確的作業。
+> 您還原站台部分備份的方式會與[還原一般備份](web-sites-restore.md)的方式相同。 還原程序會執行正確的作業。
 > 
-> 還原完整備份時，網站上的所有內容都會取代為備份中的內容。 如果檔案在網站上，而不在備份中，系統就會將它刪除。 但是，還原部分備份時，位於其中一個黑名單目錄或任何黑名單檔案中的任何內容都會保持原狀。
+> 還原完整備份時，網站上的所有內容都會取代為備份中的內容。 如果檔案在網站上，而不在備份中，系統就會將它刪除。 但是，還原部分備份時，位於其中一個封鎖清單目錄或任何封鎖清單檔案中的任何內容都會保持原狀。
 > 
 
 

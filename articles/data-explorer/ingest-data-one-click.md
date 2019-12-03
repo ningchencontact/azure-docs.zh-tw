@@ -7,16 +7,16 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 98598a28e14dfd8175cbb019ff1b001c65503580
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: c4ee4ed81cd4cc443a8f412462a5a7f204c91898
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73644601"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688183"
 ---
 # <a name="use-one-click-ingestion-to-ingest-data-into-azure-data-explorer"></a>使用單鍵內嵌將資料內嵌至 Azure 資料總管
 
-本文說明如何使用單鍵內嵌，將 json 或 csv 格式的新資料表快速內嵌到 Azure 資料總管。 內嵌資料之後，您就可以編輯資料表，並使用 Web UI 執行查詢。
+本文說明如何使用單鍵內嵌，從儲存體或本機檔案將 json 或 csv 格式的新資料表快速內嵌到現有的資料表或 Azure 資料總管中的新資料表。 使用直覺的 wizard 並在幾分鐘內就會內嵌您的資料、您可以編輯資料表，以及使用 Web UI 執行查詢。
 
 ## <a name="prerequisites"></a>必要條件
 

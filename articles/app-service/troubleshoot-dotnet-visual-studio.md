@@ -1,29 +1,20 @@
 ---
-title: 使用 Visual Studio 針對應用程式進行疑難排解 - Azure App Service
+title: 使用 Visual Studio 進行疑難排解
 description: 了解如何使用 Visual Studio 2013 內建的遠端偵錯、追蹤和記錄工具，來疑難排解 App Service 應用程式。
-services: app-service
-documentationcenter: .net
-author: cephalin
-manager: cfowler
-editor: ''
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 13ba1ced2d14ed22c89e7df594f3b2a44eea983f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 5c0a236dc6ebf02c859d9db3f25f0e9016ac35ab
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359966"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688376"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 針對 Azure App Service 中的應用程式進行疑難排解
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 本教學課程示範如何使用 Visual Studio 工具，協助針對 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 中的應用程式進行偵錯，方法是以[偵錯模式](https://docs.microsoft.com/visualstudio/debugger/)從遠端執行，或者檢視應用程式記錄與 Web 伺服器記錄。
 
 您將了解：
@@ -38,7 +29,7 @@ ms.locfileid: "68359966"
 如果您有 Visual Studio Ultimate，您也可以使用 [IntelliTrace](/visualstudio/debugger/intellitrace) 進行偵錯。 本教學課程未涵蓋 IntelliTrace。
 
 ## <a name="prerequisites"></a>必要條件
-本教學課程可運用於開發環境、Web 專案與您在[在 Azure App Service 中建立 ASP.NET 應用程式](app-service-web-get-started-dotnet-framework.md)中所設定的 App Service 應用程式。 針對 Webjob 區段, 您將需要在[開始使用 AZURE WEBJOBS SDK][GetStartedWJ]中建立的應用程式。
+本教學課程可運用於開發環境、Web 專案與您在[在 Azure App Service 中建立 ASP.NET 應用程式](app-service-web-get-started-dotnet-framework.md)中所設定的 App Service 應用程式。 針對 Webjob 區段，您將需要在[開始使用 AZURE WEBJOBS SDK][GetStartedWJ]中建立的應用程式。
 
 本教學課程中所提供的程式碼範例適用於 C# MVC Web 應用程式，但是疑難排解程序則是與 Visual Basic 和 Web Form 應用程式一樣。
 
@@ -70,7 +61,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](https://go.microsoft.com/fwli
 
     在本教學課程中，您將使用記錄與追蹤下拉式清單。 您也會使用遠端偵錯功能，但是將以不同的方式來加以啟用。
 
-    如需此視窗中 [應用程式設定] 與 [連接字串] 方塊的詳細資訊，請參閱 [Azure App Service：應用程式字串與連接字串的運作方式](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。
+    如需此視窗中 [應用程式設定] 和 [連接字串] 方塊的詳細資訊，請參閱[Azure App Service：應用程式字串和連接字串的工作方式](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。
 
     若您想要執行無法在此視窗中完成的應用程式管理工作，請按一下 [在管理入口網站中開啟]，以開啟 Azure 入口網站的瀏覽器視窗。
 
@@ -144,7 +135,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](https://go.microsoft.com/fwli
 
     ![於偵錯模式中發行](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
-1. 按一下 [發行]。 當部署完成且您的瀏覽器開啟至應用程式的 Azure URL 之後，請關閉瀏覽器。
+1. 按一下 [方案總管] 中的 [顯示所有檔案]。 當部署完成且您的瀏覽器開啟至應用程式的 Azure URL 之後，請關閉瀏覽器。
 
 1. 在 [伺服器總管] 中，以滑鼠右鍵按一下您的應用程式，接著按一下 [連結偵錯工具]。
 
@@ -233,7 +224,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](https://go.microsoft.com/fwli
 
 16. 按一下函數名稱可查看執行函數的詳細資料。
 
-     ![函式詳細資料](./media/web-sites-dotnet-troubleshoot-visual-studio/funcdetails.png)
+     ![函數詳細資料](./media/web-sites-dotnet-troubleshoot-visual-studio/funcdetails.png)
 
 如果函數會[撰寫記錄](https://github.com/Azure/azure-webjobs-sdk/wiki)，您可以按一下 [ToggleOutput] 查看這些記錄。
 
@@ -346,7 +337,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](https://go.microsoft.com/fwli
     ```
 
 1. 按 CTRL+F5 執行應用程式。
-1. 在瀏覽器視窗的網址列中, 將*trace.axd*新增至 URL, 然後按 ENTER (url 類似`http://localhost:53370/trace.axd`)。
+1. 在瀏覽器視窗的網址列中，將*trace.axd*新增至 URL，然後按 ENTER （URL 類似 `http://localhost:53370/trace.axd`）。
 1. 在 [應用程式追蹤] 頁面上，按一下第一行 (不是 BrowserLink 行) 上的 [檢視詳細資料]。
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -586,7 +577,7 @@ App Service 應用程式會使用 IIS 7.0 及更新版本所提供的相同失�
 
 5. 在新的瀏覽器視窗中，前往您應用程式之 [概觀] 頁面的 [FTP 主機名稱] 或 [FTPS 主機名稱] 下方所示的 URL。
 
-6. 使用您稍早建立的 FTP 認證登入 (包括使用者名稱的應用程式名稱前置詞)。
+6. 使用您稍早建立的 FTP 認證登入（包括使用者名稱的應用程式名稱前置詞）。
 
     瀏覽器會顯示應用程式的根資料夾。
 

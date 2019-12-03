@@ -1,25 +1,18 @@
 ---
-title: 監視應用程式 - Azure App Service | Microsoft Docs
-description: 了解如何使用 Azure 入口網站來監視 Azure App Service 中的應用程式。
-services: app-service
-documentationcenter: ''
+title: 監視應用程式
+description: 了解如何使用 Azure 入口網站來監視 Azure App Service 中的應用程式。 瞭解所報告的配額和計量。
 author: btardif
-manager: erikre
-editor: ''
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 7edff127bb981db985bebb41740744f325306bc8
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 4c0d3822b5000611d1b5229924cb44d055795468
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546184"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688284"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>監視 Azure App Service 中的應用程式
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 會在 [Azure 入口網站](https://portal.azure.com)中為 Web 應用程式、行動後端和 API 應用程式提供內建的監視功能。

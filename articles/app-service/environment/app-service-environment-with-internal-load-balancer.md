@@ -1,25 +1,18 @@
 ---
-title: 搭配 App Service 環境建立及使用內部負載平衡器- Azure | Microsoft Docs
-description: 搭配 ILB 建立及使用 ASE
-services: app-service
-documentationcenter: ''
+title: 建立 ILB ASE v1
+description: 建立和使用具有 ILB 的 ASE。 本檔僅為使用舊版 v1 ASE 的客戶提供。
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 65d62df954dbbfbdd221adb33eccd82f73588fae
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d8ed6b1806e1cbb0ca7419c5892a4a84bc62e541
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069905"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688730"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>搭配 App Service 環境使用內部負載平衡器
 
@@ -27,9 +20,9 @@ ms.locfileid: "70069905"
 > 這篇文章是關於 App Service 環境 v1。 有較新版本的 App Service 環境，更易於使用，並且可以在功能更強大的基礎結構上執行。 若要深入了解新版本，請從 [App Service 環境簡介](intro.md)開始。
 >
 
-App Service 環境 (ASE) 功能是 Azure App Service 的進階服務選項，可提供多租用戶戳記中不提供的增強式設定功能。 ASE功能基本上會在您的 Azure 虛擬網路 (VNet) 中部署 Azure App Service。 若要深入瞭解 App Service 環境所提供的功能, 請閱讀[什麼是 App Service 環境][WhatisASE]檔。 如果您不知道在 VNet 中操作的優點, 請閱讀[Azure 虛擬網路常見問題][virtualnetwork]。 
+App Service 環境 (ASE) 功能是 Azure App Service 的進階服務選項，可提供多租用戶戳記中不提供的增強式設定功能。 ASE功能基本上會在您的 Azure 虛擬網路 (VNet) 中部署 Azure App Service。 若要深入瞭解 App Service 環境所提供的功能，請閱讀[什麼是 App Service 環境][WhatisASE]檔。 如果您不知道在 VNet 中操作的優點，請閱讀[Azure 虛擬網路常見問題][virtualnetwork]。 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 ASE 可以使用網際網路可存取的端點或您 Vnet 中的 IP 位址加以部署。 為了將 IP 位址設定為 VNet 位址，您必須搭配內部負載平衡器 (ILB) 來部署您的 ASE。 當您的 ASE 是使用 ILB 設定時，您要提供：
 
 * 您自己的網域或子網域。 為了能順利進行，本文件假設是子網域，但是您還是可以設定。 
@@ -50,7 +43,7 @@ ASE 可以使用網際網路可存取的端點或您 Vnet 中的 IP 位址加以
 * 透過入口網站購買憑證並搭配 app 使用。 您當然也可以直接透過「憑證授權單位」取得憑證並搭配您的 app 使用，但是無法透過 Azure 入口網站這樣做。
 
 ## <a name="creating-an-ilb-ase"></a>建立 ILB ASE
-建立 ILB ASE 通常與建立 ASE 沒有太大差異。 如需有關建立 ASE 的更深入討論, 請參閱[如何建立 App Service 環境][HowtoCreateASE]。 在 ASE 建立期間建立 VNet 或選取既存的 VNet 之間，建立 ILB ASE 的程序是相同的。 若要建立 ILB ASE： 
+建立 ILB ASE 通常與建立 ASE 沒有太大差異。 如需有關建立 ASE 的更深入討論，請參閱[如何建立 App Service 環境][HowtoCreateASE]。 在 ASE 建立期間建立 VNet 或選取既存的 VNet 之間，建立 ILB ASE 的程序是相同的。 若要建立 ILB ASE： 
 
 1. 在 Azure 入口網站中，選取 [建立資源] -> [Web + 行動] -> [App Service 環境]。
 2. 選取您的訂用帳戶。
@@ -111,14 +104,14 @@ ILB ASE 與非 ILB ASE 稍微有些不同。 如先前所述，您必須管理�
 #### <a name="network-security-groups"></a>網路安全性群組
 ILB ASE 可讓您的應用程式與網路隔離。 app 無法透過網際網路存取或讓 app 在網際網路中完全找不到。 這個做法非常適合用來裝載內部網路網站，例如企業營運應用程式。 當您需要更進一步地限制存取時，您仍然可以使用「網路安全性群組 (NSG)」來控制網路層級的存取。 
 
-如果您想要使用 NSG 來進一步限制存取，您必須確定您不會中斷 ASE 運作所需的通訊。 即使 HTTP/HTTPS 存取只會透過 ASE 所使用的 ILB 進行，ASE 仍需依賴 VNet 外部資源。 若要查看仍然需要的網路存取, 請參閱[使用 ExpressRoute 控制 App Service 環境的 App Service 環境和網路設定詳細資料的][ExpressRoute][輸入流量][ControlInbound]。 
+如果您想要使用 NSG 來進一步限制存取，您必須確定您不會中斷 ASE 運作所需的通訊。 即使 HTTP/HTTPS 存取只會透過 ASE 所使用的 ILB 進行，ASE 仍需依賴 VNet 外部資源。 若要查看仍然需要的網路存取，請參閱[使用 ExpressRoute 控制 App Service 環境的 App Service 環境和網路設定詳細資料的][ExpressRoute][輸入流量][ControlInbound]。 
 
 若要設定您的 NSG，您必須知道 Azure 所使用的 IP 位址，以管理您的 ASE。 如果該 IP 位址提出網際網路要求，它也會成為您 ASE 的輸出 IP 位址。 在 ASE 的存留期內，ASE 的輸出 IP 位址仍維持不變。 如果您刪除並重建 ASE，您會收到新的 IP 位址。 若要尋找此 IP 位址，請移至 [設定] -> [屬性]，尋找 [輸出 IP 位址]。 
 
 ![][5]
 
 #### <a name="general-ilb-ase-management"></a>一般 ILB ASE 管理
-管理 ILB ASE 通常大部分與管理 ASE 相同。 您必須相應增加您的背景工作集區來裝載更多 ASP 執行個體，並相應增加您的前端伺服器，以處理增加的 HTTP/HTTPS 流量。 如需管理 ASE 設定的一般資訊, 請參閱設定[App Service 環境][ASEConfig]。 
+管理 ILB ASE 通常大部分與管理 ASE 相同。 您必須相應增加您的背景工作集區來裝載更多 ASP 執行個體，並相應增加您的前端伺服器，以處理增加的 HTTP/HTTPS 流量。 如需管理 ASE 設定的一般資訊，請參閱設定[App Service 環境][ASEConfig]。 
 
 其他管理項目是憑證管理和 DNS 管理。 在建立 ILB ASE 之後，您必須取得並上傳針對 HTTPS 使用的憑證，並在它到期之前將它取代。 因為 Azure 擁有基底網域，所以可以使用外部 VIP 提供 ASE 的憑證。 因為 ILB ASE 所使用的子網域可以是任何項目，所以您必須提供您自己的 HTTPS 憑證。 
 
@@ -129,8 +122,8 @@ ILB ASE 可讓您的應用程式與網路隔離。 app 無法透過網際網路�
     *.scm ftp 發佈 
 
 
-## <a name="getting-started"></a>使用者入門
-若要開始使用 App Service 環境, 請參閱[App Service 環境簡介][WhatisASE]
+## <a name="getting-started"></a>開始使用
+若要開始使用 App Service 環境，請參閱[App Service 環境簡介][WhatisASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

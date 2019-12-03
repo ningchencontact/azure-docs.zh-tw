@@ -1,26 +1,20 @@
 ---
-title: 開放原始碼技術常見問題集 - Azure App Service |Microsoft Docs
-description: 獲得有關 Azure App Service 之 Web Apps 功能的開放原始碼技術常見問題解答。
-services: app-service\web
-documentationcenter: ''
+title: 開放原始碼技術常見問題
+description: 取得 Azure App Service 中開放原始碼技術常見問題的解答。
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: b92fe0a8073437d2cf0e908b4e734a0c01c342eb
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 33590f9fc7e6c4d46123cbc7088086a3197d52ae
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169676"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672432"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure 中的 Web Apps 相關開放原始碼技術常見問題集
 
@@ -204,7 +198,7 @@ WordPress Buddy+ 是 Azure 網站擴充功能，可讓您直接在資料庫中�
 對於移轉連線到 WordPress 網站的 MySQL 資料庫，您有多個選項：
 
 * 開發人員：使用[命令提示字元或 PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
-* 非開發人員：使用 [WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
+* 非開發人員：使用 [WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>如何使 WordPress 更安全？
 

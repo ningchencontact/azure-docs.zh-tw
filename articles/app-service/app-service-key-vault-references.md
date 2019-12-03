@@ -1,22 +1,17 @@
 ---
-title: 金鑰保存庫參考 - Azure App Service | Microsoft Docs
-description: Azure App Service 和 Azure Functions 中 Azure Key Vault 參考的概念參考和設定指南
-services: app-service
+title: 使用 Key Vault 參考
+description: 瞭解如何設定 Azure App Service 和 Azure Functions 以使用 Azure Key Vault 參考。 將 Key Vault 秘密提供給您的應用程式程式碼。
 author: mattchenderson
-manager: jeconnoc
-editor: ''
-ms.service: app-service
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 8f237e4c676a53f6df15940a196a998bee529f6b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f0d3d36d3489557f0a07e9400c59debb2dca7073
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817959"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671462"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>使用 App Service 和 Azure Functions 的 Key Vault 參考
 
@@ -46,7 +41,7 @@ ms.locfileid: "73817959"
 Key Vault 參考格式為 `@Microsoft.KeyVault({referenceString})`，其中 `{referenceString}` 會由下列其中一個選項來取代：
 
 > [!div class="mx-tdBreakAll"]
-> | 參考字串                                                            | 說明                                                                                                                                                                                 |
+> | 參考字串                                                            | 描述                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | SecretUri=_secretUri_                                                       | **SecretUri** 應該是 Key Vault 中祕密的完整資料平面 URI (包括版本在內)，例如 https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** 應該是您 Key Vault 資源的名稱。 **SecretName** 應該是目標祕密的名稱。 **SecretVersion** 應該是要使用的祕密版本。 |

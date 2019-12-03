@@ -1,17 +1,16 @@
 ---
-title: 還原已刪除 App Service 應用程式-Azure App Service
-description: 瞭解如何使用 PowerShell 還原已刪除的 App Service 應用程式。
+title: 還原已刪除的應用程式
+description: 瞭解如何在 Azure App Service 中還原已刪除的應用程式。 避免不小心刪除應用程式的麻煩。
 author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.service: app-service
-ms.openlocfilehash: 6a3a62053a488f95e22cae13ef9d0714a7b5dd05
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a30ac638422f99134ebe9cc26e4b418f5de079b9
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173730"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672138"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>使用 PowerShell 還原已刪除 App Service 應用程式
 

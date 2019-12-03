@@ -1,26 +1,20 @@
 ---
 title: 部署常見問題集 - Azure App Service | Microsoft Docs
 description: 對於 Azure App Service 的 Web 應用程式功能之中的部署相關的常見問題集獲得解答。
-services: app-service\web
-documentationcenter: ''
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 0a01f25894d1226466473dec7333859c7415f1fd
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 25f43051f11d42c4f8565039d3168f2ae162eb37
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121210"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671694"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的部署常見問題集
 
@@ -39,7 +33,7 @@ ms.locfileid: "71121210"
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>當我嘗試從 Visual Studio 部署時，我看到一則錯誤訊息。 如何? 解決此錯誤？
 
-如果您看到下列訊息，表示您可能使用較舊版本的 SDK：「部署資源群組 'YourResourceGroup' 中的資源 'YourResourceName' 時發生錯誤：MissingRegistrationForLocation：未對於位置「美國中部」的資源類型「元件」註冊訂用帳戶。 請為此提供者重新註冊，才能存取此位置。」 
+如果您看到下列訊息，您可能是使用舊版的 SDK：「在資源群組 'YourResourceGroup' 中部署資源 'YourResourceName' 期間發生錯誤：MissingRegistrationForLocation：訂用帳戶未在位置「美國中部」註冊資源類型「組件」。 請為此提供者重新註冊，才能存取此位置。」 
 
 若要解決這個錯誤，請升級為[最新的 SDK](https://azure.microsoft.com/downloads/)。 如果您看到此訊息，而且您有最新的 SDK，請提交支援要求。
 
@@ -74,7 +68,7 @@ App Service 支援兩種認證類型，用於本機 Git 部署和 FTP/S 部署�
 
 1. 請確認您輸入的是正確的主機名稱和認證。 如需不同類型認證和使用方式的詳細資訊，請參閱[部署認證](https://github.com/projectkudu/kudu/wiki/Deployment-credentials)。
 2. 請確認 FTP 連接埠未遭防火牆封鎖。 連接埠應該具有以下設定：
-    * FTP 控制連線連接埠：21
+    * FTP 控制連線連接埠︰21
     * FTP 資料連線連接埠︰989、10001-10300
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>如何將我的程式碼發佈至 App Service？

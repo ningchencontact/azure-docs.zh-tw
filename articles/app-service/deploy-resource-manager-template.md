@@ -1,22 +1,17 @@
 ---
-title: 使用範本部署應用程式的指引 - Azure App Service | Microsoft Docs
-description: 建立 Azure Resource Manager 範本以部署 Web 應用程式的建議。
-services: app-service
-documentationcenter: app-service
+title: 使用範本部署應用程式
+description: 尋找有關建立 Azure Resource Manager 範本以布建和部署 App Service 應用程式的指引。
 author: tfitzmac
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 2af3ec61537dc28ab652b669ff46500db19ab307
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 082ef9753f84aef3f867a9dee4b4e9fbf73dd379
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130599"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670104"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本部署 Web 應用程式的指引
 

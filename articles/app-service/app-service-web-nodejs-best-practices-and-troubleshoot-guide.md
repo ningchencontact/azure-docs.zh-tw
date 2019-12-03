@@ -1,26 +1,19 @@
 ---
-title: Node.js 的最佳作法和疑難排解 - Azure App Service
-description: 了解 Azure App Service 上節點應用程式的最佳作法和疑難排解步驟。
-services: app-service\web
-documentationcenter: nodejs
+title: Node.js 最佳做法和疑難排解
+description: 瞭解在 Azure App Service 中執行的 node.js 應用程式的最佳作法和疑難排解步驟。
 author: ranjithr
-manager: wadeh
-editor: ''
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: bwren
 ms.custom: seodec18
-ms.openlocfilehash: 5ef0cf691ae3a199ea82cb8cfa23c386d30551dc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 75195bd7ad228bb66dfd21d2c65997cc8c02680e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024232"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672037"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows 上節點應用程式的最佳作法和疑難排解指南
 
@@ -276,7 +269,7 @@ http.createServer(function (req, res) {
 
 NODE.exe 具有稱為 `NODE_PENDING_PIPE_INSTANCES` 的設定。 在 Azure App Service 上，此值會設為 5000。 這表示該 node.exe 在具名管道上一次能接受 5000 個要求。 這個值應足以滿足大部分在 Azure App Service 上執行的節點應用程式。 您應該不會在 Azure App Service 上看見 503.1003，因為 `NODE_PENDING_PIPE_INSTANCES` 的值較高
 
-## <a name="more-resources"></a>其他資源
+## <a name="more-resources"></a>更多資源
 
 請遵循下列連結以深入了解 Azure App Service 上的 node.js 應用程式。
 

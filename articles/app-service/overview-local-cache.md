@@ -1,27 +1,17 @@
 ---
-title: 本機快取概觀 - Azure App Service | Microsoft Docs
-description: 本文說明如何啟用、調整大小並查詢 Azure App Service 本機快取功能的狀態
-services: app-service
-documentationcenter: app-service
-author: cephalin
-manager: jpconnock
-editor: ''
+title: 本機快取
+description: 瞭解本機快取在 Azure App Service 中的使用方式，以及如何啟用、調整大小，以及查詢應用程式本機快取的狀態。
 tags: optional
-keywords: ''
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
-ms.service: app-service
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/04/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4dffa7dcafe4aabe3e8dcb56d4f5084d0c6ef821
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: bce0620ed6be4937c95a2ce01f3d4c175c8bc18d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819675"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687083"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 本機快取概觀
 

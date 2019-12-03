@@ -1,25 +1,18 @@
 ---
-title: 網路部署功能-Azure App Service |Microsoft Docs
-description: 如何使用各種 App Service 網路功能
+title: 網路功能
+description: 瞭解 Azure App Service 中的網路功能，以及您的網路需要哪些功能來保護安全性或功能。
 author: ccompy
-manager: stefsch
-editor: ''
-services: app-service\web
-documentationcenter: ''
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 801692c53ef268f15edc60d31743aefa6a247a78
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 6395d62947cda47c3779f15445db08b7515d055d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928512"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672339"
 ---
 # <a name="app-service-networking-features"></a>App Service 網路功能
 
@@ -33,7 +26,7 @@ Azure App Service 是分散式系統。 處理傳入 HTTP/HTTPS 要求的角色�
 
 | 輸入功能 | 輸出功能 |
 |---------------------|-------------------|
-| 應用程式指派的位址 | 混合式連線 |
+| 應用程式指派的位址 | 混合式連接 |
 | 存取限制 | 閘道所需的 VNet 整合 |
 | 服務端點 | VNet 整合（預覽） |
 
@@ -62,7 +55,7 @@ Azure App Service 是分散式系統。 處理傳入 HTTP/HTTPS 要求的角色�
 | 存取相同區域中 Azure 虛擬網路中的資源 | VNet 整合 </br> ASE |
 | 在不同區域的 Azure 虛擬網路中存取資源 | 閘道所需的 VNet 整合 </br> ASE 和 VNet 對等互連 |
 | 存取以服務端點保護的資源 | VNet 整合 </br> ASE |
-| 存取未連線至 Azure 之私人網路中的資源 | 混合式連線 |
+| 存取未連線至 Azure 之私人網路中的資源 | 混合式連接 |
 | 跨 ExpressRoute 線路存取資源 | VNet 整合（目前僅限於 RFC 1918 位址） </br> ASE | 
 
 
@@ -117,7 +110,7 @@ App Service 有數個用來管理服務的端點。  這些位址會在個別的
 
 在設定[服務端點存取限制][serviceendpoints]的教學課程中，您可以深入瞭解如何設定應用程式的服務端點
  
-### <a name="hybrid-connections"></a>混合式連線
+### <a name="hybrid-connections"></a>混合式連接
 
 App Service 混合式連線可讓您的應用程式對指定的 TCP 端點進行**輸出**呼叫。 端點可以是內部部署、在 VNet 中，或在埠443上允許對 Azure 輸出流量的任何位置。 此功能需要在 Windows Server 2012 或更新版本的主機上安裝稱為混合式連線管理員（HCM）的轉送代理程式。 HCM 必須能夠連線到埠443上的 Azure 轉送。 您可以從入口網站中的 App Service 混合式連線 UI 下載 HCM。 
 

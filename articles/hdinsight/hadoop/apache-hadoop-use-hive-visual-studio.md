@@ -2,24 +2,24 @@
 title: Apache Hive & 適用于 Visual Studio 的 Data Lake 工具 Azure HDInsight
 description: 了解如何使用 Data Lake Tools for Visual Studio 在 Azure HDInsight 上搭配 Apache Hadoop 執行 Apache Hive 查詢。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: 5b10cc5a8b7468b222fec3f2e66a8258470047ae
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.custom: hdinsightactive
+ms.date: 11/27/2019
+ms.openlocfilehash: 27ab13481525819eb1435f4c9ac256a21acd21fb
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931862"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687792"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 執行 Apache Hive 查詢
 
 了解如何使用 Data Lake Tools for Visual Studio 查詢 Apache Hive。 Data Lake Tools 可讓您在 Azure HDInsight 上輕鬆地建立、提交和監視對 Apache Hadoop 的 Hive 查詢。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * HDInsight 上的 Apache Hadoop 叢集。 如需建立此專案的詳細資訊，請參閱[使用 Resource Manager 範本在 Azure HDInsight 中建立 Apache Hadoop](./apache-hadoop-linux-tutorial-get-started.md)叢集。
 
@@ -38,9 +38,9 @@ ms.locfileid: "73931862"
 
 臨機操作查詢可在**批次**或**互動**模式中執行。
 
-1. 開啟**Visual Studio**。
+1. 啟動**Visual Studio** ，然後選取 [**繼續但不**撰寫程式碼]。
 
-2. 從**伺服器總管**流覽至**Azure** > **HDInsight**。
+2. 在**伺服器總管**中，以滑鼠右鍵按一下 [ **Azure**]，選取 **[連線到 Microsoft Azure 訂用帳戶 ...]** ，然後完成登入程式。
 
 3. 展開 [ **HDInsight**]，在您要執行查詢的叢集上按一下滑鼠右鍵，然後選取 [**撰寫 Hive 查詢**]。
 
@@ -98,8 +98,8 @@ ms.locfileid: "73931862"
         > [!NOTE]  
         > 當您預期會由外部來源（例如 MapReduce 作業或 Azure 服務）更新基礎資料時，應該使用外部資料表。
         >
-        > 捨棄外部資料表並 **不** 會刪除資料，只會刪除資料表定義。
-    
+        > 捨棄外部資料表並 **不會** 刪除資料，只會刪除資料表定義。
+
     * `ROW FORMAT`：告訴 Hive 如何格式化資料。 在此情況下，每個記錄中的欄位會以空格隔開。
 
     * `STORED AS TEXTFILE LOCATION`：告訴 Hive 資料儲存在*example/data*目錄中，而且儲存為文字。
@@ -138,8 +138,8 @@ ms.locfileid: "73931862"
         > 與 `EXTERNAL` 資料表不同之處在於，捨棄內部資料表也會刪除基礎資料。
 
     * `STORED AS ORC`：以*優化資料列單欄式*（ORC）格式儲存資料。 ORC 是高度最佳化且有效率的 Hive 資料儲存格式。
-    
-    * `INSERT OVERWRITE ... SELECT`︰從含有 `log4jLogs`的 `[ERROR]` 資料表選取資料列，然後將資料插入 `errorLogs` 資料表。
+
+    * `INSERT OVERWRITE ... SELECT`︰從含有 `[ERROR]`的 `log4jLogs` 資料表選取資料列，然後將資料插入 `errorLogs` 資料表。
 
 3. 視需要將 [**互動式**] 變更為 [**批次**]，然後選取 [**提交**]。
 
@@ -149,14 +149,8 @@ ms.locfileid: "73931862"
 
 如您所見，HDInsight tools for Visual Studio 提供簡單的方法，可在 HDInsight 上使用 Hive 查詢。
 
-如需 HDInsight 中 Hive 的一般資訊：
+* 如需 HDInsight 中 Hive 的一般資訊，請參閱[Azure HDInsight 的 Apache Hive 和 HiveQL 是什麼？](hdinsight-use-hive.md)
 
-* [Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？](hdinsight-use-hive.md)
+* 如需您可以在 HDInsight 上使用 Hadoop 之其他方式的詳細資訊，請參閱[在 hdinsight 上的 Apache Hadoop 中使用 MapReduce](hdinsight-use-mapreduce.md)
 
-如需您可以在 HDInsight 上使用 Hadoop 之其他方式的詳細資訊：
-
-* [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)
-
-如需 HDInsight Tools for Visual Studio 的詳細資訊：
-
-* [使用適用于 Visual Studio 的 Data Lake 工具連接到 Azure HDInsight 並執行 Apache Hive 查詢](apache-hadoop-visual-studio-tools-get-started.md)
+* 如需有關 HDInsight tools for Visual Studio 的詳細資訊，請參閱[使用適用于 Visual Studio 的 Data Lake 工具連接 Azure HDInsight 並執行 Apache Hive 查詢](apache-hadoop-visual-studio-tools-get-started.md)

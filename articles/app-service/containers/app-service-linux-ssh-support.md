@@ -1,26 +1,19 @@
 ---
-title: Linux 上的 App Service SSH 支援 - Azure | Microsoft Docs
-description: 了解如何使用 SSH 搭配 Linux 上的 Azure App Service。
+title: 適用于 Linux 容器的 SSH 存取
+description: 您可以在 Azure App Service 中開啟 Linux 容器的 SSH 會話。 自訂的 Linux 容器支援自訂映射的某些修改。
 keywords: azure app service, web 應用程式, linux, oss
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: fef8a17de4539a1427c269cdc512063d07df195c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 299bbfbc50e9ba779898ab0e0e9dec060bf6541d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066871"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687583"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux 上的 Azure App Service 支援 SSH
 
@@ -50,7 +43,7 @@ ms.locfileid: "70066871"
 
 若要開始，您必須安裝 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。 若要查看未安裝 Azure CLI 時的運作方式，請開啟 [Azure Cloud Shell](../../cloud-shell/overview.md)。 
 
-使用 [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 命令，開啟您應用程式的遠端連線。 針對您的應用\_程式指定\<  _\<訂用帳戶識別碼 >_ 、  _\<群組名稱 >_ 和應用程式名稱 > _。
+使用 [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 命令，開啟您應用程式的遠端連線。 針對您的應用程式指定 _\<訂用帳戶識別碼 >_ 、 _\<組名 >_ 和 \_\< 應用程式名稱 > _。
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &

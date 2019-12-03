@@ -1,26 +1,17 @@
 ---
-title: 設定 PremiumV2 層 - Azure App Service | Microsoft Docs
+title: 設定 PremiumV2 層
 description: 了解如何藉由調整為新的 PremiumV2 定價層，讓 Azure App Service 中的 Web 應用程式、行動應用程式和 API 應用程式獲得更好的效能。
 keywords: App Service, Azure App Service, 級別, 可調整, App Service方案, App Service 成本
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/25/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: aa1e522e395f869f73c0b250623665a9b175384e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f7f9f6d5617ad0f9be69c47ce514d395534fd892
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067222"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672218"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>設定 Azure App Service 的 PremiumV2 層
 
@@ -122,7 +113,7 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
     -Tier "PremiumV2" `
     -WorkerSize "Small"
 ```
-## <a name="more-resources"></a>其他資源
+## <a name="more-resources"></a>更多資源
 
 [在 Azure 中相應增加應用程式的規模](manage-scale-up.md)  
 [手動或自動調整執行個體計數](../monitoring-and-diagnostics/insights-how-to-scale.md)

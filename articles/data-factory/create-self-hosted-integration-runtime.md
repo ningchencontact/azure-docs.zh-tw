@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 4662e5047e981c74d2422830bc5b152dae738337
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: f4eb275d8e1303ba68a23ac4ea0135c81c6a452a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559299"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672302"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 
@@ -105,6 +105,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 | 屬性                                                    | 描述                                                  | 必要項 |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **RegisterNewNode**"`<AuthenticationKey>`"                     | 使用指定的驗證金鑰註冊自我裝載整合執行時間節點。 | 否       |
+| **RegisterNewNode**"`<AuthenticationKey>`" "`<NodeName>`"      | 使用指定的驗證金鑰和節點名稱，註冊自我裝載整合執行時間節點。 | 否       |
 | **EnableRemoteAccess**"`<port>`" ["`<thumbprint>`"]            | 啟用目前節點上的遠端存取來設定高可用性叢集。 或直接對自我裝載 IR 啟用設定認證，而不需要經過 Azure Data Factory。 您可以從相同網路中的遠端電腦使用**AzDataFactoryV2LinkedServiceEncryptedCredential** Cmdlet 來執行後者。 | 否       |
 | **EnableRemoteAccessInContainer**"`<port>`" ["`<thumbprint>`"] | 當節點在容器中執行時，啟用對目前節點的遠端存取。 | 否       |
 | **DisableRemoteAccess**                                         | 停用對目前節點的遠端存取。 多重節點設定需要遠端存取。 即使停用遠端存取， **AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell Cmdlet 仍然可以運作。 只要 Cmdlet 與自我裝載 IR 節點在同一部電腦上執行，此行為就會是 true。 | 否       |
@@ -119,7 +120,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 | **TurnOnAutoUpdate**                                            | 開啟自我裝載整合執行時間自動更新。        | 否       |
 | **TurnOffAutoUpdate**                                           | 關閉自我裝載整合執行時間自動更新。       | 否       |
 | **SwitchServiceAccount**"`<domain\user>`" ["`<password>`"]           | 將 DIAHostService 設定為以新帳戶的身分執行。 對於系統帳戶和虛擬帳戶，請使用空白密碼 ""。 | 否       |
-| **Loglevel** `<logLevel>`                                       | 將 Windows 事件追蹤（ETW）記錄層級設定為**Off**、 **Error**、 **Verbose**或**All**。 此屬性大多由 Microsoft 支援服務工程師在進行安裝時使用。 | 否       |
+
 
 ## <a name="command-flow-and-data-flow"></a>命令流程和資料流程
 

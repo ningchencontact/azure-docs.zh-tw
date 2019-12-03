@@ -1,24 +1,18 @@
 ---
-title: 使用 App Service 環境 - Azure
-description: 如何在 Azure App Service Environment 中建立、發佈及調整應用程式
-services: app-service
-documentationcenter: na
+title: 使用和管理 ASE
+description: 如何在 Azure App Service 環境中建立、發佈及調整應用程式。 在一份檔中尋找一般工作。
 author: ccompy
-manager: stefsch
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 841271c474ba8e24bc352bcae1fa037cf382a8ec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e5c127673e4b0cb6c68aaf0a9790abbf78758670
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470576"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687100"
 ---
 # <a name="use-an-app-service-environment"></a>使用 App Service Environment #
 
@@ -53,7 +47,7 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
 
     ![選取應用程式名稱][1]
 
-1. 選取一個訂用帳戶。
+1. 選取訂用帳戶。
 
 1. 輸入新資源群組的名稱，或選取 [使用現有] 並從下拉式清單中挑選一個。
 
@@ -77,7 +71,7 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
     > Linux 應用程式和 Windows 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service 環境中。 
     >
 
-2. 選取 [ **建立**]。
+2. 選取 [建立]。
 
 ## <a name="how-scale-works"></a>調整方式 ##
 

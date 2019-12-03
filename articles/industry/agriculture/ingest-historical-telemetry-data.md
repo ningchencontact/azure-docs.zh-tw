@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 5ae64371bd114a898ddca874e23b499bc4a2b8a3
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 27aec53fd2e92e19f1c749e833217fb8b5deae57
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128774"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672562"
 ---
 # <a name="ingest-historical-telemetry-data"></a>內嵌歷程記錄遙測資料
 
@@ -21,6 +21,7 @@ ms.locfileid: "74128774"
 ## <a name="before-you-begin"></a>開始之前
 
 繼續進行本文之前，請確定您已安裝 FarmBeats，並從 IoT 收集歷程記錄資料。
+您也需要啟用合作夥伴存取權，如下列步驟所述。
 
 ## <a name="enable-partner-access"></a>啟用合作夥伴存取
 
@@ -80,18 +81,18 @@ ms.locfileid: "74128774"
 |          製造商            |         2 顆星     |
 |  ProductCode                    |  裝置產品代碼或型號名稱/號碼。 例如，EnviroMonitor # 6800。  |
 |            連接埠          |     埠名稱和類型（數位/類比）
-|     名稱                 |  用來識別資源的名稱。 例如，模型名稱/產品名稱。
+|     Name                 |  用來識別資源的名稱。 例如，模型名稱/產品名稱。
       描述     | 提供模型的有意義描述
-|    properties          |    製造商提供的其他屬性   |
+|    屬性          |    製造商提供的其他屬性   |
 |    **裝置**             |                      |
 |   DeviceModelId     |     相關聯裝置型號的識別碼  |
 |  hardwareId          | 裝置的唯一識別碼，例如 MAC 位址等等。
 |  reportingInterval        |   報告間隔（以秒為單位）
-|  位置            |  裝置緯度（-90 到 + 90）/Longitude （-180 到180）/Elevation （以計量計）   
+|  Location            |  裝置緯度（-90 到 + 90）/Longitude （-180 到180）/Elevation （以計量計）   
 |ParentDeviceId       |    此裝置所連接之父裝置的識別碼。 例如，連接到閘道的節點。 節點會以閘道的形式 parentDeviceId。  |
-|    名稱            | 用來識別資源的名稱。 裝置合作夥伴必須傳送與合作夥伴端上的裝置名稱一致的名稱。 如果合作夥伴裝置名稱是使用者定義的，則相同的使用者定義名稱應傳播至 FarmBeats。|
+|    Name            | 用來識別資源的名稱。 裝置合作夥伴必須傳送與合作夥伴端上的裝置名稱一致的名稱。 如果合作夥伴裝置名稱是使用者定義的，則相同的使用者定義名稱應傳播至 FarmBeats。|
 |     描述       |      提供有意義的描述  |
-|     properties    |  製造商提供的其他屬性
+|     屬性    |  製造商提供的其他屬性
 |     **感應器型號**        |          |
 |       類型（類比、數位）          |      感應器類型，不論是類比或數位       |
 |          製造商            |       感應器的製造商     |
@@ -101,18 +102,18 @@ ms.locfileid: "74128774"
 |    sensorMeasures > 類型    |感應器遙測資料的測量類型。 以下是系統定義的類型： AmbientTemperature、CO2、Depth、ElectricalConductivity、LeafWetness、Length、LiquidLevel、Nitrate、O2、PH、Phosphate、PointInTime、Potassium、壓力、RainGauge、RelativeHumidity、Salinity、SoilMoisture、SoilTemperature、SolarRadiation、State、TimeDuration、UVRadiation、UVIndex、Volume、WindDirection、WindRun、WindSpeed、Evapotranspiration、PAR。 若要新增更多，請參閱/ExtendedType API。|
 |        SensorMeasures > 單位              | 感應器遙測資料的單位。 以下是系統定義的單位： NoUnit、攝氏、華氏、開氏、Rankine、Pascal、水星、PSI、毫米、釐米、計量、英寸、墊腳、英里、公里、MilesPerHour、MilesPerSecond、KMPerHour、KMPerSecond、MetersPerHour、MetersPerSecond、學位、WattsPerSquareMeter、KiloWattsPerSquareMeter、MilliWattsPerSquareCentiMeter、MilliJoulesPerSquareCentiMeter、VolumetricWaterContent、百分比、PartsPerMillion、MicroMol、MicroMolesPerLiter、SiemensPerSquareMeterPerMole、MilliSiemensPerCentiMeter、Centibar、DeciSiemensPerMeter、KiloPascal、VolumetricIonContent、升、MilliLiter、Seconds、UnixTimestamp、MicroMolPerMeterSquaredPerSecond、InchesPerHour 以新增更多，請參閱/ExtendedType API。|
 |    SensorMeasures > aggregationType    |  值可以是 none、average、maximum、下限或 StandardDeviation  |
-|          名稱            | 用來識別資源的名稱。 例如，模型名稱/產品名稱。  |
+|          Name            | 用來識別資源的名稱。 例如，模型名稱/產品名稱。  |
 |    描述        | 提供模型的有意義描述  |
-|   properties       |  製造商提供的其他屬性  |
+|   屬性       |  製造商提供的其他屬性  |
 |    **感應器**      |          |
 | hardwareId          |   製造商所設定之感應器的唯一識別碼 |
 |  sensorModelId     |    相關聯感應器型號的識別碼   |
 | location          |  感應器緯度（-90 到 + 90）/Longitude （-180 到180）/Elevation （以計量計）|
 |   埠 > 名稱        |  裝置上感應器連線的埠名稱和類型。 這必須與裝置模型中所定義的名稱相同。 |
 |    DeviceID  |    感應器所連接之裝置的識別碼     |
-| 名稱            |   用來識別資源的名稱。 例如，感應器名稱/產品名稱和模型編號/產品代碼。|
+| Name            |   用來識別資源的名稱。 例如，感應器名稱/產品名稱和模型編號/產品代碼。|
 |    描述      | 提供有意義的描述 |
-|    properties        |製造商提供的其他屬性 |
+|    屬性        |製造商提供的其他屬性 |
 
 如需物件的詳細資訊，請參閱[Swagger](https://aka.ms/FarmBeatsDatahubSwagger)。
 

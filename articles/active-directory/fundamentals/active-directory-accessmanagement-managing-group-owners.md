@@ -12,20 +12,20 @@ ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d259be0c04af0fcf3628a9f296730749404610cb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3ee4b452d087bfef0e9f5f7c820870da0df8dc3e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562078"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74683944"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>在 Azure Active Directory 中新增或移除群組擁有者
-Azure Active Directory (Azure AD) 群組是由群組擁有者所擁有及管理。 群組擁有者可以是使用者或服務主體, 而且能夠管理包含成員資格的群組。 只有現有的群組擁有者或群組管理的系統管理員可以指派群組 onwers。 群組擁有者不需要是該群組的成員。
+Azure Active Directory (Azure AD) 群組是由群組擁有者所擁有及管理。 群組擁有者可以是使用者或服務主體，而且能夠管理包含成員資格的群組。 只有現有的群組擁有者或群組管理的系統管理員可以指派群組擁有者。 群組擁有者不需要是該群組的成員。
 
-當群組沒有擁有者時, 群組管理的系統管理員仍然可以管理該群組。
+當群組沒有擁有者時，群組管理的系統管理員仍然可以管理該群組。
 
 ## <a name="add-an-owner-to-a-group"></a>將擁有者新增至群組
-以下指示說明如何使用 Azure AD 入口網站, 將使用者新增為群組的擁有者。 若要將服務主體新增為群組的擁有者, 請遵循使用[PowerShell](https://docs.microsoft.com/powershell/module/Azuread/Add-AzureADGroupOwner?view=azureadps-2.0)來執行這項操作的指示。
+以下指示說明如何使用 Azure AD 入口網站，將使用者新增為群組的擁有者。 若要將服務主體新增為群組的擁有者，請遵循使用[PowerShell](https://docs.microsoft.com/powershell/module/Azuread/Add-AzureADGroupOwner?view=azureadps-2.0)來執行這項操作的指示。
 
 ### <a name="to-add-a-group-owner"></a>新增群組擁有者
 1. 使用目錄的全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com)。
@@ -61,11 +61,11 @@ Azure Active Directory (Azure AD) 群組是由群組擁有者所擁有及管理�
     移除擁有者之後，返回 [擁有者] 頁面即可看到該名稱已從擁有者清單移除。
 
 ## <a name="next-steps"></a>後續步驟
-- [使用 Azure Active Directory 群組來管理資源的存取權](active-directory-manage-groups.md)
+- [使用 Azure Active Directory 群組管理資源的存取權](active-directory-manage-groups.md)
 
 - [設定群組設定的 Azure Active Directory Cmdlet](../users-groups-roles/groups-settings-cmdlets.md)
 
-- [使用群組來指派對整合 SaaS 應用程式的存取權](../users-groups-roles/groups-saasapps.md)
+- [使用群組來指派整合後 SaaS 應用程式的存取權](../users-groups-roles/groups-saasapps.md)
 
 - [整合內部部署身分識別與 Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 

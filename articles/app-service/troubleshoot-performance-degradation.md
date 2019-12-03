@@ -1,34 +1,25 @@
 ---
-title: 疑難排解效能降低 - Azure App Service | Microsoft Docs
-description: 本文可協助您針對 Azure App Service 中應用程式效能變慢的問題進行疑難排解。
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: 效能降低的疑難排解
+description: 瞭解如何對 Azure App Service 中的應用程式效能問題進行疑難排解，包括監視應用程式行為、收集資料，以及減輕問題。
 tags: top-support-issue
 keywords: Web 應用程式效能、變慢的應用程式、應用程式變慢
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3f7389022eaee4268d5d4fc5439b64d7f7f1bf07
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 98c11a72b5aea0fac15d943977402289dc33a970
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066533"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688306"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>針對 Azure App Service 中應用程式效能變慢的問題進行疑難排解
 本文可協助您針對 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 中應用程式效能變慢的問題進行疑難排解。
 
 如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您也可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/) ，然後按一下 **取得支援**。
 
-## <a name="symptom"></a>徵兆
+## <a name="symptom"></a>徵狀
 當您瀏覽應用程式時，頁面載入緩慢且有時候會逾時。
 
 ## <a name="cause"></a>原因
@@ -50,9 +41,9 @@ ms.locfileid: "70066533"
 
 <a name="observe" />
 
-### <a name="1-observe-and-monitor-application-behavior"></a>1.觀察和監視應用程式行為
+### <a name="1-observe-and-monitor-application-behavior"></a>1. 觀察和監視應用程式行為
 #### <a name="track-service-health"></a>追蹤服務健全狀況
-每次發生服務中斷或效能降低時，Microsoft Azure 就會發出公告。 您可以在 [Azure 入口網站](https://portal.azure.com/)上追蹤服務的健康情況。 如需詳細資訊，請參閱[追蹤服務健全狀況](../monitoring-and-diagnostics/insights-service-health.md)。
+每次發生服務中斷或效能降低時，Microsoft Azure 就會發出公告。 您可以在 [Azure 入口網站](https://portal.azure.com/)上追蹤服務的健康情況。 如需詳細資訊，請參閱 [追蹤服務健全狀況](../monitoring-and-diagnostics/insights-service-health.md)。
 
 #### <a name="monitor-your-app"></a>監視應用程式
 此選項可讓您了解應用程式是否有任何問題。 在應用程式刀鋒視窗中，按一下 [要求和錯誤] 圖格。 [計量] 刀鋒視窗會顯示所有可以加入的計量。
@@ -63,11 +54,11 @@ ms.locfileid: "70066533"
 * 平均回應時間
 * CPU 時間
 * 記憶體工作集
-* 要求
+* Requests
 
 ![監視應用程式效能](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 * [監視 Azure App Service 中的應用程式](web-sites-monitor.md)
 * [接收警示通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
@@ -95,7 +86,7 @@ ms.locfileid: "70066533"
 
 <a name="collect" />
 
-### <a name="2-collect-data"></a>2.收集資料
+### <a name="2-collect-data"></a>2. 收集資料
 App Service 會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提供診斷功能。 此資訊可區分為網頁伺服器診斷與應用程式診斷。
 
 #### <a name="enable-web-server-diagnostics"></a>啟用網頁伺服器診斷
@@ -150,7 +141,7 @@ Kudu 的另一項實用功能是，如果應用程式擲回第一次例外狀況
 
 <a name="mitigate" />
 
-### <a name="3-mitigate-the-issue"></a>3.減輕問題
+### <a name="3-mitigate-the-issue"></a>3. 緩和問題
 #### <a name="scale-the-app"></a>調整應用程式
 在 Azure App Service 中，為提高效能和輸送量，您可以調整所執行之應用程式的大小。 相應增加應用程式規模牽涉到兩個相關動作：將 App Service 方案變更為較高的定價層，以及在改為較高的定價層後進行某些設定。
 
@@ -161,7 +152,7 @@ Kudu 的另一項實用功能是，如果應用程式擲回第一次例外狀況
 您可以將調整設定為手動或自動。
 
 #### <a name="use-autoheal"></a>使用 AutoHeal
-AutoHeal 會根據您選擇的設定 (例如組態變更、要求、以記憶體為基礎的限制或執行要求所需的時間)，回收應用程式的背景工作角色處理序。 在大部分情況下，回收處理序是從問題中復原的最快方式。 雖然您永遠可以從 Azure 入口網站中直接重新啟動應用程式，AutoHeal 會自動為您完成。 您只需要在應用程式的根目錄 web.config 中加入某些觸發程序。 即使您的應用程式不是 .NET 應用程式, 這些設定仍會以相同的方式使用。
+AutoHeal 會根據您選擇的設定 (例如組態變更、要求、以記憶體為基礎的限制或執行要求所需的時間)，回收應用程式的背景工作角色處理序。 在大部分情況下，回收處理序是從問題中復原的最快方式。 雖然您永遠可以從 Azure 入口網站中直接重新啟動應用程式，AutoHeal 會自動為您完成。 您只需要在應用程式的根目錄 web.config 中加入某些觸發程序。 即使您的應用程式不是 .NET 應用程式，這些設定仍會以相同的方式使用。
 
 如需詳細資訊，請參閱 [自動修復 Azure 網站](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)。
 

@@ -3,12 +3,12 @@ title: 範本中的輸出
 description: 描述如何在 Azure Resource Manager 範本中定義輸出值。
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.openlocfilehash: b4c652d71436202b9b6e551f9c582e5c98508259
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 61120b9941a6a20812ea046265ecbe13014d769e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149178"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689151"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Azure Resource Manager 範本中的輸出
 
@@ -61,7 +61,7 @@ ms.locfileid: "74149178"
 }
 ```
 
-您無法在`reference`巢狀範本[的輸出區段中使用 ](resource-group-linked-templates.md#nested-template) 函式。 若要傳回巢狀範本中已部署資源的值，請將巢狀範本轉換成連結的範本。
+您無法在[巢狀範本](resource-group-linked-templates.md#nested-template)的輸出區段中使用 `reference` 函式。 若要傳回巢狀範本中已部署資源的值，請將巢狀範本轉換成連結的範本。
 
 ## <a name="get-output-values"></a>取得輸出值
 
@@ -101,4 +101,3 @@ az group deployment show \
 ## <a name="next-steps"></a>後續步驟
 
 * 若要瞭解輸出可用的屬性，請參閱[瞭解 Azure Resource Manager 範本的結構和語法](resource-group-authoring-templates.md)。
-* 如需有關建立輸出的建議，請參閱[最佳做法-輸出](template-best-practices.md#outputs)。

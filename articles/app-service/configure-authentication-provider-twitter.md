@@ -1,25 +1,16 @@
 ---
-title: 設定 Twitter 驗證 - Azure App Service
-description: 瞭解如何為您的 App Service 應用程式設定 Twitter 驗證。
-services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: syntaxc4
-editor: ''
+title: 設定 Twitter 驗證
+description: 瞭解如何將 Twitter 驗證設定為 App Service 應用程式的身分識別提供者。
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/19/2018
-ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 02008b7dc1609a5f28ac6ba2a582933a96428198
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: b5ec17c18cec8053f0732366c0cc5d0c5003e4de
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176948"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670807"
 ---
 # <a name="configure-your-app-service-app-to-use-twitter-login"></a>設定 App Service 應用程式以使用 Twitter 登入
 
@@ -31,9 +22,9 @@ ms.locfileid: "72176948"
 
 ## <a name="register"> </a>向 Twitter 註冊您的應用程式
 
-1. 登入[Azure 入口網站]並移至您的應用程式。 複製您的 **URL**。 您將使用它來設定您的 Twitter 應用程式。
+1. 登入[Azure 入口網站]並移至您的應用程式。 複製您的 [URL]。 您將使用它來設定您的 Twitter 應用程式。
 1. 前往[Twitter Developers]網站，使用您的 Twitter 帳號憑證登入，然後選取 [**建立新的應用程式**]。
-1. 輸入新應用程式的 [**名稱**] 和 [**描述**]。 在 [**網站**] 欄位中貼上您的應用程式**URL** 。 在 [**回呼 URL** ] 欄位中，輸入 App Service 應用程式的 URL，並將路徑附加 `/.auth/login/aad/callback`。 例如，`https://contoso.azurewebsites.net/.auth/login/twitter/callback`。 請務必使用 HTTPS 配置。
+1. 輸入新應用程式的 [**名稱**] 和 [**描述**]。 在 [**網站**] 欄位中貼上您的應用程式**URL** 。 在 [**回呼 URL** ] 欄位中，輸入 App Service 應用程式的 URL，並將路徑附加 `/.auth/login/aad/callback`。 例如： `https://contoso.azurewebsites.net/.auth/login/twitter/callback` 。 請務必使用 HTTPS 配置。
 1. 在頁面底部，閱讀並接受條款。 選取 [**建立您的 Twitter 應用程式**]。 隨即顯示應用程式詳細資料。
 1. 選取 [**設定**] 索引標籤，勾選 [**允許此應用程式用來以 Twitter 登入**]，然後選取 [**更新設定**]。
 1. 選取 [ **金鑰和存取權杖** ] 索引標籤。
@@ -48,7 +39,7 @@ ms.locfileid: "72176948"
 ## <a name="secrets"> </a>將 Twitter 資訊新增至應用程式
 
 1. 在[Azure 入口網站]中，移至您的應用程式。
-1. 選取 [**設定**] [ >  個**驗證/授權**]，並確定**App Service 驗證**已**開啟**。
+1. 選取 [**設定**] > [**驗證/授權**]，並確定**App Service 驗證**已**開啟**。
 1. 選取 [ **Twitter**]。
 1. 貼上您先前取得的 `API Key` 和 `API Secret` 值。
 1. 選取 [確定]。

@@ -1,26 +1,18 @@
 ---
-title: Linux 上的 App Service 常見問題集 - Azure | Microsoft Docs
-description: Linux 上的 Azure App Service 常見問題集。
+title: 執行內建容器常見問題
+description: 尋找 Azure App Service 中內建 Linux 容器的常見問題解答。
 keywords: azure app service, web 應用程式, 常見問題集, linux, oss, 用於容器的 Web App, 多重容器
-services: app-service
-documentationCenter: ''
 author: msangapu-msft
-manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: fa7b6a02ba287c7f51284a28ce41b2291317f99c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bb0f2e3fc3b84f5e1f9fe999b31fffadaa5915d4
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066913"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687604"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
@@ -30,7 +22,7 @@ ms.locfileid: "70066913"
 
 ## <a name="built-in-images"></a>內建映像
 
-**我想要將平台所提供的內建 Docker 容器進行分岔。哪裡可以找到這些檔案？**
+**我想要將平臺所提供的內建 Docker 容器派生。哪裡可以找到這些檔案？**
 
 您可以在 [GitHub](https://github.com/azure-app-service) 上找到所有 Docker 檔案。 您可以在 [Docker Hub](https://hub.docker.com/u/appsvc/) 上找到所有 Docker 容器。
 
@@ -38,17 +30,17 @@ ms.locfileid: "70066913"
 
 **設定執行階段堆疊時，在 [啟動檔案] 區段應該使用哪些值？**
 
-| 堆疊           | 需要的值                                                                         |
+| 協定           | 預期的值                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | 用來啟動 JAR 應用程式的命令 (例如, `java -jar my-app.jar --server.port=80`) |
-| Tomcat、Wildfly | 執行任何必要設定的腳本位置 (例如, `/home/site/deployments/tools/startup_script.sh`)          |
+| Java SE         | 用來啟動 JAR 應用程式的命令（例如，`java -jar my-app.jar --server.port=80`） |
+| Tomcat、Wildfly | 執行任何必要設定的腳本位置（例如，`/home/site/deployments/tools/startup_script.sh`）          |
 | Node.js         | PM2 設定檔或您的腳本檔案                                |
-| .Net Core       | 已編譯的 DLL 名稱, 形式為`dotnet <myapp>.dll`                                 |
+| .Net Core       | 已編譯的 DLL 名稱，做為 `dotnet <myapp>.dll`                                 |
 | 拼音            | 您想要用來初始化應用程式的 Ruby 腳本                     |
 
-這些命令或腳本會在內建的 Docker 容器啟動後, 但在您的應用程式程式碼啟動之前執行。
+這些命令或腳本會在內建的 Docker 容器啟動後，但在您的應用程式程式碼啟動之前執行。
 
-## <a name="management"></a>管理
+## <a name="management"></a>管理性
 
 **當我按下 Azure 入口網站中的 [重新啟動] 按鈕時，會發生什麼事？**
 
@@ -66,27 +58,27 @@ ms.locfileid: "70066913"
 
 您應該將 App Service 的 **reserved** 欄位設定為 true。
 
-## <a name="continuous-integration-and-deployment"></a>持續整合和部署
+## <a name="continuous-integration-and-deployment"></a>持續整合及部署
 
-**我的 Web 應用程式在我已更新 Docker Hub 上的映像之後，仍然使用舊的 Docker 容器映像。您是否支援自訂容器的連續整合和部署？**
+**我的 web 應用程式在我已更新 Docker Hub 上的映射之後，仍會使用舊的 Docker 容器映射。您是否支援自訂容器的持續整合和部署？**
 
 是，若要設定 Azure Container Registry 或 DockerHub 的持續整合/部署，請依照[使用用於容器的 Web 應用程式進行持續部署](./app-service-linux-ci-cd.md)操作。 針對私人登錄，您可以將 Web 應用程式先停止再啟動，來重新整理容器。 您也可以變更或新增虛擬應用程式設定，來強制重新整理您的容器。
 
 **是否支援預備環境？**
 
-是的。
+可以。
 
 **我可以使用 *WebDeploy/MSDeploy* 來部署我的 Web 應用程式嗎？**
 
 是，您需要將稱為 `WEBSITE_WEBDEPLOY_USE_SCM` 的應用程式設定設定為 *false*。
 
-**使用 Linux Web 應用程式時，應用程式的 Git 部署會失敗。如何解決此問題？**
+**當您使用 Linux web 應用程式時，應用程式的 Git 部署失敗。如何解決此問題？**
 
 如果您的 Linux Web 應用程式無法部署 Git，請選擇下列其中一個選項來部署應用程式程式碼：
 
-- 使用持續傳遞 (預覽) 功能：您可以將應用程式的原始程式碼儲存在 Azure DevOps Git 存放庫或 GitHub 儲存機制中, 以使用 Azure 持續傳遞。 如需詳細資訊，請參閱[如何設定 Linux Web 應用程式的持續傳遞](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)。
+- 使用持續傳遞（預覽）功能：您可以將應用程式的原始程式碼儲存在 Azure DevOps 的 Git 存放庫或 GitHub 存放庫中，以使用 Azure 持續傳遞。 如需詳細資訊，請參閱[如何設定 Linux Web 應用程式的持續傳遞](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)。
 
-- 使用 [ZIP 部署 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)：若要使用此 API，請[透過 SSH 連線到您的 Web 應用程式](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support)，然後前往您要部署程式碼的資料夾。 執行下列程式碼：
+- 使用 [ZIP 部署 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)：若要使用此應用程式開發介面，[SSH 到您的 Web 應用程式](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support)，然後移至您要部署程式碼的資料夾。 執行下列程式碼：
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
@@ -108,7 +100,7 @@ const io = require('socket.io')(server,{
 
 **是否支援未編譯的 .NET Core 應用程式？**
 
-是的。
+可以。
 
 **您是否支援以 Composer 做為 PHP 應用程式的相依性管理程式？**
 
@@ -116,9 +108,9 @@ const io = require('socket.io')(server,{
 
 ## <a name="custom-containers"></a>自訂容器
 
-**我使用自己的自訂容器。我希望平台將 SMB 共用掛接至 `/home/` 目錄。**
+**我使用自己的自訂容器。我希望平臺將 SMB 共用掛接到 `/home/` 目錄。**
 
-如果`WEBSITES_ENABLE_APP_SERVICE_STORAGE` **未指定**設定, 或將設定為 true `/home/` , 則會在所有規模的實例間**共用**目錄, 而寫入的檔案會在重新開機時**保存**。 將明確`WEBSITES_ENABLE_APP_SERVICE_STORAGE`設定為*false*將會停用掛接。
+如果**未指定**`WEBSITES_ENABLE_APP_SERVICE_STORAGE` 設定或將其設定為*true*，`/home/` 目錄將會跨級別實例**共用**，而且寫入的檔案會在重新開機**時保存**。 將 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 明確設定為*false*將會停用掛接。
 
 **我的自訂容器需要很長時間才能啟動，而平台會在它完成啟動之前將容器重新啟動。**
 
@@ -144,7 +136,7 @@ const io = require('socket.io')(server,{
 
 SCM 網站是在個別的容器中執行。 您無法檢查應用程式容器的檔案系統或執行中的處理程序。
 
-**我的自訂容器接聽連接埠 80 以外的連接埠。如何設定我的應用程式將要求路由至該連接埠？**
+**我的自訂容器會接聽埠80以外的埠。如何設定我的應用程式將要求路由至該埠？**
 
 我們有自動連接埠偵測。 您也可以指定一個叫做 *WEBSITES_PORT* 的應用程式設定，為它提供一個預期的連接埠號碼值。 之前，平台是使用 *PORT* 應用程式設定。 我們計劃淘汰此應用程式設定，並專門使用 *WEBSITES_PORT*。
 
@@ -156,12 +148,12 @@ SCM 網站是在個別的容器中執行。 您無法檢查應用程式容器的
 
 **如何設定 Azure 容器登錄 (ACR) 與多重容器一起使用？**
 
-為了將 ACR 與多重容器一起使用，**所有容器映像**都必須裝載在相同的 ACR 登錄伺服器上。 一旦它們位於相同的登錄伺服器上, 您將需要建立應用程式設定, 然後更新 Docker Compose 的設定檔, 以包含 ACR 映射名稱。
+為了將 ACR 與多重容器一起使用，**所有容器映像**都必須裝載在相同的 ACR 登錄伺服器上。 一旦它們位於相同的登錄伺服器上，您將需要建立應用程式設定，然後更新 Docker Compose 的設定檔，以包含 ACR 映射名稱。
 
 建立下列應用程式設定：
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (完整 URL, 例如: `https://<server-name>.azurecr.io`)
+- DOCKER_REGISTRY_SERVER_URL （完整 URL，例如： `https://<server-name>.azurecr.io`）
 - DOCKER_REGISTRY_SERVER_PASSWORD (啟用 ACR 設定中的系統管理員存取權)
 
 在組態檔中，參考您的 ACR 映像，如下列範例所示：
@@ -181,7 +173,7 @@ image: <server-name>.azurecr.io/<image-name>:<tag>
 - 第一個容器定義連接埠 80 或 8080
 - 如果上述任一項皆不為 true，那麼檔案中定義的第一個容器將是可存取的 (公開)
 
-## <a name="pricing-and-sla"></a>價格和 SLA
+## <a name="pricing-and-sla"></a>定價和 SLA
 
 **既然服務已正式推出，服務的定價為何？**
 
@@ -200,5 +192,5 @@ image: <server-name>.azurecr.io/<image-name>:<tag>
 ## <a name="next-steps"></a>後續步驟
 
 - [何謂 Linux 上的 Azure App Service？](app-service-linux-intro.md)
-- [設定 Azure App Service 中的預備環境](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [在 Azure App Service 中設定預備環境](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [使用用於容器的 Web 應用程式進行持續部署](./app-service-linux-ci-cd.md)
