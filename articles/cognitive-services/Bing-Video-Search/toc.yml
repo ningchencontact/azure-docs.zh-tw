@@ -1,5 +1,5 @@
 - name: Bing 影片搜尋 API 文件
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: 概觀
   expanded: true
   items:
