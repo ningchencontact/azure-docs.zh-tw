@@ -1,22 +1,18 @@
 ---
-title: 從 Azure Logic Apps 連線到 Twitter | Microsoft Docs
+title: 從 Azure Logic Apps 連接到 Twitter
 description: 藉由使用 Azure Logic Apps，讓監視及管理推文，加上從您的 Twitter 帳戶取得跟隨者、您跟隨的使用者、其他使用者、時間軸等等相關資訊的工作和工作流程自動化
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 22b75b2d2b47dbd496eda06c09b418ae66f6403a
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 8ffd0fd558cf759fadd912de9dff4acf49d9659f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050696"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789081"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來監視及管理 Twitter
 
@@ -29,7 +25,7 @@ ms.locfileid: "70050696"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * 您的 Twitter 帳戶和使用者認證
 
@@ -62,7 +58,7 @@ ms.locfileid: "70050696"
      選擇顯示的加號 ( **+** )，然後選取 [新增動作]。
      
        在搜尋方塊中，輸入 "twitter" 作為篩選條件。 
-       請在動作清單底下，選取您想要的動作。
+       在動作清單底下，選取您想要的動作。
 
 1. 如果系統提示您登入 Twitter，請立即登入，方可授與邏輯應用程式存取權。
 
@@ -70,15 +66,15 @@ ms.locfileid: "70050696"
 
 ## <a name="examples"></a>範例
 
-### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter 觸發程式:當有新推文張貼時
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter 觸發程序：有新推文張貼時
 
 此觸發程序會在偵測到新推文時 (例如，具有主題標籤 #Seattle 時)，啟動邏輯應用程式工作流程。 所以舉例來說，當找到這些推文時，您可以將具有推文內容的檔案新增至儲存體，例如藉由使用 Dropbox 連接器新增到 Dropbox 帳戶。 
 
 您可以選擇性地包含條件，要求合格的推文必須來自至少具有指定跟隨者數目的使用者。
 
-**企業範例**：您可以使用此觸發程式來監視貴公司的推文, 並將推文的內容上傳至 SQL 資料庫。
+**企業範例**：您可以使用此觸發程序來監視與貴公司有關的推文，以及將推文內容上傳至 SQL 資料庫。
 
-### <a name="twitter-action-post-a-tweet"></a>Twitter 動作:張貼推文
+### <a name="twitter-action-post-a-tweet"></a>Twitter 動作：張貼推文
 
 此動作會張貼推文，但是您可以設定動作，讓推文包含由先前所述觸發程序找到的推文內容。 
 
@@ -89,7 +85,7 @@ ms.locfileid: "70050696"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
+* 若要送出或票選功能構想，請前往 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 
