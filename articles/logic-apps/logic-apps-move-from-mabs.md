@@ -1,20 +1,19 @@
 ---
-title: 將應用程式從 BizTalk 服務移至 Azure Logic Apps | Microsoft Docs
+title: 將應用程式從 BizTalk 服務移至 Azure Logic Apps
 description: 從 Azure BizTalk 服務 (MABS) 遷移至 Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jonfancey
 ms.author: jonfan
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: dfc0aa4fa7c70ae91f25f97671b15dacfe991594
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 97b498091451b0bf39741ed4340b8e02517c5447
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273189"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791886"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>從 BizTalk 服務遷移至 Azure Logic Apps
 
@@ -36,7 +35,7 @@ BizTalk 服務包含兩個子服務：
 | BizTalk 服務   | Logic Apps            | 目的                      |
 | ------------------ | --------------------- | ---------------------------- |
 | 連接器          | 連接器             | 傳送及接收資料   |
-| 橋接器             | 邏輯應用程式             | 管線處理器           |
+| 橋接器             | Logic 應用程式             | 管線處理器           |
 | 驗證階段     | XML 驗證動作 | 驗證 XML 文件的結構描述 | 
 | 擴充階段       | 資料權杖           | 將屬性升級為訊息或針對路由決策升級屬性 |
 | 轉換階段    | 轉換動作      | 將 XML 訊息從一種格式轉換成另一種格式 |
@@ -52,7 +51,7 @@ BizTalk 服務有數種構件。
 
 ## <a name="connectors"></a>連接器
 
-BizTalk 服務連接器可協助橋接器傳送及接收資料，包括啟用 HTTP 要求/回應互動的雙向橋接器。 Logic Apps 使用相同的術語, 而且有數百個連接器可透過連接到各種不同的技術和服務來提供相同的用途。 舉例來說，連接器可用於雲端 SaaS 和 PaaS 服務 (例如 OneDrive、Office365、Dynamics CRM 等等)，並可透過內部部署資料閘道 (其取代了 BizTalk 服務的 BizTalk 配接器服務) 在內部部署系統中使用。 BizTalk 服務中的來源限制在 FTP、SFTP 和服務匯流排佇列或主題訂閱。
+BizTalk 服務連接器可協助橋接器傳送及接收資料，包括啟用 HTTP 要求/回應互動的雙向橋接器。 Logic Apps 使用相同的術語，而且有數百個連接器可透過連接到各種不同的技術和服務來提供相同的用途。 舉例來說，連接器可用於雲端 SaaS 和 PaaS 服務 (例如 OneDrive、Office365、Dynamics CRM 等等)，並可透過內部部署資料閘道 (其取代了 BizTalk 服務的 BizTalk 配接器服務) 在內部部署系統中使用。 BizTalk 服務中的來源限制在 FTP、SFTP 和服務匯流排佇列或主題訂閱。
 
 ![](media/logic-apps-move-from-mabs/sources.png)
 
@@ -76,7 +75,7 @@ BizTalk 服務連接器可協助橋接器傳送及接收資料，包括啟用 HT
 
 ### <a name="message-processing-decoding-and-encoding"></a>訊息處理、解碼和編碼
 
-在 BizTalk 服務中，您可以接收不同類型的 XML 訊息，並判斷所收到訊息的結構描述是否相符。 這項工作會在接收處理管線的「訊息類型」  階段中執行。 然後，解碼階段會使用偵測到的訊息類型，並搭配提供的結構描述來將訊息解碼。 如果結構描述是一般檔案結構描述，這個階段會將傳入的一般檔案轉換成 XML。 
+在 BizTalk 服務中，您可以接收不同類型的 XML 訊息，並判斷所收到訊息的結構描述是否相符。 這項工作會在接收處理管線的「訊息類型」階段中執行。 然後，解碼階段會使用偵測到的訊息類型，並搭配提供的結構描述來將訊息解碼。 如果結構描述是一般檔案結構描述，這個階段會將傳入的一般檔案轉換成 XML。 
 
 Logic Apps 提供類似的功能。 您可以使用不同的連接器觸發程序 (檔案系統、FTP、HTTP 等)，透過不同的通訊協定來接收一般檔案，然後使用[一般檔案解碼](../logic-apps/logic-apps-enterprise-integration-flatfile.md)動作將傳入資料轉換成 XML。 您可以將現有的一般檔案結構描述直接移至 Logic Apps，而不需要進行任何變更，再將結構描述上傳至您的整合帳戶。
 
@@ -94,7 +93,7 @@ BizTalk 服務會做出由哪一個端點或連接器來傳送傳入訊息或資
 
 ![](media/logic-apps-move-from-mabs/route-filter.png)
 
-在 BizTalk 服務中，如果只有兩個選項，使用「條件」  會是在 BizTalk 服務中轉換路由篩選的最佳方法。 如果有兩個以上的選項，則使用 **switch**。
+在 BizTalk 服務中，如果只有兩個選項，使用「條件」會是在 BizTalk 服務中轉換路由篩選的最佳方法。 如果有兩個以上的選項，則使用 **switch**。
 
 Logic Apps 提供複雜的邏輯功能，以及具有[條件式陳述式](../logic-apps/logic-apps-control-flow-conditional-statement.md)和[參數陳述式](../logic-apps/logic-apps-control-flow-switch-statement.md)的進階控制流程和路由。
 
@@ -106,7 +105,7 @@ Logic Apps 提供複雜的邏輯功能，以及具有[條件式陳述式](../log
 
 BizTalk 服務讓您能夠在自己的組件中[執行上傳的自訂程式碼](https://msdn.microsoft.com/library/azure/dn232389.aspx)。 此功能會由 [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector) 介面來實作。 橋接器中的每個階段包含兩個屬性 (On Enter Inspector 和 On Exit Inspector)，提供您建立來實作此介面的 .NET 類型。 自訂程式碼可讓您對資料執行更複雜的處理，以及在執行通用商務邏輯的組件中重複使用現有的程式碼。 
 
-Logic Apps 提供兩種主要方式來執行自訂程式碼:Azure Functions, 並 API Apps。 您可以建立 Azure Functions，並從 Logic Apps 呼叫。 請參閱[透過 Azure Functions 新增並執行適用於 Logic Apps 的自訂程式碼](../logic-apps/logic-apps-azure-functions.md)。 使用 Azure App Service 一部分的 API Apps，可建立您自己的觸發程序和動作。 深入了解[建立自訂 API 來與 Logic Apps 搭配使用](../logic-apps/logic-apps-create-api-app.md)。 
+Logic Apps 提供兩個執行自訂程式碼的主要方法：Azure Functions 和 API Apps。 您可以建立 Azure Functions，並從 Logic Apps 呼叫。 請參閱[透過 Azure Functions 新增並執行適用於 Logic Apps 的自訂程式碼](../logic-apps/logic-apps-azure-functions.md)。 使用 Azure App Service 一部分的 API Apps，可建立您自己的觸發程序和動作。 深入了解[建立自訂 API 來與 Logic Apps 搭配使用](../logic-apps/logic-apps-create-api-app.md)。 
 
 如果您的組件中有從 BizTalk 服務呼叫的自訂程式碼，您可以將此程式碼移至 Azure Functions，或使用 API Apps 建立自訂 API，視您實作的項目而定。 例如，如果您有包裝其他服務的程式碼，且 Logic Apps 沒有該服務的連接器，請建立 API 應用程式，並使用 API 應用程式在邏輯應用程式內提供的動作。 如果您有 Helper 函式或程式庫，則 Azure Functions 可能是最好的選擇。
 

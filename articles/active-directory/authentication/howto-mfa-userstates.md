@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 258675a343387eb6930cd3511bf885bf510050c6
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 6261de14f80f966718507d2d3506e55db9786df9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404220"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74785852"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>如何要求使用者使用雙步驟驗證
 
-您可以採取下列方法之一來要求使用雙步驟驗證，這兩者都需要使用全域管理員帳戶。 第一種是為每個使用者啟用 Azure Multi-Factor Authentication (MFA)。 當您分別為每位使用者進行啟用時，這些使用者在每次登入時都會執行雙步驟驗證 (但有一些例外，例如當他們從受信任的 IP 位址登入時，或開啟了_已記住裝置_功能)。 第二個選項是設定條件式存取原則，在某些情況下需要雙步驟驗證。
+您可以採取下列方法之一來要求使用雙步驟驗證，這兩者都需要使用全域管理員帳戶。 第一種是為每個使用者啟用 Azure Multi-Factor Authentication (MFA)。 當您分別為每位使用者進行啟用時，這些使用者在每次登入時都會執行雙步驟驗證 (但有一些例外，例如當他們從受信任的 IP 位址登入時，或開啟了 _已記住裝置_ 功能)。 第二個選項是設定條件式存取原則，在某些情況下需要雙步驟驗證。
 
 > [!TIP]
 > 使用條件式存取原則來啟用 Azure 多重要素驗證是建議的方法。 除非您的授權不包含條件式存取，否則不建議變更使用者狀態，因為它會要求使用者在每次登入時執行 MFA。
@@ -41,11 +41,14 @@ ms.locfileid: "74404220"
 
 Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同狀態：
 
-| Status | 描述 | 受影響的非瀏覽器應用程式 | 受影響的瀏覽器應用程式 | 受影響的新式驗證 |
-|:---:|:---:|:---:|:--:|:--:|
-| 已停用 |未註冊 Azure MFA 之新使用者的預設狀態。 |否 |否 |否 |
-| 已啟用 |已在 Azure MFA 中註冊使用者，但使用者尚未註冊。 系統將在他們下一次登入時提示他們註冊。 |號  它們會繼續運作，直到註冊程序完成為止。 | 是。 工作階段到期之後，必須進行 Azure MFA 註冊。| 是。 存取權杖到期之後，必須進行 Azure MFA 註冊。 |
-| 已強制 |已註冊使用者，而且使用者已完成 Azure MFA 的註冊程序。 |是。 應用程式需要應用程式密碼。 |是。 在登入時需要使用 Azure MFA。 | 是。 在登入時需要使用 Azure MFA。 |
+> [!IMPORTANT]
+> 透過條件式存取原則來啟用 Azure MFA 並不會變更使用者的狀態。 不要驚慌使用者會被停用。 條件式存取不會變更狀態。 **如果組織使用條件式存取原則，則不應啟用或強制執行使用者。**
+
+| 狀態 | 描述 | 受影響的非瀏覽器應用程式 | 受影響的瀏覽器應用程式 | 受影響的新式驗證 |
+|:---:| --- |:---:|:--:|:--:|
+| 已停用 | 未註冊 Azure MFA 之新使用者的預設狀態。 | 否 | 否 | 否 |
+| 已啟用 | 已在 Azure MFA 中註冊使用者，但使用者尚未註冊。 系統將在他們下一次登入時提示他們註冊。 | 不會。  它們會繼續運作，直到註冊程序完成為止。 | 可以。 工作階段到期之後，必須進行 Azure MFA 註冊。| 可以。 存取權杖到期之後，必須進行 Azure MFA 註冊。 |
+| 已強制 | 已註冊使用者，而且使用者已完成 Azure MFA 的註冊程序。 | 可以。 應用程式需要應用程式密碼。 | 可以。 在登入時需要使用 Azure MFA。 | 可以。 在登入時需要使用 Azure MFA。 |
 
 使用者的狀態會反映系統管理員是否已在 Azure MFA 中註冊他們，以及他們是否已完成註冊程序。
 
@@ -179,6 +182,6 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 ## <a name="next-steps"></a>後續步驟
 
-* 系統會還是不會提示使用者執行 MFA 的原因？ 請參閱[在 Azure 多重要素驗證文件中的 Azure AD 登入報告](howto-mfa-reporting.md#azure-ad-sign-ins-report)一節。
+* 系統會還是不會提示使用者執行 MFA 的原因？ 請參閱＜Azure Multi-Factor Authentication 中的報告＞文件中的 [Azure AD 登入報告](howto-mfa-reporting.md#azure-ad-sign-ins-report)一節。
 * 若要設定信任的 IP、自訂語音訊息及詐騙警示等額外設定，請參閱[設定 Azure Multi-Factor Authentication 設定](howto-mfa-mfasettings.md)
 * 如需管理 Azure Multi-Factor Authentication 使用者設定的詳細資訊，請參閱[在雲端中管理 Azure Multi-Factor Authentication 的使用者設定](howto-mfa-userdevicesettings.md)一文
