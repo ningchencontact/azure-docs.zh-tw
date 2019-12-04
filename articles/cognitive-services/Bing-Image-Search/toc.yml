@@ -1,5 +1,5 @@
 - name: Bing 圖片搜尋 API 文件
-  href: index.yml
+  href: ../bing-web-search/index.yml
 - name: 概觀
   expanded: true
   items:

@@ -1,5 +1,5 @@
 - name: Bing 實體搜尋文件
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: 概觀
   items:
     - name: 什麼是 Bing 實體搜尋？

@@ -1,5 +1,5 @@
 - name: Bing 拼字檢查 API 文件
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: 概觀
   items:
     - name: 什麼是 Bing 拼字檢查 API？

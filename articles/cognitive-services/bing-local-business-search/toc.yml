@@ -1,5 +1,5 @@
 - name: Bing 當地商家搜尋 API 文件
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
   expanded: true
   items: null
 - name: 概觀
