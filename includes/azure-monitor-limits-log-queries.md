@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
-ms.openlocfilehash: f007cf0d46d6cbee39a950b9784bbc9bde702ff5
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: f2092753ab054a639e208aab4a6b7317c1bd5edb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "69657739"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795934"
 ---
 | 限制 | 描述 |
 |:---|:---|
-| 查詢語言 | Azure 監視器使用與 Azure 資料總管相同的[Kusto 查詢語言](/azure/kusto/query/)。 請參閱 Azure 監視器 Azure 監視器中不支援之 KQL 語言元素的[記錄查詢語言差異](../articles/azure-monitor/log-query/data-explorer-difference.md)。 |
-| Azure 區域 | 當資料跨越多個 Azure 區域中的 Log Analytics 工作區時，記錄查詢可能會遇到過多的額外負荷。 如需詳細資訊，請參閱[查詢限制](../articles/azure-monitor/log-query/scope.md#query-limits)。 |
-| 跨資源查詢 | 單一查詢中的最大 Application Insights 資源和 Log Analytics 工作區數目限制為100。<br>View Designer 不支援跨資源查詢。<br>新的 scheduledQueryRules API 支援記錄警示中的跨資源查詢。<br>如需詳細資訊，請參閱[跨資源查詢限制](../articles/azure-monitor/log-query/cross-workspace-query.md#cross-resource-query-limits)。 |
+| 查詢語言 | Azure Monitor uses the same [Kusto query language](/azure/kusto/query/) as Azure Data Explorer. See [Azure Monitor log query language differences](../articles/azure-monitor/log-query/data-explorer-difference.md) for KQL language elements not supported in Azure Monitor. |
+| Azure 地區 | Log queries can experience excessive overhead when data spans Log Analytics workspaces in multiple Azure regions. See [Query limits](../articles/azure-monitor/log-query/scope.md#query-limits) for details. |
+| Cross resource queries | Maximum number of Application Insights resources and Log Analytics workspaces in a single query limited to 100.<br>Cross-resource query is not supported in View Designer.<br>Cross-resource query in log alerts is supported in the new scheduledQueryRules API.<br>See [Cross-resource query limits](../articles/azure-monitor/log-query/cross-workspace-query.md#cross-resource-query-limits) for details. |
+| Query throttling | A user is limited to 200 queries per 30 seconds on any number of workspaces. This limit applies to programmatic queries or to queries initiated by visualization parts such as Azure dashboards and the Log Analytics workspace summary page. |
