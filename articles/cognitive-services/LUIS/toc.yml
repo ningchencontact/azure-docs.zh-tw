@@ -46,10 +46,10 @@
         - name: 2. 擷取使用者資料
           href: tutorial-machine-learned-entity.md
           displayName: 'n-depth, constraint, descriptor, phrase list, entity'
+        - name: 3. 從使用者的語句中取得情感分析
+          href: tutorial-publish-settings.md
     - name: 建置應用程式
       items:
-        - name: 從使用者的語句中取得情感分析
-          href: luis-quickstart-intent-and-sentiment-analysis.md
         - name: 使用規則運算式取得格式化的資料
           href: luis-quickstart-intents-regex-entity.md
         - name: 取得完全符合清單的文字

@@ -45,7 +45,7 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/azure-maps/tutorial-geofence">設定地理柵欄</a>
-          - html: <a href="/azure-maps/tutorial-iot-hub-maps">空間分析</a>
+          - html: <a href="/azure/azure-maps/tutorial-iot-hub-maps">空間分析</a>
           - html: <a href=/azure/azure-maps/tutorial-ev-routing">使用 Azure Notebooks (Python) 進行 EV 路由</a>
   - title: 參考
     items:
