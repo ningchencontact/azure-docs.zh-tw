@@ -1,25 +1,23 @@
 ---
-title: 使用 SSH 連接到 SFTP 伺服器-Azure Logic Apps
+title: 使用 SSH 連接到 SFTP 伺服器
 description: 藉由使用 SSH 和 Azure Logic Apps，讓針對 SFTP 伺服器監視、建立、管理、傳送及接收檔案的工作自動化
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, klam, LADocs
+author: divyaswarnkar
+ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: f52fc91d218e1a5448f6e6e7465f6416a04fd67d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 54a1d1183ac16f5ec3db5477cda75c6e1a776b3d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837142"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786874"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>藉由使用 SSH 和 Azure Logic Apps 來監視、建立及管理 SFTP 檔案
 
-若要使用 [Secure Shell (SSH)](https://www.ssh.com/ssh/sftp/) 通訊協定在[安全檔案傳輸通訊協定 (SFTP)](https://www.ssh.com/ssh/protocol/) \(英文\) 伺服器上，將監視、建立、傳送及接收檔案的工作自動化，您可以使用 Azure Logic Apps 和 SFTP-SSH 連接器來建置整合工作流程並自動化。 SFTP 是一個網路通訊協定，可透過任何可靠的資料流提供檔案存取、檔案傳輸和檔案管理。 以下是一些您可自動化的範例工作：
+若要使用 [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) 通訊協定在[安全檔案傳輸通訊協定 (SFTP)](https://www.ssh.com/ssh/sftp/) \(英文\) 伺服器上，將監視、建立、傳送及接收檔案的工作自動化，您可以使用 Azure Logic Apps 和 SFTP-SSH 連接器來建置整合工作流程並自動化。 SFTP 是一個網路通訊協定，可透過任何可靠的資料流提供檔案存取、檔案傳輸和檔案管理。 以下是一些您可自動化的範例工作：
 
 * 監視檔案何時新增或變更。
 * 取得、建立、複製、重新命名、更新、列出及刪除檔案。
@@ -31,7 +29,7 @@ ms.locfileid: "73837142"
 
 如需 SFTP SSH 連接器與 SFTP 連接器之間的差異，請參閱本主題稍後的[比較 sftp-ssh 與 sftp](#comparison)一節。
 
-## <a name="limits"></a>限制
+## <a name="limits"></a>Limits
 
 * 根據預設，SFTP SSH 動作可以讀取或寫入*1 GB 或更小*的檔案，但一次只能有*15 MB*的區塊。 為了處理大於 15 MB 的檔案，SFTP-SSH 動作支援[訊息區塊](../logic-apps/logic-apps-handle-large-messages.md)化，但「複製檔案」動作除外，它只能處理 15 mb 的檔案。 [**取得檔案內容**] 動作會以隱含方式使用訊息區塊化。
 
@@ -61,7 +59,7 @@ ms.locfileid: "73837142"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 您的 SFTP 伺服器位址和帳戶認證，這讓您的邏輯應用程式能夠存取您的 SFTP 帳戶。 您也可以存取 SSH 私密金鑰和 SSH 私密金鑰密碼。 若要在上傳大型檔案時使用區塊處理，您需要 SFTP 伺服器上根資料夾的 [讀取] 和 [寫入] 許可權。 否則，您會收到「401未授權」錯誤。
 
@@ -86,7 +84,7 @@ ms.locfileid: "73837142"
 
 SFTP-SSH 觸發程式的作用是輪詢 SFTP 檔案系統，並尋找自上次輪詢後已變更的任何檔案。 某些工具可讓您在檔案變更時保留時間戳記。 在這些情況下，您必須停用此功能，以便讓您的觸發程序可以運作。 以下是一些常見的設定：
 
-| SFTP 用戶端 | 動作 |
+| SFTP 用戶端 | 行動 |
 |-------------|--------|
 | Winscp | 移至 [選項] > [喜好設定] > [傳輸] > [編輯] > [保留時間戳記] > [停用] |
 | FileZilla | 移至 [傳輸] > [保留傳輸檔案的時間戳記] > [停用] |
@@ -138,11 +136,11 @@ SFTP-SSH 觸發程式的作用是輪詢 SFTP 檔案系統，並尋找自上次�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟邏輯應用程式。
 
-1. 針對空白邏輯應用程式，請在搜尋方塊中輸入 "sftp ssh" 作為篩選條件。 請在觸發程序清單底下，選取您想要的觸發程序。
+1. 針對空白邏輯應用程式，請在搜尋方塊中輸入 "sftp ssh" 作為篩選條件。 在觸發程序清單底下，選取您想要的觸發程序。
 
    -或-
 
-   若是現有的邏輯應用程式，請在想要新增動作的最後一個步驟底下，選擇 [新增步驟]。 在搜尋方塊中，輸入 "sftp ssh" 作為篩選條件。 請在動作清單底下，選取您想要的動作。
+   若是現有的邏輯應用程式，請在想要新增動作的最後一個步驟底下，選擇 [新增步驟]。 在搜尋方塊中，輸入 "sftp ssh" 作為篩選條件。 在動作清單底下，選取您想要的動作。
 
    若要在步驟之間新增動作，將指標移至步驟之間的箭號。 選擇顯示的加號 ( **+** )，然後選取 [新增動作]。
 

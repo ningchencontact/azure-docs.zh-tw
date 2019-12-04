@@ -1,17 +1,17 @@
 ---
-title: 使用傾印和還原將 MySQL 資料庫移轉至適用於 MySQL 的 Azure 資料庫
+title: 使用傾印和還原進行遷移-適用於 MySQL 的 Azure 資料庫
 description: 本文將說明兩個常見方法，讓您可在適用於 MySQL 的 Azure 資料庫中用來備份和還原資料庫，使用如 mysqldump、MySQL Workbench 和 PHPMyAdmin 的工具。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/02/2018
-ms.openlocfilehash: a2a879ed677b981adcd50aea0468e0c5976c2a8a
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.date: 12/02/2019
+ms.openlocfilehash: 65cd5e637434c717ab9ba1b5598c467eea9b4a74
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390554"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770929"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>使用傾印和還原來將 MySQL 資料庫移轉至適用於 MySQL 的 Azure 資料庫
 本文將說明兩個常見方法，讓您可在適用於 MySQL 的 Azure 資料庫中用來備份和還原資料庫
@@ -39,7 +39,7 @@ ms.locfileid: "70390554"
    ```
 - 若要避免任何相容性問題，請確定當傾印資料庫時，在來源和目的地系統上使用相同版本的 MySQL。 例如，如果現有的 MySQL 伺服器是 5.7 版，則您應該將適用於 MySQL 的 Azure 資料庫設定為執行 5.7 版。 `mysql_upgrade` 命令在適用於 MySQL 伺服器的 Azure 資料庫中無法運作，因此並不支援。 如果您要在 MySQL 版本之間升級，請先將較低版本的資料庫傾印或匯出到自己環境中較高版本的 MySQL。 然後執行 `mysql_upgrade`，之後再嘗試移轉至適用於 MySQL 的 Azure 資料庫。
 
-## <a name="performance-considerations"></a>效能考量
+## <a name="performance-considerations"></a>效能注意事項
 若要最佳化效能，請在傾印大型資料庫時注意這些考量：
 -   傾印資料庫時在 mysqldump 中使用 `exclude-triggers` 選項。 從傾印檔案排除觸發程序以避免在資料還原期間引發觸發程序命令。 
 -   使用 `single-transaction` 選項將交易隔離模式設為 REPEATABLE READ，然後在傾印資料之前，將 START TRANSACTION 的 SQL 陳述式傳送到伺服器。 在單一交易中傾印許多資料表會導致在還原期間耗用某些額外的儲存體。 `single-transaction` 選項和 `lock-tables` 選項是互斥的，因為 LOCK TABLES 會導致隱含認可任何暫止交易。 若要傾印大型資料表，請結合 `single-transaction` 選項與 `quick` 選項。 
@@ -49,7 +49,7 @@ ms.locfileid: "70390554"
 -   適當時使用資料分割資料表。
 -   平行載入資料。 避免會導致您達到資源限制的太多平行處理原則，以及使用 Azure 入口網站中可用的計量監視資源。 
 -   傾印資料庫時在 mysqlpump 中使用 `defer-table-indexes` 選項，以便在載入資料表資料之後建立索引。
--   在 mysqlpump) 中使用選項，即可從create語句中省略views和預存程式的definer和SQL安全性子句。`skip-definer`  當您重載傾印檔案時，它會建立使用預設 DEFINER 和 SQL 安全性值的物件。
+-   使用 mysqlpump) 中的 `skip-definer` 選項，從 create 語句中省略 views 和預存程式的 definer 和 SQL 安全性子句。  當您重載傾印檔案時，它會建立使用預設 DEFINER 和 SQL 安全性值的物件。
 -   請將備份檔案複製到 Azure blob/存放區，並從該處執行還原，這樣應該會比在網際網路上執行還原更快。
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>使用 mysqldump 從命令列建立備份檔案

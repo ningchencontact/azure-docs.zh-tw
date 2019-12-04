@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/05/2019
+ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 06d7b7abe7741c465f3d40a90340e03b2c24f258
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 0aa2cbad75319de93c34128a09f94971e5c70216
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707507"
+ms.locfileid: "74790623"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>變更 Azure 中 SQL Server 虛擬機器的授權模型
 本文說明如何使用新的 SQL VM 資源提供者**microsoft.sqlvirtualmachine**，在 Azure 中變更 SQL Server 虛擬機器（VM）的授權模型。
@@ -95,29 +95,16 @@ az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 
 ```powershell-interactive
 # Switch your SQL Server VM license from pay-as-you-go to bring-your-own
-#example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
-$SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
-$SqlVm.Properties.sqlServerLicenseType="AHUB"
-<# the following code snippet is only necessary if using Azure Powershell version > 4
-$SqlVm.Kind= "LicenseChange"
-$SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
-$SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new() #>
-$SqlVm | Set-AzResource -Force 
+Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -LicenseType AHUB
 ```
 
 下列程式碼片段會將您的自備授權模型切換成隨用隨付：
 
 ```powershell-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
-#example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
-$SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
-$SqlVm.Properties.sqlServerLicenseType="PAYG"
-<# the following code snippet is only necessary if using Azure Powershell version > 4
-$SqlVm.Kind= "LicenseChange"
-$SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
-$SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new() #>
-$SqlVm | Set-AzResource -Force 
+Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -LicenseType PAYG
 ```
+
 ---
 
 ## <a name="change-the-license-for-vms-not-registered-with-the-resource-provider"></a>變更未向資源提供者註冊之 Vm 的授權
@@ -138,44 +125,29 @@ $SqlVm | Set-AzResource -Force
 
 ## <a name="limitations"></a>限制
 
-- 變更授權模型僅適用于具有軟體保證的客戶。
-- 只有 SQL Server 的 Standard 和 Enterprise 版本才支援變更授權模型。 不支援 Express、Web 和 Developer 的授權變更。 
-- 只有透過 Azure Resource Manager 模型部署的虛擬機器才支援變更授權模型。 不支援透過傳統模型部署的 Vm。 您可以將 VM 從傳統遷移至 Resource Manager 模型，並向 SQL VM 資源提供者註冊。 向 SQL VM 資源提供者註冊 VM 之後，即可在 VM 上使用授權模型變更。
-- 只有公用雲端安裝才會啟用變更授權模型。
-- 只有在具有單一 NIC （網路介面）的虛擬機器上，才支援變更授權模型。 在有多個 NIC 的虛擬機器上，您應該先移除其中一個 Nic （藉由使用 Azure 入口網站），然後再嘗試此程式。 否則，您會收到類似下列的錯誤： 
-   
-  `The virtual machine '\<vmname\>' has more than one NIC associated.` 
-   
-  雖然您可以在變更授權模型之後將 NIC 新增回 VM，但透過 Azure 入口網站中的 [SQL Server 設定] 頁面完成的作業（例如自動修補和備份）將不再被視為受支援。
+變更授權模型為：
+   - 僅適用于具有[軟體保證](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-overview)的客戶。
+   - 僅支援 Standard 和 Enterprise 版本的 SQL Server。 不支援 Express、Web 和 Developer 的授權變更。 
+   - 僅支援透過 Azure Resource Manager 模型部署的虛擬機器。 不支援透過傳統模型部署的虛擬機器。 
+   - 僅適用于公用雲端安裝。 
+   - 只有在具有單一網路介面（NIC）的虛擬機器上才支援。 
+
 
 ## <a name="known-errors"></a>已知錯誤
 
 ### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>找不到資源群組 '\<資源群組 > ' 下的資源 ' Microsoft.sqlvirtualmachine/SqlVirtualMachines/\<資源群組 > '。
+
 當您嘗試在尚未向 SQL VM 資源提供者註冊的 SQL Server VM 上變更授權模型時，就會發生此錯誤：
 
 `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.`
 
 您必須向資源提供者註冊您的訂用帳戶，然後向[資源提供者註冊您的 SQL SERVER VM](virtual-machines-windows-sql-register-with-resource-provider.md)。 
 
-### <a name="cannot-validate-argument-on-parameter-sku"></a>無法驗證參數 'Sku' 上的引數
-嘗試使用4.0 以後的 Azure PowerShell 版本來變更您的 SQL Server VM 授權模型時，可能會遇到此錯誤：
 
-`Set-AzResource: Cannot validate argument on parameter 'Sku'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.`
+## <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>虛擬機器 '\<vmname\>' 有多個相關聯的 NIC
 
-若要解決此錯誤，請在切換授權模型時，取消批註先前提到的 PowerShell 程式碼片段中的下列幾行：
+此錯誤發生在具有一個以上 NIC 的虛擬機器上。 在您變更授權模型之前，請先移除其中一個 Nic。 雖然您可以在變更授權模型之後，將 NIC 新增回 VM，但將不再支援 Azure 入口網站中的作業，例如自動備份和修補。 
 
-  ```powershell-interactive
-  # the following code snippet is necessary if using Azure Powershell version > 4
-  $SqlVm.Kind= "LicenseChange"
-  $SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
-  $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new()
-  ```
-  
-使用下列程式碼來確認您的 Azure PowerShell 版本：
-  
-  ```powershell-interactive
-  Get-Module -ListAvailable -Name Azure -Refresh
-  ```
 
 ## <a name="next-steps"></a>後續步驟
 

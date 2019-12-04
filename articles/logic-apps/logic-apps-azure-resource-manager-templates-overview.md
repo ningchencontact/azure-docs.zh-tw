@@ -2,19 +2,16 @@
 title: 總覽-自動化 Azure Logic Apps 的部署
 description: 瞭解 Azure Resource Manager 範本以自動化部署 Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: bc61e39a02d16827521758ca8248488e46c109b5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0f5216181efcd6593fc9f85de0792b98a5d7fd0a
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838088"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792560"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>總覽：使用 Azure Resource Manager 範本自動部署 Azure Logic Apps
 
@@ -64,7 +61,7 @@ ms.locfileid: "73838088"
 
 針對邏輯應用程式範本，您主要會使用這些範本物件：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |-----------|-------------|
 | `parameters` | 宣告[範本參數](../azure-resource-manager/resource-group-authoring-templates.md#parameters)，以便在 Azure 中建立和自訂要部署的資源時，接受要使用的值。 例如，這些參數會接受您的邏輯應用程式名稱和位置、連線，以及部署所需的其他資源的值。 您可以將這些參數值儲存在[參數](#template-parameter-files)檔案中，本主題稍後會加以描述。 如需一般詳細資料，請參閱[參數-Resource Manager 範本結構和語法](../azure-resource-manager/resource-group-authoring-templates.md#parameters)。 |
 | `resources` | 定義要建立或更新並部署至 Azure 資源群組的[資源](../azure-resource-manager/resource-group-authoring-templates.md#resources)，例如您的邏輯應用程式、連線、Azure 儲存體帳戶等等。 如需一般詳細資料，請參閱[資源-Resource Manager 範本結構和語法](../azure-resource-manager/resource-group-authoring-templates.md#resources)。 |
@@ -322,9 +319,9 @@ ms.locfileid: "73838088"
 
 以下是您的邏輯應用程式資源定義特有的屬性：
 
-| 屬性 | 必要 | 類型 | 說明 |
+| 屬性 | 必要項 | Type | 描述 |
 |-----------|----------|------|-------------|
-| `state` | 是 | 字串 | 您的邏輯應用程式在部署時的狀態，其中 `Enabled` 表示邏輯應用程式已上線，`Disabled` 表示邏輯應用程式為非使用中。 例如，如果您還沒有準備好讓邏輯應用程式上線，但想要部署草稿版本，您可以使用 `Disabled` 選項。 |
+| `state` | 是 | String | 您的邏輯應用程式在部署時的狀態，其中 `Enabled` 表示邏輯應用程式已上線，`Disabled` 表示邏輯應用程式為非使用中。 例如，如果您還沒有準備好讓邏輯應用程式上線，但想要部署草稿版本，您可以使用 `Disabled` 選項。 |
 | `integrationAccount` | 否 | Object | 如果您的邏輯應用程式使用整合帳戶來儲存企業對企業（B2B）案例的成品，此物件會包含 `id` 屬性，以指定整合帳戶的識別碼。 |
 | `definition` | 是 | Object | 邏輯應用程式的基礎工作流程定義，也就是出現在程式碼視圖中的相同物件，而且會在[工作流程定義語言的架構參考](../logic-apps/logic-apps-workflow-definition-language.md)主題中完整說明。 在此工作流程定義中，`parameters` 物件會宣告要在邏輯應用程式執行時間使用之值的參數。 如需詳細資訊，請參閱[工作流程定義和參數](#workflow-definition-parameters)。 <p><p>若要在邏輯應用程式的工作流程定義中查看屬性，請從 [設計檢視] 切換至 Azure 入口網站或 Visual Studio 中的 [程式碼視圖]，或使用[Azure 資源總管](https://resources.azure.com)之類的工具。 |
 | `parameters` | 否 | Object | 要在邏輯應用程式執行時間使用的[工作流程定義參數值](#workflow-definition-parameters)。 這些值的參數定義會出現在您[工作流程定義的 parameters 物件](#workflow-definition-parameters)中。 此外，如果您的邏輯應用程式使用[managed 連接器](../connectors/apis-list.md)來存取其他服務和系統，此物件會包含 `$connections` 物件，以設定要在執行時間使用的連接值。 |
@@ -939,7 +936,7 @@ ms.locfileid: "73838088"
 }
 ```
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |-----------|-------------|
 | `token:clientId` | 與服務主體相關聯的應用程式或用戶端識別碼 |
 | `token:clientSecret` | 與服務主體相關聯的金鑰值 |

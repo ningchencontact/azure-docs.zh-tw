@@ -1,17 +1,17 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的查詢存放區
+title: 查詢存放區-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
 description: 本文說明適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的查詢存放區功能。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 198ef6889ffb7874c44f15338afbd8b3135ae3ef
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ccc503e6718ee8f516920cfbea3ad86e7ed81d84
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331307"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768260"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>使用查詢存放區監視效能
 
@@ -91,18 +91,18 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 
 下列選項可用於設定查詢存放區參數。
 
-| **參數** | **描述** | **預設值** | **Range**|
+| **參數** | **說明** | **預設值** | **Range**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | 設定追蹤哪些陳述式。 | 無 | none、top、all |
+| pg_qs.query_capture_mode | 設定追蹤哪些陳述式。 | None | none、top、all |
 | pg_qs.max_query_text_length | 設定可以儲存的最大查詢長度。 較長的查詢會遭截斷。 | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | 設定保留期限。 | 7 | 1 - 30 |
 | pg_qs.track_utility | 設定是否要追蹤公用程式命令 | on | on、off |
 
 下列選項特別適用於等候統計資料。
 
-| **參數** | **描述** | **預設值** | **Range**|
+| **參數** | **說明** | **預設值** | **Range**|
 |---|---|---|---|
-| pgms_wait_sampling.query_capture_mode | 設定追蹤等候統計資料的哪些陳述式。 | 無 | none、all|
+| pgms_wait_sampling.query_capture_mode | 設定追蹤等候統計資料的哪些陳述式。 | None | none、all|
 | Pgms_wait_sampling.history_period | 設定以毫秒為單位的等候事件取樣頻率。 | 100 | 1-600000 |
 
 > [!NOTE] 
@@ -119,7 +119,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="query_storeqs_view"></a>query_store.qs_view
 此檢視會傳回查詢存放區中的所有資料。 不同的資料庫識別碼、使用者識別碼及查詢識別碼都會自成一資料列。 
 
-|**名稱**   |**類型** | **參考**  | **描述**|
+|**名稱**   |**類型** | **參考**  | **說明**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | 來自 runtime_stats_entries 資料表的識別碼|
 |user_id    |oid    |pg_authid.oid  |執行陳述式的使用者物件識別 (OID)|
@@ -152,7 +152,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
 此檢視會傳回查詢存放區中的查詢文字資料。 不同的 query_text 都會自成一資料列。
 
-|**名稱**|  **類型**|   **描述**|
+|**名稱**|  **類型**|   **說明**|
 |---|---|---|
 |query_text_id  |bigint     |query_texts 資料表識別碼|
 |query_sql_text |Varchar(10000)     |代表性陳述式的文字。 結構相同的不同查詢會群集在一起；此文字就式叢集中第一個查詢的文字。|
@@ -160,17 +160,17 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
 此檢視會傳回查詢存放區中的等候事件資料。 不同的資料庫識別碼、使用者識別碼、查詢識別碼及事件都會自成一資料列。
 
-|**名稱**|  **類型**|   **參考**| **描述**|
+|**名稱**|  **類型**|   **參考**| **說明**|
 |---|---|---|---|
 |user_id    |oid    |pg_authid.oid  |執行陳述式的使用者物件識別 (OID)|
 |db_id  |oid    |pg_database.oid    |在其中執行陳述式的資料庫物件識別 (OID)|
 |query_id   |bigint     ||從陳述式的剖析樹狀結構計算的內部雜湊碼|
-|event_type |文字       ||後端等候中事件的類型|
-|事件  |文字       ||如果後端目前正在等候，為該等候事件的名稱|
-|calls  |整數，        ||擷取到相同事件的次數|
+|event_type |text       ||後端等候中事件的類型|
+|事件  |text       ||如果後端目前正在等候，為該等候事件的名稱|
+|calls  |整數        ||擷取到相同事件的次數|
 
 
-### <a name="functions"></a>函式
+### <a name="functions"></a>Functions
 Query_store.qs_reset() 傳回 void
 
 `qs_reset` 捨棄查詢存放區至今收集到的所有統計資料。 只有伺服器管理員角色可以執行此函式。

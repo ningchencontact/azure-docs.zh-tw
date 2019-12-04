@@ -1,20 +1,19 @@
 ---
-title: 建立或管理 B2B 整合帳戶-Azure Logic Apps
+title: 建立或管理 B2B 整合帳戶
 description: 建立、連結及管理整合帳戶以進行企業與 Azure Logic Apps 的整合
 services: logic-apps
-ms.service: logic-apps
-ms.workload: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: de184b189c00cce64932a3ab17d41ed84e197a7e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 650355bc79e786839377a9b3e574dfbfa08868d6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534095"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793074"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立和管理 B2B 企業整合的整合帳戶
 

@@ -1,17 +1,17 @@
 ---
-title: 如何在適用於 MySQL 的 Azure 資料庫中設定伺服器參數
+title: 設定伺服器參數-Azure 入口網站適用於 MySQL 的 Azure 資料庫
 description: 本文說明如何使用 Azure 入口網站，在適用於 MySQL 的 Azure 資料庫中設定 MySQL 伺服器參數。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: d589800f62f96510a09d23cb6e8794177121c6dd
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.date: 12/02/2019
+ms.openlocfilehash: f803b7cccf3520c309e6b33d99b5565cfc4fdd01
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419709"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764911"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>如何使用 Azure 入口網站，在適用於 MySQL 的 Azure 資料庫中設定伺服器參數
 
@@ -37,7 +37,7 @@ MySQL 的 Azure 資料庫支援某些伺服器參數的組態。 本文說明如
 
 InnoDB 緩衝集區大小無法設定並系結至您的[定價層](concepts-service-tiers.md)。
 
-|**定價層**|**vCore(s)**|**InnoDB 緩衝集區大小（MB） <br>（最多支援 4 TB 儲存空間的伺服器）**| **InnoDB 緩衝集區大小（MB） <br>（最多支援 16 TB 儲存體的伺服器）**|
+|定價層|**vCore(s)**|**InnoDB 緩衝集區大小（MB） <br>（最多支援 4 TB 儲存空間的伺服器）**| **InnoDB 緩衝集區大小（MB） <br>（最多支援 16 TB 儲存體的伺服器）**|
 |:---|---:|---:|---:|
 |基本| 1| 832| |
 |基本| 2| 2560| |
@@ -57,7 +57,7 @@ InnoDB 緩衝集區大小無法設定並系結至您的[定價層](concepts-serv
 
 |**參數**|**固定值**|
 | :------------------------ | :-------- |
-|基本層中的 innodb_file_per_table|關閉|
+|基本層中的 innodb_file_per_table|關|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
 |innodb_log_file_size|512MB|

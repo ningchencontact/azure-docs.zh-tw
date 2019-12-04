@@ -1,23 +1,18 @@
 ---
-title: 接收和回應 HTTPS 呼叫-Azure Logic Apps
+title: 接收和回應 HTTPS 呼叫
 description: 使用 Azure Logic Apps 即時處理 HTTPS 要求和事件
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewers: klam, LADocs
-manager: carmonm
-ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
+ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: 6062ca1ce09eb243825b1fb9ae4ecb3d5ac95d1a
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: b3723ccc247b8a9451b9a5fdc628bff58da361a0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264362"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786990"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 接收和回應連入的 HTTPS 呼叫
 
@@ -30,9 +25,9 @@ ms.locfileid: "72264362"
 > [!NOTE]
 > 要求觸發程式*僅*支援連入呼叫的傳輸層安全性（TLS）1.2。 撥出電話會繼續支援 TLS 1.0、1.1 和1.2。 如果您看到 SSL 交握錯誤，請確定您使用的是 TLS 1.2。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* Azure 訂閱。 如果您沒有訂用帳戶，您可以[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * [邏輯應用程式](../logic-apps/logic-apps-overview.md)的基本知識。 如果您不熟悉邏輯應用程式，請瞭解[如何建立您的第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
@@ -52,9 +47,9 @@ ms.locfileid: "72264362"
 
    ![要求觸發程序](./media/connectors-native-reqres/request-trigger.png)
 
-   | 屬性名稱 | JSON 屬性名稱 | 必要 | 描述 |
+   | 屬性名稱 | JSON 屬性名稱 | 必要項 | 描述 |
    |---------------|--------------------|----------|-------------|
-   | **HTTP POST URL** | {無} | yes | 在您儲存邏輯應用程式並用於呼叫邏輯應用程式之後，所產生的端點 URL |
+   | **HTTP POST URL** | {無} | 是 | 在您儲存邏輯應用程式並用於呼叫邏輯應用程式之後，所產生的端點 URL |
    | **要求本文 JSON 架構** | `schema` | 否 | 描述傳入要求主體中的屬性和值的 JSON 架構 |
    |||||
 
@@ -151,7 +146,7 @@ ms.locfileid: "72264362"
 
 1. 若要指定其他屬性，請開啟 [**加入新的參數**] 清單，然後選取您想要新增的參數。
 
-   | 屬性名稱 | JSON 屬性名稱 | 必要 | 描述 |
+   | 屬性名稱 | JSON 屬性名稱 | 必要項 | 描述 |
    |---------------|--------------------|----------|-------------|
    | **方法** | `method` | 否 | 傳入要求必須用來呼叫邏輯應用程式的方法 |
    | **相對路徑** | `relativePath` | 否 | 邏輯應用程式的端點 URL 可以接受之參數的相對路徑 |
@@ -183,10 +178,10 @@ ms.locfileid: "72264362"
 
 以下是來自要求觸發程式輸出的詳細資訊：
 
-| JSON 屬性名稱 | 資料類型 | 描述 |
+| JSON 屬性名稱 | Data type | 描述 |
 |--------------------|-----------|-------------|
-| `headers` | 物件 | 描述要求標頭的 JSON 物件 |
-| `body` | 物件 | JSON 物件，描述來自要求的本文內容 |
+| `headers` | Object | 描述要求標頭的 JSON 物件 |
+| `body` | Object | JSON 物件，描述來自要求的本文內容 |
 ||||
 
 <a name="add-response"></a>
@@ -225,9 +220,9 @@ ms.locfileid: "72264362"
 
    以下是您可以在 [回應] 動作中設定之屬性的詳細資訊。 
 
-   | 屬性名稱 | JSON 屬性名稱 | 必要 | 描述 |
+   | 屬性名稱 | JSON 屬性名稱 | 必要項 | 描述 |
    |---------------|--------------------|----------|-------------|
-   | **狀態碼** | `statusCode` | yes | 要在回應中傳回的狀態碼 |
+   | **狀態碼** | `statusCode` | 是 | 要在回應中傳回的狀態碼 |
    | **標頭** | `headers` | 否 | JSON 物件，描述要包含在回應中的一個或多個標頭 |
    | **內文** | `body` | 否 | 回應本文 |
    |||||

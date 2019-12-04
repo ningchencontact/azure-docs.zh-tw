@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: c8f95a1de85fd2eb00b0525fca8e62ade87dd57f
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: fa9de74c89ba3f0351169f143146dc21b80ee666
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184647"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790539"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Azure Front 開門服務的常見問題
 
@@ -79,7 +79,7 @@ Azure Front 門板服務是全域散發的多租使用者服務。 因此，Fron
 
 ### <a name="is-http-https-redirection-supported"></a>是否支援 HTTP->HTTPS 重新導向？
 
-是。 事實上，Azure Front 門板服務支援主機、路徑和查詢字串重新導向，以及 URL 重新導向的一部分。 深入瞭解[URL](front-door-url-redirect.md)重新導向。 
+可以。 事實上，Azure Front 門板服務支援主機、路徑和查詢字串重新導向，以及 URL 重新導向的一部分。 深入瞭解[URL](front-door-url-redirect.md)重新導向。 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>路由規則的處理順序為何？
 
@@ -180,6 +180,8 @@ Front 門板支援 TLS 版本1.0、1.1 和1.2。 尚不支援 TLS 1.3。
 - TLS_RSA_WITH_AES_128_CBC_SHA256
 - TLS_RSA_WITH_AES_256_CBC_SHA
 - TLS_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
 ### <a name="does-azure-front-door-service-also-support-re-encryption-of-traffic-to-the-backend"></a>Azure Front 開門服務是否也支援對後端的流量重新加密？
 

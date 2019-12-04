@@ -1,20 +1,17 @@
 ---
-title: 將條件陳述式新增至工作流程 - Azure Logic Apps | Microsoft Docs
+title: 將條件陳述式加入至工作流程
 description: 如何建立條件以控制 Azure Logic Apps 工作流程中的動作
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fe79cf5af86e1f303e4735214b993d8db4488a25
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60684735"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793261"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>建立條件陳述式以控制 Azure Logic Apps 中的工作流程動作
 
@@ -25,7 +22,7 @@ ms.locfileid: "60684735"
 > [!TIP]
 > 若要根據不同的特定值執行不同步驟，可改為使用 [*Switch 陳述式*](../logic-apps/logic-apps-control-flow-switch-statement.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 如果您沒有訂用帳戶，請[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -39,17 +36,17 @@ ms.locfileid: "60684735"
 
 1. 在您想要的位置上新增條件。 
 
-   若要在步驟之間新增條件，請將指標移至您要新增條件的箭號上。 選擇顯示的**加號** ( **+** )，然後選擇 [新增動作]  。 例如:
+   若要在步驟之間新增條件，請將指標移至您要新增條件的箭號上。 選擇顯示的**加號** ( **+** )，然後選擇 [新增動作]。 例如：
 
    ![在步驟間新增動作](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
-   如果想要在工作流程結尾新增條件，請在邏輯應用程式底部，選擇 [新增步驟]  > [新增動作]  。
+   如果想要在工作流程結尾新增條件，請在邏輯應用程式底部，選擇 [新增步驟] > [新增動作]。
 
-1. 在搜尋方塊中，輸入「條件」作為篩選條件。 選取此動作：**條件 - 控制項**
+1. 在搜尋方塊中，輸入「條件」作為篩選條件。 選取此動作：**條件 - 控制**
 
    ![新增條件](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
 
-1. 在 [條件]  方塊中，建置您的條件。 
+1. 在 [條件] 方塊中，建置您的條件。 
 
    1. 在左側的方塊中，指定您要比較的資料或欄位。
 
@@ -62,17 +59,17 @@ ms.locfileid: "60684735"
    在此範例中，請選取 "**contains**"。 
 
    1. 在右邊的方塊中，指定作為準則的值或欄位。 
-   針對此範例中，指定這個字串：**Microsoft**
+   在此範例中，指定此字串：**Microsoft**
 
    以下是完整的條件：
 
    ![完整條件](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
 
-   若要為您的條件新增另一個資料列，請選擇 [新增]   > [新增資料列]  。 
-   若要新增含有子條件的群組，請選擇 [新增]   > [新增群組]  。 
-   若要將現有的資料列組成群組，請選取那些資料列的核取方塊、選擇任一資料列的省略符號 (...)，然後選擇 [將群組設為]  。
+   若要為您的條件新增另一個資料列，請選擇 [新增] > [新增資料列]。 
+   若要新增含有子條件的群組，請選擇 [新增] > [新增群組]。 
+   若要將現有的資料列組成群組，請選取那些資料列的核取方塊、選擇任一資料列的省略符號 (...)，然後選擇 [將群組設為]。
 
-1. 在 **If true** 和 **If false** 之下，以是否符合條件為基礎，新增要執行的步驟。 例如:
+1. 在 **If true** 和 **If false** 之下，以是否符合條件為基礎，新增要執行的步驟。 例如：
 
    ![具有 "If true" 和 "If false" 路徑的條件](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
@@ -121,4 +118,4 @@ ms.locfileid: "60684735"
 * [根據不同的值 (Switch 陳述式) 執行步驟](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [執行並重複步驟 (迴圈)](../logic-apps/logic-apps-control-flow-loops.md)
 * [執行或合併平行步驟 (分支)](../logic-apps/logic-apps-control-flow-branches.md)
-* [依據群組的動作狀態執行步驟 (範圍)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [根據分組的動作狀態執行步驟 (範圍)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

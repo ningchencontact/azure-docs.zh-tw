@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 09defe9648208e2300594169add990d4bcbd7a39
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 348bc2d92f636d1f3c3b50ea31334355da59a60f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112567"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790493"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋中設定擴充檔的增量編制索引
 
@@ -41,13 +41,32 @@ api-key: [admin key]
 
 ### <a name="step-2-add-the-cache-property"></a>步驟2：新增快取屬性
 
-編輯 GET 要求的回應，將 `cache` 屬性加入至索引子。 Cache 物件只需要單一屬性，而這就是 Azure 儲存體帳戶的連接字串。
+< < < < < < < 標頭編輯 GET 要求的回應，以將 `cache` 屬性新增至索引子。 快取物件只需要單一屬性，`storageConnectionString` 這是儲存體帳戶的連接字串。 = = = = = = = 編輯 GET 要求的回應，以將 `cache` 屬性加入至索引子。 Cache 物件只需要單一屬性，而這就是 Azure 儲存體帳戶的連接字串。
+>>>>>>> 3519a330aa86b6827d31403690529105825b1b16
 
 ```json
-    "cache": {
-        "storageConnectionString": "[your storage connection string]"
+{
+    "name": "myIndexerName",
+    "targetIndexName": "myIndex",
+    "dataSourceName": "myDatasource",
+    "skillsetName": "mySkillset",
+    "cache" : {
+        "storageConnectionString" : "Your storage account connection string",
+        "enableReprocessing": true,
+        "id" : "Auto generated Id you do not need to set"
+    },
+    "fieldMappings" : [],
+    "outputFieldMappings": [],
+    "parameters": {
+        "configuration": {
+            "enableAnnotationCache": true
+        }
     }
+}
 ```
+#### <a name="enable-reporocessing"></a>啟用 reporocessing
+
+您可以選擇性地在快取中設定 `enableReprocessing` 的布林值屬性，預設會將設定為 true。 `enableReprocessing` 旗標可讓您控制索引子的行為。 在您想要讓索引子排定將新檔新增至索引的情況下，您可以將旗標設定為 false。 一旦您的索引子與新檔攔截之後，將旗標翻轉為 true，然後讓索引子開始驅動現有的檔，使其成為最終一致性。 在 `enableReprocessing` 旗標設定為 false 的期間，索引子只會寫入快取，但不會根據已識別的擴充管線變更來處理任何現有的檔。
 
 ### <a name="step-3-reset-the-indexer"></a>步驟3：重設索引子
 

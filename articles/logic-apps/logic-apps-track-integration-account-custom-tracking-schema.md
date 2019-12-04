@@ -1,21 +1,19 @@
 ---
-title: 適用於 B2B 訊息的自訂追蹤結構描述 - Azure Logic Apps | Microsoft Docs
+title: B2B 訊息的自訂追蹤架構
 description: 建立自訂追蹤結構描述，以針對採用 Enterprise Integration Pack 的 Azure Logic Apps 監視整合帳戶中的 B2B 訊息
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
-ms.openlocfilehash: 76a9ece9e925543e856136a798a60038316caad9
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 7d7c5ef9e9a86c8b061a56fe41c0c8bbfc5ddbb3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203049"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792791"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>建立自訂追蹤結構描述，以監視 Azure Logic Apps 中的端對端工作流程
 
@@ -56,7 +54,7 @@ ms.locfileid: "67203049"
 }
 ```
 
-| 屬性 | 必要項 | 類型 | 描述 |
+| 屬性 | 必要項 | Type | 描述 |
 | --- | --- | --- | --- |
 | sourceType | 是 |   | 執行來源的類型。 允許的值為 **Microsoft.Logic/workflows** 和 **custom**。 |
 | source | 是 |   | 如果來源類型是 **Microsoft.Logic/workflows**，則來源資訊必須遵循此結構描述。 如果來源類型為 **custom**，則結構描述為 JToken。 |
@@ -64,7 +62,7 @@ ms.locfileid: "67203049"
 | runId | 是 | String | 邏輯應用程式執行識別碼。 |
 | operationName | 是 | String | 作業 (例如動作或觸發程序) 的名稱。 |
 | repeatItemScopeName | 是 | String | 如果動作在 `foreach`/`until` 迴圈內，重複項目名稱。 |
-| repeatItemIndex | 是 | Integer | 動作是否在 `foreach`/`until` 迴圈內。 指出重複的項目索引。 |
+| repeatItemIndex | 是 | 整數 | 動作是否在 `foreach`/`until` 迴圈內。 指出重複的項目索引。 |
 | trackingId | 否 | String | 追蹤識別碼，使訊息相互關聯。 |
 | correlationId | 否 | String | 相互關連識別碼，使訊息相互關聯。 |
 | clientRequestId | 否 | String | 用戶端可以填入此值，使訊息相互關聯。 |
@@ -84,4 +82,4 @@ ms.locfileid: "67203049"
 ## <a name="next-steps"></a>後續步驟
 
 * [深入了解監視 B2B 訊息](logic-apps-monitor-b2b-message.md)
-* 深入了解[追蹤 Azure 監視器記錄檔中的 B2B 訊息](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)
+* 瞭解如何[在 Azure 監視器記錄中追蹤 B2B 訊息](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)

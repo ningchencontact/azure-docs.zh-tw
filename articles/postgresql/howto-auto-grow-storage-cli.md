@@ -1,22 +1,22 @@
 ---
-title: 自動成長適用於 PostgreSQL 的 Azure 資料庫儲存體-使用 Azure CLI 的單一伺服器
-description: 本文說明如何使用適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的 Azure CLI 來啟用自動成長儲存體。
+title: 自動成長儲存體-Azure CLI-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
+description: 本文說明如何使用適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的 Azure CLI 來設定存放裝置自動成長。
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 8/7/2019
-ms.openlocfilehash: 272b26050288e63181c8d0c71dc2c1851f09f3c9
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: b0dc2fbb168d9325439ee18a227f71a3b88ef9c8
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390834"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767937"
 ---
 # <a name="auto-grow-azure-database-for-postgresql-storage---single-server-using-the-azure-cli"></a>自動成長適用於 PostgreSQL 的 Azure 資料庫儲存體-使用 Azure CLI 的單一伺服器
 本文說明如何在不影響工作負載的情況下，將適用於 PostgreSQL 的 Azure 資料庫伺服器存放裝置設定為可成長。
 
-[達到儲存空間限制](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#reaching-the-storage-limit)的伺服器會設定為唯讀。 如果已啟用儲存體自動成長，則針對具有小於 100 GB 已布建儲存體的伺服器，布建的儲存體大小會在可用儲存空間低於 1 GB 或 10% 的已布建儲存體時，增加 5 GB。 針對具有超過 100 GB 已布建儲存體的伺服器，當可用儲存空間低於布建的儲存體大小的 5% 時，布建的儲存體大小會增加 5%。 [這裡](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage)所指定的最大儲存體限制。
+[達到儲存空間限制](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#reaching-the-storage-limit)的伺服器會設定為唯讀。 如果已啟用儲存體自動成長，則針對具有小於 100 GB 已布建儲存體的伺服器，布建的儲存體大小會在可用儲存空間低於 1 GB 或10% 的已布建儲存體時，增加 5 GB。 針對具有超過 100 GB 已布建儲存體的伺服器，當可用儲存空間低於布建的儲存體大小的5% 時，布建的儲存體大小會增加5%。 [這裡](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage)所指定的最大儲存體限制。
 
 ## <a name="prerequisites"></a>必要條件
 若要完成本操作說明指南，您需要：

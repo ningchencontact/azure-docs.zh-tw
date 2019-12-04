@@ -1,17 +1,17 @@
 ---
-title: 適用於 MySQL 之 Azure 資料庫中的高可用性概念
+title: 高可用性-適用於 MySQL 的 Azure 資料庫
 description: 本主題提供使用「適用於 MySQL 的 Azure 資料庫」時的高可用性資訊
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 055727695bfa1ce8a6bb160a7e071c2a161afb3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 532cb62c371718a59adf2877517fcdb8f7047bcf
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837823"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770963"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>適用於 MySQL 之 Azure 資料庫中的高可用性概念
 「適用於 MySQL 的 Azure 資料庫」服務可提供保證的高可用性等級。 以財務為後盾的服務等級協定 (SLA) 在正式運作時可達 99.99%。 使用此服務時幾乎不會有應用程式停機時間。

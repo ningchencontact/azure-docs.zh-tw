@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4d970e61fc2628843ef847526dcdb4e44bf9796f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4b61cbc8a3e870e9fd2123fd3dcbd941c5dde80c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176924"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786940"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用資料庫、容器和專案
 
@@ -56,7 +56,7 @@ Azure Cosmos 容器是布建的輸送量和儲存體的擴充性單位。 容器
 * **共用布建的輸送量模式**：這些容器會與相同資料庫中的其他容器共用布建的輸送量（不包括已設定專用布建輸送量的容器）。 換句話說，在資料庫上布建的輸送量會在所有「共用輸送量」容器之間共用。 若要深入瞭解，請參閱[如何在 Azure Cosmos 資料庫上](how-to-provision-database-throughput.md)布建輸送量。
 
 > [!NOTE]
-> 只有在建立資料庫和容器時，才可以設定共用和專用輸送量。 若要在建立容器之後從專用輸送量模式切換到共用輸送量模式（反之亦然），您必須建立新的容器，並將資料移轉至新的容器。 您可以使用 Azure Cosmos DB 變更摘要 功能來遷移資料。
+> 只有在建立資料庫和容器時，才可以設定共用和專用輸送量。 若要在建立容器後從專用輸送量模式切換為共用輸送量模式 (反之亦然)，您必須建立新的容器，並將資料遷移至新的容器。 您可以使用 Azure Cosmos DB 變更摘要 功能來遷移資料。
 
 不論您是使用專用或共用布建的輸送量模式來建立容器，Azure Cosmos 容器都可以調整彈性。
 
@@ -82,7 +82,7 @@ Azure Cosmos 容器具有一組系統定義的屬性。 根據您使用的 API �
 
 | 系統定義的屬性 | 系統產生或使用者可設定 | 目的 | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_識別碼 | 系統產生的 | 容器的唯一識別碼 | 是 | 否 | 否 | 否 | 否 |
+|\_rid | 系統產生的 | 容器的唯一識別碼 | 是 | 否 | 否 | 否 | 否 |
 |\_etag | 系統產生的 | 適用於開放式並行存取控制的實體標記 | 是 | 否 | 否 | 否 | 否 |
 |\_ts | 系統產生的 | 容器的上次更新日期時間戳記 | 是 | 否 | 否 | 否 | 否 |
 |\_本身 | 系統產生的 | 容器的可定址 URI | 是 | 否 | 否 | 否 | 否 |

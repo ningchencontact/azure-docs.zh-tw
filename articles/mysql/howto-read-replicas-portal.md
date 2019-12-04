@@ -1,17 +1,17 @@
 ---
-title: 建立 & 管理讀取複本（Azure 入口網站）-適用於 MySQL 的 Azure 資料庫
+title: 管理讀取複本-Azure 入口網站適用於 MySQL 的 Azure 資料庫
 description: 瞭解如何使用 Azure 入口網站在適用於 MySQL 的 Azure 資料庫中設定和管理讀取複本。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.openlocfilehash: a90e9cccf8b59dabbee8415818c0e819ba1b26c3
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 56dc2df243c7ebc8e6aedf655795173c478ef99b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972881"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74762601"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>如何使用 Azure 入口網站在適用於 MySQL 的 Azure 資料庫中建立與管理讀取複本
 
@@ -61,7 +61,7 @@ ms.locfileid: "71972881"
 ## <a name="stop-replication-to-a-replica-server"></a>停止複寫至複本伺服器
 
 > [!IMPORTANT]
-> 停止複寫至伺服器是無法復原的。 一旦停止主要與複本伺服器之間進行複寫，便無法復原。 複本伺服器會變成獨立伺服器，進而支援讀取和寫入。 此伺服器無法再次設定為複本伺服器。
+> 停止複寫至伺服器是無法復原的。 一旦停止主要與複本伺服器之間進行複寫，便無法復原。 複本伺服器會變成獨立伺服器，進而支援讀取和寫入。 此伺服器無法再次設定為複本。
 
 若要從 Azure 入口網站停止主要和複本伺服器之間的複寫，請使用下列步驟：
 

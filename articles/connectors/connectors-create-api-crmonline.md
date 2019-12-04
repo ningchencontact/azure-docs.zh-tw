@@ -1,22 +1,20 @@
 ---
-title: 連接到 Dynamics 365-Azure Logic Apps
+title: 連接到 Dynamics 365
 description: 使用 Dynamics 365 (線上) REST API 和 Azure Logic Apps 建立及管理記錄
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: Mattp123
 ms.author: matp
-manager: carmonm
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: ce83e6b1847a8f08467cb7877e517bdaace27953
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 9837b68fbfba783a468712d8ba1883b198af4954
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051020"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789883"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>使用 Azure Logic Apps 管理 Dynamics 365 記錄
 
@@ -27,7 +25,7 @@ ms.locfileid: "70051020"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * [Dynamics 365 帳戶](https://dynamics.microsoft.com)
 
@@ -43,7 +41,7 @@ ms.locfileid: "70051020"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟空白邏輯應用程式。
 
-1. 在搜尋方塊中，輸入「Dynamics 365」作為篩選條件。 針對此範例, 請在觸發程式清單底下, 選取此觸發程式:**在記錄建立時**
+1. 在搜尋方塊中，輸入「Dynamics 365」作為篩選條件。 在此範例中，請在 [觸發程序] 清單下選取此觸發程序：**建立記錄時**
 
    ![選取觸發程序](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
@@ -123,10 +121,10 @@ ms.locfileid: "70051020"
 
 | 欄位類型 | 必要資料類型 | 描述 | 
 |------------|--------------------|-------------|
-| 文字欄位 | 單行文字 | 這些欄位需要單行文字或具有文字類型的動態內容。 <p><p>*範例欄位*:**描述**和**分類** | 
-| 整數欄位 | 整數 | 某些欄位需要整數或具有整數類型的動態內容。 <p><p>*範例欄位*:**完成百分比**和**持續時間** | 
-| 日期欄位 | 日期和時間 | 某些欄位需要 mm/dd/yyyy 格式的日期或具有日期類型的動態內容。 <p><p>*範例欄位*:**建立時間**、**開始日期**、**實際開始**、**實際結束**和**到期日** | 
-| 同時需要記錄識別碼和查閱類型的欄位 | 主要金鑰 | 某些參考另一個實體記錄的欄位同時需要記錄識別碼和查閱類型。 | 
+| 文字欄位 | 單行文字 | 這些欄位需要單行文字或具有文字類型的動態內容。 <p><p>範例欄位：**描述**和**類別** | 
+| 整數欄位 | 整數 | 某些欄位需要整數或具有整數類型的動態內容。 <p><p>範例欄位：**完成百分比**和**持續時間** | 
+| 日期欄位 | 日期和時間 | 某些欄位需要 mm/dd/yyyy 格式的日期或具有日期類型的動態內容。 <p><p>範例欄位：**建立日期**、**開始日期**、**實際開始時間**、**實際結束時間**和**到期日** | 
+| 同時需要記錄識別碼和查閱類型的欄位 | 主索引鍵 | 某些參考另一個實體記錄的欄位同時需要記錄識別碼和查閱類型。 | 
 ||||
 
 為了詳述這些欄位類型，以下是 Dynamics 365 觸發程序和動作中同時需要記錄識別碼和查閱類型的欄位範例。 此需求代表從動態清單選取的值不會有作用。
@@ -134,11 +132,11 @@ ms.locfileid: "70051020"
 | 欄位 | 描述 |
 |-------|-------------|
 | **擁有者** | 必須是有效的使用者識別碼或小組記錄識別碼。 |
-| **擁有者類型** | 必須是`systemusers`或`teams`。 |
+| **擁有者類型** | 必須是 `systemusers` 或 `teams`。 |
 | **關於** | 必須是有效的記錄識別碼，例如帳戶識別碼或連絡人記錄識別碼。 |
-| **關於類型** | 必須是查閱類型, 例如`accounts`或。 `contacts` |
+| **關於類型** | 必須是查閱類型，例如 `accounts` 或 `contacts`。 |
 | **客戶** | 必須是有效的記錄識別碼，例如帳戶識別碼或連絡人記錄識別碼。 |
-| **客戶類型** | 必須是查閱類型, 例如`accounts`或。 `contacts` |
+| **客戶類型** | 必須是查閱類型，例如 `accounts` 或 `contacts`。 |
 |||
 
 在此範例中，名為**建立新記錄**的動作會建立新的工作記錄：
@@ -188,7 +186,7 @@ ms.locfileid: "70051020"
 
 ## <a name="connector-reference"></a>連接器參考
 
-如需如連接器的 OpenAPI (先前為 Swagger) 檔案所述的技術詳細資料 (例如觸發程式、動作和限制), 請參閱[連接器的參考頁面](/connectors/dynamicscrmonline/)。
+如需如連接器的 OpenAPI （先前為 Swagger）檔案所述的技術詳細資料（例如觸發程式、動作和限制），請參閱[連接器的參考頁面](/connectors/dynamicscrmonline/)。
 
 ## <a name="next-steps"></a>後續步驟
 

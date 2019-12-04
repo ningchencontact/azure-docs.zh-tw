@@ -7,16 +7,16 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 3151d72c0e74e7eb694ef2bdd5737f65992fe905
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 10c27c18b8003bf286789e478f504bca98ebe7ca
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824372"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766477"
 ---
 # <a name="about-azure-networking-msp-partners"></a>關於 Azure 網路功能 MSP 合作夥伴
 
-[Azure 網路受控服務提供者（MSP）合作夥伴計畫](https://azure.microsoft.com/blog/enhancing-the-customer-experience-with-the-azure-networking-msp-partner-program/)可讓網路服務專注于 Msp、電信公司和 Systems 整合者（SIs），提供以 Azure 的網路功能產品群組為中心的雲端和混合式網路服務和服務。
+[Azure 網路受控服務提供者（MSP）合作夥伴計畫](https://azure.microsoft.com/blog/enhancing-the-customer-experience-with-the-azure-networking-msp-partner-program/)可讓網路服務專注于 Msp、電信公司和 Systems 整合者（SIs），提供以 Azure 的網路產品和服務組合為中心的雲端和混合式網路服務。
 
 Azure 網路 Msp 是一組特製化的受控服務提供者，可解決雲端和混合式網路上所有層面的企業雲端網路需求和挑戰。 受控網路服務包含下列一或多項服務：網路架構、規劃、部署、操作、維護和優化。
 
@@ -28,12 +28,13 @@ Azure 網路 Msp 是一組特製化的受控服務提供者，可解決雲端和
 
 如需 Azure 網路功能 MSP 合作夥伴提供之受管理雲端網路服務的詳細資訊，請使用本節中的連結。 如果您的雲端網路服務合作夥伴未列在下一節中，請讓提供者與我們聯繫。 他們可以傳送電子郵件到 ManagedVirtualWAN@microsoft.com 來與我們連絡。 
 
-| **MSP** | **雲端網路轉換服務** | **受控 ExpressRoute** | **受控虛擬 WAN** | **受控網路安全性服務** |**受控網路邊緣計算** |
+| **MSP** | **雲端網路轉換服務** | **受控 ExpressRoute** | **受控虛擬 WAN** | **受控網路安全性服務** |**受控的多重存取 Edge 計算** |
 | ---| ---| ---| ---| ---| ---|
 |[Amdocs](https://www.amdocs.com/)|||||是|
 |[英式的 ANS 群組](https://www.ans.co.uk/)|是|是||||
 |[Aryaka networks 網路](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)|是 |是 |是 | | |
 |[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|是|是|是|||
+|[Coevolve](https://www.coevolve.com/services/azure-networking-services/)|是||是|是||
 |[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|是|||||
 |[維度資料](https://www.dimensiondata.com/)|是|||||
 |[Equinix](https://www.equinix.com/)|是|是||||

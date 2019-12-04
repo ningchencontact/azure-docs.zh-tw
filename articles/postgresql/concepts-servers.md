@@ -1,17 +1,17 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的伺服器概念
+title: 伺服器-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
 description: 本文提供設定和管理適用於 PostgreSQL 的 Azure 資料庫單一伺服器的考慮和指導方針。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: bd7c24489e8ac7b26cb703923ddf9cbb741cfd68
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d86170a53b4bfbe712bbca12db4d6063214aba21
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029977"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768158"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
 本文提供使用適用於 PostgreSQL 的 Azure 資料庫單一伺服器的考慮和指導方針。

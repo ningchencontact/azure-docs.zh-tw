@@ -1,17 +1,17 @@
 ---
-title: 在適用於 MySQL 的 Azure 資料庫中建立和管理 MySQL 防火牆規則
+title: 管理防火牆規則-Azure 入口網站-適用於 MySQL 的 Azure 資料庫
 description: 使用 Azure 入口網站建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: 823226da671671eaf6380d48a35c20298ec6bf9d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 12/02/2019
+ms.openlocfilehash: b02bae528146a3f0c214b7fbb1d234c1a24b174f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933609"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774235"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>使用 Azure 入口網站建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則
 伺服器層級防火牆規則可用來從指定的 IP 位址或 IP 位址範圍，管理適用於 MySQL 的 Azure 資料庫伺服器的存取權。 

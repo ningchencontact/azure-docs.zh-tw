@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: 68ada90699fe9a9db6faeb32a04e8eb02c176944
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f86a63315798d982f7e78fd1ff293061daf50132
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74157643"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786770"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>使用 Azure SignalR Service Azure Functions 開發和設定
 
@@ -40,7 +40,7 @@ Azure SignalR Service 可以在不同的模式下設定。 與 Azure Functions �
 
 使用 HTTP 觸發的 Azure 函數和*SignalRConnectionInfo*輸入系結來產生連接資訊物件。 函式必須具有以 `/negotiate`結尾的 HTTP 路由。
 
-如需有關如何建立 negotiate 函式的詳細資訊，請參閱[ *SignalRConnectionInfo*輸入](../azure-functions/functions-bindings-signalr-service.md#signalr-connection-info-input-binding)系結參考。
+如需有關如何建立 negotiate 函式的詳細資訊，請參閱[ *SignalRConnectionInfo*輸入](../azure-functions/functions-bindings-signalr-service.md#input)系結參考。
 
 若要瞭解如何建立已驗證的權杖，請參閱[使用 App Service 驗證](#using-app-service-authentication)。
 
@@ -50,7 +50,7 @@ Azure SignalR Service 可以在不同的模式下設定。 與 Azure Functions �
 
 使用者可以新增至一個或多個群組。 您也可以使用*SignalR*輸出系結，在群組中新增或移除使用者。
 
-如需詳細資訊，請參閱[ *SignalR*輸出](../azure-functions/functions-bindings-signalr-service.md#signalr-output-binding)系結參考。
+如需詳細資訊，請參閱[ *SignalR*輸出](../azure-functions/functions-bindings-signalr-service.md#output)系結參考。
 
 ### <a name="signalr-hubs"></a>SignalR 中樞
 

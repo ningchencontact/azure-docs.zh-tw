@@ -1,22 +1,18 @@
 ---
-title: 從 Azure Logic Apps 連線到 Yammer | Microsoft Docs
+title: 從 Azure Logic Apps 連接到 Yammer
 description: 使用 Azure Logic Apps，將在 Yammer 中監視、貼文及管理訊息、摘要等等的工作和工作流程自動化
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 9228a94dcf27d8987b16e2caa2681cf973db0657
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 194c08d034d44ba0a4472b3b516fc45d1d262d28
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050648"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789064"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來監視及管理您的 Yammer 帳戶
 
@@ -30,7 +26,7 @@ ms.locfileid: "70050648"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * 您的 Yammer 帳戶和使用者認證
 
@@ -65,7 +61,7 @@ ms.locfileid: "70050648"
        在搜尋方塊中，輸入 "yammer" 作為篩選條件。 
        在動作清單底下，選取您想要的動作。
 
-1. 如果系統提示您登入 Yammer, 請立即登入, 讓您可以允許存取。
+1. 如果系統提示您登入 Yammer，請立即登入，讓您可以允許存取。
 
 1. 為您選取的觸發程序或動作提供必要的詳細資料，並且繼續建置邏輯應用程式的工作流程。
 
@@ -76,7 +72,7 @@ ms.locfileid: "70050648"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
+* 若要送出或票選功能構想，請前往 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

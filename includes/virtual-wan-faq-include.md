@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0ba69715998f110d88015bdba2fbf340a6b64089
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: acd601512f2240802de47483a015f03a226da115
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491648"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795588"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Azure 虛擬網路閘道 (VPN 閘道) 與 Azure 虛擬 WAN VPN 閘道之間有何差異？
 
@@ -36,8 +36,6 @@ ms.locfileid: "73491648"
 沒有。 您可以使用任何支援 VPN 且符合 IKEv2/IKEv1 IPsec 支援需求的裝置。
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>虛擬 WAN 合作夥伴如何將與 Azure 虛擬 WAN 的連線自動化？
-
-軟體定義的連線解決方案通常會使用控制器或裝置佈建中心，來管理它們的分支裝置。 控制器可以使用 Azure API，將與 Azure 虛擬 WAN 的連線自動化。 如需詳細資訊，請參閱虛擬 WAN 夥伴自動化。
 
 軟體定義的連線解決方案通常會使用控制器或裝置佈建中心，來管理它們的分支裝置。 控制器可以使用 Azure API，將與 Azure 虛擬 WAN 的連線自動化。 自動化包括上傳分支資訊、下載 Azure 設定、將 IPSec 通道設定到 Azure 虛擬中樞，以及自動設定從分支裝置到 Azure 虛擬 WAN 的連線。 當您有數百個分支時，使用虛擬 WAN CPE 夥伴進行連線很方便，因為上線體驗可讓您不需要安裝、設定及管理大規模的 IPsec 連線。 如需詳細資訊，請參閱[虛擬 WAN 合作夥伴自動化](../articles/virtual-wan/virtual-wan-configure-automation-providers.md)。
 

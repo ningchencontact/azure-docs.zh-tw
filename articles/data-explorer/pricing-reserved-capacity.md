@@ -1,18 +1,18 @@
 ---
 title: 預付 Azure 資料總管標記以節省成本
 description: 瞭解如何購買 Azure 資料總管保留容量，以節省您的 Azure 資料總管成本。
-author: avnera
+author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: 66c5644df7d796669105693d08788548334ae93a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c728f3b9a4c10d52d7361ca76e9b40198a6a0dba
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681630"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769093"
 ---
 # <a name="prepay-for-azure-data-explorer-markup-units-with-azure-data-explorer-reserved-capacity"></a>使用 Azure 資料總管保留容量預付 Azure 資料總管標記單位
 
@@ -23,7 +23,7 @@ ms.locfileid: "73681630"
 您可以在[Azure 入口網站](https://portal.azure.com)購買 Azure 資料總管保留容量。 購買 Azure 資料總管保留容量：
 
 * 您必須是至少一個企業或隨用隨付訂用帳戶的擁有者。
-* 針對企業訂用帳戶，必須在 **EA 入口網站**中啟用[新增保留執行個體](https://ea.azure.com)。 或者，如果該設定已停用，您必須是訂用帳戶的 EA 系統管理員。
+* 針對企業訂用帳戶，必須在 [EA 入口網站](https://ea.azure.com)中啟用**新增保留執行個體**。 或者，如果該設定已停用，您必須是訂用帳戶的 EA 系統管理員。
 * 針對雲端解決方案提供者（CSP）方案，只有系統管理員代理程式或銷售代理人可以購買 Azure 資料總管保留容量。
 
 如需企業客戶和隨用隨付客戶如何支付保留購買費用的詳細資訊，請參閱：
@@ -50,9 +50,9 @@ ms.locfileid: "73681630"
 
 ## <a name="cancellations-and-exchanges"></a>取消和交換
 
-如果您需要取消 Azure 資料總管保留容量保留，可能會有12% 的提前終止費用。 退款是以您購買價格的最低價格或保留的目前價格為基礎。 每年的退款金額上限為 50,000 美元。 您收到的退款是按比例計算的餘額扣除 12% 提前解約金的金額。 若要要求取消，請移至 Azure 入口網站中的保留，並選取 [退款] 以建立支援要求。
+如果您需要取消 Azure 資料總管保留容量保留，可能會有12% 的提前終止費用。 退款是以您購買價格的最低價格或保留的目前價格為基礎。 每年的退款金額上限為 50,000 美元。 您收到的退款是按比例計算的餘額扣除 12% 提前解約金的金額。 若要要求取消，請移至 Azure 入口網站中的保留區，並選取 [退款] 以建立支援要求。
 
-如果您需要將 Azure 資料總管保留容量保留區變更為另一個詞彙，您可以將其交換為等於或大於價值的另一個保留。 新保留區的期間開始日期不會延續自交換的保留區。 1 或 3 年的期限會從您建立新的保留時起算。 若要要求交換，請移至 Azure 入口網站中的保留，並選取 [交換] 以建立支援要求。
+如果您需要將 Azure 資料總管保留容量保留區變更為另一個詞彙，您可以將其交換為等於或大於價值的另一個保留。 新保留的期限開始日期不會延續自交換的保留。 1 或 3 年的期限會從您建立新的保留時起算。 若要要求交換，請移至 Azure 入口網站中的保留區，並選取 [交換] 以建立支援要求。
 
 如需有關如何交換或退款保留的詳細資訊，請參閱[保留交換和退款](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)。
 
@@ -67,15 +67,15 @@ Azure 資料總管標記單位保留折扣會自動套用至符合 Azure 資料�
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解 Azure Reservations，請參閱下列文章：
+若要深入了解 Azure 保留，請參閱下列文章：
 
-* [什麼是 Azure 保留項目？](../billing/billing-save-compute-costs-reservations.md)
+* [什麼是 Azure Reservations？](../billing/billing-save-compute-costs-reservations.md)
 * [管理 Azure 保留項目](../billing/billing-manage-reserved-vm-instance.md)
 * [了解 Azure 保留折扣](../billing/billing-understand-reservation-charges.md)
 * [了解隨用隨付訂用帳戶的保留使用量](../billing/billing-understand-reserved-instance-usage.md)
 * [了解 Enterprise 註冊的保留項目使用量](../billing/billing-understand-reserved-instance-usage-ea.md)
 * [合作夥伴中心雲端解決方案提供者 (CSP) 計畫中的 Azure 保留項目](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
+## <a name="need-help-contact-us"></a>需要協助嗎？ 連絡我們
 
 如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。

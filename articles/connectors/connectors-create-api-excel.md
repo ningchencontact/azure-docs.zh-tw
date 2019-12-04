@@ -1,22 +1,18 @@
 ---
-title: 連接到 Excel Online-Azure Logic Apps
+title: 連接到 Excel Online
 description: 使用 Excel Online REST API 和 Azure Logic Apps 來管理資料
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: d3c6395f7fd66e1b89fc49536e228249bc4ed2a9
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: a4356b4f88df3fc457917be563a79e9054a1638e
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859249"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789795"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>使用 Azure Logic Apps 來管理 Excel Online 資料
 
@@ -35,7 +31,7 @@ ms.locfileid: "70859249"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 適用於您的工作帳戶或個人 Microsoft 帳戶的 [Office 365 帳戶](https://www.office.com/)
 

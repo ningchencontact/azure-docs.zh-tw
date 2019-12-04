@@ -1,23 +1,23 @@
 ---
-title: 使用 Azure CLI 在適用於 MySQL 的 Azure 資料庫中存取緩慢查詢記錄
+title: 存取緩慢查詢記錄-Azure CLI 適用於 MySQL 的 Azure 資料庫
 description: 本文說明如何使用 Azure CLI，在適用於 MySQL 的 Azure 資料庫中存取緩慢查詢記錄。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: 0ab4162d11642ec7df53040bd744711002227497
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.date: 12/02/2019
+ms.openlocfilehash: 44c35d6e997b4a9a6d3dfcf3e7eba5328b125fdf
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030628"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770589"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>使用 Azure CLI 設定和存取緩慢查詢記錄
 您可以使用 Azure 命令列公用程式 Azure CLI 來下載適用於 MySQL 的 Azure 資料庫慢速查詢記錄。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要逐步執行本作法指南，您需要：
 - [適用於 MySQL 的 Azure 資料庫伺服器](quickstart-create-mysql-server-database-using-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) 或瀏覽器中的 Azure Cloud Shell

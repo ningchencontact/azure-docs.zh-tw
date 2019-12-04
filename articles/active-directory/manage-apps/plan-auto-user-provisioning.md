@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 944ecaaceedbff6ed1f86c4b8eb5786ce2b5bae5
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: cdf4e5dfc48fdeee86526257d6d8c47a464ce113
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706231"
+ms.locfileid: "74786413"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>規劃自動使用者佈建部署
 
@@ -90,11 +90,11 @@ Azure AD 布建服務會藉由連接到每個應用程式廠商所提供的使�
 
 1. 使用者/群組會建立于內部部署 HR 應用程式/系統中，例如 SAP。 
 
-1. Azure AD Connect 代理程式會執行從本機 AD 到 Azure AD 的排程同步處理身分識別（使用者和群組）。
+1. **Azure AD Connect 代理程式**會執行從本機 AD 到 Azure AD 的排程同步處理身分識別（使用者和群組）。
 
-1. Azure AD 布建服務會開始對來源系統和目標系統進行[初始迴圈](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)。 
+1. **Azure AD**布建服務會開始對來源系統和目標系統進行[初始迴圈](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)。 
 
-1. Azure AD 布建服務會向來源系統查詢自初始週期後變更的任何使用者和群組，並在[增量迴圈](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)中推送變更。
+1. **Azure AD**布建服務會向來源系統查詢自初始週期後變更的任何使用者和群組，並在[增量迴圈](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)中推送變更。
 
 #### <a name="automatic-user-provisioning-for-cloud-only-enterprises"></a>為僅限雲端的企業自動布建使用者
 
@@ -106,9 +106,9 @@ Azure AD 布建服務會藉由連接到每個應用程式廠商所提供的使�
 
 1. 使用者/群組會建立在 Azure AD 中。
 
-1. Azure AD 布建服務會開始對來源系統和目標系統進行[初始迴圈](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)。 
+1. **Azure AD**布建服務會開始對來源系統和目標系統進行[初始迴圈](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)。 
 
-1. Azure AD 布建服務會在來源系統中查詢初始迴圈後所更新的任何使用者和群組，並執行任何[增量迴圈](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)。
+1. **Azure AD**布建服務會在來源系統中查詢初始迴圈後所更新的任何使用者和群組，並執行任何[增量迴圈](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)。
 
 #### <a name="automatic-user-provisioning-for-cloud-hr-applications"></a>雲端 HR 應用程式的自動使用者布建 
 

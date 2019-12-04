@@ -1,17 +1,17 @@
 ---
-title: 建立 & 管理讀取複本-適用於 MySQL 的 Azure 資料庫
+title: 管理讀取複本-Azure CLI、REST API 適用於 MySQL 的 Azure 資料庫
 description: 瞭解如何使用 Azure CLI 或 REST API，在適用於 MySQL 的 Azure 資料庫中設定和管理讀取複本。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/14/2019
-ms.openlocfilehash: 741b50bdb2ec9c8d29a9f759e46209856de3a49c
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 56ba530c4f684bf89db9c5b87306592fbfeee7fa
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970315"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774089"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>如何使用 Azure CLI 和 REST API 來建立和管理適用於 MySQL 的 Azure 資料庫中的讀取複本
 
@@ -41,7 +41,7 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 | 設定 | 範例值 | 描述  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  複本伺服器會建立於其中的資源群組。  |
-| name | mydemoreplicaserver | 所建立的新複本伺服器名稱。 |
+| 名稱 | mydemoreplicaserver | 所建立的新複本伺服器名稱。 |
 | source-server | mydemoserver | 要從中複寫的現有主要伺服器的名稱或識別碼。 |
 
 若要建立跨區域讀取複本，請使用 `--location` 參數。 下列 CLI 範例會在美國西部建立複本。
@@ -75,7 +75,7 @@ az mysql server replica list --server-name mydemoserver --resource-group myresou
 ### <a name="stop-replication-to-a-replica-server"></a>停止複寫至複本伺服器
 
 > [!IMPORTANT]
-> 停止複寫至伺服器是無法復原的。 一旦停止主要與複本伺服器之間進行複寫，便無法復原。 複本伺服器會變成獨立伺服器，進而支援讀取和寫入。 此伺服器無法再次設定為複本伺服器。
+> 停止複寫至伺服器是無法復原的。 一旦停止主要與複本伺服器之間進行複寫，便無法復原。 複本伺服器會變成獨立伺服器，進而支援讀取和寫入。 此伺服器無法再次設定為複本。
 
 使用下列命令，可以停止複寫至讀取複本伺服器︰
 
@@ -88,7 +88,7 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 | 設定 | 範例值 | 描述  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  複本伺服器所在的資源群組。  |
-| name | mydemoreplicaserver | 要停止複寫的複本伺服器名稱。 |
+| 名稱 | mydemoreplicaserver | 要停止複寫的複本伺服器名稱。 |
 
 ### <a name="delete-a-replica-server"></a>刪除複本伺服器
 
@@ -133,7 +133,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > 若要深入瞭解您可以在哪些區域中建立複本，請造訪[讀取複本概念一文](concepts-read-replicas.md)。 
 
-如果您尚未在一般用途或記憶體優化的主伺服器上，將 `azure.replication_support` 參數設定為**REPLICA** ，並重新啟動伺服器，您會收到錯誤。 建立複本之前，請先完成這兩個步驟。
+如果您尚未在一般用途或記憶體優化的主伺服器上將 `azure.replication_support` 參數設定為 [**複本**]，並重新啟動伺服器，則會收到錯誤。 建立複本之前，請先完成這兩個步驟。
 
 使用與主伺服器相同的計算和儲存設定來建立複本。 建立複本之後，以下設定可以個別地從主要伺服器進行變更：計算世代、虛擬核心、儲存體及備份保留期間。 定價層也可以個別變更，但不能變更為基本層，或從基本層變更為別的層。
 

@@ -1,21 +1,19 @@
 ---
-title: 將 EDIFACT 訊息解碼 - Azure Logic Apps | Microsoft Docs
+title: 解碼 EDIFACT 訊息
 description: 針對採用 Enterprise Integration Pack 的 Azure Logic Apps，使用 EDIFACT 訊息解碼器驗證 EDI 及產生通知
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
-ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.date: 01/27/2017
-ms.openlocfilehash: ccad6eab68fff0891ba287a076692f9437495a4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78c0d20c0f32a6d63d134e958b30d38fe11fcc5c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696200"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790661"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>使用企業整合套件將 Azure Logic Apps 的 EDIFACT 訊息解碼
 
@@ -36,7 +34,7 @@ ms.locfileid: "64696200"
 
 2. 解碼 EDIFACT 訊息連接器沒有觸發程序，因此您必須新增觸發程序 (例如要求觸發程序) 來啟動邏輯應用程式。 在 Logic Apps 設計工具中，新增觸發程序，然後將動作新增至您的邏輯應用程式。
 
-3. 在搜尋方塊中，輸入 "EDIFACT" 做為篩選條件。 選取 [將 EDIFACT 訊息解碼]  。
+3. 在搜尋方塊中，輸入 "EDIFACT" 做為篩選條件。 選取 [將 EDIFACT 訊息解碼]。
    
     ![搜尋 EDIFACT](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
 
@@ -51,7 +49,7 @@ ms.locfileid: "64696200"
     | 連線名稱 * |為連接器輸入任何名稱。 |
     | 整合帳戶 * |輸入整合帳戶的名稱。 確定您的整合帳戶和邏輯應用程式位於相同的 Azure 位置。 |
 
-4. 當您完成連線建立時，請選擇 [建立]  。 您的連線詳細資料看起來類似此範例：
+4. 當您完成連線建立時，請選擇 [建立]。 您的連線詳細資料看起來類似此範例：
 
     ![整合帳戶詳細資料](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
 
@@ -59,7 +57,7 @@ ms.locfileid: "64696200"
 
     ![整合帳戶連線已建立](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
 
-    例如:
+    例如：
 
     ![選取 EDIFACT 一般檔案訊息以便解碼](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 
@@ -81,13 +79,13 @@ ms.locfileid: "64696200"
   * 針對交換中的其他群組控制編號檢查群組控制編號。 
   * 針對該群組中其他交易集控制編號檢查交易集控制編號。
 * 將交換分割為交易集，或保留整個交換︰
-  * 將交換分割為交易集-暫止交易集發生錯誤：將交換分割交易集，並剖析每個交易集。 
+  * 將交換分割為交易集 - 暫止發生錯誤的交易集︰將交換分割為交易集，並剖析每個交易集。 
   X12 Decode 動作只會輸出未通過 `badMessages` 驗證的交易集，並將剩餘的交易輸出到 `goodMessages`。
-  * 將交換分割為交易集-發生錯誤時暫停交換：將交換分割交易集，並剖析每個交易集。 
+  * 將交換分割為交易集 - 暫止發生錯誤的交換︰將交換分割為交易集，並剖析每個交易集。 
   如果交換中有一或多個交易集無法通過驗證，X12 Decode 動作會將該交換中的所有交易集輸出到 `badMessages`。
-  * 保留交換-發生錯誤時暫停交易集：保留交換並處理整個批次的交換。 
+  * 保留交換 - 暫止發生錯誤的交易集︰保留交換並處理整個批次交換。 
   X12 Decode 動作只會輸出未通過 `badMessages` 驗證的交易集，並將剩餘的交易輸出到 `goodMessages`。
-  * 保留交換-發生錯誤時暫停交換：保留交換並處理整個批次的交換。 
+  * 保留交換 - 暫止發生錯誤的交換︰保留交換並處理整個批次交換。 
   如果交換中有一或多個交易集無法通過驗證，X12 Decode 動作會將該交換中的所有交易集輸出到 `badMessages`。
 * 產生技術 (控制) 和/或功能確認 (若已設定)。
   * 技術確認或 CONTRL ACK 會報告完整接收的交換所進行的語法檢查結果。
@@ -97,5 +95,5 @@ ms.locfileid: "64696200"
 若要檢視 EDIFACT 連接器的 Swagger 詳細資料，請參閱 [EDIFACT](/connectors/edifact/)。
 
 ## <a name="next-steps"></a>後續步驟
-[深入了解企業整合套件](logic-apps-enterprise-integration-overview.md "了解企業整合套件") 
+[深入了解企業整合套件](logic-apps-enterprise-integration-overview.md "瞭解企業整合套件") 
 

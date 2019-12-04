@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 10a3c2bf421c7182dca00dfcbf7c3f559141a745
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 7676077f0122cb731d2d5d2c7acf78acbd8aa1a7
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084072"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792200"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>在 Azure 虛擬機器上使用 premium 檔案共用設定 SQL Server 容錯移轉叢集實例
 
@@ -45,9 +45,7 @@ ms.locfileid: "74084072"
 - [Azure 資源群組](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> 此時，只有[SQL Server IaaS 代理程式擴充](virtual-machines-windows-sql-server-agent-extension.md)功能的[輕量](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider)管理模式，才支援 Azure 虛擬機器上的 SQL Server 容錯移轉叢集實例。 若要從完整延伸模式變更為輕量模式，請刪除對應 Vm 的**Sql 虛擬機器**資源，然後在[輕量](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider)模式中向 sql VM 資源提供者註冊。 當您使用 Azure 入口網站刪除**SQL 虛擬機器**資源時，請清除正確虛擬機器旁的核取方塊。
->
-> 完整延伸模組支援自動備份、修補和先進入口網站管理等功能。 在[輕量](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider)管理模式中重新安裝代理程式之後，這些功能將無法用於 SQL Server 的 vm。
+> 目前，只有[SQL Server IaaS 代理程式擴充](virtual-machines-windows-sql-server-agent-extension.md)功能的[輕量管理模式](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes)才支援 Azure 虛擬機器上的 SQL Server 容錯移轉叢集實例。 若要從完整延伸模式變更為輕量，請刪除對應 Vm 的**Sql 虛擬機器**資源，然後在輕量模式中向 sql VM 資源提供者註冊。 使用 Azure 入口網站刪除**SQL 虛擬機器**資源時，請**清除正確虛擬機器旁的核取方塊**。 完整延伸模組支援自動備份、修補和先進入口網站管理等功能。 在輕量管理模式中重新安裝代理程式之後，這些功能將無法在 SQL Vm 上使用。
 
 Premium 檔案共用可提供 IOPS 和整個容量，以符合許多工作負載的需求。 針對需要大量 IO 的工作負載，請考慮根據受控 premium 磁片或 ultra 磁片，[使用儲存空間直接存取來 SQL Server 容錯移轉叢集實例](virtual-machines-windows-portal-sql-create-failover-cluster.md)。  
 
@@ -73,7 +71,7 @@ Premium 檔案共用可提供 IOPS 和整個容量，以符合許多工作負載
 
 具有 premium 檔案共用的容錯移轉叢集不支援 Filestream。 若要使用 filestream，請使用[儲存空間直接存取](virtual-machines-windows-portal-sql-create-failover-cluster.md)來部署您的叢集。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在完成本文中的步驟之前，您應該已經具備：
 
@@ -154,7 +152,7 @@ Premium 檔案共用可提供 IOPS 和整個容量，以符合許多工作負載
 
    在每部虛擬機器上，開啟 Windows 防火牆上的下列埠：
 
-   | 目的 | TCP 埠 | 注意事項
+   | 目的 | TCP 埠 | 注意
    | ------ | ------ | ------
    | SQL Server | 1433 | 適用於 SDL Server 預設執行個體的一般連接埠。 若您曾使用來自資源庫的映像，此連接埠會自動開啟。
    | 健全狀況探查 | 59999 | 任何開啟的 TCP 連接埠。 在接下來的步驟中，設定負載平衝器[健全狀況探查](#probe)和要使用此連接埠的叢集。
@@ -177,7 +175,7 @@ Premium 檔案共用可提供 IOPS 和整個容量，以符合許多工作負載
 1. 使用您的 SQL Server FCI 將用於服務帳戶的帳戶，透過 RDP 連線到 SQL Server VM。
 1. 開啟系統管理 PowerShell 命令主控台。
 1. 執行您稍早在入口網站中工作時所儲存的命令。
-1. 使用 [檔案瀏覽器] 或 [**執行**] 對話方塊（Windows 標誌鍵 + r）移至共用。 使用網路路徑 `\\storageaccountname.file.core.windows.net\filesharename`。 例如， `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
+1. 使用 [檔案瀏覽器] 或 [**執行**] 對話方塊（Windows 標誌鍵 + r）移至共用。 使用網路路徑 `\\storageaccountname.file.core.windows.net\filesharename`。 例如，`\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
 1. 在新連接的檔案共用上，至少建立一個資料夾，以便將您的 SQL 資料檔案放入其中。
 1. 在要參與叢集的每個 SQL Server VM 上重複這些步驟。
@@ -461,7 +459,7 @@ Azure 虛擬機器支援 Windows Server 2019 上的 Microsoft 分散式交易協
 - 叢集 MSDTC 資源無法設定為使用共用存放裝置。 在 Windows Server 2016 上，如果您建立 MSDTC 資源，它不會顯示任何可供使用的共用存放裝置，即使有可用的存放裝置也一樣。 Windows Server 2019 中已修正此問題。
 - 基本負載平衡器不會處理 RPC 埠。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - [Windows 叢集技術](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server 容錯移轉叢集實例](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

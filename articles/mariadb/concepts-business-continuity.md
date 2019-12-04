@@ -1,17 +1,17 @@
 ---
-title: 瞭解適用於 MariaDB 的 Azure 資料庫中的商務持續性
+title: 商務持續性-適用於 MariaDB 的 Azure 資料庫
 description: 瞭解使用適用於 MariaDB 的 Azure 資料庫服務時的商務持續性（時間點還原、資料中心中斷、異地還原）。
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: d364c3a5fafaca514baade25cd3f5b4c0f10dc26
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 76e749b26be5a5204b247d294f26da169f84094c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973602"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773012"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>瞭解適用於 MariaDB 的 Azure 資料庫中的商務持續性
 

@@ -1,20 +1,17 @@
 ---
-title: 工作流程定義語言的架構-Azure Logic Apps
+title: 工作流程定義語言的架構
 description: Azure Logic Apps 中工作流程定義語言的架構參考
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.topic: reference
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 64c01baf0852e7e09ce9ffed2d079b47e95f7190
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 9c235c76e3d96ce02efc113c65c62081fcba20ee
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680071"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790801"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps 中工作流程定義語言的架構參考指南
 
@@ -46,7 +43,7 @@ ms.locfileid: "72680071"
 | `contentVersion` | 否 | 您的工作流程定義版本號碼，預設為 "1.0.0.0"。 若要在部署工作流程時協助識別及確認正確的定義，請指定要使用的值。 |
 | `outputs` | 否 | 要從工作流程執行傳回的輸出定義。 如需詳細資訊，請參閱[輸出](#outputs)。 <p><p>輸出上限：10 |
 | `parameters` | 否 | 一或多個參數的定義，會傳遞要在邏輯應用程式執行時間使用的值。 如需詳細資訊，請參閱[參數](#parameters)。 <p><p>參數上限：50 |
-| `staticResults` | 否 | 動作所傳回的一或多個靜態結果的定義，會在這些動作上啟用靜態結果時做為模擬輸出。 在每個動作定義中，`runtimeConfiguration.staticResult.name` 屬性都會參考 `staticResults` 內的對應定義。 如需詳細資訊，請參閱[靜態結果](#static-results)。 |
+| `staticResults` | 否 | 動作所傳回的一或多個靜態結果的定義，會在這些動作上啟用靜態結果時做為模擬輸出。 在每個動作定義中，`runtimeConfiguration.staticResult.name` 屬性都會參考 `staticResults`內的對應定義。 如需詳細資訊，請參閱[靜態結果](#static-results)。 |
 | `triggers` | 否 | 一或多個觸發程序的定義，此觸發程序可具現化您的工作流程。 您可以定義多個觸發程序，但只能利用工作流程定義語言，而不會透過 Logic Apps 設計工具呈現。 如需詳細資訊，請參閱[觸發程式和動作](#triggers-actions)。 <p><p>觸發程序上限：10 |
 ||||
 
@@ -81,18 +78,18 @@ ms.locfileid: "72680071"
 |-----------|----------|------|-------------|
 | <*參數名稱*> | 是 | String | 您想要定義之參數的名稱 |
 | <*參數類型*> | 是 | int、float、string、bool、array、object、securestring、secureobject <p><p>**注意**：對於所有密碼、金鑰和秘密，請使用 `securestring` 或 `secureobject` 類型，因為 `GET` 作業不會傳回這些類型。 如需保護參數的詳細資訊，請參閱[動作和輸入參數的安全性建議](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。 | 參數的類型 |
-| <*預設-參數-值*> | 是 | 與 `type` 相同 | 當工作流程具現化時，若未指定任何值時，所要使用的預設參數值。 @No__t_0 屬性是必要的，讓邏輯應用程式設計工具可以正確地顯示參數，但您可以指定空值。 |
+| <*預設-參數-值*> | 是 | 與 `type` 相同 | 當工作流程具現化時，若未指定任何值時，所要使用的預設參數值。 `defaultValue` 屬性是必要的，讓邏輯應用程式設計工具可以正確地顯示參數，但您可以指定空值。 |
 | <*陣列-具有允許的參數值*> | 否 | 陣列 | 具有參數可接受值的陣列 |
 | <*參數-描述*> | 否 | JSON 物件 | 任何其他參數詳細資料，例如參數的描述 |
 ||||
 
-接下來，為您的工作流程定義建立[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)、定義範本參數，以在部署時接受您想要的值，並以範本或工作流程定義參數的參考取代硬式編碼的值。適用，並儲存要在部署中使用的值，以用於不同的[參數](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)檔案。 如此一來，您就可以更輕鬆地透過參數檔案來變更這些值，而不需要更新和重新部署邏輯應用程式。 對於機密或必須受到保護的資訊，例如使用者名稱、密碼和秘密，您可以將這些值儲存在 Azure Key Vault 中，並讓您的參數檔案從您的金鑰保存庫中抓取這些值。 如需在範本和工作流程定義層級定義參數的詳細資訊和範例，請參閱[總覽：使用 Azure Resource Manager 範本自動部署邏輯應用程式](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)。
+接下來，為您的工作流程定義建立[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)、定義範本參數，以在部署時接受您想要的值，並適當地將已硬式編碼的值取代為範本或工作流程定義參數，並在個別的[參數](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)檔案中儲存要用於部署的值。 如此一來，您就可以更輕鬆地透過參數檔案來變更這些值，而不需要更新和重新部署邏輯應用程式。 對於機密或必須受到保護的資訊，例如使用者名稱、密碼和秘密，您可以將這些值儲存在 Azure Key Vault 中，並讓您的參數檔案從您的金鑰保存庫中抓取這些值。 如需在範本和工作流程定義層級定義參數的詳細資訊和範例，請參閱[總覽：使用 Azure Resource Manager 範本自動部署邏輯應用程式](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)。
 
 <a name="static-results"></a>
 
 ## <a name="static-results"></a>靜態結果
 
-在 [`staticResults`] 屬性中，定義動作的 [模擬] `outputs` 和 [動作的靜態結果] 設定開啟時，動作會傳回的 `status`。 在動作的定義中，`runtimeConfiguration.staticResult.name` 屬性會參考 `staticResults` 內靜態結果定義的名稱。 瞭解如何藉[由設定靜態結果，以模擬資料來測試邏輯應用程式](../logic-apps/test-logic-apps-mock-data-static-results.md)。
+在 [`staticResults`] 屬性中，定義動作的 [模擬] `outputs` 和 [動作的靜態結果] 設定開啟時，動作會傳回的 `status`。 在動作的定義中，`runtimeConfiguration.staticResult.name` 屬性會參考 `staticResults`內靜態結果定義的名稱。 瞭解如何藉[由設定靜態結果，以模擬資料來測試邏輯應用程式](../logic-apps/test-logic-apps-mock-data-static-results.md)。
 
 ```json
 "definition": {
@@ -118,13 +115,13 @@ ms.locfileid: "72680071"
 | 屬性 | 必要項 | Type | 描述 |
 |-----------|----------|------|-------------|
 | <*靜態結果定義名稱*> | 是 | String | 動作定義可以透過 `runtimeConfiguration.staticResult` 物件來參考的靜態結果定義名稱。 如需詳細資訊，請參閱[執行階段組態設定](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options)。 <p>您可以使用任何您想要的唯一名稱。 根據預設，這個唯一名稱會附加一個數位，視需要遞增。 |
-| <*的輸出-屬性和值-傳回*> | 是 | 視情況而異 | 這些屬性的需求會根據不同的條件而有所不同。 例如，當 `status` `Succeeded` 時，`outputs` 屬性會包含由動作以模擬輸出傳回的屬性和值。 如果 `status` 是 `Failed`，`outputs` 屬性會包含 `errors` 屬性，這是具有一或多個錯誤的陣列，`message` 具有錯誤資訊的物件。 |
+| <*的輸出-屬性和值-傳回*> | 是 | 視情況而異 | 這些屬性的需求會根據不同的條件而有所不同。 例如，當 `status` `Succeeded`時，`outputs` 屬性會包含由動作以模擬輸出傳回的屬性和值。 如果 `status` 是 `Failed`，`outputs` 屬性會包含 `errors` 屬性，這是具有一或多個錯誤的陣列，`message` 具有錯誤資訊的物件。 |
 | <*header-values*> | 否 | JSON | 動作傳回的任何標頭值 |
 | <*狀態-程式碼傳回*> | 是 | String | 動作所傳回的狀態碼 |
 | <*動作-狀態*> | 是 | String | 動作的狀態，例如 `Succeeded` 或 `Failed` |
 |||||
 
-例如，在此 HTTP 動作定義中，`runtimeConfiguration.staticResult.name` 屬性會參考 `staticResults` 屬性內的 `HTTP0`，其中會定義動作的 mock 輸出。 @No__t_0 屬性會指定靜態結果設定是在 HTTP 動作上 `Enabled`。
+例如，在此 HTTP 動作定義中，`runtimeConfiguration.staticResult.name` 屬性會參考 `staticResults` 屬性內的 `HTTP0`，其中會定義動作的 mock 輸出。 `runtimeConfiguration.staticResult.staticResultOptions` 屬性會指定靜態結果設定是在 HTTP 動作上 `Enabled`。
 
 ```json
 "actions": {
@@ -145,7 +142,7 @@ ms.locfileid: "72680071"
 },
 ```
 
-HTTP 動作會傳回 `staticResults` 內 `HTTP0` 定義中的輸出。 在此範例中，針對狀態碼，會 `OK` mock 輸出。 若為標頭值，則會 `"Content-Type": "application/JSON"` mock 輸出。 針對動作的狀態，模擬輸出為 `Succeeded`。
+HTTP 動作會傳回 `staticResults`內 `HTTP0` 定義中的輸出。 在此範例中，針對狀態碼，會 `OK`mock 輸出。 若為標頭值，則會 `"Content-Type": "application/JSON"`mock 輸出。 針對動作的狀態，模擬輸出為 `Succeeded`。
 
 ```json
 "definition": {
@@ -281,8 +278,8 @@ HTTP 動作會傳回 `staticResults` 內 `HTTP0` 定義中的輸出。 在此範
 | 屬性 | 必要項 | Type | 描述 |
 |-----------|----------|------|-------------|
 | <*key-name*> | 是 | String | 輸出傳回值的索引鍵名稱 |
-| < 索引*鍵類型*> | 是 | int、float、string、securestring、bool、array、JSON 物件 | 輸出傳回值的類型 |
-| <*key-value*> | 是 | 與 <*的索引鍵類型*相同 > | 輸出傳回值 |
+| <索引*鍵類型*> | 是 | int、float、string、securestring、bool、array、JSON 物件 | 輸出傳回值的類型 |
+| <*key-value*> | 是 | 與 <*的索引鍵類型*相同> | 輸出傳回值 |
 |||||
 
 若要從工作流程執行取得輸出，請在 Azure 入口網站中檢查邏輯應用程式的執行歷程記錄和詳細資料，或使用[工作流程 REST API](https://docs.microsoft.com/rest/api/logic/workflows)。 您也可以將輸出傳遞至外部系統 (例如 PowerBI)，以便建立儀表板。

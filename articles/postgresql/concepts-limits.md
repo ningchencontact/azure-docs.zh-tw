@@ -1,5 +1,5 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫中的限制-單一伺服器
+title: 限制-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
 description: 本文說明適用於 PostgreSQL 的 Azure 資料庫單一伺服器中的限制，例如連線數目和儲存引擎選項。
 author: rachel-msft
 ms.author: raagyema
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b9cef4753b6fd324b38d7254139fe288463a0c0c
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d74206ebdf35a8f5b353553cb89e954cb2313611
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123886"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768532"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫中的限制-單一伺服器
 下列各節說明資料庫服務中的容量和功能限制。 如果您想要瞭解資源（計算、記憶體、儲存體）層，請參閱[定價層](concepts-pricing-tiers.md)一文。
@@ -21,7 +21,7 @@ ms.locfileid: "74123886"
 ## <a name="maximum-connections"></a>最大連線數
 每個定價層和 vCores 的連線數目上限如下所示： 
 
-|**定價層**| **vCore(s)**| **連線數目上限** | **使用者連線數上限** |
+|定價層| **vCore(s)**| **連線數目上限** | **使用者連線數上限** |
 |---|---|---|---|
 |基本| 1| 55 | 50|
 |基本| 2| 105 | 100|
@@ -54,11 +54,11 @@ Azure 系統需要五個連線，以用於監控適用於 PostgreSQL 伺服器�
 > 從第10版開始，只有第一個數位的變更會被視為主要版本升級（例如，10.0 到10.1 是_次要_版本升級，而10到11是_主要_版本升級）。
 
 ### <a name="vnet-service-endpoints"></a>VNet 服務端點
-- VNet 服務端點的支援僅適用於一般用途伺服器和記憶體最佳化伺服器。
+- VNet 服務端點的支援僅適用於一般用途和記憶體最佳化伺服器。
 
 ### <a name="restoring-a-server"></a>還原伺服器
 - 使用 PITR 功能時，建立新伺服器的定價層會與作為新伺服器基礎的伺服器相同。
-- 在還原期間建立的新伺服器不會有原始伺服器中的防火牆規則。 此新伺服器的防火牆規則必須另外設定。
+- 在還原期間建立的新伺服器不會有原始伺服器中的防火牆規則。 新伺服器的防火牆規則必須另外設定。
 - 不支援還原已刪除的伺服器。
 
 ### <a name="utf-8-characters-on-windows"></a>Windows 上的 UTF-8 字元

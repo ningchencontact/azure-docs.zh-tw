@@ -1,17 +1,17 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的記錄
-description: 適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中記錄設定、儲存和分析的概念
+title: 記錄-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
+description: 描述適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的記錄設定、儲存和分析
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 9e8b1d08e950849773c9d8413c3ba4188d257d5b
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 87f79f0ed21ec1f6a550c47f9f60d18511883300
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965938"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768209"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的記錄
 適用於 PostgreSQL 的 Azure 資料庫可讓您設定和存取 Postgres 的標準記錄。 記錄可用來識別、疑難排解和修復設定錯誤和效能較佳。 您可以設定和存取的記錄資訊包括錯誤、查詢資訊、自動資料清理記錄、連接和檢查點。 （不提供交易記錄檔的存取權）。

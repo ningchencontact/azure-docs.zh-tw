@@ -1,17 +1,17 @@
 ---
-title: 適用於 MySQL 的 Azure 資料庫中的效能建議
+title: 效能建議-適用於 MySQL 的 Azure 資料庫
 description: 本文說明中的效能建議功能適用於 MySQL 的 Azure 資料庫
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 1371b286f5e9bd82345e17c11e910c68fac9fed2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: f957459cf20a018ae53ba6ec90fb478dd0c69044
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603155"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770895"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的效能建議
 
@@ -25,7 +25,7 @@ ms.locfileid: "73603155"
 
 ## <a name="performance-recommendations"></a>效能建議
 
-[效能建議](concepts-performance-recommendations.md)功能可分析整部伺服器的工作負載，來找出可能會改善效能的索引。
+[效能建議](concepts-performance-recommendations.md)功能可分析整部伺服器的工作負載，來找出可能可以改善效能的索引。
 
 在 MySQL 伺服器的 [Azure 入口網站] 頁面上，從功能表列的 [**智慧效能**] 區段開啟 [**效能建議**]。
 

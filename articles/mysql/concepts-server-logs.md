@@ -1,17 +1,17 @@
 ---
-title: 適用於 MySQL 的 Azure 資料庫中的伺服器記錄
+title: 緩慢查詢記錄-適用於 MySQL 的 Azure 資料庫
 description: 描述適用於 MySQL 的 Azure 資料庫中可用的緩慢查詢記錄，以及啟用不同記錄層級的可用參數。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 90f3e80c92cd4409a77d4661462ae027c535eaf7
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: cd0d09e4d46747b7f3f8e6fb714dd711beef9484
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434294"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770829"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的緩慢查詢記錄
 在適用於 MySQL 的 Azure 資料庫中，使用者可以使用慢速查詢記錄。 不支援存取交易記錄。 慢速查詢記錄檔可以用來找出效能瓶頸，以進行疑難排解。
@@ -23,7 +23,7 @@ ms.locfileid: "72434294"
 
 在 Azure 入口網站中，選取適用於 MySQL 的 Azure 資料庫伺服器。 在 [監視] 標題下方，選取 [伺服器記錄] 頁面。
 
-如需 Azure CLI 的詳細資訊，請參閱[使用 Azure CLI 設定和存取伺服器記錄](howto-configure-server-logs-in-cli.md)。
+如需 Azure CLI 的詳細資訊，請參閱[使用 Azure CLI 設定和存取緩慢查詢記錄](howto-configure-server-logs-in-cli.md)。
 
 ## <a name="log-retention"></a>記錄保留
 記錄最多可以從建立開始算起保留七天。 如果可用記錄的大小總計超過 7 GB，則除非有空間可用，否則會刪除最舊檔案。 
@@ -41,7 +41,7 @@ ms.locfileid: "72434294"
 - **log_throttle_queries_not_using_indexes**：這個參數會限制可寫入至慢速查詢記錄的非索引查詢次數。 log_queries_not_using_indexes 設為 ON 時，這個參數會生效。
 
 > [!Note]
-> 若為 `sql_text`，如果記錄檔超過2048個字元，則會被截斷。
+> 對於 `sql_text`，如果記錄檔超過2048個字元，則會被截斷。
 
 如需慢速查詢記錄參數的完整描述，請參閱 MySQL [慢速查詢記錄文件](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)。
 

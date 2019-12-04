@@ -1,17 +1,17 @@
 ---
-title: 適用於 MySQL 的 Azure 資料庫伺服器防火牆規則
+title: 防火牆規則-適用於 MySQL 的 Azure 資料庫
 description: 瞭解如何使用防火牆規則來啟用適用於 MySQL 的 Azure 資料庫伺服器的連接。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: 434ecbcf5158009b8e74ae392aeea95b5ea8b281
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.date: 12/02/2019
+ms.openlocfilehash: 6b78c3ffa11d481c77f393bbbd156f2ba76f36e0
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72963446"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770283"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>適用於 MySQL 的 Azure 資料庫伺服器防火牆規則
 防火牆會防止對您資料庫伺服器的所有存取，直到您指定哪些電腦擁有權限。 此防火牆會根據每一個要求的來源 IP 位址來授與伺服器存取權。

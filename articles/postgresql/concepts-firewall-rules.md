@@ -1,17 +1,17 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫中的防火牆規則-單一伺服器
-description: 本文說明適用於 PostgreSQL 的 Azure 資料庫單一伺服器的防火牆規則。
+title: 防火牆規則-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
+description: 本文說明如何使用防火牆規則來連接到適用於 PostgreSQL 的 Azure 資料庫單一伺服器。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 6b4896d78bcc6e9fc1f5d9cd47e60e3df7eba325
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 28c8bccaf6be49b7220a32c781b79f106ad86e52
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965272"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768634"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫中的防火牆規則-單一伺服器
 適用於 PostgreSQL 的 Azure 資料庫伺服器防火牆會防止所有對資料庫伺服器的存取，直到您指定哪些電腦擁有許可權為止。 此防火牆會根據每一個要求的來源 IP 位址來授與伺服器存取權。

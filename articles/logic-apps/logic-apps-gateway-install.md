@@ -1,20 +1,17 @@
 ---
-title: 安裝內部部署資料閘道-Azure Logic Apps
+title: 安裝內部部署資料閘道
 description: 您必須先下載並安裝內部部署資料閘道，才能從 Azure Logic Apps 存取內部部署資料
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: arthii, LADocs
+ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: e1e56d18b0874a724849e28092ed46892a1b5519
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 9f933a9ad63af11bcfee7c90f17318f5a237b962
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326383"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792089"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
@@ -29,7 +26,7 @@ ms.locfileid: "74326383"
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 帳戶和訂用帳戶。 如果您沒有訂用帳戶的 Azure 帳戶，請[註冊免費的 azure 帳戶](https://azure.microsoft.com/free/)。
 

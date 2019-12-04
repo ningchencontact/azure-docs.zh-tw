@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 9aa41e63c275737874d57ba016e297a64f3eb124
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5219ff94b29d4fd02edb8567ae59884ced07b37e
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823011"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791362"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>商業 marketplace 交易功能和考慮
 
@@ -66,7 +66,7 @@ ms.locfileid: "73823011"
 
 * 隨用隨付：軟體授權費用會依使用的 Azure 基礎結構，呈現為每小時、每核心 (vCPU) 費率。 這只適用於虛擬機器和 Azure 應用程式。
 
-* •訂用帳戶定價：軟體授權費用會以每月或每年為單位，以固定費率或每個基座計費的週期性費用呈現。 這僅適用于 SaaS 應用程式和 Azure 應用程式管理的應用程式。
+* 訂用帳戶定價：軟體授權費用會以每月或每年為單位，以固定費率或每個基座計費的週期性費用呈現。 這僅適用于 SaaS 應用程式和 Azure 應用程式管理的應用程式。
 
 * 軟體免費試用版：30 天或 90 天軟體授權不收費。
 
@@ -89,7 +89,7 @@ Microsoft 可讓客戶訂購、授權及使用發行者軟體，叢集 Microsoft
 
 除了使用供應專案類型和計費模式來銷售供應專案，發行者還可以交易私人供應專案，並透過談判、交易特定定價或自訂設定完成。 所有 3 個交易發行選項都支援私人供應項目。
 
-此選項允許的價格高於或低於公開提供的供應專案。 私人供應項目可用於為供應項目折扣或加入進階功能。 藉由將客戶的 Azure 訂用帳戶加入供應項目層級的白名單，他們就能取得私人供應項目。
+此選項允許的價格高於或低於公開提供的供應專案。 私人供應項目可用於為供應項目折扣或加入進階功能。 藉由將客戶的 Azure 訂用帳戶加入供應項目層級的允許清單，他們就能取得私人供應項目。
 
 
 ### <a name="examples"></a>範例
@@ -163,7 +163,7 @@ Microsoft 可讓客戶訂購、授權及使用發行者軟體，叢集 Microsoft
 
 例如，如果客戶使用信用卡購買：
 
-|說明    |    日期  |
+|描述    |    日期  |
 |----------|----------|
 |訂單期間   | 2018 年 8 月 15 日 - 2018 年 8 月 30 日 |
 |期間結束 (月)   | 2018 年 8 月 30 日 |
@@ -177,7 +177,7 @@ Microsoft 可讓客戶訂購、授權及使用發行者軟體，叢集 Microsoft
 
 如果客戶使用 Enterprise 合約購買：
 
-| 說明 |    日期  |
+| 描述 |    日期  |
 |----------|----------|
 |訂單期間 | 2018 年 8 月 15 日 - 2018 年 8 月 30 日 |
 |期間結束 (季) | 2018 年 9 月 30 日 |

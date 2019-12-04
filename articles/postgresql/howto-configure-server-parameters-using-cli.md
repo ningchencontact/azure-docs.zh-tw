@@ -1,24 +1,24 @@
 ---
-title: 服務中設定參數 Azure Database for PostgreSQL-單一伺服器
-description: 本文說明如何在服務中設定參數 Azure Database for PostgreSQL-使用 Azure CLI 命令列的單一伺服器。
+title: 設定參數-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
+description: 本文說明如何使用 Azure CLI 在適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中設定 Postgres 參數。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: f276247076438a03973148b5cf65ddbeb409b024
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 4e029428a3709bacdbcd50a6ac3714e730377242
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274770"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763618"
 ---
-# <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>自訂 Azure Database for PostgreSQL-使用 Azure CLI 的單一伺服器伺服器設定參數
+# <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>使用 Azure CLI 為適用於 PostgreSQL 的 Azure 資料庫-單一伺服器自訂伺服器設定參數
 您可以使用命令列介面 (Azure CLI)，來列出、顯示和更新 Azure PostgreSQL 伺服器的設定參數。 有一部分的引擎設定會在伺服器層級公開而且可供修改。 
 
 ## <a name="prerequisites"></a>必要條件
-若要逐步執行本作法指南，您需要︰
+若要逐步執行本作法指南，您需要：
 - 遵循[建立適用於 PostgreSQL 的 Azure 資料庫](quickstart-create-server-database-azure-cli.md)，來建立適用於 PostgreSQL 的 Azure 資料庫伺服器和資料庫。
 - 在電腦上安裝 [Azure CLI](/cli/azure/install-azure-cli) 命令列介面，或透過您的瀏覽器在 Azure 入口網站中使用 [Azure Cloud Shell](../cloud-shell/overview.md)。
 
@@ -50,5 +50,5 @@ az postgres server configuration set --name log_min_messages --resource-group my
 這會將 **log\_min\_messages** 設定重設為預設值 **WARNING**。 如需伺服器設定和允許值的詳細資訊，請參閱有關[伺服器設定](https://www.postgresql.org/docs/9.6/static/runtime-config.html) \(英文\) 的 PostgreSQL 文件。
 
 ## <a name="next-steps"></a>後續步驟
-- [了解如何重新啟動伺服器](howto-restart-server-cli.md)
+- [瞭解如何重新開機伺服器](howto-restart-server-cli.md)
 - 若要設定及存取伺服器記錄，請參閱[適用於 PostgreSQL 的 Azure 資料庫中的伺服器記錄](concepts-server-logs.md)

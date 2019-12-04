@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: ae645f15672693466ba87f2364c756ed164ce629
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 795661912633f0d225aef4de8ea7620a8766e096
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669175"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766985"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure 資訊安全中心的資料收集
 資訊安全中心會從您的 Azure 虛擬機器（Vm）、虛擬機器擴展集、IaaS 容器和非 Azure （包括內部部署）電腦收集資料，以監視是否有安全性弱點和威脅。 系統會使用 Log Analytics 代理程式來收集資料，這會從電腦讀取各種安全性相關設定和事件記錄，並將資料複製到您的工作區進行分析。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄 (Windows 事件記錄)、執行中程序、電腦名稱、IP 位址和已登入的使用者。 Log Analytics 代理程式也會將損毀傾印檔案複製到您的工作區。
@@ -304,7 +304,12 @@ ms.locfileid: "74669175"
 -  若要識別監視代理程式網路需求，請參閱[針對監視代理程式網路需求進行疑難排解](security-center-troubleshooting-guide.md#mon-network-req)。
 -   若要識別手動上架問題，請參閱[如何針對 Operations Management Suite 上架問題進行疑難排解](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)。
 
-- 若要找出未受監視的 VM 和電腦問題，請參閱[未受監視的 VM 和電腦](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers)。
+- 若要找出未受監視的 Vm 和電腦問題：
+
+    如果機器未執行 Microsoft Monitoring Agent 擴充功能，VM 或電腦就不會由資訊安全中心監視。 機器可能已安裝本機代理程式，例如 OMS 直接代理程式或 System Center Operations Manager 代理程式。 具有這些代理程式的機器會識別為未受監視，因為資訊安全中心無法完整支援這些代理程式。 若要能完整享有資訊安全中心的所有功能，則需要 Microsoft Monitoring Agent 擴充功能。
+
+    如需資訊安全中心無法成功監視已初始化進行自動布建之 Vm 和電腦的原因詳細資訊，請參閱[監視代理程式健康情況問題](security-center-troubleshooting-guide.md#mon-agent)。
+
 
 ## <a name="next-steps"></a>後續步驟
 本文說明資料收集和自動佈建如何在資訊安全中心運作。 如要深入了解資訊安全中心，請參閱下列主題：

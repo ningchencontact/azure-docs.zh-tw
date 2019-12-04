@@ -40,6 +40,8 @@
       href: virtual-wan-custom-ipsec-portal.md
     - name: 設定使用者 VPN 的憑證 (點對站)
       href: certificates-point-to-site.md
+    - name: 設定適用於使用者 VPN 的 Azure AD 驗證 (預覽)
+      href: virtual-wan-point-to-site-azure-ad.md
     - name: 設定自動化 (虛擬 WAN 夥伴)
       href: virtual-wan-configure-automation-providers.md
     - name: 設定路由

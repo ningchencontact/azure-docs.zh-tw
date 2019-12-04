@@ -1,25 +1,18 @@
 ---
-title: 處理大型訊息 - Azure Logic Apps | Microsoft Docs
+title: 處理大型訊息
 description: 了解如何在 Azure Logic Apps 中利用區塊化處理大型訊息大小
 services: logic-apps
-documentationcenter: ''
+ms.suite: integration
 author: shae-hurst
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang: ''
-ms.tgt_pltfrm: ''
+ms.author: shhurst
 ms.topic: article
 ms.date: 4/27/2018
-ms.author: shhurst
-ms.openlocfilehash: ed086c4c36711f92ba654a64856b43a5fdaadf5f
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: e583bf53021d772db54c30ed5a4c9ea2a029e093
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989913"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792014"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>在 Azure Logic Apps 中利用區塊化處理大型訊息
 
@@ -117,18 +110,18 @@ GET 要求將 "Range" 標頭設定為 "bytes=0-1023"，這是位元組範圍。 
 
 1. 您的邏輯應用程式送包含空白訊息本文的起始 HTTP POST 或 PUT 要求。 要求標頭會包含此資訊，提其您邏輯應用程式想要以區塊上傳的內容：
 
-   | Logic Apps 要求標頭欄位 | 值 | Type | 描述 |
+   | Logic Apps 要求標頭欄位 | Value | Type | 描述 |
    |---------------------------------|-------|------|-------------|
    | **x-ms-transfer-mode** | chunked | String | 指出內容以區塊上傳 |
-   | **x-ms-content-length** | <*content-length*> | Integer | 進行區塊化前的所有內容大小 (位元組) |
+   | **x-ms-content-length** | <*content-length*> | 整數 | 進行區塊化前的所有內容大小 (位元組) |
    ||||
 
 2. 端點回應 "200" 成功狀態碼和此選擇性資訊：
 
    | 端點回應標頭欄位 | Type | 必要項 | 描述 |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Integer | 否 | 建議的區塊大小 (位元組) |
-   | **Location** | String | 是 | 傳送 HTTP PATCH 訊息的 URL 位置 |
+   | **x-ms-chunk-size** | 整數 | 否 | 建議的區塊大小 (位元組) |
+   | **位置** | String | 是 | 傳送 HTTP PATCH 訊息的 URL 位置 |
    ||||
 
 3. 您的邏輯應用程式建立並傳送後續 HTTP PATCH 訊息，每項訊息都帶有此資訊：
@@ -137,19 +130,19 @@ GET 要求將 "Range" 標頭設定為 "bytes=0-1023"，這是位元組範圍。 
 
    * 這些與內容區塊相關的標題詳細資料會在各個 PATCH 訊息中傳出：
 
-     | Logic Apps 要求標頭欄位 | 值 | Type | 描述 |
+     | Logic Apps 要求標頭欄位 | Value | Type | 描述 |
      |---------------------------------|-------|------|-------------|
      | **Content-Range** | <*range*> | String | 目前內容區塊的位元組範圍，包含開始值、結束值和內容大小總計，例如："bytes=0-1023/10100" |
      | **Content-Type** | <*content-type*> | String | 分塊內容的類型 |
      | **Content-Length** | <*content-length*> | String | 目前區塊的大小長度 (位元組) |
      |||||
 
-4. 在每個修補程式要求之後, 端點會回應 "200" 狀態碼和下列回應標頭, 以確認每個區塊的接收:
+4. 在每個修補程式要求之後，端點會回應 "200" 狀態碼和下列回應標頭，以確認每個區塊的接收：
 
    | 端點回應標頭欄位 | Type | 必要項 | 描述 |
    |--------------------------------|------|----------|-------------|
-   | **Range** | String | 是 | 端點已接收之內容的位元組範圍, 例如: "bytes = 0-1023" |   
-   | **x-ms-chunk-size** | Integer | 否 | 建議的區塊大小 (位元組) |
+   | **Range** | String | 是 | 端點已接收之內容的位元組範圍，例如： "bytes = 0-1023" |   
+   | **x-ms-chunk-size** | 整數 | 否 | 建議的區塊大小 (位元組) |
    ||||
 
 舉例來說，這項動作定義呈現了將分塊內容傳送至端點的 HTTP POST 要求。 在動作的 `runTimeConfiguration` 屬性中，`contentTransfer` 屬性將 `transferMode` 設定為 `chunked`：

@@ -3,12 +3,12 @@ title: 在容器群組中啟用受控識別
 description: 瞭解如何在 Azure 容器實例中啟用可向其他 Azure 服務進行驗證的受控識別
 ms.topic: article
 ms.date: 10/22/2018
-ms.openlocfilehash: b5546e8c4b512b584a57e8e4c2ff46c52ab856a0
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: ccf754fac0d884c8a2af9db01578f97b73d54ac4
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533686"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776505"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>如何搭配 Azure 容器執行個體使用受控識別
 
@@ -31,7 +31,7 @@ ms.locfileid: "74533686"
 您可以在執行中的容器使用受控身分識別，向任何[支援 Azure AD 驗證的服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)進行驗證，而無須在您的容器程式碼中管理認證。 針對不支援 AD 驗證的服務，您可以將祕密儲存在 Azure Key Vault 中，並使用受控識別來存取 Key Vault 以擷取認證。 如需有關使用受控識別的詳細資訊，請參閱[什麼是適用於 Azure 資源的受控識別？](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
-> 此功能目前為預覽狀態。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。 目前，只有在 Linux 容器執行個體上才支援受控識別。
+> 此功能目前為預覽狀態。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。 目前，Azure 容器實例上的受控識別僅支援 Linux 容器，但尚未與 Windows 容器搭配使用。
 >  
 
 ### <a name="enable-a-managed-identity"></a>啟用受控識別

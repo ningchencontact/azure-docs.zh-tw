@@ -1,23 +1,23 @@
 ---
-title: 從 Azure 入口網站設定和存取適用於 MySQL 的 Azure 資料庫中的緩慢查詢記錄
+title: 存取緩慢查詢記錄-Azure 入口網站適用於 MySQL 的 Azure 資料庫
 description: 本文說明如何從 Azure 入口網站設定和存取適用於 MySQL 的 Azure 資料庫中的緩慢記錄。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 7eeeb729973e484e9acb26f3ac8cc42693f72eea
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.date: 12/02/2019
+ms.openlocfilehash: 52d219a94676e0f1ce4ceac31b0b50c9d36665ba
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841595"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770572"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>從 Azure 入口網站設定和存取緩慢查詢記錄
 
 您可以從 Azure 入口網站設定、列出和下載[適用於 MySQL 的 Azure 資料庫慢速查詢記錄](concepts-server-logs.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文中的步驟需要您擁有[適用於 MySQL 的 Azure 資料庫 server](quickstart-create-mysql-server-database-using-azure-portal.md)。
 
 ## <a name="configure-logging"></a>設定記錄

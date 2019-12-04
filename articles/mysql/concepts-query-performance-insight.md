@@ -1,17 +1,17 @@
 ---
-title: 適用於 MySQL 的 Azure 資料庫中的查詢效能深入解析
+title: 查詢效能深入解析-適用於 MySQL 的 Azure 資料庫
 description: 本文說明中的查詢效能深入解析功能適用於 MySQL 的 Azure 資料庫
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 38299a8ffd72722c2d2c1dda9227b7fbf76c0386
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: 762353cbc276eb78868c46bbfde4789e792f6d85
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603116"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775983"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的查詢效能深入解析
 
@@ -19,7 +19,7 @@ ms.locfileid: "73603116"
 
 查詢效能深入解析可協助您快速找出執行時間最長的查詢、一段時間後的變化情形，以及受到哪些等候的影響。
 
-## <a name="common-scenarios"></a>常見案例
+## <a name="common-scenarios"></a>一般狀況
 
 ### <a name="long-running-queries"></a>長時間執行的查詢
 

@@ -1,17 +1,17 @@
 ---
-title: 適用於 MySQL 的 Azure 資料庫中的伺服器概念
+title: 伺服器概念-適用於 MySQL 的 Azure 資料庫
 description: 本主題提供使用適用於 MySQL 之 Azure 資料庫伺服器的考量和指導方針。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 565e1bf7a4972e230b3cf56232ebd24519fcab5c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 12/02/2019
+ms.openlocfilehash: 9a2e2eb022d96af1437ea4189d11f5fa69339325
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525857"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769994"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的伺服器概念
 

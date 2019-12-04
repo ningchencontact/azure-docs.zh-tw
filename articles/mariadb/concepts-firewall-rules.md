@@ -1,17 +1,17 @@
 ---
-title: 適用於 MariaDB 的 Azure 資料庫伺服器防火牆規則
+title: 防火牆規則-適用於 MariaDB 的 Azure 資料庫
 description: 瞭解如何使用防火牆規則來啟用適用於 MariaDB 的 Azure 資料庫伺服器的連接。
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: 82e07edc615fd8c1ef0ebc84cf57035727bbcdf6
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.date: 12/02/2019
+ms.openlocfilehash: 5efde68469df1780214fee98cf2be44775acdc35
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965253"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772671"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>適用於 MariaDB 的 Azure 資料庫伺服器防火牆規則
 防火牆會防止對您資料庫伺服器的所有存取，直到您指定哪些電腦擁有權限。 此防火牆會根據每一個要求的來源 IP 位址來授與伺服器存取權。

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: a45f273078a622de5e256457fc45b6cb6cae512f
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 4c0c415235fd290bc47ac402a6b81a1afa7af903
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464134"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74777429"
 ---
-# <a name="remove-azure-sentinel-from-your-tenant"></a>從您的租使用者移除 Azure Sentinel
+# <a name="remove-azure-sentinel-from-your-workspace"></a>從您的工作區移除 Azure Sentinel
 
-如果您不想再使用 Azure Sentinel，本文會說明如何將它從您的租使用者中移除。
+如果您不想再使用 Azure Sentinel，本文會說明如何從您的工作區中移除它。
 
 ## <a name="how-to-delete-azure-sentinel"></a>如何刪除 Azure Sentinel
 

@@ -1,17 +1,17 @@
 ---
-title: 管理適用於 MySQL 的 Azure 資料庫-Azure 入口網站
+title: 管理伺服器-Azure 入口網站-適用於 MySQL 的 Azure 資料庫
 description: 瞭解如何從 Azure 入口網站管理適用於 MySQL 的 Azure 資料庫伺服器。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 286209673e5743d08ddaa2fed2f507f84d622ea6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/02/2019
+ms.openlocfilehash: 553234410a7b8b798d26f0e2fee6132a2602b1cc
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533987"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770504"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>使用 Azure 入口網站管理適用於 MySQL 的 Azure 資料庫伺服器
 本文說明如何管理適用于 MySQL 伺服器的 Afire 資料庫。 管理工作包括計算和儲存體調整、系統管理員密碼重設，以及查看伺服器詳細資料。

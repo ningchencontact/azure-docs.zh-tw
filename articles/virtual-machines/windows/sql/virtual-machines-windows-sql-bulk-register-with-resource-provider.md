@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 97541484501a3ecdd1bd5998314c1ee9e7a4e3a5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4ee9d651e1ec7807d191bc3393c0c280ce1e52f9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489070"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790544"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>在 Azure 中使用 SQL VM 資源提供者大量註冊 SQL 虛擬機器
 
@@ -214,7 +214,7 @@ Please find the detailed report in  file RegisterSqlVMScriptReport1571314821.txt
 | 因未在 Windows 上執行 SQL Server 而略過的 Vm 數目 | 因為未執行 SQL Server 或不是 Windows 虛擬機器而略過的虛擬機器計數。 虛擬機器會以 `SubscriptionID, Resource Group, Virtual Machine`的格式列出。 | 
 | &nbsp; | &nbsp; |
 
-### <a name="log"></a>記錄檔 
+### <a name="log"></a>記錄 
 
 錯誤會記錄在名為 `VMsNotRegisteredDueToError<Timestamp>.log` 的記錄檔中，其中 timestamp 是腳本啟動的時間。 如果錯誤是在訂用帳戶層級，則記錄檔會包含以逗號分隔的 SubscriptionID 和錯誤訊息。 如果此錯誤與虛擬機器註冊有關，記錄檔會包含訂用帳戶識別碼、資源組名、虛擬機器名稱、錯誤碼和訊息（以逗號分隔）。 
 
@@ -222,7 +222,7 @@ Please find the detailed report in  file RegisterSqlVMScriptReport1571314821.txt
 
 當您使用提供的腳本向資源提供者註冊 SQL Server Vm 時，請考慮下列事項：
 
-- 向資源提供者註冊需要在 SQL Server VM 上執行來賓代理程式。 Windows Server 2008 映射沒有來賓代理程式，因此這些虛擬機器將會失敗，而且必須使用[NoAgent 管理模式](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms)手動註冊。
+- 向資源提供者註冊需要在 SQL Server VM 上執行來賓代理程式。 Windows Server 2008 映射沒有來賓代理程式，因此這些虛擬機器將會失敗，而且必須使用[NoAgent 管理模式](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes)手動註冊。
 - 有內建的重試邏輯可克服透明錯誤。 如果虛擬機器已成功註冊，則它是快速的操作。 不過，如果註冊失敗，則會重試每部虛擬機器。  因此，您應該允許很長的時間完成註冊程式，不過實際時間需求取決於錯誤的類型和數目。 
 
 ## <a name="full-script"></a>完整指令碼

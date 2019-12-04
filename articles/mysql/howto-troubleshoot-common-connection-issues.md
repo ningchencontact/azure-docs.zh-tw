@@ -1,18 +1,18 @@
 ---
-title: 針對適用於 MySQL 的 Azure 資料庫的連線問題進行疑難排解
+title: 疑難排解連接問題-適用於 MySQL 的 Azure 資料庫
 description: 瞭解如何對適用於 MySQL 的 Azure 資料庫的連線問題進行疑難排解，包括需要重試、防火牆問題和中斷的暫時性錯誤。
 keywords: mysql 連線, 連接字串, 連線問題, 暫時性錯誤, 連線錯誤
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 11/09/2018
-ms.openlocfilehash: a0203ceeb36352a16814345f5ecdff8271691fd0
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 8c1c521488270ff0bfe3b306470345bc2cd885ce
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972836"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773525"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>針對適用於 MySQL 的 Azure 資料庫的連線問題進行疑難排解
 
@@ -46,9 +46,9 @@ ms.locfileid: "71972836"
 
 如果應用程式持續無法連線到「適用於 MySQL 的 Azure 資料庫」，通常表示是下列其中一項發生問題︰
 
-* 伺服器防火牆設定：請確定適用於 MySQL 的 Azure 資料庫的伺服器防火牆已設定為允許來自用戶端的連線，包括 Proxy 伺服器與閘道。
-* 用戶端防火牆設定：用戶端上的防火牆必須允許和資料庫伺服器連線。 也必須允許您無法連到的伺服器 IP 位址和連接埠，在某些防火牆中，還要允許應用程式名稱，例如 MySQL。
-* 使用者錯誤：您可能輸入錯誤的連接參數，例如連接字串中的伺服器名稱，或使用者名稱中遺漏的 *@no__t 1servername*尾碼。
+* 伺服器防火牆設定：確定已將適用於 MySQL 的 Azure 資料庫伺服器防火牆設為允許來自用戶端的連線，包括 proxy 伺服器和閘道。
+* 用戶端防火牆設定：用戶端上的防火牆必須允許連接到您的資料庫伺服器。 也必須允許您無法連到的伺服器 IP 位址和連接埠，在某些防火牆中，還要允許應用程式名稱，例如 MySQL。
+* 使用者錯誤：您可能輸入錯誤的連接參數，例如連接字串中的伺服器名稱，或使用者名稱中遺漏的 *\@servername*尾碼。
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>解決永久性連線問題的步驟
 

@@ -1,21 +1,17 @@
 ---
-title: 資料作業範例-Azure Logic Apps
+title: 資料作業範例
 description: Azure Logic Apps 中資料作業動作的程式碼範例
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
-ms.topic: reference
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
 ms.date: 09/01/2019
-ms.openlocfilehash: d692d943249c9fc6b46ed6eb1ddff3f07152f5b6
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: d59e461fab52bddf9cb1f881d52a751931c7312b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179165"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793080"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>適用於 Azure Logic Apps 的資料作業程式碼範例
 
@@ -25,7 +21,7 @@ ms.locfileid: "71179165"
 
 <a name="compose-action-example"></a>
 
-## <a name="compose"></a>編輯
+## <a name="compose"></a>撰寫
 
 若要嘗試[**撰寫**動作範例](../logic-apps/logic-apps-perform-data-operations.md#compose-action)，以下是您可以使用的動作定義：
 
@@ -226,7 +222,7 @@ ms.locfileid: "71179165"
 
 <a name="join-action-example"></a>
 
-## <a name="join"></a>加入
+## <a name="join"></a>聯結
 
 若要嘗試[**加入**動作範例](../logic-apps/logic-apps-perform-data-operations.md#join-action)，以下是您可以使用的動作定義：
 
@@ -326,7 +322,7 @@ ms.locfileid: "71179165"
 
 <a name="select-action-example"></a>
 
-## <a name="select"></a>Select
+## <a name="select"></a>選取
 
 若要嘗試[**選取**動作範例](../logic-apps/logic-apps-perform-data-operations.md#select-action)，以下是您可以使用的動作定義：
 

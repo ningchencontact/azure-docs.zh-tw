@@ -1,21 +1,21 @@
 ---
-title: 在適用於 MariaDB 的 Azure 資料庫中建立及管理讀取複本
+title: 管理讀取複本-Azure 入口網站適用於 MariaDB 的 Azure 資料庫
 description: 本文說明如何使用入口網站來設定和管理適用於 MariaDB 的 Azure 資料庫中的讀取複本
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: cceb1814089436efe4d4f9352f40f24d6eae790d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.date: 12/02/2019
+ms.openlocfilehash: 7e290e6d773485b84ef42c7a79abf084e3b0da9f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123602"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765931"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>如何使用 Azure 入口網站在適用於 MariaDB 的 Azure 資料庫中建立及管理讀取複本
 
-在本文中, 您將瞭解如何使用 Azure 入口網站, 在適用於 MariaDB 的 Azure 資料庫服務中建立及管理讀取複本。
+在本文中，您將瞭解如何使用 Azure 入口網站，在適用於 MariaDB 的 Azure 資料庫服務中建立及管理讀取複本。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -61,11 +61,11 @@ ms.locfileid: "71123602"
 ## <a name="stop-replication-to-a-replica-server"></a>停止複寫至複本伺服器
 
 > [!IMPORTANT]
-> 停止複寫至伺服器是無法復原的。 一旦停止主要與複本伺服器之間進行複寫，便無法復原。 複本伺服器會變成獨立伺服器，進而支援讀取和寫入。 此伺服器無法再次設定為複本伺服器。
+> 停止複寫至伺服器是無法復原的。 一旦停止主要與複本伺服器之間進行複寫，便無法復原。 複本伺服器會變成獨立伺服器，進而支援讀取和寫入。 此伺服器無法再次設定為複本。
 
 若要從 Azure 入口網站停止主要和複本伺服器之間的複寫，請使用下列步驟：
 
-1. 在 Azure 入口網站中, 選取您的主要適用於 MariaDB 的 Azure 資料庫伺服器。 
+1. 在 Azure 入口網站中，選取您的主要適用於 MariaDB 的 Azure 資料庫伺服器。 
 
 2. 選取 [設定] 下方功能表中的 [複寫]。
 
@@ -85,7 +85,7 @@ ms.locfileid: "71123602"
 
 若要從 Azure 入口網站刪除讀取複本伺服器，請使用下列步驟：
 
-1. 在 Azure 入口網站中, 選取您的主要適用於 MariaDB 的 Azure 資料庫伺服器。
+1. 在 Azure 入口網站中，選取您的主要適用於 MariaDB 的 Azure 資料庫伺服器。
 
 2. 選取 [設定] 下方功能表中的 [複寫]。
 
@@ -108,7 +108,7 @@ ms.locfileid: "71123602"
 
 若要從 Azure 入口網站刪除主要伺服器，請使用下列步驟：
 
-1. 在 Azure 入口網站中, 選取您的主要適用於 MariaDB 的 Azure 資料庫伺服器。
+1. 在 Azure 入口網站中，選取您的主要適用於 MariaDB 的 Azure 資料庫伺服器。
 
 2. 從 [概觀] 中選取 [刪除]。
 
@@ -120,7 +120,7 @@ ms.locfileid: "71123602"
 
 ## <a name="monitor-replication"></a>監視複寫
 
-1. 在  [Azure 入口網站](https://portal.azure.com/)中, 選取您要監視的複本適用於 MariaDB 的 Azure 資料庫伺服器。
+1. 在  [Azure 入口網站](https://portal.azure.com/)中，選取您要監視的複本適用於 MariaDB 的 Azure 資料庫伺服器。
 
 2. 在提要欄位的 [監視] 區段下方，選取 [計量]：
 

@@ -1,22 +1,18 @@
 ---
-title: 連接到 SQL Server 或 Azure SQL Database Azure Logic Apps
+title: 連接到 SQL Server 或 Azure SQL Database
 description: 使用 Azure Logic Apps 將內部部署或雲端中 SQL 資料庫的工作自動化
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam; LADocs
-manager: carmonm
+ms.reviewer: klam; logicappspm
 ms.topic: conceptual
-tags: connectors
 ms.date: 11/08/2019
-ms.openlocfilehash: a6367e5897e9bd548550b099c0bd2e6186845d6d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+tags: connectors
+ms.openlocfilehash: 93b63d332f00c31a352c11e483fc3ce5cb45a922
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826306"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789185"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 將 SQL Server 或 Azure SQL Database 的工作流程自動化
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 29014674cee4d6498ca7b56582313265da886122
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: eb44163922e318d17d675143ca2d6a3a1fa4ed75
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083660"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793314"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>使用 Azure CLI 建立具有加速網路的 Linux 虛擬機器
 
@@ -35,7 +35,7 @@ ms.locfileid: "74083660"
 
 加速網路的優點只適用於已啟用此功能的 VM。 為了獲得最佳結果，最好在至少兩部連線到相同 Azure 虛擬網路 (VNet) 的虛擬機器上啟用此功能。 當透過 VNet 通訊或連線內部部署時，此功能對整體延遲的影響可以降到最低。
 
-## <a name="benefits"></a>優點
+## <a name="benefits"></a>優勢
 * **較低的延遲 / 較高的每秒封包數目 (pps)：** 從資料路徑移除虛擬交換器會減少主機中封包在處理原則時所花的時間，並增加 VM 內可處理的封包數目。
 * **減少抖動︰** 虛擬交換器處理視需要套用的原則數量和正在進行處理的 CPU 工作負載而定。 將原則強制執行卸載到硬體透過將封包直接傳遞到 VM、移除主機到 VM 的通訊，以及所有軟體插斷和環境切換，而減少變化。
 * **降低 CPU 使用率︰** 略過主機中的虛擬交換器可減少處理網路流量的 CPU 使用率。
@@ -62,7 +62,10 @@ ms.locfileid: "74083660"
 
 如需 VM 執行個體的詳細資訊，請參閱 [Linux VM 大小](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
-### <a name="regions"></a>區域
+### <a name="custom-images"></a>自訂映像
+如果您使用自訂映射，而且您的映射支援加速網路，請確定有必要的驅動程式可搭配 Azure 上的 Mellanox ConnectX-3 和 ConnectX-4 Lx Nic 使用。
+
+### <a name="regions"></a>地區
 適用於所有公用 Azure 區域和 Azure 政府雲端。
 
 <!-- ### Network interface creation 
@@ -84,7 +87,7 @@ removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 ## <a name="cli-creation"></a>建立 CLI
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
 
-請安裝最新的 [Azure CLI](/cli/azure/install-azure-cli) 並使用 [az login](/cli/azure/reference-index) 來登入 Azure 帳戶。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myNic* 和 *myVm*。
+請安裝最新的 [Azure CLI](/cli/azure/install-azure-cli)，並使用 [az login](/cli/azure/reference-index) 來登入 Azure 帳戶。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myNic* 和 *myVm*。
 
 使用 [az group create](/cli/azure/group) 來建立資源群組。 下列範例會在 *centralus* 位置建立名為 *myResourceGroup* 的資源群組：
 
@@ -157,7 +160,7 @@ az network nic create \
 ### <a name="create-a-vm-and-attach-the-nic"></a>建立 VM 並連結 NIC
 當您建立 VM 時，請指定您使用 `--nics` 所建立的 NIC。 選取列於 [Linux 加速網路](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview)中的大小和發行版本。 
 
-使用 [az vm create](/cli/azure/vm) 來建立 VM。 下列範例會使用 UbuntuLTS 映像建立名為 *myVM* 的 VM，以及支援加速網路的大小 (*Standard_DS4_v2*)：
+使用 [az vm create](/cli/azure/vm) 建立 VM。 下列範例會使用 UbuntuLTS 映像建立名為 *myVM* 的 VM，以及支援加速網路的大小 (*Standard_DS4_v2*)：
 
 ```azurecli
 az vm create \
@@ -189,7 +192,7 @@ az vm create \
 
 ### <a name="confirm-that-accelerated-networking-is-enabled"></a>確認加速網路已確實啟用
 
-使用下列命令來對 VM 建立 SSH 工作階段。 使用指派至您建立之虛擬機器的公用 IP 位址來取代 `<your-public-ip-address>`，如果您在建立 VM 時，為 *使用不同的值，則請取代*azureuser`--admin-username`。
+使用下列命令來對 VM 建立 SSH 工作階段。 使用指派至您建立之虛擬機器的公用 IP 位址來取代 `<your-public-ip-address>`，如果您在建立 VM 時，為 `--admin-username` 使用不同的值，則請取代 *azureuser*。
 
 ```bash
 ssh azureuser@<your-public-ip-address>

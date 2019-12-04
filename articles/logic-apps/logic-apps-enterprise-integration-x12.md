@@ -1,20 +1,19 @@
 ---
-title: 適用于 B2B 整合的 X12 訊息-Azure Logic Apps
+title: 適用于 B2B 整合的 X12 訊息
 description: 在採用 Enterprise Integration Pack 的 Azure Logic Apps 中交換適用於 B2B 企業整合的 X12 訊息 (採用 EDI 格式)
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/31/2017
-ms.openlocfilehash: 8bc5c458240925af1fdd74ebc9b2d4c3db71fb05
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 77ec5434b83c4246dc448578dcf2902e19f42e95
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679989"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792312"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>在採用 Enterprise Integration Pack 的 Azure Logic Apps 中交換適用於 B2B 企業整合的 X12 訊息
 

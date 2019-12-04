@@ -1,20 +1,19 @@
 ---
-title: B2B 案例的錯誤和解決方案 - Azure Logic Apps | Microsoft Docs
+title: 適用于 B2B 案例的錯誤和解決方案
 description: 尋找 Azure Logic Apps 中 B2B 案例的錯誤和解決方案
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
-ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 176bc3642f7c923b50cbf2f7a97096f88dc02817
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60998798"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790707"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Azure Logic Apps 的 B2B 錯誤與解決方案
 
@@ -34,7 +33,7 @@ ms.locfileid: "60998798"
 
 |   |   | 
 |---|---|
-| 錯誤說明 | 找到具有身分識別沒有協議：'AS2Identity':: 'Partner1' 和 'AS2Identity':: 'Partner3' | 
+| 錯誤說明 | 找不到具有識別身分的合約：'AS2Identity'::'Partner1' 和 'AS2Identity'::'Partner3' | 
 | 使用者動作 | 為合約設定的無效 AS2-From 或 AS2-To。 </br>以合約組態更正 AS2 訊息 "AS2-From" 或 "AS2-To" 標題或合約，以符合 AS2 訊息標題中的 AS2 識別碼。 |
 |   |   |     
 
@@ -64,7 +63,7 @@ ms.locfileid: "60998798"
 | 使用者動作 | 傳送給夥伴前，將 @base64ToBinary 新增至 AS2Message。 |
 |||
 
-例如:
+例如：
 
 ```json
 "HTTP": {
@@ -84,7 +83,7 @@ ms.locfileid: "60998798"
 | 使用者動作 | 傳送給夥伴前將 @base64ToBinary 新增至 MDN。 | 
 |||
 
-例如:
+例如：
 
 ```json
 "Response": {
@@ -145,7 +144,7 @@ ms.locfileid: "60998798"
 
 |   |   | 
 |---|---|
-| 錯誤說明 | InvalidTemplate。 無法處理範本語言運算式中的動作 'Flat_File_Decoding' 輸入位於行 '1' 與欄 '1902':' 必要屬性 'content' 需要值但收到 null。 路徑 ''.'。 |
+| 錯誤說明 | InvalidTemplate。 無法在行 '1' 與欄 '1902' 的動作 'Flat_File_Decoding' 輸入中處理範本語言運算式：'必要屬性「內容」需有值但收到 null。 路徑 ''.'。 |
 | 使用者動作 | 此錯誤表示輸入訊息未包含本文。 |
 |   |   | 
 

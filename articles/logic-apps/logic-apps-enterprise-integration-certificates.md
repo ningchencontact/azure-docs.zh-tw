@@ -1,22 +1,19 @@
 ---
-title: 使用憑證保護 B2B 訊息 - Azure Logic Apps | Microsoft Docs
+title: 使用憑證保護 B2B 訊息
 description: 使用企業整合套件在 Azure Logic Apps 中新增憑證以保護 B2B 訊息
 services: logic-apps
-ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
-manager: jeconnoc
-ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
-ms.suite: integration
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: be3dbc386b0ac89a85bc1719081df944523c28ce
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 6c5de6eba000c9052c7eb7b31d75804b9f454607
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997827"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790683"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>使用憑證保護 B2B 訊息
 
@@ -47,11 +44,11 @@ ms.locfileid: "69997827"
 
 3. 在 [憑證] 之下，選擇 [新增]。 在 [新增憑證] 之下，提供憑證的以下詳細資料。 完成時，選擇 [確定]。
 
-   | 屬性 | 值 | 描述 | 
+   | 屬性 | Value | 描述 | 
    |----------|-------|-------------|
    | **名稱** | <*certificate-name*> | 您的憑證名稱，在本例中為 "publicCert" | 
    | **憑證類型** | 公用 | 您的憑證類型 |
-   | **[MSSQLSERVER 的通訊協定內容]** | <*certificate-file-name*> | 若要尋找及選取要上傳的憑證檔案，請選擇 [憑證] 方塊旁的資料夾圖示。 |
+   | **憑證** | <*certificate-file-name*> | 若要尋找及選取要上傳的憑證檔案，請選擇 [憑證] 方塊旁的資料夾圖示。 |
    ||||
 
    ![選擇 [新增]，並提供憑證的詳細資料](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
@@ -86,11 +83,11 @@ ms.locfileid: "69997827"
 
 5. 在 [憑證] 之下，選擇 [新增]。 在 [新增憑證] 之下，提供憑證的以下詳細資料。 完成時，選擇 [確定]。
 
-   | 屬性 | 值 | 描述 | 
+   | 屬性 | Value | 描述 | 
    |----------|-------|-------------|
    | **名稱** | <*certificate-name*> | 您的憑證名稱，在本例中為 "privateCert" | 
    | **憑證類型** | 私人 | 您的憑證類型 |
-   | **[MSSQLSERVER 的通訊協定內容]** | <*certificate-file-name*> | 若要尋找及選取要上傳的憑證檔案，請選擇 [憑證] 方塊旁的資料夾圖示。 使用金鑰保存庫作為私密金鑰時, 上傳的檔案將會是公開憑證。 | 
+   | **憑證** | <*certificate-file-name*> | 若要尋找及選取要上傳的憑證檔案，請選擇 [憑證] 方塊旁的資料夾圖示。 使用金鑰保存庫作為私密金鑰時，上傳的檔案將會是公開憑證。 | 
    | **資源群組** | <*integration-account-resource-group*> | 整合帳戶的資源群組，在本例中為 "MyResourceGroup" | 
    | **金鑰保存庫** | <*key-vault-name*> | Azure 金鑰保存庫的名稱 |
    | **金鑰名稱** | <*key-name*> | 金鑰名稱 |

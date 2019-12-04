@@ -1,21 +1,18 @@
 ---
-title: 連接到 Box Azure Logic Apps
+title: 連接到 Box
 description: 使用 Box REST API 和 Azure Logic Apps 建立及管理檔案
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 5fbc64194182c41a70eb27a4049234973c39fffe
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 38e061e918d445de07961af1789891f44c59090a
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050939"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789875"
 ---
 # <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>使用 Azure Logic Apps 在 Box 中建立和管理檔案
 
@@ -34,7 +31,7 @@ ms.locfileid: "70050939"
 
 * [Box 帳戶](https://www.box.com/home)
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * 您要在其中存取 Box 帳戶的邏輯應用程式。 若要使用 Box 觸發程序啟動邏輯應用程式，您需要[空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
@@ -43,7 +40,7 @@ ms.locfileid: "70050939"
 
 ## <a name="connector-reference"></a>連接器參考
 
-如需如連接器的 OpenAPI (先前為 Swagger) 檔案所述的技術詳細資料 (例如觸發程式、動作和限制), 請參閱[連接器的參考頁面](/connectors/box/)。
+如需如連接器的 OpenAPI （先前為 Swagger）檔案所述的技術詳細資料（例如觸發程式、動作和限制），請參閱[連接器的參考頁面](/connectors/box/)。
 
 ## <a name="next-steps"></a>後續步驟
 

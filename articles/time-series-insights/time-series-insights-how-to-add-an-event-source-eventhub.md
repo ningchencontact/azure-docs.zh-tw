@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 421a4635a80c5a7a45fb14bf900c205a06789279
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: fd57231901c157ffc0d5a3d4219d827629b401f3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012610"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764141"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>新增事件中樞事件來源到您的時間序列深入解析環境
 
@@ -25,7 +25,7 @@ ms.locfileid: "74012610"
 > [!NOTE]
 > 本文中所述的步驟適用于時間序列深入解析 GA 和時間序列深入解析預覽環境。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 建立時間序列深入解析環境，如[建立 Azure 時間序列深入解析環境](./time-series-insights-update-create-environment.md)中所述。
 - 建立事件中樞。 請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。
@@ -38,13 +38,15 @@ ms.locfileid: "74012610"
 
 將新的取用者群組新增至事件中樞：
 
-1. 在[Azure 入口網站](https://portal.azure.com)中，從事件中樞命名空間找出並開啟您的事件中樞。
+1. 在[Azure 入口網站](https://portal.azure.com)中，從事件中樞命名空間的 [**總覽**] 窗格中，找出並開啟您的事件中樞實例。 **> 事件中樞**選取 [實體]，或在 [**名稱**] 下尋找您的實例。
 
-    [![開啟您的事件中樞命名空間](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-hub-namespace.png#lightbox)
+    [![開啟您的事件中樞命名空間](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png#lightbox)
 
-1. 在 [實體] 下，選取 [取用者群組]，然後選取 [取用者群組]。
+1. 在事件中樞實例中，選取 [實體] > [取用**者群組**]。 然後，選取 [ **+ 取用者群組**] 以新增新的取用者群組。 
 
-   [![事件中樞-新增取用者群組](media/time-series-insights-how-to-add-an-event-source-eventhub/2-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-event-hub-consumer-group.png#lightbox)
+   [![事件中樞-新增取用者群組](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png#lightbox)
+
+   否則，請選取現有的取用者群組，並跳至下一節。
 
 1. 在 [取用者群組] 頁面上，在 [名稱] 中輸入新的唯一值。  在時間序列深入解析環境中建立新的事件來源時，使用此相同名稱。
 
@@ -56,11 +58,11 @@ ms.locfileid: "74012610"
 
 1. 找出您的現有時間序列深入解析環境。 在左側功能表中，選取 [所有資源]，然後選取您的時間序列深入解析環境。
 
-1. 在 [環境拓撲] 下，選取 [事件來源],，然後選取 [新增]。
+1. 選取 [**事件來源**]，然後選取 [**新增**]。
 
-   [![[事件來源] 底下，選取 [新增] 按鈕](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
+   [![[事件來源] 底下，選取 [新增] 按鈕](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png#lightbox)
 
-1. 在 [事件來源名稱] 中輸入對此時間序列深入解析環境而言為唯一的值，例如 **event-stream**。
+1. 輸入此時間序列深入解析環境唯一的 [**事件來源名稱**] 值，例如 [`Contoso-TSI-GA-Event-Hub-ES`]。
 
 1. 在 [來源] 中，選取 [事件中樞]。
 
@@ -68,15 +70,15 @@ ms.locfileid: "74012610"
 
    * 若您的其中一個訂用帳戶中有現有的事件中樞，請選取 [來自可用訂閱的使用事件中樞]。 此選項是最簡單的方法。
 
-     [![選取事件來源匯入選項](media/time-series-insights-how-to-add-an-event-source-eventhub/4-select-an-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-select-an-option.png#lightbox)
+     [![選取事件來源匯入選項](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png#lightbox)
 
     *  下表說明 [來自可用訂閱的使用事件中樞] 選項的必要屬性：
 
-       [![訂用帳戶和事件中樞詳細資料](media/time-series-insights-how-to-add-an-event-source-eventhub/5-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/5-create-button.png#lightbox)
+       [![訂用帳戶和事件中樞詳細資料](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
        | 屬性 | 描述 |
        | --- | --- |
-       | 訂閱 | 所需事件中樞實例和命名空間所屬的訂用帳戶。 |
+       | Subscription | 所需事件中樞實例和命名空間所屬的訂用帳戶。 |
        | 事件中樞命名空間 | 所需事件中樞實例所屬的事件中樞命名空間。 |
        | 事件中樞名稱 | 所需事件中樞實例的名稱。 |
        | 事件中樞原則值 | 選取所需的共用存取原則。 您可以在 [事件中樞**設定**] 索引標籤上建立共用存取原則。每個共用存取原則都會有名稱、您設定的許可權，以及存取金鑰。 事件來源的共用存取原則必須有**讀取**權限。 |
@@ -88,8 +90,8 @@ ms.locfileid: "74012610"
  
        | 屬性 | 描述 |
        | --- | --- |
-       | 訂用帳戶識別碼 | 所需事件中樞實例和命名空間所屬的訂用帳戶。 |
-       | 資源群組 | 所需事件中樞實例和命名空間所屬的資源群組。 |
+       | 訂用帳戶 ID | 所需事件中樞實例和命名空間所屬的訂用帳戶。 |
+       | Resource group | 所需事件中樞實例和命名空間所屬的資源群組。 |
        | 事件中樞命名空間 | 所需事件中樞實例所屬的事件中樞命名空間。 |
        | 事件中樞名稱 | 所需事件中樞實例的名稱。 |
        | 事件中樞原則值 | 選取所需的共用存取原則。 您可以在 [事件中樞**設定**] 索引標籤上建立共用存取原則。每個共用存取原則都會有名稱、您設定的許可權，以及存取金鑰。 事件來源的共用存取原則必須有**讀取**權限。 |
@@ -101,7 +103,7 @@ ms.locfileid: "74012610"
        | --- | --- |
        | 事件中樞取用者群組 | 從事件中樞讀取事件的取用者群組。 強烈建議您使用專屬於您事件來源的取用者群組。 |
        | 事件序列化格式 | 目前，JSON 是目前唯一可用的序列化格式。 事件訊息必須是這種格式，否則無法讀取資料。 |
-       | 時間戳記屬性名稱 | 若要判斷此值，您需要了解傳送至事件中樞之訊息資料的訊息格式。 這個值是您想要使用作為事件時間戳記之訊息資料中特定事件屬性的**名稱**。 此值區分大小寫。 若保留空白，會使用事件來源內的**事件加入佇列時間**作為事件時間戳記。 |
+       | 時間戳記屬性名稱 | 若要判斷此值，您需要了解傳送至事件中樞之訊息資料的訊息格式。 這個值是您想要使用作為事件時間戳記之訊息資料中特定事件屬性的**名稱**。 此值區分大小寫。 若保留空白，會使用事件來源中的**事件加入佇列時間**作為事件時間戳記。 |
 
 1. 新增您新增至事件中樞的專用時間序列深入解析取用者群組名稱。
 
@@ -113,6 +115,6 @@ ms.locfileid: "74012610"
 
 * [定義資料存取原則](time-series-insights-data-access.md)來保護資料。
 
-* [將事件傳送](time-series-insights-send-events.md)到事件來源。
+* [傳送事件](time-series-insights-send-events.md)到事件來源。
 
 * 在[時間序列深入解析總管](https://insights.timeseries.azure.com)中存取您的環境。

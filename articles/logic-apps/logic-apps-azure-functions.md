@@ -2,19 +2,16 @@
 title: 從 Azure Logic Apps 新增和呼叫 Azure 函式
 description: 從邏輯應用程式新增和執行 Azure 函式
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.reviewer: klam, LADocs
-ms.openlocfilehash: 5b946e36c5da9f122adce1f8e3b99523a789a66f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 8e72cda1965280e0694493e533f49f71c746ebc6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901108"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792569"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>從 Azure Logic Apps 呼叫 Azure 函式
 
@@ -29,9 +26,9 @@ ms.locfileid: "73901108"
 > [!NOTE]
 > Logic Apps 和 Azure Functions 之間的整合目前不適用於已啟用的位置。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* Azure 訂閱。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * Azure 函數應用程式，這是 Azure 函式的容器，以及您的 Azure 函式。 如果您沒有函式應用程式，[請先建立該函式應用程式](../azure-functions/functions-create-first-azure-function.md)。 接著，您可以在 Azure 入口網站的邏輯應用程式之外，或從邏輯應用程式設計工具中的[邏輯應用程式內部](#create-function-designer)建立函式。
 
@@ -86,13 +83,13 @@ function convertToDateString(request, response){
 
 以下是此函式內部的運作情形：
 
-1. 函式會建立 `data` 變數，並將 `body` 物件內的 `request` 物件指派給該變數。 此函式會使用點 (.) 運算子來參考 `body` 物件內的 `request` 物件：
+1. 函式會建立 `data` 變數，並將 `request` 物件內的 `body` 物件指派給該變數。 此函式會使用點 (.) 運算子來參考 `request` 物件內的 `body` 物件：
 
    ```javascript
    var data = request.body;
    ```
 
-1. 此函式現在可以透過 `date` 變數存取 `data` 屬性，並藉由呼叫 `ToDateString()` 函式將該屬性值從 DateTime 類型轉換為 DateString 類型。 此函式也會透過函式回應中的 `body` 屬性傳回結果：
+1. 此函式現在可以透過 `data` 變數存取 `date` 屬性，並藉由呼叫 `ToDateString()` 函式將該屬性值從 DateTime 類型轉換為 DateString 類型。 此函式也會透過函式回應中的 `body` 屬性傳回結果：
 
    ```javascript
    body: data.date.ToDateString();
@@ -128,15 +125,15 @@ function convertToDateString(request, response){
 
    1. 在 [程式**代碼**] 方塊中，將您的程式碼新增至函式範本，包括您想要在函式完成執行後傳回給邏輯應用程式的回應和承載。 當您完成時，選取 [建立]。
 
-   例如︰
+   例如：
 
    ![定義函式](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
-   在範本的程式碼中， *物件`context`* 代表邏輯應用程式透過**要求本文** (位於後面的步驟中) 欄位傳送的訊息。 若要從您的函式內存取 `context` 物件的屬性，請使用此語法：
+   在範本的程式碼中，`context` 物件代表邏輯應用程式透過**要求本文** (位於後面的步驟中) 欄位傳送的訊息。 若要從您的函式內存取 `context` 物件的屬性，請使用此語法：
 
    `context.body.<property-name>`
 
-   例如，若要參考 `content` 物件內的 `context` 屬性，請使用此語法：
+   例如，若要參考 `context` 物件內的 `content` 屬性，請使用此語法：
 
    `context.body.content`
 

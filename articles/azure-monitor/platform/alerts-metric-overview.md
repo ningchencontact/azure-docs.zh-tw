@@ -7,12 +7,12 @@ ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: b92b4233b6ecd8743f98f7f0dd13e07ad4c76c81
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: aa54b9ce23ffab266ed6403e3525ae1290d99cec
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484245"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775716"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>了解計量警示在 Azure 監視器中的運作方式
 
@@ -133,7 +133,7 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 - 作為訂用帳戶中一或多個資源群組的所有虛擬機器 (位於一個 Azure 區域)
 - 作為訂用帳戶中的所有虛擬機器 (位於一個 Azure 區域)
 
-建立監視多個資源的計量警示規則，類似於[建立監視單一資源的任何其他計量警示](alerts-metric.md)。 唯一的區別是您會選取要監視的所有資源。 您也可以透過 [Azure Resource Manager 範本](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources)建立這些規則。 您會收到每個虛擬機器的個別通知。
+建立監視多個資源的計量警示規則，類似於[建立監視單一資源的任何其他計量警示](alerts-metric.md)。 唯一的區別是您會選取要監視的所有資源。 您也可以透過 [Azure Resource Manager 範本](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources)建立這些規則。 您會收到每個虛擬機器的個別通知。
 
 ## <a name="typical-latency"></a>一般延遲
 

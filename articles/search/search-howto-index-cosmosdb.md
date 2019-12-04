@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 33c26ff15095928d6050a77794b74480e364bfb6
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9301da884e26a65b198c885000159c383655b2d5
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707765"
+ms.locfileid: "74771457"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>如何使用 Azure 認知搜尋中的索引子為 Cosmos DB 資料編制索引 
 
@@ -294,7 +294,7 @@ Azure 認知搜尋中的 Cosmos DB 索引子可以編目透過不同通訊協定
 
 ## <a name="indexing-changed-documents"></a>索引已變更的文件
 
-資料變更偵測原則是用來有效識別已變更的資料項目。 目前，唯一支援的原則是使用 Azure Cosmos DB 所提供之 `_ts` (時間戳記) 屬性的 `High Water Mark` 原則，指定方式如下：
+資料變更偵測原則是用來有效識別已變更的資料項目。 目前，唯一支援的原則是使用 Azure Cosmos DB 所提供的 [`_ts` （時間戳記）] 屬性的[`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) ，其指定方式如下：
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",

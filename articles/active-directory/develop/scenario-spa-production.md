@@ -1,6 +1,6 @@
 ---
-title: 單一頁面應用程式 （移至生產環境）-Microsoft 身分識別平台
-description: 了解如何建置單一頁面應用程式 （移至生產環境）
+title: 單一頁面應用程式（移至生產環境）-Microsoft 身分識別平臺
+description: 瞭解如何建立單一頁面應用程式（移至生產環境）
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -15,42 +15,38 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6a04f5d62ec750cfbe44765e833552bd694654d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2dbb481c75323304d71f85a722fc45a9b634055
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075006"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766101"
 ---
-# <a name="single-page-application---move-to-production"></a>單一頁面應用程式-移至生產環境
+# <a name="single-page-application-move-to-production"></a>單一頁面應用程式：移至生產環境
 
-既然您已經知道如何取得權杖來呼叫 Web Api，了解如何將移至生產環境。
+現在您已瞭解如何取得權杖以呼叫 web Api，請瞭解如何進入生產環境。
 
 ## <a name="improve-your-app"></a>改善您的應用程式
 
-遵循的步驟，才能將您的應用程式的生產環境就緒。
-
-- 在應用程式中[啟用記錄](msal-logging.md)功能。
+[啟用記錄功能](msal-logging.md)，讓您的應用程式生產環境就緒。
 
 ## <a name="test-your-integration"></a>測試您的整合
 
-- 遵循 [Microsoft 身分識別平台整合檢查清單](identity-platform-integration-checklist.md)來測試您的整合。
+遵循 [Microsoft 身分識別平台整合檢查清單](identity-platform-integration-checklist.md)來測試您的整合。
 
 ## <a name="next-steps"></a>後續步驟
 
-以下是幾個其他樣本/教學課程：
+深入瞭解快速入門範例，其中說明如何使用 MSAL 來登入使用者，以及取得存取權杖以呼叫 Microsoft Graph API 的程式碼：
 
-- 深入了解快速入門範例說明如何登入使用者並取得存取權杖來呼叫使用 MSAL.js MS Graph API 的程式碼
+> [!div class="nextstepaction"]
+> [JavaScript SPA 教學課程](./tutorial-v2-javascript-spa.md)
 
-    > [!div class="nextstepaction"]
-    > [JavaScript SPA 教學課程](./tutorial-v2-javascript-spa.md)
+示範如何使用 MSAL 取得您自己後端 Web API 權杖的範例：
 
-- 示範如何使用 MSAL.js 自己後端 web api 取得權杖的範例
+> [!div class="nextstepaction"]
+> [具有 ASP.NET 後端的 SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
 
-     > [!div class="nextstepaction"]
-     > [使用 ASP.NET 後端的 SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+範例示範如何使用 MSAL，在向 Azure Active Directory B2C （Azure AD B2C）註冊的應用程式中登入使用者：
 
-- 範例，示範如何使用 MSAL.js 向 Azure AD B2C 註冊應用程式中的使用者登入
-
-    > [!div class="nextstepaction"]
-    > [使用 Azure AD B2C 的 SPA](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+> [!div class="nextstepaction"]
+> [具有 Azure AD B2C 的 SPA](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)

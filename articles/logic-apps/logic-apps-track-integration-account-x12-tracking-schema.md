@@ -1,21 +1,19 @@
 ---
-title: 適用於 B2B 訊息的 X12 追蹤結構描述 - Azure Logic Apps | Microsoft Docs
+title: 適用于 B2B 訊息的 X12 追蹤架構
 description: 建立 X12 追蹤結構描述，以針對採用 Enterprise Integration Pack 的 Azure Logic Apps 監視整合帳戶中的 B2B 訊息
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
-ms.openlocfilehash: 1db324006e1e6332b5fdd8afd28ebed8a32ac707
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f2356600f5b6a637da731c650b26d968092e2f6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845761"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791720"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>建立結構描述，以便追蹤 Azure Logic Apps 整合帳戶中的 X12 訊息
 
@@ -57,7 +55,7 @@ ms.locfileid: "60845761"
 }
 ```
 
-| 屬性 | type | 描述 |
+| 屬性 | Type | 描述 |
 | --- | --- | --- |
 | senderPartnerName | String | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | String | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -66,7 +64,7 @@ ms.locfileid: "60845761"
 | receiverQualifier | String | 接收合作夥伴辨識符號。 (必要) |
 | receiverQualifier | String | 接收合作夥伴識別碼。 (必要) |
 | agreementName | String | 據以解析訊息的 X12 合約名稱。 (選用) |
-| direction | Enum | 訊息流程的方向，接收或傳送。 (必要) |
+| direction | 例舉 | 訊息流程的方向，接收或傳送。 (必要) |
 | interchangeControlNumber | String | 交換控制編號。 (選用) |
 | functionalGroupControlNumber | String | 功能的控制編號。 (選用) |
 | transactionSetControlNumber | String | 交易集控制編號。 (選用) |
@@ -76,7 +74,7 @@ ms.locfileid: "60845761"
 | isTechnicalAcknowledgmentExpected | Boolean | X12 合約中是否設定技術通知。 (必要) |
 | isFunctionalAcknowledgmentExpected | Boolean | X12 合約中是否設定功能通知。 (必要) |
 | needAk2LoopForValidMessages | Boolean | 有效的訊息是否需要 AK2 迴圈。 (必要) |
-| segmentsCount | Integer | X12 交易集的區段數目。 (選用) |
+| segmentsCount | 整數 | X12 交易集的區段數目。 (選用) |
 ||||
 
 ## <a name="x12-transaction-set-acknowledgement-tracking-schema"></a>X12 交易集通知追蹤結構描述
@@ -113,7 +111,7 @@ ms.locfileid: "60845761"
 }
 ```
 
-| 屬性 | type | 描述 |
+| 屬性 | Type | 描述 |
 | --- | --- | --- |
 | senderPartnerName | String | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | String | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -122,7 +120,7 @@ ms.locfileid: "60845761"
 | receiverQualifier | String | 接收合作夥伴辨識符號。 (必要) |
 | receiverQualifier | String | 接收合作夥伴識別碼。 (必要) |
 | agreementName | String | 據以解析訊息的 X12 合約名稱。 (選用) |
-| direction | Enum | 訊息流程的方向，接收或傳送。 (必要) |
+| direction | 例舉 | 訊息流程的方向，接收或傳送。 (必要) |
 | interchangeControlNumber | String | 功能通知的交換控制編號。 僅針對傳送至夥伴的訊息而接收功能通知的傳送端，才填入值。 (選用) |
 | functionalGroupControlNumber | String | 功能群組的交換控制編號。 僅針對傳送至夥伴的訊息而接收功能通知的傳送端，才填入值。 (選用) |
 | isaSegment | String | 訊息的 ISA 區段。 僅針對傳送至夥伴的訊息而接收功能通知的傳送端，才填入值。 (選用) |
@@ -131,9 +129,9 @@ ms.locfileid: "60845761"
 | respondingFunctionalGroupId | String | 回應功能群組識別碼，在通知中對應至 AK101。 (選用) |
 | respondingtransactionSetControlNumber | String | 回應交易集控制編號。 (選用) |
 | respondingTransactionSetId | String | 回應交易集識別碼，在通知中對應至 AK201。 (選用) |
-| statusCode | Boolean | 交易集通知狀態碼。 (必要) |
-| segmentsCount | Enum | 通知狀態碼。 允許的值為 **Accepted**、**Rejected** 和 **AcceptedWithErrors**。 (必要) |
-| processingStatus | Enum | 通知的處理狀態。 允許的值為 **Received**、**Generated** 和 **Sent**。 (必要) |
+| StatusCode | Boolean | 交易集通知狀態碼。 (必要) |
+| segmentsCount | 例舉 | 通知狀態碼。 允許的值為 **Accepted**、**Rejected** 和 **AcceptedWithErrors**。 (必要) |
+| processingStatus | 例舉 | 通知的處理狀態。 允許的值為 **Received**、**Generated** 和 **Sent**。 (必要) |
 | CorrelationMessageId | String | 相互關聯訊息識別碼。 {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber} 組合。 (選用) |
 | isMessageFailed | Boolean | X12 訊息是否失敗。 (必要) |
 | ak2Segment | String | 接收的功能群組內交易集的通知。 (選用) |
@@ -171,7 +169,7 @@ ms.locfileid: "60845761"
 }
 ```
 
-| 屬性 | type | 描述 |
+| 屬性 | Type | 描述 |
 | --- | --- | --- |
 | senderPartnerName | String | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | String | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -180,7 +178,7 @@ ms.locfileid: "60845761"
 | receiverQualifier | String | 接收合作夥伴辨識符號。 (必要) |
 | receiverQualifier | String | 接收合作夥伴識別碼。 (必要) |
 | agreementName | String | 據以解析訊息的 X12 合約名稱。 (選用) |
-| direction | Enum | 訊息流程的方向，接收或傳送。 (必要) |
+| direction | 例舉 | 訊息流程的方向，接收或傳送。 (必要) |
 | interchangeControlNumber | String | 交換控制編號。 (選用) |
 | isaSegment | String | 訊息 ISA 區段。 (選用) |
 | isTechnicalAcknowledgmentExpected | Boolean | X12 合約中是否設定技術通知。 (必要) |
@@ -222,7 +220,7 @@ ms.locfileid: "60845761"
 }
 ```
 
-| 屬性 | type | 描述 |
+| 屬性 | Type | 描述 |
 | --- | --- | --- |
 | senderPartnerName | String | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | String | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -231,13 +229,13 @@ ms.locfileid: "60845761"
 | receiverQualifier | String | 接收合作夥伴辨識符號。 (必要) |
 | receiverQualifier | String | 接收合作夥伴識別碼。 (必要) |
 | agreementName | String | 據以解析訊息的 X12 合約名稱。 (選用) |
-| direction | Enum | 訊息流程的方向，接收或傳送。 (必要) |
+| direction | 例舉 | 訊息流程的方向，接收或傳送。 (必要) |
 | interchangeControlNumber | String | 從合作夥伴收到的技術通知交換控制編號。 (選用) |
 | isaSegment | String | 從合作夥伴收到的技術通知 ISA 區段。 (選用) |
 | respondingInterchangeControlNumber |String | 從合作夥伴收到的技術通知交換控制編號。 (選用) |
 | isMessageFailed | Boolean | X12 訊息是否失敗。 (必要) |
-| statusCode | Enum | 交換通知狀態碼。 允許的值為 **Accepted**、**Rejected** 和 **AcceptedWithErrors**。 (必要) |
-| processingStatus | Enum | 通知狀態。 允許的值為 **Received**、**Generated** 和 **Sent**。 (必要) |
+| StatusCode | 例舉 | 交換通知狀態碼。 允許的值為 **Accepted**、**Rejected** 和 **AcceptedWithErrors**。 (必要) |
+| processingStatus | 例舉 | 通知狀態。 允許的值為 **Received**、**Generated** 和 **Sent**。 (必要) |
 | ta102 | String | 交換日期。 (選用) |
 | ta103 | String | 交換時間。 (選用) |
 | ta105 | String | 交換說明碼。 (選用) |
@@ -275,7 +273,7 @@ ms.locfileid: "60845761"
 }
 ```
 
-| 屬性 | type | 描述 |
+| 屬性 | Type | 描述 |
 | --- | --- | --- |
 | senderPartnerName | String | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | String | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -284,7 +282,7 @@ ms.locfileid: "60845761"
 | receiverQualifier | String | 接收合作夥伴辨識符號。 (必要) |
 | receiverQualifier | String | 接收合作夥伴識別碼。 (必要) |
 | agreementName | String | 據以解析訊息的 X12 合約名稱。 (選用) |
-| direction | Enum | 訊息流程的方向，接收或傳送。 (必要) |
+| direction | 例舉 | 訊息流程的方向，接收或傳送。 (必要) |
 | interchangeControlNumber | String | 交換控制編號。 (選用) |
 | functionalGroupControlNumber | String | 功能的控制編號。 (選用) |
 | isaSegment | String | 訊息 GS 區段。 (選用) |
@@ -331,7 +329,7 @@ ms.locfileid: "60845761"
 }
 ```
 
-| 屬性 | type | 描述 |
+| 屬性 | Type | 描述 |
 | --- | --- | --- |
 | senderPartnerName | String | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | String | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -340,7 +338,7 @@ ms.locfileid: "60845761"
 | receiverQualifier | String | 接收合作夥伴辨識符號。 (必要) |
 | receiverQualifier | String | 接收合作夥伴識別碼。 (必要) |
 | agreementName | String | 據以解析訊息的 X12 合約名稱。 (選用) |
-| direction | Enum | 訊息流程的方向，接收或傳送。 (必要) |
+| direction | 例舉 | 訊息流程的方向，接收或傳送。 (必要) |
 | interchangeControlNumber | String | 從合作夥伴收到技術通知時，傳送端會填入的交換控制編號。 (選用) |
 | functionalGroupControlNumber | String | 從合作夥伴收到技術通知時，傳送端會填入的技術通知功能群組控制編號。 (選用) |
 | isaSegment | String | 同交換控制編號，但只在特定情況下才會填入。 (選用) |
@@ -348,8 +346,8 @@ ms.locfileid: "60845761"
 | respondingfunctionalGroupControlNumber | String | 原始功能群組的控制編號。 (選用) |
 | respondingFunctionalGroupId | String | 在通知功能群組識別碼中對應至 AK101。 (選用) |
 | isMessageFailed | Boolean | X12 訊息是否失敗。 (必要) |
-| statusCode | Enum | 通知狀態碼。 允許的值為 **Accepted**、**Rejected** 和 **AcceptedWithErrors**。 (必要) |
-| processingStatus | Enum | 通知的處理狀態。 允許的值為 **Received**、**Generated** 和 **Sent**。 (必要) |
+| StatusCode | 例舉 | 通知狀態碼。 允許的值為 **Accepted**、**Rejected** 和 **AcceptedWithErrors**。 (必要) |
+| processingStatus | 例舉 | 通知的處理狀態。 允許的值為 **Received**、**Generated** 和 **Sent**。 (必要) |
 | ak903 | String | 已接收交易集數目。 (選用) |
 | ak904 | String | 所識別的功能群組中接受的交易集數目。 (選用) |
 | ak9Segment | String | 是否接受或拒絕 AK1 區段中識別的功能群組，以及原因。 (選用) |
@@ -365,4 +363,4 @@ ms.locfileid: "60845761"
 ## <a name="next-steps"></a>後續步驟
 
 * [深入了解監視 B2B 訊息](logic-apps-monitor-b2b-message.md)。
-* 深入了解[追蹤 B2B 訊息，在 Azure 監視器記錄檔中的](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
+* 瞭解如何[在 Azure 監視器記錄中追蹤 B2B 訊息](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。

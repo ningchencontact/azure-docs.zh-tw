@@ -1,17 +1,17 @@
 ---
-title: 適用於 MariaDB 的 Azure 資料庫中的查詢效能深入解析
+title: 查詢效能深入解析-適用於 MariaDB 的 Azure 資料庫
 description: 本文說明中的查詢效能深入解析功能適用於 MariaDB 的 Azure 資料庫
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 31aacfea7c68614add0229c3a9c494de4714fe16
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: eb124f40ff915b56011d5f16cd83a9358960621e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604026"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772297"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>適用於 MariaDB 的 Azure 資料庫中的查詢效能深入解析
 
@@ -19,7 +19,7 @@ ms.locfileid: "73604026"
 
 查詢效能深入解析可協助您快速找出執行時間最長的查詢、一段時間後的變化情形，以及受到哪些等候的影響。
 
-## <a name="common-scenarios"></a>常見案例
+## <a name="common-scenarios"></a>一般狀況
 
 ### <a name="long-running-queries"></a>長時間執行的查詢
 

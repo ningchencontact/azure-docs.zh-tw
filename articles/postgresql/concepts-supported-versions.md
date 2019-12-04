@@ -1,38 +1,38 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫中支援的版本-單一伺服器
-description: 描述適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中支援的版本。
+title: 支援的版本-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
+description: 說明適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中支援的 Postgres 主要和次要版本。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 12/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2a2b8b71e07e5dac74d73d3a81c150ac5d980ea2
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 61dd98028b7342290984615ea19b561b48aaeadb
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935343"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792228"
 ---
-# <a name="supported-postgresql-database-versions"></a>支援的 PostgreSQL 資料庫版本
+# <a name="supported-postgresql-major-versions"></a>支援的于 postgresql 主要版本
 Microsoft 的目標是在適用於 PostgreSQL 的 Azure 資料庫單一伺服器中支援 n-2 版的于 postgresql 引擎。 版本會是 Azure 上目前的主要版本 (n) 和兩個先前的主要版本 (-2)。
 
 適用於 PostgreSQL 的 Azure 資料庫目前支援下列主要版本：
 
 ## <a name="postgresql-version-11"></a>于 postgresql 版本11
-目前的次要版本為11.5。 請參閱 [PostgreSQL 文件 (英文)](https://www.postgresql.org/docs/11/static/release-11-5.html)，以深入了解此次要版本中的改進功能與修正。
+目前的次要版本為11.5。 請參閱[于 postgresql 檔](https://www.postgresql.org/docs/11/static/release-11-5.html)，以深入瞭解此次要版本中的改進功能和修正。
 
 ## <a name="postgresql-version-10"></a>于 postgresql 第10版
-目前的次要版本為10.10。 請參閱 [PostgreSQL 文件 (英文)](https://www.postgresql.org/docs/10/static/release-10-10.html)，以深入了解此次要版本中的改進功能與修正。
+目前的次要版本為10.10。 請參閱[于 postgresql 檔](https://www.postgresql.org/docs/10/static/release-10-10.html)，以深入瞭解此次要版本中的改進功能和修正。
 
 ## <a name="postgresql-version-96"></a>于 postgresql 版本9。6
-目前的次要版本是9.6.15。 請參閱 [PostgreSQL 文件 (英文)](https://www.postgresql.org/docs/9.6/static/release-9-6-15.html)，以深入了解此次要版本中的改進功能與修正。
+目前的次要版本是9.6.15。 請參閱[于 postgresql 檔](https://www.postgresql.org/docs/9.6/static/release-9-6-15.html)，以深入瞭解此次要版本中的改進功能和修正。
 
 ## <a name="postgresql-version-95"></a>于 postgresql 版本9。5
-目前的次要版本是9.5.19。 請參閱 [PostgreSQL 文件 (英文)](https://www.postgresql.org/docs/9.5/static/release-9-5-19.html)，以深入了解此次要版本中的改進功能與修正。
+目前的次要版本是9.5.19。 請參閱[于 postgresql 檔](https://www.postgresql.org/docs/9.5/static/release-9-5-19.html)，以瞭解此次要版本中的改進功能和修正。
 
 ## <a name="managing-upgrades"></a>管理升級
-適用於 PostgreSQL 的 Azure 資料庫會自動管理次要版本升級。 
+于 postgresql 專案會定期發出次要版本來修正回報的錯誤。 適用於 PostgreSQL 的 Azure 資料庫在服務的每月部署期間，自動修補具有次要版本的伺服器。 
 
 不支援自動主要版本升級。 例如，不會從 PostgreSQL 9.5 自動升級為 PostgreSQL 9.6。 若要升級到下一個主要版本，請建立資料庫[傾印並還原](./howto-migrate-using-dump-and-restore.md)至使用新引擎版本建立的伺服器。
 

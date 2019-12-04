@@ -1,17 +1,17 @@
 ---
-title: 適用於 MySQL 的 Azure 資料庫中的查詢存放區
+title: 查詢存放區-適用於 MySQL 的 Azure 資料庫
 description: 瞭解適用於 MySQL 的 Azure 資料庫中的查詢存放區功能，以協助您追蹤一段時間的效能。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: c8891fc96e3e511e4127b4e114a45b5a865cf8eb
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: 4ac6e4c71b028b66ef50ac949c169a1e02a2c0e3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603018"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770830"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>使用查詢存放區監視適用於 MySQL 的 Azure 資料庫效能
 
@@ -87,7 +87,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 下列選項可用於設定查詢存放區參數。
 
-| **參數** | **描述** | **預設值** | **Range** |
+| **參數** | **說明** | **預設值** | **Range** |
 |---|---|---|---|
 | query_store_capture_mode | 根據值開啟/關閉查詢存放區功能。 注意：如果 performance_schema 已關閉，開啟 query_store_capture_mode 將會開啟 performance_schema 以及此功能所需的效能架構儀器子集。 | ALL | 無、全部 |
 | query_store_capture_interval | 查詢存放區捕獲間隔（以分鐘為單位）。 允許指定匯總查詢計量的間隔 | 15 | 5 - 60 |
@@ -96,7 +96,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 下列選項特別適用於等候統計資料。
 
-| **參數** | **描述** | **預設值** | **Range** |
+| **參數** | **說明** | **預設值** | **Range** |
 |---|---|---|---|
 | query_store_wait_sampling_capture_mode | 允許開啟/關閉等候統計資料。 | 無 | 無、全部 |
 | query_store_wait_sampling_frequency | 改變等候取樣的頻率（以秒為單位）。 5到300秒。 | 30 | 5-300 |
@@ -116,7 +116,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 此檢視會傳回查詢存放區中的所有資料。 不同的資料庫識別碼、使用者識別碼及查詢識別碼都會自成一資料列。
 
-| **名稱** | **資料類型** | **IS_NullABLE** | **描述** |
+| **名稱** | **資料類型** | **IS_NullABLE** | **說明** |
 |---|---|---|---|
 | `schema_name`| Varchar （64） | 否 | 架構的名稱 |
 | `query_id`| Bigint （20） | 否| 針對特定查詢產生的唯一識別碼，如果相同的查詢在不同的架構中執行，則會產生新的識別碼 |
@@ -127,10 +127,10 @@ SELECT * FROM mysql.query_store_wait_stats;
 | `execution_count` | Bigint （20）| 否| 在設定的間隔期間內，查詢在此時間戳記識別碼/執行的次數|
 | `warning_count` | Bigint （20）| 否| 此查詢在內部產生的警告數目|
 | `error_count` | Bigint （20）| 否| 此查詢在間隔期間產生的錯誤數目|
-| `sum_timer_wait` | double| 是| 此查詢在間隔期間的總執行時間|
-| `avg_timer_wait` | double| 是| 此查詢在間隔期間的平均執行時間|
-| `min_timer_wait` | double| 是| 此查詢的執行時間下限|
-| `max_timer_wait` | double| 是| 執行時間上限|
+| `sum_timer_wait` | 兩倍| 是| 此查詢在間隔期間的總執行時間|
+| `avg_timer_wait` | 兩倍| 是| 此查詢在間隔期間的平均執行時間|
+| `min_timer_wait` | 兩倍| 是| 此查詢的執行時間下限|
+| `max_timer_wait` | 兩倍| 是| 執行時間上限|
 | `sum_lock_time` | Bigint （20）| 否| 這個時間範圍內，此查詢執行的所有鎖定所花費的總時間量|
 | `sum_rows_affected` | Bigint （20）| 否| 受影響的資料列數目|
 | `sum_rows_sent` | Bigint （20）| 否| 傳送至用戶端的資料列數目|
@@ -149,7 +149,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 此檢視會傳回查詢存放區中的等候事件資料。 不同的資料庫識別碼、使用者識別碼、查詢識別碼及事件都會自成一資料列。
 
-| **名稱**| **資料類型** | **IS_NullABLE** | **描述** |
+| **名稱**| **資料類型** | **IS_NullABLE** | **說明** |
 |---|---|---|---|
 | `interval_start` | timestamp | 否| 間隔開始時間（15分鐘增量）|
 | `interval_end` | timestamp | 否| 間隔結束（15分鐘增量）|
@@ -159,11 +159,11 @@ SELECT * FROM mysql.query_store_wait_stats;
 | `event_type` | Varchar （32） | 否| 等待事件的類別 |
 | `event_name` | Varchar（128 | 否| 等待事件的名稱 |
 | `count_star` | Bigint （20） | 否| 查詢間隔期間所取樣的等候事件數目 |
-| `sum_timer_wait_ms` | double | 否| 此查詢在間隔期間的總等候時間（以毫秒為單位） |
+| `sum_timer_wait_ms` | 兩倍 | 否| 此查詢在間隔期間的總等候時間（以毫秒為單位） |
 
-### <a name="functions"></a>函式
+### <a name="functions"></a>Functions
 
-| **名稱**| **描述** |
+| **名稱**| **說明** |
 |---|---|
 | `mysql.az_purge_querystore_data(TIMESTAMP)` | 在指定的時間戳記之前清除所有查詢存放區資料 |
 | `mysql.az_procedure_purge_querystore_event(TIMESTAMP)` | 清除指定時間戳記之前的所有等候事件資料 |

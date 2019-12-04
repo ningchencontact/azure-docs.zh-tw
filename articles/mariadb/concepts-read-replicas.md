@@ -1,17 +1,17 @@
 ---
-title: 「適用於 MariaDB 的 Azure 資料庫」中的讀取複本
+title: 讀取複本-適用於 MariaDB 的 Azure 資料庫
 description: 瞭解適用於 MariaDB 的 Azure 資料庫中的讀取複本：選擇區域、建立複本、連接到複本、監視複寫，以及停止複寫。
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: f761cb1c4e895cd0960a0a07033e609acf9ef601
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 12/03/2019
+ms.openlocfilehash: 7e63afee87d69a80a656ba7c5923b6f313268e2f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158423"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790444"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>「適用於 MariaDB 的 Azure 資料庫」中的讀取複本
 
@@ -45,7 +45,9 @@ ms.locfileid: "74158423"
 ### <a name="universal-replica-regions"></a>通用複本區域
 無論您的主伺服器位於何處，您都可以在下列任何區域中建立讀取複本。 支援的通用複本區域包括：
 
-澳大利亞東部、澳大利亞東南部、美國中部、東亞、美國東部、美國東部2、日本東部、日本西部、韓國中部、南韓南部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、西歐、美國西部、美國西部2。
+澳大利亞東部、澳大利亞東南部、美國中部、東亞、美國東部、美國東部2、日本東部、日本西部、韓國中部、南韓南部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、西歐、美國西部。
+
+\* 美國西部2暫時無法當做跨區域複本位置使用。
 
 
 ### <a name="paired-regions"></a>配對的區域

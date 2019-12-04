@@ -1,21 +1,17 @@
 ---
-title: 對資料執行作業-Azure Logic Apps
+title: 對資料執行作業
 description: 在 Azure Logic Apps 中轉換、管理和操作資料輸出和格式
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: a21b7f510b6da40d3ab2c72fcfbcb2a746b75db1
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f98daf301e8e17ad3f0bfb850ded1a8ed8bce417
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990482"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793109"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>在 Azure Logic Apps 中執行資料作業
 
@@ -497,7 +493,7 @@ Oranges,2
 
    `@actionBody('Filter_array')`
 
-   這個範例使用 Office 365 Outlook**傳送電子郵件**動作，並且在電子郵件的本文中包含**ActionBody （' Filter_array '）** 運算式的輸出：
+   此範例使用 Office 365 Outlook 的 [**傳送電子郵件**] 動作，並在電子郵件的本文中包含**actionBody （' Filter_array '）** 運算式的輸出：
 
    ![來自「篩選陣列」動作的動作輸出](./media/logic-apps-perform-data-operations/send-email-filter-array-action.png)
 
@@ -676,7 +672,7 @@ Oranges,2
 
 1. 在 [對應] 方塊左側的資料行中，提供您要在來源陣列中指派各個值的屬性名稱。 在右側的資料行中指定運算式，代表您要指派給屬性的值。
 
-   這個範例會指定 "Product_ID" 做為屬性名稱，以在存取每個陣列專案的運算式中使用 `item()` 函數來指派整數陣列中的每個值。 
+   這個範例會在存取每個陣列專案的運算式中使用 `item()` 函數，指定 "Product_ID" 做為屬性名稱，以指派整數陣列中的每個值。 
 
    ![指定要建立陣列的 JSON 物件屬性和值](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
 

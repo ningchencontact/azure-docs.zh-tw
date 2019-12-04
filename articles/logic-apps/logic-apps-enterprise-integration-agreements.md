@@ -1,20 +1,19 @@
 ---
-title: 交易夥伴協定-Azure Logic Apps
+title: 交易夥伴協定
 description: 使用 Azure Logic Apps 和企業整合套件來建立和管理交易夥伴之間的協定
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 35ebaab47edd110258f537dbbb044387515ed6c4
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 521a0ef4053be55e6c7322da5af26ccfc6c844e5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680411"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790734"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立和管理交易夥伴協定
 
@@ -29,9 +28,9 @@ ms.locfileid: "72680411"
 
 若要建立交換 RosettaNet 訊息的協定，請參閱[Exchange rosettanet 訊息](../logic-apps/logic-apps-enterprise-integration-rosettanet.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* Azure 訂閱。 如果您還沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 用於儲存合約和其他 B2B 成品的[整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)。 此整合帳戶必須與您的 Azure 訂用帳戶相關聯。
 
@@ -58,14 +57,14 @@ ms.locfileid: "72680411"
 
    ![選擇 [新增]](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
-   | 屬性 | 必要 | 值 | 描述 |
+   | 屬性 | 必要項 | Value | 描述 |
    |----------|----------|-------|-------------|
-   | **名稱** | yes | <*合約-名稱*> | 合約的名稱 |
-   | **合約類型** | yes | **AS2**、 **X12**或**EDIFACT** | 合約的通訊協定類型。 當您建立合約檔案時，該檔案中的內容必須與合約類型相符。 | |  
-   | **主機合作夥伴** | yes | <*主機-夥伴名稱*> | 主機合作夥伴代表指定合約的組織 |
-   | **主機身分識別** | yes | <*主機-夥伴識別碼*> | 主機合作夥伴的識別碼 |
-   | **來賓合作夥伴** | yes | <*來賓-夥伴名稱*> | 來賓合作夥伴代表與主機合作夥伴有生意往來的組織 |
-   | **來賓身分識別** | yes | <*來賓-合作夥伴識別碼*> | 來賓夥伴的識別碼 |
+   | **名稱** | 是 | <*合約-名稱*> | 合約的名稱 |
+   | **合約類型** | 是 | **AS2**、 **X12**或**EDIFACT** | 合約的通訊協定類型。 當您建立合約檔案時，該檔案中的內容必須與合約類型相符。 | |  
+   | **主機合作夥伴** | 是 | <*主機-夥伴名稱*> | 主機合作夥伴代表指定合約的組織 |
+   | **主機身分識別** | 是 | <*主機-夥伴識別碼*> | 主機合作夥伴的識別碼 |
+   | **來賓合作夥伴** | 是 | <*來賓-夥伴名稱*> | 來賓合作夥伴代表與主機合作夥伴有生意往來的組織 |
+   | **來賓身分識別** | 是 | <*來賓-合作夥伴識別碼*> | 來賓夥伴的識別碼 |
    | **接收設定** | 視情況而異 | 視情況而異 | 這些屬性會指定主機夥伴如何從合約中的來賓夥伴接收所有傳入訊息。 如需詳細資訊，請參閱個別的合約類型： <p>- [AS2 訊息設定](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT 訊息設定](logic-apps-enterprise-integration-edifact.md) <br>- [X12 訊息設定](logic-apps-enterprise-integration-x12.md) |
    | **傳送設定** | 視情況而異 | 視情況而異 | 這些屬性會指定主機夥伴如何將所有外寄訊息傳送給合約中的來賓夥伴。 如需詳細資訊，請參閱個別的合約類型： <p>- [AS2 訊息設定](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT 訊息設定](logic-apps-enterprise-integration-edifact.md) <br>- [X12 訊息設定](logic-apps-enterprise-integration-x12.md) |
    |||||

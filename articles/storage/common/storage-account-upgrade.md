@@ -7,16 +7,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: 3ad82a1312ccce5029685d903a3c5e3caff50f8a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: edee0e2efadd8e92ebf3533f0716c82029a0c680
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495977"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791697"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升級至一般用途 v2 儲存體帳戶
 
-一般用途 v2 儲存體帳戶支援最新的 Azure 儲存體功能，並納入一般用途 v1 和 Blob 儲存體帳戶的所有功能。 針對大部分的儲存體案例，皆建議使用一般用途 v2 帳戶。 一般用途 v2 帳戶能針對 Azure 儲存體提供最低的每 GB 容量價格，以及極具業界競爭力的交易價格。
+一般用途 v2 儲存體帳戶支援最新的 Azure 儲存體功能，並納入一般用途 v1 和 Blob 儲存體帳戶的所有功能。 針對大部分的儲存體案例，皆建議使用一般用途 v2 帳戶。 一般用途 v2 帳戶能針對 Azure 儲存體提供最低的每 GB 容量價格，以及極具業界競爭力的交易價格。 一般-用途 v2 帳戶支援經常性、非經常性或封存之間的預設帳戶存取層，也就是經常性或非經常性和 blob 層級的階層處理。
 
 從一般用途 v1 或 Blob 儲存體帳戶升級至一般用途 v2 儲存體帳戶很簡單。 您可以使用 Azure 入口網站、PowerShell 或 Azure CLI 來執行升級。
 
@@ -40,19 +40,19 @@ ms.locfileid: "73495977"
 
 若要使用 PowerShell 將一般用途 v1 帳戶升級至一般用途 v2 帳戶，請先更新 PowerShell 以使用最新版本的**Az. Storage**模組。 如需安裝 PowerShell 的相關資訊，請參閱[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 
-接下來，請呼叫下列命令，並取代為您的資源群組與儲存體帳戶的名稱，以升級帳戶：
+接下來，呼叫下列命令以升級帳戶，並以您的資源組名、儲存體帳戶名稱和所需的帳戶存取層來取代。
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
+Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 若要使用 Azure CLI 將一般用途 v1 帳戶升級至一般用途 v2 帳戶，請先安裝最新版本的 Azure CLI。 如需安裝 CLI 的相關資訊，請參閱[安裝 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
-接下來，請呼叫下列命令，並取代為您的資源群組與儲存體帳戶的名稱，以升級帳戶：
+接下來，呼叫下列命令以升級帳戶，並以您的資源組名、儲存體帳戶名稱和所需的帳戶存取層來取代。
 
 ```cli
-az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
+az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2 --access-tier=<Hot/Cool>
 ```
 
 ---
@@ -72,7 +72,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## <a name="pricing-and-billing"></a>價格和計費
 
-將 v1 儲存體帳戶升級至一般用途 v2 帳戶是免費的。 不過，變更儲存體存取層可能會導致您的帳單變更。 
+將 v1 儲存體帳戶升級至一般用途 v2 帳戶是免費的。 在升級過程中，您可以指定所需的帳戶層級。 如果升級時未指定帳戶層，則會 `Hot`升級帳戶的預設帳戶層。 不過，在升級後變更儲存體存取層可能會導致您的帳單變更，因此建議您在升級期間指定新的帳戶層。
 
 所有儲存體帳戶會對以每個 Blob 層為基礎的 Blob 儲存體使用價格模型。 使用儲存體帳戶時，需考量下列計費資訊：
 

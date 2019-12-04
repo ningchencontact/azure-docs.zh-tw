@@ -1,23 +1,23 @@
 ---
-title: 在適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中使用匯入和匯出來遷移資料庫
+title: 遷移資料庫-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
 description: 描述如何將 PostgreSQL 資料庫擷取到指令碼檔案，並從該檔案將資料匯入目標資料庫。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 0803f56312ca9b650987c2203c4271cff21df9f8
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: f7cf5d245383b8a58f03e2e3610750866a2f4b5a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260353"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770198"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>使用匯出和匯入來移轉 PostgreSQL 資料庫
 您可以使用 [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 將 PostgreSQL 資料庫擷取到指令碼檔案，並使用 [psql](https://www.postgresql.org/docs/current/static/app-psql.html) 從該檔案將資料匯入目標資料庫。
 
 ## <a name="prerequisites"></a>必要條件
-若要逐步執行本作法指南，您需要︰
+若要逐步執行本作法指南，您需要：
 - [適用於 PostgreSQL 的 Azure 資料庫伺服器](quickstart-create-server-database-portal.md)，而且防火牆規則要允許存取其中的資料庫。
 - 安裝 [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 命令列公用程式
 - 安裝 [psql](https://www.postgresql.org/docs/current/static/app-psql.html) 命令列公用程式

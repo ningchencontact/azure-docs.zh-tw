@@ -1,17 +1,17 @@
 ---
-title: 適用於 MySQL 的 Azure 資料庫中的連線架構
+title: 連線性架構-適用於 MySQL 的 Azure 資料庫
 description: 描述適用於 MySQL 的 Azure 資料庫伺服器的連接架構。
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/15/2019
-ms.openlocfilehash: c4fecfadefedf10f7e11534b4efbd197c4d7fdae
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/02/2019
+ms.openlocfilehash: 22c77bee95533606156ec6cc337af1d743018005
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213145"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765319"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的連線架構
 本文說明適用於 MySQL 的 Azure 資料庫連線架構，以及如何從 Azure 內部和外部的用戶端，將流量導向至您的適用於 MySQL 的 Azure 資料庫實例。
@@ -28,7 +28,7 @@ ms.locfileid: "74213145"
 
 | **區功能變數名稱稱** | **主要 IP 位址** | **次要 IP 位址** |
 |:----------------|:-------------|:------------------------|
-| 澳洲東部 | 13.75.149.87 | 40.79.161.1 |
+| 澳大利亞東部 | 13.75.149.87 | 40.79.161.1 |
 | 澳大利亞東南部 | 191.239.192.109 | 13.73.109.251 |
 | 巴西南部 | 104.41.11.5 | |
 | 加拿大中部 | 40.85.224.249 | |
@@ -65,17 +65,9 @@ ms.locfileid: "74213145"
 ||||
 
 > [!NOTE]
-> *美國東部 2* 也有第三 IP 位址 `52.167.104.0`。
-
-## <a name="connection-redirection"></a>連接重新導向
-
-適用於 MySQL 的 Azure 資料庫支援額外的連線原則「重新導向 **」，協助**減少用戶端應用程式與 MySQL 伺服器之間的網路延遲。 使用這項功能，在適用於 MySQL 的 Azure 資料庫伺服器建立初始 TCP 會話之後，伺服器會將裝載 MySQL 伺服器之節點的後端位址傳回給用戶端。 之後，所有後續封包都會直接流向伺服器，略過閘道。 當封包直接流向伺服器時，延遲和輸送量會提升效能。
-
-具有引擎版本5.6、5.7 和8.0 的適用於 MySQL 的 Azure 資料庫伺服器支援這項功能。
-
-重新導向的預覽支援適用于由 Microsoft 開發的[PHP mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure)延伸模組，並可在[PECL](https://pecl.php.net/package/mysqlnd_azure)上取得。 如需如何在您的應用程式中使用重新導向的詳細資訊，請參閱設定重新導向[一文。](./howto-redirection.md) 
+> *美國東部 2*也有第三個 IP 位址 `52.167.104.0`。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 Azure 入口網站來建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則](./howto-manage-firewall-using-portal.md)
+* [使用 Azure 入口網站建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則](./howto-manage-firewall-using-portal.md)
 * [使用 Azure CLI 建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則](./howto-manage-firewall-using-cli.md)

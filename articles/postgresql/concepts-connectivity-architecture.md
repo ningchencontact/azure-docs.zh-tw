@@ -1,17 +1,17 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫中的連線架構
-description: 描述適用於 PostgreSQL 的 Azure 資料庫伺服器的連接架構。
+title: 連線性架構-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
+description: 描述適用於 PostgreSQL 的 Azure 資料庫單一伺服器的連接架構。
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 5288c3025e523e767082f4ab7cfbb08805a74eaf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cbb3c3b3b91bf5111efcf6f2a53cfb40b48f3fe7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500094"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768872"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的連線架構
 本文說明適用於 PostgreSQL 的 Azure 資料庫連線架構，以及如何從 Azure 內部和外部的用戶端，將流量導向至您的適用於 PostgreSQL 的 Azure 資料庫資料庫實例。
@@ -28,7 +28,7 @@ ms.locfileid: "73500094"
 
 | **區功能變數名稱稱** | **主要 IP 位址** | **次要 IP 位址** |
 |:----------------|:-------------|:------------------------|
-| 澳洲東部 | 13.75.149.87 | 40.79.161.1 |
+| 澳大利亞東部 | 13.75.149.87 | 40.79.161.1 |
 | 澳大利亞東南部 | 191.239.192.109 | 13.73.109.251 |
 | 巴西南部 | 104.41.11.5 | |
 | 加拿大中部 | 40.85.224.249 | |
@@ -65,7 +65,7 @@ ms.locfileid: "73500094"
 ||||
 
 > [!NOTE]
-> *美國東部 2* 也有第三 IP 位址 `52.167.104.0`。
+> *美國東部 2*也有第三個 IP 位址 `52.167.104.0`。
 
 ## <a name="next-steps"></a>後續步驟
 

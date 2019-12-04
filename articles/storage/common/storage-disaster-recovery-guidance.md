@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b265ff8831275a9f4b84f7dac28b82ae75630f8b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d9daff390aa1678c25f4bf9c29b0293d96c43f48
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889777"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775923"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Azure 儲存體中的災害復原和儲存體帳戶容錯移轉 (預覽)
 
@@ -121,8 +121,8 @@ Microsoft 也建議您將應用程式設計成可以因應可能的寫入失敗�
 
 - 東亞
 - 東南亞
-- 澳洲東部
-- 澳洲東南部
+- 澳大利亞東部
+- 澳大利亞東南部
 - 美國中部
 - 美國東部 2
 - 美國中西部
@@ -139,7 +139,7 @@ Connect-AzAccount -SubscriptionId <subscription-id>
 Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
-您可能需要等候 1 至 2 天才會收到預覽的核准。 若要確任您的註冊是否已被核准，請執行下列命令：
+可能需要5-7 天的時間，才能收到預覽的核准。 若要確任您的註冊是否已被核准，請執行下列命令：
 
 ```powershell
 Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
@@ -186,7 +186,7 @@ Azure 虛擬機器 (VM) 不會隨著帳戶容錯移轉一起容錯移轉。 如�
 
 在區域因嚴重災害而遺失的極端情況下，Microsoft 可能會起始區域容錯移轉。 在此情況下，您不需要採取任何動作。 在 Microsoft 管理的容錯移轉完成之前，您將無法取得儲存體帳戶的寫入權限。 如果您的儲存體帳戶已針對 RA-GRS 進行設定，您的應用程式仍可從次要區域進行讀取。 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [起始帳戶容錯移轉 (預覽)](storage-initiate-account-failover.md)
 * [使用 RA-GRS 設計高可用性應用程式](storage-designing-ha-apps-with-ragrs.md)

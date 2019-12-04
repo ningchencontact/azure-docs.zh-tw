@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/02/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5343387da7b2027e1071b19be826e329494cdd3e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 05230e39175e71f4eec2c99cd6cbd2f44f05df30
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452940"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766356"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>啟用無密碼安全性金鑰登入 Windows 10 裝置（預覽）
 
@@ -24,10 +24,10 @@ ms.locfileid: "74452940"
 
 |     |
 | --- |
-| FIDO2 安全性金鑰是 Azure Active Directory 的公開預覽功能。 如需預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| FIDO2 安全性金鑰是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-## <a name="requirements"></a>需求
+## <a name="requirements"></a>要求
 
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 - [結合的安全性資訊註冊預覽](concept-registration-mfa-sspr-combined.md)
@@ -56,7 +56,7 @@ ms.locfileid: "74452940"
 組織可以選擇使用下列一或多種方法，根據組織的需求，使用安全性金鑰來進行 Windows 登入。
 
 - [使用 Intune 啟用](#enable-with-intune)
-   - [目標 Intune 部署](#targeted-intune-deployment)
+- [目標 Intune 部署](#targeted-intune-deployment)
 - [使用布建套件啟用](#enable-with-a-provisioning-package)
 
 ### <a name="enable-with-intune"></a>使用 Intune 啟用
@@ -67,7 +67,7 @@ ms.locfileid: "74452940"
 
 設定用於登入的安全性金鑰，並不依存于設定 Windows Hello 企業版。
 
-#### <a name="targeted-intune-deployment"></a>目標 Intune 部署
+### <a name="targeted-intune-deployment"></a>目標 Intune 部署
 
 若要以特定裝置群組為目標以啟用認證提供者，請透過 Intune 使用下列自訂設定。
 
@@ -120,7 +120,7 @@ ms.locfileid: "74452940"
 ### <a name="manage-security-key-biometric-pin-or-reset-security-key"></a>管理安全性金鑰生物識別、PIN 或重設安全性金鑰
 
 * Windows 10 1903 版或更高版本
-   * 使用者可以在其裝置上開啟**Windows 設定**>**帳戶** > **安全性金鑰**
+   * 使用者可以在其裝置上開啟**Windows 設定** **帳戶** > **安全性金鑰**
    * 使用者可以變更其 PIN、更新生物識別，或重設其安全性金鑰
 
 ## <a name="troubleshooting-and-feedback"></a>疑難排解與意見反應

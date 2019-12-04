@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 10/07/2019
-ms.openlocfilehash: 5623907346ee3882ad53a27695336ba4bc449db8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f05b9ae490ea2b9d8e7b89ce02c7c1eb818bb0a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679951"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769570"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Azure Data Factory 中的資料流程活動
 
@@ -49,12 +49,12 @@ ms.locfileid: "73679951"
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 說明 | 允許的值 | 必要
+屬性 | 描述 | 允許的值 | 必要項
 -------- | ----------- | -------------- | --------
 資料流程 | 正在執行之資料流程的參考 | DataFlowReference | 是
 integrationRuntime | 資料流程執行所在的計算環境 | IntegrationRuntimeReference | 是
 暫存。 linkedService | 如果您使用的是 SQL DW 來源或接收，用於 PolyBase 暫存的儲存體帳戶 | LinkedServiceReference | 只有在資料流程讀取或寫入至 SQL DW 時
-暫存。 folderPath | 如果您使用的是 SQL DW 來源或接收，則為用於 PolyBase 暫存的 blob 儲存體帳戶中的資料夾路徑 | 字串 | 只有在資料流程讀取或寫入至 SQL DW 時
+暫存。 folderPath | 如果您使用的是 SQL DW 來源或接收，則為用於 PolyBase 暫存的 blob 儲存體帳戶中的資料夾路徑 | String | 只有在資料流程讀取或寫入至 SQL DW 時
 
 ![執行資料流程](media/data-flow/activity-data-flow.png "執行資料流程")
 
@@ -99,12 +99,49 @@ Debug 管線會針對使用中的 debug 叢集執行，而不是在 [資料流�
 
 資料流程活動具有特殊的監視體驗，您可以在其中查看資料分割、階段時間和資料歷程資訊。 透過 [**動作**] 底下的 [眼鏡] 圖示開啟 [監視中] 窗格。 如需詳細資訊，請參閱[監視資料流程](concepts-data-flow-monitoring.md)。
 
+### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>在後續活動中使用資料流程活動結果
+
+資料流程活動會輸出寫入每個接收的資料列數，以及從每個來源讀取的資料列的相關計量。 這些結果會在活動執行結果的 [`output`] 區段中傳回。 傳回的計量格式為下列 json。
+
+``` json
+{
+    "runStatus": {
+        "metrics": {
+            "<your sink name1>": {
+                "rowsWritten": <number of rows written>,
+                "sinkProcessingTime": <sink processing time in ms>,
+                "sources": {
+                    "<your source name1>": {
+                        "rowsRead": <number of rows read>
+                    },
+                    "<your source name2>": {
+                        "rowsRead": <number of rows read>
+                    },
+                    ...
+                }
+            },
+            "<your sink name2>": {
+                ...
+            },
+            ...
+        }
+    }
+}
+```
+
+例如，若要在名為 ' dataflowActivity ' 的活動中，取得寫入名為 ' sink1 ' 之接收器的資料列數目，請使用 `@activity('dataflowActivity').output.runStatus.metrics.sink1.rowsWritten`。
+
+若要從該接收中使用名為 ' source1.rc ' 的來源取得讀取的資料列數目，請使用 `@activity('dataflowActivity').output.runStatus.metrics.sink1.sources.source1.rowsRead`。
+
+> [!NOTE]
+> 如果接收的資料列不是任何寫入，則不會顯示在計量中。 您可以使用 `contains` 函式來驗證是否存在。 例如，`contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')` 會檢查是否有任何資料列寫入 sink1。
+
 ## <a name="next-steps"></a>後續步驟
 
 請參閱 Data Factory 支援的控制流程活動： 
 
-- [If 條件活動](control-flow-if-condition-activity.md)
-- [執行管線活動](control-flow-execute-pipeline-activity.md)
+- [If Condition 活動](control-flow-if-condition-activity.md)
+- [執行管道活動](control-flow-execute-pipeline-activity.md)
 - [For Each 活動](control-flow-for-each-activity.md)
 - [取得中繼資料活動](control-flow-get-metadata-activity.md)
 - [查閱活動](control-flow-lookup-activity.md)

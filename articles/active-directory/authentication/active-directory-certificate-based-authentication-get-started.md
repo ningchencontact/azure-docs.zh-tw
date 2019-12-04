@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bfe306f089a26258ba9c7a07c54925f4540b44b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 90dc42ed6ca16947902622cba0e5a81a2bc900e3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382013"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74785989"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>開始在 Azure Active Directory 中使用憑證式驗證
 
@@ -32,17 +32,20 @@ ms.locfileid: "74382013"
 - 提供為 Office 365 企業版、商務版、教育版、美國政府方案的租用戶使用者，設定和使用憑證式驗證的步驟。 在 Office 365 China、US Government Defense 及 US Government Federal 方案中，這項功能處於預覽版。
 - 假設您已經設定[公開金鑰基礎結構 (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) 和 [AD FS](../hybrid/how-to-connect-fed-whatis.md)。
 
-## <a name="requirements"></a>需求
+## <a name="requirements"></a>要求
 
 若要設定憑證式驗證，必須符合下列陳述：
 
-- 只有瀏覽器應用程式或使用新式驗證 (ADAL) 之原生用戶端的同盟環境才支援憑證式驗證 (CBA)。 唯一的例外狀況是適用於 Exchange Online (EXO) 的 Exchange Active Sync (EAS)，可以用於同盟和受控兩種帳戶。
+- 僅針對瀏覽器應用程式、使用新式驗證（ADAL）的原生用戶端，或 MSAL 程式庫的同盟環境，才支援以憑證為基礎的驗證（CBA）。 唯一的例外狀況是適用於 Exchange Online (EXO) 的 Exchange Active Sync (EAS)，可以用於同盟和受控兩種帳戶。
 - 務必要在 Azure Active Directory 中設定根憑證授權單位和任何中繼憑證授權單位。
 - 每個憑證授權單位都必須有一份可透過網際網路對應 URL 來參考的憑證撤銷清單 (CRL)。
 - 您至少必須在 Azure Active Directory 中設定一個憑證授權單位。 您可以在[設定憑證授權單位](#step-2-configure-the-certificate-authorities)一節中找到相關步驟。
 - (僅 Exchange ActiveSync 用戶端適用) 用戶端憑證必須將 Exchange Online 中可路由傳送的使用者電子郵件地址，放在 [主體別名] 欄位的 [主體名稱] 或 [RFC822 名稱] 值中。 Azure Active Directory 要將 RFC822 值對應到目錄中的 [Proxy 位址] 屬性。
 - 您的用戶端裝置必須至少可以存取一個發出用戶端憑證的憑證授權單位。
 - 用於戶端驗證的用戶端憑證必須已經發給您的用戶端。
+
+>[!IMPORTANT]
+>Azure Active Directory 成功下載和快取的 CRL 大小上限為20MB，而下載 CRL 所需的時間不能超過10秒。  如果 Azure Active Directory 無法下載 CRL，使用對應 CA 所發行之憑證的憑證型驗證將會失敗。 確保 CRL 檔案在大小限制範圍內的最佳做法，是將憑證存留期保持在合理的限制範圍內，並清除過期的憑證。 
 
 ## <a name="step-1-select-your-device-platform"></a>步驟 1︰選取裝置平台
 
@@ -96,7 +99,7 @@ ms.locfileid: "74382013"
 
 設定的第一個步驟，您需要與您的租用戶建立連線。 一旦您與租用戶的連線存在，您可以檢閱、新增、刪除、修改在您的目錄中定義的受信任的憑證授權單位。
 
-### <a name="connect"></a>連線
+### <a name="connect"></a>連接
 
 若要與您的租用戶建立連線，使用 [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) Cmdlet︰
 
@@ -166,7 +169,7 @@ ms.locfileid: "74382013"
 
 ### <a name="testing-your-certificate"></a>測試您的憑證
 
-您應該試著使用您[裝置上的瀏覽器](https://outlook.office365.com)登入 [Outlook Web Access](https://microsoft.sharepoint.com) 或 **SharePoint Online**，這是第一個組態測試。
+您應該試著使用您**裝置上的瀏覽器**登入 [Outlook Web Access](https://outlook.office365.com) 或 [SharePoint Online](https://microsoft.sharepoint.com)，這是第一個組態測試。
 
 如果登入成功，您便知道︰
 

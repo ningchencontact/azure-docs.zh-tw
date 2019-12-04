@@ -1,20 +1,17 @@
 ---
-title: 存取 Azure 虛擬網路-Azure Logic Apps
+title: 存取 Azure 虛擬網路
 description: 關於整合服務環境（Ise）如何協助邏輯應用程式存取 Azure 虛擬網路（Vnet）的總覽
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: e06ac0c0647d9a9a6b5adee289b497f2fe94b222
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 9c4dca6dc5def1b1c458f28aa2d3ab992bd705d2
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889379"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792723"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>透過整合服務環境 (ISE) 從 Azure Logic Apps 存取 Azure 虛擬網路資源
 
@@ -78,7 +75,7 @@ ISE 也會針對執行持續時間、儲存體保留、輸送量、HTTP 要求�
 
 * **高級**
 
-  提供可用於生產環境的 ISE，並包含 SLA 支援、內建的觸發程式和動作、標準連接器、企業連接器、單一[標準層](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)整合帳戶、相應增加容量的選項，以及期間的冗余回收每月固定費用。
+  提供您可用於生產環境的 ISE，包括 SLA 支援、內建的觸發程式和動作、標準連接器、企業連接器、單一[標準層](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)整合帳戶、相應增加容量的選項，以及在回收期間以固定的每月價格進行冗余。
 
 > [!IMPORTANT]
 > [SKU] 選項僅適用于 ISE 建立，且稍後無法變更。

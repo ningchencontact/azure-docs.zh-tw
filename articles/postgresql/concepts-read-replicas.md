@@ -1,17 +1,17 @@
 ---
-title: 讀取適用於 PostgreSQL 的 Azure 資料庫中的複本-單一伺服器
+title: 讀取複本-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
 description: 本文說明適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的「讀取複本」功能。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: 5d3d752f549fe336f584fa3534b61cb5a009c3bd
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 12/03/2019
+ms.openlocfilehash: 35d568afa0c45529b33b7918fd453213f432ba06
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158813"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792287"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>讀取適用於 PostgreSQL 的 Azure 資料庫中的複本-單一伺服器
 
@@ -40,7 +40,9 @@ ms.locfileid: "74158813"
 ### <a name="universal-replica-regions"></a>通用複本區域
 無論您的主伺服器位於何處，您都可以在下列任何區域中建立讀取複本。 這些是通用複本區域：
 
-澳大利亞東部、澳大利亞東南部、美國中部、東亞、美國東部、美國東部2、日本東部、日本西部、韓國中部、南韓南部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、西歐、美國西部、美國西部2。
+澳大利亞東部、澳大利亞東南部、美國中部、東亞、美國東部、美國東部2、日本東部、日本西部、韓國中部、南韓南部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、西歐、美國西部。
+
+\* 美國西部2暫時無法當做跨區域複本位置使用。
 
 
 ### <a name="paired-regions"></a>配對的區域
@@ -142,11 +144,11 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 一旦您的應用程式成功處理讀取和寫入，您就已完成容錯移轉。 您的應用程式體驗所需的停機時間將取決於您偵測到問題，並完成上述步驟1和2。
 
 
-## <a name="considerations"></a>注意事項
+## <a name="considerations"></a>考量
 
 本節將摘要說明有關讀取複本功能的考量。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 建立讀取複本之前，`azure.replication_support` 參數必須在主要伺服器上設定為 **REPLICA**。 變更此參數後，必須重新啟動伺服器，才能讓變更生效。 `azure.replication_support` 參數僅適用於「一般用途」和「記憶體最佳化」層級。
 
 ### <a name="new-replicas"></a>新複本

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: 26ebcc7f2196267719a5f49aeeb8de00d48b9c3e
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 896fd41cff0ab8257da7b91687aaae389a1c81ca
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483732"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769654"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>在 Windows 虛擬桌面中發佈內建應用程式
 
@@ -45,5 +45,8 @@ ms.locfileid: "74483732"
 New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -FriendlyName <remoteappname> -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" 
 ```
 
+## <a name="next-steps"></a>後續步驟
 
+- 深入瞭解如何設定摘要，以組織為[Windows 虛擬桌面使用者的自訂](customize-feed-for-virtual-desktop-users.md)摘要中的使用者顯示應用程式的方式。
+- 瞭解[設定 MSIX 應用程式](app-attach.md)連結上的 MSIX 應用程式附加功能。
 

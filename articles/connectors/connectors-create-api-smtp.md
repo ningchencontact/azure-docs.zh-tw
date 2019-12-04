@@ -1,22 +1,18 @@
 ---
-title: 從 Azure Logic Apps 連線到 SMTP | Microsoft Docs
+title: 從 Azure Logic Apps 連接到 SMTP
 description: 藉由使用 Azure Logic Apps，讓透過 SMTP (簡易郵件傳輸通訊協定) 帳戶傳送電子郵件的工作和工作流程自動化
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 1649f197d4dbd88e2b485ab32f254a2d09696a84
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: fb501a158c839e6d4d71fc2af5ae50e48c248466
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050737"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789149"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>使用 Azure Logic Apps 從您的 SMTP 帳戶傳送電子郵件
 
@@ -24,7 +20,7 @@ ms.locfileid: "70050737"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * 您的 SMTP 帳戶和使用者認證
 
@@ -34,7 +30,7 @@ ms.locfileid: "70050737"
 
 * 您要在其中存取 SMTP 帳戶的邏輯應用程式。 若要使用 SMTP 動作，請使用觸發程序來啟動邏輯應用程式，例如 Salesforce 觸發程序 (如果您有 Salesforce 帳戶)。
 
-  例如，您可以使用**記錄建立時機** Salesforce 觸發程序來啟動邏輯應用程式。 
+  例如，您可以使用「記錄建立時機」Salesforce 觸發程序來啟動邏輯應用程式。 
   此觸發程序會在每次於 Salesforce 中建立新記錄 (例如潛在客戶) 時引發。 
   然後，您可以使用 SMTP [傳送電子郵件] 動作，來追蹤此觸發程序。 這樣一來，在建立新記錄時，邏輯應用程式會從您的 SMTP 帳戶，傳送與新記錄相關的電子郵件。
 
@@ -49,7 +45,7 @@ ms.locfileid: "70050737"
    若要在步驟之間新增動作，將指標移至步驟之間的箭號。 
    選擇顯示的加號 ( **+** )，然後選取 [新增動作]。
 
-1. 在搜尋方塊中，輸入 "smtp" 作為篩選條件。 請在動作清單底下，選取您想要的動作。
+1. 在搜尋方塊中，輸入 "smtp" 作為篩選條件。 在動作清單底下，選取您想要的動作。
 
 1. 出現提示時，請提供這項連線資訊：
 
@@ -74,7 +70,7 @@ ms.locfileid: "70050737"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
+* 若要送出或票選功能構想，請前往 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

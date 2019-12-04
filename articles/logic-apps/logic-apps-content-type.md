@@ -1,20 +1,17 @@
 ---
-title: 處理內容類型-Azure Logic Apps
+title: 處理內容類型
 description: 了解 Logic Apps 如何在設計階段與執行階段處理內容類型
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: 97897da13c70c29834b1fc276829b316416efd8d
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 75d9285c4a838c2057c0f23841c3a2f465789c7c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868920"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791529"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>在 Azure 邏輯應用程式中處理內容類型
 
@@ -31,7 +28,7 @@ ms.locfileid: "67868920"
 
 ## <a name="applicationjson"></a>application/json
 
-Logic Apps 會儲存和處理任何以 application/json  類型內容作為 JavaScript 標記法 (JSON) 物件的要求。 根據預設，您可以剖析 JSON 內容，而不需要任何轉換。 若要剖析具有 "application/json" 內容類型標頭的要求，您可以使用運算式。 此範例會從 `animal-type` 陣列傳回值 `dog`，而不需轉換： 
+Logic Apps 會儲存和處理任何以 application/json 類型內容作為 JavaScript 標記法 (JSON) 物件的要求。 根據預設，您可以剖析 JSON 內容，而不需要任何轉換。 若要剖析具有 "application/json" 內容類型標頭的要求，您可以使用運算式。 此範例會從 `animal-type` 陣列傳回值 `dog`，而不需轉換： 
  
 `@body('myAction')['animal-type'][0]` 
   
@@ -60,9 +57,9 @@ Logic Apps 可讓您產生方便使用的權杖來表示 JSON 內容中的屬性
   
   如果您沒有結構描述，您可以產生結構描述。 
   
-  1. 在要求觸發程序中，選取 [使用範例承載來產生結構描述]  。  
+  1. 在要求觸發程序中，選取 [使用範例承載來產生結構描述]。  
   
-  2. 在 [輸入或貼上範例 JSON 承載]  之下，提供範例承載，然後選擇 [完成]  。 例如: 
+  2. 在 [輸入或貼上範例 JSON 承載] 之下，提供範例承載，然後選擇 [完成]。 例如： 
 
      ![提供範例 JSON 承載](./media/logic-apps-content-type/request-trigger.png)
 
@@ -139,16 +136,16 @@ Logic Apps 一律會在收到的 HTTP 要求或回應中保留 `Content-Type`。
 
 以下清單說明當您使用這些[函式](../logic-apps/workflow-definition-language-functions-reference.md)時，Logic Apps 如何轉換內容：
 
-* `json()`:將資料轉換成`application/json`
-* `xml()`:將資料轉換成`application/xml`
-* `binary()`:將資料轉換成`application/octet-stream`
-* `string()`:將資料轉換成`text/plain`
-* `base64()`:將內容轉換為 base64 編碼的字串
-* `base64toString()`:將 base64 編碼的字串轉換為`text/plain`
-* `base64toBinary()`:將 base64 編碼的字串轉換為`application/octet-stream`
-* `dataUri()`:將字串轉換成資料 URI
-* `dataUriToBinary()`:將資料 URI 轉換成二進位字串
-* `dataUriToString()`:將資料 URI 轉換為字串
+* `json()`：將資料轉換為 `application/json`
+* `xml()`：將資料轉換為 `application/xml`
+* `binary()`：將資料轉換為 `application/octet-stream`
+* `string()`：將資料轉換為 `text/plain`
+* `base64()`：將內容轉換為 base64 編碼的字串
+* `base64toString()`：將 base64 編碼的字串轉換成 `text/plain`
+* `base64toBinary()`：將 base64 編碼的字串轉換成 `application/octet-stream`
+* `dataUri()`：將字串轉換為數據 URI
+* `dataUriToBinary()`：將資料 URI 轉換為二進位字串
+* `dataUriToString()`：將資料 URI 轉換為字串
 
 例如，如果您收到 `Content-Type` 設定為 `application/xml` 的 HTTP 要求，例如以下內容：
 

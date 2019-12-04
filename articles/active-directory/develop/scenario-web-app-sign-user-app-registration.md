@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50e4778693e448b9a989d70d3ca8cf91c76ce380
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 0d840cbaba2cc8325c619248bb7f4421d3b2f83c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482056"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766067"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>登入使用者的 Web 應用程式：應用程式註冊
 
@@ -59,7 +59,7 @@ ms.locfileid: "74482056"
    1. 針對 [**回復 URL**]，新增**Web**類型的 **https://localhost:44321/signin-oidc** 。
    1. 在 [ **Advanced settings** ] 區段中，將 [**登出 URL** ] 設定為 **https://localhost:44321/signout-oidc** 。
    1. 在 **[隱含授**與] 底下，選取 [**識別碼權杖**]。
-   1. 選取 [ **儲存**]。
+   1. 選取 [儲存]。
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -68,27 +68,27 @@ ms.locfileid: "74482056"
    1. 在 [**名稱**] 區段中，輸入將對應用程式使用者顯示且有意義的應用程式名稱。 例如，輸入**MailApp-openidconnect-v2**。
    1. 在 [重新**導向 URI （選擇性）** ] 區段中，選取下拉式方塊中的 [ **Web** ]，然後輸入下列重新導向 URI： **https://localhost:44326/** 。
 1. 選取 [註冊] 以建立應用程式。
-1. 選取 [**驗證**] 功能表。 
+1. 選取 [**驗證**] 功能表。
 1. 在 [**高級設定**] | [**隱含授**與] 區段中，選取 [**識別碼權杖**]。 此範例需要啟用[隱含授與流程](v2-oauth2-implicit-grant-flow.md)，才能登入使用者。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-1. 當 [**註冊應用程式] 頁面**出現時，輸入應用程式的顯示名稱。 例如，輸入**java-webapp**。 
+1. 當 [**註冊應用程式] 頁面**出現時，輸入應用程式的顯示名稱。 例如，輸入**java-webapp**。
 1. 選取**任何組織目錄中的帳戶和個人 Microsoft 帳戶（例如 Skype、Xbox、Outlook.com）** ，然後選取 [ **Web 應用程式/API** ] 作為 [**應用程式類型**]。
 1. 選取 [**註冊**] 以註冊應用程式。
-1. 在左側功能表上，選取 [**驗證**]。 在 [重新**導向 uri**] 底下，選取 [ **Web**]。 
+1. 在左側功能表上，選取 [**驗證**]。 在 [重新**導向 uri**] 底下，選取 [ **Web**]。
 
 1. 輸入兩個重新導向 Uri：一個用於登入頁面，另一個用於圖形頁面。 針對這兩個，使用相同的主機和埠號碼，後面接著 **/msal4jsample/secure/aad**作為登入頁面，然後按 [ **msal4jsample/graph/me]** 作為 [使用者資訊] 頁面。
- 
+
    根據預設，此範例會使用：
 
    - **http://localhost:8080/msal4jsample/secure/aad**
    - **http://localhost:8080/msal4jsample/graph/me**
 
-1. 在 [ **Advanced settings** ] 區段中，將 [**登出 URL** ] 設定為 **http://localhost:8080/msal4jsample/sign_out** 。 然後選取 [儲存]。
+  然後選取 [儲存]。
 
-1. 從功能表中選取 [**憑證 & 密碼**]。 
+1. 從功能表中選取 [**憑證 & 密碼**]。
 1. 在 [**用戶端密碼**] 區段中，選取 [**新增用戶端密碼**]，然後：
 
    1. 輸入 [金鑰描述]。
@@ -104,7 +104,6 @@ ms.locfileid: "74482056"
    1. 在 [重新**導向 URI （選擇性）** ] 區段中，選取下拉式方塊中的 [ **Web** ]，然後輸入下列重新導向 URI： **http://localhost:5000/getAToken** 。
 1. 選取 [註冊] 以建立應用程式。
 1. 在應用程式的 [概觀] 頁面上，尋找 [應用程式 (用戶端) 識別碼] 值並將它記下供稍後使用。 您將需要它來設定此專案的 Visual Studio 設定檔。
-1. 選取 [**驗證**] 區段。 在 [**高級設定**] 中，將 [**登出 URL** ] 設定為 **http://localhost:5000/logout** 。 然後選取 [儲存]。
 1. 在左側功能表上，選取 [**憑證 & 密碼**]。
 1. 在 [**用戶端密碼**] 區段中，選取 [**新增用戶端密碼**]，然後：
 

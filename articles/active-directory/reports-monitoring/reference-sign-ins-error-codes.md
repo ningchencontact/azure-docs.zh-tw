@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e9d484da1b59c456b30cf0b465ec6de5af77d1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 1ed91396dd747bb800d88bc3cd083439a5648624
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014304"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786362"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>登入活動報告錯誤碼 
 
@@ -36,7 +36,7 @@ ms.locfileid: "74014304"
 
 ## <a name="how-can-i-display-failed-sign-ins"></a>如何顯示失敗的登入？ 
 
-巡覽至 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)中的[登入報告](https://portal.azure.com)。
+巡覽至 [Azure 入口網站](https://portal.azure.com)中的[登入報告](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)。
 
 ![登入活動](./media/reference-sign-ins-error-codes/61.png "登入活動")
 
@@ -53,7 +53,7 @@ ms.locfileid: "74014304"
 ## <a name="error-codes"></a>錯誤碼
 
 
-|錯誤|描述|
+|Error|描述|
 |---|---|
 |16000|這是內部實作詳細資料，而不是錯誤狀況。 您可以放心地忽略此參考。|
 |20001|同盟識別提供者有問題。 請連絡 IDP 以解決此問題。|
@@ -107,7 +107,7 @@ ms.locfileid: "74014304"
 |50128|網域名稱無效 - 在要求中找不到租用戶識別資訊，或任何提供的認證均未隱含租用戶識別資訊。|
 |50129|裝置為加入工作場所網路 - 註冊裝置需**加入工作場所網路**。|
 |50130|宣告值無法解譯為已知驗證方法。|
-|50131|用於各種條件式存取錯誤。 例如 不正確的 Windows 裝置狀態，要求因為可疑的活動、存取原則和安全性原則決策而遭到封鎖。|
+|50131|用於各種條件式存取錯誤。 例如： 不正確的 Windows 裝置狀態，要求因為可疑的活動、存取原則和安全性原則決策而遭到封鎖。|
 |50132|認證已遭撤銷，原因如下：<ul><li>SSO 成品無效或過期</li><li>工作階段對應用程式來說不夠新</li><li>已傳送無訊息登入要求，但使用者的 Azure AD 工作階段無效或過期。</li></ul>|
 |50133|工作階段因為到期或近期密碼變更而無效。|
 |50135|帳戶有風險，因此必須變更密碼。|
@@ -164,7 +164,7 @@ ms.locfileid: "74014304"
 |75016|SAML2 驗證要求所具有的 NameIdPolicy 無效。 請連絡應用程式擁有者。|
 |80001|驗證代理程式無法連線至 Active Directory。 請確定能看到使用者登入要求處理 DC、且已加入網域的機器上，已安裝驗證代理程式。|
 |80002|內部錯誤。 密碼驗證要求已超時。我們無法將驗證要求傳送給內部的混合式身分識別服務。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
-|80003|驗證代理程式收到的回應無效。 嘗試對 Active Directory 內部部署進行驗證時，發生未知錯誤。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
+|80003|驗證代理程式收到無效的回應。 嘗試對 Active Directory 內部部署進行驗證時，發生未知錯誤。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
 |80005|驗證代理程式：處理驗證代理程式所傳來的回應時，發生未知錯誤。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
 |80007|驗證代理程式無法驗證使用者的密碼。|
 |80010|驗證代理程式無法連線將密碼解密。 |
@@ -181,7 +181,8 @@ ms.locfileid: "74014304"
 |90051| 不正確委派 Token。 指定了不正確國家/地區雲端識別碼（{cloudId}）。|
 |90072| 必須先在租用戶中將帳戶新增為外部使用者。 登出後再使用不同的 Azure AD 帳戶登入。|
 |90094| 進行授與需要系統管理員權限。 詢問您的租用戶系統管理員，以提供對此應用程式的同意。|
-|500021|租使用者受到公司 proxy 的限制。 拒絕資源存取。|
+|500011| 在名為 <tenant ID>的租使用者中找不到名為 <site address> 的資源主體。 如果租用戶的系統管理員尚未安裝此應用程式或租用戶中的任何使用者尚未同意使用此應用程式，也可能會發生此錯誤。 您可能會將驗證要求傳送至錯誤的租用戶。|
+|500021| 租使用者受到公司 proxy 的限制。 拒絕資源存取。|
 |500121| 驗證在強式驗證要求期間失敗。|
 |500133| Assert 陳述式不在其有效時間範圍內。 先確認存取權杖未過期，再將它用於使用者 Assert 陳述式，或要求新權杖。|
 |530021|應用程式不符合條件式存取已核准的應用程式需求。|

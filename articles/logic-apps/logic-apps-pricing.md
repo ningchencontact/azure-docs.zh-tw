@@ -1,20 +1,19 @@
 ---
-title: 定價 & 計費模型-Azure Logic Apps
+title: 定價 & 計費模型
 description: 有關定價和計費模型如何適用于 Azure Logic Apps 的總覽
 services: logic-apps
-ms.service: logic-apps
-ms.suite: logic-apps
+ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: f4651e40a0f4269dc5c8a2fcd4c0e25c1e9bbb3c
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 80eadcadad58cc126a9213c9e5bc5c65c1eb5c6c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045099"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793443"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps 的定價模式
 

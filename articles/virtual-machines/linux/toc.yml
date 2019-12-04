@@ -74,8 +74,9 @@
         - name: 網路效能
           href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: VM 類型和大小
-      href: sizes.md
       items:
+        - name: 大小系列
+          href: sizes.md
         - name: 第 2 代 VM
           href: generation-2.md
         - name: 一般用途
@@ -103,6 +104,16 @@
               href: n-series-driver-setup.md
         - name: 高效能計算
           href: sizes-hpc.md
+        - name: 保留執行個體
+          items:
+            - name: VM 預付
+              href: prepay-reserved-vm-instances.md
+            - name: 什麼是 Azure 保留？
+              href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+            - name: VM 執行個體大小彈性
+              href: reserved-vm-instance-size-flexibility.md
+        - name: Spot VM
+          href: spot-vms.md
         - name: 上一代
           href: sizes-previous-gen.md
         - name: 隔離大小
@@ -186,6 +197,16 @@
               href: dedicated-hosts-cli.md
             - name: 入口網站
               href: dedicated-hosts-portal.md
+        - name: 部署 Spot VM
+          items:
+            - name: CLI
+              href: spot-cli.md
+            - name: 入口網站
+              href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
+            - name: 範本
+              href: spot-template.md
+            - name: 錯誤碼
+              href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json
     - name: 保護 VM
       items:
         - name: 建議

@@ -1,17 +1,17 @@
 ---
-title: 從 Azure CLI 管理適用於 PostgreSQL 的 Azure 資料庫-單一伺服器的讀取複本 REST API
+title: 管理讀取複本-Azure CLI、REST API 適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
 description: 瞭解如何從 Azure CLI 和 REST API 管理適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的讀取複本
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: e146a0f42b6487545321ebfbc9ec523da5e78c8a
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: fb0803987428ced688e83a37fae36c61b63a28a8
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995344"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770113"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>從 Azure CLI 建立及管理讀取複本，REST API
 
@@ -31,7 +31,7 @@ ms.locfileid: "70995344"
 
 `azure.replication_support` 參數必須在主要伺服器上設定為 **REPLICA**。 當此靜態參數變更時，需要重新開機伺服器，變更才會生效。
 
-1. 設定`azure.replication_support`為 [複本]。
+1. 將 `azure.replication_support` 設定為 [複本]。
 
    ```azurecli-interactive
    az postgres server configuration set --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support --value REPLICA
@@ -50,7 +50,7 @@ ms.locfileid: "70995344"
 | 設定 | 範例值 | 描述  |
 | --- | --- | --- |
 | resource-group | myresourcegroup |  將在其中建立複本伺服器的資源群組。  |
-| name | mydemoserver-replica | 所建立的新複本伺服器名稱。 |
+| 名稱 | mydemoserver-複本 | 所建立的新複本伺服器名稱。 |
 | source-server | mydemoserver | 要從中複寫之現有主伺服器的名稱或資源識別碼。 |
 
 在下列 CLI 範例中，會在與主伺服器相同的區域中建立複本。
@@ -59,7 +59,7 @@ ms.locfileid: "70995344"
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup
 ```
 
-若要建立跨區域讀取複本，請使用`--location`參數。 下列 CLI 範例會在美國西部建立複本。
+若要建立跨區域讀取複本，請使用 `--location` 參數。 下列 CLI 範例會在美國西部建立複本。
 
 ```azurecli-interactive
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup --location westus
@@ -68,7 +68,7 @@ az postgres server replica create --name mydemoserver-replica --source-server my
 > [!NOTE]
 > 若要深入瞭解您可以在哪些區域中建立複本，請造訪[讀取複本概念一文](concepts-read-replicas.md)。 
 
-如果您尚未在一般用途`azure.replication_support`或記憶體優化的主伺服器上，將參數設定為 [**複本**]，並重新啟動伺服器，就會收到錯誤。 建立複本之前，請先完成這兩個步驟。
+如果您尚未在一般用途或記憶體優化的主伺服器上將 `azure.replication_support` 參數設定為 [**複本**]，並重新啟動伺服器，則會收到錯誤。 建立複本之前，請先完成這兩個步驟。
 
 使用與主伺服器相同的計算和儲存設定來建立複本。 建立複本之後，以下設定可以個別地從主要伺服器進行變更：計算世代、虛擬核心、儲存體及備份保留期間。 定價層也可以個別變更，但不能變更為基本層，或從基本層變更為別的層。
 
@@ -108,7 +108,7 @@ az postgres server delete --name myserver --resource-group myresourcegroup
 
 `azure.replication_support` 參數必須在主要伺服器上設定為 **REPLICA**。 當此靜態參數變更時，需要重新開機伺服器，變更才會生效。
 
-1. 設定`azure.replication_support`為 [複本]。
+1. 將 `azure.replication_support` 設定為 [複本]。
 
    ```http
    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/configurations/azure.replication_support?api-version=2017-12-01
@@ -148,7 +148,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > 若要深入瞭解您可以在哪些區域中建立複本，請造訪[讀取複本概念一文](concepts-read-replicas.md)。 
 
-如果您尚未在一般用途`azure.replication_support`或記憶體優化的主伺服器上，將參數設定為 [**複本**]，並重新啟動伺服器，就會收到錯誤。 建立複本之前，請先完成這兩個步驟。
+如果您尚未在一般用途或記憶體優化的主伺服器上將 `azure.replication_support` 參數設定為 [**複本**]，並重新啟動伺服器，則會收到錯誤。 建立複本之前，請先完成這兩個步驟。
 
 使用與主伺服器相同的計算和儲存設定來建立複本。 建立複本之後，以下設定可以個別地從主要伺服器進行變更：計算世代、虛擬核心、儲存體及備份保留期間。 定價層也可以個別變更，但不能變更為基本層，或從基本層變更為別的層。
 

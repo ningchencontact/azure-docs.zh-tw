@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 3470e27f64a672db0165b0132996db91a1447c08
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: aebd7b58a2107ac109a03d3ce12f27d65ba0ab90
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033972"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769807"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Azure Data Lake Storage 上的多重通訊協定存取
 
@@ -48,10 +48,13 @@ Data Lake Storage 上的多重通訊協定存取可讓您將更多的 Blob 儲�
 |Blob 儲存體功能 | 支援層級 |
 |---|---|
 |[非經常性存取層](storage-blob-storage-tiers.md)|正式推出|
+|Blob REST Api|正式推出|
 |Blob Sdk |正式推出|
-|Blob REST Api|一般可用|
-|[PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |正式推出|
-|[CLI](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |正式推出|
+|[PowerShell （Blob）](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |正式推出|
+|[CLI （Blob）](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |正式推出|
+|具有檔案系統語義的 Blob Sdk （[.net](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-dotnet) &vert; [Python](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-python) &vert; [JAVA](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-java)）|預覽|
+|[PowerShell 與檔案系統的語義](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-powershell)|預覽|
+|[具有檔案系統語義的 CLI](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-cli)|預覽|
 |[診斷記錄](../common/storage-analytics-logging.md)| 預覽|
 |[生命週期管理原則](storage-lifecycle-management-concepts.md)| 預覽|
 |[透過 Azure 事件方格的通知](data-lake-storage-events.md)|預覽|

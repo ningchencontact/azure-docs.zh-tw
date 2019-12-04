@@ -1,20 +1,17 @@
 ---
-title: 將成品新增至整合服務環境-Azure Logic Apps
+title: 將構件新增至整合服務環境
 description: 將邏輯應用程式、整合帳戶和自訂連接器新增至您的整合服務環境（ISE），以存取 Azure 虛擬網路（Vnet）
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 266c942adb62b187d39d2eac4a47455482bfadaa
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 7221619c8d9388a9f6d46ec1dfbb11e467db861a
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680518"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793300"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>在 Azure Logic Apps 中將成品新增至您的整合服務環境（ISE）
 
@@ -32,7 +29,7 @@ ms.locfileid: "72680518"
 
 若要建立在整合服務環境（ISE）中執行的邏輯應用程式，請遵循下列步驟：
 
-1. 尋找並開啟您的 ISE （如果尚未開啟）。 從 ISE 功能表的 **設定** 底下，選取 **邏輯應用程式**  > **新增**。
+1. 尋找並開啟您的 ISE （如果尚未開啟）。 從 ISE 功能表的 **設定** 底下，選取 **邏輯應用程式** > **新增**。
 
    ![將新的邏輯應用程式新增至 ISE](./media/add-artifacts-integration-service-environment-ise/add-logic-app-to-ise.png)
 
@@ -63,7 +60,7 @@ ms.locfileid: "72680518"
 
 若要建立使用 ISE 的整合帳戶，請遵循下列步驟：
 
-1. 尋找並開啟您的 ISE （如果尚未開啟）。 從 ISE 功能表的 **設定** 底下，選取 **整合帳戶**  > **新增**。
+1. 尋找並開啟您的 ISE （如果尚未開啟）。 從 ISE 功能表的 **設定** 底下，選取 **整合帳戶** > **新增**。
 
    ![將新的整合帳戶新增至 ISE](./media/add-artifacts-integration-service-environment-ise/add-integration-account-to-ise.png)
 
@@ -105,7 +102,7 @@ ms.locfileid: "72680518"
 
 若要在 ISE 中使用自訂連接器，請直接在 ISE 內建立這些自訂連接器。
 
-1. 尋找並開啟您的 ISE （如果尚未開啟）。 從 ISE 功能表的 **設定** 底下，選取 **自訂連接器**  > **新增**。
+1. 尋找並開啟您的 ISE （如果尚未開啟）。 從 ISE 功能表的 **設定** 底下，選取 **自訂連接器** > **新增**。
 
    ![建立自訂連接器](./media/add-artifacts-integration-service-environment-ise/add-custom-connector-to-ise.png)
 

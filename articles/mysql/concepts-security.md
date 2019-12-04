@@ -1,19 +1,19 @@
 ---
-title: 適用於 MySQL 的 Azure 資料庫中的安全性-單一伺服器
-description: 概述適用於 MySQL 的 Azure 資料庫單一伺服器中的安全性功能。
+title: 安全性-適用於 MySQL 的 Azure 資料庫
+description: 適用於 MySQL 的 Azure 資料庫中的安全性功能總覽。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 06f895d2e8cd7936141c9f35c5ed0c81fb7e3e15
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/02/2019
+ms.openlocfilehash: 421604bcec5277d337b7e7f73a869f40fa73158a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485051"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764962"
 ---
-# <a name="security-in-azure-database-for-mysql---single-server"></a>適用於 MySQL 的 Azure 資料庫中的安全性-單一伺服器
+# <a name="security-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫安全性
 
 有多層的安全性可用來保護您適用於 MySQL 的 Azure 資料庫伺服器上的資料。 本文將概述這些安全性選項。
 
@@ -43,7 +43,7 @@ IP 防火牆規則會根據每個要求的原始 IP 位址來授與伺服器的�
 建立適用於 MySQL 的 Azure 資料庫伺服器時，您會提供系統管理員使用者的認證。 此系統管理員可以用來建立其他 MySQL 使用者。
 
 
-## <a name="threat-protection"></a>威脅保護
+## <a name="threat-protection"></a>威脅防護
 
 您可以選擇使用 [[先進的威脅防護](concepts-data-access-and-security-threat-protection.md)] 來偵測異常活動，指出有不尋常且可能有害的嘗試存取或惡意探索伺服器。
 

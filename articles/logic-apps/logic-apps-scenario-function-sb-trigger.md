@@ -1,28 +1,25 @@
 ---
-title: 使用 Azure Functions Azure Logic Apps 呼叫邏輯應用程式
+title: 使用 Azure Functions 呼叫邏輯應用程式
 description: 藉由接聽 Azure 服務匯流排，建立呼叫或觸發邏輯應用程式的 Azure 函數
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jehollan, klam, LADocs
+ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: c65a0464bbad6dbaca51dbc5bbc0d84adbd605d7
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 66f0e0cd2bd09e22260574992f92f7210bd6aa51
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904674"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792955"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>使用 Azure Functions 和 Azure 服務匯流排來呼叫或觸發邏輯應用程式
 
 當您需要部署長時間執行的接聽程式或工作時，您可以使用[Azure Functions](../azure-functions/functions-overview.md)來觸發邏輯應用程式。 例如，您可以建立 Azure 函式來接聽[Azure 服務匯流排](../service-bus-messaging/service-bus-messaging-overview.md)佇列，並立即引發邏輯應用程式做為推播觸發程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* Azure 訂閱。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * Azure 服務匯流排命名空間。 如果您沒有命名空間，請[先建立命名空間](../service-bus-messaging/service-bus-create-namespace-portal.md)。
 

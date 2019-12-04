@@ -1,17 +1,17 @@
 ---
-title: 使用適用於 PostgreSQL 的 Azure 資料庫-單一伺服器進行 Azure Active Directory 驗證
+title: Active Directory 驗證-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
 description: 瞭解使用適用於 PostgreSQL 的 Azure 資料庫單一伺服器進行驗證 Azure Active Directory 的概念
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 47637396581beeafb0748066cd6a66f011e8eaa1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ec853657d6dd1f3b019d8a414cfa28edc1083b29
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518732"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769909"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>使用 Azure Active Directory 向于 postgresql 進行驗證
 
@@ -55,7 +55,7 @@ Microsoft Azure Active Directory （Azure AD）驗證是使用 Azure AD 中定�
 
 ![系統管理員結構][2]
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>使用權限
 
 若要建立可使用 Azure AD 進行驗證的新使用者，您必須在資料庫中擁有 `azure_ad_admin` 角色。 這個角色是藉由設定特定適用於 PostgreSQL 的 Azure 資料庫伺服器的 Azure AD 系統管理員帳戶來指派。
 

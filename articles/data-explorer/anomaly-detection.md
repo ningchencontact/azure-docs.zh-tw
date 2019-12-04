@@ -1,35 +1,37 @@
 ---
-title: 時間序列異常偵測和 Azure 在資料總管中預測
-description: 了解如何分析進行異常偵測和預測使用 Azure 資料的時間序列資料。
+title: Azure 中的時間序列異常偵測和預測資料總管
+description: 瞭解如何使用 Azure 資料總管分析時間序列資料，以進行異常偵測和預測。
 author: orspod
 ms.author: orspodek
-ms.reviewer: jasonh
+ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: f40350129a12c7865051bcae80b74b6f9c069179
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e06569a3a6948836201b333501bf2de0416d4ca
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233535"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766033"
 ---
-# <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>異常偵測和 Azure 在資料總管中預測
+# <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Azure 資料總管中的異常偵測和預測
 
-Azure 的資料總管，執行持續收集遙測資料從雲端服務或 IoT 裝置。 這項資料是針對各種不同的深入解析，例如，監視服務健康狀態、 實體的實際執行程序、 使用趨勢，以及負載預測分析。 選取的度量，以找出差模式相對於其一般正常基準模式的度量的時間序列進行分析。 Azure 的資料總管包含建立、 操作和多個時間序列分析的原生支援。 它可以建立和分析數千個時間序列，以秒為單位，啟用近乎即時監視解決方案和工作流程。
+Azure 資料總管會從雲端服務或 IoT 裝置執行遙測資料的持續收集。 此資料會針對各種深入解析進行分析，例如監視服務健全狀況、實體生產程式、使用趨勢和負載預測。 分析會在所選計量的時間序列上進行，以找出相對於其一般一般基準模式的度量偏差模式。 Azure 資料總管包含建立、操作及分析多個時間序列的原生支援。 它可以在幾秒內建立和分析數千個時間序列，讓您近乎即時地監視解決方案和工作流程。
 
-本文詳細說明 Azure 資料總管時間序列異常偵測和趨勢預測功能。 適用於時間序列函式以模型為基礎強固的已知分解，其中每個原始的時間序列分解成多季節性、 趨勢，以及剩餘的元件。 預測是藉由推斷季節性時所剩餘的元件，在極端值偵測到異常，和趨勢元件。 Azure 資料總管實作大幅增強了基本的分解模型自動季節性偵測、 穩固的極端值分析及向量化的實作來處理數以千計的時間序列以秒為單位。
+本文詳細說明 Azure 資料總管時間序列異常偵測和預測功能。 適用的時間序列函數是以健全的知名分解模型為基礎，其中每個原始時間序列會分解成季節性、趨勢和剩餘元件。 在剩餘的元件上，極端值會偵測到異常，而預測則是藉由推斷季節性和趨勢元件來完成。 Azure 資料總管執行會透過自動季節性偵測、強大的極端情況分析和向量化的執行，大幅提升基本分解模型，以在數秒內處理數千個時間序列。
 
 ## <a name="prerequisites"></a>必要條件
 
-讀取[時間序列分析，Azure 在資料總管中的](/azure/data-explorer/time-series-analysis)有關時間序列功能的概觀。
+如需時間序列功能的總覽，請參閱[Azure 資料總管中的時間序列分析](/azure/data-explorer/time-series-analysis)。
 
 ## <a name="time-series-decomposition-model"></a>時間序列分解模型
 
-Azure 的資料總管原生實作時間序列預測和異常偵測會使用已知的分解模型。 此模型會套用至時間序列的預期定期和趨勢的行為，例如服務流量、 元件的活動訊號和 IoT 預測未來的計量值，並偵測異常的週期性的度量資訊清單的計量。 此迴歸的程序假設是以外先前已知季節性和趨勢的行為，會隨機分散數列的時間。 您可以預測未來的計量值，從季節性和趨勢元件，以下合稱名為基準，並忽略的剩餘部分。 您也可以偵測到使用剩餘的部分的極端值分析為基礎的異常值。
-若要建立分解的模型，請使用 函式[ `series_decompose()` ](/azure/kusto/query/series-decomposefunction)。 `series_decompose()`函式會採用一組時間序列，並自動分解每個要其季節性時間序列、 趨勢、 剩餘和基礎元件。 
+適用于時間序列預測和異常偵測的 Azure 資料總管原生執行會使用知名的分解模型。 此模型會套用至預期會列出定期和趨勢行為的時間序列，例如服務流量、元件偵測條件和 IoT 定期測量，以預測未來的計量值並偵測異常情況。 此回歸程式的假設是除了先前已知的季節性和趨勢行為之外，也會隨機散發時間序列。 然後，您可以從季節性和趨勢元件預測未來的計量值，並將其命名為基準，並忽略剩餘的部分。 您也可以只使用剩餘部分，根據極端值分析來偵測異常值。
+若要建立分解模型，請使用函數[`series_decompose()`](/azure/kusto/query/series-decomposefunction)。 `series_decompose()` 函式會採用一組時間序列，並自動會 decompose 每個時間序列的季節性、趨勢、剩餘和基準元件。 
 
-例如，您可以將內部的 web 服務的流量，藉由使用下列查詢：
+例如，您可以使用下列查詢來分解內部 web 服務的流量：
+
+**\[** [**按一下以執行查詢**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA3WQ3WrDMAyF7/sUukvCnDXJGIOVPEULuwxqoixm/gm2+jf28JObFjbYrmyho3M+yRCD1a5jaGFAJtaW8qaqX8qqLqvnYrMySYHnvxRNWT1B07xW1U03JFEzbVYDWd9Z/KAuUtAUm9UXpLJcSnAH2+LxPZe3AO9gJ6ZbRjvDGLy9EbG/BUemOXnvLxD1AOJ1mijQtWhbyHbbOgOA9RogkqGeAaXn3g1BooVb6OiDNHpD6CjAUccDGv2JrL0TSzozuQHyPYqHdqRkDKN3aBRwkJaCQJIoQ4VsuXh2A/Xezj5SWkVBWSvI0vSoOSsWpLtEpyDwY4KTW8nnJ5ws+2+eAhSyOxjkd+HDVVcIfHplp2TYTxgYTpqnnDUbarM32gPO86PY4jjqfmGw3vGkftNlCi5xNprbWW5kYvENQQnqDh8CAAA=) **\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -44,17 +46,19 @@ demo_make_series2
 
 ![時間序列分解](media/anomaly-detection/series-decompose-timechart.png)
 
-* 標示為原始的時間序列**num** （以紅色標示）。 
-* 使用函式在處理序啟動的自動偵測季節性[ `series_periods_detect()` ](/azure/kusto/query/series-periods-detectfunction) ，並擷取**季節性**模式 （以紫色顯示）。
-* 季節性模式會減去原始時間序列，並使用函式執行線性迴歸[ `series_fit_line()` ](/azure/kusto/query/series-fit-linefunction)來尋找**趨勢**元件 （以淺藍色）。
-* 函式會減去趨勢和餘數**殘差**元件 （以綠色顯示）。
-* 最後，將季節性函式，並趨勢元件，以產生**基準**（以藍色顯示）。
+* 原始時間序列的標籤為**num** （以紅色表示）。 
+* 此程式一開始會使用函式[`series_periods_detect()`](/azure/kusto/query/series-periods-detectfunction)自動偵測季節性，並解壓縮**季節性**模式（紫色）。
+* 季節性模式會從原始時間序列減去，而線性回歸則是使用函數[`series_fit_line()`](/azure/kusto/query/series-fit-linefunction)來尋找**趨勢**元件（淺藍色）。
+* 函式會減去趨勢，餘數則是**剩餘**的元件（以綠色表示）。
+* 最後，函式會加入季節性和趨勢元件來產生**基準**（以藍色表示）。
 
 ## <a name="time-series-anomaly-detection"></a>時間序列異常偵測
 
-此函式[ `series_decompose_anomalies()` ](/azure/kusto/query/series-decompose-anomaliesfunction)時間序列的一組上發現異常的點。 此函式會呼叫`series_decompose()`來建置此分解模型，然後執行[ `series_outliers()` ](/azure/kusto/query/series-outliersfunction)上剩餘的元件。 `series_outliers()` 計算異常分數的每個剩餘的元件使用 Tukey 圍欄測試點。 1\.5 高於或低於-1.5 的異常分數指出輕度異常升高，或分別拒絕。 3\.0 上方或下方為-3.0 的異常分數表示強式的異常。 
+函數[`series_decompose_anomalies()`](/azure/kusto/query/series-decompose-anomaliesfunction)在一組時間序列上尋找異常點。 此函式會呼叫 `series_decompose()` 來建立分解模型，然後在剩餘的元件上執行[`series_outliers()`](/azure/kusto/query/series-outliersfunction) 。 `series_outliers()` 會使用 Tukey 的範圍測試來計算剩餘元件之每個點的異常分數。 高於1.5 或低於-1.5 的異常分數分別表示輕微的異常增加或拒絕。 高於3.0 或低於-3.0 的異常分數表示強性異常。 
 
-下列查詢可讓您偵測異常的內部網頁服務流量：
+下列查詢可讓您偵測內部 web 服務流量中的異常：
+
+**\[** [**按一下以執行查詢**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA3WR3W7CMAyF73mKI25KpRbaTmjSUJ8CpF1WoXVptPxUifmb9vBLoGO7GFeR7ePv2I4ihpamYdToBBNLTYuqKF/zosyLdbqZqagQl/8UVV68oKreimLSdVFUDZtZR9o2WnxQ48lJ8tXsCzHM7yHMUdfidFiEN4U12AXoloUe0Turp4nYTsaeaYzs/RVedgis80CObkFdI9ltywTAagV4UtQyRKiZgyLEaTGZ9taFQqtIGHI4SX8USn4KltYEJF2YTIeFMFaHPPkMvrWOMuxFoEpDaVjujmo6aq0erafmIY+7ZCiX6wx5mSGJHb3kJA1sF8jB8q69toNwjLPkYfGTseqoja//eLNkRXXyTnuIcVyCneh72cL2YQdtDQ8ZHvIkDcsfPWH+3AvPvObx0FMXD/RLhfDYW9VhtNKwj/8U69M1b2S//AbRUQMWQQIAAA==) **\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -69,15 +73,17 @@ demo_make_series2
 
 ![時間序列異常偵測](media/anomaly-detection/series-anomaly-detection.png)
 
-* 原始的時間序列 （以紅色標示）。 
-* 基準 (季節性趨勢 +) 元件 （以藍色顯示）。
-* （以紫色顯示） 上的原始時間序列異常點。 異常的點大幅偏離預期的基準值。
+* 原始的時間序列（以紅色表示）。 
+* 基準（季節性 + 趨勢）元件（藍色）。
+* 原始時間序列頂端的異常點（紫色）。 異常的點明顯偏離了預期的基準值。
 
 ## <a name="time-series-forecasting"></a>時間序列預測
 
-此函式[ `series_decompose_forecast()` ](/azure/kusto/query/series-decompose-forecastfunction)預測未來的一組的時間序列的值。 此函式會呼叫`series_decompose()`來建置模型，然後針對每個時間序列分解外推的基準元件到未來。
+函數[`series_decompose_forecast()`](/azure/kusto/query/series-decompose-forecastfunction)預測一組時間序列的未來值。 此函數會呼叫 `series_decompose()` 來建立分解模型，然後針對每個時間序列，將基準元件據此到未來。
 
-下列查詢可讓您預測下一週的 web 服務的流量：
+下列查詢可讓您預測下一周的 web 服務流量：
+
+**\[** [**按一下以執行查詢**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA22QzW6DMBCE73mKuQFqKISqitSIW98gkXpEDl5iK9hG9uanUR++dqE99YRGO8x845EYRtuO0UIKJtaG8qbebMt6U9avxW41Joe4/+doyvoFTfNW14tPJlOjZqGc1w9n263crSQZ1xlxpi6Q1xSa1ReSLGcJezGtuJ7y+C3gLA6xZM/CTBi8MwshuxnkaUlGYJpS5/ETQUvEzJsiTz+ibZEd9psMQFUBgUbqGSLe7GkkpBVYygfn46EfSVjyuOpwEaN+CNbOxki6M1mZTNSLkAbOv3WSemcmF6j7vSX8dcTUlvOFsZJcFDHFx4wYnmp7JTzjplnlrHmkNvugI8Q0PYO9GAbdww0RyDjLav1XHLnBimAjEG5E5zQ7vRP284x36hOOTtxZ8Q3The8P2QEAAA==) **\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -88,19 +94,21 @@ demo_make_series2
 | make-series num=avg(num) on TimeStamp from min_t to max_t+horizon step dt by sid 
 | where sid == 'TS1'   //  select a single time series for a cleaner visualization
 | extend forecast = series_decompose_forecast(num, toint(horizon/dt))
-| render timechart with(title='Web app. traffic of a month, forecasting the next week by Time Series Decmposition')
+| render timechart with(title='Web app. traffic of a month, forecasting the next week by Time Series Decomposition')
 ```
 
 ![時間序列預測](media/anomaly-detection/series-forecasting.png)
 
-* 原有的度量 （以紅色標示）。 未來值遺漏，並設為 0，預設值。
-* 進行推斷基準中的元件 （藍色），以預測下一週的值。
+* 原始度量（以紅色表示）。 預設會遺漏未來的值，並將其設為0。
+* 推斷基準元件（藍色）以預測下一周的值。
 
 ## <a name="scalability"></a>延展性
 
-Azure 的資料總管查詢語言語法可讓處理多個時間序列的單一呼叫。 其唯一的最佳化的實作可讓快速的效能，也就是有效的異常偵測和預測時監視近乎即時的情境中計數器的數千個重要的。
+Azure 資料總管查詢語言語法可讓單一呼叫處理多個時間序列。 其獨特的優化執行可提供快速的效能，這對於在近乎即時的情況下監視數以千計的計數器時，對有效的異常偵測和預測很重要。
 
 下列查詢會同時顯示三個時間序列的處理：
+
+**\[** [**按一下以執行查詢**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA21Qy26DMBC85yvmFlChcUirSI34ikTqETl4KVawjfDmqX587UCaHuqLtePxPLYjhtG2YpRQkom1oaQQy3Uulrl4TzezLjLk5T9GkYsViuJDiImnIqlox6F1g745W67VZqbIuMrIA1WeBk2+mH0jjvk4wh5NKU9fSbhTOItdMNmyND2awZkpIbsxyMukDM/UR8/9FV6rIEkXJqvgmsYTl7X0lISHspzvtqt5hjdxPxkeYBHA4gGKFMBiAUilIAfWja617CY1NG4ASX/FSfuj7PRNsg4ZXANz7Fj3HSGuBmOjZ5hYbcSqIBwbZpNk+iQFcQpx4/omrqLamd55qh5v41d22nIybWChOI0qQ9Cg4e5ftyE6zprbhDV3VM4/aQ/Z96/gQTahU4wsYZzlNvs11vYL3BJsCIQz0eHed/W30jz9AUEBI0ktAgAA) **\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -115,12 +123,12 @@ demo_make_series2
 | render timechart with(title='Web app. traffic of a month, forecasting the next week for 3 time series')
 ```
 
-![時間序列延展性](media/anomaly-detection/series-scalability.png)
+![時間序列擴充性](media/anomaly-detection/series-scalability.png)
 
 ## <a name="summary"></a>總結
 
-本文件詳述用於時間序列異常偵測和預測的原生 Azure 資料總管函式。 每個原始的時間序列分解成季節性、 趨勢和剩餘的元件偵測異常狀況及/或預測。 這些功能可以用於接近即時的監視案例，例如錯誤偵測、 預測性維護，以及需求和負載預測。
+本檔詳述適用于時間序列異常偵測和預測的原生 Azure 資料總管功能。 每個原始時間序列會分解成季節性、趨勢和剩餘元件，以偵測異常和/或預測。 這些功能可用於近乎即時的監視案例，例如錯誤偵測、預測性維護，以及需求和負載預測。
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解[機器學習服務功能](/azure/data-explorer/machine-learning-clustering)Azure 在資料總管中。
+瞭解 Azure 資料總管中的[機器學習服務功能](/azure/data-explorer/machine-learning-clustering)。

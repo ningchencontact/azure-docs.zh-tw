@@ -15,24 +15,24 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 072c58377645c807328bfcd79028daad70df7338
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b1578547fbca4caaecb209021569f0fbb2f1ae24
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102117"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790627"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>如何使用 Azure PowerShell 佈建 SQL Server 虛擬機器
 
 本指南說明使用 Azure PowerShell 建立 Windows SQL Server VM 的選項。 如需包含更多預設值的簡化版 Azure PowerShell 範例，請參閱 [SQL VM Azure PowerShell 快速入門](quickstart-sql-vm-create-powershell.md)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 ## <a name="configure-your-subscription"></a>設定您的訂用帳戶
 
-1. 開啟 PowerShell，然後執行 **Connect-AzAccount** 命令來建立存取您 Azure 帳戶的權限。
+1. 開啟 PowerShell 並執行 **Connect-AzAccount** 來建立您的 Azure 帳戶存取權限。
 
    ```powershell
    Connect-AzAccount
@@ -63,10 +63,10 @@ $StorageName = $ResourceGroupName + "storage"
 $StorageSku = "Premium_LRS"
 ```
 
-### <a name="network-properties"></a>網路內容
+### <a name="network-properties"></a>網路屬性
 定義要由虛擬機器中的網路使用的屬性。 
 
-- 網路介面
+- Linux
 - TCP/IP 配置方法
 - 虛擬網路名稱
 - 虛擬子網路名稱
@@ -337,12 +337,13 @@ New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualM
 > 如果您收到有關開機診斷的錯誤，則可以忽略它。 由於針對虛擬機器磁碟所指定的儲存體帳戶是進階儲存體帳戶，因此系統會針對開機診斷建立標準儲存體帳戶。
 
 ## <a name="install-the-sql-iaas-agent"></a>安裝 SQL IaaS 代理程式
-SQL Server 虛擬機器能以 [SQL Server IaaS 代理程式延伸模組](virtual-machines-windows-sql-server-agent-extension.md)支援自動化管理功能。 若要在新的 VM 上安裝代理程式，請在其建立之後執行下列命令。
+SQL Server 虛擬機器能以 [SQL Server IaaS 代理程式延伸模組](virtual-machines-windows-sql-server-agent-extension.md)支援自動化管理功能。 若要在新的 VM 上安裝代理程式，並向資源提供者註冊，請在建立虛擬機器之後，執行[AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm)命令。 指定 SQL Server VM 的授權類型，並透過[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)選擇 [隨用隨付] 或 [自備授權]。 如需授權的詳細資訊，請參閱[授權模型](virtual-machines-windows-sql-ahb.md)。 
 
 
    ```powershell
-   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+   New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
    ```
+
 
 ## <a name="stop-or-remove-a-vm"></a>停止或移除 VM
 
@@ -419,8 +420,8 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName $Publis
 # Create the VM in Azure
 New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualMachine
 
-# Add the SQL IaaS Extension
-Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+# Add the SQL IaaS Extension, and choose the license type
+New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
 ```
 
 ## <a name="next-steps"></a>後續步驟

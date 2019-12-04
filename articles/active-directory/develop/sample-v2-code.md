@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f4d081d9a52188ee4c4b6b2a854cb9e48c02f16
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 6ba9df2aa81111ec28970c28e9c584baf2f8cd93
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533013"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766339"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft 身分識別平臺程式碼範例（v2.0 端點）
 
@@ -61,7 +61,8 @@ ms.locfileid: "74533013"
 | -------- | ------------------- | --------------------------------- |
 | ![此圖顯示 ASP.NET Core 標誌](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2。2 | [ASP.NET Core WebApp 登入使用者教學課程](https://aka.ms/aspnetcore-webapp-sign-in) | [ASP.NET Core Web 應用程式](https://aka.ms/aspnetcore-webapp-call-msgraph)中的相同範例會呼叫 Microsoft Graph 階段 |
 | ![此圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET 快速入門](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2) (英文)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) (英文) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
-| ![此圖顯示 JAVA 標誌](media/sample-v2-code/logo_java.png)  |                   | [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp)：呼叫 MICROSOFT GRAPH 的 MSAL4J web 應用程式 |
+| ![此圖顯示 JAVA 標誌](media/sample-v2-code/logo_java.png)  |                   | [ms-身分識別-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
+| ![此圖顯示 Python 標誌](media/sample-v2-code/logo_python.png)  |                   | [毫秒-身分識別-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
 | ![此圖顯示 node.js 標誌](media/sample-v2-code/logo_nodejs.png)  |                   | [Node.js 快速入門](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs) |
 | ![此圖顯示 Ruby 標誌](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
 
@@ -74,6 +75,8 @@ ms.locfileid: "74533013"
 | 桌上型 (WPF)      | ![此圖顯示 .NET/C#標誌](media/sample-v2-code/logo_NET.png) | [互動](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) (英文) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) (英文) |
 | 桌上型 (主控台)   | ![此圖顯示 .NET/C# （桌面）標誌](media/sample-v2-code/logo_NET.png) | [整合式 Windows 驗證](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
 | 桌上型 (主控台)   | ![此圖顯示 .NET/C# （桌面）標誌](media/sample-v2-code/logo_NETcore.png) | [使用者名稱/密碼](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
+| 桌上型 (主控台)   | ![此圖顯示 JAVA 標誌](media/sample-v2-code/logo_java.png) | [使用者名稱/密碼](msal-authentication-flows.md#usernamepassword) |[ms-身分識別-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/tree/master/Call-MsGraph-WithUsernamePassword) |  |
+| 桌上型 (主控台)   | ![此圖顯示 Python 標誌](media/sample-v2-code/logo_python.png) | [使用者名稱/密碼](msal-authentication-flows.md#usernamepassword) |[毫秒-身分識別-python-桌面](https://github.com/Azure-Samples/ms-identity-python-desktop/tree/master/2-Call-MsGraph-WithUsernamePassword) |  |
 | 行動裝置 (Android、iOS、UWP)   | ![此圖顯示 .NET/C# （Xamarin）標誌](media/sample-v2-code/logo_xamarin.png) | [互動](msal-authentication-flows.md#interactive) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) (英文) |  |
 | 行動裝置 (iOS)       | ![此圖顯示 iOS/目標-C 或 Swift](media/sample-v2-code/logo_iOS.png) | [互動](msal-authentication-flows.md#interactive) |[ios-swift-objc-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) (英文) |  |
 | Desktop （macOS）       | macOS | [互動](msal-authentication-flows.md#interactive) |[macOS-swift-objc-native-v2](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) |  |
@@ -88,6 +91,8 @@ ms.locfileid: "74533013"
 | ------------------ | -------- | ---------- | -------------------- |
 | Console | ![此圖顯示 .NET Core 標誌](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [用戶端認證](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
 | Web 應用程式 | ![此圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [用戶端認證](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) (英文) |
+| Console | ![此圖顯示 JAVA 標誌](media/sample-v2-code/logo_java.png) | [用戶端認證](msal-authentication-flows.md#client-credentials) | [ms-身分識別-java-daemon](https://github.com/Azure-Samples/ms-identity-java-daemon) |
+| Console | ![此圖顯示 Python 標誌](media/sample-v2-code/logo_python.png) | [用戶端認證](msal-authentication-flows.md#client-credentials) | [ms-identity-python-daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) |
 
 ## <a name="headless-applications"></a>無周邊應用程式
 
@@ -96,6 +101,8 @@ ms.locfileid: "74533013"
 | 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 Microsoft Graph |
 | ------------------ | -------- |  ----------| ---------- |
 | 桌上型 (主控台)   | ![此圖顯示 .NET/C# （桌面）標誌](media/sample-v2-code/logo_NETcore.png) | [裝置程式碼流程](msal-authentication-flows.md#device-code) |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) |
+| 桌上型 (主控台)   | ![此圖顯示 JAVA 標誌](media/sample-v2-code/logo_java.png) | [裝置程式碼流程](msal-authentication-flows.md#device-code) |[ms-身分識別-java-devicecodeflow](https://github.com/Azure-Samples/ms-identity-java-devicecodeflow) |
+| 桌上型 (主控台)   | ![此圖顯示 Python 標誌](media/sample-v2-code/logo_python.png) | [裝置程式碼流程](msal-authentication-flows.md#device-code) |[毫秒-身分識別-python-devicecodeflow](https://github.com/Azure-Samples/ms-identity-python-devicecodeflow) |
 
 ## <a name="web-apis"></a>Web API
 
@@ -105,6 +112,7 @@ ms.locfileid: "74533013"
 | -------- | ------------------- |
 | ![此圖顯示 ASP.NET Core 標誌](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2。2 | Dotnet 的 ASP.NET Core Web API （服務） [-原生-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![此圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | [Ms-identity-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof)的 Web API （服務） |
+| ![此圖顯示 JAVA 標誌](media/sample-v2-code/logo_java.png) | Ms-身分識別的 Web API （服務）- [java-webapi](https://github.com/Azure-Samples/ms-identity-java-webapi) |
 
 ## <a name="azure-functions-as-web-apis"></a>Azure Functions 作為 web Api
 

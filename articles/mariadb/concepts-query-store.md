@@ -1,17 +1,17 @@
 ---
-title: 適用於 MariaDB 的 Azure 資料庫中的查詢存放區
+title: 查詢存放區-適用於 MariaDB 的 Azure 資料庫
 description: 瞭解適用於 MariaDB 的 Azure 資料庫中的查詢存放區功能，以協助您追蹤一段時間的效能。
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 67ca6aa36166e8ae08bedec82441e45930976b80
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: fbc814b5d263e20cea1d961891afb19894b78965
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604006"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772211"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>使用查詢存放區監視適用於 MariaDB 的 Azure 資料庫效能
 
@@ -75,7 +75,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 以下是如何查詢存放區中的等候統計資料，以更多深入了解工作負載的一些範例：
 
-| **觀測** | **動作** |
+| **觀測** | **Action** |
 |---|---|
 |高鎖定等候數 | 查看受影響查詢的查詢文字，並找出目標實體。 查看查詢存放區，針對經常執行和/或持續時間很長的實體，尋找修改同一實體的其他查詢。 找出這些查詢之後，請考慮變更應用程式邏輯，改善並行存取，或使用限制較少的隔離等級。 |
 |高緩衝區 IO 等候數 | 在查詢存放區中尋找實體讀取次數高的查詢。 如果它們符合具有高 IO 等候的查詢，請考慮在基礎實體上引進索引，以執行搜尋而不是掃描。 這可將查詢的 IO 額外負荷降到最低。 請在入口網站檢查伺服器的**效能建議**，以查看是否有此伺服器的索引建議，可供將查詢最佳化。 |
@@ -127,10 +127,10 @@ SELECT * FROM mysql.query_store_wait_stats;
 | `execution_count` | Bigint （20）| 否| 在設定的間隔期間內，查詢在此時間戳記識別碼/執行的次數|
 | `warning_count` | Bigint （20）| 否| 此查詢在內部產生的警告數目|
 | `error_count` | Bigint （20）| 否| 此查詢在間隔期間產生的錯誤數目|
-| `sum_timer_wait` | double| 是| 此查詢在間隔期間的總執行時間|
-| `avg_timer_wait` | double| 是| 此查詢在間隔期間的平均執行時間|
-| `min_timer_wait` | double| 是| 此查詢的執行時間下限|
-| `max_timer_wait` | double| 是| 執行時間上限|
+| `sum_timer_wait` | 兩倍| 是| 此查詢在間隔期間的總執行時間|
+| `avg_timer_wait` | 兩倍| 是| 此查詢在間隔期間的平均執行時間|
+| `min_timer_wait` | 兩倍| 是| 此查詢的執行時間下限|
+| `max_timer_wait` | 兩倍| 是| 執行時間上限|
 | `sum_lock_time` | Bigint （20）| 否| 這個時間範圍內，此查詢執行的所有鎖定所花費的總時間量|
 | `sum_rows_affected` | Bigint （20）| 否| 受影響的資料列數目|
 | `sum_rows_sent` | Bigint （20）| 否| 傳送至用戶端的資料列數目|
@@ -159,7 +159,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 | `event_type` | Varchar （32） | 否| 等待事件的類別 |
 | `event_name` | Varchar（128 | 否| 等待事件的名稱 |
 | `count_star` | Bigint （20） | 否| 查詢間隔期間所取樣的等候事件數目 |
-| `sum_timer_wait_ms` | double | 否| 此查詢在間隔期間的總等候時間（以毫秒為單位） |
+| `sum_timer_wait_ms` | 兩倍 | 否| 此查詢在間隔期間的總等候時間（以毫秒為單位） |
 
 ### <a name="functions"></a>Functions
 
@@ -171,10 +171,10 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 ## <a name="limitations-and-known-issues"></a>限制與已知問題
 
-- 如果適用于 mariadb 伺服器上的參數 `default_transaction_read_only`，查詢存放區無法捕獲資料。
-- 如果遇到長 Unicode 查詢（\> = 6000 個位元組），查詢存放區功能可能會中斷。
+- 如果適用于 mariadb 伺服器的參數 `default_transaction_read_only` 開啟，查詢存放區就無法捕獲資料。
+- 如果遇到長 Unicode 查詢（\>= 6000 個位元組），查詢存放區的功能可能會中斷。
 - 等候統計資料的保留期限為24小時。
-- 等候統計資料會使用範例 ti 來捕捉事件的一小部分。 您可以使用參數 `query_store_wait_sampling_frequency` 來修改頻率。
+- 等候統計資料會使用範例 ti 來捕捉事件的一小部分。 您可以使用參數 `query_store_wait_sampling_frequency`來修改頻率。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,17 +1,17 @@
 ---
-title: 在適用於 MariaDB 的 Azure 資料庫中備份與還原
+title: 備份與還原-適用於 MariaDB 的 Azure 資料庫
 description: 了解自動備份及還原您適用於 MariaDB 的 Azure 資料庫伺服器。
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: d6141c3184c8915c36f22d010db39aef2460dd1c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 12/02/2019
+ms.openlocfilehash: 333e51782fd0dd88b3e8747fb831b841a22c8e6c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60483046"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773081"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>在適用於 MariaDB 的 Azure 資料庫中備份與還原
 
@@ -40,7 +40,7 @@ ms.locfileid: "60483046"
 
 如需備份儲存體成本的詳細資訊，請前往 [MariaDB 定價頁面](https://azure.microsoft.com/pricing/details/mariadb/)。
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>還原
 
 在適用於 MariaDB 的 Azure 資料庫中，執行還原會從原始伺服器的備份中建立新伺服器。
 
@@ -54,7 +54,7 @@ ms.locfileid: "60483046"
 > [!IMPORTANT]
 > 已刪除的伺服器**無法**還原。 如果您刪除伺服器，所有屬於該伺服器的資料庫也會一併刪除，且無法復原。若要在部署後避免伺服器資源遭到意外刪除或非預期的變更，系統管理員可以利用[管理鎖定](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)。
 
-### <a name="point-in-time-restore"></a>還原時間點
+### <a name="point-in-time-restore"></a>時間點還原
 
 與備份備援選項無關，您可以在備份保留期限內地任何時間點執行還原。 新伺服器會建立在與原始伺服器相同的 Azure 區域中。 其使用原始伺服器的組態來建立，包含定價層、計算世代、虛擬核心數目、儲存體大小、備份保留期限，以及備份備援選項。
 

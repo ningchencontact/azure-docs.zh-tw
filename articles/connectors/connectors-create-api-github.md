@@ -1,22 +1,18 @@
 ---
-title: 連接到 GitHub-Azure Logic Apps
+title: 連線至 GitHub
 description: 使用 GitHub REST API 和 Azure Logic Apps 監視 GitHub 事件
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/02/2018
 tags: connectors
-ms.openlocfilehash: 6a6e2a803ee2a272189abf0f21796b2305eea40b
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 7dc865f520b6f4667ace720e656a210e0252d1a1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050898"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789745"
 ---
 # <a name="connect-to-github-from-azure-logic-apps"></a>從 Azure Logic Apps 連接到 GitHub
 
@@ -30,7 +26,7 @@ GitHub 是網頁式 Git 存放庫主機服務，它提供 Git 中所有分散式
 
 | 屬性 | 必要項 | 描述 | 
 | -------- | -------- | ----------- | 
-| 權杖 | 是 | 提供您的 GitHub 認證。 |
+| token | 是 | 提供您的 GitHub 認證。 |
 
 建立連線後，您就可以執行動作，並接聽本文所述的觸發程序。
 
@@ -39,7 +35,7 @@ GitHub 是網頁式 Git 存放庫主機服務，它提供 Git 中所有分散式
 
 ## <a name="connector-reference"></a>連接器參考
 
-如需有關觸發程式、動作和限制的技術詳細資料 (由連接器的 OpenAPI (先前稱為 Swagger) 描述所描述), 請參閱[連接器的參考頁面](/connectors/github/)。
+如需有關觸發程式、動作和限制的技術詳細資料（由連接器的 OpenAPI （先前稱為 Swagger）描述所描述），請參閱[連接器的參考頁面](/connectors/github/)。
 
 ## <a name="next-steps"></a>後續步驟
 

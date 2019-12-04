@@ -1,10 +1,10 @@
 ### YamlMime:Yaml
-ms.openlocfilehash: 8f0811dacfbedd59726fcdfe58d6a71cb02797da
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
-ms.translationtype: MT
+ms.openlocfilehash: 798a3ad1a2e81eae8621ae43d47d41031603331f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968406"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74734455"
 groups:
 - id: programming-languages-set-one
   title: 程式設計語言
@@ -19,4 +19,84 @@ groups:
   - id: programming-language-nodejs
     title: Node.js
   - id: programming-language-go
-    title: 移至
+    title: Go
+- id: cogsvcs-text-analytics-features
+  title: 文字分析 API
+  prompt: 選擇文字分析的功能供應項目
+  pivots:
+  - id: text-analytics-key-phrase-extraction
+    title: 關鍵片語擷取
+  - id: text-analytics-language-detection
+    title: 語言偵測
+  - id: text-analytics-sentiment-analysis
+    title: 情感分析
+- id: client-operating-system
+  title: 程式設計語言
+  prompt: 選擇用戶端作業系統
+  pivots:
+  - id: client-operating-system-linux
+    title: Linux
+  - id: client-operating-system-macos
+    title: MacOS
+  - id: client-operating-system-windows
+    title: Windows
+- id: programming-languages-set-two
+  title: 程式設計語言
+  prompt: 選擇程式設計語言
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-more
+    title: 更多語言...
+- id: programming-languages-set-three
+  title: 程式設計語言
+  prompt: 選擇程式設計語言
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-set-four
+  title: 程式設計語言
+  prompt: 選擇程式設計語言
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-more
+    title: 更多語言...
+- id: programming-languages-set-five
+  title: 程式設計語言
+  prompt: 選擇程式設計語言
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-ruby
+    title: Ruby
+- id: URL-test-interface
+  title: URL 測試工具
+  prompt: 選擇下列其中一個
+  pivots:
+  - id: url-test-tool-curl
+    title: cURL
+  - id: url-test-tool-postman
+    title: postman

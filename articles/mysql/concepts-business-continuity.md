@@ -1,17 +1,17 @@
 ---
-title: 瞭解適用於 MySQL 的 Azure 資料庫中的商務持續性
+title: 商務持續性-適用於 MySQL 的 Azure 資料庫
 description: 瞭解使用適用於 MySQL 的 Azure 資料庫服務時的商務持續性（時間點還原、資料中心中斷、異地還原）。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 28cd46077e67aa48169421607cd977103da735c5
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 3f82dfd5e289b09761dbdbdc5af4da76d7c961d4
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972884"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765353"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>瞭解適用於 MySQL 的 Azure 資料庫中的商務持續性
 
@@ -29,7 +29,7 @@ ms.locfileid: "71972884"
 | 從異地複寫備份進行異地還原 | 不支援 | ERT < 12 小時<br/>RPO < 1 小時 | ERT < 12 小時<br/>RPO < 1 小時 |
 
 > [!IMPORTANT]
-> 已刪除的伺服器**無法**還原。 如果您刪除伺服器，所有屬於該伺服器的資料庫也會一併刪除，且無法復原。
+> 已刪除的伺服器**無法**還原。 如果您刪除伺服器，所有屬於該伺服器的資料庫也會一併刪除且無法復原。
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>在使用者或應用程式錯誤之後復原伺服器
 

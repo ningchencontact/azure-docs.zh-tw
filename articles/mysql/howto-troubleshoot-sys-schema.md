@@ -1,21 +1,21 @@
 ---
-title: 使用 sys_schema 來微調效能和維護適用於 MySQL 的 Azure 資料庫
-description: 瞭解如何使用 sys_schema 來尋找效能問題，並在適用於 MySQL 的 Azure 資料庫中維護資料庫。
+title: 利用 sys_schema 適用於 MySQL 的 Azure 資料庫
+description: 瞭解如何使用 sys_schema 找出效能問題，並在適用於 MySQL 的 Azure 資料庫中維護資料庫。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 08/01/2018
-ms.openlocfilehash: 7dc6b4744c74c56803127f63a8a6f29ca5a15090
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 50552b87fad9d8f58ff8c48dc03463d4c901bf99
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972783"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775940"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>如何使用 sys_schema 在適用於 MySQL 的 Azure 資料庫中進行效能微調和資料庫維護
 
-最先在 MySQL 5.5 中導入的 MySQL performance_schema，能針對許多重要伺服器資源 (例如記憶體配置、預存程式、中繼資料鎖定等) 提供檢測功能。不過，performance_schema 包含超過 80 個資料表，且通常需要聯結 performance_schema 內的資料表以及 information_schema 中的資料表，才能取得所需的資訊。 sys_schema 是以 performance_schema 與 information_schema 為基礎而建置的，它於唯讀資料庫中提供功能強大的[易用檢視](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) \(英文\) 集合，並已於適用於 MySQL 的 Azure 資料庫 5.7 版中完整啟用。
+MySQL performance_schema，第一次在 MySQL 5.5 中提供，可讓您檢測許多重要的伺服器資源，例如記憶體配置、預存程式、中繼資料鎖定等等。不過，performance_schema 包含超過80個數據表，而且取得必要的資訊通常需要在 performance_schema 中聯結資料表，以及來自 information_schema 的資料表。 sys_schema 是以 performance_schema 與 information_schema 為基礎而建置的，它於唯讀資料庫中提供功能強大的[易用檢視](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) \(英文\) 集合，並已於適用於 MySQL 的 Azure 資料庫 5.7 版中完整啟用。
 
 ![sys_schema 的檢視](./media/howto-troubleshoot-sys-schema/sys-schema-views.png)
 
@@ -23,10 +23,10 @@ sys_schema 中有 52 個檢視，每個檢視分別具有下列其中一個前�
 
 - Host_summary 或 IO：I/O 相關的延遲。
 - InnoDB：InnoDB 緩衝區狀態和鎖定。
-- 記憶體：依主機和使用者分類的記憶體使用量。
-- 結構描述：結構描述相關的資訊，例如自動增量、索引等等。
+- Memory：依主機和使用者分類的記憶體使用量。
+- Schema：結構描述相關的資訊，例如自動增量、索引等等。
 - Statement：SQL 陳述式相關的資訊；這可以是導致完整資料表掃描或長時間查詢的陳述式。
-- 使用者：使用者所耗用並依使用者分類的資源。 範例包括檔案 I/O、連線和記憶體。
+- User：使用者所耗用並依使用者分類的資源。 範例包括檔案 I/O、連線和記憶體。
 - Wait：依主機或使用者分類的等候事件。
 
 現在，讓我們看看 sys_schema 的一些常見使用模式。 首先，我們會將使用模式分成兩個類別：**效能微調**和**資料庫維護**。

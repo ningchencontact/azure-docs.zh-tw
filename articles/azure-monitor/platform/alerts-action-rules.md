@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: anantr
 ms.author: robb
 ms.date: 04/25/2019
-ms.openlocfilehash: a858388a11cfdf36bacb1e5840f00fc6ef097867
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: e9de7a1fe4cee16cd1d22ba764ab9eccdf3979fd
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555696"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767682"
 ---
 # <a name="action-rules-preview"></a>動作規則（預覽）
 
@@ -22,7 +22,7 @@ ms.locfileid: "72555696"
 
 ### <a name="suppression-of-alerts"></a>隱藏警示
 
-在許多情況下，隱藏警示產生的通知會很有用。 這些案例的範圍是在預定的維護期間，于非營業小時內抑制。 例如，負責**ContosoVM**的小組想要隱藏近期週末的警示通知，因為**ContosoVM**正在進行規劃的維護。 
+在許多情況下，隱藏警示產生的通知會很有用。 這些案例的範圍從在預定的維護期間，到在非上班時間顯示時隱藏。 例如，負責**ContosoVM**的小組想要隱藏近期週末的警示通知，因為**ContosoVM**正在進行規劃的維護。 
 
 雖然小組可以手動停用在**ContosoVM**上設定的每個警示規則（並在維護之後再次啟用），但它並不是一個簡單的程式。 動作規則可協助您以彈性地設定隱藏時段的功能，大規模定義警示抑制。 在上述範例中，小組可以在**ContosoVM**上定義一個動作規則，以隱藏週末的所有警示通知。
 

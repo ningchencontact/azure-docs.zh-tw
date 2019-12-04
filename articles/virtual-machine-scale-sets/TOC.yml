@@ -231,8 +231,8 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: 將擴展集範本轉換為使用受控磁碟
           href: virtual-machine-scale-sets-convert-template-to-md.md
-        - name: 使用低優先順序
-          href: virtual-machine-scale-sets-use-low-priority.md
+        - name: 使用定點執行個體
+          href: use-spot.md
     - name: 管理
       items:
         - name: 一般管理工作

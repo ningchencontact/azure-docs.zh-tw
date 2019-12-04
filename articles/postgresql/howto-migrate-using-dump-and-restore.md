@@ -1,23 +1,23 @@
 ---
-title: 如何在適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中傾印和還原
+title: 傾印和還原-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
 description: 描述如何將于 postgresql 資料庫解壓縮至傾印檔案，並從適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的 pg_dump 所建立的檔案還原。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 4291db0bb1edbc366c42febed992a7c27d46eb15
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 4365338efa56593e80edcc19cba5944b213d2b72
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796741"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770232"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>使用傾印和還原來移轉 PostgreSQL 資料庫
 您可以使用 [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 將 PostgreSQL 資料庫擷取到傾印檔案，並使用 [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) 從 pg_dump 所建立的封存檔案還原 PostgreSQL 資料庫。
 
 ## <a name="prerequisites"></a>必要條件
-若要逐步執行本作法指南，您需要︰
+若要逐步執行本作法指南，您需要：
 - [適用於 PostgreSQL 的 Azure 資料庫伺服器](quickstart-create-server-database-portal.md)，而且防火牆規則要允許存取其中的資料庫。
 - 安裝 [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 和 [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) 命令列公用程式
 

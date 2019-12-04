@@ -1,22 +1,18 @@
 ---
-title: 從 Azure Logic Apps 連線到 Twilio | Microsoft Docs
+title: 從 Azure Logic Apps 連接到 Twilio
 description: 藉由使用 Azure Logic Apps，讓透過您的 Twilio 帳戶管理全域簡訊、多媒體訊息和 IP 訊息的工作和工作流程自動化
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: 43116187-4a2f-42e5-9852-a0d62f08c5fc
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 09d4a6acf93f5fb01c70f9e9bd935c404c5abf50
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: e5b218efd9c8cfaad99d76d8118d181390a977c3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050717"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789098"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>使用 Azure Logic Apps 管理 Twilio 中的訊息
 
@@ -24,7 +20,7 @@ ms.locfileid: "70050717"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * 從 [Twilio](https://www.twilio.com/)： 
 
@@ -57,7 +53,7 @@ ms.locfileid: "70050717"
      選擇顯示的加號 ( **+** )，然後選取 [新增動作]。
      
        在搜尋方塊中，輸入 "twilio" 作為篩選條件。 
-       請在動作清單底下，選取您想要的動作。
+       在動作清單底下，選取您想要的動作。
 
 1. 為您的連線提供必要的詳細資料，然後選擇 [建立]：
 
@@ -74,7 +70,7 @@ ms.locfileid: "70050717"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
+* 若要送出或票選功能構想，請前往 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

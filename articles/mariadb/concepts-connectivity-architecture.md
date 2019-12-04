@@ -1,17 +1,17 @@
 ---
-title: 適用於 MariaDB 的 Azure 資料庫中的連線架構
+title: 連線性架構-適用於 MariaDB 的 Azure 資料庫
 description: 描述適用於 MariaDB 的 Azure 資料庫伺服器的連接架構。
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.openlocfilehash: 5c24a89ca12c36a54a84c61c6343ce960da012c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/02/2019
+ms.openlocfilehash: 6e2e39381e1500f86bce55726dda0286385d1674
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498063"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772887"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>適用於 MariaDB 的 Azure 資料庫中的連線架構
 本文說明適用於 MariaDB 的 Azure 資料庫連線架構，以及如何從 Azure 內部和外部的用戶端，將流量導向至您的適用於 MariaDB 的 Azure 資料庫實例。
@@ -30,7 +30,7 @@ ms.locfileid: "73498063"
 
 | **區功能變數名稱稱** | **主要 IP 位址** | **次要 IP 位址** |
 |:----------------|:-------------|:------------------------|
-| 澳洲東部 | 13.75.149.87 | 40.79.161.1 |
+| 澳大利亞東部 | 13.75.149.87 | 40.79.161.1 |
 | 澳大利亞東南部 | 191.239.192.109 | 13.73.109.251 |
 | 巴西南部 | 104.41.11.5 | |
 | 加拿大中部 | 40.85.224.249 | |
@@ -67,7 +67,7 @@ ms.locfileid: "73498063"
 ||||
 
 > [!NOTE]
-> *美國東部 2* 也有第三 IP 位址 `52.167.104.0`。
+> *美國東部 2*也有第三個 IP 位址 `52.167.104.0`。
 
 ## <a name="next-steps"></a>後續步驟
 

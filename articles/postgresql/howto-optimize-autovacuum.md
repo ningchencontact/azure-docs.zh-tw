@@ -1,25 +1,25 @@
 ---
-title: 最佳化 autovacuum 上 Azure Database for PostgreSQL-單一伺服器
-description: 這篇文章說明如何最佳化 autovacuum 上 Azure Database for PostgreSQL-單一伺服器
+title: 優化自動資料清理-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
+description: 本文說明如何將適用於 PostgreSQL 的 Azure 資料庫單一伺服器上的自動資料清理優化
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: fb1ab9525974601a8b8c22ccc44e2cf37baf21a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1917bd6744e100db54fe959292e29486f8a1784b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65069106"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770181"
 ---
-# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>最佳化 autovacuum 上 Azure Database for PostgreSQL-單一伺服器
+# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>優化適用於 PostgreSQL 的 Azure 資料庫單一伺服器上的自動資料清理
 本文描述如何有效地將適用於 PostgreSQL 的 Azure 資料庫伺服器上的自動資料清理最佳化。
 
 ## <a name="overview-of-autovacuum"></a>自動資料清理的概觀
 PostgreSQL 使用多版本並行控制 (MVCC)，來達到更好的資料庫並行。 每次更新都會導致插入和刪除，且每次刪除都會導致資料列虛標示為要刪除。 虛標示會識別無效且會在稍後被清除的 Tuple。 為了執行這些工作，PostgreSQL 會執行資料清理作業。
 
-資料清理作業可以由手動或自動的方式觸發。 當資料庫經歷大量更新或刪除作業時，會有更多無效 Tuple。 當資料庫閒置時，會有較少無效 Tuple。 當資料庫的負載較大時，您需要更頻繁地執行資料清理，因此「手動」  執行資料清理作業會變得不方便。
+資料清理作業可以由手動或自動的方式觸發。 當資料庫經歷大量更新或刪除作業時，會有更多無效 Tuple。 當資料庫閒置時，會有較少無效 Tuple。 當資料庫的負載較大時，您需要更頻繁地執行資料清理，因此「手動」執行資料清理作業會變得不方便。
 
 您可以設定自動資料清理，並進行調整從中獲益。 PostgreSQL 隨附的預設值可確保產品能在各種裝置上運作。 這些裝置包括 Raspberry Pi。 理想的設定值取決於：
 - 可用的總資源，如 SKU 和儲存體大小。
@@ -91,7 +91,7 @@ autovacuum_max_workers 參數決定可同時執行的自動資料清理處理序
 使用 PostgreSQL 時，您可以在資料表層級或執行個體層級設定這些參數。 您目前只能在適用於 PostgreSQL 的 Azure 資料庫中，於資料表層級設定這些參數。
 
 ## <a name="optimize-autovacuum-per-table"></a>針對每個資料表最佳化自動資料清理
-您可以針對每個資料表設定所有上述設定參數。 以下為範例：
+您可以針對每個資料表設定所有上述設定參數。 以下是範例：
 ```sql
 ALTER TABLE t SET (autovacuum_vacuum_threshold = 1000);
 ALTER TABLE t SET (autovacuum_vacuum_scale_factor = 0.1);

@@ -1,17 +1,17 @@
 ---
-title: 從 Azure 入口網站管理適用於 PostgreSQL 的 Azure 資料庫單一伺服器的讀取複本
+title: 管理讀取複本-Azure 入口網站-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
 description: 瞭解如何從 Azure 入口網站管理適用於 PostgreSQL 的 Azure 資料庫-單一伺服器的讀取複本。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 0ff6cd50a5a6cb1599a2248fbc61b0b6b307e791
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 5e031354d4695a1d7eb6f199e23e74b796273230
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995443"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770215"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>從 Azure 入口網站建立和管理適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的讀取複本
 
@@ -22,7 +22,7 @@ ms.locfileid: "70995443"
 使用[適用於 PostgreSQL 的 Azure 資料庫伺服器](quickstart-create-server-database-portal.md)作為主要伺服器。
 
 ## <a name="prepare-the-master-server"></a>準備主要伺服器
-若要在一般用途和記憶體最佳化層中準備主要伺服器，這些是必要步驟。 主伺服器已藉由設定 replication_support 參數來準備進行複寫。 當複寫參數變更時，需要重新開機伺服器，變更才會生效。 在 Azure 入口網站中，這兩個步驟是透過單一按鈕封裝，**啟用複寫支援**。
+若要在一般用途和記憶體最佳化層中準備主要伺服器，這些是必要步驟。 主伺服器已準備好進行複寫，方法是設定 azure. replication_support 參數。 當複寫參數變更時，需要重新開機伺服器，變更才會生效。 在 Azure 入口網站中，這兩個步驟是透過單一按鈕封裝，**啟用複寫支援**。
 
 1. 在 Azure 入口網站中，選取要作為主要伺服器的現有「適用於 PostgreSQL 的 Azure 資料庫」伺服器。
 

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: 7bd9fe4044dace4061285c016cb08562b556b98e
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 6f35bd5f28ae1512726c242cf004e1b97f81b1f1
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483634"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776634"
 ---
 # <a name="common-errors-within-the-azure-serial-console"></a>Azure 序列主控台中的常見錯誤
 Azure 序列主控台內有一組已知錯誤。 這是這些錯誤和風險降低步驟的清單。
 
 ## <a name="common-errors"></a>常見錯誤
 
-錯誤                             |   緩和
+Error                             |   緩和
 :---------------------------------|:--------------------------------------------|
 「Azure 序列主控台需要啟用開機診斷。 按一下這裡，為您的虛擬機器設定開機診斷。」 ![開機診斷錯誤](./media/virtual-machines-serial-console/virtual-machines-serial-console-boot-diagnostics-error.png) | 請確認 VM 或虛擬機器擴展集已啟用[開機診斷](boot-diagnostics.md)。 如果您在虛擬機器擴展集實例上使用序列主控台，請確定您的實例具有最新的模型。
 「Azure 序列主控台需要虛擬機器正在執行。 使用上方的 [啟動] 按鈕來啟動您的虛擬機器。 ![已解除配置的錯誤](./media/virtual-machines-serial-console/virtual-machines-serial-console-deallocating-error.png) | VM 或虛擬機器擴展集實例必須處於已啟動狀態，才能存取序列主控台（您的 VM 不得停止或解除配置）。 請確認您的 VM 或虛擬機器擴展集實例正在執行中，然後再試一次。
@@ -37,6 +37,7 @@ Azure 序列主控台內有一組已知錯誤。 這是這些錯誤和風險降�
 此 VM 的布建尚未成功。 請確定已完全部署 VM，然後重試序列主控台連線。 | 您的 VM 或虛擬機器擴展集可能仍在布建中。 請稍候片刻，然後再試一次。
 您沒有必要的許可權，無法寫入此 VM 的開機診斷儲存體帳戶。 請確定您至少有 ' ' 的 VM 參與者許可權。 | 序列主控台存取需要開機診斷儲存體帳戶的參與者層級存取權。 如需詳細資訊，請參閱[總覽頁面](serial-console-overview.md)。
 無法判斷開機診斷儲存體帳戶 *&lt;STORAGEACCOUNTNAME&gt;* 的資源群組。 請確認已針對此 VM 啟用開機診斷，且您具有此儲存體帳戶的存取權。 | 序列主控台存取需要開機診斷儲存體帳戶的參與者層級存取權。 如需詳細資訊，請參閱[總覽頁面](serial-console-overview.md)。
+與 VM 的序列主控台連線發生錯誤：「不正確的要求」（400） | 如果您的開機診斷 URI 不正確，就可能發生這種情況。 例如，使用 "HTTP://"，而不是 "HTTPs://"。 您可以使用下列命令來修正開機診斷 URI： `az vm boot-diagnostics enable --name vmName --resource-group rgName --storage https://<storageAccountUri>.blob.core.windows.net/`
 Web 通訊端已關閉或無法開啟。 | 您可能需要將防火牆存取新增至 `*.console.azure.com`。 更詳細但較長的方法是允許防火牆存取 Microsoft Azure 的[資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)，這會定期變更。
 序列主控台無法搭配使用具有階層命名空間之 Azure Data Lake Storage Gen2 的儲存體帳戶使用。 | 這是階層命名空間的已知問題。 若要減輕問題，請確定您的 VM 開機診斷儲存體帳戶不是使用 Azure Data Lake Storage Gen2 建立的。 只有在建立儲存體帳戶時，才能設定此選項。 您可能必須在未啟用 Azure Data Lake Storage Gen2 的情況下，建立個別的開機診斷儲存體帳戶來減輕此問題。
 

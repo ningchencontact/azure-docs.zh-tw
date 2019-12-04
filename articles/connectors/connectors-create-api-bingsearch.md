@@ -1,22 +1,18 @@
 ---
-title: 連接到 Bing 搜尋-Azure Logic Apps
+title: 連線到 Bing 搜尋
 description: 使用 Bing 搜尋 REST API 和 Azure Logic Apps 尋找新聞
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: f7558a5836d8f087e719346fb38bbf24ece2c8fb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c3b6cb61e2f7b91b3b1e3595da2d105c5cdb01c8
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026780"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789958"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>使用 Bing 搜尋和 Azure Logic Apps 尋找新聞
 
@@ -24,7 +20,7 @@ ms.locfileid: "72026780"
 
 例如，您可以根據搜尋準則尋找新聞項目，並讓 Twitter 張貼這些項目作為 Twitter 摘要中的推文。
 
-如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 如果您還不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 如需連接器專屬的技術資訊，請參閱 [Bing 搜尋連接器參考](https://docs.microsoft.com/connectors/bingsearch/)。
 
 ## <a name="prerequisites"></a>必要條件
@@ -45,7 +41,7 @@ ms.locfileid: "72026780"
 
 2. 在搜尋方塊中，輸入 "Bing 搜尋" 作為篩選條件。 從觸發程序清單中，選取您想要的觸發程序。
 
-   這個範例會使用此觸發程式：**Bing 搜尋-新的新聞文章**
+   這個範例使用此觸發程序：**Bing 搜尋 - 新的新聞文章**
 
    ![尋找 Bing 搜尋觸發程序](./media/connectors-create-api-bing-search/add-trigger.png)
 
@@ -56,14 +52,14 @@ ms.locfileid: "72026780"
 
    | 屬性 | 必要項 | Value | 描述 |
    |----------|----------|-------|-------------|
-   | Search Query | 是 | <*search-words*> | 輸入您要使用的搜尋關鍵字。 |
-   | Market | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
-   | Safe Search | 是 | <*search-level*> | 排除成人內容的篩選層級。 預設為「中度」，但您可以選取其他層級。 |
-   | Count | 否 | <*results-count*> | 傳回指定數目的結果。 預設為 20，但您可以指定其他值。 傳回結果的實際數目可能小於指定數目。 |
+   | 搜尋查詢 | 是 | <*search-words*> | 輸入您要使用的搜尋關鍵字。 |
+   | 市場 | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
+   | 安全搜尋 | 是 | <*search-level*> | 排除成人內容的篩選層級。 預設為「中度」，但您可以選取其他層級。 |
+   | 計數 | 否 | <*results-count*> | 傳回指定數目的結果。 預設為 20，但您可以指定其他值。 傳回結果的實際數目可能小於指定數目。 |
    | Offset | 否 | <*skip-value*> | 傳回結果前要跳過的結果數目 |
    |||||
 
-   例如:
+   例如：
 
    ![設定觸發程序](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
@@ -81,7 +77,7 @@ ms.locfileid: "72026780"
 
 1. 在 Azure 入口網站或 Visual Studio 的邏輯應用程式設計工具中，開啟邏輯應用程式。 這個範例會使用 Azure 入口網站。
 
-2. 在觸發程式或動作底下，選取 [**新增步驟** > ] [**加入動作**]。
+2. 在觸發程式或動作底下，選取 [**新增步驟**] > [**加入動作**]。
 
    這個範例會使用此觸發程式：
 
@@ -107,10 +103,10 @@ ms.locfileid: "72026780"
 
    | 屬性 | 必要項 | Value | 描述 |
    |----------|----------|-------|-------------|
-   | Search Query | 是 | <*search-expression*> | 輸入查詢觸發程序結果的運算式。 您可以從動態內容清單中的欄位選取，或使用運算式產生器建立運算式。 |
-   | Market | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
-   | Safe Search | 是 | <*search-level*> | 排除成人內容的篩選層級。 預設為「中度」，但您可以選取其他層級。 |
-   | Count | 否 | <*results-count*> | 傳回指定數目的結果。 預設為 20，但您可以指定其他值。 傳回結果的實際數目可能小於指定數目。 |
+   | 搜尋查詢 | 是 | <*search-expression*> | 輸入查詢觸發程序結果的運算式。 您可以從動態內容清單中的欄位選取，或使用運算式產生器建立運算式。 |
+   | 市場 | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
+   | 安全搜尋 | 是 | <*search-level*> | 排除成人內容的篩選層級。 預設為「中度」，但您可以選取其他層級。 |
+   | 計數 | 否 | <*results-count*> | 傳回指定數目的結果。 預設為 20，但您可以指定其他值。 傳回結果的實際數目可能小於指定數目。 |
    | Offset | 否 | <*skip-value*> | 傳回結果前要跳過的結果數目 |
    |||||
 
@@ -159,7 +155,7 @@ ms.locfileid: "72026780"
    | API 金鑰 | 是 | <*API-key*> | 您稍早取得的 Bing 搜尋 API 金鑰。 如果您沒有金鑰，請立即取得 [API 金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api)。 |  
    |||||  
 
-   例如:
+   例如：
 
    ![建立連線](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 

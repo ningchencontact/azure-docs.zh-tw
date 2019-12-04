@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 806447f788b7a394b29ee08e8b562662c2cc3e1b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 420a046ddf66270f52001d4ff4f3ad49895d4c11
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208403"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784541"
 ---
 # <a name="what-are-security-defaults"></a>什麼是安全性預設值？
 
@@ -77,7 +77,7 @@ Microsoft 將安全性預設值提供給所有人。 目標是要確保所有組
 
 組織會使用透過 Azure Resource Manager API 管理的各種 Azure 服務，包括：
 
-- Azure 入口網站 
+- Azure Portal 
 - Azure PowerShell 
 - Azure CLI
 
@@ -124,7 +124,21 @@ Microsoft 將安全性預設值提供給所有人。 目標是要確保所有組
 1. 流覽至 **Azure Active Directory** > **屬性**。
 1. 選取 [**管理安全性預設值**]。
 1. 將 [**啟用安全性預設值**] 切換為 **[是]** 。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
+
+## <a name="disabling-security-defaults"></a>停用安全性預設值
+
+選擇要執行取代安全性預設值之條件式存取原則的組織，必須停用安全性預設值。 
+
+![警告訊息停用安全性預設值以啟用條件式存取](./media/concept-conditional-access-security-defaults/security-defaults-disable-before-conditional-access.png)
+
+若要停用目錄中的安全性預設值：
+
+1. 以安全性系統管理員、條件式存取系統管理員或全域管理員身分登入 [Azure 入口網站](https://portal.azure.com) 。
+1. 流覽至 **Azure Active Directory** > **屬性**。
+1. 選取 [**管理安全性預設值**]。
+1. 將 [**啟用安全性預設值**] 切換為 [**否**]。
+1. 選取 [儲存]。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,17 +1,17 @@
 ---
-title: 使用傾印和還原將 MariaDB 資料庫移轉至適用於 MariaDB 的 Azure 資料庫
+title: 使用傾印和還原進行遷移-適用於 MariaDB 的 Azure 資料庫
 description: 此文章將說明兩個常見方法，讓您可在適用於 MariaDB 的 Azure 資料庫中用來備份和還原資料庫，使用如 mysqldump、MySQL Workbench 與 PHPMyAdmin 的工具。
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 05626535a2ab2d8da29b8c817ebfe84c257c76aa
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.date: 12/02/2019
+ms.openlocfilehash: 660b39a063496eb6566d51dbef2c914499dc70c9
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845057"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776000"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>使用傾印和還原來將 MariaDB 資料庫移轉至適用於 MariaDB 的 Azure 資料庫
 此文章將說明兩個常見方法，讓您可在適用於 MariaDB 的 Azure 資料庫中用來備份和還原資料庫
@@ -41,7 +41,7 @@ ms.locfileid: "70845057"
    ```
 - 若要避免任何相容性問題，請確定當傾印資料庫時，在來源和目的地系統上使用相同版本的 MariaDB。 例如，如果現有的 MariaDB 伺服器是 10.2 版，則您應該將適用於 MariaDB 的 Azure 資料庫設定為執行 10.2 版。 `mysql_upgrade` 命令在適用於 MariaDB 的 Azure 資料庫伺服器中無法運作，因此並不支援。 如果您要在 MariaDB 版本之間升級，請先將較低版本的資料庫傾印或匯出到自己環境中較高版本的 MariaDB。 接著，執行 `mysql_upgrade`，之後再嘗試移轉至適用於 MariaDB 的 Azure 資料庫。
 
-## <a name="performance-considerations"></a>效能考量
+## <a name="performance-considerations"></a>效能注意事項
 若要最佳化效能，請在傾印大型資料庫時注意這些考量：
 -   傾印資料庫時在 mysqldump 中使用 `exclude-triggers` 選項。 從傾印檔案排除觸發程序以避免在資料還原期間引發觸發程序命令。 
 -   使用 `single-transaction` 選項將交易隔離模式設為 REPEATABLE READ，然後在傾印資料之前，將 START TRANSACTION 的 SQL 陳述式傳送到伺服器。 在單一交易中傾印許多資料表會導致在還原期間耗用某些額外的儲存體。 `single-transaction` 選項和 `lock-tables` 選項是互斥的，因為 LOCK TABLES 會導致隱含認可任何暫止交易。 若要傾印大型資料表，請結合 `single-transaction` 選項與 `quick` 選項。 

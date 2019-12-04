@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 11/04/2019
-  ms.openlocfilehash: 15a89528ce53eabe7ed70ca66a514b71ef5e5307
-  ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+  ms.openlocfilehash: fae1321f70d538dcacde83cadd83f5cb15155459
+  ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 11/27/2019
-  ms.locfileid: "74554945"
+  ms.lasthandoff: 12/03/2019
+  ms.locfileid: "74775518"
 highlightedContent:
   items:
   - title: 認知服務是什麼？
@@ -111,34 +111,37 @@ conceptualContent:
   - title: 搜尋
     summary: 將 Bing 搜尋 API 新增至您的應用程式，並充分利用以單一 API 呼叫合併數十億個網頁、影像、影片和新聞的能力。
     links:
-    - url: ./Bing-Autosuggest/index.yml
+    - url: ./Bing-web-search/index.yml
+      itemType: overview
+      text: Bing 搜尋 API 中樞頁面
+    - url: ./Bing-Autosuggest/get-suggested-search-terms.md
       itemType: overview
       text: 自動建議搜尋
-    - url: ./bing-custom-search/index.yml
+    - url: ./bing-custom-search/overview.md
       itemType: overview
       text: 自訂搜尋
-    - url: ./bing-entities-search/index.yml
+    - url: ./bing-entities-search/overview.md
       itemType: overview
       text: 實體搜尋
-    - url: ./bing-image-search/index.yml
+    - url: ./bing-image-search/overview.md
       itemType: overview
       text: 影像搜尋
-    - url: ./bing-local-business-search/index.yml
+    - url: ./bing-local-business-search/overview.md
       itemType: overview
       text: 當地企業搜尋 (預覽)
-    - url: ./bing-news-search/index.yml
+    - url: ./bing-news-search/search-the-web.md
       itemType: overview
       text: 新聞搜尋
-    - url: ./bing-spell-check/index.yml
+    - url: ./bing-spell-check/overview.md
       itemType: overview
       text: 拼字檢查
-    - url: ./Bing-Video-Search/index.yml
+    - url: ./Bing-Video-Search/overview.md
       itemType: overview
       text: 影片搜尋
-    - url: ./bing-visual-search/index.yml
+    - url: ./bing-visual-search/overview.md
       itemType: overview
       text: 圖像式搜尋
-    - url: ./bing-web-search/index.yml
+    - url: ./bing-web-search/overview.md
       itemType: overview
       text: Web 搜尋
   - title: 認知服務容器
@@ -159,9 +162,6 @@ conceptualContent:
     - url: ./containers/docker-compose-recipe.md
       itemType: get-started
       text: 使用 Docker Compose 來部署多個容器
-    - url: ./containers/container-image-tags.md
-      itemType: reference
-      text: 認知服務容器映像標籤
     - url: ./containers/container-faq.md
       itemType: reference
       text: 認知服務容器常見問題集
@@ -170,12 +170,10 @@ additionalContent:
   - items:
     - title: 其他資源
       links:
-      - text: 支援和說明選項
-        url: cognitive-services-support-options.md
       - text: Azure CLI
         url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
       - text: PowerShell
-        url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-3.0.0#cognitive_services
+        url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
     - title: REST API
       links:
       - text: 認知服務管理

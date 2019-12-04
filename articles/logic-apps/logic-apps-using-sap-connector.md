@@ -1,21 +1,20 @@
 ---
-title: 連接到 SAP 系統-Azure Logic Apps
+title: 連接到 SAP 系統
 description: 使用 Azure Logic Apps 自動化工作流程，以存取和管理 SAP 資源
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
-ms.openlocfilehash: 90348ad05879aff75dadab85af4e905d92228a2d
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: a9cf818e8b31ea2efb2f2ef2f0848a759e017dfa
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287115"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790868"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SAP 系統
 
@@ -40,11 +39,11 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
 <a name="pre-reqs"></a>
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要遵循本文中的範例，您需要以下項目：
 
-* Azure 訂閱。 如果您還沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 您要用來存取 SAP 系統的邏輯應用程式，以及啟動邏輯應用程式工作流程的觸發程序。 如果您不熟悉邏輯應用程式，請參閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立您的第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
@@ -301,7 +300,7 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
 1. 開始之前，您需要有一個具有 SAP 觸發程式的邏輯應用程式。 如果您還沒有此邏輯應用程式，請遵循本主題中的先前步驟來[設定具有 SAP 觸發程式的邏輯應用程式](#receive-from-sap)。
 
-   例如︰
+   例如：
 
    ![將 SAP 觸發程式新增至邏輯應用程式](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 

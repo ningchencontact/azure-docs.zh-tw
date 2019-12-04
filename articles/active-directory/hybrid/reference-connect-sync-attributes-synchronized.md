@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e95b230d4f9699f15296ba94946c7063cabd0516
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847199"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766084"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步處理：將屬性同步處理至 Azure Active Directory
 本主題列出 Azure AD Connect 同步處理所同步處理的屬性。  
@@ -38,7 +38,7 @@ ms.locfileid: "73847199"
 >
 >
 
-## <a name="office-365-proplus"></a>Office 365 ProPlus
+## <a name="office-365-proplus"></a>Office 365 專業增強版
 | 屬性名稱 | User | 註解 |
 | --- |:---:| --- |
 | accountEnabled |X |定義是否啟用帳戶。 |
@@ -250,9 +250,9 @@ ms.locfileid: "73847199"
 | thumbnailphoto |X |X | | |
 | title |X |X | | |
 | unauthOrig |X |X |X | |
-| url |X |X | | |
+| URL |X |X | | |
 | usageLocation |X | | |機械屬性。 使用者的國家/地區
-》一文中的指示來佈建虛擬裝置，並與該虛擬裝置連線。 用於授權指派。 |
+。 用於授權指派。 |
 | userPrincipalName |X | | |UPN 是使用者的登入識別碼。 最常與 [mail] 值相同。 |
 | wWWHomePage |X |X | | |
 
@@ -386,7 +386,7 @@ ms.locfileid: "73847199"
 | givenName |X |X | | |
 | mail |X | |X | |
 | managedBy | | |X | |
-| mailNickname |X |X |X | |
+| mailNickName |X |X |X | |
 | member | | |X | |
 | objectSID |X | | |機械屬性。 AD 使用者識別碼，可用來維持 Azure AD 和 AD 之間的同步處理。 |
 | proxyAddresses |X |X |X | |
@@ -430,7 +430,7 @@ ms.locfileid: "73847199"
 | msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |篩選：從用戶端回寫內部部署篩選及線上安全和已封鎖的寄件者資料。 |
 | msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |篩選：從用戶端回寫內部部署篩選及線上安全和已封鎖的寄件者資料。 |
 | msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |啟用整合通訊 (UM) - 線上語音信箱：供 Microsoft Lync Server 整合用來向 Lync Server 內部部署表示使用者在線上服務中有語音信箱。 |
-| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |訴訟資料暫留：啟用雲端服務來識別哪些使用者正處於訴訟資料暫留狀態。 |
+| msExchUserHoldPolicies| Ms-exch-assistant-name-UserHoldPolicies |X | | |訴訟資料暫留：啟用雲端服務來識別哪些使用者正處於訴訟資料暫留狀態。 |
 | proxyAddresses| proxyAddresses |X |X |X |只會插入 Exchange Online 的 x500 位址。 |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |將 Exchange Online 信箱的 SendOnBehalfTo 權限授與使用內部部署 Exchange 信箱的使用者。 需要 Azure AD Connect 1.1.552.0 組建版本或更新版本。 |
 
@@ -466,7 +466,7 @@ ms.locfileid: "73847199"
 | msDS-IsManaged |X | |
 | msDS-RegisteredOwner |X | |
 
-## <a name="notes"></a>注意事項
+## <a name="notes"></a>注意
 * 使用「替代識別碼」時，內部部署屬性 userPrincipalName 會與 Azure AD 屬性 onPremisesUserPrincipalName 進行同步處理。 「替代識別碼」屬性 (例如 mail) 會與 Azure AD 屬性 userPrincipalName 進行同步處理。
 * 在上面的清單中，物件類型 **User** 也適用於物件類型 **iNetOrgPerson**。
 

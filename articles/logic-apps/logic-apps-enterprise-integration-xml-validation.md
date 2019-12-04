@@ -1,20 +1,19 @@
 ---
-title: 驗證適用于 B2B 企業整合的 XML-Azure Logic Apps
+title: 驗證適用于 B2B 企業整合的 XML
 description: 使用 Enterprise Integration Pack Azure Logic Apps 中的架構來驗證 XML
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/21/2019
-ms.openlocfilehash: 7813dcb375ff4a123b1314f8f9db453b1f0b187e
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: ff21b059e712489c1914b2d12c6aa6a3d78d66d3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680276"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792157"
 ---
 # <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>在採用 Enterprise Integration Pack 的 Azure Logic Apps 中驗證適用於 B2B 企業整合的 XML
 

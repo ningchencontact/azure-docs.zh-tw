@@ -3,17 +3,17 @@ title: 管理 Azure 自動化中的模組
 description: 本文說明如何在中管理模組 Azure 自動化
 services: automation
 ms.service: automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 06/05/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 492dd182c782b0f6375c2f857cfa4921b065c546
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 65759b32889f9a99b0322823bb8a4924788e8c09
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231581"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786464"
 ---
 # <a name="manage-modules-in-azure-automation"></a>管理 Azure 自動化中的模組
 
@@ -34,7 +34,15 @@ Azure 自動化提供將 PowerShell 模組匯入到您的自動化帳戶，以�
 New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
 ```
 
-### <a name="azure-portal"></a>Azure 入口網站
+您也可以使用相同的 Cmdlet 直接從 PowerShell 資源庫匯入模組。 請務必從[PowerShell 資源庫](https://www.powershellgallery.com)抓取**ModuleName**和**ModuleVersion** 。
+
+```azurepowershell-interactive
+$moduleName = <ModuleName>
+$moduleVersion = <ModuleVersion>
+New-AzAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
+```
+
+### <a name="azure-portal"></a>Azure Portal
 
 在 Azure 入口網站中，流覽至您的自動化帳戶，然後選取 **共用資源** 底下的 **模組**。 按一下 [ **+ 新增模組**]。 選取包含模組的 **.zip**檔案，然後按一下 **[確定]** 開始匯入處理常式。
 
@@ -42,7 +50,7 @@ New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -Reso
 
 來自 PowerShell 資源庫的模組可以直接從[PowerShell 資源庫](https://www.powershellgallery.com)或從您的自動化帳戶匯入。
 
-若要從 PowerShell 資源庫匯入模組，請移至 https://www.powershellgallery.com，然後搜尋您要匯入的模組。 按一下 [**安裝選項**] 底下 [ **Azure 自動化**] 索引標籤上的 [**部署] Azure 自動化**。 此動作會開啟 Azure 入口網站。 在 [匯**入**] 頁面上選取您的自動化帳戶，然後按一下 **[確定]** 。
+若要從 PowerShell 資源庫匯入模組，請移至 https://www.powershellgallery.com ，然後搜尋您要匯入的模組。 按一下 [**安裝選項**] 底下 [ **Azure 自動化**] 索引標籤上的 [**部署] Azure 自動化**。 此動作會開啟 Azure 入口網站。 在 [匯**入**] 頁面上選取您的自動化帳戶，然後按一下 **[確定]** 。
 
 ![PowerShell 資源庫匯入模組](../media/modules/powershell-gallery.png)
 
@@ -54,7 +62,7 @@ New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -Reso
 
 如果您有模組的問題，或需要復原到舊版的模組，您可以從您的自動化帳戶中將它刪除。 當您建立自動化帳戶時，無法刪除已匯入之[預設模組](#default-modules)的原始版本。 如果您想要刪除的模組是已安裝其中一個[預設模組](#default-modules)的較新版本，它會回復為隨您的自動化帳戶一起安裝的版本。 否則，將會移除您從自動化帳戶中刪除的任何模組。
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 在 Azure 入口網站中，流覽至您的自動化帳戶，然後選取 **共用資源** 底下的 **模組**。 選取您要移除的模組。 在 **模組** 頁面上，clcick**刪除**。 如果此模組是其中一個[預設模組](#default-modules)，則會回復為建立自動化帳戶時所存在的版本。
 
@@ -70,7 +78,11 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 
 以下是內部 `Orchestrator.AssetManagement.Cmdlets` 模組中匯入到每個自動化帳戶的 Cmdlet 清單。 這些 Cmdlet 可在您的 runbook 和 DSC 設定中存取，並可讓您與您的自動化帳戶內的資產進行互動。 此外，內部 Cmdlet 可讓您從加密的**變數**值、**認證**和加密的**連接**欄位抓取秘密。 Azure PowerShell Cmdlet 無法取得這些秘密。 使用這些 Cmdlet 時，您不需要以隱含方式連接到 Azure，例如使用執行身分帳戶向 Azure 進行驗證。
 
-|名稱|描述|
+>[!NOTE]
+>這些內部 Cmdlet 無法在混合式 Runbook 背景工作角色上使用，只有在 Azure 中執行的 runbook 可以存取它們。 針對直接在電腦上執行的 runbook 或針對您的環境中的資源，使用對應的[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Automation/?view=azurermps-6.13.0)或[Az 模組](../az-modules.md)。 
+>
+
+|Name|描述|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |

@@ -1,24 +1,21 @@
 ---
-title: 建立部署的邏輯應用程式範本-Azure Logic Apps
+title: 建立部署的邏輯應用程式範本
 description: 瞭解如何在 Azure Logic Apps 中建立 Azure Resource Manager 範本以自動化部署
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 57e9cec16326068cc7de74b8f7266fbe47808fed
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: d9b2dc7432ee1b847c8c7900a3e91daa71b5a771
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845443"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793198"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>建立 Azure Resource Manager 範本來自動化 Azure Logic Apps 的部署
 
-為了協助您自動建立和部署邏輯應用程式，本文說明您可以為邏輯應用程式建立[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)的方式。 如需有關範本的結構和語法的總覽，其中包含您的工作流程定義和部署所需的其他[資源，請參閱總覽：使用 Azure Resource Manager 範本](logic-apps-azure-resource-manager-templates-overview.md)自動部署邏輯應用程式。
+為了協助您自動建立和部署邏輯應用程式，本文說明您可以為邏輯應用程式建立[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)的方式。 如需有關範本的結構和語法的總覽，其中包含您的工作流程定義和部署所需的其他資源，請參閱[總覽：使用 Azure Resource Manager 範本自動部署邏輯應用程式](logic-apps-azure-resource-manager-templates-overview.md)。
 
 Azure Logic Apps 提供預先建立的[邏輯應用程式 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json)，您可以重複使用它，而不只是用來建立邏輯應用程式，還能定義要用於部署的資源和參數。 您可以在自己的商務案例中使用此範本，或自訂此範本以符合您的需求。
 
@@ -79,7 +76,7 @@ Azure Logic Apps 提供預先建立的[邏輯應用程式 Azure Resource Manager
 
 若要讓 LogicAppTemplate 模組使用任何 Azure 租使用者和訂用帳戶存取權杖，請安裝[Azure Resource Manager 的用戶端工具](https://github.com/projectkudu/ARMClient)，這是一個簡單的命令列工具，可呼叫 Azure Resource Manager API。
 
-當您使用此`Get-LogicAppTemplate`工具執行命令時，命令會先透過 ARMClient 工具取得存取權杖、使用管線將權杖傳送至 PowerShell 腳本，並建立範本做為 JSON 檔案。 如需此工具的詳細資訊，請參閱這[篇有關 Azure Resource Manager 用戶端工具的文章](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html)。
+當您使用此工具執行 `Get-LogicAppTemplate` 命令時，此命令會先透過 ARMClient 工具取得存取權杖、使用管線將權杖傳送至 PowerShell 腳本，並將範本建立為 JSON 檔案。 如需此工具的詳細資訊，請參閱這[篇有關 Azure Resource Manager 用戶端工具的文章](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html)。
 
 ### <a name="generate-template-with-powershell"></a>使用 PowerShell 產生範本
 
@@ -89,7 +86,7 @@ Azure Logic Apps 提供預先建立的[邏輯應用程式 Azure Resource Manager
 PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
 ```
 
-若要遵循從[Azure Resource Manager 用戶端工具](https://github.com/projectkudu/ARMClient)的權杖中進行管線的建議，請改為執行`$SubscriptionId`此命令，其中是您的 Azure 訂用帳戶識別碼：
+若要遵循從[Azure Resource Manager 用戶端工具](https://github.com/projectkudu/ARMClient)的權杖中進行管線的建議，請改為執行此命令，其中 `$SubscriptionId` 是您的 Azure 訂用帳戶識別碼：
 
 ```text
 PS> armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
@@ -110,7 +107,7 @@ PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $f
 | 參數 | 必要項 | 描述 |
 |------------|----------|-------------|
 | TemplateFile | 是 | 範本檔案的檔案路徑 |
-| KeyVault | 否 | 列舉，描述如何處理可能的金鑰保存庫值。 預設為 `None`。 |
+| KeyVault | 否 | 列舉，描述如何處理可能的金鑰保存庫值。 預設值為 `None`。 |
 ||||
 
 ## <a name="next-steps"></a>後續步驟

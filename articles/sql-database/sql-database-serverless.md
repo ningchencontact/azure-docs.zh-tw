@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: moslake
+author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 11/04/2019
-ms.openlocfilehash: fecc394080f54f023529ed2da8c9690c38c1da08
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/03/2019
+ms.openlocfilehash: a304b7fb0ba90d4ccf3805f47a5b04a2d3d8765e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818267"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775578"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database 無伺服器
 
@@ -126,7 +126,7 @@ SQL 快取會隨著資料以相同的方式從磁片提取，而且速度與布�
 
 |功能|自動繼續觸發程序|
 |---|---|
-|驗證和授權|登入|
+|驗證與授權|登入|
 |威脅偵測|啟用/停用資料庫或伺服器層級的威脅偵測設定。<br>修改資料庫或伺服器層級的威脅偵測設定。|
 |資料探索與分類|新增、修改、刪除或檢視敏感度標籤|
 |稽核|檢視稽核記錄。<br>更新或查看稽核原則。|
@@ -145,7 +145,7 @@ SQL 快取會隨著資料以相同的方式從磁片提取，而且速度與布�
 
 如果無伺服器資料庫暫停，第一次登入將會繼續資料庫，並傳回錯誤訊息，指出資料庫無法使用，錯誤碼40613。 資料庫一旦繼續，則必須重試登入來建立連線。 具有連線重試邏輯的資料庫用戶端應該不需要修改。
 
-### <a name="latency"></a>Latency
+### <a name="latency"></a>延遲
 
 自動繼續和自動暫停無伺服器資料庫的延遲通常是從1分鐘到自動繼續，以及1-10 分鐘到自動暫停的順序。
 
@@ -155,7 +155,7 @@ SQL 快取會隨著資料以相同的方式從磁片提取，而且速度與布�
 
 1. 指定服務目標名稱。 服務目標會規定服務層、硬體世代和最大虛擬核心。 下表顯示服務目標選項：
 
-   |服務目標名稱|服務層|硬體世代|最大虛擬核心數|
+   |服務目標名稱|服務層級|硬體世代|最大虛擬核心數|
    |---|---|---|---|
    |GP_S_Gen5_1|一般用途|Gen5|1|
    |GP_S_Gen5_2|一般用途|Gen5|2|
@@ -171,7 +171,7 @@ SQL 快取會隨著資料以相同的方式從磁片提取，而且速度與布�
 
    |參數|值選擇|預設值|
    |---|---|---|---|
-   |vCore 數下限|取決於已設定的最大虛擬核心-請參閱[資源限制](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)。|0.5 個虛擬核心|
+   |最小虛擬核心|取決於已設定的最大虛擬核心-請參閱[資源限制](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)。|0.5 個虛擬核心|
    |自動暫停延遲|最小值：60分鐘（1小時）<br>最大值：10080分鐘（7天）<br>遞增：60分鐘<br>停用自動暫停：-1|60 Minuten|
 
 
@@ -245,17 +245,17 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 ## <a name="modifying-serverless-configuration"></a>修改無伺服器設定
 
-### <a name="maximum-vcores"></a>最大虛擬核心數
+### <a name="maximum-vcores"></a>最低 vCore
 
 #### <a name="use-powershell"></a>使用 PowerShell
 
-修改 max 虛擬核心的執行方式是在 PowerShell  [中使用引數的 ](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)set-azsqldatabase`MaxVcore` 搭配命令。
+修改 max 虛擬核心是使用 `MaxVcore` 引數，在 PowerShell 中使用[set-azsqldatabase 搭配](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令來執行。
 
-### <a name="minimum-vcores"></a>最小虛擬核心數
+### <a name="minimum-vcores"></a>最高 vCore
 
 #### <a name="use-powershell"></a>使用 PowerShell
 
-修改 min 虛擬核心的執行方式是在 PowerShell  [中使用引數的 ](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)set-azsqldatabase`MinVcore` 搭配命令。
+修改 min 虛擬核心的執行方式是在 PowerShell 中使用[set-azsqldatabase 搭配](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令，方法是使用 `MinVcore` 引數。
 
 ### <a name="autopause-delay"></a>自動暫停延遲
 
@@ -263,7 +263,7 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 修改自動暫停延遲是藉由使用 `AutoPauseDelayInMinutes` 引數在 PowerShell 中的[set-azsqldatabase 搭配](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令來執行。
 
-## <a name="monitoring"></a>監控
+## <a name="monitoring"></a>監視
 
 ### <a name="resources-used-and-billed"></a>使用和計費的資源
 
@@ -277,11 +277,11 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 不論資料庫是在無伺服器或佈建計算層級中，使用者資源集區都是資料庫的最內層資源管理界限。 使用者資源集區會針對 DDL 查詢（例如，SELECT、INSERT、UPDATE 和 DELETE）所產生的使用者工作負載，建立其 CPU 和 IO 的範圍。 這些查詢通常代表應用程式套件內很大的使用率比例。
 
-### <a name="metrics"></a>度量
+### <a name="metrics"></a>計量
 
 下表列出監視應用程式套件的資源使用量和無伺服器資料庫使用者集區的計量：
 
-|實體|計量|說明|Units|
+|單位|計量|描述|單位數|
 |---|---|---|---|
 |應用程式套件|app_cpu_percent|應用程式所使用的虛擬核心百分比，相對於應用程式所允許的最大虛擬核心數。|百分比|
 |應用程式套件|app_cpu_billed|在報告期間內針對應用程式計費的計算數量。 在這段期間所支付的金額為此計量與虛擬核心單價的乘積。 <br><br>彙總一段時間內每秒使用的最大 CPU 與記憶體，即可判斷此計量的值。 如果使用的數量小於依照最小虛擬核心數與最小記憶體所設定的最小佈建數量，就會收取最小佈建數量的費用。 為了比較 CPU 與記憶體以供計費之用，記憶體會藉由重新調整每個 vCore 的記憶體數量（GB），以正規化為虛擬核心單位。|虛擬核心秒數|

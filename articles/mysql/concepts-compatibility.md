@@ -1,17 +1,17 @@
 ---
-title: 適用於 MySQL 的 Azure 資料庫的驅動程式和管理工具相容性
+title: 驅動程式和工具相容性-適用於 MySQL 的 Azure 資料庫
 description: 本文說明 MySQL 驅動程式和管理工具與適用於 MySQL 的 Azure 資料庫之相容性。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/06/2019
-ms.openlocfilehash: 916c02c30f6d54aef44459775a7a437fe96a4ff9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 12/02/2019
+ms.openlocfilehash: 83c1463beec47ed3535811de822348cc7706f757
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720149"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765336"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>MySQL 驅動程式和管理工具與適用於 MySQL 的 Azure 資料庫的相容性
 本文說明驅動程式和管理工具與適用於 MySQL 的 Azure 資料庫之相容性。
@@ -35,7 +35,7 @@ ms.locfileid: "73720149"
 | C | MySQL 連接器/ODBC （myodbc） | https://github.com/mysql/mysql-connector-odbc | 3.51.29 + | | |
 | C++ | MySQL 連接器/C++ | https://github.com/mysql/mysql-connector-cpp | 1.1.9 + | 1.1.3 和以下 | | 
 | C++ | MySQL + +| https://tangentsoft.net/mysql++ | 3.2.3 + | | |
-| Ruby | mysql2 | https://github.com/brianmario/mysql2 | 0.4.10 + | | |
+| 拼音 | mysql2 | https://github.com/brianmario/mysql2 | 0.4.10 + | | |
 | R | RMySQL | https://github.com/rstats-db/RMySQL | 0.10.16 + | | |
 | Swift | mysql-swift | https://github.com/novi/mysql-swift | 0.7.2 版 + | | |
 | Swift | vapor/mysql | https://github.com/vapor/mysql-kit | 2.0.1 + | | |
@@ -50,10 +50,10 @@ ms.locfileid: "73720149"
 | SQL 查詢自動完成 | X | X |  |
 | 匯入和匯出資料 | X | X | X | 
 | 匯出成多種格式 | X | X | X |
-| 備份與還原 |  | X |  |
+| 備份及還原 |  | X |  |
 | 顯示伺服器參數 | X | X | X |
 | 顯示用戶端連線 | X | X | X |
 
 ## <a name="next-steps"></a>後續步驟
 
-- [針對適用於 MySQL 的 Azure 資料庫連線問題進行疑難排解](howto-troubleshoot-common-connection-issues.md)
+- [針對適用於 MySQL 的 Azure 資料庫的連線問題進行疑難排解](howto-troubleshoot-common-connection-issues.md)

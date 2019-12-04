@@ -1,17 +1,17 @@
 ---
-title: 設定和存取 audit 記錄-適用於 MySQL 的 Azure 資料庫
+title: 存取 audit 記錄-Azure 入口網站-適用於 MySQL 的 Azure 資料庫
 description: 本文說明如何從 Azure 入口網站設定和存取適用於 MySQL 的 Azure 資料庫中的 audit 記錄。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.openlocfilehash: 2a2d2a697f0e41fb296c61c01909a814678f8277
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.date: 12/02/2019
+ms.openlocfilehash: ff1a6c63b6eb99acdef955806a138e3e22b8902a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350402"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773705"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>設定及存取 Azure 入口網站中適用於 MySQL 的 Azure 資料庫的 audit 記錄
 
@@ -20,7 +20,7 @@ ms.locfileid: "71350402"
 > [!IMPORTANT]
 > Audit log 功能目前為預覽狀態。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要逐步執行本作法指南，您需要：
 

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/24/2019
-ms.openlocfilehash: 270bc5401e58f4e5c99cae3c5ab06b4f03ae9543
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 11/29/2019
+ms.openlocfilehash: 2bd25ad823217c5e9260142912a3d2d748b9c15a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123250"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767699"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>使用 MirrorMaker，透過 HDInsight 上的 Kafka 來複寫 Apache Kafka 主題
 
@@ -42,13 +42,13 @@ ms.locfileid: "71123250"
 
 如果您需要在不同網路中的 Kafka 叢集之間進行鏡像處理，有下列額外考量︰
 
-* **閘道**：網路必須能夠在 TCP/IP 層級進行通訊。
+* **閘道**：網路必須能夠在 tcp/ip 層級進行通訊。
 
 * **伺服器定址**：您可以選擇使用其 IP 位址或完整功能變數名稱來定址叢集節點。
 
-    * **IP 位址**：如果您將 Kafka 叢集設定為使用 IP 位址公告，您可以使用訊息代理程式節點和 zookeeper 節點的 IP 位址來繼續進行鏡像設定。
+    * **IP 位址**：如果您將 Kafka 叢集設定為使用 ip 位址公告，您可以使用訊息代理程式節點和 zookeeper 節點的 IP 位址來繼續進行鏡像設定。
     
-    * **功能變數名稱**：如果您未設定 Kafka 叢集來進行 IP 位址廣告，叢集必須能夠使用完整功能變數名稱（Fqdn）彼此連接。 這需要每個網路中的網域名稱系統（DNS）伺服器設定為將要求轉送至其他網路。 建立 Azure 虛擬網路 (而不是使用網路提供的自動 DNS) 時，您必須指定自訂 DNS 伺服器和伺服器的 IP 位址。 建立虛擬網路之後，您就必須建立使用該 IP 位址的 Azure 虛擬機器，然後在其上安裝和設定 DNS 軟體。
+    * **功能變數名稱**：如果您未設定 Kafka 叢集來進行 IP 位址公告，叢集必須能夠使用完整功能變數名稱（fqdn）彼此連接。 這需要每個網路中的網域名稱系統（DNS）伺服器設定為將要求轉送至其他網路。 建立 Azure 虛擬網路 (而不是使用網路提供的自動 DNS) 時，您必須指定自訂 DNS 伺服器和伺服器的 IP 位址。 建立虛擬網路之後，您就必須建立使用該 IP 位址的 Azure 虛擬機器，然後在其上安裝和設定 DNS 軟體。
 
     > [!WARNING]  
     > 先建立和設定自訂 DNS 伺服器，然後再將 HDInsight 安裝到虛擬網路中。 HDInsight 不需要進行其他設定，即可使用針對虛擬網路設定的 DNS 伺服器。
@@ -66,7 +66,7 @@ ms.locfileid: "71123250"
     |資源群組 | Location |
     |---|---|
     | kafka-主要-rg | 美國中部 |
-    | kafka-secondary-rg | 美國中北部 |
+    | kafka-次要-rg | 美國中北部 |
 
 1. 在**kafka**中建立新的虛擬網路**kafka-主要-vnet** 。 保留預設設定。
 1. 在**kafka**中建立新的虛擬網路**kafka-次要-vnet** ，同時也使用預設設定。
@@ -75,22 +75,22 @@ ms.locfileid: "71123250"
 
     | 叢集名稱 | 資源群組 | 虛擬網路 | 儲存體帳戶 |
     |---|---|---|---|
-    | kafka-主要-叢集 | kafka-主要-rg | kafka-primary-vnet | kafkaprimarystorage |
-    | kafka-secondary-cluster | kafka-secondary-rg | kafka-secondary-vnet | kafkasecondarystorage |
+    | kafka-主要-叢集 | kafka-主要-rg | kafka-主要-vnet | kafkaprimarystorage |
+    | kafka-次要叢集 | kafka-次要-rg | kafka-次要-vnet | kafkasecondarystorage |
 
 1. 建立虛擬網路對等互連。 此步驟會建立兩個對等互連：一個從**kafka-主要-vnet**到**kafka-次要 vnet** ，另一個從**kafka-次要**vnet 到**kafka-主要 vnet**。
     1. 選取 [ **kafka-主要-vnet** ] 虛擬網路。
-    1. 按一下 [**設定**] 底下的 [**對等互連**]。
-    1. 按一下 [新增]。
+    1. 選取 [**設定**] 底下的 [**對等互連**]。
+    1. 選取 [新增]。
     1. 在 [**新增對等互連**] 畫面上，輸入詳細資料，如下列螢幕擷取畫面所示。
 
         ![HDInsight Kafka 新增 vnet 對等互連](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
 
 1. 設定 IP 公告：
-    1. 移至主要叢集的 [Ambari] 儀表板`https://PRIMARYCLUSTERNAME.azurehdinsight.net`：。
-    1. 按一下 [**服務** >  **Kafka**]。 按一下 [Configs (設定)] 索引標籤。
-    1. 將下列設定行新增至底部的 [ **kafka-env] 範本**區段。 按一下 [儲存]。
-    
+    1. 移至主要叢集的 Ambari 儀表板： `https://PRIMARYCLUSTERNAME.azurehdinsight.net`。
+    1. 選取 [**服務** > **Kafka**]。 CliSelectck [**選項**] 索引標籤。
+    1. 將下列設定行新增至底部的 [ **kafka-env] 範本**區段。 選取 [儲存]。
+
         ```
         # Configure Kafka to advertise IP addresses instead of FQDN
         IP_ADDRESS=$(hostname -i)
@@ -100,19 +100,19 @@ ms.locfileid: "71123250"
         ```
 
     1. 在 [**儲存**設定] 畫面上輸入附注，然後按一下 [**儲存**]。
-    1. 如果系統提示您設定警告，請按一下 [**無論如何繼續**]。
-    1. 在 [儲存設定**變更**] 上按一下 **[確定]** 。
-    1. 按一下 [**重新** > 啟動**需要重新開機**的**所有受影響**的] 通知。 按一下 [**確認全部重新開機**]。
+    1. 如果系統提示您設定警告，請按一下 [**仍繼續**]。
+    1. 在 [儲存設定**變更**] 上選取 **[確定]** 。
+    1. 選取 [**重新開機**] > 重新開機 [**需要重新開機**] 通知中的**所有受影響**。 選取 [確認重新啟動所有項目]。
 
         ![Apache Ambari 重新開機所有受影響的](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
 1. 設定 Kafka 以接聽所有網路介面。
-    1. 停留在 [**服務** >  **Kafka**] 底下的 [**進行中]** 索引標籤。 在 [ **Kafka Broker** ] 區段中 **，將 [接聽**程式] 屬性設為`PLAINTEXT://0.0.0.0:9092`。
-    1. 按一下 [儲存]。
-    1. 按一下 [**重新開機**]，並**確認 [全部重新開機**]。
+    1. 停留**在 [** **服務** > **Kafka**] 底下的 [[]] 索引標籤。 在 [ **Kafka Broker** ] 區段中 **，將**[接聽程式] 屬性設為 `PLAINTEXT://0.0.0.0:9092`。
+    1. 選取 [儲存]。
+    1. 選取 [**重新開機**]，並**確認 [全部重新開機**]。
 
 1. 記錄主要叢集的訊息代理程式 IP 位址和 Zookeeper 位址。
-    1. 按一下 [Ambari] 儀表板上的 [**主機**]。
+    1. 選取 [Ambari] 儀表板上的 [**主機**]。
     1. 記下訊息代理程式和 Zookeeper 的 IP 位址。 訊息代理程式節點的**w)** 是主機名稱的前兩個字母，而 zookeeper 節點則具有**zk**做為主機名稱的前兩個字母。
 
         ![Apache Ambari view node ip 位址](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
@@ -127,24 +127,24 @@ ms.locfileid: "71123250"
     ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net
     ```
 
-    將 **sshuser** 替換為建立叢集時所使用的 SSH 使用者名稱。 將 **BASENAME** 替換為建立叢集時使用的基底名稱。
+    將 **sshuser** 替換為建立叢集時所使用的 SSH 使用者名稱。 以建立叢集時使用的基底名稱取代**PRIMARYCLUSTER** 。
 
     如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-2. 使用下列命令來建立具有主要叢集之 Apache Zookeeper 主機的變數。 之類`ZOOKEEPER_IP_ADDRESS1`的字串必須以先前記錄的實際 IP 位址取代， `10.23.0.11`例如和`10.23.0.7`。 如果您使用具有自訂 DNS 伺服器的 FQDN 解析，請遵循下列[步驟](apache-kafka-get-started.md#getkafkainfo)來取得 broker 和 zookeeper 名稱。：
+1. 使用下列命令來建立具有主要叢集之 Apache Zookeeper 主機的變數。 `ZOOKEEPER_IP_ADDRESS1` 之類的字串必須以先前記錄的實際 IP 位址取代，例如 `10.23.0.11` 和 `10.23.0.7`。 如果您使用具有自訂 DNS 伺服器的 FQDN 解析，請遵循下列[步驟](apache-kafka-get-started.md#getkafkainfo)來取得 broker 和 zookeeper 名稱。：
 
     ```bash
     # get the zookeeper hosts for the primary cluster
     export PRIMARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181, ZOOKEEPER_IP_ADDRESS2:2181, ZOOKEEPER_IP_ADDRESS3:2181'
     ```
 
-3. 若要建立名為 `testtopic` 的主題，請使用下列命令：
+1. 若要建立名為 `testtopic` 的主題，請使用下列命令：
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $PRIMARY_ZKHOSTS
     ```
 
-3. 使用下列命令確認已建立主題：
+1. 使用下列命令確認已建立主題：
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $PRIMARY_ZKHOSTS
@@ -152,7 +152,7 @@ ms.locfileid: "71123250"
 
     回應包含 `testtopic`。
 
-4. 使用下列程式來查看此（**主要**）叢集的 Zookeeper 主機資訊：
+1. 使用下列程式來查看此（**主要**）叢集的 Zookeeper 主機資訊：
 
     ```bash
     echo $PRIMARY_ZKHOSTS
@@ -162,7 +162,7 @@ ms.locfileid: "71123250"
 
     `10.23.0.11:2181,10.23.0.7:2181,10.23.0.9:2181`
 
-    請儲存此資訊。 此資訊使用於下一節。
+    請儲存此資訊。 在下一節中將會用到它。
 
 ## <a name="configure-mirroring"></a>設定鏡像功能
 
@@ -176,7 +176,7 @@ ms.locfileid: "71123250"
 
     如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-2. 檔案是用來設定與主要叢集的通訊。 `consumer.properties` 若要建立檔案，請使用下列命令：
+1. `consumer.properties` 檔案是用來設定與**主要**叢集的通訊。 若要建立檔案，請使用下列命令：
 
     ```bash
     nano consumer.properties
@@ -189,23 +189,23 @@ ms.locfileid: "71123250"
     group.id=mirrorgroup
     ```
 
-    以**主要**叢集的 Zookeeper IP 位址取代**PRIMARY_ZKHOSTS** 。
+    將**PRIMARY_ZKHOSTS**取代為**主要**叢集的 Zookeeper IP 位址。
 
     此檔案描述從主要 Kafka 叢集讀取時要使用的取用者資訊。 如需取用者組態詳細資訊，請參閱 kafka.apache.org 上的[取用者組態](https://kafka.apache.org/documentation#consumerconfigs)。
 
     若要儲存檔案，請使用 **Ctrl + X**、**Y** 和 **Enter** 鍵。
 
-3. 設定與次要叢集通訊的產生者之前，請為**次要**叢集的 broker IP 位址設定一個變數。 使用下列命令來建立此變數：
+1. 設定與次要叢集通訊的產生者之前，請先為**次要**叢集的 broker IP 位址設定一個變數。 使用下列命令來建立此變數：
 
     ```bash
     export SECONDARY_BROKERHOSTS='BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092'
     ```
 
-    此命令`echo $SECONDARY_BROKERHOSTS`應該會傳回類似下列文字的資訊：
+    命令 `echo $SECONDARY_BROKERHOSTS` 應該會傳回類似下列文字的資訊：
 
     `10.23.0.14:9092,10.23.0.4:9092,10.23.0.12:9092`
 
-4. 檔案用來與次要叢集通訊。 `producer.properties` 若要建立檔案，請使用下列命令：
+1. `producer.properties` 檔案是用來與**次要**叢集通訊。 若要建立檔案，請使用下列命令：
 
     ```bash
     nano producer.properties
@@ -222,16 +222,16 @@ ms.locfileid: "71123250"
 
     如需產生者組態詳細資訊，請參閱 kafka.apache.org 上的[者組態](https://kafka.apache.org/documentation#producerconfigs)。
 
-5. 使用下列命令來建立環境變數，其中包含次要叢集之 Zookeeper 主機的 IP 位址：
+1. 使用下列命令來建立環境變數，其中包含次要叢集之 Zookeeper 主機的 IP 位址：
 
     ```bash
     # get the zookeeper hosts for the secondary cluster
     export SECONDARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181,ZOOKEEPER_IP_ADDRESS2:2181,ZOOKEEPER_IP_ADDRESS3:2181'
     ```
 
-7. HDInsight 上 Kafka 的預設組態不允許自動建立主題。 您必須先使用下列其中一個選項，才能啟動鏡像程序：
+1. Kafka on HDInsight 的預設設定不允許自動建立主題。 您必須先使用下列其中一個選項，才能啟動鏡像程序：
 
-    * 在**次要叢集上建立主題**：此選項也可讓您設定分割區數目和複寫因數。
+    * 在**次要叢集上建立主題**：此選項也可讓您設定資料分割數目和複寫因數。
 
         您可以使用下列命令提前建立主題：
 
@@ -241,15 +241,15 @@ ms.locfileid: "71123250"
 
         將 `testtopic` 取代為要建立的主題名稱。
 
-    * **設定可供自動建立主題的叢集**：此選項可讓 MirrorMaker 自動建立主題，但它可能會使用與主要主題不同的分割區數目或複寫因數來建立它們。
+    * **將叢集設定為自動建立主題**：此選項可讓 MirrorMaker 自動建立主題，但它可能會使用與主要主題不同的分割區數目或複寫因數來建立它們。
 
         若要將次要叢集設定為自動建立主題，請執行下列步驟：
 
-        1. 移至次要叢集的 [Ambari] 儀表板`https://SECONDARYCLUSTERNAME.azurehdinsight.net`：。
-        1. 按一下 [**服務** >  **Kafka**]。 按一下 [Configs (設定)] 索引標籤。
-        5. 在 [篩選] 欄位中，輸入 `auto.create` 的值。 這會篩選屬性清單並顯示 `auto.create.topics.enable` 設定。
-        6. 將 `auto.create.topics.enable` 的值變更為 true，然後選取 [儲存]。 新增附註，然後再次選取 [儲存]。
-        7. 依序選取 [Kafka] 服務、[重新啟動] 和 [重新啟動所有受影響的]。 出現提示時，選取 [確認全部重新啟動]。
+        1. 移至次要叢集的 Ambari 儀表板： `https://SECONDARYCLUSTERNAME.azurehdinsight.net`。
+        1. 按一下 [**服務**] > **Kafka**。 按一下 [Configs (設定)] 索引標籤。
+        1. 在 [篩選] 欄位中，輸入 `auto.create` 的值。 這會篩選屬性清單並顯示 `auto.create.topics.enable` 設定。
+        1. 將 `auto.create.topics.enable` 的值變更為 true，然後選取 [儲存]。 新增附註，然後再次選取 [儲存]。
+        1. 依序選取 [Kafka] 服務、[重新啟動] 和 [重新啟動所有受影響的]。 出現提示時，選取 [確認全部重新啟動]。
 
         ![kafka 啟用自動建立主題](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
 
@@ -263,13 +263,12 @@ ms.locfileid: "71123250"
 
     此範例中使用的參數：
 
-    * **--consumer.config**：指定包含取用者屬性的檔案。 這些屬性是用來建立從*主要*Kafka 叢集讀取的取用者。
-
-    * **--producer.config**：指定包含產生者屬性的檔案。 這些屬性是用來建立寫入*次要*Kafka 叢集的產生者。
-
-    * **--whitelist**：MirrorMaker 從主要叢集複製到次要叢集的主題清單。
-
-    * **--num.streams**：要建立的取用者執行緒數目。
+    |參數 |描述 |
+    |---|---|
+    |--取用者 .config|指定包含取用者屬性的檔案。 這些屬性是用來建立從*主要*Kafka 叢集讀取的取用者。|
+    |--生產者 .config|指定包含產生者屬性的檔案。 這些屬性是用來建立寫入*次要*Kafka 叢集的產生者。|
+    |--白名單|MirrorMaker 從主要叢集複製到次要叢集的主題清單。|
+    |--num. 資料流程|要建立的取用者執行緒數目。|
 
     次要節點上的取用者現在正在等候接收訊息。
 
@@ -288,7 +287,7 @@ ms.locfileid: "71123250"
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    主題清單現在包含`testtopic`，這是在 MirrorMaster 將主題從主要叢集鏡像到次要叢集時所建立的。 從主題中抓取的訊息與您在主要叢集上輸入的訊息相同。
+    主題清單現在包含 `testtopic`，會在 MirrorMaster 將主題從主要叢集鏡像到次要叢集時建立。 從主題中抓取的訊息與您在主要叢集上輸入的訊息相同。
 
 ## <a name="delete-the-cluster"></a>刪除叢集
 

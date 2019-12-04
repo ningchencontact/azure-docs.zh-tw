@@ -1,8 +1,7 @@
 ---
-title: 連接到 IBM 大型主機上的3270應用程式-Azure Logic Apps
+title: 連接到 IBM 大型主機上的3270應用程式
 description: 使用 Azure Logic Apps 和 IBM 3270 連接器整合和自動化3270螢幕驅動應用程式與 Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: ChristopherHouser
 ms.author: chrishou
@@ -10,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: f039d0cbfa2b34fecbcdee53ebe2b56b6e9b6d69
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 309cf59c4b27c2a5906acfc519edd5306dece2d5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787563"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789234"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>使用 Azure Logic Apps 和 IBM 3270 連接器，整合 IBM 大型主機上的3270螢幕驅動應用程式與 Azure
 

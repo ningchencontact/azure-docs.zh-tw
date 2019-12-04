@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 481acfdccb54077f18c1f4bf0375c0dc66e66007
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: a38beb0700e470d325545a2523143ecdab9f6dfb
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240670"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74777412"
 ---
 # <a name="connect-data-from-office-365-logs"></a>從 Office 365 記錄連接資料
 
@@ -42,7 +42,7 @@ ms.locfileid: "71240670"
 
 1. 在 Azure Sentinel 中，選取 [**資料連線器**]，然後按一下 [ **Office 365** ] 磚。
 
-2. 如果您尚未啟用它，請在 [連線] 底下 **，使用 [** **啟用**] 按鈕來啟用 Office 365 解決方案。 如果已啟用，則會在連線畫面中將其識別為已啟用。
+2. 如果您尚未啟用它，您可以前往 [**資料連線器**] 分頁，然後選取 [ **Office 365**連接器] 來執行此動作。 在這裡，您可以按一下 [**開啟連接器] 頁面**，然後在 [設定] 區段下的 [在**工作區上啟用 Office 365 解決方案**]，使用 [**安裝解決方案**] 按鈕來啟用它。 如果已啟用，則會在連線畫面中將其識別為已啟用。
 1. Office 365 可讓您將多個租使用者的資料串流至 Azure Sentinel。 針對您想要連線的每個租使用者，在 [將租使用者連線**到 Azure Sentinel]** 底下新增租使用者。 
 1. [Active Directory] 畫面隨即開啟。 系統會提示您在每個您想要連線到 Azure Sentinel 的租使用者上，使用全域管理員使用者進行驗證，並提供 Azure Sentinel 讀取其記錄檔的許可權。 
 5. 在 [Stream Office 365 活動記錄] 底下，按一下 [**選取**] 以選擇您想要串流至 Azure Sentinel 的記錄類型。 目前，Azure Sentinel 支援 Exchange 和 SharePoint。
@@ -54,6 +54,6 @@ ms.locfileid: "71240670"
 
 ## <a name="next-steps"></a>後續步驟
 在本檔中，您已瞭解如何將 Office 365 連線至 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 深入了解如何[取得資料的可見度以及潛在威脅](quickstart-get-visibility.md)。
 - 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats-built-in.md)。
 

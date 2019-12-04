@@ -1,25 +1,25 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫中的效能建議-單一伺服器
+title: 效能建議-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
 description: 本文說明適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的效能建議功能。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 5f1b64753d19158b17d4de1b3fbbe50d30ea0254
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: a30af0c8bef47a37fe3439e885d3895a2c826225
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764677"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768464"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫中的效能建議-單一伺服器
 
-**適用範圍：** 適用於 PostgreSQL 的 Azure 資料庫-單一伺服器版本9.6、10、11
+**適用物件：** 適用於 PostgreSQL 的 Azure 資料庫-單一伺服器版本9.6、10、11
 
 效能建議功能會分析您的資料庫，以建立自訂的建議以改善效能。 為了產生建議，分析會查看各種資料庫特性，包括架構。 在您的伺服器上啟用[查詢存放區](concepts-query-store.md)，以充分利用效能建議功能。 在執行任何效能建議之後，您應該測試效能以評估這些變更的影響。 
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>使用權限
 需要**擁有者**或**參與者**權限，才能使用 [效能建議] 功能執行分析。
 
 ## <a name="performance-recommendations"></a>效能建議
@@ -39,7 +39,7 @@ ms.locfileid: "70764677"
 
 ## <a name="recommendation-types"></a>建議類型
 
-目前支援兩種類型的建議：*Create index*和*Drop index*。
+目前支援兩種類型的建議： *Create index*和*Drop index*。
 
 ### <a name="create-index-recommendations"></a>建立索引建議
 *建立索引*建議會建議新的索引，以加速工作負載中最常執行或耗時的查詢。 此建議類型需要啟用[查詢存放區](concepts-query-store.md)。 查詢存放區會收集查詢資訊，並提供詳細的查詢執行時間和頻率統計資料，供分析用來提出建議。

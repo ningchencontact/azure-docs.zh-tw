@@ -1,20 +1,19 @@
 ---
-title: 建立 customer insights 儀表板-Azure Logic Apps
+title: 建立 customer insights 儀表板
 description: 使用 Azure Logic Apps 與 Azure Functions 來建置客戶儀表板，以管理客戶的意見反應、社交媒體資料和其他項目
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: c9c5cf9c56f2e22faa973c983c6fd81733119daa
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: ebc1d449cdb8702a984304e92697d4b7c778daaa
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680115"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792898"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>使用 Azure Logic Apps 與 Azure Functions 來建立串流的客戶深入解析儀表板
 

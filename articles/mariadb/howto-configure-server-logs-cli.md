@@ -1,24 +1,24 @@
 ---
-title: 使用 Azure CLI 在適用於 MariaDB 的 Azure 資料庫中存取伺服器記錄
-description: 本文說明如何使用 Azure CLI 命令列公用程式，在適用於 MariaDB 的 Azure 資料庫中存取伺服器記錄。
-author: rachel-msft
-ms.author: raagyema
+title: 存取緩慢查詢記錄-Azure CLI 適用於 MariaDB 的 Azure 資料庫
+description: 本文說明如何使用 Azure CLI 命令列公用程式，在適用於 MariaDB 的 Azure 資料庫中存取緩慢記錄。
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: ffc724ef5133ee25643a966d2b6d8448a4c3a920
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 32e73835732538813f90de5cb737429373c3762a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023606"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767376"
 ---
-# <a name="configure-and-access-server-logs-by-using-azure-cli"></a>使用 Azure CLI 設定和存取伺服器記錄
-您可以使用 Azure CLI (Azure 的命令列公用程式) 來下載適用於 MariaDB 的 Azure 資料庫的伺服器記錄。
+# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>使用 Azure CLI 設定和存取緩慢查詢記錄
+您可以使用 Azure 命令列公用程式 Azure CLI 來下載適用於 MariaDB 的 Azure 資料庫慢速查詢記錄。
 
 ## <a name="prerequisites"></a>必要條件
-若要逐步執行本作法指南，您需要︰
+若要逐步執行本作法指南，您需要：
 - [適用於 MariaDB 的 Azure 資料庫伺服器](quickstart-create-mariadb-server-database-using-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) 或瀏覽器中的 Azure Cloud Shell
 

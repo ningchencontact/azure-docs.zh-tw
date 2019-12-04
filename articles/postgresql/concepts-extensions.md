@@ -1,17 +1,17 @@
 ---
-title: 在適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中使用於 postgresql 擴充功能
-description: 說明使用適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的延伸模組，擴充資料庫功能的能力。
+title: 延伸模組-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
+description: 瞭解適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中可用的 Postgres 擴充功能
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 4f81b23378427faa522071f4a20e07485f5c3387
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 12/03/2019
+ms.openlocfilehash: 7a55cc9398cc511ced0a43f0d7a0c1aa6e37f155
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72296428"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790392"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫中的于 postgresql 擴充功能-單一伺服器
 PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能。 延伸模組會將多個相關的 SQL 物件組合在單一封裝中，您可以使用單一命令從您的資料庫中載入或移除它們。 載入資料庫之後，擴充功能就像內建功能一樣。
@@ -26,7 +26,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 在 Postgres 版本11的適用於 PostgreSQL 的 Azure 資料庫伺服器中，可以使用下列延伸模組。 
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能**| **延伸模組版本** | **描述** |
+> | **擴充功能**| **延伸模組版本** | **說明** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | 用來將位址剖析為組成項目。 |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US 資料集範例|
@@ -71,7 +71,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 在 Postgres 第10版的適用於 PostgreSQL 的 Azure 資料庫伺服器中，可以使用下列延伸模組。
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能**| **延伸模組版本** | **描述** |
+> | **擴充功能**| **延伸模組版本** | **說明** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | 用來將位址剖析為組成項目。 |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US 資料集範例|
@@ -117,7 +117,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 下列擴充功能適用于 Postgres 9.6 版的適用於 PostgreSQL 的 Azure 資料庫伺服器。
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能**| **延伸模組版本** | **描述** |
+> | **擴充功能**| **延伸模組版本** | **說明** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.2           | 用來將位址剖析為組成項目。 |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.2           | Address Standardizer US 資料集範例|
@@ -163,7 +163,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 下列擴充功能適用于 Postgres 9.5 版的適用於 PostgreSQL 的 Azure 資料庫伺服器。
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能**| **延伸模組版本** | **描述** |
+> | **擴充功能**| **延伸模組版本** | **說明** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.0           | 用來將位址剖析為組成項目。 |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.0           | Address Standardizer US 資料集範例|
@@ -224,7 +224,7 @@ PgAudit 延伸模組提供會話和物件的 audit 記錄。 若要瞭解如何�
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB 是一種時間序列資料庫，封裝為于 postgresql 的延伸模組。 TimescaleDB 針對時間序列工作負載提供時間導向的分析功能、優化和調整 Postgres。
 
-[深入瞭解 TimescaleDB](https://docs.timescale.com/latest)，這是一份已註冊的[時間刻度，inc.](https://www.timescale.com/)的商標
+[深入瞭解 TimescaleDB](https://docs.timescale.com/latest)，這是一項已註冊的[時間刻度，inc.](https://www.timescale.com/)的商標。 適用於 PostgreSQL 的 Azure 資料庫提供了開放原始碼版本的時間刻度。 若要瞭解此版本中有哪些可用的時間刻度功能，請參閱「[時間刻度」產品比較](https://www.timescale.com/products/)。
 
 ### <a name="installing-timescaledb"></a>安裝 TimescaleDB
 若要安裝 TimescaleDB，您必須將它包含在伺服器的共用預先載入程式庫中。 變更 Postgres 的 `shared_preload_libraries` 參數需要**重新開機伺服器**才會生效。 您可以使用[Azure 入口網站](howto-configure-server-parameters-using-portal.md)或[Azure CLI](howto-configure-server-parameters-using-cli.md)來變更參數。

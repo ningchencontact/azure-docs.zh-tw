@@ -1,20 +1,17 @@
 ---
-title: 使用 ISE Azure Logic Apps 連接到 Azure 虛擬網路
+title: 使用 ISE 連接到 Azure 虛擬網路
 description: 建立可從 Azure Logic Apps 存取 Azure 虛擬網路（Vnet）的整合服務環境（ISE）
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: d38874e7cb3fc61e32bd4ecd1fee528c4e5053e8
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 6e301cf8e24ba740b56c63d7f95b50617ba25383
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547158"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792702"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>透過使用整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
 

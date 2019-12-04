@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 08549935c7a0651709a08bef61624e4e436d4aad
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 1a69741ba3ced91b6b0d1fc4bcd4aea887452151
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084100"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792175"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集實例
 
@@ -81,9 +81,7 @@ ms.locfileid: "74084100"
 - [Azure 資源群組](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> 此時，只有[SQL Server IaaS 代理程式擴充](virtual-machines-windows-sql-server-agent-extension.md)功能的[輕量](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider)管理模式，才支援 Azure 虛擬機器上的 SQL Server 容錯移轉叢集實例。 從參與容錯移轉叢集的 Vm 卸載完整延伸模組，然後以輕量模式向 SQL VM 資源提供者註冊。
->
-> 完整延伸模組支援自動備份、修補和先進入口網站管理等功能。 在輕量管理模式中重新安裝代理程式之後，這些功能將無法用於 SQL Server 的 Vm。
+> 目前，只有[SQL Server IaaS 代理程式擴充](virtual-machines-windows-sql-server-agent-extension.md)功能的[輕量管理模式](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes)才支援 Azure 虛擬機器上的 SQL Server 容錯移轉叢集實例。 若要從完整延伸模式變更為輕量，請刪除對應 Vm 的**Sql 虛擬機器**資源，然後在輕量模式中向 sql VM 資源提供者註冊。 使用 Azure 入口網站刪除**SQL 虛擬機器**資源時，請**清除正確虛擬機器旁的核取方塊**。 完整延伸模組支援自動備份、修補和先進入口網站管理等功能。 在輕量管理模式中重新安裝代理程式之後，這些功能將無法在 SQL Vm 上使用。
 
 ### <a name="what-to-have"></a>應備項目
 
@@ -176,7 +174,7 @@ ms.locfileid: "74084100"
 
    在每部虛擬機器上，開啟 Windows 防火牆上的下列埠：
 
-   | 目的 | TCP 埠 | 注意事項
+   | 目的 | TCP 埠 | 注意
    | ------ | ------ | ------
    | SQL Server | 1433 | 適用於 SDL Server 預設執行個體的一般連接埠。 若您曾使用來自資源庫的映像，此連接埠會自動開啟。
    | 健全狀況探查 | 59999 | 任何開啟的 TCP 連接埠。 在接下來的步驟中，設定負載平衝器[健全狀況探查](#probe)和要使用此連接埠的叢集。  
@@ -501,7 +499,7 @@ Azure 虛擬機器支援 Windows Server 2019 上的 Microsoft 分散式交易協
 - 叢集 MSDTC 資源無法設定為使用共用存放裝置。 在 Windows Server 2016 上，如果您建立 MSDTC 資源，它不會顯示任何可供使用的共用存放裝置，即使有可用的存放裝置也一樣。 Windows Server 2019 中已修正此問題。
 - 基本負載平衡器不會處理 RPC 埠。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [使用遠端桌面（Azure）設定儲存空間直接存取](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

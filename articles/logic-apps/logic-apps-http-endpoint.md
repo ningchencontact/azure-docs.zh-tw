@@ -1,20 +1,17 @@
 ---
-title: 呼叫、觸發或嵌套邏輯應用程式-Azure Logic Apps
+title: 呼叫、觸發或巢狀邏輯應用程式
 description: 設定 HTTP 端點，以在 Azure Logic Apps 中呼叫、觸發或嵌套邏輯應用程式工作流程
 services: logic-apps
-ms.service: logic-apps
 ms.workload: integration
-author: ecfan
-ms.author: klam
-ms.reviewer: klam, jehollan, LADocs
+ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: 27a3bf036cce27a5f215068ff71928cb7e181452
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dbb91106ad00e1a82e2e6e9c470e61764a4ad4c4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833952"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792026"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用 HTTP 端點呼叫、觸發或嵌套邏輯應用程式
 
@@ -43,7 +40,7 @@ ms.locfileid: "73833952"
 
    這個範例會使用要求觸發程式，但是您可以使用任何可接收傳入 HTTP 要求的觸發程式。 所有原則都相同，適用于這些觸發程式。 如需要求觸發程式的詳細資訊，請參閱[使用 Azure Logic Apps 接收和回應連入的 HTTPS 呼叫](../connectors/connectors-native-reqres.md)。
 
-1. 在 [搜尋] 方塊中，選取 [**內建**]。 在 [搜尋] 方塊中，輸入 `request` 作為篩選準則。 從觸發程式清單中，選取 [**收到 HTTP 要求時**]。
+1. 在 [搜尋] 方塊中，選取 [**內建**]。 在搜尋方塊中，輸入 `request` 作為篩選條件。 從觸發程式清單中，選取 [**收到 HTTP 要求時**]。
 
    ![尋找並選取要求觸發程式](./media/logic-apps-http-endpoint/find-and-select-request-trigger.png)
 
@@ -157,7 +154,7 @@ ms.locfileid: "73833952"
 
    1. 在要求觸發程式下，選取 [**新增步驟**] > [**加入動作**]。
 
-   1. 在 [**選擇動作**] 下的 [搜尋] 方塊中，輸入 `response` 作為篩選準則。
+   1. 在 [選擇動作] 底下的搜尋方塊中，輸入 `response` 作為篩選條件。
 
    1. 從 [動作] 清單中，選取 [**回應**] 動作。
 
@@ -231,7 +228,7 @@ ms.locfileid: "73833952"
 
 1. 在您要呼叫另一個邏輯應用程式的步驟中，選取 [**新增步驟**] > [**加入動作**]。
 
-1. 在 **[選擇動作**] 底下，選取 [**內建**]。 在 [搜尋] 方塊中，輸入 `logic apps` 作為篩選準則。 從 [動作] 清單中，選取 **[選擇 Logic Apps 工作流程**]。
+1. 在 [選擇動作] 底下，選取 [內建]。 在搜尋方塊中，輸入 `logic apps` 作為篩選條件。 從 [動作] 清單中，選取 **[選擇 Logic Apps 工作流程**]。
 
    ![將邏輯應用程式嵌套在目前的邏輯應用程式中](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
@@ -278,7 +275,7 @@ ms.locfileid: "73833952"
 
 回應具有下列屬性：
 
-| 屬性（顯示） | 屬性（JSON） | 說明 |
+| 屬性（顯示） | 屬性（JSON） | 描述 |
 |--------------------|-----------------|-------------|
 | **狀態碼** | `statusCode` | 要在傳入要求的回應中使用的 HTTP 狀態碼。 此代碼可以是任何以 2xx、4xx 或 5xx 開頭的有效狀態碼。 但是，不允許 3xx 狀態碼。 |
 | **標頭** | `headers` | 要包含在回應中的一個或多個標頭 |
@@ -305,7 +302,7 @@ ms.locfileid: "73833952"
 }
 ```
 
-## <a name="q--a"></a>問答集
+## <a name="q--a"></a>問與答
 
 #### <a name="q-what-about-url-security"></a>問︰URL 安全性如何？
 

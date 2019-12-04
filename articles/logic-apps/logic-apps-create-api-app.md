@@ -1,21 +1,17 @@
 ---
-title: 為 Azure Logic Apps 建立 Web API 和 REST API | Microsoft Docs
+title: 為 Azure Logic Apps 建立 & REST Api 的 web Api
 description: 建立 Web API 和 REST API 來呼叫您的 API、服務或系統以在 Azure Logic Apps 中進行系統整合
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
+ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
-ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 0d73f40c77c1b73a52522eafdb3c093b691d3e14
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e4200d09a02da1fd95f9bf5051b7f9d5fca5aa98
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583461"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793218"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>建立您可以從 Azure Logic Apps 呼叫的自訂 API
 
@@ -29,7 +25,7 @@ ms.locfileid: "73583461"
 
 若要讓自訂 API 與 Logic Apps 搭配使用，您的 API 可以提供[*動作*](./logic-apps-overview.md#logic-app-concepts)，能在邏輯應用程式工作流程中執行特定的工作。 您的 API 也可作為[*觸發程序*](./logic-apps-overview.md#logic-app-concepts)，當新資料或事件符合指定的條件時，能啟動邏輯應用程式工作流程。 本主題描述常見的模式，以您想要 API 提供的行為作為基礎，加以遵循即可在您的 API 中建置動作和觸發程序。
 
-您可以將 API 裝載在 [Azure App Service](../app-service/overview.md) 上，這是一個平台即服務 (PaaS) 供應項目，提供擴充性高且簡便的 API 裝載服務。
+您可以將您的 API 裝載在 [Azure App Service](../app-service/overview.md) 上，這是一個平台即服務 (PaaS) 供應項目，提供擴充性高且簡便的 API 裝載服務。
 
 > [!TIP] 
 > 雖然您可以將 API 部署成 Web 應用程式，但請考慮將您的 API 部署成 API 應用程式，如此一來，當您在雲端和內部部署環境中建置、裝載及取用 API 時，將可讓您的作業更輕鬆。 您不需要在 API 中變更任何程式碼 -- 只需將您的程式碼部署至 API 應用程式。 例如，了解如何使用下列語言來建置 API 應用程式： 
@@ -168,7 +164,7 @@ ms.locfileid: "73583461"
 | 找到新資料或事件了嗎？  | API 回應 | 
 | ------------------------- | ------------ |
 | 已找到 | 傳回包含回應承載的 HTTP `200 OK` 狀態 (下一個步驟的輸入)。 <br/>此回應會建立邏輯應用程式執行個體，並啟動工作流程。 | 
-| 找不到 | 傳回包含 `202 ACCEPTED` 標頭和 `location` 標頭的 HTTP`retry-after` 狀態。 <br/>針對觸發程序，`location` 標頭也應該包含 `triggerState` 查詢參數，通常是「時間戳記」。 您的 API 可以利用這個識別碼，來追蹤邏輯應用程式所觸發的最後時間。 | 
+| 找不到 | 傳回包含 `location` 標頭和 `retry-after` 標頭的 HTTP`202 ACCEPTED` 狀態。 <br/>針對觸發程序，`location` 標頭也應該包含 `triggerState` 查詢參數，通常是「時間戳記」。 您的 API 可以利用這個識別碼，來追蹤邏輯應用程式所觸發的最後時間。 | 
 ||| 
 
 例如，定期檢查您的服務是否有新檔案，您可能會建立具有這些行為的輪詢觸發程序：
@@ -176,7 +172,7 @@ ms.locfileid: "73583461"
 | 要求是否包含 `triggerState`？ | API 回應 | 
 | -------------------------------- | -------------| 
 | 否 | 傳回 HTTP `202 ACCEPTED` 狀態與 `location` 標頭，並將 `triggerState` 設為目前的時間，且 `retry-after` 間隔設為 15 秒。 | 
-| 是 | 請檢查您的服務是否有 `DateTime` 的 `triggerState` 之後新增的檔案。 | 
+| 是 | 請檢查您的服務是否有 `triggerState` 的 `DateTime` 之後新增的檔案。 | 
 ||| 
 
 | 找到的檔案數 | API 回應 | 

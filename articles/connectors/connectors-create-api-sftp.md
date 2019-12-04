@@ -1,21 +1,19 @@
 ---
-title: 連接到 SFTP 帳戶-Azure Logic Apps
+title: 連接到 SFTP 帳戶
 description: 藉由使用 Azure Logic Apps，透過 SSH 來讓針對 SFTP 伺服器監視、建立、管理、傳送及接收檔案的工作和流程自動化
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, klam, LADocs
+author: divyaswarnkar
+ms.reviewer: divswa, klam, logicappspm
 ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 20702f5bc0dfc513d1fba84b69595dec885613ac
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d0da98070fa8da5403677e1a67bda75456c74d80
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837116"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789268"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來監視、建立及管理 SFTP 檔案
 
@@ -31,13 +29,13 @@ ms.locfileid: "73837116"
 
 您可以使用觸發程序來監視 SFTP 伺服器上的事件，並讓輸出可供其他動作使用。 您可以使用動作，在 SFTP 伺服器上執行各種工作。 您也可以讓邏輯應用程式中的其他動作使用 SFTP 動作的輸出。 例如，如果您定期從 SFTP 伺服器擷取檔案，可以藉由使用 Office 365 Outlook 連接器或 Outlook.com 連接器，傳送關於那些檔案及其內容的電子郵件警示。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
 
-## <a name="limits"></a>限制
+## <a name="limits"></a>Limits
 
 SFTP 連接器只會處理*50 MB 或更小*的檔案，且不支援[訊息區塊](../logic-apps/logic-apps-handle-large-messages.md)化。 針對較大的檔案，請使用[SFTP SSH 連接器](../connectors/connectors-sftp-ssh.md)。 如需 SFTP 連接器與 SFTP SSH 連接器之間的差異，請參閱在 SFTP SSH 文章中[比較 sftp-ssh 與 sftp](../connectors/connectors-sftp-ssh.md#comparison) 。
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 您的 SFTP 伺服器位址和帳戶認證，這讓您的邏輯應用程式能夠存取您的 SFTP 帳戶。 若要使用[安全殼層 (SSH)](https://www.ssh.com/ssh/protocol/) \(英文\) 通訊協定，您也需要存取 SSH 私密金鑰和 SSH 私密金鑰密碼。
 
@@ -57,7 +55,7 @@ SFTP 連接器只會處理*50 MB 或更小*的檔案，且不支援[訊息區塊
 
 SFTP 觸發程式的工作是輪詢 SFTP 檔案系統，並尋找自上次輪詢後已變更的任何檔案。 某些工具可讓您在檔案變更時保留時間戳記。 在這些情況下，您必須停用此功能，以便讓您的觸發程序可以運作。 以下是一些常見的設定：
 
-| SFTP 用戶端 | 動作 |
+| SFTP 用戶端 | 行動 |
 |-------------|--------|
 | Winscp | 移至 [選項] > [喜好設定] > [傳輸] > [編輯] > [保留時間戳記] > [停用] |
 | FileZilla | 移至 [傳輸] > [保留傳輸檔案的時間戳記] > [停用] |
@@ -71,11 +69,11 @@ SFTP 觸發程式的工作是輪詢 SFTP 檔案系統，並尋找自上次輪詢
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟邏輯應用程式。
 
-1. 針對空白邏輯應用程式，請在搜尋方塊中輸入 "sftp" 作為篩選條件。 請在觸發程序清單底下，選取您想要的觸發程序。
+1. 針對空白邏輯應用程式，請在搜尋方塊中輸入 "sftp" 作為篩選條件。 在觸發程序清單底下，選取您想要的觸發程序。
 
    -或-
 
-   若是現有的邏輯應用程式，請在想要新增動作的最後一個步驟底下，選擇 [新增步驟]。 在搜尋方塊中，輸入 "sftp" 作為篩選條件。 請在動作清單底下，選取您想要的動作。
+   若是現有的邏輯應用程式，請在想要新增動作的最後一個步驟底下，選擇 [新增步驟]。 在搜尋方塊中，輸入 "sftp" 作為篩選條件。 在動作清單底下，選取您想要的動作。
 
    若要在步驟之間新增動作，將指標移至步驟之間的箭號。 選擇顯示的加號 ( **+** )，然後選取 [新增動作]。
 

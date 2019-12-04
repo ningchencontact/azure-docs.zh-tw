@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 4aa9e93831b902ff9f0a0659c650cd2ca123b1a3
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d9967b6f1177281759dd66122ffd0183bb2b813d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74124018"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775828"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
@@ -95,7 +95,7 @@ RBAC 角色可以包含管理或資料層存取的許可權。 例如，「讀�
 
 當 Active Directory 同盟服務（AD FS）提示儲存體總管執行重新導向（Electron 不支援）時，就會出現空白登入對話方塊。 若要解決此問題，您可以嘗試使用裝置程式碼流程來進行登入。 若要這樣做，請依照下列步驟執行：
 
-1. 在功能表上，移至 **預覽** > **使用裝置程式碼登入**。
+1. 在左垂直工具列上，開啟 [**設定**]。 在 [設定] 面板中，移至 [**應用程式** > 登**入**]。 啟用 [**使用裝置程式碼流程登入**]。
 2. 開啟 [**連接**] 對話方塊（透過左側分隔號的插頭圖示，或選取 [帳戶] 面板上的 [**新增帳戶**]）。
 3. 選擇您想要登入的環境。
 4. 選取 [登入]。
@@ -313,7 +313,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 1. 下載儲存體總管。
 2. 安裝[.Net Core 運行](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current)時間。
-3. 執行下列命令：
+3. 執行以下命令：
    ```bash
    sudo apt-get install libgconf-2-4 libgnome-keyring0
    ```
@@ -322,7 +322,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 1. 下載儲存體總管。
 2. 安裝[.Net Core 運行](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current)時間。
-3. 執行下列命令：
+3. 執行以下命令：
    ```bash
    sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
    ```
@@ -331,7 +331,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 1. 下載儲存體總管。
 2. 安裝[.Net Core 運行](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current)時間。
-3. 執行下列命令：
+3. 執行以下命令：
    ```bash
    sudo apt install libgnome-keyring-dev
    ```
@@ -340,7 +340,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 1. 下載儲存體總管。
 2. 安裝[.Net Core 運行](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current)時間。
-3. 執行下列命令：
+3. 執行以下命令：
    ```bash
    sudo apt install libgnome-keyring-dev
    ```

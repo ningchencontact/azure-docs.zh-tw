@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: 0abf4bb015be52a10178423a566433b87127a167
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/03/2019
+ms.openlocfilehash: bdd33d85ee0aac4808c343af088d4db1a0dc963e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821902"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767767"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>啟用自動調整以監視查詢並改進工作負載效能
 
@@ -34,7 +34,7 @@ Azure SQL Database 是自動受控的資料服務，會不斷地監視您的查�
 
 在伺服器層級上，您可以選擇繼承「Azure 預設值」的自動調整設定，或不繼承設定。 Azure 預設值已啟用 FORCE_LAST_GOOD_PLAN 和 CREATE_INDEX，且已停用 DROP_INDEX。
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 若要在 Azure SQL Database 邏輯**伺服器**上啟用自動調整，請導覽至 Azure 入口網站中的伺服器，然後選取功能表中的 [自動調整]。
 
@@ -60,7 +60,7 @@ Azure SQL Database 可讓您個別指定每個資料庫的自動調整設定。 
 > 一般建議是在**伺服器層級**管理自動調整設定，以便在每一個資料庫上自動套用相同的組態設定。 只有在您要求該資料庫的設定不同於繼承自相同伺服器的其他設定時，設定自動調整個別的資料庫。
 >
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 若要在**單一資料庫**上啟用自動調整，請導覽至 Azure 入口網站中的資料庫，然後選取 [自動調整]。
 
@@ -92,7 +92,7 @@ ALTER DATABASE current SET AUTOMATIC_TUNING = AUTO | INHERIT | CUSTOM
 ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
 ```
 
-將個別的調整選項設定成 [ON]，將會覆寫該資料庫所繼承的任何設定，並啟用該調整選項。 將它設定成 [OFF]，也會覆寫資料庫所繼承的任何設定，並停用該調整選項。 指定為 [DEFAULT] 的自動調整選項，將會繼承資料庫層級自動調整設定的組態。  
+將個別的調整選項設定成 [ON]，將會覆寫該資料庫所繼承的任何設定，並啟用該調整選項。 將它設定成 [OFF]，也會覆寫資料庫所繼承的任何設定，並停用該調整選項。 已指定預設值的自動調整選項會從伺服器層級設定繼承自動調整設定。  
 
 > [!IMPORTANT]
 > 如果為[作用中異地複寫](sql-database-auto-failover-group.md)，則只需要在主要資料庫上設定自動調整。 自動套用的調整動作 (例如，建立或刪除範例索引) 會自動複寫到唯讀次要複本。 嘗試在唯讀次要複本上透過 T-SQL 啟用自動調整會導致失敗，因為不支援在唯讀次要複本上使用不同的調整設定。
@@ -104,7 +104,7 @@ ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_I
 
 自動調整會監視它在資料庫上採取的所有動作，而且在某些情況下，它可以判斷自動調整無法適當地在資料庫上運作。 在此情況下，調整選項將會被系統停用。 在大部分情況下，發生此問題的原因是因為特定資料庫上未啟用查詢資料存放區，或是查詢存放區處於唯讀的狀態。
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>使用權限
 
 因為自動調整是 Azure 功能，所以若要使用它，您必須使用 Azure 的內建 RBAC 角色。 僅使用 SQL 驗證並不會足以使用 Azure 入口網站的功能。
 

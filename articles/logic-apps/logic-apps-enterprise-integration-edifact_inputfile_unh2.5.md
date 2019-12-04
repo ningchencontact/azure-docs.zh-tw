@@ -1,20 +1,19 @@
 ---
-title: UNH EDIFACT 訊息中的2.5 區段-Azure Logic Apps
+title: EDIFACT 訊息中的 UNH 2.5 區段
 description: 使用企業整合套件 Azure Logic Apps 中的 UNH 2.5 區段來解析 EDIFACT 訊息
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/27/2017
-ms.openlocfilehash: c30c35375a45171c938f80e94dd7d9be4c3ee8b1
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: ad50cbb423f8c60f1caad159bc1a20cf96ed98aa
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679941"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792532"
 ---
 # <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>在 Azure Logic Apps 使用 UNH 2.5 區段處理 EDIFACT 文件
 

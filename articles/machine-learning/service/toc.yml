@@ -300,7 +300,7 @@
         - name: 執行批次預測
           displayName: score scoring asynchronous consume pipeline parallelrunstep inference
           href: how-to-run-batch-predictions.md
-        - name: 使用設計工具進行批次預測
+        - name: 設計工具批次預測
           displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
           href: how-to-run-batch-predictions-designer.md
     - name: 監視模型

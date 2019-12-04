@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 88a1280fb4a91d7ba45f2d0cfe92e604cd66ff0b
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 22c304b26eddaee4444f6eb12957e2a6fedf7810
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672591"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793295"
 ---
 # <a name="troubleshooting"></a>疑難排解
 
@@ -34,12 +34,12 @@ ms.locfileid: "74672591"
 
 **更正動作**：請造訪 Azure 入口網站，並遵循下列步驟：
 
-1. 移至您的 FarmBeats 資料中樞資源群組。   
-2. 選取**事件中樞**（[DatafeedEventHubNamespace ...]）。 並檢查傳入訊息的數目。   
+1. 移至您的 FarmBeats 資料中樞資源群組。   
+2. 選取 [**事件中樞**（DatafeedEventHubNamespace ...）]，然後檢查傳入訊息的數目。   
 3. 如果沒有**傳入訊息**，請聯絡您的裝置合作夥伴。  
 4. 如果有內送**訊息**，請使用資料中樞和加速器記錄，以及已捕獲的遙測來 farmbeatssupport@microsoft.com。
 
-請參閱檔中的[記錄一節](#collect-logs-manually)，以瞭解如何下載記錄。  
+請參閱檔中的[記錄一節](#collect-logs-manually)，以瞭解如何下載記錄。  
 
 ### <a name="dont-have-the-eventhub-connection-string"></a>沒有 Eventhub 連接字串
 
@@ -55,7 +55,7 @@ ms.locfileid: "74672591"
 
 **徵兆**：已安裝裝置，且您的裝置夥伴已連結 FarmBeats。 裝置已上線並傳送遙測資料，但其顯示為離線。
 
-**更正動作**：未針對此裝置設定報告間隔。 請洽詢您的裝置製造商以設定報告間隔。 
+**更正動作**：未針對此裝置設定報告間隔。 請洽詢您的裝置製造商以設定報告間隔。 
 
 ### <a name="error-deleting-a-resource"></a>刪除資源時發生錯誤
 
@@ -135,44 +135,44 @@ ms.locfileid: "74672591"
 
 矯正**措施：重新執行失敗**的工作，或執行5-7 天日期範圍的附屬索引作業，並檢查工作是否成功。
 
-### <a name="sentinel-hub-wrongurlor-not-accessible"></a>Sentinel 中樞錯誤的 URL 或無法存取 
+### <a name="sentinel-hub-wrong-url-or-not-accessible"></a>Sentinel 中樞錯誤的 URL 或無法存取 
 
-**作業失敗訊息**：糟糕，發生錯誤。 您嘗試存取的頁面是（暫時）無法使用。 
+**作業失敗訊息**：糟糕，發生錯誤。 您嘗試存取的頁面是（暫時）無法使用。 
 
 矯正**措施：**
-1.  開啟 [Sentinel URL] （在瀏覽器中 https://scihub.copernicus.eu/dhus/) ，並檢查是否可存取網站。 
-2.  如果無法存取網站，請檢查是否有任何防火牆/公司網路等等會封鎖網站，並採取必要的步驟以允許上述 URL。 
+1.  開啟 [Sentinel URL] （在瀏覽器中 https://scihub.copernicus.eu/dhus/) ，並檢查是否可存取網站。 
+2.  如果無法存取網站，請檢查是否有任何防火牆/公司網路等等會封鎖網站，並採取必要的步驟以允許上述 URL。 
 3.  重新執行失敗的作業，或在5-7 天的日期範圍內執行附屬索引作業，並檢查工作是否成功。  
 
 ### <a name="sentinel-server-down-for-maintenance"></a>Sentinel 伺服器關閉以進行維護
 
-**作業失敗訊息**： Copernicus Open Access Hub 即將恢復！ 很抱歉造成您的不便，我們目前正在執行一些維護。 我們很快就會恢復上線！ 
+**作業失敗訊息**： Copernicus Open Access Hub 即將恢復！ 很抱歉造成您的不便，我們目前正在執行一些維護。 我們很快就會恢復上線！ 
 
 矯正**措施：**
 
-1.  如果在 Sentinel 伺服器上進行了任何維護活動，就會發生此問題。 
-2.  如果任何作業/管線因上述原因而失敗，請在一段時間後重新提交作業。 
-3.  使用者可以造訪 https://scihub.copernicus.eu/news/ ，以查看任何已規劃/非計畫的 Sentinel 維護活動的相關資訊。  
+1.  如果在 Sentinel 伺服器上進行了任何維護活動，就會發生此問題。 
+2.  如果任何作業/管線因上述原因而失敗，請在一段時間後重新提交作業。 
+3.  使用者可以造訪 https://scihub.copernicus.eu/news/ ，以查看任何已規劃/非計畫的 Sentinel 維護活動的相關資訊。  
 4.  重新執行失敗的作業，或在5-7 天的日期範圍內執行附屬索引作業，並檢查工作是否成功。
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>已達到的 Sentinel 最大連接數目
 
-**作業失敗訊息**：使用者「<username>」所達到的兩個並行流程的最大數目 
+**作業失敗訊息**：使用者「<username>」所達到的兩個並行流程的最大數目 
 
 **矯正措施**
-1.  如果任何作業因上述原因而失敗，則另一個部署/軟體中會使用相同的 sentinel 帳戶。 
+1.  如果任何作業因上述原因而失敗，則另一個部署/軟體中會使用相同的 sentinel 帳戶。 
 2.  使用者可以建立新的 sentinel 帳戶，並重新執行安裝程式，以使用新的 sentinel 使用者名稱和密碼來升級資料中樞。  
 3.  請重新執行失敗的工作，或在5-7 天的日期範圍內執行附屬索引作業，並檢查工作是否成功。
 
-### <a name="sentinel-server-refused-connection"></a>Sentinel 伺服器拒絕連接 
+### <a name="sentinel-server-refused-connection"></a>Sentinel 伺服器拒絕連接 
 
 **作業失敗訊息**：
 
-伺服器拒絕連接的位置： http://172.30.175.69:8983/solr/dhus 
+伺服器拒絕連接的位置： http://172.30.175.69:8983/solr/dhus 
 
-**更正動作**：如果在 Sentinel 伺服器上進行任何維護活動，就會發生此問題。 
-1.  如果任何作業/管線因上述原因而失敗，請在一段時間後重新提交作業。 
-2.  使用者可以造訪 https://scihub.copernicus.eu/news/ ，以查看任何已規劃/非計畫的 Sentinel 維護活動的相關資訊。  
+**更正動作**：如果在 Sentinel 伺服器上進行任何維護活動，就會發生此問題。 
+1.  如果任何作業/管線因上述原因而失敗，請在一段時間後重新提交作業。 
+2.  使用者可以造訪 https://scihub.copernicus.eu/news/ ，以查看任何已規劃/非計畫的 Sentinel 維護活動的相關資訊。  
 3.  請重新執行失敗的工作，或在5-7 天的日期範圍內執行附屬索引作業，並檢查工作是否成功。
 
 
@@ -281,11 +281,11 @@ ms.locfileid: "74672591"
 
 ## <a name="high-cpu-usage"></a>高 CPU 用量
 
-**錯誤**：您收到的電子郵件警示參考高 CPU 使用量警示。 
+**錯誤**：您收到的電子郵件警示參考高 CPU 使用量警示。 
 
-矯正**措施：** 
+矯正**措施：** 
 1.  移至您的 FarmBeats 資料中樞資源群組。
-2.  選取 [App service]。  
+2.  選取 [App service]。  
 3.  前往相應增加（App Service 方案）並選取適當的[定價層](https://azure.microsoft.com/pricing/details/app-service/windows/)
 
 ## <a name="next-steps"></a>後續步驟

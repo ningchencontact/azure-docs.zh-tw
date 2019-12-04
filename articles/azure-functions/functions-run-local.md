@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 8604df894367ccc25d7e9ffae4453a6b3080b7d8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 24bee8ffe23d524553143b2097560979a39329d7
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226689"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784709"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -194,7 +194,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-根據預設，在專案發佈至 Azure 時，這些設定將不會自動移轉。 請在`--publish-local-settings`發佈時[使用 ](#publish) 參數，以確保這些設定會新增至 Azure 中的函式應用程式。 請注意，**ConnectionStrings** 中的值一律不會發佈。
+根據預設，在專案發佈至 Azure 時，這些設定將不會自動移轉。 請在[發佈時](#publish)使用 `--publish-local-settings` 參數，以確保這些設定會新增至 Azure 中的函式應用程式。 請注意，**ConnectionStrings** 中的值一律不會發佈。
 
 這些函數應用程式設定值在您的程式碼中也可以做為環境變數加以讀取。 如需詳細資訊，請參閱這些特定語言參考主題的「環境變數」章節：
 
@@ -339,7 +339,7 @@ func host start
 | **`--password`** | 密碼或包含 .pfx 檔案密碼的檔案。 僅能與 `--cert` 搭配使用。 僅限 2.x 版。 |
 | **`--port -p`** | 要接聽的本機連接埠。 預設值：7071。 |
 | **`--pause-on-error`** | 暫停以在結束處理程序之前取得其他輸入。 這僅適用於從整合式開發環境 (IDE) 啟動 Core Tools 時。|
-| **`--script-root --prefix`** | 用來為要執行或部署的函式應用程式指定根目錄的路徑。 此選項可用於在子資料夾中產生專案檔的編譯專案。 例如，當您建置 C# 類別庫專案時，將會以類似於 *的路徑在*root`MyProject/bin/Debug/netstandard2.0` 子資料夾中產生 host.json、local.settings.json 和 function.json 等檔案。 在此情況下，請將前置詞設為 `--script-root MyProject/bin/Debug/netstandard2.0`。 這是函式應用程式在 Azure 中執行時的根目錄。 |
+| **`--script-root --prefix`** | 用來為要執行或部署的函式應用程式指定根目錄的路徑。 此選項可用於在子資料夾中產生專案檔的編譯專案。 例如，當您建置 C# 類別庫專案時，將會以類似於 `MyProject/bin/Debug/netstandard2.0` 的路徑在 *root* 子資料夾中產生 host.json、local.settings.json 和 function.json 等檔案。 在此情況下，請將前置詞設為 `--script-root MyProject/bin/Debug/netstandard2.0`。 這是函式應用程式在 Azure 中執行時的根目錄。 |
 | **`--timeout -t`** | Functions 主機要啟動的逾時 (以秒為單位)。 預設值：20 秒。|
 | **`--useHttps`** | 繫結至 `https://localhost:{port}` 而不是 `http://localhost:{port}` 。 根據預設，此選項會在您的電腦上建立受信任的憑證。|
 
@@ -373,7 +373,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 
 請務必使用 Functions 主機接聽的相同伺服器名稱和連接埠。 啟動 Function 主機時，您會在產生的輸出中看到下列內容。 您可以使用觸發程序支援的任何 HTTP 方法呼叫此 URL。
 
-下列 cURL 命令從 GET 要求在查詢字串中傳遞 `MyHttpTrigger`name_參數，觸發_ 快速入門函式。
+下列 cURL 命令從 GET 要求在查詢字串中傳遞 _name_ 參數，觸發 `MyHttpTrigger` 快速入門函式。
 
 ```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
@@ -469,7 +469,7 @@ func azure functionapp publish <FunctionAppName>
 | **`--nozip`** | 關閉預設 `Run-From-Package` 模式。 |
 | **`--build-native-deps`** | 發行 python 函式應用程式時，略過產生 .wheels 資料夾。 |
 | **`--build`**<br/>**`-b`** | 部署至 Linux 函式應用程式時執行組建動作。 接受： `remote` 和 `local`。 |
-| **`--additional-packages`** | 建置原生相依性時將安裝的套件清單。 例如： `python3-dev libevent-dev`。 |
+| **`--additional-packages`** | 建置原生相依性時將安裝的套件清單。 例如： `python3-dev libevent-dev` 。 |
 | **`--force`** | 在設定情況下忽略發佈前驗證。 |
 | **`--csx`** | 發佈 C# 指令碼 (.csx) 專案。 |
 | **`--no-build`** | 不要建立 .NET 類別庫函式。 |
@@ -517,7 +517,7 @@ func deploy
 
 ## <a name="next-steps"></a>後續步驟
 
-Azure Functions Core Tools 是[開放原始碼且裝載於 GitHub 上](https://github.com/azure/azure-functions-cli)。  
+瞭解如何使用 Azure Functions Core Tools [Microsoft 學習模組](https://docs.microsoft.com/learn/modules/develop-test-deploy-azure-functions-with-core-tools/)Azure Functions Core Tools 是[開放原始碼並裝載于 GitHub 上](https://github.com/azure/azure-functions-cli)，來開發、測試和發佈 Azure Functions。  
 若要提出錯誤或功能要求，[請開啟 GitHub 問題](https://github.com/azure/azure-functions-cli/issues)。
 
 <!-- LINKS -->

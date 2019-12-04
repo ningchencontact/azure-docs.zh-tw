@@ -1,20 +1,17 @@
 ---
-title: 取得更多的專案或具有分頁 Azure Logic Apps 的記錄
+title: 使用分頁取得更多專案或記錄
 description: 在 Azure Logic Apps 中設定分頁，使其超過連接器動作的預設頁面大小限制
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 04/11/2019
-ms.openlocfilehash: e86600312490c77ed492cb28a359add0fed90596
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 75d9660eb35b5d7ddc644d177c11ae489e2853dc
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679884"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792118"
 ---
 # <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用分頁來取得更多資料、專案或記錄
 

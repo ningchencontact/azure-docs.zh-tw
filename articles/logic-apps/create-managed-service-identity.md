@@ -1,20 +1,17 @@
 ---
-title: 使用受控識別進行驗證-Azure Logic Apps
+title: 使用受控識別進行驗證
 description: 使用受控識別來存取其他 Azure Active Directory 租使用者中的資源，而不需以認證或秘密進行登入
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/21/2019
-ms.openlocfilehash: 2d1dbde2499dbe793a895f894e5ae83c36c54449
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 49c925cfe61084d8fedfdf953d469db4bd2c10b1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200619"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792667"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的受控識別來驗證對 Azure 資源的存取
 

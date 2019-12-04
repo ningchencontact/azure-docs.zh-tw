@@ -1,17 +1,17 @@
 ---
-title: 為適用於 MySQL 的 Azure 資料庫選取正確的部署類型
+title: 選取正確的部署類型-適用於 MySQL 的 Azure 資料庫
 description: 本文說明將適用於 MySQL 的 Azure 資料庫部署為基礎結構即服務（IaaS）或平臺即服務（PaaS）之前應考慮的因素。
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/05/2019
-ms.openlocfilehash: 5cdd65d5509d8f46f095d91c509a1fda288517c4
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.date: 12/02/2019
+ms.openlocfilehash: 3cc03ba1670299f1ea43a1fde666c2917eaf6b9d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132429"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770453"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>在 Azure 中選擇正確的 MySQL 伺服器選項
 
@@ -85,7 +85,7 @@ ms.locfileid: "74132429"
   - 索引微調
   - 查詢微調
   - 稽核
-  - Security
+  - 安全性
 
   此外，將高可用性設定為另一個資料中心，幾乎不需要進行任何設定或管理。
 

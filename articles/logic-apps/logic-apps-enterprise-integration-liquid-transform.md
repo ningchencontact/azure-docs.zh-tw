@@ -1,20 +1,19 @@
 ---
-title: 使用 Liquid 轉換來轉換 JSON 資料 - Azure Logic Apps | Microsoft Docs
+title: 轉換具有液體轉換的 JSON 資料
 description: 使用 Logic Apps 和 Liquid 範本建立進階 JSON 轉換的轉換或對應
 services: logic-apps
-ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
-ms.suite: integration
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 203c57a2755a3287566a774e2878a87b847337b9
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 962a3cf214d202fa9f7640d74036c6700196a5ee
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900650"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792502"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的 Liquid 範本執行進階的 JSON 轉換
 
@@ -68,7 +67,7 @@ ms.locfileid: "70900650"
 
 4. 選擇 [新增]，並提供該對應的以下詳細資料：
 
-   | 屬性 | 值 | 描述 | 
+   | 屬性 | Value | 描述 | 
    |----------|-------|-------------|
    | **名稱** | JsonToJsonTemplate | 對應的名稱，在此範例中是 "JsonToJsonTemplate" | 
    | **對應類型** | **liquid** | 對應的類型。 對於 JSON 到 JSON 的轉換，請選取 [Liquid]。 | 
@@ -84,7 +83,7 @@ ms.locfileid: "70900650"
 2. 在邏輯應用程式設計工具中，將[要求觸發程序](../connectors/connectors-native-reqres.md#add-request)新增至邏輯應用程式。
 
 3. 在觸發程序下方，選擇 [新增步驟]。 
-   在搜尋方塊中，輸入 "liquid" 作為篩選條件，然後選取以下動作：**將 JSON 轉換為 JSON - Liquid**
+   在 [搜尋] 方塊中，輸入 "liquid" 作為篩選條件，並選取下列動作：**將 JSON 轉換為 JSON - Liquid**
 
    ![尋找並選取 Liquid 動作](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -152,6 +151,6 @@ Liquid 並非限用於 JSON 轉換。 以下其他可使用 Liquid 的轉換動�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [深入了解企業整合套件](../logic-apps/logic-apps-enterprise-integration-overview.md "了解企業整合套件")  
-* [深入了解對應](../logic-apps/logic-apps-enterprise-integration-maps.md "了解企業整合對應")  
+* [深入了解企業整合套件](../logic-apps/logic-apps-enterprise-integration-overview.md "瞭解企業整合套件")  
+* [深入了解對應](../logic-apps/logic-apps-enterprise-integration-maps.md "瞭解企業整合對應")  
 

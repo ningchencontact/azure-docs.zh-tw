@@ -1,21 +1,19 @@
 ---
-title: June-1-2016 結構描述更新 - Azure Logic Apps | Microsoft Docs
+title: 架構更新6月-1-2016
 description: Azure Logic Apps 中邏輯應用程式定義的更新後結構描述版本 2016-06-01
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
-ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: 0558c309cc22f39c2ed439b7930443ca0adb071e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385386"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792887"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Azure Logic Apps 的結構描述更新 - 2016 年 6 月 1 日
 
@@ -155,7 +153,7 @@ Azure Logic Apps 之 API 版本的[已更新結構描述](https://schema.managem
 
 ### <a name="new-trackedproperties-for-actions"></a>動作的新 'trackedProperties'
 
-動作現在可以有一個額外的屬性，稱為 `trackedProperties`，這是 `runAfter` 和 `type` 屬性的同層級。 此物件會指定要包含在工作流程期間所發出的 Azure 診斷遙測之特定動作的輸入或輸出。 例如:
+動作現在可以有一個額外的屬性，稱為 `trackedProperties`，這是 `runAfter` 和 `type` 屬性的同層級。 此物件會指定要包含在工作流程期間所發出的 Azure 診斷遙測之特定動作的輸入或輸出。 例如：
 
 ``` json
 {

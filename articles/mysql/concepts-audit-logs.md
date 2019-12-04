@@ -1,17 +1,17 @@
 ---
-title: 適用於 MySQL 的 Azure 資料庫的 Audit 記錄
+title: Audit logs-適用於 MySQL 的 Azure 資料庫
 description: 描述適用於 MySQL 的 Azure 資料庫中可用的 audit 記錄，以及可用來啟用記錄層級的參數。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.openlocfilehash: 42881fcb12f29ec14bbdc0ec4942b2eef17c7312
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.date: 12/02/2019
+ms.openlocfilehash: ea536742b6481cb06fbd3130279ca5d08ba1bc08
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434413"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773563"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的 Audit 記錄
 
@@ -27,13 +27,13 @@ ms.locfileid: "72434413"
 您可以調整的其他參數包含：
 
 - `audit_log_events`：控制要記錄的事件。 請參閱下表以取得特定的 audit 事件。
-- `audit_log_include_users`：要包含在記錄中的 MySQL 使用者。 這個參數的預設值是空的，這將包含所有用於記錄的使用者。 優先順序高於 `audit_log_exclude_users`。 參數的最大長度為512個字元。
+- `audit_log_include_users`：要包含在記錄中的 MySQL 使用者。 這個參數的預設值是空的，這將包含所有用於記錄的使用者。 這在 `audit_log_exclude_users`上具有較高的優先順序。 參數的最大長度為512個字元。
 > [!Note]
-> `audit_log_include_users` 的優先順序高於 `audit_log_exclude_users`，例如，如果 audit_log_include_users = `demouser` and audit_log_exclude_users = `demouser`，則會審核記錄，因為 `audit_log_include_users` 的優先順序較高。
+> `audit_log_include_users` 的優先順序高於 `audit_log_exclude_users`，例如，如果 audit_log_include_users = `demouser` 和 audit_log_exclude_users = `demouser`，它將會審核記錄，因為 `audit_log_include_users` 的優先順序較高。
 - `audit_log_exclude_users`：要排除在記錄之外的 MySQL 使用者。 參數的最大長度為512個字元。
 
 > [!Note]
-> 若為 `sql_text`，如果記錄檔超過2048個字元，則會被截斷。
+> 對於 `sql_text`，如果記錄檔超過2048個字元，則會被截斷。
 
 | **Event** | **說明** |
 |---|---|
@@ -44,7 +44,7 @@ ms.locfileid: "72434413"
 | `DDL` | 「卸載資料庫」之類的查詢 |
 | `DCL` | 「授與許可權」之類的查詢 |
 | `ADMIN` | 「顯示狀態」之類的查詢 |
-| `GENERAL` | All in DML_SELECT、DML_NONSELECT、DML、DDL、DCL 和 ADMIN |
+| `GENERAL` | 全部 DML_SELECT、DML_NONSELECT、DML、DDL、DCL 和 ADMIN |
 | `TABLE_ACCESS` | -僅適用于 MySQL 5。7 <br> -資料表讀取語句，例如 SELECT 或 INSERT INTO .。。請 <br> -Table delete 語句，例如 DELETE 或 TRUNCATE TABLE <br> -資料表 insert 語句，例如 INSERT 或 REPLACE <br> -資料表 update 語句，例如 UPDATE |
 
 ## <a name="access-audit-logs"></a>存取稽核記錄
@@ -73,7 +73,7 @@ Audit 記錄會與 Azure 監視器診斷記錄整合。 在 MySQL 伺服器上�
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | 伺服器的名稱 |
 | `event_class_s` | `connection_log` |
-| `event_subclass_s` | `CONNECT`，`DISCONNECT`，`CHANGE USER` （僅適用于 MySQL 5.7） |
+| `event_subclass_s` | `CONNECT`、`DISCONNECT``CHANGE USER` （僅適用于 MySQL 5.7） |
 | `connection_id_d` | MySQL 產生的唯一連接識別碼 |
 | `host_s` | 空白 |
 | `ip_s` | 連接到 MySQL 的用戶端 IP 位址 |
@@ -101,7 +101,7 @@ Audit 記錄會與 Azure 監視器診斷記錄整合。 在 MySQL 伺服器上�
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | 伺服器的名稱 |
 | `event_class_s` | `general_log` |
-| `event_subclass_s` | `LOG`，`ERROR`，`RESULT` （僅適用于 MySQL 5.6） |
+| `event_subclass_s` | `LOG`、`ERROR``RESULT` （僅適用于 MySQL 5.6） |
 | `event_time` | 查詢開始時間（UTC 時間戳記） |
 | `error_code_d` | 如果查詢失敗，則為錯誤碼。 `0` 表示沒有錯誤 |
 | `thread_id_d` | 執行查詢的執行緒識別碼 |
@@ -129,7 +129,7 @@ Audit 記錄會與 Azure 監視器診斷記錄整合。 在 MySQL 伺服器上�
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | 伺服器的名稱 |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`、`INSERT`、`UPDATE` 或 `DELETE` |
+| `event_subclass_s` | `READ`、`INSERT`、`UPDATE`或 `DELETE` |
 | `connection_id_d` | MySQL 產生的唯一連接識別碼 |
 | `db_s` | 存取的資料庫名稱 |
 | `table_s` | 存取的資料表名稱 |

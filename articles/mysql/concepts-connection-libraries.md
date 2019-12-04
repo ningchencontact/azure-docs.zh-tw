@@ -1,17 +1,17 @@
 ---
-title: 適用於 MySQL 的 Azure 資料庫的連線庫
+title: 連接程式庫-適用於 MySQL 的 Azure 資料庫
 description: 本文將列出用戶端程式在連接到適用於 MySQL 的 Azure 資料庫時可使用的每個程式庫或驅動程式。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 2eda6986f0c7c2ab58849a5da6c355d458714f37
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.date: 12/02/2019
+ms.openlocfilehash: 276adcb796c6fcdf1ef2d38458ca8f6ac73e5f5a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177756"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765270"
 ---
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫的連線庫
 本文將列出用戶端程式在連接到適用於 MySQL 的 Azure 資料庫時可使用的每個程式庫或驅動程式。

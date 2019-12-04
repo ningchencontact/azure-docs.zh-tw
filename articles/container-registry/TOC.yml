@@ -190,6 +190,8 @@
       href: /javascript/api/overview/azure/container-registry
     - name: Resource Manager 範本
       href: /azure/templates/microsoft.containerregistry/registries
+    - name: 工作 YAML
+      href: container-registry-tasks-reference-yaml.md
     - name: Webhook 結構描述
       href: container-registry-webhook-reference.md
     - name: 事件格線結構描述

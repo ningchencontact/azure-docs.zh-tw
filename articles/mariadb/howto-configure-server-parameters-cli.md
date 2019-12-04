@@ -1,24 +1,24 @@
 ---
-title: 在適用於 MariaDB 的 Azure 資料庫中設定服務參數
+title: 設定伺服器參數-Azure CLI 適用於 MariaDB 的 Azure 資料庫
 description: 本文說明如何使用 Azure CLI 命令列公用程式，在適用於 MariaDB 的 Azure 資料庫中設定服務參數。
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 11/09/2018
-ms.openlocfilehash: 4e0bf45f1c67a5e07d6ed632f6560d094b673c0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 6616bd8172e9bc049a6e0e2c687390197de2f391
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61040031"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767308"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>使用 Azure CLI 自訂伺服器設定參數
 您可以使用 Azure CLI (Azure 命令列公用程式)，來列出、顯示和更新適用於 MariaDB 的 Azure 資料庫伺服器的設定參數。 有一部分的引擎設定會在伺服器層級公開而且可供修改。
 
-## <a name="prerequisites"></a>先決條件
-若要逐步執行本作法指南，您需要︰
+## <a name="prerequisites"></a>必要條件
+若要逐步執行本作法指南，您需要：
 - [適用於 MariaDB 伺服器的 Azure 資料庫](quickstart-create-mariadb-server-database-using-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) 命令列公用程式，或在瀏覽器中使用 Azure Cloud Shell。
 

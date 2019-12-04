@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/14/2019
+ms.date: 12/03/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f8d1c9f53d08d017c6c07abf8e00ab77e6879e3
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: e24a4209869d4c47f8ac73e250699ec55d006296
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091402"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786381"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory 中的單一登入應用程式
 
@@ -40,7 +40,7 @@ ms.locfileid: "74091402"
 
 下表摘要說明單一登入方法，並提供更多詳細資料的連結。
 
-| 單一登入方法 | 應用程式類型 | 使用時機 |
+| 單一登入方法 | 應用程式類型 | When to use |
 | :------ | :------- | :----- |
 | [OpenID Connect 和 OAuth](#openid-connect-and-oauth) | 僅限雲端 | 開發新的應用程式時，請使用 OpenID Connect 和 OAuth。 此通訊協定可簡化應用程式設定、具備容易使用的 SDK，而且可讓您的應用程式使用 MS Graph。
 | [SAML](#saml-sso) | 雲端和內部部署 | 請盡可能為不使用 OpenID Connect 或 OAuth 的現有應用程式選擇 SAML。 SAML 適用於使用其中一個 SAML 通訊協定進行驗證的應用程式。|
@@ -54,7 +54,7 @@ ms.locfileid: "74091402"
 
 在開發新的應用程式時，請使用 OpenID Connect 和 OAuth 等新式通訊協定，來為應用程式實現跨多個裝置平台的最佳單一登入體驗。 OAuth 可讓使用者或系統管理員對受保護的資源（例如[Microsoft Graph](/graph/overview)）[授與同意](configure-user-consent.md)。 我們為您的應用程式提供容易採用的[sdk](../develop/reference-v2-libraries.md) ，此外，您的應用程式也可供使用[Microsoft Graph](/graph/overview)。
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
@@ -128,7 +128,7 @@ ms.locfileid: "74091402"
 - 使用者可以管理他們的密碼，視需要更新或刪除它們。
 - 系統管理員仍可設定應用程式的新認證。
 
-## <a name="linked-sign-on"></a>連結型單一登入
+## <a name="linked-sign-on"></a>連結型登入
 已連結的登入可讓 Azure AD 對已在其他服務設定單一登入的應用程式提供單一登入。 已連結的應用程式可以在 Office 365 入口網站或 Azure AD MyApps 入口網站中向使用者顯示。 例如，使用者可以從 Office 365 入口網站啟動已在 Active Directory Federation Services 2.0 (AD FS) 中設定單一登入的應用程式。 從 Office 365 入口網站或 Azure AD MyApps 入口網站啟動的已連結的應用程式也可以取得其他報告。 若要設定應用程式以進行連結的登入，請參閱[設定連結](configure-linked-sign-on.md)的登入。
 
 ### <a name="linked-sign-on-for-application-migration"></a>應用程式遷移的連結登入

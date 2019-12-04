@@ -1,24 +1,23 @@
 ---
-title: 使用 Azure 監視器記錄來追蹤 B2B 訊息-Azure Logic Apps |Microsoft Docs
+title: 使用 Azure 監視器記錄追蹤 B2B 訊息
 description: 使用 Azure Log Analytics 追蹤整合帳戶和 Azure Logic Apps 的 B2B 通訊
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 33c4efb2b783b5071513f069beac9cdf73c373a8
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 3726b0c8c22614d2acc797295543e69f9358d69c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997851"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792925"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>使用 Azure 監視器記錄追蹤 B2B 訊息
 
-當您在整合帳戶中的交易合作夥伴之間設定了 B2B 通訊之後，合作夥伴就可以使用通訊協定 (例如 AS2、X12 和 EDIFACT) 交換訊息。 若要檢查是否已正確處理這些訊息, 您可以使用[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)來追蹤這些訊息。 例如，您可以使用這些網頁追蹤功能來追蹤訊息：
+當您在整合帳戶中的交易合作夥伴之間設定了 B2B 通訊之後，合作夥伴就可以使用通訊協定 (例如 AS2、X12 和 EDIFACT) 交換訊息。 若要檢查是否已正確處理這些訊息，您可以使用[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)來追蹤這些訊息。 例如，您可以使用這些網頁追蹤功能來追蹤訊息：
 
 * 訊息計數和狀態
 * 通知狀態
@@ -37,13 +36,13 @@ ms.locfileid: "69997851"
 
 * 已設定監視和記錄的整合帳戶。 了解[如何建立整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)和[如何設定該帳戶的監視和記錄](../logic-apps/logic-apps-monitor-b2b-message.md)。
 
-* 如果您還沒有這麼做, 請[將診斷資料發佈至 Azure 監視器記錄](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)檔。
+* 如果您還沒有這麼做，請[將診斷資料發佈至 Azure 監視器記錄](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)檔。
 
 * 當您符合上述需求之後，也需要一個 Log Analytics 工作區，用以透過 Log Analytics 追蹤 B2B 通訊。 如果您沒有 Log Analytics 工作區，請了解[如何建立 Log Analytics 工作區](../azure-monitor/learn/quick-create-workspace.md)。
 
 ## <a name="install-logic-apps-b2b-solution"></a>安裝 Logic Apps B2B 解決方案
 
-在您可以讓 Azure 監視器記錄追蹤邏輯應用程式的 B2B 訊息之前, 請先將**Logic Apps B2B**解決方案新增至 Azure 監視器記錄。 深入瞭解如何[將解決方案新增至 Azure 監視器記錄](../azure-monitor/learn/quick-create-workspace.md)。
+在您可以讓 Azure 監視器記錄追蹤邏輯應用程式的 B2B 訊息之前，請先將**Logic Apps B2B**解決方案新增至 Azure 監視器記錄。 深入瞭解如何[將解決方案新增至 Azure 監視器記錄](../azure-monitor/learn/quick-create-workspace.md)。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有服務]。 在搜尋方塊中，尋找「記錄分析」，然後選取 [Log Analytics]。
 
@@ -150,11 +149,11 @@ B2B 訊息經過處理後，您就可以在 [Logic Apps B2B] 圖格上檢視這�
 | --- | --- |
 | 傳送者 | 針對 AS2 協議的 [接收設定] 中所指定的來賓合作夥伴，或 [傳送設定] 中所指定的主機合作夥伴 |
 | 接收者 | 針對 AS2 協議的 [接收設定] 中所指定的主機合作夥伴，或 [傳送設定] 中所指定的來賓合作夥伴 |
-| 邏輯應用程式 | 已設定 AS2 動作的邏輯應用程式 |
+| Logic 應用程式 | 已設定 AS2 動作的邏輯應用程式 |
 | 狀態 | AS2 訊息狀態 <br>成功 = 已接收或傳送有效的 AS2 訊息。 未設定 MDN。 <br>成功 = 已接收或傳送有效的 AS2 訊息。 已設定並接收 MDN，或傳送 MDN。 <br>失敗 = 已接收無效的 AS2 訊息。 未設定 MDN。 <br>暫止 = 已接收或傳送有效的 AS2 訊息。 已設定 MDN，並預期要有 MDN。 |
 | Ack | MDN 訊息狀態 <br>接受 = 已接收或傳送正值的 MDN。 <br>暫止 = 等候接收或傳送 MDN。 <br>拒絕 = 已接收或傳送負值的 MDN。 <br>不需要 = 未在協議中設定 MDN。 |
-| Direction | AS2 訊息方向 |
-| 相互關聯識別碼 | 與邏輯應用程式中所有觸發程序和動作相關聯的識別碼 |
+| 方向 | AS2 訊息方向 |
+| 相互關連識別碼 | 與邏輯應用程式中所有觸發程序和動作相關聯的識別碼 |
 | 訊息識別碼 | 來自 AS2 訊息標頭的 AS2 訊息識別碼 |
 | Timestamp | AS2 動作處理訊息的時間 |
 |          |             |
@@ -181,11 +180,11 @@ B2B 訊息經過處理後，您就可以在 [Logic Apps B2B] 圖格上檢視這�
 | --- | --- |
 | 傳送者 | 針對 X12 協議的 [接收設定] 中所指定的來賓合作夥伴，或 [傳送設定] 中所指定的主機合作夥伴 |
 | 接收者 | 針對 X12 協議的 [接收設定] 中所指定的主機合作夥伴，或 [傳送設定] 中所指定的來賓合作夥伴 |
-| 邏輯應用程式 | 已設定 X12 動作的邏輯應用程式 |
+| Logic 應用程式 | 已設定 X12 動作的邏輯應用程式 |
 | 狀態 | X12 訊息狀態 <br>成功 = 已接收或傳送有效的 X12 訊息。 未設定任何功能通知。 <br>成功 = 已接收或傳送有效的 X12 訊息。 已設定和接收功能通知，或傳送功能通知。 <br>失敗 = 已接收或傳送有效的 X12 訊息。 <br>暫止 = 已接收或傳送有效的 X12 訊息。 已設定功能通知，並預期要有功能通知。 |
 | Ack | 功能認可 (997) 狀態 <br>接受 = 已接收或傳送正值的功能通知。 <br>拒絕 = 已接收或傳送負值的功能通知。 <br>暫止 = 預期要有功能通知但未收到。 <br>暫止 = 已產生功能通知，但無法傳送給合作夥伴。 <br>不需要 = 未設定功能通知。 |
-| Direction | X12 訊息方向 |
-| 相互關聯識別碼 | 與邏輯應用程式中所有觸發程序和動作相關聯的識別碼 |
+| 方向 | X12 訊息方向 |
+| 相互關連識別碼 | 與邏輯應用程式中所有觸發程序和動作相關聯的識別碼 |
 | 訊息類型 | EDI X12 訊息類型 |
 | ICN | X12 訊息的交換控制編號 |
 | TSCN | X12 訊息的交易集控制編號 |
@@ -214,11 +213,11 @@ B2B 訊息經過處理後，您就可以在 [Logic Apps B2B] 圖格上檢視這�
 | --- | --- |
 | 傳送者 | 針對 EDIFACT 協議的 [接收設定] 中所指定的來賓合作夥伴，或 [傳送設定] 中所指定的主機合作夥伴 |
 | 接收者 | 針對 EDIFACT 協議的 [接收設定] 中所指定的主機合作夥伴，或 [傳送設定] 中所指定的來賓合作夥伴 |
-| 邏輯應用程式 | 已設定 EDIFACT 動作的邏輯應用程式 |
+| Logic 應用程式 | 已設定 EDIFACT 動作的邏輯應用程式 |
 | 狀態 | EDIFACT 訊息狀態 <br>成功 = 已接收或傳送有效的 EDIFACT 訊息。 未設定任何功能通知。 <br>成功 = 已接收或傳送有效的 EDIFACT 訊息。 已設定和接收功能通知，或傳送功能通知。 <br>失敗 = 已接收或傳送有效的 EDIFACT 訊息。 <br>暫止 = 已接收或傳送有效的 EDIFACT 訊息。 已設定功能通知，並預期要有功能通知。 |
-| Ack | 功能通知 (CONTRL) 狀態 <br>接受 = 已接收或傳送正值的功能通知。 <br>拒絕 = 已接收或傳送負值的功能通知。 <br>暫止 = 預期要有功能通知但未收到。 <br>暫止 = 已產生功能通知，但無法傳送給合作夥伴。 <br>不需要 = 未設定功能通知。 |
-| Direction | EDIFACT 訊息方向 |
-| 相互關聯識別碼 | 與邏輯應用程式中所有觸發程序和動作相關聯的識別碼 |
+| Ack | 功能通知（CONTRL）狀態 <br>接受 = 已接收或傳送正值的功能通知。 <br>拒絕 = 已接收或傳送負值的功能通知。 <br>暫止 = 預期要有功能通知但未收到。 <br>暫止 = 已產生功能通知，但無法傳送給合作夥伴。 <br>不需要 = 未設定功能通知。 |
+| 方向 | EDIFACT 訊息方向 |
+| 相互關連識別碼 | 與邏輯應用程式中所有觸發程序和動作相關聯的識別碼 |
 | 訊息類型 | EDIFACT 訊息類型 |
 | ICN | EDIFACT 訊息的交換控制編號 |
 | TSCN | EDIFACT 訊息的交易集控制編號 |

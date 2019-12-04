@@ -1,21 +1,18 @@
 ---
-title: 等待並回應事件-Azure Logic Apps
+title: 等候並回應事件
 description: 使用 Azure Logic Apps，根據服務端點上的事件來自動觸發、暫停和繼續工作流程
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: ee86f53795b1b3e7bd61480a490d4e18c844d4c2
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 7ff411ae082acfe2d465ab9d3371982b0693c226
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804254"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787041"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用 HTTP webhook，建立並執行自動化事件型工作流程
 

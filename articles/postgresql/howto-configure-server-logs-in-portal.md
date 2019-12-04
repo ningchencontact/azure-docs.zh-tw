@@ -1,17 +1,17 @@
 ---
-title: 從 Azure 入口網站設定和存取適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的伺服器記錄
-description: 本文說明如何從 Azure 入口網站設定和存取適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的伺服器記錄。
+title: 記錄管理-Azure 入口網站適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
+description: 本文說明如何從 Azure 入口網站設定和存取適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的伺服器記錄檔（.log 檔案）。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: c77e708e14d34545754ca38095aedb63ff0172a1
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 3da48a9b6d3acb1f2811bc279de7963fa1d83918
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841512"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763683"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>設定及存取適用於 PostgreSQL 的 Azure 資料庫-Azure 入口網站的單一伺服器記錄
 

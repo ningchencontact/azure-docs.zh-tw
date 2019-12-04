@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 12/03/2019
 ms.author: lahugh
-ms.openlocfilehash: 02ab7cdcbf0f150157eb44ef5e28e8284621b813
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: cfa8d28a41bb5551277bca29c118698ecaa8d112
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173962"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791728"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure 上第2代 Vm 的支援
 
@@ -53,10 +53,8 @@ Azure 中的所有 VM 大小都支援第1代 Vm。 Azure 現在為下列選取�
 
 第2代 Vm 支援下列 Marketplace 映射：
 
-* Windows Server 2019 Datacenter
-* Windows Server 2016 Datacenter
-* Windows Server 2012 R2 Datacenter
-* Windows Server 2012 Datacenter
+* Windows Server 2019、2016、2012 R2、2012
+* Windows 10
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16.04、18.04、19.04、19.10 
@@ -102,7 +100,7 @@ Azure 目前不支援內部部署 Hyper-v 針對第2代 Vm 所支援的部分功
 
 在 [Azure 入口網站] 或 [Azure CLI] 中，您可以從支援 UEFI 開機的 Marketplace 映射建立第2代 Vm。
 
-#### <a name="azure-portal"></a>Azure 入口網站
+#### <a name="azure-portal"></a>Azure Portal
 
 Windows 和 SLES 的第2代映射包含在與 Gen1 映射相同的伺服器供應專案中。 從流程的觀點來看，這表示您會從 VM 的入口網站中選取供應專案和 SKU。 如果 SKU 同時支援第1代和第2代映射，您可以從 VM 建立流程的 [ *Advanced* ] 索引標籤中選擇建立第2代 VM。
 
@@ -147,10 +145,10 @@ Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 * **第2代 Vm 可以在所有 Azure 區域中使用嗎？**  
-    是。 但並非所有層[代 2 VM 大小](#generation-2-vm-sizes)都可以在每個區域中使用。 第2代 VM 的可用性取決於 VM 大小的可用性。
+    可以。 但並非所有層[代 2 VM 大小](#generation-2-vm-sizes)都可以在每個區域中使用。 第2代 VM 的可用性取決於 VM 大小的可用性。
 
 * **第1代和第2代 Vm 之間是否有價格差異？**  
-    號
+    不會。
 
 * **我有來自內部部署第2代 VM 的 .vhd 檔案。我可以在 Azure 中使用該 .vhd 檔案來建立第2代 VM 嗎？**
   是，您可以將第2代 .vhd 檔案帶入 Azure，並使用它來建立第2代 VM。 請使用下列步驟來執行這項操作：
@@ -181,13 +179,13 @@ Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer 
   對於大於 2 TB 的 OS 磁片，您可能會看到警告。 此警告不適用於第2代 Vm。 不過，*不建議*大於 4 TB 的 OS 磁片大小。
 
 * **第2代 Vm 是否支援加速網路？**  
-    是。 如需詳細資訊，請參閱[建立具有加速網路的 VM](../../virtual-network/create-vm-accelerated-networking-cli.md)。
+    可以。 如需詳細資訊，請參閱[建立具有加速網路的 VM](../../virtual-network/create-vm-accelerated-networking-cli.md)。
 
 * **第2代支援 VHDX 嗎？**  
     否，第2代 Vm 僅支援 VHD。
 
 * **第2代 Vm 是否支援 Azure Ultra 磁碟儲存體？**  
-    是。
+    可以。
 
 * **我可以將 VM 從第1代遷移到第2代嗎？**  
     否，您無法在建立 VM 之後變更其產生。 如果您需要在 VM 層代之間切換，請建立不同世代的新 VM。

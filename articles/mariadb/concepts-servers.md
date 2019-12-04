@@ -1,17 +1,17 @@
 ---
-title: 適用於 MariaDB 的 Azure 資料庫中的伺服器概念
+title: 伺服器-適用於 MariaDB 的 Azure 資料庫
 description: 此主題提供使用適用於 MariaDB 的 Azure 資料庫伺服器的考量與指導方針。
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: f61f8740c9514f6276afb2ee84bcdccdc54c0710
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 048d9f3089a433dbf8c2647ed86ddab69c78ebaa
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61040908"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772039"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>適用於 MariaDB 的 Azure 資料庫中的伺服器概念
 此文章提供使用適用於 MariaDB 的 Azure 資料庫伺服器的考量與指導方針。

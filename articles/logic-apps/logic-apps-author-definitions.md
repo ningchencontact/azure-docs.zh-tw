@@ -1,20 +1,17 @@
 ---
-title: 建立、編輯或擴充邏輯應用程式定義-Azure Logic Apps
+title: 建立、編輯或擴充邏輯應用程式定義
 description: 如何在 Azure Logic Apps 中撰寫、編輯和擴充邏輯應用程式 JSON 定義
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 03203a5fdb6d61ed95e96581a7e4a979c911cd02
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: bffbc29322a57d6bb9b8497299add5dbb0478d2c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680029"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792583"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立、編輯或擴充邏輯應用程式定義的 JSON
 
@@ -61,7 +58,7 @@ ms.locfileid: "72680029"
 
 ## <a name="parameters"></a>參數
 
-部署生命週期通常會有不同的環境來進行開發、測試、預備和生產。 如果您想要在沒有硬式編碼的情況下重複使用邏輯應用程式，或是根據您的部署需求而有所不同的值，您可以為工作流程定義建立[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)，讓您也可以將邏輯應用程式自動化部署. 
+部署生命週期通常會有不同的環境來進行開發、測試、預備和生產。 如果您想要在沒有硬式編碼的情況下重複使用邏輯應用程式，或是根據您的部署需求而有所不同的值，您可以為工作流程定義建立[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)，如此一來，您也可以將邏輯應用程式部署自動化。 
 
 請遵循下列一般步驟*來參數*化或定義和使用這些值的參數。 接著，您可以在個別的參數檔案中提供值，將這些值傳遞至您的範本。 如此一來，您就可以更輕鬆地變更這些值，而不需要更新和重新部署邏輯應用程式。 如需完整詳細資料，請參閱[總覽：使用 Azure Resource Manager 範本自動部署邏輯應用程式](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)。
 

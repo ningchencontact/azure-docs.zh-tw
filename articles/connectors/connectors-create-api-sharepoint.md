@@ -1,22 +1,18 @@
 ---
-title: 從 Azure Logic Apps 連線到 SharePoint | Microsoft Docs
+title: 從 Azure Logic Apps 連接到 SharePoint
 description: 藉由使用 Azure Logic Apps，將在 SharePoint Online 或 SharePoint Server 內部部署中監視及管理資源的工作和工作流程自動化
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: e0ec3149-507a-409d-8e7b-d5fbded006ce
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 8a34ee4e90b551da35aff8802c8badc0d74ff539
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: bb82ef2d6fb83c2e1b0fa81aa9504c9bb7d8234b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050779"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789251"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>使用 Azure Logic Apps 來監視及管理 SharePoint 資源
 
@@ -39,7 +35,7 @@ ms.locfileid: "70050779"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * 您的 SharePoint 網站位址和使用者認證
 
@@ -55,7 +51,7 @@ ms.locfileid: "70050779"
   此觸發程序會在每次於 Salesforce 中建立新記錄 (例如潛在客戶) 時引發。 
   然後，您可以使用 SharePoint「建立檔案」動作，來追蹤此觸發程序。 這樣一來，在建立新記錄時，邏輯應用程式會在 SharePoint 中建立檔案，該檔案具有新記錄的相關資訊。
 
-## <a name="connect-to-sharepoint"></a>連線至 SharePoint
+## <a name="connect-to-sharepoint"></a>連接到 SharePoint
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
@@ -72,7 +68,7 @@ ms.locfileid: "70050779"
    若要在步驟之間新增動作，將指標移至步驟之間的箭號。 
    選擇顯示的加號 ( **+** )，然後選取 [新增動作]。
 
-1. 當系統提示您登入時，請提供必要的連線資訊。 如果您使用 SharePoint Server, 請務必選取 [透過內部**部署資料網**關聯機]。 完成之後，請選擇 [建立]。
+1. 當系統提示您登入時，請提供必要的連線資訊。 如果您使用 SharePoint Server，請務必選取 [透過內部**部署資料網**關聯機]。 完成之後，請選擇 [建立]。
 
 1. 為您選取的觸發程序或動作提供必要的詳細資料，並且繼續建置邏輯應用程式的工作流程。
 
@@ -83,7 +79,7 @@ ms.locfileid: "70050779"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
+* 若要送出或票選功能構想，請前往 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

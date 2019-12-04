@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/18/2019
-ms.openlocfilehash: 23e3116a0cc3283191d00079e0926dc206e677f0
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: a1a0a1462c8a4e52a065eafad315aab3ddae5f3b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819349"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784590"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>在 Application Insights 中探索 Java 追蹤記錄
 如果您使用 Logback 或 Log4J (v1.2 或 v2.0) 進行追蹤，您可以將追蹤記錄自動傳送到 Application Insights，您可以在其中探索及搜尋記錄。
@@ -22,27 +22,41 @@ ms.locfileid: "72819349"
 
 ## <a name="using-the-application-insights-java-agent"></a>使用 Application Insights JAVA 代理程式
 
-您可以藉由啟用 `AI-Agent.xml` 檔案中的功能，將 Application Insights JAVA 代理程式設定為自動捕捉您的記錄檔：
+根據預設，Application Insights JAVA 代理程式會自動捕捉在 `WARN` 層級和更新版本上執行的記錄。
+
+您可以變更使用 `AI-Agent.xml` 檔案所捕捉到的記錄閾值：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsightsAgent>
    <Instrumentation>
-      <BuiltIn enabled="true">
-         <Logging enabled="true" />
+      <BuiltIn>
+         <Logging threshold="info"/>
       </BuiltIn>
    </Instrumentation>
-   <AgentLogger />
 </ApplicationInsightsAgent>
 ```
 
-或者，您可以依照下列指示進行。
+您可以使用 `AI-Agent.xml` 檔案來停用 JAVA 代理程式的記錄捕獲：
 
-## <a name="install-the-java-sdk"></a>安裝 Java SDK
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn>
+         <Logging enabled="false"/>
+      </BuiltIn>
+   </Instrumentation>
+</ApplicationInsightsAgent>
+```
+
+## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>或者（而不是使用 JAVA 代理程式），您可以依照下列指示進行操作
+
+### <a name="install-the-java-sdk"></a>安裝 Java SDK
 
 依照指示安裝[APPLICATION INSIGHTS SDK For JAVA][java]（如果您尚未這麼做）。
 
-## <a name="add-logging-libraries-to-your-project"></a>將記錄程式庫加入至專案
+### <a name="add-logging-libraries-to-your-project"></a>將記錄程式庫加入至專案
 *選擇適合您的專案的方式。*
 
 #### <a name="if-youre-using-maven"></a>如果您使用 Maven...
@@ -123,7 +137,7 @@ ms.locfileid: "72819349"
 | Log4J v1.2 |[Log4J v1.2 附加器 Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
 
 
-## <a name="add-the-appender-to-your-logging-framework"></a>將附加器加入至記錄架構
+### <a name="add-the-appender-to-your-logging-framework"></a>將附加器加入至記錄架構
 若要開始進行追蹤，請將相關的程式碼片段合併到 Log4J 或 Logback 組態檔案： 
 
 *Logback*

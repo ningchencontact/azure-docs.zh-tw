@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e77368c7c0c104e777595a16735a7cf1e797a48
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: dfb4b7d2cb34855208eb54c6d30b29e4bbff636b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539013"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766611"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步來實作密碼雜湊同步處理
 本文提供您所需資訊，以讓您將使用者密碼從內部部署 Active Directory 執行個體同步處理至雲端式 Azure Active Directory (Azure AD) 執行個體。
@@ -123,13 +123,9 @@ Azure AD 針對每個已註冊的網域支援不同的密碼到期原則。
   
 暫時密碼功能有助於確保認證的擁有權轉移會在第一次使用時完成，以將多個個人知道該認證的持續時間減到最短。
 
-若要支援同步處理使用者 Azure AD 中的暫時密碼，您可以啟用*ForcePasswordResetOnLogonFeature*功能，方法是在 Azure AD Connect 伺服器上執行下列命令，以您環境專屬的連接器名稱取代 <AAD Connector Name>：
+若要支援同步處理使用者 Azure AD 中的暫時密碼，您可以在 Azure AD Connect 伺服器上執行下列命令，以啟用*ForcePasswordResetOnLogonFeature*功能：
 
-`Set-ADSyncAADCompanyFeature -ConnectorName "<AAD Connector name>" -ForcePasswordResetOnLogonFeature $true`
-
-您可以使用下列命令來判斷連接器名稱：
-
-`(Get-ADSyncConnector | where{$_.ListName -eq "Windows Azure Active Directory (Microsoft)"}).Name`
+`Set-ADSyncAADCompanyFeature  -ForcePasswordResetOnLogonFeature $true`
 
 警告：強制使用者在下次登入時變更其密碼時，需要同時變更密碼。  AD Connect 不會單獨收取「強制密碼變更」旗標，它是在密碼雜湊同步處理期間偵測到的密碼變更補充。
 

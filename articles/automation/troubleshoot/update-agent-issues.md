@@ -1,44 +1,44 @@
 ---
-title: 了解 Azure 更新管理中的 Windows 代理程式檢查結果
-description: 了解如何針對「更新管理」代理程式的問題進行疑難排解。
+title: 瞭解 Azure 中的 Windows 混合式 Runbook 背景工作角色健全狀況更新管理
+description: 瞭解如何在支援更新管理的 Windows 上，針對混合式 Runbook 背景工作角色的問題進行疑難排解。
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/25/2019
+ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 72fdfe912a5560ce0c0e3886dd3c56cf9534dc22
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: bb5b5214c96162147e1bd005e994ec04e0a1ddb7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480802"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763652"
 ---
-# <a name="understand-the-windows-agent-check-results-in-update-management"></a>了解更新管理中的 Windows 代理程式檢查結果
+# <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>瞭解更新管理中的 Windows 混合式 Runbook 背景工作角色健全狀況
 
-您的機器在 [更新管理] 中未顯示為 [就緒] 的原因有很多。 在「更新管理」中，您可以檢查「混合式背景工作角色」代理程式的健康情況，以判斷根本問題。 本文探討如何以 Azure 入口網站與非 Azure 機器在[離線情況](#troubleshoot-offline)下執行 Azure 機器的疑難排解員。
+您的機器在 [更新管理] 中未顯示為 [就緒] 的原因有很多。 在更新管理中，您可以檢查混合式 Runbook 背景工作角色代理程式的健康情況，以判斷根本問題。 本文討論如何在[離線案例](#troubleshoot-offline)中，從 Azure 入口網站和非 azure 機器執行 Azure 機器的疑難排解員。
 
 下列清單是機器可具備的三種整備狀態：
 
-* **就緒**：更新代理程式已部署且上次出現時間不超過 1 小時。
-* **已中斷連線**：更新代理程式已部署且上次出現時間已超過 1 小時。
-* **未設定**：找不到更新代理程式或尚未完成上線。
+* **就緒**-混合式 Runbook 背景工作角色已部署，且上次出現時間不到1小時前。
+* 已**中斷**連線-混合式 Runbook 背景工作角色已部署，且上次在1小時前出現。
+* **未設定**-找不到混合式 Runbook 背景工作角色，或尚未完成上架。
 
 > [!NOTE]
 > Azure 入口網站顯示的內容與電腦目前的狀態之間可能會稍有延遲。
 
 ## <a name="start-the-troubleshooter"></a>啟動疑難排解員
 
-若為 Azure 機器，在入口網站中按一下 [更新代理程式整備程度] 資料行底下的 [疑難排解] 連結，即可啟動 [對更新代理程式進行疑難排解] 頁面。 至於非 Azure 機器，此連結會連往這份文件。 若要對非 Azure 機器進行疑難排解，請參閱[離線指示](#troubleshoot-offline)。
+若為 Azure 機器，在入口網站中按一下 [更新代理程式整備程度] 資料行底下的 [疑難排解] 連結，即可啟動 [對更新代理程式進行疑難排解] 頁面。 針對非 Azure 機器，此連結會將您帶到這篇文章。 請參閱[離線指示](#troubleshoot-offline)以對非 Azure 機器進行疑難排解。
 
 ![虛擬機器的更新管理清單](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
-> 若要檢查代理程式的健康情況，VM 必須正在執行中。 如果 VM 未執行，將會出現 [啟動 VM] 按鈕。
+> 若要檢查混合式 Runbook 背景工作角色的健全狀況，VM 必須正在執行。 如果 VM 未執行，將會出現 [啟動 VM] 按鈕。
 
-在 [對更新代理程式進行疑難排解] 頁面上，選取 [執行檢查] 以啟動疑難排解員。 疑難排解員會使用[執行命令](../../virtual-machines/windows/run-command.md)在機器上執行指令碼，以確認代理程式的相依性。 疑難排解員完成後，會傳回檢查結果。
+在 [對更新代理程式進行疑難排解] 頁面上，選取 [執行檢查] 以啟動疑難排解員。 疑難排解員會使用[執行命令](../../virtual-machines/windows/run-command.md)在電腦上執行腳本，以確認相依性。 疑難排解員完成後，會傳回檢查結果。
 
 ![對更新代理程式進行疑難排解頁面](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -52,7 +52,7 @@ ms.locfileid: "74480802"
 
 作業系統檢查會確認「混合式 Runbook 背景工作角色」是否正在執行下列其中一個作業系統：
 
-|作業系統  |注意事項  |
+|作業系統  |注意  |
 |---------|---------|
 |Windows Server 2008 R2 RTM、Windows Server 2008 | 僅支援更新評估。         |
 |Windows Server 2008 R2 SP1 和更新版本 |需要 .NET Framework 4.6 或更新版本。 ([下載 .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> 需要 Windows PowerShell 5.1。  ([下載 Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
@@ -206,4 +206,3 @@ CheckResultMessageArguments : {}
 ## <a name="next-steps"></a>後續步驟
 
 若要對「混合式 Runbook 背景工作角色」的其他問題進行疑難排解，請參閱[對混合式 Runbook 背景工作角色進行疑難排解](hybrid-runbook-worker.md)。
-

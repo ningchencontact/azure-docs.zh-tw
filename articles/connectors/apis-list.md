@@ -2,19 +2,16 @@
 title: 適用於 Azure Logic Apps 的連接器
 description: 使用 Azure Logic Apps 的連接器 (包括內建、受控、內部部署、整合帳戶和企業連接器) 將工作流程自動化
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 3d828e6e365864c2c23e1d9f178a556ff3c07515
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 642eef8b804a7b71ec16f5834e4989cb7299c408
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430175"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789979"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>適用於 Azure Logic Apps 的連接器
 
@@ -88,7 +85,7 @@ Logic Apps 提供內建動作，以在邏輯應用程式的工作流程中結構
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![內建圖示][condition-icon]<br/>**條件**][condition-doc] | 根據條件為 true 或 false，評估條件並執行不同的動作。 | [![內建圖示][for-each-icon]</br>**為每個人**][for-each-doc] | 對陣列中的每個項目執行相同的動作。 | 
+| [![內建圖示][condition-icon]<br/>**條件**][condition-doc] | 根據條件為 true 或 false，評估條件並執行不同的動作。 | [**為每個**![內建圖示][for-each-icon]</br>][for-each-doc] | 對陣列中的每個項目執行相同的動作。 | 
 | [![內建圖示][scope-icon]<br/>**範圍**][scope-doc] | 將動作分成數個「範圍」，這些範圍會在範圍中的動作執行完成後取得自己的狀態。 | [][switch-icon]</br>**參數**![內建圖示][switch-doc] | 將動作分成數個「案例」，這些案例會獲派唯一值 (預設案例除外)。 僅執行其指派值符合運算式、物件或語彙基元結果的案例。 如果沒有相符項目存在，請執行預設案例。 | 
 | [![內建圖示][terminate-icon]<br/>**終止**][terminate-doc] | 停止正在執行的邏輯應用程式工作流程。 | [![內建圖示][until-icon]<br/>**直到**][until-doc] | 重複動作，直到符合指定的條件或某些狀態已改變為止。 | 
 ||||| 
@@ -187,7 +184,7 @@ Logic Apps 提供這些企業連接器來存取企業系統，例如 SAP 和 IBM
 
 ## <a name="custom-apis-and-connectors"></a>自訂 API 和連接器
 
-若要呼叫可執行自訂程式碼或不可作為連接器的 API，您可[建立自訂 API Apps](../logic-apps/logic-apps-create-api-app.md)，以擴充 Logic Apps 平台。 您也可以針對「任何」[](../logic-apps/custom-connector-overview.md)以 REST 或 SOAP 為基礎的 API *建立自訂連接器*，以便將這些 API 提供給 Azure 訂用帳戶中的任何邏輯應用程式使用。
+若要呼叫可執行自訂程式碼或不可作為連接器的 API，您可[建立自訂 API Apps](../logic-apps/logic-apps-create-api-app.md)，以擴充 Logic Apps 平台。 您也可以針對「任何」以 REST 或 SOAP 為基礎的 API [建立自訂連接器](../logic-apps/custom-connector-overview.md)，以便將這些 API 提供給 Azure 訂用帳戶中的任何邏輯應用程式使用。
 若要對任何人公開自訂 API Apps 或連接器以使用於 Azure，您可以[提交連接器進行 Microsoft 認證](../logic-apps/custom-connector-submit-certification.md)。
 
 > [!NOTE]

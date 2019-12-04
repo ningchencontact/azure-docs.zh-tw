@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 02d87ed5f26d36b7cd438b0d818c7bdcce43520d
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: cf02708ae4ba3f203448398fdf954e8f48cce614
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464121"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74762697"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Azure Sentinel 中的許可權
 
@@ -30,9 +30,9 @@ Azure Sentinel 使用以 [角色為基礎的存取控制（RBAC）](../role-bas
 
 有三個特定的內建 Azure Sentinel 角色。  
 **所有 Azure Sentinel 內建角色都會授與讀取權限給您 Azure Sentinel 工作區中的資料。**
-- **Azure Sentinel 讀取器**：如需詳細資訊，請參閱[內建角色](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)
-- **Azure Sentinel 回應**程式：如需詳細資訊，請參閱[內建角色](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)
-- **Azure Sentinel 參與者**：如需詳細資訊，請參閱[內建角色](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)
+- [Azure Sentinel 讀取器](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)
+- [Azure Sentinel 回應程式](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)
+- [Azure Sentinel 參與者](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)
 
 除了 Azure Sentinel 專用的 RBAC 角色之外，還有 Azure 和 Log Analytics RBAC 角色可授與更廣泛的許可權集，包括存取您的 Azure Sentinel 工作區和其他資源：
 

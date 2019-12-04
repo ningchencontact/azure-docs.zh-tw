@@ -1,22 +1,18 @@
 ---
-title: 從 Azure Logic Apps 連線到 Wunderlist | Microsoft Docs
+title: 從 Azure Logic Apps 連接到 Wunderlist
 description: 藉由使用 Azure Logic Apps，讓在 Wunderlist 帳戶中監視及管理清單、工作、提醒等等的工作和工作流程自動化
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: d57ab4a7b655a7d49a7120d358dccc627099e5fd
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 5ac13595bd77238aaede5fa3bdc3a35ef69e8504
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050654"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789115"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來監視及管理 Wunderlist
 
@@ -31,7 +27,7 @@ ms.locfileid: "70050654"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * 您的 Wunderlist 帳戶和使用者認證
 
@@ -64,7 +60,7 @@ ms.locfileid: "70050654"
      選擇顯示的加號 ( **+** )，然後選取 [新增動作]。
      
        在搜尋方塊中，輸入 "wunderlist" 作為篩選條件。 
-       請在動作清單底下，選取您想要的動作。
+       在動作清單底下，選取您想要的動作。
 
 1. 如果系統提示您登入 Wunderlist，請立即登入以便允許存取。
 
@@ -77,7 +73,7 @@ ms.locfileid: "70050654"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
+* 若要送出或票選功能構想，請前往 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

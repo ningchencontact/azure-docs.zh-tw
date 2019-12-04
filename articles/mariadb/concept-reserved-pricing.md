@@ -1,17 +1,17 @@
 ---
-title: 預付以保留容量適用於 MariaDB 的 Azure 資料庫計算資源
+title: 預付具有保留容量的計算-適用於 MariaDB 的 Azure 資料庫
 description: 預付以保留容量適用於 MariaDB 的 Azure 資料庫計算資源
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 61736d4f7e6b17c6037837bfdfe6d9cb8a00c5f6
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.date: 12/02/2019
+ms.openlocfilehash: 5821fb03dcf4331cbab5744f056521468a56d5d2
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076873"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773102"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>預付以保留容量適用於 MariaDB 的 Azure 資料庫計算資源
 
@@ -22,7 +22,7 @@ ms.locfileid: "74076873"
 您可以在[Azure 入口網站](https://portal.azure.com/)中購買適用於 MariaDB 的 Azure 資料庫保留容量。 若要購買保留容量：
 
 * 您至少必須是一個企業或個別訂用帳戶的擁有者角色，且具有隨用隨付費率。
-* 針對企業訂用帳戶，必須在 **EA 入口網站**中啟用[新增保留執行個體](https://ea.azure.com/)。 或者，如果該設定已停用，則您必須是訂用帳戶上的 EA 系統管理員。
+* 針對企業訂用帳戶，必須在 [EA 入口網站](https://ea.azure.com/)中啟用**新增保留執行個體**。 或者，如果該設定已停用，則您必須是訂用帳戶上的 EA 系統管理員。
 * 針對雲端解決方案提供者（CSP）計畫，只有系統管理員代理程式或銷售代理人可以適用於 MariaDB 的 Azure 資料庫保留容量購買。 </br>
 
 如需如何向企業客戶和隨用隨付客戶收取購買保留費用的詳細資料，請參閱[了解 Enterprise 註冊的 Azure 保留使用量](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)與[了解隨用隨付訂用帳戶的 Azure 保留使用量](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)。
@@ -50,23 +50,23 @@ ms.locfileid: "74076873"
 
 | 欄位 | 描述 |
 | :------------ | :------- |
-| 訂閱   | 用來支付保留容量適用於 MariaDB 的 Azure 資料庫的訂用帳戶。 訂用帳戶的付款方法會收取適用於 MariaDB 的 Azure 資料庫保留容量保留期的前期成本。 訂用帳戶類型必須是 enterprise 合約（供應專案號碼： MS-AZR-0017P-Ms-azr-0017p 或 MS-MS-AZR-0017P-Ms-azr-0148p）或具有隨用隨付定價的個別合約（供應專案號碼： MS-MS-AZR-0017P-Ms-azr-0003p 或 MS-MS-AZR-0017P-Ms-azr-0023p）。 針對企業訂用帳戶，費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。 針對使用隨用隨付定價的個別訂用帳戶，費用會依訂用帳戶的信用卡或發票付款方法計費。
-| 範圍 | 虛擬核心保留容量範圍可以涵蓋一個訂用帳戶或多個訂用帳戶 (共用範圍)。 如果您選取： </br></br> **共用**的 vCore 保留折扣會套用至計費內容內任何訂用帳戶中執行的適用於 MariaDB 的 Azure 資料庫伺服器。 針對企業客戶，共用範圍是註冊，並包含註冊中的所有訂用帳戶。 針對隨用隨付客戶，共用範圍是帳戶系統管理員所建立的所有隨用隨付訂用帳戶。</br></br> **單一訂**用帳戶，vCore 保留折扣會套用到此訂用帳戶中適用於 MariaDB 的 Azure 資料庫伺服器。 </br></br> **單一資源群組**，保留折扣會套用至所選訂用帳戶中的適用於 MariaDB 的 Azure 資料庫伺服器，以及該訂用帳戶內選取的資源群組。
-| 區域 | 適用於 MariaDB 的 Azure 資料庫保留容量保留所涵蓋的 Azure 區域。
+| Subscription   | 用來支付保留容量適用於 MariaDB 的 Azure 資料庫的訂用帳戶。 訂用帳戶的付款方法會收取適用於 MariaDB 的 Azure 資料庫保留容量保留期的前期成本。 訂用帳戶類型必須是 enterprise 合約（供應專案號碼： MS-AZR-0017P-Ms-azr-0017p 或 MS-MS-AZR-0017P-Ms-azr-0148p）或具有隨用隨付定價的個別合約（供應專案號碼： MS-MS-AZR-0017P-Ms-azr-0003p 或 MS-MS-AZR-0017P-Ms-azr-0023p）。 針對企業訂用帳戶，費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。 針對使用隨用隨付定價的個別訂用帳戶，費用會依訂用帳戶的信用卡或發票付款方法計費。
+| Scope | 虛擬核心保留容量範圍可以涵蓋一個訂用帳戶或多個訂用帳戶 (共用範圍)。 如果您選取： </br></br> **共用**的 vCore 保留折扣會套用至計費內容內任何訂用帳戶中執行的適用於 MariaDB 的 Azure 資料庫伺服器。 針對企業客戶，共用範圍是註冊，並包含註冊中的所有訂用帳戶。 針對隨用隨付客戶，共用範圍是帳戶系統管理員所建立的所有隨用隨付訂用帳戶。</br></br> **單一訂**用帳戶，vCore 保留折扣會套用到此訂用帳戶中適用於 MariaDB 的 Azure 資料庫伺服器。 </br></br> **單一資源群組**，保留折扣會套用至所選訂用帳戶中的適用於 MariaDB 的 Azure 資料庫伺服器，以及該訂用帳戶內選取的資源群組。
+| 地區 | 適用於 MariaDB 的 Azure 資料庫保留容量保留所涵蓋的 Azure 區域。
 | 部署類型 | 您想要為其購買保留的適用於 MariaDB 的 Azure 資料庫資源類型。
 | 效能層級 | 適用於 MariaDB 的 Azure 資料庫伺服器的服務層級。
-| 詞彙 | 一年
+| 條款 | 一年
 | 數量 | 在適用於 MariaDB 的 Azure 資料庫保留容量保留內購買的計算資源量。 數量是所選 Azure 區域中的數個虛擬核心，以及要保留的效能層級，將會獲得計費折扣。 例如，如果您正在適用於 MariaDB 的 Azure 資料庫執行或計畫在美國東部區域的計算容量總計為第5代16虛擬核心，則您會將數量指定為16，以將所有伺服器的權益最大化。
 
-## <a name="cancel-exchange-or-refund-reservations"></a>取消、交換保留或進行退款
+## <a name="cancel-exchange-or-refund-reservations"></a>取消、交換保留或進行退費
 
-您可以取消、交換保留或進行退費，但有某些限制。 如需詳細資訊，請參閱 [Azure 保留的自助式交換和退款](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund)。
+您可以取消、交換保留或進行退費，但有某些限制。 如需詳細資訊，請參閱 [Azure 保留的自助式交換和退費](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund)。
 
 ## <a name="vcore-size-flexibility"></a>vCore 大小彈性
 
 vCore 大小彈性可協助您在效能層級和區域內相應增加或相應減少，而不會失去保留容量優勢。 
 
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
+## <a name="need-help-contact-us"></a>需要協助嗎？ 連絡我們
 
 如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
 
@@ -75,7 +75,7 @@ vCore 大小彈性可協助您在效能層級和區域內相應增加或相應�
 VCore 保留折扣會自動套用到符合適用於 MariaDB 的 Azure 資料庫保留容量保留範圍和屬性的適用於 MariaDB 的 Azure 資料庫伺服器數目。 您可以透過 Azure 入口網站、PowerShell、CLI 或 API 來更新 Azure 資料庫的範圍，以進行適用于 mariadb 保留容量保留。 </br></br>
 若要瞭解如何管理適用於 MariaDB 的 Azure 資料庫保留容量，請參閱管理適用於 MariaDB 的 Azure 資料庫保留容量。
 
-若要深入了解 Azure 保留項目，請參閱下列文章：
+若要深入了解 Azure 保留，請參閱下列文章：
 
 * [什麼是 Azure 保留](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)專案？
 * [管理 Azure 保留項目](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)

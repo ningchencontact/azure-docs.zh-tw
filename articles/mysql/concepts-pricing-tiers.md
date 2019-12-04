@@ -1,17 +1,17 @@
 ---
-title: 適用於 MySQL 的 Azure 資料庫的定價層
+title: 定價層-適用於 MySQL 的 Azure 資料庫
 description: 深入瞭解適用於 MySQL 的 Azure 資料庫的各種定價層，包括計算世代、儲存體類型、儲存體大小、虛擬核心、記憶體和備份保留期限。
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/08/2019
-ms.openlocfilehash: 62c5c338f9783c65a3907a706618f653eea5cd0d
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.date: 12/02/2019
+ms.openlocfilehash: 9aed33b44bac16e2f6b0d801a6c26a2174043817
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904380"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770861"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>適用於 MySQL 的 Azure 資料庫定價層
 
@@ -19,16 +19,16 @@ ms.locfileid: "73904380"
 
 |    | **基本** | **一般用途** | **記憶體最佳化** |
 |:---|:----------|:--------------------|:---------------------|
-| 計算世代 | Gen 4、Gen 5 | Gen 4、Gen 5 | Gen 5 |
+| 計算世代 | Gen 4、Gen 5 | Gen 4、Gen 5 | 第 5 代 |
 | 虛擬核心 | 1、2 | 2、4、8、16、32、64 |2、4、8、16、32 |
-| 每個虛擬核心的記憶體 | 2 GB | 5 GB | 10 GB |
+| 每個虛擬核心的記憶體 | 2GB | 5 GB | 10 GB |
 | 儲存體大小 | 5 GB 至 1 TB | 5 GB 到 16 TB | 5 GB 到 16 TB |
 | 儲存體類型 | Azure 標準儲存體 | Azure 進階儲存體 | Azure 進階儲存體 |
 | 資料庫備份的保留期限 | 7 至 35 天 | 7 至 35 天 | 7 至 35 天 |
 
 若要選擇定價層，請從下表著手。
 
-| 定價層 | 目標工作負載 |
+| 價格層 | 目標工作負載 |
 |:-------------|:-----------------|
 | 基本 | 需要輕量計算和 I/O 效能的工作負載。 範例包括用於開發或測試的伺服器，或者不常使用的小規模應用程式。 |
 | 一般用途 | 需要平衡的計算和記憶體以及可擴充 I/O 輸送量的大多數商務工作負載。 範例包括用於裝載 Web 和行動應用程式的伺服器，以及其他企業應用程式。|
@@ -48,7 +48,7 @@ ms.locfileid: "73904380"
 |:---|:----------|:--------------------|:---------------------|
 | 儲存體類型 | Azure 標準儲存體 | Azure 進階儲存體 | Azure 進階儲存體 |
 | 儲存體大小 | 5 GB 至 1 TB | 5 GB 到 16 TB | 5 GB 到 16 TB |
-| 儲存體遞增大小 | 1 GB | 1 GB | 1 GB |
+| 儲存體遞增大小 | 1GB | 1GB | 1GB |
 | IOPS | 變數 |3 IOPS/GB<br/>最小值為 100 IOPS<br/>最大 20000 IOPS | 3 IOPS/GB<br/>最小值為 100 IOPS<br/>最大 20000 IOPS |
 
 > [!NOTE]
@@ -84,7 +84,7 @@ ms.locfileid: "73904380"
 
 請記住，儲存體只能相應增加，而不能相應縮小。
 
-## <a name="backup"></a>備份
+## <a name="backup"></a>Backup
 
 服務會自動採用伺服器的備份。 備份的最小保留期限是七天。 您可以設定的保留期限最多為 35 天。 在伺服器的存留期期間，您可以在任何時間點調整保留期限。 您可以選擇本地備援和異地備援備份。 異地備援備份也會儲存在您伺服器所在建立區域的[地理配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)中。 此備援能力可在發生災害時提供一層保護。 您也可讓伺服器還原到其他任何 Azure 區域，只要其中的服務可使用異地備援備份。 建立伺服器之後，便無法在兩個備份儲存體選項之間做變更。
 
@@ -96,7 +96,7 @@ ms.locfileid: "73904380"
 
 調整儲存體和變更備份保留期限完全是線上作業。 運作不會中斷，您的應用程式也不會受到影響。 由於 IOPS 會隨著佈建的儲存體大小進行調整，您可以透過相應增加儲存體來增加伺服器可用的 IOPS。
 
-## <a name="pricing"></a>定價
+## <a name="pricing"></a>價格
 
 如需最新的定價資訊，請參閱服務的[定價頁面](https://azure.microsoft.com/pricing/details/mysql/)。 若要查看您所需的設定成本，[Azure 入口網站](https://portal.azure.com/#create/Microsoft.MySQLServer)會根據您選取的選項，在 [定價層] 索引標籤中顯示每月成本。 如果您沒有 Azure 訂用帳戶，則可以使用 Azure 價格計算機來取得估計的價格。 在 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)網站上選取 [新增項目]，展開 [資料庫] 類別，並選擇 [適用於 MySQL 的 Azure 資料庫] 以自訂選項。
 

@@ -1,21 +1,17 @@
 ---
-title: 建立和管理用來儲存值的變數-Azure Logic Apps
+title: 建立和管理用來儲存值的變數
 description: 如何在 Azure Logic Apps 中使用變數來儲存和管理值
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 0f7947e4a96a49e3a7a3b0059a1b20b21ac8cbd1
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 9b3ba7ff20e581988c3e862cff3bbf6d5ee96bf4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180780"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793163"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用變數來儲存和管理值
 
@@ -39,7 +35,7 @@ ms.locfileid: "71180780"
 
 * 您想要在其中建立變數的邏輯應用程式
 
-  如果您不熟悉邏輯應用程式，請參閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+  如果您不熟悉邏輯應用程式，請參閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立您的第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 * 作為邏輯應用程式中第一個步驟的[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)
 
@@ -61,9 +57,9 @@ ms.locfileid: "71180780"
 
      ![新增動作](./media/logic-apps-create-variables-store-values/add-action.png)
 
-   * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上， **+** 讓加號（）出現。 選取加號，然後選取 [**新增動作**]。
+   * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上，如此就會出現加號（ **+** ）。 選取加號，然後選取 [**新增動作**]。
 
-1. 在 [**選擇動作**] 下的 [搜尋] 方塊`variables`中，輸入做為您的篩選準則。 從 [動作] 清單中，選取 [**初始化變數**]。
+1. 在 [選擇動作] 底下的搜尋方塊中，輸入 `variables` 作為篩選條件。 從 [動作] 清單中，選取 [**初始化變數**]。
 
    ![選取動作](./media/logic-apps-create-variables-store-values/select-initialize-variable-action.png)
 
@@ -72,13 +68,13 @@ ms.locfileid: "71180780"
    | 屬性 | 必要項 | Value |  描述 |
    |----------|----------|-------|--------------|
    | **名稱** | 是 | <*variable-name*> | 要遞增的變數名稱 |
-   | **型別** | 是 | <*variable-type*> | 變數的資料類型 |
-   | **值** | 否 | <*start-value*> | 您的變數初始值 <p><p>**秘訣**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道變數的開始值。 |
+   | **類型** | 是 | <*variable-type*> | 變數的資料類型 |
+   | **值** | 否 | <*start-value*> | 您的變數初始值 <p><p>**提示**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道變數的開始值。 |
    |||||
 
-   例如:
+   例如：
 
-   ![初始化變數](./media/logic-apps-create-variables-store-values/initialize-variable.png)
+   ![將變數初始化](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
 1. 現在繼續新增您想要的動作。 當您完成時，請在設計工具工具列上選取 [**儲存**]。
 
@@ -101,7 +97,7 @@ ms.locfileid: "71180780"
 ```
 
 > [!NOTE]
-> 雖然 [**初始化變數**] 動作具有`variables`結構化為陣列的區段，但動作一次只能建立一個變數。 每個新的變數都需要個別的**初始化變數**動作。
+> 雖然 [**初始化變數**] 動作具有結構化為陣列的 `variables` 區段，但該動作一次只能建立一個變數。 每個新的變數都需要個別的**初始化變數**動作。
 
 以下是一些其他變數類型的範例：
 
@@ -183,7 +179,7 @@ ms.locfileid: "71180780"
 
 若要擷取或參考變數的內容，您也可以在「邏輯應用程式設計工具」和程式碼檢視編輯器中使用 [variables() 函式](../logic-apps/workflow-definition-language-functions-reference.md#variables)。 參考變數時，請使用變數的名稱作為語彙基元，而不是使用動作的名稱，動作名稱是參考動作輸出的實用方式。
 
-例如，此運算式會從[先前在本文中](#append-value)使用`variables()`函式建立的陣列變數取得專案。 `string()`函式會以字串格式傳回變數的內容：`"1, 2, 3, red"`
+例如，此運算式會從[先前在本文中](#append-value)使用 `variables()` 函數建立的陣列變數取得專案。 `string()` 函式會以字串格式傳回變數的內容： `"1, 2, 3, red"`
 
 ```json
 @{string(variables('myArrayVariable'))}
@@ -212,10 +208,10 @@ ms.locfileid: "71180780"
    | 屬性 | 必要項 | Value |  描述 |
    |----------|----------|-------|--------------|
    | **名稱** | 是 | <*variable-name*> | 要遞增的變數名稱 |
-   | **值** | 否 | <*increment-value*> | 用來遞增變數的值。 預設值為一。 <p><p>**秘訣**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道用來遞增變數的特定值。 |
+   | **值** | 否 | <*increment-value*> | 用來遞增變數的值。 預設值為一。 <p><p>**提示**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道用來遞增變數的特定值。 |
    ||||
 
-   例如:
+   例如：
 
    ![遞增值範例](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
@@ -251,7 +247,7 @@ ms.locfileid: "71180780"
 
    ![檢查是否有附件並包含附件](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
 
-1. 新增 [[初始化變數] 動作](#create-variable)。 建立名為`Count`的整數變數，其起始值為零。
+1. 新增 [[初始化變數] 動作](#create-variable)。 建立名為 `Count` 的整數變數，其起始值為零。
 
    ![新增 [初始化變數] 的動作](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
@@ -259,7 +255,7 @@ ms.locfileid: "71180780"
 
    1. 在 [**初始化變數**] 動作底下，選取 [**新增步驟**]。
 
-   1. 在 **[選擇動作**] 底下，選取 [**內建**]。 在搜尋方塊中，輸入`for each`做為您的搜尋篩選準則，然後選取 [ **For each**]。
+   1. 在 [選擇動作] 底下，選取 [內建]。 在 [搜尋] 方塊中，輸入 `for each` 作為搜尋篩選準則，然後選取 [ **For each**]。
 
       ![新增 [For each] 迴圈](./media/logic-apps-create-variables-store-values/add-loop.png)
 
@@ -290,7 +286,7 @@ ms.locfileid: "71180780"
 
 ### <a name="test-your-logic-app"></a>測試應用程式邏輯
 
-1. 如果您的邏輯應用程式未啟用，請在邏輯應用程式功能表上，選取 **[總覽**]。 在工具列上, 選取 [**啟用**]。
+1. 如果您的邏輯應用程式未啟用，請在邏輯應用程式功能表上，選取 **[總覽**]。 在工具列上，選取 [**啟用**]。
 
 1. 在邏輯應用程式設計工具工具列上，選取 [**執行**]。 此步驟會手動啟動您的邏輯應用程式。
 
@@ -333,7 +329,7 @@ ms.locfileid: "71180780"
 | 屬性 | 必要項 | Value |  描述 |
 |----------|----------|-------|--------------|
 | **名稱** | 是 | <*variable-name*> | 要遞減的變數名稱 | 
-| **值** | 否 | <*increment-value*> | 用來遞減變數的值。 預設值為一。 <p><p>**秘訣**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道用來遞增變數的特定值。 |
+| **值** | 否 | <*increment-value*> | 用來遞減變數的值。 預設值為一。 <p><p>**提示**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道用來遞減變數的特定值。 |
 ||||| 
 
 如果您從設計工具切換到程式碼視圖編輯器，以下是 [**遞減變數**] 動作出現在邏輯應用程式定義內的方式，也就是 JSON 格式。
@@ -378,7 +374,7 @@ ms.locfileid: "71180780"
 >
 > 3. 將 [平行處理原則的程度] 滑桿拖曳至 [1]。
 
-如果您從設計工具切換到程式碼視圖編輯器，以下是 [**設定變數**] 動作出現在邏輯應用程式定義內的方式，也就是 JSON 格式。 這個範例會將`Count`變數的目前值變更為另一個值。
+如果您從設計工具切換到程式碼視圖編輯器，以下是 [**設定變數**] 動作出現在邏輯應用程式定義內的方式，也就是 JSON 格式。 這個範例會將 `Count` 變數的目前值變更為另一個值。
 
 ```json
 "actions": {
@@ -417,7 +413,7 @@ ms.locfileid: "71180780"
    * **附加至字串變數**
    * **附加至陣列變數** 
 
-1. 提供要附加作為字串或陣列最後一個項目的值。 這是必要的值。
+1. 提供要附加作為字串或陣列最後一個項目的值。 需要此值。
 
 以下是 [附加至...] 動作的屬性：
 

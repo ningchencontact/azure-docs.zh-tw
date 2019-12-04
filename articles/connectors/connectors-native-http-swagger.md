@@ -2,20 +2,17 @@
 title: 從 Azure Logic Apps 連接到 REST 端點
 description: 使用 Azure Logic Apps 監視自動化工作、進程和工作流程中的 REST 端點
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 030401623a61e7fcff40187f522309255482647f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b34fdc36bd0b1ce294a92b2ae8fa5da01568e5a9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824809"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787364"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 呼叫 REST 端點
 
@@ -23,7 +20,7 @@ ms.locfileid: "73824809"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 用於描述目標 REST 端點的 Swagger （非 OpenAPI）檔案的 URL
 
@@ -33,7 +30,7 @@ ms.locfileid: "73824809"
 
   * Swagger 檔案必須啟用[跨原始來源資源分享（CORS）](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 。
 
-  若要參考未裝載或不符合安全性和跨原始來源需求的 Swagger 檔案，您可以將 Swagger 檔案上[傳到 Azure 儲存體帳戶中的 blob 容器](#host-swagger)，並在該儲存體帳戶上啟用 CORS，讓您可以參考檔案。
+  若要參考未裝載或不符合安全性和跨原始來源需求的 Swagger 檔案，您可以將 Swagger 檔案上[傳到 Azure 儲存體帳戶中的 blob 容器](#host-swagger)，並在該儲存體帳戶上啟用 CORS，讓您可以參考該檔案。
 
   本主題中的範例會使用[認知服務臉部 API](https://docs.microsoft.com/azure/cognitive-services/face/overview)，這需要[認知服務帳戶和存取金鑰](../cognitive-services/cognitive-services-apis-create-account.md)。
 
@@ -125,7 +122,7 @@ ms.locfileid: "73824809"
 
 1. 現在啟用 blob 的 CORS。 在儲存體帳戶的功能表上，選取 [ **CORS**]。 在 [ **Blob 服務**] 索引標籤上，指定這些值，然後選取 [**儲存**]。
 
-   | 屬性 | 值 |
+   | 屬性 | Value |
    |----------|-------|
    | **允許的來源** | `*` |
    | **允許的方法** | `GET`、`HEAD`, `PUT` |
@@ -148,16 +145,16 @@ ms.locfileid: "73824809"
 
 以下是來自 HTTP + Swagger 觸發程式或動作之輸出的詳細資訊。 HTTP + Swagger 呼叫會傳回下列資訊：
 
-| 屬性名稱 | 類型 | 說明 |
+| 屬性名稱 | Type | 描述 |
 |---------------|------|-------------|
-| headers | 物件 | 要求的標頭 |
-| body | 物件 | JSON 物件 | 具有來自要求之本文內容的物件 |
+| 標頭 | object | 要求的標頭 |
+| body | object | JSON 物件 | 具有來自要求之本文內容的物件 |
 | 狀態碼 | int | 來自要求的狀態碼 |
 |||
 
-| 狀態碼 | 說明 |
+| 狀態碼 | 描述 |
 |-------------|-------------|
-| 200 | OK |
+| 200 | 確定 |
 | 202 | 已接受 |
 | 400 | 不正確的要求 |
 | 401 | 未經授權 |

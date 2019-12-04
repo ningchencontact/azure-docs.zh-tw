@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: 8e4cc65ceb6e2a4f8093a094617cc7bb4f9e0c26
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 70fe64ac0d2c1211c1b6570a78746e080ba132ed
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482699"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793400"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>將模型部署到 Azure Kubernetes Service 叢集
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "74482699"
 > [!IMPORTANT]
 > 建立或附加程式是一次性的工作。 一旦 AKS 叢集連線到工作區，您就可以將它用於部署。 如果您不再需要 AKS 叢集，您可以卸離或刪除該叢集。 一旦 detatched 或刪除之後，您就無法再部署到叢集。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - Azure Machine Learning 工作區。 如需詳細資訊，請參閱[建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。
 
@@ -115,7 +115,7 @@ az ml computetarget create aks -n myaks
 
 **估計時間：** 大約5分鐘。
 
-如果您的 Azure 訂用帳戶中已經有 AKS 叢集，且其低於1.14 版，您可以使用它來部署您的映射。
+如果您的 Azure 訂用帳戶中已經有 AKS 叢集，且其低於1.15 版，您可以使用它來部署您的映射。
 
 > [!TIP]
 > 現有的 AKS 叢集可以位於 Azure Machine Learning 工作區以外的 Azure 區域中。

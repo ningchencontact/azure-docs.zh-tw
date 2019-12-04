@@ -1,17 +1,17 @@
 ---
-title: 使用適用於 PostgreSQL 的 Azure 資料庫的 Azure AD 設定和登入-單一伺服器
-description: 瞭解如何設定 Azure Active Directory 以適用於 PostgreSQL 的 Azure 資料庫單一伺服器進行驗證
+title: 使用 Azure Active Directory 適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
+description: 瞭解如何設定 Azure Active Directory （AAD）以適用於 PostgreSQL 的 Azure 資料庫單一伺服器進行驗證
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d5abfe4cc6aa0679d8009343fa24c1059700bb79
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c929ac1c171547a4ff485fc43f0f329440f9c3b5
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516028"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763635"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>使用 Azure Active Directory 向于 postgresql 進行驗證
 

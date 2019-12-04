@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0cfcbdaee5a39a947bd89c677f49214c8c3cb98a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: fdb7d9ed5164171407443596de256df02cb7e8de
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162859"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790596"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 虛擬機器的自動備份 (Resource Manager)
 
@@ -116,13 +116,12 @@ $resourcegroupname = "resourcegroupname"
 
 如果已安裝「SQL Server IaaS 代理程式」擴充功能，您應該會看到它以 “SqlIaaSAgent” 或 “SQLIaaSExtension” 的形式列出。 該擴充功能的 **ProvisioningState** 應該也顯示為 “Succeeded”。
 
-如果未安裝或無法佈建該擴充功能，您可以使用下列命令來安裝它。 除了 VM 名稱和資源群組之外，您還必須指定 VM 所在的區域 ( **$region**)。
+如果未安裝或無法佈建該擴充功能，您可以使用下列命令來安裝它。 除了 VM 名稱和資源群組之外，您還必須指定 VM 所在的區域 ( **$region**)。 指定 SQL Server VM 的授權類型，並透過[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)選擇 [隨用隨付] 或 [自備授權]。 如需授權的詳細資訊，請參閱[授權模型](virtual-machines-windows-sql-ahb.md)。 
 
 ```powershell
-$region = "EASTUS2"
-Set-AzVMSqlServerExtension -VMName $vmname `
-    -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
-    -Version "1.2" -Location $region
+New-AzSqlVM  -Name $vmname `
+    -ResourceGroupName $resourcegroupname `
+    -Location $region -LicenseType <PAYG/AHUB>
 ```
 
 > [!IMPORTANT]
@@ -237,7 +236,7 @@ $retentionperiod = 10
 
 Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
-    -Version "1.2" -Location $region
+    -Version "2.0" -Location $region
 
 # Creates/use a storage account to store the backups
 

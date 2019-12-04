@@ -2,21 +2,18 @@
 title: 從電源自動化到 Azure Logic Apps 的匯出流程
 description: 藉由匯出為 Azure Resource Manager 範本，將流量從電源自動化遷移至 Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: e0dda5c2097243143d18851c47e7006c81769c87
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4512fd8a236c888937eb60a75d01cfb0ef2c1913
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583263"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792639"
 ---
-# <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>從電源自動化和部署到 Azure Logic Apps 的匯出流程
+# <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>從 Power Automate 匯出流程，並部署至 Azure Logic Apps
 
 若要擴充和擴充您的流程功能，您可以將該流程從[電源自動化](https://flow.microsoft.com)遷移到[Azure Logic Apps](../logic-apps/logic-apps-overview.md)。 您可以將流程匯出為邏輯應用程式的 Azure Resource Manager 範本、將該邏輯應用程式範本部署至 Azure 資源群組，然後在邏輯應用程式設計工具中開啟該邏輯應用程式。
 
@@ -27,7 +24,7 @@ ms.locfileid: "73583263"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 您想要從電源自動匯出的流程
 

@@ -1,32 +1,32 @@
 ---
 title: 使用 .NET （預覽）建立容器或 blob 的使用者委派 SAS-Azure 儲存體
-description: 瞭解如何使用 .NET 用戶端程式庫在 Azure 儲存體中 Azure Active Directory 認證來建立使用者委派 SAS。
+description: 瞭解如何使用 .NET 用戶端程式庫在 Azure 儲存體中 Azure Active Directory 認證來建立使用者委派 SAS （預覽）。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 12/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: c75a13a20c1dbb222db69145e24838deb111fb66
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 32bcb12f39d65d63af1c6595c0d57c695ce0533f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595220"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792209"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>使用 .NET 建立容器或 blob 的使用者委派 SAS （預覽）
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-本文說明如何使用 Azure Active Directory （Azure AD）認證，利用適用于 .NET 的 Azure 儲存體用戶端程式庫來建立容器或 blob 的使用者委派 SAS。
+本文說明如何使用 Azure Active Directory （Azure AD）認證，以適用于 .NET 的 Azure 儲存體用戶端程式庫，來建立容器或 blob 的使用者委派 SAS （預覽）。
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="authenticate-with-the-azure-identity-library-preview"></a>使用 Azure 身分識別程式庫（預覽）進行驗證
+## <a name="authenticate-with-the-azure-identity-library"></a>使用 Azure 身分識別程式庫進行驗證
 
-適用于 .NET 的 Azure 身分識別用戶端程式庫（預覽）會驗證安全性主體。 當您的程式碼在 Azure 中執行時，安全性主體是適用于 Azure 資源的受控識別。
+適用于 .NET 的 Azure 身分識別用戶端程式庫會驗證安全性主體。 當您的程式碼在 Azure 中執行時，安全性主體是適用于 Azure 資源的受控識別。
 
 當您的程式碼在開發環境中執行時，可能會自動處理驗證，或視您使用的工具而定，可能需要瀏覽器登入。 Microsoft Visual Studio 支援單一登入（SSO），讓作用中的 Azure AD 使用者帳戶自動用於驗證。 如需 SSO 的詳細資訊，請參閱[單一登入應用程式](../../active-directory/manage-apps/what-is-single-sign-on.md)。
 
@@ -40,30 +40,30 @@ ms.locfileid: "72595220"
 
 當 Azure AD 安全性主體嘗試存取 blob 資料時，該安全性主體必須擁有該資源的許可權。 無論安全性主體是 Azure 中的受控識別，或是在開發環境中執行程式碼的 Azure AD 使用者帳戶，都必須將 RBAC 角色指派給安全性主體，以授與 Azure 儲存體中 blob 資料的存取權。 如需透過 RBAC 指派許可權的相關資訊，請參閱[使用 Azure Active Directory 授權存取 Azure blob 和佇列](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights)中的
 
-## <a name="install-the-preview-packages"></a>安裝預覽套件
+## <a name="install-the-packages"></a>安裝套件
 
-本文中的範例會使用[適用于 Blob 儲存體的 Azure 儲存體用戶端程式庫](https://www.nuget.org/packages/Azure.Storage.Blobs)的最新預覽版本。 若要安裝預覽套件，請從 NuGet 套件管理員主控台執行下列命令：
+本文中的範例會針對 Blob 儲存體使用最新版的[Azure 儲存體用戶端程式庫](https://www.nuget.org/packages/Azure.Storage.Blobs)。 若要安裝套件，請從 NuGet 套件管理員主控台執行下列命令：
 
 ```powershell
-Install-Package Azure.Storage.Blobs -IncludePrerelease
+Install-Package Azure.Storage.Blobs
 ```
 
-本文中的範例也會使用適用于 .NET 的 Azure 身分[識別用戶端程式庫](https://www.nuget.org/packages/Azure.Identity/)的最新預覽版本，以 Azure AD 認證進行驗證。 若要安裝預覽套件，請從 NuGet 套件管理員主控台執行下列命令：
+本文中的範例也會使用[適用于 .net 的 Azure 身分識別用戶端程式庫](https://www.nuget.org/packages/Azure.Identity/)的最新版本，以 Azure AD 認證進行驗證。 若要安裝套件，請從 NuGet 套件管理員主控台執行下列命令：
 
 ```powershell
-Install-Package Azure.Identity -IncludePrerelease
+Install-Package Azure.Identity
 ```
 
 ## <a name="add-using-directives"></a>新增 using 指示詞
 
-將下列 `using` 指示詞新增至您的程式碼，以使用 Azure 身分識別的預覽版本和 Azure 儲存體用戶端程式庫。
+將下列 `using` 指示詞新增至您的程式碼，以使用 Azure 身分識別和 Azure 儲存體用戶端程式庫。
 
 ```csharp
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Azure;
 using Azure.Identity;
-using Azure.Storage;
 using Azure.Storage.Sas;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
@@ -76,8 +76,10 @@ using Azure.Storage.Blobs.Models;
 下列程式碼片段顯示如何取得已驗證的權杖認證，並使用它來建立 Blob 儲存體的服務用戶端：
 
 ```csharp
+// Construct the blob endpoint from the account name.
 string blobEndpoint = string.Format("https://{0}.blob.core.windows.net", accountName);
 
+// Create a new Blob service client with Azure AD credentials.
 BlobServiceClient blobClient = new BlobServiceClient(new Uri(blobEndpoint),
                                                      new DefaultAzureCredential());
 ```
@@ -96,14 +98,17 @@ BlobServiceClient blobClient = new BlobServiceClient(new Uri(blobEndpoint),
 下列程式碼片段會取得使用者委派金鑰，並寫出其屬性：
 
 ```csharp
+// Get a user delegation key for the Blob service that's valid for seven days.
+// You can use the key to generate any number of shared access signatures over the lifetime of the key.
 UserDelegationKey key = await blobClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow,
                                                                    DateTimeOffset.UtcNow.AddDays(7));
 
+// Read the key's properties.
 Console.WriteLine("User delegation key properties:");
-Console.WriteLine("Key signed start: {0}", key.SignedStart);
-Console.WriteLine("Key signed expiry: {0}", key.SignedExpiry);
-Console.WriteLine("Key signed object ID: {0}", key.SignedOid);
-Console.WriteLine("Key signed tenant ID: {0}", key.SignedTid);
+Console.WriteLine("Key signed start: {0}", key.SignedStartsOn);
+Console.WriteLine("Key signed expiry: {0}", key.SignedExpiresOn);
+Console.WriteLine("Key signed object ID: {0}", key.SignedObjectId);
+Console.WriteLine("Key signed tenant ID: {0}", key.SignedTenantId);
 Console.WriteLine("Key signed service: {0}", key.SignedService);
 Console.WriteLine("Key signed version: {0}", key.SignedVersion);
 ```
@@ -113,18 +118,23 @@ Console.WriteLine("Key signed version: {0}", key.SignedVersion);
 下列程式碼片段示範如何建立新的[BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) ，並提供使用者委派 SAS 的參數。 然後，程式碼片段會呼叫[ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters)以取得 SAS 權杖字串。 最後，此程式碼會建立完整的 URI，包括資源位址和 SAS 權杖。
 
 ```csharp
-BlobSasBuilder builder = new BlobSasBuilder()
+// Create a SAS token that's valid for one hour.
+BlobSasBuilder sasBuilder = new BlobSasBuilder()
 {
-    ContainerName = containerName,
+    BlobContainerName = containerName,
     BlobName = blobName,
-    Permissions = "r",
     Resource = "b",
-    StartTime = DateTimeOffset.UtcNow,
-    ExpiryTime = DateTimeOffset.UtcNow.AddMinutes(5)
+    StartsOn = DateTimeOffset.UtcNow,
+    ExpiresOn = DateTimeOffset.UtcNow.AddHours(1)
 };
 
+// Specify read permissions for the SAS.
+sasBuilder.SetPermissions(BlobSasPermissions.Read);
+
+// Use the key to get the SAS token.
 string sasToken = sasBuilder.ToSasQueryParameters(key, accountName).ToString();
 
+// Construct the full URI, including the SAS token.
 UriBuilder fullUri = new UriBuilder()
 {
     Scheme = "https",
@@ -149,29 +159,32 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
                                                             new DefaultAzureCredential());
 
     // Get a user delegation key for the Blob service that's valid for seven days.
-    // Use the key to generate any number of shared access signatures over the lifetime of the key.
-    UserDelegationKey key = await blobClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow,
-                                                                       DateTimeOffset.UtcNow.AddDays(7));
+    // You can use the key to generate any number of shared access signatures over the lifetime of the key.
+    UserDelegationKey key = await blobClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow, 
+                                                                        DateTimeOffset.UtcNow.AddDays(7));
 
     // Read the key's properties.
     Console.WriteLine("User delegation key properties:");
-    Console.WriteLine("Key signed start: {0}", key.SignedStart);
-    Console.WriteLine("Key signed expiry: {0}", key.SignedExpiry);
-    Console.WriteLine("Key signed object ID: {0}", key.SignedOid);
-    Console.WriteLine("Key signed tenant ID: {0}", key.SignedTid);
+    Console.WriteLine("Key signed start: {0}", key.SignedStartsOn);
+    Console.WriteLine("Key signed expiry: {0}", key.SignedExpiresOn);
+    Console.WriteLine("Key signed object ID: {0}", key.SignedObjectId);
+    Console.WriteLine("Key signed tenant ID: {0}", key.SignedTenantId);
     Console.WriteLine("Key signed service: {0}", key.SignedService);
     Console.WriteLine("Key signed version: {0}", key.SignedVersion);
+    Console.WriteLine();
 
-    // Create a SAS token that's valid a short interval.
+    // Create a SAS token that's valid for one hour.
     BlobSasBuilder sasBuilder = new BlobSasBuilder()
     {
-        ContainerName = containerName,
+        BlobContainerName = containerName,
         BlobName = blobName,
-        Permissions = "r",
         Resource = "b",
-        StartTime = DateTimeOffset.UtcNow,
-        ExpiryTime = DateTimeOffset.UtcNow.AddMinutes(5)
+        StartsOn = DateTimeOffset.UtcNow,
+        ExpiresOn = DateTimeOffset.UtcNow.AddHours(1)
     };
+
+    // Specify read permissions for the SAS.
+    sasBuilder.SetPermissions(BlobSasPermissions.Read);
 
     // Use the key to get the SAS token.
     string sasToken = sasBuilder.ToSasQueryParameters(key, accountName).ToString();
@@ -186,6 +199,7 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
     };
 
     Console.WriteLine("User delegation SAS URI: {0}", fullUri);
+    Console.WriteLine();
     return fullUri.Uri;
 }
 ```
@@ -220,7 +234,7 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
         Console.WriteLine("Read operation succeeded for SAS {0}", sasUri);
         Console.WriteLine();
     }
-    catch (StorageRequestFailedException e)
+    catch (RequestFailedException e)
     {
         // Check for a 403 (Forbidden) error. If the SAS is invalid, 
         // Azure Storage returns this error.

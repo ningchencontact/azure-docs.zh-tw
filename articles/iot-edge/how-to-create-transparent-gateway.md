@@ -8,12 +8,12 @@ ms.date: 08/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d0ac7fa3a1dbb1c91da5b9919bc2c62de74213b5
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: c005dcd91412552e2b10c27a7809ca4bc46d4709
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456791"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792332"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>設定 IoT Edge 裝置作為透明閘道
 
@@ -46,7 +46,7 @@ ms.locfileid: "74456791"
 
 下列步驟會逐步引導您完成建立憑證的程式，並將它們安裝在閘道上的適當位置。 您可以使用任何電腦產生憑證，然後再將其複製到您的 IoT Edge 裝置。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 建立憑證的開發電腦。 
 * 設定為閘道的 Azure IoT Edge 裝置。 針對下列其中一個作業系統，請使用 IoT Edge 安裝步驟：
@@ -84,7 +84,7 @@ Azure IoT Edge git 存放庫包含可用來產生測試憑證的腳本。 在本
 
 1. 在系統管理員模式下開啟 [Azure PowerShell] 視窗。 
 
-2. 複製包含指令碼的 Git 存放庫來產生非生產環境憑證。 這些指令碼可協助您建立用來設定透明閘道的所需憑證。 使用 `git clone` 命令或[下載 ZIP](https://github.com/Azure/iotedge/archive/master.zip)。 
+2. 複製包含指令碼的 Git 存放庫來產生非生產環境憑證。 這些指令碼會協助您建立用來設定透明閘道的所需憑證。 使用 `git clone` 命令或[下載 ZIP](https://github.com/Azure/iotedge/archive/master.zip)。 
 
    ```powershell
    git clone https://github.com/Azure/iotedge.git
@@ -165,7 +165,7 @@ Azure IoT Edge git 存放庫包含可用來產生測試憑證的腳本。 在本
 
 Azure IoT Edge git 存放庫包含可用來產生測試憑證的腳本。 在本節中，您會複製 IoT Edge 存放庫並執行腳本。 
 
-1. 複製包含指令碼的 Git 存放庫來產生非生產環境憑證。 這些指令碼可協助您建立用來設定透明閘道的所需憑證。 
+1. 複製包含指令碼的 Git 存放庫來產生非生產環境憑證。 這些指令碼會協助您建立用來設定透明閘道的所需憑證。 
 
    ```bash
    git clone https://github.com/Azure/iotedge.git
@@ -284,9 +284,9 @@ Azure IoT Edge git 存放庫包含可用來產生測試憑證的腳本。 在本
 
 標準 IoT Edge 裝置不需要任何輸入連線功能，因為與 IoT 中樞的所有通訊都是透過輸出連線來完成。 閘道裝置不同，因為它們必須接收來自其下游裝置的訊息。 如果防火牆是在下游裝置與閘道裝置之間，則也必須透過防火牆來進行通訊。
 
-若要讓閘道案例正常執行，至少必須針對來自下游裝置的輸入流量開啟其中一個 IoT Edge 中樞的支援通訊協定。 支援的通訊協定為 MQTT、AMQP 和 HTTPS。 
+若要讓閘道案例正常執行，至少必須針對來自下游裝置的輸入流量開啟其中一個 IoT Edge 中樞的支援通訊協定。 支援的通訊協定為 MQTT、AMQP、HTTPS、透過 Websocket 的 MQTT，以及透過 Websocket 的 AMQP。 
 
-| Port | 通訊協定 |
+| 連接埠 | 通訊協定 |
 | ---- | -------- |
 | 8883 | MQTT |
 | 5671 | AMQP |

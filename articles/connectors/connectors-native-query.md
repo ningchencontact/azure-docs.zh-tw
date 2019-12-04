@@ -1,27 +1,21 @@
 ---
-title: 在邏輯應用程式中新增查詢動作 | Microsoft Docs
-description: 執行如篩選陣列等動作的查詢動作概觀。
-services: ''
-documentationcenter: ''
-author: jeffhollan
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
-ms.service: logic-apps
+title: 在邏輯應用程式中新增查詢動作
+description: 執行篩選陣列等動作的查詢動作總覽
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/20/2016
-ms.author: jehollan
-ms.openlocfilehash: 10332b95e0d385d7155003efcc52b4bae3969313
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+tags: connectors
+ms.openlocfilehash: 2e5c9d371a280b776699b2e10d3e8e94b5f41f6f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973755"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787127"
 ---
 # <a name="get-started-with-the-query-action"></a>開始使用查詢動作
+
 您可以使用查詢動作來處理完成以下工作流程的批次和陣列︰
 
 * 從資料庫建立所有高優先順序記錄的工作。
@@ -30,6 +24,7 @@ ms.locfileid: "71973755"
 若要開始在邏輯應用程式中使用查詢動作，請參閱 [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="use-the-query-action"></a>使用查詢動作
+
 動作是由邏輯應用程式中定義的工作流程所執行的作業。 
 [深入了解動作](../connectors/apis-list.md)。  
 
@@ -55,7 +50,7 @@ ms.locfileid: "71973755"
 ## <a name="query-action"></a>查詢動作
 以下是此連接器所支援動作的詳細資料。 連接器有一個可能的動作。
 
-| Action | 描述 |
+| 行動 | 描述 |
 | --- | --- |
 | 篩選陣列 |評估陣列中的每個項目是否符合條件並傳回結果 |
 
@@ -66,17 +61,17 @@ ms.locfileid: "71973755"
 以下是動作的輸入欄位，可進行 HTTP 輸出要求。
 標示 * 代表必要欄位。
 
-| Display name | 屬性名稱 | 描述 |
+| 顯示名稱 | 屬性名稱 | 描述 |
 | --- | --- | --- |
 | 從* |from |要篩選的陣列 |
-| 條件* |where |要針對每個項目評估的條件 |
+| 條件* |其中 |要針對每個項目評估的條件 |
 
 <br>
 
 ### <a name="output-details"></a>輸出詳細資料
 以下是 HTTP 回應的輸出詳細資料。
 
-| 屬性名稱 | 資料類型 | 描述 |
+| 屬性名稱 | Data type | 描述 |
 | --- | --- | --- |
 | 篩選的陣列 |array |陣列，其中包含每筆篩選結果的物件 |
 

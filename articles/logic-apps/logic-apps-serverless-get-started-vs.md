@@ -1,21 +1,17 @@
 ---
-title: 在 Visual Studio 中建立第一個無伺服器應用程式-Azure Logic Apps
+title: 在 Visual Studio 中建立第一個無伺服器應用程式
 description: 使用中的 Azure Logic Apps 和 Azure Functions，來建立、部署和管理無伺服器應用程式 Visual Studio
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-ms.workload: vs-azure
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 76ab76440ddc25f4b1cf51f7d540a6e21614541d
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 4ed2ad2d2ff92e9320a7b9c773c4d6e5857fb905
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680137"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792960"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>使用中的 Azure Logic Apps 和 Azure Functions，建立您的第一個無伺服器應用程式 Visual Studio
 
@@ -68,7 +64,7 @@ ms.locfileid: "72680137"
 
    ![在 Visual Studio 中建立新專案](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-1. 在 [已安裝] 之下，選取 **Visual C#** 或 **Visual Basic**。 然後，選取 [**雲端**]  >  [**Azure 資源群組**]。
+1. 在 [已安裝] 之下，選取 **Visual C#** 或 **Visual Basic**。 然後，選取 [**雲端**] > [ **Azure 資源群組**]。
 
    > [!NOTE]
    > 如果**雲端**類別或**Azure 資源群組**專案不存在，請確定您已安裝 Azure SDK for Visual Studio。

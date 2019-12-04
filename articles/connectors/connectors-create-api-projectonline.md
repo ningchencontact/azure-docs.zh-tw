@@ -1,22 +1,18 @@
 ---
-title: 從 Azure Logic Apps 連線至 Project Online | Microsoft Docs
+title: 從 Azure Logic Apps 連接到 Project Online
 description: 使用 Azure Logic Apps，將監視、建立和管理 Project Online 專案、工作和資源的工作流程自動化
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
-tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: fe571209d28fe098ce9b507cb67b0a9a5abd25a3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 116922e018410f260b33f4dfd76e5983fbbcc0a5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050855"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789319"
 ---
 # <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 來管理 Project Online 專案、工作和資源
 
@@ -31,7 +27,7 @@ Project Online 可藉由提供強大的專案管理功能，協助您規劃、�
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * Project Online，可透過 [Office 365 帳戶](https://www.office.com/)取得。 
 
@@ -67,7 +63,7 @@ Project Online 可藉由提供強大的專案管理功能，協助您規劃、�
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
+* 若要送出或票選功能構想，請前往 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

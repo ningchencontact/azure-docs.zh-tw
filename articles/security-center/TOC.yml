@@ -127,8 +127,12 @@
           href: security-center-monitoring.md
         - name: 保護您的機器和應用程式
           href: security-center-virtual-machine-protection.md
+        - name: 機器和應用程式建議參考
+          href: recommendations-compute-and-apps.md
         - name: 保護網路資源
           href: security-center-network-recommendations.md
+        - name: 網路建議參考
+          href: recommendations-network.md
         - name: 保護資料資料與儲存體服務
           href: security-center-sql-service-recommendations.md
         - name: 管理身分識別和存取

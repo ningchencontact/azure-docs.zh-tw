@@ -1,24 +1,24 @@
 ---
-title: 使用 Azure CLI 設定和存取于 postgresql 的伺服器記錄-單一伺服器
-description: 本文說明如何使用 Azure CLI 命令列，在適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中設定和存取伺服器記錄。
+title: 記錄管理-Azure CLI 適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
+description: 本文說明如何使用 Azure CLI，在適用於 PostgreSQL 的 Azure 資料庫單一伺服器中設定和存取伺服器記錄檔（.log 檔案）。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: bb33debaa23ad8625b6ddc1cc63738b13bcd19e1
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: be679be91d49516bd2f6c672eb53640cfad2ae2a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023635"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763567"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>使用 Azure CLI 設定和存取伺服器記錄
 您可以使用命令列介面 (Azure CLI) 來下載 PostgreSQL 伺服器錯誤記錄。 不過，不支援存取交易記錄。 
 
 ## <a name="prerequisites"></a>必要條件
-若要逐步執行本作法指南，您需要︰
+若要逐步執行本作法指南，您需要：
 - [適用於 PostgreSQL 的 Azure 資料庫伺服器](quickstart-create-server-database-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) 命令列公用程式，或瀏覽器中的 Azure Cloud Shell
 

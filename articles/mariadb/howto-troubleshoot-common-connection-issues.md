@@ -1,17 +1,17 @@
 ---
-title: 針對適用於 MariaDB 的 Azure 資料庫的連線問題進行疑難排解
+title: 疑難排解連接問題-適用於 MariaDB 的 Azure 資料庫
 description: 瞭解如何對適用於 MariaDB 的 Azure 資料庫的連線問題進行疑難排解，包括需要重試、防火牆問題和中斷的暫時性錯誤。
 author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: troubleshooting
-ms.date: 11/09/2018
-ms.openlocfilehash: a8354cdc364f221a086f4d2f4ec7da95c55baf6e
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 613de96ee58d37e6270266852e513e53857a441a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973524"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765727"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>針對適用於 MariaDB 的 Azure 資料庫的連線問題進行疑難排解
 
@@ -45,9 +45,9 @@ ms.locfileid: "71973524"
 
 如果應用程式持續無法連線到「適用於 MariaDB 的 Azure 資料庫」，通常表示是下列其中一項發生問題︰
 
-* 防火牆組態：「適用於 MariaDB 的 Azure 資料庫」伺服器或用戶端防火牆目前封鎖連線。
+* 防火牆設定：「適用於 MariaDB 的 Azure 資料庫」伺服器或用戶端防火牆目前封鎖連線。
 * 用戶端的網路重新設定：新增了新的 IP 位址或 Proxy 伺服器。
-* 使用者錯誤：例如，您可能輸入錯誤的連接參數，例如連接字串中的伺服器名稱，或使用者名稱中遺漏的 *@no__t 1servername*尾碼。
+* 使用者錯誤：例如，您可能輸入錯誤的連接參數，例如連接字串中的伺服器名稱，或使用者名稱中遺漏的 *\@servername*尾碼。
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>解決永久性連線問題的步驟
 

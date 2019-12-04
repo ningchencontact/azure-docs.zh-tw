@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a1c6f2d869d8d7ad865005ebd319beac56bdbacd
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: aa32f671756b8ba7f17c25592b6a15b66de42b2c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720089"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790018"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Azure 認知搜尋中的知識存放區簡介
 
@@ -32,7 +32,7 @@ ms.locfileid: "73720089"
 
 ## <a name="benefits-of-knowledge-store"></a>知識存放區的優點
 
-知識存放區可從非結構化及半結構化資料檔案提供您結構、情境和實際的內容，如 Blob、經過分析的映像檔，甚至是重整成新格式的結構化資料。 在[逐步](knowledge-store-howto.md)解說中，您可以看到密集 JSON 檔如何分割成子結構、重組為新結構，以及其他適用于諸如機器學習服務和資料科學等下游進程方面.
+知識存放區可從非結構化及半結構化資料檔案提供您結構、情境和實際的內容，如 Blob、經過分析的映像檔，甚至是重整成新格式的結構化資料。 在[逐步](knowledge-store-howto.md)解說中，您可以看到密集 JSON 檔如何分割成子結構、重組為新的結構，並以其他方式提供給下游進程，例如機器學習服務和資料科學工作負載。
 
 知識存放區可用來查看 AI 擴充管線可產生的內容，但其真正的威力在於能夠重新調整資料。 您可以從基本的技能集開始，然後逐一查看以便逐漸新增結構層級，然後再結合到新的結構中，就可在 Azure 認知搜尋以外的其他應用程式中取用。
 
@@ -61,7 +61,9 @@ ms.locfileid: "73720089"
 
 + 連接到與 Azure 認知搜尋位於相同區域的儲存體帳戶。 
 
-+ 投射是資料表-物件的配對。 `Tables` 會在 Azure 資料表儲存體中定義擴充文件的實體運算式。 `Objects` 會在 Azure Blob 儲存體中定義實體物件。
++ 投影可以是表格式、JSON 物件或檔案。 `Tables` 會在 Azure 資料表儲存體中定義擴充文件的實體運算式。 `Objects` 定義 Azure Blob 儲存體中的實體 JSON 物件。 `Files` 是從會保存的檔中解壓縮的二進位檔，例如影像。
+
++ 投影是投射物件的集合，每個投射物件都可以包含 `tables`、`objects` 和 `files`。 即使在型別（資料表、物件或檔案）之間投射時，在單一投影內投射的擴充也是相關的。 跨投射物件的投影不相關，而且是獨立的。 相同的形狀可以投射 aross 多個投射物件。
 
 ```json
 {
@@ -109,7 +111,10 @@ ms.locfileid: "73720089"
             ], 
             "objects": [ 
                
-            ]      
+            ], 
+            "files": [
+
+            ]  
         },
         { 
             "tables": [ 
@@ -121,13 +126,17 @@ ms.locfileid: "73720089"
                 "source": "/document/Review", 
                 "key": "/document/Review/Id" 
                 } 
-            ]      
+            ],
+            "files": [
+                
+            ]  
         }        
     ]     
     } 
 }
 ```
 
+這個範例不包含任何影像，如需如何使用檔案投影的範例，請參閱使用[投影](knowledge-store-projection-overview.md)。
 ### <a name="sources-of-data-for-a-knowledge-store"></a>知識存放區的資料來源
 
 如果知識存放區是 AI 擴充管線的輸出，那麼輸入是什麼？ 您想要擷取、擴充並最終儲存到知識存放區的原始資料，可源自於搜尋索引子所支援的任何 Azure 資料來源： 
@@ -136,7 +145,7 @@ ms.locfileid: "73720089"
 
 * [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)
 
-* [Azure 表格儲存體](search-howto-indexing-azure-tables.md)
+* [Azure 資料表儲存體](search-howto-indexing-azure-tables.md)
 
 * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
@@ -146,12 +155,12 @@ ms.locfileid: "73720089"
 
 只有兩個 API 具有建立知識存放區所需的擴充功能 (建立技能集和建立索引子)。 其他 API 會依原狀使用。
 
-| 物件 | REST API | 描述 |
+| Object | REST API | 描述 |
 |--------|----------|-------------|
 | 資料來源 | [建立資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 一個資源，用以識別提供來源資料以建立擴充文件的外部 Azure 資料來源。  |
 | 技能集 | [建立技能集 (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 一個資源，在索引編製期間負責對擴充管線中使用的[內建技能](cognitive-search-predefined-skills.md)和[自訂認知技能](cognitive-search-custom-skill-interface.md)協調用法。 技能集具有作為子項目的 `knowledgeStore` 定義。 |
 | index | [建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index)  | 表示搜尋索引的架構。 索引中與來源資料中的欄位或在擴充階段產生的欄位 (例如，實體辨識所建立之組織名稱的欄位) 相對應的欄位。 |
-| 索引子 | [建立索引子 (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 一項資源，用以定義在索引編製期間所使用的元件：包括資料來源、技能集、來源和中繼資料結構與目標索引的欄位關聯性，以及索引本身。 執行索引子是擷取和擴充資料的觸發程序。 輸出是以索引結構描述為基礎、以來源資料填入，並透過技能集進行擴充的搜尋索引。  |
+| 索引子 | [建立索引子 (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 一項資源，用以定義在索引編製期間所使用的元件：包括資料來源、技能集、來源和中繼資料結構與目標索引的欄位關聯性，以及索引本身。 執行索引子是擷取和擴充資料的觸發程序。 輸出是以索引結構描述為基礎、以來源資料填入，並透過技能集擴充的搜尋索引。  |
 
 ### <a name="physical-composition-of-a-knowledge-store"></a>知識存放區的實體組合
 

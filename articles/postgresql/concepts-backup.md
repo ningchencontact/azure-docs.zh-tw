@@ -1,17 +1,17 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫中的備份與還原-單一伺服器
+title: 備份與還原-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
 description: 瞭解自動備份和還原您的適用於 PostgreSQL 的 Azure 資料庫伺服器-單一伺服器。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: cbd434f2f9e1217a3a481a28988f4e1d855ba08b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: be6b9c30fe462b0754ae5e5c1a7eeac242af00f1
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209646"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769858"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫中的備份與還原-單一伺服器
 
@@ -23,7 +23,7 @@ ms.locfileid: "74209646"
 
 ### <a name="backup-frequency"></a>備份頻率
 
-一般來說，完整備份會每週進行一次，而差異備份則針對最大支援的儲存體為 4 TB 的伺服器一天執行兩次。 針對最多支援 16 TB 儲存體的伺服器，快照集備份一天至少會發生一次。 在這兩種情況下，交易記錄備份每五分鐘發生一次。 在建立伺服器之後，會立即排程完整備份的第一個快照集。 在大型還原的伺服器上，初始完整備份可能需要較長的時間。 可在其中還原新伺服器的最早時間點，是完成初次完整備份的時間。 當快照集 instantanious 時，最多可支援 16 TB 儲存體的伺服器還原到建立時間。
+一般來說，完整備份會每週進行一次，而差異備份則針對最大支援的儲存體為 4 TB 的伺服器一天執行兩次。 針對支援的儲存體上限為 16 TB 的伺服器，快照集備份會每天至少執行一次。 針對上述兩種情況，交易記錄備份會每五分鐘執行一次。 在建立伺服器之後，會立即排程完整備份的第一個快照集。 在大型還原的伺服器上，初始完整備份可能需要較長的時間。 可在其中還原新伺服器的最早時間點，是完成初次完整備份的時間。 當快照集瞬間，最多可支援 16 TB 儲存體的伺服器還原到建立時間。
 
 ### <a name="backup-redundancy-options"></a>備份備援選項
 
@@ -52,7 +52,7 @@ ms.locfileid: "74209646"
 > [!IMPORTANT]
 > 已刪除的伺服器**無法**還原。 如果您刪除伺服器，所有屬於該伺服器的資料庫也會一併刪除且無法復原。 若要在部署後避免伺服器資源遭到意外刪除或非預期的變更，系統管理員可以利用[管理鎖定](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)。
 
-### <a name="point-in-time-restore"></a>還原時間點
+### <a name="point-in-time-restore"></a>時間點還原
 
 與備份備援選項無關，您可以在備份保留期限內地任何時間點執行還原。 新伺服器會建立在與原始伺服器相同的 Azure 區域中。 其使用原始伺服器的組態來建立，包含定價層、計算世代、虛擬核心數目、儲存體大小、備份保留期限，以及備份備援選項。
 

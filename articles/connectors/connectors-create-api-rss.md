@@ -1,22 +1,18 @@
 ---
-title: 從 Azure Logic Apps 連線到 RSS 摘要 | Microsoft Docs
+title: 從 Azure Logic Apps 連接到 RSS 摘要
 description: 使用 Azure Logic Apps 將監視和管理 RSS 摘要的工作和工作流程自動化
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
-tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 70b250074395977f70ac1b3eb0ce3ffdc96fced1
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 3f1e092c2ff325cdcbc32c617af316d6fbe6dd74
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050840"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789336"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 來管理 RSS 摘要
 
@@ -31,7 +27,7 @@ RSS (具意網站摘要) 也稱為真正簡易新聞訂閱方式，是一種熱�
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * RSS 摘要的 URL
 
@@ -60,7 +56,7 @@ RSS (具意網站摘要) 也稱為真正簡易新聞訂閱方式，是一種熱�
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
+* 若要送出或票選功能構想，請前往 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

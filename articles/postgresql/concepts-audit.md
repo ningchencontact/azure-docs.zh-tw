@@ -1,17 +1,17 @@
 ---
-title: 在適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中使用 pgAudit 的審核記錄
+title: Audit 記錄-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
 description: 適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的 pgAudit audit 記錄概念。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 49ad7334c418e29c821320608be729e060b4a8ae
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4a41e5eda3ca2bd92d78a81d73c1ad4c859e25a3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331338"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764554"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫中的審核記錄-單一伺服器
 
@@ -53,7 +53,7 @@ ms.locfileid: "72331338"
       ```
 
 > [!TIP]
-> 如果您看到錯誤，請確認您已在儲存後重新開機伺服器 `shared_preload_libraries`。
+> 如果您看到錯誤，請確認您在儲存 `shared_preload_libraries`之後重新開機伺服器。
 
 ## <a name="pgaudit-settings"></a>pgAudit 設定
 
@@ -65,18 +65,18 @@ pgAudit 可讓您設定會話或物件的 audit 記錄。 [會話 audit 記錄](
 [安裝 pgAudit](#installing-pgaudit)之後，您可以設定其參數以開始記錄。 [PgAudit 檔](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings)會提供每個參數的定義。 先測試參數，並確認您得到的是預期的行為。
 
 > [!NOTE]
-> 將 `pgaudit.log_client` 設定為 ON 時，會將記錄重新導向至用戶端進程（例如 psql），而不是寫入至檔案。 此設定通常應保持停用狀態。
+> 將 `pgaudit.log_client` 設定為 ON 會將記錄重新導向至用戶端進程（例如 psql），而不是寫入至檔案。 此設定通常應保持停用狀態。
 
 > [!NOTE]
-> 只有當 `pgaudit.log_client` 為 on 時，才會啟用 `pgaudit.log_level`。 此外，在 Azure 入口網站中，目前有 `pgaudit.log_level` 的錯誤：顯示下拉式方塊，表示可以選取多個層級。 不過，只應選取一個層級。 
+> 只有在 `pgaudit.log_client` 為 on 時，才會啟用 `pgaudit.log_level`。 此外，在 Azure 入口網站中，目前有 `pgaudit.log_level`的錯誤：顯示下拉式方塊，表示可以選取多個層級。 不過，只應選取一個層級。 
 
 > [!NOTE]
 > 在適用於 PostgreSQL 的 Azure 資料庫中，無法使用 `-` （減號）符號快捷方式來設定 `pgaudit.log`，如 pgAudit 檔中所述。 所有必要的陳述式類別 (讀取、寫入等) 都應該個別指定。
 
 ### <a name="audit-log-format"></a>Audit 記錄格式
-每個 audit 專案都會以 `AUDIT:` 表示，接近記錄行的開頭。 專案其餘部分的格式會在[pgAudit 檔](https://github.com/pgaudit/pgaudit/blob/master/README.md#format)中詳述。
+每個 audit 專案都會以 `AUDIT:` 接近記錄行的開頭來表示。 專案其餘部分的格式會在[pgAudit 檔](https://github.com/pgaudit/pgaudit/blob/master/README.md#format)中詳述。
 
-如果您需要其他任何欄位以滿足您的審核需求，請使用 Postgres 參數 `log_line_prefix`。 `log_line_prefix` 是在每個 Postgres 記錄行的開頭輸出的字串。 例如，下列 `log_line_prefix` 設定提供 timestamp、username、database name 和 process ID：
+如果您需要其他任何欄位以滿足您的審核需求，請使用 Postgres 參數 `log_line_prefix`。 `log_line_prefix` 是在每個 Postgres 記錄行的開頭輸出的字串。 例如，下列 `log_line_prefix` 設定會提供時間戳記、使用者名稱、資料庫名稱和處理序識別碼：
 
 ```
 t=%m u=%u db=%d pid=[%p]:
@@ -85,7 +85,7 @@ t=%m u=%u db=%d pid=[%p]:
 若要深入瞭解 `log_line_prefix`，請造訪[于 postgresql 檔](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX)。
 
 ### <a name="getting-started"></a>開始使用
-若要快速開始，請將 `pgaudit.log` 設定為 `WRITE`，然後開啟您的記錄以查看輸出。 
+若要快速開始，請將 `pgaudit.log` 設定為 [`WRITE`]，然後開啟您的記錄以查看輸出。 
 
 
 ## <a name="next-steps"></a>後續步驟

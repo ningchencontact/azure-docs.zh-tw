@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5d1654556df455accb7f615442d3a97952c5e50
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b9e1af654f0e82017bab4db5eb529b7d65b44714
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180416"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786430"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>設定系統管理員同意工作流程（預覽）
 
@@ -33,10 +33,10 @@ ms.locfileid: "73180416"
 
 若要啟用系統管理員同意工作流程並選擇 [審核者]：
 
-1. 以全域管理員身分登入 [Azure 入口網站](https://portal.azure.com) 。
-2. 按一下左側導覽功能表頂端的 [ **所有服務**] 。  **Azure Active Directory 延伸**模組 隨即開啟。
-3. 在 篩選搜尋 方塊中，輸入 "**Azure Active Directory**"，然後選取**Azure Active Directory** 專案。
-4. 從導覽功能表中，按一下 [ **企業應用程式**]。 
+1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
+2. 按一下左側導覽功能表頂端的 [所有服務]。 [Azure Active Directory 擴充功能] 隨即開啟。
+3. 在篩選搜尋方塊中，輸入 "**Azure Active Directory**"，然後選取 **[Azure Active Directory** ] 專案。
+4. 從導覽功能表中，按一下 [企業應用程式]。 
 5. 在 [**管理**] 底下，選取 [**使用者設定**]。
 6. 在 **[系統管理員同意要求（預覽）** ] 底下，設定 [**使用者可以要求系統管理員同意他們無法同意的應用程式** **]** 。
 
@@ -49,7 +49,7 @@ ms.locfileid: "73180416"
    * **選取的使用者將會收到要求到期提醒**。 當要求即將到期時，啟用或停用提醒電子郵件通知給審核者。  
    * **同意要求會在（天）後到期**。 指定要求保持有效的時間長度。
 
-7. 選取 [ **儲存**]。 此功能最多可能需要一小時的時間才會啟用。
+7. 選取 [儲存]。 此功能最多可能需要一小時的時間才會啟用。
 
 > [!NOTE]
 > 您可以藉由修改 [**選取管理員同意要求審核者**] 清單來新增或移除此工作流程的審核者。 請注意，這項功能目前的限制是，審核者可以保留在被指定為審核者時，檢查要求的功能。
@@ -74,10 +74,10 @@ ms.locfileid: "73180416"
 
 若要檢查系統管理員同意要求並採取行動：
 
-1. 以系統管理員同意工作流程的其中一個已註冊的審核者身分登入 [Azure 入口網站](https://portal.azure.com) 。
-2. 選取左側導覽功能表頂端的 [**所有服務**] 。  **Azure Active Directory 延伸**模組 隨即開啟。
-3. 在 篩選搜尋 方塊中，輸入 "**Azure Active Directory**"，然後選取  **Azure Active Directory** 專案。
-4. 從導覽功能表中，按一下 [ **企業應用程式**]。
+1. 以系統管理員同意工作流程的其中一個已註冊的審核者身分登入[Azure 入口網站](https://portal.azure.com)。
+2. 選取左側導覽功能表頂端的 [**所有服務**]。 [Azure Active Directory 擴充功能] 隨即開啟。
+3. 在篩選搜尋方塊中，輸入 "**Azure Active Directory**"，然後選取 [ **Azure Active Directory** ] 專案。
+4. 從導覽功能表中，按一下 [企業應用程式]。
 5. 在 [**活動**] 下，選取 **[管理員同意要求（預覽）** ]。
 
    > [!NOTE]
@@ -120,12 +120,12 @@ ms.locfileid: "73180416"
 
 |案例  |Audit 服務  |稽核類別  |Audit 活動  |Audit 執行者  |Audit 記錄檔限制  |
 |---------|---------|---------|---------|---------|---------|
-|管理員啟用同意要求工作流程        |存取權檢閱           |Usermanagement program.cs           |建立治理原則範本          |應用程式內容            |目前找不到使用者內容            |
-|管理員停用同意要求工作流程       |存取權檢閱           |Usermanagement program.cs           |刪除治理原則範本          |應用程式內容            |目前找不到使用者內容           |
-|管理員更新同意工作流程設定        |存取權檢閱           |Usermanagement program.cs           |更新治理原則範本          |應用程式內容            |目前找不到使用者內容           |
-|終端使用者建立應用程式的管理員同意要求       |存取權檢閱           |原則         |建立要求           |應用程式內容            |目前找不到使用者內容           |
-|核准系統管理員同意要求的審核者       |存取權檢閱           |Usermanagement program.cs           |核准商務流程中的所有要求          |應用程式內容            |您目前找不到已授與系統管理員同意的使用者內容或應用程式識別碼。           |
-|拒絕管理員同意要求的審核者       |存取權檢閱           |Usermanagement program.cs           |核准商務流程中的所有要求          |應用程式內容            | 目前您找不到拒絕系統管理員同意要求之動作專案的使用者內容          |
+|管理員啟用同意要求工作流程        |存取權審核           |Usermanagement program.cs           |建立治理原則範本          |應用程式內容            |目前找不到使用者內容            |
+|管理員停用同意要求工作流程       |存取權審核           |Usermanagement program.cs           |刪除治理原則範本          |應用程式內容            |目前找不到使用者內容           |
+|管理員更新同意工作流程設定        |存取權審核           |Usermanagement program.cs           |更新治理原則範本          |應用程式內容            |目前找不到使用者內容           |
+|終端使用者建立應用程式的管理員同意要求       |存取權審核           |原則         |建立要求           |應用程式內容            |目前找不到使用者內容           |
+|核准系統管理員同意要求的審核者       |存取權審核           |Usermanagement program.cs           |核准商務流程中的所有要求          |應用程式內容            |您目前找不到已授與系統管理員同意的使用者內容或應用程式識別碼。           |
+|拒絕管理員同意要求的審核者       |存取權審核           |Usermanagement program.cs           |核准商務流程中的所有要求          |應用程式內容            | 目前您找不到拒絕系統管理員同意要求之動作專案的使用者內容          |
 
 ## <a name="faq"></a>常見問題集 
 

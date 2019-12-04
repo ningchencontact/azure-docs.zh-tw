@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 76ab8784f04f3c67e4ea8062505931783048dea1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c44228d7e1456bce870765935beb011cb24626d5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113596"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790942"
 ---
 # <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>什麼是 Azure 認知搜尋中的增量編制索引？
 
@@ -47,7 +47,7 @@ ms.locfileid: "74113596"
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters":{}
+    "parameters": {}
 }
 ```
 
@@ -83,7 +83,7 @@ PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?
 
 ### <a name="invalidating-changes"></a>使變更失效
 
-使變更失效是很罕見的作業，但對擴充管線的狀態會有重大影響。 失效變更是指會讓整個快取都不再有效的變更。 舉例來說，讓您的資料來源進行更新的變更，即為失效變更。 在您知道變更不應使快取不正確情況下（例如，輪替儲存體帳戶上的金鑰），`ignoreResetRequirement` querystring 參數應該設定為在特定資源的更新作業上 `true`，以確保作業為未被拒絕。
+使變更失效是很罕見的作業，但對擴充管線的狀態會有重大影響。 失效變更是指會讓整個快取都不再有效的變更。 舉例來說，讓您的資料來源進行更新的變更，即為失效變更。 在您知道變更不應使快取不正確情況下（例如，輪替儲存體帳戶上的金鑰），`ignoreResetRequirement` querystring 參數應該設定為在特定資源的更新作業上 `true`，以確保不會拒絕作業。
 
 以下是會使快取失效的完整變更清單：
 
@@ -122,7 +122,7 @@ PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?
 
 REST `api-version=2019-05-06-Preview` 提供用於增量編制索引的 Api，以及索引子、技能集和資料來源的新增專案。 參考檔目前並未包含這些新增專案。 下一節將說明 API 的變更。
 
-### <a name="indexers"></a>索引子
+### <a name="indexers"></a>索引工具
 
 [建立索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer)和[更新索引子](https://docs.microsoft.com/rest/api/searchservice/update-indexer)現在會公開與快取相關的新屬性：
 
@@ -142,7 +142,7 @@ REST `api-version=2019-05-06-Preview` 提供用於增量編制索引的 Api，�
 
 資料來源將不支援任何新的作業，但會支援新的 querystring 參數：當您的更新動作不應使快取失效時，`ignoreResetRequirement` 應設定為 `true`。
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 使用累加式索引編製的建議方法是，藉由在新的索引子上設定快取屬性，來設定累加式索引編製，或重設現有的索引子並設定快取屬性。
 

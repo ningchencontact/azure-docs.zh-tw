@@ -1,17 +1,17 @@
 ---
-title: 為適用於 MariaDB 的 Azure 資料庫選取正確的部署類型
+title: 選取正確的部署類型-適用於 MariaDB 的 Azure 資料庫
 description: 本文說明將適用於 MariaDB 的 Azure 資料庫部署為基礎結構即服務（IaaS）或平臺即服務（PaaS）之前應考慮的因素。
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/15/2019
-ms.openlocfilehash: 59064c71d19f81a5edc322bc4c8158773a104b5d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/02/2019
+ms.openlocfilehash: d53a3f270c1de3c8d533b5886e0051f6aa1ef10d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151994"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776733"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>在 Azure 中選擇正確的適用于 mariadb 伺服器選項
 
@@ -85,7 +85,7 @@ ms.locfileid: "74151994"
   - 索引微調
   - 查詢微調
   - 稽核
-  - Security
+  - 安全性
 
   此外，將高可用性設定為另一個資料中心，幾乎不需要進行任何設定或管理。
 

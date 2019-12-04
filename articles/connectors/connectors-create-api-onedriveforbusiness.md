@@ -1,22 +1,18 @@
 ---
-title: 連線到商務用 OneDrive - Azure Logic Apps | Microsoft Docs
+title: 連接到商務用 OneDrive
 description: 使用商務用 OneDrive REST API 和 Azure Logic Apps上傳及管理檔案
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 08/18/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 08/18/2016
 tags: connectors
-ms.openlocfilehash: 87a162338cc67a3f2d2fc425bbcbefe2976661e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48c819566db43e2f997309d1bea55a9436ec7085
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104913"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789441"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>開始使用 OneDrive for Business 連接器
 連接到 OneDrive for Business 來管理您的檔案。 您可以對檔案執行各種動作，例如上傳、更新、取得及刪除。

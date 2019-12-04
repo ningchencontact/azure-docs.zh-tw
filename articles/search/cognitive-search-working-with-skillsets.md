@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: acf7305a46e9fc3d19f96f88cf2e9ab5eacddd7c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 340e6d3feaf0265597a70229fd2658f009c01f64
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113638"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790893"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Azure 認知搜尋中的技能集概念和組合
 
@@ -65,7 +65,7 @@ ms.locfileid: "74113638"
 
 ### <a name="sourcecontext"></a>SourceCoNtext
 
-`sourceContext` 僅用於[整形的技能](cognitive-search-skill-shaper.md)和[投影](knowledge-store-projection-overview.md)。 它是用來建立多層級的嵌套物件。 此 `sourceContext` 可讓您建立階層式匿名型別物件，如果您只使用內容，就需要多個技能。 下一節會顯示使用 `sourceContext`。
+`sourceContext` 僅用於技能輸入和[投影](knowledge-store-projection-overview.md)。 它是用來建立多層級的嵌套物件。 您可能需要建立新的專案，將它當做技能或專案的輸入傳遞至知識存放區。 由於擴充節點在擴充樹狀結構中可能不是有效的 JSON 物件，而且在樹狀結構中 refrencing 節點只會在建立時傳回該節點的狀態，因此使用擴充做為技能輸入或投射時，會要求您建立格式正確的 JSON 物件。 此 `sourceContext` 可讓您建立階層式匿名型別物件，如果您只使用內容，就需要多個技能。 下一節會顯示使用 `sourceContext`。 查看產生擴充的技能輸出，判斷它是否為有效的 JSON 物件，而不是基本類型。
 
 ### <a name="projections"></a>投影
 

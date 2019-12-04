@@ -1,22 +1,18 @@
 ---
-title: 從 Azure Logic Apps 連線到 Slack | Microsoft Docs
+title: 連接到 Azure Logic Apps 的時差
 description: 藉由使用 Azure Logic Apps，讓在 Slack 帳戶中監視檔案及管理通道、群組和訊息的工作和工作流程自動化
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 2606fdc15194264bc3d84496d2de258adfc314be
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 5f61009ee7b43be618e37acb4a783a54dbf11e55
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050787"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789166"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>使用 Azure Logic Apps 來監視及管理 Slack
 
@@ -31,7 +27,7 @@ ms.locfileid: "70050787"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * 您的 [Slack](https://slack.com/) (英文) 帳戶和使用者認證
 
@@ -53,7 +49,7 @@ ms.locfileid: "70050787"
 
    若是現有的邏輯應用程式，請在想要新增動作的最後一個步驟底下，選擇 [新增步驟]。 
    在搜尋方塊中，輸入 "slack" 作為篩選條件。 
-   請在動作清單底下，選取您想要的動作。
+   在動作清單底下，選取您想要的動作。
 
    若要在步驟之間新增動作，將指標移至步驟之間的箭號。 
    選擇顯示的加號 ( **+** )，然後選取 [新增動作]。
@@ -75,7 +71,7 @@ ms.locfileid: "70050787"
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
+* 若要送出或票選功能構想，請前往 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

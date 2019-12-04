@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 452dfcc04d9fc9048493222ad2a82a5bcc8b78f4
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 009a480add9d808115f24a69a400118fec7cb293
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162875"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790586"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure 虛擬機器的自動備份 v2 (Resource Manager)
 
@@ -173,7 +173,7 @@ $resourcegroupname = "resourcegroupname"
 $region = "EASTUS2"
 Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
-    -Version "1.2" -Location $region 
+    -Version "2.0" -Location $region 
 ```
 
 ### <a id="verifysettings"></a> 確認目前的設定
@@ -290,7 +290,7 @@ $logbackupfrequency = "30"
 
 Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
-    -Version "1.2" -Location $region
+    -Version "2.0" -Location $region
 
 # Creates/use a storage account to store the backups
 
@@ -319,7 +319,7 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 若要監控 SQL Server 2016/2017 上的自動備份，您有兩個主要選項。 因為自動備份使用 SQL Server 受控備份功能，所以相同的監控技術適用於兩者。
 
-首先，您可以藉由呼叫 [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql) 來輪詢狀態。 或查詢[managed_backup. fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql)資料表值函式。
+首先，您可以藉由呼叫 [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql) 來輪詢狀態。 或查詢[msdb. managed_backup. fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql)資料表值函式。
 
 另一個選項是利用內建的 Database Mail 功能進行通知。
 

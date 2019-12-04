@@ -2,19 +2,16 @@
 title: 管理 Azure Logic Apps 中的整合服務環境
 description: 檢查網路健康狀態，並管理整合服務環境（ISE）中的邏輯應用程式、連線、自訂連接器和整合帳戶，以進行 Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 6a6b096911ac8596fe29aeb4596f1da6d5266794
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 1d91813e0f39207bcf7768de89600a6bdee0fc53
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967827"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792632"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>在 Azure Logic Apps 中管理您的整合服務環境（ISE）
 

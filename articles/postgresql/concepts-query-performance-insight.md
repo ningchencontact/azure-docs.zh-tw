@@ -1,25 +1,25 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的查詢效能深入解析
+title: 查詢效能深入解析-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
 description: 本文說明適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的查詢效能深入解析功能。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 748c6f08da535013724f68b8be424e50a2d49dfd
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: dd5b4ec53d82421ddd9d680ca41e48eeecc43c2c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764424"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768379"
 ---
 # <a name="query-performance-insight"></a>查詢效能深入解析 
 
-**適用範圍：** 適用於 PostgreSQL 的 Azure 資料庫-單一伺服器版本9.6、10、11
+**適用物件：** 適用於 PostgreSQL 的 Azure 資料庫-單一伺服器版本9.6、10、11
 
 查詢效能深入解析可協助您快速找出執行時間最長的查詢、一段時間後的變化情形，以及受到哪些等候的影響。
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>使用權限
 需要**擁有者**或**參與者**權限，才能檢視查詢效能深入解析中的查詢文字。 **讀者**可以檢視圖表與資料表，但無法檢視查詢文字。
 
 ## <a name="prerequisites"></a>必要條件

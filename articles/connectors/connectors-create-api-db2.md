@@ -1,21 +1,18 @@
 ---
-title: 連接到 IBM DB2-Azure Logic Apps
+title: 連接到 IBM DB2
 description: 使用 IBM DB2 REST API 和 Azure Logic Apps 管理資源
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: plarsen, LADocs
+ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: a7079115b381d094cec77f96015342b5bc568c27
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 3c2bb01254b19c42fdd704544a6812177fecf4ca
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051026"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789895"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>使用 Azure Logic Apps 管理 IBM DB2 資源
 
@@ -25,11 +22,11 @@ ms.locfileid: "70051026"
 
 ## <a name="supported-platforms-and-versions"></a>支援的平台和版本
 
-DB2 連接器內含 Microsoft 用戶端，以便透過 TCP/IP 網路來與遠端 DB2 伺服器通訊。 您可以使用此連接器來存取雲端資料庫, 例如在 Azure 虛擬化中執行的 IBM DB2 for Windows。 您也可以在[安裝和設定內部部署資料閘道](../logic-apps/logic-apps-gateway-connection.md)後，存取內部部署 DB2 資料庫。
+DB2 連接器內含 Microsoft 用戶端，以便透過 TCP/IP 網路來與遠端 DB2 伺服器通訊。 您可以使用此連接器來存取雲端資料庫，例如在 Azure 虛擬化中執行的 IBM DB2 for Windows。 您也可以在[安裝和設定內部部署資料閘道](../logic-apps/logic-apps-gateway-connection.md)後，存取內部部署 DB2 資料庫。
 
-IBM DB2 連接器支援這些 IBM DB2 平臺和版本, 以及支援分散式關係資料庫架構 (DRDA) SQL 存取管理員 (SQLAM) 版本10和11的 IBM DB2 相容產品:
+IBM DB2 連接器支援這些 IBM DB2 平臺和版本，以及支援分散式關係資料庫架構（DRDA） SQL 存取管理員（SQLAM）版本10和11的 IBM DB2 相容產品：
 
-| 平台 | Version | 
+| 平台 | 版本 | 
 |----------|---------|
 | IBM DB2 for z/OS | 11.1, 10.1 |
 | IBM DB2 for i | 7.3, 7.2, 7.1 |
@@ -43,7 +40,7 @@ IBM DB2 連接器支援以下資料庫作業，這些作業對應至連接器中
 | 資料庫作業 | 連接器動作 |
 |--------------------|------------------|
 | 列出資料庫資料表 | 取得資料表 |
-| 使用 SELECT 讀取一個資料列 | 取得資料列 |
+| 使用 SELECT 讀取一個資料列 | 取得單一資料列 |
 | 使用 SELECT 讀取所有資料列 | 取得多個資料列 |
 | 使用 INSERT 加入一個資料列 | 插入資料列 |
 | 使用 UPDATE 編輯一個資料列 | 更新資料列 |
@@ -52,13 +49,13 @@ IBM DB2 連接器支援以下資料庫作業，這些作業對應至連接器中
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * IBM DB2 資料庫，雲端式或內部部署皆可
 
 * [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識
 
-* 要在其中存取 DB2 資料庫的邏輯應用程式。 此連接器只提供動作，因此若要啟動邏輯應用程式，請選取個別觸發程序，例如**週期**觸發程序。
+* 要在其中存取 DB2 資料庫的邏輯應用程式。 此連接器只提供動作，因此若要啟動您的邏輯應用程式，請選取個別觸發程序，例如「週期」觸發程序。
 本文範例使用**週期**觸發程序。
 
 <a name="add-db2-action"></a>
@@ -69,7 +66,7 @@ IBM DB2 連接器支援以下資料庫作業，這些作業對應至連接器中
 
 1. 在觸發程序下方，選擇 [新增步驟]。
 
-1. 在搜尋方塊中，輸入「db2」作為篩選條件。 針對此範例, 請在 [動作] 清單底下, 選取此動作:**取得資料表 (預覽)**
+1. 在搜尋方塊中，輸入「db2」作為篩選條件。 針對此範例，請選取 [動作] 清單下的這個動作：**取得資料表 (預覽)**
 
    ![選取動作](./media/connectors-create-api-db2/select-db2-action.png)
 
@@ -87,13 +84,13 @@ IBM DB2 連接器支援以下資料庫作業，這些作業對應至連接器中
 |----------|----------|-------------|
 | **透過內部部署閘道連接** | 否 | 僅適用於內部部署連線。 |
 | 連線名稱 | 是 | 連線的名稱，例如「MyLogicApp-DB2-connection」 |
-| **伺服器** | 是 | DB2 伺服器的位址或別名冒號連接埠號碼，例如「myDB2server.cloudapp.net:50000」 <p><p>**注意**：這個值是代表 TCP/IP 位址或別名的字串, 可以是 IPv4 或 IPv6 格式, 後面接著冒號和 TCP/IP 埠號碼。 |
-| **[資料庫備份]** | 是 | 資料庫的名稱 <p><p>**注意**：這個值是代表 DRDA 關係資料庫名稱 (RDBNAM) 的字串: <p>- DB2 for z/OS 接受 16 個位元組的字串 (其中，此資料庫也稱為「IBM DB2 for z/OS」位置)。 <br>- DB2 for i 接受 18 個位元組的字串 (其中，此資料庫也稱為「IBM DB2 for i」關聯式資料庫)。 <br>- DB2 for LUW 接受 8 個位元組的字串。 |
-| **使用者名稱** | 是 | 資料庫的使用者名稱 <p><p>**注意**：這個值是一個字串, 其長度是以特定資料庫為基礎: <p><p>- DB2 for z/OS 接受 8 個位元組的字串。 <br>- DB2 for i 接受 10 個位元組的字串。 <br>- DB2 for Linux 或 UNIX 接受 8 個位元組的字串。 <br>- DB2 for Windows 接受 30 個位元組的字串。 |
+| **伺服器** | 是 | DB2 伺服器的位址或別名冒號連接埠號碼，例如「myDB2server.cloudapp.net:50000」 <p><p>**注意**：這個值是字串，代表 TCP/IP 位址或別名 (採用 IPv4 或 IPv6 格式)，後面接著冒號和 TCP/IP 連接埠號碼。 |
+| **資料庫** | 是 | 資料庫的名稱 <p><p>**注意**：這個值是字串，代表 DRDA 關聯式資料庫名稱 (RDBNAM)： <p>- DB2 for z/OS 接受 16 個位元組的字串 (其中，此資料庫也稱為「IBM DB2 for z/OS」位置)。 <br>- DB2 for i 接受 18 個位元組的字串 (其中，此資料庫也稱為「IBM DB2 for i」關聯式資料庫)。 <br>- DB2 for LUW 接受 8 個位元組的字串。 |
+| **使用者名稱** | 是 | 資料庫的使用者名稱 <p><p>**注意**：這個值是字串，其長度以特定資料庫為基礎： <p><p>- DB2 for z/OS 接受 8 個位元組的字串。 <br>- DB2 for i 接受 10 個位元組的字串。 <br>- DB2 for Linux 或 UNIX 接受 8 個位元組的字串。 <br>- DB2 for Windows 接受 30 個位元組的字串。 |
 | **密碼** | 是 | 資料庫的密碼 |
 ||||
 
-例如:
+例如：
 
 ![雲端式資料庫的連線詳細資料](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
 
@@ -107,15 +104,15 @@ IBM DB2 連接器支援以下資料庫作業，這些作業對應至連接器中
 |----------|----------|-------------|
 | **透過內部部署閘道連接** | 是 | 適用於當您想要使用內部部署連線，並顯示內部部署連線屬性時。 |
 | 連線名稱 | 是 | 連線的名稱，例如「MyLogicApp-DB2-connection」 | 
-| **伺服器** | 是 | DB2 伺服器的位址或別名冒號連接埠號碼，例如「myDB2server:50000」 <p><p>**注意**：這個值是代表 TCP/IP 位址或別名的字串, 可以是 IPv4 或 IPv6 格式, 後面接著冒號和 TCP/IP 埠號碼。 |
-| **[資料庫備份]** | 是 | 資料庫的名稱 <p><p>**注意**：這個值是代表 DRDA 關係資料庫名稱 (RDBNAM) 的字串: <p>- DB2 for z/OS 接受 16 個位元組的字串 (其中，此資料庫也稱為「IBM DB2 for z/OS」位置)。 <br>- DB2 for i 接受 18 個位元組的字串 (其中，此資料庫也稱為「IBM DB2 for i」關聯式資料庫)。 <br>- DB2 for LUW 接受 8 個位元組的字串。 |
-| **驗證** | 是 | 連線的驗證類型，例如「基本」 <p><p>**注意**：從清單中選取此值, 其中包含 [基本] 或 [Windows (Kerberos)]。 |
-| **使用者名稱** | 是 | 資料庫的使用者名稱 <p><p>**注意**：這個值是一個字串, 其長度是以特定資料庫為基礎: <p><p>- DB2 for z/OS 接受 8 個位元組的字串。 <br>- DB2 for i 接受 10 個位元組的字串。 <br>- DB2 for Linux 或 UNIX 接受 8 個位元組的字串。 <br>- DB2 for Windows 接受 30 個位元組的字串。 |
+| **伺服器** | 是 | DB2 伺服器的位址或別名冒號連接埠號碼，例如「myDB2server:50000」 <p><p>**注意**：這個值是字串，代表 TCP/IP 位址或別名 (採用 IPv4 或 IPv6 格式)，後面接著冒號和 TCP/IP 連接埠號碼。 |
+| **資料庫** | 是 | 資料庫的名稱 <p><p>**注意**：這個值是字串，代表 DRDA 關聯式資料庫名稱 (RDBNAM)： <p>- DB2 for z/OS 接受 16 個位元組的字串 (其中，此資料庫也稱為「IBM DB2 for z/OS」位置)。 <br>- DB2 for i 接受 18 個位元組的字串 (其中，此資料庫也稱為「IBM DB2 for i」關聯式資料庫)。 <br>- DB2 for LUW 接受 8 個位元組的字串。 |
+| **驗證** | 是 | 連線的驗證類型，例如「基本」 <p><p>**注意**：請從清單選取此值，可選項目包括「基本」或「Windows (Kerberos)」。 |
+| **使用者名稱** | 是 | 資料庫的使用者名稱 <p><p>**注意**：這個值是字串，其長度以特定資料庫為基礎： <p><p>- DB2 for z/OS 接受 8 個位元組的字串。 <br>- DB2 for i 接受 10 個位元組的字串。 <br>- DB2 for Linux 或 UNIX 接受 8 個位元組的字串。 <br>- DB2 for Windows 接受 30 個位元組的字串。 |
 | **密碼** | 是 | 資料庫的密碼 |
-| **閘道** | 是 | 所安裝內部部署資料閘道的名稱 <p><p>**注意**：從清單中選取此值, 其中包含您的 Azure 訂用帳戶和資源群組內所有已安裝的資料閘道。 |
+| **閘道** | 是 | 所安裝內部部署資料閘道的名稱 <p><p>**注意**：請從清單選取此值，可選項目包括 Azure 訂用帳戶和資源群組內的所有已安裝資料閘道。 |
 ||||
 
-例如:
+例如：
 
 ![內部部署資料庫的連線詳細資料](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
 
@@ -142,7 +139,7 @@ IBM DB2 連接器支援以下資料庫作業，這些作業對應至連接器中
 
    ![檢視輸出資料表](./media/connectors-create-api-db2/db2-connector-get-tables-outputs.png)
 
-## <a name="get-row"></a>取得資料列
+## <a name="get-row"></a>取得單一資料列
 
 若要擷取 DB2 資料庫資料表中的一筆記錄，請在邏輯應用程式中使用 [取得資料列] 動作。 這個動作會執行 DB2 `SELECT WHERE` 陳述式，例如 `SELECT FROM AREA WHERE AREAID = '99999'`。
 
@@ -160,7 +157,7 @@ IBM DB2 連接器支援以下資料庫作業，這些作業對應至連接器中
    | **區域識別碼** | 是 | 所需記錄的識別碼，例如此例中的「99999」 |
    ||||
 
-   ![請選取資料表](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+   ![選取資料表](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
 1. 當您完成時，請在設計工具的工具列上，選擇 [儲存]。
 
@@ -195,7 +192,7 @@ IBM DB2 連接器支援以下資料庫作業，這些作業對應至連接器中
 
 1. 開啟 [資料表名稱] 清單，然後選取所需的資料表，也就是此例中的「AREA」：
 
-   ![請選取資料表](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+   ![選取資料表](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
 1. 若要指定篩選條件或查詢結果，請選擇 [顯示進階選項]。
 
@@ -242,9 +239,9 @@ IBM DB2 連接器支援以下資料庫作業，這些作業對應至連接器中
    | **區域識別碼** | 是 | 所要新增區域的識別碼，例如「102」 |
    |||| 
 
-   例如:
+   例如：
 
-   ![請選取資料表](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+   ![選取資料表](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
 1. 當您完成時，請在設計工具的工具列上，選擇 [儲存]。
 
@@ -290,9 +287,9 @@ IBM DB2 連接器支援以下資料庫作業，這些作業對應至連接器中
    | **區域識別碼** | 是 | 新區域的識別碼，例如「102」 |
    ||||
 
-   例如:
+   例如：
 
-   ![請選取資料表](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+   ![選取資料表](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
 1. 當您完成時，請在設計工具的工具列上，選擇 [儲存]。
 
@@ -335,9 +332,9 @@ IBM DB2 連接器支援以下資料庫作業，這些作業對應至連接器中
    | **資料列識別碼** | 是 | 所要刪除記錄的識別碼，例如「99999」 |
    ||||
 
-   例如:
+   例如：
 
-   ![請選取資料表](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+   ![選取資料表](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
 1. 當您完成時，請在設計工具的工具列上，選擇 [儲存]。
 
@@ -362,7 +359,7 @@ IBM DB2 連接器支援以下資料庫作業，這些作業對應至連接器中
 
 ## <a name="connector-reference"></a>連接器參考
 
-如需如連接器的 OpenAPI (先前為 Swagger) 檔案所述的技術詳細資料 (例如觸發程式、動作和限制), 請參閱[連接器的參考頁面](/connectors/db2/)。
+如需如連接器的 OpenAPI （先前為 Swagger）檔案所述的技術詳細資料（例如觸發程式、動作和限制），請參閱[連接器的參考頁面](/connectors/db2/)。
 
 ## <a name="next-steps"></a>後續步驟
 

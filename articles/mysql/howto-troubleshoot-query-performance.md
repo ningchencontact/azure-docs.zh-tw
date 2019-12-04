@@ -1,17 +1,17 @@
 ---
-title: 如何對適用於 MySQL 的 Azure 資料庫中的查詢效能進行疑難排解
+title: 針對查詢效能進行疑難排解-適用於 MySQL 的 Azure 資料庫
 description: 瞭解如何使用說明，針對適用於 MySQL 的 Azure 資料庫中的查詢效能進行疑難排解。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 02/28/2018
-ms.openlocfilehash: d58721f1fedd234b3c400a82035048d8e70f8c32
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 5bfefe3215558a94396e729a318e0746a4fb3aec
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972860"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764792"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>如何使用 EXPLAIN 剖析適用於 MySQL 的 Azure 資料庫中的查詢效能
 **EXPLAIN** 是可最佳化查詢的便利工具。 EXPLAIN 陳述式可用來取得關於 SQL 陳述式如何執行的資訊。 下列輸出顯示 EXPLAIN 陳述式的執行範例。
@@ -120,7 +120,7 @@ possible_keys: covered
 如上述 EXPLAIN 所示，MySQL 此時會使用涵蓋性索引，而避免建立暫存資料表。 
 
 ## <a name="combined-index"></a>結合的索引
-結合的索引包含多個資料行的值，可被視為依串連的索引資料行值排序的資料列陣列。 此方法適用於 **GROUP BY** 陳述式。
+結合的索引包含多個資料行的值，可被視為依串連的索引資料行值排序的資料列陣列。 這個方法在**GROUP BY**語句中可能很有用。
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
