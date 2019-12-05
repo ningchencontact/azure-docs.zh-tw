@@ -21,6 +21,8 @@
   items:
     - name: 部署 FarmBeats
       href: prepare-for-deployment.md
+    - name: 管理使用者
+      href: manage-users.md
     - name: 管理農場
       href: manage-farms.md
     - name: 取得感應器資料

@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: d7ceb3acb1d2e3d174f3b665ec6210d3ddac9970
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: bdb459a69557269a20d36f05acc2da502064efb9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059156"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851344"
 ---
 # <a name="troubleshooting-azure-virtual-machines"></a>針對 Azure 虛擬機器進行疑難排解
 
 ## <a name="tools-for-troubleshooting"></a>疑難排解工具
 
-- [序列主控台](serial-console-windows.md)
+- [序列主控台](serial-console-overview.md)
 - [開機診斷](boot-diagnostics.md)
 - [Windows VM：將作業系統磁碟連結到另一個 VM 以進行疑難排解](troubleshoot-recovery-disks-portal-windows.md)
 - [Linux VM：將作業系統磁碟連結到另一個 VM 以進行疑難排解](troubleshoot-recovery-disks-portal-linux.md)
@@ -46,7 +46,7 @@ ms.locfileid: "71059156"
 
 **VM 開機錯誤**
 
-* [BitLocker 開機錯誤](troubleshoot-bitlocker-boot-error.md) 
+* [BitLocker 開機錯誤](troubleshoot-bitlocker-boot-error.md)
 * [在開機期間，Windows 顯示「正在檢查檔案系統」](troubleshoot-check-disk-boot-error.md)
 * [藍色畫面錯誤](troubleshoot-common-blue-screen-error.md)
 * [VM 啟動停滯在「正在準備 Windows，](troubleshoot-vm-boot-configure-update.md)

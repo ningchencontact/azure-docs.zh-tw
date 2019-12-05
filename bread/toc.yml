@@ -21,7 +21,7 @@
         - name: 條件式存取
           tocHref: /azure/active-directory/conditional-access/
           topicHref: /azure/active-directory/conditional-access/
-        - name: 驗證
+        - name: Authentication
           tocHref: /azure/active-directory/authentication/
           topicHref: /azure/active-directory/authentication/
         - name: 開發
