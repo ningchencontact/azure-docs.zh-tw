@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 04/26/2019
-ms.author: rosh
-ms.openlocfilehash: 439f775fb6124c847631467caabe3f48cfa6b645
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.date: 11/29/2019
+ms.author: aahi
+ms.openlocfilehash: 2265471001896652a4ce35dbf8bd84aca50000fb
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326716"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665673"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>快速入門：傳送查詢至以 C# 撰寫的 Bing 當地商家搜尋 API
 
@@ -34,7 +34,7 @@ ms.locfileid: "74326716"
 
 下列程式碼會建立 `WebRequest`、設定存取金鑰標頭，並新增 "restaurant in Bellevue" 的查詢字串。  接著，它會傳送要求，並為字串指派包含 JSON 文字的回應。
 
-```
+```csharp
     // Replace the accessKey string value with your valid access key.
     const string accessKey = "enter key here";
 
@@ -60,7 +60,7 @@ Bing 當地商家搜尋 API 會從 Bing 搜尋引擎傳回本地化的搜尋結�
 3. 以訂用帳戶有效的存取金鑰來取代 accessKey 值。
 4. 執行程式。
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Text;

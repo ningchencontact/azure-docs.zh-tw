@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/03/2019
 ms.author: erhopf
-ms.openlocfilehash: 49bfa4a0dbf0adc498d545a2908c20f0ffa35b4b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 651a30bbcba7b4d4f5d00765c651be73953cd748
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075724"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815506"
 ---
 # <a name="what-is-speech-to-text"></a>什麼是語音轉換文字？
 
-來自 Azure 語音服務的語音轉換文字（也稱為語音轉換文字）可將音訊串流即時轉譯成文字，讓您的應用程式、工具或裝置可以取用、顯示和採取動作作為命令輸入。 這項服務是由 Microsoft 用於 Cortana 和 Office 產品的相同辨識技術所支援，而且可與翻譯和文字轉換語音緊密搭配運作。 如需可用語音轉換文字語言的完整清單，請參閱[支援的語言](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text)。
+語音服務的語音轉換文字（也稱為語音轉換文字）可將音訊串流的即時轉譯成文字，讓您的應用程式、工具或裝置可以取用、顯示和採取動作作為命令輸入。 這項服務是由 Microsoft 用於 Cortana 和 Office 產品的相同辨識技術所支援，而且可與翻譯和文字轉換語音緊密搭配運作。 如需可用語音轉換文字語言的完整清單，請參閱[支援的語言](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text)。
 
 根據預設，語音轉換文字服務會使用通用語言模型。 此模型已使用 Microsoft 所擁有的資料進行定型，並已部署在雲端中。 這對於對話式和聽寫案例而言是最理想的。 如果您在獨特的環境中使用語音轉文字進行辨識及轉譯，您可以建立並定型自訂原音、語言和發音模型，以處理環境噪音或業界專有詞彙。
 
-您可以使用語音 SDK 和 REST Api，輕鬆地從麥克風捕獲音訊、從串流讀取，或從儲存體存取音訊檔案。 語音 SDK 支援以 WAV/PCM 16 位元、16 kHz/8 kHz 單一通道進行語音辨識。 您可使用[語音轉換文字 REST 端點](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)或[批次抄寫服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats)來支援其他音訊格式。
+您可以使用語音 SDK 和 REST Api，輕鬆地從麥克風捕獲音訊、從串流讀取，或從儲存體存取音訊檔案。 語音 SDK 支援以 WAV/PCM 16 位元、16 kHz/8 kHz 單一通道進行語音辨識。 使用[語音轉換文字 REST 端點](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)或[批次轉譯服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats)，可支援其他的音訊格式。
 
 ## <a name="core-features"></a>核心功能
 
@@ -31,18 +31,20 @@ ms.locfileid: "74075724"
 
 | 使用案例 | SDK | REST |
 |--------- | --- | ---- |
-| 轉譯 short 語句（< 15 秒）。 僅支援最終轉譯結果。 | yes | yes |
-| 長語句和串流音訊的連續轉譯（> 15 秒）。 支援過渡和最終轉譯結果。 | yes | 否 |
-| 使用[LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis)從辨識結果衍生意圖。 | yes | 否\* |
-| 以非同步方式對音訊檔案進行批次轉譯。 | 否  | 是\*\* |
-| 建立和管理語音模型。 | 否 | 是\*\* |
-| 建立和管理自訂模型部署。 | 否  | 是\*\* |
-| 建立精確度測試，以測量基準模型與自訂模型的精確度。 | 否  | 是\*\* |
-| 管理訂閱。 | 否  | 是\*\* |
+| 轉譯 short 語句（< 15 秒）。 僅支援一個最終轉譯結果。 | 是 | 是\* |
+| 長語句和串流音訊的連續轉譯（> 15 秒）。 支援過渡和最終轉譯結果。 | 是 | 否 |
+| 使用[LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis)從辨識結果衍生意圖。 | 是 | 沒有\*\* |
+| 以非同步方式對音訊檔案進行批次轉譯。 | 否  | 是\*\*\* |
+| 建立和管理語音模型。 | 否 | 是\*\*\* |
+| 建立和管理自訂模型部署。 | 否  | 是\*\*\* |
+| 建立精確度測試，以測量基準模型與自訂模型的精確度。 | 否  | 是\*\*\* |
+| 管理訂閱。 | 否  | 是\*\*\* |
 
-\*_LUIS 意圖和實體可以使用個別的 LUIS 訂用帳戶來衍生。使用此訂用帳戶，SDK 可以為您呼叫 LUIS，並提供實體和意圖結果。有了 REST API，您就可以自行呼叫 LUIS，以使用您的 LUIS 訂用帳戶來衍生意圖和實體。_
+\*_使用 REST 功能時，您最多可以傳輸60秒的音訊，並將會收到最後一次的轉譯結果。_
 
-\*\*_這些服務可以使用 cris.ai 端點來取得。請參閱[Swagger 參考](https://westus.cris.ai/swagger/ui/index)。_
+\*\*_LUIS 意圖和實體可以使用個別的 LUIS 訂用帳戶來衍生。使用此訂用帳戶，SDK 會為您呼叫 LUIS，並提供實體和意圖結果。在 REST API 中，您會自行呼叫 LUIS，以使用 LUIS 訂用帳戶來衍生意圖和實體。_
+
+\*\*\*_這些服務可使用 cris.ai 端點取得。請參閱[Swagger 參考](https://westus.cris.ai/swagger/ui/index)。_
 
 ## <a name="get-started-with-speech-to-text"></a>開始使用語音轉換文字
 
@@ -52,7 +54,7 @@ ms.locfileid: "74075724"
 
 ## <a name="tutorials-and-sample-code"></a>教學課程和範例程式碼
 
-當您有機會使用語音服務後，請嘗試使用我們的教學課程，其中會教導您如何使用語音 SDK 和 LUIS 從語音辨識意圖。
+在您有機會使用語音服務之後，請嘗試我們的教學課程，告訴您如何使用語音 SDK 和 LUIS 從語音辨識意圖。
 
 - [教學課程：使用語音 SDK 和 LUIS 從語音辨識意圖。C#](how-to-recognize-intents-from-speech-csharp.md)
 

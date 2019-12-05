@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 72029d1d56c9d561e629cc750244fd7de8ec113a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cec3131d791d591375fd87d1c080294c9034a815
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500914"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806199"
 ---
 # <a name="about-direct-line-speech"></a>關於 Direct Line 語音
 
@@ -35,7 +35,7 @@ Direct Line Speech 為語音助理提供最高層級的自訂和複雜的功能�
 
 我們也提供的快速入門，是為了讓您在10分鐘內執行程式碼而設計的。 下表包含依語言組織的語音助理快速入門清單。
 
-| 快速入門 | 平台 | API 參考資料 |
+| 快速入門 | 平台 | API 參考 |
 |------------|----------|---------------|
 | C#，UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | Java | Windows、macOS、Linux | [Browse](https://aka.ms/csspeech/javaref) |
@@ -45,12 +45,12 @@ Direct Line Speech 為語音助理提供最高層級的自訂和複雜的功能�
 
 您可以在 GitHub 上取得用來建立語音助理的範例程式碼。 這些範例涵蓋了用來以數種熱門的程式設計語言連接到您的小幫手的用戶端應用程式。
 
-* [語音助理範例（SDK）](https://aka.ms/csspeech/samples)
+* [語音助理範例 (SDK)](https://aka.ms/csspeech/samples) \(英文\)
 * [教學課程：使用語音 SDK 語音啟用您的助理C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## <a name="customization"></a>自訂
 
-使用 Azure 語音服務建立的語音助理可以使用適用于[語音轉換文字](speech-to-text.md)、[文字轉換語音](text-to-speech.md)及[自訂關鍵字選取](speech-devices-sdk-create-kws.md)範圍的完整自訂選項。
+使用語音服務所建立的語音助理可以使用適用于[語音轉換文字](speech-to-text.md)、[文字轉換語音](text-to-speech.md)及[自訂關鍵字選取](speech-devices-sdk-create-kws.md)範圍的完整自訂選項。
 
 > [!NOTE]
 > 自訂選項會因語言/地區設定而有所不同（請參閱[支援的語言](supported-languages.md)）。

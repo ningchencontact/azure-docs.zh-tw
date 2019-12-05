@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: 71caa6730e3a00f3aa80329d6b87d2531fdd8049
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 6ab41182d59f8c96edfca4854aad5f9a13f53436
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891470"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806604"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Azure 上的 Oracle 應用程式和解決方案總覽
 
@@ -42,7 +42,7 @@ ms.locfileid: "73891470"
 
 * Oracle WebLogic Server 12.1。2
 
-* Oracle Linux （UEK）6.8、6.9、6.10、7.3、7.4、7.5 和7。6
+* Unbreakable Enterprise Kernel （UEK）6.8、6.9、6.10、7.3、7.4、7.5 和7.6 的 Oracle Linux 
 
 ## <a name="high-availability-and-disaster-recovery-options"></a>高可用性和嚴重損壞修復選項
 
@@ -91,3 +91,5 @@ ms.locfileid: "73891470"
 * 深入瞭解如何在 Azure 基礎結構中部署[ORACLE VM 映射](oracle-vm-solutions.md)。
 
 * 深入瞭解如何[使用 OCI 與 Azure 互連](oracle-oci-overview.md)。
+
+* 查看來自 Ignite 2019 的[Oracle On Azure 總覽課程](https://myignite.techcommunity.microsoft.com/sessions/82915)。 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: f38e23f0648d802ba7b09391d6f6bbd0c093d989
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 74b34a1d65f6beb097a649658c508da6ff48f1ac
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888164"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816596"
 ---
 # <a name="release-notes"></a>版本資訊
 
@@ -193,7 +193,7 @@ ms.locfileid: "73888164"
 
 **新功能**
 
-- 語音 SDK 支援透過 AudioConfig 類別來選取輸入麥克風。 這可讓您從非預設的麥克風將音訊資料串流至語音服務。 如需詳細資訊，請參閱說明[音訊輸入裝置選取](how-to-select-audio-input-devices.md)的檔。 JavaScript 尚未提供這項功能。
+- 語音 SDK 支援透過 AudioConfig 類別來選取輸入麥克風。 這可讓您從非預設的麥克風將音訊資料串流處理至語音服務。 如需詳細資訊，請參閱說明[音訊輸入裝置選取](how-to-select-audio-input-devices.md)的檔。 JavaScript 尚未提供這項功能。
 - 語音 SDK 現在支援搶鮮版 (Beta) Unity。 透過[GitHub 範例存放庫](https://aka.ms/csspeech/samples)中的問題區段來提供意見反應。 此版本可在 Windows x86 和 x64 (桌面或通用 Windows 平台應用程式) 以及 Android (ARM32/64、x86) 上支援 Unity。 詳情請參閱 [Unity 快速入門](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=unity)。
 - 檔案 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` （在先前的版本中隨附）不再需要。 此功能現在已整合到 core SDK 中。
 
@@ -419,7 +419,7 @@ ms.locfileid: "73888164"
 
 **重大變更**
 
-- 在 C# 中已從 `SpeechRecognitionResult.Text` 變更為 `SpeechRecognitionResult.RecognizedText`。
+- 在 C# 中已從 `SpeechRecognitionResult.RecognizedText` 變更為 `SpeechRecognitionResult.Text`。
 
 **錯誤修正**
 

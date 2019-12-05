@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/20/2019
+ms.date: 12/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: df65267924cfbfdc856b81928c4b6d7029f61184
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: fd3b7767bad104f4074b2460ecba3fe89d5a23e1
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665962"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806621"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-by-using-azure-cli"></a>使用 Azure CLI 設定 Azure 儲存體的客戶管理金鑰
 
@@ -91,7 +91,7 @@ az keyvault key create
 
 根據預設，Azure 儲存體加密會使用 Microsoft 管理的金鑰。 為客戶管理的金鑰設定您的 Azure 儲存體帳戶，並指定要與儲存體帳戶建立關聯的金鑰。
 
-若要更新儲存體帳戶的加密設定，請呼叫[az storage account update](/cli/azure/storage/account#az-storage-account-update)。 此範例也會查詢金鑰保存庫 URI 和金鑰版本，這兩個值都需要用來將金鑰與儲存體帳戶建立關聯。 請記得以您自己的值取代括弧中的預留位置值。
+若要更新儲存體帳戶的加密設定，請呼叫[az storage account update](/cli/azure/storage/account#az-storage-account-update)。 此範例也會查詢金鑰保存庫 URI 和最新的金鑰版本，這兩個值都需要用來將金鑰與儲存體帳戶建立關聯。 請記得以您自己的值取代括弧中的預留位置值。
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -102,7 +102,7 @@ key_vault_uri=$(az keyvault show \
 key_version=$(az keyvault key list-versions \
     --name <key> \
     --vault-name <key-vault> \
-    --query [].kid \
+    --query [-1].kid \
     --output tsv | cut -d '/' -f 6)
 az storage account update 
     --name <storage-account> \

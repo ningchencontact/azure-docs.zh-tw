@@ -6,13 +6,13 @@ ms.suite: integration
 author: shae-hurst
 ms.author: shhurst
 ms.topic: article
-ms.date: 4/27/2018
-ms.openlocfilehash: e583bf53021d772db54c30ed5a4c9ea2a029e093
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/03/2019
+ms.openlocfilehash: 8c2e857808b0638fbba54cfe9a623ba3fd764119
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792014"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815094"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>在 Azure Logic Apps 中利用區塊化處理大型訊息
 
@@ -39,6 +39,9 @@ Logic Apps 無法直接使用超過訊息大小上限的分塊訊息輸出。 �
 與 Logic Apps 通訊的服務可能有其本身的訊息大小限制。 這些限制通常小於 Logic Apps 的限制。 舉例來說，假設連接器支援區塊化，那麼連接器可能會認為 30 MB 的訊息過大，而 Logic Apps 則否。 為了與此連接器的限制達成一致性，Logic Apps 必須將所有大於 30 MB 的訊息分割為較小的區塊。
 
 這些支援區塊化的連接器終端使用者，並無法查看基礎區塊化通訊協定。 而因為並非所有連接器均支援區塊化，所以這些連接器會在傳入的訊息超過連接器的大小限制時，產生執行階段錯誤。
+
+> [!NOTE]
+> 對於使用區塊化的動作，您無法傳遞觸發程式主體或使用運算式，例如這些動作中的 `@triggerBody()?['Content']`。 相反地，針對文字或 JSON 檔案內容，您可以嘗試使用[**撰寫**動作](../logic-apps/logic-apps-perform-data-operations.md#compose-action)，或[建立變數](../logic-apps/logic-apps-create-variables-store-values.md)來處理該內容。 如果觸發程式主體包含其他內容類型（例如媒體檔案），您必須執行其他步驟來處理該內容。
 
 <a name="set-up-chunking"></a>
 

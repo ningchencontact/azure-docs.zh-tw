@@ -1,7 +1,7 @@
 ---
 title: 使用語音 SDK 在 iOS 上串流編解碼器壓縮的音訊
 titleSuffix: Azure Cognitive Services
-description: 瞭解如何在 iOS 上使用語音 SDK 將壓縮的音訊串流至 Azure 語音服務。
+description: 瞭解如何在 iOS 上使用語音 SDK 將壓縮的音訊串流至語音服務。
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 1d78c690fd07eb974418f0ea17d71d1f394d863d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 2089f4191ddd57fa8dc19862bd195756c166f2d4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109577"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805853"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-ios"></a>如何：在 iOS 上搭配使用編解碼器壓縮的音訊輸入與語音 SDK
 
@@ -32,7 +32,7 @@ ms.locfileid: "74109577"
 - Wav 容器中的 ALAW
 - Wav 容器中的 MULAW
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 處理壓縮的音訊會使用[GStreamer](https://gstreamer.freedesktop.org)來執行。 基於授權原因，這些函式不能隨附于 SDK，但包含這些函式的包裝函式程式庫必須由應用程式開發人員建立，並隨附于使用 SDK 的應用程式。
 
@@ -42,7 +42,7 @@ ms.locfileid: "74109577"
 
 組建步驟會針對名稱為 `GStreamerWrapper.framework`的所有必要架構，產生具有動態連結程式庫的動態架構組合。
 
-此架構必須包含在使用壓縮音訊串流搭配語音服務 SDK 的所有應用程式中。
+此架構必須包含在搭配語音服務 SDK 使用壓縮音訊串流的所有應用程式中。
 
 將下列設定套用至您的 Xcode 專案，以完成此動作：
 
@@ -66,5 +66,5 @@ ms.locfileid: "74109577"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
+- [取得語音試用訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
 - [瞭解如何以 JAVA 辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 31ae271a4ad6aa1370828640884a54eb2669804d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: d1bbfb43c6e2319706f5eeac15fa1d60791b62b9
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012713"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807188"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>使用 Azure 入口網站建立時間序列深入解析環境的參考資料集
 
@@ -44,62 +44,76 @@ ms.locfileid: "74012713"
 
 1. 展開 [時間序列深入解析 explorer] 中的環境選取器。 選擇使用中的環境。 在 [總管] 頁面右上方選取參考資料圖示。
 
-   [![新增參考資料](media/add-reference-data-set/add-reference-data.png)](media/add-reference-data-set/add-reference-data.png#lightbox)
+   [![新增參考資料](media/add-reference-data-set/tsi-select-environment-and-data-icons.png)](media/add-reference-data-set/tsi-select-environment-and-data-icons.png#lightbox)
 
 1. 選取 [+ 新增資料集] 按鈕，開始新增資料集。
 
-   [![新增資料集](media/add-reference-data-set/add-data-set.png)](media/add-reference-data-set/add-data-set.png#lightbox)
+   [![新增資料集](media/add-reference-data-set/tsi-add-a-reference-data-set.png)](media/add-reference-data-set/tsi-add-a-reference-data-set.png#lightbox)
 
 1. 在 [新增參考資料集] 頁面上，選擇資料的格式：
 
    - 針對逗號分隔資料選擇 [CSV]。 第一個資料列會視為標題資料列。
    - 選擇適用于 JavaScript 物件標記法（JSON）格式資料的**JSON 陣列**。
 
-   [![選擇 [資料格式]。](media/add-reference-data-set/add-data.png)](media/add-reference-data-set/add-data.png#lightbox)
+   [![選擇 [資料格式]。](media/add-reference-data-set/tsi-select-data-upload-option.png)](media/add-reference-data-set/tsi-select-data-upload-option.png#lightbox)
 
 1. 使用兩種方法的其中一個來提供資料：
 
    - 將資料貼到文字編輯器中。 然後，選取 [剖析參考資料] 按鈕。
    - 選取 [選擇檔案] 按鈕，從本機文字檔新增資料。
 
-   例如，貼上 CSV 資料： [![貼入的 csv 資料](media/add-reference-data-set/csv-data-pasted.png)](media/add-reference-data-set/csv-data-pasted.png#lightbox)
+   例如，貼上 CSV 資料： [![貼入的 csv 資料](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
 
-   例如，將 JSON 陣列資料貼上： [![貼上 json 資料](media/add-reference-data-set/json-data-pasted.png)](media/add-reference-data-set/json-data-pasted.png#lightbox)
+   例如，將 JSON 陣列資料貼上： [![貼上 json 資料](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
 
    如果剖析資料值時發生錯誤，錯誤會在頁面的底部顯示為紅色，例如 `CSV parsing error, no rows extracted`。
 
 1. 一旦成功剖析資料後，會出現資料格，顯示表示資料的資料行和資料列。  檢閱資料格，以確保正確性。
 
-   [![新增參考資料](media/add-reference-data-set/parse-data.png)](media/add-reference-data-set/parse-data.png#lightbox)
+   [![新增參考資料](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
 1. 檢閱每個資料行以查看假設的資料類型，並視需要變更資料類型。  選取資料行標題中的資料類型符號： **#** 為 double (數值資料)、**T|F** 為布林值，或 **Abc** 為字串。
 
-   [![選擇欄位標題上的資料類型。](media/add-reference-data-set/choose-datatypes.png)](media/add-reference-data-set/choose-datatypes.png#lightbox)
+   [![選擇欄位標題上的資料類型。](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
-1. 視需要將資料行標題重新命名。 索引鍵資料行名稱必須加入至事件來源中的對應屬性。 請確定參考資料索引鍵資料行名稱與您傳入資料的名稱完全符合，包括區分大小寫。 非索引鍵資料行名稱會使用對應的參考資料值來擴充傳入資料。
+1. 視需要將資料行標題重新命名。 索引鍵資料行名稱必須加入至事件來源中的對應屬性。 
 
-1. 視需要選取 [加入資料列] 或 [**新增**資料**行**]，以加入更多參考資料值。
+   > [!IMPORTANT]
+   > 請確定參考資料索引鍵資料行名稱與您傳入資料的名稱完全符合，包括區分大小寫。 非索引鍵資料行名稱會使用對應的參考資料值來擴充傳入資料。
 
 1. 在 [篩選資料列...] 欄位中輸入值，以視需要檢閱特定資料列。 篩選對於檢視資料非常有用，但在上傳資料時不會套用。
 
 1. 若要為資料集命名，請在資料格上方的 [資料集名稱] 欄位中填入名稱。
 
-    [![將資料集命名為。](media/add-reference-data-set/name-reference-dataset.png)](media/add-reference-data-set/name-reference-dataset.png#lightbox)
+    [![將資料集命名為。](media/add-reference-data-set/enter-reference-data-set-name.png)](media/add-reference-data-set/enter-reference-data-set-name.png#lightbox)
 
 1. 選取資料格上方的下拉式清單，可提供資料集中的 [主索引鍵] 資料行。
 
-    [![選取索引鍵資料行。](media/add-reference-data-set/set-primary-key.png)](media/add-reference-data-set/set-primary-key.png#lightbox)
+    [![選取索引鍵資料行。](media/add-reference-data-set/select-primary-key-column.png)](media/add-reference-data-set/select-primary-key-column.png#lightbox)
 
-    選擇性選取 [ **]+** 按鈕，以新增次要索引鍵資料行，作為複合主索引鍵。 如果您需要復原選取項目，請從下拉式清單中選擇空白值，以移除次要索引鍵。
+    **（選擇性）** 選取 [ **+** ] 按鈕，以加入次要索引鍵資料行做為複合主鍵。 如果您需要復原選取項目，請從下拉式清單中選擇空白值，以移除次要索引鍵。
 
 1. 若要上傳資料，請選取 [上傳資料列] 按鈕。
 
-    [![上傳](media/add-reference-data-set/upload-rows.png)](media/add-reference-data-set/upload-rows.png#lightbox)
+    [![上傳資料列並確認資料。](media/add-reference-data-set/confirm-upload-reference-data.png)](media/add-reference-data-set/confirm-upload-reference-data.png#lightbox)
 
     頁面會確認已完成上傳，並顯示 [已成功上傳資料集] 訊息。
+
+    > [!WARNING]
+    > 參考資料集之間共用的資料行或屬性會顯示**重複的屬性名稱**上傳錯誤。 此錯誤不會防止成功上傳參考資料集。 您可以合併共用重複屬性名稱的資料列來移除它。
+
+1. 視需要選取 [**加入**資料列]、[**大量匯入**資料列] 或 [**新增**資料行]，以加入更多參考資料值。
+
+    [![加入資料列、大量匯入資料列，或加入資料行。](media/add-reference-data-set/add-row-or-bulk-upload.png)](media/add-reference-data-set/add-row-or-bulk-upload.png#lightbox)
+
+   > [!IMPORTANT]
+   > 與另一列共用唯一索引鍵的任何資料列，都會將其資料行覆寫為共用該唯一索引鍵的最後一個資料列。
+
+   > [!NOTE]
+   > 加入的資料列**不**需要是*矩形*，而是參考資料集中的其他專案可能會有較少、較大或不同的資料行。
 
 ## <a name="next-steps"></a>後續步驟
 
 * 以程式設計的方式[管理參考資料](time-series-insights-manage-reference-data-csharp.md)。
 
-* 如需完整的 API 參考，請參閱＜[參考資料 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)＞文件。
+* 如需完整的 API 參考，請參閱[參考資料 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) 文件。

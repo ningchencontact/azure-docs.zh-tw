@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: 1c61f8c0fe1c2a04d390567cc0bc94f22bc5e897
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 554a7cbd79dbb6e1306686600474f727c99defed
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110153"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805887"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>如何使用適用于的語音 SDK 從語音辨識意圖C#
 
@@ -35,7 +35,7 @@ ms.locfileid: "74110153"
 > - 從檔案辨識語音
 > - 使用非同步的事件驅動連續辨識
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始本指南之前，請確定您有下列專案：
 
@@ -52,7 +52,7 @@ LUIS 會使用三種金鑰：
 | --------- | ----------------------------------------------------- |
 | 編寫 | 可讓您透過程式設計建立和修改 LUIS 應用程式 |
 | 入門   | 可讓您只使用文字來測試 LUIS 應用程式   |
-| Endpoint  | 可授權特定 LUIS 應用程式的存取權            |
+| 端點  | 可授權特定 LUIS 應用程式的存取權            |
 
 在本指南中，您需要端點金鑰類型。 本指南會使用範例 Home Automation LUIS 應用程式，您可以遵循[使用預先建立的首頁自動化應用程式](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app)快速入門來建立。 如果您已建立自有 LUIS 應用程式，則可改用此應用程式。
 
@@ -115,9 +115,9 @@ LUIS 會使用三種金鑰：
 
    | Placeholder | 更換為 |
    | ----------- | ------------ |
-   | `YourLanguageUnderstandingSubscriptionKey` | LUIS 端點金鑰。 同樣地，您必須從 Azure 儀表板取得此項目，而不是「入門金鑰」。 此金鑰可在 **LUIS 入口網站**中應用程式的 [金鑰和端點] 頁面 (在 [管理][](https://www.luis.ai/home) 底下) 中找到。 |
+   | `YourLanguageUnderstandingSubscriptionKey` | LUIS 端點金鑰。 同樣地，您必須從 Azure 儀表板取得此項目，而不是「入門金鑰」。 此金鑰可在 [LUIS 入口網站](https://www.luis.ai/home)中應用程式的 [金鑰和端點] 頁面 (在 [管理] 底下) 中找到。 |
    | `YourLanguageUnderstandingServiceRegion` | LUIS 訂用帳戶所在區域的簡短識別碼，例如美國西部是 `westus`。 請參閱[區域](regions.md)。 |
-   | `YourLanguageUnderstandingAppId` | LUIS 應用程式識別碼。 您可以在 **LUIS 入口網站**中應用程式的 [設定][](https://www.luis.ai/home) 頁面上找到此值。 |
+   | `YourLanguageUnderstandingAppId` | LUIS 應用程式識別碼。 您可以在 [LUIS 入口網站](https://www.luis.ai/home)中應用程式的 [設定] 頁面上找到此值。 |
 
 進行這些變更之後，您就可以建立（**Control + Shift + B**）並執行（**F5**）應用程式。 出現提示時，請試著對電腦的麥克風說「關燈」。 應用程式會在主控台視窗中顯示結果。
 
@@ -128,7 +128,7 @@ LUIS 會使用三種金鑰：
 首先，您必須從 LUIS 端點金鑰和區域建立語音設定。 您可以使用語音設定來建立各種語音 SDK 功能的辨識器。 語音設定有多種方式可指定您想要使用的訂用帳戶，在此我們使用 `FromSubscription`，其會採用訂用帳戶金鑰和區域。
 
 > [!NOTE]
-> 請使用 LUIS 訂用帳戶 (而非語音服務訂用帳戶) 的金鑰和區域。
+> 使用 LUIS 訂用帳戶的金鑰和區域，而不是語音服務訂用帳戶。
 
 下一步，使用 `new IntentRecognizer(config)` 建立意圖辨識器。 因為設定已經知道所要使用的訂用帳戶，因此不需在建立辨識器時再次指定訂用帳戶的金鑰和端點。
 
@@ -143,7 +143,7 @@ LUIS 會使用三種金鑰：
 | `intentName` | LUIS 應用程式 (app) 中所定義的意圖名稱。 此值必須完全符合 LUIS 意圖名稱。 |
 | `intentID` | 語音 SDK 指派給可辨識意圖的識別碼。 此值可以是任何值；不需要對應至 LUIS 應用程式中所定義的意圖名稱。 舉例來說，如果由相同程式碼處理多個意圖，您可以讓這些意圖使用相同的識別碼。 |
 
-「家庭自動化」LUIS 應用程式有兩個意圖：一個是要開啟裝置，另一個是要關閉裝置。 下列程式行會將這些意圖新增至辨識器；請將 `AddIntent` 方法中的三個 `RecognizeIntentAsync()` 程式行更換為此程式碼。
+「家庭自動化」LUIS 應用程式有兩個意圖：一個是要開啟裝置，另一個是要關閉裝置。 下列程式行會將這些意圖新增至辨識器；請將 `RecognizeIntentAsync()` 方法中的三個 `AddIntent` 程式行更換為此程式碼。
 
 ```csharp
 recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: f3ad58c4094e9f39bcf9782b7b98e351e9d7809b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a1c2049d7355ab946dbf426ec71f7f6178b8f153
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058139"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819095"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>針對 Azure Windows 虛擬機器啟用問題進行疑難排解
 
@@ -26,18 +26,18 @@ ms.locfileid: "71058139"
 
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>了解 Azure 虛擬機器的 Windows 產品啟用適用的 Azure KMS 端點
 
-Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 使用此疑難排解指南時，請使用適用於您的區域的適當 KMS 端點。
+Azure 會根據 VM 所在的雲端區域，針對 KMS （金鑰管理服務）啟用使用不同的端點。 使用此疑難排解指南時，請使用適用於您的區域的適當 KMS 端點。
 
 * Azure 公用雲端區域： kms.core.windows.net:1688
 * Azure 中國 21Vianet 國家雲端區域：kms.core.chinacloudapi.cn:1688
 * Azure 德國國家雲端區域： kms.core.chinacloudapi.cn:1688
 * Azure 美國政府國家雲端區域： kms.core.chinacloudapi.cn:1688
 
-## <a name="symptom"></a>徵兆
+## <a name="symptom"></a>徵狀
 
 當您嘗試啟用 Azure Windows VM 時，收到類似下列範例的錯誤訊息：
 
-**錯誤：0xC004F074。軟體授權服務報告指出無法啟用電腦。無法聯繫金鑰管理服務 (KMS)。如需其他資訊，請參閱應用程式事件記錄檔。**
+**錯誤：0Xc004f074。軟體授權服務報告指出無法啟用電腦。無法連絡任何金鑰 ManagementService （KMS）。如需其他資訊，請參閱應用程式事件記錄檔。**
 
 ## <a name="cause"></a>原因
 
@@ -87,7 +87,7 @@ Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 �
     Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
 
-    此命令應該會傳回：金鑰管理服務機器名稱已成功設定為 kms.core.windows.net:1688。
+    此命令應該會傳回：金鑰管理服務電腦名稱已成功設定為 kms.core.windows.net:1688。
 
 4. 使用能夠連線到 KMS 伺服器的 Psping 來進行確認。 切換到您將所下載的 Pstools.zip 解壓縮的資料夾，然後執行下列命令：
   
@@ -117,12 +117,12 @@ Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 �
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>我從 Azure Marketplace 建立了 Windows Server 2016。 我是否需要設定 KMS 金鑰來啟用 Windows Server 2016？ 
 
  
-資料分割 Azure Marketplace 中的映像已設定適當的 KMS 用戶端安裝識別碼。 
+不會。 Azure Marketplace 中的映像已設定適當的 KMS 用戶端安裝識別碼。 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>是否不論 VM 是否使用 Azure Hybrid Use Benefit (HUB)，Windows 啟用的運作方式都相同？ 
 
  
-是的。 
+可以。 
  
 
 ### <a name="what-happens-if-windows-activation-period-expires"></a>如果 Windows 啟用期間已到期，會發生什麼情況？ 

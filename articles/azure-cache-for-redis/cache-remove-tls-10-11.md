@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 585828855cdbd3a585ced1aa6803482c3f26f0f4
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 74fcce412b2673a3ec9e4809cef018f1afbc3530
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121589"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812833"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>移除與 Azure Cache for Redis 搭配使用的 TLS 1.0 和1。1
 
@@ -33,7 +33,7 @@ ms.locfileid: "74121589"
 
 Redis .NET 用戶端預設會在 .NET Framework 4.5.2 或更早版本上使用最舊的 TLS 版本，並使用 .NET Framework 4.6 或更新版本上的最新 TLS 版本。 如果您使用較舊版本的 .NET Framework，您可以手動啟用 TLS 1.2：
 
-* **Stackexchange.redis. Redis：** 在連接字串中設定 `ssl=true` 和 `sslprotocls=tls12`。
+* **Stackexchange.redis. Redis：** 在連接字串中設定 `ssl=true` 和 `sslprotocols=tls12`。
 * **Servicestack.redis 時. Redis：** 遵循[servicestack.redis 時. Redis 指示](https://github.com/ServiceStack/ServiceStack.Redis/pull/247)。
 
 ### <a name="net-core"></a>.NET Core

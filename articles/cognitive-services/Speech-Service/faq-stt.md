@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: 277d8e3fe8f54b8e95d8acc93d26100d3ac64db1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 575dda47b5e6fc0d70ef80dfd7a1baba0f63be2d
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110697"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814850"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>語音轉換文字常見問題集
 
@@ -65,39 +65,6 @@ ms.locfileid: "74110697"
 
 如果您已使用基準 V1.0 調整並部署模型，該部署會維持原狀。 客戶可以解除委任已部署的模型，readapt 使用較新版本的基準並重新部署。
 
-**問：如果我需要針對已部署模型使用的並行處理比入口網站所提供的還高，該怎麼辦？**
-
-**答**：您可以使用 20 個並行要求的增量調升模型規模。
-
-如果您需要更高的規模，請聯絡[語音支援](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text)。
-
-若要增加***自訂模型***的平行存取，我們需要下列資訊：
-
-- 部署模型的區域，
-- 已部署模型的端點識別碼：
-  - 到達[自訂語音入口網站](https://aka.ms/customspeech)，
-  - 登入（如有必要）、
-  - 選取您的專案和部署，
-  - 選取您需要並行增加的端點，
-  - 複製 `Endpoint ID`。
-
-若要增加***基底模型***的平行存取，我們需要下列資訊：
-
-- 服務的區域，
-
-和
-
-- 訂用帳戶的存取權杖（請參閱[這裡](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)）、
-
-或
-
-- 您的訂用帳戶的資源識別碼：
-  - 前往[Azure 入口網站](https://portal.azure.com)，
-  - 在搜尋方塊中選取 [`Cognitive Services`]，
-  - 從顯示的服務挑選您想要增加並行的語音服務，
-  - 顯示此服務的 `Properties`，
-  - 複製完整的 `Resource ID`。
-
 **問：我可以在本機下載並執行模型嗎？**
 
 **答**：您無法在本機下載並執行模型。
@@ -116,6 +83,41 @@ ms.locfileid: "74110697"
 
 > [!IMPORTANT]
 > 如果您有其他隱私權考量禁止您使用自訂語音服務，請連絡其中一個支援通道。
+
+## <a name="increasing-concurrency"></a>增加並行
+
+**問：如果我需要針對已部署模型使用的並行處理比入口網站所提供的還高，該怎麼辦？**
+
+**答**：您可以使用 20 個並行要求的增量調升模型規模。
+
+使用必要的資訊，在[Azure 支援入口網站](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)中建立支援要求。 請勿將資訊張貼在[支援頁面](support.md)上所提及的任何公用通道（GitHub、Stackoverflow、...）。
+
+若要增加***自訂模型***的平行存取，我們需要下列資訊：
+
+- 部署模型的區域，
+- 已部署模型的端點識別碼：
+  - 到達[自訂語音入口網站](https://aka.ms/customspeech)，
+  - 登入（如有必要）、
+  - 選取您的專案和部署，
+  - 選取您需要並行增加的端點，
+  - 複製 `Endpoint ID`。
+
+若要增加***基底模型***的平行存取，我們需要下列資訊：
+
+- 服務的區域，
+
+不論是
+
+- 訂用帳戶的存取權杖（請參閱[這裡](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)）、
+
+或
+
+- 您的訂用帳戶的資源識別碼：
+  - 前往[Azure 入口網站](https://portal.azure.com)，
+  - 在搜尋方塊中選取 [`Cognitive Services`]，
+  - 從顯示的服務挑選您想要增加並行的語音服務，
+  - 顯示此服務的 `Properties`，
+  - 複製完整的 `Resource ID`。
 
 ## <a name="importing-data"></a>匯入資料
 
