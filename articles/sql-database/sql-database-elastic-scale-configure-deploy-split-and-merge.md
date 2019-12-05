@@ -36,7 +36,7 @@ ms.locfileid: "74421026"
 
 檔案會放在名為 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** 的目錄中，其中 *x.x.xxx.x* 反映版本號碼。 在 **content\splitmerge\service** 子目錄中找出分割合併服務檔案，在 **content\splitmerge\powershell** 子目錄中找出分割合併 PowerShell 指令碼 (和必要的用戶端 dll 檔)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 1. 建立用來作為分割合併狀態資料庫的 Azure SQL DB 資料庫。 移至 [Azure 入口網站](https://portal.azure.com)。 建立新的 **SQL Database**。 提供資料庫名稱，並建立新的系統管理員和密碼。 請務必記錄名稱和密碼，以供稍後使用。
 
@@ -63,7 +63,7 @@ ms.locfileid: "74421026"
 
       `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<userId>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
-1. Enter this connection string in the *.cscfg* file in both the **SplitMergeWeb** and **SplitMergeWorker** role sections in the ElasticScaleMetadata setting.
+1. 在 [ElasticScaleMetadata] 設定的 [ **SplitMergeWeb** ] 和 [ **SplitMergeWorker**角色] 區段中，于 *.cscfg*檔案中輸入此連接字串。
 
 1. 針對 **SplitMergeWorker** 角色，在 **WorkerRoleSynchronizationStorageAccountConnectionString** 設定中輸入有效的連接字串以連接至 Azure 儲存體。
 
@@ -75,7 +75,7 @@ ms.locfileid: "74421026"
 
 ### <a name="create-a-self-signed-certificate"></a>建立自我簽署憑證
 
-使用 [Visual Studio 開發人員命令提示字元](https://msdn.microsoft.com/library/ms229859.aspx) 視窗建立新的目錄，並從這個目錄中執行下列命令：
+使用 [Visual Studio 開發人員命令提示字元] [](https://msdn.microsoft.com/library/ms229859.aspx) 視窗建立新的目錄，並從這個目錄中執行下列命令：
 
    ```cmd
    makecert ^
@@ -230,13 +230,13 @@ Web 角色：
 2. 建立 Azure SQL Database 伺服器 (或選擇現有的伺服器)，其中將會建立分區對應管理員和分區。
 
    > [!NOTE]
-   > The *SetupSampleSplitMergeEnvironment.ps1* script creates all these databases on the same server by default to keep the script simple. 這不是分割合併服務本身的限制。
+   > 根據預設， *setupsamplesplitmergeenvironment.ps1*腳本會在相同的伺服器上建立所有這些資料庫，讓腳本保持簡單。 這不是分割合併服務本身的限制。
 
    需要有具備 DB 讀取/寫入存取權的 SQL 驗證登入，分割合併服務才能移動資料和更新分區對應。 因為分割合併服務是在雲端執行，目前不支援整合式驗證。
 
    請確定 Azure SQL server 設定為允許從執行這些指令碼的電腦 IP 位址存取。 您可以在 [Azure SQL server / 設定 / 允許的 IP 位址] 下找到這項設定。
 
-3. Execute the *SetupSampleSplitMergeEnvironment.ps1* script to create the sample environment.
+3. 執行*setupsamplesplitmergeenvironment.ps1*腳本來建立範例環境。
 
    執行這個指令碼將會從分區對應管理員資料庫和分區上，清除任何現有的分區對應管理資料結構。 如果您想要重新初始化分區對應或分區，最好重新執行此指令碼。
 
@@ -254,7 +254,7 @@ Web 角色：
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Execute the *ExecuteSampleSplitMerge.ps1* script to execute a split operation (moving half the data on the first shard to the second shard) and then a merge operation (moving the data back onto the first shard). 如果您設定 SSL，而且保持停用 http 端點，請確定您改為使用 https:// 端點。
+5. 執行*executesamplesplitmerge.ps1*腳本來執行分割作業（將第一個分區上的一半資料移至第二個分區），然後執行合併作業（將資料移回第一個分區）。 如果您設定 SSL，而且保持停用 http 端點，請確定您改為使用 https:// 端點。
 
    範例命令列：
 

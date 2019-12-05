@@ -1,6 +1,6 @@
 ---
 title: 了解資源鎖定
-description: Learn about the locking options in Azure Blueprints to protect resources when assigning a blueprint.
+description: 瞭解 Azure 藍圖中的鎖定選項，以在指派藍圖時保護資源。
 ms.date: 04/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: 50f506cc57f67ca2ae2b07e342750d6c5099e739
@@ -12,19 +12,19 @@ ms.locfileid: "74406397"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>了解 Azure 藍圖中的資源鎖定
 
-如果有一種機制可維護環境一致性，那麼大規模建立一貫化的環境才真正有用。 本文說明 Azure 藍圖中資源鎖定的運作方式。 To see an example of resource locking and application of _deny assignments_, see the [protecting new resources](../tutorials/protect-new-resources.md) tutorial.
+如果有一種機制可維護環境一致性，那麼大規模建立一貫化的環境才真正有用。 本文說明 Azure 藍圖中資源鎖定的運作方式。 若要查看資源鎖定和應用程式_拒絕指派_的範例，請參閱[保護新的資源](../tutorials/protect-new-resources.md)教學課程。
 
 ## <a name="locking-modes-and-states"></a>鎖定模式和狀態
 
-Locking Mode applies to the blueprint assignment and it has three options: **Don't Lock**, **Read Only**, or **Do Not Delete**. 鎖定模式會在藍圖指派期間的成品部署過程中進行設定。 您可以藉由更新藍圖指派來設定不同的鎖定模式。
+鎖定模式適用于藍圖指派，它有三個選項： [**不要鎖定**]、[**唯讀**] 或 [**不要刪除**]。 鎖定模式會在藍圖指派期間的成品部署過程中進行設定。 您可以藉由更新藍圖指派來設定不同的鎖定模式。
 不過，鎖定模式無法變更藍圖外部。
 
-Resources created by artifacts in a blueprint assignment have four states: **Not Locked**, **Read Only**, **Cannot Edit / Delete**, or **Cannot Delete**. 每個成品類型都可以處於**未鎖定**狀態。 下表可用來判斷資源的狀態：
+藍圖指派中成品所建立的資源具有四個狀態： [**未鎖定**]、[**唯讀**]、[**無法編輯]/[刪除**] 或 [**無法刪除**]。 每個成品類型都可以處於**未鎖定**狀態。 下表可用來判斷資源的狀態：
 
-|Mode|成品資源類型|狀況|描述|
+|模式|成品資源類型|State|描述|
 |-|-|-|-|
 |不要鎖定|*|未鎖定|資源並未受到藍圖保護。 此狀態也可用於從藍圖指派外部新增至**唯讀**或**不要刪除**資源群組成品的資源。|
-|唯讀|Resource group|無法編輯/刪除|此資源群組是唯讀的，而且無法修改資源群組上的標記。 **未鎖定**資源可以在這個資源群組中新增、移動、變更或刪除。|
+|唯讀|資源群組|無法編輯/刪除|此資源群組是唯讀的，而且無法修改資源群組上的標記。 **未鎖定**資源可以在這個資源群組中新增、移動、變更或刪除。|
 |唯讀|非資源群組|唯讀|資源不能以任何方式更改：無法變更且無法刪除。|
 |不要刪除|*|無法刪除|資源可以改變，但無法刪除。 **未鎖定**資源可以在這個資源群組中新增、移動、變更或刪除。|
 
@@ -45,23 +45,23 @@ Resources created by artifacts in a blueprint assignment have four states: **Not
 
 ## <a name="how-blueprint-locks-work"></a>藍圖鎖定的運作方式
 
-如果指派選取了 [唯讀] 或 [不要刪除] 選項，則在藍圖指派期間，會將 RBAC [拒絕指派](../../../role-based-access-control/deny-assignments.md)的拒絕動作套用到成品資源。 拒絕動作會由藍圖指派的受控身分識別來新增，並且只能透過相同的受控身分識別從成品資源中移除。 此安全性措施可強制執行鎖定機制，並防止移除藍圖外部的藍圖鎖定。
+如果指派選取了 [唯讀][](../../../role-based-access-control/deny-assignments.md) 或 [不要刪除] 選項，則在藍圖指派期間，會將 RBAC **拒絕指派**的拒絕動作套用到成品資源。 拒絕動作會由藍圖指派的受控身分識別來新增，並且只能透過相同的受控身分識別從成品資源中移除。 此安全性措施可強制執行鎖定機制，並防止移除藍圖外部的藍圖鎖定。
 
-![Blueprint deny assignment on resource group](../media/resource-locking/blueprint-deny-assignment.png)
+![在資源群組上建立藍圖拒絕指派](../media/resource-locking/blueprint-deny-assignment.png)
 
-The [deny assignment properties](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) of each mode are as follows:
+每個模式的[拒絕指派屬性](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties)如下所示：
 
-|Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
+|模式 |許可權。動作 |許可權。 NotActions |主體 [i]。型 |ExcludePrincipals [i]。號 | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|唯讀 |**\*** |**\*/read** |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
-|不要刪除 |**\*/delete** | |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
+|唯讀 |**\*** |**\*/read** |SystemDefined （每個人） |**excludedPrincipals**中的藍圖指派和使用者定義 |資源群組- _true_;資源- _false_ |
+|不要刪除 |**\*/delete** | |SystemDefined （每個人） |**excludedPrincipals**中的藍圖指派和使用者定義 |資源群組- _true_;資源- _false_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager 最多可快取 30 分鐘的角色指派詳細資料。 因此，藍圖資源上拒絕指派的拒絕動作可能不會立即完全生效。 在這段時間內，有可能會刪除藍圖鎖定所要保護的資源。
 
-## <a name="exclude-a-principal-from-a-deny-assignment"></a>Exclude a principal from a deny assignment
+## <a name="exclude-a-principal-from-a-deny-assignment"></a>從拒絕指派中排除主體
 
-In some design or security scenarios, it may be necessary to exclude a principal from the [deny assignment](../../../role-based-access-control/deny-assignments.md) the blueprint assignment creates. This is done in REST API by adding up to five values to the **excludedPrincipals** array in the **locks** property when [creating the assignment](/rest/api/blueprints/assignments/createorupdate). This is an example of a request body that includes **excludedPrincipals**:
+在某些設計或安全性案例中，可能需要從藍圖指派所建立的[拒絕指派](../../../role-based-access-control/deny-assignments.md)中排除主體。 這項作業會在 REST API 中完成，方法是在[建立指派](/rest/api/blueprints/assignments/createorupdate)時，將最多五個值新增至 [**鎖定**] 屬性中的**excludedPrincipals**陣列。 這是包含**excludedPrincipals**的要求主體範例：
 
 ```json
 {
@@ -105,7 +105,7 @@ In some design or security scenarios, it may be necessary to exclude a principal
 
 ## <a name="next-steps"></a>後續步驟
 
-- Follow the [protect new resources](../tutorials/protect-new-resources.md) tutorial.
+- 請遵循[保護新資源](../tutorials/protect-new-resources.md)教學課程。
 - 了解[藍圖生命週期](lifecycle.md)。
 - 了解如何使用[靜態與動態參數](parameters.md)。
 - 了解如何自訂[藍圖排序順序](sequencing-order.md)。

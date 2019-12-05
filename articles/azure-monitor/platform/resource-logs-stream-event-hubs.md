@@ -1,6 +1,6 @@
 ---
 title: 將 Azure 資源記錄串流至事件中樞
-description: 瞭解如何將 Azure 資源記錄串流至事件中樞。
+description: 瞭解如何將 Azure 資源記錄串流至事件中樞，以將資料傳送至外部系統（例如協力廠商 Siem 和其他 log analytics 解決方案）。
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 1d7a533658b6c72caae9649d7e5a9c4fad117245
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 680570c5102f656b2b2d2e05f9e08f51fe892f44
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262410"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304943"
 ---
 # <a name="stream-azure-resource-logs-to-azure-event-hubs"></a>將 Azure 資源記錄串流至 Azure 事件中樞
 Azure 中的[資源記錄](resource-logs-overview.md)會提供有關 Azure 資源內部作業的豐富、經常性資料。 本文說明如何將資源記錄串流至事件中樞，以將資料傳送至外部系統（例如協力廠商 Siem 和其他 log analytics 解決方案）。
@@ -25,7 +25,7 @@ Azure 中的[資源記錄](resource-logs-overview.md)會提供有關 Azure 資�
 * 將**記錄串流至協力廠商記錄和遙測系統**–將所有資源記錄串流至單一事件中樞，以將記錄資料傳送至協力廠商 SIEM 或 log analytics 工具。
 * **建立自訂遙測和記錄平臺**–事件中樞的高擴充性發佈訂閱特性，可讓您將資源記錄彈性地內嵌到自訂的 teletry 平臺。 如需詳細資訊，請參閱[Azure 事件中樞上的全域調整遙測平臺的設計和調整大小](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)。
 
-* 藉**由將資料串流至 Power BI 來查看服務健全狀況**–使用事件中樞、串流分析和 Power BI，將您的診斷資料轉換為 Azure 服務上近乎即時的深入解析。 請[參閱串流分析和 Power BI：適用于串流資料](../../stream-analytics/stream-analytics-power-bi-dashboard.md)的即時分析儀表板，可取得此解決方案的詳細資訊。
+* 藉**由將資料串流至 Power BI 來查看服務健全狀況**–使用事件中樞、串流分析和 Power BI，將您的診斷資料轉換為 Azure 服務上近乎即時的深入解析。 如需此解決方案的詳細資訊，請參閱[串流分析和 Power BI：串流資料的即時分析儀表板](../../stream-analytics/stream-analytics-power-bi-dashboard.md)。
 
     下列 SQL 程式碼是您可以使用的範例串流分析查詢，能將所有記錄資料剖析至 Power BI 表格：
     
@@ -39,7 +39,7 @@ Azure 中的[資源記錄](resource-logs-overview.md)會提供有關 Azure 資�
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 如果您還沒有[事件中樞](../../event-hubs/event-hubs-create.md)，您必須建立它。 如果您先前已將資源記錄串流至此事件中樞命名空間，則會重複使用該事件中樞。
 
 命名空間的共用存取原則會定義串流機制擁有的許可權。 串流至事件中樞需要 [管理]、[傳送] 和 [接聽] 許可權。 您可以在事件中樞命名空間的 [設定] 索引標籤下的 Azure 入口網站中，建立或修改共用存取原則。
@@ -60,12 +60,12 @@ Azure 中的[資源記錄](resource-logs-overview.md)會提供有關 Azure 資�
 | 元素名稱 | 描述 |
 | --- | --- |
 | 記錄數 |此承載中的所有記錄事件的陣列。 |
-| time |事件發生的時間。 |
+| 分析 |事件發生的時間。 |
 | category |此事件的記錄檔分類。 |
 | resourceId |產生此事件之資源的資源識別碼。 |
 | operationName |作業名稱。 |
-| level |選擇性。 表示記錄事件層級。 |
-| properties |事件的屬性。 每個 Azure 服務都會有不同的變更，[]()如中所述。 |
+| 層級 |選用。 表示記錄事件層級。 |
+| properties |事件的屬性。 每個 Azure 服務都會有不同的變更， []()如中所述。 |
 
 
 以下是來自事件中樞的範例輸出資料：

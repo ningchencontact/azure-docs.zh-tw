@@ -64,7 +64,7 @@ Azure 委派的資源管理能為管理多個客戶的資源提供更具彈性�
 
 - 檢視委派之訂用帳戶的警示，並能夠在所有訂用帳戶之間檢視警示
 - 檢視委派之訂用帳戶的活動記錄詳細資料
-- Log analytics: Query data from remote customer workspaces in multiple tenants
+- Log analytics：查詢多個租使用者中遠端客戶工作區的資料
 - 在客戶租用戶中建立警示，以透過 Webhook 在服務提供者租用戶中觸發自動化 (例如 Azure 自動化 Runbook 或 Azure Functions)
 
 [Azure 原則](https://docs.microsoft.com/azure/governance/policy/) \(部分機器翻譯\)：
@@ -129,10 +129,10 @@ Azure 委派的資源管理能為管理多個客戶的資源提供更具彈性�
 
 - 由 Azure Resource Manager 所處理的要求可以使用 Azure 委派的資源管理來執行。 這些要求的作業 URI 會以 `https://management.azure.com` 作為開頭。 不過，由某個資源類型 (例如 KeyVault 祕密存取或儲存體資料存取) 的執行個體所處理的要求，並不支援 Azure 委派的資源管理。 這些要求的作業 URI 通常會以您執行個體特有的位址作為開頭，例如 `https://myaccount.blob.core.windows.net` 或 `https://mykeyvault.vault.azure.net/`。 此外，後者通常是資料作業，而非管理作業。 
 - 角色指派必須使用角色型存取控制 (RBAC) [內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) \(部分機器翻譯\)。 除了「擁有者」或具有 [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) \(部分機器翻譯\) 權限的任何內建角色以外，Azure 委派的資源管理目前支援所有內建角色。 只有在[將角色指派給受控識別](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)時，才支援「使用者存取系統管理員」角色的有限用途。  此外，不支援自訂角色與[傳統訂用帳戶管理員角色](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) \(部分機器翻譯\)。
-- 目前，如果訂用帳戶使用 Azure Databricks，您無法將訂用帳戶 (或資源群組內的訂用帳戶) 上線至 Azure 委派的資源管理。 同樣地，如果訂用帳戶已向 **Microsoft.ManagedServices** 資源提供者註冊要上線，您目前無法為該訂用帳戶建立 Databricks 工作區。
+- 目前，如果訂用帳戶是使用 Azure Databricks，您便無法將該訂用帳戶 (或資源群組內的訂用帳戶) 上線以用於 Azure 委派的資源管理。 同樣地，如果已透過 **Microsoft.ManagedServices** 資源提供者來註冊某個訂用帳戶以進行上線，您目前將無法為該訂用帳戶建立 Databricks 工作區。
 - 雖然您可以將訂用帳戶和資源群組上線，以進行 Azure 委派的資源管理來鎖定資源，但這些鎖定無法防止管理租用戶中的使用者執行動作。 [拒絕指派](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments)可保護系統管理的資源，例如由 Azure 管理的應用程式或 Azure 藍圖所建立的資源 (系統指派的拒絕指派)，因此可防止管理租用戶中的使用者在這些資源上執行動作；不過，目前客戶租用戶中的使用者無法建立自己的拒絕指派 (使用者指派的拒絕指派)。
 
 ## <a name="next-steps"></a>後續步驟
 
 - 將客戶上線至 Azure 委派的資源管理，方法是透過[使用 Azure Resource Manager 範本](../how-to/onboard-customer.md)或[將私人或公開受控服務供應項目發佈至 Azure Marketplace](../how-to/publish-managed-services-offers.md)。
-- 前往 Azure 入口網站中的 [我的客戶]，以[檢視及管理客戶](../how-to/view-manage-customers.md)。
+- 前往 Azure 入口網站中的 [我的客戶][](../how-to/view-manage-customers.md)，來**檢視和管理客戶**。

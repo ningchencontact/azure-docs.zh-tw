@@ -1,5 +1,5 @@
 ---
-title: 使用 AzCopy v10，將資料從 Amazon S3 bucket 傳送到 Azure 儲存體 |Microsoft Docs
+title: 使用 AzCopy 將資料從 Amazon S3 複製到 Azure 儲存體 |Microsoft Docs
 description: 使用 AzCopy 和 Amazon S3 bucket 來傳輸資料
 services: storage
 author: normesta
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b984d194c75924451a52250490b1a5590b996974
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 21f11b9175566fc020ad21e1983a9bef64ebbae3
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821391"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327848"
 ---
-# <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>使用 AzCopy 從 Amazon S3 bucket 來複製資料
+# <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>使用 AzCopy 將資料從 Amazon S3 複製到 Azure 儲存體
 
 AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製 blob 或檔案。 本文可協助您使用 AzCopy，將物件、目錄和 bucket 從 Amazon Web Services （AWS） S3 複製到 Azure blob 儲存體。
 
@@ -51,7 +51,7 @@ AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製 blob �
 AzCopy 會使用[來自 URL API 的 Put 區塊](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url)，因此資料會直接複製到 AWS S3 和存放伺服器之間。 這些複製作業不會使用您電腦的網路頻寬。
 
 > [!IMPORTANT]
-> 此功能目前為預覽狀態。 如果您決定在複製作業之後移除 S3 bucket 的資料，請務必先確認資料已正確複製到儲存體帳戶，然後再移除資料。
+> 這項功能目前只能預覽。 如果您決定在複製作業之後移除 S3 bucket 的資料，請務必先確認資料已正確複製到儲存體帳戶，然後再移除資料。
 
 > [!TIP]
 > 本節中的範例會以單引號（' '）括住路徑引數。 在所有命令 shell 中使用單引號，但 Windows 命令介面（cmd.exe）除外。 如果您使用 Windows 命令 Shell （cmd.exe），請將路徑引數括在雙引號（""），而不是單引號（' '）。
@@ -64,7 +64,7 @@ AzCopy 會使用[來自 URL API 的 Put 區塊](https://docs.microsoft.com/rest/
 | **範例** | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
 
 > [!NOTE]
-> 本文中的範例使用 AWS S3 bucket 的路徑樣式 Url （例如： `http://s3.amazonaws.com/<bucket-name>`）。 
+> 本文中的範例會使用 AWS S3 bucket 的路徑樣式 Url （例如： `http://s3.amazonaws.com/<bucket-name>`）。 
 >
 > 您也可以使用虛擬主控樣式的 Url （例如： `http://bucket.s3.amazonaws.com`）。 
 >
@@ -104,15 +104,15 @@ AzCopy 會使用[來自 URL API 的 Put 區塊](https://docs.microsoft.com/rest/
 
 AzCopy 會處理兩個最常發生的問題;包含句點和 bucket 的值區，其中包含連續的連字號。 AWS S3 值區名稱可以包含句點和連續的連字號，但 Azure 中的容器無法。 AzCopy 會以連字號和連續連字號取代句點，其數位代表連續連字號的數目（例如：名為 `my----bucket` 的值區會變成 `my-4-bucket`。 
 
-此外，當 AzCopy 複製檔案時，它會檢查命名衝突並嘗試加以解決。 例如，如果有名稱為 `bucket-name` 且 `bucket.name` 的值區，則 AzCopy 會先將名為 `bucket.name` 的值區解析為 `bucket-name`，然後再 `bucket-name-2`。
+此外，當 AzCopy 複製檔案時，它會檢查命名衝突並嘗試加以解決。 例如，如果有 `bucket-name` 和 `bucket.name`名稱的值區，則 AzCopy 會先將名為 `bucket.name` 的值區解析成 `bucket-name`，然後再進行 `bucket-name-2`。
 
 ## <a name="handle-differences-in-object-metadata"></a>處理物件中繼資料的差異
 
 AWS S3 和 Azure 允許在物件索引鍵的名稱中有不同的字元集。 您可以閱讀 AWS S3 在[此](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys)使用的字元。 在 Azure 端，blob 物件金鑰會遵守[ C#識別碼](https://docs.microsoft.com/dotnet/csharp/language-reference/)的命名規則。
 
-做為 AzCopy `copy` 命令的一部分，您可以提供選擇性的 `s2s-invalid-metadata-handle` 旗標值，指定您要如何處理檔案的中繼資料包含不相容的索引鍵名稱的檔案。 下表描述每個旗標值。
+在 AzCopy `copy` 命令中，您可以提供選擇性的 [`s2s-invalid-metadata-handle`] 旗標值，指定您要如何處理檔案的中繼資料包含不相容的索引鍵名稱的檔案。 下表描述每個旗標值。
 
-| 旗標值 | 說明  |
+| 旗標值 | 描述  |
 |--------|-----------|
 | **ExcludeIfInvalid** | （預設選項）中繼資料不會包含在傳送的物件中。 AzCopy 會記錄一則警告。 |
 | **FailIfInvalid** | 不會複製物件。 AzCopy 會記錄錯誤，並在傳輸摘要中出現的失敗計數中包含該錯誤。  |

@@ -29,7 +29,7 @@ Azure Cosmos DB 所提供的語言整合式、交易式 JavaScript 執行，可�
 
 預存程序須以 JavaScript 撰寫，這些程序可建立、更新、讀取、查詢和刪除 Azure Cosmos 容器內的項目。 預存程序會按照集合進行註冊，而且可執行於該集合中現有的文件或附件。
 
-**範例**
+<bpt id="p1">**</bpt>Example<ept id="p1">**</ept>
 
 以下提供會傳回 "Hello World" 回應的簡單預存程序。
 

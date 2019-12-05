@@ -1,6 +1,6 @@
 ---
-title: Locate & use apps on the My Apps portal - Azure AD
-description: Learn how to find the My Apps portal and then how to access your organization's cloud-based apps.
+title: 找出 & 在我的應用程式入口網站上使用應用程式-Azure AD
+description: 瞭解如何尋找我的應用程式入口網站，以及如何存取貴組織的雲端式應用程式。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -20,7 +20,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233185"
 ---
-# <a name="locate-and-use-your-organizations-cloud-based-apps-on-the-my-apps-portal"></a>Locate and use your organization's cloud-based apps on the My Apps portal
+# <a name="locate-and-use-your-organizations-cloud-based-apps-on-the-my-apps-portal"></a>在我的應用程式入口網站上找出並使用您組織的雲端式應用程式
 
 您可以透過 [我的應用程式] Web 入口網站使用工作或學校帳戶，來檢視和啟動貴組織的許多雲端式應用程式、更新您的設定檔和帳戶資訊、查看您的**群組**資訊，以及執行您應用程式和群組的**存取權檢閱**。 如果您沒有 [我的應用程式] 入口網站的存取權，則必須連絡技術服務人員以取得權限。
 
@@ -31,135 +31,135 @@ ms.locfileid: "74233185"
 
 ## <a name="supported-browsers"></a>支援的瀏覽器
 
-You can get to the **My Apps** portal from any of the following web browsers:
+您可以從下列任何網頁瀏覽器進入**我的應用程式**入口網站：
 
 - Google Chrome
 
-- Mozilla Firefox, version 26.0 or later
+- Mozilla Firefox，26.0 版或更新版本
 
 - Microsoft Edge
 
-- Internet Explorer, version 11 (limited support)
+- Internet Explorer 第11版（有限支援）
 
-## <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>Download and install the My Apps Secure Sign-in Extension
+## <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>下載並安裝我的應用程式安全登入延伸模組
 
-Download and install the My Apps Secure Sign-in Extension, if you're prompted. This extension helps you start any of your organization's cloud apps that require you to use a single sign-on process. If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
+如果系統提示您，請下載並安裝我的應用程式安全登入延伸模組。 此延伸模組可協助您啟動貴組織的任何雲端應用程式，並要求您使用單一登入進程。 如果您的組織已將您設定為單一登入，則會自動安裝此延伸模組，您可以略過本節。
 
-This extension helps you:
+此延伸模組可協助您：
 
-- Sign in directly to apps from the sign-in page.
+- 從登入頁面直接登入應用程式。
 
-- Start any apps using the **Quick search** feature.
+- 使用**快速搜尋**功能啟動任何應用程式。
 
-- See the last apps you used in the **Recently Used** section.
+- 請參閱您在**最近使用**的一節中所使用的最後一個應用程式。
 
-- Use internal company URLs while remote with [Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
+- 在遠端搭配[應用程式 Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)使用內部公司 url。
 
-### <a name="to-download-and-install-the-extension"></a>To download and install the extension
+### <a name="to-download-and-install-the-extension"></a>下載並安裝擴充功能
 
-Download and install the extension, based on the browser you're using:
+根據您所使用的瀏覽器，下載並安裝延伸模組：
 
-- **Google Chrome.** From the Chrome Web Store, go to the [My Apps Secure Sign-in Extension](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) feature, and then select **Add to Chrome**.
+- **Google Chrome。** 從 Chrome Web Store，移至 [[我的應用程式安全登入延伸](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl)模組] 功能，然後選取 [**新增至 Chrome**]。
 
-- **Mozilla Firefox** From the **Firefox Add-ons** page, go to the [My Apps Secure Sign-in Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/) feature, and then select **Add to Firefox**.
+- **Mozilla Firefox**在 [ **Firefox 附加**元件] 頁面上，移至 [[我的應用程式安全登入延伸](https://addons.mozilla.org/firefox/addon/access-panel-extension/)模組] 功能，然後選取 [**新增至 Firefox**]。
 
-- **Microsoft Edge** From the Microsoft Store, go to the [My Apps Secure Sign-in Extension](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) feature, and then select **Get**.
+- **Microsoft Edge**從 [Microsoft Store] 中，移至 [[我的應用程式 Secure 登入延伸](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab)模組] 功能，然後選取 [**取得**]。
 
-An icon is added to the right of your **Address** bar, letting you sign-in and customize the extension.
+您的**網址**列右側會加入一個圖示，讓您可以登入並自訂擴充功能。
 
-#### <a name="to-change-your-my-apps-portal-using-the-extension"></a>To change your My Apps portal using the extension
-You can choose how many apps to view in the **Recently Used** section and decide whether to allow your organization's internal URLs to redirect.
+#### <a name="to-change-your-my-apps-portal-using-the-extension"></a>使用延伸模組來變更您的我的應用程式入口網站
+您可以在 [**最近使用**的] 區段中選擇要查看的應用程式數目，並決定是否要允許您組織的內部 url 重新導向。
 
-1. Select the new **My Apps Secure Sign-in Extension** icon ![Extension icon](media/my-apps-portal/my-apps-portal-extension-icon.png) to the right of your **Address** bar, and then select **Sign in to get started**.
+1. 選取 [新增**我的應用程式安全登入延伸**模組] 圖示 ![延伸模組圖示，](media/my-apps-portal/my-apps-portal-extension-icon.png) 在**網址**列的右邊，然後選取 [登**入以開始**使用]。
 
-2. Right-click the **Settings** icon ![Settings icon](media/my-apps-portal/my-apps-portal-extension-settings-icon.png), and then select **Settings**.
+2. 以滑鼠右鍵按一下 [**設定** 圖示 ![設定 圖示](media/my-apps-portal/my-apps-portal-extension-settings-icon.png)]，然後選取 [**設定**。
 
-3. In the **Settings** box, select the number of recent apps you want to see on the portal, and whether to allow your organization's internal URLs to redirect so you can use them remotely.
+3. 在 [**設定**] 方塊中，選取您想要在入口網站上看到的最近使用的應用程式數目，以及是否允許重新導向組織的內部 url，讓您可以從遠端使用它們。
 
-    ![Settings page of the extension, showing the available customizations](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
+    ![擴充功能的 [設定] 頁面，其中顯示可用的自訂專案](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
 
-## <a name="access-and-use-the-my-apps-portal-by-device"></a>Access and use the My Apps portal by device
-You can access and use the My Apps portal on your computer, from an Intune-managed browser, or from an iOS or Android mobile device.
+## <a name="access-and-use-the-my-apps-portal-by-device"></a>依裝置存取和使用我的應用程式入口網站
+您可以從受 Intune 管理的瀏覽器，或從 iOS 或 Android 行動裝置存取和使用電腦上的我的應用程式入口網站。
 
-![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page.png)
+![我的應用程式入口網站中的 [應用程式] 頁面](media/my-apps-portal/my-apps-portal-apps-page.png)
 
-### <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>Access and use the My Apps portal on your computer
-If you have permission to access and use your organization's cloud-based apps, you can get to them through the **My Apps** portal.
+### <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>在您的電腦上存取並使用我的應用程式入口網站
+如果您有權存取和使用組織的雲端式應用程式，您可以透過**我的應用程式**入口網站來取得。
 
 1. 登入您的公司或學校帳戶。
 
-2. Open your web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
+2. 開啟您的網頁瀏覽器並移至 https://myapps.microsoft.com，或使用您組織所提供的連結。 例如，您可能會被導向至您組織的自訂頁面，例如 https://myapps.microsoft.com/contoso.com。
 
-    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
+    [**應用程式**] 頁面隨即出現，其中顯示貴組織所擁有且可供您使用的所有雲端應用程式。
 
-3. From the **Apps** page, select the app you want to start using.
+3. 從 [**應用程式**] 頁面中，選取您想要開始使用的應用程式。
 
-    A new page opens for the app, where you can sign-in (if necessary) or begin using the app.
+    隨即會開啟應用程式的新頁面，您可以在此登入（如有需要），或開始使用應用程式。
 
-### <a name="access-and-use-the-my-apps-portal-on-an-intune-managed-browser"></a>Access and use the My Apps portal on an Intune-managed browser
+### <a name="access-and-use-the-my-apps-portal-on-an-intune-managed-browser"></a>在受 Intune 管理的瀏覽器上存取和使用我的應用程式入口網站
 
-View and use your organization's apps from an Intune Managed Browser on your iOS and Android devices.
+從 iOS 和 Android 裝置上的 Intune Managed Browser，觀看並使用貴組織的應用程式。
 
-1. On your mobile device, download and install the Intune Managed Browser app from the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) and the [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
+1. 在您的行動裝置上，從[Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)和[Google Play 商店](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser)下載並安裝 Intune Managed Browser 應用程式。
 
-2. Open the Intune Managed Browser app, go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
+2. 開啟 Intune Managed Browser 應用程式、移至 https://myapps.microsoft.com，或使用貴組織所提供的連結。 例如，您可能會被導向至您組織的自訂頁面，例如 https://myapps.microsoft.com/contoso.com。
 
-    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
+    [**應用程式**] 頁面隨即出現，其中顯示貴組織所擁有且可供您使用的所有雲端應用程式。
 
-3. From the **Apps** page, select the app you want to start using.
+3. 從 [**應用程式**] 頁面中，選取您想要開始使用的應用程式。
 
-    A new page opens for the app, where you can sign-in (if necessary) or begin using the app.
+    隨即會開啟應用程式的新頁面，您可以在此登入（如有需要），或開始使用應用程式。
 
-### <a name="access-and-use-the-my-apps-portal-on-an-ios-device"></a>Access and use the My Apps portal on an iOS device
+### <a name="access-and-use-the-my-apps-portal-on-an-ios-device"></a>在 iOS 裝置上存取和使用我的應用程式入口網站
 
-View and use the **My Apps** portal from an iPhone or iPad device, running iOS version 7 or later. You can also install the [My Apps mobile app](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8) to access your organization's apps on your iOS devices. 
+從執行 iOS 版本7或更新版本的 iPhone 或 iPad 裝置，觀看並使用**我的應用程式**入口網站。 您也可以安裝我的應用程式行動裝置[應用程式](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)，以在您的 iOS 裝置上存取貴組織的應用程式。 
 
-1. On your mobile device, start a web browser app, such as Safari.
+1. 在您的行動裝置上，啟動 web 瀏覽器應用程式，例如 Safari。
 
-2. Go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
+2. 請移至 https://myapps.microsoft.com，或使用您組織所提供的連結。 例如，您可能會被導向至您組織的自訂頁面，例如 https://myapps.microsoft.com/contoso.com。
 
-    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
+    [**應用程式**] 頁面隨即出現，其中顯示貴組織所擁有且可供您使用的所有雲端應用程式。
 
-3. From the **Apps** page, select the app you want to start using.
+3. 從 [**應用程式**] 頁面中，選取您想要開始使用的應用程式。
 
-    A new page opens for the app, where you can sign-in (if necessary) or begin using the app.
+    隨即會開啟應用程式的新頁面，您可以在此登入（如有需要），或開始使用應用程式。
 
-### <a name="access-and-use-the-my-apps-portal-on-an-android-device"></a>Access and use the My Apps portal on an Android device
+### <a name="access-and-use-the-my-apps-portal-on-an-android-device"></a>在 Android 裝置上存取和使用我的應用程式入口網站
 
-View and use the **My Apps** portal on an Android device.
+在 Android 裝置上觀看並使用**我的應用程式**入口網站。
 
-1. On your mobile device, start a web browser app, such as Google Chrome.
+1. 在您的行動裝置上，啟動 web 瀏覽器應用程式，例如 Google Chrome。
 
-2. Go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
+2. 請移至 https://myapps.microsoft.com，或使用您組織所提供的連結。 例如，您可能會被導向至您組織的自訂頁面，例如 https://myapps.microsoft.com/contoso.com。
 
-    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
+    [**應用程式**] 頁面隨即出現，其中顯示貴組織所擁有且可供您使用的所有雲端應用程式。
 
-3. From the **Apps** page, select the app you want to start using.
+3. 從 [**應用程式**] 頁面中，選取您想要開始使用的應用程式。
 
-    A new page opens for the app, where you can sign-in (if necessary) or begin using the app.
+    隨即會開啟應用程式的新頁面，您可以在此登入（如有需要），或開始使用應用程式。
 
-## <a name="add-a-new-app-to-the-my-apps-portal"></a>Add a new app to the My Apps portal
+## <a name="add-a-new-app-to-the-my-apps-portal"></a>將新的應用程式新增至我的應用程式入口網站
 
-If your administrator has given you permission, you can add a new app to the **Apps** page.
+如果您的系統管理員已授與您許可權，您可以將新的應用程式新增至 [**應用程式**] 頁面。
 
-1. From the **Apps** page, select **Add App**.
+1. 從 [**應用程式**] 頁面中，選取 [**新增應用程式**]。
 
-    The **Add apps** page appears.
+    [**新增應用程式**] 頁面隨即出現。
 
-    ![Add apps page, in the My Apps portal](media/my-apps-portal/my-apps-portal-add-apps-page.png)
+    ![我的應用程式入口網站中的 [新增應用程式] 頁面](media/my-apps-portal/my-apps-portal-add-apps-page.png)
 
-2. Select the app you want to add from the provided list, and then select **Add**.
+2. 從提供的清單中選取您想要新增的應用程式，然後選取 [**新增**]。
 
-3. The app is added to the list on the **Apps** page.
+3. 應用程式會新增至 [**應用程式**] 頁面上的清單。
 
-    Some apps might require administrator approval before being added. In this situation, the app isn't added to the **Apps** page until the administrator approves it.
+    某些應用程式可能需要系統管理員核准，才能新增。 在此情況下，應用程式在系統管理員核准之前，不會新增至 [**應用程式**] 頁面。
 
 ## <a name="next-steps"></a>後續步驟
 
-After you get to the **Apps** page, you can:
+進入 [**應用程式**] 頁面之後，您可以：
 
-- [Change your profile information](my-apps-portal-end-user-update-profile.md)
+- [變更您的設定檔資訊](my-apps-portal-end-user-update-profile.md)
 
-- [View and update your groups-related information](my-apps-portal-end-user-groups.md)
+- [查看和更新您的群組相關資訊](my-apps-portal-end-user-groups.md)
 
 - [執行您自己的存取權檢閱](my-apps-portal-end-user-access-reviews.md)

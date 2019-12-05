@@ -98,7 +98,7 @@ ms.locfileid: "74232502"
         }
         ```
 
-    2. **File share**: This storage type should be selected for _standalone_ clusters when the need is to store data backup on-premises. 此儲存體類型的描述需要必須上傳備份的檔案共用路徑。 您可以使用下列其中一個選項，設定檔案共用的存取權：
+    2. 檔案**共用**：當需要在內部部署環境中儲存資料備份時，應該為_獨立_叢集選取此儲存類型。 此儲存體類型的描述需要必須上傳備份的檔案共用路徑。 您可以使用下列其中一個選項，設定檔案共用的存取權：
         1. 整合式 Windows 驗證，可對屬於 Service Fabric 叢集的所有電腦提供檔案共用的存取權。 在此情況下，設定下列欄位，以設定以「檔案共用」為基礎的備份儲存體。
 
             ```json
@@ -127,8 +127,8 @@ ms.locfileid: "74232502"
 > 確保儲存體可靠性符合或超過備份資料的可靠性需求。
 >
 
-* **Retention Policy**: Specifies the policy to retain backups in the configured storage. 僅支援基本保留原則。
-    1. **Basic Retention Policy**: This retention policy allows to ensure optimal storage utilization by removing backup files which are no more required. 指定 `RetentionDuration`，即可設定備份必須保留在儲存體中的時間範圍。 `MinimumNumberOfBackups` 是選用參數，加以指定即可確保一律保留指定的備份數目 (不論 `RetentionDuration` 為何)。 下列範例說明保留備份 _10_ 天，而且不允許備份數目低於 _20_ 的組態。
+* **保留原則**：指定要在設定的儲存體中保留備份的原則。 僅支援基本保留原則。
+    1. **基本保留原則**：此保留原則可讓您藉由移除不再需要的備份檔案，以確保最佳的儲存使用量。 指定 `RetentionDuration`，即可設定備份必須保留在儲存體中的時間範圍。 `MinimumNumberOfBackups` 是選用參數，加以指定即可確保一律保留指定的備份數目 (不論 `RetentionDuration` 為何)。 下列範例說明保留備份 _10_ 天，而且不允許備份數目低於 _20_ 的組態。
 
         ```json
         {
@@ -167,23 +167,23 @@ ms.locfileid: "74232502"
 
 為了解決這些資料備份需求，則會建立備份原則 BP_1 至 BP_5 並啟用備份，如下所示。
 1. MyApp_A
-    1. 建立備份原則 _BP_1_，採用以頻率為基礎的備份排程，其頻率設定為 24 小時。 而且備份儲存體設定為使用儲存體位置 _BackupStore1_。 使用[啟用應用程式備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup) API，針對應用程式 _MyApp_A_ 啟用此原則。 此動作可啟用資料備份，做法是針對屬於應用程式 _MyApp_A_ 的可靠具狀態服務和 Reliable Actors 的所有分割區，使用備份原則 _BP_1_。
+    1. 建立備份原則 _BP_1_，採用以頻率為基礎的備份排程，其頻率設定為 24 小時。 而且備份儲存體設定為使用儲存體位置 _BackupStore1_。 使用_啟用應用程式備份_ API，針對應用程式 [MyApp_A](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup) 啟用此原則。 此動作可啟用資料備份，做法是針對屬於應用程式 _MyApp_A_ 的可靠具狀態服務和 Reliable Actors 的所有分割區，使用備份原則 _BP_1_。
 
-    2. 建立備份原則 _BP_2_，採用以頻率為基礎的備份排程，其頻率設定為 1 小時。 而且備份儲存體設定為使用儲存體位置 _BackupStore1_。 使用[啟用服務備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) API，針對服務 _SvcA3_ 啟用此原則。 對於 _SvcA3_ 服務的所有分割區，此動作會以明確啟用的備份原則 _BP_2_ 覆寫傳播的原則 _BP_1_，進而導致使用這些分割區的備份原則 _BP_2_ 來備份資料。
+    2. 建立備份原則 _BP_2_，採用以頻率為基礎的備份排程，其頻率設定為 1 小時。 而且備份儲存體設定為使用儲存體位置 _BackupStore1_。 使用_啟用服務備份_ API，針對服務 [SvcA3](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) 啟用此原則。 對於 _SvcA3_ 服務的所有分割區，此動作會以明確啟用的備份原則 _BP_2_ 覆寫傳播的原則 _BP_1_，進而導致使用這些分割區的備份原則 _BP_2_ 來備份資料。
 
-    3. 建立備份原則 _BP_3_，採用以頻率為基礎的備份排程，其頻率設定為 24 小時。 而且備份儲存體設定為使用儲存體位置 _BackupStore2_。 使用[啟用分割區備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API，針對分割區 _SvcA1_P2_ 啟用此原則。 對於分割區 _SvcA1_P2_，此動作會以明確啟用的備份原則 _BP_3_ 覆寫傳播的原則 _BP_1_。
+    3. 建立備份原則 _BP_3_，採用以頻率為基礎的備份排程，其頻率設定為 24 小時。 而且備份儲存體設定為使用儲存體位置 _BackupStore2_。 使用_啟用分割區備份_ API，針對分割區 [SvcA1_P2](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) 啟用此原則。 對於分割區 _SvcA1_P2_，此動作會以明確啟用的備份原則 _BP_3_ 覆寫傳播的原則 _BP_1_。
 
 2. MyApp_B
-    1. 建立備份原則 _BP_4_，採用以時間為基礎的備份排程，其排程頻率類型設定為每週，執行日設定為星期日，而執行時間設定為上午 8:00。 備份儲存體設定為使用儲存體位置 _BackupStore1_。 使用[啟用服務備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) API，針對服務 _SvcB1_ 啟用此原則。 此動作會使用備份原則 _BP_4_，對 _SvcB1_ 服務的所有分割區啟用資料備份。
+    1. 建立備份原則 _BP_4_，採用以時間為基礎的備份排程，其排程頻率類型設定為每週，執行日設定為星期日，而執行時間設定為上午 8:00。 備份儲存體設定為使用儲存體位置 _BackupStore1_。 使用_啟用服務備份_ API，針對服務 [SvcB1](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) 啟用此原則。 此動作會使用備份原則 _BP_4_，對 _SvcB1_ 服務的所有分割區啟用資料備份。
 
-    2. 建立備份原則 _BP_5_，採用以時間為基礎的備份排程，其排程頻率類型設定為每日且執行時間設定為上午 8:00。 備份儲存體設定為使用儲存體位置 _BackupStore1_。 使用[啟用分割區備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API，針對分割區 _SvcB2_P1_ 啟用此原則。 此動作會使用備份原則 _BP_5_，對分割區 _SvcB2_P1_ 啟用資料備份。
+    2. 建立備份原則 _BP_5_，採用以時間為基礎的備份排程，其排程頻率類型設定為每日且執行時間設定為上午 8:00。 備份儲存體設定為使用儲存體位置 _BackupStore1_。 使用_啟用分割區備份_ API，針對分割區 [SvcB2_P1](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) 啟用此原則。 此動作會使用備份原則 _BP_5_，對分割區 _SvcB2_P1_ 啟用資料備份。
 
 下圖描述明確啟用的備份原則和傳播的備份原則。
 
 ![Service Fabric 應用程式階層][0]
 
 ## <a name="disable-backup"></a>停用備份
-不需要備份資料時，可以停用備份原則。 在應用程式啟用的備份原則只能使用[停用應用程式備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup) API 在相同的應用程式停用，在服務啟用的備份原則可以使用[停用服務備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup) API 在相同的服務停用，而在分割區啟用的備份原則可以使用[停用分割區備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup) API 在相同的分割區停用。
+不需要備份資料時，可以停用備份原則。 在應用程式啟用的備份原則只能使用_停用應用程式備份_ API 在相同的應用程式[](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup)停用，在服務啟用的備份原則可以使用_停用服務備份_ API 在相同的服務[](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup)停用，而在分割區啟用的備份原則可以使用_停用分割區備份_ API 在相同的分割區[](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup)停用。
 
 * 停用應用程式的備份原則會阻止所有的定期資料備份發生，這是因為備份原則傳播到可靠具狀態服務分割區或 Reliable Actors 分割區。
 
@@ -201,11 +201,11 @@ ms.locfileid: "74232502"
 ## <a name="suspend--resume-backup"></a>暫止與繼續備份
 有些情況可能會要求暫時擱置資料的定期備份。 在這種情況下，根據需求而定，可能會在應用程式、服務或分割區使用暫止備份 API。 定期備份擱置可從其套用點透過應用程式階層的樹狀子目錄轉移。 
 
-* 使用[暫止應用程式備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) API 在應用程式套用擱置時，此應用程式之下的所有服務和分割區都會暫止資料的定期備份。
+* 使用_暫止應用程式備份_ API 在應用程式[](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup)套用擱置時，此應用程式之下的所有服務和分割區都會暫止資料的定期備份。
 
-* 使用[暫止服務備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup) API 在服務套用擱置時，此服務之下的所有分割區都會暫止資料的定期備份。
+* 使用_暫止服務備份_ API 在服務[](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup)套用擱置時，此服務之下的所有分割區都會暫止資料的定期備份。
 
-* 使用[暫止分割區備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) API 在分割區套用擱置時，此服務之下的分割區都會暫止資料的定期備份。
+* 使用_暫止分割區備份_ API 在分割區[](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup)套用擱置時，此服務之下的分割區都會暫止資料的定期備份。
 
 擱置需求結束後，則可使用各自的繼續備份 API 來還原定期資料備份。 定期備份必須在暫止時的相同應用程式、服務或_分割區_上繼續進行。
 

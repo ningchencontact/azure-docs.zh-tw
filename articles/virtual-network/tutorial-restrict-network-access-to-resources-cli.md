@@ -1,10 +1,10 @@
 ---
-title: 限制對 PaaS 資源的網路存取 - Azure CLI | Microsoft Docs
+title: 限制對 PaaS 資源的網路存取-Azure CLI
 description: 在本文中，您會了解如何透過使用 Azure CLI 和虛擬網路服務端點來限制對 Azure 資源 (例如 Azure 儲存體和 Azure SQL Database) 的網路存取。
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: e52829723b41f9274251ebe7432aa659251c0da4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2dcc714bc9052dd51f114e24f0b9bd74b87480c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695129"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186395"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>透過使用 Azure CLI 的虛擬網路服務端點來限制對 PaaS 資源的網路存取
 
@@ -93,7 +93,7 @@ az network nsg create \
   --name myNsgPrivate
 ```
 
-請使用 [az network vnet subnet update](/cli/azure/network/vnet/subnet) 將網路安全性群組與「私人」子網路建立關聯。 下列範例會將 myNsgPrivate 網路安全性群組與「私人」子網路建立關聯：
+請使用 *az network vnet subnet update* 將網路安全性群組與「私人」[](/cli/azure/network/vnet/subnet)子網路建立關聯。 下列範例會將 myNsgPrivate 網路安全性群組與「私人」子網路建立關聯：
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -120,7 +120,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-每個網路安全性群組包含數個[預設安全性規則](security-overview.md#default-security-rules)。 下列規則會覆寫預設安全性規則，允許輸出存取所有公用 IP 位址。 `destination-address-prefix "Internet"`選項，拒絕對所有公用 IP 位址的輸出存取。 上一個規則會因其具有較高優先順序而覆寫這項規則，從而允許對 Azure 儲存體之公用 IP 位址的存取。
+每個網路安全性群組包含數個[預設的安全性規則](security-overview.md#default-security-rules)。 後面的規則會覆寫允許對所有公用 IP 位址進行輸出存取的預設安全性規則。 `destination-address-prefix "Internet"` 選項會拒絕對所有公用 IP 位址的輸出存取。 上一個規則會因其具有較高優先順序而覆寫這項規則，從而允許對 Azure 儲存體之公用 IP 位址的存取。
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -137,7 +137,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-下列規則允許 SSH 流量從任何地方輸入子網路。 此規則會覆寫拒絕來自網際網路之所有輸入流量的預設安全性規則。 SSH 允許子網路，以便在稍後的步驟，就可以測試連線。
+下列規則允許從任何地方輸入子網的 SSH 流量。 此規則會覆寫拒絕來自網際網路之所有輸入流量的預設安全性規則。 允許 SSH 連線至子網，以便在稍後的步驟中測試連線能力。
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -201,7 +201,7 @@ az storage share create \
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>拒絕所有對儲存體帳戶的網路存取
 
-根據預設，儲存體帳戶會接受來自任何網路用戶端的網路連線。 若要限制對選取網路的存取，請使用 [az storage account update](/cli/azure/storage/account) 將預設動作變更為「拒絕」。 一旦網路存取遭到拒絕後，就無法從任何網路存取儲存體帳戶。
+根據預設，儲存體帳戶會接受來自任何網路用戶端的網路連線。 若要限制對選取網路的存取，請使用 *az storage account update* 將預設動作變更為「拒絕」[](/cli/azure/storage/account)。 一旦網路存取遭到拒絕後，就無法從任何網路存取儲存體帳戶。
 
 ```azurecli-interactive
 az storage account update \
@@ -212,7 +212,7 @@ az storage account update \
 
 ### <a name="enable-network-access-from-a-subnet"></a>啟用子網路的網路存取
 
-使用 [az storage account network-rule add](/cli/azure/storage/account/network-rule) 允許從「私人」子網路對儲存體帳戶的網路存取。
+使用 *az storage account network-rule add* 允許從「私人」[](/cli/azure/storage/account/network-rule)子網路對儲存體帳戶的網路存取。
 
 ```azurecli-interactive
 az storage account network-rule add \
@@ -227,7 +227,7 @@ az storage account network-rule add \
 
 ### <a name="create-the-first-virtual-machine"></a>建立第一部虛擬機器
 
-使用 [az vm create](/cli/azure/vm) 在「公用」子網路中建立虛擬機器。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。
+使用 *az vm create* 在「公用」[](/cli/azure/vm)子網路中建立虛擬機器。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。
 
 ```azurecli-interactive
 az vm create \
@@ -272,7 +272,7 @@ az vm create \
 
 ## <a name="confirm-access-to-storage-account"></a>確認對儲存體帳戶的存取
 
-使用 SSH 連線到 myVmPrivate VM。 取代 *\<publicIpAddress >* 的公用 IP 位址與您*myVmPrivate* VM。
+使用 SSH 連線到 myVmPrivate VM。 以*myVmPrivate* VM 的公用 IP 位址取代 *\<publicIpAddress >* 。
 
 ```bash 
 ssh <publicIpAddress>
@@ -304,7 +304,7 @@ ping bing.com -c 4
 
 ## <a name="confirm-access-is-denied-to-storage-account"></a>確認對儲存體帳戶的存取遭到拒絕
 
-使用下列命令來建立使用 myVmPublic VM 的 SSH 工作階段。 以 myVmPublic VM 的公用 IP 位址取代 `<publicIpAddress>`： 
+使用下列命令來建立使用 myVmPublic VM 的 SSH 工作階段。 以 myVmPublic`<publicIpAddress>`*VM 的公用 IP 位址取代*： 
 
 ```bash 
 ssh <publicIpAddress>

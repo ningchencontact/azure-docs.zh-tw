@@ -1,10 +1,10 @@
 ---
-title: Frequently asked questions about Azure Dev Spaces
+title: 關於 Azure Dev Spaces 的常見問題
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: conceptual
-description: Find answers to some of the common questions about Azure Dev Spaces
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s '
+description: 尋找一些關於 Azure Dev Spaces 常見問題的解答
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
 ms.openlocfilehash: 2baab0812061bec7dcf08d35056804313d873889
 ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
@@ -12,48 +12,48 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74482306"
 ---
-# <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Frequently asked questions about Azure Dev Spaces
+# <a name="frequently-asked-questions-about-azure-dev-spaces"></a>關於 Azure Dev Spaces 的常見問題
 
-This addresses frequently asked questions about Azure Dev Spaces.
+這會解決 Azure Dev Spaces 的常見問題。
 
-## <a name="which-azure-regions-currently-provide-azure-dev-spaces"></a>Which Azure regions currently provide Azure Dev Spaces?
+## <a name="which-azure-regions-currently-provide-azure-dev-spaces"></a>哪些 Azure 區域目前提供 Azure Dev Spaces？
 
-For a complete list of available regions, see [supported regions and configurations][supported-regions].
+如需可用區域的完整清單，請參閱[支援的區域和][supported-regions]設定。
 
-## <a name="can-i-use-azure-dev-spaces-without-a-public-ip-address"></a>Can I use Azure Dev Spaces without a public IP address?
+## <a name="can-i-use-azure-dev-spaces-without-a-public-ip-address"></a>我可以在沒有公用 IP 位址的情況下使用 Azure Dev Spaces 嗎？
 
-No, you can't provision Azure Dev Spaces on an AKS Cluster without a public IP. A public IP is [needed by Azure Dev Spaces for routing][dev-spaces-routing].
+否，您無法在沒有公用 IP 的 AKS 叢集上布建 Azure Dev Spaces。 [Azure Dev Spaces 路由需要][dev-spaces-routing]公用 IP。
 
-## <a name="can-i-use-my-own-ingress-with-azure-dev-spaces"></a>Can I use my own ingress with Azure Dev Spaces?
+## <a name="can-i-use-my-own-ingress-with-azure-dev-spaces"></a>我可以搭配 Azure Dev Spaces 使用自己的輸入嗎？
 
-Yes, you can configure your own ingress along side the one Azure Dev Spaces creates. For example, you can use [traefik][ingress-traefik].
+是，您可以設定您自己的輸入，Azure Dev Spaces 建立一個輸入。 例如，您可以使用[traefik][ingress-traefik]。
 
-## <a name="can-i-use-https-with-azure-dev-spaces"></a>Can I use HTTPS with Azure Dev Spaces?
+## <a name="can-i-use-https-with-azure-dev-spaces"></a>我可以搭配使用 HTTPS 與 Azure Dev Spaces 嗎？
 
-Yes, you can configure your own ingress with HTTPS using [traefik][ingress-https-traefik].
+是，您可以使用[traefik][ingress-https-traefik]來設定您自己的輸入與 HTTPS。
 
-## <a name="can-i-use-azure-dev-spaces-on-a-cluster-that-uses-cni-rather-than-kubenet"></a>Can I use Azure Dev Spaces on a cluster that uses CNI rather than kubenet? 
+## <a name="can-i-use-azure-dev-spaces-on-a-cluster-that-uses-cni-rather-than-kubenet"></a>我可以在使用 CNI 而非 kubenet 的叢集上使用 Azure Dev Spaces 嗎？ 
 
-Yes, you can use Azure Dev Spaces on an AKS cluster that uses CNI for networking. For example, you can use Azure Dev Spaces on an AKS cluster with [existing Windows containers][windows-containers], which uses CNI for networking.
+是，您可以在使用 CNI 進行網路功能的 AKS 叢集上使用 Azure Dev Spaces。 例如，您可以使用 AKS 叢集上的 Azure Dev Spaces 搭配[現有的 Windows 容器][windows-containers]，其使用 CNI 的網路功能。
 
-## <a name="can-i-use-azure-dev-spaces-with-windows-containers"></a>Can I use Azure Dev Spaces with Windows Containers?
+## <a name="can-i-use-azure-dev-spaces-with-windows-containers"></a>我可以搭配 Windows 容器使用 Azure Dev Spaces 嗎？
 
-Currently, Azure Dev Spaces is intended to run on Linux pods and nodes only, but you can run Azure Dev Spaces on an AKS cluster with [existing Windows containers][windows-containers].
+目前，Azure Dev Spaces 僅適用于 Linux pod 和節點，但您可以在具有[現有 Windows 容器][windows-containers]的 AKS 叢集上執行 Azure Dev Spaces。
 
-## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-api-server-authorized-ip-address-ranges-enabled"></a>Can I use Azure Dev Spaces on AKS clusters with API server authorized IP address ranges enabled?
+## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-api-server-authorized-ip-address-ranges-enabled"></a>我可以在已啟用 API 伺服器授權 IP 位址範圍的 AKS 叢集上使用 Azure Dev Spaces 嗎？
 
-Yes, you can use Azure Dev Spaces on AKS clusters with [API server authorized IP address ranges][aks-auth-range] enabled. When [creating][aks-auth-range-create] your cluster, you must [allow additional ranges based on your region][aks-auth-range-ranges]. You can also [update][aks-auth-range-update] an existing cluster to allow those additional ranges.
+是，您可以在已啟用[API 伺服器授權 IP 位址範圍][aks-auth-range]的 AKS 叢集上使用 Azure Dev Spaces。 [建立][aks-auth-range-create]叢集時，您必須根據[您的區域允許額外的範圍][aks-auth-range-ranges]。 您也可以[更新][aks-auth-range-update]現有的叢集，以允許這些額外的範圍。
 
-### <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-restricted-egress-traffic-for-cluster-nodes"></a>Can I use Azure Dev Spaces on AKS clusters with restricted egress traffic for cluster nodes?
+### <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-restricted-egress-traffic-for-cluster-nodes"></a>我可以在 AKS 叢集上使用具有叢集節點之受限制輸出流量的 Azure Dev Spaces 嗎？
 
-Yes, you can use Azure Dev Spaces on AKS clusters with [Restricted egress traffic for cluster nodes][aks-restrict-egress-traffic] enabled once the following FQDNs have been allowed:
+是的，您可以在 AKS 叢集上使用 Azure Dev Spaces，並在已啟用下列 Fqdn 的情況下，在已啟用叢集[節點的受限制輸出流量][aks-restrict-egress-traffic]：
 
-| FQDN                                    | 連接埠      | 使用      |
+| 稱                                    | Port      | 使用      |
 |-----------------------------------------|-----------|----------|
-| cloudflare.docker.com | HTTPS:443 | To pull linux alpine and other Azure Dev Spaces images |
-| gcr.io | HTTP:443 | To pull helm/tiller images |
-| storage.googleapis.com | HTTP:443 | To pull helm/tiller images |
-| azds-<guid>.<location>.azds.io | HTTPS:443 | To communicate with Azure Dev Spaces backend services for your controller. The exact FQDN can be found in the "dataplaneFqdn" in %USERPROFILE%\.azds\settings.json |
+| cloudflare.docker.com | HTTPS：443 | 提取 linux alpine 和其他 Azure Dev Spaces 映射 |
+| gcr.io | HTTP：443 | 提取 helm/tiller 映射 |
+| storage.googleapis.com | HTTP：443 | 提取 helm/tiller 映射 |
+| azds-<guid>。<location>。 azds.io | HTTPS：443 | 與您的控制器 Azure Dev Spaces 後端服務進行通訊。 您可以在% USERPROFILE%\.azds\settings.json 的 "dataplaneFqdn" 中找到確切的 FQDN |
 
 
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md

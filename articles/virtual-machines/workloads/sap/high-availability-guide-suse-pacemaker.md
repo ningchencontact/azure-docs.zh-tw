@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 8c7da1b989546950bf61153e96193c0bab11d8ac
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 8136e65636561079603986f0d6ff30bcbd68258f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603527"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534215"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>在 Azure 中於 SUSE Linux Enterprise Server 上設定 Pacemaker
 
@@ -27,8 +27,8 @@ ms.locfileid: "73603527"
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
-[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
-[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-linux-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-windows-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
@@ -41,7 +41,7 @@ SBD 裝置至少需要一部額外的虛擬機器，作為 iSCSI 目標伺服器
 ![SLES 上的 Pacemaker 概觀](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> 規劃和部署 Linux Pacemaker 叢集節點與 SBD 裝置時，對於完整叢集設定的整體可靠性而言，最重要的是相關 VM 與裝載 SBD 裝置的 VM 之間，其路由傳送不會通過 [NVA](https://azure.microsoft.com/solutions/network-appliances/) 等任何其他裝置。 否則，與 NVA 相關的問題與維護事件，會對整體叢集設定的穩定性與可靠性造成負面影響。 為了避免這類障礙，請不要定義 Nva 或[使用者定義的路由規則](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)的路由規則，這些規則會在規劃和部署 Linux Pacemaker 叢集節點時，透過 nva 和類似的裝置來路由傳送叢集節點與 SBD 裝置之間的流量，以及SBD 裝置。 
+> 規劃和部署 Linux Pacemaker 叢集節點與 SBD 裝置時，對於完整叢集設定的整體可靠性而言，最重要的是相關 VM 與裝載 SBD 裝置的 VM 之間，其路由傳送不會通過 [NVA](https://azure.microsoft.com/solutions/network-appliances/) 等任何其他裝置。 否則，與 NVA 相關的問題與維護事件，會對整體叢集設定的穩定性與可靠性造成負面影響。 為了避免這類障礙，請不要定義 Nva 或[使用者定義的路由規則](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)的路由規則，這些規則會在規劃和部署 Linux Pacemaker 叢集節點和 SBD 裝置時，透過 nva 和類似的裝置來路由傳送叢集節點與 SBD 裝置之間的流量。 
 >
 
 ## <a name="sbd-fencing"></a>SBD 隔離
@@ -83,7 +83,7 @@ SBD 裝置至少需要一部額外的虛擬機器，作為 iSCSI 目標伺服器
 
 在所有 **iSCSI 目標虛擬機器**上執行下列命令，為 SAP 系統所用的叢集建立 iSCSI 磁碟。 在下列範例中，會建立多個叢集的 SBD 裝置。 它會顯示如何對多個叢集使用一部 iSCSI 目標伺服器。 SBD 裝置會置於 OS 磁碟上。 確定您有足夠的空間。
 
-**`nfs`** 是用來識別 NFS 叢集、 **ascsnw1**是用來識別**NW1**的 ASCS 叢集、 **dbnw1**是用來識別**NW1**的資料庫叢集、 **nfs-0**和**NFS-1**是的主機名稱。NFS 叢集節點、 **nw1-xscs-0**和**nw1-xscs-1**是**nw1** ASCS 叢集節點的主機名稱，而**nw1-db-0**和**nw1-db-1**是資料庫叢集節點的主機名稱。 使用您的叢集節點主機名稱和 SAP 系統 SID 取代它們。
+**`nfs`** 是用來識別 NFS 叢集， **ascsnw1**是用來識別**NW1**的 ASCS 叢集， **dbnw1**是用來識別**NW1**的資料庫叢集、 **nfs-0**和**NFS-1**是 nfs 叢集節點的主機名稱、 **NW1-xscs-0**和**NW1-xscs-1**是**NW1** ASCS 叢集節點的主機名稱，而**NW1-db-0**和**NW1-db-1**是資料庫叢集節點的主機名稱。 使用您的叢集節點主機名稱和 SAP 系統 SID 取代它們。
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -474,7 +474,7 @@ o- / ...........................................................................
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   將下列粗體內容新增至檔案 (如果檔案中沒有這些值或不同)。 請務必將權杖變更為 30000，以允許記憶體保留維護。 如需詳細資訊, 請參閱[適用于 Linux][virtual-machines-linux-maintenance] 或 [Windows][virtual-machines-windows-maintenance] 的這篇文章。
+   將下列粗體內容新增至檔案 (如果檔案中沒有這些值或不同)。 請務必將權杖變更為 30000，以允許記憶體保留維護。 如需詳細資訊，請參閱[適用于 Linux 或 Windows 的這篇文章][virtual-machines-linux-maintenance]。 [][virtual-machines-windows-maintenance]
 
    <pre><code>[...]
      <b>token:          30000
@@ -528,7 +528,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 1. 選取 [憑證和密碼]，然後按一下 [新增用戶端密碼]
 1. 輸入新金鑰的描述，選取 [永不過期]，然後按一下 [新增]
 1. 記下值。 此值會用來做為服務主體的**密碼**
-1. 選取 [總覽]。 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的「登入識別碼」)
+1. 選取 [總覽]。 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的 **login id**)
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 為柵欄代理程式建立自訂角色
 

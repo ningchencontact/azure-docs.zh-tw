@@ -1,7 +1,7 @@
 ---
 title: 建立內部基本負載平衡器 - Azure CLI
 titleSuffix: Azure Load Balancer
-description: In this article, learn how to create an internal load balancer using Azure CLI
+description: 在本文中，您將瞭解如何使用 Azure CLI 來建立內部負載平衡器
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -26,7 +26,7 @@ ms.locfileid: "74215328"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.28 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，在執行本教學課程時，您必須執行 Azure CLI 2.0.28 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -41,7 +41,7 @@ ms.locfileid: "74215328"
 ```
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
-使用 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet)，在 myResourceGroup 中建立名為 myVNet 的虛擬網路，其具有名為 mySubnet 的子網路。
+使用 *az network vnet create*，在 *myResourceGroup* 中建立名為 *myVNet*、具有子網路 [mySubnet](https://docs.microsoft.com/cli/azure/network/vnet) 的虛擬網路。
 
 ```azurecli-interactive
   az network vnet create \
@@ -60,7 +60,7 @@ ms.locfileid: "74215328"
 
 ### <a name="create-the-load-balancer"></a>建立負載平衡器
 
-Create an internal Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **myLoadBalancer** that includes a frontend IP configuration named **myFrontEnd**, a back-end pool named **myBackEndPool** that is associated with a private IP address **10.0.0.7.
+使用[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)建立內部 Load Balancer，名為**myLoadBalancer** ，其中包含名為**myFrontEnd**的前端 IP 設定、名為**myBackEndPool**的後端集區，與私人 IP 位址 * * 10.0.0.7 相關聯。
 
 ```azurecli-interactive
   az network lb create \
@@ -72,9 +72,9 @@ Create an internal Load Balancer with [az network lb create](https://docs.micros
     --vnet-name myVnet \
     --subnet mySubnet      
   ```
-### <a name="create-the-health-probe"></a>建立健康情況探查
+### <a name="create-the-health-probe"></a>建立健康狀態探查
 
-健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以接收網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。 使用 [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) 建立健康狀態探查，以檢視虛擬機器的健康狀態。 
+健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以接收網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。 使用 [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) 建立健康情況探查，以檢視虛擬機器的健康情況。 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -87,7 +87,7 @@ Create an internal Load Balancer with [az network lb create](https://docs.micros
 
 ### <a name="create-the-load-balancer-rule"></a>建立負載平衡器規則
 
-負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端 IP 集區，以及所需的來源和目的地連接埠。 使用 [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) 建立負載平衡器規則 myHTTPRule，用來接聽前端集區 myFrontEnd 中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 myBackEndPool (也是使用連接埠 80)。 
+負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端 IP 集區，以及所需的來源和目的地連接埠。 使用 *az network lb rule create* 建立負載平衡器規則 myHTTPRule[](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest)，用來接聽前端集區 myFrontEnd 中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 myBackEndPool (也是使用連接埠 80)。 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -234,4 +234,4 @@ for i in `seq 1 2`; do
 
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您已建立內部基本負載平衡器、將 VM 連結至該平衡器、設定負載平衡器流量規則、健康情況探查，然後測試負載平衡器。 若要深入了解負載平衡器及其相關聯的資源，請繼續閱讀操作說明文章。
+在本文中，您已建立內部基本負載平衡器、將 VM 連結至該平衡器、設定負載平衡器流量規則、健康情況探查，然後測試負載平衡器。 若要深入了解負載平衡器及其相關聯的資源，請繼續進行操作說明文章。

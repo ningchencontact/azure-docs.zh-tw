@@ -1,19 +1,14 @@
 ---
-title: 在 Azure Container Instances 中對於容器化工作使用重新啟動原則
+title: 執行一次工作的重新開機原則
 description: 了解如何使用 Azure Container Instances 來執行工作，該工作會執行到完成為止，例如建置、測試或映像轉譯作業。
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
-ms.openlocfilehash: 4fe5d9a20249a17030e0ccfa34f6a4f183be0d82
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f814b1c99827c07f8dadfb0cfd80c87a93377cdc
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325687"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533466"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>使用重新啟動原則執行容器化工作
 
@@ -35,7 +30,7 @@ ms.locfileid: "68325687"
 
 ## <a name="specify-a-restart-policy"></a>指定重新啟動原則
 
-您指定重新啟動原則的方式取決於如何建立容器執行個體，例如使用 Azure CLI、Azure PowerShell Cmdlet，或是 Azure 入口網站。 在 Azure CLI 中, 當`--restart-policy`您呼叫[az container create][az-container-create]時, 請指定參數。
+您指定重新啟動原則的方式取決於如何建立容器執行個體，例如使用 Azure CLI、Azure PowerShell Cmdlet，或是 Azure 入口網站。 在 [Azure CLI 中，當您呼叫[az container create][az-container-create]時，請指定 `--restart-policy` 參數。
 
 ```azurecli-interactive
 az container create \
@@ -47,9 +42,9 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>執行至完成範例
 
-若要查看作用中的重新開機原則, 請從 Microsoft [aci-wordcount][aci-wordcount-image]映射建立容器實例, 然後指定`OnFailure`重新開機原則。 此範例容器會執行 Python 指令碼，根據預設，它會分析 Shakespeare 的 [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) 的文字，將 10 個最常見的字詞寫入 STDOUT，然後結束。
+若要查看作用中的重新開機原則，請從 Microsoft [aci-wordcount][aci-wordcount-image]映射建立容器實例，並指定 `OnFailure` 重新開機原則。 此範例容器會執行 Python 指令碼，根據預設，它會分析 Shakespeare 的 [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) 的文字，將 10 個最常見的字詞寫入 STDOUT，然後結束。
 
-使用下列[az container create][az-container-create]命令執行範例容器:
+使用下列[az container create][az-container-create]命令執行範例容器：
 
 ```azurecli-interactive
 az container create \
@@ -59,7 +54,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Azure Container Instances 會啟動容器，然後在它的應用程式 (或者是這個案例中的指令碼) 結束時停止它。 當 Azure Container Instances 停止其重新啟動原則為 `Never` 或 `OnFailure` 的容器時，容器的狀態會設定為「已終止」  。 您可以使用[az container show][az-container-show]命令來檢查容器的狀態:
+Azure Container Instances 會啟動容器，然後在它的應用程式 (或者是這個案例中的指令碼) 結束時停止它。 當 Azure Container Instances 停止其重新啟動原則為 `Never` 或 `OnFailure` 的容器時，容器的狀態會設定為「已終止」。 您可以使用[az container show][az-container-show]命令來檢查容器的狀態：
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query containers[0].instanceView.currentState.state
@@ -71,7 +66,7 @@ az container show --resource-group myResourceGroup --name mycontainer --query co
 "Terminated"
 ```
 
-一旦範例容器的狀態顯示「已終止」  ，您可以藉由檢視容器記錄來查看其工作輸出。 執行[az container logs][az-container-logs]命令來查看腳本的輸出:
+一旦範例容器的狀態顯示「已終止」，您可以藉由檢視容器記錄來查看其工作輸出。 執行[az container logs][az-container-logs]命令來查看腳本的輸出：
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
@@ -96,7 +91,7 @@ az container logs --resource-group myResourceGroup --name mycontainer
 
 ## <a name="next-steps"></a>後續步驟
 
-以工作為基礎的案例, 例如批次處理含有數個容器的大型資料集, 可以在執行時間利用自訂[環境變數](container-instances-environment-variables.md)或[命令列](container-instances-start-command.md)。
+以工作為基礎的案例，例如批次處理含有數個容器的大型資料集，可以在執行時間利用自訂[環境變數](container-instances-environment-variables.md)或[命令列](container-instances-start-command.md)。
 
 如需如何保存執行至完成之容器的輸入的詳細資訊，請參閱[使用 Azure Container Instances 來掛接 Azure 檔案共用](container-instances-mounting-azure-files-volume.md)。
 

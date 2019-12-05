@@ -12,7 +12,7 @@ ms.locfileid: "74463993"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Azure Marketplace 中的受控服務供應項目
 
-此文章說明 [Azure Marketplace](https://azuremarketplace.microsoft.com) 中的新 [受控服務] 供應項目類型。 受控服務供應項目可讓您搭配 Azure 委派的資源管理向客戶提供資源管理服務。 您可以向所有潛在客戶提供這些供應項目，或僅向一或多個特定客戶提供。 由於您會直接向客戶收取與這些受控服務相關的費用，因此 Microsoft 不會向您收取任何費用。
+此文章說明 **Azure Marketplace** 中的新 [受控服務][](https://azuremarketplace.microsoft.com) 供應項目類型。 受控服務供應項目可讓您搭配 Azure 委派的資源管理向客戶提供資源管理服務。 您可以向所有潛在客戶提供這些供應項目，或僅向一或多個特定客戶提供。 由於您會直接向客戶收取與這些受控服務相關的費用，因此 Microsoft 不會向您收取任何費用。
 
 ## <a name="understand-managed-services-offers"></a>了解受控服務供應項目
 

@@ -1,5 +1,5 @@
 ---
-title: 查明特定使用者何時將能存取應用程式 | Microsoft Docs
+title: 找出特定使用者將能夠存取應用程式的時間
 description: 如何查明非常重要的使用者何時能夠存取您已設定的應用程式，以透過 Azure AD 進行使用者佈建
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3b334df8cd24a1d8ca88c8ac2e3117bdd24d8b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 25ac9ad5877c6a1408d4045df4d4e1fd8f64ea94
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057774"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275731"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>檢查使用者布建的狀態
 
@@ -40,7 +40,7 @@ Azure AD 布建服務會對來源系統和目標系統執行初始布建週期�
 
 布建週期完成之後，[**統計資料]** 區段會顯示已布建到 [日期] 的使用者和群組累計數目，以及最後一個週期的完成日期和持續時間。 **活動識別碼**會唯一識別最新的布建週期。 **工作**識別碼是布建工作的唯一識別碼，而且是您租使用者中的應用程式專用。
 
-布建進度可以在 Azure 入口網站的 [ **Azure Active Directory &gt; Enterprise Apps\] &gt; \[應用程式名稱&gt;**  ] [布建] 索引標籤中查看。
+在 Azure 入口網站中，您可以在**Azure Active Directory &gt; 企業應用程式 &gt;** \[\] 布建] 索引標籤中，看到布建進度。&gt;
 
 ![布建頁面進度列](media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
@@ -48,7 +48,7 @@ Azure AD 布建服務會對來源系統和目標系統執行初始布建週期�
 
 若要查看所選使用者的布建狀態，請參閱 Azure AD 中的布建[記錄（預覽）](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) 。 使用者布建服務所執行的所有作業都會記錄在 Azure AD 布建記錄中。 這包括對來源和目標系統進行的所有讀取和寫入作業，以及在每個操作期間讀取或寫入的使用者資料。
 
-您可以在 [**活動**] 區段中選取 [ **Azure Active Directory** &gt; **企業應用程式** &gt;布建**記錄（預覽）** ]，以存取 Azure 入口網站中的布建記錄。 您可以根據使用者名稱或來源系統或目標系統中的識別碼來搜尋布建資料。 如需詳細資訊，請參閱布建[記錄（預覽）](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)。 
+您可以在 [**活動**] 區段中選取 [ **Azure Active Directory** &gt;**企業應用程式**] &gt; [布建**記錄（預覽）** ]，以存取 Azure 入口網站中的布建記錄。 您可以根據使用者名稱或來源系統或目標系統中的識別碼來搜尋布建資料。 如需詳細資訊，請參閱布建[記錄（預覽）](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)。 
 
 布建記錄會記錄布建服務所執行的所有作業，包括：
 
@@ -66,7 +66,7 @@ Azure AD 布建服務會對來源系統和目標系統執行初始布建週期�
 
 - 在**初始迴圈**中，作業時間取決於許多因素，包括布建範圍中的使用者和群組數目，以及來源系統中的使用者和群組總數。 根據 Azure AD 目錄大小和佈建範圍中的使用者數目而定，Azure AD 和應用程式之間的第一次同步處理可能會花費 20 分鐘到數小時。 本節稍後會摘要說明會影響初始週期效能的完整因素清單。
 
-- 在初始週期後的**增量迴圈**中，工作時間通常會更快（例如在10分鐘內），因為布建服務會在初始週期後儲存代表兩個系統狀態的浮水印，改善後續的效能同步. 作業時間取決於在該布建週期中偵測到的變更數目。 如果使用者或群組成員資格變更少於5000個，則工作可以在單一累加布建週期內完成。 
+- 在初始週期後的**增量迴圈**中，工作時間通常會更快（例如在10分鐘內），因為布建服務會在初始週期後儲存代表兩個系統狀態的浮水印，以改善後續同步處理的效能。 作業時間取決於在該布建週期中偵測到的變更數目。 如果使用者或群組成員資格變更少於5000個，則工作可以在單一累加布建週期內完成。 
 
 下表摘要說明常見佈建案例的同步處理時間。 在這些案例中，來源系統是 Azure AD，而目標系統是 SaaS 應用程式。 同步處理時間衍生自 SaaS 應用程式 ServiceNow、Workplace、Salesforce 和 G Suite 的同步作業統計分析。
 

@@ -1,5 +1,5 @@
 ---
-title: 以來賓使用者的身分從組織離職 - Azure Active Directory | Microsoft Docs
+title: 將組織保留為來賓使用者-Azure Active Directory
 description: 說明 Azure AD B2B 來賓使用者如何使用 [存取面板] 從組織離職。
 services: active-directory
 ms.service: active-directory
@@ -11,50 +11,50 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26d9eb883cc014c1bea092a12e22b6d144a37994
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8bce67c81b924d768826402b707c41c085b7767b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112974"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272502"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>以來賓使用者的身分從組織離職
 
 Azure Active Directory (Azure AD) B2B 使用者如果不再需要組織的應用程式，或不需要與組織保持關聯，隨時皆可決定從組織離職。 使用者可以自行從組織離職，不需要聯絡系統管理員。
 
 > [!NOTE]
-> 如果他們的帳戶已停用的家用租用戶或資源租用戶中，來賓使用者不能離開組織。 如果已停用其帳戶，來賓使用者必須連絡租用戶系統管理員，使用者可以刪除 guest 帳戶或啟用 guest 帳戶，讓使用者可以離開組織。
+> 如果您的帳戶已在家庭租使用者或資源租使用者中停用，來賓使用者就不能離開組織。 如果其帳戶已停用，來賓使用者將必須與租使用者系統管理員聯繫，使用者可以刪除來賓帳戶或啟用來賓帳戶，讓使用者可以離開組織。
 
 ## <a name="leave-an-organization"></a>從組織離職
 
 若要離開組織，請遵循下列步驟。
 
-1. 請移至存取面板設定檔頁面，執行下列步驟：
+1. 執行下列其中一個步驟，移至您的存取面板設定檔頁面面：
    
-   - 在  [Azure 入口網站](https://portal.azure.com)，按一下您右上方的名稱，然後選取**檢視帳戶**。
-   - 開啟您[存取面板](https://myapps.microsoft.com)，按一下您的名稱，右和下一步 的左上方**組織**，選取 [設定] 圖示 （齒輪）。
+   - 在  [Azure 入口網站](https://portal.azure.com)中，按一下右上方的名稱，然後選取  **View account**]。
+   - 開啟您的[存取面板](https://myapps.microsoft.com)，按一下右上角的名稱，然後選取 [**組織**] 旁的設定圖示（齒輪）。
  
    ![顯示 [存取面板] 中使用者設定的螢幕擷取畫面](media/leave-the-organization/UserSettings.png) 
 
    > [!NOTE]
-   > 如果您在尚未登入，組織您想要離開，底下**組織**，按一下**登入以離開組織**組織的名稱旁邊的連結。 您已登入之後，按一下您的名稱，一次在右上方，接下來**組織**，選取 [設定] 圖示 （齒輪）。
+   > 如果您尚未登入您想要離開的組織，請在 [**組織**] 底下，按一下組織名稱旁的 [登**入以離開組織**] 連結。 登入之後，請在右上角按一下您的名稱，然後選取 [**組織**] 旁的 [設定] 圖示（齒輪）。
 
-3. 在 [組織]  下方找到要離開的組織，然後選取 [從組織離職]  。
+3. 在 [組織] 下方找到要離開的組織，然後選取 [從組織離職]。
 
    ![顯示使用者介面中 [從組織離職] 選項的螢幕擷取畫面](media/leave-the-organization/LeaveOrg.png)
 
-4. 系統要求您確認時，請選取 [離開]  。 
+4. 系統要求您確認時，請選取 [離開]。 
 
 ## <a name="account-removal"></a>帳戶移除
 
-使用者從組織離職後，其帳戶將在目錄中「虛刪除」。 根據預設，使用者物件將移至**刪除使用者**在 Azure AD 中的區域，但不永久刪除 30 天。 透過虛刪除的作法，若使用者在 30 天內提出要求，系統管理員便可還原使用者帳戶 (包括群組和權限)。
+使用者從組織離職後，其帳戶將在目錄中「虛刪除」。 根據預設，使用者物件會移至 Azure AD 中的 [**已刪除的使用者**] 區域，但不會永久刪除30天。 透過虛刪除的作法，若使用者在 30 天內提出要求，系統管理員便可還原使用者帳戶 (包括群組和權限)。
 
 如有需要，租用戶系統管理員在 30 天內隨時可永久刪除帳戶。 作法：
 
 1. 在 [[Azure 入口網站]](https://portal.azure.com) 中，選取 **[Azure Active Directory]** 。
-2. 在 [管理]  底下選取 [使用者]  。
-3. 選取 [刪除的使用者]  。
-4. 選取已刪除使用者旁邊的核取方塊，然後選取 [永久刪除]  。
+2. 在 [管理] 底下選取 [使用者]。
+3. 選取 [刪除的使用者]。
+4. 選取已刪除使用者旁邊的核取方塊，然後選取 [永久刪除]。
 
 若永久刪除使用者，此動作將無法回復。
 

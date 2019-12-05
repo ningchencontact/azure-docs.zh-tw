@@ -1,5 +1,6 @@
 ---
-title: 使用封包擷取搭配警示和 Azure Functions 進行主動式網路監視 | Microsoft Docs
+title: 使用封包捕獲，利用警示進行主動式網路監視-Azure Functions
+titleSuffix: Azure Network Watcher
 description: 本文說明如何使用 Azure 網路監看員建立警示觸發的封包擷取
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: d894fabf3cfd4c6949aba94d558751bf007356d9
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 26599776abdf7ecbb6c86c332a40e0c2b7d6e67e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165162"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276125"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>使用封包擷取搭配警示和 Azure Functions 進行主動式網路監視
 
@@ -31,18 +32,18 @@ ms.locfileid: "70165162"
 
 藉由使用 Azure 生態系統內的網路監看員、警示及函式，您可以使用資料和工具主動回應以解決網路中的問題。
 
-![狀況][scenario]
+![案例][scenario]
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 最新版的 [Azure PowerShell](/powershell/azure/install-Az-ps)。
 * 網路監看員的現有執行個體。 如果您還沒有，請[建立網路監看員執行個體](network-watcher-create.md)。
 * 在含有 [Windows 擴充功能](../virtual-machines/windows/extensions-nwa.md)或 [Linux 虛擬機器擴充功能](../virtual-machines/linux/extensions-nwa.md)的網路監看員所在區域中的現有虛擬機器。
 
-## <a name="scenario"></a>狀況
+## <a name="scenario"></a>案例
 
 在此範例中，您的 VM 將傳送比平常還要多的 TCP 區段，而且您想要收到警示。 此處使用 TCP 區段做為範例，但您可以使用任何警示條件。
 
@@ -80,11 +81,11 @@ ms.locfileid: "70165162"
     |**應用程式名稱**|PacketCaptureExample|函數應用程式的名稱。|
     |**訂用帳戶**|[您的訂用帳戶]要建立函數應用程式的訂用帳戶。||
     |**資源群組**|PacketCaptureRG|要包含函數應用程式的資源群組。|
-    |**主控方案**|使用情況方案| 函數應用程式所使用的方案類型。 選項有「取用」或 Azure App Service 方案。 |
-    |**位置**|美國中部| 要在其中建立函數應用程式的區域。|
+    |**主控方案**|取用方案| 函數應用程式所使用的方案類型。 選項有「取用」或 Azure App Service 方案。 |
+    |<bpt id="p1">**</bpt>Location<ept id="p1">**</ept>|美國中部| 要在其中建立函數應用程式的區域。|
     |**儲存體帳戶**|{自動產生}| Azure Functions 針對一般用途的儲存所需的儲存體帳戶。|
 
-3. 在 [PacketCaptureExample 函數應用程式] 刀鋒視窗上，選取 [函式] > [自訂函式] >[+]。
+3. 在 [PacketCaptureExample 函數應用程式] 刀鋒視窗上，選取 [函式] > [自訂函式] >[ **]+** 。
 
 4. 選取 [HttpTrigger-Powershell]，然後輸入其餘資訊。 最後，若要建立函式，請選取 [建立]。
 
@@ -137,9 +138,9 @@ ms.locfileid: "70165162"
 
     * Az.Resources
 
-1. 以滑鼠右鍵按一下 [ **Az. Network** ] 子資料夾, 然後選取 **[上傳**檔案]。 
+1. 以滑鼠右鍵按一下 [ **Az. Network** ] 子資料夾，然後選取 **[上傳**檔案]。 
 
-6. 前往 Azure 模組。 在 [本機**Az. Network** ] 資料夾中, 選取資料夾中的所有檔案。 然後選取 [確定]。 
+6. 前往 Azure 模組。 在 [本機**Az. Network** ] 資料夾中，選取資料夾中的所有檔案。 然後選取 [確定]。 
 
 7. 針對**Az. Accounts**和**az .resources**重複這些步驟。
 
@@ -345,7 +346,7 @@ $Encryptedpassword
 
   |**設定** | **值** | **詳細資料** |
   |---|---|---|
-  |**名稱**|TCP_Segments_Sent_Exceeded|警示規則的名稱。|
+  |**Name**|TCP_Segments_Sent_Exceeded|警示規則的名稱。|
   |**描述**|傳送的 TCP 區段超出閾值|警示規則的描述。|
   |**計量**|傳送的 TCP 區段| 用以觸發警示的計量。 |
   |**Condition**|大於| 評估計量所用的條件。|

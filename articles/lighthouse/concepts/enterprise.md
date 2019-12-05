@@ -2,17 +2,17 @@
 title: Azure Lighthouse 在企業案例中的運用
 description: Azure Lighthouse 的功能可在使用多個 Azure AD 租用戶的企業內用來簡化跨租用戶管理。
 ms.date: 09/25/2019
-ms.topic: overview
-ms.openlocfilehash: ae2241048e6ae481e319154beedab74c23c91163
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: f610f943ed7faa0d2ad64ff2f1554cdd41d76ee8
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132492"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463909"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse 在企業案例中的運用
 
-[Azure Lighthouse](../overview.md) 最常見的案例是在其客戶的 Azure Active Directory (Azure AD) 租用戶中管理資源的服務提供者。 不過，Azure Lighthouse 的功能也可在使用多個 Azure AD 租用戶的企業內用來簡化跨租用戶管理。
+[Azure 燈塔](../overview.md)最常見的案例是在其客戶的 Azure Active Directory （Azure AD）租使用者中管理資源的服務提供者。 不過，Azure Lighthouse 的功能也可在使用多個 Azure AD 租用戶的企業內用來簡化跨租用戶管理。
 
 ## <a name="single-vs-multiple-tenants"></a>單一與多個租用戶的比較
 
@@ -24,7 +24,7 @@ ms.locfileid: "74132492"
 
 集中進行跨多個租用戶的管理作業時，您必須判斷哪個租用戶將包含對其他租用戶執行管理作業的使用者。 換句話說，您必須判斷哪個租用戶會是其他租用戶的管理租用戶。
 
-例如，假設貴組織有一個我們會稱之為「租用戶 A」  的租用戶。貴組織接著會取得兩個額外的租用戶 (「租用戶 B」  和「租用戶 C」  )，而您有需要將其當作個別租用戶維護的商務理由。
+例如，假設您的組織有一個租使用者，我們將會呼叫*租使用者 a*。您的組織接著會取得兩個額外的*租使用者 B*和*租使用者 C*，而且您有商業理由需要您將其維護為個別的租使用者。
 
 貴組織想要在所有租用戶中使用相同的原則定義、備份做法和安全性程序。 由於您已經有負責在租用戶 A 中執行這些工作的使用者 (包括使用者群組和服務主體)，因此您可以將租用戶 B 和租用戶 C 內的所有訂用帳戶上架，讓租用戶 A 中的這些使用者可以執行這些作業。
 
@@ -54,7 +54,7 @@ Azure Lighthouse 和 Azure 委派的資源管理只會提供管理租用戶與�
 
 例如，在上述範例中，可以將租用戶 A 視為服務提供者租用戶 (管理租用戶)，而租用戶 B 和租用戶 C 則被視為客戶租用戶。
 
-在該範例中，具有適當權限的租用戶 A 使用者可以在 Azure 入口網站的 [我的客戶]  頁面中，[檢視和管理委派的資源](../how-to/view-manage-customers.md)。 同樣地，具有適當權限的租用戶 B 和租用戶 C 使用者可以在 Azure 入口網站的 [服務提供者]  頁面中，[檢視和管理已被委派的資源](../how-to/view-manage-service-providers.md)。
+在該範例中，具有適當權限的租用戶 A 使用者可以在 Azure 入口網站的 [我的客戶][](../how-to/view-manage-customers.md) 頁面中，**檢視和管理委派的資源**。 同樣地，具有適當權限的租用戶 B 和租用戶 C 使用者可以在 Azure 入口網站的 [服務提供者][](../how-to/view-manage-service-providers.md) 頁面中，**檢視和管理已被委派的資源**。
 
 ## <a name="next-steps"></a>後續步驟
 

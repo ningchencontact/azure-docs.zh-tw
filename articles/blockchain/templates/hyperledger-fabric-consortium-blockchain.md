@@ -1,6 +1,6 @@
 ---
-title: Deploy Hyperledger Fabric Consortium solution template on Azure
-description: How to deploy and configure the Hyperledger Fabric consortium network solution template on Azure
+title: 在 Azure 上部署 Hyperledger Fabric 聯盟解決方案範本
+description: 如何在 Azure 上部署和設定 Hyperledger Fabric 聯盟網路解決方案範本
 ms.date: 05/09/2019
 ms.topic: article
 ms.reviewer: caleteet
@@ -33,10 +33,10 @@ ms.locfileid: "74325140"
 
 在這兩種部署中，構成 Hyperledger Fabric 的建置區塊都是相同的。  部署中的差異在於這些元件的相應放大方式。
 
-- **CA nodes**: A node running Certificate Authority that is used to generate certificates that are used for identities in the network.
-- **Orderer nodes**: A node running the communication service implementing a delivery guarantee, such as total order broadcast or atomic transactions.
-- **Peer nodes**: A node that commits transactions and maintains the state and a copy of the distributed ledger.
-- **CouchDB nodes**: A node that can run the CouchDB service that can hold the state database and provide rich querying of chaincode data, expanding from simple key/value to JSON type storage.
+- **CA 節點**：執行憑證授權單位單位的節點，用來產生用於網路中身分識別的憑證。
+- **排序者節點**：執行通訊服務的節點，其會履行傳遞保證，例如總訂單廣播或不可部分完成的交易。
+- **對等節點**：認可交易的節點，並維護分散式總帳的狀態和複本。
+- **CouchDB 節點**：可以執行 CouchDB 服務的節點，其可保存狀態資料庫並提供豐富的鏈碼資料查詢，從簡單的索引鍵/值擴充到 JSON 類型儲存體。
 
 ### <a name="single-virtual-machine-architecture"></a>單一虛擬機器架構
 
@@ -50,7 +50,7 @@ ms.locfileid: "74325140"
 
 ![多個虛擬機器架構](./media/hyperledger-fabric-consortium-blockchain/hlf-multi-arch.png)
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>快速入門
 
 若要開始，您需要可支援部署數個虛擬機器和標準儲存體帳戶的 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，則可[建立免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -58,28 +58,28 @@ ms.locfileid: "74325140"
 
 ![Hyperledger Fabric 單一成員區塊鏈 Marketplace 範本](./media/hyperledger-fabric-consortium-blockchain/marketplace-template.png)
 
-## <a name="deployment"></a>Deployment
+## <a name="deployment"></a>部署
 
 在 [Hyperledger Fabric 聯盟] 範本中，選取 [建立]。
 
-範本部署會引導您設定多節點 [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/) 網路。 The deployment flow is divided into four steps: Basics, Consortium Network Settings, Fabric configuration, and Optional components.
+範本部署會引導您設定多節點 [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/) 網路。 部署流程分成四個步驟：基本概念、聯盟網路設定、網狀架構設定和選擇性元件。
 
-### <a name="basics"></a>基本概念
+### <a name="basics"></a>基本
 
 在 [基本資料] 中，為任何部署指定標準參數的值。 例如，訂用帳戶、資源群組及基本虛擬機器屬性。
 
-![基本概念](./media/hyperledger-fabric-consortium-blockchain/basics.png)
+![基本](./media/hyperledger-fabric-consortium-blockchain/basics.png)
 
 | 參數名稱 | 描述 | 允許的值 |
 |---|---|---|
 **資源前置詞** | 部署時所佈建資源的名稱前置詞 |6 個字元以下 |
 **使用者名稱** | 為此成員所部署的每個虛擬機器，其管理員的使用者名稱 |1 - 64 個字元 |
 **驗證類型** | 用來向虛擬機器驗證的方法 |密碼或 SSH 公開金鑰|
-**密碼 (驗證類型 = 密碼)** |每個所部署虛擬機器的管理員帳戶密碼。 The password must contain three of the following character types: 1 upper case character, 1 lower case character, 1 number, and 1 special character<br /><br />所有 VM 一開始都有相同的密碼，但您可以在佈建之後變更密碼|12 - 72 個字元|
+**密碼 (驗證類型 = 密碼)** |每個所部署虛擬機器的管理員帳戶密碼。 密碼必須包含下列其中三種字元類型：1個大寫字元、1個小寫字元、1個數字和1個特殊字元<br /><br />所有 VM 一開始都有相同的密碼，但您可以在佈建之後變更密碼|12 - 72 個字元|
 **SSH 金鑰 (驗證類型 = SSH 公開金鑰)** |用於遠端登入的安全殼層金鑰 ||
 **訂用帳戶** |要作為部署目的地的訂用帳戶 ||
 **資源群組** |要對其部署聯盟網路的資源群組 ||
-**位置** |要在其中部署第一個成員的 Azure 區域 ||
+<bpt id="p1">**</bpt>Location<ept id="p1">**</ept> |要在其中部署第一個成員的 Azure 區域 ||
 
 選取 [確定]。
 
@@ -94,7 +94,7 @@ ms.locfileid: "74325140"
 **網路組態** |您可以選擇建立新的，或加入現有的網路。 如果選擇*加入現有*，您需要提供其他的值。 |新增網路 <br/> 加入現有的 |
 **HLF CA 密碼** |用於部署時建立的憑證授權單位所產生憑證的密碼。 密碼必須包含下列其中三個字元類型：1 個大寫字元、1 個小寫字元、1 個數字與 1 個特殊字元。<br /><br />所有虛擬機器一開始都有相同的密碼，但您可以在佈建之後變更密碼。|1 - 25 個字元 |
 **組織設定** |您可以自訂組織的名稱和憑證，或使用預設值。|預設值 <br/> 進階 |
-**VPN 網路設定** | 佈建 VPN 通道閘道以存取 VM | 是 <br/> 否 |
+**VPN 網路設定** | 佈建 VPN 通道閘道以存取 VM | yes <br/> 否 |
 
 選取 [確定]。
 
@@ -107,7 +107,7 @@ ms.locfileid: "74325140"
 | 參數名稱 | 描述 | 允許的值 |
 |---|---|---|
 **調整類型** |部署類型可以是單一虛擬機器具備多個容器，或在相應放大模型中具備多個虛擬機器。|單一 VM 或多個 VM |
-**VM 磁碟類型** |支援每個所部署節點的儲存體類型。 <br/> 若要深入了解可用的磁碟類型，請參閱[選取磁碟類型](../../virtual-machines/windows/disks-types.md)。|標準 SSD <br/> 高階 SSD |
+**VM 磁碟類型** |支援每個所部署節點的儲存體類型。 <br/> 若要深入了解可用的磁碟類型，請參閱[選取磁碟類型](../../virtual-machines/windows/disks-types.md)。|標準 SSD <br/> 進階 SSD |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>多個 VM 部署 (額外設定)
 
@@ -133,7 +133,7 @@ ms.locfileid: "74325140"
 
 在 [摘要] 中，檢閱所指定的輸入，並執行基本的預先部署驗證。
 
-![總結](./media/hyperledger-fabric-consortium-blockchain/summary.png)
+![Summary](./media/hyperledger-fabric-consortium-blockchain/summary.png)
 
 檢閱法律和隱私權條款，然後選取 [購買] 以進行部署。 根據所要佈建的 VM 數目，部署時間可能會從幾分鐘到數十分鐘不等。
 

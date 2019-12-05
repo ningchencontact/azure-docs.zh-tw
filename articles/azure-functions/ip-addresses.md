@@ -78,7 +78,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 }
 ```
 
- 如需有關此檔案何時更新和 IP 位址何時變更的資訊，請展開[下載中心頁面](https://www.microsoft.com/en-us/download/details.aspx?id=56519)的 [詳細資料] 區段。
+ 如需有關此檔案何時更新和 IP 位址何時變更的資訊，請展開**下載中心頁面**的 [詳細資料][](https://www.microsoft.com/en-us/download/details.aspx?id=56519) 區段。
 
 ## <a name="inbound-ip-address-changes"></a>輸入 IP 位址變更
 

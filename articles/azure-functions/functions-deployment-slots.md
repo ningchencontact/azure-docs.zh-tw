@@ -1,21 +1,16 @@
 ---
 title: Azure Functions 部署位置
 description: 瞭解如何使用 Azure Functions 建立和使用部署位置
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure 函式，函數
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: 50337745b008cdd38dd860a0329e44ee712e7acd
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: a59b62e19ac1e470dcdaaf0281dde9904a70b583
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70085674"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230677"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions 部署位置
 
@@ -27,7 +22,7 @@ Azure Functions 部署位置可讓您的函數應用程式執行稱為「位置�
 - 如果函式在交換期間執行，則會繼續執行，且後續的觸發程式會路由至已交換的應用程式實例。
 
 > [!NOTE]
-> Linux 使用量方案無法使用插槽。
+> Linux 使用量方案目前無法使用位置。
 
 ## <a name="why-use-slots"></a>為何要使用位置？
 
@@ -77,16 +72,16 @@ Azure Functions 部署位置可讓您的函數應用程式執行稱為「位置�
 - 在 *[平臺功能 > 一般設定*] 下 ，按一下 [設定]
 - 按一下您想要與目前位置保持在一起的設定名稱
 - 按一下 [**部署位置設定**] 核取方塊
-- 按一下 [確定]
+- 按一下 [虛擬機器]
 - 設定 blade 消失後，按一下 [**儲存**] 以保留變更
 
 ![部署位置設定](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
 
-## <a name="deployment"></a>Deployment
+## <a name="deployment"></a>部署
 
 當您建立插槽時，位置是空的。 您可以使用任何支援的[部署技術](./functions-deployment-technologies.md)，將您的應用程式部署到某個位置。
 
-## <a name="scaling"></a>調整
+## <a name="scaling"></a>調整大小
 
 所有位置都會調整為與生產位置相同的背景工作數目。
 
@@ -111,8 +106,8 @@ Azure Functions 部署位置可讓您的函數應用程式執行稱為「位置�
 
 1. 流覽至函數應用程式
 1. 按一下您要交換的來源位置名稱
-1. 從 [*總覽*] 索引標籤中，按一下 [**交換** 按鈕 ![Swap Azure Functions 部署位置 ](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-1. 確認交換的設定值，然後按一下 [**交換**] ![Swap Azure Functions 部署位置 ](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. 從 [*總覽*] 索引標籤中，按一下 [**交換**] 按鈕 ![交換 Azure Functions 部署位置](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
+1. 確認交換的設定值，然後按一下 [**交換**] ![交換 Azure Functions 部署位置](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
 
 執行交換作業時，作業可能需要一些時間。
 
@@ -159,7 +154,7 @@ Azure Functions 部署位置可讓您的函數應用程式執行稱為「位置�
 
 1. 選取新的 App Service 方案，或建立新的方案
 
-1. 按一下 [確定]
+1. 按一下 [虛擬機器]
 
     ![變更 app service 方案](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
 
@@ -169,7 +164,7 @@ Azure Functions 部署位置可讓您的函數應用程式執行稱為「位置�
 Azure Functions 部署位置有下列限制：
 
 - 應用程式可用的插槽數目取決於方案。 耗用量方案只允許一個部署位置。 在 App Service 方案下執行的應用程式可以使用其他位置。
-- 交換位置會針對 `AzureWebJobsSecretStorageType` 應用程式設定等於 `files` 的應用程式重設金鑰。
+- 交換位置會針對 `AzureWebJobsSecretStorageType` 應用程式設定等於 `files`的應用程式重設金鑰。
 - Linux 使用量方案無法使用插槽。
 
 ## <a name="support-levels"></a>支援層級
@@ -182,10 +177,10 @@ Azure Functions 部署位置有下列限制：
 | OS/主控方案           | 支援層級     |
 | ------------------------- | -------------------- |
 | Windows 耗用量       | 正式運作 |
-| Windows Premium （預覽） | 預覽              |
+| Windows Premium           | 正式運作  |
 | Windows 專用         | 正式運作 |
 | Linux 使用量         | 不支援          |
-| Linux Premium （預覽）   | 預覽              |
+| Linux Premium             | 正式運作  |
 | Linux 專用           | 正式運作 |
 
 ## <a name="next-steps"></a>後續步驟

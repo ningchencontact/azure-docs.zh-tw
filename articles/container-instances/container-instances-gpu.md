@@ -1,6 +1,6 @@
 ---
-title: Deploy GPU-enabled container instance
-description: Learn how to deploy Azure container instances to run compute-intensive container apps using GPU resources.
+title: 部署已啟用 GPU 的容器實例
+description: 瞭解如何部署 Azure 容器實例，以使用 GPU 資源來執行計算密集型容器應用程式。
 ms.topic: article
 ms.date: 04/17/2019
 ms.openlocfilehash: ea3b0ccba2d84487356f4bbd404cec3af1d0979a
@@ -12,9 +12,9 @@ ms.locfileid: "74484189"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>部署使用 GPU 資源的容器執行個體
 
-若要在 Azure 容器執行個體上執行某些計算密集型工作負載，請部署包含「GPU 資源」的[容器群組](container-instances-container-groups.md)。 群組中的容器執行個體可以存取一或多個 NVIDIA Tesla GPU，同時執行容器工作負載，例如 CUDA 和深度學習應用程式。
+若要在 Azure 容器執行個體上執行某些計算密集型工作負載，請部署包含「GPU 資源」[](container-instances-container-groups.md)的*容器群組*。 群組中的容器執行個體可以存取一或多個 NVIDIA Tesla GPU，同時執行容器工作負載，例如 CUDA 和深度學習應用程式。
 
-This article shows how to add GPU resources when you deploy a container group by using a [YAML file](container-instances-multi-container-yaml.md) or [Resource Manager template](container-instances-multi-container-group.md). You can also specify GPU resources when you deploy a container instance using the Azure portal.
+本文說明當您使用[YAML](container-instances-multi-container-yaml.md)檔或[Resource Manager 範本](container-instances-multi-container-group.md)部署容器群組時，如何新增 GPU 資源。 當您使用 Azure 入口網站部署容器實例時，也可以指定 GPU 資源。
 
 > [!IMPORTANT]
 > 此功能目前在預覽階段，但[有某些限制](#preview-limitations)。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
@@ -27,9 +27,9 @@ This article shows how to add GPU resources when you deploy a container group by
 
 會隨時間新增其他區域的支援。
 
-**Supported OS types**: Linux only
+**支援的 OS 類型**：僅限 Linux
 
-**Additional limitations**: GPU resources can't be used when deploying a container group into a [virtual network](container-instances-vnet.md).
+**其他限制**：將容器群組部署至[虛擬網路](container-instances-vnet.md)時，無法使用 GPU 資源。
 
 ## <a name="about-gpu-resources"></a>關於 GPU 資源
 
@@ -37,8 +37,8 @@ This article shows how to add GPU resources when you deploy a container group by
 
 若要在容器執行個體中使用 GPU，請使用下列資訊來指定「GPU 資源」：
 
-* **Count** - The number of GPUs: **1**, **2**, or **4**.
-* **SKU** - The GPU SKU: **K80**, **P100**, or **V100**. 每個 SKU 都對應到下列其中一個啟用 GPU 的 Azure VM 系列的 NVIDIA Tesla GPU：
+* **計數**-gpu 數目： **1**、 **2**或**4**。
+* **SKU** -GPU Sku： **K80**、 **P100**或**V100**。 每個 SKU 都對應到下列其中一個啟用 GPU 的 Azure VM 系列的 NVIDIA Tesla GPU：
 
   | SKU | VM 系列 |
   | --- | --- |
@@ -48,7 +48,7 @@ This article shows how to add GPU resources when you deploy a container group by
 
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-When deploying GPU resources, set CPU and memory resources appropriate for the workload, up to the maximum values shown in the preceding table. These values are currently larger than the CPU and memory resources available in container groups without GPU resources.  
+部署 GPU 資源時，請設定適用于工作負載的 CPU 和記憶體資源，最多可達上表所示的最大值。 這些值目前大於沒有 GPU 資源的容器群組中可用的 CPU 和記憶體資源。  
 
 ### <a name="things-to-know"></a>須知事項
 
@@ -60,9 +60,9 @@ When deploying GPU resources, set CPU and memory resources appropriate for the w
 
 * **CUDA 驅動程式** - 含 GPU 資源的容器執行個體已預先佈建 NVIDIA CUDA 驅動程式和容器執行階段，因此您可以使用針對 CUDA 工作負載開發的容器映像。
 
-  We support CUDA 9.0 at this stage. For example, you can use following base images for your Docker file:
-  * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
-  * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+  我們會在此階段支援 CUDA 9.0。 例如，您可以將下列基底映射用於 Docker 檔案：
+  * [nvidia/cuda： 9.0-base-ubuntu 16.04](https://hub.docker.com/r/nvidia/cuda/)
+  * [tensorflow/tensorflow： 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
     
 ## <a name="yaml-example"></a>YAML 範例
 
@@ -88,13 +88,13 @@ properties:
   restartPolicy: OnFailure
 ```
 
-Deploy the container group with the [az container create][az-container-create] command, specifying the YAML file name for the `--file` parameter. 您需要提供資源群組的名稱和容器群組的位置，例如支援 GPU 資源的 *eastus*。  
+使用[az container create][az-container-create]命令來部署容器群組，並指定 `--file` 參數的 YAML 檔案名。 您需要提供資源群組的名稱和容器群組的位置，例如支援 GPU 資源的 *eastus*。  
 
 ```azurecli
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml --location eastus
 ```
 
-部署需要數分鐘才能完成。 然後，容器會啟動，並執行 CUDA 向量加法運算式。 Run the [az container logs][az-container-logs] command to view the log output:
+部署需要數分鐘才能完成。 然後，容器會啟動，並執行 CUDA 向量加法運算式。 執行[az container logs][az-container-logs]命令來查看記錄輸出：
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
@@ -113,7 +113,7 @@ Done
 
 ## <a name="resource-manager-template-example"></a>Resource Manager 範本範例
 
-部署包含 GPU 資源之容器群組的另一個方式是使用 [Resource Manager 範本](container-instances-multi-container-group.md)。 由建立名為 `gpudeploy.json` 的檔案開始，並將下列 JSON 複製到該檔案中。 This example deploys a container instance with a V100 GPU that runs a [TensorFlow](https://www.tensorflow.org/) training job against the MNIST dataset. 資源要求足以執行工作負載。
+部署包含 GPU 資源之容器群組的另一個方式是使用 [Resource Manager 範本](container-instances-multi-container-group.md)。 由建立名為 `gpudeploy.json` 的檔案開始，並將下列 JSON 複製到該檔案中。 這個範例會部署容器實例，其 V100 GPU 會針對 MNIST 資料集執行[TensorFlow](https://www.tensorflow.org/)定型作業。 資源要求足以執行工作負載。
 
 ```JSON
 {
@@ -171,7 +171,7 @@ Done
 az group deployment create --resource-group myResourceGroup --template-file gpudeploy.json
 ```
 
-部署需要數分鐘才能完成。 然後，容器會啟動並執行 TensorFlow 作業。 Run the [az container logs][az-container-logs] command to view the log output:
+部署需要數分鐘才能完成。 然後，容器會啟動並執行 TensorFlow 作業。 執行[az container logs][az-container-logs]命令來查看記錄輸出：
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name gpucontainergrouprm --container-name gpucontainer
@@ -206,7 +206,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>清除資源
 
-因為使用 GPU 資源很昂貴，所以請確保您的容器不會非預期地長時間執行。 Monitor your containers in the Azure portal, or check the status of a container group with the [az container show][az-container-show] command. 例如：
+因為使用 GPU 資源很昂貴，所以請確保您的容器不會非預期地長時間執行。 在 Azure 入口網站中監視您的容器，或使用[az container show][az-container-show]命令來檢查容器群組的狀態。 例如︰
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table

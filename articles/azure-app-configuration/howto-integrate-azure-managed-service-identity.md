@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 3a5517c31cdac0bf6f5ea386a8614d15521d4479
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: b0c6e39aebe7864ab132805b78aa7be2d61c5160
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035544"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185133"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>與 Azure 受控識別整合
 
-Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)可協助簡化您雲端應用程式的祕密管理。 透過受控識別，您可以設定程式碼來使用為其執行所在的 Azure 計算服務建立的服務主體。 您會使用受控識別，而不是使用儲存在 Azure Key Vault 中的個別認證或本機連接字串。 
+Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)可協助簡化您雲端應用程式的祕密管理。 使用受控識別，您可以設定您的程式碼，以使用為其執行所在之 Azure 服務所建立的服務主體。 您會使用受控識別，而不是使用儲存在 Azure Key Vault 中的個別認證或本機連接字串。 
 
-「Azure 應用程式組態」及其 .NET Core、.NET 和 Java Spring 用戶端程式庫皆隨附內建的受控服務識別 (MSI) 支援。 雖然您不一定要使用此功能，但 MSI 可讓您不再需要含有祕密的存取權杖。 您的程式碼只能使用服務端點來存取應用程式設定存放區。 您可將此 URL 直接內嵌在程式碼中，而無須擔心暴露任何祕密。
+Azure 應用程式組態及其 .NET Core、.NET Framework 和 JAVA 春季用戶端程式庫隨附內建的受控識別支援。 雖然您不需要使用它，但受控識別不需要包含秘密的存取權杖。 您的程式碼只能使用服務端點來存取應用程式組態存放區。 您可將此 URL 直接內嵌在程式碼中，而無須擔心暴露任何祕密。
 
-本教學課程會示範如何運用 MSI 的優勢來存取應用程式設定。 本文會以快速入門中介紹的 Web 應用程式作為基礎。 繼續進行之前，請先完成[使用應用程式設定建立 ASP.NET Core 應用程式](./quickstart-aspnet-core-app.md)。
+本教學課程說明如何利用受控識別來存取應用程式組態。 本文會以快速入門中介紹的 Web 應用程式作為基礎。 繼續進行之前，請先完成[使用應用程式設定建立 ASP.NET Core 應用程式](./quickstart-aspnet-core-app.md)。
 
-此外，本教學課程也會選擇性地顯示如何搭配使用 MSI 與應用程式組態的 Key Vault 參考。 這可讓您順暢地存取儲存在 Key Vault 中的秘密，以及應用程式組態中的設定值。 如果您想要探索這項功能，請先完成搭配[ASP.NET Core 使用 Key Vault 參考](./use-key-vault-references-dotnet-core.md)。
+此外，本教學課程也會選擇性地顯示如何搭配使用受控識別與應用程式組態的 Key Vault 參考。 這可讓您順暢地存取儲存在 Key Vault 中的秘密，以及應用程式組態中的設定值。 如果您想要探索這項功能，請先完成搭配[ASP.NET Core 使用 Key Vault 參考](./use-key-vault-references-dotnet-core.md)。
 
-您可以使用任何程式碼編輯器來進行本教學課程中的步驟。 Windows、macOS 及 Linux 平台上都有提供的 [Visual Studio Code](https://code.visualstudio.com/) 是一個絕佳的選項。
+您可以使用任何程式碼編輯器來進行本教學課程中的步驟。 於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) 是項不錯的選擇。
 
 在本教學課程中，您將了解如何：
 
@@ -39,7 +39,7 @@ Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-di
 > * 設定讓應用程式在您連線到「應用程式組態」時使用受控識別。
 > * （選擇性）將您的應用程式設定為透過應用程式組態 Key Vault 參考連接到 Key Vault 時使用受控識別。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您必須具備：
 
@@ -64,7 +64,7 @@ Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-di
 
 ## <a name="grant-access-to-app-configuration"></a>授與應用程式設定的存取權
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有資源]，然後選取您在快速入門中建立的應用程式組態存放區。
+1. 在  [Azure 入口網站](https://portal.azure.com)中，選取 **所有資源**]，然後選取您在快速入門中建立的應用程式組態存放區。
 
 1. 選取 [存取控制 (IAM)]。
 
@@ -74,7 +74,7 @@ Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-di
 
 1. 在 [訂用帳戶] 底下，選取您的 Azure 訂用帳戶。 選取您應用程式的 App Service 資源。
 
-1. 選取 [儲存]。
+1. 選取 [ **儲存**]。
 
     ![新增受控識別](./media/add-managed-identity.png)
 
@@ -82,9 +82,9 @@ Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-di
 
 ## <a name="use-a-managed-identity"></a>建立受控識別
 
-1. 前往 Azure 入口網站中的 [設定] 畫面，然後按一下 [**存取金鑰**] 索引標籤，以尋找應用程式設定存放區的 URL。
+1. 前往 Azure 入口網站中的 [設定] 畫面，然後按一下 [**存取金鑰**] 索引標籤，以尋找應用程式組態存放區的 URL。
 
-1. 開啟 *appsettings.json*，然後新增下列指令碼。 以應用程式設定存放區的 URL 取代 *@no__t 1service_endpoint >* （包括括弧）。 
+1. 開啟 *appsettings.json*，然後新增下列指令碼。 以應用程式組態存放區的 URL 取代 *\<service_endpoint >* （包括括弧）。 
 
     ```json
     "AppConfig": {
@@ -92,7 +92,7 @@ Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-di
     }
     ```
 
-1. 如果您只想要存取直接儲存在應用程式組態中的值，請開啟*Program.cs*，並藉由取代 `config.AddAzureAppConfiguration()` 方法來更新 @no__t 1 方法。
+1. 如果您只想要存取直接儲存在應用程式組態中的值，請開啟*Program.cs*，並藉由取代 `config.AddAzureAppConfiguration()` 方法來更新 `CreateWebHostBuilder` 方法。
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -122,7 +122,7 @@ Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-di
                 .UseStartup<Startup>();
     ```
 
-    您現在可以存取 Key Vault 參考，就像任何其他應用程式組態金鑰一樣。 Config 提供者會使用您設定來進行驗證的 `KeyVaultClient`，Key Vault 並抓取值。
+    您現在可以存取 Key Vault 參考，就像任何其他應用程式組態金鑰一樣。 Config 提供者會使用您設定的 `KeyVaultClient` 來進行驗證，以 Key Vault 並抓取值。
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -151,7 +151,7 @@ git commit -m "Initial version"
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
 ```
 
-若要改為建立已啟用 Git 的應用程式，請在 Cloud Shell 中搭配 `--deployment-local-git` 參數執行 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)。
+若要改為建立已啟用 Git 的應用程式，請在 Cloud Shell 中搭配 [ 參數執行 `az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)`--deployment-local-git`。
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
@@ -177,7 +177,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 
 ### <a name="deploy-your-project"></a>部署專案
 
-回到「本機終端視窗」，將 Azure 遠端新增至本機 Git 存放庫。 使用從[為應用程式啟用 Git](#enable-local-git-with-kudu) 中取得的 Git 遠端 URL 來取代 _\<url>_ 。
+回到「本機終端視窗」，將 Azure 遠端新增至本機 Git 存放庫。 使用從_為應用程式啟用 Git\< 中取得的 Git 遠端 URL 來取代_ [url>](#enable-local-git-with-kudu)。
 
 ```bash
 git remote add azure <url>
@@ -203,7 +203,7 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="use-managed-identity-in-other-languages"></a>以其他語言使用受控識別
 
-適用於 .NET Framework 和 Java Spring 的應用程式設定提供者也有內建的受控識別支援。 在這些案例中，當您要設定提供者時，請使用您應用程式組態存放區的 URL 端點，而不要使用其完整連接字串。 例如，針對在快速入門中建立的 .NET Framework 主控台應用程式，請在 *App.config* 檔案中指定下列設定：
+適用於 .NET Framework 和 Java Spring 的應用程式設定提供者也有內建的受控識別支援。 在這些情況下，當您設定提供者時，請使用應用程式組態存放區的 URL 端點，而不是它的完整連接字串。 例如，針對在快速入門中建立的 .NET Framework 主控台應用程式，請在 *App.config* 檔案中指定下列設定：
 
 ```xml
     <configSections>
@@ -228,6 +228,7 @@ http://<app_name>.azurewebsites.net
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>後續步驟
+在本教學課程中，您已新增 Azure 受控識別，以簡化應用程式組態的存取，並改善應用程式的認證管理。 若要深入了解「應用程式組態」的使用方式，請繼續進行 Azure CLI 範例。
 
 > [!div class="nextstepaction"]
 > [CLI 範例](./cli-samples.md)

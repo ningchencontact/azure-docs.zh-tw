@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: cea0e9709afb65caa23d28be093c28498f2b82d0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: dae9c47f535d87214c9e1583562b4c0419cd44cf
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122986"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305437"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>在 Azure HDInsight 中存取 Grafana
 
 [Grafana](https://grafana.com/) \(英文\) 是廣受使用的開放原始碼圖形和儀表板產生器。 Grafana 的功能非常豐富；不僅可讓使用者建立可自訂和可共用的儀表板，也提供樣板化/指令碼式儀表板、LDAP 整合、多種資料來源等功能。
 
-目前，在 Azure HDInsight 中，使用 Hbase 和「互動式查詢」叢集類型時，可以支援 Grafana。
+目前，在 Azure HDInsight 中，Hbase、Kafka 和互動式查詢叢集類型都支援 Grafana。 對於已啟用企業安全性套件的叢集，則不支援此功能。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -37,7 +37,7 @@ ms.locfileid: "71122986"
     > 
     >
     
-    ![HDInsight Linux 開始使用入口網站上的 Resource Manager 範本](./media/hdinsight-grafana/hdinsight-linux-get-started-arm-template-on-portal.png "使用 Azure 入口網站和資源群組管理員範本在 HDInsigut 中部署 Hadoop 叢集")
+    ![HDInsight Linux 開始使用入口網站上 Resource Manager 範本](./media/hdinsight-grafana/hdinsight-linux-get-started-arm-template-on-portal.png "使用 Azure 入口網站和資源群組管理員範本，在 HDInsigut 中部署 Hadoop 叢集")
 
     輸入或選取下列值：
     
@@ -45,10 +45,10 @@ ms.locfileid: "71122986"
     |---------|---------|
     |**訂用帳戶**     |  選取 Azure 訂用帳戶。 |
     |**資源群組**     | 建立資源群組，或選取現有的資源群組。  資源群組是 Azure 元件的容器。  在此案例中，資源群組包含 HDInsight 叢集和相依的 Azure 儲存體帳戶。 |
-    |**位置**     | 選取您要建立叢集的 Azure 位置。  選擇靠近您的位置，以獲得最佳效能。 |
+    |<bpt id="p1">**</bpt>Location<ept id="p1">**</ept>     | 選取您要建立叢集的 Azure 位置。  選擇靠近您的位置，以獲得最佳效能。 |
     |**叢集類型**     | 選取 [Hadoop]。 |
     |**叢集名稱**     | 輸入 Apache Hadoop 叢集的名稱。 由於 HDInsight 中的所有叢集共用相同的 DNS 命名空間，因此這個名稱必須是唯一的。 名稱最多可包含 59 個字元，而這些字元可以是字母、數字和連字號。 名稱的第一個和最後一個字元不可以是連字號。 |
-    |**叢集登入名稱和密碼**     | 預設登入名稱為 **admin**。密碼長度至少必須為 10 個字元，且必須包含至少一個數字、一個大寫字母及一個小寫字母、一個非英數字元 (除了字元 ' " ` \)。 確定您**不會提供**常見密碼，例如 "Pass@word1"。|
+    |**叢集登入名稱和密碼**     | 預設登入名稱為**admin**。密碼長度至少必須為10個字元，且必須包含至少一個數位、一個大寫字母及一個小寫字母、一個非英數位元（字元 ' "' 除外 \)。 確定您**不會提供**常見密碼，例如 "Pass@word1"。|
     |**SSH 使用者名稱和密碼**     | 預設的使用者名稱為 **sshuser**。  您可以將 SSH 使用者名稱重新命名。  SSH 使用者密碼與叢集登入密碼具有相同的需求。|
 
     某些屬性已硬式編碼在範本中。  您可以從範本設定這些值。 如需這些屬性的詳細說明，請參閱[在 HDInsight 中建立 Apache Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
@@ -77,7 +77,7 @@ ms.locfileid: "71122986"
 
     ![HDInsight 叢集儀表板入口網站](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "入口網站上的 HDInsight 叢集儀表板")
 
-4. 在儀表板中，按一下 [Grafana] 圖格。 或者，瀏覽至您叢集 URL 的 `/grafana/` 路徑。 例如： `https://<clustername>.azurehdinsight.net/grafana/` 。
+4. 在儀表板中，按一下 [Grafana] 圖格。 或者，瀏覽至您叢集 URL 的 `/grafana/` 路徑。 例如， `https://<clustername>.azurehdinsight.net/grafana/`。
 
 5. 輸入 Hadoop 叢集使用者認證。
 
@@ -91,11 +91,11 @@ ms.locfileid: "71122986"
 > [!NOTE]  
 > 如果您要「立即」繼續下一個教學課程，以了解如何使用 HDInsight 上的 Hadoop 來執行 ETL 作業，則建議讓叢集保持執行狀態。 這是因為在教學課程中，您必須重新建立 Hadoop 叢集。 不過，如果您不會立即開始下一個教學課程，則現在就必須刪除該叢集。
 
-**刪除叢集和/或預設儲存體帳戶**
+<bpt id="p1">**</bpt>To delete the cluster and/or the default storage account<ept id="p1">**</ept>
 
 1. 回到瀏覽器索引標籤，您可在其中存取 Azure 入口網站。 您應該位於叢集的 [概觀] 頁面上。 如果您只想刪除叢集，但保留預設儲存體帳戶，請選取 [刪除]。
 
-    ![Azure 入口網站刪除叢集圖示](./media/hdinsight-grafana/hdinsight-delete-cluster.png "刪除 HDInsight")叢集
+    ![Azure 入口網站刪除叢集圖示](./media/hdinsight-grafana/hdinsight-delete-cluster.png "刪除 HDInsight 叢集")
 
 2. 如果您想要刪除叢集以及預設儲存體帳戶，則選取資源群組名稱 (上一個螢幕擷取畫面中醒目提示的項目) 來開啟資源群組頁面。
 

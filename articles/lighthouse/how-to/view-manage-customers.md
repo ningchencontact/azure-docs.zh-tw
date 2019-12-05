@@ -12,7 +12,7 @@ ms.locfileid: "74463834"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>檢視及管理客戶與委派的資源
 
-使用 [Azure 委派的資源管理](../concepts/azure-delegated-resource-management.md)的服務提供者，可以使用 [Azure 入口網站](https://portal.azure.com)中的 [我的客戶] 頁面來檢視委派的客戶資源與訂用帳戶。 雖然我們在此所述的是服務提供者與其客戶，但管理多個租用戶的企業也可以使用相同的程序來合併其管理體驗。
+使用 [Azure 委派的資源管理](../concepts/azure-delegated-resource-management.md)的服務提供者，可以使用 **Azure 入口網站**中的 [我的客戶][](https://portal.azure.com) 頁面來檢視委派的客戶資源與訂用帳戶。 雖然我們在此所述的是服務提供者與其客戶，但管理多個租用戶的企業也可以使用相同的程序來合併其管理體驗。
 
 若要存取 Azure 入口網站中的 [我的客戶] 頁面，請選取 [所有服務]，然後搜尋**我的客戶**並選取它。 您也可以在靠近 Azure 入口網站頂端的搜尋方塊中輸入「我的客戶」來找到它。
 
@@ -63,4 +63,4 @@ ms.locfileid: "74463834"
 ## <a name="next-steps"></a>後續步驟
 
 - 了解[跨租用戶管理體驗](../concepts/cross-tenant-management-experience.md)。
-- 了解客戶如何能透過移至 Azure 入口網站中的 [服務提供者] 來[檢視和管理服務提供者](view-manage-service-providers.md)。
+- 了解客戶如何能透過移至 Azure 入口網站中的 [服務提供者][](view-manage-service-providers.md) 來**檢視和管理服務提供者**。

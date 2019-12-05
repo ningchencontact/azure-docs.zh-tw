@@ -1,6 +1,6 @@
 ---
-title: Restrict egress traffic in Azure Kubernetes Service (AKS)
-description: Learn what ports and addresses are required to control egress traffic in Azure Kubernetes Service (AKS)
+title: 限制 Azure Kubernetes Service 中的輸出流量（AKS）
+description: 瞭解在 Azure Kubernetes Service （AKS）中控制輸出流量所需的埠和位址
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -14,167 +14,167 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74481153"
 ---
-# <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)
+# <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>控制 Azure Kubernetes Service 中叢集節點的輸出流量（AKS）
 
-By default, AKS clusters have unrestricted outbound (egress) internet access. This level of network access allows nodes and services you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. Your cluster is configured by default to only use base system container images from Microsoft Container Registry (MCR) or Azure Container Registry (ACR). Configure your preferred firewall and security rules to allow these required ports and addresses.
+根據預設，AKS 叢集具有不受限制的輸出（傳出）網際網路存取。 此網路存取層級可讓您執行的節點和服務視需要存取外部資源。 如果您想要限制輸出流量，則必須能夠存取有限數目的埠和位址，才能維持狀況良好的叢集維護工作。 根據預設，您的叢集會設定為只使用 Microsoft Container Registry （MCR）或 Azure Container Registry （ACR）中的基本系統容器映射。 設定您慣用的防火牆和安全性規則，以允許這些必要的埠和位址。
 
-This article details what network ports and fully qualified domain names (FQDNs) are required and optional if you restrict egress traffic in an AKS cluster.
+本文詳細說明必要的網路埠和完整功能變數名稱（Fqdn），以及當您在 AKS 叢集中限制輸出流量時，是選擇性的。
 
 > [!IMPORTANT]
-> This document covers only how to lock down the traffic leaving the AKS subnet. AKS has no ingress requirements.  Blocking internal subnet traffic using network security groups (NSGs) and firewalls is not supported. To control and block the traffic within the cluster, use [Network Policies][network-policy].
+> 本檔僅涵蓋如何鎖定離開 AKS 子網的流量。 AKS 沒有輸入需求。  不支援使用網路安全性群組（Nsg）和防火牆封鎖內部子網流量。 若要控制和封鎖叢集中的流量，請使用[網路原則][network-policy]。
 
 ## <a name="before-you-begin"></a>開始之前
 
-You need the Azure CLI version 2.0.66 or later installed and configured. 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
+您需要安裝並設定 Azure CLI 版本2.0.66 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="egress-traffic-overview"></a>輸出流量概觀
 
-For management and operational purposes, nodes in an AKS cluster need to access certain ports and fully qualified domain names (FQDNs). These actions could be to communicate with the API server, or to download and then install core Kubernetes cluster components and node security updates. By default, egress (outbound) internet traffic is not restricted for nodes in an AKS cluster. The cluster may pull base system container images from external repositories.
+基於管理和操作的目的，AKS 叢集中的節點需要存取特定埠和完整功能變數名稱（Fqdn）。 這些動作可能是與 API 伺服器通訊，或下載並安裝核心 Kubernetes 叢集元件和節點安全性更新。 根據預設，傳出（輸出）網際網路流量不會限制在 AKS 叢集中的節點。 叢集可能會從外部存放庫提取基本系統容器映射。
 
-To increase the security of your AKS cluster, you may wish to restrict egress traffic. The cluster is configured to pull base system container images from MCR or ACR. If you lock down the egress traffic in this manner, define specific ports and FQDNs to allow the AKS nodes to correctly communicate with required external services. Without these authorized ports and FQDNs, your AKS nodes can't communicate with the API server or install core components.
+若要提高 AKS 叢集的安全性，您可能會想要限制傳出流量。 叢集已設定為從 MCR 或 ACR 提取基礎系統容器映射。 如果您以這種方式鎖定輸出流量，請定義特定埠和 Fqdn，以允許 AKS 節點正確地與所需的外部服務進行通訊。 如果沒有這些授權的埠和 Fqdn，您的 AKS 節點就無法與 API 伺服器通訊或安裝核心元件。
 
-You can use [Azure Firewall][azure-firewall] or a 3rd-party firewall appliance to secure your egress traffic and define these required ports and addresses. AKS does not automatically create these rules for you. The following ports and addresses are for reference as you create the appropriate rules in your network firewall.
+您可以使用[Azure 防火牆][azure-firewall]或協力廠商防火牆設備來保護您的輸出流量，並定義這些必要的埠和位址。 AKS 不會自動為您建立這些規則。 當您在網路防火牆中建立適當的規則時，可以參考下列埠和位址。
 
 > [!IMPORTANT]
-> When you use Azure Firewall to restrict egress traffic and create a user-defined route (UDR) to force all egress traffic, make sure you create an appropriate DNAT rule in Firewall to correctly allow ingress traffic. Using Azure Firewall with a UDR breaks the ingress setup due to asymmetric routing. (The issue occurs if the AKS subnet has a default route that goes to the firewall's private IP address, but you're using a public load balancer - ingress or Kubernetes service of type: LoadBalancer). 在此情況下，系統會透過傳入負載平衡器流量的公用 IP 位址接收它，但傳回路徑則會通過防火牆的私人 IP 位址。 Because the firewall is stateful, it drops the returning packet because the firewall isn't aware of an established session. To learn how to integrate Azure Firewall with your ingress or service load balancer, see [Integrate Azure Firewall with Azure Standard Load Balancer](https://docs.microsoft.com/azure/firewall/integrate-lb).
-> You can lock down the traffic for TCP port 9000 and TCP port 22 using a network rule between the egress worker node IP(s) and the IP for the API server.
+> 當您使用 Azure 防火牆來限制輸出流量，並建立使用者定義的路由（UDR）來強制執行所有輸出流量時，請務必在防火牆中建立適當的 DNAT 規則，以正確地允許輸入流量。 使用 Azure 防火牆搭配 UDR 會中斷輸入設定，因為非對稱式路由。 （如果 AKS 子網具有移至防火牆私人 IP 位址的預設路由，但您使用的是下列類型的公用負載平衡器-輸入或 Kubernetes 服務，就會發生此問題： LoadBalancer）。 在此情況下，系統會透過傳入負載平衡器流量的公用 IP 位址接收它，但傳回路徑則會通過防火牆的私人 IP 位址。 因為防火牆是具狀態的，所以它會捨棄傳回的封包，因為防火牆並不知道已建立的會話。 若要瞭解如何整合 Azure 防火牆與您的輸入或服務負載平衡器，請參閱[整合 Azure 防火牆與 azure Standard Load Balancer](https://docs.microsoft.com/azure/firewall/integrate-lb)。
+> 您可以使用輸出背景工作節點 IP 與 API 伺服器的 IP 之間的網路規則，鎖定 TCP 埠9000和 TCP 埠22的流量。
 
-In AKS, there are two sets of ports and addresses:
+在 AKS 中，有兩組埠和位址：
 
-* The [required ports and address for AKS clusters](#required-ports-and-addresses-for-aks-clusters) details the minimum requirements for authorized egress traffic.
-* The [optional recommended addresses and ports for AKS clusters](#optional-recommended-addresses-and-ports-for-aks-clusters) aren't required for all scenarios, but integration with other services such as Azure Monitor won't work correctly. Review this list of optional ports and FQDNs, and authorize any of the services and components used in your AKS cluster.
+* AKS 叢集所[需的埠和位址](#required-ports-and-addresses-for-aks-clusters)會詳細說明授權輸出流量的最低需求。
+* 並非所有案例都需要[選擇性的 AKS 叢集建議位址和埠](#optional-recommended-addresses-and-ports-for-aks-clusters)，但是與其他服務（例如 Azure 監視器）的整合將無法正確運作。 請參閱這份選擇性埠和 Fqdn 清單，並授權您的 AKS 叢集中使用的任何服務和元件。
 
 > [!NOTE]
-> Limiting egress traffic only works on new AKS clusters. For existing clusters, [perform a cluster upgrade operation][aks-upgrade] using the `az aks upgrade` command before you limit the egress traffic.
+> 限制輸出流量僅適用于新的 AKS 叢集。 針對現有的叢集，請使用 `az aks upgrade` 命令[執行叢集升級][aks-upgrade]作業，然後才限制輸出流量。
 
-## <a name="required-ports-and-addresses-for-aks-clusters"></a>Required ports and addresses for AKS clusters
+## <a name="required-ports-and-addresses-for-aks-clusters"></a>AKS 叢集所需的埠和位址
 
-The following outbound ports / network rules are required for an AKS cluster:
+AKS 叢集需要下列輸出埠/網路規則：
 
-* TCP port *443*
-* TCP [IPAddrOfYourAPIServer]:443 is required if you have an app that needs to talk to the API server.  This change can be set after the cluster is created.
-* TCP port *9000* and TCP port *22* for the tunnel front pod to communicate with the tunnel end on the API server.
-    * To get more specific, see the * *.hcp.\<location\>.azmk8s.io* and * *.tun.\<location\>.azmk8s.io* addresses in the following table.
-* UDP port *53* for DNS is also required if you have pods directly accessing the API server.
+* TCP 埠*443*
+* 如果您有需要與 API 伺服器交談的應用程式，則需要 TCP [IPAddrOfYourAPIServer]：443。  這種變更可以在建立叢集之後設定。
+* TCP 埠*9000*和 tcp 埠*22* ，通道前端 pod 會與 API 伺服器上的通道結束通訊。
+    * 若要取得更具體的資訊，請參閱下表中的 *\<位置\>. azmk8s.io*和 * *. 執行\>\<. azmk8s.io*位址。
+* 如果您有 pod 直接存取 API 伺服器，則也需要適用于 DNS 的 UDP 埠*53* 。
 
-The following FQDN / application rules are required:
+需要下列 FQDN/應用程式規則：
 - Azure 全域
 
-| FQDN                       | 連接埠      | 使用      |
+| 稱                       | Port      | 使用      |
 |----------------------------|-----------|----------|
-| *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
-| *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
-| aksrepos.azurecr.io        | HTTPS:443 | This address is required to access images in Azure Container Registry (ACR). This registry contains third-party images/charts (for example, metrics server, core dns, etc.) required for the functioning of the cluster during upgrade and scale of the cluster|
-| *.blob.core.windows.net    | HTTPS:443 | This address is the backend store for images stored in ACR. |
-| mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
-| *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
-| management.azure.com       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
-| login.microsoftonline.com  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
-| ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
-| packages.microsoft.com     | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
-| acs-mirror.azureedge.net   | HTTPS:443 | This address is for the repository required to install required binaries like kubenet and Azure CNI. |
-- Azure 中國
+| *. hcp。\<位置\>. azmk8s.io | HTTPS：443、TCP：22、TCP：9000 | 此位址是 API 伺服器端點。 以部署 AKS 叢集所在的區域取代 *\<位置\>* 。 |
+| *. 執行。\<位置\>. azmk8s.io | HTTPS：443、TCP：22、TCP：9000 | 此位址是 API 伺服器端點。 以部署 AKS 叢集所在的區域取代 *\<位置\>* 。 |
+| aksrepos.azurecr.io        | HTTPS：443 | 需要此位址才能存取 Azure Container Registry （ACR）中的影像。 此登錄包含叢集的升級和調整期間，叢集運作所需的協力廠商映射/圖表（例如計量伺服器、核心 dns 等）|
+| *.blob.core.windows.net    | HTTPS：443 | 此位址是 ACR 中所儲存映射的後端存放區。 |
+| mcr.microsoft.com          | HTTPS：443 | 需要有此位址，才能存取 Microsoft Container Registry （MCR）中的映射。 此登錄包含在叢集的升級和調整期間，叢集運作所需的第一方映射/圖表（例如，moby 等） |
+| *. cdn.mscr.io              | HTTPS：443 | Azure 內容傳遞網路（CDN）支援的 MCR 儲存體需要此位址。 |
+| management.azure.com       | HTTPS：443 | Kubernetes 取得/PUT 作業需要此位址。 |
+| login.microsoftonline.com  | HTTPS：443 | Azure Active Directory 驗證需要此位址。 |
+| ntp.ubuntu.com             | UDP：123   | 在 Linux 節點上進行 NTP 時間同步處理時，需要此位址。 |
+| packages.microsoft.com     | HTTPS：443 | 此位址是用於*快取 apt-get*作業的 Microsoft 封裝存放庫。  範例套件包括 Moby、PowerShell 和 Azure CLI。 |
+| acs-mirror.azureedge.net   | HTTPS：443 | 此位址適用于安裝必要的二進位檔（例如 kubenet 和 Azure CNI）所需的存放庫。 |
+- Azure China
 
-| FQDN                       | 連接埠      | 使用      |
+| 稱                       | Port      | 使用      |
 |----------------------------|-----------|----------|
-| *.hcp.\<location\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
-| *.tun.\<location\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
-| *.azk8s.cn        | HTTPS:443 | This address is required to download required binaries and images|
-| mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
-| *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
-| management.chinacloudapi.cn       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
-| login.chinacloudapi.cn  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
-| ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
-| packages.microsoft.com     | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
-- Azure 政府機構
+| *. hcp。\<位置\>. cx.prod.service.azk8s.cn | HTTPS：443、TCP：22、TCP：9000 | 此位址是 API 伺服器端點。 以部署 AKS 叢集所在的區域取代 *\<位置\>* 。 |
+| *. 執行。\<位置\>. cx.prod.service.azk8s.cn | HTTPS：443、TCP：22、TCP：9000 | 此位址是 API 伺服器端點。 以部署 AKS 叢集所在的區域取代 *\<位置\>* 。 |
+| *. azk8s.cn        | HTTPS：443 | 需要此位址才能下載所需的二進位檔和映射|
+| mcr.microsoft.com          | HTTPS：443 | 需要有此位址，才能存取 Microsoft Container Registry （MCR）中的映射。 此登錄包含在叢集的升級和調整期間，叢集運作所需的第一方映射/圖表（例如，moby 等） |
+| *. cdn.mscr.io              | HTTPS：443 | Azure 內容傳遞網路（CDN）支援的 MCR 儲存體需要此位址。 |
+| management.chinacloudapi.cn       | HTTPS：443 | Kubernetes 取得/PUT 作業需要此位址。 |
+| login.chinacloudapi.cn  | HTTPS：443 | Azure Active Directory 驗證需要此位址。 |
+| ntp.ubuntu.com             | UDP：123   | 在 Linux 節點上進行 NTP 時間同步處理時，需要此位址。 |
+| packages.microsoft.com     | HTTPS：443 | 此位址是用於*快取 apt-get*作業的 Microsoft 封裝存放庫。  範例套件包括 Moby、PowerShell 和 Azure CLI。 |
+- Azure Government
 
-| FQDN                       | 連接埠      | 使用      |
+| 稱                       | Port      | 使用      |
 |----------------------------|-----------|----------|
-| *.hcp.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
-| *.tun.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
-| aksrepos.azurecr.io        | HTTPS:443 | This address is required to access images in Azure Container Registry (ACR). This registry contains third-party images/charts (for example, metrics server, core dns, etc.) required for the functioning of the cluster during upgrade and scale of the cluster|
-| *.blob.core.windows.net    | HTTPS:443 | This address is the backend store for images stored in ACR. |
-| mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
-| *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
-| management.usgovcloudapi.net       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
-| login.microsoftonline.us  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
-| ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
-| packages.microsoft.com     | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
-| acs-mirror.azureedge.net   | HTTPS:443 | This address is for the repository required to install required binaries like kubenet and Azure CNI. |
-## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>Optional recommended addresses and ports for AKS clusters
+| *. hcp。\<位置\>. cx.aks.containerservice.azure.us | HTTPS：443、TCP：22、TCP：9000 | 此位址是 API 伺服器端點。 以部署 AKS 叢集所在的區域取代 *\<位置\>* 。 |
+| *. 執行。\<位置\>. cx.aks.containerservice.azure.us | HTTPS：443、TCP：22、TCP：9000 | 此位址是 API 伺服器端點。 以部署 AKS 叢集所在的區域取代 *\<位置\>* 。 |
+| aksrepos.azurecr.io        | HTTPS：443 | 需要此位址才能存取 Azure Container Registry （ACR）中的影像。 此登錄包含叢集的升級和調整期間，叢集運作所需的協力廠商映射/圖表（例如計量伺服器、核心 dns 等）|
+| *.blob.core.windows.net    | HTTPS：443 | 此位址是 ACR 中所儲存映射的後端存放區。 |
+| mcr.microsoft.com          | HTTPS：443 | 需要有此位址，才能存取 Microsoft Container Registry （MCR）中的映射。 此登錄包含在叢集的升級和調整期間，叢集運作所需的第一方映射/圖表（例如，moby 等） |
+| *. cdn.mscr.io              | HTTPS：443 | Azure 內容傳遞網路（CDN）支援的 MCR 儲存體需要此位址。 |
+| management.usgovcloudapi.net       | HTTPS：443 | Kubernetes 取得/PUT 作業需要此位址。 |
+| login.microsoftonline.us  | HTTPS：443 | Azure Active Directory 驗證需要此位址。 |
+| ntp.ubuntu.com             | UDP：123   | 在 Linux 節點上進行 NTP 時間同步處理時，需要此位址。 |
+| packages.microsoft.com     | HTTPS：443 | 此位址是用於*快取 apt-get*作業的 Microsoft 封裝存放庫。  範例套件包括 Moby、PowerShell 和 Azure CLI。 |
+| acs-mirror.azureedge.net   | HTTPS：443 | 此位址適用于安裝必要的二進位檔（例如 kubenet 和 Azure CNI）所需的存放庫。 |
+## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>適用于 AKS 叢集的選擇性建議位址和埠
 
-The following outbound ports / network rules are optional for an AKS cluster:
+下列輸出埠/網路規則對於 AKS 叢集而言是選擇性的：
 
-The following FQDN / application rules are recommended for AKS clusters to function correctly:
+建議使用下列 FQDN/應用程式規則，讓 AKS 叢集正常運作：
 
-| FQDN                                    | 連接埠      | 使用      |
+| 稱                                    | Port      | 使用      |
 |-----------------------------------------|-----------|----------|
-| security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com | HTTP:80   | This address lets the Linux cluster nodes download the required security patches and updates. |
+| security.ubuntu.com、azure.archive.ubuntu.com、changelogs.ubuntu.com | HTTP：80   | 此位址可讓 Linux 叢集節點下載所需的安全性修補程式和更新。 |
 
-## <a name="required-addresses-and-ports-for-gpu-enabled-aks-clusters"></a>Required addresses and ports for GPU enabled AKS clusters
+## <a name="required-addresses-and-ports-for-gpu-enabled-aks-clusters"></a>已啟用 GPU 的 AKS 叢集所需的位址和埠
 
-The following FQDN / application rules are required for AKS clusters that have GPU enabled:
+已啟用 GPU 的 AKS 叢集需要下列 FQDN/應用程式規則：
 
-| FQDN                                    | 連接埠      | 使用      |
+| 稱                                    | Port      | 使用      |
 |-----------------------------------------|-----------|----------|
-| nvidia.github.io | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
-| us.download.nvidia.com | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
-| apt.dockerproject.org | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
+| nvidia.github.io | HTTPS：443 | 此位址用於以 GPU 為基礎的節點上進行正確的驅動程式安裝和操作。 |
+| us.download.nvidia.com | HTTPS：443 | 此位址用於以 GPU 為基礎的節點上進行正確的驅動程式安裝和操作。 |
+| apt.dockerproject.org | HTTPS：443 | 此位址用於以 GPU 為基礎的節點上進行正確的驅動程式安裝和操作。 |
 
-## <a name="required-addresses-and-ports-with-azure-monitor-for-containers-enabled"></a>Required addresses and ports with Azure Monitor for containers enabled
+## <a name="required-addresses-and-ports-with-azure-monitor-for-containers-enabled"></a>已啟用容器 Azure 監視器的必要位址和埠
 
-The following FQDN / application rules are required for AKS clusters that have the Azure Monitor for containers enabled:
+已啟用容器 Azure 監視器的 AKS 叢集需要下列 FQDN/應用程式規則：
 
-| FQDN                                    | 連接埠      | 使用      |
+| 稱                                    | Port      | 使用      |
 |-----------------------------------------|-----------|----------|
-| dc.services.visualstudio.com | HTTPS:443  | This is for correct metrics and monitoring telemetry using Azure Monitor. |
-| *.ods.opinsights.azure.com    | HTTPS:443 | This is used by Azure Monitor for ingesting log analytics data. |
-| *.oms.opinsights.azure.com | HTTPS:443 | This address is used by omsagent, which is used to authenticate the log analytics service. |
-|*.microsoftonline.com | HTTPS:443 | This is used for authenticating and sending metrics to Azure Monitor. |
-|*.monitoring.azure.com | HTTPS:443 | This is used to send metrics data to Azure Monitor. |
+| dc.services.visualstudio.com | HTTPS：443  | 這適用于使用 Azure 監視器的正確計量和監視遙測。 |
+| *.ods.opinsights.azure.com    | HTTPS：443 | Azure 監視器用於內嵌 log analytics 資料。 |
+| *.oms.opinsights.azure.com | HTTPS：443 | Omsagent 會使用此位址來驗證 log analytics 服務。 |
+|*.microsoftonline.com | HTTPS：443 | 這是用來驗證和傳送計量給 Azure 監視器。 |
+|*. monitoring.azure.com | HTTPS：443 | 這是用來將計量資料傳送至 Azure 監視器。 |
 
-## <a name="required-addresses-and-ports-with-azure-dev-spaces-enabled"></a>Required addresses and ports with Azure Dev Spaces enabled
+## <a name="required-addresses-and-ports-with-azure-dev-spaces-enabled"></a>已啟用 Azure Dev Spaces 所需的位址和埠
 
-The following FQDN / application rules are required for AKS clusters that have the Azure Dev Spaces enabled:
+啟用 Azure Dev Spaces 的 AKS 叢集需要下列 FQDN/應用程式規則：
 
-| FQDN                                    | 連接埠      | 使用      |
+| 稱                                    | Port      | 使用      |
 |-----------------------------------------|-----------|----------|
-| cloudflare.docker.com | HTTPS:443 | This address is used to pull linux alpine and other Azure Dev Spaces images |
-| gcr.io | HTTP:443 | This address is used to pull helm/tiller images |
-| storage.googleapis.com | HTTP:443 | This address is used to pull helm/tiller images |
-| azds-<guid>.<location>.azds.io | HTTPS:443 | To communicate with Azure Dev Spaces backend services for your controller. The exact FQDN can be found in the "dataplaneFqdn" in %USERPROFILE%\.azds\settings.json |
+| cloudflare.docker.com | HTTPS：443 | 此位址可用來提取 linux alpine 和其他 Azure Dev Spaces 映射 |
+| gcr.io | HTTP：443 | 此位址可用來提取 helm/tiller 映射 |
+| storage.googleapis.com | HTTP：443 | 此位址可用來提取 helm/tiller 映射 |
+| azds-<guid>。<location>。 azds.io | HTTPS：443 | 與您的控制器 Azure Dev Spaces 後端服務進行通訊。 您可以在% USERPROFILE%\.azds\settings.json 的 "dataplaneFqdn" 中找到確切的 FQDN |
 
-## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Required addresses and ports for AKS clusters with Azure Policy (in public preview) enabled
+## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>已啟用 Azure 原則（處於公開預覽狀態）的 AKS 叢集所需的位址和埠
 
 > [!CAUTION]
-> Some of the features below are in preview.  The suggestions in this article are subject to change as the feature moves to public preview and future release stages.
+> 下列部分功能目前為預覽狀態。  本文中的建議可能會隨著功能移至公開預覽和未來的發行階段而改變。
 
-The following FQDN / application rules are required for AKS clusters that have the Azure Policy enabled.
+已啟用 Azure 原則的 AKS 叢集需要下列 FQDN/應用程式規則。
 
-| FQDN                                    | 連接埠      | 使用      |
+| 稱                                    | Port      | 使用      |
 |-----------------------------------------|-----------|----------|
-| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | This address is used for correct operation of Azure Policy. (currently in preview in AKS) |
-| raw.githubusercontent.com | HTTPS:443 | This address is used to pull the built-in policies from GitHub to ensure correct operation of Azure Policy. (currently in preview in AKS) |
-| *.gk.<location>.azmk8s.io | HTTPS:443 | Azure policy add-on talks to Gatekeeper audit endpoint running in master server to get the audit results. |
-| dc.services.visualstudio.com | HTTPS:443 | Azure policy add-on sends telemetry data to applications insights endpoint. |
+| gov-prod-policy-data.trafficmanager.net | HTTPS：443 | 此位址會用來進行 Azure 原則的正確操作。 （目前在 AKS 中為預覽狀態） |
+| raw.githubusercontent.com | HTTPS：443 | 此位址是用來從 GitHub 提取內建原則，以確保 Azure 原則的正確操作。 （目前在 AKS 中為預覽狀態） |
+| *. gk。<location>。 azmk8s.io | HTTPS：443 | Azure 原則附加元件會與在主伺服器中執行的閘道管理員 audit 端點交談，以取得審核結果。 |
+| dc.services.visualstudio.com | HTTPS：443 | Azure 原則附加元件會將遙測資料傳送至 application insights 端點。 |
 
-## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Required by Windows Server based nodes (in public preview) enabled
+## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>已啟用 Windows Server 架構節點的必要項（公開預覽）
 
 > [!CAUTION]
-> Some of the features below are in preview.  The suggestions in this article are subject to change as the feature moves to public preview and future release stages.
+> 下列部分功能目前為預覽狀態。  本文中的建議可能會隨著功能移至公開預覽和未來的發行階段而改變。
 
-The following FQDN / application rules are required for Windows server based AKS clusters:
+以 Windows server 為基礎的 AKS 叢集需要下列 FQDN/應用程式規則：
 
-| FQDN                                    | 連接埠      | 使用      |
+| 稱                                    | Port      | 使用      |
 |-----------------------------------------|-----------|----------|
-| onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS:443 | To install windows-related binaries |
-| mp.microsoft.com, www<span></span>.msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | To install windows-related binaries |
-| kms.core.windows.net | TCP:1688 | To install windows-related binaries |
+| onegetcdn.azureedge.net、winlayers.blob.core.windows.net、winlayers.cdn.mscr.io、go.microsoft.com | HTTPS：443 | 安裝與 windows 相關的二進位檔 |
+| mp.microsoft.com、www<span></span>. msftconnecttest.com、ctldl.windowsupdate.com | HTTP：80 | 安裝與 windows 相關的二進位檔 |
+| kms.core.windows.net | TCP：1688 | 安裝與 windows 相關的二進位檔 |
 
 
 ## <a name="next-steps"></a>後續步驟
 
-In this article, you learned what ports and addresses to allow if you restrict egress traffic for the cluster. You can also define how the pods themselves can communicate and what restrictions they have within the cluster. For more information, see [Secure traffic between pods using network policies in AKS][network-policy].
+在本文中，您已瞭解在限制叢集的輸出流量時，要允許哪些埠和位址。 您也可以定義 pod 本身可以通訊的方式，以及它們在叢集內的限制。 如需詳細資訊，請參閱[在 AKS 中使用網路原則來保護 pod 之間的流量][network-policy]。
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
