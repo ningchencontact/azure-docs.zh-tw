@@ -3,19 +3,19 @@ title: 如何指定辨識模型-臉部 API
 titleSuffix: Azure Cognitive Services
 description: 本文將說明如何選擇要搭配 Azure 臉部 API 應用程式使用的辨識模型。
 services: cognitive-services
-author: longl
+author: longli0
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 12/03/2019
 ms.author: longl
-ms.openlocfilehash: 23c54a69f709ec97d895ed5965841e43ebdc560c
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 5b84e078e3b674a539b61c07c4bb4370719e4799
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306554"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771014"
 ---
 # <a name="specify-a-face-recognition-model"></a>指定臉部辨識模式
 
@@ -38,7 +38,7 @@ ms.locfileid: "70306554"
 
 當臉部功能已解壓縮時，會使用辨識模型，因此您可以在執行偵測作業時指定模型版本。
 
-使用[臉部-]偵測 API 時，請使用`recognitionModel`參數指派模型版本。 可用的值為：
+使用[臉部-]偵測 API 時，請使用 `recognitionModel` 參數來指派模型版本。 可用的值為：
 
 * `recognition_01`
 * `recognition_02`
@@ -47,7 +47,7 @@ ms.locfileid: "70306554"
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
 
-如果您使用用戶端程式庫，您可以藉`recognitionModel`由傳遞代表版本的字串來指派的值。
+如果您使用用戶端程式庫，您可以藉由傳遞代表版本的字串來指派 `recognitionModel` 的值。
 如果您將它保留為未指派，則會使用預設模型版本（_recognition_01_）。 請參閱下列 .NET 用戶端程式庫的程式碼範例。
 
 ```csharp
@@ -59,7 +59,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recog
 
 臉部 API 可以從影像中解壓縮臉部資料，並將其與**Person**物件產生關聯（例如，透過[新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)API 呼叫），而多個**Person**物件可以一起儲存在**PersonGroup**中。 然後，可以將新的臉部與**PersonGroup** （使用[臉部識別]通話）進行比較，並且可以識別該群組內的相符人員。
 
-**PersonGroup**應該有一個唯一的辨識模型供所有**人**使用，而且您可以在建立群組時（ `recognitionModel` [PersonGroup - 建立]或[LargePersonGroup - 建立]）使用參數來指定。 如果您未指定此參數，則會使用`recognition_01`原始模型。 群組一律會使用所建立的辨識模型，而且新的臉部會在新增至其中時，與此模型產生關聯;這無法在群組建立後變更。 若要查看**PersonGroup**的設定是哪一個模型，請使用[PersonGroup - Get] API 並將_returnRecognitionModel_參數設定為**true**。
+**PersonGroup**應該有一個唯一的辨識模型供所有**人**使用，而且您可以在建立群組時（[PersonGroup - 建立]或[LargePersonGroup - 建立]）使用 `recognitionModel` 參數來指定此模型。 如果您未指定此參數，則會使用原始的 `recognition_01` 模型。 群組一律會使用所建立的辨識模型，而且新的臉部會在新增至其中時，與此模型產生關聯;這無法在群組建立後變更。 若要查看**PersonGroup**的設定是哪一個模型，請使用[PersonGroup-Get] API 並將_returnRecognitionModel_參數設定為**true**。
 
 請參閱下列 .NET 用戶端程式庫的程式碼範例。
 
@@ -69,7 +69,7 @@ string personGroupId = "mypersongroupid";
 await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 ```
 
-在此程式碼中 ，會建立`mypersongroupid`識別碼為的 PersonGroup，並將其設定為使用_recognition_02_模型來將臉部功能解壓縮。
+在此程式碼中，會建立識別碼為 `mypersongroupid` 的**PersonGroup** ，並將其設定為使用_recognition_02_模型來將臉部功能解壓縮。
 
 同樣地，您必須指定偵測臉部以與此**PersonGroup** （透過[臉部-]偵測 API）比較時所要使用的模型。 您使用的模型應該一律與**PersonGroup**的設定一致;否則，作業將會因為模型不相容而失敗。
 
@@ -77,7 +77,7 @@ await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", 
 
 ## <a name="find-similar-faces-with-specified-model"></a>使用指定的模型尋找相似的臉部
 
-您也可以指定相似性搜尋的識別模型。 使用 FaceList 建立臉部清單`recognitionModel`時，您可以指派模型版本[FaceList-建立] API 或[LargeFaceList-建立]。 如果您未指定此參數，則會使用`recognition_01`原始模型。 臉部清單一律會使用所建立的辨識模型，而新的臉部則會在新增至該模型時，與此模型產生關聯;這在建立之後就無法變更。 若要查看已設定臉部清單的模型，請使用[FaceList-Get] API，並將_returnRecognitionModel_參數設為**true**。
+您也可以指定相似性搜尋的識別模型。 建立具有 FaceList 的臉部清單時，您可以使用 `recognitionModel` 來指派模型版本[FaceList-建立] API 或[LargeFaceList-建立]。 如果您未指定此參數，則會使用原始的 `recognition_01` 模型。 臉部清單一律會使用所建立的辨識模型，而新的臉部則會在新增至該模型時，與此模型產生關聯;這在建立之後就無法變更。 若要查看已設定臉部清單的模型，請使用[FaceList-Get] API，並將_returnRecognitionModel_參數設為**true**。
 
 請參閱下列 .NET 用戶端程式庫的程式碼範例。
 
@@ -85,17 +85,17 @@ await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", 
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
 ```
 
-此程式碼會使用功能解壓縮`My face collection`的_recognition_02_模型，建立名為的臉部清單。 當您搜尋此臉部清單中是否有類似的臉部到新偵測到的臉部時，必須使用_recognition_02_模型偵測到該臉部（[臉部-]偵測）。 如上一節所示，此模型必須一致。
+這段程式碼會使用功能解壓縮的_recognition_02_模型，建立稱為 `My face collection`的臉部清單。 當您搜尋此臉部清單中是否有類似的臉部到新偵測到的臉部時，必須使用_recognition_02_模型偵測到該臉部（[臉部-]偵測）。 如上一節所示，此模型必須一致。
 
 [臉部-尋找類似]API 中沒有任何變更;您只會指定偵測中的模型版本。
 
 ## <a name="verify-faces-with-specified-model"></a>使用指定的模型驗證臉部
 
-[臉部驗證]API 會檢查兩個臉部是否屬於同一個人。 除了辨識模型，驗證 API 中沒有任何變更，但是您只能比較使用相同模型偵測到的人臉。 因此，兩個臉部都必須使用`recognition_01`或`recognition_02`偵測到。
+[臉部驗證]API 會檢查兩個臉部是否屬於同一個人。 除了辨識模型，驗證 API 中沒有任何變更，但是您只能比較使用相同模型偵測到的人臉。 因此，兩個臉部都必須使用 `recognition_01` 或 `recognition_02`來偵測。
 
 ## <a name="evaluate-different-models"></a>評估不同的模型
 
-如果您想要比較_recognition_01_和_recognition_02_模型對於資料的效能，您必須：
+如果您想要比較_recognition_01_的效能和_recognition_02_模型的資料，您將需要：
 
 1. 分別建立具有_recognition_01_和_recognition_02_的兩個**PersonGroup**。
 1. 使用您的影像資料來偵測臉部，並將其註冊到這兩個**PersonGroup**的**人員**，並使用[PersonGroup - 定型]API 觸發定型程式。
@@ -115,7 +115,7 @@ await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognit
 [臉部識別]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239
 [臉部驗證]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a
 [PersonGroup - 建立]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244
-[PersonGroup - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246
+[PersonGroup-Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246
 [PersonGroup Person - Add Face]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b
 [PersonGroup - 定型]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249
 [LargePersonGroup - 建立]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d

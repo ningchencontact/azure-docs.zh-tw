@@ -1,7 +1,7 @@
 ---
 title: 設定語音容器
 titleSuffix: Azure Cognitive Services
-description: 語音服務會為每個容器提供一個通用的設定架構，讓您可以輕鬆地設定及管理容器的儲存體、記錄和遙測，以及安全性設定。
+description: 語音服務會為每個容器提供通用的設定架構，讓您可以輕鬆地設定及管理容器的儲存體、記錄和遙測，以及安全性設定。
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: f68bf989202c209f89ea273fee8d7610a49415ed
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 34b4664ec13f7ba1871433e37d86170b2207a17a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075745"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816566"
 ---
 # <a name="configure-speech-service-containers"></a>設定語音服務容器
 
@@ -50,9 +50,9 @@ ms.locfileid: "74075745"
 
 - Azure 入口網站：**語音的**總覽，加上標籤 `Endpoint`
 
-| 必要 | 名稱 | 資料類型 | 描述 |
+| 必要項 | Name | Data type | 描述 |
 | -------- | ---- | --------- | ----------- |
-| yes | `Billing` | 字串 | 計費端點 URI。 如需取得帳單 URI 的詳細資訊，請參閱[收集必要的參數](speech-container-howto.md#gathering-required-parameters)。 如需詳細資訊和完整的區域端點清單，請參閱[認知服務的自訂子網域名稱](../cognitive-services-custom-subdomains.md)。 |
+| 是 | `Billing` | String | 計費端點 URI。 如需取得帳單 URI 的詳細資訊，請參閱[收集必要的參數](speech-container-howto.md#gathering-required-parameters)。 如需詳細資訊和完整的區域端點清單，請參閱[認知服務的自訂子網域名稱](../cognitive-services-custom-subdomains.md)。 |
 
 ## <a name="eula-setting"></a>Eula 設定
 
@@ -72,16 +72,16 @@ ms.locfileid: "74075745"
 
 ## <a name="mount-settings"></a>裝載設定
 
-使用繫結裝載將資料讀取和寫入至容器，及從中讀取和寫入。 您可以在 `--mount`docker run[ 命令中指定 ](https://docs.docker.com/engine/reference/commandline/run/) 選項，以指定輸入裝載或輸出裝載。
+使用繫結裝載將資料讀取和寫入至容器，及從中讀取和寫入。 您可以在 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令中指定 `--mount` 選項，以指定輸入裝載或輸出裝載。
 
 標準語音容器不會使用輸入或輸出裝載來儲存訓練或服務資料。 不過，自訂語音容器會依賴磁片區裝載。
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](speech-container-howto.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。
 
-| 選用 | 名稱 | 資料類型 | 描述 |
+| 選用 | Name | Data type | 描述 |
 | -------- | ---- | --------- | ----------- |
-| 不允許 | `Input` | 字串 | 標準語音容器不會使用此功能。 自訂語音容器會使用[磁片](#volume-mount-settings)區掛接。                                                                                    |
-| 選用 | `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output` |
+| 不允許 | `Input` | String | 標準語音容器不會使用此功能。 自訂語音容器會使用[磁片](#volume-mount-settings)區掛接。                                                                                    |
+| 選用 | `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>磁片區掛接設定
 
@@ -115,7 +115,7 @@ ms.locfileid: "74075745"
 
 請將 {_argument_name_} 取代為您自己的值：
 
-| Placeholder | 值 | 格式或範例 |
+| Placeholder | Value | 格式或範例 |
 | ----------- | ----- | ----------------- |
 | **{API_KEY}** | [Azure `Speech` 金鑰] 頁面上 `Speech` 資源的端點金鑰。   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
 | **{ENDPOINT_URI}** | [計費端點] 值可在 Azure `Speech` [總覽] 頁面取得。 | 如需明確的範例，請參閱[收集必要的參數](speech-container-howto.md#gathering-required-parameters)。 |

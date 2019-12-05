@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 62210bf480d09ce2a256a44b7554ac53aa06eb0c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: dd3e27aefe03ee30e721fcbb915d9ad4b3821618
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579693"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806298"
 ---
-# <a name="custom-commands-preview"></a>自訂命令（預覽）
+# <a name="custom-commands-preview"></a>自訂命令 (預覽)
 
 [語音助理](voice-assistants.md)會聆聽使用者並採取動作來回應，通常會說回來。 他們使用[語音轉換文字](speech-to-text.md)來轉譯使用者的語音，然後對文字的自然語言理解採取行動。 此動作通常包含以[文字轉換語音](text-to-speech.md)所產生的小幫手的語音輸出。 裝置會使用語音 SDK 的 `DialogServiceConnector` 物件連接到助理。
 
@@ -45,11 +45,11 @@ ms.locfileid: "73579693"
 
 GitHub 上提供使用自訂命令（預覽）來建立語音助理的範例程式碼。
 
-* [語音助理範例（SDK）](https://aka.ms/csspeech/samples)
+* [語音助理範例 (SDK)](https://aka.ms/csspeech/samples) \(英文\)
 
 ## <a name="customization"></a>自訂
 
-使用 Azure 語音服務建立的語音助理可以使用適用于[語音轉換文字](speech-to-text.md)、[文字轉換語音](text-to-speech.md)及[自訂關鍵字選取](speech-devices-sdk-create-kws.md)範圍的完整自訂選項。
+使用語音服務所建立的語音助理可以使用適用于[語音轉換文字](speech-to-text.md)、[文字轉換語音](text-to-speech.md)及[自訂關鍵字選取](speech-devices-sdk-create-kws.md)範圍的完整自訂選項。
 
 > [!NOTE]
 > 自訂選項會因語言/地區設定而有所不同（請參閱[支援的語言](supported-languages.md)）。

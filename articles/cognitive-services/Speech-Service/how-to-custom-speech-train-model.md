@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 7630659deeece7fbf8d0ca1fd00b539a8de83b0e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0f28d984cfc29e67c3b5c3a90137ee09868b471c
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072504"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806023"
 ---
 # <a name="train-a-model-for-custom-speech"></a>為自訂語音定型模型
 
@@ -25,7 +25,7 @@ ms.locfileid: "74072504"
 
 如果您在模型中遇到辨識問題，使用人為標記的文字記錄和相關資料來進行其他訓練，有助於改善正確性。 使用此資料表來判斷要用來解決問題的資料集：
 
-| 使用案例 | 資料類型 |
+| 使用案例 | Data type |
 | -------- | --------- |
 | 改善業界特定詞彙和文法的辨識準確度，例如醫學術語或 IT 專業術語。 | 相關文字（句子/語句） |
 | 定義具有非標準發音之單字或詞彙的拼音文字和顯示形式，例如產品名稱或縮略字。 | 相關文字（發音） |

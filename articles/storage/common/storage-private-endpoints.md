@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: e9781d9c277d19257d9b00bea3106adb3b04ffd6
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: fff92057bc9812a5ef1488a46ed469382ad3ace3
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672513"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806876"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>使用 Azure 儲存體的私用端點（預覽）
 
@@ -25,14 +25,14 @@ ms.locfileid: "74672513"
 - 藉由讓您封鎖從 VNet 外泄的資料，提高虛擬網路（VNet）的安全性。
 - 使用[VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md)或具有私人對等互連的[ExpressRoutes](../../expressroute/expressroute-locations.md) ，安全地從連線到 VNet 的內部部署網路連線到儲存體帳戶。
 
-## <a name="conceptual-overview"></a>概念總覽
+## <a name="conceptual-overview"></a>概念性概觀
 ![Azure 儲存體總覽的私用端點](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
 
 私人端點是[虛擬網路](../../virtual-network/virtual-networks-overview.md)（VNet）中 Azure 服務的特殊網路介面。 當您建立儲存體帳戶的私人端點時，它會在 VNet 上的用戶端與您的儲存體之間提供安全的連線。 私人端點會從 VNet 的 IP 位址範圍指派 IP 位址。 私人端點與儲存體服務之間的連接會使用安全的私用連結。
 
 VNet 中的應用程式可以**使用相同的連接字串和授權機制**，順暢地透過私人端點連接到儲存體服務，否則會使用它們。 私人端點可以與儲存體帳戶支援的所有通訊協定搭配使用，包括 REST 和 SMB。
 
-私人端點可以在使用[服務端點](/azure/virtual-network/virtual-network-service-endpoints-overview.md)的子網中建立。 因此，子網中的用戶端可以使用私人端點連接到一個儲存體帳戶，同時使用服務端點來存取其他使用者。
+私人端點可以在使用[服務端點](../../virtual-network/virtual-network-service-endpoints-overview.md)的子網中建立。 因此，子網中的用戶端可以使用私人端點連接到一個儲存體帳戶，同時使用服務端點來存取其他使用者。
 
 當您在 VNet 中為儲存體服務建立私人端點時，便會傳送同意要求給儲存體帳戶擁有者來核准。 如果要求建立私人端點的使用者也是儲存體帳戶的擁有者，則會自動核准此同意要求。
 
@@ -115,8 +115,8 @@ StorageAccountA 的 DNS 資源記錄（當由裝載私用端點的 VNet 中的�
 
 如需有關設定您自己的 DNS 伺服器以支援私人端點的詳細資訊，請參閱下列文章：
 
-- [Azure 虛擬網路中的資源名稱解析](/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [私人端點的 DNS 設定](/private-link/private-endpoint-overview#dns-configuration)
+- [Azure 虛擬網路中的資源名稱解析](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [私人端點的 DNS 設定](/azure/private-link/private-endpoint-overview#dns-configuration)
 
 ## <a name="pricing"></a>價格
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 6b9d5eb3adb8cad963ec513d327d237e73f94878
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 40e0ba21d472097e34938878ddc1fa0c47b30417
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535583"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803728"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 驗證管理操作參考指南
 
@@ -363,7 +363,7 @@ Microsoft Intune 應用程式管理（MAM）可讓您將資料保護控制項（
 - [使用 Azure AD 報告 API 搭配憑證來取得資料](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-with-certificates)
 - [Azure Active Directory Identity Protection 的 Microsoft Graph](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 - [Office 365 管理活動 API 參考](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
-- [如何使用 Azure Active Directory Power BI 內容套件](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-power-bi-content-pack-how-to)
+- [如何使用 Azure Active Directory Power BI 內容套件](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
 ## <a name="summary"></a>總結
 

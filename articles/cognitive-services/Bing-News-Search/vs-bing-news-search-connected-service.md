@@ -3,19 +3,19 @@ title: 使用以 Visual Studio 和 C# 撰寫的連線服務來連線到 Bing 新
 titleSuffix: Azure Cognitive Services
 description: 使用 Bing 新聞搜尋，您可以讓應用程式與服務利用範圍限定在 Web 的無廣告搜尋引擎。
 services: cognitive-services
-author: ghogen
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 06/18/2019
-ms.author: ghogen
-ms.openlocfilehash: 0a8a4f69c94f217cb40146b022adf2b2d56c8d42
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 11/29/2019
+ms.author: aahi
+ms.openlocfilehash: 2afe9a66d9f0ebecaef9626ef6caf9fc30f20841
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111507"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771065"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>教學課程：使用以 Visual Studio 和 C# 撰寫的連線服務來連線到 Bing 新聞搜尋 API
 
@@ -268,4 +268,4 @@ ms.locfileid: "74111507"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解 Bing 新聞搜尋 API，請參閱[什麼是 Bing 新聞搜尋？](index.yml)。
+若要深入了解 Bing 新聞搜尋 API，請參閱[什麼是 Bing 新聞搜尋？](search-the-web.md)。

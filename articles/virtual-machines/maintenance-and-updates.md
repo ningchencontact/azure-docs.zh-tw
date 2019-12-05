@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: shants
-ms.openlocfilehash: 8e522b49c53dd40a4438755520481383984c1e01
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 45dba8de8ef735bdb9df102ac367e6a1653bf481
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535882"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807080"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Azure 中虛擬機器進行的維修
 
@@ -29,7 +29,7 @@ Azure 會定期更新其平臺，以改善虛擬機器主機基礎結構的可�
 
 本頁說明 Azure 如何執行這兩種類型的維護。 如需未規劃事件（中斷）的詳細資訊，請參閱管理適用于 [Windows 的 vm 可用性](./windows/manage-availability.md)或適用于[Linux](./linux/manage-availability.md)的對應文章。
 
-在 VM 中，您可以[使用適用于 Windows](/windows/scheduled-events.md)或[Linux](/linux/scheduled-events.md)的 Scheduled Events，來取得即將進行之維護的相關通知。
+在 VM 中，您可以[使用適用于 Windows](./windows/scheduled-events.md)或[Linux](./linux/scheduled-events.md)的 Scheduled Events，來取得即將進行之維護的相關通知。
 
 
 
@@ -43,7 +43,7 @@ Azure 會定期更新其平臺，以改善虛擬機器主機基礎結構的可�
 
 這些不需要重新開機的維護作業，會一次套用一個容錯網域。 如果他們收到任何警告健康情況信號，就會停止。 
 
-這些更新類型可能會影響某些應用程式。 當 VM 即時移轉至不同的主機時，某些機密工作負載可能會在幾分鐘內顯示輕微的效能降低，導致 VM 暫停。 若要準備 VM 維護並降低 Azure 維護期間的影響，請嘗試針對這類應用程式[使用適用于 Windows](/windows/scheduled-events.md)或[Linux](/linux/scheduled-events.md)的 Scheduled Events。 
+這些更新類型可能會影響某些應用程式。 當 VM 即時移轉至不同的主機時，某些機密工作負載可能會在幾分鐘內顯示輕微的效能降低，導致 VM 暫停。 若要準備 VM 維護並降低 Azure 維護期間的影響，請嘗試針對這類應用程式[使用適用于 Windows](./windows/scheduled-events.md)或[Linux](./linux/scheduled-events.md)的 Scheduled Events。 
 
 公開預覽也有一項功能，可協助您管理不需要重新開機的維護。 您必須使用[Azure 專用主機](./linux/dedicated-hosts.md)或[隔離的 VM](../security/fundamentals/isolation-choices.md)。 維護控制可讓您選擇略過平臺更新，並在35天的輪流時間範圍內，將更新套用到您的選擇。 如需詳細資訊，請參閱[使用維護控制控制更新和 Azure CLI](maintenance-control-cli.md)。
 

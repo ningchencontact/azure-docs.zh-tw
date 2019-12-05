@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9fa0157bd458d2de028cab8ff9c836761e99562f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 779df2794267a1cb62d9918fc718da02e94c48cb
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481200"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816617"
 ---
 # <a name="text-to-speech-rest-api"></a>文字轉換語音 REST API
 
@@ -41,9 +41,9 @@ ms.locfileid: "73481200"
 
 ### <a name="regions-and-endpoints"></a>區域與端點
 
-| 區域 | 端點 |
+| 地區 | 端點 |
 |--------|----------|
-| 澳洲東部 | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 澳大利亞東部 | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 巴西南部 | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 加拿大中部 | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 美國中部 | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -67,9 +67,9 @@ ms.locfileid: "73481200"
 
 下表列出文字轉換語音要求的必要和選擇性標頭。
 
-| 頁首 | 說明 | 必要/選用 |
+| 標頭 | 描述 | 必要/選用 |
 |--------|-------------|---------------------|
-| `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必要 |
+| `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必要項 |
 
 ### <a name="request-body"></a>Request body
 
@@ -135,9 +135,9 @@ Authorization: Bearer [Base64 access_token]
 
 每個回應的 HTTP 狀態碼會指出成功或常見的錯誤。
 
-| HTTP 狀態碼 | 說明 | 可能的原因 |
+| HTTP 狀態碼 | 描述 | 可能的原因 |
 |------------------|-------------|-----------------|
-| 200 | OK | 要求成功。 |
+| 200 | 確定 | 要求成功。 |
 | 400 | 不正確的要求 | 必要的參數遺失、為空白或 Null。 或者，傳遞至必要或選用參數的值無效。 常見的問題是標頭太長。 |
 | 401 | 未經授權 | 要求未經授權。 請檢查以確定您的訂用帳戶金鑰或權杖有效，並且位於正確的區域。 |
 | 429 | 太多要求 | 您已超出訂用帳戶允許的配額或要求率。 |
@@ -158,12 +158,12 @@ Authorization: Bearer [Base64 access_token]
 
 下表列出文字轉換語音要求的必要和選擇性標頭。
 
-| 頁首 | 說明 | 必要/選用 |
+| 標頭 | 描述 | 必要/選用 |
 |--------|-------------|---------------------|
-| `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必要 |
-| `Content-Type` | 指定所提供文字的內容類型。 接受的值為 `application/ssml+xml`。 | 必要 |
-| `X-Microsoft-OutputFormat` | 指定音訊輸出格式。 如需接受值的完整清單，請參閱[音訊輸出](#audio-outputs)。 | 必要 |
-| `User-Agent` | 應用程式名稱。 提供的值必須少於255個字元。 | 必要 |
+| `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必要項 |
+| `Content-Type` | 指定所提供文字的內容類型。 接受的值為 `application/ssml+xml`。 | 必要項 |
+| `X-Microsoft-OutputFormat` | 指定音訊輸出格式。 如需接受值的完整清單，請參閱[音訊輸出](#audio-outputs)。 | 必要項 |
+| `User-Agent` | 應用程式名稱。 提供的值必須少於255個字元。 | 必要項 |
 
 ### <a name="audio-outputs"></a>音訊輸出
 
@@ -218,9 +218,9 @@ Authorization: Bearer [Base64 access_token]
 
 每個回應的 HTTP 狀態碼會指出成功或常見的錯誤。
 
-| HTTP 狀態碼 | 說明 | 可能的原因 |
+| HTTP 狀態碼 | 描述 | 可能的原因 |
 |------------------|-------------|-----------------|
-| 200 | OK | 要求成功；回應主體是音訊檔案。 |
+| 200 | 確定 | 要求成功；回應主體是音訊檔案。 |
 | 400 | 不正確的要求 | 必要的參數遺失、為空白或 Null。 或者，傳遞至必要或選用參數的值無效。 常見的問題是標頭太長。 |
 | 401 | 未經授權 | 要求未經授權。 請檢查以確定您的訂用帳戶金鑰或權杖有效，並且位於正確的區域。 |
 | 413 | 要求實體太大 | SSML 輸入的長度大於 1024 個字元。 |
@@ -232,6 +232,6 @@ Authorization: Bearer [Base64 access_token]
 
 ## <a name="next-steps"></a>後續步驟
 
-- [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
+- [取得語音試用訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
 - [自訂原音模型](how-to-customize-acoustic-models.md)
 - [自訂語言模型](how-to-customize-language-model.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 158a99b1691e59fa58207f3c9291ca9d37a6679c
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 2cccd17ce04b3954a7d0720d9ba25bbe792da3b6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538124"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806332"
 ---
 # <a name="why-use-batch-transcription"></a>為何使用 Batch 轉譯？
 
@@ -28,7 +28,7 @@ ms.locfileid: "74538124"
 如同語音服務的所有功能，您可以依照我們的[快速入門指南](get-started.md)從 [Azure 入口網站](https://portal.azure.com)建立訂用帳戶金鑰。 如果您打算從我們的基準模型取得轉譯，您只要建立金鑰即可。
 
 >[!NOTE]
-> 語音服務的標準訂用帳戶 (S0) 才能使用批次轉譯。 免費訂用帳戶金鑰 (F0) 將無法運作。 如需詳細資訊，請參閱[定價和限制](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)。
+> 需要「語音服務」的標準訂用帳戶（S0）才能使用批次轉譯。 免費訂用帳戶金鑰 (F0) 將無法運作。 如需詳細資訊，請參閱[定價和限制](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)。
 
 ### <a name="custom-models"></a>自訂模型
 

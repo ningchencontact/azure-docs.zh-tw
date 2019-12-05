@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ec402cf2c741d88d230e5734485bf9eb0dd1b03
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: c0eafc12f9207ca93651363316c06eeadb7c8436
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381821"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74813194"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>使用網路原則伺服器 (NPS) 擴充功能和 Azure AD 整合遠端桌面閘道基礎結構
 
@@ -59,7 +59,7 @@ Azure 的網路原則伺服器 (NPS) 擴充功能可讓客戶使用 Azure 以雲
 1. 安裝擴充功能的 NPS 伺服器會將 RD CAP 原則的 RADIUS Access-Accept 訊息傳送至遠端桌面閘道伺服器。
 1. 使用者便取得透過 RD 閘道存取要求之網路資源的權限。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本節會詳述在整合 Azure MFA 與遠端桌面閘道之前所需具備的必要條件。 開始之前，您必須先具備下列必要條件。  
 
@@ -193,7 +193,7 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 
    ![輸入 NPS 伺服器的名稱或 IP 位址](./media/howto-mfa-nps-extension-rdg/image10.png)
   
-1. 按一下頁面底部的 [新增]。
+1. 按一下 [新增]。
 1. 在 [共用祕密] 對話方塊中，輸入共用祕密，然後按一下 [確定]。 務必記錄此共用祕密並安全地儲存記錄。
 
    >[!NOTE]
@@ -233,7 +233,7 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 
 ### <a name="verify-connection-request-policies"></a>驗證連線要求原則
 
-根據預設，當您將 RD 閘道設定為使用連線授權原則的中央原則存放區時，則 RD 閘道會被設定為將 CAP 要求轉送到 NPS 伺服器。 已安裝 Azure MFA 擴充功能的 NPS 伺服器，會處理 RADIUS 存取要求。 下列步驟顯示如何確認預設連線要求原則。
+根據預設，當您將 RD 閘道設定為使用連線授權原則的中央原則存放區時，則 RD 閘道會被設定為將 CAP 要求轉送到 NPS 伺服器。 已安裝 Azure MFA 擴充功能的 NPS 伺服器，會處理 RADIUS 存取要求。 下列步驟顯示如何確認預設連線要求原則。  
 
 1. 在 RD 閘道上，於 [NPS (本機)] 主控台中展開 [原則]，然後選取 [連線要求原則]。
 1. 按兩下 [TS 閘道授權原則]。
@@ -243,6 +243,9 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
    ![設定指定伺服器群組的驗證設定](./media/howto-mfa-nps-extension-rdg/image15.png)
 
 1. 按一下 [取消]。
+
+>[!NOTE]
+> 如需建立連線要求原則的詳細資訊，請參閱設定相同的連線[要求原則](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy)檔一文。 
 
 ## <a name="configure-nps-on-the-server-where-the-nps-extension-is-installed"></a>在安裝 NPS 擴充功能的伺服器上設定 NPS
 

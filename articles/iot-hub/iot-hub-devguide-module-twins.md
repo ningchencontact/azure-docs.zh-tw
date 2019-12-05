@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: b6ab1e3e01f66e071e3d16b196b3ecdcd30c2620
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 064bfd7a51f3ccb0252f37fbaa11ebc122a4b97f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701799"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807420"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>了解和使用 IoT 中樞的模組對應項
 
@@ -186,7 +186,7 @@ ms.locfileid: "74701799"
     moduleId | 模組的識別碼 |
     hubName | IoT 中樞名稱 |
     operationTimestamp | 作業的 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 時間戳記 |
-    iothub-message-schema | deviceLifecycleNotification |
+    iothub-message-schema | twinChangeNotification |
     opType | "replaceTwin" 或 "updateTwin" |
 
     訊息系統屬性前面會加上 `$` 符號。

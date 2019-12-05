@@ -1,7 +1,7 @@
 ---
 title: 使用語音 SDK 的串流編解碼器壓縮音訊-語音服務
 titleSuffix: Azure Cognitive Services
-description: 瞭解如何使用語音 SDK 將壓縮的音訊串流至 Azure 語音服務。 適用于C++Linux C#的、和 java、Android 中的 java 和 iOS 中的目標-C。
+description: 瞭解如何使用語音 SDK 將壓縮的音訊串流至語音服務。 適用于C++Linux C#的、和 java、Android 中的 java 和 iOS 中的目標-C。
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 668964c597b8d748220cbeec68e0ba68300cb406
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 36e4506ea290d6109e1d1ae874b7e0f7c11bf50d
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464356"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805819"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>搭配使用編解碼器壓縮的音訊輸入與語音 SDK
 
@@ -66,5 +66,5 @@ var text = result.GetText();
 
 ## <a name="next-steps"></a>後續步驟
 
-- [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
+- [取得語音試用訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
 * [瞭解如何以 JAVA 辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

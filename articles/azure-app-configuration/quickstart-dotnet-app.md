@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/09/2019
 ms.author: lcozzens
-ms.openlocfilehash: 36cfe79f5c2735e6d6737d471430deb989905cdc
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f1fd1c21789c272bf8deae72ef64f2bbb1c6b3cb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185050"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707443"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式設定建立 .NET Framework 應用程式
 
@@ -112,7 +112,7 @@ ms.locfileid: "74185050"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已建立新的應用程式組態存放區，並將其與 .NET Framework 主控台應用程式搭配使用。 `ConfiguratoinManager` 的值 `AppSettings` 在應用程式啟動之後不會變更。 不過，應用程式組態 .NET Standard 組態提供者程式庫也可以在 .NET Framework 應用程式中使用。 若要了解如何讓 .NET Framework 應用程式以動態方式重新整理組態設定，請繼續進行下一個教學課程。
+在本快速入門中，您已建立新的應用程式組態存放區，並將其與 .NET Framework 主控台應用程式搭配使用。 `ConfigurationManager` 的值 `AppSettings` 在應用程式啟動之後不會變更。 不過，應用程式組態 .NET Standard 組態提供者程式庫也可以在 .NET Framework 應用程式中使用。 若要了解如何讓 .NET Framework 應用程式以動態方式重新整理組態設定，請繼續進行下一個教學課程。
 
 > [!div class="nextstepaction"]
 > [啟用動態組態](./enable-dynamic-configuration-dotnet.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7ceff623c6559ef5e929d6d5bff9e07cca9039d2
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 05e4dc5bc96ef654006a98f27ff4a12e924250b4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796270"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828873"
 ---
 ## <a name="benefits-of-managed-disks"></a>受控磁碟的好處
 
@@ -37,7 +37,7 @@ ms.locfileid: "73796270"
 
 ### <a name="azure-backup-support"></a>Azure 備份支援
 
-為了防止發生區域災難，可使用 [Azure 備份](../articles/backup/backup-overview.md)透過時間型備份和備份保留原則，來建立備份作業。 如此即可隨心所欲地執行簡易虛擬機器還原。 目前 Azure 備份支援的磁碟大小上限為四個 TiB 磁碟。  Azure 備份支援受控磁碟的備份和還原。 [深入了解](../articles/backup/backup-support-matrix-iaas.md) Azure VM 備份支援。
+為了防止發生區域災難，可使用 [Azure 備份](../articles/backup/backup-overview.md)透過時間型備份和備份保留原則，來建立備份作業。 如此即可隨心所欲地執行簡易虛擬機器還原。 Azure 備份支援受控磁碟的備份和還原。 [深入了解](../articles/backup/backup-support-matrix-iaas.md) Azure VM 備份支援。
 
 ### <a name="granular-access-control"></a>細微的存取控制
 

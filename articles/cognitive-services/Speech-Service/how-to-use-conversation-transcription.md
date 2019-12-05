@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: 4ee597f96d28b43b9c69d1515634aadde2f0ab7c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 93f0117096a5601632ccced6b698e84a0714bbd4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608073"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805802"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>即時對話轉譯（預覽）
 
-語音 SDK 的**ConversationTranscriber** API 可讓您使用 `PullStream` 或 `PushStream`，透過串流處理音訊到語音服務的方式，轉譯會議和其他交談的功能來新增、移除和識別多個參與者。 本主題會要求您瞭解如何搭配語音 SDK （1.8.0 或更新版本）使用語音轉換文字。 如需詳細資訊，請參閱[什麼是語音服務](overview.md)。
+語音 SDK 的**ConversationTranscriber** API 可讓您透過使用 `PullStream` 或 `PushStream`，將音訊串流至語音服務，以轉譯會議和其他交談的功能來新增、移除和識別多個參與者。 本主題會要求您瞭解如何搭配語音 SDK （1.8.0 或更新版本）使用語音轉換文字。 如需詳細資訊，請參閱[什麼是語音服務](overview.md)。
 
 ## <a name="limitations"></a>限制
 

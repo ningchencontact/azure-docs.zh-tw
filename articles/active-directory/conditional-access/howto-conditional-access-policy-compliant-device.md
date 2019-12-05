@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37db9b9679e904aed33de404e91c9f461d3388d7
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 83a4323c2679bdf55709aeaed82134b7b4457fee
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150859"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803694"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>條件式存取：需要符合規範的裝置
 
@@ -34,7 +34,7 @@ ms.locfileid: "73150859"
 下列步驟將協助建立條件式存取原則，以要求存取資源的裝置必須標示為符合您組織的 Intune 合規性政策。
 
 1. 以全域管理員、安全性系統管理員或條件式存取系統管理員的身分登入**Azure 入口網站**。
-1. 流覽至**Azure Active Directory** > **條件式存取**。
+1. 流覽至**Azure Active Directory** > **安全性** > **條件式存取**。
 1. 選取 [新增原則]。
 1. 提供您的原則名稱。 我們建議組織針對其原則的名稱建立有意義的標準。
 1. 在 [**指派**] 底下，選取 [**使用者和群組**]

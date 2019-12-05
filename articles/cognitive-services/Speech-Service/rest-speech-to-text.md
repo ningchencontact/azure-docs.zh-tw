@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 137ab722df280d17fe5ccc5c07acfd323feb6531
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: f617bed0d2d93d8c8586d5708e0e356934817f4a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091217"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816646"
 ---
 # <a name="speech-to-text-rest-api"></a>語音轉換文字 REST API
 
-語音服務是語音[SDK](speech-sdk.md)的替代方案，可讓您使用 REST API 將語音轉換成文字。 每個可存取的端點皆與區域相關聯。 您的應用程式需要您打算使用之端點的訂用帳戶金鑰。
+語音服務可讓您使用 REST API 將語音轉換成文字，做為[語音 SDK](speech-sdk.md)的替代方案。 每個可存取的端點皆與區域相關聯。 您的應用程式需要您打算使用之端點的訂用帳戶金鑰。
 
 使用語音轉換文字 REST API 之前，請先瞭解：
 
@@ -42,7 +42,7 @@ REST 要求的查詢字串中可能包含這些參數。
 
 | 參數 | 描述 | 必要/選用 |
 |-----------|-------------|---------------------|
-| `language` | 識別正在辨識的口說語言。 請參閱[支援的語言](language-support.md#speech-to-text)。 | 必要 |
+| `language` | 識別正在辨識的口說語言。 請參閱[支援的語言](language-support.md#speech-to-text)。 | 必要項 |
 | `format` | 指定結果格式。 接受的值為 `simple` 和 `detailed`。 簡單的結果包含 `RecognitionStatus`、`DisplayText`、`Offset` 和 `Duration`。 詳細的回應包含多個具有信賴值的結果和四個不同的表示法。 預設設定為 `simple`。 | 選用 |
 | `profanity` | 指定如何處理辨識結果中的不雅內容。 接受的值為 `masked`，會以星號取代不雅內容，`removed`，這會移除結果中的所有不雅內容，或 `raw`，其中包含結果中的不雅內容。 預設設定為 `masked`。 | 選用 |
 
@@ -54,7 +54,7 @@ REST 要求的查詢字串中可能包含這些參數。
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | 您的語音服務訂用帳戶金鑰。 | 必須有此標頭或 `Authorization`。 |
 | `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必須有此標頭或 `Ocp-Apim-Subscription-Key`。 |
-| `Content-type` | 描述所提供音訊資料的格式和轉碼器。 接受的值為 `audio/wav; codecs=audio/pcm; samplerate=16000` 和 `audio/ogg; codecs=opus`。 | 必要 |
+| `Content-type` | 描述所提供音訊資料的格式和轉碼器。 接受的值為 `audio/wav; codecs=audio/pcm; samplerate=16000` 和 `audio/ogg; codecs=opus`。 | 必要項 |
 | `Transfer-Encoding` | 指定正在傳送的音訊資料區塊，而不是單一檔案。 只有在以區塊處理音訊資料時，才能使用此標頭。 | 選用 |
 | `Expect` | 如果使用區塊傳輸，請傳送 `Expect: 100-continue`。 語音服務會確認初始要求並等候其他資料。| 如果傳送的是音訊資料區塊，則為必要。 |
 | `Accept` | 如果提供，則必須是 `application/json`。 語音服務會以 JSON 提供結果。 某些要求架構會提供不相容的預設值。 最佳做法是一律包含 `Accept`。 | 此為選用步驟，但建議執行。 |
@@ -91,8 +91,8 @@ Expect: 100-continue
 
 | HTTP 狀態碼 | 描述 | 可能的原因 |
 |------------------|-------------|-----------------|
-| 100 | Continue | 已接受初始要求。 繼續傳送其餘的資料。 (搭配區塊傳輸使用。) |
-| 200 | OK | 要求成功；回應主體是 JSON 物件。 |
+| 100 | 繼續 | 已接受初始要求。 繼續傳送其餘的資料。 (搭配區塊傳輸使用。) |
+| 200 | 確定 | 要求成功；回應主體是 JSON 物件。 |
 | 400 | 不正確的要求 | 未提供語言代碼，而不是支援的語言、不正確音訊檔案等。 |
 | 401 | 未經授權 | 訂用帳戶金鑰或授權權杖在指定的區域中無效，或是無效的端點。 |
 | 403 | 禁止 | 遺漏訂用帳戶金鑰或授權權杖。 |
@@ -153,7 +153,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 `RecognitionStatus` 欄位可包含下列的值：
 
-| Status | 描述 |
+| 狀態 | 描述 |
 |--------|-------------|
 | `Success` | 辨識成功並顯示 `DisplayText` 欄位。 |
 | `NoMatch` | 音訊串流中偵測到語音，但目標語言中沒有符合的字組。 通常表示辨識語言與使用者的口語語言不同。 |
@@ -164,7 +164,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 > [!NOTE]
 > 如果音訊只包含不雅內容，而且 `profanity` 查詢參數設為 `remove`，則服務不會傳回語音結果。
 
-`detailed` 格式包含與 `simple` 格式相同的資料，以及 `NBest`，也就是相同辨識結果的替代解釋清單。 這些結果的排名是從最可能到最低的。 第一個項目與主要辨識結果相同。  使用 `detailed` 格式時，系統會提供 `DisplayText` 作為 `Display` 清單中每個結果的 `NBest`。
+`detailed` 格式包含與 `simple` 格式相同的資料，以及 `NBest`，也就是相同辨識結果的替代解釋清單。 這些結果的排名是從最可能到最低的。 第一個項目與主要辨識結果相同。  使用 `detailed` 格式時，系統會提供 `DisplayText` 作為 `NBest` 清單中每個結果的 `Display`。
 
 `NBest` 清單中的每個物件包括：
 
@@ -174,7 +174,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 | `Lexical` | 已辨識文字的語彙形式：已辨識的實際文字。 |
 | `ITN` | 已辨識文字的反向文字正規化 (「標準」) 形式，包含電話號碼、數字、縮寫 ("doctor smith" 縮短為 "dr smith")，以及其他已套件的轉換。 |
 | `MaskedITN` | 如果要求，已套用不雅內容遮罩的 ITN 形式。 |
-| `Display` | 已辨識文字的顯示形式，已新增標點符號和大寫。 此參數與當格式設定為 `DisplayText` 時，所提供的 `simple` 相同。 |
+| `Display` | 已辨識文字的顯示形式，已新增標點符號和大寫。 此參數與當格式設定為 `simple` 時，所提供的 `DisplayText` 相同。 |
 
 ## <a name="sample-responses"></a>回應範例
 
@@ -217,6 +217,6 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ## <a name="next-steps"></a>後續步驟
 
-- [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
+- [取得語音試用訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
 - [自訂原音模型](how-to-customize-acoustic-models.md)
 - [自訂語言模型](how-to-customize-language-model.md)

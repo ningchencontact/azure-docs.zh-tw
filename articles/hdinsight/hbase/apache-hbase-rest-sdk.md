@@ -2,22 +2,22 @@
 title: 使用 HBase .NET SDK - Azure HDInsight
 description: 使用 HBase .NET SDK 建立和刪除資料表，以及讀取和寫入資料。
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/13/2017
-ms.author: ashishth
-ms.openlocfilehash: d998ff44804a2dcd2b3282679a9cb53f893991e3
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.custom: hdinsightactive
+ms.date: 12/02/2019
+ms.openlocfilehash: eba7d7ad009b2ef0442a916983489489eb5cceb8
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077158"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806655"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>使用適用于 Apache HBase 的 .NET SDK
 
-[Apache HBase](apache-hbase-overview.md)提供兩個主要的選項來處理您的資料：[Apache Hive 查詢，以及呼叫 HBase 的 RESTFUL API](apache-hbase-tutorial-get-started-linux.md)。 您可以使用 `curl` 命令或類似公用程式，直接使用 REST API。
+[Apache HBase](apache-hbase-overview.md) 提供兩大資料處理選擇：[Apache Hive 查詢，以及呼叫 HBase 的 RESTful API](apache-hbase-tutorial-get-started-linux.md)。 您可以使用 `curl` 命令或類似公用程式，直接使用 REST API。
 
 對於 C# 和 .NET 應用程式，[Microsoft HBase REST Client Library for .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) 還提供了 HBase REST API 以外的用戶端程式庫。
 
@@ -58,7 +58,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 }
 ```
 
-這個新的資料表有 t1 和 t2 兩個資料行系列。 因為資料行系列分別儲存在不同的 HFiles，因此，經常查詢的資料具有個別的資料行系列不無道理。 在下列[插入資料](#insert-data)範例中，是將資料行新增至 t1 資料行系列。
+這個新的資料表有兩個數據行的系列，t1 和 t2。 因為資料行系列分別儲存在不同的 HFiles，因此，經常查詢的資料具有個別的資料行系列不無道理。 在下列[插入資料](#insert-data)範例中，是將資料行新增至 t1 資料行系列。
 
 ## <a name="delete-a-table"></a>刪除資料表
 
@@ -112,7 +112,7 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase 會實作[雲端 BigTable](https://cloud.google.com/bigtable/)，因此資料格式如下所示：
+HBase 會執行[雲端 BigTable](https://cloud.google.com/bigtable/)，因此資料格式看起來會像下圖：
 
 ![Apache HBase 範例資料輸出](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 

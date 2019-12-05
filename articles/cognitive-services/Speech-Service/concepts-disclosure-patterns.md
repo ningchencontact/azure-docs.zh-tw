@@ -3,19 +3,19 @@ title: 公開設計模式
 titleSuffix: Azure Cognitive Services
 description: 公開的設計模式和最佳作法。
 services: cognitive-services
-author: angle
+author: sharonlo101
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/03/2019
 ms.author: angle
-ms.openlocfilehash: e0cb73f224f53441ad4f23298a035f95d59b9f7c
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 3e7d8ee2b156a30b11cda79798a8af8a8ecf4f64
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559012"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776617"
 ---
 # <a name="disclosure-design-patterns"></a>公開設計模式
 既然您&#39;已經決定綜合語音體驗的正確[洩漏層級](concepts-disclosure-guidelines.md#disclosure-assessment)，那就&#39;是探索潛在設計模式的好時機。
@@ -108,7 +108,7 @@ ms.locfileid: "74559012"
 
 提供對綜合語音體驗有意義且顯著影響的選擇。
 
-![的使用者喜好設定](media/responsible-ai/disclosure-patterns/customization-user-control.png)<br/>
+![使用者喜好設定](media/responsible-ai/disclosure-patterns/customization-user-control.png)<br/>
 *使用者喜好設定可讓使用者自訂及改善他們的體驗。*
 
 建議

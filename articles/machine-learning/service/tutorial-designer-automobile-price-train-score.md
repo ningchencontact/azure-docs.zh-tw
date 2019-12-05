@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: ee08ba61aec23078227c40b92771d1728040c4cf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3d0efbaec6905d0d24d9dc1c310d472958011960
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228449"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702054"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>教學課程：使用設計工具預測汽車價格 (預覽)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -55,7 +55,7 @@ Azure Machine Learning 管線會將多個相依的機器學習和資料處理步
 
 1. 選取 [設計工具]  。
 
-    ![視覺效果工作區的螢幕擷取畫面，其中顯示如何存取設計工具](./media/tutorial-designer-automobile-price-train-score/launch-visual-interface.png)
+    ![視覺效果工作區的螢幕擷取畫面，其中顯示如何存取設計工具](./media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
 1. 選取 [易於使用的預建模組]  。
 

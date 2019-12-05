@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2019
+ms.date: 12/03/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e7b0c379783af2f9131d487f45c0f4e2009e258
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 706cc38c997c91efc890b213444ff779eb86d5c1
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232137"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805121"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告
 
@@ -31,13 +31,13 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 - **活動** 
     - **登入** – 受控應用程式和使用者登入活動的使用情況相關資訊。
     - **Audit logs** - [audit 記錄](concept-audit-logs.md)提供使用者和群組管理、受控應用程式和目錄活動的相關系統活動資訊。
-- **安全性** 
+- **Security** 
     - 有**風險**的登入-有風險的登[入](concept-risky-sign-ins.md)是指不是使用者帳戶合法擁有者的人登入嘗試的指標。
     - **標幟為有風險的使用者** - [有風險的使用者](concept-user-at-risk.md)表示可能被盜用的使用者帳戶。
 
 本文提供登入報告的總覽。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="who-can-access-the-data"></a>誰可以存取資料？
 
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>您需要哪項 Azure AD 授權才能存取登入活動？
 
-* 租用戶必須要有相關聯的 Azure AD Premium 授權，才能查看活動報告中的所有登入。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 來升級 Azure Active Directory 版本。 當您升級至 premium 授權，但在升級前沒有任何資料活動，將需要幾天的時間，資料才會顯示在報告中。
+* 租用戶必須要有相關聯的 Azure AD Premium 授權，才能查看活動報告中的所有登入。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md)以升級您的 Azure Active Directory 版本。 當您升級至 premium 授權，但在升級前沒有任何資料活動，將需要幾天的時間，資料才會顯示在報告中。
 
 ## <a name="sign-ins-report"></a>登入報告
 
@@ -81,7 +81,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 顯示其他欄位，或移除已顯示的欄位。
 
-![登入活動](./media/concept-sign-ins/02.png "登入活動")
+![登入活動](./media/concept-sign-ins/columns.png "登入活動")
 
 選取清單檢視中的項目，即可取得更詳細的資訊。
 
@@ -105,19 +105,19 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 [登入狀態] 篩選條件可讓您選取︰
 
-- 全部
+- 所有
 - 成功
 - 失敗
 
 **條件式存取**篩選條件可讓您選取登入的 CA 原則狀態：
 
-- 全部
+- 所有
 - 未套用
 - 成功
 - 失敗
 
 [日期] 篩選條件可讓您定義傳回資料的時間範圍。  
-可能的值為︰
+可能的值包括：
 
 - 一個月
 - 7 天
@@ -164,7 +164,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 Azure AD 和 Azure 入口網站都提供登入資料的額外進入點：
 
 - 身分識別安全性保護概觀
-- 使用者
+- 使用者人數
 - 群組
 - 企業應用程式
 
@@ -186,14 +186,14 @@ Azure AD 和 Azure 入口網站都提供登入資料的額外進入點：
 按一下項目，即可取得有關登入作業的更多詳細資料：
 
 - 使用者識別碼
-- 使用者
+- User
 - 使用者名稱
 - 應用程式識別碼
-- 應用程式
+- Application
 - 用戶端
-- 位置
+- Location
 - IP 位址
-- Date
+- 日期
 - 需要 MFA
 - 登入狀態
 

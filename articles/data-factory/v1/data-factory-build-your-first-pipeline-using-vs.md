@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: 888f3b1a53ba2e31195e3b9d577a475df441e972
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 49b3b5890fe38f6c635e7ba420a1adf5d778de0f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683013"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703925"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>教學課程：使用 Visual Studio 建立資料處理站
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -543,7 +543,7 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 部署時，在將實體部署至 Azure Data Factory 服務之前，會使用組態檔的值來設定 JSON 檔案中的屬性值。   
 
 ## <a name="use-azure-key-vault"></a>使用 Azure 金鑰保存庫
-不建議認可機密資料 (例如將字串連線至程式碼存放庫)，且通常會違反安全性原則。 請參閱 GitHub 上的 [ADF 安全發佈](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish)範例，了解在 Azure Key Vault 中儲存機密資訊和在發行 Data Factory 實體時使用它。 Visual Studio 的安全發佈擴充功能可在 Key Vault 中儲存機密資料，且僅在連結服務 / 部署組態中指定時才予以參考。 當您將 Data Factory 實體發佈至 Azure 時，會解析這些參考。 接著這些檔案可以認可至來源存放庫而不公開任何機密資訊。
+不建議認可機密資料 (例如將字串連線至程式碼存放庫)，且通常會違反安全性原則。 請參閱 GitHub 上的 [ADF 安全發佈](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFSecurePublish)範例，了解在 Azure Key Vault 中儲存機密資訊和在發行 Data Factory 實體時使用它。 Visual Studio 的安全發佈擴充功能可在 Key Vault 中儲存機密資料，且僅在連結服務 / 部署組態中指定時才予以參考。 當您將 Data Factory 實體發佈至 Azure 時，會解析這些參考。 接著這些檔案可以認可至來源存放庫而不公開任何機密資訊。
 
 ## <a name="summary"></a>總結
 在本教學課程中，您會在 HDInsight hadoop 叢集上執行 Hive 指令碼，以建立 Azure Data Factory 來處理資料。 您會在使用 Azure 入口網站中使用 Data Factory 編輯器來執行下列步驟︰  

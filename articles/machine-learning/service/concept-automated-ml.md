@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: 4ed27009a3549757881c84d92b3b29b60ecbfbc1
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d8628bd62df650d76b0666b650af88038dbbda1f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790574"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807114"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
@@ -98,7 +98,7 @@ ms.locfileid: "74790574"
 
 + Azure Machine Learning studio：在 [設定**執行**] 區段中選取 [ **View 特徵化] 設定** [，其中包含下列步驟](how-to-create-portal-experiments.md)。
 
-+ Python SDK：指定[`AutoMLConfig` 類別](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)的 `"feauturization": auto' / 'off' / FeaturizationConfig`。
++ Python SDK：指定[`AutoMLConfig` 類別](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)的 `"feauturization": auto' / 'off' / FeaturizationConfig`。
 
 ## <a name="prevent-over-fitting"></a>防止過度調整
 

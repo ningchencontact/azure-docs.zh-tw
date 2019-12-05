@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 69781b7c5187bd9166946a96a8b47233d0f77208
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8994079cf18a9af5f5e1368761015bbd8b836bd9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100682"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790903"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>快速入門：使用 Azure PowerShell 來建立 SQL Server Windows 虛擬機器
 
@@ -30,7 +30,7 @@ ms.locfileid: "70100682"
 
 ## <a id="subscription"></a> 取得 Azure 訂用帳戶
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 
 ## <a id="powershell"></a> 取得 Azure PowerShell
@@ -151,7 +151,7 @@ ms.locfileid: "70100682"
 若要取得入口網站整合與 SQL VM 的功能，您必須先安裝 [SQL Server IaaS 代理程式延伸模組](virtual-machines-windows-sql-server-agent-extension.md)。 若要在新的 VM 上安裝代理程式，請在 VM 建立後執行下列命令。
 
    ```powershell
-   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "2.0" -Location $Location
    ```
 
 ## <a name="remote-desktop-into-the-vm"></a>從遠端桌面連接到 VM

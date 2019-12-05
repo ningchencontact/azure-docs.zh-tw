@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: ee7a03f27ab03feadedb7ac8441675a90468655c
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: ab8ef516e5434ac5a9cde9324798d8dd1706a04e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535804"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807403"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>處理預定的維護通知
 
@@ -80,7 +80,7 @@ ms.locfileid: "74535804"
 
 **答：** 部署在可用性設定組或虛擬機器擴展集的虛擬機器，具有更新網域 (UD) 的概念。 執行維護時，Azure 會接受 UD 條件約束，並且不會從不同的 UD (在相同的可用性設定組內) 重新啟動虛擬機器。  Azure 也會等候至少 30 分鐘，再移至下一個虛擬機器群組。 
 
-如需高可用性的詳細資訊，請參閱[Azure 中虛擬機器的可用性](/linux/availability.md)。
+如需高可用性的詳細資訊，請參閱[Azure 中虛擬機器的可用性](./linux/availability.md)。
 
 **問：我如何取得規劃維護的通知？**
 
@@ -92,7 +92,7 @@ ms.locfileid: "74535804"
 
 **問：是否有方法可以確切知道我的虛擬機器何時會受到影響？**
 
-**答：** 設定排程時，我們會定義數天的時間期間。 不過，此期間內伺服器 (和 VM) 的確切順序則未知。 想要知道其 VM 確切時間的客戶，可以使用[排定的事件](/linux/scheduled-events.md)並且從虛擬機器內查詢，而後會在 VM 重新開機前 15 分鐘收到通知。
+**答：** 設定排程時，我們會定義數天的時間期間。 不過，此期間內伺服器 (和 VM) 的確切順序則未知。 想要知道其 VM 確切時間的客戶，可以使用[排定的事件](./linux/scheduled-events.md)並且從虛擬機器內查詢，而後會在 VM 重新開機前 15 分鐘收到通知。
 
 **問：重新啟動我的虛擬機器需要多久時間？**
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 5adb342b733563fd0b062dd263a4fdd83259d166
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0e2dcec15566749b58c439b68532829b67716754
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792069"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815144"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>從 Azure Logic Apps 連線到內部部署資料來源
 
@@ -70,7 +70,7 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
 
 1. 在 [Azure 入口網站搜尋] 方塊中，輸入「內部部署資料閘道」，然後選取 [內部**部署資料閘道**]。
 
-   ![尋找 [內部部署資料閘道]](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
+   ![尋找 [內部部署資料閘道]](./media/logic-apps-gateway-connection/search-for-on-premises-data-gateway.png)
 
 1. 在 [**內部部署資料閘道**] 底下，選取 [**新增**]。
 
@@ -89,7 +89,7 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
 
    以下範例顯示的閘道安裝與閘道資源位於相同的區域，並連結至相同的 Azure 帳戶：
 
-   ![提供建立資料閘道資源的詳細資訊](./media/logic-apps-gateway-connection/add-azure-data-gateway-information.png)
+   ![提供建立資料閘道資源的詳細資訊](./media/logic-apps-gateway-connection/on-premises-data-gateway-create-connection.png)
 
 <a name="connect-logic-app-gateway"></a>
 
@@ -128,7 +128,7 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
 
 1. 若只要尋找邏輯應用程式的所有 API 連線，請在邏輯應用程式功能表的 [**開發工具**] 底下，選取 [ **API**連線]。
 
-   ![在邏輯應用程式功能表上，選取 [API 連線]](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
+   ![在邏輯應用程式功能表上，選取 [API 連線]](./media/logic-apps-gateway-connection/logic-app-api-connections.png)
 
 1. 選取您想要的閘道連線，然後選取 [**編輯 API**連線]。
 
@@ -137,8 +137,8 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
 
 若要尋找與您的 Azure 訂用帳戶相關聯的所有 API 連線：
 
-* 從主要 Azure 功能表，移至 [所有資源] > [Web] > [API 連線]。
-* 或者，從主要 Azure 功能表，移至 [所有資源]。 將 [**類型**] 篩選準則設定為 [ **API**連線]。
+* 從 Azure 入口網站 功能表中，選取 **所有服務** > **Web** > **API**連線。
+* 或者，從 [Azure 入口網站] 功能表選取 [**所有資源**]。 將 [**類型**] 篩選準則設定為 [ **API**連線]。
 
 <a name="change-delete-gateway-resource"></a>
 
@@ -146,13 +146,13 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
 
 若要建立不同的閘道資源，請將您的閘道安裝連結至不同的閘道資源，或移除閘道資源，您可以刪除閘道資源，而不會影響閘道安裝。
 
-1. 從主要 Azure 功能表中，選取 [**所有資源**]。 尋找並選取您的閘道資源。
+1. 從 [Azure 入口網站] 功能表中，選取 [**所有資源**]，或搜尋並從任何頁面中選取 [**所有資源**]。 尋找並選取您的閘道資源。
 
 1. 如果尚未選取，請在您的閘道資源功能表上選取 [內部部署資料閘道]。 在 [閘道資源] 工具列上，選取 [**刪除**]。
 
    例如：
 
-   ![刪除 Azure 中的閘道資源](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
+   ![刪除 Azure 中的閘道資源](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 
 <a name="faq"></a>
 

@@ -2,13 +2,13 @@
 title: 使用範本的條件式部署
 description: 描述如何有條件地在 Azure Resource Manager 範本中部署資源。
 ms.topic: conceptual
-ms.date: 09/03/2019
-ms.openlocfilehash: e3d78f875e39628194ac30310314e59e2ef19fdb
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/03/2019
+ms.openlocfilehash: ec2337686f92bb631ae4b08ce125eb576cd8bd69
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147180"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806468"
 ---
 # <a name="conditional-deployment-in-resource-manager-templates"></a>Resource Manager 範本中的條件式部署
 
@@ -78,6 +78,8 @@ ms.locfileid: "74147180"
 如果您使用[reference](resource-group-template-functions-resource.md#reference)或[list](resource-group-template-functions-resource.md#list)函數搭配有條件地部署的資源，即使未部署資源，也會評估該函數。 如果函數參考不存在的資源，就會收到錯誤。
 
 使用[if](resource-group-template-functions-logical.md#if)函式可確保只有在部署資源時，才會針對條件評估函式。 如需使用 if 和 reference 搭配條件式部署資源的範例範本，請參閱[if](resource-group-template-functions-logical.md#if)函式。
+
+您可以將[資源設定為相依](resource-group-define-dependencies.md)于條件式資源，就像任何其他資源一樣。 當條件式資源未部署時，Azure Resource Manager 會自動將其從所需的相依性移除。
 
 ## <a name="condition-with-complete-mode"></a>具有完整模式的條件
 

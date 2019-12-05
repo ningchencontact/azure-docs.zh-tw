@@ -1,7 +1,7 @@
 ---
 title: 在 Android 上使用語音 SDK 的串流編解碼器壓縮音訊
 titleSuffix: Azure Cognitive Services
-description: 瞭解如何在 Android 上使用語音 SDK 將壓縮的音訊串流至 Azure 語音服務。
+description: 瞭解如何在 Android 上使用語音 SDK 將壓縮的音訊串流至語音服務。
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 76a4b010dd54a9cc6224432adf615814520ef4fd
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 01135229167dde3784137ab1b06dfc931766a2e0
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109913"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805836"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>如何：在 Android 上搭配使用編解碼器壓縮的音訊輸入與語音 SDK
 
@@ -37,7 +37,7 @@ ms.locfileid: "74109913"
 
 編解碼器壓縮的音訊會使用[GStreamer](https://gstreamer.freedesktop.org)來執行。 基於授權原因，Gstreamer 二進位檔不會以 SDK 編譯。 您將需要使用預建的適用于 Android 的二進位檔。 若要下載預先建立的程式庫，請參閱[安裝 Android 開發](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c)。
 
-需要 `libgstreamer_android.so`。 請確定您的 GStreamer 外掛程式已連結 `libgstreamer_android.so`。
+`libgstreamer_android.so` 是必要項目。 請確定您的 GStreamer 外掛程式已連結 `libgstreamer_android.so`。
 
 ```make
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 audioresample audioparsers ogg opusparse opus wavparse alaw mulaw flac
@@ -159,5 +159,5 @@ String text = result.getText();
 
 ## <a name="next-steps"></a>後續步驟
 
-- [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
+- [取得語音試用訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
 - [瞭解如何以 JAVA 辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

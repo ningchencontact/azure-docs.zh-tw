@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: f6446a2dbe3f111c9c617e78a0bdd98f6cea9153
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58738c9180fcc45a6958ea61b26d898caf4f3061
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468770"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819112"
 ---
 # <a name="about-the-speech-sdk"></a>關於語音 SDK
 
-語音軟體發展工具組（SDK）可讓您的應用程式存取語音服務的功能，讓您更輕鬆地開發具備語音功能的軟體。 目前，Sdk 提供對語音轉換**文字**、**文字到語音** **轉換、語音翻譯**、**意圖**辨識和**Bot Framework Direct Line 語音通道的**存取。 您可以在檔[輸入頁面](https://aka.ms/csspeech)上找到有關功能和支援平臺的一般總覽。
+「語音軟體開發套件」(SDK) 可讓您的應用程式存取「語音服務」的功能，使其能夠更輕鬆地開發支援語音的軟體。 目前，Sdk 提供對語音轉換**文字**、**文字到語音** **轉換、語音翻譯**、**意圖**辨識和**Bot Framework Direct Line 語音通道的**存取。 您可以在檔[輸入頁面](https://aka.ms/csspeech)上找到有關功能和支援平臺的一般總覽。
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -69,7 +69,7 @@ sudo apt-get install libssl1.0.2 libasound2
 
 * C++：將 SDK 下載為 [.tar 套件](https://aka.ms/csspeech/linuxbinary)，然後將檔案解壓縮至您選擇的目錄。 下表顯示 SDK 資料夾結構：
 
-  |路徑|說明|
+  |路徑|描述|
   |-|-|
   |`license.md`|授權|
   |`ThirdPartyNotices.md`|協力廠商通知|
@@ -81,7 +81,7 @@ sudo apt-get install libssl1.0.2 libasound2
 
 ### <a name="android"></a>Android
 
-適用於 Android 的 Java SDK 會封裝成 [AAR (Android 程式庫)](https://developer.android.com/studio/projects/android-library) \(英文\)，其中包含必要的程式庫及所需的 Android 權限。 它會以 `https://csspeechstorage.blob.core.windows.net/maven/` 套件的形式裝載在位於 `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` 的 Maven 存放庫中。
+適用於 Android 的 Java SDK 會封裝成 [AAR (Android 程式庫)](https://developer.android.com/studio/projects/android-library) \(英文\)，其中包含必要的程式庫及所需的 Android 權限。 它會以 `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` 套件的形式裝載在位於 `https://csspeechstorage.blob.core.windows.net/maven/` 的 Maven 存放庫中。
 
 若要從 Android Studio 專案取用套件，請進行下列變更：
 
@@ -103,5 +103,5 @@ Java SDK 也是[語音裝置 SDK](speech-devices-sdk.md) 的一部分。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
+* [取得語音試用訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
 * [了解如何以 C# 辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) (英文)

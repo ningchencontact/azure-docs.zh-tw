@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/04/2019
 ms.author: dapine
-ms.openlocfilehash: 3d9373067c78f1fe0fa0b414886c30f2ed3c1c9f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: d5ecc104c7845a1881cbcdecfbccb75148f6e070
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325873"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815368"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>安裝和執行語音服務容器（預覽）
 
@@ -26,7 +26,7 @@ ms.locfileid: "74325873"
 > [!IMPORTANT]
 > 所有語音容器目前都是[公開「閘道」預覽](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio)的一部分。 當語音容器進行公開上市（GA）時，將會發出公告。
 
-| 函式 | 功能 | 新版 |
+| 函式 | 功能 | 最新 |
 |--|--|--|
 | 語音轉文字 | 使用中繼結果，將連續即時語音或批次音訊錄音可將成文字。 | 2.0.0 |
 | 自訂語音轉換文字 | 使用自[定義語音入口網站](https://speech.microsoft.com/customspeech)中的自訂模型，將連續即時語音或批次錄音可將為具有中繼結果的文字。 | 2.0.0 |
@@ -371,12 +371,10 @@ ApiKey={API_KEY}
 
 ## <a name="query-the-containers-prediction-endpoint"></a>查詢容器的預測端點
 
-| 容器 | 端點 | 通訊協定 |
+| 容器 | SDK 主機 URL | 通訊協定 |
 |--|--|--|
-| 語音轉文字 | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
-| 自訂語音轉換文字 | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
-| 文字轉換語音 | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | http |
-| 自訂文字轉換語音 | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | http |
+| 語音轉換文字和自訂語音轉換文字 | `ws://localhost:5000` | WS |
+| 文字轉換語音和自訂文字轉換語音 | `http://localhost:5000` | http |
 
 如需有關使用 WSS 和 HTTPS 通訊協定的詳細資訊，請參閱[容器安全性](../cognitive-services-container-support.md#azure-cognitive-services-container-security)。
 

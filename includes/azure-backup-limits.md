@@ -2,26 +2,26 @@
 title: 包含檔案
 description: 包含檔案
 services: backup
-author: rayne-wiselman
+author: dcurwin
 ms.service: backup
 ms.topic: include
 ms.date: 12/07/2018
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 9e9c09c1825f5c8383a708e8bd343146396f878e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ca6c57b139b195b94dc7171336cfcc34d18b1872
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67174379"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828980"
 ---
 下列限制適用於 Azure 備份。
 
 | **限制** | **預設值** |
 | --- | --- |
-| 可以在保存庫中註冊的伺服器或電腦。 | Windows Server/Windows Client/System Center Data Protection Manager：50. <br/><br/> IaaS VM：1000。  |
+| 可以在保存庫中註冊的伺服器或電腦。 | Windows Server/Windows Client/System Center Data Protection Manager：50。 <br/><br/> IaaS Vm：1000。  |
 | 保存庫儲存體中的資料來源大小。 |最大 54400-GB。 此限制不適用於 IaaS VM 備份。 |
 | Azure 訂用帳戶中的備份保存庫。 |500每個區域的保存庫。 |
-| 排定每日備份。 |Windows Server/用戶端：一天三次。<br/> System Center DPM：兩天。 <br/> IaaS VM：一天一次。  |
+| 排定每日備份。 |Windows Server/用戶端：一天三次。<br/> System Center DPM：一天兩次。 <br/> IaaS Vm：一天一次。  |
 | 連接到 Azure VM 以進行備份的資料磁片。 | 16 |
-| 連接到 Azure VM 以進行備份的個別資料磁片。| 4,095 GB|
+| 連接到 Azure VM 以進行備份的個別資料磁片。| 32 TB|

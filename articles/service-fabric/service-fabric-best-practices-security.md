@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 75edb385a86be849ec7c165759d3b451eab804f6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: fec81e843753656d651c6d5d0b73077a964be9d4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828515"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807437"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 安全性 
 
 如需 [Azure 安全性最佳做法](https://docs.microsoft.com/azure/security/)的相關詳細資訊，請參閱 [Azure Service Fabric 安全性最佳做法](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices)
 
-## <a name="key-vault"></a>金鑰保存庫
+## <a name="key-vault"></a>Key Vault
 
 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) 是建議採用的 Azure Service Fabric 應用程式和叢集的秘密管理服務。
 > [!NOTE]
@@ -166,7 +166,7 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 ```
 ## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>使用受控服務識別 (MSI) 向 Azure 資源驗證 Service Fabric 應用程式
 
-若要了解適用於 Azure 資源的受控識別，請參閱[什麼是適用於 Azure 資源的受控識別？](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work)。
+若要了解適用於 Azure 資源的受控識別，請參閱[什麼是適用於 Azure 資源的受控識別？](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)。
 Azure Service Fabric 叢集裝載在虛擬機器擴展集中，支援[受控服務識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources)。
 若要取得 MSI 可用來進行驗證的服務清單，請參閱[支援 Azure Active Directory 驗證的 Azure 服務](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication)。
 

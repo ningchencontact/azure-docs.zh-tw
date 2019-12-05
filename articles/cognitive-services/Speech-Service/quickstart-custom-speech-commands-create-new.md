@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 80eb0a2018ece23de80e8eb9c4a68c149b590440
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 5c90c91791af8a9a16039e9650765bd24433ff38
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111359"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815826"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>快速入門：建立自訂命令（預覽）
 
 在本文中，您將瞭解如何建立和測試託管的自訂命令應用程式。
 應用程式會辨識「開啟電視」之類的語句，並以簡單的訊息回應「正常，開啟電視」。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 語音訂用帳戶。 [免費試用語音服務](~/articles/cognitive-services/speech-service/get-started.md)。
 
@@ -81,7 +81,7 @@ ms.locfileid: "74111359"
 | 群組            | 描述                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | 範例句子 | 使用者可以說觸發此命令的範例語句                                                                 |
-| parameters       | 完成命令所需的資訊                                                                                |
+| 參數       | 完成命令所需的資訊                                                                                |
 | 完成規則 | 要用來完成命令的動作。 例如，回應使用者或與另一個 web 服務通訊 |
 | Advanced 規則   | 處理更具體或複雜情況的其他規則                                                              |
 
@@ -105,10 +105,10 @@ turn on the tv
 | 設定    | 建議的值                        | 描述                                        |
 | ---------- | -------------------------------------- | -------------------------------------------------- |
 | 規則名稱  | "ConfirmationResponse"                 | 描述規則用途的名稱          |
-| 條件 | 無                                   | 判斷規則何時可執行檔條件    |
+| 條件 | None                                   | 判斷規則何時可執行檔條件    |
 | 動作    | SpeechResponse 「確定，開啟電視」 | 規則條件為 true 時要採取的動作 |
 
-## <a name="try-it-out"></a>立即試用
+## <a name="try-it-out"></a>歡迎試用
 
 使用 [測試聊天] 面板來測試行為。
 

@@ -4,15 +4,15 @@ description: 了解 Azure Migrate 服務的伺服器評估與移轉。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/19/2019
+ms.date: 11/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a64e7366281f15c94d6551c1f7be27f461737634
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 5843e6a5669cd90cdc0572e7a104c4fdf70ac2b3
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185799"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74669139"
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 

@@ -9,12 +9,12 @@ ms.date: 12/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 32bcb12f39d65d63af1c6595c0d57c695ce0533f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: dada27f1fa08cdaa6c2495246375869ea5a8ab9e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792209"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806927"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>使用 .NET 建立容器或 blob 的使用者委派 SAS （預覽）
 
@@ -24,35 +24,13 @@ ms.locfileid: "74792209"
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="authenticate-with-the-azure-identity-library"></a>使用 Azure 身分識別程式庫進行驗證
-
-適用于 .NET 的 Azure 身分識別用戶端程式庫會驗證安全性主體。 當您的程式碼在 Azure 中執行時，安全性主體是適用于 Azure 資源的受控識別。
-
-當您的程式碼在開發環境中執行時，可能會自動處理驗證，或視您使用的工具而定，可能需要瀏覽器登入。 Microsoft Visual Studio 支援單一登入（SSO），讓作用中的 Azure AD 使用者帳戶自動用於驗證。 如需 SSO 的詳細資訊，請參閱[單一登入應用程式](../../active-directory/manage-apps/what-is-single-sign-on.md)。
-
-其他開發工具可能會提示您透過網頁瀏覽器登入。 您也可以使用服務主體，從開發環境進行驗證。 如需詳細資訊，請參閱[在入口網站中建立 Azure 應用程式](../../active-directory/develop/howto-create-service-principal-portal.md)的身分識別。
-
-驗證之後，Azure 身分識別用戶端程式庫會取得權杖認證。 然後，此權杖認證會封裝在您建立來對 Azure 儲存體執行作業的服務用戶端物件中。 程式庫會藉由取得適當的權杖認證，順暢地為您處理這項工作。
-
-如需 Azure 身分識別用戶端程式庫的詳細資訊，請參閱[適用于 .net 的 azure 身分識別用戶端程式庫](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity)。
-
 ## <a name="assign-rbac-roles-for-access-to-data"></a>指派 RBAC 角色以存取資料
 
 當 Azure AD 安全性主體嘗試存取 blob 資料時，該安全性主體必須擁有該資源的許可權。 無論安全性主體是 Azure 中的受控識別，或是在開發環境中執行程式碼的 Azure AD 使用者帳戶，都必須將 RBAC 角色指派給安全性主體，以授與 Azure 儲存體中 blob 資料的存取權。 如需透過 RBAC 指派許可權的相關資訊，請參閱[使用 Azure Active Directory 授權存取 Azure blob 和佇列](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights)中的
 
-## <a name="install-the-packages"></a>安裝套件
+[!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-本文中的範例會針對 Blob 儲存體使用最新版的[Azure 儲存體用戶端程式庫](https://www.nuget.org/packages/Azure.Storage.Blobs)。 若要安裝套件，請從 NuGet 套件管理員主控台執行下列命令：
-
-```powershell
-Install-Package Azure.Storage.Blobs
-```
-
-本文中的範例也會使用[適用于 .net 的 Azure 身分識別用戶端程式庫](https://www.nuget.org/packages/Azure.Identity/)的最新版本，以 Azure AD 認證進行驗證。 若要安裝套件，請從 NuGet 套件管理員主控台執行下列命令：
-
-```powershell
-Install-Package Azure.Identity
-```
+若要深入瞭解如何從 Azure 儲存體使用 Azure 身分識別用戶端程式庫進行驗證，請參閱[使用 Azure 資源的 Azure Active Directory 和受控識別來授權存取 blob 和佇列](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library)一節標題為使用 Azure 身分**識別程式庫進行**驗證。
 
 ## <a name="add-using-directives"></a>新增 using 指示詞
 
@@ -258,5 +236,6 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 ## <a name="see-also"></a>請參閱
 
+- [使用共用存取簽章（SAS）授與 Azure 儲存體資源的有限存取權](../common/storage-sas-overview.md)
 - [取得使用者委派金鑰作業](/rest/api/storageservices/get-user-delegation-key)
 - [建立使用者委派 SAS （REST API）](/rest/api/storageservices/create-user-delegation-sas)

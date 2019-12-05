@@ -1,54 +1,54 @@
 ---
-title: Conditional Access - Combined security information - Azure Active Directory
-description: Create a custom Conditional Access policy to require a trusted location for security info registration
+title: 條件式存取-結合的安全性資訊-Azure Active Directory
+description: 建立自訂的條件式存取原則，以要求安全性資訊註冊的信任位置
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5864424f003ce9254a6452d8374d78c54516f2bc
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 08c1db1a8e377edd1bf9b8f1b942e65b970edf56
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322740"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803671"
 ---
-# <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>Conditional Access: Require trusted location for MFA registration
+# <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>條件式存取： MFA 註冊需要信任的位置
 
-Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in Conditional Access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want users to register for Azure Multi-Factor Authentication and SSPR from a central location such as a trusted network location during HR onboarding. For more information about creating trusted locations in Conditional Access, see the article [What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
+在條件式存取原則中，您現在可以透過使用者動作來保護使用者註冊 Azure 多重要素驗證和自助式密碼重設的時間和方式。 此預覽功能適用于已啟用[合併註冊預覽](../authentication/concept-registration-mfa-sspr-combined.md)的組織。 您可以在組織中啟用這項功能，讓使用者註冊 Azure 多重要素驗證，並從中央位置（例如，在 HR 上架期間受信任的網路位置） SSPR。 如需有關如何在條件式存取中建立信任位置的詳細資訊, 請參閱 [什麼是 Azure Active Directory 條件式存取中的位置條件？](../conditional-access/location-condition.md#named-locations)。
 
-## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Create a policy to require registration from a trusted location
+## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>建立要求從信任位置註冊的原則
 
-The following policy applies to all selected users, who attempt to register using the combined registration experience, and blocks access unless they are connecting from a location marked as trusted network.
+下列原則適用于所有選取的使用者，其嘗試使用合併的註冊體驗進行註冊，並封鎖存取，除非它們是從標示為受信任的網路的位置進行連接。
 
-1. In the **Azure portal**, browse to **Azure Active Directory** > **Conditional Access**.
+1. 在**Azure 入口網站**中，流覽至**Azure Active Directory** > 的**安全性** > **條件式存取**。
 1. 選取 [新增原則]。
-1. In Name, Enter a Name for this policy. For example, **Combined Security Info Registration on Trusted Networks**.
-1. Under **Assignments**, click **Users and groups**, and select the users and groups you want this policy to apply to.
+1. 在 [名稱] 中，輸入此原則的名稱。 例如，**在受信任的網路上註冊結合的安全性資訊**。
+1. 在 [**指派**] 底下，按一下 [**使用者和群組**]，然後選取您想要套用此原則的使用者和群組。
 
    > [!WARNING]
-   > Users must be enabled for the [combined registration preview](../authentication/howto-registration-mfa-sspr-combined.md).
+   > 使用者必須啟用[合併的註冊預覽](../authentication/howto-registration-mfa-sspr-combined.md)。
 
-1. Under **Cloud apps or actions**, select **User actions**, check **Register security information (preview)** .
-1. Under **Conditions** > **Locations**.
-   1. Configure **Yes**.
-   1. Include **Any location**.
-   1. Exclude **All trusted locations**.
-   1. Click **Done** on the Locations blade.
-   1. Click **Done** on the Conditions blade.
-1. Under **Access controls** > **Grant**.
-   1. Click **Block access**.
+1. 在 [**雲端應用程式或動作**] 底下，選取 [**使用者動作**]，然後核取 **[註冊安全性資訊（預覽）** ]
+1. 在 [**條件**] > **位置**。
+   1. 設定 **[是]** 。
+   1. 包含**任何位置**。
+   1. 排除**所有信任的位置**。
+   1. 按一下 [位置] 分頁上的 [**完成**]。
+   1. 按一下 [條件] 分頁上的 [**完成**]。
+1. 在 **存取控制** 底下 > **授**與。
+   1. 按一下 [**封鎖存取**]。
    1. 然後按一下 [選取]。
-1. Set **Enable policy** to **On**.
+1. 將 [啟用原則] 設定為 [開啟]。
 1. 然後按一下 [儲存]。
 
 ## <a name="next-steps"></a>後續步驟
 
-[Conditional Access common policies](concept-conditional-access-policy-common.md)
+[條件式存取的一般原則](concept-conditional-access-policy-common.md)
 
-[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+[使用條件式存取 What If 工具模擬登入行為](troubleshoot-conditional-access-what-if.md)

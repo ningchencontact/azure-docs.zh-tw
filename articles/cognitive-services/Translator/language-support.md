@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/04/2019
+ms.date: 12/02/2019
 ms.author: swmachan
-ms.openlocfilehash: 25ab298a8b72b3734e41daf66ef5063b8e43a96e
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 62c101751e07d8ee31789191ad45fbdd33a1bc4b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286625"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707970"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>翻譯工具文字 API 支援的語言和區域
 
@@ -97,7 +97,7 @@ ms.locfileid: "74286625"
 |西班牙文|   `es`    |可使用類神經|  神經網路|
 |瑞典文|   `sv`    |可使用類神經   |神經網路|
 |大溪地文|  `ty`    |僅限統計|  統計|
-|坦米爾文| `ta`    |僅限統計|  統計|
+|坦米爾文| `ta`    |可使用類神經 | 神經網路|
 |泰盧固文|    `te`    |僅限類神經|   神經網路|
 |泰文|  `th`    |可使用類神經|  神經網路|
 |東加文|    `to`    |僅限統計|  統計|

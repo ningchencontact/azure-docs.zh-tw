@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 11/29/2019
 ms.author: aahi
-ms.openlocfilehash: db9132936604e8eed17bbdf173ce1b766fb1b334
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: beab594126ce292ea1fc47e399a12274dbb31aa3
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326695"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665689"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>快速入門：使用 Node.js 向 Bing 當地商家搜尋 API 傳送查詢
 
@@ -43,7 +43,7 @@ ms.locfileid: "74326695"
 
 此示範的完整程式碼如下：
 
-```
+```javascript
 'use strict';
 
 let https = require('https');

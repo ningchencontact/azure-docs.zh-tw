@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: a1fcc1bec5db3ad64dc045cf5e1a449fce808132
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: dc948629784254c9153f7f48ead7ff253e5f4453
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721218"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806383"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 內容的資料來源
 
@@ -30,7 +30,7 @@ QnA Maker 會自動從半結構化的內容 (例如，儲存為網頁、PDF 檔�
 |來源類型|內容類型| 範例|
 |--|--|--|
 |URL|常見問題集<br> (一般，含有區段或含有主題首頁)<br>支援頁面 <br> (單頁操作說明文章、疑難排解文章等等。)|[一般的常見問題集](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs)、 <br>[具有連結的常見問題集](https://www.microsoft.com/en-us/software-download/faq)、<br> [具有主題首頁的常見問題集](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[支援文件](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
-|PDF/DOC|常見問題集、<br> 產品手冊、<br> 小手冊、<br> 文件、<br> 傳單原則、<br> 支援指南、<br> 結構化 QnA<br> 等|[Structured QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx)、<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf)、<br> [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx)、<br> [範例白皮書 .pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)、<br>[範例 multi-turn .docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)|
+|PDF/DOC|常見問題集、<br> 產品手冊、<br> 小手冊、<br> 文件、<br> 傳單原則、<br> 支援指南、<br> 結構化 QnA<br> 等|[Structured QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/structured.docx)、<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf)、<br> [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx)、<br> [範例白皮書 .pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)、<br>[範例 multi-turn .docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)|
 |\* Excel|結構化 QnA 檔案<br> (包括 RTF、HTML 支援)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |\* TXT/TSV|結構化 QnA 檔案|[Sample chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
@@ -144,7 +144,7 @@ Answer2
 
 採用結構化 .txt、.tsv 或 .xls 檔案形式的 QnA 也可上傳至 QnA Maker，以便建立或擴大知識庫。  這些檔案可以是純文字，也可以具有 RTF 或 HTML 的內容。 
 
-| 問題  | Answer  | 中繼資料（1個索引鍵：1個值） |
+| 問題  | 答案  | 中繼資料（1個索引鍵：1個值） |
 |-----------|---------|-------------------------|
 | 問題 1 | 解答 1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | 問題 2 | 解答 2 |      `Key:Value`           |
@@ -171,7 +171,7 @@ Answer2
 
 匯入知識庫後，將會取代現有知識庫的內容。 匯入時必須要有包含資料來源資訊的結構化 .tsv 檔案。 這項資訊可協助 QnA Maker 將問答組分組，並將其歸於特定資料來源。
 
-| 問題  | Answer  | 來源| 中繼資料（1個索引鍵：1個值） |          
+| 問題  | 答案  | 來源| 中繼資料（1個索引鍵：1個值） |          
 |-----------|---------|----|---------------------|
 | 問題 1 | 解答 1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | 問題 2 | 解答 2 | 編輯|    `Key:Value`       |
@@ -190,7 +190,7 @@ Answer2
 
 以下是您可以在 QnA Maker 中使用的 markdown 格式清單： 
 
-|目的|格式|範例 markdown|轉譯<br>如聊天機器人中所顯示|
+|目的|格式|範例 Markdown|轉譯<br>如聊天機器人中所顯示|
 |--|--|--|--|
 2個句子之間的新行。|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![將兩個句子之間的新行格式化](../media/qnamaker-concepts-datasources/format-newline.png)|
 |從 h1 到 h6 的標頭，`#` 的數目代表哪一個標頭。 1 `#` 是 h1。|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![具有 markdown 標頭的格式](../media/qnamaker-concepts-datasources/format-headers.png)<br>![格式為 markdown 標頭 H1 至 H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
@@ -198,14 +198,14 @@ Answer2
 |字串（粗體）|`**text**`|`How do I create a bot with **QnA Maker**?`|![具有強式標記的格式（粗體）](../media/qnamaker-concepts-datasources/format-strong.png)|
 |連結的 URL|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![URL 的格式（超連結）](../media/qnamaker-concepts-datasources/format-url.png)|
 |\* 公用影像的 URL|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![公用影像 URL 的格式 ](../media/qnamaker-concepts-datasources/format-image-url.png)|
-|線|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![刪除線的格式](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
+|刪除線|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![刪除線的格式](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
 |粗體和斜體|`***text***`|`How can I create a ***QnA Maker*** bot?`|![粗體和斜體的格式](../media/qnamaker-concepts-datasources/format-bold-italics.png)|
 |連結的粗體 URL|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![粗體 URL 的格式](../media/qnamaker-concepts-datasources/format-bold-url.png)|
 |連結的斜體 URL|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![斜體 URL 的格式](../media/qnamaker-concepts-datasources/format-url-italics.png)|
 |Escape markdown 符號|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![斜體 URL 的格式](../media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |已排序清單|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>上述範例使用內建于 markdown 的自動編號。<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>上述範例使用明確編號。|![已排序清單的格式](../media/qnamaker-concepts-datasources/format-ordered-list.png)|
 |未排序清單|`\n * item1 \n * item2`<br>或<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![未排序清單的格式](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
-|嵌套清單|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>您可以將已排序和未排序的清單一併嵌套在一起。 索引標籤 [`\t`] 表示子專案的縮排層級。|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![嵌套未排序清單的格式](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![嵌套排序清單的格式](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
+|巢狀清單|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>您可以將已排序和未排序的清單一併嵌套在一起。 索引標籤 [`\t`] 表示子專案的縮排層級。|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![嵌套未排序清單的格式](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![嵌套排序清單的格式](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
 \* QnA Maker 不會以任何方式處理影像。 這是用戶端應用程式用來呈現影像的角色。 
 
@@ -239,6 +239,6 @@ Answer2
 > [!div class="nextstepaction"]
 > [設定 QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)
 
-## <a name="see-also"></a>另請參閱 
+## <a name="see-also"></a>請參閱 
 
 [QnA Maker 概觀](../Overview/overview.md)

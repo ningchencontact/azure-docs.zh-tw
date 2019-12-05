@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 892171f3e275ebc405bc7a228185ebfabc61acfb
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: cc0d22e2e6478c265ba9219ae4df5d5ddb34d481
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164831"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803881"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>條件式存取：所有使用者都需要 MFA
 
@@ -33,7 +33,7 @@ ms.locfileid: "73164831"
 * **緊急存取**或**中斷玻璃**帳戶，以避免整個租使用者帳戶鎖定。 在不太可能發生的情況下，所有系統管理員都會被鎖定在您的租使用者中，您的緊急存取系統管理帳戶可以用來登入租使用者，採取復原存取的步驟。
    * 如需詳細資訊，請參閱[Azure AD 中的管理緊急存取帳戶](../users-groups-roles/directory-emergency-access.md)一文。
 * **服務帳戶**和**服務原則**，例如 Azure AD Connect 同步處理帳戶。 服務帳戶是不會與任何特定使用者系結的非互動式帳戶。 後端服務通常會使用它們，並允許以程式設計方式存取應用程式。 應該排除服務帳戶，因為無法以程式設計方式完成 MFA。
-   * 如果您的組織在腳本或程式碼中使用這些帳戶，請考慮將它們取代為[受控](../managed-identities-azure-resources/overview.md)識別。 暫時的因應措施是，您可以從基準原則中排除這些特定帳戶。
+   * 如果您的組織在指令碼或程式碼中使用這些帳戶，請考慮將它們取代為[受管理的身分識別](../managed-identities-azure-resources/overview.md)。 暫時的因應措施是，您可以從基準原則中排除這些特定帳戶。
 
 ## <a name="application-exclusions"></a>應用程式排除專案
 
@@ -44,7 +44,7 @@ ms.locfileid: "73164831"
 下列步驟將協助建立條件式存取原則，要求這些指派的系統管理角色執行多重要素驗證。
 
 1. 以全域管理員、安全性系統管理員或條件式存取系統管理員的身分登入**Azure 入口網站**。
-1. 流覽至**Azure Active Directory** > **條件式存取**。
+1. 流覽至**Azure Active Directory** > **安全性** > **條件式存取**。
 1. 選取 [新增原則]。
 1. 提供您的原則名稱。 我們建議組織針對其原則的名稱建立有意義的標準。
 1. 在 [**指派**] 底下，選取 [**使用者和群組**]

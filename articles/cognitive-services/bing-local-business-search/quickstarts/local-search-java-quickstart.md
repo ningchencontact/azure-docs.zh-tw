@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 11/29/2019
 ms.author: aahi
-ms.openlocfilehash: 46187aa1d4e0670b45aeeafd643f541ab90fb9a7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8ff70bea8d0e4810b6d5a0d35853077ed0a630cd
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326738"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665180"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>快速入門：使用 Java 向 Bing 當地商家搜尋 API 傳送查詢
 
@@ -35,7 +35,7 @@ ms.locfileid: "74326738"
 
 下列程式碼會建立 `WebRequest`、設定存取金鑰標頭，並新增 "hotel in Bellevue" 的查詢字串。  接著，它會傳送要求，並為字串指派包含 JSON 文字的回應。
 
-```
+```java
     // construct URL of search request (endpoint + query string)
      URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
     HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -58,7 +58,7 @@ Bing 當地商家搜尋 API 會從 Bing 搜尋引擎傳回結果。
 4. 將 subscriptionKey 值取代為您訂用帳戶的有效存取金鑰。
 5. 執行程式。
 
-```
+```java
 package localSearch;
 import java.net.*;
 import java.util.*;

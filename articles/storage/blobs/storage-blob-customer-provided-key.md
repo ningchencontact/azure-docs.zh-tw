@@ -9,12 +9,12 @@ ms.date: 11/26/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 1c282b1b9a4693da2aa71831a503d443660b65c1
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: ea8254f108aed9d40e6970a27409035b1e10ab41
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666633"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806995"
 ---
 # <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>使用 .NET 在 Blob 儲存體的要求上指定客戶提供的金鑰
 
@@ -23,6 +23,8 @@ ms.locfileid: "74666633"
 本文說明如何在使用 .NET 的要求上指定客戶提供的金鑰。
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
+
+若要深入瞭解如何從 Azure 儲存體使用 Azure 身分識別用戶端程式庫進行驗證，請參閱[使用 Azure 資源的 Azure Active Directory 和受控識別來授權存取 blob 和佇列](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library)一節標題為使用 Azure 身分**識別程式庫進行**驗證。
 
 ## <a name="example-use-a-customer-provided-key-to-upload-a-blob"></a>範例：使用客戶提供的金鑰來上傳 blob
 

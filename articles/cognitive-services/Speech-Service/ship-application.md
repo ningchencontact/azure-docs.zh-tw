@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 0bcfd40510352abc9e64782255d3c8349b8ad87e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f4200a0a43507a335f0e4e59e5a794d2bc4d6142
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072412"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816560"
 ---
 # <a name="ship-an-application"></a>交付應用程式
 
@@ -39,7 +39,7 @@ ms.locfileid: "74072412"
 
 在與您的應用程式相同的目錄中，可以部署必要的語音 SDK 檔案。 如此一來，您的應用程式就可以直接存取程式庫。 確定您選取與您的應用程式相符的正確版本 (Win32/x64)。
 
-| 名稱 | 函數 |
+| Name | 函式 |
 | :--- | :------- |
 | `Microsoft.CognitiveServices.Speech.core.dll`   | 核心 SDK (原生和受控部署所需) |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | 受控部署所需                      |
@@ -76,5 +76,5 @@ sudo apt-get install libssl1.0.2 libasound2
 
 ## <a name="next-steps"></a>後續步驟
 
-- [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
+- [取得語音試用訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
 - [了解如何以 C# 辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) (英文)

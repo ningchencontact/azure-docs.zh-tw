@@ -10,22 +10,22 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2019
+ms.date: 12/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 987f84301608129075b55769f886912ec2354cbb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d5ed903eefea3a8c13bb9e43f5ef71063b453d93
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099893"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806638"
 ---
 # <a name="available-skus-for-hli"></a>HLI 可用的 SKU
 
-以修訂版3戳記為基礎的 SAP Hana on azure (大型實例) 服務, 可在 Azure 區域中的數個設定中取得:
+以修訂版3戳記為基礎的 SAP Hana on azure （大型實例）服務，可在 Azure 區域中的數個設定中取得：
 
 - 美國西部
-- East US
+- 美國東部
 - 澳大利亞東部
 - 澳大利亞東南部
 - 西歐
@@ -33,10 +33,11 @@ ms.locfileid: "70099893"
 - 日本東部
 - 日本西部
 
-以修訂4戳記為基礎的 SAP Hana on Azure (大型實例) 服務可在的 Azure 區域中的數個設定中取得:
+以修訂4戳記為基礎的 SAP Hana on Azure （大型實例）服務可在的 Azure 區域中的數個設定中取得：
 
 - 美國西部 2
-- East US
+- 美國東部
+- 美國中南部
 - 西歐
 - 北歐
 
@@ -48,36 +49,37 @@ ms.locfileid: "70099893"
 | --- | --- | --- | --- | --- |
 | 已針對 OLAP 最佳化：SAP BW、BW/4HANA<br /> 或 SAP HANA (一般 OLAP 工作負載) | SAP HANA on Azure S72<br /> – 2 x Intel® Xeon® Processor E7-8890 v3<br /> 36 個 CPU 核心和 72 個 CPU 執行緒 |  768 GB |  3 TB | 不再提供 |
 | --- | SAP HANA on Azure S144<br /> – 4 x Intel® Xeon® Processor E7-8890 v3<br /> 72 個 CPU 核心和 144 個 CPU 執行緒 |  1.5 TB |  6 TB | 不再提供 |
-| --- | SAP HANA on Azure S192<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 個 CPU 核心和 192 個 CPU 執行緒 |  2.0 TB |  8 TB | 可用 |
-| --- | SAP HANA on Azure S384<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 個 CPU 核心和 384 個 CPU 執行緒 |  4.0 TB |  16 TB | 可用 |
+| --- | SAP HANA on Azure S192<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 個 CPU 核心和 192 個 CPU 執行緒 |  2.0 TB |  8 TB | 不再提供 |
+| --- | Azure S224 上的 SAP Hana<br /> – 4 x Intel®，®白金8276處理器（也稱為 Cascade lake）<br /> 112 CPU 核心和 224 CPU 執行緒 |  3.0 TB |  6.3 TB | 適用于 Revision3 和 Revision4 戳記  |
+| --- | SAP HANA on Azure S384<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 個 CPU 核心和 384 個 CPU 執行緒 |  4.0 TB |  16 TB | 適用于 Revision4 戳記 |
 | 已針對 OLTP 最佳化：SAP Business Suite<br /> on SAP HANA 或 S/4HANA (OLTP)<br /> (一般 OLTP) | SAP HANA on Azure S72m<br /> – 2 x Intel® Xeon® Processor E7-8890 v3<br /> 36 個 CPU 核心和 72 個 CPU 執行緒 |  1.5 TB |  6 TB | 不再提供 |
 |---| SAP HANA on Azure S144m<br /> – 4 x Intel® Xeon® Processor E7-8890 v3<br /> 72 個 CPU 核心和 144 個 CPU 執行緒 |  3.0 TB |  12 TB | 不再提供 |
-|---| SAP HANA on Azure S192m<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 個 CPU 核心和 192 個 CPU 執行緒  |  4.0 TB |  16 TB | 可用 |
-|---| SAP HANA on Azure S384m<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 個 CPU 核心和 384 個 CPU 執行緒 |  6.0 TB |  18 TB | 可用 |
-|---| SAP HANA on Azure S384xm<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 個 CPU 核心和 384 個 CPU 執行緒 |  8.0 TB |  22 TB |  可用 |
-|---| SAP HANA on Azure S576m<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 個 CPU 核心和 576 個 CPU 執行緒 |  12.0 TB |  28 TB | 可用 |
-|---| SAP HANA on Azure S768m<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 個 CPU 核心和 768 個 CPU 執行緒 |  16.0 TB |  36 TB | 可用 |
-|---| SAP HANA on Azure S960m<br /> – 20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 個 CPU 核心和 960 個 CPU 執行緒 |  20.0 TB |  46 TB | 可用 |
+|---| SAP HANA on Azure S192m<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 個 CPU 核心和 192 個 CPU 執行緒  |  4.0 TB |  16 TB | 不再提供 |
+|---| SAP HANA on Azure S384m<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 個 CPU 核心和 384 個 CPU 執行緒 |  6.0 TB |  18 TB | 適用于 Revision4 戳記|
+|---| SAP HANA on Azure S384xm<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 個 CPU 核心和 384 個 CPU 執行緒 |  8.0 TB |  22 TB |  適用于 Revision4 戳記 |
+|---| SAP HANA on Azure S576m<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 個 CPU 核心和 576 個 CPU 執行緒 |  12.0 TB |  28 TB | 適用于 Revision4 戳記|
+|---| SAP HANA on Azure S768m<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 個 CPU 核心和 768 個 CPU 執行緒 |  16.0 TB |  36 TB | 適用于 Revision4 戳記|
+|---| SAP HANA on Azure S960m<br /> – 20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 個 CPU 核心和 960 個 CPU 執行緒 |  20.0 TB |  46 TB | 適用于 Revision4 戳記|
 
 
-在 SAP Hana TDIv5 下, SAP 允許客戶專屬的調整大小和客戶特定的專案, 這可能會導致伺服器設定, 而不會在中列示為「已認證」:
+在 SAP Hana TDIv5 下，SAP 允許客戶專屬的調整大小和客戶特定的專案，這可能會導致伺服器設定，而不會在中列示為「已認證」：
 
 - [SAP Hana 認證設備](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/appliances.html)
 - [SAP Hana 認證 IaaS 平台](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 
-在許多情況下, 這些客戶專屬的伺服器設定會比使用 SAP 認證的伺服器單位具有更多的記憶體。 使用 SAP 時，客戶可能會取得 SAP 支援，並為其客戶專屬大小的伺服器設定進行認證。 在 Azure 中, 下列 HANA 大型實例標準 Sku 可供使用, 並在 Microsoft 價目表中, 適用于這類 TDIv5 客戶專屬的大小調整專案。
+在許多情況下，這些客戶專屬的伺服器設定會比使用 SAP 認證的伺服器單位具有更多的記憶體。 使用 SAP 時，客戶可能會取得 SAP 支援，並為其客戶專屬大小的伺服器設定進行認證。 在 Azure 中，下列 HANA 大型實例標準 Sku 可供使用，並在 Microsoft 價目表中，適用于這類 TDIv5 客戶專屬的大小調整專案。
 
 | SKU|CPU | 記憶體 | 儲存體 | 可用性 |
 | ---| --- | --- | --- | --- |
-| S96 | SAP HANA on Azure S96<br /> – 2 x Intel® Xeon® Processor E7-8890 v4<br /> 48 個 CPU 核心和 96 個 CPU 執行緒 |  768 GB |  3 TB | 可用 |
+| S96 | SAP HANA on Azure S96<br /> – 2 x Intel® Xeon® Processor E7-8890 v4<br /> 48 個 CPU 核心和 96 個 CPU 執行緒 |  768 GB |  3 TB | 適用于 Revision3 和 Revision4 戳記|
 
 
 | 原始 SKU 可以 <br /> 在記憶體中擴充 | CPU | 記憶體 | 儲存體 | 可用性 |
 | --- | --- | --- | --- | --- |
-| S192m 可擴充到 | SAP HANA on Azure S192xm<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 個 CPU 核心和 192 個 CPU 執行緒 |  6.0 TB |  16 TB | 可用 |
-| S384xm 可擴充到 | SAP HANA on Azure S384xxm<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 個 CPU 核心和 384 個 CPU 執行緒 |  12.0 TB |  28 TB | 可用 |
-| S576m 可擴充到 | SAP HANA on Azure S576xm<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 個 CPU 核心和 576 個 CPU 執行緒 |  18.0 TB |  41 TB | 可用 |
-| S768m 可擴充到 | SAP HANA on Azure S768xm<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 個 CPU 核心和 768 個 CPU 執行緒 |  24.0 TB |  56 TB | 可用 |
+| S192m 可擴充到 | SAP HANA on Azure S192xm<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 個 CPU 核心和 192 個 CPU 執行緒 |  6.0 TB |  16 TB | 不再提供 |
+| S384xm 可擴充到 | SAP HANA on Azure S384xxm<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 個 CPU 核心和 384 個 CPU 執行緒 |  12.0 TB |  28 TB | 適用于 Revision4 戳記 |
+| S576m 可擴充到 | SAP HANA on Azure S576xm<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 個 CPU 核心和 576 個 CPU 執行緒 |  18.0 TB |  41 TB | 適用于 Revision4 戳記|
+| S768m 可擴充到 | SAP HANA on Azure S768xm<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 個 CPU 核心和 768 個 CPU 執行緒 |  24.0 TB |  56 TB | 適用于 Revision4 戳記 |
 
 - CPU 核心 = 伺服器單位處理器總和的非超執行緒 CPU 核心總和。
 - CPU 執行緒 = 伺服器單位處理器總和的超執行緒 CPU 核心所提供之計算執行緒的總和。 依預設會將大部分的單位設定為使用超執行緒技術。
@@ -88,8 +90,10 @@ ms.locfileid: "70099893"
 
 供應項目的硬體基底 (除了客戶專屬的大小調整專案單位) 已通過 SAP Hana TDI 認證。 兩種不同類別的硬體會將 SKU 分成：
 
-- S72、S72m、S96、S144、S144m、S192、S192m 和 S192xm 屬於「類型 I 類別」的 SKU。
-- S384、S384m、S384xm、S384xxm、S576m、S576xm S768m、S768xm 和 S960m, 稱為「類型 II 類別」的 Sku。
+- S72、S72m、S96、S144、S144m、S192、S192m、S192xm 和 S224，稱為「類型 I 類別」的 Sku。
+- S384、S384m、S384xm、S384xxm、S576m、S576xm S768m、S768xm 和 S960m，稱為「類型 II 類別」的 Sku。
+- 如果您有興趣使用 Optane 的其他 S224 Sku 供應專案，請洽詢您的 Microsoft 帳戶小組，以取得詳細資訊。 
+
 
 完整的 HANA 大型執行個體戳記並非僅配置給單一客戶使用。 這項事實也適用於透過 Azure 中所部署的網路網狀架構連線的計算與儲存資源的機架。 「HANA 大型執行個體」基礎結構和 Azure 一樣，會在下列三個層面部署彼此隔離的不同客戶&quot;租用戶&quot;：
 

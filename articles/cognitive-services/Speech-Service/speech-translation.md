@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 17ad32cba18915bf7f83163cd876686d42323750
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a05a2bf81a278322bc4e07ed959aedb828c39b73
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468753"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815469"
 ---
 # <a name="what-is-speech-translation"></a>什麼是語音翻譯？
 
-來自 Azure 語音服務的語音翻譯可讓您即時、多語言的語音轉換語音和語音轉換文字轉譯音訊串流。 使用語音 SDK 時，您的應用程式、工具和裝置可存取所提供音訊的來源轉譯和轉譯輸出。 當偵測到語音時，會傳回暫時轉譯和翻譯結果，而總決賽結果可以轉換成合成語音。
+語音服務的語音翻譯可讓您即時、多語言的語音轉換語音和語音轉換文字轉譯音訊串流。 使用語音 SDK 時，您的應用程式、工具和裝置可存取所提供音訊的來源轉譯和轉譯輸出。 當偵測到語音時，會傳回暫時轉譯和翻譯結果，而總決賽結果可以轉換成合成語音。
 
 Microsoft 的轉譯引擎支援兩種不同的方法：統計機器翻譯（SMT）和類神經機器翻譯（NMT）。 SMT 會使用 advanced 統計分析，根據幾個單字的內容來估計最佳的翻譯。 使用 NMT，類神經網路可透過使用句子的完整內容來轉譯單字，以提供更精確且自然發音的翻譯。
 
@@ -39,7 +39,7 @@ Microsoft 的轉譯引擎支援兩種不同的方法：統計機器翻譯（SMT�
 
 我們提供的快速入門是為了讓您在10分鐘內執行程式碼而設計的。 此表格包含依語言組織的語音翻譯快速入門清單。
 
-| 快速入門 | 平台 | API 參考資料 |
+| 快速入門 | 平台 | API 參考 |
 |------------|----------|---------------|
 | [C#、.NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C#.NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |

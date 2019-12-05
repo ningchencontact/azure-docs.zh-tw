@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b992973beb7cb132075e47e104733d812dc06ca0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a5b4627080879c9e7d2635b950bb7f31b7d23581
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151093"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803626"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>條件式存取：封鎖舊版驗證
 
@@ -27,15 +27,12 @@ ms.locfileid: "73151093"
 下列步驟將協助建立條件式存取原則，以封鎖舊版驗證要求。
 
 1. 以全域管理員、安全性系統管理員或條件式存取系統管理員的身分登入**Azure 入口網站**。
-1. 流覽至**Azure Active Directory** > **條件式存取**。
+1. 流覽至**Azure Active Directory** > **安全性** > **條件式存取**。
 1. 選取 [新增原則]。
 1. 提供您的原則名稱。 我們建議組織針對其原則的名稱建立有意義的標準。
 1. 在 [**指派**] 底下，選取 [**使用者和群組**]
    1. 在 [**包含**] 底下，選取 [**所有使用者**]。
    1. 在 [**排除**] 底下，選取 [**使用者和群組**]，然後選擇必須維持使用舊版驗證之功能的任何帳戶。 
-   1. 選取 [完成]。
-1. 在 [**雲端應用程式] 或 [動作** > **包括**] 底下，選取 [**所有雲端應用程式**]
-   1. 如果您必須從原則中排除特定應用程式，您可以從 [**選取排除的雲端應用程式**] 底下的 [**排除**] 索引標籤中選擇，然後選擇 [**選取**]
    1. 選取 [完成]。
 1. 在 **條件** > **用戶端應用程式（預覽）** 底下，將**設定 設為** **是**
    1. 僅查看行動裝置**應用程式和桌面用戶端** > **其他用戶端**的方塊。

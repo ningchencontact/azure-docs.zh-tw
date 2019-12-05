@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 04/15/2019
-ms.openlocfilehash: 4a9bfe83c9fc1ccbc496ec97822305720dc52c10
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 11/29/2019
+ms.openlocfilehash: e277814bda41a70f9ac8ff02b6e8018fba4b6f52
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076843"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775346"
 ---
 # <a name="azure-hdinsight-java-samples"></a>Azure HDInsight：Java 範例
 
@@ -27,11 +27,11 @@ ms.locfileid: "71076843"
 * 叢集建立工作範例的連結。
 * 其他管理工作參考內容的連結。
 
-## <a name="prerequisites"></a>必要條件
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- [適用於 Java 的 Azure HDInsight SDK](https://docs.microsoft.com/java/api/overview/azure/hdinsight#sdk-installation)
+## <a name="prerequisites"></a>必要條件
+
+[適用於 Java 的 Azure HDInsight SDK](https://docs.microsoft.com/java/api/overview/azure/hdinsight#sdk-installation)
 
 ## <a name="cluster-management---creation"></a>叢集管理 - 建立
 

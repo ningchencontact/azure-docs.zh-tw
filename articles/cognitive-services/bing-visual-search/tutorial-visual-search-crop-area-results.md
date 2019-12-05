@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 04/26/2019
-ms.author: rosh
-ms.openlocfilehash: a6b625325e2adfe441d8abd2012f100780b659b4
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.date: 11/29/2019
+ms.author: aahi
+ms.openlocfilehash: 7adca44f1710431ad1095cbd0da897d4c7c7f325
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910022"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689341"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>教學課程：使用適用於 C# 的 Bing 圖像式搜尋 SDK 裁剪影像
 
@@ -23,7 +23,7 @@ Bing 圖像式搜尋 SDK 可讓您先裁剪影像再尋找類似的線上影像�
 
 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchCropImage.cs) 上有提供此應用程式的完整原始程式碼，其中含有其他的錯誤處理和註釋。
 
-此教學課程說明如何：
+本教學課程說明如何：
 
 > [!div class="checklist"]
 > * 使用 Bing 圖像式搜尋 SDK 傳送要求

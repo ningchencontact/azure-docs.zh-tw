@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 2da8ef2c29bd6afdaf49e000bf964d119f1e99f1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 39e0a512e42dd861c0ee2c833501c7594204cb8b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110082"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806145"
 ---
 # <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>如何：使用語音 SDK 完成用戶端上的命令（預覽）
 
@@ -26,7 +26,7 @@ ms.locfileid: "74110082"
 - 從您的自訂命令應用程式定義和傳送自訂 JSON 承載
 - 從C# UWP 語音 SDK 用戶端應用程式接收並視覺化自訂 JSON 承載內容
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 - 適用于語音服務的 Azure 訂用帳戶金鑰
@@ -131,7 +131,7 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 };
 ```
 
-## <a name="try-it-out"></a>立即試用
+## <a name="try-it-out"></a>歡迎試用
 
 1. 啟動應用程式
 1. 選取 [啟用麥克風]

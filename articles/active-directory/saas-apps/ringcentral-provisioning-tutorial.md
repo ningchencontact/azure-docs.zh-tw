@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 8aa6a8bfb690b00ee21980f4aa64d950abec2f3c
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: d30195cb9aceac0e785f01ce8c2ce78d7a9d4da7
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152667"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805768"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>教學課程：設定 RingCentral 來自動布建使用者
 
@@ -31,7 +31,7 @@ ms.locfileid: "74152667"
 >
 > 此連接器目前為公開預覽版。 如需有關預覽功能的一般 Microsoft Azure 使用規定詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程中概述的案例假設您已經具有下列必要條件：
 
@@ -94,7 +94,7 @@ Azure Active Directory 使用稱為「*指派*」的概念，來判斷哪些使�
 本節將引導您逐步設定 Azure AD 布建服務，以根據 Azure AD 中的使用者和/或群組指派，在 RingCentral 中建立、更新和停用使用者和/或群組。
 
 > [!TIP]
-> 您也可以選擇啟用 RingCentral 的 SAML 型單一登入，請遵循[RingCentral 單一登入教學](https://docs.microsoft.comazure/active-directory/saas-apps/ringcentral-tutorial)課程中提供的指示。 雖然自動使用者佈建和單一登入這兩個功能彼此補充，您可以分開設定它們。
+> 您也可以選擇啟用 RingCentral 的 SAML 型單一登入，請遵循[RingCentral 單一登入教學](ringcentral-tutorial.md)課程中提供的指示。 雖然自動使用者佈建和單一登入這兩個功能彼此補充，您可以分開設定它們。
 
 > [!NOTE]
 > 若要深入瞭解 RingCentral 的 SCIM 端點，請參閱[RINGCENTRAL API 參考](https://developers.ringcentral.com/api-reference)。
@@ -121,11 +121,11 @@ Azure Active Directory 使用稱為「*指派*」的概念，來判斷哪些使�
 
     ![租用戶 URL + 權杖](common/provisioning-testconnection-tenanturltoken.png)
 
-6. 在 [通知電子郵件] 欄位中，輸入應該收到佈建錯誤通知的個人或群組電子郵件地址，然後選取 [發生失敗時傳送電子郵件通知] 核取方塊。
+6. 在 [通知電子郵件] 欄位中，輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選 [發生失敗時傳送電子郵件通知] 核取方塊。
 
     ![通知電子郵件](common/provisioning-notification-email.png)
 
-7. 按一下 [檔案]。
+7. 按一下 [儲存]。
 
 8. **在 [對應**] 區段下，選取 [**同步處理 Azure Active Directory 使用者至 RingCentral**]。
 

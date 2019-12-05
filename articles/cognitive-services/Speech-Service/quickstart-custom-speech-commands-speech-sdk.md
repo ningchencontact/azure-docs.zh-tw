@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 890d2200a8047bc12c99eed97277e11776806def
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: da90e1fb8ab6241cbe0bfa583e1b4a3fbe338ad8
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111171"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812974"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>快速入門：使用語音 SDK 連接到自訂命令應用程式（預覽）
 
@@ -26,7 +26,7 @@ ms.locfileid: "74111171"
 - 發行自訂命令應用程式，並取得應用程式識別碼（app id）
 - 使用語音 SDK 建立用戶端應用程式，以讓您與您的自訂命令應用程式交談
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 必須要有自訂命令應用程式才能完成這篇文章。 如果您尚未建立自訂命令應用程式，您可以在先前的快速入門中執行此動作：
 

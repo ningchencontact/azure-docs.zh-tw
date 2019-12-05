@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: cba54c65a314919b5509e1de029ad05f8722baa2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 1643b20c6c157c43e93967cef364e703dbf4478e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075446"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828901"
 ---
 |**VPN<br>閘道<br>世代** |**SKU**   | **S2S/VNet-to-VNet<br>通道** | **P2S<br> SSTP 連線** | **P2S<br> IKEv2/OpenVPN 連線** | **彙總<br>輸送量基準測試** | **BGP** | **Zone-redundant** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
@@ -27,12 +27,12 @@ ms.locfileid: "74075446"
 |        |            |            |           |                |           |           |     |
 |**第 2 代**|**VpnGw2**  | 最大 30*   | 最大 128  | 最大 500       | 1.25 Gbps | 支援 | 否 |
 |**第 2 代**|**VpnGw3**  | 最大 30*   | 最大 128  | 最大 1000      | 2.5 Gbps  | 支援 | 否 |
-|**第 2 代**|**VpnGw4**  | 最大 30*   | 最大 128  | 最大 1000      | 5 Gbps    | 支援 | 否 |
-|**第 2 代**|**VpnGw5**  | 最大 30*   | 最大 128  | 最大 1000      | 10 Gbps   | 支援 | 否 |
+|**第 2 代**|**VpnGw4**  | 最大 30*   | 最大 128  | 最大 5000      | 5 Gbps    | 支援 | 否 |
+|**第 2 代**|**VpnGw5**  | 最大 30*   | 最大 128  | 最大 10000      | 10 Gbps   | 支援 | 否 |
 |**第 2 代**|**VpnGw2AZ**| 最大 30*   | 最大 128  | 最大 500       | 1.25 Gbps | 支援 | yes |
 |**第 2 代**|**VpnGw3AZ**| 最大 30*   | 最大 128  | 最大 1000      | 2.5 Gbps  | 支援 | yes |
-|**第 2 代**|**VpnGw4AZ**| 最大 30*   | 最大 128  | 最大 1000      | 5 Gbps    | 支援 | yes |
-|**第 2 代**|**VpnGw5AZ**| 最大 30*   | 最大 128  | 最大 1000      | 10 Gbps   | 支援 | yes |
+|**第 2 代**|**VpnGw4AZ**| 最大 30*   | 最大 128  | 最大 5000      | 5 Gbps    | 支援 | yes |
+|**第 2 代**|**VpnGw5AZ**| 最大 30*   | 最大 128  | 最大 10000      | 10 Gbps   | 支援 | yes |
 
 (*) 如果您需要超過 30 個 S2S VPN 通道，請使用[虛擬 WAN](../articles/virtual-wan/virtual-wan-about.md)。
 

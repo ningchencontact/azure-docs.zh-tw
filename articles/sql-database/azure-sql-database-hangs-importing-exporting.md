@@ -9,12 +9,12 @@ author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-ms.openlocfilehash: 29edd7da42a5eb4586cd52cc0f913a56e199a5ba
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e1638c9779ca50507a1ce30dd3bbc9c18248964a
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808269"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807063"
 ---
 # <a name="azure-sql-database-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Azure SQL Database 匯入/匯出服務需要很長的時間來匯入或匯出資料庫
 
@@ -22,7 +22,7 @@ ms.locfileid: "73808269"
 
 ## <a name="azure-sql-database-importexport-service"></a>Azure SQL Database 匯入/匯出服務
 
-Azure SQL Database 匯入/匯出服務是以 REST 為基礎的 web 服務，會在每個 Azure 資料中心執行。 當您使用 [匯[入資料庫](https://docs.microsoft.com/azure/sql-database/sql-database-import#import-from-a-bacpac-file-in-the-azure-portal)] 或 [[匯出](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal)] 選項來移動 Azure 入口網站中的 SQL 資料庫時，會呼叫此服務。 此服務提供免費的要求佇列和計算服務，可在 Azure SQL database 和 Azure Blob 儲存體之間執行匯入和匯出。
+Azure SQL Database 匯入/匯出服務是以 REST 為基礎的 web 服務，會在每個 Azure 資料中心執行。 當您使用 [匯[入資料庫](sql-database-import.md#using-azure-portal)] 或 [[匯出](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal)] 選項來移動 Azure 入口網站中的 SQL 資料庫時，會呼叫此服務。 此服務提供免費的要求佇列和計算服務，可在 Azure SQL database 和 Azure Blob 儲存體之間執行匯入和匯出。
 
 匯入和匯出作業不代表傳統實體資料庫備份，而是使用特殊 BACPAC 格式之資料庫的邏輯備份。 BACPAC 格式可讓您避免必須使用可能會因 Microsoft SQL Server 和 Azure SQL Database 版本不同的實體格式。 因此，您可以使用它，安全地將資料庫還原到 SQL Server 資料庫和 SQL 資料庫。
 
@@ -39,7 +39,7 @@ Azure SQL Database 的匯入/匯出服務會為每個區域提供有限數量的
 
 * [使用 SQLPackage 公用程式匯出到 BACPAC](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-sqlpackage-utility)檔案。
 * [使用 SQL Server Management Studio （SSMS）匯出至 BACPAC](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-sql-server-management-studio-ssms)檔案。
-* 使用 Microsoft SQL Server 資料層應用程式架構（DacFx） API，直接在您的程式碼中執行 BACPAC 匯入或匯出。 如需其他資訊，請參閱：
+* 使用 Microsoft SQL Server 資料層應用程式架構（DacFx） API，直接在您的程式碼中執行 BACPAC 匯入或匯出。 如需相關資訊，請參閱：
   * [匯出資料層應用程式](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
   * [Microsoft SqlServer Dac 命名空間](https://docs.microsoft.com/dotnet/api/microsoft.sqlserver.dac)
   * [下載 DACFx](https://www.microsoft.com/download/details.aspx?id=55713)
@@ -51,6 +51,6 @@ Azure SQL Database 的匯入/匯出服務會為每個區域提供有限數量的
 * 匯出不含叢集索引的大型資料表可能會很緩慢，甚至造成失敗。 之所以會發生這種行為，是因為資料表無法以平行方式分割和匯出。 相反地，它必須在單一交易中匯出，這會導致匯出期間的效能變慢和潛在的失敗，特別是針對大型資料表。
 
 
-## <a name="related-documents"></a>相關檔
+## <a name="related-documents"></a>相關文件
 
 [匯出 Azure SQL 資料庫時的考慮](https://docs.microsoft.com/azure/sql-database/sql-database-export#considerations-when-exporting-an-azure-sql-database)

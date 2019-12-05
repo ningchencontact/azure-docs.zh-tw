@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 42585ae09435e67b7cdea0b437681e2ce044ecd3
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b7f8b98e8241b4502c86cce8c893beb315767d55
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383661"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816504"
 ---
-# <a name="use-speech-service-container-with-kubernetes-and-helm"></a>使用語音服務容器搭配 Kubernetes 和 Helm
+# <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>使用語音服務容器搭配 Kubernetes 和 Helm
 
 管理內部部署語音容器的一個選項是使用 Kubernetes 和 Helm。 使用 Kubernetes 和 Helm 來定義語音轉換文字和文字轉換語音的容器映射，我們將建立 Kubernetes 套件。 此套件將會部署到內部部署的 Kubernetes 叢集。 最後，我們將探討如何測試已部署的服務和各種設定選項。 如需在沒有 Kubernetes 協調流程的情況下執行 Docker 容器的詳細資訊，請參閱[安裝和執行語音服務容器](speech-container-howto.md)。
 

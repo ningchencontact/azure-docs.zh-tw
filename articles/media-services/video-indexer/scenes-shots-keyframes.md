@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: b24778434596f583be44572612c856fa4e0cecde
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 3740c42c6b6721af4d885f7b63ee4ca4e58f6fa6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860238"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806693"
 ---
 # <a name="scenes-shots-and-keyframes"></a>場景、擷取畫面和主要畫面格
 
@@ -38,9 +38,71 @@ ms.locfileid: "70860238"
 
 選取最能代表該快照的框架。 主要畫面格是根據美觀屬性（例如，對比和 stableness）從整段影片中選取的代表性框架。 影片索引子會根據哪些客戶可以抓取主要畫面格縮圖，抓取作為拍照中繼資料一部分的主要畫面格識別碼清單。 
 
-主要畫面格會與輸出 JSON 中的拍照相關聯。 
+### <a name="extracting-keyframes"></a>解壓縮主要畫面格
+
+若要為您的影片解壓縮高解析度的主要畫面格，您必須先上傳影片並為其編制索引。
+
+![幀](./media/scenes-shots-keyframes/extracting-keyframes.png)
+
+#### <a name="with-the-video-indexer-website"></a>使用影片索引子網站
+
+若要使用影片索引子網站來解壓縮主要畫面格，請上傳影片並為其編制索引。 索引作業完成後，請按一下 [**下載**] 按鈕，然後選取 [成品 **（ZIP）** ]。 這會將 [構件] 資料夾下載到您的電腦。 
+
+![幀](./media/scenes-shots-keyframes/extracting-keyframes2.png)
+ 
+解壓縮並開啟資料夾。 在 [ *_KeyframeThumbnail* ] 資料夾中，您會找到所有從影片解壓縮的主要畫面格。 
+
+#### <a name="with-the-video-indexer-api"></a>使用影片索引子 API
+
+若要使用影片索引子 API 來取得主要畫面格，請使用[上傳影片](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?)呼叫來上傳並編制您的影片索引。 索引作業完成後，請呼叫[取得影片索引](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)。 這會提供影片索引子從 JSON 檔案中的內容解壓縮的所有深入解析。  
+
+您會在每個拍照的中繼資料中取得主要畫面格識別碼的清單。 
+
+```json
+"shots":[  
+    {  
+      "id":0,
+      "keyFrames":[  
+          {  
+            "id":0,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:00.209",
+                  "end":"0:00:00.251",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          },
+          {  
+            "id":1,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:04.755",
+                  "end":"0:00:04.797",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          }
+      ],
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
+      ]
+    },
+
+]
+```
+
+您現在必須在「[取得縮圖](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Thumbnail?)」呼叫上執行每個主要畫面格識別碼。 這會將每個主要畫面格影像下載至您的電腦。 
 
 ## <a name="editorial-shot-type-detection"></a>編輯快照類型偵測
+
+主要畫面格會與輸出 JSON 中的拍照相關聯。 
 
 與深入解析 JSON 中的個別快照相關聯的快照類型代表其編輯類型。 當您將影片編輯成剪輯、結尾，或搜尋特定樣式的主要畫面格以進行藝術時，您可能會發現這些「影像類型」特性很有用。 不同的類型是根據每個快照的第一個主要畫面格的分析來決定。 照片是以其第一個主要畫面格中顯示之臉部的尺規、大小和位置來識別。 
 
@@ -63,6 +125,7 @@ ms.locfileid: "70860238"
 
 * 兩個拍照：顯示兩個人的中型大小臉部。
 * 多個臉部：兩個以上的人員。
+
 
 ## <a name="next-steps"></a>後續步驟
 

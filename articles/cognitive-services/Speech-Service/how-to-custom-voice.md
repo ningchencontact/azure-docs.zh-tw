@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f8b963c456e4d4318c6b28cd33c18ebd615487de
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0e40ca55a9cd198e1b086362a2559ab2fc0ba95e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464525"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805955"
 ---
 # <a name="get-started-with-custom-voice"></a>開始使用自訂語音
 

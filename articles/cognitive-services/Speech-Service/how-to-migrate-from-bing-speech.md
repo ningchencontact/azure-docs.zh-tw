@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: nitinme
-ms.openlocfilehash: 00a20ac2d7f05c42be9e955eeb8f47c302db7885
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c0e1cc2fc1b3d4aed82c5442d2d3e23a1272fab5
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464581"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805938"
 ---
-# <a name="migrate-from-bing-speech-to-the-speech-service"></a>從 Bing 語音移轉至語音服務
+# <a name="migrate-from-bing-speech-to-the-speech-service"></a>從 Bing 語音遷移至語音服務
 
-使用本文來將應用程式從 Bing 語音 API 移轉至語音服務。
+請使用本文，將您的應用程式從 Bing 語音 API 遷移至語音服務。
 
 本文概述 Bing 語音 Api 和語音服務之間的差異，並提供遷移應用程式的建議策略。 您的 Bing 語音 API 訂用帳戶金鑰無法與語音服務搭配使用;您將需要新的語音服務訂用帳戶。
 
@@ -50,14 +50,14 @@ C# SDK | :heavy_check_mark: | :heavy_check_mark: | 語音服務支援 Windows 10
 語音意圖辨識 | 需要個別的 LUIS API 呼叫 | 已整合 (搭配 SDK) |  您可以搭配語音服務使用 LUIS 金鑰。
 簡單意圖辨識 | :heavy_minus_sign: | :heavy_check_mark:
 長音訊檔案的批次轉譯 | :heavy_minus_sign: | :heavy_check_mark:
-辨識模式 | 手動 (透過端點 URI) | 自動 | 語音服務不提供辨識模式。
-端點位置 | 全域 | 地區 | 區域端點能改善延遲。
+辨識模式 | 手動 (透過端點 URI) | 自動 | 語音服務無法使用辨識模式。
+端點位置 | 全球 | 區域 | 區域端點能改善延遲。
 REST API | :heavy_check_mark: | :heavy_check_mark: | 語音服務 REST Api 與 Bing 語音（不同端點）相容。 REST API 能支援文字轉換語音和有限的語音轉換文字功能。
 WebSocket 通訊協定 | :heavy_check_mark: | :heavy_check_mark: | 語音服務 Websocket API 與 Bing 語音（不同端點）相容。 可以的話，請移轉至語音 SDK 以簡化您的程式碼。
 服務對服務 API 呼叫 | :heavy_check_mark: | :heavy_minus_sign: | 透過 C# 服務程式庫在 Bing 語音中提供。
 開放原始碼 SDK | :heavy_check_mark: | :heavy_minus_sign: |
 
-語音服務會使用以時間為基礎的定價模型（而非以交易為基礎的模型）。 如需詳細資訊，請參閱[語音服務定價](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)。
+語音服務會使用以時間為基礎的定價模型（而非以交易為基礎的模型）。 如需詳細資訊，請參閱[語音服務價格](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)。
 
 ## <a name="migration-strategies"></a>移轉策略
 
@@ -92,7 +92,7 @@ Bing 語音客戶應該透過開啟[支援票證](https://ms.portal.azure.com/#b
 * [免費試用語音服務](get-started.md)
 * [快速入門：使用語音 SDK 在 UWP 應用程式中辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [語音服務版本資訊](releasenotes.md)
 * [什麼是語音服務](overview.md)
 * [語音服務和語音 SDK 檔](speech-sdk.md#get-the-sdk)

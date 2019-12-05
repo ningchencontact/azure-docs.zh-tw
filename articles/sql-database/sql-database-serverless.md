@@ -4,19 +4,19 @@ description: 本文說明新的無伺服器計算層級，並將它與現有佈�
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: ''
+ms.custom: test
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: a304b7fb0ba90d4ccf3805f47a5b04a2d3d8765e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d1f3bf6cb1467d0bb4906ff2409e72828b22cd20
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775578"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807012"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database 無伺服器
 
@@ -171,7 +171,7 @@ SQL 快取會隨著資料以相同的方式從磁片提取，而且速度與布�
 
    |參數|值選擇|預設值|
    |---|---|---|---|
-   |最小虛擬核心|取決於已設定的最大虛擬核心-請參閱[資源限制](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)。|0.5 個虛擬核心|
+   |vCore 數下限|取決於已設定的最大虛擬核心-請參閱[資源限制](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)。|0.5 個虛擬核心|
    |自動暫停延遲|最小值：60分鐘（1小時）<br>最大值：10080分鐘（7天）<br>遞增：60分鐘<br>停用自動暫停：-1|60 Minuten|
 
 
@@ -249,13 +249,13 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 #### <a name="use-powershell"></a>使用 PowerShell
 
-修改 max 虛擬核心是使用 `MaxVcore` 引數，在 PowerShell 中使用[set-azsqldatabase 搭配](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令來執行。
+修改 max 虛擬核心的執行方式是在 PowerShell  `MaxVcore`中使用引數的 [set-azsqldatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 搭配命令。
 
 ### <a name="minimum-vcores"></a>最高 vCore
 
 #### <a name="use-powershell"></a>使用 PowerShell
 
-修改 min 虛擬核心的執行方式是在 PowerShell 中使用[set-azsqldatabase 搭配](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令，方法是使用 `MinVcore` 引數。
+修改 min 虛擬核心的執行方式是在 PowerShell  `MinVcore`中使用引數的 [set-azsqldatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 搭配命令。
 
 ### <a name="autopause-delay"></a>自動暫停延遲
 

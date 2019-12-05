@@ -1,5 +1,5 @@
 ---
-title: 適用于 SAP 應用程式之最佳網路延遲的 Azure 鄰近放置群組 |Microsoft Docs
+title: 適用于 SAP 應用程式的 Azure 鄰近放置群組 |Microsoft Docs
 description: 說明使用 Azure 鄰近放置群組的 SAP 部署案例
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: deffcb81a4f66783fedc89c3e21ea46b15ad1c64
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: cef5058936a45badd700a573611c82398ca4d546
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720005"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805700"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>適用于 SAP 應用程式之最佳網路延遲的 Azure 鄰近性放置群組
 以 SAP NetWeaver 或 SAP S/4HANA 架構為基礎的 SAP 應用程式，對於 SAP 應用層與 SAP 資料庫層之間的網路延遲是敏感的。 此敏感度是在應用層中執行的大部分商務邏輯所產生的結果。 因為 SAP 應用層會執行商務邏輯，所以會以較高的頻率向資料庫層發出查詢，以每秒數千或數十個的速率。 在大部分情況下，這些查詢的本質很簡單。 它們通常可以在500毫秒或更少的資料庫層上執行。

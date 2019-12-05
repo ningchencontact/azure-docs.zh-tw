@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 478a62eaddcf3b9b831812a0930ff10c1adce99d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 409ce8b904997f2ab75f70b2138ec5b1e70a0e69
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072448"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816658"
 ---
 # <a name="speech-service-supported-regions"></a>語音服務支援的區域
 
@@ -32,7 +32,7 @@ ms.locfileid: "74072448"
 
 語音 SDK 適用于**語音辨識**、**文字到語音**轉換和**翻譯**這兩個區域：
 
-| 區域           | 語音 SDK 參數 | 語音自訂入口網站    |
+| 地區           | 語音 SDK 參數 | 語音自訂入口網站    |
 | ---------------- | -------------------- | ------------------------------ |
 | 美國西部          | `westus`             | https://westus.cris.ai         |
 | 美國西部 2        | `westus2`            | https://westus2.cris.ai        |
@@ -46,7 +46,7 @@ ms.locfileid: "74072448"
 | 東南亞   | `southeastasia`      | https://southeastasia.cris.ai  |
 | 日本東部       | `japaneast`          | https://japaneast.cris.ai      |
 | 南韓中部    | `koreacentral`       | https://koreacentral.cris.ai   |
-| 澳洲東部   | `australiaeast`      | https://australiaeast.cris.ai  |
+| 澳大利亞東部   | `australiaeast`      | https://australiaeast.cris.ai  |
 | 加拿大中部   | `canadacentral`      | https://canadacentral.cris.ai  |
 | 北歐     | `northeurope`        | https://northeurope.cris.ai    |
 | 西歐      | `westeurope`         | https://westeurope.cris.ai     |
@@ -57,11 +57,11 @@ ms.locfileid: "74072448"
 
 透過語音 SDK 進行**意圖辨識**的可用區域如下所示：
 
-| 全球區域 | 區域           | 語音 SDK 參數 |
+| 全球區域 | 地區           | 語音 SDK 參數 |
 | ------------- | ---------------- | -------------------- |
 | 亞洲          | 東亞        | `eastasia`           |
 | 亞洲          | 東南亞   | `southeastasia`      |
-| 澳大利亞     | 澳洲東部   | `australiaeast`      |
+| 澳洲     | 澳大利亞東部   | `australiaeast`      |
 | 歐洲        | 北歐     | `northeurope`        |
 | 歐洲        | 西歐      | `westeurope`         |
 | 北美洲 | 美國東部          | `eastus`             |
@@ -78,7 +78,7 @@ ms.locfileid: "74072448"
 
 [語音 SDK](speech-sdk.md)支援下欄區域中的**語音助理**功能：
 
-| 區域         | 語音 SDK 參數 |
+| 地區         | 語音 SDK 參數 |
 | -------------- | -------------------- |
 | 美國西部        | `westus`             |
 | 美國西部 2      | `westus2`            |

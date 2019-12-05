@@ -7,16 +7,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: edee0e2efadd8e92ebf3533f0716c82029a0c680
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e24b7efb9f4af9f730ce79751e2fc5a9d210edbd
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791697"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806961"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升級至一般用途 v2 儲存體帳戶
 
-一般用途 v2 儲存體帳戶支援最新的 Azure 儲存體功能，並納入一般用途 v1 和 Blob 儲存體帳戶的所有功能。 針對大部分的儲存體案例，皆建議使用一般用途 v2 帳戶。 一般用途 v2 帳戶能針對 Azure 儲存體提供最低的每 GB 容量價格，以及極具業界競爭力的交易價格。 一般-用途 v2 帳戶支援經常性、非經常性或封存之間的預設帳戶存取層，也就是經常性或非經常性和 blob 層級的階層處理。
+一般用途 v2 儲存體帳戶支援最新的 Azure 儲存體功能，並納入一般用途 v1 和 Blob 儲存體帳戶的所有功能。 針對大部分的儲存體案例，皆建議使用一般用途 v2 帳戶。 一般用途 v2 帳戶能針對 Azure 儲存體提供最低的每 GB 容量價格，以及極具業界競爭力的交易價格。 一般用途 v2 帳戶支援經常性、非經常性或封存之間的預設帳戶存取層，也就是經常性或非經常性和 blob 層級的階層處理。
 
 從一般用途 v1 或 Blob 儲存體帳戶升級至一般用途 v2 儲存體帳戶很簡單。 您可以使用 Azure 入口網站、PowerShell 或 Azure CLI 來執行升級。
 
@@ -59,11 +59,11 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>指定 Blob 資料的存取層
 
-一般用途 v2 帳戶能支援所有 Azure 儲存體服務與資料物件，但存取層僅適用於 Blob 儲存體中的區塊 Blob。 當您升級至一般用途 v2 儲存體帳戶時，您可以指定 blob 資料的存取層。
+一般用途 v2 帳戶可支援所有 Azure 儲存體服務和資料物件，但存取層僅適用于 Blob 儲存體中的區塊 blob。 當您升級至一般用途 v2 儲存體帳戶時，您可以指定經常性或非經常性的預設帳戶存取層，這表示您的 blob 資料將上傳的預設層，如同未指定個別的 blob 存取層參數。
 
-存取層可讓您根據預期的使用模式，選擇最符合成本效益的儲存體。 區塊 Blob 可以儲存於經常性存取層、非經常性存取層或封存存取層。 如需存取層的詳細資訊，請參閱 [Azure Blob 儲存體︰經常性存取、非經常性存取和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
+Blob 存取層可讓您根據預期的使用模式，選擇最符合成本效益的儲存體。 區塊 blob 可以儲存在經常性存取、非經常性存取或封存層中。 如需存取層的詳細資訊，請參閱 [Azure Blob 儲存體︰經常性存取、非經常性存取和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
 
-預設會在經常性存取層中建立新的儲存體帳戶，而一般用途 v1 儲存體帳戶則會升級至經常性存取層。 如果您是在已升級的情況下決定要針對資料使用哪個存取層，請考慮您的案例。 遷移至一般用途 v2 帳戶的典型使用者案例有兩種：
+根據預設，會在經常性存取層中建立新的儲存體帳戶，而一般用途 v1 儲存體帳戶則可以升級至經常性或非經常性帳戶層。 如果升級時未指定帳戶存取層，則預設會將它升級為熱。 如果您要探索要用於升級的存取層，請考慮您目前的資料使用案例。 遷移至一般用途 v2 帳戶的典型使用者案例有兩種：
 
 * 您有現有的一般用途 v1 儲存體帳戶，而且想要針對 blob 資料使用正確的儲存體存取層來評估一般用途 v2 儲存體帳戶的升級。
 * 您已決定使用一般用途 v2 儲存體帳戶，或已有一個，而且想要評估您是否應該針對 blob 資料使用經常性或非經常性儲存體存取層。

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 1eeb2e7ccf5c365fedd02a8de4c6b442dd3d5bc8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075821"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806057"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>如何建立人為標記的轉譯
 
@@ -27,9 +27,9 @@ ms.locfileid: "74075821"
 
 個人標記的英文音訊轉譯必須以純文字提供，而且只能使用 ASCII 字元。 避免使用拉丁-1 或 Unicode 標點符號字元。 從文字處理應用程式複製文字或從網頁抓取資料時，通常會不小心加入這些字元。 如果這些字元存在，請務必使用適當的 ASCII 替代來更新它們。
 
-以下是一些範例：
+以下提供一些範例：
 
-| 要避免的字元 | 替代字元 | 注意事項 |
+| 要避免的字元 | 替代字元 | 注意 |
 | ------------------- | ------------ | ----- |
 | "Hello world" | "Hello world" | 開頭和結尾的引號已取代成適當的 ASCII 字元。 |
 | John 的日 | John 的日 | 這個撇號已用適當的 ASCII 字元來取代。 |
@@ -82,9 +82,9 @@ ms.locfileid: "74075821"
 
 人類加上標籤的轉譯 for 普通話中文音訊必須是以位元組順序標記編碼的 UTF-8。 請避免使用半形標點符號字元。 當您在文字處理程式中準備資料，或是從網頁抓取資料時，可能會不小心包含這些字元。 如果這些字元存在，請務必使用適當的全形替代來更新它們。
 
-以下是一些範例：
+以下提供一些範例：
 
-| 要避免的字元 | 替代字元   | 注意事項 |
+| 要避免的字元 | 替代字元   | 注意 |
 | ------------------- | -------------- | ----- |
 | 你好 | 你好 | 開頭和結尾的引號已用適當的字元來取代。 |
 | 需要什么帮助? | 需要什么帮助？| 問號已用適當的字元來取代。 |

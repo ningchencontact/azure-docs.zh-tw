@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 70f4f4163a143354cd1fe5adf031c4d9cd87a46e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 16e79043db80b69d2a2ca7d0a90e6d4921c15b22
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278671"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806502"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -25,7 +25,7 @@ ms.locfileid: "74278671"
 - 排定必要更新的安裝
 - 檢閱部署結果，以確認更新已成功套用至已啟用「更新管理」的所有虛擬機器。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用「更新管理」，您需要：
 
@@ -37,7 +37,7 @@ ms.locfileid: "74278671"
 
 下列作業系統支援「更新管理」：
 
-|作業系統  |注意事項  |
+|作業系統  |注意  |
 |---------|---------|
 |Windows Server 2008、Windows Server 2008 R2 RTM    | 僅支援更新評估。         |
 |Windows Server 2008 R2 SP1 和更新版本     |必須要有 Windows PowerShell 4.0 或更新的版本。 ([下載 WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))</br> 建議使用 Windows PowerShell 5.1 以增加可靠性。 ([下載 WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
@@ -89,7 +89,7 @@ ms.locfileid: "74278671"
 
 ## <a name="view-an-update-assessment"></a>檢視更新評估
 
-啟用 [更新管理] 之後，[更新管理] 窗格隨即開啟。 您可以在 [遺漏更新] 索引標籤上看到遺漏的更新清單。
+啟用 [更新管理] 之後，[更新管理] 窗格隨即開啟。 您可以在 [遺失更新] 索引標籤上看到遺失的更新清單。
 
 ## <a name="collect-data"></a>收集資料
 
@@ -99,11 +99,11 @@ ms.locfileid: "74278671"
 
 下表描述本解決方案支援的連線來源：
 
-| 連線的來源 | 支援 | 描述 |
+| 連線的來源 | 支援的 | 描述 |
 | --- | --- | --- |
-| Windows 代理程式 |yes |「更新管理」會從 Windows 代理程式收集系統更新的相關資訊，然後起始必要更新的安裝。 |
-| Linux 代理程式 |yes |「更新管理」會從 Linux 代理程式收集系統更新的相關資訊，然後在支援的發行版本上起始必要更新的安裝。 |
-| Operations Manager 管理群組 |yes |「更新管理」會從所連線之管理群組中的代理程式收集系統更新的相關資訊。 |
+| Windows 代理程式 |是 |「更新管理」會從 Windows 代理程式收集系統更新的相關資訊，然後起始必要更新的安裝。 |
+| Linux 代理程式 |是 |「更新管理」會從 Linux 代理程式收集系統更新的相關資訊，然後在支援的發行版本上起始必要更新的安裝。 |
+| Operations Manager 管理群組 |是 |「更新管理」會從所連線之管理群組中的代理程式收集系統更新的相關資訊。 |
 | Azure 儲存體帳戶 |否 |Azure 儲存體不包含系統更新的相關資訊。 |
 
 ### <a name="collection-frequency"></a>收集頻率
@@ -116,9 +116,13 @@ ms.locfileid: "74278671"
 
 儀表板可能需要 30 分鐘到 6 小時，才能顯示來自受控電腦的已更新資料。
 
-## <a name="schedule-an-update-deployment"></a>排定更新部署
+## <a name="schedule-an-update-deployment"></a>排程更新部署
 
 若要安裝更新，請將部署排定在發行排程和服務時段之後。 您可以選擇要在部署中包含的更新類型。 例如，您可以包含重大更新或安全性更新，並排除更新彙總套件。
+
+>[!NOTE]
+>當您排程更新部署時，它會建立一個連結至**MicrosoftOMSComputers** runbook 的[排程](shared-resources/schedules.md)資源，以處理目的電腦上的更新部署。 如果您從 Azure 入口網站刪除排程資源，或在建立部署之後使用 PowerShell，則會中斷排程的更新部署，並在您嘗試從入口網站重新設定它時顯示錯誤。 您只能藉由刪除對應的部署排程來刪除排程資源。
+>
 
 若要為一或多部虛擬機器排定新的更新部署，請在 [更新管理] 下，選取 [排程更新部署]。
 

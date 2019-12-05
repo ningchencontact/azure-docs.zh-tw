@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: caa1959ec64bb3a123c60763750267b107685b82
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d1c709beb225dff0ae616a23eb67eb57f4643ac9
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111246"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812755"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>快速入門：使用參數來建立自訂命令（預覽）
 
@@ -23,7 +23,7 @@ ms.locfileid: "74111246"
 
 在本文中，我們將使用參數擴充此應用程式，讓它可以處理開啟和關閉多個裝置。
 
-## <a name="create-parameters"></a>建立參數
+## <a name="create-parameters"></a>Create Parameters
 
 1. 開啟[我們先前建立](./quickstart-custom-speech-commands-create-new.md)的專案
 1. 因為此命令現在會處理 on 和 off，請將命令重新命名為 "TurnOnOff"
@@ -36,11 +36,11 @@ ms.locfileid: "74111246"
 
    | 設定            | 建議的值 | 描述                                                                                               |
    | ------------------ | --------------- | --------------------------------------------------------------------------------------------------------- |
-   | 名稱               | OnOff           | 參數的描述性名稱                                                                     |
-   | 為全域          | 選定       | 核取方塊，指出此參數的值是否會全域套用至專案中的所有命令 |
-   | 必要           | 當選         | 指出是否需要此參數值的核取方塊，才能完成命令          |
+   | Name               | OnOff           | 參數的描述性名稱                                                                     |
+   | 為全域          | 未核取       | 核取方塊，指出此參數的值是否會全域套用至專案中的所有命令 |
+   | 必要項           | checked         | 指出是否需要此參數值的核取方塊，才能完成命令          |
    | 回應範本  | 開或關？      | 當不知道此參數的值時，所要求的提示                                       |
-   | 在系統提示您進行確認時，輸入               | 字串          | 參數的類型，例如數位、字串或日期時間                                               |
+   | Type               | String          | 參數的類型，例如數位、字串或日期時間                                               |
    | 組態      | 字串清單     | 若為字串，字串清單會將輸入限制為一組可能值                                      |
    | 字串清單值 | on、off         | 若為字串清單參數，可能值的集合和其同義字                                |
 
@@ -48,18 +48,18 @@ ms.locfileid: "74111246"
 
    | 設定            | 建議的值   | 描述                                                                                               |
    | ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------- |
-   | 名稱               | SubjectDevice     | 參數的描述性名稱                                                                     |
-   | 為全域          | 選定         | 核取方塊，指出此參數的值是否會全域套用至專案中的所有命令 |
-   | 必要           | 當選           | 指出是否需要此參數值的核取方塊，才能完成命令          |
+   | Name               | SubjectDevice     | 參數的描述性名稱                                                                     |
+   | 為全域          | 未核取         | 核取方塊，指出此參數的值是否會全域套用至專案中的所有命令 |
+   | 必要項           | checked           | 指出是否需要此參數值的核取方塊，才能完成命令          |
    | 回應範本  | 哪一個裝置？     | 當不知道此參數的值時，所要求的提示                                       |
-   | 在系統提示您進行確認時，輸入               | 字串            | 參數的類型，例如數位、字串或日期時間                                               |
+   | Type               | String            | 參數的類型，例如數位、字串或日期時間                                               |
    | 組態      | 字串清單       | 若為字串，字串清單會將輸入限制為一組可能值                                      |
    | 字串清單值 | 電視、風扇           | 若為字串清單參數，可能值的集合和其同義字                                |
    | 同義字（電視）      | 電視，telly | 字串清單參數的每個可能值的選擇性同義字                                      |
 
 ## <a name="add-sample-sentences"></a>新增範例句子
 
-使用參數時，加入涵蓋所有可能組合的範例句子會很有説明。 例如︰
+使用參數時，加入涵蓋所有可能組合的範例句子會很有説明。 例如：
 
 1. 完整參數資訊-`"turn {OnOff} the {SubjectDevice}"`
 1. 部分參數資訊-`"turn it {OnOff}"`
@@ -94,7 +94,7 @@ turn something
    Ok, turning {OnOff} the {SubjectDevice}
    ```
 
-## <a name="try-it-out"></a>立即試用
+## <a name="try-it-out"></a>歡迎試用
 
 開啟 [測試聊天] 面板，然後嘗試一些互動。
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/12/2019
+ms.date: 12/01/2019
 ms.author: b-juche
-ms.openlocfilehash: 06ebe8ed22453289fa02c238d9b2e6ef13191f2a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 912fd6bde4d00cca304a1506465a524cda947a07
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888539"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769841"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>快速入門：設定 Azure NetApp Files 並建立 NFS 磁碟區 
 
@@ -257,9 +257,6 @@ ms.locfileid: "73888539"
     * 選取磁碟區的 NFS 版本 (**NFSv3** 或 **NFSv4.1**)。  
       請參閱有關 NFS 版本的[考量](azure-netapp-files-create-volumes.md#considerations)和[最佳做法](azure-netapp-files-create-volumes.md#best-practice)。 
       
-> [!IMPORTANT] 
-> 需要列入允許清單，才能存取 NFSv4.1 功能。  若要要求列入允許清單，請將要求提交至 <anffeedback@microsoft.com>。 
-
   ![為快速入門指定 NFS 通訊協定](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. 按一下 [檢閱 + 建立]  。

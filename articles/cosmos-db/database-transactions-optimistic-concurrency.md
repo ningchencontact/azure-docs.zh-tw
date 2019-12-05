@@ -5,18 +5,18 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4c263b32b7ededb9e5169e80a29806f322a3c849
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d453bb4071c4a6972e01b8f7e90375181caf6d01
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755160"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806519"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>交易和開放式並行存取控制
 
-資料庫交易提供安全且可預測的程式設計模型來處理並行的資料變更。 傳統關係資料庫（例如 SQL Server）可讓您使用預存程式和/或觸發程式來撰寫商務邏輯，並將它傳送至伺服器，以便直接在資料庫引擎內執行。 使用傳統的關係資料庫時，您必須處理兩種不同的程式設計語言，例如 JavaScript、Python、 C#、JAVA 等的（非交易式）應用程式設計語言，以及交易式程式設計語言（例如 T-sql），這是由資料庫原生執行。
+資料庫交易提供安全且可預測的程式設計模型來處理並行的資料變更。 傳統關係資料庫（例如 SQL Server）可讓您使用預存程式和/或觸發程式來撰寫商務邏輯，並將它傳送至伺服器，以便直接在資料庫引擎內執行。 使用傳統的關係資料庫時，您必須處理兩種不同的程式設計語言，例如 JavaScript、Python、 C#JAVA 等（非交易式）應用程式設計語言，以及資料庫原本就執行的交易式程式設計語言（例如 t-sql）。
 
 Azure Cosmos DB 中的資料庫引擎支援與 ACID (不可部分完成性、一致性、隔離性、耐用性) 完全相容的交易與快照集隔離。 容器的[邏輯分割](partition-data.md)範圍內的所有資料庫作業，都是在資料分割複本所裝載的資料庫引擎內執行。 這些作業包括寫入 (更新邏輯分割區內的一或多個項目) 和讀取作業。 下表說明不同的作業和交易類型：
 
@@ -47,15 +47,15 @@ JavaScript 型預存程序、觸發程序、UDF，以及合併程序，都包裝
 
 直接在資料庫引擎內執行 JavaScript 的能力，可對容器的項目提供資料庫作業的具效能和交易式執行。 此外，由於 Azure Cosmos 資料庫引擎原生支援 JSON 和 JavaScript，因此應用程式與資料庫的類型系統之間沒有阻抗不相符的問題。
 
-## <a name="optimistic-concurrency-control"></a>開放式並行存取控制 
+## <a name="optimistic-concurrency-control"></a>開放式並行存取控制
 
 開放式並行存取控制可讓您避免遺失更新和刪除。 並行、衝突的作業會受制於擁有項目之邏輯分割區所裝載的資料庫引擎所受到的一般封閉式鎖定限制。 當兩個並行作業嘗試更新邏輯分割區內某個項目的最新版本時，它們其中之一將會成功，另一個則會失敗。 但是，如果嘗試並行更新相同項目的一或兩個作業之前已讀取該項目的較舊版本時，資料庫不會知道兩個衝突作業的其中之一或兩者之前所讀取的值是否確實為項目的最新值。 幸運的是，您可以使用**開放式並行存取控制（OCC）** 來偵測這種情況，然後讓這兩個作業在資料庫引擎內輸入交易界限。 OCC 會保護您的資料，避免意外遭到其他人覆寫。 它也能防止其他人不小心覆寫您自己所做的變更。
 
 Azure Cosmos DB 的通訊通訊協定層項目的並行更新受制於 OCC。 Azure Cosmos 資料庫可確保您正在更新 (或刪除) 之項目的用戶端版本和 Azure Cosmos 容器中項目的版本相同。 這可確保您寫入的內容會受到保護，防止因為其他人寫入而意外遭到覆寫，反之亦然。 在多使用者環境中，開放式並行存取控制可防止您不小心刪除項目，或更新項目的錯誤版本。 因此，項目會收到保護，不會受到惡名昭彰的「遺失更新」或「遺失刪除」問題影響。
 
-Azure Cosmos 容器中儲存的每個項目都有系統定義的 `_etag` 屬性。 `_etag` 的值會自動產生，並在項目每次更新時，由伺服器更新。 `_etag` 可以與用戶端提供的 `if-match` 要求標頭搭配使用，以允許伺服器決定是否可以有條件地更新專案。 `if-match` 標頭的值符合伺服器上 `_etag` 的值，則會更新專案。 如果 `if-match` 要求標頭的值不再是最新的，伺服器就會拒絕具有「HTTP 412 前置條件失敗」回應訊息的作業。 接著，用戶端可以重新提取專案，以取得伺服器上專案的目前版本，或使用自己的 `_etag` 值來覆寫伺服器中的專案版本。 此外，`_etag` 可以與 `if-none-match` 標頭搭配使用，以判斷是否需要資源的重新擷取。 
+Azure Cosmos 容器中儲存的每個項目都有系統定義的 `_etag` 屬性。 `_etag` 的值會自動產生，並在項目每次更新時，由伺服器更新。 `_etag` 可以與用戶端提供的 `if-match` 要求標頭搭配使用，以允許伺服器決定是否可以有條件地更新專案。 `if-match` 標頭的值符合伺服器上 `_etag` 的值，則會更新專案。 如果 `if-match` 要求標頭的值不再是最新的，伺服器就會拒絕具有「HTTP 412 前置條件失敗」回應訊息的作業。 接著，用戶端可以重新提取專案，以取得伺服器上專案的目前版本，或使用自己的 `_etag` 值來覆寫伺服器中的專案版本。 此外，`_etag` 可以與 `if-none-match` 標頭搭配使用，以判斷是否需要資源的重新擷取。
 
-專案的 `_etag` 值會在每次更新專案時變更。 針對取代專案作業，`if-match` 必須明確表示為要求選項的一部分。 如需範例，請參閱 [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446) 中的範例程式碼。 系統會以隱含方式檢查預存程式觸及的所有寫入專案的 `_etag` 值。 如果偵測到任何衝突，預存程式將會回復交易並擲回例外狀況。 透過此方法，在預存程序內的所有寫入都會自動套用，或全部不會自動套用。 這是應用程式重新套用更新並重試原始用戶端要求的信號。
+專案的 `_etag` 值會在每次更新專案時變更。 針對取代專案作業，`if-match` 必須明確表示為要求選項的一部分。 如需範例，請參閱 [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L578-L674) 中的範例程式碼。 系統會以隱含方式檢查預存程式觸及的所有寫入專案的 `_etag` 值。 如果偵測到任何衝突，預存程式將會回復交易並擲回例外狀況。 透過此方法，在預存程序內的所有寫入都會自動套用，或全部不會自動套用。 這是應用程式重新套用更新並重試原始用戶端要求的信號。
 
 ## <a name="next-steps"></a>後續步驟
 

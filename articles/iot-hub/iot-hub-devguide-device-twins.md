@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: a800336fb6fda8a0ed0af71f243936d29e8079e7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4b80004a3d818e66cc2fb61f3d611bbe3e3ded92
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706837"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807029"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解和使用 Azure IoT 中樞的裝置對應項
 
@@ -191,7 +191,7 @@ ms.locfileid: "74706837"
     deviceId | 裝置的識別碼 |
     hubName | IoT 中樞名稱 |
     operationTimestamp | 作業的 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 時間戳記 |
-    iothub-message-schema | deviceLifecycleNotification |
+    iothub-message-schema | twinChangeNotification |
     opType | "replaceTwin" 或 "updateTwin" |
 
     訊息系統屬性前面會加上 `$` 符號。

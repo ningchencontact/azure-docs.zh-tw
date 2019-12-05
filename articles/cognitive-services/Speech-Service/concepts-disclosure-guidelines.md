@@ -3,19 +3,19 @@ title: 公開設計指導方針
 titleSuffix: Azure Cognitive Services
 description: 公開設計指導方針及評估洩漏等級的簡介。
 services: cognitive-services
-author: angle
+author: sharonlo101
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/03/2019
 ms.author: angle
-ms.openlocfilehash: 7dffa3d9f6e96adc6146a1059e7360c77926ece3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fe38c6b7cfb1abbaf3f1079dd8bff66b51b98091
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837385"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776380"
 ---
 # <a name="disclosure-design-guidelines"></a>公開設計指引
 瞭解如何在您的語音體驗綜合本質上透明化，以建立及維護與客戶的信任。
@@ -43,7 +43,7 @@ ms.locfileid: "73837385"
 **接納失敗**
 <br>使用失敗的時間來強化代理程式的功能。
 
-## <a name="how-to-use-this-guide"></a>如何使用本指南
+## <a name="how-to-use-this-guide"></a>本指南的使用方式
 
 本指南可協助您判斷哪些洩漏模式最適合您的綜合語音體驗。 接著，我們會提供如何及何時使用它們的範例。 這些模式的每一種都是設計用來最大化使用者對綜合語音的透明度，同時又不會受到人為中心的設計。
 

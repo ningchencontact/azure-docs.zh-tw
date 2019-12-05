@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: edb8f25ff1e4fa01e905c3ae5c7d0ec7ab58f8bb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 571d4cd395cd0cec0982fedf267a88143fd73872
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705943"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805734"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Linux JAVA 應用程式
 
@@ -247,6 +247,9 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+- [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
+- [Cassandra](https://docs.datastax.com/developer/java-driver/4.3/)
+
 
 #### <a name="manually-initialize-and-load-the-key-store"></a>手動初始化和載入金鑰存放區
 
@@ -274,7 +277,7 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
 ### <a name="configure-appdynamics"></a>設定 AppDynamics
 
 1. 在 [AppDynamics.com](https://www.appdynamics.com/community/register/) 建立 AppDynamics 帳戶
-2. 從 AppDynamics 網站下載 JAVA 代理程式，檔案名會類似*AppServerAgent-x*的名稱。 *
+2. 從 AppDynamics 網站下載 JAVA 代理程式，檔案名會類似*AppServerAgent-x*的名稱。
 3. 透過[SSH 連線到您的 App Service 實例](app-service-linux-ssh-support.md)，並建立新的目錄 */home/site/wwwroot/apm*。
 4. 將 JAVA 代理程式檔案上傳至 */home/site/wwwroot/apm*底下的目錄。 您的代理程式檔案應位於 */home/site/wwwroot/apm/appdynamics*中。
 5. 在 Azure 入口網站中，瀏覽至您在 App Service 中的應用程式，並建立新的應用程式設定。
@@ -293,7 +296,7 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
 
 如果您想要為 JAR 使用不同的名稱，您也必須提供可執行 JAR 檔案的[啟動命令](app-service-linux-faq.md#built-in-images)。 例如： `java -jar my-jar-app.jar` 。 您可以在入口網站中的 [設定] > [一般設定] 底下，或使用名為 `STARTUP_COMMAND`的應用程式設定，設定啟動命令的值。
 
-### <a name="server-port"></a>伺服器埠
+### <a name="server-port"></a>伺服器連接埠
 
 App Service Linux 會將傳入要求路由傳送至埠80，讓您的應用程式也應該在埠80上接聽。 您可以在應用程式的設定中執行此動作（例如，春天的*應用程式. 屬性*檔），或在啟動命令中進行（例如 `java -jar spring-app.jar --server.port=80`）。 請參閱下列適用于一般 JAVA 架構的檔：
 
@@ -327,7 +330,7 @@ App Service Linux 會將傳入要求路由傳送至埠80，讓您的應用程式
 </appSettings>
 ```
 
-或者，在 Azure 入口網站的 [設定 ** > ** **應用程式設定**] 頁面中設定環境變數。
+或者，在 Azure 入口網站的 [**設定** > **應用程式設定**] 頁面中設定環境變數。
 
 接著，決定資料來源應僅供在 Tomcat Servlet 上執行的一個應用程式還是所有應用程式使用。
 
@@ -335,7 +338,7 @@ App Service Linux 會將傳入要求路由傳送至埠80，讓您的應用程式
 
 1. 在您專案的*中繼 INF/* 目錄中，建立一個*內容 .xml*檔案。 建立*中繼 INF/* 目錄（如果不存在）。
 
-2. 在*內容 .xml*中，新增 `Context` 專案，以將資料來源連結至 JNDI 位址。 以上表中您驅動程式的類別名稱取代 `driverClassName` 預留位置。
+2. 在*內容 .xml*中，新增 `Context` 元素，以將資料來源連結至 JNDI 位址。 以上表中您驅動程式的類別名稱取代 `driverClassName` 預留位置。
 
     ```xml
     <Context>
@@ -535,7 +538,7 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
 當您擁有模組的檔案和內容之後，請遵循下列步驟，將模組新增至 WildFly 應用程式伺服器。
 
 1. 使用 FTP，將您的檔案上傳至 */home*目錄下的 App Service 實例中的位置，例如 */home/site/deployments/tools*。 如需詳細資訊，請參閱[使用 FTP/S 將您的應用程式部署到 Azure App Service](../deploy-ftp.md)。
-2. **在 Azure 入口網站**的 [**設定 > 一般設定**] 頁面中，將 [**啟動腳本**] 欄位設定為啟動 shell 腳本的位置，例如 */home/site/deployments/tools/startup.sh*。
+2. 在 Azure 入口網站的 [**設定** > **一般設定**] 頁面中，將 [**啟動腳本**] 欄位設定為啟動 shell 腳本的位置，例如 */home/site/deployments/tools/startup.sh*。
 3. 按入口網站 [**總覽**] 區段中的 [**重新開機**] 按鈕，或使用 Azure CLI，重新開機您的 App Service 實例。
 
 ### <a name="configure-data-sources"></a>設定資料來源
@@ -616,7 +619,7 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
 
 6. 使用 [Azure CLI] 將設定新增至保存資料庫連接資訊的 App Service。 以 App Service 使用的值取代 `<resource group>` 和 `<webapp name>`。 以您的資料庫連接資訊取代 `<database server name>`、`<database name>`、`<admin name>`和 `<admin password>`。 您可以從 Azure 入口網站取得您的 App Service 和資料庫資訊。
 
-    **于 postgresql**
+    **PostgreSQL：**
 
     ```bash
     az webapp config appsettings set \
@@ -640,7 +643,7 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
             DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
     ```
 
-    **SQL Server：**
+    **SQL Server:**
 
     ```bash
     az webapp config appsettings set \
@@ -656,7 +659,7 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
     * **MySQL：** `jdbc:mysql://<database server name>:3306/<database name>?ssl=true\&useLegacyDatetimeCode=false\&serverTimezone=GMT`
     * **SQL Server：** `jdbc:sqlserver://<database server name>:1433;database=<database name>;user=<admin name>;password=<admin password>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;`
 
-7. 在 Azure 入口網站中，流覽至您的 App Service 並尋找 設定 ** > ** **一般設定** 頁面。 將 [**啟動腳本**] 欄位設定為啟動腳本的名稱和位置，例如 */home/startup.sh*。
+7. 在 Azure 入口網站中，流覽至您的 App Service 並尋找 **設定** > **一般設定** 頁面。 將 [**啟動腳本**] 欄位設定為啟動腳本的名稱和位置，例如 */home/startup.sh*。
 
 下次 App Service 重新開機時，它將會執行啟動腳本，並執行必要的設定步驟。 若要測試此設定是否正確發生，您可以使用 SSH 存取您的 App Service，然後從 Bash 提示字元自行執行啟動腳本。 您也可以檢查 App Service 記錄。 如需這些選項的詳細資訊，請參閱[記錄和偵錯工具](#logging-and-debugging-apps)。
 

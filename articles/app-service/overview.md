@@ -1,25 +1,16 @@
 ---
-title: App Service 概觀 - Azure | Microsoft Docs
+title: 概觀
 description: 了解 Azure App Service 如何協助您開發和裝載 Web 應用程式
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/04/2017
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ee80667789e661927f611257b438eb2eecbd0c83
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 849886eb03f46949301d76113109aae8188ff8fc
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074099"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687039"
 ---
 # <a name="app-service-overview"></a>App Service 概觀
 

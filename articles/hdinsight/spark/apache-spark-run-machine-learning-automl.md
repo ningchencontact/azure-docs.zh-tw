@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: 14cb4f02bc18bda24f022f1ccf41a06776a5136b
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 4e6b648ed70f6ff57a2d11cde43b8168b800fcb3
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241477"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806910"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>在 HDInsight 上的 Apache Spark 上使用自動化機器學習來執行 Azure Machine Learning 工作負載
 
@@ -71,7 +71,7 @@ dataflow_with_token = dprep.read_csv(
 
 ## <a name="experiment-submission"></a>實驗提交
 
-在[自動化機器學習](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig)設定中，應針對要在分散式模式上執行的封裝設定屬性 `spark_context`。 `concurrent_iterations` 屬性會決定可平行執行的反覆項目數量上限，其值應設為小於 Spark 應用程式的執行程式核心數目。
+在[自動化機器學習](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)設定中，應針對要在分散式模式上執行的封裝設定屬性 `spark_context`。 `concurrent_iterations` 屬性會決定可平行執行的反覆項目數量上限，其值應設為小於 Spark 應用程式的執行程式核心數目。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,7 +1,7 @@
 ---
 title: 支援和協助選項-語音服務
 titleSuffix: Azure Cognitive Services
-description: 了解如何在建立與「語音服務」整合的應用程式時，取得問題的協助和支援
+description: 當您建立與語音服務整合的應用程式時，如何取得問題和問題的說明及支援
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 925d21d22806ab2854be29b9648aab78138741ec
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 741217cde5068468a7063a64361df8425346b590
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422618"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815450"
 ---
 # <a name="support-and-help-options"></a>支援和協助選項
 
 您剛開始探索語音服務的功能嗎？ 您的應用程式是否要實作新功能？ 開發人員可遵循以下建議來取得協助。
 
 > [!div class="checklist"]
-> * 掌握「Azure 認知服務」的最新發展，或尋找與「語音服務」相關的最新消息。
+> * 隨時掌握*Azure 認知服務*的新發展，或尋找與*語音服務*相關的最新消息。
 > * 版本資訊包含所有版本的相關資訊。
 > * 搜尋以查看社群是否已經在討論您的問題，或者您想要實作的功能是否已有現有文件。
 > * 如果您找不到滿意的答案，請在 Stack Overflow 上發問。

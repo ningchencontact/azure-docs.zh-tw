@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 276e741a9462c19a3cba9ad1f9ac44e2da7ef1d3
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: cd1f516b3d3840262d9221db772f2c186650462e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580698"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807386"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自動定型時間序列預測模型
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "73580698"
 在本文中，您將瞭解如何使用 Azure Machine Learning 中的自動化機器學習來定型時間序列預測回歸模型。 設定預測模型類似于使用自動化機器學習來設定標準回歸模型，但有一些特定的設定選項和前置處理步驟可用於處理時間序列資料。 下列範例示範如何：
 
 * 準備資料以進行時間序列模型化
-* 在[`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig)物件中設定特定的時間序列參數
+* 在[`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)物件中設定特定的時間序列參數
 * 使用時間序列資料執行預測
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
@@ -113,7 +113,7 @@ test_labels = test_data.pop(label).values
 
 `AutoMLConfig` 物件會定義自動化機器學習工作所需的設定和資料。 類似于回歸問題，您可以定義標準訓練參數，例如工作類型、反復專案數目、定型資料，以及交叉驗證的數目。 針對預測工作，還有一些必須設定的參數會影響實驗。 下表說明每個參數和其使用方式。
 
-| 參數 | 說明 | 必要 |
+| 參數 | 描述 | 必要項 |
 |-------|-------|-------|
 |`time_column_name`|用來指定輸入資料中用來建立時間序列並推斷其頻率的日期時間資料行。|✓|
 |`grain_column_names`|在輸入資料中定義個別數列群組的名稱。 如果未定義細微性，則會假設資料集為一個時間序列。||
@@ -122,7 +122,7 @@ test_labels = test_data.pop(label).values
 |`target_rolling_window_size`|*n*要用來產生預測值的歷程記錄期間，< = 定型集大小。 如果省略，則*n*是完整的定型集大小。 當您只想要在定型模型時考慮特定數量的歷程記錄時，請指定此參數。||
 |`enable_dnn`|啟用預測 Dnn。||
 
-如需詳細資訊，請參閱[參考檔](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)。
+如需詳細資訊，請參閱[參考檔](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)。
 
 將時間序列設定建立為 dictionary 物件。 將 [`time_column_name`] 設定為資料集內的 [`day_datetime`] 欄位。 定義 `grain_column_names` 參數，確保針對資料建立**兩個不同的時間序列群組**：一個用於儲存 A 和 B。最後，將 `max_horizon` 設定為50，以便預測整個測試集。 使用 `target_rolling_window_size`將 [預測] 視窗設定為10個週期，並在 [`target_lags`] 參數前指定2個週期的目標值的單一 lag。
 

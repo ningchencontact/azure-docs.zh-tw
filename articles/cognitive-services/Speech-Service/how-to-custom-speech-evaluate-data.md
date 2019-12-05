@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 77dc50df7b46aeb6ddfddf92710d576f85492471
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: f710b8bfdd4dcfd3b7a63aa0b457036ab7037016
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801536"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806091"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>評估自訂語音準確度
 
@@ -23,23 +23,23 @@ ms.locfileid: "70801536"
 
 ## <a name="what-is-word-error-rate-wer"></a>什麼是文字錯誤率（WER）？
 
-用來測量模型精確度的業界標準是「*單字錯誤率*」（WER）。 WER 會計算辨識期間所識別的不正確單字數目，然後除以人為標記的文字記錄中所提供的單字總數。 最後，該數位會乘以 100% 來計算 WER。
+用來測量模型精確度的業界標準是「*單字錯誤率*」（WER）。 WER 會計算辨識期間所識別的不正確單字數目，然後除以人為標記的文字記錄中所提供的單字總數。 最後，該數位會乘以100% 來計算 WER。
 
 ![WER 公式](./media/custom-speech/custom-speech-wer-formula.png)
 
 不正確識別的單字分為三個類別：
 
-* 插入（I）：假設文字記錄中不正確新增的單字
+* 插入（I）：假設文字記錄中未正確新增的字詞
 * 刪除（D）：假設文字記錄中未偵測到的字詞
-* 替代（S）：參考與假設之間的替代字
+* 替代（S）：在參考與假設之間取代的單字
 
-以下為範例：
+以下是範例：
 
 ![不正確識別的單字範例](./media/custom-speech/custom-speech-dis-words.png)
 
 ## <a name="resolve-errors-and-improve-wer"></a>解決錯誤並改善 WER
 
-您可以使用機器辨識結果中的 WER，來評估您的應用程式、工具或產品所使用的模型品質。 5%-10% 的 WER 會被視為良好的品質，並可供使用。 可以接受 20% 的 WER，但您可能會想要考慮其他訓練。 30% 或更多信號的 WER 不佳品質，而且需要自訂和訓練。
+您可以使用機器辨識結果中的 WER，來評估您的應用程式、工具或產品所使用的模型品質。 5%-10% 的 WER 會被視為良好的品質，並可供使用。 可以接受20% 的 WER，但您可能會想要考慮其他訓練。 30% 或更多信號的 WER 不佳品質，而且需要自訂和訓練。
 
 如何散發錯誤是很重要的。 遇到許多刪除錯誤時，通常是因為音訊信號強度不佳。 若要解決此問題，您必須收集更接近來源的音訊資料。 插入錯誤表示音訊已記錄在雜訊的環境中，而且可能出現 crosstalk，而導致辨識問題。 當特定領域詞彙的樣本數已提供為人為標記的轉譯或相關文字時，通常會發生替代錯誤。
 

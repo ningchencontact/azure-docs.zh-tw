@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: cb37bd0c83956b9858639a78d4995e14811498e5
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: b09e5366584e9974e67d47d34f22a3483be14f7a
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559330"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805751"
 ---
 # <a name="hyperscale-service-tier"></a>超大規模資料庫服務層級
 
@@ -246,7 +246,7 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
 | 彈性集區 |  SQL Database 超大規模資料庫目前不支援彈性集區。|
 | 移轉至超大規模資料庫模目前是單向作業 | 一旦資料庫遷移至超大規模資料庫後，就無法直接遷移至非超大規模資料庫服務層級。 目前，將資料庫從超大規模資料庫移轉至非超大規模資料庫的唯一方法，是使用 BACPAC 檔案或其他資料移動技術（大量複製、Azure Data Factory、Azure Databricks、SSIS 等等）來匯出/匯入。|
 | 使用持續性記憶體內建物件來遷移資料庫 | 超大規模資料庫僅支援非持續性記憶體內建物件（資料表類型、原生 SPs 和函數）。  在將資料庫移轉至超大規模資料庫服務層級之前，必須先卸載持續性記憶體內部資料表和其他物件，並將其重新建立為非記憶體中的物件。|
-| 變更追蹤 | 您還無法設定及使用變更追蹤搭配 Azure SQL 超大規模資料庫資料庫。 |
+| 變更追蹤 | 變更追蹤目前處於公開預覽狀態，而且可以在新的或現有的超大規模資料庫資料庫上啟用。 |
 | 異地複寫  | 您還無法為 Azure SQL Database 超大規模資料庫設定異地複寫。 |
 | 資料庫複製 | 您還不能在 Azure SQL 超大規模資料庫中使用資料庫複製來建立新的資料庫。 |
 | TDE/AKV 整合 | Azure SQL Database 超大規模資料庫尚不支援使用 Azure Key Vault （通常稱為自備金鑰或 BYOK）的透明資料庫加密，不過，已完全支援具有服務管理金鑰的 TDE。 |

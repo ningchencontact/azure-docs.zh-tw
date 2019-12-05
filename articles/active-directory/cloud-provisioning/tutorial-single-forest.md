@@ -11,12 +11,12 @@ ms.date: 12/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95a0cbdc02f7adacf2e3ffa8ca21491f44fe4b7f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 33b7db8d08c285056e637eb962b28eef0e74fc94
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793843"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814108"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>教學課程：整合單一樹系與單一 Azure AD 租使用者
 
@@ -51,23 +51,30 @@ ms.locfileid: "74793843"
    - 針對憑證驗證，請解除封鎖下列 Url： **mscrl.microsoft.com:80**、 **crl.microsoft.com:80**、 **ocsp.msocsp.com:80**和**www\.microsoft.com:80**。 由於這些 URL 會用於其他 Microsoft 產品的憑證驗證，因此您可能已將這些 URL 解除封鎖。
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>安裝 Azure AD Connect 布建代理程式
-1. 以企業系統管理員許可權登入您將使用的伺服器。  如果您使用的是[基本 AD 和 Azure 環境](tutorial-basic-ad-azure.md)教學課程，則會是 DC1。
-2. 在[這裡](https://go.microsoft.com/fwlink/?linkid=2109037)下載 Azure AD Connect 布建代理程式。
-3. 執行 Azure AD Connect 布建代理程式（AADConnectProvisionin
-4. gAgent。安裝程式）
-3. 在啟動顯示畫面上，**接受**授權條款，然後按一下 [**安裝**]。</br>
-![歡迎使用畫面](media/how-to-install/install1.png)</br>
+1. 登入已加入網域的伺服器。  如果您使用的是[基本 AD 和 Azure 環境](tutorial-basic-ad-azure.md)教學課程，則會是 DC1。
+2. 使用僅限雲端的全域系統管理員認證來登入 Azure 入口網站。
+3. 在左側，選取 [ **Azure Active Directory**]，按一下 [ **Azure AD Connect**]，然後在中央選取 [管理布建 **（預覽）** ]。
 
-4. 此作業完成後，就會啟動設定 wizard。  使用您的 Azure AD 全域管理員帳戶登入。  請注意，如果您已啟用 IE 增強式安全性，這將會封鎖登入。  如果是這種情況，請關閉安裝，停用伺服器管理員中的 [IE 增強式安全性]，然後按一下 [ **AAD Connect 布建代理程式]** 以重新開機安裝。
-5. 在 [連線**Active Directory]** 畫面上，按一下 [**新增目錄**]，然後使用您的 Active Directory 網域系統管理員帳戶登入。  注意：網域系統管理員帳戶不應該有密碼變更需求。 如果密碼過期或變更，您必須使用新的認證重新設定代理程式。 此作業將會新增您的內部部署目錄。  按一下 [下一步]。</br>
-![歡迎使用畫面](media/how-to-install/install3.png)</br>
+   ![Azure Portal](media/how-to-install/install6.png)
 
-6. 在 [設定**完成**] 畫面上，按一下 [**確認**]。  此作業將會註冊並重新啟動代理程式。</br>
-![歡迎使用畫面](media/how-to-install/install4.png)</br>
+4. 按一下 [**下載代理程式**]。
+5. 執行 Azure AD Connect 布建代理程式。
+6. 在啟動顯示畫面上，**接受**授權條款，然後按一下 [**安裝**]。
 
-7. 此作業完成後，您應該會看到通知：已**成功驗證您的代理程式設定。**  您**可以按一下 [** 結束]。</br>
+   ![歡迎使用畫面](media/how-to-install/install1.png)
+
+7. 此作業完成後，就會啟動設定 wizard。  使用您的 Azure AD 全域管理員帳戶登入。  請注意，如果您已啟用 IE 增強式安全性，這將會封鎖登入。  如果是這種情況，請關閉安裝，停用伺服器管理員中的 [IE 增強式安全性]，然後按一下 [ **AAD Connect 布建代理程式]** 以重新開機安裝。
+8. 在 [連線**Active Directory]** 畫面上，按一下 [**新增目錄**]，然後使用您的 Active Directory 網域系統管理員帳戶登入。  注意：網域系統管理員帳戶不應該有密碼變更需求。 如果密碼過期或變更，您必須使用新的認證重新設定代理程式。 此作業將會新增您的內部部署目錄。  按一下 [下一步]。
+
+   ![歡迎使用畫面](media/how-to-install/install3.png)
+
+9. 在 [設定**完成**] 畫面上，按一下 [**確認**]。  此作業將會註冊並重新啟動代理程式。
+
+   ![歡迎使用畫面](media/how-to-install/install4.png)
+
+10. 此作業完成後，您應該會看到通知：已**成功驗證您的代理程式設定。**  您**可以按一下 [** 結束]。</br>
 ![歡迎使用畫面](media/how-to-install/install5.png)</br>
-8. 如果您仍然看到初始啟動顯示畫面，請按一下 [**關閉**]。
+11. 如果您仍然看到初始啟動顯示畫面，請按一下 [**關閉**]。
 
 
 ## <a name="verify-agent-installation"></a>驗證代理程式安裝

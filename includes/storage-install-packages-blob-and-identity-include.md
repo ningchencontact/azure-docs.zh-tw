@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/26/2019
 ms.author: tamram
 ms.custom: include
-ms.openlocfilehash: 0adf1280fa50e9ee594f3025dff70786f5ba2199
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: de79ea50d12ab322d1e28d0ad650df30ecc0c222
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666152"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806572"
 ---
 ## <a name="install-client-library-packages"></a>安裝用戶端程式庫套件
 
@@ -31,5 +31,3 @@ Install-Package Azure.Storage.Blobs
 ```powershell
 Install-Package Azure.Identity
 ```
-
-若要深入瞭解如何從 Azure 儲存體使用 Azure 身分識別用戶端程式庫進行驗證，請參閱[使用 Azure 資源的 Azure Active Directory 和受控識別來授權存取 blob 和佇列](/azure/storage/common/storage-auth-aad-msi?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library)一節標題為使用 Azure 身分**識別程式庫進行**驗證。

@@ -8,12 +8,12 @@ ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: dd2b3bd584bb39810e0a5c9acde1a961330c273d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 51683e529f832e06efbe8eb71466f3b27d95fcb1
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093757"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819133"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>將 Azure 資料總管與 Azure Data Factory 整合
 
@@ -90,7 +90,7 @@ Azure 資料總管受到 Azure IR （Integration Runtime）的支援，當資料
 
 下表列出與 Azure Data Factory 整合的各種步驟所需的許可權。
 
-| 步驟 | 作業 | 最低許可權層級 | 注意事項 |
+| 步驟 | 作業 | 最低許可權層級 | 注意 |
 |---|---|---|---|
 | **建立連結服務** | 資料庫導覽 | *資料庫檢視器* <br>使用 ADF 的登入使用者應該獲得授權，才能讀取資料庫中繼資料。 | 使用者可以手動提供資料庫名稱。 |
 | | 測試連線 | *資料庫監視器*或*資料表擷取器* <br>服務主體應該獲得授權，以執行資料庫層級 `.show` 命令或資料表層級內嵌。 | <ul><li>TestConnection 會確認與叢集的連線，而不會驗證資料庫的連接。 即使資料庫不存在，也會成功。</li><li>資料表管理員許可權不足。</li></ul>|
@@ -99,7 +99,7 @@ Azure 資料總管受到 Azure IR （Integration Runtime）的支援，當資料
 |   | 匯入架構 | *資料庫檢視器* <br>服務主體必須獲得授權，才能讀取資料庫中繼資料。 | 當 ADX 是表格式對表格式複製的來源時，ADF 會自動匯入架構，即使使用者未明確匯入架構也一樣。 |
 | **ADX 作為接收** | 建立依名稱的資料行對應 | *資料庫監視器* <br>服務主體必須獲得授權，才能執行資料庫層級 `.show` 命令。 | <ul><li>所有必要的作業都適用*資料表擷取器*。</li><li> 某些選擇性的作業可能會失敗。</li></ul> |
 |   | <ul><li>在資料表上建立 CSV 對應</li><li>卸載對應</li></ul>| *資料表擷取器*或*資料庫管理員* <br>服務主體必須獲得授權，才能對資料表進行變更。 | |
-|   | 擷取資料 | *資料表擷取器*或*資料庫管理員* <br>服務主體必須獲得授權，才能對資料表進行變更。 | | 
+|   | 消化資料 | *資料表擷取器*或*資料庫管理員* <br>服務主體必須獲得授權，才能對資料表進行變更。 | | 
 | **ADX 作為來源** | 執行查詢 | *資料庫檢視器* <br>服務主體必須獲得授權，才能讀取資料庫中繼資料。 | |
 | **Kusto 命令** | | 根據每個命令的許可權層級。 |
 
@@ -109,7 +109,7 @@ Azure 資料總管受到 Azure IR （Integration Runtime）的支援，當資料
   
 本節說明 Azure 資料總管為接收的「複製活動」的使用。 Azure 資料總管接收的預估輸送量為 11-13 MBps。 下表詳細說明影響 Azure 資料總管接收效能的參數。
 
-| 參數 | 注意事項 |
+| 參數 | 注意 |
 |---|---|
 | **元件地理鄰近** | 將所有元件放在相同的區域中：<ul><li>來源和接收資料存放區。</li><li>ADF 整合執行時間。</li><li>您的 ADX 叢集。</li></ul>請確定您的整合執行時間至少與您的 ADX 叢集位於相同的區域。 |
 | **Diu 數目** | 1個 VM，適用于 ADF 所使用的每4個 Diu。 <br>只有當您的來源是包含多個檔案的檔案型存放區時，才會增加 Diu 的協助。 然後，每個 VM 會以平行方式處理不同的檔案。 因此，複製單一大型檔案的延遲會比複製多個較小的檔案還高。|
@@ -118,13 +118,90 @@ Azure 資料總管受到 Azure IR （Integration Runtime）的支援，當資料
 | **資料處理複雜度** | 延遲會根據來源檔案格式、資料行對應和壓縮而有所不同。|
 | **執行您整合執行時間的 VM** | <ul><li>針對 Azure 複製，ADF Vm 和機器 Sku 無法變更。</li><li> 若要從內部內部部署至 Azure 複製，請判斷主控自我裝載 IR 的 VM 已夠強。</li></ul>|
 
-## <a name="monitor-activity-progress"></a>監視活動進度
+## <a name="tips-and-common-pitfalls"></a>秘訣和常見的陷阱
+
+### <a name="monitor-activity-progress"></a>監視活動進度
 
 * 當監視活動進度時，[*資料寫入*] 屬性可能會大於 [*資料讀取*] 屬性，因為*資料讀取*是根據二進位檔案大小來計算，而*寫入的資料*則是根據記憶體中的大小來計算，並在資料解除序列化和解壓縮之後。
 
 * 監視活動進度時，您會看到資料已寫入 Azure 資料總管接收。 查詢 Azure 資料總管資料表時，您會看到資料尚未抵達。 這是因為複製到 Azure 資料總管時有兩個階段。 
     * 第一個階段會讀取來源資料、將其分割為 900 MB 的區塊，並將每個區塊上傳至 Azure Blob。 [ADF 活動進度] 視圖會看到第一個階段。 
     * 當所有資料都上傳至 Azure Blob 時，第二個階段就會開始。 Azure 資料總管引擎節點會下載 blob，並將資料內嵌至接收資料表。 然後，資料會顯示在您的 Azure 資料總管資料表中。
+
+### <a name="failure-to-ingest-csv-files-due-to-improper-escaping"></a>因為不正確的轉義而無法內嵌 CSV 檔案
+
+Azure 資料總管預期 CSV 檔案會與[RFC 4180](https://www.ietf.org/rfc/rfc4180.txt)一致。
+它預期：
+* 包含需要進行轉義之字元的欄位（例如「和新行」）開頭和結尾都應該是一個不**含空白字元的**字元。 欄位*內*的所有「**字元都會**使用**雙字元（** **"** 」）進行轉義。 例如，" _Hello，" world ""_ "是有效的 CSV 檔案，具有單一記錄，其中包含具有內容_Hello，" World "_ 的單一資料行或欄位。
+* 檔案中的所有記錄都必須具有相同數目的資料行和欄位。
+
+Azure Data Factory 允許反斜線（escape）字元。 如果您使用 Azure Data Factory 產生含有反斜線字元的 CSV 檔案，將檔案內嵌至 Azure 資料總管將會失敗。
+
+#### <a name="example"></a>範例
+
+下列文字值： Hello，"World"<br/>
+ABC 定義<br/>
+"ABC\D" EF<br/>
+「ABC 定義<br/>
+
+應該會出現在適當的 CSV 檔案中，如下所示： "Hello，" World "" "<br/>
+"ABC DEF"<br/>
+"" ABC DEF "<br/>
+"" "ABC\D" "EF"<br/>
+
+使用預設的 escape 字元（反斜線），下列 CSV 將無法搭配 Azure 資料總管： "Hello，\"World\""<br/>
+"ABC DEF"<br/>
+"\"ABC DEF"<br/>
+"\"ABC\D\"EF"<br/>
+
+### <a name="nested-json-objects"></a>嵌套的 JSON 物件
+
+將 JSON 檔案複製到 Azure 資料總管時，請注意：
+* 不支援陣列。
+* 如果您的 JSON 結構包含物件資料類型，Azure Data Factory 將會壓平合併物件的子專案，並嘗試將每個子專案對應到 Azure 資料總管資料表中的不同資料行。 如果您想要將整個物件專案對應至 Azure 中的單一資料行資料總管：
+    * 將整個 JSON 資料列內嵌到 Azure 資料總管中的單一動態資料行。
+    * 使用 Azure Data Factory 的 JSON 編輯器，手動編輯管線定義。 在**對應**中
+       * 移除針對每個子專案所建立的多個對應，然後新增單一對應，將您的物件類型對應至您的資料表資料行。
+       * 在右方括弧後面加上逗號，後面接著：<br/>
+       `"mapComplexValuesToString": true`答案中所述步驟，工作帳戶即會啟用。
+
+### <a name="specify-additionalproperties-when-copying-to-azure-data-explorer"></a>複製到 Azure 資料總管時指定 AdditionalProperties
+
+> [!NOTE]
+> 這項功能目前可透過手動編輯 JSON 承載來取得。 
+
+在複製活動的 [接收] 區段底下新增單一資料列，如下所示：
+
+```json
+"sink": {
+    "type": "AzureDataExplorerSink",
+    "additionalProperties": "{\"tags\":\"[\\\"drop-by:account_FiscalYearID_2020\\\"]\"}"
+},
+```
+
+值的轉義可能會很棘手。 使用下列程式碼片段做為參考：
+
+```csharp
+static void Main(string[] args)
+{
+       Dictionary<string, string> additionalProperties = new Dictionary<string, string>();
+       additionalProperties.Add("ignoreFirstRecord", "false");
+       additionalProperties.Add("csvMappingReference", "Table1_mapping_1");
+       IEnumerable<string> ingestIfNotExists = new List<string> { "Part0001" };
+       additionalProperties.Add("ingestIfNotExists", JsonConvert.SerializeObject(ingestIfNotExists));
+       IEnumerable<string> tags = new List<string> { "ingest-by:Part0001", "ingest-by:IngestedByTest" };
+       additionalProperties.Add("tags", JsonConvert.SerializeObject(tags));
+       var additionalPropertiesForPayload = JsonConvert.SerializeObject(additionalProperties);
+       Console.WriteLine(additionalPropertiesForPayload);
+       Console.ReadLine();
+}
+```
+
+列印的值：
+
+```json
+{"ignoreFirstRecord":"false","csvMappingReference":"Table1_mapping_1","ingestIfNotExists":"[\"Part0001\"]","tags":"[\"ingest-by:Part0001\",\"ingest-by:IngestedByTest\"]"}
+```
 
 ## <a name="next-steps"></a>後續步驟
 

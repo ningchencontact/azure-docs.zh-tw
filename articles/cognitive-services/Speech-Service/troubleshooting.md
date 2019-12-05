@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
-ms.openlocfilehash: 3beda852b3e711ee969b7f80f8f326285cc2cad6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558881"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815406"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>針對語音 SDK 進行疑難排解
 
 本文提供的資訊可協助您解決在使用語音 SDK 時可能會遇到的問題。
 
-## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>錯誤:WebSocket 升級失敗，發生驗證錯誤 (403)
+## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>錯誤：WebSocket 升級失敗，發生驗證錯誤 (403)
 
 您的區域或服務可能有錯誤的端點。 請檢查 URI 以確保其正確無誤。
 
 此外，您的訂用帳戶金鑰或授權權杖也可能有問題。 如需詳細資訊，請參閱下一節。
 
-## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>錯誤:HTTP 403 禁止或 HTTP 401 未授權
+## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>錯誤：HTTP 403 禁止或 HTTP 401 未授權
 
 此錯誤通常是由驗證問題引起的。 連線要求如果沒有有效的 `Ocp-Apim-Subscription-Key` 或 `Authorization` 標頭，就會被服務以 401 或 403 的狀態拒絕。
 
@@ -107,11 +107,11 @@ ms.locfileid: "68558881"
 
 ---
 
-## <a name="error-http-400-bad-request"></a>錯誤:HTTP 400 不正確的要求
+## <a name="error-http-400-bad-request"></a>錯誤：HTTP 400 不正確的要求
 
 此錯誤通常發生在要求本文包含無效的音訊資料時。 僅支援 WAV 格式。 此外，請檢查要求的標頭，以確保針對 `Content-Type` 和 `Content-Length` 指定適當的值。
 
-## <a name="error-http-408-request-timeout"></a>錯誤:HTTP 408 要求逾時
+## <a name="error-http-408-request-timeout"></a>錯誤：HTTP 408 要求逾時
 
 此錯誤最有可能的原因，是因為沒有將任何音訊資料傳送至服務。 此錯誤也可能是由網路問題造成的。
 

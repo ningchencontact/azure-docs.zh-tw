@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 403768bc81b476dd144d5e4496f3501a3001da8a
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: d687d1d353c1734c5d98121f658003afde2eb182
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195928"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812916"
 ---
 # <a name="about-voice-assistants"></a>關於語音助理
 
-使用 Azure 語音服務的語音助理能賦予開發人員建立自然、擬人的對話介面，供其應用程式和體驗之用。
+語音助理使用語音服務，可讓開發人員為其應用程式和體驗建立自然、人類類似的對話介面。
 
 語音助理服務可讓您在裝置與小幫手執行之間快速可靠地進行互動，使用（1） Bot Framework 的 Direct Line 語音通道，或（2）整合式自訂命令（預覽）服務來完成工作。
 
@@ -29,7 +29,7 @@ ms.locfileid: "74195928"
 
 ## <a name="choosing-an-assistant-solution"></a>選擇助理解決方案
 
-建立語音助理的第一個步驟是決定應執行的動作。 Azure 語音服務提供多個互補的解決方案，以製作您的助理互動。 無論您是否想要有 Bot Framework 的[Direct Line 語音](direct-line-speech.md)通道所提供的彈性和多功能性，或簡單的[自訂命令（預覽）](custom-commands.md) ，都可以選擇適當的工具，讓您開始使用。
+建立語音助理的第一個步驟是決定應執行的動作。 語音服務提供多個互補的解決方案來製作您的助理互動。 無論您是否想要有 Bot Framework 的[Direct Line 語音](direct-line-speech.md)通道所提供的彈性和多功能性，或簡單的[自訂命令（預覽）](custom-commands.md) ，都可以選擇適當的工具，讓您開始使用。
 
 | 如果您想要... | 然後考慮 。 | 例如 。 |
 |-------------------|------------------|----------------|
@@ -49,8 +49,8 @@ ms.locfileid: "74195928"
 | 類別 | 功能 |
 |----------|----------|
 |[Custom 關鍵字](speech-devices-sdk-create-kws.md) | 使用者可以使用自訂關鍵字（例如 "嗨 Contoso"）來開始與助理交談。 應用程式會使用語音 SDK 中的自訂關鍵字引擎來執行這項工作，您可以使用[這裡產生](speech-devices-sdk-create-kws.md)的自訂關鍵字來設定。 語音助理可以使用服務端關鍵字驗證來改善關鍵字啟用的精確度（與裝置本身的比較）。
-|[語音轉換文字](speech-to-text.md) | 語音助理會使用 Azure 語音服務的[語音轉換文字，](speech-to-text.md)將即時音訊轉換成已辨識的文字。 這項文字已轉譯，可供您的小幫手和用戶端應用程式使用。
-|[文字轉換語音](text-to-speech.md) | 來自您小幫手的文字回應會使用 Azure 語音服務中的[文字轉換語音](text-to-speech.md)進行合成。 然後，您的用戶端應用程式可以使用此合成作為音訊串流。 Microsoft 提供建立您自己的自訂高品質神經 TTS 語音的功能，讓您的品牌能夠發聲。 若要深入瞭解，請[洽詢我們](mailto:mstts@microsoft.com)。
+|[語音轉換文字](speech-to-text.md) | 語音助理會使用語音服務中的語音轉換文字[，](speech-to-text.md)將即時音訊轉換成已辨識的文字。 這項文字已轉譯，可供您的小幫手和用戶端應用程式使用。
+|[文字轉換語音](text-to-speech.md) | 來自您小幫手的文字回應會使用語音服務中的[文字轉換語音](text-to-speech.md)進行合成。 然後，您的用戶端應用程式可以使用此合成作為音訊串流。 Microsoft 提供建立您自己的自訂高品質神經 TTS 語音的功能，讓您的品牌能夠發聲。 若要深入瞭解，請[洽詢我們](mailto:mstts@microsoft.com)。
 
 ## <a name="getting-started-with-voice-assistants"></a>開始使用語音助理
 
@@ -75,7 +75,7 @@ ms.locfileid: "74195928"
 
 ## <a name="customization"></a>自訂
 
-使用 Azure 語音服務建立的語音助理可以使用適用于[語音轉換文字](speech-to-text.md)、[文字轉換語音](text-to-speech.md)及[自訂關鍵字選取](speech-devices-sdk-create-kws.md)範圍的完整自訂選項。
+使用語音服務所建立的語音助理可以使用適用于[語音轉換文字](speech-to-text.md)、[文字轉換語音](text-to-speech.md)及[自訂關鍵字選取](speech-devices-sdk-create-kws.md)範圍的完整自訂選項。
 
 > [!NOTE]
 > 自訂選項會因語言/地區設定而有所不同（請參閱[支援的語言](supported-languages.md)）。

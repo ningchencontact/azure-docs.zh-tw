@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 0d233f63879326f05cafb873d2a0243543b00c6b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 85022d52c9513e53da31cc3c962f3a54dd538371
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075714"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815479"
 ---
 # <a name="what-is-text-to-speech"></a>什麼是文字轉換語音？
 
-來自 Azure 語音服務的文字轉換語音是一種服務，可讓您的應用程式、工具或裝置將文字轉換成自然的人類合成語音。 從標準和類神經語音中選擇，或為您的產品或品牌建立專屬的自訂語音。 75 + standard 語音提供45以上的語言和地區設定，而5類神經語音則提供4種語言和地區設定。 如需完整清單，請參閱[支援的語言](language-support.md#text-to-speech)。
+語音服務中的文字轉換語音可讓您的應用程式、工具或裝置將文字轉換成自然的人類合成語音。 從標準和類神經語音中選擇，或為您的產品或品牌建立專屬的自訂語音。 75 + standard 語音提供45以上的語言和地區設定，而5類神經語音則提供4種語言和地區設定。 如需完整清單，請參閱[支援的語言](language-support.md#text-to-speech)。
 
 文字轉換語音技術可讓內容建立者以不同的方式與使用者互動。 文字轉換語音可以提供使用者與 content 語音互動的選項，以改善協助工具。 無論使用者是否有視覺障礙、學習障礙，或需要流覽資訊，同時進行文字轉換語音，都可以改善現有的體驗。 文字轉換語音也是語音 bot 和語音助理的重要附加元件。
 
@@ -31,7 +31,7 @@ ms.locfileid: "74075714"
 
 ### <a name="neural-voices"></a>神經語音
 
-神經語音使用深度類神經網路，以克服傳統文字轉換語音系統的限制，以符合語音的壓力和聲調模式，以及將語音的單位合成為電腦語音。 標準文字轉換語音會將韻律細分成獨立模型所管理的個別語言分析和聲場預測步驟，這可能會導致 muffled 的語音合成。 我們的類神經功能會同時韻律預測和語音合成，這會導致更流暢且自然發音的語音。
+神經語音使用深度類神經網路，以克服傳統文字轉換語音系統的限制，以符合語音的壓力和聲調模式，以及將語音的單位合成為電腦語音。 標準文字轉換語音會將韻律細分成獨立模型所管理的個別語言分析和聲場預測步驟，這可能會導致 muffled 的語音合成。 我們的神經功能會同步進行韻律預測和語音合成，讓語音發音更流暢自然。
 
 神經語音可以用來與聊天機器人和語音助理互動，使其更自然且吸引人，將數位文字（例如電子書）轉換成有聲書;，並增強汽車內流覽系統。 有了人類的自然韻律和清楚的單字文字清晰度，神經語音會在您與 AI 系統互動時，大幅減少聆聽的疲勞。
 
@@ -69,7 +69,7 @@ ms.locfileid: "74075714"
 
 | 使用案例                                  | SDK | REST  |
 | ----------------------------------------- | --- | ----- |
-| 將文字轉換成語音。                   | yes | yes   |
+| 將文字轉換成語音。                   | 是 | 是   |
 | 上傳資料集以進行語音調適。     | 否  | 是\* |
 | 建立和管理語音字型模型。      | 否  | 是\* |
 | 建立和管理語音字型部署。 | 否  | 是\* |
@@ -102,7 +102,7 @@ ms.locfileid: "74075714"
 
 ### <a name="rest-quickstarts"></a>REST 快速入門
 
-| 快速入門（REST） | 平台 | API 參考資料 |
+| 快速入門（REST） | 平台 | API 參考 |
 | ----------------- | -------- | ------------- |
 | [C#、.NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) | Windows、macOS、Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Node.js](quickstart-nodejs-text-to-speech.md) | Window、macOS、Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
@@ -125,5 +125,5 @@ ms.locfileid: "74075714"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [取得免費語音服務訂用帳戶](get-started.md)
+- [取得免費的語音服務訂用帳戶](get-started.md)
 - [建立自訂語音音調](how-to-customize-voice-font.md)

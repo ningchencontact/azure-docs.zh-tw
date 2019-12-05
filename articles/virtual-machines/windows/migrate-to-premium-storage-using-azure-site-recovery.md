@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 1dc119f0f5949b37603bbc1100a4d89d4f420fd6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bd5f9fc787a6299e8d7c14f4b99f6f4d59cf78af
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033444"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819074"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 移轉到進階儲存體
 
@@ -60,12 +60,12 @@ Site Recovery 支援數種類型的容錯移轉，且停機時間最短或甚至
 
 以下是適用於此移轉案例的 Azure 需求：
 
-* Azure 訂閱。
+* Azure 訂用帳戶。
 * 用來儲存所複寫資料的 Azure 進階儲存體帳戶。
 * 在容錯移轉時建立 VM 時，VM 將連接的 Azure 虛擬網路。 Azure 虛擬網路所在的區域必須與 Site Recovery 執行的區域相同。
 * 用來儲存複寫記錄的 Azure 標準儲存體帳戶。 這可以是和所要移轉之 VM 磁碟相同的儲存體帳戶。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 了解上一節的相關移轉案例元件。
 * 了解 [Site Recovery 中的容錯移轉](../../site-recovery/site-recovery-failover.md)中的容錯移轉，以規劃停機時間。
@@ -79,7 +79,7 @@ Site Recovery 支援數種類型的容錯移轉，且停機時間最短或甚至
 1. 開啟 [Azure 入口網站](https://portal.azure.com)。
 2. 選取 [建立資源] > [管理] > [備份與 Site Recovery] \(OMS\)。 或者，您也可以選取 [瀏覽] > [復原服務保存庫] > [加入]。
    >[!NOTE]
-   >備份和 Site Recovery 先前是 ![OMS 套件](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand)的一部分。
+   >備份和 Site Recovery 先前是 [OMS 套件](/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand)的一部分。
 1. 指定 VM 將複寫到的地區。 若要在相同區域中移轉，請選取來源 VM 和來源儲存體帳戶所在的區域。 
 
 ### <a name="step-2-choose-your-protection-goals"></a>步驟 2︰選擇您的保護目標 

@@ -4,12 +4,12 @@ description: Azure 立即還原功能和 VM 備份堆疊、Azure Resource Manage
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: c87dc98ddd1d5799f3363d7574063ef752fd8239
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7a962ff42125b262f6ec6673f75b0afd2954de24
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172336"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806366"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>透過 Azure 備份的立即還原功能取得改良的備份和還原效能
 
@@ -21,7 +21,7 @@ ms.locfileid: "74172336"
 
 * 能夠使用在備份作業中所建立的快照集 (可用於復原)，而不需等到資料轉送到保存庫完成。 如此可減少觸發還原之前，將快照集複製到保存庫的等候時間。
 * 藉由本機預設保留 2 天的快照集，可減少備份和還原時間。 此預設快照集保留值可設定為介於1到5天的任何值。
-* 支援最多 4 TB 磁碟大小。 Azure 備份不建議調整磁片大小。 若要註冊有限的公開預覽，Azure 備份大於 4 TB 且大小高達 30 TB 的磁片，請參閱[備份磁片大小上限為 30 tb 的 VM](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)。
+* 支援的磁片大小上限為 32 TB。 Azure 備份不建議調整磁片大小。
 * 支援標準 SSD 磁片以及標準 HDD 磁片和進階 SSD 磁片。
 * 在還原時，能夠使用非受控 Vm 的原始儲存體帳戶（每一磁片）。 即使 VM 的磁碟分散於多個儲存體帳戶，仍然具有此功能。 它能夠針對各種不同的 VM 設定，加快還原作業的速度。
 * 若要備份使用高階儲存體的 Vm，請使用立即還原，建議您配置*50%* 的可用空間（已配置的儲存空間總計，只有在第一次備份時**才**需要）。 第一次備份完成後，備份不需要50% 的可用空間。

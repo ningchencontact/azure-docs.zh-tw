@@ -3,16 +3,17 @@ title: 適用于 Linux 的 Azure Key Vault VM 擴充功能
 description: 使用虛擬機器擴充功能來部署代理程式，以在虛擬機器上執行 Key Vault 憑證的自動重新整理。
 services: virtual-machines-linux
 author: msmbaldwin
+tags: keyvault
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.date: 09/23/2018
+ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2de8a072aec66c2c087541ed9620f3dbdc137ee9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d6b8cdf43fea63fa4709dd5fc5319bb92ddefc63
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073012"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806968"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>適用于 Linux 的 Key Vault 虛擬機器擴充功能
 
@@ -40,20 +41,20 @@ Key Vault 的 VM 擴充功能支援下列 Linux 散發套件：
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
       ],
       "properties": {
-            "publisher": "Microsoft.Azure.KeyVault.Edp",
-            "type": "KeyVaultForLinux",
-            "typeHandlerVersion": "1.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "secretsManagementSettings": {
-                    "pollingIntervalInS": <polling interval in seconds>,
-                    "certificateStoreName": <certificate store name, e.g.: "MY">,
-                    "linkOnRenewal": <Not available on Linux e.g.: false>,
-                    "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
-                    "requireInitialSync": <initial synchronization of certificates e..g: true>,
-                    "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
-                }         
-            }
+      "publisher": "Microsoft.Azure.KeyVault",
+      "type": "KeyVaultForLinux",
+      "typeHandlerVersion": "1.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+        "secretsManagementSettings": {
+          "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
+          "certificateStoreName": <certificate store name, e.g.: "MY">,
+          "linkOnRenewal": <Not available on Linux e.g.: false>,
+          "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
+          "requireInitialSync": <initial synchronization of certificates e..g: true>,
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+        }      
+      }
       }
     }
 ```
@@ -66,16 +67,16 @@ Key Vault 的 VM 擴充功能支援下列 Linux 散發套件：
 
 ### <a name="property-values"></a>屬性值
 
-| 名稱 | 值 / 範例 | 資料類型 |
+| Name | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | 日期 |
-| publisher | Microsoft.Azure.KeyVault.Edp | 字串 |
-| 類型 | KeyVaultForLinux | 字串 |
+| apiVersion | 2019-07-01 | date |
+| publisher | Microsoft.Azure.KeyVault | string |
+| 類型 | KeyVaultForLinux | string |
 | typeHandlerVersion | 1.0 | int |
-| pollingIntervalInS | 3600 | 字串 |
-| certificateStoreName | MY | 字串 |
+| pollingIntervalInS | 3600 | string |
+| certificateStoreName | MY | string |
 | linkOnRenewal | false | 布林值 |
-| certificateStoreLocation  | LocalMachine | 字串 |
+| certificateStoreLocation  | LocalMachine | string |
 | requiredInitialSync | true | 布林值 |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | 字串陣列
 
@@ -96,17 +97,17 @@ Key Vault 的 VM 擴充功能支援下列 Linux 散發套件：
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
       ],
       "properties": {
-            "publisher": "Microsoft.Azure.KeyVault.Edp",
-            "type": "KeyVaultForLinux",
-            "typeHandlerVersion": "1.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                    "pollingIntervalInS": <polling interval in seconds>,
-                    "certificateStoreName": <certificate store name, e.g.: "MY">,
-                    "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
-                    "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
-                }         
-            }
+      "publisher": "Microsoft.Azure.KeyVault",
+      "type": "KeyVaultForLinux",
+      "typeHandlerVersion": "1.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+          "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
+          "certificateStoreName": <certificate store name, e.g.: "MY">,
+          "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+        }      
+      }
       }
     }
 ```
@@ -121,12 +122,12 @@ Azure PowerShell 可以用來將金鑰保存庫 VM 擴充功能部署到現有�
     ```powershell
         # Build settings
         $settings = '{"secretsManagementSettings": 
-            { "pollingIntervalInS": "' + <pollingInterval> + 
-            '", "certificateStoreName": "' + <certStoreName> + 
-            '", "certificateStoreLocation": "' + <certStoreLoc> + 
-            '", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        { "pollingIntervalInS": "' + <pollingInterval> + 
+        '", "certificateStoreName": "' + <certStoreName> + 
+        '", "certificateStoreLocation": "' + <certStoreLoc> + 
+        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
         $extName =  "KeyVaultForLinux"
-        $extPublisher = "Microsoft.Azure.KeyVault.Edp"
+        $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForLinux"
        
     
@@ -141,12 +142,12 @@ Azure PowerShell 可以用來將金鑰保存庫 VM 擴充功能部署到現有�
     
         # Build settings
         $settings = '{"secretsManagementSettings": 
-            { "pollingIntervalInS": "' + <pollingInterval> + 
-            '", "certificateStoreName": "' + <certStoreName> + 
-            '", "certificateStoreLocation": "' + <certStoreLoc> + 
-            '", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        { "pollingIntervalInS": "' + <pollingInterval> + 
+        '", "certificateStoreName": "' + <certStoreName> + 
+        '", "certificateStoreLocation": "' + <certStoreLoc> + 
+        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
         $extName = "KeyVaultForLinux"
-        $extPublisher = "Microsoft.Azure.KeyVault.Edp"
+        $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForLinux"
         
         # Add Extension to VMSS
@@ -186,8 +187,8 @@ Azure CLI 可以用來將 Key Vault VM 擴充功能部署到現有的虛擬機�
 
 請留意下列限制/需求：
 - 金鑰保存庫限制：
-    - 部署時必須存在 
-    - 使用 MSI 為 VM/VMSS 身分識別設定 Key Vault 存取原則
+  - 部署時必須存在 
+  - 使用 MSI 為 VM/VMSS 身分識別設定 Key Vault 存取原則
 
 
 ## <a name="troubleshoot-and-support"></a>疑難排解與支援

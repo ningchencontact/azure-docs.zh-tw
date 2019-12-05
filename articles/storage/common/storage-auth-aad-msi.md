@@ -9,12 +9,12 @@ ms.date: 11/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3e24cb2d4b5b82f6878647cdd631bd8ebca16199
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 3bb3b632a184985f9a3a27d0e56e940ec7c30885
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666151"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806573"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>使用適用于 Azure 資源的 Azure Active Directory 和受控識別，授權對 blob 和佇列的存取
 
@@ -36,13 +36,13 @@ Azure Blob 和佇列儲存體支援使用 [Azure 資源的受控識別](../../ac
 
 ## <a name="authenticate-with-the-azure-identity-library"></a>使用 Azure 身分識別程式庫進行驗證
 
-Azure 身分識別用戶端程式庫的優點是，它可讓您使用相同的程式碼來驗證您的應用程式是在開發環境中或在 Azure 中執行。 在 Azure 環境中執行的程式碼中，用戶端程式庫會驗證適用于 Azure 資源的受控識別。 在開發環境中，受控識別不存在，因此用戶端程式庫會驗證使用者或服務主體，以供測試之用。
+Azure 身分識別用戶端程式庫提供 azure [SDK](https://github.com/Azure/azure-sdk)的 azure Azure AD 權杖驗證支援。 適用于 .NET、JAVA、Python 和 JavaScript 的 Azure 儲存體用戶端程式庫的最新版本，會與 Azure 身分識別程式庫整合，以提供簡單且安全的方法來取得 OAuth 2.0 權杖，以進行 Azure 儲存體要求的授權。
 
-適用于 .NET 的 Azure 身分識別用戶端程式庫會驗證安全性主體。 當您的程式碼在 Azure 中執行時，安全性主體是適用于 Azure 資源的受控識別。
+Azure 身分識別用戶端程式庫的優點是，它可讓您使用相同的程式碼來驗證您的應用程式是在開發環境中或在 Azure 中執行。 適用于 .NET 的 Azure 身分識別用戶端程式庫會驗證安全性主體。 當您的程式碼在 Azure 中執行時，安全性主體是適用于 Azure 資源的受控識別。 在開發環境中，受控識別不存在，因此用戶端程式庫會驗證使用者或服務主體，以供測試之用。
 
 驗證之後，Azure 身分識別用戶端程式庫會取得權杖認證。 然後，此權杖認證會封裝在您建立來對 Azure 儲存體執行作業的服務用戶端物件中。 程式庫會藉由取得適當的權杖認證，順暢地為您處理這種情況。
 
-如需 Azure 身分識別用戶端程式庫的詳細資訊，請參閱[適用于 .net 的 azure 身分識別用戶端程式庫](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity)。
+如需適用于 .NET 的 Azure Identity client 程式庫的詳細資訊，請參閱[適用于 .net 的 azure 身分識別用戶端程式庫](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity)。 如需 Azure 身分識別用戶端程式庫的參考檔，請參閱[azure 身分識別命名空間](/dotnet/api/azure.identity)。
 
 ### <a name="assign-role-based-access-control-rbac-roles-for-access-to-data"></a>指派角色型存取控制（RBAC）角色以存取資料
 
@@ -50,7 +50,7 @@ Azure 身分識別用戶端程式庫的優點是，它可讓您使用相同的�
 
 ### <a name="authenticate-the-user-in-the-development-environment"></a>在開發環境中驗證使用者
 
-當您的程式碼在開發環境中執行時，可能會自動處理驗證，或視您使用的工具而定，可能需要瀏覽器登入。 Microsoft Visual Studio 支援單一登入（SSO），讓作用中的 Azure AD 使用者帳戶自動用於驗證。 如需 SSO 的詳細資訊，請參閱[單一登入應用程式](../../active-directory/manage-apps/what-is-single-sign-on.md)。
+當您的程式碼在開發環境中執行時，可能會自動處理驗證，或視您使用的工具而定，可能需要瀏覽器登入。 例如，Microsoft Visual Studio 支援單一登入（SSO），使 active Azure AD 使用者帳戶自動用於驗證。 如需 SSO 的詳細資訊，請參閱[單一登入應用程式](../../active-directory/manage-apps/what-is-single-sign-on.md)。
 
 其他開發工具可能會提示您透過網頁瀏覽器登入。
 
@@ -161,6 +161,6 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入瞭解 Azure 儲存體的 RBAC 角色，請參閱[使用 Rbac 管理儲存體資料的存取權限](storage-auth-aad-rbac.md)。
-- 若要深入了解如何從儲存體應用程式內授權容器和佇列的存取權，請參閱[使用 Azure AD 與儲存體應用程式](storage-auth-aad-app.md)。
-- 若要瞭解如何使用 Azure AD 認證來執行 Azure CLI 和 PowerShell 命令，請參閱[使用 Azure AD 認證來執行 Azure CLI 或 powershell 命令，以存取 blob 或佇列資料](storage-auth-aad-script.md)。
+- [使用 RBAC 管理儲存體資料的存取權限](storage-auth-aad-rbac.md)。
+- 搭配[使用 Azure AD 與儲存體應用程式](storage-auth-aad-app.md)。
+- [執行 Azure CLI 或具有 Azure AD 認證的 PowerShell 命令，以存取 blob 或佇列資料](storage-auth-aad-script.md)。
