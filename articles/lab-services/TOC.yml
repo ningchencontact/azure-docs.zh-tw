@@ -68,6 +68,8 @@
           href: devtest-lab-configure-cost-management.md
         - name: 傳送自動關閉通知
           href: devtest-lab-auto-shutdown.md
+        - name: 設定實驗室虛擬機器自動啟動
+          href: devtest-lab-auto-startup-vm.md
         - name: 調整您的實驗室
           href: devtest-lab-scale-lab.md
         - name: 管理虛擬機器基底
@@ -193,6 +195,8 @@
           href: add-artifact-repository.md
         - name: 指定必要的成品
           href: devtest-lab-mandatory-artifacts.md
+        - name: 套用成品相關問題疑難排解
+          href: devtest-lab-troubleshoot-apply-artifacts.md
     - name: 與 CI/CD 整合
       items:
         - name: 將實驗室與您的 Azure Pipelines CI/CD 管線整合

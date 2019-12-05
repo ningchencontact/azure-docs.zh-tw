@@ -102,8 +102,12 @@
           href: data-lake-query-data.md
         - name: 查詢 Azure 監視器中的資料
           href: query-monitor-data.md
-        - name: Python
-          href: python-query-data.md
+        - name: 偵錯 KQL 內嵌 Python
+          href: debug-inline-python.md
+        - name: 使用 SDK
+          items:
+            - name: Python
+              href: python-query-data.md
         - name: 時間序列分析及機器學習
           items:
             - name: 時間序列分析
