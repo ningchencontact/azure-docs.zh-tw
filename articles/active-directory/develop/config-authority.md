@@ -3,27 +3,23 @@ title: 設定 iOS 和 macOS 的 MSAL 以使用不同的身分識別提供者
 titleSuffix: Microsoft identity platform
 description: 瞭解如何透過 MSAL for iOS 和 macOS 使用不同的授權單位（例如 B2C、主權雲端和來賓使用者）。
 services: active-directory
-documentationcenter: ''
 author: tylermsft
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: twhitney
-ms.reviewer: ''
+ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4df5067317170e18a52fbac53bc02a2ba7d35aba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: feea11dfa8e199d4c1c01ba7ec09003233574fbe
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473790"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843626"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>如何：將 MSAL 用於 iOS 和 macOS，以使用不同的身分識別提供者
 
@@ -253,4 +249,4 @@ do{
 
 ## <a name="next-steps"></a>後續步驟
 
-深入瞭解[驗證流程和應用程式案例](authentication-flows-app-scenarios.md)
+深入了解[驗證流程和應用程式案例](authentication-flows-app-scenarios.md)

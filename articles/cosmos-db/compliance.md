@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 合規性
 description: 本文說明 Azure Cosmos DB 合規性供應項目的認證涵蓋範圍。
-author: dharmas-cosmos
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.author: dharmas
+ms.date: 12/02/2019
+ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 9ebec5498da8f7280179a48a6e3e3b10a9810e28
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: a41d95a5ab0665698676d0f17333e2f5c7f467eb
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881840"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872198"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB 中的合規性 
 
@@ -36,8 +36,8 @@ Azure Cosmos DB 會持續擴展其認證涵蓋範圍。 目前，Azure Cosmos DB
 
 | **全球適用** | **美國政府** | **業界專屬** | **區域或國家/地區專屬** |
 | --- | --- | --- | --- |
-| CSA STAR Certification | DoD SRG Level 2 | HIPAA BAA | Australia IRAP |
-| CSA STAR Attestation | FedRAMP Moderate | HITRUST | Germany C5|
+| CSA STAR 認證 | DoD SRG Level 2 | HIPAA BAA | Australia IRAP |
+| CSA STAR Attestation | FedRAMP 中 | HITRUST | Germany C5|
 | ISO 20000-1:2011 | GxP (FDA 21 CFR Part 11) | PCI DSS | Singapore MTCS Level 3 |
 | ISO 22301:2012 | | | Spain ENS High|
 | ISO 27001:2013| | | |
@@ -52,11 +52,11 @@ Azure Cosmos DB 會持續擴展其認證涵蓋範圍。 目前，Azure Cosmos DB
 
 | **全球適用** | **美國政府** | **業界專屬** | 
 | --- | --- | --- | --- |
-| CSA STAR Certification | CJIS| HIPAA BAA | 
+| CSA STAR 認證 | CJIS| HIPAA BAA | 
 | CSA STAR Attestation| DoD SRG Level 2| HITRUST  | 
 | ISO 20000-1:2011 | DoD SRG 層級4 | PCI DSS | 
 | ISO 9001:2012 | DoD SRG Level 5 | | 
-| ISO 27001:2013 | FedRAMP High | |
+| ISO 27001:2013 | FedRAMP 高 | |
 | ISO 9001:2015 | IRS 1075|  |
 | ISO 27017:2014 | NIST CSF | |
 | ISO 27018:2015 | NIST SP 800-171 | |

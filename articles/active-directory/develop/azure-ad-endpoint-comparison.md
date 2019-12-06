@@ -2,26 +2,23 @@
 title: 為何要更新至 Microsoft 身分識別平臺（v2.0） |Azure
 description: 瞭解 Microsoft 身分識別平臺（v2.0）端點與 Azure Active Directory （Azure AD） v1.0 端點之間的差異，並瞭解更新至 v2.0 的優點。
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5a000d08afb3afba06d82aae4414e87b61e502f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 882b4a8bfe951212d2d1fe081d16b25641dfa4d4
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533047"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843881"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>為何要更新至 Microsoft 身分識別平臺（v2.0）？
 

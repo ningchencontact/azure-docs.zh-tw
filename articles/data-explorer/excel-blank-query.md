@@ -7,18 +7,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 55198e0c38c2922d69b68d9ce62e16ea25e9cc44
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 4999000e2084922b43b8085034f545d4b5c644a9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173725"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849083"
 ---
 # <a name="visualize-data-using-an-azure-data-explorer-kusto-query-imported-into-microsoft-excel"></a>使用匯入 Microsoft Excel 的 Azure 資料總管 Kusto 查詢將資料視覺化
 
 Azure 資料總管提供兩個選項來連接到 Excel 中的資料：使用原生連接器，或從 Azure 資料總管匯入查詢。 本文說明如何將查詢從 Azure 資料總管匯入至 Excel，以將資料視覺化。 新增 Kusto 查詢做為 Excel 資料來源，以對資料執行其他計算或視覺效果。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 * 屬於 Azure Active directory 成員的組織電子郵件帳戶，因此您可以[連線到 azure 資料總管](https://dataexplorer.azure.com/clusters/help/databases/Samples)說明叢集 
@@ -68,3 +68,7 @@ Azure 資料總管提供兩個選項來連接到 Excel 中的資料：使用原�
 1. 您的資料現在是在 Excel 中。 選取 [**重新**整理] 按鈕以重新整理查詢。
 
     ![在 excel 中查看資料](media/excel-blank-query/data-in-excel.png)
+
+## <a name="next-steps"></a>後續步驟
+
+[使用適用于 Excel 的 Azure 資料總管連接器將資料視覺化](excel-connector.md)

@@ -1,21 +1,21 @@
 ---
 title: 管理 Azure Cosmos DB 中的索引編製原則
-description: 了解如何管理 Azure Cosmos DB 中的索引編製原則
+description: 瞭解如何管理索引編制原則、包含或排除索引中的屬性、如何使用不同的 Azure Cosmos DB Sdk 定義索引編制
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 46d0124eb701b0c2d779a96c8efd50ba43e8fc07
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 3b98975df194af4625087e1beb556efb2a347f43
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034447"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872055"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引編製原則
 
-Azure Cosmos DB 會遵循針對每個容器所定義的[索引編製原則](index-policy.md)來為資料編製索引。 新建立之容器的預設索引編制原則會強制執行任何字串或數位的範圍索引。 此原則可使用您自己的自訂索引編制原則來加以覆寫。
+Azure Cosmos DB 會遵循針對每個容器所定義的[索引編製原則](index-policy.md)來為資料編製索引。 新建立的容器所套用的預設索引編製原則，會對任何字串或數字強制執行範圍索引。 您可使用自己的自訂索引編製原則來覆寫此原則。
 
 ## <a name="indexing-policy-examples"></a>索引編製原則範例
 
@@ -457,7 +457,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
 
 ## <a name="use-the-java-sdk"></a>使用 Java SDK
 
-`DocumentCollection`Java SDK[ 中的 ](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) 物件 (請參閱關於其使用方式的[這個快速入門](create-sql-api-java.md)) 會公開 `getIndexingPolicy()` 和 `setIndexingPolicy()` 方法。 這些方法所管理的 `IndexingPolicy` 物件可讓您變更索引編製模式，以及新增或移除已納入和排除的路徑。
+[Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) 中的 `DocumentCollection` 物件 (請參閱關於其使用方式的[這個快速入門](create-sql-api-java.md)) 會公開 `getIndexingPolicy()` 和 `setIndexingPolicy()` 方法。 這些方法所管理的 `IndexingPolicy` 物件可讓您變更索引編製模式，以及新增或移除已納入和排除的路徑。
 
 ```java
 // Retrieve the container's details
@@ -539,7 +539,7 @@ containerResponse.subscribe(result -> {
 
 ## <a name="use-the-nodejs-sdk"></a>使用 Node.js SDK
 
-`ContainerDefinition`Node.js SDK[ 中的 ](https://www.npmjs.com/package/@azure/cosmos) 介面 (請參閱關於其使用方式的[這個快速入門](create-sql-api-nodejs.md)) 會公開 `indexingPolicy` 屬性，以供您變更 `indexingMode` 以及新增或移除 `includedPaths` 和 `excludedPaths`。
+[Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) 中的 `ContainerDefinition` 介面 (請參閱關於其使用方式的[這個快速入門](create-sql-api-nodejs.md)) 會公開 `indexingPolicy` 屬性，以供您變更 `indexingMode` 以及新增或移除 `includedPaths` 和 `excludedPaths`。
 
 取得容器的詳細資料
 
@@ -596,7 +596,7 @@ containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/name/*' });
 const replaceResponse = await client.database('database').container('container').replace(containerResponse.body);
 ```
 
-若要在容器上追蹤索引轉換進度，請傳遞會將 `RequestOptions` 屬性設定為 `populateQuotaInfo` 的 `true` 物件，然後從 `x-ms-documentdb-collection-index-transformation-progress` 回應標頭中擷取值。
+若要在容器上追蹤索引轉換進度，請傳遞會將 `populateQuotaInfo` 屬性設定為 `true` 的 `RequestOptions` 物件，然後從 `x-ms-documentdb-collection-index-transformation-progress` 回應標頭中擷取值。
 
 ```javascript
 // retrieve the container's details
@@ -676,4 +676,4 @@ response = client.ReplaceContainer(containerPath, container)
 在下列文章中深入了解索引編製：
 
 - [索引編製概觀](index-overview.md)
-- [索引編製原則](index-policy.md)
+- [編製索引原則](index-policy.md)

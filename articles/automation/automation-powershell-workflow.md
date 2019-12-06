@@ -4,17 +4,17 @@ description: 本文旨在做為熟悉 PowerShell 的作者的快速課程，以�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 085fcd6269663cb0055aaefe11ddc9434e8da7a1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: d656e97448bebe7019a63824b9de6e322b787a92
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476988"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850732"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>了解適用於自動化 Runbook 的重要 Windows PowerShell 工作流程概念
 
@@ -35,7 +35,7 @@ Workflow Test-Workflow
 }
 ```
 
-工作流程的名稱必須符合自動化 Runbook 的名稱。 如果正在匯入 Runbook，檔案名稱必須符合工作流程名稱，並必須以 .ps1  結尾。
+工作流程的名稱必須符合自動化 Runbook 的名稱。 如果正在匯入 Runbook，檔案名稱必須符合工作流程名稱，並必須以 .ps1 結尾。
 
 若要將參數加入至工作流程，請使用 **Param** 關鍵字，如同您會對指令碼執行的動作。
 
@@ -43,7 +43,7 @@ Workflow Test-Workflow
 
 PowerShell 工作流程程式碼看起來幾乎類似於 PowerShell 指令碼，除了少數幾個重大變更。  下列各節說明您必須對 PowerShell 指令碼進行的變更，以讓它在工作流程中執行。
 
-### <a name="activities"></a>activities
+### <a name="activities"></a>活動
 
 活動是工作流程中的特定工作。 就像指令碼是由一或多個命令所組成，工作流程是由序列中執行的一或多個活動所組成。 執行工作流程時，Windows PowerShell 工作流程會自動將許多 Windows PowerShell Cmdlet 轉換為活動。 在 Runbook 中指定其中一個 Cmdlet 時，對應的活動是由 Windows Workflow Foundation 執行。 針對沒有對應活動的 Cmdlet，Windows PowerShell 工作流程會自動在 [InlineScript](#inlinescript) 活動內執行 Cmdlet。 有一組 Cmdlet 被排除，除非您明確在 InlineScript 區塊中將其納入，否則無法用在工作流程中。 如需這些概念的詳細資訊，請參閱 [在指令碼工作流程中使用活動](https://technet.microsoft.com/library/jj574194.aspx)。
 
@@ -226,7 +226,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>檢查點
 
-*檢查點* 是包含變數的目前值和在該點產生的任何輸出的工作流程的目前狀態的快照。 如果工作流程結束時發生錯誤或是擱置，下次執行時，就會從其最後一個檢查點開始，而不是從工作流程的開頭開始。  您可以使用 **Checkpoint-Workflow** 活動來設定工作流程中的檢查點。 Azure 自動化的功能，稱為[公平共用](automation-runbook-execution.md#fair-share)，其中卸載執行 3 小時內的任何 runbook，以允許其他 runbook 來執行。 最後，卸載的 runbook 將會重新載入，並時，它會繼續執行，從 runbook 中採取的最後一個檢查點。 為了確保將最後完成的 runbook，請您必須在執行少於 3 小時的時間間隔加入檢查點。 如果在每次執行期間加入新的檢查點，而且之後 3 小時內，因錯誤而取得收回的 runbook，然後 runbook 將會繼續無限期。
+*檢查點* 是包含變數的目前值和在該點產生的任何輸出的工作流程的目前狀態的快照。 如果工作流程結束時發生錯誤或是擱置，下次執行時，就會從其最後一個檢查點開始，而不是從工作流程的開頭開始。  您可以使用 **Checkpoint-Workflow** 活動來設定工作流程中的檢查點。 Azure 自動化具有稱為「[公平共用](automation-runbook-execution.md#fair-share)」的功能，其中任何執行3小時的 runbook 都會卸載，以允許其他 runbook 執行。 最後，卸載的 runbook 將會重載，當它是時，它會從 runbook 中的最後一個檢查點繼續執行。 為了保證 runbook 最後會完成，您必須在執行時間不到3小時的間隔中新增檢查點。 如果在每次執行期間新增了新的檢查點，而且在3小時後收回 runbook，因為發生錯誤，則會無限期地繼續 runbook。
 
 在下列範例程式碼中，Activity2 之後發生的例外狀況造成工作流程結束。 工作流程再次執行時，它會先執行 Activity2，因為這是緊接在設定的最後一個檢查點之後。
 
@@ -258,7 +258,7 @@ Workflow Copy-Files
 }
 ```
 
-在您呼叫 [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) 活動或最後一個檢查點之後，使用者名稱認證就不會保存下來，因此您必須將認證設定為 null，然後在呼叫 **Suspend-Workflow** 或檢查點後，再次從資產存放區擷取認證。  否則，您可能會收到下列錯誤訊息︰*工作流程作業無法繼續，原因是無法完整儲存持續性資料或儲存的持續性資料已損毀。* 您必須重新啟動工作流程。
+在您呼叫 [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) 活動或最後一個檢查點之後，使用者名稱認證就不會保存下來，因此您必須將認證設定為 null，然後在呼叫 **Suspend-Workflow** 或檢查點後，再次從資產存放區擷取認證。  否則，您可能會收到下列錯誤訊息：*無法繼續工作流程工作，可能是因為無法完整儲存持續性資料，或儲存的持續性資料已損毀。您必須重新開機工作流程。*
 
 下列同一個程式碼會示範如何在 PowerShell 工作流程 Runbook 中處理此問題。
 
@@ -295,5 +295,5 @@ workflow CreateTestVms
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要开始使用 PowerShell 工作流 Runbook，请参阅 [我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md)
+* 若要開始使用 PowerShell 工作流程 Runbook，請參閱 [我的第一個 PowerShell 工作流程 Runbook](automation-first-runbook-textual.md)
 

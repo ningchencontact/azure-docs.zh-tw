@@ -1,17 +1,17 @@
 ---
 title: 了解如何在 Azure Cosmos DB 中管理一致性
-description: 了解如何在 Azure Cosmos DB 中管理一致性
+description: 瞭解如何使用 Azure 入口網站、.Net SDK、JAVA SDK 和各種其他 Sdk，在 Azure Cosmos DB 中設定和管理一致性層級
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: bc5554e2d56987e969894ba57052d548e1499938
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 46c4c4afe737fd11c2e711a23a3355f48dbd6231
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093310"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872072"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的一致性層級
 
@@ -59,7 +59,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
   -Properties $CosmosDBProperties
 ```
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 若要檢視或修改預設一致性層級，請登入 Azure 入口網站。 尋找您的 Azure Cosmos 帳戶，然後開啟 [預設一致性] 窗格。 選取要作為新預設值的一致性層級，然後選取 [儲存]。 Azure 入口網站也會提供不同一致性層級 (含音符) 的視覺效果。 
 
@@ -231,7 +231,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>監視機率限定過期 (PBS) 計量
 
-最終一致性的界定標準為何？ 針對平均案例，我們可根據版本記錄和時間來提供過期界限。 [**機率限定過期 (PBS)** ](https://pbs.cs.berkeley.edu/) 計量會嘗試量化過期的機率，並將其顯示為計量。 若要檢視 PBS 計量，請在 Azure 入口網站中移至您的 Azure Cosmos 帳戶。 開啟 [計量] 窗格，然後選取 [一致性] 索引標籤。查看名為「依據您的工作負載，強式一致讀取的可能性 (請參閱 PBS)」的圖形。
+最終一致性的界定標準為何？ 針對平均案例，我們可根據版本記錄和時間來提供過期界限。 [**機率限定過期 (PBS)** ](https://pbs.cs.berkeley.edu/) 計量會嘗試量化過期的機率，並將其顯示為計量。 若要檢視 PBS 計量，請在 Azure 入口網站中移至您的 Azure Cosmos 帳戶。 開啟 [**計量**] 窗格，然後選取 [**一致性**] 索引標籤。**根據您的工作負載（請參閱 PBS）** 查看名為 [強式一致讀取] 機率的圖表。
 
 ![Azure 入口網站中的 PBS 圖形](./media/how-to-manage-consistency/pbs-metric.png)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: def0ac11edfa5a17a8e506c79d91885dd3c9ab66
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 924c2fd176b5b8e45352d616d226f484e814450d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770372"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849254"
 ---
 # <a name="understand-the-linux-hybrid-runbook-worker-health-in-update-management"></a>瞭解更新管理中的 Linux 混合式 Runbook 背景工作角色健全狀況
 
@@ -179,4 +179,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ## <a name="next-steps"></a>後續步驟
 
-若要針對「混合式 Runbook 背景工作角色」的其他問題進行疑難排解，請參閱[疑難排解 - 混合式 Runbook 背景工作角色](hybrid-runbook-worker.md)
+若要針對混合式 Runbook 背景工作角色的其他問題進行疑難排解，請參閱[疑難排解-混合式 runbook 背景工作角色](hybrid-runbook-worker.md)。

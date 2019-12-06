@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-ms.date: 07/01/2019
-ms.openlocfilehash: 9566ac7169144d984f9200734c99eb10368b3142
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/05/2019
+ms.openlocfilehash: 827fab0661a58bfa7d28452960ea6df64d18bf84
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823748"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873738"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 彈性查詢概觀 (預覽)
 
@@ -56,10 +56,10 @@ ms.locfileid: "73823748"
 彈性查詢的客戶案例可依下列拓撲區分特性：
 
 * **垂直資料分割 - 跨資料庫查詢** (拓撲 1)：資料會在資料層中的幾個資料庫之間以垂直方式分割。 一般而言，不同的資料表集位於不同的資料庫。 這表示不同資料庫的結構描述不同。 比方說，庫存的所有資料表都位於一個資料庫上，而所有會計相關資料表則位於另一個資料庫上。 此拓撲的常見使用案例會要求使用者跨多個資料庫中的資料表進行查詢或編譯報表。
-* **水平資料分割 - 分區化** (拓撲 2)：資料會以水平方式分割，以將資料列分散在相應放大的資料層中。 使用此方法時，所有參與資料庫的結構描述都相同。 這個方法也稱為「分區化」。 使用 (1) 彈性資料庫工具程式庫或 (2) 自行分區化可以執行和管理分區化。 彈性查詢用於查詢或編譯跨多個分區的報表。
+* **水平資料分割 - 分區化** (拓撲 2)：資料會以水平方式分割，以將資料列分散在相應放大的資料層中。 使用此方法時，所有參與資料庫的結構描述都相同。 這個方法也稱為「分區化」。 使用 (1) 彈性資料庫工具程式庫或 (2) 自行分區化可以執行和管理分區化。 彈性查詢用於查詢或編譯跨多個分區的報表。 分區通常是彈性集區中的資料庫。 只要資料庫共用通用架構，您就可以將彈性查詢視為一次查詢彈性集區的所有資料庫的有效方式。
 
 > [!NOTE]
-> 彈性查詢最適合可在外部來源端執行大部分處理 (篩選、彙總) 的報告案例。 它不適用於有大量資料要從遠端資料庫傳輸的 ETL 作業。 對於繁重的報告工作負載或有更多複雜查詢的資料倉儲案例，也請考慮使用 [Azure SQL 資料倉儲](https://azure.microsoft.com/services/sql-data-warehouse/)。
+> 彈性查詢最適合可在外部來源端執行大部分處理 (篩選、彙總) 的報告案例。 它不適用於有大量資料要從遠端資料庫傳輸的 ETL 作業。 針對繁重的報告工作負載或具有更複雜查詢的資料倉儲案例，也請考慮使用[Azure Synapse 分析](https://azure.microsoft.com/services/synapse-analytics)。
 >  
 
 ## <a name="vertical-partitioning---cross-database-queries"></a>垂直資料分割 - 跨資料庫查詢
@@ -117,6 +117,9 @@ ms.locfileid: "73823748"
 如需水平資料分割案例所需步驟的詳細資訊，請參閱 [水平資料分割的彈性查詢](sql-database-elastic-query-horizontal-partitioning.md)。
 
 若要開始撰寫程式碼，請參閱[開始使用彈性查詢進行水平資料分割 (分區化)](sql-database-elastic-query-getting-started.md)。
+
+> [!IMPORTANT]
+> 在大量資料庫上成功執行彈性查詢，會在查詢執行期間，高度依賴每個資料庫的可用性。 如果其中一個資料庫無法使用，整個查詢將會失敗。 如果您打算一次查詢數百個或數千個資料庫，請確定您的用戶端應用程式已內嵌重試邏輯，或考慮利用[彈性資料庫作業](https://docs.microsoft.com/azure/sql-database/sql-database-job-automation-overview#elastic-database-jobs-preview)（預覽）並查詢較小的資料庫子集，並將每個查詢的結果合併成單一目的地。
 
 ## <a name="t-sql-querying"></a>T-SQL 查詢
 

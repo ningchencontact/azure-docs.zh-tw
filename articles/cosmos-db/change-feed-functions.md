@@ -1,18 +1,18 @@
 ---
 title: 如何搭配 Azure Functions 使用 Azure Cosmos DB 變更摘要
-description: 搭配 Azure Functions 使用 Azure Cosmos DB 變更摘要
+description: 使用 Azure Functions 連接到 Azure Cosmos DB 變更摘要。 之後，您可以建立在每個新事件上觸發的被動 Azure 函式。
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 95fec1ef57c1d70ea484de9ad49b3410ed8594a4
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 215ecc1e392f8e7051173fb6f589fb940c26f17d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757060"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872242"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>具有 Azure Cosmos DB 和 Azure Functions 的無伺服器事件架構
 
@@ -30,7 +30,7 @@ Azure Functions 提供最簡單的方式來連接到[變更](change-feed.md)摘�
 若要執行無伺服器事件型流程，您需要：
 
 * **受監視的容器**：受監視的容器是受監視的 Azure Cosmos 容器，它會儲存產生變更摘要的資料。 受監視容器的任何插入、更新都會反映在容器的變更摘要中。
-* **租用容器**：租用容器會維護多個和動態無伺服器 Azure 函式實例之間的狀態，並啟用動態調整。 Cosmos DB 的 Azure Functions 觸發程式可以手動或自動建立此租用容器。 若要自動建立租用容器，[請在設定](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)中設定*CreateLeaseCollectionIfNotExists*旗標。 分割的租用容器必須要有 `/id` 的分割區索引鍵定義。
+* **租用容器**：租用容器會維護多個和動態無伺服器 Azure 函式實例之間的狀態，並啟用動態調整。 Cosmos DB 的 Azure Functions 觸發程式可以手動或自動建立此租用容器。 若要自動建立租用容器，請在[設定](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)中設定 *CreateLeaseCollectionIfNotExists* 旗標。 分割的租用容器必須要有 `/id` 的分割區索引鍵定義。
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>建立 Cosmos DB 的 Azure Functions 觸發程式
 

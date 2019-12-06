@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 查詢語言中的 ARRAY_CONCAT
-description: 深入瞭解 Azure Cosmos DB 中的 SQL 系統函數 ARRAY_CONCAT。
+description: 瞭解 Azure Cosmos DB 中的陣列 Concat SQL 系統函數如何傳回串連兩個或多個陣列值的結果陣列
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: ad973650ac205313f9045c170f99e15e385a82d1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 10370e16c95f4fc747dd3a66a56794da38562972
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348726"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871817"
 ---
 # <a name="array_concat-azure-cosmos-db"></a>ARRAY_CONCAT （Azure Cosmos DB）
  傳回串連兩個或多個陣列值之結果的陣列。  
@@ -26,7 +26,7 @@ ARRAY_CONCAT (<arr_expr1>, <arr_expr2> [, <arr_exprN>])
 ## <a name="arguments"></a>引數
   
 *arr_expr*  
-   這是要串連至其他值的陣列運算式。 @No__t-0 函數需要至少兩個*arr_expr*引數。  
+   這是要串連至其他值的陣列運算式。 `ARRAY_CONCAT` 函數需要至少兩個*arr_expr*引數。  
   
 ## <a name="return-types"></a>傳回類型
   

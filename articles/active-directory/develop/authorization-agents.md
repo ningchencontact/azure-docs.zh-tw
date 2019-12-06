@@ -2,27 +2,23 @@
 title: 授權代理程式和如何啟用它們 |Azure
 description: 瞭解不同的授權代理程式 Microsoft 驗證程式庫（MSAL）可讓您的 Android app 使用，以及如何加以啟用。
 services: active-directory
-documentationcenter: dev-center-name
 author: tylermsft
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/05/2019
 ms.author: twhitney
-ms.reviewer: ''
+ms.reviewer: shoatman, brianmel, hahamil
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7daf40d6c6e552d6b76e424359f57f031641039
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 44a0e93c87c50fbc63cddad349ec9b5fbf45d91f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679811"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843898"
 ---
 # <a name="authorization-agents-android"></a>授權代理程式 (Android)
 
@@ -83,15 +79,15 @@ MSAL 會抓取裝置上安裝的完整瀏覽器清單，以選取要使用的瀏
 
 | | 內建瀏覽器 | Chrome | Opera  | Microsoft Edge | UC 瀏覽器 | Firefox |
 | -- |:-------------:| -----:|-----:|-----:|-----:|-----:|
-| 結點4（API 17） | 密碼 | 密碼 |不適用 |不適用 |不適用 |不適用 |
-| Samsung S7 （API 25） | 密碼 | 密碼 | 密碼 | 密碼 | 無法 |密碼 |
-| Huawei （API 26） |pass * * | 密碼 | 無法 | 密碼 | 密碼 |密碼 |
-| Vivo （API 26） |密碼|密碼|密碼|密碼|密碼|無法|
-| 圖元2（API 26） |密碼 | 密碼 | 密碼 | 密碼 | 無法 |密碼 |
-| Oppo | 密碼 | 不適用 * * * |不適用  |不適用 |不適用 | 不適用|
-| OnePlus （API 25） |密碼 | 密碼 | 密碼 | 密碼 | 無法 |密碼 |
-| 結點（API 28） |密碼 | 密碼 | 密碼 | 密碼 | 無法 |密碼 |
-|MI | 密碼 | 密碼 | 密碼 | 密碼 | 無法 |密碼 |
+| 結點4（API 17） | 傳遞 | 傳遞 |不適用 |不適用 |不適用 |不適用 |
+| Samsung S7 （API 25） | 密碼 | 傳遞 | 傳遞 | 傳遞 | 失敗 |傳遞 |
+| Huawei （API 26） |pass * * | 傳遞 | 失敗 | 傳遞 | 傳遞 |傳遞 |
+| Vivo （API 26） |傳遞|傳遞|傳遞|傳遞|傳遞|失敗|
+| 圖元2（API 26） |傳遞 | 傳遞 | 傳遞 | 傳遞 | 失敗 |傳遞 |
+| Oppo | 傳遞 | 不適用 * * * |不適用  |不適用 |不適用 | 不適用|
+| OnePlus （API 25） |傳遞 | 傳遞 | 傳遞 | 傳遞 | 失敗 |傳遞 |
+| 結點（API 28） |傳遞 | 傳遞 | 傳遞 | 傳遞 | 失敗 |傳遞 |
+|MI | 傳遞 | 傳遞 | 傳遞 | 傳遞 | 失敗 |傳遞 |
 
 \* Samsung 的內建瀏覽器是 Samsung Internet。  
 \* * Huawei 的內建瀏覽器為 Huawei 瀏覽器。  

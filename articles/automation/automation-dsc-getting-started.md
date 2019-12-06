@@ -4,17 +4,17 @@ description: Azure Automation State Configuration (DSC) 中最常見工作的說
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f943aac4a91217983963fac6f8d0b2b3ba6895a1
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 9fce9a769dd6d88c9926913d22716666284938c1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243617"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850953"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>開始使用 Azure Automation State Configuration
 
@@ -176,7 +176,7 @@ Azure 會啟動 VM 上線的程序。 完成時，VM 會顯示在自動化帳戶
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 依序按一下左側的 [所有資源] 和您的自動化帳戶名稱。
 1. 在 [自動化帳戶] 刀鋒視窗上，按一下 [組態管理] 之下的 [State Configuration (DSC)]。
-1. 在 [State Configuration (DSC)] 頁面上，按一下 [節點] 索引標籤。在這裡，您可以看到組態狀態的概觀和每個節點的詳細資料。
+1. 在 [ **State configuration （DSC）** ] 頁面上，按一下 [**節點**] 索引標籤。在這裡，您可以看到設定狀態的總覽，以及每個節點的詳細資料。
 
    ![[節點] 頁面的螢幕擷取畫面](./media/automation-dsc-getting-started/NodesTab.png)
 

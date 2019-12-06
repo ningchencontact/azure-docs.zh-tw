@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: b0056df16dccaf1dc7e94aad1a2c6c262ffd89ee
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1299ca9192481c1cc914732d47823c1d8cbd0fae
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383369"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849066"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>使用 Azure 資料總管查詢 Azure Data Lake 中的資料（預覽）
 
@@ -21,20 +21,15 @@ Azure Data Lake Storage 是可高度擴充且符合成本效益的 data Lake 解
 Azure 資料總管與 Azure Blob 儲存體和 Azure Data Lake Storage Gen2 整合，提供對 Lake 中資料的快速、快取和索引存取。 您可以分析並查詢 lake 中的資料，而不需要事先內嵌到 Azure 資料總管。 您也可以同時在內嵌和 uningested 原生 lake data 之間進行查詢。  
 
 > [!TIP]
-> 最佳查詢效能會在 Azure 資料總管中內嵌資料。 在沒有先前內嵌的情況下，在 Azure Data Lake Storage Gen2 中查詢資料的功能，只應用於不常查詢的歷程記錄資料或資料。
+> 最佳查詢效能會在 Azure 資料總管中內嵌資料。 在沒有先前內嵌的情況下，在 Azure Data Lake Storage Gen2 中查詢資料的功能，只應用於不常查詢的歷程記錄資料或資料。 [優化 lake 中的查詢效能](#optimize-your-query-performance)以獲得最佳結果。
  
-## <a name="optimize-query-performance-in-the-lake"></a>將 lake 中的查詢效能優化 
-
-* 分割資料以改善效能和優化查詢時間。
-* 壓縮資料以提升效能（gzip 以獲得最佳壓縮，lz4 以達到最佳效能）。
-* 使用 Azure Blob 儲存體或 Azure Data Lake Storage Gen2 與您的 Azure 資料總管叢集相同的區域。 
 
 ## <a name="create-an-external-table"></a>建立外部資料表
 
  > [!NOTE]
  > 目前支援的儲存體帳戶 Azure Blob 儲存體或 Azure Data Lake Storage Gen2。 目前支援的資料格式為 json、csv、tsv 和 txt。
 
-1. `.create external table`使用命令在 Azure 資料總管中建立外部資料表。 `.show`其他外部資料表命令，例如、 `.drop`和`.alter` ，會記錄在[外部資料表命令](/azure/kusto/management/externaltables)中。
+1. 使用 `.create external table` 命令在 Azure 資料總管中建立外部資料表。 其他外部資料表命令，例如 `.show`、`.drop`和 `.alter` 會記錄在[外部資料表命令](/azure/kusto/management/externaltables)中。
 
     ```Kusto
     .create external table ArchivedProducts(
@@ -50,7 +45,7 @@ Azure 資料總管與 Azure Blob 儲存體和 Azure Data Lake Storage Gen2 整�
     > * 需要更細微的資料分割，以提高效能。 例如，針對具有每日分割區的外部資料表進行查詢，其效能會比具有每月分割資料表的查詢更好。
     > * 當您定義具有資料分割的外部資料表時，儲存結構應該是相同的。
 例如，如果資料表是以 yyyy/MM/dd 格式（預設值）中的 DateTime 資料分割來定義，則 URI 儲存檔案路徑應該是*container1/yyyy/MM/dd/all_exported_blobs*。 
-    > * 如果外部資料表是依日期時間資料行進行分割，請一律在查詢中包含已關閉範圍的時間篩選（例如，查詢`ArchivedProducts | where Timestamp between (ago(1h) .. 10m)` ，其執行效能應高於此（已開啟的範圍） `ArchivedProducts | where Timestamp > ago(1h)`一）。 
+    > * 如果外部資料表是依日期時間資料行進行分割，請一律在查詢中包含已關閉範圍的時間篩選（例如，查詢 `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)` 應該比這個（已開啟的範圍）一 `ArchivedProducts | where Timestamp > ago(1h)`）更好。 
 
 1. 外部資料表會顯示在 Web UI 的左窗格中
 
@@ -60,7 +55,7 @@ Azure 資料總管與 Azure Blob 儲存體和 Azure Data Lake Storage Gen2 整�
 
 您可以使用 json 格式建立外部資料表。 如需詳細資訊，請參閱[外部資料表命令](/azure/kusto/management/externaltables)
 
-1. 使用命令來建立名為 ExternalTableJson 的資料表： `.create external table`
+1. 使用 `.create external table` 命令來建立名為*ExternalTableJson*的資料表：
 
     ```kusto
     .create external table ExternalTableJson (rownumber:int, rowguid:guid) 
@@ -91,7 +86,7 @@ Azure 資料總管與 Azure Blob 儲存體和 Azure Data Lake Storage Gen2 整�
  
 ## <a name="query-an-external-table"></a>查詢外部資料表
  
-若要查詢外部資料表，請使用`external_table()`函數，並提供資料表名稱做為函式引數。 查詢的其餘部分是標準的 Kusto 查詢語言。
+若要查詢外部資料表，請使用 `external_table()` 函數，並提供資料表名稱做為函式引數。 查詢的其餘部分是標準的 Kusto 查詢語言。
 
 ```Kusto
 external_table("ArchivedProducts") | take 100
@@ -102,7 +97,7 @@ external_table("ArchivedProducts") | take 100
 
 ### <a name="query-an-external-table-with-json-format"></a>使用 json 格式查詢外部資料表
 
-若要查詢具有 json 格式的外部資料表，請`external_table()`使用函式，並提供資料表名稱和對應名稱做為函式引數。 在下面的查詢中，如果未指定*mappingName* ，則會使用您先前建立的對應。
+若要查詢具有 json 格式的外部資料表，請使用 `external_table()` 函式，並提供資料表名稱和對應名稱做為函式引數。 在下面的查詢中，如果未指定*mappingName* ，則會使用您先前建立的對應。
 
 ```kusto
 external_table(‘ExternalTableJson’, ‘mappingName’)
@@ -110,7 +105,7 @@ external_table(‘ExternalTableJson’, ‘mappingName’)
 
 ## <a name="query-external-and-ingested-data-together"></a>同時查詢外部和內嵌資料
 
-您可以在相同的查詢中同時查詢外部資料表和內嵌資料表。 您[`join`](/azure/kusto/query/joinoperator) [或`union`](/azure/kusto/query/unionoperator)外部資料表包含 Azure 資料總管、SQL server 或其他來源的其他資料。 [`let( ) statement`](/azure/kusto/query/letstatement)使用將縮寫名稱指派給外部資料表參考。
+您可以在相同的查詢中同時查詢外部資料表和內嵌資料表。 您[`join`](/azure/kusto/query/joinoperator)或[`union`](/azure/kusto/query/unionoperator)外部資料表，其中包含來自 Azure 資料總管、SQL server 或其他來源的其他資料。 使用[`let( ) statement`](/azure/kusto/query/letstatement)將縮寫名稱指派給外部資料表參考。
 
 在下列範例中，*產品*是內嵌的資料表，而*ArchivedProducts*是包含 Azure Data Lake Storage Gen2 中資料的外部資料表：
 
@@ -231,6 +226,37 @@ external_table("TaxiRides")
 ![呈現分割的查詢](media/data-lake-query-data/taxirides-with-partition.png)
   
 您可以撰寫要在外部資料表*TaxiRides*上執行的其他查詢，並深入瞭解資料。 
+
+## <a name="optimize-your-query-performance"></a>優化您的查詢效能
+
+使用下列查詢外部資料的最佳作法，將您在 lake 中的查詢效能優化。 
+ 
+### <a name="data-format"></a>資料格式
+ 
+自起，請使用單欄式格式進行分析查詢：
+* 只可以讀取查詢的相關資料行。 
+* 資料行編碼技術可以大幅減少資料大小。  
+Azure 資料總管支援 Parquet 和 ORC 的單欄式格式。 建議採用 Parquet 格式，因為它是優化的執行。 
+ 
+### <a name="azure-region"></a>Azure 區域 
+ 
+確定外部資料與您的 Azure 資料總管叢集位於相同的 Azure 區域中。 這可降低成本和資料提取時間。
+ 
+### <a name="file-size"></a>檔案大小
+ 
+最佳檔案大小為每個檔案數百 Mb （最多 1 Gb）。 避免許多需要額外負荷的小型檔案，例如檔案列舉程式較慢，以及使用單欄式格式的有限用法。 請注意，檔案數目必須大於 Azure 資料總管叢集中的 CPU 核心數目。 
+ 
+### <a name="compression"></a>壓縮
+ 
+使用壓縮來減少從遠端存放裝置提取的資料量。 針對 Parquet 格式，使用內部 Parquet 壓縮機制，以個別壓縮資料行群組，因此可讓您個別讀取它們。 若要驗證壓縮機制的使用，請檢查檔案的命名方式如下： "<filename>. gz. parquet" 或 "<filename>. snappy. parquet"，而不是 "<filename>. parquet"）。 
+ 
+### <a name="partitioning"></a>分割
+ 
+使用「資料夾」分割區來組織您的資料，讓查詢略過無關的路徑。 規劃資料分割時，請考慮查詢中的檔案大小和一般篩選器，例如時間戳記或租使用者識別碼。
+ 
+### <a name="vm-size"></a>VM 大小
+ 
+選取具有更多核心的 VM Sku 和較高的網路輸送量（記憶體較不重要）。 如需詳細資訊，請參閱[為您的 Azure 資料總管叢集選取正確的 VM SKU](manage-cluster-choose-sku.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

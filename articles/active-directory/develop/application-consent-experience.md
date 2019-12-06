@@ -3,7 +3,6 @@ title: 了解 Azure AD 應用程式同意體驗
 titleSuffix: Microsoft identity platform
 description: 深入了解 Azure AD 同意的運作方式，以了解如何在管理和開發搭配 Azure AD 執行的應用程式時使用它
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: ''
@@ -11,19 +10,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4356a0a26aa586f99766cc5166c17d301a9a194d
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: ddffe07ec22e21671a1350eeb29d367166fe2799
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803912"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844221"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>了解 Azure AD 應用程式同意體驗
 

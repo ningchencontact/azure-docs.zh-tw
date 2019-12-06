@@ -3,27 +3,23 @@ title: 自訂瀏覽器和 WebViews
 titleSuffix: Microsoft identity platform
 description: 瞭解如何自訂 MSAL for iOS 和 macOS 用來登入使用者的瀏覽器體驗
 services: active-directory
-documentationcenter: dev-center-name
 author: tylermsft
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: twhitney
-ms.reviewer: ''
+ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcb314e46094bb6c283a17508c35b7fc17e010e5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 69b1e217bfa64ad08136e2763716d455332c5ba4
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803369"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843320"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>How to：自訂 iOS/macOS 的瀏覽器和網站
 
@@ -72,9 +68,9 @@ MSAL for macOS 僅支援 `WKWebView`。
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
 | [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 和 up | macOS 10.15 及更新的 | 是 | 僅限 iOS | w/Safari 實例
 | [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System | iOS11 和 up | N/A | 是 | 僅限 iOS |  w/Safari 實例
-| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 和 up | N/A | 否 | 僅限 iOS | 否 * *
+| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 和 up | N/A | 否 | 僅限 iOS | 否**
 | **SFSafariViewController** | System | iOS10 | N/A | 是 | 僅限 iOS |  w/Safari 實例
-| **WKWebView**  | 應用程式內 | iOS8 和 up | macOS 10.10 及更新的 | 否 | iOS 和 macOS | 否 * *
+| **WKWebView**  | 應用程式內 | iOS8 和 up | macOS 10.10 及更新的 | 否 | iOS 和 macOS | 否**
 
 \* * 若要讓 SSO 正常執行，必須在應用程式之間共用權杖。 這需要權杖快取或 broker 應用程式，例如適用于 iOS 的 Microsoft Authenticator。
 

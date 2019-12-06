@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 查詢語言中的 COT
-description: 深入瞭解 Azure Cosmos DB 中的 SQL 系統函數 COT。
+description: 瞭解 Azure Cosmos DB 中的餘切（COT） SQL 系統函數如何在指定的數值運算式中傳回指定角度的三角餘切值（以弧度為單位）
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d980319730e69fdcb529272ba1b8fb48d2b5b230
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: f049d1295eef3e6a45abeaafe8c22d376f90abe1
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351240"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871494"
 ---
 # <a name="cot-azure-cosmos-db"></a>COT （Azure Cosmos DB）
  在指定的數值運算式中傳回指定角度的三角餘切函數，以弧度為單位。  

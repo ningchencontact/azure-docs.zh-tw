@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 1588a27453dbc223e6aa1dd993905d274e5e1242
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: d74bd67dedb70308061e54c05d23a4bb63adc8f8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480331"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851327"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>從 CSP 入口網站建立和管理 Azure IoT Central 應用程式
 
@@ -61,7 +61,7 @@ Azure Active Directory 租用戶包含使用者身分識別、認證和其他組
 
 若要深入了解，請參閱 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)。
 
-## <a name="azure-subscription"></a>Azure 訂閱
+## <a name="azure-subscription"></a>Azure 訂用帳戶
 
 Azure 訂用帳戶可讓您建立 Azure 服務執行個體。 Azure IoT Central 會自動尋找您可以存取的客戶所擁有的所有 Azure 訂用帳戶，並顯示於 [建立應用程式] 頁面的下拉式清單中。 選擇 Azure 訂用帳戶，以建立新的 Azure IoT 中心應用程式。
 
@@ -69,23 +69,23 @@ Azure 訂用帳戶可讓您建立 Azure 服務執行個體。 Azure IoT Central 
 
 若要深入了解，請參閱 [Azure 訂用帳戶](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)。
 
-## <a name="region"></a>區域
+## <a name="region"></a>地區
 
 選擇您想要建立 Azure IoT Central 應用程式的地區或[地理](https://azure.microsoft.com/global-infrastructure/geographies/)位置。 一般來說，您應該選擇最接近您裝置的區域，以取得最佳效能。
 
 > [!NOTE]
-> 預覽應用程式範本目前僅適用于**歐洲**與**美國**地區。
+> 預覽應用程式範本目前僅適用于**歐洲**和**美國**地區。
 
 若要深入瞭解，請參閱[azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)和[azure 地理](https://azure.microsoft.com/global-infrastructure/geographies/)位置。
 
 您可以在[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central)頁面上，看到可以使用 Azure IoT 中心的區域。
 
 > [!Note]
-> 選擇區域後，即無法將應用程式移到不同的區域。
+> 選擇區域後，之後便無法將應用程式移到不同的區域。
 
 ## <a name="application-template"></a>應用程式範本
 
-您可以為新的 Azure IoT 中心應用程式，選擇其中一個可用的應用程式範本。 應用程式範本可包含預先定義的項目 (例如裝置範本和儀表板)，協助您開始使用。
+您可以為新的 Azure IoT 中心應用程式，選擇其中一個可用的應用程式範本。 應用程式範本可以包含預先定義的項目 (例如裝置範本和儀表板)，協助您開始使用。
 
 | 應用程式範本 | 描述 |
 | -------------------- | ----------- |

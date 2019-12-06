@@ -6,16 +6,16 @@ author: antvgski
 manager: igorstan
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f05e54a3dd4b69fff2bc7d122391d145b222b295
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 49a250a43c7b2654e1317981c853b0117fa0cf28
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692562"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851786"
 ---
 # <a name="database-collation-support-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲的資料庫定序支援
 
@@ -100,5 +100,9 @@ ms.locfileid: "73692562"
 *   SQL_EBCDIC277_2_CP1_CS_AS
 
 ## <a name="checking-the-current-collation"></a>檢查目前的定序
-若要檢查資料庫的目前定序，您可以執行下列 T-sql 程式碼片段：選取 DATABASEPROPERTYEX （DB_NAME （），' 定序 '）做為定序;當傳遞 ' 定序 ' 做為屬性參數時，DatabasePropertyEx 函數會傳回所指定資料庫的目前定序。 您可以在 MSDN 上深入瞭解 DatabasePropertyEx 函數。
+若要檢查資料庫的目前定序，您可以執行下列 T-sql 程式碼片段：
+```sql
+SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
+```
+當傳遞 ' 定序 ' 做為屬性參數時，DatabasePropertyEx 函數會傳回所指定資料庫的目前定序。 您可以在 MSDN 上深入瞭解 DatabasePropertyEx 函數。
 

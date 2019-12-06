@@ -1,17 +1,17 @@
 ---
 title: 了解如何在 Azure Cosmos DB 中管理區域之間的衝突
-description: 了解如何在 Azure Cosmos DB 中管理衝突
+description: 瞭解如何藉由建立最後寫入者為准或自訂衝突解決原則，管理 Azure Cosmos DB 中的衝突
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 12/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4c62fcc81eb3b045d3b4233e1bb3770ecb9865b3
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 9aab8f9bd202728f8882377f8249f6ebb99f3362
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388092"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873687"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理衝突解決原則
 

@@ -1,30 +1,26 @@
 ---
-title: 應用程式的服務及隱私權聲明條款 |Azure
+title: 應用程式的服務條款和隱私權聲明 |Azure
 description: 了解如何為註冊使用 Azure AD 的應用程式，設定服務條款和隱私權聲明。
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a01b50573405964b09339d03e84c62dbdd8582
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 9ca59120bcfadc6c75e3687be84a0e70f97fc3c2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482858"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842795"
 ---
-# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>作法：設定應用程式的服務及隱私權聲明條款
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>如何：設定應用程式的服務條款和隱私權聲明
 
 開發人員所建置和管理的應用程式若與 Azure Active Directory (Azure AD) 和 Microsoft 帳戶整合，就應該包含應用程式服務條款和隱私權聲明的連結。 使用者會透過使用者同意體驗看到服務條款和隱私權聲明。 服務條款和隱私權聲明可協助使用者了解應用程式是可信的。 對於面向使用者的多租用戶應用程式 (供多個目錄使用或可供任何 Microsoft 帳戶使用的應用程式) 來說，服務條款和隱私權聲明特別重要。
 
@@ -61,15 +57,15 @@ ms.locfileid: "67482858"
 * [使用 MSGraph 搶鮮版 (Beta) REST API](#msgraph-beta-rest-api)
 
 ### <a name="azure-portal"></a>使用 Azure 入口網站
-遵循下列步驟在 Azure 入口網站中。
+請依照 Azure 入口網站中的步驟執行。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 瀏覽至 [應用程式註冊]  區段，然後選取應用程式。
-3. 開啟**商標**窗格。
-4. 填妥 [服務條款 URL]  和 [隱私權聲明 URL]  欄位。
+2. 瀏覽至 [應用程式註冊] 區段，然後選取應用程式。
+3. 開啟 [**商標**] 窗格。
+4. 填妥 [服務條款 URL] 和 [隱私權聲明 URL] 欄位。
 5. 儲存您的變更。
 
-    ![應用程式屬性包含服務和隱私權的陳述式 Url 中的條款](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![應用程式屬性包含服務條款和隱私權聲明 Url](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>使用應用程式物件 JSON
 

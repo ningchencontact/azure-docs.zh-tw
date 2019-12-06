@@ -2,27 +2,24 @@
 title: Microsoft 身分識別平臺帳戶和租使用者設定檔（Android） |Azure
 description: 瞭解適用于 Android 的 Microsoft 身分識別平臺帳戶
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.devlang: java
 ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7beab6759524037f86c83429644c1bb1fffe4d07
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 9af7d8c5a1793b34dd609c2cfd68fb468884ef8f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679837"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845717"
 ---
 # <a name="accounts--tenant-profiles-android"></a>帳戶和租用戶設定檔 (Android)
 
@@ -32,10 +29,10 @@ Microsoft 驗證程式庫（MSAL） API 會以「*帳戶*」詞彙取代「*使�
 
 Microsoft 身分識別平臺中的帳戶包含：
 
-  - 唯一識別碼。
-  - 一或多個用來示範帳戶擁有權/控制的認證。
-  - 包含屬性的一或多個設定檔，例如：
-    - 圖片，名字，系列名稱，標題，辦公室位置
+- 唯一識別碼。  
+- 一或多個用來示範帳戶擁有權/控制的認證。
+- 包含屬性的一或多個設定檔，例如：
+  - 圖片，名字，系列名稱，標題，辦公室位置
 - 帳戶具有「授權」或「記錄」系統的來源。 這是建立帳戶的系統，以及與該帳戶相關聯之認證的儲存位置。 在像是 Microsoft 身分識別平臺的多租使用者系統中，記錄的系統是建立帳戶的 `tenant`。 此租使用者也稱為 `home tenant`。
 - Microsoft 身分識別平臺中的帳戶具有下列記錄系統：
   - Azure Active Directory，包括 Azure Active Directory B2C。
@@ -49,7 +46,6 @@ Microsoft 身分識別平臺中的帳戶包含：
   - 此本機記錄（這是帳戶的標記法）會系結至原始帳戶。
   - MSAL 會將此本機記錄公開為 `Tenant Profile`。
   - 租使用者設定檔可以有適用于本機內容的不同屬性，例如作業標題、辦公室位置、連絡人資訊等。
- 
 - 因為一個或多個租使用者中可能有一個帳戶，所以一個帳戶可能會有一個以上的設定檔。
 
 > [!NOTE]
@@ -110,7 +106,7 @@ IAccount account = app.getAccount("<tom@live.com woodgrovebank user object id>")
 
 雖然帳戶可能是多個組織中的成員或來賓，但 MSAL 並不會查詢服務來取得帳戶為其成員的租使用者清單。 相反地，MSAL 會建立帳戶所在的租使用者清單，這是已提出的權杖要求所產生的結果。
 
-帳戶物件上公開的宣告一律是帳戶的「主要租使用者」/{authority} 中的宣告。 如果該帳戶尚未用來要求其主租使用者的權杖，MSAL 就無法透過帳戶物件提供宣告。  例如︰
+帳戶物件上公開的宣告一律是帳戶的「主要租使用者」/{authority} 中的宣告。 如果該帳戶尚未用來要求其主租使用者的權杖，MSAL 就無法透過帳戶物件提供宣告。  例如：
 
 ```java
 // Psuedo Code
@@ -130,7 +126,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 
 ### <a name="access-tenant-profile-claims"></a>存取租使用者設定檔宣告
 
-若要存取帳戶出現在其他租使用者中的相關宣告，您必須先將您的帳戶物件轉換成 `IMultiTenantAccount`。 所有帳戶都可以是多租使用者，但可透過 MSAL 取得的租使用者設定檔數目，是根據您已向使用目前帳戶的權杖所要求的 tenant。  例如︰
+若要存取帳戶出現在其他租使用者中的相關宣告，您必須先將您的帳戶物件轉換成 `IMultiTenantAccount`。 所有帳戶都可以是多租使用者，但可透過 MSAL 取得的租使用者設定檔數目，是根據您已向使用目前帳戶的權杖所要求的 tenant。  例如：
 
 ```java
 // Psuedo Code
@@ -145,7 +141,7 @@ multiTenantAccount.getTenantProfiles().get("tenantid for contoso").getClaims().g
 
 帳戶的重新整理權杖不會在 B2C 原則之間共用。 因此，無法使用權杖來進行單一登入。 這並不表示無法進行單一登入。 這表示單一登入必須使用互動式體驗，其中有可用的 cookie 可啟用單一登入。
 
-這也表示，在 MSAL 的案例中，如果您使用不同的 B2C 原則取得權杖，則會將這些視為個別的帳戶，而每個都有自己的識別碼。 如果您想要使用帳戶來要求使用 `acquireTokenSilent`的權杖，則必須從符合您要與權杖要求搭配使用之原則的帳戶清單中選取帳戶。 例如︰
+這也表示，在 MSAL 的案例中，如果您使用不同的 B2C 原則取得權杖，則會將這些視為個別的帳戶，而每個都有自己的識別碼。 如果您想要使用帳戶來要求使用 `acquireTokenSilent`的權杖，則必須從符合您要與權杖要求搭配使用之原則的帳戶清單中選取帳戶。 例如：
 
 ```java
 // Get Account For Policy

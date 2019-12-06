@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB 中的資料分割
-description: Azure Cosmos DB 中的資料分割總覽。
+description: 瞭解 Azure Cosmos DB 中的資料分割、選擇資料分割索引鍵時的最佳作法，以及如何管理邏輯分割區
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 38b4e4c2541bf30bd9c95d9c0ec61779b0d1d7bb
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.date: 12/02/2019
+ms.openlocfilehash: c781c5e12f3f678ef640c6017a768e7ac14448f9
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753250"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871987"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB 中的資料分割
 

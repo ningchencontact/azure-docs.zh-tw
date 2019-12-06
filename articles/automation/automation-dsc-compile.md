@@ -4,17 +4,17 @@ description: 此文章說明如何針對 Azure 自動化編譯期望狀態設定
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d3cca9d8954d9ac158d88b393c46672da3faa19
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fdea8ed9a9e59a169a6ffb525ed286eb7d1ada53
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231726"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850902"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>編譯 Azure Automation State Configuration 中的 DSC 組態
 
@@ -124,7 +124,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ### <a name="compiling-configurations-in-azure-automation-that-contain-composite-resources"></a>在包含複合資源的 Azure 自動化中編譯設定
 
-**複合資源**可讓您使用 DSC 組態作為組態內的巢狀資源。 這可讓您將多個組態套用至單一資源。 如需深入了解[複合資源](/powershell/scripting/dsc/resources/authoringresourcecomposite)，請參閱**複合資源：使用 DSC 組態作為資源**。
+**複合資源**可讓您使用 DSC 組態作為組態內的巢狀資源。 這可讓您將多個組態套用至單一資源。 如需深入了解**複合資源**，請參閱[複合資源：使用 DSC 組態作為資源](/powershell/scripting/dsc/resources/authoringresourcecomposite)。
 
 > [!NOTE]
 > 為了讓包含**複合資源**的設定正確編譯，您必須先確定複合依賴的任何 DSC 資源都已先匯入 Azure 自動化。
@@ -189,9 +189,9 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ### <a name="working-with-assets-in-azure-automation-during-compilation"></a>在編譯期間使用 Azure 自動化中的資產
 
-Azure Automation State Configuration 和 Runbook 中的資產參考是相同的。 如需詳細資訊，請參閱下列主題：
+Azure Automation State Configuration 和 Runbook 中的資產參考是相同的。 如需詳細資訊，請參閱下列：
 
-- [Certificates](automation-certificates.md)
+- [憑證](automation-certificates.md)
 - [連線](automation-connections.md)
 - [認證](automation-credentials.md)
 - [變數](automation-variables.md)
@@ -202,7 +202,7 @@ Azure 自動化中的 DSC 組態可以使用 `Get-AutomationPSCredential` Cmdlet
 
 要在節點組態 (MOF 組態文件) 中保持認證的安全性，需要在節點組態 MOF 檔案中為認證加密。 不過，目前您必須告知 PowerShell DSC 在節點組態 MOF 產生期間以純文字形式輸出認證是可行的，因為 PowerShell DSC 並不知道在透過編譯工作產生 MOF 檔案之後 Azure 自動化會加密整個檔案。
 
-您可以告訴 PowerShell DSC，使用設定資料在產生的節點設定 Mof 中以純文字輸出認證是正常的。 您應針對每個出現在 DSC 組態中且使用認證的節點區塊名稱，透過 `PSDscAllowPlainTextPassword = $true`ConfigurationData**傳遞**。
+您可以告訴 PowerShell DSC，使用設定資料在產生的節點設定 Mof 中以純文字輸出認證是正常的。 您應針對每個出現在 DSC 組態中且使用認證的節點區塊名稱，透過 **ConfigurationData** 傳遞 `PSDscAllowPlainTextPassword = $true`。
 
 下列範例說明使用自動化認證資產的 DSC 組態。
 
@@ -289,8 +289,8 @@ Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomatio
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要開始使用，請參閱[開始使用 Azure Automation State Configuration](automation-dsc-getting-started.md)。
+- 若要開始使用，請參閱[開始使用 Azure 自動化狀態設定](automation-dsc-getting-started.md)
 - 若要了解如何編譯 DSC 組態，以將它們指派給目標節點，請參閱[編譯 Azure Automation State Configuration 中的組態](automation-dsc-compile.md)
 - 如需 PowerShell Cmdlet 參考，請參閱 [Azure 自動化狀態設定 Cmdlet](/powershell/module/azurerm.automation/#automation)
 - 如需定價資訊，請參閱 [Azure 自動化狀態設定的定價](https://azure.microsoft.com/pricing/details/automation/)
-- 若要查看在持續部署管線中使用 Azure Automation State Configuration 的範例，請參閱[使用 Azure Automation State Configuration 和 Chocolatey 的持續部署](automation-dsc-cd-chocolatey.md)
+- 若要查看在持續部署管線中使用 Azure 自動化狀態設定的範例，請參閱[使用 Azure 自動化狀態設定和 Chocolatey 的持續部署](automation-dsc-cd-chocolatey.md)

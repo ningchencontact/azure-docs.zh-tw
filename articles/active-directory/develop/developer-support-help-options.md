@@ -2,27 +2,24 @@
 title: Azure AD 應用程式開發人員的支援和協助選項 | Microsoft Docs
 description: 了解如何在建立應用程式以與 Microsoft 身分識別 (Azure Active Directory 和 Microsoft 帳戶) 整合時，取得開發相關疑難和問題的協助和支援
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a160f78f69ed559c576147e9758c837d5ae9b77e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 3f1c6d89af1d88be9a241c94462b17edf0c93de2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429975"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843184"
 ---
 # <a name="support-and-help-options-for-developers"></a>開發人員的支援和協助選項
 
@@ -84,7 +81,7 @@ Stack Overflow 的下列貼文包含如何提出問題以及如何新增原始�
 如需程式庫及其 GitHub 存放庫的清單，請參閱下列各項：
 
 * [ADAL](active-directory-authentication-libraries.md) 程式庫以及 GitHub 存放庫
-* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md)、 [MSAL。Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)和[MSAL .obj _c](https://github.com/AzureAD/microsoft-authentication-library-for-objc)程式庫和 GitHub 存放庫
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md)、 [MSAL。Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)和[MSAL obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc)程式庫和 GitHub 存放庫
 
 ## <a name="open-a-support-request"></a>開啟支援要求
 

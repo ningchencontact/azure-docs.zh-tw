@@ -9,19 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53ef51d52e699612508a446acbc075f766565d63
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 12726a1ad9b04bdfe2cd279d36a696bb011e4122
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803505"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845343"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>操作說明：為租用戶中特定應用程式的權杖，自訂發出的宣告 (預覽)
 
@@ -298,7 +296,7 @@ ms.locfileid: "72803505"
 | User | department|部門|
 | User | onpremisessamaccountname | 內部部署 SAM 帳戶名稱 |
 | User | netbiosname| NetBios 名稱 |
-| User | dnsdomainname | DNS 功能變數名稱 |
+| User | dnsdomainname | DNS 網域名稱 |
 | User | onpremisesecurityidentifier | 內部部署安全識別碼 |
 | User | companyname| 組織名稱 |
 | User | streetaddress | 街道地址 |

@@ -1,22 +1,22 @@
 ---
 title: 使用 Azure Cosmos DB 中的唯一索引鍵
-description: 了解如何在 Azure Cosmos 資料庫中使用唯一索引鍵
+description: 瞭解如何定義和使用 Azure Cosmos 資料庫的唯一索引鍵。 本文也描述唯一索引鍵如何增加資料的完整性層級。
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/02/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4a929566d464f8548c4bffeb9f89099e77722e67
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: f234579c6fb2b6f1bc0cd518b87ea69fae30093a
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756779"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869828"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一索引鍵限制式
 
-唯一索引鍵為 Azure Cosmos 容器加入一層資料完整性。 您會在建立 Cosmos 容器時建立唯一索引鍵原則。 利用唯一索引鍵，您就能確保邏輯分割區內一或多個值是唯一的。 您也可以確保每[分割區索引鍵](partition-data.md)的唯一性。 
+唯一索引鍵為 Azure Cosmos 容器加入一層資料完整性。 您會在建立 Cosmos 容器時建立唯一索引鍵原則。 利用唯一索引鍵，您就能確保邏輯分割區內一或多個值是唯一的。 您也可以確保每[分割區索引鍵](partition-data.md)的唯一性。
 
 使用唯一索引鍵原則建立容器之後，就無法建立新的或更新的現有專案，而導致邏輯分割區內的重複，如 unique key 條件約束所指定。 與唯一索引鍵結合的分割區索引鍵可保證項目在容器範圍內的唯一性。
 
@@ -45,13 +45,13 @@ ms.locfileid: "72756779"
 
 * 若要為現有容器設定唯一索引鍵，請使用唯一索引鍵限制式建立新的容器。 使用適當的資料移轉工具，將資料從現有的容器移至新的容器。 針對 SQL 容器，使用[資料移轉工具](import-data.md)來移動資料。 對於 MongoDB 容器，使用 [mongoimport.exe 或 mongorestore.exe](mongodb-migrate.md) 來移動資料。
 
-* 唯一索引鍵原則最多可包含 16 個路徑值。 例如，值可以是 `/firstName`、`/lastName` 和 `/address/zipCode`。 每個唯一索引鍵原則最多可以有 10 個唯一索引鍵條件約束或組合。 每個唯一索引限制式的組合路徑不得超過 60 個位元組。 在前一個範例中，名字、姓氏和電子郵件地址合起來是一個限制式。 此限制式會使用 16 個可能路徑中的 3 個。
+* 唯一索引鍵原則最多可包含 16 個路徑值。 例如，值可以是 `/firstName`、`/lastName`和 `/address/zipCode`。 每個唯一索引鍵原則最多可以有 10 個唯一索引鍵條件約束或組合。 每個唯一索引限制式的組合路徑不得超過 60 個位元組。 在前一個範例中，名字、姓氏和電子郵件地址合起來是一個限制式。 此限制式會使用 16 個可能路徑中的 3 個。
 
 * 當容器具有唯一索引鍵原則時，建立、更新和刪除專案的[要求單位（RU）](request-units.md)費用會稍微更高。
 
 * 不支援疏鬆的唯一索引鍵。 如果遺漏了部分唯一路徑值，則會將它們視為 Null 值，並將其納入唯一性限制式。 因此，只有具 Null 值的單一項目能夠滿足此限制式。
 
-* 唯一索引鍵名稱會區分大小寫。 例如，請考慮將唯一索引鍵條件約束設定為 `/address/zipcode` 的容器。 如果您的資料具有名為 `ZipCode` 的欄位，Azure Cosmos DB 會插入 "null" 做為唯一索引鍵，因為 `zipcode` 與 `ZipCode` 不同。 由於這個區分大小寫的緣故，因此，無法插入包含 ZipCode 的所有其他記錄，因為重複的 "null" 違反唯一索引鍵限制式。
+* 唯一索引鍵名稱會區分大小寫。 例如，請考慮將唯一索引鍵條件約束設定為 `/address/zipcode`的容器。 如果您的資料具有名為 `ZipCode`的欄位，Azure Cosmos DB 會插入 "null" 做為唯一索引鍵，因為 `zipcode` 與 `ZipCode`不同。 由於這個區分大小寫的緣故，因此，無法插入包含 ZipCode 的所有其他記錄，因為重複的 "null" 違反唯一索引鍵限制式。
 
 ## <a name="next-steps"></a>後續步驟
 

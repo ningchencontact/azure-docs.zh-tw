@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/04/2019
+ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3611e61b303997a4291f4436403bb0a95e647e65
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dfdaef0002f068dc4c9044e979b169de779cf6d5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686028"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851276"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲的記憶體和並行存取限制
 檢視在 Azure SQL 資料倉儲 中配置給不同效能等級與資源類別的記憶體和並行存取限制。  
@@ -50,13 +50,13 @@ ms.locfileid: "73686028"
 服務層級的最大值為 DW30000c，其具有60計算節點和每個計算節點一個散發。 例如，DW30000c 上 600 TB 的資料倉儲大約可針對每個節點處理 10 TB。
 
 ## <a name="concurrency-maximums-for-workload-groups"></a>工作負載群組的平行存取上限
-隨著工作負載群組的引進-連結 TBD，平行存取插槽的概念已不再適用。  每個要求的資源會以百分比為單位配置，並在工作負載群組定義中指定。  不過，即使移除平行存取插槽，根據服務等級，每個查詢都需要最少的資源數量。  下表定義每個查詢在服務層級上所需的最低資源數量，以及可以達成的相關聯並行。 
+隨著[工作負載群組](sql-data-warehouse-workload-isolation.md)的引進，平行存取插槽的概念不再適用。  每個要求的資源會以百分比為單位配置，並在工作負載群組定義中指定。  不過，即使移除平行存取插槽，根據服務等級，每個查詢都需要最少的資源數量。  下表定義每個查詢在服務層級上所需的最低資源數量，以及可以達成的相關聯並行。 
 
 |服務等級|並行查詢上限|REQUEST_MIN_RESOURCE_GRANT_PERCENT 支援的最低%|
 |---|---|---|
 |DW100c|4|25%|
 |DW200c|8|12.5%|
-|DW300c|12|8|
+|DW300c|12|8%|
 |DW400c|16|6.25%|
 |DW500c|20|5%|
 |DW1000c|32|3%|

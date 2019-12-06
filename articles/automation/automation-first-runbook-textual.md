@@ -5,17 +5,17 @@ keywords: powershell 工作流程, powershell 工作流程範例, 工作流程 p
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4973a5215d93a1ce9d0a80f83264dd8c1fbe0888
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: dea13d084d80ce787cb8d6cf6146325d8c556b37
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887212"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850834"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>我的第一個 PowerShell 工作流程 Runbook
 
@@ -27,11 +27,11 @@ ms.locfileid: "73887212"
 
 本教學課程將逐步引導您在 Azure 自動化中建立 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)。 您先從測試和發行的簡單 Runbook 開始，同時說明如何追蹤 Runbook 作業的狀態。 接著您會修改 Runbook 以實際管理 Azure 資源，在此情況下會啟動 Azure 虛擬機器。 最後您藉由新增 Runbook 參數，讓 Runbook 更穩固。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成此教學課程，您需要下列項目：
 
-* 。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或[註冊免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+* Azure 訂用帳戶。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 * [自動化帳戶](automation-offering-get-started.md) ，用來保存 Runbook 以及向 Azure 資源驗證。  此帳戶必須擁有啟動和停止虛擬機器的權限。
 * Azure 虛擬機器。 您會停止並啟動這部電腦，因此它不應該是生產 VM。
 
@@ -117,7 +117,7 @@ ms.locfileid: "73887212"
 1. 關閉 [資料流程] 頁面和 [作業] 頁面，以返回 [MyFirstRunbook] 頁面。
 1. 按一下 [**作業**] 以開啟此 runbook 的 [作業] 頁面。 這麼頁面會列出此 Runbook 建立的所有工作。 由於您只執行一次作業，因此應該只會看到列出一項作業。
 
-   ![作業](media/automation-first-runbook-textual/runbook-control-job-tile.png)
+   ![工作](media/automation-first-runbook-textual/runbook-control-job-tile.png)
 
 1. 您可以按一下此作業，以開啟您啟動 runbook 時所看到的相同工作頁面。 這個動作可讓您回到過去的時間，並檢視針對特定 Runbook 所建立的任何工作詳細資料。
 

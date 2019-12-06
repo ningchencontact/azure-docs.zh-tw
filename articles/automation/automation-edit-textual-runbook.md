@@ -4,17 +4,17 @@ description: 本文提供使用文字式編輯器在 Azure 自動化中使用 Po
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bd220b6ff1102c2ef2f436e0af013f253b5820a3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 5a7eec0a7650f9c8e04a8d1062d32b6feb7d1d99
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478291"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850851"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>在 Azure 自動化中編輯文字式 Runbook
 
@@ -31,18 +31,18 @@ Azure 自動化中的每個 Runbook 有兩個版本，「草稿」和「已發�
 使用下列程序以開啟 Runbook，在文字式編輯器中進行編輯。
 
 1. 在 Azure 入口網站中，選取您的自動化帳戶。
-2. 在 [程序自動化]  底下選取 [Runbook]  開啟 Runbook 清單。
-3. 選取您要編輯的 Runbook，然後按一下 [編輯]  按鈕。
+2. 在 [程序自動化] 底下選取 [Runbook] 開啟 Runbook 清單。
+3. 選取您要編輯的 Runbook，然後按一下 [編輯] 按鈕。
 4. 編輯 Runbook。
-5. 當您完成編輯時，按一下 [儲存]  。
-6. 如果您要發佈 Runbook 的最新草稿版本，請按一下 [發佈]  。
+5. 當您完成編輯時，按一下 [儲存] 。
+6. 如果您要發佈 Runbook 的最新草稿版本，請按一下 [發佈] 。
 
 ### <a name="to-insert-a-cmdlet-into-a-runbook"></a>將 Cmdlet 插入 Runbook
 
 1. 在文字式編輯器的 [畫布] 中，將游標移至您要放置 Cmdlet 的位置。
 2. 在程式庫控制項中，展開 **Cmdlet** 節點。
 3. 展開包含您想要使用的 Cmdlet 的模組。
-4. 以滑鼠右鍵按一下要插入的 Cmdlet，然後選取 [新增至畫布]  。 如果 Cmdlet 有一個以上的參數集合，會新增預設集合。 您也以展開 Cmdlet 以選取不同的參數集合。
+4. 以滑鼠右鍵按一下要插入的 Cmdlet，然後選取 [新增至畫布]。 如果 Cmdlet 有一個以上的參數集合，會新增預設集合。 您也以展開 Cmdlet 以選取不同的參數集合。
 5. 會插入 Cmdlet 的程式碼且具有參數的完整清單。
 6. 對於任何必要的參數，提供適當的值來取代以大括號 <> 括住的資料類型。 移除您不需要的任何參數。
 
@@ -50,16 +50,16 @@ Azure 自動化中的每個 Runbook 有兩個版本，「草稿」和「已發�
 
 1. 在文字式編輯器的 [畫布] 中，將游標移至您要放置 [子 Runbook](automation-child-runbooks.md)程式碼的位置。
 2. 在程式庫控制項中，展開 **Runbook** 節點。
-3. 以滑鼠右鍵按一下要插入的 Runbook，然後選取 [新增至畫布]  。
+3. 以滑鼠右鍵按一下要插入的 Runbook，然後選取 [新增至畫布]。
 4. 會插入子 Runbook 的程式碼且具有任何 Runbook 參數的預留位置。
 5. 針對每個參數以適當值取代預留位置。
 
 ### <a name="to-insert-an-asset-into-a-runbook"></a>將資產插入 Runbook
 
 1. 在文字式編輯器的 [畫布] 中，將游標移至您要放置子 Runbook 程式碼的位置。
-2. 在程式庫控制項中，展開 [資產]  節點。
+2. 在程式庫控制項中，展開 [資產] 節點。
 3. 展開您想要的資產類型的節點。
-4. 以滑鼠右鍵按一下要插入的資產，然後選取 [新增至畫布]  。 針對[變數資產](automation-variables.md)，根據您要取得或設定變數而定，選取 [將「取得變數」加入畫布]  或 [將「設定變數」加入畫布]  。
+4. 以滑鼠右鍵按一下要插入的資產，然後選取 [新增至畫布]。 針對[變數資產](automation-variables.md)，根據您要取得或設定變數而定，選取 [將「取得變數」加入畫布] 或 [將「設定變數」加入畫布]。
 5. 資產的程式碼會插入至 Runbook。
 
 ## <a name="to-edit-an-azure-automation-runbook-using-windows-powershell"></a>使用 Windows PowerShell 編輯 Azure 自動化 Runbook
@@ -98,7 +98,7 @@ Publish-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $auto
 * [管理 Azure 自動化中的 Runbook](manage-runbooks.md)
 * [了解 PowerShell 工作流程](automation-powershell-workflow.md)
 * [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)
-* [Certificates](automation-certificates.md)
+* [憑證](automation-certificates.md)
 * [連線](automation-connections.md)
 * [認證](automation-credentials.md)
 * [排程](automation-schedules.md)

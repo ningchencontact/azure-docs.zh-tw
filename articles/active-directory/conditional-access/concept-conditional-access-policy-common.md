@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf338ad0c555038cd99c3604d69ab80371d6ea22
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e3d85850fb18b80490bba44b293ece7765124133
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74804969"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846108"
 ---
 # <a name="common-conditional-access-policies"></a>一般條件式存取原則
 
@@ -44,4 +44,5 @@ ms.locfileid: "74804969"
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用條件式存取 What If 工具模擬登入行為](troubleshoot-conditional-access-what-if.md)
+- [使用條件式存取 What If 工具模擬登入行為。](troubleshoot-conditional-access-what-if.md)
+- [使用僅限報告模式來進行條件式存取，以判斷新原則決策的影響。](concept-conditional-access-report-only.md)

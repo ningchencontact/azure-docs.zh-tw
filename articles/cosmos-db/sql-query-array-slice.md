@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 查詢語言中的 ARRAY_SLICE
-description: 深入瞭解 Azure Cosmos DB 中的 SQL 系統函數 ARRAY_SLICE。
+description: 瞭解 Azure Cosmos DB 中的陣列配量 SQL 系統函數如何傳回陣列運算式的一部分
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 1df4177bb8b56bc98977af0f5180e8df5affb257
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3c65886eabfa87f729e18fb854aca6662d1d6fac
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348541"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871783"
 ---
 # <a name="array_slice-azure-cosmos-db"></a>ARRAY_SLICE （Azure Cosmos DB）
  傳回陣列運算式的一部分。
@@ -39,7 +39,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
 ## <a name="examples"></a>範例
   
-  下列範例顯示如何使用 `ARRAY_SLICE` 來取得陣列的不同配量。  
+  下列範例顯示如何使用 `ARRAY_SLICE`取得陣列的不同配量。  
   
 ```sql
 SELECT

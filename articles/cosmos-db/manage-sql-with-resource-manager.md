@@ -6,37 +6,51 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 0cb6e80bafca3bb0bfc339552facae5bd16aced4
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 62c04fed03ad2346d0f548a4a8028f2d7d6b3486
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960538"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850460"
 ---
-# <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Azure Cosmos DB SQL （核心） API 資源
+# <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Azure Cosmos DB SQL （核心） API 資源
 
-本文說明如何使用 Azure Resource Manager 範本來執行不同的作業，以自動化管理您的 Azure Cosmos DB 帳戶、資料庫和容器。 本文僅包含 SQL API 帳戶的範例，若要尋找其他 API 類型帳戶的範例，請參閱：使用 Azure Resource Manager 範本搭配 Azure Cosmos DB 的 API 來[Cassandra](manage-cassandra-with-resource-manager.md)、 [Gremlin](manage-gremlin-with-resource-manager.md)、 [MongoDB](manage-mongodb-with-resource-manager.md)、[資料表](manage-table-with-resource-manager.md)發行項。
+在本文中，您將瞭解如何使用 Azure Resource Manager 範本，協助您將 Azure Cosmos DB 帳戶、資料庫和容器的管理自動化。
 
-如何建立和管理 Cosmos DB 帳戶、適用于 MongoDB、Gremlin、Cassandra 和資料表 API 的資料庫和容器。
+本文只會顯示 SQL API 帳戶 Azure Resource Manager 範本範例。 您也可以尋找[Cassandra](manage-cassandra-with-resource-manager.md)、 [Gremlin](manage-gremlin-with-resource-manager.md)、 [MongoDB](manage-mongodb-with-resource-manager.md)和[資料表](manage-table-with-resource-manager.md)api 的範本範例。
 
-## 建立 Azure Cosmos 帳戶、資料庫和容器<a id="create-resource"></a>
+<a id="create-resource"></a>
 
-使用 Azure Resource Manager 範本建立 Azure Cosmos DB 資源。 此範本會建立 Azure Cosmos 帳戶，其中包含兩個容器，其在資料庫層級共用 400 RU/秒的輸送量，以及具有專用 400 RU/秒輸送量的單一容器。 複製範本並如下所示部署，或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/)，並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
+## <a name="create-an-azure-cosmos-account-database-and-container"></a>建立 Azure Cosmos 帳戶、資料庫和容器
 
-> [!NOTE]
+下列 Azure Resource Manager 範本會建立 Azure Cosmos 帳戶，其中包含：
+
+* 兩個在資料庫層級共用400要求單位/秒（RU/秒）輸送量的容器。
+* 一個容器具有專用的 400 RU/秒輸送量。
+
+若要建立 Azure Cosmos DB 資源，請複製下列範例範本，並依照所述方式部署（透過[PowerShell](#deploy-via-powershell)或[Azure CLI](#deploy-via-azure-cli)）。
+
+* （選擇性）您可以造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/)，並從 Azure 入口網站部署範本。
+* 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
+
+> [!IMPORTANT]
 >
-> - 您無法同時新增或移除 Azure Cosmos 帳戶的位置，以及修改其他屬性。 這些必須以個別的作業來完成。
-> - 帳戶名稱必須是小寫、44或較少的字元。
-> - 若要更新 RU/秒，請重新提交具有已更新輸送量屬性值的範本。
+> * 當您新增或移除 Azure Cosmos 帳戶的位置時，您無法同時修改其他屬性。 這些作業必須分別執行。
+> * 帳戶名稱限制為44個字元，全部小寫。
+> * 若要變更輸送量值，請以已更新的 RU/秒重新提交範本。
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 
 > [!NOTE]
-> 若要建立具有大型分割區索引鍵的容器，請在先前範本的 `partitionKey` 物件中包含 `"version":2` 屬性。
+> 若要建立具有大型分割區索引鍵的容器，請修改先前的範本，以在 `partitionKey` 物件內包含 `"version":2` 屬性。
 
 ### <a name="deploy-via-powershell"></a>透過 PowerShell 部署
 
-若要使用 PowerShell 部署 Azure Resource Manager 範本，請**複製**腳本，然後選取 [**試試看**] 以開啟 Azure Cloud Shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
+若要使用 PowerShell 來部署 Azure Resource Manager 範本：
+
+1. **複製**腳本。
+2. 選取 [**試試看**] 以開啟 Azure Cloud Shell。
+3. 在 [Azure Cloud Shell] 視窗中按一下滑鼠右鍵，然後選取 [**貼**上]。
 
 ```azurepowershell-interactive
 
@@ -70,11 +84,15 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-如果您選擇使用本機安裝的 PowerShell 版本，而不是 Azure Cloud Shell，則必須[安裝](/powershell/azure/install-az-ps)Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 找出版本。
+您可以選擇使用本機安裝的 PowerShell 版本來部署範本，而不是 Azure Cloud Shell。 您必須[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 執行 `Get-Module -ListAvailable Az` 來尋找所需的版本。
 
 ### <a name="deploy-via-azure-cli"></a>透過 Azure CLI 部署
 
-若要使用 Azure CLI 部署 Azure Resource Manager 範本，請選取 [**試試看**] 以開啟 Azure Cloud Shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
+若要使用 Azure CLI 部署 Azure Resource Manager 範本：
+
+1. **複製**腳本。
+2. 選取 [**試試看**] 以開啟 Azure Cloud Shell。
+3. 在 [Azure Cloud Shell] 視窗中按一下滑鼠右鍵，然後選取 [**貼**上]。
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -105,17 +123,28 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-`az cosmosdb show` 命令會在布建之後顯示新建立的 Azure Cosmos 帳戶。 如果您選擇使用本機安裝的 Azure CLI 版本，而不是使用 CloudShell，請參閱[Azure 命令列介面（CLI）](/cli/azure/)一文。
+`az cosmosdb show` 命令會在布建之後顯示新建立的 Azure Cosmos 帳戶。 您可以選擇使用本機安裝的 Azure CLI 版本來部署範本，而不是 Azure Cloud Shell。 如需詳細資訊，請參閱[Azure 命令列介面（CLI）一](/cli/azure/)文。
 
-## 建立具有伺服器端功能的 Azure Cosmos DB 容器<a id="create-sproc"></a>
+<a id="create-sproc"></a>
 
-使用 Azure Resource Manager 範本，建立具有預存程式、觸發程式和使用者定義函數的 Azure Cosmos DB 容器。 複製範本並如下所示部署，或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/)，並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
+## <a name="create-an-azure-cosmos-db-container-with-server-side-functionality"></a>建立具有伺服器端功能的 Azure Cosmos DB 容器
+
+您可以使用 Azure Resource Manager 範本來建立具有預存程式、觸發程式和使用者定義函數的 Azure Cosmos DB 容器。
+
+複製下列範例範本，並使用[PowerShell](#deploy-with-powershell)或[Azure CLI](#deploy-with-azure-cli)來加以部署。
+
+* （選擇性）您可以前往[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/)，並從 Azure 入口網站部署範本。
+* 您也可以將範本下載到本機電腦，或建立新的範本，並使用 `--template-file` 參數指定本機路徑。
 
 [!code-json[create-cosmosdb-sql-sprocs](~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json)]
 
-### <a name="deploy-stored-procedure-template-via-powershell"></a>透過 PowerShell 部署預存程式範本
+### <a name="deploy-with-powershell"></a>使用 Powershell 部署
 
-若要使用 PowerShell 部署 Resource Manager 範本，請**複製**腳本，然後選取 [**試試看**] 以開啟 Azure Cloud Shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
+若要使用 PowerShell 來部署 Azure Resource Manager 範本：
+
+1. **複製**腳本。
+1. 選取 [**試試看**] 以開啟 Azure Cloud Shell。
+1. 以滑鼠右鍵按一下 [Azure Cloud Shell] 視窗，然後選取 [**貼**上]。
 
 ```azurepowershell-interactive
 
@@ -141,11 +170,15 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-如果您選擇使用本機安裝的 PowerShell 版本，而不是 Azure Cloud Shell，則必須[安裝](/powershell/azure/install-az-ps)Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 找出版本。
+您可以選擇使用本機安裝的 PowerShell 版本來部署範本，而不是 Azure Cloud Shell。 您必須[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 執行 `Get-Module -ListAvailable Az` 來尋找所需的版本。
 
-### <a name="deploy-stored-procedure-template-via-azure-cli"></a>透過 Azure CLI 部署預存程式範本
+### <a name="deploy-with-azure-cli"></a>使用 Azure CLI 部署
 
-若要使用 Azure CLI 部署 Azure Resource Manager 範本，請選取 [**試試看**] 以開啟 Azure Cloud Shell。 若要貼上腳本，請以滑鼠右鍵按一下 shell，然後選取 [**貼**上]：
+若要使用 Azure CLI 部署 Azure Resource Manager 範本：
+
+1. **複製**腳本。
+2. 選取 [**試試看**] 以開啟 Azure Cloud Shell。
+3. 在 [Azure Cloud Shell] 視窗中按一下滑鼠右鍵，然後選取 [**貼**上]。
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -169,7 +202,7 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 以下是一些其他資源：
 
-- [Azure Resource Manager 檔](/azure/azure-resource-manager/)
-- [Azure Cosmos DB 資源提供者架構](/azure/templates/microsoft.documentdb/allversions)
-- [Azure Cosmos DB 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
-- [針對常見 Azure Resource Manager 部署錯誤進行疑難排解](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+* [Azure Resource Manager 檔](/azure/azure-resource-manager/)
+* [Azure Cosmos DB 資源提供者架構](/azure/templates/microsoft.documentdb/allversions)
+* [Azure Cosmos DB 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
+* [針對常見 Azure Resource Manager 部署錯誤進行疑難排解](../azure-resource-manager/resource-manager-common-deployment-errors.md)

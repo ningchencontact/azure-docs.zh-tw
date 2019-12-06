@@ -1,19 +1,19 @@
 ---
 title: 在 Azure Cosmos DB 中使用變更摘要處理器程式庫
-description: 使用 Azure Cosmos DB 變更摘要處理器程式庫。
+description: 瞭解如何使用 Azure Cosmos DB 變更摘要處理器程式庫來讀取變更摘要、變更摘要處理器的元件，以及執行生命週期
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4bd7a31abf47664d1a6ffdd39fe46d9370dbbc97
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ea2b72e926923357e9ee7dac87720292fbbf9696
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757036"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872225"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB 中的變更摘要處理器 
 
@@ -39,7 +39,7 @@ ms.locfileid: "72757036"
 
 ## <a name="implementing-the-change-feed-processor"></a>執行變更摘要處理器
 
-進入點一律是受監視的容器，從您呼叫 `GetChangeFeedProcessorBuilder` 的 `Container` 實例：
+進入點一律是受監視的容器，從您呼叫 `GetChangeFeedProcessorBuilder`的 `Container` 實例：
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
@@ -49,9 +49,9 @@ ms.locfileid: "72757036"
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
-最後，您會使用 `WithInstanceName` 來定義此處理器實例的名稱，而這是用來維護租用狀態 `WithLeaseContainer` 的容器。
+最後，您會使用 `WithInstanceName` 來定義此處理器實例的名稱，而這是用來維護租用狀態 `WithLeaseContainer`的容器。
 
-呼叫 `Build` 將會提供您可透過呼叫 `StartAsync` 來啟動的處理器實例。
+呼叫 `Build` 將會提供您可透過呼叫 `StartAsync`來啟動的處理器實例。
 
 ## <a name="processing-life-cycle"></a>處理生命週期
 

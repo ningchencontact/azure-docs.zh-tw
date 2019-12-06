@@ -1,17 +1,17 @@
 ---
 title: 在 Azure Cosmos DB 中建立容器
-description: 了解如何在 Azure Cosmos DB 中建立容器
+description: 瞭解如何使用 Azure 入口網站、.Net、JAVA、Python、node.js 和其他 Sdk，在 Azure Cosmos DB 中建立容器。
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 911f56cef58e5d9c161a3ba947850bcfff073200
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4eaa2974817bfcd8bef83e5139d75a2d4c2ec107
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242415"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873704"
 ---
 # <a name="create-an-azure-cosmos-container"></a>建立 Azure Cosmos 容器
 
@@ -116,7 +116,7 @@ ms.locfileid: "72242415"
 * [建立具有 Azure CLI 的 Gremlin 圖形](./scripts/cli/gremlin/create.md)
 * [使用 Azure CLI 建立資料表 API 資料表](./scripts/cli/table/create.md)
 
-## 使用 PowerShell<a id="ps-sql"></a>建立容器 <a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin"><a id="ps-table"></a>
+## 使用 PowerShell<a id="ps-sql"> </a><a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin"> 建立容器<a id="ps-table"></a>
 
 下列連結顯示如何使用 PowerShell 建立 Azure Cosmos DB 的容器資源。
 

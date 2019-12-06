@@ -4,17 +4,17 @@ description: 本文章包含用於管理 Azure 自動化環境的多個主題。
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9de5909ddca5fd36f3fafcb79e2a4ad519402c9c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: da1b151a150dfbf602593451d3d68043352b73eb
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476592"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850766"
 ---
 # <a name="managing-azure-automation-data"></a>管理 Azure 自動化資料
 本文章包含用於管理 Azure 自動化環境的多個主題。
@@ -29,9 +29,9 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 | 資料 | 原則 |
 |:--- |:--- |
 | 帳戶 |刪除使用者帳戶 90 天後永久移除。 |
-| Assets |使用者刪除資產後 90 天，或使用者刪除持有資產的帳戶 90 天後永久移除。 |
+| 資產 |使用者刪除資產後 90 天，或使用者刪除持有資產的帳戶 90 天後永久移除。 |
 | 模組 |使用者刪除模組後 90 天，或使用者刪除持有模組的帳戶 90 天後永久移除。 |
-| runbook |使用者刪除資源後 90 天，或使用者刪除持有資源的帳戶 90 天後永久移除。 |
+| Runbook |使用者刪除資源後 90 天，或使用者刪除持有資源的帳戶 90 天後永久移除。 |
 | 工作 |在上次修改日期的 90 天後刪除並永久移除。 這可以是在工作完成、停止或暫止之後。 |
 | 節點組態/MOF 檔案 |舊的節點組態會在新的節點組態產生之後的 90 天永久移除。 |
 | DSC 節點 |使用 Azure 入口網站或在 Windows PowerShell Cmdlet 中使用 [Unregister-AzureRMAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/unregister-azurermautomationdscnode) 在節點從自動化帳戶取消註冊之後的 90 天永久移除。 節點也會在擁有節點的帳戶被使用者刪除之後的 90 天永久移除。 |
@@ -39,18 +39,18 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 
 保留原則適用於所有使用者，而且目前無法自訂。
 
-不過，如果您需要保留較長的一段時間的資料，您可以將轉送 runbook 作業記錄，以 Azure 監視器記錄檔。  如需詳細資訊，請檢閱[Azure 自動化作業資料轉送到 Azure 監視器記錄](automation-manage-send-joblogs-log-analytics.md)。   
+不過，如果您需要保留較長一段時間的資料，您可以將 runbook 作業記錄轉送至 Azure 監視器記錄。  如需進一步資訊，請參閱[Azure 自動化作業資料向前 Azure 監視器記錄](automation-manage-send-joblogs-log-analytics.md)。   
 
 ## <a name="backing-up-azure-automation"></a>備份 Azure 自動化
 在 Microsoft Azure 中刪除自動化帳戶時，會刪除帳戶中的所有物件，包括 Runbook、模組、組態、設定、工作和資產。 刪除帳戶之後，就無法復原物件。  您可以使用下列資訊，在刪除之前備份您的自動化帳戶的內容。 
 
-### <a name="runbooks"></a>runbook
+### <a name="runbooks"></a>Runbook
 您可以使用 Azure 入口網站或 Windows PowerShell 中的 [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition)Cmdlet，將您的 Runbook 匯出為指令碼檔案。  可以將這些指令碼檔案匯入到另一個自動化帳戶，如 [建立或匯入 Runbook](/previous-versions/azure/dn643637(v=azure.100))中所述。
 
 ### <a name="integration-modules"></a>整合模組
 您無法從 Azure 自動化匯出整合模組。  您必須確定它們可供在自動化帳戶外部使用。
 
-### <a name="assets"></a>Assets
+### <a name="assets"></a>資產
 您無法從 Azure 自動化匯出 [資產](/previous-versions/azure/dn939988(v=azure.100)) 。  使用 Azure 入口網站時，您必須記下變數、認證、憑證、連線及排程的詳細資料。  然後必須手動建立您匯入到另一個自動化的 Runbook 所使用的任何資產。
 
 您可以使用 [Azure Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) 來擷取未加密的資產的詳細資料並加以儲存供日後參考，或在另一個自動化帳戶中建立對等的資產。

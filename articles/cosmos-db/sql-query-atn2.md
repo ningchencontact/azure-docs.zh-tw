@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 查詢語言中的 ATN2
-description: 深入瞭解 Azure Cosmos DB 中的 SQL 系統函數 ATN2。
+description: 瞭解 Azure Cosmos DB 中的 ATN2 SQL 系統函數如何傳回 y/x 之反正切函數的主體值（以弧度表示）
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 43bf2f6e27d093b72560b87349150268e0f58a60
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 11321ef9d7b81af279b04e0e435b19c645cf3bcf
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350206"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871647"
 ---
 # <a name="atn2-azure-cosmos-db"></a>ATN2 （Azure Cosmos DB）
  傳回 y/x 有向徑正切函數的主體值，以弧度表示。  

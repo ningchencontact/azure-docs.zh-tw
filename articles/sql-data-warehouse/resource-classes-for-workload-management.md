@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 11/04/2019
+ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 558a6e3faa207e15000657a17bec99a7b1ac99e4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d8c3e3c272ce12200ab7506fd7c9759a8cb3aa64
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685937"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851735"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中搭配使用工作負載管理與資源類別
 
@@ -24,7 +24,7 @@ ms.locfileid: "73685937"
 
 ## <a name="what-are-resource-classes"></a>什麼是資源類別
 
-查詢的效能處理能力取決於使用者的資源類別。  資源類別是 Azure SQL 資料倉儲中預先決定的資源限制，掌管查詢執行時的計算資源與並行存取。 資源類別可協助您管理工作負載，方法是設定同時執行的查詢數目限制，以及指派給每個查詢的計算資源。  記憶體和平行存取之間有取捨。
+查詢的效能處理能力取決於使用者的資源類別。  資源類別是 Azure SQL 資料倉儲中預先決定的資源限制，掌管查詢執行時的計算資源與並行存取。 資源類別可設定同時執行的查詢數目限制，以及指派給每個查詢的計算資源，以協助您設定查詢的資源。  記憶體和平行存取之間有取捨。
 
 - 較小型的資源類別會減少每個查詢的記憶體上限，但會增加並行存取數。
 - 較大的資源類別會增加每個查詢的記憶體上限，但會減少並行。
@@ -65,14 +65,18 @@ ms.locfileid: "73685937"
 - largerc
 - xlargerc
 
-**無論服務層級**為何，每個資源類別的記憶體配置如下所示。  同時也會列出並行查詢的最小值。  對於某些服務等級，可以達到最小並行的程度。
+每個資源類別的記憶體配置如下所示。 
 
-| 資源類別 | 記憶體百分比 | 並行存取查詢下限 |
-|:--------------:|:-----------------:|:----------------------:|
-| smallrc        | 3%                | 32                     |
-| mediumrc       | 10%               | 10                     |
-| largerc        | 22%               | 4                      |
-| xlargerc       | 70%               | 1                      |
+| 服務等級  | smallrc           | mediumrc               | largerc                | xlargerc               |
+|:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
+| DW100c         | 25%               | 25%                    | 25%                    | 70%                    |
+| DW200c         | 12.5%             | 12.5%                  | 22%                    | 70%                    |
+| DW300c         | 8%                | 10%                    | 22%                    | 70%                    |
+| DW400c         | 6.25%             | 10%                    | 22%                    | 70%                    |
+| DW500c         | 20%               | 10%                    | 22%                    | 70%                    |
+| DW1000c 至<br> DW30000c | 3%       | 10%                    | 22%                    | 70%                    |
+
+
 
 ### <a name="default-resource-class"></a>預設的資源類別
 
@@ -105,6 +109,8 @@ ms.locfileid: "73685937"
 
 > [!NOTE]  
 > 動態管理檢視 (DMV) 或其他系統檢視上的 SELECT 陳述式不受任何並行限制所控管。 不論在系統上執行的查詢數目多寡，您都可監視該系統。
+>
+>
 
 ### <a name="operations-not-governed-by-resource-classes"></a>作業都不受資源類別控管
 
@@ -179,6 +185,11 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 ## <a name="recommendations"></a>建議
 
+>[!NOTE]
+>請考慮利用工作負載管理功能（[工作負載隔離](sql-data-warehouse-workload-isolation.md)、[分類](sql-data-warehouse-workload-classification.md)和[重要性](sql-data-warehouse-workload-importance.md)），以更充分掌控您的工作負載和可預測的效能。  
+>
+>
+
 我們建議您建立專用於執行特定類型查詢或載入作業的使用者。 為該使用者提供永久的資源類別，而不是經常變更資源類別。 靜態資源類別會對工作負載提供更高的整體控制權，因此建議在考慮動態資源類別之前，先使用靜態資源類別。
 
 ### <a name="resource-classes-for-load-users"></a>載入使用者適用的資源類別
@@ -234,7 +245,7 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 語法：  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
-1. @DWU: 會提供 Null 參數，以從 DW DB 解壓縮目前的 DWU，或以 ' DW100c ' 的形式提供任何支援的 DWU
+1. @DWU: 提供 Null 參數以從 DW DB 解壓縮目前的 DWU，或以 ' DW100c ' 的形式提供任何支援的 DWU
 2. @SCHEMA_NAME: 提供資料表的結構描述名稱
 3. @TABLE_NAME: 提供相關的資料表名稱
 

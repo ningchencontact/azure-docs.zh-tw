@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 查詢語言中的 ASIN
-description: 深入瞭解 Azure Cosmos DB 中的 SQL 系統函數 ASIN。
+description: 瞭解 Azure Cosmos DB 中的反正弦（ASIN） SQL 系統函數如何傳回以弧度為單位的角度，其正弦值為指定的數值運算式
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 5a64fc8d8f87d38f001bf2bc9dd581692c97fe64
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3e790eb5ae5eb780637b199a1a65dec2dd02d1bc
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348502"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871733"
 ---
 # <a name="asin-azure-cosmos-db"></a>ASIN （Azure Cosmos DB）
  傳回角度，以弧度為單位，其正弦函數是指定的數值運算式。 這也稱為反正弦值。  

@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 查詢語言的 LTRIM
-description: 深入瞭解 Azure Cosmos DB 中的 SQL 系統函數 LTRIM。
+description: 瞭解 Azure Cosmos DB 中的 LTRIM SQL 系統函數，以在移除開頭空白之後傳回字串運算式
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: bbc9c09bd97b02a323e01c0b0d72ca1df3d13b15
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 652204416c201ccca024aff0239fc10dcc3eb105
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349683"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870984"
 ---
 # <a name="ltrim-azure-cosmos-db"></a>LTRIM （Azure Cosmos DB）
  傳回移除開頭空白之後的字串運算式。  

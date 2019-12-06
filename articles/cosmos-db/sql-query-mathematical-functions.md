@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 查詢語言中的數學函數
-description: 瞭解 Azure Cosmos DB 中的數學 SQL 系統函數。
+description: 瞭解 Azure Cosmos DB 中的數學函式，以根據當做引數提供的輸入值來執行計算，並傳回數值。
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: fe4a84db3f2cbcfc2d9841caf520404afec2a297
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a04867d356aaf2f55dbe900d2e35b42f74206851
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349666"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873262"
 ---
 # <a name="mathematical-functions-azure-cosmos-db"></a>數學函式（Azure Cosmos DB）  
 
@@ -45,11 +45,11 @@ ms.locfileid: "71349666"
 |[SIGN](sql-query-sign.md)|[SIN](sql-query-sin.md)|[SQRT](sql-query-sqrt.md)|
 |[SQUARE](sql-query-square.md)|[TAN](sql-query-tan.md)|[TRUNC](sql-query-trunc.md)||  
   
-除了 RAND 以外，所有數學函數都是具決定性的函數。 這表示每次使用一組特定的輸入值來呼叫它們時，它們都會傳回相同的結果。
+除了 RAND，所有數學函數都是具決定性的函數。 這表示每次利用一組特定輸入值來呼叫它們時，都會傳回相同的結果。
 
 ## <a name="next-steps"></a>後續步驟
 
 - [系統函數 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 簡介](introduction.md)
 - [使用者定義函數](sql-query-udfs.md)
-- [總計](sql-query-aggregates.md)
+- [彙總](sql-query-aggregates.md)

@@ -5,17 +5,17 @@ keywords: azure powershell, powershell 指令碼教學課程, powershell 自動�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae9daaf797d3d82200ee094b63bad1f5c1ff68cc
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: f950a2fed2fbd355fc99453f09b655463e67102d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743826"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850868"
 ---
 # <a name="my-first-powershell-runbook"></a>我的第一個 PowerShell Runbook
 
@@ -85,7 +85,7 @@ ms.locfileid: "70743826"
 1. 作業分頁會針對您所建立的 Runbook 作業開啟。 您可以關閉此窗格，但在此情況下，您會讓它開啟，以便觀看作業的進度。
 1. [作業摘要] 中會顯示作業狀態，且符合當您測試 Runbook 時看到的狀態。
 
-   ![作業摘要](media/automation-first-runbook-textual-powershell/job-pane-status-blade-jobsummary.png)
+   ![工作摘要](media/automation-first-runbook-textual-powershell/job-pane-status-blade-jobsummary.png)
 
 1. 一旦 Runbook 狀態顯示 [已完成]，請在 [概觀] 底下按一下 [輸出]。 [輸出] 窗格會開啟，而且可以看到您的「Hello World」。
 
@@ -94,7 +94,7 @@ ms.locfileid: "70743826"
 1. 關閉 [輸出] 頁面。
 1. 按一下 [所有記錄] 以開啟 Runbook 作業的 [資料流] 窗格。 您應該只會在輸出資料流中看到 *Hello World*，但此輸出也會顯示 Runbook 作業的其他資料流，例如 Runbook 寫入這些資料流時發生的詳細資訊和錯誤。
 
-   ![所有記錄檔](media/automation-first-runbook-textual-powershell/job-pane-status-blade-alllogstile.png)
+   ![所有記錄](media/automation-first-runbook-textual-powershell/job-pane-status-blade-alllogstile.png)
 
 1. 關閉 [串流] 分頁和 [作業] 分頁，以返回 MyFirstRunbook-PowerShell 分頁。
 1. 按一下 [詳細資料] 底下的 [作業] 以開啟此 Runbook 的 [作業] 窗格。 這麼頁面會列出此 Runbook 建立的所有工作。 由於您只執行一次作業，因此應該只會看到列出一項作業。

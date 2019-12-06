@@ -4,17 +4,17 @@ description: 本文提供有關安裝 Azure 自動化混合式 Runbook 背景工
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8e497d18e39a199f34ff76b11b0e6c2c213f35fb
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 01dcb30fca2819bc4cf85ea624de5735cc84801b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129844"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850817"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>部署 Linux 混合式 Runbook 背景工作角色
 
@@ -46,14 +46,14 @@ Linux 混合式 Runbook 背景工作角色的最低需求如下：
 
 ### <a name="package-requirements"></a>封裝需求
 
-| **必要封裝** | **描述** | **最低版本**|
+| **必要封裝** | **說明** | **最低版本**|
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C 程式庫| 2.5-12 |
 |Openssl| OpenSSL 程式庫 | 1.0 (支援 TLS 1.1 和 TLS 1.2)|
 |Curl | cURL Web 用戶端 | 7.15.5|
 |Python-ctypes | 需要 Python 2。x |
 |PAM | 插入式驗證模組|
-| **選用套件** | **描述** | **最低版本**|
+| **選用套件** | **說明** | **最低版本**|
 | PowerShell Core | 若要執行 PowerShell Runbook，則必須安裝 PowerShell，請參閱[在 Linux 上安裝 PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-linux) 以了解其安裝方式。  | 6.0.0 |
 
 ### <a name="installation"></a>安裝
