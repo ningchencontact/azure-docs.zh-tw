@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/18/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26744791dd3abe732f56f69ca05dd7c781755e9b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 077032e4fe3886d5bf9a678dffdffca1a5802091
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167984"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848403"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 
@@ -64,7 +64,7 @@ ms.locfileid: "74167984"
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 流覽至**Azure Active Directory** > **安全性** > **MFA** > **封鎖/解除封鎖使用者**。
 3. 選取 [新增] 以封鎖使用者。
-4. 選取 [複寫群組]。 將 [封鎖的使用者名稱] 輸入為**username\@domain.com**。 在 [原因] 欄位中輸入註解。
+4. 選取 [複寫群組]。 將 [封鎖的使用者名稱] 輸入為**username\@domain.com**。 在 [**原因**] 欄位中輸入批註。
 5. 選取 [新增] 以完成封鎖使用者。
 
 ### <a name="unblock-a-user"></a>解除封鎖使用者
@@ -84,7 +84,7 @@ ms.locfileid: "74167984"
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 流覽至**Azure Active Directory** > **安全性** > **MFA** > **詐騙警示**。
 3. 將 [允許使用者提交詐騙警示] 設定設為 [開啟]。
-4. 選取 [ **儲存**]。
+4. 選取 [儲存]。
 
 ### <a name="configuration-options"></a>組態選項
 
@@ -171,7 +171,7 @@ ms.locfileid: "74167984"
 | 詐騙問候語（PIN） | 感謝您使用 Microsoft 的登入驗證系統。  請輸入您的 PIN，然後按井字鍵完成您的驗證。 如果您未起始此驗證，可能是有人嘗試存取您的帳戶。 請按零英鎊以提交詐騙警示。 這會通知您公司的 IT 小組，並封鎖進一步的驗證嘗試。 |
 | 重試（PIN） | 感謝您使用 Microsoft 的登入驗證系統。 請輸入您的 PIN，然後按井字鍵完成您的驗證。 |
 | 數位之後的延伸提示 | 如果已在此延伸模組中，請按井字鍵以繼續。 |
-| 拒絕驗證 | 很抱歉，我們目前無法將您登入。 請稍後再試一次。 |
+| 拒絕驗證 | 很抱歉，我們目前無法將您登入。 請稍後再試。 |
 | 啟用問候語（標準） | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵完成您的驗證。 |
 | 啟用重試（標準） | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵完成您的驗證。 |
 | 啟用問候語（PIN） | 感謝您使用 Microsoft 的登入驗證系統。 請輸入您的 PIN，然後按井字鍵完成您的驗證。 |
@@ -341,7 +341,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
       * 針對單一 IP 位址，使用如 **xxx.xxx.xxx.xxx/32** 標記法。
       * 最多輸入 50 個 IP 位址範圍。 從這些 IP 位址登入的使用者會略過雙步驟驗證。
 
-5. 選取 [ **儲存**]。
+5. 選取 [儲存]。
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>使用服務設定啟用信任的 IP 功能
 
@@ -360,7 +360,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
       * 針對單一 IP 位址，使用如 **xxx.xxx.xxx.xxx/32** 標記法。
       * 最多輸入 50 個 IP 位址範圍。 從這些 IP 位址登入的使用者會略過雙步驟驗證。
 
-6. 選取 [ **儲存**]。
+6. 選取 [儲存]。
 
 ## <a name="verification-methods"></a>驗證方法
 
@@ -382,7 +382,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 3. 選取 [多重要素驗證]。
 4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
 5. 在 [服務設定] 頁面的 [驗證選項] 下，選取/取消選取要提供給使用者的方法。
-6. 按一下 [檔案]。
+6. 按一下 [儲存]。
 
 其他的驗證方法使用方式詳細資料，可在[驗證的方法](concept-authentication-methods.md)一文中找到。
 
@@ -419,7 +419,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
 5. 在 [服務設定] 頁面、[管理記住多重要素驗證]，選取 [允許使用者在其信任的裝置記住多重要素驗證] 選項。
 6. 設定要允許受信任裝置略過雙步驟驗證的天數。 預設值為 14 天。
-7. 選取 [ **儲存**]。
+7. 選取 [儲存]。
 
 ### <a name="mark-a-device-as-trusted"></a>將裝置標示為受信任
 

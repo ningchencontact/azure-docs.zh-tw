@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa0158b99d10b426efb02ca31cef2bc0053a976f
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 6c2ccfc2219c063a9cef25f82cef33f446993a02
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404681"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848369"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>使用 Azure 的網路原則伺服器擴充功能來整合您的 VPN 基礎結構與 Azure MFA
 
@@ -72,7 +72,7 @@ Azure 的網路原則伺服器 (NPS) 擴充功能可讓組織使用以雲端為�
 7. 當連線嘗試通過驗證並獲得授權後，擴充功能安裝所在的 NPS 就會傳送 RADIUS *Access-Accept* 訊息給 VPN 伺服器 (RADIUS 用戶端)。
 8. 使用者會獲得 VPN 伺服器上之虛擬連接埠的存取權，並建立加密的 VPN 通道。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本節詳細說明您必須先完成的必要條件，才能整合 MFA 與 VPN。 開始之前，您必須先具備下列必要條件：
 
@@ -228,9 +228,9 @@ NPS 擴充功能需要 Windows Server 2008 R2 SP1 或更新版本，並安裝網
 
 2. 在 [伺服器管理員] 中選取 [工具]，然後選取 [路由及遠端存取]。
 
-3. 在 [路由及遠端存取] 視窗中，以滑鼠右鍵按一下 [**伺服器名稱> (本機)]\<** ，然後選取 [屬性]。
+3. 在 [路由及遠端存取] 視窗中，以滑鼠右鍵按一下 [\<伺服器名稱> (本機)]，然後選取 [屬性]。
 
-4. 在 [**伺服器名稱> (本機) 屬性]\<** 對話方塊中，按一下 [安全性] 索引標籤。
+4. 在 [\<伺服器名稱> (本機) 屬性] 對話方塊中，按一下 [安全性] 索引標籤。
 
 5. 在 [安全性] 索引標籤的 [驗證提供者] 底下選取 [RADIUS 驗證]，然後按選取 [設定]。
 

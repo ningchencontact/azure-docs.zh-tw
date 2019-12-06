@@ -4,17 +4,17 @@ description: 如何設定機器交由 Azure Automation State Configuration 管�
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: cf95a66cf68cf0b33444a17cf762bae79db4b50c
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 80038cf5fba18eca4fbbe1405df2a76cfc84e2db
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243425"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850324"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>將機器上架交由 Azure Automation State Configuration 管理
 
@@ -48,7 +48,7 @@ Azure Automation State Configuration 可以用來管理各種不同的機器：
 Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 資源管理員範本或 PowerShell，輕鬆上架 Azure 虛擬機器以進行組態管理。 在幕後並且不需要系統管理員遠端連至 VM 的情況下，Azure VM Desired State Configuration 擴充功能會向 Azure Automation State Configuration 註冊 VM。
 因為 Azure VM 預期狀態設定延伸模組是以非同步方式執行，以下的[**疑難排解 Azure 虛擬機器上架**](#troubleshooting-azure-virtual-machine-onboarding)一節會提供追蹤其進度或疑難排解的步驟。
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您想要佈建虛擬機器的「Azure 自動化」帳戶。 在 State Configuration 頁面和 [節點] 索引標籤上，按一下 [+ 新增]。
 
@@ -60,7 +60,7 @@ Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 
 
 ![上架](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
-### <a name="azure-resource-manager-templates"></a>Azure 資源管理員範本
+### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 範本
 
 您可以透過 Azure Resource Manager 範本部署 Azure 虛擬機器和上架到 Azure Automation State Configuration。 如需將上線現有 VM 以 Azure 自動化狀態設定的範例範本，請參閱[Desired State Configuration 服務管理的伺服器](https://azure.microsoft.com/resources/templates/101-automation-configuration/)。
 如果您要管理虛擬機器擴展集，請參閱 Azure 自動化管理的範例範本[VM 擴展集設定](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/)。

@@ -1,31 +1,27 @@
 ---
-title: 從應用程式註冊入口網站轉換至 Azure 入口網站中的新應用程式註冊體驗
+title: 在 Azure 入口網站中從應用程式註冊入口網站轉換到新的應用程式註冊體驗
 titleSuffix: Microsoft identity platform
 description: Azure 入口網站中的新應用程式註冊體驗簡介
 services: active-directory
-documentationcenter: ''
 author: archieag
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/8/2019
 ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e9c09ce2d997c58e2725c411fff0b87a0f5071b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 93af32e99e725a72c20c05690b2a96c74082e2ff
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013033"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844511"
 ---
-# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>從應用程式註冊入口網站轉換至 Azure 入口網站中的新應用程式註冊體驗
+# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>在 Azure 入口網站中從應用程式註冊入口網站轉換到新的應用程式註冊體驗
 
 Azure 入口網站的新[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)體驗中有許多改進。 如果您更熟悉應用程式註冊入口網站（apps.dev.microsoft.com）體驗來註冊或管理聚合式應用程式（稱為「舊體驗」），本訓練指南會協助您開始使用新的體驗。
 

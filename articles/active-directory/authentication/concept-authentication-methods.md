@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a7110ad3e6c9c66179c90c02c1572ee83cb9f15
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ee0dd0cd83ab27dd728a7572b6fcd69c40bb1b00
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420779"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848743"
 ---
 # <a name="what-are-authentication-methods"></a>驗證方法有哪些？
 
@@ -26,14 +26,14 @@ ms.locfileid: "74420779"
 
 Microsoft 強烈建議系統管理員讓使用者可選取多於必要驗證方法數目下限，以免使用者無法存取其中一個。
 
-|驗證方法|使用方式|
+|驗證方法|用量|
 | --- | --- |
 | 密碼 | MFA 和 SSPR |
 | 安全性問題 | 僅 SSPR |
 | 電子郵件地址 | 僅 SSPR |
 | Microsoft Authenticator 應用程式 | MFA 和 SSPR |
 | OATH 硬體權杖 | MFA 和 SSPR 的公開預覽版 |
-| sms | MFA 和 SSPR |
+| 簡訊 | MFA 和 SSPR |
 | 語音通話 | MFA 和 SSPR |
 | 應用程式密碼 | 只有在某些情況下的 MFA |
 
@@ -41,7 +41,7 @@ Microsoft 強烈建議系統管理員讓使用者可選取多於必要驗證方�
 
 |     |
 | --- |
-| 適用于 MFA 和 SSPR 的 OATH 硬體權杖是 Azure Active Directory 的公開預覽功能。 如需預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| 適用于 MFA 和 SSPR 的 OATH 硬體權杖是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="password"></a>密碼
@@ -160,7 +160,7 @@ OATH 是一項開放標準，可指定單次密碼 (OTP) 程式碼的產生方�
 
 ![將 OATH 權杖上傳到 MFA Server OATH 權杖分頁](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
-OATH 硬體權杖已支援作為公開預覽的一部分。 如需預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+OATH 硬體權杖已支援作為公開預覽的一部分。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 取得權杖後，必須使用逗號分隔值 (CSV) 檔案格式加以上傳，包括 UPN、序號、祕密金鑰、時間間隔、製造商和模型，如下列範例所示。
 
@@ -186,7 +186,7 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 
 有兩個選項可供使用行動電話的使用者使用。
 
-如果使用者不想在目錄中顯示其行動電話號碼，但仍想要用於密碼重設，管理員便不應將該號碼填入目錄。 使用者應該透過**密碼重設註冊入口網站**，填妥其[驗證電話](https://aka.ms/ssprsetup)屬性。 管理員可以在使用者的設定檔中看到此資訊，但該資訊不會發佈在其他地方。
+如果使用者不想在目錄中顯示其行動電話號碼，但仍想要用於密碼重設，管理員便不應將該號碼填入目錄。 使用者應該透過[密碼重設註冊入口網站](https://aka.ms/ssprsetup)，填妥其**驗證電話**屬性。 管理員可以在使用者的設定檔中看到此資訊，但該資訊不會發佈在其他地方。
 
 為了正確運作，電話號碼的格式必須是：+國碼 電話號碼，例如 +1 4255551234。
 
@@ -265,4 +265,4 @@ Microsoft 不保證相同號碼會提供一致的 SMS 或以語音為基礎的�
 
 [啟用租使用者中的合併註冊](howto-registration-mfa-sspr-combined.md)
 
-[使用者驗證方法設定文件](https://aka.ms/securityinfoguide)
+[使用者驗證方法設定文件](https://aka.ms/securityinfoguide) \(英文\)

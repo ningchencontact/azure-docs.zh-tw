@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/16/2019
+ms.date: 12/04/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: adwise
 ms.custom: ''
-ms.openlocfilehash: 01087f3e40e278490abb87d0ab3b7b6ab5052b6b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4798b6908069af229c2bed4a2e5f38fa60e0d554
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74219482"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849100"
 ---
 # <a name="common-cost-analysis-uses"></a>一般成本分析使用
 
@@ -64,6 +64,8 @@ Azure 成本管理使用者通常會想要回答許多其他人所詢問的問�
 ## <a name="view-costs-for-a-specific-tag"></a>查看特定標記的成本
 
 許多 Azure 使用者會將標籤套用至其資源，例如成本中心或開發環境（生產和測試），以更好的方式分類費用。 標記會在成本分析中顯示為維度。 您可以使用維度取得自訂標記分類的深入解析。
+
+標籤的支援適用于將標記套用至資源*之後*所回報的使用量。 不會針對成本匯總套用標記追溯。
 
 1. 在 Azure 入口網站中，流覽至範圍的 成本分析。 例如：**成本管理 + 帳單** > **成本管理** > **成本分析**。
 1. 針對您的標記選取 [**群組依據**]。

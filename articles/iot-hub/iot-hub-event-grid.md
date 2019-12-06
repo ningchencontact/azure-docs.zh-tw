@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 2969791204474a7d73493ce6397c52255f7eab4a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: a1fd99ee595c4ae91ccd06aa41fa421ca8fcc074
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151307"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851695"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>使用事件方格來觸發動作以回應 IoT 中樞事件
 
@@ -184,13 +184,11 @@ devices/{deviceId}
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>裝置連線和裝置中斷連線事件的限制
 
-若要接收裝置連線和裝置中斷連線事件，您必須為裝置開啟 D2C 連結或 C2D 連結。 如果您的裝置使用 MQTT 通訊協定，則 IoT 中樞會讓 C2D 連結保持開啟。 針對 AMQP，您可以藉由呼叫[Receive ASYNC API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)來開啟 C2D 連結。
+若要接收裝置線上狀態事件，裝置必須使用「Iot 中樞」執行「請求傳送遙測」或「C2D 接收訊息」作業。 不過，請注意，如果裝置使用 AMQP 通訊協定與 Iot 中樞連線，建議您執行「C2D 接收訊息」作業，否則其線上狀態通知可能會延遲幾分鐘。 如果您的裝置使用 MQTT 通訊協定，則 IoT 中樞會讓 C2D 連結保持開啟。 針對 AMQP，您可以藉由呼叫[Receive ASYNC API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)、for IoT 中樞C# SDK 或[device CLIENT for AMQP](iot-hub-amqp-support.md#device-client)來開啟 C2D 連結。
 
 如果您要傳送遙測資料，應開啟 D2C 連結。 
 
-如果裝置連線閃爍，這表示裝置經常連線和中斷連線，我們將不會傳送每個單一線上狀態，但會發佈*最後*的線上狀態，這最終是一致的。 例如，如果您的裝置一開始已處於 [已連線] 狀態，則連線會閃爍幾秒鐘，然後再回到 [已連線] 狀態。 自初始線上狀態之後，將不會發佈任何新的裝置線上狀態事件。 
-
-IoT 中樞運作中斷時，我們將在中斷狀況結束後隨即發佈裝置連線狀態。 如果裝置在這段停止運作期間中斷連線，裝置中斷連線事件將在 10 分鐘內發佈。
+如果裝置連線閃爍，這表示裝置經常連線和中斷連線，我們將不會傳送每個單一連接狀態，但會發佈在定期快照集所建立的目前連接狀態，直到閃爍繼續為止。 接收具有不同序號或不同線上狀態事件的相同線上狀態事件，兩者都表示裝置線上狀態有變更。
 
 ## <a name="tips-for-consuming-events"></a>取用事件的秘訣
 

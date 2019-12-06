@@ -2,25 +2,22 @@
 title: Azure AD 驗證程式庫（ADAL）用戶端的錯誤處理最佳做法
 description: 提供適用於 ADAL 用戶端應用程式的錯誤處理指引和最佳做法。
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7008a5909d8f530920628125fec1b826be3f984
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 04ffeb85dc424396593d13f2cdc2681e26bd2db3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374197"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845190"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory 驗證程式庫 (ADAL) 用戶端的錯誤處理最佳做法
 
@@ -577,6 +574,7 @@ window.Logging = {
     }
 };
 ```
+
 ## <a name="related-content"></a>相關內容
 
 * [Azure AD 開發人員指南][AAD-Dev-Guide]
@@ -586,7 +584,7 @@ window.Logging = {
 
 使用下方的註解區段來提供意見反應，並協助我們改善及設計我們的內容。
 
-[![Shows [使用 Microsoft 帳戶登入] 按鈕][AAD-Sign-In]][AAD-Sign-In]
+[![顯示 [使用 Microsoft 帳戶登入] 按鈕][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md

@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 查詢語言中的 ARRAY_CONTAINS
-description: 深入瞭解 Azure Cosmos DB 中的 SQL 系統函數 ARRAY_CONTAINS。
+description: 深入瞭解陣列在 Azure Cosmos DB 中如何包含 SQL 系統函數會傳回一個布林值，指出陣列是否包含指定的值。
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 247956ccc2718c9bf192b4d704a48014753c00dc
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 115667c93bbb832926a7939cf250a02b6fef8baa
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348697"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873483"
 ---
 # <a name="array_contains-azure-cosmos-db"></a>ARRAY_CONTAINS （Azure Cosmos DB）
 傳回布林值，表示陣列是否包含指定值。 您可以在命令中使用布林值運算式，以檢查物件為部分相符或完全相符。 
@@ -40,7 +40,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
   
 ## <a name="examples"></a>範例
   
-  下列範例說明如何使用 `ARRAY_CONTAINS` 來檢查陣列中的成員資格。  
+  下列範例說明如何使用 `ARRAY_CONTAINS`檢查陣列中的成員資格。  
   
 ```sql
 SELECT   

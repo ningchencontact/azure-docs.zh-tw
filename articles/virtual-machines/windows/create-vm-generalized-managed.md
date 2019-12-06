@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 17100769bac2e7af08e0bcba6ca2eb129b621013
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: de59edc2e2c702993efd6187a590264d9aac16a7
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037535"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841926"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>從受控映像建立 VM
 
@@ -29,8 +29,7 @@ ms.locfileid: "74037535"
 
 ## <a name="use-the-portal"></a>使用入口網站
 
-1. 開啟 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側功能表中，選取 [所有資源]。 您可以依 [類型] 排序資源，以輕鬆找到您的映像。
+1. 移至[Azure 入口網站](https://portal.azure.com)以尋找受控映射。 搜尋並選取 [**映射**]。
 3. 從清單選取您要使用的映像。 映像的 [概觀] 頁面隨即開啟。
 4. 從功能表選取 [建立 VM]。
 5. 輸入虛擬機器資訊。 在此輸入的使用者名稱和密碼將用於登入虛擬機器。 完成時選取 [確定]。 您可以在現有資源群組中建立新的 VM，或選擇 [建立新項目] 來建立用於儲存 VM 的新資源群組。

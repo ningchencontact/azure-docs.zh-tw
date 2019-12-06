@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 493ccceb2156b454f485d48c76b776f97ffd65c7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ad4a30b9bcd537a59f3d2ef17d3d2f215c1f4b98
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704282"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848881"
 ---
-# <a name="enable-security-audits-for-azure-active-directory-domain-services-preview"></a>啟用 Azure Active Directory Domain Services 的安全性審核（預覽）
+# <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>啟用 Azure Active Directory Domain Services 的安全性審核
 
 Azure Active Directory Domain Services （Azure AD DS）安全性審核可讓 Azure 將安全性事件串流至目標資源。 這些資源包括 Azure 儲存體、Azure Log Analytics 工作區或 Azure 事件中樞。 啟用安全性 audit 事件之後，Azure AD DS 會將所選類別的所有已審核事件傳送至目標資源。 您可以使用 Azure 事件中樞將事件封存至 Azure 儲存體，並將事件串流至安全性資訊和事件管理（SIEM）軟體（或對等專案），或執行您自己的分析，並從 Azure 入口網站使用 Azure Log Analytics 工作區。
 
@@ -83,7 +83,7 @@ Azure AD DS 安全性審核與傳統 AD DS 網域控制站的傳統審核一致�
 
 1. 在 https://portal.azure.com 登入 Azure 入口網站。
 1. 在 Azure 入口網站頂端，搜尋並選取 [ **Azure AD Domain Services**]。 選擇您的受控網域，例如*aadds.contoso.com*。
-1. 在 [Azure AD DS] 視窗中，選取左側的 **[診斷設定（預覽）** ]。
+1. 在 [Azure AD DS] 視窗中，選取左側的 [**診斷設定**]。
 1. 預設不會設定診斷。 若要開始使用，請選取 [**新增診斷設定**]。
 
     ![新增 Azure AD Domain Services 的診斷設定](./media/security-audit-events/add-diagnostic-settings.png)

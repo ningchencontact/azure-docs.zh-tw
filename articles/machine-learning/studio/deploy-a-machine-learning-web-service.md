@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 4324d33a9da66c5f49645e1c8014bd5f57d37bd9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: a2c1ba1d4cd2dfdbf2a94005c539e70705486ba4
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837737"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851089"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>部署 Azure Machine Learning Studio （傳統） web 服務
 
@@ -65,7 +65,7 @@ BES 的輸入就像 RRS 使用的資料輸入。 主要差異在於，BES 會從
 
 既然已經備妥預測實驗，您現在即可將它部署為新式 (Resource Manager 型) Azure Web 服務。 使用者可以使用 Web 服務，將料傳送到您的模型，模型就會傳回其預測。
 
-若要部署您的預測性實驗，請按一下實驗畫布底端的 [執行] 。 實驗完成執行之後，請按一下 [部署 Web 服務]，然後選取 [部署 Web 服務**新式[]]** 。  [Machine Learning Studio （傳統） Web 服務入口網站] 的 [部署] 頁面隨即開啟。
+若要部署您的預測性實驗，請按一下實驗畫布底端的 [執行] 。 實驗完成執行之後，請按一下 [部署 Web 服務]，然後選取 [部署 Web 服務[新式]]。  [Machine Learning Studio （傳統） Web 服務入口網站] 的 [部署] 頁面隨即開啟。
 
 > [!NOTE] 
 > 若要部署新的 Web 服務，您必須在要部署 Web 服務的訂用帳戶中具備足夠的權限。 如需詳細資訊，請參閱[使用 Azure Machine Learning Web 服務入口網站管理 Web 服務](manage-new-webservice.md)。 
@@ -121,7 +121,7 @@ RRS 測試頁面會顯示輸入、輸出以及任何您已為實驗定義的全�
 
 ### <a name="manage-your-new-web-service"></a>管理新式 Web 服務
 
-您可以管理新的 web 服務 Machine Learning Studio （傳統） Web 服務入口網站。 從[入口網站主頁面](https://services.azureml-test.net/)按一下 [Web 服務]。 從 Web 服務頁面可以刪除或複製服務。 若要監視特定的服務，請按一下服務，然後按一下 [儀表板]。 若要監視與 Web 服務相關聯的批次作業，請按一下 [批次要求記錄檔]。
+您可以使用 Machine Learning Studio （傳統） Web 服務入口網站來管理新的 web 服務。 從[入口網站主頁面](https://services.azureml.net/)按一下 [Web 服務]。 從 Web 服務頁面可以刪除或複製服務。 若要監視特定的服務，請按一下服務，然後按一下 [儀表板]。 若要監視與 Web 服務相關聯的批次作業，請按一下 [批次要求記錄檔]。
 
 ### <a id="multi-region"></a> 將您的新式 Web 服務部署到多個區域
 
@@ -139,7 +139,7 @@ RRS 測試頁面會顯示輸入、輸出以及任何您已為實驗定義的全�
 6. 從 [資源群組] 下拉式清單中，選取方案的資源群組。 如需資源群組的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)。
 7. 在 [方案名稱] 中，輸入方案的名稱。
 8. 在 [方案選項]下，按一下新方案的計費層級。
-9. 按一下頁面底部的 [新增]。
+9. 按一下 [建立]。
 
 #### <a name="deploy-the-web-service-to-another-region"></a>將 Web 服務部署到另一個區域
 
@@ -224,7 +224,7 @@ RRS 測試頁面會顯示輸入、輸出以及任何您已為實驗定義的全�
 [將其轉換為預測實驗]: #convert-the-training-experiment-to-a-predictive-experiment
 [新式 Web 服務]: #deploy-it-as-a-new-web-service
 [傳統 Web 服務]: #deploy-it-as-a-classic-web-service
-[]: #deploy-it-as-a-new-web-service
+[新式]: #deploy-it-as-a-new-web-service
 [classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal

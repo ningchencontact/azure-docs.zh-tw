@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e751c7aefe888d16e6d86a0184a1a59437d665f
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 11a0dbd28dc798342a24180af430187ac69f61b8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404239"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848131"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>開始使用 Azure Multi-Factor Authentication Server
 
@@ -38,9 +38,9 @@ ms.locfileid: "74404239"
 
 理想的指導方針：您需要的記憶體數量就是您預期會定期驗證的使用者數目。
 
-| 使用者 | RAM |
+| 使用者人數 | RAM |
 | ----- | --- |
-| 1-10,000 | 4 GB |
+| 1-10,000 | 4GB |
 | 10,001-50,000 | 8 GB |
 | 50,001-100,000 | 12 GB |
 | 100,000-200,001 | 16 GB |
@@ -58,7 +58,7 @@ ms.locfileid: "74404239"
 |:--- |:--- |
 | 硬體 |<li>200 MB 的硬碟空間</li><li>具有 x32 或 x64 功能的處理器</li><li>1 GB 或更高的 RAM</li> |
 | 軟體 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008，SP1、SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003，SP1、SP2</li><li>Windows 10</li><li>Windows 8.1，所有版本</li><li>Windows 8，所有版本</li><li>Windows 7，所有版本</li><li>Windows Vista，所有版本，SP1、SP2</li><li>Microsoft .NET 4.0 Framework</li><li>如果安裝使用者入口網站或 Web 服務 SDK，則為 IIS 7.0 或更高版本</li> |
-| 權限 | 網域系統管理員或企業系統管理員以向 Active Directory 註冊 |
+| 使用權限 | 網域系統管理員或企業系統管理員以向 Active Directory 註冊 |
 
 ### <a name="azure-mfa-server-components"></a>Azure MFA Server 元件
 

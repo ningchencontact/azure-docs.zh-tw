@@ -4,17 +4,17 @@ description: 摘要說明可以用來在 Azure 自動化中啟動 Runbook 的不
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8200052e14161d91b7daef6a0acd9c851518d9c2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: a6ef8d81e8a2845e62bf25d0bba4d6967cca65a4
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886465"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849406"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>在 Azure 自動化中啟動 Runbook
 

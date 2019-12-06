@@ -4,17 +4,17 @@ description: 本文提供有關安裝和使用混合式 Runbook 背景工作角�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c10905c283619e6008dbe6ab8c4e721888b8b786
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 7329d32c01f005f4f5a727f80c6af0b58982b41f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743808"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850256"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>使用混合式 Runbook 背景工作角色將資料中心內或雲端的資源自動化
 
@@ -107,7 +107,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 
 若要讓混合式 Runbook 背景工作角色與自動化進行通訊，需要下列連接埠和 URL：
 
-* 連接埠：只需要 TCP 443 以便進行傳出網際網路存取。
+* 連接埠︰只需要 TCP 443 以便進行傳出網際網路存取。
 * 全域 URL：*.azure-automation.net
 * US Gov 維吉尼亞州的全域 URL： *.azure automation.us
 * 代理程式服務： https://\<workspaceId\>.agentsvc.azure-automation.net
@@ -146,7 +146,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 
 除了混合式 Runbook 背景工作角色所需的標準位址與連接埠之外，也需要下列位址 (尤其在更新管理時)。 這些位址的通訊皆經由連接埠 443 進行。
 
-|Azure 公用  |Azure Government  |
+|Azure 公用  |Azure 政府機構  |
 |---------|---------|
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |

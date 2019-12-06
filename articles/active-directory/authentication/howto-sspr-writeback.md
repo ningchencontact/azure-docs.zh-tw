@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1acda877ecadc8ad0abd09b78d5453743e2470b1
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 67737aed3bd9961a37dc761fddf608d9bcfe3ffe
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381146"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847247"
 ---
 # <a name="how-to-configure-password-writeback"></a>如何：設定密碼回寫
 
@@ -65,8 +65,8 @@ ms.locfileid: "74381146"
 
 * **重設密碼** 
 * **變更密碼** 
-* **的**寫入權限`lockoutTime`
-* **的**寫入權限`pwdLastSet`
+* `lockoutTime` 的**寫入權限**
+* `pwdLastSet` 的**寫入權限**
 * 下列其中一項的**延伸權限**：
    * 該樹系中「每個網域」的根物件
    * 要在 SSPR 範圍中的使用者組織單位 (OU)

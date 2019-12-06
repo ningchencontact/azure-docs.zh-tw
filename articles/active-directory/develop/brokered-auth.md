@@ -1,32 +1,27 @@
 ---
 title: Android 中的代理驗證 |Azure
+titlesuffix: Microsoft identity platform
 description: 瞭解在 Microsoft 身分識別平臺中，適用于 Android 的代理驗證 & 授權
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
-ms.reviewer: shoatman
+ms.reviewer: shoatman, hahamil, brianmel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a535cbefc3520cbf0c0fc14fbcfd0dd9ebd92ac
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f5204ad71efa2587341600d2c5c1e5195d15445e
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175651"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843711"
 ---
-# <a name="brokered-auth-in-android"></a>Android 中的代理驗證
-
-## <a name="introduction"></a>簡介
+# <a name="brokered-authentication-in-android"></a>Android 中的代理驗證
 
 您必須使用 Microsoft 的其中一個驗證代理程式參與全裝置單一登入（SSO），並符合組織的條件式存取原則。 與 broker 整合可提供下列優點：
 

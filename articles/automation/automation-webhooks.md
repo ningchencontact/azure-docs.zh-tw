@@ -4,21 +4,21 @@ description: 可讓用戶端透過 HTTP 呼叫在 Azure 自動化中啟動 Runbo
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 153e910ea85ae843c6d4db51e709b58e441f6761
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: bc03425a64486e449b4df93ea187435a1e893dda
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061445"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849593"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 Webhook 啟動 Azure 自動化 Runbook
 
-*Webhook* 可讓您在 Azure 自動化中透過單一 HTTP 要求啟動特定的 Runbook。 這可讓外部服務 (例如 Azure DevOps Services、GitHub、Azure 監視器記錄或自訂應用程式) 啟動 runbook, 而不需要使用 Azure 自動化 API 來執行完整的解決方案。
+*Webhook* 可讓您在 Azure 自動化中透過單一 HTTP 要求啟動特定的 Runbook。 這可讓外部服務（例如 Azure DevOps Services、GitHub、Azure 監視器記錄或自訂應用程式）啟動 runbook，而不需要使用 Azure 自動化 API 來執行完整的解決方案。
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 您可以透過 [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md)
@@ -30,12 +30,12 @@ ms.locfileid: "70061445"
 
 下表描述您必須為 Webhook 設定的屬性。
 
-| 屬性 | Description |
+| 屬性 | 描述 |
 |:--- |:--- |
 | Name |您可以為 Webhook 提供任何想要的名稱，因為這並不會向用戶端公開。 該名稱僅供您用來識別 Azure 自動化中的 Runbook。 <br> 最佳做法是您給予 Webhook 的名稱應該與要使用它的用戶端相關。 |
 | URL |Webhook 的 URL 是一種唯一性的位址，即用戶端用來呼叫 HTTP POST 以啟動連結至 Webhook的 Runbook。 當您建立 Webhook 時其會自動產生。 您無法指定自訂 URL。 <br> <br> URL 包含可讓協力廠商系統不需進一步驗證即可叫用 Runbook 的安全性權杖。 基於這個原因，應該將其視為一種密碼。 基於安全性原因，您僅能於 Webhook 建立時在 Azure 入口網站中檢視 URL。 請在安全的位置記下 URL 以供日後使用。 |
-| 有效期限 |例如憑證，每個 Webhook 都會有一個到期日期，到期後便無法再使用。 此到期日可在 Webhook 建立後進行修改，只要 Webhook尚未過期即可。 |
-| Enabled |建立 Runbook 時 Webhook 會預設為啟用。 如果您將其設定為 [停用]，則任何用戶端皆無法使用。 當您建立 Webhook 時或在建立後的任何時候，您可以設定 [啟用] 屬性。 |
+| 到期日期 |例如憑證，每個 Webhook 都會有一個到期日期，到期後便無法再使用。 此到期日可在 Webhook 建立後進行修改，只要 Webhook尚未過期即可。 |
+| 已啟用 |建立 Runbook 時 Webhook 會預設為啟用。 如果您將其設定為 [停用]，則任何用戶端皆無法使用。 當您建立 Webhook 時或在建立後的任何時候，您可以設定 [啟用] 屬性。 |
 
 ### <a name="parameters"></a>參數
 
@@ -56,7 +56,7 @@ Webhook 可以定義由該 Webhook 啟動 Runbook 時所使用的 Runbook 參數
 支援 **$WebhookData** 參數不需要 Webhook 的組態，且 Runbook 不需要接受其。 若 Runbook 並未定義參數，則會忽略從用戶端所傳送要求的任何詳細資料。
 
 > [!NOTE]
-> 呼叫 webhook 時, 您應該一律儲存任何參數值, 以防呼叫失敗。 如果發生網路中斷或連線問題, 您將無法取得失敗的 webhook 呼叫。
+> 呼叫 webhook 時，您應該一律儲存任何參數值，以防呼叫失敗。 如果發生網路中斷或連線問題，您將無法取得失敗的 webhook 呼叫。
 
 若您在建立 Webhook 時指定 $WebhookData 的值，即使用戶端在要求本文中並未包含任何資料，該值也會在 Webhook 使用來自用戶端 POST 要求的資料來啟動 Runbook 時遭到覆寫。 若您使用 Webhook 以外的方式啟動具有 $WebhookData 的 Runbook，則可以提供可讓 Runbook 辨識的 $WebhookData 值。 這個值應該是 [屬性](#details-of-a-webhook) 相同皆為 $Webhookdata 的物件，Runbook 如此即可正確地與其一起運作，就像是其使用 webhook 所傳遞的實際 WebhookData 一般。
 
@@ -66,7 +66,7 @@ Webhook 可以定義由該 Webhook 啟動 Runbook 時所使用的 Runbook 參數
 
 針對下述 Runbook，如果您具有下列適用於 WebhookData 參數的屬性：
 
-* WebhookName：*MyWebhook*
+* WebhookName: *MyWebhook*
 * RequestBody: *[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*
 
 則您應在 UI 中針對 WebhookData 參數傳遞下列 JSON 值。 下列具有歸位字元與新行字元的範例會符合從 Webhook 傳入的格式。
@@ -116,7 +116,7 @@ http://<Webhook Server>/token?=<Token Value>
 | 程式碼 | 文字 | 描述 |
 |:--- |:--- |:--- |
 | 202 |已接受 |已接受要求，且 Runbook 已經成功排入佇列。 |
-| 400 |錯誤的要求 |基於下列其中一個因素而不接受此要求： <ul> <li>Webhook 已過期。</li> <li>Webhook 已停用。</li> <li>URL 中的權杖無效。</li>  </ul> |
+| 400 |不正確的要求 |基於下列其中一個因素而不接受此要求： <ul> <li>Webhook 已過期。</li> <li>Webhook 已停用。</li> <li>URL 中的權杖無效。</li>  </ul> |
 | 404 |找不到 |基於下列其中一個因素而不接受此要求： <ul> <li>找不到該 Webhook。</li> <li>找不到該 Runbook。</li> <li>找不到帳戶。</li>  </ul> |
 | 500 |內部伺服器錯誤 |URL 有效，但發生錯誤。 請重新提交要求。 |
 

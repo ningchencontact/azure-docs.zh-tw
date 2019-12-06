@@ -4,17 +4,17 @@ description: 本文說明如何在 Azure 自動化的圖形化 Runbook 中實作
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ed6620333382a1e43ee1b38a009c91e8d7038233
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: cb4f6827f58b882b8b1ae0ef8c093a09e090f17a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476943"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850698"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Azure 自動化之圖形化 Runbook 中的錯誤處理
 
@@ -26,11 +26,11 @@ Runbook 應該包含錯誤處理。 若要驗證活動的輸出，或以圖形�
 
 執行期間可能發生的 PowerShell 錯誤類型為終止或非終止。 終止和非終止錯誤之間的差異如下︰
 
-* **終止錯誤**：執行期間所發生的嚴重錯誤，此錯誤會完全終止命令 (或指令碼執行)。 範例包括不存在的 Cmdlet、防止 Cmdlet 執行的語法錯誤，或其他嚴重錯誤。
+* **終止錯誤**︰執行期間所發生的嚴重錯誤，此錯誤會完全終止命令 (或指令碼執行)。 範例包括不存在的 Cmdlet、防止 Cmdlet 執行的語法錯誤，或其他嚴重錯誤。
 
-* **非終止錯誤**：非嚴重錯誤，會允許繼續執行，而不理會失敗。 範例包括操作錯誤，例如找不到檔案錯誤和權限問題。
+* **非終止錯誤**︰非嚴重錯誤，會允許繼續執行，而不理會失敗。 範例包括操作錯誤，例如找不到檔案錯誤和權限問題。
 
-Azure 自動化的圖形化 Runbook 已納入錯誤處理功能。 您現在可以將例外狀況變成非終止錯誤，並建立活動之間的錯誤連結。 此處理可讓 Runbook 作者捕捉到錯誤，以及管理已實現或非預期的狀況。  
+Azure 自動化的圖形化 Runbook 已納入錯誤處理功能。 您現在可以將例外狀況變成非終止錯誤，並建立活動之間的錯誤連結。 此程式可讓 runbook 作者攔截錯誤，並管理已實現或非預期的狀況。  
 
 ## <a name="when-to-use-error-handling"></a>何時使用錯誤處理
 
@@ -61,7 +61,7 @@ Azure 自動化的圖形化 Runbook 已納入錯誤處理功能。 您現在可�
 
 依設定，**Get-AutomationVariable** 活動和 **Start-AzureRmVm** 會將例外狀況轉換為錯誤。 如果無法取得變數或啟動 VM，就會產生錯誤。<br><br> ![自動化 Runbook 的錯誤處理活動設定](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
-錯誤連結會從這些活動流向單一**錯誤管理**活動 (程式碼活動)。 此活動已設定了簡單的 PowerShell 運算式，其使用 Throw  關鍵字來停止處理，以及使用 $Error.Exception.Message  來取得說明目前例外狀況的訊息。<br><br> ![自動化 Runbook 的錯誤處理程式碼範例](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
+錯誤連結會從這些活動流向單一**錯誤管理**活動 (程式碼活動)。 此活動已設定了簡單的 PowerShell 運算式，其使用 Throw 關鍵字來停止處理，以及使用 $Error.Exception.Message 來取得說明目前例外狀況的訊息。<br><br> ![自動化 Runbook 的錯誤處理程式碼範例](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 93c35eb4f69cc4f9b16f669d96c2df53f50bcf84
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 789af25cc37183e9eeae253e1e8529615abdd308
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231184"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849797"
 ---
 # <a name="durable-functions-versions-overview"></a>Durable Functions 版本總覽
 
@@ -55,7 +55,7 @@ Durable Functions 2.x 引進了幾項重大變更。 Durable Functions 1.x 應�
 Durable Functions 2.x 使用新的 host. json 架構。 1\. x 的主要變更包括：
 
 * 適用于儲存體特定設定的 `"storageProvider"` （和 `"azureStorage"` 子區段）。
-* 追蹤和記錄設定的 `"tracking"`。
+* 追蹤和記錄設定的 `"tracing"`。
 * 事件方格通知設定的 `"notifications"` （和 `"eventGrid"` 子區段）。
 
 如需詳細資訊，請參閱[Durable Functions host. json 參考檔](durable-functions-bindings.md#durable-functions-2-0-host-json)。

@@ -4,17 +4,17 @@ description: 了解如何在引發 Azure 警示時觸發 Runbook 執行。
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6c818114df436dbbd3ac1a51b6eeec00b9eec4d3
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: c4afcbced2879a2a6d50112b6388cdf5c8098b1d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915720"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850375"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>使用警示來觸發 Azure 自動化 Runbook
 
@@ -175,7 +175,7 @@ Runbook 會使用**AzureRunAsConnection** [執行身分帳戶](automation-create
 警示會使用動作群組，這是警示所觸發的動作集合。 Runbook 只是可與動作群組搭配使用的眾多動作之一。
 
 1. 在您的自動化帳戶中，選取 [**監視**] 下的 [**警示**]。
-1. 選取 [ **+ 新增警示規則**]。
+1. 選取 [+ 新增警示規則]。
 1. 按一下 [**資源**] 底下的 [**選取**]。 在 [**選取資源**] 頁面上，選取您的 VM 以發出警示，然後按一下 [**完成**]。
 1. 按一下 [**條件**] 底下的 [**新增條件**]。 選取您想要使用的信號，例如 [ **CPU 百分比**]，然後按一下 [**完成**]。
 1. 在 [**設定信號邏輯**] 頁面上，于 [**警示邏輯**] 下輸入**閾值**，然後按一下 [**完成**]。

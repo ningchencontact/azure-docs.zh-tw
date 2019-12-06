@@ -7,16 +7,16 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 6c2d7dc64bca00ce664dc470e7c4405d69b49779
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 132cf6ccfec5af9951f5dc6d6a3c6d3c81363d81
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531529"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850001"
 ---
 # <a name="standard-quota-regional-vcpu-limit-increase"></a>標準配額：區域 vCPU 限制增加 
 
-Resource Manager 針對虛擬機器支援兩種類型的 vCPU 配額。 **隨用隨付 vm**和**保留的 vm 實例**會使用標準配額。 **低優先順序的 vm**會使用低優先順序的配額。 
+Resource Manager 針對虛擬機器支援兩種類型的 vCPU 配額。 **隨用隨付 vm**和**保留的 vm 實例**會使用標準配額。 **找出 vm**會使用點配額。 
 
 隨用隨付和保留的 VM 實例的標準 vCPU 配額會針對每個區域中的每個訂用帳戶，在兩個層級強制執行。
  
@@ -26,7 +26,7 @@ Resource Manager 針對虛擬機器支援兩種類型的 vCPU 配額。 **隨用
 
 在 [[虛擬機器 vCPU 配額] 頁面](https://docs.microsoft.com/azure/virtual-machines/windows/quotas)和 [Azure 訂用帳戶[和服務限制](https://aka.ms/quotalimits)] 頁面上深入瞭解標準 vCPU 配額。
 
-[在這裡](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota)深入瞭解如何**增加低優先順序的 VM vCPU 限制**。
+[在這裡](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota)深入瞭解**增加點 VM vCPU 限制**。
 
 您可以透過入口網站中的 [說明 **+ 支援**] 分頁或 [**使用方式 + 配額**] 分頁，要求增加**標準 VM 的總區域 vCPU 限制**。
 

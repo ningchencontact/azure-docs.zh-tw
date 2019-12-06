@@ -2,13 +2,13 @@
 title: 設定藍圖操作員的環境
 description: 瞭解如何設定您的 Azure 環境，以用於藍圖操作員內建的角色型存取控制（RBAC）角色。
 ms.date: 08/26/2019
-ms.topic: conceptual
-ms.openlocfilehash: 671ac3aaf42bddb3e775baec6838e4c271c4e855
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.topic: how-to
+ms.openlocfilehash: fba0dd3f2eeb69f768800d1d04640510462d3c86
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406363"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873211"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>設定藍圖操作員環境
 

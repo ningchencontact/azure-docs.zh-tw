@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/04/2019
-ms.openlocfilehash: e4fc00d3889d10dddb9ec147a19f06a7211f53be
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/04/2019
+ms.openlocfilehash: 86a94cfdbd2c1755907bc13aa698fba92f5ce649
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230304"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850069"
 ---
 # <a name="monitor-azure-app-service-performance"></a>監視 Azure App Service 效能
 
@@ -37,7 +37,9 @@ ms.locfileid: "74230304"
 > [!NOTE]
 > 如果偵測到以代理程式為基礎的監視和手動以 SDK 為基礎的檢測，則只會接受手動檢測設定。 這是為了防止傳送重複的資料。 若要深入瞭解，請參閱下面的[疑難排解一節](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)。
 
-## <a name="enable-agent-based-monitoring-for-net-applications"></a>為 .NET 應用程式啟用以代理程式為基礎的監視
+## <a name="enable-agent-based-monitoring"></a>啟用以代理程式為基礎的監視
+
+# <a name="nettabnet"></a>[.NET](#tab/net)
 
 > [!NOTE]
 > 不支援 APPINSIGHTS_JAVASCRIPT_ENABLED 和 urlCompression 的組合。 如需詳細資訊，請參閱[疑難排解一節](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)中的說明。
@@ -73,7 +75,7 @@ ms.locfileid: "74230304"
 
     * 如需支援的調適型取樣遙測處理器設定清單，您可以查閱程式[代碼](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs)和[相關聯的檔](https://docs.microsoft.com/azure/azure-monitor/app/sampling)。
 
-## <a name="enable-agent-based-monitoring-for-net-core-applications"></a>針對 .NET Core 應用程式啟用以代理程式為基礎的監視
+# <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
 
 支援下列 .NET Core 版本： ASP.NET Core 2.0、ASP.NET Core 2.1、ASP.NET Core 2。2
 
@@ -94,7 +96,23 @@ ms.locfileid: "74230304"
 
     ![選擇每個平台的選項](./media/azure-web-apps/choose-options-new-net-core.png)
 
-## <a name="enable-client-side-monitoring-for-net-applications"></a>啟用 .NET 應用程式的用戶端監視
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+從 App Service web 應用程式內的 [**設定**] 下 > **選取 [Application Insights** > **啟用**]。 以 node.js 代理程式為基礎的監視目前為預覽狀態。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+以 JAVA App Service 為基礎的 web 應用程式目前不支援自動代理程式/擴充功能型監視。 若要啟用 JAVA 應用程式的監視，您必須[手動檢測您的應用程式](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started)。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+以 Python App Service 為基礎的 web 應用程式目前不支援以自動代理程式/延伸模組為基礎的監視。 若要為您的 Python 應用程式啟用監視，您必須[手動檢測應用程式](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)。
+
+---
+
+## <a name="enable-client-side-monitoring"></a>啟用用戶端監視
+
+# <a name="nettabnet"></a>[.NET](#tab/net)
 
 用戶端監視是加入宣告以進行 ASP.NET。 若要啟用用戶端監視：
 
@@ -111,7 +129,7 @@ ms.locfileid: "74230304"
 
 若要停用用戶端監視，請從應用程式設定中移除相關聯的機碼值組，或將值設定為 false。
 
-## <a name="enable-client-side-monitoring-for-net-core-applications"></a>啟用 .NET Core 應用程式的用戶端監視
+# <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
 
 不論應用程式設定 ' APPINSIGHTS_JAVASCRIPT_ENABLED ' 是否存在，使用建議的**集合**的 .net Core 應用程式**預設會啟用**用戶端監視。
 
@@ -128,6 +146,20 @@ ms.locfileid: "74230304"
 
 ![應用程式設定 UI 的螢幕擷取畫面](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+若要為您的 node.js 應用程式啟用用戶端監視，您必須[手動將用戶端 JAVASCRIPT SDK 新增至您的應用程式](https://docs.microsoft.com/azure/azure-monitor/app/javascript)。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+若要啟用 JAVA 應用程式的用戶端監視，您必須[手動將用戶端 JAVASCRIPT SDK 新增至您的應用程式](https://docs.microsoft.com/azure/azure-monitor/app/javascript)。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+若要為您的 Python 應用程式啟用用戶端監視，您必須[手動將用戶端 JAVASCRIPT SDK 新增至您的應用程式](https://docs.microsoft.com/azure/azure-monitor/app/javascript)。
+
+---
+
 ## <a name="automate-monitoring"></a>自動監視
 
 若要使用 Application Insights 啟用遙測收集，只需要設定應用程式設定：
@@ -136,7 +168,7 @@ ms.locfileid: "74230304"
 
 ### <a name="application-settings-definitions"></a>應用程式設定定義
 
-|應用程式設定名稱 |  定義 | 值 |
+|應用程式設定名稱 |  定義 | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 主要延伸模組，控制執行時間監視。 | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  只有在預設模式下，才會啟用基本功能，以確保最佳效能。 | `default` 或 `recommended`。 |
@@ -322,12 +354,12 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 以下是針對在 Azure App 服務上執行的 .NET 和 .NET Core 應用程式，以擴充/代理程式為基礎之監視的逐步疑難排解指南。
 
 > [!NOTE]
-> JAVA 和 node.js 應用程式只能透過手動 SDK 型檢測在 Azure App 服務上受到支援，因此下列步驟不適用於這些案例。
+> JAVA 應用程式僅支援透過手動 SDK 型檢測 Azure App 服務，因此下列步驟不適用於這些案例。
 
 1. 檢查是否已透過 `ApplicationInsightsAgent`監視應用程式。
     * 檢查 `ApplicationInsightsAgent_EXTENSION_VERSION` 應用程式設定是否設定為 "~ 2" 的值。
 2. 請確定應用程式符合要監視的需求。
-    * 流覽至 `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+    * 瀏覽至 `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`。
 
     ![https://yoursitename.scm.azurewebsites/applicationinsights [結果] 頁面的螢幕擷取畫面](./media/azure-web-apps/app-insights-sdk-status.png)
 
@@ -350,8 +382,8 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 | `AppAlreadyInstrumented:true` | 此值表示延伸模組偵測到應用程式中已有 SDK 的某些層面，而且將會回復。 這可能是因為參考 `System.Diagnostics.DiagnosticSource`、`Microsoft.AspNet.TelemetryCorrelation`或 `Microsoft.ApplicationInsights`  | 移除參考。 根據預設，某些參考會從某些 Visual Studio 範本新增，而舊版的 Visual Studio 可能會將參考新增至 `Microsoft.ApplicationInsights`。
 |`AppAlreadyInstrumented:true` | 如果應用程式是以 .NET Core 2.1 或2.2 為目標，並參考[AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore.All) ，則會帶入 Application Insights，而且延伸模組將會回復。 | [建議您使用](https://github.com/aspnet/Announcements/issues/287).net Core 2.1、2.2 的客戶，改為使用 AspNetCore 應用程式元封裝。|
 |`AppAlreadyInstrumented:true` | 這個值也可能是因為先前部署的應用程式資料夾中有上述的 dll。 | 清除應用程式資料夾，以確保這些 dll 已移除。 檢查本機應用程式的 bin 目錄，以及 App Service 上的 wwwroot 目錄。 （若要檢查 App Service web 應用程式的 wwwroot 目錄： Advanced Tools （Kudu） > Debug 主控台 > CMD > home\site\wwwroot）。
-|`AppContainsAspNetTelemetryCorrelationAssembly: true` | 此值表示延伸模組偵測到應用程式中 `Microsoft.AspNet.TelemetryCorrelation` 的參考，而且將會回復。 | 請移除參考。
-|`AppContainsDiagnosticSourceAssembly**:true`|此值表示延伸模組偵測到應用程式中 `System.Diagnostics.DiagnosticSource` 的參考，而且將會回復。| 請移除參考。
+|`AppContainsAspNetTelemetryCorrelationAssembly: true` | 此值表示延伸模組偵測到應用程式中 `Microsoft.AspNet.TelemetryCorrelation` 的參考，而且將會回復。 | 移除參考。
+|`AppContainsDiagnosticSourceAssembly**:true`|此值表示延伸模組偵測到應用程式中 `System.Diagnostics.DiagnosticSource` 的參考，而且將會回復。| 移除參考。
 |`IKeyExists:false`|此值表示 AppSetting 中不存在檢測金鑰，`APPINSIGHTS_INSTRUMENTATIONKEY`。 可能的原因：這些值可能已被意外移除、忘記設定自動化腳本中的值等等。 | 請確定 App Service 的應用程式設定中有該設定。
 
 ### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>不支援 APPINSIGHTS_JAVASCRIPT_ENABLED 和 urlCompression
@@ -370,6 +402,6 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - 使用 Application Insights 監視 Azure Functions
 * [能夠讓 Azure 診斷](../platform/diagnostics-extension-to-application-insights.md) 傳送至 Application Insights。
 * [監視服務健康狀態計量](../platform/data-platform.md)，確保您的服務可用且回應正常。
-* [接收警示通知](../platform/alerts-overview.md) 。
+* 每當發生作業事件或計量超過臨界值時，[接收警示通知](../platform/alerts-overview.md)。
 * 使用 [JavaScript 應用程式和網頁適用的 Application Insights](javascript.md) ，以從造訪網頁的瀏覽器取得用戶端遙測。
 * [設定可用性 Web 測試](monitor-web-app-availability.md) ，以在您的網站關閉時發出警示。

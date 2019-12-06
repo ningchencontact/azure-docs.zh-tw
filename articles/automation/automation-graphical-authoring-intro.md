@@ -4,17 +4,17 @@ description: 圖形化編寫可讓您建立 Azure 自動化的 Runbook，而不�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d7626706951cc522dce9c6d70251455e64300bc
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 82a06510bd9d1e0de2b38260773cb4848156bf12
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476682"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850290"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure 自動化中的圖形化編寫
 
@@ -44,12 +44,12 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。 �
 
 程式庫控制項是您選取 [活動](#activities) 以加入至您的 Runbook 的位置。 您會將它們加入畫布，在畫布中將它們連接到其他活動。 它包含下表所述的四個區段：
 
-| Section | 描述 |
+| 區段 | 描述 |
 |:--- |:--- |
 | Cmdlet |包含可以在 Runbook 中使用的所有 Cmdlet。 Cmdlet 是依模組組織。 已在您自動化帳戶中安裝的所有模組皆可供使用。 |
-| runbook |包含自動化帳戶中的 Runbook。 這些 Runbook 可以加入至畫布以做為子 Runbook。 只會顯示與所編輯之 Runbook 相同核心類型的 Runbook。針對圖形化 Runbook，只會顯示以 PowerShell 為基礎的 Runbook，而針對圖形化 PowerShell 工作流程 Runbook，只會顯示以 PowerShell 工作流程為基礎的 Runbook。 |
-| Assets |包含您的自動化帳戶中可以在 Runbook 中使用的 [自動化資產](/previous-versions/azure/dn939988(v=azure.100)) 。 當您將資產加入 Runbook，它會新增工作流程活動，取得所選資產。 如果是變數資產，您可以選取是否要加入活動以取得變數或設定變數。 |
-| Runbook 控制項 |包含可在目前的 Runbook 中使用的 Runbook 控制項活動。 「接合」  會接受多個輸入，並等待所有項目完成，然後再繼續工作流程。 「程式碼」  活動會根據圖形化 Runbook 類型而定，執行一或多行 PowerShell 或 PowerShell 工作流程程式碼。 您可以對很難利用其他活動來達成的自訂程式碼或功能使用此活動。 |
+| Runbook |包含自動化帳戶中的 Runbook。 這些 Runbook 可以加入至畫布以做為子 Runbook。 只會顯示與所編輯之 Runbook 相同核心類型的 Runbook。針對圖形化 Runbook，只會顯示以 PowerShell 為基礎的 Runbook，而針對圖形化 PowerShell 工作流程 Runbook，只會顯示以 PowerShell 工作流程為基礎的 Runbook。 |
+| 資產 |包含您的自動化帳戶中可以在 Runbook 中使用的 [自動化資產](/previous-versions/azure/dn939988(v=azure.100)) 。 當您將資產加入 Runbook，它會新增工作流程活動，取得所選資產。 如果是變數資產，您可以選取是否要加入活動以取得變數或設定變數。 |
+| Runbook 控制項 |包含可在目前的 Runbook 中使用的 Runbook 控制項活動。 「接合」 會接受多個輸入，並等待所有項目完成，然後再繼續工作流程。 「程式碼」 活動會根據圖形化 Runbook 類型而定，執行一或多行 PowerShell 或 PowerShell 工作流程程式碼。 您可以對很難利用其他活動來達成的自訂程式碼或功能使用此活動。 |
 
 ### <a name="configuration-control"></a>組態控制項
 
@@ -63,9 +63,9 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。 �
 
 ### <a name="exporting-and-importing-a-graphical-runbook"></a>匯出和匯入圖形化 Runbook
 
-您可以只匯出圖形化 Runbook 的已發行版本。 如果尚未發佈 Runbook，則 [匯出]  按鈕會停用。 當您按一下 [匯出]  按鈕，Runbook 就會下載到本機電腦。 檔案名稱須符合帶有 *graphrunbook* 副檔名的 Runbook 名稱。
+您可以只匯出圖形化 Runbook 的已發行版本。 如果尚未發佈 Runbook，則 [匯出] 按鈕會停用。 當您按一下 [匯出] 按鈕，Runbook 就會下載到本機電腦。 檔案名稱須符合帶有 *graphrunbook* 副檔名的 Runbook 名稱。
 
-您可以在加入 Runbook 時選取 [匯入]  選項，藉以匯入圖形化或圖形化 PowerShell 工作流程 Runbook 檔案。 當您選取要匯入的檔案時，您可以保留同一個**名稱**，或提供新名稱。 [Runbook 類型] 欄位將會在評估所選取的檔案類型之後顯示 Runbook 的類型，而且如果您嘗試選取其他不正確的類型，即會顯示訊息，表示可能發生衝突，而且在轉換期間，可能會發生語法錯誤。
+您可以在加入 Runbook 時選取 [匯入] 選項，藉以匯入圖形化或圖形化 PowerShell 工作流程 Runbook 檔案。 當您選取要匯入的檔案時，您可以保留同一個**名稱**，或提供新名稱。 [Runbook 類型] 欄位將會在評估所選取的檔案類型之後顯示 Runbook 的類型，而且如果您嘗試選取其他不正確的類型，即會顯示訊息，表示可能發生衝突，而且在轉換期間，可能會發生語法錯誤。
 
 ![匯入 Runbook](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
 
@@ -75,7 +75,7 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。 �
 
 開啟 Runbook 的測試控制項，方法是開啟 Runbook 進行編輯，然後按一下 [ **測試窗格** ] 按鈕。
 
-測試控制項會提示您輸入任何輸入參數，而您可以按一下 [開始]  按鈕來啟動 Runbook。
+測試控制項會提示您輸入任何輸入參數，而您可以按一下 [開始] 按鈕來啟動 Runbook。
 
 ### <a name="publishing-a-graphical-runbook"></a>發行圖形化 Runbook
 
@@ -89,9 +89,9 @@ Azure 自動化中的每個 Runbook 有草稿和已發行的版本。 只可執�
 
 您也可以選擇還原成 Runbook 的已發行版本。 這樣會棄置上次發行 Runbook 後所進行的任何變更，並以已發行版本取代 Runbook 的草稿版本。
 
-## <a name="activities"></a>activities
+## <a name="activities"></a>活動
 
-活動是 Runbook 的建置區塊。 活動可以是 PowerShell Cmdlet、子 Runbook 或工作流程活動。 以滑鼠右鍵按一下程式庫控制項的活動，然後選取 [加入至畫布]  ，即可將活動加入 Runbook。 然後可以按一下並拖曳活動，將它放置在畫布上的任何位置。 活動在畫布上的位置不會以任何方式影響 Runbook 的作業。 您可以配置您的 Runbook，不過您會發現以視覺化方式檢視其作業最適合。
+活動是 Runbook 的建置區塊。 活動可以是 PowerShell Cmdlet、子 Runbook 或工作流程活動。 以滑鼠右鍵按一下程式庫控制項的活動，然後選取 [加入至畫布]，即可將活動加入 Runbook。 然後可以按一下並拖曳活動，將它放置在畫布上的任何位置。 活動在畫布上的位置不會以任何方式影響 Runbook 的作業。 您可以配置您的 Runbook，不過您會發現以視覺化方式檢視其作業最適合。
 
 ![加入至畫布](media/automation-graphical-authoring-intro/add-to-canvas-revised20165.png)
 
@@ -142,7 +142,7 @@ Azure 自動化中的每個 Runbook 有草稿和已發行的版本。 只可執�
 | 屬性 | 描述 |
 |:--- |:--- |
 | NumberOfAttempts |活動已執行的次數。 |
-| Output |活動上次執行的輸出。 |
+| 輸出 |活動上次執行的輸出。 |
 | TotalDuration |活動第一次開始之後的經過時間。 |
 | StartedAt |活動第一次開始的時間 (UTC 格式)。 |
 
@@ -229,7 +229,7 @@ Both VMName and ResourceGroupName runbook input parameters have values
 
 使用條件式連結時，可從來源活動提供該分支中的其他活動使用的資料將由條件篩選。 如果活動是多個連結的來源，則每個分支中活動可用的資料取決於連線到該分支的連結中的條件。
 
-例如，下列 Runbook 中的 **Start-AzureRmVm** 活動會啟動所有虛擬機器。 它有兩個條件式連結。 第一個條件式連結會在 Start-AzureRmVm 活動順利完成時使用運算式 $ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true  來篩選。 第二個會在 Start-AzureRmVm 活動無法啟動虛擬機器時使用運算式 $ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true  來篩選。
+例如，下列 Runbook 中的 **Start-AzureRmVm** 活動會啟動所有虛擬機器。 它有兩個條件式連結。 第一個條件式連結會在 Start-AzureRmVm 活動順利完成時使用運算式 $ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true 來篩選。 第二個會在 Start-AzureRmVm 活動無法啟動虛擬機器時使用運算式 $ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true 來篩選。
 
 ![條件式連結範例](media/automation-graphical-authoring-intro/runbook-conditional-links.png)
 
@@ -270,7 +270,7 @@ $ActivityOutput['Activity Label'].PropertyName
 
 ### <a name="checkpoints"></a>檢查點
 
-您可以在圖形化 PowerShell 工作流程 Runbook 中設定[檢查點](automation-powershell-workflow.md#checkpoints)，方法是在任何活動上選取「檢查點 Runbook」  。 這會導致在執行活動之後設定檢查點。
+您可以在圖形化 PowerShell 工作流程 Runbook 中設定[檢查點](automation-powershell-workflow.md#checkpoints)，方法是在任何活動上選取「檢查點 Runbook」。 這會導致在執行活動之後設定檢查點。
 
 ![檢查點](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
@@ -316,7 +316,7 @@ Runbook 可能需要來自使用者的輸入內容 (透過 Azure 入口網站啟
 
 您可以按一下 Runbook 工具列上的 [ **輸入和輸出** ] 按鈕來存取 Runbook 的輸入參數。
 
-這會開啟 [輸入和輸出]  控制項，您可以在其中編輯現有的輸入參數，或按一下 [加入輸入]  來建立一個新的。
+這會開啟 [輸入和輸出] 控制項，您可以在其中編輯現有的輸入參數，或按一下 [加入輸入] 來建立一個新的。
 
 ![加入輸入](media/automation-graphical-authoring-intro/runbook-edit-add-input.png)
 
@@ -324,9 +324,9 @@ Runbook 可能需要來自使用者的輸入內容 (透過 Azure 入口網站啟
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 名稱 |參數的唯一名稱。 這只能包含數字字元，而且不能包含空格。 |
+| Name |參數的唯一名稱。 這只能包含數字字元，而且不能包含空格。 |
 | 描述 |輸入參數的選擇性描述。 |
-| 類型 |對參數值預期的資料型別。 提示您輸入時，Azure 入口網站會對每個參數提供適當的資料類型控制項。 |
+| Type |對參數值預期的資料型別。 提示您輸入時，Azure 入口網站會對每個參數提供適當的資料類型控制項。 |
 | 強制 |指定是否必須提供參數的值。 如果您未對未定義預設值的每個強制參數提供值，則無法啟動 Runbook。 |
 | 預設值 |如果未提供其中一個的值，要對參數指定什麼值。 這可以是 Null 或特定值。 |
 
@@ -394,19 +394,19 @@ $ActivityOutput['Get-AzureVm']
 
 使用 [比較運算子](https://technet.microsoft.com/library/hh847759.aspx) 來比較值或判斷值是否符合指定的模式。 比較會傳回 $true 或 $false 的值。
 
-例如，下列條件會判斷來自 *Get-AzureVM* 活動的虛擬機器目前是否「已停止」  。
+例如，下列條件會判斷來自 *Get-AzureVM* 活動的虛擬機器目前是否「已停止」。
 
 ```powershell-interactive
 $ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
 ```
 
-下列條件會檢查相同的虛擬機器是否處於「已停止」  以外的任何狀態。
+下列條件會檢查相同的虛擬機器是否處於「已停止」以外的任何狀態。
 
 ```powershell-interactive
 $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 ```
 
-您可以使用[邏輯運算子](https://technet.microsoft.com/library/hh847789.aspx) (例如 **-and** 或 **-or**) 加入多個條件。 例如，下列條件會檢查上述範例中相同虛擬機器的狀態是否為「已停止」  或「正在停止」  。
+您可以使用[邏輯運算子](https://technet.microsoft.com/library/hh847789.aspx) (例如 **-and** 或 **-or**) 加入多個條件。 例如，下列條件會檢查上述範例中相同虛擬機器的狀態是否為「已停止」或「正在停止」。
 
 ```powershell-interactive
 ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")
@@ -442,7 +442,7 @@ $h
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要开始使用 PowerShell 工作流 Runbook，请参阅 [我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md)
+* 若要開始使用 PowerShell 工作流程 Runbook，請參閱 [我的第一個 PowerShell 工作流程 Runbook](automation-first-runbook-textual.md)
 * 若要開始使用圖形化 Runbook，請參閱 [我的第一個圖形化 Runbook](automation-first-runbook-graphical.md)
 * 若要深入了解 Runbook 類型、其優點和限制，請參閱 [Azure 自動化 Runbook 類型](automation-runbook-types.md)
 * 若要了解如何使用自動化執行身分帳戶進行驗證，請參閱 [設定 Azure 執行身分帳戶](automation-sec-configure-azure-runas-account.md)

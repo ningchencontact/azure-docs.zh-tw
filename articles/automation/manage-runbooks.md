@@ -4,17 +4,17 @@ description: 本文描述如何管理 Azure 自動化中的 Runbook。
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5a477811e46d97375d4dce4d83072dda60ca797c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 42b973ce8a25abff60211afb34ef719d42366175
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717222"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850494"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>管理 Azure 自動化中的 Runbook
 
@@ -49,7 +49,7 @@ New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
 
 * `.graphrunbook` 檔案只能匯入到新的[圖形化 Runbook](automation-runbook-types.md#graphical-runbooks)，而圖形化 Runbook 只能從 `.graphrunbook` 檔案建立。
 * 包含 PowerShell 工作流程的 `.ps1` 檔案只能匯入至 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)。 如果檔案包含多個 PowerShell 工作流程，則匯入將會失敗。 您必須將每個工作流程儲存到它們各自的檔案，並且個別匯入。
-* 包含`.ps1` powershell 工作流程的檔案不應匯入[powershell runbook](automation-runbook-types.md#powershell-runbooks)中, 因為 powershell 腳本引擎無法辨識該檔案。
+* 包含 PowerShell 工作流程的 `.ps1` 檔案不應匯入[powershell runbook](automation-runbook-types.md#powershell-runbooks)中，因為 powershell 腳本引擎無法辨識該檔案。
 * 未包含工作流程的 `.ps1` 檔案可以匯入至 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 或 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)。  如果是匯入 PowerShell 工作流程 Runbook 中，則會轉換為工作流程，而且 Runbook 會包含註解來指明所做的變更。
 
 ### <a name="to-import-a-runbook-from-a-file-with-the-azure-portal"></a>使用 Azure 入口網站從檔案匯入 Runbook
@@ -108,7 +108,7 @@ Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 當您建立或匯入新的 Runbook 時，您必須發佈才能執行它。  自動化中的每個 Runbook 都有草稿和已發行的版本。 只可執行已發行版本，而且只可編輯草稿版本。 已發行版本不會受到草稿版本的任何變更影響。 草稿版本應該已可供使用時，您會將它發佈，以草稿版本覆寫已發佈版本。
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 1. 在 Azure 入口網站中開啟 Runbook。
 2. 按一下 [ **編輯** ] 按鈕。

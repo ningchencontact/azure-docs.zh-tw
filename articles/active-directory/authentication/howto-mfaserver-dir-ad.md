@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b02d6468ede0d5748409a620a6641109cd523a09
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: b51c6284c0d7ee21f67d37465100f84d4b2f5ae2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404236"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848080"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA Server 與 Active Directory 之間的目錄整合
 
@@ -56,7 +56,7 @@ ms.locfileid: "74404236"
 | 查詢大小限制 |指定目錄搜尋可傳回的使用者數目上限。  此限制應該符合 LDAP 目錄上的設定。  對於不支援分頁的大型搜尋，匯入和同步處理會嘗試以批次方式擷取使用者。  如果此處指定的大小限制大於 LDAP 目錄上設定的限制，可能會遺漏部分使用者。 |
 | 測試按鈕 |按一下 [測試] 以測試 LDAP 伺服器繫結。  <br><br>您不需要選取 [使用 LDAP] 選項來測試繫結。 這樣可以在使用 LDAP 組態之前先測試繫結。 |
 
-## <a name="filters"></a>篩選器
+## <a name="filters"></a>篩選
 
 篩選可讓您在執行目錄搜尋時，設定準則來限定記錄。  您可以設定篩選以限定想要同步處理的物件範圍。  
 
@@ -100,7 +100,7 @@ Azure Multi-Factor Authentication 具有下列三個篩選選項：
 | 傳真 |輸入屬性的屬性名稱，此屬性包含使用者記錄中的傳真號碼。  預設值是 facsimileTelephoneNumber。 |
 | IP 電話 |輸入屬性的屬性名稱，此屬性包含使用者記錄中的 IP 電話號碼。  預設值是 ipPhone。 |
 | 自訂 |輸入屬性的屬性名稱，其中包含使用者記錄中的自訂電話號碼。  預設值為空白。 |
-| 擴充功能 |輸入屬性的屬性名稱，此屬性包含使用者記錄中的分機電話號碼。  分機欄位的值只會做為主要電話號碼的分機。  預設值為空白。 <br><br>如果不指定分機屬性，則可以在電話屬性中包含分機。 在此情況下，在分機前面加上 'x'，便可得到正確剖析。  例如，555-123-4567 x890 會形成電話號碼 555-123-4567 和分機 890。 |
+| 尾碼 |輸入屬性的屬性名稱，此屬性包含使用者記錄中的分機電話號碼。  分機欄位的值只會做為主要電話號碼的分機。  預設值為空白。 <br><br>如果不指定分機屬性，則可以在電話屬性中包含分機。 在此情況下，在分機前面加上 'x'，便可得到正確剖析。  例如，555-123-4567 x890 會形成電話號碼 555-123-4567 和分機 890。 |
 | [還原預設值] 按鈕 |按一下 [還原預設值]，可將所有屬性還原為預設值。  在一般 Active Directory 或 ADAM 結構描述中，預設值應該可以正確運作。 |
 
 若要編輯屬性，請按一下 [屬性] 索引標籤上的 [**編輯**]。 這會出現一個視窗，您可以在其中編輯屬性。 選取任何屬性旁邊的 [...] 可開啟視窗供您選擇要顯示的屬性。

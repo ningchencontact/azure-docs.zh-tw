@@ -1,22 +1,22 @@
 ---
-title: IOS-Azure Active Directory 上的憑證式驗證
+title: IOS 上以憑證為基礎的驗證-Azure Active Directory
 description: 了解在有 iOS 裝置的解決方案中，設定憑證式驗證的支援案例和需求
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 01/15/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cda1b1c2a484f3aa627b8b9cf486528d13f27be8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d2f9e7d71ab660c4df6f65d6bebe1d3854086bdd
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60415989"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848794"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>iOS 上的 Azure Active Directory 憑證式驗證
 
@@ -46,7 +46,7 @@ ms.locfileid: "60415989"
 | Word / Excel / PowerPoint |![核取記號表示此應用程式的支援][1] |
 | Yammer |![核取記號表示此應用程式的支援][1] |
 
-## <a name="requirements"></a>需求
+## <a name="requirements"></a>要求
 
 裝置作業系統版本必須是 iOS 9 和更新版本
 
@@ -68,7 +68,7 @@ ADFS 權杖必須要有下列宣告，Azure Active Directory 才能撤銷用戶�
 
 如需詳細資訊，請參閱[自訂 AD FS 登入頁面](https://technet.microsoft.com/library/dn280950.aspx)。
 
-某些 Office 應用程式 (已啟用新式驗證) 會在其要求中將 ‘*prompt=login*’ 傳送至 Azure AD。 根據預設，Azure AD 會將對 ADFS 的要求中的 ‘*prompt=login*’ 轉譯成 ‘*wauth=usernamepassworduri*’ (請求 ADFS 進行 U/P 驗證) 和 ‘*wfresh=0*’ (請求 ADFS 忽略 SSO 狀態並進行全新驗證)。 如果您想要啟用這些應用程式的憑證型驗證，您必須修改預設的 Azure AD 行為。 只要將您的同盟網域設定中的 'PromptLoginBehavior'  設定為 ‘Disabled‘  。
+某些 Office 應用程式 (已啟用新式驗證) 會在其要求中將 ‘*prompt=login*’ 傳送至 Azure AD。 根據預設，Azure AD 會將對 ADFS 的要求中的 ‘*prompt=login*’ 轉譯成 ‘*wauth=usernamepassworduri*’ (請求 ADFS 進行 U/P 驗證) 和 ‘*wfresh=0*’ (請求 ADFS 忽略 SSO 狀態並進行全新驗證)。 如果您想要啟用這些應用程式的憑證型驗證，您必須修改預設的 Azure AD 行為。 只要將您的同盟網域設定中的 'PromptLoginBehavior' 設定為 ‘Disabled‘。
 您可以使用 [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) Cmdlet 來執行這項工作︰
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`

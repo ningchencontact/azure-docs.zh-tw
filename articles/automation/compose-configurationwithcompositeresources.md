@@ -5,17 +5,17 @@ keywords: powershell dsc, desired state configuration, powershell dsc azure, com
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d9d16d9d9967af5bf8f9e13406e13d5637325f52
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: e9552adad1f15422eb60c34f2548324aeb03ee74
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243360"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849559"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>使用複合資源在 Azure Automation State Configuration (DSC) 中撰寫 DSC 設定
 
@@ -41,7 +41,7 @@ Azure 自動化能夠[匯入和編譯複合資源](automation-dsc-compile.md#com
 
 新的設定儲存之後，便會提交以進行編譯。 就像任何已匯入的設定，您可以檢視編譯作業狀態。 如需詳細資訊，請參閱[檢視編譯作業](automation-dsc-getting-started.md#viewing-a-compilation-job)。
 
-當編譯已順利完成時，新的設定會顯示在 [已編譯設定] 索引標籤中。一旦設定顯示在此索引標籤中，就可以使用[將節點重新指派至不同的節點組態](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration)中的步驟，將它指派給受控節點。
+成功完成編譯時，新的設定會出現在 [**已編譯**的設定] 索引標籤中。在此索引標籤中顯示之後，您可以使用將[節點重新指派至不同的節點](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration)設定中的步驟，將它指派給受控節點。
 
 ## <a name="next-steps"></a>後續步驟
 

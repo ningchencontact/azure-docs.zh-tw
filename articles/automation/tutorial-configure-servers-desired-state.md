@@ -4,17 +4,17 @@ description: 教學課程 - 使用 Azure Automation State Configuration 管理�
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 72e5018dc1212e57dc190c05cc54158d37ca7fe1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0339796f028a0cc0b19533be06127544db396f92
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231503"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850086"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>將伺服器設定為預期狀態並管理漂移
 
@@ -27,7 +27,7 @@ Azure Automation State Configuration 可讓您指定伺服器的組態，並且�
 > - 將節點設定指派給受控節點
 > - 檢查受控節點的合規性狀態
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要：
 
@@ -170,7 +170,7 @@ $reports[0]
 > 這不會影響目前套用至節點的設定。
 > 若要移除目前的設定，請使用[PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1)或刪除本機設定檔案（這是 Linux 節點的唯一選項）。
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 從 Azure 自動化按一下目錄中的 [**狀態設定（DSC）** ]。
 接下來按一下 [**節點**]，以查看已向服務註冊的節點清單。
@@ -183,9 +183,9 @@ $reports[0]
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要開始使用，請參閱[開始使用 Azure Automation State Configuration](automation-dsc-getting-started.md)。
+- 若要開始使用，請參閱[開始使用 Azure 自動化狀態設定](automation-dsc-getting-started.md)
 - 若要深入了解如何將節點上架，請參閱[將機器上架交由 Azure Automation State Configuration 管理](automation-dsc-onboarding.md)
 - 若要了解如何編譯 DSC 組態，以將它們指派給目標節點，請參閱[編譯 Azure Automation State Configuration 中的組態](automation-dsc-compile.md)
 - 如需 PowerShell Cmdlet 參考，請參閱 [Azure 自動化狀態設定 Cmdlet](/powershell/module/azurerm.automation/#automation)
 - 如需定價資訊，請參閱 [Azure 自動化狀態設定的定價](https://azure.microsoft.com/pricing/details/automation/)
-- 若要查看在持續部署管線中使用 Azure Automation State Configuration 的範例，請參閱[使用 Azure Automation State Configuration 和 Chocolatey 的持續部署](automation-dsc-cd-chocolatey.md)
+- 若要查看在持續部署管線中使用 Azure 自動化狀態設定的範例，請參閱[使用 Azure 自動化狀態設定和 Chocolatey 的持續部署](automation-dsc-cd-chocolatey.md)

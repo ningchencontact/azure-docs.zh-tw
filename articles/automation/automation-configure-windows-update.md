@@ -4,17 +4,17 @@ description: 本文說明您設定以使用 Azure 更新管理的 Windows Update
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 813d34f9c07e6c2909c483f040d4f3bf09b3ad24
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 804f42121293e142cf77ad73c4aab36e62e3242d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690846"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850409"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>設定更新管理的 Windows Update 設定
 
@@ -34,7 +34,7 @@ $WUSettings.Save()
 
 ## <a name="disable-automatic-installation"></a>停用自動安裝
 
-根據預設，Azure 虛擬機器（Vm）上會啟用自動安裝更新。 這可能會導致在您將更新排程以進行安裝之前，更新管理進行安裝。 您可以藉由將 `NoAutoUpdate` 登錄機碼設定為 `1` 來停用此行為。 下列 PowerShell 程式碼片段顯示如何執行這項操作：
+根據預設，Azure 虛擬機器（Vm）上會啟用自動安裝更新。 這可能會導致在您將更新排程以進行安裝之前，更新管理進行安裝。 您可以藉由將 `NoAutoUpdate` 登錄機碼設為 `1`來停用此行為。 下列 PowerShell 程式碼片段顯示如何執行這項操作：
 
 ```powershell
 $AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
@@ -43,11 +43,11 @@ Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
 
 ## <a name="configure-reboot-settings"></a>設定重新開機設定
 
-藉[由編輯](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry)登錄和[用來管理重新開機](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart)的登錄機碼，在設定自動更新中所列出的登錄機碼，可能會導致您的電腦重新開機，即使您在**更新部署**設定中指定 [**永不重新開機**]. 您應該將這些登錄機碼設定為最符合您的環境。
+藉[由編輯](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry)登錄和[用來管理重新開機](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart)的登錄機碼，在設定自動更新中所列出的登錄機碼，可能會導致您的電腦重新開機，即使您在**更新部署**設定中指定 [**永不重新開機**]。 您應該將這些登錄機碼設定為最符合您的環境。
 
 ## <a name="enable-updates-for-other-microsoft-products"></a>啟用其他 Microsoft 產品的更新
 
-根據預設，Windows Update 只會提供 Windows 的更新。 如果您啟用 [**當我更新 Windows 時提供其他 microsoft 產品的更新**] 設定，您也會收到其他產品的更新，包括 Microsoft SQL Server 和其他 Microsoft 軟體的安全性修補程式。 此選項無法由「群組原則」設定。 在您要啟用其他 Microsoft 更新的系統上執行下列 PowerShell 命令。 更新管理將符合此設定。
+Windows Update 預設只會為 Windows 提供更新。 如果您啟用 [**當我更新 Windows 時提供其他 microsoft 產品的更新**] 設定，您也會收到其他產品的更新，包括 Microsoft SQL Server 和其他 Microsoft 軟體的安全性修補程式。 此選項無法由「群組原則」設定。 在您要啟用其他 Microsoft 更新的系統上執行下列 PowerShell 命令。 更新管理將符合此設定。
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")

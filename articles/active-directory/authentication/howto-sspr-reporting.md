@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55ef15bd1fe922aa44227d2fea3d882d4320146f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d3b05c45d218c0f85817b4b5023ac22401879f81
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786719"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847213"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 密碼管理的報告選項
 
@@ -81,7 +81,7 @@ ms.locfileid: "72786719"
 * [重設密碼 (由管理員)](#activity-type-reset-password-by-admin)：指出系統管理員從 Azure 入口網站代表使用者執行密碼重設。
 * [重設密碼 (自助式)](#activity-type-reset-password-self-service)：指出使用者已從 [Azure AD 密碼重設入口網站](https://passwordreset.microsoftonline.com)成功重設其密碼。
 * [自助式密碼重設流程活動進度](#activity-type-self-serve-password-reset-flow-activity-progress)：指出使用者在密碼重設過程中經過的每個特定步驟，例如，通過特定的密碼重設驗證關卡。
-* [解除鎖定使用者帳戶（自助式）](#activity-type-unlock-a-user-account-self-service)：指出使用者已使用帳戶解除鎖定的 Active Directory 功能，成功解除鎖定其 Active Directory 帳戶，而不需從[Azure AD 密碼重設入口網站](https://passwordreset.microsoftonline.com)重設其密碼沒有重設。
+* [解除鎖定使用者帳戶（自助式）](#activity-type-unlock-a-user-account-self-service)：指出使用者已使用不重設的帳戶解除鎖定的 Active Directory 功能，成功解除鎖定其 Active Directory 帳戶，而不需從[Azure AD 密碼重設入口網站](https://passwordreset.microsoftonline.com)重設其密碼。
 * [使用者已註冊自助式密碼重設](#activity-type-user-registered-for-self-service-password-reset)：指出使用者已根據目前指定的租用戶密碼重設原則，註冊所有必要的資訊，以便能夠重設其密碼。
 
 ### <a name="activity-type-blocked-from-self-service-password-reset"></a>活動類型︰封鎖自助式密碼重設

@@ -5,17 +5,17 @@ keywords: 自動化 rbac, 角色型存取控制, azure rbac
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9b2bcdf3d74c6946b8c9f0dacaeabf28d9c76f94
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0ee524768f46de965b1755f2cfffdf9e2034bec8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477724"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850783"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自動化中的角色型存取控制
 
@@ -35,7 +35,7 @@ ms.locfileid: "67477724"
 |自動化 Runbook 運算子|「自動化 Runbook 操作員」角色可讓您檢視 Runbook 的名稱和屬性。|
 | Log Analytics 參與者 | 「Log Analytics 參與者」角色可讓您讀取所有監視資料和編輯監視設定。 編輯監視設定包括將 VM 延伸模組新增至 VM、讀取儲存體帳戶金鑰以便能夠設定從 Azure 儲存體收集記錄、建立及設定「自動化」帳戶、新增解決方案，以及設定所有 Azure 資源上的 Azure 診斷。|
 | Log Analytics 讀者 | 「Log Analytics 讀者」角色可讓您檢視和搜尋所有監視資料，以及檢視監視設定。 這包括檢視所有 Azure 資源上的 Azure 診斷設定。 |
-| 监视参与者 | 「監視參與者」角色可讓您讀取所有監視資料和更新監視設定。|
+| 監視參與者 | 「監視參與者」角色可讓您讀取所有監視資料和更新監視設定。|
 | 監視讀取器 | 「監視讀者」角色可讓您讀取所有監視資料。 |
 | 使用者存取系統管理員 |使用者存取系統管理員角色可讓您管理 Azure 自動化帳戶的使用者存取。 |
 
@@ -100,7 +100,7 @@ ms.locfileid: "67477724"
 
 ### <a name="automation-job-operator"></a>自動化作業運算子
 
-授與「自動化作業操作員」角色時會在「自動化」帳戶範圍內授與。 這可讓操作員有權建立和管理帳戶中所有 Runbook 作業。 下表說明針對此角色授與的權限：
+授與「自動化作業操作員」角色時會在「自動化」帳戶範圍內授與。 這可讓操作員許可權建立和管理帳戶中所有 runbook 的作業。 下表說明針對此角色授與的權限：
 
 |**動作**  |**說明**  |
 |---------|---------|
@@ -118,7 +118,7 @@ ms.locfileid: "67477724"
 
 ### <a name="automation-runbook-operator"></a>自動化 Runbook 運算子
 
-授與「自動化 Runbook 運算子」角色時，會在 Runbook 範圍授與。 「自動化 Runbook 操作員」可檢視 Runbook 的名稱和屬性。  此角色與「自動化作業操作員」角色結合，可讓操作員也建立及管理 Runbook 的作業。 下表說明針對此角色授與的權限：
+授與「自動化 Runbook 運算子」角色時，會在 Runbook 範圍授與。 「自動化 Runbook 操作員」可檢視 Runbook 的名稱和屬性。  此角色與「自動化作業操作員」角色結合，可讓操作員同時建立和管理 runbook 的作業。 下表說明針對此角色授與的權限：
 
 |**動作**  |**說明**  |
 |---------|---------|
@@ -140,9 +140,9 @@ ms.locfileid: "67477724"
 |Microsoft.ClassicCompute/virtualMachines/extensions/*|建立和管理虛擬機器延伸模組。|
 |Microsoft.ClassicStorage/storageAccounts/listKeys/action|列出傳統儲存體帳戶金鑰。|
 |Microsoft.Compute/virtualMachines/extensions/*|建立和管理傳統虛擬機器延伸模組。|
-|Microsoft.Insights/alertRules/*|读取/写入/删除警报规则。|
+|Microsoft.Insights/alertRules/*|讀取/寫入/刪除警示規則。|
 |Microsoft.Insights/diagnosticSettings/*|讀取/寫入/刪除診斷設定。|
-|Microsoft.OperationalInsights/*|管理 Azure 監視器記錄檔。|
+|Microsoft.OperationalInsights/*|管理 Azure 監視器記錄。|
 |Microsoft.OperationsManagement/*|管理工作區中的解決方案。|
 |Microsoft.Resources/deployments/*|建立和管理資源群組部署。|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|建立和管理資源群組部署。|
@@ -156,13 +156,13 @@ ms.locfileid: "67477724"
 |**動作**  |**說明**  |
 |---------|---------|
 |*/read|讀取密碼以外的所有類型的資源。|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|管理 Azure 監視器記錄檔中的查詢。|
-|Microsoft.OperationalInsights/workspaces/search/action|搜尋 Azure 監視器記錄檔資料。|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|管理 Azure 監視器記錄中的查詢。|
+|Microsoft.OperationalInsights/workspaces/search/action|搜尋 Azure 監視器記錄資料。|
 |Microsoft.Support/*|建立和管理支援票證。|
 |**無法執行的動作**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|無法讀取共用存取金鑰。|
 
-### <a name="monitoring-contributor"></a>监视参与者
+### <a name="monitoring-contributor"></a>監視參與者
 
 「監視參與者」可以讀取所有監視資料和更新監視設定。 下表說明針對此角色授與的權限：
 
@@ -175,16 +175,16 @@ ms.locfileid: "67477724"
 |Microsoft.Insights/components/*|管理 Application Insights 元件。|
 |Microsoft.Insights/DiagnosticSettings/*|管理診斷設定。|
 |Microsoft.Insights/eventtypes/*|列出訂用帳戶中的活動記錄檔事件 (管理事件)。 此權限適用於以程式設計方式存取和入口網站存取活動記錄檔。|
-|Microsoft.Insights/LogDefinitions/*|需要通过门户访问活动日志的用户必须拥有此权限。 列出活動記錄檔中的記錄檔分類。|
+|Microsoft.Insights/LogDefinitions/*|此為使用者需要透過入口網站存取活動記錄時所需的權限。 列出活動記錄檔中的記錄檔分類。|
 |Microsoft.Insights/MetricDefinitions/*|讀取度量定義 (可用資源的度量類型清單)。|
-|Microsoft.Insights/Metrics/*|读取资源的指标。|
+|Microsoft.Insights/Metrics/*|讀取資源的度量。|
 |Microsoft.Insights/Register/Action|註冊 Microsoft Insights 提供者。|
 |Microsoft.Insights/webtests/*|管理 Application Insights Web 測試。|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|管理 Azure 監視器記錄檔的方案套件。|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|管理 Azure 監視器儲存記錄搜尋。|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|管理 Azure 監視器記錄解決方案套件。|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|管理 Azure 監視器記錄儲存的搜尋。|
 |Microsoft.OperationalInsights/workspaces/search/action|搜尋 Log Analytics 工作區。|
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|列出 Log Analytics 工作區的金鑰。|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|管理 Azure 監視器記錄檔儲存體深入解析設定。|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|管理 Azure 監視器記錄儲存體深入解析設定。|
 |Microsoft.Support/*|建立和管理支援票證。|
 |Microsoft.WorkloadMonitor/workloads/*|管理「工作負載」。|
 
@@ -216,43 +216,43 @@ ms.locfileid: "67477724"
 
 |**Action**  |**權限**  |**最基本範圍**  |
 |---------|---------|---------|
-|寫入新的部署      | Microsoft.Resources/deployments/*          |訂用帳戶          |
-|寫入新的資源群組      | Microsoft.Resources/subscriptions/resourceGroups/write        | 訂用帳戶          |
-|建立新的預設「工作區」      | Microsoft.OperationalInsights/workspaces/write         | 資源群組         |
-|建立新的「帳戶」      |  Microsoft.Automation/automationAccounts/write        |資源群組         |
+|寫入新的部署      | Microsoft.Resources/deployments/*          |Subscription          |
+|寫入新的資源群組      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
+|建立新的預設「工作區」      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
+|建立新的「帳戶」      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
 |連結工作區和帳戶      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|工作區</br>自動化帳戶
-|建立解決方案      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |資源群組          |
+|建立解決方案      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Resource group          |
 |建立 MMA 延伸模組      | Microsoft.Compute/virtualMachines/write         | 虛擬機器         |
 |建立已儲存的搜尋      | Microsoft.OperationalInsights/workspaces/write          | 工作區         |
 |建立範圍設定      | Microsoft.OperationalInsights/workspaces/write          | 工作區         |
-|將解決方案連結至範圍設定      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | 解決方法         |
+|將解決方案連結至範圍設定      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | 方案         |
 |上線狀態檢查 - 讀取工作區      | Microsoft.OperationalInsights/workspaces/read         | 工作區         |
 |上線狀態檢查 - 讀取帳戶的已連結工作區屬性     | Microsoft.Automation/automationAccounts/read      | 自動化帳戶        |
-|上線狀態檢查 - 讀取解決方案      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | 解決方法         |
+|上線狀態檢查 - 讀取解決方案      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | 方案         |
 |上線狀態檢查 - 讀取 VM      | Microsoft.Compute/virtualMachines/read         | 虛擬機器         |
 |上線狀態檢查 - 讀取帳戶      | Microsoft.Automation/automationAccounts/read  |  自動化帳戶   |
-| 上架工作區中檢查 VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | 訂用帳戶         |
-| 註冊 Log Analytics 提供者 |Microsoft.Insights/register/action | 訂用帳戶|
+| VM<sup>1</sup>的上架工作區檢查       | Microsoft.OperationalInsights/workspaces/read         | Subscription         |
+| 註冊 Log Analytics 提供者 |Microsoft Insights/註冊/動作 | Subscription|
 
-<sup>1</sup>此權限，才能透過入口網站體驗，VM 上架。
+<sup>1</sup>需要有此許可權，才能透過 VM 入口網站體驗進行上架。
 
 ### <a name="onboarding-from-automation-account"></a>從自動化帳戶上線
 
 |**Action**  |**權限** |**最基本範圍**  |
 |---------|---------|---------|
-|建立新的部署     | Microsoft.Resources/deployments/*        | 訂用帳戶         |
-|建立新的資源群組     | Microsoft.Resources/subscriptions/resourceGroups/write         | 訂用帳戶        |
-|AutomationOnboarding 刀鋒視窗 - 建立新的工作區     |Microsoft.OperationalInsights/workspaces/write           | 資源群組        |
+|建立新的部署     | Microsoft.Resources/deployments/*        | Subscription         |
+|建立新的資源群組     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
+|AutomationOnboarding 刀鋒視窗 - 建立新的工作區     |Microsoft.OperationalInsights/workspaces/write           | Resource group        |
 |AutomationOnboarding 刀鋒視窗 - 讀取已連結的工作區     | Microsoft.Automation/automationAccounts/read        | 自動化帳戶       |
-|AutomationOnboarding 刀鋒視窗 - 讀取解決方案     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | 解決方法        |
+|AutomationOnboarding 刀鋒視窗 - 讀取解決方案     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | 方案        |
 |AutomationOnboarding 刀鋒視窗 - 讀取工作區     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | 工作區        |
 |為工作區和帳戶建立連結     | Microsoft.OperationalInsights/workspaces/write        | 工作區        |
 |寫入 Shoebox 的帳戶      | Microsoft.Automation/automationAccounts/write        | 帳戶        |
 |建立解決方案      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write        | 資源群組         |
 |建立/編輯已儲存的搜尋     | Microsoft.OperationalInsights/workspaces/write        | 工作區        |
 |建立/編輯範圍設定     | Microsoft.OperationalInsights/workspaces/write        | 工作區        |
-|將解決方案連結至範圍設定      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | 解決方法         |
-| 註冊 Log Analytics 提供者 |Microsoft.Insights/register/action | 訂用帳戶|
+|將解決方案連結至範圍設定      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | 方案         |
+| 註冊 Log Analytics 提供者 |Microsoft Insights/註冊/動作 | Subscription|
 |**步驟 2 - 讓多個 VM 上線**     |         |         |
 |VMOnboarding 刀鋒視窗 - 建立 MMA 延伸模組     | Microsoft.Compute/virtualMachines/write           | 虛擬機器        |
 |建立/編輯已儲存的搜尋     | Microsoft.OperationalInsights/workspaces/write           | 工作區        |
@@ -267,8 +267,8 @@ ms.locfileid: "67477724"
 |自動化帳戶     | Log Analytics 參與者       | 自動化帳戶        |
 |自動化帳戶    | 虛擬機器參與者        | 帳戶的「資源群組」        |
 |Log Analytics 工作區     | Log Analytics 參與者| Log Analytics 工作區        |
-|Log Analytics 工作區 |Log Analytics 讀者| 訂用帳戶|
-|解決方法     |Log Analytics 參與者         | 解決方法|
+|Log Analytics 工作區 |Log Analytics 讀者| Subscription|
+|方案     |Log Analytics 參與者         | 方案|
 |虛擬機器     | 虛擬機器參與者        | 虛擬機器        |
 
 ## <a name="configure-rbac-for-your-automation-account"></a>為您的自動化帳戶設定 RBAC
@@ -278,27 +278,27 @@ ms.locfileid: "67477724"
 ### <a name="configure-rbac-using-the-azure-portal"></a>使用 Azure 入口網站設定 RBAC
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)，並從 [自動化帳戶] 頁面開啟您的自動化帳戶。
-2. 按一下左上角的 [存取控制 (IAM)]  控制項。 這會開啟 [存取控制 (IAM)]  頁面，您可以在其中新增新使用者、群組及應用程式來管理您的「自動化」帳戶，並檢視可以為「自動化」帳戶設定的現有角色。
-3. 按一下 [角色指派]  索引標籤。
+2. 按一下左上角的 [存取控制 (IAM)] 控制項。 這會開啟 [存取控制 (IAM)] 頁面，您可以在其中新增新使用者、群組及應用程式來管理您的「自動化」帳戶，並檢視可以為「自動化」帳戶設定的現有角色。
+3. 按一下 [角色指派] 索引標籤。
 
    ![[存取] 按鈕](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>加入新使用者並指派角色
 
-1. 從 [存取控制 (IAM)]  頁面，按一下 [+ 新增角色指派]  以開啟 [新增角色指派]  頁面，您可以在其中新增使用者、群組或應用程式，並將角色指派給他們。
+1. 從 [存取控制 (IAM)] 頁面，按一下 [+ 新增角色指派] 以開啟 [新增角色指派] 頁面，您可以在其中新增使用者、群組或應用程式，並將角色指派給他們。
 
 2. 從可用角色的清單中選取角色。 您可以選擇「自動化」帳戶支援的任何可用內建角色，或已定義的任何自訂角色。
 
-3. 在 [選取]  欄位中輸入您想要授與權限之使用者的使用者名稱。 從清單中選取使用者，然後按一下 [儲存]  。
+3. 在 [選取] 欄位中輸入您想要授與權限之使用者的使用者名稱。 從清單中選取使用者，然後按一下 [儲存]。
 
    ![新增使用者](media/automation-role-based-access-control/automation-04-add-users.png)
 
-   現在您應該會看到使用者已新增至 [使用者]  頁面，並已獲指派所選取的角色
+   現在您應該會看到使用者已新增至 [使用者] 頁面，並已獲指派所選取的角色
 
    ![列出使用者](media/automation-role-based-access-control/automation-05-list-users.png)
 
-   您也可以從 [角色]  頁面指派角色給使用者。
-4. 從 [存取控制 (IAM)]  頁面按一下 [角色]  ，以開啟 [角色]  頁面。 從這個頁面中，您可以檢視角色的名稱、指派給該角色的使用者和群組數目。
+   您也可以從 [角色] 頁面指派角色給使用者。
+4. 從 [存取控制 (IAM)] 頁面按一下 [角色]，以開啟 [角色] 頁面。 從這個頁面中，您可以檢視角色的名稱、指派給該角色的使用者和群組數目。
 
     ![從 [使用者] 頁面指派角色](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
 
@@ -309,9 +309,9 @@ ms.locfileid: "67477724"
 
 您可以針對未管理「自動化」帳戶的使用者，或不再為組織工作的使用者，移除存取權限。 以下是移除使用者的步驟：
 
-1. 從 [存取控制 (IAM)]  頁面中，選取要移除的使用者，然後按一下 [移除]  。
-2. 按一下指派詳細資料窗格上的 [移除]  按鈕。
-3. 按一下 [是]  以確認移除。
+1. 從 [存取控制 (IAM)] 頁面中，選取要移除的使用者，然後按一下 [移除]。
+2. 按一下指派詳細資料窗格上的 [移除] 按鈕。
+3. 按一下 [是] 以確認移除。
 
    ![移除使用者](media/automation-role-based-access-control/automation-08-remove-users.png)
 
@@ -319,7 +319,7 @@ ms.locfileid: "67477724"
 
 使用下列 [Azure PowerShell Cmdlet](../role-based-access-control/role-assignments-powershell.md) 也可以將角色型存取設定到「自動化」帳戶：
 
-[Get-AzureRmRoleDefinition](/previous-versions/azure/mt603792(v=azure.100)) 會列出 Azure Active Directory 中可用的所有 RBAC 角色。 您可以使用這個命令搭配 [名稱]  屬性，列出特定角色可以執行的所有動作。
+[Get-AzureRmRoleDefinition](/previous-versions/azure/mt603792(v=azure.100)) 會列出 Azure Active Directory 中可用的所有 RBAC 角色。 您可以使用這個命令搭配 [名稱] 屬性，列出特定角色可以執行的所有動作。
 
 ```azurepowershell-interactive
 Get-AzureRmRoleDefinition -Name 'Automation Operator'
@@ -387,7 +387,7 @@ ObjectType         : User
 Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-在前述範例中，請以您的帳戶詳細資料取代 **sign in Id** \(登入識別碼\)**subscription Id** \(訂用帳戶識別碼\)**resource group name**\(資源群組名稱\) 及 **Automation account name** \(自動化帳戶名稱\)。 當系統提示您確認時選擇 [是]  ，然後再繼續移除使用者角色指派。
+在前述範例中，請以您的帳戶詳細資料取代 **sign in Id** \(登入識別碼\)**subscription Id** \(訂用帳戶識別碼\)**resource group name**\(資源群組名稱\) 及 **Automation account name** \(自動化帳戶名稱\)。 當系統提示您確認時選擇 [是] ，然後再繼續移除使用者角色指派。
 
 ### <a name="user-experience-for-automation-operator-role---automation-account"></a>自動化操作員角色的使用者體驗 - 自動化帳戶
 

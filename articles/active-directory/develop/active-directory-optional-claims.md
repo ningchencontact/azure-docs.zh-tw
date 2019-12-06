@@ -2,28 +2,23 @@
 title: 瞭解如何為您的 Azure AD 應用程式提供選擇性宣告
 titleSuffix: Microsoft identity platform
 description: 將自訂或額外宣告新增至 Azure Active Directory 所簽發之 SAML 2.0 和 JSON Web Token (JWT) 權杖的指南。
-documentationcenter: na
 author: rwike77
-services: active-directory
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/03/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b74e680979ccbcc94f8a49e993c6d64797ab80b1
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a1364a491122ae15f86bec98afbfd4e5110e8e07
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803419"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844714"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>如何：為您的 Azure AD 應用程式提供選擇性宣告
 
@@ -220,7 +215,7 @@ ms.locfileid: "72803419"
 
    有效的值為：
 
-   - 這
+   - "All"
    - SecurityGroup
    - DistributionList
    - DirectoryRole
@@ -260,14 +255,14 @@ ms.locfileid: "72803419"
    | **檔案名** | 必須是「群組」 |
    | **來源** | 不使用。 省略或指定 null |
    | **基本** | 不使用。 省略或指定 false |
-   | **AdditionalProperties** | 其他屬性的清單。  有效的選項為 "sam_account_name"、"dns_domain_and_sam_account_name"、"netbios_domain_and_sam_account_name"、"emit_as_roles" |
+   | **AdditionalProperties** | 其他屬性的清單。  有效的選項為「sam_account_name」、「dns_domain_and_sam_account_name」、「netbios_domain_and_sam_account_name」、「emit_as_roles」 |
 
-   在 additionalProperties 中，只需要 "sam_account_name"、"dns_domain_and_sam_account_name"、"netbios_domain_and_sam_account_name" 其中之一。  如果有多個，則會使用第一個，並忽略其他任何專案。
+   在 additionalProperties 中，只需要「sam_account_name」、「dns_domain_and_sam_account_name」、「netbios_domain_and_sam_account_name」其中一個。  如果有多個，則會使用第一個，並忽略其他任何專案。
 
    某些應用程式需要角色宣告中的使用者群組資訊。  若要將宣告類型從群組宣告變更為角色宣告，請將 "emit_as_roles" 新增至其他屬性。  群組值會在角色宣告中發出。
 
    > [!NOTE]
-   > 如果使用 "emit_as_roles"，則設定為使用者指派的任何應用程式角色都不會出現在角色宣告中。
+   > 如果使用「emit_as_roles」，則設定為使用者指派的任何應用程式角色都不會出現在角色宣告中。
 
 **範例：** 以 dnsDomainName\sAMAccountName 格式在 OAuth 存取權杖中以組名的形式發出群組
 
