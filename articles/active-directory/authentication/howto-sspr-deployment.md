@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9f340ad12fbf26190a17bc4df97bfc95473093c
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: bc2c68c53a7c03d1de08e5cde528f27aa61b0096
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381293"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847264"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>部署 Azure AD 自助式密碼重設
 
@@ -56,19 +56,19 @@ Microsoft 建議組織啟用 SSPR 和多重要素驗證的結合註冊體驗。 
 
 若要啟用 SSPR 以及建議的值，需要下列設定。
 
-| 領域 | 設定 | 值 |
+| 區域 | 設定 | Value |
 | --- | --- | --- |
 | **SSPR 屬性** | 已啟用自助式密碼重設 | 針對生產環境**選取**的試驗/ **All**群組 |
 | **驗證方法** | 註冊所需的驗證方法 | 重設所需的一律為1 |
-|   | 重設所需的驗證方法 | 一或兩個 |
-| **註冊** | 登入時要求使用者註冊 | yes |
-|   | 要求使用者重新確認其驗證資訊之前的天數 | 90–180天 |
-| **通知** | 通知使用者密碼重設 | yes |
-|   | 當其他系統管理員重設其密碼時通知所有系統管理員 | yes |
-| **自訂** | 自訂技術服務人員連結 | yes |
-|   | 自訂技術服務人員電子郵件或 URL | 支援網站或電子郵件地址 |
-| **內部部署整合** | 將密碼寫回內部部署 AD | yes |
-|   | 允許使用者在不重設密碼的情況下解除鎖定帳戶 | yes |
+|   | 重設所需的驗證方法 | 一個或兩個 |
+| **註冊** | 登入時要求使用者註冊 | 是 |
+|   | 要求使用者重新確認其驗證資訊之前所等候的天數 | 90–180天 |
+| **通知** | 通知使用者密碼重設 | 是 |
+|   | 當其他系統管理員重設其密碼時通知所有系統管理員 | 是 |
+| **自訂** | 自訂服務台連結 | 是 |
+|   | 自訂服務台電子郵件或 URL | 支援網站或電子郵件地址 |
+| **內部部署整合** | 將密碼寫回內部部署 AD | 是 |
+|   | 允許使用者在不重設密碼的情況下解除鎖定帳戶 | 是 |
 
 ### <a name="sspr-properties-recommendations"></a>SSPR 屬性建議
 
@@ -119,7 +119,7 @@ Microsoft 建議組織啟用 SSPR 和多重要素驗證的結合註冊體驗。 
 
 當技術專案失敗時，通常是因為對影響、結果和責任的預期不相符所造成。 若要避免這些錯誤，請確定您參與的是正確的專案關係人，並記載專案關係人及其專案的輸入和責任，以充分瞭解專案中的專案關係人角色。
 
-### <a name="communications-plan"></a>通訊計畫
+### <a name="communications-plan"></a>溝通計劃
 
 通訊對於任何新服務的成功非常重要。 與您的使用者主動通訊如何使用服務，以及他們可以如何在沒有如預期般運作時取得協助。 請參閱[Microsoft 下載中心的自助式密碼重設首](https://www.microsoft.com/download/details.aspx?id=56768)度發行資料，以瞭解如何規劃您的終端使用者通訊策略。
 

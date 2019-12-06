@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44e25efcb068fe51f05dbbde50e8a96da492a735
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: be1c0e93a51064870635d4f06bd5b365bbfe517a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381237"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847281"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>如何：從 Windows 登入畫面啟用密碼重設
 
@@ -76,8 +76,8 @@ ms.locfileid: "74381237"
       - **OMA URI** 設為 `./Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset`
       - **資料類型** 設為 **整數**
       - **值** 設為 **1**
-      - 按一下 [虛擬機器]
-   - 按一下 [虛擬機器]
+      - 按一下 [確定]
+   - 按一下 [確定]
 1. 按一下 [建立]
 1. 此原則可指派給特定的使用者、裝置或群組。 如需詳細資訊，請參閱在[Microsoft Intune 中指派使用者和裝置設定檔](https://docs.microsoft.com/intune/device-profile-assign)一文。
 
@@ -113,7 +113,7 @@ Azure AD 稽核記錄會包含 IP 位址相關資訊以及發生密碼重設的 
 > [!WARNING]
 > 必須啟用 TLS 1.2，而不只是設定為自動協商
 
-### <a name="install"></a>Install
+### <a name="install"></a>安裝
 
 1. 下載適用於所要啟用 Windows 版本的安裝程式。
    - 您可以在 Microsoft 下載中心 ([https://aka.ms/sspraddin](https://aka.ms/sspraddin)) 取得軟體

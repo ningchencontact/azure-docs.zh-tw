@@ -4,17 +4,17 @@ description: 來自 Microsoft 和社群的 Runbook 和模組可供您在 Azure �
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 86eebf33f870780871e4c873936e491772c73b63
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 94910d0f42ad6b208cac54dd2826cbd2d917504b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231618"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850715"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure 自動化的 Runbook 和模組資源庫
 
@@ -50,7 +50,7 @@ ms.locfileid: "74231618"
 
 ### <a name="adding-a-powershell-runbook-to-the-gallery"></a>將 PowerShell runbook 新增至資源庫
 
-Microsoft 鼓勵您將 runbook 新增至您認為對其他客戶很有用的 PowerShell 資源庫。 PowerShell 資源庫接受 PowerShell 模組和 PowerShell 腳本。 您可以藉由將 runbook[上傳至 PowerShell 資源庫](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package)來新增它。
+Microsoft 鼓勵您將 runbook 新增至您認為對其他客戶很有用的 PowerShell 資源庫。 「PowerShell 資源庫」接受 PowerShell 模組和 PowerShell 指令碼。 您可以藉由將 runbook[上傳至 PowerShell 資源庫](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package)來新增它。
 
 > [!NOTE]
 > PowerShell 資源庫中不支援圖形化 runbook。
@@ -70,7 +70,7 @@ PowerShell 模組包含您可以在 Runbook 中使用的 Cmdlet，您可以安�
 4. 在 [瀏覽資源庫] 頁面上，您可以依下列欄位來搜尋：
 
    * 模組名稱
-   * 標籤
+   * Tags
    * 作者
    * Cmdlet/DSC 資源名稱
 

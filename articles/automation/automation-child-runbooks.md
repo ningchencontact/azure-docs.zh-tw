@@ -4,17 +4,17 @@ description: 說明在 Azure 自動化中從另一個 Runbook 啟動 Runbook，�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 64d9246284be58c8378ab102db25ab7e5220c9eb
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: e7341a8c270d16497430a70c2a1b21354a775787
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477956"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850443"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure 自動化中的子 Runbook
 
@@ -67,7 +67,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 
 您可以依照[使用 Windows PowerShell 啟動 Runbook](start-runbooks.md#start-a-runbook-with-powershell) 中的說明，使用 [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) Cmdlet 啟動 Runbook。 使用這個 Cmdlet 的模式有兩種。  在第一個模式中，Cmdlet 會在子 Runbook 的子作業建立時傳回作業識別碼。  在第二個模式 (藉由指定 **-wait** 參數啟用) 中，Cmdlet 會等候子作業完成，並且會傳回子 Runbook 的輸出。
 
-使用 Cmdlet 啟動之子 Runbook 的工作，會與父 Runbook 的工作分開執行。 這個行為會讓產生的作業比啟動內嵌 Runbook 更多，並使它們更難以追蹤。父 Runbook 可以利用非同步方式啟動多個子 Runbook，不需要等候每個子 Runbook 完成。 對於呼叫子 Runbook 內嵌的同類型平行執行作業，父 Runbook 將需要使用 [平行關鍵字](automation-powershell-workflow.md#parallel-processing)。
+使用 Cmdlet 啟動之子 Runbook 的工作，會與父 Runbook 的工作分開執行。 此行為會導致比啟動 runbook 內嵌更多的工作，使其更難以追蹤。父系可以非同步啟動一個以上的子 runbook，而不需要等待每個 runbook 完成。 對於呼叫子 Runbook 內嵌的同類型平行執行作業，父 Runbook 將需要使用 [平行關鍵字](automation-powershell-workflow.md#parallel-processing)。
 
 子 Runbook 的輸出會因為計時，而無法可靠地傳回至父 Runbook。 此外，$VerbosePreference、$WarningPreference 等有些變數和其他變數可能不會傳播至子 Runbook。 若要避免這些問題，您可以使用 `Start-AzureRmAutomationRunbook` Cmdlet 搭配 `-Wait` 參數，將子 Runbook 當作個別的自動化作業來啟動。 這會在子 Runbook 完成前封鎖父 Runbook。
 
@@ -115,8 +115,8 @@ Start-AzureRmAutomationRunbook `
 |  | 內嵌 | Cmdlet |
 |:--- |:--- |:--- |
 | 工作 (Job) |與父代在相同的工作中執行的子 Runbook。 |會為子 Runbook 建立個別的工作。 |
-| 執行 |父 Runbook 會等待子 Runbook 完成後再繼續執行。 |父 Runbook 會在子 Runbook 啟動後立刻繼續執行，或  父 Runbook 會等候子作業完成。 |
-| Output |父 Runbook 可以直接從子 Runbook 取得輸出。 |父 Runbook 必須擷取子 Runbook 作業的輸出，或  父 Runbook 可以直接從子 Runbook 取得輸出。 |
+| 執行 |父 Runbook 會等待子 Runbook 完成後再繼續執行。 |父 Runbook 會在子 Runbook 啟動後立刻繼續執行，或 父 Runbook 會等候子作業完成。 |
+| 輸出 |父 Runbook 可以直接從子 Runbook 取得輸出。 |父 Runbook 必須擷取子 Runbook 作業的輸出，或 父 Runbook 可以直接從子 Runbook 取得輸出。 |
 | 參數 |子 Runbook 參數的值是個別指定，而且可以使用任何資料類型。 |子 Runbook 參數的值必須結合成單一雜湊表。 這個雜湊表只能包含簡單、陣列，以及使用 JSON 序列化的物件資料類型。 |
 | 自動化帳戶 |父 Runbook 只能使用相同自動化帳戶中的子 Runbook。 |父 Runbook 可以使用來自相同 Azure 訂用帳戶，甚至是不同訂用帳戶 (您已連線的) 之任何自動化帳戶的子 Runbook。 |
 | 發佈 |發佈父 Runbook 之前必須先發佈子 Runbook。 |啟動父 Runbook 之前必須先發佈子 Runbook。 |

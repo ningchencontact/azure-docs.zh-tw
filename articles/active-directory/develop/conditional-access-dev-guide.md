@@ -2,7 +2,6 @@
 title: Azure Active Directory 條件式存取的開發人員指引
 description: Azure AD 條件式存取的開發人員指引和案例
 services: active-directory
-keywords: ''
 author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
@@ -11,23 +10,21 @@ ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91947c243b521e970a89152f76abe9a99142b89d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 69fcb50cb8273fa9e6606e1d071249ed17c78786
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374010"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843728"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取的開發人員指引
 
 Azure Active Directory （Azure AD）中的條件式存取功能提供了數種方式的其中一種，可讓您用來保護應用程式及保護服務。 條件式存取可讓開發人員和企業客戶以多種方式來保護服務，包括：
 
-* Multi-Factor Authentication
+* 多因素驗證
 * 只允許已註冊 Intune 的裝置存取特定服務
 * 限制使用者位置及 IP 範圍
 
@@ -89,7 +86,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ## <a name="scenarios"></a>案例
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 Azure AD 條件式存取是[Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)中包含的功能。 您可以在[未經授權的使用報告](../active-directory-conditional-access-unlicensed-usage-report.md)中深入了解授權需求。 開發人員可以加入 [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx)，其中包含的 Enterprise Mobility Suite 免費訂用帳戶會包含 Azure AD Premium。
 
@@ -176,7 +173,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 若要試用此情節，請參閱我們的 [JS SPA 代理者程式碼範例](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)。 此程式碼範例會使用條件式存取原則，以及您稍早使用 JS SPA 註冊的 Web API 來示範這種情況。 它會示範如何正確處理宣告挑戰，並取得可用於您 Web API 的存取權杖。 或者，查看一般 [Angular.js 程式碼範例](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp)，以取得 Angular SPA 的指引
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * 若要深入了解功能，請參閱 [Azure Active Directory 中的條件式存取](../active-directory-conditional-access-azure-portal.md)。
 * 如需更多的 Azure AD 程式碼範例，請參閱[程式碼範例的 Github 存放庫](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)。

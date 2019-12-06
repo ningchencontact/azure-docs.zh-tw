@@ -4,17 +4,17 @@ description: 變數資產是可用於 Azure 自動化中所有 Runbook 和 DSC �
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3fe008d20ab43636b59861bcc5a7914ba0fca17e
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: e56a1c9a158974266b810d31a0e9bb898262761a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910055"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849423"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure 自動化中的變數資產
 
@@ -42,8 +42,8 @@ ms.locfileid: "70910055"
 以下是可在自動化中使用的變數類型清單：
 
 * String
-* Integer
-* DateTime
+* 整數
+* 日期時間
 * Boolean
 * Null
 
@@ -58,11 +58,11 @@ ms.locfileid: "70910055"
 |[Remove-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationVariable)|移除現有的變數。|
 |[Set-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Set-AzureRmAutomationVariable)|設定現有的變數的值。|
 
-## <a name="activities"></a>activities
+## <a name="activities"></a>活動
 
 下表中的活動是用來存取 runbook 和 DSC 設定中的變數。 Get-azurermautomationvariable 來和 Get-automationvariable Cmdlet 之間的差異在本檔開頭會有更明確的說明。
 
-| activities | 描述 |
+| 活動 | 描述 |
 |:---|:---|
 |Get-AutomationVariable|擷取現有變數的值。|
 |Set-AutomationVariable|設定現有的變數的值。|
