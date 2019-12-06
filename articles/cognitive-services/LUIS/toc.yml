@@ -60,9 +60,6 @@
         - name: 使用複合實體將相關資料分組並加以擷取
           href: luis-tutorial-composite-entity.md
           displayName: roles
-        - name: 使用簡單實體取得姓名
-          href: luis-quickstart-primary-and-secondary-data.md
-          displayName: roles
     - name: 改善應用程式
       items:
         - name: 修正不確定的預測

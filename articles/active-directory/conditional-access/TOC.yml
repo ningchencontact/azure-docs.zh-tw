@@ -64,8 +64,6 @@
           href: howto-conditional-access-policy-compliant-device.md
     - name: 封鎖舊式驗證
       href: block-legacy-authentication.md
-    - name: MFA 註冊的條件式存取
-      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: 需要已核准的用戶端應用程式
       href: app-based-conditional-access.md
     - name: 需要應用程式保護原則
