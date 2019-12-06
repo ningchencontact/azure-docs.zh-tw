@@ -4,17 +4,17 @@ description: 此 VM 管理解決方案會依排程啟動和停止您的 Azure Re
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 11/06/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d7a43ee2ed8719df2c38d00c9a50811c6d5ea70d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 54f0584eae948d6e577b0439a5a0d976ff61d4b1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718676"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850647"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure 自動化中的「停機期間啟動/停止 VM」解決方案
 
@@ -86,11 +86,11 @@ ms.locfileid: "73718676"
 
 | 權限 |Scope|
 | --- | --- |
-| Microsoft。授權/作業/讀取 | 訂用帳戶|
-| Microsoft.Authorization/permissions/read |訂用帳戶|
-| Microsoft.Authorization/roleAssignments/read | 訂用帳戶 |
-| Microsoft.Authorization/roleAssignments/write | 訂用帳戶 |
-| Microsoft.Authorization/roleAssignments/delete | 訂用帳戶 |
+| Microsoft。授權/作業/讀取 | Subscription|
+| Microsoft.Authorization/permissions/read |Subscription|
+| Microsoft.Authorization/roleAssignments/read | Subscription |
+| Microsoft.Authorization/roleAssignments/write | Subscription |
+| Microsoft.Authorization/roleAssignments/delete | Subscription |
 | Microsoft.Automation/automationAccounts/connections/read | 資源群組 |
 | Microsoft.Automation/automationAccounts/certificates/read | 資源群組 |
 | Microsoft.Automation/automationAccounts/write | 資源群組 |
@@ -109,7 +109,7 @@ ms.locfileid: "73718676"
 
 2. 在所選解決方案的 [停機期間啟動/停止 VM] 頁面中，檢閱摘要資訊，然後按一下 [建立]。
 
-   ![Azure 入口網站](media/automation-solution-vm-management/azure-portal-01.png)
+   ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)
 
 3. [新增解決方案] 頁面隨即出現。 系統會在其中提示您設定解決方案，以將它匯入您的自動化訂用帳戶。
 
@@ -119,7 +119,7 @@ ms.locfileid: "73718676"
    - 指定新**Log Analytics 工作區**的名稱，例如 "ContosoLAWorkspace"。
    - 如果選取的預設值不合適，請從下拉式清單中選取要連結的 [訂用帳戶]。
    - 對於 [資源群組]，您可以建立新的資源群組，或選取現有的資源群組。
-   - 選取 [位置]。 目前可用的位置只有**澳大利亞東南部**、**加拿大中部**、**印度中部**、**美國東部**、**日本東部**、**東南亞**、**英國南部**、**西歐**和**美國西部 2**。
+   - 選取 [位置]。
    - 選取 **定價層**。 選擇 [每 GB (獨立)] 選項。 Azure 監視器記錄具有更新的[價格](https://azure.microsoft.com/pricing/details/log-analytics/)，而每 GB 層是唯一的選項。
 
    > [!NOTE]
@@ -153,7 +153,7 @@ ms.locfileid: "73718676"
 8. 設定好解決方案所需的初始設定後，按一下 [確定] 以關閉 [參數] 頁面，然後選取 [建立]。 驗證過所有設定之後，解決方案即會部署到您的訂用帳戶。 此程序需要幾秒鐘才能完成，您可以在功能表的 [通知] 底下追蹤其進度。
 
 > [!NOTE]
-> 如果您有 Azure 雲端解決方案提供者（Azure CSP）訂用帳戶，在部署完成之後，請移至 [**共用資源**] 底下的 [**變數**]，並將[**External_EnableClassicVMs**](#variables)變數設定為 [ **False]** . 這會讓解決方案停止尋找傳統虛擬機器資源。
+> 如果您有 Azure 雲端解決方案提供者（Azure CSP）訂用帳戶，在部署完成之後，請移至 [**共用資源**] 底下的 [**變數**]，並將[**External_EnableClassicVMs**](#variables)變數設為**False**。 這會讓解決方案停止尋找傳統虛擬機器資源。
 
 ## <a name="scenarios"></a>案例
 
@@ -234,7 +234,7 @@ ms.locfileid: "73718676"
 - 透過訂用帳戶和資源群組設定啟動動作目標。 請參閱[案例 1](#scenario-1-startstop-vms-on-a-schedule) 中的步驟以測試和啟用 **Scheduled-StartVM** 排程。
 - 透過訂用帳戶、資源群組和標記設定啟動動作目標。 請參閱[案例 2](#scenario-2-startstop-vms-in-sequence-by-using-tags) 中的步驟以測試和啟用 **Sequenced-StartVM** 排程。
 
-## <a name="solution-components"></a>解決方案元件
+## <a name="solution-components"></a>方案元件
 
 此解決方案包括預先設定的 runbook、排程，以及與 Azure 監視器記錄的整合，讓您可以量身打造虛擬機器的啟動和關閉，以符合您的商務需求。
 
@@ -245,9 +245,9 @@ ms.locfileid: "73718676"
 > [!IMPORTANT]
 > 請勿直接執行任何有「子項目」附加至其名稱的 Runbook。
 
-所有父代 Runbook 皆包含 _WhatIf_ 參數。 將 **WhatIf** 設為 _True_ 時，即可支援詳述在不使用 _WhatIf_ 參數執行的情況下，該 Runbook 會採取的確切行為，並驗證是否已將正確的虛擬機器作為目標。 _WhatIf_ 參數設為 **False** 時，Runbook 只會執行其定義的動作。
+所有父代 Runbook 皆包含 _WhatIf_ 參數。 將 _WhatIf_ 設為 **True** 時，即可支援詳述在不使用 _WhatIf_ 參數執行的情況下，該 Runbook 會採取的確切行為，並驗證是否已將正確的虛擬機器作為目標。 _WhatIf_ 參數設為 **False** 時，Runbook 只會執行其定義的動作。
 
-|Runbook | 參數 | 說明|
+|Runbook | 參數 | 描述|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | 從父系 Runbook 呼叫。 此 Runbook 會針對 AutoStop 案例以每個資源為基礎建立警示。|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf：True 或 False  | 在目標訂用帳戶或資源群組中的 VM 上建立或更新 Azure 警示規則。 <br> VMList：以逗號分隔的虛擬機器清單。 例如，vm1、vm2、vm3。<br> WhatIf 會驗證 Runbook 邏輯而不會執行。|
@@ -262,7 +262,7 @@ ms.locfileid: "73718676"
 
 下表列出在您自動化帳戶中建立的變數。 僅修改前面加上 **External** 的變數。 修改前面加上 **Internal** 的變數會造成非預期的結果。
 
-|變數 | 說明|
+|變數 | 描述|
 |---------|------------|
 |External_AutoStop_Condition | 設定觸發警示之條件所需的條件運算子。 可接受的值為 **GreaterThan**、**GreaterThanOrEqual**、**LessThan** 和 **LessThanOrEqual**。|
 |External_AutoStop_Description | 在 CPU 百分比超出閾值的情況下停止虛擬機器的警示。|
@@ -287,7 +287,7 @@ ms.locfileid: "73718676"
 
 您不應啟用所有排程，因為這樣可能會產生重疊的排程動作。 最好能先判斷要執行哪些最佳化，並據以做出相對應的修改。 如需進一步說明，請參閱＜概觀＞一節中的範例案例。
 
-|排程名稱 | 頻率 | 說明|
+|排程名稱 | 頻率 | 描述|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | 每 8 小時 | 每隔 8 小時會執行 AutoStop_CreateAlert_Parent Runbook，這會停止在 Azure 自動化變數中 External_Start_ResourceGroupNames、External_Stop_ResourceGroupNames 和 External_ExcludeVMNames 中的虛擬機器基底值。 或者，您可以使用 VMList 參數指定以逗號分隔的虛擬機器清單。|
 |Scheduled_StopVM | 使用者定義，每日 | 每天會在指定時間搭配 _Stop_ 參數執行 Scheduled_Parent Runbook。 自動停止符合資產變數所定義之規則的所有 Vm。 啟用相關排程（已**排程-StartVM**）。|
@@ -301,14 +301,14 @@ ms.locfileid: "73718676"
 
 ### <a name="job-logs"></a>作業記錄
 
-|屬性 | 說明|
+|屬性 | 描述|
 |----------|----------|
 |呼叫者 |  起始作業的人員。 可能的值為電子郵件地址或排程作業的系統。|
 |類別 | 資料類型的分類。 對自動化來說，該值是 JobLogs。|
 |CorrelationId | Runbook 作業之相互關聯識別碼的 GUID。|
 |JobId | Runbook 作業之識別碼的 GUID。|
 |operationName | 指定在 Azure 中執行的作業類型。 對自動化來說，該值是 Job。|
-|resourceId | 指定 Azure 中的資源類型。 對自動化來說，該值是與 Runbook 相關聯的自動化帳戶。|
+|ResourceId | 指定 Azure 中的資源類型。 對自動化來說，該值是與 Runbook 相關聯的自動化帳戶。|
 |ResourceGroup | 指定 Runbook 作業的資源群組名稱。|
 |ResourceProvider | 指定 Azure 服務，以提供您可部署及管理的資源。 對自動化來說，此值是 Azure 自動化。|
 |ResourceType | 指定 Azure 中的資源類型。 對自動化來說，該值是與 Runbook 相關聯的自動化帳戶。|
@@ -316,36 +316,36 @@ ms.locfileid: "73718676"
 |resultDescription | 說明 Runbook 作業的結果狀態。 可能的值包括：<br>- Job is started (工作已啟動)<br>- Job Failed (工作失敗)<br>- Job Completed|
 |RunbookName | 指定 Runbook 的名稱。|
 |SourceSystem | 指定所提交資料的來源系統。 對自動化來說，該值是 OpsManager|
-|StreamType | 指定事件的類型。 可能的值包括：<br>- Verbose<br>- Output<br>- Error<br>- Warning (警告)|
+|StreamType | 指定事件的類型。 可能的值包括：<br>- Verbose<br>- Output (輸出)<br>- Error (錯誤)<br>- Warning (警告)|
 |SubscriptionId | 指定作業的訂用帳戶 ID。
 |時間 | Runbook 作業的執行日期和時間。|
 
 ### <a name="job-streams"></a>作業串流
 
-|屬性 | 說明|
+|屬性 | 描述|
 |----------|----------|
 |呼叫者 |  起始作業的人員。 可能的值為電子郵件地址或排程作業的系統。|
 |類別 | 資料類型的分類。 對自動化來說，該值是 JobStreams。|
 |JobId | Runbook 作業之識別碼的 GUID。|
 |operationName | 指定在 Azure 中執行的作業類型。 對自動化來說，該值是 Job。|
 |ResourceGroup | 指定 Runbook 作業的資源群組名稱。|
-|resourceId | 指定 Azure 中的資源識別碼。 對自動化來說，該值是與 Runbook 相關聯的自動化帳戶。|
+|ResourceId | 指定 Azure 中的資源識別碼。 對自動化來說，該值是與 Runbook 相關聯的自動化帳戶。|
 |ResourceProvider | 指定 Azure 服務，以提供您可部署及管理的資源。 對自動化來說，此值是 Azure 自動化。|
 |ResourceType | 指定 Azure 中的資源類型。 對自動化來說，該值是與 Runbook 相關聯的自動化帳戶。|
 |resultType | Runbook 作業在產生事件時的結果。 可能的值為：<br>- InProgres|
 |resultDescription | 包含來自 Runbook 的輸出串流。|
 |RunbookName | Runbook 的名稱。|
 |SourceSystem | 指定所提交資料的來源系統。 對自動化來說，該值是 OpsManager。|
-|StreamType | 作業串流的類型。 可能的值包括：<br>- Progress (進度)<br>- Output<br>- Warning (警告)<br>- Error<br>- Debug (偵錯)<br>- Verbose|
+|StreamType | 作業串流的類型。 可能的值包括：<br>- Progress (進度)<br>- Output (輸出)<br>- Warning (警告)<br>- Error (錯誤)<br>- Debug (偵錯)<br>- Verbose|
 |時間 | Runbook 作業的執行日期和時間。|
 
 當您執行的記錄搜尋傳回 **JobLogs** 或 **JobStreams** 的類別記錄時，您可以選取 **JobLogs** 或 **JobStreams** 檢視，其中會顯示一組彙總搜尋所傳回更新的圖格。
 
-## <a name="sample-log-searches"></a>記錄搜尋範例
+## <a name="sample-log-searches"></a>記錄檔搜尋範例
 
 下表提供此方案所收集之作業記錄的記錄檔搜尋範例。
 
-|查詢 | 說明|
+|查詢 | 描述|
 |----------|----------|
 |尋找 ScheduledStartStop_Parent Runbook 已順利完成的作業 | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 |尋找 SequencedStartStop_Parent Runbook 已順利完成的作業 | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|

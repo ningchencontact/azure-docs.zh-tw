@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b28d02dd0ca375451f6ff75b1253ae8874bf2ab4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828240"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851514"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 有疑問嗎？ 如需詳細資訊，請參閱下列常見問題。
@@ -26,7 +26,7 @@ ms.locfileid: "71828240"
 
 ### <a name="can-i-install-the-extension-on-my-visual-studio-team-foundation-server-instance-instead-of-on-an-azure-devops-instance"></a>我可以在 Visual Studio Team Foundation Server 實例上（而不是在 Azure DevOps 實例上安裝此擴充功能）嗎？
 
-號 延伸模組無法供下載及安裝 Visual Studio Team Foundation Server。
+不會。 延伸模組無法供下載及安裝 Visual Studio Team Foundation Server。
 
 ### <a name="do-i-have-to-run-microsoft-security-code-analysis-with-my-build"></a>我是否必須使用我的組建來執行 Microsoft 安全性程式碼分析？ 
 
@@ -38,7 +38,7 @@ ms.locfileid: "71828240"
 
 ### <a name="can-i-break-my-build-when-results-are-found"></a>可以在找到結果時中斷我的組建嗎？
 
-是。 當任何工具在記錄檔中報告問題或問題時，您可以引進組建中斷。 只要新增 [後期分析] 組建工作，然後選取您想要中斷組建的任何工具的核取方塊即可。
+可以。 當任何工具在記錄檔中報告問題或問題時，您可以引進組建中斷。 只要新增 [後期分析] 組建工作，然後選取您想要中斷組建的任何工具的核取方塊即可。
 
 在分析後工作的 UI 中，您可以選擇在任何工具僅報告錯誤或同時回報錯誤和警告時，中斷組建。
 
@@ -55,7 +55,7 @@ ms.locfileid: "71828240"
 
 ### <a name="can-i-run-a-build-task-like-credential-scanner-across-multiple-repositories-in-an-azure-devops-build"></a>我可以在 Azure DevOps 組建中跨多個存放庫執行認證掃描器之類的組建工作嗎？
 
-號 不支援在單一管線中跨多個存放庫執行安全的開發工具。
+不會。 不支援在單一管線中跨多個存放庫執行安全的開發工具。
 
 ### <a name="the-output-file-i-specified-isnt-being-created-or-i-cant-find-the-output-file-i-specified"></a>未建立我指定的輸出檔，或找不到我指定的輸出檔
 
@@ -67,7 +67,7 @@ ms.locfileid: "71828240"
 
 ### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>我可以將組建排入佇列，以便在裝載的組建代理程式上執行這些工作嗎？ 
 
-是。 擴充功能中的所有工作和工具都可以在託管的組建代理程式上執行。
+可以。 擴充功能中的所有工作和工具都可以在託管的組建代理程式上執行。
 
 >[!NOTE]
 > 反惡意程式碼掃描器組建工作需要有已啟用 Windows Defender 的組建代理程式。 託管 Visual Studio 2017 和更新版本會提供這類代理程式。 組建工作不會在 Visual Studio 2015 主控的代理程式上執行。
@@ -88,9 +88,9 @@ ms.locfileid: "71828240"
 
 在安裝時，延伸模組所提供的安全性組建工作會提供給您組織中的所有使用者使用。 當您建立或編輯 Azure 管線時，可以從 [組建-工作集合] 清單中取得這些作業。 否則，在您的 Azure DevOps 組織中安裝擴充功能不會有任何作用。 安裝不會修改任何帳戶設定、專案設定或管線。
 
-### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>安裝延伸模組會修改我現有的 Azure 管線嗎？ 
+### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>安裝延伸模組會修改我現有的 Azure Pipelines 嗎？ 
 
-號 安裝此延伸模組可讓您的管線加入安全性組建工作。 您仍然需要新增或更新組建定義，如此一來，工具就可以與您的組建流程搭配使用。
+不會。 安裝此延伸模組可讓您的管線加入安全性組建工作。 您仍然需要新增或更新組建定義，如此一來，工具就可以與您的組建流程搭配使用。
 
 ## <a name="task-specific-faq"></a>工作特定的常見問題
 
@@ -192,7 +192,7 @@ ms.locfileid: "71828240"
 
 完整的錯誤訊息：
 
-「錯誤：此專案已使用 NETCore 版本*x.x*進行還原，但使用目前的設定，將改用版本 y. y *. y。* 若要解決此問題，請確定已使用相同的設定來進行還原，以及進行後續作業（例如組建或發行）。 一般來說，如果在組建或發佈期間設定 RuntimeIdentifier 屬性，但在還原期間不會發生此問題。
+「錯誤：此專案已使用 NETCore 版本*x.x*進行還原，但使用目前的設定，將改用版本 y. y *. y。* 若要解決此問題，請確定會針對還原和後續作業 (例如建置或發佈) 使用相同的設定。 一般來說，如果在建置或發佈期間 (而不是在還原期間) 設定了 RuntimeIdentifier 屬性，就會發生此問題。」
 
 由於 Roslyn 分析器工作會在編譯過程中執行，因此組建電腦上的來源樹狀結構必須處於可建置狀態。
 
@@ -222,9 +222,6 @@ ms.locfileid: "71828240"
 
 如果您需要額外的協助，Microsoft 安全性程式碼分析支援將于太平洋標準時間上午 9:00 AM 到 5:00 PM 的星期一到星期五提供。
 
-  - 上線：請洽詢您的技術客戶經理以開始使用。
+- 上線：請參閱上[架檔](security-code-analysis-onboard.md)
   
-  - 支援：以電子郵件寄給我們的小組，其為[Microsoft 安全性程式碼分析支援](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)。
-
-  >[!NOTE] 
-  >您可能沒有與 Microsoft 的付費支援關係。 或者您可能會有支援供應專案，而無法從 Phoenix 目錄購買服務。 如果上述任一條件成立，請造訪我們的[支援服務首頁](https://www.microsoft.com/enterprise/services/support)以取得詳細資訊。
+- 支援：以電子郵件寄給我們的小組， [Microsoft 安全性程式碼分析支援](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)

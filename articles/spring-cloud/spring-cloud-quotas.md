@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 41a2b1a7d9aa5089ba2ee73cd3c5c5c5e31f5225
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0518b13ea228b4834a095a9bf126b131e70a5f45
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607678"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851548"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Azure 春季雲端的配額和服務方案
 
@@ -23,15 +23,14 @@ ms.locfileid: "73607678"
 
 在預覽期間，Azure 春季雲端僅提供一個服務層。
 
-資源 | Amount
+資源 | 金額
 ------- | -------
-vCPU | 4
-記憶體 | 8 Gb
-Azure 春季雲端訂用帳戶 | 1
-每個訂用帳戶每個區域的 Azure 春季雲端服務實例 | 2
-每個 Azure 春季雲端服務實例的應用程式實例總數 | 50
+vCPU | 每個服務實例4個
+記憶體 | 每個服務實例 8 Gb
+Azure Spring Cloud 服務執行個體 (每個訂用帳戶在每個區域) | 10
+總應用程式執行個體 (每個 Azure Spring Cloud 服務執行個體) | 500
 每個春季應用程式的應用程式實例總計 | 20
-永續性磁碟區 | 10 x 50 Gb
+永續性磁碟區 | 10 x 50 GB
 
 當您達到配額時，您會收到400錯誤，其中會顯示「配額超過訂用帳戶在*您的 Azure 春季雲端服務建立所在區域區域*中的訂用帳戶限制」。
 

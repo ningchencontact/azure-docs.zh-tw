@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 61deb5361c9857956318f8b9b4ca836fcfa65d48
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: e11f560c2b101d86d41feb3f6c93cffe7c1a748d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798124"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851446"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>產生土料濕度熱度圖
 
@@ -24,7 +24,7 @@ ms.locfileid: "73798124"
 
 ## <a name="before-you-begin"></a>開始之前
 
-請確定下列事項：  
+確認下列事項：  
 
 - Azure 訂用帳戶。
 - 正在執行的 Azure FarmBeats 實例。
@@ -93,4 +93,4 @@ ms.locfileid: "73798124"
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已成功產生一個土裡濕度熱度圖，請瞭解如何[產生感應器放置](generate-maps.md#sensor-placement-maps)和內嵌歷程[記錄遙測資料](ingest-historical-telemetry-data.md)。 
+既然您已成功產生一個土裡濕度熱度圖，請瞭解如何[產生感應器放置](generate-maps.md#sensor-placement-map)和內嵌歷程[記錄遙測資料](ingest-historical-telemetry-data.md)。 

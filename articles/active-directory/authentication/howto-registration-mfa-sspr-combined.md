@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 075f5112a5ff7d2184a6a42ec531d472974199f3
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
-ms.translationtype: HT
+ms.openlocfilehash: c2bd3f61ffc07881ed8e502788b11fc0f435735b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381325"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847349"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>啟用結合的安全性資訊註冊（預覽）
 
@@ -58,7 +58,7 @@ ms.locfileid: "74381325"
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>合併註冊的條件式存取原則
 
-在條件式存取原則中，您現在可以透過使用者動作來保護使用者註冊 Azure 多重要素驗證和自助式密碼重設的時間和方式。 此預覽功能適用于已啟用[合併註冊預覽](../authentication/concept-registration-mfa-sspr-combined.md)的組織。 您可以在組織中啟用這項功能，讓使用者註冊 Azure 多重要素驗證，並從中央位置（例如，在 HR 上架期間受信任的網路位置） SSPR。 如需有關如何在條件式存取中建立信任位置的詳細資訊，請參閱 >條件式存取中的位置條件 Azure Active Directory一文。[](../conditional-access/location-condition.md#named-locations)
+在條件式存取原則中，您現在可以透過使用者動作來保護使用者註冊 Azure 多重要素驗證和自助式密碼重設的時間和方式。 此預覽功能適用于已啟用[合併註冊預覽](../authentication/concept-registration-mfa-sspr-combined.md)的組織。 您可以在組織中啟用這項功能，讓使用者註冊 Azure 多重要素驗證，並從中央位置（例如，在 HR 上架期間受信任的網路位置） SSPR。 如需有關如何在條件式存取中建立信任位置的詳細資訊, 請參閱 [什麼是 Azure Active Directory 條件式存取中的位置條件？](../conditional-access/location-condition.md#named-locations)。
 
 ### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>建立要求從信任位置註冊的原則
 

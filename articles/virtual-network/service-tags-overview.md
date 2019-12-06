@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 33ee7351e547ee5ef57ef07f67ba6f5f4410b57f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 152b9f3974f24644e55bed68f5ed65faa90d7fe7
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384149"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851650"
 ---
 # <a name="virtual-network-service-tags"></a>虛擬網路服務標籤 
 <a name="network-service-tags"></a>
@@ -38,41 +38,42 @@ ms.locfileid: "74384149"
 
 
 
-| 標記 | 目的 | 可以使用輸入或輸出嗎？ | 可以是地區嗎？ | 可以與 Azure 防火牆搭配使用嗎？ |
+| Tag | 目的 | 可以使用輸入或輸出嗎？ | 可以是地區嗎？ | 可以與 Azure 防火牆搭配使用嗎？ |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **ApiManagement** | APIM 專用部署的管理流量。 | 兩者 | 否 | yes |
-| **AppService**    | App Service 服務。 建議將此標記用於輸出安全性規則，以 WebApp 前端。 | 輸出 | yes | yes |
-| **AppServiceManagement** | App Service 環境專用部署的管理流量。 | 兩者 | 否 | yes |
-| **AzureActiveDirectory** | Azure Active Directory 服務。 | 輸出 | 否 | yes |
-| **AzureActiveDirectoryDomainServices** | Azure Active Directory Domain Services 專用部署的管理流量。 | 兩者 | 否 | yes |
-| **AzureBackup** |Azure 備份服務。<br/><br/>*注意：* 此標記相依于**儲存體**和**AzureActiveDirectory**標記。 | 輸出 | 否 | yes |
-| **AzureCloud** | 所有[資料中心公用 IP 位址](https://www.microsoft.com/download/details.aspx?id=41653)。 | 輸出 | yes | yes |
-| **AzureConnectors** | 適用于探查/後端連線的 Logic Apps 連接器。 | 輸入 | yes | yes |
-| **AzureContainerRegistry** | Azure Container Registry 服務。 | 輸出 | yes | yes |
-| **AzureCosmosDB** | Azure Cosmos 資料庫服務。 | 輸出 | yes | yes |
-| **AzureDataLake** | Azure Data Lake 服務。 | 輸出 | 否 | yes |
+| **ApiManagement** | APIM 專用部署的管理流量。 | 兩者 | 否 | 是 |
+| **AppService**    | App Service 服務。 建議將此標記用於輸出安全性規則，以 WebApp 前端。 | 輸出 | 是 | 是 |
+| **AppServiceManagement** | App Service 環境專用部署的管理流量。 | 兩者 | 否 | 是 |
+| **AzureActiveDirectory** | Azure Active Directory 服務。 | 輸出 | 否 | 是 |
+| **AzureActiveDirectoryDomainServices** | Azure Active Directory Domain Services 專用部署的管理流量。 | 兩者 | 否 | 是 |
+| **AzureBackup** |Azure 備份服務。<br/><br/>*注意：* 此標記相依于**儲存體**和**AzureActiveDirectory**標記。 | 輸出 | 否 | 是 |
+| **AzureCloud** | 所有[資料中心公用 IP 位址](https://www.microsoft.com/download/details.aspx?id=41653)。 | 輸出 | 是 | 是 |
+| **AzureConnectors** | 適用于探查/後端連線的 Logic Apps 連接器。 | 輸入 | 是 | 是 |
+| **AzureContainerRegistry** | Azure Container Registry 服務。 | 輸出 | 是 | 是 |
+| **AzureCosmosDB** | Azure Cosmos 資料庫服務。 | 輸出 | 是 | 是 |
+| **AzureDataLake** | Azure Data Lake 服務。 | 輸出 | 否 | 是 |
+| **Hdinsightclustername>.azurehdinsight.net** | Azure HDInsight 服務。 | 輸入 | 是 | 否 |
 | **AzureIoTHub** | Azure IoT 中樞服務。 | 輸出 | 否 | 否 |
-| **AzureKeyVault** | Azure KeyVault 服務。<br/><br/>*注意：* 此標記與**AzureActiveDirectory**標記具有相依性。 | 輸出 | yes | yes |
+| **AzureKeyVault** | Azure KeyVault 服務。<br/><br/>*注意：* 此標記與**AzureActiveDirectory**標記具有相依性。 | 輸出 | 是 | 是 |
 | **AzureLoadBalancer** | Azure 的基礎結構負載平衡器。 此標記會轉譯成作為 Azure 健康情況探查來源的[主機虛擬 IP 位址](security-overview.md#azure-platform-considerations) (168.63.129.16)。 如果您未使用 Azure 負載平衡器，則可以覆寫此規則。 | 兩者 | 否 | 否 |
-| **AzureMachineLearning** | Azure Machine Learning 服務。 | 輸出 | 否 | yes |
-| **AzureMonitor** | Log Analytics、App Insights、AzMon 和自訂計量（Gb 端點）。<br/><br/>*注意：* 若為 Log Analytics，此標記會相依于**儲存體**標記。 | 輸出 | 否 | yes |
+| **AzureMachineLearning** | Azure Machine Learning 服務。 | 輸出 | 否 | 是 |
+| **AzureMonitor** | Log Analytics、App Insights、AzMon 和自訂計量（Gb 端點）。<br/><br/>*注意：* 若為 Log Analytics，此標記會相依于**儲存體**標記。 | 輸出 | 否 | 是 |
 | **AzurePlatformDNS** | 基本基礎結構（預設） DNS 服務。<br/><br>您可以使用此標記來停用預設 DNS。 請小心使用此標記。 建議您閱讀[Azure 平臺考慮](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations)。 使用此標記之前，建議您先進行測試。 | 輸出 | 否 | 否 |
 | **AzurePlatformIMDS** | IMDS，這是基本的基礎結構服務。<br/><br/>您可以使用此標記來停用預設 IMDS。  請小心使用此標記。 建議您閱讀[Azure 平臺考慮](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations)。 使用此標記之前，建議您先進行測試。 | 輸出 | 否 | 否 |
 | **AzurePlatformLKM** | Windows 授權或金鑰管理服務。<br/><br/>您可以使用此標記來停用授權的預設值。 請小心使用此標記。  建議您閱讀[Azure 平臺考慮](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations)。 使用此標記之前，建議您先進行測試。 | 輸出 | 否 | 否 |
-| **AzureTrafficManaged** | Azure 流量管理員探查 IP 位址。<br/><br/>如需流量管理員探查 IP 位址的詳細資訊，請參閱 [Azure 流量管理員常見問題集](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)。 | 輸入 | 否 | yes |  
-| **BatchNodeManagement** | Azure Batch 專用部署的管理流量。 | 兩者 | 否 | yes |
+| **AzureTrafficManaged** | Azure 流量管理員探查 IP 位址。<br/><br/>如需流量管理員探查 IP 位址的詳細資訊，請參閱 [Azure 流量管理員常見問題集](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)。 | 輸入 | 否 | 是 |  
+| **BatchNodeManagement** | Azure Batch 專用部署的管理流量。 | 兩者 | 否 | 是 |
 | **CognitiveServicesManagement** | 認知服務流量的位址範圍 | 輸出 | 否 | 否 |
-| **Dynamics365ForMarketingEmail** | Dynamics 365 行銷電子郵件服務的位址範圍。 | 輸出 | yes | 否 |
-| **EventHub** | Azure EventHub 服務。 | 輸出 | yes | yes |
+| **Dynamics365ForMarketingEmail** | Dynamics 365 行銷電子郵件服務的位址範圍。 | 輸出 | 是 | 否 |
+| **EventHub** | Azure EventHub 服務。 | 輸出 | 是 | 是 |
 | **GatewayManager** | VPN/應用程式閘道專用部署的管理流量。 | 輸入 | 否 | 否 |
-| **Internet** | 位於虛擬網路外部且可由公用網際網路連線的 IP 位址空間。<br/><br/>此位址範圍也包括 [Azure 擁有的公用 IP 位址空間](https://www.microsoft.com/download/details.aspx?id=41653)。 | 兩者 | 否 | 否 |
-| **MicrosoftContainerRegistry** | Microsoft Container Registry 服務。 | 輸出 | yes | yes |
-| **ServiceBus** | 使用 Premium 服務層級的 Azure 服務匯流排服務。 | 輸出 | yes | yes |
+| **網際網路** | 位於虛擬網路外部且可由公用網際網路連線的 IP 位址空間。<br/><br/>此位址範圍也包括 [Azure 擁有的公用 IP 位址空間](https://www.microsoft.com/download/details.aspx?id=41653)。 | 兩者 | 否 | 否 |
+| **MicrosoftContainerRegistry** | Microsoft Container Registry 服務。 | 輸出 | 是 | 是 |
+| **ServiceBus** | 使用 Premium 服務層級的 Azure 服務匯流排服務。 | 輸出 | 是 | 是 |
 | **ServiceFabric** | Service Fabric 服務。 | 輸出 | 否 | 否 |
-| **Server** | Azure SQL Database、適用於 MySQL 的 Azure 資料庫、適用於 PostgreSQL 的 Azure 資料庫和 Azure SQL 資料倉儲服務。<br/><br/>*注意：* 此標記代表服務，而不是服務的特定實例。 例如，標籤代表 SQL Database 或伺服器服務，但不代表特定的 Azure SQL Database。 | 輸出 | yes | yes |
-| **SqlManagement** | 適用于 SQL 專用部署的管理流量。 | 兩者 | 否 | yes |
-| **儲存體** | Azure 儲存體服務。 <br/><br/>*注意：* 標記代表服務，而不是服務的特定實例。 例如，標籤代表 Azure 儲存體服務，但不代表特定的 Azure 儲存體帳戶。 | 輸出 | yes | yes |
-| **VirtualNetwork** | 虛擬網路位址空間（針對虛擬網路定義的所有 IP 位址範圍）、所有已連線的內部部署位址空間、[對等互連](virtual-network-peering-overview.md)虛擬網路，或連線到[虛擬網路閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json)的虛擬網路、[虛擬 IP](security-overview.md#azure-platform-considerations)[使用者定義路由](virtual-networks-udr-overview.md)上所使用之主機和位址前置詞的位址。 請注意，此標記也可能包含預設路由。 | 兩者 | 否 | 否 |
+| **Server** | Azure SQL Database、適用於 MySQL 的 Azure 資料庫、適用於 PostgreSQL 的 Azure 資料庫和 Azure SQL 資料倉儲服務。<br/><br/>*注意：* 此標記代表服務，而不是服務的特定實例。 例如，標籤代表 SQL Database 或伺服器服務，但不代表特定的 Azure SQL Database。 | 輸出 | 是 | 是 |
+| **SqlManagement** | 適用于 SQL 專用部署的管理流量。 | 兩者 | 否 | 是 |
+| **儲存體** | Azure 儲存體服務。 <br/><br/>*注意：* 標記代表服務，而不是服務的特定實例。 例如，標籤代表 Azure 儲存體服務，但不代表特定的 Azure 儲存體帳戶。 | 輸出 | 是 | 是 |
+| **VirtualNetwork** | 虛擬網路位址空間（針對虛擬網路定義的所有 IP 位址範圍）、所有已連線的內部部署位址空間、[對等互連](virtual-network-peering-overview.md)虛擬網路，或連線到[虛擬網路閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json)的虛擬網路、[主機的虛擬 IP 位址](security-overview.md#azure-platform-considerations)，以及在[使用者定義的路由](virtual-networks-udr-overview.md)上使用的位址首碼。 請注意，此標記也可能包含預設路由。 | 兩者 | 否 | 否 |
 
 >[!NOTE]
 >在*傳統*（預先 Azure Resource Manager）環境中工作時，支援上述標記的一組選取。  這些會使用替代的拼寫：
@@ -116,7 +117,7 @@ ms.locfileid: "74384149"
 > [!NOTE]
 >先前已在[Azure 公用](https://www.microsoft.com/download/details.aspx?id=41653)、 [Azure 中國](https://www.microsoft.com/download/details.aspx?id=42064)和[azure 德國](https://www.microsoft.com/download/details.aspx?id=54770)的 XML 檔案中發佈這項資訊的子集。 這些 XML 下載將于2020年6月30日淘汰，而且在該日期之後將無法再使用。 如先前所述，請使用探索 API 或 JSON 檔案下載進行遷移。
 
-### <a name="tips"></a>秘訣 
+### <a name="tips"></a>祕訣 
 - 您可以透過 JSON 檔案中增加的*changeNumber*值，從一次發行到下一個發佈更新。 每個子區段（例如**WestUS**）都有自己的*changeNumber* ，會在發生變更時遞增。  當任何小節變更時，檔案*changeNumber*的最上層會遞增。
 - 如需如何剖析服務標籤資訊的範例（例如，取得儲存體在 WestUS 中的所有位址範圍），請參閱[服務標記探索 API PowerShell](https://aka.ms/discoveryapi_powershell)檔。
 

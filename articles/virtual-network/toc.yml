@@ -182,6 +182,8 @@
                   href: virtual-network-deploy-static-pip-arm-cli.md
             - name: 將公用 IP 位址新增到現有的虛擬機器中
               href: associate-public-ip-address-vm.md
+            - name: 中斷公用 IP 位址與 VM 的關聯
+              href: remove-public-ip-address-vm.md
             - name: 建立虛擬機器 - 靜態私人 IP 位址
               items:
                 - name: Azure 入口網站

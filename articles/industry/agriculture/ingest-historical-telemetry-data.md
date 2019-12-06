@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 27aec53fd2e92e19f1c749e833217fb8b5deae57
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 0ab2ba2c49dd0d0f946358c8f52a6daaf7428dd1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672562"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851412"
 ---
 # <a name="ingest-historical-telemetry-data"></a>內嵌歷程記錄遙測資料
 
@@ -27,7 +27,7 @@ ms.locfileid: "74672562"
 
 您必須啟用 Azure FarmBeats 實例的合作夥伴整合。 此步驟會建立可存取 Azure FarmBeats 作為裝置合作夥伴的用戶端，並提供後續步驟中所需的下列值。
 
-- API 端點–這是資料中樞 URL，例如，HTTPs://<datahub>. azurewebsites.net
+- API 端點–這是資料中樞 URL，例如，HTTPs://\<datahub >. azurewebsites. net
 - 租用戶識別碼
 - 用戶端識別碼
 - 用戶端密碼
@@ -87,7 +87,7 @@ ms.locfileid: "74672562"
 |    **裝置**             |                      |
 |   DeviceModelId     |     相關聯裝置型號的識別碼  |
 |  hardwareId          | 裝置的唯一識別碼，例如 MAC 位址等等。
-|  reportingInterval        |   報告間隔（以秒為單位）
+|  ReportingInterval        |   報告間隔（以秒為單位）
 |  Location            |  裝置緯度（-90 到 + 90）/Longitude （-180 到180）/Elevation （以計量計）   
 |ParentDeviceId       |    此裝置所連接之父裝置的識別碼。 例如，連接到閘道的節點。 節點會以閘道的形式 parentDeviceId。  |
 |    Name            | 用來識別資源的名稱。 裝置合作夥伴必須傳送與合作夥伴端上的裝置名稱一致的名稱。 如果合作夥伴裝置名稱是使用者定義的，則相同的使用者定義名稱應傳播至 FarmBeats。|
@@ -119,7 +119,7 @@ ms.locfileid: "74672562"
 
 **建立中繼資料的 API 要求**
 
-若要提出 API 要求，您可以將 HTTP （POST）方法、API 服務的 URL、要查詢的資源 URI、提交資料來建立或刪除要求，並新增一或多個 HTTP 要求標頭。 API 服務的 URL 是 API 端點，亦即資料中樞 URL （HTTPs://<yourdatahub>. azurewebsites.net）  
+若要提出 API 要求，您可以將 HTTP （POST）方法、API 服務的 URL、要查詢的資源 URI、提交資料來建立或刪除要求，並新增一或多個 HTTP 要求標頭。 API 服務的 URL 是 API 端點，也就是資料中樞 URL （HTTPs://\<yourdatahub >. azurewebsites. net）  
 
 **驗證**：
 
@@ -135,11 +135,33 @@ FarmBeats 資料中樞會使用持有人驗證，這需要我們在上一節中�
 headers = *{"Authorization": "Bearer " + access_token, …}*
 ```
 
+以下是提供存取權杖的範例 Python 程式碼，可用於後續對 FarmBeats 的 API 呼叫： 
+
+```python
+import azure 
+
+from azure.common.credentials import ServicePrincipalCredentials 
+import adal 
+#FarmBeats API Endpoint 
+ENDPOINT = "https://<yourdatahub>.azurewebsites.net" [Azure website](https://<yourdatahub>.azurewebsites.net)
+CLIENT_ID = "<Your Client ID>"   
+CLIENT_SECRET = "<Your Client Secret>"   
+TENANT_ID = "<Your Tenant ID>" 
+AUTHORITY_HOST = 'https://login.microsoftonline.com' 
+AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID 
+#Authenticating with the credentials 
+context = adal.AuthenticationContext(AUTHORITY) 
+token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLIENT_ID, CLIENT_SECRET) 
+#Should get an access token here 
+access_token = token_response.get('accessToken') 
+```
+
+
 **HTTP 要求標頭**：
 
 以下是對 FarmBeats 資料中樞進行 API 呼叫時，需要指定的最常見要求標頭：
 
-- 內容類型： application/json
+- Content-Type: application/json
 - 授權：持有人 < 存取權杖 >
 - Accept： application/json
 
@@ -271,6 +293,26 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 **以用戶端的身分傳送遙測訊息**
 
 一旦您將連線建立為 EventHub 用戶端，您就可以將訊息傳送至 EventHub 做為 json。  
+
+以下是範例 Python 程式碼，可將遙測當做用戶端傳送至指定的事件中樞：
+
+```python
+import azure
+from azure.eventhub import EventHubClient, Sender, EventData, Receiver, Offset
+EVENTHUBCONNECTIONSTRING = "<EventHub Connection String provided by customer>"
+EVENTHUBNAME = "<EventHub Name provided by customer>"
+
+write_client = EventHubClient.from_connection_string(EVENTHUBCONNECTIONSTRING, eventhub=EVENTHUBNAME, debug=False)
+sender = write_client.add_sender(partition="0")
+write_client.run()
+for i in range(5):
+    telemetry = "<Canonical Telemetry message>"
+    print("Sending telemetry: " + telemetry)
+    sender.send(EventData(telemetry))
+write_client.stop()
+
+```
+
 將歷程感應器資料格式轉換為 Azure FarmBeats 瞭解的標準格式。 標準訊息格式如下所示：  
 
 ```json

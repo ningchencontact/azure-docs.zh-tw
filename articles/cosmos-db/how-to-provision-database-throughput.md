@@ -1,17 +1,17 @@
 ---
 title: 在 Azure Cosmos DB 中佈建資料庫輸送量
-description: 了解如何在 Azure Cosmos DB 中佈建資料庫層級的輸送量
+description: 瞭解如何使用 Azure 入口網站、CLI、PowerShell 和各種其他 Sdk，在 Azure Cosmos DB 的資料庫層級布建輸送量。
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 64a8bc9f4c9f5192dad22cb55cb4d2c4816d4fa5
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8b64d933057b3ddb07f5f99889c7d7c23c74f545
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575147"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873653"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中佈建資料庫的輸送量
 

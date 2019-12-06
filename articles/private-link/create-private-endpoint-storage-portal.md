@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: cfe0caaf199821358f8a66ac65ae75c38336c725
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd3e33fde3f4249064bfbe1973ee95f680630673
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228083"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851157"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>使用 Azure 私用端點私下連接至儲存體帳戶
 Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Azure 資源（例如虛擬機器（Vm））私下與私人連結資源進行通訊。
@@ -34,13 +34,13 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 1. 在畫面的左上方，選取 [建立資源] > [網路] > [虛擬網路]。
 1. 在 [建立虛擬網路] 中，輸入或選取這項資訊：
 
-    | 設定 | 值 |
+    | 設定 | Value |
     | ------- | ----- |
-    | 名稱 | 輸入 MyVirtualNetwork。 |
+    | Name | 輸入 MyVirtualNetwork。 |
     | 位址空間 | 輸入 *10.1.0.0/16*。 |
-    | 訂閱 | 選取您的訂閱。|
-    | 資源群組 | 選取 [新建]，輸入 *myResourceGroup*，然後選取 [確定]。 |
-    | 位置 | 選取 [WestCentralUS]。|
+    | Subscription | 選取您的訂用帳戶。|
+    | Resource group | 選取 [新建]，輸入 *myResourceGroup*，然後選取 [確定]。 |
+    | Location | 選取 [WestCentralUS]。|
     | 子網路 - 名稱 | 輸入 mySubnet。 |
     | 子網路 - 位址範圍 | 輸入 *10.1.0.0/24*。 |
     |||
@@ -53,16 +53,16 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 1. 在 [建立虛擬機器 - 基本] 中，輸入或選取這項資訊：
 
-    | 設定 | 值 |
+    | 設定 | Value |
     | ------- | ----- |
     | **專案詳細資料** | |
-    | 訂閱 | 選取您的訂閱。 |
-    | 資源群組 | 選取 **myResourceGroup**。 您已在上一節中建立此項目。  |
+    | Subscription | 選取您的訂用帳戶。 |
+    | Resource group | 選取 **myResourceGroup**。 您已在上一節中建立此項目。  |
     | **執行個體詳細資料** |  |
     | 虛擬機器名稱 | 輸入 myVm。 |
-    | 區域 | 選取 [WestCentralUS]。 |
+    | 地區 | 選取 [WestCentralUS]。 |
     | 可用性選項 | 保留預設值 [不需要基礎結構備援]。 |
-    | 映像 | 選取 [Windows Server 2019 Datacenter]。 |
+    | 影像 | 選取 [Windows Server 2019 Datacenter]。 |
     | 大小 | 保留預設值 [標準 DS1 v2]。 |
     | **系統管理員帳戶** |  |
     | 使用者名稱 | 輸入您選擇的使用者名稱。 |
@@ -80,7 +80,7 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 1. 在 [建立虛擬機器 - 網路功能] 中，選取這項資訊：
 
-    | 設定 | 值 |
+    | 設定 | Value |
     | ------- | ----- |
     | 虛擬網路 | 保留預設值 [MyVirtualNetwork]。  |
     | 位址空間 | 保留預設值 [10.1.0.0/24]。|
@@ -101,14 +101,14 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 1. 在 [**建立儲存體帳戶-基本**] 中，輸入或選取這項資訊：
 
-    | 設定 | 值 |
+    | 設定 | Value |
     | ------- | ----- |
     | **專案詳細資料** | |
-    | 訂閱 | 選取您的訂閱。 |
-    | 資源群組 | 選取 **myResourceGroup**。 您已在上一節中建立此項目。|
+    | Subscription | 選取您的訂用帳戶。 |
+    | Resource group | 選取 **myResourceGroup**。 您已在上一節中建立此項目。|
     | **執行個體詳細資料** |  |
     | 儲存體帳戶名稱  | 輸入*mystorageaccount*。 如果此名稱已被使用，請建立唯一名稱。 |
-    | 區域 | 選取 [WestCentralUS]。 |
+    | 地區 | 選取 [WestCentralUS]。 |
     | 效能| 保留預設值 [標準]。 |
     | 帳戶類型 | 保留預設**儲存體（一般用途 v2）** 。 |
     | 複寫 | 選取 **[讀取權限異地多餘儲存體（RA-GRS）** ]。 |
@@ -119,13 +119,13 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 5. 在 [**建立儲存體帳戶-網路**] 中，選取 [**新增私人端點**]。 
 6. 在 [**建立私人端點**] 中，輸入或選取這項資訊：
 
-    | 設定 | 值 |
+    | 設定 | Value |
     | ------- | ----- |
     | **專案詳細資料** | |
-    | 訂閱 | 選取您的訂閱。 |
-    | 資源群組 | 選取 **myResourceGroup**。 您已在上一節中建立此項目。|
-    |位置|選取 [WestCentralUS]。|
-    |名稱|輸入 *myPrivateEndpoint*。  |
+    | Subscription | 選取您的訂用帳戶。 |
+    | Resource group | 選取 **myResourceGroup**。 您已在上一節中建立此項目。|
+    |Location|選取 [WestCentralUS]。|
+    |Name|輸入 *myPrivateEndpoint*。  |
     |儲存體子資源|保留預設**Blob**。 |
     | **網路** |  |
     | 虛擬網路  | 從 [資源群組] *myResourceGroup*中選取 [ *MyVirtualNetwork* ]。 |
@@ -143,7 +143,7 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
  
 ## <a name="connect-to-a-vm-from-the-internet"></a>從網際網路連線至 VM
 
-從網際網路連線至 VM *myVm* ，如下所示：
+從網際網路連線至 VM：myVm，如下所示：
 
 1. 在入口網站的搜尋列中，輸入 myVm。
 
@@ -169,9 +169,6 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 ## <a name="access-storage-account-privately-from-the-vm"></a>從 VM 私下存取儲存體帳戶
 
 在本節中，您會使用私用端點，私下連接到儲存體帳戶。
-
-> [!IMPORTANT]
-> 存放裝置的 DNS 設定需要在主機檔案上進行手動修改以包含特定帳戶的 FQDN，請使用 Windows 上的系統管理員許可權修改下列檔案： c:\Windows\System32\Drivers\etc\hosts 或 Linux/etc/hosts 包含上一個步驟中帳戶的 DNS 資訊，格式為 [私人 IP 位址] myaccount.blob.core.windows.net
 
 1. 在 myVM ** 的遠端桌面中，開啟 PowerShell。
 2. 輸入 `nslookup mystorageaccount.blob.core.windows.net` 您會收到類似下面的訊息：
@@ -203,7 +200,7 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 ## <a name="clean-up-resources"></a>清除資源 
 當您使用私人端點、儲存體帳戶和 VM 完成時，請刪除資源群組及其包含的所有資源： 
-1. 在入口網站頂端的 [搜尋] ** 方塊中輸入  myResourceGroup，然後從搜尋結果中選取 [myResourceGroup] **  。 
+1. 在入口網站頂端的 [搜尋] 方塊中輸入  *myResourceGroup* ，然後從搜尋結果中選取 [myResourceGroup] **  。 
 2. 選取 [刪除資源群組]。 
 3. **在 [輸入資源組名**] 中輸入 *myResourceGroup* ，然後選取 [**刪除**]。 
 

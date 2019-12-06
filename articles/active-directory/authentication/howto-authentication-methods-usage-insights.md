@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d6a87b5797ea5c8f4ac116d6df9e6a48204f1fd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b448e6ce7c8b4522d5e7bdbafb39eccca982fdee
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381904"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848505"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>驗證方法使用 & insights （預覽）
 
@@ -65,7 +65,7 @@ ms.locfileid: "74381904"
 
 [註冊詳細資料] 報表會顯示每個使用者的下列資訊：
 
-- 名稱
+- Name
 - 使用者名稱
 - 註冊狀態（全部、已註冊、未註冊）
 - 已啟用狀態（全部、已啟用、未啟用）
@@ -80,7 +80,7 @@ ms.locfileid: "74381904"
 
 [重設詳細資料] 報表會顯示過去30天內的註冊和重設事件，包括：
 
-- 名稱
+- Name
 - 使用者名稱
 - 功能（全部、註冊、重設）
 - 驗證方法（代理程式更新、應用程式代碼、通話、Office 通話、SMS、電子郵件、安全性問題）

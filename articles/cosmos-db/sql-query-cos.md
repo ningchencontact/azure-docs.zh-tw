@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 查詢語言中的 COS
-description: 深入瞭解 Azure Cosmos DB 中的 SQL 系統函數 COS。
+description: 瞭解 Azure Cosmos DB 中的余弦（COS） SQL 系統函數如何在指定的運算式中傳回指定角度的三角余弦值（以弧度為單位）
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 7e64127b7af749af87b90331c3f175957cfa7f09
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 05546ef531059e05a1426a288a48446d63d8e5df
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351078"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873398"
 ---
 # <a name="cos-azure-cosmos-db"></a>COS （Azure Cosmos DB）
  在指定運算式中傳回指定角度的三角餘弦函數，以弧度為單位。  

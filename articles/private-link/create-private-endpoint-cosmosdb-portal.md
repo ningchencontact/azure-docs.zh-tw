@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 90710176ec16d1c565e24ff7df56b0b838f2699e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e54aa00df9efa60cce0fd6fa1da32720f2947b12
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229413"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851191"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>使用 Azure 私人連結私下連接到 Azure Cosmos 帳戶
 
@@ -33,13 +33,13 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 1. 在 [建立虛擬網路] 中，輸入或選取這項資訊：
 
-    | 設定 | 值 |
+    | 設定 | Value |
     | ------- | ----- |
-    | 名稱 | 輸入 MyVirtualNetwork。 |
+    | Name | 輸入 MyVirtualNetwork。 |
     | 位址空間 | 輸入 *10.1.0.0/16*。 |
-    | 訂閱 | 選取您的訂閱。|
-    | 資源群組 | 選取 [新建]，輸入 *myResourceGroup*，然後選取 [確定]。 |
-    | 位置 | 選取 [WestCentralUS]。|
+    | Subscription | 選取您的訂用帳戶。|
+    | Resource group | 選取 [新建]，輸入 *myResourceGroup*，然後選取 [確定]。 |
+    | Location | 選取 [WestCentralUS]。|
     | 子網路 - 名稱 | 輸入 mySubnet。 |
     | 子網路 - 位址範圍 | 輸入 *10.1.0.0/24*。 |
     |||
@@ -52,16 +52,16 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 1. 在 [建立虛擬機器 - 基本] 中，輸入或選取這項資訊：
 
-    | 設定 | 值 |
+    | 設定 | Value |
     | ------- | ----- |
     | **專案詳細資料** | |
-    | 訂閱 | 選取您的訂閱。 |
-    | 資源群組 | 選取 **myResourceGroup**。 您已在上一節中建立此項目。  |
+    | Subscription | 選取您的訂用帳戶。 |
+    | Resource group | 選取 **myResourceGroup**。 您已在上一節中建立此項目。  |
     | **執行個體詳細資料** |  |
     | 虛擬機器名稱 | 輸入 myVm。 |
-    | 區域 | 選取 [WestCentralUS]。 |
+    | 地區 | 選取 [WestCentralUS]。 |
     | 可用性選項 | 保留預設值 [不需要基礎結構備援]。 |
-    | 映像 | 選取 [Windows Server 2019 Datacenter]。 |
+    | 影像 | 選取 [Windows Server 2019 Datacenter]。 |
     | 大小 | 保留預設值 [標準 DS1 v2]。 |
     | **系統管理員帳戶** |  |
     | 使用者名稱 | 輸入您選擇的使用者名稱。 |
@@ -79,7 +79,7 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 1. 在 [建立虛擬機器 - 網路功能] 中，選取這項資訊：
 
-    | 設定 | 值 |
+    | 設定 | Value |
     | ------- | ----- |
     | 虛擬網路 | 保留預設值 [MyVirtualNetwork]。  |
     | 位址空間 | 保留預設值 [10.1.0.0/24]。|
@@ -103,7 +103,7 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>從網際網路連線至 VM
 
-從網際網路連線至 VM *myVm* ，如下所示：
+從網際網路連線至 VM：myVm，如下所示：
 
 1. 在入口網站的搜尋列中，輸入 myVm。
 
@@ -129,9 +129,6 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 ## <a name="access-the-azure-cosmos-account-privately-from-the-vm"></a>從 VM 私下存取 Azure Cosmos 帳戶
 
 在本節中，您會使用私用端點，私下連線至 Azure Cosmos 帳戶。 
-
-> [!IMPORTANT]
-> Azure Cosmos 帳戶的 DNS 設定需要在主機檔案上進行手動修改，以包含特定帳戶的 FQDN。 在生產案例中，您會將 DNS 伺服器設定為使用私人 IP 位址。 不過，基於示範目的，您可以在 VM 上使用系統管理員許可權，並修改 `c:\Windows\System32\Drivers\etc\hosts` 檔案（在 Windows 上）或 `/etc/hosts` 檔案（在 Linux 上），以包含 IP 位址和 DNS 對應。
 
 1. 若要包含 IP 位址和 DNS 對應，請登入您的虛擬機器*myVM*，開啟 `c:\Windows\System32\Drivers\etc\hosts` 檔案，並以下列格式包含上一個步驟中的 DNS 資訊：
 
@@ -168,7 +165,7 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 當您使用私人端點、Azure Cosmos 帳戶和 VM 完成時，請刪除資源群組及其包含的所有資源： 
 
-1. 在入口網站頂端的 [搜尋] ** 方塊中輸入  myResourceGroup，然後從搜尋結果中選取 [myResourceGroup] **  。
+1. 在入口網站頂端的 [搜尋] 方塊中輸入  *myResourceGroup* ，然後從搜尋結果中選取 [myResourceGroup] **  。
 
 1. 選取 [刪除資源群組]。
 

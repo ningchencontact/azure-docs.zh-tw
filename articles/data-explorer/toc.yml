@@ -178,7 +178,7 @@
               href: dealing-with-duplicates.md
     - name: 部署
       items:
-        - name: 將叢集部署至 VNet
+        - name: 將您的叢集部署至您的虛擬網路
           href: vnet-deployment.md
     - name: 監視
       items:

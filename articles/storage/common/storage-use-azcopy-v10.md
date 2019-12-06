@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: af24a6b6d165ba60a0d88a4ddf74a4f18836e813
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 0572a18e530eaff2b5a2d8aa8ced5af26f762aa8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111765"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873925"
 ---
 # <a name="get-started-with-azcopy"></a>開始使用 AzCopy
 
@@ -98,8 +98,8 @@ tar -xf azcopy.tar.gz
 
 - 容器（檔案系統）
 - 儲存體帳戶
-- 資源群組
-- 訂閱
+- Resource group
+- Subscription
 
 若要瞭解如何驗證和指派角色，請參閱[在 Azure 入口網站中使用 RBAC 授與 Azure blob 和佇列資料的存取權](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 

@@ -1,17 +1,17 @@
 ---
 title: 如何在 Azure Cosmos DB 中設定多重主機
-description: 了解如何在 Azure Cosmos DB 中對應用程式設定多重主機。
+description: 瞭解如何在 Azure Cosmos DB 中使用不同的 Sdk，為您的應用程式設定多宿主。
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: e86cacbd76a70c8b114d65a77ff013d32327a2d0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 654baed649093add2aa62f4ba81bf6ce7c3e0df5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093110"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873636"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>在使用 Azure Cosmos DB 的應用程式中設定多重主機
 
@@ -114,4 +114,4 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
 * [Azure Cosmos DB 中一致性、可用性和效能的取捨](consistency-levels-tradeoffs.md)
 * [各種一致性層級的可用性和效能權衡取捨](consistency-levels-tradeoffs.md)
 * [全域調整佈建的輸送量](scaling-throughput.md)
-* [全球發佈：幕後](global-dist-under-the-hood.md)
+* [全域散發：幕後](global-dist-under-the-hood.md)

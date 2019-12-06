@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 查詢語言中的 ENDSWITH
-description: 深入瞭解 Azure Cosmos DB 中的 SQL 系統函數 ENDSWITH。
+description: 瞭解 Azure Cosmos DB 中的 ENDSWITH SQL 系統函數，以傳回布林值，指出第一個字串運算式的結尾是否為第二個
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 37c988d63e597c77bc09a1d21ad391909bb55901
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 6b3e692877faab8a8d507a44068d4cdfdc73a916
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351066"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873347"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH （Azure Cosmos DB）
  傳回布林值，表示第一個字串運算式是否以第二個字串運算式結尾。  

@@ -12,10 +12,6 @@
       href: require-tou.md
     - name: 偵測到工作階段風險時封鎖存取
       href: app-sign-in-risk.md
-- name: 教學課程
-  items:
-    - name: 遷移傳統 MFA 原則
-      href: policy-migration-mfa.md
 - name: 概念
   expanded: false
   items:
@@ -37,6 +33,8 @@
       href: service-dependencies.md
     - name: 假設工具
       href: what-if-tool.md
+    - name: 傳統原則移轉
+      href: policy-migration.md
     - name: 基準保護原則
       href: concept-baseline-protection.md
 - name: 使用說明指南
@@ -83,7 +81,7 @@
     - name: 登入頻率和瀏覽器持續性控制項
       href: howto-conditional-access-session-lifetime.md
     - name: 遷移傳統原則
-      href: policy-migration.md
+      href: policy-migration-mfa.md
     - name: 採用條件式存取
       href: howto-conditional-access-adoption-kit.md
     - name: 疑難排解

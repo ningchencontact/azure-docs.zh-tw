@@ -15,28 +15,27 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 9b0602f526991be37b7a9cce1d621dc2138dec48
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3071effeb2d5eeaafc48fd742559b093a0517c1c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279143"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851667"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>使用入口網站將資料磁碟附加至 Linux VM 
-本文示範如何透過 Azure 入口網站將新的及現有的磁碟連結到 Linux 虛擬機器。 您也可以[在 Azure 入口網站中將資料磁碟連結到 Windows VM](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
+本文示範如何透過 Azure 入口網站將新的及現有的磁碟連結到 Linux 虛擬機器。 您也可以 [在 Azure 入口網站中將資料磁碟連結到 Windows VM](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
 
 將磁碟附加至 VM 之前，請檢閱下列提示︰
 
-* 虛擬機器的大小會控制您可以連接的資料磁碟數目。 如需詳細資訊，請參閱 [虛擬機器的大小](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+* 虛擬機器的大小會控制您可以連接的資料磁碟數目。 如需詳細資訊，請參閱[虛擬機器的大小](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 * 附加至虛擬機器的磁碟實際上是 Azure 中儲存的 .vhd 檔案。 如需詳細資料，請參閱我們的[受控磁碟簡介](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 * 連接磁碟之後，您必須[連線到 Linux VM 才能掛接新的磁碟](#connect-to-the-linux-vm-to-mount-the-new-disk)。
 
 
 ## <a name="find-the-virtual-machine"></a>尋找虛擬機器
-1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 在左側功能表上，按一下 [虛擬機器]。
-3. 然後從清單中選取虛擬機器。
-4. 在 [虛擬機器] 頁面的 [基本資訊] 中，按一下 [磁碟]。
+1. 移至 [ [Azure 入口網站](https://portal.azure.com/)] 以尋找 VM。 搜尋並選取 [**虛擬機器**]。
+2. 從清單中選擇 VM。
+3. 在 [**虛擬機器**] 頁面邊欄的 [**設定**] 底下，選擇 [**磁片**]。
    
     ![開啟磁碟設定](./media/attach-disk-portal/find-disk-settings.png)
 
@@ -70,7 +69,7 @@ ms.locfileid: "74279143"
    
    ![儲存 Azure 受控磁碟更新](./media/attach-disk-portal/confirm-attach-existing-md.png)
 
-4. Azure 將磁碟連接至虛擬機器之後，該磁碟會列在虛擬機器磁碟設定中的 [資料磁碟]下面。
+4. Azure 將磁碟連接至虛擬機器之後，該磁碟會列在虛擬機器磁碟設定中的 [資料磁碟] 下面。
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>連接到 Linux VM 以掛接新磁碟
 若要分割、格式化和掛接新磁碟以供 Linux VM 使用，請使用 SSH 登入您的 VM。 如需詳細資訊，請參閱[如何在 Azure 上搭配使用 SSH 與 Linux](mac-create-ssh-keys.md)。 下列範例會以 azureuser 這個使用者名稱，利用 mypublicdns.westus.cloudapp.azure.com 的公用 DNS 項目來連線至 VM： 
@@ -103,7 +102,7 @@ dmesg | grep SCSI
 > [!NOTE]
 > 建議您使用可供您的散發版本使用的最新 fdisk 或 parted 版本。
 
-使用 `fdisk` 分割磁碟。 如果磁碟大小為 2 Tebi 位元組 (TiB) 或以上，則您必須使用 GPT 磁碟分割，您可以使用 `parted` 來執行 GPT 磁碟分割。 如果磁碟大小低於 2 TiB，您就能使用 MBR 或 GPT 磁碟分割。 將它設為磁碟分割 1 上的主要磁碟，並接受其他預設值。 下列範例會在 /dev/sdc`fdisk`*上啟動* 程序：
+使用 `fdisk` 分割磁碟。 如果磁碟大小為 2 Tebi 位元組 (TiB) 或以上，則您必須使用 GPT 磁碟分割，您可以使用 `parted` 來執行 GPT 磁碟分割。 如果磁碟大小低於 2 TiB，您就能使用 MBR 或 GPT 磁碟分割。 將它設為磁碟分割 1 上的主要磁碟，並接受其他預設值。 下列範例會在 /dev/sdc 上啟動 `fdisk` 程序：
 
 ```bash
 sudo fdisk /dev/sdc
@@ -244,7 +243,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 
 有兩種方式可在 Linux VM 中啟用 TRIM 支援。 像往常一樣，請參閱您的散發套件以了解建議的方法︰
 
-* 在 /etc/fstab`discard`*中使用* 掛接選項，例如：
+* 在 /etc/fstab 中使用 `discard` 掛接選項，例如：
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2

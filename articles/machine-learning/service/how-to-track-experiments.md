@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d8a2c456c725a3170bc940bf17dec6b0c4ad2c3e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a60691222c6f5f31a5b5c97df029790c1fd690ed
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584534"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873861"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>監視 Azure ML 實驗的執行和計量
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,12 +34,12 @@ ms.locfileid: "73584534"
 
 訓練實驗時，可以將下列計量新增到執行中。 若要檢視可在回合中追蹤之內容的更詳細清單，請參閱 [Run 類別參考文件](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) \(英文\)。
 
-|類型| Python 函式 | 注意事項|
+|Type| Python 函式 | 注意|
 |----|:----|:----|
 |純量值 |函式：<br>`run.log(name, value, description='')`<br><br>範例：<br>run.log("accuracy", 0.95) |使用指定名稱將數字或字串值記錄到執行中。 將計量記錄到執行中，會導致該計量儲存在實驗的執行記錄中。  您可以在執行中多次記錄相同的計量，結果會視為該計量的向量。|
 |清單|函式：<br>`run.log_list(name, value, description='')`<br><br>範例：<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | 使用指定名稱將值清單記錄到執行中。|
 |資料列|函式：<br>`run.log_row(name, description=None, **kwargs)`<br>範例：<br>run.log_row("Y over X", x=1, y=0.4) | 使用 log_row 建立計量，並於其中包含 kwargs 中描述的多個資料行。 每個具名的參數都會產生一個具有指定值的資料行。  可以呼叫一次 *log_row* 以記錄任意 Tuple，或者在迴圈中多次呼叫以產生完整的資料表。|
-|資料表|函式：<br>`run.log_table(name, value, description='')`<br><br>範例：<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | 使用指定名稱將字典物件記錄到執行中。 |
+|表格|函式：<br>`run.log_table(name, value, description='')`<br><br>範例：<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | 使用指定名稱將字典物件記錄到執行中。 |
 |映像|函式：<br>`run.log_image(name, path=None, plot=None)`<br><br>範例：<br>`run.log_image("ROC", plt)` | 將映像記錄到執行記錄中。 使用 log_image 將映像檔案或 matplotlib 繪圖記錄到執行中。  這些映像會顯示在執行記錄中，並可供比較。|
 |標記執行|函式：<br>`run.tag(key, value=None)`<br><br>範例：<br>run.tag("selected", "yes") | 使用字串索引鍵和可選字串值標記執行。|
 |上傳檔案或目錄|函式：<br>`run.upload_file(name, path_or_stream)`<br> <br> 範例：<br>run.upload_file("best_model.pkl", "./model.pkl") | 將檔案上傳到執行記錄。 執行會自動擷取特定輸出目錄中的檔案，對於大多數執行類型，預設為「./outputs」。  只有在需要上傳其他檔案或未指定輸出目錄時，才使用 upload_file。 我們建議在名稱中加上 `outputs`，以便將其上傳到輸出目錄。 您可以透過呼叫 `run.get_file_names()`，列出與該執行記錄相關聯的所有檔案|
@@ -232,6 +232,25 @@ ms.locfileid: "73584534"
 
 ## <a name="view-run-details"></a>檢視執行詳細資料
 
+### <a name="view-activequeued-runs-from-the-browser"></a>從瀏覽器觀看作用中/已佇列的執行
+
+用來定型模型的計算目標是共用資源。 因此，它們在指定的時間可能會有多個執行排入佇列或作用中。 若要從瀏覽器查看特定計算目標的執行，請使用下列步驟：
+
+1. 從[Azure Machine Learning studio](https://ml.azure.com/)中，選取您的工作區，然後從頁面左側選取 [__計算__]。
+
+1. 選取 [__定型__叢集] 以顯示用於定型的計算目標清單。 然後選取叢集。
+
+    ![選取定型叢集](./media/how-to-track-experiments/select-training-compute.png)
+
+1. 選取 [__執行__]。 會顯示使用此叢集的執行清單。 若要查看特定執行的詳細資料，請使用 [__執行__] 資料行中的連結。 若要查看實驗的詳細資料，請使用 [__實驗__] 欄中的連結。
+
+    ![選取定型叢集的執行](./media/how-to-track-experiments/show-runs-for-compute.png)
+    
+    > [!TIP]
+    > 回合可以包含子回合，因此一個定型作業可能會產生多個專案。
+
+一旦執行完成，此頁面就不會再顯示該回合。 若要查看已完成執行的資訊，請流覽 studio 的 [__實驗__] 區段，然後選取實驗並執行。 如需詳細資訊，請參閱[查詢執行計量](#queryrunmetrics)一節。
+
 ### <a name="monitor-run-with-jupyter-notebook-widget"></a>使用 Jupyter 筆記本 widget 執行監視
 當您使用**ScriptRunConfig**方法來提交回合時，您可以監看執行與[Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)的進度。 就像執行提交一樣，小工具為非同步工作，並每隔 10 至 15 秒提供即時更新，直到工作完成為止。
 
@@ -271,6 +290,7 @@ print(run.get_portal_url())
 
 模型定型和監視在背景進行，以便您可以在等待時執行其他工作。 您也可以等到模型完成定型，再執行更多程式碼。 當您使用 **ScriptRunConfig** 時，可以使用 ```run.wait_for_completion(show_output = True)``` 以顯示模型定型完成的時間。 ```show_output``` 旗標為您提供詳細資訊輸出。 
 
+<a id="queryrunmetrics"></a>
 
 ### <a name="query-run-metrics"></a>查詢執行計量
 

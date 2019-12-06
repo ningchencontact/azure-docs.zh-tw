@@ -1,14 +1,14 @@
 ---
 title: 了解查詢語言
 description: 描述 Resource Graph 資料表和可用的 Kusto 資料類型、運算子和函數，Azure Resource Graph。
-ms.date: 10/21/2019
+ms.date: 12/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: baef46f4ba6f899c2c0a1392f87006223d75a4e1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: a3503ce8d83b5bd47872db4b1de0eadb88be432c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959041"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851208"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>了解 Azure Resource Graph 查詢語言
 
@@ -65,14 +65,15 @@ Resource Graph 支援所有的 KQL[資料類型](/azure/kusto/query/scalar-data-
 
 以下是 Resource Graph 與特定範例支援的 KQL 表格式運算子清單：
 
-|KQL |Resource Graph 範例查詢 |注意事項 |
+|KQL |Resource Graph 範例查詢 |注意 |
 |---|---|---|
 |[count](/azure/kusto/query/countoperator) |[金鑰保存庫計數](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[顯示特定別名的相異值](../samples/starter.md#distinct-alias-values) | |
 |[extend](/azure/kusto/query/extendoperator) |[依作業系統類型計算的虛擬機器計數](../samples/starter.md#count-os) | |
 |[join](/azure/kusto/query/joinoperator) |[金鑰保存庫與訂用帳戶名稱](../samples/advanced.md#join) |支援的聯結類別： [innerunique](/azure/kusto/query/joinoperator#default-join-flavor)、 [inner](/azure/kusto/query/joinoperator#inner-join)、 [leftouter](/azure/kusto/query/joinoperator#left-outer-join)。 單一查詢中的限制為 3 `join`。 不允許自訂聯結策略（例如廣播聯結）。 可以在單一資料表內，或在_Resources_和_ResourceContainers_資料表之間使用。 |
 |[limit](/azure/kusto/query/limitoperator) |[列出所有公用 IP 位址](../samples/starter.md#list-publicip) |`take` 的同義字 |
-|[mv-展開](/azure/kusto/query/mvexpandoperator) |[列出具有特定寫入位置的 Cosmos DB](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_最大值400 |
+|[mvexpand](/azure/kusto/query/mvexpandoperator) | | 舊版運算子，請改用 `mv-expand`。 _RowLimit_最大值400。 預設值為 128。 |
+|[mv-展開](/azure/kusto/query/mvexpandoperator) |[列出具有特定寫入位置的 Cosmos DB](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_最大值400。 預設值為 128。 |
 |[即可](/azure/kusto/query/orderoperator) |[列出依名稱排序的資源](../samples/starter.md#list-resources) |`sort` 的同義字 |
 |[project](/azure/kusto/query/projectoperator) |[列出依名稱排序的資源](../samples/starter.md#list-resources) | |
 |[project-away](/azure/kusto/query/projectawayoperator) |[移除結果中的資料行](../samples/advanced.md#remove-column) | |
@@ -83,7 +84,7 @@ Resource Graph 支援所有的 KQL[資料類型](/azure/kusto/query/scalar-data-
 |[union](/azure/kusto/query/unionoperator) |[將兩個查詢的結果合併成單一結果](../samples/advanced.md#unionresults) |允許單一資料表： _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\]_資料表_。 單一查詢中的限制為 3 `union` 的腿。 不允許 `union` 支線資料表的模糊解析度。 可以在單一資料表內，或在_Resources_和_ResourceContainers_資料表之間使用。 |
 |[where](/azure/kusto/query/whereoperator) |[顯示包含儲存體的資源](../samples/starter.md#show-storage) | |
 
-## <a name="escape-characters"></a>Escape 字元
+## <a name="escape-characters"></a>逸出字元
 
 某些屬性名稱（例如包含 `.` 或 `$`的內容）必須在查詢中包裝或換行，否則屬性名稱會不正確地轉譯，而且不會提供預期的結果。
 
@@ -119,4 +120,4 @@ Resource Graph 支援所有的 KQL[資料類型](/azure/kusto/query/scalar-data-
 
 - 請參閱[入門查詢](../samples/starter.md)中使用的語言。
 - 請參閱 advanced[查詢](../samples/advanced.md)中的 advanced 使用。
-- 深入瞭解如何[探索資源](explore-resources.md)。
+- 深入了解如何[探索資源](explore-resources.md)。

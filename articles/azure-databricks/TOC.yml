@@ -126,9 +126,6 @@
         - name: 初始化叢集節點
           href: /azure/databricks/clusters/init-scripts
           maintainContext: true
-        - name: 自訂容器
-          href: /azure/databricks/clusters/custom-containers
-          maintainContext: true
         - name: 已啟用 GPU 功能的叢集
           href: /azure/databricks/clusters/gpu
           maintainContext: true
@@ -226,9 +223,6 @@
       maintainContext: true
     - name: 資料
       items:
-        - name: Databricks 檔案系統 (DBFS)
-          href: /azure/databricks/data/databricks-file-system
-          maintainContext: true
         - name: 資料庫與資料表
           href: /azure/databricks/data/tables
           maintainContext: true
@@ -317,6 +311,9 @@
             - name: ZIP 檔案
               href: /azure/databricks/data/data-sources/zip-files
               maintainContext: true
+        - name: Databricks 檔案系統 (DBFS)
+          href: /azure/databricks/data/databricks-file-system
+          maintainContext: true
         - name: FileStore
           href: /azure/databricks/data/filestore
           maintainContext: true
@@ -829,8 +826,8 @@
             - name: 使用 TensorFlow 的模型推斷
               href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-tensorflow
               maintainContext: true
-            - name: 模型推斷的效能微調
-              href: /azure/databricks/applications/deep-learning/inference/model-inference-performance
+            - name: 分散式映像模型推斷的參考解決方案
+              href: /azure/databricks/applications/deep-learning/reference-solutions/images-etl-inference
               maintainContext: true
     - name: MLflow
       items:
@@ -1066,9 +1063,6 @@
             - name: 叢集組態概觀
               href: /azure/databricks/administration-guide/clusters/index
               maintainContext: true
-            - name: 啟用容器服務
-              href: /azure/databricks/administration-guide/clusters/container-services
-              maintainContext: true
             - name: 啟用適用於 Genomics 的 Databricks Runtime
               href: /azure/databricks/administration-guide/clusters/genomics-runtime
               maintainContext: true
@@ -1137,9 +1131,6 @@
               maintainContext: true
             - name: 組態設定會覆寫預設設定
               href: /azure/databricks/kb/clusters/conf-overwrites-default-settings
-              maintainContext: true
-            - name: 在單一核心執行程式中執行 JNI 程式庫
-              href: /azure/databricks/kb/clusters/multiple-executors-single-worker
               maintainContext: true
             - name: 覆寫 log4j 組態
               href: /azure/databricks/kb/clusters/overwrite-log4j-logs
@@ -1544,6 +1535,9 @@
           items:
             - name: 平台版本資訊
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: 2019 年 12 月
+              href: /azure/databricks/release-notes/product/2019/december
               maintainContext: true
             - name: 2019 年 11 月
               href: /azure/databricks/release-notes/product/2019/november

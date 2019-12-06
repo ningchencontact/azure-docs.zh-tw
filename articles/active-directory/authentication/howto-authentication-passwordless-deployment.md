@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b6f07e1dd8e9252d2b6e00b85a47ba2e19f8bd8
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0eb8398decd1a447d0676195d6369cdc7e791e40
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603459"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848488"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>完成無密碼 authentication 部署
 
@@ -34,7 +34,7 @@ Microsoft 的[研究顯示](https://aka.ms/passwordguidance)，這些工作會�
 部署無密碼 authentication 提供下列優點：
 
 - 加強安全性。 藉由移除密碼作為受攻擊面，降低網路釣魚和密碼噴灑攻擊的風險。
-- 更好的使用者體驗。 讓使用者可以輕鬆地從任何地方存取資料，並可讓您在行動裝置上輕鬆存取 Outlook、OneDrive、office 等等。
+- 較佳的使用者經驗。 讓使用者可以輕鬆地從任何地方存取資料，並可讓您在行動裝置上輕鬆存取 Outlook、OneDrive、office 等等。
 - 穩固的見解。 透過健全的記錄和審核，取得使用者無密碼活動的深入解析。
 
 密碼會取代為您所擁有的內容，以及您所知的東西。 例如，在 Windows Hello 企業版中，生物識別手勢（例如臉部或指紋）或不是透過網路傳輸的裝置特定 PIN。
@@ -71,7 +71,7 @@ Microsoft 的無密碼 authentication 方法可啟用不同的案例。 請考�
 
 組織必須符合下列必要條件，才能開始進行無密碼部署。
 
-| 必要條件 | 驗證器應用程式 | FIDO2 安全性金鑰 |
+| 先決條件 | 驗證器應用程式 | FIDO2 安全性金鑰 |
 | --- | --- | --- |
 | 已啟用[AZURE MFA 和自助式密碼重設（SSPR）的合併註冊](howto-registration-mfa-sspr-combined.md)（預覽功能） | √ | √ |
 | [使用者可以執行 Azure MFA](howto-mfa-getstarted.md) | √ | √ |
@@ -129,12 +129,12 @@ Windows Hello 的必要條件非常依賴您是部署在內部部署、混合式
 
 下表概述此專案期間要執行的使用案例。
 
-| 領域 | 說明 |
+| 區域 | 描述 |
 | --- | --- |
-| **存取** | 無密碼登入可從公司網路內部或外部的公司或個人裝置取得。 |
+| **Access** | 無密碼登入可從公司網路內部或外部的公司或個人裝置取得。 |
 | **稽核** | 使用方式資料可供系統管理員近乎即時地進行審核。 <br> 使用量資料會至少每隔29天下載到公司系統，或使用 SIEM 工具。 |
-| **條例** | 定義和監視適當驗證方法和相關聯群組之使用者指派的生命週期。 |
-| **安全性** | 存取適當的驗證方法是透過使用者和群組指派來控制。 <br> 只有授權的使用者可以使用無密碼登入。 |
+| **治理** | 定義和監視適當驗證方法和相關聯群組之使用者指派的生命週期。 |
+| **Security** | 存取適當的驗證方法是透過使用者和群組指派來控制。 <br> 只有授權的使用者可以使用無密碼登入。 |
 | **效能** | 已記載並監視存取指派傳播時間軸。 <br> 登入時間是為了方便使用而測量。 |
 | **使用者體驗** | 使用者瞭解行動相容性。 <br> 使用者可以設定驗證器應用程式無密碼登入。 |
 | **支援** | 使用者知道如何尋找無密碼登入問題的支援。 |
@@ -210,7 +210,7 @@ Azure AD 會在下列情況將專案新增至 audit 記錄檔：
 
 下表提供一般報告案例的一些範例。
 
-|   | 管理風險 | 提高生產力 | 治理和合規性 |
+|   | 管理風險 | 提升生產力 | 治理和合規性 |
 | --- | --- | --- | --- |
 | **報表類型** | 驗證方法-已註冊結合安全性註冊的使用者 | 驗證方法–已註冊代理程式更新的使用者 | 登入：審查誰正在存取租使用者，以及如何 |
 | **可能的動作** | 目標使用者尚未註冊 | 推動採用 Microsoft Authenticator 應用程式或安全性金鑰 | 撤銷存取權或強制執行系統管理員的其他安全性原則 |
@@ -245,7 +245,7 @@ Azure AD 會在下列情況將專案新增至 audit 記錄檔：
 
 ### <a name="required-administrative-roles"></a>必要的系統管理角色
 
-| Azure AD 角色 | 說明 |
+| Azure AD 角色 | 描述 |
 | --- | --- |
 | 驗證系統管理員 | 最低特殊許可權角色能夠執行及管理驗證方法 |
 | User | 在裝置上設定驗證器應用程式，或註冊 web 或 Windows 10 登入的安全性金鑰裝置的最低特殊許可權角色。 |

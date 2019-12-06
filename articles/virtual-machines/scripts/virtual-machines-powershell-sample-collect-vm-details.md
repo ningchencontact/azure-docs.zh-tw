@@ -4,7 +4,7 @@ description: 使用 PowerShell 收集訂用帳戶中所有 Vm 的詳細資料
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: v-miegge
-manager: ???
+manager: dcscontentpm
 editor: v-miegge
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
-ms.openlocfilehash: d3931d2affd77ce53b6ace9cc043e0272eaaf954
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b03ac071ba508955d07002fc55dc96e007dfc2d6
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040086"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873959"
 ---
 # <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>使用 PowerShell 收集訂用帳戶中所有 Vm 的詳細資料
 
@@ -72,7 +72,7 @@ $report | Export-CSV "$home/$reportName"
 ## <a name="script-explanation"></a>指令碼說明
 此腳本會使用下列命令，在訂用帳戶中建立 Vm 詳細資料的 csv 匯出。 下表中的每個命令都會連結至命令特定的文件。
 
-|命令|注意事項|
+|命令|注意|
 |-|-|
 |[Select-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext)|設定要在目前會話中使用之 Cmdlet 的租使用者、訂用帳戶和環境。|
 |[Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM)|取得虛擬機器的屬性。|

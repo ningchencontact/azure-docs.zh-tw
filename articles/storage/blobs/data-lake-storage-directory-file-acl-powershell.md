@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 71f90fb361e8fc45ee2ce8672990965fca801a49
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5eac6b112b46d1b2c80321bdeeee7f4e1fc5f4ac
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533937"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873908"
 ---
 # <a name="use-powershell-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>在 Azure Data Lake Storage Gen2 （預覽）中使用 PowerShell for files & Acl
 
@@ -136,7 +136,7 @@ $dir.Directory.Metadata
 $dir.Directory.Properties
 ```
 
-## <a name="rename-or-move-a-directory"></a>重新命名或移動目錄
+## <a name="rename-or-move-a-directory"></a>重新命名目錄或移動目錄
 
 使用 `Move-AzDataLakeGen2Item` Cmdlet 來重新命名或移動目錄。
 
@@ -371,14 +371,17 @@ Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse |
 
 下表顯示用於 Data Lake Storage Gen1 的 Cmdlet 對應至 Data Lake Storage Gen2 之 Cmdlet 的方式。
 
-|Data Lake Storage Gen1 Cmdlet| Data Lake Storage Gen2 Cmdlet|
-|--------|---------|
-|AzDataLakeStoreChildItem|AzDataLakeGen2ChildItem|
-|AzDataLakeStoreItem <br>AzDataLakeStoreItemAclEntry<br>AzDataLakeStoreItemOwner<br>AzDataLakeStoreItemPermission<br>AzDataLakeStoreItemContent<br>新增-AzDataLakeStoreItem|AzDataLakeGen2Item|
-|AzDataLakeStoreItemContent|新增-AzDataLakeGen2Item|
-|移動-AzDataLakeStoreItem|移動-AzDataLakeGen2Item|
-|移除-AzDataLakeStoreItem|移除-AzDataLakeGen2Item|
-|設定-AzDataLakeStoreItemOwner <br>設定-AzDataLakeStoreItemPermission<br>設定-AzDataLakeStoreItemPermission<br>設定-AzDataLakeStoreItemAcl|更新-AzDataLakeGen2Item|
+|Data Lake Storage Gen1 Cmdlet| Data Lake Storage Gen2 Cmdlet| 注意 |
+|--------|---------|-----|
+|AzDataLakeStoreChildItem|AzDataLakeGen2ChildItem|根據預設，AzDataLakeGen2ChildItem Cmdlet 只會列出第一個層級的子專案。 -遞迴參數會以遞迴方式列出子專案。 |
+|AzDataLakeStoreItem<br>AzDataLakeStoreItemAclEntry<br>AzDataLakeStoreItemOwner<br>AzDataLakeStoreItemPermission|AzDataLakeGen2Item|AzDataLakeGen2Item 指令程式的輸出專案具有下列屬性： Acl、擁有者、群組、許可權。|
+|AzDataLakeStoreItemContent|AzDataLakeGen2FileContent|AzDataLakeGen2FileContent Cmdlet 會將檔內容下載到本機檔案。|
+|移動-AzDataLakeStoreItem|移動-AzDataLakeGen2Item||
+|新增-AzDataLakeStoreItem|新增-AzDataLakeGen2Item|此 Cmdlet 會從本機檔案上傳新的檔案內容。|
+|設定-AzDataLakeStoreItemOwner<br>設定-AzDataLakeStoreItemPermission<br>設定-AzDataLakeStoreItemAcl|更新-AzDataLakeGen2Item|AzDataLakeGen2Item 指令程式只會更新單一專案，而不會以遞迴方式進行。 如果想要以遞迴方式更新，請使用 AzDataLakeStoreChildItem Cmdlet 來列出專案，然後將管線加入至 AzDataLakeGen2Item Cmdlet。|
+|測試-AzDataLakeStoreItem|AzDataLakeGen2Item|如果專案不存在，AzDataLakeGen2Item 指令程式將會報告錯誤。|
+
+
 
 ## <a name="see-also"></a>請參閱
 

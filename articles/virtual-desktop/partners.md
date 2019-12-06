@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: helohr
-ms.openlocfilehash: 6b4e1a5024fec07ca73c79d2742933b7b115e6c2
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 3347cfee8b54efa9c52b23deff8c44387195fd63
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384312"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851174"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 虛擬桌面合作夥伴整合
 
@@ -28,16 +28,6 @@ Citrix 利用強大的企業工具擴充 Windows 虛擬桌面的價值，以提�
 
 - [前往合作夥伴網站](https://more.citrix.com/wvd)。
 
-## <a name="cloudhouse"></a>Cloudhouse
-
-![Cloudhouse 標誌](./media/partners/cloudhouse.png)
-
-Cloudhouse 是一種 Windows 虛擬桌面增值的服務提供者，為客戶提供了可將所有應用程式（包括與現代化 Windows 作業系統不相容）移至 Windows 的全包式應用程式遷移服務。虛擬桌面環境，讓客戶能夠真正運用多會話的 Windows 10。 
-
-藉由運用經證實的 Cloudhouse 容器化技術，Cloudhouse 服務會採用所有的應用程式，包括專為 Windows XP、Windows 7 或 Windows 8 所設計，並將其部署至現代化 Windows 虛擬桌面，而不需要變更程式碼或影響使用者體驗。 Cloudhouse 會將應用程式與基礎作業系統隔離，以進一步增加 Windows 虛擬桌面的價值，讓 Windows 服務更新得以推出，而不會影響容器化應用程式。 
-
-- [前往合作夥伴網站](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua)。
-
 ## <a name="vmware"></a>VMware
 
 ![VMware 標誌](./media/partners/vmware.png)
@@ -48,6 +38,17 @@ Microsoft Azure 的 VMware 範圍雲端可讓組織將自己的 Microsoft Azure 
 
 - [在 Microsoft Azure 上註冊適用于地平線雲端的技術預覽](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html)。
 - [前往合作夥伴網站](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html)。
+
+
+## <a name="cloudhouse"></a>Cloudhouse
+
+![Cloudhouse 標誌](./media/partners/cloudhouse.png)
+
+Cloudhouse 是一種 Windows 虛擬桌面增值的服務提供者，為客戶提供了可將所有應用程式（包括與現代化 Windows 作業系統不相容）移至 Windows 的全包式應用程式遷移服務。虛擬桌面環境，讓客戶能夠真正運用多會話的 Windows 10。 
+
+藉由運用經證實的 Cloudhouse 容器化技術，Cloudhouse 服務會採用所有的應用程式，包括專為 Windows XP、Windows 7 或 Windows 8 所設計，並將其部署至現代化 Windows 虛擬桌面，而不需要變更程式碼或影響使用者體驗。 Cloudhouse 會將應用程式與基礎作業系統隔離，以進一步增加 Windows 虛擬桌面的價值，讓 Windows 服務更新得以推出，而不會影響容器化應用程式。 
+
+- [前往合作夥伴網站](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua)。
 
 ## <a name="cloudjumper"></a>CloudJumper
 

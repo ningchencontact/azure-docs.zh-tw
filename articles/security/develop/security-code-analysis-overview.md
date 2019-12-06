@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c3e22b34dbb770af2b4a719f8b4eaf040b724c47
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 963bc909b69962cded0a50d717e3a653d3d69769
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695438"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851463"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>關於 Microsoft 安全性程式碼分析
 
@@ -112,6 +112,6 @@ Microsoft 安全性程式碼分析延伸模組也有三個後處理工作。 這
 
 如需有關如何上架及安裝 Microsoft 安全性程式碼分析的指示，請參閱我們的上線[和安裝指南](security-code-analysis-onboard.md)。
 
-如需設定組建工作的詳細資訊，請參閱我們的設定[指南](security-code-analysis-customize.md)。
+如需設定組建工作的詳細資訊，請參閱我們的設定[指南](security-code-analysis-customize.md)或[YAML 設定指南](yaml-configuration.md)。
 
 如果您有關于擴充功能和所提供工具的進一步問題，請查看我們的[常見問題頁面](security-code-analysis-faq.md)。

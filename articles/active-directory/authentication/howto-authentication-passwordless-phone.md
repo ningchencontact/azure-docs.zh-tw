@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a76aa0ca7cbda3f2db564c220ba12fec60f60509
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 60a7bf9690b4f50c771afc4745bbc2e5377adbba
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381870"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848471"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>使用 Microsoft Authenticator 應用程式啟用無密碼登入（預覽）
 
@@ -29,7 +29,7 @@ Microsoft Authenticator 應用程式可用來登入任何 Azure AD 帳戶 (而�
 > [!NOTE]
 > 自2017年3月起，這項功能已在 Microsoft Authenticator 應用程式中，因此，有可能在目錄中啟用原則時，使用者可能會立即遇到此流程，如果原則未啟用，則會看到錯誤訊息。 請留意這項變更，並且讓使用者做好準備。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - Azure 多重要素驗證，以允許做為驗證方法的推播通知 
 - 在執行 iOS 8.0 或更新版本或 Android 6.0 或更新版本的裝置上安裝的最新版 Microsoft Authenticator。

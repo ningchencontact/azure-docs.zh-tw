@@ -1,17 +1,17 @@
 ---
 title: 了解如何在 Azure Cosmos DB 中管理資料庫帳戶
-description: 了解如何在 Azure Cosmos DB 中管理資料庫帳戶
+description: 瞭解如何使用 Azure 入口網站、PowerShell、CLI 和 Azure Resource Manager 範本來管理 Azure Cosmos DB 資源
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 049be390403fe984ed4f8f38a4cdc86e24060e49
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 61670d757611bd0c1dd11c389282b18edb3d7fa1
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582625"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873670"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>管理 Azure Cosmos 帳戶
 
@@ -153,7 +153,7 @@ ms.locfileid: "73582625"
 
 3. 在 [自動容錯移轉] 窗格中，確定 [啟用自動容錯移轉] 設定為 [開啟]。 
 
-4. 選取 [ **儲存**]。
+4. 選取 [儲存]。
 
    ![自動容錯移轉入口網站功能表](./media/how-to-manage-database-account/automatic-failover.png)
 
@@ -184,7 +184,7 @@ Cosmos 帳戶設定自動容錯移轉後，可以變更區域的容錯移轉優�
 
 4. 若要修改容錯移轉優先順序，請透過當您暫留其上時出現在資料列左側的三個點拖曳讀取區域。
 
-5. 選取 [ **儲存**]。
+5. 選取 [儲存]。
 
    ![自動容錯移轉入口網站功能表](./media/how-to-manage-database-account/automatic-failover.png)
 

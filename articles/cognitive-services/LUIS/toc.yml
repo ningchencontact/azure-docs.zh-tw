@@ -48,13 +48,13 @@
           displayName: 'n-depth, constraint, descriptor, phrase list, entity'
         - name: 3. 從使用者的語句中取得情感分析
           href: tutorial-publish-settings.md
-    - name: 建置應用程式
+    - name: 建立和使用實體
       items:
-        - name: 使用規則運算式取得格式化的資料
-          href: luis-quickstart-intents-regex-entity.md
-        - name: 取得完全符合清單的文字
-          href: luis-quickstart-intent-and-list-entity.md
-        - name: 取得實體角色的相關資料
+        - name: 規則運算式實體
+          href: tutorial-regex-entity.md
+        - name: 清單實體
+          href: tutorial-list-entity.md
+        - name: 實體角色
           href: tutorial-entity-roles.md
           displayName: 'roles, geographyV2, context'
         - name: 使用複合實體將相關資料分組並加以擷取

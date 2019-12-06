@@ -4,17 +4,17 @@ description: 本文說明現在要如何更新 Azure 自動化中預設提供的
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23475fb77210eeea0568bb996529c81458db9c6c
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 76514e620f044b78b992db2b88733e69dbabf135
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382770"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850630"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>如何更新 Azure 自動化中的 Azure PowerShell 模組
 
@@ -38,11 +38,11 @@ ms.locfileid: "70382770"
 
 下列為在使用此程序來更新 Azure 模組時應納入考量的項目：
 
-* 根據預設，此 runbook 支援更新**Azure**和**AzureRm**模組。 此 runbook 也支援更新**Az**模組。 如需使用此 runbook 更新`Az`模組的詳細資訊，請參閱[更新 Azure 模組 runbook 讀我檔案](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md)。 在您的自動化帳戶中使用`Az`模組時，您必須考慮其他重要因素，若要深入瞭解，請參閱在您的[自動化帳戶中使用 Az 模組](az-modules.md)。
+* 根據預設，此 runbook 支援更新**Azure**和**AzureRm**模組。 此 runbook 也支援更新**Az**模組。 如需使用此 runbook 更新 `Az` 模組的詳細資訊，請參閱[更新 Azure 模組 RUNBOOK 讀我檔案](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md)。 在您的自動化帳戶中使用 `Az` 模組時，您必須考慮其他重要因素，若要深入瞭解，請參閱在[您的自動化帳戶中使用 Az 模組](az-modules.md)。
 
 * 在啟動此 Runbook 之前，請確定您的自動化帳戶已建立 [Azure 執行身分帳戶認證](manage-runas-account.md)。
 
-* 您可以使用此程式碼做為一般的 PowerShell 腳本，而不是 runbook：只要先使用[AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount)命令登入 Azure，然後傳遞`-Login $false`至腳本即可。
+* 您可以使用此程式碼做為一般的 PowerShell 腳本，而不是 runbook：只需先使用[AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount)命令登入 Azure，然後將 `-Login $false` 傳遞至腳本。
 
 * 若要在主權雲端上使用此 Runbook，請使用 `AzureRmEnvironment` 參數來將正確的環境傳遞給 Runbook。  允許的值為 **AzureCloud**、**AzureChinaCloud**、**AzureGermanCloud** 和 **AzureUSGovernment**。 這些值可以使用 `Get-AzureRmEnvironment | select Name` 來擷取。 如果您未傳遞值給這個參數，Runbook 將會預設為 Azure 公用雲端 **AzureCloud**。
 

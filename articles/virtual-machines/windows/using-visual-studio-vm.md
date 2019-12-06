@@ -12,15 +12,15 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 09/24/2019
+ms.date: 12/04/2019
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 4b3b36f69387a6ae10a2b76154056f322fd4a41a
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 25e5cda3b91dd4b14d0a3d82963404dde7a80aa4
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170922"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851395"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
 在預先設定的 Azure 虛擬機器 (VM) 中使用 Visual Studio，是從零開始到建立已啟動並執行中之開發環境的快速簡單方式。 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure) 中提供具有各種不同 Visual Studio 設定的系統映像。
@@ -31,11 +31,11 @@ ms.locfileid: "74170922"
 > 並非所有訂用帳戶都有資格部署 Windows 10 映射。 如需詳細資訊，請參閱[在 Azure 中使用 Windows 用戶端進行開發/測試案例](https://docs.microsoft.com/azure/virtual-machines/windows/client-images)
 
 ## <a name="what-configurations-and-versions-are-available"></a>有哪些設定和版本可用？
-您可以在 Azure Marketplace 中找到最新主要版本的映射，Visual Studio 2019，Visual Studio 2017 和 Visual Studio 2015。  針對每個已發行的主要版本，您會看到原先的「發行至 web」（RTW）版本和最新的更新版本。  每個版本都提供 Visual Studio Enterprise 和 Visual Studio Community 版本。  這些映像會每個月至少更新一次，以納入最新的 Visual Studio 和 Windows 更新。  雖然映像的名稱會維持不變，但每個映像的描述會納入已安裝的產品版本和映像的「生效」日期。
+您可以在 Azure Marketplace 中找到最新的主要版本映像：Visual Studio 2019、Visual Studio 2017 和 Visual Studio 2015。  針對每個已發行的主要版本，您都會看見原始「發行至網站」(RTW) 的版本及最新更新版本。  每個版本都提供 Visual Studio Enterprise 和 Visual Studio Community 版本。  這些映像會每個月至少更新一次，以納入最新的 Visual Studio 和 Windows 更新。  雖然映像的名稱會維持不變，但每個映像的描述會納入已安裝的產品版本和映像的「生效」日期。
 
 | 發行版本                                                                                                                                                | 版本              | 產品版本   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
-| [Visual Studio 2019：最新（版本16.3）](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise、Community | 版本16.3。9    |
+| [Visual Studio 2019：最新（版本16.4）](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise、Community | 版本16.4。0    |
 | [Visual Studio 2019： RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise、Community | 版本16.0。9    |
 | [Visual Studio 2017：最新（版本15.9）](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise、Community | 版本15.9.17   |
 | [Visual Studio 2017： RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise、Community | 版本15.0.27  |

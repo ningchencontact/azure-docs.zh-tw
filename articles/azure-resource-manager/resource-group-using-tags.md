@@ -2,21 +2,42 @@
 title: 邏輯組織的標記資源
 description: 示範如何套用標籤以針對計費及管理來組織 Azure 資源。
 ms.topic: conceptual
-ms.date: 10/30/2019
-ms.openlocfilehash: f3fca2030d33ba5a52d43924ff542801d435e4de
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/04/2019
+ms.openlocfilehash: c0a34204b5eb7080c6444e69def9d82d0193783b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484271"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850596"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用標記來組織 Azure 資源
 
-[!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
+您會將標籤套用至 Azure 資源，以邏輯方式將它們組織成分類法。 每個標記都是由一個名稱和一個值配對組成。 例如，您可以將「環境」名稱和「生產」值套用至生產環境中的所有資源。
 
-若要將標記套用到資源，使用者必須具有該資源類型的寫入權限。 若要將標記套用到所有資源類型，請使用[參與者](../role-based-access-control/built-in-roles.md#contributor)角色。 若只要將標記套用到一個資源類型，則使用適用於該資源的參與者角色。 例如，若要將標記套用到虛擬機器，可使用[虛擬機器參與者](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)。
+套用標記之後，您可以擷取訂用帳戶中具有該標記名稱和值的所有資源。 標記可讓您擷取不同資源群組中的相關資源。 當您需要組織資源以進行計費或管理時，此方法很有用。
+
+除了 autotagging 策略之外，您的分類法也應考慮使用自助元資料標記策略，以降低使用者的負擔並提高精確度。
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+
+## <a name="limitations"></a>限制
+
+標籤具有下列限制：
+
+* 並非所有資源類型都支援標記。 若要判斷您是否可以將標記套用至資源類型，請參閱 [Azure 資源的標記支援](tag-support.md)。
+* 每個資源或資源群組最多可以有50個標記名稱/值配對。 如果您需要套用的標記超過允許的最大數目，請使用標記值的 JSON 字串。 JSON 字串可以包含許多套用至單一標記名稱的值。 資源群組可以包含多個具有50標記名稱/值組的資源。
+* 標記名稱上限為 512 個字元，且標記值上限為 256 字元。 儲存體帳戶的標記名稱上限為 128 個字元，且標記值上限為 256 個字元。
+* 一般化 Vm 不支援標記。
+* 資源群組中的資源不會繼承套用至該資源群組的標籤。
+* 標記無法套用到類似雲服務的傳統資源。
+* 標記名稱不得包含這些字元：`<`、`>`、`%`、`&`、`\`、`?`、`/`
+
+   > [!NOTE]
+   > 目前 Azure DNS 區域和流量管理員服務也不允許在標記中使用空格。 
+
+## <a name="required-access"></a>必要的存取權
+
+若要將標記套用到資源，使用者必須具有該資源類型的寫入權限。 若要將標記套用到所有資源類型，請使用[參與者](../role-based-access-control/built-in-roles.md#contributor)角色。 若只要將標記套用到一個資源類型，則使用適用於該資源的參與者角色。 例如，若要將標記套用到虛擬機器，可使用[虛擬機器參與者](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)。
 
 ## <a name="policies"></a>原則
 
@@ -25,8 +46,6 @@ ms.locfileid: "74484271"
 [!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
 ## <a name="powershell"></a>PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 若要查看*資源群組*的現有標籤，請使用：
 
@@ -75,7 +94,7 @@ Environment                    Test
 
 每當您將標記套用到資源或資源群組時，即會覆寫該資源或資源群組上現有的標記。 因此，您必須視該資源或資源群組是否具備現有標籤來使用不同的方法。
 
-若要將標籤新增至*沒有現有標籤的資源群組*，請使用：
+若要將標籤新增至*不具現有標籤的資源群組*，請使用：
 
 ```azurepowershell-interactive
 Set-AzResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
@@ -89,7 +108,7 @@ $tags.Add("Status", "Approved")
 Set-AzResourceGroup -Tag $tags -Name examplegroup
 ```
 
-若要將標籤新增至*沒有現有標籤的資源*，請使用：
+若要將標籤新增至*不具現有標籤的資源*，請使用：
 
 ```azurepowershell-interactive
 $r = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
@@ -191,13 +210,13 @@ az resource list --tag Dept=Finance
 
 每當您將標記套用到資源或資源群組時，即會覆寫該資源或資源群組上現有的標記。 因此，您必須視該資源或資源群組是否具備現有標籤來使用不同的方法。
 
-若要將標籤新增至*沒有現有標籤的資源群組*，請使用：
+若要將標籤新增至*不具現有標籤的資源群組*，請使用：
 
 ```azurecli
 az group update -n examplegroup --set tags.Environment=Test tags.Dept=IT
 ```
 
-若要將標籤新增至*沒有現有標籤的資源*，請使用：
+若要將標籤新增至*不具現有標籤的資源*，請使用：
 
 ```azurecli
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"

@@ -87,7 +87,7 @@
           href: deploy-kcd.md
         - name: 設定密碼和帳戶鎖定原則
           href: password-policy.md
-        - name: 啟用安全性稽核事件 (預覽)
+        - name: 啟用安全性稽核事件
           href: security-audit-events.md
     - name: 加入網域 VM
       items:
