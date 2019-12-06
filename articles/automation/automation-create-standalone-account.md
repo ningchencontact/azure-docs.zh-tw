@@ -4,17 +4,17 @@ description: 本文會逐步引導您在 Azure 自動化中建立、測試和使
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1cdea358daa3bd0f9e738a0454613ea774a0e6dc
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 0dcfcfe5bc6e59eeb4ccb7272ed3f68edc9c4172
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146654"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850392"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>建立獨立的 Azure 自動化帳戶
 
@@ -35,8 +35,8 @@ ms.locfileid: "71146654"
 
 若要建立或更新自動化帳戶，以及完成本文中所述的工作，您必須具有下列權限：
 
-* 若要建立自動化帳戶，必須將您的 Azure AD 使用者帳戶加入至權限相當於 **Microsoft自動化**資源之擁有者角色的角色。 如需詳細資訊，請參閱 [Azure 自動化中的角色型存取控制](automation-role-based-access-control.md)。
-* 在 [Azure 入口網站] 的 [ **Azure Active Directory**  > **管理** > **使用者設定**] 下，如果**應用程式註冊**設定為 **[是]** ，則您 Azure AD 租使用者中的非系統管理員使用者可以[註冊 Active目錄應用程式](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)。 如果將 [應用程式註冊] 設為 [否]，則執行此動作的使用者必須是 Azure AD 中的全域管理員。
+* 若要建立自動化帳戶，您的 Azure AD 使用者帳戶必須新增至許可權相當於 Microsoft 擁有者角色的角色 **。自動化**資源。 如需詳細資訊，請參閱 [Azure 自動化中的角色型存取控制](automation-role-based-access-control.md)。
+* 在 Azure 入口網站的 [ **Azure Active Directory** ] >  **[管理** > 的**使用者設定**] 下，如果應用程式註冊設定為 **[是]** **，則您**Azure AD 租使用者中的非系統管理員使用者可以[註冊 Active Directory 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)。 如果將 [應用程式註冊] 設為 [否]，則執行此動作的使用者必須是 Azure AD 中的全域管理員。
 
 若您在加入至訂用帳戶的全域管理員/共同管理員角色之前，並非訂用帳戶 Active Directory 執行個體的成員，系統會將您以來賓身分加入至 Active Directory。 在此案例中，您會在 [新增自動化帳戶] 頁面中看到此訊息：「您無權建立」。
 
@@ -55,7 +55,7 @@ ms.locfileid: "71146654"
 
 1. 以訂用帳戶管理員角色成員和訂用帳戶共同管理員的帳戶登入 Azure 入口網站。
 1. 選取 [+ 建立資源]。
-1. 搜尋**自動化**。 在搜尋結果中，選取 [自動化]。
+1. 搜尋 [自動化]。 在搜尋結果中，選取 [自動化]。
 
    ![在 Azure Marketplace 中搜尋「自動化與控制」並加以選取](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
 
@@ -68,7 +68,7 @@ ms.locfileid: "71146654"
    >
    > ![加入自動化帳戶警告](media/automation-create-standalone-account/create-account-without-perms.png)
 
-1. 在 [加入自動化帳戶] 窗格的 [名稱] 方塊中，輸入新自動化帳戶的名稱。 選擇名稱之後，就無法變更此名稱。 *自動化帳戶名稱在每一區域和資源群組中是唯一的。自動化帳戶已刪除後，其名稱並非立即可供使用。*
+1. 在 [加入自動化帳戶] 窗格的 [名稱] 方塊中，輸入新自動化帳戶的名稱。 選擇名稱之後，就無法變更此名稱。 *自動化帳戶名稱在每個區域和資源群組中都是唯一的。可能無法立即使用已刪除之自動化帳戶的名稱。*
 1. 如果您有多個訂用帳戶，請在 [訂用帳戶] 方塊中，指定您想要用於新帳戶的訂用帳戶。
 1. 對於 [資源群組]，輸入或選取新的或現有的資源群組。
 1. 對於 [位置]，選取一個 Azure 資料中心位置。
@@ -88,7 +88,7 @@ ms.locfileid: "71146654"
 
 順利建立自動化帳戶時，系統會自動為您建立幾項資源。 建立之後，如果您不想保留這些 Runbook，可以安全地全部刪除。 「執行身分帳戶」可以用來在 Runbook 中驗證您的帳戶，應該保留，除非您要另外建立一個或不需要它們。 下表摘要說明執行身分帳戶的資源。
 
-| Resource | 描述 |
+| 資源 | 描述 |
 | --- | --- |
 | AzureAutomationTutorial Runbook |此為圖形化 Runbook 範例，示範如何使用執行身分帳戶進行驗證。 Runbook 會取得所有 Resource Manager 資源。 |
 | AzureAutomationTutorialScript Runbook |此為 PowerShell Runbook 範例，示範如何使用執行身分帳戶進行驗證。 Runbook 會取得所有 Resource Manager 資源。 |

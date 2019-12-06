@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e91a82442b2d436736719d629f70c8dec0e5a6c
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: ccffe8d104792d9723c1541466067de3ea2c2e66
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558544"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848386"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>規劃以雲端為基礎的 Azure 多因素驗證部署
 
@@ -283,12 +283,12 @@ NPS 擴充功能可作為 RADIUS 與雲端式 Azure MFA 之間的介面卡，以
 
 此設定的目的是要決定當使用者未註冊 MFA 時的行為。 變更此設定的效果會列在下表中。
 
-| 設定 | 使用者 MFA 狀態 | 效應 |
+| 設定 | 使用者 MFA 狀態 | 效果 |
 | --- | --- | --- |
 | 機碼不存在 | 未註冊 | MFA 挑戰不成功 |
 | 設定為 True/未設定的值 | 未註冊 | MFA 挑戰不成功 |
 | 金鑰設為 False | 未註冊 | 沒有 MFA 的驗證 |
-| 金鑰設為 False 或 True | 過 | 必須使用 MFA 進行驗證 |
+| 金鑰設為 False 或 True | 已註冊 | 必須使用 MFA 進行驗證 |
 
 ### <a name="integrate-with-active-directory-federation-services"></a>與 Active Directory 同盟服務整合
 

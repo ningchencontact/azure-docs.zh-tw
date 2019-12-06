@@ -7,16 +7,16 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: ccd0c88c95ae9a752ef8ea2387bbde4f8559bc68
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 280561126186e4c70399b3a1ddd177ff4eb54400
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531772"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850035"
 ---
 # <a name="standard-quota-per-vm-series-vcpu-limit-increase"></a>標準配額：每個 VM 系列 vCPU 限制增加
 
-Resource Manager 針對虛擬機器支援兩種類型的 vCPU 配額。 **隨用隨付 vm 和保留的 Vm 實例**會使用標準配額。 **低優先順序的 vm**會使用低優先順序的配額。 隨用隨付和保留的 VM 實例的標準 vCPU 配額會針對每個區域中的每個訂用帳戶強制執行兩個層級
+Resource Manager 針對虛擬機器支援兩種類型的 vCPU 配額。 **隨用隨付 vm 和保留的 Vm 實例**會使用標準配額。 **找出 vm**會使用點配額。 隨用隨付和保留的 VM 實例的標準 vCPU 配額會針對每個區域中的每個訂用帳戶強制執行兩個層級
 
 第一層是**總區域個 vcpu 限制**（跨所有 vm 系列），而第二層是**每個 vm 系列個 vcpu 限制**（例如 Dv3 系列個 vcpu）。 每當部署新的 VM 時，該 VM 系列新的和現有個 vcpu 使用量的總和，不得超過該特定 VM 系列所核准的 vCPU 配額。 此外，在所有 VM 系列上部署的新的和現有的 vCPU 計數，不應超過訂用帳戶所核准的區域個 vcpu 配額總計。 如果超過這些配額，將不允許 VM 部署。
 您可以從 Azure 入口網站為 VM 系列要求增加個 vcpu 配額限制。 VM 系列配額的增加會自動增加相同數量的總區域個 vcpu 限制。 
@@ -25,7 +25,7 @@ Resource Manager 針對虛擬機器支援兩種類型的 vCPU 配額。 **隨用
 
 [在這裡](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests)深入瞭解如何增加標準配額的地區 vCPU 限制。 
 
-[在這裡](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota)深入瞭解如何**增加低優先順序的 VM vCPU 限制**。
+[在這裡](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota)深入瞭解**增加點 VM vCPU 限制**。
 
 您可以透過入口網站中的 [說明 **+ 支援**] 分頁或 [**使用方式 + 配額**] 分頁，要求**每個 VM 系列的標準 vCPU 配額限制**增加。
 
@@ -63,7 +63,7 @@ Resource Manager 針對虛擬機器支援兩種類型的 vCPU 配額。 **隨用
 
    ![配額詳細資料 DM](./media/resource-manager-core-quotas-request/1-7.png)
 
-8. 針對選取的位置，選取 [**類型**值] 為 [**標準**]。 您可以透過 [**類型**] 欄位上的 [多重選取支援]，從單一支援案例要求標準和低優先順序的配額類型。 深入瞭解如何在 **< > 頁面**上**增加低優先順序的配額限制**。
+8. 針對選取的位置，選取 [**類型**值] 為 [**標準**]。 您可以透過 [**類型**] 欄位上的 [多重選取支援]，從單一支援案例要求標準和點配額類型。 深入瞭解此[頁面](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)上的**增加位置配額限制**
 
    ![SKU 系列](./media/resource-manager-core-quotas-request/1-8.png)
 
@@ -111,7 +111,7 @@ Resource Manager 針對虛擬機器支援兩種類型的 vCPU 配額。 **隨用
 
    ![配額問題刀鋒視窗](./media/resource-manager-core-quotas-request/1-1-6.png)
 
-7. 針對選取的位置，選取 [**類型**值] 為 [**標準**]。 您可以透過 [**類型**] 欄位上的 [多重選取支援]，從單一支援案例要求標準和低優先順序的配額類型。 深入瞭解如何在此[頁面](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota)上**增加低優先順序的個 vcpu 限制**。
+7. 針對選取的位置，選取 [**類型**值] 為 [**標準**]。 您可以透過 [**類型**] 欄位上的 [多重選取支援]，從單一支援案例要求標準和低優先順序的配額類型。 深入瞭解此[頁面](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)上的**增加點個 vcpu 限制**。
 
    ![選取的 SKU 系列](./media/resource-manager-core-quotas-request/1-1-7.png)
    

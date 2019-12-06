@@ -2,29 +2,25 @@
 title: 從應用程式註冊（舊版）轉換為 Azure 入口網站新應用程式註冊體驗的訓練指南
 description: Azure 入口網站中的新應用程式註冊體驗簡介
 services: active-directory
-documentationcenter: ''
 author: archieag
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: aragra
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01d543262a9eb358643c0860b24ac4306d2c5edf
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 2f49cac5c8c49fb5c53d3320cb0ab52e0f61acda
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927102"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844255"
 ---
-# <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>從應用程式註冊（舊版）轉換至 Azure 入口網站中的新應用程式註冊體驗
+# <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>在 Azure 入口網站中從應用程式註冊 (舊版) 轉換到新的應用程式註冊體驗
 
 您可以在 Azure 入口網站的新[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)體驗中找到許多改良功能。 如果您熟悉 Azure 入口網站中的應用程式註冊（舊版）體驗，請使用此訓練指南來開始使用新的體驗。
 

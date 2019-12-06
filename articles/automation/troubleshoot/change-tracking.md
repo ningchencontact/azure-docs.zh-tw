@@ -4,23 +4,23 @@ description: 本文提供有關針對變更追蹤進行疑難排解的資訊
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: beb0b89bdbf143c89a83c0813313a8bbda7235d4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 482b263b7c8427276d4fdb8681372c2be1ae69ee
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564861"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849389"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>針對變更追蹤和清查進行疑難排解
 
 ## <a name="windows"></a>Windows
 
-### <a name="records-not-showing-windows"></a>案例：Windows 機器不會顯示變更追蹤記錄
+### <a name="records-not-showing-windows"></a>案例：未顯示 Windows 機器的變更追蹤記錄
 
 #### <a name="issue"></a>問題
 
@@ -35,7 +35,7 @@ ms.locfileid: "68564861"
 3. 無法下載變更追蹤的管理組件。
 4. 所要上線的 VM 可能來自一部已安裝 Microsoft Monitoring Agent 但未執行過 sysprep 的所複製機器。
 
-#### <a name="resolution"></a>解決方法
+#### <a name="resolution"></a>解析度
 
 1. 確認 **Microsoft Monitoring Agent** (HealthService.exe) 是否正在機器上執行。
 1. 請檢查機器上的**事件檢視器**，並尋找其中有 `changetracking` 字組的任何事件。

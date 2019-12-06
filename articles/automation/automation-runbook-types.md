@@ -4,23 +4,23 @@ description: '描述您在 Azure 自動化中可使用的各種 Runbook，以及
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6c29015e2fd327d74183d5fbbd6214152507e517
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1991b7c227e62efcd8c0b637f3e732d737cabb34
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886775"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850681"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure 自動化 Runbook 類型
 
 Azure 自動化支援下表中簡短描述的幾種 Runbook。  下列各節提供各種類型的進一步資訊，包括每種類別何時使用的考量。
 
-| 在系統提示您進行確認時，輸入 | 描述 |
+| Type | 描述 |
 |:--- |:--- |
 | [圖形化](#graphical-runbooks)|以 Windows PowerShell 為基礎，而且完全在 Azure 入口網站的圖形化編輯器中建立和編輯。 |
 | [圖形化 PowerShell 工作流程](#graphical-runbooks)|以 Windows PowerShell 工作流程為基礎，而且完全在 Azure 入口網站的圖形化編輯器中建立和編輯。 |
@@ -69,7 +69,7 @@ PowerShell Runbook 以 Windows PowerShell 為基礎。  您可以直接使用 Az
 以下是 PowerShell Runbook 目前已知的問題。
 
 * PowerShell Runbook 無法擷取具有 Null 值的未加密 [變數資產](automation-variables.md)。
-* PowerShell Runbook 無法擷取名稱中含有 [](automation-variables.md) *的~變數資產*。
+* PowerShell Runbook 無法擷取名稱中含有 *~* 的[變數資產](automation-variables.md)。
 * PowerShell Runbook 中落入迴圈的 Get-Process 大約在 80 次反覆運算之後就會損毀。
 * 如果 PowerShell Runbook 嘗試同時將大量資料寫入輸出資料流，便可能會失敗。   在處理大型物件時，只輸出您所需的資訊，通常就可以解決這個問題。  例如，不要輸出類似 *Get-Process* 之類的資訊，您可以使用 *Get-Process | Select ProcessName, CPU*，只輸出需要的欄位。
 
@@ -107,7 +107,7 @@ Python 2 下的 Python Runbook 編譯。  您可以在 Azure 入口網站中使�
 * 目前僅支援 Python 2，這表示使用 Python 3 特定函式將會失敗。
 * 若要使用第三方程式庫，您必須[將套件匯入](python-packages.md)至自動化帳戶以供使用。
 
-## <a name="considerations"></a>注意事項
+## <a name="considerations"></a>考量
 
 在決定要針對特定 Runbook 使用何種類型時，請考慮下列其他考量。
 

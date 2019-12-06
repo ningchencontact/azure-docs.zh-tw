@@ -4,17 +4,17 @@ description: 本文說明在 Azure 自動化中與 GitHub 的原始檔控制整�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 44ab9688471a87e6db3712cc61b8abb194d54ac3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: fcb3885446e534a2a6a5153545fd39fb14a02776
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886520"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850154"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure 自動化中的原始檔控制整合
 
@@ -26,7 +26,7 @@ Azure 自動化支援三種類型的原始檔控制：
 * Azure Repos （Git）
 * Azure Repos （TFVC）
 
-## <a name="pre-requisites"></a>必要條件
+## <a name="pre-requisites"></a>先決條件
 
 * 原始檔控制存放庫（GitHub 或 Azure Repos）
 * [執行身分帳戶](manage-runas-account.md)
@@ -50,7 +50,7 @@ Azure 自動化支援三種類型的原始檔控制：
 |原始檔控制名稱     | 原始檔控制的易記名稱。 *此名稱必須只包含字母和數位。*        |
 |原始檔控制類型     | 原始檔控制來源的類型。 可用選項包括：</br> GitHub</br>Azure Repos （Git）</br> Azure Repos （TFVC）        |
 |存放庫     | 存放庫或專案的名稱。 系統會傳回前200存放庫。 若要搜尋存放庫，請在欄位中輸入名稱，然後按一下 [**在 GitHub 上搜尋**]。|
-|分支     | 此分支可從中提取原始程式檔。 分支目標不適用於 TFVC 原始檔控制類型。          |
+|Branch     | 此分支可從中提取原始程式檔。 分支目標不適用於 TFVC 原始檔控制類型。          |
 |資料夾路徑     | 包含要同步處理之 runbook 的資料夾。範例：/Runbooks </br>*只會同步指定資料夾中的 runbook。不支援遞迴。*        |
 |自動同步處理<sup>1</sup>     | 在原始檔控制存放庫中進行認可時開啟或關閉自動同步處理         |
 |發佈 Runbook     | 如果設定為**On**，runbook 從原始檔控制同步處理之後，就會自動發佈。         |
@@ -93,7 +93,7 @@ New-AzureRmAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<a
 
 如需在 GitHub 中建立個人存取權杖的詳細資訊，請造訪[為命令列建立個人存取權杖](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)。
 
-|範圍  |描述  |
+|Scope  |描述  |
 |---------|---------|
 |**存放庫**     |         |
 |repo:status     | 存取認可狀態         |
@@ -107,7 +107,7 @@ New-AzureRmAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<a
 
 如需在 Azure Repos 中建立個人存取權杖的詳細資訊，請造訪[使用個人存取權杖來驗證存取權](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)。
 
-|範圍  |
+|Scope  |
 |---------|
 |程式碼 (讀取)     |
 |專案與小組 (讀取)|

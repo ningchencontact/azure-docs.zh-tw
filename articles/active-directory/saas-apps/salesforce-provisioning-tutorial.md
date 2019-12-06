@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d87f935f503098757e4efe402b37958283431b6e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 32f3c439460ddc61dbf08fc4e8d7b7a000aa20f9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120545"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849168"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>教學課程︰設定 Salesforce 來進行自動佈建使用者
 
 本教學課程旨在說明您需要在 Salesforce 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Salesforce。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -64,7 +64,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 本節的目的是要說明如何對 Salesforce 啟用 Active Directory 使用者帳戶的使用者佈建。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式] 區段。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 [Azure Active Directory > 企業應用程式 > 所有應用程式] 區段。
 
 2. 如果您已經設定單一登入的 Salesforce，請使用 [搜尋] 欄位搜尋您的 Salesforce 執行個體。 否則，請選取 [新增]，並在應用程式庫中搜尋 [Salesforce]。 從搜尋結果中選取 Salesforce，並將它新增至您的應用程式清單。
 
@@ -84,7 +84,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![啟用自動使用者布建](./media/salesforce-provisioning-tutorial/sf-my-settings.png "啟用自動使用者佈建")
 
-7. 在左方導覽窗格上，按一下 [我的個人資訊] 以展開相關的區段，然後按一下 [重設我的安全性權杖]。
+7. 在左方導覽窗格上，按一下 [我的個人資訊] 展開相關的區段，然後按一下 [重設我的安全性權杖]。
   
     ![啟用自動使用者布建](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "啟用自動使用者佈建")
 
@@ -94,7 +94,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 9. 檢查與此系統管理員帳戶相關聯的電子郵件收件匣。 尋找來自 Salesforce.com，包含新安全性權杖的電子郵件。
 
-10. 複製該權杖，移至您的 Azure AD 視窗，然後將它貼到 [祕密權杖] 欄位。
+10. 複製權杖，移至您的 Azure AD 視窗，然後將它貼到 [祕密權杖] 欄位。
 
 11. 如果 Salesforce 執行個體是位於 Salesforce 政府雲端上，則應輸入**租用戶 URL**。 否則為選擇性。 使用 "https://\<your-instance\>.my.salesforce.com" 格式輸入租用戶 URL，將 \<your-instance\> 取代為您的 Salesforce 執行個體名稱。
 
@@ -129,6 +129,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 * **SalesforceDuplicateUserName：** 無法布建使用者，因為它具有在另一個 Salesforce.com 租使用者中重複的 Salesforce.com ' Username '。  在 Salesforce.com 中，' Username ' 屬性的值在所有 Salesforce.com 租使用者中必須是唯一的。  根據預設，使用者在 Azure Active Directory 中的 userPrincipalName 會變成其在 Salesforce.com 中的「使用者名稱」。   您有兩個選項。  其中一個選項是在另一個 Salesforce.com 租使用者中，尋找並重新命名具有重複的「使用者名稱」的使用者（如果您也要管理該其他租使用者）。  另一個選項是移除 Azure Active Directory 使用者對您的目錄整合所在的 Salesforce.com 租使用者的存取權。 我們會在下一次嘗試同步處理時重試此操作。 
 * **SalesforceRequiredFieldMissing：** Salesforce 要求使用者必須要有某些屬性，才能 succesfuly 建立或更新使用者。 此使用者缺少其中一個必要的屬性。 確定在您想要布建至 Salesforce 的所有使用者上，都已填入電子郵件和別名等屬性。 您可以使用以[屬性為基礎的範圍篩選器](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)，來界定不具有這些屬性的使用者範圍。 
 * 布建至 Salesforce 的預設屬性對應包含 SingleAppRoleAssignments 運算式，可將 Azure AD 中的 appRoleAssignments 對應至 Salesforce 中的 ProfileName。 請確定使用者在 Azure AD 中沒有多個應用程式角色指派，因為屬性對應僅支援布建一個角色。 
+* Salesforce 需要先手動核准電子郵件更新，然後再進行變更。 因此，您可能會在布建記錄中看到多個專案來更新使用者的電子郵件（直到電子郵件變更核准為止）。
 
 
 ## <a name="additional-resources"></a>其他資源

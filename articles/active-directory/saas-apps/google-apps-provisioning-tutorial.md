@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beaa8561028a9e21d0623c0eb8e19592f3cad055
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7c259371ccdb55eff01eb7f0605315b17c33cdd3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167872"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842692"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>教學課程︰設定 G Suite 來自動佈建使用者
 
@@ -35,7 +35,7 @@ ms.locfileid: "74167872"
 - 已更新 G Suite 目標屬性名稱，以符合[這裡](https://developers.google.com/admin-sdk/directory)定義的內容。
 - 已更新預設屬性對應。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 G Suite 整合，您需要下列項目：
 
@@ -160,11 +160,11 @@ Azure Active Directory 使用稱為「指派」的概念，來判斷哪些使用
 
 7. 在 Azure 入口網站中，選取 [測試連線] 以確保 Azure AD 可以連線至您的應用程式。 如果連線失敗，請確定您的 G Suite 帳戶具有小組系統管理員權限。 然後再試一次**授權**步驟。
 
-8. 在 [通知電子郵件] 欄位中，輸入應該收到佈建錯誤通知的個人或群組電子郵件地址，然後選取 [發生失敗時傳送電子郵件通知] 核取方塊。
+8. 在 [通知電子郵件] 欄位中，輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選 [發生失敗時傳送電子郵件通知] 核取方塊。
 
     ![通知電子郵件](common/provisioning-notification-email.png)
 
-8. 按一下 [檔案]。
+8. 按一下 [儲存]。
 
 9. **在 [對應**] 區段下，選取 [**同步處理 Azure Active Directory 使用者到 G Suite**]。
 
@@ -178,7 +178,7 @@ Azure Active Directory 使用稱為「指派」的概念，來判斷哪些使用
 
     ![G Suite 群組對應](media/google-apps-provisioning-tutorial/groupmappings.png)
 
-12. 在 [**屬性對應**] 區段中，檢查從 Azure AD 同步至 G Suite 的群組屬性。 選取為 [比對] 屬性**的屬性會**用來比對 G Suite 中的群組以進行更新作業。 選取 [儲存] 按鈕以認可所有變更。
+12. 在 [**屬性對應**] 區段中，檢查從 Azure AD 同步至 G Suite 的群組屬性。 選取為 [比對] 屬性**的屬性會**用來比對 G Suite 中的群組以進行更新作業。 選取 [儲存] 按鈕以認可所有變更。 UI 會顯示 Azure AD 與 G Suite 之間的一組預設屬性對應。 您可以按一下 [新增對應]，選擇新增其他屬性，例如組織單位。 
 
     ![G Suite 群組屬性](media/google-apps-provisioning-tutorial/groupattributes.png)
 
@@ -204,6 +204,9 @@ Azure Active Directory 使用稱為「指派」的概念，來判斷哪些使用
 
 * [管理企業應用程式的使用者帳戶佈建](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
+
+## <a name="common-issues"></a>常見問題
+* 當用來建立連接的帳戶不是 GSuite 的系統管理員時，可能會發生授權失敗。 確定用來授與存取權的帳戶具有使用者需要布建之**所有網域**的系統管理員許可權。 
 
 ## <a name="next-steps"></a>後續步驟
 

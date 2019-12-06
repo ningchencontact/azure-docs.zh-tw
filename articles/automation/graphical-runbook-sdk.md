@@ -4,17 +4,17 @@ description: 本文說明如何使用 Azure 自動化圖形化 Runbook SDK
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 07/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e4229079a1fa50295eef85b42f91bbc1b4a21fc3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a06c190931fdd0f49132f815b153c08ece68c9f3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478597"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849542"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk"></a>使用 Azure 自動化圖形化 Runbook SDK
 
@@ -95,7 +95,7 @@ var initializeRunbookVariable = runbook.AddActivity(
 
 活動會在 `Orchestrator.GraphRunbook.Model` 命名空間中由下列類別實作：
 
-|類別  |activities  |
+|類別  |活動  |
 |---------|---------|
 |CommandActivity     | 叫用 PowerShell 命令 (cmdlet、函式等)。        |
 |InvokeRunbookActivity     | 叫用另一個 Runbook 內嵌。        |
@@ -103,7 +103,7 @@ var initializeRunbookVariable = runbook.AddActivity(
 |WorkflowScriptActivity     | 在 Runbook 的內容中執行 PowerShell 或 PowerShell 工作流程程式碼 (取決於 Runbook 類型) 的區塊。 這是功能強大的工具，但請勿過度使用：UI 會將這個指令碼區塊顯示為文字；執行引擎會將提供的區塊視為黑箱，且不會嘗試分析其內容，除了基本的語法檢查之外。 如果您只需要叫用單一 PowerShell 命令，建議使用 CommandActivity。        |
 
 > [!NOTE]
-> 請勿從提供的類別衍生您自己的活動：Azure 自動化無法使用自訂活動類型的 Runbook。
+> 請勿從提供的類別衍生您自己的活動：Azure 自動化將無法使用 Runbook 搭配自訂活動類型。
 
 必須提供 CommandActivity 和 InvokeRunbookActivity 參數作為值描述項，而非直接值。 值描述項會指定實際參數值的產生方式。 目前提供下列值描述項：
 
@@ -119,7 +119,7 @@ var initializeRunbookVariable = runbook.AddActivity(
 |PowerShellExpressionValueDescriptor     | 指定自由格式 PowerShell 運算式，在即將叫用活動之前才會加以評估。  <br/>這是功能強大的工具，但請勿過度使用：UI 會將這個運算式顯示為文字；執行引擎會將提供的區塊視為黑箱，且不會嘗試分析其內容，除了基本的語法檢查之外。 如果可能的話，最好使用更明確的值描述項。      |
 
 > [!NOTE]
-> 請勿從提供的類別衍生您自己的值描述項：Azure 自動化無法使用自訂值描述項類型的 Runbook。
+> 請勿從提供的類別衍生您自己的值描述項：Azure 自動化將無法使用 Runbook 搭配自訂值描述項類型。
 
 將連線活動的連結具現化，並將其新增至 Runbook：
 

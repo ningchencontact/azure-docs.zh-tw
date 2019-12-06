@@ -4,17 +4,17 @@ description: 本文示範如何將 Desired State Configuration （DSC）報告�
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5905afdb9832f32e837dc4496e4a951fca41b8b0
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 9fa84b5e87581fad4a7ada5fda074429409d2f8f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243541"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850341"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>將 Azure 自動化狀態設定報告資料轉送至 Azure 監視器記錄
 
@@ -134,11 +134,11 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 | NodeName_s |受控節點名稱。 |
 | NodeComplianceStatus_s |節點是否符合規範。 |
 | DscReportStatus |合規性檢查是否已順利執行。 |
-| ConfigurationMode | 設定如何套用至節點。 可能的值為 __"ApplyOnly"__ 、 __"ApplyandMonitior"__ 和 __"ApplyandAutoCorrect"__ 。 <ul><li>__ApplyOnly__：DSC 會套用設定但不執行任何進一步的動作，除非有新的設定發送到目標節點，或從伺服器提取新的設定時。 初始套用新的設定之後，DSC 不會檢查先前設定的狀態是否漂移。 DSC 在 __ApplyOnly__ 生效之前會一直嘗試套用設定，直到成功為止。 </li><li> __ApplyAndMonitor__：這是預設值。 LCM 會套用任何新的設定。 初始套用新設定之後，如果目標節點從所需狀態漂移，DSC 會在記錄中報告差異。 DSC 在 __ApplyAndMonitor__ 生效之前會一直嘗試套用設定，直到成功為止。</li><li>__ApplyAndAutoCorrect__：DSC 會套用任何新的組態。 初始套用新設定之後，如果目標節點從所需狀態漂移，DSC 會在記錄中報告差異，然後重新套用目前的設定。</li></ul> |
+| ConfigurationMode | 設定如何套用至節點。 可能的值為 __"ApplyOnly"__ 、 __"ApplyandMonitior"__ 和 __"ApplyandAutoCorrect"__ 。 <ul><li>__ApplyOnly__：DSC 會套用設定但不執行任何進一步的動作，除非有新的設定發送到目標節點，或從伺服器提取新的設定時。 初始套用新的設定之後，DSC 不會檢查先前設定的狀態是否漂移。 DSC 在 __ApplyOnly__ 生效之前會一直嘗試套用設定，直到成功為止。 </li><li> __ApplyAndMonitor__：這是預設值。 LCM 會套用任何新的設定。 初始套用新設定之後，如果目標節點從所需狀態漂移，DSC 會在記錄中報告差異。 DSC 在 __ApplyAndMonitor__ 生效之前會一直嘗試套用設定，直到成功為止。</li><li>__ApplyAndAutoCorrect__：DSC 會套用任何新的設定。 初始套用新設定之後，如果目標節點從所需狀態漂移，DSC 會在記錄中報告差異，然後重新套用目前的設定。</li></ul> |
 | HostName_s | 受控節點名稱。 |
 | IPAddress | 受控節點的 IPv4 位址。 |
-| Category | DscNodeStatus |
-| Resource | Azure 自動化帳戶的名稱。 |
+| 類別 | DscNodeStatus |
+| 資源 | Azure 自動化帳戶的名稱。 |
 | Tenant_g | 識別呼叫端租用戶的 GUID。 |
 | NodeId_g |識別受控節點的 GUID。 |
 | DscReportId_g |識別報表的 GUID。 |
@@ -163,8 +163,8 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 | OperationName |DscResourceStatusData|
 | ResultType |資源是否符合規範。 |
 | NodeName_s |受控節點名稱。 |
-| Category | DscNodeStatus |
-| Resource | Azure 自動化帳戶的名稱。 |
+| 類別 | DscNodeStatus |
+| 資源 | Azure 自動化帳戶的名稱。 |
 | Tenant_g | 識別呼叫端租用戶的 GUID。 |
 | NodeId_g |識別受控節點的 GUID。 |
 | DscReportId_g |識別報表的 GUID。 |

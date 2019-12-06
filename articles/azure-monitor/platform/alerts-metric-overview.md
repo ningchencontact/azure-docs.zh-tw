@@ -3,16 +3,16 @@ title: 了解計量警示在 Azure 監視器中的運作方式。
 description: 取得計量警示有何用途以及其在 Azure 監視器中如何運作的概觀。
 author: rboucher
 ms.author: robb
-ms.date: 11/18/2019
+ms.date: 12/5/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: aa54b9ce23ffab266ed6403e3525ae1290d99cec
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8f84b5641b79514ffed493302f246ecc51a20a87
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775716"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850052"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>了解計量警示在 Azure 監視器中的運作方式
 
@@ -125,7 +125,7 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>在 Azure 監視器中使用計量警示大規模進行監視
 
-到目前為止，您已經了解如何使用單一計量警示來監視與單一 Azure 資源相關的一或多個計量時間序列。 很多時候，您可能想將相同的警示規則套用至許多資源。 Azure 監視器也支援以單一計量警示規則監視多個資源。 這項功能目前僅在虛擬機器上支援使用。 此外，單一計量警示也可以監視一個 Azure 區域中的資源。
+到目前為止，您已經了解如何使用單一計量警示來監視與單一 Azure 資源相關的一或多個計量時間序列。 很多時候，您可能想將相同的警示規則套用至許多資源。 Azure 監視器也支援以單一計量警示規則監視多個資源。 這項功能目前僅在虛擬機器、SQL server 資料庫、SQL server 彈性集區和 data box edge 裝置上受到支援。 此外，單一計量警示也可以監視一個 Azure 區域中的資源。
 
 您可以透過下列三種方式之一，指定單一計量警示所監視的範圍：
 

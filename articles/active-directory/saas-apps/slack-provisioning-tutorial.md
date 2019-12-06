@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a90151679b71364d93446d1acc46a461d2a9d8f9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4cd8e483d6c189e311fdb1925ad0f2effc2affe1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278174"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849136"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>教學課程︰設定 Slack 來自動佈建使用者
 
 本教學課程旨在說明您需要在 Slack 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Slack。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -66,19 +66,19 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 4. 將 [佈建模式] 設定為 [自動]。
 
-   ![Slack 佈建](./media/slack-provisioning-tutorial/Slack1.PNG)
+   ![Slack 佈建](./media/slack-provisioning-tutorial/slack1.png)
 
 5. 在 [系統管理員認證] 區段下，按一下 [授權]。 這會在新的瀏覽器視窗中開啟 Slack 授權對話方塊。
 
 6. 在新視窗中，使用您的小組系統管理帳戶登入 Slack。 在產生的授權對話方塊中，選取您想要啟用佈建的 Slack 小組，然後選取 [授權]。 一旦完成後，回到 Azure 入口網站以完成佈建組態。
 
-    ![授權對話方塊](./media/slack-provisioning-tutorial/Slack3.PNG)
+    ![授權對話方塊](./media/slack-provisioning-tutorial/slackauthorize.png)
 
 7. 在 Azure 入口網站中，按一下 [測試連接]以確保 Azure AD 可以連接到您的 Slack 應用程式。 如果連接失敗，請確定您的 Slack 帳戶具有小組系統管理員權限，並再試一次「授權」步驟。
 
 8. 在 [通知電子郵件] 欄位中輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選下列核取方塊。
 
-9. 按一下 [檔案]。
+9. 按一下 [儲存]。
 
 10. 在 [對應] 區段中，選取 [同步處理 Azure Active Directory 使用者至 Slack]。
 
@@ -86,7 +86,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 12. 若要啟用 Slack 的 Azure AD 佈建服務，在 [設定]區段中，將 [佈建狀態] 變更為 [開啟]
 
-13. 按一下 [檔案]。
+13. 按一下 [儲存]。
 
 這會啟動在 [使用者和群組] 區段中指派給 Slack 的任何使用者和/或群組之初始同步處理。 請注意，初始同步處理會比後續的同步處理花費較多時間執行，只要服務正在執行，這大約每 10 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並遵循連結來佈建活動報告，其會描述您 Slack 應用程式上的佈建服務所執行之所有動作。
 
@@ -102,7 +102,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 3. 在 [屬性對應] 區段中，檢閱將從 Azure AD 同步至 Slack 的群組屬性。 請注意，選取為 [比對] 屬性的屬性會用來比對 Slack 中的群組以進行更新作業。 
 
-4. 按一下 [檔案]。
+4. 按一下 [儲存]。
 
 這會造成在 [使用者和群組] 區段中指派至 Slack 的任何群組物件完全從 Azure AD 同步至 Slack。 您可以使用 [同步處理詳細資料] 區段來監視進度，並依循連結前往佈建活動記錄，此記錄會描述您 Slack 應用程式上佈建服務所執行的所有動作。
 

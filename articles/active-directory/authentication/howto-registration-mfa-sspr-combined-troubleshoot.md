@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3f2a60367a8b76464611878e850fff0c4ba8803
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: ab7c38d23cb1f05e07488810640aeb791ded3d4a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381391"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847383"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>疑難排解結合的安全性資訊註冊（預覽）
 
@@ -35,7 +35,7 @@ ms.locfileid: "74381391"
 
 下表列出合併註冊所產生的所有 audit 事件：
 
-| 活動 | Status | 原因 | 描述 |
+| 活動 | 狀態 | 原因 | 描述 |
 | --- | --- | --- | --- |
 | 使用者已註冊所有必要的安全性資訊 | 成功 | 使用者已註冊所有必要的安全性資訊。 | 當使用者成功完成註冊時，就會發生此事件。|
 | 使用者已註冊所有必要的安全性資訊 | 失敗 | 使用者已取消安全性資訊註冊。 | 當使用者從中斷模式取消註冊時，就會發生此事件。|
@@ -73,7 +73,7 @@ ms.locfileid: "74381391"
 
 接下來的步驟將協助您復原使用者或使用者群組。
 
-#### <a name="prerequisites"></a>先決條件
+#### <a name="prerequisites"></a>必要條件
 
 1. 安裝適當的 Azure AD PowerShell 模組。 在 PowerShell 視窗中，執行下列命令來安裝模組：
 
