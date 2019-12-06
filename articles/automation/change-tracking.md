@@ -4,18 +4,18 @@ description: 「變更追蹤」解決方案可協助您識別您環境中發生�
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0fc0aeab4e9603995130392e3560325ccaba1ffc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1fd800062c4a8362919b1818550b2fca9fa3eb88
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886812"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850545"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
@@ -91,7 +91,7 @@ Azure 資訊安全中心已新增 Azure 變更追蹤上建立的檔案完整性�
 
 使用下列步驟，設定要在 Linux 電腦上追蹤的檔案：
 
-1. 從您的自動化帳戶中，選取 [組態管理] 下的 [變更追蹤]。 按一下 [編輯設定] (齒輪符號)。
+1. 從您的自動化帳戶中，選取 [組態管理] 下的 [變更追蹤]。 按一下 [編輯設定] \(齒輪符號)。
 2. 在 [變更追蹤] 頁面上選取 [Linux 檔案]，然後按一下 [+ 新增]，以新增要追蹤的新檔案。
 3. 在 [為變更追蹤新增 Linux 檔案] 上，輸入要追蹤的檔案或目錄資訊，然後按一下 [儲存]。
 
@@ -114,7 +114,7 @@ Azure 資訊安全中心已新增 Azure 變更追蹤上建立的檔案完整性�
 
 使用下列步驟，設定要在 Windows 電腦上追蹤的檔案：
 
-1. 從您的自動化帳戶中，選取 [組態管理] 下的 [變更追蹤]。 按一下 [編輯設定] (齒輪符號)。
+1. 從您的自動化帳戶中，選取 [組態管理] 下的 [變更追蹤]。 按一下 [編輯設定] \(齒輪符號)。
 2. 在 [變更追蹤] 頁面上選取 [Windows 檔案]，然後按一下 [+ 新增]，以新增要追蹤的新檔案。
 3. 在 [為變更追蹤新增 Windows 檔案] 上，輸入要追蹤之檔案的資訊，然後按一下 [儲存]
 
@@ -146,7 +146,7 @@ Azure 資訊安全中心已新增 Azure 變更追蹤上建立的檔案完整性�
 
 使用下列步驟，設定要在 Windows 電腦上追蹤的登錄機碼：
 
-1. 從您的自動化帳戶中，選取 [組態管理] 下的 [變更追蹤]。 按一下 [編輯設定] (齒輪符號)。
+1. 從您的自動化帳戶中，選取 [組態管理] 下的 [變更追蹤]。 按一下 [編輯設定] \(齒輪符號)。
 2. 在 [變更追蹤] 頁面上選取 [Windows 登錄]，然後按一下 [+ 新增]，以新增要追蹤的新登錄機碼。
 3. 在 [為變更追蹤新增 Windows 登錄] 上，輸入要追蹤之機碼的資訊，然後按一下 [儲存]。
 
@@ -186,7 +186,7 @@ Azure 資訊安全中心已新增 Azure 變更追蹤上建立的檔案完整性�
 | --- | --- |
 | Windows 登錄 | 50 分鐘 |
 | Windows 檔案 | 30 分鐘 |
-| Linux 檔案 | 15 Minuten |
+| Linux 檔案 | 15 分鐘 |
 | Windows 服務 | 10 秒到 30 分鐘</br> 預設值：30 分鐘 |
 | Linux 精靈 | 5 分鐘 |
 | Windows 軟體 | 30 分鐘 |
@@ -245,7 +245,7 @@ Windows 服務的預設收集頻率為 30 分鐘。 若要設定頻率，請移�
 
 以下為「變更追蹤」特別需要的位址。 這些位址的通訊皆經由連接埠 443 進行。
 
-|Azure 公用  |Azure Government  |
+|Azure 公用  |Azure 政府機構  |
 |---------|---------|
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |

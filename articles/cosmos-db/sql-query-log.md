@@ -1,18 +1,18 @@
 ---
 title: 登入 Azure Cosmos DB 查詢語言
-description: 深入瞭解 Azure Cosmos DB 中的 SQL 系統函數記錄。
+description: 瞭解 Azure Cosmos DB 中的 LOG SQL 系統函數，以傳回指定數值運算式的自然對數
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 16f2321eb48afacbc9636b5c0588b1ea3a01a284
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: ae7812670da836efa326b9224547e4d1b64374c2
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349747"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873279"
 ---
 # <a name="log-azure-cosmos-db"></a>記錄（Azure Cosmos DB）
  傳回指定數值運算式的自然對數。  
@@ -28,7 +28,7 @@ LOG (<numeric_expr> [, <base>])
 *numeric_expr*  
    為數值運算式。  
   
-*群體*  
+*base*  
    選用數值引數會設定對數基數。  
   
 ## <a name="return-types"></a>傳回類型
@@ -41,7 +41,7 @@ LOG (<numeric_expr> [, <base>])
   
   自然對數為基數 **e** 的對數，其中 **e** 為無理常數，大約等於 2.718281828。  
   
-  數字的指數之自然對數為該數字本身：LOG( EXP( n ) ) = n。 且數字的自然對數之指數為該數字本身：EXP( LOG( n ) ) = n。  
+  數字指數的自然對數則是該數值本身：LOG( EXP( n ) ) = n。 而數字的自然對數之指數為數字本身：EXP( LOG( n ) ) = n。  
   
 ## <a name="examples"></a>範例
   
@@ -57,7 +57,7 @@ SELECT LOG(10) AS log
 [{log: 2.3025850929940459}]  
 ```  
   
- 下列範例會計算數位的指數 `LOG`。  
+ 下列範例會計算一個數值之指數的 `LOG`。  
   
 ```sql
 SELECT EXP(LOG(10)) AS expLog  

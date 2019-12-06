@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 查詢語言中的 EXP
-description: 瞭解 Azure Cosmos DB 中的 SQL 系統函數 EXP。
+description: 瞭解 Azure Cosmos DB 中的指數（EXP） SQL 系統函數，以傳回指定數值運算式的指數值
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 21c7ae63f46f2acd961245c59805220174c106f1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 76d614264124e1ce4138663b702ff6d899b3aa4e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351036"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873313"
 ---
 # <a name="exp-azure-cosmos-db"></a>EXP （Azure Cosmos DB）
  傳回指定之數值運算式的指數值。  
@@ -38,7 +38,7 @@ EXP (<numeric_expr>)
   
   數字的指數是常數**e**的數字乘冪。 例如 EXP(1.0) = e^1.0 = 2.71828182845905 和 EXP(10) = e^10 = 22026.4657948067。  
   
-  數字的自然對數之指數為該數字本身：EXP (LOG (n)) = n。 且數字的指數之自然對數為該數字本身：LOG (EXP (n)) = n。  
+  數字的自然對數之指數為數字本身：EXP (LOG (n)) = n。 而數字指數的自然對數則是該數值本身：LOG (EXP (n)) = n。  
   
 ## <a name="examples"></a>範例
   
