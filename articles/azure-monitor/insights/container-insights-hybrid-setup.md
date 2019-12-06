@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: d25b9b3bb155dced973d415b396ebfaa4403b011
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/04/2019
+ms.openlocfilehash: 0d6615d832059a8b58c0d5d52533b8c8c962640d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514611"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841569"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>使用適用于容器的 Azure 監視器來設定混合式 Kubernetes 叢集
 
@@ -85,7 +85,7 @@ ms.locfileid: "73514611"
 - **workspaceResourceId** -Log Analytics 工作區的完整資源識別碼。
 - **workspaceRegion** -工作區建立所在的區域，在從 Azure 入口網站進行觀看時，也稱為工作區屬性中的**位置**。
 
-若要先識別**containerSolutionParams**所 `workspaceResourceId` 需之 Log Analytics 工作區的完整資源識別碼，請執行下列步驟，然後執行 PowerShell Cmdlet 或 Azure CLI 命令，以新增解.
+若要先識別**containerSolutionParams**中所 `workspaceResourceId` 需之 Log Analytics 工作區的完整資源識別碼，請執行下列步驟，然後執行 PowerShell Cmdlet 或 Azure CLI 命令來新增解決方案。
 
 1. 使用下列命令，列出您有權存取的所有訂用帳戶：
 
@@ -282,6 +282,25 @@ ms.locfileid: "73514611"
 
 >[!NOTE]
 >從代理程式到 Azure Log Analytics 工作區中的認可，內嵌延遲大約需要五到十分鐘。 叢集的狀態會顯示 [**沒有資料**] 或 [**未知**] 的值，直到 Azure 監視器中有所有必要的監視資料為止。 
+
+## <a name="troubleshooting"></a>疑難排解
+
+如果您在嘗試啟用混合式 Kubernetes 叢集的監視時遇到錯誤，請將 PowerShell 腳本[TroubleshootError_nonAzureK8s](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1)複製並儲存到電腦上的資料夾中。 此腳本的目的是為了協助偵測並修正所遇到的問題。 其設計用來偵測和嘗試更正的問題如下：
+
+* 指定的 Log Analytics 工作區有效 
+* Log Analytics 工作區是使用 [容器的 Azure 監視器] 解決方案進行設定。 如果沒有，請設定工作區。
+* OmsAgent replicaset pod 正在執行
+* OmsAgent daemonset pod 正在執行
+* OmsAgent 健全狀況服務正在執行 
+* 在容器化代理程式上設定的 Log Analytics 工作區識別碼和金鑰，與深入解析所設定的工作區相符。
+* 驗證所有 Linux 背景工作角色節點都具有 `kubernetes.io/role=agent` 標籤來排程 rs pod。 如果不存在，請將它加入。
+* [驗證] `cAdvisor port: 10255` 會在叢集中的所有節點上開啟。
+
+若要使用 Azure PowerShell 執行，請在包含腳本的資料夾中使用下列命令：
+
+```powershell
+.\TroubleshootError_nonAzureK8s.ps1 - azureLogAnalyticsWorkspaceResourceId </subscriptions/<subscriptionId>/resourceGroups/<resourcegroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName> -kubeConfig <kubeConfigFile>
+```
 
 ## <a name="next-steps"></a>後續步驟
 

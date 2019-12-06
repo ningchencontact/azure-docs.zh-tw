@@ -2,13 +2,13 @@
 title: Visual Studio Code 的 Azure 原則延伸模組
 description: 瞭解如何使用 Visual Studio Code 的 Azure 原則延伸模組來查閱 Resource Manager 別名。
 ms.date: 11/04/2019
-ms.topic: conceptual
-ms.openlocfilehash: cbc0e14ed70fbacc297126aef58cd722d2235a3d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.topic: how-to
+ms.openlocfilehash: 48ef098cf970b5128185c40c92f8bb02ad8d9698
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072045"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873109"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>使用 Visual Studio Code 的 Azure 原則延伸模組
 
@@ -21,11 +21,11 @@ Visual Studio Code 的 Azure 原則擴充功能可以安裝在 Visual Studio Cod
 > [!NOTE]
 > 在 Azure 原則延伸模組中針對 Visual Studio Code 所看到的原則所做的變更，不會同步至 Azure。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 需要有下列項目才能完成本文中的步驟：
 
-- Azure 訂閱。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 - [Visual Studio Code](https://code.visualstudio.com)。
 
 ## <a name="install-azure-policy-extension"></a>安裝 Azure 原則擴充功能

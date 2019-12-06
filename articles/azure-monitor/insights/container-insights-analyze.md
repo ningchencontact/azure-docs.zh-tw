@@ -1,20 +1,20 @@
 ---
-title: 使用適用于容器的 Azure 監視器來監視 Kubernetes 叢集效能 |Microsoft Docs
-description: 本文說明如何使用適用於容器的 Azure 監視器，來檢視和分析效能與記錄資料。
+title: 使用適用于容器的 Azure 監視器進行 Kubernetes 監視 |Microsoft Docs
+description: 本文說明如何使用容器的 Azure 監視器來查看和分析 Kubernetes 叢集的效能。
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 8bb3ac1905167989e27d47304ae539e49a1412e8
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 1cd0223a16a6308e777e4a0167154e975202df7b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132349"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872973"
 ---
-# <a name="understand-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>瞭解 Azure 監視器用於容器的 Kubernetes 叢集效能
+# <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>使用適用于容器的 Azure 監視器來監視您的 Kubernetes 叢集效能
 
 使用適用于容器的 Azure 監視器，您可以使用效能圖表和健全狀況狀態，從兩個層面監視裝載于 Azure Kubernetes Service （AKS）、Azure Stack 或其他環境的 Kubernetes 叢集工作負載。 您可以直接從叢集進行監視，也可以從 Azure 監視器查看訂用帳戶中的所有叢集。 監視特定的 AKS 叢集時，也可以查看 Azure 容器實例。
 
@@ -76,22 +76,22 @@ Azure 監視器提供多叢集的視圖，顯示在訂用帳戶的資源群組�
 
 下表提供計算的細目，可控制多叢集視圖上受監視叢集的健全狀況狀態。
 
-| |Status |可用性 |  
+| |狀態 |可用性 |  
 |-------|-------|-----------------|  
 |**使用者 pod**| | |  
-| |Healthy |100% |  
+| |狀況良好 |100% |  
 | |警告 |90 - 99% |  
-| |重要 |<90% |  
+| |危急 |<90% |  
 | |不明 |如果未在過去 30 分鐘內報告 |  
 |**系統 pod**| | |  
-| |Healthy |100% |
+| |狀況良好 |100% |
 | |警告 |N/A |
-| |重要 |<100% |
+| |危急 |<100% |
 | |不明 |如果未在過去 30 分鐘內報告 |
 |**Node** | | |
-| |Healthy |>85% |
+| |狀況良好 |>85% |
 | |警告 |60 - 84% |
-| |重要 |<60% |
+| |危急 |<60% |
 | |不明 |如果未在過去 30 分鐘內報告 |
 
 從叢集清單中，您可以選取叢集的名稱來向下**切入到 [叢集] 頁面。** 然後，在該特定叢集的 [**節點**] 資料行中選取節點的匯總，以移至 [**節點**] 效能頁面。 或者，您可以選取 [**使用者**pod] 或 [**系統**pod] 資料行的匯總，以向下切入到 [**控制器**] 效能頁面。
@@ -127,7 +127,7 @@ Azure 監視器提供多叢集的視圖，顯示在訂用帳戶的資源群組�
 
 在計量瀏覽器中，您可以從容器的 Azure 監視器中，查看匯總的節點和 pod 使用率計量。 下表摘要說明的詳細資料，可協助您瞭解如何使用計量圖表來視覺化容器計量。
 
-|命名空間 | 度量 | 描述 | 
+|命名空間 | 計量 | 描述 | 
 |----------|--------|-------------|
 | 深入解析。容器/節點 | |
 | | cpuUsageMillicores | 整個叢集中 CPU 使用率的匯總測量。 它是分割成1000單位（milli> = 1000）的 CPU 核心。 用來判斷在有許多應用程式可能使用一個核心的容器中，核心的使用情形。| 
@@ -173,7 +173,7 @@ Azure 監視器提供多叢集的視圖，顯示在訂用帳戶的資源群組�
  
 ![效能檢視中從節點到控制器的向下切入範例](./media/container-insights-analyze/drill-down-node-controller.png)
 
-選取頁面頂端的 [控制器] 或 [容器]，以查看這些物件的狀態和資源使用率。 若要查看記憶體使用率，請在 [**度量**] 下拉式清單中選取 [**記憶體 RSS** ] 或 [**記憶體工作集**]。 只有 Kubernetes 1.8 版和更新版本才支援**記憶體 RSS**。 否則，您會以 **NaN&nbsp;%** 的形式檢視 *Min&nbsp;%* 的值，這是代表未定義或無法顯示之值的數值資料類型值。
+選取頁面頂端的 [控制器] 或 [容器]，以查看這些物件的狀態和資源使用率。 若要查看記憶體使用率，請在 [**度量**] 下拉式清單中選取 [**記憶體 RSS** ] 或 [**記憶體工作集**]。 只有 Kubernetes 1.8 版和更新版本才支援**記憶體 RSS**。 否則，您會以 *NaN&nbsp;%* 的形式檢視 **Min&nbsp;%** 的值，這是代表未定義或無法顯示之值的數值資料類型值。
 
 ![容器節點效能檢視](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -199,10 +199,10 @@ Azure 監視器提供多叢集的視圖，顯示在訂用帳戶的資源群組�
 
 下表說明當您看到 [**節點**] 索引標籤時所顯示的資訊。
 
-| 資料欄 | 描述 | 
+| Column | 描述 | 
 |--------|-------------|
-| 名稱 | 主機的名稱。 |
-| Status | 節點狀態的 Kubernetes 檢視。 |
+| Name | 主機的名稱。 |
+| 狀態 | 節點狀態的 Kubernetes 檢視。 |
 | 最小&nbsp;%、平均&nbsp;%、第 50&nbsp;%、第 90&nbsp;%、第 95&nbsp;%、最大&nbsp;%  | 根據選取期間內百分位數的平均節點百分比。 |
 | Min、Avg、第50、90、95、Max | 根據所選期間內百分位數的平均節點實際值。 平均值是從為節點設定的 CPU/記憶體限制來測量。 針對 pod 和容器，這是主機所報告的平均值。 |
 | 容器 | 容器的數目。 |
@@ -228,10 +228,10 @@ Azure 監視器提供多叢集的視圖，顯示在訂用帳戶的資源群組�
 
 下表說明您在查看控制器時所顯示的資訊。
 
-| 資料欄 | 描述 | 
+| Column | 描述 | 
 |--------|-------------|
-| 名稱 | 控制器的名稱。|
-| Status | 容器在完成執行後的匯總狀態，其狀態如 *[確定]、[* 已*終止*]、[*失敗*]、[*已停止*] 或 [已*暫停*]。 如果容器正在執行，但狀態未正確顯示或未由代理程式挑選，而且尚未回應30分鐘以上，則狀態為*不明*。 下表提供狀態圖示的其他詳細資料。|
+| Name | 控制器的名稱。|
+| 狀態 | 容器在完成執行後的匯總狀態，其狀態如 *[確定]、[* 已*終止*]、[*失敗*]、[*已停止*] 或 [已*暫停*]。 如果容器正在執行，但狀態未正確顯示或未由代理程式挑選，而且尚未回應30分鐘以上，則狀態為*不明*。 下表提供狀態圖示的其他詳細資料。|
 | 最小&nbsp;%、平均&nbsp;%、第 50&nbsp;%、第 90&nbsp;%、第 95&nbsp;%、最大&nbsp;%| 針對所選取計量和百分位數之每個實體的平均百分比彙總平均值。 |
 | Min、Avg、第50、90、95、Max  | 容器針對所選取百分位數的平均 CPU millicore 或記憶體效能彙總。 平均值是從為 Pod 設定的 CPU/記憶體限制測量所得。 |
 | 容器 | 該控制器或 Pod 的容器總數。 |
@@ -242,7 +242,7 @@ Azure 監視器提供多叢集的視圖，顯示在訂用帳戶的資源群組�
 
 [狀態] 欄位中的圖示會指出容器的線上狀態。
  
-| 圖示 | Status | 
+| 圖示 | 狀態 | 
 |--------|-------------|
 | ![準備好執行的狀態圖示](./media/container-insights-analyze/containers-ready-icon.png) | 執行中 (就緒)|
 | ![等待或暫停狀態圖示](./media/container-insights-analyze/containers-waiting-icon.png) | 等候中或已暫停|
@@ -265,10 +265,10 @@ Azure 監視器提供多叢集的視圖，顯示在訂用帳戶的資源群組�
 
 下表說明您在查看容器時所顯示的資訊。
 
-| 資料欄 | 描述 | 
+| Column | 描述 | 
 |--------|-------------|
-| 名稱 | 控制器的名稱。|
-| Status | 容器的狀態，若有的話。 下一個表格會提供狀態圖示的其他詳細資料。|
+| Name | 控制器的名稱。|
+| 狀態 | 容器的狀態，若有的話。 下一個表格會提供狀態圖示的其他詳細資料。|
 | 最小&nbsp;%、平均&nbsp;%、第 50&nbsp;%、第 90&nbsp;%、第 95&nbsp;%、最大&nbsp;% | 針對所選取計量和百分位數之每個實體的平均百分比彙總。 |
 | Min、Avg、第50、90、95、Max | 容器針對所選取百分位數的平均 CPU millicore 或記憶體效能彙總。 平均值是從為 Pod 設定的 CPU/記憶體限制測量所得。 |
 | Pod | Pod 所在的容器。| 
@@ -279,7 +279,7 @@ Azure 監視器提供多叢集的視圖，顯示在訂用帳戶的資源群組�
 
 [狀態] 欄位中的圖示會指出 pod 的線上狀態，如下表所述。
  
-| 圖示 | Status |  
+| 圖示 | 狀態 |  
 |--------|-------------|  
 | ![準備好執行的狀態圖示](./media/container-insights-analyze/containers-ready-icon.png) | 執行中 (就緒)|  
 | ![等待或暫停狀態圖示](./media/container-insights-analyze/containers-waiting-icon.png) | 等候中或已暫停|  

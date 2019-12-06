@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB SQL 查詢中的純量運算式
-description: 瞭解 Azure Cosmos DB 的純量運算式 SQL 語法。
+description: 瞭解 Azure Cosmos DB 的純量運算式 SQL 語法。 本文也描述如何使用運算子，將純量運算式合併成複雜的運算式。
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: c35ad65a584f8ee95142e9bc85a58b5b6cd99744
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: f8c98915ad3b682af00492acc7bc51672ec874a8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003545"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870729"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Azure Cosmos DB SQL 查詢中的純量運算式
 
@@ -63,7 +63,7 @@ ms.locfileid: "71003545"
   
 - `<scalar_expression>'['"property_name"|array_index']'`  
   
-   以具有陣列索引`property_name` `array_index`的 name 或 array 元素表示屬性的值。 若屬性不存在或屬性/陣列索引已在非物件/陣列的值中參考，則運算式會評估為未定義的值。  
+   表示具有陣列索引 `array_index` 之名稱 `property_name` 或陣列元素的屬性值。 若屬性不存在或屬性/陣列索引已在非物件/陣列的值中參考，則運算式會評估為未定義的值。  
   
 - `unary_operator <scalar_expression>`  
   

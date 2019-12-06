@@ -2,13 +2,13 @@
 title: 在資源上撰寫陣列屬性的原則
 description: 瞭解如何使用陣列參數和陣列語言運算式、評估 [*] 別名，以及附加具有 Azure 原則定義規則的元素。
 ms.date: 11/26/2019
-ms.topic: conceptual
-ms.openlocfilehash: 035f300d01efe80cc44687d3779d7a5fb6be2fc3
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.topic: how-to
+ms.openlocfilehash: 915f50945e0c2520fbda09c4db1b581c9381073b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555156"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873092"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>在 Azure 資源上撰寫陣列屬性的原則
 
@@ -185,14 +185,14 @@ As**類型**為_字串_，指派原則時只能設定一個值。 如果指派�
 
 |條件 |成果 |說明 |
 |-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |這裡 |一個陣列元素會評估為 false （127.0.0.1！ = 127.0.0.1），另一個為 true （127.0.0.1！ = 192.168.1.1），因此**notEquals**條件為_false_且不會觸發效果。 |
+|`{<field>,"notEquals":"127.0.0.1"}` |無 |一個陣列元素會評估為 false （127.0.0.1！ = 127.0.0.1），另一個為 true （127.0.0.1！ = 192.168.1.1），因此**notEquals**條件為_false_且不會觸發效果。 |
 |`{<field>,"notEquals":"10.0.4.1"}` |原則效果 |這兩個陣列元素會評估為 true （10.0.4.1！ = 127.0.0.1 和10.0.4.1！ = 192.168.1.1），因此**notEquals**條件為_true_ ，且會觸發效果。 |
 |`"not":{<field>,"Equals":"127.0.0.1"}` |原則效果 |一個陣列元素會評估為 true （127.0.0.1 = = 127.0.0.1），另一個為 false （127.0.0.1 = = 192.168.1.1），因此**Equals**條件為_false_。 邏輯運算子會評估為 true （**不**是_false_），因此會觸發效果。 |
 |`"not":{<field>,"Equals":"10.0.4.1"}` |原則效果 |這兩個陣列元素都評估為 false （10.0.4.1 = = 127.0.0.1 和 10.0.4.1 = = 192.168.1.1），因此**Equals**條件為_false_。 邏輯運算子會評估為 true （**不**是_false_），因此會觸發效果。 |
 |`"not":{<field>,"notEquals":"127.0.0.1" }` |原則效果 |一個陣列元素會評估為 false （127.0.0.1！ = 127.0.0.1），另一個為 true （127.0.0.1！ = 192.168.1.1），因此**notEquals**條件為_false_。 邏輯運算子會評估為 true （**不**是_false_），因此會觸發效果。 |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |這裡 |這兩個陣列元素會評估為 true （10.0.4.1！ = 127.0.0.1 和10.0.4.1！ = 192.168.1.1），因此**notEquals**條件為_true_。 邏輯運算子會評估為 false （**不**是_true_），因此不會觸發效果。 |
-|`{<field>,"Equals":"127.0.0.1"}` |這裡 |一個陣列元素會評估為 true （127.0.0.1 = = 127.0.0.1），另一個為 false （127.0.0.1 = = 192.168.1.1），因此**Equals**條件為_false_且不會觸發效果。 |
-|`{<field>,"Equals":"10.0.4.1"}` |這裡 |這兩個陣列元素都評估為 false （10.0.4.1 = = 127.0.0.1 和 10.0.4.1 = = 192.168.1.1），因此**Equals**條件為_false_且不會觸發效果。 |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |無 |這兩個陣列元素會評估為 true （10.0.4.1！ = 127.0.0.1 和10.0.4.1！ = 192.168.1.1），因此**notEquals**條件為_true_。 邏輯運算子會評估為 false （**不**是_true_），因此不會觸發效果。 |
+|`{<field>,"Equals":"127.0.0.1"}` |無 |一個陣列元素會評估為 true （127.0.0.1 = = 127.0.0.1），另一個為 false （127.0.0.1 = = 192.168.1.1），因此**Equals**條件為_false_且不會觸發效果。 |
+|`{<field>,"Equals":"10.0.4.1"}` |無 |這兩個陣列元素都評估為 false （10.0.4.1 = = 127.0.0.1 和 10.0.4.1 = = 192.168.1.1），因此**Equals**條件為_false_且不會觸發效果。 |
 
 ## <a name="the-append-effect-and-arrays"></a>附加效果和陣列
 

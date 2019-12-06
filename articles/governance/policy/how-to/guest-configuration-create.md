@@ -2,13 +2,13 @@
 title: 如何建立來賓設定原則
 description: 瞭解如何使用 Azure PowerShell 為 Windows 或 Linux Vm 建立 Azure 原則來賓設定原則。
 ms.date: 11/21/2019
-ms.topic: conceptual
-ms.openlocfilehash: 2e653d07e783425afdcd71f9d58e3569692faaf9
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.topic: how-to
+ms.openlocfilehash: d31c03f05f3a27207eb4c184b78cb531f8bb43d6
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407048"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873075"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>如何建立來賓設定原則
 
@@ -29,7 +29,7 @@ ms.locfileid: "74407048"
 
 來賓設定資源模組需要下列軟體：
 
-- PowerShell. 如果尚未安裝，請依照[這些指示](/powershell/scripting/install/installing-powershell)操作。
+- PowerShell。 如果尚未安裝，請依照[這些指示](/powershell/scripting/install/installing-powershell)操作。
 - Azure PowerShell 1.5.0 或更高版本。 如果尚未安裝，請依照[這些指示](/powershell/azure/install-az-ps)操作。
 
 ### <a name="install-the-module"></a>安裝模組
@@ -296,7 +296,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-針對 Linux 原則，請在您的設定中包含屬性**AttributesYmlContent** ，並據以覆寫這些值。 來賓設定代理程式會自動建立 InSpec 用來儲存屬性的 YaML 檔案。 請參閱下方的範例。
+針對 Linux 原則，請在您的設定中包含屬性**AttributesYmlContent** ，並據以覆寫這些值。 來賓設定代理程式會自動建立 InSpec 用來儲存屬性的 YaML 檔案。 請看下方範例。
 
 ```azurepowershell-interactive
 Configuration FirewalldEnabled {

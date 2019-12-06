@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB 的 SQL 子查詢
-description: 瞭解 SQL 子查詢及其在 Azure Cosmos DB 中的常見使用案例
+description: 瞭解 SQL 子查詢及其常見使用案例和不同類型的子查詢 Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: cea9963f5073834a24ede44306eb89414909fc83
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003492"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870559"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 子查詢範例
 
@@ -23,16 +23,16 @@ ms.locfileid: "71003492"
 
 子查詢有兩種主要類型：
 
-* 相互**關聯**：參考外部查詢值的子查詢。 查詢會針對外部查詢所處理的每個資料列評估一次。
+* 相互**關聯**：參考來自外部查詢之值的子查詢。 查詢會針對外部查詢所處理的每個資料列評估一次。
 * **非相互關聯**：與外部查詢無關的子查詢。 它可以自行執行，而不需依賴外部查詢。
 
 > [!NOTE]
 > Azure Cosmos DB 只支援相互關聯的子查詢。
 
 子查詢可以根據其傳回的資料列和資料行數目進一步分類。 有三種類型：
-* **資料表**：傳回多個資料列和多個資料行。
+* **Table**：傳回多個資料列和多個資料行。
 * **多重值**：傳回多個資料列和一個資料行。
-* 純**量：** 傳回單一資料列和單一資料行。
+* 純**量：傳回**單一資料列和單一資料行。
 
 Azure Cosmos DB 中的 SQL 查詢一律會傳回單一資料行（簡單的值或複雜的檔）。 因此，只有多重值和純量查詢適用于 Azure Cosmos DB。 您只能在 FROM 子句中使用多重值子查詢作為關聯式運算式。 您可以在 SELECT 或 WHERE 子句中使用純量子子查詢當做純量運算式，或在 FROM 子句中當做關聯式運算式。
 
@@ -79,7 +79,7 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 子查詢可協助您使用昂貴的運算式（例如使用者定義函數（Udf）、複雜字串或算術運算式）來優化查詢。 您可以使用子查詢以及聯結運算式來評估運算式一次，但參考多次。
 
-下列查詢會執行 UDF `GetMaxNutritionValue`兩次：
+下列查詢會執行 UDF `GetMaxNutritionValue` 兩次：
 
 ```sql
 SELECT c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
@@ -109,7 +109,7 @@ JOIN (SELECT udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue) m
 WHERE m.MaxNutritionValue > 100
 ```
 
-此方法不限於 Udf。 它適用于任何可能耗費資源的運算式。 例如，您可以使用數學函數`avg`來採取相同的方法：
+此方法不限於 Udf。 它適用于任何可能耗費資源的運算式。 例如，您可以使用 `avg`的數學函式來採取相同的方法：
 
 ```sql
 SELECT TOP 1000 c.id, AvgNutritionValue
@@ -126,22 +126,22 @@ WHERE AvgNutritionValue > 80
 
 | **單位** | **名稱**            | **乘數** | **基礎單位** |
 | -------- | ------------------- | -------------- | ------------- |
-| ng       | Nanogram            | 1.00E-09       | 語法          |
-| µg       | Microgram           | 1.00E-06       | 語法          |
-| mg       | Milligram           | 1.00E-03       | 語法          |
-| g        | 語法                | 1.00E+00       | 語法          |
-| 公斤       | Kilogram            | 1.00 E + 03       | 語法          |
-| mg       | Megagram            | 1.00E+06       | 語法          |
-| Gg       | Gigagram            | 1.00E+09       | 語法          |
-| 新澤西       | Nanojoule           | 1.00E-09       | Joule         |
-| µJ       | Microjoule          | 1.00E-06       | Joule         |
-| mJ       | Millijoule          | 1.00E-03       | Joule         |
-| J        | Joule               | 1.00E+00       | Joule         |
-| kJ       | Kilojoule           | 1.00 E + 03       | Joule         |
-| MJ       | Megajoule           | 1.00E+06       | Joule         |
-| GJ       | Gigajoule           | 1.00E+09       | Joule         |
-| cal      | Calorie             | 1.00E+00       | calorie       |
-| 卡路里     | Calorie             | 1.00 E + 03       | calorie       |
+| ng       | Nanogram            | 1.00 e-09       | 語法          |
+| µg       | Microgram           | 1.00 e-06       | 語法          |
+| mg       | Milligram           | 1.00 e-03       | 語法          |
+| g        | 語法                | 1.00 e + 00       | 語法          |
+| 公斤       | Kilogram            | 1.00 e + 03       | 語法          |
+| Mg       | Megagram            | 1.00 e + 06       | 語法          |
+| Gg       | Gigagram            | 1.00 e + 09       | 語法          |
+| 新澤西       | Nanojoule           | 1.00 e-09       | Joule         |
+| µJ       | Microjoule          | 1.00 e-06       | Joule         |
+| mJ       | Millijoule          | 1.00 e-03       | Joule         |
+| J        | Joule               | 1.00 e + 00       | Joule         |
+| kJ       | Kilojoule           | 1.00 e + 03       | Joule         |
+| MJ       | Megajoule           | 1.00 e + 06       | Joule         |
+| GJ       | Gigajoule           | 1.00 e + 09       | Joule         |
+| cal      | Calorie             | 1.00 e + 00       | calorie       |
+| 卡路里     | Calorie             | 1.00 e + 03       | calorie       |
 | IU       | 國際單位 |                |               |
 
 
@@ -351,7 +351,7 @@ WHERE count_mg > 20
 
 ## <a name="exists-expression"></a>EXISTS 運算式
 
-Azure Cosmos DB 支援 EXISTS 運算式。 這是內建于 Azure Cosmos DB SQL API 中的匯總純量子查詢。 EXISTS 是使用子查詢運算式的布林運算式，如果子查詢傳回任何資料列，則傳回 true。 否則，它會傳回 false。
+Azure Cosmos DB 支援 EXISTS 運算式。 這是內建于 Azure Cosmos DB SQL API 中的匯總純量子查詢。 EXISTS 是使用子查詢運算式的布林運算式，如果子查詢傳回任何資料列，則傳回 true。 否則會傳回 false。
 
 因為 Azure Cosmos DB SQL API 不會區分布林運算式和任何其他純量運算式，所以您可以在 SELECT 和 WHERE 子句中使用 EXISTS。 這不同于 T-sql，其中布林運算式（例如 EXISTS、BETWEEN 和 IN）會限制為篩選準則。
 
@@ -368,9 +368,9 @@ SELECT EXISTS (SELECT undefined)
 
 子查詢會將所選清單中的值清單括在物件中。 如果選取的清單沒有任何值，則子查詢會傳回單一值 '{}'。 已定義此值，因此 EXISTS 會評估為 true。
 
-### <a name="example-rewriting-array_contains-and-join-as-exists"></a>範例：重寫 ARRAY_CONTAINS 和聯結已存在
+### <a name="example-rewriting-array_contains-and-join-as-exists"></a>範例：重寫 ARRAY_CONTAINS 並加入為 EXISTS
 
-ARRAY_CONTAINS 的常見使用案例是藉由陣列中的專案是否存在來篩選檔。 在此情況下，我們要檢查標記陣列是否包含名為 "橙色" 的專案。
+ARRAY_CONTAINS 的常見使用案例是根據陣列中的專案是否存在來篩選檔。 在此情況下，我們要檢查標記陣列是否包含名為 "橙色" 的專案。
 
 ```sql
 SELECT TOP 5 f.id, f.tags
@@ -388,7 +388,7 @@ WHERE EXISTS(SELECT VALUE t FROM t IN f.tags WHERE t.name = 'orange')
 
 此外，ARRAY_CONTAINS 只能檢查某個值是否等於陣列中的任何元素。 如果您需要更複雜的陣列屬性篩選，請使用聯結。
 
-請考慮下列根據陣列中的單位和`nutritionValue`屬性進行篩選的查詢： 
+請考慮下列根據陣列中的單位和 `nutritionValue` 屬性進行篩選的查詢： 
 
 ```sql
 SELECT VALUE c.description

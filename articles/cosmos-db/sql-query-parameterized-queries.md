@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB 中的參數化查詢
-description: 瞭解 SQL 參數化查詢
+description: 瞭解 SQL 參數化查詢如何提供強大的使用者輸入處理和植入，以及防止透過 SQL 插入的資料意外洩漏。
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
-ms.openlocfilehash: 45c1344c32e35f60f35ba8ed105e912d92574cce
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: e15a8236723c1efd80f27f2d253e9bbc44af4b0b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003611"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870814"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Azure Cosmos DB 中的參數化查詢
 
@@ -19,7 +19,7 @@ Cosmos DB 支援具有以熟悉 @ notation 表示之參數的查詢。 參數化
 
 ## <a name="examples"></a>範例
 
-例如，您可以撰寫`lastName`接受和`address.state`做為參數的查詢，並`address.state`根據使用者輸入，對的`lastName`各種值執行。
+例如，您可以撰寫一個查詢，將 `lastName` 和 `address.state` 做為參數，並根據使用者輸入來執行 `lastName` 和 `address.state` 的各種值。
 
 ```sql
     SELECT *

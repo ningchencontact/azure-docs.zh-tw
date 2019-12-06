@@ -1,5 +1,5 @@
 ---
-title: 以程式設計方式使用 Azure Resource Manager 範本來管理 Azure 監視器活頁簿 |Microsoft 檔
+title: Azure 監視器活頁簿和 Azure Resource Manager 範本
 description: 使用透過 Azure Resource Manager 範本部署的預先建立和自訂參數化 Azure 監視器活頁簿，簡化複雜的報表
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d5e22093fa796a9fbd60dc2bc242f37a6cac7cf0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e3d29beab7b1d82f73c706897af9650b68be11f5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73166105"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872905"
 ---
 # <a name="programmatically-manage-workbooks"></a>以程式設計方式管理活頁簿
 

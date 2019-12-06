@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19ca6d82b80a9ed77a842b638ff8e9ff346342e8
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 756c45541907c52448805376e1b054180c31fdf5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988549"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848097"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>升級為最新的 Azure Multi-Factor Authentication Server
 
@@ -25,7 +25,7 @@ ms.locfileid: "68988549"
 如果您要從 v6.x 或更舊版本升級為 v7.x 或更新版本，所有元件都會從 .NET 2.0 變更為 .NET 4.5。 所有元件也都需要 Microsoft Visual C++ 2015 可轉散發套件更新 1 或更新版本。 MFA Server 安裝程式會同時安裝這些元件的 x86 和 x64 版本 (如果尚未安裝)。 如果使用者入口網站和行動裝置應用程式 Web 服務在不同的伺服器上執行，則您需要先安裝這些套件，再升級這些元件。 您可以在 [Microsoft 下載中心](https://www.microsoft.com/download/)搜尋最新的 Microsoft Visual C++ 2015 可轉散發套件更新。 
 
 > [!IMPORTANT]
-> 從2019年7月1日起, Microsoft 將不再為新的部署提供 MFA 伺服器。 新客戶若想要從他們的使用者要求多重要素驗證, 應該使用雲端式 Azure 多重要素驗證。 在7月1日前啟動 MFA Server 的現有客戶將能夠下載最新版本、未來的更新, 並如往常般產生啟用認證。
+> 從2019年7月1日起，Microsoft 將不再為新的部署提供 MFA 伺服器。 新客戶若想要從他們的使用者要求多重要素驗證，應該使用雲端式 Azure 多重要素驗證。 在7月1日前啟動 MFA Server 的現有客戶將能夠下載最新版本、未來的更新，並如往常般產生啟用認證。
 
 快速瀏覽升級步驟：
 
@@ -66,7 +66,7 @@ ms.locfileid: "68988549"
 ## <a name="upgrade-the-mobile-app-web-service"></a>升級行動裝置應用程式 Web 服務
 
 > [!NOTE]
-> 從8.0 之前的 Azure MFA Server 版本升級至 8.0 + 時, 可以在升級之後卸載行動裝置應用程式 web 服務
+> 從8.0 之前的 Azure MFA Server 版本升級至 8.0 + 時，可以在升級之後卸載行動裝置應用程式 web 服務
 
 ## <a name="upgrade-the-ad-fs-adapters"></a>升級 AD FS 配接器
 

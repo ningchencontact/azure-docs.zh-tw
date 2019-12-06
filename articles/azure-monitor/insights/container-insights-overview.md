@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 11/18/2019
-ms.openlocfilehash: 12860d70cad2dbcfa3d06bf4df6939dd27ab3ab3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8267f8148269f8b1a0717435e57614f09c229de1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279638"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841399"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>適用於容器的 Azure 監視器概觀
 
 容器的 Azure 監視器是一項功能，其設計是用來監視部署到的容器工作負載效能：
 
 - 裝載于 Azure Kubernetes Service （AKS）上的受控 Kubernetes 叢集
-- Azure Container Instances
+- Azure 容器執行個體
 - 裝載于 Azure Stack 或內部部署環境的自我管理 Kubernetes 叢集
 - Azure Red Hat OpenShift
 
@@ -49,7 +49,7 @@ ms.locfileid: "74279638"
 * 監視[部署至 Azure Red Hat OpenShift](../../openshift/intro-openshift.md)的容器工作負載。
 
     >[!NOTE]
-    >Red Hat OpenShift 的支援現在是公開預覽的功能。
+    >Azure Red Hat OpenShift 的支援目前是公開預覽中的一項功能。
     >
 
 查看下列提供中繼層級深入探討的影片，以協助您瞭解如何使用容器的 Azure 監視器監視 AKS 叢集。

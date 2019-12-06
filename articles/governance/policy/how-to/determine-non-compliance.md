@@ -2,13 +2,13 @@
 title: 判斷不符合的原因
 description: 當資源不符合規範時，有許多可能的原因。 學習如何找出導致不符合規範的原因。
 ms.date: 04/26/2019
-ms.topic: conceptual
-ms.openlocfilehash: 839e6c61c4a44ba7c7581290408bb997b53b8f96
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.topic: how-to
+ms.openlocfilehash: 213797a1eafda10d5e97fbc60fc143de975fe221
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279403"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873126"
 ---
 # <a name="determine-causes-of-non-compliance"></a>判斷不符合的原因
 
@@ -111,7 +111,7 @@ ms.locfileid: "74279403"
 
 您也可能沒有直接登入 VM 的存取權，但您必須回報 VM 不_符合規範_的原因。
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 一開始請遵循上一節中的相同步驟，以查看原則相容性詳細資料。
 

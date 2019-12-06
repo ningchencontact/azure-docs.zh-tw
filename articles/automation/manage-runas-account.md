@@ -4,17 +4,17 @@ description: 本文說明如何使用 PowerShell 或從入口網站管理您的�
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fd7e94261d8302224b0e31e5f4ac46978dfa812f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ae73188fa8818c84806709dc7518e3d5760ae187
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690870"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849525"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>管理 Azure 自動化執行身分帳戶
 
@@ -50,13 +50,13 @@ Azure 自動化中的執行身分帳戶可用來提供驗證，以使用 Azure C
 |建立 Azure AD 應用程式|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | 應用程式開發人員角色<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>[首頁] > [Azure Active Directory] > [應用程式註冊] |
 |將認證新增至應用程式。|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | 應用程式系統管理員或全域管理員<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>[首頁] > [Azure Active Directory] > [應用程式註冊]|
 |建立並取得 Azure AD 服務主體|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | 應用程式系統管理員或全域管理員<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>[首頁] > [Azure Active Directory] > [應用程式註冊]|
-|指派或取得指定主體的 RBAC 角色|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | 您必須具備下列許可權：</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br>或為：</br></br>使用者存取系統管理員或擁有者        | [訂用帳戶](../role-based-access-control/role-assignments-portal.md)</br>[首頁] > [訂用帳戶] > [\<訂用帳戶名稱\> - 存取控制 (IAM)]|
+|指派或取得指定主體的 RBAC 角色|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | 您必須具有下列權限：</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br>或為：</br></br>使用者存取系統管理員或擁有者        | [訂用帳戶](../role-based-access-control/role-assignments-portal.md)</br>[首頁] > [訂用帳戶] > [\<訂用帳戶名稱\> - 存取控制 (IAM)]|
 |建立或移除自動化憑證|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | 資源群組的參與者         |自動化帳戶資源群組|
 |建立或移除自動化連線|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|資源群組的參與者 |自動化帳戶資源群組|
 
-<sup>1</sup> 如果 Azure AD 租用戶在 [使用者設定][](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) 頁面中的 [使用者可以註冊應用程式] 選項設定為 [是]，Azure AD 租用戶中的非管理使用者就可以**註冊 AD 應用程式**。 如果 [應用程式註冊] 設定設為 [**否**]，則執行此動作的使用者必須是上表中所定義的。
+<sup>1</sup> 如果 Azure AD 租用戶在 [使用者設定] 頁面中的 [使用者可以註冊應用程式] 選項設定為 [是]，Azure AD 租用戶中的非管理使用者就可以[註冊 AD 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。 如果 [應用程式註冊] 設定設為 [**否**]，則執行此動作的使用者必須是上表中所定義的。
 
-如果您在新增至訂用**帳戶的全域管理員**角色之前，不是訂閱 Active Directory 實例的成員，則會將您新增為來賓。 在此情況下，您會在 [加入自動化帳戶]`You do not have permissions to create…`**頁面上收到** 警告。 先新增至**全域管理員**角色的使用者，可以從訂用帳戶的 Active Directory 實例中移除並重新新增，使其成為 Active Directory 的完整使用者。 若要確認這種情況，請從 Azure 入口網站的 [Azure Active Directory] 窗格，選取 [使用者和群組]、選取 [所有使用者]，然後在選取特定使用者之後，選取 [設定檔]。 使用者設定檔之下 [使用者類型] 屬性的值不得等於 [來賓]。
+如果您在新增至訂用**帳戶的全域管理員**角色之前，不是訂閱 Active Directory 實例的成員，則會將您新增為來賓。 在此情況下，您會在 [加入自動化帳戶] 頁面上收到 `You do not have permissions to create…` 警告。 先新增至**全域管理員**角色的使用者，可以從訂用帳戶的 Active Directory 實例中移除並重新新增，使其成為 Active Directory 的完整使用者。 若要確認這種情況，請從 Azure 入口網站的 [Azure Active Directory] 窗格，選取 [使用者和群組]、選取 [所有使用者]，然後在選取特定使用者之後，選取 [設定檔]。 使用者設定檔之下 [使用者類型] 屬性的值不得等於 [來賓]。
 
 ## <a name="permissions-classic"></a>設定傳統執行身分帳戶的許可權
 
@@ -407,7 +407,7 @@ Azure 自動化中的執行身分帳戶可用來提供驗證，以使用 Azure C
 
 ## <a name="limiting-run-as-account-permissions"></a>限制執行身分帳戶許可權
 
-若要針對 Azure 中的資源控制自動化的目標，您可以在 [PowerShell 資源庫] 中執行[Update-AutomationRunAsAccountRoleAssignments](https://aka.ms/AA5hug8)腳本，以變更現有的執行身分帳戶服務主體以建立和使用自訂角色清晰. 除了[Key Vault](https://docs.microsoft.com/azure/key-vault/)以外，此角色將具有所有資源的許可權。
+若要針對 Azure 中的資源控制自動化的目標，您可以在 PowerShell 資源庫中執行[Update-AutomationRunAsAccountRoleAssignments](https://aka.ms/AA5hug8)腳本，以變更現有的執行身分帳戶服務主體，以建立及使用自訂角色定義。 除了[Key Vault](https://docs.microsoft.com/azure/key-vault/)以外，此角色將具有所有資源的許可權。
 
 > [!IMPORTANT]
 > 執行 `Update-AutomationRunAsAccountRoleAssignments.ps1` 腳本之後，透過使用 RunAs 帳戶來存取 KeyVault 的 runbook 將無法再運作。 您應該參閱帳戶中的 runbook，以進行 Azure KeyVault 的呼叫。
@@ -422,7 +422,7 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzureRMRoleDefinition
 ```
 
-若要判斷您的執行身分帳戶所使用的服務主體是否在**參與者**或自訂角色定義中，請移至您的自動化帳戶，然後在 [**帳戶設定**] 底下，選取 [**執行身分帳戶**] > **Azure 執行身分帳戶**. 在 [**角色**] 底下，您會找到正在使用的角色定義。
+若要判斷您的執行身分帳戶所使用的服務主體是否在「**參與者**」或「自訂角色定義」中，請移至您的自動化帳戶，然後在 [**帳戶設定**] 底下，選取 [**執行身分帳戶**] > **Azure 執行身分帳戶**。 在 [**角色**] 底下，您會找到正在使用的角色定義。
 
 [![](media/manage-runas-account/verify-role.png "Verify the Run As Account role")](media/manage-runas-account/verify-role-expanded.png#lightbox)
 
@@ -435,7 +435,7 @@ $roleDefinition | Set-AzureRMRoleDefinition
 * 授與許可權給 Key Vault
 * 設定存取原則
 
-您可以使用 PowerShell 資源庫中的[Extend-AutomationRunAsAccountRoleAssignmentToKeyVault](https://aka.ms/AA5hugb)腳本，將您的執行身分帳戶許可權授與 KeyVault，或造訪[授與應用程式存取金鑰保存庫](../key-vault/key-vault-group-permissions-for-apps.md)以取得設定的詳細資料KeyVault 上的許可權。
+您可以使用 PowerShell 資源庫中的[Extend-AutomationRunAsAccountRoleAssignmentToKeyVault](https://aka.ms/AA5hugb)腳本，將您的執行身分帳戶許可權授與 KeyVault，或造訪[授與應用程式存取金鑰保存庫](../key-vault/key-vault-group-permissions-for-apps.md)的詳細資料，以取得 KeyVault 上設定許可權的詳細資訊。
 
 ## <a name="misconfiguration"></a>設定錯誤
 

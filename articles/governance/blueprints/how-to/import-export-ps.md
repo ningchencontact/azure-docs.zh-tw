@@ -2,13 +2,13 @@
 title: 使用 PowerShell 匯入和匯出藍圖
 description: 瞭解如何使用您的藍圖定義做為程式碼。 共用、原始檔控制，並使用 export 和 import 命令來管理它們。
 ms.date: 09/03/2019
-ms.topic: conceptual
-ms.openlocfilehash: 2822fd1aea1911ba264113d43595346a612ebc50
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.topic: how-to
+ms.openlocfilehash: fc7b9818072665d79deaf8a456868943e8428730
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406362"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873194"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>使用 PowerShell 匯入和匯出藍圖定義
 
@@ -23,7 +23,7 @@ Azure 藍圖可以透過 Azure 入口網站完全管理。 隨著組織繼續使
 
 無論您的原因為何，以程式碼來管理您的藍圖定義都有其優點。 本文說明如何使用[Az. 藍圖](https://powershellgallery.com/packages/Az.Blueprint/)模組中的 `Import-AzBlueprintWithArtifact` 和 `Export-AzBlueprintWithArtifact` 命令。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文假設您對 Azure 藍圖進行了中等程度的工作知識。 如果您尚未這麼做，請執行下列文章：
 
@@ -31,7 +31,7 @@ Azure 藍圖可以透過 Azure 入口網站完全管理。 隨著組織繼續使
 - 閱讀[部署階段](../concepts/deployment-stages.md)和[藍圖生命週期的](../concepts/lifecycle.md)相關資訊
 - 使用 PowerShell[建立](../create-blueprint-powershell.md)和[管理](./manage-assignments-ps.md)藍圖定義和指派
 
-如果尚未安裝 [Az.Blueprint](./manage-assignments-ps.md#add-the-azblueprint-module) 模組，請依照**新增 Az.Blueprint 模組**中的指示，從 PowerShell 資源庫安裝並驗證它。
+如果尚未安裝 **Az.Blueprint** 模組，請依照[新增 Az.Blueprint 模組](./manage-assignments-ps.md#add-the-azblueprint-module)中的指示，從 PowerShell 資源庫安裝並驗證它。
 
 ## <a name="folder-structure-of-a-blueprint-definition"></a>藍圖定義的資料夾結構
 

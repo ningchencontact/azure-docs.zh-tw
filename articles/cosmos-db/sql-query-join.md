@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB 的 SQL 聯結查詢
-description: 深入瞭解 Azure Cosmos DB 的聯結 SQL 語法。
+description: 瞭解如何聯結 Azure Cosmos DB 中的多個資料表來查詢資料
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: d78904fde53da0e800a69d2148a9c4e3acf57307
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494412"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871137"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Azure Cosmos DB 中的聯結
 
@@ -21,11 +21,11 @@ ms.locfileid: "73494412"
 
 ## <a name="syntax"></a>語法
 
-語言支援 `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`的語法。 此查詢會傳回一組具有 `N` 值的元組。 每個 Tuple 所擁有的值，都是將所有容器別名在其個別集合上反覆運算所產生。 
+語言支援 `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`的語法。 此查詢會傳回一組具有 `N` 值的元組。 每個 Tuple 所擁有的值，都是將所有容器別名在其個別集合上反覆運算所產生的。 
 
 我們來看看下面的 FROM 子句：`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
- 讓每個來源定義 `input_alias1, input_alias2, …, input_aliasN`。 這個 FROM 子句會傳回一組 N-Tuple (具有 N 個值的 Tuple)。 每個 Tuple 所擁有的值，都是將所有容器別名在其個別集合上反覆運算所產生。  
+ 讓每個來源定義 `input_alias1, input_alias2, …, input_aliasN`。 這個 FROM 子句會傳回一組 N-Tuple (具有 N 個值的 Tuple)。 每個 Tuple 所擁有的值，都是將所有容器別名在其個別集合上反覆運算所產生的。  
   
 **範例 1** - 2 個來源  
   

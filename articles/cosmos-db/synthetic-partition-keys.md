@@ -1,17 +1,17 @@
 ---
 title: 在 Azure Cosmos DB 中建立綜合分割區索引鍵，以平均分散您的資料和工作負載。
-description: 了解如何在 Azure Cosmos 容器中使用綜合分割區索引鍵
+description: 瞭解如何在 Azure Cosmos 容器中使用綜合分割區索引鍵，將資料和工作負載平均分散于分割區索引鍵上
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: 8b4e2b8abac39f3268e0da7838acd566f40fdccc
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 093610777b150c90ad55f1ce18337f1de8b17219
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754807"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870491"
 ---
 # <a name="create-a-synthetic-partition-key"></a>建立綜合分割區索引鍵
 
@@ -44,7 +44,7 @@ ms.locfileid: "72754807"
 
 另一個更平均散發工作負載的可行策略是在分割區索引鍵值結尾附加一個隨機數字。 當您以此方式散發項目時，您可以跨分割區執行平行的寫入作業。
 
-其中一個範例是分割區索引鍵代表日期的情況。 您可以選擇介於1到400之間的亂數字，並將其串連為日期的尾碼。 這個方法會透過  `2018-08-09.400` 來產生資料分割索引鍵值，例如  `2018-08-09.1`、`2018-08-09.2` 等等。 由於您是將分割區索引鍵隨機化，因此每天在容器上的寫入作業都會平均分散在多個分割區中。 此方法會產生更好的平行處理原則及整體更高的輸送量。
+其中一個範例是分割區索引鍵代表日期的情況。 您可以選擇介於1到400之間的亂數字，並將其串連為日期的尾碼。 這個方法會透過 `2018-08-09.400`來產生資料分割索引鍵值，例如 `2018-08-09.1`、`2018-08-09.2`等等。 由於您是將分割區索引鍵隨機化，因此每天在容器上的寫入作業都會平均分散在多個分割區中。 此方法會產生更好的平行處理原則及整體更高的輸送量。
 
 ## <a name="use-a-partition-key-with-pre-calculated-suffixes"></a>搭配預先計算的尾碼使用分割區索引鍵 
 

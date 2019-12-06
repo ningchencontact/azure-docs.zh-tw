@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e88f6f344c77109ee01cd6b0332138518f70270d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 903551bfcaae3ffa7ccee72b1a5d781413864b32
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793779"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868451"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>什麼是 Azure AD Connect 雲端布建？
 Azure AD Connect 雲端布建是新的 Microsoft 代理程式，其設計目的是為了符合並完成您的混合式身分識別目標，讓使用者、群組和連絡人同步處理 Azure AD。  它可以與 Azure AD Connect 同步處理一起使用，並提供下列優點：
@@ -59,8 +59,9 @@ Azure AD Connect 雲端布建是新的 Microsoft 代理程式，其設計目的�
 | 允許移除從 AD 流向 Azure AD 的屬性 |● |● |
 | 允許屬性流程的進階自訂 |● | |
 | 支援回寫（密碼、裝置、群組） |● | |
+| Azure AD Domain Services 支援|● | |
 
 ## <a name="next-steps"></a>後續步驟 
 
 - [什麼是布建？](what-is-provisioning.md)
-- [什麼是 Azure AD Connect 雲端布建？](what-is-cloud-provisioning.md)
+- [安裝雲端布建](how-to-install.md)

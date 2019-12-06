@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB 中的別名
-description: 瞭解 Azure Cosmos DB SQL 查詢中的別名值
+description: 瞭解如何在 Azure Cosmos DB SQL 查詢中使用別名，以區別具有相同名稱的兩個屬性
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3b17cbc7710647b1e1875025a1db1849034ec1dc
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 74849eec4c5808a584894321269c49c41f0b8a5c
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002077"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873466"
 ---
 # <a name="aliasing-in-azure-cosmos-db"></a>Azure Cosmos DB 中的別名
 
@@ -19,7 +19,7 @@ ms.locfileid: "71002077"
 
 ## <a name="examples"></a>範例
 
-用於別名的 AS 關鍵字是選擇性的，如下列範例所示，將第二個值投射`NameInfo`為：
+用於別名的 AS 關鍵字是選擇性的，如下列範例所示，將第二個值投射為 `NameInfo`：
 
 ```sql
     SELECT 

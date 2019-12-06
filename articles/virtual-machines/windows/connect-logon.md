@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 43b6d541cfb3d2e5bd583223d9d93921982c65e0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 152df830f11cd5a73235559c5c5d65ced44f22fa
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039448"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842113"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>如何連接和登入執行 Windows 的 Azure 虛擬機器
 您會使用 Azure 入口網站中的 [連線] 按鈕，從 Windows 桌面啟動遠端桌面 (RDP) 工作階段。 首先您必須連線到虛擬機器，然後登入。
@@ -27,13 +27,11 @@ ms.locfileid: "74039448"
 若要從 Mac 連線到 Windows VM，您需要安裝適用於 Mac 的 RDP 用戶端，例如 [Microsoft 遠端桌面](https://aka.ms/rdmac)。
 
 ## <a name="connect-to-the-virtual-machine"></a>連接至虛擬機器
-1. 如果您尚未登入 [Azure 入口網站](https://portal.azure.com/)，請先登入。
-2. 在左功能表上，選取 [虛擬機器]。
-3. 然後從清單中選取虛擬機器。
-4. 在虛擬機器頁面上方，選取 [連線]。
-2. 在 [連線至虛擬機器] 頁面上，選取適當的 IP 位址和連接埠。 在大部分情況下，就應該使用預設 IP 位址和連接埠。 選取 [下載 RDP 檔案]。 如果 VM 已設定 Just-In-Time 原則，您必須先選取 [要求存取] 按鈕來要求存取，才能下載 RDP 檔案。 如需 Just-In-Time 原則的詳細資訊，請參閱[使用 Just-In-Time 原則管理虛擬機器存取](../../security-center/security-center-just-in-time.md)。
-2. 開啟下載的 RDP 檔案，然後在出現提示時選取 [連線]。 
-2. 您會收到警告，表示 `.rdp` 檔案來自未知的發行者。 這是預期行為。 在 [遠端桌面連線] 視窗中，選取 [連線] 以繼續。
+1. 移至 [ [Azure 入口網站](https://portal.azure.com/)] 以連線至 VM。 搜尋並選取 [**虛擬機器**]。
+2. 然後從清單中選取虛擬機器。
+3. 在 [虛擬機器] 頁面的開頭，選取 [連線 **]** 。
+4. 在 [連線**至虛擬機器]** 頁面上，選取 [ **RDP**]，然後選取適當的**IP 位址**和**埠號碼**。 在大部分情況下，就應該使用預設 IP 位址和連接埠。 選取 [下載 RDP 檔案]。 如果 VM 已設定 Just-In-Time 原則，您必須先選取 [要求存取] 按鈕來要求存取，才能下載 RDP 檔案。 如需 Just-In-Time 原則的詳細資訊，請參閱[使用 Just-In-Time 原則管理虛擬機器存取](../../security-center/security-center-just-in-time.md)。
+5. 開啟下載的 RDP 檔案，然後在出現提示時選取 [連線]。 您會收到警告，表示 `.rdp` 檔案來自未知的發行者。 這是預期行為。 在 [遠端桌面連線] 視窗中，選取 [連線] 以繼續。
    
     ![未知發行者相關警告的螢幕擷取畫面。](./media/connect-logon/rdp-warn.png)
 3. 在 [Windows 安全性] 視窗中，選取 [更多選擇]，然後選取 [使用不同的帳戶]。 輸入虛擬機器上帳戶的認證，然後選取 [確定]。

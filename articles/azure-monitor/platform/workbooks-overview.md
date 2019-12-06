@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 監視器活頁簿建立互動式報表 | Microsoft Docs
+title: Azure 監視器活頁簿總覽
 description: 使用預先建立及使用自訂參數之活頁簿來簡化複雜的報告
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2cbc128e59472e36e2b5685efdf4cd02144edf15
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: cf11ce3a77fb47b7d8586ef56141a72cd0a10c2e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165923"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872854"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure 監視器活頁簿
 
@@ -43,9 +43,9 @@ ms.locfileid: "73165923"
 * [文字](workbooks-visualizations.md#text)
 * [圖表](workbooks-visualizations.md#charts)
 * [表格](workbooks-visualizations.md#grids)
-* [瓷磚](workbooks-visualizations.md#tiles)
+* [磚](workbooks-visualizations.md#tiles)
 * [樹狀](workbooks-visualizations.md#trees)
-* [雷達圖](workbooks-visualizations.md#graphs)
+* [Graphs](workbooks-visualizations.md#graphs)
 
 ![範例活頁簿視覺效果](./media/workbooks-overview/visualizations.png)
 

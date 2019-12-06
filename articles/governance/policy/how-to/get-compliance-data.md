@@ -2,13 +2,13 @@
 title: 取得原則合規性資料
 description: Azure 原則評估和效果會決定合規性。 瞭解如何取得 Azure 資源的合規性詳細資料。
 ms.date: 02/01/2019
-ms.topic: conceptual
-ms.openlocfilehash: 8cb95f0a9479da27ea6b9ef8ec6836f915aa4030
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: how-to
+ms.openlocfilehash: 891c9c72d8e83dc8f9adb930e8ebd11b70f6aad8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132813"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873143"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>取得 Azure 資源的相容性資料
 
@@ -22,11 +22,11 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 在查看這些報告合規性的方法之前，讓我們來看何時會更新合規性資訊，以及觸發評估週期的頻率和事件。
 
 > [!WARNING]
-> 如果合規性狀態報表為 [**未註冊**]，請確認**Microsoft.policyinsights**資源提供者已註冊，且使用者擁有適當的角色型存取控制（RBAC）許可權，如[中的 RBAC 中所述Azure 原則](../overview.md#rbac-permissions-in-azure-policy)。
+> 如果合規性狀態報表為 [**未註冊**]，請確認**Microsoft.policyinsights**資源提供者已註冊，且使用者具有適當的角色型存取控制（RBAC）許可權，如 Azure 原則中的[RBAC 中](../overview.md#rbac-permissions-in-azure-policy)所述。
 
 ## <a name="evaluation-triggers"></a>評估觸發程序
 
-透過 `Microsoft.PolicyInsights` 和 `PolicyStates` 作業可在 `PolicyEvents`「資源提供者」中取得完成的評估週期結果。 如需 Azure 原則 Insights REST API 作業的詳細資訊，請參閱[Azure 原則 Insights](/rest/api/policy-insights/)。
+透過 `PolicyStates` 和 `PolicyEvents` 作業可在 `Microsoft.PolicyInsights`「資源提供者」中取得完成的評估週期結果。 如需 Azure 原則 Insights REST API 作業的詳細資訊，請參閱[Azure 原則 Insights](/rest/api/policy-insights/)。
 
 下列各種事件都會導致評估指派的原則和計畫：
 
@@ -49,17 +49,17 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 在每個 REST API URI 中有一些變數，需要您以自己的值取代它們：
 
 - `{YourRG}` - 以您的資源群組名稱取代
-- `{subscriptionId}` - 以您的訂用帳戶識別碼取代
+- `{subscriptionId}` - 以您的訂用帳戶 ID 取代
 
 掃描支援訂用帳戶或資源群組中的資源評估。 請使用 REST API **POST** 命令，運用下列 URI 結構來依據範圍啟動掃描：
 
-- 訂閱
+- Subscription
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
   ```
 
-- 資源群組
+- Resource group
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
@@ -84,12 +84,12 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 在指派中，如果資源沒有遵循原則或方案規則，則該資源**不符合規範**。
 下表顯示不同的原則效果如何與結果合規性狀態的條件評估搭配使用：
 
-| 資源狀態 | 效果 | 原則評估 | 合規性狀態 |
+| 資源狀態 | 影響 | 原則評估 | 合規性狀態 |
 | --- | --- | --- | --- |
-| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | true | 不相容 |
-| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | False | 相容 |
-| 新增 | 稽核、AuditIfNotExist\* | true | 不相容 |
-| 新增 | 稽核、AuditIfNotExist\* | False | 相容 |
+| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | 是 | 不相容 |
+| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | 否 | 相容 |
+| 新功能 | 稽核、AuditIfNotExist\* | 是 | 不相容 |
+| 新功能 | 稽核、AuditIfNotExist\* | 否 | 相容 |
 
 \* Append、DeployIfNotExist 和 AuditIfNotExist 效果需要 IF 陳述式為 TRUE。
 這些效果也需要存在條件為 FALSE，以呈現不符合規範。 若為 TRUE，IF 條件會觸發相關資源的存在條件評估。
@@ -244,7 +244,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 }
 ```
 
-### <a name="view-events"></a>檢視事件
+### <a name="view-events"></a>檢視活動
 
 當建立或更新資源時，會產生原則評估結果。 結果稱為_原則事件_。 您可以使用下列 URI 來檢視與訂用帳戶建立關聯的最新原則事件。
 
@@ -385,7 +385,7 @@ TenantId                   : {tenantId}
 PrincipalOid               : {principalOid}
 ```
 
-您可以透過 Azure PowerShell Cmdlet  **使用 [PrincipalOid]** `Get-AzADUser` 欄位來取得特定使用者。 以您從上一個範例取得的回應取代 **{principalOid}** 。
+您可以透過 Azure PowerShell Cmdlet `Get-AzADUser` 使用 [PrincipalOid] 欄位來取得特定使用者。 以您從上一個範例取得的回應取代 **{principalOid}** 。
 
 ```azurepowershell-interactive
 PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 監視器活頁簿建立互動式報表 |時間參數 |Microsoft 檔
+title: Azure 監視器活頁簿時間參數
 description: 使用預先建立及使用自訂參數之活頁簿來簡化複雜的報告
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 906ebcc49eca72744abf5854a1b320407d0384dc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1d1ee243fa9df8a77a6ce80ecb9d8e5336e8b19b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165507"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872752"
 ---
 # <a name="workbook-time-parameters"></a>活頁簿時間參數
 

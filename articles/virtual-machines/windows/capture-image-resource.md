@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 5557028304d0e2bd5940dd9b01dddf525806d0c6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 01619027ddc79530dc9541584efa9a3e518f5136
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033668"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842053"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中建立一般化 VM 的受控映像
 
@@ -44,11 +44,11 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 
 1. 登入您的 Windows VM。
    
-2. 以系統管理員身分開啟 [命令提示字元] 視窗。 切換至 %windir%\system32\sysprep 目錄，然後執行 `sysprep.exe`。
+2. 以系統管理員身分開啟 [命令提示字元] 視窗。 將目錄變更到 %windir%\system32\sysprep，然後執行 `sysprep.exe`。
    
 3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，然後選取 [一般化] 核取方塊。
    
-4. 針對 [關機選項] 選取 [關機]。
+4. 針對 [關機選項]，選取 [關機]。
    
 5. 選取 [確定]。
    
@@ -70,9 +70,9 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 
 ## <a name="create-a-managed-image-in-the-portal"></a>在入口網站中建立受控映像 
 
-1. 開啟 [Azure 入口網站](https://portal.azure.com)。
+1. 請移至[Azure 入口網站](https://portal.azure.com)來管理 VM 映射。 搜尋並選取 [**虛擬機器**]。
 
-2. 在左邊的功能表中，選取 [虛擬機器]，然後從清單中選取 VM。
+2. 從清單中選取您的 VM。
 
 3. 在 VM 的 [虛擬機器] 頁面上的上方功能表中選取 [擷取]。
 
@@ -80,7 +80,7 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 
 4. 針對 [名稱]，請接受預先填入的名稱或輸入您要為映像使用的名稱。
 
-5. 針對 [資源群組]，請選取 [新建] 並輸入名稱，或選取 [使用現有項目] 並然後從下拉式清單中選取要使用的資源群組。
+5. 針對 [**資源群組**]，請選取 [**建立新**的] 並輸入名稱，或從下拉式清單中選取要使用的資源群組。
 
 6. 如果您想要在建立映像之後刪除來源 VM，請選取 [自動在建立映像後刪除此虛擬機器]。
 
@@ -88,7 +88,7 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 
 8. 選取 [建立] 以建立映像。
 
-9. 建立映像之後，您可以在資源群組的資源清單中看見它顯示為 [映像] 資源。
+建立映像之後，您可以在資源群組的資源清單中看見它顯示為 [映像] 資源。
 
 
 
@@ -102,7 +102,7 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 
 
 > [!NOTE]
-> 如果您想要將映像儲存於區域備援的儲存體中，則需要在支援[可用性區域](../../availability-zones/az-overview.md)且在映像設定 (`-ZoneResilient` 命令) 中包含 `New-AzImageConfig` 參數的區域中建立它。
+> 如果您想要將映像儲存於區域備援的儲存體中，則需要在支援[可用性區域](../../availability-zones/az-overview.md)且在映像設定 (`New-AzImageConfig` 命令) 中包含 `-ZoneResilient` 參數的區域中建立它。
 
 若要建立 VM 映像，請依照下列步驟執行：
 
@@ -218,7 +218,7 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 
 ## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>從使用儲存體帳戶的 VM 建立映射
 
-若要從不使用受控磁片的 VM 建立受控映射，您需要儲存體帳戶中的 OS VHD URI，其格式如下： HTTPs://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd .vhd*. 在此範例中，VHD 位於名為 *vhdcontainer* 之容器的 *mystorageaccount* 中，且 VHD 檔案名稱為 *vhdfilename.vhd*。
+若要從不使用受控磁片的 VM 建立受控映射，您需要儲存體帳戶中的 OS VHD URI，其格式如下： HTTPs://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd .vhd*。 在此範例中，VHD 位於名為 *vhdcontainer* 之容器的 *mystorageaccount* 中，且 VHD 檔案名稱為 *vhdfilename.vhd*。
 
 
 1.  建立一些變數。

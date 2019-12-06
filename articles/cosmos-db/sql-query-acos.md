@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 查詢語言中的 ACOS
-description: 深入瞭解 Azure Cosmos DB 中的 SQL 系統函數 ACOS。
+description: 瞭解 Azure Cosmos DB 中的 ACOS （arccosice） SQL 系統函數如何傳回以弧度為單位的角度，其餘弦值為指定的數值運算式
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2c9d29fba6b5dc55a98bf90cfafe0940d7bf9674
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: fd5baa3ffefb7039c40706253e633661a51150f2
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348736"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873517"
 ---
 # <a name="acos-azure-cosmos-db"></a>ACOS （Azure Cosmos DB）
  傳回角度，以弧度為單位，它的餘弦是指定的數值運算式；也稱為反餘弦值。  

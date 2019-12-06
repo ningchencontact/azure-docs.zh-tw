@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: ae02b09278acef6498d5b94d1af6fa93abe205a9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 3312b5ba6f97dc51f5eeff06eeb194e367935e08
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791150"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869522"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>設定工作階段主機虛擬機器
 
@@ -81,10 +81,10 @@ ms.locfileid: "74791150"
 請遵循這些指示來確認已安裝元件，並檢查是否有錯誤訊息。
 
 1. 勾選 [**控制台**] 中的 [ > **程式**] > [**程式和功能**]，確認已安裝這兩個元件。 如果**Windows 虛擬桌面 agent**和**Windows 虛擬桌面 agent 開機載入**器不可見，則不會安裝在 VM 上。
-2. 開啟 [檔案**瀏覽器**] 並流覽至**C:\Windows\Temp\scriptlogs.log**。 如果檔案遺失，則表示安裝這兩個元件的 PowerShell DSC 無法在提供的安全性內容中執行。
-3. 如果檔案**C:\Windows\Temp\scriptlogs.log**存在，請將它開啟，並檢查是否有錯誤訊息。
+2. 開啟 [檔案**瀏覽器**] 並流覽至**C:\Windows\Temp\ScriptLog.log**。 如果檔案遺失，則表示安裝這兩個元件的 PowerShell DSC 無法在提供的安全性內容中執行。
+3. 如果檔案**C:\Windows\Temp\ScriptLog.log**存在，請將它開啟，並檢查是否有錯誤訊息。
 
-### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptlogslog-is-also-missing"></a>錯誤： Windows 虛擬桌面代理程式和 Windows 虛擬桌面代理程式開機載入器已遺失。 C:\Windows\Temp\scriptlogs.log 也遺失
+### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptloglog-is-also-missing"></a>錯誤： Windows 虛擬桌面代理程式和 Windows 虛擬桌面代理程式開機載入器已遺失。 C:\Windows\Temp\ScriptLog.log 也遺失
 
 **原因1：** 在 Azure Resource Manager 範本的輸入期間提供的認證不正確或許可權不足。
 
@@ -98,7 +98,7 @@ ms.locfileid: "74791150"
 - 請確認租使用者名稱正確，且租使用者存在於 Windows 虛擬桌面中。
 - 確認帳戶至少具有 RDS 參與者許可權。
 
-### <a name="error-authentication-failed-error-in-cwindowstempscriptlogslog"></a>錯誤：驗證失敗，C:\Windows\Temp\scriptlogs.log 發生錯誤
+### <a name="error-authentication-failed-error-in-cwindowstempscriptloglog"></a>錯誤：驗證失敗，C:\Windows\Temp\ScriptLog.log 發生錯誤
 
 **原因：** PowerShell DSC 能夠執行，但無法連接到 Windows 虛擬桌面。
 

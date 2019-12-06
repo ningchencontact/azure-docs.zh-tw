@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 監視器活頁簿視覺效果建立互動式報表 |Microsoft 檔
+title: Azure 監視器活頁簿視覺效果
 description: 瞭解所有 Azure 監視器活頁簿視覺效果元件，包括文字、圖表、格線、樹狀結構和圖形。
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d878e8b5dd49ba517f85ebb74332bc6a245c33ca
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: bcc60c0f934111f779e3fdedc399881acb16f208
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165052"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872786"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure 監視器活頁簿視覺效果
 
@@ -96,7 +96,7 @@ Azure 監視器活頁簿支援多種不同的視覺效果樣式，以符合您�
 | `Size` | 控制項的垂直大小 | 小型、中型或大型 |
 | `Color palette` | 要在圖表中使用的色彩色板。 如果使用 `Split by` 參數，則忽略 | 藍色、綠色、紅色等等。 |
 
-## <a name="grids"></a>表格
+## <a name="grids"></a>方格
 
 格線或資料表是向使用者呈現資料的常見方式。 活頁簿可讓使用者個別將方格的資料行樣式，為其報表提供豐富的 UI。
 
@@ -138,7 +138,7 @@ Azure 監視器活頁簿支援多種不同的視覺效果樣式，以符合您�
 6. 將視覺效果設為**磚**
 7. 按一下 [**磚設定**] 按鈕以開啟 [設定] 窗格
 8. 在 [**磚欄位**] 中，設定：
-    * 標題： `name`
+    * 標題：`name`
     * Left： `Requests`，轉譯器： `Big Number`，色調色板： `Green to Red`，最小值： `0`
     * 下： `appName`
 9. 按一下窗格底部的 [**儲存並關閉**] 按鈕。
@@ -149,7 +149,7 @@ Azure 監視器活頁簿支援多種不同的視覺效果樣式，以符合您�
 
 ![磚摘要視圖的螢幕擷取畫面](./media/workbooks-visualizations/tiles-read-mode.png)
 
-## <a name="trees"></a>樹狀
+## <a name="trees"></a>樹木
 
 活頁簿支援透過樹狀格線的階層式視圖。 樹狀結構可讓一些資料列可擴充到下一個層級，以提供向下切入體驗。
 
@@ -197,7 +197,7 @@ Azure 監視器活頁簿支援多種不同的視覺效果樣式，以符合您�
 | `Show the expander on` | 要在其上顯示樹狀結構展開器的資料行。 樹狀結構方格通常會隱藏其 [識別碼] 和 [父系識別碼] 欄位，因為它們並不容易閱讀。 相反地，展開器會出現在具有更容易閱讀值的欄位上（例如實體的名稱） |
 | `Expand the top level of the tree` | 若選取此選項，樹狀目錄方格將會在最上層展開。 如果您想要依預設顯示詳細資訊，則很有用 |
 
-## <a name="graphs"></a>雷達圖
+## <a name="graphs"></a>圖形
 
 活頁簿支援根據記錄中的資料視覺化任意圖形，以顯示監視實體之間的關聯性。
 

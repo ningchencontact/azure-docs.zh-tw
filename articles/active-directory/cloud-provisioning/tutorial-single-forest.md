@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33b7db8d08c285056e637eb962b28eef0e74fc94
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 691c8e8d2f2c6c8e9472ba7a4ae83d8b76f2850c
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814108"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868723"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>教學課程：整合單一樹系與單一 Azure AD 租使用者
 
@@ -43,7 +43,7 @@ ms.locfileid: "74814108"
      | --- | --- |
      | **80** | 驗證 SSL 憑證時下載憑證撤銷清單 (CRL) |
      | **443** | 處理所有與服務之間的輸出通訊 |
-     | **8080** (選擇性) | 如果埠443無法使用，代理程式會每隔10分鐘透過埠8080報告其狀態。 此狀態會顯示在 Azure 入口網站上。 連接埠 8080 「不」會用於使用者登入。 |
+     | **8080** (選擇性) | 如果埠443無法使用，代理程式會每隔10分鐘透過埠8080報告其狀態。 此狀態會顯示在 Azure 入口網站上。 |
      
      如果您的防火牆會根據原始使用者強制執行規則，請開啟這些連接埠，讓來自以網路服務形式執行之 Windows 服務的流量得以通行。
    - 如果您的防火牆或 proxy 允許您指定安全尾碼，請將連接新增至 **\*msappproxy.net**和 **\*. servicebus.windows.net**。 如果不允許建立，請允許存取每週更新的 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。

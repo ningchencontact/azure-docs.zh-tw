@@ -3,12 +3,12 @@ title: ACR 工作概觀
 description: ACR 工作簡介，這是 Azure Container Registry 中的一套功能，可在雲端中提供安全、自動化的容器映射組建、管理和修補。
 ms.topic: article
 ms.date: 09/05/2019
-ms.openlocfilehash: b4710591dfd78f0633d5071c78d80e300349f498
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 96997f963f0bcb319d5318e2dd88a6e1e21fb36b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456153"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74840760"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>使用 ACR 工作自動化容器映射組建和維護
 
@@ -52,16 +52,19 @@ ACR 工作支援數種建立和維護容器映射和其他成品的案例。 如
 
 ## <a name="trigger-task-on-source-code-update"></a>原始程式碼更新的觸發程式工作
 
-在 GitHub 或 Azure DevOps 中將程式碼認可或提取要求或更新至 Git 存放庫時，觸發容器映射組建或多步驟工作。 例如，藉由指定 Git 存放庫和選擇性的分支和 Dockerfile，使用 Azure CLI 命令[az acr task create][az-acr-task-create]來設定組建工作。 當您的小組更新儲存機制中的程式碼時，ACR 工作建立的 webhook 會觸發存放庫中所定義之容器映射的組建。 
+在將程式碼認可或提取要求或更新至 GitHub 或 Azure DevOps 中的公用或私人 Git 存放庫時，觸發容器映射組建或多步驟工作。 例如，藉由指定 Git 存放庫和選擇性的分支和 Dockerfile，使用 Azure CLI 命令[az acr task create][az-acr-task-create]來設定組建工作。 當您的小組更新儲存機制中的程式碼時，ACR 工作建立的 webhook 會觸發存放庫中所定義之容器映射的組建。 
 
 當您將 Git 存放庫設定為工作的內容時，ACR 工作支援下列觸發程式：
 
-| 觸發程序 | 預設為啟用 |
+| 觸發程序 | 預設啟用 |
 | ------- | ------------------ |
-| 認可 | yes |
+| 認可 | 是 |
 | 提取要求 | 否 |
 
-若要設定觸發程式，請提供工作個人存取權杖（PAT），以在 GitHub 或 Azure DevOps 存放庫中設定 webhook。
+若要設定原始程式碼更新觸發程式，您必須提供工作個人存取權杖（PAT），以在公用或私人 GitHub 或 Azure DevOps 存放庫中設定 webhook。
+
+> [!NOTE]
+> 目前，ACR 工作不支援 GitHub Enterprise 存放庫中的認可或提取要求觸發程式。
 
 若要了解如何在認可原始程式碼時觸發建置，請參閱第二個「ACR 工作」教學課程：[使用 Azure Container Registry 工作自動執行容器映像建置](container-registry-tutorial-build-task.md)。
 
@@ -116,17 +119,20 @@ ACR 工作支援數種建立和維護容器映射和其他成品的案例。 如
 | 內容位置 | 描述 | 範例 |
 | ---------------- | ----------- | ------- |
 | 本機檔案系統 | 本機檔案系統上目錄內的檔案。 | `/home/user/projects/myapp` |
-| GitHub 主要分支 | GitHub 存放庫之主要 (或其他預設) 分支內的檔案。  | `https://github.com/gituser/myapp-repo.git` |
-| GitHub 分支 | GitHub 存放庫的特定分支。| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| GitHub 子資料夾 | GitHub 存放庫中子資料夾內的檔案。 範例會顯示分支和子資料夾規格的組合。 | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
-| Azure DevOps 子資料夾 | Azure 存放庫中子資料夾內的檔案。 範例會顯示分支和子資料夾規格的組合。 | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
+| GitHub 主要分支 | 公用或私人 GitHub 存放庫之主要（或其他預設）分支內的檔案。  | `https://github.com/gituser/myapp-repo.git` |
+| GitHub 分支 | 公用或私人 GitHub 存放庫的特定分支。| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| GitHub 子資料夾 | 公用或私人 GitHub 存放庫中子資料夾內的檔案。 範例會顯示分支和子資料夾規格的組合。 | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Azure DevOps 子資料夾 | 公用或私人 Azure 存放庫中子資料夾內的檔案。 範例會顯示分支和子資料夾規格的組合。 | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | 遠端 Tarball | 遠端 Web 伺服器上壓縮封存中的檔案。 | `http://remoteserver/myapp.tar.gz` |
+
+> [!NOTE]
+> 使用私人 Git 存放庫做為工作的內容時，您需要提供個人存取權杖（PAT）。
 
 ## <a name="image-platforms"></a>映射平臺
 
 根據預設，ACR 工作會建立 Linux OS 和 amd64 架構的映射。 指定 `--platform` 標記，以建立其他架構的 Windows 映像或 Linux 映射。 指定 os/架構格式的作業系統和（選擇性）支援的架構（例如，`--platform Linux/arm`）。 針對 ARM 架構，選擇性地指定 OS/架構/變異格式的 variant （例如，`--platform Linux/arm64/v8`）：
 
-| 作業系統 | 架構|
+| OS | 架構|
 | --- | ------- | 
 | Linux | amd64<br/>arm<br/>arm64<br/>386 |
 | Windows | amd64 |

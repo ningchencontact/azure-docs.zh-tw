@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e1d53d63b40ad62a4d21cbad22a67e9e9781b1f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f98373fe8eab07519e665ab1eddfd7a9ce6b7e22
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381721"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847861"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密碼保護
 
@@ -32,7 +32,7 @@ ms.locfileid: "74381721"
 * 使用者通常會使用不安全的密碼。
 * 他們必須通知使用者即將進行的安全性強制變更、可能對他們造成的影響，以及如何選擇更安全的密碼。
 
-也可以進行更強的密碼驗證，以影響您現有的 Active Directory 網域控制站部署自動化。 我們建議在審查期間評估期間，至少有一個 DC 升級和一個 DC 降級，以協助您事先發現這類問題。  如需詳細資訊，請參閱：
+也可以進行更強的密碼驗證，以影響您現有的 Active Directory 網域控制站部署自動化。 我們建議在審查期間評估期間，至少有一個 DC 升級和一個 DC 降級，以協助您事先發現這類問題。  如需詳細資訊，請參閱
 
 * [Ntdsutil.exe 無法設定弱式目錄服務修復模式密碼](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [網域控制站複本升級因弱式目錄服務修復模式密碼而失敗](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
@@ -124,7 +124,7 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
 
    * 若要檢查服務是否正在執行，請使用下列 PowerShell 命令：
 
-      `Get-Service AzureADPasswordProtectionProxy | fl`。
+      `Get-Service AzureADPasswordProtectionProxy | fl`答案中所述步驟，工作帳戶即會啟用。
 
      結果應該會顯示「正在執行」**狀態**。
 
@@ -302,7 +302,7 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
 
    您可以在還不是網域控制站的電腦上安裝 DC 代理程式服務。 在此情況下，服務將會啟動並執行，但會維持非作用中狀態，直到電腦升級為網域控制站為止。
 
-   您可以使用標準 MSI 程式來自動安裝軟體。 例如︰
+   您可以使用標準 MSI 程式來自動安裝軟體。 例如：
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 監視器活頁簿自訂參數建立互動式報表 |Microsoft 檔
+title: 使用自訂參數 Azure 監視器活頁簿
 description: 使用預先建立及使用自訂參數之活頁簿來簡化複雜的報告
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: eeb6eb5d8b3ad6498ff90a9afe1fa4f2c18d30e5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 19fd8c108e8075d30ca494ca75d52952849c284a
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165949"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872837"
 ---
 # <a name="interactive-workbooks"></a>互動式活頁簿
 
@@ -46,7 +46,7 @@ ms.locfileid: "73165949"
 7. 檢查設定： `When an item is selected, export a parameter`
     1. 要匯出的欄位： `Request`
     2. 參數名稱： `SelectedRequest`
-    3. 預設值： `All requests`
+    3. 預設值：`All requests`
     
     ![顯示 [高級編輯器] 的影像，其中包含將欄位匯出為參數的設定](./media/workbooks-interactive/advanced-settings.png)
 

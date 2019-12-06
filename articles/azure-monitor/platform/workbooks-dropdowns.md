@@ -1,5 +1,5 @@
 ---
-title: 深入瞭解 Azure 監視器活頁簿下拉式參數 |Microsoft 檔
+title: Azure 監視器活頁簿下拉參數
 description: 使用預先建立和自訂的參數化活頁簿（包含下拉式參數）簡化複雜的報表
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 20a1c5f4b4ef12f81e801769a2ee1b5f08860e38
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: df30b71e6ec9e982988ed75b187db08255e24b61
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165208"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872871"
 ---
 # <a name="workbook-drop-down-parameters"></a>活頁簿下拉參數
 

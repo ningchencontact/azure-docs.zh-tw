@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB 中的位移限制子句
-description: 深入瞭解 Azure Cosmos DB 的位移限制子句。
+description: 瞭解如何使用 OFFSET LIMIT 子句來略過，並在中查詢時採用某些特定值 Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7aae56783f83f13b50321c88d69f07d910e589dd
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 68515c51862ada0b1aa794c09b3a6730504a57ee
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326881"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873245"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的位移限制子句
 

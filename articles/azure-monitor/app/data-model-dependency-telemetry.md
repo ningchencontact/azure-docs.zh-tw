@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights 遙測資料模型 - 相依性遙測 | Microsoft Docs
+title: Azure 監視器 Application Insights 相依性資料模型
 description: 相依性遙測的 Application Insights 資料模型
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: e0923c20b11aa02f380af1faa6766d2346ad1fb2
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5021d3b34816159fc78590a5947ddd3a790303ee
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677439"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872633"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>相依性遙測：Application Insights 資料模型
 

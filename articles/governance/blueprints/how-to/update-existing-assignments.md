@@ -2,13 +2,13 @@
 title: 從入口網站更新現有的指派
 description: 瞭解在 Azure 藍圖中，從入口網站更新現有藍圖指派的機制。
 ms.date: 11/21/2019
-ms.topic: conceptual
-ms.openlocfilehash: b4cf03d88103b85bc00dbd815816ead2740f2093
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.topic: how-to
+ms.openlocfilehash: 3cce84127475b2f11388b4ad4eb48dedec19cd1d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406386"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873160"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>如何更新現有的藍圖指派
 
@@ -50,7 +50,7 @@ ms.locfileid: "74406386"
   - 如果原則指派定義有所變更，則會建立新的原則指派。
     先前部署的原則指派會留在原處。
   - 如果從藍圖中移除原則指派成品，則部署的原則指派會留在原處。
-- Azure 資源管理員範本
+- Azure Resource Manager 範本
   - 範本會透過 Resource Manager 處理為 **PUT**。 因為每個資源類型對此動作的處理方式不同，請檢閱每個所含資源的文件，以判斷藍圖在執行此動作時會有什麼影響。
 
 ## <a name="possible-errors-on-updating-assignments"></a>更新指派時的可能錯誤

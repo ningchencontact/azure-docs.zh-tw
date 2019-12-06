@@ -1,20 +1,21 @@
 ---
-title: 使用適用于容器的 Azure 監視器來建立效能警示 |Microsoft Docs
-description: 本文說明如何使用容器的 Azure 監視器，根據記憶體和 CPU 使用率的記錄查詢來建立自訂警示。
+title: 建立容器 Azure 監視器的效能警示 |Microsoft Docs
+description: 本文說明如何根據 Azure 監視器容器的記憶體和 CPU 使用率，建立以記錄查詢為基礎的自訂警示。
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/26/2019
-ms.openlocfilehash: dd92f5aedd1fbc51531730e6a7826322570cd1b1
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 66baa3095744c8b486430d587b992ba507d87733
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195024"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841620"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>如何在容器的 Azure 監視器中設定效能問題的警示
+
 適用于容器的 Azure 監視器會監視部署至 Azure 容器實例或裝載于 Azure Kubernetes Service （AKS）之受管理 Kubernetes 叢集的容器工作負載效能。
 
 本文說明如何在下列情況下啟用警示：
@@ -30,6 +31,7 @@ ms.locfileid: "74195024"
 如果您不熟悉 Azure 監視器警示，請先參閱[Microsoft Azure 中的警示總覽](../platform/alerts-overview.md)，再開始進行。 若要深入瞭解使用記錄查詢的警示，請參閱[Azure 監視器中的記錄警示](../platform/alerts-unified-log.md)。 如需計量警示的詳細資訊，請參閱[Azure 監視器中的計量警示](../platform/alerts-metric-overview.md)。
 
 ## <a name="resource-utilization-log-search-queries"></a>資源使用率記錄搜尋查詢
+
 本節中的查詢支援每個警示案例。 它們是在本文的[建立警示](#create-an-alert-rule)一節的步驟7中使用。
 
 下列查詢會以每分鐘成員節點的 CPU 使用率平均值，計算平均 CPU 使用率。  
@@ -278,7 +280,8 @@ InsightsMetrics
 ```
 
 ## <a name="create-an-alert-rule"></a>建立警示規則
-請遵循下列步驟，使用稍早提供的其中一個記錄搜尋規則，在 Azure 監視器中建立記錄警示。  
+
+請遵循下列步驟，使用稍早提供的其中一個記錄搜尋規則，在 Azure 監視器中建立記錄警示。 若要使用 ARM 範本建立，請參閱[使用 Azure 資源範本建立記錄警示的範例](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template)。
 
 >[!NOTE]
 >下列為容器資源使用量建立警示規則的程式，需要您切換到新的記錄警示 API，如[記錄警示的切換 API 喜好](../platform/alerts-log-api-switch.md)設定中所述。

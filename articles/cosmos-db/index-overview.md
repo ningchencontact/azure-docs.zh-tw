@@ -1,23 +1,23 @@
 ---
 title: Azure Cosmos DB 中的編製索引
-description: 了解 Azure Cosmos DB 中編製索引的運作方式。
+description: 瞭解索引在 Azure Cosmos DB 中的運作方式、不同類型的索引（例如，支援的範圍、空間、複合索引）。
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: thweiss
-ms.openlocfilehash: d679208914eb7d1f74bfaec77fbcff196909a2f4
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 65186262095560d7ae54d32b218d1c01f1fb921d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299793"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873619"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中編制索引-總覽
 
 Azure Cosmos DB 是不限架構的資料庫，可讓您反復執行應用程式，而不需要處理架構或索引管理。 根據預設，Azure Cosmos DB 會自動為您[容器](databases-containers-items.md#azure-cosmos-containers)中的所有專案編制每個屬性的索引，而不需要定義任何架構或設定次要索引。
 
-本文的目標是要說明 Azure Cosmos DB 如何為數據編制索引，以及如何使用索引來改善查詢效能。 建議您先完成本節，再探索如何自訂[索引編制原則](index-policy.md)。
+本文的目標是要說明 Azure Cosmos DB 如何為資料編製索引，以及如何使用索引來改善查詢效能。 建議您先完成本節，再探索如何自訂[索引編制原則](index-policy.md)。
 
 ## <a name="from-items-to-trees"></a>從專案到樹狀結構
 
@@ -90,7 +90,7 @@ Azure Cosmos DB 目前支援三種索引。
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
    ```
-  （適用于 `>`，`<`，`>=`，`<=`，`!=`）
+  （適用于 `>`、`<`、`>=`、`<=`、`!=`）
 
 - 檢查屬性是否存在：
 
@@ -104,13 +104,13 @@ Azure Cosmos DB 目前支援三種索引。
    SELECT * FROM c WHERE STARTSWITH(c.property, "value")
    ```
 
-- `ORDER BY` 個查詢：
+- `ORDER BY` 查詢：
 
    ```sql
    SELECT * FROM container c ORDER BY c.property
    ```
 
-- `JOIN` 個查詢：
+- `JOIN` 查詢：
 
    ```sql
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
@@ -120,7 +120,7 @@ Azure Cosmos DB 目前支援三種索引。
 
 ### <a name="spatial-index"></a>空間索引
 
-**空間**索引可讓您有效率地查詢地理空間物件，例如點、線條、多邊形和 multipolygon。 這些查詢會使用 ST_DISTANCE、ST_WITHIN、ST_INTERSECTS 關鍵字。 以下是一些使用空間索引種類的範例：
+**空間**索引可讓您有效率地查詢地理空間物件，例如點、線條、多邊形和 multipolygon。 這些查詢會使用 ST_DISTANCE、ST_WITHIN ST_INTERSECTS 關鍵字。 以下是一些使用空間索引種類的範例：
 
 - 地理空間距離查詢：
 
@@ -146,13 +146,13 @@ Azure Cosmos DB 目前支援三種索引。
 
 當您在多個欄位上執行作業時，**複合**索引會增加效率。 複合索引種類用於：
 
-- 對多個屬性的 `ORDER BY` 查詢：
+- `ORDER BY` 多個屬性的查詢：
 
 ```sql
  SELECT * FROM container c ORDER BY c.property1, c.property2
 ```
 
-- 具有篩選準則和 `ORDER BY` 的查詢。 如果 filter 屬性加入至 `ORDER BY` 子句，這些查詢可以利用複合索引。
+- 具有篩選準則和 `ORDER BY`的查詢。 如果 filter 屬性加入至 `ORDER BY` 子句，這些查詢可以利用複合索引。
 
 ```sql
  SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
@@ -180,7 +180,7 @@ Azure Cosmos DB 目前支援三種索引。
 ![符合樹狀結構內的特定路徑](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> 依單一屬性排序的 `ORDER BY` 子句，*一律*需要範圍索引，如果它所參考的路徑沒有一個，將會失敗。 同樣地，`ORDER BY` 查詢依多個屬性排序時，*一律*需要複合索引。
+> 依單一屬性排序的 `ORDER BY` 子句*一律*需要範圍索引，如果它所參考的路徑沒有一個，將會失敗。 同樣地，`ORDER BY` 查詢多個屬性的順序，*一律*需要複合索引。
 
 ## <a name="next-steps"></a>後續步驟
 

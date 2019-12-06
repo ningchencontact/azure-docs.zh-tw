@@ -2,28 +2,24 @@
 title: 在 Azure Active Directory 應用程式庫中列出您的應用程式 | Microsoft Docs
 description: 了解如何列出 Azure Active Directory 應用程式庫中支援單一登入的應用程式
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/16/2019
 ms.author: ryanwi
-ms.reviewer: elisol, bryanla
+ms.reviewer: jeedes
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c77657101f5cd8a117b2163386f6d551b7985458
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 3e1763b8d6402a6093499f1f06253fe4c7502255
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374079"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842773"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>在 Azure Active Directory 應用程式庫中列出您的應用程式
 
@@ -114,7 +110,7 @@ ms.locfileid: "72374079"
 
 ## <a name="list-requests-by-customers"></a>列出客戶提出的要求
 
-客戶可以藉由選取 [**客戶的應用程式要求**]  >  [**提交新要求**] 來提交列出應用程式的要求。
+客戶可以藉由選取 [**由客戶提出的應用程式要求**] > [**提交新要求**]，來提交列出應用程式的要求。
 
 ![顯示客戶要求的應用程式圖格](./media/howto-app-gallery-listing/customer-submit-request.png)
 
@@ -134,4 +130,4 @@ ms.locfileid: "72374079"
 
 ## <a name="escalations"></a>呈報
 
-針對任何呈報，請將電子郵件傳送給[AZURE AD SSO 整合小組](mailto:SaaSApplicationIntegrations@service.microsoft.com)，SaaSApplicationIntegrations@service.microsoft.com，我們會儘快回應。
+針對任何呈報，請將電子郵件傳送至 SaaSApplicationIntegrations@service.microsoft.com的[AZURE AD SSO 整合小組](mailto:SaaSApplicationIntegrations@service.microsoft.com)，我們會儘快回應。

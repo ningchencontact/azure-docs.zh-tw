@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 9/27/2018
+ms.date: 12/5/2019
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 0d3cbe8c3d2d7931e3e4cc052eedc844a296ccf0
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 496e8673e1cbf31f4c71db00b7eaf1c0618e509f
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775733"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872939"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 範本建立計量警示
 
@@ -794,11 +794,11 @@ az group deployment create \
 
 單一警示規則一次可以監視多個計量時間序列，這會產生較少的警示規則來進行管理。
 
-在下列範例中，警示規則會監視**交易**計量之**ResponseType**和**ApiName**維度的維度值組合：
-1. **ResponsType** -使用 "\*" 萬用字元表示針對**ResponseType**維度的每個值（包括未來的值），會個別監視不同的時間序列。
+在下列範例中，警示規則會監視**交易**度量的**ResponseType**和**ApiName**維度的維度值組合：
+1. **ResponsType** -使用 "\*" 萬用字元表示針對**ResponseType**維度的每個值（包括未來的值），個別監視不同的時間序列。
 2. **ApiName** -只有**GetBlob**和**PutBlob**維度值會監視不同的時間序列。
 
-例如，此警示規則將監視的幾個可能時間序列包括：
+例如，此警示規則所監視的幾個可能時間序列包括：
 - 公制 =*交易*，ResponseType = *Success*，ApiName = *GetBlob*
 - 公制 =*交易*，ResponseType = *Success*，ApiName = *PutBlob*
 - 公制 =*交易*，ResponseType =*伺服器超時*，ApiName = *GetBlob*
@@ -1014,11 +1014,11 @@ az group deployment create \
 
 單一動態閾值警示規則可同時為數百個計量時間序列（甚至不同類型）建立量身打造的臨界值，這會導致較少的警示規則進行管理。
 
-在下列範例中，警示規則會監視**交易**計量之**ResponseType**和**ApiName**維度的維度值組合：
-1. **ResponsType** -針對**ResponseType**維度的每個值（包括未來的值），將會個別監視不同的時間序列。
+在下列範例中，警示規則會監視**交易**度量的**ResponseType**和**ApiName**維度的維度值組合：
+1. **ResponsType** -對於**ResponseType**維度的每個值，包括未來的值，會個別監視不同的時間序列。
 2. **ApiName** -只有**GetBlob**和**PutBlob**維度值會監視不同的時間序列。
 
-例如，此警示規則將監視的幾個可能時間序列包括：
+例如，此警示規則所監視的幾個可能時間序列包括：
 - 公制 =*交易*，ResponseType = *Success*，ApiName = *GetBlob*
 - 公制 =*交易*，ResponseType = *Success*，ApiName = *PutBlob*
 - 公制 =*交易*，ResponseType =*伺服器超時*，ApiName = *GetBlob*
@@ -1230,6 +1230,270 @@ az group deployment create \
 >[!NOTE]
 >
 > 使用動態閾值的計量警示規則目前不支援多個條件。
+
+
+## <a name="template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric"></a>監視自訂計量的靜態閾值計量警示範本
+
+您可以使用下列範本，針對自訂計量建立更先進的靜態臨界值計量警示規則。
+
+若要深入瞭解 Azure 監視器中的自訂計量，請參閱[Azure 監視器中的自訂計量](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview)。
+
+在自訂計量上建立警示規則時，您必須同時指定計量名稱和計量命名空間。
+
+針對本逐步解說的目的，請將以下的 json 儲存為 customstaticmetricalert。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the alert"
+            }
+        },
+        "alertDescription": {
+            "type": "string",
+            "defaultValue": "This is a metric alert",
+            "metadata": {
+                "description": "Description of alert"
+            }
+        },
+        "alertSeverity": {
+            "type": "int",
+            "defaultValue": 3,
+            "allowedValues": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "metadata": {
+                "description": "Severity of alert {0,1,2,3,4}"
+            }
+        },
+        "isEnabled": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "resourceId": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.compute/virtualMachines/VM_xyz"
+            }
+        },
+        "metricName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the metric used in the comparison to activate the alert."
+            }
+        },
+        "metricNamespace": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Namespace of the metric used in the comparison to activate the alert."
+            }
+        },
+        "operator": {
+            "type": "string",
+            "defaultValue": "GreaterThan",
+            "allowedValues": [
+                "Equals",
+                "NotEquals",
+                "GreaterThan",
+                "GreaterThanOrEqual",
+                "LessThan",
+                "LessThanOrEqual"
+            ],
+            "metadata": {
+                "description": "Operator comparing the current value with the threshold value."
+            }
+        },
+        "threshold": {
+            "type": "string",
+            "defaultValue": "0",
+            "metadata": {
+                "description": "The threshold value at which the alert is activated."
+            }
+        },
+        "timeAggregation": {
+            "type": "string",
+            "defaultValue": "Average",
+            "allowedValues": [
+                "Average",
+                "Minimum",
+                "Maximum",
+                "Total",
+                "Count"
+            ],
+            "metadata": {
+                "description": "How the data that is collected should be combined over time."
+            }
+        },
+        "windowSize": {
+            "type": "string",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
+            "metadata": {
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
+            }
+        },
+        "evaluationFrequency": {
+            "type": "string",
+            "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
+            "metadata": {
+                "description": "How often the metric alert is evaluated represented in ISO 8601 duration format"
+            }
+        },
+        "actionGroupId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The ID of the action group that is triggered when the alert is activated or deactivated"
+            }
+        }
+    },
+    "variables": {  },
+    "resources": [
+        {
+            "name": "[parameters('alertName')]",
+            "type": "Microsoft.Insights/metricAlerts",
+            "location": "global",
+            "apiVersion": "2018-03-01",
+            "tags": {},
+            "properties": {
+                "description": "[parameters('alertDescription')]",
+                "severity": "[parameters('alertSeverity')]",
+                "enabled": "[parameters('isEnabled')]",
+                "scopes": ["[parameters('resourceId')]"],
+                "evaluationFrequency":"[parameters('evaluationFrequency')]",
+                "windowSize": "[parameters('windowSize')]",
+                "criteria": {
+                    "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+                    "allOf": [
+                        {
+                            "name" : "1st criterion",
+                            "metricName": "[parameters('metricName')]",
+                            "metricNamespace": "[parameters('metricNamespace')]",
+                            "dimensions":[],
+                            "operator": "[parameters('operator')]",
+                            "threshold" : "[parameters('threshold')]",
+                            "timeAggregation": "[parameters('timeAggregation')]"
+                        }
+                    ]
+                },
+                "actions": [
+                    {
+                        "actionGroupId": "[parameters('actionGroupId')]"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+您可以使用上述的範本以及下面提供的參數檔案。 
+
+基於本逐步解說的目的，請將以下的 json 儲存並修改為 customstaticmetricalert。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "value": "New alert rule on a custom metric"
+        },
+        "alertDescription": {
+            "value": "New alert rule on a custom metric created via template"
+        },
+        "alertSeverity": {
+            "value":3
+        },
+        "isEnabled": {
+            "value": true
+        },
+        "resourceId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourceGroup-name/providers/microsoft.insights/components/replace-with-application-insights-resource-name"
+        },
+        "metricName": {
+            "value": "The custom metric name"
+        },
+        "metricNamespace": {
+            "value": "Azure.ApplicationInsights"
+        },
+        "operator": {
+          "value": "GreaterThan"
+        },
+        "threshold": {
+            "value": "80"
+        },
+        "timeAggregation": {
+            "value": "Average"
+        },
+        "actionGroupId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-action-group"
+        }
+    }
+}
+```
+
+
+您可以從目前的工作資料夾，透過 PowerShell 或 Azure CLI 使用範本和參數檔案來建立計量警示。
+
+使用 Azure PowerShell
+```powershell
+Connect-AzAccount
+
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+ 
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupOfTargetResource `
+  -TemplateFile customstaticmetricalert.json -TemplateParameterFile customstaticmetricalert.parameters.json
+```
+
+
+
+使用 Azure CLI
+```azurecli
+az login
+
+az group deployment create \
+    --name AlertDeployment \
+    --resource-group ResourceGroupOfTargetResource \
+    --template-file customstaticmetricalert.json \
+    --parameters @customstaticmetricalert.parameters.json
+```
+
+>[!NOTE]
+>
+> 您可以透過[Azure 入口網站流覽自訂計量](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)，來尋找特定自訂度量的度量命名空間。
+
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>監視多個資源的計量警示範本
 
@@ -3180,7 +3444,7 @@ az group deployment create \
     --parameters @list-of-vms-dynamic.parameters.json
 ```
 
-## <a name="template-for-a-availability-test-along-with-availability-test-alert"></a>可用性測試和可用性測試警示的範本
+## <a name="template-for-an-availability-test-along-with-a-metric-alert"></a>可用性測試和計量警示的範本
 
 [Application Insights 可用性測試](../../azure-monitor/app/monitor-web-app-availability.md)可協助您從全球各地的不同位置監視您的網站/應用程式可用性。 可用性測試警示會在可用性測試從特定數目的位置失敗時通知您。
 與計量警示（Microsoft Insights/metricAlerts）相同資源類型的可用性測試警示。 下列範例 Azure Resource Manager 範本可以用來設定簡單的可用性測試和相關聯的警示。

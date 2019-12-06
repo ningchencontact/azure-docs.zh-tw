@@ -1,5 +1,5 @@
 ---
-title: 使用具有角色型存取控制的 Azure 監視器活頁簿建立互動式報表 |Microsoft 檔
+title: Azure 監視器活頁簿存取控制
 description: 使用以角色為基礎的存取控制，透過預先建立和自訂的參數化活頁簿簡化複雜
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: e2f1388d9823744d2382f1818ecb8dcb613895bc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c9b9f9ca2a9c08c05a3ce32230a39ca79625cd72
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73166183"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872922"
 ---
 # <a name="access-control"></a>存取控制
 

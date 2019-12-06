@@ -1,5 +1,5 @@
 ---
-title: 使用來自多個 dispate Azure 資料來源的 Azure 監視器活頁簿建立互動式報表 |Microsoft 檔
+title: Azure 監視器活頁簿資料來源 |Microsoft 檔
 description: 使用從多個資料來源建立的預建和自訂參數化 Azure 監視器活頁簿，簡化複雜的報表
 services: azure-monitor
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: dd5068da31c3aa863fc56022834a28b60ee15004
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 368da2baaea1be41331d77f4dae1bdd9567b8cc5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73166196"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872888"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure 監視器活頁簿資料來源
 

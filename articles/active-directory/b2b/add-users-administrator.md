@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7176101a1e6c1da54ddd8b5f22b61b91fbc5115a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: cf2ca3bde0cfee97adee8bb875df1522e95b1f53
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267931"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869290"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者
 
@@ -36,23 +36,23 @@ ms.locfileid: "74267931"
 若要將 B2B 共同作業使用者新增至目錄，請遵循下列步驟：
 
 1. 以已獲指派受限系統管理員目錄角色或來賓邀請者角色的使用者身分，登入[Azure 入口網站](https://portal.azure.com)。
-2. 在導覽窗格中，選取 [Azure Active Directory]。
+2. 搜尋並從任何頁面選取 [ **Azure Active Directory** ]。
 3. 在 [管理] 底下選取 [使用者]。
 4. 選取 [新增來賓使用者]。
 
-   ![顯示 [新增來賓使用者] 在 UI 中的位置](./media/add-users-administrator/NewGuestUser-Directory.png) 
+   ![顯示 [新增來賓使用者] 在 UI 中的位置](./media/add-users-administrator/new-guest-user-in-all-users.png) 
  
    > [!NOTE]
    > [新增來賓使用者] 選項也在 [組織關係] 頁面上。 在 [Azure Active Directory] 中，[管理] 下方，選取 [組織關係]。
 
-5. 在 [**新增使用者**] 頁面上，選取 [**邀請使用者**]，然後新增來賓使用者的資訊。 
+5. 在 [新增使用者] 頁面上選取 [邀請使用者]，然後新增來賓使用者的資訊。 
 
     > [!NOTE]
     > 不支援群組電子郵件地址；請輸入個人的電子郵件地址。 此外，有些電子郵件提供者允許使用者將加號 (+) 和額外文字新增到其電子郵件地址，以協助收件匣篩選等事項。 不過，Azure AD 目前不支援電子郵件地址中有加號。 若要避免傳遞問題，請省略 @ 符號之前的加號及其後任何字元。
 
-   - **名稱。** 來賓使用者的姓氏和名字。
-   - **電子郵件地址（必要）** 。 來賓使用者的電子郵件地址。
-   - **個人訊息（選擇性）** 將個人歡迎訊息包含給來賓使用者。
+   - **名稱。** 來賓使用者的姓氏與名字。
+   - **電子郵件地址 (必要)** 。 來賓使用者的電子郵件地址。
+   - **個人訊息 (選擇性)** 包含向來賓使用者顯示的個人歡迎訊息。
    - **群組**：您可以將來賓使用者新增至一或多個現有的群組，也可以稍後再進行。
    - **目錄角色**：如果您需要使用者 Azure AD 系統管理許可權，您可以將他們新增至 Azure AD 角色。 
 
@@ -67,7 +67,7 @@ ms.locfileid: "74267931"
 如果您需要手動將 B2B 共同作業使用者新增至群組，請遵循下列步驟：
 
 1. 以 Azure AD 系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在導覽窗格中，選取 [Azure Active Directory]。
+2. 搜尋並從任何頁面選取 [ **Azure Active Directory** ]。
 3. 在 [管理] 底下選取 [群組]。
 4. 選取群組 (或按一下 [新增群組] 以建立新的群組)。 您不妨納入群組描述，說明該群組包含 B2B 來賓使用者。
 5. 選取 [成員]。 
@@ -84,7 +84,7 @@ ms.locfileid: "74267931"
 若要將 B2B 共同作業使用者新增至應用程式，請遵循下列步驟：
 
 1. 以 Azure AD 系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在導覽窗格中，選取 [Azure Active Directory]。
+2. 搜尋並從任何頁面選取 [ **Azure Active Directory** ]。
 3. 在 [管理] 下選取 [企業應用程式] > [所有應用程式]。
 4. 選取要對其新增來賓使用者的應用程式。
 5. 在應用程式的儀表板上，選取 [使用者總數] 以開啟 [使用者和群組] 窗格。
@@ -112,13 +112,13 @@ ms.locfileid: "74267931"
 如果來賓使用者尚未兌換其邀請，您可以重新傳送邀請電子郵件。
 
 1. 以 Azure AD 系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在導覽窗格中，選取 [Azure Active Directory]。
+2. 搜尋並從任何頁面選取 [ **Azure Active Directory** ]。
 3. 在 [管理] 底下選取 [使用者]。
 5. 選取使用者帳戶。
 6. 在 [管理] 底下選取 [設定檔]。
 7. 如果使用者尚未接受邀請，則 [重新傳送邀請] 選項會是可供使用的狀態。 選取此按鈕即可重新傳送。
 
-   ![使用者設定檔中的 [重新傳送邀請] 選項](./media/add-users-administrator/Resend-Invitation.png)
+   ![使用者設定檔中的 [重新傳送邀請] 選項](./media/add-users-administrator/b2b-user-resend-invitation.png)
 
 > [!NOTE]
 > 如果您重新傳送的邀請原本會將使用者導向特定應用程式，請務必了解，新邀請中的連結會改為將使用者導向最上層的存取面板。
