@@ -1,5 +1,5 @@
 ---
-title: 使用 Databricks 筆記本轉換資料-Azure
+title: 使用 Databricks 筆記本轉換資料
 description: 了解如何藉由執行 Databricks Notebook 來處理或轉換資料。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 685a7863af74bf90c819453b41078b48ab6d2045
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0768c16562a3931249dbbbc8f836ae14e7d0958b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683924"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893989"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>執行 Databricks Notebook 來轉換資料
 
@@ -57,13 +57,13 @@ ms.locfileid: "73683924"
 
 下表說明 JSON 定義中使用的 JSON 屬性：
 
-|屬性|描述|必要|
+|屬性|描述|必要項|
 |---|---|---|
-|名稱|管線中的活動名稱。|yes|
-|Description|說明活動用途的文字。|否|
-|類型|若是 Databricks Notebook 活動，則活動類型是 DatabricksNotebook。|yes|
-|linkedServiceName|Databricks Notebook 執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|yes|
-|notebookPath|要在 Databricks 工作區中執行之 Notebook 的絕對路徑。 此路徑必須以斜線開頭。|yes|
+|名稱|管線中的活動名稱。|是|
+|說明|說明活動用途的文字。|否|
+|類型|若是 Databricks Notebook 活動，則活動類型是 DatabricksNotebook。|是|
+|linkedServiceName|Databricks Notebook 執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|是|
+|notebookPath|要在 Databricks 工作區中執行之 Notebook 的絕對路徑。 此路徑必須以斜線開頭。|是|
 |baseParameters|機碼值組的陣列。 基礎映像參數可以用於每個活動執行。 如果 Notebook 採用未指定的參數，則系統會使用 Notebook 的預設值。 在 [Databricks Notebook](https://docs.databricks.com/api/latest/jobs.html#jobsparampair) 中尋找更多參數的相關資料。|否|
 |程式庫|要在負責執行工作的叢集上，即將安裝的程式庫清單。 可以是 \<字串, 物件> 陣列。|否|
 
@@ -123,7 +123,7 @@ ms.locfileid: "73683924"
 2. 您可以使用 `'@activity('databricks notebook activity name').output.runOutput'`之類的運算式來取用 data factory 中的輸出。 
 
    > [!IMPORTANT]
-   > 如果您要傳遞 JSON 物件，您可以藉由附加屬性名稱來取得值。 範例︰ `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
+   > 如果您要傳遞 JSON 物件，您可以藉由附加屬性名稱來取得值。 範例：`'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>如何在 Databricks 中上傳程式庫
 

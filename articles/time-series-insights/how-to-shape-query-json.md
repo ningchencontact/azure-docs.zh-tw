@@ -7,14 +7,14 @@ ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 386d10c8e4bd7d5f46d2081d5a26371fb37ff30f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 3d611806d31719899d249b29ed4b0ea499280252
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007007"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894920"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>塑造 JSON 以最大化查詢效能 
 
@@ -26,7 +26,7 @@ ms.locfileid: "74007007"
 
 > [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 考慮如何將事件傳送至時間序列深入解析。 亦即，您一律會：
 
@@ -97,16 +97,16 @@ ms.locfileid: "74007007"
 
    | deviceId | messageId | deviceLocation |
    | --- | --- | --- |
-   | FXXX | LINE\_DATA | EU |
-   | FYYY | LINE\_DATA | US |
+   | FXXX | LINE\_DATA | 歐盟 |
+   | FYYY | LINE\_DATA | 美國 |
 
 * 在簡維之後時間序列深入解析事件資料表：
 
    | deviceId | messageId | deviceLocation | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
-   | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
-   | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
+   | FXXX | LINE\_DATA | 歐盟 | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
+   | FXXX | LINE\_DATA | 歐盟 | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
+   | FYYY | LINE\_DATA | 美國 | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
 > [!NOTE]
 > - **deviceId** 資料行是車隊中各種裝置的資料行標頭。 將**deviceId**值設為其本身的屬性名稱，會將裝置的總計限制為595（適用于 S1 環境）或795（適用于 S2 環境），以及其他五個數據行。
@@ -167,21 +167,21 @@ ms.locfileid: "74007007"
 
    | deviceId | series.tagId | messageId | deviceLocation | 類型 | unit |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINE\_DATA | EU | 流動率 | ft3/s |
-   | FXXX | oilPressure | LINE\_DATA | EU | 引擎機油壓力 | psi |
-   | FYYY | pumpRate | LINE\_DATA | US | 流動率 | ft3/s |
-   | FYYY | oilPressure | LINE\_DATA | US | 引擎機油壓力 | psi |
+   | FXXX | pumpRate | LINE\_DATA | 歐盟 | 流動率 | ft3/s |
+   | FXXX | oilPressure | LINE\_DATA | 歐盟 | 引擎機油壓力 | psi |
+   | FYYY | pumpRate | LINE\_DATA | 美國 | 流動率 | ft3/s |
+   | FYYY | oilPressure | LINE\_DATA | 美國 | 引擎機油壓力 | psi |
 
 * 在簡維之後時間序列深入解析事件資料表：
 
    | deviceId | series.tagId | messageId | deviceLocation | 類型 | unit | timestamp | series.value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINE\_DATA | EU | 流動率 | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
-   | FXXX | oilPressure | LINE\_DATA | EU | 引擎機油壓力 | psi | 2018-01-17T01:17:00Z | 34.7 |
-   | FXXX | pumpRate | LINE\_DATA | EU | 流動率 | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
-   | FXXX | oilPressure | LINE\_DATA | EU | 引擎機油壓力 | psi | 2018-01-17T01:17:00Z | 49.2 |
-   | FYYY | pumpRate | LINE\_DATA | US | 流動率 | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
-   | FYYY | oilPressure | LINE\_DATA | US | 引擎機油壓力 | psi | 2018-01-17T01:18:00Z | 22.2 |
+   | FXXX | pumpRate | LINE\_DATA | 歐盟 | 流動率 | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
+   | FXXX | oilPressure | LINE\_DATA | 歐盟 | 引擎機油壓力 | psi | 2018-01-17T01:17:00Z | 34.7 |
+   | FXXX | pumpRate | LINE\_DATA | 歐盟 | 流動率 | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
+   | FXXX | oilPressure | LINE\_DATA | 歐盟 | 引擎機油壓力 | psi | 2018-01-17T01:17:00Z | 49.2 |
+   | FYYY | pumpRate | LINE\_DATA | 美國 | 流動率 | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
+   | FYYY | oilPressure | LINE\_DATA | 美國 | 引擎機油壓力 | psi | 2018-01-17T01:18:00Z | 22.2 |
 
 > [!NOTE]
 > - 資料行**deviceId**和**tagId**可做為車隊中各種裝置和標記的欄標題。 使用每個做為其本身的屬性，會將查詢限制為594（適用于 S1 環境）或794（適用于 S2 環境）與其他六個數據行的裝置總數。

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: b91e235824085977f1570e664b43d028a905407b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 0023710ff3cfe180b628d1da14b8a3ea9c136026
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869794"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896242"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>從虛擬網路 (VNet) 存取 Azure Cosmos DB
 
@@ -42,9 +42,9 @@ ms.locfileid: "74869794"
 
 ### <a name="are-additional-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>具有 VNET 服務端點的 Azure Cosmos 帳戶需要額外的 RBAC 許可權嗎？
 
-將 VNET 服務端點新增至 Azure Cosmos 帳戶之後，若要對帳戶設定進行任何變更，您需要存取 Azure Cosmos 帳戶上設定的所有 Vnet 的 `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` 動作。 這是必要動作，因為授權程式會先驗證與資料庫和虛擬網路資源對應的動作，然後再評估任何屬性。
+將 VNet 服務端點新增至 Azure Cosmos 帳戶之後，若要對帳戶設定進行任何變更，您需要存取 Azure Cosmos 帳戶上設定的所有 Vnet 的 `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` 動作。 這是必要的許可權，因為授權程式會先驗證資源（例如資料庫和虛擬網路資源）的存取權，再評估任何屬性。
  
-即使使用者未使用 Azure CLI 指定 VNET Acl，授權還是會驗證動作。 目前，Azure Cosmos 帳戶的控制平面支援設定 Azure Cosmos 帳戶的完整狀態。 控制平面呼叫的其中一個參數是 `virtualNetworkRules`。 如果未指定此參數，Azure CLI 會進行取得資料庫呼叫來抓取 `virtualNetworkRules`，並在 update 呼叫中使用此值。
+即使使用者未使用 Azure CLI 指定 VNET Acl，授權還是會驗證 VNet 資源動作的許可權。 目前，Azure Cosmos 帳戶的控制平面支援設定 Azure Cosmos 帳戶的完整狀態。 控制平面呼叫的其中一個參數是 `virtualNetworkRules`。 如果未指定此參數，Azure CLI 會進行取得資料庫呼叫來抓取 `virtualNetworkRules`，並在 update 呼叫中使用此值。
 
 ### <a name="do-the-peered-virtual-networks-also-have-access-to-azure-cosmos-account"></a>對等互連的虛擬網路也可以存取 Azure Cosmos 帳戶嗎？ 
 只有新增至 Azure Cosmos 帳戶的虛擬網路和其子網路可以存取。 只有將對等互連之虛擬網路內的子網路新增到帳戶之後，其對等互連的 VNet 才能存取帳戶。

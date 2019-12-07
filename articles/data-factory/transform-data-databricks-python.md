@@ -1,5 +1,5 @@
 ---
-title: 使用 Databricks Python 轉換資料-Azure
+title: 使用 Databricks Python 轉換資料
 description: 了解如何藉由執行 Databricks Python 來處理或轉換資料。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 47654e8183dab120376f94df63d7664ead5dd580
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1acc484b8843fc1fe1acae5759a24f923396e003
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683944"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893938"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>在 Azure Databricks 中執行 Python 活動來轉換資料
 
@@ -62,13 +62,13 @@ ms.locfileid: "73683944"
 
 下表說明 JSON 定義中使用的 JSON 屬性：
 
-|屬性|描述|必要|
+|屬性|描述|必要項|
 |---|---|---|
-|名稱|管線中的活動名稱。|yes|
-|Description|說明活動用途的文字。|否|
-|類型|若是 Databricks Python 活動，則活動類型是 DatabricksSparkPython。|yes|
-|linkedServiceName|Python 活動執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|yes|
-|pythonFile|要執行之 Python 檔案的 URI。 只支援 DBFS 路徑。|yes|
+|名稱|管線中的活動名稱。|是|
+|說明|說明活動用途的文字。|否|
+|類型|若是 Databricks Python 活動，則活動類型是 DatabricksSparkPython。|是|
+|linkedServiceName|Python 活動執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|是|
+|pythonFile|要執行之 Python 檔案的 URI。 只支援 DBFS 路徑。|是|
 |參數|將傳遞至 Python 檔案的命令列參數。 這是字串陣列。|否|
 |程式庫|要在負責執行工作的叢集上，即將安裝的程式庫清單。 可以是 < 字串, 物件 > 陣列|否|
 

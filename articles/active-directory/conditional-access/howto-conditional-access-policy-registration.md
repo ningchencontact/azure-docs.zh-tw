@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08c1db1a8e377edd1bf9b8f1b942e65b970edf56
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 866b682c9e1ebcb1b3458d26c638237905d06b05
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803671"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889729"
 ---
 # <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>條件式存取： MFA 註冊需要信任的位置
 
-在條件式存取原則中，您現在可以透過使用者動作來保護使用者註冊 Azure 多重要素驗證和自助式密碼重設的時間和方式。 此預覽功能適用于已啟用[合併註冊預覽](../authentication/concept-registration-mfa-sspr-combined.md)的組織。 您可以在組織中啟用這項功能，讓使用者註冊 Azure 多重要素驗證，並從中央位置（例如，在 HR 上架期間受信任的網路位置） SSPR。 如需有關如何在條件式存取中建立信任位置的詳細資訊, 請參閱 [什麼是 Azure Active Directory 條件式存取中的位置條件？](../conditional-access/location-condition.md#named-locations)。
+在條件式存取原則中，您現在可以透過使用者動作來保護使用者註冊 Azure 多重要素驗證和自助式密碼重設的時間和方式。 此預覽功能適用于已啟用[合併註冊預覽](../authentication/concept-registration-mfa-sspr-combined.md)的組織。 這項功能可能會在想要使用「信任的網路位置」等條件的組織中啟用，以限制註冊 Azure 多重要素驗證和 SSPR 的存取權。 如需有關如何在條件式存取中建立信任位置的詳細資訊, 請參閱 [什麼是 Azure Active Directory 條件式存取中的位置條件？](../conditional-access/location-condition.md#named-locations)。
 
 ## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>建立要求從信任位置註冊的原則
 

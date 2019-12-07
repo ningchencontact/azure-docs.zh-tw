@@ -1,5 +1,6 @@
 ---
-title: 使用共用金鑰授權呼叫 Azure 儲存體 REST API 作業 |Microsoft Docs
+title: 使用共用金鑰授權呼叫 REST API 作業
+titleSuffix: Azure Storage
 description: 使用 Azure 儲存體 REST API，向使用共用金鑰授權的 Blob 儲存體提出要求。
 services: storage
 author: tamram
@@ -9,14 +10,14 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 05f71d4952d5f500a93adbb740739a46e9036ac1
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 13e9abb2a7b79ad9355261832145766e424c3df6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803067"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895166"
 ---
-# <a name="using-the-azure-storage-rest-api"></a>使用 Azure 儲存體 REST API
+# <a name="call-rest-api-operations-with-shared-key-authorization"></a>使用共用金鑰授權呼叫 REST API 作業
 
 本文說明如何呼叫 Azure 儲存體 REST Api，包括如何形成授權標頭。 它是以開發人員的觀點來撰寫，他不知道什麼是 REST，而且也不知道如何進行 REST 呼叫。 在您瞭解如何呼叫 REST 作業之後，您可以利用此知識來使用任何其他 Azure 儲存體 REST 作業。
 
@@ -26,7 +27,7 @@ ms.locfileid: "71803067"
 
 - 使用**Azure 開發**工作負載安裝[Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) 。
 
-- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 - 一般用途的儲存體帳戶。 如果您還沒有儲存體帳戶，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
 
@@ -58,13 +59,13 @@ REST API 的呼叫包含由用戶端提出的要求，以及由服務傳回的�
 
 如果您查看 [Blob 服務 REST API](/rest/api/storageservices/Blob-Service-REST-API)，您會看到可以在 blob 儲存體上執行的所有作業。 儲存體用戶端程式庫以 REST API 為主的包裝函式，可讓您輕鬆地存取儲存體，而不需直接使用 REST API。 但如上所述，有時候您想要使用 REST API，而不是儲存體用戶端程式庫。
 
-## <a name="rest-api-reference-list-containers-api"></a>REST API 參考資料：列出容器 API
+## <a name="list-containers-operation"></a>列出容器作業
 
-請查看[ListContainers](/rest/api/storageservices/List-Containers2)作業 REST API 參考中的頁面。 這項資訊可協助您瞭解要求和回應中的某些欄位來自何處。
+檢查[ListContainers](/rest/api/storageservices/List-Containers2)作業的參考。 這項資訊可協助您瞭解要求和回應中的某些欄位來自何處。
 
 **要求方法**：GET。 此動詞命令是您指定作為要求物件屬性的 HTTP 方法。 視您呼叫的 API 而定，此動詞命令的其他值包括 HEAD、PUT 和 DELETE。
 
-**要求 URI**： `https://myaccount.blob.core.windows.net/?comp=list`。  要求 URI 會從 blob 儲存體帳戶端點建立 `http://myaccount.blob.core.windows.net`，而資源字串 `/?comp=list`。
+**要求 URI**： `https://myaccount.blob.core.windows.net/?comp=list`。  要求 URI 是從 blob 儲存體帳戶端點 `http://myaccount.blob.core.windows.net` 建立，而資源字串 `/?comp=list`。
 
 [URI 參數](/rest/api/storageservices/List-Containers2#uri-parameters)：呼叫 ListContainers 時，您有其他查詢參數可以使用。 其中有幾個參數是呼叫的 timeout (以秒為單位) 以及用於篩選的 prefix。
 
@@ -78,13 +79,13 @@ REST API 的呼叫包含由用戶端提出的要求，以及由服務傳回的�
 
 [要求標頭](/rest/api/storageservices/List-Containers2#request-headers) **：** 此區段列出必要及選用的要求標頭。 三個必要標頭：Authorization 標頭、x-ms-date (包含要求的 UTC 時間) 及 x-ms-version (指定要使用的 REST API 版本)。 選擇性地在標頭中包含 *x-ms-client-request-id* – 您可以將此欄位的值設定為任意值；若已啟用記錄功能，則會寫入至儲存體分析記錄中。
 
-[要求本文](/rest/api/storageservices/List-Containers2#request-body) **：** ListContainers 沒有要求主體。 要求主體使用於上傳 blob 時的所有 PUT 作業，也會使用於 SetContainerAccessPolicy，其可讓您以要套用之預存存取原則的 XML 清單傳送。 [使用共用存取簽章 (SAS)](storage-sas-overview.md) 一文會討論預存存取原則。
+[要求主體](/rest/api/storageservices/List-Containers2#request-body) **：** ListContainers 沒有要求主體。 要求主體使用於上傳 blob 時的所有 PUT 作業，也會使用於 SetContainerAccessPolicy，其可讓您以要套用之預存存取原則的 XML 清單傳送。 [使用共用存取簽章 (SAS)](storage-sas-overview.md) 一文會討論預存存取原則。
 
 [回應狀態碼](/rest/api/storageservices/List-Containers2#status-code) **：** 告知您需要知道的任何狀態碼。 在此範例中，HTTP 狀態碼 200 表示「正常」。 如需完整的 HTTP 狀態碼清單，請參閱[狀態碼定義](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)。 若要查看儲存體 REST API 特有的錯誤碼，請參閱[常見的 REST API 錯誤碼](/rest/api/storageservices/common-rest-api-error-codes)
 
 [回應標頭](/rest/api/storageservices/List-Containers2#response-headers) **：** 這些包括*內容類型*;*x-ms-要求*識別碼，這是您傳入的要求識別碼;[ *x-ms-版本*]，表示所使用的 Blob 服務版本。和*日期*（UTC）並告訴您提出要求的時間。
 
-[回應本文](/rest/api/storageservices/List-Containers2#response-body)：這個欄位是一種 XML 結構，可提供所要求的資料。 在此範例中，回應是容器及其屬性的清單。
+[回應主體](/rest/api/storageservices/List-Containers2#response-body)：這個欄位是一種 XML 結構，可提供所要求的資料。 在此範例中，回應是容器及其屬性的清單。
 
 ## <a name="creating-the-rest-request"></a>建立 REST 要求
 
@@ -129,32 +130,32 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 {
 ```
 
-新增 `x-ms-date` 和 `x-ms-version` 的要求標頭。 程式碼中的這個位置也就是您新增呼叫所需之任何其他要求標頭的位置。 在此範例中，沒有任何額外的標頭。 傳入額外標頭的 API 範例是設定容器 ACL 作業。 此 API 呼叫會新增名為 "x-ms-public-access" 的標頭，以及存取層級的值。
+新增 `x-ms-date` 和 `x-ms-version`的要求標頭。 程式碼中的這個位置也就是您新增呼叫所需之任何其他要求標頭的位置。 在此範例中，沒有任何額外的標頭。 傳入額外標頭的 API 範例是設定容器 ACL 作業。 此 API 呼叫會新增名為 "x-ms-public-access" 的標頭，以及存取層級的值。
 
 ```csharp
-    // Add the request headers for x-ms-date and x-ms-version.
-    DateTime now = DateTime.UtcNow;
-    httpRequestMessage.Headers.Add("x-ms-date", now.ToString("R", CultureInfo.InvariantCulture));
-    httpRequestMessage.Headers.Add("x-ms-version", "2017-07-29");
-    // If you need any additional headers, add them here before creating
-    //   the authorization header.
+// Add the request headers for x-ms-date and x-ms-version.
+DateTime now = DateTime.UtcNow;
+httpRequestMessage.Headers.Add("x-ms-date", now.ToString("R", CultureInfo.InvariantCulture));
+httpRequestMessage.Headers.Add("x-ms-version", "2017-07-29");
+// If you need any additional headers, add them here before creating
+//   the authorization header.
 ```
 
 呼叫可建立授權標頭的方法，並將它新增至要求標頭。 您會理解如何建立本文後面的授權標頭。 此方法名稱是 GetAuthorizationHeader，您可以在此程式碼片段中看到該方法：
 
 ```csharp
-    // Get the authorization header and add it.
-    httpRequestMessage.Headers.Authorization = AzureStorageAuthenticationHelper.GetAuthorizationHeader(
-        storageAccountName, storageAccountKey, now, httpRequestMessage);
+// Get the authorization header and add it.
+httpRequestMessage.Headers.Authorization = AzureStorageAuthenticationHelper.GetAuthorizationHeader(
+    storageAccountName, storageAccountKey, now, httpRequestMessage);
 ```
 
 此時，`httpRequestMessage` 包含帶有授權標頭的 REST 要求。
 
-## <a name="call-the-rest-api-with-the-request"></a>使用要求呼叫 REST API
+## <a name="send-the-request"></a>傳送要求
 
-您現在有此要求，即可呼叫 SendAsync 以傳送 REST 要求。 SendAsync 可呼叫 API 並重新取得回應。 檢查回應 StatusCode (200 表示「正常」)，然後剖析回應。 在此情況下，您會取得容器的 XML 清單。 讓我們查看用於呼叫 GetRESTRequest 方法以建立要求的程式碼，執行此要求，然後檢查容器清單的回應。
+現在您已建立要求，您可以呼叫 SendAsync 方法，將它傳送給 Azure 儲存體。 檢查回應狀態碼的值是否為200，表示作業已成功。 接下來，剖析回應。 在此情況下，您會取得容器的 XML 清單。 讓我們查看用於呼叫 GetRESTRequest 方法以建立要求的程式碼，執行此要求，然後檢查容器清單的回應。
 
-```csharp 
+```csharp
     // Send the request.
     using (HttpResponseMessage httpResponseMessage =
       await new HttpClient().SendAsync(httpRequestMessage, cancellationToken))
@@ -204,7 +205,7 @@ Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
 
-**回應主題 (XML)：** 針對「列出容器」作業，這會顯示容器和其屬性的清單。
+**回應主體（XML）：** 針對「列出容器」作業，這會顯示容器和其屬性的清單。
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -430,7 +431,7 @@ AuthorizationHeader 是在張貼回應之前，放在要求標頭中的最後一
 
 其中涵蓋您需要知道的所有專案，以便將類別結合在一起，讓您可以建立呼叫儲存體服務 REST Api 的要求。
 
-## <a name="example-list-blobs"></a>範例：列出 Blob
+## <a name="example-list-blobs"></a>範例：列出 blob
 
 讓我們看看如何變更程式碼，以呼叫容器容器的清單 Blob 作業 *-1*。 這段程式碼幾乎與列出容器的程式碼完全相同，唯一的差異是 URI 和剖析回應的方式。
 
@@ -515,7 +516,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**回應主題 (XML)：** 此 XML 回應會顯示 blob 和其屬性的清單。 
+**回應主體 (XML)：** 此 XML 回應會顯示 blob 和其屬性的清單。 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -571,4 +572,4 @@ Content-Length: 1135
 - [Blob 服務 REST API](/rest/api/storageservices/blob-service-rest-api)
 - [檔案服務 REST API](/rest/api/storageservices/file-service-rest-api)
 - [佇列服務 REST API](/rest/api/storageservices/queue-service-rest-api)
-- [資料表服務 REST API](/rest/api/storageservices/table-service-rest-api)
+- [資料表服務 REST API](/rest/api/storageservices/table-service-rest-api) \(英文\)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 14e2f79383aa45125ce6955f3611a75ece1df10d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 410c182075d0aa288ad05195958c396f1a357ff1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152940"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893564"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>針對 Azure 自動調整進行疑難排解
  
@@ -115,7 +115,7 @@ Azure 監視器自動調整可協助您讓適當的資源量執行，以處理�
 
 ![自動調整診斷設定](media/autoscale-troubleshoot/diagnostic-settings.png)
 
-上圖顯示 Azure 入口網站自動調整的診斷設定。 您可以在這裡選取 [診斷記錄] 索引標籤，並啟用記錄收集和路由。 您也可以使用 REST API、CLI、PowerShell Resource Manager 範本來執行相同的動作，方法是選擇 [資源類型] 做為 [ *Microsoft Insights/AutoscaleSettings*]。 
+上圖顯示 Azure 入口網站自動調整的診斷設定。 您可以在這裡選取 [診斷/資源記錄] 索引標籤，並啟用記錄收集和路由。 您也可以使用 REST API、CLI、PowerShell Resource Manager 範本來執行相同的動作，方法是選擇 [資源類型] 做為 [ *Microsoft Insights/AutoscaleSettings*]。 
 
 ## <a name="troubleshooting-using-autoscale-logs"></a>使用自動調整記錄進行疑難排解 
 

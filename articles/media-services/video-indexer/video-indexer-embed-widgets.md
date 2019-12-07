@@ -1,7 +1,7 @@
 ---
 title: 在您的應用程式中內嵌影片索引子小工具
 titleSuffix: Azure Media Services
-description: 瞭解如何在您的應用程式中內嵌影片索引子小工具。
+description: 本文示範如何在您的應用程式中內嵌 Azure 媒體服務影片索引子小工具。
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 99d6647ab5e7fa8f35cef883dd00ae9fea866370
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: bb0af855a136c83eac7e28287b28046b50a7c124
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839111"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892731"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>在您的應用程式中內嵌影片索引子小工具
 
@@ -29,7 +29,7 @@ ms.locfileid: "73839111"
 
 認知深入解析 widget 包含所有從您的影片編制索引程式中解壓縮的視覺深入解析。 認知深入解析小工具支援下列選擇性 URL 參數。
 
-|名稱|定義|說明|
+|Name|定義|描述|
 |---|---|---|
 |`widgets`|以逗號分隔的字串|可讓您控制要呈現的見解。 <br/> 範例： `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` 只轉譯人員和品牌 UI 深入解析。<br/>可用的選項：人員、關鍵字、註解、品牌、情緒、文字記錄、搜尋。<br/>請注意，在第2版中不支援 `widgets` URL 參數。<br/>|
 |`locale`|簡短的語言代碼|控制 insights 語言。 預設值為 `en`。 <br/> 範例：`locale=de`.|
@@ -39,7 +39,7 @@ ms.locfileid: "73839111"
 
 您可以使用 [播放程式] 小工具，透過調適型位元速率來串流影片。 播放工具 widget 支援下列選擇性 URL 參數。
 
-|名稱|定義|說明|
+|Name|定義|描述|
 |---|---|---|
 |`t`|開始的秒數|讓玩家從指定的時間點開始播放。<br/> 範例：`t=60`.|
 |`captions`|語言代碼|在 widget 載入時，以指定的語言提取標題，以供 [**標題**] 功能表使用。<br/> 範例：`captions=en-US`.|
@@ -52,9 +52,9 @@ ms.locfileid: "73839111"
 
 您可以使用編輯器 widget 來建立新的專案，以及管理影片的深入解析。 編輯器 widget 支援下列選擇性 URL 參數。
 
-|名稱|定義|說明|
+|Name|定義|描述|
 |---|---|---|
-|`accessToken`<sup>*</sup>|字串|提供只在用來內嵌 widget 之帳戶中的影片存取。<br> 編輯器 widget 需要 `accessToken` 參數。|
+|`accessToken`<sup>*</sup>|String|提供只在用來內嵌 widget 之帳戶中的影片存取。<br> 編輯器 widget 需要 `accessToken` 參數。|
 |`language`|語言代碼|控制播放機語言。 預設值為 `en-US`。<br/>範例：`language=de-DE`.|
 |`locale`|簡短的語言代碼|控制 insights 語言。 預設值為 `en`。<br/>範例：`language=de`.|
 
@@ -76,7 +76,7 @@ ms.locfileid: "73839111"
     ![小工具](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 > [!NOTE]
-> 如果您在共用影片 Url 時發生問題，請將 `location` 參數新增至連結。 參數應該設定為[影片索引子所在的 Azure 區域](regions.md)。 例如： `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`。
+> 如果您在共用影片 Url 時發生問題，請將 `location` 參數新增至連結。 參數應該設定為[影片索引子所在的 Azure 區域](regions.md)。 例如： `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial` 。
 
 ## <a name="embedding-private-content"></a>內嵌私人內容
 
@@ -261,7 +261,7 @@ iframe 視窗的標題也可透過將 `&title=<YourTitle>` 提供給 iframe URL 
 
 如果您想要停用標題，您可以將 `captions` 參數值當做 `false`傳遞。
 
-#### <a name="autoplay"></a>播放
+#### <a name="autoplay"></a>AutoPlay
 根據預設，播放程式會開始播放影片。 您可以將 `&autoplay=false` 傳遞至先前的內嵌 URL，以選擇不進行。
 
 ## <a name="next-steps"></a>後續步驟

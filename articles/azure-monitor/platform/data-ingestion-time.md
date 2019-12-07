@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 8b40d89920208eaf15e01b3519b667a77baf8671
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: bd6590ebbd33dc5c9b65fc193679f4bf99760c3a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932572"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894142"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure 監視器中的記錄資料擷取時間
 Azure 監視器是一種大規模的資料服務，服務對象為每月需傳送數 TB 資料 (且不斷成長) 的上千名客戶。 而在收集記錄資料後，資料需要多久時間方能轉為可用狀態，是經常受到詢問的問題。 本文會說明影響這種延遲的不同因素。
@@ -40,10 +40,10 @@ Azure 監視器是一種大規模的資料服務，服務對象為每月需傳�
 ### <a name="agent-upload-frequency"></a>代理程式上傳頻率
 為確保 Log Analytics 代理程式是輕量的，代理程式會緩衝記錄，並定期將其上傳至 Azure 監視器。 上傳頻率在 30 秒到 2 分鐘之間，視資料類型而定。 大部分的資料會在 1 分鐘內上傳。 網路狀況可能會對此資料的延遲產生負面影響，而難以達到 Azure 監視器擷取點。
 
-### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Azure 活動記錄、診斷記錄及計量
+### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Azure 活動記錄、資源記錄和計量
 為了在 Log Analytics 內嵌點變成可供處理，Azure 資料會多花費一些時間：
 
-- 視 Azure 服務而定，來自診斷記錄的資料需要 2-15 分鐘的時間。 若要檢查您環境中的這項延遲，請參閱[下方的查詢](#checking-ingestion-time)
+- 來自資源記錄的資料需要2-15 分鐘的時間，視 Azure 服務而定。 若要檢查您環境中的這項延遲，請參閱[下方的查詢](#checking-ingestion-time)
 - Azure 平台計量需要 3 分鐘的時間，才能傳送到 Log Analytics 內嵌點。
 - Azure 記錄資料將需要 10-15 分鐘的時間，才能傳送到 Log Analytics 內嵌點。
 
@@ -58,7 +58,7 @@ Azure 監視器是一種大規模的資料服務，服務對象為每月需傳�
 請參閱每個解決方案的文件以確定其收集頻率。
 
 ### <a name="pipeline-process-time"></a>管理處理程序時間
-將記錄檔記錄內嵌至 Azure 監視器管線（如[_TimeReceived](log-standard-properties.md#_timereceived)屬性中所識別）之後，它們就會寫入暫存儲存體，以確保租使用者隔離，並確保資料不會遺失。 此程序通常會增加 5-15 秒。 某些管理解決方案會實作更繁重的演算法以彙總資料，並在資料流入時獲得見解。 例如，網路效能監控會每 3 分鐘彙總傳入資料，有效地增加 3 分鐘的延遲。 另一個會增加延遲的程序是處理自訂記錄的程序。 在某些情況下，對於代理程式收集自檔案的記錄，此程序可能會增加數分鐘的延遲。
+將記錄檔記錄內嵌到 Azure 監視器管線（如[_TimeReceived](log-standard-properties.md#_timereceived)屬性中所識別）之後，它們就會寫入暫存儲存體，以確保租使用者隔離，並確保資料不會遺失。 此程序通常會增加 5-15 秒。 某些管理解決方案會實作更繁重的演算法以彙總資料，並在資料流入時獲得見解。 例如，網路效能監控會每 3 分鐘彙總傳入資料，有效地增加 3 分鐘的延遲。 另一個會增加延遲的程序是處理自訂記錄的程序。 在某些情況下，對於代理程式收集自檔案的記錄，此程序可能會增加數分鐘的延遲。
 
 ### <a name="new-custom-data-types-provisioning"></a>新的自訂資料類型佈建
 從[自訂記錄](data-sources-custom-logs.md)或[資料收集器 API](data-collector-api.md) 建立新類型的自訂資料時，系統會建立專用的儲存體容器。 這是一次性的額外負荷，僅在第一次出現此資料類型時發生。
@@ -80,10 +80,10 @@ Azure 監視器的首要任務是確保不會遺失客戶資料，因此系統�
 |:---|:---|:---|
 | 在資料來源建立的記錄 | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>如果資料來源未設定此值，則會將它設定為與 _TimeReceived 相同的時間。 |
 | Azure 監視器內嵌端點所收到的記錄 | [_TimeReceived](log-standard-properties.md#_timereceived) | |
-| 儲存在工作區中且可供查詢的記錄 | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
+| 儲存在工作區中且可供查詢的記錄 | [ingestion_time （）](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>擷取延遲
-您可以藉由比較[ingestion_time （）](/azure/kusto/query/ingestiontimefunction)函數與_TimeGenerated_屬性的結果，來測量特定記錄的延遲。 這項資料可以搭配各種彙總，用來了解延遲的運作方式。 檢查擷取時間的一些百分位數，取得大量資料的深入解析。 
+您可以藉由比較[ingestion_time （）](/azure/kusto/query/ingestiontimefunction)函式與_TimeGenerated_屬性的結果，來測量特定記錄的延遲。 這項資料可以搭配各種彙總，用來了解延遲的運作方式。 檢查擷取時間的一些百分位數，取得大量資料的深入解析。 
 
 例如，下列查詢會顯示在過去8小時內，哪些電腦的內嵌時間最高： 
 

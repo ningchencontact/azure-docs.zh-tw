@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c487ed02abda652a384f2f295c3edac4b56fc654
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7e8ce4f2fbdffc46d18a5f94496e9433c01a65fb
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027251"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900948"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>建立動態群組並檢查狀態
 
@@ -47,10 +47,10 @@ Azure AD 提供規則產生器，更快速地建立及更新您的重要規則�
 ## <a name="to-create-a-group-membership-rule"></a>建立群組成員資格規則
 
 1. 使用租使用者中全域管理員、Intune 管理員或使用者系統管理員角色的帳戶登入[Azure AD 系統管理中心](https://aad.portal.azure.com)。
-1. 選取 [群組]。
+1. 搜尋並選取 [**群組**]。
 1. 選取 [所有群組]，然後選取 [新增群組]。
 
-   ![選取命令以新增群組](./media/groups-create-rule/new-group-creation.png)
+   ![選取命令以新增群組](./media/groups-create-rule/create-new-group-azure-active-directory.png)
 
 1. 在 [**群組**] 頁面上，輸入新群組的名稱和描述。 選取使用者或裝置的**成員資格類型**，然後選取 [**新增動態查詢**]。 「規則產生器」最多支援五個運算式。 若要加入五個以上的運算式，您必須使用文字方塊。
 
@@ -88,7 +88,7 @@ Azure AD 提供規則產生器，更快速地建立及更新您的重要規則�
 - **進行中**：目前正在更新。
 - **未知**：無法抓取上次更新時間。 群組可能是新的。
 
-如果處理特定群組的成員資格規則時發生錯誤，則會在群組的 [概觀] 頁面頂端顯示警示。 如果無法處理租用戶內所有群組 24 小時內的暫止動態成員資格更新，則會在 [所有群組] 頂端顯示警示。
+如果處理特定群組的成員資格規則時發生錯誤，則會在群組的 [概觀] 頁面頂端顯示警示。 如果租使用者中的所有群組都無法處理擱置中的動態成員資格更新超過24小時，則會在 [**所有群組**] 的頂端顯示警示。
 
 ![處理錯誤訊息警示](./media/groups-create-rule/processing-error.png)
 

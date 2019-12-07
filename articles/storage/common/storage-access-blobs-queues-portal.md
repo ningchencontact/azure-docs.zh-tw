@@ -1,20 +1,21 @@
 ---
-title: 使用 Azure 入口網站存取 blob 或佇列資料-Azure 儲存體
+title: 使用 Azure 入口網站來存取 blob 或佇列資料
+titleSuffix: Azure Storage
 description: 當您使用 Azure 入口網站存取 blob 或佇列資料時，入口網站會要求在幕後 Azure 儲存體。 這些 Azure 儲存體的要求可以使用您的 Azure AD 帳戶或儲存體帳戶存取金鑰來進行驗證和授權。
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3d5d5bd6400fdf09216124665b6b236b4da2583b
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 89816e3640c0afad6290e77faa3904c691df4318
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673284"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892392"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>使用 Azure 入口網站來存取 blob 或佇列資料
 
@@ -48,9 +49,9 @@ ms.locfileid: "71673284"
 
 支援 blob 或佇列資料存取的內建角色包括：
 
-- [儲存體 Blob 資料擁有](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)者：適用于 Azure Data Lake Storage Gen2 的 POSIX 存取控制。
-- [儲存體 Blob 資料參與者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)：Blob 的讀取/寫入/刪除許可權。
-- [儲存體 Blob 資料讀取器](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)：Blob 的唯讀許可權。
+- [儲存體 Blob 資料擁有](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)者：適用于 AZURE DATA LAKE STORAGE GEN2 的 POSIX 存取控制。
+- [儲存體 Blob 資料參與者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)： blob 的讀取/寫入/刪除許可權。
+- [儲存體 Blob 資料讀取器](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)： blob 的唯讀許可權。
 - [儲存體佇列資料參與者](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)：佇列的讀取/寫入/刪除許可權。
 - [儲存體佇列資料讀取器](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader)：佇列的唯讀許可權。
     

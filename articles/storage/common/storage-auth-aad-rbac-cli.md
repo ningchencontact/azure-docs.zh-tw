@@ -1,22 +1,23 @@
 ---
-title: 使用 Azure CLI 以 RBAC 管理 blob 和佇列資料的 Azure AD 存取權限-Azure 儲存體
-description: 使用 Azure CLI，透過角色型存取控制（RBAC）指派容器和佇列的存取權。 Azure 儲存體支援內建和自訂的 RBAC 角色，以透過 Azure AD 進行驗證。
+title: 使用 Azure CLI 來指派用於資料存取的 RBAC 角色
+titleSuffix: Azure Storage
+description: 瞭解如何使用 Azure CLI，以角色型存取控制（RBAC）將許可權指派給 Azure Active Directory 的安全性主體。 Azure 儲存體支援內建和自訂的 RBAC 角色，以透過 Azure AD 進行驗證。
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 606dd88fbad8cbd5c7e24d47dcf71199a25b49a2
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: abe35f3193e2d7ff9a949ca7cd330cb58da2b78c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673199"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891963"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>使用 Azure CLI 以 RBAC 授與 Azure blob 和佇列資料的存取權
+# <a name="use-azure-cli-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>使用 Azure CLI 來指派用於存取 blob 和佇列資料的 RBAC 角色
 
 Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](../../role-based-access-control/overview.md)，來授與存取受保護資源的權限。 Azure 儲存體會定義一組內建的 RBAC 角色，其中包含用來存取 blob 或佇列資料的常用許可權集。
 
@@ -28,7 +29,7 @@ Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](../../
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>判斷資源範圍 
+## <a name="determine-resource-scope"></a>判斷資源範圍
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
@@ -92,7 +93,7 @@ az role assignment create \
 
 ### <a name="storage-account-scope"></a>儲存體帳戶範圍
 
-若要指派範圍限於儲存體帳戶的角色，請指定 `--scope` 參數的儲存體帳戶資源範圍。 儲存體帳戶的範圍格式如下：
+若要指派範圍限於儲存體帳戶的角色，請為 `--scope` 參數指定儲存體帳戶資源的範圍。 儲存體帳戶的範圍格式如下：
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>

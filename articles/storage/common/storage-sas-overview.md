@@ -1,20 +1,21 @@
 ---
-title: 使用共用存取簽章（SAS）授與 Azure 儲存體資源的有限存取權
+title: 使用共用存取簽章（SAS）授與資料的有限存取權
+titleSuffix: Azure Storage
 description: 瞭解如何使用共用存取簽章（SAS）來委派 Azure 儲存體資源（包括 blob、佇列、資料表和檔案）的存取權。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 9623152bdea5cc56e6b9bcb7d9911a730fd7a4a4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e4a5f83e3f4d26c2321ed1b4c48a385d07e6489d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72382002"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895144"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>使用共用存取簽章（SAS）授與 Azure 儲存體資源的有限存取權
 

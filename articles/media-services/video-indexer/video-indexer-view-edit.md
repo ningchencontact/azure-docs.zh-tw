@@ -1,7 +1,7 @@
 ---
 title: 檢視及編輯影片索引器深入解析
 titlesuffix: Azure Media Services
-description: 本主題會示範如何檢視和編輯影片索引器的深入解析。
+description: 本文示範如何觀看和編輯 Azure 媒體服務影片索引子深入解析。
 services: media-services
 author: Juliako
 manager: femila
@@ -10,24 +10,24 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 24a723bd32cb40807da1757b3fffb925d4ba1fef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9bb516d498d989b97f1069af9a9f4cb673ea96d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799167"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892663"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>檢視及編輯影片索引器深入解析
 
 本主題會說明如何檢視和編輯影片的影片索引器深入解析。
 
-1. 瀏覽至[影片索引器](https://www.videoindexer.ai/)網站並登入。
+1. 瀏覽至[影片索引子](https://www.videoindexer.ai/)網站並登入。
 2. 尋找您要從中建立影片所影器深入解析的影片。 如需詳細資訊，請參閱[尋找影片中的確切時間](video-indexer-search.md)。
-3. 按下 [播放]  。
+3. 按下 [播放]。
 
     頁面會顯示影片的深入解析摘要。 
 
-    ![深入解析](./media/video-indexer-view-edit/video-indexer-summarized-insights.png)
+    ![深入資訊](./media/video-indexer-view-edit/video-indexer-summarized-insights.png)
 
 4. 檢視影片的深入解析摘要。 
 
@@ -37,9 +37,9 @@ ms.locfileid: "65799167"
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用您的影片深入解析](use-editor-create-project.md)
+[使用您的影片深度深入解析](use-editor-create-project.md)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [影片索引子概觀](video-indexer-overview.md)
 

@@ -3,21 +3,20 @@ title: 使用 Azure Data Factory 從 SAP BW 複製資料
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 SAP Business Warehouse 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: jingwang
-ms.openlocfilehash: c2dbacc2fd7906aaf22447dfb39c543206f05392
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 26693219f44d16c8bc20ee94ae0590414ba88f73
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680293"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896338"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Business Warehouse 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -66,7 +65,7 @@ ms.locfileid: "73680293"
 
 以下是針對 SAP Business Warehouse (BW) 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 類型屬性必須設定為：**SapBw** | 是 |
 | 伺服器 | SAP BW 執行個體所在之伺服器的名稱。 | 是 |
@@ -134,7 +133,7 @@ ms.locfileid: "73680293"
 
 若要從 SAP BW 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動來源的類型屬性必須設定為： **SapBwSource** | 是 |
 | query | 指定 MDX 查詢從 SAP BW 執行個體讀取資料。 | 是 |
@@ -180,27 +179,27 @@ ms.locfileid: "73680293"
 | SAP BW 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
 | ACCP | Int |
-| CHAR | 字串 |
-| CLNT | 字串 |
+| CHAR | String |
+| CLNT | String |
 | CURR | Decimal |
-| CUKY | 字串 |
+| CUKY | String |
 | DEC | Decimal |
-| FLTP | Double |
-| INT1 | 位元組 |
+| FLTP | DOUBLE |
+| INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | Int |
-| LANG | 字串 |
-| LCHR | 字串 |
+| LANG | String |
+| LCHR | String |
 | LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | 字串 |
-| 單位 | 字串 |
-| DATS | 字串 |
-| NUMC | 字串 |
-| TIMS | 字串 |
+| STRING | String |
+| 單位 | String |
+| DATS | String |
+| NUMC | String |
+| TIMS | String |
 
 
 ## <a name="lookup-activity-properties"></a>查閱活動屬性

@@ -8,12 +8,12 @@ ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 158d92c6b0527f24d12044fe3038c1cd7f3f45ac
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9302cb8c78766611518139437abd666394c6206c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850987"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894227"
 ---
 # <a name="upgrade-azure-data-lake-storage-from-gen1-to-gen2"></a>將 Azure Data Lake Storage 從 Gen1 升級至 Gen2
 
@@ -137,7 +137,7 @@ ms.locfileid: "74850987"
 | 分析架構 | Cloudera     | CDH                  | [連結](https://www.cloudera.com/documentation/enterprise/5-11-x/topics/admin_adls_config.html)                                                                                            | *尚未提供*                                                                                                  | [連結](https://www.cloudera.com/documentation/enterprise/latest/topics/admin_adls2_config.html)                                                                                                  |
 |                     | Cloudera     | Altus                | [連結](https://www.cloudera.com/more/news-and-blogs/press-releases/2017-09-27-cloudera-introduces-altus-data-engineering-microsoft-azure-hybrid-multi-cloud-data-analytic-workflows.html) | *不支援*                                                                                                                  | *尚未提供*                                                                                                  |
 |                     | HortonWorks  | HDP 3.0              | [連結](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.3/bk_cloud-data-access/content/adls-get-started.html)                                                                       | *尚未提供*                                                                                                  | *尚未提供*                                                                                                  |
-|                     | Qubole       |                      | [連結](https://www.qubole.com/blog/big-data-analytics-microsoft-azure-data-lake-store-qubole/)                                                                                            | *尚未提供*                                                                                                  | *尚未提供*                                                                                                  |
+|                     | Qubole       |                      | [連結](https://www.qubole.com/blog/big-data-analytics-microsoft-azure-data-lake-store-qubole/)                                                                                            | [連結](https://docs.qubole.com/en/latest/quick-start-guide/Azure-quick-start-guide/QuboleConnect/detailed-azure-qubole-steps/azure-Azure-setup.html#step-4c-configure-azure-data-lake-gen-2-storage-with-keys)                                                                                                  | [連結](https://docs.qubole.com/en/latest/quick-start-guide/Azure-quick-start-guide/QuboleConnect/detailed-azure-qubole-steps/azure-Azure-setup.html#step-4d-configure-azure-data-lake-gen-2-storage-with-tokens)                                                                                                 |
 | ETL                 | StreamSets   |                      | [連結](https://streamsets.com/blog/ingest-data-azure)                                                                                                                                     | *尚未提供*                                                                                                  | *尚未提供*                                                                                                  |
 |                     | Informatica  |                      | [連結](https://kb.informatica.com/proddocs/Product%20Documentation/6/IC_Spring2017_MicrosoftAzureDataLakeStoreV2ConnectorGuide_en.pdf)                                                    | *尚未提供*                                                                                                  | *尚未提供*                                                                                                  |
 |                     | Attunity     |                      | [連結](https://www.attunity.com/company/press-releases/microsoft-and-attunity-announce-strategic-partnership-for-data-migration/)                                                         | *尚未提供*                                                                                                  | *尚未提供*                                                                                                  |

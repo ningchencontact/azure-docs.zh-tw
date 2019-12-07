@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: bd3e33fde3f4249064bfbe1973ee95f680630673
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2a2a96a823867ea7700933c8253a0ba500b0e1cf
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851157"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899815"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>使用 Azure 私用端點私下連接至儲存體帳戶
 Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Azure 資源（例如虛擬機器（Vm））私下與私人連結資源進行通訊。
@@ -132,7 +132,7 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
     | 子網路 | 選取 [mySubnet] ** 。 |
     | **私人 DNS 整合**|  |
     | 與私人 DNS 區域整合  | 保留預設值 [**是]** 。 |
-    | 私人 DNS 區域  | 保留預設的 * * （New） privatelink.blob.core.windows.net * *。 |
+    | 私人 DNS 區域  | 保留預設值 [ **（新增）] privatelink.blob.core.windows.net**。 |
     |||
 7. 選取 [確定]。 
 8. 選取 [檢閱 + 建立]。 您會移至 [檢閱 + 建立] 頁面，其中 Azure 會驗證您的設定。 
@@ -151,7 +151,7 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 1. 選取 [下載 RDP 檔案]。 Azure 會建立一個「遠端桌面通訊協定」( *.rdp*) 檔案，並下載至您的電腦。
 
-1. 開啟下載的 .rdp* 檔案。
+1. 開啟*下載的 .rdp*檔案。
 
     1. 如果出現提示，請選取 [連接]。
 

@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 媒體播放器播放 - Azure | Microsoft Docs
-description: 本主題提供 Azure 媒體播放器的概觀。
+description: Azure 媒體播放器是一款網頁視訊播放器，可以在各種瀏覽器和裝置上播放 Microsoft Azure 媒體服務的媒體內容。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: 6157f59d96770298d947a1cf6ca28aa343e1a0d4
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 8f1639a21e3783f587904c2a8085fd2f555ff5b8
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311830"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900361"
 ---
 # <a name="azure-media-player-overview"></a>Azure 媒體播放器概觀
 
@@ -35,9 +35,9 @@ Azure 媒體播放器是一款網頁視訊播放器，可以在各種瀏覽器�
 
 您可以使用 [Azure 媒體播放器示範頁面](https://aka.ms/azuremediaplayer)來播放 Azure 媒體服務範例或您自己的資料流。  
 
-若要播放新的影片，請貼上不同 URL，並按 [更新]  。
+若要播放新的影片，請貼上不同 URL，並按 [更新]。
 
-若要設定各種播放選項 (例如技術、語言或加密)，請按 [進階選項]  。
+若要設定各種播放選項 (例如技術、語言或加密)，請按 [進階選項]。
 
 ![Azure 媒體播放器](./media/azure-media-player/home-page.png)
 

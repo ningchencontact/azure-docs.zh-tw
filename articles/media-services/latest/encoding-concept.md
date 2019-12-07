@@ -1,7 +1,7 @@
 ---
 title: 使用媒體服務編碼影片和音訊
 titleSuffix: Azure Media Services
-description: 瞭解如何使用 Azure 媒體服務來編碼影片和音訊。
+description: 本文說明如何使用 Azure 媒體服務來編碼影片和音訊。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d3de307b1dadf302004fa9fd02c8cf23e36b3046
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e9a0a8c8709e41bb7778878f76024263cdc32481
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574271"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896078"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>使用媒體服務編碼影片和音訊
 
@@ -26,7 +26,7 @@ ms.locfileid: "73574271"
 
 影片通常會藉由[漸進式下載](https://en.wikipedia.org/wiki/Progressive_download)或透過自動調整[位元速率串流](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)，傳遞至裝置和應用程式。
 
-* 若要透過漸進式下載傳遞，您可以使用 Azure 媒體服務將數位媒體檔案（夾層）轉換成[可執行檔的](https://en.wikipedia.org/wiki/MPEG-4_Part_14)檔案，其中包含已使用[h.264 編解碼器](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC)編碼的影片，以及已使用[AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding)編碼的音訊編解碼器. 此「檔案」檔案會寫入至儲存體帳戶中的資產。 您可以使用 Azure 儲存體 Api 或 Sdk （例如[儲存體 REST API](../../storage/common/storage-rest-api-auth.md)或[.net SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)）直接下載檔案。 如果您已在儲存體中建立具有特定容器名稱的輸出資產，請使用該位置。 否則，您可以使用媒體服務來[列出資產容器 url](https://docs.microsoft.com/rest/api/media/assets/listcontainersas)。 
+* 若要透過漸進式下載進行傳遞，您可以使用 Azure 媒體服務將數位媒體檔案（夾層）轉換[成有案](https://en.wikipedia.org/wiki/MPEG-4_Part_14)的檔案，其中包含使用[h.264 編解碼器](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC)編碼的影片，以及使用[AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding)編解碼器編碼的音訊。 此「檔案」檔案會寫入至儲存體帳戶中的資產。 您可以使用 Azure 儲存體 Api 或 Sdk （例如[儲存體 REST API](../../storage/common/storage-rest-api-auth.md)或[.net SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)）直接下載檔案。 如果您已在儲存體中建立具有特定容器名稱的輸出資產，請使用該位置。 否則，您可以使用媒體服務來[列出資產容器 url](https://docs.microsoft.com/rest/api/media/assets/listcontainersas)。 
 * 若要以彈性位元速率串流準備傳遞內容，必須在多個位元速率（高至低）編碼夾層檔案。 為確保品質正常轉換，影片的解析度會因為位元速率降低而降低。 這會導致所謂的編碼階梯–一份解析度和位元速率的資料表（請參閱[自動產生的彈性位元速率階梯](autogen-bitrate-ladder.md)）。 您可以使用媒體服務，在多個位元速率對夾層檔案進行編碼。 在這種情況下，您會取得一組已寫入儲存體帳戶資產的「檔」檔案和相關聯的串流設定檔案。 然後，您可以使用媒體服務中的[動態封裝](dynamic-packaging-overview.md)功能，透過像是[mpeg-4](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP)和[HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming)等串流通訊協定來傳遞影片。 這會要求您建立[串流定位器](streaming-locators-concept.md)，並建立對應于支援之通訊協定的串流 url，然後可以根據其功能將裝置/應用程式交給他們。
 
 下圖顯示隨選編碼與動態封裝的工作流程。
@@ -145,4 +145,4 @@ ms.locfileid: "73574271"
 * [使用媒體服務上傳、編碼和串流](stream-files-tutorial-with-api.md)。
 * [使用內建預設值從 HTTPS URL 進行編碼](job-input-from-http-how-to.md)。
 * [使用內建的預設值來編碼本機](job-input-from-local-file-how-to.md)檔案。
-* [建立自訂預設值，以特定案例或裝置需求為目標](customize-encoder-presets-how-to.md)。
+* [建置自訂預設來以特定案例或裝置需求為目標](customize-encoder-presets-how-to.md)。

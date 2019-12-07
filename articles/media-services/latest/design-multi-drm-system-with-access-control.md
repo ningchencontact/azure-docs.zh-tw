@@ -1,6 +1,6 @@
 ---
 title: 設計具有存取控制的多重 DRM 內容保護系統 - Azure 媒體服務 | Microsoft Docs
-description: 了解如何授權 Microsoft Smooth Streaming Client Porting Kit。
+description: 這篇文章提供如何使用 Azure 媒體服務設計多重 DRM 內容保護系統的詳細說明。
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: ffbf53c0bb0aaf2832afecc2d0df935f04eeff19
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 00ddedf135d13c07e8abe1094dd5366acb0f4ae5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310334"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896177"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>設計具有存取控制的多重 DRM 內容保護系統 
 
@@ -27,7 +27,7 @@ ms.locfileid: "68310334"
 
 這份文件的目標讀者是使用 OTT 或線上串流/多重螢幕解決方案的 DRM 子系統工程師，或是對於 DRM 子系統有興趣的任何讀者。 假設讀者都熟悉市場上至少一個 DRM 技術，例如 PlayReady、Widevine、FairPlay 或 Adobe Access。
 
-在本討論中，我們透過多重 DRM 包含 Azure 媒體服務支援的 3 個 DRM：一般加密 (CENC)，用於 PlayReady 和 Widevine、FairPlay 以及 AES-128 清除金鑰加密。 線上串流和 OTT 產業中的主要趨勢，是在各種用戶端平台上使用原生 DRM。 這個趨勢是從先前趨勢轉移而來，先前的趨勢是將單一 DRM 及其用戶端 SDK 用於各種用戶端平台。 使用 CENC 搭配多重原生 DRM 時，PlayReady 和 Widevine 會依照 [Common Encryption (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) 規格加密。
+在本文的討論中，我們針對多重 DRM 納入了 Azure 媒體服務所支援的 3 個 DRM：適用於 PlayReady 和 Widevine 的一般加密 (CENC)、FairPlay 以及 AES-128 清除金鑰加密。 線上串流和 OTT 產業中的主要趨勢，是在各種用戶端平台上使用原生 DRM。 這個趨勢是從先前趨勢轉移而來，先前的趨勢是將單一 DRM 及其用戶端 SDK 用於各種用戶端平台。 使用 CENC 搭配多重原生 DRM 時，PlayReady 和 Widevine 會依照 [Common Encryption (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) 規格加密。
 
 使用原生多重 DRM 進行內容保護的優點，是它能夠：
 
@@ -176,7 +176,7 @@ DRM 子系統可能包含下列元件：
 ### <a name="implementation-procedures"></a>實作程序
 實作包含下列步驟：
 
-1. 準備測試資產。 編碼/封裝測試視訊為媒體服務中的多位元速率分散 MP4。 這項資產不  受 DRM 保護。 DRM 保護稍後會由動態保護完成。
+1. 準備測試資產。 編碼/封裝測試視訊為媒體服務中的多位元速率分散 MP4。 這項資產不受 DRM 保護。 DRM 保護稍後會由動態保護完成。
 
 2. 建立金鑰識別碼和內容金鑰 (選擇性地從金鑰種子)。 在本例中，並不需要金鑰管理系統，因為數個測試資產只需要單一金鑰識別碼和內容金鑰。
 
@@ -229,9 +229,9 @@ DRM 子系統可能包含下列元件：
 
     ![JWT](./media/design-multi-drm-system-with-access-control/media-services-1st-gotcha.png)
 
-* 將權限新增至應用程式的 Azure AD 中 (在應用程式的 [設定]  索引標籤)。 每個應用程式皆需要權限 (本機和已部署版本)。
+* 將權限新增至應用程式的 Azure AD 中 (在應用程式的 [設定] 索引標籤)。 每個應用程式皆需要權限 (本機和已部署版本)。
 
-    ![Permissions](./media/design-multi-drm-system-with-access-control/media-services-perms-to-other-apps.png)
+    ![使用權限](./media/design-multi-drm-system-with-access-control/media-services-perms-to-other-apps.png)
 
 * 當您設定動態 CENC 保護時，請使用正確的簽發者。
 
@@ -241,11 +241,11 @@ DRM 子系統可能包含下列元件：
 
         <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
 
-    GUID 是 Azure AD 租用戶識別碼。 您可以在 Azure 入口網站的 [端點]  快顯功能表中找到 GUID。
+    GUID 是 Azure AD 租用戶識別碼。 您可以在 Azure 入口網站的 [端點] 快顯功能表中找到 GUID。
 
 * 授與群組成員資格宣告權限。 請確定下列項目位於 Azure AD 應用程式資訊清單檔中： 
 
-    "groupMembershipClaims"："All"    (預設值為 null)
+    "groupMembershipClaims": "All"    (預設值是 null)
 
 * 建立限制需求時，設定適當的 TokenType。
 

@@ -1,19 +1,20 @@
 ---
-title: 對 Azure Blob 儲存體中的容器與 Blob 啟用公用讀取權限 | Microsoft Docs
+title: 管理容器和 blob 的公用讀取權限
+titleSuffix: Azure Storage
 description: 了解如何讓容器與 Blob 可供匿名存取，以及如何以程式設計方式存取。
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 09/19/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: d0e3121fe773a9725eb7cfd9e8b14d0ed86f3fbb
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 4d9a54c220861b19d67b07998e609ee72897446a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673307"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892477"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>管理對容器與 Blob 的匿名讀取權限。
 
@@ -23,12 +24,12 @@ ms.locfileid: "71673307"
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>授與容器和 Blob 的匿名使用者權限
 
-根據預設，容器和其中的任何 blob 只能由已獲得適當許可權的使用者進行存取。 若要為匿名使用者授與容器及其 blob 的讀取權限，您可以設定容器公用存取層級。 當您授與容器的公用存取權時，匿名使用者可以讀取可公開存取之容器內的 blob，而不需要授權要求。
+根據預設，容器和其中的任何 Blob 都只能由具有指定適當權限的使用者存取。 若要為匿名使用者授與容器及其 Blob 的讀取權限，您可以設定容器公開存取層級。 當您授與容器的公用存取權時，匿名使用者可以讀取可公開存取之容器內的 blob，而不需要授權要求。
 
 您可以為容器設定下列權限︰
 
-- **沒有公用讀取權限：** 只有儲存體帳戶擁有者可以存取容器和其 blob。 這是所有新建容器的預設值。
-- **僅適用于 blob 的公用讀取權限：** 匿名要求可以讀取容器內的 blob，但無法使用容器資料。 匿名用戶端無法列舉容器內的 Blob。
+- **無公用讀取權限︰** 只有儲存體帳戶擁有者可以存取容器和其 Blob。 這是所有新建容器的預設值。
+- **僅對 Blob 有公用讀取權限：** 您可以透過匿名要求讀取容器內的 Blob，但您無法使用容器資料。 匿名用戶端無法列舉容器內的 Blob。
 - **容器和其 blob 的公用讀取權限：** 匿名要求可以讀取所有容器和 blob 資料。 用戶端可以透過匿名要求列舉容器內的 Blob，但無法列舉儲存體帳戶內的容器。
 
 ### <a name="set-container-public-access-level-in-the-azure-portal"></a>在 Azure 入口網站中設定容器公用存取層級

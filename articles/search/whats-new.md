@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 247378461a99d42f21a67a2c0aebc7019727f3a0
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: b1df328f151a4085ec0aadd1b880048f81483a51
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555149"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901332"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure 認知搜尋的新功能
 
@@ -29,7 +29,11 @@ API 版本、Nuget 套件、命名空間和端點都不會變更。 您現有的
 
 ## <a name="feature-announcements"></a>功能公告
 
-2019年11月4日-Ignite 會議
+### <a name="december-2019"></a>2019年12月
+
++ [建立應用程式（預覽）](search-create-app-portal.md)是入口網站中的新 wizard，可產生可下載的 HTML 檔案。 檔案隨附的內嵌腳本會轉譯作業 "localhost" 樣式的 web 應用程式，並系結至搜尋服務上的索引。 頁面可在 wizard 中設定，而且可以包含搜尋列、結果區域、提要欄位導覽和自動提示查詢支援。 您可以離線修改 HTML，以擴充或自訂工作流程或外觀。
+
+### <a name="november-2019---ignite-conference"></a>2019年11月-Ignite 會議
 
 + 累加[式索引編制（預覽）](cognitive-search-incremental-indexing-conceptual.md)可讓您在對擴充管線進行修改時，選擇要重新處理的步驟。 如果您有先前分析的影像內容，累加式編制索引會很有用。 成本高昂分析的輸出會儲存起來，然後用來做為額外索引或擴充的基礎。
 
@@ -44,7 +48,7 @@ API 版本、Nuget 套件、命名空間和端點都不會變更。 您現有的
 
 + [Azure Data Lake Storage Gen2 （預覽）](search-howto-index-azure-data-lake-storage.md)、 [Cosmos DB Gremlin API （預覽）](search-howto-index-cosmosdb.md)和[Cosmos DB Cassandra API （預覽）](search-howto-index-cosmosdb.md)現在已在索引子中支援。 您可以使用[此表單](https://aka.ms/azure-cognitive-search/indexer-preview)進行註冊。 一旦您接受預覽計畫，就會收到一封確認電子郵件。
 
-24 2019 年7月
+### <a name="july-2019"></a>2019 年 7 月
 
 + 已在[Azure Government 雲端](../azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search)中正式推出。
 

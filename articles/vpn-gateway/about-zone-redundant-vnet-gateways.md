@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: d076e2b0057f0ba666fa47ffd0b3d7d1fcc14631
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c13e7b507291d7671ac861fc7a8683c87be947a1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725590"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896656"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>關於在 Azure 可用性區域中的區域備援虛擬網路閘道
 
@@ -39,21 +39,9 @@ ms.locfileid: "68725590"
 
 ## <a name="gwskus"></a>閘道 SKU
 
-區域備援和分區閘道是作為新的閘道 SKU 供使用。 在 Azure AZ 區域中，我們已新增新的虛擬網路閘道 SKU。 這些 SKU 與 ExpressRoute 和 VPN 閘道的對應現有 SKU 類似，不同之處在於這些 SKU 專用於區域備援和分區閘道。
+區域備援和分區閘道是作為新的閘道 SKU 供使用。 在 Azure AZ 區域中，我們已新增新的虛擬網路閘道 SKU。 這些 SKU 與 ExpressRoute 和 VPN 閘道的對應現有 SKU 類似，不同之處在於這些 SKU 專用於區域備援和分區閘道。 您可以使用 SKU 名稱中的 "AZ" 來識別這些 Sku。
 
-新的閘道 SKU 為：
-
-### <a name="vpn-gateway"></a>VPN 閘道
-
-* VpnGw1AZ
-* VpnGw2AZ
-* VpnGw3AZ
-
-### <a name="expressroute"></a>ExpressRoute
-
-* ErGw1AZ
-* ErGw2AZ
-* ErGw3AZ
+如需閘道 Sku 的詳細資訊，請參閱[VPN 閘道 sku](vpn-gateway-about-vpngateways.md#gwsku)和[ExpressRoute 閘道 sku](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku)。
 
 ## <a name="pipskus"></a>公用 IP SKU
 

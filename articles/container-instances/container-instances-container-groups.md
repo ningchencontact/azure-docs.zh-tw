@@ -4,12 +4,12 @@ description: 瞭解 Azure 容器實例中的容器群組，這是共用生命週
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: bba0aa35ef52d498bdb2028c7180f01b6c5f81ec
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c4d5217fe96ca2669397bb7f2a94c6394c002534
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706319"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896589"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances 中的容器群組
 
@@ -68,7 +68,9 @@ Azure 容器實例會藉由新增群組中實例的[資源要求][resource-reque
 
 ## <a name="networking"></a>網路功能
 
-容器群組會共用 IP 位址以及該 IP 位址上的連接埠命名空間。 若要讓外部用戶端能夠連線到該群組內的容器，您必須從該容器公開該 IP 位址上的連接埠。 因為群組中的容器會共用埠命名空間，所以不支援埠對應。 群組內的容器可以透過 localhost 在其公開的埠上透過 localhost 彼此連接，即使這些埠不會在群組的 IP 位址外部公開。
+容器群組可以在該 IP 位址上共用對外 IP 位址和埠命名空間。 若要讓外部用戶端能夠連線到該群組內的容器，您必須從該容器公開該 IP 位址上的連接埠。 因為群組中的容器會共用埠命名空間，所以不支援埠對應。 
+
+在容器群組內，容器實例可以透過任何埠上的 localhost 彼此連線，即使這些埠並未在群組的 IP 位址或來自容器的外部公開。
 
 選擇性地將容器群組部署至[Azure 虛擬網路][virtual-network]（預覽），讓容器能夠安全地與虛擬網路中的其他資源進行通訊。
 

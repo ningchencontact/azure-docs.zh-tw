@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 11/06/2019
-ms.openlocfilehash: 5830e0b7ee49a7d954dbdb3f897ee7ac5901c6a5
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 76ca8a5d781c22279ccad633cc7c5bc98d645df8
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421770"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901409"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>使用 SQL 設定及管理 Azure Active Directory 驗證
 
@@ -138,7 +138,7 @@ ms.locfileid: "74421770"
 
    [Active Directory 系統管理員] 頁面會顯示您 Active Directory 的所有成員和群組。 呈現灰色的使用者或群組無法選取，因為他們不受支援成為 Azure AD 系統管理員。 請參閱 [Azure AD 功能和限制](sql-database-aad-authentication.md#azure-ad-features-and-limitations) 中支援的系統管理員清單。 角色型存取控制 (RBAC) 僅適用於 Azure 入口網站，不會傳播至 SQL Server。
 
-    ![新增系統管理員](./media/sql-database-aad-authentication/add-admin.png)
+    ![新增 Azure Active Directory 系統管理員](./media/sql-database-aad-authentication/add-azure-active-directory-admin.png)
 
 8. 在 [Active Directory 系統管理員] 頁面頂端，選取 [儲存]。
 
@@ -168,7 +168,7 @@ ms.locfileid: "74421770"
 - 如果 Azure AD 登入存在於用於 MI 的 master 資料庫中（使用 T-sql 命令 `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER`建立），則無法將其設定為 MI 的 Azure AD 管理員。 當您使用 Azure 入口網站、PowerShell 或 CLI 命令建立 Azure AD 登入，將登入設定為 Azure AD 管理員時，將會遇到錯誤。
   - 您必須先使用命令 `DROP LOGIN [myaadaccount]`，將登入放在 master 資料庫中，才能以 Azure AD 系統管理員的身分來建立帳戶。
   - 在 `DROP LOGIN` 成功之後，在 Azure 入口網站中設定 Azure AD 系統管理員帳戶。 
-  - 如果您無法設定 Azure AD 系統管理員帳戶，請在受控實例的 master 資料庫中查看登入。 使用下列命令： `SELECT * FROM sys.server_principals`
+  - 如果您無法設定 Azure AD 系統管理員帳戶，請在受控實例的 master 資料庫中查看登入。 使用下列命令：`SELECT * FROM sys.server_principals`
   - 設定 MI 的 Azure AD 系統管理員，將會在此帳戶的 master 資料庫中自動建立登入。 移除 Azure AD 系統管理員，將會自動從 master 資料庫中卸載登入。
 
 - 不支援個別 Azure AD 來賓使用者作為 MI Azure AD 系統管理員。 來賓使用者必須是要設定為 Azure AD 管理員的 Azure AD 群組的一部分。目前，[Azure 入口網站] 分頁不會針對另一個 Azure AD 呈現灰色的來賓使用者，讓使用者可以繼續進行系統管理員設定。 將來賓使用者儲存為 Azure AD 系統管理員會導致安裝程式失敗。
@@ -236,13 +236,15 @@ Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGro
 
 下列兩個程序會示範如何在 Azure 入口網站以及使用 PowerShell，佈建 Azure SQL 伺服器的 Azure Active Directory 系統管理員。
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的右上角，選取您的連線以顯示可能的 Active Directory 下拉式清單。 選擇正確的 Active Directory 做為預設 Azure AD。 此步驟會連結與訂用帳戶相關聯的 Active Directory 和 Azure SQL 伺服器，確定 Azure AD 和 SQL Server 使用相同的訂用帳戶。 (Azure SQL server 可裝載 Azure SQL Database 或 Azure SQL 資料倉儲。)![choose-ad][8]
+1. 在 [Azure 入口網站](https://portal.azure.com/)的右上角，選取您的連線以顯示可能的 Active Directory 下拉式清單。 選擇正確的 Active Directory 做為預設 Azure AD。 此步驟會連結與訂用帳戶相關聯的 Active Directory 和 Azure SQL 伺服器，確定 Azure AD 和 SQL Server 使用相同的訂用帳戶。 (Azure SQL 伺服器可以裝載 Azure SQL Database 或 Azure SQL 資料倉儲。)
 
-2. 在左邊的橫幅中選取 [所有服務]，然後在篩選類型中鍵入 **SQL server**。 選取 [SQL Server]。
+    ![choose-ad][8]
 
-    ![sqlservers.png](media/sql-database-aad-authentication/sqlservers.png)
+2. 搜尋並選取 **[SQL server**]。
+
+    ![搜尋並選取 [SQL server]](media/sql-database-aad-authentication/search-for-and-select-sql-servers.png)
 
     >[!NOTE]
     > 在此頁面上，於選取 [SQL Server] 之前，您可以選取名稱旁的**星星**將該類別設為「我的最愛」，並將 [SQL Server] 新增至左側的導覽列。
@@ -251,11 +253,11 @@ Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGro
 
 4. 在 [Active Directory 系統管理員] 頁面中，選取 [設定系統管理員]。
 
-    ![選取 Active Directory](./media/sql-database-aad-authentication/select-active-directory.png)  
+    ![Active Directory 管理員設定的 SQL server](./media/sql-database-aad-authentication/sql-servers-set-active-directory-admin.png)  
 
 5. 在 [新增系統管理員] 頁面中，搜尋使用者，選取要成為系統管理員的使用者或群組，然後選取 [選取]。 [Active Directory 系統管理員] 頁面會顯示您 Active Directory 的所有成員和群組。 呈現灰色的使用者或群組無法選取，因為他們不受支援成為 Azure AD 系統管理員。 （請參閱**Azure AD 功能和限制**一節中的支援的系統管理員清單， [Azure Active Directory 驗證使用 SQL Database 或 SQL 資料倉儲](sql-database-aad-authentication.md)）。角色型存取控制（RBAC）僅適用于入口網站，不會傳播至 SQL Server。
 
-    ![選取管理員](./media/sql-database-aad-authentication/select-admin.png)  
+    ![選取 Azure Active Directory 系統管理員](./media/sql-database-aad-authentication/select-azure-active-directory-admin.png)  
 
 6. 在 [Active Directory 系統管理員] 頁面頂端，選取 [儲存]。
 
@@ -285,9 +287,9 @@ Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGro
 | [移除-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |移除 Azure SQL 伺服器或 Azure SQL 資料倉儲的 Azure Active Directory 系統管理員。 |
 | [AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |傳回目前為 Azure SQL 伺服器或 Azure SQL 資料倉儲設定的 Azure Active Directory 系統管理員的相關資訊。 |
 
-使用 PowerShell 命令 get-help 來查看每個命令的詳細資訊。 例如， `get-help Set-AzSqlServerActiveDirectoryAdministrator`。
+使用 PowerShell 命令 get-help 來查看每個命令的詳細資訊。 例如： `get-help Set-AzSqlServerActiveDirectoryAdministrator` 。
 
-下列指令碼會在名為 **Group-23** 的資源群組中，為 `40b79501-b343-44ed-9ce7-da4c8cc7353f`demo_server**伺服器佈建名為**DBA_Group **(物件識別碼**) 的 Azure AD 系統管理員群組：
+下列指令碼會在名為 **Group-23** 的資源群組中，為 **demo_server** 伺服器佈建名為 **DBA_Group** (物件識別碼 `40b79501-b343-44ed-9ce7-da4c8cc7353f`) 的 Azure AD 系統管理員群組：
 
 ```powershell
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"

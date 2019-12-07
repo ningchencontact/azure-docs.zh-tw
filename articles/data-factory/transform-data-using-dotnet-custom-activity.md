@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 資料處理站管線中使用自訂活動
+title: 在管線中使用自訂活動
 description: 了解如何建立自訂活動，並在 Azure 資料處理站管線中使用這些活動。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 8076ae81b111aa6b524b7e286ed15ca0661d748b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d922100d2747822d5683c0f65b169327c2866318
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062122"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893870"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 
@@ -36,8 +36,8 @@ ms.locfileid: "67062122"
 如果您不熟悉 Azure Batch 服務，請參閱下列文章：
 
 * [Azure Batch 基本知識](../batch/batch-technical-overview.md) ，以取得 Azure Batch 服務的概觀。
-* [新 AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet 來建立 Azure Batch 帳戶 （或） [Azure 入口網站](../batch/batch-account-create-portal.md)來建立使用 Azure 入口網站的 Azure Batch 帳戶。 如需使用此 Cmdlet 的詳細指示，請參閱[使用 PowerShell 管理 Azure Batch 帳戶](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx)一文。
-* [新 AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet 來建立 Azure Batch 集區。
+* [AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) Cmdlet 可建立 Azure Batch 帳戶（或） [Azure 入口網站](../batch/batch-account-create-portal.md)使用 Azure 入口網站建立 Azure Batch 帳戶。 如需使用此 Cmdlet 的詳細指示，請參閱[使用 PowerShell 管理 Azure Batch 帳戶](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx)一文。
+* [New-azbatchpool](/powershell/module/az.batch/New-AzBatchPool) Cmdlet 可建立 Azure Batch 集區。
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch 已連結的服務
 
@@ -102,21 +102,21 @@ ms.locfileid: "67062122"
 
 | 屬性              | 描述                              | 必要項 |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | 管線中的活動名稱     | 是      |
-| description           | 說明活動用途的文字。  | 否       |
-| type                  | 針對自訂活動，活動類型是**自訂**。 | 是      |
-| linkedServiceName     | Azure Batch 的已連結的服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。  | 是      |
-| 命令               | 要執行的自訂應用程式命令。 如果應用程式已經可以在 Azure Batch 集區節點上使用，則可以略過 resourceLinkedService 和 folderPath。 例如，您可以將命令指定為 `cmd /c dir`，該命令原生受 Windows Batch 集區節點支援。 | 是      |
+| 名稱                  | 管線中的活動名稱     | 是      |
+| 說明           | 說明活動用途的文字。  | 否       |
+| 類型                  | 針對自訂活動，活動類型是**自訂**。 | 是      |
+| linkedServiceName     | Azure Batch 的已連結的服務。 若要深入了解此連結服務，請參閱[計算連結服務](compute-linked-services.md)一文。  | 是      |
+| command               | 要執行的自訂應用程式命令。 如果應用程式已經可以在 Azure Batch 集區節點上使用，則可以略過 resourceLinkedService 和 folderPath。 例如，您可以將命令指定為 `cmd /c dir`，該命令原生受 Windows Batch 集區節點支援。 | 是      |
 | resourceLinkedService | 對儲存體帳戶 (自訂應用程式儲存所在) 的 Azure 儲存體已連結的服務 | 否 &#42;       |
-| folderPath            | 自訂應用程式及其所有相依項目的資料夾路徑<br/><br/>如果您將相依性儲存在子資料夾中 (也就是 folderPath  下的階層式資料夾結構)，當您將檔案複製到 Azure Batch 時，目前的資料夾結構會遭到壓平合併。 也就是所有檔案會複製到沒有子資料夾的單一資料夾中。 若要解決這個問題行為，請考慮壓縮檔案並複製壓縮的檔案，然後在所需位置中以自訂程式碼來將其解壓縮。 | 否 &#42;       |
+| folderPath            | 自訂應用程式及其所有相依項目的資料夾路徑<br/><br/>如果您將相依性儲存在子資料夾中 (也就是 folderPath 下的階層式資料夾結構)，當您將檔案複製到 Azure Batch 時，目前的資料夾結構會遭到壓平合併。 也就是所有檔案會複製到沒有子資料夾的單一資料夾中。 若要解決這個問題行為，請考慮壓縮檔案並複製壓縮的檔案，然後在所需位置中以自訂程式碼來將其解壓縮。 | 否 &#42;       |
 | referenceObjects      | 現有已連結的服務和資料集的陣列。 參考的已連結的服務和資料集會傳遞至 JSON 格式的自訂應用程式，讓您的自訂程式碼可以參考 Data Factory 的資源 | 否       |
 | extendedProperties    | 使用者定義的屬性，可以傳遞至 JSON 格式的自訂應用程式，讓您的自訂程式碼可以參考其他屬性 | 否       |
-| retentionTimeInDays | 針對自訂活動送出的檔案保留時間。 預設值為 30 天。 | 否 |
+| retentionTimeInDays | 針對自訂活動提交的檔案保留時間。 預設值為30天。 | 否 |
 
 &#42; 必須同時指定或同時省略 `resourceLinkedService` 和 `folderPath` 屬性。
 
 > [!NOTE]
-> 如果您傳遞已連結的服務為 referenceObjects 在自訂活動中，很好的安全性做法將 Azure Key Vault 啟用連結的服務 （因為它不包含任何安全字串） 和 fetch 使用祕密的名稱，直接從金鑰的認證保存庫的程式碼。 您可以找到範例[此處](https://github.com/nabhishek/customactivity_sample/tree/linkedservice)參考 AKV 啟用連結的服務，會從 Key Vault 擷取認證，然後再存取 程式碼中的儲存體。
+> 如果您在自訂活動中將連結服務傳遞為 referenceObjects，則傳遞已啟用 Azure Key Vault 的連結服務是很好的安全性作法（因為它不包含任何安全字串），而且會直接從金鑰使用秘密名稱提取認證程式碼中的保存庫。 您可以在[這裡](https://github.com/nabhishek/customactivity_sample/tree/linkedservice)找到參考已啟用 AKV 的已連結服務的範例，從 Key Vault 抓取認證，然後存取程式碼中的儲存體。
 
 ## <a name="custom-activity-permissions"></a>自訂活動權限
 
@@ -301,16 +301,16 @@ Activity Error section:
 如果您想要在下游活動中取用 stdout.txt 的內容，可以在 "\@activity('MyCustomActivity').output.outputs[0]" 運算式中取得 stdout.txt 檔案的路徑。
 
 > [!IMPORTANT]
-> - activity.json、linkedServices.json 和 datasets.json 會儲存在 Batch 工作的執行階段資料夾。 針對此範例，activity.json、 linkedServices.json 和 datasets.json 會儲存在`"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"`路徑。 您必須視需要個別加以清除。
+> - activity.json、linkedServices.json 和 datasets.json 會儲存在 Batch 工作的執行階段資料夾。 在此範例中，會將 Linkedservices.json 和 datasets.json 儲存在 `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` 路徑中。 您必須視需要個別加以清除。
 > - 如果已連結的服務使用自我裝載整合執行階段，機密資訊 (例如金鑰或密碼) 就會由自我裝載整合執行階段進行加密，以確保認證會保留在客戶定義的私人網路環境中。 某些機密欄位由您的自訂應用程式以這樣的方式參考時，可能會遺失。 視需要在 extendedProperties 中使用 SecureString，而不是使用已連結的服務參考。
 
 ## <a name="pass-outputs-to-another-activity"></a>將輸出傳遞到其他活動
 
-您可以將自訂活動中程式碼的自訂值傳回到 Azure Data Factory。 您可以從應用程式中將它們寫入到 `outputs.json`執行此動作。 Data Factory 會複製 `outputs.json` 的內容，並將其附加至活動輸出以作為 `customOutput` 屬性的值 (大小限制為 2 MB)。如果您想要在下游活動中取用 `outputs.json` 的內容，您可以使用運算式 `@activity('<MyCustomActivity>').output.customOutput` 來取得值。
+您可以將自訂活動中程式碼的自訂值傳回到 Azure Data Factory。 您可以從應用程式中將它們寫入到 `outputs.json`執行此動作。 Data Factory 會複製 `outputs.json` 的內容，並將其附加至活動輸出以作為 `customOutput` 屬性的值 （大小限制為 2 MB）。如果您想要在下游活動中取用 `outputs.json` 的內容，您可以使用運算式 `@activity('<MyCustomActivity>').output.customOutput`來取得值。
 
 ## <a name="retrieve-securestring-outputs"></a>擷取 SecureString 輸出
 
-在 Data Factory 使用者介面上的 [監視] 索引標籤中，指定為 SecureString  類型的敏感屬性值 (如本文部分範例中所示) 都會加上遮罩。  但是，在實際的管線執行中，SecureString  屬性會在 `activity.json` 檔案中序列化為純文字形式的 JSON。 例如:
+在 Data Factory 使用者介面上的 [監視] 索引標籤中，指定為 SecureString 類型的敏感屬性值 (如本文部分範例中所示) 都會加上遮罩。  但是，在實際的管線執行中，SecureString 屬性會在 `activity.json` 檔案中序列化為純文字形式的 JSON。 例如：
 
 ```json
 "extendedProperties": {
@@ -323,13 +323,13 @@ Activity Error section:
 
 此序列化不是真正的安全，而且也不是以安全為目的。 其目的是要提示 Data Factory 對 [監視] 索引標籤中的值加上遮罩。
 
-若要從自訂活動中存取 SecureString  類別的屬性，請讀取您 .EXE 所在資料夾中的 `activity.json` 檔案、將 JSON 還原序列化，然後存取 JSON 屬性 (extendedProperties => [propertyName] => value)。
+若要從自訂活動中存取 SecureString 類別的屬性，請讀取您 .EXE 所在資料夾中的 `activity.json` 檔案、將 JSON 還原序列化，然後存取 JSON 屬性 (extendedProperties => [propertyName] => value)。
 
 ## <a name="compare-v2-v1"></a> 比較 v2 自訂活動和第 1 版 (自訂) DotNet 活動
 
-在 Azure Data Factory 第 1 版，您必須實作 （自訂） DotNet 活動所實作的類別中建立.NET 類別庫專案`Execute`方法的`IDotNetActivity`介面。 (自訂) DotNet 活動之 JSON 承載中的已連結服務、資料集及擴充屬性，都會以強型別物件的形式傳遞至執行方法。 如需第 1 版行為的詳細資料，請參閱[第 1 版中的 (自訂) DotNet](v1/data-factory-use-custom-activities.md)。 由於此實作中，您的第 1 版 DotNet 活動程式碼有.NET Framework 4.5.2 為目標。 第 1 版 DotNet 活動也必須在 Windows 型 Azure Batch 集區節點上執行。
+在 Azure Data Factory 第1版中，您可以藉由建立 .NET 類別庫專案，並使用可實作為 `IDotNetActivity` 介面之 `Execute` 方法的類別，來執行（自訂） DotNet 活動。 (自訂) DotNet 活動之 JSON 承載中的已連結服務、資料集及擴充屬性，都會以強型別物件的形式傳遞至執行方法。 如需第 1 版行為的詳細資料，請參閱[第 1 版中的 (自訂) DotNet](v1/data-factory-use-custom-activities.md)。 由於這項執行，您的第1版 DotNet 活動程式碼必須以 .NET Framework 4.5.2 為目標。 第 1 版 DotNet 活動也必須在 Windows 型 Azure Batch 集區節點上執行。
 
-在 Azure Data Factory V2 自訂活動，您不需要實作.NET 介面。 您現在可以在將之編譯為可執行檔的情況下，直接執行命令、指令碼，以及自己的自訂程式碼。 若要設定此實作，您需要一併指定 `Command` 屬性和 `folderPath` 屬性。 自訂活動會將可執行檔及其相依性上傳至 `folderpath`，並為您執行命令。
+在 Azure Data Factory V2 自訂活動中，您不需要執行 .NET 介面。 您現在可以在將之編譯為可執行檔的情況下，直接執行命令、指令碼，以及自己的自訂程式碼。 若要設定此實作，您需要一併指定 `Command` 屬性和 `folderPath` 屬性。 自訂活動會將可執行檔及其相依性上傳至 `folderpath`，並為您執行命令。
 
 定義於 Data Factory V2 自訂活動之 JSON 承載中的已連結服務、資料集(定義於 referenceObjects) 及擴充屬性，可以 JSON 檔案的形式由可執行檔加以存取。 您可以使用 JSON 序列化程式存取所需的屬性，如之前的 SampleApp.exe 程式碼範例中所示。
 
@@ -339,17 +339,17 @@ Activity Error section:
 
 |差異      | 自訂活動      | 第 1 版 (自訂) DotNet 活動      |
 | ---- | ---- | ---- |
-|定義自訂邏輯的方式      |提供可執行檔      |藉由實作.NET DLL      |
-|自訂邏輯的執行環境      |Windows 或 Linux      |Windows (.NET Framework 4.5.2)      |
-|執行指令碼      |支援直接執行指令碼 (例如，Windows VM 上的 "cmd /c echo hello world")      |需要實作.NET DLL 中      |
-|需要資料集      |選擇性      |需要資料集來鏈結活動並傳遞資訊      |
+|定義自訂邏輯的方式      |提供可執行檔      |藉由執行 .NET DLL      |
+|自訂邏輯的執行環境      |Windows 或 Linux      |Windows （.NET Framework 4.5.2）      |
+|執行指令碼      |支援直接執行指令碼 (例如，Windows VM 上的 "cmd /c echo hello world")      |需要 .NET DLL 中的實作為      |
+|需要資料集      |選用      |需要資料集來鏈結活動並傳遞資訊      |
 |將來自活動的資訊傳遞至自訂邏輯      |透過 ReferenceObjects (LinkedServices 和資料集) 和 ExtendedProperties (自訂屬性)      |透過 ExtendedProperties (自訂屬性)、輸入和輸出資料集      |
-|擷取自訂邏輯中的資訊      |剖析與可執行檔儲存於相同資料夾的 activity.json、linkedServices.json 和 datasets.json      |透過.NET SDK (.NET Frame 4.5.2)      |
-|記錄      |直接寫入 STDOUT      |實作.NET DLL 中的記錄器      |
+|擷取自訂邏輯中的資訊      |剖析與可執行檔儲存於相同資料夾的 activity.json、linkedServices.json 和 datasets.json      |透過 .NET SDK （.NET 框架4.5.2）      |
+|記錄      |直接寫入 STDOUT      |在 .NET DLL 中執行記錄器      |
 
-如果您有針對版本 1 （自訂） DotNet 活動所撰寫的現有.NET 程式碼時，您需要修改您的程式碼，才能使用自訂活動的目前版本。 遵循下列高階指導方針來更新程式碼：
+如果您的現有 .NET 程式碼是針對第1版（自訂） DotNet 活動所撰寫，您必須修改程式碼，才能使用目前版本的自訂活動。 遵循下列高階指導方針來更新程式碼：
 
-  - 變更從.NET 類別庫專案，為主控台應用程式。
+  - 將專案從 .NET 類別庫變更為主控台應用程式。
   - 使用 `Main` 方法啟動您的應用程式。 已不再需要 `IDotNetActivity` 介面的 `Execute` 方法。
   - 使用 JSON 序列化程式來讀取和剖析已連結的服務、資料集和活動，而不是作為強型別物件。 將必要屬性的值傳遞給您主要的自訂程式碼邏輯。 請參閱之前的 SampleApp.exe 程式碼作為範例。
   - 不再支援記錄器物件。 您可以將可執行檔的輸出列印到主控台並儲存至 stdout.txt。
@@ -362,7 +362,7 @@ Activity Error section:
 
 您也可以建立具有 **自動調整** 功能的 Azure Batch 集區。 例如，您可以用 0 專用 VM 和依據暫止工作數目自動調整的公式，建立 Azure Batch 集區。
 
-這裡的範例公式會產生下列行為：一開始建立集區時，會從 1 個 VM 開始。 $PendingTasks 計量會定義執行中 + 作用中 (已排入佇列) 狀態的工作數目。 公式會尋找過去 180 秒內的平均擱置中工作數目，並據以設定 TargetDedicated。 它會確保 TargetDedicated 一律不會超過 25 部 VM。 因此，當提交新工作時，集區會自動成長而且工作會完成，VM 會依序成為可用，而且自動調整規模功能會壓縮那些 VM。 您可以視需要調整 startingNumberOfVMs 及 maxNumberofVMs。
+這裡的範例公式會有下列行為：當集區一開始建立時，它會以 1 部 VM 啟動。 $PendingTasks 計量會定義執行中 + 作用中 (已排入佇列) 狀態的工作數目。 公式會尋找過去 180 秒內的平均擱置中工作數目，並據以設定 TargetDedicated。 它會確保 TargetDedicated 一律不會超過 25 部 VM。 因此，當提交新工作時，集區會自動成長而且工作會完成，VM 會依序成為可用，而且自動調整規模功能會壓縮那些 VM。 您可以視需要調整 startingNumberOfVMs 及 maxNumberofVMs。
 
 自動調整公式：
 

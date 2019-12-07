@@ -11,12 +11,12 @@ author: sihhu
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: ''
-ms.openlocfilehash: 426a93473b969c166a847374d1b4c039055e92d5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d22bfb0743bc18102e665a63f7e36ed75dd39cab
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716090"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900323"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>版本和追蹤實驗中的資料集
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -146,7 +146,24 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 ## <a name="track-datasets-in-experiments"></a>在實驗中追蹤資料集
 
-針對每個 Machine Learning 實驗，您可以透過已註冊模型的 `Run` 物件，輕鬆地追蹤當做輸入使用的資料集。
+針對每個 Machine Learning 實驗，您可以透過實驗 `Run` 物件，輕鬆地追蹤用來做為輸入的資料集。
+
+下列程式碼會使用[`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--)方法來追蹤用於實驗執行的輸入資料集：
+
+```Python
+# get input datasets
+inputs = run.get_details()['inputDatasets']
+input_dataset = inputs[0]['dataset']
+
+# list the files referenced by input_dataset
+input_dataset.to_path()
+```
+
+您也可以使用[Azure Machine Learning Studio](https://ml.azure.com/)，從實驗中尋找 `input_datasets`。 
+
+下圖顯示在 Azure Machine Learning Studio 上尋找實驗之輸入資料集的位置。 在此範例中，請移至您的**實驗**窗格，然後開啟特定實驗執行的 **屬性** 索引標籤，`keras-mnist`。
+
+![輸入資料集](media/how-to-version-datasets/input-datasets.png)
 
 使用下列程式碼，向資料集註冊模型：
 
@@ -156,26 +173,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-註冊之後，您可以使用 Python 或[Azure Machine Learning Studio](https://ml.azure.com/)查看向資料集註冊的模型清單。
-
-下列程式碼會使用[`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--)方法來追蹤用於實驗執行的輸入資料集：
-
-```Python
-# get input datasets
-inputs = run.get_details()['inputDatasets']
-train_dataset = inputs[0]['dataset']
-
-# list the files referenced by train_dataset
-train_dataset.to_path()
-```
-
-您也可以使用[Azure Machine Learning Studio](https://ml.azure.com/)，從實驗中尋找 `input_datasets`。 
-
-下圖顯示在 Azure Machine Learning Studio 上尋找實驗之輸入資料集的位置。 在此範例中，請移至您的**實驗**窗格，然後開啟特定實驗執行的 **屬性** 索引標籤，`keras-mnist`。
-
-![輸入資料集](media/how-to-version-datasets/input-datasets.png)
-
-您也可以尋找使用您的資料集的模型。 下列視圖來自 [**資產**] 底下的 [**資料集**] 窗格。 選取資料集，然後選取 [**模型**] 索引標籤，以取得使用該資料集之模型的清單。 
+註冊之後，您可以使用 Python 或[Azure Machine Learning Studio](https://ml.azure.com/)查看向資料集註冊的模型清單。 下列視圖來自 [**資產**] 底下的 [**資料集**] 窗格。 選取資料集，然後選取 [**模型**] 索引標籤，以取得已向資料集註冊的模型清單。 
 
 ![輸入資料集模型](media/how-to-version-datasets/dataset-models.png)
 

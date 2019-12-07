@@ -1,23 +1,22 @@
 ---
-title: 使用 Azure Data Factory 將資料從/複製到 SAP Cloud for Customer
+title: 將資料從/複製到 SAP Cloud for Customer
 description: 了解如何使用 Data Factory，將資料從 SAP Cloud for Customer 複製到支援的接收資料存放區，(或) 從支援的來源資料存放區複製到 SAP Cloud for Customer。
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
-ms.author: jingwang
-ms.openlocfilehash: 5c47eead8bc8428f533374b2d4892ed684c1f3c7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 56f4c8094e8b1e763a10cef3a87a5801d72794b4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680271"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896328"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Cloud for Customer (C4C) 複製資料
 
@@ -47,13 +46,13 @@ ms.locfileid: "73680271"
 
 以下是針對 SAP Cloud for Customer 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | type 屬性必須設定為：**SapCloudForCustomer**。 | 是 |
-| url | SAP C4C OData 服務的 URL。 | 是 |
+| URL | SAP C4C OData 服務的 URL。 | 是 |
 | username | 指定要連線到 SAP C4C 的使用者名稱。 | 是 |
 | password | 指定您為 username 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
-| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (用於來源)；是 (用於接收) |
+| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (來源)；是 (接收) |
 
 >[!IMPORTANT]
 >若要將資料複製到 SAP Cloud for Customer，請以您 SAP Cloud for Customer 附近的位置明確[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並在已連結的服務中產生關聯，如下列範例所示：
@@ -87,10 +86,10 @@ ms.locfileid: "73680271"
 
 若要從 SAP Cloud for Customer 複製資料，請將資料集的 type 屬性設定為 **SapCloudForCustomerResource**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 資料集的 type 屬性必須設定為：**SapCloudForCustomerResource** |是 |
-| 路徑 | 指定 SAP C4C OData 實體的路徑。 |是 |
+| path | 指定 SAP C4C OData 實體的路徑。 |是 |
 
 **範例：**
 
@@ -119,7 +118,7 @@ ms.locfileid: "73680271"
 
 若要從 SAP Cloud for Customer 複製資料，請將複製活動中的來源類型設定為 **SapCloudForCustomerSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | type 屬性必須設定為：**SapCloudForCustomerSource**  | 是 |
 | query | 指定自訂 OData 查詢來讀取資料。 | 否 |
@@ -162,7 +161,7 @@ ms.locfileid: "73680271"
 
 若要將資料複製到 SAP Cloud for Customer，請將複製活動中的接收類型設定為 **SapCloudForCustomerSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | type 屬性必須設定為：**SapCloudForCustomerSink**  | 是 |
 | writeBehavior | 作業的寫入行為。 可能是 “Insert”、“Update”。 | 不會。 預設值為 “Insert”。 |
@@ -216,18 +215,18 @@ ms.locfileid: "73680271"
 | Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
-| Edm.DateTime | DateTime |
+| Edm.DateTime | 日期時間 |
 | Edm.Decimal | Decimal |
-| Edm.Double | Double |
-| Edm.Single | 單一 |
-| Edm.Guid | Guid |
+| Edm.Double | DOUBLE |
+| Edm.Single | Single |
+| Edm.Guid | GUID |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | 字串 |
-| Edm.Time | TimeSpan |
-| Edm.DateTimeOffset | Datetimeoffset |
+| Edm.String | String |
+| Edm.Time | 時間範圍 |
+| Edm.DateTimeOffset | DateTimeOffset |
 
 
 ## <a name="lookup-activity-properties"></a>查閱活動屬性

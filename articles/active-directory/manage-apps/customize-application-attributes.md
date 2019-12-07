@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c1a536bb86f0b3a4fe6a24af00379686ccc292
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: c8337d18b5c6b484e45e6cefaec98e2684155a02
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641496"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900429"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>在 Azure Active Directory 中自訂 SaaS 應用程式的使用者布建屬性對應
 
@@ -78,12 +78,12 @@ Azure AD 使用者物件和每個 SaaS 應用程式的使用者物件之間，�
   - **僅限建立期間**-僅適用于使用者建立動作的對應。
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>對應來源和目標系統中的使用者
-Azure AD 布建服務可以部署在這兩個 greenfield （使用者不會在目標系統中結束）和 brownfield （使用者已存在於目標系統）案例中。 為了支援這兩種案例，布建服務會使用相符屬性的概念。 比對屬性可讓您決定如何唯一識別來源中的使用者，並符合目標中的使用者。 在規劃部署的過程中，請識別可用來唯一識別來源和目標系統中之使用者的屬性。 注意事項：
+Azure AD 布建服務可以部署在「greenfield」案例中（使用者不會在目標系統中結束）和「brownfield」案例（使用者已存在於目標系統中）。 為了支援這兩種案例，布建服務會使用相符屬性的概念。 比對屬性可讓您決定如何唯一識別來源中的使用者，並符合目標中的使用者。 在規劃部署的過程中，請識別可用來唯一識別來源和目標系統中之使用者的屬性。 注意事項：
 
 - **相符的屬性應該是唯一的：** 客戶通常會使用 userPrincipalName、mail 或 object ID 等屬性作為比對屬性。
-- **可以使用多個屬性做為比對屬性：** 您可以定義多個要在比對使用者時進行評估的屬性，以及評估它們的順序（定義為 UI 中的比對優先順序）。 例如，如果您將三個屬性定義為符合的屬性，而且在評估前兩個屬性之後，使用者會唯一符合，則服務將不會 evaluat 第三個屬性。 服務將會依照指定的順序評估相符的屬性，並在找到相符的時停止評估。  
+- **可以使用多個屬性做為比對屬性：** 您可以定義多個要在比對使用者時進行評估的屬性，以及評估它們的順序（定義為 UI 中的比對優先順序）。 例如，如果您將三個屬性定義為符合的屬性，而且在評估前兩個屬性之後，使用者會唯一相符，服務就不會評估第三個屬性。 服務將會依照指定的順序評估相符的屬性，並在找到相符的時停止評估。  
 - **來源和目標中的值不一定要完全相符：** 目標中的值可以是來源中值的一些簡單函數。 因此，在來源中可能有一個 emailAddress 屬性，而在目標中有 userPrincipalName，並以 emailAddress 屬性的函式比對，並以一些常數值取代部分字元。  
-- **不支援根據屬性的組合進行比對：** 大部分的應用程式不支援以兩個屬性為基礎的查詢，而且 service-fabric-reliable-services-backup-restore 無法根據屬性的組合進行比對。 您可以在之後評估單一屬性。
+- **不支援根據屬性的組合進行比對：** 大部分的應用程式不支援以兩個屬性為基礎的查詢。 因此，不可能根據屬性的組合來比對。 您可以在之後評估單一屬性。
 - **所有使用者都必須至少有一個相符屬性的值：** 如果您定義一個符合的屬性，所有使用者都必須具有來源系統中該屬性的值。 例如，如果您將 userPrincipalName 定義為比對屬性，則所有使用者都必須具有 userPrincipalName。 如果您定義多個比對屬性（例如 extensionAttribute1 和 mail），則並非所有使用者都必須具有相同的相符屬性。 一位使用者可能會有 extensionAttribute1 但無法使用郵件，而另一位使用者可能會有郵件但沒有 extensionAttribute1。 
 - **目標應用程式必須支援篩選符合的屬性：** 應用程式開發人員可以在其使用者或群組 API 上篩選屬性子集。 針對資源庫中的應用程式，我們確保預設屬性對應是針對目標應用程式的 API 支援篩選的屬性。 變更目標應用程式的預設比對屬性時，請檢查協力廠商 API 檔，以確定可以篩選屬性。  
 
@@ -134,7 +134,61 @@ Azure AD 布建服務可以部署在這兩個 greenfield （使用者不會在�
 - **API 運算式**-請勿使用，除非是由特定布建連接器的檔（例如 Workday）指示。
 - 參考的**物件屬性**-如果它是參考型別屬性，則此功能表可讓您選取目標應用程式中的資料表和屬性，其中包含與屬性相關聯的值。 例如，如果您有名為 "Department" 的屬性，且其儲存值參考了個別 "Departments" 資料表中的物件，則您會選取 "Departments.Name"。 指定應用程式支援的參考資料表和主要識別碼欄位已預先設定，而且目前無法使用 Azure 入口網站進行編輯，但可以使用[圖形 API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)編輯。
 
-若要新增新的屬性，請捲動至支援的屬性清單結尾處，使用提供的輸入填入上方的欄位，然後選取 [新增屬性]。 新增屬性完成後，請選取 [儲存]。 接著，您必須重載 [布**建] 索引**標籤，新屬性才會在 [屬性對應編輯器] 中變成可用。
+#### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>將自訂延伸模組屬性布建到符合 SCIM 規範的應用程式
+SCIM RFC 會定義核心使用者和群組架構，同時允許架構的延伸，以符合您應用程式的需求。 若要將自訂屬性新增至 SCIM 應用程式：
+   1. 登入[Azure Active Directory 入口網站](https://aad.portal.azure.com)，選取 [**企業應用程式**]，選取您的應用程式，然後選取 [布建 **]。**
+   2. 在 [對應]**底下，選取**您想要新增自訂屬性的物件（使用者或群組）。
+   3. 在頁面底部，選取 [**顯示先進的選項**]。
+   4. 選取 [編輯*應用程式*的屬性清單]。
+   5. 在 [屬性] 清單的底部，在提供的欄位中輸入自訂屬性的相關資訊。 然後選取 [**新增屬性**]。
+
+針對 SCIM 應用程式，屬性名稱必須遵循以下範例所示的模式。 您可以根據應用程式的需求自訂 "CustomExtensionName" 和 "System.reflection.customattribute.isdefined"，例如： urn： ietf： params： scim：架構： extension：2.0： CustomExtensionName： System.reflection.customattribute.isdefined
+
+這些指示僅適用于啟用 SCIM 的應用程式。 ServiceNow 和 Salesforce 等應用程式不會與使用 SCIM 的 Azure AD 整合，因此在新增自訂屬性時，不需要這個特定的命名空間。
+
+自訂屬性不能是引用屬性或多重值屬性。 目前只有資源庫中的應用程式支援自訂多值延伸模組屬性。  
+ 
+**具有擴充屬性之使用者的範例標記法：**
+
+```json
+   {
+     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
+     "userName":"bjensen",
+     "externalId":"bjensen",
+     "name":{
+       "formatted":"Ms. Barbara J Jensen III",
+       "familyName":"Jensen",
+       "givenName":"Barbara"
+     },
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+     "employeeNumber": "701984",
+     "costCenter": "4130",
+     "organization": "Universal Studios",
+     "division": "Theme Park",
+     "department": "Tour Operations",
+     "manager": {
+       "value": "26118915-6090-4610-87e4-49d8ca9f808d",
+       "$ref": "../Users/26118915-6090-4610-87e4-49d8ca9f808d",
+       "displayName": "John Smith"
+     }
+   },
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "CustomAttribute": "701984",
+   },
+   "meta": {
+     "resourceType": "User",
+     "created": "2010-01-23T04:56:22Z",
+     "lastModified": "2011-05-13T04:42:34Z",
+     "version": "W\/\"3694e05e9dff591\"",
+     "location":
+ "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
+   }
+ }
+```
+
+
 ## <a name="provisioning-a-role-to-a-scim-app"></a>將角色布建至 SCIM 應用程式
 使用下列步驟，將使用者的角色布建到您的應用程式。 請注意，下列描述是自訂 SCIM 應用程式特有的。 針對資源庫應用程式（例如 Salesforce 和 ServiceNow），請使用預先定義的角色對應。 下列專案符號說明如何將 AppRoleAssignments 屬性轉換為您的應用程式所預期的格式。
 

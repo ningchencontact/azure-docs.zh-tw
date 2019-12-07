@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 48357adccea201aaeb99863b39e9c8cabce915ce
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4e9779f612bc4a2521459bf76a6e2b399fc89e07
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262058"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894125"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure 監視器資料平臺
 
@@ -42,13 +42,13 @@ Azure 監視器中的計量儲存在時間序列資料庫中，已針對分析�
 
 深入瞭解 Azure 監視器計量，包括其在[Azure 監視器的計量中](data-platform-metrics.md)的資料來源。
 
-### <a name="logs"></a>記錄檔
+### <a name="logs"></a>記錄
 [記錄](data-platform-logs.md)是系統內發生的事件。 它們可以包含不同種類的資料，而且可以是具有時間戳記的結構化或自由格式文字。 這些事件可能會在環境中產生記錄專案時偶爾建立，而負載過重的系統通常會產生更多的記錄磁片區。
 
 Azure 監視器中的記錄會儲存在以[Azure 資料總管](/azure/data-explorer/)為基礎的 Log Analytics 工作區中，這會提供強大的分析引擎和[豐富的查詢語言](/azure/kusto/query/)。 記錄通常會提供足夠的資訊，以提供所識別之問題的完整內容，而且對於識別問題的根本案例很有説明。
 
 > [!NOTE]
-> 請務必區分 Azure 中 Azure 監視器記錄和記錄資料的來源。 例如，Azure 中的訂用帳戶層級事件會寫入 [[活動記錄](activity-logs-overview.md)] 中，您可以從 [Azure 監視器] 功能表進行查看。 大部分的資源會將操作資訊寫入[診斷記錄](resource-logs-overview.md)檔，您可以將其轉送至不同的位置。 Azure 監視器記錄檔是一種記錄資料平臺，會收集活動記錄和診斷記錄以及其他監視資料，以提供整個資源集的深入分析。
+> 請務必區分 Azure 中 Azure 監視器記錄和記錄資料的來源。 例如，Azure 中的訂用帳戶層級事件會寫入 [[活動記錄](activity-logs-overview.md)] 中，您可以從 [Azure 監視器] 功能表進行查看。 大部分資源會將操作資訊寫入[資源記錄](resource-logs-overview.md)檔，您可以將其轉送至不同的位置。 Azure 監視器記錄檔是一種記錄資料平臺，會收集活動記錄和資源記錄以及其他監視資料，以提供整個資源集的深入分析。
 
 
  您可以使用 Azure 入口網站中的[Log Analytics](../log-query/portals.md) ，以互動方式處理[記錄查詢](../log-query/log-query-overview.md)，或將結果新增至[Azure 儀表板](../learn/tutorial-app-dashboards.md)，以與其他資料組合使用視覺效果。 您也可以建立[記錄警示](alerts-log.md)，以根據排程查詢的結果來觸發警示。
@@ -67,14 +67,14 @@ Azure 監視器中的分散式追蹤是透過[APPLICATION INSIGHTS SDK](../app/d
 
 下表比較 Azure 監視器中的計量和記錄。
 
-| 屬性  | 計量 | 記錄檔 |
+| 屬性  | 計量 | 記錄 |
 |:---|:---|:---|
-| 優點 | 輕量且能夠近乎即時的案例，例如警示。 適用于快速偵測問題。 | 使用豐富的查詢語言進行分析。 適用于深層分析和識別根本原因。 |
-| Data | 僅限數值 | 文字或數值資料 |
+| 優勢 | 輕量且能夠近乎即時的案例，例如警示。 適用于快速偵測問題。 | 使用豐富的查詢語言進行分析。 適用于深層分析和識別根本原因。 |
+| 資料 | 僅限數值 | 文字或數值資料 |
 | Structure | 一組標準的屬性，包括取樣時間、受監視的資源、數值。 某些計量包含多個維度以供進一步定義。 | 一組唯一的屬性，視記錄類型而定。 |
-| Collection | 以固定間隔收集。 | 可能會因為事件觸發要建立的記錄而偶爾收集。 |
-| Azure 入口網站中觀看 | 計量瀏覽器 | Log Analytics |
-| 資料來源包括 | 從 Azure 資源收集的平臺計量。<br>Application Insights 監視的應用程式。<br>由應用程式或 API 定義的自訂。 | 應用程式和診斷記錄。<br>監視解決方案。<br>代理程式和 VM 擴充功能。<br>應用程式要求和例外狀況。<br>Azure 資訊安全中心。<br>資料收集器 API。 |
+| 集合 | 以固定間隔收集。 | 可能會因為事件觸發要建立的記錄而偶爾收集。 |
+| 在 Azure 入口網站中檢視 | 計量瀏覽器 | Log Analytics |
+| 資料來源包括 | 從 Azure 資源收集的平臺計量。<br>Application Insights 監視的應用程式。<br>由應用程式或 API 定義的自訂。 | 應用程式和資源記錄。<br>監視解決方案。<br>代理程式和 VM 擴充功能。<br>應用程式要求和例外狀況。<br>Azure 資訊安全中心。<br>資料收集器 API。 |
 
 ## <a name="collect-monitoring-data"></a>收集監視資料
 Azure 監視器的不同[資料來源](data-sources.md)會寫入 Log Analytics 工作區（記錄）或 Azure 監視器計量資料庫（計量）或兩者。 有些來源會直接寫入這些資料存放區，有些則可以寫入另一個位置（例如 Azure 儲存體），而且需要一些設定來填入記錄或計量。 

@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/19/2018
-ms.openlocfilehash: 3ad0bdc2ec5db2f34a3bb6a1b8fda54cf9037483
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 177c110ce9679f3d564918dfac50b3e3f66f84ce
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555692"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893581"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>什麼是 Microsoft Azure 中的傳統警示？
 
 > [!NOTE]
-> 本文說明如何建立舊版傳統計量警示。 「Azure 監視器」現已支援[新版的近乎即時計量警示和新的警示體驗](../../azure-monitor/platform/alerts-overview.md)。 傳統警示[已計畫淘汰](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement)。  
+> 本文說明如何建立舊版傳統計量警示。 「Azure 監視器」現已支援[新版的近乎即時計量警示和新的警示體驗](../../azure-monitor/platform/alerts-overview.md)。 傳統警示已[淘汰](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement)，但仍受限於僅適用于尚未支援新警示的資源。 
 >
 
 警示可讓您對資料設定條件，並在最近的監視資料符合條件時收到通知。
@@ -54,7 +54,7 @@ ms.locfileid: "72555692"
 
 * **傳統活動記錄警示** - 因符合篩選準則，而由活動記錄項目觸發的串流記錄警示。 這些警示只有一個狀態：「已啟動」。 警示引擎會將篩選準則直接套用至任何新事件。 並不會搜尋以找出較舊的項目。 當新的服務健康狀態事件發生時，或當使用者或應用程式在您的訂用帳戶中執行諸如「刪除虛擬機器」作業時，這些警示可以通知您。
 
-針對透過 Azure 監視器提供的診斷記錄資料，請將資料路由傳送至 Log Analytics (先前稱為 OMS) 並使用 Log Analytics 查詢警示。 Log Analytics 現在使用[新的警示方法](../../azure-monitor/platform/alerts-overview.md) 
+對於可透過 Azure 監視器取得的資源記錄資料，請將資料路由傳送至 Log Analytics，並使用記錄查詢警示。 Log Analytics 現在使用[新的警示方法](../../azure-monitor/platform/alerts-overview.md) 
 
 下圖摘要說明 Azure 監視器中的資料來源，以及就概念而言如何發出該資料的警示。
 

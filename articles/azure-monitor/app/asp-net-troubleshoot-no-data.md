@@ -7,14 +7,15 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/23/2018
-ms.openlocfilehash: 857188ebb5ddc3c24f6a225819c47fc1643417e6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: a1e299f195a148ebd1bdbda91e5a56e297f34d31
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887524"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889170"
 ---
-# <a name="troubleshooting-no-data---application-insights-for-net"></a>沒有要進行疑難排解的資料 - Application Insights for .NET
+# <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>針對 .NET/.NET Core 沒有任何資料 Application Insights 疑難排解
+
 ## <a name="some-of-my-telemetry-is-missing"></a>我遺失了部分遙測
 *在 Application Insights 中，我只會看到我的應用程式所產生的一小部分事件。*
 
@@ -212,9 +213,9 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 
 1. 從 NuGet 安裝 [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 套件。 您安裝的版本必須符合目前安裝的 `Microsoft.ApplicationInsights` 版本
 
-AspNetCore 的最新版本是2.7.1，而它是指 ApplicationInsights 版本2.10。 因此，應2.10.0 要安裝的 ApplicationInsights 版本 HostingStartup。
+AspNetCore 的最新版本是2.8.2，而它是指 ApplicationInsights 版本2.11.2。 因此，應2.11.2 要安裝的 ApplicationInsights 版本 HostingStartup。
 
-2. 修改 `ConfigureServices` 類別中的 `Startup.cs` 方法：
+2. 修改 `Startup.cs` 類別中的 `ConfigureServices` 方法：
 
     ```csharp
     services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();

@@ -1,5 +1,5 @@
 ---
-title: 在您的 Azure Data Factory 管線中執行 Azure Machine Learning 管線
+title: 執行 Azure Machine Learning 管線
 description: 瞭解如何在您的 Azure Data Factory 管線中執行 Azure Machine Learning 管線。
 services: data-factory
 documentationcenter: ''
@@ -7,15 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/10/2019
-author: djpmsft
 ms.author: daperlov
-ms.openlocfilehash: a257c7d3f288f9a2e1998bf0679b7146b089cb50
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+author: djpmsft
+manager: anandsub
+ms.date: 10/10/2019
+ms.openlocfilehash: b9b7ce4b215e3182279b7ffe16124c466ac0dd25
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683882"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893904"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>在 Azure Data Factory 中執行 Azure Machine Learning 管線
 
@@ -44,13 +45,13 @@ ms.locfileid: "73683882"
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 說明 | 允許的值 | 必要
+屬性 | 描述 | 允許的值 | 必要項
 -------- | ----------- | -------------- | --------
-名稱 | 管線中的活動名稱 | 字串 | 是
-類型 | 活動類型為「AzureMLExecutePipeline」 | 字串 | 是
+名稱 | 管線中的活動名稱 | String | 是
+類型 | 活動類型為「AzureMLExecutePipeline」 | String | 是
 linkedServiceName | Azure Machine Learning 的連結服務 | 連結服務參考 | 是
 mlPipelineId | 已發佈 Azure Machine Learning 管線的識別碼 | 字串 (或含有字串之 resultType 的運算式) | 是
-experimentName | 執行 Machine Learning 管線執行的歷程記錄實驗名稱 | 字串 (或含有字串之 resultType 的運算式) | 否
+ExperimentName | 執行 Machine Learning 管線執行的歷程記錄實驗名稱 | 字串 (或含有字串之 resultType 的運算式) | 否
 mlPipelineParameters | 要傳遞至已發行 Azure Machine Learning 管線端點的索引鍵/值組。 索引鍵必須符合已發佈 Machine Learning 管線中定義之管線參數的名稱 | 具有索引鍵值組（或具有 resultType 物件的運算式）的物件 | 否
 mlParentRunId | 父 Azure Machine Learning 管線執行識別碼 | 字串 (或含有字串之 resultType 的運算式) | 否
 continueOnStepFailure | 當步驟失敗時，是否要繼續執行 Machine Learning 管線中的其他步驟 | 布林值 | 否

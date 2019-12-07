@@ -3,12 +3,12 @@ title: 容器群組的 YAML 參考
 description: Azure 容器實例所支援的 YAML 檔案參考，以設定容器群組
 ms.topic: article
 ms.date: 08/12/2019
-ms.openlocfilehash: 5603f2e0f63c4f83a6d3761feb540abb8b8b7d5c
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8497330a327201c4c64e9f7ae57e6fc4225b52de
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533497"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896559"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>YAML 參考： Azure 容器實例
 
@@ -38,7 +38,7 @@ properties: # Properties of container group
       image: string # Container image used to create the instance
       command:
       - string
-      ports: # Exposed ports on the instance
+      ports: # External-facing ports exposed on the instance, must also be set in group ipAddress property 
       - protocol: string
         port: integer
       environmentVariables:
@@ -166,7 +166,7 @@ properties: # Properties of container group
 |  containers | array | 是 | 容器群組中的容器。 - [容器物件](#Container) |
 |  imageRegistryCredentials | array | 否 | 用來建立容器群組的映射登錄認證。 - [ImageRegistryCredential 物件](#ImageRegistryCredential) |
 |  Restartpolicy： | 列舉 | 否 | 重新開機容器群組中所有容器的原則。 - `Always` 一律重新開機-`OnFailure` 失敗時重新開機-`Never` 永遠不會重新開機。 -Always，OnFailure，永不 |
-|  Ip | object | 否 | 容器群組的 IP 位址類型。 - [IpAddress 物件](#IpAddress) |
+|  ipAddress | object | 否 | 容器群組的 IP 位址類型。 - [IpAddress 物件](#IpAddress) |
 |  osType | 列舉 | 是 | 容器群組中的容器所需的作業系統類型。 -Windows 或 Linux |
 |  磁碟區 | array | 否 | 可由這個容器群組中的容器裝載的磁片區清單。 - [磁片區物件](#Volume) |
 |  診斷 | object | 否 | 容器群組的診斷資訊。 - [ContainerGroupDiagnostics 物件](#ContainerGroupDiagnostics) |
@@ -272,7 +272,7 @@ properties: # Properties of container group
 |  Name | Type | 必要項 | Value |
 |  ---- | ---- | ---- | ---- |
 |  protocol | 列舉 | 否 | 與埠相關聯的通訊協定。 -TCP 或 UDP |
-|  連接埠 | integer | 是 | 埠號碼。 |
+|  連接埠 | integer | 是 | 連接埠號碼。 |
 
 
 <a id="AzureFileVolume" />

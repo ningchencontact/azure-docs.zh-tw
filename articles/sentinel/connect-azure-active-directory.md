@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 43405bd3e97dbee325f0a5ed82c5848880775eee
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: f08cd731e40b204d042e5df418b03626b9082c3b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240808"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894665"
 ---
 # <a name="connect-data-from-azure-active-directory"></a>從 Azure Active Directory 連接資料
 
@@ -37,13 +37,13 @@ Azure Sentinel 可讓您從[Azure Active Directory](../active-directory/fundamen
 - 若要能夠查看線上狀態，您必須擁有存取 Azure AD 診斷記錄的許可權。 
 
 
-## <a name="connect-to-azure-ad"></a>連線到 Azure AD
+## <a name="connect-to-azure-ad"></a>連接至 Azure AD
 
 1. 在 Azure Sentinel 中，選取 [**資料連線器**]，然後按一下 [ **Azure Active Directory** ] 磚。
 
 1. 在您要串流至 Azure Sentinel 的記錄旁，按一下 [連線 **]** 。
 
-1. 您可以選取是否要讓警示 Azure AD 自動在 Azure Sentinel 中自動產生事件。 在 [**建立事件**] 底下，選取 [**啟用**] 以啟用預設分析規則，以自動從已連線的安全性服務中產生的警示建立事件。 接著，您可以在 [**分析**] 和 [作用中**規則**] 底下編輯此規則。
+1. 您可以選取是否要讓警示 Azure AD 在 Azure Sentinel 中自動產生事件。 在 [建立事件] 底下，選取 [啟用] 來啟用預設分析規則，以自動從已連線安全性服務中產生的警示建立事件。 接著，您可以在 [分析] 下編輯此規則，然後編輯 [有效規則]。
 
 1. 若要在 Log Analytics 中針對 Azure AD 警示使用相關的架構，請搜尋**SigninLogs**和**AuditLogs**。
 
@@ -52,5 +52,5 @@ Azure Sentinel 可讓您從[Azure Active Directory](../active-directory/fundamen
 
 ## <a name="next-steps"></a>後續步驟
 在本檔中，您已瞭解如何將 Azure AD 連接到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 深入了解如何[取得資料的可見度以及潛在威脅](quickstart-get-visibility.md)。
 - 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats-built-in.md)。

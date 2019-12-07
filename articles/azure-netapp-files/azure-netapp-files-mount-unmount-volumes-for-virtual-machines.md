@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 12/05/2019
 ms.author: b-juche
-ms.openlocfilehash: 84496fbc8a415171172d0a138f647ecb0310b6c7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7f1e9500a9268e0fba054f7065e858cd801aca7b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173591"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894091"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>對 Windows 或 Linux 虛擬機器掛接或取消掛接磁碟區 
 
@@ -41,6 +41,12 @@ ms.locfileid: "74173591"
     * `$ANFIP` 是在 [磁片區屬性] 分頁中找到之 Azure NetApp Files 磁片區的 IP 位址。
     * `$FILEPATH` 是 Azure NetApp Files 磁片區的匯出路徑。
     * `$MOUNTPOINT` 是在用來裝載 NFS 匯出的 Linux 主機上建立的目錄。
+
+4. 如果您想要使用 NFS 將磁片區掛接到 Windows：
+
+    a. 請先將磁片區掛接到 Unix 或 Linux VM。  
+    b.這是另一個 C# 主控台應用程式。 針對磁片區執行 `chmod 777` 或 `chmod 775` 命令。  
+    c. 透過 Windows 上的 NFS 用戶端掛接磁片區。
 
 ## <a name="next-steps"></a>後續步驟
 

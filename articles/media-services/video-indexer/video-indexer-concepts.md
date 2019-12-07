@@ -1,7 +1,7 @@
 ---
 title: 影片索引器概念
 titleSuffix: Azure Media Services
-description: 本主題將說明影片索引器服務的一些概念。
+description: 本文說明 Azure 媒體服務影片索引子服務的一些概念。
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e3795b699f5518efdbef117fb24d118041ed3e78
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 73dad1db4f44134f871c9f3d6e7edcdd3bd1e2ea
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839568"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900682"
 ---
 # <a name="video-indexer-concepts"></a>影片索引器概念
  
@@ -37,6 +37,6 @@ TimeRange 是原始影片中的時間範圍。 AdjustedTimeRange 是相對於目
 
 如需有關如何開始使用的資訊，請參閱[如何註冊及上傳您的第一個影片](video-indexer-get-started.md)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [影片索引子概觀](video-indexer-overview.md)

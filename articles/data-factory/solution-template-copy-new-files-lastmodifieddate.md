@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 複製新的和已變更的檔案
+title: 依 LastModifiedDate 複製新的和已變更的檔案
 description: 瞭解如何使用解決方案範本，以 Azure Data Factory LastModifiedDate 來複製新的和變更的檔案。
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
-ms.openlocfilehash: aaa7114113d5f0330d2dc7d656b0d91963931512
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ca752fb75b8e151de925d3b5604a7e7182d82e92
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684225"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896300"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>使用 Azure Data Factory 複製新的和已變更的檔案
 
@@ -51,7 +51,7 @@ ms.locfileid: "73684225"
 
     ![建立與目的地的新連線](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate3.png)
 
-4. 選取 [**使用此範本**]。
+4. 選取 [使用此範本]。
 
     ![使用此範本](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate4.png)
     
@@ -83,7 +83,7 @@ ms.locfileid: "73684225"
 
 10. 針對 [觸發程式類型] 選取 [**輪轉視窗]** ，將**每隔15分鐘**設定為週期（您可以變更為任何間隔時間），然後選取 **[下一步]** 。
 
-    ![建立觸發程式](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
+    ![建立觸發程序](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 11. 寫入**觸發程式執行參數**的值，如下所示，然後選取 **[完成]** 。
     - **FolderPath_Source** =  **/source/** 。  您可以將取代為您在來源資料存放區中的資料夾。

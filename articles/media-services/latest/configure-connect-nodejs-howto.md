@@ -1,6 +1,6 @@
 ---
 title: 連接到 Azure 媒體服務 v3 API-node.js
-description: 瞭解如何使用 node.js 連接到媒體服務 v3 API。
+description: 本文示範如何使用 node.js 連接到媒體服務 v3 API。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 5361a820da0caa336ccc95ae657407889443268c
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 0381a2e2b8fd2a8b60e7cb702e0336a5678df057
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048425"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896105"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>連接到媒體服務 v3 API-node.js
 
 本文說明如何使用服務主體登入方法來連線到 Azure 媒體服務 v3 node.js SDK。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 安裝 [Node.js](https://nodejs.org/en/download/)。
 - [建立媒體服務帳戶](create-account-cli-how-to.md)。 請務必記住資源組名和媒體服務帳戶名稱。
@@ -123,7 +123,7 @@ npm install
 node index.js
 ```
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - [媒體服務概念](concepts-overview.md)
 - [NPM 安裝 azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)

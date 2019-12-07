@@ -1,7 +1,7 @@
 ---
 title: 關於影片索引器的常見問題集 - Azure
 titleSuffix: Azure Media Services
-description: 獲得影片索引器常見問題集的回答。
+description: 本文提供 Azure 媒體服務影片索引子的常見問題解答。
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 95f2af1b192564290551f9ed31f0fe158b4536f6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fc5457fd44bd27731cad6269ee95aed838a3d755
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838238"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892782"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -23,7 +23,7 @@ ms.locfileid: "73838238"
 
 ## <a name="general-questions"></a>一般問題
 
-### <a name="what-is-video-indexer"></a>什麼是影片索引子？
+### <a name="what-is-video-indexer"></a>什麼是影片索引器？
 
 影片索引器是包含在 Microsoft Azure 媒體服務中的人工智慧服務。 影片索引器提供多個機器學習模型的協調流程，可讓您輕鬆從影片中擷取深入見解。 為了提供進階且準確的見解，影片索引器會運用影片的多個頻道：音訊、語音及視訊。 影片索引器的見解可以用於許多方面，例如改善內容的可測知性和可存取性、創造新的營收商機，或建置能使用這些見解的新體驗。 影片索引器提供 Web 型介面，以針對您帳戶中的模型進行測試、設定及自訂。 開發人員可以使用以 REST 為基礎的 API，來將影片索引器整合到生產環境系統中。 
 
@@ -71,7 +71,7 @@ Video Indexer 可以對媒體檔案執行的一些作業包括：
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>是否可以建立自訂工作流程以將影片索引器的程序自動化？
 
-是，您可以將影片索引器整合到無伺服器技術之中，例如 Logic Apps、Flow，以及 [Azure Functions](https://azure.microsoft.com/services/functions/)。 您可以在[這裡](https://azure.microsoft.com/services/logic-apps/) \(英文\) 找到適用於影片索引器的 [Logic App](https://flow.microsoft.com/en-us/) 和 [Flow](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/) 連接器的詳細資料。 
+是，您可以將影片索引器整合到無伺服器技術之中，例如 Logic Apps、Flow，以及 [Azure Functions](https://azure.microsoft.com/services/functions/)。 您可以在[這裡](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/) \(英文\) 找到適用於影片索引器的 [Logic App](https://azure.microsoft.com/services/logic-apps/) 和 [Flow](https://flow.microsoft.com/en-us/) 連接器的詳細資料。 
 
 ### <a name="in-which-azure-regions-is-video-indexer-available"></a>哪些 Azure 區域提供影片索引器？
 
@@ -169,4 +169,4 @@ Azure 媒體服務的 SLA 涵蓋影片索引器，並可以在 [SLA](https://azu
 
 ## <a name="next-steps"></a>後續步驟
 
-[概觀](video-indexer-overview.md)
+[Overview](video-indexer-overview.md)

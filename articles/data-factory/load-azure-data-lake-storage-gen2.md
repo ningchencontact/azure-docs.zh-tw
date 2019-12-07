@@ -1,28 +1,28 @@
 ---
-title: 使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen2 中
+title: 將資料載入 Azure Data Lake Storage Gen2 中
 description: 使用 Azure Data Factory 將資料複製到 Azure Data Lake Storage Gen2
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: jingwang
-ms.openlocfilehash: f8af34207eddb613f7a59bd3e3d300555e10f985
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 203fd294f90e3b904116c1ddd72f581c293cba13
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65560740"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891094"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen2 中
 
 Azure Data Lake Storage Gen2 是一組巨量資料分析的專屬功能，內建於 [Azure Blob 儲存體](../storage/blobs/storage-blobs-introduction.md)。 此功能可讓您使用檔案系統和物件儲存範例連接您的資料。
 
-Azure Data Factory (ADF) 是一項完全受控的雲端架構資料整合服務。 您可以使用此服務，在建置分析解決方案時，於 Lake 中置入來自豐富的內部部署集合和雲端式資料存放區的資料，並節省時間。 如需受支援連接器的詳細清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)資料表。
+Azure Data Factory （ADF）是完全受控的雲端架構資料整合服務。 您可以使用此服務，在建置分析解決方案時，於 Lake 中置入來自豐富的內部部署集合和雲端式資料存放區的資料，並節省時間。 如需受支援連接器的詳細清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)資料表。
 
 Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由於 ADF 具有相應放大架構，因此能以高輸送量來內嵌資料。 如需詳細資料，請參閱[複製活動效能](copy-activity-performance.md)。
 
@@ -33,9 +33,9 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
-* 啟用 Data Lake Storage Gen2 的 Azure 儲存體帳戶：如果您沒有儲存體帳戶[建立帳戶](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)。
-* AWS 帳戶與含有資料的 S3 貯體：本文示範如何從 Amazon S3 複製資料。 您可以依照類似的步驟來使用其他資料存放區。
+* Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+* 已啟用 Data Lake Storage Gen2 的 Azure 儲存體帳戶：如果您沒有儲存體帳戶，請[建立帳戶](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)。
+* AWS 帳戶，具有包含資料的 S3 貯體：本文示範如何從 Amazon S3 複製資料。 您可以依照類似的步驟來使用其他資料存放區。
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
@@ -45,11 +45,11 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
 
 2. 在 [新增資料處理站] 頁面中，為下圖所示的欄位提供值： 
       
-   ![新增資料處理站頁面](./media/load-azure-data-lake-storage-gen2//new-azure-data-factory.png)
+   ![新增 Data Factory 網頁](./media/load-azure-data-lake-storage-gen2//new-azure-data-factory.png)
  
     * **名稱**：輸入 Azure 資料處理站的全域唯一名稱。 如果您收到「資料處理站名稱 \"LoadADLSDemo\" 無法使用」的錯誤，請為資料處理站輸入其他名稱。 例如，您可以使用 _**您的名稱**_ **ADFTutorialDataFactory**。 請嘗試再次建立資料處理站。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
-    * 訂用帳戶：選取用來在其中建立資料處理站的 Azure 訂用帳戶。 
-    * **資源群組**：從下拉式清單中選取現有的資源群組，或選取 [新建] 選項，然後輸入資源群組的名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
+    * **訂用帳戶**：選取用來在其中建立資料處理站的 Azure 訂用帳戶。 
+    * **資源群組**：從下拉式清單中選取現有資源群組，或選取 [新建] 選項，然後輸入資源群組的名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
     * **版本**：選取 [V2]。
     * **位置**：選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區可位於其他位置和區域。 
 
@@ -68,7 +68,7 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
 2. 在 [屬性] 頁面中，對 [工作名稱] 欄位指定 [CopyFromAmazonS3ToADLS]，然後選取 [下一步]：
 
     ![屬性頁面](./media/load-azure-data-lake-storage-gen2/copy-data-tool-properties-page.png)
-3. 在 [來源資料存放區] 頁面中，按一下 [+ Create new connection] \(+ 建立新連線\)：
+3. 在 [來源資料存放區] 頁面中，按一下 [+ 建立新連線]：
 
     ![來源資料存放區頁面](./media/load-azure-data-lake-storage-gen2/source-data-store-page.png)
     
@@ -104,7 +104,7 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
    
    ![指定 Azure Data Lake Storage Gen2 帳戶](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 
-9. 在 **選擇輸出檔案或資料夾**頁面上，輸入**copyfroms3**作為輸出資料夾名稱，然後選取**下一步**。 ADF 會建立子資料夾與對應的 ADLS Gen2 檔案系統複製期間，如果不存在。
+9. 在 [**選擇輸出檔案或資料夾**] 頁面上，輸入 **[copyfroms3]** 作為輸出檔案夾名稱，然後選取 **[下一步]** 。 ADF 會在複製期間建立對應的 ADLS Gen2 檔案系統和子資料夾（如果不存在）。
 
     ![指定輸出資料夾](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
 

@@ -1,22 +1,23 @@
 ---
-title: 使用適用于 Azure 資源的 Azure Active Directory 和受控識別，授權對 blob 和佇列的存取-Azure 儲存體
-description: Azure Blob 和佇列儲存體支援使用 Azure 資源的 Azure Active Directory 和受控識別來授權資源的存取權。 您可以使用 Azure 資源的受控識別，從 Azure 虛擬機器中執行的應用程式、函式應用程式、虛擬機器擴展集和其他專案，授權存取 blob 和佇列。
+title: 使用受控識別來授權存取資料
+titleSuffix: Azure Storage
+description: 瞭解如何使用適用于 Azure 資源的受控識別，從 Azure 虛擬機器、函數應用程式、虛擬機器擴展集和其他專案中執行的應用程式，授權存取 blob 和佇列資料。
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 11/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3bb3b632a184985f9a3a27d0e56e940ec7c30885
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: c0b07cc001f65ff369f87954779634b8b49ba4ec
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806573"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892046"
 ---
-# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>使用適用于 Azure 資源的 Azure Active Directory 和受控識別，授權對 blob 和佇列的存取
+# <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>使用 Azure 資源的受控識別來授權 blob 和佇列資料的存取
 
 Azure Blob 和佇列儲存體支援使用 [Azure 資源的受控識別](../../active-directory/managed-identities-azure-resources/overview.md)來進行 Azure Active Directory (Azure AD) 驗證。 適用于 Azure 資源的受控識別可以使用 Azure 虛擬機器（Vm）中執行的應用程式、函式應用程式、虛擬機器擴展集和其他服務的 Azure AD 認證，來授權 blob 和佇列資料的存取權。 藉由使用適用于 Azure 資源的受控識別搭配 Azure AD authentication，您可以避免將認證儲存在雲端中執行的應用程式。  
 

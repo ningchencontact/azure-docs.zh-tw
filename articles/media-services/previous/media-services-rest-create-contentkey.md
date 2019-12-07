@@ -1,6 +1,6 @@
 ---
 title: 使用 REST 建立內容金鑰 | Microsoft Docs
-description: 了解如何建立提供資產安全存取的內容金鑰。
+description: 本文示範如何建立內容金鑰，以提供資產的安全存取。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 84fd4f0971c56d8cf2cdf138ba8ac8ea1a6e07eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9927de3ab3fb68cea17095d7255fd8a68f66c9a8
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711521"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901482"
 ---
 # <a name="create-content-keys-with-rest"></a>使用 REST 建立內容金鑰
 > [!div class="op_single_selector"]
@@ -30,13 +30,13 @@ ms.locfileid: "60711521"
 
 媒體服務可讓您傳遞已加密的資產。 **ContentKey** 提供**資產**的安全存取。 
 
-當您建立新的資產 (例如，[上傳檔案](media-services-rest-upload-files.md)之前) 時，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
+當您建立新的資產時 (例如，[將檔案上傳](media-services-rest-upload-files.md)之前)，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
 
 當您將資產傳遞至您的用戶端時，您可以使用下列兩個加密的其中一個[設定動態加密的資產](media-services-rest-configure-asset-delivery-policy.md)：**DynamicEnvelopeEncryption** 或 **DynamicCommonEncryption**。
 
 加密的資產必須與 **ContentKey**相關聯。 本文說明如何建立內容金鑰。
 
-以下是產生要與要加密資產相關聯之內容金鑰的一般步驟。 
+以下是產生您將與要加密資產相關聯的內容金鑰的一般步驟。 
 
 1. 隨機產生 16 位元組 AES 金鑰 (適用於一般加密以及信封加密) 或 32 位元組 AES 金鑰 (適用於儲存體加密)。 
    
@@ -75,7 +75,7 @@ ms.locfileid: "60711521"
 > 
 > 在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 
-## <a name="connect-to-media-services"></a>連線到媒體服務
+## <a name="connect-to-media-services"></a>連接到媒體服務
 
 如需連線至 AMS API 的詳細資訊，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 

@@ -1,6 +1,6 @@
 ---
 title: 使用 castLabs 將 Widevine 授權傳遞到 Azure 媒體服務 | Microsoft Docs
-description: 本文說明如何使用 Azure 媒體服務 (AMS) 來傳遞 AMS 使用 PlayReady 與 Widevine DRM 動態加密的資料流。 PlayReady 授權來自媒體服務 PlayReady 授權伺服器，Widevine 授權由 castLabs 授權伺服器傳遞。
+description: 本文說明如何使用 Azure 媒體服務 (AMS) 來傳遞 AMS 使用 PlayReady 與 Widevine DRM 動態加密的資料流。
 services: media-services
 documentationcenter: ''
 author: Mingfeiy
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
-ms.openlocfilehash: 9c61fad333037074f392b019ae61c161673e4008
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: c038480c9a49c96aaba7c7ff7299c8ebea31b81f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69016681"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887776"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>使用 castLabs 將 Widevine 授權傳遞到 Azure 媒體服務 
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "69016681"
 > 
 > 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 本文說明如何使用 Azure 媒體服務 (AMS) 來傳遞 AMS 使用 PlayReady 與 Widevine DRM 動態加密的資料流。 PlayReady 授權來自媒體服務 PlayReady 授權伺服器，Widevine 授權則來自 **castLabs** 授權伺服器。
 
@@ -59,7 +59,7 @@ castLabs 與 AMS 皆支援使用 JWT (JSON Web Token) 權杖格式進行授權�
 | 簽發者 | 所選安全權杖服務 (STS) 中的簽發者字串 |
 | --- | --- |
 | 對象 |所使用 STS 中的對象字串 |
-| 宣告 |一組宣告 |
+| Claims |一組宣告 |
 | NotBefore |權杖的生效日期 |
 | Expires |權杖的有效期限 |
 | SigningCredentials |PlayReady 授權伺服器、castLabs 授權伺服器與 STS 之間共用的金鑰，可以是對稱或非對稱金鑰。 |
@@ -68,7 +68,7 @@ castLabs 與 AMS 皆支援使用 JWT (JSON Web Token) 權杖格式進行授權�
 
 下表說明 castLabs 中的 JWT 權杖。 
 
-| 名稱 | 描述 |
+| Name | 描述 |
 | --- | --- |
 | optData |JSON 字串，其中包含您的相關資訊。 |
 | crt |JSON 字串，其中包含資產、其授權資訊與播放權限的相關資訊。 |

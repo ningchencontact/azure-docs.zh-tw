@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 9f933a9ad63af11bcfee7c90f17318f5a237b962
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/05/2019
+ms.openlocfilehash: 4fbfb31feb2183e3175a96023cbb3b08c4d18027
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792089"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893657"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
@@ -48,7 +48,7 @@ ms.locfileid: "74792089"
 
   **最低需求**
 
-  * .NET Framework 4.7。2
+  * .NET Framework 4.7.2
   * 64 位元版本的 Windows 7 或 Windows Server 2008 R2 (或更新版本)
 
   **建議需求**
@@ -86,14 +86,6 @@ ms.locfileid: "74792089"
 
 1. [在本機電腦上下載並執行閘道安裝程式](https://aka.ms/on-premises-data-gateway-installer)。
 
-1. 在安裝程式開啟之後，選取 **[下一步]** 。
-
-   ![閘道安裝程式的簡介畫面](./media/logic-apps-gateway-install/gateway-intro-screen.png)
-
-1. 選取 [內部**部署資料閘道（建議）** ]，這是 [標準模式]，然後選取 **[下一步]** 。
-
-   ![選取資料閘道的執行模式](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
-
 1. 請參閱最低需求，保留預設安裝路徑，接受使用規定，然後選取 [**安裝**]。
 
    ![審查需求並接受使用條款](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
@@ -104,7 +96,7 @@ ms.locfileid: "74792089"
 
    您的閘道安裝只能連結到一個 Azure 帳戶。
 
-1. 選取 **在這部電腦上註冊新的閘道** ** > 下一步**。 此步驟會向[閘道雲端服務](#gateway-cloud-service)註冊您的閘道安裝。
+1. 選取 [在此電腦上註冊新的閘道] > [下一步]。 此步驟會向[閘道雲端服務](#gateway-cloud-service)註冊您的閘道安裝。
 
    ![在本機電腦上註冊閘道](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
@@ -150,7 +142,7 @@ ms.locfileid: "74792089"
 內部部署資料閘道取決於雲端連線[Azure 服務匯流排](../service-bus-messaging/service-bus-messaging-overview.md)，並建立與閘道相關聯 Azure 區域的對應輸出連線。 如果您的工作環境要求流量通過 proxy 或防火牆來存取網際網路，此限制可能會導致內部部署資料閘道無法連線到閘道雲端服務，並 Azure 服務匯流排。 閘道有數個通訊設定可供您調整。 如需詳細資訊，請參閱下列主題：
 
 * [調整內部部署資料閘道的通訊設定](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
-* [設定內部部署資料閘道的 proxy 設定](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
+* [設定內部部署資料閘道的 Proxy 設定](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>
 
@@ -234,7 +226,7 @@ ms.locfileid: "74792089"
 
 1. 結果會從資料來源傳送回閘道，然後再到閘道雲端服務。 閘道雲端服務接著就會使用結果。
 
-### <a name="authentication-to-on-premises-data-sources"></a>對內部部署資料來源的驗證
+### <a name="authentication-to-on-premises-data-sources"></a>內部部署資料來源的驗證
 
 預存認證是用來從閘道連接到內部部署資料來源。 無論使用者為何，閘道都會使用預存認證來連接。 特定服務可能會有驗證例外狀況，例如 Power BI 中 Analysis Services 的 DirectQuery 和 LiveConnect。
 
@@ -246,7 +238,7 @@ Microsoft 雲端服務會使用[Azure AD](../active-directory/fundamentals/activ
 
 如果您不是網域系統管理員，您可能不知道您的 UPN。 若要尋找您帳戶的 UPN，請從您的工作站執行 `whoami /upn` 命令。 雖然結果看起來像是電子郵件地址，但結果會是您本機網域帳戶的 UPN。
 
-### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>同步處理內部部署 Active Directory 與 Azure AD
+### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>同步處理內部部署 Active Directory 和 Azure AD
 
 內部部署 Active Directory 帳戶和 Azure AD 帳戶的 UPN 必須相同。 因此，請確定每個內部部署 Active Directory 帳戶都符合您的 Azure AD 帳戶。 雲端服務只知道 Azure AD 內的帳戶。 因此，您不需要將帳戶新增至內部部署 Active Directory。 如果 Azure AD 中的帳戶不存在，您就無法使用該帳戶。
 
@@ -270,7 +262,7 @@ Microsoft 雲端服務會使用[Azure AD](../active-directory/fundamentals/activ
 如需詳細資訊，請參閱下列主題：
 
 * [內部部署資料閘道常見問題集](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
-* [針對內部部署資料閘道進行疑難排解](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
+* [針對內部部署的資料閘道進行疑難排解](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
 * [監視和優化閘道效能](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>後續步驟

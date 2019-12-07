@@ -1,6 +1,6 @@
 ---
 title: 透過 Azure 監視器監視媒體服務診斷記錄 |Microsoft Docs
-description: 本文說明如何透過 Azure 監視器來路由和查看診斷記錄。
+description: 本文示範如何透過 Azure 監視器來路由及查看診斷記錄。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 42724ae3619312c2cc172be0e143291cd7fa2a70
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 786aefbd8657046f18042defd71dfcb38528eecf
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261113"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887946"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>監視媒體服務診斷記錄
 
@@ -55,7 +55,7 @@ ms.locfileid: "71261113"
 
 ## <a name="route-data-to-the-storage-account-using-the-cli"></a>使用 CLI 將資料路由至儲存體帳戶
 
-若要在儲存體帳戶中啟用診斷記錄的儲存體，您可以執行下列`az monitor diagnostic-settings` CLI 命令： 
+若要在儲存體帳戶中啟用診斷記錄的儲存體，您可以執行下列 `az monitor diagnostic-settings` CLI 命令： 
 
 ```cli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -73,7 +73,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-例如:
+例如：
 
 ```cli
 az monitor diagnostic-settings create --name amsv3diagnostic \
@@ -174,7 +174,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 }
 ```
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [Azure 監視器計量](../../azure-monitor/platform/data-platform.md)
 * [Azure 監視器診斷記錄](../../azure-monitor/platform/resource-logs-overview.md)

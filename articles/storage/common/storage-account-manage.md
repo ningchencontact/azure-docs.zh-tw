@@ -1,18 +1,19 @@
 ---
-title: 管理在 Azure 入口網站中的儲存體帳戶設定 - Azure 儲存體 | Microsoft Docs
+title: 管理在 Azure 入口網站中的儲存體帳戶設定
+titleSuffix: Azure Storage
 description: 了解如何管理 Azure 入口網站中的儲存體帳戶設定，包括設定存取控制設定、重新產生帳戶存取金鑰、變更存取層，或修改帳戶使用的複寫類型。 也了解如何刪除入口網站中的儲存體帳戶。
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 11/06/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 3c01cc870b20c8256b215eb700548e6cd69ad0d5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 93d3bf3d17348a0f5ad62118fcb9c9a0c6f2f656
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749005"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892374"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>管理在 Azure 入口網站中的儲存體帳戶設定
 
@@ -24,7 +25,7 @@ Azure 儲存體支援透過角色型存取控制（RBAC）的 Azure Active Direc
 
 對於使用者、群組、服務主體和受管理的身分識別，Azure 入口網站中的**存取控制**設定提供簡易的方式來指派 RBAC 角色。 如需指派 RBAC 角色的詳細資訊，請參閱[使用 RBAC 管理 blob 和佇列資料的存取權限](storage-auth-aad-rbac.md)。
 
-## <a name="tags"></a>標記
+## <a name="tags"></a>Tags
 
 Azure 儲存體支援 Azure Resource Manager 標記，可自訂分類並組合管理 Azure 資源。 您可以將標記套用至您的儲存體帳戶，以邏輯方式在您的訂用帳戶中分組這些帳戶。
 

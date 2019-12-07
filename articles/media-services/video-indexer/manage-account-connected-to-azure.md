@@ -1,7 +1,7 @@
 ---
 title: 管理影片索引器帳戶
 titleSuffix: Azure Media Services
-description: 本文將說明如何管理連線到 Azure 的影片索引器帳戶。
+description: 本文示範如何管理連線到 Azure 的影片索引子帳戶。
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: a8221cdcf7afe82ee969f645d7f459c69519711d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 4f8491e31747eda9cbe8689ba7db3026df0ff3ad
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838976"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892765"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>管理連線到 Azure 的影片索引器帳戶
 
@@ -62,7 +62,7 @@ ms.locfileid: "73838976"
 
 如果您的帳戶需要做一些調整，您會在 [設定] 頁面上看到與帳戶設定相關的錯誤和警告。 這些訊息包含 Azure 入口網站中確切位置的連結，也就是您必須進行變更的位置。 本節提供有關錯誤和警告訊息的詳細資料。
 
-* Event Grid
+* 事件格線
 
     您必須使用 Azure 入口網站註冊 EventGrid 資源提供者。 在 [Azure 入口網站](https://portal.azure.com/) 中，前往 [訂用帳戶] > [訂用帳戶] > [資源提供者] > [Microsoft.EventGrid]。 如果不是處於「已註冊」狀態，請按一下 [註冊]。 這需要幾分鐘來完成註冊。 
 

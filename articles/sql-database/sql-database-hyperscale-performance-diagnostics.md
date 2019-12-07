@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: a7c64284c958fa8b3ec89c2b27515fe167a04011
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2e162b30a0227c5f04c74dae01413177d1623235
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811155"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901234"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL 超大規模資料庫效能疑難排解診斷
 
@@ -30,7 +30,7 @@ ms.locfileid: "73811155"
 
 下列等候類型（在[sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)）描述在主要計算複本上進行記錄速率節流的原因：
 
-|等候類型    |說明                         |
+|等候類型    |描述                         |
 |-------------          |------------------------------------|
 |RBIO_RG_STORAGE        | 當超大規模資料庫資料庫主要計算節點記錄產生速率因為頁面伺服器的延遲記錄耗用量而受到節流時發生。         |
 |RBIO_RG_DESTAGE        | 當超大規模資料庫資料庫計算節點記錄產生速率因為長期記錄儲存體的延遲記錄耗用量而受到節流時發生。         |
@@ -44,13 +44,14 @@ ms.locfileid: "73811155"
  
 在計算複本上發出讀取時，如果資料不存在於緩衝集區或本機 RBPEX 快取中，就會發出 getPage （pageId，LSN）函式呼叫，而且會從對應的頁面伺服器提取該頁面。 從頁面伺服器讀取是遠端讀取，因此速度比從本機 RBPEX 讀取還慢。 針對 IO 相關的效能問題進行疑難排解時，我們必須能夠透過相對較慢的遠端頁面伺服器讀取來得知已完成的 Io 數目。
 
-有數個 Dmv 和擴充事件具有資料行和欄位，可指定頁面伺服器的遠端讀取數目，而這些資料可以與讀取總數進行比較。 
+有數個 Dmv 和擴充事件具有資料行和欄位，可指定頁面伺服器的遠端讀取數目，而這些資料可以與讀取總數進行比較。 查詢存放區也會在查詢執行時間統計資料中捕捉遠端讀取。
 
-- 報表頁面伺服器讀取的資料行可在執行 Dmv 中使用，例如：
+- 報表頁面伺服器讀取的資料行可在執行 Dmv 和目錄檢視中使用，例如：
     - [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
     - [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
     - [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
-    - [sys. dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
+    - [sys.dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
+    - [sys.query_store_runtime_stats](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql/)
 - 頁面伺服器讀取會加入至下列擴充事件：
     - sql_statement_completed
     - sp_statement_completed

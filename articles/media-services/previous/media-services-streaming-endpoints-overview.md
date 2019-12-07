@@ -1,6 +1,6 @@
 ---
 title: Azure 媒體服務串流端點概觀 | Microsoft Docs
-description: 本主題提供 Azure 媒體服務串流端點的概觀。
+description: 本文提供 Azure 媒體服務串流端點的總覽。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ac9c9a73e52c678c8a6d9b1e1779d9ec75cab2c8
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 95d8d819aa1b418b4a7ec736cef64cb989f7e37b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69016457"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885614"
 ---
 # <a name="streaming-endpoints-overview"></a>串流端點概觀  
 
@@ -28,7 +28,7 @@ ms.locfileid: "69016457"
 
 在「Microsoft Azure 媒體服務」(AMS) 中，「串流端點」代表可以直接將內容傳遞給用戶端播放程式應用程式，或傳遞給「內容傳遞網路」(CDN) 以進行進一步散發的串流服務。 媒體服務也提供順暢的 Azure CDN 整合。 來自 StreamingEndpoint 服務的輸出資料流可以是即時資料流、隨選視訊，也可以是媒體服務帳戶中漸進式的資產下載。 每個「Azure 媒體服務」帳戶皆包含一個預設的 StreamingEndpoint。 您可以在該帳戶下建立額外的 StreamingEndpoint。 StreamingEndpoint 有 1.0 和 2.0 兩個版本。 從 2017 年 1 月 10 日開始，所有新建立的 AMS 帳戶都會包含 2.0 版**預設** StreamingEndpoint。 您新增到此帳戶的額外串流端點也將會是 2.0 版。 這項變更不會影響現有的帳戶，現有的 StreamingEndpoint 會是 1.0 版並可升級到 2.0 版。 隨著這項變更，將會有行為、計費及功能變更 (如需詳細資訊，請參閱下列**串流類型和版本**一節)。
 
-Azure 媒體服務已將下列屬性新增至串流端點實體：**CdnProvider**、 **CdnProfile**、 **StreamingEndpointVersion**。 如需這些屬性的詳細概觀，請參閱[這裡](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。 
+Azure 媒體服務將下列屬性新增至串流端點實體： **CdnProvider**、 **CdnProfile**、 **StreamingEndpointVersion**。 如需這些屬性的詳細概觀，請參閱[這裡](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。 
 
 當您建立 Azure 媒體服務帳戶時，系統會為您建立預設標準串流端點 (處於**已停止**狀態)。 您無法刪除預設串流端點。 根據目標區域中的 Azure CDN 可用性而定，依預設，新建立的預設串流端點也包含 "StandardVerizon" CDN 提供者整合。 
                 
@@ -47,15 +47,15 @@ Azure 媒體服務已將下列屬性新增至串流端點實體：**CdnProvider*
 
 ### <a name="standardpremium-types-version-20"></a>標準/進階類型 (2.0 版)
 
-從媒體服務的 2017 年 1 月版本開始，將會提供兩種串流類型︰**標準**(預覽) 和**Premium**。 這些類型是串流端點 "2.0" 版的一部分。
+從2017年1月版本的媒體服務開始，您有兩種串流類型： **Standard** （預覽）和**Premium**。 這些類型是串流端點 "2.0" 版的一部分。
 
 
 |Type|描述|
 |--------|--------|  
-|**標準**|預設的串流端點是一種**標準**類型, 可以藉由調整串流單位來變更為 Premium 類型。|
-|**高級** |這個選項適用於需要更大規模或控制的專業案例。 您可以藉由調整串流單位來移至**Premium**類型。<br/>專用的串流端點會存留在隔離的環境中, 而不會競爭資源。|
+|**標準**|預設的串流端點是一種**標準**類型，可以藉由調整串流單位來變更為 Premium 類型。|
+|**高級** |這個選項適用於需要更大規模或控制的專業案例。 您可以藉由調整串流單位來移至**Premium**類型。<br/>專用的串流端點會存留在隔離的環境中，而不會競爭資源。|
 
-對於想要將內容傳遞給大型網際網路物件的客戶, 我們建議您在串流端點上啟用 CDN。
+對於想要將內容傳遞給大型網際網路物件的客戶，我們建議您在串流端點上啟用 CDN。
 
 如需詳細資訊，請參閱下列[比較串流類型](#comparing-streaming-types)一節。
 
@@ -75,37 +75,37 @@ Azure 媒體服務已將下列屬性新增至串流端點實體：**CdnProvider*
 
 ### <a name="versions"></a>版本
 
-|Type|StreamingEndpointVersion|ScaleUnits|CDN|帳務|
+|Type|StreamingEndpointVersion|ScaleUnits|CDN|計費|
 |--------------|----------|-----------------|-----------------|-----------------|
 |傳統|1.0|0|NA|免費|
-|標準串流端點 (預覽)|2.0|0|是|付費|
-|進階串流單位|1.0|>0|是|付費|
-|進階串流單位|2.0|>0|是|付費|
+|標準串流端點（預覽）|2.0|0|是|付費|
+|進階串流處理單位|1.0|>0|是|付費|
+|進階串流處理單位|2.0|>0|是|付費|
 
 ### <a name="features"></a>功能
 
-功能|標準|進階
+功能|Standard|高級
 ---|---|---
-輸送量 |在使用 CDN 時, 最高可達 600 Mbps, 並可提供更高的有效輸送量。|每個串流單位 (SU) 200 Mbps。 使用 CDN 時, 可以提供更高的有效輸送量。
+輸送量 |在使用 CDN 時，最高可達 600 Mbps，並可提供更高的有效輸送量。|每個串流單位 (SU) 200 Mbps。 使用 CDN 時，可以提供更高的有效輸送量。
 CDN|Azure CDN、協力廠商 CDN 或沒有 CDN。|Azure CDN、協力廠商 CDN 或沒有 CDN。
 按比例計費| 每日|每日
 動態加密|是|是
 動態封裝|是|是
-調整規模|自動相應增加至目標輸送量。|其他串流單位。
+擴展性|自動相應增加至目標輸送量。|其他串流單位。
 IP 篩選/G20/自訂主機<sup>1</sup>|是|是
 漸進式下載|是|是
 建議用法 |建議用於絕大多數的串流案例。|專業用法。 
 
-<sup>1</sup>只有在未在端點上啟用 CDN 時, 才直接用於串流端點。<br/>
+<sup>1</sup>只有在未在端點上啟用 CDN 時，才直接用於串流端點。<br/>
 
-如需 SLA 資訊, 請參閱[定價和 SLA](https://azure.microsoft.com/pricing/details/media-services/)。
+如需 SLA 資訊，請參閱[定價和 SLA](https://azure.microsoft.com/pricing/details/media-services/)。
 
 ## <a name="migration-between-types"></a>在類型之間移轉
 
-起始 | 至 | Action
+從 | 到 | 行動
 ---|---|---
-傳統|標準|需要選擇加入
-傳統|進階| 調整 (其他串流單位)
+傳統|Standard|需要選擇加入
+傳統|高級| 調整 (其他串流單位)
 標準/高階|傳統|無法使用 (如果串流端點版本為 1.0。 允許變更為傳統並將 scaleunits 設為 "0")
 標準 (含/不含 CDN)|進階搭配相同的設定|在**已啟動**狀態下允許。 (透過 Azure 入口網站)
 進階 (含/不含 CDN)|標準搭配相同的設定|在**已啟動**狀態下允許 (透過 Azure 入口網站)

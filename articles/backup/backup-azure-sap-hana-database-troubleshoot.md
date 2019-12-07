@@ -3,12 +3,12 @@ title: 針對 SAP Hana 資料庫備份錯誤進行疑難排解
 description: 說明如何針對使用 Azure 備份備份 SAP Hana 資料庫時可能發生的常見錯誤進行疑難排解。
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: e8bb1d3328f95b647a788c53afe3ac1455eefa13
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 9958b241c44d619efea2f9ad516a2bd6d4f33d6e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665333"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892595"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>針對 Azure 上 SAP Hana 資料庫的備份進行疑難排解
 
@@ -102,17 +102,19 @@ ms.locfileid: "74665333"
 如果您要保護 SAP Hana 1.0 資料庫，並想要升級至2.0，請執行下列所述的步驟：
 
 - 使用 [保留舊的 SDC 資料庫的資料] 來[停止保護](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database)。
+- 執行升級。 完成後，HANA 現在會有系統資料庫和租使用者資料庫的 MDC
 - 重新執行[預先註冊腳本](https://aka.ms/scriptforpermsonhana)，並提供正確的詳細資料（sid 和 mdc）。
-- 重新註冊延伸模組（備份 > view 詳細資料-> 選取相關的 Azure VM-> 重新註冊）。
+- 在 Azure 入口網站中重新註冊相同電腦的延伸模組（備份-> view 詳細資料-> 選取相關的 Azure VM-> 重新註冊）。
 - 針對相同的 VM 按一下 [重新探索 Db]。 此動作應該會顯示步驟2中具有正確詳細資料的新資料庫（SYSTEMDB 和租使用者 DB，而非 SDC）。
-- 保護這些新的資料庫。
+- 設定這些新資料庫的備份。
 
 ## <a name="upgrading-without-an-sid-change"></a>在沒有 SID 變更的情況下升級
 
 升級為不會造成 SID 變更的 OS 或 SAP Hana，可以如下所述處理：
 
 - 使用保留資料庫資料的[停止保護](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database)
-- 重新執行[預先註冊腳本](https://aka.ms/scriptforpermsonhana)
+- 執行升級。
+- 重新執行[預先註冊腳本](https://aka.ms/scriptforpermsonhana)。 通常，我們看到升級程式會移除必要的角色。 執行預先註冊腳本將有助於驗證所有必要的角色。
 - 再次[繼續保護](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database)資料庫
 
 ## <a name="next-steps"></a>後續步驟

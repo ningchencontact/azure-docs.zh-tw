@@ -1,22 +1,23 @@
 ---
-title: 使用 Azure Active Directory 授權存取 Azure blob 和佇列 |Microsoft Docs
+title: 使用 Active Directory 授權存取 blob 和佇列
+titleSuffix: Azure Storage
 description: 使用 Azure Active Directory 授權存取 Azure blob 和佇列。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: aed61e5cf32ed0148e8b9eee6edf44daa03acd17
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 445d98ab07a91b056d4cf747f7c0f4cf1cdf9d53
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598099"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891808"
 ---
-# <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>使用 Azure Active Directory 授權存取 Azure blob 和佇列
+# <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>使用 Azure Active Directory 授權存取 blob 和佇列
 
 Azure 儲存體支援使用 Azure Active Directory （AD）來授權對 Blob 和佇列儲存體的要求。 使用 Azure AD，您可以使用角色型存取控制（RBAC），將許可權授與安全性主體，這可能是使用者、群組或應用程式服務主體。 安全性主體會由 Azure AD 進行驗證，以傳回 OAuth 2.0 權杖。 權杖可以用來授權存取 Blob 或佇列儲存體中資源的要求。
 

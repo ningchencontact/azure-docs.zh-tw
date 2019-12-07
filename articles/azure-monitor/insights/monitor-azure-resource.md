@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 230b79a5062262a85d3090e15ed52d67c38ed3e9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 5a46de9fa17790cb93ce7d5a2af8008d34d4dc35
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928464"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888779"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>使用 Azure 監視器監視 Azure 資源
 當您的重要應用程式和商務程式依賴 Azure 資源時，您會想要監視這些資源的可用性、效能和操作。 本文說明 Azure 資源所產生的監視資料，以及您可以如何使用 Azure 監視器的功能來分析此資料併發出警示。
@@ -52,7 +52,7 @@ Azure 監視器是 Azure 中的完整堆疊監視服務，除了其他雲端和�
 ## <a name="monitoring-data"></a>監視資料
 Azure 中的資源會產生[記錄](../platform/data-platform-logs.md)和[計量](../platform/data-platform-metrics.md)，如下圖所示。 請參閱每個 Azure 服務的檔，以取得其所產生的特定資料，以及所提供的任何其他解決方案或深入解析。
 
-![Overview](media/monitor-azure-resource/logs-metrics.png)
+![概觀](media/monitor-azure-resource/logs-metrics.png)
 
 
 
@@ -90,8 +90,8 @@ Azure 中的資源會產生[記錄](../platform/data-platform-logs.md)和[計量
 ## <a name="monitoring-in-the-azure-portal"></a>Azure 入口網站中的監視
  您可以從 Azure 入口網站中的資源功能表，存取大部分 Azure 資源的監視資料。 這可讓您使用標準 Azure 監視器工具來存取單一資源的資料。 某些 Azure 服務會提供不同的選項，因此您應該參考該服務的檔，以取得其他資訊。 使用 [ **Azure 監視器**] 功能表來分析來自所有受監視資源的資料。 
 
-### <a name="overview"></a>Overview
-許多服務都會在其 **[總覽**] 頁面上包含監視資料，以快速概覽其作業。 這通常會以 Azure 監視器計量中儲存的平臺計量子集為基礎。 其他監視選項通常會在服務的 [**監視**] 區段中提供。 下拉式功能表.
+### <a name="overview"></a>概觀
+許多服務都會在其 **[總覽**] 頁面上包含監視資料，以快速概覽其作業。 這通常會以 Azure 監視器計量中儲存的平臺計量子集為基礎。 其他監視選項通常會在服務的 [**監視**] 區段中提供。 功能表新功能的簡短影片。
 
 ![概觀分頁](media/monitor-azure-resource/overview-page.png)
 
@@ -101,24 +101,24 @@ Azure 中的資源會產生[記錄](../platform/data-platform-logs.md)和[計量
 
 如果服務有 Azure 監視器深入解析，您可以從每個資源功能表中的 [**監視**] 存取它。 從 [ **Azure 監視器**] 功能表中存取所有見解和解決方案。
 
-![深入解析](media/monitor-azure-resource/insights.png)
+![深入資訊](media/monitor-azure-resource/insights.png)
 
-### <a name="metrics"></a>度量
+### <a name="metrics"></a>計量
 使用[計量瀏覽器](../platform/metrics-getting-started.md)（可從大部分服務的 [**計量**] 功能表項目取得）來分析 Azure 入口網站中的計量。 此工具可讓您使用個別的計量，或結合多個以識別相互關聯和趨勢。 
 
 - 如需使用計量瀏覽器的基本概念，請參閱[開始使用 Azure 計量瀏覽器](../platform/metrics-getting-started.md)。
 - 請參閱[Azure 計量瀏覽器的 advanced 功能](../platform/metrics-charts.md)，以取得計量瀏覽器的高階功能，例如使用多個計量，以及套用篩選和分割。
 
-![度量](media/monitor-azure-resource/metrics.png)
+![計量](media/monitor-azure-resource/metrics.png)
 
 
-### <a name="activity-log"></a>活動記錄檔 
+### <a name="activity-log"></a>活動記錄 
 在 Azure 入口網站中，以初始篩選設定為目前資源的方式，查看活動記錄中的專案。 將活動記錄複製到 Log Analytics 工作區以存取它，以便在記錄查詢和活頁簿中使用。 
 
 - 如需有關使用各種方法來查看活動記錄和取得專案的詳細資訊，請參閱[查看和抓取 Azure 活動記錄事件](../platform/activity-log-view.md)。
 - 請參閱 Azure 服務的檔，以取得所記錄的特定事件。
 
-![活動記錄檔](media/monitor-azure-resource/activity-log.png)
+![活動記錄](media/monitor-azure-resource/activity-log.png)
 
 ### <a name="azure-monitor-logs"></a>Azure 監視器記錄
 Azure 監視器記錄會合並來自多個服務和其他資料來源的記錄和計量，以利用強大的查詢工具進行分析。 如上所述，建立診斷設定，以將平臺計量、活動記錄和資源記錄收集到 Azure 監視器中的 Log Analytics 工作區。
@@ -146,7 +146,7 @@ Azure 監視器記錄會合並來自多個服務和其他資料來源的記錄�
 - 如需從 Azure 監視器 REST API 存取計量的詳細資訊，請參閱[Azure 監視 REST API 逐步](../platform/rest-api-walkthrough.md)解說。
 - 如需使用 Azure PowerShell 的記錄查詢來存取 Azure 監視器記錄資料的詳細資訊，請參閱[Azure Log Analytics REST API](https://dev.loganalytics.io/) 。
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>警示
 當您的監視資料中發現重要條件時，[警示](../platform/alerts-overview.md)會主動通知您並可能採取動作。 您會建立警示規則來定義警示的目標、是否要建立警示的條件，以及要採取的任何動作以回應。
 
 不同種類的監視資料會用於不同種類的警示規則。
@@ -164,4 +164,4 @@ Azure 監視器記錄會合並來自多個服務和其他資料來源的記錄�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需不同 Azure 服務的資源記錄詳細資料，請參閱[Azure 診斷記錄支援的服務、架構和類別](../platform/diagnostic-logs-schema.md)。  
+* 如需不同 Azure 服務的資源記錄詳細資料，請參閱[支援的服務、架構和 Azure 資源記錄的類別](../platform/diagnostic-logs-schema.md)。  

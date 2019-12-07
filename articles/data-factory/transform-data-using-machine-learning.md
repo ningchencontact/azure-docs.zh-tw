@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 建立預測性資料管線
+title: 建立預測性資料管線
 description: 了解如何在 Azure Data Factory 中使用 Azure Machine Learning - 批次執行活動建立預測管線。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 02/20/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 24568940a0f6e550ae0fe7658b81ba1c3b3d3556
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dc2104495f231a316a1354100ecc105e8fda5bb4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683773"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893836"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>使用 Azure Machine Learning 和 Azure Data Factory 來建立預測管線
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -66,7 +66,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，使用已發佈的[Azure Mac
 
 如需了解 JSON 定義中的屬性說明，請參閱[計算連結服務](compute-linked-services.md)一文。
 
-Azure Machine Learning 支援傳統 Web 服務和新 Web 服務，以用於您的預測性實驗。 您可以從 Data Factory 選擇正確的服務。 若要取得建立 Azure Machine Learning 連結服務所需的資訊，請移至 https://services.azureml.net，其中列出所有 (新) Web 服務和傳統 Web 服務。 按一下您要存取的 Web 服務，然後按一下 [取用] 頁面。 為 **apiKey** 屬性複製**主索引鍵**，並為 **mlEndpoint** 屬性複製**批次要求**。
+Azure Machine Learning 支援傳統 Web 服務和新 Web 服務，以用於您的預測性實驗。 您可以從 Data Factory 選擇正確的服務。 若要取得建立 Azure Machine Learning 連結服務所需的資訊，請移至 https://services.azureml.net ，其中列出所有 (新) Web 服務和傳統 Web 服務。 按一下您要存取的 Web 服務，然後按一下 [取用] 頁面。 為 **apiKey** 屬性複製**主索引鍵**，並為 **mlEndpoint** 屬性複製**批次要求**。
 
 ![Azure Machine Learning Web 服務](./media/transform-data-using-machine-learning/web-services.png)
 
@@ -124,12 +124,12 @@ Azure Machine Learning 支援傳統 Web 服務和新 Web 服務，以用於您�
 }
 ```
 
-| 屬性          | 說明                              | 必要 |
+| 屬性          | 描述                              | 必要項 |
 | :---------------- | :--------------------------------------- | :------- |
 | 名稱              | 管線中的活動名稱     | 是      |
 | 說明       | 說明活動用途的文字。  | 否       |
 | 類型              | 對於 Data Lake Analytics U-SQL 活動，活動類型為 **AzureMLBatchExecution**。 | 是      |
-| linkedServiceName | 將服務連結至 Azure Machine Learning 連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
+| linkedServiceName | 將服務連結至 Azure Machine Learning 連結服務。 若要深入了解此連結服務，請參閱[計算連結服務](compute-linked-services.md)一文。 | 是      |
 | webServiceInputs  | 對應 Azure Machine Learning Web 服務輸入之名稱的索引鍵/值組。 索引鍵必須符合已發佈 Azure Machine Learning Web 服務中定義的輸入參數。 值是指定輸入 Blob 位置的 Azure 儲存體連結服務和 FilePath 屬性組。 | 否       |
 | webServiceOutputs | 對應 Azure Machine Learning Web 服務輸出之名稱的索引鍵/值組。 索引鍵必須符合已發佈 Azure Machine Learning Web 服務中定義的輸出參數。 值是指定輸出 Blob 位置的 Azure 儲存體連結服務和 FilePath 屬性組。 | 否       |
 | globalParameters  | 要傳遞給「Azure Machine Learning Studio 批次執行服務」端點的索引鍵/值組。 索引鍵必須符合已發佈之 Azure Machine Learning Studio Web 服務中定義的 Web 服務參數名稱。 值會在 Azure Machine Learning Studio 批次執行要求的 GlobalParameters 屬性中傳遞 | 否       |

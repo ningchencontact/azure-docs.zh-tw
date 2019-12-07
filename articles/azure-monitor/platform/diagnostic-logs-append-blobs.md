@@ -1,6 +1,6 @@
 ---
-title: 準備 Azure 監視器診斷記錄的格式變更
-description: 描述影響，以及如何更新您的工具，以處理已變更為在2018年11月1日使用附加 blob 的新 Azure 診斷記錄。
+title: 準備 Azure 監視器資源記錄的格式變更
+description: 描述影響，以及如何更新您的工具，以處理已變更為在2018年11月1日使用附加 blob 的新 Azure 資源記錄。
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 5e71f4c590e4eafea5a2c6ad52b8df8c7dcf3814
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: dc7fd8916f356414437d4def21f26f0b651ee76f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307053"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893513"
 ---
-# <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>為 Azure 監視器的診斷記錄在封存至儲存體帳戶時的格式變更做好準備
+# <a name="prepare-for-format-change-to-azure-monitor-resource-logs-archived-to-a-storage-account"></a>準備封存至儲存體帳戶 Azure 監視器資源記錄的格式變更
 
 > [!WARNING]
-> 如果您要使用資源診斷設定傳送 [Azure 資源診斷記錄或計量至儲存體帳戶](./../../azure-monitor/platform/archive-diagnostic-logs.md) 或使用記錄設定檔傳送[活動記錄至儲存體帳戶](./../../azure-monitor/platform/archive-activity-log.md)，則儲存體帳戶中的資料格式將會在 2018 年 11 月 1 日變更為 JSON 資料行。 下方的指示會說明新格式的影響，以及如何更新工具來加以因應。 
+> 如果您是使用[記錄檔設定檔](./../../azure-monitor/platform/archive-activity-log.md)，將[Azure 資源資源記錄或計量](./../../azure-monitor/platform/archive-diagnostic-logs.md)傳送至儲存體帳戶，則儲存體帳戶中的資料格式將會在2018年11月1日變更為 JSON 行。 下方的指示會說明新格式的影響，以及如何更新工具來加以因應。 
 >
 > 
 
@@ -31,13 +31,13 @@ Azure 監視器提供一項功能，可讓您將資源診斷資料和活動記�
 * 設定現在與 11 月 1 日之間的診斷設定，以在 11 月 1 日之前繼續使用目前格式發出資料。
 * 在所有的公用雲端區域中，這項變更會同時發生。 這項變更不會發生在由世紀、Azure 德國或 Azure Government 雲端操作 Microsoft Azure。
 * 這項變更會影響下列資料類型：
-  * [Azure 資源診斷記錄](archive-diagnostic-logs.md) ([請參閱這裡的資源清單](diagnostic-logs-schema.md))
+  * [Azure 資源資源記錄](archive-diagnostic-logs.md)（[請參閱這裡的資源清單](diagnostic-logs-schema.md)）
   * [診斷設定所匯出的 Azure 資源計量](diagnostic-settings.md)
   * [記錄設定檔所匯出的 Azure 活動記錄資料](archive-activity-log.md)
 * 這項變更不會影響：
   * 網路流量記錄
-  * 尚未透過 Azure 監視器提供的 Azure 服務記錄 (例如 Azure App Service 診斷記錄、儲存體分析記錄)
-  * 將 Azure 診斷記錄和活動記錄路由傳送至其他目的地 (事件中樞、Log Analytics)
+  * Azure 服務記錄尚未透過 Azure 監視器提供（例如，Azure App Service 資源記錄、儲存體分析記錄）
+  * 將 Azure 資源記錄和活動記錄路由至其他目的地（事件中樞、Log Analytics）
 
 ### <a name="how-to-see-if-you-are-impacted"></a>如何查看您是否受影響
 
@@ -135,6 +135,6 @@ Azure Blob 儲存體中 PT1H.json 檔案的目前格式會使用記錄的 JSON �
 
 ## <a name="next-steps"></a>後續步驟
 
-* 了解[將資源診斷記錄封存至儲存體帳戶](./../../azure-monitor/platform/archive-diagnostic-logs.md)
+* 瞭解如何[將資源資源記錄封存到儲存體帳戶](./../../azure-monitor/platform/archive-diagnostic-logs.md)
 * 了解[將活動記錄資料封存至儲存體帳戶](./../../azure-monitor/platform/archive-activity-log.md)
 

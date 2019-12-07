@@ -3,12 +3,12 @@ title: 備份 Azure 檔案服務常見問題集
 description: 在本文中，您可以針對如何使用 Azure 備份服務來保護 Azure 檔案共用的常見問題，找到相關解答。
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bf04458d859601de7ca0e9d07f6a3dbf506a51e6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bc4d7f9ad6512831687b974ae68870314775457d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173100"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892562"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有關備份 Azure 檔案服務的問題
 
@@ -28,7 +28,7 @@ ms.locfileid: "74173100"
 
 ### <a name="can-i-protect-file-shares-connected-to-a-sync-group-in-azure-files-sync"></a>我可以保護已連線到 Azure 檔案同步中同步群組的檔案共用嗎？
 
-是。 保護已連線至同步群組的 Azure 檔案共用並處於公開預覽狀態。
+可以。 保護已連線至同步群組的 Azure 檔案共用並處於公開預覽狀態。
 
 ### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-did-not-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>在嘗試備份檔案共用時，我按了一下 [儲存體帳戶] 來探索其中的檔案共用。 不過，我並未保護它們。 如何使用任何其他保存庫來保護這些檔案共用？
 
@@ -36,7 +36,7 @@ ms.locfileid: "74173100"
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>可以將保存庫變更為我備份檔案共用的保存庫嗎？
 
-是。 不過，您必須從已連線的保存庫[停止保護](backup-azure-files.md#stop-protecting-an-azure-file-share)，[取消註冊](troubleshoot-azure-files.md#configuring-backup)這個儲存體帳戶，然後從不同的保存庫加以保護。
+可以。 不過，您必須從已連線的保存庫[停止保護](backup-azure-files.md#stop-protecting-an-azure-file-share)，[取消註冊](troubleshoot-azure-files.md#configuring-backup)這個儲存體帳戶，然後從不同的保存庫加以保護。
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares"></a>我可以在哪些地區備份 Azure 檔案共用？
 
@@ -70,6 +70,18 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 - US Gov 亞利桑那州 (UGA)
 - US Gov 德克薩斯州 (UGT)
 - US Gov 維吉尼亞州 (UGV)
+- 澳大利亞中部（ACL）
+- 印度西部（INW）
+- 南非北部（SAN）
+- 阿拉伯聯合大公國北部（UAN）
+- 法國中部（FRC）
+- 德國北部（GN）                       
+- 德國中西部（GWC）
+- 南非西部（已看到）
+- 阿拉伯聯合大公國中部（UAC）
+- N 我們（挪威東部）     
+- NWW （挪威西部）
+- SZN （瑞士北部）
 
 如果您在未列於上方的特定地區中需要使用該功能，請寫信送至 [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com)。
 
@@ -79,7 +91,7 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>可以將相同儲存體帳戶中的兩個不同檔案共用放入不同的保存庫中保護？
 
-沒有。 一個儲存體帳戶中的所有檔案共用只能由相同的保存庫保護。
+不會。 一個儲存體帳戶中的所有檔案共用只能由相同的保存庫保護。
 
 ## <a name="backup"></a>Backup
 
@@ -91,7 +103,7 @@ Azure 備份目前支援對 Azure 檔案共用設定每日一次的排程備份�
 
 在任何時間點，檔案共用最多可以有 200 個快照集。 如您的原則所定義，此限制包含 Azure 備份所產生的快照集。 如果您的備份在達到此限制之後開始失敗，請刪除隨選還原點，以便未來備份成功。
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>還原
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share"></a>已刪除的 Azure 檔案共用是否可以復原？
 
@@ -99,7 +111,7 @@ Azure 備份目前支援對 Azure 檔案共用設定每日一次的排程備份�
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share"></a>如果我停止保護 Azure 檔案共用，是否可以從備份還原？
 
-是。 如果您在停止保護時選擇 [保留備份資料]  ，則您可以從所有現有的還原點進行還原。
+可以。 如果您在停止保護時選擇 [保留備份資料]，則您可以從所有現有的還原點進行還原。
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>如果我取消進行中的還原作業，會發生什麼事？
 
@@ -109,7 +121,7 @@ Azure 備份目前支援對 Azure 檔案共用設定每日一次的排程備份�
 
 ### <a name="can-i-use-powershell-to-configuremanagerestore-backups-of-azure-file-shares"></a>我是否可以使用 PowerShell 來設定/管理/還原 Azure 檔案共用的備份？
 
-是。 請參閱[這裡](backup-azure-afs-automation.md)的詳細文件
+可以。 請參閱[這裡](backup-azure-afs-automation.md)的詳細文件
 
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-it"></a>我可以存取 Azure 備份所產生的快照集並加以裝載嗎？
 

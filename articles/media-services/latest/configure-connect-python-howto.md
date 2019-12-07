@@ -1,6 +1,6 @@
 ---
 title: 連接到 Azure 媒體服務 v3 API-Python
-description: 瞭解如何使用 Python 連接到媒體服務 v3 API。
+description: 本文示範如何使用 Python 連接到媒體服務 v3 API。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 2ceebd88f4988f23bf9cd32bd827aaca67d70461
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 98a8cdf4120cf56184eb5735249640e3423acdf4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307864"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888456"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>連接到媒體服務 v3 API-Python
 
@@ -27,7 +27,7 @@ ms.locfileid: "70307864"
 ## <a name="prerequisites"></a>必要條件
 
 - 從[python.org](https://www.python.org/downloads/)下載 Python
-- 請務必設定`PATH`環境變數
+- 請務必設定 `PATH` 環境變數
 - [建立媒體服務帳戶](create-account-cli-how-to.md)。 請務必記住資源組名和媒體服務帳戶名稱。
 - 依照[存取 api](access-api-cli-how-to.md)主題中的步驟進行。 記錄訂用帳戶識別碼、應用程式識別碼（用戶端識別碼）、驗證金鑰（密碼），以及您在稍後步驟中需要的租使用者識別碼。
 
@@ -38,8 +38,8 @@ ms.locfileid: "70307864"
 
 若要使用 Python 來處理 Azure 媒體服務，您需要安裝這些模組。
 
-* `azure-mgmt-resource`模組，包括適用于 Active Directory 的 Azure 模組。
-* `azure-mgmt-media`模組，其中包含媒體服務的實體。
+* `azure-mgmt-resource` 模組，包括適用于 Active Directory 的 Azure 模組。
+* `azure-mgmt-media` 模組，其中包含媒體服務的實體。
 
 開啟命令列工具，並使用下列命令來安裝模組。
 
@@ -50,7 +50,7 @@ pip3 install azure-mgmt-media==1.1.1
 
 ## <a name="connect-to-the-python-client"></a>連接至 Python 用戶端
 
-1. `.py`建立副檔名為的檔案
+1. 建立具有 `.py` 副檔名的檔案
 1. 在您慣用的編輯器中開啟檔案
 1. 將後面的程式碼新增至檔案。 程式碼會匯入必要的模組，並建立您連接至媒體服務所需的 Active Directory 認證物件。
 

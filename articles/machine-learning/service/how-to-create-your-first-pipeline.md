@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 329fa301917fec368b0e76ab970d8ece72aa66c5
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 85c80a5b9f2c0ac7b73fb51fd8138e3aae0b0221
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561412"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894679"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -366,7 +366,7 @@ dataframe = iris_dataset.to_pandas_dataframe()
 當您提交管線時，Azure Machine Learning 會檢查每個步驟的相依性，並上傳您指定之來原始目錄的快照集。 如果未指定來源目錄，則會上傳目前的本機目錄。 快照集也會儲存為您工作區中實驗的一部分。
 
 > [!IMPORTANT]
-> 若要防止檔案包含在快照中，請在目錄中建立[.gitignore](https://git-scm.com/docs/gitignore)或 `.amlignore` 檔案，並在其中新增檔案。 `.amlignore` 檔案使用與[.gitignore](https://git-scm.com/docs/gitignore)檔案相同的語法和模式。 如果兩個檔案都存在，則會優先使用 `.amlignore` 檔案。
+> 若要防止檔案包含在快照中, 請在目錄中建立 [.gitignore](https://git-scm.com/docs/gitignore) `.amlignore`或檔案, 並在其中新增檔案。 檔案會使用與 [.gitignore](https://git-scm.com/docs/gitignore) 檔案相同的語法和模式。`.amlignore` 如果兩個檔案都存在，則會優先使用 `.amlignore` 檔案。
 >
 > 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshots)。
 
@@ -526,10 +526,9 @@ p.disable()
 
 為了優化和自訂管線的行為，您可以在快取和重複使用方面執行一些動作。 例如，您可以選擇：
 + 藉由設定[步驟定義](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)期間的 `allow_reuse=False`，關閉**步驟執行輸出的預設重複使用**。 在共同作業環境中使用管線時，重複使用是關鍵，因為排除不必要的執行可提供靈活性。 不過，您可以選擇不重複使用。
-+ 將**雜湊延伸到腳本之外**，也可以使用 `hash_paths=['<file or directory']`，將絕對路徑或相對路徑加入至其他檔案和目錄的 source_directory 
 + **在執行時使用 `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)` 中的所有步驟強制執行輸出**重新產生
 
-根據預設，會啟用步驟的 `allow_reuse`，而且只會雜湊主要的腳本檔案。 因此，如果指定步驟的腳本維持不變（`script_name`、輸入和參數），則會重複使用上一個步驟執行的輸出，而不會將作業提交至計算，而先前執行的結果會立即可供下一個步驟使用。  
+根據預設，會啟用步驟的 `allow_reuse`，而且會雜湊步驟定義中指定的 `source_directory`。 因此，如果指定步驟的腳本維持不變（`script_name`、輸入和參數），而` source_directory` 中沒有任何其他變更，則會重複使用上一個步驟執行的輸出，而不會將作業提交至計算，而先前執行的結果會立即可供下一個步驟使用。
 
 ```python
 step = PythonScriptStep(name="Hello World",

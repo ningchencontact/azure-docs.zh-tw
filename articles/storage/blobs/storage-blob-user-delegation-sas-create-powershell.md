@@ -1,20 +1,21 @@
 ---
-title: 使用 PowerShell 建立容器或 blob 的使用者委派 SAS （預覽）-Azure 儲存體
-description: 瞭解如何使用 PowerShell 在 Azure 儲存體中 Azure Active Directory 認證來建立共用存取簽章（SAS）。
+title: 使用 PowerShell 建立容器或 blob 的使用者委派 SAS
+titleSuffix: Azure Storage
+description: 瞭解如何使用 PowerShell 建立具有 Azure Active Directory 認證的使用者委派 SAS （預覽）。
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 08/29/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 0164c97adf720a618179908298223c54bf48824e
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 5f4947921a77f2bc94d1810c9b1d1951431d3d71
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673330"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892510"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>使用 PowerShell 建立容器或 blob 的使用者委派 SAS （預覽）
 
@@ -31,7 +32,7 @@ ms.locfileid: "71673330"
 1. 解除安裝任何先前安裝的 Azure PowerShell：
 
     - 使用 [設定] 底下的 [應用程式與功能]，從 Windows 移除任何先前安裝的 Azure PowerShell。
-    - 從`%Program Files%\WindowsPowerShell\Modules`移除所有**Azure**模組。
+    - 從 `%Program Files%\WindowsPowerShell\Modules`移除所有**Azure**模組。
 
 1. 確定您已安裝最新版的 PowerShellGet。 開啟 Windows PowerShell 視窗，然後執行下列命令來安裝最新版本：
 
@@ -86,7 +87,7 @@ Connect-AzAccount
 
 下列範例會指派**儲存體 Blob 資料參與者**角色，其中包括**Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey**動作。 角色的範圍設定為儲存體帳戶的層級。
 
-請記得使用您自己的值來取代角括弧中的預留位置值:
+請記得以您自己的值取代角括號中的預留位置值：
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -102,9 +103,9 @@ New-AzRoleAssignment -SignInName <email> `
 
 因為使用者委派金鑰有效的最大間隔是從開始日期起算的7天，所以您應該指定在開始時間的7天內的 SAS 到期時間。 在使用者委派金鑰過期之後，SAS 無效，因此到期時間超過7天的 SAS 仍然有效7天。
 
-若要使用 Azure PowerShell 建立容器或 blob 的使用者委派 SAS，請先建立新的 Azure 儲存體內容物件，並指定 `-UseConnectedAccount` 參數。 @No__t-0 參數指定命令會在您用來登入的 Azure AD 帳戶底下建立內容物件。
+若要使用 Azure PowerShell 建立容器或 blob 的使用者委派 SAS，請先建立新的 Azure 儲存體內容物件，並指定 `-UseConnectedAccount` 參數。 `-UseConnectedAccount` 參數指定命令會在您用來登入的 Azure AD 帳戶底下建立內容物件。
 
-請記得使用您自己的值來取代角括弧中的預留位置值:
+請記得以您自己的值取代角括號中的預留位置值：
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName <storage-account> -UseConnectedAccount
@@ -134,7 +135,7 @@ New-AzStorageContainerSASToken -Context $ctx `
 
 若要傳回 blob 的使用者委派 SAS 權杖，請呼叫[AzStorageBlobSASToken](/powershell/module/az.storage/new-azstorageblobsastoken)命令，並傳入您先前建立的 Azure 儲存體內容物件。
 
-下列語法會傳回 blob 的使用者委派 SAS。 此範例會指定 `-FullUri` 參數，這會傳回附加 SAS 權杖的 blob URI。 請記得以您自己的值取代括弧中的預留位置值：
+下列語法會傳回 blob 的使用者委派 SAS。 此範例會指定 `-FullUri` 參數，傳回已附加 SAS 權杖的 blob URI。 請記得以您自己的值取代括弧中的預留位置值：
 
 ```powershell
 New-AzStorageBlobSASToken -Context $ctx `
@@ -158,7 +159,7 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?sv=2018-
 
 若要撤銷 Azure PowerShell 的使用者委派 SAS，請呼叫**AzStorageAccountUserDelegationKeys**命令。 此命令會撤銷與指定的儲存體帳戶相關聯的所有使用者委派金鑰。 任何與這些金鑰相關聯的共用存取簽章都會失效。
 
-請記得使用您自己的值來取代角括弧中的預留位置值:
+請記得以您自己的值取代角括號中的預留位置值：
 
 ```powershell
 Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `

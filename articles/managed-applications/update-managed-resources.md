@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 21f4e0aa339eb0c746f9b9b06f8aaada6c4d4b71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f00a99a31a4543ef45c90a86820e627134d8963
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61043380"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888694"
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>針對 Azure 受控應用程式使用受控資源群組中的資源
 
 本文說明如何更新部署在受控應用程式中的資源。 身為受控應用程式的發行者，您具有受控資源群組中資源的存取權。 若要更新這些資源，您必須尋找與受控應用程式相關聯的受控資源群組，並且存取該資源群組中的資源。
 
-本文假設您已在[受控 Web 應用程式 (IaaS) 與 Azure 管理服務](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app)範例專案中部署受控應用程式。 受控應用程式包含 **Standard_D1_v2** 虛擬機器。 如果您尚未部署該受控應用程式，您仍然可以使用本文來熟悉更新受控資源群組的步驟。
+本文假設您已在[受控 Web 應用程式 (IaaS) 與 Azure 管理服務](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-web-app)範例專案中部署受控應用程式。 受控應用程式包含 **Standard_D1_v2** 虛擬機器。 如果您尚未部署該受控應用程式，您仍然可以使用本文來熟悉更新受控資源群組的步驟。
 
 下圖顯示已部署的受控應用程式。
 

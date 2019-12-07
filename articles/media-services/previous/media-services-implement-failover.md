@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 媒體服務實作容錯移轉串流 | Microsoft Docs
-description: 本主題說明如何實作容錯移轉串流案例。
+description: 本文說明如何使用 Azure 媒體服務來執行容錯移轉串流案例。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ea5238df50ff050140453ce655ea041669f6080c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 195f7f089b84e1665f4dd078a7da141d531c2185
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051646"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887152"
 ---
-# <a name="implement-failover-streaming-with-media-services"></a>實作容錯移轉串流媒體服務 
+# <a name="implement-failover-streaming-with-media-services"></a>使用媒體服務執行容錯移轉串流 
 
 本逐步解說示範如何將內容 (Blob) 從一個資產複製到另一個資產，以便處理隨選資料流處理的備援。 如果您想要設定 Azure 內容傳遞網路，以便在某個資料中心發生中斷時在兩個資料中心之間進行容錯移轉，這個案例會很有用。 本逐步解說使用 Azure 媒體服務 SDK、Azure 媒體服務 REST API 和 Azure 儲存體 SDK 來示範下列工作：
 
@@ -48,9 +48,9 @@ ms.locfileid: "67051646"
 
 * 目前的媒體服務 SDK 版本不支援以程式設計方式產生可讓資產和資產檔案產生關聯的 IAssetFile 資訊。 請改為使用 CreateFileInfos 媒體服務 REST API 來進行此操作。 
 * 儲存體加密資產 (AssetCreationOptions.StorageEncrypted) 不支援複寫 (因為兩個媒體服務帳戶中的加密金鑰不同)。 
-* 如果您想要利用動態封裝，請確定您想要從中串流內容的串流端點是處於 [執行中]  狀態。
+* 如果您想要利用動態封裝，請確定您想要從中串流內容的串流端點是處於 [執行中] 狀態。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 在新的或現有的 Azure 訂用帳戶中有兩個媒體服務帳戶。 請參閱 [如何建立媒體服務帳戶](media-services-portal-create-account.md)。
 * 作業系統：Windows 7、Windows 2008 R2 或 Windows 8。
 * .NET Framework 4.5 或 .NET Framework 4。
@@ -59,10 +59,10 @@ ms.locfileid: "67051646"
 ## <a name="set-up-your-project"></a>設定專案
 在本節中，您會建立 C# Console Application 專案。
 
-1. 使用 Visual Studio 建立一個包含 C# Console Application 專案的新方案。 輸入 **HandleRedundancyForOnDemandStreaming** 做為名稱，然後按一下 [確定]  。
+1. 使用 Visual Studio 建立一個包含 C# Console Application 專案的新方案。 輸入 **HandleRedundancyForOnDemandStreaming** 做為名稱，然後按一下 [確定]。
 2. 在與 **HandleRedundancyForOnDemandStreaming.csproj** 專案檔案相同的層級上建立 **SupportFiles** 資料夾。 在 **SupportFiles** 資料夾下建立 **OutputFiles** 和 **MP4Files** 資料夾。 將 .mp4 檔案複製到 **MP4Files** 資料夾 (在此範例中，會使用 **BigBuckBunny.mp4** 檔案)。 
-3. 使用 **Nuget** 將參考新增至與媒體服務相關的 DLL。 在 **Visual Studio 主要功能表**中，選取 [工具]   > [Library Package Manager]   > [Package Manager Console]  。 在主控台視窗中輸入 **Install-package windowsazure.mediaservices**，然後按下 Enter。
-4. 新增此專案所需的其他參考：System.Configuration、System.Runtime.Serialization 與 System.Web。
+3. 使用 **Nuget** 將參考新增至與媒體服務相關的 DLL。 在 **Visual Studio 主要功能表**中，選取 [工具] > [Library Package Manager] > [Package Manager Console]。 在主控台視窗中輸入 **Install-package windowsazure.mediaservices**，然後按下 Enter。
+4. 新增此專案所需的其他參考：System.Configuration、System.Runtime.Serialization 和 System.Web。
 5. 將預設新增至 **Programs.cs** 檔的 **using** 陳述式取代為下列陳述式：
    
         using System;

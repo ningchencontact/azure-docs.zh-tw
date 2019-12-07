@@ -1,6 +1,6 @@
 ---
 title: Azure 媒體服務常見問題集 | Microsoft Docs
-description: 常見問題集 (FAQ)
+description: 本文提供有關 Azure 媒體服務常見問題的解答。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3164445dc28a2436d8492902d865414da8d75702
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3aeff680392fbe966682b57ca1318fac9f0d1d93
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463893"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895988"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -36,7 +36,7 @@ ms.locfileid: "61463893"
 
 問：我已上傳、編碼以及發佈視訊。 當我試著串流處理視頻時，為什麼不會播放視頻？
 
-答：其中一個最常見的原因就是您嘗試從中進行播放的串流端點不是處於 [執行中]  狀態。  
+答：其中一個最常見的原因是您沒有嘗試在**執行狀態中播放的串流**端點。  
 
 問：我可以編輯即時資料流？
 
@@ -50,13 +50,13 @@ ms.locfileid: "61463893"
 
 答：如果您只想要儲存 JPEG 或 PNG 影像，請儲存至 Azure Blob 儲存體。 除非您想維持影像與視訊或音訊資產之間的關聯，否則將影像保存在媒體服務帳戶中，實際上一點用處也沒有。 或者，當您需要在視訊編碼器中將影像作為重疊時才有必要。媒體編碼器標準支援在視訊上層重疊影像，因此會將 JPEG 和 PNG 列為支援的輸入格式。 如需詳細資訊，請參閱 [建立重疊](media-services-advanced-encoding-with-mes.md#overlay)。
 
-問：我如何將資產從一個媒體服務帳戶複製到另一個帳戶？
+問：如何將資產從一個媒體服務帳戶複製到另一個帳戶？
 
 答：若要使用 .NET 將資產從某個媒體服務帳戶複製到另一個帳戶，請使用 [Azure Media Services .NET SDK Extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions/) (Azure 媒體服務 .NET SDK 擴充功能) 儲存機制中可用的 [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) 擴充功能方法。 如需詳細資訊，請參閱 [這個](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) 論壇執行緒。
 
 問：使用 AMS 時，有哪些支援的字元可用來命名檔案？
 
-答：建置串流內容的 URL (例如， http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters) 時，媒體服務會使用 IAssetFile.Name 屬性的值。基於這個理由，不允許 percent-encoding。 **Name** 屬性的值不能有下列任何[百分比編碼保留字元](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 此外，只能有一個 ‘.’ 在檔案名稱的副檔名。
+答：媒體服務在建立串流內容的 Url 時，會使用 IAssetFile.Name 屬性的值（例如，HTTP：//{AMSAccount}. windowsazure.mediaservices.extensions. net/{GUID}/{IAssetFile. Name}/streamingParameters）。基於這個理由，不允許使用百分比編碼。 **Name** 屬性的值不能有下列任何[百分比編碼保留字元](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 此外，只能有一個 ‘.’ 在檔案名稱的副檔名。
 
 問：如何使用 REST 連線？
 
@@ -64,7 +64,7 @@ ms.locfileid: "61463893"
 
 問：如何在編碼過程中旋轉影片？
 
-答：[媒體編碼器標準](media-services-dotnet-encode-with-media-encoder-standard.md)支援 90/180/270 度的旋轉角度。 預設行為是「自動」，此時它會嘗試偵測內送之 MP4/MOV 檔案的旋轉中繼資料並加以補償。 包括以下 **Sources** 元素至[這裡](media-services-mes-presets-overview.md)所定義的其中一個 json 預設項目：
+答：[Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) 支援 90/180/270 度的旋轉角度。 預設行為是「自動」，此時它會嘗試偵測內送之 MP4/MOV 檔案的旋轉中繼資料並加以補償。 包括以下 **Sources** 元素至[這裡](media-services-mes-presets-overview.md)所定義的其中一個 json 預設項目：
 
     "Version": 1.0,
     "Sources": [

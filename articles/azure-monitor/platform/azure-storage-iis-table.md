@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 04/12/2017
-ms.openlocfilehash: 8f70ecc96269783c29c566fb89bd617f034316b1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2d2d8d43cb5ee91810d639c4ee8925d185987954
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932678"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893547"
 ---
-# <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>從 Azure 儲存體收集 Azure 診斷記錄
+# <a name="collect-azure-resource-logs-from-azure-storage"></a>從 Azure 儲存體收集 Azure 資源記錄
 
 Azure 監視器可以讀取下列服務的記錄，將診斷寫入表格儲存體或寫入 blob 儲存體的 IIS 記錄：
 

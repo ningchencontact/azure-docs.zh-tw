@@ -1,24 +1,23 @@
 ---
-title: Azure Data Factory 的對應資料流程功能中的運算式函數
+title: 對應資料流程中的運算式函數
 description: 瞭解對應資料流程中的運算式函數。
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: dc742fc625604e71909f49c7453a9215dce71e35
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f384c440dab06660c95f635dde02ced5b3e54d94
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596971"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896320"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>對應資料流程中的資料轉換運算式 
 
-
-
-## <a name="expression-functions"></a>運算式函數
+## <a name="expression-functions"></a>運算式函式
 
 在 Data Factory 中，使用對應資料流程功能的運算式語言來設定資料轉換。
 
@@ -122,7 +121,7 @@ ___
 ___
 ### <code>byName</code>
 <code><b>byName(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-依名稱選取資料流程中的資料行值。 您可以傳遞選擇性的資料流程名稱作為第二個引數。 如果有多個相符專案，則會傳回第一個相符專案。 如果不符合，則會傳回 Null 值。 傳回的值必須是由其中一個類型轉換函式（TO_DATE，TO_STRING ...）轉換的類型。 在設計階段已知的資料行名稱，應該只依據其名稱來定址。 不支援計算的輸入，但您可以使用參數替換
+依名稱選取資料流程中的資料行值。 您可以傳遞選擇性的資料流程名稱作為第二個引數。 如果有多個相符專案，則會傳回第一個相符專案。 如果不符合，則會傳回 Null 值。 傳回的值必須是由其中一個類型轉換函數（TO_DATE，TO_STRING ...）轉換的類型。 在設計階段已知的資料行名稱，應該只依據其名稱來定址。 不支援計算的輸入，但您可以使用參數替換
 
 * ``toString(byName('parent'))``
 
@@ -139,7 +138,7 @@ ___
 ___
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
-依據資料流程中的相對位置（以1為基礎）來選取資料行值。 如果位置超出範圍，則會傳回 Null 值。 傳回的值必須是由其中一個類型轉換函式（TO_DATE，TO_STRING ...）轉換的類型不支援計算的輸入，但您可以使用參數替換
+依據資料流程中的相對位置（以1為基礎）來選取資料行值。 如果位置超出範圍，則會傳回 Null 值。 傳回的值必須是由其中一個類型轉換函式轉換的類型（TO_DATE，TO_STRING ...）不支援計算的輸入，但您可以使用參數替換
 
 * ``toString(byPosition(1))``
 
@@ -1067,7 +1066,7 @@ ___
 ___
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
-擷取指定規則運算式模式的相符子字串。 最後一個參數會識別比對群組，如果省略則預設為 1。 使用 ' <regex> ' （後引號）來比對字串而不進行轉義
+擷取指定規則運算式模式的相符子字串。 最後一個參數會識別比對群組，如果省略則預設為 1。 使用 '<regex>' （後引號）來比對字串而不進行轉義
 
 * ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``
 
@@ -1076,7 +1075,7 @@ ___
 ___
 ### <code>regexMatch</code>
 <code><b>regexMatch(<i>&lt;string&gt;</i> : string, <i>&lt;regex to match&gt;</i> : string) => boolean</b></code><br/><br/>
-檢查字串是否符合指定的規則運算式模式。 使用 ' <regex> ' （後引號）來比對字串而不進行轉義
+檢查字串是否符合指定的規則運算式模式。 使用 '<regex>' （後引號）來比對字串而不進行轉義
 
 * ``regexMatch('200.50', '(\\d+).(\\d+)') -> true``
 
@@ -1085,7 +1084,7 @@ ___
 ___
 ### <code>regexReplace</code>
 <code><b>regexReplace(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, <i>&lt;substring to replace&gt;</i> : string) => string</b></code><br/><br/>
-將所有出現的 RegEx 模式取代為指定字串中的另一個子字串使用 ' <regex> ' （後引號）來比對字串而不進行轉義
+將所有出現的 RegEx 模式取代為指定字串中的另一個子字串使用 '<regex>' （後引號）來比對字串而不進行轉義
 
 * ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``
 

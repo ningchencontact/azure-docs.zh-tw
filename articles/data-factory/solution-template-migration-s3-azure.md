@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 將資料從 Amazon S3 遷移至 Azure Data Lake Storage Gen2
+title: 將資料從 Amazon S3 遷移至 Azure Data Lake Storage Gen2
 description: 瞭解如何透過使用外部控制資料表，將資料分割清單儲存在 AWS S3 上，以使用 Azure Data Factory 的解決方案範本，從 Amazon S3 遷移資料。
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2019
-ms.openlocfilehash: a8591762bf4e8eccd5e1b7d67538674feed720b9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b1e7d15f1c747644c755b1e0bbe3351c626f7c28
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684188"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890805"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>將資料從 Amazon S3 遷移至 Azure Data Lake Storage Gen2
 
@@ -50,13 +50,13 @@ ms.locfileid: "73684188"
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>用於範本，只將變更的檔案從 Amazon S3 複製到 Azure Data Lake Storage Gen2
 
-此範本（*範本名稱：將差異資料從 AWS S3 複製到 Azure Data Lake Storage Gen2*）會使用每個檔案的 LastModifiedTime，將新的或更新的檔案從 AWS S3 複製到 Azure。 請注意，如果您的檔案或資料夾已經過時間分割，並在 AWS S3 上以檔案或資料夾名稱作為一部分（例如/yyyy/mm/dd/file.csv），則您可以移至本[教學](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)課程以取得更高效能的增量方法正在載入新檔案。 此範本假設您已在 Azure SQL Database 的外部控制資料表中撰寫資料分割清單。 因此，它會使用*查閱*活動來抓取外部控制資料表中的分割區清單、逐一查看每個資料分割，並讓每個 ADF 複製作業一次複製一個分割區。 當每個複製作業開始從 AWS S3 複製檔案時，它會依賴 LastModifiedTime 屬性來識別並複製新的或更新的檔案。 完成任何複製作業之後，它會使用*預存*程式活動來更新控制資料表中每個資料分割的複製狀態。
+此範本（*範本名稱：將差異資料從 AWS S3 複製到 Azure Data Lake Storage Gen2*）會使用每個檔案的 LastModifiedTime，將新的或更新的檔案從 AWS S3 複製到 Azure。 請注意，如果您的檔案或資料夾已經以時間間隔資訊分割，做為 AWS S3 上檔案或資料夾名稱的一部分（例如/yyyy/mm/dd/file.csv），您可以移至本[教學](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)課程，以取得更具效能的方法來累加式載入新檔案。 此範本假設您已在 Azure SQL Database 的外部控制資料表中撰寫資料分割清單。 因此，它會使用*查閱*活動來抓取外部控制資料表中的分割區清單、逐一查看每個資料分割，並讓每個 ADF 複製作業一次複製一個分割區。 當每個複製作業開始從 AWS S3 複製檔案時，它會依賴 LastModifiedTime 屬性來識別並複製新的或更新的檔案。 完成任何複製作業之後，它會使用*預存*程式活動來更新控制資料表中每個資料分割的複製狀態。
 
 此範本包含七個活動：
 - **Lookup**會從外部控制資料表中抓取資料分割。 資料表名稱是*s3_partition_delta_control_table* ，而從資料表載入資料的查詢是 *"select distinct PartitionPrefix from s3_partition_delta_control_table"* 。
 - **ForEach**會從*查閱*活動取得分割區清單，並將每個資料分割逐一查看至*TriggerDeltaCopy*活動。 您可以將*batchCount*設定為同時執行多個 ADF 複製作業。 我們已在此範本中設定2。
 - **ExecutePipeline**會執行*DeltaCopyFolderPartitionFromS3*管線。 建立另一個管線讓每個複製作業複製分割區的原因，是因為它可讓您輕鬆地重新執行失敗的複製作業，以便再次從 AWS S3 重載該特定的分割區。 載入其他分割區的所有其他複製作業都不會受到影響。
-- **Lookup**會從外部控制資料表中抓取上次複製作業執行時間，以便透過 LastModifiedTime 來識別新的或更新的檔案。 資料表名稱是*s3_partition_delta_control_table* ，而從資料表載入資料的查詢是 *"Select max （JobRunTime） as LastModifiedTime From s3_partition_delta_control_table where PartitionPrefix = ' @ {pipeline （）. parameters. prefixStr} ' 和 SuccessOrFailure = 1 "* 。
+- **Lookup**會從外部控制資料表中抓取上次複製作業執行時間，以便透過 LastModifiedTime 來識別新的或更新的檔案。 資料表名稱是*s3_partition_delta_control_table* ，而從資料表載入資料的查詢是 *"Select max （JobRunTime） as LastModifiedTime From s3_partition_delta_control_table where PartitionPrefix = ' @ {pipeline （）. parameters. prefixStr} ' 和 SuccessOrFailure = 1"* 。
 - **複製**只會將每個磁碟分割的新檔案或變更的檔案從 AWS S3 複製到 Azure Data Lake Storage Gen2。 *ModifiedDatetimeStart*的屬性會設定為上次複製作業執行時間。 *ModifiedDatetimeEnd*的屬性會設定為目前的複製作業執行時間。 請注意，時間會套用至 UTC 時區。
 - **SqlServerStoredProcedure**會更新複製每個資料分割的狀態，並在控制資料表成功時複製執行時間。 SuccessOrFailure 的資料行設定為1。
 - **SqlServerStoredProcedure**會更新複製每個資料分割的狀態，並在 [控制資料表] 失敗時複製執行時間。 SuccessOrFailure 的資料行設定為0。
@@ -111,7 +111,7 @@ ms.locfileid: "73684188"
 
     ![建立新的連線](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
 
-4. 選取 [**使用此範本**]。
+4. 選取 [使用此範本]。
 
     ![使用此範本](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
     
@@ -174,7 +174,7 @@ ms.locfileid: "73684188"
 
     ![建立新的連線](media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png)
 
-4. 選取 [**使用此範本**]。
+4. 選取 [使用此範本]。
 
     ![使用此範本](media/solution-template-migration-s3-azure/delta-migration-s3-azure2.png)
     

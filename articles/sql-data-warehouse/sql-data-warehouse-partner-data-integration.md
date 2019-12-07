@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c6951ad129a564193a33a4c21fb97e9000ac8dc2
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 8dd111017076e4a1a6a93ac7d53c253a85a09376
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555450"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890088"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL 資料倉儲資料整合合作夥伴
 若要建立資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。 本文將重點放在 Microsoft 合作夥伴公司，並提供支援 Azure SQL 資料倉儲的官方資料整合解決方案。
@@ -32,10 +32,10 @@ ms.locfileid: "74555450"
 | ![Informatica][4] |**1. 適用于 Azure 的 Informatica 雲端服務**<br> Informatica Cloud 為自助資料移轉、整合和管理功能提供了一流的解決方案。 客戶可以從不同類型的來源快速且可靠地將數 pb 的資料匯入及匯出至 Azure。 Azure 的 Informatica 雲端服務提供原生、高磁碟區、高效能連線至 Azure SQL 資料倉儲、SQL 資料庫、Blob 儲存體、Data Lake Store 和 Azure Cosmos DB。 <br><br> **2. Informatica PowerCenter**PowerCenter 是中繼資料驅動的資料整合平臺，可 jumpstarts 和加速資料整合專案，以比手動撰寫程式碼更快速地將資料傳遞給商務。 它可做為您的資料整合投資基礎 |**適用于 Azure 的 Informatica 雲端服務**<br>[產品頁面][informatica_Cloud_Services_website]<br>[Azure Marketplace][informatica_Cloud_Services_marketplace]<br><br> **Informatica PowerCenter**<br>[產品頁面][informatica_PowerCenter_website]<br> [Azure Marketplace][informatica_PowerCenter_byol]<br>|
 | ![資訊產生器][5] |**資訊產生器（全 Gen 資料管理）**<br>資訊產生器的全方位資料管理平臺提供資料整合、資料品質和主要資料管理解決方案。 不論格式、位置、磁片區或延遲為何，它都可讓您輕鬆地存取、移動和混合所有資料。|[產品頁面][omnifocus_website]<br> [Azure Marketplace][omnigen_marketplace] |
 | ![Qubole][9] |**Qubole**<br>Qubole 提供一個雲端原生平臺，可讓使用者進行 ETL、分析和 AI/ML 工作負載。 它支援不同類型的開放原始碼引擎，Apache Spark、TensorFlow、Presto、氣流、Hadoop、Hive 等等。 它提供簡單易用的使用者工具，可從 SQL 查詢工具、筆記本，以及利用強大開放原始碼引擎的儀表板進行資料處理。|[產品頁面][qubole_website]<br> [Azure Marketplace][qubole_marketplace] |
-| ![片斷][10] |**區隔**<br>區段是一種資料管理和分析解決方案，可協助您瞭解來自各種來源的客戶資料。 它可讓您將資料連線至超過200的工具，以建立更好的決策、產品和體驗。 區段會使用其內建資料連線器，將多個資料來源轉換並載入到您的倉儲中|[產品頁面][segment_website]<br> |
+| ![區隔][10] |**區隔**<br>區段是一種資料管理和分析解決方案，可協助您瞭解來自各種來源的客戶資料。 它可讓您將資料連線至超過200的工具，以建立更好的決策、產品和體驗。 區段會使用其內建資料連線器，將多個資料來源轉換並載入到您的倉儲中|[產品頁面][segment_website]<br> |
 | ![Skyvia][11] |**Skyvia （資料整合）**<br>Skyvia 資料整合提供了可將資料匯入自動化的 wizard。 此嚮導可讓您在不同類型的來源之間遷移資料，Crm、應用程式資料庫、CSV 檔案等等。 |[產品頁面][segment_website]<br> |
 | ![SnapLogic][6] |**SnapLogic**<br>SnapLogic 平臺可讓客戶快速地將資料傳入和傳出 Microsoft Azure SQL 資料倉儲。 它提供在一個解決方案中整合數百個應用程式、服務和 IoT 案例的能力。|[產品頁面][snaplogic_website]<br>[Azure Marketplace][snaplogic_marketplace]<br> |
-| ![StreamSets][15] |**StreamSets**<br>StreamSets 提供 DataOps 的資料整合平臺。 它會將將資料整合到 Azure SQL 資料倉儲的完整設計-部署-操作生命週期。 您不能透過串流、批次或已變更的資料捕獲方法，快速地從倉儲內嵌和整合資料，同時也可確保使用可提供端對端資料流程可見度的智慧型資料管線進行連續作業，以及恢復.|[產品頁面][streamsets_website]|
+| ![StreamSets][16] |**StreamSets**<br>StreamSets 提供 DataOps 的資料整合平臺。 它會將將資料整合到 Azure SQL 資料倉儲的完整設計-部署-操作生命週期。 您不能透過串流、批次或已變更的資料捕獲方法，快速地從倉儲內嵌和整合資料，同時也可確保使用可提供端對端資料流程可見度的智慧型資料管線進行連續作業，以及恢復.|[產品頁面][streamsets_website]|
 | ![Talend][12] |**Talend 雲端**<br>Talend Cloud 是企業資料整合平臺，可在雲端或內部部署中連線、存取及轉換任何資料。 它是一個整合平臺即服務（iPaaS）供應專案，可提供廣泛的連線能力、內建的資料品質，以及最新的 big data 和雲端技術的原生支援。 |[產品頁面][talend_website]<br> [Azure Marketplace][talend_marketplace] |
 | ![TimeXtender][13] |**TimeXtender**<br>TimeXtender 的探索中樞藉由提供整合式資料管理平臺，加速最多10倍的資料見解，協助公司打造現代化的資料資產。 透過在單一平臺中提供資料存取、資料模型和合規性的自動化和功能，超越日常的解壓縮、轉換和載入（ETL）或解壓縮、載入和轉換（ELT）。 探索中樞為雲端規模分析提供了一致的資料網狀架構，可讓您連接並整合各種資料定址接收器、目錄、模型、移動和檔資料，以供分析和 AI 之用。 | [產品頁面][timextender_website] |
 | ![Trifacta][14] |**Trifacta Wrangler**<br> Trifacta 可協助個人和組織探索各種資料，並將其聯結在一起，以供分析。 Trifacta Wrangler 是設計用來處理資料整頓的工作負載，而這需要支援大規模的資料和大量的使用者。|[產品頁面][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: 5739883984d4087d2b2a1bda66c01ff3cfa10eb0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 12/04/2019
+ms.openlocfilehash: d4263b8b338f057893c9dfcda1541fc338c2577f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122604"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894265"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>在 HDInsight 上分析 Apache Kafka 的記錄
 
@@ -56,7 +56,7 @@ ms.locfileid: "71122604"
     | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)
     ```
 
-* 每秒傳入訊息數：
+* 每秒傳入訊息數：（以您的叢集名稱取代 `your_kafka_cluster_name`）。
 
     ```kusto
     metrics_kafka_CL 
@@ -64,7 +64,7 @@ ms.locfileid: "71122604"
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)
     ```
 
-* 每秒的傳入位元組數：
+* 每秒的傳入位元組數：（以背景工作角色節點主機名稱取代 `wn0-kafka`）。
 
     ```kusto
     metrics_kafka_CL 
@@ -72,16 +72,13 @@ ms.locfileid: "71122604"
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
 
-* 每秒傳出位元組數：
+* 每秒傳出位元組數：（以您的叢集名稱取代 `your_kafka_cluster_name`）。
 
     ```kusto
     metrics_kafka_CL 
     | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" 
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
-
-    > [!IMPORTANT]  
-    > 請將查詢值取代為叢集特有的資訊。 例如，`ClusterName_s` 必須設定為您的叢集名稱。 `HostName_s` 必須設定為叢集中背景工作角色節點的網域名稱。
 
     您也可以輸入 `*` 來搜尋所有記錄的類型。 目前我們提供以下記錄的查詢：
 
@@ -100,6 +97,6 @@ ms.locfileid: "71122604"
 如需使用 Apache Kafka 的詳細資訊，請參閱下列文件：
 
 * [在 HDInsight 叢集之間製作 Apache Kafka 的鏡像](apache-kafka-mirroring.md)
-* [在 HDInsight 上增加 Apache Kafka 的延展性](apache-kafka-scalability.md)
+* [增加 HDInsight 上 Apache Kafka 的規模](apache-kafka-scalability.md)
 * [搭配 Apache Kafka 使用 Apache Spark 串流 (DStream) ](../hdinsight-apache-spark-with-kafka.md)
 * [將 Apache Spark 結構化串流用於 Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

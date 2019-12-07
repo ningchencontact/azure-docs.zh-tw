@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e0b87757326b5e2a54a78a38bbcd5bef8e6f5be2
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 42378c4377057902937b718555489636bc5dcbaa
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74119980"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900022"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C：使用 Azure AD 圖形 API
 
@@ -33,7 +33,7 @@ Azure Active Directory B2C （Azure AD B2C）租使用者可以有數千或數�
 >[!IMPORTANT]
 > 您**必須**使用[Azure AD 圖形 API](../active-directory/develop/active-directory-graph-api-quickstart.md)來管理 Azure AD B2C 目錄中的使用者。 Azure AD 圖形 API 與 Microsoft Graph API 不同。 在此 MSDN blog 文章中深入瞭解： [Microsoft Graph 或 Azure AD Graph](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您需要有 Azure AD B2C 租用戶，才能建立應用程式或使用者。 如果您還沒有帳戶，請[建立一個 Azure Active Directory B2C 的租](tutorial-create-tenant.md)使用者。
 
@@ -290,7 +290,7 @@ B2C Get-User <user-object-id>
 B2C Get-User <filter-query-expression>
 ```
 
-例如︰
+例如：
 
 ```cmd
 B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
@@ -332,7 +332,7 @@ B2C Get-B2C-Application
 B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 ```
 
-輸出會顯示每個自訂屬性的詳細資料。 例如︰
+輸出會顯示每個自訂屬性的詳細資料。 例如：
 
 ```json
 {
@@ -363,6 +363,5 @@ B2C Update-User <object-id-of-user> <path-to-json-file>
 當您將此功能納入您自己的應用程式中時，請記住 B2C 應用程式的幾個要點：
 
 * 在租使用者中授與應用程式必要的許可權。
-* 現在，您需要使用 ADAL (不是 MSAL) 取得存取權杖。 (也可以直接傳送通訊協定訊息，而不使用程式庫)。
 * 當您呼叫圖形 API 時，請使用 `api-version=1.6`。
 * 當建立和更新取用者使用者，有幾個必要的屬性，如上所述。

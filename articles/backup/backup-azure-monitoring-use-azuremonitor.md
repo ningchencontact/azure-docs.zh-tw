@@ -4,12 +4,12 @@ description: 使用 Azure 監視器監視 Azure 備份工作負載並建立自�
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: bdb59e5ec461288c89e4c7d036488b5eaeb9472a
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 1fb739c8d517654c7258fd3a58c93ab29602f228
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554867"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894057"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>使用 Azure 監視器進行大規模監視
 
@@ -51,7 +51,8 @@ Azure Resource Manager 資源（例如復原服務保存庫）會記錄排程作
 
 ### <a name="view-azure-backup-data-by-using-log-analytics"></a>使用 Log Analytics 來查看 Azure 備份資料
 
-部署範本之後，Azure 備份中用於監視和報告的解決方案會顯示在工作區摘要區域中。 若要移至摘要，請遵循下列其中一個路徑：
+> [!IMPORTANT]
+> LA 報告範本目前支援在 AzureDiagnostics 模式下從舊版事件 AzureBackupReport 中的資料。 若要使用此範本，您將需要[在 Azure 診斷模式中設定保存庫診斷設定](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event)。 
 
 - **Azure 監視器**：在 [**深入**解析] 區段中，選取 [**更多**]，然後選擇相關的工作區。
 - **Log Analytics 工作區**：選取相關的工作區，然後在 **[一般**] 底下，選取 [**工作區摘要**]。

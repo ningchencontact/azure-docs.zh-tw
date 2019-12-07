@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/07/2018
-ms.openlocfilehash: 31eefbad8e8d7cb626d87d53690388d09b85257e
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 12/04/2019
+ms.openlocfilehash: e035c1ff4c8e16fbf40883b54e3153eab9729040
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122650"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894289"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>使用 Azure Kubernetes Service 搭配 HDInsight 上的 Apache Kafka
 
@@ -35,7 +35,7 @@ ms.locfileid: "71122650"
 * Azure Kubernetes Service
 * Azure 虛擬網路
 
-本文件也會假設您已逐步進行 [Azure Kubernetes Service 教學課程](../../aks/tutorial-kubernetes-prepare-app.md)。 本文會建立容器服務、建立 Kubernetes 叢集、容器登錄，以及`kubectl`設定公用程式。
+本文件也會假設您已逐步進行 [Azure Kubernetes Service 教學課程](../../aks/tutorial-kubernetes-prepare-app.md)。 本文會建立容器服務、建立 Kubernetes 叢集、容器登錄，以及設定 `kubectl` 公用程式。
 
 ## <a name="architecture"></a>架構
 
@@ -57,52 +57,56 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 * [部署 Azure Kubernetes Service (AKS) 叢集 - 入口網站](../../aks/kubernetes-walkthrough-portal.md)
 * [部署 Azure Kubernetes Service (AKS) 叢集 - CLI](../../aks/kubernetes-walkthrough.md)
 
-> [!NOTE]  
-> AKS 會在安裝期間建立虛擬網路。 此網路會對等互連至在下一節中針對 HDInsight 建立的網路。
+> [!IMPORTANT]  
+> 在安裝期間，AKS 會在**其他**資源群組中建立虛擬網路。 其他資源群組會遵循**MC_resourceGroup_AKSclusterName_location**的命名慣例。  
+> 此網路會對等互連至在下一節中針對 HDInsight 建立的網路。
 
 ## <a name="configure-virtual-network-peering"></a>設定虛擬網路對等互連
 
-1. 從 [Azure 入口網站](https://portal.azure.com)，選取 [資源群組]，然後尋找包含 AKS 叢集之虛擬網路的資源群組。 資源群組名稱為 `MC_<resourcegroup>_<akscluster>_<location>`。 `resourcegroup` 和 `akscluster` 項目是您在其中建立叢集的資源群組名稱，以及叢集的名稱。 `location` 是在其中建立叢集的位置。
+### <a name="identify-preliminary-information"></a>識別初步資訊
 
-2. 在資源群組中，選取 [虛擬網路] 資源。
+1. 從 [ [Azure 入口網站](https://portal.azure.com)] 中，找出包含 AKS 叢集之虛擬網路的其他**資源群組**。
 
-3. 選取 [位址空間]。 請記下所列的位址空間。
+2. 從 [資源] 群組中，選取 [__虛擬網路__] 資源。 記下名稱以在稍後使用。
 
-4. 若要建立 HDInsight 的虛擬網路，請選取 [+ 建立資源]、[網路]，然後選取 [虛擬網路]。
+3. 在 [**設定**] 底下，選取 [__位址空間__]。 請記下所列的位址空間。
 
-    > [!IMPORTANT]  
-    > 在輸入新虛擬網路的值時，您使用的位址空間不得與 AKS 叢集網路所使用的位址空間重疊。
+### <a name="create-virtual-network"></a>建立虛擬網路
 
-    針對您用於 AKS 叢集的虛擬網路使用相同的 [位置]。
+1. 若要建立 HDInsight 的虛擬網路，請流覽至  __+ 建立資源__ > __網路__ > __虛擬網路__。
 
-    等到虛擬網路建立後，再繼續下一個步驟。
+1. 使用下列特定屬性的指導方針建立網路：
 
-5. 若要設定 HDInsight 網路與 AKS 叢集網路之間的對等互連，請選取虛擬網路，然後選取 [對等互連]。 選取 [+ 新增] 並使用下列值來填入表單：
+    |屬性 | Value |
+    |---|---|
+    |位址空間|您必須使用不會重迭 AKS 叢集網路所使用的位址空間。|
+    |Location|針對您用於 AKS 叢集的虛擬網路使用相同的 [位置]。|
 
-   * __名稱__：輸入此對等互連設定的唯一名稱。
-   * __虛擬網路__：使用此欄位來選取 **AKS 叢集**的虛擬網路。
+1. 等到虛擬網路建立後，再繼續下一個步驟。
 
-     讓所有其他欄位保留預設值，然後選取 [確定] 來設定對等互連。
+### <a name="configure-peering"></a>設定對等互連
 
-6. 若要設定 AKS 叢集網路與 HDInsight 網路之間的對等互連，請選取 [AKS 叢集虛擬網路]，然後選取 [對等互連]。 選取 [+ 新增] 並使用下列值來填入表單：
+1. 若要設定 HDInsight 網路與 AKS 叢集網路之間的對等互連，請選取虛擬網路，然後選取 [對等互連]。
 
-   * __名稱__：輸入此對等互連設定的唯一名稱。
-   * __虛擬網路__：使用此欄位來選取 __HDInsight 叢集__的虛擬網路。
+1. 選取 [+ 新增] 並使用下列值來填入表單：
 
-     讓所有其他欄位保留預設值，然後選取 [確定] 來設定對等互連。
+    |屬性 |Value |
+    |---|---|
+    |從 \<此 VN > 到遠端虛擬網路的對等互連名稱|輸入此對等互連設定的唯一名稱。|
+    |虛擬網路|選取**AKS**叢集的虛擬網路。|
+    |從 \<AKS VN > 到 \<此 VN 的對等互連名稱 >|輸入唯一名稱。|
 
-## <a name="install-apache-kafka-on-hdinsight"></a>在 HDInsight 上安裝 Apache Kafka
+    讓所有其他欄位保留預設值，然後選取 [確定] 來設定對等互連。
+
+## <a name="create-apache-kafka-cluster-on-hdinsight"></a>在 HDInsight 上建立 Apache Kafka 叢集
 
 在建立 Kafka on HDInsight 叢集時，您必須加入稍早為 HDInsight 建立的虛擬網路。 如需建立 Kafka 叢集的詳細資訊，請參閱[建立 Apache Kafka 叢集](apache-kafka-get-started.md)文件。
-
-> [!IMPORTANT]  
-> 在建立叢集時，您必須使用 [進階設定] 來加入您為 HDInsight 建立的虛擬網路。
 
 ## <a name="configure-apache-kafka-ip-advertising"></a>設定 Apache Kafka IP 通告
 
 使用下列步驟將 Kafka 設定為通告 IP 位址 (而不是網域名稱)︰
 
-1. 使用網頁瀏覽器，移至 https://CLUSTERNAME.azurehdinsight.net 。 將 __CLUSTERNAME__ 取代為 HDInsight 叢集上 Kafka 的名稱。
+1. 使用網頁瀏覽器，移至 `https://CLUSTERNAME.azurehdinsight.net`。 以 Kafka on HDInsight 叢集的名稱取代 CLUSTERNAME。
 
     出現提示時，請使用叢集的 HTTPS 使用者名稱和密碼。 此時會顯示叢集的 Ambari Web UI。
 
@@ -156,8 +160,8 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 
 3. 編輯 `index.js` 檔案並變更下列幾行：
 
-    * `var topic = 'mytopic'`:將 `mytopic` 取代為此應用程式使用的 Kafka 主題名稱。
-    * `var brokerHost = '176.16.0.13:9092`:將 `176.16.0.13` 取代為您叢集中一部訊息代理程式主機的內部 IP 位址。
+    * `var topic = 'mytopic'`：將 `mytopic` 取代為此應用程式使用的 Kafka 主題名稱。
+    * `var brokerHost = '176.16.0.13:9092`：將 `176.16.0.13` 取代為您叢集的其中一部訊息代理程式主機的內部 IP 位址。
 
         若要尋找叢集中訊息代理程式主機 (背景工作節點) 的內部 IP 位址，請參閱 [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes)文件。 挑選其中一個項目的 IP 位址，其中網域名稱開頭為 `wn`。
 
@@ -225,7 +229,7 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 
 * [開始使用 Apache Kafka on HDInsight](apache-kafka-get-started.md)
 
-* [使用 MirrorMaker 在 HDInsight 上建立 Apache Kafka 複本](apache-kafka-mirroring.md)
+* [使用 MirrorMaker 建立 HDInsight 上的 Apache Kafka 複本](apache-kafka-mirroring.md)
 
 * [在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka](../hdinsight-apache-storm-with-kafka.md)
 

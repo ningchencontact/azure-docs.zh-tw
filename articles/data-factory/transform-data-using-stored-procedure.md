@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Data Factory 中使用預存程式活動來轉換資料
+title: 使用預存程式活動來轉換資料
 description: 說明如何使用 SQL Server 預存程序活動，以從 Data Factory 管線叫用 Azure SQL Database/資料倉儲中的預存程序。
 services: data-factory
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.date: 11/27/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 5ebb2b9cdcbef59e07476dbebd289bb4402ca5fa
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 59bfdc5d2d57b2c05a2c7676d83d8771142ca285
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683717"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893768"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 SQL Server 預存程序活動轉換資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -65,12 +65,12 @@ ms.locfileid: "73683717"
 
 下表說明這些 JSON 屬性：
 
-| 屬性                  | 說明                              | 必要 |
+| 屬性                  | 描述                              | 必要項 |
 | ------------------------- | ---------------------------------------- | -------- |
 | 名稱                      | 活動的名稱                     | 是      |
 | 說明               | 說明活動用途的文字 | 否       |
 | 類型                      | 對於預存程序活動，活動類型為 **SqlServerStoredProcedure** | 是      |
-| linkedServiceName         | 參考 **Azure SQL Database** 或 **Azure SQL 資料倉儲**或 **SQL Server**，註冊為 Data Factory 中的連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
+| linkedServiceName         | 參考 **Azure SQL Database** 或 **Azure SQL 資料倉儲**或 **SQL Server**，註冊為 Data Factory 中的連結服務。 若要深入了解此連結服務，請參閱[計算連結服務](compute-linked-services.md)一文。 | 是      |
 | storedProcedureName       | 指定要叫用的預存程序名稱。 | 是      |
 | storedProcedureParameters | 指定預存程序參數的值。 使用 `"param1": { "value": "param1Value","type":"param1Type" }` 來傳遞資料來源所支援的參數值及其類型。 如果您需要為參數傳遞 Null，請使用 `"param1": { "value": null }` (全部小寫)。 | 否       |
 

@@ -7,12 +7,12 @@ ms.date: 11/26/2019
 ms.author: fauhse
 ms.subservice: files
 description: StorSimple 是生命週期結束產品，Azure 檔案同步是要遷移至的解決方案。 瞭解遷移概念，並與自訂的遷移說明 AzureFiles@microsoft.com。
-ms.openlocfilehash: edad4d1c6be2c39dbf8150b6ab8979ae3924fb53
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 1cc88080522a62085d9a515223512ef25c20a9e4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666659"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895087"
 ---
 # <a name="storsimple-migration-to-azure-file-sync"></a>StorSimple 遷移至 Azure 檔案同步
 
@@ -26,7 +26,7 @@ StorSimple 是已終止的 Microsoft 產品。 本產品和其雲端服務的延
 請務必注意，需要從 StorSimple 和 Azure 檔案同步遷移至的客戶不需要自行進行。
 
 > [!IMPORTANT]
-> Microsoft 致力於協助客戶進行遷移。 在遷移期間，針對自訂的遷移計畫和協助提供電子郵件 AzureFiles@microsoft.com。
+> Microsoft 致力於協助客戶進行遷移。 針對自訂的遷移計畫，以電子郵件 AzureFiles@microsoft .com，並在遷移期間提供協助。
 
 ## <a name="migration-approach"></a>遷移方法
 遷移至 Azure 檔案同步將會開始雲端端，對內部部署的影響降至最低，而且停機時間有限。
@@ -35,7 +35,7 @@ StorSimple 是已終止的 Microsoft 產品。 本產品和其雲端服務的延
 AzureFiles@microsoft.com，我們將協助您組織適當數目的租借裝置。
 
 ### <a name="general-approach"></a>一般方法
-![同時](media/storage-sync-files-storsimple-migration/storsimple-docs-overview-concept.png "說明如何透過暫時的虛擬裝置和 Windows 伺服器，將雲端端遷移至新的內部部署 Windows Server，以取代內部部署 StorSimple 應用裝置")
+![Alt 鍵](media/storage-sync-files-storsimple-migration/storsimple-docs-overview-concept.png "說明如何透過暫時的虛擬裝置和 Windows 伺服器，將雲端端遷移至新的內部部署 Windows Server，以取代內部部署 StorSimple 應用裝置")
 
 1. 建立內部部署 StorSimple 應用裝置的磁片區複製，並將其掛接至暫存的 StorSimple 虛擬裝置。
 2. 透過 iSCSI 將虛擬裝置連線至暫存 Azure VM。
@@ -61,13 +61,13 @@ AzureFiles@microsoft.com，我們將協助您組織適當數目的租借裝置�
 下圖說明您的剩餘內容。 標準 Azure 檔案同步部署會透過 Azure 檔案同步，為許多 Azure 檔案共用和連線到它們的 Windows 伺服器提供功能。請記住，單一伺服器可以同時將不同的本機資料夾連接到不同的檔案共用。
 此外，一個 Azure 檔案共用可以同步到許多不同的伺服器，在此情況下，您需要在分公司中快取資料。 此外，請檢查您是否可以優化雲端階層處理原則，以更有效率地使用內部部署儲存空間。
 
-![同時](media/storage-sync-files-storsimple-migration/storsimple-docs-goal.PNG "此圖顯示完成遷移之後的目標。它描述了一些檔案共用，可同步處理至內部部署 Windows 伺服器，而使用者和應用程式會存取雲端或 Windows Server 上的檔案。")
+![Alt 鍵](media/storage-sync-files-storsimple-migration/storsimple-docs-goal.PNG "此圖顯示完成遷移之後的目標。它描述了一些檔案共用，可同步處理至內部部署 Windows 伺服器，而使用者和應用程式會存取雲端或 Windows Server 上的檔案。")
 
 ## <a name="next-steps"></a>後續步驟
 熟悉 Azure 檔案儲存體和 Azure 檔案同步。請務必瞭解成功遷移的 Azure 檔案同步術語和部署模式。 此總覽文章中的每個步驟都有更詳細的資訊可供使用。 在規劃和執行您的遷移期間，請務必與 Microsoft 聯繫以取得自訂的協助。
 
 > [!IMPORTANT]
-> Microsoft 致力於協助客戶進行遷移。 在遷移期間，針對自訂的遷移計畫和協助提供電子郵件 AzureFiles@microsoft.com。
+> Microsoft 致力於協助客戶進行遷移。 針對自訂的遷移計畫，以電子郵件 AzureFiles@microsoft .com，並在遷移期間提供協助。
 
 ## <a name="additional-resources"></a>其他資源
 如目標服務 Azure 檔案同步，如果您不熟悉 Azure 檔案同步，則會有兩個我們建議您閱讀的基本檔。

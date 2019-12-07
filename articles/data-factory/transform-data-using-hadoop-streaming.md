@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 中的 Hadoop 資料流活動轉換資料
+title: 使用 Hadoop 串流活動轉換資料
 description: 說明如何使用 Azure Data Factory 中的 Hadoop 資料流活動，藉由在 Hadoop 叢集上執行 Hadoop 資料流程式來轉換資料。
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6977f7a6ad7fd79a51083bf2ef71c539e04837e5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 01237218e30859015b1c8f0a5adeebd8b9bdf7eb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683794"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893785"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop 資料流活動轉換資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -68,16 +68,16 @@ Data Factory [管線](concepts-pipelines-activities.md)中的 HDInsight 資料�
 
 ## <a name="syntax-details"></a>語法詳細資料
 
-| 屬性          | 說明                              | 必要 |
+| 屬性          | 描述                              | 必要項 |
 | ----------------- | ---------------------------------------- | -------- |
 | 名稱              | 活動的名稱                     | 是      |
 | 說明       | 說明活動用途的文字 | 否       |
 | 類型              | 針對 Hadoop 資料流活動，活動類型是 HDInsightStreaming | 是      |
-| linkedServiceName | 參考 HDInsight 叢集註冊為 Data Factory 中的連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
+| linkedServiceName | 參考 HDInsight 叢集註冊為 Data Factory 中的連結服務。 若要深入了解此連結服務，請參閱[計算連結服務](compute-linked-services.md)一文。 | 是      |
 | mapper            | 指定對應程式可執行檔的名稱 | 是      |
 | reducer           | 指定減壓器可執行檔的名稱 | 是      |
 | 結合子          | 指定結合子可執行檔的名稱 | 否       |
-| fileLinkedService | Azure 儲存體已連結的服務用來儲存要執行之對應程式、結合子和減壓器的參考。 如果您未指定這項連結服務，則會使用 HDInsight 已連結的服務中定義的 Azure 儲存體已連結的服務。 | 否       |
+| fileLinkedService | Azure 儲存體已連結的服務用來儲存要執行之對應程式、結合子和減壓器的參考。 如果您未指定這項連結服務，則會使用 HDInsight 連結服務中定義的 Azure 儲存體連結服務。 | 否       |
 | filePath          | 提供 fileLinkedService 引用之 Azure 儲存體中儲存的對應程式、結合子和減壓器程式的路徑陣列。 路徑區分大小寫。 | 是      |
 | input             | 指定對應程式輸入檔案的 WASB 路徑。 | 是      |
 | output            | 指定減壓器輸出檔案的 WASB 路徑。 | 是      |

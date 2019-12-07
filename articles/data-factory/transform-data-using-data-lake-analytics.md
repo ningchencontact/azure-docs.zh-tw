@@ -1,23 +1,23 @@
 ---
-title: 使用 U-SQL 腳本轉換資料-Azure
+title: 使用 U-SQL 腳本轉換資料
 description: 了解如何在 Azure Data Lake Analytics 計算服務上執行 U-SQL 指令碼來處理或轉換資料。
 services: data-factory
 documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: abnarain
-ms.openlocfilehash: 53fb6773becff9f76c9658171965fbd148e94bc8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cb0ff5d93afc0941faa84028ad6454371cd0442c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683869"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893887"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 上執行 U-SQL 指令碼來轉換資料 
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -29,12 +29,12 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 使用 Data Lake Analytics「U-SQL 活動」來建立管線之前，請先建立 Azure Data Lake Analytics 帳戶。 若要了解 Azure Data Lake Analytics，請參閱 [開始使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)。
 
 
-## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics 已連結的服務
+## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics 連結服務
 您需建立 **Azure Data Lake Analytics** 連結服務，來將 Azure Data Lake Analytics 計算服務連結到 Azure Data Factory。 管線中的 Data Lake Analytics U-SQL 活動會參考此連結服務。 
 
 下表提供 JSON 定義中所使用之一般屬性的描述。 
 
-| 屬性                 | 說明                              | 必要                                 |
+| 屬性                 | 描述                              | 必要項                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | type 屬性應設為： **AzureDataLakeAnalytics**。 | 是                                      |
 | **accountName**          | Azure Data Lake Analytics 帳戶名稱。  | 是                                      |
@@ -53,7 +53,7 @@ Azure Data Lake Analytics 已連結的服務需要服務主體驗證，才能連
 
 指定下列屬性以使用服務主體驗證：
 
-| 屬性                | 說明                              | 必要 |
+| 屬性                | 描述                              | 必要項 |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | 指定應用程式的用戶端識別碼。     | 是      |
 | **servicePrincipalKey** | 指定應用程式的金鑰。           | 是      |
@@ -87,7 +87,7 @@ Azure Data Lake Analytics 已連結的服務需要服務主體驗證，才能連
 
 若要深入了解已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)。
 
-## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 活動
+## <a name="data-lake-analytics-u-sql-activity"></a>資料湖分析 U-SQL 活動
 下列 JSON 片段會定義具有 Data Lake Analytics U-SQL 活動的管線。 活動定義具有您稍早建立的 Azure Data Lake Analytics 連結服務的參考。 為了執行 Data Lake Analytics U-SQL 指令碼，Data Factory 會將您指定的指令碼提交給 Data Lake Analytics，必要的輸入和輸出會在 Data Lake Analytics 的指令碼中定義，以擷取及輸出。 
 
 ```json
@@ -117,12 +117,12 @@ Azure Data Lake Analytics 已連結的服務需要服務主體驗證，才能連
 
 下表描述此活動特有的屬性之名稱和描述。 
 
-| 屬性            | 說明                              | 必要 |
+| 屬性            | 描述                              | 必要項 |
 | :------------------ | :--------------------------------------- | :------- |
 | 名稱                | 管線中的活動名稱     | 是      |
 | 說明         | 說明活動用途的文字。  | 否       |
 | 類型                | 對於 Data Lake Analytics U-SQL 活動，活動類型為 **DataLakeAnalyticsU-SQL**。 | 是      |
-| linkedServiceName   | Azure Data Lake Analytics 之已連結的服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。  |是       |
+| linkedServiceName   | Azure Data Lake Analytics 之已連結的服務。 若要深入了解此連結服務，請參閱[計算連結服務](compute-linked-services.md)一文。  |是       |
 | scriptPath          | 包含 U-SQL 指令碼的資料夾的路徑。 檔案的名稱有區分大小寫。 | 是      |
 | scriptLinkedService | 連結服務會將包含指令碼的 **Azure Data Lake Store** 或 **Azure 儲存體**連結至資料處理站 | 是      |
 | degreeOfParallelism | 同時用來執行作業的節點數目上限。 | 否       |

@@ -1,22 +1,23 @@
 ---
-title: 升級至一般用途 v2 儲存體帳戶-Azure 儲存體 |Microsoft Docs
+title: 升級至一般用途 v2 儲存體帳戶
+titleSuffix: Azure Storage
 description: 升級至一般用途 v2 儲存體帳戶。
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 03/26/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: e24b7efb9f4af9f730ce79751e2fc5a9d210edbd
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 7c7b0a0bb79f3f00d7a8dff64ec1b7143241a1f8
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806961"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892221"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升級至一般用途 v2 儲存體帳戶
 
-一般用途 v2 儲存體帳戶支援最新的 Azure 儲存體功能，並納入一般用途 v1 和 Blob 儲存體帳戶的所有功能。 針對大部分的儲存體案例，皆建議使用一般用途 v2 帳戶。 一般用途 v2 帳戶能針對 Azure 儲存體提供最低的每 GB 容量價格，以及極具業界競爭力的交易價格。 一般用途 v2 帳戶支援經常性、非經常性或封存之間的預設帳戶存取層，也就是經常性或非經常性和 blob 層級的階層處理。
+一般用途 v2 儲存體帳戶能支援最新的 Azure 儲存體功能，而且包含一般用途 v1 與 Blob 儲存體帳戶的所有功能。 針對大部分的儲存體案例，皆建議使用一般用途 v2 帳戶。 一般用途 v2 帳戶能針對 Azure 儲存體提供最低的每 GB 容量價格，以及極具業界競爭力的交易價格。 一般用途 v2 帳戶支援經常性、非經常性或封存之間的預設帳戶存取層，也就是經常性或非經常性和 blob 層級的階層處理。
 
 從一般用途 v1 或 Blob 儲存體帳戶升級至一般用途 v2 儲存體帳戶很簡單。 您可以使用 Azure 入口網站、PowerShell 或 Azure CLI 來執行升級。
 
@@ -38,7 +39,7 @@ ms.locfileid: "74806961"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-若要使用 PowerShell 將一般用途 v1 帳戶升級至一般用途 v2 帳戶，請先更新 PowerShell 以使用最新版本的**Az. Storage**模組。 如需安裝 PowerShell 的相關資訊，請參閱[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
+若要使用 PowerShell 將一般用途 v1 帳戶升級至一般用途 v2 帳戶，請先更新 PowerShell 以使用最新版的 **Az.Storage** 模組。 如需安裝 PowerShell 的相關資訊，請參閱[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 
 接下來，呼叫下列命令以升級帳戶，並以您的資源組名、儲存體帳戶名稱和所需的帳戶存取層來取代。
 
@@ -47,7 +48,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 ```
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要使用 Azure CLI 將一般用途 v1 帳戶升級至一般用途 v2 帳戶，請先安裝最新版本的 Azure CLI。 如需安裝 CLI 的相關資訊，請參閱[安裝 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
+若要使用 Azure CLI 將一般用途 v1 帳戶升級至一般用途 v2 帳戶，請先安裝最新版的 Azure CLI。 如需安裝 CLI 的相關資訊，請參閱[安裝 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
 接下來，呼叫下列命令以升級帳戶，並以您的資源組名、儲存體帳戶名稱和所需的帳戶存取層來取代。
 
@@ -63,12 +64,12 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 Blob 存取層可讓您根據預期的使用模式，選擇最符合成本效益的儲存體。 區塊 blob 可以儲存在經常性存取、非經常性存取或封存層中。 如需存取層的詳細資訊，請參閱 [Azure Blob 儲存體︰經常性存取、非經常性存取和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
 
-根據預設，會在經常性存取層中建立新的儲存體帳戶，而一般用途 v1 儲存體帳戶則可以升級至經常性或非經常性帳戶層。 如果升級時未指定帳戶存取層，則預設會將它升級為熱。 如果您要探索要用於升級的存取層，請考慮您目前的資料使用案例。 遷移至一般用途 v2 帳戶的典型使用者案例有兩種：
+根據預設，會在經常性存取層中建立新的儲存體帳戶，而一般用途 v1 儲存體帳戶則可以升級至經常性或非經常性帳戶層。 如果升級時未指定帳戶存取層，則預設會將它升級為熱。 如果您要探索要用於升級的存取層，請考慮您目前的資料使用案例。 有兩個適用於移轉至一般用途 v2 帳戶的典型使用者案例：
 
-* 您有現有的一般用途 v1 儲存體帳戶，而且想要針對 blob 資料使用正確的儲存體存取層來評估一般用途 v2 儲存體帳戶的升級。
+* 您有現有一般用途 v1 儲存體帳戶，而且想要針對升級至具有正確 Blob 資料儲存體存取層的一般用途 v2 儲存體帳戶進行評估。
 * 您已決定使用一般用途 v2 儲存體帳戶，或已有一個，而且想要評估您是否應該針對 blob 資料使用經常性或非經常性儲存體存取層。
 
-在這兩種情況下，第一項優先順序是估計儲存、存取及操作一般用途 v2 儲存體帳戶中資料的成本，並將其與您目前的成本進行比較。
+在這兩種情況下，您的第一要務都是估計儲存、存取及操作儲存在一般用途 v2 儲存體帳戶中之資料的成本，並與您目前的成本進行比較。
 
 ## <a name="pricing-and-billing"></a>價格和計費
 
@@ -84,7 +85,7 @@ Blob 存取層可讓您根據預期的使用模式，選擇最符合成本效益
 
 * **異地複寫資料傳輸成本**︰此費用適用於已設定異地複寫的帳戶，包括 GRS 和 RA-GRS。 異地複寫資料傳輸會產生每 GB 費用。
 
-* **輸出資料傳輸成本**. 輸出資料傳輸（從 Azure 區域傳出的資料）會產生每 gb 頻寬使用量費用，與一般用途的儲存體帳戶一致。
+* **輸出資料傳輸成本**︰輸出資料傳輸 (從 Azure 區域傳出的資料) 會產生每 GB 頻寬使用量費用，與一般用途的儲存體帳戶一致。
 
 * **變更儲存體存取層**：將帳戶儲存區存取層從非經常性變更為經常性，會產生等於讀取儲存體帳戶中現有所有資料的費用。 不過，將帳戶存取層從經常性存取層變更為非經常性存取層，會產生相當於將所有資料寫入非經常性存取層的費用 (僅限 GPv2 帳戶)。
 
@@ -93,14 +94,15 @@ Blob 存取層可讓您根據預期的使用模式，選擇最符合成本效益
 
 ### <a name="estimate-costs-for-your-current-usage-patterns"></a>針對目前的使用模式估計成本
 
-若要估計在特定層級的一般用途 v2 儲存體帳戶中儲存和存取 blob 資料的成本，請評估現有的使用模式或接近您預期的使用模式。 一般而言，您想要知道︰
+若要估計儲存及存取特定存取層的一般用途 v2 儲存體帳戶中 Blob 資料的成本，您必須評估現有的使用模式或估計預期的使用模式。 一般而言，您想要知道︰
 
 * 您的 Blob 儲存體耗用量 (以 GB 為單位)，包括：
-    - 有多少資料儲存在儲存體帳戶中？
-    - 每月的資料量變更為何？新資料是否會不斷取代舊資料？
+  * 有多少資料儲存在儲存體帳戶中？
+  * 每月的資料量變更為何？新資料是否會不斷取代舊資料？
+
 * 您 Blob 儲存體資料的主要存取模式，包括：
-    - 儲存體帳戶的讀取和寫入資料量有多少？
-    - 在儲存體帳戶中的資料上發生多少讀取作業和寫入作業？
+  * 儲存體帳戶的讀取和寫入資料量有多少？
+  * 在儲存體帳戶中的資料上發生多少讀取作業和寫入作業？
 
 為了協助決定符合您需求的最佳存取層，您應該判斷 Blob 資料容量，以及該資料的使用狀況。 最佳做法則是查看您帳戶的監視計量。
 
@@ -119,7 +121,7 @@ Blob 存取層可讓您根據預期的使用模式，選擇最符合成本效益
 若要監視 Blob 儲存體的資料存取模式，您必須從 API 啟用每小時交易計量。 啟用每小時交易計量後，系統會每小時彙總每筆 API 交易，而該資料會以資料表項目形式記錄，並寫入至相同儲存體帳戶內的 *$MetricsHourPrimaryTransactionsBlob* 資料表。 使用 RA-GRS 儲存體帳戶時，$MetricsHourSecondaryTransactionsBlob 資料表會將交易記錄至次要端點。
 
 > [!NOTE]
-> 如果您有一般用途的儲存體帳戶，其中已儲存分頁 blob 和虛擬機器磁片、佇列、檔案或資料表以及區塊和附加 blob 資料，則不適用此估計程式。 容量資料不會區分區塊 Blob 與其他類型，因此並未取得其他資料類型的容量資料。 如果您使用這些類型，替代方法是查看最近帳單上的數量。
+> 如果您已有一般用途的儲存體帳戶，並在其中儲存了分頁 Blob 和虛擬機器磁碟、或佇列、檔案或資料表以及區塊和附加 Blob 資料，就不適用此估計程序。 容量資料不會區分區塊 Blob 與其他類型，因此並未取得其他資料類型的容量資料。 如果您使用這些類型，替代方法是查看最近帳單上的數量。
 
 若要取得資料使用和存取模式的適當近似值，建議您針對代表一般使用情況的度量選擇保留期，並進行推斷。 其中一個選項是保留度量資料 7 天並每週收集資料，以便月底進行分析。 另一個選項是保留最近 30 天的度量資料，並在 30 天期間的結尾收集和分析資料。
 
@@ -165,5 +167,5 @@ Blob 存取層可讓您根據預期的使用模式，選擇最符合成本效益
 
 ## <a name="next-steps"></a>後續步驟
 
-- [建立儲存體帳戶](storage-quickstart-create-account.md)
-- [管理 Azure 儲存體帳戶](storage-account-manage.md)
+* [建立儲存體帳戶](storage-quickstart-create-account.md)
+* [管理 Azure 儲存體帳戶](storage-account-manage.md)

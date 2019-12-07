@@ -1,5 +1,5 @@
 ---
-title: 使用具有 Azure Data Factory 的控制資料表，從資料庫進行大量複製
+title: 使用控制資料表從資料庫進行大量複製
 description: 瞭解如何使用方案範本，從資料庫複製大量資料，方法是使用外部控制資料表，利用 Azure Data Factory 來儲存來源資料表的分割區清單。
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2018
-ms.openlocfilehash: b651721e9b833c02e4789c79ff5ad0b49ce31343
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f50a6067eb38e920c32079c140785f397ee6698
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684287"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896264"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>從具有控制資料表的資料庫大量複製
 
@@ -76,7 +76,7 @@ ms.locfileid: "73684287"
 
     ![建立與目的地存放區的新連線](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png)
 
-5. 選取 [**使用此範本**]。
+5. 選取 [使用此範本]。
 
     ![使用此範本](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
     

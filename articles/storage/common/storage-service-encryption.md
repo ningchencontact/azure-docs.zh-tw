@@ -4,17 +4,17 @@ description: Azure 儲存體保護您的資料，方法是在將它保存到雲�
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 11/26/2019
+ms.date: 12/05/2019
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 63fa30b4cf4c5887e8fb44b357eb22e55fe230e7
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: a09d2c0c2a393acd4882842dc023b0f5f682e813
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666132"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895137"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>待用資料的 Azure 儲存體加密
 
@@ -38,7 +38,7 @@ Azure 儲存體中的資料會使用256位[AES 加密](https://en.wikipedia.org/
 
 您可以依賴 Microsoft 管理的金鑰來加密您的儲存體帳戶，也可以使用您自己的金鑰來管理加密。 如果您選擇使用自己的金鑰來管理加密，您有兩個選項：
 
-- 您可以使用 Azure Key Vault 來指定*客戶管理的金鑰*，以用來加密和解密儲存體帳戶中的所有資料。 客戶管理的金鑰可用來加密儲存體帳戶中所有服務的所有資料。
+- 您可以使用 Azure Key Vault 來指定*客戶管理的金鑰*，以用來加密和解密 Blob 儲存體和 Azure 檔案儲存體中的資料。
 - 您可以在 Blob 儲存體作業上指定*客戶提供的金鑰*。 對 Blob 儲存體發出讀取或寫入要求的用戶端可以在要求中包含加密金鑰，以便更精確地控制 blob 資料的加密和解密方式。
 
 下表比較 Azure 儲存體加密的金鑰管理選項。
@@ -62,7 +62,7 @@ Azure 儲存體中的資料會使用256位[AES 加密](https://en.wikipedia.org/
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>客戶管理的金鑰與 Azure Key Vault
 
-您可以使用自己的金鑰來管理儲存體帳戶層級的 Azure 儲存體加密。 當您在儲存體帳戶層級指定客戶管理的金鑰時，該金鑰會用來加密和解密儲存體帳戶中的所有資料，包括 blob、佇列、檔案和資料表資料。 客戶管理的金鑰提供更大的彈性來建立、輪替、停用及撤銷存取控制。 您也可以審核用來保護資料的加密金鑰。
+您可以使用自己的金鑰來管理儲存體帳戶層級的 Azure 儲存體加密。 當您在儲存體帳戶層級指定客戶管理的金鑰時，該金鑰會用來加密和解密儲存體帳戶中的所有 blob 和檔案資料。 客戶管理的金鑰提供更大的彈性來建立、輪替、停用及撤銷存取控制。 您也可以審核用來保護資料的加密金鑰。
 
 您必須使用 Azure Key Vault 來儲存客戶管理的金鑰。 您可以建立自己的金鑰，並將其儲存在金鑰保存庫中，或者您可以使用 Azure Key Vault Api 來產生金鑰。 儲存體帳戶與金鑰保存庫必須位於相同區域，但可位於不同的訂用帳戶中。 如需 Azure Key Vault 的詳細資訊，請參閱[什麼是 Azure Key Vault？](../../key-vault/key-vault-overview.md)。
 
@@ -159,9 +159,9 @@ Azure 儲存體不會儲存或管理用戶端與要求一起傳送的加密金�
 - [Set Blob Properties](/rest/api/storageservices/set-blob-properties) \(英文\)
 - [設定 Blob 中繼資料](/rest/api/storageservices/set-blob-metadata)
 - [取得 Blob](/rest/api/storageservices/get-blob)
-- [取得 Blob 屬性](/rest/api/storageservices/get-blob-properties)
+- [Get Blob Properties](/rest/api/storageservices/get-blob-properties)
 - [取得 Blob 中繼資料](/rest/api/storageservices/get-blob-metadata)
-- [快照集 Blob](/rest/api/storageservices/snapshot-blob)
+- [擷取 Blob 快照集](/rest/api/storageservices/snapshot-blob)
 
 ### <a name="rotate-customer-provided-keys"></a>輪替客戶提供的金鑰
 

@@ -3,12 +3,12 @@ title: 原則定義結構的詳細資料
 description: 說明如何使用原則定義來建立組織中 Azure 資源的慣例。
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 93b03622f03c095a61291f4a6d25284e5052c35a
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 2126415c3ae7ecb14a47c79dacd67aee656cd745
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555185"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894294"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -597,6 +597,31 @@ Azure 原則支援下列類型的效果：
 您可以使用屬性別名來存取資源類型的特定屬性。 別名可讓您針對資源上的屬性限制所允許的值或條件。 每個別名會對應至指定資源類型之不同 API 版本中的路徑。 在原則評估期間，原則引擎會取得該 API 版本的屬性路徑。
 
 別名清單會不斷成長。 若要了解「Azure 原則」目前支援哪些別名，請使用下列其中一種方法：
+
+- Visual Studio Code 的 Azure 原則延伸模組（建議）
+
+  使用[Visual Studio Code 的 Azure 原則延伸](../how-to/extension-for-vscode.md)模組來查看和探索資源屬性的別名。
+
+  ![Visual Studio Code 的 Azure 原則延伸模組](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+
+- Azure 資源圖表
+
+  使用 [`project`] 運算子來顯示資源的**別名**。
+
+  ```kusto
+  Resources
+  | where type=~'microsoft.storage/storageaccounts'
+  | limit 1
+  | project aliases
+  ```
+  
+  ```azurecli-interactive
+  az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+  ```
+  
+  ```azurepowershell-interactive
+  Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+  ```
 
 - Azure PowerShell
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: 8e04369e3e070054c5095abde29ecca99d071cb8
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 61b43329fcc840bc68f454400a4b5e917f43110c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144464"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894594"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 監視器合作夥伴整合
 
@@ -89,7 +89,7 @@ Dynatrace OneAgent 會透過 Azure 延伸模組機制來與 Azure VM 和應用�
 
 [請移至檔。][dynatrace-doc]
 
-## <a name="elastic"></a>Elastic
+## <a name="elastic"></a>彈性
 
 ![彈性標誌](./media/partners/elastic.png)
 
@@ -140,7 +140,7 @@ Microfocus **ArcSight**具有 Azure 監視器事件中樞的智慧型連接器�
 
 Microfocus**作業橋接器**會自動監視所有的混合式 IT 資源–任何裝置、作業系統、資料庫、應用程式或服務（不論其執行位置為何），並將 aiops 會套用至所有資料類型–事件、計量、記錄和相依性。 它提供了一組獨特的服務監視功能，結合了深度應用程式健康情況分析，並包含 Microsoft Azure 服務的完整效能和可用性監視。 「作業橋接器」可讓客戶在任何裝置上使用瀏覽器提供單一的半透明窗格，以供企業和 IT 專案關係人瞭解。
 
-詳細資訊
+了解更多
 - [OB 套件總覽](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [下載](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope 是作業橋接器套件中的元件。
@@ -178,7 +178,7 @@ OpsGenie 作為由 Azure 所產生警示發送器。 OpsGenie 會根據待命排
 
 [請移至檔。][opsgenie-doc]
 
-## <a name="pagerduty"></a>Pagerduty
+## <a name="pagerduty"></a>PagerDuty
 
 ![PagerDuty 標誌](./media/partners/pagerduty.png)
 
@@ -255,7 +255,7 @@ Turbonomic 透過同時讓效能、成本及合規性即時達到最佳狀態，
 - [深入了解 Azure 監視器](../../azure-monitor/overview.md)
 - [使用 REST API 存取計量](rest-api-walkthrough.md)
 - [將活動記錄串流至非 Microsoft 服務](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [將診斷記錄串流至非 Microsoft 服務](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [將資源記錄串流至非 Microsoft 服務](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 
 

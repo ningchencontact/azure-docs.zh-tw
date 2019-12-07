@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 09/20/2019
-ms.openlocfilehash: ae737b908aad95f61cef922b493b41752da68f14
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 373c498b9ce58062e42f4318c9fa94688556d8c5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932358"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894210"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>設計您的 Azure 監視器記錄部署
 
@@ -80,7 +80,7 @@ Log Analytics 工作區提供：
 
     ![工作區中的 Log Analytics 內容](./media/design-logs-deployment/query-from-workspace.png)
 
-* **資源**內容：當您存取特定資源、資源群組或訂用帳戶的工作區時（例如當您從 Azure 入口網站中的 [資源] 功能表選取 [**記錄**] 時），只可以針對您擁有的所有資料表中的資源來查看記錄的存取權。 此模式中的查詢範圍僅限於與該資源相關聯的資料。 此模式也會啟用細微的 RBAC。
+* **資源**內容：當您存取特定資源、資源群組或訂用帳戶的工作區時（例如當您從 Azure 入口網站中的 [資源] 功能表選取 [**記錄**] 時），只可以針對您有權存取的所有資料表中的資源來查看記錄。 此模式中的查詢範圍僅限於與該資源相關聯的資料。 此模式也會啟用細微的 RBAC。
 
     ![來自資源的 Log Analytics 內容](./media/design-logs-deployment/query-from-resource.png)
 
@@ -147,7 +147,7 @@ Operation
 
 所有資源、監視解決方案和深入解析（例如 Application Insights 和適用於 VM 的 Azure 監視器、支援由不同小組維護的基礎結構和應用程式）都設定為將其收集的記錄資料轉送給 IT 組織集中式共用工作區。 每個小組的使用者會被授與存取權給他們存取的資源記錄。
 
-部署工作區架構之後，您可以使用[Azure 原則](../../governance/policy/overview.md)在 Azure 資源上強制執行此操作。 它提供一種方式來定義原則，並確保符合您的 Azure 資源，以便將所有的診斷記錄傳送至特定工作區。 例如，使用 Azure 虛擬機器或虛擬機器擴展集時，您可以使用評估工作區合規性和報告結果的現有原則，或自訂以補救不符合規範的情況。  
+部署工作區架構之後，您可以使用[Azure 原則](../../governance/policy/overview.md)在 Azure 資源上強制執行此操作。 它提供一種方式來定義原則，並確保符合您的 Azure 資源，以便將其所有資源記錄傳送至特定工作區。 例如，使用 Azure 虛擬機器或虛擬機器擴展集時，您可以使用評估工作區合規性和報告結果的現有原則，或自訂以補救不符合規範的情況。  
 
 ## <a name="workspace-consolidation-migration-strategy"></a>工作區合併遷移策略
 
@@ -160,7 +160,7 @@ Operation
 * 識別授與應用程式小組資源的存取權，並在開發環境中進行測試，然後才在生產環境中執行。
 * 設定工作區以啟用 [**使用資源] 或 [工作區] 許可權**。
 * 移除應用程式小組讀取和查詢工作區的許可權。
-* 啟用和設定任何監視解決方案、深入解析（例如容器和/或適用於 VM 的 Azure 監視器的 Azure 監視器、您的自動化帳戶，以及部署在原始中的管理解決方案，例如更新管理、啟動/停止 Vm 等）區域.
+* 啟用和設定任何監視解決方案，例如容器和/或適用於 VM 的 Azure 監視器的 Azure 監視器、您的自動化帳戶，以及部署在原始工作區中的管理解決方案（例如更新管理、啟動/停止 Vm 等）。
 
 ## <a name="next-steps"></a>後續步驟
 

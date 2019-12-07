@@ -1,6 +1,6 @@
 ---
 title: 標準編碼器格式和編解碼器-Azure
-description: 本主題提供標準編碼器格式和編解碼器的總覽。
+description: 本文包含可與 StandardEncoderPreset 搭配使用的最常見匯入和匯出檔案格式清單。
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 195bbb70ac5062c6bbf6034e6a6e9abac018c62f
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: f1d4d4f4006702ebe0d057e56cf24a022e73b83e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677963"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888065"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>標準編碼器格式和編解碼器
 
@@ -27,7 +27,7 @@ ms.locfileid: "68677963"
 
 ## <a name="input-containerfile-formats"></a>輸入容器/檔案格式
 
-| 檔案格式 (副檔名) | 支援 |
+| 檔案格式 (副檔名) | 支援的 |
 | --- | --- |
 | FLV (使用 H.264 和 AAC 轉碼器) (.flv) |是 |
 | MXF    (.mxf) |是 |
@@ -43,7 +43,7 @@ ms.locfileid: "68677963"
 
 ### <a name="audio-formats-in-input-containers"></a>輸入容器中的音訊格式
 
-標準編碼器支援在輸入容器中攜帶下列音訊格式:
+標準編碼器支援在輸入容器中攜帶下列音訊格式：
 
 * MXF、GXF 和 QuickTime 檔案，其具有交錯立體聲或 5.1 範例的音訊音軌
 
@@ -52,7 +52,7 @@ ms.locfileid: "68677963"
 * MXF、GXF 及 QuickTime 檔案，其中該音訊當做個別的 PCM 曲目攜帶，但可從檔案中繼資料推算通道對應 (立體聲或 5.1)
 
 ## <a name="input-video-codecs"></a>輸入視訊轉碼器
-| 輸入視訊轉碼器 | 支援 |
+| 輸入視訊轉碼器 | 支援的 |
 | --- | --- |
 | AVC 8 位元/10 位元，高達 4:2:2，包括 AVCIntra |8 位元 4:2:0 和 4:2:2 |
 | Avid DNxHD (使用 MXF) |是 |
@@ -75,7 +75,7 @@ ms.locfileid: "68677963"
 | HEVC/H.265| 主要設定檔|
 
 ## <a name="input-audio-codecs"></a>輸入音訊轉碼器
-| 輸入音訊轉碼器 | 支援 |
+| 輸入音訊轉碼器 | 支援的 |
 | --- | --- |
 | AAC (AAC-LC、AAC-HE 和 AAC-HEv2；高達 5.1) |是 |
 | MPEG Layer 2 |是 |

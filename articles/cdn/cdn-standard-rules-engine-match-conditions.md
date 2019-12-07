@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
-ms.openlocfilehash: c4c2b1f334e37691655b18d2c629fbd8edc95382
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 425266e2a7ca42bb17ca598ddfc2f2b86591f32e
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171595"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900182"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>適用于 Azure CDN 之標準規則引擎中的比對條件
 
@@ -50,7 +50,7 @@ Equals，不等於 | 行動裝置、桌上型電腦
 ---------|----------------
 Equals，不等於 | 2.0、1.1、1.0、0.9、全部
 
-### <a name="request-cookies"></a>要求 cookie
+### <a name="request-cookies"></a>要求 Cookie
 
 根據傳入要求中的 cookie 資訊來識別要求。
 
@@ -58,11 +58,11 @@ Equals，不等於 | 2.0、1.1、1.0、0.9、全部
 
 Cookie 名稱 | 運算子 | Cookie 值 | 大小寫轉換
 ------------|----------|--------------|---------------
-字串 | [標準操作員清單](#standard-operator-list) | String、Int | 無任何轉換，大小為大寫，到小寫
+String | [標準操作員清單](#standard-operator-list) | String、Int | 無任何轉換，大小為大寫，到小寫
 
 #### <a name="key-information"></a>重要資訊
 
-- 當您指定 cookie 名稱時，不能使用萬用字元值（包括星號（\*））;您繆思使用精確的 cookie 名稱。
+- 當您指定 cookie 名稱時，不能使用萬用字元值（包括星號（\*））;您必須使用確切的 cookie 名稱。
 - 針對此比對條件的每個實例，您只能指定一個 cookie 名稱。
 - Cookie 名稱比較不區分大小寫。
 - 若要指定多個 cookie 值，請在每個 cookie 值之間使用單一空格。 
@@ -77,7 +77,7 @@ Cookie 名稱 | 運算子 | Cookie 值 | 大小寫轉換
 
 引數名稱 | 運算子 | 引數值 | 大小寫轉換
 --------------|----------|----------------|---------------
-字串 | [標準操作員清單](#standard-operator-list) | String、Int | 無任何轉換，大小為大寫，到小寫
+String | [標準操作員清單](#standard-operator-list) | String、Int | 無任何轉換，大小為大寫，到小寫
 
 ### <a name="query-string"></a>查詢字串
 
@@ -109,18 +109,18 @@ IP 相符 | IP 位址（以空格分隔）
 - 使用 CIDR 標記法。
 - 若要指定多個 IP 位址和 IP 位址區塊，請在這些值之間使用單一空格：
   - **IPv4 範例**： *1.2.3.4 10.20.30.40*符合從位址1.2.3.4 或10.20.30.40 抵達的任何要求。
-  - **IPv6 範例**： *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:8*0 符合從任何位址1:2:3:4:5:6:7:8 或10:20:30:40:50:60:70:80 抵達的任何要求。
-- IP 位址區塊的語法是基底 IP 位址，後面接著正斜線和首碼大小。 例如︰
+  - **IPv6 範例**： *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80*符合從任何位址1:2:3:4:5:6:7:8 或10:20:30:40:50:60:70:80 抵達的任何要求。
+- IP 位址區塊的語法是基底 IP 位址，後面接著正斜線和首碼大小。 例如：
   - **IPv4 範例**： *5.5.5.64/26*會比對透過5.5.5.127 從位址5.5.5.64 抵達的任何要求。
   - **IPv6 範例**： *1:2:3:/48*符合從位址1:2:3:0:0:0:0:0 抵達1：2：3： ffff： ffff： ffff： ffff： ffff 的任何要求。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>Request body
 
 根據要求主體中出現的特定文字來識別要求。
 
 #### <a name="required-fields"></a>必要欄位
 
-運算子 | 要求本文 | 大小寫轉換
+運算子 | Request body | 大小寫轉換
 ---------|--------------|---------------
 [標準操作員清單](#standard-operator-list) | String、Int | 無任何轉換，大小為大寫，到小寫
 
@@ -132,7 +132,7 @@ IP 相符 | IP 位址（以空格分隔）
 
 標頭名稱 | 運算子 | 標頭值 | 大小寫轉換
 ------------|----------|--------------|---------------
-字串 | [標準操作員清單](#standard-operator-list) | String、Int | 無任何轉換，大小為大寫，到小寫
+String | [標準操作員清單](#standard-operator-list) | String、Int | 無任何轉換，大小為大寫，到小寫
 
 ### <a name="request-method"></a>要求方法
 
@@ -178,7 +178,7 @@ Equals，不等於 | HTTP、HTTPS
 
 #### <a name="required-fields"></a>必要欄位
 
-運算子 | 擴充功能 | 大小寫轉換
+運算子 | 尾碼 | 大小寫轉換
 ---------|-----------|---------------
 [標準操作員清單](#standard-operator-list) | String、Int | 無任何轉換，大小為大寫，到小寫
 
@@ -206,7 +206,7 @@ Equals，不等於 | HTTP、HTTPS
 
 #### <a name="required-fields"></a>必要欄位
 
-運算子 | 值 | 大小寫轉換
+運算子 | Value | 大小寫轉換
 ---------|-------|---------------
 [標準操作員清單](#standard-operator-list) | String、Int | 無任何轉換，大小為大寫，到小寫
 
@@ -221,11 +221,11 @@ Equals，不等於 | HTTP、HTTPS
 對於接受標準運算子清單值的規則，下列運算子是有效的：
 
 - 任意
-- Equals 
+- 等於 
 - Contains 
-- 開頭為 
+- 開頭是 
 - Ends with 
-- 小於
+- 少於
 - 小於或等於
 - 大於
 - 大於或等於

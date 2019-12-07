@@ -1,6 +1,6 @@
 ---
 title: 了解 Azure 媒體服務所建議的編碼器 | Microsoft Docs
-description: 了解媒體服務所建議的編碼器
+description: 本文列出 Azure 媒體服務建議的內部部署編碼器。
 services: media-services
 keywords: encoding;encoders;media;編碼;編碼器;媒體
 author: dbgeorge
@@ -9,15 +9,15 @@ ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: fc481129e652c6dacd15a5a6d039a9118393e8f1
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 4a0af9d040c801c125d04a5af72b2ea53322ccdb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854252"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74886566"
 ---
 # <a name="recommended-on-premises-encoders"></a>建議的內部部署編碼器
-使用 Azure 媒體服務進行即時串流時，您可以指定想讓通道接收輸入資料流的方式。 如果您選擇使用內部部署編碼器搭配即時編碼通道, 您的編碼器應該將高品質的單一位元速率串流推送為輸出。 如果您選擇透過通道使用內部部署編碼器, 您的編碼器應該將多位元率串流推送為輸出, 並具有所有所需的輸出品質。 如需詳細資訊, 請參閱[使用內部部署編碼器進行即時串流](media-services-live-streaming-with-onprem-encoders.md)。
+使用 Azure 媒體服務進行即時串流時，您可以指定想讓通道接收輸入資料流的方式。 如果您選擇使用內部部署編碼器搭配即時編碼通道，您的編碼器應該將高品質的單一位元速率串流推送為輸出。 如果您選擇透過通道使用內部部署編碼器，您的編碼器應該將多位元率串流推送為輸出，並具有所有所需的輸出品質。 如需詳細資訊，請參閱[使用內部部署編碼器進行即時串流](media-services-live-streaming-with-onprem-encoders.md)。
 
 Azure 媒體服務建議使用下列其中一種具有 RTMP 作為輸出的即時編碼器：
 - Adobe Flash Media Live Encoder 3.2
@@ -45,7 +45,7 @@ Azure 媒體服務建議使用下列其中一種具有多位元速率分散式 M
 > 即時編碼器可傳送單一位元速率資料流至傳遞通道，但不建議使用此設定，因為它不允序針對用戶端使用彈性位元速率串流。
 
 ## <a name="how-to-become-an-on-premises-encoder-partner"></a>如何成為內部部署編碼器合作夥伴
-身為 Azure 媒體服務內部部署編碼器合作夥伴, 媒體服務向企業客戶建議您的編碼器, 以提升您的產品。 若要成為內部部署編碼器合作夥伴, 您必須確認內部部署編碼器與媒體服務的相容性。 若要這樣做，請完成下列驗證：
+身為 Azure 媒體服務內部部署編碼器合作夥伴，媒體服務向企業客戶建議您的編碼器，以提升您的產品。 若要成為內部部署編碼器合作夥伴，您必須確認內部部署編碼器與媒體服務的相容性。 若要這樣做，請完成下列驗證：
 
 傳遞通道驗證
 1. 建立或造訪您的 Azure 媒體服務帳戶

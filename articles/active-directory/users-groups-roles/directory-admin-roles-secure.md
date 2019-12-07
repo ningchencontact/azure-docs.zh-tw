@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65714f67dde79847bf07efda358a4e1f9ea938d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 87cdd5ff303cbb001e482137df1d4241487fc6d2
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028443"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900791"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取
 
@@ -94,7 +94,7 @@ Azure AD Privileged Identity Management 隨附於 Azure AD Premium P2 或 EMS E5
 
 2. 若要選取要使用 Privileged Identity Management 的租用戶，請選取 Azure 入口網站右上角的使用者名稱。
 
-3. 選取 [所有服務]，並篩選 [Azure AD Privileged Identity Management] 的清單。
+3. 在 [Azure 入口網站] 功能表上，選取 [**所有服務**]，然後篩選**Azure AD Privileged Identity Management**的清單。
 
 4. 從 [所有服務] 清單中開啟 Privileged Identity Management，並將其釘選至儀表板。
 
@@ -261,7 +261,7 @@ Azure AD Identity Protection 是一種以演算法為基礎的監視和報告工
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>判斷密碼式登入通訊協定的風險 (如果使用 Exchange Online)
 
-在過去，通訊協定會假設使用者名稱/密碼組合已內嵌在裝置、電子郵件帳戶、電話等項目中。 但現在有了雲端中網路攻擊的風險，我們建議您識別每個可能的使用者，如果他們的認證遭到入侵，對組織來說可能是災難性的，並且藉由執行強式驗證需求和條件式存取，將他們排除于無法透過使用者名稱/密碼登入電子郵件。 您可以[使用條件式存取來封鎖舊版驗證](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication)。 請查看如何透過 Exchnage online[封鎖基本驗證](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online)的詳細資料。 
+在過去，通訊協定會假設使用者名稱/密碼組合已內嵌在裝置、電子郵件帳戶、電話等項目中。 但現在有了雲端中網路攻擊的風險，我們建議您識別每個可能的使用者，如果他們的認證遭到入侵，對組織來說可能是災難性的，並且藉由執行強式驗證需求和條件式存取，將他們排除于無法透過使用者名稱/密碼登入電子郵件。 您可以[使用條件式存取來封鎖舊版驗證](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication)。 請查看如何透過 Exchange online[封鎖基本驗證](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online)的詳細資料。 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>完成 Office 365 角色的角色檢閱評估 (如果使用 Office 365)
 

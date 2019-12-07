@@ -1,6 +1,6 @@
 ---
-title: 從本機檔案建立 Azure 媒體服務工作輸入 | Microsoft Docs
-description: 本主題說明如何從本機檔案建立工作輸入。
+title: 從本機檔案建立 Azure 媒體服務作業輸入 |Microsoft Docs
+description: 本文示範如何從本機檔案建立 Azure 媒體服務作業輸入。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: 94ac332867d46deb426672fbc40cc72cc121fe64
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: a91305f1c5bfb50e0354dc0054d1a149182d921f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998142"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888439"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>從本機檔案建立工作輸入
 
@@ -27,16 +27,16 @@ ms.locfileid: "69998142"
 下列程式碼說明如何建立一個輸入資產，並將它當作工作的輸入。 CreateInputAsset 函式會執行下列動作：
 
 * 建立資產
-* 取得資產[儲存體容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)的 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+* 取得可寫入的 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)，以存取[儲存體中的資產容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
 * 使用 SAS URL，將檔案上傳至儲存體中的容器
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
-下列程式碼片段會建立輸出資產 (如果尚未存在):
+下列程式碼片段會建立輸出資產（如果尚未存在）：
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAssetAsync)]
 
-下列程式碼片段會提交編碼作業:
+下列程式碼片段會提交編碼作業：
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#SubmitJob)]
 

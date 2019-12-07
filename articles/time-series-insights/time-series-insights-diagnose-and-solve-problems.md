@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 10/10/2019
+ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ca38ebb015552042591fb4cc6b7edfe99527e79f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: ff723f490a3f6d34f652e0b21e5f6e0b16f0a841
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007055"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900286"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>在時間序列深入解析環境中診斷與解決問題
 
@@ -38,7 +38,7 @@ Azure 時間序列深入解析只支援 JSON 資料。 如需 JSON 範例，請�
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>原因 B：事件來源索引鍵遺漏必要的許可權
 
-* 針對 Azure IoT 中樞的 IoT 中樞，您必須提供有**服務連線**權限的機碼。 **iothubowner** 或 **service** 原則都可以，因為它們都有**服務連線**權限。
+* 針對 Azure IoT 中樞的 IoT 中樞，您必須提供有**服務連線**權限的機碼。 選取 [ **iothubowner** ] 或 [**服務**] 原則，因為兩者都具有「**服務**連線」許可權。
 
    [![IoT 中樞服務連接許可權](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
@@ -50,13 +50,17 @@ Azure 時間序列深入解析只支援 JSON 資料。 如需 JSON 範例，請�
 
 當您註冊 IoT 中樞或事件中樞時，請務必設定您想要用來讀取資料的取用者群組。 此取用者群組「不可是共用的」。 如果取用者群組是共用的，基礎 IoT 中樞或事件中樞會自動且隨機地將其中一個讀者中斷連線。 提供唯一的取用者群組讓時間序列深入解析讀取。
 
+### <a name="cause-d-the-environment-has-just-been-provisioned"></a>原因 D：環境剛剛已布建
+
+資料會在環境及其資料首次建立後的幾分鐘內，于您的時間序列深入解析 explorer 中出現。
+
 ## <a name="problem-some-data-is-shown-but-data-is-missing"></a>問題：顯示部分資料，但遺失資料
 
 當資料僅部分出現，且資料似乎有延遲的情況，您應該考慮幾個可能性。
 
 ### <a name="cause-a-your-environment-is-being-throttled"></a>原因：您的環境正在進行節流
 
-建立有資料的事件來源之後，在佈建環境時，節流是常見的問題。 Azure IoT 中樞和 Azure 事件中樞會將資料儲存長達七天。 時間序列深入解析一律會從事件來源中最舊的事件 (「先進先出」或 *FIFO*) 開始讀取。
+當您建立具有資料的事件來源之後，就會布建環境時，[節流](time-series-insights-environment-mitigate-latency.md)是常見的問題。 Azure IoT 中樞和 Azure 事件中樞會將資料儲存長達七天。 時間序列深入解析一律會從事件來源中最舊的事件 (「先進先出」或 *FIFO*) 開始讀取。
 
 例如，當您連線到某個單一單位 S1 時間序列深入解析環境時，如果事件來源中有 5 百萬個事件，時間序列深入解析每天會讀取約 1 百萬個事件。 這樣看起來像時間序列深入解析有五天的延遲。 不過，實際上是環境正在進行節流。
 

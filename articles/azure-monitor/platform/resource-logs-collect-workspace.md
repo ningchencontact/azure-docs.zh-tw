@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 92de47041791c8b6c540844adb62391268b81c34
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 83b91be52694076373d950e0ad785ef22671ef4f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200515"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894521"
 ---
 # <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>在 Azure 監視器的 Log Analytics 工作區中收集 Azure 資源記錄
 Azure 中的[資源記錄](resource-logs-overview.md)會提供有關 Azure 資源內部作業的豐富、經常性資料。 本文說明如何在 Log Analytics 工作區中收集資源記錄，讓您可以使用功能強大的記錄查詢在 Azure 監視器記錄中收集的其他監視資料進行分析，也可以利用警示和之類的其他 Azure 監視器功能項. 
@@ -54,8 +54,8 @@ AzureDiagnostics 資料表看起來會像這樣：
 | ResourceProvider    | 類別     | A  | b  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
-| Service1 | ErrorLogs    |    |    |    | 起 | w1 | e1 |    |    |    |
-| Service2 | AuditLogs    |    |    |    |    |    |    | j1 | 版 k1 | L1 |
+| Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
+| Service2 | AuditLogs    |    |    |    |    |    |    | j1 | k1 | l1 |
 | Service1 | ErrorLogs    |    |    |    | q2 | w2 | e2 |    |    |    |
 | Service2 | AuditLogs    |    |    |    |    |    |    | j3 接 | k3 | 級 |
 | Service1 | AuditLogs    | x5 | y5 | z5 |    |    |    |    |    |    |
@@ -78,7 +78,7 @@ AzureDiagnostics 資料表看起來會像這樣：
 
     | 資源提供者 | 類別 | D | E | F |
     | -- | -- | -- | -- | -- | 
-    | Service1 | ErrorLogs |  起 | w1 | e1 |
+    | Service1 | ErrorLogs |  q1 | w1 | e1 |
     | Service1 | ErrorLogs |  q2 | w2 | e2 |
     | ... |
 
@@ -86,8 +86,8 @@ AzureDiagnostics 資料表看起來會像這樣：
 
     | 資源提供者 | 類別 | G | H | I |
     | -- | -- | -- | -- | -- |
-    | Service2 | AuditLogs | j1 | 版 k1 | L1|
-    | Service2 | AuditLogs | j3 接 | k3 | 級|
+    | 服務 2 | AuditLogs | j1 | k1 | l1|
+    | 服務 2 | AuditLogs | j3 接 | k3 | 級|
     | ... |
 
 
@@ -110,7 +110,7 @@ AzureDiagnostics 資料表看起來會像這樣：
 ### <a name="column-limit-in-azurediagnostics"></a>AzureDiagnostics 中的資料行限制
 Azure 監視器記錄檔中的任何資料表都有500的屬性限制。 一旦達到此限制，任何包含資料的資料列，將會在內嵌時卸載第一個500以外的任何屬性。 *AzureDiagnostics*資料表特別容易受到此限制，因為它包含所有寫入它的 Azure 服務的屬性。
 
-如果您要收集來自多個服務的診斷記錄， _AzureDiagnostics_可能會超過此限制，而且將會遺漏資料。 在所有 Azure 服務都支援資源特定模式之前，您應該將資源設定為寫入多個工作區，以降低達到500資料行限制的可能性。
+如果您要收集來自多個服務的資源記錄， _AzureDiagnostics_可能會超過此限制，而且將會遺漏資料。 在所有 Azure 服務都支援資源特定模式之前，您應該將資源設定為寫入多個工作區，以降低達到500資料行限制的可能性。
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 Azure Data Factory，因為一組非常詳細的記錄，所以是一項服務，已知會寫入大量的資料行，而且可能會導致_AzureDiagnostics_超出其限制。 針對在啟用資源特定模式之前設定的任何診斷設定，將會針對任何活動，為每個唯一命名的使用者參數建立新的資料行。 因為活動輸入和輸出的詳細特性，所以會建立更多資料行。

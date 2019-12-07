@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 中的 Databricks 轉換資料
+title: 使用 Databricks 轉換資料
 description: 了解如何使用 Azure Data Factory 中的 Databricks Notebook 以解決方案範本轉換資料。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 471c1d9610fa346b0eac44c73fe02f4510bd2889
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5b39e354d503910d20141ce19c625eb79b4a7353
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684247"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890992"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Databricks 轉換資料
 
@@ -35,7 +35,7 @@ ms.locfileid: "73684247"
 
 ## <a name="prerequisites"></a>必要條件
 
-1.  建立 **Blob 儲存體帳戶**，以及要作為`sinkdata`接收端**的容器** 。 請記下**儲存體帳戶名稱**、**容器名稱**和**存取金鑰**，因為後續在此範本中將會加以參考。
+1.  建立 **Blob 儲存體帳戶**，以及要作為**接收端**的容器 `sinkdata`。 請記下**儲存體帳戶名稱**、**容器名稱**和**存取金鑰**，因為後續在此範本中將會加以參考。
 
 2.  確定您具有 **Azure Databricks 工作區**，或建立新的工作區。
 
@@ -77,7 +77,7 @@ ms.locfileid: "73684247"
 
 ## <a name="create-linked-services-and-datasets"></a>建立連結服務和資料集
 
-1.  移至 [連線 > 連結服務 > 新增]，在 Data Factory UI 中建立新的*連結服務*
+1.  移至 [連線 > 連結服務 > 新增]，在 Data Factory UI 中建立新的**連結服務**
 
     1.  **來源** – 用來存取來源資料。 在此範例中，您可以使用包含來源檔案的公用 Blob 儲存體。
 

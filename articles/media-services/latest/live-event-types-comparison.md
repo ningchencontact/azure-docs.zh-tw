@@ -1,6 +1,6 @@
 ---
 title: Azure 媒體服務 LiveEvent 類型 | Microsoft Docs
-description: 本文顯示比較 LiveEvent 類型的詳細資料表。
+description: 在 Azure 媒體服務中，實況活動可以是下列兩種類型之一：即時編碼和傳遞。 本文顯示比較即時事件種類的詳細資料表。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 884cf8d913cec038df3b38c8af2ed0a67bd8060d
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 8377c4339b07e0b917e10ed413ffc79baef91fac
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802237"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888388"
 ---
 # <a name="live-event-types-comparison"></a>實況活動類型比較
 
@@ -55,7 +55,7 @@ ms.locfileid: "70802237"
 | 插入靜態圖像支援|否|否|
 | 支援透過 API 發出廣告訊號| 否|否|
 | 支援透過 SCTE-35 頻內訊息發出廣告訊號|是|是|
-| 在比重摘要內能從短暫延遲中復原的能力|是|部份|
+| 在比重摘要內能從短暫延遲中復原的能力|是|部分|
 | 支援未統一輸入的 GOP|是|否 – 輸入必須有固定的 GOP 持續期間|
 | 支援變動畫面播放速率輸入|是|否 – 輸入必須為固定畫面播放速率。 輕微的差異可以接受，例如：處於高速動態場景的情況。 但是，貢獻摘要無法捨棄畫面播放速率（例如，到15個畫面）。|
 | 在遺失輸入摘要時自動關閉實況活動|否|經過 12 個小時，如果沒有 LiveOutput 仍在執行|
@@ -71,7 +71,7 @@ ms.locfileid: "70802237"
 
 如果「貢獻摘要」是720p 或更高解析度，則**Default720p**預設會將摘要編碼成下列6層。 在下表中，位元速率是以 kbps 為單位，MaxFPS 代表允許的畫面播放速率上限（以框架/秒為單位），設定檔代表所使用的 h.264 設定檔。
 
-| Bitrate | 寬度 | 高度 | MaxFPS | 個人資料 |
+| Bitrate | 寬度 | 高度 | MaxFPS | 設定檔 |
 | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |高 |
 | 2200 |960 |540 |30 |高 |
@@ -88,7 +88,7 @@ ms.locfileid: "70802237"
 
 如果「貢獻摘要」是1080p 解析，則**Default1080p**預設會將摘要編碼成下列6個層級。
 
-| Bitrate | 寬度 | 高度 | MaxFPS | 個人資料 |
+| Bitrate | 寬度 | 高度 | MaxFPS | 設定檔 |
 | --- | --- | --- | --- | --- |
 | 5500 |1920 |1080 |30 |高 |
 | 3000 |1280 |720 |30 |高 |

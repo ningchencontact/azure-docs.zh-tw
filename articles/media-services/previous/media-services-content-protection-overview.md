@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 媒體服務保護您的內容 | Microsoft Docs
-description: 此文章簡介如何利用 Media Services 保護內容。
+description: 本文提供 Azure 媒體服務 v2 的內容保護總覽。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8259b58c7f30b63084e970bd9aed99642a43226f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0d71a7b010e91776a28330cfc32278c7060aab6
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61216164"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901259"
 ---
 # <a name="content-protection-overview"></a>內容保護概觀 
 
 > [!NOTE]
-> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 另請參閱[從 v2 到 v3 的遷移指引](../latest/migrate-from-v2-to-v3.md)
 
 您可以使用 Azure 媒體服務來保護媒體從離開電腦到進行儲存、處理和傳遞時的安全。 使用媒體服務，您就能傳遞利用進階加密標準 (AES-128) 或下列三個主要數位版權管理 (DRM) 系統中任一個所動態加密的即時與隨選內容：Microsoft PlayReady、Google Widevine 和 Apple FairPlay。 媒體服務也提供服務，可傳遞 AES 金鑰和 DRM (PlayReady、Widevine 和 FairPlay) 授權給授權用戶端。 
 
@@ -39,7 +39,7 @@ ms.locfileid: "61216164"
 
 - AES：MPEG DASH、 Smooth Streaming 和 HLS
 - PlayReady：MPEG DASH、 Smooth Streaming 和 HLS
-- Widevine：MPEG-DASH
+- Widevine：MPEG DASH
 - FairPlay：HLS
 
 若要加密資產，您需要建立加密內容金鑰與您資產的關聯，同時也要設定金鑰的授權原則。 內容金鑰可由您指定或由媒體服務自動產生。
@@ -48,7 +48,7 @@ ms.locfileid: "61216164"
 
 播放程式要求串流時，媒體服務便會使用 AES 清除金鑰或 DRM 加密，使用指定的金鑰動態加密您的內容。 為了將串流解密，播放程式會向媒體服務金鑰傳遞服務要求金鑰。 為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
 
-## <a name="aes-128-clear-key-vs-drm"></a>AES-128 未加密金鑰與DRM
+## <a name="aes-128-clear-key-vs-drm"></a>AES-128 清除金鑰與 DRM
 客戶通常不知道他們應該使用 AES 加密，還是 DRM 系統。 這兩個系統的主要差異是，使用 AES 加密時，系統會以未加密格式 (「純文字」) 將內容金鑰傳輸至用戶端。 因此，就能在用戶端的網路追蹤中，以純文字形式檢視用來加密內容的金鑰。 AES-128 未加密金鑰加密適用於檢視者為受信任合作對象的使用案例 (例如，將在公司內部散發的公司影片加密，以供員工檢視)。
 
 相較於 AES-128 未加密金鑰加密，PlayReady、Widevine 及 FairPlay 全都會提供較高層級的加密。 內容金鑰會以加密格式傳輸。 此外，解密會在安全環境中，惡意使用者更難攻擊的作業系統層級上進行處理。 針對檢視者可能不是受信任的合作對象，而且您需要最高層級安全性的使用案例，建議使用 DRM。
@@ -84,9 +84,9 @@ Playready 和 Widevine 會利用一般加密 (AES CTR 模式)。 FairPlay 會利
 * 如果只有一個加密套用到資產，則無須在 URL 中指定加密類型。
 * 加密類型不區分大小寫。
 * 可以指定下列加密類型︰
-  * **cenc**：適用於 PlayReady 或 Widevine (一般加密)
+  * **cenc**︰適用於 PlayReady 或 Widevine (一般加密)
   * **cbcs-aapl**：適用於 FairPlay (AES CBC 加密)
-  * **cbc**：AES 信封加密
+  * **cbc**：適用於 AES 信封加密
 
 ## <a name="next-steps"></a>後續步驟
 下列文章描述可協助您開始使用內容保護的後續步驟：

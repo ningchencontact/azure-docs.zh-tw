@@ -1,6 +1,6 @@
 ---
 title: Azure 媒體服務 - HEVC 的 Smooth Streaming 通訊協定 (MS-SSTR) 增修條款 | Microsoft Docs
-description: 此規格說明在 Azure 媒體服務中採用 HEVC 的分散式 MP4 即時串流所適用的通訊協定和格式。 這是 Smooth Streaming 通訊協定文件 (MS-SSTR) 的增修條款，意在納入對 HEVC 內嵌和串流的支援。 本文僅指出為了傳遞 HEVC 而需要的變更，但「(無變更)」是表示複製文字僅供說明之用，則屬例外。
+description: 此規格說明在 Azure 媒體服務中採用 HEVC 的分散式 MP4 即時串流所適用的通訊協定和格式。 本文僅指出為了傳遞 HEVC 而需要的變更，但「(無變更)」是表示複製文字僅供說明之用，則屬例外。
 services: media-services
 documentationcenter: ''
 author: johndeu
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: e0637b2a015a610f9c3f92809f63a442980b63b1
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 6dd7e0dc7e58f33f952aa5531773a84ebd31a163
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624810"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887861"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>HEVC 的 Smooth Streaming 通訊協定 (MS-SSTR) 增修條款 
 
@@ -27,7 +27,7 @@ ms.locfileid: "69624810"
 
 本文提供可啟用 HEVC 編碼視訊之 Smooth Streaming 的 Smooth Streaming 通訊協定規格 [MS-SSTR] 所適用的詳細修訂文件。 在此規格中，我們僅概述為了傳遞 HEVC 視訊轉碼器所需的變更。 本文依循與 [MS-SSTR] 規格相同的編號結構描述。 整份文件中顯示的空白標題，是為了讓讀者了解他們在 [MS SSTR] 規格中的位置。  「(無變更)」是表示複製文字僅供說明之用。
 
-本文針對 HEVC 視頻編解碼器 (使用 ' hev1 ' 或 ' hvc1 ' 格式追蹤) 在 Smooth Streaming 資訊清單中提供信號的技術執行需求, 並更新標準化的參考以參考目前的 MPEG 標準包含 HEVC、一般加密的 HEVC, 以及 ISO Base Media 檔案格式的 box 名稱已更新為與最新規格一致。 
+本文針對 HEVC 視頻編解碼器（使用 ' hev1 ' 或 ' hvc1 ' 格式追蹤）在 Smooth Streaming 資訊清單中提供信號的技術執行需求，並更新標準化的參考以參考目前的 MPEG 標準包含 HEVC、一般加密的 HEVC，以及 ISO Base Media 檔案格式的 box 名稱已更新為與最新規格一致。 
 
 參考的 Smooth Streaming 通訊協定規格 [MS-SSTR] 說明用來以下列方式傳遞即時和點播數位媒體 (例如音訊及視訊) 的電傳格式：從編碼器到 Web 伺服器、從伺服器到另一部伺服器，以及從伺服器到 HTTP 用戶端。
 使用透過 HTTP 的 MPEG-4 ([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787) 型資料結構傳遞，可幾近即時地在壓縮媒體內容的不同品質水準間進行切換。 其結果是，HTTP 用戶端使用者可享有穩定的播放體驗，即使用戶端電腦或裝置的網路和視訊轉譯條件有所變動，仍不受影響。
@@ -40,11 +40,11 @@ ms.locfileid: "69624810"
 
 以下是本文專用的字詞：
 
->  **編寫階段：** 在用戶端上呈現樣本的時間, 如[[ISO/IEC-iec-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)所定義。
+>  **撰寫時間：** 在用戶端上呈現樣本的時間，如[[ISO/IEC-iec-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)所定義。
 > 
 >   **CENC**：一般加密，如 [ISO/IEC 23001-7] 第二版所定義。
 > 
->   **解碼階段：** 需要在用戶端上解碼樣本的時間, 如[[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695)所定義。
+>   解碼**時間：** 需要在用戶端上解碼樣本的時間，如[[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695)所定義。
 
 **片段：** 可單獨下載、包含一或多個**樣本**的**媒體**單元。
 
@@ -52,11 +52,11 @@ ms.locfileid: "69624810"
 > 
 >   **資訊清單：** 可讓用戶端發出**媒體**要求之**顯示**的相關中繼資料。 **媒體：** 用戶端用來播放**顯示**的壓縮音訊、視訊和文字資料。 **媒體格式：** 一個妥善定義的格式，可將音訊或視訊顯示為壓縮的**樣本**。
 > 
->   **顯示：** 播放單一影片所需的所有**資料流**和相關中繼資料的集合。 **要求：** 從用戶端傳送至伺服器的 HTTP 訊息, 如[[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **回應**中所定義:從伺服器傳送至用戶端的 HTTP 訊息, 如[[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)中所定義
+>   **顯示：** 播放單一影片所需的所有**資料流**和相關中繼資料的集合。 **要求：** 從用戶端傳送至伺服器的 HTTP 訊息（如[[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **回應**中所定義）：從伺服器傳送至用戶端的 HTTP 訊息（如[[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)中所定義）
 > 
 >   **樣本：** 儲存及處理**媒體**的最小基本單位 (例如框架)。
 > 
->   **「可能」、「應該」、「必須」、「不應」、「不可」：** 如[[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317)所有選擇性行為的語句中所述, 使用這些詞彙 (全部大寫) 會使用 [可能]、[應該] 或 [不應該]。
+>   不得為，不得**為：** 如[[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317)所有選擇性行為的語句中所述，使用這些詞彙（全部大寫）會使用 [可能]、[應該] 或 [不應該]。
 
 ## <a name="12-references"></a>1.2 參考
 
@@ -78,17 +78,17 @@ ms.locfileid: "69624810"
 > 
 >   [RFC-6381] IETF RFC-6381，「貯體媒體類型的轉碼器和設定檔參數」<https://tools.ietf.org/html/rfc6381>
 > 
->   [MPEG4-RA]未通過的登錄授權單位 "MP4REG",[http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA]未通過的登錄授權單位 "MP4REG"， [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 > 
->   RFC2119Bradner, S, 「用來在 Rfc 中指出需求層級的關鍵字」, BCP 14, RFC 2119, 3 月1997日[https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   RFC2119Bradner，S，"用來在 Rfc 中指出需求層級的關鍵字"，BCP 14，RFC 2119，3月1997日， [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 資訊參考 
 
 >   [MS-GLOS] Microsoft Corporation，「*Windows 通訊協定主要詞彙*」。
 > 
->   RFC3548Josefsson, S., Ed., "the Base16, Base32, and Base64 Data 編碼", RFC 3548, 7 月2003日[https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   RFC3548Josefsson，S.，Ed.，"the Base16，Base32，and Base64 Data 編碼"，RFC 3548，7月2003日[https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 > 
->   [RFC5234] Crocker, D., Ed., and Overell, P., ，「語法規格的增強型 BNF：ABNF ", STD 68, RFC 5234, 1 月 2008,[https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   RFC5234Crocker、d.、Ed. 和 Overell p.、P.、
 
 
 ## <a name="13-overview"></a>1.3 概觀 
@@ -108,7 +108,7 @@ ms.locfileid: "69624810"
 >   「應該」使用下列方法來識別使用 HEVC 視訊格式的資料流：
 > 
 >   * **媒體格式的自訂描述性代碼：** 這項功能由 **FourCC** 欄位提供，如 *2.2.2.5* 小節所指定。
->   實施者可以使用 MPEG4-RA 註冊延伸模組程式碼, 以確保延伸模組不會發生衝突, 如[[ISO/IEC-iec-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)中所指定。
+>   實施者可以使用 MPEG4-RA 註冊延伸模組程式碼，以確保延伸模組不會發生衝突，如[[ISO/IEC-iec-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)中所指定。
 
 ## <a name="19-standards-assignments"></a>1.9 標準指派 
 
@@ -129,7 +129,7 @@ ms.locfileid: "69624810"
 >   **TimeScale (變數)：** 「持續時間」屬性的時間間隔，指定為一秒內的增量數目。 預設值為
 > 1. (無變更)
 > 
->    建議的值為 90000, 表示影片畫面格的確切持續時間和包含小數螢幕畫面的片段 (例如 30/1.001 Hz)。
+>    建議的值為90000，表示影片畫面格的確切持續時間和包含小數螢幕畫面的片段（例如 30/1.001 Hz）。
 
 #### <a name="2222-protectionelement"></a>2.2.2.2 ProtectionElement 
 
@@ -149,13 +149,13 @@ ms.locfileid: "69624810"
 > 
 > * "hev1"：此音軌的視訊樣本會使用 HEVC 視訊，採用 [ISO/IEC-14496-15] 所指定的 ‘hev1’ 樣本說明格式。
 >
-> * "hvc1":此追蹤的影片範例使用 HEVC 影片, 使用 [ISO/IEC-iec-14496-15] 中指定的 ' hvc1 ' 範例描述格式。
+> * "hvc1"：此追蹤的影片範例使用 HEVC 影片，並使用 [ISO/IEC-iec-14496-15] 中指定的 ' hvc1 ' 範例描述格式。
 > 
 >   **CodecPrivateData (變數)：** 這項資料會指定媒體格式的特定參數和音軌中所有樣本通用的參數，以十六進位編碼位元組的字串表示。 位元組序列的格式和語意會隨著 **FourCC** 欄位的值而不同，如下所示：
 > 
->   * 當 TrackElement 描述 HEVC 影片時, **FourCC**欄位應等於 **"hev1"** 或 **"hvc1"**
+>   * 當 TrackElement 描述 HEVC 影片時， **FourCC**欄位應等於 **"hev1"** 或 **"hvc1"**
 > 
->   **CodecPrivateData**欄位應包含下列位元組序列的十六進位編碼字串標記法, 指定于 ABNF [[RFC5234]:](https://go.microsoft.com/fwlink/?LinkId=123096) (不會從 MS ms-sstr 變更)
+>   **CodecPrivateData**欄位應包含下列位元組序列的十六進位編碼字串標記法，指定于 ABNF [[RFC5234]：](https://go.microsoft.com/fwlink/?LinkId=123096) （不會從 MS ms-sstr 變更）
 > 
 >   * %x00 %x00 %x00 %x01 SPSField %x00 %x00 %x00 %x01 PPSField
 > 
@@ -163,7 +163,7 @@ ms.locfileid: "69624810"
 > 
 >   * PPSField 包含配量參數集 (PPS)。
 > 
->   注意:視訊參數集 (VPS) 未包含在 CodecPrivateData 中，但應包含在 'hvcC' 方塊中之預存檔案的檔案標題中。 使用 Smooth Streaming 通訊協定的系統必須使用自訂屬性「轉碼器」指示其他解碼參數 (例如，HEVC 層)。
+>   注意：視訊參數集 (VPS) 未包含在 CodecPrivateData 中，但應包含在 'hvcC' 方塊中之預存檔案的檔案標題中。 使用 Smooth Streaming 通訊協定的系統必須使用自訂屬性「轉碼器」指示其他解碼參數 (例如，HEVC 層)。
 
 ##### <a name="22251-customattributeselement"></a>2.2.2.5.1 CustomAttributesElement 
 
@@ -175,7 +175,7 @@ ms.locfileid: "69624810"
 
 ### <a name="223-fragment-request"></a>2.2.3 片段要求 
 
->   **注意**：針對**MinorVersion** 2 和 ' hev1 ' 或 ' hvc1 ' 所要求的預設媒體格式為 ' iso8 ' 品牌 Iso base media 檔案格式 (在 [ISO/iec 14496-12] Iso Base Media 檔案格式第四版) 中指定, 而 [ISO/iec 23001-7] 一般加密第二版。
+>   **注意**：針對**MinorVersion** 2 和 ' hev1 ' 或 ' hvc1 ' 所要求的預設媒體格式為 [iso/Iec 14496-12] Iso Base Media 檔案格式第四版中指定的 ' Iso8 ' 品牌 ISO base media 檔案格式，而 [iso/Iec 23001-7] 一般加密第二版。
 
 ### <a name="224-fragment-response"></a>2.2.4 片段回應 
 
@@ -203,7 +203,7 @@ ms.locfileid: "69624810"
 
 >   **TfhdBox** 和相關欄位中包含片段中每個樣本中繼資料的預設值。 **TfhdBox** 欄位的語法是 [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695) 的 8.8.7 條款所定義之「磁軌片段標題方塊」的嚴格語法子集。
 > 
->   **BaseDataOffset (8 位元組)：** 從 **MdatBox** 欄位開頭到 **MdatBox** 欄位中的樣本欄位的位移 (以位元組為單位)。 若要指出此限制，必須設定 default-base-is-moof 旗標 (0x020000)。
+>   **BaseDataOffset (8 位元組)：** ，從 **MdatBox** 欄位開頭到 **MdatBox** 欄位中的樣本欄位的位移 (以位元組為單位)。 若要指出此限制，必須設定 default-base-is-moof 旗標 (0x020000)。
 
 #### <a name="2247-trunbox"></a>2.2.4.7 TrunBox 
 
@@ -213,7 +213,7 @@ ms.locfileid: "69624810"
 > 
 >   如 [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695) 所定義。
 > 
->   注意:這可以避免等同於最大解碼圖片緩衝移除延遲的視訊延遲音訊所造成的視訊同步處理錯誤，並可在可能有不同移除延遲的替代片段之間保持顯示時機。
+>   注意：這可以避免等同於最大解碼圖片緩衝移除延遲的視訊延遲音訊所造成的視訊同步處理錯誤，並可在可能有不同移除延遲的替代片段之間保持顯示時機。
 > 
 >   本節中定義之欄位的語法 (指定於 ABNF [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) 中) 仍保持相同，但有下列例外：
 > 

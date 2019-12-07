@@ -1,7 +1,7 @@
 ---
 title: 使用時間轉移和即時輸出來建立隨選影片播放
 titleSuffix: Azure Media Services
-description: 瞭解如何使用「時間轉移」和「即時輸出」來記錄即時串流，並建立隨選播放。
+description: 本文說明如何使用「時間轉移」和「即時輸出」來記錄即時串流，並建立隨選播放。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: juliako
-ms.openlocfilehash: acba251a57f39c07d690d0c55665b8914feaf06c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4c7618b60e5fd86a9b8b3f22fb3333c00cfdfa61
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186233"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899786"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>使用時間轉移和即時輸出來建立隨選影片播放
 
@@ -45,7 +45,7 @@ ms.locfileid: "74186233"
 
 如果您已使用串流定位器來發佈實況輸出的資產，實況活動（最長可達 DVR 視窗長度）將繼續可見，直到串流定位器的到期或刪除為止（以先發生者為准）。
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 - [即時串流概觀](live-streaming-overview.md)
 - [即時串流教學課程](stream-live-tutorial-with-api.md)

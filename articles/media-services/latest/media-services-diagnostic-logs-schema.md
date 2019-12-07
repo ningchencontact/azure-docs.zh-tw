@@ -1,6 +1,6 @@
 ---
 title: Azure 媒體服務診斷記錄架構-Azure
-description: 本文說明 Azure 媒體服務診斷記錄架構。
+description: 本文示範 Azure 媒體服務診斷記錄架構。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: f95258368664aabeb89426afb83854378c0e4429
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 2f5fcf4d9106bf37bcc81388e48afe689f4ef4d6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261089"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896052"
 ---
 # <a name="diagnostic-logs-schemas"></a>診斷記錄結構描述
 
@@ -41,7 +41,7 @@ ms.locfileid: "71261089"
 |Name|描述|
 |---|---|
 |keyId|所要求之金鑰的識別碼。|
-|keyType|可能是下列其中一個值：「清除」（無加密）、「FairPlay」、「PlayReady」或「Widevine」。|
+|keyType|可能是下列其中一個值： "Clear" （無加密）、"FairPlay"、"PlayReady" 或 "Widevine"。|
 |policyName|原則的 Azure Resource Manager 名稱。|
 |tokenType|權杖類型。|
 |statusMessage|狀態訊息。|

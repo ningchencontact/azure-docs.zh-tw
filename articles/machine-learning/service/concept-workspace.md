@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 4fe405d4027535eb6b0211f7a3f997194b8819aa
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 14fc91feb16fb45eee1fe2e757a717e04ef07f99
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580753"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894731"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>什麼是 Azure Machine Learning 工作區？
 
@@ -73,8 +73,8 @@ ms.locfileid: "73580753"
 |---------------------------|---------|---------|------------|------------|
 | 建立工作區        | **&check;**     | | **&check;** | **&check;** |
 | 管理工作區存取    | **&check;**   || |  **&check;**    |
-| 升級至 Enterprise edition    | **&check;** |  | |     |
-| 建立和管理計算資源    |   | **&check;** | **&check;** |  **&check;**   |
+| 升級至 Enterprise edition    | **&check;** | **&check;**  | |     |
+| 建立和管理計算資源    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | 建立筆記本 VM |   | **&check;** | |     |
 
 

@@ -1,6 +1,6 @@
 ---
 title: 藉由新增編碼單元來調整媒體處理的規模 - Azure | Microsoft Docs
-description: 了解如何使用 .NET 新增編碼單元
+description: 本文示範如何使用 Azure 媒體服務 .NET 來新增編碼單位。
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milangada
-ms.openlocfilehash: 9d393e07008d981834d9deb48ded73995366d7e4
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 86fd923c121b9d46109529f75bc3d0d040f1a7a9
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016575"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887267"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>如何使用 .NET SDK 調整編碼
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "69016575"
 > 
 > 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 > [!IMPORTANT]
 > 請務必檢閱[概觀](media-services-scale-media-processing-overview.md)，以取得調整媒體處理的詳細資訊。
 > 
