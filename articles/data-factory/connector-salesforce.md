@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 Salesforce 複製資料以及複製資料至 Salesforce
+title: 將資料從和複製到 Salesforce
 description: 了解如何使用資料存放區管線中的複製活動，將資料從 Salesforce 複製到支援的接收資料存放區，或是從支援的接收資料存放區複製到 Salesforce。
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 1bcfc0386925d142fd765547ff60e1f2a3bd9101
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: de14d62f0356a8edf37f23fc85fb974dbca4e9a6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680344"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895596"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 複製資料以及複製資料至 Salesforce
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -66,7 +66,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 以下是針對 Salesforce 連結服務支援的屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 |type 屬性必須設為 **Salesforce**。 |是 |
 | environmentUrl | 指定 Salesforce 執行個體的 URL。 <br> - 預設為 `"https://login.salesforce.com"`. <br> - 若要從沙箱複製資料，請指定 `"https://test.salesforce.com"`。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 `"https://[domain].my.salesforce.com"`。 |否 |
@@ -142,12 +142,12 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Salesforce 資料集所支援的屬性清單。
 
-若要從 Salesforce 複製資料以及將資料複製到 Salesforce，請將資料集的 type 屬性設定為 **SalesforceObject**。 以下是支援的屬性。
+若要從 Salesforce 複製資料以及將資料複製到 Salesforce，請將資料集的 type 屬性設定為 **SalesforceObject**。 支援以下屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | type 屬性必須設為 **SalesforceObject**。  | 是 |
-| objectApiName | 要從其中擷取資料的 Salesforce 物件名稱。 | 否 (用於來源)；是 (用於接收) |
+| objectApiName | 要從其中擷取資料的 Salesforce 物件名稱。 | 否 (來源)；是 (接收) |
 
 > [!IMPORTANT]
 > 所有自訂物件的 [API 名稱]都要有 "__c" 部分。
@@ -176,7 +176,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 >[!NOTE]
 >基於回溯相容性：從 Salesforce 複製資料時，如果使用先前的 "RelationalTable" 類型資料集，它仍可正常運作，但會看到改用新的 SalesforceObject 類型的建議。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 資料集的 type 屬性必須設定為 **RelationalTable**。 | 是 |
 | tableName | Salesforce 中資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
@@ -187,9 +187,9 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 ### <a name="salesforce-as-a-source-type"></a>Salesforce 作為來源類型
 
-若要從 Salesforce 複製資料，請將複製活動中的來源類型設定為 **SalesforceSource**。 複製活動的 [來源] 區段支援下列屬性。
+若要從 Salesforce 複製資料，請將複製活動中的來源類型設定為 **SalesforceSource**。 複製活動的 **source** 區段支援下列屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動來源的 type 屬性必須設定為 **SalesforceSource**。 | 是 |
 | query |使用自訂查詢來讀取資料。 您可以使用 [Salesforce 物件查詢語言 (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 查詢或 SQL-92 查詢。 請參閱[查詢秘訣](#query-tips)一節中的秘訣。 如果未指定查詢，將會在資料集內擷取 "objectApiName" 中所指定之 Salesforce 物件的所有資料。 | 否 (如果在資料集中指定 "objectApiName") |
@@ -237,9 +237,9 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 ### <a name="salesforce-as-a-sink-type"></a>Salesforce 作為接收類型
 
-若要將資料複製到 Salesforce，請將複製活動中的接收器類型設定為 **SalesforceSink**。 複製活動的 [接收] 區段支援下列屬性。
+若要將資料複製到 Salesforce，請將複製活動中的接收器類型設定為 **SalesforceSink**。 複製活動的 **sink** 區段支援下列屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動接收的 type 屬性必須設定為 **SalesforceSink**。 | 是 |
 | writeBehavior | 作業的寫入行為。<br/>允許的值為 **Insert** 和 **Upsert**。 | 否 (預設為 Insert) |
@@ -322,25 +322,25 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 | Salesforce 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| 自動編號 |字串 |
+| 自動編號 |String |
 | 核取方塊 |Boolean |
 | 貨幣 |Decimal |
-| 日期 |DateTime |
-| 日期/時間 |DateTime |
-| 電子郵件 |字串 |
-| id |字串 |
-| 查閱關聯性 |字串 |
-| 複選挑選清單 |字串 |
-| 數字 |Decimal |
+| 日期 |日期時間 |
+| 日期/時間 |日期時間 |
+| 電子郵件 |String |
+| 識別碼 |String |
+| 查閱關聯性 |String |
+| 複選挑選清單 |String |
+| Number |Decimal |
 | 百分比 |Decimal |
-| 電話 |字串 |
-| 挑選清單 |字串 |
-| 文字 |字串 |
-| 文字區域 |字串 |
-| 文字區域 (完整) |字串 |
-| 文字區域 (豐富) |字串 |
-| 文字 (加密) |字串 |
-| URL |字串 |
+| 電話 |String |
+| 挑選清單 |String |
+| 文字 |String |
+| 文字區域 |String |
+| 文字區域 (完整) |String |
+| 文字區域 (豐富) |String |
+| 文字 (加密) |String |
+| URL |String |
 
 ## <a name="lookup-activity-properties"></a>查閱活動屬性
 
@@ -348,4 +348,4 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 
 ## <a name="next-steps"></a>後續步驟
-如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。
+如需 Data Factory 中複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

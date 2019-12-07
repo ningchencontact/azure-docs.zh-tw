@@ -1,6 +1,6 @@
 ---
 title: 連接到 Azure 媒體服務 v3 API-.NET
-description: 瞭解如何使用 .NET 連接到媒體服務 v3 API。
+description: 本文示範如何使用 .NET 連接到媒體服務 v3 API。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: b2cfe8014e6ffbd7a6d5449192acde9780a2d303
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122894"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899897"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>連接到媒體服務 v3 API-.NET
 
@@ -35,17 +35,17 @@ ms.locfileid: "71122894"
 ## <a name="create-a-console-application"></a>建立主控台應用程式
 
 1. 啟動 Visual Studio。 
-1. **在 [檔案**] 功能表上，按一下 [**新增** > **專案**]。 
+1. 從 [**檔案**] 功能表中，按一下 [**新增** > **專案**]。 
 1. 建立 **.Net Core**主控台應用程式。
 
-本主題中的範例應用程式， `netcoreapp2.0`目標為。 程式碼會使用「非同步 main」，從C# 7.1 開始提供。 如需詳細資訊，請參閱此[blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) 。
+本主題中的範例應用程式是以 `netcoreapp2.0`為目標。 程式碼會使用「非同步 main」，從C# 7.1 開始提供。 如需詳細資訊，請參閱此[blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) 。
 
-## <a name="add-required-nuget-packages"></a>新增必要的 NuGet 套件
+## <a name="add-required-nuget-packages"></a>新增必要的 NuGet 封裝
 
-1. 在 Visual Studio 中，選取 [**工具** > ] [**nuget 套件管理員** > ] [**nuget 管理員主控台**]。
-2. 在 [**套件管理員主控台**] 視窗中`Install-Package` ，使用命令來新增下列 NuGet 套件。 例如： `Install-Package Microsoft.Azure.Management.Media` 。
+1. 在 Visual Studio 中，選取 [**工具**] > **nuget 套件管理員** > [ **nuget 管理員主控台**]。
+2. 在 [**套件管理員主控台**] 視窗中，使用 `Install-Package` 命令來新增下列 NuGet 套件。 例如： `Install-Package Microsoft.Azure.Management.Media` 。
 
-|套件|描述|
+|Package|描述|
 |---|---|
 |`Microsoft.Azure.Management.Media`|Azure 媒體服務 SDK。 <br/>若要確定您使用的是最新的 Azure 媒體服務套件，請檢查[Microsoft Azure. 管理媒體](https://www.nuget.org/packages/Microsoft.Azure.Management.Media)。|
 |`Microsoft.Rest.ClientRuntime.Azure.Authentication`|適用于 .NET 的 Azure SDK 的 ADAL 驗證程式庫|
@@ -57,20 +57,20 @@ ms.locfileid: "71122894"
 
 ### <a name="create-appsettingsjson"></a>建立 appsettings
 
-1. Go go**一般** > **文字檔**。
+1. 移至**一般** > **文字檔**。
 1. 將它命名為 "appsettings"。
 1. 將 json 檔案的 [複製到輸出目錄] 屬性設定為 [更新時才複製] （如此一來，應用程式就能夠在發行時存取它）。
 
 ### <a name="set-values-in-appsettingsjson"></a>在 appsettings 中設定值
 
-執行命令，如[存取 api](access-api-cli-how-to.md)中所述。 `az ams account sp create` 此命令會傳回您應該複製到 "appsettings" 中的 json。
+執行 `az ams account sp create` 命令，如[存取 api](access-api-cli-how-to.md)中所述。 此命令會傳回您應該複製到 "appsettings" 中的 json。
  
 ## <a name="add-configuration-file"></a>新增組態檔
 
 為了方便起見，請新增負責從 "appsettings" 讀取值的設定檔。
 
 1. 將新的 .cs 類別加入至您的專案。 將它命名為 `ConfigWrapper` 
-1. 將下列程式碼貼入此檔案（此範例假設您的命名空間為`ConsoleApp1`）。
+1. 將下列程式碼貼入此檔案（此範例假設您的命名空間為 `ConsoleApp1`）。
 
 ```csharp
 using System;
@@ -228,9 +228,9 @@ namespace ConsoleApp1
 
 ## <a name="next-steps"></a>後續步驟
 
-- [教學課程：上傳、編碼和串流影片 - .NET](stream-files-tutorial-with-api.md) 
-- [教學課程：透過媒體服務 v3 進行即時串流 - .NET](stream-live-tutorial-with-api.md)
-- [教學課程：透過媒體服務 v3 分析影片 - .NET](analyze-videos-tutorial-with-api.md)
+- [教學課程：上傳、編碼和串流影片-.NET](stream-files-tutorial-with-api.md) 
+- [教學課程：使用媒體服務 v3 進行即時串流-.NET](stream-live-tutorial-with-api.md)
+- [教學課程：使用媒體服務 v3 來分析影片-.NET](analyze-videos-tutorial-with-api.md)
 - [從本機檔案建立作業輸入 - .NET](job-input-from-local-file-how-to.md)
 - [從 HTTPS URL 建立作業輸入 - .NET](job-input-from-http-how-to.md)
 - [使用自訂轉換進行編碼 - .NET](customize-encoder-presets-how-to.md)
@@ -240,7 +240,7 @@ namespace ConsoleApp1
 - [使用媒體服務建立篩選 - .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [搭配使用 Azure Functions v2 與媒體服務 v3 的進階影片隨選範例](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [.NET 參考](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * 如需更多程式碼範例，請參閱[.NET SDK 範例](https://github.com/Azure-Samples/media-services-v3-dotnet)存放庫。

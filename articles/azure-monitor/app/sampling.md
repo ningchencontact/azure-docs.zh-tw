@@ -4,16 +4,16 @@ description: 如何讓遙測量保持在控制下。
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cijothomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
-ms.openlocfilehash: c124e6c433f83212c0db815a2fd06cfcfdf86253
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 4b0dca1215cfecea5c9943bd27ee8a5c1de45311
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884719"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893360"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights 中的取樣
 
@@ -28,7 +28,7 @@ ms.locfileid: "73884719"
 * 預設會在所有最新版本的 ASP.NET 和 ASP.NET Core 軟體發展工具組（Sdk）中啟用調適型取樣。
 * 您也可以手動設定取樣。 您可以在入口網站中的 [*使用量和估計成本] 頁面*上，透過程式碼或 ApplicationInsights 的 JAVA SDK 中的 ASP.NET ASP.NET Core sdk 來設定此項。
 * 如果您記錄自訂事件，而且需要確保一組事件會一起保留或捨棄，事件就必須有相同的 OperationId 值。
-* 每個記錄的 *屬性中都會回報取樣除數*n`itemCount`，此屬性在 [搜尋] 中會出現在「要求計數」或「事件計數」等易記名稱之下。 當取樣不在作業中時 `itemCount==1`。
+* 每個記錄的 `itemCount` 屬性中都會回報取樣除數 *n*，此屬性在 [搜尋] 中會出現在「要求計數」或「事件計數」等易記名稱之下。 當取樣不在作業中時 `itemCount==1`。
 * 如果您要撰寫分析查詢，請 [考慮到取樣](../../azure-monitor/log-query/aggregations.md)。 特別是，您應該使用 `summarize sum(itemCount)`，而非只計算記錄。
 
 ## <a name="types-of-sampling"></a>取樣類型
@@ -502,7 +502,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 *可以多次取樣遙測嗎？*
 
-* 號 如果已取樣專案，SamplingTelemetryProcessors 會忽略取樣考慮的專案。 也同樣適用于內嵌取樣，這不會將取樣套用至已在 SDK 本身取樣的那些專案。
+* 不會。 如果已取樣專案，SamplingTelemetryProcessors 會忽略取樣考慮的專案。 也同樣適用于內嵌取樣，這不會將取樣套用至已在 SDK 本身取樣的那些專案。
 
 *為什麼不取樣簡單的「收集每個遙測類型百分之 X」？*
 

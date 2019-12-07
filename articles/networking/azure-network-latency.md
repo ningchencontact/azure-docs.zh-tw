@@ -2,21 +2,17 @@
 title: Azure 網路來回延遲統計資料 |Microsoft Docs
 description: 瞭解 Azure 區域之間的來回行程延遲統計資料。
 services: networking
-documentationcenter: na
 author: nayak-mahesh
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/04/2019
+ms.date: 12/04/2019
 ms.author: mnayak
-ms.openlocfilehash: 500676983233f943fdc9638d75758645dee65564
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3947df81b67d5aefc1b628b6ddaf8275152a4cd3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587585"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893075"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Azure 網路來回延遲統計資料
 
@@ -24,20 +20,20 @@ Azure 會使用內部監視工具，以及[ThousandEyes](https://thousandeyes.co
 
 ## <a name="how-are-the-measurements-collected"></a>如何收集度量？
 
-延遲測量會從全球裝載于 Azure 雲端區域的 ThousandEyes 代理程式收集，這會在1分鐘的間隔內持續傳送網路探查。 每月延遲統計資料是從每月收集的樣本平均值衍生而來。
+延遲測量是從全球 Azure 雲端區域中裝載的 ThousandEyes 代理程式收集而來，在1分鐘的間隔內持續傳送網路探查。 每月延遲統計資料是從每月收集的樣本平均值衍生而來。
 
-## <a name="october-2019-latency-figures"></a>2019年10月的延遲圖形
+## <a name="november-2019-latency-figures"></a>2019年11月的延遲圖形
 
-在2019年10月31日結束的31天內，匯總區域中的每月最小和最大來回行程延遲時間為：
+**11 月更新：** 已新增3個區域。
 
-- 在**北美洲**區域內來回行程的**5 毫秒**到**72 毫秒**。
-- 在**歐洲**地區內來回行程的**3 毫秒**到**28 毫秒**。
-- 在**亞洲**地區的來回行程中， **4 毫秒**到**134 毫秒**。
+* 挪威東部
+* 挪威西部
+* 澳洲
 
-下欄區域間的延遲測量是由[ThousandEyes](https://thousandeyes.com)提供技術支援。 下表中的度量單位為毫秒（毫秒）。
+以下顯示過去30天內 Azure 區域之間的每月平均來回行程時間（從2019年11月30日結束）。 下列測量值是由[ThousandEyes](https://thousandeyes.com)提供技術支援。
 
-![Azure 區域間延遲統計資料](media/azure-network-latency/azure-inter-region-latency.png)
-
+![Azure 區域間延遲統計資料](media/azure-network-latency/latency-nov-2019.png)
 
 ## <a name="next-steps"></a>後續步驟
-- 瞭解[Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)。
+
+瞭解[Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)。

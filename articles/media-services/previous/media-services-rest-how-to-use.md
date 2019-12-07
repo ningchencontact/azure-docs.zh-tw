@@ -1,6 +1,6 @@
 ---
 title: 媒體服務作業 REST API 概觀 | Microsoft Docs
-description: 媒體服務 REST API 概觀
+description: 「媒體服務作業 REST」 API 是用來建立媒體服務帳戶中的工作、資產、即時頻道和其他資源。 本文提供 Azure 媒體服務 v2 REST API 總覽。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 29b995d722cd304cc85580ac4f2f38a0b0d9cecd
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 7df1651be01b4bed533c1173cc37bddda58f0aa3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69014856"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895821"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>媒體服務作業 REST API 概觀 
 
@@ -58,7 +58,7 @@ ms.locfileid: "69014856"
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>媒體服務支援的標準 HTTP 要求標頭
 您對媒體服務每次呼叫，有一組必須在要求中包含的必要標頭，以及一組可能會想要包含的選擇性標頭。 下表列出必要的標頭：
 
-| 標頭 | Type | 值 |
+| 標頭 | Type | Value |
 | --- | --- | --- |
 | Authorization |Bearer |Bearer 是唯一接受的授權機制。 此值也必須包含 Azure Active Directory 所提供的存取權杖。 |
 | x-ms-version |Decimal |2.17 (或最新版本)|
@@ -72,11 +72,11 @@ ms.locfileid: "69014856"
 
 以下是一組選擇性標頭：
 
-| 標頭 | Type | 值 |
+| 標頭 | Type | Value |
 | --- | --- | --- |
-| Date |RFC 1123 日期 |要求的時間戳記 |
+| 日期 |RFC 1123 日期 |要求的時間戳記 |
 | Accept |內容類型 |如下所示的回應要求內容類型：<p> -application/json;odata=verbose<p> - application/atom+xml<p> 回應可能會有不同的內容類型，例如 Blob 擷取，成功的回應會在其中包含 Blob 資料流做為裝載。 |
-| Accept-Encoding |Gzip、deflate |GZIP 和 DEFLATE 編碼 (適用時)。 注意:若是大型資源，媒體服務可能會忽略此標頭，並傳回未壓縮的資料。 |
+| Accept-Encoding |Gzip、deflate |GZIP 和 DEFLATE 編碼 (適用時)。 注意：若是大型資源，媒體服務可能會忽略此標頭，並傳回未壓縮的資料。 |
 | Accept-Language |"en"、"es" 等。 |指定回應的慣用語言。 |
 | Accept-Charset |字元集類型，如 "UTF-8" |預設值為 UTF-8。 |
 | X-HTTP-Method |HTTP 方法 |可讓不支援 PUT 或 DELETE 等 HTTP 方法的用戶端或防火牆，透過 GET 呼叫通道傳送使用這些方法。 |
@@ -86,11 +86,11 @@ ms.locfileid: "69014856"
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>媒體服務支援的標準 HTTP 回應標頭
 以下是一組可能會根據您所要求的資源，以及您要執行的動作而傳回給您的標頭。
 
-| 頁首 | Type | 值 |
+| 標頭 | Type | Value |
 | --- | --- | --- |
 | request-id |String |目前作業的唯一識別碼，由服務產生。 |
 | client-request-id |String |在原始要求中，呼叫者所指定的識別碼 (如果有的話)。 |
-| Date |RFC 1123 日期 |處理要求的日期/時間。 |
+| 日期 |RFC 1123 日期 |處理要求的日期/時間。 |
 | Content-Type |視情況而異 |回應主體的內容類型。 |
 | Content-Encoding |視情況而異 |Gzip 或 deflate (視情況)。 |
 
@@ -102,7 +102,7 @@ ms.locfileid: "69014856"
 | GET |傳回物件的目前值。 |
 | POST |根據提供的資料建立物件或提交命令。 |
 | PUT |取代物件，或建立具名的物件 (如果適用的話)。 |
-| DELETE |刪除物件。 |
+| 刪除 |刪除物件。 |
 | MERGE |以具名屬性變更來更新現有的物件。 |
 | HEAD |傳回 GET 回應的物件中繼資料。 |
 

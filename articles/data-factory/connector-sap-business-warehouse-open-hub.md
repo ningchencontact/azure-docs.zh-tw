@@ -1,23 +1,22 @@
 ---
-title: 使用 Azure Data Factory 透過 Open Hub 從 SAP Business Warehouse 複製資料
+title: 透過 Open Hub 從 SAP Business 倉儲複製資料
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，透過 Open Hub 將資料從 SAP Business Warehouse (BW) 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: jingwang
-ms.openlocfilehash: f4ee4ec40aeecdb902be3cf93beb9ee25350e262
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8048d64eccab26477b83031b96fe810796486668
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680312"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895576"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>使用 Azure Data Factory 透過 Open Hub 從 SAP Business Warehouse 複製資料
 
@@ -104,7 +103,7 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性： `excludeLastRe
 
 以下是 SAP Business Warehouse Open Hub 連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | Type 屬性必須設定為： **SapOpenHub** | 是 |
 | 伺服器 | SAP BW 執行個體所在之伺服器的名稱。 | 是 |
@@ -144,9 +143,9 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性： `excludeLastRe
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 SAP BW 開放式中樞資料集所支援的屬性清單。
 
-若要從 SAP BW Open Hub 複製資料以及將資料複製到該處，請將資料集的 type 屬性設為 **SapOpenHubTable**。 以下是支援的屬性。
+若要從 SAP BW Open Hub 複製資料以及將資料複製到該處，請將資料集的 type 屬性設為 **SapOpenHubTable**。 支援以下屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 類型屬性必須設為 **SapOpenHubTable**。  | 是 |
 | openHubDestinationName | 要從中複製資料的 Open Hub Destination 名稱。 | 是 |
@@ -180,7 +179,7 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性： `excludeLastRe
 
 若要從 SAP BW 開放式中樞複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動來源的**類型**屬性必須設定為**SapOpenHubSource**。 | 是 |
 | excludeLastRequest | 是否要排除最後一個要求的記錄。 | 否 (預設值為 **true**) |
@@ -230,14 +229,14 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性： `excludeLastRe
 
 | SAP ABAP 類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| C (字串) | 字串 |
+| C (字串) | String |
 | I (整數) | Int32 |
-| F (浮點數) | Double |
-| D (日期) | 字串 |
-| T (時間) | 字串 |
+| F (浮點數) | DOUBLE |
+| D (日期) | String |
+| T (時間) | String |
 | P (BCD 封裝、貨幣、小數、數量) | Decimal |
-| N (Numc) | 字串 |
-| X (二進位和原始) | 字串 |
+| N (Numc) | String |
+| X (二進位和原始) | String |
 
 ## <a name="lookup-activity-properties"></a>查閱活動屬性
 

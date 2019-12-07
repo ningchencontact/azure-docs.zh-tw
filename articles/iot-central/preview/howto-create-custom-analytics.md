@@ -3,18 +3,18 @@ title: 使用自訂分析擴充 Azure IoT Central |Microsoft Docs
 description: 身為解決方案開發人員，設定 IoT Central 應用程式來執行自訂分析和視覺效果。 此解決方案使用 Azure Databricks。
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/01/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a29cae2fabe1542a7498bca19dc0a6e147d1d024
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 59fb0dfbc44746853f25437e8e13a1cbc317e151
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895146"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895549"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks-preview-features"></a>使用 Azure Databricks （預覽功能）透過自訂分析擴充 Azure IoT Central
 
@@ -29,7 +29,7 @@ ms.locfileid: "73895146"
 * 使用*連續資料匯出*，從 IoT Central 應用程式串流遙測。
 * 建立 Azure Databricks 環境來分析並繪製裝置遙測。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成此操作指南中的步驟，您必須具備有效的 Azure 訂用帳戶。
 
@@ -39,21 +39,21 @@ ms.locfileid: "73895146"
 
 使用下列設定在[Azure IoT Central 應用程式管理員](https://aka.ms/iotcentral)網站上建立 IoT Central 應用程式：
 
-| 設定 | 值 |
+| 設定 | Value |
 | ------- | ----- |
-| 付款計劃 | Pay-As-You-Go |
+| 付款計劃 | 隨用隨付 |
 | 應用程式範本 | 存放區內分析-條件監視 |
 | 應用程式名稱 | 接受預設值，或選擇您自己的名稱 |
 | URL | 接受預設值，或選擇您自己唯一的 URL 前置詞 |
 | 目錄 | 您的 Azure Active Directory 租使用者 |
-| Azure 訂閱 | 您的 Azure 訂用帳戶 |
-| 區域 | 您最接近的區域 |
+| Azure 訂用帳戶 | 您的 Azure 訂用帳戶 |
+| 地區 | 您最接近的區域 |
 
 本文中的範例和螢幕擷取畫面會使用**美國**地區。 選擇接近您的位置的位置，並確定您在相同的區域中建立所有資源。
 
 此應用程式範本包含兩個傳送遙測的模擬控溫器裝置。
 
-### <a name="resource-group"></a>資源群組
+### <a name="resource-group"></a>Resource group
 
 使用 Azure 入口網站建立名為**IoTCentralAnalysis**的[資源群組](https://portal.azure.com/#create/Microsoft.ResourceGroup)，以包含您所建立的其他資源。 在與 IoT Central 應用程式相同的位置中建立 Azure 資源。
 
@@ -61,32 +61,32 @@ ms.locfileid: "73895146"
 
 使用 Azure 入口網站建立具有下列設定的[事件中樞命名空間](https://portal.azure.com/#create/Microsoft.EventHub)：
 
-| 設定 | 值 |
+| 設定 | Value |
 | ------- | ----- |
-| 名稱    | 選擇您的命名空間名稱 |
-| 定價層 | 基本 |
-| 訂閱 | 您的訂用帳戶 |
-| 資源群組 | IoTCentralAnalysis |
-| 位置 | 美國東部 |
+| Name    | 選擇您的命名空間名稱 |
+| 價格層 | 基本 |
+| Subscription | 您的訂用帳戶 |
+| Resource group | IoTCentralAnalysis |
+| Location | 美國東部 |
 | 輸送量單位 | 1 |
 
 ### <a name="azure-databricks-workspace"></a>Azure Databricks 工作區
 
 使用 Azure 入口網站建立具有下列設定的[Azure Databricks 服務](https://portal.azure.com/#create/Microsoft.Databricks)：
 
-| 設定 | 值 |
+| 設定 | Value |
 | ------- | ----- |
 | 工作區名稱    | 選擇您的工作區名稱 |
-| 訂閱 | 您的訂用帳戶 |
-| 資源群組 | IoTCentralAnalysis |
-| 位置 | 美國東部 |
-| 定價層 | 標準 |
+| Subscription | 您的訂用帳戶 |
+| Resource group | IoTCentralAnalysis |
+| Location | 美國東部 |
+| 價格層次 | Standard |
 
 當您建立所需的資源時， **IoTCentralAnalysis**資源群組看起來會如下列螢幕擷取畫面所示：
 
 ![IoT Central 分析資源群組](media/howto-create-custom-analytics/resource-group.png)
 
-## <a name="create-an-event-hub"></a>建立事件中心
+## <a name="create-an-event-hub"></a>建立事件中樞
 
 您可以設定 IoT Central 應用程式，以持續將遙測匯出至事件中樞。 在本節中，您會建立事件中樞，以從您的 IoT Central 應用程式接收遙測。 事件中樞會將遙測傳遞至您的串流分析作業以進行處理。
 
@@ -108,15 +108,15 @@ ms.locfileid: "73895146"
 1. 流覽至 **資料匯出** 頁面，選取  **+ 新增**，然後**Azure 事件中樞**。
 1. 使用下列設定來設定匯出，然後選取 [**儲存**]：
 
-    | 設定 | 值 |
+    | 設定 | Value |
     | ------- | ----- |
     | 顯示名稱 | 匯出至事件中樞 |
-    | 已啟用 | 另一 |
+    | 已啟用 | 開啟 |
     | 事件中樞命名空間 | 您的事件中樞命名空間名稱 |
     | 事件中樞 | centralexport |
-    | 測量 | 另一 |
-    | 裝置 | 關閉 |
-    | 裝置範本 | 關閉 |
+    | 度量 | 開啟 |
+    | 裝置 | 關 |
+    | 裝置範本 | 關 |
 
 ![資料匯出設定](media/howto-create-custom-analytics/cde-configuration.png)
 
@@ -132,15 +132,15 @@ ms.locfileid: "73895146"
 
 請使用下表中的資訊來建立您的叢集：
 
-| 設定 | 值 |
+| 設定 | Value |
 | ------- | ----- |
 | 叢集名稱 | centralanalysis |
-| 叢集模式 | 標準 |
+| 叢集模式 | Standard |
 | Databricks Runtime 版本 | 5.5 LTS （Scala 2.11，Spark 2.4.3） |
 | Python 版本 | 3 |
-| 啟用自動調整 | 否 |
+| 啟用自動調整功能 | 否 |
 | 在閒置幾分鐘後終止 | 30 |
-| 背景工作類型 | Standard_DS3_v2 |
+| 背景工作角色類型 | Standard_DS3_v2 |
 | 背景工作角色 | 1 |
 | 驅動程式類型 | 與背景工作角色相同 |
 

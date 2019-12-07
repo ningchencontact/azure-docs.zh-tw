@@ -1,5 +1,5 @@
 ---
-title: 在虛擬網路中建立 Azure Databricks 工作區
+title: 在您自己的虛擬網路快速入門中建立 Azure Databricks 工作區
 description: 本文說明如何將 Azure Databricks 部署至您的虛擬網路。
 services: azure-databricks
 author: mamccrea
@@ -7,19 +7,21 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 04/02/2019
-ms.openlocfilehash: 69afe2aab3c10707f7160d727b970ad73d59a952
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/04/2019
+ms.openlocfilehash: 404aa1d345bb1e30a0fe55d033d49d7dd8ba5a1b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791548"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893402"
 ---
-# <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>快速入門：在虛擬網路中建立 Azure Databricks 工作區
+# <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>快速入門：在您自己的虛擬網路中建立 Azure Databricks 工作區
 
-本快速入門說明如何在虛擬網路中建立 Azure Databricks 的工作區。 您也會在該工作區中建立 Apache Spark 叢集。
+Azure Databricks 的預設部署會建立由 Databricks 管理的新虛擬網路。 本快速入門說明如何改為在您自己的虛擬網路中建立 Azure Databricks 工作區。 您也會在該工作區中建立 Apache Spark 叢集。 
 
-如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/)。
+如需有關為何可以選擇在自己的虛擬網路中建立 Azure Databricks 工作區的詳細資訊，請參閱 [在 Azure 虛擬網路（VNet 插入）中部署 Azure Databricks] （/databricks/administration-guide/cloud-configurations/azure/vnet-inject）。
+
+如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/databricks/)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -31,14 +33,16 @@ ms.locfileid: "72791548"
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
-1. 在 Azure 入口網站中，選取 **建立資源** > **網路** > **虛擬網路**。
+1. 從 Azure 入口網站功能表選取 [建立資源]。 然後選取 [**網路] > [虛擬網路**]。
+
+    ![在 Azure 入口網站上建立虛擬網路](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network-portal.png)
 
 2. 在 [**建立虛擬網路**] 下，套用下列設定： 
 
     |設定|建議的值|描述|
     |-------|---------------|-----------|
     |Name|databricks-快速入門|選取虛擬網路的 [名稱]。|
-    |位址空間|10.1.0.0/16|CIDR 標記法中的虛擬網路位址範圍。|
+    |位址空間|10.1.0.0/16|CIDR 標記法中的虛擬網路位址範圍。 CIDR 範圍必須介於/16 和/24 之間|
     |Subscription|\<您的訂用帳戶\>|選取您要使用的 Azure 訂用帳戶。|
     |Resource group|databricks-快速入門|選取 **[新建]** ，然後為您的帳戶輸入新的資源組名。|
     |Location|\<選取最接近使用者的區域\>|選取您可以裝載虛擬網路的地理位置。 使用最靠近您的使用者的位置。|
@@ -53,7 +57,9 @@ ms.locfileid: "72791548"
 
 ## <a name="create-an-azure-databricks-workspace"></a>建立 Azure Databricks 工作區
 
-1. 在 [Azure 入口網站中，選取 [**建立資源**] > **分析** > **Databricks**]。
+1. 從 Azure 入口網站功能表選取 [建立資源]。 然後選取 [**分析] > Databricks**。
+
+    ![在 Azure 入口網站上建立 Azure Databricks 工作區](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace-portal.png)
 
 2. 在 [ **Azure Databricks 服務**] 底下，套用下列設定：
 
@@ -64,12 +70,12 @@ ms.locfileid: "72791548"
     |Resource group|databricks-快速入門|選取您用於虛擬網路的相同資源群組。|
     |Location|\<選取最接近使用者的區域\>|選擇與您的虛擬網路相同的位置。|
     |價格層次|選擇 [Standard] 或 [Premium]。|如需定價層的詳細資訊，請參閱[Databricks 定價頁面](https://azure.microsoft.com/pricing/details/databricks/)。|
-    |在您的虛擬網路中部署 Azure Databricks 工作區|是|此設定可讓您在虛擬網路中部署 Azure Databricks 工作區。|
+    |在您的虛擬網路（VNet）中部署 Azure Databricks 工作區|是|此設定可讓您在虛擬網路中部署 Azure Databricks 工作區。|
     |虛擬網路|databricks-快速入門|選取您在上一節中建立的虛擬網路。|
     |公用子網名稱|公用-子網|使用預設的公用子網名稱。|
-    |公用子網 CIDR 範圍|10.179.64.0/18|此子網的 CIDR 範圍應介於/18 到/26 之間。|
+    |公用子網 CIDR 範圍|10.179.64.0/18|使用高達和包含/26 的 CIDR 範圍。|
     |私人子網名稱|私用-子網|使用預設的私人子網名稱。|
-    |私人子網 CIDR 範圍|10.179.0.0/18|此子網的 CIDR 範圍應介於/18 到/26 之間。|
+    |私人子網 CIDR 範圍|10.179.0.0/18|使用高達和包含/26 的 CIDR 範圍。|
 
     ![在 Azure 入口網站上建立 Azure Databricks 工作區](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
 
@@ -77,7 +83,7 @@ ms.locfileid: "72791548"
 
     ![Azure 入口網站中的 Azure Databricks 總覽](./media/quickstart-create-databricks-workspace-vnet-injection/databricks-overview-portal.png)
 
-    受控資源群組包含儲存體帳戶（DBFS）、工作者 sg （網路安全性群組）、工作者-vnet （虛擬網路）的實體位置。 它也是將建立虛擬機器、磁片、IP 位址和網路介面的位置。 預設會鎖定此資源群組;不過，在虛擬網路中啟動叢集時，會在受控資源群組和「中樞」虛擬網路的背景工作-vnet 之間建立網路介面。
+    受控資源群組無法修改，且不會用來建立虛擬機器。 您只能在您管理的資源群組中建立虛擬機器。
 
     ![Azure Databricks 受控資源群組](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group.png)
 

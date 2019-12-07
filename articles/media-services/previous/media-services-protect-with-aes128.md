@@ -1,6 +1,6 @@
 ---
 title: 使用 AES-128 動態加密和金鑰傳遞服務 | Microsoft Docs
-description: 使用 Microsoft Azure 媒體服務來傳遞您使用 AES 128 位元加密金鑰加密的內容。 媒體服務也提供加密金鑰傳遞服務，將加密金鑰傳遞至授權的使用者。 本主題展示如何利用 AES-128 動態加密，以及使用金鑰傳遞服務。
+description: 本主題展示如何利用 AES-128 動態加密，以及使用金鑰傳遞服務。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 2b96d968cb1ad2ec903dbf9788e1fbae22bd2b7d
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 01153317b49e4543f10faa517bce7bcc01ce22d4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69014977"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895823"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>使用 AES-128 動態加密和金鑰傳遞服務
 > [!div class="op_single_selector"]
@@ -55,9 +55,9 @@ ms.locfileid: "69014977"
 
 4. [設定內容金鑰的授權原則](media-services-protect-with-aes128.md#configure_key_auth_policy)。 您必須設定內容金鑰授權原則。 用戶端必須先符合原則，系統才會將內容金鑰傳遞給用戶端。
 
-5. [設定資產的傳遞原則](media-services-protect-with-aes128.md#configure_asset_delivery_policy)。 傳遞原則設定包含金鑰取得 URL 和初始化向量 (IV)。 (AES-128 需要相同的 IV 來加密和解密。)組態還包括傳遞通訊協定 (例如，MPEG-DASH、HLS、Smooth Streaming 或全部)、動態加密的類型 (例如，信封或無動態加密)。
+5. [設定資產的傳遞原則](media-services-protect-with-aes128.md#configure_asset_delivery_policy)。 傳遞原則設定包含金鑰取得 URL 和初始化向量 (IV)。 （AES-128 需要相同的 IV 來加密和解密）。此設定也包括傳遞通訊協定（例如，MPEG 破折號、HLS、Smooth Streaming 或全部）和動態加密的類型（例如，信封或沒有動態加密）。
 
-    您可以將不同的原則套用至相同資產上的每一個通訊協定。 例如，您可以將 PlayReady 加密套用到 Smooth/DASH，以及將 AES 信封加密套用到 HLS。 傳遞原則中未定義的任何通訊協定都會封鎖串流。 (範例之一是如果您新增僅指定 HLS 作為通訊協定的單一原則)。例外情形是當您完全未定義資產傳遞原則時。 接著，允許所有通訊協定，不受阻礙。
+    您可以將不同的原則套用至相同資產上的每一個通訊協定。 例如，您可以將 PlayReady 加密套用到 Smooth/DASH，以及將 AES 信封加密套用到 HLS。 傳遞原則中未定義的任何通訊協定都會封鎖串流。 （例如，如果您加入僅指定 HLS 作為通訊協定的單一原則）。如果您完全沒有定義任何資產傳遞原則，就會發生例外狀況。 接著，允許所有通訊協定，不受阻礙。
 
 6. [建立隨選定位器](media-services-protect-with-aes128.md#create_locator)以取得串流 URL。
 
@@ -67,7 +67,7 @@ ms.locfileid: "69014977"
 
 下圖示範上述的工作流程。 這裡的權杖用於驗證。
 
-![利用 AES 128 保護](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
+![以 AES-128 保護](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
 本文的其餘部分會提供說明、程式碼範例，以及示範如何達成上述工作之主題的連結。
 
@@ -159,7 +159,7 @@ ms.locfileid: "69014977"
 
 在 HLS 的案例中，根資訊清單會分成區段檔案。 
 
-例如, 根資訊清單是: HTTP:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest (format = m3u8-m3u8-aapl-v3)。 它包含區段檔案名稱的清單。
+例如，根資訊清單是： HTTP：\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest （format = m3u8-m3u8-aapl-v3）。 它包含區段檔案名稱的清單。
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -168,7 +168,7 @@ ms.locfileid: "69014977"
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-如果您在文字編輯器中開啟其中一個區段檔案 (例如, HTTP:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels (514369)/Manifest (video, format = m3u8-m3u8-aapl-v3),它包含 #EXT-X 鍵, 這表示檔案已加密。
+如果您在文字編輯器中開啟其中一個區段檔案（例如，HTTP：\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels （514369）/Manifest （video，format = m3u8-m3u8-aapl-v3），它會包含 #EXT-X 鍵，這表示檔案已加密。
 
     #EXTM3U
     #EXT-X-VERSION:4

@@ -3,17 +3,17 @@ title: 在 Azure IoT Central 中設定規則和動作 | Microsoft Docs
 description: 本操作說明文章會向您示範如何在 Azure IoT Central 應用程式中設定遙測型規則和動作。
 author: vavilla
 ms.author: vavilla
-ms.date: 11/11/2019
+ms.date: 11/27/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 76a9d8302d53d50bc3c1e306e31fbb26ed230436
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 987e8d9e667339d7526e8acbc3164e58abcd3e4d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484908"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895754"
 ---
 # <a name="configure-rules-preview-features"></a>設定規則（預覽功能）
 

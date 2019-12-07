@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/06/2019
+ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 345822847ddd60794cd912ccb52c14f6e240cd66
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 80c961c1aa4da199fa87b97bc8e0a37e60c2235f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075429"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74903151"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>是否所有的 Azure VPN 閘道 SKU 都支援自訂 IPsec/IKE 原則？
 除了基本 SKU 以外，所有 Azure Sku 都支援自訂 IPsec/IKE 原則。
@@ -92,28 +92,28 @@ SA 存留期只需要在本機指定，不需要相符。
 是，這些作業會導致短暫中斷 (幾秒鐘)，因為 Azure VPN 閘道會終止現有連線並重新啟動 IKE 交握，以對新的密碼編譯演算法和參數重新建立 IPsec 通道。 請確定內部部署 VPN 裝置也設定了相同的演算法和金鑰強度，以便盡量減少中斷情形。
 
 ### <a name="can-i-use-different-policies-on-different-connections"></a>是否可以對不同連線使用不同原則？
-是。 自訂原則會按照個別連線來套用。 您可以對不同連線建立和套用不同的 IPsec/IKE 原則。 您也可以選擇對一部分連線套用自訂原則。 其餘連線則會使用 Azure 預設的 IPsec/IKE 原則集。
+可以。 自訂原則會按照個別連線來套用。 您可以對不同連線建立和套用不同的 IPsec/IKE 原則。 您也可以選擇對一部分連線套用自訂原則。 其餘連線則會使用 Azure 預設的 IPsec/IKE 原則集。
 
 ### <a name="can-i-use-the-custom-policy-on-vnet-to-vnet-connection-as-well"></a>是否也可以對「VNet 對 VNet 連線」使用自訂原則？
 是，IPsec 跨單位連線或 VNet 對 VNet 連線皆可套用自訂原則。
 
 ### <a name="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources"></a>VNet 對 VNet 連線的兩個資源是否需要指定相同的原則？
-是。 VNet 對 VNet 通道在 Azure 中包含兩個連線資源，這兩個資源各自應對一個方向。 確保這兩個連線資源具有相同的原則，否則系統不會建立 VNet 對 VNet 連線。
+可以。 VNet 對 VNet 通道在 Azure 中包含兩個連線資源，這兩個資源各自應對一個方向。 確保這兩個連線資源具有相同的原則，否則系統不會建立 VNet 對 VNet 連線。
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>自訂 IPsec/IKE 原則是否適用於 ExpressRoute 連線？
-號 IPsec/IKE 原則只適用於透過 Azure VPN 閘道的 S2S VPN 連線和 VNet 對 VNet 連線。
+不會。 IPsec/IKE 原則只適用於透過 Azure VPN 閘道的 S2S VPN 連線和 VNet 對 VNet 連線。
 
 ### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>如何? 建立具有 IKEv1 或 IKEv2 通訊協定類型的連線嗎？
 除了基本 SKU 以外，您可以在所有 RouteBased VPN 類型 Sku 上建立 IKEv1 連接。 建立連接時，您可以指定 IKEv1 或 IKEv2 的連線通訊協定類型。 如果您未指定連接通訊協定類型，則會在適用的情況下使用 IKEv2 做為預設選項。 如需詳細資訊，請參閱[PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?)檔。 如需 SKU 類型和 IKEv1/IKEv2 支援，請參閱[將閘道連線至以原則為基礎的 VPN 裝置](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)。
 
 ### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>是否允許在 IKEv1 與 IKEv2 連線之間傳輸？
-是。 支援 IKEv1 與 IKEv2 連接之間的傳輸。
+可以。 支援 IKEv1 與 IKEv2 連接之間的傳輸。
 
 ### <a name="can-i-have-ikev1-site-to-site-connections-on-basic-skus-of-routebased-vpn-type"></a>在 RouteBased VPN 類型的基本 Sku 上，是否可以有 IKEv1 站對站連線？
-號 除了以路由為基礎的 VPN 類型基本 Sku 以外的所有 RouteBased VPN Sku 都支援站對站的 IKEv1 連接。
+不會。 基本 SKU 不支援此功能。
 
 ### <a name="can-i-change-the-connection-protocol-type-after-the-connection-is-created-ikev1-to-ikev2-and-vice-versa"></a>我可以在建立連線之後變更連線通訊協定類型（從 IKEv1 到 IKEv2，反之亦然）嗎？
-號 建立連線之後，將無法變更 IKEv1/IKEv2 通訊協定。 您必須刪除並重新建立具有所需通訊協定類型的新連線。
+不會。 建立連線之後，將無法變更 IKEv1/IKEv2 通訊協定。 您必須刪除並重新建立具有所需通訊協定類型的新連線。
 
 ### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>哪裡可以找到更多 IPsec 設定資訊？
 請參閱[設定 S2S 或 VNet 對 VNet 連線的 IPsec/IKE 原則](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

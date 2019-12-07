@@ -4,16 +4,16 @@ description: 搭配 ASP.NET Core 和主控台應用程式使用 Azure 應用程�
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cijothomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0e93e2a98d96ca7f436f20e579ab625341024686
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: c561ecf8e47a6792626353fef65ce94f1fd0330a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819487"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893326"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>適用于 .NET Core ILogger 記錄的 ApplicationInsightsLoggerProvider
 
@@ -22,11 +22,12 @@ ASP.NET Core 支援記錄 API，其適用于不同類型的內建和協力廠商
 
 ## <a name="aspnet-core-applications"></a>ASP.NET Core 應用程式
 
-當您透過下列任一標準方法開啟一般 Application Insights 監視時， [ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)中預設會啟用 ApplicationInsightsLoggerProvider （和更新版本）：
-- 藉由在 IWebHostBuilder 上呼叫 **.useapplicationinsights**擴充方法 
+當您透過下列其中一種標準方法開啟一般 Application Insights 監視時，ApplicationInsightsLoggerProvider 會在[ApplicationInsights. ASPNET SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)版本2.7.1 （和更新版本）中依預設啟用：
+
+- 藉由在 IWebHostBuilder 上呼叫 **.useapplicationinsights**擴充方法
 - 藉由在 IServiceCollection 上呼叫**對於 addapplicationinsightstelemetry**擴充方法
 
-ApplicationInsightsLoggerProvider 捕捉的 ILogger 記錄會受到所收集之任何其他遙測的相同設定。 它們具有一組相同的 TelemetryInitializers 和 TelemetryProcessors、使用相同的 TelemetryChannel，而且相互關聯和取樣的方式與其他遙測相同。 如果您使用 2.7.0-Beta3 或更新版本，則不需要採取任何動作來捕捉 ILogger 記錄。
+ApplicationInsightsLoggerProvider 捕捉的 ILogger 記錄會受到所收集之任何其他遙測的相同設定。 它們具有一組相同的 TelemetryInitializers 和 TelemetryProcessors、使用相同的 TelemetryChannel，而且相互關聯和取樣的方式與其他遙測相同。 如果您使用2.7.1 或更新版本，則不需要採取任何動作來捕捉 ILogger 記錄。
 
 根據預設，只有*警告*或更高的 ILogger 記錄（來自所有類別）才會傳送至 Application Insights。 但是，您可以套用[篩選來修改此行為](#control-logging-level)。 需要額外的步驟，才能從**Program.cs**或**Startup.cs**捕獲 ILogger 記錄。 （請參閱[在 ASP.NET Core 應用程式中從 Startup.cs 和 Program.cs 捕獲 ILogger 記錄](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps)）。
 
@@ -109,7 +110,7 @@ public class ValuesController : ControllerBase
 > [!NOTE]
 > 在 ASP.NET Core 3.0 和更新版本中，無法再將 `ILogger` 插入 Startup.cs 和 Program.cs。 如需更多詳細資料，請參閱 https://github.com/aspnet/Announcements/issues/353 \(英文\)。
 
-新的 ApplicationInsightsLoggerProvider 可以提早在應用程式啟動管線中捕捉記錄。 雖然 ApplicationInsightsLoggerProvider 會在 Application Insights 中自動啟用（從 2.7.0-Beta3 版開始），但在管線中稍後的時間內並不會設定檢測金鑰。 因此，只會捕捉來自**控制器**/其他類別的記錄。 若要從**Program.cs**和**Startup.cs**本身開始捕捉每個記錄檔，您必須明確啟用 ApplicationInsightsLoggerProvider 的檢測金鑰。 此外，當您從**Program.cs**或**Startup.cs**本身記錄時， *TelemetryConfiguration*並未完整設定。 因此，這些記錄會有使用 InMemoryChannel、沒有取樣，以及沒有標準遙測初始化運算式或處理器的最低設定。
+新的 ApplicationInsightsLoggerProvider 可以提早在應用程式啟動管線中捕捉記錄。 雖然 ApplicationInsightsLoggerProvider 會在 Application Insights 中自動啟用（從版本2.7.1 開始），但在管線中稍後的時間內不會設定檢測金鑰。 因此，只會捕捉來自**控制器**/其他類別的記錄。 若要從**Program.cs**和**Startup.cs**本身開始捕捉每個記錄檔，您必須明確啟用 ApplicationInsightsLoggerProvider 的檢測金鑰。 此外，當您從**Program.cs**或**Startup.cs**本身記錄時， *TelemetryConfiguration*並未完整設定。 因此，這些記錄會有使用 InMemoryChannel、沒有取樣，以及沒有標準遙測初始化運算式或處理器的最低設定。
 
 下列範例會使用**Program.cs**和**Startup.cs**來示範這項功能。
 
@@ -203,7 +204,7 @@ public class Startup
 
 ## <a name="migrate-from-the-old-applicationinsightsloggerprovider"></a>從舊的 ApplicationInsightsLoggerProvider 遷移
 
-2\.7.0 之前的 ApplicationInsights Beta2 版本支援目前已過時的記錄提供者。 此提供者是透過 ILoggerFactory 的**AddApplicationInsights （）** 擴充方法來啟用。 我們建議您遷移至新的提供者，這牽涉到兩個步驟：
+2\.7.1 之前的 ApplicationInsights 版本，支援現在已過時的記錄提供者。 此提供者是透過 ILoggerFactory 的**AddApplicationInsights （）** 擴充方法來啟用。 我們建議您遷移至新的提供者，這牽涉到兩個步驟：
 
 1. 從**Startup. Configure （）** 方法中移除*ILoggerFactory. AddApplicationInsights （）* 呼叫，以避免進行雙重記錄。
 2. 重新套用程式碼中的任何篩選規則，因為新的提供者不會遵守它們。 *ILoggerFactory. AddApplicationInsights （）* 的多載會採用最少的 LogLevel 或 filter 函數。 有了新的提供者，篩選就是記錄架構本身的一部分。 Application Insights 提供者不會這麼做。 因此，您應該移除透過*ILoggerFactory AddApplicationInsights （）* 多載所提供的任何篩選。 您應遵循[控制項記錄層級](#control-logging-level)指示來提供和篩選規則。 如果您使用*appsettings*來篩選記錄，它會繼續使用新的提供者，因為兩者都使用相同的提供者別名*ApplicationInsights*。
@@ -221,8 +222,7 @@ public class Startup
 ## <a name="console-application"></a>主控台應用程式
 
 > [!NOTE]
-> 有一個新的搶鮮版（Beta） Application Insights SDK，稱為[WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) ，可用來為任何主控台應用程式啟用 Application Insights （ILogger 和其他 Application Insights 遙測）。 建議您在[這裡](../../azure-monitor/app/worker-service.md)使用此封裝和相關聯的指示。
-當此新封裝的穩定版本發行之後，下列範例會被取代。
+> 有一個新的 Application Insights SDK，稱為[ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) ，可用來為任何主控台應用程式啟用 Application Insights （ILogger 和其他 Application Insights 遙測）。 建議您在[這裡](../../azure-monitor/app/worker-service.md)使用此封裝和相關聯的指示。
 
 下列程式碼顯示的範例主控台應用程式，已設定為將 ILogger 追蹤傳送至 Application Insights。
 
@@ -366,11 +366,11 @@ class Program
 
 ### <a name="what-are-the-old-and-new-versions-of-applicationinsightsloggerprovider"></a>新舊版本的 ApplicationInsightsLoggerProvider 有哪些？
 
-[ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)包含內建的 ApplicationInsightsLoggerProvider （ApplicationInsights），這是透過 ApplicationInsightsLoggerProvider 啟用的功能所提供擴充方法。 此提供者已從版本 2.7.0-Beta2 標記為過時。 它將在下一個主要版本變更中完全移除。 [ApplicationInsights. AspNetCore 2.6.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)套件本身並不會過時。 您必須啟用對要求、相依性等的監視。
+[ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)包含內建的 ApplicationInsightsLoggerProvider （ApplicationInsights），這是透過**ApplicationInsightsLoggerProvider**擴充方法所啟用的功能所提供。 此提供者已從版本2.7.1 標記為過時。 它將在下一個主要版本變更中完全移除。 [ApplicationInsights. AspNetCore 2.6.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)套件本身並不會過時。 您必須啟用對要求、相依性等的監視。
 
-建議的替代方案是[ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights)的新獨立套件，其中包含改良的 ApplicationInsightsLoggerProvider （ApplicationInsights. ApplicationInsightsLoggerProvider）和 ILoggerBuilder 上的擴充方法來啟用它。
+建議的替代方案是[ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights)的新獨立套件，其中包含改良的 ApplicationInsightsLoggerProvider （ApplicationInsights ApplicationInsightsLoggerProvider）和 ILoggerBuilder 上的擴充方法來啟用它。
 
-[ApplicationInsights. ASPNET SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.0-Beta3 會依賴新的封裝，並自動啟用 ILogger capture。
+[ApplicationInsights. ASPNET SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.1 會相依于新的封裝，並自動啟用 ILogger capture。
 
 ### <a name="why-are-some-ilogger-logs-shown-twice-in-application-insights"></a>為什麼某些 ILogger 記錄會在 Application Insights 中顯示兩次？
 
@@ -396,7 +396,7 @@ class Program
  }
 ```
 
-### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdkhttpswwwnugetorgpackagesmicrosoftapplicationinsightsaspnetcore-version-270-beta3-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>我已更新為[ApplicationInsights。 ASPNET SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)版本 2.7.0-Beta3，而 ILogger 的記錄則會自動捕捉。 如何? 完全關閉此功能嗎？
+### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdkhttpswwwnugetorgpackagesmicrosoftapplicationinsightsaspnetcore-version-271-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>我已更新為[ApplicationInsights. ASPNET SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)版本2.7.1，並自動捕捉來自 ILogger 的記錄。 如何? 完全關閉此功能嗎？
 
 請參閱[控制記錄層級](../../azure-monitor/app/ilogger.md#control-logging-level)一節，以瞭解如何在一般情況中篩選記錄。 若要關閉 ApplicationInsightsLoggerProvider，請使用 `LogLevel.None`：
 
@@ -454,7 +454,7 @@ ApplicationInsightsLoggerProvider 會捕獲 ILogger 記錄，並從中建立 Tra
 
 ### <a name="i-dont-have-the-sdk-installed-and-i-use-the-azure-web-apps-extension-to-enable-application-insights-for-my-aspnet-core-applications-how-do-i-use-the-new-provider"></a>我未安裝 SDK，而且我使用 Azure Web Apps 擴充功能來為 ASP.NET Core 的應用程式啟用 Application Insights。 如何? 使用新的提供者嗎？ 
 
-Azure Web Apps 中的 Application Insights 延伸模組會使用舊的提供者。 您可以在應用程式的*appsettings*中修改篩選規則。 若要利用新的提供者，請在 SDK 上取得 NuGet 相依性，以使用組建時間檢測。 當擴充功能切換為使用新的提供者時，將會更新本文。
+Azure Web Apps 中的 Application Insights 延伸模組會使用新的提供者。 您可以在應用程式的*appsettings*中修改篩選規則。
 
 ### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>我使用獨立封裝 ApplicationInsights，並藉由呼叫 builder 來啟用 Application Insights 提供者 **。AddApplicationInsights （"ikey"）** 。 是否有從設定取得檢測金鑰的選項？
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 8a8a2f32de905ab7c12f4886d889b2a6fc20c449
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 5cce4ccd3acd9df896f6c28bd010a92ed4ec1a7a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899141"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893309"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Azure 監視器中的 Azure 網路監視解決方案
 
@@ -45,7 +45,7 @@ Azure 監視器提供監視網路的下列解決方案：
 
 您可以針對應用程式閘道和網路安全性群組其中之一 (或兩者) 啟用診斷與對應的解決方案。
 
-如果您沒有針對特定資源類型啟用診斷記錄，但是安裝了解決方案，該資源的儀表板刀鋒視窗會是空白，並顯示一則錯誤訊息。
+如果您未啟用特定資源類型的診斷資源記錄功能，但要安裝解決方案，該資源的儀表板 blade 會是空白，並顯示錯誤訊息。
 
 > [!NOTE]
 > 在2017年1月，從應用程式閘道和網路安全性群組傳送記錄到 Log Analytics 工作區的支援方式已變更。 如果您看到 **Azure 網路分析 (已過時)** 解決方案，請參閱[從舊的網路分析解決方案進行移轉](#migrating-from-the-old-networking-analytics-solution)，以取得您必須遵循的步驟。
@@ -100,7 +100,7 @@ Azure 應用程式閘道分析和網路安全性群組分析管理解決方案�
 
 #### <a name="enable-azure-network-diagnostics-using-powershell"></a>使用 PowerShell 啟用 Azure 網路診斷
 
-下列 PowerShell 指令碼示範如何啟用應用程式閘道診斷記錄的範例。
+下列 PowerShell 腳本提供如何啟用應用程式閘道資源記錄的範例。
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -141,7 +141,7 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
 > 網路安全性群組分析解決方案將會移至社群支援，因為其功能已由[流量分析](../../network-watcher/traffic-analytics.md)取代。
 > - 解決方案現已在 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/)中提供，而且將很快不再於 Azure Marketplace 中提供。
 > - 對於已將此解決方案新增至其工作區的現有客戶，它會繼續運作而不需要變更。
-> - Microsoft 將繼續支援使用診斷設定，將 NSG 診斷記錄傳送至您的工作區。
+> - Microsoft 將繼續支援使用診斷設定，將 NSG 資源記錄傳送到您的工作區。
 
 網路安全性群組支援下列記錄︰
 
@@ -171,7 +171,7 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
 
 ### <a name="enable-azure-network-diagnostics-using-powershell"></a>使用 PowerShell 啟用 Azure 網路診斷
 
-下列 PowerShell 指令碼提供如何啟用網路安全性群組診斷記錄的範例
+下列 PowerShell 腳本提供如何為網路安全性群組啟用資源記錄的範例
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 

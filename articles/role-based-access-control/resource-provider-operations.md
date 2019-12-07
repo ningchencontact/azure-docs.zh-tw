@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b00e699eb49d88e41dff18d6c86024c9b0537e50
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e8a3397cd8229a84103fdcbb116bf61648a6ba22
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872310"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895552"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
@@ -5534,14 +5534,14 @@ ms.locfileid: "74872310"
 > | 行動 | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | 列出指定資料庫的敏感度標籤 |
 > | 行動 | Microsoft .Sql/managedInstances/資料庫/recommendedSensitivityLabels/write | 批次更新建議的敏感度標籤 |
 > | 行動 | Microsoft .Sql/managedInstances/資料庫/restoreDetails/read | 還原進行時傳回受控資料庫還原詳細資料。 |
-> | 行動 | Microsoft .Sql/managedInstances/資料庫/架構/讀取 | 取得受控資料庫架構。 |
-> | 行動 | Microsoft .Sql/managedInstances/資料庫/架構/資料表/資料行/讀取 | 取得受控資料庫資料行 |
+> | 行動 | Microsoft .Sql/managedInstances/資料庫/架構/讀取 | 取得受控資料庫架構。 （僅限架構） |
+> | 行動 | Microsoft .Sql/managedInstances/資料庫/架構/資料表/資料行/讀取 | 取得受管理的資料庫資料行（僅限架構） |
 > | 行動 | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/delete | 刪除指定資料行的敏感度標籤 |
 > | 行動 | Microsoft .Sql/managedInstances/資料庫/架構/資料表/資料行/sensitivityLabels/停用/動作 | 停用指定資料行的敏感度建議 |
 > | 行動 | Microsoft .Sql/managedInstances/資料庫/架構/資料表/資料行/sensitivityLabels/啟用/動作 | 在指定的資料行上啟用敏感性建議 |
 > | 行動 | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/read | 取得指定資料行的敏感度標籤 |
 > | 行動 | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/write | 建立或更新指定資料行的敏感度標籤 |
-> | 行動 | Microsoft .Sql/managedInstances/資料庫/架構/資料表/讀取 | 取得受控資料庫資料表 |
+> | 行動 | Microsoft .Sql/managedInstances/資料庫/架構/資料表/讀取 | 取得受管理的資料庫資料表（僅限架構） |
 > | 行動 | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/read | 抓取為給定伺服器設定的受控資料庫威脅偵測原則清單 |
 > | 行動 | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/write | 變更指定受控資料庫的資料庫威脅偵測原則 |
 > | 行動 | Microsoft.Sql/managedInstances/databases/securityEvents/read | 擷取受控資料庫的安全性事件 |
@@ -5680,14 +5680,14 @@ ms.locfileid: "74872310"
 > | 行動 | Microsoft.Sql/servers/databases/restorePoints/delete | 刪除資料庫的還原點。 |
 > | 行動 | Microsoft.Sql/servers/databases/restorePoints/read | 傳回資料庫的還原點。 |
 > | 行動 | Microsoft.Sql/servers/databases/resume/action | 繼續 Azure SQL 資料倉儲資料庫 |
-> | 行動 | Microsoft.Sql/servers/databases/schemas/read | 取得資料庫架構。 |
-> | 行動 | Microsoft.Sql/servers/databases/schemas/tables/columns/read | 取得資料庫資料行。 |
+> | 行動 | Microsoft.Sql/servers/databases/schemas/read | 取得資料庫架構（僅限架構）。 |
+> | 行動 | Microsoft.Sql/servers/databases/schemas/tables/columns/read | 取得資料庫資料行（僅限架構）。 |
 > | 行動 | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/delete | 刪除指定資料行的敏感度標籤 |
 > | 行動 | Microsoft .Sql/servers/資料庫/架構/資料表/資料行/sensitivityLabels/停用/動作 | 停用指定資料行的敏感度建議 |
 > | 行動 | Microsoft .Sql/servers/資料庫/架構/資料表/資料行/sensitivityLabels/啟用/動作 | 在指定的資料行上啟用敏感性建議 |
 > | 行動 | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/read | 取得指定資料行的敏感度標籤 |
 > | 行動 | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/write | 建立或更新指定資料行的敏感度標籤 |
-> | 行動 | Microsoft.Sql/servers/databases/schemas/tables/read | 取得資料庫資料表。 |
+> | 行動 | Microsoft.Sql/servers/databases/schemas/tables/read | 取得資料庫資料表（僅限架構）。 |
 > | 行動 | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/read | 擷取資料庫上的索引建議清單 |
 > | 行動 | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/write | 套用索引建議 |
 > | 行動 | Microsoft.Sql/servers/databases/securityAlertPolicies/read | 抓取為給定伺服器設定的資料庫威脅偵測原則清單 |

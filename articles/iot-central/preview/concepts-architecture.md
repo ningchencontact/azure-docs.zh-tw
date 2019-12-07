@@ -3,17 +3,17 @@ title: Azure IoT 中心的架構概念 | Microsoft Docs
 description: 本文介紹 Azure IoT 中心架構的重要相關概念
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/12/2019
+ms.date: 11/27/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 66792d9d0a8b1cd72ef8f22481016a35f37a1597
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 9004e74d1b42a2b50ef57da58d9a79497e17f1ed
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013855"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895755"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Azure IoT Central 架構（預覽功能）
 
@@ -36,7 +36,7 @@ ms.locfileid: "74013855"
 
 ## <a name="azure-iot-edge-devices"></a>Azure IoT Edge 裝置
 
-以及使用[Azure IoT sdk](https://github.com/Azure/azure-iot-sdks)建立的裝置，您也可以將[Azure IoT Edge 裝置](../../iot-edge/about-iot-edge.md)連線到 IoT Central 應用程式。 IoT Edge 可讓您直接在由 IoT Central 管理的 IoT 裝置上執行雲端智慧和自訂邏輯。 IoT Edge 執行時間可讓您：
+如同使用 [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) 建立的裝置，您也可以將 [Azure IoT Edge 裝置](../../iot-edge/about-iot-edge.md)連線到 IoT Central 應用程式。 IoT Edge 可讓您直接在由 IoT Central 管理的 IoT 裝置上執行雲端智慧和自訂邏輯。 IoT Edge 執行階段可讓您：
 
 - 在裝置上安裝和更新工作負載。
 - 在裝置上維護 IoT Edge 的安全性標準。
@@ -70,7 +70,7 @@ IoT Central 啟用 IoT Edge 裝置的下列功能：
 IoT Central 會將 IoT Edge 的裝置類型分類，如下所示：
 
 - 分葉裝置。 IoT Edge 裝置可以有下游分葉裝置，但是這些裝置不會布建在 IoT Central 中。
-- 具有下游裝置的閘道裝置。 閘道裝置和下游裝置都會布建在 IoT Central
+- 具有下游裝置的閘道裝置。 閘道裝置和下游裝置都會佈建在 IoT Central 中
 
 ![IoT Edge 總覽的 IoT Central](./media/concepts-architecture/gatewayedge.png)
 
@@ -119,7 +119,7 @@ Azure IoT 中心會在雲端儲存應用程式資料。 儲存的應用程式資
 
 Azure IoT 中心會使用時間序列來儲存您的裝置所傳送的量值資料。 分析服務會使用裝置的時間序列資料。
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>分析
 
 分析服務負責產生應用程式顯示的自訂報告資料。 操作者可以[自訂分析](howto-create-analytics.md) (適用於應用程式中顯示的分析)。 分析服務是以 [Azure 時間序列深入解析](https://azure.microsoft.com/services/time-series-insights/)為基礎，可處理您的裝置所傳送的量值資料。
 
@@ -154,7 +154,7 @@ Azure IoT 中心會使用時間序列來儲存您的裝置所傳送的量值資�
 
 針對使用預先定義角色的 Azure IoT 中心應用程式，[系統管理員可以為其定義存取規則](howto-administer.md)。 系統管理員可以將使用者指派給角色，而這些角色可判斷使用者可以存取應用程式的哪些區域。
 
-## <a name="security"></a>Security
+## <a name="security"></a>安全性
 
 Azure IoT 中心內的安全性功能包括：
 
