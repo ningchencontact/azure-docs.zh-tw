@@ -4,7 +4,7 @@ title: Azure 媒體服務文件
 metadata:
   document_id: null
   title: Azure 媒體服務文件 | Microsoft Docs
-  meta.description: 'Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more.'
+  description: Azure 媒體服務是雲端式平台，可讓您建置的解決方案擁有廣播品質的視訊串流、增強協助工具和散佈、分析內容等等。
   services: media-services
   author: juliako
   manager: femila

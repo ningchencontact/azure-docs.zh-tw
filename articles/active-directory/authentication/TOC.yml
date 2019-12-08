@@ -43,8 +43,6 @@
       items:
         - name: MFA 的運作方式
           href: concept-mfa-howitworks.md
-        - name: 啟用 MFA
-          href: concept-mfa-get-started.md
         - name: 授權您的使用者
           href: concept-mfa-licensing.md
         - name: 管理驗證提供者

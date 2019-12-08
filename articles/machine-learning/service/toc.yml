@@ -152,7 +152,7 @@
     - name: 使用資料
       items:
         - name: 從資料存放區取得資料
-          displayName: 'blob, get, fileshare, access storage'
+          displayName: 'blob, get, fileshare, access storage, mount, download'
           href: how-to-access-data.md
         - name: 新增和註冊資料集
           displayName: 'data, dataset'

@@ -17,8 +17,6 @@
   items:
     - name: 一般條件式存取原則
       href: concept-conditional-access-policy-common.md
-    - name: 安全性預設值
-      href: concept-conditional-access-security-defaults.md
     - name: 條件式存取原則元件
       href: concept-conditional-access-policies.md
     - name: 條件

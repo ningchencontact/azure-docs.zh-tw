@@ -17,6 +17,14 @@
   items:
     - name: 身分識別安全分數
       href: identity-secure-score.md
+    - name: 安全性
+      items:
+        - name: 啟用 MFA
+          href: concept-fundamentals-mfa-get-started.md
+        - name: 安全性預設值
+          href: concept-fundamentals-security-defaults.md
+        - name: 封鎖舊式驗證
+          href: concept-fundamentals-block-legacy-authentication.md
     - name: 群組和存取管理
       href: active-directory-manage-groups.md
     - name: 群組型授權
