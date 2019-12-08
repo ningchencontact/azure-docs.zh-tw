@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ac62a4f318690a1e8156d619c82e9b936973159
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b2815b496545ca5f920c00df7b2b5b7efe15c12a
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027893"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900924"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中檢視和指派系統管理員角色
 
@@ -26,11 +26,11 @@ ms.locfileid: "74027893"
 
 ## <a name="view-all-roles"></a>檢視所有角色
 
-在 Azure Active Directory 中，選取 [角色和系統管理員] 以查看所有可用角色的清單。 
+搜尋並選取 [Azure Active Directory]。 選取 [**角色和系統管理員**] 以查看所有可用角色的清單。
 
 按一下每個資料列右側的省略符號，以開啟角色的詳細描述。
 
-![Azure AD 入口網站中的角色清單](./media/directory-manage-roles-portal/role-list.png)
+![Azure AD 入口網站中的角色清單](./media/directory-manage-roles-portal/view-roles-in-azure-active-directory.png)
 
 ## <a name="view-my-roles"></a>檢視我的角色
 

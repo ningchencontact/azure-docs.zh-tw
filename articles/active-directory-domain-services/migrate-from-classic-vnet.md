@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 8cba2cbf8fcbad1acae8c36892308c3249fc4181
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: aafefeb94f3b150789a91c3cf669520ccb522dd8
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674908"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893054"
 ---
 # <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>預覽-將 Azure AD Domain Services 從傳統虛擬網路模型遷移至 Resource Manager
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services （AD DS）針對目前使用傳統虛擬
 
 本文概述遷移的優點和考慮，然後是成功遷移現有 Azure AD DS 實例的必要步驟。 此功能目前為預覽狀態。
 
-## <a name="overview-of-the-migration-process"></a>遷移程式的總覽
+## <a name="overview-of-the-migration-process"></a>移轉程序概觀
 
 遷移程式會採用在傳統虛擬網路中執行的現有 Azure AD DS 實例，並將其移至現有的 Resource Manager 虛擬網路。 遷移是使用 PowerShell 來執行，而且有兩個主要階段的執行*準備*和*遷移*。
 
@@ -151,7 +151,7 @@ Azure AD DS 通常會使用位址範圍中前兩個可用的 IP 位址，但這�
 
 遷移至 Resource Manager 部署模型和虛擬網路會分成5個主要步驟：
 
-| 步驟    | 執行  | 預估時間  | 停機  | 要復原/還原嗎？ |
+| 步驟    | 執行  | 估計時間  | 停機  | 要復原/還原嗎？ |
 |---------|--------------------|-----------------|-----------|-------------------|
 | [步驟 1-更新並尋找新的虛擬網路](#update-and-verify-virtual-network-settings) | Azure Portal | 15 分鐘 | 不需要停機 | N/A |
 | [步驟 2-準備要進行 Azure AD DS 受控網域以進行遷移](#prepare-the-managed-domain-for-migration) | PowerShell | 平均 15-30 分鐘 | 完成此命令之後，Azure AD DS 的停機時間就會啟動。 | 復原和還原可用。 |
@@ -306,12 +306,13 @@ Azure AD DS 需要一個網路安全性群組來保護受控網域所需的埠�
 
 當您執行 PowerShell Cmdlet 以準備在步驟2中進行遷移或在步驟3中自行遷移時，如果發生錯誤，Azure AD DS 受控網域可以回復為原始設定。 此復原需要原始的傳統虛擬網路。 請注意，回復之後，IP 位址可能仍會變更。
 
-使用 *-Abort*參數執行 `Migrate-Aadds` Cmdlet。 針對您自己在上一節中準備的 Azure AD DS 受控網域提供 *-ManagedDomainFqdn* ，例如*contoso.com*：
+使用 *-Abort*參數執行 `Migrate-Aadds` Cmdlet。 提供上一節中準備的 Azure AD DS 受控網域（例如*contoso.com*）和傳統虛擬網路名稱（例如*myClassicVnet*）的 *-ManagedDomainFqdn* ：
 
 ```powershell
 Migrate-Aadds `
     -Abort `
     -ManagedDomainFqdn contoso.com `
+    -ClassicVirtualNetworkName myClassicVnet `
     -Credentials $creds
 ```
 
@@ -360,4 +361,4 @@ Migrate-Aadds `
 [get-credential]: /powershell/module/microsoft.powershell.security/get-credential
 
 <!-- EXTERNAL LINKS -->
-[powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/1.0
+[powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/

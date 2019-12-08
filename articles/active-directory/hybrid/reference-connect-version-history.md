@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 893b617a965b0823b8d630e036d5d5f923647f8f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 461298e4f195d88ced5015af26226a9f7b12f737
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73944214"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891774"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect︰版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 
 此表格為相關主題的清單：
 
-主題 |  詳細資料
+話題 |  詳細資料
 --------- | --------- |
 從 Azure AD Connect 升級的步驟 | [從舊版升級到最新版本](how-to-upgrade-previous-version.md) Azure AD Connect 的多種方法。
 所需的權限 | 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](reference-connect-accounts-permissions.md#upgrade)。
@@ -70,7 +70,7 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 
 
 ### <a name="release-status"></a>發行狀態
-9/25/2019：已從手動下載移除，直到事件調查完成為止。
+9/25/2019：僅針對自動升級發行。
 
 ### <a name="new-features-and-improvements"></a>新功能和改進
 - 新的疑難排解工具有助於疑難排解「使用者未同步」、「群組未同步」或「群組成員未同步」案例。
@@ -469,7 +469,7 @@ Azure AD Connect 1.1.654.0 版 (和更新版本) 已新增改進，以確保 Azu
 *   將特定物件上所有的 ACE 移除，除了 SELF 特有的 ACE 之外。 關於 SELF，我們需要將預設權限維持不變。
 *   指派這些特定權限：
 
-在系統提示您進行確認時，輸入     | 名稱                          | 存取               | 套用至
+Type     | Name                          | Access               | 套用至
 ---------|-------------------------------|----------------------|--------------|
 允許    | 系統                        | 完全控制         | 此物件  |
 允許    | 企業系統管理員             | 完全控制         | 此物件  |
@@ -616,7 +616,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 * Azure AD Connect 現在支援新的安裝模式，稱為**使用現有的資料庫**。 此安裝模式可讓客戶安裝指定現有 ADSync 資料庫的 Azure AD Connect。 如需這項功能的詳細資訊，請參閱文章[使用現有的資料庫](how-to-connect-install-existing-database.md)。
 * 為了提升安全性，Azure AD Connect 現在預設使用 TLS1.2 連線到 Azure AD 進行目錄同步作業。 先前預設使用 TLS1.0。
 * Azure AD Connect 密碼同步化代理程式啟動時，會嘗試連線到 Azure AD 已知端點進行密碼同步化。 連線成功時，會重新導向到特定端點。 以前，密碼同步化代理程式會快取區域特定的端點，直到重新啟動為止。 現在如果代理程式遇到區域特定端點的連線問題，會清除快取，並重試已知端點。 快取的區域特定端點無法繼續使用時，這項變更可確保密碼同步化可以容錯移轉至不同的區域特定端點。
-* 若要同步處理變更內部部署 AD 樹系的變化，需要 AD DS 帳戶。 您可以 (i) 自行建立 AD DS 帳戶，並將其認證提供給 Azure AD Connect，或 (ii) 提供企業系統管理員的認證，並讓 Azure AD Connect 為您建立 AD DS 帳戶。 過去，(i) 為 Azure AD Connect 精靈的預設選項。 現在，(ii) 是預設選項。
+* 若要同步處理內部部署 AD 樹系的變更，需要 AD DS 帳戶。 您可以 (i) 自行建立 AD DS 帳戶，並將其認證提供給 Azure AD Connect，或 (ii) 提供企業系統管理員的認證，並讓 Azure AD Connect 為您建立 AD DS 帳戶。 過去，(i) 為 Azure AD Connect 精靈的預設選項。 現在，(ii) 是預設選項。
 
 ### <a name="azure-ad-connect-health"></a>Azure AD Connect Health
 
@@ -634,7 +634,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 ### <a name="seamless-single-sign-on"></a>無縫單一登入
 #### <a name="fixed-issues"></a>已修正的問題
-* 已修正嘗試啟用[無縫單一登入](how-to-connect-sso.md)會導致 Azure AD Connect 精靈傳回錯誤的問題。 錯誤訊息是 *「Microsoft Azure AD Connect 驗證代理程式的設定失敗。」* 此問題會影響到已按照此篇[文章](how-to-connect-sso.md)所述的步驟手動升級[傳遞驗證](how-to-connect-pta-upgrade-preview-authentication-agents.md)的預覽版驗證代理程式的客戶。
+* 已修正嘗試啟用[無縫單一登入](how-to-connect-sso.md)會導致 Azure AD Connect 精靈傳回錯誤的問題。 錯誤訊息是 *「Microsoft Azure AD Connect 驗證代理程式的設定失敗。」* 此問題會影響到已按照此篇[文章](how-to-connect-pta-upgrade-preview-authentication-agents.md)所述的步驟手動升級[傳遞驗證](how-to-connect-sso.md)的預覽版驗證代理程式的客戶。
 
 
 ## <a name="115610"></a>1.1.561.0
@@ -812,9 +812,9 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|選取 [封裝設定]|
+    |CertVersion|CertSignatureAlgorithmOid|選取|
     |CertKeyAlgorithmParams|CertHashString|Where|
-    |||With|
+    |||含有|
 
 * 已引進下列結構描述變更，以允許客戶建立自訂的同步處理規則來流動群組物件的 sAMAccountName、domainNetBios 和 domainFQDN，以及使用者物件的 distinguishedName：
 
@@ -1241,7 +1241,7 @@ AD FS 管理
 * [使用者回寫](how-to-connect-preview.md#user-writeback)
 * [群組回寫](how-to-connect-preview.md#group-writeback)
 * [裝置回寫](how-to-connect-device-writeback.md)
-* [目錄擴充](how-to-connect-preview.md)
+* [目錄延伸模組](how-to-connect-preview.md)
 
 ## <a name="104940501"></a>1.0.494.0501
 發行日期：2015 年 5 月
