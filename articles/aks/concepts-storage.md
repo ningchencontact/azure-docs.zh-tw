@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 70272413ef4952cfeed558dd313f12096204d569
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 601f89c4510899dbb1f5d8a238961d9a4e5864e0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120484"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913709"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的應用程式適用的儲存體選項
 
@@ -60,8 +60,8 @@ PersistentVolume 可由叢集管理員*靜態*建立，或由 Kubernetes API 伺
 
 在 AKS 中會建立兩個初始 StorageClass:
 
-- *default* - 使用 Azure 標準儲存體來建立受控磁碟。 收回原則會指出在使用基礎 Azure 磁碟的 Pod 遭刪除時，即應刪除該磁碟。
-- *managed-premium* - 使用 Azure 進階儲存體來建立受控磁碟。 收回原則同樣會指出在使用基礎 Azure 磁碟的 Pod 遭刪除時，即應刪除該磁碟。
+- *default* - 使用 Azure 標準儲存體來建立受控磁碟。 回收原則會指出在刪除使用的永久磁片區時，會刪除基礎的 Azure 磁片。
+- *managed-premium* - 使用 Azure 進階儲存體來建立受控磁碟。 再次回收原則表示在刪除使用的永久磁片區時，會刪除基礎的 Azure 磁片。
 
 若未指定永續性磁碟區的 StorageClass，將會使用預設 StorageClass。 要求永續性磁碟區時請多加留意，讓磁碟區使用您所需的適當儲存體。 您可以使用 `kubectl` 建立 StorageClass，以因應其他需求。 下列範例會使用進階受控磁碟，並指定在 Pod 刪除後應*保留*基礎 Azure 磁碟：
 

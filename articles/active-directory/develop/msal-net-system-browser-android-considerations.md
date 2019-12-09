@@ -1,29 +1,25 @@
 ---
-title: Xamarin Android 系統瀏覽器考慮（適用于 .NET 的 Microsoft 驗證程式庫）
+title: Xamarin Android 系統瀏覽器考慮（MSAL.NET） |Azure
 titleSuffix: Microsoft identity platform
-description: 瞭解使用適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）時，在 Xamarin Android 上使用系統瀏覽器時的特定考慮。
+description: 瞭解在 Xamarin Android 上使用系統瀏覽器搭配適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）時的特定考慮。
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f83283cc02c60eb452d0e414c0b21843b48f343b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1d3ea2554fac8654b052e3e38633af23e7c778b3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150353"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915473"
 ---
 #  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>MSAL.NET 的 Xamarin Android 系統瀏覽器考慮
 
@@ -35,7 +31,7 @@ ms.locfileid: "73150353"
 
 | 具有自訂索引標籤支援的瀏覽器 | 封裝名稱 |
 |------| ------- |
-|Chrome | .com. chrome|
+|Chrome | com.android.chrome|
 |Microsoft Edge | emmx|
 |Firefox | 組織 mozilla. firefox|
 |Ecosia | ecosia android|

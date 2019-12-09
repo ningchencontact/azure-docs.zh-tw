@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
-ms.openlocfilehash: 85f3c8b9bc4167350b8a56f118128b89df142611
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: cc17b8158c847bff5f07d6088a99566dc499d1bf
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896918"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914771"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>教學課程：將 SAP SuccessFactors 設定為 Active Directory 使用者布建（預覽）
-本教學課程的目的是要示範將背景工作資料從 SuccessFactors 員工中心匯入 Active Directory 和 Azure Active Directory 時所需執行的步驟，以及將電子郵件地址的選擇性回寫至 SuccessFactors。
+本教學課程的目的是要示範將使用者從 SuccessFactors 員工中心布建到 Active Directory （AD）和 Azure AD 的必要步驟，並將電子郵件地址的選擇性回寫至 SuccessFactors。 這項整合處於公開預覽狀態，支援從 SuccessFactors Employee Central 抓取超過70個以上的[使用者屬性](../manage-apps/sap-successfactors-attribute-reference.md)。
+
+>[!NOTE]
+>如果您想要從 SuccessFactors 布建的使用者需要內部部署 AD 帳戶，以及選擇性的 Azure AD 帳戶，請使用本教學課程。 如果來自 SuccessFactors 的使用者只需要 Azure AD 帳戶（僅限雲端的使用者），請參閱[設定 SAP SuccessFactors](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)的教學課程，以 Azure AD 使用者布建。 
+
 
 ## <a name="overview"></a>概觀
 
@@ -69,7 +73,7 @@ Azure AD 的使用者布建服務支援的 SuccessFactors 使用者布建工作�
 4. Azure AD Connect 佈建代理程式使用服務帳戶來新增/更新 AD 帳戶資料。
 5. Azure AD Connect 同步處理引擎會執行差異同步處理，以提取 AD 中的更新。
 6. Active Directory 會與 Azure Active Directory 同步更新。
-7. 如果已設定 SuccessFactors 回寫連接器，它會根據所使用的比對屬性，將電子郵件屬性和使用者名稱寫回 SuccessFactors。
+7. 如果已設定[SuccessFactors 回寫應用程式](sap-successfactors-writeback-tutorial.md)，它會根據所使用的比對屬性，將電子郵件屬性寫回 SuccessFactors。
 
 ## <a name="planning-your-deployment"></a>規劃您的部署
 
@@ -109,6 +113,10 @@ Azure AD 的使用者布建服務支援的 SuccessFactors 使用者布建工作�
 * 在相同的方塊中向下滾動，然後選取 [**員工中心 API**]。 如下所示新增許可權，以閱讀使用 ODATA API 和使用 ODATA API 進行編輯。 如果您打算將相同的帳戶用於回寫至 SuccessFactors 案例，請選取 [編輯] 選項。 
   > [!div class="mx-imgBorder"]
   > ![讀取寫入權限](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+
+  >[!NOTE]
+  >如需此布建應用程式所抓取之屬性的完整清單，請參閱[SuccessFactors 屬性參考](../manage-apps/sap-successfactors-attribute-reference.md)
+
 * 按一下 [完成]。 按一下 [儲存變更]。
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>為 API 使用者建立許可權群組
@@ -294,6 +302,10 @@ Azure AD 的使用者布建服務支援的 SuccessFactors 使用者布建工作�
 
 1. 在 [**屬性**對應] 區段中，您可以定義個別 SuccessFactors 屬性對應至 Active Directory 屬性的方式。
 
+  >[!NOTE]
+  >如需應用程式所支援 SuccessFactors 屬性的完整清單，請參閱[SuccessFactors 屬性參考](../manage-apps/sap-successfactors-attribute-reference.md)
+
+
 1. 按一下現有的屬性對應以進行更新，或按一下畫面底端的 [新增新對應] 以新增新對應。 個別屬性對應支援下列屬性：
 
       * **對應類型**
@@ -347,20 +359,9 @@ SuccessFactors 布建應用程式設定完成之後，您就可以在 Azure 入�
 
 ## <a name="next-steps"></a>後續步驟
 
+* [深入瞭解輸入布建的支援 SuccessFactors 屬性](../manage-apps/sap-successfactors-attribute-reference.md)
+* [瞭解如何設定電子郵件回寫至 SuccessFactors](sap-successfactors-writeback-tutorial.md)
 * [瞭解如何針對佈建活動檢閱記錄和取得報告](../manage-apps/check-status-user-account-provisioning.md)
 * [瞭解如何設定 SuccessFactors 與 Azure Active Directory 之間的單一登入](successfactors-tutorial.md)
 * [了解如何將其他 SaaS 應用程式與 Azure Active Directory 整合](tutorial-list.md)
 * [瞭解如何匯出和匯入您的布建設定](../manage-apps/export-import-provisioning-configuration.md)
-
-
-
-
-
-
-
-
-
-
-
-
-

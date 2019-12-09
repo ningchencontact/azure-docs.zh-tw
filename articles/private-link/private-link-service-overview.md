@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 8ac93e7ed1638137e70086ac22fa9bb97606830e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9bdc180bf0dfd6f35fb18f5c76176a68d8f1644
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228053"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912987"
 ---
 # <a name="what-is-azure-private-link-service"></a>什麼是 Azure 私人連結服務？
 
@@ -42,7 +42,7 @@ Azure 私人連結服務是由 Azure 私用連結所支援的專屬服務參考�
 
 如果私用連結服務不再使用，您可以將它刪除。 不過，在您刪除服務之前，請確定沒有與其相關聯的私用端點連線。 您可以拒絕所有連接並刪除服務。
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>屬性
 
 私人連結服務會指定下列屬性： 
 
@@ -101,7 +101,6 @@ Azure 私人連結服務是由 Azure 私用連結所支援的專屬服務參考�
 - 僅在 Standard Load Balancer 上支援 
 - 僅支援 IPv4 流量
 - 僅支援 TCP 流量
-- 只能從相同區域中的私人端點連線
 - 不支援從 Azure 入口網站建立及管理體驗
 - 服務提供者無法使用 proxy 通訊協定的用戶端連接資訊
 

@@ -1,29 +1,25 @@
 ---
-title: 適用于 .NET 的 Microsoft 驗證程式庫中的網頁瀏覽器
+title: 使用網頁瀏覽器搭配 MSAL.NET |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解搭配適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）使用 Xamarin Android 時的特定考慮。
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2446166aa8078040c06d7cb54ce01666d9931727
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: d5b8c8e78c554994b71f9e246f8bacc39828b17f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802685"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921596"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>在 MSAL.NET 中使用網頁瀏覽器
 需要 Web 瀏覽器才能進行互動式驗證。 根據預設，MSAL.NET 支援 Xamarin 和 Xamarin 上的[系統網頁瀏覽器](#system-web-browser-on-xamarinios-xamarinandroid)。 但您也可以根據您的需求（UX、需要單一登入（SSO）、安全性）在[xamarin](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios)和[xamarin](#detecting-the-presence-of-custom-tabs-on-xamarinandroid)應用程式中[啟用內嵌的網頁瀏覽器](#enable-embedded-webviews-on-ios-and-android)。 此外，您甚至可以根據 Chrome 是否存在，或在 Android 中支援 Chrome 自訂索引標籤的瀏覽器，[動態地選擇](#detecting-the-presence-of-custom-tabs-on-xamarinandroid)要使用的網頁瀏覽器。 MSAL.NET 只支援 .NET Core 桌面應用程式中的系統瀏覽器。
@@ -49,15 +45,15 @@ MSAL.NET 是多架構程式庫，而且具有架構專屬的程式碼，可在 U
 
 ### <a name="at-a-glance"></a>概覽
 
-| Framework        | 空格 | System | 預設值 |
+| Framework        | 內嵌 | System | 預設值 |
 | ------------- |-------------| -----| ----- |
-| .NET 傳統     | 是 | 是 ^ | 空格 |
+| .NET 傳統     | 是 | 是 ^ | 內嵌 |
 | .NET Core     | 否 | 是 ^ | System |
 | .NET Standard | 否 | 是 ^ | System |
-| UWP | 是 | 否 | 空格 |
+| UWP | 是 | 否 | 內嵌 |
 | Xamarin.Android | 是 | 是  | System |
 | Xamarin.iOS | 是 | 是  | System |
-| Xamarin. Mac| 是 | 否 | 空格 |
+| Xamarin.Mac| 是 | 否 | 內嵌 |
 
 ^ 需要 "http://localhost" 重新導向 URI
 
@@ -153,7 +149,7 @@ var options = new SystemWebViewOptions()
 
 **使用內嵌的 Web 工作，以 MSAL.NET 進行互動式登入：**
 
-![空格](media/msal-net-web-browsers/embedded-webview.png)
+![內嵌](media/msal-net-web-browsers/embedded-webview.png)
 
 **使用系統瀏覽器以 MSAL.NET 進行互動式登入：**
 
@@ -211,7 +207,7 @@ authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
 
 #### <a name="detecting-the-presence-of-custom-tabs-on-xamarinandroid"></a>偵測 Xamarin 上的自訂索引標籤是否存在
 
-如果您想要使用系統 web 瀏覽器，讓應用程式能夠使用在瀏覽器中執行的應用程式，但擔心 Android 裝置的使用者體驗不具有自訂索引標籤支援的瀏覽器，您可以選擇呼叫中的 `IsSystemWebViewAvailable()` 方法來決定 `IPublicClientApplication`. 如果 PackageManager 偵測到自訂索引標籤，並 `false` 未在裝置上偵測到，則此方法會傳回 `true`。
+如果您想要使用系統 web 瀏覽器，讓應用程式能與在瀏覽器中執行的應用程式啟用 SSO，但擔心 Android 裝置的使用者體驗不具有自訂索引標籤支援的瀏覽器，您可以選擇在 `IPublicClientApplication`中呼叫 `IsSystemWebViewAvailable()` 方法來決定。 如果 PackageManager 偵測到自訂索引標籤，並 `false` 未在裝置上偵測到，則此方法會傳回 `true`。
 
 根據此方法所傳回的值，以及您的需求，您可以進行決策：
 

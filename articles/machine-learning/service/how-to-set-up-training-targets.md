@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: d628bbe889617464fe97695a17687d5f02cc61bc
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 1755d5bf3338694f53da7021579cb4c0aee623f3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305326"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912473"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>設定及使用計算目標進行模型定型 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Azure Machine Learning 在不同的計算目標上有不同的支援。 一般�
 
 ## <a name="whats-an-estimator"></a>什麼是估計工具？
 
-為了使用熱門的架構來加速模型定型，Azure Machine Learning Python SDK 提供估計工具類別的替代較高層級抽象概念。 此類別可讓您輕鬆地建立執行設定。 您可以建立並使用泛型[估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)來提交訓練腳本，以使用您選擇的任何學習架構（例如 scikit-learn）。
+為了使用熱門的架構來加速模型定型，Azure Machine Learning Python SDK 提供估計工具類別的替代較高層級抽象概念。 我們建議使用估計工具進行定型，因為類別包含的方法可讓您輕鬆地建立和自訂執行設定。 您可以建立並使用泛型[估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)來提交訓練腳本，以使用您選擇的任何學習架構（例如 scikit-learn）。 如果您需要將資料檔案提供給計算目標，請參閱[使用 Azure Machine Learning 資料集進行定型](how-to-train-with-datasets.md)。
 
 對於 PyTorch、TensorFlow 和 Chainer 工作，Azure Machine Learning 也會提供個別的[PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py)、 [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)和[Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)估算器，以簡化使用這些架構的作業。
 
@@ -364,7 +364,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 ## <a name="set-up-with-vs-code"></a>設定 VS Code
 
-您可以使用 Azure Machine Learning 的[VS Code 延伸](how-to-vscode-tools.md#create-and-manage-compute-targets)模組，來存取、建立和管理與工作區相關聯的計算目標。
+您可以使用 Azure Machine Learning 的[VS Code 延伸](how-to-vscode-tools.md#create-and-manage-compute-targets)模組，來存取、建立及管理與工作區相關聯的計算目標。
 
 ## <a id="submit"></a>使用 Azure Machine Learning SDK 提交定型回合
 
@@ -377,7 +377,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 > [!IMPORTANT]
 > 當您提交定型回合時，會建立包含定型腳本之目錄的快照集，並傳送到計算目標。 它也會在您的工作區中儲存為實驗的一部分。 如果您變更檔案並再次提交執行，則只會上傳變更的檔案。
 >
-> 若要防止檔案包含在快照中，請在目錄中建立[.gitignore](https://git-scm.com/docs/gitignore)或 `.amlignore` 檔案，並在其中新增檔案。 `.amlignore` 檔案使用與[.gitignore](https://git-scm.com/docs/gitignore)檔案相同的語法和模式。 如果兩個檔案都存在，則會優先使用 `.amlignore` 檔案。
+> 若要防止檔案包含在快照中, 請在目錄中建立 [.gitignore](https://git-scm.com/docs/gitignore) `.amlignore`或檔案, 並在其中新增檔案。 檔案會使用與 [.gitignore](https://git-scm.com/docs/gitignore) 檔案相同的語法和模式。`.amlignore` 如果兩個檔案都存在，則會優先使用 `.amlignore` 檔案。
 > 
 > 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshots)。
 
