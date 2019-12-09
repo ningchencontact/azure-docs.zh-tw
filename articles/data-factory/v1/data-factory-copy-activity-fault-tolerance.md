@@ -4,20 +4,19 @@ description: 了解如何在複製期間跳過不相容的資料列，以在 Azu
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 84f5cdff72abe210ac1e39234b455e506d52ba5e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8ffaee75154fd5fe025bdb683c89f16799d6e86b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682962"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926158"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>跳過不相容的資料列以在複製活動中新增容錯
 
@@ -26,7 +25,7 @@ ms.locfileid: "73682962"
 > * [第 2 版 (目前的版本)](../copy-activity-fault-tolerance.md)
 
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 第 2 版之複製活動中的容錯](../copy-activity-fault-tolerance.md)。
+> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 第 2 版之複製活動中的容錯](../copy-activity-fault-tolerance.md)。
 
 Azure Data Factory [複製活動](data-factory-data-movement-activities.md)可在來源和接收資料存放區之間複製資料時，提供您兩個方式來處理不相容的資料列：
 
@@ -70,14 +69,14 @@ Azure Data Factory [複製活動](data-factory-data-movement-activities.md)可�
 }
 ```
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | **enableSkipIncompatibleRow** | 啟用或停用在複製期間略過不相容的資料列。 | 是<br/>FALSE (預設值) | 否 |
 | **redirectIncompatibleRowSettings** | 當您想要記錄不相容的資料列時，可指定的一組屬性。 | &nbsp; | 否 |
 | **linkedServiceName** | Azure 儲存體的連結服務，儲存包含跳過資料列的記錄。 | [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 或 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 連結服務的名稱，以代表您需要用來儲存記錄檔的儲存體執行個體。 | 否 |
 | **路徑** | 包含跳過之資料列的記錄檔路徑。 | 指定需要用來記錄不相容資料的 Blob 儲存體路徑。 如不提供路徑，服務會為您建立容器。 | 否 |
 
-## <a name="monitoring"></a>監控
+## <a name="monitoring"></a>監視
 複製活動執行完成之後，您會在 [監視] 區段中看到跳過的資料列數目：
 
 ![監視跳過的不相容資料列](./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png)

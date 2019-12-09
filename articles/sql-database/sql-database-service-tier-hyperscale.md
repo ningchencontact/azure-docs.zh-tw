@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: b09e5366584e9974e67d47d34f22a3483be14f7a
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5b473af780bdd68b8fc0dd3dc0430c4f4fd3255b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805751"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927639"
 ---
 # <a name="hyperscale-service-tier"></a>超大規模資料庫服務層級
 
@@ -196,25 +196,25 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
 
 若要要求在未列出的區域中建立超大規模資料庫資料庫的功能：
 
-1. 流覽至[Azure [說明及支援](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)] 分頁
+1. 從 [Azure 入口網站] 功能表中，選取 [說明 **+ 支援**]，或搜尋並從任何頁面選取 [說明 **+ 支援**]。
 
-2. 按一下 [ [**新增支援要求**]](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+2. 在[Azure [說明及支援](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)] 中，選取 [[**新增支援要求**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)]。
 
-    ![Azure 說明及支援分頁](media/sql-database-service-tier-hyperscale/request-screen-1.png)
+3. 針對 [**問題類型**]，選取 **[服務和訂用帳戶限制（配額）** ]。
 
-3. 針對 [**問題類型**]，選取 **[服務和訂用帳戶限制（配額）** ]
+4. 選擇您要用來建立資料庫的訂用帳戶。
 
-4. 選擇您要用來建立資料庫的訂用帳戶
+5. 針對 [**配額類型**]，選取 **[SQL database**]。
 
-5. 針對 [**配額類型**]，選取 **[SQL database** ]
+    ![Azure 說明及支援分頁](media/sql-database-service-tier-hyperscale/new-support-request-screen.png)
 
-6. 按 **[下一步]：解決方案**
+6. 按 **[下一步：方案]** 。
 
-1. 按一下 [**提供詳細資料**]
+7. 按一下 [**提供詳細資料**]。
 
     ![問題詳細資料](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
-8. 選擇**SQL Database 配額類型**：**其他配額要求**
+8. 選擇**SQL Database 配額類型**：**其他配額要求**。
 
 9. 填寫下列範本：
 
@@ -227,11 +227,11 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
     > 估計的 TB 數 
     >
 
-10. 選擇 [嚴重性 C]
+10. 選擇 [**嚴重性 C**]。
 
 11. 選擇適當的 [連絡人] 方法，並填寫詳細資料。
 
-12. 按一下 [**儲存**並**繼續**]
+12. 按一下 [**儲存**並**繼續**]。
 
 ## <a name="known-limitations"></a>已知限制
 這些是超大規模資料庫服務層級目前對正式推出的限制。  我們正努力盡可能移除這些限制。
@@ -240,7 +240,7 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
 | :---- | :--------- |
 | 邏輯伺服器的 [管理備份] 窗格不會顯示超大規模資料庫資料庫將會從 SQL server 篩選  | 超大規模資料庫有不同的管理備份方法，因此長期保留和時間點備份保留設定不會套用/失效。 據此，超大規模資料庫不會出現在 [管理備份] 窗格中。 |
 | 時間點還原 | 一旦將資料庫移轉至超大規模資料庫服務層級之後，就不支援在遷移之前還原至時間點。|
-| 將非超大規模資料庫 DB 還原至 Hypserscale，反之亦然 | 您無法將超大規模資料庫資料庫還原至非超大規模資料庫資料庫，也不能將非超大規模資料庫資料庫還原至超大規模資料庫資料庫。|
+| 將非超大規模資料庫 DB 還原至超大規模資料庫，反之亦然 | 您無法將超大規模資料庫資料庫還原至非超大規模資料庫資料庫，也不能將非超大規模資料庫資料庫還原至超大規模資料庫資料庫。|
 | 如果資料庫的一個或多個資料檔案大於 1 TB，則遷移會失敗 | 在某些情況下，您可以將大型檔案壓縮為小於 1 TB，藉此解決此問題。 如果在遷移程式期間遷移正在使用的資料庫，請確定沒有任何檔案大於 1 TB。 使用下列查詢來判斷資料庫檔案的大小。 `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | 受控執行個體 | 超大規模資料庫資料庫目前不支援 Azure SQL Database 受控執行個體。 |
 | 彈性集區 |  SQL Database 超大規模資料庫目前不支援彈性集區。|
@@ -251,7 +251,8 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
 | 資料庫複製 | 您還不能在 Azure SQL 超大規模資料庫中使用資料庫複製來建立新的資料庫。 |
 | TDE/AKV 整合 | Azure SQL Database 超大規模資料庫尚不支援使用 Azure Key Vault （通常稱為自備金鑰或 BYOK）的透明資料庫加密，不過，已完全支援具有服務管理金鑰的 TDE。 |
 |智慧型資料庫功能 | 除了 [強制計畫] 選項之外，超大規模資料庫上還不支援所有其他自動調整選項：選項可能會顯示為已啟用，但不會有任何建議或動作。 |
-| 壓縮資料庫 | Azure SQL 超大規模資料庫資料庫目前不支援 DBCC SHRINKDATABASE 或 DBCC SHRINKFILE。 |
+| 壓縮資料庫 | 超大規模資料庫資料庫目前不支援 DBCC SHRINKDATABASE 或 DBCC SHRINKFILE。 |
+| 資料庫完整性檢查 | 超大規模資料庫資料庫目前不支援 DBCC CHECKDB。 如需 Azure SQL Database 中資料完整性管理的詳細資訊，請參閱[Azure SQL Database 中的資料完整性](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)。 |
 
 ## <a name="next-steps"></a>後續步驟
 

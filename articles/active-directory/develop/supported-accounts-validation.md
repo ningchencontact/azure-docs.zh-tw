@@ -1,5 +1,5 @@
 ---
-title: 依支援的帳戶類型（SignInAudience）的驗證差異-Microsoft 身分識別平臺/Azure Active Directory
+title: 依帳戶類型的驗證差異-Microsoft 身分識別平臺 |Azure
 description: 瞭解使用 Microsoft 身分識別平臺註冊應用程式時，不同支援的帳戶類型之各種屬性的驗證差異。
 author: SureshJa
 ms.author: sureshja
@@ -11,16 +11,16 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bea6e3ea93e8b630970a8d86fc246eddaf3f56c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 576adc99ef7d794f50efeb61375f3e59f8815033
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392601"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919353"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>依支援的帳戶類型（signInAudience）的驗證差異
 
-向開發人員的 Microsoft 身分識別平臺註冊應用程式時，系統會要求您選取應用程式支援的帳戶類型。 在應用程式物件和資訊清單中，此屬性為 `signInAudience`。
+向開發人員的 Microsoft 身分識別平臺註冊應用程式時，系統會要求您選取應用程式支援的帳戶類型。 在應用程式物件和資訊清單中，這個屬性是 `signInAudience`。
 
 選項包括：
 

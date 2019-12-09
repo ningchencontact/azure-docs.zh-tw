@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: 6e301cf8e24ba740b56c63d7f95b50617ba25383
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 27c83bffe40fd80f87542ee4486ef90e684bd5a6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792702"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931859"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>透過使用整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
 
@@ -200,7 +200,7 @@ ISE 已增加執行持續時間、儲存體保留期、輸送量、HTTP 要求�
 
    ![驗證成功之後，選擇 [建立]](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
-   Azure 會開始部署您的環境，但此程序「可能」需要長達兩小時的時間才能完成。 若要檢查部署狀態，請在 Azure 工具列上選擇通知圖示，這會開啟 [通知] 窗格。
+   Azure 會開始部署您的環境，這通常會在兩個小時內完成。 有時候，部署可能需要多達四小時。 若要檢查部署狀態，請在 Azure 工具列上選擇通知圖示，這會開啟 [通知] 窗格。
 
    ![檢查部署狀態](./media/connect-virtual-network-vnet-isolated-environment/environment-deployment-status.png)
 
