@@ -1,29 +1,25 @@
 ---
-title: 互動式要求中的提示行為（適用于 JavaScript 的 Microsoft 驗證程式庫）
+title: 互動式要求提示行為（MSAL .js） |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解如何使用適用于 JavaScript 的 Microsoft 驗證程式庫（MSAL），在互動式呼叫中自訂提示行為。
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42d6c4415a3eeb28c999d95b838c6dd7c0f6e606
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6654b523cef4623a55bf9f857fd5a723fae2dc47
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803023"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921958"
 ---
 # <a name="prompt-behavior-in-msaljs-interactive-requests"></a>MSAL 中的提示行為互動式要求
 

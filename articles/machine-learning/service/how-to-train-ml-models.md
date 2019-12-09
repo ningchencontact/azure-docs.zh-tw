@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9bb22a564f52dfcdb3fbec6d842e452ca416059f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ce1076446fb704bb64bac98c7afe53e63d3b3450
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961704"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912417"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>藉由估算器使用 Azure Machine Learning 將模型定型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "73961704"
 
 此文章的重點在於步驟 4-5。 針對步驟 1-3，請參閱[模型定型教學課程](tutorial-train-models-with-aml.md)以取得範例。
 
-### <a name="single-node-training"></a>單一節點定型
+### <a name="single-node-training"></a>單一節點訓練
 
 使用 `Estimator` 在 Azure 中遠端計算上針對 scikit-learn 模型執行單一節點定型。 您應該已經建立[計算目標](how-to-set-up-training-targets.md#amlcompute)物件 `compute_target` 與[資料存放區](how-to-access-data.md)物件 `ds`。
 
@@ -68,7 +68,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 此函式具有另一個稱為 `pip_packages` 的參數，您可用於所需的任何 pip 套件。
 
-您現在已建立 `Estimator` 物件，請透過在您的 `submit`Experiment[ 物件 ](concept-azure-machine-learning-architecture.md#experiments) 上呼叫 `experiment` 函式，提交要在遠端計算上執行的定型作業。 
+您現在已建立 `Estimator` 物件，請透過在您的 [Experiment](concept-azure-machine-learning-architecture.md#experiments) 物件 `experiment` 上呼叫 `submit` 函式，提交要在遠端計算上執行的定型作業。 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -122,6 +122,16 @@ estimator = Estimator(source_directory='./my-keras-proj',
 ```Python
 run = experiment.submit(estimator)
 print(run.get_portal_url())
+```
+
+## <a name="registering-a-model"></a>註冊模型
+
+定型模型之後，您可以將它儲存並註冊到您的工作區。 模型註冊可讓您在工作區中儲存模型並為其建立版本，以簡化[模型管理和部署](concept-model-management-and-deployment.md)。
+
+執行下列程式碼將會向您的工作區註冊模型，並讓它可在遠端計算內容或部署腳本中依名稱參考。 如需詳細資訊和其他參數，請參閱參考檔中的[`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) 。
+
+```python
+model = run.register_model(model_name='sklearn-sample')
 ```
 
 ## <a name="github-tracking-and-integration"></a>GitHub 追蹤與整合

@@ -1,6 +1,6 @@
 ---
-title: 呼叫 web Api 的傳統型應用程式（程式碼設定）-Microsoft 身分識別平臺
-description: 瞭解如何建立桌面應用程式來呼叫 web Api （應用程式的程式碼設定）
+title: 設定呼叫 web Api 的傳統型應用程式-Microsoft 身分識別平臺 |Azure
+description: 瞭解如何設定呼叫 web Api 的傳統型應用程式代碼
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6baf7d21748b5b524745f26302e70612dab29a8d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 0d31a70ebc63a5e9a16e0da00623bd5855f0a7d1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175428"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920254"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>呼叫 web Api 的桌面應用程式-程式碼設定
 

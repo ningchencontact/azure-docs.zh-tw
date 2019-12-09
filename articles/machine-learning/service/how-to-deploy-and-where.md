@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 63d2aa5c9e4ec751d9b95ba0d884e6dc17e207bb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bb86d551d83668a3558cf63827a64a481cf87e02
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276798"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926976"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 部署模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "74276798"
 
 如需部署工作流程中相關概念的詳細資訊，請參閱[使用 Azure Machine Learning 來管理、部署和監視模型](concept-model-management-and-deployment.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - Azure Machine Learning 工作區。 如需詳細資訊，請參閱[建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。
 
@@ -40,7 +40,7 @@ ms.locfileid: "74276798"
 
 - [Machine Learning 服務的 Azure CLI 擴充](reference-azure-machine-learning-cli.md)功能、[適用于 PYTHON 的 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)，或[Azure Machine Learning Visual Studio Code 延伸](how-to-vscode-tools.md)模組。
 
-## <a name="connect-to-your-workspace"></a>連接到您的工作區
+## <a name="connect-to-your-workspace"></a>連線到您的工作區
 
 下列程式碼示範如何使用快取至本機開發環境的資訊，連接到 Azure Machine Learning 的工作區：
 
@@ -208,7 +208,7 @@ AZUREML_MODEL_DIR 是在服務部署期間建立的環境變數。 您可以使�
 
 下表描述 AZUREML_MODEL_DIR 的值，視部署的模型數目而定：
 
-| 部署 | 環境變數值 |
+| Deployment | 環境變數值 |
 | ----- | ----- |
 | 單一模型 | 包含模型的資料夾路徑。 |
 | 多個模型 | 包含所有模型之資料夾的路徑。 模型是以名稱和版本在此資料夾中找到（`$MODEL_NAME/$VERSION`） |
@@ -417,7 +417,7 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> `AMLRequest` 類別是在 `azureml.contrib` 命名空間中。 當我們改善服務時，此命名空間中的實體會經常變更。 此命名空間中的任何專案都應視為不受 Microsoft 完全支援的預覽。
+> `AMLRequest` 類別位於 `azureml.contrib` 命名空間中。 當我們改善服務時，此命名空間中的實體會經常變更。 此命名空間中的任何專案都應視為不受 Microsoft 完全支援的預覽。
 >
 > 如果您需要在本機開發環境中測試此項，您可以使用下列命令來安裝元件：
 >
@@ -463,7 +463,7 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> `AMLResponse` 類別是在 `azureml.contrib` 命名空間中。 當我們改善服務時，此命名空間中的實體會經常變更。 此命名空間中的任何專案都應視為不受 Microsoft 完全支援的預覽。
+> `AMLResponse` 類別位於 `azureml.contrib` 命名空間中。 當我們改善服務時，此命名空間中的實體會經常變更。 此命名空間中的任何專案都應視為不受 Microsoft 完全支援的預覽。
 >
 > 如果您需要在本機開發環境中測試此項，您可以使用下列命令來安裝元件：
 >
@@ -530,8 +530,8 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 | 計算目標 | 部署設定範例 |
 | ----- | ----- |
-| 本機 | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
-| Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+| 地方 | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Azure 容器執行個體 | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 本機、Azure 容器實例和 AKS web 服務的類別可以從 `azureml.core.webservice`匯入：
@@ -852,7 +852,7 @@ Azure Machine Learning 計算目標是由 Azure Machine Learning 建立和管理
 ## <a name="download-a-model"></a>下載模型
 如果您想要下載您的模型以在自己的執行環境中使用，您可以使用下列 SDK/CLI 命令來執行此動作：
 
-SDK
+SDK：
 ```python
 model_path = Model(ws,'mymodel').download()
 ```
@@ -867,6 +867,9 @@ az ml model download --model-id mymodel:1 --target-dir model_folder
 無程式碼模型部署目前為預覽狀態，並支援下列機器學習架構：
 
 ### <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel 格式
+Tensorflow 模型必須以**SavedModel 格式**註冊，才能與無程式碼模型部署搭配使用。
+
+如需如何建立 SavedModel 的相關資訊，請參閱[此連結](https://www.tensorflow.org/guide/saved_model)。
 
 ```python
 from azureml.core import Model
@@ -902,7 +905,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-### <a name="scikit-learn-models"></a>Scikit-learn-學習模型
+### <a name="scikit-learn-models"></a>Scikit-learn 模型
 
 所有內建的 scikit-learn-學習模型類型都不支援任何程式碼模型部署。
 
@@ -961,9 +964,9 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-建立封裝之後，您可以使用 `package.pull()` 將映射提取到您的本機 Docker 環境。 此命令的輸出會顯示映射的名稱。 例如︰ 
+建立封裝之後，您可以使用 `package.pull()` 將映射提取到您的本機 Docker 環境。 此命令的輸出會顯示映射的名稱。 例如： 
 
-`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`。 
+`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`答案中所述步驟，工作帳戶即會啟用。 
 
 下載模型之後，請使用 `docker images` 命令來列出本機映射：
 

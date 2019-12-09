@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/8/2019
+ms.date: 12/6/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 633465e9123d679b1aa0e7f7ad048b17c18f2acb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8caa66801dda223681c38e966ba3d08b1b0c5921
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771031"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931071"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 檔案同步代理程式的版本資訊
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 您的 Windows Server 安裝會轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料 (包括 SMB、NFS 和 FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
@@ -26,7 +26,7 @@ Azure 檔案同步代理程式支援下列版本：
 | 里程碑 | 代理程式版本號碼 | 發行日期 | 狀態 |
 |----|----------------------|--------------|------------------|
 | V9 版本- [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2019年12月2日 | 支援-試驗 |
-| V8 版本- [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 2019年10月8日 | 支援的 |
+| V8 版本- [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 2019 年 10 月 8 日 | 支援的 |
 | 2019年7月更新彙總套件- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 2019 年 7 月 24 日 | 支援的 |
 | 2019年7月更新彙總套件- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 2019年7月12日 | 支援的 |
 | V7 版本- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 2019年6月19日 | 支援的 |
@@ -77,7 +77,8 @@ Azure 檔案同步代理程式支援下列版本：
     - 減少召回失敗。 重新叫用大小現在會根據網路頻寬自動調整。 
     - 改善將新的伺服器加入至同步處理群組時的下載效能。 
     - 減少因為條件約束衝突而無法同步的檔案。 
-
+    - 如果伺服器端點路徑是磁片區掛接點，檔案就無法層級，或在某些情況下會意外重新叫用。
+    
 ### <a name="evaluation-tool"></a>評估工具
 在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 Azure PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或不支援的 OS 版本。 關於安裝和使用方式指示，請參閱規劃指南中[評估工具](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)小節。 
 

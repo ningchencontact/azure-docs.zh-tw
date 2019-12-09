@@ -4,19 +4,17 @@ description: 瞭解如何將 SQL Database 的 audit 記錄結構化。
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 3b7a3c295d2edd60c70f47ea155a5d747a3bfb03
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 5bd3a3ae5ab95076129e2565a578bdc6ac0e1e38
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873755"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928626"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database Audit 記錄格式
 
@@ -32,16 +30,16 @@ ms.locfileid: "74873755"
 
     Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
 
-[唯讀複本](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out)Audit 記錄檔會儲存在相同的容器中。 容器內的目錄階層的格式為 `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`。 Blob 檔案名會共用相同的格式。 唯讀複本的 Audit 記錄會儲存在相同的容器中。
+[唯讀複本](sql-database-read-scale-out.md)Audit 記錄檔會儲存在相同的容器中。 容器內的目錄階層的格式為 `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`。 Blob 檔案名會共用相同的格式。 唯讀複本的 Audit 記錄會儲存在相同的容器中。
 
 
 ### <a name="event-hub"></a>Event Hub
 
-Audit 事件會寫入至在審核設定期間定義的命名空間和事件中樞，並在[Apache Avro](https://avro.apache.org/)事件的主體中加以捕獲，並使用具有 utf-8 編碼的 JSON 格式加以儲存。 若要讀取稽核記錄，您可以使用 [Avro Tools](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) 或類似工具來處理這種格式。
+Audit 事件會寫入至在審核設定期間定義的命名空間和事件中樞，並在[Apache Avro](https://avro.apache.org/)事件的主體中加以捕獲，並使用具有 utf-8 編碼的 JSON 格式加以儲存。 若要讀取稽核記錄，您可以使用 [Avro Tools](../event-hubs/event-hubs-capture-overview.md#use-avro-tools) 或類似工具來處理這種格式。
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Audit 事件會寫入至在審核設定期間定義的 Log Analytics 工作區，以及類別 `SQLSecurityAuditEvents`的 `AzureDiagnostics` 資料表。 如需 Log Analytics 搜尋語言和命令的其他實用資訊，請參閱 [Log Analytics 搜尋參考](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search)。
+Audit 事件會寫入至在審核設定期間定義的 Log Analytics 工作區，以及類別 `SQLSecurityAuditEvents`的 `AzureDiagnostics` 資料表。 如需 Log Analytics 搜尋語言和命令的其他實用資訊，請參閱 [Log Analytics 搜尋參考](../log-analytics/log-analytics-log-search.md)。
 
 ## <a id="subheading-1"></a>Audit 記錄欄位
 

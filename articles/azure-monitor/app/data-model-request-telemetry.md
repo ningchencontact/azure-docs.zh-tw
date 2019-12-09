@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights 遙測資料模型 - 要求遙測 | Microsoft Docs
+title: 要求遙測資料模型-Azure 應用程式深入解析
 description: 要求遙測的 Application Insights 資料模型
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: ff7b52cbd88e4927db275dee4d7fbc4691ad076b
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: b253a95a39f118efe82e36ac7261a4d6c62a99d6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677334"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928844"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>要求遙測：Application Insights 資料模型
 

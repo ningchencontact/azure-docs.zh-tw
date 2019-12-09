@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: b01370bb8c86da07549775ec1a1399e09c80f9af
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0a57e87cc408d111893cbb2beaf4fc5afee2eca2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534258"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930776"
 ---
 # <a name="use-java-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>在 Azure Data Lake Storage Gen2 中使用 JAVA for files & Acl （預覽）
 
@@ -32,17 +32,9 @@ ms.locfileid: "74534258"
 
 ## <a name="set-up-your-project"></a>設定專案
 
-若要開始使用，請在文字編輯器中開啟*pom*檔案。 將下列相依性元素加入至相依性群組。
+若要開始使用，請開啟[此頁面](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)，並尋找最新版本的 JAVA 程式庫。 然後，在文字編輯器中開啟*pom*檔案。 加入參考該版本的 dependency 元素。
 
-```xml
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-file-datalake</artifactId>
-  <version>12.0.0-preview.6</version>
-</dependency>
-```
-
-然後，將這些 imports 語句加入至您的程式碼檔案。
+接下來，將這些 imports 語句加入至您的程式碼檔案。
 
 ```java
 import com.azure.storage.common.StorageSharedKeyCredential;
@@ -116,7 +108,7 @@ static public DataLakeDirectoryClient CreateDirectory
 }
 ```
 
-## <a name="rename-or-move-a-directory"></a>重新命名或移動目錄
+## <a name="rename-or-move-a-directory"></a>重新命名目錄或移動目錄
 
 藉由呼叫 DataLakeDirectoryClient 重新命名或移動目錄 **。** 傳遞所需目錄的路徑 a 參數。 
 

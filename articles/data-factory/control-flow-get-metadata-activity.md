@@ -4,21 +4,20 @@ description: 瞭解如何在 Data Factory 管線中使用取得中繼資料活�
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: ''
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: c62a7de1f16a3d7d286f48500117c256804c0f24
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9985997ff4bef727676232705297379ccfc179c5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546936"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928571"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>取得 Azure Data Factory 中的中繼資料活動
 

@@ -1,27 +1,23 @@
 ---
-title: Azure AD Connect 同步：在 Azure AD Connect 同步中進行組態變更 | Microsoft Docs
+title: Azure AD Connect 同步：在 Azure AD Connect 同步中進行設定變更
 description: 逐步解說如何對 Azure AD Connect 同步處理中的組態進行變更。
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: daveba
-editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7600bffd8d00caa6e9b5fdda03aefe429d4788b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842572"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919064"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 同步處理：變更預設組態
 本文的目的是要引導您瞭解如何變更 Azure Active Directory （Azure AD） Connect 同步處理中的預設設定。它提供一些常見案例的步驟。 具備此知識，您應該能夠根據自己的商務規則對自己的組態進行簡單的變更。
@@ -204,7 +200,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 - Azure AD 只接受兩個 UserType 屬性值：**Member** 和 **Guest**。
 - 如果 Azure AD Connect 未啟用 UserType 屬性的同步處理，透過目錄同步處理所建立的 Azure AD 使用者就會將 UserType 屬性設定為 **Member**。
-- Azure AD 不允許 Azure AD Connect 變更現有 Azure AD 使用者的 UserType 屬性。 只能在建立 Azure AD 使用者時設定，並透過[Powershell 變更](https://docs.microsoft.com/en-us/powershell/module/azuread/set-azureaduser?view=azureadps-2.0)。
+- Azure AD 不允許 Azure AD Connect 變更現有 Azure AD 使用者的 UserType 屬性。 只能在建立 Azure AD 使用者時設定，並透過[Powershell 變更](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0)。
 
 在啟用 UserType 屬性的同步處理之前，您必須先決定要如何從內部部署 Active Directory 衍生此屬性。 以下是最常見的方法：
 

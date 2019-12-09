@@ -6,61 +6,61 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/07/2019
-ms.openlocfilehash: 88634777897341f4bd4d8c12b5f9d3b6d9982758
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.date: 12/05/2019
+ms.openlocfilehash: ec0580d3360a56fc6b779b8c0a69eb2a09b007db
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671539"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928933"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>適用於 VM 的 Azure 監視器正式推出（GA）的常見問題
 
-我們最近在[Azure 更新](https://azure.microsoft.com/blog/)的 blog 中宣佈了一些預計會在2019年10月和11月發生的變更。 如需這些變更的詳細資訊，請閱讀此一般可用性常見問題。
+此公開上市常見問題涵蓋在我們為 GA 版本做準備時適用於 VM 的 Azure 監視器中發生的變更。 
 
 ## <a name="updates-for-azure-monitor-for-vms"></a>適用於 VM 的 Azure 監視器的更新
 
-我們將于11月發行新版本的適用於 VM 的 Azure 監視器。 在此版本後啟用適用于 Vm 的 Azure 監視器的客戶會自動收到新版本，但已使用適用於 VM 的 Azure 監視器的現有客戶會接到升級提示。  如果您在多個工作區中有大型部署，此常見問題和我們的檔會提供執行大量升級的指導方針。
+我們打算在2020年1月發行新版本的適用於 VM 的 Azure 監視器。 在此版本後啟用適用于 Vm 的 Azure 監視器的客戶會自動收到新版本，但已使用適用於 VM 的 Azure 監視器的現有客戶將會收到升級的提示。 如果您在多個工作區中有大型部署，此常見問題和我們的檔會提供執行大規模升級的指引。
 
-透過這項升級，適用於 VM 的 Azure 監視器的效能資料集會儲存在與[容器 Azure 監視器](container-insights-overview.md)相同的 `InsightsMetrics` 資料表中，讓您更輕鬆地查詢這兩個資料集。 此外，您也可以儲存我們先前使用的資料表中無法儲存的更多樣化資料集。  我們的效能檢視也會更新為使用這個新資料表。
+進行這項升級時，適用於 VM 的 Azure 監視器效能資料會儲存在與[容器 Azure 監視器](container-insights-overview.md)相同的 `InsightsMetrics` 資料表中，讓您更輕鬆地查詢這兩個資料集。 此外，您也可以儲存我們無法在先前使用的資料表中儲存的更多樣化資料集。 我們的效能檢視也會更新為使用這個新資料表。
 
-我們即將移至串連資料組的新資料類型。 目前儲存在 `ServiceMapComputer_CL` 和 `ServiceMapProcess_CL`（使用自訂記錄資料表）中的資料將會移至名為 `VMComputer` 的專用資料類型和 `VMProcess`。  藉由移至專用的資料類型，我們可以為資料內嵌提供這些優先權，而資料表架構將會跨所有客戶進行標準化。
+我們即將移至串連資料組的新資料類型。 這項變更將于2019年12月發生，並會在 Azure 更新 blog 中宣佈。 目前儲存在 `ServiceMapComputer_CL` 和 `ServiceMapProcess_CL`（也就是自訂記錄資料表）中的資料將會移至名為 `VMComputer` 的專用資料類型和 `VMProcess`。 藉由移至專用的資料類型，它們會獲得資料內嵌的優先順序，而資料表架構將會在所有客戶上標準化。
 
-我們了解要求現有的客戶進行升級會中斷他們的工作流程，這正是我們決定在目前的公開預覽如此做，而不等到 GA 才做的原因。
+我們發現，詢問現有客戶的升級會導致工作流程中斷，這就是為什麼我們在公開預覽期間選擇立即執行此動作，而不是在 GA 之後才進行。
 
-## <a name="what-will-change"></a>會變更哪些功能？
+## <a name="what-is-changing"></a>變更內容為何？
 
-目前當您完成適用於 VM 的 Azure 監視器的上架程式時，會在您選取用來儲存監視資料的工作區上啟用服務對應解決方案，然後為我們從您的 Vm 收集的資料設定效能計數器。 在未來幾周，我們將發行名為**VMInsights**的新解決方案，其中包含資料收集的額外功能，以及將此資料儲存在 Log Analytics 中的新位置。
+目前當您完成適用於 VM 的 Azure 監視器的上架程式時，您會在您選取用來儲存監視資料的工作區中啟用服務對應解決方案，然後為我們從您的 Vm 收集的資料設定效能計數器。 我們將發行名為**VMInsights**的新解決方案，其中包含資料收集的額外功能，以及將此資料儲存在 Log Analytics 工作區中的新位置。
 
-目前在您的工作區中使用效能計數器的程式會將資料傳送至 Log Analytics 中的 Perf 資料表。  這個新的解決方案會將資料傳送至名為 `InsightsMetrics` 的資料表，也就是用於容器的 Azure 監視器。 這個資料表架構可讓我們儲存與 Perf 資料表格式不相容的其他計量和服務資料集。
+我們目前在 Log Analytics 工作區中使用效能計數器的程式會將資料傳送至 `Perf` 資料表。 這個新的解決方案會將資料傳送至名為 `InsightsMetrics` 的資料表，也就是用於容器的 Azure 監視器。 這個資料表架構可讓我們儲存與 Perf 資料表格式不相容的其他計量和服務資料集。
 
-## <a name="what-should-i-do-about-the-performance-counters-on-my-workspace-if-i-install-the-vminsights-solution"></a>如果我安裝 VMInsights 解決方案，我應該如何處理我的工作區上的效能計數器？
+## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>如果我安裝 VMInsights 解決方案，我應該如何處理 [我的工作區] 中的效能計數器？
 
 目前啟用適用於 VM 的 Azure 監視器的方法會使用您工作區中的效能計數器。 新的方法會將這項資料儲存在名為 `InsightsMetrics`的新資料表中。
 
-當我們更新使用者介面以使用 InsightsMetrics 中的資料之後，我們將會更新檔，並透過多個管道來傳達此公告，包括在 Azure 入口網站中顯示橫幅。 此時，如果您不想再使用它們，您可以選擇停用工作區中的這些[效能計數器](vminsights-enable-overview.md#performance-counters-enabled)。 
+當我們更新使用者介面以使用 `InsightsMetrics` 資料表中的資料之後，我們將會更新檔，並透過多個管道來傳達此公告，包括在 Azure 入口網站中顯示橫幅。 此時，如果您不再需要使用這些[效能計數器](vminsights-enable-overview.md#performance-counters-enabled)，您可以選擇在工作區中停用它們。 
 
 >[!NOTE]
->如果您有在 Perf 資料表中參考這些計數器的警示規則，您必須更新它們，以參考 `InsightsMetrics` 資料表中的新資料。  請參閱我們的檔，以取得您可以用來參考此資料表的範例記錄查詢。
+>如果您有在 `Perf` 資料表中參考這些計數器的警示規則，您必須更新它們，以參考 `InsightsMetrics` 資料表中所儲存的新資料。 請參閱我們的檔，以取得您可以用來參考此資料表的範例記錄查詢。
 >
 
-如果您決定讓效能計數器保持啟用狀態，系統就會向您收取資料內嵌的費用，並根據 [Log Analytics 定價 [（ https://azure.microsoft.com/pricing/details/monitor/) ] 保留到 Perf 資料表。
+如果您決定讓效能計數器保持啟用狀態，系統就會根據 [Log Analytics 定價 [（ https://azure.microsoft.com/pricing/details/monitor/) ，向您收取資料內嵌並儲存在 `Perf` 資料表中的費用。
 
 ## <a name="how-will-this-change-affect-my-alert-rules"></a>這種變更會如何影響我的警示規則？
 
-如果您已建立[記錄警示](../platform/alerts-unified-log.md)來查詢以工作區上啟用之效能計數器為目標的 `Perf` 資料表，您應該更新這些規則，改為參考 `InsightsMetrics` 資料表。 本指南也適用于使用 `ServiceMapComputer_CL` 和 `ServiceMapProcess_CL`的任何記錄搜尋規則，因為這些資料集會移至 `VMComputer` 和 `VMProcess` 資料表。
+如果您已建立[記錄警示](../platform/alerts-unified-log.md)來查詢以工作區中啟用之效能計數器為目標的 `Perf` 資料表，您應該更新這些規則，改為參考 `InsightsMetrics` 資料表。 本指南也適用于使用 `ServiceMapComputer_CL` 和 `ServiceMapProcess_CL`的任何記錄搜尋規則，因為這些資料集會移至 `VMComputer` 和 `VMProcess` 資料表。
 
 我們將更新此常見問題和我們的檔，以包含我們所收集之資料集的範例記錄搜尋警示規則。
 
-## <a name="will-there-be-any-changes-to-billing"></a>帳單會有任何變更嗎？
+## <a name="how-will-this-affect-my-bill"></a>這對我的帳單有何影響？
 
 計費仍然是以資料內嵌為基礎，並保留在您的 Log Analytics 工作區中。
 
-我們所收集的機器層級效能資料是相同的，其大小與我們儲存在效能資料表中的資料相似，而且會以大約相同的金額計算成本。
+我們所收集的機器層級效能資料是相同的，其大小與我們儲存在 `Perf` 資料表中的資料相似，而且會以大約相同的金額計算成本。
 
 ## <a name="what-if-i-only-want-to-use-service-map"></a>如果我只想要使用服務對應，該怎麼做？
 
-沒問題。  您會在觀看即將進行之更新的適用於 VM 的 Azure 監視器時，看到 Azure 入口網站中的提示。 發行之後，您會收到要求您更新至新版本的提示。 如果您只想要使用[maps](vminsights-maps.md)功能，則可以選擇不升級並繼續使用 maps 功能適用於 VM 的 Azure 監視器以及從工作區或儀表板磚存取的服務對應解決方案。
+沒問題。 您會在觀看即將進行之更新的適用於 VM 的 Azure 監視器時，看到 Azure 入口網站中的提示。 發行後，您會收到要求您更新至新版本的提示。 如果您只想要使用[Maps](vminsights-maps.md)功能，可以選擇不要升級並繼續使用適用於 VM 的 Azure 監視器中的 Maps 功能，以及從您的工作區或儀表板磚存取的服務對應解決方案。
 
 如果您選擇在工作區中手動啟用效能計數器，則可以在從 Azure 監視器查看的一些效能圖表中看到資料。 發行新的解決方案之後，我們會更新效能圖表來查詢儲存在 `InsightsMetrics` 資料表中的資料。 如果您想要在這些圖表中查看來自該資料表的資料，您將需要升級至新版的適用於 VM 的 Azure 監視器。
 
@@ -72,45 +72,39 @@ ms.locfileid: "74671539"
 
 如果您同時使用這兩種方案，資料集會不會重複。 這兩個供應專案都會共用將儲存在 `VMComputer` （先前稱為 ServiceMapComputer_CL）、`VMProcess` （先前稱為 ServiceMapProcess_CL）、`VMConnection`和 `VMBoundPort` 資料表中的資料集，以儲存我們所收集的對應資料集。  
 
-`InsightsMetrics` 資料表將用來儲存我們所收集的 VM、進程和服務資料集，而且只有在您使用適用於 VM 的 Azure 監視器時才會填入。
+`InsightsMetrics` 資料表會儲存我們所收集的 VM、進程和服務資料集，而且只有在您使用適用於 VM 的 Azure 監視器和 VM Insights 解決方案時，才會填入。 服務對應方案不會收集或或儲存 `InsightsMetrics` 資料表中的資料。
 
-## <a name="will-i-be-double-charged-if-i-have-the-service-map-and-vminsights-solutions-on-my-workspace"></a>如果我的工作區上有服務對應和 VMInsights 解決方案，會有雙重費用嗎？
+## <a name="will-i-be-double-charged-if-i-have-the-service-map-and-vminsights-solutions-in-my-workspace"></a>如果我的工作區中有服務對應和 VMInsights 解決方案，是否要向我收取雙重費用？
 
-否，這兩個解決方案會共用我們儲存在 `VMComputer` （之前稱為 ServiceMapComputer_CL）、`VMProcess` （先前稱為 ServiceMapProcess_CL）、`VMConnection`和 `VMBoundPort`的對應資料集。  如果您的工作區中有這兩個解決方案，則不會對此資料有雙重費用。
+否，這兩個解決方案會共用我們儲存在 `VMComputer` （之前稱為 ServiceMapComputer_CL）、`VMProcess` （先前稱為 ServiceMapProcess_CL）、`VMConnection`和 `VMBoundPort`的對應資料集。 如果您的工作區中有這兩個解決方案，則不會對此資料有雙重費用。
 
-## <a name="if-i-remove-either-the-service-map-or-vminsights-solution-will-it-remove-my-data-in-log-analytics"></a>如果我移除服務對應或 VMInsights 解決方案，將會移除 Log Analytics 中的資料嗎？
+## <a name="if-i-remove-either-the-service-map-or-vminsights-solution-will-it-remove-my-data"></a>如果我移除服務對應或 VMInsights 解決方案，將會移除我的資料嗎？
 
-否，這兩個解決方案會共用我們儲存在 `VMComputer` （之前稱為 ServiceMapComputer_CL）、`VMProcess` （先前稱為 ServiceMapProcess_CL）、`VMConnection`和 `VMBoundPort`的對應資料集。  如果您移除其中一個解決方案，這些資料集會發現仍有使用該資料的解決方案，而且它會保留在 Log Analytics 中。  您必須從工作區中移除這兩個解決方案，才能從 Log Analytics 工作區中移除資料。
+否，這兩個解決方案會共用我們儲存在 `VMComputer` （之前稱為 ServiceMapComputer_CL）、`VMProcess` （先前稱為 ServiceMapProcess_CL）、`VMConnection`和 `VMBoundPort`的對應資料集。 如果您移除其中一個解決方案，這些資料集會發現仍有使用該資料的解決方案，而且它會保留在 Log Analytics 工作區中。 您必須從工作區中移除這兩個解決方案，才能將資料從其中移除。
 
 ## <a name="when-will-this-update-be-released"></a>何時會發行此更新？
 
-我們預計會在11月中發行適用於 VM 的 Azure 監視器的更新。 當我們更接近發行日期時，我們會在這裡張貼更新，並在您流覽至 Azure 監視器時，于 Azure 入口網站中顯示通知。
+我們預計會在2020年1月年初發行適用於 VM 的 Azure 監視器的更新。 當我們更接近1月的發行日期時，我們會在此發佈更新，並在您開啟 Azure 監視器時，于 Azure 入口網站中顯示通知。
 
-## <a name="health-feature-to-enter-limited-public-preview"></a>輸入有限公開預覽的健全狀況功能
+## <a name="health-feature-is-in-limited-public-preview"></a>健全狀況功能處於有限的公開預覽狀態
 
-我們已收到客戶關於 VM 健全狀況功能集的許多絕佳意見反應。  許多客戶對此功能表示有興趣，並對其可能支援監視工作流程表示興奮。 我們預計進行一系列變更來新增功能及解決我們收到的意見反應。 為了將這些變更對新客戶的影響降至最低，我們將此功能移至有限的公開預覽。
+我們已收到客戶關於 VM 健全狀況功能集的許多絕佳意見反應。 許多客戶對此功能表示有興趣，並對其可能支援監視工作流程表示興奮。 我們預計進行一系列變更來新增功能及解決我們收到的意見反應。 
 
-此轉換將于10月前開始，且應于月底結束。
+為了將這些變更對新客戶的影響降至最低，我們已將這項功能移至**有限的公開預覽版**。 此更新會在2019年10月發生。
 
-我們將著重于下列幾個部分：
-
-- 更充分掌控健全狀況模型和其臨界值
-- 以適用于 Vm 範圍的大規模健全狀況模型進行撰寫
-- 用來管理以健全狀況為基礎之警示規則的警示平臺原生使用
-- 能夠查看更廣泛範圍內的健全狀況，例如一或多個訂閱
-- 降低健全狀況轉換和警示通知的延遲
+在適用於 VM 的 Azure 監視器正式運作後，我們打算在2020中重新開機此健康情況功能。
 
 ## <a name="how-do-existing-customers-access-the-health-feature"></a>現有客戶如何存取健全狀況功能？
 
 使用健全狀況功能的現有客戶將可繼續存取它，但不會提供給新客戶。  
 
-若要存取此功能，您可以將下列功能旗標 `feature.vmhealth=true` 新增至入口網站 URL [https://portal.azure.com](https://portal.azure.com)。 範例 `https://portal.azure.com/?feature.vmhealth=true`。
+若要存取此功能，您可以將下列功能旗標 `feature.vmhealth=true` 新增至 Azure 入口網站 URL [https://portal.azure.com](https://portal.azure.com)。 範例 `https://portal.azure.com/?feature.vmhealth=true`。
 
 您也可以使用這個簡短的 url，這會自動設定功能旗標： [https://aka.ms/vmhealthpreview](https://aka.ms/vmhealthpreview)。
 
 身為現有的客戶，您可以繼續在連線到現有工作區設定的 Vm 上使用健康狀態功能。  
 
-## <a name="i-use-vm-health-now-with-one-environment-and-would-like-to-deploy-it-for-a-new-environment"></a>我現在使用 VM 健全狀況搭配一個環境，並想要針對新的環境部署它
+## <a name="i-use-vm-health-now-with-one-environment-and-would-like-to-deploy-it-to-a-new-one"></a>我現在使用 VM 健全狀況搭配一個環境，並想要將它部署到新的環境
 
 如果您是使用健康情況功能的現有客戶，而且想要將它用於新的推出，請在 vminsights@microsoft.com 洽詢以要求指示。
 

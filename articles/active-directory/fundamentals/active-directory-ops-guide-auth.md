@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 40e0ba21d472097e34938878ddc1fa0c47b30417
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 85281088692d1c4b0245eb9d069519198f8f315d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803728"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919336"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 驗證管理操作參考指南
 
@@ -292,16 +292,16 @@ Microsoft Intune 應用程式管理（MAM）可讓您將資料保護控制項（
 
 ### <a name="consent-grants"></a>同意授權
 
-在違法的同意授與攻擊中，攻擊者會建立一個 Azure AD 註冊的應用程式，以要求存取連絡人資訊、電子郵件或檔等資料。 使用者可能會透過網路釣魚攻擊將同意授與惡意應用程式，或在登陸惡意網站時，間接透過不小心的方式來授與。
+在違法的同意授與攻擊中，攻擊者會建立一個 Azure AD 註冊的應用程式，以要求存取連絡人資訊、電子郵件或檔等資料。 當登陸惡意網站時，使用者可能會透過網路釣魚攻擊，將同意授與惡意應用程式。
 
-以下是您可能想要對 Microsoft 雲端服務進行的許可權：
+以下是您可能想要對 Microsoft 雲端服務進行的許可權的應用程式清單：
 
-- 應用程式或委派的 \*。ReadWrite 許可權
+- 具有應用程式或委派 \*的應用程式。ReadWrite 許可權
 - 具有委派許可權的應用程式可以代表使用者讀取、傳送或管理電子郵件
 - 使用下列許可權授與的應用程式：
 
 | 資源 | 權限 |
-| -------------------------- | -------------------- |
+| :- | :- |
 | Office 365 Exchange Online | 符合.AccessAsUser。 |
 | | EWS.AccessAsUser。 |
 | | Mail. 讀取 |
@@ -309,11 +309,19 @@ Microsoft Intune 應用程式管理（MAM）可讓您將資料保護控制項（
 | | 郵件. 讀取。共用 |
 | | Mail. ReadWrite |
 
-若要避免這種情況，您應該參閱[在 Office 365 中偵測並補救違法的同意](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants)授與，以找出並修正具有非法授與的應用程式，或具有超出所需授權的應用程式。 排程應用程式許可權的定期檢查，並在不需要時予以移除;或完全移除自助服務，並建立治理程式。
+- 已授與完整使用者模擬登入使用者的應用程式。 例如：
+
+|資源 | 權限 |
+| :- | :- |
+| Azure AD Graph | Directory.AccessAsUser.All |
+| Microsoft Graph | Directory.AccessAsUser.All |
+| Azure REST API | user_impersonation |
+
+若要避免這種情況，您應該參閱[在 Office 365 中偵測並補救違法的同意](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants)授與，以找出並修正具有非法授與的應用程式，或具有超出所需授權的應用程式。 接下來，[完全移除自助服務](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent)，並[建立治理程式](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow)。 最後，排程應用程式許可權的定期檢查，並在不需要時予以移除。
 
 #### <a name="consent-grants-recommended-reading"></a>同意授與建議的閱讀
 
-- [Azure Active Directory （AD）圖形 API 許可權範圍](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes)
+- [Microsoft Graph 權限](https://docs.microsoft.com/graph/permissions-reference)
 
 ### <a name="user-and-group-settings"></a>使用者和群組設定
 

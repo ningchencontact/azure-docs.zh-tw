@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 4d6997475099420319c52abbbce34b2756e215ed
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 8d147248245ca06c145c68ee8ca9cfd02015aa9c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687670"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929130"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>快速入門：在 Azure SQL Database 中將 BACPAC 檔案匯入資料庫
 
@@ -43,19 +43,19 @@ ms.locfileid: "74687670"
 
 1. 若要使用 Azure 入口網站從 BACPAC 檔案匯入至單一資料庫，請開啟適當的資料庫伺服器頁面，然後在工具列上選取 [匯入資料庫]。  
 
-   ![資料庫匯入1](./media/sql-database-import/import1.png)
+   ![資料庫匯入1](./media/sql-database-import/sql-server-import-database.png)
 
 1. 選取 BACPAC 檔案的儲存體帳戶及容器，然後選取要匯入的 BACPAC 檔案。
 
 1. 指定新資料庫的大小 (通常與原始資料庫相同)，並提供目的地 SQL Server 認證。 如需新 Azure SQL 資料庫可能之值的清單，請參閱[建立資料庫](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)。
 
-   ![資料庫匯入2](./media/sql-database-import/import2.png)
+   ![資料庫匯入2](./media/sql-database-import/sql-server-import-database-settings.png)
 
 1. 按一下 [確定]。
 
 1. 若要監視匯入進度，請開啟資料庫的伺服器頁面，然後在 [設定] 下選取 [匯入/匯出記錄]。 匯入成功時，會處於 [已完成] 狀態。
 
-   ![資料庫匯入狀態](./media/sql-database-import/import-status.png)
+   ![資料庫匯入狀態](./media/sql-database-import/sql-server-import-database-history.png)
 
 1. 若要確認資料庫伺服器上的資料庫為線上狀態，請選取 [SQL 資料庫]，並確認新的資料庫為 [線上] 狀態。
 

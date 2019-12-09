@@ -4,20 +4,19 @@ description: 了解 Azure Data Factory 服務的「Web 資料表連接器」，�
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: a13f3c2d2bbebd2cd6fa95bd7aa144722447ac9d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 76f0dbb48ca5e250a383e8427ce2dd0c9dd618c9
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680051"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930939"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Web 資料表複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -30,7 +29,7 @@ ms.locfileid: "73680051"
 
 - **Web 資料表連接器**可從 HTML 網頁擷取資料表內容。
 - **REST 連接器**專門支援從 RESTful API 複製資料。
-- **HTTP 連接器**一般用來從任何 HTTP 端點擷取資料，例如下載檔案。 
+- **HTTP 連接器**可廣泛地用來從任何 HTTP 端點擷取資料，例如下載檔案。 
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -57,10 +56,10 @@ ms.locfileid: "73680051"
 
 以下是針對 Web 資料表已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 類型屬性必須設為： **Web** |是 |
-| url | Web 來源的 URL |是 |
+| URL | Web 來源的 URL |是 |
 | authenticationType | 允許的值為：**Anonymous** (匿名)。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
 
@@ -89,10 +88,10 @@ ms.locfileid: "73680051"
 
 若要從 Web 資料表複製資料，請將資料集的類型屬性設定為 **WebTable**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 資料集的類型屬性必須設定為：**WebTable** | 是 |
-| 路徑 |包含資料表之資源的相對 URL。 |不會。 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
+| path |包含資料表之資源的相對 URL。 |不會。 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
 | index |資源中資料表的索引。 如需如何取得 HTML 網頁中資料表索引的步驟，請參閱 [取得 HTML 網頁中資料表的索引](#get-index-of-a-table-in-an-html-page) 一節。 |是 |
 
 **範例：**
@@ -162,7 +161,7 @@ ms.locfileid: "73680051"
 2. 按一下工具列上的 [開新查詢]、指向 [從其他來源]，然後按一下 [從 Web]。
 
     ![Power Query 功能表](./media/copy-data-from-web-table/PowerQuery-Menu.png)
-3. 在 [從 Web] 對話方塊中，輸入您要在連結服務 JSON 中使用的 **URL** (例如： https://en.wikipedia.org/wiki/)，以及您為資料集指定的路徑 (例如：AFI%27s_100_Years...100_Movies)，然後按一下 [確定]。
+3. 在 [從 Web] 對話方塊中，輸入您要在連結服務 JSON 中使用的 **URL** (例如： https://en.wikipedia.org/wiki/) ，以及您為資料集指定的路徑 (例如：AFI%27s_100_Years...100_Movies)，然後按一下 [確定]。
 
     ![[從 Web] 對話方塊](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 

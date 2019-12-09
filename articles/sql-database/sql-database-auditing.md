@@ -4,19 +4,17 @@ description: 使用 Azure SQL 資料庫稽核來將資料庫事件追蹤至稽�
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 58a446baaf15facab3a85d4d83defdeb5e6d2ef9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f36906bfa6bbef43c0e3133bfa1e8a163810086f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851480"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928705"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
@@ -154,7 +152,7 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
 如果您選擇將稽核記錄寫入至 Azure 儲存體帳戶，您可使用數種方法來檢視記錄：
 
 > [!NOTE] 
-> [唯讀複本](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out)上的審核功能會自動啟用。 如需有關儲存體資料夾階層、命名慣例和記錄格式的進一步詳細資訊，請參閱[SQL Database Audit 記錄檔格式](sql-database-audit-log-format.md)。 
+> [唯讀複本](sql-database-read-scale-out.md)上的審核功能會自動啟用。 如需有關儲存體資料夾階層、命名慣例和記錄格式的進一步詳細資訊，請參閱[SQL Database Audit 記錄檔格式](sql-database-audit-log-format.md)。 
 
 - 稽核記錄會在您於設定期間選擇的帳戶中彙總。 您可以使用工具 (例如 [Azure 儲存體總管](https://storageexplorer.com/)) 來查看稽核記錄。 在 Azure 儲存體中，稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlogs** 的容器內。 如需有關儲存體資料夾階層、命名慣例和記錄格式的進一步詳細資訊，請參閱[SQL Database Audit 記錄檔格式](https://go.microsoft.com/fwlink/?linkid=829599)。
 

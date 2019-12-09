@@ -1,35 +1,31 @@
 ---
-title: Xamarin iOS 考慮（適用于 .NET 的 Microsoft 驗證程式庫）
+title: Xamarin iOS 考慮（MSAL.NET） |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解使用 Xamarin iOS 搭配適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）時的特定考慮。
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cc4eb0084e0606251d3fbd80d08723701c6a260
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f04074dfd9055fa4791f6fdce6bcf296aae8ff61
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175626"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921461"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>MSAL.NET 的 Xamarin iOS 特定考慮
 在 Xamarin iOS 上，當您使用 MSAL.NET 時，必須考慮幾個事項
 
 - [IOS 12 和驗證的已知問題](#known-issues-with-ios-12-and-authentication)
-- [覆寫並在 `AppDelegate`中執行 `OpenUrl` 函式](#implement-openurl)
+- [覆寫並在 `AppDelegate` 中執行 `OpenUrl` 函式](#implement-openurl)
 - [啟用 Keychain 群組](#enable-keychain-access)
 - [啟用權杖快取共用](#enable-token-cache-sharing-across-ios-applications)
 - [啟用 Keychain 存取](#enable-keychain-access)
@@ -97,7 +93,7 @@ PublicClientApplication.iOSKeychainSecurityGroup = "com.microsoft.msalrocks";
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>啟用跨 iOS 應用程式的權杖快取共用
 
-在 MSAL 2.x 中，您可以指定 Keychain 存取群組，以用於保存多個應用程式的權杖快取。 此設定可讓您在具有相同 keychain 存取群組的數個應用程式之間共用權杖快取，包括使用[ADAL.NET](https://aka.ms/adal-net)、MSAL.NET Xamarin 應用程式和使用[開發的原生 iOS 應用程式所開發的Objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc)或[MSAL. objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc)）。
+在 MSAL 2.x 中，您可以指定 Keychain 存取群組，以用於保存多個應用程式的權杖快取。 此設定可讓您在具有相同 keychain 存取群組的數個應用程式之間共用權杖快取，包括使用[ADAL.NET](https://aka.ms/adal-net)、MSAL.NET Xamarin 應用程式和使用 ADAL 開發的原生 iOS 應用程式所開發的。 [objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc)或[MSAL。](https://github.com/AzureAD/microsoft-authentication-library-for-objc)
 
 共用權杖快取可讓使用相同 Keychain 存取群組的所有應用程式之間進行單一登入。
 

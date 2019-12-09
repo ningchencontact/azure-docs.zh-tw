@@ -1,24 +1,22 @@
 ---
-title: 在 Azure Data Factory 中建立輪轉視窗觸發程式相依性
+title: 建立輪轉視窗觸發程式相依性
 description: 了解如何在 Azure Data Factory 中的輪轉視窗觸發程序上建立相依性。
 services: data-factory
-documentationcenter: ''
+ms.author: daperlov
 author: djpmsft
-manager: craigg
-editor: ''
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.author: daperlov
-ms.openlocfilehash: 3780a50429b95c402459866b7e3c87e8a91207d3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3a4d31cb6986f8fc841a6afe20388e40e9f28c9b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683697"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926683"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>建立輪轉視窗觸發程序相依性
 

@@ -1,23 +1,23 @@
 ---
-title: Azure Data Factory 中的整合執行階段
+title: 整合執行階段
 description: 了解 Azure Data Factory 中的整合執行階段。
 services: data-factory
 documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 05/31/2019
-ms.author: abnarain
-ms.openlocfilehash: 0b137edbfb5ca439d4ba15614225ec0973511763
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 40660c0397f8b7fd7c370e2e0f697cae26b9bb48
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218804"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927159"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory 中的整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可跨不同網路環境提供下列資料整合功能：
@@ -53,7 +53,7 @@ Azure 整合執行階段能夠：
 
 - 在 Azure 中執行資料流程 
 - 在雲端資料存放區之間執行複製活動
-- 在公用網路中分派下列轉換活動： Databricks 筆記本/Jar/Python 活動、HDInsight Hive 活動、HDInsight Pig 活動、HDInsight MapReduce 活動、HDInsight Spark 活動、HDInsight 串流活動、機器學習批次執行活動、Machine Learning 更新資源活動、預存程式活動、Data Lake Analytics 的 U-SQL 活動、.NET 自訂活動、Web 活動、查閱活動，以及取得中繼資料活動。
+- 在公用網路中分派下列轉換活動： Databricks 筆記本/Jar/Python 活動、HDInsight Hive 活動、HDInsight Pig 活動、HDInsight MapReduce 活動、HDInsight Spark 活動、HDInsight 串流活動、Machine Learning 批次執行活動、Machine Learning 更新資源活動、預存程式活動、Data Lake Analytics U-SQL 活動、.NET 自訂活動、Web 活動、查閱活動，以及取得中繼資料活動。
 
 ### <a name="azure-ir-network-environment"></a>Azure IR 網路環境
 Azure Integration Runtime 支援連接到資料存放區和具有公用可存取端點的計算服務。 在 Azure 虛擬網路環境中使用自我裝載整合執行階段。
@@ -105,8 +105,8 @@ Azure-SSIS IR 是一個完全受控的 Azure VM 叢集，專門用來執行您�
 
 - [教學課程：將 SSIS 套件部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 本文逐步說明如何建立 Azure-SSIS IR，並使用 Azure SQL 資料庫裝載 SSIS 目錄。 
 - [如何：建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)。 這篇文章會詳述教學課程，並提供使用 Azure SQL Database 受控執行個體，以及將 IR 加入虛擬網路的指示。 
-- [監視 Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). 這篇文章會示範如何在傳回的資訊中擷取 Azure SSIS IR 的相關資訊和狀態的描述。 
-- [管理 Azure SSIS IR](manage-azure-ssis-integration-runtime.md)。 本文示範如何停止、啟動或移除 Azure-SSIS IR。 它也會示範如何將更多節點新增至 IR，藉此相應放大 Azure-SSIS IR。 
+- [監視 Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). 本文示範如何在傳回的資訊中擷取 Azure-SSIS IR 的相關資訊和狀態描述。 
+- [管理 Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). 本文示範如何停止、啟動或移除 Azure-SSIS IR。 它也會告訴您如何將更多節點新增至 IR，藉此相應放大 Azure SSIS IR。 
 - [將 Azure-SSIS IR 加入虛擬網路](join-azure-ssis-integration-runtime-virtual-network.md)。 這篇文章提供將 Azure SSIS IR 加入至 Azure 虛擬網路的概念資訊。 它也提供使用 Azure 入口網站來設定虛擬網路，好讓 Azure SSIS IR 可加入虛擬網路的步驟。 
 
 ## <a name="integration-runtime-location"></a>整合執行階段位置
@@ -121,7 +121,7 @@ Data Factory 位置中儲存資料處理站的中繼資料，也是觸發管道�
 
 - 針對複製活動，ADF 會盡可能地自動偵測您的接收和來源資料存放區，以選擇位於相同區域中的最佳位置 (如果有的話) 或相同地理位置中最接近的位置；如果未偵測到，則使用資料處理站區域作為替代區域。
 
-- 用於查閱/GetMetadata/刪除活動執行（也稱為管線活動）、轉換活動分派（也稱為外部活動）和撰寫作業（測試連接、流覽資料夾清單和資料表清單、預覽資料）、ADF將使用 data factory 區域中的 IR。
+- 針對查閱/GetMetadata/刪除活動執行（也稱為管線活動）、轉換活動分派（也稱為外部活動）和撰寫作業（測試連線、流覽資料夾清單和資料表清單、預覽資料），ADF 會在 data factory 區域中使用 IR。
 
 - 針對資料流程，ADF 會使用 data factory 區域中的 IR。 
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: mlearned
-ms.openlocfilehash: d855e7a65b7e1ad24dcfc4fe6a6d5e02f9004bb0
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 5ff79dc597571f4e6ef3d7c2c20bce61c0d061ad
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74089550"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926378"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>使用 SSH 連線到 Azure Kubernetes Service (AKS) 叢集節點以進行維護或疑難排解
 
@@ -41,7 +41,7 @@ CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myA
 SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
 ```
 
-上述範例會將*myResourceGroup*中*myAKSCluster*的叢集資源組名指派給*CLUSTER_RESOURCE_GROUP*。 然後，此範例會使用*CLUSTER_RESOURCE_GROUP*來列出擴展集名稱，並將它指派給*SCALE_SET_NAME*。  
+上述範例會將*myResourceGroup*中*myAKSCluster*的叢集資源組名指派給*CLUSTER_RESOURCE_GROUP*。 然後，此範例會使用*CLUSTER_RESOURCE_GROUP*來列出擴展集名稱，並將它指派給*SCALE_SET_NAME*。
 
 > [!IMPORTANT]
 > 此時，您應該只使用 Azure CLI 來更新虛擬機器擴展集型 AKS 叢集的 SSH 金鑰。
@@ -100,7 +100,7 @@ CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myA
 az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
-上述範例會將*myResourceGroup*中*myAKSCluster*的叢集資源組名指派給*CLUSTER_RESOURCE_GROUP*。 然後，此範例會使用*CLUSTER_RESOURCE_GROUP*來列出虛擬機器名稱。 範例輸出會顯示虛擬機器的名稱： 
+上述範例會將*myResourceGroup*中*myAKSCluster*的叢集資源組名指派給*CLUSTER_RESOURCE_GROUP*。 然後，此範例會使用*CLUSTER_RESOURCE_GROUP*來列出虛擬機器名稱。 範例輸出會顯示虛擬機器的名稱：
 
 ```
 Name                      ResourceGroup                                  Location
@@ -144,7 +144,7 @@ aks-nodepool1-79590246-0  10.240.0.4
 1. 執行 `debian` 容器映像，並將終端機工作階段與它連結。 您可以使用此容器搭配 AKS 叢集中的任何節點來建立 SSH 工作階段：
 
     ```console
-    kubectl run -it --rm aks-ssh --image=debian
+    kubectl run --generator=run-pod/v1 -it --rm aks-ssh --image=debian
     ```
 
     > [!TIP]
@@ -158,21 +158,12 @@ aks-nodepool1-79590246-0  10.240.0.4
     apt-get update && apt-get install openssh-client -y
     ```
 
-1. 開啟新的終端機視窗，而不是連線到您的容器，使用[kubectl get][kubectl-get] pod 命令來列出 AKS 叢集上的 pod。 在前一個步驟中建立的 Pod 名稱開頭為 *aks-ssh*，如下列範例所示：
+1. 開啟新的終端機視窗，而不是連線到您的容器，將您的私人 SSH 金鑰複製到 helper pod。 此私密金鑰是用來在 AKS 節點中建立 SSH。 
 
-    ```
-    $ kubectl get pods
-    
-    NAME                       READY     STATUS    RESTARTS   AGE
-    aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
-    ```
-
-1. 在先前的步驟中，您已將您的公開 SSH 金鑰新增至您想要疑難排解的 AKS 節點。 現在，將您的私用 SSH 金鑰複製到 helper pod。 此私密金鑰是用來在 AKS 節點中建立 SSH。
-
-    提供上一個步驟中所取得您自己的 *aks-ssh* Pod 名稱。 如有需要，將 *~/.ssh/id_rsa* 變更到私人 SSH 金鑰的位置：
+   如有需要，將 *~/.ssh/id_rsa* 變更到私人 SSH 金鑰的位置：
 
     ```console
-    kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
+    kubectl cp ~/.ssh/id_rsa $(kubectl get pod -l run=aks-ssh -o jsonpath='{.items[0].metadata.name}'):/id_rsa
     ```
 
 1. 返回您容器的終端機會話，更新所複製 `id_rsa` 私人 SSH 金鑰的許可權，使其為使用者唯讀：
@@ -185,22 +176,22 @@ aks-nodepool1-79590246-0  10.240.0.4
 
     ```console
     $ ssh -i id_rsa azureuser@10.240.0.4
-    
+
     ECDSA key fingerprint is SHA256:A6rnRkfpG21TaZ8XmQCCgdi9G/MYIMc+gFAuY9RUY70.
     Are you sure you want to continue connecting (yes/no)? yes
     Warning: Permanently added '10.240.0.4' (ECDSA) to the list of known hosts.
-    
+
     Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.15.0-1018-azure x86_64)
-    
+
      * Documentation:  https://help.ubuntu.com
      * Management:     https://landscape.canonical.com
      * Support:        https://ubuntu.com/advantage
-    
+
       Get cloud support with Ubuntu Advantage Cloud Guest:
         https://www.ubuntu.com/business/services/cloud
-    
+
     [...]
-    
+
     azureuser@aks-nodepool1-79590246-0:~$
     ```
 

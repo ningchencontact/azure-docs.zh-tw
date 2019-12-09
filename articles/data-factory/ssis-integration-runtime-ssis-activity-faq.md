@@ -1,23 +1,22 @@
 ---
-title: '針對 SSIS 整合執行時間中的封裝執行進行疑難排解 '
+title: 針對 SSIS 整合執行時間中的封裝執行進行疑難排解
 description: 本文提供 SSIS 整合執行時間中 SSIS 套件執行的疑難排解指引
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/15/2019
-author: wenjiefu
 ms.author: wenjiefu
+author: wenjiefu
 ms.reviewer: sawinark
-manager: craigg
-ms.openlocfilehash: 9692c754e59eba02d3d483d44430150107d703a4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+manager: shwang
+ms.custom: seo-lt-2019
+ms.date: 04/15/2019
+ms.openlocfilehash: c0aa33cce8dc163722557b1ef868cf0de8bea8fe
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217527"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928739"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>針對 SSIS 整合執行時間中的封裝執行進行疑難排解
 
@@ -31,7 +30,7 @@ ms.locfileid: "74217527"
 
 ## <a name="common-errors-causes-and-solutions"></a>常見錯誤、原因和解決方案
 
-### <a name="error-message-connection-timeout-expired-or-the-service-has-encountered-an-error-processing-your-request-please-try-again"></a>錯誤訊息：「連接逾時已過期」或「服務在處理您的要求時發生錯誤。 請再試一次。」
+### <a name="error-message-connection-timeout-expired-or-the-service-has-encountered-an-error-processing-your-request-please-try-again"></a>錯誤訊息：「連接逾時已過期」或「服務在處理您的要求時發生錯誤。 請再試一次」。
 
 以下是可能的原因和建議的動作：
 * 資料來源或目的地已多載。 檢查您的資料來源或目的地的負載，並查看它是否有足夠的容量。 例如，如果您使用 Azure SQL Database，請考慮在資料庫可能會超時的情況下相應增加。
@@ -156,7 +155,7 @@ ms.locfileid: "74217527"
   * 您可以在[SSMS 報告](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports)或在 [SSIS 封裝執行] 活動中指定的記錄檔資料夾中找到執行記錄。
   * vNet 也可以用來存取內部部署資料做為替代方案。 如需更多詳細資料，請參閱將[AZURE SSIS 整合執行時間加入虛擬網路](join-azure-ssis-integration-runtime-virtual-network.md)。
 
-### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>錯誤訊息：「暫存工作狀態：失敗。 暫存工作錯誤：錯誤碼：2906，ErrorMessage：封裝執行失敗。，輸出： {"OperationErrorMessages"： "SSIS 執行程式結束代碼：-1. \ n"，"LogLocation"： "...\\SSISTelemetry\\ExecutionLog\\..."，"effectiveIntegrationRuntime": "...", "executionDuration": ..., "durationInQueue": { "integrationRuntimeQueue": ... }}"
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>錯誤訊息：「暫存工作狀態：失敗。 暫存工作錯誤： ErrorCode：2906，ErrorMessage：封裝執行失敗。，輸出： {"OperationErrorMessages"： "SSIS 執行程式結束代碼：-1. \ n"，"LogLocation"： "...\\SSISTelemetry\\ExecutionLog\\..."，"effectiveIntegrationRuntime"： "..."，"executionDuration"： ...，"durationInQueue"： {"integrationRuntimeQueue"： ...}} "
 
 請確定 Visual C++ runtime 已安裝在自我裝載整合執行時間電腦上。 如需更多詳細資料，請參閱[設定自我裝載 IR 作為 AZURE SSIS IR 在 ADF 中的 proxy](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir)
 

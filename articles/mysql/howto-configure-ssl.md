@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 590e2e7e735af55f8c7ad96f87f947115f8783fc
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/05/2019
+ms.openlocfilehash: 3a1c7f6542ebdf1617982fbb50a239b66a6675ba
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770555"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926705"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MySQL 的 Azure 資料庫
 適用於 MySQL 的 Azure 資料庫支援使用安全通訊端層 (SSL)，將適用於 MySQL 的 Azure 資料庫伺服器連線至用戶端應用程式。 在您的資料庫伺服器和用戶端應用程式之間強制使用 SSL 連線，可將兩者之間的資料流加密，有助於抵禦「中間人」攻擊。
@@ -67,6 +67,8 @@ mysql> status
 
 ## <a name="sample-code"></a>範例程式碼
 若要從您的應用程式透過 SSL 對「適用於 MySQL 的 Azure 資料庫」建立安全連線，請參閱下列程式碼範例：
+
+請參閱適用於 MySQL 的 Azure 資料庫服務支援的[相容驅動程式](concepts-compatibility.md)清單。
 
 ### <a name="php"></a>PHP
 ```php

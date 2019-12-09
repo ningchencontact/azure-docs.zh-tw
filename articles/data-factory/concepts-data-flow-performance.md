@@ -1,17 +1,18 @@
 ---
-title: 對應 Azure Data Factory 中的資料流程效能和微調指南
+title: 對應資料流程效能和微調指南
 description: 瞭解會影響 Azure Data Factory 中對應資料流程效能的關鍵因素。
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
+ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 9ae6ff5fb5a5bfc6ba9299e06bad9afafc1403f3
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: fb2a11850370766ab174c67dd122f33879fb432a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671580"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928524"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>對應資料流程效能和微調指南
 

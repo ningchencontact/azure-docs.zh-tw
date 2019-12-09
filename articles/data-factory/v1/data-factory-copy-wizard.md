@@ -9,21 +9,20 @@ editor: ''
 ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 88e5603405ad5594b06674aaf6cbb2c4d23b754c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8b872cc30ae66e83274f189138dad6d609e3f536
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682778"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927060"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>使用 Azure Data Factory 複製精靈輕鬆地複製或移動資料
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[複製活動教學課程](../quickstart-create-data-factory-dot-net.md)。 
+> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱[複製活動教學課程](../quickstart-create-data-factory-dot-net.md)。 
 
 
 Azure Data Factory 複製精靈會簡化內嵌資料的程序，這通常是端對端資料整合案例中的第一個步驟。 逐步執行 Azure Data Factory 複製精靈時，您不需要了解任何用於連結服務、資料集和管線的 JSON 定義。 不過，當您完成精靈中的所有步驟之後，精靈會自動建立管線，將資料從選取的資料來源複製到選取的目的地。 此外，複製精靈可協助您驗證已在撰寫期間內嵌資料，這可節省您的許多時間，特別是當您第一次內嵌資料來源的資料時。 若要啟動複製精靈，請在 Data Factory 首頁按一下 [複製資料] 圖格。

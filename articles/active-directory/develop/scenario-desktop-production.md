@@ -1,6 +1,6 @@
 ---
-title: 呼叫 web Api （移至生產環境）的傳統型應用程式-Microsoft 身分識別平臺
-description: 瞭解如何建立桌面應用程式來呼叫 web Api （移至生產環境）
+title: 將桌面應用程式呼叫 web Api 移至生產環境-Microsoft 身分識別平臺 |Azure
+description: 瞭解如何將會呼叫 web Api 的桌面應用程式移至生產環境
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,16 +17,16 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5331f01c5dc6acf01f567dbe4c332853bf7aa47e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 81a5e57d0ef37a3a2e758e42f122c8e014c94958
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175544"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919978"
 ---
 # <a name="desktop-app-that-calls-web-apis---move-to-production"></a>呼叫 web Api 的桌面應用程式-移至生產環境
 
-本文提供詳細的資訊，讓您進一步改善應用程式，並將其移至生產環境。
+本文提供將您的傳統型應用程式（呼叫 web Api）移至生產環境的詳細資料。
 
 ## <a name="handling-errors-in-desktop-applications"></a>處理桌面應用程式中的錯誤
 

@@ -9,13 +9,13 @@ ms.workload: data-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
-manager: craigg
-ms.openlocfilehash: 518da092f690108111ca4456eaca66e4f3153c54
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 15aac35a7ebc505e76ddfd0c538c4fddb7b2d9ff
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681445"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930551"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>設定 Azure-SSIS Integration Runtime 以獲得高效能
 
@@ -115,7 +115,7 @@ Data Factory (包括 Azure-SSIS IR) 支援下列選項：
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-當您已經使用功能強大的背景工作節點來執行套件時，增加 **AzureSSISMaxParallelExecutionsPerNode** 可能會增加整合執行階段的整體輸送量。 針對 Standard_D1_v2 節點，可支援每個節點有 1-4 個平行執行。 針對所有其他類型的節點，支援每個節點最大值（2 x 核心數，8）個平行執行。 如果您想要**AzureSSISMaxParallelExecutionsPerNode**超過我們支援的最大值，您可以開啟支援票證，我們可以為您增加最大值，之後您必須使用 Azure Powershell 來更新**AzureSSISMaxParallelExecutionsPerNode**.
+當您已經使用功能強大的背景工作節點來執行套件時，增加 **AzureSSISMaxParallelExecutionsPerNode** 可能會增加整合執行階段的整體輸送量。 針對 Standard_D1_v2 節點，可支援每個節點有 1-4 個平行執行。 針對所有其他類型的節點，支援每個節點最大值（2 x 核心數，8）個平行執行。 如果您想要**AzureSSISMaxParallelExecutionsPerNode**超過我們支援的最大值，您可以開啟支援票證，我們可以為您增加最大值，之後您必須使用 Azure Powershell 來更新**AzureSSISMaxParallelExecutionsPerNode**。
 您可以根據套件的成本和背景工作角色節點的下列設定，評估適當的值。 如需詳細資訊，請參閱[一般用途的虛擬機器大小](../virtual-machines/windows/sizes-general.md)。
 
 | 大小             | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大暫存儲存體輸送量：IOPS / 讀取 MBps / 寫入 MBps | 最大資料磁碟 / 輸送量︰IOPS | 最大 NIC/預期的網路效能 (Mbps) |

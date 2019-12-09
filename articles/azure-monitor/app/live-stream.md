@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights 中具有自訂計量和診斷功能的即時計量資料流 | Microsoft Docs
+title: 使用即時計量資料流 Azure 應用程式見解進行診斷
 description: 透過自訂計量即時監視您的 Web 應用程式，並透過失敗、追蹤和事件的即時摘要診斷問題。
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 69aaa61bb0be9a5f07de85ff4ef81b28a86aefaa
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ac2aabe12697336377df808e02e283dde0e4da16
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575606"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927214"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>即時計量資料流︰以 1 秒的延遲進行監視與診斷
 
@@ -22,7 +22,7 @@ ms.locfileid: "73575606"
 您可以使用即時計量資料流：
 
 * 藉由監看效能和失敗計數，在發行修正程式時進行驗證。
-* 監看測試負載的影響，並即時診斷問題。 
+* 監看測試負載的影響，並即時診斷問題。
 * 藉由選取並篩選您想要監看的計量，專注於特定測試工作階段或篩選出已知問題。
 * 在發生例外狀況時取得其追蹤。
 * 試驗篩選，以尋找最相關的 KPI。
@@ -45,7 +45,7 @@ ms.locfileid: "73575606"
 
 4. 如果您可能在篩選中使用客戶名稱等敏感性資料，請[保護控制通道](#secure-the-control-channel)。
 
-### <a name="no-data-check-your-server-firewall"></a>沒有資料？ 請檢查您的伺服器防火牆
+### <a name="no-data-check-your-server-firewall"></a>沒有資料嗎？ 請檢查您的伺服器防火牆
 
 檢查是否已開啟您伺服器防火牆中[即時計量資料流的連出連接埠](../../azure-monitor/app/ip-addresses.md#outgoing-ports)。
 
@@ -53,7 +53,7 @@ ms.locfileid: "73575606"
 
 | |即時資料流 | 計量瀏覽器和分析 |
 |---|---|---|
-|Latency|在一秒內顯示資料|在幾分鐘後進行彙總|
+|延遲|在一秒內顯示資料|在幾分鐘後進行彙總|
 |沒有保留|資料在圖表上就會保存，之後便會捨棄該資料|[資料會保留 90 天](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |隨選|當您開啟即時計量時會串流處理資料|每當安裝並啟用 SDK 時都會傳送資料|
 |免費|即時資料流資料免費|依[價格](../../azure-monitor/app/pricing.md)付費
@@ -188,7 +188,7 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 | .NET                             | 支援（V 2.7.2 +） | 支援（V 2.7.2 +） | 支援（V 2.7.2 +） | 支援（V 2.7.2 +） | 支援（V 2.7.2 +）  |
 | .NET Core （target =. NET Framework）| 支援（V 2.4.1 +） | 支援（V 2.4.1 +） | 支援（V 2.4.1 +） | 支援（V 2.4.1 +） | 支援（V 2.4.1 +）  |
 | .NET Core （target =. NET Core）     | 支援（V 2.4.1 +） | 支援*          | 支援（V 2.4.1 +） | 支援（V 2.4.1 +） | **不支援**    |
-| Azure Functions v2               | 支援           | 支援           | 支援           | 支援           | **不支援**    |
+| Azure Functions v2               | 支援的           | 支援的           | 支援的           | 支援的           | **不支援**    |
 | Java                             | 支援（V 2.0.0 +） | 支援（V 2.0.0 +） | **不支援**   | **不支援**   | **不支援**    |
 | Node.js                          | 支援（V 1.3.0 +） | 支援（V 1.3.0 +） | **不支援**   | 支援（V 1.3.0 +） | **不支援**    |
 
@@ -204,7 +204,7 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 
 ## <a name="troubleshooting"></a>疑難排解
 
-沒有資料？ 如果您的應用程式位於受保護的網路中：即時計量資料流使用與其他 Application Insights 遙測不同的 IP 位址。 請確定[這些 IP 位址](../../azure-monitor/app/ip-addresses.md)在您的防火牆中為開啟狀態。
+沒有資料嗎？ 如果您的應用程式位於受保護的網路中：即時計量資料流使用與其他 Application Insights 遙測不同的 IP 位址。 請確定[這些 IP 位址](../../azure-monitor/app/ip-addresses.md)在您的防火牆中為開啟狀態。
 
 ## <a name="next-steps"></a>後續步驟
 * [使用 Application Insights 監視使用情況](../../azure-monitor/app/usage-overview.md)

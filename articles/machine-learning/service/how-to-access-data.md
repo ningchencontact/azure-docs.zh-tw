@@ -11,27 +11,27 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2e86c06cca26da2776459f3c20bf921a02ed89b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ee6ab1ada540f4f664e6782a1fffc63cc7df95e4
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894701"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928590"
 ---
 # <a name="access-data-in-azure-storage-services"></a>存取 Azure 儲存體服務中的資料
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-在本文中，您將瞭解如何透過 Azure Machine Learning 資料存放區，輕鬆地存取 Azure 儲存體服務中的資料。 資料存放區是用來儲存連接資訊，例如您的訂用帳戶識別碼和權杖授權。 使用資料存放區可讓您存取儲存體，而不需要在腳本中硬編碼連接資訊。 您可以從這些[Azure 儲存體解決方案](#matrix)建立資料存放區。 針對不支援的儲存體解決方案，若要在機器學習實驗期間儲存資料輸出成本，建議您將資料移至支援的 Azure 儲存體解決方案。 [瞭解如何移動您的資料](#move)。 
+在本文中，您將瞭解如何透過 Azure Machine Learning 資料存放區，輕鬆地存取 Azure 儲存體服務中的資料。 資料存放區是用來儲存連接資訊，例如您的訂用帳戶識別碼和權杖授權。 使用資料存放區可讓您存取儲存體，而不需要在腳本中硬編碼連接資訊。 您可以從這些[Azure 儲存體解決方案](#matrix)建立資料存放區。 針對不支援的儲存體解決方案，以及在機器學習實驗期間儲存資料輸出成本，建議您將資料移至支援的 Azure 儲存體解決方案。 [瞭解如何移動您的資料](#move)。 
 
 本操作說明示範下列工作的範例：
-* [註冊資料存放區](#access)
-* [從工作區取得資料存放區](#get)
-* [使用資料存放區上傳和下載資料](#up-and-down)
-* [在定型期間存取資料](#train)
-* [將資料移至 Azure](#move)
+* 註冊資料存放區
+* 從工作區取得資料存放區
+* 使用資料存放區上傳和下載資料
+* 在定型期間存取資料
+* 將資料移至 Azure 儲存體服務
 
 ## <a name="prerequisites"></a>必要條件
-
+您將需要
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 - 具有[Azure Blob 容器](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)或[azure 檔案共用](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)的 azure 儲存體帳戶。
@@ -58,7 +58,13 @@ ms.locfileid: "74894701"
 
 所有的暫存器方法都在[`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)類別上，且格式為 register_azure_ *。
 
-您可以透過[Azure 入口網站](https://portal.azure.com)找到填入 register （）方法所需的資訊。 在左窗格中選取 [**儲存體帳戶**]，然後選擇您要註冊的儲存體帳戶。 [**總覽**] 頁面會提供帳戶名稱和容器或檔案共用名稱等資訊。 如需驗證資訊，例如帳戶金鑰或 SAS 權杖，請流覽至左側 [**設定**] 窗格底下的 [**帳戶金鑰**]。 
+您需要填入 register （）方法的資訊，可透過[Azure Machine Learning studio](https://ml.azure.com)和下列步驟來找到。
+
+1. 在左窗格中選取 [**儲存體帳戶**]，然後選擇您要註冊的儲存體帳戶。 
+2. [**總覽**] 頁面會提供帳戶名稱和容器或檔案共用名稱等資訊。 
+3. 如需驗證資訊，例如帳戶金鑰或 SAS 權杖，請流覽至左側 [**設定**] 窗格底下的 [**帳戶金鑰**]。 
+
+>重大如果您的儲存體帳戶在 VNET 中，則只支援 Azure blob 資料存放區的建立。 設定參數，`grant_workspace_access` `True`，將您的工作區存取權授與您的儲存體帳戶。
 
 下列範例會示範如何將 Azure Blob 容器或 Azure 檔案共用註冊為數據存放區。
 
@@ -74,7 +80,6 @@ ms.locfileid: "74894701"
                                                           account_key='your storage account key',
                                                           create_if_not_exists=True)
     ```
-    如果您的儲存體帳戶在 VNET 中，則只支援 Azure blob 資料存放區的建立。 設定參數，`grant_workspace_access` `True`，將您的工作區存取權授與您的儲存體帳戶。
 
 + 針對**Azure 檔案共用資料存放區**，請使用[`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)。 
 
@@ -104,7 +109,7 @@ ms.locfileid: "74894701"
   
 您可以透過[Azure 入口網站](https://portal.azure.com)找到填入表單所需的資訊。 在左窗格中選取 [**儲存體帳戶**]，然後選擇您要註冊的儲存體帳戶。 [**總覽**] 頁面會提供帳戶名稱和容器或檔案共用名稱等資訊。 針對驗證專案（例如帳戶金鑰或 SAS 權杖），流覽至左側 [**設定**] 窗格底下的 [**帳戶金鑰**]。
 
-下列範例示範建立 Azure blob 資料存放區時，表單的外觀。 
+下列範例示範表單在建立 Azure blob 資料存放區時的外觀。 
     
  ![新的資料存放區](media/how-to-access-data/new-datastore-form.png)
 
@@ -128,7 +133,7 @@ for name, datastore in datastores.items():
     print(name, datastore.datastore_type)
 ```
 
-當您建立工作區時，Azure Blob 容器和 Azure 檔案共用會分別註冊到名為 `workspaceblobstore` 的工作區和 `workspacefilestore`。 它們會儲存 Blob 容器的連線資訊，以及在附加至工作區的儲存體帳戶中布建的檔案共用。 `workspaceblobstore` 會設定為預設資料存放區。
+當您建立工作區時，Azure Blob 容器和 Azure 檔案共用會自動註冊到名為 `workspaceblobstore` 的工作區，並分別 `workspacefilestore`。 這些會儲存 Blob 容器的連線資訊，以及在附加至工作區的儲存體帳戶中布建的檔案共用。 `workspaceblobstore` 會設定為預設資料存放區。
 
 取得工作區的預設資料存放區：
 
@@ -189,7 +194,7 @@ datastore.download(target_path='your target path',
 
 路|方法|描述|
 ----|-----|--------
-掛接| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| 使用在計算目標上掛接資料存放區。
+掛接| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| 使用在計算目標上掛接資料存放區。 裝載時，您的資料存放區的所有檔案都可供您的計算目標存取。
 下載|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-download-path-on-compute-none-)|使用將資料存放區的內容下載至 `path_on_compute`所指定的位置。 <br><br> 此下載會在執行之前進行。
 上傳|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-upload-path-on-compute-none-)| 使用，將檔案從 `path_on_compute` 所指定的位置上傳至您的資料存放區。 <br><br> 此上傳會在您執行之後發生。
 
@@ -207,13 +212,14 @@ datastore.path('./bar').as_download()
 
 ### <a name="examples"></a>範例 
 
-下列程式碼範例是在定型期間用來存取資料的[`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py)類別特有的。 
+下列程式碼範例是在定型期間用來存取資料的[`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py)類別特有的。
 
 `script_params` 是包含 entry_script 參數的字典。 使用它來傳入資料存放區，並描述如何在計算目標上提供資料。 深入瞭解我們的端對端[教學](tutorial-train-models-with-aml.md)課程。
 
 ```Python
 from azureml.train.estimator import Estimator
 
+# notice '/' is in front, this indicates the absolute path
 script_params = {
     '--data_dir': datastore.path('/bar').as_mount()
 }
