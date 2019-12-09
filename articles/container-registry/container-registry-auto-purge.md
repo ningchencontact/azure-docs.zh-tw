@@ -3,12 +3,12 @@ title: 清除標記和資訊清單
 description: 使用 [清除] 命令，根據 age 和標籤篩選來刪除 Azure container registry 中的多個標記和資訊清單，並選擇性地排程清除作業。
 ms.topic: article
 ms.date: 08/14/2019
-ms.openlocfilehash: 65169927f7a1cffa88a2d909217e636417f695cc
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 0ec1f5f6f5c3c572b8558c971b58e46cce36e3fd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456475"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923101"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>自動清除 Azure container registry 中的映射
 
@@ -19,7 +19,7 @@ ms.locfileid: "74456475"
 您可以使用 Azure Cloud Shell 或本機安裝的 Azure CLI 來執行本文中的 ACR 工作範例。 如果您想要在本機使用，則需要2.0.69 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。 
 
 > [!IMPORTANT]
-> 這項功能目前只能預覽。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
+> 此功能目前為預覽狀態。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 
 > [!WARNING]
 > 請小心使用 `acr purge` 命令--已刪除的映射資料無法復原。 如果您有依資訊清單摘要提取映射的系統（相對於映射名稱），則不應清除未標記的映射。 刪除已取消標記的映像，會導致這些系統無法從登錄中提取映像。 請考慮採用*唯一的標記*配置，這是[建議的最佳作法](container-registry-image-tag-version.md)，而不是依資訊清單提取。
@@ -33,11 +33,10 @@ ms.locfileid: "74456475"
 > [!NOTE]
 > `acr purge` 不會刪除 `write-enabled` 屬性設定為 `false`的影像標記或存放庫。 如需相關資訊，請參閱[鎖定 Azure container registry 中的容器映射](container-registry-image-lock.md)。
 
-`acr purge` 是設計成在[ACR](container-registry-tasks-overview.md)工作中以容器命令的形式執行，因此它會使用工作執行所在的登錄自動進行驗證。 
+`acr purge` 是設計為在[ACR](container-registry-tasks-overview.md)工作中以容器命令的形式執行，因此它會自動與工作執行所在的登錄進行驗證，並在該處執行動作。 本文中的工作範例會使用 `acr purge` 命令[別名](container-registry-tasks-reference-yaml.md#aliases)來取代完整的容器映射命令。
 
 當您執行 `acr purge`時，請至少指定下列內容：
 
-* `--registry`-您執行命令所在的 Azure container registry。 
 * `--filter`-存放庫和*正則運算式*來篩選儲存機制中的標記。 範例： `--filter "hello-world:.*"` 符合 `hello-world` 存放庫中的所有標記，而且 `--filter "hello-world:^1.*"` 符合以 `1`開頭的標記。 傳遞多個 `--filter` 參數來清除多個存放庫。
 * `--ago`-Go 樣式[持續時間字串](https://golang.org/pkg/time/)，表示要刪除影像的持續時間。 持續時間是由一或多個十進位數的序列所組成，每個都有一個單位尾碼。 有效的時間單位包括 "d" 代表日，"h" 代表小時，"m" 表示分鐘。 例如，`--ago 2d3h6m` 選取 [所有篩選的映射] [上次修改時間] 超過2天、3小時和6分鐘前，而且 `--ago 1.5h` 選取 [上次修改時間超過1.5 小時前的映射]。
 
@@ -54,12 +53,10 @@ ms.locfileid: "74456475"
 
 下列範例會使用[az acr run][az-acr-run]命令，視需要執行 `acr purge` 命令。 這個範例會刪除*myregistry*中的 `hello-world` 存放庫中，已修改超過1天前的所有影像標記和資訊清單。 Container 命令會使用環境變數來傳遞。 工作會在沒有來源內容的情況下執行。
 
-在下列範例中，會使用 `$Registry` 別名指定執行 `acr purge` 命令的登錄，這表示執行工作的登錄。
-
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} --filter 'hello-world:.*' --untagged --ago 1d"
+PURGE_CMD="acr purge --filter 'hello-world:.*' \
+  --untagged --ago 1d"
 
 az acr run \
   --cmd "$PURGE_CMD" \
@@ -73,8 +70,8 @@ az acr run \
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} --filter 'hello-world:.*' --ago 7d"
+PURGE_CMD="acr purge --filter 'hello-world:.*' \
+  --ago 7d"
 
 az acr task create --name purgeTask \
   --cmd "$PURGE_CMD" \
@@ -93,8 +90,8 @@ az acr task create --name purgeTask \
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} --filter 'hello-world:.*' --ago 1d --untagged"
+PURGE_CMD="acr purge --filter 'hello-world:.*' \
+  --ago 1d --untagged"
 
 az acr run \
   --cmd "$PURGE_CMD" \
@@ -115,13 +112,12 @@ az acr run \
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} \
+PURGE_CMD="acr purge \
   --filter 'samples/devimage1:.*' --filter 'samples/devimage2:.*' \
   --ago 0d --untagged --dry-run"
 
 az acr run \
-  --cmd  "$PURGE_CMD" \
+  --cmd "$PURGE_CMD" \
   --registry myregistry \
   /dev/null
 ```
@@ -156,8 +152,7 @@ Number of deleted manifests: 4
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} \
+PURGE_CMD="acr purge \
   --filter 'samples/devimage1:.*' --filter 'samples/devimage2:.*' \
   --ago 0d --untagged"
 

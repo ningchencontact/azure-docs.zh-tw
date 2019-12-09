@@ -1,18 +1,19 @@
 ---
-title: Azure Data Factory 對應的資料流程 Unpivot 轉換
+title: 對應資料流程 Unpivot 轉換
 description: Azure Data Factory 對應的資料流程 Unpivot 轉換
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: 41423f704c87f05ad3e31b253d4a80799a554849
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b207012335e68d389a07b54408e840dbb305a30c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387736"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930144"
 ---
 # <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory Unpivot 轉換
 
@@ -20,23 +21,23 @@ ms.locfileid: "72387736"
 
 使用 ADF 對應資料流程中的 Unpivot 做為將未正規化的資料集轉換成更正規化版本的方法，方法是將單一記錄中多個資料行的值擴充為單一資料行中具有相同值的多筆記錄。
 
-![Unpivot 轉換](media/data-flow/unpivot1.png "Unpivot 選項1")
+![取消樞紐轉換](media/data-flow/unpivot1.png "Unpivot 選項1")
 
 ## <a name="ungroup-by"></a>取消分組依據
 
-![Unpivot 轉換](media/data-flow/unpivot5.png "Unpivot 選項2")
+![取消樞紐轉換](media/data-flow/unpivot5.png "Unpivot 選項2")
 
 首先，設定您想要對於樞紐彙總分組所依據的資料行。 使用資料行清單旁邊的 [+] 號，設定要取消群組的一或多個資料行。
 
 ## <a name="unpivot-key"></a>取消樞紐索引鍵
 
-![Unpivot 轉換](media/data-flow/unpivot6.png "Unpivot 選項3")
+![取消樞紐轉換](media/data-flow/unpivot6.png "Unpivot 選項3")
 
 樞紐索引鍵是 ADF 從資料列樞紐處理為資料行的資料行。 根據預設，此欄位的資料集之內的每個唯一值都會樞紐處理為資料行。 不過，您可以選擇從資料集輸入您想要樞紐處理為資料行值的數值。
 
 ## <a name="unpivoted-columns"></a>取消資料行樞紐
 
-![Unpivot 轉換](media/data-flow//unpivot7.png "Unpivot 選項4")
+![取消樞紐轉換](media/data-flow//unpivot7.png "Unpivot 選項4")
 
 最後，選擇您想要對已樞紐的值所使用的彙總，以及您要如何在轉換的新輸出投影中顯示資料行。
 
@@ -48,7 +49,7 @@ ms.locfileid: "72387736"
 
 設定為「一般」資料行的排列方式，會使用彙總值將已樞紐的資料行分組在一起。 將資料行排列方式設定為「橫向」會在資料行和值之間交替。
 
-![Unpivot 轉換](media/data-flow//unpivot7.png "Unpivot 選項5")
+![取消樞紐轉換](media/data-flow//unpivot7.png "Unpivot 選項5")
 
 最終之取消樞紐的資料結果集所顯示的資料行總計，現已取消樞紐為個別的資料列值。
 

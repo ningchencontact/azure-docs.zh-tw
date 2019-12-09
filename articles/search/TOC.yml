@@ -15,6 +15,8 @@
       items:
         - name: 建立搜尋索引
           href: search-get-started-portal.md
+        - name: 建立應用程式 (預覽)
+          href: search-create-app-portal.md
         - name: 建立認知技能
           href: cognitive-search-quickstart-blob.md
         - name: 建立知識存放區
@@ -303,6 +305,8 @@
           href: search-manage-powershell.md
         - name: 監視活動和記錄
           href: search-monitor-usage.md
+        - name: 搜尋流量分析
+          href: search-traffic-analytics.md
     - name: 疑難排解
       items:
         - name: 索引子問題

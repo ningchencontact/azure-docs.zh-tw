@@ -26,7 +26,7 @@
           href: expressroute-locations-providers.md
         - name: 依提供者的位置
           href: expressroute-locations.md
-    - name: 虛擬網路閘道和 FastPath
+    - name: 關於虛擬網路閘道
       href: expressroute-about-virtual-network-gateways.md
     - name: 必要條件
       href: expressroute-prerequisites.md
@@ -40,6 +40,8 @@
       href: expressroute-qos.md
     - name: 關於將線路從傳統移至 Resource Manager
       href: expressroute-move.md
+    - name: 關於 ExpressRoute FastPath
+      href: about-fastpath.md
     - name: 關於 ExpressRoute Direct
       href: expressroute-erdirect-about.md
     - name: 關於 ExpressRoute Global Reach

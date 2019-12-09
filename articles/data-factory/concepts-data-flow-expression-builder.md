@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory 對應資料流程運算式產生器
+title: 對應資料流程運算式產生器
 description: Azure Data Factory 對應資料流程的運算式產生器
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: 0eb2c2692ed2444a85e7253c6fdd8734385ff881
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: seo-lt-2019
+ms.date: 12/06/2019
+ms.openlocfilehash: 7d8f02647224c971c44bff51f09315c53c53e9a3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672257"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928343"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>對應資料流程運算式產生器
 
@@ -50,6 +51,16 @@ ms.locfileid: "74672257"
 使用單行或多行註解語法將註解新增到運算式中：
 
 ![註解](media/data-flow/comments.png "註解")
+
+## <a name="string-interpolation"></a>字串插補
+
+使用雙引號將常值字串文字與運算式一起括住。 您可以包含運算式函數、資料行和參數。 在查詢字串中包含參數時，這非常適合用來避免大量使用字串串連。
+
+* ```"My favorite movie is {iif(instr(title,', The')>0,"The {split(title,', The')[1]}",title)}"```
+
+* ```"select * from {$tablename} where orderyear > {$year}"```
+
+* ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 ## <a name="regular-expressions"></a>規則運算式
 

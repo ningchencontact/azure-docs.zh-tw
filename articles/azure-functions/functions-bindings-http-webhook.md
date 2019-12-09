@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 598074a6d5093c4febd4d62266a1c852200e3f69
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 481e2ab63263f77b513e6443479827cc9e168bbb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231178"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926350"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 觸發程序和繫結
 
@@ -22,7 +22,7 @@ ms.locfileid: "74231178"
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-這篇文章中的程式碼預設為使用 .NET Core 的 Functions 2.x 語法。 如需 1.x 語法的資訊，請參閱 [1.x 函式範本](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates)。
+本文中的程式碼預設為使用 .NET Core 的語法，用於2.x 版和更高版本的函式。 如需 1.x 語法的資訊，請參閱 [1.x 函式範本](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates)。
 
 ## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
@@ -30,7 +30,7 @@ ms.locfileid: "74231178"
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x"></a>套件 - Functions 2.x
+## <a name="packages---functions-2x-and-higher"></a>封裝-函數2.x 和更新版本
 
 [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 套件 (3.x 版) 中提供 HTTP 繫結。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub 存放庫中。
 
@@ -40,13 +40,13 @@ ms.locfileid: "74231178"
 
 HTTP 觸發程序可讓您透過 HTTP 要求叫用函式。 您可以使用 HTTP 觸發程序來建置無伺服器 API 並回應 Webhook。
 
-根據預設，HTTP 觸發程序會在 Functions 1.x 中傳回「HTTP 200 正常」與空白主體，或在 Functions 1 2.x 中傳回「HTTP 204 沒有內容」與空白主體。 若要修改回應，請設定 [HTTP 輸出繫結](#output)。
+根據預設，HTTP 觸發程式會以函式1.x 中的空白主體傳回 HTTP 200 OK，204或在函式2.x 和更新版本中沒有具有空白主體的內容。 若要修改回應，請設定 [HTTP 輸出繫結](#output)。
 
 ## <a name="trigger---example"></a>觸發程序 - 範例
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-下列範例會顯示在查詢字串或 HTTP 要求主體中尋找 [ 參數的 ](functions-dotnet-class-library.md)C# 函式`name`。 請注意，傳回值用於輸出繫結，但傳回值屬性並非必要。
+下列範例會顯示在查詢字串或 HTTP 要求主體中尋找 `name` 參數的 [C# 函式](functions-dotnet-class-library.md)。 請注意，傳回值用於輸出繫結，但傳回值屬性並非必要。
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -424,7 +424,7 @@ public class ToDoItem {
 
 ```
 
-此範例會讀取 POST 要求的主體。 要求主體會自動還原序列化至 ```ToDoItem``` 物件，並傳回至用戶端，且內容類型為 ```application/json```。 ```ToDoItem``` 參數會在指派給 ```body``` 類別的 ```HttpMessageResponse.Builder``` 屬性時，由 Functions 執行階段序列化。
+此範例會讀取 POST 要求的主體。 要求主體會自動還原序列化至 ```ToDoItem``` 物件，並傳回至用戶端，且內容類型為 ```application/json```。 ```ToDoItem``` 參數會在指派給 ```HttpMessageResponse.Builder``` 類別的 ```body``` 屬性時，由 Functions 執行階段序列化。
 
 ```java
 @FunctionName("TriggerPojoPost")
@@ -670,7 +670,7 @@ public class HttpTriggerJava {
 
 ---
 
-所有函式路由預設前面都會加上 *api*。 您也可以在 `http.routePrefix`host.json[ 檔案中使用 ](functions-host-json.md) 屬性來自訂或移除前置詞。 下列範例會在 *host.json* 檔案中使用空字串作為前置詞來移除 *api* 路由前置詞。
+所有函式路由預設前面都會加上 *api*。 您也可以在 [host.json](functions-host-json.md) 檔案中使用 `http.routePrefix` 屬性來自訂或移除前置詞。 下列範例會在 *host.json* 檔案中使用空字串作為前置詞來移除 *api* 路由前置詞。
 
 ```json
 {
@@ -684,7 +684,7 @@ public class HttpTriggerJava {
 
 如果您的函式應用程式使用 [App Service 驗證/授權](../app-service/overview-authentication-authorization.md)，您可以透過程式碼來檢視已驗證的用戶端相關資訊。 這項資訊是以[由平台插入的要求標頭](../app-service/app-service-authentication-how-to.md#access-user-claims)形式提供。 
 
-您也可以從繫結資料來讀取這項資訊。 這項功能僅適用於 Functions 2.x 執行階段。 它目前也僅適用於 .NET 語言。
+您也可以從繫結資料來讀取這項資訊。 這項功能僅適用于2.x 和更新版本中的函式執行時間。 它目前也僅適用於 .NET 語言。
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -774,7 +774,7 @@ Functions 可讓您使用金鑰來提高開發期間存取 HTTP 函式端點的�
 > 雖然金鑰可能有助於在開發期間遮蔽您的 HTTP 端點，但這並不適合用來作為在生產環境中保護 HTTP 觸發程序的方式。 若要深入了解，請參閱[在生產環境中保護 HTTP 端點](#secure-an-http-endpoint-in-production)。
 
 > [!NOTE]
-> 在 Functions 1.x 執行階段中，Webhook 提供者可以使用金鑰以多種方式授權要求，端視提供者支援的方式而定。 [Webhook 和金鑰](#webhooks-and-keys)中提供了這方面的相關說明。 2\.x 版執行階段並未內建對 Webhook 提供者的支援。
+> 在 Functions 1.x 執行階段中，Webhook 提供者可以使用金鑰以多種方式授權要求，端視提供者支援的方式而定。 [Webhook 和金鑰](#webhooks-and-keys)中提供了這方面的相關說明。 2\.x 版和更新版本中的函數執行時間不包含 webhook 提供者的內建支援。
 
 金鑰類型有兩種：
 
@@ -825,9 +825,9 @@ Functions 可讓您使用金鑰來提高開發期間存取 HTTP 函式端點的�
 ### <a name="webhooks"></a>Webhook
 
 > [!NOTE]
-> Webhook 模式僅適用於 1.x 版 Functions 執行階段。 此變更已完成，可在版本 2.x 中提升 HTTP 觸發程序的效能。
+> Webhook 模式僅適用於 1.x 版 Functions 執行階段。 已進行這項變更，以改善2.x 版和更高版本中的 HTTP 觸發程式效能。
 
-在版本 1.x 中，Webhook 範本會提供 Webhook 承載的額外驗證。 在 2.x 版中，基底 HTTP 觸發程序仍然可運作，並且對 Webhook 來說是建議採用的方法。 
+在版本 1.x 中，Webhook 範本會提供 Webhook 承載的額外驗證。 在2.x 版和更新版本中，基底 HTTP 觸發程式仍然有效，而且是建議的 webhook 方法。 
 
 #### <a name="github-webhooks"></a>GitHub Webhook
 
@@ -848,13 +848,13 @@ Webhook 授權是由 Webhook 接收器元件 (HTTP 觸發程序的一部分) 處
 
 ## <a name="trigger---limits"></a>觸發程序的 - 限制
 
-HTTP 要求長度的限制為 100 MB (104,857,600 個位元組)，而 URL 長度的限制為 4 KB (4,096 個位元組)。 這些限制由執行階段 `httpRuntime`Web.config 檔案[的 ](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) 元素所指定。
+HTTP 要求長度的限制為 100 MB (104,857,600 個位元組)，而 URL 長度的限制為 4 KB (4,096 個位元組)。 這些限制由執行階段 [Web.config 檔案](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)的 `httpRuntime` 元素所指定。
 
 如果使用 HTTP 觸發程序的函式未在約 2.5 分鐘內完成，閘道將會逾時並傳回 HTTP 502 錯誤。 函式會繼續執行，但無法傳回 HTTP 回應。 對於長時間執行的函式，建議您遵循非同步模式，並傳回可以偵測要求狀態的位置。 如需函式可以執行多久的相關資訊，請參閱[級別和裝載 - 使用情況方案](functions-scale.md#timeout)。
 
 ## <a name="output"></a>輸出
 
-使用 HTTP 輸出繫結來回應 HTTP 要求傳送者。 此繫結需要 HTTP 觸發程序，並可讓您自訂與觸發程序要求相關聯的回應。 如果未提供 HTTP 輸出繫結，則 HTTP 觸發程序會在 Functions 1.x 中傳回「HTTP 200 正常」與空白主體，或在 Functions 1 2.x 中傳回「HTTP 204 沒有內容」與空白主體。
+使用 HTTP 輸出繫結來回應 HTTP 要求傳送者。 此繫結需要 HTTP 觸發程序，並可讓您自訂與觸發程序要求相關聯的回應。 如果未提供 HTTP 輸出系結，HTTP 觸發程式會以函式1.x 中的空白主體傳回 HTTP 200 OK，或在函式2.x 和更新版本中沒有具有空白主體的 HTTP 204。
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
@@ -874,7 +874,7 @@ HTTP 要求長度的限制為 100 MB (104,857,600 個位元組)，而 URL 長度
 
 ## <a name="hostjson-settings"></a>host.json 設定
 
-蔖節說明 2.x 版中適用於此繫結的全域組態設定。 下面的範例 host.json 檔案僅包含此繫結的 2.x 版設定。 如需有關 2.x 版中全域組態設定的詳細資訊，請參閱[適用於 Azure Functions 2.x 版的 host.json 參考](functions-host-json.md)。
+本節說明2.x 版和更高版本中可供此系結使用的全域設定。 下面的範例 host. json 檔案僅包含此系結的2.x 版和設定。 如需有關2.x 版和更早版本中的全域設定的詳細資訊，請參閱[Azure Functions 的 host. json 參考](functions-host-json.md)。
 
 > [!NOTE]
 > 有關 Functions 1.x 中 host.json 的參考，請參閱[適用於 Azure Functions 1.x 的 host.json 參考](functions-host-json-v1.md#http)。
@@ -901,7 +901,7 @@ HTTP 要求長度的限制為 100 MB (104,857,600 個位元組)，而 URL 長度
 
 |屬性  |預設值 | 描述 |
 |---------|---------|---------| 
-| customHeaders|無|可讓您設定 HTTP 回應中的自訂標頭。 先前的範例會將 `X-Content-Type-Options` 標頭新增至回應，以避免內容類型探查。 |
+| customHeaders|None|可讓您設定 HTTP 回應中的自訂標頭。 先前的範例會將 `X-Content-Type-Options` 標頭新增至回應，以避免內容類型探查。 |
 |dynamicThrottlesEnabled|true<sup>\*</sup>|啟用時，此設定會促使要求處理管線定期檢查系統效能計數器，例如連線/執行緒/處理程序/記憶體/CPU/其他，而且如果這些計數器中任一個超過內建的臨界值上限 (80%)，則要求會遭到拒絕，並包含 429「忙碌」的回應，直到計數器回到正常水平。<br/><sup>\*</sup>耗用量方案中的預設值為 `true`。 專用方案中的預設值為 `false`。|
 |hsts|未啟用|當 `isEnabled` 設定為 `true`時，會強制執行[.Net Core 的 HTTP 嚴格傳輸安全性（HSTS）行為](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts)，如[`HstsOptions` 類別](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0)中所定義。 上述範例也會將[`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge)屬性設定為10天。 支援的 `hsts` 屬性包括： <table><tr><th>屬性</th><th>描述</th></tr><tr><td>excludedHosts</td><td>未新增 HSTS 標頭之主機名稱的字串陣列。</td></tr><tr><td>includeSubDomains</td><td>布林值，指出是否啟用嚴格傳輸安全性標頭的 includeSubDomain 參數。</td></tr><tr><td>maxAge</td><td>定義嚴格傳輸安全性標頭的最大壽命參數的字串。</td></tr><tr><td>預先載入</td><td>布林值，指出是否啟用嚴格傳輸安全性標頭的預先載入參數。</td></tr></table>|
 |maxConcurrentRequests|100<sup>\*</sup>|平行執行的 HTTP 函式數目上限。 這可讓您控制並行作業，幫助您管理資源使用率。 例如，您可能會有使用大量系統資源 (記憶體/CPU/通訊端) 的 HTTP 函式，以致於並行率太高時會造成問題。 或者，如果函式對第三方服務發出傳出要求，則需要限制這些呼叫的速率。 在這些情況下，套用節流會有所幫助。 <br/><sup>*</sup>耗用量方案的預設值為100。 專用方案的預設值是無限制的（`-1`）。|

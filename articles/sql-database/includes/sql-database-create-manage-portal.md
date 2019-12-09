@@ -5,29 +5,29 @@ ms.subservice: operations
 ms.topic: include
 ms.date: 08/23/2019
 ms.author: sstein
-ms.openlocfilehash: 9e189d0582d2e81193c892cb349b475ed0d68df8
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 2a8b9322f7c03d76cd8a31c832c343cde9e2e355
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014747"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935773"
 ---
 ## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>使用 Azure 入口網站建立及管理 Azure SQL 資源
 
-Azure 入口網站提供單一頁面, 您可以在其中管理[所有的 AZURE sql 資源](https://go.microsoft.com/fwlink/?linkid=2100641), 包括您的 SQL 虛擬機器。
+Azure 入口網站提供單一頁面，您可以在其中管理[所有的 AZURE sql 資源](https://go.microsoft.com/fwlink/?linkid=2100641)，包括您的 SQL 虛擬機器。
 
-若要存取**AZURE sql 資源**頁面, 請在 Azure 入口網站的左側功能表中選取 [ **azure sql** ]。 如果**AZURE SQL**不在清單中, 請選取 [**所有服務**], 然後在搜尋方塊中輸入*azure sql* 。
+若要存取**AZURE sql 資源**頁面，請在 [Azure 入口網站] 功能表中選取 [ **azure sql** ]，或搜尋並在任何頁面中選取 **[azure sql** ]。
 
 > [!NOTE]
 > **AZURE SQL**提供快速且輕鬆的方式來存取您的所有 SQL 資料庫、彈性集區、資料庫伺服器、sql 受控實例和 sql 虛擬機器。 Azure SQL 不是服務或資源。 
 
-若要管理現有的資源, 請在清單中選取所需的專案。 若要建立新的 Azure SQL 資源, 請選取 [ **+ 新增**]。 
+若要管理現有的資源，請在清單中選取所需的專案。 若要建立新的 Azure SQL 資源，請選取 [ **+ 新增**]。 
 
-![Azure SQL 入口網站頁面](../media/sql-database-technical-overview/azure-sql.png)
+![Azure SQL 入口網站頁面](../media/sql-database-technical-overview/add-azure-sql-resources.png)
 
-選取 [ **+ 新增**] 之後, 請選取任何磚上的 [**顯示詳細資料**], 以查看有關不同選項的其他資訊。
+選取 [ **+ 新增**] 之後，請選取任何磚上的 [**顯示詳細資料**]，以查看有關不同選項的其他資訊。
 
-![資料庫磚詳細資料](../media/sql-database-technical-overview/create-single-database.png)
+![資料庫磚詳細資料](../media/sql-database-technical-overview/single-sql-database-deployment-options.png)
 
 如需詳細資訊，請參閱：
 

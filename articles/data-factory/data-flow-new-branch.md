@@ -1,24 +1,23 @@
 ---
-title: Azure Data Factory 對應的資料流程新增分支轉換
+title: 對應資料流程新增分支轉換
 description: Azure Data Factory 對應的資料流程新增分支轉換
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: de8cb74d788e3ca7599f226e4204c4b09112e70c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b4617689fe1ab14856bde9a4e8134b12aa6d815b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387223"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930307"
 ---
 # <a name="azure-data-factory-mapping-data-flow-new-branch-transformation"></a>Azure Data Factory 對應的資料流程新增分支轉換
 
-
-
-![分支選項](media/data-flow/menu.png "下拉式功能表")
+![分支選項](media/data-flow/menu.png "選項")
 
 分支會取用資料流程中的目前資料流，並將它複寫至另一個資料流。 使用「新增分支」針對同一個資料流執行多組作業和轉換。
 
@@ -29,4 +28,4 @@ ms.locfileid: "72387223"
 > [!NOTE]
 > 在嘗試設定分支的目前位置有後續的轉換時，「新增分支」只會顯示「+ 轉換」功能表上的動作。 換句話說，直到在「選取」之後新增另一個轉換時，您才會看到此處結尾出現「新增分支」選項
 
-![分部](media/data-flow/branch2.png "分支2")
+![分支](media/data-flow/branch2.png "分支2")

@@ -5,19 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/21/2019
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 9ab308d0e2145a0d0b40e8b37c8c5be07b55dac6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a5540eea91937319a6ac947b50698ccaa8b25847
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673560"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931707"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>使用啟用 Azure 的 dtexec 公用程式來執行 SQL Server Integration Services 套件
 本文說明啟用 Azure 的 dtexec （AzureDTExec）命令提示字元公用程式。 它可用來在 Azure Data Factory 中的 Azure SSIS Integration Runtime （IR）上執行 SQL Server Integration Services （SSIS）套件。
@@ -31,7 +30,7 @@ AzureDTExec 會以 Data Factory 管線中的執行 SSIS 套件活動來執行您
 AzureDTExec 可以透過 SSMS 設定，以使用在您的 data factory 中產生管線的 Azure Active Directory （Azure AD）應用程式。 您也可以將它設定為存取檔案系統、檔案共用，或 Azure 檔案儲存體儲存封裝的位置。 根據您為其叫用選項提供的值，AzureDTExec 會產生並執行唯一 Data Factory 管線，並在其中執行 SSIS 套件活動。 以相同的選項值叫用 AzureDTExec 時，會重新叫用現有的管線。
 
 ## <a name="prerequisites"></a>必要條件
-若要使用 AzureDTExec，請下載並安裝最新版本的 SSMS，也就是18.3 版或更新版本。 從[這個網站](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)下載。
+若要使用 AzureDTExec，請下載並安裝最新版本的 SSMS，也就是18.3 版或更新版本。 請從[此網站](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)下載。
 
 ## <a name="configure-the-azuredtexec-utility"></a>設定 AzureDTExec 公用程式
 在您的本機電腦上安裝 SSMS 也會安裝 AzureDTExec。 若要設定其設定，請使用 [以**系統管理員身分執行**] 選項來啟動 SSMS。 然後選取 [**工具**] > [**遷移至 Azure** ] > **設定啟用 azure 的 DTExec**。
@@ -80,7 +79,7 @@ AzureDTExec 可以透過 SSMS 設定，以使用在您的 data factory 中產生
   /De MyEncryptionPassword
 ```
 
-叫用 AzureDTExec 會提供類似的選項，以叫用 dtexec。 如需詳細資訊，請參閱[Dtexec 公用程式](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017)。 以下是目前支援的選項：
+叫用 AzureDTExec 會提供類似的選項，以叫用 dtexec。 如需詳細資訊，請參閱＜ [dtexec Utility](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017)＞。 以下是目前支援的選項：
 
 - **/F [ile]** ：載入儲存在檔案系統、檔案共用或 Azure 檔案儲存體中的封裝。 作為此選項的值，您可以在 [檔案系統]、[檔案共用] 或 [Azure 檔案儲存體] 中，指定封裝檔案的 UNC 路徑，其副檔名為 .dtsx。 如果指定的 UNC 路徑包含任何空格，請在整個路徑前後加上引號。
 - **/Conf [igFile]** ：指定要從中解壓縮值的設定檔。 使用此選項，您可以針對封裝設定與設計階段所指定不同的執行時間設定。 您可以將不同的設定儲存在 XML 設定檔中，然後在封裝執行之前載入它們。 如需詳細資訊，請參閱[SSIS 封裝](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017)設定。 若要指定此選項的值，請在檔案系統、檔案共用或 Azure 檔案儲存體的設定檔案中使用 UNC 路徑，其副檔名為 Ssistutorial.dtsconfig。 如果指定的 UNC 路徑包含任何空格，請在整個路徑前後加上引號。

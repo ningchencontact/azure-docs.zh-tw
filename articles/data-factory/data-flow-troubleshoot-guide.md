@@ -1,18 +1,20 @@
 ---
-title: 針對 Azure Data Factory 資料流程進行疑難排解
+title: 針對資料流程進行疑難排解
 description: 瞭解如何針對 Azure Data Factory 中的資料流程問題進行疑難排解。
 services: data-factory
+ms.author: makromer
 author: kromerm
+manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/08/2019
-ms.author: makromer
-ms.openlocfilehash: 1b2309ec71cb3d43f4e5a39b80db593ab201c614
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.custom: seo-lt-2019
+ms.date: 12/06/2019
+ms.openlocfilehash: b972bbeac419d88afdd257a7fd19587dbaedf0d9
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721341"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930163"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>針對 Azure Data Factory 資料流程進行疑難排解
 
@@ -84,6 +86,14 @@ ms.locfileid: "73721341"
 
 - **解決**方式：在使用 JSON 資料集的來源轉換中，展開 [JSON 設定]，然後開啟 [單一檔]。
 
+### <a name="error-message-duplicate-columns-found-in-join"></a>錯誤訊息：在聯結中發現重複的資料行
+
+- **徵兆**：聯結轉換導致左側和右側的資料行包含重複的資料行名稱
+
+- **原因**：正在聯結的資料流程具有一般資料行名稱
+
+- **解決**方式：在聯結後面新增選取 transforamtion，然後選取 [移除重複的資料行] 來輸入和輸出。
+
 
 ## <a name="general-troubleshooting-guidance"></a>一般疑難排解指引
 
@@ -95,7 +105,7 @@ ms.locfileid: "73721341"
 
 如需更多疑難排解協助，請嘗試下列資源：
 
-*  [Data Factory 部落格](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory 的 blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory 功能要求](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure 影片](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)

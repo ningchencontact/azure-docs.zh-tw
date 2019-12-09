@@ -5,7 +5,6 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
@@ -13,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/12/2019
-ms.openlocfilehash: cae15e38f98794a3e97ad0b06329aa2e62c2945e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fa0f61ed0e280f11e693596f80e79f2e2c110678
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217655"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932049"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>設定自我裝載 IR 作為 ADF 中的 Azure SSIS IR 的 proxy
 
@@ -54,7 +53,7 @@ ms.locfileid: "74217655"
 ![使用自我裝載 IR 作為 proxy 來設定 Azure SSIS IR](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-settings-ssisir.png)
 
 ## <a name="enable-ssis-packages-to-connect-by-proxy"></a>啟用 SSIS 套件以透過 proxy 連接
-使用最新的 SSDT 與 SSIS 專案的 Visual Studio 擴充功能，可從[這裡](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)下載，或作為可從[這裡](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)下載的獨立安裝程式，您可以找到已在 OLEDB/中新增的新**ConnectByProxy**屬性一般檔案連接管理員。  
+使用最新的 SSDT 與 SSIS 專案的 Visual Studio 擴充功能，可從[這裡](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)下載，或作為可從[這裡](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)下載的獨立安裝程式，您可以找到已在 OLEDB/一般檔案連接管理員中新增的新**ConnectByProxy**屬性。  
 
 當您使用 OLEDB/一般檔案來源來設計包含資料流程工作的新封裝，以存取內部部署資料庫/檔案時，您可以在相關連線管理員的 [屬性] 面板上，將此屬性設定為**True** ，藉以啟用此屬性。
 
@@ -69,7 +68,7 @@ ms.locfileid: "74217655"
   
   ![啟用 ConnectByProxy property3](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
-- 重新部署包含要在 SSIS IR 上執行之封裝的專案：您可以藉由提供屬性路徑、`\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`，然後在 [執行封裝] 快顯視窗的 [ **Advanced** ] 索引標籤上將它設定為**True** ，藉以啟用此屬性。從 SSMS 執行封裝時。
+- 重新部署包含要在 SSIS IR 上執行之封裝的專案：您可以藉由提供屬性路徑、`\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`，並在從 SSMS 執行封裝時，將它設定為**True** ，做為 [執行封裝] 快顯視窗的 [ **Advanced** ] 索引標籤上的屬性覆寫來啟用此屬性。
 
   ![啟用 ConnectByProxy property4](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
 
@@ -95,4 +94,4 @@ ms.locfileid: "74217655"
 - 目前不支援在 ODBC/OLEDB/一般檔案來源和連線管理員的屬性中使用 SSIS 參數/變數。
 
 ## <a name="next-steps"></a>後續步驟
-將自我裝載 IR 設定為 Azure SSIS IR 的 proxy 之後，您就可以部署並執行封裝，以在 ADF 管線中以「執行 SSIS 套件」活動的形式存取內部部署資料，請參閱[在 adf 管線中將 ssis 套件執行為 EXECUTE Ssis 套件活動](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+將自我裝載 IR 設定為 Azure SSIS IR 的 proxy 之後，您就可以部署並執行封裝，以在 ADF 管線中以「執行 SSIS 套件」活動的形式存取內部部署資料，請參閱[在 adf 管線中將 ssis 套件執行為 EXECUTE Ssis 套件活動](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)。

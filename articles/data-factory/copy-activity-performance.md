@@ -1,25 +1,26 @@
 ---
-title: Azure Data Factory 中的複製活動效能和擴充性指南
+title: 複製活動效能和擴充性指南
 description: 瞭解當您使用複製活動時，會影響 Azure Data Factory 中資料移動效能的關鍵因素。
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.author: jingwang
-ms.openlocfilehash: 701eaad8d36b352e946ae8d74204876b41ecb53d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1b1b02e310c98a78006d258333c0ec10e89e3b31
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678274"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927456"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>複製活動效能和擴充性指南
+
 > [!div class="op_single_selector" title1="選取您要使用的 Azure Data Factory 版本："]
 > * [第 1 版](v1/data-factory-copy-activity-performance.md)
 > * [目前的版本](copy-activity-performance.md)
@@ -96,7 +97,7 @@ ADF 複製可在不同層級進行調整：
 
 3. **如何藉由同時執行多個複本，將匯總輸送量最大化：**
 
-   現在您已將單一複製活動的效能最大化，如果您尚未達到環境的輸送量上限（網路、來源資料存放區和目的地資料存放區），您可以使用 ADF 平行執行多個複製活動控制流程結構，例如[For each 迴圈](control-flow-for-each-activity.md)。
+   現在您已將單一複製活動的效能最大化，如果您尚未達到環境的輸送量上限（網路、來源資料存放區和目的地資料存放區），您可以使用 ADF 控制流程結構（例如[For each 迴圈](control-flow-for-each-activity.md)）平行執行多個複製活動。
 
 4. **效能微調秘訣和優化功能。** 在某些情況下，當您在 Azure Data Factory 中執行複製活動時，您會在[複製活動監視](copy-activity-overview.md#monitor-visually)之上看到「效能調整秘訣」訊息，如下列範例所示。 訊息會告訴您針對指定的複本執行所識別的瓶頸。 它也會引導您進行要變更的內容，以提高複製輸送量。 效能微調秘訣目前提供的建議如下：
 
@@ -150,7 +151,7 @@ Azure Data Factory 提供下列效能優化功能：
 > [!NOTE]
 > 目前只有當您將多個檔案從 Azure Blob/ADLS Gen1/ADLS Gen2/Amazon S3/Google Cloud Storage/雲端 FTP/雲端 SFTP 或已啟用分割選項的雲端關聯式資料存放區（包括[Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)）複製到任何其他雲端資料存放區時，才會套用超過四個 diu 的設定。
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[
@@ -193,11 +194,11 @@ Azure Data Factory 提供下列效能優化功能：
 **注意事項：**
 
 - 當您在以檔案為基礎的存放區之間複製資料時， **parallelCopies**會決定檔案層級的平行處理原則。 單一檔案內的區塊化會自動且透明地出現在下方。 其設計目的是針對指定的來源資料存放區類型，使用最適合的區塊大小，以平行方式載入資料，並與**parallelCopies**。 資料移動服務在執行階段用於複製作業的實際平行複製數目不會超過您擁有的檔案數目。 如果複製行為是**mergeFile**，複製活動就無法利用檔案層級的平行處理原則。
-- 當您從不是以檔案為基礎的存放區複製資料時（ [Oracle](connector-oracle.md#oracle-as-source)、 [Netezza](connector-netezza.md#netezza-as-source)、 [Teradata](connector-teradata.md#teradata-as-source)、 [sap 資料表](connector-sap-table.md#sap-table-as-source)和[sap 開放式中樞](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)連接器除外），如果是以檔案為基礎的存放區，則資料會移動服務會忽略**parallelCopies**屬性。 即使已指定平行處理原則，也不會套用於此案例。
+- 當您從不是以檔案為基礎的存放區複製資料時（ [Oracle](connector-oracle.md#oracle-as-source)、 [Netezza](connector-netezza.md#netezza-as-source)、 [Teradata](connector-teradata.md#teradata-as-source)、 [sap 資料表](connector-sap-table.md#sap-table-as-source)和[sap 開放式中樞](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)連接器除外，做為啟用資料分割的來源），資料移動服務會忽略**parallelCopies**屬性。 即使已指定平行處理原則，也不會套用於此案例。
 - **ParallelCopies**屬性正交于**dataIntegrationUnits**。 前者會跨所有資料整合單位計算。
 - 當您指定**parallelCopies**屬性的值時，請考慮來源和接收資料存放區的負載增加。 也請考慮負載增加至自我裝載整合執行時間（如果複製活動是由其進行授權），例如針對混合式複製。 當您對相同的資料存放區執行相同活動的多個活動或並存執行時，就會發生這種負載增加的情況。 如果您注意到資料存放區或自我裝載整合執行時間已負擔負載，請減少**parallelCopies**值以減輕負載。
 
-**範例:**
+**範例：**
 
 ```json
 "activities":[
@@ -241,12 +242,12 @@ Azure Data Factory 提供下列效能優化功能：
 
 設定 [複製] 活動中的 [ **enableStaging** ] 設定，指定在將資料載入目的地資料存放區之前，是否要在 Blob 儲存體中暫存資料。 當您將**enableStaging**設定為 `TRUE`時，請指定下表所列的其他屬性。 您也需要建立 Azure 儲存體或儲存體共用存取簽章連結服務，以供暫存（如果您沒有的話）。
 
-| 屬性 | 描述 | 預設值 | 必要 |
+| 屬性 | 描述 | 預設值 | 必要項 |
 | --- | --- | --- | --- |
-| enableStaging |指定您是否要透過過渡暫存存放區複製資料。 |False |否 |
+| enableStaging |指定您是否要透過過渡暫存存放區複製資料。 |否 |否 |
 | linkedServiceName |指定 [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) 連結服務的名稱，以代表您用來做為過渡暫存存放區的儲存體執行個體。 <br/><br/> 您無法使用具有共用存取簽章的儲存體，透過 PolyBase 將資料載入 SQL 資料倉儲。 您可以將它用於其他所有案例。 |N/A |是，當 **enableStaging** 設為 TRUE |
-| 路徑 |指定要包含分段資料的 Blob 儲存體路徑。 如果您未提供路徑，服務會建立容器來儲存暫存資料。 <br/><br/> 只有在使用具有共用存取簽章的儲存體時，或需要讓暫存資料位於特定位置時，才指定路徑。 |N/A |否 |
-| enableCompression |指定是否應該先壓縮資料，再將它複製到目的地。 此設定可減少傳輸的資料量。 |False |否 |
+| path |指定要包含分段資料的 Blob 儲存體路徑。 如果您未提供路徑，服務會建立容器來儲存暫存資料。 <br/><br/> 只有在使用具有共用存取簽章的儲存體時，或需要讓暫存資料位於特定位置時，才指定路徑。 |N/A |否 |
+| enableCompression |指定是否應該先壓縮資料，再將它複製到目的地。 此設定可減少傳輸的資料量。 |否 |否 |
 
 >[!NOTE]
 > 如果您在啟用壓縮的情況下使用分段複製，則不支援暫存 blob 連結服務的服務主體或 MSI 驗證。

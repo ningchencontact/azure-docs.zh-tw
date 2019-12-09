@@ -1,29 +1,25 @@
 ---
-title: 適用于 iOS 的 Microsoft Authentication Library （MSAL） & macOS
+title: 適用于 iOS & macOS 的 MSAL |Azure
 titleSuffix: Microsoft identity platform
 description: 描述 iOS 與 macOS 之間的 Microsoft Authentication Library （MSAL）使用方式差異。
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: twhitney
-ms.reviewer: ''
+ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc57f68983b044a9196bc308c8f443635bdc7eb8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9d1a985d1dfbae9ad0dbaa252512c868dcb199eb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175750"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916838"
 ---
 # <a name="microsoft-authentication-library-for-ios-and-macos-differences"></a>適用於 iOS 和 macOS 的 Microsoft Authentication Library 差異
 

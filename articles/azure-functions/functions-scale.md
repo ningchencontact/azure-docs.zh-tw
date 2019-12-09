@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ebb2fcf0f626a82bcb5e6439183ba98c39c58588
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 6520f205d0a9c1a33d0cb4911a58a5e680bdadb7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322907"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929721"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
@@ -37,12 +37,12 @@ App Service 方案可讓您利用您所管理的專用基礎結構。 您的函�
 
 下表指出在 Windows 或 Linux 上執行時，三個主控方案目前的支援層級：
 
-| | 取用方案 | 進階方案 | 專用方案 |
+| | 使用量方案 | Premium 方案 | 專用方案 |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | GA | GA | GA |
-| Linux | GA | GA | GA |
+| Windows | 正式上市 | 正式上市 | 正式上市 |
+| Linux | 正式上市 | 正式上市 | 正式上市 |
 
-## <a name="consumption-plan"></a>取用方案
+## <a name="consumption-plan"></a>使用量方案
 
 當您使用取用方案時，會根據傳入事件的數目，動態新增和移除 Azure Functions 主機的實例。 此無伺服器方案會自動調整，您只需支付函式執行時使用的計算資源。 在取用方案中，函式執行會在一段可設定的時間之後逾時。
 
@@ -105,11 +105,11 @@ App Service 方案可讓您利用您所管理的專用基礎結構。 您的函�
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 
-即使已啟用 [永遠開啟] 選項，個別函式的執行逾時還是由 `functionTimeout`host.json[ 專案檔的 ](functions-host-json.md#functiontimeout) 設定來控制。
+即使已啟用 [永遠開啟] 選項，個別函式的執行逾時還是由 [host.json](functions-host-json.md#functiontimeout) 專案檔的 `functionTimeout` 設定來控制。
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>判斷現有應用程式的主控方案
 
-若要判斷您函式應用程式所用的主控方案，請在 **Azure 入口網站**中，參閱函式應用程式 [概觀] 中的 [App Service 方案 / 定價層][](https://portal.azure.com)。 如果是 App Service 方案，則會同時指出定價層。
+若要判斷您函式應用程式所用的主控方案，請在 [Azure 入口網站](https://portal.azure.com)中，參閱函式應用程式 [概觀] 中的 [App Service 方案 / 定價層]。 如果是 App Service 方案，則會同時指出定價層。
 
 ![在入口網站中檢視調整方案](./media/functions-scale/function-app-overview-portal.png)
 
@@ -142,7 +142,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 Azure Functions 使用名為「縮放控制器」的元件來監視事件的速率，並判斷是否相應放大或相應縮小。 縮放控制器會在每種觸發程序類型使用啟發學習法。 例如，當使用 Azure 佇列儲存體觸發程序時，會根據佇列長度和最舊佇列訊息的壽命調整規模。
 
-Azure Functions 的尺規單位是函式應用程式。 當函式應用程式相應放大時，會配置額外資源來執行 Azure Functions 主機的多個執行個體。 反之，當計算需求降低時，縮放控制器會移除 Functions 主機的執行個體。 執行個體的數目最終會在函數應用程式中沒有任何函式執行時相應減少至零個。
+Azure Functions 的尺規單位是函式應用程式。 當函式應用程式相應放大時，會配置額外資源來執行 Azure Functions 主機的多個執行個體。 反之，當計算需求降低時，縮放控制器會移除 Functions 主機的執行個體。 當函式應用程式中沒有任何函式正在執行時，實例的數目最後會相應*縮小*為零。
 
 ![縮放控制器能監視事件及建立執行個體](./media/functions-scale/central-listener.png)
 

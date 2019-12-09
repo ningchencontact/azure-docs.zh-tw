@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory 的資料流程圖形
+title: 資料流程圖形
 description: 如何使用 data factory 的資料流程圖形
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/04/2019
-ms.openlocfilehash: 38f85dea554000daf89689a311c091bc9796a658
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: da180bfb1aec29fa15b070fd73ba84d708ada927
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74015895"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928314"
 ---
 # <a name="mapping-data-flow-graphs"></a>對應資料流程圖形
 
@@ -41,7 +42,7 @@ ms.locfileid: "74015895"
 
 您可以使用設計介面上的 [搜尋] 按鈕來搜尋圖表。
 
-![Search](media/data-flow/search001.png "搜尋圖表")
+![搜尋](media/data-flow/search001.png "搜尋圖表")
 
 ## <a name="next-steps"></a>後續步驟
 

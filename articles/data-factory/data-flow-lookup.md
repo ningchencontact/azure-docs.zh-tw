@@ -1,23 +1,24 @@
 ---
-title: Azure Data Factory 對應的資料流程查閱轉換
+title: 對應資料流程查閱轉換
 description: Azure Data Factory 對應的資料流程查閱轉換
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/03/2019
-ms.openlocfilehash: 01a1dba18e21a38695146560bbf85cf1a042ba02
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 5cc54c95759ba1490f498305f05cc49a4411686d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596618"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930321"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory 對應的資料流程查閱轉換
 
 使用查閱以將另一個來源的參考資料新增至資料流程。 查閱轉換需要定義的來源，其指向您的參考資料表且會比對索引鍵欄位。
 
-![查閱轉換](media/data-flow/lookup1.png "查閱")
+![Lookup Transformation](media/data-flow/lookup1.png "查閱")
 
 選取您想要在內送資料流欄位與參考來源欄位之間比對的索引鍵欄位。 您必須先在資料流程設計畫布上建立新的來源，以作為查閱的右端。
 
@@ -27,7 +28,7 @@ ms.locfileid: "72596618"
 
 ## <a name="match--no-match"></a>符合/不符合
 
-在您的查閱轉換之後，您可以使用運算式函數 `isMatch()`，利用後續轉換來檢查每個相符資料列的結果，以根據查閱是否導致資料列相符而在邏輯中進行進一步的選擇。
+在您的查閱轉換之後，您可以使用運算式函式 `isMatch()`，將後續的轉換用來檢查每個相符資料列的結果，以根據查閱是否導致資料列相符而在邏輯中進行進一步的選擇。
 
 ![查閱模式](media/data-flow/lookup111.png "查閱模式")
 
@@ -47,7 +48,7 @@ ms.locfileid: "72596618"
 
 在 Data Factory 中，資料流程會在相應放大的 Spark 環境中執行。 如果您的資料集可以放入背景工作節點記憶體空間，我們可以優化您的查閱效能。
 
-![廣播聯結](media/data-flow/broadcast.png "廣播聯結")
+![廣播聯結](media/data-flow/broadcast.png "廣播加入")
 
 ### <a name="broadcast-join"></a>廣播聯結
 

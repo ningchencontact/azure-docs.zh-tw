@@ -4,20 +4,19 @@ description: 了解如何使用 Azure Data Factory 從內部部署或雲端 HTTP
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4133393b7b21394ea397598a5e1651ee370f92f0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e668f44bbc3d2e381edeb80c568a41355584a4ee
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682520"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924171"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>使用 Azure Data Factory 來移動 HTTP 來源的資料
 
@@ -26,7 +25,7 @@ ms.locfileid: "73682520"
 > * [第 2 版 (目前的版本)](../connector-http.md)
 
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Azure Data Factory 服務，請參閱[第 2 版中的 HTTP 連接器](../connector-http.md)。
+> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Azure Data Factory 服務，請參閱[第 2 版中的 HTTP 連接器](../connector-http.md)。
 
 
 本文概述如何使用 Azure Data Factory 中的複製活動，將內部部署或雲端 HTTP 端點中的資料移動到支援的接收資料存放區。 本文的建置是根據[使用複製活動來移動資料](data-factory-data-movement-activities.md)，該文會提供使用複製活動來移動資料的一般概觀。 本文也會列出複製活動所支援作為來源和接收的資料存放區。
@@ -35,7 +34,7 @@ Data Factory 目前只支援將資料從 HTTP 來源移到其他資料存放區�
 
 ## <a name="supported-scenarios-and-authentication-types"></a>支援的案例和驗證類型
 
-您可以使用這個 HTTP 連接器，藉由使用 HTTP *GET*或 **POST** 方法，從雲端和內部部署 HTTP/S 端點擷取資料。 支援下列驗證類型︰**匿名** **基本**、**摘要**、**Windows**和 **ClientCertificate**。 請注意此連接器和 [Web 資料表連接器](data-factory-web-table-connector.md)的差異。 Web 資料表連接器可從 HTML 網頁擷取資料表內容。
+您可以使用這個 HTTP 連接器，藉由使用 HTTP **GET**或 **POST** 方法，從雲端和內部部署 HTTP/S 端點擷取資料。 支援下列驗證類型︰**匿名** **基本**、**摘要**、**Windows**和 **ClientCertificate**。 請注意此連接器和 [Web 資料表連接器](data-factory-web-table-connector.md)的差異。 Web 資料表連接器可從 HTML 網頁擷取資料表內容。
 
 從內部部署 HTTP 端點複製資料時，您必須在內部部署環境或 Azure VM 中安裝資料管理閘道。 若要了解資料管理閘道和如何設定閘道的逐步指示，請參閱[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)。
 
@@ -51,10 +50,10 @@ Data Factory 目前只支援將資料從 HTTP 來源移到其他資料存放區�
 
 下表說明 HTTP 連結服務專屬的 JSON 元素：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | 類型 | **類型**屬性必須設定為 **Http**。 | 是 |
-| url | Web 伺服器的基底 URL。 | 是 |
+| URL | Web 伺服器的基底 URL。 | 是 |
 | authenticationType | 指定驗證類型。 允許的值為**匿名**、**基本**、**摘要**、**Windows** 和 **ClientCertificate**。 <br><br> 如需更多關於這些驗證類型的屬性和 JSON 範例，請參閱本文後續幾節。 | 是 |
 | enableServerCertificateValidation | 指定在來源是 HTTPS Web 伺服器的情況下，是否要啟用伺服器 SSL 憑證驗證。 當 HTTPS 伺服器使用自我簽署的憑證時，請將此屬性設定為 **false**。 | 否<br /> (預設值為 **true**) |
 | gatewayName | 用來連線至內部部署 HTTP 來源的「資料管理閘道」執行個體名稱。 | 如果要從內部部署 HTTP 來源複製資料，則為是。 |
@@ -66,7 +65,7 @@ Data Factory 目前只支援將資料從 HTTP 來源移到其他資料存放區�
 
 將 **authenticationType** 設定為**基本**、**摘要**或 **Windows**。 除了上述幾節所述的一般 HTTP 連接器屬性外，也請設定下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | userName | 用來存取 HTTP 端點的使用者名稱。 | 是 |
 | password | 使用者 (**username**) 的密碼。 | 是 |
@@ -94,7 +93,7 @@ Data Factory 目前只支援將資料從 HTTP 來源移到其他資料存放區�
 
 若要使用基本驗證，請將 **authenticationType** 設定為 **ClientCertificate**。 除了上述幾節所述的一般 HTTP 連接器屬性外，也請設定下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | embeddedCertData | PFX 檔案二進位資料的 Base64 編碼內容。 | 指定 **embeddedCertData** 或 **certThumbprint** |
 | certThumbprint | 憑證指紋已安裝在您閘道器電腦的憑證存放區上。 當您從內部部署 HTTP 來源複製資料時才適用。 | 指定 **embeddedCertData** 或 **certThumbprint** |
@@ -158,7 +157,7 @@ Data Factory 目前只支援將資料從 HTTP 來源移到其他資料存放區�
 
 不同類型資料集的 **typeProperties** 區段不同。 **typeProperties** 區段可提供資料存放區中的資料位置資訊。 類型為 **Http** 的資料集中，其 **typeProperties** 區段有下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 資料集的**類型**必須設定為 **Http**。 | 是 |
 | relativeUrl | 包含資料之資源的相對 URL。 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 <br><br> 若要建構動態 URL，您可以使用 [Data Factory 函式和系統變數](data-factory-functions-variables.md)。 範例：**relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)** 。 | 否 |
@@ -221,7 +220,7 @@ Data Factory 目前只支援將資料從 HTTP 來源移到其他資料存放區�
 
 目前，當複製活動中的來源類型為 **HttpSource** 時，支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 逾時會取得回應，而非逾時讀取回應資料。 | 否<br />(預設值：**00:01:40**) |
 
@@ -239,8 +238,8 @@ Data Factory 目前只支援將資料從 HTTP 來源移到其他資料存放區�
 
 *   一個 [HTTP](#linked-service-properties) 類型的連結服務。
 *   [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)類型的連結服務。
-*   [Http](data-factory-create-datasets.md) 類型的輸入[資料集](#dataset-properties)。
-*   [AzureBlob](data-factory-create-datasets.md) 類型的輸出[資料集](data-factory-azure-blob-connector.md#dataset-properties)。
+*   [Http](#dataset-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。
+*   [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 類型的輸出[資料集](data-factory-create-datasets.md)。
 *   [管線](data-factory-create-pipelines.md)，其擁有的複製活動會使用 [HttpSource](#copy-activity-properties) 和 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)。
 
 範例會每隔一小時就把 HTTP 來源的資料複製到 Azure Blob。 範例後面的各節會說明這些範例中使用的 JSON 屬性。

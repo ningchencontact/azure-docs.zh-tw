@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: babanisa
-ms.openlocfilehash: 9ee1dd74384725b3fffbfea7144c3a536b50c531
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 074378668b0516936e11968ea8c800d3daa667bb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174547"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931545"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>將事件發佈至 Azure Active Directory 受保護的端點
 
@@ -22,9 +22,9 @@ ms.locfileid: "74174547"
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
-## <a name="create-and-azure-ad-application"></a>建立和 Azure AD 應用程式
+## <a name="create-an-azure-ad-application"></a>建立 Azure AD 應用程式
 
-從為受保護的端點建立 Azure AD 應用程式開始。 請參閱 https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview。
+從為受保護的端點建立 Azure AD 應用程式開始。 請參閱 https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview 。
     - 將受保護的 API 設定為可由背景程式應用程式呼叫。
     
 ## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>啟用事件方格以使用您的 Azure AD 應用程式

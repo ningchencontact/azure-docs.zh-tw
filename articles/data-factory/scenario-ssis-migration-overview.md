@@ -9,19 +9,18 @@ ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 99b7de8c0e24fdbd12742b26394e61c956638525
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 52629b8e2e190cc041116e6f65488480712baf01
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038284"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929795"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>將內部部署 SSIS 工作負載遷移至 ADF 中的 SSIS
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 當您將資料庫工作負載從內部部署 SQL Server 遷移至 Azure 資料庫服務（亦即 Azure SQL Database 或 Azure SQL Database 受控實例）時，您的 ETL 工作負載會在 SQL Server Integration Services （SSIS）做為其中一個主要值-已新增服務也必須遷移。
 
@@ -54,7 +53,7 @@ DMA 目前支援從**DMA 版本 v 5.0**開始，儲存在**檔案系統**、**�
 
 ## <a name="migration"></a>移轉
 
-根據來源 SSIS 封裝的[儲存體類型](#four-storage-types-for-ssis-packages)和資料庫工作負載的遷移目的地 **，遷移 ssis 封裝和**排程 ssis 套件執行**SQL Server Agent 作業**的步驟可能會有所不同。 有兩種案例：
+根據來源 SSIS 封裝的[儲存體類型](#four-storage-types-for-ssis-packages)和資料庫工作負載的遷移目的地 **，遷移 ssis 封裝和**排程 ssis 套件執行**SQL Server Agent 作業**的步驟可能會有所不同。 兩個案例如下：
 
 - [做為資料庫工作負載目的地的**Azure SQL Database 受控實例**](#azure-sql-database-managed-instance-as-database-workload-destination)
 - [做為資料庫工作負載目的地**Azure SQL Database**](#azure-sql-database-as-database-workload-destination)

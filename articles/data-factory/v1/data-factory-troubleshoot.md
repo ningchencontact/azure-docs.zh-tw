@@ -6,32 +6,31 @@ documentationcenter: ''
 ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
-manager: craigg
+manager: anandsub
 robots: noindex
-ms.openlocfilehash: d729fd11f355650b1476e6864a6d70219bf37e12
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 81ae5c3c702108d854e4dfde93001d5c99875666
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135126"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931589"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>資料處理站的疑難排解
 > [!NOTE]
-> 本文適用於 Azure Data Factory 第 1 版。 
+> 本文適用於第 1 版的 Azure Data Factory。 
 
 這篇文章提供使用 Azure Data Factory 時的問題疑難排解提示。 這篇文章並未列出使用服務時的所有可能問題，但是涵蓋部分問題和一般疑難排解提示。   
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="troubleshooting-tips"></a>疑難排解秘訣
-### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Error:訂用帳戶未註冊為使用命名空間 'Microsoft.DataFactory'
-如果您收到此錯誤，Azure Data Factory 資源提供者尚未在您的電腦上註冊。 請執行下列動作：
+## <a name="troubleshooting-tips"></a>疑難排解提示
+### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>錯誤︰訂用帳戶未註冊為使用命名空間 'Microsoft.DataFactory'
+如果您收到此錯誤，Azure Data Factory 資源提供者尚未在您的電腦上註冊。 執行下列動作：
 
 1. 啟動 Azure PowerShell。
 2. 使用下列命令來登入您的 Azure 帳戶。
@@ -50,7 +49,7 @@ ms.locfileid: "70135126"
 
 1. 連接-Disconnect-azaccount-使用正確的使用者識別碼和密碼
 2. Get-azsubscription-查看帳戶的所有訂閱。
-3. 選取-get-azsubscription &lt;訂用&gt;帳戶名稱-選取正確的訂用帳戶。 請使用您在 Azure 入口網站上用來建立 Data Factory 的相同帳戶。
+3. 選取-Get-azsubscription &lt;訂用帳戶名稱&gt;-選取正確的訂用帳戶。 請使用您在 Azure 入口網站上用來建立 Data Factory 的相同帳戶。
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>問題：無法從 Azure 入口網站啟動「資料管理閘道快速安裝」
 資料管理閘道的快速安裝需要有 Internet Explorer 或 Microsoft ClickOnce 相容的 Web 瀏覽器。 如果無法啟動快速安裝，請執行下列其中一項：
@@ -70,7 +69,7 @@ ms.locfileid: "70135126"
 
 關於 **external** 屬性的用法，請參閱下列範例。 當您將 external 設定為 true 時，可以視需要指定 **externalData**\*。
 
-如需此屬性的詳細資訊，請參閱 [資料集](data-factory-create-datasets.md) 文章。
+如需此屬性的詳細資訊，請參閱[資料集](data-factory-create-datasets.md)文章。
 
 ```json
 {
@@ -121,7 +120,7 @@ Failed to create cluster. Exception: Unable to complete the cluster create opera
 ### <a name="using-portal-blades"></a>使用入口網站刀鋒視窗
 請參閱 [監視管線](data-factory-monitor-manage-pipelines.md) 以取得步驟。
 
-### <a name="using-monitor-and-manage-app"></a>使用監視及管理應用程式
+### <a name="using-monitor-and-manage-app"></a>使用監視器及管理應用程式
 如需詳細資訊，請參閱 [使用監視及管理應用程式，來監視及管理 Data Factory 管線](data-factory-monitor-manage-app.md) 。
 
 ## <a name="use-azure-powershell-to-troubleshoot"></a>使用 Azure PowerShell 進行疑難排解

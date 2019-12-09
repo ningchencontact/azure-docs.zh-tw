@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure 應用程式 Insights 快照偵錯工具的問題進行疑難排解 |Microsoft Docs
+title: 針對 Azure 應用程式 Insights 快照偵錯工具進行疑難排解
 description: 本文提供疑難排解步驟和資訊，以協助無法啟用或使用 Application Insights 快照偵錯工具的開發人員。
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: brahmnes
 ms.author: mbullwin
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: ec70f202a496ec368a483278994c7c5ccb24f40b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ded4a1a718d2cb061aba5f0d27565633e6cb603a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899818"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932096"
 ---
 # <a id="troubleshooting"></a>針對啟用 Application Insights 快照偵錯工具或查看快照集的問題進行疑難排解
 如果您已為應用程式啟用 Application Insights 快照偵錯工具，但看不到例外狀況的快照集，您可以使用這些指示來進行疑難排解。 不會產生快照集有許多不同的原因。 您可以執行快照集健康情況檢查，以找出一些可能的常見原因。
@@ -36,12 +36,12 @@ ms.locfileid: "72899818"
 請確定您在已發佈的應用程式中使用正確的檢測金鑰。 通常，會從 ApplicationInsights.config 檔案中讀取檢測金鑰。 請確認此值與您在入口網站中看到之 Application Insights 資源的檢測金鑰相同。
 
 ## <a name="preview-versions-of-net-core"></a>.NET Core 的預覽版本
-如果應用程式使用 .NET Core 的預覽版本，並透過入口網站中的 [ [Application Insights] 窗格](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)啟用快照偵錯工具，則快照偵錯工具可能無法啟動。 請依照[啟用其他環境的快照偵錯工具](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)一節中的指示，先包含應用程式的[microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 套件，***以及***透過[Application Insights 窗格](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)。
+如果應用程式使用 .NET Core 的預覽版本，並透過入口網站中的 [ [Application Insights] 窗格](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)啟用快照偵錯工具，則快照偵錯工具可能無法啟動。 請依照[啟用其他環境的快照偵錯工具](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)一節中的指示，先將[microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 套件加入應用程式，***以及***透過 [ [Application Insights] 窗格](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)啟用。
 
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>升級至最新版本的 NuGet 套件
 
-如果快照偵錯工具是透過[入口網站中的 [Application Insights] 窗格](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)啟用，則您的應用程式應該已經在執行最新的 NuGet 套件。 如果已藉由包含[ApplicationInsights Microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nuget 套件來啟用快照偵錯工具，請使用 Visual Studio 的 Nuget 套件管理員，以確定您使用的是最新版的ApplicationInsights. Microsoft.applicationinsights.snapshotcollector。 如需版本資訊，請參閱 https://github.com/Microsoft/ApplicationInsights-Home/issues/167
+如果快照偵錯工具是透過[入口網站中的 [Application Insights] 窗格](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)啟用，則您的應用程式應該已經在執行最新的 NuGet 套件。 如果已藉由包含[Microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nuget 套件來啟用快照偵錯工具，請使用 Visual Studio 的 Nuget 套件管理員，以確定您使用的是最新版本的 ApplicationInsights microsoft.applicationinsights.snapshotcollector。 如需版本資訊，請參閱 https://github.com/Microsoft/ApplicationInsights-Home/issues/167
 
 ## <a name="check-the-uploader-logs"></a>請檢查上傳程式記錄
 

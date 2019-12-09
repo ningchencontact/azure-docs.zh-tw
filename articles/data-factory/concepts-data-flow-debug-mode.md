@@ -1,22 +1,21 @@
 ---
-title: Azure Data Factory 對應的資料流程 Debug 模式
+title: 對應資料流程的偵錯模式
 description: 在建置資料流程時啟動互動式偵錯工作階段
-author: kromerm
 ms.author: makromer
+author: kromerm
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: c65ed14abb86b3b434e46fbe857487b06e217aad
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 18848695327a374f12fbe5a34d03366b050d8b65
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387376"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928353"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>對應資料流程的偵錯模式
-
-
 
 ## <a name="overview"></a>概觀
 
@@ -38,11 +37,11 @@ Azure Data Factory 對應資料流程的 [偵錯工具模式] 可讓您在建立
 
 當您完成偵錯工具後，請關閉 Debug 參數，讓您的 Azure Databricks 叢集可以終止，而且您不再需要為 Debug 活動計費。
 
-## <a name="debug-settings"></a>Debug 設定
+## <a name="debug-settings"></a>偵錯設定
 
 您可以按一下 [資料流程畫布] 工具列上的 [偵錯工具設定] 來編輯 debug 設定。 您可以在這裡選取每個來源轉換所使用的資料列限制或檔案來源。 此設定中的資料列限制僅適用于目前的「偵錯工具」會話。 您也可以選取要用於 SQL DW 來源的預備連結服務。 
 
-![Debug 設定](media/data-flow/debug-settings.png "Debug 設定")
+![Debug 設定](media/data-flow/debug-settings.png "偵錯設定")
 
 如果您的資料流程或其任何參考的資料集內有參數，您可以選取 [**參數**] 索引標籤，指定要在偵錯工具中使用的值。
 
@@ -63,19 +62,19 @@ Azure Data Factory 對應資料流程的 [偵錯工具模式] 可讓您在建立
 
 當單元測試聯結、存在或查閱轉換時，請確定您使用一小組已知的資料進行測試。 您可以使用上述的 [偵錯工具設定] 選項，設定要用於測試的暫存檔案。 這是必要的，因為在限制或取樣大型資料集的資料列時，您無法預測要將哪些資料列和哪些金鑰讀入流程中進行測試。 結果是不具決定性的，這表示您的聯結條件可能會失敗。
 
-### <a name="quick-actions"></a>快速動作
+### <a name="quick-actions"></a>快速控制項目
 
 看到資料預覽之後，您就可以產生快速轉換，以轉換、移除或修改資料行。 按一下欄標題，然後從 [資料預覽] 工具列中選取其中一個選項。
 
-![快速動作](media/data-flow/quick-actions1.png "快速動作")
+![快速動作](media/data-flow/quick-actions1.png "快速控制項目")
 
 一旦您選取修改後，資料預覽就會立即重新整理。 按一下右上角的 [**確認**]，以產生新的轉換。
 
-![快速動作](media/data-flow/quick-actions2.png "快速動作")
+![快速動作](media/data-flow/quick-actions2.png "快速控制項目")
 
 **轉換**和**Modify**會產生「衍生的資料行」轉換，而「**移除**」將會產生「選取」轉換。
 
-![快速動作](media/data-flow/quick-actions3.png "快速動作")
+![快速動作](media/data-flow/quick-actions3.png "快速控制項目")
 
 > [!NOTE]
 > 如果您編輯資料流程，則必須先重新提取資料預覽，再新增快速轉換。

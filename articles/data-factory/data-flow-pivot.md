@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory 對應的資料流程樞紐分析表轉換
+title: 對應資料流程樞紐分析表轉換
 description: 使用 Azure Data Factory 對應資料流程樞紐分析表轉換，從資料列到資料行的樞紐分析表
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: e59f0623b898fedada63e51fabbaf88d8b17f59d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 8f23b5e61e1aee83172a12466fac8d5b5003fea8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387802"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930294"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Azure data factory 資料透視轉換
 

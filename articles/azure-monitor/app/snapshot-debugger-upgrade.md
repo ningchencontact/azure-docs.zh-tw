@@ -1,6 +1,6 @@
 ---
-title: 適用于 .NET 應用程式的 Azure 應用程式 Insights 快照偵錯工具升級 |Microsoft Docs
-description: 如何將快照偵錯工具升級至 Azure App 服務上的最新版本，或透過 Nuget 套件
+title: 升級 Azure 應用程式深入解析快照偵錯工具
+description: 如何將 .NET 應用程式的快照偵錯工具升級至 Azure App 服務上的最新版本，或透過 Nuget 套件
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
@@ -8,12 +8,12 @@ author: pharring
 ms.author: pharring
 ms.date: 03/28/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 51642dde3de16f2bed3ca247e573237effb30917
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: d246fb36cc56a90faaf00c5b47ba69580a9c8a5d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73935944"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927180"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>升級快照偵錯工具
 

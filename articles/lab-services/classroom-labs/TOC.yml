@@ -72,6 +72,8 @@
           href: how-to-enable-remote-desktop-linux.md
         - name: 在範本 VM 上啟用巢狀虛擬化
           href: how-to-enable-nested-virtualization-template-vm.md
+        - name: 準備 Windows 範本 VM
+          href: how-to-prepare-windows-template.md
     - name: 在教室實驗室中連線至 VM (學生)
       items:
         - name: 存取教室實驗室

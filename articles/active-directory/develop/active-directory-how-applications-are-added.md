@@ -1,5 +1,5 @@
 ---
-title: 將應用程式新增至 Azure Active Directory 的方式和原因
+title: 如何和為何將應用程式新增至 Azure AD
 titleSuffix: Microsoft identity platform
 description: 對於應用程式來說，新增至 Azure AD 有何意義，以及要如何新增？
 services: active-directory
@@ -15,12 +15,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a04315d887a1774fa50743d4bb361b9d9082aba
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f031389dc37fbf48f8a69db8c42419eed9605373
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845054"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918333"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>將應用程式加入至 Azure AD 的方式和原因
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d54075da10671bb9a48c84844cab67841fa0aec0
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 86b4b19ca80b7dfb2bd9a1a56069fe3d347377ec
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560136"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927859"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>針對 Windows 中的 Azure 檔案服務問題進行疑難排解
 
@@ -97,8 +97,7 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 Azure 檔案同步可以將您的內部部署 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定以從本機存取資料，包括 SMB、NFS 和 FTPS。 Azure 檔案同步會透過埠443運作，因此可作為因應措施，從已封鎖埠445的用戶端存取 Azure 檔案儲存體。 [瞭解如何設定 Azure 檔案同步](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers)。
 
 #### <a name="solution-2---use-vpn"></a>解決方案 2-使用 VPN
-藉由設定特定儲存體帳戶的 VPN，流量會通過安全通道，而不是透過網際網路。 請遵循[指示來設定 VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
-) ，以從 Windows 存取 Azure 檔案儲存體。
+藉由設定特定儲存體帳戶的 VPN，流量會通過安全通道，而不是透過網際網路。 請遵循[指示來設定 VPN](storage-files-configure-p2s-vpn-windows.md) ，以從 Windows 存取 Azure 檔案儲存體。
 
 #### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>解決方案 3-透過您的 ISP/IT 系統管理員協助來解除封鎖埠445
 與您的 IT 部門或 ISP 合作，開啟埠445輸出到[AZURE IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。

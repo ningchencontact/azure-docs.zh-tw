@@ -1,23 +1,22 @@
 ---
-title: 使用 Azure Data Factory 從 SAP 資料表複製資料
+title: 從 SAP 資料表複製資料
 description: 瞭解如何使用 Azure Data Factory 管線中的複製活動，將資料從 SAP 資料表複製到支援的接收資料存放區。
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/02/2019
-ms.author: jingwang
-ms.openlocfilehash: 9c4e22e997b4ad8c36d8aaf84d1bb8aacb5c5529
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fd363f7b685db5e309827a0c5e635264e676b388
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680233"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926184"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP 資料表複製資料
 
@@ -73,9 +72,9 @@ ms.locfileid: "73680233"
 
 以下是針對 SAP BW 開放式中樞連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| `type` | `type` 屬性必須設定為 `SapTable`。 | 是 |
+| `type` | `type` 屬性必須設為 `SapTable`。 | 是 |
 | `server` | SAP 實例所在的伺服器名稱。<br/>用來連接到 SAP 應用程式伺服器。 | 否 |
 | `systemNumber` | SAP 系統的系統編號。<br/>用來連接到 SAP 應用程式伺服器。<br/>允許的值：以字串表示的二位數十進位數。 | 否 |
 | `messageServer` | SAP 訊息伺服器的主機名稱。<br/>使用連接到 SAP 訊息伺服器。 | 否 |
@@ -181,9 +180,9 @@ ms.locfileid: "73680233"
 
 若要將資料從和複製到 SAP BW 開放式中樞連結服務，支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| `type` | `type` 屬性必須設定為 `SapTableResource`。 | 是 |
+| `type` | `type` 屬性必須設為 `SapTableResource`。 | 是 |
 | `tableName` | 要從中複製資料的 SAP 資料表名稱。 | 是 |
 
 ### <a name="example"></a>範例
@@ -213,12 +212,12 @@ ms.locfileid: "73680233"
 
 若要從 SAP 資料表複製資料，支援下列屬性：
 
-| 屬性                         | 說明                                                  | 必要 |
+| 屬性                         | 描述                                                  | 必要項 |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
-| `type`                             | `type` 屬性必須設定為 `SapTableSource`。         | 是      |
+| `type`                             | `type` 屬性必須設為 `SapTableSource`。         | 是      |
 | `rowCount`                         | 要抓取的資料列數目。                              | 否       |
-| `rfcTableFields`                   | 要從 SAP 資料表複製的欄位（資料行）。 例如， `column0, column1`。 | 否       |
-| `rfcTableOptions`                  | 用來篩選 SAP 資料表中之資料列的選項。 例如， `COLUMN0 EQ 'SOMEVALUE'`。 另請參閱本文稍後的 SAP 查詢運算子資料表。 | 否       |
+| `rfcTableFields`                   | 要從 SAP 資料表複製的欄位（資料行）。 例如： `column0, column1` 。 | 否       |
+| `rfcTableOptions`                  | 用來篩選 SAP 資料表中之資料列的選項。 例如： `COLUMN0 EQ 'SOMEVALUE'` 。 另請參閱本文稍後的 SAP 查詢運算子資料表。 | 否       |
 | `customRfcReadTableFunctionModule` | 自訂 RFC 函數模組，可用來從 SAP 資料表讀取資料。<br>您可以使用自訂 RFC 函式模組來定義從 SAP 系統抓取資料並傳回 Data Factory 的方式。 自訂函式模組必須具有類似于 `/SAPDS/RFC_READ_TABLE2`的介面（匯入、匯出、資料表），這是 Data Factory 使用的預設介面。 | 否       |
 | `partitionOption`                  | 要從 SAP 資料表讀取的資料分割機制。 支援的選項包括： <ul><li>`None`</li><li>`PartitionOnInt` （左邊有零填補的一般整數或整數值，例如 `0000012345`）</li><li>`PartitionOnCalendarYear` （格式為 "YYYY" 的4個數字）</li><li>`PartitionOnCalendarMonth` （6位數，格式為 "YYYYMM"）</li><li>`PartitionOnCalendarDate` （格式為 "YYYYMMDD" 的8位數）</li></ul> | 否       |
 | `partitionColumnName`              | 用來分割資料的資料行名稱。                | 否       |
@@ -235,11 +234,11 @@ ms.locfileid: "73680233"
 
 在 `rfcTableOptions`中，您可以使用下列常用的 SAP 查詢運算子來篩選資料列：
 
-| 運算子 | 說明 |
+| 運算子 | 描述 |
 | :------- | :------- |
 | `EQ` | 等於 |
 | `NE` | 不等於 |
-| `LT` | 小於 |
+| `LT` | 少於 |
 | `LE` | 小於或等於 |
 | `GT` | 大於 |
 | `GE` | 大於或等於 |

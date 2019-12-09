@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 461298e4f195d88ced5015af26226a9f7b12f737
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3414bc21afb88d2683261ea1ce1398a0b1bfeece
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891774"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922298"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect︰版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -38,9 +38,23 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 當我們進行此程式時，版本號碼會以 "X" 顯示在次要版本號碼位置中，如 "1.3. X. 0"-這表示本檔中的版本資訊對開頭為 "1.3" 的所有版本都是有效的。 一旦完成發行程式，發行版本號碼就會更新為最近發行的版本，而發行狀態將更新為「已發行，可供下載及自動升級」。
 並非所有版本的 Azure AD Connect 都可自動升級。 發行狀態會指出版本是否可自動升級或僅供下載。 如果您的 Azure AD Connect 伺服器上已啟用自動升級，則該伺服器將會自動升級為可自動升級的最新版 Azure AD Connect。 請注意，並非所有 Azure AD Connect 組態都符合自動升級的資格。 請遵循下列連結來深入了解[自動升級](how-to-connect-install-automatic-upgrade.md)
 
+## <a name="14380"></a>1.4.38.0
+### <a name="release-status"></a>發行狀態
+12/6/2019：發行以供下載。 無法透過自動升級來使用。
+### <a name="new-features-and-improvements"></a>新功能和改進
+- 我們已更新 Azure AD Domain Services 的密碼雜湊同步處理，以適當地在 Kerberos 雜湊中考慮填補。  這會在從 AAD 到 Azure AD Domain Services 的密碼同步處理期間，提供效能改進。
+- 我們已新增驗證代理程式與服務匯流排之間可靠會話的支援。
+- 此版本會強制執行 TLS 1.2，以進行驗證代理程式與雲端服務之間的通訊。
+- 我們已在驗證代理程式與雲端服務之間新增 websocket 連線的 DNS 快取。
+- 我們新增了以雲端為目標的特定代理程式的功能，以測試代理程式連線能力。
+
+### <a name="fixed-issues"></a>已修正的問題
+- Release 1.4.18.0 有一個 bug，其中適用于 DSSO 的 PowerShell Cmdlet 使用登入 windows 認證，而不是執行 ps 時提供的 admin credentialss。 因此，無法透過 AADConnect 使用者介面在多個樹系中啟用 DSSO。 
+- 已修正透過 AADConnect 使用者介面在所有樹系中同時啟用 DSSO
+
 ## <a name="14320"></a>1.4.32.0
 ### <a name="release-status"></a>發行狀態
-11/08/2019：已發行以供下載。 無法供自動升級
+11/08/2019：已發行以供下載。 無法透過自動升級來使用。
 
 >[!IMPORTANT]
 >由於這一版 Azure AD Connect 中的內部架構變更，如果您使用 MSOnline PowerShell 來管理 ADFS 信任關係設定，則必須將 MSOnline PowerShell 模組更新為版本1.1.183.57 或更高版本

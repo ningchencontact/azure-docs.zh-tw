@@ -4,20 +4,19 @@ description: 瞭解如何使用 Data Factory，將資料從支援的來源存放
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: d8cbc7410f2b2bd525148cee9dc5b8ddbb756dff
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b43ec36f6f3a9111656892c65af2592fce6eaed2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680513"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931747"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -67,7 +66,7 @@ ms.locfileid: "73680513"
 
 Oracle 連結服務支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | type 屬性必須設定為 **Oracle**。 | 是 |
 | connectionString | 指定連線到 Oracle 資料庫執行個體所需的資訊。 <br/>將此欄位標記為 `SecureString`，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `password` 設定。 請參閱下列範例，並[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)，並提供更多詳細資料。 <br><br>**支援的連線類型**：您可以使用 [Oracle SID] 或 [Oracle 服務名稱] 來識別您的資料庫：<br>- 如果您使用 SID：`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 如果您使用服務名稱：`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | 是 |
@@ -78,7 +77,7 @@ Oracle 連結服務支援下列屬性：
 
 您可以在連接字串中，根據您的案例設定更多的連接屬性：
 
-| 屬性 | 說明 | 允許的值 |
+| 屬性 | 描述 | 允許的值 |
 |:--- |:--- |:--- |
 | ArraySize |連接器可以在單一網路來回行程中提取的位元組數目。 例如，`ArraySize=‭10485760‬`。<br/><br/>較大的值會藉由減少透過網路提取資料的次數來增加輸送量。 較小的值會增加回應時間，因為等待伺服器傳輸資料的延遲較少。 | 從1到4294967296（4 GB）的整數。 預設值為 `60000`。 值1不會定義位元組數目，而是表示只為一個資料列配置空間。 |
 
@@ -121,7 +120,7 @@ Oracle 連結服務支援下列屬性：
         ```
 
     3.  將 `truststore` 檔案放在自我裝載的 IR 機器上。 例如，將檔案放在 C:\MyTrustStoreFile。
-    4.  在 Azure Data Factory 中，使用 `EncryptionMethod=1` 和對應的 `TrustStore`/`TrustStorePassword`值來設定 Oracle 連接字串。 例如， `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`。
+    4.  在 Azure Data Factory 中，使用 `EncryptionMethod=1` 和對應的 `TrustStore`/`TrustStorePassword`值來設定 Oracle 連接字串。 例如： `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>` 。
 
 **範例：**
 
@@ -176,14 +175,14 @@ Oracle 連結服務支援下列屬性：
 
 本節提供 Oracle 資料集所支援的屬性清單。 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)。 
 
-若要將資料從和複製到 Oracle，請將資料集的 type 屬性設定為 `OracleTable`。 以下是支援的屬性。
+若要將資料從和複製到 Oracle，請將資料集的 type 屬性設定為 `OracleTable`。 支援以下屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 資料集的類型屬性必須設定為 `OracleTable`。 | 是 |
-| 結構描述 | 架構的名稱。 |否 (用於來源)；是 (用於接收)  |
-| 資料表 | 資料表/視圖的名稱。 |否 (用於來源)；是 (用於接收)  |
-| tableName | 具有架構的資料表/視圖名稱。 此屬性支援回溯相容性。 針對新的工作負載，請使用 `schema` 並 `table`。 | 否 (用於來源)；是 (用於接收) |
+| 結構描述 | 結構描述的名稱。 |否 (來源)；是 (接收)  |
+| 資料表 | 資料表/視圖的名稱。 |否 (來源)；是 (接收)  |
+| tableName | 具有架構的資料表/視圖名稱。 此屬性支援回溯相容性。 針對新的工作負載，請使用 `schema` 和 `table`。 | 否 (來源)；是 (接收) |
 
 **範例：**
 
@@ -215,9 +214,9 @@ Oracle 連結服務支援下列屬性：
 >[!TIP]
 >若要使用資料分割有效率地從 Oracle 載入資料，請從[oracle 的平行複製](#parallel-copy-from-oracle)深入瞭解。
 
-若要從 Oracle 複製資料，請將複製活動中的來源類型設定為 `OracleSource`。 複製活動的 [來源] 區段支援下列屬性。
+若要從 Oracle 複製資料，請將複製活動中的來源類型設定為 `OracleSource`。 複製活動的 **source** 區段支援下列屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動來源的類型屬性必須設定為 `OracleSource`。 | 是 |
 | oracleReaderQuery | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。<br>當您啟用資料分割載入時，您必須在查詢中攔截任何對應的內建資料分割參數。 如需範例，請參閱[從 Oracle 平行複製](#parallel-copy-from-oracle)一節。 | 否 |
@@ -262,9 +261,9 @@ Oracle 連結服務支援下列屬性：
 
 ### <a name="oracle-as-sink"></a>Oracle 作為接收器
 
-若要將資料複製到 Oracle，請將複製活動中的接收類型設定為 `OracleSink`。 複製活動的 [接收] 區段支援下列屬性。
+若要將資料複製到 Oracle，請將複製活動中的接收類型設定為 `OracleSink`。 複製活動的 **sink** 區段支援下列屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動接收器的 type 屬性必須設定為 `OracleSink`。 | 是 |
 | writeBatchSize | 當緩衝區大小達到 `writeBatchSize`時，將資料插入 SQL 資料表中。<br/>允許的值為整數 (資料列數目)。 |否 (預設值為 10000) |
@@ -358,25 +357,25 @@ Data Factory Oracle 連接器會提供內建的資料分割，以平行方式從
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(僅 Oracle 10g 及更高版本可支援) |
-| CHAR |字串 |
-| CLOB |字串 |
-| 日期 |DateTime |
+| CHAR |String |
+| CLOB |String |
+| 日期 |日期時間 |
 | FLOAT |Decimal，字串 (如果精確度 > 28) |
 | INTEGER |Decimal，字串 (如果精確度 > 28) |
-| 長 |字串 |
+| 長 |String |
 | 長 RAW |Byte[] |
-| NCHAR |字串 |
-| NCLOB |字串 |
+| NCHAR |String |
+| NCLOB |String |
 | 數字 |Decimal，字串 (如果精確度 > 28) |
-| NVARCHAR2 |字串 |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |字串 |
-| 時間戳記 |DateTime |
-| 本地時區的時間戳記 |字串 |
-| 時區的時間戳記 |字串 |
-| 不帶正負號的整數 |數字 |
-| VARCHAR2 |字串 |
-| XML |字串 |
+| ROWID |String |
+| 時間戳記 |日期時間 |
+| 本地時區的時間戳記 |String |
+| 時區的時間戳記 |String |
+| 不帶正負號的整數 |Number |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > 不支援 INTERVAL YEAR TO MONTH 和 INTERVAL DAY TO SECOND 資料類型。
@@ -386,4 +385,4 @@ Data Factory Oracle 連接器會提供內建的資料分割，以平行方式從
 若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>後續步驟
-如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。
+如需 Data Factory 中複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

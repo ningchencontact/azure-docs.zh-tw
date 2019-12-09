@@ -9,19 +9,18 @@ ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 6ea9134085812b99d59ad64aa2c9ec1b2ff827d9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 38010e3aaa2d0544dfbfe19135d25250d2b021a2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684393"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929786"
 ---
 # <a name="ssis-migration-with-azure-sql-database-managed-instance-as-the-database-workload-destination"></a>以 Azure SQL Database 受控實例作為資料庫工作負載目的地的 SSIS 遷移
 
-將資料庫工作負載從內部部署 SQL Server 遷移至 Azure SQL Database 受控實例時，您應該熟悉[Azure 資料移轉服務](https://docs.microsoft.com/azure/dms/dms-overview)（DMS），以及[Azure SQL Database 受控實例遷移的網路拓朴使用 DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies)。
+將資料庫工作負載從內部部署 SQL Server 遷移至 Azure SQL Database 受控實例時，您應該熟悉[Azure 資料移轉服務](https://docs.microsoft.com/azure/dms/dms-overview)（DMS），以及[使用 DMS Azure SQL Database 受控實例遷移的網路拓朴](https://docs.microsoft.com/azure/dms/resource-network-topologies)。
 
 本文著重于遷移儲存在 SSIS 目錄（SSISDB）中的 SQL Server Integration Service （SSIS）套件，以及排程 SSIS 封裝執行的 SQL Server Agent 作業。
 

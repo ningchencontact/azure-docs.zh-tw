@@ -9,17 +9,16 @@ ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 746b5cbcc58f6c722623446227417e6c94dd0a80
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9c72bc9c0862820b72fbecee7966e946f4ba0001
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217456"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928042"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>使用資料複製工具根據時間分割的檔案名，以累加方式複製新檔案
 
@@ -33,9 +32,9 @@ ms.locfileid: "74217456"
 > [!div class="checklist"]
 > * 建立資料處理站。
 > * 使用複製資料工具建立管線。
-> * 監視管道和活動執行。
+> * 監視管線和活動執行。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 * **Azure 儲存體帳戶**：使用 Blob 儲存體作為_來源_和_接收_資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)中的指示。
@@ -65,7 +64,7 @@ ms.locfileid: "74217456"
    
    ![新增資料處理站錯誤訊息](./media/doc-common-process/name-not-available-error.png)
    
-   如果您收到有關名稱值的錯誤訊息，請輸入不同的資料處理站名稱。 例如，使用_您的名稱_**ADFTutorialDataFactory**。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
+   如果您收到有關名稱值的錯誤訊息，請輸入不同的資料處理站名稱。 例如，使用**您的名稱** **ADFTutorialDataFactory**。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
 3. 選取要在其中建立新資料處理站的 Azure **訂用帳戶**。 
 4. 針對 [資源群組]，採取下列其中一個步驟︰
      

@@ -4,25 +4,24 @@ description: 本文說明如何藉由新增更多節點來相應放大資料管�
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c3428019fe23e3f206e763249a18e7774bab149b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 25dbb01a4b018a51390be664472aceadea0a9524
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682706"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932019"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>資料管理閘道 - 高可用性和延展性 (預覽)
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。 
+> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 中的自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。 
 
 
 本文可協助您使用資料管理閘道/整合來設定高可用性和延展性解決方案。    
@@ -166,7 +165,7 @@ ms.locfileid: "73682706"
   > [!NOTE]
   > 從複製精靈/Azure 入口網站安全地設定認證時，會使用認證管理員應用程式。 此外亦可以從與內部部署/私人資料存放區位於相同網路的所有電腦上，啟動此應用程式。
 - 支援萬用字元憑證。 若您的 FQDN 名稱為 **node1.domain.contoso.com**，則您可使用 * **.domain.contoso.com** 做為憑證的主體名稱。
-- 由於系統僅會使用主體別名的最後一個項目，其他所有項目則會因目前的限制而遭到忽略，因此不建議使用 SAN 憑證。 例如 若您具有 SAN 憑證，且其 SAN 為 **node1.domain.contoso.com** 和 **node2.domain.contoso.com**，則您僅可在 FQDN 為 **node2.domain.contoso.com** 的電腦上使用此憑證。
+- 由於系統僅會使用主體別名的最後一個項目，其他所有項目則會因目前的限制而遭到忽略，因此不建議使用 SAN 憑證。 例如： 若您具有 SAN 憑證，且其 SAN 為 **node1.domain.contoso.com** 和 **node2.domain.contoso.com**，則您僅可在 FQDN 為 **node2.domain.contoso.com** 的電腦上使用此憑證。
 - 支援 Windows Server 2012 R2 所支援的任何 SSL 憑證金鑰大小。
 - 不支援使用 CNG 金鑰的憑證。
 
@@ -184,9 +183,9 @@ ms.locfileid: "73682706"
 
 您可以在 [閘道] 頁面啟用 [進階設定] 以查看進階的計量，例如**網路** (輸入/輸出)、**角色和認證狀態** (有助於偵錯閘道問題) 和**並行作業** (執行中/限制) (可在效能微調期間據以修改/變更)。 下表說明 [閘道節點] 清單中的資料行：  
 
-監視屬性 | 說明
+監視屬性 | 描述
 :------------------ | :---------- 
-名稱 | 邏輯閘道和閘道相關聯節點的名稱。  
+Name | 邏輯閘道和閘道相關聯節點的名稱。  
 狀態 | 邏輯閘道和閘道節點的狀態。 範例：線上/離線/有限/等。如需這些狀態的相關資訊，請參閱[閘道狀態](#gateway-status)一節。 
 版本 | 顯示邏輯閘道和每個閘道節點的版本。 邏輯閘道的版本取決於群組中大多數節點的版本。 如果邏輯閘道設定中有不同版本的節點，則只有版本號碼和邏輯閘道相同的節點會正常運作。 其他節點會進入受限制模式，並需要加以手動更新 (如果自動更新失敗才需要這麼做)。 
 可用的記憶體 | 閘道節點上可用的記憶體。 這個值是近乎即時的快照集。 
@@ -206,7 +205,7 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
 線上 | 節點已連線至 Data Factory 服務。
 離線 | 節點已離線。
 升級中 | 節點正在自動更新。
-限制 | 由於連線問題。 可能是因為 HTTP 連接埠 8050 問題、服務匯流排連線問題或認證同步問題。 
+有限制 | 由於連線問題。 可能是因為 HTTP 連接埠 8050 問題、服務匯流排連線問題或認證同步問題。 
 非使用中 | 節點所在的組態不同於其他大多數節點的組態。<br/><br/> 節點無法連線至其他節點時，便會處於非使用中狀態。 
 
 
@@ -217,7 +216,7 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
 需要註冊 | 此邏輯閘道還沒有已註冊的節點
 線上 | 閘道節點已連線
 離線 | 沒有處於線上狀態的節點。
-限制 | 此閘道中的節點並非全都處於健康情況良好的狀態。 這個狀態是某些節點可能會關閉的警告！ <br/><br/>可能是因為發送器/背景工作節點有認證同步問題。 
+有限制 | 此閘道中的節點並非全都處於健康情況良好的狀態。 這個狀態是某些節點可能會關閉的警告！ <br/><br/>可能是因為發送器/背景工作節點有認證同步問題。 
 
 ### <a name="pipeline-activities-monitoring"></a>管線/活動監視
 Azure 入口網站可為管線監視提供細微的節點層級詳細資料。 例如，它會顯示哪些活動在哪個節點上執行。 這項資訊有助於了解特定節點的效能問題 (例如由於網路節流而導致)。 
@@ -228,7 +227,7 @@ Azure 入口網站可為管線監視提供細微的節點層級詳細資料。 �
 
 ## <a name="scale-considerations"></a>調整考量
 
-### <a name="scale-out"></a>相應放大
+### <a name="scale-out"></a>橫向擴充
 當**可用記憶體偏低**而 **CPU 使用率偏高**時，新增節點有助於相應放大機器所能承受的負載。 如果活動因為逾時或閘道節點離線而失敗，對閘道新增節點將有所助益。
  
 ### <a name="scale-up"></a>相應增加

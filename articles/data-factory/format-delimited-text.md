@@ -2,19 +2,19 @@
 title: Azure Data Factory 中的分隔文字格式
 description: 本主題描述如何處理 Azure Data Factory 中的分隔文字格式。
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 9a1a019e7dea2f0c71b40530baaffff79d003774
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 77d2daf3fa17632d8a1c633c23815e0035e45481
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548292"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931267"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Azure Data Factory 中的分隔文字格式
 
@@ -73,7 +73,7 @@ ms.locfileid: "74548292"
 
 ### <a name="delimited-text-as-source"></a>分隔的文字做為來源 
 
-複製活動***\*來源\**** 區段中支援下列屬性。
+以下支援的屬性將複製活動中 ***\*來源\**** 一節。
 
 | 屬性       | 描述                                                  | 必要項 |
 | -------------- | ------------------------------------------------------------ | -------- |
@@ -90,7 +90,7 @@ ms.locfileid: "74548292"
 
 ### <a name="delimited-text-as-sink"></a>分隔的文字做為接收器
 
-複製活動***\*接收\**** 區段中支援下列屬性。
+以下支援的屬性將複製活動中 ***\*接收器\**** 一節。
 
 | 屬性       | 描述                                                  | 必要項 |
 | -------------- | ------------------------------------------------------------ | -------- |

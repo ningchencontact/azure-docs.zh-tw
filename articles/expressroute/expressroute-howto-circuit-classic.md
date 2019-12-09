@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: a2a3bdeb0ee454185c92c6e49a17bda7e4e5d5f0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e421a534b04f74d2a2eb0bc06aeffa52684ae17a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083590"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931970"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 修改 ExpressRoute 線路 (傳統)
 
@@ -35,20 +35,7 @@ ms.locfileid: "74083590"
 
 ## <a name="before-you-begin"></a>開始之前
 
-安裝最新版的 Azure 服務管理 (SM) PowerShell 模組和 ExpressRoute 模組。 您不能使用 Azure CloudShell 環境來執行 SM 模組。
-
-1. 使用[安裝服務管理模組](/powershell/azure/servicemanagement/install-azure-ps)一文中的指示來安裝 Azure 服務管理模組。 如果您已安裝 Az 或 RM 模組，請務必使用 '-AllowClobber '。
-2. 匯入已安裝的模組。 使用下列範例時，請調整路徑以反映已安裝之 PowerShell 模組的位置。
-
-   ```powershell
-   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\Azure.psd1'
-   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\ExpressRoute\ExpressRoute.psd1'
-   ```
-3. 若要登入您的 Azure 帳戶，請以較高的許可權開啟 PowerShell 主控台，並聯機到您的帳戶。 使用下列範例可協助您使用服務管理模組進行連接：
-
-   ```powershell
-   Add-AzureAccount
-   ```
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="get-the-status-of-a-circuit"></a>取得線路狀態
 
@@ -136,7 +123,7 @@ Status                           : Enabled
 >
 >
 
-#### <a name="considerations"></a>注意事項
+#### <a name="considerations"></a>考量
 
 * 從高階降級為標準之前，請確定連結至線路的虛擬網路數目小於 10。 如果您不這樣做，更新要求就會失敗，且會被以進階費率計費。
 * 您必須取消連結其他地理政治區域中的所有虛擬網路。 如果您不這樣做，更新要求就會失敗，且會被以進階費率計費。
@@ -204,10 +191,10 @@ At line:1 char:1
 
 ## <a name="deprovision-and-delete-a-circuit"></a>取消佈建及刪除線路
 
-### <a name="considerations"></a>注意事項
+### <a name="considerations"></a>考量
 
 * 您必須取消連結 ExpressRoute 線路的所有虛擬網路，此作業才會成功。 如果此作業失敗，請檢查您是否有任何虛擬網路連結至線路。
-* 如果 ExpressRoute 線路服務提供者佈建狀態為 **Provisioning** 或 **Provisioned**，您就必須與服務提供者一起合作，取消佈建他們那邊的線路。 我們會繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
+* 如果 ExpressRoute 線路服務提供者佈建狀態為「正在佈建」或「已佈建」，您就必須與服務提供者一起合作，取消佈建他們那邊的線路。 我們會繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
 * 若服務提供者已取消佈建線路 (服務提供者佈建狀態設定為 [未佈建])，您便可以刪除線路。 這樣會停止針對線路計費。
 
 #### <a name="delete-a-circuit"></a>刪除電路

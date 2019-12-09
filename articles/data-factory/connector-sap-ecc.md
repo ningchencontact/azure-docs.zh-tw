@@ -1,23 +1,22 @@
 ---
-title: 使用 Azure Data Factory 從 SAP ECC 複製資料
+title: 從 SAP ECC 複製資料
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 SAP ECC 複製到支援的接收資料存放區。
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/02/2019
-ms.author: jingwang
-ms.openlocfilehash: 526f85ca4b8854a36232c75a55847a73a8d372cc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f875d8f4603a8f51b8b8fed2438e6f3a30c87aeb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680301"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931180"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP ECC 複製資料
 
@@ -72,9 +71,9 @@ ms.locfileid: "73680301"
 
 以下是 SAP ECC 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| `type` | `type` 屬性必須設定為 `SapEcc`。 | 是 |
+| `type` | `type` 屬性必須設為 `SapEcc`。 | 是 |
 | `url` | SAP ECC OData 服務的 URL。 | 是 |
 | `username` | 用來連接到 SAP ECC 的使用者名稱。 | 否 |
 | `password` | 用來連接到 SAP ECC 的純文字密碼。 | 否 |
@@ -111,7 +110,7 @@ ms.locfileid: "73680301"
 
 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | `path` | SAP ECC OData 實體的路徑。 | 是 |
 
@@ -144,7 +143,7 @@ ms.locfileid: "73680301"
 
 複製活動的 [`source`] 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | `type` | 複製活動的 [`source`] 區段的 [`type`] 屬性必須設定為 [`SapEccSource`]。 | 是 |
 | `query` | 用來篩選資料的 OData 查詢選項。 例如：<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC 連接器會從合併的 URL 複製資料：<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>如需詳細資訊，請參閱 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |

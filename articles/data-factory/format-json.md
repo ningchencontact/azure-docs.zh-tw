@@ -2,19 +2,19 @@
 title: Azure Data Factory 中的 JSON 格式
 description: 本主題描述如何在 Azure Data Factory 中處理 JSON 格式。
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: c3d879e808e7903f6257926d06c5eb2ddbe93c43
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: f8f5e65115acddd71808a169039d0b98b2470147
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548246"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932068"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Azure Data Factory 中的 JSON 格式
 
@@ -65,7 +65,7 @@ ms.locfileid: "74548246"
 
 ### <a name="json-as-source"></a>JSON 做為來源
 
-複製活動***\*來源\**** 區段中支援下列屬性。
+以下支援的屬性將複製活動中 ***\*來源\**** 一節。
 
 | 屬性      | 描述                                                  | 必要項 |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -74,7 +74,7 @@ ms.locfileid: "74548246"
 
 ### <a name="json-as-sink"></a>JSON 做為接收
 
-複製活動***\*接收\**** 區段中支援下列屬性。
+以下支援的屬性將複製活動中 ***\*接收器\**** 一節。
 
 | 屬性      | 描述                                                  | 必要項 |
 | ------------- | ------------------------------------------------------------ | -------- |

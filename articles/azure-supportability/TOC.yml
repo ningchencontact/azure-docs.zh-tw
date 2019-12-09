@@ -14,7 +14,7 @@
               href: per-vm-quota-requests.md
             - name: 增加的區域總 vCPU 限制
               href: regional-quota-requests.md
-            - name: 低優先順序配額限制增加
+            - name: 位置配額限制增加
               href: low-priority-quota.md
         - name: 傳統部署模型
           href: classic-deployment-model-quota-increase-requests.md

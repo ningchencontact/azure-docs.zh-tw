@@ -91,7 +91,7 @@
           items:
             - name: 1 - 讓您的應用程式保持高可用性
               href: storage-create-geo-redundant-storage.md
-            - name: 2 - 模擬 RA-GRS 儲存體失敗
+            - name: 2 - 從主要區域模擬資料讀取失敗
               href: storage-simulate-failure-ragrs-account-app.md
         - name: 使用 Azure Key Vault 加密及解密 Blob
           href: storage-encrypt-decrypt-blobs-key-vault.md
@@ -151,7 +151,7 @@
               href: ../common/storage-redundancy-gzrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 災害復原和容錯移轉
               href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 使用 RA-GRS 設計 HA 應用程式
+            - name: 設計可用性高的應用程式
               href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 存取和效能層級
           items:
@@ -406,6 +406,8 @@
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 在 Linux 上將 Blob 儲存體掛接檔案系統
               href: storage-how-to-mount-container-linux.md
+            - name: 透過資料移動程式庫傳輸資料
+              href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 儲存體移轉常見問題
               href: ../common/storage-migration-faq.md
         - name: 使用 Blob 開發

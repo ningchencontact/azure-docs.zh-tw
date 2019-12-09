@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory 對應資料流程選取轉換
+title: 對應資料流程選取轉換
 description: Azure Data Factory 對應資料流程選取轉換
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: 6ef9712dd2fd6b8d53fd4ad2c3e07e1d6c8f1aec
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: a255d89aa4850d1249f1af9bdd0cb43b0826914f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387208"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930236"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>對應資料流程選取轉換
 
@@ -51,7 +52,7 @@ ms.locfileid: "72387208"
 不過，如果您想要新增自訂規則，您將按一下 [新增對應]。 欄位對應會為您提供要對應和別名的傳入和傳出資料行名稱清單。 選擇 [以規則為基礎的對應] 來建立模式比對規則。
 
 ## <a name="rule-based-mapping"></a>以規則為基礎的對應
-當您選擇以規則為基礎的對應時，您會指示 ADF 評估相符的運算式，以符合傳入模式規則並定義外寄功能變數名稱。 您可以新增欄位和以規則為基礎之對應的任意組合。 然後，ADF 會根據來源的傳入中繼資料，在執行時間產生功能變數名稱。 您可以在 debug 和使用 [資料預覽] 窗格期間，查看所產生欄位的名稱。
+當您選擇以規則為基礎的對應時，您會指示 ADF 評估相符的運算式，以符合傳入模式規則並定義外寄功能變數名稱。 您可以新增欄位和以規則為基礎之對應的任意組合。 然後，ADF 會根據來源的傳入中繼資料，在執行時間產生功能變數名稱。 您可以在 debug 和使用 [資料預覽] 窗格期間, 查看所產生欄位的名稱。
 
 如需模式比對的詳細資訊，請[參閱資料行模式檔](concepts-data-flow-column-pattern.md)。
 

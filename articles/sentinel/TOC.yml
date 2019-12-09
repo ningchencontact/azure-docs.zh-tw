@@ -111,7 +111,7 @@
           href: notebooks.md
         - name: 書籤來搜捕
           href: bookmarks.md
-        - name: 使用 Livestream 來搜捕
+        - name: 使用 Livestream 搜捕
           href: livestream.md
     - name: 移除 Azure Sentinel
       href: offboard.md

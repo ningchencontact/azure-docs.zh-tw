@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights 遙測資料模型 - 計量遙測 | Microsoft Docs
+title: 度量遙測資料模型-Azure 應用程式深入解析
 description: 計量遙測的 Application Insights 資料模型
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 816fa37ea052b18dab80bcc0d5c1528cd3d9a014
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f697d7543a8551993640ef8c6d6c98fee35c0d68
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678136"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922230"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>計量遙測：Application Insights 資料模型
 

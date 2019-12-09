@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 12/06/2019
 ms.author: cherylmc
-ms.openlocfilehash: 814a73900b05b66d1bacc946b9f994135d3fc9f6
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 05602538f206032d924b39a7dd8f4325c48a5224
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083450"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931381"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>建立和修改 ExpressRoute 線路的對等互連 (傳統)
 > [!div class="op_single_selector"]
@@ -42,40 +42,7 @@ ms.locfileid: "74083450"
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>下載最新的 PowerShell Cmdlet
 
-安裝最新版的 Azure 服務管理 (SM) PowerShell 模組和 ExpressRoute 模組。 當您使用下列範例時，請注意版本號碼 (此範例中為 5.1.1) 會因為發行較新的 Cmdlet 版本而變更。
-
-```powershell
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-```
-
-如需詳細資訊，請參閱[開始使用 Azure PowerShell Cmdlet](/powershell/azure/overview) 中的指示，來取得如何設定您的電腦以使用 Azure PowerShell 模組的逐步指導方針。
-
-### <a name="sign-in"></a>登入
-
-若要登入您的 Azure 帳戶，請使用下列範例：
-
-1. 以提高的權限開啟 PowerShell 主控台並連接到您的帳戶。
-
-   ```powershell
-   Connect-AzAccount
-   ```
-2. 檢查帳戶的訂用帳戶。
-
-   ```powershell
-   Get-AzSubscription
-   ```
-3. 如果您有多個訂用帳戶，請選取您要使用的訂用帳戶。
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-4. 接下來，使用下列 Cmdlet，將您的 Azure 訂用帳戶新增到 PowerShell，以供傳統部署模型使用。
-
-   ```powershell
-   Add-AzureAccount
-   ```
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="azure-private-peering"></a>Azure 私用對等
 
@@ -121,7 +88,7 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRou
    * 次要連結的 /30 子網路。 這不能在保留給虛擬網路的任何位址空間中。
    * 供建立此對等的有效 VLAN ID。 確定線路中沒有其他對等使用相同的 VLAN ID。
    * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。 您可以將私用 AS 編號用於此對等。 請確定您不是使用 65515。
-   * MD5 雜湊 (如果選擇使用)。 **選擇性**。
+   * MD5 雜湊 (如果選擇使用)。 **選用**。
      
    您可以使用下列範例來為線路設定 Azure 私用對等互連：
 
@@ -228,7 +195,7 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
    * 次要連結的 /30 子網路。 這必須是有效的公用 IPv4 首碼。
    * 供建立此對等的有效 VLAN ID。 確定線路中沒有其他對等使用相同的 VLAN ID。
    * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。
-   * MD5 雜湊 (如果選擇使用)。 **選擇性**。
+   * MD5 雜湊 (如果選擇使用)。 **選用**。
 
    > [!IMPORTANT]
    > 請確定您將 AS 編號指定為對等 ASN，而不是客戶 ASN。
@@ -326,14 +293,14 @@ Remove-AzureBGPPeering -AccessType Public -ServiceKey "*************************
    ```
 3. **設定線路的 Microsoft 對等**
    
-    繼續之前，請確定您擁有下列資訊：
+    繼續之前，請確定您擁有下列資訊。
    
    * 主要連結的 /30 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4 首碼。
    * 次要連結的 /30 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4 首碼。
    * 供建立此對等的有效 VLAN ID。 確定線路中沒有其他對等使用相同的 VLAN ID。
    * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。
    * 公告的首碼：您必須提供一份您打算在 BGP 工作階段上公告的所有首碼的清單。 只接受公用 IP 位址首碼。 如果您打算傳送一組首碼，您可以傳送逗號分隔清單。 這些首碼必須在 RIR / IRR 中註冊給您。
-   * 客戶 ASN：如果您要公告的首碼未註冊給對等 AS 編號，您可以指定它們所註冊的 AS 編號。 **選擇性**。
+   * 客戶 ASN：如果您要公告的首碼未註冊給對等 AS 編號，您可以指定它們所註冊的 AS 編號。 **選用**。
    * 路由登錄名稱：您可以指定可供註冊 AS 編號和首碼的 RIR / IRR。
    * MD5 雜湊 (如果選擇使用)。 **選用。**
      
@@ -343,7 +310,7 @@ Remove-AzureBGPPeering -AccessType Public -ServiceKey "*************************
    New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
    ```
 
-### <a name="to-view-microsoft-peering-details"></a>檢視 Microsoft 對等詳細資料
+### <a name="to-view-microsoft-peering-details"></a>檢視 Microsoft 對等詳細資訊
 
 您可以使用下列 Cmdlet 來檢視設定詳細資料：
 

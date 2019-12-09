@@ -1,23 +1,22 @@
 ---
-title: 使用 Azure Data Factory 從適用於 PostgreSQL 的 Azure 資料庫複製資料
+title: 將資料複製到適用於 PostgreSQL 的 Azure 資料庫
 description: 瞭解如何使用 Azure Data Factory 管線中的複製活動，將資料複製到適用於 PostgreSQL 的 Azure 資料庫。
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/16/2019
-ms.author: jingwang
-ms.openlocfilehash: 7443ab3abb12451619e77d925912b4bfc118cfaa
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3729d43716a0f4e133fb175da2546aac560b0525
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681213"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931623"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-postgresql-by-using-azure-data-factory"></a>使用 Azure Data Factory 從適用於 PostgreSQL 的 Azure 資料庫複製資料
 
@@ -46,7 +45,7 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 因此，您
 
 以下是針對適用於 PostgreSQL 的 Azure 資料庫連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | Type 屬性必須設定為： **AzurePostgreSql**。 | 是 |
 | connectionString | ODBC 連接字串，用於連線到適用於 PostgreSQL 的 Azure 資料庫。<br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `password` 設定。 如需詳細資訊，請參閱下列範例，並[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)。 | 是 |
@@ -54,7 +53,7 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 因此，您
 
 一般的連接字串為 `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`。 以下是您可以根據您的案例設定的更多屬性：
 
-| 屬性 | 說明 | 選項 | 必要 |
+| 屬性 | 描述 | 選項 | 必要項 |
 |:--- |:--- |:--- |:--- |
 | EncryptionMethod (EM)| 驅動程式用來加密在驅動程式和資料庫伺服器之間傳送之資料的方法。 例如，`EncryptionMethod=<0/1/6>;`| 0 (無加密) **(預設)** / 1 (SSL) / 6 (RequestSSL) | 否 |
 | ValidateServerCertificate (VSC) | 判斷當啟用 SSL 加密時，驅動程式是否會驗證資料庫伺服器所傳送的憑證（加密方法 = 1）。 例如，`ValidateServerCertificate=<0/1>;`| 0 (停用) **(預設)** / 1 (啟用) | 否 |
@@ -109,7 +108,7 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 因此，您
 
 若要從適用於 PostgreSQL 的 Azure 資料庫複製資料，將資料集的類型屬性設定為 **AzurePostgreSqlTable**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 資料集的類型屬性必須設定為**AzurePostgreSqlTable** | 是 |
 | tableName | 資料表的名稱 | 否 (如果已指定活動來源中的「查詢」) |
@@ -138,7 +137,7 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 因此，您
 
 若要從適用於 PostgreSQL 的 Azure 資料庫複製資料，將複製活動中的來源類型設定為 **AzurePostgreSqlSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動來源的類型屬性必須設定為**AzurePostgreSqlSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM MyTable"` | 否（如果已指定資料集中的 tableName 屬性） |
@@ -179,7 +178,7 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 因此，您
 
 若要將資料複製到適用於 PostgreSQL 的 Azure 資料庫，複製活動的 [**接收**] 區段中支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動接收器的 type 屬性必須設定為**AzurePostgreSQLSink**。 | 是 |
 | preCopyScript | 在您將資料寫入每次執行中的適用於 PostgreSQL 的 Azure 資料庫之前，指定要執行之複製活動的 SQL 查詢。 您可以使用此屬性來清除預先載入的資料。 | 否 |

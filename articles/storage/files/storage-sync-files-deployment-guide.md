@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 593c9ea9c37cc5684e85604340f8aae3d84d9afb
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 4f9a2842f99c7f8b0bb9f820584fb2cd4e41a2b2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546358"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927885"
 ---
 # <a name="deploy-azure-file-sync"></a>部署 Azure 檔案同步
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定以從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -400,6 +400,10 @@ if ($cloudTieringDesired) {
 - 建立雲端端點之後，Azure 檔案同步在啟動初始同步處理之前，先執行一個程式來偵測雲端中的檔案。完成此程式所需的時間會視各種因素而異，例如網路速度、可用的頻寬，以及檔案和資料夾的數目。 根據預覽版本中的粗略估計，偵測程序會以大約每秒 10 個檔案的速度執行。因此，即使預先植入的執行速度快，但若在雲端預先植入資料，則系統完整執行的整體時間可能會更長。
 
 ## <a name="self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service"></a>透過舊版和 VSS 進行自助式還原（磁碟區陰影複製服務）
+
+> [!IMPORTANT]
+> 下列資訊只能與儲存體同步代理程式的第9版（或更新版本）搭配使用。 低於9的版本將不會有 StorageSyncSelfService Cmdlet。
+
 先前的版本是一項 Windows 功能，可讓您利用磁片區的伺服器端 VSS 快照集，將檔案的可還原版本呈現給 SMB 用戶端。
 這可為資訊工作者直接提供強大的案例，通常稱為自助式還原，而不是根據 IT 系統管理員的還原。
 

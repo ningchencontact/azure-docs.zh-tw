@@ -1,23 +1,23 @@
 ---
-title: 從 SSDT 執行 Azure Data Factory 中的 SSIS 套件
+title: 從 SSDT 執行 SSIS 套件
 description: 瞭解如何從 SSDT 在 Azure 中執行 SSIS 套件。
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/31/2019
-author: swinarko
 ms.author: sawinark
+author: swinarko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 4c89bdddce7b7318e184994ddf627d853e29fd7e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 07/31/2019
+ms.openlocfilehash: 5f21623af9b89bbb020063dfb72f7b60e65a6ebe
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673611"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927713"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>從 SSDT 在 Azure 中執行 SSIS 套件
 本文說明 SQL Server Data Tools （SSDT）上啟用 Azure 的 SQL Server Integration Services （SSIS）專案的功能，可讓您在 Azure Data Factory （ADF）中的 Azure SSIS Integration Runtime （IR）上執行封裝。  您可以使用這項功能來測試現有的 SSIS 套件，然後再將 & 轉移/遷移至 Azure，或開發新的 SSIS 套件以在 Azure 中執行。
@@ -52,13 +52,13 @@ Azure-若要啟用現有的 SSIS 專案，您必須將其目標伺服器版本�
 3. 在 [**選取 adf 中的 SSIS IR** ] 頁面上，選取您現有的 ADF 和 AZURE SSIS ir 來執行封裝，或建立新的（如果沒有的話）。
    - 若要選取現有的 Azure SSIS IR，請先選取相關的 Azure 訂用帳戶和 ADF。
    - 如果您選取現有的 ADF，但沒有任何 Azure SSIS IR，請按一下 [**建立 SSIS ir** ] 按鈕，在 adf 入口網站/應用程式上建立新的。
-   - 如果您選取不具有任何 ADF 的現有 Azure 訂用帳戶，請按一下 [**建立 SSIS IR** ] 按鈕以啟動 [ **Integration Runtime 建立嚮導]** ，您可以在此輸入位置和前置詞，讓我們自動建立新的 azure資源群組、Data Factory 和 SSIS IR 代表您，以下列模式命名： **YourPrefix-RG/DF/IR-YourCreationTime**。
+   - 如果您選取不具有任何 ADF 的現有 Azure 訂用帳戶，請按一下 [**建立 SSIS IR** ] 按鈕以啟動 [ **Integration Runtime 建立嚮導]** ，您可以在此輸入位置和前置詞，以代表您自動建立新的 azure 資源群組、Data Factory 和 SSIS ir，並以下列模式命名： **YourPrefix-RG/DF/IR-YourCreationTime**。
    
    ![選取 ADF 中的 SSIS IR](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard2.png)
 
 4. 在 [**選取 Azure 儲存體**] 頁面上，選取您現有的 Azure 儲存體帳戶，將封裝上傳至 Azure 檔案儲存體或建立新的套件（如果您沒有任何）。
    - 若要選取現有的 Azure 儲存體帳戶，請先選取相關的 Azure 訂用帳戶。
-   - 如果您選取與您的 Azure SSIS IR 相同的 Azure 訂用帳戶，但沒有任何 Azure 儲存體帳戶，請按一下 [**建立 Azure 儲存體**] 按鈕，讓我們在與您的 AZURE ssis ir 相同的位置中，自動建立一個新的訂用帳戶，其名稱為結合您的 Azure SSIS IR 名稱和其建立日期的前置詞。
+   - 如果您選取的 Azure 訂用帳戶與您的 Azure SSIS IR 沒有任何 Azure 儲存體帳戶，請按一下 [**建立 Azure 儲存體**] 按鈕，讓我們在與您的 AZURE ssis ir 相同的位置中，自動建立新的訂閱，方法是結合您的 AZURE ssis ir 名稱和其建立日期的前置詞來命名。
    - 如果您選取不同的 Azure 訂用帳戶，但沒有任何 Azure 儲存體帳戶，請按一下 [**建立 Azure 儲存體**] 按鈕，在 Azure 入口網站上建立一個新的。
    
    ![選取 [Azure 儲存體]](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard3.png)
@@ -77,18 +77,18 @@ Azure-若要啟用現有的 SSIS 專案，您必須將其目標伺服器版本�
    ![在 Azure 中執行套件](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-execute-package2.png)
 
 > [!NOTE]
-> 在 Azure 中執行您的套件時，您必須擁有執行中的 Azure SSIS IR，因此如果您的 Azure SSIS IR 已停止，將會顯示對話方塊視窗來啟動它。  排除任何自訂的安裝時間，此程式應在5分鐘內完成，但 Azure SSIS IR 加入虛擬網路可能需要大約 20-30 分鐘。  在 Azure 中執行您的套件之後，您可以在 SSDT 的方案總管面板中，以滑鼠右鍵按一下其節點，以停止您的 Azure SSIS IR 來管理其執行成本，然後選取帶您前往 ADF 入口網站/的 [ **Start\Stop\Manage** ] 功能表項目應用程式。
+> 在 Azure 中執行您的套件時，您必須擁有執行中的 Azure SSIS IR，因此如果您的 Azure SSIS IR 已停止，將會顯示對話方塊視窗來啟動它。  排除任何自訂的安裝時間，此程式應在5分鐘內完成，但 Azure SSIS IR 加入虛擬網路可能需要大約 20-30 分鐘。  在 Azure 中執行套件之後，您可以在 SSDT 的方案總管面板中，以滑鼠右鍵按一下其節點，以停止您的 Azure SSIS IR 來管理其執行成本，然後選取 [ **Start\Stop\Manage** ] 功能表項目，以將您帶到 ADF 入口網站/應用程式。
 
 ### <a name="checking-package-execution-logs"></a>檢查封裝執行記錄
 當您啟動封裝執行時，我們會在 SSDT 的 [進度] 視窗中格式化並顯示其記錄。  針對長時間執行的封裝，我們會定期更新其記錄檔（以分鐘為單位）。  您可以按一下 [SSDT] 工具列中的 [**停止**] 按鈕，立即將它取消，以停止封裝執行。  您也可以暫時尋找其通用命名慣例（UNC）路徑中的記錄原始資料： `\\<YourConnectedAzureStorage>.file.core.windows.net\ssdtexecution\<YourProjectName-FirstConnectTime>\<YourPackageName-tmp-ExecutionTime>\logs`，但我們會在一天后將它清除。
 
 ### <a name="switching-package-protection-level"></a>正在切換套件保護層級
-在 Azure 中執行 SSIS 套件不支援**EncryptSensitiveWithUserKey**/**EncryptAllWithUserKey**保護層級。  因此，如果您的套件是以那些專案進行設定，我們會暫時將它們分別切換到**EncryptSensitiveWithPassword**/**EncryptAllWithPassword**，並在我們上傳您的時，使用隨機產生的密碼。封裝到 Azure 檔案儲存體中，以便在您的 Azure SSIS IR 上執行。
+在 Azure 中執行 SSIS 套件不支援**EncryptSensitiveWithUserKey**/**EncryptAllWithUserKey**保護層級。  因此，如果您的套件是以這些專案進行設定，我們會暫時將它們分別切換到**EncryptSensitiveWithPassword**/**EncryptAllWithPassword**，而當我們將套件上傳至 Azure 檔案儲存體以在您的 Azure SSIS IR 上執行時，會使用隨機產生的密碼。
 
 > [!NOTE]
-> 如果您的套件包含的「執行封裝」工作參照其他以**EncryptSensitiveWithUserKey**/**EncryptAllWithUserKey**保護層級設定的套件，您必須手動重新設定其他要使用**的套件**在執行封裝之前，請分別 EncryptSensitiveWithPassword/**EncryptAllWithPassword**。
+> 如果您的套件包含的執行封裝工作參考到以**EncryptSensitiveWithUserKey**/**EncryptAllWithUserKey**保護層級設定的其他套件，您必須在執行封裝之前，手動將這些其他套件重新設定為使用**EncryptSensitiveWithPassword**/**EncryptAllWithPassword**。
 
-如果您的套件已設定**EncryptSensitiveWithPassword**/**EncryptAllWithPassword**保護層級，我們會將其保留為不變，但當我們將套件上傳至時，仍會使用隨機產生的密碼在您的 Azure SSIS IR 上執行 Azure 檔案儲存體。
+如果您的套件已設定**EncryptSensitiveWithPassword**/**EncryptAllWithPassword**保護層級，我們會將其保持不變，但當我們將套件上傳至 Azure 檔案儲存體以在您的 Azure SSIS IR 上執行時，仍會使用隨機產生的密碼。
 
 ### <a name="using-package-configuration-file"></a>使用封裝設定檔
 如果您在封裝部署模型中使用封裝設定檔來變更執行時間的變數值，我們會自動將這些檔案連同您的套件一起上傳到 Azure 檔案儲存體，以便在您的 Azure SSIS IR 上執行。

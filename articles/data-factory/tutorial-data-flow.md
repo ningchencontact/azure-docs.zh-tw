@@ -1,18 +1,19 @@
 ---
-title: 在 Azure Data Factory 中使用對應資料流程轉換資料
+title: 使用對應資料流程轉換資料
 description: 本教學課程提供逐步指示，說明如何使用 Azure Data Factory 來轉換資料與對應資料流程
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 886e6e659dee2a898167054c5d76bc3977f27e11
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1211a7f2aa82f7084dc87e2c9a8bdaab9997be45
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683638"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927197"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>使用對應資料流程轉換資料
 
@@ -58,8 +59,8 @@ ms.locfileid: "73683638"
          
     若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。 
 6. 在 [版本] 下，選取 [V2]。
-7. 在 [位置] 下，選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區（例如，Azure 儲存體和 SQL Database）和計算（例如 Azure HDInsight）可位於其他區域。
-8. 選取 [ **建立**]。 
+7. 在 [位置] 下，選取資料處理站的位置。 只有受到支援的位置才會顯示在下拉式清單中。 資料處理站所使用的資料存放區（例如，Azure 儲存體和 SQL Database）和計算（例如 Azure HDInsight）可位於其他區域。
+8. 選取 [建立]。 
 9. 建立完成後，您會在 [通知中心] 看到通知。 選取 [移至資源]，以瀏覽至 Data Factory 頁面。
 10. 選取 [編寫與監視]，以在個別索引標籤中啟動 Data Factory 使用者介面。
 
@@ -115,26 +116,26 @@ ms.locfileid: "73683638"
     ![資料流程畫布](media/tutorial-data-flow/dataflow5.png)
 1. 將篩選準則轉換命名為**FilterYears**。 按一下 [**篩選準則**] 旁的 [運算式] 方塊，以開啟 [運算式產生器]。 在這裡，您將指定篩選準則。 
     
-    ![Filter](media/tutorial-data-flow/filter1.png)
+    ![篩選](media/tutorial-data-flow/filter1.png)
 1. 資料流程運算式產生器可讓您以互動方式建立要用於各種轉換的運算式。 運算式可以包含內建函數、輸入架構中的資料行，以及使用者定義的參數。 如需如何建立運算式的詳細資訊，請參閱[資料流程運算式](concepts-data-flow-expression-builder.md)產生器。
     
     在本教學課程中，您會想要篩選在1910和2000年之間的內容類型喜劇電影。 當 year 目前是字串時，您必須使用 ```toInteger()``` 函數將它轉換成整數。 使用 [大於或等於] （> =）和 [小於或等於] （< =）運算子來比較常值的年份值1910和 200-。 將這些運算式聯集與和（& &）運算子。 運算式的形式如下：
 
     ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
 
-    若要找出哪些電影已 comedies，您可以使用 ```rlike()``` 函式來尋找資料行內容欄位中的 ' 喜劇 ' 模式。 Rlike 運算式的聯集與要取得的年份比較：
+    若要找出哪些電影是 comedies 的，您可以使用 ```rlike()``` 函式來尋找資料行內容欄位中的 ' 喜劇 ' 模式。 Rlike 運算式的聯集與要取得的年份比較：
 
     ```toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')```
 
     如果您有作用中的 debug 叢集，您可以按一下 [重新整理] 來驗證**邏輯，以**查看與使用的輸入相比的運算式輸出。 您可以使用資料流程運算式語言來完成這項邏輯，有一個以上的正確解答。
     
-    ![Filter](media/tutorial-data-flow/filter2.png)
+    ![篩選](media/tutorial-data-flow/filter2.png)
 
     完成運算式之後，請按一下 **[儲存並完成]** 。
 
 1. 提取**資料預覽**，以確認篩選器運作正常。
     
-    ![Filter](media/tutorial-data-flow/filter3.png)
+    ![篩選](media/tutorial-data-flow/filter3.png)
 1. 下一個要新增的轉換是**架構修飾**詞底下的**匯總**轉換。
     
     ![彙總](media/tutorial-data-flow/agg1.png)
@@ -184,10 +185,10 @@ ms.locfileid: "73683638"
     ![管線](media/tutorial-data-flow/pipeline2.png)
 1. 在 [監視中] 窗格中，您可以看到每個轉換步驟所花費的資料列數和時間。
     
-    ![監控](media/tutorial-data-flow/pipeline3.png)
+    ![監視](media/tutorial-data-flow/pipeline3.png)
 1. 按一下轉換以取得資料行和資料分割的詳細資訊。
     
-    ![監控](media/tutorial-data-flow/pipeline4.png)
+    ![監視](media/tutorial-data-flow/pipeline4.png)
 
 如果您已正確遵循本教學課程，您應該已在接收資料夾中寫入83個數據列和2個數據行。 您可以藉由檢查 blob 儲存體來確認資料是否正確。
 

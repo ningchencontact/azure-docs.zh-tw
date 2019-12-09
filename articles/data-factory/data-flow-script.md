@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory 對應資料流程腳本
+title: 對應資料流程腳本
 description: Data Factory 的資料流程腳本程式碼後置語言總覽
 author: kromerm
 ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/10/2019
-ms.openlocfilehash: 4ff5a05fd40ef086c1f2332443ca03d5e872e9a8
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: d861a4355158dfe18ac3aa40a7f98dc11ebda90b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010152"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930264"
 ---
 # <a name="data-flow-script-dfs"></a>資料流程腳本（DFS）
 
@@ -31,7 +32,7 @@ DFS 會由使用者介面自動產生。 您可以按一下 [腳本] 按鈕來�
 
 當您建立要搭配 PowerShell 或 API 使用的資料流程腳本時，您必須將格式化的文字折迭成一行。 您可以將定位字元和分行符號保留為 escape 字元。 但必須將文字格式化以符合 JSON 屬性。 底部的 [腳本編輯器] UI 上有一個按鈕，可讓您將腳本格式化為單一行。
 
-![複製按鈕](media/data-flow/copybutton.png "複製按鈕")
+![複製按鈕](media/data-flow/copybutton.png "畫面右方的 [複製] 按鈕")
 
 ## <a name="how-to-add-transforms"></a>如何新增轉換
 加入轉換需要三個基本步驟：新增核心轉換資料、將輸入資料流程重新路由，然後將輸出資料流程重設路徑。 在範例中，這會很容易看到。

@@ -3,27 +3,23 @@ title: 設定應用程式的發行者網域
 titleSuffix: Microsoft identity platform
 description: 瞭解如何設定應用程式的發行者網域，讓使用者知道其資訊的傳送位置。
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3558e589004e0488e5b96b0e39bd3f5ceea69658
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 032fca669a617c938473b0d0c27a754faa60b528
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013067"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917840"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>如何：設定應用程式的發行者網域
 
@@ -55,9 +51,9 @@ ms.locfileid: "74013067"
 
 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 如果您的帳戶存在於一個以上的 Azure AD 租使用者中：
+1. 如果您的帳戶出現在多個 Azure AD 租用戶中：
    1. 從頁面右上角的功能表中選取您的設定檔，然後**切換目錄**。
-   1. 將您的會話變更為您要在其中建立應用程式的 Azure AD 租使用者。
+   1. 將工作階段變更為要在其中建立應用程式的 Azure AD 租用戶。
 
 1. 流覽至[Azure Active Directory > 應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)，尋找並選取您要設定的應用程式。
 

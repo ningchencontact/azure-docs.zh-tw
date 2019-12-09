@@ -1,23 +1,22 @@
 ---
-title: 使用 Azure Data Factory 將資料複製到搜尋索引
+title: 將資料複製到搜尋索引
 description: 了解如何使用 Azure Data Factory 管線中的「複製活動」，將資料推送或複製到 Azure 搜尋服務索引。
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/13/2019
-ms.author: jingwang
-ms.openlocfilehash: ffdde571bbd2ae967003c520b09349ea9dcff414
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8a5b7bd366c504f0f5f4652728bf265289fb92e8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806078"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929681"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 認知搜尋索引
 
@@ -41,11 +40,11 @@ ms.locfileid: "73806078"
 
 以下是 Azure 認知搜尋已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 類型屬性必須設定為：**AzureSearch** | 是 |
-| url | 搜尋服務的 URL。 | 是 |
-| 索引鍵 | 搜尋服務的管理金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
+| URL | 搜尋服務的 URL。 | 是 |
+| key | 搜尋服務的管理金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 > [!IMPORTANT]
@@ -79,7 +78,7 @@ ms.locfileid: "73806078"
 
 若要將資料複製到「Azure 認知搜尋」，以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 資料集的類型屬性必須設定為：**AzureSearchIndex** | 是 |
 | IndexName | 搜尋索引的名稱。 Data Factory 不會建立索引。 索引必須存在於 Azure 認知搜尋中。 | 是 |
@@ -111,7 +110,7 @@ ms.locfileid: "73806078"
 
 若要將資料複製到「Azure 認知搜尋」，請將複製活動中的來源類型設定為**AzureSearchIndexSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動來源的類型屬性必須設定為：**AzureSearchIndexSink** | 是 |
 | writeBehavior | 指定若文件已經存在於索引中，是否要合併或取代。 請參閱 [WriteBehavior 屬性](#writebehavior-property)。<br/><br/>允許的值為：**Merge** (預設值) 和 **Upload**。 | 否 |
@@ -170,10 +169,10 @@ Azure 認知搜尋服務支援以批次方式撰寫檔。 一個批次可包含 
 
 | Azure 認知搜尋資料類型 | Azure 認知搜尋接收中支援 |
 | ---------------------- | ------------------------------ |
-| 字串 | Y |
+| String | Y |
 | Int32 | Y |
 | Int64 | Y |
-| Double | Y |
+| DOUBLE | Y |
 | Boolean | Y |
 | DataTimeOffset | Y |
 | 字串陣列 | N |

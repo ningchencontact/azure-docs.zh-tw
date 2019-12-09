@@ -2,14 +2,11 @@
 title: Microsoft 身分識別平臺識別碼權杖參考 |Microsoft Docs
 description: 瞭解如何使用 Azure AD v1.0 和 Microsoft 身分識別平臺（v2.0）端點所發出的 id_tokens。
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: ryanwi
@@ -17,12 +14,12 @@ ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 271d00539d1e502fe172d086067664fe15000dcf
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1106692128f3272f59c80a8312d6ceea2500b3a7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554795"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917466"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft 身分識別平臺識別碼權杖
 
@@ -30,7 +27,7 @@ ms.locfileid: "72554795"
 
 ## <a name="using-the-id_token"></a>使用 id_token
 
-識別碼權杖應該用來驗證使用者是否為其所宣稱的身分，並取得其相關的其他實用資訊-不應將其用於授權來取代[存取權杖](access-tokens.md)。 它所提供的宣告可用於應用程式內的 UX、做為資料庫中的索引鍵，以及提供用戶端應用程式的存取權。  建立資料庫的金鑰時，不應該使用 `idp`，因為它會混亂來賓案例。  金鑰應在 `sub` 單獨完成（這一律是唯一的），並在需要時用於路由的 `tid`。  如果您需要在服務之間共用資料，`oid` + `sub` + `tid` 會生效，因為多個服務全都取得相同的 `oid`。
+識別碼權杖應該用來驗證使用者是否為其所宣稱的身分，並取得其相關的其他實用資訊-不應將其用於授權來取代[存取權杖](access-tokens.md)。 它所提供的宣告可用於應用程式內的 UX、做為資料庫中的索引鍵，以及提供用戶端應用程式的存取權。  建立資料庫的金鑰時，不應該使用 `idp`，因為它會混亂來賓案例。  金鑰應在 `sub` 單獨完成（這一律是唯一的），並在需要時用於路由的 `tid`。  如果您需要在服務之間共用資料，`oid`+`sub`+`tid` 會生效，因為多個服務全都取得相同的 `oid`。
 
 ## <a name="claims-in-an-id_token"></a>id_token 中的宣告
 
@@ -80,7 +77,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 |`email` | String | 擁有電子郵件地址的來賓帳戶預設會顯示 `email` 宣告。  應用程式可以使用 `email` [選擇性宣告](active-directory-optional-claims.md)來為受管理的使用者 (其來源租用戶和資源相同的使用者) 要求電子郵件宣告。  在 v2.0 端點上，應用程式也可以要求 `email` OpenID Connect 範圍 - 您不需要同時要求選擇性宣告和用來取得宣告的範圍。  電子郵件宣告僅支援來自使用者設定檔資訊的可定址郵件。 |
 |`name` | String | `name` 宣告會提供人類看得懂的值，用以識別權杖的主體。 此值不保證是唯一的，它是可變動的，而且設計成僅供顯示之用。 需要 `profile` 範圍才能接收此宣告。 |
 |`nonce`| String | Nonce 符合對 IDP 的原始 /authorize 要求中包含的參數。 如果不符，您的應用程式應該拒絕權杖。 |
-|`oid` | 字串，GUID | 物件在 Microsoft 身分識別系統中的不可變識別碼，在此案例為使用者帳戶。 此識別碼可跨應用程式唯一識別使用者，同一位使用者登入兩個不同的應用程式會在 `oid` 宣告中收到相同的值。 Microsoft Graph 會傳回這個識別碼做為指定使用者帳戶的 `id` 屬性。 因為 `oid` 允許多個應用程式相互關聯使用者，所以必須有 `profile` 範圍才能接收此宣告。 請注意，如果單一使用者存在於多個租使用者中，使用者將會在每個租使用者中包含不同的物件識別碼-它們會被視為不同的帳戶，即使使用者使用相同的認證登入每個帳戶也是一樣。 @No__t_0 宣告是 GUID，無法重複使用。 |
+|`oid` | 字串，GUID | 物件在 Microsoft 身分識別系統中的不可變識別碼，在此案例為使用者帳戶。 此識別碼可跨應用程式唯一識別使用者，同一位使用者登入兩個不同的應用程式會在 `oid` 宣告中收到相同的值。 Microsoft Graph 會傳回這個識別碼做為指定使用者帳戶的 `id` 屬性。 因為 `oid` 允許多個應用程式相互關聯使用者，所以必須有 `profile` 範圍才能接收此宣告。 請注意，如果單一使用者存在於多個租使用者中，使用者將會在每個租使用者中包含不同的物件識別碼-它們會被視為不同的帳戶，即使使用者使用相同的認證登入每個帳戶也是一樣。 `oid` 宣告是 GUID，無法重複使用。 |
 |`roles`| 字串的陣列 | 已指派給正在登入之使用者的一組角色。 |
 |`rh` | 不透明字串 |Azure 用來重新驗證權杖的內部宣告。 應該予以忽略。 |
 |`sub` | 字串，GUID | 權杖判斷提示其相關資訊的主體，例如應用程式的使用者。 這個值不可變，而且無法重新指派或重複使用。 主體是成對識別碼，對於特定應用程式識別碼來說，主體是唯一的。 如果單一使用者使用兩個不同的用戶端識別碼登入兩個不同的應用程式，這些應用程式將會收到兩個不同的主體宣告值。 視您的架構和隱私權需求而定，這不一定會需要。 |

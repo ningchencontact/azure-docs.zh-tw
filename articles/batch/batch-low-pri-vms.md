@@ -8,15 +8,15 @@ ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
 ms.topic: article
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 12/05/2019
 ms.author: markscu
 ms.custom: seodec18
-ms.openlocfilehash: 33d448bc95f4cb12f5a06232cbab168a43d522c1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 39d332a6d069a4e9fac8545f4d08a986c8984c9b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095186"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926279"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>使用低優先順序的 VM 搭配 Batch
 
@@ -27,6 +27,14 @@ Azure Batch 提供低優先順序的虛擬機器 (VM)，可降低 Batch 工作�
 使用低優先順序 VM 的代價是，這些 VM 可能無法用於配置，或可能隨時會有高優先順序的 VM 先佔，視可用容量而定。 基於這個理由，低優先順序的 VM 最適合特定類型的工作負載。 低優先順序的 VM 是用於批次和非同步處理的工作負載，這種工作負載的作業完成時間很有彈性，且工作會分散於許多 VM。
  
 低優先順序的 VM 比起專用的 VM，能以大幅降低的價格提供。 如需定價詳細資料，請參閱 [Batch 定價](https://azure.microsoft.com/pricing/details/batch/)。
+
+> [!NOTE]
+> [點 vm](https://azure.microsoft.com/pricing/spot/)現在適用于[單一實例 vm](https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms)和[VM 擴展集](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)。 「找出 Vm」是低優先順序 Vm 的演進，但不同之處在于該定價可能有所不同，而且在配置「點」 Vm 時，可以設定選擇性的最大價格。
+>
+> Azure Batch 集區會在2020的第一季使用新版本的[Batch api 和工具](https://docs.microsoft.com/azure/batch/batch-apis-tools)開始支援點 vm。 低優先順序的 Vm 將會繼續受到支援（使用目前的 API 和工具版本）至少12個月，以讓您有足夠的時間可供遷移來找出 Vm。 
+>
+> [雲端服務](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration)設定集區將不支援「找不到」 vm。 若要使用點 Vm，必須將雲端服務集區遷移至[虛擬機器](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration)設定集區。
+
 
 ## <a name="use-cases-for-low-priority-vms"></a>低優先順序 VM 的使用案例
 
@@ -42,7 +50,7 @@ Azure Batch 提供低優先順序的虛擬機器 (VM)，可降低 Batch 工作�
 
 適用於低優先順序 VM 的一些批次處理使用案例的範例如下︰
 
--   **開發與測試**：尤其是如果您正在開發大規模的解決方案，可節省可觀的成本。 所有的測試類型都能有所助益，但大規模的負載測試及迴歸測試都是很棒的用途。
+-   **開發與測試**︰尤其是如果您正在開發大規模的解決方案，可節省可觀的成本。 所有的測試類型都能有所助益，但大規模的負載測試及迴歸測試都是很棒的用途。
 
 -   **補充隨選容量**︰低優先順序的 VM 可用來補充一般的專用 VM - 在可使用時，作業就能加以調整並從而以較低的成本加速完成；在無法使用時，仍能使用專用 VM 的基準。
 
@@ -163,7 +171,7 @@ VM 可能偶爾會被優先佔用；當發生優先佔用時，Batch 會執行�
 -   集區會繼續嘗試觸達可用的低優先順序節點之目標數目。 找到取代容量時，節點會保留其識別碼，但在可供工作排程使用之前，會先重新初始化，逐步變成**建立中**和**啟動中**狀態。
 -   優先佔用計數會在 Azure 入口網站中作為計量提供使用。
 
-## <a name="metrics"></a>度量
+## <a name="metrics"></a>計量
 
 [Azure 入口網站](https://portal.azure.com)中有針對低優先順序節點提供的新計量。 這些計量包括：
 
@@ -183,3 +191,4 @@ VM 可能偶爾會被優先佔用；當發生優先佔用時，Batch 會執行�
 
 * 請參閱 [適用於開發人員的 Batch 功能概觀](batch-api-basics.md)，這是任何準備使用 Batch 的人員不可或缺的資訊。 本文包含 Batch 服務資源 (例如集區、節點、作業和工作) 的詳細資訊，以及在建置 Batch 應用程式時可使用的許多 API 功能。
 * 了解可用來建置 Batch 解決方案的 [Batch API 和工具](batch-apis-tools.md)。
+* 開始規劃從低優先順序 Vm 移動到找出 Vm。 如果您使用低優先順序的 Vm 搭配**雲端服務**設定集區，請規劃移至**虛擬機器**設定集區。

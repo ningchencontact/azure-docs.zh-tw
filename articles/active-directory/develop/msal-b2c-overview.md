@@ -1,28 +1,25 @@
 ---
-title: 了解應用程式如何使用 Microsoft 驗證程式庫來與 Azure AD B2C 整合
+title: 搭配 Azure Active Directory B2CLearn 使用 MSAL |Azure
+titleSuffix: Microsoft identity platform
 description: Microsoft 驗證程式庫 (MSAL) 可讓應用程式與 Azure AD B2C 整合，並取得權杖以呼叫安全的 Web API。 這些 Web API 可以是 Microsoft Graph、其他 Microsoft API、來自其他發行者的 Web API，或是您自己的 Web API。
 services: active-directory
-documentationcenter: dev-center-name
 author: negoe
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/16/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eea0fd03b1df49e912a867b0c667ff0fd28c08a
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: f080c14cd0aa20bd312b4be8d9eacd8d901b7cef
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097609"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917024"
 ---
 # <a name="use-microsoft-authentication-library-to-interoperate-with-azure-active-directory-b2c"></a>使用 Microsoft 驗證程式庫來與 Azure Active Directory B2C 整合
 
@@ -36,15 +33,15 @@ Azure AD B2C 也可讓您為您的應用程式設定品牌及自訂其 UI，進�
 
 如果您尚未建立自己的 [Azure AD B2C 租用戶](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) \(部分機器翻譯\)，請立即建立一個。 您也可以使用現有的 Azure AD B2C 租用戶。
 
-## <a name="javascript"></a>JavaScript
+## <a name="javascript"></a>Javascript
 
 下列步驟會示範單頁應用程式如何使用 Azure AD B2C 來進行註冊、登入，以及呼叫受保護的 Web API。
 
-### <a name="step-1-register-your-application"></a>步驟 1:註冊您的應用程式
+### <a name="step-1-register-your-application"></a>步驟 1：註冊您的應用程式
 
 若要實作驗證，您必須先註冊您的應用程式。 請參閱[註冊您的應用程式](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp#step-4-register-your-own-web-application-with-azure-ad-b2c) \(英文\) 以取得詳細步驟。
 
-### <a name="step-2-download-the-sample-application"></a>步驟 2:下載範例應用程式
+### <a name="step-2-download-the-sample-application"></a>步驟2：下載範例應用程式
 
 將範例下載為 ZIP 檔案，或是從 GitHub 複製它：
 
@@ -52,7 +49,7 @@ Azure AD B2C 也可讓您為您的應用程式設定品牌及自訂其 UI，進�
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
 
-### <a name="step-3-configure-authentication"></a>步驟 3：設定驗證
+### <a name="step-3-configure-authentication"></a>步驟3：設定驗證
 
 1. 開啟範例中的 **index.html** 檔案。
 
@@ -84,7 +81,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 本教學課程中[使用者流程](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) \(部分機器翻譯\) 的名稱是 **B2C_1_signupsignin1**。 如果您使用的是不同的使用者流程名稱，請將 **authority** 值設定為該名稱。
 
-### <a name="step-4-configure-your-application-to-use-b2clogincom"></a>步驟 4：設定應用程式以使用 `b2clogin.com`
+### <a name="step-4-configure-your-application-to-use-b2clogincom"></a>步驟4：設定您的應用程式使用 `b2clogin.com`
 
 您可以使用 `b2clogin.com` 來取代 `login.microsoftonline.com` 作為重新導向 URL。 您會在針對註冊和登入設定識別提供者時，在您的 Azure AD B2C 應用程式中那麼做。
 

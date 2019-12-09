@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: 1299ca9192481c1cc914732d47823c1d8cbd0fae
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d572e7f3fceaf2df8ad0ec684eaa421922389e71
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849066"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922162"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>使用 Azure 資料總管查詢 Azure Data Lake 中的資料（預覽）
 
@@ -244,7 +244,7 @@ Azure 資料總管支援 Parquet 和 ORC 的單欄式格式。 建議採用 Parq
  
 ### <a name="file-size"></a>檔案大小
  
-最佳檔案大小為每個檔案數百 Mb （最多 1 Gb）。 避免許多需要額外負荷的小型檔案，例如檔案列舉程式較慢，以及使用單欄式格式的有限用法。 請注意，檔案數目必須大於 Azure 資料總管叢集中的 CPU 核心數目。 
+最佳檔案大小為每個檔案數百 Mb （最多 1 Gb）。 避免許多需要額外負荷的小型檔案，例如檔案列舉程式較慢，以及使用單欄式格式的有限用法。 請注意，檔案數目應大於 Azure 資料總管叢集中的 CPU 核心數目。 
  
 ### <a name="compression"></a>壓縮
  

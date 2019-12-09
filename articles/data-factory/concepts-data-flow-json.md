@@ -1,18 +1,19 @@
 ---
-title: 在 Azure Data Factory 中的對應資料流程中使用 JSON
+title: 對應資料流程中的 JSON
 description: Azure Data Factory 對應資料流程具有內建功能，可處理具有階層的 JSON 檔
 author: kromerm
 ms.author: makromer
 ms.review: djpmsft
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/30/2019
-ms.openlocfilehash: fe412e9e682fb55f1664c546e6b6c5a347527adb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 153c7a1003c68526c960644bebcc4800e92edc3c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387353"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928335"
 ---
 # <a name="mapping-data-flow-json-handling"></a>對應資料流程 JSON 處理
 
@@ -179,7 +180,7 @@ map([1, 2, 3, 4], #item + 2) => [3, 4, 5, 6]
 map(['a', 'b', 'c', 'd'], #item + '_processed') => ['a_processed', 'b_processed', 'c_processed', 'd_processed']
 ```
 
-### <a name="reduce"></a>減少
+### <a name="reduce"></a>reduce
 累加陣列中的元素。 減少預期第一個運算式函式中的累計和一個元素的參考是 #acc 和 #item，而且它預期產生的值會當做第二個運算式函式中使用的 #result。
 
 #### <a name="examples"></a>範例

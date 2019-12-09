@@ -1,29 +1,25 @@
 ---
-title: Azure AD B2C （適用于 Android 的 Microsoft 驗證程式庫）
+title: Azure AD B2C （MSAL Android） |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解使用 Azure AD B2C 搭配適用于 Android 的 Microsoft 驗證程式庫（MSAL）時的特定考慮。面向
 services: active-directory
-documentationcenter: dev-center-name
 author: brianmel
-manager: omkrishn
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5061f1ab341e5872dfa82c9f5c5b133ae40bdf
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 98a31ea2daffba19242e73362af5a44e3a392342
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803248"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917109"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>搭配 B2C 使用適用于 Android 的 MSAL
 
@@ -36,7 +32,7 @@ Microsoft 驗證程式庫 (MSAL) 可讓應用程式開發人員使用 [Azure Act
 假設有一個具有兩個原則的 B2C 應用程式：
 - 註冊/登入
     * 呼叫 `B2C_1_SISOPolicy`
-- 編輯設定檔
+- 編輯個人資料
     * 呼叫 `B2C_1_EditProfile`
 
 應用程式的設定檔會宣告兩個 `authorities`。 每個原則各一個。 每個授權單位的 `type` 屬性 `B2C`。

@@ -2,19 +2,19 @@
 title: Azure Data Factory 中的二進位格式
 description: 本主題描述如何在 Azure Data Factory 中處理二進位格式。
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 815933f1f08b873ae1438d6b2f1e6cd922fe886a
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 8ebb4f0d1a06a7bf29dc46cd696b6acfd2527095
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548230"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927385"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Azure Data Factory 中的二進位格式
 
@@ -71,7 +71,7 @@ ms.locfileid: "74548230"
 
 ### <a name="binary-as-source"></a>二進位做為來源
 
-複製活動***\*來源\**** 區段中支援下列屬性。
+以下支援的屬性將複製活動中 ***\*來源\**** 一節。
 
 | 屬性      | 描述                                                  | 必要項 |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -80,7 +80,7 @@ ms.locfileid: "74548230"
 
 ### <a name="binary-as-sink"></a>作為接收器的二進位
 
-複製活動***\*接收\**** 區段中支援下列屬性。
+以下支援的屬性將複製活動中 ***\*接收器\**** 一節。
 
 | 屬性      | 描述                                                  | 必要項 |
 | ------------- | ------------------------------------------------------------ | -------- |

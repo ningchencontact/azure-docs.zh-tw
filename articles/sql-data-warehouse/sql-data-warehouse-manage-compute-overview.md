@@ -2,21 +2,21 @@
 title: 管理計算資源
 description: 了解 Azure SQL 資料倉儲中的效能相應放大功能。 藉由調整 DWU 來相應放大，或藉由暫停資料倉儲來降低成本。
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 ms.date: 11/12/2019
-ms.author: kevin
+ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 936d92d085420e1386e29a924470b9bac9200d43
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 305b17a9118bddac53b19462cb8c3be887395311
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039091"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923607"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>管理 Azure SQL 資料倉儲中的計算能力
 了解如何管理 Azure SQL 資料倉儲中的計算資源。 藉由暫停資料倉儲來降低成本，或調整資料倉儲規模以符合效能需求。 
@@ -59,7 +59,7 @@ SQL 資料倉儲的架構分隔儲存體和計算功能，可單獨進行調整�
 
 尋找最佳資料倉儲單位數目的建議︰
 
-- 若是開發過程中的資料倉儲，可從選取少量的資料倉儲單位開始。  DW400 或 DW200 是不錯的起點。
+- 若是開發過程中的資料倉儲，可從選取少量的資料倉儲單位開始。  良好的起點是 DW400c 或 DW200c。
 - 監視應用程式效能，觀察比較所選資料倉儲單位數目與您觀察到的效能。
 - 假設線性尺度，並判斷您需要增加或減少多少資料倉儲單位。 
 - 繼續進行調整，直到達到您業務需求的最佳效能為止。
@@ -114,7 +114,7 @@ SQL 資料倉儲的架構分隔儲存體和計算功能，可單獨進行調整�
 若要檢查資料倉儲狀態，請參閱 [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) 或 [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) 快速入門。 您也可以使用 [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state) 來查看資料倉儲狀態。
 
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>使用權限
 
 調整資料倉儲時需要 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) 中所述的權限。  暫停和繼續則需要 [SQL DB 參與者](../role-based-access-control/built-in-roles.md#sql-db-contributor)權限，特別是 Microsoft.Sql/servers/databases/action。
 

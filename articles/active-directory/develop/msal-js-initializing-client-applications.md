@@ -1,29 +1,25 @@
 ---
-title: 初始化用戶端應用程式（適用于 JavaScript 的 Microsoft 驗證程式庫）
+title: 初始化 MSAL 的用戶端應用程式 |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解如何使用適用于 JavaScript 的 Microsoft 驗證程式庫（MSAL）初始化用戶端應用程式。
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25f2776b9b5683a345c55af4bc0020fef8109edd
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b041d8777f81f1796a2e2f7926f324e3b601bd93
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150656"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916497"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>使用 MSAL 初始化用戶端應用程式
 本文說明如何將 Microsoft Authentication Library for JavaScript （MSAL）與使用者代理程式應用程式的實例進行初始化。 使用者代理程式應用程式是一種公用用戶端應用程式，其中用戶端程式代碼會在使用者代理程式（例如網頁瀏覽器）中執行。 這些用戶端不會儲存秘密，因為瀏覽器內容可公開存取。 若要深入瞭解用戶端應用程式類型和應用程式設定選項，請參閱[總覽](msal-client-applications.md)。
@@ -115,7 +111,7 @@ export type Configuration = {
 - **clientID**：必要。 您的應用程式的 clientID 應該會從應用程式註冊入口網站取得。
 
 - **授權**單位：選擇性。 URL，指出 MSAL 可向要求權杖的目錄。 預設值為：`https://login.microsoftonline.com/common`。
-    * 在 Azure AD 中，其格式為 HTTPs://&lt;實例&gt;/&lt;物件&gt;，其中 &lt;實例&gt; 是身分識別提供者網域（例如 `https://login.microsoftonline.com`），而 &lt;物件&gt; 是識別碼代表登入物件。 這可以是下列值：
+    * 在 Azure AD 中，其格式為 HTTPs://&lt;實例&gt;/&lt;物件&gt;，其中 &lt;實例&gt; 是身分識別提供者網域（例如 `https://login.microsoftonline.com`），而 &lt;物件&gt; 是代表登入物件的識別碼。 這可以是下列值：
         * `https://login.microsoftonline.com/<tenant>`租使用者是與租使用者相關聯的網域（例如 contoso.onmicrosoft.com），或是代表目錄之 `TenantID` 屬性的 GUID，僅用於登入特定組織的使用者。
         * `https://login.microsoftonline.com/common`-用來登入具有公司和學校帳戶或 Microsoft 個人帳戶的使用者。
         * `https://login.microsoftonline.com/organizations/`-用來以公司和學校帳戶登入使用者。
@@ -146,4 +142,4 @@ export type Configuration = {
 這些僅適用于從 MSAL 角包裝函式程式庫傳遞：
 - **unprotectedResources**：選擇性。  未受保護資源的 Uri 陣列。 MSAL 不會將權杖附加至具有這些 URI 的連出要求。 預設為 `null`。
 
-- **protectedResourceMap**：選擇性。  這是將資源對應到 MSAL 用來在 Web API 呼叫中自動附加存取權杖的範圍。 會取得資源的單一存取權杖。 因此，您可以如下所示對應特定的資源路徑： {"https://graph.microsoft.com/v1.0/me"，["user. read"]}，或資源的應用程式 URL： {"https://graph.microsoft.com/"，["user. read"，"mail. send"]}。 這是 CORS 呼叫的必要參數。 預設為 `null`。
+- **protectedResourceMap**：選擇性。  這是將資源對應到 MSAL 用來在 Web API 呼叫中自動附加存取權杖的範圍。 會取得資源的單一存取權杖。 因此, 您可以將特定的資源路徑對應如下: "https://graph.microsoft.com/v1.0/me" {"", ["user. read"]}, 或資源的應用程式 URL, 如下所示: {"https://graph.microsoft.com/", ["user. read", "mail. send"]}。 這是 CORS 呼叫的必要參數。 預設為 `null`。

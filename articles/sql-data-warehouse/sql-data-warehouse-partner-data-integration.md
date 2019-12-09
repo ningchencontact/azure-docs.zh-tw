@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8dd111017076e4a1a6a93ac7d53c253a85a09376
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d71c4ee7c5d982708c8a3b0a79b453d7196ad02d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74890088"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923618"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL 資料倉儲資料整合合作夥伴
 若要建立資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。 本文將重點放在 Microsoft 合作夥伴公司，並提供支援 Azure SQL 資料倉儲的官方資料整合解決方案。
@@ -37,7 +37,7 @@ ms.locfileid: "74890088"
 | ![SnapLogic][6] |**SnapLogic**<br>SnapLogic 平臺可讓客戶快速地將資料傳入和傳出 Microsoft Azure SQL 資料倉儲。 它提供在一個解決方案中整合數百個應用程式、服務和 IoT 案例的能力。|[產品頁面][snaplogic_website]<br>[Azure Marketplace][snaplogic_marketplace]<br> |
 | ![StreamSets][16] |**StreamSets**<br>StreamSets 提供 DataOps 的資料整合平臺。 它會將將資料整合到 Azure SQL 資料倉儲的完整設計-部署-操作生命週期。 您不能透過串流、批次或已變更的資料捕獲方法，快速地從倉儲內嵌和整合資料，同時也可確保使用可提供端對端資料流程可見度的智慧型資料管線進行連續作業，以及恢復.|[產品頁面][streamsets_website]|
 | ![Talend][12] |**Talend 雲端**<br>Talend Cloud 是企業資料整合平臺，可在雲端或內部部署中連線、存取及轉換任何資料。 它是一個整合平臺即服務（iPaaS）供應專案，可提供廣泛的連線能力、內建的資料品質，以及最新的 big data 和雲端技術的原生支援。 |[產品頁面][talend_website]<br> [Azure Marketplace][talend_marketplace] |
-| ![TimeXtender][13] |**TimeXtender**<br>TimeXtender 的探索中樞藉由提供整合式資料管理平臺，加速最多10倍的資料見解，協助公司打造現代化的資料資產。 透過在單一平臺中提供資料存取、資料模型和合規性的自動化和功能，超越日常的解壓縮、轉換和載入（ETL）或解壓縮、載入和轉換（ELT）。 探索中樞為雲端規模分析提供了一致的資料網狀架構，可讓您連接並整合各種資料定址接收器、目錄、模型、移動和檔資料，以供分析和 AI 之用。 | [產品頁面][timextender_website] |
+| ![TimeXtender][13] |**TimeXtender**<br>TimeXtender 的探索中樞藉由提供整合式資料管理平臺，加速最多10倍的資料見解，協助公司打造現代化的資料資產。 透過在單一平臺中提供資料存取、資料模型和合規性的自動化和功能，超越日常的解壓縮、轉換和載入（ETL）或解壓縮、載入和轉換（ELT）。 探索中樞為雲端規模分析提供了一致的資料網狀架構，可讓您連接並整合各種資料定址接收器、目錄、模型、移動和檔資料，以供分析和 AI 之用。 | [產品頁面][timextender_website]<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=timextender&page=1) |
 | ![Trifacta][14] |**Trifacta Wrangler**<br> Trifacta 可協助個人和組織探索各種資料，並將其聯結在一起，以供分析。 Trifacta Wrangler 是設計用來處理資料整頓的工作負載，而這需要支援大規模的資料和大量的使用者。|[產品頁面][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |
 | ![WhereScape][15] |**Wherescape 紅色**<br> WhereScape RED 是一個 IDE，為小組提供自動化工具來簡化 ETL 工作流程。 IDE 提供最佳做法，也就是適用于熱門資料目標的優化機器碼。 使用 WhereScape RED 來縮短開發、部署及操作您的資料基礎結構的時間。|[產品頁面][wherescape_website]<br> [Azure Marketplace][wherescape_marketplace] |
 

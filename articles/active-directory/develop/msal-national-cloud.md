@@ -1,28 +1,25 @@
 ---
-title: 使用國家雲端中的 Microsoft 驗證程式庫（MSAL）-Microsoft 身分識別平臺
+title: 在國家/地區雲端應用程式中使用 MSAL |Azure
+titleSuffix: Microsoft identity platform
 description: Microsoft 驗證程式庫（MSAL）可讓應用程式開發人員取得權杖，以便呼叫受保護的 web Api。 這些 web Api 可以 Microsoft Graph、其他 Microsoft Api、合作夥伴 web Api 或您自己的 Web API。 MSAL 支援多種應用程式架構和平台。
 services: active-directory
-documentationcenter: dev-center-name
 author: negoe
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f1c73d89b0efc17e8f8836d080595927d500ad6
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: f1d0d4511b95d56ae41bf9fbb1118318d8374bde
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481865"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916043"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>在國家/地區雲端環境中使用 MSAL
 
@@ -32,13 +29,13 @@ ms.locfileid: "74481865"
 
 包含全域雲端，Azure Active Directory （Azure AD）會部署在下列國家/地區雲端中：  
 
-- Azure Government
+- Azure 政府機構
 - Azure China 21Vianet
-- Azure Germany
+- Azure 德國
 
 本指南示範如何登入公司和學校帳戶、取得存取權杖，以及在[Azure Government 雲端](https://azure.microsoft.com/global-infrastructure/government/)環境中呼叫 Microsoft Graph API。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始之前，請確定您符合這些必要條件。
 
@@ -87,7 +84,7 @@ ms.locfileid: "74481865"
 1. 在應用程式 [概觀] 頁面上，記下 [應用程式 (用戶端) 識別碼] 值。
 1. 本教學課程會要求您啟用[隱含授與流程](v2-oauth2-implicit-grant-flow.md)。 在所註冊應用程式的左側窗格中，選取 [驗證]。
 1. 在 [進階設定] 的 [隱含授與] 底下，選取 [識別碼權杖] 和 [存取權杖] 核取方塊。 識別碼權杖和存取權杖都是必要的，因為此應用程式需要登入使用者並呼叫 API。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>步驟2：設定您的 web 伺服器或專案
 
@@ -105,7 +102,7 @@ ms.locfileid: "74481865"
 
 ### <a name="step-4-configure-your-javascript-spa"></a>步驟4：設定您的 JavaScript SPA
 
-在於專案設定期間建立的 `index.html` 檔案中，新增應用程式註冊資訊。 在 `<script></script>` 檔案主體頂端的 `index.html` 標記內，新增下列程式碼：
+在於專案設定期間建立的 `index.html` 檔案中，新增應用程式註冊資訊。 在 `index.html` 檔案主體頂端的 `<script></script>` 標記內，新增下列程式碼：
 
 ```javascript
 const msalConfig = {

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3563b56e596f5c79f2107bdbf74219a19c6c0d06
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: bff3547456c03ae313e7465238872670965765f1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784607"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927674"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>已知問題和疑難排解 Azure Machine Learning
 
@@ -89,6 +89,19 @@ conda create -n <env-name> python=3.7.3
 ## <a name="datasets-and-data-preparation"></a>資料集和資料準備
 
 這些是 Azure Machine Learning 資料集的已知問題。
+
+### <a name="typeerror-filenotfound-no-such-file-or-directory"></a>TypeError： FileNotFound：沒有這類檔案或目錄
+
+如果您提供的檔案路徑不是檔案所在的位置，就會發生這個錯誤。 您必須確定您參考檔案的方式與您在計算目標上裝載資料集的位置一致。 若要確保具有決定性的狀態，建議您在將資料集掛接至計算目標時使用抽象路徑。 例如，在下列程式碼中，我們會將資料集掛接在計算目標的檔案系統根目錄底下，`/tmp`。 
+
+```python
+# Note the leading / in '/tmp/dataset'
+script_params = {
+    '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
+} 
+```
+
+如果您未包含前置正斜線 '/'，您必須在工作目錄前面加上首碼，例如在計算目標上 `/mnt/batch/.../tmp/dataset`，以指出您要裝載資料集的位置。 
 
 ### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>無法從 HTTP 或 ADLS Gen 2 讀取 Parquet 檔案
 
@@ -213,7 +226,7 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 Azure Kubernetes Service 叢集中安裝的 Azure Machine Learning 元件更新必須手動套用。 
 
 > [!WARNING]
-> 執行下列動作之前，請檢查 Azure Kubernetes Service 叢集的版本。 如果叢集版本等於或大於1.14，您將無法將叢集重新連接到 Azure Machine Learning 工作區。
+> 執行下列動作之前，請檢查 Azure Kubernetes Service 叢集的版本。 如果叢集版本等於或大於1.14，您將無法將叢集重新附加至 Azure Machine Learning 工作區。
 
 您可以從 [Azure Machine Learning] 工作區卸離叢集，然後將叢集重新附加至工作區，以套用這些更新。 如果叢集中已啟用 SSL，則在重新附加叢集時，您將需要提供 SSL 憑證和私密金鑰。 
 
@@ -263,7 +276,7 @@ Azure ML 也提供適用于 Tensorflow、PyTorch、Chainer 和 SKLearn 的架構
  ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError （名稱未定義）、AttributeError （物件沒有屬性）
 這個例外狀況應該來自您的訓練腳本。 您可以從 Azure 入口網站查看記錄檔，以取得有關未定義的特定名稱或屬性錯誤的詳細資訊。 從 SDK 中，您可以使用 `run.get_details()` 來查看錯誤訊息。 這也會列出針對您的執行所產生的所有記錄檔。 請務必查看您的訓練腳本，並修正錯誤後再重試。 
 
-### <a name="horovod-is-shutdown"></a>Horovod 已關閉
+### <a name="horovod-is-shut-down"></a>Horovod 已關閉
 在大部分情況下，此例外狀況表示導致 horovod 關閉的其中一個處理常式發生基礎例外狀況。 MPI 作業中的每個排名都會在 Azure ML 中取得專屬的專用記錄檔。 這些記錄檔的名稱為 `70_driver_logs`。 在分散式訓練的情況下，記錄檔名稱會加上 `_rank`，讓您輕鬆區分記錄。 若要找出造成 horovod 關閉的確切錯誤，請流覽所有的記錄檔，並尋找 driver_log 檔案結尾處的 `Traceback`。 其中一個檔案會提供您實際的基礎例外狀況。 
 
 ## <a name="labeling-projects-issues"></a>標記專案問題

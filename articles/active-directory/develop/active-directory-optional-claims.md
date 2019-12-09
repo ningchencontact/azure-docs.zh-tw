@@ -1,7 +1,7 @@
 ---
-title: 瞭解如何為您的 Azure AD 應用程式提供選擇性宣告
+title: 提供 Azure AD 應用程式的選擇性宣告 |Azure
 titleSuffix: Microsoft identity platform
-description: 將自訂或額外宣告新增至 Azure Active Directory 所簽發之 SAML 2.0 和 JSON Web Token (JWT) 權杖的指南。
+description: 如何將自訂或額外的宣告新增至 Azure Active Directory 所簽發的 SAML 2.0 和 JSON Web 權杖（JWT）權杖。
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1364a491122ae15f86bec98afbfd4e5110e8e07
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 323415c18497f19b4c8f29a303b6ec59dfda1885
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844714"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918265"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>如何：為您的 Azure AD 應用程式提供選擇性宣告
 

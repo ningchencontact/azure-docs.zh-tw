@@ -1,22 +1,22 @@
 ---
-title: 使用 Azure Data Factory 從 SAP Business 倉儲載入資料
+title: 從 SAP Business 倉儲載入資料
 description: 使用 Azure Data Factory 從 SAP Business 倉儲（BW）複製資料
 services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.author: jingwang
-ms.openlocfilehash: 0c96ecff27a57b3277e7c8105766059b739d11af
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7d9c0000964348b7c9c83ccbc2490677614c50cd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672655"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931457"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Business 倉儲複製資料
 
@@ -46,7 +46,7 @@ ms.locfileid: "73672655"
 
 ## <a name="do-a-full-copy-from-sap-bw-open-hub"></a>從 SAP BW 開放式中樞執行完整複本
 
-在 Azure 入口網站中，移至您的 data factory。 選取 [**作者 & 監視器**]，以在個別的索引標籤中開啟 Data Factory UI。
+在 Azure 入口網站中，前往您的資料處理站。 選取 [**作者 & 監視器**]，以在個別的索引標籤中開啟 Data Factory UI。
 
 1. 在 [**現在就開始**吧] 頁面上，選取 [**資料複製**] 以開啟 [資料複製] 工具。
 
@@ -101,7 +101,7 @@ ms.locfileid: "73672655"
 
     ![設定複製設定](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. 在 [**摘要**] 頁面上，檢查設定。 然後，選取 [下一步]。
+12. 在 [摘要] 頁面上檢閱設定。 然後，選取 [下一步]。
 
 13. 在 [**部署**] 頁面上，選取 [**監視**] 來監視管線。
 
@@ -111,7 +111,7 @@ ms.locfileid: "73672655"
 
     ![管線監視視圖](media/load-sap-bw-data/pipeline-monitoring.png)
 
-15. 若要查看與管線執行相關聯的活動執行，請選取 [**動作**] 資料行中的 [**查看活動執行**]。 管線中只有一個活動 (複製活動)，所以您只會看到一個項目。 若要切換回 [管線-執行] 視圖，請選取頂端的 [**管線**] 連結。 選取 [重新整理] 可重新整理清單。
+15. 若要查看與管線執行相關聯的活動執行，請選取 [**動作**] 資料行中的 [**查看活動執行**]。 管線中只有一個活動 (複製活動)，所以您只會看到一個項目。 若要切換回 [管線-執行] 視圖，請選取頂端的 [**管線**] 連結。 選取 [重新整理] 即可重新整理清單。
 
     ![活動監視畫面](media/load-sap-bw-data/activity-monitoring.png)
 
@@ -187,7 +187,7 @@ ms.locfileid: "73672655"
 
       3. 新增 [**建立 blob** ] 動作。 針對 [**資料夾路徑**] 和 [ **Blob 名稱**]，使用您先前在**HighWatermarkBlobPath**和**HighWatermarkBlobName**中設定的相同值。
 
-      4. 選取 [ **儲存**]。 然後，複製**HTTP POST URL**的值，以在 Data Factory 管線中使用。
+      4. 選取 [儲存]。 然後，複製**HTTP POST URL**的值，以在 Data Factory 管線中使用。
 
 4. 提供 Data Factory 管線參數之後，請選取 [ **Debug** **] > [完成]** ，以叫用執行來驗證設定。 或者，選取 [**全部發行**] 以發佈變更，然後選取 [**觸發**] 來執行回合。
 

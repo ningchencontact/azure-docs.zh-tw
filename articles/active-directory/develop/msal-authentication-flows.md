@@ -1,35 +1,31 @@
 ---
-title: 驗證流程（Microsoft 驗證程式庫）
+title: MSAL 驗證流程 |Azure
 titleSuffix: Microsoft identity platform
 description: 深入瞭解 Microsoft 驗證程式庫（MSAL）所使用的驗證流程和授權。
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55d618a24b957fedb6fc2af3e75b7a7d2bd23d96
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2c818b7d7508555e1233d4ef954502728f65abfb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473807"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917194"
 ---
 # <a name="authentication-flows"></a>驗證流程
 
 本文說明 Microsoft Authentication Library （MSAL）所提供的不同驗證流程。  這些流程可以在各種不同的應用程式案例中使用。
 
-| Flow | 說明 | 使用於|  
+| 流程 | 描述 | 使用於|  
 | ---- | ----------- | ------- | 
 | [互動式](#interactive) | 透過互動式進程取得權杖，此程式會透過瀏覽器或快顯視窗提示使用者提供認證。 | [桌面應用程式](scenario-desktop-overview.md)、行動[應用程式](scenario-mobile-overview.md) |
 | [隱含授與](#implicit-grant) | 允許應用程式取得權杖，而不需要執行後端伺服器認證交換。 這可讓應用程式在用戶端 JavaScript 程式碼內，登入使用者、維護會話，以及取得其他 web Api 的權杖。| [單一頁面應用程式（SPA）](scenario-spa-overview.md) |
@@ -42,9 +38,9 @@ ms.locfileid: "73473807"
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>每個流程如何發出權杖和代碼
  
-視用戶端的建立方式而定，它可以使用 Microsoft 身分識別平臺所支援的一或多個驗證流程。  這些流程可能會產生各種權杖（id_tokens、重新整理權杖、存取權杖）以及授權碼，而且需要不同的權杖才能使其運作。 此圖表 proides 總覽：
+視用戶端的建立方式而定，它可以使用 Microsoft 身分識別平臺所支援的一或多個驗證流程。  這些流程可能會產生各種權杖（id_tokens、重新整理權杖、存取權杖）以及授權碼，而且需要不同的權杖才能使其運作。 此圖表提供總覽：
  
-|Flow | 具備 | id_token | 存取權杖 | 重新整理權杖 | 授權碼 | 
+|流程 | 需要 | id_token | 存取權杖 | 重新整理權杖 | 授權碼 | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[授權碼流程](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[隱含流程](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
@@ -106,7 +102,7 @@ MSAL 支援[OAuth 2 代理者驗證流程](v2-oauth2-on-behalf-of-flow.md)。  �
 
 ![代理者流程的圖表](media/msal-authentication-flows/on-behalf-of.png)
 
-在上圖中：
+在上圖中︰
 
 1. 應用程式會取得 Web API 的存取權杖。
 2. 用戶端（web、桌面、行動或單頁應用程式）會呼叫受保護的 Web API，並在 HTTP 要求的驗證標頭中新增存取權杖做為持有人權杖。 Web API 會驗證使用者。
@@ -154,9 +150,9 @@ MSAL 支援[OAuth 2 裝置程式碼流程](v2-oauth2-device-code.md)，可讓使
 
 ![裝置程式碼流程的圖表](media/msal-authentication-flows/device-code.png)
 
-在上圖中：
+在上圖中︰
 
-1. 每當需要使用者驗證時，應用程式就會提供代碼，並要求使用者使用另一部裝置（例如連線到網際網路的 smartphone）來移至 URL （例如 https://microsoft.com/devicelogin)。 接著，系統會提示使用者輸入程式碼，並繼續進行一般驗證體驗，包括同意提示和多重要素驗證（如有需要）。
+1. 每當需要使用者驗證時，應用程式就會提供代碼，並要求使用者使用另一部裝置（例如連線到網際網路的 smartphone）來移至 URL （例如 https://microsoft.com/devicelogin) 。 接著，系統會提示使用者輸入程式碼，並繼續進行一般驗證體驗，包括同意提示和多重要素驗證（如有需要）。
 
 2. 成功驗證之後，命令列應用程式會透過後端通道接收所需的權杖，並使用它們來執行所需的 Web API 呼叫。
 

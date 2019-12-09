@@ -563,7 +563,7 @@
                           href: platform/collect-custom-metrics-guestos-vm-classic.md
                         - name: 雲端服務
                           href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
-                    - name: JSON Lines 診斷記錄格式
+                    - name: JSON 行資源記錄格式
                       href: platform/diagnostic-logs-append-blobs.md
                     - name: 疑難排解
                       href: platform/diagnostics-extension-troubleshooting.md
@@ -1163,7 +1163,7 @@
           href: platform/metrics-supported.md
         - name: 較新警示的支援計量
           href: platform/alerts-metric-near-real-time.md
-    - name: 資源記錄服務、類別和結構描述
+    - name: 平台記錄服務、類別和結構描述
       href: platform/diagnostic-logs-schema.md
     - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest

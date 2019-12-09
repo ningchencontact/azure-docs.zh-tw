@@ -1,23 +1,22 @@
 ---
-title: '針對 Azure Data Factory 中的 SSIS Integration Runtime 管理進行疑難排解 '
+title: 針對 SSIS Integration Runtime 管理進行疑難排解
 description: 本文提供 SSIS Integration Runtime 管理問題的疑難排解指引（SSIS IR）
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/08/2019
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
-manager: craigg
-ms.openlocfilehash: 3452fc2274eb646acb19c0e6a203ebadcb81cad5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 07/08/2019
+ms.openlocfilehash: c7db5d7d8963702f6039af3cfd51d6d916755abb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684017"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931932"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>針對 Azure Data Factory 中的 SSIS Integration Runtime 管理進行疑難排解
 
@@ -105,7 +104,7 @@ SSIS IR 會定期更新，因此系統會在 IR 正在執行時檢查自訂設�
 
 ### <a name="customsetupscripttimeout"></a>CustomSetupScriptTimeout
 
-此錯誤表示自訂設定指令碼執行逾時。 請確定您的腳本可以無訊息方式執行，而且不需要互動式輸入，並確定您的 blob 容器只包含必要的自訂安裝檔。 建議您先在本機電腦上測試腳本。 您也應該檢查 Blob 容器中的自訂設定執行記錄。 自訂設定的最大期限為 45 分鐘後才會逾時，而最長期限包含從容器下載所有檔案並安裝在 SSIS IR 上的時間。 如果您需要較長的期限，請提出支援票證。
+此錯誤表示自訂設定指令碼執行逾時。 請確定您的指令碼可以透過無訊息方式執行，而且不需要互動式輸入，並確定您的 Blob 容器只包含必要的自訂安裝檔。 建議您先在本機電腦上測試指令碼。 您也應該檢查 Blob 容器中的自訂設定執行記錄。 自訂設定的最大期限為 45 分鐘後才會逾時，而最長期限包含從容器下載所有檔案並安裝在 SSIS IR 上的時間。 如果您需要較長的期限，請提出支援票證。
 
 ### <a name="customsetupscriptloguploadfailure"></a>CustomSetupScriptLogUploadFailure
 

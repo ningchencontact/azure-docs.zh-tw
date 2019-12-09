@@ -1,5 +1,5 @@
 ---
-title: 在 Azure AD 中設定企業應用程式的角色宣告
+title: 設定企業 Azure AD 應用程式的角色宣告 |Azure
 titleSuffix: Microsoft identity platform
 description: 了解如何針對 Azure Active Directory 中的企業應用程式設定 SAML 權杖中發出的角色宣告
 services: active-directory
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4657a69347eb2294877e6bd2d7de8e41c0c2ef26
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 702c64fbc4eda2af7132a2117c1b09ca0bf41cff
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845276"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918588"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>操作說明：針對企業應用程式，設定 SAML 權杖中發出的角色宣告
 

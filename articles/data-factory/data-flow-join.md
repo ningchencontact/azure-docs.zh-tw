@@ -1,18 +1,19 @@
 ---
-title: Azure Data Factory 對應資料流程中的聯結轉換
+title: 對應資料流程中的聯結轉換
 description: 使用 Azure Data Factory 對應資料流程中的聯結轉換，結合來自兩個數據源的資料
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/17/2019
-ms.openlocfilehash: 1e9315195ceae435447739055105a66ee81e2a6a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 09d2c1d063c542583dc11fab0805a9392661426f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122917"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930334"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>對應資料流程中的聯結轉換
 
@@ -48,7 +49,7 @@ ms.locfileid: "74122917"
 1. 選取您的**聯結類型**
 1. 選擇您想要與之聯結條件相符的索引鍵資料行。 根據預設，資料流程會在每個資料流程中的一個資料行之間尋找是否相等。 若要透過計算值進行比較，請將滑鼠停留在資料行下拉式清單中，然後選取 [**計算資料行**]
 
-![聯結轉換](media/data-flow/join.png "Join")
+![聯結轉換](media/data-flow/join.png "聯結")
 
 ## <a name="optimizing-join-performance"></a>優化聯結效能
 

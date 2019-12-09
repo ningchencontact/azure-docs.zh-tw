@@ -4,20 +4,19 @@ description: 深入瞭解 Azure Data Factory 中的複製活動。 您可以使�
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: fa2876b88a520480813ebfb8af8219d53c32057a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 40bddaab6db5e7ed777ec55ca469a9e2d1c35c98
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075552"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927552"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory 中的複製活動
 
@@ -62,7 +61,7 @@ ms.locfileid: "74075552"
 * 從 Azure Blob 儲存體複製 Gzip 壓縮文字（CSV）格式的資料，並將其寫入 Azure SQL Database。
 * 許多需要序列化/還原序列化或壓縮/解壓縮的活動。
 
-## <a name="supported-regions"></a>支援的區域
+## <a name="supported-regions"></a>支援區域
 
 啟用複製活動的服務可在[Azure 整合執行時間位置](concepts-integration-runtime.md#integration-runtime-location)所列的區域和地理區域中全域取得。 全域可用的拓撲可確保進行有效率的資料移動，通常可避免發生跨區域躍點的情況。 請參閱[依區域的產品](https://azure.microsoft.com/regions/#services)，以檢查特定區域中 Data Factory 和資料移動的可用性。
 
@@ -128,19 +127,19 @@ ms.locfileid: "74075552"
 
 | 屬性 | 描述 | 必要？ |
 |:--- |:--- |:--- |
-| 類型 | 若為複製活動，請將設定為 `Copy` | yes |
-| 輸入 | 指定您所建立的資料集，以指向來源資料。 複製活動僅支援單一輸入。 | yes |
-| outputs | 指定您所建立的資料集，以指向接收資料。 複製活動僅支援單一輸出。 | yes |
-| typeProperties | 指定要設定複製活動的屬性。 | yes |
-| 來源 | 指定要用來抓取資料的複製來源類型和對應的屬性。<br/><br/>如需詳細資訊，請參閱[支援的資料存放區和格式](#supported-data-stores-and-formats)中所列連接器文章中的「複製活動屬性」一節。 | yes |
-| 接收 | 指定複製接收類型和用於寫入資料的對應屬性。<br/><br/>如需詳細資訊，請參閱[支援的資料存放區和格式](#supported-data-stores-and-formats)中所列連接器文章中的「複製活動屬性」一節。 | yes |
+| 類型 | 若為複製活動，請將設定為 `Copy` | 是 |
+| 輸入 | 指定您所建立的資料集，以指向來源資料。 複製活動僅支援單一輸入。 | 是 |
+| 輸出 | 指定您所建立的資料集，以指向接收資料。 複製活動僅支援單一輸出。 | 是 |
+| typeProperties | 指定要設定複製活動的屬性。 | 是 |
+| source | 指定要用來抓取資料的複製來源類型和對應的屬性。<br/><br/>如需詳細資訊，請參閱[支援的資料存放區和格式](#supported-data-stores-and-formats)中所列連接器文章中的「複製活動屬性」一節。 | 是 |
+| 接收 | 指定複製接收類型和用於寫入資料的對應屬性。<br/><br/>如需詳細資訊，請參閱[支援的資料存放區和格式](#supported-data-stores-and-formats)中所列連接器文章中的「複製活動屬性」一節。 | 是 |
 | 轉譯程式 | 指定從來源到接收的明確資料行對應。 當預設複製行為不符合您的需求時，就會套用此屬性。<br/><br/>如需詳細資訊，請參閱[複製活動中的架構對應](copy-activity-schema-and-type-mapping.md)。 | 否 |
 | dataIntegrationUnits | 指定代表[Azure 整合運行](concepts-integration-runtime.md)時間用於資料複製之耗電量的量值。 這些單位先前稱為雲端資料移動單位（DMU）。 <br/><br/>如需詳細資訊，請參閱[資料整合單位](copy-activity-performance.md#data-integration-units)。 | 否 |
 | parallelCopies | 指定在從來源讀取資料，並將資料寫入至接收時，複製活動所要使用的平行處理原則。<br/><br/>如需詳細資訊，請參閱[平行複製](copy-activity-performance.md#parallel-copy)。 | 否 |
 | enableStaging<br/>stagingSettings | 指定是否要將暫時資料暫存在 Blob 儲存體中，而不是直接將資料從來源複製到接收。<br/><br/>如需實用案例和設定詳細資料的相關資訊，請參閱[分段複製](copy-activity-performance.md#staged-copy)。 | 否 |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 選擇當您將資料從來源複製到接收時，如何處理不相容的資料列。<br/><br/>如需詳細資訊，請參閱[容錯](copy-activity-fault-tolerance.md)。 | 否 |
 
-## <a name="monitoring"></a>監控
+## <a name="monitoring"></a>監視
 
 您可以在 Azure Data Factory**作者 & 監視器** UI 中或以程式設計方式監視複製活動執行。
 
@@ -184,9 +183,9 @@ ms.locfileid: "74075552"
 | throughput | 資料傳輸速率。 | 浮點數字，以 KBps 為單位 |
 | sourcePeakConnections | 在複製活動執行期間，建立到來源資料存放區的並行連線尖峰數目。 | Int32 值（沒有單位） |
 | sinkPeakConnections| 在複製活動執行期間，建立至接收資料存放區的並行連線尖峰數目。| Int32 值（沒有單位） |
-| sqlDwPolyBase | 將資料複製到 SQL 資料倉儲時是否使用 PolyBase。 | 布林值 |
-| redshiftUnload | 從 Redshift 複製資料時，是否使用 UNLOAD。 | 布林值 |
-| hdfsDistcp | 從 HDFS 複製資料時是否使用 DistCp。 | 布林值 |
+| sqlDwPolyBase | 將資料複製到 SQL 資料倉儲時是否使用 PolyBase。 | Boolean |
+| redshiftUnload | 從 Redshift 複製資料時，是否使用 UNLOAD。 | Boolean |
+| hdfsDistcp | 從 HDFS 複製資料時是否使用 DistCp。 | Boolean |
 | effectiveIntegrationRuntime | 用來啟動活動執行的整合執行時間（IR）或執行時間，格式 `<IR name> (<region if it's Azure IR>)`。 | 文字 (字串) |
 | usedDataIntegrationUnits | 複製期間的有效資料整合單位。 | Int32 值 |
 | usedParallelCopies | 複製期間有效的 parallelCopies。 | Int32 值 |

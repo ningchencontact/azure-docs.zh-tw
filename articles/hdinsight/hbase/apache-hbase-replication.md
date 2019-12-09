@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/15/2018
-ms.openlocfilehash: 18c7a06e656cbd5c16151381a76ec7725eb2785e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/06/2019
+ms.openlocfilehash: 5b1b85a0c600871cbedc478f3a56cf71ef8c2ca4
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468420"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931500"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 Apache HBase 叢集複寫
 
@@ -36,7 +36,7 @@ ms.locfileid: "73468420"
 * 負載平衡與分割應用程式。
 * 新增高可用性。
 
-您可以從 [GitHub](../hdinsight-hadoop-customize-cluster-linux.md) 使用[指令碼動作](https://github.com/Azure/hbase-utils/tree/master/replication)指令碼複寫叢集。
+您可以從 [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication) 使用[指令碼動作](../hdinsight-hadoop-customize-cluster-linux.md)指令碼複寫叢集。
 
 ## <a name="prerequisites"></a>必要條件
 在開始本文之前，您必須擁有 Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
@@ -66,9 +66,9 @@ ms.locfileid: "73468420"
 
 **VNet 1**
 
-| 屬性 | 值 |
+| 屬性 | Value |
 |----------|-------|
-| 位置 | 美國西部 |
+| Location | 美國西部 |
 | VNet 名稱 | &lt;ClusterNamePrevix>-vnet1 |
 | 位址空間首碼 | 10.1.0.0/16 |
 | 子網路名稱 | subnet 1 |
@@ -83,9 +83,9 @@ ms.locfileid: "73468420"
 
 **VNet 2**
 
-| 屬性 | 值 |
+| 屬性 | Value |
 |----------|-------|
-| 位置 | 美國東部 |
+| Location | 美國東部 |
 | VNet 名稱 | &lt;ClusterNamePrevix>-vnet2 |
 | 位址空間首碼 | 10.2.0.0/16 |
 | 子網路名稱 | subnet 1 |
@@ -296,12 +296,14 @@ sudo service bind9 status
     
       > [!NOTE]
       > 針對來源與目的地叢集 DNS 名稱，使用主機名稱而非 FQDN。
+      >
+      > 本逐步解說假設 hn1 為作用中前端節點。 請檢查您的叢集，以識別使用中的前端節點。
 
-6. 選取 [ **建立**]。 指令碼執行需要花費一些時間，特別是在使用 **-copydata** 引數的情況下。
+6. 選取 [建立]。 指令碼執行需要花費一些時間，特別是在使用 **-copydata** 引數的情況下。
 
 必要的引數︰
 
-|名稱|說明|
+|Name|描述|
 |----|-----------|
 |-s, --src-cluster | 指定來源 HBase 叢集的 DNS 名稱。 例如：-s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | 指定目的地 (複本) HBase 叢集的 DNS 名稱。 例如：-s dsthbcluster, --src-cluster=dsthbcluster |
@@ -310,17 +312,17 @@ sudo service bind9 status
 
 選擇性的引數︰
 
-|名稱|說明|
+|Name|描述|
 |----|-----------|
 |-su, --src-ambari-user | 指定來源 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
 |-du, --dst-ambari-user | 指定目的地 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
 |-t, --table-list | 指定要複寫的資料表。 例如：--table-list="table1;table2;table3"。 如果您未指定資料表，則會複寫所有現有的 HBase 資料表。|
-|-m, --machine | 指定用來執行指令碼動作的前端節點。 值為 **hn0** 或 **hn1**，且應該根據何者為作用中前端節點加以選擇。 如果您從 HDInsight 入口網站或 Azure PowerShell 以指令碼動作執行 $0 指令碼，則使用此選項。|
+|-m, --machine | 指定用來執行指令碼動作的前端節點。 應該根據使用中的前端節點來選擇值。 如果您從 HDInsight 入口網站或 Azure PowerShell 以指令碼動作執行 $0 指令碼，則使用此選項。|
 |-cp, -copydata | 在已啟用複寫的資料表上，啟用現有資料的移轉。 |
 |-rpm, -replicate-phoenix-meta | 在 Phoenix 系統資料表上啟用複寫。 <br><br>*請謹慎使用此選項。* 建議您在使用此指令碼前，於複本叢集上重新建立 Phoenix 資料表。 |
 |-h, --help | 顯示使用資訊。 |
 
-`print_usage()`指令碼[的 ](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) 區段有參數的詳細說明。
+[指令碼](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh)的 `print_usage()` 區段有參數的詳細說明。
 
 成功部署指令碼動作之後，您可以使用 SSH 連接到目的地 HBase 叢集，並確認已複寫資料。
 
@@ -356,7 +358,7 @@ sudo service bind9 status
 
     -m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer> [-everythingTillNow]
 
-`print_usage()`指令碼[的 ](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh) 區段有參數的詳細說明。
+[指令碼](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh)的 `print_usage()` 區段有參數的詳細說明。
 
 ### <a name="scenarios"></a>案例
 
@@ -379,7 +381,7 @@ sudo service bind9 status
 
     -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
 
-`print_usage()`指令碼[的 ](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) 區段有參數的詳細說明。
+[指令碼](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh)的 `print_usage()` 區段有參數的詳細說明。
 
 ### <a name="scenarios"></a>案例
 

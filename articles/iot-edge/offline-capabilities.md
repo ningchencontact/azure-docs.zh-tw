@@ -3,21 +3,20 @@ title: 離線操作裝置 - Azure IoT Edge | Microsoft Docs
 description: 了解 IoT Edge 裝置及模組針對延長時間期間無網際網路連線執行的方式，以及 IoT Edge 讓一般 IoT 裝置也能離線執行的方式。
 author: kgremban
 ms.author: kgremban
-ms.date: 08/04/2019
+ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b16a8d8ddd4ac23a59db8e7fed48f1c39752d130
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ba64dcdadc5fa670c4502a7d8d92cb35e3b0cacd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456881"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924858"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>瞭解 IoT Edge 裝置、模組及子裝置的擴充離線功能
 
-Azure IoT Edge 支援 IoT Edge 裝置上的延伸離線作業，並在非 IoT Edge 的子裝置上啟用離線作業。 只要 IoT Edge 裝置已有機會連線到 IoT 中樞，該裝置及任何子裝置便能在間歇性或無網際網路連線的情況下繼續運作。 
-
+Azure IoT Edge 支援 IoT Edge 裝置上的延伸離線作業，並在非 IoT Edge 的子裝置上啟用離線作業。 只要 IoT Edge 裝置有一個機會連線到 IoT 中樞，該裝置和任何子裝置都可以繼續使用間歇性或沒有網際網路連線。
 
 ## <a name="how-it-works"></a>運作方式
 
@@ -39,7 +38,9 @@ Azure IoT Edge 支援 IoT Edge 裝置上的延伸離線作業，並在非 IoT Ed
 
 4. **重新連線並與 IoT 中樞同步處理**
 
-   一旦與 IoT 中樞的連線還原，IoT Edge 裝置便會再次進行同步處理。 本機儲存訊息會依照儲存時的相同順序進行傳遞。 模組和裝置所需屬性及回報屬性間的任何差異都會進行協調。 IoT Edge 裝置會更新任何對其受指派子 IoT 裝置集合進行的變更。
+   一旦與 IoT 中樞的連線還原，IoT Edge 裝置便會再次進行同步處理。 本機儲存的訊息會立即傳遞至 IoT 中樞，但取決於連線速度、IoT 中樞延遲和相關因素。 它們會以儲存的相同順序來傳遞。
+
+   模組和裝置所需屬性及回報屬性間的任何差異都會進行協調。 IoT Edge 裝置會更新任何對其受指派子 IoT 裝置集合進行的變更。
 
 ## <a name="restrictions-and-limits"></a>限制
 

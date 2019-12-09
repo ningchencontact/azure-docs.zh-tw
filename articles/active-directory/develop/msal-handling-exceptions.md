@@ -3,10 +3,8 @@ title: 錯誤和例外狀況（MSAL）
 titleSuffix: Microsoft identity platform
 description: 瞭解如何處理 MSAL 應用程式中的錯誤和例外狀況、條件式存取和宣告挑戰。
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: twhitney
-ms.reviewer: saeeda
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 753296596982279a14ff2775b0e129048dbe8369
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7f903ca541582dfa0f3980bb65a3fef3c4b774a7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482067"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916769"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>處理 MSAL 的例外狀況和錯誤
 
@@ -52,7 +50,7 @@ Microsoft 驗證程式庫（MSAL）中的例外狀況是供應用程式開發人
 
 | 例外狀況 | 錯誤碼 | 緩和|
 | --- | --- | --- |
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001：使用者或系統管理員尚未同意使用識別碼為 ' {appId} ' 且名為 ' {appName} ' 的應用程式。 請傳送此使用者和資源的互動式授權要求。| 您必須先取得使用者同意。 如果您未使用 .NET Core （不具有任何 Web UI），請呼叫（僅限一次） `AcquireTokeninteractive`。 如果您使用 .NET core 或不想要執行 `AcquireTokenInteractive`，使用者可以流覽至 URL 以提供同意： https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read。 若要呼叫 `AcquireTokenInteractive`： `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001：使用者或系統管理員尚未同意使用識別碼為 ' {appId} ' 且名為 ' {appName} ' 的應用程式。 請傳送此使用者和資源的互動式授權要求。| 您必須先取得使用者同意。 如果您未使用 .NET Core （不具有任何 Web UI），請呼叫（僅限一次） `AcquireTokeninteractive`。 如果您使用 .NET core 或不想要執行 `AcquireTokenInteractive`，使用者可以流覽至 URL 以提供同意： https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read 。 若要呼叫 `AcquireTokenInteractive`： `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079：使用者必須使用多重要素驗證（MFA）。| 不會降低風險。 如果已為您的租使用者設定 MFA，而 Azure Active Directory （AAD）決定強制執行，則您必須回到互動式流程，例如 `AcquireTokenInteractive` 或 `AcquireTokenByDeviceCode`。|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010：不支援 */common*或 */Consumers*端點上的授與類型。 請使用 */organizations* 或租用戶專屬端點。 您使用的是 */common*。| 如 Azure AD 的訊息所說明，授權單位必須有一個租用戶或 */organizations*。|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002：要求主體必須包含下列參數： `client_secret or client_assertion`。| 如果您的應用程式未在 Azure AD 中註冊為公用用戶端應用程式，則會擲回這個例外狀況。 在 Azure 入口網站中，編輯應用程式的資訊清單，並將 `allowPublicClient` 設定為 `true`。 |
@@ -80,7 +78,7 @@ MSAL 會公開 `Classification` 欄位，您可以加以閱讀以提供更佳的
 | UserPasswordExpired | 使用者的密碼已過期。 | 呼叫 AcquireTokenInteractively （），讓使用者可以重設其密碼。 |
 | PromptNeverFailed| 呼叫互動式驗證時，參數提示 = 永不，強制 MSAL 依賴瀏覽器 cookie，而不是顯示瀏覽器。 這是失敗的。 | 呼叫 AcquireTokenInteractively （）而不提示。無 |
 | AcquireTokenSilentFailed | MSAL SDK 沒有足夠的資訊可從快取中提取權杖。 這可能是因為快取中沒有任何權杖，或找不到帳戶。 錯誤訊息有更多詳細資料。  | 呼叫 AcquireTokenInteractively （）。 |
-| 無    | 未提供進一步的詳細資料。 在互動式驗證流程期間，使用者互動可能會解決條件。 | 呼叫 AcquireTokenInteractively （）。 |
+| None    | 未提供進一步的詳細資料。 在互動式驗證流程期間，使用者互動可能會解決條件。 | 呼叫 AcquireTokenInteractively （）。 |
 
 ## <a name="net-code-example"></a>.NET 程式碼範例
 
@@ -516,7 +514,7 @@ IOS 和 macOS 錯誤的 MSAL 完整清單列在[MSALError 列舉](https://github
 
 ### <a name="net"></a>.NET
 
-從 MSAL.NET 呼叫需要條件式存取的 API 時，您的應用程式將必須處理宣告挑戰例外狀況。 此例外狀況會呈現為[宣告](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet)屬性非空白的 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet)。
+從 MSAL.NET 呼叫需要條件式存取的 API 時，您的應用程式將必須處理宣告挑戰例外狀況。 此例外狀況會呈現為[宣告](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet)屬性非空白的 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet)。
 
 若要處理索賠挑戰，您必須使用 `PublicClientApplicationBuilder` 類別的 `.WithClaim()` 方法。
 

@@ -1,28 +1,27 @@
 ---
 title: Data Factory 的資料管理閘道
-description: 設定資料閘道器以在內部部署與雲端之間移動資料。 使用 Azure Data Factory 中的資料管理閘道器移動資料。
+description: 設定資料閘道器以在內部部署與雲端之間移動資料。 使用 Azure Data Factory 中的資料管理閘道移動資料。
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 41d8a5d3569d0b38ff569f9ccfa28a4b2af1d959
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d86fa9bfe9c17867b8a30519b79d9ee8c5af363
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682719"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932012"
 ---
 # <a name="data-management-gateway"></a>資料管理閘道
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。
+> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 中的自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。
 
 > [!NOTE]
 > 資料管理閘道現已更名為「自我裝載整合執行階段」。
@@ -38,7 +37,7 @@ ms.locfileid: "73682719"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 ### <a name="capabilities-of-data-management-gateway"></a>資料管理閘道功能
 資料管理閘道提供下列功能：
 
@@ -72,7 +71,7 @@ ms.locfileid: "73682719"
 * 您必須**使用閘道**，即使資料存放區位於 **Azure IaaS VM** 上的雲端中。
 
 ## <a name="installation"></a>安裝
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 * 支援的 **作業系統** 版本包括 Windows 7、Windows 8/8.1、Windows 10、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。 目前不支援在網域控制站上安裝資料管理閘道。
 * 必須有 .NET Framework 4.5.1 或更新版本。 如果您要在 Windows 7 電腦上安裝閘道，請安裝 .NET Framework 4.5 或更新版本。 如需詳細資訊，請參閱 [.NET Framework 系統需求](https://msdn.microsoft.com/library/8z6watww.aspx) 。
 * 建議的閘道機器「組態」 為至少 2 GHz、4 核心、8 GB RAM 和 80 GB 磁碟。
@@ -94,7 +93,7 @@ ms.locfileid: "73682719"
 ### <a name="install-the-gateway-from-download-center"></a>從下載中心安裝閘道
 1. 瀏覽至 [Microsoft 資料管理閘道下載頁面](https://www.microsoft.com/download/details.aspx?id=39717)。
 2. 按一下 [**下載**]，選取**64 位**版本（不再支援32位），然後按 **[下一步]** 。
-3. 直接執行 **MSI** 或將其儲存至您的硬碟並執行。
+3. 直接執行 **MSI** 或將它儲存至您的硬碟並執行。
 4. 在 [歡迎] 頁面上，選取一個**語言**，然後按 [下一步]。
 5. **接受**使用者授權合約，然後按 [下一步]。
 6. 選取要安裝閘道的**資料夾**，然後按 [下一步]。
@@ -151,7 +150,7 @@ ms.locfileid: "73682719"
 Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，您可以在閘道電腦上相應地設定網域和連接埠。
 
 > [!NOTE]
-> 1. 視您的來源/接收器而定，您可能需要將額外的網域和輸出連接埠加到您公司/Windows 防火牆的白名單中。
+> 1. 視您的來源/接收器而定，您可能需要將額外的網域和輸出連接埠加到您公司/Windows 防火牆的允許清單中。
 > 2. 對於某些雲端資料庫 (例如：[Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings)、[Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access) 等)，您可能需要將閘道電腦的 IP 位址加到其防火牆組態的白名單中。
 >
 >
@@ -306,7 +305,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
-## <a name="configuration-manager"></a>組態管理員
+## <a name="configuration-manager"></a>Configuration Manager
 安裝閘道後，您可以用下列方式啟動 [資料管理閘道組態管理員]：
 
 1. 在 [搜尋] 視窗中，輸入**資料管理閘道**以存取這個公用程式。
@@ -365,8 +364,8 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 
 監視屬性 | 描述
 :------------------ | :----------
-名稱 | 邏輯閘道和閘道相關聯節點的名稱。 節點是安裝了閘道的內部部署 Windows 機器。 若要了解如何在單一邏輯閘道中擁有一個以上的節點 (最多四個節點)，請參閱[資料管理閘道 - 高可用性和延展性](data-factory-data-management-gateway-high-availability-scalability.md)。
-Status | 邏輯閘道和閘道節點的狀態。 範例：線上/離線/有限/等。如需這些狀態的相關資訊，請參閱[閘道狀態](#gateway-status)一節。
+Name | 邏輯閘道和閘道相關聯節點的名稱。 節點是安裝了閘道的內部部署 Windows 機器。 若要了解如何在單一邏輯閘道中擁有一個以上的節點 (最多四個節點)，請參閱[資料管理閘道 - 高可用性和延展性](data-factory-data-management-gateway-high-availability-scalability.md)。
+狀態 | 邏輯閘道和閘道節點的狀態。 範例：線上/離線/有限/等。如需這些狀態的相關資訊，請參閱[閘道狀態](#gateway-status)一節。
 版本 | 顯示邏輯閘道和每個閘道節點的版本。 邏輯閘道的版本取決於群組中大多數節點的版本。 如果邏輯閘道設定中有不同版本的節點，則只有版本號碼和邏輯閘道相同的節點會正常運作。 其他節點會進入受限制模式，並需要加以手動更新 (如果自動更新失敗才需要這麼做)。
 可用的記憶體 | 閘道節點上可用的記憶體。 這個值是近乎即時的快照集。
 CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快照集。
@@ -379,22 +378,22 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
 ### <a name="gateway-status"></a>閘道狀態
 下表提供**閘道節點**的可能狀態：
 
-Status  | 註解/案例
+狀態  | 註解/案例
 :------- | :------------------
 線上 | 節點已連線至 Data Factory 服務。
 離線 | 節點已離線。
 升級中 | 節點正在自動更新。
-限制 | 由於連線問題。 可能是因為 HTTP 連接埠 8050 問題、服務匯流排連線問題或認證同步問題。
+有限制 | 由於連線問題。 可能是因為 HTTP 連接埠 8050 問題、服務匯流排連線問題或認證同步問題。
 非使用中 | 節點所在的組態不同於其他大多數節點的組態。<br/><br/> 節點無法連線至其他節點時，便會處於非使用中狀態。
 
 下表提供**邏輯閘道**的可能狀態。 閘道的狀態取決於閘道節點的狀態。
 
-Status | 註解
+狀態 | 註解
 :----- | :-------
 需要註冊 | 此邏輯閘道還沒有已註冊的節點
 線上 | 閘道節點已連線
 離線 | 沒有處於線上狀態的節點。
-限制 | 此閘道中的節點並非全都處於健康情況良好的狀態。 這個狀態是某些節點可能會關閉的警告！ <br/><br/>可能是因為發送器/背景工作節點有認證同步問題。
+有限制 | 此閘道中的節點並非全都處於健康情況良好的狀態。 這個狀態是某些節點可能會關閉的警告！ <br/><br/>可能是因為發送器/背景工作節點有認證同步問題。
 
 ## <a name="scale-up-gateway"></a>相應增加閘道
 您可以設定節點中可以執行的**並行資料移動作業**數目，以相應增加在內部部署機器與雲端資料存放區之間移動資料的能力。
@@ -421,7 +420,7 @@ Status | 註解
     ![[設定] 頁面](./media/data-factory-data-management-gateway/ConfigureBlade.png)
 5. 讓 [Microsoft 資料管理閘道組態管理員] 保持開啟。
 
-    ![組態管理員](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. 在入口網站的 [設定] 頁面中，按一下命令列上的 [重新建立金鑰]，然後按一下警告訊息中的 [是]。 按一下金鑰文字旁的 [複製] 按鈕，以將金鑰複製到剪貼簿。 一旦重新建立索引鍵，舊電腦上的閘道器便會停止運作。
 
     ![重新建立索引鍵](./media/data-factory-data-management-gateway/RecreateKey.png)
@@ -511,7 +510,7 @@ Status | 註解
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. 在 Azure PowerShell 中，切換至資料夾： *C：\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* 。 執行與區域變數 *$Key* 相關聯的 **RegisterGateway.ps1**，如下列命令所示。 此指令碼會向您稍早建立的邏輯閘道註冊您機器上安裝的用戶端代理程式。
+1. 在 Azure PowerShell 中，切換至資料夾： *C：\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* 。 執行與區域變數 $Key 相關聯的 RegisterGateway.ps1，如下列命令所示。 此指令碼會向您稍早建立的邏輯閘道註冊您機器上安裝的用戶端代理程式。
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

@@ -1,33 +1,29 @@
 ---
-title: 瞭解 Android Microsoft 驗證程式庫（MSAL）設定檔
+title: Android Microsoft 驗證程式庫設定檔 |Azure
 titleSuffix: Microsoft identity platform
 description: 概述「Android Microsoft 驗證程式庫」（MSAL）設定檔，其代表 Azure Active Directory 中的應用程式設定。
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c06bc1ebf3b87f622029e9e875fe478eae7e6a30
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: f643022c85a44b2202fcbd91be50664882c8ba7b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803148"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916821"
 ---
-# <a name="android-microsoft-authentication-library-msal-configuration-file"></a>Android Microsoft 驗證程式庫（MSAL）設定檔
+# <a name="android-microsoft-authentication-library-configuration-file"></a>Android Microsoft 驗證程式庫設定檔
 
-MSAL 隨附的[預設設定 JSON](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json)檔案，可讓您自訂以定義公用用戶端應用程式的行為，例如預設授權單位、您將使用的授權單位等等。
+Android Microsoft 驗證程式庫（MSAL）隨附預設的設定[JSON](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json)檔案，可供您自訂以定義公用用戶端應用程式的行為，例如預設授權單位、您將使用的授權單位等等。
 
 本文將協助您瞭解設定檔中的各種設定，以及如何指定要在 MSAL 應用程式中使用的設定檔。
 
@@ -162,7 +158,7 @@ MSAL 隨附的[預設設定 JSON](https://github.com/AzureAD/microsoft-authentic
 
 指定在您的應用程式中一次可以使用多少個帳戶。 可能的值包括：
 
-- `MULTIPLE` （預設值）
+- `MULTIPLE` (預設值)
 - `SINGLE`
 
 使用不符合這項設定的帳戶模式來建立 `PublicClientApplication`，將會產生例外狀況。

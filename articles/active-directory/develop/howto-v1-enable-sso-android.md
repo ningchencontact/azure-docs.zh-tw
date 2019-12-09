@@ -2,7 +2,6 @@
 title: 如何使用 ADAL 在 Android 上啟用跨應用程式的 SSO | Microsoft Docs
 description: 如何使用 ADAL SDK 的功能來啟用跨應用程式的單一登入。
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
@@ -17,26 +16,26 @@ ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb11a4a926c676d37a0bf6be456e3b831a5d8357
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4d247c569cdc0beff499cee191b95711a603e42
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962633"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917551"
 ---
-# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>HOW TO：使用 ADAL 在 Android 上啟用跨應用程式的 SSO
+# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>操作說明：使用 ADAL 在 Android 上啟用跨應用程式的 SSO
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-單一登入 (SSO) 可讓使用者只輸入認證一次，並讓這些認證跨應用程式及跨其他應用程式可能會使用的平台自動處理 (例如 Microsoft 帳戶或來自 Microsoft 365 的公司帳戶)，無論發行者為何。
+單一登入 (SSO) 可讓使用者只輸入認證一次，就讓這些認證跨應用程式及跨其他應用程式可能會使用的平台 (例如 Microsoft 帳戶或來自 Microsoft 365 的公司帳戶) 自動運作，無論發行者是誰。
 
 Microsoft 的身分識別平台搭配 SDK，能讓您在整個裝置中，更輕鬆地在您自己的應用程式套件內，或使用訊息代理程式功能和 Authenticator 應用程式來啟用單一登入。
 
 在本操作說明中，您會了解如何在應用程式中設定 SDK 以提供 SSO 給客戶。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-此操作說明會假設您知道如何：
+此操作說明假設您知道如何：
 
 - 使用 Azure Active Directory (Azure AD) 的傳統入口網站佈建應用程式。 如需詳細資訊，請參閱[註冊應用程式](quickstart-register-app.md)
 - 整合應用程式與 [Azure AD Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android)。
@@ -108,7 +107,7 @@ Microsoft 為每個行動平台提供應用程式，允許跨不同廠商的應�
 2. 建立新的重新導向 URI，並將其提供給應用程式與應用程式註冊
 3. 在 Android 資訊清單中設定正確的權限
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>步驟 1：在應用程式中啟用訊息代理程式模式
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>步驟 1︰在應用程式中啟用訊息代理程式模式
 
 當您建立「設定」或驗證執行個體的初始設定時，已開啟應用程式使用訊息代理程式的功能。 若要在您的應用程式中執行此動作：
 
@@ -116,15 +115,15 @@ Microsoft 為每個行動平台提供應用程式，允許跨不同廠商的應�
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
-#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>步驟 2：利用 URL 配置建立新的重新導向 URI
+#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>步驟 2︰利用 URL 配置建立新的重新導向 URI
 
-若要確保正確的應用程式接收傳回認證權杖，那里需要請確定您的應用程式的呼叫 Android 作業系統可以確認的方式。 Android 作業系統會使用 Google Play 商店中的憑證雜湊。 惡意應用程式無法假冒此憑證雜湊。 搭配訊息代理程式應用程式的 URI，Microsoft 可確保權杖會傳回給正確的應用程式。 唯一的重新導向 URI 必須註冊於應用程式上。
+為了確保正確的應用程式會接收傳回的認證權杖，必須以 Android 作業系統可以驗證的方式，來確保對您應用程式的回呼。 Android 作業系統會使用 Google Play 商店中的憑證雜湊。 惡意應用程式無法假冒此憑證雜湊。 搭配訊息代理程式應用程式的 URI，Microsoft 可確保權杖會傳回給正確的應用程式。 唯一的重新導向 URI 必須註冊於應用程式上。
 
 您的重新導向 URI 必須是適當的格式︰
 
 `msauth://packagename/Base64UrlencodedSignature`
 
-例如：msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D 
+例如：msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D
 
 您可以使用 [Azure 入口網站](https://portal.azure.com/)在應用程式註冊中註冊此重新導向 URI。 如需 Azure AD 應用程式註冊的詳細資訊，請參閱 [與 Azure Active Directory 整合](active-directory-how-to-integrate.md)。
 

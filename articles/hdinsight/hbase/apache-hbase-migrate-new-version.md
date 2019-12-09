@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 12/05/2019
 ms.author: ashishth
-ms.openlocfilehash: 75158fbe5604c6fcf54c2fa08636cb87dfd9da80
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: b03bbc7aacd3bfa2a8e29296a5fafed7d4e7e37a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917416"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931539"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>將 Apache HBase 叢集移轉至新的版本
 
@@ -98,7 +98,7 @@ ms.locfileid: "70917416"
     
             Provide Script URL.
     
-            Provide hostname as a parameter (i.e. hn0, hn1 or wn2 etc.).
+            Provide hostname as a parameter (i.e. hn0, hn1, hn2.. or wn2 etc.).
     ...
             exit
         fi
@@ -192,13 +192,13 @@ ms.locfileid: "70917416"
 
 8. **如果您未搭配使用 HBase 叢集與增強式寫入功能，請略過此步驟。只有具有增強式寫入功能的 HBase 叢集才需要它。**
    
-   `hbase.rootdir`將路徑變更為指向原始叢集的容器。
+   變更 `hbase.rootdir` 路徑，以指向原始叢集的容器。
 
     ![在 Ambari 中，變更 HBase rootdir 的容器名稱](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
 1. 如果您要將 HDInsight 3.6 升級至4.0，請遵循下列步驟，否則請跳至步驟10：
-    1. 選取 [**服務** > ] [**全部必要**]，重新開機 Ambari 中所有必要的服務。
+    1. 選取 [**服務**] > [**全部重新開機**]，以重新開機 Ambari 中所有必要的服務。
     1. 停止 HBase 服務。
-    1. 透過 SSH 連線至 Zookeeper 節點，並執行[zkCli](https://github.com/go-zkcli/zkcli)命令`rmr /hbase-unsecure`以從 Zookeeper 移除 HBase 根 znode。
+    1. 透過 SSH 連線到 Zookeeper 節點，然後執行[zkCli](https://github.com/go-zkcli/zkcli)命令 `rmr /hbase-unsecure` 從 Zookeeper 移除 HBase 根 znode。
     1. 重新開機 HBase。
 1. 如果您要升級至4.0 以外的任何其他 HDInsight 版本，請遵循下列步驟：
     1. 儲存您的變更。

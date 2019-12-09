@@ -1,23 +1,22 @@
 ---
-title: 使用 Azure Data Factory 將資料從 Amazon S3 遷移至 Azure 儲存體
+title: 將資料從 Amazon S3 遷移到 Azure 儲存體
 description: 使用 Azure Data Factory，將資料從 Amazon S3 遷移至 Azure 儲存體。
 services: data-factory
-documentationcenter: ''
-author: dearandyxu
 ms.author: yexu
+author: dearandyxu
 ms.reviewer: ''
-manager: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 4d4e0453105dacfbf35624a2a9acb9d5994f4dea
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 30990c3d1e3f885e8984227425d3e8e5c44b9286
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675751"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927485"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>使用 Azure Data Factory 將資料從 Amazon S3 遷移至 Azure 儲存體 
 
@@ -93,7 +92,7 @@ ADF 提供無伺服器架構，允許不同層級的平行處理原則，讓開�
 
 ### <a name="delta-data-migration"></a>差異資料移轉 
 
-若要從 AWS S3 識別新的或變更的檔案，最有效的方式就是使用時間分割的命名慣例–當 AWS S3 中的資料已使用檔案或資料夾名稱中的時間配量資訊進行時間分割時（例如/yyyy/mm/dd/file.csv），然後您的管線可以輕鬆地識別要以累加方式複製哪些檔案/資料夾。 
+若要從 AWS S3 識別新的或變更的檔案，最有效的方式就是使用時間分割的命名慣例–當 AWS S3 中的資料已使用檔案或資料夾名稱中的時間配量資訊進行時間分割時（例如/yyyy/mm/dd/file.csv），您的管線就可以輕鬆地識別要以累加方式複製哪些檔案/資料夾。 
 
 或者，如果您在 AWS S3 中的資料不是時間分割，ADF 可以透過其 LastModifiedDate 來識別新的或已變更的檔案。   其運作方式是 ADF 會掃描 AWS S3 的所有檔案，並只複製新的和更新的檔案，其上次修改時間戳記大於特定值。  請注意，如果您在 S3 中有大量檔案，則不論符合篩選準則的檔案數目為何，初始檔案掃描可能會花很長的時間。  在此情況下，建議您先將資料分割，並使用相同的「前置詞」設定來進行初始快照集遷移，讓檔案能夠以平行方式進行掃描。  
 

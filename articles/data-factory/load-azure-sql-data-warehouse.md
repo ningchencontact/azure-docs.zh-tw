@@ -1,22 +1,22 @@
 ---
-title: 使用 Azure Data Factory 將資料載入 Azure SQL 資料倉儲中
+title: 將資料載入 Azure SQL 資料倉儲
 description: 使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲中
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 06/22/2018
-ms.author: jingwang
-ms.openlocfilehash: 538751b1e93dfec66c35ea3768bde603c198df32
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 732d5d170ee647dc0dfdbf4d09a12617c8c9bcce
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672753"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931519"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure SQL 資料倉儲中
 
@@ -51,7 +51,7 @@ Azure Data Factory 可針對將資料載入 Azure SQL 資料倉儲的作業提�
 
 2. 在 [新增資料處理站] 頁面中，為下圖所示的欄位提供值：
       
-   ![新增資料處理站頁面](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
+   ![新增 Data Factory 網頁](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
     * **名稱**：輸入 Azure 資料處理站的全域唯一名稱。 如果您收到「資料處理站名稱 \"LoadSQLDWDemo\" 無法使用」的錯誤，請為資料處理站輸入其他名稱。 例如，您可以使用 _**您的名稱**_ **ADFTutorialDataFactory**。 請嘗試再次建立資料處理站。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
     * **訂用帳戶**：選取用來在其中建立資料處理站的 Azure 訂用帳戶。 
@@ -59,7 +59,7 @@ Azure Data Factory 可針對將資料載入 Azure SQL 資料倉儲的作業提�
     * **版本**：選取 [V2]。
     * **位置**：選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區可位於其他位置和區域。 這些資料存放區包含 Azure Data Lake Store、Azure 儲存體、Azure SQL Database 等等。
 
-3. 選取 [ **建立**]。
+3. 選取 [建立]。
 4. 建立完成後，請移至資料處理站。 您會看到如下圖所示的 [Data Factory] 首頁：
    
    ![Data Factory 首頁](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)
@@ -149,7 +149,7 @@ Azure Data Factory 可針對將資料載入 Azure SQL 資料倉儲的作業提�
 1. 請注意，系統會自動選取左側的 [監視] 索引標籤。 [動作] 資料行中會有連結可供檢視活動執行詳細資料，以及重新執行管線： 
 
     ![監視管線回合](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)
-1. 若要檢視與此管線執行相關聯的活動執行，請選取 [動作] 資料行中的 [檢視活動執行] 連結。 若要切換回 [管線執行] 檢視，請選取頂端的 [管線] 連結。 選取 [重新整理] 可重新整理清單。 
+1. 若要檢視與此管線執行相關聯的活動執行，請選取 [動作] 資料行中的 [檢視活動執行] 連結。 若要切換回 [管線執行] 檢視，請選取頂端的 [管線] 連結。 選取 [重新整理] 即可重新整理清單。 
 
     ![監視活動回合](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
 

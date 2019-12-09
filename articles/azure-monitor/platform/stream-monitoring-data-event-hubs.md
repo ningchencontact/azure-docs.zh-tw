@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 952485a3bb8feb1434f4f4705f6c07176dd1e1f6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 254cbc995da9380f108970fb981c000fca7dc63f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894473"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925813"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>將 Azure 監視資料串流至事件中樞
 Azure 監視器為 Azure、其他雲端和內部部署中的應用程式和服務，提供完整的完整堆疊監視解決方案。 除了使用 Azure 監視器來分析該資料，並將它運用在不同的監視案例中，您可能需要將它傳送至環境中的其他監視工具。 在大部分情況下，將監視資料串流至外部工具的最有效方法是使用[Azure 事件中樞](/azure/event-hubs/)。 本文提供如何將來自不同來源的監視資料串流至事件中樞的簡短描述，以及詳細指引的連結。
@@ -45,18 +45,19 @@ Azure 監視器為 Azure、其他雲端和內部部署中的應用程式和服�
 對於無法直接串流至事件中樞的資料，您可以寫入至 Azure 儲存體，然後使用時間觸發的邏輯應用程式，[從 blob 儲存體提取資料](../../connectors/connectors-create-api-azureblobstorage.md#add-action)，並將[它以訊息的形式推送至事件中樞](../../connectors/connectors-create-api-azure-event-hubs.md#add-action)。 
 
 
-## <a name="tools-with-azure-monitor-integration"></a>具有 Azure 監視器整合的工具
+## <a name="partner-tools-with-azure-monitor-integration"></a>具有 Azure 監視器整合的合作夥伴工具
 
 使用 Azure 監視器將監視資料路由傳送至事件中樞，可讓您輕鬆地與外部 SIEM 和監視工具整合。 具有 Azure 監視器整合的工具範例包括下列各項：
 
-| 工具 | 描述 |
-|:---|:---|
-|  IBM QRadar | Microsoft Azure DSM 與 Microsoft Azure 事件中樞通訊協定均可從 [IBM 支援網站](https://www.ibm.com/support)下載。 您可以在[QRADAR DSM](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)設定深入瞭解與 Azure 的整合。 |
-| Splunk | [適用于 Splunk 的 Azure 監視器附加](https://splunkbase.splunk.com/app/3534/)元件是 splunkbase 取得中提供的開放原始碼專案。 檔可在 Splunk 的[Azure 監視器](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk)附加元件中取得。<br><br> 如果您無法在 Splunk 實例中安裝附加元件（例如，您使用 proxy 或在 Splunk Cloud 上執行），您可以使用[適用于 Splunk 的 Azure](https://github.com/Microsoft/AzureFunctionforSplunkVS)函式將這些事件轉送至 Splunk HTTP 事件收集器，此功能是由事件中樞的新訊息所觸發。 |
-| sumologic | [從事件中樞收集 Azure Audit 應用程式的記錄](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)中有提供設定 SumoLogic 以取用來自事件中樞之資料的指示。 |
-| ArcSight | ArcSight Azure 事件中樞智慧連接器可作為[ArcSight 智慧連接器集合](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)的一部分。 |
-| Syslog 伺服器 | 如果您想要將 Azure 監視器資料直接串流到 syslog 伺服器，您可以使用以[Azure function 為基礎的解決方案](https://github.com/miguelangelopereira/azuremonitor2syslog/)。
-| LogRhythm | [這裡](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)提供設定 LogRhythm 以從事件中樞收集記錄的指示。 
+| 工具 | 託管于 Azure | 描述 |
+|:---|:---| :---|
+|  IBM QRadar | 否 | Microsoft Azure DSM 與 Microsoft Azure 事件中樞通訊協定均可從 [IBM 支援網站](https://www.ibm.com/support)下載。 您可以在[QRADAR DSM](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)設定深入瞭解與 Azure 的整合。 |
+| Splunk | 否 | [適用于 Splunk 的 Azure 監視器附加](https://splunkbase.splunk.com/app/3534/)元件是 splunkbase 取得中提供的開放原始碼專案。 檔可在 Splunk 的[Azure 監視器](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk)附加元件中取得。<br><br> 如果您無法在 Splunk 實例中安裝附加元件（例如，您使用 proxy 或在 Splunk Cloud 上執行），您可以使用[適用于 Splunk 的 Azure](https://github.com/Microsoft/AzureFunctionforSplunkVS)函式將這些事件轉送至 Splunk HTTP 事件收集器，此功能是由事件中樞的新訊息所觸發。 |
+| sumologic | 否 | [從事件中樞收集 Azure Audit 應用程式的記錄](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)中有提供設定 SumoLogic 以取用來自事件中樞之資料的指示。 |
+| ArcSight | 否 | ArcSight Azure 事件中樞智慧連接器可作為[ArcSight 智慧連接器集合](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)的一部分。 |
+| Syslog 伺服器 | 否 | 如果您想要將 Azure 監視器資料直接串流到 syslog 伺服器，您可以使用以[Azure function 為基礎的解決方案](https://github.com/miguelangelopereira/azuremonitor2syslog/)。
+| LogRhythm | 否| [這裡](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)提供設定 LogRhythm 以從事件中樞收集記錄的指示。 
+|Logz.io | 是 | 如需詳細資訊，請參閱[針對在 Azure 上執行的 JAVA 應用程式使用 Logz.io 開始進行監視和記錄](https://docs.microsoft.com/azure/java/java-get-started-with-logzio)
 
 
 ## <a name="next-steps"></a>後續步驟

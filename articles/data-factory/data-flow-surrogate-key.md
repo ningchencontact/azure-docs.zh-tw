@@ -1,18 +1,19 @@
 ---
-title: Azure Data Factory 對應的資料流程代理金鑰轉換
+title: 對應資料流程代理金鑰轉換
 description: 如何使用 Azure Data Factory 的對應資料流程代理金鑰轉換來產生連續索引鍵值
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: 144d6298a13d35d94a68b35c443a3a47cefcfc2a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: bab48aa9079c1b8020bb828a6bb91bd244a78cf1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387169"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930209"
 ---
 # <a name="mapping-data-flow-surrogate-key-transformation"></a>對應資料流程代理金鑰轉換
 

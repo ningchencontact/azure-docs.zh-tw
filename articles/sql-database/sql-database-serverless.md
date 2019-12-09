@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: d1f3bf6cb1467d0bb4906ff2409e72828b22cd20
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e90bff7548be5f469ebbcdc21dd9b93dc887a30e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807012"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931960"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database 無伺服器
 
@@ -185,18 +185,22 @@ SQL 快取會隨著資料以相同的方式從磁片提取，而且速度與布�
 
 下列範例會在無伺服器計算層中建立新的資料庫。  此範例明確指定最小虛擬核心數、最大虛擬核心數和自動暫停延遲。
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```powershell
-New-AzSqlDatabase `
-  -ResourceGroupName $resourceGroupName `
-  -ServerName $serverName `
-  -DatabaseName $databaseName `
-  -ComputeModel Serverless `
-  -Edition GeneralPurpose `
-  -ComputeGeneration Gen5 `
-  -MinVcore 0.5 `
-  -MaxVcore 2 `
-  -AutoPauseDelayInMinutes 720
+New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
+  -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
+  -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```powershell
+az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
+  -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
+```
+
+* * *
 
 #### <a name="use-transact-sql-t-sql"></a>使用 Transact-sql （T-sql）
 
@@ -215,22 +219,26 @@ CREATE DATABASE testdb
 
 下列範例會將資料庫從已布建的計算層移到無伺服器計算層。 此範例明確指定最小虛擬核心數、最大虛擬核心數和自動暫停延遲。
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```powershell
-Set-AzSqlDatabase `
-  -ResourceGroupName $resourceGroupName `
-  -ServerName $serverName `
-  -DatabaseName $databaseName `
-  -Edition GeneralPurpose `
-  -ComputeModel Serverless `
-  -ComputeGeneration Gen5 `
-  -MinVcore 1 `
-  -MaxVcore 4 `
-  -AutoPauseDelayInMinutes 1440
+Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
+  -Edition GeneralPurpose -ComputeModel Serverless -ComputeGeneration Gen5 `
+  -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```powershell
+az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
+  --edition GeneralPurpose --min-capacity 1 --capacity 4 --family Gen5 --compute-model Serverless --auto-pause-delay 1440
+```
+
+* * *
 
 #### <a name="use-transact-sql-t-sql"></a>使用 Transact-sql （T-sql）
 
-下列範例會將資料庫從已布建的計算層移到無伺服器計算層。 
+下列範例會將資料庫從已布建的計算層移到無伺服器計算層。
 
 ```sql
 ALTER DATABASE testdb 
@@ -245,23 +253,15 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 ## <a name="modifying-serverless-configuration"></a>修改無伺服器設定
 
-### <a name="maximum-vcores"></a>最低 vCore
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-#### <a name="use-powershell"></a>使用 PowerShell
+若要修改最大或最小虛擬核心，以及自動暫停延遲，請在 PowerShell 中使用[set-azsqldatabase 搭配](/powershell/module/az.sql/set-azsqldatabase)命令，並使用 `MaxVcore`、`MinVcore`和 `AutoPauseDelayInMinutes` 引數來執行。
 
-修改 max 虛擬核心的執行方式是在 PowerShell  `MaxVcore`中使用引數的 [set-azsqldatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 搭配命令。
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-### <a name="minimum-vcores"></a>最高 vCore
+修改最大或最小虛擬核心，以及自動暫停延遲，是使用 Azure CLI 中的[az sql db update](/cli/azure/sql/db#az-sql-db-update)命令來執行，方法是使用 `capacity`、`min-capacity`和 `auto-pause-delay` 引數。
 
-#### <a name="use-powershell"></a>使用 PowerShell
-
-修改 min 虛擬核心的執行方式是在 PowerShell  `MinVcore`中使用引數的 [set-azsqldatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 搭配命令。
-
-### <a name="autopause-delay"></a>自動暫停延遲
-
-#### <a name="use-powershell"></a>使用 PowerShell
-
-修改自動暫停延遲是藉由使用 `AutoPauseDelayInMinutes` 引數在 PowerShell 中的[set-azsqldatabase 搭配](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令來執行。
+* * *
 
 ## <a name="monitoring"></a>監視
 
@@ -298,13 +298,20 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 使用下列 PowerShell 命令來查詢資料庫的暫停和繼續狀態：
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```powershell
-Get-AzSqlDatabase `
-  -ResourceGroupName $resourcegroupname `
-  -ServerName $servername `
-  -DatabaseName $databasename `
+Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $databasename `
   | Select -ExpandProperty "Status"
 ```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```powershell
+az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
+```
+
+* * *
 
 ## <a name="resource-limits"></a>資源限制
 

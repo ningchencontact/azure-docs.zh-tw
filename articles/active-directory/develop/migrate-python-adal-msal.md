@@ -4,25 +4,23 @@ description: 瞭解如何將您的 Azure Active Directory Authentication Library
 services: active-directory
 titleSuffix: Microsoft identity platform
 author: rayluo
-manager: henrikm
-editor: twhitney
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: Python
 ms.workload: identity
 ms.date: 11/11/2019
 ms.author: rayluo
-ms.reviewer: ''
+ms.reviewer: rayluo, nacanuma, twhitney
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b31000c8b5e64cbd0edb2fc062f1c6e077a75f4
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 72a4af690a1433f6a185ab17f06748d67927edea
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481936"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917228"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>適用于 Python 的 MSAL 遷移指南的 ADAL
 
@@ -30,7 +28,7 @@ ms.locfileid: "74481936"
 
 ## <a name="difference-highlights"></a>差異重點
 
-ADAL 適用于 Azure Active Directory v1.0 端點。 Microsoft 驗證程式庫（MSAL）適用于 Microsoft 身分識別平臺，先前稱為 Azure Active Directory v2.0 端點。 Microsoft 身分識別平臺與 Azure Active Directory v1.0 的不同之處在于：
+ADAL 適用于 Azure Active Directory （Azure AD） v1.0 端點。 Microsoft 驗證程式庫（MSAL）適用于 Microsoft 身分識別平臺，先前稱為 Azure Active Directory v2.0 端點。 Microsoft 身分識別平臺與 Azure AD v1.0 的不同之處在于：
 
 支援：
   - 公司和學校帳戶 (Azure AD 佈建的帳戶)

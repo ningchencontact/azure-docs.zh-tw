@@ -51,6 +51,10 @@
       href: concepts-custom-role-definition.md
     - name: 資源上線
       href: concepts-custom-providers-resourceonboarding.md
+    - name: 自訂提供者關聯的 Azure 原則
+      href: concepts-custom-providers-built-in-policy.md
+    - name: 受控應用程式關聯的 Azure 原則
+      href: concepts-managed-applications-built-in-policy.md
 - name: 使用說明指南
   items:
     - name: 自訂提供者

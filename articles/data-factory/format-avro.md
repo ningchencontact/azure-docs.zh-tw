@@ -2,31 +2,31 @@
 title: Azure Data Factory 中的 Avro 格式
 description: 本主題說明如何在 Azure Data Factory 中處理 Avro 格式。
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a40e1b717a2ac791cdf7583afb9a7649a5b00af1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9e962a0e76cdc0d51a87df3c33927c34db991fc7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73674902"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927401"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Azure Data Factory 中的 Avro 格式
 
 當您想要**剖析 avro 檔案，或將資料寫入 avro 格式**時，請遵循這篇文章。 
 
-下列連接器支援 Avro 格式： [Amazon S3](connector-amazon-simple-storage-service.md)、 [Azure Blob](connector-azure-blob-storage.md)、 [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)、 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)、 [Azure 檔案儲存體](connector-azure-file-storage.md)、[檔案系統](connector-file-system.md)、 [FTP](connector-ftp.md)、 [Google雲端儲存體](connector-google-cloud-storage.md)、 [HDFS](connector-hdfs.md)、 [HTTP](connector-http.md)和[SFTP](connector-sftp.md)。
+下列連接器支援 Avro 格式： [Amazon S3](connector-amazon-simple-storage-service.md)、 [azure Blob](connector-azure-blob-storage.md)、 [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)、 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)、 [Azure 檔案儲存體](connector-azure-file-storage.md)、[檔案系統](connector-file-system.md)、 [FTP](connector-ftp.md)、 [Google Cloud Storage](connector-google-cloud-storage.md)、 [HDFS](connector-hdfs.md)、 [HTTP](connector-http.md)和[SFTP](connector-sftp.md)。
 
 ## <a name="dataset-properties"></a>資料集屬性
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Avro 資料集所支援的屬性清單。
 
-| 屬性         | 說明                                                  | 必要 |
+| 屬性         | 描述                                                  | 必要項 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | 類型             | 資料集的類型屬性必須設定為**Avro**。 | 是      |
 | location         | 檔案的位置設定。 每個以檔案為基礎的連接器在 `location`之下都有自己的位置類型和支援的屬性。 **請參閱連接器文章-> 資料集屬性一節中的詳細資訊**。 | 是      |
@@ -67,7 +67,7 @@ ms.locfileid: "73674902"
 
 以下支援的屬性將複製活動中 ***\*來源\**** 一節。
 
-| 屬性      | 說明                                                  | 必要 |
+| 屬性      | 描述                                                  | 必要項 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | 類型          | 複製活動來源的類型屬性必須設定為**AvroSource**。 | 是      |
 | storeSettings | 一組屬性，說明如何從資料存放區讀取資料。 每個以檔案為基礎的連接器在 `storeSettings`之下都有自己支援的讀取設定。 **請參閱連接器中的詳細資料文章-> 複製活動屬性一節**。 | 否       |
@@ -76,7 +76,7 @@ ms.locfileid: "73674902"
 
 以下支援的屬性將複製活動中 ***\*接收器\**** 一節。
 
-| 屬性      | 說明                                                  | 必要 |
+| 屬性      | 描述                                                  | 必要項 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | 類型          | 複製活動來源的類型屬性必須設定為**AvroSink**。 | 是      |
 | storeSettings | 一組屬性，說明如何將資料寫入資料存放區。 每個以檔案為基礎的連接器在 `storeSettings`之下都有它自己的支援寫入設定。 **請參閱連接器中的詳細資料文章-> 複製活動屬性一節**。 | 否       |

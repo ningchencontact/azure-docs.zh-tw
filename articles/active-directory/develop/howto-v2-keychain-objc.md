@@ -3,27 +3,23 @@ title: 設定 keychain
 titleSuffix: Microsoft identity platform
 description: 瞭解如何設定 keychain，讓您的應用程式可以在 keychain 中快取權杖。
 services: active-directory
-documentationcenter: ''
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: twhitney
-ms.reviewer: ''
+ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69991d105ff3523310f54e65596f2f379b547052
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 8b4599549e15d6ebe4d0bd04f96c89df86b0c0cd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803798"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917500"
 ---
 # <a name="configure-keychain"></a>設定 keychain
 
@@ -51,7 +47,7 @@ MSAL on macOS 預設會使用 `com.microsoft.identity.universalstorage` 存取�
 
 如果您想要使用不同的 keychain 存取群組，在建立 `MSALPublicClientApplication`之前，您可以先傳遞自訂 `MSALPublicClientApplicationConfig` 組，如下所示：
 
-Objective-C：
+# <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
 
 ```objc
 MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"your-client-id"
@@ -67,9 +63,7 @@ MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] 
 // and only shared with other applications declaring the same access group
 ```
 
-
-
-Swift：
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
@@ -85,25 +79,27 @@ do {
 }       
 ```
 
-
+---
 
 ## <a name="disable-keychain-sharing"></a>停用 keychain 共用
 
 如果您不想要在多個應用程式之間共用 SSO 狀態，或使用任何 keychain 存取群組，請藉由傳遞應用程式套件組合識別碼作為 keychainGroup 來停用 keychain 共用：
 
-Objective-C：
+# <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
 
 ```objc
 config.cacheConfig.keychainSharingGroup = [[NSBundle mainBundle] bundleIdentifier];
 ```
 
-Swift：
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
 
 ```swift
 if let bundleIdentifier = Bundle.main.bundleIdentifier {
     config.cacheConfig.keychainSharingGroup = bundleIdentifier
 }
 ```
+
+---
 
 ## <a name="handle--34018-error-failed-to-set-item-into-keychain"></a>處理-34018 錯誤（無法將專案設定為 keychain）
 

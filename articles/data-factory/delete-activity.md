@@ -6,19 +6,18 @@ documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 8efbf5cd6003781450afe70b8019b39d75290546
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d061a132699e733e78a7d717ee32222b158d73b4
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675627"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927525"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Delete 活動
 
@@ -27,7 +26,7 @@ ms.locfileid: "73675627"
 > [!WARNING]
 > 刪除的檔案或資料夾無法還原。 使用 Delete 活動來刪除檔案或資料夾時請小心謹慎。
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 以下是使用 Delete 活動的一些建議：
 
@@ -81,7 +80,7 @@ ms.locfileid: "73675627"
 
 ## <a name="type-properties"></a>類型屬性
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | 資料集 | 提供資料集參考，以判斷要刪除哪些檔案或資料夾 | 是 |
 | 遞迴 | 指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式刪除檔案。  | 不會。 預設值為 `false`。 |
@@ -89,9 +88,9 @@ ms.locfileid: "73675627"
 | enablelogging | 指出您是否需要記錄已刪除的資料夾或檔案名稱。 如果為 true，則您需要進一步提供儲存體帳戶來儲存記錄檔，以便您可以藉由讀取記錄檔來追蹤 Delete 活動的行為。 | 否 |
 | logStorageSettings | 僅適用於 enablelogging = true 時。<br/><br/>一組儲存體屬性，可指定您要儲存記錄檔 (包含由 Delete 活動刪除的資料夾或檔案名稱) 的位置。 | 否 |
 | linkedServiceName | 僅適用於 enablelogging = true 時。<br/><br/>[Azure 儲存體](connector-azure-blob-storage.md#linked-service-properties)、 [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties)或[Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)的連結服務，用來儲存記錄檔，其中包含由 Delete 活動刪除的資料夾或檔案名。 請注意，它必須使用與 [刪除活動] 用來刪除檔案的相同 Integration Runtime 類型進行設定。 | 否 |
-| 路徑 | 僅適用於 enablelogging = true 時。<br/><br/>要在您的儲存體帳戶中儲存記錄檔的路徑。 如不提供路徑，服務會為您建立容器。 | 否 |
+| path | 僅適用於 enablelogging = true 時。<br/><br/>要在您的儲存體帳戶中儲存記錄檔的路徑。 如不提供路徑，服務會為您建立容器。 | 否 |
 
-## <a name="monitoring"></a>監控
+## <a name="monitoring"></a>監視
 
 您可以在兩個位置查看及監視 Delete 活動的結果： 
 -   從 Delete 活動的輸出。
@@ -117,12 +116,12 @@ ms.locfileid: "73675627"
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Delete 活動的範例記錄檔
 
-| 名稱 | 類別 | 狀態 | 錯誤 |
+| Name | 類別 | 狀態 | Error |
 |:--- |:--- |:--- |:--- |
-| test1/yyy. json | 檔案 | Deleted |  |
-| test2/hello789 .txt | 檔案 | Deleted |  |
-| test2/test3/hello000 .txt | 檔案 | Deleted |  |
-| test2/test3/zzz. json | 檔案 | Deleted |  |
+| test1/yyy. json | 檔案 | 已刪除 |  |
+| test2/hello789 .txt | 檔案 | 已刪除 |  |
+| test2/test3/hello000 .txt | 檔案 | 已刪除 |  |
+| test2/test3/zzz. json | 檔案 | 已刪除 |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>使用 Delete 活動的範例
 

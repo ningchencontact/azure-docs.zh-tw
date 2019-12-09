@@ -2,28 +2,25 @@
 title: 如何重新啟用已停用的 Azure 存取控制服務 (ACS) 命名空間
 description: 了解如何尋找並啟用您的 Azure 存取控制服務 (ACS) 命名空間，並要求將它們的維持啟用時間延長至 2019 年 2 月 4 日。
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb17109d53c6e08c8607959207e367086032f6d
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 590fc99861035ce1a5219a3cfd788159c6c2a19b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482699"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917704"
 ---
-# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>作法：重新啟用已停用的存取控制服務命名空間
+# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>操作說明：重新啟用已停用的存取控制服務命名空間
 
 我們在 2017 年 11 月宣布 Microsoft Azure 存取控制服務 (ACS) 這項 Azure Active Directory (Azure AD) 服務，將於 2018 年 11 月 7 日淘汰。
 
@@ -90,10 +87,10 @@ ms.locfileid: "67482699"
 
 ### <a name="to-request-an-extension"></a>要求延長
 
-1. 登入 Azure 入口網站，並建立[新的支援要求](https://portal.azure.com/#create/Microsoft.Support)。
+1. 登入 Azure 入口網站，並建立新的[支援要求](https://portal.azure.com/#create/Microsoft.Support)。
 1. 填入新的支援要求表單，如下列範例所示。
 
-    | 支援要求欄位 | 值 |
+    | 支援要求欄位 | Value |
     |-----------------------|--------------------|
     | **問題類型** | `Technical` |
     | **訂用帳戶** | 設為您的訂用帳戶 |
@@ -102,7 +99,7 @@ ms.locfileid: "67482699"
     | **問題類型** | `ACS to SAS Migration` |
     | **主旨** | 描述問題 |
 
-   ![顯示新的技術支援要求的範例](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![顯示新技術支援要求的範例](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 
@@ -127,4 +124,4 @@ ms.locfileid: "67482699"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 在以下文件中檢閱有關 ACS 淘汰的資訊：[操作說明：從 Azure 存取控制服務遷移](active-directory-acs-migration.md)。
+- 檢閱[操作說明：從 Azure 存取控制服務遷移](active-directory-acs-migration.md)中的 ACS 淘汰相關資訊。

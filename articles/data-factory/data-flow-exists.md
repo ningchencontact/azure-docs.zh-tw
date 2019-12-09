@@ -1,18 +1,19 @@
 ---
-title: Azure Data Factory 對應資料流程中的 Exists 轉換
+title: 對應資料流程中的 Exists 轉換
 description: 使用 Azure Data Factory 對應資料流程中的 exists 轉換來檢查現有的資料列
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/16/2019
-ms.openlocfilehash: a477eba246c4ebcfbd32e92f1fd30c301ea1cc5b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: efcc45dcf3565b70305323701810c49c4a720394
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676739"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930417"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>對應資料流程中的 Exists 轉換
 
@@ -39,7 +40,7 @@ Exists 轉換是一個資料列篩選轉換，它會檢查您的資料是否存�
 
 ![已存在自訂設定](media/data-flow/exists1.png "存在自訂")
 
-## <a name="data-flow-script"></a>資料流程腳本
+## <a name="data-flow-script"></a>資料流程指令碼
 
 ### <a name="syntax"></a>語法
 

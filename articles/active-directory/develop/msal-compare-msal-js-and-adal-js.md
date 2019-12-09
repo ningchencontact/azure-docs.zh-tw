@@ -3,27 +3,23 @@ title: MSAL 與 ADAL 的差異
 titleSuffix: Microsoft identity platform
 description: 了解適用於 JavaScript 的 Microsoft 驗證程式庫 (MSAL.js) 與適用於 JavaScript 的 Azure AD 驗證程式庫 (ADAL.js) 之間的差異，以及如何選擇要使用哪一個。
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d831f9f1cf8dbf565d569f63ee6215fac80949d
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: e3696eb90abbb35f4d989649b4a1198aec69b9a5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803181"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916905"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>MSAL JS 與 ADAL JS 之間的差異
 
@@ -66,7 +62,7 @@ ms.locfileid: "72803181"
 
     您可以使用以下格式之 API 的 URI，要求任何資源 API 的範圍：appidURI/scope，例如：https:\//mytenant.onmicrosoft.com/myapi/api.read
 
-    僅針對 MS 圖形 API，範圍值 `user.read` 會對應至 HTTPs： \//Graph。 microsoft .com/User. Read 和可以交換使用。
+    僅針對 MS 圖形 API，範圍值 `user.read` 對應至 HTTPs：\//graph.microsoft.com/User.Read，而且可以交換使用。
 
     ```javascript
     var request = {
