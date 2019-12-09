@@ -170,6 +170,8 @@
       items:
         - name: 疑難排解指南
           href: event-hubs-messaging-exceptions.md
+        - name: 資源管理員例外狀況
+          href: resource-manager-exceptions.md
 - name: 參考
   items:
     - name: Java

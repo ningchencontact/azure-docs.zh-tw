@@ -211,6 +211,8 @@
       items:
         - name: 疑難排解指南
           href: service-bus-messaging-exceptions.md
+        - name: 資源管理員例外狀況
+          href: service-bus-resource-manager-exceptions.md
 - name: 參考
   items:
     - name: .NET
