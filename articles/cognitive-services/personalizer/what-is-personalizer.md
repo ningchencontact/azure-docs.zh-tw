@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 6b55ce851bb12e37aed37039889aa8e69223a286
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b5d38ffeda3600fd90c4ee84acdd29ed599886ae
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467200"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707956"
 ---
 # <a name="what-is-personalizer"></a>什麼是個人化工具？
 
-Azure 個人化工具是雲端式 API 服務，可讓您選擇最佳體驗來對使用者展現，進而從其整體即時行為中學習。
+Azure 個人化工具是一項雲端式 API 服務，可讓您的應用程式選擇最佳體驗對使用者展現，進而從使用者的整體即時行為中學習。
 
 * 提供您的使用者和內容相關資訊，並接收排名最高的動作以顯示您的使用者。 
 * 使用個人化工具前，不需要清理和標記資料。
@@ -60,8 +60,8 @@ Azure 個人化工具是雲端式 API 服務，可讓您選擇最佳體驗來對
 
 個人化工具服務有兩個 API：
 
-* 傳送要個人化的使用者相關資訊 (「功能」  ) 和內容 (_動作_)。 個人化工具會以排名最高的動作回應。
-* 將關於排名以[獎勵分數](concept-rewards.md)形式運作情形的意見反應傳送給個人化工具。 
+* *排名*：在目前的 _內容_中，使用排名 API 來決定要顯示的_動作_。 動作會以 JSON 物件陣列的形式傳送，其中包含每個的識別碼和資訊 (_特徵_)；內容則會以另一個 JSON 物件的形式傳送。 此 API 會傳回應用程式應呈現給使用者的 actionId。
+* *報酬*：當使用者與您的應用程式互動之後，您可以用 0 到 1 之間的數值測量個人化的運作效能，並將其以[獎勵分數](concept-rewards.md)的形式傳送。 
 
 ![個人化事件的基本序列](media/what-is-personalizer/personalization-intro.png)
 

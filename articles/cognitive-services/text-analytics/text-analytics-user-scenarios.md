@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/04/2019
+ms.date: 11/29/2019
 ms.author: aahi
-ms.openlocfilehash: f11d23207a21af5c73831d0edd5ffc9eaa59c119
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 027e6ec829e9de9956451e48e5f9e1cdd749f9f7
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280664"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689323"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Text Analytics API 的範例使用者案例
 
@@ -29,7 +29,7 @@ Text Analytics API 是雲端式服務，可對文字提供進階自然語言處�
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>分析已錄製的傳入客戶呼叫
 
-使用文字轉換語音、情感分析和關鍵片語擷取，從客戶服務呼叫中擷取深入解析。 在 Power BI 儀表板或入口網站中顯示結果，以進一步了解客戶、醒目提示客戶服務趨勢並提升客戶參與度。 將 API 要求作為批次處理傳送以進行報告，或即時介入。 請參閱[範例程式碼](https://github.com/rlagh2/callcenteranalytics)。
+使用文字轉換語音、情感分析和關鍵片語擷取，從客戶服務呼叫中擷取深入解析。 在 Power BI 儀表板或入口網站中顯示結果，以進一步了解客戶、醒目提示客戶服務趨勢並提升客戶參與度。 將 API 要求作為批次處理傳送以進行報告，或即時介入。 查看 [GitHub 上](https://github.com/rlagh2/callcenteranalytics)的程式碼範例。
 
 ![說明如何使用情感分析，自動從客戶服務呼叫中取得深入解析的影像](media/use-cases/azure-inbound.svg)
 

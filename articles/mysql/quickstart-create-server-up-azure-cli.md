@@ -1,19 +1,19 @@
 ---
-title: 快速入門 - 使用簡單的 Azure CLI 命令建立適用於 MySQL 的 Azure 資料庫 - az mysql up (預覽)
+title: 快速入門：使用 az mysql up 建立適用於 MySQL 的 Azure 資料庫
 description: 本快速入門指南說明如何使用 Azure CLI (命令列介面) up 命令建立適用於 MySQL 的 Azure 資料庫伺服器。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/18/2019
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: aa0d2a9e990faa8d99355744824f34e26aeb519e
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 4bb5c62a7df53548ff59a03c6ccc8fb28f1503d3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137907"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765678"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>快速入門：使用簡單的 Azure CLI 命令建立適用於 MySQL 的 Azure 資料庫 - az mysql up (預覽)
 

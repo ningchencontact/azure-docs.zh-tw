@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 1dc7005ac0d1cb520e4c0452196a2b47665f9b5c
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 5888547939759984effb10aa2c7c6b2add135d12
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325839"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708384"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>建立 Kubernetes 開發人員空間：搭配 Azure Dev Spaces 使用 Visual Studio Code 和 Java
 
@@ -43,9 +43,10 @@ az login
 您可以執行下列命令以檢視訂用帳戶： 
 
 ```cmd
-az account list
+az account list --output table
 ```
-在 JSON 輸出中找出含有 `isDefault: true` 的訂用帳戶。
+
+尋找 *IsDefault* 為 *True* 的訂用帳戶。
 如果這不是您要使用的訂用帳戶，您可以變更預設訂用帳戶：
 
 ```cmd

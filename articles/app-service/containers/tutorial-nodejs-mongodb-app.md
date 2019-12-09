@@ -1,26 +1,17 @@
 ---
-title: Linux 上搭配 MongoDB 的 Node.js (MEAN.js) - Azure App Service | Microsoft Docs
-description: 了解如何讓 Node.js 應用程式在 Linux 上的 Azure App Service 中運作，並利用 MongoDB 連接字串連線到 Cosmos DB 資料庫。 本教學課程中將使用 MEAN.js。
-services: app-service\web
-documentationcenter: nodejs
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 教學課程：使用 MongoDB 的 Linux Node.js 應用程式
+description: 了解如何藉由連線至 Azure 中的 MongoDB 資料庫 (Cosmos DB)，讓 Linux Node.js 應用程式在 Azure App Service 中運作。 此教學課程中將使用 MEAN.js。
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: cf145e04ca0e0ddf336521e72f6dc230dc8fc86b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: ca73c7e610b8bd818355f30b9d08bceffeddfc73
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024947"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688896"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 Node.js 和 MongoDB 應用程式
 

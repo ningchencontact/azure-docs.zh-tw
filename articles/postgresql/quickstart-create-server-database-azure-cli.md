@@ -1,6 +1,6 @@
 ---
-title: 快速入門 - 使用 Azure CLI 建立適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
-description: 本快速入門指南說明如何使用 Azure CLI (命令列介面) 建立及管理「適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器」。
+title: 快速入門：建立伺服器 - Azure CLI - 適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
+description: 本快速入門指南說明如何使用 Azure CLI (命令列介面) 建立「適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器」。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2019
 ms.custom: mvc
-ms.openlocfilehash: d8e5ddf0820c789150f264aa4f7d6bd291adb3af
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 54e31f206057207a9ed396c8980c6a3986d5ece4
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443140"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766917"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>快速入門：使用 Azure CLI 建立適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
 
@@ -146,7 +146,7 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
    ```
 
    > [!TIP]
-   > 如果您想要使用 URL 路徑來連線到 Postgres，URL 在使用者名稱中以 `%40` 編碼 @ 符號。 例如，psql 的連接字串會是
+   > 如果您想要使用 URL 路徑來連線到 Postgres，在進行 URL 編碼時，請將使用者名稱中的 @ 符號編碼為 `%40`。 例如，psql 的連接字串會是
    > ```
    > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
    > ```
@@ -188,7 +188,7 @@ pgAdmin 是搭配 PostgreSQL 使用的開放原始碼工具。 您可以從 [pgA
     角色 | 保留空白 | 此時不需要提供角色名稱。 將欄位保留空白。
     SSL 模式 | *必要* | 您可以在 pgAdmin 的 [SSL] 索引標籤中設定 SSL 模式。根據預設，所有適用於 PostgreSQL 的 Azure 資料庫伺服器建立時都會開啟強制執行 SSL。 若要關閉強制執行 SSL，請參閱[強制執行 SSL](./concepts-ssl-connection-security.md)。
     
-5. 選取 [ **儲存**]。
+5. 選取 [儲存]  。
 
 6. 在左側的 [瀏覽器]  窗格中，展開 [伺服器]  節點。 選取您的伺服器，例如 **mydemoserver**。 按一下以連線到它。
 

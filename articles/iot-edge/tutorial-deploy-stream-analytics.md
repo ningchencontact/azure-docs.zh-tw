@@ -1,5 +1,5 @@
 ---
-title: 教學課程：邊緣上的串流分析 - Azure IoT Edge
+title: 教學課程 - 使用 Azure IoT Edge 進行邊緣上的串流分析
 description: 在本教學課程中，您會將 Azure 串流分析作為模組部署至 IoT Edge 裝置
 author: kgremban
 ms.author: kgremban
@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7fbbe32efcedd4fa2635db1cc21f7ce98557515b
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: b4c4415819ba614bb584f1bc5cb0acfe136c174c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452540"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707073"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>教學課程：將 Azure 串流分析部署為 IoT Edge 模組
 

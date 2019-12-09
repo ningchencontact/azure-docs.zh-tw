@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: ba3ce965408e5aa40a6226123e175dbd9b22787a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b1f60aaebb1fcf104a85b8d29700741c74459f8a
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500482"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816799"
 ---
-如果您想要自行直接開始，請在 GitHub 上檢視或下載所有<a href="https://aka.ms/speech/github-java">語音 SDK Java 範例</a> \(英文\)。 否則，讓我們開始吧。
+如果您想要直接進入，請在 GitHub 上檢視或下載所有<a href="https://aka.ms/speech/github-java">語音 SDK Java 範例</a> \(英文\)。 否則，讓我們開始吧。

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: 7ca7256cbe42949141bc216ee1cb5c89ceac935c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd561f616c9e120a38f1c6b125e349684f82942e
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226377"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665605"
 ---
 # <a name="create-an-additional-azure-subscription"></a>建立額外的 Azure 訂用帳戶
 
@@ -36,7 +36,7 @@ ms.locfileid: "74226377"
 |---------|---------|
 |Enterprise 合約 (EA) |  Enterprise 合約註冊的帳戶擁有者角色。 如需詳細資訊，請參閱[了解 Azure 中的 Azure Enterprise 合約系統管理角色](billing-understand-ea-roles.md)。    |
 |Microsoft 客戶合約 (MCA) |  發票區段、帳單設定檔或計費帳戶的擁有者或參與者角色。 或發票區段的 Azure 訂用帳戶建立者角色。  如需詳細資訊，請參閱[訂用帳戶計費角色和工作](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks)。    |
-|Microsoft 合作夥伴合約 (MPA) |   夥伴組織中的全域管理員和管理員代理人角色。 若要深入了解，請參閱[合作夥伴中心 - 指派使用者角色和權限](https://docs.microsoft.com/partner-center/permissions-overview)  |
+|Microsoft 合作夥伴合約 (MPA) |   CSP 合作夥伴組織中的全域管理員和管理員代理人角色。 若要深入了解，請參閱[合作夥伴中心 - 指派使用者角色和權限](https://docs.microsoft.com/partner-center/permissions-overview)。  使用者必須登入合作夥伴租用戶，才能建立 Azure 訂用帳戶。   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>在 Azure 入口網站中建立訂用帳戶
 

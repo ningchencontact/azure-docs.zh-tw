@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: d6f6519ea5df630a914243046e74c315b4bd7db9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 314a5302c76157810557036370a18ad6fb605033
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500596"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817812"
 ---
 ## <a name="prerequisites"></a>必要條件
 
@@ -128,7 +128,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 1. 將 [Python 程式碼](#sample-code)複製並貼上到新建立的檔案中，然後儲存它。
 1. 插入您的語音服務訂用帳戶資訊。
-1. 如果已經選取，Python 直譯器會顯示在視窗底部狀態列的左側。
+1. 如果已經選取，Python 解譯器會顯示在視窗底部狀態列的左側。
    否則，會顯示可用 Python 直譯器的清單。 開啟命令選擇區 (Ctrl+Shift+P)，然後輸入 **Python:Select Interpreter**。 選擇適當的解譯器。
 1. 您可以從 Visual Studio Code 內安裝語音 SDK Python 套件。 如果您選取的 Python 直譯器尚未安裝該套件，請按照以下步驟安裝。
    若要安裝語音 SDK 套件，請開啟終端機。 再次開啟命令選擇區 (Ctrl+Shift+P)，然後輸入 **Terminal:Create New Integrated Terminal** 來開啟終端機。

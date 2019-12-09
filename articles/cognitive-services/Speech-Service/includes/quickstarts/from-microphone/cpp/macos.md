@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 9b19cd1ff8340a22afb6713289bc3d7be42857ea
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 885e853528eb0b20079e6a7739450687ed001b8e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500658"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818901"
 ---
 ## <a name="prerequisites"></a>必要條件
 
-開始之前，請務必：
+開始之前：
 
 > [!div class="checklist"]
 > * [建立 Azure 語音資源](../../../../get-started.md)
 > * [設定開發環境](../../../../quickstarts/setup-platform.md?tabs=macos)
 > * [建立空的範例專案](../../../../quickstarts/create-project.md?tabs=macos)
+> * 確定您可以存取麥克風以擷取音訊
 
 ## <a name="add-sample-code"></a>新增範例程式碼
 
@@ -35,6 +36,9 @@ ms.locfileid: "73500658"
 1. 在這個新檔案中，以您的語音服務訂用帳戶金鑰取代 `YourSubscriptionKey` 字串。
 
 1. 以與您的訂用帳戶 (例如，免費試用訂用帳戶的 `westus`) 相關聯的[區域](~/articles/cognitive-services/Speech-Service/regions.md)取代 `YourServiceRegion` 字串。
+
+> [!NOTE]
+> 語音 SDK 會預設為使用 en-us 來辨識語言，如需選擇來源語言的詳細資訊，請參閱[指定語音轉換文字的來源語言](../../../../how-to-specify-source-language.md)。
 
 ## <a name="build-the-app"></a>建置應用程式
 

@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: d0d1cfee535a04203d9ff995b94fcad5d432ed3e
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ecfdc74c72284da97ebf3107140911e666a3a12d
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961181"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818852"
 ---
 ## <a name="prerequisites"></a>必要條件
 
-開始之前，請務必：
+開始之前：
 
 > [!div class="checklist"]
 > * [建立 Azure 語音資源](../../../../get-started.md)
 > * [設定開發環境](../../../../quickstarts/setup-platform.md?tabs=xamarin)
 > * [建立空的範例專案](../../../../quickstarts/create-project.md?tabs=xamarin)
+> * 確定您可以存取麥克風以擷取音訊
 
 如果您已經這麼做，很棒。 讓我們繼續進行。
 

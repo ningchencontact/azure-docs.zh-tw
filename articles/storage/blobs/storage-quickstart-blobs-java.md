@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 27fbd0084f9f8c91ee83802efe6a96213363b78f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: b5a59e51190fc8309d35445fba7ef4a2dd22b970
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422047"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770436"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-java"></a>快速入門：適用於 Java 的 Azure Blob 儲存體用戶端程式庫 v12
 
@@ -46,7 +46,7 @@ ms.locfileid: "74422047"
 
 ### <a name="create-the-project"></a>建立專案
 
-建立一個名為 *blob-quickstart-v12* 的 Java 應用程式。
+建立名為 *blob-quickstart-v12* 的 Java 應用程式。
 
 1. 在主控台視窗中 (例如 cmd、PowerShell 或 Bash)，使用 Maven 建立名為 *blob-quickstart-v12* 的新主控台應用程式。 在同一行上完整輸入下列 **mvn** 命令，以建立簡單的 "Hello world!" Java 專案。 此處的命令會以多行顯示，以方便閱讀。
 

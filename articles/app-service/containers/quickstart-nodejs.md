@@ -1,18 +1,17 @@
 ---
-title: 建立 Node.js Web 應用程式 - Azure App Service
-description: 如何將 Node.js 應用程式部署到 Azure App Service
-author: msangapu
+title: 快速入門：建立 Linux Node.js 應用程式
+description: 藉由將您的第一個 Node.js 應用程式部署至 App Service 中的 Linux 容器，在 Azure App Service 上開始使用 Linux 應用程式。
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
-ms.service: app-service
 ms.devlang: javascript
-ms.openlocfilehash: 32e141cae98e3fe34c8207f1565a82d2d76bdd25
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: fb79f4b87d8ddc5303fea834c81329315401464a
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72439199"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688976"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>在 Azure 中建立 Node.js 應用程式
 

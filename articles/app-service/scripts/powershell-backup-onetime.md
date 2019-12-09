@@ -1,25 +1,19 @@
 ---
-title: Azure PowerShell 指令碼範例 - 備份 Web 應用程式 | Microsoft Docs
-description: Azure PowerShell 指令碼範例 - 備份 Web 應用程式
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: PowerShell：備份應用程式
+description: 了解如何使用 Azure PowerShell 將 App Service 的部署和管理自動化。 此範例說明如何備份應用程式。
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: fc755f82-ca3e-4532-b251-690b699324d6
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c1c43e8523a46971e99b2d91b9c121de3dc57681
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5b9906abaa253c667c883a2e0e8ecd6e4cc9d496
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087960"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685754"
 ---
 # <a name="back-up-a-web-app-using-powershell"></a>使用 PowerShell 備份 Web 應用程式
 

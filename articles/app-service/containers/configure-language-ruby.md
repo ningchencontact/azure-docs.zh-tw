@@ -1,26 +1,16 @@
 ---
 title: 設定 Ruby 應用程式 - Azure App Service
-description: 本教學課程說明可針對 Linux 上的 Azure App Service 編寫和設定 Ruby 應用程式的選項。
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+description: 了解如何為您的應用程式設定預先建置的 Ruby 容器。 本文說明最常見的設定工作。
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: cephalin
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 71734396e90987fb1e318f3d8bb01d957fc0fda1
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b17bec5663cc8e9d199ad79bb5282b052b8c0182
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071295"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670398"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>為於 Azure App Service 設定 Linux Ruby 應用程式
 

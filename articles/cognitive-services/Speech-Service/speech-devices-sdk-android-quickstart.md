@@ -1,5 +1,5 @@
 ---
-title: 快速入門：在 Android 上執行語音裝置 SDK
+title: 快速入門：在 Android 上執行語音裝置 SDK - 語音服務
 titleSuffix: Azure Cognitive Services
 description: 開始使用 Android 語音裝置 SDK 的先決條件和指示。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c3eb6ec28879a7c53feb270e33857cd67dc06b0b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ccc6c2554576d91d2236fb84f81c8aeccdc07be7
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111683"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815347"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>快速入門：在 Android 上執行語音裝置 SDK 範例應用程式
 

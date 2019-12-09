@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 18b96e9afbf2a83b917d6848b419fb76518035de
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: c9175f1f592c72e047b02a06a174d3013b0c7ef6
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090435"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815320"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>快速入門：在 Linux 上執行語音裝置 SDK 範例應用程式
 
@@ -35,7 +35,7 @@ ms.locfileid: "74090435"
 * [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/) \(英文\)
 * 僅限 [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 或 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)。
-* 語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
+* 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 * 下載適用於 Java 的最新版[語音裝置 SDK](https://aka.ms/sdsdk-download-JRE)，並將 .zip 擷取至您的工作目錄。
    > [!NOTE]
    > JRE-Sample-Release.zip 檔案包含 JRE 範例應用程式，而本快速入門假設應用程式會解壓縮至 /home/wcaltest/JRE-Sample-Release

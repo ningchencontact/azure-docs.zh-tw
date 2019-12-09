@@ -1,20 +1,18 @@
 ---
-title: 在 Linux 上建置 Java Web 應用程式 - Azure App Service
-description: 使用 Linux 上的 Azure App Service 和 Azure Cosmos DB 建置、部署及調整 Spring Boot Java Web 應用程式。
+title: 教學課程：使用 MongoDB 的 Linux Java 應用程式
+description: 了解如何藉由連線至 Azure 中的 MongoDB (Cosmos DB)，讓資料驅動的 Linux Java 應用程式在 Azure App Service 中運作。
 author: rloutlaw
 ms.author: routlaw
-manager: angerobe
-ms.service: app-service-web
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 077c9b22dbb629c8408d431de3e2e621b79c9c48
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: a3e9c05fbe68bf1b03f45d045afd8754753fecd3
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747685"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688837"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>教學課程：使用 Linux 上的 Azure App Service 和 Azure Cosmos DB 建置 Java Spring Boot Web 應用程式
 

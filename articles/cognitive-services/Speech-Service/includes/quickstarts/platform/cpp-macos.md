@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 2c6a186eef631372f08b876083dacede31cf1077
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1b01a7df286af65d3363956706ad2703a339a255
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500364"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818534"
 ---
 本指南說明如何在 macOS 10.13 和更新版本上安裝適用於 C++ 的[語音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)。
 

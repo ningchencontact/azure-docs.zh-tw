@@ -1,24 +1,17 @@
 ---
-title: 新增與管理 SSL 憑證 - Azure App Service | Microsoft Docs
-description: 了解如何購買 App Service 憑證並將它繫結至您的 App Service 應用程式
-services: app-service
-author: cephalin
-manager: gwallace
+title: 新增和管理 SSL 憑證
+description: 在 Azure App Service 中建立免費憑證、匯入 App Service 憑證、匯入 Key Vault 憑證，或購買 App Service 憑證。
 tags: buy-ssl-certificates
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 10/25/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 48c8390eff52466d11f781447c448d04ba567f31
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 2cba4e8223e98f95fc8d0f0472c10b2f9b67a658
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907133"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670726"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>在 Azure App Service 中新增 SSL 憑證
 

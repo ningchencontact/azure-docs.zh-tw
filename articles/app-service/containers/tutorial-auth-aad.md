@@ -1,26 +1,17 @@
 ---
-title: 在 Linux 上對使用者進行端對端驗證和授權 - Azure App Service | Microsoft Docs
-description: 了解如何使用 App Service 驗證和授權來保護您在 Linux 上執行的 App Service 應用程式，包括對遠端 API 的存取。
+title: 教學課程：驗證使用者 E2E (Linux)
+description: 了解如何使用 App Service 驗證和授權來保護 App Service Linux 應用程式端對端，包括對遠端 API 的存取。
 keywords: App Service, Azure App Service, authN, authZ, 保護, 安全性, 多層式, Azure Active Directory, Azure AD
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a50a1183cb2e57e8e98f1940f1c14284e89088c3
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 71aec33d5afe1a909f460ddae2d5cb0552857fee
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019203"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688933"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>教學課程：在 Linux 上的 Azure App Service 中對使用者進行端對端驗證和授權
 
@@ -101,7 +92,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="push-to-azure-from-git"></a>從 Git 推送至 Azure
 
-回到 _本機終端機視窗_，執行下列 Git 命令，以部署至後端應用程式。 將 _\<deploymentLocalGitUrl-of-back-end-app>_ 取代為您從[建立 Azure 資源](#create-azure-resources)儲存之 Git 遠端的 URL。 當 Git 認證管理員提示您輸入認證時，請務必輸入[您的部署認證](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，而不是您用來登入 Azure 入口網站的認證。
+回到 _本機終端機視窗_ ，執行下列 Git 命令，以部署至後端應用程式。 將 _\<deploymentLocalGitUrl-of-back-end-app>_ 取代為您從[建立 Azure 資源](#create-azure-resources)儲存之 Git 遠端的 URL。 當 Git 認證管理員提示您輸入認證時，請務必輸入[您的部署認證](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，而不是您用來登入 Azure 入口網站的認證。
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>

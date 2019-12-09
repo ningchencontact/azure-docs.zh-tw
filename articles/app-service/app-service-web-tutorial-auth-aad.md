@@ -1,26 +1,17 @@
 ---
-title: 對使用者進行端對端驗證和授權 - Azure App Service | Microsoft Docs
+title: 教學課程：AuthN/AuthO 端對端
 description: 了解如何使用 App Service 驗證和授權來保護您的 App Service 應用程式，包括對遠端 API 的存取。
 keywords: App Service, Azure App Service, authN, authZ, 保護, 安全性, 多層式, Azure Active Directory, Azure AD
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 55ba5a193e15ac4e8bd83ac046deeac1f12d61d0
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 6c243839e59038d439e177847df4427d253dbe98
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961963"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672058"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>教學課程：在 Azure App Service 中對使用者進行端對端驗證和授權
 

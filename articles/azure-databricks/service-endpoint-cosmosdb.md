@@ -1,5 +1,5 @@
 ---
-title: 使用 Cosmos DB 端點實作 Azure Databricks
+title: 教學課程 - 使用 Cosmos DB 端點實作 Azure Databricks
 description: 本教學課程說明如何在有服務端點啟用 Cosmos DB 的虛擬網路中實作 Azure Databricks。
 author: mamccrea
 ms.author: mamccrea
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: d1268ea2cfc22e6350edb32230588a497be8bc79
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4ac8c01e986cf1f3158c615a0791ba476e5bf1bb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054643"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706152"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>教學課程：使用 Cosmos DB 端點實作 Azure Databricks
 

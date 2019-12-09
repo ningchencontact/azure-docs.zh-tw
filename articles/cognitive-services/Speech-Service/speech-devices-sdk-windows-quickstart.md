@@ -1,5 +1,5 @@
 ---
-title: 快速入門：在 Windows 上執行語音裝置 SDK
+title: 快速入門：在 Windows 上執行語音裝置 SDK - 語音服務
 titleSuffix: Azure Cognitive Services
 description: 開始使用 Windows 語音裝置 SDK 的先決條件和指示。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: e4da99d895ba7a6d9ce537ab513ce4cc248aff7a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e3764dbfa7de52bf210a1e6cc8bd240d64d64aeb
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111680"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815551"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>快速入門：在 Windows 上執行語音裝置 SDK 範例應用程式
 
@@ -36,7 +36,7 @@ ms.locfileid: "74111680"
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/) \(英文\)
 * 僅限 [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 或 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)。
 * [Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
-* 語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
+* 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 * 下載適用於 Java 的最新版[語音裝置 SDK](https://aka.ms/sdsdk-download-JRE)，並將 .zip 擷取至您的工作目錄。
    > [!NOTE]
    > JRE-Sample-Release.zip 檔案包含 JRE 範例應用程式，而本快速入門假設應用程式會解壓縮至 C:\SDSDK\JRE-Sample-Release

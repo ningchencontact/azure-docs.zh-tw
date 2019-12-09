@@ -1,26 +1,17 @@
 ---
-title: Linux 上搭配 SQL Database 的 ASP.NET Core 應用程式 - Azure App Service | Microsoft Docs
-description: 了解如何讓 ASP.NET Core 應用程式在 Linux 上的 Azure App Service 中運作，並連線至 SQL Database。
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 教學課程：Linux ASP.NET Core 搭配 SQL DB
+description: 了解如何藉由連線至 SQL Database，讓資料驅動的 Linux ASP.NET Core 應用程式在 Azure App Service 中運作。
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 532c6a45351f872260ea9383adaacacd486b9d9a
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 67ea11b2e1457bf4a788f54664ed54ff7ca9c8d9
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532712"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688926"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 ASP.NET Core 和 SQL Database 應用程式
 

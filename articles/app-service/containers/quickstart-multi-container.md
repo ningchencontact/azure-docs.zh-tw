@@ -1,25 +1,18 @@
 ---
-title: 使用 Docker Compose 建立多容器應用程式 - Azure App Service
-description: 利用幾分鐘的時間在適用於容器的 Azure Web 應用程式中部署第一個多容器應用程式
+title: 快速入門：建立多個容器應用程式
+description: 藉由部署您的第一個多容器應用程式，在 Azure App Service 上開始使用多容器應用程式。
 keywords: azure 應用程式服務, web 應用程式, linux, docker, compose, 多容器, 多重容器, 適用於容器的 web 應用程式, 多個容器, 容器, wordpress, 適用於 mysql 的 azure db, 具有容器的生產資料庫
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+author: msangapu-msft
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 89cf13fd4405b9ddcbc5b31fad9f0c945aef64aa
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0fdba3afe7e0977496af105e39fb5d7e657df2f0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071114"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687535"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>使用 Docker Compose 設定建立多容器 (預覽) 應用程式
 

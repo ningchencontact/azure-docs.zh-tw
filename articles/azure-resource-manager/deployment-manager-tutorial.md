@@ -1,16 +1,16 @@
 ---
-title: 搭配使用 Azure 部署管理員與 Resource Manager 範本 | Microsoft Docs
-description: 使用 Resource Manager 範本與 Azure 部署管理員來部署 Azure 資源。
+title: 使用 Azure 部署管理員來部署範本
+description: 了解如何使用 Resource Manager 範本與 Azure 部署管理員來部署 Azure 資源。
 author: mumian
-ms.date: 11/21/2019
+ms.date: 12/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: db130da9943007e647adf77411b456914af9886f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 38f6374c9a1f3930691a986f33620580ac7fdb0c
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307023"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815220"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>教學課程：使用 Azure 部署管理員搭配 Resource Manager 範本 (公開預覽)
 
@@ -169,7 +169,7 @@ foreach ($x in $filesToUpload) {
     Set-AzStorageBlobContent -File $x.fullname -Container $storageContainer.Name -Blob $targetPath -Context $storageContext | Out-Null
 }
 
-$token = New-AzStorageContainerSASToken -name $containerName -Context $storageContext -Permission rl -ExpiryTime (Get-date).AddMonths(1)  -Protocol HttpsOrHttp
+$token = New-AzStorageContainerSASToken -name $containerName -Context $storageContext -Permission rl -ExpiryTime (Get-date).AddMonths(1)
 
 $url = $storageAccount.PrimaryEndpoints.Blob + $containerName + $token
 

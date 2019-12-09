@@ -1,6 +1,6 @@
 ---
 title: 快速入門：為適用於 IoT 的 Azure 資訊安全中心建立自訂警示
-description: 在本快速入門中，您將為適用於 IoT 的 Azure 資訊安全中心建立和指派自訂裝置警示。
+description: 了解、建立及指派適用於 IoT 的 Azure 資訊安全中心安全性服務的自訂裝置警示。
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: eca5d69efb04cf8210b0b2aa502bcee5cd4f5264
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 992dd7b85dee0774b8388ae22fe18377ca9e5691
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904129"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664824"
 ---
 # <a name="quickstart-create-custom-alerts"></a>快速入門：建立自訂警示
 

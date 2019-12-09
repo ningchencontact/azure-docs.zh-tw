@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: acd601512f2240802de47483a015f03a226da115
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b65cf26bcea628f784eb086d1b9c88febade25f6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795588"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828889"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Azure 虛擬網路閘道 (VPN 閘道) 與 Azure 虛擬 WAN VPN 閘道之間有何差異？
 
@@ -113,7 +113,9 @@ ms.locfileid: "74795588"
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>連線到虛擬中樞的輪輻 VNet 之間，是否可以彼此通訊？
 
-是。 輪輻 VNet 可以直接透過虛擬網路對等互連進行通訊。 如需詳細資訊，請參閱[虛擬網路對等互連](../articles/virtual-network/virtual-network-peering-overview.md)。 我們也支援 VNet 透過中樞以轉移方式進行通訊。
+是。 標準虛擬 WAN 支援透過 Vnet 所連接的虛擬 WAN 中樞進行 Vnet 對 Vnet 的傳輸連線。 在虛擬 WAN 術語中，我們將這些路徑稱為「本機虛擬 WAN VNet 傳輸」(若 Vnet 連線至單一區域內的虛擬 WAN 中樞)，以及「全域虛擬 WAN VNet 傳輸」(若透過多個虛擬 WAN 中樞跨兩個或更多區域連接 Vnet)。 在公開預覽期間，VNet 傳輸最多可支援 3 Gbps 的輸送量。 在全域傳輸正式推出時，將會擴充輸送量。   
+
+在某些情況下，除了本機或全域虛擬 WAN VNet 傳輸外，輪輻 Vnet 也可以使用[虛擬網路對等互連](../articles/virtual-network/virtual-network-peering-overview.md)直接相互對等互連。 在此情況下，Vnet 對等互連的優先順序會高於透過虛擬 WAN 中樞的傳輸連線。 
 
 ### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>什麼是 Azure 虛擬 WAN 的分支連線？
 

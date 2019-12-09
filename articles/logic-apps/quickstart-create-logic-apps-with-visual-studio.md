@@ -1,23 +1,18 @@
 ---
-title: 使用 Visual Studio 自動執行工作流程 - Azure Logic Apps
+title: 使用 Visual Studio 自動執行工作流程
 description: 使用 Azure Logic Apps 和 Visual Studio 建立、排定及執行用於企業整合的週期性工作流程
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-ms.workload: azure-vs
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.manager: carmonm
+ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
-ms.openlocfilehash: e7ce31f489ae274eddb02c1bfb7e57eb486f5851
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: f4d10f6b0934e7dea9779f45d0f05d7c28966965
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796819"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819156"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>快速入門：使用 Azure Logic Apps 建立自動化工作、程序和工作流程 - Visual Studio
 
@@ -196,11 +191,11 @@ ms.locfileid: "73796819"
 
 1. 以用來建立應用程式邏輯的相同帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 在 Azure 主功能表上，選取 [資源群組]  。 選取邏輯應用程式的資源群組，然後選取 [概觀]  。
+1. 在 Azure 入口網站功能表上，選取 [資源群組]  ，或從任何頁面搜尋並選取 [資源群組]  。 選取邏輯應用程式的資源群組。
 
 1. 在 [概觀]  頁面上，選取 [刪除資源群組]  。 輸入資源群組名稱進行確認，然後選取 [刪除]  。
 
-   ![[資源群組] > [概觀] > [刪除資源群組]](./media/quickstart-create-logic-apps-with-visual-studio/delete-resource-group.png)
+   ![[資源群組] > [概觀] > [刪除資源群組]](./media/quickstart-create-logic-apps-with-visual-studio/clean-up-resources.png)
 
 1. 刪除本機電腦中的 Visual Studio 解決方案。
 

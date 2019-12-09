@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: c52bf372f21d9c2ef3d1a148aadd899435ad4181
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: cab13fd65e9fdbd7179e6ba759b1aa696ef95fa1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383066"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790329"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>教學課程：使用時間序列深入解析對來自 Azure Digital Twins 的事件進行視覺化檢視和分析
 
@@ -82,7 +82,7 @@ ms.locfileid: "74383066"
     > [!TIP]
     > 請確認您是為事件中樞執行個體建立 SAS 原則，而不是命名空間。
 
-1. 開啟所建立的 ManageSend  原則，然後將 [連接字串 - 主要金鑰]  和 [連接字串 - 次要金鑰]  的值複製到暫存檔。 下一節在建立事件中樞的端點時需要用到這些值。
+1. 開啟您所建立的 **ManageSend** 原則，然後將 [連接字串 - 主要金鑰]  和 [連接字串 - 次要金鑰]  的值複製到暫存檔。 下一節在建立事件中樞的端點時需要用到這些值。
 
 ### <a name="create-an-endpoint-for-the-event-hub"></a>建立事件中樞的端點
 
@@ -108,13 +108,13 @@ ms.locfileid: "74383066"
       path: Name_of_your_Event_Hub
     ```
 
-1. 將預留位置 `Primary_connection_string_for_your_event_hub` 替換為事件中樞的 [連接字串 - 主要金鑰]  值。 確定此連接字串的格式如下：
+1. 將預留位置 `Primary_connection_string_for_your_event_hub` 取代為事件中樞的 [連接字串 - 主要金鑰]  值。 確定此連接字串的格式如下：
 
    ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
-1. 將預留位置 `Secondary_connection_string_for_your_event_hub` 替換為事件中樞的 [連接字串 - 次要金鑰]  值。 確定此連接字串的格式如下： 
+1. 將預留位置 `Secondary_connection_string_for_your_event_hub` 取代為事件中樞的 [連接字串 - 次要金鑰]  值。 確定此連接字串的格式如下： 
 
    ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
@@ -145,7 +145,7 @@ ms.locfileid: "74383066"
 
     [![用於建立時間序列深入解析執行個體的選取項目](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
 
-1. 在 [事件來源]  索引標籤上輸入**名稱**，並選取 [事件中樞]  作為 [來源類型]  ，然後確定其他值都已正確地選取。 選取 [ManageSend]  作為 [事件中樞存取原則名稱]  ，然後選取您在上一節建立的取用者群組來作為 [事件中樞取用者群組]  。 選取 [檢閱 + 建立]  。
+1. 在 [事件來源]  索引標籤上輸入**名稱**，並選取 [事件中樞]  作為 [來源類型]  ，然後確定其他值都已正確選取，以參考您所建立的事件中樞。 選取 [ManageSend]  作為 [事件中樞存取原則名稱]  ，然後選取您在上一節建立的取用者群組來作為 [事件中樞取用者群組]  。 選取 [檢閱 + 建立]  。
 
     [![用於建立事件來源的選取項目](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
 

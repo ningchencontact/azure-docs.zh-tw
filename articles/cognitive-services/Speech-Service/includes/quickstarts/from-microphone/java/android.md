@@ -10,20 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: f0d9a4d2a86b13d5e2d37a900f27d2977f63de14
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e492381c4ab2f7ab41b5363ed70f9c5c6b12ce99
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500692"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818989"
 ---
 ## <a name="prerequisites"></a>必要條件
 
-開始之前，請務必：
+開始之前：
 
 > [!div class="checklist"]
 > * [建立 Azure 語音資源](../../../../get-started.md)
 > * [設定開發環境](../../../../quickstarts/setup-platform.md?tabs=android)
+> * 確定您可以存取麥克風以擷取音訊
 
 ## <a name="create-a-user-interface"></a>建立使用者介面
 
@@ -71,7 +72,7 @@ UI 的文字表現方式和畫面現在應會如下：
 
    ![選取部署目標視窗的螢幕擷取畫面](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-12-deploy.png)
 
-選取應用程式中的按鈕，開始進行一段語音辨識。 接下來 15 秒的英文語音會傳送到語音服務，並轉換成文字。 結果會出現在 Android 應用程式中，以及 Android Studio 的 Logcat 視窗中。
+選取應用程式中的按鈕，開始進行一段語音辨識。 接下來 15 秒的英文語音會傳送到語音服務，並進行轉譯。 結果會出現在 Android 應用程式中，以及 Android Studio 的 Logcat 視窗中。
 
 ![Android 應用程式的螢幕擷取畫面](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-13-gui-on-device.png)
 

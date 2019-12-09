@@ -1,6 +1,6 @@
 ---
 title: 教學課程：產生模擬裝置資料 - Azure IoT Edge 上的 Machine Learning
-description: 教學課程：建立能產生模擬遙測的虛擬裝置，以稍後使用這些資料來對機器學習模型進行定型。
+description: 在本教學課程中，您將建立可產生模擬遙測的虛擬裝置，以使用這些資料對機器學習模型進行定型。
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 51d93e5b83d203f3fa99b69cc5f2877bbfdb6fb1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d51a577b8a460e872b2baddcb668b13981609e40
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112864"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707752"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>教學課程：產生模擬裝置資料
 

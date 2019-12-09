@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65526fe501b190f9bf76c58ab1c14b5ec35fe49d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 52b3b7ea34d48c37a4e07ab073e611d5a60399a9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376028"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706926"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 ServiceNow 整合
 
@@ -83,7 +83,7 @@ ms.locfileid: "70376028"
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [ServiceNow]  應用程式整合頁面上，尋找 [管理]  區段。 選取 [單一登入]  。
-1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
+1. 在 [**選取單一登入方法**] 頁面上，選取 [**SAML**]。
 1. 在 [以 SAML 設定單一登入]  頁面上，選取 [基本 SAML 組態]  的畫筆圖示，以編輯設定。
 
    ![醒目提示畫筆圖示的 [以 SAML 設定單一登入] 頁面螢幕擷取畫面](common/edit-urls.png)
@@ -97,7 +97,7 @@ ms.locfileid: "70376028"
     > [!NOTE]
     > 這些都不是真正的值。 您必須使用實際的登入 URL 及識別碼來更新這些值 (本教學課程稍後會說明)。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  。 選取 [下載]  以下載憑證，並將其儲存在您的電腦上。
+1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  。 
 
    ![[SAML 簽署憑證] 區段的螢幕擷取畫面，其中已醒目提示 [下載]](common/certificatebase64.png)
 
@@ -212,7 +212,7 @@ ms.locfileid: "70376028"
 
     * 針對 [使用者資料表上的欄位...]  ，輸入 **user_name**。
   
-    * 選取 [ **儲存**]。
+    * 選取 [儲存]  。
 
 6. 您可以自動或手動設定 ServiceNow。 若要自動設定 ServiceNow，請依照下列步驟操作：
 
@@ -261,9 +261,9 @@ ms.locfileid: "70376028"
 
          1. 選取憑證，然後選取向右箭號圖示以新增憑證
 
-            ![[集合] 的螢幕擷取畫面，其中已醒目提示向右箭號圖示](./media/servicenow-tutorial/tutorial_servicenow_11.png "設定單一登入")
+            ![[集合] 的螢幕擷取畫面，其中已醒目提示憑證和向右箭號圖示](./media/servicenow-tutorial/tutorial_servicenow_11.png "設定單一登入")
 
-          1. 選取 [ **儲存**]。
+          1. 選取 [儲存]  。
 
           1. 在頁面的右上角，選取 [測試連線]  。
 
@@ -420,7 +420,7 @@ ms.locfileid: "70376028"
     > [!NOTE]
     > 您可以設定 Azure AD 以發出 Azure AD 使用者識別碼 (使用者主體名稱) 或電子郵件地址，作為 SAML 權杖中的唯一識別碼。 若要這麼做，請移至 Azure 入口網站的 [ServiceNow]   > [屬性]   > [單一登入]  區段，並將所需的欄位對應至 **nameidentifier** 屬性。 所選屬性儲存在 Azure AD 中的值 (例如使用者主體名稱) 必須符合所輸入欄位 (例如 user_name) 儲存在 ServiceNow 中的值。
 
-    f. 選取 [ **儲存**]。
+    f. 選取 [儲存]  。
 
 ## <a name="test-sso"></a>測試 SSO
 

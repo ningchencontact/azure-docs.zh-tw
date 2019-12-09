@@ -1,14 +1,14 @@
 ---
 title: CIS Microsoft Azure 基礎基準測試藍圖範例控制項
 description: CI Microsoft Azure 基礎基準測試藍圖範例與 Azure 原則的建議對應。
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.topic: sample
-ms.openlocfilehash: 55abac9f7479f0ee7d1adddea64cb81a1c7cf2b5
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 34d38f34dcd4233706f9b4578bc2dc2a644e4c2c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544536"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707417"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>CI Microsoft Azure 基礎基準測試藍圖範例的建議對應。
 
@@ -40,6 +40,12 @@ ms.locfileid: "74544536"
 - 具有擁有者權限的外部帳戶應該從您的訂用帳戶中移除
 - 具有讀取權限的外部帳戶應該從您的訂用帳戶中移除
 - 應從訂用帳戶移除具有寫入權限的外部帳戶
+
+## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1.23 確定不會建立自訂訂用帳戶擁有者角色
+
+此藍圖會指派 [Azure 原則](../../../policy/overview.md)定義，以協助您監視可能需要移除的自訂訂用帳戶擁有者角色。
+
+- 自訂訂用帳戶擁有者角色不應存在
 
 ## <a name="21-ensure-that-standard-pricing-tier-is-selected"></a>2.1 確定已選取標準定價層
 
@@ -243,11 +249,35 @@ ms.locfileid: "74544536"
 
 - 應為 MySQL 資料庫伺服器啟用 [強制執行 SSL 連線]
 
+## <a name="412-ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>4.12 確定會為 PostgreSQL 資料庫伺服器將 [log_checkpoints] 伺服器參數設定為 [開啟]
+
+此藍圖會指派 [Azure 原則](../../../policy/overview.md)定義，以協助您確定 PostgreSQL 資料庫伺服器會記錄檢查點。
+
+- 應為 PostgreSQL 資料庫伺服器啟用記錄檢查點
+
 ## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4.13 確定會為 PostgreSQL 資料庫伺服器將 [強制執行 SSL 連線] 設定為 [已啟用]
 
 此藍圖會指派 [Azure 原則](../../../policy/overview.md)定義，以協助您確定 PostgreSQL 資料庫伺服器會強制執行 SSL 連線。
 
 - 應為 PostgreSQL 資料庫伺服器啟用 [強制執行 SSL 連線]
+
+## <a name="414-ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>4.14 確定會為 PostgreSQL 資料庫伺服器將 [log_connections] 伺服器參數設定為 [開啟]
+
+此藍圖會指派 [Azure 原則](../../../policy/overview.md)定義，以協助您確定 PostgreSQL 資料庫伺服器會記錄連線。
+
+- 應為 PostgreSQL 資料庫伺服器啟用記錄連線
+
+## <a name="415-ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>4.15 確定會為 PostgreSQL 資料庫伺服器將 [log_disconnections] 伺服器參數設定為 [開啟]
+
+此藍圖會指派 [Azure 原則](../../../policy/overview.md)定義，以協助您確定 PostgreSQL 資料庫伺服器會記錄中斷連線。
+
+- 應為 PostgreSQL 資料庫伺服器記錄中斷連線。
+
+## <a name="416-ensure-server-parameter-log_duration-is-set-to-on-for-postgresql-database-server"></a>4.16 確定會為 PostgreSQL 資料庫伺服器將 [log_duration] 伺服器參數設定為 [開啟]
+
+此藍圖會指派 [Azure 原則](../../../policy/overview.md)定義，以協助您確定 PostgreSQL 資料庫伺服器會記錄已完成陳述式的持續時間。
+
+- 應為 PostgreSQL 資料庫伺服器啟用記錄持續時間
 
 ## <a name="417-ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>4.17 確定會為 PostgreSQL 資料庫伺服器將 [connection_throttling] 設定為 [開啟]
 
@@ -350,6 +380,71 @@ ms.locfileid: "74544536"
 此藍圖會指派 [Azure 原則](../../../policy/overview.md)定義，以協助您確定 Web 應用程式只能透過安全連線進行存取。
 
 - Web 應用程式應只可經由 HTTPS 存取
+
+## <a name="93-ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>9.3 確定 Web 應用程式使用最新版本的 TLS 加密
+
+此藍圖會指派 [Azure 原則](../../../policy/overview.md)定義，以協助您確定 Web 應用程式會使用最新的 TLS 版本。
+
+- 您的 API 應用程式應使用最新的 TLS 版本
+- 您的函式應用程式應使用最新的 TLS 版本
+- 您的 Web 應用程式應使用最新的 TLS 版本
+
+## <a name="94-ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>9.4 確定 Web 應用程式已將 [用戶端憑證 (傳入用戶端憑證)] 設定為 [開啟]
+
+此藍圖會指派 [Azure 原則](../../../policy/overview.md)定義，以協助您確定只有具備有效憑證的用戶端可連線至 Web 應用程式。
+
+- 確定 API 應用程式已將 [用戶端憑證 (傳入用戶端憑證)] 設定為 [開啟]
+- 確定函式應用程式已將 [用戶端憑證 (傳入用戶端憑證)] 設定為 [開啟]
+- 確定 Web 應用程式已將 [用戶端憑證 (傳入用戶端憑證)] 設定為 [開啟]
+
+## <a name="95-ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>9.5 確定已在 App Service 上啟用 [向 Azure Active Directory 註冊]
+
+此藍圖會指派 [Azure 原則](../../../policy/overview.md)定義，以協助您確定 Web 應用程式會使用受控識別。
+
+- 確定已在 API 應用程式上啟用 [向 Azure Active Directory 註冊]
+- 確定已在函數應用程式上啟用 [向 Azure Active Directory 註冊]
+- 確定已在 Web 應用程式上啟用 [向 Azure Active Directory 註冊]
+
+## <a name="96-ensure-that-net-framework-version-is-the-latest-if-used-as-a-part-of-the-web-app"></a>9.6 確定 '.Net Framework' 在作為 Web 應用程式的一部分時，版本是最新的
+
+此藍圖會指派 [Azure 原則](../../../policy/overview.md)定義，以協助您確定 Web 應用程式會使用最新版的 .Net Framework。
+
+- 確定 '.Net Framework' 在作為 API 應用程式的一部分時，版本是最新的
+- 確定 '.Net Framework' 在作為函式應用程式的一部分時，版本是最新的
+- 確定 '.Net Framework' 在作為 Web 應用程式的一部分時，版本是最新的
+
+## <a name="97-ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>9.7 確定 'PHP' 在用來執行 Web 應用程式時，版本是最新的
+
+此藍圖會指派 [Azure 原則](../../../policy/overview.md)定義，以協助您確定 Web 應用程式會使用最新版的 PHP。
+
+- 確定 'PHP' 在作為 API 應用程式的一部分時，版本是最新的
+- 確定 'PHP' 在作為函式應用程式的一部分時，版本是最新的
+- 確定 'PHP' 在作為 Web 應用程式的一部分時，版本是最新的
+
+## <a name="98-ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>9.8 確定 'Python' 在用來執行 Web 應用程式時，版本是最新的
+
+此藍圖會指派 [Azure 原則](../../../policy/overview.md)定義，以協助您確定 Web 應用程式會使用最新版的 Python。
+
+- 確定 'Python' 在作為 API 應用程式的一部分時，版本是最新的
+- 確定 'Python' 在作為函式應用程式的一部分時，版本是最新的
+- 確定 'Python' 在作為 Web 應用程式的一部分時，版本是最新的
+
+## <a name="99-ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>9.9 確定 'Java' 在用來執行 Web 應用程式時，版本是最新的
+
+此藍圖會指派 [Azure 原則](../../../policy/overview.md)定義，以協助您確定 Web 應用程式會使用最新版的 Java。
+
+- 確定 'Java' 在作為 API 應用程式的一部分時，版本是最新的
+- 確定 'Java' 在作為函式應用程式的一部分時，版本是最新的
+- 確定 'Java' 在作為 Web 應用程式的一部分時，版本是最新的
+
+## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9.10 確定 'HTTP' 在用來執行 Web 應用程式時，版本是最新的
+
+此藍圖會指派 [Azure 原則](../../../policy/overview.md)定義，以協助您確定 Web 應用程式會使用最新版的 HTTP。
+
+- 確定 'HTTP' 在用來執行 API 應用程式時，版本是最新的
+- 確定 'HTTP' 在用來執行函式應用程式時，版本是最新的
+- 確定 'HTTP' 在用來執行 Web 應用程式時，版本是最新的
+
 
 ## <a name="next-steps"></a>後續步驟
 

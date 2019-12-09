@@ -1,25 +1,17 @@
 ---
-title: Azure PowerShell 指令碼範例 - 使用 FTP 將檔案上傳至 Web 應用程式 | Microsoft Docs
-description: Azure PowerShell 指令碼範例 - 使用 FTP 將檔案上傳至 Web 應用程式
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: PowerShell：使用 FTP 上傳檔案
+description: 了解如何使用 Azure PowerShell 將 App Service 的部署和管理自動化。 此範例說明如何使用 FTP 將檔案上傳至應用程式。
 tags: azure-service-management
 ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: fa5bc2b05f4bf34bdefd2291f10e0f69d1cd634f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1dfcbec9530a66570244e8168faa84bfe0759038
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098326"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685098"
 ---
 # <a name="upload-files-to-a-web-app-using-ftp"></a>使用 FTP 將檔案上傳至 Web 應用程式
 

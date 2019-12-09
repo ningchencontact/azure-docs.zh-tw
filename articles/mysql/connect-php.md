@@ -1,18 +1,18 @@
 ---
-title: 從 PHP 連線到適用於 MySQL 的 Azure 資料庫
+title: 使用 PHP 連線 - 適用於 MySQL 的 Azure 資料庫
 description: 本快速入門提供數個 PHP 程式碼範例，您可用於從 Azure Database for MySQL 連線及查詢資料。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 76d721ca102ae0affeba23c46d5da9fd44743f5b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/02/2019
+ms.openlocfilehash: b8923000b0bbc75e6d96b1b27a1154ef8ff87f24
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608761"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770708"
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>適用於 MySQL 的 Azure 資料庫：使用 PHP 進行連線並查詢資料
 本快速入門示範如何使用 [PHP](https://secure.php.net/manual/intro-whatis.php) 應用程式來連線到 Azure Database for MySQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 PHP 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
@@ -33,7 +33,7 @@ ms.locfileid: "53608761"
 - 下載 [PHP 7.1.4 非執行緒安全 (x64) 版本](https://secure.php.net/downloads.php)。
 - 安裝 PHP 並參考 [PHP 手冊](https://secure.php.net/manual/install.unix.php)以便進一步設定。
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 - 下載 [PHP 7.1.4 非執行緒安全 (x64) 版本](https://windows.php.net/download#php-7.1)。
 - 安裝 PHP 並參考 [PHP 手冊](https://secure.php.net/manual/install.windows.php)以便進一步設定。
 
@@ -41,9 +41,9 @@ ms.locfileid: "53608761"
 取得連線到 Azure Database for MySQL 所需的連線資訊。 您需要完整的伺服器名稱和登入認證。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您所建立的伺服器 (例如 **mydemoserver**)。
+2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]  ，然後搜尋您所建立的伺服器 (例如 **mydemoserver**)。
 3. 按一下伺服器名稱。
-4. 從伺服器的 [概觀] 面板，記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。 如果您忘記密碼，您也可以從此面板重設密碼。
+4. 從伺服器的 [概觀]  面板，記下 [伺服器名稱]  和 [伺服器管理員登入名稱]  。 如果您忘記密碼，您也可以從此面板重設密碼。
  ![Azure Database for MySQL 伺服器名稱](./media/connect-php/1_server-overview-name-login.png)
 
 ## <a name="connect-and-create-a-table"></a>連線及建立資料表

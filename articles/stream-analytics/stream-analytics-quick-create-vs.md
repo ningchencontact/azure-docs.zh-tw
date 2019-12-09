@@ -1,5 +1,5 @@
 ---
-title: 使用 Visual Studio 建立 Azure 串流分析作業
+title: 快速入門 - 使用 Visual Studio 建立 Azure 串流分析作業
 description: 本快速入門將說明如何開始使用 Visual Studio 建立串流分析作業、設定輸入與輸出以及定義查詢。
 services: stream-analytics
 author: mamccrea
@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: 834447d15336fcd6d56f2979113aaef7e22ecb8f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ec3318201fd3fe8f7daf78d05bf316fb88914daf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934304"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707340"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>快速入門：使用 Visual Studio 建立 Azure 串流分析作業
 

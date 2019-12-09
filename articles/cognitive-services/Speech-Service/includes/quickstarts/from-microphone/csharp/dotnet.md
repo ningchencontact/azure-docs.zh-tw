@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 88ac0f05bf937af19a0bd6bf3cf2253fd3052f4c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c4aee9604df98fbf5fbd18f527c4d40cff044bb9
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500632"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818662"
 ---
 ## <a name="prerequisites"></a>必要條件
 
-開始之前，請務必：
+開始之前：
 
 > [!div class="checklist"]
 > * [建立 Azure 語音資源](../../../../get-started.md)
 > * [設定開發環境](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [建立空的範例專案](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * 確定您可以存取麥克風以擷取音訊
 
 ## <a name="open-your-project-in-visual-studio"></a>在 Visual Studio 中開啟您的專案
 
@@ -43,8 +44,9 @@ ms.locfileid: "73500632"
 您必須先建立使用訂用帳戶金鑰和訂用帳戶區域的設定，才可以初始化 `SpeechRecognizer` 物件。 在 `RecognizeSpeechAsync()` 方法中插入此程式碼。
 
 > [!NOTE]
-> 此範例會使用 `FromSubscription()` 方法來建置 `SpeechConfig`。 如需可用方法的完整清單，請參閱 [SpeechConfig 類別](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet)。
+> 此範例會使用 `FromSubscription()` 方法來建置 `SpeechConfig`。 如需可用方法的完整清單，請參閱 [SpeechConfig 類別](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet) \(英文\)。
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=16)]
+> 語音 SDK 會預設為使用 en-us 來辨識語言，如需選擇來源語言的詳細資訊，請參閱[指定語音轉換文字的來源語言](../../../../how-to-specify-source-language.md)。
 
 ## <a name="initialize-a-speechrecognizer"></a>初始化 SpeechRecognizer
 
@@ -59,9 +61,9 @@ ms.locfileid: "73500632"
 
 ## <a name="display-the-recognition-results-or-errors"></a>顯示辨識結果 (或錯誤)
 
-當語音服務傳回辨識結果時，您會想要對它執行一些動作。 我們將以簡單為原則，將結果列印到主控台。
+當語音服務傳回辨識結果時，建議您對其執行一些動作。 為了簡單起見，我們將結果列印到主控台。
 
-在 using 陳述式中的 `RecognizeOnceAsync()` 下方，新增下列程式碼：[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=22-41)]
+在 using 陳述式中的 `RecognizeOnceAsync()` 下方，新增此程式碼：[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=22-41)]
 
 ## <a name="check-your-code"></a>檢查您的程式碼
 

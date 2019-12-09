@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7c31c04137a8d36adfe41a18cbc276a45483b05b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 10445aba9c52c5367a8ea03729462d14e2d51085
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467172"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707187"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>使用存取控制原則提供 Key Vault 驗證
 
@@ -220,6 +220,7 @@ Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId>
 
 最後，使用 Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 命令或 Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) Cmdlet，為 AD 群組授與金鑰保存庫的權限。 例如，請參閱前述的[為應用程式、Azure AD 群組或使用者授與金鑰保存庫的存取權](#give-the-principal-access-to-your-key-vault)一節。
 
+應用程式也需要至少一個指派給金鑰保存庫的身分識別與存取管理 (IAM) 角色。 否則，應用程式將無法登入，且將會因為沒有足夠的權限可存取訂用帳戶而失敗。
 
 ## <a name="next-steps"></a>後續步驟
 

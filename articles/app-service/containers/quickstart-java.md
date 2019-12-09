@@ -1,27 +1,19 @@
 ---
-title: 在 Linux 上建立 Java Web 應用程式 - Azure App Service
-description: 在本快速入門中，您將在短短幾分鐘內在 Linux 上的 Azure App Service 中部署第一個 Java Hello World。
+title: 快速入門：建立 Linux Java 應用程式
+description: 藉由將您的第一個 Java 應用程式部署至 App Service 中的 Linux 容器，在 Azure App Service 上開始使用 Linux 應用程式。
 keywords: Azure, App Service, Web 應用程式, Linux, Java, Maven, 快速入門
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.author: msangapu
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 3b011d3d7dc881d44fdcafb29efacf9548866d7a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: eb5c6ef9b342b149851f907b7bc81370327b12ca
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747726"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689006"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>快速入門：在 Linux 上的 Azure App Service 中建立 Java 應用程式
 
@@ -53,7 +45,11 @@ mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -Darchetyp
 az login
 ```
 
-您可以設定部署，在命令提示字元中執行 maven 命令 `mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config`，並按 **ENTER** 鍵使用預設組態，直到您看到**確認 (是/否)** 提示，然後按 **'y'** 完成設定。
+您可以設定部署，在命令提示字元中執行 maven 命令，並按 **ENTER** 鍵使用預設組態，直到您看到**確認 (是/否)** 提示，然後按 **'y'** 完成設定。 
+```cmd
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config
+```
+範例程序如下所示：
 
 ```cmd
 ~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config
@@ -105,6 +101,9 @@ Confirm (Y/N)? : Y
 [`<runtime>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting) | true | 執行階段環境組態，您可以在[此處](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting)查看詳細資料。 | 0.1.0+
 [`<deployment>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting) | true | 部署組態，您可以在[此處](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting)查看詳細資料。 | 0.1.0+
 
+> [!div class="nextstepaction"]
+> [我遇到問題](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=config)
+
 ## <a name="deploy-the-app"></a>部署應用程式
 
 使用下列命令將您的 Java 應用程式部署至 Azure：
@@ -119,9 +118,12 @@ mvn package azure-webapp:deploy
 
 **恭喜！** 您已將第一個 Java 應用程式部署至 Linux 上的 App Service。
 
+> [!div class="nextstepaction"]
+> [我遇到問題](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
+
 ## <a name="clean-up-resources"></a>清除資源
 
-在前述步驟中，您在資源群組中建立了 Azure 資源。 如果您在未來不需要這些資源，請在 Cloud Shell 中執行下列命令，刪除資源群組：
+在前述步驟中，您在資源群組中建立了 Azure 資源。 如果您在未來不需要這些資源，請從入口網站刪除資源群組，或在 Cloud Shell 中執行下列命令：
 
 ```azurecli-interactive
 az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
@@ -142,3 +144,6 @@ az group delete --name <your resource group name; for example: helloworld-155840
 
 > [!div class="nextstepaction"]
 > [適用於 Java 開發人員的其他 Azure 資源](/java/azure/)
+
+> [!div class="nextstepaction"]
+> [深入了解 Azure 的 Maven 外掛程式](https://github.com/microsoft/azure-maven-plugins)

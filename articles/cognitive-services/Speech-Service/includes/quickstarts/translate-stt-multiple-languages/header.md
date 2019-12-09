@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/20/2019
 ms.author: yulili
-ms.openlocfilehash: 6c65fd9a504b5f399afa99280ca2a75b476c750c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bc35c1efcad2ca9ebb5eaf23dd84f7189858a159
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500440"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817194"
 ---
 在本快速入門中，您將會使用[語音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) 來以互動方式將某一種語言的語音翻譯成另一種語言的語音。 在滿足幾個必要條件之後，以多種語言翻譯語音轉換文字只需要採取六個步驟：
 > [!div class="checklist"]

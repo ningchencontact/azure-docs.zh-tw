@@ -1,6 +1,6 @@
 ---
-title: 建置 .NET 主控台應用程式來管理 Azure Cosmos DB SQL API 資源
-description: 了解如何建置 .NET 主控台應用程式來管理 Azure Cosmos DB SQL API 帳戶資源。
+title: 快速入門 - 建置 .NET 主控台應用程式以管理 Azure Cosmos DB SQL API 資源
+description: 在本快速入門中，您將了解如何建置 .NET 主控台應用程式以管理 Azure Cosmos DB SQL API 帳戶資源。
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
-ms.openlocfilehash: d74af7297018fe8814475d7dc259b5a0d81d2910
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0981ed30c6bcd9d4246ce1eb047aa66168e3884a
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561435"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707907"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>快速入門：建置 .NET 主控台應用程式來管理 Azure Cosmos DB SQL API 資源
 

@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 CLI 命令 az postgres up 建立適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
+title: 快速入門：建立伺服器 - az postgres up - 適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
 description: 本快速入門指南說明如何使用 Azure CLI (命令列介面) up 命令建立「適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器」。
 author: rachel-msft
 ms.author: raagyema
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 49f71c199a2832d763bb3c19d878fade47dfb8e4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: fe15c02286223ec0829b31664811b7f589cf16aa
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069082"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774827"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>快速入門：使用 Azure CLI 命令 az postgres up (預覽) 建立適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
 

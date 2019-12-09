@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 05/20/2019
-ms.openlocfilehash: 677ea48244f8417670a2645ab67fa08c1f869f1a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 11179d6adc676ae99257442b186a15e69dcc4a03
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142590"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764468"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>透過 .NET SDK 開始使用 Azure Cosmos DB 資料表 API 和 Azure 資料表儲存體
 
@@ -23,7 +23,7 @@ ms.locfileid: "70142590"
 
 您可以使用 Azure Cosmos DB 資料表 API 或 Azure 資料表儲存體，來將結構化 NoSQL 資料儲存於雲端，為索引鍵/屬性存放區提供無結構描述的設計。 由於 Azure Cosmos DB 資料表 API 和資料表儲存體均無結構描述，因此可輕易地隨著應用程式發展需求來調整資料。 您可以使用 Azure Cosmos DB 資料表 API 或資料表儲存體來儲存具彈性的資料集，例如，Web 應用程式的使用者資料、通訊錄、裝置資訊，或服務所需的其他中繼資料類型。 
 
-本教學課程所述的範例將示範如何搭配 Azure Cosmo DB 資料表 API 和 Azure 資料表儲存體案例，來使用[適用於 .NET 的 Microsoft Azure Cosmos DB 資料表程式庫](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) \(英文\)。 您必須使用 Azure 服務特定的連線。 這些案例均會使用 C# 範例來探索，說明如何建立資料表、插入/更新資料、查詢資料，以及刪除資料表。
+本教學課程所述的範例將說明如何將[適用於 .NET 的 Microsoft Azure Cosmos DB 資料表程式庫](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)用於 Azure Cosmos DB 資料表 API 和 Azure 資料表儲存體案例。 您必須使用 Azure 服務特定的連線。 這些案例均會使用 C# 範例來探索，說明如何建立資料表、插入/更新資料、查詢資料，以及刪除資料表。
 
 ## <a name="prerequisites"></a>必要條件
 

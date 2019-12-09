@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: c8a2855ce9cd320be3aea8b3b4a05f3b3eb39976
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8ca31dcadebf2dc47d5a4b4db715f26fb38e204e
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73578224"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816390"
 ---
 # <a name="create-a-tenant-model-preview"></a>建立租用戶模型 (預覽)
 
@@ -96,7 +96,7 @@ ms.locfileid: "73578224"
 
 ## <a name="use-your-model-with-the-speech-sdk"></a>搭配語音 SDK 使用您的模型
 
-現在您已部署模型，您可以搭配語音 SDK 使用它。 在此節中，您會使用提供的範例程式碼，來使用 Azure AD 驗證呼叫語音服務。
+現在您已部署模型，您可以搭配語音 SDK 使用它。 在本節中，您會使用提供的範例程式碼，使用 Azure AD 驗證呼叫語音服務。
 
 讓我們看一下您會用 C# 呼叫語音 SDK 的程式碼。 在此範例中，您會使用租用戶模型執行語音辨識。 本指南假設您的平台已設定好。 如果您需要設定方面的協助，請參閱[快速入門：辨識語音，C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)。
 

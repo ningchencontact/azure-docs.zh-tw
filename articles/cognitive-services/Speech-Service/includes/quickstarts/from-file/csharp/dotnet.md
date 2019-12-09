@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: fdb747212914769b8551d9cd12f1fbc8a01245dc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7fc7edcb37b31022afb989199bd54e55589e1849
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500834"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819181"
 ---
 ## <a name="prerequisites"></a>必要條件
 
@@ -25,6 +25,8 @@ ms.locfileid: "73500834"
 > * [建立 Azure 語音資源](../../../../get-started.md)
 > * [設定開發環境](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [建立空的範例專案](../../../../quickstarts/create-project.md?tabs=dotnet)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## <a name="open-your-project-in-visual-studio"></a>在 Visual Studio 中開啟您的專案
 
@@ -66,6 +68,7 @@ namespace helloworld
 
 > [!NOTE]
 > 此範例會使用 `FromSubscription()` 方法來建置 `SpeechConfig`。 如需可用方法的完整清單，請參閱 [SpeechConfig 類別](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet) \(英文\)。
+> 語音 SDK 會預設為使用 en-us 來辨識語言，如需選擇來源語言的詳細資訊，請參閱[指定語音轉換文字的來源語言](../../../../how-to-specify-source-language.md)。
 
 ````C#
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -73,7 +76,7 @@ var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRe
 
 ## <a name="create-an-audio-configuration"></a>建立音訊設定
 
-現在，您需要建立指向音訊檔案的 ````AudioConfig```` 物件。 這個物件是在 using 陳述式內建立的，可確保適當釋放非受控資源。 將此程式碼插入您的語音設定下方的 `RecognizeSpeechAsync()` 方法中。
+現在，您需要建立指向音訊檔案的 ````AudioConfig```` 物件。 這個物件是在 using 陳述式內建立的，可確保適當釋放未受控資源。 將此程式碼插入您的語音設定下方的 `RecognizeSpeechAsync()` 方法中。
 
 ````C#
 using (var audioInput = AudioConfig.FromWavFileInput(@"whatstheweatherlike.wav"))
@@ -83,7 +86,7 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"whatstheweatherlike.wav")
 
 ## <a name="initialize-a-speechrecognizer"></a>初始化 SpeechRecognizer
 
-現在，讓我們使用稍早建立的 `SpeechConfig` 和 `AudioConfig` 物件來建立 `SpeechRecognizer` 物件。 這個物件也是在 using 陳述式內建立的，可確保適當釋放非受控資源。 在包裝 ````AudioConfig```` 物件的 using 陳述式內，將此程式碼插入 `RecognizeSpeechAsync()` 方法中。
+現在，讓我們使用稍早建立的 `SpeechConfig` 和 `AudioConfig` 物件來建立 `SpeechRecognizer` 物件。 這個物件也是在 using 陳述式內建立的，可確保適當釋放未受控資源。 在包裝 ````AudioConfig```` 物件的 using 陳述式內，將此程式碼插入 `RecognizeSpeechAsync()` 方法中。
 
 ````C#
 using (var recognizer = new SpeechRecognizer(config, audioInput))
@@ -194,7 +197,7 @@ namespace helloworld
 
 現在您已準備好使用語音服務來建立應用程式，並測試我們的語音辨識。
 
-1. **編譯程式碼** -從 Visual Studio 的功能表列中，選擇 [建置]   > [建置解決方案]  。
+1. **編譯程式碼** - 從 Visual Studio 的功能表列中，選擇 [建置]   > [建置解決方案]  。
 2. **啟動應用程式** - 從功能表列中，選擇 [偵錯]   > [開始偵錯]  ，或按 **F5**。
 3. **開始辨識** - 您的音訊檔案會傳送到語音服務、轉譯為文字，並在主控台中呈現。
 

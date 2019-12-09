@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a9a68e9d71324ba05e24ba98802863211a569689
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 4ae1d9ce8a4683f8d55962843fb1070ef24b3a87
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839931"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815813"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立及查詢 Azure SQL 資料倉儲
 
@@ -51,16 +51,14 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-concurrency-
 
     | 設定 | 建議的值 | 說明 |
     | :------ | :-------------- | :---------- |
-    | **資料庫名稱** | mySampleDataWarehouse | 如需有效的資料庫名稱，請參閱[資料庫識別碼](/sql/relational-databases/databases/database-identifiers)。 請注意，資料倉儲是一種資料庫。|
     | **訂用帳戶** | 您的訂用帳戶 | 如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
     | **資源群組** | myResourceGroup | 如需有效的資源群組名稱，請參閱[命名規則和限制](/azure/architecture/best-practices/resource-naming)。 |
-    | **選取來源** | 範例 | 指定要載入範例資料庫。 請注意，資料倉儲是一種資料庫。 |
-    | **選取範例** | AdventureWorksDW | 指定要載入 AdventureWorksDW 範例資料庫。 |
+    | **資料倉儲名稱** | mySampleDataWarehouse | 如需有效的資料庫名稱，請參閱[資料庫識別碼](/sql/relational-databases/databases/database-identifiers)。 請注意，資料倉儲是一種資料庫。|
     ||||
 
     ![建立資料倉儲](media/create-data-warehouse-portal/select-sample.png)
 
-4. 按一下 [伺服器]  為您的新資料庫建立及設定新的伺服器。 在**新伺服器表單**表單中填寫下列資訊︰ 
+4. 選取現有的**伺服器**或按一下 [新建]  ，為新的資料庫建立及設定新的伺服器。 在**新伺服器表單**表單中填寫下列資訊︰ 
 
     | 設定 | 建議的值 | 說明 |
     | :------ | :-------------- | :---------- |
@@ -82,7 +80,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-concurrency-
 
 8. 按一下 [套用]  。
 
-9. 您現在已完成 SQL 資料倉儲表單，請按一下 [建立]  以佈建資料庫。 佈建需要幾分鐘的時間。
+9. 您現在已完成 SQL 資料倉儲表單的 [基本] 索引標籤，接著請按一下 [檢閱 + 建立]  以佈建資料庫。 佈建需要幾分鐘的時間。
 
     ![按一下 [建立]](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 

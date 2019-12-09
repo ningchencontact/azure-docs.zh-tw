@@ -1,6 +1,6 @@
 ---
-title: 教學課程：使用 Azure Databricks 執行 ETL 作業
-description: 了解如何將資料從 Data Lake Storage Gen2 擷取至 Azure Databricks 並轉換資料，然後將資料載入 Azure SQL 資料倉儲。
+title: 教學課程 - 使用 Azure Databricks 執行 ETL 作業
+description: 在本教學課程中，您將了解如何將資料從 Data Lake Storage Gen2 擷取至 Azure Databricks 並轉換資料，然後將資料載入 Azure SQL 資料倉儲。
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 8ceb9e940584ae4c41484fe31ce5cb1832bb3400
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 11e5aac559370c478b774f2a503bde590dfeedf4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605705"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707463"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>教學課程：使用 Azure Databrick 擷取、轉換和載入資料
 

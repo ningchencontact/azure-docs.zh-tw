@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 6fd97f31e4eeec91a39fe5238dcb2b52efcbd495
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2bac26f0fd0a6aff80280dfd1b768aeeb3634511
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500434"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816911"
 ---
 如果您想要自行直接開始，請在 GitHub 上檢視或下載所有<a href="https://aka.ms/speech/github-cpp">語音 SDK C++ 範例</a> \(英文\)。 否則，讓我們開始吧。

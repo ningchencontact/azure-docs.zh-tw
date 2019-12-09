@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 24f44d02170866645711cb302453a009d2935fbf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0b34c65f6b7003cbdd4d99b684fe2b5a3249c410
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500522"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818041"
 ---
 ## <a name="prerequisites"></a>必要條件
 
@@ -125,7 +125,7 @@ else if (result.Reason == ResultReason.Canceled)
 
 ## <a name="check-your-code"></a>檢查您的程式碼
 
-此時，您的程式碼應該如下所示：
+此時，您的程式碼應會如下所示：
 
 ````C#
 //

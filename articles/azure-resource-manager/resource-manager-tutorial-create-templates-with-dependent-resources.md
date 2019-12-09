@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ef26074b0dd6450895c6aa81d5ab8853e652b41e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 61f9ff575c927cdafa4aa26fbad0ebb6e257b010
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325397"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815239"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教學課程：使用相依資源建立 Azure Resource Manager 範本中使用的 Cloud Shell 部署方法
 
@@ -86,7 +86,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
     ![Visual Studio Code 的 Azure Resource Manager 範本公用 IP 位址定義](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
 4. 展開第四項資源。 資源類型為 `Microsoft.Network/networkInterfaces`：
 
-    ![Visual Studio Code 的 Azure Resource Manager 範本 dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
+    ![Visual Studio Code 的 Azure Resource Manager 範本 dependsOn](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
     dependsOn 元素可讓您定義一項資源，作為一或多項資源的相依項目。 此資源依存於其他兩項資源：
 
@@ -111,15 +111,15 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 有許多方法可用來部署範本。  在本教學課程中，您會從 Azure 入口網站使用 Cloud Shell。
 
 1. 登入 [Cloud Shell](https://shell.azure.com)。
-2. 從 Cloud Shell 的左上角選取 [PowerShell]  ，然後選取 [確認]  。  在本教學課程中您會使用 PowerShell。
-3. 從 Cloud Shell 中選取 [上傳檔案]  ：
+1. 從 Cloud Shell 的左上角選取 [PowerShell]  ，然後選取 [確認]  。  在本教學課程中您會使用 PowerShell。
+1. 從 Cloud Shell 中選取 [上傳檔案]  ：
 
     ![Azure 入口網站的 Cloud Shell 上傳檔案](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-4. 選取您先前在本教學課程中儲存的範本。 預設名稱為 **azuredeploy.json**。  如果有檔案具有相同的檔案名稱，將會直接覆寫舊檔案而不另行通知。
+1. 選取您先前在本教學課程中儲存的範本。 預設名稱為 **azuredeploy.json**。  如果有檔案具有相同的檔案名稱，將會直接覆寫舊檔案而不另行通知。
 
     您可以選擇性地使用 **ls $HOME** 命令和 **cat $HOME/azuredeploy.json** 命令來確認檔案是否已成功上傳。
 
-5. 從 Cloud Shell 執行下列 PowerShell 命令。 為了提高安全性，請使用為虛擬機器系統管理員帳戶產生的密碼。 請參閱[必要條件](#prerequisites)。
+1. 從 Cloud Shell 執行下列 PowerShell 命令。 為了提高安全性，請使用為虛擬機器系統管理員帳戶產生的密碼。 請參閱[必要條件](#prerequisites)。
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -135,18 +135,20 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile "$HOME/azuredeploy.json"
+    Write-Host "Press [ENTER] to continue ..."
     ```
 
-8. 執行下列 PowerShell 命令，以列出新建立的虛擬機器：
+1. 執行下列 PowerShell 命令，以列出新建立的虛擬機器：
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     Get-AzVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
+    Write-Host "Press [ENTER] to continue ..."
     ```
 
     在範本內，虛擬機器名稱會硬式編碼為 **SimpleWinVM**。
 
-9. 透過 RDP 連線至虛擬機器，以確認虛擬機器已成功建立。
+1. 透過 RDP 連線至虛擬機器，以確認虛擬機器已成功建立。
 
 ## <a name="clean-up-resources"></a>清除資源
 

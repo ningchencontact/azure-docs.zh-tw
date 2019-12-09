@@ -2,15 +2,15 @@
 title: 建立連結的範本
 description: 了解如何建立連結的 Azure Resource Manager 範本以用於建立虛擬機器
 author: mumian
-ms.date: 10/04/2019
+ms.date: 12/03/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9764edb986b2ee847e3fcecda228f53551b462c3
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e8964335d8c436cc590c36c3ea01fac02ed2280a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325416"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815262"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教學課程：建立連結的 Azure Resource Manager 範本
 
@@ -45,6 +45,7 @@ ms.locfileid: "74325416"
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     Azure Key Vault 的設計訴求是保護加密金鑰和其他祕密。 如需詳細資訊，請參閱[教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault](./resource-manager-tutorial-use-key-vault.md)。 我們也建議您每三個月更新一次密碼。
 
 ## <a name="open-a-quickstart-template"></a>開啟快速入門範本
@@ -55,42 +56,46 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 * **連結的範本**：建立儲存體帳戶。
 
 1. 在 Visual Studio Code 中，選取 [檔案]  >[開啟檔案]  。
-2. 在 [檔案名稱]  中，貼上下列 URL：
+1. 在 [檔案名稱]  中，貼上下列 URL：
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
-3. 選取 [開啟]  以開啟檔案。
-4. 範本中定義了五項資源：
+
+1. 選取 [開啟]  以開啟檔案。
+1. 範本中定義了六項資源：
 
    * [`Microsoft.Storage/storageAccounts`](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)
    * [`Microsoft.Network/publicIPAddresses`](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)
+   * [`Microsoft.Network/networkSecurityGroups`](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups)
    * [`Microsoft.Network/virtualNetworks`](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)
    * [`Microsoft.Network/networkInterfaces`](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
    * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
      在自訂範本之前，先對範本結構描述有一些基本了解會相當有幫助。
-5. 選取 [檔案]  >[另存新檔]  ，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
-6. 選取 [檔案]  >[另存新檔]  以使用名稱 **linkedTemplate.json** 建立該檔案的複本。
+1. 選取 [檔案]  >[另存新檔]  ，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
+1. 選取 [檔案]  >[另存新檔]  以使用名稱 **linkedTemplate.json** 建立該檔案的複本。
 
 ## <a name="create-the-linked-template"></a>建立連結的範本
 
 連結的範本會建立儲存體帳戶。 連結的範本可用來作為獨立範本以建立儲存體帳戶。 在本教學課程中，連結的範本會接受兩個參數，然後將一個值傳回給主要範本。 這個「傳回」值是在 `outputs` 元素中定義的。
 
 1. 在 Visual Studio Code 中開啟 **linkedTemplate.json** (如果尚未開啟此檔案)。
-2. 進行下列變更：
+1. 進行下列變更：
 
     * 移除 **location** 以外的所有參數。
     * 新增稱為 **storageAccountName** 的參數。
-        ```json
-        "storageAccountName":{
-          "type": "string",
-          "metadata": {
-              "description": "Azure Storage account name."
-          }
-        },
-        ```
-        儲存體帳戶名稱和位置會以參數形式從主要範本傳遞給連結的範本。
+
+      ```json
+      "storageAccountName":{
+        "type": "string",
+        "metadata": {
+            "description": "Azure Storage account name."
+        }
+      },
+      ```
+
+      儲存體帳戶名稱和位置會以參數形式從主要範本傳遞給連結的範本。
 
     * 移除 **variables** 元素及所有的變數定義。
     * 移除儲存體帳戶以外的所有資源。 您必須移除總共四個資源。
@@ -110,6 +115,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
             }
         }
         ```
+
        主範本中的虛擬機器資源定義需要 **storageUri**。  您必須將該值傳遞回主範本做為輸出值。
 
         當您完成時，範本看起來應該像這樣：
@@ -138,7 +144,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
               "type": "Microsoft.Storage/storageAccounts",
               "name": "[parameters('storageAccountName')]",
               "location": "[parameters('location')]",
-              "apiVersion": "2018-07-01",
+              "apiVersion": "2018-11-01",
               "sku": {
                 "name": "Standard_LRS"
               },
@@ -154,7 +160,8 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
           }
         }
         ```
-3. 儲存變更。
+
+1. 儲存變更。
 
 ## <a name="upload-the-linked-template"></a>上傳連結的範本
 
@@ -208,9 +215,10 @@ $templateURI = New-AzStorageBlobSASToken `
     -ExpiryTime (Get-Date).AddHours(8.0) `
     -FullUri
 
-echo "You need the following values later in the tutorial:"
-echo "Resource Group Name: $resourceGroupName"
-echo "Linked template URI with SAS token: $templateURI"
+Write-Host "You need the following values later in the tutorial:"
+Write-Host "Resource Group Name: $resourceGroupName"
+Write-Host "Linked template URI with SAS token: $templateURI"
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 1. 選取 [試試看]  綠色按鈕，以開啟 Azure Cloud Shell 窗格。
@@ -226,22 +234,7 @@ echo "Linked template URI with SAS token: $templateURI"
 主範本的名稱是 azuredeploy.json。
 
 1. 在 Visual Studio Code 中開啟 **azuredeploy.json** (若尚未開啟)。
-2. 從範本刪除儲存體帳戶資源定義：
-
-    ```json
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "apiVersion": "2018-07-01",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {}
-    },
-    ```
-3. 新增下列 json 程式碼片段到您儲存體帳戶定義存放所在之處：
+1. 將儲存體帳戶資源定義取代為下列 json 程式碼片段：
 
     ```json
     {
@@ -251,7 +244,7 @@ echo "Linked template URI with SAS token: $templateURI"
       "properties": {
           "mode": "Incremental",
           "templateLink": {
-              "uri":"https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json"
+              "uri":""
           },
           "parameters": {
               "storageAccountName":{"value": "[variables('storageAccountName')]"},
@@ -268,8 +261,8 @@ echo "Linked template URI with SAS token: $templateURI"
     * 呼叫連結的範本時，您只能使用[增量](./deployment-modes.md)部署模式。
     * `templateLink/uri` 包含連結的範本 URI。 將此值更新為您上傳連結的範本 (具有 SAS 權杖的範本) 時取得的 URI。
     * 使用 `parameters` 將值從主範本傳遞到連結的範本。
-4. 確定您已將 `uri` 元素的值更新為您上傳連結的範本 (具有 SAS 權杖的範本) 時取得的值。 實際上，您想要提供具有參數的 URI。
-5. 儲存修改過的範本
+1. 確定您已將 `uri` 元素的值更新為您上傳連結的範本 (具有 SAS 權杖的範本) 時取得的值。 實際上，您想要提供具有參數的 URI。
+1. 儲存修改過的範本
 
 ## <a name="configure-dependency"></a>設定相依性
 
@@ -290,6 +283,7 @@ echo "Linked template URI with SAS token: $templateURI"
             }
     }
     ```
+
     主範本需要此值。
 
 1. 在 Visual Studio Code 中開啟 azuredeploy.json (若尚未開啟)。

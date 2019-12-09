@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 277548c859370a700973d9f60556fe38e94548b0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 78fbf35fab69dd91d5ba1841fee1fb5290fb1347
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280455"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815890"
 ---
 ## <a name="prerequisites"></a>必要條件
 
@@ -46,6 +46,7 @@ ms.locfileid: "74280455"
 您必須先建立使用 LUIS 端點金鑰和區域的設定，才能夠初始化 `IntentRecognizer` 物件。 在 `recognizeIntent()` 方法中插入此程式碼。
 
 此範例會使用 `FromSubscription()` 方法來建置 `SpeechConfig`。 如需可用方法的完整清單，請參閱 [SpeechConfig 類別](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) \(英文\)。
+語音 SDK 會預設為使用 en-us 來辨識語言，如需選擇來源語言的詳細資訊，請參閱[指定語音轉換文字的來源語言](../../../../how-to-specify-source-language.md)。
 
 > [!NOTE]
 > 請務必使用 LUIS 端點金鑰，而不是 Starter 或 Authoring 金鑰，因為只有端點金鑰才適用於辨識語音到意圖的轉換。 如需如何取得正確金鑰的指示，請參閱[建立 LUIS 應用程式並取得端點金鑰](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md)。

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 556fb2c1caf9c763cf5a63b71d3dd1e522104e1d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.date: 12/04/2019
+ms.openlocfilehash: d7a746c170d04ad17b86e8aca63384edffbe75ac
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646954"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806791"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>教學課程：使用 DMS 將 SQL Server 線上移轉至 Azure SQL Database 受控執行個體
 
@@ -204,15 +204,20 @@ ms.locfileid: "73646954"
 
     | | |
     |--------|---------|
-    |**SMB 網路位置共用** | SMB 網路共用包含完整資料庫備份檔案及交易記錄備份檔案，Azure 資料庫移轉服務會使用這些檔案來進行移轉。 執行來源 SQL Server 執行個體的服務帳戶在此網路共用上必須具有讀取\寫入權限。 在網路共用中提供伺服器的 FQDN 或 IP 位址，例如，'\\\servername.domainname.com\backupfolder' 或 '\\\IP address\backupfolder'。|
-    |**使用者名稱** | 請確定 Windows 使用者對於您先前提供的網路共用具有完整控制權限。 Azure 資料庫移轉服務將會模擬該使用者認證，以便將備份檔案上傳至 Azure 儲存體容器以進行還原作業。 |
-    |**密碼** | 使用者的密碼。 |
+    |**SMB 網路位置共用** | 本機 SMB 網路共用或 Azure 檔案共用包含完整資料庫備份檔案及交易記錄備份檔案，Azure 資料庫移轉服務可使用這些檔案來進行移轉。 執行來源 SQL Server 執行個體的服務帳戶在此網路共用上必須具有讀取\寫入權限。 在網路共用中提供伺服器的 FQDN 或 IP 位址，例如，'\\\servername.domainname.com\backupfolder' 或 '\\\IP address\backupfolder'。|
+    |**使用者名稱** | 請確定 Windows 使用者對於您先前提供的網路共用具有完整控制權限。 Azure 資料庫移轉服務將會模擬該使用者認證，以便將備份檔案上傳至 Azure 儲存體容器以進行還原作業。 如果使用 Azure 檔案共用，請使用在前面加上 AZURE\ 的儲存體帳戶名稱，作為使用者名稱。 |
+    |**密碼** | 使用者的密碼。 如果使用 Azure 檔案共用，請使用儲存體帳戶金鑰作為密碼。 |
     |**Azure 儲存體帳戶的訂用帳戶** | 選取包含 Azure 儲存體帳戶的訂用帳戶。 |
     |**Azure 儲存體帳戶** | 選取 Azure 儲存體帳戶，讓 DMS 可以將備份檔案從 SMB 網路共用上傳至該處，並用於資料庫移轉。  建議您選取與 DMS 服務位在相同區域的儲存體帳戶，以達到最佳檔案上傳效能。 |
 
     ![設定移轉設定](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
-2. 選取 [ **儲存**]。
+
+> [!NOTE]
+  > 如果 Azure 資料庫移轉服務顯示「系統錯誤 53」或「系統錯誤 57」錯誤，其原因可能是 Azure 資料庫移轉服務無法存取 Azure 檔案共用。 如果發生上述其中一個錯誤，請使用[這裡](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)的指示，授與虛擬網路對儲存體帳戶的存取權。
+
+
+2. 選取 [儲存]  。
 
 ## <a name="review-the-migration-summary"></a>檢閱移轉摘要
 

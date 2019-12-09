@@ -1,19 +1,19 @@
 ---
-title: Azure 資料表儲存體概觀 | Microsoft Docs
-description: 在 Azure 入口網站中建立 Azure 儲存體資料表服務資料表。
+title: 快速入門 - 在 Azure 入口網站中建立 Azure 儲存體資料表
+description: 在本快速入門中，您將在 Azure 入口網站中建立 Azure 儲存體資料表服務資料表。
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/23/2018
+ms.date: 12/02/2019
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 052a462da5349b0886d6d99cd59d1a4ce816220f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4cfb44964b06c811d6d587f2a406cdcfb8048a42
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462710"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793332"
 ---
 # <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Azure 儲存體資料表 
 
@@ -33,11 +33,11 @@ ms.locfileid: "55462710"
 
    ![Azure 入口網站](media/table-storage-quickstart-portal/table-storage-quickstart-01.png)
 
-2. 按一下 [+ 資料表]。
+2. 按一下 [+ 資料表]  。
 
    ![Azure 入口網站](media/table-storage-quickstart-portal/table-storage-quickstart-02.png)
 
-3. 在 [資料表名稱] 方塊中輸入資料表的名稱，然後按一下 [確定]。 
+3. 在 [資料表名稱]  方塊中輸入資料表的名稱，然後按一下 [確定]  。 
 
    ![Azure 入口網站](media/table-storage-quickstart-portal/table-storage-quickstart-03.png)
 

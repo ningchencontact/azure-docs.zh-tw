@@ -13,18 +13,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 598168285ee67921ab17ab8c2ce780753c562f81
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6ecce4dc97272f03a3151708cd9c047212c36e03
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072350"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707208"
 ---
 # <a name="monitor-published-apis"></a>監視發佈的 API
 
 您可以使用 Azure 監視器來視覺化、查詢、路由、封存及針對來自 Azure 資源的度量或記錄採取行動。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 檢視活動記錄
@@ -183,10 +183,10 @@ API 管理目前提供關於個別 API 要求的診斷記錄 (每小時提供一
 | 屬性  | 類型 | 說明 |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | 布林值 | 如果已完成 HTTP 要求，但回應狀態碼在 2xx 或 3xx 範圍內，則為 true |
-| time | date-time | 閘道接收 HTTP 要求的時間戳記 |
+| time | date-time | 閘道開始處理要求時的時間戳記 |
 | operationName | 字串 | 常數值 'Microsoft.ApiManagement/GatewayLogs' |
 | category | 字串 | 常數值 'GatewayLogs' |
-| durationMs | integer | 從閘道收到要求直到傳入完整回應時的毫秒數 |
+| durationMs | integer | 從閘道收到要求到完整傳送回應時的毫秒數。 其中包括 clienTime、cacheTime 和 backendTime。 |
 | callerIpAddress | 字串 | 立即閘道呼叫端的 IP 位址 (可以是中繼項目) |
 | correlationId | 字串 | API 管理所指派的唯一 http 要求識別碼 |
 | location | 字串 | 處理要求的閘道所在的 Azure 區域名稱 |
@@ -214,7 +214,7 @@ API 管理目前提供關於個別 API 要求的診斷記錄 (每小時提供一
 | apimSubscriptionId | 字串 | 目前要求的訂用帳戶實體識別碼 | 
 | backendId | 字串 | 目前要求的後端實體識別碼 | 
 | LastError | 物件 | 上次要求處理錯誤 | 
-| elapsed | integer | 從閘道收到要求直到發生錯誤時所經過的毫秒數 | 
+| elapsed | integer | 從閘道收到要求到發生錯誤時所經過的毫秒數 | 
 | source | 字串 | 導致錯誤的原則或處理內部處理常式名稱 | 
 | scope | 字串 | 包含導致錯誤之原則的原則文件範圍 | 
 | section | 字串 | 包含導致錯誤之原則的原則文件區段 | 

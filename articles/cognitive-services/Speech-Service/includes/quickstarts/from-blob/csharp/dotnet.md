@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 77ab519ae966ab6b3dfc9fd309ce9a5740a5ce0f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 96062057a139e4ab2c91792b5c451e093f7f4c96
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500720"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828751"
 ---
 ## <a name="prerequisites"></a>必要條件
 
@@ -79,7 +79,7 @@ ms.locfileid: "73500720"
 ## <a name="wait-for-the-transcription-to-complete"></a>請等候轉譯完成
 因為服務會以非同步方式處理轉譯，所以我們每隔一段時間就需要輪詢其狀態。 我們會每隔 5 秒檢查一次。
 
-我們可以藉由在張貼要求時，從我們所取得的 Url 處擷取內容來檢查狀態。 當我們取回內容時，會將它還原序列化為我們其中一個協助程式類別，讓互動變得更容易。
+我們可以藉由在張貼要求時，從我們所取得的 URL 處擷取內容來檢查狀態。 當我們取回內容時，會將它還原序列化為我們其中一個協助程式類別，讓互動變得更容易。
 
 以下為輪詢程式碼，其顯示除了成功完成之外所有一切的狀態，這是我們接下來將執行的作業。
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=72-106,121-137)]
@@ -98,7 +98,7 @@ ms.locfileid: "73500720"
 
 現在您已準備好使用語音服務來建立應用程式，並測試我們的語音辨識。
 
-1. **編譯程式碼** -從 Visual Studio 的功能表列中，選擇 [建置]   > [建置解決方案]  。
+1. **編譯程式碼** - 從 Visual Studio 的功能表列中，選擇 [建置]   > [建置解決方案]  。
 2. **啟動應用程式** - 從功能表列中，選擇 [偵錯]   > [開始偵錯]  ，或按 **F5**。
 3. **開始辨識** - 它會提示您說英文片語。 您的語音會傳送至語音服務、轉譯為文字，並在主控台中轉譯。
 

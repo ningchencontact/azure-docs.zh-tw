@@ -1,27 +1,18 @@
 ---
-title: 建立 Node.js Web 應用程式 - Azure App Service | Microsoft Docs
-description: 短短幾分鐘內在 Azure App Service Web Apps 中部署第一個 Node.js Hello World。
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 快速入門：建立 Node.js Web 應用程式
+description: 在短短幾分鐘內將您的第一個 Node.js Hello World 部署至 Azure App Service。 您可以使用 Visual Studio Code 進行部署，這是部署至 App Service 的眾多方式之一。
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 09/30/2019
-ms.author: cephalin
 ms.custom: seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: 98d939c69bb03666dbeed124778b06f8a7e73532
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 91494cc9c1e3a1fc159702bdbb7f68a4423b604c
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471467"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671370"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中建立 Node.js Web 應用程式 
 
@@ -93,7 +84,7 @@ npm install
 npm start
 ```
 
-現在，開啟您的瀏覽器並瀏覽至 [http://localhost:3000](http://localhost:3000)，您應該會在這裡看到如下的內容：
+現在，開啟您的瀏覽器並流覽至 [http://localhost:3000](http://localhost:3000)，您應該會在這裡看到如下的內容：
 
 ![執行 Express 應用程式](containers/media/quickstart-nodejs/express.png)
 
@@ -152,7 +143,7 @@ code .
 
 ### <a name="browse-the-app-in-azure"></a>在 Azure 中瀏覽應用程式
 
-完成部署後，請選取提示中的 [瀏覽網站]  ，以檢視您剛部署的 Web 應用程式。
+完成部署後，請選取提示中的 [流覽網站]  ，以檢視您剛部署的 Web 應用程式。
 
 ### <a name="troubleshooting"></a>疑難排解
 

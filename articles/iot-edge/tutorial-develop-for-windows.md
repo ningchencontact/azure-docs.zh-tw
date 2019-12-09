@@ -1,5 +1,5 @@
 ---
-title: 教學課程：開發適用於 Windows 裝置的模組 - Azure IoT Edge
+title: 教學課程 - 使用 Azure IoT Edge 開發 Windows 裝置的模組
 description: 本教學課程會逐步引導您設定開發機器和雲端資源，以使用 Windows 容器開發適用於 Windows 裝置的 IoT Edge 模組
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 67a80178c5cd800ea08d9f5493efd0f37422fe36
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 4a56a79798acf4948739b26062ab770fcbb47f7b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113993"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707078"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 IoT Edge 模組
 

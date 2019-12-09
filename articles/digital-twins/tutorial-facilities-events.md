@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 492fa7f4989a40ea1d5ec91a4fbf4dbbe79ef6ce
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7700c61a978532a63fc5b3298d45b8e7041dba40
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383266"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790337"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>教學課程：使用 Logic Apps 接收來自 Azure Digital Twins 空間的通知
 
@@ -118,9 +118,9 @@ ms.locfileid: "74383266"
 
 1. 開啟部署好的 Logic Apps 資源，然後開啟 [邏輯應用程式設計工具]  窗格。 
 
-1. 選取 [發生事件方格資源事件時]  觸發程序。 當系統提示時，使用 Azure 帳戶登入租用戶。 如果出現提示，針對您的事件方格資源選取 [允許存取]  。 選取 [繼續]  。
+1. 選取 [發生事件方格資源事件時]  觸發程序。 展開 [Azure 事件方格]  選項，並在系統提示時，使用 Azure 帳戶登入租用戶。 如果出現提示，針對您的事件方格資源選取 [允許存取]  。 選取 [繼續]  。
 
-1. 在 [發生資源事件時 (預覽)\  ] 視窗中： 
+1. 在 [發生資源事件時]  視窗中： 
    
    a. 選取用來建立事件方格主題的 [訂用帳戶]  。
 

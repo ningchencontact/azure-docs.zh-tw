@@ -1,25 +1,16 @@
 ---
-title: 建立 PHP Web 應用程式 - Azure App Service | Microsoft Docs
-description: 短短幾分鐘內在 Azure App Service Web Apps 中部署第一個 PHP Hello World。
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 快速入門：建立 PHP Web 應用程式
+description: 在短短幾分鐘內將您的第一個 PHP Hello World 部署至 Azure App Service。 您可以使用 Git 進行部署，這是部署至 App Service 的眾多方式之一。
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/24/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 386229bc272a520ec8093c95bc861704ce9ea7eb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fb6451ce5e1e00bffc9195410125eb61b34555e4
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471453"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672086"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>在 Azure 中建立 PHP Web 應用程式
 

@@ -1,28 +1,27 @@
 ---
 title: 移動資料資料管理閘道
-description: 設定資料閘道器以在內部部署與雲端之間移動資料。 使用 Azure Data Factory 中的資料管理閘道器移動資料。
+description: 設定資料閘道器以在內部部署與雲端之間移動資料。 使用 Azure Data Factory 中的資料管理閘道移動資料。
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 52bce71abd6ecf30b5a3661c2e6033537357db3a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 039a19f38da4e651ee35fe60ba2b95a40cf890b0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682481"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931913"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>利用資料管理閘道在內部部署來源和雲端之間移動資料
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[使用 Data Factory 在內部部署和雲端之間複製資料](../tutorial-hybrid-copy-powershell.md)。
+> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱[使用 Data Factory 在內部部署和雲端之間複製資料](../tutorial-hybrid-copy-powershell.md)。
 
 本文提供使用 Data Factory 整合內部部署資料存放區與雲端資料存放區資料的概觀。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文和其他 Data Factory 核心概念文章：[資料集](data-factory-create-datasets.md)和[管線](data-factory-create-pipelines.md)。
 
@@ -50,7 +49,7 @@ ms.locfileid: "73682481"
 * **Azure 儲存體帳戶**。 在本教學課程中，您會使用 Blob 儲存體作為**目的地/接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md) 一文以取得建立步驟。
 * **SQL Server**。 在本教學課程中，您會使用內部部署 SQL 資料庫作為**來源**資料存放區。 
 
-## <a name="create-data-factory"></a>建立 Data Factory
+## <a name="create-data-factory"></a>建立資料處理站
 在此步驟中，您將使用 Azure 入口網站來建立名為 **ADFTutorialOnPremDF**的 Azure Data Factory 執行個體。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
@@ -139,7 +138,7 @@ ms.locfileid: "73682481"
    * 檢視或匯出閘道所使用的憑證。
    * 變更閘道使用的 HTTPS 端點。    
    * 設定閘道要使用的 HTTP Proxy。     
-9. (選擇性) 切換到 [診斷] 索引標籤，如果您想啟用詳細資訊記錄功能，以便對閘道的任何問題進行疑難排解，請勾選 [啟用詳細資訊記錄] 選項。 在 [應用程式及服務記錄檔]  **[資料管理閘道]**  ->  節點之下的 [事件檢視器] 中可找到記錄資訊。
+9. (選擇性) 切換到 [診斷] 索引標籤，如果您想啟用詳細資訊記錄功能，以便對閘道的任何問題進行疑難排解，請勾選 [啟用詳細資訊記錄] 選項。 在 [應用程式及服務記錄檔]  ->  [資料管理閘道] 節點之下的 [事件檢視器] 中可找到記錄資訊。
 
     ![[診斷] 索引標籤](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
@@ -351,7 +350,7 @@ ms.locfileid: "73682481"
      }
     ```   
    > [!IMPORTANT]
-   > 將 **start** 屬性的值取代為目前日期，並將 **end** 值取代為隔天的日期。
+   > 將 **start** 屬性的值替換為目前日期，並將 **end**值替換為隔天的日期。
    >
    >
 
@@ -360,7 +359,7 @@ ms.locfileid: "73682481"
    * 在 activities 區段中，只會有 **type** 設定為 **Copy** 的活動。
    * 活動的**輸入**設定為 **EmpOnPremSQLTable**，活動的**輸出**則設定為 **OutputBlobTable**。
    * 在**typeProperties**區段中，會將**SqlSource**指定為**來源類型**，並將**BlobSink**指定為**接收類型**。
-   * `select * from emp`SqlSource**的**sqlReaderQuery**屬性指定為 SQL 查詢**。
+   * **SqlSource** 的 **sqlReaderQuery** 屬性指定為 SQL 查詢 `select * from emp`。
 
    開始和結束日期時間都必須是 [ISO 格式](https://en.wikipedia.org/wiki/ISO_8601)。 例如：2014-10-14T16:32:41Z。 **end** 時間為選擇性項目，但在本教學課程中會用到。
 
@@ -398,7 +397,7 @@ ms.locfileid: "73682481"
 
     ![資料配量刀鋒視窗](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
 
-    若配量不是處於 [就緒] 狀態，您可以在 [未就緒的上游配量] 清單中看到未就緒且阻礙目前配量執行的上游配量。
+    若配量不是處於 [就緒] 狀態，您可以在 [未就緒的上游配量]清單中看到未就緒且阻礙目前配量執行的上游配量。
 5. 按一下底部清單中的 [活動執行]，可查看 [活動執行詳細資料]。
 
    ![[活動執行詳細資料] 頁面](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)

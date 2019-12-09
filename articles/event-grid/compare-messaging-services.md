@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: b68bd69c6d00ac177466f8fdaabd89649c910287
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 77497d709d7106bf7c13d1fafcc4e64ee0ed1d39
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790298"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790305"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>選擇 Azure 訊息服務 - 事件方格、事件中樞和服務匯流排
 
@@ -98,7 +98,7 @@ Azure 事件中樞是巨量資料管線。 它有助於擷取、保留和重送�
 
 ## <a name="next-steps"></a>後續步驟
 請參閱下列文章： 
-
+- [Azure 中的非同步訊息選項](/azure/architecture/guide/technology-choices/messaging)
 - [事件、資料點和訊息 - 為您的資料選擇正確的 Azure 傳訊服務](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/)。
 - [儲存體佇列和服務匯流排佇列 - 異同比較](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - 若要開始使用 Event Grid，請參閱[使用 Azure Event Grid 建立和路由傳送自訂事件](custom-event-quickstart.md)。

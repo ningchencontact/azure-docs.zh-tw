@@ -1,26 +1,17 @@
 ---
-title: Azure PowerShell 範例 - App Service | Microsoft Docs
-description: Azure PowerShell 範例 - App Service
-services: app-service
-documentationcenter: app-service
-author: syntaxc4
-manager: erikre
-editor: ggailey777
+title: PowerShell 範例
+description: 尋找部分常見 App Service 案例的 Azure PowerShell 範例。 了解如何將 App Service 部署或管理工作自動化。
 tags: azure-service-management
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: app-service
 ms.date: 03/08/2017
-ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 322820976f7f693ff09c071fc28f1ef3d1d472cf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f32db2a4dda0ceb69644b64a5c76155b448c5a28
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074071"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687019"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>Azure App Service 的 PowerShell 範例
 

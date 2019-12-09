@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 84272336a9f70f663e134e16fe88c7e43bb73548
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ef203eec1398e9f23fb162845b9d570316083ecf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208649"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703701"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>教學課程：建立並設定 Azure Active Directory Domain Services 執行個體
 
@@ -72,7 +72,7 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 >
 > 您可以使用 Azure AD DS 受控網域的根 DNS 名稱，但您可能需要為環境中的其他服務建立一些額外的 DNS 記錄。 例如，如果您使用根 DNS 名稱執行裝載網站的 Web 伺服器，可能會發生需要其他 DNS 項目的命名衝突。
 >
-> 在這些教學課程和操作說明文章中，contoso.com  的自訂網域會作為簡短的範例。 在所有命令中，指定其中可能包含唯一首碼的自有網域名稱。
+> 在這些教學課程和操作說明文章中，aadds.contoso.com  的自訂網域會作為簡短的範例。 在所有命令中，指定其中可能包含唯一首碼的自有網域名稱。
 >
 > 如需詳細資訊，請參閱[選取網域的命名首碼][naming-prefix]。
 
@@ -117,7 +117,7 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
     ![Azure 入口網站中的部署進度通知](./media/tutorial-create-instance/deployment-in-progress.png)
 
 1. 此頁面會載入部署程程序上的更新，包括在您目錄中建立新的資源。
-1. 選取您的資源群組 (例如 myResourceGroup  )，然後從 Azure 資源清單中選擇您的 Azure AD DS 執行個體，例如 contoso.com  。 [概觀]  索引標籤會顯示受控網域目前「正在進行部署」  。 完整佈建之前，您無法設定受控網域。
+1. 選取您的資源群組 (例如 myResourceGroup  )，然後從 Azure 資源清單中選擇您的 Azure AD DS 執行個體，例如 aadds.contoso.com  。 [概觀]  索引標籤會顯示受控網域目前「正在進行部署」  。 完整佈建之前，您無法設定受控網域。
 
     ![佈建狀態期間的 Domain Services 狀態](./media/tutorial-create-instance/provisioning-in-progress.png)
 

@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: cb3bb6a91c25298535cfba1107b85f200031a7d6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6cf636e7d7ee35680c1da872b186748c333a81dc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035906"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929997"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>快速步驟：在 Azure 中建立和使用 Linux VM 的 SSH 公開和私密金鑰組
 
@@ -38,10 +38,10 @@ ms.locfileid: "74035906"
 
 使用 `ssh-keygen` 命令來產生 SSH 公開和私密金鑰檔案。 根據預設，這些檔案會建立在 ~/.ssh 目錄中。 您可以指定不同位置和選擇性密碼 (「複雜密碼」) 來存取私密金鑰檔案。 如果指定位置中存在相同名稱的 SSH 金鑰組，則系統會覆寫那些檔案。
 
-下列命令會使用 RSA 加密建立 SSH 金鑰組，位元長度為 2048：
+下列命令會使用 RSA 加密建立 SSH 金鑰組，而位長度為4096：
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
 如果您使用 [Azure CLI](/cli/azure) 搭配 [az vm create](/cli/azure/vm#az-vm-create) 命令來建立您的 VM，您即可選擇性地使用 `--generate-ssh-keys` 選項產生 SSH 公開金鑰和私密金鑰檔案。 金鑰檔案會儲存在 ~/.ssh 目錄中，除非使用 `--ssh-dest-key-path` 選項另行指定。 `--generate-ssh-keys` 選項不會覆寫現有的金鑰檔案，而會傳回錯誤。 在下列命令中，將 *VMname* 和 *RGname* 取代為您自己的值：

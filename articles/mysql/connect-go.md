@@ -1,5 +1,5 @@
 ---
-title: 使用 Go 連線到適用於 MySQL 的 Azure 資料庫
+title: 使用 Go 連線 - 適用於 MySQL 的 Azure 資料庫
 description: 本快速入門提供數個 Go 程式碼範例，您可用於從 Azure Database for MySQL 連線及查詢資料。
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 3cd25f935a38f5192811d7f7886d3c6654d5d221
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 12/02/2019
+ms.openlocfilehash: b3ee0caa380cacc697a87307c3107b93aa241afb
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351791"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770759"
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>適用於 MySQL 的 Azure 資料庫：使用 Go 語言連線並查詢資料
 本快速入門示範如何從 Windows、Ubuntu Linux 和 Apple macOS 平台使用以 [Go](https://golang.org/) 語言撰寫的程式碼，連線到適用於 MySQL 的 Azure 資料庫。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 Go 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
@@ -26,7 +26,7 @@ ms.locfileid: "58351791"
 ## <a name="install-go-and-mysql-connector"></a>安裝 Go 與 MySQL 連接器
 在自己的電腦上安裝 [Go](https://golang.org/doc/install) 和 [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation)。 根據您的平台，遵循適當小節中的步驟：
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 1. 根據[安裝指示](https://golang.org/doc/install)，[下載](https://golang.org/dl/)並安裝 Go for Microsoft Windows。
 2. 從 [開始] 功能表啟動命令提示字元。
 3. 為您的專案產生資料夾，例如 `mkdir  %USERPROFILE%\go\src\mysqlgo` 。
@@ -79,9 +79,9 @@ ms.locfileid: "58351791"
 取得連線到 Azure Database for MySQL 所需的連線資訊。 您需要完整的伺服器名稱和登入認證。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您所建立的伺服器 (例如 **mydemoserver**)。
+2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]  ，然後搜尋您所建立的伺服器 (例如 **mydemoserver**)。
 3. 按一下伺服器名稱。
-4. 從伺服器的 [概觀] 面板，記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。 如果您忘記密碼，您也可以從此面板重設密碼。
+4. 從伺服器的 [概觀]  面板，記下 [伺服器名稱]  和 [伺服器管理員登入名稱]  。 如果您忘記密碼，您也可以從此面板重設密碼。
  ![Azure Database for MySQL 伺服器名稱](./media/connect-go/1_server-overview-name-login.png)
    
 

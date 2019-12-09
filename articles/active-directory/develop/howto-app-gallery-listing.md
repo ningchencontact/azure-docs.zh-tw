@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/16/2019
+ms.date: 12/06/2019
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1763b8d6402a6093499f1f06253fe4c7502255
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 54c51a10f950fb5381ab29968a866772dcaec78c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842773"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917995"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>在 Azure Active Directory 應用程式庫中列出您的應用程式
 
@@ -42,6 +42,10 @@ ms.locfileid: "74842773"
 - 針對 [密碼 SSO]，請確定您的應用程式支援表單驗證，以便完成密碼保存以讓單一登入能夠如預期般運作。
 - 您需要一個永久的帳戶來進行測試，並至少註冊兩個使用者。
 
+**如何取得開發人員的 Azure AD？**
+
+您可以取得免費的測試帳戶，其中包含所有 premium Azure AD 功能-90 天免費，而且只要您使用它進行開發，就可以擴充： https://docs.microsoft.com/office/developer-program/office-365-developer-program
+
 ## <a name="submit-the-request-in-the-portal"></a>在入口網站中提交要求
 
 當您測試過應用程式整合與 Azure AD 搭配運作之後，請在[應用程式網路入口網站](https://microsoft.sharepoint.com/teams/apponboarding/Apps)中提交您的存取要求。 如果您有 Office 365 帳戶，請使用該帳戶登入此入口網站。 如果不是，請使用您的 Microsoft 帳戶（例如 Outlook 或 Hotmail）來登入。
@@ -59,6 +63,26 @@ ms.locfileid: "74842773"
 我們的小組會檢閱此詳細資料，並據以提供存取權給您。 核准您的要求之後，您可以在首頁上選取 [**提交要求（ISV）** ] 磚，以登入入口網站並提交要求。
 
 ![首頁上的 [提交要求（ISV）] 磚](./media/howto-app-gallery-listing/homepage.png)
+
+## <a name="issues-on-logging-into-portal"></a>登入入口網站時的問題
+
+如果您在登入時看到此錯誤，以下是問題的詳細資料，而這就是您可以修正的方式。
+
+* 如果您的登入已遭封鎖，如下所示：
+
+  ![解決資源庫中的應用程式問題](./media/howto-app-gallery-listing/blocked.png)
+
+**發生了什麼事情：**
+
+來賓使用者會與主要租使用者同盟，這也是 Azure AD。 來賓使用者具有高風險。 Microsoft 不允許高風險使用者存取其資源。 所有高風險使用者（員工或來賓/廠商）都必須補救/關閉其風險，才能存取 Microsoft 資源。 對於來賓使用者，此使用者風險來自于主租使用者，而原則來自資源租使用者（在此案例中為 Microsoft）。
+ 
+**保護解決方案：**
+
+* MFA 已註冊的來賓使用者會補救他們自己的使用者風險。 這可以由來賓使用者執行安全的密碼變更或重設（在其主要租使用者中 https://aka.ms/sspr) （這需要在主要租使用者的 MFA 和 SSPR）來完成。 受保護的密碼變更或重設必須在 Azure AD 起始，而不是在內部部署上。
+
+* 來賓使用者的系統管理員可以修復其風險。 在此情況下，系統管理員會執行密碼重設（暫時產生密碼）。 這不需要身分識別保護。 來賓使用者的系統管理員可以前往 https://aka.ms/RiskyUsers ，然後按一下 [重設密碼]。
+
+* 來賓使用者的系統管理員關閉/關閉其風險。 同樣地，這不需要身分識別保護。 系統管理員可以前往 https://aka.ms/RiskyUsers ，然後按一下 [解除使用者風險]。 不過，系統管理員必須執行逾期的努力，以確保在關閉使用者風險之前，這是誤報的風險評估。 否則，他們會藉由隱藏風險評估而不進行調查，將其和 Microsoft 的資源放在風險中。
 
 > [!NOTE]
 > 如果您有任何存取的問題，請洽詢[AZURE AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)。
@@ -79,6 +103,7 @@ ms.locfileid: "74842773"
   ![在資源庫中列出 SAML 2.0 或 WS-送出應用程式](./media/howto-app-gallery-listing/saml.png)
 
   * 如果您想要使用**SAML 2.0**或**ws-addressing**將應用程式新增至資源庫中的清單，請選取 [ **Saml 2.0/ws-送**出]，如下所示。
+
   * 如果您有任何存取的問題，請洽詢[AZURE AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)。
 
 ## <a name="implement-sso-by-using-the-password-sso"></a>使用密碼 SSO 來執行 SSO

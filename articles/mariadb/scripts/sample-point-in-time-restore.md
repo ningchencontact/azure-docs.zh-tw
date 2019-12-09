@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 指令碼 - 還原適用於 MariaDB 的 Azure 資料庫伺服器
+title: CLI 指令碼 - 還原伺服器 - 適用於 MariaDB 的 Azure 資料庫
 description: 此範例 Azure CLI 指令碼示範如何將「適用於 MariaDB 的 Azure 資料庫」伺服器及其資料庫還原至先前的時間點。
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 11/28/2018
-ms.openlocfilehash: 2d294f5b43ba3fb7587ca1d03903e39d75291754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/02/2019
+ms.openlocfilehash: d7591c4f88026644ee2453150cfa226a155ab32d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171359"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771699"
 ---
 # <a name="restore-an-azure-database-for-mariadb-server-using-azure-cli"></a>使用 Azure CLI 還原適用於 MariaDB 的 Azure 資料庫伺服器
 此範例 CLI 指令碼會將單一「適用於 MariaDB 的 Azure 資料庫」伺服器還原至先前的時間點。

@@ -1,17 +1,17 @@
 ---
-title: 在 Azure Spring Cloud 中設定 Config Server 執行個體 | Microsoft Docs
+title: 教學課程 - 在 Azure Spring Cloud 中設定 Config Server 執行個體
 description: 在本教學課程中，您將了解如何在 Azure 入口網站上為您的 Azure Spring Cloud 設定 Spring Cloud Config Server 執行個體
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.author: jeconnoc
 author: jpconnock
 ms.date: 10/18/2019
-ms.openlocfilehash: 7589a3a750e2fe04736bb3c8fc072c7a2c0a7358
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 186ba771d2df3b08244a05e349beea8dad2af93b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147545"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708792"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>教學課程：為您的服務設定 Spring Cloud Config Server 執行個體
 

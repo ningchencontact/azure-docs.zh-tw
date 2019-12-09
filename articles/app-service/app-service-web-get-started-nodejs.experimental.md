@@ -1,25 +1,18 @@
 ---
-title: 建立 Node.js Web 應用程式 - Azure App Service | Microsoft Docs
-description: 短短幾分鐘內在 Azure App Service Web Apps 中部署第一個 Node.js Hello World。
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 快速入門：建立 Node.js Web 應用程式
+description: 在短短幾分鐘內將您的第一個 Node.js Hello World 部署至 Azure App Service。 您可以使用 ZIP 套件進行部署，這是部署至 App Service 的眾多方式之一。
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7d81dae25b793144bfe044f8434a6df181dbcd1b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+experimental: false
+experiment_id: a231f2b4-2625-4d
+ms.openlocfilehash: c02caf7c70dfe88bd3312742fce08137bc360a2e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067394"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671412"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中建立 Node.js Web 應用程式
 

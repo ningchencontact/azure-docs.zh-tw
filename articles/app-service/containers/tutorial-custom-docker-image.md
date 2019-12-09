@@ -1,32 +1,25 @@
 ---
-title: 建置自訂映像，並從私人登錄在 App Service 中執行
-description: 如何針對用於容器的 Web 應用程式使用自訂 Docker 映像。
+title: 教學課程：建置和執行自訂映像
+description: 了解如何建置可在 Azure App Service 上執行的自訂 Linux 映像、將其部署至 Azure Container Registry，然後在 App Service 中加以執行。
 keywords: azure app service, web 應用程式, linux, docker, 容器
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 07d5b718cb96a938cb6e796e1cf4864851433516
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d960af01eed9fae0fec2566772799e4972053d7b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070927"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687487"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>教學課程：建置自訂映像，並從私人登錄在 App Service 中執行
 
 [App Service](app-service-linux-intro.md) 在 Linux 上提供內建的 Docker 映像，且支援特定的版本，例如 PHP 7.3 和 Node.js 10.14。 App Service 會使用 Docker 容器技術，來裝載內建映像和自訂映像作為平台即服務。 在此教學課程中，您將了解如何建置自訂映像，並在 App Service 中執行它。 當內建的映像不包含您所選擇的語言，或當您應用程式所需的特定組態未在內建的映像中提供時，此模式相當有用。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 將自訂映像部署到私人容器登錄中

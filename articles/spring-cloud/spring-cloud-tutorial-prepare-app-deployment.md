@@ -1,17 +1,17 @@
 ---
-title: 準備 Spring 應用程式以部署到 Azure Spring Cloud | Microsoft Docs
-description: 在本快速入門中，您會準備 Java Spring 應用程式以進行部署。
+title: 教學課程 - 準備 Spring 應用程式以部署至 Azure Spring Cloud
+description: 在本教學課程中，您會準備 Java Spring 應用程式以進行部署。
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 6c3048fd27c3d3d4fdba0841fb4ab21bd10e15fe
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3c567c54f887afe9ac112970a682b9466515d949
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721243"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708738"
 ---
 # <a name="tutorial-prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>教學課程：準備 Java Spring 應用程式以部署到 Azure Spring Cloud
 
@@ -176,4 +176,3 @@ Service Registry 伺服器的端點將會自動搭配您的應用程式插入為
 
 > [!div class="nextstepaction"]
 > [了解如何設定您的 Config Server](spring-cloud-tutorial-config-server.md)。
-

@@ -1,24 +1,17 @@
 ---
-title: 使用 SSL 繫結保護自訂 DNS 名稱 - Azure App Service | Microsoft Docs
-description: 了解如何購買 App Service 憑證並將它繫結至您的 App Service 應用程式
-services: app-service
-author: cephalin
-manager: gwallace
+title: 使用 SSL 繫結保護自訂 DNS
+description: 藉由建立具有憑證的 TLS/SSL 繫結，保護對自訂網域的 HTTPS 存取。 藉由強制執行 HTTPS 或 TLS 1.2 改善網站的安全性。
 tags: buy-ssl-certificates
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 10/25/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 259a4d33ba6e8c072f8df906da4784119b299822
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b967e4cfad2444e39c7df8cfddcc2154bd48367d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509052"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670682"
 ---
 # <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>在 Azure App Service 中使用 SSL 繫結保護自訂 DNS 名稱
 

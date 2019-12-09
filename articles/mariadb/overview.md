@@ -1,18 +1,18 @@
 ---
-title: 「適用於 MariaDB 的 Azure 資料庫」關聯式資料庫服務的概觀
+title: 概觀 - 適用於 MariaDB 的 Azure 資料庫
 description: 了解適用於 MariaDB 的 Azure 資料庫服務，這是 Microsoft 雲端中以 MySQL Community Edition 為基礎的關聯式資料庫服務。
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/25/2019
-ms.openlocfilehash: aed2e090a1e3a6a4c80f70ba25da9a903a6192c1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/02/2019
+ms.openlocfilehash: f2dc6ec2fb99addc6a2c050c072e0221fd2c8e0b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484150"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769076"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>什麼是適用於 MariaDB 的 Azure 資料庫？
 
@@ -53,7 +53,7 @@ Azure 領先業界的 99.99% 可用性 SLA，並由受 Microsoft 管理之資料
 
 ## <a name="secure-your-data"></a>保護您的資料
 
-Azure 資料庫服務具有「適用於 MariaDB 的 Azure 資料庫」所秉承的資料安全性信念。 「適用於 MariaDB 的 Azure 資料庫」所提供的功能可限制存取、保護待用和移動中資料，並協助您監視活動。 如需 Azure 平台安全性的相關資訊，請造訪 [Azure 信任中心](https://www.microsoft.com/trustcenter/security) \(英文\)。 如需適用於 MySQL 的 Azure 資料庫安全性功能的詳細資訊，請參閱[安全性概觀](concepts-security.md)。
+Azure 資料庫服務具有「適用於 MariaDB 的 Azure 資料庫」所秉承的資料安全性信念。 「適用於 MariaDB 的 Azure 資料庫」所提供的功能可限制存取、保護待用和移動中資料，並協助您監視活動。 如需 Azure 平台安全性的相關資訊，請造訪 [Azure 信任中心](https://www.microsoft.com/trustcenter/security) \(英文\)。 如需適用於 MariaDB 的 Azure 資料庫在安全性功能方面的詳細資訊，請參閱[安全性概觀](concepts-security.md)。
 
 ## <a name="contacts"></a>連絡人
 

@@ -1,26 +1,19 @@
 ---
-title: Azure PowerShell 指令碼範例 - 手動調整 Web 應用程式 | Microsoft Docs
-description: Azure PowerShell 指令碼範例 - 手動調整 Web 應用程式
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: PowerShell：手動調整 Web 應用程式
+description: 了解如何使用 Azure PowerShell 將 App Service 的部署和管理自動化。 此範例說明如何手動調整應用程式。
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: de5d4285-9c7d-4735-a695-288264047375
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d740dbfb1b5d16d84872ef183a52454549be617e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2ee88ef3d125ccc1ec9675437ea99ac11fe65dff
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098223"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684211"
 ---
 # <a name="scale-a-web-app-manually-using-powershell"></a>使用 PowerShell 來手動調整 Web 應用程式
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 2aec10ab07b78aaacf34340b268f9b7dfbe69eb5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d8a5f4756f3a6799c7f1b08973e0a84603cb4571
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172317"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703640"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>教學課程：建立管理 VM 來設定及管理 Azure Active Directory Domain Services 受控網域
 
@@ -105,7 +105,7 @@ Azure AD DS 網域已被鎖定，因此您沒有在網域上進行特定管理�
 1. 在 [伺服器管理員]  視窗的 [儀表板]  窗格內，選取 [新增角色及功能]  。
 1. 在 [新增角色及功能精靈]  的 [開始之前]  頁面上，選取 [下一步]  。
 1. 針對 [安裝類型]  ，保持勾選 [角色型或功能型安裝]  選項，然後選取 [下一步]  。
-1. 在 [伺服器選擇]  頁面上，從伺服器集區中選擇目前的 VM，例如 myvm.contoso.com  ，然後選取 [下一步]  。
+1. 在 [伺服器選擇]  頁面上，從伺服器集區中選擇目前的 VM，例如 myvm.aadds.contoso.com  ，然後選取 [下一步]  。
 1. 在 [伺服器角色]  頁面上，按 [下一步]  。
 1. 在 [功能]  頁面上，展開 [遠端伺服器管理工具]  節點，然後展開 [角色管理工具]  節點。
 
@@ -125,7 +125,7 @@ Azure AD DS 網域已被鎖定，因此您沒有在網域上進行特定管理�
     ![安裝在伺服器上的管理工具清單](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. 選取 [Active Directory 管理中心]  。
-1. 若要探索 Azure AD DS 受控網域，請在左側窗格中選擇網域名稱，例如 contoso.com  。 名為「AADDC 電腦」  和「AADDC 使用者」  的兩個容器位於清單頂端。
+1. 若要探索 Azure AD DS 受控網域，請在左側窗格中選擇網域名稱，例如 aadds.contoso.com  。 名為「AADDC 電腦」  和「AADDC 使用者」  的兩個容器位於清單頂端。
 
     ![列出 Azure AD DS 受控網域中可用的容器部分](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 

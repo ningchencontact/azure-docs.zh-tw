@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 入口網站建立串流分析作業 | Microsoft Docs
+title: 快速入門 - 使用 Azure 入口網站建立串流分析作業
 description: 本快速入門會示範如何開始建立串流分析作業、設定輸入與輸出及定義查詢。
 services: stream-analytics
 author: mamccrea
@@ -8,12 +8,12 @@ ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 65114f2ddb7567b47ac3951fbaf6664654e379f0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449239"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707378"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立串流分析作業
 
@@ -153,7 +153,7 @@ ms.locfileid: "67449239"
    HAVING Temperature > 27
    ```
 
-3. 在此範例中，查詢會從 IoT 中樞讀取資料，並將資料複製到 Blob 中的新檔案。 選取 [ **儲存**]。  
+3. 在此範例中，查詢會從 IoT 中樞讀取資料，並將資料複製到 Blob 中的新檔案。 選取 [儲存]  。  
 
    ![設定工作轉換](./media/stream-analytics-quick-create-portal/add-asa-query.png)
 
@@ -193,4 +193,3 @@ ms.locfileid: "67449239"
 
 > [!div class="nextstepaction"]
 > [使用 Azure 串流分析進行即時詐騙偵測](stream-analytics-real-time-fraud-detection.md)
-

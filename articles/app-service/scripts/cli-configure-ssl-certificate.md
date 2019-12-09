@@ -1,27 +1,18 @@
 ---
-title: Azure CLI 指令碼範例 - 將自訂 SSL 憑證繫結至應用程式 | Microsoft Docs
-description: Azure CLI 指令碼範例 - 將自訂 SSL 憑證繫結至應用程式
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: CLI：將 SSL 憑證上傳和繫結至應用程式
+description: 了解如何使用 Azure CLI 將 App Service 應用程式的部署和管理自動化。 此範例說明如何將自訂 SSL 憑證繫結至應用程式。
 tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 89483c6396ea344a035ec22bf79e2f90dada4c96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1ef07cb55af4b9fe9f54d58bbd496789928c1cec
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136904"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74686693"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-an-app-service-app-using-cli"></a>使用 CLI 將自訂 SSL 憑證繫結至 App Service 應用程式
 

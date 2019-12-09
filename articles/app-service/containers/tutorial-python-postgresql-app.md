@@ -1,26 +1,19 @@
 ---
-title: 教學課程：Linux 上搭配 PostgreSQL 的 Python (Django) Web 應用程式 - Azure App Service
-description: 了解如何在 Azure 中連線至 PostgreSQL 資料庫，以執行資料驅動的 Python (Django) Web 應用程式。
-services: app-service\web
-documentationcenter: python
-author: cephalin
-manager: gwallace
-ms.service: app-service-web
-ms.workload: web
+title: 教學課程：使用 Postgre 的 Linux Python 應用程式
+description: 了解如何藉由連線至 Azure 中的 PostgreSQL 資料庫，讓 Linux Python 應用程式在 Azure App Service 中運作。 本教學課程中使用 Django。
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom:
 - mvc
 - seodec18
 - seo-python-october2019
-ms.openlocfilehash: 34dbce2a6da2395bbc627a30d464a9817dfe76fe
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: d23097c9674d2b7e60e779304a2d08c734bd614d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72439476"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688869"
 ---
 # <a name="tutorial-build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>教學課程：在 Azure App Service 中建置 Python (Django) Web 應用程式 和 PostgreSQL
 

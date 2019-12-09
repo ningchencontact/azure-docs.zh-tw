@@ -10,24 +10,27 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: babc6b1c0b6207d404091db3117f95f6d71c53ac
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b0a9eddf147eedfa972e0574e62c9e7c2eace84f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500636"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818706"
 ---
 > [!NOTE]
 > 適用於 Unity 的語音 SDK 支援 Windows Desktop (x86 和 x64) 或通用 Windows 平台 (x86、x64、ARM/ARM64)、Android (x86、ARM32/64) 以及 iOS (x64 模擬器、ARM32 和 ARM64)
 
 ## <a name="prerequisites"></a>必要條件
 
-開始之前，請務必：
+開始之前：
 
 > [!div class="checklist"]
 > * [建立 Azure 語音資源](../../../../get-started.md)
 > * [設定開發環境](../../../../quickstarts/setup-platform.md?tabs=unity)
-> * [建立空的範例專案](../../../../quickstarts/create-project.md?tabs=unity) 如果您已經這麼做，很棒。 讓我們繼續進行。
+> * [建立空的範例專案](../../../../quickstarts/create-project.md?tabs=unity)
+> * 確定您可以存取麥克風以擷取音訊
+
+如果您已經這麼做，很棒。 讓我們繼續進行。
 
 ## <a name="create-a-unity-project"></a>建立 Unity 專案
 

@@ -4,18 +4,17 @@ description: 在本快速入門中，您將了解如何使用 Azure 入口網站
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
-manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 209bdb919a505e55bdfb8868d556fa1ad08db2fe
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a94e67af927365eda2b8b98240285e7cd3079a95
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717942"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688164"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>快速入門：使用 Azure 入口網站建立事件中樞
 Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可接收和處理數百萬個事件。 事件中樞可以處理及儲存分散式軟體和裝置所產生的事件、資料或遙測。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 如需事件中樞的詳細概觀，請參閱[事件中樞概觀](event-hubs-about.md)和[事件中樞功能](event-hubs-features.md)。
@@ -59,9 +58,11 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 
    ![[新增] 按鈕](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. 在 [建立命名空間]  頁面上，採取下列步驟：
-    1. 輸入命名空間的名稱。 系統會立即檢查此名稱是否可用。
-    2. 選擇定價層 (基本或標準)。
-    3. 選取您要在其中建立命名空間的**訂用帳戶**。
+    1. 輸入命名空間的**名稱**。 系統會立即檢查此名稱是否可用。
+    2. 選擇**定價層** (基本或標準)。
+    3. 請注意，[啟用 Kafka]  選項會自動啟用。 Azure 事件中樞為您提供 Kafka 端點。 此端點可讓您的事件中樞命名空間在原生狀態下了解 [Apache Kafka](https://kafka.apache.org/intro) 訊息通訊協定和 API。 您可使用這項功能，像使用 Kafka 主題一樣與您的事件中樞通訊，而無須變更通訊協定用戶端或執行自己的叢集。 事件中樞支援 [Apache Kafka 1.0 版](https://kafka.apache.org/10/documentation.html)和更新版本。
+    4. 選取您要在其中建立命名空間的**訂用帳戶**。
+    5. 選取現有的**資源群組**或建立新的資源群組。 
     4. 選取命名空間的**位置**。
     5. 選取 [建立]  。 您可能必須等候幾分鐘，讓系統完整佈建資源。
 

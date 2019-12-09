@@ -1,19 +1,18 @@
 ---
-title: 在 Linux 上部署 Docker 應用程式 - Azure App Service
-description: 如何將 Docker 映像部署至適用於 Linux 的 Azure 應用程式服務
-author: msangapu
+title: 快速入門：執行自訂的 Linux 容器
+description: 使用 Azure Container Registry 部署您的第一個自訂容器，在 Azure App Service 上開始使用 Linux 容器。
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
-ms.service: app-service
-ms.openlocfilehash: 2a7dc477b4cd0be0c50569d84e10cfe1d666eac9
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 14ea5444d3d8827919405a4d5aa8a176746c2e72
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392697"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688954"
 ---
-# <a name="deploy-to-azure-using-docker"></a>使用 Docker 部署至 Azure
+# <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>將自訂 Linux 容器部署至 Azure App Service
 
 Linux 上的 App Service 提供 Linux 上的預先定義應用程式堆疊，且支援 .NET、PHP、Node.js 等其他語言。 您也可以使用自訂 Docker 映像，在尚未於 Azure 中定義的應用程式堆疊上執行 Web 應用程式。 本快速入門說明如何將映像從 [Azure Container Registry](/azure/container-registry) (ACR) 部署至 App Service。
 

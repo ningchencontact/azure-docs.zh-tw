@@ -1,25 +1,16 @@
 ---
-title: 建立 C# ASP.NET Core Web 應用程式 - Azure App Service | Microsoft Docs
-description: 了解如何藉由部署預設 C# ASP.NET Core Web 應用程式，在 Azure App Service 中執行 Web 應用程式。
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
+title: 快速入門：建立 C# ASP.NET Core 應用程式
+description: 了解如何從 Visual Studio 部署預設 C# ASP.NET Core Web 應用程式範本，以在 Azure App Service 中執行 Web 應用程式。
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/30/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 919e717811b3b04ca7407772fcf11f293d58508c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 285e4cc1f38dd2adb5934e49d87b43e09d74ce11
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471607"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672119"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>在 Azure 中建立 ASP.NET Core Web 應用程式
 

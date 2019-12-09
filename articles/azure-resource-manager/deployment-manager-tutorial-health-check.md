@@ -1,16 +1,16 @@
 ---
-title: 使用 Azure 部署管理員搭配範本
-description: 使用 Resource Manager 範本與 Azure 部署管理員來部署 Azure 資源。
+title: 使用 Azure 部署管理員健康情況檢查
+description: 使用健康情況檢查，透過 Azure 部署管理員安全地部署 Azure 資源。
 author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0ce37a744cdf22beddcef433fca1a64252e1673d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 355a40db7714ddae39c4171aaa0ebe4b5e5f777e
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149889"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784675"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>教學課程：在 Azure 部署管理員 (公開預覽版) 中使用健康情況檢查
 

@@ -1,26 +1,18 @@
 ---
-title: 在 Linux 上建立 ASP.NET Core 應用程式 - Azure App Service | Microsoft Docs
-description: 將您的第一個 .NET Core Hello World 應用程式部署到 Linux 上的 App Service，只要幾分鐘。
+title: 快速入門：執行 Linux ASP.NET Core 應用程式
+description: 藉由將您的第一個 ASP.NET Core 應用程式部署至 App Service 中的 Linux 容器，在 Azure App Service 上開始使用 Linux 應用程式。
 keywords: azure app service, Web 應用程式, dotnet, core, linux, oss
-services: app-service
-documentationCenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
-ms.service: app-service
-ms.workload: web
 ms.tgt_pltfrm: linux
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 43771392adcbf49c9103ee7ebc4b3febbac11b05
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ea9449a89bcfbdb1378f0cceb31a07a288661bf7
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071222"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687566"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立 ASP.NET Core 應用程式
 
@@ -131,7 +123,7 @@ remote:   ...
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://cephalin-dotnetcore.scm.azurewebsites.net/cephalin-dotnetcore.git
+To https://<app-name>.scm.azurewebsites.net/<app-name>.git
  * [new branch]      master -> master
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 Azure CLI 設計適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
+title: 教學課程：設計適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器 - Azure CLI
 description: 本教學課程說明如何使用 Azure CLI 來建立、設定及查詢您的第一個「適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器」。
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: db0ff9facbd8609955c5ef1918b0f8a6aa53ea65
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0f1f4c07f3dc694bcae9b540c71a11e53a00eb7f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447231"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773675"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>教學課程：使用 Azure CLI 設計適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器 
 在本教學課程中，您將使用 Azure CLI (命令列介面) 及其他公用程式來學習如何：

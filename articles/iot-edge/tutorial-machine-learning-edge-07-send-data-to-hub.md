@@ -1,6 +1,6 @@
 ---
 title: 教學課程：透過透明閘道傳送裝置資料 - Azure IoT Edge 上的 Machine Learning
-description: 教學課程：使用您的開發電腦作為模擬 IoT Edge 裝置，透過設定為透明閘道的裝置將資料傳送至 IoT 中樞。
+description: 本教學課程說明如何使用您的開發電腦作為模擬 IoT Edge 裝置，透過設定為透明閘道的裝置將資料傳送至 IoT 中樞。
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a1974a9d9e635bad4094e38c2c194ff49993611
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 50f339b257110f0a5dc0ac08b9f40043ee384afb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113955"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706901"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>教學課程：透過透明閘道傳送資料
 

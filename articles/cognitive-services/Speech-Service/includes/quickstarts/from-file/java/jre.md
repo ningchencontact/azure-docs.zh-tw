@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0ba76ed2bd7d6259307e2e8046c4695786ff3045
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0dbfab9b1886b39f166b94447fed8dc6707404bd
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500850"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795939"
 ---
 ## <a name="prerequisites"></a>必要條件
 
@@ -17,6 +17,8 @@ ms.locfileid: "73500850"
 > * [建立 Azure 語音資源](../../../../get-started.md)
 > * [設定開發環境](../../../../quickstarts/setup-platform.md?tabs=jre)
 > * [建立空的範例專案](../../../../quickstarts/create-project.md?tabs=jre)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## <a name="add-sample-code"></a>新增範例程式碼
 
@@ -108,6 +110,9 @@ ms.locfileid: "73500850"
 1. 以您自己的檔案名稱取代字串 `whatstheweatherlike.wav`。
 
 1. 儲存專案的變更。
+
+> [!NOTE]
+> 語音 SDK 會預設為使用 en-us 來辨識語言，如需選擇來源語言的詳細資訊，請參閱[指定語音轉換文字的來源語言](../../../../how-to-specify-source-language.md)。
 
 ## <a name="build-and-run-the-app"></a>建置並執行應用程式
 

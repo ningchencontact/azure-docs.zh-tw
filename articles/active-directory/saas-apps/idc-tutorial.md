@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df8dfc72dea9289fc13d648b05b59f6d1bd9b3e0
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 9fc7ccb1d619e36990fbc1b654a2b7be36a287e1
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273598"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705988"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-idc"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 IDC 整合
 
@@ -75,7 +75,7 @@ ms.locfileid: "71273598"
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [IDC]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
-1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
+1. 在 [**選取單一登入方法**] 頁面上，選取 [**SAML**]。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
@@ -93,7 +93,7 @@ ms.locfileid: "71273598"
     在 [登入 URL]  文字方塊中，輸入 URL：`https://www.idc.com/saml-welcome/<SamlWelcomeCode>`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [IDC 用戶端支援小組](mailto:webchanneldev@idc.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 IDC 用戶端支援小組以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
@@ -135,7 +135,7 @@ ms.locfileid: "71273598"
 
 ## <a name="configure-idc-sso"></a>設定 IDC SSO
 
-若要在 **IDC** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和所複製的適當 URL 傳送給 [IDC 支援小組](mailto:webchanneldev@idc.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **IDC** 端設定單一登入，請將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和複製的適當 URL 傳送給 IDC 支援小組。 IDC 會設定此設定，讓兩端的 SAML SSO 連線正確設定。
 
 ### <a name="create-idc-test-user"></a>建立 IDC 測試使用者
 

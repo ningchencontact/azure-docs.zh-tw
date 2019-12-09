@@ -1,5 +1,5 @@
 ---
-title: 使用金鑰保存庫存取 Blob 儲存體 - Azure Databricks
+title: 教學課程 - 使用 Azure Databricks 以金鑰保存庫存取 Blob 儲存體
 description: 本教學課程說明如何使用儲存在金鑰保存庫中的秘密，從 Azure Databricks 存取 Azure Blob 儲存體。
 author: mamccrea
 ms.author: mamccrea
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 16339590c3cfb11235ef4763c2e32c71b521c709
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: f1472d7043a092f35e10fdedbf4c52740e87c51c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539059"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706151"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>教學課程：使用 Azure Key Vault 從 Azure Databricks 存取 Azure Blob 儲存體
 

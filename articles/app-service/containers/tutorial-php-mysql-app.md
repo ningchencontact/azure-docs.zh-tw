@@ -1,22 +1,16 @@
 ---
-title: 在 Linux 上建置搭配 MySQL 的 PHP (Laravel) - Azure App Service | Microsoft Docs
-description: 了解如何讓 PHP 應用程式在 Linux 上的 Azure App Service 中運作，並連線至 Azure 中的 MySQL 資料庫。 此教學課程中將使用 Laravel。
-services: app-service\web
-author: cephalin
-manager: jeconnoc
-ms.service: app-service-web
-ms.workload: web
+title: 教學課程：使用 MySQL 的 Linux PHP 應用程式
+description: 了解如何藉由連線至 Azure 中的 MySQL 資料庫，讓 Linux Node.js 應用程式在 Azure App Service 中運作。 本教學課程中使用 Laravel。
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4fade03d798096e250cb5b56fbb2003ea4b58e1b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: be8bbfde7e9873f9cef3a85cacc2dfcf4db9039b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481320"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687423"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 PHP 和 MySQL 應用程式
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 5c2c843d25da7c413628450f8ef3c1ca14898734
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b9f5929b26a3fa0be43454e3027944cdb4c26cd4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500438"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816920"
 ---
 ## <a name="prerequisites"></a>必要條件
 

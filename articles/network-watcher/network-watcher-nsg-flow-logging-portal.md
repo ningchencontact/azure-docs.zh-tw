@@ -18,12 +18,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: a5d600e761ce3c3cebbe155c6be7e0f5a377eb32
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: afa1d2ca59bacec2695aaff0cacb119a8fbf787b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419626"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766594"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站記錄往返於虛擬機器的網路流量
 
@@ -127,7 +127,7 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
    ![下載流量記錄](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. 選取您在步驟 2 ([啟用 NSG 流量記錄](#enable-nsg-flow-log)) 設定的儲存體帳戶。
-4. 在 [Blob 服務]  下選取 [Blob]  ，然後選取 **insights-logs-networksecuritygroupflowevent** 容器。
+4. 在 [Blob 服務]  下選取 [容器]  ，然後選取 **insights-logs-networksecuritygroupflowevent** 容器。
 5. 在容器中，瀏覽資料夾階層，直到看到 PT1H.json 檔案為止，如下圖所示。 記錄檔會寫入至遵循下列命名慣例的資料夾階層： https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
    ![流量記錄](./media/network-watcher-nsg-flow-logging-portal/log-file.png)

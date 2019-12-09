@@ -4,21 +4,20 @@ description: 深入瞭解如何使用 Azure Data Factory 將資料推送至 Azur
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: f8d46e1e-5c37-4408-80fb-c54be532a4ab
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: da867ae62ce4480c5d5854ae3f28ad258421905d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5b1170f721cf8521cfe1762df0cc616c938ddf28
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809180"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929988"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料推送至 Azure 認知搜尋索引
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -26,7 +25,7 @@ ms.locfileid: "73809180"
 > * [第 2 版 (目前的版本)](../connector-azure-search.md)
 
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱第[2 版中的 Azure 認知搜尋連接器](../connector-azure-search.md)。
+> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱第[2 版中的 Azure 認知搜尋連接器](../connector-azure-search.md)。
 
 本文說明如何使用複製活動，將資料從支援的來源資料存放區推送至 Azure 認知搜尋索引。 支援的來源資料存放區會列於[支援的來源與接收器](data-factory-data-movement-activities.md#supported-data-stores-and-formats)表格的 [來源] 欄中。 本文是根據 [資料移動活動](data-factory-data-movement-activities.md) 一文，該文呈現使用複製活動移動資料的一般概觀以及支援的資料存放區組合。
 
@@ -38,7 +37,7 @@ ms.locfileid: "73809180"
 ## <a name="getting-started"></a>開始使用
 您可以建立具有複製活動的管線，使用不同的工具/Api 將資料從來源資料存放區推送至搜尋索引。
 
-建立管線的最簡單方式就是使用「複製精靈」。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。
+若要建立管線，最簡單的方式就是使用**複製精靈**。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。
 
 您也可以使用下列工具來建立管線： [ **Visual Studio**]、[ **Azure PowerShell**]、[ **Azure Resource Manager 範本**]、[ **.net API**] 和 [ **REST API**]。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
@@ -56,17 +55,17 @@ ms.locfileid: "73809180"
 
 下表提供 Azure 認知搜尋連結服務特有的 JSON 元素說明。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | -------- | ----------- | -------- |
 | 類型 | type 屬性必須設為：**AzureSearch**。 | 是 |
-| url | 搜尋服務的 URL。 | 是 |
-| 索引鍵 | 搜尋服務的管理金鑰。 | 是 |
+| URL | 搜尋服務的 URL。 | 是 |
+| key | 搜尋服務的管理金鑰。 | 是 |
 
 ## <a name="dataset-properties"></a>資料集屬性
 
 如需定義資料集的區段和屬性完整清單，請參閱 [建立資料集](data-factory-create-datasets.md) 一文。 資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型。 不同類型資料集的 **typeProperties** 區段不同。 **AzureSearchIndex** 類型資料集的 typeProperties 區段有下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | -------- | ----------- | -------- |
 | 類型 | type 屬性必須設為 **AzureSearchIndex**。| 是 |
 | IndexName | 搜尋索引的名稱。 Data Factory 不會建立索引。 索引必須存在於 Azure 認知搜尋中。 | 是 |
@@ -77,7 +76,7 @@ ms.locfileid: "73809180"
 
 對於「複製活動」，當接收的類型為 **AzureSearchIndexSink** 時，typeProperties 區段中會有下列可用屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | 指定若文件已經存在於索引中，是否要合併或取代。 請參閱 [WriteBehavior 屬性](#writebehavior-property)。| 合併 (預設值)<br/>上傳| 否 |
 | WriteBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料上傳至搜尋索引。 如需詳細資訊，請參閱 [WriteBatchSize 屬性](#writebatchsize-property)。 | 1 到 1000。 預設值為 1000。 | 否 |
@@ -100,10 +99,10 @@ Azure 認知搜尋服務支援以批次方式撰寫檔。 一個批次可包含 
 
 | Azure 認知搜尋資料類型 | Azure 認知搜尋接收中支援 |
 | ---------------------- | ------------------------------ |
-| 字串 | Y |
+| String | Y |
 | Int32 | Y |
 | Int64 | Y |
-| Double | Y |
+| DOUBLE | Y |
 | Boolean | Y |
 | DataTimeOffset | Y |
 | 字串陣列 | N |
@@ -115,9 +114,9 @@ Azure 認知搜尋服務支援以批次方式撰寫檔。 一個批次可包含 
 
 1. [AzureSearch](#linked-service-properties) 類型的連結服務。
 2. [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties)類型的連結服務。
-3. [SqlServerTable](data-factory-create-datasets.md) 類型的輸入[資料集](data-factory-sqlserver-connector.md#dataset-properties)。
-4. [AzureSearchIndex](data-factory-create-datasets.md) 類型的輸出[資料集](#dataset-properties)。
-4. 具有使用 [SqlSource](data-factory-create-pipelines.md) 和 [AzureSearchIndexSink](data-factory-sqlserver-connector.md#copy-activity-properties) 之複製活動的[管線](#copy-activity-properties)。
+3. [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。
+4. [AzureSearchIndex](#dataset-properties) 類型的輸出[資料集](data-factory-create-datasets.md)。
+4. 具有使用 [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) 和 [AzureSearchIndexSink](#copy-activity-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。
 
 此範例會每小時將時間序列資料從內部部署 SQL Server 資料庫複製到搜尋索引。 範例後面的各節將會說明此範例中使用的 JSON 屬性。
 

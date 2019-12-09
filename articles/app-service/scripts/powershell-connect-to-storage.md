@@ -1,26 +1,17 @@
 ---
-title: Azure PowerShell 指令碼範例 - 將應用程式連線至儲存體帳戶 | Microsoft Docs
-description: Azure PowerShell 指令碼範例 - 將 App Service 應用程式連線至儲存體帳戶
-services: app-service\web
-documentationcenter: ''
-author: syntaxc4
-manager: erikre
-editor: ''
+title: PowerShell：連線至儲存體帳戶
+description: 了解如何使用 Azure PowerShell 將 App Service 的部署和管理自動化。 此範例說明如何將應用程式連線至儲存體帳戶。
 tags: azure-service-management
 ms.assetid: e4831bdc-2068-4883-9474-0b34c2e3e255
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
-ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 1eae5c4b94a59b09e73454fdfcea4e9f041652f2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d1c8951445c0be6a3d4b9c4763d719fc7d79d2d5
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098348"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685323"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account"></a>將 App Service 應用程式連線至儲存體帳戶
 

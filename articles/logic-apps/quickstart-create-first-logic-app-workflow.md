@@ -1,22 +1,18 @@
 ---
-title: 建立第一個自動化工作流程 - Azure Logic Apps
+title: 建立第一個自動化工作流程
 description: 快速入門 - 藉由使用適用於系統整合和企業應用程式整合 (EAI) 解決方案的 Azure Logic Apps，建置您的第一個自動化工作流程
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: b6222747e352f446dab33314729f7f697e328909
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 45b9cdc74fc57e53ca2cd76f8b1f98671f5bbc7e
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824894"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791871"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>快速入門：使用 Azure Logic Apps 建立第一個工作流程 - Azure 入口網站
 

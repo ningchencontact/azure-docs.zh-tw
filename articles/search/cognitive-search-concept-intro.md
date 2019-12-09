@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 5dc33de19ef71a0714052a6457bef9f32fc159c3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 92fe564b849c728952dd549757be42b8b5131b25
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720154"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791023"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Azure 認知搜尋中的 AI 簡介
 
@@ -116,6 +116,8 @@ Azure 認知搜尋服務中的認知技術是以認知服務 API 中預先訓練
 | 索引器 |  一種編目程式，可從外部資料來源擷取可搜尋的資料和中繼資料，並根據索引和資料來源之間的欄位對欄位對應填入索引，以進行文件萃取。 在進行 AI 擴充時，索引子會叫用技能集，並且包含將擴充輸出與索引中的目標欄位產生關聯的欄位對應。 索引子定義中包含管線作業的所有指示和參考，當您執行索引子時，即會叫用管線。 透過額外設定，您可以重複使用現有的處理，且只執行已變更的步驟和技能。 | 請參閱[索引子](search-indexer-overview.md)和[累加式索引編製 (預覽)](cognitive-search-incremental-indexing-conceptual.md)。 |
 | 資料來源  | 索引子用來與 Azure 上支援的外部資料來源類型連線的物件。 | 請參閱[索引子概觀](search-indexer-overview.md) |
 | 索引 | 從定義欄位結構和使用方式的索引結構描述建置，並保存在 Azure 認知搜尋服務中的搜尋索引。 | 請參閱[建立基本索引](search-what-is-an-index.md) | 
+| 知識存放區 | 一個儲存體帳戶，除了可搜尋索引以外，還可形成及投射擴充文件 | 請參閱[知識存放區簡介](knowledge-store-concept-intro.md) | 
+| 索引子快取 | 索引子會快取儲存體帳戶的技能輸出。 快取可讓索引子在編輯技能集時將重新處理大量文件的成本降至最低。 | 請參閱[累加式索引編製](cognitive-search-incremental-indexing-conceptual.md) | 
 
 <a name="where-do-i-start"></a>
 
