@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 26ba3ff600ddca6158579941ab5d32b60ff13101
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 429205d1df91b5a63679d1189903e5340ab837f8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950371"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913889"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的網路概念
 
@@ -66,7 +66,7 @@ Azure 平台也有助於簡化 AKS 叢集的虛擬網路。 當您建立 Kuberne
 
 ### <a name="kubenet-basic-networking"></a>Kubenet (基本) 網路
 
-*Kubenet* 網路選項是建立 AKS 叢集時的預設組態。 使用 *kubenet*，節點會從 Azure 虛擬網路子網路取得 IP 位址。 Pod 會從邏輯上不同的位址空間接收至節點的 Azure 虛擬網路子網路的 IP 位址。 然後設定網路位址轉譯 (NAT)，以便 Pod 可以連線到 Azure 虛擬網路上的資源。 流量的來源 IP 位址會被轉譯為節點的主要 IP 位址。
+*Kubenet* 網路選項是建立 AKS 叢集時的預設組態。 使用 *kubenet*，節點會從 Azure 虛擬網路子網路取得 IP 位址。 Pod 會從邏輯上不同的位址空間接收至節點的 Azure 虛擬網路子網路的 IP 位址。 然後設定網路位址轉譯 (NAT)，以便 Pod 可以連線到 Azure 虛擬網路上的資源。 流量的來源 IP 位址是 NAT 到節點的主要 IP 位址。
 
 節點會使用[kubenet][kubenet] Kubernetes 外掛程式。 您可以讓 Azure 平台為您建立及設定虛擬網路，或選擇部署 AKS 叢集到現有的虛擬網路子網路。 同樣地，只有節點會收到可路由傳送的 IP 位址，而 pod 會使用 NAT 與 AKS 叢集外的其他資源進行通訊。 這種方法可大幅減少您需要在網路空間中保留，以供 Pod 使用的 IP 位址數目。
 
@@ -92,21 +92,21 @@ Kubenet 和 Azure CNI 都可為您的 AKS 叢集提供網路連線能力。 不�
     * 您必須手動管理和維護使用者定義的路由（Udr）。
     * 每個叢集最多400個節點。
 * **Azure CNI**
-    * Pod 會取得完整的虛擬網路連線能力，並可直接從叢集外部連線。
+    * Pod 會取得完整的虛擬網路連線，並可透過其私人 IP 位址從連線的網路直接取得。
     * 需要更多的 IP 位址空間。
 
 Kubenet 與 Azure CNI 之間存在下列行為差異：
 
 | 功能                                                                                   | Kubenet   | Azure CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
-| 在現有或新的虛擬網路中部署叢集                                            | 支援的 Udr 手動套用 | 支援 |
-| Pod-pod 連線能力                                                                         | 支援 | 支援 |
+| 在現有或新的虛擬網路中部署叢集                                            | 支援的 Udr 手動套用 | 支援的 |
+| Pod-pod 連線能力                                                                         | 支援的 | 支援的 |
 | Pod-VM 連線能力;相同虛擬網路中的 VM                                          | 適用于 pod 起始時 | 適用于這兩種方式 |
 | Pod-VM 連線能力;對等互連虛擬網路中的 VM                                            | 適用于 pod 起始時 | 適用于這兩種方式 |
 | 使用 VPN 或 Express Route 的內部部署存取                                                | 適用于 pod 起始時 | 適用于這兩種方式 |
-| 存取受服務端點保護的資源                                             | 支援 | 支援 |
-| 使用負載平衡器服務、應用程式閘道或輸入控制器來公開 Kubernetes 服務 | 支援 | 支援 |
-| 預設 Azure DNS 和私人區域                                                          | 支援 | 支援 |
+| 存取受服務端點保護的資源                                             | 支援的 | 支援的 |
+| 使用負載平衡器服務、應用程式閘道或輸入控制器來公開 Kubernetes 服務 | 支援的 | 支援的 |
+| 預設 Azure DNS 和私人區域                                                          | 支援的 | 支援的 |
 
 ### <a name="support-scope-between-network-models"></a>網路模型之間的支援範圍
 
@@ -115,7 +115,7 @@ Kubenet 與 Azure CNI 之間存在下列行為差異：
 * 當您建立 AKS 叢集時，Azure 平臺可以自動建立和設定虛擬網路資源。
 * 當您建立 AKS 叢集時，可以手動建立和設定虛擬網路資源，並連結至這些資源。
 
-雖然 kubenet 和 Azure CNI 都支援服務端點或 Udr 之類的功能，但[AKS 的支援原則][support-policies]會定義您可以進行的變更。 例如:
+雖然 kubenet 和 Azure CNI 都支援服務端點或 Udr 之類的功能，但[AKS 的支援原則][support-policies]會定義您可以進行的變更。 例如：
 
 * 如果您手動建立 AKS 叢集的虛擬網路資源，當您設定自己的 Udr 或服務端點時，就會支援。
 * 如果 Azure 平臺自動為您的 AKS 叢集建立虛擬網路資源，則不支援手動變更這些 AKS 管理的資源，以設定您自己的 Udr 或服務端點。
@@ -140,9 +140,9 @@ Kubenet 與 Azure CNI 之間存在下列行為差異：
 
 ## <a name="network-policies"></a>網路原則
 
-根據預設，AKS 叢集內的所有 Pod 都可無限制地傳送及接收流量。 為了提升安全性，您可以定義控制流量的規則。 後端應用程式通常只會對必要的前端服務公開，或是資料庫元件僅供與其連線的應用程式層存取。
+根據預設，AKS 叢集中的所有 Pod 都可以無限制地傳送及接收流量。 為了提升安全性，您可以定義控制流量的規則。 後端應用程式通常只會對必要的前端服務公開，或是資料庫元件僅供與其連線的應用程式層存取。
 
-網路原則是 AKS 中提供的 Kubernetes 功能，可讓您控制 pod 之間的流量。 您可以根據指派的標籤、命名空間或流量連接埠等設定，選擇允許或拒絕流量。 網路安全性群組較適用於 AKS 節點而非 Pod。 使用網路原則是一種控制流量的較合適且雲端原生的方式。 由於 Pod 是在 AKS 叢集內以動態方式建立的，因此可以自動套用所需的網路原則。
+網路原則是 AKS 中提供的 Kubernetes 功能，可讓您控制 pod 之間的流量。 您可以根據指派的標籤、命名空間或流量連接埠等設定，選擇允許或拒絕流量。 網路安全性群組較適用於 AKS 節點而非 Pod。 使用網路原則是一種控制流量的較合適且雲端原生的方式。 由於在 AKS 叢集中動態建立 Pod，因此可以自動套用所需的網路原則。
 
 如需詳細資訊，請參閱[在 Azure Kubernetes Service （AKS）中使用網路原則來保護 pod 之間的流量][use-network-policies]。
 

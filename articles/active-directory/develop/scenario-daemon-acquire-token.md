@@ -1,5 +1,5 @@
 ---
-title: 呼叫 web Api 的 Daemon 應用程式（取得應用程式的權杖）-Microsoft 身分識別平臺
+title: 取得可呼叫 web Api 之 daemon 應用程式中的權杖-Microsoft 身分識別平臺 |Azure
 description: 瞭解如何建立可呼叫 web Api （取得權杖）的 daemon 應用程式
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a5a3ac1438d5e958317f1899fc6c447f5c149ac
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 0588e20467701512da6542da0d87fca786dcc793
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175526"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920288"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>呼叫 web Api 的 Daemon 應用程式-取得權杖
 

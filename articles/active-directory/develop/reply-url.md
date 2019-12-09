@@ -1,5 +1,5 @@
 ---
-title: 重新導向 URI/回復 URL 限制和限制-Microsoft 身分識別平臺
+title: 重新導向 URI & 回復 URL 限制-Microsoft 身分識別平臺 |Azure
 description: 回復 Url/重新導向 Url 限制 & 限制
 author: SureshJa
 ms.author: sureshja
@@ -11,12 +11,12 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9cc6ab0342682bce7befdfe412221ec581312be
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: bfc13c1057f74fb1eb5a41210ffaf166e69bb06e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389605"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920322"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>重新導向 URI/回覆 URL 限制
 
@@ -29,14 +29,14 @@ ms.locfileid: "72389605"
 | 已登入的帳戶 | 重新導向 Uri 的數目上限 | 描述 |
 |--------------------------|---------------------------------|-------------|
 | 任何組織的 Azure Active Directory （Azure AD）租使用者中的 Microsoft 公司或學校帳戶 | 256 | 應用程式資訊清單中的 `signInAudience` 欄位設定為*AzureADMyOrg*或*AzureADMultipleOrgs* |
-| 個人 Microsoft 帳戶和公司和學校帳戶 | 100 | 應用程式資訊清單中的 `signInAudience` 欄位設定為*AzureADandPersonalMicrosoftAccount* |
+| 個人 Microsoft 帳戶和公司和學校帳戶 | 100 | 應用程式資訊清單中的 `signInAudience` 欄位已設定為*AzureADandPersonalMicrosoftAccount* |
 
 ## <a name="maximum-uri-length"></a>URI 長度上限
 
 針對您新增至應用程式註冊的每個重新導向 URI，您最多可以使用256個字元。
 
 ## <a name="supported-schemes"></a>支援的架構
-Azure AD 應用程式模型現在支援 HTTP 和 HTTPS 架構，適用于在任何組織的 Azure Active Directory （Azure AD）租使用者中登入 Microsoft 公司或學校帳戶的應用程式。 這是應用程式資訊清單中的 `signInAudience` 欄位設定為*AzureADMyOrg*或*AzureADMultipleOrgs*。 對於登入個人 Microsoft 帳戶和公司和學校帳戶的應用程式（也就是 `signInAudience` 設定為*AzureADandPersonalMicrosoftAccount*），只允許 HTTPS 配置。
+Azure AD 應用程式模型現在支援 HTTP 和 HTTPS 架構，適用于在任何組織的 Azure Active Directory （Azure AD）租使用者中登入 Microsoft 公司或學校帳戶的應用程式。 這是應用程式資訊清單中 `signInAudience` 欄位設定為*AzureADMyOrg*或*AzureADMultipleOrgs*。 對於登入個人 Microsoft 帳戶和公司和學校帳戶（`signInAudience` 設定為*AzureADandPersonalMicrosoftAccount*）的應用程式，只允許 HTTPS 配置。
 
 > [!NOTE]
 > 新的[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)體驗不允許開發人員在 UI 上使用 HTTP 配置來新增 uri。 只有透過應用程式資訊清單編輯器，才支援為登入工作或學校帳戶的應用程式新增 HTTP Uri。 未來，新的應用程式將無法在重新導向 URI 中使用 HTTP 配置。 不過，包含重新導向 Uri 中之 HTTP 配置的繼承應用程式將會繼續工作。 開發人員必須在重新導向 Uri 中使用 HTTPS 配置。

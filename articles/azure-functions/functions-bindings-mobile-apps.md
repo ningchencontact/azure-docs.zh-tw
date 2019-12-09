@@ -5,17 +5,17 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 474cdc52d34d3f5e00dee69b7cc9861042cbcc04
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 051b8780a102a8a1ec4d3979cc53b686e2823dc8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231121"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928604"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Mobile Apps 繫結 
 
 > [!NOTE]
-> Azure Mobile Apps 繫結僅適用於 Azure Functions 1.x。 Azure Functions 2.x 中不支援這些繫結。
+> Azure Mobile Apps 繫結僅適用於 Azure Functions 1.x。 Azure Functions 2.x 和更新版本中不支援它們。
 
 本文說明如何在 Azure Functions 中使用 [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md)。 Azure Functions 支援 Mobile Apps 的輸入和輸出繫結。
 

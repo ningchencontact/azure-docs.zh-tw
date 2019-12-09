@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: e24d930ec82ea92a040efeed3056a10917ce2b2a
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: ded3fc97c4cdf041fdf50d7b4aa9a9b2fbdf1c84
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263915"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913497"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>服務主體與 Azure Kubernetes Service (AKS)
 
@@ -43,7 +43,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 若要使用 Azure CLI 手動建立服務主體，請使用[az ad sp create-rbac][az-ad-sp-create]命令。 在下列範例中，`--skip-assignment` 參數會防止指派任何額外的預設指派：
 
 ```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
+az ad sp create-for-rbac --skip-assignment --name myAKSClusterServicePrincipal
 ```
 
 輸出類似於下列範例： 記下您自己的 `appId` 與 `password`。 當您在下一節中建立 AKS 叢集時，會使用這些值。
@@ -51,8 +51,8 @@ az ad sp create-for-rbac --skip-assignment
 ```json
 {
   "appId": "559513bd-0c19-4c1a-87cd-851a26afd5fc",
-  "displayName": "azure-cli-2019-03-04-21-35-28",
-  "name": "http://azure-cli-2019-03-04-21-35-28",
+  "displayName": "myAKSClusterServicePrincipal",
+  "name": "http://myAKSClusterServicePrincipal",
   "password": "e763725a-5eee-40e8-a466-dc88d980f415",
   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
 }
@@ -93,7 +93,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
-如果您使用 Azure Container Registry （ACR）做為容器映射存放區，則必須將許可權授與 AKS 叢集的服務主體，才能讀取和提取映射。 目前，建議的設定是使用[az aks create][az-aks-create]或 [az aks update] [az-aks-update] 命令來與登錄整合，並為服務主體指派適當的角色。 如需詳細步驟，請參閱[使用來自 Azure Kubernetes Service 的 Azure Container Registry 進行驗證][aks-to-acr]。
+如果您使用 Azure Container Registry （ACR）做為容器映射存放區，則必須將許可權授與 AKS 叢集的服務主體，才能讀取和提取映射。 目前，建議的設定是使用[az aks create][az-aks-create]或[az aks update][az-aks-update]命令來與登錄整合，並為服務主體指派適當的角色。 如需詳細步驟，請參閱[使用來自 Azure Kubernetes Service 的 Azure Container Registry 進行驗證][aks-to-acr]。
 
 ### <a name="networking"></a>網路功能
 
@@ -102,7 +102,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 - 建立[自訂角色][rbac-custom-role]，並定義下列角色許可權：
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft.Network/virtualNetworks/subnets/write*
+  - *Microsoft 網路/virtualNetworks/子網/寫入*
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
@@ -117,7 +117,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
   - *Microsoft.Compute/disks/write*
 - 或者，在資源群組上指派[儲存體帳戶參與者][rbac-storage-contributor]內建角色
 
-### <a name="azure-container-instances"></a>Azure Container Instances
+### <a name="azure-container-instances"></a>Azure 容器執行個體
 
 如果您使用 Virtual Kubelet 來與 AKS 整合，並選擇在與 AKS 叢集不同的資源群組中執行「Azure 容器執行個體」(ACI)，就必須將 ACI 資源群組的「參與者」權限授與 AKS 服務主體。
 
@@ -129,8 +129,8 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 - 根據預設，服務主體認證的有效期限為一年。 您可以隨時[更新或輪替服務主體認證][update-credentials]。
 - 每個服務主體都會與 Azure AD 應用程式相關聯。 Kubernetes 叢集的服務主體可與任何有效的 Azure AD 應用程式名稱相關聯 (例如： *https://www.contoso.org/example* )。 應用程式的 URL 不一定是實際端點。
 - 當您指定服務主體**用戶端識別碼**時，請使用 `appId` 的值。
-- 在 Kubernetes 叢集中的代理程式節點 Vm 上，服務主體認證會儲存在檔案 `/etc/kubernetes/azure.json`
-- 當您使用[az aks create][az-aks-create]命令自動產生服務主體時，服務主體認證會寫入至用來執行命令之電腦上 `~/.azure/aksServicePrincipal.json` 的檔案中。
+- 在 Kubernetes 叢集中的代理程式節點 Vm 上，服務主體認證會儲存在檔案中 `/etc/kubernetes/azure.json`
+- 當您使用[az aks create][az-aks-create]命令自動產生服務主體時，服務主體認證會寫入至用來執行命令之電腦上的檔案 `~/.azure/aksServicePrincipal.json`。
 - 當您刪除[az AKS create][az-aks-create]所建立的 AKS 叢集時，不會刪除自動建立的服務主體。
     - 若要刪除服務主體，請查詢您的叢集*servicePrincipalProfile* ，然後使用[az ad app delete][az-ad-app-delete]進行刪除。 請將下列資源群組和叢集名稱更換為您自己的值：
 
@@ -173,6 +173,7 @@ ls -la $HOME/.azure/aksServicePrincipal.json
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-update]: /cli/azure/aks#az-aks-update
 [rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
 [rbac-custom-role]: ../role-based-access-control/custom-roles.md
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor

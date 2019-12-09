@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 903551bfcaae3ffa7ccee72b1a5d781413864b32
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 333a3b93d872c1a99d1ec18d4941adc8986d4a03
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868451"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914560"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>什麼是 Azure AD Connect 雲端布建？
 Azure AD Connect 雲端布建是新的 Microsoft 代理程式，其設計目的是為了符合並完成您的混合式身分識別目標，讓使用者、群組和連絡人同步處理 Azure AD。  它可以與 Azure AD Connect 同步處理一起使用，並提供下列優點：

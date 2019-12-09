@@ -1,5 +1,5 @@
 ---
-title: 使用執行 SSIS 套件活動執行 SSIS 套件-Azure
+title: 使用執行 SSIS 套件活動執行 SSIS 套件
 description: 本文說明如何使用執行 SSIS 套件活動，在 Azure Data Factory 管線中執行 SQL Server Integration Services （SSIS）套件。
 services: data-factory
 documentationcenter: ''
@@ -8,22 +8,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 11/14/2019
-author: swinarko
 ms.author: sawinark
+author: swinarko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: ddb7cd06934c85243717dd2a34dc99bae582b6fa
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 11/14/2019
+ms.openlocfilehash: 6027c2d94535ca2ef5c41e7027fe070c6ccb21a0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122982"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926487"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用 Execute SSIS 套件活動執行 SSIS 套件
 本文說明如何使用執行 SSIS 套件活動，在 Azure Data Factory 管線中執行 SQL Server Integration Services （SSIS）套件。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -57,7 +58,7 @@ ms.locfileid: "74122982"
 
     當您建立或編輯金鑰保存庫連結服務時，您可以選取或編輯現有的金鑰保存庫，或建立一個新的。 如果您尚未這麼做，請務必將您的金鑰保存庫存取權授與 Data Factory 受控識別。 您也可以直接以下列格式輸入您的密碼： `<Key vault linked service name>/<secret name>/<secret version>`。 如果您的套件需要32位執行時間才能執行，請選取 [ **32 位運行**時間] 核取方塊。
 
-   針對 [**封裝位置**]，選取 [ **SSISDB**]、 **[檔案系統（封裝）** ]、 **[檔案系統（專案）** ] 或 [**內嵌封裝**]。 如果您選取 [ **SSISDB** ] 做為您的套件位置，如果您的 AZURE ssis IR 是以 Azure SQL Database 伺服器或受控實例所裝載的 ssis 目錄（SSISDB）布建，則會自動選取它，指定要執行部署的套件加入 SSISDB。 
+   針對 [**封裝位置**]，選取 [ **SSISDB**]、 **[檔案系統（封裝）** ]、 **[檔案系統（專案）** ] 或 [**內嵌封裝**]。 如果您選取 [ **SSISDB** ] 做為封裝位置，如果您的 AZURE ssis IR 是以 Azure SQL Database 伺服器或受控實例所裝載的 ssis 目錄（SSISDB）布建，則會自動選取此元件，並指定要執行且已部署到 SSISDB 的套件。 
 
     如果您的 Azure SSIS IR 正在執行，且已清除 [**手動輸入**] 核取方塊，請從 SSISDB 流覽並選取現有的資料夾、專案、套件或環境。 選取 [重新整理 **]，從**SSISDB 提取新加入的資料夾、專案、套件或環境，讓它們可供流覽和選取。 若要流覽或選取封裝執行的環境，您必須事先設定專案，將這些環境新增為 SSISDB 底下相同資料夾中的參考。 如需詳細資訊，請參閱[建立和對應 SSIS 環境](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014)。
 
@@ -69,13 +70,13 @@ ms.locfileid: "74122982"
 
    ![在 [設定] 索引標籤上設定屬性 - 手動](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-   如果您選取**檔案系統（套件）**  作為您的套件位置（如果未布建您的 AZURE SSIS IR，則會自動選取），請提供封裝檔案的通用命名慣例（UNC）路徑，以指定要執行的套件（`.dtsx`） 的 **封裝路徑** 方塊中。 例如，如果您將封裝儲存在 Azure 檔案儲存體中，其封裝路徑會 `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`。 
+   如果您選取 [**檔案系統（套件）** ] 做為套件位置（如果您的 AZURE SSIS IR 未布建，則會自動選取），請在 [**封裝路徑**] 方塊中提供封裝檔案（`.dtsx`）的通用命名慣例（UNC）路徑，以指定要執行的封裝。 例如，如果您將封裝儲存在 Azure 檔案儲存體中，其封裝路徑會 `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`。 
    
    如果您在不同的檔案中設定您的封裝，您也必須在 [設定**路徑**] 方塊中提供設定檔案（`.dtsConfig`）的 UNC 路徑。 例如，如果您將設定儲存在 Azure 檔案儲存體中，其設定路徑就會 `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`。
 
    ![在 [設定] 索引標籤上設定屬性 - 手動](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
 
-   如果您選取 [**檔案系統（專案）** ] 做為封裝位置，請在 [**專案路徑**] 方塊中提供專案檔的 UNC 路徑（`.ispac`），並在**封裝名稱**中，從專案的封裝檔案（`.dtsx`）中，指定要執行的封裝。方框. 例如，如果您將專案儲存在 Azure 檔案儲存體中，其專案路徑會 `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`。
+   如果您選取 [**檔案系統（專案）** ] 做為封裝位置，請在 [**專案路徑**] 方塊中提供專案檔的 UNC 路徑（`.ispac`），然後在 [**封裝名稱**] 方塊中，將封裝檔案（`.dtsx`），指定為要執行的封裝。 例如，如果您將專案儲存在 Azure 檔案儲存體中，其專案路徑會 `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`。
 
    ![在 [設定] 索引標籤上設定屬性 - 手動](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
 
@@ -99,17 +100,17 @@ ms.locfileid: "74122982"
    
    針對先前提到的所有 UNC 路徑，完整檔案名必須少於260個字元。 目錄名稱必須少於248個字元。
 
-1. 在 [執行 SSIS 套件] 活動的 [ **SSIS 參數**] 索引標籤上，如果您的 AZURE SSIS IR 執行中，則會選取**SSISDB**作為您的封裝位置，並清除 [**設定**] 索引標籤上的 [**手動專案**] 核取方塊（現有的 SSIS）系統會顯示您在所選項目或來自 SSISDB 中的封裝中的參數，讓您為它們指派值。 否則，您可以逐一輸入它們，以手動為其指派值。 請確定它們存在且已正確輸入，您的套件執行才會成功。 
+1. 在 [執行 SSIS 套件] 活動的 [ **SSIS 參數**] 索引標籤上，如果您的 AZURE SSIS IR 執行中，則會選取 [ **ssisdb** ] 做為您的套件位置，並清除 [**設定**] 索引標籤上的 [**手動專案**] 核取方塊，為您顯示所選項目或套件中的現有 SSIS 參數，讓您為它們指派值。 否則，您可以逐一輸入它們，以手動為其指派值。 請確定它們存在且已正確輸入，您的套件執行才會成功。 
    
-   如果您在透過 SQL Server Data Tools 和**檔案系統（套件）** 建立套件時使用了**EncryptSensitiveWithUserKey**保護層級，或已選取 **[檔案系統（專案）** ] 做為封裝位置，則也需要重新輸入您的敏感性參數，以在設定檔或此索引標籤中指派值給它們。 
+   如果您在透過 SQL Server Data Tools 和**檔案系統（套件）** 建立套件時使用了**EncryptSensitiveWithUserKey**保護等級，或已選取 **[檔案系統（專案）** ] 做為封裝位置，則也需要重新輸入敏感性參數，以在設定檔或此索引標籤中指派值給它們。 
    
    當您將值指派給參數時，您可以使用運算式、函式、Data Factory 系統變數，以及 Data Factory 管線參數或變數來加入動態內容。 或者，您可以使用儲存在金鑰保存庫中的秘密作為其值（請參閱上一步）。
 
    ![在 [SSIS 參數] 索引標籤上設定屬性](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-1. 在 [執行 SSIS 套件] 活動的 [**連線管理員**] 索引標籤上，如果您的 AZURE SSIS IR 執行中，則會選取**SSISDB**作為您的封裝位置，並清除 [**設定**] 索引標籤上的 [**手動專案**] 核取方塊（現有的系統會顯示您在所選項目或來自 SSISDB 的封裝中的連線管理員，讓您將值指派給其屬性。 否則，您可以逐一輸入它們，以手動將值指派給其屬性。 請確定它們存在且已正確輸入，您的套件執行才會成功。 
+1. 在 [執行 SSIS 套件] 活動的 [**連線管理員**] 索引標籤上，如果您的 AZURE SSIS IR 執行中，則會選取 [ **ssisdb** ] 作為您的封裝位置，而 [**設定**] 索引標籤上的 [**手動專案**] 核取方塊會顯示，讓您可以將值指派給其屬性。 否則，您可以逐一輸入它們，以手動將值指派給其屬性。 請確定它們存在且已正確輸入，您的套件執行才會成功。 
    
-   如果您在透過 SQL Server Data Tools 和**檔案系統（套件）** 建立套件時使用了**EncryptSensitiveWithUserKey**保護層級，或已選取 **[檔案系統（專案）** ] 做為封裝位置，則也需要重新輸入您的敏感性連線管理員屬性，可在設定檔或此索引標籤中指派值給它們。 
+   如果您在透過 SQL Server Data Tools 和**檔案系統（套件）** 建立封裝時使用了**EncryptSensitiveWithUserKey**保護層級，或已選取 **[檔案系統（專案）** ] 做為封裝位置，則也需要重新輸入您的敏感性連線管理員屬性，以在設定檔或此索引標籤中指派值給它們。 
    
    當您將值指派給連接管理員屬性時，您可以使用運算式、函式、Data Factory 系統變數，以及 Data Factory 管線參數或變數來加入動態內容。 或者，您可以使用儲存在金鑰保存庫中的秘密作為其值（請參閱上一步）。
 
@@ -117,7 +118,7 @@ ms.locfileid: "74122982"
 
 1. 在 [執行 SSIS 套件] 活動的 [**屬性覆寫**] 索引標籤上，逐一輸入所選封裝中現有屬性的路徑，以手動為其指派值。 請確定它們存在且已正確輸入，您的套件執行才會成功。 例如，若要覆寫使用者變數的值，請以下列格式輸入其路徑： `\Package.Variables[User::<variable name>].Value`。 
    
-   如果您在透過 SQL Server Data Tools 和**檔案系統（套件）** 建立套件時使用了**EncryptSensitiveWithUserKey**保護層級，或已選取 **[檔案系統（專案）** ] 做為封裝位置，則也需要重新輸入您的敏感性屬性，可在設定檔或此索引標籤中指派值給它們。 
+   如果您在透過 SQL Server Data Tools 和**檔案系統（套件）** 建立套件時使用了**EncryptSensitiveWithUserKey**保護等級，或已選取 **[檔案系統（專案）** ] 做為封裝位置，則也需要重新輸入您的敏感性屬性，以在設定檔或此索引標籤中指派值給它們。 
    
    當您將值指派給屬性時，您可以使用運算式、函數、Data Factory 系統變數，以及 Data Factory 管線參數或變數來加入動態內容。
 

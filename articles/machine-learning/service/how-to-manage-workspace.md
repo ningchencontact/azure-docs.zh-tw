@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e3915a2f55680fc2e24ac63d5e7170ada026c2e
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: c7ff51c18d4ec41c706518631071e8feb3bafe59
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615194"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912436"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>建立和管理 Azure 入口網站中的 Azure Machine Learning 工作區
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,28 +24,28 @@ ms.locfileid: "73615194"
 
 ## <a name="create-a-workspace"></a>建立工作區
 
-若要建立工作區，您將需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
+若要建立工作區，您將需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
-1. 使用您的 Azure 訂用帳號憑證登入[Azure 入口網站](https://portal.azure.com/)。 
+1. 使用您 Azure 訂閱的認證來登入 [Azure 入口網站](https://portal.azure.com/)。 
 
 1. 在 Azure 入口網站的左上角，選取 [+建立資源]。
 
       ![建立新的資源](../../../includes/media/aml-create-in-portal/create-workspace.gif)
 
-1. 使用 [搜尋] 列來尋找**Machine Learning**。
+1. 使用搜尋列尋找 **Machine Learning**。
 
-1. 選取 [ **Machine Learning**]。
+1. 選取 [Machine Learning]。
 
-1. 在 [ **Machine Learning** ] 窗格中，選取 [**建立**] 以開始。
+1. 在 [Machine Learning] 窗格中選取 [建立] 來開始操作。
 
 1. 提供下列資訊來設定新的工作區：
 
-   欄位|說明 
+   欄位|描述 
    ---|---
    工作區名稱 |輸入可識別您工作區的唯一名稱。 在此範例中，我們使用 **docs-ws**。 名稱必須是整個資源群組中唯一的。 請使用可輕鬆回想並且與其他人建立的工作區有所區別的名稱。  
-   訂用帳戶 |選取您要使用的 Azure 訂用帳戶。
-   資源群組 | 在您的訂用帳戶中使用現有的資源群組，或輸入名稱來建立新的資源群組。 資源群組會保留 Azure 方案的相關資源。 在此範例中，我們使用 **docs-aml**。 
-   位置 | 選取最接近您的使用者與資料資源的位置，以建立工作區。
+   Subscription |選取您要使用的 Azure 訂用帳戶。
+   Resource group | 在您的訂用帳戶中使用現有的資源群組，或輸入名稱來建立新的資源群組。 資源群組會保留 Azure 方案的相關資源。 在此範例中，我們使用 **docs-aml**。 
+   Location | 選取最接近您的使用者與資料資源的位置，以建立工作區。
    工作區版本 | 選取 [**基本**] 或 [**企業**]。  此工作區版本會決定您可以存取和定價的功能。 深入瞭解[基本和企業版供應](overview-what-is-azure-ml.md#sku)專案。 
 
     ![設定您的工作區](media/how-to-manage-workspace/select-edition.png)
@@ -53,7 +53,7 @@ ms.locfileid: "73615194"
 1. 在完成工作區的設定後，選取 [建立]。 
 
    > [!Warning] 
-   > 在雲端中建立您的工作區可能需要幾分鐘的時間。
+   > 在雲端中建立工作區可能需要數分鐘的時間。
 
    程序完成後，會出現部署成功訊息。 
  
@@ -73,15 +73,15 @@ ms.locfileid: "73615194"
 
 您可以將工作區從基本版本升級至 Enterprise edition，以利用增強功能，例如低程式碼體驗和增強的安全性功能。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 登入 [Azure Machine Learning Studio](https://ml.azure.com)。
 
 1. 選取您想要升級的工作區。
 
-1. 選取頂端或升級訊息中的 [**升級**]。
+1. 選取頁面右上方的 [**深入瞭解**]。
 
-    ![升級工作區](media/how-to-manage-workspace/upgrade.png)
+   [![升級工作區](media/how-to-manage-workspace/upgrade.png)](media/how-to-manage-workspace/upgrade.png#lightbox)
 
-1. 選取 [**確認更新**]。
+1. 在出現的視窗中選取 [**升級**]。
 
 
 > [!IMPORTANT]
@@ -91,7 +91,7 @@ ms.locfileid: "73615194"
 
 1. 在 [頂端搜尋] 欄位中，輸入**Machine Learning**。  
 
-1. 選取 [ **Machine Learning**]。
+1. 選取 [Machine Learning]。
 
    ![搜尋 Azure Machine Learning 工作區](media/how-to-manage-workspace/find-workspaces.png)
 

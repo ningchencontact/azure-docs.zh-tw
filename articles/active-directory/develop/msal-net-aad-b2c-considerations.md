@@ -1,29 +1,25 @@
 ---
-title: Azure AD B2C （適用于 .NET 的 Microsoft 驗證程式庫）
+title: Azure AD B2C （MSAL.NET） |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解使用 Azure AD B2C 搭配適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）時的特定考慮。
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0996c5635223800a981497256654b7e418bf4163
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b8940ca6887e5c37659dd5b8d5a24ba7a2f4b889
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175609"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921939"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>使用 MSAL.NET 以社交身分識別登入使用者
 
@@ -40,7 +36,7 @@ ms.locfileid: "73175609"
 
 - `azureADB2CHostname` 是 Azure AD B2C 租使用者加上主機的名稱（例如 `{your-tenant-name}.b2clogin.com`），
 - `tenant` 是 Azure AD B2C 租使用者的完整名稱（例如，`{your-tenant-name}.onmicrosoft.com`）或租使用者的 GUID， 
-- `policyName` 要套用的原則或使用者流程的名稱（例如，"b2c_1_susi" 用於註冊/登入）。
+- `policyName` 要套用的原則或使用者流程的名稱（例如「b2c_1_susi」進行註冊/登入）。
 
 如需 Azure AD B2C 授權單位的詳細資訊，請參閱此[檔](/azure/active-directory-b2c/b2clogin)。
 
@@ -170,9 +166,9 @@ MSAL.Net 支援[權杖](/dotnet/api/microsoft.identity.client.tokencache?view=az
 
 許多 Azure AD B2C 案例中都缺少這兩個宣告。 
 
-客戶的影響是，當嘗試顯示 [使用者名稱] 欄位時，您會收到「遺漏權杖回應」作為值嗎？ 若是如此，這是因為對於社交帳戶和外部身分識別提供者（Idp）的限制，Azure AD B2C 不會在 preferred_username 的 IdToken 中傳回值。 Azure AD 會傳回 preferred_username 的值，因為它知道使用者的身分，但針對 Azure AD B2C，因為使用者可以使用本機帳戶、Facebook、Google、GitHub 等進行登入。不會有 Azure AD B2C 用於 preferred_username 的一致值。 若要解除封鎖 MSAL 與 ADAL 的快取相容性，我們決定在處理 Azure AD B2C 帳戶時，于結束時使用「權杖回應遺漏」，當 IdToken 傳回 preferred_username 的任何內容時。 MSAL 必須傳回 preferred_username 的值，以維持跨程式庫的快取相容性。
+客戶的影響是，當嘗試顯示 [使用者名稱] 欄位時，您會收到「遺漏權杖回應」作為值嗎？ 若是如此，這是因為因為社交帳戶和外部身分識別提供者（Idp）的限制，Azure AD B2C 不會在 preferred_username 的 IdToken 中傳回值。 Azure AD 會傳回 preferred_username 的值，因為它知道使用者是誰，但對於 Azure AD B2C，因為使用者可以使用本機帳戶、Facebook、Google、GitHub 等進行登入。 preferred_username 使用的 Azure AD B2C 沒有一致的值。 若要解除封鎖 MSAL 與 ADAL 的快取相容性，我們決定在處理 Azure AD B2C 帳戶時，于結束時使用「權杖回應中遺漏」，而當 IdToken 不傳回任何 preferred_username。 MSAL 必須傳回 preferred_username 的值，以維持跨程式庫的快取相容性。
 
-### <a name="workarounds"></a>方法
+### <a name="workarounds"></a>因應措施
 
 #### <a name="mitigation-for-the-missing-tenant-id"></a>降低遺失的租使用者識別碼
 

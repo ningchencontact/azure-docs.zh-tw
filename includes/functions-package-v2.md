@@ -3,22 +3,22 @@ title: 包含檔案
 description: 包含檔案
 services: functions
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 2940ff60f2fd16d04ae0d6c0f29b972b88678bfb
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 81971a1c56a51e0c110337fb645f0b84bb5d20b8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67654253"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914931"
 ---
 下表說明如何在每個開發環境中為此繫結新增支援。
 
-| 開發環境               | 若要新增支援 <br>Functions 2.x  |
+| 開發環境               | 新增支援  |
 |----------------------|----------------|
 |本機開發 - C# 類別庫       | [安裝套件](../articles/azure-functions/functions-bindings-register.md#vs) |
 |本機開發 - C# 指令碼、JavaScript、F#、Java 和 Python |[註冊擴充功能](../articles/azure-functions/functions-bindings-register.md#extension-bundles)         |

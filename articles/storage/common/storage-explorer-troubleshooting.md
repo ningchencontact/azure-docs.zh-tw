@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: e3a9b733b055469e22d3b107c0f9f49b768756c4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3d5b1ab4e72ec759098e9c71515200f89a8dfe82
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895251"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931200"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
@@ -301,7 +301,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 這些套件是 Linux 上儲存體總管最常見的需求：
 
-* [.NET Core 2.2 執行時間](https://docs.microsoft.com/en-us/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
+* [.NET Core 2.2 執行時間](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
 * `libgconf-2-4`
 * `libgnome-keyring0` 或 `libgnome-keyring-dev`
 * `libgnome-keyring-common`

@@ -1,5 +1,5 @@
 ---
-title: 使用多步驟 web 測試和 Azure 應用程式 Insights 監視您的 web 應用程式 |Microsoft Docs
+title: 使用多步驟 web 測試進行監視-Azure 應用程式深入解析
 description: 使用 Azure 應用程式 Insights 設定多步驟 web 測試，以監視您的 web 應用程式
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,19 +8,19 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 80a39151a3d40c9b9d7cb49c6ab41aab602c5991
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 8e630f324a7a0ebdfcc74941e760b80fabefa8d3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817380"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928960"
 ---
 # <a name="multi-step-web-tests"></a>多重步驟 Web 效能測試
 
 您可以透過多步驟 web 測試，監視一系列記錄的 Url 和與網站的互動。 本文將逐步引導您完成使用 Visual Studio Enterprise 建立多重步驟 web 測試的程式。
 
 > [!NOTE]
-> 多步驟 web 測試取決於 Visual Studio webtest 檔案。 [宣佈](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/)，Visual Studio 2019 將會是具有 webtest 功能的最後一個版本。 請務必瞭解，雖然不會新增任何新功能，但目前仍支援 Visual Studio 2019 中的 webtest 功能，並會在產品的支援生命週期中繼續受到支援。 Azure 監視器產品小組在此解決了有關多步驟[可用性測試未來](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101)的問題。  
+> 多步驟 web 測試取決於 Visual Studio webtest 檔案。 [宣佈](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/)，Visual Studio 2019 將會是具有 webtest 功能的最後一個版本。 請務必瞭解，雖然不會新增任何新功能，但目前仍支援 Visual Studio 2019 中的 webtest 功能，並會在產品的支援生命週期中繼續受到支援。 Azure 監視器產品小組在[此](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101)解決了有關多步驟可用性測試未來的問題。  
 
 ## <a name="pre-requisites"></a>先決條件
 
@@ -43,7 +43,7 @@ ms.locfileid: "72817380"
 
 ## <a name="upload-the-web-test"></a>上傳 web 測試
 
-1. 在 [可用性] 窗格的 Application Insights 入口網站中，選取 [**建立測試** > **測試類型**]  >  [**多步驟 web 測試**]。
+1. 在 [可用性] 窗格的 Application Insights 入口網站中，選取 [**建立測試** > **測試類型**] > [**多步驟 web 測試**]。
 
 2. 設定 [測試位置]、[頻率] 和 [警示] 參數。
 
@@ -68,7 +68,7 @@ ms.locfileid: "72817380"
 |----|----|----|
 |**近乎即時（預覽）** | 我們建議使用近乎即時的警示。 設定此類型的警示會在您的可用性測試建立後完成。  |
 |**傳統** | 我們不再建議使用傳統警示來進行新的可用性測試。|
-|**警示位置閾值**|建議至少為位置數的 3/5。 警示位置閾值與測試位置數目之間的最佳關聯性是  =  測試位置數目的**警示位置閾值** **-2，最少五個測試位置。**|
+|**警示位置閾值**|建議至少為位置數的 3/5。 警示位置閾值與測試位置數目之間的最佳關聯性是 = 測試位置數目的**警示位置閾值** **-2，最少五個測試位置。**|
 
 ## <a name="configuration"></a>組態
 
@@ -114,7 +114,7 @@ Web 測試日期時間外掛程式提供處理參數化時間的方式。
 | 憑證密碼 | 將授與內嵌私密金鑰存取權之用戶端憑證的密碼。 |
 | 用戶端憑證  | 具有 Base64 編碼格式之私密金鑰的用戶端憑證值。 |
 | 名稱識別碼 | 權杖的名稱識別碼 |
-| 不在之後 | 權杖將會有效的 timespan。  預設值為5分鐘。 |
+| 不能晚於 | 權杖將會有效的 timespan。  預設值是 5 分鐘。 |
 | 生效時間 | 在過去建立之權杖的時間範圍將會有效（以處理時間扭曲）。  預設值為（負）5分鐘。 |
 | 目標內容參數名稱 | 將接收所產生之判斷提示的內容參數。 |
 

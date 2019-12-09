@@ -1,29 +1,25 @@
 ---
-title: 適用于 .NET 的 Microsoft 驗證程式庫中的用戶端判斷提示
+title: 用戶端判斷提示（MSAL.NET） |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）中的機密用戶端應用程式的已簽署用戶端判斷提示支援。
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/18/2019
 ms.author: jmprieur
-ms.reviewer: ''
+ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ff02e4c95594f0155ab31e3c99a0eb269626d9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4731a7265265c48bed02e836de91d61971b9be14
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168120"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921913"
 ---
 # <a name="confidential-client-assertions"></a>機密用戶端判斷提示
 
@@ -55,7 +51,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Azure AD 所需的宣告為：
 
-宣告類型 | 值 | 描述
+宣告類型 | Value | 描述
 ---------- | ---------- | ----------
 aud | https://login.microsoftonline.com/{tenantId}/v2.0 | "Aud" （物件）宣告可識別 JWT 適用的收件者（此處 Azure AD），請參閱 [RFC 7519，區段 4.1.3]
 exp | 星期四6月 27 2019 15:04:17 GMT + 0200 （羅馬日光節約時間） | "exp" (到期時間) 宣告會識別到期時間，等於或晚於此時間都不得接受 JWT 以進行處理。 請參閱 [RFC 7519，第4.1.4 節]

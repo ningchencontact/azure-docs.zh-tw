@@ -2,22 +2,21 @@
 title: 將資料從和複製到 Salesforce 服務雲端
 description: 瞭解如何使用 data factory 管線中的複製活動，將資料從 Salesforce 服務雲端複製到支援的接收資料存放區，或從支援的來源資料存放區複製到 Salesforce 服務雲端。
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/06/2019
-ms.author: jingwang
-ms.openlocfilehash: 3d49ec7260017421a60268e159c8152359455871
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 0bfab8c8bbcacd130f73190b8572893327ee795e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895623"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926921"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從和複製到 Salesforce 服務雲端
 

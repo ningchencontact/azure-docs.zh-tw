@@ -1,29 +1,25 @@
 ---
-title: 通用 Windows 平臺考慮（適用于 .NET 的 Microsoft 驗證程式庫）
+title: UWP 考慮（MSAL.NET） |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解使用通用 Windows 平臺搭配適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）時的特定考慮。
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27a41ad084d21c7623011b5678fb84ed27d68325
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: d14546a63db952119303428140c65ee402010816
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802656"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921782"
 ---
 # <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>MSAL.NET 的通用 Windows 平臺特定考慮
 在 UWP 上，使用 MSAL.NET 時，您必須考慮幾個事項。

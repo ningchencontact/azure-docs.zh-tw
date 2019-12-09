@@ -1,18 +1,19 @@
 ---
-title: Azure Data Factory 對應資料流程中的匯總轉換
+title: 對應資料流程中的匯總轉換
 description: 瞭解如何使用對應資料流程匯總轉換，在 Azure Data Factory 中大規模匯總資料。
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/15/2019
-ms.openlocfilehash: 3f21367c36ae31aa2115c109933a581bef464baf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 74b96bf2cac0de7c57e496c637f2e3ef549eb61f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676903"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930463"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>對應資料流程中的匯總轉換 
 
@@ -45,7 +46,7 @@ Group by 子句在匯總轉換中是選擇性的。
 * 使用彙總函式（例如 `last()` 或 `first()`）包含該額外的資料行。
 * 使用[自我聯結模式](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/)，將資料行重新加入至您的輸出資料流程。
 
-## <a name="data-flow-script"></a>資料流程腳本
+## <a name="data-flow-script"></a>資料流程指令碼
 
 ### <a name="syntax"></a>語法
 

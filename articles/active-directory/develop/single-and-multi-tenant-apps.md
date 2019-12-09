@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 中的單一和多租用戶應用程式
+title: Azure AD 中的單一和多租使用者應用程式
 titleSuffix: Microsoft identity platform
 description: 深入了解 Azure AD 中單一租用戶與多租用戶應用程式之間的功能和差異。
 services: active-directory
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aa8f63b6e7355ae387a321acf77683fac22e028
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b0cef2ed24eb242629aa5547391c0d2a27344d8b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803642"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919475"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Azure Active Directory 中的租用戶
 

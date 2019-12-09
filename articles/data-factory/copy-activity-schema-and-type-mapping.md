@@ -4,20 +4,19 @@ description: 深入了解 Azure Data Factory 中的複製活動在複製資料�
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: ed0823930b819661baf384d51478547cb2e0eccf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2c637346aae72a238963607f6f5d23910684265c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678146"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921987"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>複製活動中的結構描述對應
 
@@ -88,18 +87,18 @@ ms.locfileid: "73678146"
 
 使用 `source` 和 `sink`的 `translator` -> `mappings` > 物件下支援下列屬性：
 
-| 屬性 | 說明                                                  | 必要 |
+| 屬性 | 描述                                                  | 必要項 |
 | -------- | ------------------------------------------------------------ | -------- |
 | 名稱     | 來源或接收資料行的名稱。                           | 是      |
-| 序列  | 資料行索引。 從1開始。 <br>使用不含標頭行的分隔文字時，請套用和必要。 | 否       |
-| 路徑     | 要解壓縮或對應之每個欄位的 JSON 路徑運算式。 適用于階層式資料，例如 MongoDB/REST。<br>對於根物件下的欄位，JSON 路徑的開頭為 root $;針對 `collectionReference` 屬性所選擇之陣列內的欄位，JSON 路徑會從陣列元素開始。 | 否       |
+| 序數  | 資料行索引。 從1開始。 <br>使用不含標頭行的分隔文字時，請套用和必要。 | 否       |
+| path     | 要解壓縮或對應之每個欄位的 JSON 路徑運算式。 適用于階層式資料，例如 MongoDB/REST。<br>對於根物件下的欄位，JSON 路徑的開頭為 root $;針對 `collectionReference` 屬性所選擇之陣列內的欄位，JSON 路徑會從陣列元素開始。 | 否       |
 | 類型     | 來源或接收資料行的 Data Factory 過渡資料類型。 | 否       |
 | culture  | 來源或接收資料行的文化特性。 <br>當類型為 `Datetime` 或 `Datetimeoffset`時套用。 預設值為 `en-us`。 | 否       |
 | format   | 當類型為 `Datetime` 或 `Datetimeoffset`時，所要使用的格式字串。 有關如何格式化日期時間的資訊，請參閱[自訂日期和時間格式字串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 | 否       |
 
 除了具有 `source` 和 `sink`的物件之外，`translator` -> `mappings` 下也支援下列屬性：
 
-| 屬性            | 說明                                                  | 必要 |
+| 屬性            | 描述                                                  | 必要項 |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | collectionReference | 只有在階層式資料（例如 MongoDB/REST）為來源時才支援。<br>如果您想要逐一查看**陣列欄位內**相同模式的物件並擷取資料，然後轉換為每個物件一個資料列，則請指定該陣列的 JSON 路徑，以執行交叉套用。 | 否       |
 
@@ -201,7 +200,7 @@ ms.locfileid: "73678146"
 
 您可以指定複製活動-> `translator` -> `schemaMapping` 在階層式資料和表格式資料之間進行對應，例如從 MongoDB/REST 複製到文字檔，然後從 Oracle 複製到 Azure Cosmos DB 適用于 MongoDB 的 API。 複製活動的 `translator` 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動 translator 的 type 屬性必須設定為： **TabularTranslator** | 是 |
 | schemaMapping | 索引鍵/值組的集合，表示**從來源端到接收端**的對應關聯性。<br/>- **Key：** 代表來源。 針對 [**表格式來源**]，指定資料集結構中所定義的資料行名稱;針對 [**階層式來源**]，為每個要解壓縮和對應的欄位指定 JSON 路徑運算式。<br>- **Value：** 代表接收。 若為**表格式接收**，請指定資料集結構中所定義的資料行名稱;針對**階層式接收**，為每個要解壓縮和對應的欄位指定 JSON 路徑運算式。 <br>在階層式資料的情況下，針對根物件下的欄位，JSON 路徑會以根 $ 開頭;針對 `collectionReference` 屬性所選擇之陣列內的欄位，JSON 路徑會從陣列元素開始。  | 是 |
@@ -287,16 +286,16 @@ Data Factory 支援下列過渡資料類型：在[資料集結構](concepts-data
 
 * Byte[]
 * Boolean
-* Datetime
+* DateTime
 * Datetimeoffset
 * Decimal
-* Double
-* Guid
+* DOUBLE
+* GUID
 * Int16
 * Int32
 * Int64
-* 單一
-* 字串
+* Single
+* String
 * Timespan
 
 ## <a name="next-steps"></a>後續步驟

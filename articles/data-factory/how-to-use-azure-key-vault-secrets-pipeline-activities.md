@@ -1,24 +1,23 @@
 ---
-title: 在管線活動中使用 Azure Key Vault 秘密
+title: 在管線活動中使用 Azure Key Vault 祕密
 description: 瞭解如何從 Azure key vault 提取預存認證，並在 data factory 管線執行期間加以使用。
 services: data-factory
 author: ChrisLound
-manager: craigg
+manager: anandsub
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 83d0981a0d277eab1aae8654343ab34661b3e88b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 837d62784a56ad0f17471cca5a660819d4a83e12
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672885"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926766"
 ---
-# <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>在管線活動中使用 Azure Key Vault 秘密
+# <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>在管線活動中使用 Azure Key Vault 祕密
 
 您可以在 Azure Key Vault 中儲存認證或秘密值，並在管線執行期間將其用於傳遞至您的活動。
 
@@ -42,18 +41,18 @@ ms.locfileid: "73672885"
 
 3. 流覽至您的 Key Vault 密碼，並複製秘密識別碼。
 
-    ![秘密識別碼](media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png)
+    ![報表識別碼](media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png)
 
     記下您想要在 data factory 管線執行期間取得的秘密 URI。
 
 4. 在您的 Data Factory 管線中，新增新的 Web 活動並加以設定，如下所示。  
 
-    |屬性  |值  |
+    |屬性  |Value  |
     |---------|---------|
     |保護輸出     |是         |
     |URL     |[您的秘密 URI 值]？ api-版本 = 7。0         |
     |方法     |GET         |
-    |驗證     |MSI         |
+    |Authentication     |MSI         |
     |資源        |https://vault.azure.net       |
 
     ![Web 活動](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)

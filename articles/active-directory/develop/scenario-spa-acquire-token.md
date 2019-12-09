@@ -1,5 +1,5 @@
 ---
-title: 單一頁面應用程式（取得權杖以呼叫 API）-Microsoft 身分識別平臺
+title: 取得單一頁面應用程式中的權杖-Microsoft 身分識別平臺 |Azure
 description: 瞭解如何建立單一頁面應用程式（取得權杖以呼叫 API）
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0f1140d00671a706ce8839a73023dfad64d4663
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9723e9a58704a583c7332db11bae7da6b045a5f7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764758"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919829"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>單一頁面應用程式：取得權杖以呼叫 API
 

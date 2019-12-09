@@ -1,5 +1,6 @@
 ---
-title: 呼叫 web Api 的桌面應用程式（取得應用程式的權杖）-Microsoft 身分識別平臺
+title: 為呼叫 web Api 的傳統型應用程式取得權杖 |Azure
+titleSuffix: Microsoft identity platform
 description: 瞭解如何建立桌面應用程式來呼叫 web Api （取得應用程式的權杖 |）
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce79a2dcbb0d79d84019c350eb4693160c8f7d50
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e33eed25f79d90bd513e79b23619fd4c575bc874
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175475"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920221"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>呼叫 web Api 的桌面應用程式-取得權杖
 
@@ -260,7 +261,7 @@ MSAL 為大部分的平臺提供 Web UI，但仍有一些情況下，您可能�
 
 若要使用 `.WithCustomWebUI`，您需要：
 
-  1. 執行 `ICustomWebUi` 介面（請參閱[這裡](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70)。 基本上，您必須 `AcquireAuthorizationCodeAsync` 接受授權碼 URL （由 MSAL.NET 計算）來執行一種方法，讓使用者可以完成與識別提供者的互動，然後傳回身分識別提供者會使用的 URL已呼叫您的執行後（包括授權碼）。 如果您有任何問題，則您的執行應該會擲回 `MsalExtensionException` 例外狀況，以便與 MSAL 完美合作。
+  1. 執行 `ICustomWebUi` 介面（請參閱[這裡](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70)。 基本上，您必須執行一種方法 `AcquireAuthorizationCodeAsync` 接受授權碼 URL （由 MSAL.NET 計算），讓使用者能夠完成與識別提供者的互動，然後傳回識別提供者用來呼叫您的執行的 URL （包括授權碼）。 如果您有任何問題，則您的執行應該會擲回 `MsalExtensionException` 例外狀況，以便與 MSAL 完美合作。
   2. 在您的 `AcquireTokenInteractive` 呼叫中，您可以使用 `.WithCustomUI()` 修飾詞來傳遞自訂 web UI 的實例
 
      ```CSharp
@@ -1108,7 +1109,7 @@ if not result:
 
 這些策略會根據您是撰寫公用用戶端應用程式（桌面）的權杖快取序列化，還是機密用戶端應用程式（web 應用程式/Web API、daemon 應用程式）而有所不同。
 
-由於 MSAL V2. x，您有數個選項，取決於您是否要將快取序列化為 MSAL.NET 格式（通用於 MSAL 的統一格式快取，以及跨平臺），或如果您也想要支援[舊版](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization)權杖快取ADAL V3 的序列化。
+由於 MSAL V2. x，您有數個選項，取決於您是否要將快取序列化為 MSAL.NET 格式（通用於 MSAL 的統一格式快取，也是跨平臺），或如果您也想要支援 ADAL V3 的[舊版](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization)權杖快取序列化。
 
 在下列範例中，會說明自訂權杖快取序列化以共用 ADAL.NET 3.x、ADAL.NET 5.x 和 MSAL.NET 之間的 SSO 狀態： [active-目錄-dotnet-v1 至 v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2)
 

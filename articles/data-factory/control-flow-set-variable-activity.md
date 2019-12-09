@@ -5,19 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 author: djpmsft
 ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: 2589e56d3170b235f31d07f902eb75c749e8573f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 88500ecbc56b34551a0cbd3ca94727ba4bbcda9f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679291"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930651"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Azure Data Factory 中的設定變數活動
 
@@ -25,10 +24,10 @@ ms.locfileid: "73679291"
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 說明 | 必要
+屬性 | 描述 | 必要項
 -------- | ----------- | --------
 名稱 | 管線中的活動名稱 | 是
-說明 | 說明活動用途的文字 | no
+說明 | 說明活動用途的文字 | 否
 類型 | 活動類型是 SetVariable | 是
 value | 用來設定指定變數的字串常值或運算式物件值 | 是
 variableName | 此活動所將設定的變數名稱 | 是
