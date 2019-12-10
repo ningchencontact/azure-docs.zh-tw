@@ -1,6 +1,7 @@
 ---
-title: 關於 Azure Active Directory B2C 自訂原則中的技術設定檔 | Microsoft Docs
-description: 了解技術設定檔在 Azure Active Directory B2C 自訂原則中的使用方式。
+title: 自訂原則中的技術設定檔總覽
+titleSuffix: Azure AD B2C
+description: 瞭解如何在 Azure Active Directory B2C 的自訂原則中使用技術設定檔。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f90b69cde4a961457c987f004e2605e6884bf323
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: af08a24ff28d59bf743f92aa69ffa823dcdcc544
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063334"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951032"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>關於 Azure Active Directory B2C 自訂原則中的技術設定檔
 
@@ -48,7 +49,7 @@ ms.locfileid: "71063334"
  
 1. **InputClaimsTransformation** - 系統會從宣告包中挑選每個輸入[宣告轉換](claimstransformations.md)的輸入宣告，執行之後，輸出宣告會被放回宣告包中。 輸入宣告轉換的輸出宣告可以作為後續輸入宣告轉換的輸入宣告。
 2. **InputClaims** - 系統會從宣告包中挑選宣告並用於技術設定檔。 例如，[自我判斷技術設定檔](self-asserted-technical-profile.md)會使用輸入宣告來預先填入使用者所提供的輸出宣告。 REST API 技術設定檔會使用輸入宣告將輸入參數傳送給 REST API 端點。 Azure Active Directory 會使用輸入宣告作為唯一識別碼來讀取、更新或刪除帳戶。
-3. **技術設定檔執行** - 技術設定檔會與已設定的對象交換宣告。 例如:
+3. **技術設定檔執行** - 技術設定檔會與已設定的對象交換宣告。 例如：
     - 將使用者重新導向到識別提供者來完成登入。 成功登入之後，使用者會返回，而技術設定檔則會繼續執行。
     - 呼叫 REST API，並傳送參數作為 InputClaims 及取回資訊作為 OutputClaims。
     - 建立或更新使用者帳戶。

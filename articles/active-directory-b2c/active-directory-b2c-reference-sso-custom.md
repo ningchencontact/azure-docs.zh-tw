@@ -1,5 +1,6 @@
 ---
-title: 在 Azure Active Directory B2C 中使用自訂原則的單一登入工作階段管理 | Microsoft Docs
+title: 使用自訂原則的單一登入會話管理
+titleSuffix: Azure AD B2C
 description: 了解如何在 Azure AD B2C 中使用自訂原則管理 SSO 工作階段。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5ae30b316133b7479b66a69a3467497a7151dbc8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ee32b13820cb50fc1649672b78b34e7e293d65b5
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065385"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950488"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的單一登入工作階段管理
 
@@ -89,7 +90,7 @@ SSO 管理類別是使用技術設定檔的 `<UseTechnicalProfileForSessionManag
 
 技術設定檔中有兩個中繼資料項目：
 
-| 項目 | Default Value | 可能的值 | 描述
+| Item | 預設值 | 可能的值 | 描述
 | --- | --- | --- | --- |
 | IncludeSessionIndex | true | true/false | 指出應該儲存工作階段索引的提供者。 |
 | RegisterServiceProviders | true | true/false | 指出提供者應該註冊所有已發行判斷提示的 SAML 服務提供者。 |
