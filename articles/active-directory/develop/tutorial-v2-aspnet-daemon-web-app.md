@@ -111,7 +111,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 1. 在應用程式 [概觀]  頁面上，尋找 [應用程式 (用戶端) 識別碼]  值並將它記下供稍後使用。 您必須用此識別碼來設定此專案的 Visual Studio 組態檔。
 1. 在應用程式頁面清單中，選取 [驗證]  。
    - 在 [進階設定]  區段中，將 [登出 URL]  設定為 `https://localhost:44316/Account/EndSession`
-   - 在 [進階設定]   | [隱含授與]  區段中，勾選 [存取權杖]  和 [識別碼權杖]  ，因為此範例需要啟用 [隱含授與流程][](v2-oauth2-implicit-grant-flow.md)，才能登入使用者以及呼叫 API。
+   - 在 [進階設定]   | [隱含授與]  區段中，勾選 [存取權杖]  和 [識別碼權杖]  ，因為此範例需要啟用 [隱含授與流程](v2-oauth2-implicit-grant-flow.md)，才能登入使用者以及呼叫 API。
 1. 選取 [儲存]  。
 1. 從 [憑證和祕密]  頁面的 [用戶端密碼]  區段中，選擇 [新增用戶端密碼]  ：
 
