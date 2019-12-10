@@ -1,5 +1,6 @@
 ---
-title: 在 Azure Active Directory B2C 中使用用戶端憑證保護 RESTful 服務 | Microsoft Docs
+title: 使用用戶端憑證保護 RESTful 服務
+titleSuffix: Azure AD B2C
 description: 使用用戶端憑證在您的 Azure AD B2C 中保護您的自訂 REST API 宣告交換
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1690adfe5336ea85328e16755c5e3bc82b6d240a
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1d396de57a12285fb6cc682510fa6f95585465d0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835616"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949852"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>使用用戶端憑證保護您的 RESTful 服務
 
@@ -33,12 +34,12 @@ ms.locfileid: "67835616"
 * 將憑證上傳至 Azure AD B2C 原則金鑰。
 * 將您的自訂原則設定為使用用戶端憑證。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 完成[整合 REST API 宣告交換](active-directory-b2c-custom-rest-api-netfw.md)文章中的步驟。
 * 取得有效的憑證 (具有私密金鑰的 .pfx 檔案)。
 
 ## <a name="step-1-configure-a-web-app-for-client-certificate-authentication"></a>步驟 1：設定 Web 應用程式進行用戶端憑證驗證
-若要設定 **Azure App Service** 以要求用戶端憑證，請將 Web 應用程式 `clientCertEnabled` 站台設定設為 *true*。 若要進行此變更，請在 Azure 入口網站中，開啟 Web 應用程式頁面。 在左側導覽的 [設定]  底下，選取 [SSL 設定]  。 在 [用戶端憑證]  區段中，開啟 [連入用戶端憑證]  選項。
+若要設定 **Azure App Service** 以要求用戶端憑證，請將 Web 應用程式 `clientCertEnabled` 站台設定設為 *true*。 若要進行此變更，請在 Azure 入口網站中，開啟 Web 應用程式頁面。 在左側導覽的 [設定] 底下，選取 [SSL 設定]。 在 [用戶端憑證] 區段中，開啟 [連入用戶端憑證] 選項。
 
 >[!NOTE]
 >請確定您的 Azure App Service 方案至少為標準版本。 如需詳細資訊，請參閱 [Azure App Service 方案深入概觀](https://docs.microsoft.com/azure/app-service/overview-hosting-plans)。
@@ -48,27 +49,27 @@ ms.locfileid: "67835616"
 
 ## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>步驟 2：將憑證上傳至 Azure AD B2C 原則金鑰
 將 `clientCertEnabled` 設為 *true* 之後，與您的 RESTful API 的通訊需要用戶端憑證。 若要在您的 Azure AD B2C 租用戶中取得、上傳和儲存用戶端憑證，請執行下列動作：
-1. 在您的 Azure AD B2C 租用戶中，選取 [B2C 設定]   > [識別體驗架構]  。
+1. 在您的 Azure AD B2C 租用戶中，選取 [B2C 設定] > [識別體驗架構]。
 
-2. 若要檢視租用戶中可用的金鑰，請選取 [原則金鑰]  。
+2. 若要檢視租用戶中可用的金鑰，請選取 [原則金鑰]。
 
-3. 選取 [新增]  。
-    [建立金鑰]  視窗隨即開啟。
+3. 選取 [新增]。
+    [建立金鑰] 視窗隨即開啟。
 
-4. 在 [選項]  方塊中，選取 [上傳]  。
+4. 在 [選項] 方塊中，選取 [上傳]。
 
-5. 在 [名稱]  方塊中，輸入 **B2cRestClientCertificate**。
+5. 在 [名稱] 方塊中，輸入 **B2cRestClientCertificate**。
     即會自動新增前置詞 *B2C_1A_* 。
 
-6. 在 [檔案上傳]  方塊中，選取包含私密金鑰的憑證 .pfx 檔案。
+6. 在 [檔案上傳] 方塊中，選取包含私密金鑰的憑證 .pfx 檔案。
 
-7. 在 [密碼]  方塊中，輸入憑證的密碼。
+7. 在 [密碼] 方塊中，輸入憑證的密碼。
 
-    ![上傳在 建立在 Azure 入口網站 金鑰 頁面上的 原則金鑰](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
+    ![在 Azure 入口網站的 [建立金鑰] 頁面中上傳原則金鑰](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
 
-7. 選取 [建立]  。
+7. 選取 [建立]。
 
-8. 若要檢視租用戶中可用的金鑰，並確認您已建立 `B2C_1A_B2cRestClientCertificate` 金鑰，請選取 [原則金鑰]  。
+8. 若要檢視租用戶中可用的金鑰，並確認您已建立 `B2C_1A_B2cRestClientCertificate` 金鑰，請選取 [原則金鑰]。
 
 ## <a name="step-3-change-the-technical-profile"></a>步驟 3：變更技術設定檔
 若要在您的自訂原則中支援用戶端憑證驗證，請執行下列動作來變更技術設定檔：
@@ -99,32 +100,32 @@ ms.locfileid: "67835616"
 
 ## <a name="step-4-upload-the-policy-to-your-tenant"></a>步驟 4：將原則上傳至您的租用戶
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，切換至[您的 Azure AD B2C 租用戶環境](active-directory-b2c-navigate-to-b2c-context.md)，然後選取 [Azure AD B2C]  。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，切換至[您的 Azure AD B2C 租用戶環境](active-directory-b2c-navigate-to-b2c-context.md)，然後選取 [Azure AD B2C]。
 
-2. 選取 [識別體驗架構]  。
+2. 選取 [識別體驗架構]。
 
-3. 選取 [所有原則]  。
+3. 選取 [所有原則]。
 
-4. 選取 [上傳原則]  。
+4. 選取 [上傳原則]。
 
-5. 選取 [覆寫已存在的原則]  核取方塊。
+5. 選取 [覆寫已存在的原則] 核取方塊。
 
-6. 上傳 TrustFrameworkExtensions.xml  檔案，然後確定它通過驗證。
+6. 上傳 *TrustFrameworkExtensions.xml* 檔案，然後確定它通過驗證。
 
 ## <a name="step-5-test-the-custom-policy-by-using-run-now"></a>步驟 5：使用 [立即執行] 測試自訂原則
-1. 開啟 [Azure AD B2C 設定]  ，然後選取 [識別體驗架構]  。
+1. 開啟 [Azure AD B2C 設定]，然後選取 [識別體驗架構]。
 
     >[!NOTE]
     >[立即執行] 需要在租用戶上至少預先註冊一個應用程式。 若要了解如何註冊應用程式，請參閱 Azure AD B2C [開始使用](active-directory-b2c-get-started.md)一文或[應用程式註冊](active-directory-b2c-app-registration.md)一文。
 
-2. 開啟 **B2C_1A_signup_signin** (此為您上傳的信賴憑證者 (RP) 自訂原則)，然後選取 [立即執行]  。
+2. 開啟 **B2C_1A_signup_signin** (此為您上傳的信賴憑證者 (RP) 自訂原則)，然後選取 [立即執行]。
 
-3. 在 [名字]  方塊中，輸入 **Test** 來測試流程。
+3. 在 [名字] 方塊中，輸入 **Test** 來測試流程。
     Azure AD B2C 會在視窗頂端顯示錯誤訊息。
 
-    ![指定名稱 文字方塊中反白顯示，並輸入所顯示的驗證錯誤](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
+    ![已反白顯示指定的名稱文字方塊，並顯示輸入驗證錯誤](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
-4. 在 [名字]  方塊中輸入名字 ("Test" 除外)。
+4. 在 [名字] 方塊中輸入名字 ("Test" 除外)。
     Azure AD B2C 會註冊使用者，然後將會員號碼傳送至您的應用程式。 記下此 JWT 範例中的號碼：
 
    ```
@@ -287,7 +288,7 @@ if (IsValidClientCertificate() == false)
 ![新增憑證驗證程式碼](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-code.png)
 
 ## <a name="step-7-publish-your-project-to-azure-and-test-it"></a>步驟 7：將專案發佈至 Azure 並進行測試
-1. 在 [方案總管]  中，以滑鼠右鍵按一下 **Contoso.AADB2C.API** 專案，然後選取 [發佈]  。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 **Contoso.AADB2C.API** 專案，然後選取 [發佈]。
 
 2. 重複「步驟 6」，並使用憑證驗證重新測試您的自訂原則。 新增驗證之後，嘗試執行原則並確定一切可運作。
 
@@ -298,5 +299,5 @@ if (IsValidClientCertificate() == false)
 如果您需要針對這個步驟進行疑難排解，請參閱[使用 Application Insights 收集記錄](active-directory-b2c-troubleshoot-custom.md)。
 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(選用) 下載完整的原則檔案和程式碼
-* 在完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)逐步解說之後，建議您使用自己的自訂原則檔案來建置您的情節。 我們已提供[範例原則檔案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-cert)，供您參考。
+* 在完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)逐步解說之後，建議您使用自己的自訂原則檔案來建置您的案例。 我們已提供[範例原則檔案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-cert)，供您參考。
 * 您可以從[供參考的範例 Visual Studio 解決方案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API)中下載完整程式碼。

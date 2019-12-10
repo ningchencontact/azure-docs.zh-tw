@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory B2C 中的使用者遷移方法
+title: 使用者遷移方法
+titleSuffix: Azure AD B2C
 description: 討論使用 Azure AD 圖形 API 進行使用者遷移的核心和先進概念，並選擇性地使用 Azure AD B2C 的自訂原則。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9c01e22cfa96321994c16df6b61a52ebd4137549
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c5b7d477b0704db3f23919281fd61328be114dae
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322922"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950216"
 ---
 # <a name="migrate-users-to-azure-active-directory-b2c"></a>將使用者遷移至 Azure Active Directory B2C
 
@@ -27,7 +28,7 @@ ms.locfileid: "74322922"
 
 - **移轉前**：當您能夠完全存取使用者認證 (使用者名稱和密碼) 時，或是認證已加密，但您可以將認證解密時，便適用此流程。 此移轉前程序包括從舊識別提供者讀取使用者，然後在 Azure AD B2C 目錄中建立新的帳戶。
 
-- **移轉前和密碼重設**：當您無法存取使用者的密碼時，便適用此流程。 例如︰
+- **移轉前和密碼重設**：當您無法存取使用者的密碼時，便適用此流程。 例如：
   - 密碼以 HASH 格式儲存。
   - 密碼儲存在您無法存取的識別提供者中。 舊識別提供者會呼叫 Web 服務來驗證使用者認證。
 
@@ -113,7 +114,7 @@ Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId $roleMember
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 ```
 
-使用您的 Azure AD `$AppId`應用程式識別碼**變更**  值。
+使用您的 Azure AD **應用程式識別碼**變更 `$AppId` 值。
 
 ## <a name="step-2-pre-migration-application-sample"></a>步驟 2：移轉前應用程式範例
 
@@ -179,7 +180,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 
 - 若要以登入電子郵件地址抓取使用者，請使用範例應用程式：
 
-   1. 執行下列命令：
+   1. 執行以下命令：
 
       ```Console
           UserMigration.exe 3 {email address} > UserProfile.json
@@ -228,7 +229,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 > [!NOTE]
 > 若要檢查並變更使用者移轉狀態，您必須使用自訂原則。 您必須完成[開始使用自訂原則][B2C-GetStartedCustom]中的設定指示。
 
-當使用者不先重設密碼就嘗試登入時，您的原則應該會傳回易懂的錯誤訊息。 例如︰
+當使用者不先重設密碼就嘗試登入時，您的原則應該會傳回易懂的錯誤訊息。 例如：
 
 > *您的密碼已過期。若要重設，請選取 [重設密碼] 連結。*
 

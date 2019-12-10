@@ -4,14 +4,15 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: ac6b86b4ad8830bd08c9db28ac0027a5f048c3dd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 193968b5acf8288cb3f602c90374535fc2046b01
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74935925"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941683"
 ---
 下表顯示 Azure Functions 執行時間的主要版本所支援的系結：
+
 
 | Type | 1.x | 2.x 和更新版本<sup>1</sup> | 觸發程序 | 輸入 | 輸出 |
 | ---- | :-: | :-: | :------: | :---: | :----: |

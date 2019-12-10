@@ -1,6 +1,7 @@
 ---
-title: 在您的 Azure Active Directory B2C 使用者旅程圖中整合 REST API 宣告交換
-description: 在您的 Azure AD B2C 使用者旅程圖中整合 REST API 宣告交換, 做為使用者輸入的驗證。
+title: 在使用者旅程圖中整合 REST API 宣告交換
+titleSuffix: Azure AD B2C
+description: 在您的 Azure AD B2C 使用者旅程圖中整合 REST API 宣告交換，做為使用者輸入的驗證。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 49cd049c56e0c1d80318f9323aefe2d128774f3f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 3bea04ba077aebe9a52400a1292c5cd27c15b72e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69645116"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950913"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為使用者輸入的驗證
 
@@ -28,7 +29,7 @@ ms.locfileid: "69645116"
 您可以使用 Azure AD B2C，呼叫自己的 RESTful 服務，將自己的商務邏輯新增至使用者旅程圖。 識別體驗架構會在*輸入宣告*集合中將資料傳送至 RESTful 服務，並在*輸出宣告*集合中從 RESTful 接收資料。 使用 RESTful 服務整合，您可以：
 
 * **驗證使用者輸入資料**：此動作可防止將格式不正確的資料持續保存至 Azure AD。 如果來自使用者的值無效，您的 RESTful 服務會傳回錯誤訊息，指示使用者提供輸入。 例如，您可能會驗證使用者提供的電子郵件地址存在於客戶資料庫中。
-* **覆寫輸入宣告**：例如，如果使用者輸入全部小寫或全部大寫的名字，您可以設定名稱格式為只有第一個字母大寫。
+* **覆寫輸入宣告**：例如，如果使用者輸入全部小寫或全部大寫的名字，您可以將名稱格式化為只有第一個字母大寫。
 * **與公司的企業營運應用程式進一步整合來擴充使用者資料**：您的 RESTful 服務可以接收使用者的電子郵件地址、查詢客戶的資料庫，以及將使用者的忠誠度號碼傳回給 Azure AD B2C。 傳回宣告可能會儲存在使用者的 Azure AD 帳戶中，於下一個*協調流程步驟*中評估，或包含在存取權杖中。
 * **執行自訂商務邏輯**：您可以傳送推播通知、更新公司資料庫、執行使用者移轉程序、管理權限、稽核資料庫，以及執行其他動作。
 
@@ -49,18 +50,18 @@ ms.locfileid: "69645116"
 
 概觀：
 
-* 開發 RESTful 服務 (.NET Framework Web API)
+* 開發 RESTful 服務（.NET Framework Web API）
 * 在使用者旅程圖中使用 RESTful 服務
-* 傳送輸入宣告, 並在您的程式碼中讀取它們
+* 傳送輸入宣告，並在您的程式碼中讀取它們
 * 驗證使用者的名字
 * 送回忠誠度號碼
-* 將忠誠度號碼新增至 JSON Web 權杖 (JWT)
+* 將忠誠度號碼新增至 JSON Web 權杖（JWT）
 
 ## <a name="prerequisites"></a>必要條件
 
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。
 
-## <a name="step-1-create-an-aspnet-web-api"></a>步驟 1:建立 ASP.NET Web API
+## <a name="step-1-create-an-aspnet-web-api"></a>步驟 1：建立 ASP.NET Web API
 
 1. 在 Visual Studio 中，選取 [檔案] > [新增] > [專案] 以建立專案。
 1. 在 [新增專案] 視窗中，選取 [Visual C#] > [Web] > [ASP.NET Web 應用程式 (.NET Framework)]。
@@ -75,7 +76,7 @@ ms.locfileid: "69645116"
 1. 確定驗證已設為 [沒有驗證]。
 1. 選取 [確定] 以建立專案。
 
-## <a name="step-2-prepare-the-rest-api-endpoint"></a>步驟 2:準備 REST API 端點
+## <a name="step-2-prepare-the-rest-api-endpoint"></a>步驟 2：準備 REST API 端點
 
 ### <a name="step-21-add-data-models"></a>步驟 2.1：新增資料模型
 
@@ -114,7 +115,7 @@ ms.locfileid: "69645116"
     }
     ```
 
-1. 再建立一個模型, `B2CResponseContent`用來擲回輸入驗證錯誤訊息。 將下列屬性新增至 `B2CResponseContent` 類別、提供遺漏的參考，然後儲存檔案：
+1. 再建立一個模型，`B2CResponseContent`，用來擲回輸入驗證錯誤訊息。 將下列屬性新增至 `B2CResponseContent` 類別、提供遺漏的參考，然後儲存檔案：
 
     ```csharp
     namespace Contoso.AADB2C.API.Models
@@ -260,7 +261,7 @@ ms.locfileid: "69645116"
 
     在此範例中，`givenName` 宣告的內容會傳送至 REST 服務做為 `firstName`，宣告 `surname` 的內容會傳送至 REST 服務做為 `lastName`，而 `email` 會依原狀傳送。 `OutputClaims` 元素定義的宣告會從 RESTful 服務擷取回 Azure AD B2C。
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"** ：將驗證技術的設定檔新增至現有的技術設定檔 (於基底原則中定義)。 在註冊旅程期間，驗證技術設定檔會叫用上述技術設定檔。 如果 RESTful 服務傳回 HTTP 錯誤 409 (衝突錯誤)，錯誤訊息會顯示給使用者。
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"** ：將驗證技術設定檔新增至現有的技術設定檔 (定義在基本原則中)。 在註冊旅程期間，驗證技術設定檔會叫用上述技術設定檔。 如果 RESTful 服務傳回 HTTP 錯誤 409 (衝突錯誤)，錯誤訊息會顯示給使用者。
 
 找出 `<ClaimsProviders>` 節點，然後在 `<ClaimsProviders>` 節點下方新增下列 XML 程式碼片段：
 
@@ -305,9 +306,9 @@ ms.locfileid: "69645116"
 </ClaimsProvider>
 ```
 
-上述`AuthenticationType`批註, 並`AllowInsecureAuthInProduction`指定當您移至生產環境時應該進行的變更。 若要瞭解如何保護您的 RESTful Api 以用於生產環境, 請參閱使用基本驗證和[安全 RESTful api 搭配憑證驗證](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)來[保護 RESTful api](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) 。
+上述的批註 `AuthenticationType` 和 `AllowInsecureAuthInProduction` 指定當您移至生產環境時應該進行的變更。 若要瞭解如何保護您的 RESTful Api 以用於生產環境，請參閱使用基本驗證和[安全 RESTful api 搭配憑證驗證](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)來[保護 RESTful api](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) 。
 
-## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>步驟 6：將 `loyaltyNumber` 宣告新增至您的信賴憑證者原則檔案，以便將宣告傳送至您的應用程式
+## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>步驟 6：將宣告 `loyaltyNumber` 新增至您的信賴憑證者原則檔案，以便將宣告傳送至您的應用程式
 
 編輯您的 *SignUpOrSignIn.xml* 信賴憑證者 (RP) 檔案，並修改 TechnicalProfile Id="PolicyProfile" 元素以新增下列內容：`<OutputClaim ClaimTypeReferenceId="loyaltyNumber" />`。
 
@@ -392,15 +393,15 @@ ms.locfileid: "69645116"
 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(選用) 下載完整的原則檔案和程式碼
 
-* 在完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)逐步解說之後，建議您使用自己的自訂原則檔案來建置您的情節。 我們已提供[範例原則檔案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw)，供您參考。
+* 在完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)逐步解說之後，建議您使用自己的自訂原則檔案來建置您的案例。 我們已提供[範例原則檔案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw)，供您參考。
 
 * 您可以從[供參考的範例 Visual Studio 解決方案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/)中下載完整程式碼。
 
 ## <a name="next-steps"></a>後續步驟
 
-您的下一項工作是使用基本或用戶端憑證驗證來保護您的 RESTful API。 若要瞭解如何保護您的 Api, 請參閱下列文章:
+您的下一項工作是使用基本或用戶端憑證驗證來保護您的 RESTful API。 若要瞭解如何保護您的 Api，請參閱下列文章：
 
 * [使用基本驗證 (使用者名稱和密碼) 保護您的 RESTful API](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 * [使用用戶端憑證保護您的 RESTful API](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 
-如需 RESTful 技術設定檔中所有可用元素的相關資訊, [請參閱參考:RESTful 技術配置](restful-technical-profile.md)檔。
+如需 RESTful 技術設定檔中所有可用元素的詳細資訊，請參閱[參考： RESTful 技術設定檔](restful-technical-profile.md)。

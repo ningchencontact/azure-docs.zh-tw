@@ -1,6 +1,7 @@
 ---
-title: 使用 OpenID Connect 設定註冊並登入 - Azure Active Directory B2C | Microsoft Docs
-description: 使用 Azure Active Directory B2C 透過 OpenID Connect 設定註冊和登入。
+title: 使用 OpenID Connect 設定註冊和登入
+titleSuffix: Azure AD B2C
+description: 在 Azure Active Directory B2C 中設定註冊，並以任何 OpenID Connect 識別提供者（IdP）登入。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0303f8c7e18a5c229bc5a8c5e9b90d95cdaccbe7
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 471163fc8fe8c5bad550d0615683ef2b97b818dc
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672910"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950454"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 透過 OpenID Connect 設定註冊和登入
 
@@ -39,7 +40,7 @@ ms.locfileid: "71672910"
 > [!NOTE]
 > 用戶端祕密為選擇性項目。 不過，如果您想要使用[授權碼流程](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)（使用密碼來交換權杖的程式碼），則必須輸入用戶端密碼。
 
-## <a name="scope"></a>`Scope`
+## <a name="scope"></a>Scope
 
 範圍會定義您想要從自訂識別提供者蒐集的資訊與權限。 OpenID Connect 要求必須包含 `openid` 範圍值，以便接收來自識別提供者的識別碼權杖。 沒有識別碼權杖，使用者就無法使用自訂識別提供者來登入 Azure AD B2C。 您可以附加其他範圍 (以空格分隔)。 請參閱自訂識別提供者的文件，查看其他可用的範圍。
 
@@ -47,15 +48,15 @@ ms.locfileid: "71672910"
 
 回應類型會說明要在對自訂識別提供者進行的 `authorization_endpoint` 初始呼叫中傳回哪種資訊。 您可以使用下列回應類型：
 
-* `code`:依照[授權碼流程](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)，將授權碼傳回至 Azure AD B2C。 Azure AD B2C 會繼續呼叫 `token_endpoint` 來交換權杖的授權碼。
-* `id_token`:識別碼權杖會從自訂識別提供者傳回到 Azure AD B2C。
+* `code`：依照[授權碼流程](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)，將授權碼傳回至 Azure AD B2C。 Azure AD B2C 會繼續呼叫 `token_endpoint` 來交換權杖的授權碼。
+* `id_token`：識別碼權杖會從自訂識別提供者傳回到 Azure AD B2C。
 
 ## <a name="response-mode"></a>回應模式
 
 回應模式可定義應用於將資料從自訂識別提供者傳送回 Azure AD B2C 的方法。 您可以使用下列回應模式：
 
-* `form_post`:建議使用此回應模式，以獲得最佳安全性。 回應會透過 HTTP `POST` 方法傳輸，並使用 `application/x-www-form-urlencoded` 格式在主體中將程式碼或權杖編碼。
-* `query`:傳回授權碼或權杖作為查詢參數。
+* `form_post`：建議使用此回應模式，以獲得最佳安全性。 回應會透過 HTTP `POST` 方法傳輸，並使用 `application/x-www-form-urlencoded` 格式在主體中將程式碼或權杖編碼。
+* `query`：傳回授權碼或權杖作為查詢參數。
 
 ## <a name="domain-hint"></a>網域提示
 
@@ -65,8 +66,8 @@ ms.locfileid: "71672910"
 
 在自訂識別提供者將識別碼權杖傳送回 Azure AD B2C 之後，Azure AD B2C 必須能夠將來自所接收權杖的宣告對應至 Azure AD B2C 可辨識及使用的宣告。 針對下列每個對應，請參閱自訂識別提供者的文件，以了解在識別提供者的權杖中傳回的宣告：
 
-* **使用者識別碼**：輸入可為已登入使用者提供*唯一識別碼*的宣告。
+* **使用者識別碼**：輸入可為登入使用者提供*唯一識別碼*的宣告。
 * **顯示名稱**：輸入可為使用者提供*顯示名稱*或*完整名稱*的宣告。
-* **名字**：輸入可提供使用者*名字*的宣告。
+* **指定的名稱**：輸入可提供使用者*名字*的宣告。
 * **姓氏**：輸入可提供使用者*姓氏*的宣告。
-* **電子郵件**：輸入可提供使用者*電子郵件地址*的宣告。
+* **電子郵件**：輸入提供使用者*電子郵件地址*的宣告。

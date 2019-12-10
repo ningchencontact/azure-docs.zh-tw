@@ -1,5 +1,6 @@
 ---
-title: 使用 Application Insights Azure Active Directory B2C 疑難排解自訂原則
+title: 使用 Application Insights 針對自訂原則進行疑難排解
+titleSuffix: Azure AD B2C
 description: 如何設定 Application Insights 以追蹤自訂原則的執行。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b8bf26791ca6489c12e4f9538d56ae0f0f66cc8c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3aeef1614f22563e0fd348c5bc6ae7ff1e7b0b03
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602029"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950080"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>使用 Application Insights 收集 Azure Active Directory B2C 記錄
 
@@ -92,7 +93,7 @@ ms.locfileid: "73602029"
 
 以下是您可以用來查看記錄的查詢清單：
 
-| 查詢 | 說明 |
+| 查詢 | 描述 |
 |---------------------|--------------------|
 `traces` | 查看 Azure AD B2C 產生的所有記錄 |
 `traces | where timestamp > ago(1d)` | 查看 Azure AD B2C 在最後一天產生的所有記錄

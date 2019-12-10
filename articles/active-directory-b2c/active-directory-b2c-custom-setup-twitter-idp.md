@@ -1,5 +1,6 @@
 ---
-title: 在 Azure Active Directory B2C 中使用自訂原則來設定以 Twitter 帳戶進行登入 | Microsoft Docs
+title: 使用自訂原則來設定以 Twitter 帳戶進行登入
+titleSuffix: Azure AD B2C
 description: 在 Azure Active Directory B2C 中使用自訂原則來設定以 Twitter 帳戶進行登入。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2ad6ac4c30572f1b475cba2f699f5842ae3c7528
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 460f16775bf8b02bbb345b609e1419311f81bd22
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827003"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948414"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 Twitter 帳戶進行登入
 
@@ -25,7 +26,7 @@ ms.locfileid: "71827003"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 完成在 [Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
+- 完成[在 Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
 - 如果您還沒有 Twitter 帳戶，請在 [Twitter 註冊頁面](https://twitter.com/signup)建立一個帳戶。
 
 ## <a name="create-an-application"></a>建立應用程式
@@ -47,7 +48,7 @@ ms.locfileid: "71827003"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 請確定您使用的是包含您 Azure AD B2C 租使用者的目錄。 在頂端功能表中選取 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+3. 選擇 Azure 入口網站左上角的**所有服務**，然後搜尋並選取 **Azure AD B2C**。
 4. 在 [概觀] 頁面上，選取 [識別體驗架構]。
 5. 選取 [原則金鑰]，然後選取 [新增]。
 6. 針對 [選項] 選擇 `Manual`。
@@ -162,7 +163,7 @@ ms.locfileid: "71827003"
 
 更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖。
 
-1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml 複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignInTwitter.xml*。
+1. 在您的工作目錄中建立一份 *SignUpOrSignIn.xml* 複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignInTwitter.xml*。
 2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInTwitter` 。
 3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如 `http://contoso.com/B2C_1A_signup_signin_twitter`
 4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignTwitter) 的識別碼。

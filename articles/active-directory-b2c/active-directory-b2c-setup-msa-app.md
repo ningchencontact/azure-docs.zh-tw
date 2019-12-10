@@ -1,5 +1,6 @@
 ---
-title: 設定註冊，並使用 Microsoft 帳戶登入-Azure Active Directory B2C
+title: 設定註冊，並以 Microsoft 帳戶登入
+titleSuffix: Azure AD B2C
 description: 使用 Azure Active Directory B2C，在您的應用程式中為具有 Microsoft 帳戶的客戶提供註冊和登入。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a921d6110fd0294012e2e59542ba2c82d63ffcde
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: fc79211f55edb471eb95fc55fe8519d228ca192e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73642085"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949316"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 Microsoft 帳戶登入
 
@@ -42,10 +43,10 @@ ms.locfileid: "73642085"
 ## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>將 Microsoft 帳戶設為識別提供者
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-1. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
+1. 選取頂端功能表中的 [目錄 + 訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 1. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
 1. 選取 [**識別提供者**]，然後選取 [ **Microsoft 帳戶**]。
 1. 輸入 [名稱]。 例如， *MSA*。
 1. 針對 [**用戶端識別碼**]，輸入您稍早建立之 Azure AD 應用程式的應用程式（用戶端）識別碼。
 1. 針對 [**用戶端密碼**]，輸入您所記錄的用戶端密碼。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。

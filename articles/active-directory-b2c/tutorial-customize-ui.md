@@ -1,6 +1,7 @@
 ---
-title: 教學課程 - 自訂使用者介面體驗 - Azure Active Directory B2C | Microsoft Docs
-description: 了解如何使用 Azure 入口網站在 Azure Active Directory B2C 中自訂應用程式的使用者介面。
+title: 教學課程：自訂使用者介面
+titleSuffix: Azure AD B2C
+description: 瞭解如何使用 Azure 入口網站在 Azure Active Directory B2C 中自訂應用程式的使用者介面（UI）。
 services: B2C
 author: mmacy
 manager: celestedg
@@ -10,14 +11,14 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 08edf6e841dc7d389573d5e5b5ea7e043f750e76
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: eba9919b7a1d89e6aea8fb93ef8c4b3e92960368
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71291099"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950862"
 ---
-# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中自訂使用者介面體驗
+# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中自訂使用者體驗的介面
 
 如需更常見的使用者體驗，例如註冊、登入和設定檔編輯，您可以使用 Azure Active Directory B2C （Azure AD B2C）中的[使用者流程](active-directory-b2c-reference-policies.md)。 本教學課程中的資訊可協助您了解如何使用自己的 HTML 和 CSS 檔案，為這些體驗[自訂使用者介面 (UI)](customize-ui-overview.md)。
 
@@ -28,7 +29,7 @@ ms.locfileid: "71291099"
 > * 更新使用者流程以使用檔案
 > * 測試自訂的 UI
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -63,7 +64,7 @@ ms.locfileid: "71291099"
 
 1. 在功能表中，選取 [CORS]。
 2. 針對 [允許的來源]，輸入 `https://your-tenant-name.b2clogin.com`。 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。 例如： `https://fabrikam.b2clogin.com` 。 輸入您的租用戶名稱時，必須全部使用小寫字母。
-3. 針對**允許的方法**， `GET`選取`PUT`、和`OPTIONS`。
+3. 針對**允許的方法**，選取 [`GET`]、[`PUT`] 和 [`OPTIONS`]。
 4. 針對 [允許的標頭]，輸入星號 (*)。
 5. 針對 [公開的標頭]，輸入星號 (*)。
 6. 針對 [最大壽命]，輸入 200。
@@ -137,7 +138,7 @@ ms.locfileid: "71291099"
 
 ## <a name="update-the-user-flow"></a>更新使用者流程
 
-1. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+1. 選擇 Azure 入口網站左上角的**所有服務**，然後搜尋並選取 **Azure AD B2C**。
 2. 選取 [使用者流程 (原則)]，然後選取 *B2C_1_signupsignin1* 使用者流程。
 3. 選取 [頁面配置]，然後針對 [統一註冊或登入頁面] 底下的 [使用自訂頁面內容] 按一下 [是]。
 4. 在 [自訂頁面 URI] 中，輸入您先前記下的 custom-ui.html 檔案 URI。

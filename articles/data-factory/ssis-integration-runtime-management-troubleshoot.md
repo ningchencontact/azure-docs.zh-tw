@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: c7db5d7d8963702f6039af3cfd51d6d916755abb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 52b1d93935e6428563c72361655893ffddf8a507
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931932"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941845"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>針對 Azure Data Factory 中的 SSIS Integration Runtime 管理進行疑難排解
 
@@ -156,3 +156,38 @@ SSIS IR 會定期自動更新。 升級期間會建立新的 Azure Batch 集區�
 ### <a name="nodeunavailable"></a>NodeUnavailable
 
 當 IR 正在執行時會發生此錯誤，這表示 IR 已變得狀況不良。 造成此錯誤的原因一律是 DNS 伺服器或 NSG 設定有變更，因此讓 SSIS IR 無法連線至必要服務。 由於 DNS 伺服器和 NSG 的設定是由客戶控制的，因此客戶必須在其那一端修正執行問題。 如需詳細資訊，請參閱 [SSIS IR 虛擬網路設定](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)。 如果您仍然遇到問題，請連絡 Azure Data Factory 支援小組。
+
+## <a name="static-public-ip-addresses-configuration"></a>靜態公用 IP 位址設定
+
+當您將 Azure SSIS IR 加入 Azure 虛擬網路時，您也可以將自己的靜態公用 IP 位址帶入 IR，讓 IR 能夠存取資料來源，以限制對特定 IP 位址的存取。 如需詳細資訊，請參閱[將 Azure-SSIS Integration Runtime 加入虛擬網路](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)。
+
+除了上述的虛擬網路問題以外，您也可以符合靜態公用 IP 位址的相關問題。 請檢查下列錯誤以取得協助。
+
+### <a name="InvalidPublicIPSpecified"></a>InvalidPublicIPSpecified
+
+當您啟動 Azure SSIS IR 時，會有許多原因會發生此錯誤：
+
+| 錯誤訊息 | 方案|
+|:--- |:--- |
+| 提供的靜態公用 IP 位址已在使用中，請為您的 Azure SSIS Integration Runtime 提供兩個未使用的。 | 您應該選取兩個未使用的靜態公用 IP 位址，或移除指定之公用 IP 位址的目前參照，然後重新開機 Azure SSIS IR。 |
+| 提供的靜態公用 IP 位址沒有 DNS 名稱，請為您的 Azure SSIS Integration Runtime 提供 DNS 名稱其中兩個。 | 您可以在 Azure 入口網站中設定公用 IP 位址的 DNS 名稱，如下圖所示。 特定步驟如下：（1）開啟 Azure 入口網站並移至此公用 IP 位址的資源頁面;（2）選取**Configuration**區段並設定 DNS 名稱，然後按一下 [**儲存**] 按鈕;（3）重新開機您的 Azure SSIS IR。 |
+| 針對您的 Azure SSIS Integration Runtime 所提供的 VNet 和靜態公用 IP 位址必須位於相同的位置。 | 根據 Azure 網路的需求，靜態公用 IP 位址和虛擬網路應位於相同的位置和訂用帳戶中。 請提供兩個有效的靜態公用 IP 位址，並重新啟動 Azure SSIS IR。 |
+| 提供的靜態公用 IP 位址是基本的，請提供兩個標準，供您的 Azure SSIS Integration Runtime 使用。 | 如需協助，請參閱[公用 IP 位址的 sku](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) 。 |
+
+![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
+
+### <a name="publicipresourcegrouplockedduringstart"></a>PublicIPResourceGroupLockedDuringStart
+
+如果 Azure SSIS IR 布建失敗，則會刪除所有已建立的資源。 不過，如果訂用帳戶或資源群組（包含您的靜態公用 IP 位址）層級有資源刪除鎖定，則不會如預期般刪除網路資源。 若要修正錯誤，請移除刪除鎖定，然後重新開機 IR。
+
+### <a name="publicipresourcegrouplockedduringstop"></a>PublicIPResourceGroupLockedDuringStop
+
+當您停止 Azure SSIS IR 時，將會刪除在包含公用 IP 位址的資源群組中建立的所有網路資源。 但如果訂用帳戶或資源群組（包含您的靜態公用 IP 位址）層級有資源刪除鎖定，則刪除作業可能會失敗。 請移除刪除鎖定，然後重新開機 IR。
+
+### <a name="publicipresourcegrouplockedduringupgrade"></a>PublicIPResourceGroupLockedDuringUpgrade
+
+Azure-SSIS IR 會定期自動更新。 在升級期間會建立新的 IR 節點，而舊的節點將會刪除。 此外，系統會刪除舊節點的已建立網路資源（例如負載平衡器和網路安全性群組），並在您的訂用帳戶下建立新的網路資源。 此錯誤表示刪除舊節點的網路資源失敗，因為訂用帳戶或資源群組（包含您的靜態公用 IP 位址）層級的刪除鎖定。 請移除刪除鎖定，讓我們可以清除舊的節點，並釋放舊節點的靜態公用 IP 位址。 否則，無法釋放靜態公用 IP 位址，我們將無法再進一步升級您的 IR。
+
+### <a name="publicipnotusableduringupgrade"></a>PublicIPNotUsableDuringUpgrade
+
+當您想要攜帶自己的靜態公用 IP 位址時，應該提供兩個公用 IP 位址。 其中一個會用來立即建立 IR 節點，而另一個則會在升級 IR 時使用。 當其他公用 IP 位址在升級期間無法使用時，就會發生此錯誤。 如需可能的原因，請參閱[InvalidPublicIPSpecified](#InvalidPublicIPSpecified) 。

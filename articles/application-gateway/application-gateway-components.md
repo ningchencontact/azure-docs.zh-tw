@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 73b5c86030d9e106cb3ea24d3100faa56e323815
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 49f3759d7c5ba178cd0f1d0164a45c09df464571
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348936"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942217"
 ---
 # <a name="application-gateway-components"></a>應用程式閘道元件
 
@@ -48,7 +48,7 @@ V1 SKU 可設定為支援靜態或動態內部 IP 位址和動態公用 IP 位�
 
 ### <a name="protocols"></a>通訊協定
 
-應用程式閘道支援四種通訊協定：HTTP、HTTPS、HTTP/2 和 WebSocket：
+應用程式閘道支援四種通訊協定： HTTP、HTTPS、HTTP/2 和 WebSocket：
 >[!NOTE]
 >HTTP/2 通訊協定支援僅適用於連線到應用程式閘道接聽程式的用戶端。 對後端伺服器集區的通訊一律是透過 HTTP/1.1。 預設已停用 HTTP/2 支援。 您可以選擇啟用它。
 
@@ -75,7 +75,7 @@ V1 SKU 可設定為支援靜態或動態內部 IP 位址和動態公用 IP 位�
 
 建立接聽程式之後，您可以將它與要求路由規則產生關聯。 此規則會決定如何將接聽程式上收到的要求路由傳送至後端。
 
-應用程式閘道會依顯示的連續處理接聽程式。 如果基本接聽程式符合傳入的要求，就會先處理它。 若要將流量路由傳送至正確的後端，請在基本接聽程式之前設定多網站接聽程式。
+應用程式閘道會依顯示的[順序](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-overview#order-of-processing-listeners)處理接聽程式。
 
 ## <a name="request-routing-rules"></a>要求路由規則
 

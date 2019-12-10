@@ -1,5 +1,6 @@
 ---
-title: 在 Azure Active Directory B2C 中使用自訂原則註冊並登入 Salesforce SAML 提供者
+title: 使用自訂原則來設定使用 Salesforce SAML 提供者進行登入
+titleSuffix: Azure AD B2C
 description: 在 Azure Active Directory B2C 中使用自訂原則註冊並登入 Salesforce SAML 提供者。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2922aa32bab2d9d7146a03757850d4b724ad7570
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: bf4b10c2c1f927c80ed9a99e178ed336892daa21
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71822258"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950539"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則註冊並登入 Salesforce SAML 提供者
 
@@ -25,7 +26,7 @@ ms.locfileid: "71822258"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 完成在 [Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
+- 完成[在 Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
 - 如果您還沒有這麼做，請註冊[免費的開發人員版本帳戶](https://developer.salesforce.com/signup)。 這篇文章會運用 [Salesforce Lightning 經驗](https://developer.salesforce.com/page/Lightning_Experience_FAQ)。
 - 為您的 Salesforce 組織[設定網域](https://help.salesforce.com/articleView?id=domain_name_setup.htm&language=en_US&type=0)。
 
@@ -39,7 +40,7 @@ ms.locfileid: "71822258"
 
 ### <a name="create-a-connected-app-in-salesforce"></a>在 Salesforce 中建立連線應用程式
 
-1. 在 [身分識別提供者] 頁面上，選取**服務提供者現已透過連線應用程式建立。** 按一下這裡。
+1. 在 [**識別提供者**] 頁面上，選取 [**現在透過連線應用程式建立服務提供者]。按一下這裡。**
 2. 在 [基本資訊] 下，為連線應用程式輸入必要值。
 3. 在 [Web 應用程式設定]下，核取 [啟用 SAML] 方塊。
 4. 在 [實體識別碼] 欄位中，輸入下列 URL。 請確保使用 Azure AD B2C 租戶的名稱替換 `your-tenant` 的值。
@@ -89,7 +90,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 選取頂端功能表中的 [目錄 + 訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+3. 選擇 Azure 入口網站左上角的**所有服務**，然後搜尋並選取 **Azure AD B2C**。
 4. 在 [概觀] 頁面上，選取 [識別體驗架構]。
 5. 選取 [原則金鑰]，然後選取 [新增]。
 6. 針對 [選項] 選擇 `Upload`。
@@ -206,7 +207,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 1. 在您的工作目錄中建立一份 *SignUpOrSignIn.xml* 複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignInSalesforce.xml*。
 2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInSalesforce` 。
-3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如：`http://contoso.com/B2C_1A_signup_signin_salesforce`
+3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如 `http://contoso.com/B2C_1A_signup_signin_salesforce`
 4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignInSalesforce) 的識別碼。
 5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。
 6. 確定 [選取應用程式] 欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行] 來進行測試。

@@ -1,6 +1,7 @@
 ---
-title: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的 StringCollection 宣告轉換範例 | Microsoft Docs
-description: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的 StringCollection 宣告轉換範例。
+title: 自訂原則的 StringCollection 宣告轉換範例
+titleSuffix: Azure AD B2C
+description: StringCollection Azure Active Directory B2C 的 Identity Experience Framework （IEF）架構的宣告轉換範例。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9add75b8922fe958fc348fb2a6dd48a7b300eade
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: fbbd7b4bdddf2b58e66cb1203414b5a63eec2f27
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063324"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950998"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection 宣告轉換
 
@@ -27,7 +28,7 @@ ms.locfileid: "71063324"
 
 將字串宣告新增至新的 stringCollection 宣告。
 
-| 項目 | TransformationClaimType | 資料類型 | 注意 |
+| Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | 要新增至輸出宣告的 ClaimType。 |
 | InputClaim | collection | stringCollection | [選擇性] 如果指定，宣告轉換就會複製此集合中的項目，並將項目新增至輸出集合宣告的結尾。 |
@@ -55,13 +56,13 @@ ms.locfileid: "71063324"
   - **collection**：["someone@outlook.com"]
   - **item**："admin@contoso.com"
 - 輸出宣告：
-  - **collection**：["someone@outlook.com", "admin@contoso.com"]
+  - **collection**["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
 將字串參數新增至新的 stringCollection 宣告。
 
-| 項目 | TransformationClaimType | 資料類型 | 注意 |
+| Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | [選擇性] 如果指定，宣告轉換就會複製此集合中的項目，並將項目新增至輸出集合宣告的結尾。 |
 | InputParameter | item | string | 要新增至輸出宣告的值。 |
@@ -90,13 +91,13 @@ ms.locfileid: "71063324"
 - 輸入參數
   - **item**："admin@contoso.com"
 - 輸出宣告：
-  - **collection**：["someone@outlook.com", "admin@contoso.com"]
+  - **collection**["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
 從提供的字串集合中取得第一個項目。
 
-| 項目 | TransformationClaimType | 資料類型 | 注意 |
+| Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | 宣告轉換用來取得項目的 ClaimType。 |
 | OutputClaim | extractedItem | string | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 集合中的第一個項目。 |

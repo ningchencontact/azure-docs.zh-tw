@@ -1,5 +1,6 @@
 ---
-title: 在 Azure Active Directory B2C 中使用自訂原則來設定以 Amazon 帳戶進行登入 | Microsoft Docs
+title: 使用自訂原則來設定以 Amazon 帳戶進行登入
+titleSuffix: Azure AD B2C
 description: 在 Azure Active Directory B2C 中使用自訂原則來設定以 Amazon 帳戶進行登入。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 89f753eb0a4327bc68be9ff85006e86b57bcb548
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 39a0e9442f3e41ceeb67b4d528eb193b159d8777
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827250"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950845"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 Amazon 帳戶進行登入
 
@@ -46,7 +47,7 @@ ms.locfileid: "71827250"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 選取頂端功能表中的 [目錄 + 訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+3. 選擇 Azure 入口網站左上角的**所有服務**，然後搜尋並選取 **Azure AD B2C**。
 4. 在 [概觀] 頁面上，選取 [識別體驗架構]。
 5. 選取 [原則金鑰]，然後選取 [新增]。
 6. 針對 [選項] 選擇 `Manual`。
@@ -120,7 +121,7 @@ ms.locfileid: "71827250"
 
 目前，識別提供者已設定，但還未出現在任何註冊/登入畫面中。 若要讓它可供使用，您需建立現有範本使用者旅程圖的複本，然後加以修改，讓它也包含 Amazon 識別提供者。
 
-1. 從 Starter Pack 開啟 TrustFrameworkBase.xml 檔案。
+1. 從 Starter Pack 開啟 *TrustFrameworkBase.xml* 檔案。
 2. 尋找並複製包含 `Id="SignUpOrSignIn"` 之 **UserJourney** 元素的整個內容。
 3. 開啟 *TrustFrameworkExtensions.xml*，並尋找 **UserJourneys** 元素。 如果此元素不存在，請新增。
 4. 貼上您複製的整個 **UserJourney** 元素內容作為 **UserJourneys** 元素的子系。
@@ -162,9 +163,9 @@ ms.locfileid: "71827250"
 
 更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖。
 
-1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml 複本，並將它重新命名。 例如，將它重新命名為 SignUpSignInAmazon.xml。
+1. 在您的工作目錄中建立一份 *SignUpOrSignIn.xml* 複本，並將它重新命名。 例如，將它重新命名為 SignUpSignInAmazon.xml。
 2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInAmazon` 。
-3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如，`http://contoso.com/B2C_1A_signup_signin_amazon`
+3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如 `http://contoso.com/B2C_1A_signup_signin_amazon`
 4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignAmazon) 的識別碼。
 5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。
 6. 確定 [選取應用程式] 欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行] 來進行測試。

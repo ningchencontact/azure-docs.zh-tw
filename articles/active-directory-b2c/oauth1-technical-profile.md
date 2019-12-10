@@ -1,6 +1,7 @@
 ---
-title: 在 Azure Active Directory B2C 的自訂原則中定義 OAuth1 技術設定檔 |Microsoft Docs
-description: 在 Azure Active Directory B2C 的自訂原則中定義 OAuth1 技術設定檔。
+title: 在自訂原則中定義 OAuth1 技術設定檔
+titleSuffix: Azure AD B2C
+description: 在 Azure Active Directory B2C 的自訂原則中定義 OAuth 1.0 技術設定檔。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,20 +11,20 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 97fa5757f8b77e29545f6d6f6b885334c7b526f1
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: d97d908ddf5d55bf09d96a5ef16fa79a7afde7b4
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063997"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951100"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義 OAuth1 技術設定檔
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C （Azure AD B2C）提供[OAuth 1.0 通訊協定](https://tools.ietf.org/html/rfc5849)識別提供者的支援。 本文會說明技術設定檔的詳細規格，其可和支援此標準化通訊協定的宣告提供者互動。 透過 OAuth1 技術設定檔，您可以與以 OAuth1 為基礎的身分識別提供者（例如 Twitter）聯盟。 與身分識別提供者聯盟可讓使用者使用其現有的社交或企業身分識別登入。
+Azure Active Directory B2C （Azure AD B2C）提供[OAuth 1.0 通訊協定](https://tools.ietf.org/html/rfc5849)識別提供者的支援。 本文說明技術設定檔的詳細規格，可用來與支援此標準化通訊協定的宣告提供者互動。 透過 OAuth1 技術設定檔，您可以與以 OAuth1 為基礎的身分識別提供者（例如 Twitter）聯盟。 與身分識別提供者聯盟可讓使用者使用其現有的社交或企業身分識別登入。
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>通訊協定
 
 **Protocol** 元素的 **Name** 屬性必須設定為 `OAuth1`。 例如，**Twitter-OAUTH1** 技術設定檔的通訊協定是 `OAuth1`。
 
@@ -42,7 +43,7 @@ Azure Active Directory B2C （Azure AD B2C）提供[OAuth 1.0 通訊協定](http
 
 **OutputClaims** 元素包含 OAuth1 識別提供者傳回的宣告清單。 您可能需要將原則中定義的宣告名稱對應至識別提供者中定義的名稱。 只要設定 **DefaultValue** 屬性，您也可以包含識別提供者未傳回的宣告。
 
-**OutputClaimsTransformations** 元素可能包含 **OutputClaimsTransformation** 的集合，用來修改輸出宣告或產生新的輸出宣告。
+**OutputClaimsTransformations** 元素可能包含 **OutputClaimsTransformation** 的集合，以用來修改輸出宣告或產生新的輸出宣告。
 
 下列範例顯示 Twitter 識別提供者傳回的宣告：
 
@@ -91,7 +92,7 @@ Azure Active Directory B2C （Azure AD B2C）提供[OAuth 1.0 通訊協定](http
 
 如果使用的是 **b2clogin.com** 網域，而非使用 **login.microsoftonline.com**，請務必使用 b2clogin.com，而非使用 login.microsoftonline.com。
 
-例如：
+範例：
 
 - [使用自訂原則新增 Twitter 作為 OAuth1 識別提供者](active-directory-b2c-custom-setup-twitter-idp.md)
 

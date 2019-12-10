@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 80038cf5fba18eca4fbbe1405df2a76cfc84e2db
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 89b51af3beaad645dc27b599c2493be4d4bdf30f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850324"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951406"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>將機器上架交由 Azure Automation State Configuration 管理
 
@@ -305,6 +305,15 @@ Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 
 
 為了提高安全性，自動化帳戶的主要和次要存取金鑰可以隨時重新產生 (在 [管理金鑰] 頁面上)，以避免未來的節點使用先前的金鑰註冊。
 
+## <a name="certificate-expiration-and-re-registration"></a>憑證到期和重新註冊
+
+在 Azure 自動化狀態設定中將機器註冊為 DSC 節點之後，您可能需要在未來重新註冊該節點的一些原因如下：
+
+- 針對 Windows Server 2019 之前的 Windows Server 版本，每個節點都會自動針對在一年後到期的驗證，協調唯一的憑證。 目前，當憑證即將到期時，PowerShell DSC 註冊通訊協定無法自動更新憑證，因此您必須在一年後重新註冊節點。 重新註冊之前，請確定每個節點正在執行 Windows Management Framework 5.0 RTM。 如果節點的驗證憑證過期，而且節點並未重新註冊，則該節點將無法與 Azure 自動化通訊，並標示為「沒有回應」。 重新註冊從憑證到期時間執行90天或更短，或在憑證到期時間之後的任何時間點，將會產生並使用新的憑證。  此問題的解決方式包含在 Windows Server 2019 和更新版本中。
+- 變更在節點初始註冊期間設定的任何 [PowerShell DSC 本機組態管理員值](/powershell/scripting/dsc/managing-nodes/metaConfig4) ，例如 ConfigurationMode。 目前，您只能透過重新註冊來變更這些 DSC 代理程式值。 其中一個例外是指派給節點的節點組態 - 它可以在 Azure Automation DSC 中直接變更。
+
+您可以使用本檔中所述的任何上架方法，以您一開始註冊節點的相同方式來執行重新註冊。 您不需要從 Azure 自動化狀態設定取消註冊節點，然後再重新註冊。
+
 ## <a name="troubleshooting-azure-virtual-machine-onboarding"></a>疑難排解 Azure 虛擬機器上架
 
 Azure Automation State Configuration 可讓您輕鬆地將 Azure Windows VM 上架以進行組態管理。 在幕後，Azure VM Desired State Configuration 擴充功能是用來向 Azure Automation State Configuration 註冊 VM。 因為 Azure VM 期望的狀態組態延伸模組是以非同步方式執行，追蹤其進度和疑難排解其執行可能很重要。
@@ -314,14 +323,7 @@ Azure Automation State Configuration 可讓您輕鬆地將 Azure Windows VM 上�
 
 若要對「Azure VM 預期狀態設定」延伸模組的狀態進行疑難排解或檢視，請在 Azure 入口網站中，瀏覽至要上架的 VM，然後按一下 [設定] 底下的 [延伸模組]。 然後視作業系統而定，按一下 [DSC] 或 [DSCForLinux]。 如需詳細資訊，您可以按一下 [檢視詳細狀態]。
 
-## <a name="certificate-expiration-and-reregistration"></a>憑證到期日和重新註冊
-
-在將機器註冊為 Azure Automation State Configuration 中的 DSC 節點之後，有數種原因讓您可能需要在未來重新註冊該節點：
-
-- 針對 Windows Server 2019 之前的 Windows Server 版本，每個節點都會自動針對在一年後到期的驗證，協調唯一的憑證。 目前，當憑證即將過期時，PowerShell DSC 註冊通訊協定便無法自動更新憑證，因此您必須在一年之後重新註冊這些節點。 在重新登錄之前，請確定每個節點都正在執行 Windows Management Framework 5.0 RTM。 如果節點的驗證憑證過期，而且該節點尚未註冊，則該節點將無法與 Azure 自動化通訊，而且會被標示為「未回應」。 與憑證到期時間相距 90 天或更短時間內執行的註冊，或是憑證到期時間之後任何時間點執行的註冊，將會產生新的憑證並予以使用。  此問題的解決方式包含在 Windows Server 2019 和更新版本中。
-- 變更在節點初始註冊期間設定的任何 [PowerShell DSC 本機組態管理員值](/powershell/scripting/dsc/managing-nodes/metaConfig4) ，例如 ConfigurationMode。 目前，這些 DSC 代理程式值只可以透過重新註冊變更。 其中一個例外是指派給節點的節點組態 - 它可以在 Azure Automation DSC 中直接變更。
-
-重新註冊可以用您初始註冊節點的相同方法執行，使用這份文件中所述的任何上架方法。 重新註冊節點之前，您不需要從 Azure Automation State Configuration 取消註冊節點。
+如需疑難排解的詳細資訊，請參閱[Azure 自動化 Desired State Configuration （DSC）的疑難排解問題](./troubleshoot/desired-state-configuration.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 24bee8ffe23d524553143b2097560979a39329d7
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 5f260ab1df5341a981a388533b06cbcda400e4da
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784709"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941826"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -31,35 +31,45 @@ Azure Functions Core Tools 可讓您從命令提示字元或終端機，在本�
 
 ## <a name="core-tools-versions"></a>Core Tools 版本
 
-Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的本機開發環境、[選擇的語言](supported-languages.md)，以及所需的支援層級：
+Azure Functions Core Tools 有三個版本。 您使用的版本取決於您的本機開發環境、[選擇的語言](supported-languages.md)，以及所需的支援層級：
 
-+ 版本 1.x：支援版本 1.x 的執行階段。 這個版本的工具只有在 Windows 電腦上提供支援，並且從 [npm 套件](https://docs.npmjs.com/getting-started/what-is-npm)進行安裝。 使用此版本，您可以未正式支援的實驗性語言建立函式。 如需詳細資訊，請參閱 [Azure Functions 中支援的語言](supported-languages.md)。
++ 1\.x**版**：支援版本1.x 的 Azure Functions 執行時間。 這個版本的工具只有在 Windows 電腦上提供支援，並且從 [npm 套件](https://www.npmjs.com/package/azure-functions-core-tools)進行安裝。
 
-+ [版本 2.x](#v2)：支援[版本 2.x 的執行階段](functions-versions.md)。 此版本支援 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 使用平台專屬的套件管理員或 npm 進行安裝。
++ 2\.x [ **/3.X 版**](#v2)：支援版本2.x 或 3.x[的 Azure Functions 運行](functions-versions.md)時間。 這些版本支援[Windows](#windows-npm)、 [macOS](#brew)和[Linux](#linux) ，並使用平臺特定套件管理員或 npm 進行安裝。
 
-除非另外註明，否則本文中的範例適用於 2.x 版。
+除非另有說明，否則本文中的範例適用于3.x 版。
 
 ## <a name="install-the-azure-functions-core-tools"></a>安裝 Azure Functions Core Tools
 
 [Azure Functions Core Tools] 包含相同的執行階段版本，以支援您可在本機開發電腦上執行的 Azure Functions 執行階段。 它也提供命令來建立函式、連線到 Azure，以及部署函式專案。
 
-### <a name="v2"></a>版本 2.x
+### <a name="v2"></a>2.x 和3.x 版
 
-工具的 2.x 版會使用以 .NET Core 為建置基礎的 Azure Functions 執行階段 2.x。 .NET Core 2.x 支援的所有平台都支援這個版本，包括 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 
+2\.x/3.x 版的工具會使用以 .NET Core 為基礎的 Azure Functions 執行時間。 .NET Core 支援的所有平臺都支援這個版本，包括[Windows](#windows-npm)、 [macOS](#brew)和[Linux](#linux)。 
 
 > [!IMPORTANT]
-> 您可以使用[延伸]模組套件，略過安裝 .net CORE 2.x SDK 的需求。
+> 您可以使用[延伸]模組套件，略過安裝 .NET Core SDK 的需求。
 
 #### <a name="windows-npm"></a>Windows
 
 下列步驟使用 npm 在 Windows 上安裝 Core Tools。 您也可以使用 [Chocolatey](https://chocolatey.org/)。 如需詳細資訊，請參閱 [Core Tools 讀我檔案](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)。
 
-1. 安裝 [Node.js] (內含 npm)。 針對 2.x 版的工具，只支援 Node.js 8.5 和更新版本。
+1. 安裝 [Node.js] (內含 npm)。
+    - 針對 2.x 版的工具，只支援 Node.js 8.5 和更新版本。
+    - 針對2.x 版的工具，只支援 Node 10 和更新版本。
 
 1. 安裝 Core Tools 套件：
 
+    ##### <a name="v2x"></a>v2.x
+
     ```bash
     npm install -g azure-functions-core-tools
+    ```
+
+    ##### <a name="v3x"></a>v3. x
+
+    ```bash
+    npm install -g azure-functions-core-tools@3
     ```
 
    可能需要幾分鐘的時間，npm 才能下載並安裝 Core Tools 套件。
@@ -74,13 +84,21 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
 
 1. 安裝 Core Tools 套件：
 
+    ##### <a name="v2x"></a>v2.x
+
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
 
-1. 如果您不打算使用[延伸]模組配套，請安裝[適用于 MacOS 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/macos)。
+    ##### <a name="v3x"></a>v3. x
 
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools@3
+    # if upgrading on a machine that has 2.x installed
+    brew link --overwrite azure-functions-core-tools@3
+    ```
 
 #### <a name="linux"></a> 採用 APT 的 Linux (Ubuntu/Debian)
 
@@ -212,7 +230,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 即使使用儲存體模擬器進行開發，您可能想要透過實際的儲存體連接進行測試。 假設您已經[建立了儲存體帳戶](../storage/common/storage-create-storage-account.md)，您可以透過下列其中一種方式取得有效的儲存體連接字串：
 
 - 從 [ [Azure 入口網站]] 中，搜尋並選取 [**儲存體帳戶**]。 
-  ![從 Azure 入口網站選取 [Storagea 帳戶]](./media/functions-run-local/select-storage-accounts.png)
+  ![從 Azure 入口網站選取儲存體帳戶](./media/functions-run-local/select-storage-accounts.png)
   
   選取您的儲存體帳戶，選取 [**設定**] 中的 [**存取金鑰**]，然後複製其中一個**連接字串**值。
   ![從 Azure 入口網站複製連接字串](./media/functions-run-local/copy-storage-connection-portal.png)

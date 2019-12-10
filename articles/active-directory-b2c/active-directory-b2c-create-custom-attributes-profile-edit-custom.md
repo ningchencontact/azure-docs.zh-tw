@@ -1,5 +1,6 @@
 ---
-title: 在 Azure Active Directory B2C 中將您自己的屬性新增至自訂原則 | Microsoft Docs
+title: 將您自己的屬性新增至自訂原則
+titleSuffix: Azure AD B2C
 description: 逐步解說如何使用擴充屬性 (Property) 和自訂屬性 (Attribute)，並將其包含於使用者介面中。
 services: active-directory-b2c
 author: mmacy
@@ -10,14 +11,14 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 82a796a3252a4de6eacabcad45c61c864e963fe0
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 92050261777482bae8055f697ef50c2295675c5b
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066161"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948772"
 ---
-# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C：在自訂設定檔編輯原則中使用自訂屬性
+# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C︰在自訂設定檔編輯原則中使用自訂屬性
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -25,7 +26,7 @@ ms.locfileid: "71066161"
 
 ## <a name="prerequisites"></a>必要條件
 
-依照 [Azure Active Directory B2C：開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟進行操作。
+依照 [Azure Active Directory B2C：開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟執行。
 
 ## <a name="use-custom-attributes-to-collect-information-about-your-customers-in-azure-ad-b2c-by-using-custom-policies"></a>使用自訂屬性，利用自訂原則來收集您的客戶在 Azure AD B2C 中的相關資訊
 您的 Azure AD B2C 目錄隨附一組內建屬性。 範例包括**名字**、**姓氏**、**區/鄉/鎮/市**、**郵遞區號**及 **userPrincipalName**。 您通常必須建立自有屬性，例如下列範例：
@@ -52,22 +53,22 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
 2. 在左方的導覽功能表中，選取 [Azure Active Directory]。 您可能需要選取 [更多服務] 才能找到它。
 3. 選取 [應用程式註冊]。 選取 [新增應用程式註冊]。
 4. 提供下列項目：
-    * Web 應用程式的名稱︰**WebApp-GraphAPI-DirectoryExtensions**。
-    * 應用程式類型：**Web 應用程式/API**。
+    * Web 應用程式的名稱：**WebApp-GraphAPI-DirectoryExtensions**。
+    * 應用程式類型︰**Web 應用程式/API**。
     * 登入 URL：**https://{租用戶名稱}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions**。
 5. 選取 [建立]。
 6. 選取新建立的 Web 應用程式。
 7. 選取 [設定] > [必要權限]。
 8. 選取 API [Windows Azure Active Directory]。
-9. 勾選下列應用程式權限︰[讀取及寫入目錄資料]。 然後選取 [儲存]。
+9. 在 [應用程式權限] 的 [讀取及寫入目錄資料] 輸入核取記號。 然後選取 [儲存]。
 10. 選擇 [授與權限]，然後確認 [是]。
 11. 將下列識別碼複製到剪貼簿並加以儲存：
-    * **應用程式識別碼**。 範例： `103ee0e6-f92d-4183-b576-8c3739027780`.
-    * **物件識別碼**。 範例： `80d8296a-da0a-49ee-b6ab-fd232aa45201`.
+    * **應用程式識別碼**。 範例：`103ee0e6-f92d-4183-b576-8c3739027780`.
+    * **物件識別碼**。 範例：`80d8296a-da0a-49ee-b6ab-fd232aa45201`.
 
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>修改您的自訂原則以新增 **ApplicationObjectId**
 
-當您依照 [Azure Active Directory B2C：開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟進行操作後，便已下載和修改名為 **TrustFrameworkBase.xml**、**TrustFrameworkExtensions.xml**、**SignUpOrSignin.xml**、**ProfileEdit.xml**, 及 **PasswordReset.xml** 的[範例檔案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip)。 在此步驟中，您可以對那些檔案進行更多修改。
+當您依照 [Azure Active Directory B2C：開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟執行時，便已經下載並修改名為 **TrustFrameworkBase.xml**、**TrustFrameworkExtensions.xml**、**SignUpOrSignin.xml**、**ProfileEdit.xml** 及 **PasswordReset.xml** 的[範例檔案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) \(英文\)。 在此步驟中，您可以對那些檔案進行更多修改。
 
 * 開啟 TrustFrameworkBase.xml 檔案，並新增 `Metadata` 區段，如下列範例所示。 插入您先前為 `ApplicationObjectId` 值記錄的物件識別碼，以及為 `ClientId` 值記錄的應用程式識別碼：
 
@@ -269,7 +270,7 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
 2. 在內建和自訂原則之間使用相同的擴充屬性。 當您透過入口網站體驗新增擴充 (或自訂) 屬性時，系統會使用存在於每個 B2C 租用戶中的 **b2c-extensions-app** 來註冊那些屬性。 採取下列步驟，在自訂原則中使用擴充屬性：
 
    a. 在 portal.azure.com 中的 B2C 租用戶內，瀏覽至 [Azure Active Directory]，然後選取 [應用程式註冊]。
-   b. 尋找您的 **b2c-extensions-app** 並加以選取。
+   b.這是另一個 C# 主控台應用程式。 尋找您的 **b2c-extensions-app** 並加以選取。
    c. 在 [基本資訊] 之下，輸入**應用程式識別碼**和**物件識別碼**。
    d. 將它們包含在您的 **AAD-Common** TechnicalProfile 中繼資料內：
 
@@ -294,7 +295,7 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
    extension_<app-guid>_ActivationStatus via Graph API.
    ```
 
-## <a name="reference"></a>參考資料
+## <a name="reference"></a>參考
 
 如需擴充屬性的詳細資訊，請參閱[目錄結構描述擴充 | 圖形 API 概念](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) \(機器翻譯\) 一文。
 
@@ -302,3 +303,4 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
 > * **TechnicalProfile** 是一個元素類型或函式，其會定義端點的名稱、中繼資料及通訊協定。 **TechnicalProfile** 會詳述識別體驗架構執行的宣告交換。 當這個函式在協調流程步驟中或從另一個 **TechnicalProfile** 被呼叫時，呼叫端會提供 **InputClaims** 和 **OutputClaims** 作為參數。
 > * 圖形 API 中的擴充屬性會使用 `extension_ApplicationObjectID_attributename` 慣例來命名。
 > * 自訂原則會以 **extension_attributename** 的名稱參考擴充屬性。 此參考在 XML 中會省略 **ApplicationObjectId**。
+> * 您必須以下列格式指定屬性識別碼， **extension_attributename**其參考的位置。

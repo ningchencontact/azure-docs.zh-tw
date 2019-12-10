@@ -1,20 +1,20 @@
 ---
 title: 管理使用者
-description: 描述如何管理使用者
+description: 本文說明如何管理使用者。
 author: uhabiba04
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
-ms.openlocfilehash: 37dacf0adfc9e3dcbab963cef50e2ee5209df314
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f58db00e598fd08972adb60cbd8aae0d3bf3391d
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852350"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942291"
 ---
 # <a name="manage-users"></a>管理使用者
 
-Azure FarmBeats 包含屬於您的 Azure Active Directory （Azure AD）之人員的使用者管理。 您將能夠將使用者新增至您的 Azure FarmBeats 實例以存取 Api、從伺服器陣列中查看產生的對應和感應器遙測
+Azure FarmBeats 包含屬於您的 Azure Active Directory （Azure AD）之人員的使用者管理。 您可以將使用者新增至 Azure FarmBeats 實例，以存取 Api、查看產生的對應，以及來自伺服器陣列的感應器遙測。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -38,40 +38,43 @@ Azure FarmBeats 目前支援兩種類型的使用者角色：
 
 ## <a name="add-user-to-azure-farmbeats"></a>將使用者新增至 Azure FarmBeats
 
-若要將使用者新增至 Azure FarmBeats， 
-1.  登入加速器，然後按一下 [設定] 圖示
-2.  按一下 存取控制
+遵循下列步驟，將使用者新增至 Azure FarmBeats：
+
+1.  登入加速器，然後選取 [**設定**] 圖示。
+2.  選取 [**存取控制**]。
 
     ![專案伺服器陣列的節拍](./media/create-farms/settings-users-1.png)
 
-3.  輸入您想要授與存取權之使用者的電子郵件識別碼
-4.  選取所需的角色– [系統管理員] 或 [唯讀]
-5.  按一下 [新增角色]
+3.  輸入您想要提供存取權之使用者的電子郵件識別碼。
+4.  選取所需的角色– [系統管理員] 或 [唯讀]。
+5.  選取 [**新增角色**]。
 
 新增的使用者現在將能夠存取 Azure FarmBeats （資料中樞和加速器）。
 
 ## <a name="delete-user-from-azure-farmbeats"></a>從 Azure FarmBeats 刪除使用者
 
-若要從 Azure FarmBeats 系統中移除使用者，您可以
-1.  登入加速器，然後按一下 [設定] 圖示
-2.  按一下 存取控制
-3.  按一下您要移除之使用者的電子郵件識別碼附近的 [刪除] 圖示
+請遵循下列步驟，從 Azure FarmBeats 系統中移除使用者：
 
-使用者已從系統中移除。 您將會收到下列訊息，以確認操作成功
+1.  登入加速器，然後選取 [**設定**] 圖示。
+2.  選取 [**存取控制**]。
+3.  選取 [**刪除**] 以刪除使用者。
 
+使用者已從系統中刪除。 您會收到下列訊息，以確認操作成功。
 
 ![專案伺服器陣列的節拍](./media/create-farms/manage-users-2.png)
-
 
 ## <a name="add-azure-ad-users"></a>新增 Azure AD 使用者
 
 > [!NOTE]
-> 只有當您嘗試提供 Azure FarmBeats 存取權的使用者不存在於 Azure AD 租使用者時，您才需要執行下列步驟。 如果使用者已存在，則不需要執行下列步驟
+> 請遵循下列步驟，如果使用者不存在 Azure AD 租使用者中，則提供 Azure FarmBeats 的存取權。 如果使用者存在於 Azure AD 的租使用者中，您可以略過下列步驟。
+>
 
 FarmBeats 使用者必須存在於 Azure AD 租使用者中，您才能將它們指派給應用程式和角色。 若要將使用者新增至 Azure AD，請使用下列步驟：
+
 1.  登入 [Azure 入口網站](https://portal.azure.com/)。
-2.  在右上角選取您的帳戶，並切換至與 FarmBeats 相關聯的 Azure AD 租使用者
-3.  選取 [Azure Active Directory] > [使用者]。 您會在目錄中看到使用者清單。
+2.  在右上角選取您的帳戶，並切換至與 FarmBeats 相關聯的 Azure AD 租使用者。
+3.  選取 [Azure Active Directory] > [使用者]。
+    您會在目錄中看到使用者清單。
 4.  若要將使用者新增至目錄，請選取 [新增使用者]。 如果是外部使用者，請選取 [新增來賓使用者]。
 
     ![專案伺服器陣列的節拍](./media/create-farms/manage-users-3.png)
@@ -82,5 +85,4 @@ FarmBeats 使用者必須存在於 Azure AD 租使用者中，您才能將它們
 
 ## <a name="next-steps"></a>後續步驟
 
-您已部署 Azure FarmBeats。 現在，請瞭解如何[建立伺服器](manage-farms.md#create-farms)陣列。
-
+您已成功將使用者新增至 Azure FarmBeats 實例。 現在，請瞭解如何[建立伺服器](manage-farms.md#create-farms)陣列。

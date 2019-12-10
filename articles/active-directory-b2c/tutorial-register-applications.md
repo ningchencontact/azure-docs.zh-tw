@@ -1,5 +1,6 @@
 ---
-title: 教學課程-註冊應用程式-Azure Active Directory B2C
+title: 教學課程：註冊應用程式
+titleSuffix: Azure AD B2C
 description: 了解如何使用 Azure 入口網站在 Azure Active Directory B2C 中註冊 Web 應用程式。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3a5d5099c91736276aca56c8b94b846b53a190c1
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 76d38e4b35111cd2c09685653fb4948f98387132
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73642421"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950777"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中註冊應用程式
 
@@ -29,7 +30,7 @@ ms.locfileid: "73642421"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如果您尚未建立自己的 [Azure AD B2C 租用戶](tutorial-create-tenant.md)，請立即建立一個。 您可以使用現有的 Azure AD B2C 租用戶。
 
@@ -37,10 +38,10 @@ ms.locfileid: "73642421"
 
 若要在您的 Azure AD B2C 租用戶中註冊應用程式，您可以使用目前的**應用程式**體驗，或使用新整合的**應用程式註冊 (預覽)** 體驗。 [深入了解新的體驗](https://aka.ms/b2cappregintro)。
 
-#### <a name="applicationstabapplications"></a>[](#tab/applications/)
+#### <a name="applicationstabapplications"></a>[應用程式](#tab/applications/)
 
 1. 選取頂端功能表中的 [目錄 + 訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-1. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+1. 選擇 Azure 入口網站左上角的**所有服務**，然後搜尋並選取 **Azure AD B2C**。
 1. 選取 [應用程式]，然後選取 [新增]。
 1. 輸入應用程式的名稱。 例如，*webapp1*。
 1. 針對 [包含 Web 應用程式/Web API] 和 [允許隱含流程]，選取 [是]。
@@ -80,7 +81,7 @@ ms.locfileid: "73642421"
 1. 在 [管理] 底下，選取 [驗證]。
 1. 選取 [試用全新體驗] (若顯示的話)。
 1. 在 [隱含授與] 底下，同時選取 [存取權杖] 和 [識別碼權杖] 核取方塊。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 * * *
 
@@ -88,7 +89,7 @@ ms.locfileid: "73642421"
 
 如果您的應用程式會交換權杖的程式碼，您必須建立應用程式密碼。
 
-#### <a name="applicationstabapplications"></a>[](#tab/applications/)
+#### <a name="applicationstabapplications"></a>[應用程式](#tab/applications/)
 
 1. 在 [ **Azure AD B2C 應用**程式] 頁面中，選取您建立的應用程式，例如*webapp1*。
 1. 選取 [**金鑰**]，然後選取 [**產生金鑰**]。

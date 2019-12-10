@@ -1,5 +1,6 @@
 ---
-title: 在 Azure Active Directory B2C 中的客戶註冊期間停用電子郵件驗證
+title: 在客戶註冊期間停用電子郵件驗證
+titleSuffix: Azure AD B2C
 description: 瞭解如何在 Azure Active Directory B2C 的客戶註冊期間停用電子郵件驗證。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9a7adc04991dd4a472bdaf1aa47aacaf6cdeb190
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c5b3598e33dac131c8881248a5f4b740a6302e20
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256921"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948142"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中的客戶註冊期間停用電子郵件驗證
 
@@ -27,7 +28,7 @@ ms.locfileid: "71256921"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)
 1. 使用上方功能表中的 [**目錄 + 訂**用帳戶] 篩選，選取包含您 Azure AD B2C 租使用者的目錄。
-1. 在左側功能表中，選取 [ **Azure AD B2C**]。 或者，選取 [**所有服務**]，然後搜尋並選取 [ **Azure AD B2C**]。
+1. 在左側功能表中，選取 [Azure AD B2C]。 或者，選取 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
 1. 選取 [使用者流程]。
 1. 選取您要停用電子郵件驗證的使用者流程。 例如， *B2C_1_signinsignup*。
 1. 選取 [**頁面配置**]。

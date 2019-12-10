@@ -1,5 +1,6 @@
 ---
-title: 使用 Application Insights 中的事件從 Azure Active Directory B2C 追蹤使用者行為 | Microsoft Docs
+title: 使用 Application Insights 追蹤使用者行為
+titleSuffix: Azure AD B2C
 description: 了解如何使用自訂原則，從 Azure AD B2C 使用者旅程圖，在 Application Insights 中啟用事件記錄 (預覽)。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c02757fb4b48ebf1220a5826bc9699741faa5170
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 6643759688817811890fd022c7aa061607270b9e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066194"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948941"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>使用 Application Insights 在 Azure Active Directory B2C 中追蹤使用者行為
 
@@ -109,7 +110,7 @@ Application Insights 可以使用相互關聯識別碼來記錄使用者工作�
 
 技術設定檔可視為是 Azure AD B2C 身分識別體驗架構中的功能。 此資料表會定義技術設定檔，用來開啟工作階段並張貼事件。
 
-| 技術設定檔 | 工作 |
+| 技術設定檔 | Task |
 | ----------------- | -----|
 | AzureInsights-Common | 建立要包含於所有 Azure-Insights 技術設定檔中的一組通用參數。 |
 | AzureInsights-SignInRequest | 收到登入要求之後，建立含有一組宣告的 "SignIn" 事件。 |

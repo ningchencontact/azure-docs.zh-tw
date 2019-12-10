@@ -1,5 +1,6 @@
 ---
-title: 在 Azure Active Directory B2C 的自訂原則中定義自我判斷技術設定檔 | Microsoft Docs
+title: 在自訂原則中定義自我判斷技術設定檔
+titleSuffix: Azure AD B2C
 description: 在 Azure Active Directory B2C 的自訂原則中定義自我判斷技術設定檔。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4fec742766cebeb5b1d82655e09af77a888c375c
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: bfa8982fb49b31540d1926bdeb75a96dc1d79cf0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063682"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950896"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義自我判斷技術設定檔
 
@@ -23,7 +24,7 @@ ms.locfileid: "71063682"
 
 使用者預期會提供輸入的 Azure Active Directory B2C （Azure AD B2C）中的所有互動都是自我判斷技術設定檔。 例如，註冊頁面、登入頁面或密碼重設頁面。
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>通訊協定
 
 **Protocol** 元素的 **Name** 屬性必須設定為 `Proprietary`。 **handler** 屬性必須包含 Azure AD B2C 所使用之通訊協定處理常式組件的完整名稱，以進行自我判斷：`Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 

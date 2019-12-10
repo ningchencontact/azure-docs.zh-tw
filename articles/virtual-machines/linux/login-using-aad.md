@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 74de621f88d9af65f8894319729f902bf11e57ce
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: cccdb54b89dff7c6a1fc9dac55c63b19d661ab65
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873007"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951304"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>預覽：使用 Azure Active Directory authentication 登入 Azure 中的 Linux 虛擬機器
 
@@ -206,6 +206,10 @@ Access denied
 - 確認在 SSH 提示字元中指定的登入名稱正確無誤。 登入名稱若有拼字錯誤，即可能導致您在 SSH 提示字元中指定的登入名稱與您用來登入 Azure AD 的帳戶不相符。 例如，您輸入*azuresuer\@contoso.onmicrosoft.com* ，而不是*azureuser\@contoso.onmicrosoft.com*。
 - 如果您有多個使用者帳戶，請確定您在登入 Azure AD 時，並未在瀏覽器視窗中提供不同的使用者帳戶。
 - Linux 是區分大小寫的作業系統。 'Azureuser@contoso.onmicrosoft.com' 和 'azureuser@contoso.onmicrosoft.com' 之間的差異可能會導致不相符。 請確定您在 SSH 提示字元中指定 UPN 時使用的是正確的大小寫設定。
+
+### <a name="other-limitations"></a>其他限制
+
+目前不支援透過嵌套群組或角色指派繼承存取權限的使用者。 使用者或群組必須直接被指派[所需的角色指派](#configure-role-assignments-for-the-vm)。 例如，使用管理群組或嵌套群組角色指派，並不會授與正確許可權以允許使用者登入。
 
 ## <a name="preview-feedback"></a>預覽意見反應
 

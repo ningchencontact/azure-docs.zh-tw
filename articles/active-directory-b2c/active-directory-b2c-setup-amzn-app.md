@@ -1,5 +1,6 @@
 ---
-title: 設定註冊並以 Amazon 帳戶登入-Azure Active Directory B2C
+title: 設定註冊，並以 Amazon 帳戶登入
+titleSuffix: Azure AD B2C
 description: 使用 Azure Active Directory B2C，讓具有 Amazon 帳戶的客戶得以註冊和登入您的應用程式。
 services: active-directory-b2c
 author: mmacy
@@ -10,18 +11,18 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bddbd9b588d8ffc2ace3a937fa2c72876eb5e4e9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e43c880fb2e38a235c38e19854da9e2b6e2a10c0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065220"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947708"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 Amazon 帳戶登入
 
 ## <a name="create-an-amazon-application"></a>建立 Amazon 應用程式
 
-若要在 Azure Active Directory B2C （Azure AD B2C）中使用 Amazon 帳戶做為[識別提供者](active-directory-b2c-reference-oauth-code.md)，您需要在代表它的租使用者中建立應用程式。 如果您尚未擁有 Amazon 帳戶，您可以在[https://www.amazon.com/](https://www.amazon.com/)註冊。
+若要在 Azure Active Directory B2C （Azure AD B2C）中使用 Amazon 帳戶做為[識別提供者](active-directory-b2c-reference-oauth-code.md)，您需要在代表它的租使用者中建立應用程式。 如果您還沒有 Amazon 帳戶，您可以在[https://www.amazon.com/](https://www.amazon.com/)註冊。
 
 1. 以您的 Amazon 帳戶認證登入 [Amazon Developer Center (Amazon 開發人員中心)](https://login.amazon.com/)。
 1. 若您尚未執行此動作，請按一下 [註冊]、遵循開發人員註冊步驟，並接受原則。
@@ -34,7 +35,7 @@ ms.locfileid: "71065220"
 ## <a name="configure-an-amazon-account-as-an-identity-provider"></a>將 Amazon 帳戶設為識別提供者
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-1. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
+1. 選取頂端功能表中的 [目錄 + 訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 1. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
 1. 選取 [**識別提供者**]，然後選取 [ **Amazon**]。
 1. 輸入 [名稱]。 例如， *Amazon*。

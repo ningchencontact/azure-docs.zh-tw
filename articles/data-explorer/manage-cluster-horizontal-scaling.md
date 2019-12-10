@@ -3,28 +3,24 @@ title: 在 Azure 資料總管中管理叢集水準調整（向外延展）以配
 description: 本文說明根據變更的需求，在 Azure 資料總管叢集中相應放大和相應縮小的步驟。
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/14/2019
-ms.openlocfilehash: eb204701b42436a5ae95bac97ed6fd97cf272860
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.date: 12/09/2019
+ms.openlocfilehash: 52a9c0a13723361bbc93362cdd9e2c73ef0372f2
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561871"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942234"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>在 Azure 資料總管中管理叢集水準調整（向外延展）以配合變更需求
 
-適當調整叢集的大小對 Azure 資料總管的效能來說非常重要。 靜態叢集大小可能導致使用量過低或使用量過高，兩者皆不理想。
-
-因為叢集上的需求無法以絕對精確度來預測，所以最好是*調整*叢集、新增和移除具有變更需求的容量和 CPU 資源。 
+適當調整叢集的大小對 Azure 資料總管的效能來說非常重要。 靜態叢集大小可能導致使用量過低或使用量過高，兩者皆不理想。 因為叢集上的需求無法以絕對精確度來預測，所以最好是*調整*叢集、新增和移除具有變更需求的容量和 CPU 資源。 
 
 有兩個工作流程可調整 Azure 資料總管叢集： 
-
 * 水準調整，也稱為相應縮小和放大。
 * [垂直調整](manage-cluster-vertical-scaling.md)，也稱為相應增加和減少。
-
 本文說明水準調整工作流程。
 
 ## <a name="configure-horizontal-scaling"></a>設定水準調整
@@ -47,13 +43,40 @@ ms.locfileid: "74561871"
 
 1. 選取 [**優化自動**調整]。 
 
-1. 選取 [最小實例計數] 和 [最大實例計數]。 根據負載，叢集自動調整範圍介於這兩個數字之間。
+1. 選取 [最小實例計數] 和 [最大實例計數]。 叢集會根據負載，自動調整這兩個數字之間的範圍。
 
 1. 選取 [儲存]。
 
    ![優化自動調整方法](media/manage-cluster-horizontal-scaling/optimized-autoscale-method.png)
 
 優化自動調整開始運作。 其動作現在會顯示在叢集的 Azure 活動記錄中。
+
+#### <a name="logic-of-optimized-autoscale"></a>優化自動調整的邏輯 
+
+**橫向擴充**
+
+當您的叢集接近使用率的狀態時，請相應放大以維持最佳效能。 相應放大會在以下情況發生：
+* 叢集實例的數目低於使用者定義的實例數目上限。
+* 快取使用率超過一小時。
+
+> [!NOTE]
+> 相應放大邏輯目前不會考慮使用內嵌的使用率和 CPU 計量。 如果這些計量對您的使用案例很重要，請使用[自訂自動](#custom-autoscale)調整。
+
+**相應縮小**
+
+當您的叢集接近使用率狀態時，相應縮小以降低成本，但維持效能。 系統會使用多個計量來驗證是否可安全地在叢集中進行調整。 下列規則會每日評估為執行相應縮小之前7天：
+* 實例數目高於2以上定義的實例數目下限。
+* 為確保不會多載資源，必須先驗證下列計量，才能執行相應縮小： 
+    * 快取使用率不高
+    * CPU 低於平均值 
+    * 內嵌使用率低於平均值 
+    * 串流內嵌使用率（如果使用串流內嵌）不高
+    * 保持運作的事件高於定義的最小值、正確處理和時間。
+    * 無查詢節流 
+    * 失敗的查詢數目低於定義的最小值。
+
+> [!NOTE]
+> 大規模的邏輯目前需要7天的評估版，才能執行優化的規模調整。 此評估會每隔24小時進行一次。 如果需要快速變更，請使用[手動調整規模](#manual-scale)。
 
 ### <a name="custom-autoscale"></a>自訂自動調整
 
@@ -108,5 +131,4 @@ ms.locfileid: "74561871"
 ## <a name="next-steps"></a>後續步驟
 
 * [使用計量監視 Azure 資料總管效能、健康情況和使用量](using-metrics.md)
-
 * 針對適當大小的叢集，[管理叢集垂直調整](manage-cluster-vertical-scaling.md)。

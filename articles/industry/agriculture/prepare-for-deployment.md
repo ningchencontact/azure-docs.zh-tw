@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c29bba81132df15fcea9ff0df7be6a8cea94c9a0
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 27bf62cb328273db1f7bdd44117853b00feca9ae
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851123"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941571"
 ---
 # <a name="deploy-azure-farmbeats"></a>部署 Azure FarmBeats
 
@@ -33,7 +33,7 @@ Azure FarmBeats 的快速部署應該不到一小時的時間。 視使用量而
 
 Azure FarmBeats 部署會在您的訂用帳戶中建立下列資源：
 
-| S. 編號  | 資源名稱  | FarmBeats 元件  |
+| 埠. 編號  | 資源名稱  | FarmBeats 元件  |
 |---------|---------|---------|
 |1  |       Azure Cosmos DB   |  Datahub       |
 |2  |    Application Insights      |     Datahub/加速器     |
@@ -49,7 +49,6 @@ Azure FarmBeats 部署會在您的訂用帳戶中建立下列資源：
 |12|      Azure App Service      |  Datahub/加速器       |
 |13 |    App Service 方案        |     Datahub/加速器      |
 |14 |Azure 地圖服務帳戶     |加速器    |
-|15 |       Azure 時間序列深入解析      |  Datahub     |
 
 Azure FarmBeats 可在 Azure Marketplace 下載，您可以直接從 Azure 入口網站存取。  
 
@@ -83,7 +82,7 @@ Azure FarmBeats 可在 Azure Marketplace 下載，您可以直接從 Azure 入�
 
 具有 Sentinel 的帳戶可協助您將 Sentinel 衛星影像從其官方網站下載至您的裝置。 若要建立免費帳戶，請執行下列動作：
 
-1. 移至 [ [Sentinel 帳戶] 註冊頁面](https://scihub.copernicus.eu/dhus/#/self-registration)。 
+1. 移至 [ [Sentinel 帳戶] 註冊頁面](https://scihub.copernicus.eu/dhus/#/self-registration)。
 1. 在註冊表單中，提供您的名字、姓氏、使用者名稱、密碼和電子郵件地址。
 
 驗證電子郵件將會傳送至已註冊的電子郵件地址以進行確認。 選取連結以確認您的電子郵件地址。 您的註冊程式已完成。
@@ -211,7 +210,7 @@ Azure FarmBeats 可在 Azure Marketplace 下載，您可以直接從 Azure 入�
     > 權杖會在60分鐘後到期。 若已過期，您可以重新輸入部署命令以重新開機。
 
 1. 在提示字元中，輸入您的 Sentinel 帳戶密碼。
-   
+
    安裝程式會驗證並啟動部署，這可能需要大約20分鐘的時間。
 
    成功完成部署之後，您會收到下列輸出連結：
@@ -282,12 +281,8 @@ Azure FarmBeats 可在 Azure Marketplace 下載，您可以直接從 Azure 入�
 Datahub 安裝完成之後，您會收到 URL，以透過 Swagger 介面存取 Azure FarmBeats Api，格式為 HTTPs://\<yourdatahub-網站名稱 >. azurewebsites. net/Swagger。
 
 1. 若要透過 Swagger 登入，請在瀏覽器中複製並貼上 URL。
-1. 使用您的 Azure 入口網站認證登入。
-1. 選擇性嘗試此「健全測試」： 
-
-     - 使用 Datahub 連結（您收到做為成功部署的輸出），成功登入 Swagger 入口網站。
-     - 擴充類型取得 API-選取 [立即試用]/Execute
-     - 您應該會收到伺服器回應碼200，而不是例外狀況，例如「403未經授權的使用者」。
+2. 使用您的 Azure 入口網站認證登入。
+3. 您可以在 Azure FarmBeats Api 上查看 swagger 並執行所有 REST 作業。 這表示 Azure FarmBeats 的部署成功。
 
 ### <a name="accelerator"></a>加速器
 

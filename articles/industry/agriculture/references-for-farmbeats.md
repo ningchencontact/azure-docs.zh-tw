@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 8efc98ad2785a9052244556bddc60a5ba34bd3d8
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 501e5bc1b2de91e0dd74ae0f0d9163d74dcb06f2
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900384"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941554"
 ---
 # <a name="references"></a>參考
 
@@ -23,7 +23,7 @@ Azure FarmBeats Api 為農業企業提供具有以 JSON 為基礎之回應的標
 - 用來取得感應器、攝影機、無人機、天氣、衛星和策劃基礎資料的 Api。
 - 標準化和 coNtextualization 跨通用資料提供者的資料。
 - 架構化所有內嵌資料的存取和查詢功能。
-- 根據 agronomic 功能，自動產生可查詢的中繼資料。 
+- 根據 agronomic 功能，自動產生可查詢的中繼資料。
 - 自動產生快速模型建立的時間序列匯總。
 - 整合式 Azure Data Factory 引擎，輕鬆建立自訂資料處理管線。
 
@@ -102,7 +102,7 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept:
 ### <a name="query-parameters"></a>查詢參數
 
 對於 REST GET 呼叫，您可以在要求 URI 上包含一或多個查詢參數，以篩選、限制和排序 API 回應中的資料。 如需查詢參數，請參閱 API 檔和個別 GET 呼叫。
-例如，當您查詢裝置清單時（/Device 上的 GET 呼叫），可以指定下列查詢參數： 
+例如，當您查詢裝置清單時（/Device 上的 GET 呼叫），可以指定下列查詢參數：
 
 ![裝置清單](./media/for-references/query-parameters-device-1.png)
 
@@ -163,12 +163,12 @@ Azure Active Directory 中的使用者或應用程式註冊可以存取 Azure Fa
 
 4. 移至您的[Datahub Swagger](https://<yourdatahub>.azurewebsites.net/swagger/index.html) ，並執行下列動作：
     - 移至**ROLEASSIGNMENT API**。
-    - 執行 POST，為您剛建立的**物件識別碼**建立**RoleAssignment**物件。 
+    - 執行 POST，為您剛建立的**物件識別碼**建立**RoleAssignment**物件。
 
   > [!NOTE]
   > 如需如何新增使用者和 Active Directory 註冊的詳細資訊，請參閱[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
 
-完成先前的步驟之後，您的應用程式註冊（用戶端）就可以透過持有人驗證，使用存取權杖來呼叫 Azure FarmBeats Api。 
+完成先前的步驟之後，您的應用程式註冊（用戶端）就可以透過持有人驗證，使用存取權杖來呼叫 Azure FarmBeats Api。
 
 使用存取權杖，在標頭區段的後續 API 要求中傳送它，如下所示：
 

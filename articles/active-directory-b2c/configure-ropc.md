@@ -1,6 +1,7 @@
 ---
-title: 在 Azure Active Directory B2C 中設定資源擁有者密碼認證流程 | Microsoft Docs
-description: 了解如何在 Azure AD B2C 中設定資源擁有者密碼認證流程。
+title: 設定資源擁有者密碼認證流程
+titleSuffix: Azure AD B2C
+description: 瞭解如何在 Azure AD B2C 中設定 ROPC 流程。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ca17d049d988b2bc8b60249d99c03f70c555d3fb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 03ff564848298d31c8bf92169d9e5f66d024d711
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023731"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949179"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>在 Azure AD B2C 中設定資源擁有者密碼認證流程
 
@@ -64,7 +65,7 @@ ms.locfileid: "72023731"
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Key | 值 |
+| 索引鍵 | Value |
 | --- | ----- |
 | username | leadiocl@outlook.com |
 | password | Passxword1 |
@@ -104,12 +105,12 @@ username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=o
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Key | 值 |
+| 索引鍵 | Value |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
-| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| 資源 | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* 和 *resource* 是您先前記下的應用程式識別碼值。 *Refresh_token* 是您在先前所述的驗證呼叫中接收到的權杖。
@@ -132,7 +133,7 @@ username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=o
 }
 ```
 > [!NOTE]
-> 透過圖形 API 建立使用者時，應用程式必須具有 Microsoft Graph 的 "openid"、"offline_access" 和 "profile" 許可權。
+> 透過圖形 API 建立使用者時，應用程式必須要有來自 Microsoft Graph 的 "openid"、"offline_access" 和 "profile" 許可權。
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>使用您慣用的原生 SDK 或 App-Auth 進行實作
 

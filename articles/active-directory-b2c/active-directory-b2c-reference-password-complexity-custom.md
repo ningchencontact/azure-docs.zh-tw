@@ -1,5 +1,6 @@
 ---
-title: 在 Azure Active Directory B2C 中使用自訂原則來設定密碼複雜度 | Microsoft Docs
+title: 使用自訂原則設定密碼複雜度
+titleSuffix: Azure AD B2C
 description: 如何在 Azure Active Directory B2C 中使用自訂原則來設定密碼複雜度需求。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6454d380b0f34e940951e3de44d1dee0ff6b597f
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e8718a04f9d63897b2d2472dd0cdffb196c41435
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065540"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949784"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定密碼複雜度
 
@@ -112,8 +113,8 @@ ms.locfileid: "71065540"
 ### <a name="upload-the-files"></a>上傳檔案
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+2. 選取頂端功能表中的 [目錄 + 訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的**所有服務**，然後搜尋並選取 **Azure AD B2C**。
 4. 選取 [識別體驗架構]。
 5. 在 [自訂原則] 頁面上，按一下 [上傳原則]。
 6. 選取 [覆寫現有的原則]，然後搜尋並選取 *SingUpOrSignInPasswordComplexity.xml*檔案。

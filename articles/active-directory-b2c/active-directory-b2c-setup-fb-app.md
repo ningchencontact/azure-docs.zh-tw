@@ -1,5 +1,6 @@
 ---
-title: 設定註冊，並以 Facebook 帳戶登入-Azure Active Directory B2C
+title: 設定註冊，並以 Facebook 帳戶登入
+titleSuffix: Azure AD B2C
 description: 使用 Azure Active Directory B2C，讓具有 Facebook 帳戶的客戶得以註冊和登入您的應用程式。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 77b2fccaeba3cd1d164a3ce428c04083fd69fb5a
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: c85ba3079fe09078d3e68eab070317c199242d81
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264210"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947674"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 Facebook 帳戶登入
 

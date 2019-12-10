@@ -1,5 +1,6 @@
 ---
-title: 定義 Azure Active Directory B2C 自訂原則中的宣告轉換技術設定檔 | Microsoft Docs
+title: 定義宣告轉換技術設定檔
+titleSuffix: Azure AD B2C
 description: 定義 Azure Active Directory B2C 自訂原則中的宣告轉換技術設定檔。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fd2f77200741c54d1ed10f0a0eec1da76462b0a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf06fe7d4e529eb04b156a2d61011198a6fe0978
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511625"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949418"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定義 Azure Active Directory B2C 自訂原則中的宣告轉換技術設定檔
 
@@ -23,7 +24,7 @@ ms.locfileid: "66511625"
 
 宣告轉換技術設定檔可讓您呼叫輸出宣告轉換，以操作宣告值、驗證宣告，或設定一組輸出宣告的預設值。
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>通訊協定
 
 **Protocol** 元素的 **Name** 屬性必須設定為 `Proprietary`。 **handler** 屬性必須包含 Azure AD B2C 所使用之通訊協定處理常式組件的完整名稱：`Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`。
 

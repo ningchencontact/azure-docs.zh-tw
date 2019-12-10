@@ -1,6 +1,7 @@
 ---
-title: 關於 Azure Active Directory B2C 自訂原則中的宣告解析程式 | Microsoft Docs
-description: 了解宣告解析程式在 Azure Active Directory B2C 自訂原則中的使用方式。
+title: 自訂原則中的宣告解析程式
+titleSuffix: Azure AD B2C
+description: 瞭解如何在 Azure Active Directory B2C 的自訂原則中使用宣告解析程式。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f08c85cee2378f4a879daf197af7a2adf0c20f45
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3370ec8de0fb49b92c0fb4dd429439e293ad1d8b
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064406"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949869"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>關於 Azure Active Directory B2C 自訂原則中的宣告解析程式
 
@@ -47,9 +48,9 @@ Azure Active Directory B2C （Azure AD B2C）[自訂原則](active-directory-b2c
 
 | 宣告 | 描述 | 範例 |
 | ----- | ----------- | --------|
-| {Culture:LanguageName} | 語言的雙字母 ISO 代碼。 | zh-TW |
+| {Culture:LanguageName} | 語言的雙字母 ISO 代碼。 | en |
 | {Culture:LCID}   | 語言代碼的 LCID。 | 1033 |
-| {Culture:RegionName} | 區域的雙字母 ISO 代碼。 | US |
+| {Culture:RegionName} | 區域的雙字母 ISO 代碼。 | 美國 |
 | {Culture:RFC5646} | RFC5646 語言代碼。 | en-US |
 
 ### <a name="policy"></a>原則
@@ -75,14 +76,14 @@ Azure Active Directory B2C （Azure AD B2C）[自訂原則](active-directory-b2c
 | {OIDC:Resource} |`resource` 查詢字串參數。 | N/A |
 | {OIDC:scope} |`scope` 查詢字串參數。 | openid |
 
-### <a name="context"></a>內容
+### <a name="context"></a>Context
 
 | 宣告 | 描述 | 範例 |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | 身分識別體驗架構版本 (組建編號)。  | 1.0.507.0 |
 | {Context:CorrelationId} | 相互關連識別碼。  | 00000000-0000-0000-0000-000000000000 |
 | {Context:DateTimeInUtc} |日期時間 (UTC)。  | 10/10/2018 12:00:00 PM |
-| {Context:DeploymentMode} |原則部署模式。  | 生產 |
+| {Context:DeploymentMode} |原則部署模式。  | 生產環境 |
 | {Context:IPAddress} | 使用者 IP 位址。 | 11.111.111.11 |
 
 

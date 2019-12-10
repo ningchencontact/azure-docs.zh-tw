@@ -1,6 +1,6 @@
 ---
-title: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的日期宣告轉換範例 | Microsoft Docs
-description: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的日期宣告轉換範例。
+title: 自訂原則的日期宣告轉換範例
+description: Azure Active Directory B2C 的 Identity Experience Framework （IEF）架構的日期宣告轉換範例。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 13c3f3aaf54bc3fb8ef656b5c1ce227fa70cee0b
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: bde2fcad6f84e4a2df5268d1135e88a263b65ee0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936795"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949111"
 ---
 # <a name="date-claims-transformations"></a>日期宣告轉換
 
@@ -27,12 +27,12 @@ ms.locfileid: "71936795"
 
 確認某個日期和時間宣告 (字串資料類型) 是否晚於第二個日期和時間宣告 (字串資料類型)，並擲回例外狀況。
 
-| 項目 | TransformationClaimType | 資料類型 | 注意 |
+| Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | leftOperand | string | 第一個宣告的類型，應該晚於第二個宣告。 |
 | InputClaim | rightOperand | string | 第二個宣告的類型，應該早於第一個宣告。 |
-| InputParameter | AssertIfEqualTo | boolean | 指定當左運算元等於右運算元時，是否應該傳遞這個判斷提示。 |
-| InputParameter | AssertIfRightOperandIsNotPresent | boolean | 指定當右運算元遺失時，是否應該傳遞這個判斷提示。 |
+| InputParameter | AssertIfEqualTo | 布林值 | 指定當左運算元等於右運算元時，是否應該傳遞這個判斷提示。 |
+| InputParameter | AssertIfRightOperandIsNotPresent | 布林值 | 指定當右運算元遺失時，是否應該傳遞這個判斷提示。 |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | 指定若要將兩個日期時間視為相等，彼此之間所允許相隔的毫秒數 (例如，為了考慮時鐘誤差因素)。 |
 
 **AssertDateTimeIsGreaterThan** 宣告轉換一律會從[驗證技術設定檔](validation-technical-profile.md)執行，其會透過[自我判斷技術設定檔](self-asserted-technical-profile.md)來呼叫。 **DateTimeGreaterThan** 自我判斷技術設定檔中繼資料會控制技術設定檔要呈現給使用者的錯誤訊息。
@@ -83,13 +83,13 @@ ms.locfileid: "71936795"
 - 輸入宣告：
     - **leftOperand**：2018-10-01T15:00:00.0000000Z
     - **rightOperand**：2018-10-01T14:00:00.0000000Z
-- 結果︰擲回錯誤
+- 結果：擲回錯誤
 
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
 
 將**日期** ClaimType 轉換為**日期時間** ClaimType。 宣告轉換會轉換時間格式，並對日期新增 12:00:00 AM。
 
-| 項目 | TransformationClaimType | 資料類型 | 注意 |
+| Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | date | 要轉換的 ClaimType。 |
 | OutputClaim | outputClaim | dateTime | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 |
@@ -112,13 +112,13 @@ ms.locfileid: "71936795"
 - 輸入宣告：
     - **inputClaim**：2019-06-01
 - 輸出宣告：
-    - **outputClaim**：1559347200 (2019 年 6 月 1 日上午 12:00:00)
+    - **outputClaim**：1559347200 (June 1, 2019 12:00:00 AM)
 
 ## <a name="getcurrentdatetime"></a>GetCurrentDateTime
 
 取得目前的 UTC 日期和時間，並將值新增至 ClaimType。
 
-| 項目 | TransformationClaimType | 資料類型 | 注意 |
+| Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | currentDateTime | dateTime | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 |
 
@@ -133,19 +133,19 @@ ms.locfileid: "71936795"
 ### <a name="example"></a>範例
 
 * 輸出宣告：
-    * **currentDateTime**：1534418820 (2018 年 8 月 16 日上午 11:27:00)
+    * **currentDateTime**：1534418820 (August 16, 2018 11:27:00 AM)
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
 判斷某個日期時間是晚於、早於還是等於另一個日期時間。 其結果是新的布林值 ClaimType，且其值為 `true` 或 `false`。
 
-| 項目 | TransformationClaimType | 資料類型 | 注意 |
+| Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | dateTime | 第一個 dateTime，比較早於或晚於第二個 dateTime。 Null 值會擲回例外狀況。 |
 | InputClaim | secondDateTime | dateTime | 第二個 dateTime，用來比較早於或晚於第一個 dateTime。 Null 值會被視為目前的 datetTime。 |
-| InputParameter | 運算子 | string | 下列值之一：相同、晚於或早於。 |
+| InputParameter | operator | string | 下列值之一：相同、晚於或早於。 |
 | InputParameter | timeSpanInSeconds | int | 將時間範圍新增至第一個日期時間。 |
-| OutputClaim | 結果 | boolean | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 |
+| OutputClaim | 結果 | 布林值 | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 |
 
 使用此宣告轉換來判斷兩個 ClaimTypes 之間是等於、晚於還是早於。 例如，您可能會儲存上一次使用者接受服務條款 (TOS) 的時間。 3 個月後，您便可要求使用者再次存取 TOS。
 若要執行宣告轉換，您必須先取得目前的日期時間，以及使用者上一次接受 TOS 的時間。

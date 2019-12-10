@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 7ce15a0fe55c32ad7e381ba70e4dffee11c76bee
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 8d2873dd2fd36ed1193aed457a04baae94a043a2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383397"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951814"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 服務配額
 
@@ -27,10 +27,10 @@ ms.locfileid: "74383397"
 | 每個資料庫最多 ru （已布[建的共用輸送量模式](databases-containers-items.md#azure-cosmos-containers)） | 預設為1000000。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它 |
 | 每個（邏輯）分割區索引鍵的最大 ru | 10,000 |
 | 每個（邏輯）分割區索引鍵的所有專案儲存體上限| 10 GB |
-| 相異（邏輯）分割區索引鍵的最大數目 | 無限 |
-| 每個容器的儲存體上限 | 無限 |
-| 每個資料庫的儲存體上限 | 無限 |
-| 每個帳戶的附件大小上限（附件功能正在進行折舊） | 2 GB |
+| 相異（邏輯）分割區索引鍵的最大數目 | 無限制 |
+| 每個容器的儲存體上限 | 無限制 |
+| 每個資料庫的儲存體上限 | 無限制 |
+| 每個帳戶的附件大小上限（附件功能正在進行折舊） | 2GB |
 | 每 1 GB 所需的最小 ru 數 | 10 RU/秒 |
 
 > [!NOTE]
@@ -76,8 +76,8 @@ Cosmos DB 會自動定期備份您的資料。 如需備份保留間隔和 windo
 
 | 資源 | 預設限制 |
 | --- | --- |
-| 資料庫的最大數目 | 無限 |
-| 每個資料庫（或帳戶）的容器數目上限 | 無限 |
+| 資料庫的最大數目 | 無限制 |
+| 每個資料庫（或帳戶）的容器數目上限 | 無限制 |
 | 區域數目上限 | 無限制（所有 Azure 區域） |
 
 ## <a name="per-container-limits"></a>每個容器的限制
@@ -115,13 +115,14 @@ Cosmos DB 會自動定期備份您的資料。 如需備份保留間隔和 windo
 
 ## <a name="per-request-limits"></a>每個要求的限制
 
-Cosmos DB 支援對容器、專案和資料庫等資源[進行 CRUD 和查詢作業](https://docs.microsoft.com/rest/api/cosmos-db/)。  
+Azure Cosmos DB 支援對容器、專案和資料庫等資源[進行 CRUD 和查詢作業](https://docs.microsoft.com/rest/api/cosmos-db/)。 它也支援針對在容器中具有相同分割區索引鍵的多個專案進行[交易式批次要求](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch)。
 
 | 資源 | 預設限制 |
 | --- | --- |
 | 單一作業的最長執行時間（例如預存程式執行或單一查詢頁面抓取）| 5 秒 |
-| 要求大小上限（預存程式、CRUD）| 2 MB |
+| 要求大小上限（例如，預存程式、CRUD）| 2 MB |
 | 回應大小上限（例如，分頁查詢） | 4 MB |
+| 交易式批次中的最大作業數目 | 100 |
 
 當查詢之類的作業達到執行超時或回應大小限制之後，它會將結果的頁面和接續 token 傳回給用戶端，以繼續執行。 單一查詢可以跨頁面/接續執行的持續時間沒有實際限制。
 
@@ -130,7 +131,7 @@ Cosmos DB 使用 HMAC 進行授權。 您可以使用主要金鑰或[資源權�
 | 資源 | 預設限制 |
 | --- | --- |
 | 主要權杖到期時間上限 | 15 分鐘  |
-| 資源權杖到期時間下限 | 10分鐘  |
+| 資源權杖到期時間下限 | 10 分鐘  |
 | 資源權杖到期時間上限 | 預設為24小時。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它|
 | 權杖授權的最大時鐘誤差| 15 分鐘 |
 

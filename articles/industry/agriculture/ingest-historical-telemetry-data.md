@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: d2ac3b0f531b6384643d91fac1cf50a0ea719969
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: a3e4f543be2f01e0c649d5f9bcc9287dedc275f1
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900344"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941639"
 ---
 # <a name="ingest-historical-telemetry-data"></a>內嵌歷程記錄遙測資料
 
@@ -39,7 +39,7 @@ ms.locfileid: "74900344"
 > 您必須是系統管理員，才能執行下列步驟。
 
 1. 下載此[腳本](https://aka.ms/farmbeatspartnerscript)，並將它解壓縮到您的本機磁片磁碟機。 Zip 檔案中有兩個檔案。
-2. 登入 [Azure 入口網站](https://portal.azure.com/)並開啟 Azure Cloud Shell。 在入口網站右上角的工具列上，可以使用此選項。 
+2. 登入 [Azure 入口網站](https://portal.azure.com/)並開啟 Azure Cloud Shell。 在入口網站右上角的工具列上，可以使用此選項。
 
     ![Azure 入口網站工具列](./media/for-tutorials/navigation-bar-1.png)
 
@@ -47,7 +47,7 @@ ms.locfileid: "74900344"
 
     ![PowerShell 設定](./media/for-tutorials/power-shell-new-1.png)
 
-4. 上傳您在 Cloud Shell 實例中步驟1下載的兩個檔案。 
+4. 上傳您在 Cloud Shell 實例中步驟1下載的兩個檔案。
 
     ![工具列上的上傳按鈕](./media/for-tutorials/power-shell-two-1.png)
 
@@ -55,7 +55,7 @@ ms.locfileid: "74900344"
 
    >[!NOTE]
    > 根據預設，檔案會上傳到主目錄/首頁/使用者名稱。
-6. 使用下列命令執行腳本： 
+6. 使用下列命令執行腳本：
 
     ```azurepowershell-interactive
     ./generateCredentials.ps1
@@ -67,10 +67,10 @@ ms.locfileid: "74900344"
 
  現在您已有必要的認證，您可以定義裝置和感應器。 若要這麼做，請使用 FarmBeats Api 來建立中繼資料。
 
- FarmBeats Datahub 具有下列 Api，可讓您建立及管理裝置或感應器中繼資料。 
+ FarmBeats Datahub 具有下列 Api，可讓您建立及管理裝置或感應器中繼資料。
 
-- /**devicemodel 傳遞**： devicemodel 傳遞對應至裝置的中繼資料，例如製造商和裝置類型，也就是閘道或節點。 
-- /**裝置**：裝置對應至存在於伺服器陣列上的實體裝置。 
+- /**devicemodel 傳遞**： devicemodel 傳遞對應至裝置的中繼資料，例如製造商和裝置類型，也就是閘道或節點。
+- /**裝置**：裝置對應至存在於伺服器陣列上的實體裝置。
 - /**SensorModel**： SensorModel 對應于感應器的中繼資料，例如製造商、感應器類型，也就是類比或數位，以及感應器測量，例如環境溫度和壓力。
 - /**感應器**：感應器會對應到記錄值的實體感應器。 感應器通常會連接到裝置識別碼為的裝置。  
 
@@ -86,7 +86,7 @@ ms.locfileid: "74900344"
 |    屬性          |    製造商提供的其他屬性。   |
 |    **裝置**             |                      |
 |   DeviceModelId     |     相關聯裝置型號的識別碼。  |
-|  hardwareId          | 裝置的唯一識別碼，例如 MAC 位址。
+|  HardwareId          | 裝置的唯一識別碼，例如 MAC 位址。
 |  ReportingInterval        |   報告間隔（以秒為單位）。
 |  Location            |  裝置緯度（-90 到 + 90）、經度（-180 到180）和提高許可權（以計量計）。   
 |ParentDeviceId       |    此裝置所連接之父裝置的識別碼。 例如，連接到閘道的節點。 節點已 parentDeviceId 為閘道。  |
@@ -99,15 +99,15 @@ ms.locfileid: "74900344"
 |     ProductCode| 產品代碼或型號名稱或數位。 例如，RS-CO2-N01。 |
 |       SensorMeasures > 名稱       | 感應器量值的名稱。 僅支援小寫。 如需不同深度的測量，請指定深度。 例如，soil_moisture_15cm。 此名稱必須與遙測資料一致。  |
 |          SensorMeasures > DataType       |遙測資料類型。 目前支援 double。|
-|    sensorMeasures > 類型    |感應器遙測資料的測量類型。 系統定義的類型為 AmbientTemperature、CO2、Depth、ElectricalConductivity、LeafWetness、Length、LiquidLevel、Nitrate、O2、PH、Phosphate、PointInTime、Potassium、壓力、RainGauge、RelativeHumidity、Salinity、SoilMoisture、SoilTemperature、SolarRadiation、State、TimeDuration、UVRadiation、UVIndex、Volume、WindDirection、WindRun、WindSpeed、Evapotranspiration、PAR。 若要新增更多，請參閱/ExtendedType API。|
+|    SensorMeasures > 類型    |感應器遙測資料的測量類型。 系統定義的類型為 AmbientTemperature、CO2、Depth、ElectricalConductivity、LeafWetness、Length、LiquidLevel、Nitrate、O2、PH、Phosphate、PointInTime、Potassium、壓力、RainGauge、RelativeHumidity、Salinity、SoilMoisture、SoilTemperature、SolarRadiation、State、TimeDuration、UVRadiation、UVIndex、Volume、WindDirection、WindRun、WindSpeed、Evapotranspiration、PAR。 若要新增更多，請參閱/ExtendedType API。|
 |        SensorMeasures > 單位              | 感應器遙測資料的單位。 系統定義的單位為 NoUnit、攝氏、華氏、開氏、Rankine、Pascal、水星、PSI、毫米、釐米、計量、英寸、墊腳、英里、公里、MilesPerHour、MilesPerSecond、KMPerHour、KMPerSecond、MetersPerHour、MetersPerSecond、學位、WattsPerSquareMeter、KiloWattsPerSquareMeter、MilliWattsPerSquareCentiMeter、MilliJoulesPerSquareCentiMeter、VolumetricWaterContent、百分比、PartsPerMillion、MicroMol、MicroMolesPerLiter、SiemensPerSquareMeterPerMole、MilliSiemensPerCentiMeter、Centibar、DeciSiemensPerMeter、KiloPascal、VolumetricIonContent、升、MilliLiter、Seconds、UnixTimestamp、MicroMolPerMeterSquaredPerSecond、InchesPerHour 若要新增更多，請參閱/ExtendedType API。|
 |    SensorMeasures > AggregationType    |  值可以是 none、average、maximum、下限或 StandardDeviation。  |
 |          Name            | 用來識別資源的名稱。 例如，模型名稱或產品名稱。  |
 |    描述        | 提供模型的有意義描述。  |
 |   屬性       |  製造商提供的其他屬性。  |
 |    **感應器**      |          |
-| hardwareId          |   製造商所設定之感應器的唯一識別碼。 |
-|  sensorModelId     |    相關聯感應器型號的識別碼。   |
+| HardwareId          |   製造商所設定之感應器的唯一識別碼。 |
+|  SensorModelId     |    相關聯感應器型號的識別碼。   |
 | Location          |  感應器緯度（-90 到 + 90）、經度（-180 到180）和提高許可權（以計量計）。|
 |   埠 > 名稱        |  裝置上感應器連線的埠名稱和類型。 這必須與裝置模型中所定義的名稱相同。 |
 |    DeviceID  |    感應器所連接之裝置的識別碼。     |
@@ -269,7 +269,7 @@ SensorModel
   }
 }
 ```
-下列範例要求會建立裝置。 此要求具有輸入 JSON 做為要求主體的承載。 
+下列範例要求會建立裝置。 此要求具有輸入 JSON 做為要求主體的承載。
 
 ```bash
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
@@ -292,7 +292,7 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 
 ### <a name="send-a-telemetry-message-as-the-client"></a>以用戶端的身分傳送遙測訊息
 
-建立事件中樞用戶端的連線之後，您可以將訊息傳送至事件中樞做為 JSON。 
+建立事件中樞用戶端的連線之後，您可以將訊息傳送至事件中樞做為 JSON。
 
 以下的範例 Python 程式碼會將遙測當做用戶端傳送至指定的事件中樞：
 
@@ -313,7 +313,7 @@ write_client.stop()
 
 ```
 
-將歷程感應器資料格式轉換為 Azure FarmBeats 瞭解的標準格式。 標準訊息格式如下所示： 
+將歷程感應器資料格式轉換為 Azure FarmBeats 瞭解的標準格式。 標準訊息格式如下所示：
 
 ```json
 {

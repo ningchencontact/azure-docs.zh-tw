@@ -1,5 +1,5 @@
 ---
-title: 清除和準備適用於 Azure Machine Learning 的資料 - Team Data Science Process
+title: 準備 ML Studio （傳統）的資料-小組資料科學流程
 description: 前置處理和清除資料，準備好讓資料可有效用於機器學習。
 services: machine-learning
 author: marktab
@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2b3ec3352d6e1939b195bbba87b8a824404346ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d0754f7ac85976b5ef307bf1266d26a9380ab1c6
+ms.sourcegitcommit: 6e42ce0ca0a7ac572398e9d024fcf69906670d74
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61044595"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74936032"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>準備增強機器學習服務的資料的工作
 前置處理和清除資料是很重要的工作，必須先執行這些工作，才能有效地將資料集用於機器學習服務。 未經處理的資料通常會有雜訊且不可靠，還可能會有遺漏值。 使用這類資料進行模型化可能會產生誤導的結果。 這些工作屬於 Team Data Science Process (TDSP)，通常會遵循用來探索及計劃所需預先處理的資料集初始探索。 如需更多關於 TDSP 程序的詳細指示，請參閱 [Team Data Science Process](overview.md)中概述的步驟。
 
 前置處理和清除工作，例如資料探索工作，可以在各種不同環境中實行，例如 SQL 或 Hive 或 Azure Machine Learning Studio，並使用各種工具與語言，例如 R 或 Python，取決於您的資料的儲存位置和格式。 由於 TDSP 本質上是反覆的，所以這些工作可以在程序工作流程中的各個步驟進行。
 
-本文將介紹各種不同的資料處理概念和工作，讓您可以在將資料擷取到 Azure Machine Learning 前後執行這些工作。
+本文介紹可在將資料內嵌至 Azure ML Studio （傳統）之前或之後採取的各種資料處理概念和工作。
 
-如需在 Azure Machine Learning Studio 內執行資料探索和前置處理的範例，請參閱 [在 Azure Machine Learning Studio 中前置處理資料](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) 影片。
+如需在 Azure ML Studio （傳統）內進行資料探索和前置處理的範例，請參閱[前置處理資料](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)影片。
 
 ## <a name="why-pre-process-and-clean-data"></a>為何要前置處理和清除資料？
 真實世界的資料是從各種不同的來源和程序蒐集而來，其中可能包含危及資料集品質的違規或損毀資料。 一般會發生的資料品質問題如下：
@@ -51,13 +51,13 @@ ms.locfileid: "61044595"
 
 當您找到資料問題時， **處理步驟** 是必需的，這通常包含清除遺漏值、資料正規化、離散化、可移除和 (或) 取代可能影響資料對齊之內嵌字元的文字處理、共通欄位的混合資料類型，以及其他項目。
 
-**Azure Machine Learning 會取用正確格式的表格式資料**。  如果資料已是表格形式，則可在 Machine Learning Studio 中使用 Azure Machine Learning 直接執行資料前置處理。  如果資料的格式不是表格式，假設是 XML，就可能需要進行剖析，才能將資料的格式轉換成表格式。  
+**Azure Machine Learning 會取用正確格式的表格式資料**。  如果資料已是表格式格式，則可以使用 Machine Learning 中的 Azure ML Studio （傳統）直接執行資料前置處理。  如果資料的格式不是表格式，假設是 XML，就可能需要進行剖析，才能將資料的格式轉換成表格式。  
 
 ## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>資料前置處理中有哪些主要工作？
 * **資料清除**：填入值或遺漏值，偵測並移除雜訊資料和極端值。
 * **資料轉換**：將資料標準化，以減少維度和雜訊。
-* **資料縮減**：為資料記錄或屬性取樣，以進行較簡單的資料處理。
-* **資料離散化**：將連續屬性轉換為類別屬性，以方便搭配特定的機器學習方法使用。
+* **資料縮減**：取樣資料記錄或屬性，以進行較簡單的資料處理。
+* **資料離散化**：將連續屬性轉換為類別屬性，以方便搭配特定的機器學習服務方法來使用。
 * **文字清除**：移除可能造成資料對齊錯誤的內嵌字元，例如，定位鍵分隔的資料檔中的內嵌定位鍵、可能中斷記錄的內嵌新行等。
 
 下列各節將詳細說明一些資料處理步驟。
@@ -65,29 +65,29 @@ ms.locfileid: "61044595"
 ## <a name="how-to-deal-with-missing-values"></a>如何處理遺漏值？
 若要處理遺漏值，最好先識別遺漏值的原因，以便對問題進行更好的控制。 典型的遺漏值處理方法如下：
 
-* **刪除**：移除具有遺漏值的記錄
-* **虛擬值替代**：使用虛擬值來取代遺漏值，例如，對類別值使用 *unknown* 或對數值使用 0。
+* **刪除**：移除具有遺漏值的記錄。
+* **虛擬替代**：使用虛擬值來取代遺漏值，例如，對類別值使用 *unknown* ，或對數值使用 0。
 * **平均值替代**：如果遺漏值是數值，可使用平均值來取代遺漏值。
-* **頻率替代**：如果遺漏值是類別，可使用最常用的項目來取代遺漏值
+* **頻率替代**：如果遺漏值是類別，可使用最常用的項目來取代遺漏值。
 * **迴歸替代**：利用迴歸方法，使用迴歸值來取代遺漏值。  
 
 ## <a name="how-to-normalize-data"></a>如何將資料標準化？
 資料標準化會將數值範圍重新調整為指定的範圍。 常用的資料正規化方法包括：
 
-* **最小值與最大值標準化**：以線性方式將資料轉換為範圍，例如介於 0 和 1 之間，其中最小值會調整為 0，最大值則會調整為 1。
+* **最小值與最大值標準化**：以線性方式將資料轉換為範圍，例如介於 0 和 1 之間時，其中最小值會調整為 0，最大值則調整為 1。
 * **Z 分數標準化**：根據平均值和標準差來調整資料範圍：將資料和平均值之間的差距除以標準差。
 * **小數點調整**：藉由移動屬性值的小數點來調整資料範圍。  
 
 ## <a name="how-to-discretize-data"></a>如何將資料離散化？
 您可以藉由將連續值轉換成名義屬性或間隔來將資料離散化。 以下提供一些執行此動作的方法：
 
-* **等寬量化**：將屬性的所有可能值範圍分成 N 個同樣大小的群組，並使用量化號碼來指派落於某個量化內的值。
-* **等高量化**：將屬性的所有可能值範圍分成 N 個包含相同執行個體數目的群組，然後使用量化號碼來指派落於某個量化內的值。  
+* **等寬分類收納**：將屬性的所有可能值範圍分成 N 個同樣大小的群組，並使用分類收納號碼來指派落於某一個分類收納中的值。
+* **等高分類收納**：將屬性的所有可能值範圍分成 N 個包含相同執行個體數目的群組，然後使用分類收納號碼來指派落於某一個分類收納中的值。  
 
 ## <a name="how-to-reduce-data"></a>如何縮減資料？
 有各種方法可用來縮減資料大小，以便更容易處理資料。 根據資料大小和網域而定，您可以套用下列方法：
 
-* **記錄取樣**：為資料記錄取樣，並且只從資料中選擇代表性子集。
+* **記錄取樣**：取樣資料記錄，並且只從資料中選擇代表性子集。
 * **屬性取樣**：只從資料選取一組最重要的屬性子集。  
 * **彙總**：將資料分組，並儲存每個群組的數目。 例如，可以將某一家連鎖餐廳在過去 20 年的每日營收數字彙總為每月營收，以縮減資料大小。  
 
@@ -97,7 +97,7 @@ ms.locfileid: "61044595"
 **資料探索** 可讓您檢視早期資料。 在此步驟中可以發現一些資料問題，然後套用對應的方法以解決這些問題。  請務必提出問題，例如，問題的來源是什麼，以及問題可能是如何引發的。 這也有助於您決定必須採取以解決這些問題的資料處理步驟。 深入探討某一個想要從資料衍生的類型，也可用來排列資料處理工作的優先順序。
 
 ## <a name="references"></a>參考
-> *Data Mining:Concepts and Techniques* (資料採礦：觀念與技術)，第三版，Morgan Kaufmann，2011，Jiawei Han、Micheline Kamber 及 Jian Pei
+> *Data Mining: Concepts and Techniques*(資料採礦：觀念與技術)，第三版，Morgan Kaufmann，2011，Jiawei Han、Micheline Kamber 及 Jian Pei
 > 
 > 
 

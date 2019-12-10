@@ -1,6 +1,7 @@
 ---
-title: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的整數宣告轉換範例 | Microsoft Docs
-description: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的整數宣告轉換範例。
+title: 自訂原則的整數宣告轉換範例
+titleSuffix: Azure AD B2C
+description: Azure Active Directory B2C 的 Identity Experience Framework （IEF）架構的整數宣告轉換範例。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d82f7fecfb35c63d586993fed73a83209782a890
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 7295e03f0a0f94b3450b99acc4d10d6ff86c92e7
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064222"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948831"
 ---
 # <a name="integer-claims-transformations"></a>整數宣告轉換
 
@@ -27,7 +28,7 @@ ms.locfileid: "71064222"
 
 將 Lng 資料類型轉換為字串資料類型。
 
-| 項目 | TransformationClaimType | 資料類型 | 注意 |
+| Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | long | 要轉換為字串的 ClaimType。 |
 | OutputClaim | outputClaim | string | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 |
@@ -48,7 +49,7 @@ ms.locfileid: "71064222"
 ### <a name="example"></a>範例
 
 - 輸入宣告：
-    - **inputClaim**：12334 (長整數)
+    - **inputClaim**: 12334 (long)
 - 輸出宣告：
-    - **outputClaim**："12334" (字串)
+    - **outputClaim**: "12334" (string)
 

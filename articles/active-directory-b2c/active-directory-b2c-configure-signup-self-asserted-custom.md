@@ -1,5 +1,6 @@
 ---
-title: 使用自訂原則新增宣告並自訂使用者輸入 - Azure Active Directory B2C | Microsoft Docs
+title: 在自訂原則中新增宣告並自訂使用者輸入
+titleSuffix: Azure AD B2C
 description: 了解如何自訂使用者輸入並向 Azure Active Directory B2C 中的註冊或登錄旅程中新增宣告。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e29e2e3e61594870cc9d704d64b1040a4211a520
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 452a7f61726c3039b2c2b37280d0153fbcbca5fb
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066219"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948833"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來新增宣告並自訂使用者輸入
 

@@ -1,5 +1,6 @@
 ---
-title: 使用自訂原則來設定以 LinkedIn 帳戶進行登入-Azure Active Directory B2C
+title: 使用自訂原則來設定以 LinkedIn 帳戶進行登入
+titleSuffix: Azure AD B2C
 description: 在 Azure Active Directory B2C 中使用自訂原則來設定以 LinkedIn 帳戶登入。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6d7beae75e13ef797c9e80a9a012e9f48b69d407
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 442c50df5da42da6d63c926845efd4a6bc3fcb12
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827186"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948380"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 LinkedIn 帳戶進行登入
 
@@ -25,7 +26,7 @@ ms.locfileid: "71827186"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 完成在 [Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
+- 完成[在 Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
 - LinkedIn 帳戶-如果您還沒有，請[建立一個帳戶](https://www.linkedin.com/start/join)。
 - LinkedIn 頁面-您必須要有[Linkedin 頁面](https://www.linkedin.com/help/linkedin/answer/710/creating-a-linkedin-company-page)，才能與您在下一節中建立的 linkedin 應用程式產生關聯。
 
@@ -36,7 +37,7 @@ ms.locfileid: "71827186"
 ### <a name="create-app"></a>建立應用程式
 
 1. 使用您的 LinkedIn 帳戶認證來登入 [LinkedIn 應用程式管理](https://www.linkedin.com/secure/developer?newapp=)網站。
-1. 選取 [**建立應用程式**]。
+1. 選取 [建立應用程式]。
 1. 輸入**應用程式名稱**。
 1. 輸入與 LinkedIn 頁面名稱對應的 [**公司**名稱]。 如果您還沒有 LinkedIn 頁面，請建立一個。
 1. 選擇性輸入 [**隱私權原則 URL**]。 它必須是有效的 URL，但不需要是可連線的端點。
@@ -44,7 +45,7 @@ ms.locfileid: "71827186"
 1. 上傳**應用程式標誌**影像。 標誌影像必須是正方形，且其尺寸必須至少為100x100 圖元。
 1. 保留 [**產品**] 區段中的預設設定。
 1. 請參閱**法律條款**中提供的資訊。 如果您同意這些條款，請核取此方塊。
-1. 選取 [**建立應用程式**]。
+1. 選取 [建立應用程式]。
 
 ### <a name="configure-auth"></a>設定驗證
 
@@ -61,11 +62,11 @@ ms.locfileid: "71827186"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 請確定您使用的是包含您 Azure AD B2C 租使用者的目錄。 在頂端功能表中選取 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+3. 選擇 Azure 入口網站左上角的**所有服務**，然後搜尋並選取 **Azure AD B2C**。
 4. 在 [概觀] 頁面上，選取 [識別體驗架構]。
 5. 選取 [**原則金鑰**]，然後選取 [**新增**]。
 6. 針對 [選項] 選擇 `Manual`。
-7. 輸入原則金鑰的 [名稱]。 例如： `LinkedInSecret` 。 前置詞*B2C_1A_* 會自動新增至您的金鑰名稱。
+7. 輸入原則金鑰的 [名稱]。 例如： `LinkedInSecret` 。 前置詞*B2C_1A_* 會自動新增至金鑰的名稱。
 8. 在 [**秘密**] 中，輸入您先前記錄的用戶端密碼。
 9. 針對 [金鑰使用方法]，選取 `Signature`。
 10. 按一下 [建立]。
@@ -225,7 +226,7 @@ LinkedIn 技術設定檔需要將**ExtractGivenNameFromLinkedInResponse**和**Ex
 
 更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖。
 
-1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml 複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignInLinkedIn.xml*。
+1. 在您的工作目錄中建立一份 *SignUpOrSignIn.xml* 複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignInLinkedIn.xml*。
 2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInLinkedIn` 。
 3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如 `http://contoso.com/B2C_1A_signup_signin_linkedin`
 4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignLinkedIn) 的識別碼。
@@ -335,7 +336,7 @@ LinkedIn 最近[將其 api 從 v1.0 更新至](https://engineering.linkedin.com/
 
 1. 完成上述步驟，以允許 Azure AD B2C 與 LinkedIn 建立同盟，讓使用者能夠登入。 做為同盟的一部分，Azure AD B2C 會接收 LinkedIn 的存取權杖。
 2. 將 LinkedIn 存取權杖儲存至宣告。 [請參閱這裡的指示](idp-pass-through-custom.md)。
-3. 新增下列向 LinkedIn `/emailAddress` API 提出要求的宣告提供者。 若要授權此要求，您需要 LinkedIn 存取權杖。
+3. 新增下列宣告提供者，以對 LinkedIn 的 `/emailAddress` API 提出要求。 若要授權此要求，您需要 LinkedIn 存取權杖。
 
     ```XML
     <ClaimsProvider>
@@ -363,7 +364,7 @@ LinkedIn 最近[將其 api 從 v1.0 更新至](https://engineering.linkedin.com/
     </ClaimsProvider>
     ```
 
-4. 將下列協調流程步驟新增至您的使用者旅程圖，以便在使用者使用 LinkedIn 登入時觸發 API 宣告提供者。 請務必適當地更新`Order`編號。 在觸發 LinkedIn 技術設定檔的協調流程步驟之後，立即新增此步驟。
+4. 將下列協調流程步驟新增至您的使用者旅程圖，以便在使用者使用 LinkedIn 登入時觸發 API 宣告提供者。 請務必適當地更新 `Order` 號碼。 在觸發 LinkedIn 技術設定檔的協調流程步驟之後，立即新增此步驟。
 
     ```XML
     <!-- Extra step for LinkedIn to get the email -->

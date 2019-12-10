@@ -1,6 +1,7 @@
 ---
-title: 在 Azure Active Directory B2C 的自訂原則中定義 JWT 權杖簽發者的技術設定檔 | Microsoft Docs
-description: 在 Azure Active Directory B2C 的自訂原則中定義 JWT 權杖簽發者的技術設定檔。
+title: 在自訂原則中定義 JWT 簽發者的技術設定檔
+titleSuffix: Azure AD B2C
+description: 在 Azure Active Directory B2C 的自訂原則中定義 JSON web token （JWT）簽發者的技術設定檔。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 10/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a5b8f299826c5688eb80eaea11ffc3b2b5176297
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 41661277d89c45baf2350282c6e4b500fae63662
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959671"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949818"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義 JWT 權杖簽發者的技術設定檔
 
@@ -23,7 +24,7 @@ ms.locfileid: "71959671"
 
 Azure Active Directory B2C （Azure AD B2C）會在處理每個驗證流程時發出數種類型的安全性權杖。 JWT 權杖簽發者的技術設定檔會發出將傳回至信賴憑證者應用程式的 JWT 權杖。 此技術設定檔通常是使用者旅程圖中的最後一個協調流程步驟。
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>通訊協定
 
 **Protocol** 元素的 **Name** 屬性必須設定為 `None`。 請將 **OutputTokenFormat** 元素設定為 `JWT`。
 
@@ -53,7 +54,7 @@ Azure Active Directory B2C （Azure AD B2C）會在處理每個驗證流程時�
 | refresh_token_lifetime_secs | 否 | 重新整理權杖存留期。 重新整理權杖可用來取得新的存取權杖 (如果您的應用程式已獲得 offline_access 範圍的授權) 的最大期間。 預設值為 120,9600 秒 (14 天)。 最小值為 86,400 秒 (24 小時，含此值)。 最大值為 7,776,000 秒 (90 天，含此值)。 |
 | rolling_refresh_token_lifetime_secs | 否 | 重新整理權杖滑動時間範圍存留期。 經過此時段之後，不管應用程式所獲得的最新重新整理權杖有效期間為何，都會強制重新驗證使用者。 如果您不想要強制執行滑動時間範圍存留期，請 allow_infinite_rolling_refresh_token 的值設定為 `true`。 預設值為 7,776,000 秒 (90 天)。 最小值為 86,400 秒 (24 小時，含此值)。 最大值為 31,536,000 秒 (365 天，含此值)。 |
 | allow_infinite_rolling_refresh_token | 否 | 如果設定為 `true`，則重新整理權杖滑動時間範圍存留期永不過期。 |
-| IssuanceClaimPattern | 是 | 控制簽發者 (iss) 宣告。 下列其中一個值：<ul><li>AuthorityAndTenantGuid-iss 宣告包含您的功能變數名稱，例如 `login.microsoftonline` 或 `tenant-name.b2clogin.com`，以及您的租使用者識別碼 HTTPs： \//登入 microsoftonline .com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp - iss 宣告包含您的網域名稱，例如 `login.microsoftonline` 或 `tenant-name.b2clogin.com`、您的租用戶識別碼，以及您的信賴憑證者原則名稱。 HTTPs： \//登入。 microsoftonline .com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-或-sign in/v2.0/</li></ul> |
+| IssuanceClaimPattern | 是 | 控制簽發者 (iss) 宣告。 下列其中一個值：<ul><li>AuthorityAndTenantGuid-iss 宣告包含您的功能變數名稱，例如 `login.microsoftonline` 或 `tenant-name.b2clogin.com`，以及您的租使用者識別碼 HTTPs：\//login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp - iss 宣告包含您的網域名稱，例如 `login.microsoftonline` 或 `tenant-name.b2clogin.com`、您的租用戶識別碼，以及您的信賴憑證者原則名稱。 HTTPs：\//login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> |
 | AuthenticationContextReferenceClaimPattern | 否 | 控制 `acr` 宣告值。<ul><li>無 - Azure AD B2C 不會發出 acr 宣告</li><li>PolicyId - `acr` 宣告包含原則名稱</li></ul>用來設定此值的選項為 TFP (信任架構原則) 和 ACR (驗證內容參考)。 建議將此值設定為 TFP；若要設定此值，請確定有 `Key="AuthenticationContextReferenceClaimPattern"` 的 `<Item>` 存在，且值為 `None`。 在您的信賴憑證者原則新增 `<OutputClaims>` 項目，並新增下列元素：`<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`。 同時請確定您的原則包含宣告類型 `<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` |
 
 ## <a name="cryptographic-keys"></a>密碼編譯金鑰

@@ -1,5 +1,6 @@
 ---
-title: 在 Azure Active Directory B2C 中自訂使用者介面
+title: 自訂使用者介面
+titleSuffix: Azure AD B2C
 description: 瞭解如何為使用 Azure Active Directory B2C 的應用程式自訂使用者介面。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6ebaeedf88bc02aa16e8be07fcb734e44ffa5bb6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: d737d010f323a5d5b230091ad07ba530d25d6e51
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258160"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949401"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中自訂使用者介面
 
@@ -37,7 +38,7 @@ ms.locfileid: "71258160"
 
 如果您需要根據客戶的決策提供動態內容，請使用可根據查詢字串中傳送的參數，[動態變更頁面內容](active-directory-b2c-ui-customization-custom-dynamic.md)的自訂原則。 例如，您可以根據您從 web 或行動裝置應用程式傳遞的參數，在 Azure AD B2C 註冊或登入頁面上變更背景影像。
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
 您可以在[使用者流程](user-flow-javascript-overview.md)和[自訂原則](page-layout.md)中啟用用戶端 JavaScript 程式碼。
 
@@ -57,7 +58,7 @@ ms.locfileid: "71258160"
 
 接下來，從清單中選取範本。 以下是每個範本的登入頁面範例：
 
-| 海藍 | 岩灰 | 傳統 |
+| 海運藍色 | 平板電腦灰色 | 傳統 |
 |:-:|:-:|:-:|
 |![在註冊登入頁面上轉譯的海運藍色範本範例](media/customize-ui-overview/template-ocean-blue.png)|![在註冊登入頁面上呈現的平板電腦灰色範本範例](media/customize-ui-overview/template-slate-gray.png)|![在註冊登入頁面上呈現的傳統範本範例](media/customize-ui-overview/template-classic.png)|
 
@@ -144,12 +145,12 @@ Azure AD B2C 會使用稱為[跨原始資源分享（CORS）](https://www.w3.org
 | 本機帳戶註冊 | 包含可供使用者根據電子郵件地址或使用者名稱進行本機帳戶註冊的表單。 此表單可以包含不同的輸入控制項，例如文字輸入方塊、密碼輸入方塊、選項按鈕、單選下拉式清單方塊和多選核取方塊。 |
 | 社交帳戶註冊 | 可在使用社交識別提供者 (例如 Facebook 或 Google) 的現有帳戶註冊時顯示。 當您必須使用註冊表單從客戶收集其他資訊時，就會使用它。 |
 | 統一的註冊或登入 | 可處理客戶的註冊和登入，這些客戶可使用社交識別提供者 (例如 Facebook、Google) 或本機帳戶。 |
-| 多重要素驗證 | 客戶可以在註冊或登入期間驗證其電話號碼 (使用文字或語音)。 |
+| 多因素驗證 | 客戶可以在註冊或登入期間驗證其電話號碼 (使用文字或語音)。 |
 | Error | 提供錯誤資訊給客戶。 |
 
 ## <a name="localize-content"></a>當地語系化內容
 
-您可以在 Azure AD B2C 租用戶上啟用[語言自訂](active-directory-b2c-reference-language-customization.md)，以將 HTML 內容當地語系化。 啟用此功能可讓 Azure AD B2C 將 OpenID connect 參數`ui-locales`轉送至您的端點。 內容伺服器可使用此參數來提供語言特定的 HTML 頁面。
+您可以在 Azure AD B2C 租用戶上啟用[語言自訂](active-directory-b2c-reference-language-customization.md)，以將 HTML 內容當地語系化。 啟用此功能可讓 Azure AD B2C 將 OpenID Connect 參數 `ui-locales` 轉送至您的端點。 內容伺服器可使用此參數來提供語言特定的 HTML 頁面。
 
 您可以根據所使用的地區設定，從不同的地方提取內容。 在已啟用 CORS 的端點中，您可以針對特定語言設定主機內容的資料夾結構。 如果您使用萬用字元值 `{Culture:RFC5646}`，則會呼叫正確的語言。
 

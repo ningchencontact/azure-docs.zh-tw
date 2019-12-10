@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory B2C 中的 Audit 記錄範例和定義
-description: 存取 Azure AD B2C audit 記錄的指南和範例。
+title: 存取和審查審核記錄
+titleSuffix: Azure AD B2C
+description: 如何以程式設計方式和 Azure 入口網站存取 Azure AD B2C audit 記錄檔。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,12 +12,12 @@ ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b1070314767f280ec9d15390dc838fa80b5508e2
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: feefe7cf6d559360defd7c7f830a9e3f2e583cd6
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643584"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948227"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>存取 Azure AD B2C 稽核記錄
 
@@ -33,12 +34,12 @@ Audit log 事件只會保留**七天**。 如果您需要更長的保留期，�
 
 |活動類型 |描述  |
 |---------|---------|
-|授權 |有關授權使用者存取 B2C 資源的活動（例如，存取 B2C 原則清單的系統管理員）。         |
+|Authorization |有關授權使用者存取 B2C 資源的活動（例如，存取 B2C 原則清單的系統管理員）。         |
 |目錄 |當系統管理員使用 Azure 入口網站登入時，所抓取之目錄屬性的相關活動。 |
-|應用程式 | 在 B2C 應用程式上建立、讀取、更新和刪除（CRUD）作業。 |
-|金鑰 |在 B2C 金鑰容器中儲存之金鑰的 CRUD 作業。 |
+|Application | 在 B2C 應用程式上建立、讀取、更新和刪除（CRUD）作業。 |
+|索引鍵 |在 B2C 金鑰容器中儲存之金鑰的 CRUD 作業。 |
 |資源 |B2C 資源的 CRUD 作業。 例如，原則和識別提供者。
-|驗證 |驗證使用者認證和權杖發行。|
+|Authentication |驗證使用者認證和權杖發行。|
 
 如需使用者物件 CRUD 活動，請參閱**核心目錄**類別。
 
@@ -52,7 +53,7 @@ Audit log 事件只會保留**七天**。 如果您需要更長的保留期，�
 
 |區段|欄位|描述|
 |-------|-----|-----------|
-| 活動 | 名稱 | 發生了哪個活動。 例如，對*應用程式發出 id_token*，這會結束實際的使用者登入。 |
+| 活動 | Name | 發生了哪個活動。 例如，對*應用程式發出 id_token*，這會結束實際的使用者登入。 |
 | 啟動者 (執行者) | ObjectId | 使用者所登入之 B2C 應用程式的**物件識別碼**。 此識別碼不會顯示在 Azure 入口網站中，但可透過 Microsoft Graph API 存取。 |
 | 啟動者 (執行者) | Spn | 使用者所登入之 B2C 應用程式的**應用程式識別碼**。 |
 | 目標 | ObjectId | 登入之使用者的**物件識別碼**。 |
@@ -101,7 +102,7 @@ Azure 入口網站提供 Azure AD B2C 租使用者中 audit 記錄事件的存�
 
 ### <a name="assign-api-access-permissions"></a>指派 API 存取權限
 
-#### <a name="applicationstabapplications"></a>[](#tab/applications/)
+#### <a name="applicationstabapplications"></a>[應用程式](#tab/applications/)
 
 1. 在 [**已註冊的應用程式**總覽] 頁面上，選取 [**設定**]。
 1. 在 [ **API 存取**] 底下，選取 [**必要許可權**]。

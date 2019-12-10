@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory B2C 中的使用方式報告 API 範例和定義 | Microsoft Docs
+title: 使用方式報告 API 範例和定義
+titleSuffix: Azure AD B2C
 description: 取得關於 Azure AD B2C 租用戶使用者、驗證及多重要素驗證報告的相關指南和範例。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fe7dd90bdec816ee433310a803d85c57f4892f8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f81acf28b502965f896cd8b38767e7c2e925156c
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508722"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949333"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>透過報告 API 存取 Azure AD B2C 中的使用報告
 
@@ -28,8 +29,8 @@ Azure Active Directory B2C (Azure AD B2C) 會根據使用者登入和 Azure Mult
 本文章著重於與計費活動有關的報告，而計費活動是以使用者數目、可計費的登入式驗證及多重要素驗證為根據。
 
 
-## <a name="prerequisites"></a>先決條件
-開始之前，您必須先完成[存取 Azure AD 報告 API 的必要條件](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)中的步驟。 建立應用程式、取得密碼，並授與對您的 Azure AD B2C 租用戶報告的存取權限。 這裡也提供了 Bash 指令碼  和 Python 指令碼  的範例。 
+## <a name="prerequisites"></a>必要條件
+開始之前，您必須先完成[存取 Azure AD 報告 API 的必要條件](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)中的步驟。 建立應用程式、取得密碼，並授與對您的 Azure AD B2C 租用戶報告的存取權限。 這裡也提供了 Bash 指令碼和 Python 指令碼的範例。
 
 ## <a name="powershell-script"></a>PowerShell 指令碼
 此指令碼示範如何使用 `TimeStamp` 參數和 `ApplicationId` 篩選器來建立四份使用報告。
@@ -38,10 +39,10 @@ Azure Active Directory B2C (Azure AD B2C) 會根據使用者登入和 Azure Mult
 # This script will require the Web Application and permissions setup in Azure Active Directory
 
 # Constants
-$ClientID      = "your-client-application-id-here"  
+$ClientID      = "your-client-application-id-here"
 $ClientSecret  = "your-client-application-secret-here"
 $loginURL      = "https://login.microsoftonline.com"
-$tenantdomain  = "your-b2c-tenant-domain.onmicrosoft.com"  
+$tenantdomain  = "your-b2c-tenant-domain.onmicrosoft.com"
 # Get an Oauth 2 access token based on client id, secret and tenant domain
 $body          = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
 $oauth         = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
@@ -97,23 +98,23 @@ if ($oauth.access_token -ne $null) {
 
 
 ## <a name="usage-report-definitions"></a>使用報告定義
-* **tenantUserCount**：過去 30 天中每一天，依識別提供者類型區分的租用戶中使用者數目。 (`TimeStamp` 篩選器可選擇性提供從指定日期至目前日期的使用者計數)。 此報告提供：
+* **tenantUserCount**：過去 30 天，租用戶中每一天各類型識別提供者的使用者數目。 (`TimeStamp` 篩選器可選擇性提供從指定日期至目前日期的使用者計數)。 此報告提供：
   * **TotalUserCount**：所有使用者物件的數目。
   * **OtherUserCount**：Azure Active Directory 使用者 (而非 Azure AD B2C 使用者) 的數目。
-  * **LocalUserCount**：以 Azure AD B2C 租用戶本機認證建立的 Azure AD B2C 使用者帳戶數目。
+  * **LocalUserCount**：Azure AD B2C 使用者帳戶的數目 (這些帳戶是以 Azure AD B2C 租用戶本機的認證所建立)。
 
 * **AlternateIdUserCount**：已向外部識別提供者 (例如 Facebook、Microsoft 帳戶或另一個 Azure Active Directory 租用戶，亦稱為 `OrgId`) 註冊的 Azure AD B2C 使用者數目。
 
-* **b2cAuthenticationCountSummary**：過去 30 天，依天及驗證流程類型區分的每日可計費驗證次數摘要。
+* **b2cAuthenticationCountSummary**：過去 30 天，每天及各類型驗證流程的每日可計費驗證次數摘要。
 
-* **b2cAuthenticationCount**：某個時段內的驗證次數。 預設值為過去 30 天。  (選擇性：開始和結束 `TimeStamp` 參數會定義特定的時段)。輸出包括 `StartTimeStamp` (此租用戶的最早活動日期) 和 `EndTimeStamp` (最新的更新)。
+* **b2cAuthenticationCount**：某段時間週期內的驗證次數。 預設值為過去 30 天。  （選擇性：開始和結束 `TimeStamp` 參數會定義特定的時間週期）。輸出包含 `StartTimeStamp` （此租使用者的最早活動日期）和 `EndTimeStamp` （最新的更新）。
 
-* **b2cMfaRequestCountSummary**：依天及類型 (SMS 或語音) 區分的每日多重要素驗證次數摘要。
+* **b2cMfaRequestCountSummary**：依日期及類型 (SMS 或語音) 區分的每日多重要素驗證次數摘要。
 
 
 ## <a name="limitations"></a>限制
 使用者計數的資料每隔 24 到 48 小時會重新整理。 驗證則是每天更新數次。 使用 `ApplicationId` 篩選器時，空白報告回應是因為發生下列其中一種情況：
-  * 應用程式識別碼不存在於租用戶中。 請確定它是正確的。
+  * 應用程式識別碼不存在於租用戶中。 請確定識別碼正確。
   * 應用程式識別碼存在，但報告期間內找不到任何資料。 請檢閱您的日期/時間參數。
 
 

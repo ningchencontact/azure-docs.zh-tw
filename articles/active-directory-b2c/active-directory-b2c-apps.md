@@ -1,5 +1,6 @@
 ---
-title: 可以在 Azure Active Directory B2C 中使用的應用程式類型
+title: Azure AD B2C 支援的應用程式類型
+titleSuffix: Azure AD B2C
 description: 瞭解您可以搭配 Azure Active Directory B2C 使用的應用程式類型。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5643f1df6cefa9ca6c60453939be533b2c00eaf4
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 753943116edab443509b7d5747e749910e366806
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533088"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948789"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>可以在 Active Directory B2C 中使用的應用程式類型
 

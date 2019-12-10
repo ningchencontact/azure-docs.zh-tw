@@ -2,31 +2,38 @@
 title: 基礎結構：內部部署 Apache Hadoop 至 Azure HDInsight
 description: 了解將內部部署 Hadoop 叢集遷移到 Azure HDInsight 的基礎結構最佳做法。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: adc0e5f5eef41dcb1f826ffbf0cfe91a937fac01
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: d7ee8ae121e3cbb9760a87c95d12109a9b05e0c5
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499223"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951508"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 基礎結構最佳做法
 
-本文提供管理 Azure HDInsight 叢集基礎結構的建議。 將內部部署 Apache Hadoop 系統移轉到 Azure HDInsight 有一系列的最佳做法，這是其中一部分。
+本文提供管理 Azure HDInsight 叢集基礎結構的建議。 本文是系列文章中的一篇，提供有助於將內部部署 Apache Hadoop 系統移轉至 Azure HDInsight 的最佳做法。
 
 ## <a name="plan-for-hdinsight-cluster-capacity"></a>HDInsight 叢集容量的規劃
 
 針對 HDInsight 叢集容量進行規劃的重要選擇如下：
 
-- **選擇區域**：Azure 區域決定叢集實際佈建的位置。 若要將讀取和寫入的延遲降至最低，叢集應該與資料位於相同區域。
-- **選擇儲存體位置和大小**：預設的儲存體必須與叢集位於相同區域。 若是48節點叢集，建議使用4到8個儲存體帳戶。 雖然可能已經有足夠的儲存體總計，每個儲存體帳戶都會提供額外的網路頻寬供計算節點使用。 當有多個儲存體帳戶時，請對每個儲存體帳戶使用隨機名稱，不含前置詞。 隨機命名的目的在於減少儲存體瓶頸 (節流) 或所有帳戶發生一般模式失敗的機會。 為提升效能，每個儲存體帳戶僅使用一個容器。
-- **選擇 VM大小與類型 (現在支援 G 系列)** ：每個叢集類型都具有一組節點類型，且每個節點類型都有其 VM 大小和類型的特定選項。 VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定。 模擬工作負載可用來決定每個節點類型適用的最佳 VM 大小和類型。
-- **選擇背景工作節點數目**：背景工作節點的初始數目可使用模擬工作負載來決定。 稍後可新增更多背景工作節點來調整叢集，以符合尖峰負載需求。 稍後當不需要額外的背景工作節點時，可以調降叢集。
+**區域**  
+Azure 區域會決定叢集實際布建的位置。 若要將讀取和寫入的延遲降至最低，叢集應該與資料位於相同區域。
+
+**儲存位置和大小**  
+預設儲存體必須與叢集位於相同的區域。 若是48節點叢集，建議使用4到8個儲存體帳戶。 雖然可能已經有足夠的儲存體總計，每個儲存體帳戶都會提供額外的網路頻寬供計算節點使用。 當有多個儲存體帳戶時，請對每個儲存體帳戶使用隨機名稱，不含前置詞。 隨機命名的目的在於減少儲存體瓶頸 (節流) 或所有帳戶發生一般模式失敗的機會。 為提升效能，每個儲存體帳戶僅使用一個容器。
+
+**VM 大小和類型（現在支援 G 系列）**  
+每個叢集類型都具有一組節點類型，且每個節點類型都有其 VM 大小和類型的特定選項。 VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定。 模擬工作負載可用來決定每個節點類型適用的最佳 VM 大小和類型。
+
+**背景工作節點數目**  
+您可以使用模擬的工作負載來判斷背景工作節點的初始數目。 稍後可新增更多背景工作節點來調整叢集，以符合尖峰負載需求。 稍後當不需要額外的背景工作節點時，叢集可以相應放大。
 
 如需詳細資訊，請參閱 [HDInsight 叢集的容量規劃](../hdinsight-capacity-planning.md)一文。
 
@@ -145,7 +152,7 @@ New—AzHDInsightCluster `
 
 ## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>使用叢集的相應增加和相應減少功能
 
-HDInsight 具有彈性，可讓您選擇相應增加和相應減少叢集中的背景工作節點數。 此功能可讓您在下班時間或是週末縮小叢集，並於業務需求達到高峰的期間擴大叢集。 如需詳細資訊，請參閱：
+HDInsight 具有彈性，可讓您選擇相應增加和相應減少叢集中的背景工作節點數。 此功能可讓您在下班時間或是週末縮小叢集，並於業務需求達到高峰的期間擴大叢集。 如需詳細資訊，請參閱
 
 * [調整 HDInsight](../hdinsight-scaling-best-practices.md)叢集。
 * [調整叢集規模](../hdinsight-administer-use-portal-linux.md#scale-clusters)。
@@ -191,6 +198,4 @@ HDInsight 可透過使用 Azure 虛擬網路和 VPN 閘道，連線到內部部�
 
 ## <a name="next-steps"></a>後續步驟
 
-閱讀此系列中的下一篇文章：
-
-- [從內部部署移轉至 Azure HDInsight Hadoop 的儲存體最佳做法](apache-hadoop-on-premises-migration-best-practices-storage.md)
+閱讀這一系列的下一篇文章：內部[部署到 Azure HDInsight Hadoop 遷移的儲存最佳作法](apache-hadoop-on-premises-migration-best-practices-storage.md)。

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: dc842ba0e7ca0f34b7dacb98322c4dc0cd056483
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b3165daa06ed975df9ccb677699d3ceb449327ab
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931994"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941888"
 ---
 # <a name="move-files-with-azure-data-factory"></a>使用 Azure Data Factory 移動檔案
 
@@ -36,9 +36,11 @@ ms.locfileid: "74931994"
 - [**複製**] 會將一個檔案從來源複製到目的地存放區。
 - [**刪除**] 會從來源存放區刪除相同的一個檔案。
 
-範本定義兩個參數：
-- *FolderPath_SourceStore*是您想要從中移動檔案之來源存放區的資料夾路徑。 
-- *FolderPath_DestinationStore*是您想要將檔案移至其中的目的地存放區的資料夾路徑。 
+範本會定義四個參數：
+- *SourceStore_Location*是您想要從中移動檔案之來源存放區的資料夾路徑。 
+- *SourceStore_Directory*是您想要從中移動檔案之來源存放區的子資料夾路徑。
+- *DestinationStore_Location*是您想要將檔案移至其中的目的地存放區的資料夾路徑。 
+- *DestinationStore_Directory*是您想要將檔案移至其中的目的地存放區的子資料夾路徑。
 
 ## <a name="how-to-use-this-solution-template"></a>如何使用此解決方案範本
 
@@ -50,9 +52,7 @@ ms.locfileid: "74931994"
 
     ![建立與目的地的新連線](media/solution-template-move-files/move-files2.png)
 
-3. 選取 [使用此範本]。
-
-    ![使用此範本](media/solution-template-move-files/move-files3.png)
+3. 選取 [**使用此範本**] 索引標籤。
     
 4. 您會看到管線，如下列範例所示：
 

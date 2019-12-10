@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1755d5bf3338694f53da7021579cb4c0aee623f3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 934899a74362ec9354c772c341d38d6a8f988ab4
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74912473"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951865"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>設定及使用計算目標進行模型定型 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Azure Machine Learning 在不同的計算目標上有不同的支援。 一般�
 
 ## <a name="whats-an-estimator"></a>什麼是估計工具？
 
-為了使用熱門的架構來加速模型定型，Azure Machine Learning Python SDK 提供估計工具類別的替代較高層級抽象概念。 我們建議使用估計工具進行定型，因為類別包含的方法可讓您輕鬆地建立和自訂執行設定。 您可以建立並使用泛型[估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)來提交訓練腳本，以使用您選擇的任何學習架構（例如 scikit-learn）。 如果您需要將資料檔案提供給計算目標，請參閱[使用 Azure Machine Learning 資料集進行定型](how-to-train-with-datasets.md)。
+為了使用熱門的架構來加速模型定型，Azure Machine Learning Python SDK 提供估計工具類別的替代較高層級抽象概念。  此類別可讓您輕鬆地建立執行設定。 您可以建立並使用泛型[估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)來提交訓練腳本，以使用您選擇的任何學習架構（例如 scikit-learn）。 我們建議使用估計工具來進行訓練，因為它會自動為您 contructs 内嵌物件，例如環境或 RunConfiguration 物件。 如果您想要更充分掌控這些物件的建立方式，以及 specfify 要安裝哪些套件以進行 experiement 執行，請遵循下列[步驟](#amlcompute)，在 Azure Machine Learning 計算上使用 RunConfiguration 物件提交定型實驗。
 
 對於 PyTorch、TensorFlow 和 Chainer 工作，Azure Machine Learning 也會提供個別的[PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py)、 [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)和[Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)估算器，以簡化使用這些架構的作業。
 

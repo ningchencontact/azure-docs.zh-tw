@@ -11,14 +11,14 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 333a3b93d872c1a99d1ec18d4941adc8986d4a03
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 10c778025c3def384f621cb5311d0d71ccb457d7
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914560"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951117"
 ---
-# <a name="what-is-azure-ad-connect-cloud-provisioning"></a>什麼是 Azure AD Connect 雲端布建？
+# <a name="what-is-azure-ad-connect-cloud-provisioning"></a>什麼是 Azure AD Connect 雲端佈建？
 Azure AD Connect 雲端布建是新的 Microsoft 代理程式，其設計目的是為了符合並完成您的混合式身分識別目標，讓使用者、群組和連絡人同步處理 Azure AD。  它可以與 Azure AD Connect 同步處理一起使用，並提供下列優點：
     
 - 支援從多樹系已中斷連線的 Active Directory 樹系環境同步處理至 Azure AD 的租使用者：常見的案例包括合併 & 取得，其中所購買的公司 AD 樹系與父公司的 AD 隔離過去有多個 AD 樹系的樹系和公司。
@@ -60,6 +60,7 @@ Azure AD Connect 雲端布建是新的 Microsoft 代理程式，其設計目的�
 | 允許屬性流程的進階自訂 |● | |
 | 支援回寫（密碼、裝置、群組） |● | |
 | Azure AD Domain Services 支援|● | |
+| Exchange 混合式設定 |● | |
 
 ## <a name="next-steps"></a>後續步驟 
 

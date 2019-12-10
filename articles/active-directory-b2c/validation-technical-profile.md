@@ -1,6 +1,7 @@
 ---
-title: 定義 Azure Active Directory B2C 自訂原則中的驗證技術設定檔 | Microsoft Docs
-description: 定義 Azure Active Directory B2C 自訂原則中的 Azure Active Directory 技術設定檔。
+title: 定義自訂原則中的驗證技術設定檔
+titleSuffix: Azure AD B2C
+description: 在 Azure Active Directory B2C 的自訂原則中使用驗證技術設定檔來驗證宣告。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ad15342e6d35a5c6101beb1ddc09d4ce1f2089d5
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: facef1e1288f2a64872efbf37a9a31fa05244a7e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167571"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950794"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定義 Azure Active Directory B2C 自訂原則中的驗證技術設定檔
 
@@ -40,7 +41,7 @@ ms.locfileid: "74167571"
 自我判斷的驗證技術設定檔可定義驗證技術設定檔用於驗證部分或全部輸出宣告。 參考驗證技術設定檔的所有輸入宣告必須出現在參考技術設定檔的輸出宣告中。
 
 > [!NOTE]
-> 只有自我判斷技術設定檔可以使用驗證技術設定檔。 如果您需要驗證來自非自我判斷技術設定檔的輸出宣告，請考慮在使用者旅程圖中使用額外的協調流程步驟，以配合驗證所需的技術設定檔。    
+> 只有自我判斷技術設定檔可以使用驗證技術設定檔。 如果您需要驗證來自非自我判斷技術設定檔的輸出宣告，請考慮在使用者旅程圖中使用額外的協調流程步驟，以配合驗證所需的技術設定檔。
 
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
@@ -52,9 +53,9 @@ ms.locfileid: "74167571"
 
 **ValidationTechnicalProfile** 元素包含下列屬性：
 
-| 屬性 | 必要 | 描述 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| ReferenceId | yes | 已在原則或父原則中定義之技術設定檔的識別碼。 |
+| ReferenceId | 是 | 已在原則或父原則中定義之技術設定檔的識別碼。 |
 |ContinueOnError|否| 指出當此驗證技術設定檔引發錯誤時，是否應該繼續進行任何後續驗證技術設定檔的驗證。 可能的值：`true` 或 `false` (預設值，進一步驗證設定檔的處理將停止，並傳回錯誤)。 |
 |ContinueOnSuccess | 否 | 表示如果此驗證設定檔成功，任何後續驗證技術設定檔的驗證是否應該繼續。 可能的值：`true` 或 `false`。 預設值是 `true`，表示進一步驗證設定檔的處理會繼續。 |
 
@@ -66,17 +67,17 @@ ms.locfileid: "74167571"
 
 **Precondition** 元素包含下列屬性：
 
-| 屬性 | 必要 | 描述 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| `Type` | yes | 要針對此先決條件執行的檢查或查詢類型。 `ClaimsExist` 指定如果指定的宣告存在於使用者目前的宣告組中，就應執行動作，或 `ClaimEquals` 指定如果指定宣告存在且其值等於指定的值，就應執行動作。 |
-| `ExecuteActionsIf` | yes | 指出如果測試為 True 或 False，是否應執行先決條件中的動作。 |
+| `Type` | 是 | 要針對此先決條件執行的檢查或查詢類型。 `ClaimsExist` 指定如果指定的宣告存在於使用者目前的宣告組中，就應執行動作，或 `ClaimEquals` 指定如果指定宣告存在且其值等於指定的值，就應執行動作。 |
+| `ExecuteActionsIf` | 是 | 指出如果測試為 True 或 False，是否應執行先決條件中的動作。 |
 
 **Precondition** 元素包含下列元素：
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| 值 | 1:n | 檢查所用的資料。 如果這項檢查的型別是 `ClaimsExist`，此欄位會指定要查詢的 ClaimTypeReferenceId。 如果檢查的型別是 `ClaimEquals`，此欄位會指定要查詢的 ClaimTypeReferenceId。 而另一個值元素包含要檢查的值。|
-| 動作 | 1:1 | 當協調流程步驟內的先決條件檢查為 True 時應採取的動作。 **動作**的值是設定為 `SkipThisValidationTechnicalProfile`。 指定應該不執行相關聯的驗證技術設定檔。 |
+| Value | 1:n | 檢查所用的資料。 如果這項檢查的型別是 `ClaimsExist`，此欄位會指定要查詢的 ClaimTypeReferenceId。 如果檢查的型別是 `ClaimEquals`，此欄位會指定要查詢的 ClaimTypeReferenceId。 而另一個值元素包含要檢查的值。|
+| 行動 | 1:1 | 當協調流程步驟內的先決條件檢查為 True 時應採取的動作。 **動作**的值是設定為 `SkipThisValidationTechnicalProfile`。 指定應該不執行相關聯的驗證技術設定檔。 |
 
 ### <a name="example"></a>範例
 

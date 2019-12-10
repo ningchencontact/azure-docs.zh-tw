@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 12/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 54f0584eae948d6e577b0439a5a0d976ff61d4b1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c0b022ed759837fc6d922386dd48a2f3a109527a
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850647"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951491"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure 自動化中的「停機期間啟動/停止 VM」解決方案
 
@@ -428,7 +428,7 @@ ms.locfileid: "74850647"
 
 此程序並不會刪除自動化帳戶和 Log Analytics 工作區。 如果不想保留 Log Analytics 工作區，則必須手動刪除它。 此作業可以從 Azure 入口網站完成：
 
-1. 從 Azure 入口網站首頁 畫面中，選取  **Log Analytics 工作區**。
+1. 在 Azure 入口網站中，搜尋並選取 [ **Log Analytics 工作區**]。
 1. 在 [ **Log Analytics 工作區**] 頁面上，選取工作區。
 1. 在工作區 [設定] 頁面的功能表中選取 [刪除]。
 

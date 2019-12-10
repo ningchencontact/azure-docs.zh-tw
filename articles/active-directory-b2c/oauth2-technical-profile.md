@@ -1,5 +1,6 @@
 ---
-title: 在 Azure Active Directory B2C 的自訂原則中定義 OAuth2 技術設定檔 |Microsoft Docs
+title: 在自訂原則中定義 OAuth2 技術設定檔
+titleSuffix: Azure AD B2C
 description: 在 Azure Active Directory B2C 的自訂原則中定義 OAuth2 技術設定檔。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 63500c057b5c9f497e59589286a852a4394059ec
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 33bad4982d54eb18e91be28511fb9137223f4a91
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063980"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950964"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義 OAuth2 技術設定檔
 
@@ -23,7 +24,7 @@ ms.locfileid: "71063980"
 
 Azure Active Directory B2C （Azure AD B2C）提供 OAuth2 通訊協定識別提供者的支援。 OAuth2 是用於授權和委派驗證的主要通訊協定。 如需詳細資訊，請參閱 [RFC 6749 The OAuth 2.0 授權架構](https://tools.ietf.org/html/rfc6749)。 透過 OAuth2 技術設定檔，您可以與以 OAuth2 為基礎的身分識別提供者（例如 Facebook）聯盟。 與身分識別提供者聯盟可讓使用者使用其現有的社交或企業身分識別登入。
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>通訊協定
 
 **Protocol** 元素的 **Name** 屬性必須設定為 `OAuth2`。 例如，**Facebook-OAUTH** 技術設定檔的通訊協定是 `OAuth2`：
 
@@ -48,7 +49,7 @@ Azure Active Directory B2C （Azure AD B2C）提供 OAuth2 通訊協定識別提
 
 **OutputClaims** 元素包含 OAuth2 識別提供者傳回的宣告清單。 您可能需要將原則中定義的宣告名稱對應至識別提供者中定義的名稱。 只要設定了 `DefaultValue` 屬性，也可以加入識別提供者未傳回的宣告。
 
-**OutputClaimsTransformations** 元素可能含有 **OutputClaimsTransformation** 的集合，用於修改輸出宣告或產生新的輸出宣告。
+**OutputClaimsTransformations** 元素可能包含 **OutputClaimsTransformation** 的集合，以用來修改輸出宣告或產生新的輸出宣告。
 
 下列範例顯示 Facebook 識別提供者傳回的宣告：
 
@@ -102,15 +103,15 @@ Azure Active Directory B2C （Azure AD B2C）提供 OAuth2 通訊協定識別提
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| client_secret | 是 | 識別提供者應用程式的用戶端密碼。 只有在 **response_types** 中繼資料設為 `code` 時，才需要密碼編譯金鑰。 在此情況下，Azure AD B2C 會進行另一次呼叫，以交換存取權杖的授權碼。 如果中繼資料設定為`id_token`，您可以省略密碼編譯金鑰。 |
+| client_secret | 是 | 識別提供者應用程式的用戶端密碼。 只有在 **response_types** 中繼資料設為 `code` 時，才需要密碼編譯金鑰。 在此情況下，Azure AD B2C 會進行另一次呼叫，以交換存取權杖的授權碼。 如果中繼資料設定為 `id_token`，您可以省略密碼編譯金鑰。 |
 
 ## <a name="redirect-uri"></a>重新導向 URI
 
-當您設定識別提供者的重新導向 URL 時，請輸入 `https://login.microsoftonline.com/te/tenant/policyId/oauth2/authresp`。 請務必將 **tenant** 取代為您的租用戶名稱 (例如 contosob2c.onmicrosoft.com)，並將 **policyId** 取代為原則的識別碼 (例如 b2c_1a_policy)。 重新導向 URL 必須全部是小寫。
+當您設定識別提供者的重新導向 URL 時，請輸入 `https://login.microsoftonline.com/te/tenant/policyId/oauth2/authresp`。 請務必將 **tenant** 取代為您的租用戶名稱 (例如 contosob2c.onmicrosoft.com)，並將 **policyId** 取代為原則的識別碼 (例如 b2c_1a_policy)。 重新導向 URI 必須全部小寫。
 
 如果使用的是 **b2clogin.com** 網域，而非使用 **login.microsoftonline.com**，請務必使用 b2clogin.com，而非使用 login.microsoftonline.com。
 
-例如：
+範例：
 
 - [使用自訂原則新增 Google+ 作為 OAuth2 識別提供者](active-directory-b2c-custom-setup-goog-idp.md)
 

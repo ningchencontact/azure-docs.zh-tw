@@ -3,12 +3,12 @@ title: 如何設定 Azure Functions 執行階段目標版本
 description: Azure Functions 支援多個執行階段版本。 了解如何指定 Azure 中裝載之函式應用程式的執行階段版本。
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 6f93ac7bcbd25c1b120cfeecae9dd4353524855f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0031fe08ee1e77c35a78b2128615f08846c1b612
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230310"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942268"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>如何設定 Azure Functions 執行階段目標版本
 
@@ -29,9 +29,9 @@ Azure Functions 可讓您在函式應用程式中使用 `FUNCTIONS_EXTENSION_VER
 
 | 主要版本 | `FUNCTIONS_EXTENSION_VERSION` 值 |
 | ------------- | ----------------------------------- |
-| 3.x （預覽） | `~3` |
+| 3.x  | `~3` |
 | 2.x  | `~2` |
-| 1.x | `~1` |
+| 1.x  | `~1` |
 
 變更執行階段版本會導致函式應用程式重新啟動。
 
@@ -90,7 +90,7 @@ az functionapp config appsettings list --name <function_app> \
 ]
 ```
 
-您可以使用 `FUNCTIONS_EXTENSION_VERSION`az functionapp config appsettings set[ 命令，在函式應用程式中更新 ](/cli/azure/functionapp/config/appsettings) 設定。
+您可以使用 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) 命令，在函式應用程式中更新 `FUNCTIONS_EXTENSION_VERSION` 設定。
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
@@ -100,7 +100,7 @@ az functionapp config appsettings set --name <function_app> \
 
 以函式應用程式的名稱取代 `<function_app>`。 還要以函式應用程式的資源群組名稱取代 `<my_resource_group>`。 此外，將 `<version>` 取代為有效的 1.x 執行階段版本取代為 `~2` (代表 2.x 版本)。
 
-您可以選擇上述程式碼範例中的 [試試看][](../cloud-shell/overview.md)，從 **Azure Cloud Shell** 執行此命令。 在執行 [az login](/cli/azure/install-azure-cli) 登入之後，您也可以使用[本機 Azure CLI](/cli/azure/reference-index#az-login) 來執行此命令。
+您可以選擇上述程式碼範例中的 [試試看]，從 [Azure Cloud Shell](../cloud-shell/overview.md) 執行此命令。 在執行 [az login](/cli/azure/reference-index#az-login) 登入之後，您也可以使用[本機 Azure CLI](/cli/azure/install-azure-cli) 來執行此命令。
 
 
 

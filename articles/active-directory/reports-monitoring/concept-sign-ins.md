@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/03/2019
+ms.date: 12/09/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706cc38c997c91efc890b213444ff779eb86d5c1
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: dc996c7b5d8a63834f548689c83f7a72685120d2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805121"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951168"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告
 
@@ -79,7 +79,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 ![登入活動](./media/concept-sign-ins/19.png "登入活動")
 
-顯示其他欄位，或移除已顯示的欄位。
+[資料**行**] 對話方塊可讓您存取可選取的屬性。 在登入報告中，您只能有與其他屬性為數據行不具有一對多關聯性的屬性。
 
 ![登入活動](./media/concept-sign-ins/columns.png "登入活動")
 

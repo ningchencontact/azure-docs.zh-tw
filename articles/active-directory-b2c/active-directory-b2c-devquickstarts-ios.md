@@ -1,6 +1,7 @@
 ---
-title: 在 Azure Active Directory B2C 中的 iOS 應用程式使用 AppAuth | Microsoft Docs
-description: 本文說明如何建立 iOS 應用程式，以使用 AppAuth 和 Azure Active Directory B2C 來管理使用者身分識別和驗證使用者。
+title: 在 iOS 應用程式中使用 AppAuth
+titleSuffix: Azure AD B2C
+description: 如何建立使用 AppAuth 搭配 Azure Active Directory B2C 來管理使用者身分識別和驗證使用者的 iOS 應用程式。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0fb5341c2e7ee55391cb38251b0ea66b55b93301
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a61b97ade6513785c1cd298f33a5158a14efad82
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469152"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948195"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C︰使用 iOS 應用程式登入
 
@@ -37,9 +38,9 @@ Microsoft 身分識別平台會使用開放式標準，例如 OAuth2 和 OpenID 
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-記錄**應用程式（用戶端）識別碼**，以便在稍後的步驟中使用。
+記錄 [應用程式 (用戶端) 識別碼]，以便在稍後的步驟中使用。
 
-另請記錄您的自訂重新導向 URI，以便在稍後的步驟中使用。 例如， `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`。
+另請記錄您的自訂重新導向 URI，以便在稍後的步驟中使用。 例如： `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect` 。
 
 ## <a name="create-your-user-flows"></a>建立使用者流程
 在 Azure AD B2C 中，每個使用者體驗皆是由某個[使用者流程](active-directory-b2c-reference-policies.md)所定義。 此應用程式包含一個身分識別體驗：合併登入和註冊。 建立使用者流程時，請務必：
@@ -91,8 +92,8 @@ OIDServiceConfiguration *configuration =
 
 設定或擷取授權服務組態之後，就可以建構授權要求。 若要建立要求，您需要下列資訊︰
 
-* 您先前記錄的用戶端識別碼（應用程式識別碼）。 例如， `00000000-0000-0000-0000-000000000000`。
-* 您稍早記錄的自訂重新導向 URI。 例如， `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`。
+* 您先前記錄的用戶端識別碼（應用程式識別碼）。 例如： `00000000-0000-0000-0000-000000000000` 。
+* 您稍早記錄的自訂重新導向 URI。 例如： `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect` 。
 
 這兩個項目應該已在您[註冊應用程式](#create-an-application)時儲存。
 

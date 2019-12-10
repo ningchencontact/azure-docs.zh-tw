@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: 9796b41d0df091bc6eb23ba525a79da278e00bbd
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b655181f41aeda71364edd061b7c81db23e59990
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802317"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951134"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示概觀 
 
@@ -65,7 +65,7 @@ ms.locfileid: "72802317"
 - 記錄搜尋查詢
 - 活動記錄事件
 - 基礎 Azure 平台健康情況
-- 測試網站可用性
+- 網站可用性測試
 
 之前，「Azure 監視器」計量、Application Insights、Log Analytics 及「服務健康狀態」具有個別的警示功能。 隨著時間進展，Azure 已改善並結合使用者介面與不同的警示方法。 這樣的整併仍在持續進行中。 因此，新的警示系統中仍可能沒有某些警示功能。  
 
@@ -178,7 +178,7 @@ ms.locfileid: "72802317"
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>警示實例的角色型存取控制（RBAC）
 
-警示實例的耗用量和管理需要使用者具備[監視參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)或[監視讀取](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)者的內建 RBAC 角色。 在任何 Azure Resource Manager 範圍（從訂用帳戶層級到資源層級的細微指派）都支援這些角色。 例如，如果使用者僅有虛擬機器 `ContosoVM1` 的監視參與者存取權，則該使用者只能取用和管理 `ContosoVM1` 產生的警示。
+警示實例的耗用量和管理需要使用者具備[監視參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)或[監視讀取](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)者的內建 RBAC 角色。 在任何 Azure Resource Manager 範圍（從訂用帳戶層級到資源層級的細微指派）都支援這些角色。 例如，如果使用者僅有虛擬機器 `ContosoVM1`的監視參與者存取權，則該使用者只能取用和管理 `ContosoVM1`產生的警示。
 
 ## <a name="manage-your-alert-instances-programmatically"></a>以程式設計方式管理您的警示實例
 
@@ -211,6 +211,7 @@ ms.locfileid: "72802317"
 - [深入了解動作群組](../../azure-monitor/platform/action-groups.md)
 - [在 Azure 中管理警示](https://aka.ms/managing-alert-instances)
 - [管理智慧群組](https://aka.ms/managing-smart-groups)
+- [深入瞭解 Azure 警示定價](https://azure.microsoft.com/pricing/details/monitor/)
 
 
 

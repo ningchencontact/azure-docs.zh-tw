@@ -1,6 +1,7 @@
 ---
-title: 在 Azure Active Directory B2C 中設定資源擁有者密碼認證流程 | Microsoft Docs
-description: 了解如何在 Azure Active Directory B2C 中設定資源擁有者密碼認證流程。
+title: 使用自訂原則設定資源擁有者密碼認證流程
+titleSuffix: Azure AD B2C
+description: 瞭解如何在 Azure Active Directory B2C 中使用自訂原則來設定資源擁有者密碼認證（ROPC）流程。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2f3eb2c0071eecb20bbf5616a01c80e55645207a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 990493b6b2c3757849168d8fb82a4b38f55364e2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678132"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951059"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>在 Azure Active Directory B2C 中使用自訂原則來設定資源擁有者密碼認證流程
 
@@ -37,7 +38,7 @@ ms.locfileid: "71678132"
 
 ## <a name="prerequisites"></a>必要條件
 
-完成在 [Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
+完成[在 Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
 
 ## <a name="register-an-application"></a>註冊應用程式
 
@@ -133,7 +134,7 @@ ms.locfileid: "71678132"
     </TechnicalProfile>
     ```
 
-    以您在必要條件教學課程中所建立之 ProxyIdentityExperienceFramework 應用程式的應用程式識別碼取代**client_id**的**DefaultValue** 。 然後使用您在必要條件教學課程中所建立之 IdentityExperienceFramework 應用程式的應用程式識別碼，取代**resource_id**的**DefaultValue** 。
+    以您在必要條件教學課程中建立之 ProxyIdentityExperienceFramework 應用程式的應用程式識別碼取代**client_id**的**DefaultValue** 。 然後，使用您在必要條件教學課程中所建立之 IdentityExperienceFramework 應用程式的應用程式識別碼，取代**resource_id**的**DefaultValue** 。
 
 5. 將下列 **ClaimsProvider** 元素及其技術設定檔一起新增至 **ClaimsProviders** 元素：
 
@@ -248,7 +249,7 @@ ms.locfileid: "71678132"
     ```
 
 5. 在 Azure AD B2C 租用戶的 [自訂原則] 頁面上，選取 [上傳原則]。
-6. 啟用 **[覆寫原則] （如果有**的話），然後流覽至並選取*ROPC_Auth*檔案。
+6. 啟用**覆寫已存在的原則**，然後流覽並選取  *ROPC_Auth .xml*檔案。
 7. 按一下 [上傳]。
 
 ## <a name="test-the-policy"></a>測試原則
@@ -260,7 +261,7 @@ ms.locfileid: "71678132"
 - 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。
 - 以您資源擁有者密碼認證原則的完整名稱取代 `B2C_1A_ROPC_Auth`。
 
-| Key | 值 |
+| 索引鍵 | Value |
 | --- | ----- |
 | username | `user-account` |
 | password | `password1` |
@@ -305,12 +306,12 @@ username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scop
 - 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。
 - 以您資源擁有者密碼認證原則的完整名稱取代 `B2C_1A_ROPC_Auth`。
 
-| Key | 值 |
+| 索引鍵 | Value |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
 | client_id | `application-id` |
-| resource | `application-id` |
+| 資源 | `application-id` |
 | refresh_token | `refresh-token` |
 
 - 以來自 *ROPC_Auth_app* 註冊的「應用程式識別碼」取代 `application-id`。

@@ -1,5 +1,6 @@
 ---
-title: 定義 Azure Active Directory B2C 自訂原則中的 RESTful 技術設定檔 | Microsoft Docs
+title: 在自訂原則中定義 RESTful 技術設定檔
+titleSuffix: Azure AD B2C
 description: 定義 Azure Active Directory B2C 自訂原則中的 RESTful 技術設定檔。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 13eedeb66d826d212b814fac321f920e78758cb8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: aa14854807727506f5d697d7871c97e219c096a3
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063745"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950879"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定義 Azure Active Directory B2C 自訂原則中的 RESTful 技術設定檔
 
@@ -33,7 +34,7 @@ Azure Active Directory B2C （Azure AD B2C）為您自己的 RESTful 服務提�
 - **驗證技術設定檔** - 驗證技術設定檔會呼叫 RESTful 服務。 在使用者旅程圖繼續進行之前，驗證技術設定檔會驗證使用者提供的資料。 若有驗證技術設定檔，錯誤訊息會顯示在自我判斷頁面上，然後傳回輸出宣告。
 - **宣告交換** - 透過協調流程步驟呼叫 RESTful 服務。 在此情況下，沒有任何使用者介面可呈現錯誤訊息。 如果您的 REST API 傳回錯誤，則會將使用者重新導向信賴憑證者應用程式，並附帶錯誤訊息。
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>通訊協定
 
 **Protocol** 元素的 **Name** 屬性必須設定為 `Proprietary`。 **handler** 屬性必須包含 Azure AD B2C 所使用之通訊協定處理常式組件的完整名稱：`Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`。
 
@@ -64,7 +65,7 @@ Azure Active Directory B2C （Azure AD B2C）為您自己的 RESTful 服務提�
 
 **OutputClaims** 元素包含 REST API 傳回的宣告清單。 您可能需要將原則中定義的宣告名稱對應至 REST API 中定義的名稱。 只要設定了 `DefaultValue` 屬性，也可以加入 REST API 識別提供者未傳回的宣告。
 
-**OutputClaimsTransformations** 元素可能含有 **OutputClaimsTransformation** 的集合，用於修改輸出宣告或產生新的輸出宣告。
+**OutputClaimsTransformations** 元素可能包含 **OutputClaimsTransformation** 的集合，以用來修改輸出宣告或產生新的輸出宣告。
 
 下列範例顯示 REST API 傳回的宣告：
 
@@ -159,8 +160,8 @@ Azure Active Directory B2C （Azure AD B2C）為您自己的 RESTful 服務提�
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| 版本 | 是 | 1.0.0 |
-| 狀態 | 是 | 409 |
+| version | 是 | 1.0.0 |
+| status | 是 | 409 |
 | code | 否 | RESTful 端點提供者的錯誤代碼，在啟用 `DebugMode` 時顯示。 |
 | requestId | 否 | RESTful 端點提供者的要求識別碼，在啟用 `DebugMode` 時顯示。 |
 | userMessage | 是 | 向使用者顯示的錯誤訊息。 |
@@ -196,11 +197,11 @@ public class ResponseContent
 }
 ```
 
-## <a name="examples"></a>例如：
+## <a name="examples"></a>範例：
 - [將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為使用者輸入的驗證](active-directory-b2c-custom-rest-api-netfw.md)
 - [使用 HTTP 基本驗證保護 RESTful 服務](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 - [使用用戶端憑證保護您的 RESTful 服務](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
-- [逐步解說：將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為對使用者輸入的驗證](active-directory-b2c-rest-api-validation-custom.md)
+- [逐步解說︰將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為使用者輸入的驗證](active-directory-b2c-rest-api-validation-custom.md)
 
  
 

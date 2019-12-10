@@ -1,5 +1,5 @@
 ---
-title: SAP NetWeaver 的 Azure 虛擬機器規劃和實作指南 | Microsoft Docs
+title: Azure 上的 SAP：規劃與執行指南
 description: SAP NetWeaver 的 Azure 虛擬機器規劃和實作指南
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b791ac58ada84ac0c2087f266d29bff4bd9c6fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 863070eb025d8ac58f6a0946d49732dc6b2842b8
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224701"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951746"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器規劃和實作指南
 
@@ -319,7 +319,7 @@ Microsoft Azure 可讓公司在最短的時間內取得計算和儲存體資源�
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>總結
 雲端運算這個廣泛使用的名詞已日益受到 IT 產業的重視，不論是小型公司、大型公司還是跨國企業都是如此。
 
 Microsoft Azure 是 Microsoft 所推出的雲端服務平台，可提供各式各樣的新契機。 客戶現在既能將應用程式快速佈建為雲端服務，也能快速取消佈建，因此不會再受到技術或預算所限制。 與其在硬體基礎結構投入時間和預算，公司寧可專注於應用程式、商業流程及其帶給客戶和使用者的優點。
@@ -341,9 +341,9 @@ Microsoft Azure 是 Microsoft 所推出的雲端服務平台，可提供各式�
 * SaaS：軟體即服務
 * SAP 元件︰個別的 SAP 應用程式，例如 ECC、BW、Solution Manager 或 S/4HANA。  SAP 元件可以傳統 ABAP 或 Java 技術為基礎，或以非 NetWeaver 應用程式 (例如商務物件) 為基礎。
 * SAP 環境 (SAP Environment)︰一或多個以邏輯方式分組的 SAP 元件，可執行像是開發、QAS、訓練、DR 或生產等商務功能。
-* SAP 架構 (SAP Landscape)︰此詞彙是指客戶 IP 環境中的整個 SAP 資產。 SAP 架構包含所有生產和非生產的環境。
+* SAP 架構 (SAP Landscape)︰此詞彙是指客戶 IP 環境中的整個 SAP 資產。 SAP 環境包含所有生產和非生產環境。
 * SAP 系統： DBMS 層和應用層的組合，例如 SAP ERP 開發系統、SAP BW 測試系統、SAP CRM 生產系統等。在 Azure 部署中，不支援在內部部署與 Azure 之間分割這兩個層級。 表示 SAP 系統可以在內部部署或在 Azure 部署。 不過，您可以將 SAP 環境的不同系統部署到 Azure 或內部部署。 例如，您可以在 Azure 中部署 SAP CRM 開發和測試系統，但在內部部署 SAP CRM 生產系統。
-* 跨單位或混合式：描述將 Vm 部署到 Azure 訂用帳戶的案例，該訂用帳戶在內部部署資料中心與 Azure 之間具有站對站、多網站或 ExpressRoute 連線能力。 在一般 Azure 文件中，這類部署也會描述為跨單位或混合式案例。 連線的原因是為了將內部部署網域、內部部署 Active Directory/OpenLDAP 和內部部署 DNS 延伸到 Azure。 內部部署的架構會擴充到訂用帳戶的 Azure 資產。 在此擴充下，VM 可以是內部部署網域的一部分。 內部部署網域的網域使用者可以存取伺服器，並且可在這些 VM 上執行服務 (例如 DBMS 服務)。 但無法在內部部署的 VM 和 Azure 部署的 VM 之間進行通訊和名稱解析。 這是將 SAP 資產部署到 Azure 時最常見且近乎獨有的情況。 如需詳細資訊，請參閱[這][vpn-gateway-cross-premises-options]篇文章和[這個][vpn-gateway-site-to-site-create]主題。
+* 跨單位或混合式：描述將 Vm 部署到 Azure 訂用帳戶的案例，該訂用帳戶在內部部署資料中心與 Azure 之間具有站對站、多網站或 ExpressRoute 連線能力。 在一般 Azure 文件中，這類部署也會描述為跨單位或混合式案例。 連線的原因是為了將內部部署網域、內部部署 Active Directory/OpenLDAP 和內部部署 DNS 延伸到 Azure。 內部部署的架構會擴充到訂用帳戶的 Azure 資產。 在此擴充下，VM 可以是內部部署網域的一部分。 內部部署網域的網域使用者可以存取伺服器，並可在這些 VM 上執行服務 (例如 DBMS 服務)， 但無法在內部部署的 VM 和 Azure 部署的 VM 之間進行通訊和名稱解析。 這是將 SAP 資產部署到 Azure 時最常見且近乎獨有的情況。 如需詳細資訊，請參閱[這][vpn-gateway-cross-premises-options]篇文章和[這個][vpn-gateway-site-to-site-create]主題。
 * 適用于 SAP 的 azure 監視擴充功能、增強的監視和 Azure 擴充功能：描述一個和相同的專案。 其中說明需要由您部署的 VM 延伸模組，以提供一些關於 Azure 基礎結構的基本資料給 SAP 主機代理程式。 Sap 中的 sap 附注可能會將它稱為監視擴充功能或增強的監視。 在 Azure 中，我們將其視為**適用于 SAP 的 Azure 擴充**功能。
 
 > [!NOTE]
@@ -370,14 +370,14 @@ Microsoft Azure 是 Microsoft 所推出的雲端服務平台，可提供各式�
 
 下列 SAP 附註與 Azure 上的 SAP 主題相關︰
 
-| 附註編號 | Title |
+| 附註編號 | 課程名稱 |
 | --- | --- |
 | [1928533] |Azure 上的 SAP 應用程式︰支援的產品和大小 |
 | [2015553] |Microsoft Azure 上的 SAP：支援的必要條件 |
 | [1999351] |疑難排解適用於 SAP 且已強化的 Azure 監視功能 |
 | [2178632] |Microsoft Azure 上的 SAP 主要監視度量 |
 | [1409604] |Windows 上的虛擬化︰增強型監視功能 |
-| [2191498] |Linux 搭配 Azure 上的 SAP：增強型監視 |
+| [2191498] |Linux 和 Azure 上的 SAP：增強型監視功能 |
 | [2243692] |Microsoft Azure (IaaS) VM 上的 Linux：SAP 授權問題 |
 | [1984787] |SUSE LINUX Enterprise Server 12：安裝注意事項 |
 | [2002167] |Red Hat Enterprise Linux 7.x：安裝和升級 |
@@ -489,11 +489,11 @@ Azure 平台可減少預先採購技術和基礎結構的需求。 它提供隨�
 ### <a name="8d8ad4b8-6093-4b91-ac36-ea56d80dbf77"></a>Microsoft Azure 虛擬機器概念
 Microsoft Azure 提供基礎結構即服務 (IaaS) 解決方案來裝載虛擬機器，並提供與內部部署虛擬化解決方案類似的功能。 您可以透過 Azure 入口網站、PowerShell 或 CLI 來建立虛擬機器，這也會提供部署和管理功能。
 
-Azure 資源管理員可讓您使用宣告式範本佈建應用程式。 在單一的範本中，您可以部署多個服務及其相依性。 您可以使用相同的範本，在應用程式生命週期的每個階段重複部署應用程式。
+Azure Resource Manager 允許您使用宣告式範本提供應用程式。 在單一範本中，您可以部署多項服務及其相依性。 您可以使用相同的範本，在應用程式生命週期的每個階段重複部署應用程式。
 
 如需使用 Resource Manager 範本的詳細資訊，請參閱：
 
-* [使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器](../../linux/create-ssh-secured-vm-from-template.md)
+* [使用 Azure Resource Manager 範本和 Azure CLI 部署和管理虛擬機器](../../linux/create-ssh-secured-vm-from-template.md)
 * [使用 Azure Resource Manager 和 PowerShell 管理虛擬機器][virtual-machines-deploy-rmtemplates-powershell]
 * <https://azure.microsoft.com/documentation/templates/>
 
@@ -770,7 +770,7 @@ ExpressRoute 強制通道會透過 ExpressRoute BGP 對等互連工作階段廣�
 
 ## <a name="managing-azure-assets"></a>管理 Azure 資產
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 Azure 入口網站是管理 Azure VM 部署的三個介面之一。 基本管理工作 (例如從映像部署 VM) 可透過 Azure 入口網站進行。 此外，儲存體帳戶、虛擬網路和其他 Azure 元件的建立作業也是 Azure 入口網站可妥善處理的工作。 不過，將 VHD 從內部部署環境上傳至 Azure 或在 Azure 中複製 VHD 等功能，則是需要協力廠商工具或是透過 PowerShell 或 CLI 管理的工作。
 
@@ -829,7 +829,7 @@ Microsoft Azure 提供多種方法來部署 VM 和相關聯的磁碟。 因此�
 
 #### <a name="4d175f1b-7353-4137-9d2f-817683c26e53"></a>使用非一般化磁碟將 VM 從內部部署環境移至 Azure
 
-您想要將特定 SAP 系統從內部部署移至 Azure。 這可藉由將包含 OS、SAP 二進位檔和 DBMS 二進位檔的 VHD，以及包含 DBMS 資料和記錄檔的 VHD 上傳至 Azure 來完成。 相較于[下面的案例 #2][planning-guide-5.1.2]，您可以在 Azure VM 中保留主機名稱、sap SID 和 sap 使用者帳戶，因為它們是在內部部署環境中設定。 因此，並不需要對映像進行一般化。 如需瞭解內部部署準備步驟，以及如何將非一般化 Vm 或 Vhd 上傳至 Azure，請參閱本檔的[準備使用非一般化磁片將 VM 從內部部署環境移至 azure][planning-guide-5.2.1]章節。 如需在 Azure 中部署這類映射的詳細步驟，請參閱[部署指南][deployment-guide]中的[案例3：使用非一般化 AZURE VHD 搭配 SAP 從內部部署環境移動 VM][deployment-guide-3.4]一章。
+您想要將特定 SAP 系統從內部部署移至 Azure。 這可藉由將包含 OS、SAP 二進位檔和 DBMS 二進位檔的 VHD，以及包含 DBMS 資料和記錄檔的 VHD 上傳至 Azure 來完成。 相較于[下面的案例 #2][planning-guide-5.1.2]，您可以在 Azure VM 中保留主機名稱、sap SID 和 sap 使用者帳戶，因為它們是在內部部署環境中設定。 因此，不需要將映像一般化。 如需瞭解內部部署準備步驟，以及如何將非一般化 Vm 或 Vhd 上傳至 Azure，請參閱本檔的[準備使用非一般化磁片將 VM 從內部部署環境移至 azure][planning-guide-5.2.1]章節。 如需在 Azure 中部署這類映射的詳細步驟，請參閱[部署指南][deployment-guide]中的[案例3：使用非一般化 AZURE VHD 搭配 SAP 從內部部署環境移動 VM][deployment-guide-3.4]一章。
 
 #### <a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>使用客戶特定的映像部署 VM
 
@@ -1224,7 +1224,7 @@ sudo service waagent restart
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> * [Azure 虛擬機器中的 SQL Server 效能最佳做法][virtual-machines-sql-server-performance-best-practices]
+> * [Azure 虛擬機器中的 SQL Server 效能最佳作法][virtual-machines-sql-server-performance-best-practices]
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -1318,7 +1318,7 @@ Azure 異地複寫可在 VM 中的每個 VHD 上本機運作，而且不會依�
 1. 未針對子網路或網路介面定義網路安全性群組。 可透過所謂的「網路安全性群組」來保護 Azure VM 的網路流量。 如需詳細資訊，請參閱 [什麼是網路安全性群組 (NSG)？][virtual-networks-nsg]
 2. 未針對網路介面定義 Azure Load Balancer   
 
-如本文所述，請參閱傳統模型與 ARM 之間的架構[差異。][virtual-machines-azure-resource-manager-architecture]
+如[本文][virtual-machines-azure-resource-manager-architecture]所述，請參閱傳統模型與 ARM 之間的架構差異。
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>透過網際網路設定 SAP 系統和 SAP GUI 連線能力
 
@@ -1688,7 +1688,7 @@ Microsoft 已新增更多 VM 類型，這些類型在 vCPU 數目、記憶體，
 * 如果印表機共用與 SAP 系統不在相同的網域中，則為網域的名稱。
 * 此外，還可能需要使用者名稱和密碼，才能存取印表機共用。
 
-作法：
+使用方法：
 
 ---
 > ![Windows][Logo_Windows] Windows
@@ -1727,7 +1727,7 @@ Microsoft 已新增更多 VM 類型，這些類型在 vCPU 數目、記憶體，
 
 在您指定為「傳輸網域控制站」的系統上設定「傳輸網域」，如 [Configuring the Transport Domain Controller (設定傳輸網域控制站)](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm)所述。 這會建立系統使用者 TMSADM，並產生必要的 RFC 目的地。 您可以查看使用交易 SM59 的這些 RFC 連線。 您必須在傳輸網域內啟用主機名稱解析。
 
-作法：
+使用方法：
 
 * 在本案例中，我們決定內部部署 QAS 系統將成為 CTS 網域控制站。 呼叫交易 STMS。 [TMS] 對話方塊隨即顯示。 [Configure Transport Domain]\(設定傳輸網域) 對話方塊隨即顯示 (只有在您尚未設定傳輸網域時，才會顯示此對話方塊)。
 * 確定自動建立的使用者 TMSADM 已獲得授權 ([SM59] -> [ABAP Connection]\(ABAP 連線) -> [TMSADM@E61.DOMAIN_E61] -> [Details]\(詳細資料) -> [Utilities(M)]\(公用程式(M)) -> [Authorization Test]\(授權測試))。 交易 STMS 的初始畫面應該顯示此 SAP 系統現在會作為傳輸網域的控制站，如下所示：
@@ -1745,7 +1745,7 @@ Microsoft 已新增更多 VM 類型，這些類型在 vCPU 數目、記憶體，
 
 如 [Change and Transport System (變更和傳輸系統)](https://help.sap.com/saphelp_nw70ehp3/helpdata/en/48/c4300fca5d581ce10000000a42189c/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm)一文所述，像往常一樣繼續設定傳輸系統。
 
-作法：
+使用方法：
 
 * 確定您在內部部署的 STMS 已正確設定。
 * 確定您在 Azure 上的虛擬機器可解析傳輸網域控制站的主機名稱，反之亦然。
@@ -1757,7 +1757,7 @@ Microsoft 已新增更多 VM 類型，這些類型在 vCPU 數目、記憶體，
 
 為了解決此延遲問題，並讓系統快速地從傳輸目錄讀取或寫入傳輸目錄，您可以設定兩個 STMS 傳輸網域 (一個用於內部部署，一個用於 Azure 中的系統)，並連結傳輸網域。 請檢查這份文件，其中說明 SAP TMS 中此概念背後的原則：<https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm>。
 
-作法：
+使用方法：
 
 * 使用交易 STMS 來設定每個位置 (內部部署和 Azure) 上的傳輸網域 <https://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm> \(英文\)
 * 使用網域連結來連結網域，並確認兩個網域之間的連結。
@@ -2053,7 +2053,7 @@ SAP 系統內的其他 VM 可以使用 Azure 虛擬機器備份功能進行備�
 
 如需詳細說明如何部署此解決方案的部落格，請參閱：<https://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx> \(英文\)。
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>總結
 
 Azure 中 SAP 系統的高可用性重點如下：
 

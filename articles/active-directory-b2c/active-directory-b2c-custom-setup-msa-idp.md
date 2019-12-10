@@ -1,6 +1,7 @@
 ---
-title: 在 Azure Active Directory B2C 中使用自訂原則新增 Microsoft 帳戶（MSA）作為識別提供者
-description: 透過 OpenID 連線 (OIDC) 通訊協定使用 Microsoft 作為識別提供者的範例。
+title: 使用自訂原則來設定以 Microsoft 帳戶帳戶進行登入
+titleSuffix: Azure AD B2C
+description: 如何使用自訂原則，以使用 OpenID Connect （OIDC）通訊協定來啟用 Microsoft 帳戶（MSA）作為身分識別提供者。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1f068b624b5a8f580f61e9eb2ed0d197f05aa1b0
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 393e6f0b87cbd6a548825276da3f59863e2833eb
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643652"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948363"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 Microsoft 帳戶進行登入
 
@@ -52,11 +53,11 @@ ms.locfileid: "73643652"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 1. 請確定您使用的是包含您 Azure AD B2C 租使用者的目錄。 在頂端功能表中選取 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄。
-1. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+1. 選擇 Azure 入口網站左上角的**所有服務**，然後搜尋並選取 **Azure AD B2C**。
 1. 在 [概觀] 頁面上，選取 [識別體驗架構]。
 1. 選取 [原則金鑰]，然後選取 [新增]。
 1. 針對 [選項] 選擇 `Manual`。
-1. 輸入原則金鑰的 [名稱]。 例如， `MSASecret`。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
+1. 輸入原則金鑰的 [名稱]。 例如： `MSASecret` 。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
 1. 在 [**秘密**] 中，輸入您在上一節中記錄的用戶端密碼。
 1. 針對 [金鑰使用方法]，選取 `Signature`。
 1. 按一下 [建立]。
@@ -131,17 +132,17 @@ ms.locfileid: "73643652"
 
 此時，您已設定身分識別提供者，但它尚未在任何註冊或登入畫面中提供。 若要讓它可供使用，請建立現有範本使用者旅程圖的複本，然後加以修改，讓它也具有 Microsoft 帳戶身分識別提供者。
 
-1. 從 Starter Pack 開啟 TrustFrameworkBase.xml 檔案。
-1. 尋找並複製包含 **之**UserJourney`Id="SignUpOrSignIn"` 元素的整個內容。
+1. 從 Starter Pack 開啟 *TrustFrameworkBase.xml* 檔案。
+1. 尋找並複製包含 `Id="SignUpOrSignIn"` 之 **UserJourney** 元素的整個內容。
 1. 開啟 *TrustFrameworkExtensions.xml*，並尋找 **UserJourneys** 元素。 如果此元素不存在，請新增。
 1. 貼上您複製的整個 **UserJourney** 元素內容作為 **UserJourneys** 元素的子系。
-1. 重新命名使用者旅程圖的識別碼。 例如， `SignUpSignInMSA`。
+1. 重新命名使用者旅程圖的識別碼。 例如： `SignUpSignInMSA` 。
 
 ### <a name="display-the-button"></a>顯示按鈕
 
 **ClaimsProviderSelection** 元素類似於註冊或登入畫面上的識別提供者按鈕。 如果您為 Microsoft 帳戶新增**ClaimsProviderSelection**元素，當使用者在頁面上時，就會顯示新的按鈕。
 
-1. 在 TrustFrameworkExtensions.xml 檔案中，於您所建立的使用者旅程圖中尋找包含 **的**OrchestrationStep`Order="1"` 元素。
+1. 在 TrustFrameworkExtensions.xml 檔案中，於您所建立的使用者旅程圖中尋找包含 `Order="1"` 的 **OrchestrationStep** 元素。
 1. 在 **ClaimsProviderSelects** 底下新增下列元素。 將 **TargetClaimsExchangeId** 的值設定成適當的值，例如 `MicrosoftAccountExchange`：
 
     ```XML
@@ -152,14 +153,14 @@ ms.locfileid: "73643652"
 
 現在已備妥按鈕，您需要將它連結至動作。 在此案例中，動作是用於 Azure AD B2C 與 Microsoft 帳戶通訊以接收權杖。
 
-1. 在使用者旅程圖中，尋找包含 **的**OrchestrationStep`Order="2"`。
+1. 在使用者旅程圖中，尋找包含 `Order="2"` 的 **OrchestrationStep**。
 1. 新增下列 **ClaimsExchange** 元素，請確定用於 ID 的值與用於 **TargetClaimsExchangeId** 的值相同：
 
     ```xml
     <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
     ```
 
-    更新**TechnicalProfileReferenceId**的值，以符合您稍早新增的宣告提供者之**TechnicalProfile**元素中的 `Id` 值。 例如， `MSA-OIDC`。
+    更新**TechnicalProfileReferenceId**的值，以符合您稍早新增的宣告提供者之**TechnicalProfile**元素中的 `Id` 值。 例如： `MSA-OIDC` 。
 
 1. 儲存 TrustFrameworkExtensions.xml 檔案，並再次上傳它以供驗證。
 
@@ -173,12 +174,12 @@ ms.locfileid: "73643652"
 
 更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖。
 
-1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml 複本，並將它重新命名。 例如，將它重新命名為 SignUpSignInMSA.xml。
-1. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如， `SignUpSignInMSA`。
+1. 在您的工作目錄中建立一份 *SignUpOrSignIn.xml* 複本，並將它重新命名。 例如，將它重新命名為 SignUpSignInMSA.xml。
+1. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInMSA` 。
 1. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如 `http://contoso.com/B2C_1A_signup_signin_msa`
 1. 更新**DefaultUserJourney**中**ReferenceId**屬性的值，以符合您稍早建立之使用者旅程圖的識別碼（SignUpSignInMSA）。
 1. 儲存您的變更、上傳檔案，然後選取清單中的新原則。
-1. 請確定已在 [*選取應用程式*] 欄位中選取您在上一節中建立的 Azure AD B2C 應用程式（或完成必要條件，例如*webapp1*或**testapp1**），然後按一下 [立即執行] 進行測試。
+1. 請確定已在 [**選取應用程式**] 欄位中選取您在上一節中建立的 Azure AD B2C 應用程式（或完成必要條件，例如*webapp1*或*testapp1*），然後按一下 [立即執行] 進行測試。
 1. 選取 [ **Microsoft 帳戶**] 按鈕並登入。
 
     如果登入作業成功，系統會將您重新導向至顯示已解碼權杖的 `jwt.ms`，如下所示：

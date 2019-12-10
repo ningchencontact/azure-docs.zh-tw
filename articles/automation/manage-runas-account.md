@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae73188fa8818c84806709dc7518e3d5760ae187
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2ce6c27487e834325b59fb21ba0d54d1e788ea57
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849525"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951372"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>管理 Azure 自動化執行身分帳戶
 
@@ -67,7 +67,7 @@ Azure 自動化中的執行身分帳戶可用來提供驗證，以使用 Azure C
 在本節中，執行下列步驟以在 Azure 入口網站更新 Azure 自動化帳戶。 您可以個別建立「執行身分帳戶」和「傳統執行身分帳戶」。 如果您不需要管理傳統資源，則可以只建立 Azure 執行身分帳戶。
 
 1. 以訂用帳戶管理員角色成員和訂用帳戶共同管理員的帳戶登入 Azure 入口網站。
-2. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入**自動化**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [自動化帳戶]。
+2. 在 Azure 入口網站中，搜尋並選取 [**自動化帳戶**]。
 3. 在 [自動化帳戶] 頁面上，從自動化帳戶清單中選取您的自動化帳戶。
 4. 在左側窗格中，選取 [帳戶設定] 區段下的 [執行身分帳戶]。
 5. 根據您所需的帳戶，選取 [Azure 執行身分帳戶] 或 [Azure 傳統執行身分帳戶]。 選取 [新增 Azure 執行身分] 之後或 [新增 Azure 傳統執行身分帳戶] 窗格出現之後，並檢閱概觀資訊之後，請按一下 [建立] 繼續建立執行身分帳戶。
@@ -86,7 +86,7 @@ Azure 自動化中的執行身分帳戶可用來提供驗證，以使用 Azure C
 
 若要取得指令碼所需參數 *SubscriptionID*、*ResourceGroup* 及 *AutomationAccountName* 的值，請完成下列步驟︰
 
-1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入**自動化**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [自動化帳戶]。
+1. 在 Azure 入口網站中，搜尋並選取 [**自動化帳戶**]。
 1. 在自動化帳戶頁面上選取您的自動化帳戶，然後在 [帳戶設定] 下選取 [屬性]。
 1. 記下 [屬性] 頁面上的**訂用帳戶識別碼**、**名稱**和**資源群組**值。
 

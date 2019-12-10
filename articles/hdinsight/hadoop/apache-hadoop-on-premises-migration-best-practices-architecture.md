@@ -2,41 +2,41 @@
 title: 架構：內部部署 Apache Hadoop 至 Azure HDInsight
 description: 了解將內部部署 Hadoop 叢集遷移到 Azure HDInsight 的架構最佳做法。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: 4ef3cded9aba7bd95ecc48e1feadf6c55acd7bdc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 9f532e7bbf9e24e431341344b3172c988f69bfc3
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499258"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951525"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 架構最佳作法
 
-本文將提供有關 Azure HDInsight 系統架構的建議。 將內部部署 Apache Hadoop 系統遷移到 Azure HDInsight 有一系列的最佳做法，這是其中一部分。
+本文將提供有關 Azure HDInsight 系統架構的建議。 本文是系列文章中的一篇，提供有助於將內部部署 Apache Hadoop 系統移轉至 Azure HDInsight 的最佳做法。
 
 ## <a name="use-multiple-workload-optimized-clusters"></a>使用多個已最佳化工作負載的叢集
 
 許多內部部署的 Apache Hadoop 部署會包含支援許多工作負載的單一大型叢集。 此單一叢集可能很複雜，而且可能需要與個別服務互相妥協，才能讓每個項目正常運作。 將內部部署 Hadoop 叢集遷移到 Azure HDInsight 需要變更方法。
 
-Azure HDInsight 叢集專為特定的計算使用類型而設計。 由於儲存體可以跨多個叢集進行共用，因此您可以建立多個已最佳化工作負載的計算叢集，來符合不同的作業需求。 每個叢集類型都有特定工作負載適用的最佳組態。 下表列出 HDInsight 和對應工作負載中支援的叢集類型。
+Azure HDInsight 叢集專為特定的計算使用類型而設計。 因為儲存體可跨多個叢集共用，所以您可以建立多個工作負載優化計算叢集，以符合不同作業的需求。 每個叢集類型都有特定工作負載適用的最佳組態。 下表列出 HDInsight 和對應工作負載中支援的叢集類型。
 
-|**工作負載**|**HDInsight 叢集類型**|
+|工作負載|HDInsight 叢集類型|
 |---|---|
 |批次處理 (ETL / ELT)|Hadoop、Spark|
 |資料倉儲|Hadoop、Spark、互動式查詢|
 |IoT / 串流|Kafka、Storm、Spark|
-|NoSQL 交易處理|HBase|
+|NoSQL 交易處理|hbase|
 |使用記憶體內快取執行互動式及更快速的查詢|互動式查詢|
 |資料科學|ML 服務、Spark|
 
 下表顯示可用來建立 HDInsight 叢集的不同方法。
 
-|**工具**|**以瀏覽器為基礎**|**命令列**|**REST API**|**SDK**|
+|工具|以瀏覽器為基礎|命令列|REST API|SDK|
 |---|---|---|---|---|
 |[Azure 入口網站](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
 |[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
@@ -54,15 +54,15 @@ Azure HDInsight 叢集專為特定的計算使用類型而設計。 由於儲存
 
 HDInsight 叢集可能會有很長一段時間未使用。 為了節省資源成本，HDInsight 可支援暫時性隨選叢集，當工作負載成功完成後，即可刪除這些叢集。
 
-刪除叢集時，不會移除相關聯的儲存體帳戶和外部中繼資料。 您之後可以使用相同的儲存體帳戶和中繼存放區重新建立叢集。
+當您刪除叢集時，不會移除相關聯的儲存體帳戶和外部中繼資料。 您之後可以使用相同的儲存體帳戶和中繼存放區重新建立叢集。
 
 Azure Data Factory 可用來排定隨選 HDInsight 叢集的建立。 如需詳細資訊，請參閱[使用 Azure Data Factory 在 HDInsight 中建立隨選 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-adf.md)一文。
 
 ## <a name="decouple-storage-from-compute"></a>分離計算和儲存體
 
-一般內部部署的 Hadoop 部署會使用同一組機器進行資料儲存和資料處理。 由於這些機器位在同個地方，因此計算和儲存體必須一起調整。
+一般內部部署的 Hadoop 部署會使用同一組機器進行資料儲存和資料處理。 因為它們是共置的，所以計算和儲存體必須一起調整。
 
-在 HDInsight 叢集上，儲存體不需要與計算放在同個位置，可以放在 Azure 儲存體、Azure Data Lake Storage 或這兩者之中。 分離儲存體和計算有下列優點：
+在 HDInsight 叢集上，儲存體不需要與計算共存，而且可以在 Azure 儲存體中 Azure Data Lake Storage 或兩者。 分離儲存體和計算有下列優點：
 
 - 在叢集之間共用資料。
 - 可使用暫時性叢集，因為資料不相依於叢集。
@@ -74,9 +74,7 @@ Azure Data Factory 可用來排定隨選 HDInsight 叢集的建立。 如需詳�
 
 ## <a name="use-external-metadata-stores"></a>使用外部中繼資料存放區
 
-
 與 HDInsight 叢集搭配使用的主要中繼存放區有兩種： [Apache Hive](https://hive.apache.org/)和[Apache Oozie](https://oozie.apache.org/)。 Hive 中繼存放區是主要的結構描述存放庫，可供資料處理引擎 (包括 Hadoop、Spark、LLAP、Presto 和 Apache Pig) 使用。 Oozie 中繼存放區會為進行中和已完成的 Hadoop 作業儲存排程和狀態的詳細資料。
-
 
 HDInsight 會使用 Azure SQL Database 作為 Hive 和 Oozie 中繼存放區。 在 HDInsight 叢集中設定中繼存放區有兩種方式：
 
@@ -105,7 +103,7 @@ HDInsight 會使用 Azure SQL Database 作為 Hive 和 Oozie 中繼存放區。 
 - 定期備份自訂中繼存放區。
 - 將中繼存放區與 HDInsight 叢集保存在相同區域。
 - 使用 Azure SQL Database 監視工具（例如 Azure 入口網站或 Azure 監視器記錄），監視中繼存放區的效能和可用性。
-- 需執行 **ANALYZE TABLE** 命令，才能產生資料表和資料行的統計資料。 例如， `ANALYZE TABLE [table_name] COMPUTE STATISTICS`。
+- 視需要執行 `ANALYZE TABLE` 命令，以產生資料表和資料行的統計資料。 例如： `ANALYZE TABLE [table_name] COMPUTE STATISTICS` 。
 
 ## <a name="best-practices-for-different-workloads"></a>不同工作負載的最佳做法
 

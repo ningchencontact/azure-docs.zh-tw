@@ -5,26 +5,29 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 0a4fb337adfb2f4e6b8edb86ac620103e929c3a8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 89f364d9246db27276eee6d05e8130e87061feec
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842130"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941588"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>針對 Azure FarmBeats 進行疑難排解
 
 本文提供常見 Azure FarmBeats 問題的解決方案。
 
-如需其他說明，請聯絡我們 farmbeatssupport@microsoft.com。 請務必在您的電子郵件中包含部署程式 *.log*檔案。
+如需其他說明，請聯絡我們 farmbeatssupport@microsoft.com。 請務必在您的電子郵件中包含部署程式 **.log**檔案。
 
-若要下載部署器 *.log*檔案，請執行下列動作：
+若要下載部署器 **.log**檔案，請執行下列動作：
 
-1. 選取反白顯示的圖示，然後在下拉式清單中選取 [**下載**]。
+1. 登入**Azure 入口網站**並選取您的訂用帳戶，然後 Azure AD 租使用者。
+2. 從 Azure 入口網站的頂端導覽啟動 Cloud Shell。
+3. 選取**Bash**做為慣用的 Cloud Shell 體驗。
+4. 選取反白顯示的圖示，然後在下拉式清單中選取 [**下載**]。
 
     ![專案 FarmBeats](./media/troubleshooting-farmbeats/download-deployer-log-1.png)
 
-1. 在下一個窗格中，輸入您的部署程式 *.log*檔案的路徑。 例如，輸入**farmbeats-deployer**。
+5. 在下一個窗格中，輸入您的部署程式 **.log**檔案的路徑。 例如，輸入**farmbeats-deployer**。
 
 ## <a name="sensor-telemetry"></a>感應器遙測
 
@@ -32,7 +35,7 @@ ms.locfileid: "74842130"
 
 **徵兆**：已部署裝置或感應器，而且您已將 FarmBeats 與裝置合作夥伴連結，但無法取得或查看 FarmBeats 上的遙測資料。
 
-矯正**措施：** 
+矯正**措施：**
 
 1. 移至您的 FarmBeats Datahub 資源群組。   
 1. 選取**事件中樞**（DatafeedEventHubNamespace），然後檢查傳入訊息的數目。
@@ -44,14 +47,14 @@ ms.locfileid: "74842130"
 
 ### <a name="dont-have-the-azure-event-hubs-connection-string"></a>沒有 Azure 事件中樞連接字串
 
-矯正**措施：** 
+矯正**措施：**
 
 1. 在 Datahub Swagger 中，移至合作夥伴 API。
 1. 選取 [**取得 > 立即** **試用** > **執行**]。
 1. 請注意您感興趣之感應器合作夥伴的合作夥伴識別碼。
 1. 返回合作夥伴 API，然後選取 [**取得/\<識別碼] >** 。
 1. 指定步驟3中的 [合作夥伴識別碼]，然後選取 [**執行**]。
-   
+
    API 回應應具有事件中樞連接字串。
 
 ### <a name="device-appears-offline"></a>裝置顯示為離線
@@ -128,7 +131,7 @@ ms.locfileid: "74842130"
 **問題**： FarmBeats 加速器未顯示最新版本，即使您已升級 FarmBeatsDeployment 也是一樣。
 
 **更正動作**：此錯誤是因為瀏覽器中的服務工作者持續性所造成。 執行下列動作：
-1. 關閉所有已開啟快速鍵的瀏覽器索引標籤，然後關閉瀏覽器視窗。 
+1. 關閉所有已開啟快速鍵的瀏覽器索引標籤，然後關閉瀏覽器視窗。
 1. 啟動瀏覽器的新實例，然後重載快速鍵 URI。 此動作會載入新版本的加速器。
 
 ## <a name="sentinel-imagery-related-issues"></a>Sentinel：影像相關問題
@@ -137,7 +140,7 @@ ms.locfileid: "74842130"
 
 **作業失敗訊息**：「需要完整驗證才能存取此資源」。
 
-矯正**措施：** 
+矯正**措施：**
 
 執行下列其中一項：
 * 重新執行安裝程式，以正確的使用者名稱和密碼來升級 Datahub。
@@ -207,7 +210,7 @@ ms.locfileid: "74842130"
 
     ![專案 FarmBeats](./media/troubleshooting-farmbeats/collecting-logs-manually-1.png)
 
-### <a name="collect-azure-data-factory-job-logs-in-accelerator"></a>在加速器中收集 Azure Data Factory 作業記錄 
+### <a name="collect-azure-data-factory-job-logs-in-accelerator"></a>在加速器中收集 Azure Data Factory 作業記錄
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 在**搜尋**方塊中，搜尋 FarmBeats 加速器資源群組。
