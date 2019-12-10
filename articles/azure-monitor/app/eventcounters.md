@@ -4,15 +4,15 @@ description: 監視 Application Insights 中的系統和自訂 .NET/.NET Core Ev
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cithomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 0762819239e8fd71a015f317776a94280806db53
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1719c917ee2a4c0a11e4a79953a8b67e946d5931
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72677156"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889119"
 ---
 # <a name="eventcounters-introduction"></a>EventCounters 簡介
 
@@ -95,7 +95,7 @@ Application Insights 支援以其 `EventCounterCollectionModule`來收集 `Event
 
 ## <a name="event-counters-in-metric-explorer"></a>計量瀏覽器中的事件計數器
 
-若要在計量[瀏覽器](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)中查看 EventCounter 度量，請選取 [Application Insights 資源]，然後選擇 [以記錄為基礎的計量] 做為 [度量 然後，EventCounter 計量會顯示在 [PerformanceCounter] 類別之下。
+若要在計量[瀏覽器](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)中查看 EventCounter 度量，請選取 [Application Insights 資源]，然後選擇 [以記錄為基礎的計量] 做為 度量 然後，EventCounter 計量會顯示在 [PerformanceCounter] 類別之下。
 
 > [!div class="mx-imgBorder"]
 > Application Insights](./media/event-counters/metrics-explorer-counter-list.png) 中所報告的 ![事件計數器
@@ -127,7 +127,7 @@ performanceCounters
 
 與其他遙測一樣，**performanceCounters** 也有 `cloud_RoleInstance` 資料行可指出應用程式執行所在主機伺服器執行個體的身分識別。 上述查詢會顯示每個實例的計數器值，而且可以用來比較不同伺服器實例的效能。
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>警示
 就像其他計量一樣，您可以[設定警示](../../azure-monitor/app/alerts.md)，在事件計數器超出您指定的限制時警告您。 開啟 [警示] 窗格，然後按一下 [新增警示]。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
@@ -150,6 +150,6 @@ EventCounter 不需要任何特殊許可權，而且所有平臺都支援 .NET C
 
  ASP.NET Core 的[Application Insights 延伸](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps)模組尚不支援這項功能。 當支援這項功能時，將會更新這份檔。
 
-## <a name="next"></a>接續步驟
+## <a name="next"></a>後續步驟
 
 * [相依性追蹤](../../azure-monitor/app/asp-net-dependencies.md)

@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ac9ad5877c6a1408d4045df4d4e1fd8f64ea94
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: ebe362be49995ce2cd1f4c43a5cfbee408396976
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275731"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900413"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>檢查使用者布建的狀態
 
@@ -40,7 +40,7 @@ Azure AD 布建服務會對來源系統和目標系統執行初始布建週期�
 
 布建週期完成之後，[**統計資料]** 區段會顯示已布建到 [日期] 的使用者和群組累計數目，以及最後一個週期的完成日期和持續時間。 **活動識別碼**會唯一識別最新的布建週期。 **工作**識別碼是布建工作的唯一識別碼，而且是您租使用者中的應用程式專用。
 
-在 Azure 入口網站中，您可以在**Azure Active Directory &gt; 企業應用程式 &gt;** \[\] 布建] 索引標籤中，看到布建進度。&gt;
+在 Azure 入口網站中，您可以在**Azure Active Directory &gt; 企業應用程式 &gt;** \[\] 布建 索引標籤中，看到布建進度。
 
 ![布建頁面進度列](media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
@@ -101,6 +101,8 @@ Azure AD 布建服務會對來源系統和目標系統執行初始布建週期�
 - 目標系統實作的要求速率限制和節流設定。 某些目標系統會執行要求速率限制和節流，這可能會影響大型同步處理作業期間的效能。 在這樣的情況下，太快收到太多要求的應用程式，可能會因此降低其回應速率或關閉連線。 若要改善效能，連接器必須進行調整，傳送應用程式要求的速度不可比應用程式處理這些要求的速度快。 由 Microsoft 所建置的佈建連接器會進行這項調整。 
 
 - 指派群組的數目和大小。 同步指派群組所花的時間可能比同步使用者的時間長。 指派群組的數目和大小會影響效能。 如果應用程式[啟用群組物件同步處理的對應](customize-application-attributes.md#editing-group-attribute-mappings)，則除了使用者外，群組屬性 (例如群組名稱和成員資格) 也會一起同步。 比起只同步使用者物件，這些額外的同步處理將會花費更長時間。
+
+- 如果效能變成問題，而您嘗試在租使用者中布建大部分的使用者和群組，請使用範圍篩選器。 範圍設定篩選條件可讓您根據特定的屬性值篩選出使用者，以微調佈建服務從 Azure AD 擷取的資料。 如需範圍設定篩選條件的詳細資訊，請參閱[根據範圍設定篩選條件以屬性為基礎的應用程式佈建](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)。
 
 ## <a name="next-steps"></a>後續步驟
 [使用 Azure Active Directory 自動進行 SaaS 應用程式的使用者佈建和解除佈建](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)
