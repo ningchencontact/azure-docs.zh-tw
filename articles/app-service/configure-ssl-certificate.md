@@ -147,12 +147,12 @@ ms.locfileid: "74670726"
 
 ![驗證 App Service 憑證的網域](./media/configure-ssl-certificate/verify-domain.png)
 
-選取 [App Service 驗證]  。 您已經將網域對應至您的 Web 應用程式 (請參閱[必要條件](#prerequisites))，因此它已經過驗證。 只要按一下 [確認]  即可完成此步驟。 按一下 [重新整理]  按鈕，直到「憑證已經過網域驗證」  訊息出現為止。
+選取 [App Service 驗證]  。 您已經將網域對應至您的 Web 應用程式 (請參閱[必要條件](#prerequisites))，因此它已經過驗證。 只要按一下 [驗證]  即可完成此步驟。 按一下 [重新整理]  按鈕，直到「憑證已經過網域驗證」  訊息出現為止。
 
 > [!NOTE]
 > 支援的網域驗證方法有四種： 
 > 
-> - **App Service** - 當網域已經對應至相同訂用帳戶中的 App Service 應用程式時最方便的選項。 它會利用 App Service 應用程式已驗證網域擁有權的這個事實。
+> - **App Service** - 當網域已經對應至相同訂用帳戶中的 App Service 應用程式時最方便的選項。 它使用 App Service 應用程式在實質上已通過網域擁有權驗證的這個優勢。
 > - **網域** - 驗證[您購自 Azure 的 App Service 網域](manage-custom-dns-buy-domain.md)。 Azure 會自動為您新增驗證 TXT 記錄並完成程序。
 > - **郵件** - 將電子郵件傳送給網域管理員來驗證網域。 當您選取此選項時，系統會提供指示。
 > - **手動** - 使用 HTML 網頁 (僅限**標準**憑證) 或 DNS TXT 記錄驗證網域。 當您選取此選項時，系統會提供指示。
@@ -341,7 +341,7 @@ az keyvault secret download \
     --encoding base64
 ```
 
-下載的 *appservicecertificate.pfx* 檔案是原始的 PKCS12 檔案，其中同時包含公開憑證和私人憑證。 每當系統提示您時，都請使用空字串作為匯入密碼和 PEM 複雜密碼。
+下載的 *appservicecertificate.pfx* 檔案是原始的 PKCS12 檔案，其中同時包含公開憑證和私人憑證。 每當系統提示您時，匯入密碼和 PEM 複雜密碼都使用空字串。
 
 ### <a name="delete-certificate"></a>Delete certificate 
 

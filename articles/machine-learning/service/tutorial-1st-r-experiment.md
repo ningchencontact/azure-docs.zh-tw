@@ -94,7 +94,7 @@ install.packages("DAAG")
 定型和評分指令碼 (`accidents.R` 和 `accident_predict.R`) 有一些額外的相依性。 如果您預計要在本機執行這些指令碼，請確定您也具有這些必要套件。
 
 ### <a name="load-your-workspace"></a>載入您的工作區
-從現有的工作區具現化工作區物件。 下列程式碼會從 **config.xml** 檔案載入工作區詳細資料。 您也可以使用 [`get_workspace()`](https://azure.github.io/azureml-sdk-for-r/reference/get_workspace.html) 來擷取工作區。
+從現有的工作區具現化工作區物件。 下列程式碼會從 **config.json** 檔案載入工作區詳細資料。 您也可以使用 [`get_workspace()`](https://azure.github.io/azureml-sdk-for-r/reference/get_workspace.html) 來擷取工作區。
 
 ```R
 ws <- load_workspace_from_config()

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424d57c59dea11a49faf7a7bb32d85772ef4de8c
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: d223c3483becdc8ba44bc14ec16150cf1b001943
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305153"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894546"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Azure 監視器中的角色、許可權和安全性
 
@@ -116,7 +116,7 @@ New-AzRoleDefinition -Role $role
 監視資料 (尤其是記錄檔)，可以包含機密資訊，例如 IP 位址或使用者名稱。 來自 Azure 的監視資料有三種基本形式︰
 
 1. 活動記錄檔，會描述您 Azure 訂用帳戶上所有的控制層面動作。
-2. 診斷記錄，是由資源發出的記錄。
+2. 資源記錄，是由資源發出的記錄。
 3. 度量，是由資源發出。
 
 這三種資料類型都可以儲存在儲存體帳戶或串流到事件中樞，兩者都是一般用途的 Azure 資源。 由於這些是一般用途的資源，因此對其進行建立、刪除及存取是保留給系統管理員的特殊權限作業。 我們建議您對監視相關的資源使用下列作法以防止誤用︰
@@ -182,7 +182,7 @@ Azure 監視器需要存取您的 Azure 資源，才能提供您啟用的服務�
 ### <a name="secured-storage-accounts"></a>受保護的儲存體帳戶 
 
 監視資料通常會寫入到儲存體帳戶。 您可能想要確定未經授權的使用者無法存取複製到儲存體帳戶的資料。 為了增加安全性，您可以限制儲存體帳戶使用「選取的網路」來鎖定網路存取權，只允許已授權的資源與信任的 Microsoft 服務存取儲存體帳戶。
-![Azure 儲存體設定對話方塊](./media/roles-permissions-security/secured-storage-example.png) Azure 監視器可視為「信任的 Microsoft 服務」之一。如果您允許信任的 Microsoft 服務存取受保護儲存體，Azure 監視器會擁有受保護儲存體帳戶的存取權，能在受保護情況下，將 Azure 監視器診斷記錄、活動記錄與計量寫入到您的儲存體帳戶。 這也會讓 Log Analytics 讀取來自受保護儲存體的記錄。   
+如果您允許受信任的 Microsoft 服務存取受保護的儲存體，則(./media/roles-permissions-security/secured-storage-example.png) Azure 監視器的 ![Azure 儲存體設定] 對話方塊會被視為這些「信任的 Microsoft 服務」之一，Azure 監視器將可存取您的安全儲存體帳戶;在這些受保護的情況下，啟用將 Azure 監視器資源記錄、活動記錄和計量寫入您的儲存體帳戶。 這也會讓 Log Analytics 讀取來自受保護儲存體的記錄。   
 
 
 如需詳細資訊，請參閱[網路安全性與 Azure 儲存體](../../storage/common/storage-network-security.md)

@@ -12,13 +12,13 @@ ms.date: 8/2/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 0f0ceb9d7ee428571c2d472dd9ed9442f404a090
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 8d7d4c8d7e01c6a4bfa644b84f03f8a2ea5bfd06
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673789"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928860"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>如何按照排程來啟動和停止 Azure-SSIS Integration Runtime
 本文說明如何使用 Azure Data Factory (ADF) 來排程 Azure-SSIS Integration Runtime (IR) 的啟動和停止。 Azure-SSIS IR 是專門用來執行 SQL Server Integration Services (SSIS) 套件的 ADF 計算資源。 執行 Azure-SSIS IR 會有相關聯的成本。 因此，您通常只應在需要於 Azure 中執行 SSIS 套件時才執行 IR，不再需要時即應停止 IR。 您可以使用 ADF 使用者介面 (UI)/應用程式或 Azure PowerShell，[以手動方式啟動或停止 IR](manage-azure-ssis-integration-runtime.md)。
@@ -27,7 +27,7 @@ ms.locfileid: "73673789"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 如果您尚未佈建 Azure-SSIS IR，請遵循[教學課程](tutorial-create-azure-ssis-runtime-portal.md)中的指示加以佈建。 
 
 ## <a name="create-and-schedule-adf-pipelines-that-start-and-or-stop-azure-ssis-ir"></a>建立和排程會啟動和/或停止 Azure-SSIS IR 的 ADF 管線
@@ -52,7 +52,7 @@ ms.locfileid: "73673789"
    
 3. 在 [新增資料處理站] 頁面中，輸入 **MyAzureSsisDataFactory** 作為 [名稱]。 
       
-   ![新增資料處理站頁面](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
+   ![新增 Data Factory 網頁](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
  
    ADF 的名稱必須是全域唯一的。 如果您收到下列錯誤，請變更 ADF 的名稱 (例如 yournameMyAzureSsisDataFactory)，然後試著重新建立 ADF。 請參閱 [Data Factory - 命名規則](naming-rules.md)一文，以了解 ADF 成品的命名規則。
   
@@ -69,7 +69,7 @@ ms.locfileid: "73673789"
 6. 針對 [版本]，選取 [V2]。
 7. 針對 [位置]，從下拉式清單中選取其中一個支援用來建立 ADF 的位置。
 8. 選取 [釘選到儀表板]。     
-9. 按一下頁面底部的 [新增]。
+9. 按一下 [建立]。
 10. 在 Azure 儀表板上，您會看到狀態如下的下列圖格：**部署 Data Factory**。 
 
     ![部署資料處理站圖格](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
@@ -88,7 +88,7 @@ ms.locfileid: "73673789"
    
 2. 在 [活動] 工具箱中展開 [一般] 功能表，然後將 [Web] 活動拖放到管線設計工具介面上。 在活動屬性視窗的 [一般] 索引標籤中，將活動名稱變更為 **startMyIR**。 切換至 [設定] 索引標籤，然後執行下列步驟。
 
-    1. 針對 [ **URL**]，為啟動 AZURE SSIS IR 的 REST API 輸入下列 URL，並將 `{subscriptionId}`、`{resourceGroupName}`、`{factoryName}`和 `{integrationRuntimeName}` 取代為您 ir 的實際值： `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` 或者，您也可以複製 & 將您的 ir 的資源識別碼從其ADF UI/應用程式上的 [監視] 頁面，用來取代上述 URL 的下列部分： `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
+    1. 針對 [ **URL**]，為啟動 AZURE SSIS ir 的 REST API 輸入下列 URL，並將 `{subscriptionId}`、`{resourceGroupName}`、`{factoryName}`和 `{integrationRuntimeName}` 替換為您 IR 的實際值： `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` 或者，您也可以從 ADF UI/應用程式上的監視頁面複製 & 貼上 IR 的資源識別碼，以取代上述 URL 的下列部分： `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
     
        ![ADF SSIS IR 的資源識別碼](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
   
@@ -114,11 +114,11 @@ ms.locfileid: "73673789"
     1. 針對 [角色]，選取 [參與者]。 
     2. 在 [存取權指派對象為] 中，選取 [Azure AD 使用者、群組或服務主體]。 
     3. 在 [選取] 中，搜尋您的 ADF 名稱並加以選取。 
-    4. 按一下 [檔案]。
+    4. 按一下 [儲存]。
     
    ![ADF 受控識別角色指派](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 
-6. 在中心/管線工具列上按一下 [全部驗證/驗證] 來驗證 ADF 和所有的管線設定。 按一下 **按鈕，以關閉 [中心/管線驗證輸出]>>** 。  
+6. 在中心/管線工具列上按一下 [全部驗證/驗證] 來驗證 ADF 和所有的管線設定。 按一下 **>>** 按鈕，以關閉 [中心/管線驗證輸出]。  
 
    ![驗證管線](./media/how-to-schedule-azure-ssis-integration-runtime/validate-pipeline.png)
 
@@ -245,7 +245,7 @@ ms.locfileid: "73673789"
 
    ![驗證必要的模組](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-2.  如果您沒有**DataFactory**，請移至  [DataFactory] 模組](https://www.powershellgallery.com/packages/Az.DataFactory/)的 PowerShell 資源庫，選取 **部署至 Azure 自動化**]，選取您的 Azure 自動化帳戶，然後選取 **[確定]** 。 回到左側功能表的 [**共用資源**] 區段，然後等到您看到**DataFactory** **模組的** **狀態**變更為 [**可用**] 為止。
+2.  如果您沒有**DataFactory**，請移至  [DataFactory] 模組(https://www.powershellgallery.com/packages/Az.DataFactory/)的 PowerShell 資源庫，選取 **部署至 Azure 自動化**，選取您的 Azure 自動化帳戶，然後選取 **[確定]** 。 回到左側功能表的 [**共用資源**] 區段，然後等到您看到**DataFactory** **模組的** **狀態**變更為 [**可用**] 為止。
 
     ![驗證 Data Factory 模組](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 

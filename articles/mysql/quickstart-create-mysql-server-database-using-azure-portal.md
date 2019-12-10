@@ -77,7 +77,7 @@ Azure Database for MySQL 服務會在伺服器層級建立防火牆。 它會防
 
 
 
-4. 在 [連線安全性]  頁面的工具列上，選取 [儲存]  。 等到陳述更新已成功完成的通知出現，您才能繼續進行。 
+4. 在 [連線安全性]  頁面的工具列上，選取 [儲存]  。 等到出現已成功更新的通知時，您才能繼續。 
 
    > [!NOTE]
    > Azure Database for MySQL 的連線透過連接埠 3306 進行通訊。 如果您嘗試從公司網路內進行連線，可能不允許透過連接埠 3306 的輸出流量。 若是如此，除非 IT 部門開啟連接埠 3306，否則您無法連線到您的伺服器。
@@ -184,7 +184,7 @@ Azure Database for MySQL 服務會在伺服器層級建立防火牆。 它會防
      連接名稱 | 示範連線 | 此連線的標籤。 |
     連線方式 | 標準 (TCP/IP) | 標準 (TCP/IP) 就足夠了。 |
     主機名稱 | *伺服器名稱* | 您稍早建立 Azure Database for MySQL 伺服器時所用的伺服器名稱值。 範例伺服器是 **mydemoserver.mysql.database.azure.com**。 使用如範例所示的完整網域名稱 ( **\*.mysql.database.azure.com**)。 如果您不記得您的伺服器名稱，請依照上一節中的步驟執行，以取得連線資訊。|
-     Port | 3306 | 連線至 Azure Database for MySQL 伺服器時所要使用的連接埠。 |
+     連接埠 | 3306 | 連線至 Azure Database for MySQL 伺服器時所要使用的連接埠。 |
     使用者名稱 |  伺服器管理員登入名稱  | 您稍早建立 Azure Database for MySQL 時所提供的伺服器管理員登入資訊。 我們的範例使用者名稱為 **myadmin\@mydemoserver**。 如果您不記得使用者名稱，請依照上一節中的步驟執行，以取得連線資訊。 格式是 *username\@servername*。
     密碼 | *您的密碼* | 選取 [儲存在保存庫]  以儲存密碼。 |
 

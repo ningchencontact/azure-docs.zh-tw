@@ -9,13 +9,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: avneets
 author: avneet723
-ms.date: 10/19/2019
-ms.openlocfilehash: 4559bb87369309882ebdaa0d3b408786feb586b5
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.date: 11/27/2019
+ms.openlocfilehash: 164fc4eef245a2b9ea610179c3cf2e78b7b1b389
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896030"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895692"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>將 Rigado Cascade 500 閘道裝置連線到您的 Azure IoT Central 應用程式
 
@@ -28,7 +28,7 @@ Cascade 500 IoT 閘道是 Rigado 的硬體供應專案，隨附于其串聯式�
 
 Cascade 500 已預先認證，可用於 Azure IoT 隨插即用（PnP），讓我們的解決方案產生者能夠輕鬆地將裝置上線至其端對端解決方案。 Cascade 閘道可讓您以無線方式連線到與閘道裝置鄰近的各種條件監視感應器。 這些感應器可以透過閘道裝置上架到 IoT Central。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要逐步執行本作法指南，您需要下列資源：
 
 * Rigado Cascade 500 裝置。 如需詳細資訊，請造訪[Rigado](https://www.rigado.com/)。
@@ -40,7 +40,7 @@ Cascade 500 已預先認證，可用於 Azure IoT 隨插即用（PnP），讓我
 
 若要新增 Cascade 500 裝置範本： 
 
-1. 流覽至左窗格中的 [***裝置範本***] 索引標籤，選取 [ **+ 新增**： ![建立新的裝置範本](./media/howto-connect-rigado-cascade500/device-template-new.png)
+1. 流覽至左窗格中的 [***裝置範本***] 索引標籤，選取 **+ 新增**： ![建立新的裝置範本](./media/howto-connect-rigado-cascade500/device-template-new.png)
 1. 此頁面可讓您選擇***建立自訂範本***，或***使用預先設定的裝置範本***
 1. 從預先設定的裝置範本清單中選取 [C500 裝置] 範本，如下所示： ![選取 [C500] [裝置範本]](./media/howto-connect-rigado-cascade500/device-template-preconfigured.png)
 1. 選取 ***[下一步]： [自訂***] 繼續進行下一個步驟。 

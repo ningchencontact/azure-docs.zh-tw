@@ -1,26 +1,17 @@
 ---
-title: 管理 App Service 方案 - Azure | Microsoft Docs
-description: 了解如何執行不同的工作來管理 App Service 方案。
+title: 管理 App Service 計畫
+description: 瞭解如何執行不同的工作來管理 App Service 方案，例如建立、移動、調整和刪除。
 keywords: App Service, Azure App Service, 級別, App Service方案, 變更, 建立, 管理, 管控
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/24/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e8bdc749ee354e75a6043dbd6dac3f93a606f79e
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d628031515a9b0fdf3aa7b7ec88ee1b6b7f41f51
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898969"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672200"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>在 Azure 建立管理 App Service 方案
 
@@ -33,7 +24,7 @@ ms.locfileid: "72898969"
 
 您可建立空白的 App Service 方案，或是在應用程式建立期間建立方案。
 
-1. 在  [Azure 入口網站](https://portal.azure.com)中，選取 **新增** > **Web 應用程式**] 或其他類型的 App Service 應用程式。
+1. 在  [Azure 入口網站](https://portal.azure.com)中，選取 **新增** > **Web 應用程式** 或其他類型的 App Service 應用程式。
 
    ![在 Azure 入口網站中建立應用程式。][createWebApp]
 

@@ -16,7 +16,7 @@ ms.locfileid: "74423965"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-python"></a>快速入門：適用於 Python 的 Azure Blob 儲存體用戶端程式庫 v12
 
-開始使用適用於 Python 的 Azure Blob 儲存體用戶端程式庫 v12。 Azure Blob 儲存體是 Microsoft 針對雲端推出的物件儲存體解決方案。 請依照下列步驟來安裝套件，並試用基本工作的範例程式碼。 Blob 儲存體已針對儲存大量非結構化資料最佳化。
+開始使用適用於 Python 的 Azure Blob 儲存體用戶端程式庫 v12。 Azure Blob 儲存體是 Microsoft 針對雲端推出的物件儲存體解決方案。 請依照下列步驟來安裝套件，並試用基本工作的範例程式碼。 Blob 儲存體經過最佳化，已能妥善儲存大量的非結構化資料。
 
 > [!NOTE]
 > 若要開始使用舊版 SDK，請參閱[快速入門：適用於 Python 的 Azure Blob 儲存體用戶端程式庫](storage-quickstart-blobs-python-legacy.md)。
@@ -103,7 +103,7 @@ pip install azure-storage-blob
 
 ## <a name="object-model"></a>物件模型
 
-Azure Blob 儲存體已針對儲存大量非結構化資料最佳化。 非結構化資料是指不遵守特定資料模型或定義的資料，例如文字或二進位資料。 Blob 儲存體提供三種類型資源：
+Azure Blob 儲存體經過最佳化，已能妥善儲存大量的非結構化資料。 非結構化資料是指不遵守特定資料模型或定義的資料，例如文字或二進位資料。 Blob 儲存體提供三種類型資源：
 
 * 儲存體帳戶
 * 儲存體帳戶中的容器

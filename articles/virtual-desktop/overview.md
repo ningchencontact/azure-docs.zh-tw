@@ -130,14 +130,14 @@ Windows 虛擬桌面不支援 x86 (32 位元)、Windows 10 Enterprise N 或 Wind
 
 |作業系統|Azure 映像庫|手動 VM 部署|Azure Resource Manager 範本整合|在 Azure Marketplace 上佈建主機集區|Windows 虛擬桌面代理程式更新|
 |--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Windows 10 多工作階段，版本1903|yes|是|是|yes|自動|
-|Windows 10 多工作階段，版本1809|yes|是|否|否|自動|
-|Windows 10 企業版，版本1903|yes|是|是|yes|自動|
-|Windows 10 企業版，版本1809|yes|是|否|否|自動|
-|Windows 7 企業版|yes|是|否|否|手動|
-|Windows Server 2019|yes|是|否|否|自動|
-|Windows Server 2016|yes|是|是|yes|自動|
-|Windows Server 2012 R2|yes|是|否|否|自動|
+|Windows 10 多工作階段，版本1903|是|是|是|是|自動|
+|Windows 10 多工作階段，版本1809|是|是|否|否|自動|
+|Windows 10 企業版，版本1903|是|是|是|是|自動|
+|Windows 10 企業版，版本1809|是|是|否|否|自動|
+|Windows 7 企業版|是|是|否|否|手動|
+|Windows Server 2019|是|是|否|否|自動|
+|Windows Server 2016|是|是|是|是|自動|
+|Windows Server 2012 R2|是|是|否|否|自動|
 
 ## <a name="next-steps"></a>後續步驟
 

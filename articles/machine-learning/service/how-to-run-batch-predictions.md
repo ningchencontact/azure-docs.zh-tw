@@ -265,9 +265,9 @@ batch_env.spark.precache_packages = False
 - `entry_script`：作為本機檔案路徑的使用者指令碼，將會在多個節點上平行執行。 如果 `source_directly` 存在，請使用相對路徑。 否則，使用可在機器上存取的路徑即可。
 - `mini_batch_size`：傳遞至單一 `run()` 呼叫的迷你批次大小。 (選擇性；預設值為 `1`)。
     - 針對 `FileDataset`，這是最小值為 `1` 的檔案數目。 您可以將多個檔案結合成一個迷你批次。
-    - 針對 `TabularDataset`，這是資料的大小。 範例值為 `1024`、`1024KB`、`10MB` 和 `1GB`。 建議值是 `1MB`。 請注意，`TabularDataset` 中的迷你批次絕對不會跨越檔案界限。 例如，如果您有各種大小的 .csv 檔案，最小檔案為 100 KB，最大檔案則為 10 MB。 如果您設定 `mini_batch_size = 1MB`，則系統會將大小小於 1 MB 的檔案視為一個迷你批次。 大小大於 1 MB 的檔案則會分割成多個迷你批次。
+    - 針對 `TabularDataset`，這是資料的大小。 範例值為 `1024`、`1024KB`、`10MB` 和 `1GB`。 建議值是 `1MB`。 請注意，`TabularDataset` 中的迷你批次絕對不會跨越檔案界限。 例如，如果您有各種大小的 .csv 檔案，最小檔案為 100 KB，最大檔案則為 10 MB。 如果您設定 `mini_batch_size = 1MB`，則系統會將小於 1 MB 的檔案視為一個迷你批次。 大於 1 MB 的檔案則會分割成多個迷你批次。
 - `error_threshold`：處理期間應該忽略的記錄失敗數目 (針對 `TabularDataset`) 和檔案失敗數目 (針對 `FileDataset`)。 如果整個輸入的錯誤計數超過此值，作業便會停止。 錯誤閾值適用於整個輸入，而非適用於傳送至 `run()` 方法的個別迷你批次。 範圍為 `[-1, int.max]`。 `-1` 部分會指出要在處理期間忽略所有失敗。
-- `output_action`：下列其中一個值會指出輸出的組織方式：
+- `output_action`：下列其中一個值說明輸出的資料會如何被組合：
     - `summary_only`：使用者指令碼會儲存輸出。 `ParallelRunStep` 只會將輸出用於計算錯誤閾值。
     - `append_row`：針對所有輸入檔案，輸出檔案夾中只會建立一個檔案，並以直線分隔的方式附加所有輸出。 檔案名稱會是 parallel_run_step.txt。
 - `source_directory`：資料夾的路徑，此資料夾包含要在計算目標上執行的所有檔案 (選擇性)。

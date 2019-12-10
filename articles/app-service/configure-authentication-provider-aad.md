@@ -1,25 +1,16 @@
 ---
-title: 設定 Azure Active Directory 驗證 - Azure App Service
-description: 瞭解如何為您的 App Service 應用程式設定 Azure Active Directory 驗證。
-author: cephalin
-services: app-service
-documentationcenter: ''
-manager: gwallace
-editor: ''
+title: 設定 Azure AD 驗證
+description: 瞭解如何將 Azure Active Directory authentication 設定為 App Service 應用程式的身分識別提供者。
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
-ms.service: app-service
-ms.workload: web,mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/03/2019
-ms.author: cephalin
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6812f99d8433ef318eca37eb2615d43f4749e944
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b833604ce18873e22c22990a26dcbae1d9928628
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886180"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670894"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>設定 App Service 應用程式以使用 Azure AD 登入
 
@@ -54,7 +45,7 @@ ms.locfileid: "73886180"
 
     > [!CAUTION]
     > 以這種方式限制存取適用于對您應用程式的所有呼叫，這對於具有公開可用首頁的應用程式（如許多單頁應用程式），可能不是理想的做法。 對於這類應用程式，可能會慣用 [**允許匿名要求（無動作）** ]，而應用程式會以手動方式啟動登入本身。 如需詳細資訊，請參閱[驗證流程](overview-authentication-authorization.md#authentication-flow)。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 ## <a name="advanced"> </a>使用進階設定來設定
 
@@ -75,9 +66,9 @@ ms.locfileid: "73886180"
 執行下列步驟：
 
 1. 登入[Azure 入口網站]並移至您的 App Service 應用程式。 請記下您應用程式的**URL**。 您將使用它來設定您的 Azure Active Directory 應用程式註冊。
-1. 選取 [Azure Active Directory] > [應用程式註冊] > [新註冊]
+1. 選取 [Azure Active Directory] > [應用程式註冊] > [新註冊]。
 1. 在 [**註冊應用程式**] 頁面中，輸入應用程式註冊的**名稱**。
-1. 在 [重新**導向 URI**] 中，選取 [ **Web** ]，然後輸入 APP SERVICE 應用程式的 URL，並將路徑附加 `/.auth/login/aad/callback`。 例如， `https://contoso.azurewebsites.net/.auth/login/aad/callback`。 
+1. 在 [重新**導向 URI**] 中，選取 [ **Web** ]，然後輸入 APP SERVICE 應用程式的 URL，並將路徑附加 `/.auth/login/aad/callback`。 例如： `https://contoso.azurewebsites.net/.auth/login/aad/callback` 。 
 1. 選取 [建立]。
 1. 建立應用程式註冊之後，請複製**應用程式（用戶端）識別碼**和**目錄（租使用者）識別碼**，以供稍後查看。
 1. 選取 [**商標**]。 在 [**首頁 url**] 中，輸入 App Service 應用程式的 URL，然後選取 [**儲存**]。
@@ -109,7 +100,7 @@ ms.locfileid: "73886180"
     |允許的權杖物件| 如果這是雲端或伺服器應用程式，而且您想要允許來自 web 應用程式的驗證權杖，請在這裡新增 web 應用程式的**應用程式識別碼 URI** 。 |
 
     > [!NOTE]
-    > 設定的**用戶端識別碼** *一律*會隱含地視為允許的物件，不論您如何設定允許的**權杖使用者**。
+    > 設定的**用戶端識別碼***一律*會隱含地視為允許的物件，不論您如何設定允許的**權杖使用者**。
 1. 選取 [確定]，然後選取 [儲存]。
 
 您現在已經準備好在 App Service 應用程式中使用 Azure Active Directory 進行驗證。
@@ -118,9 +109,9 @@ ms.locfileid: "73886180"
 
 您可以註冊原生用戶端，以允許使用用戶端程式庫（例如**Active Directory 驗證程式庫**）進行驗證。
 
-1. 在  [Azure 入口網站]中，選取  **Active Directory** > **應用程式註冊** > **新增註冊**]。
+1. 在  [Azure 入口網站]中，選取  **Active Directory** > **應用程式註冊** > **新增註冊**。
 1. 在 [**註冊應用程式**] 頁面中，輸入應用程式註冊的**名稱**。
-1. 在 [重新**導向 URI**] 中，選取 [**公用用戶端（行動 & 桌面）** ]，然後輸入 APP SERVICE 應用程式的 URL，並將路徑附加 `/.auth/login/aad/callback`。 例如， `https://contoso.azurewebsites.net/.auth/login/aad/callback`。
+1. 在 [重新**導向 URI**] 中，選取 [**公用用戶端（行動 & 桌面）** ]，然後輸入 APP SERVICE 應用程式的 URL，並將路徑附加 `/.auth/login/aad/callback`。 例如： `https://contoso.azurewebsites.net/.auth/login/aad/callback` 。
 1. 選取 [建立]。
 
     > [!NOTE]
