@@ -1,5 +1,5 @@
 ---
-title: 登入使用者的 Web 應用程式（總覽）-Microsoft 身分識別平臺
+title: 從 Web 應用程式登入使用者-Microsoft 身分識別平臺 |Azure
 description: 瞭解如何建立可登入使用者的 web 應用程式（總覽）
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,22 +15,22 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 316ab055a077b251e88421ab26997f8556a6e31f
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 10a53f88a97cdba8626c9d6c421093e4ec327e19
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482502"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961602"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>案例：登入使用者的 Web 應用程式
 
 瞭解您所需的一切，以建立使用 Microsoft 身分識別平臺來登入使用者的 web 應用程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="getting-started"></a>快速入門
+## <a name="getting-started"></a>開始使用
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -62,7 +62,7 @@ ms.locfileid: "74482502"
 
 ---
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 您可以將驗證新增至 web 應用程式，讓它可以登入使用者。 新增驗證可讓您的 web 應用程式存取有限的設定檔資訊，以自訂使用者的體驗。 
 

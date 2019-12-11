@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 49f3759d7c5ba178cd0f1d0164a45c09df464571
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 54606b4fbbf7ae459298b3842f957de5256ba0df
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74942217"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971140"
 ---
 # <a name="application-gateway-components"></a>應用程式閘道元件
 
@@ -53,7 +53,7 @@ V1 SKU 可設定為支援靜態或動態內部 IP 位址和動態公用 IP 位�
 >HTTP/2 通訊協定支援僅適用於連線到應用程式閘道接聽程式的用戶端。 對後端伺服器集區的通訊一律是透過 HTTP/1.1。 預設已停用 HTTP/2 支援。 您可以選擇啟用它。
 
 - 在接聽程式設定中指定 HTTP 和 HTTPS 通訊協定。
-- [Websocket 和 HTTP/2 通訊協定](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic)的支援是以原生方式提供，而且預設會啟用[websocket 支援](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket)。 使用者無法進行設定來選擇要啟用或停用 WebSocket 支援。 搭配 HTTP 和 HTTPS 接聽程式使用 Websocket。
+- [Websocket 和 HTTP/2 通訊協定](overview.md#websocket-and-http2-traffic)的支援是以原生方式提供，而且預設會啟用[websocket 支援](application-gateway-websocket.md)。 使用者無法進行設定來選擇要啟用或停用 WebSocket 支援。 搭配 HTTP 和 HTTPS 接聽程式使用 Websocket。
 
 使用 HTTPS 接聽程式進行 SSL 終止。 HTTPS 接聽程式會將加密和解密工作卸載至您的應用程式閘道，因此您的 web 伺服器不會受到額外負荷的負擔。
 
@@ -61,7 +61,7 @@ V1 SKU 可設定為支援靜態或動態內部 IP 位址和動態公用 IP 位�
 
 應用程式閘道可讓您建立自訂錯誤頁面，而不是顯示預設的錯誤頁面。 您可以使用自訂錯誤頁面來搭配您自己的商標和版面配置。 當要求無法到達後端時，應用程式閘道顯示自訂的錯誤頁面。
 
-如需詳細資訊，請參閱[應用程式閘道的自訂錯誤頁面](https://docs.microsoft.com/azure/application-gateway/custom-error)。
+如需詳細資訊，請參閱[應用程式閘道的自訂錯誤頁面](custom-error.md)。
 
 ### <a name="types-of-listeners"></a>接聽程式的類型
 
@@ -71,11 +71,11 @@ V1 SKU 可設定為支援靜態或動態內部 IP 位址和動態公用 IP 位�
 
 - **多網站**。 當您在同一個應用程式閘道實例上設定多個 web 應用程式時，需要此接聽程式設定。 它可讓您將最多100個網站新增到一個應用程式閘道，為您的部署設定更有效率的拓撲。 每個網站都可以導向到自己的後端集區。 例如，有三個子域、abc.contoso.com、xyz.contoso.com 和 pqr.contoso.com，指向應用程式閘道的 IP 位址。 您會建立三個多網站接聽程式，並針對個別的埠和通訊協定設定，設定每個接聽程式。
 
-    如需詳細資訊，請參閱[多網站裝載](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview)。
+    如需詳細資訊，請參閱[多網站裝載](application-gateway-web-app-overview.md)。
 
 建立接聽程式之後，您可以將它與要求路由規則產生關聯。 此規則會決定如何將接聽程式上收到的要求路由傳送至後端。
 
-應用程式閘道會依顯示的[順序](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-overview#order-of-processing-listeners)處理接聽程式。
+應用程式閘道會依顯示的[順序](configuration-overview.md#order-of-processing-listeners)處理接聽程式。
 
 ## <a name="request-routing-rules"></a>要求路由規則
 
@@ -89,7 +89,7 @@ V1 SKU 可設定為支援靜態或動態內部 IP 位址和動態公用 IP 位�
 
 - 以**路徑為基礎**。 此路由規則可讓您根據要求中的 URL，將相關聯接聽程式上的要求路由至特定後端集區。 如果要求中的 URL 路徑符合以路徑為基礎的規則中的路徑模式，則規則會路由傳送該要求。 它只會將路徑模式套用到 URL 路徑，而不會套用至其查詢參數。 如果接聽程式要求的 URL 路徑不符合任何以路徑為基礎的規則，則會將要求路由傳送至預設後端集區和 HTTP 設定。
 
-如需詳細資訊，請參閱以[URL 為基礎的路由](https://docs.microsoft.com/azure/application-gateway/url-route-overview)。
+如需詳細資訊，請參閱以[URL 為基礎的路由](url-route-overview.md)。
 
 ### <a name="redirection-support"></a>重新支援
 
@@ -97,7 +97,7 @@ V1 SKU 可設定為支援靜態或動態內部 IP 位址和動態公用 IP 位�
 
 您可以選擇將重新導向目標設為另一個接聽程式（這有助於啟用自動 HTTP 至 HTTPS 重新導向）或外部網站。 您也可以選擇讓重新導向為暫時或永久，或將 URI 路徑和查詢字串附加至重新導向的 URL。
 
-如需詳細資訊，請參閱在[應用程式閘道上重新導向流量](https://docs.microsoft.com/azure/application-gateway/redirect-overview)。
+如需詳細資訊，請參閱在[應用程式閘道上重新導向流量](redirect-overview.md)。
 
 ### <a name="rewrite-http-headers"></a>重新撰寫 HTTP 標頭
 
@@ -105,7 +105,7 @@ V1 SKU 可設定為支援靜態或動態內部 IP 位址和動態公用 IP 位�
 
 標頭可以設定為靜態值，或設為其他標頭和伺服器變數。 這有助於重要的使用案例，例如，解壓縮用戶端 IP 位址、移除後端的機密資訊、增加更多安全性等等。
 
-如需詳細資訊，請參閱[在應用程式閘道上重寫 HTTP 標頭](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)。
+如需詳細資訊，請參閱[在應用程式閘道上重寫 HTTP 標頭](rewrite-http-headers.md)。
 
 ## <a name="http-settings"></a>HTTP 設定
 
@@ -115,9 +115,9 @@ HTTP 設定中使用的埠和通訊協定會決定應用程式閘道與後端伺
 
 此元件也用來：
 
-- 使用以[cookie 為基礎的會話親和性](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity)，判斷是否要將使用者會話保存在同一部伺服器上。
+- 使用以[cookie 為基礎的會話親和性](overview.md#session-affinity)，判斷是否要將使用者會話保存在同一部伺服器上。
 
-- 使用連線[清空](https://docs.microsoft.com/azure/application-gateway/overview#connection-draining)，以正常方式移除後端集區成員。
+- 使用連線[清空](overview.md#connection-draining)，以正常方式移除後端集區成員。
 
 - 建立自訂探查的關聯以監視後端健全狀況、設定要求逾時間隔、覆寫要求中的主機名稱和路徑，並提供按一下即可輕鬆指定 App Service 後端的設定。
 
@@ -134,7 +134,7 @@ HTTP 設定中使用的埠和通訊協定會決定應用程式閘道與後端伺
 
 應用程式閘道後端集區成員未系結至可用性設定組。 應用程式閘道可以與位於其所在虛擬網路外的實例進行通訊。 因此，只要有 IP 連線能力，後端集區的成員可以跨叢集、跨資料中心或在 Azure 外部。
 
-如果您使用內部 Ip 做為後端集區成員，則必須使用[虛擬網路對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)或[VPN 閘道](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)。 虛擬網路對等互連受到支援，而且對其他虛擬網路中的負載平衡流量有好處。
+如果您使用內部 Ip 做為後端集區成員，則必須使用[虛擬網路對等互連](../virtual-network/virtual-network-peering-overview.md)或[VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)。 虛擬網路對等互連受到支援，而且對其他虛擬網路中的負載平衡流量有好處。
 
 如果允許流量，應用程式閘道也可以與 Azure ExpressRoute 或 VPN 通道連線至內部部署伺服器。
 
@@ -146,7 +146,7 @@ HTTP 設定中使用的埠和通訊協定會決定應用程式閘道與後端伺
 
 除了使用預設的健全狀況探查監視，您也可以自訂健全狀況探查，以符合應用程式的需求。 自訂探查可讓您更精確地控制健全狀況監視。 使用自訂探查時，您可以設定探查間隔、要測試的 URL 和路徑，以及在後端集區實例標示為狀況不良之前，要接受的失敗回應次數。 我們建議您設定自訂探查來監視每個後端集區的健全狀況。
 
-如需詳細資訊，請參閱[監視應用程式閘道的健康情況](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)。
+如需詳細資訊，請參閱[監視應用程式閘道的健康情況](../application-gateway/application-gateway-probe-overview.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

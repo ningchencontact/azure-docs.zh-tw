@@ -1,6 +1,6 @@
 ---
-title: 呼叫 web Api 的 web 應用程式（登入）-Microsoft 身分識別平臺
-description: 瞭解如何建立呼叫 web Api 的 Web 應用程式（登入）
+title: 登出時從快取中移除帳戶-Microsoft 身分識別平臺 |Azure
+description: 瞭解如何在登出時從權杖快取移除帳戶
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,14 +15,14 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cb0190f76ddce79012a5bf97e2d813f40f9f018
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 375382b1245186197657c5067e3c5b4ec2b15655
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596370"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961653"
 ---
-# <a name="web-app-that-calls-web-apis---sign-in"></a>呼叫 web Api 的 web 應用程式-登入
+# <a name="remove-accounts-from-the-cache-on-global-sign-out"></a>從全域登出的快取中移除帳戶
 
 您已經知道如何將登入新增至您的 web 應用程式。 您會在[登入使用者的 Web 應用程式中瞭解如何新增登入](scenario-web-app-sign-user-sign-in.md)。
 

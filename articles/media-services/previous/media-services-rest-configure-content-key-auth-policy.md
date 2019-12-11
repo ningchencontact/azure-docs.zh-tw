@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: cb9b784e612b1dca6b5251cb5a20140e908158c4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c6986409f4cd9ad7e5799a55c4c301e51d5e879
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60598431"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968165"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>動態加密：設定內容金鑰授權原則  
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
  您可以使用 Azure 媒體服務傳遞使用進階加密標準 (AES) (使用 128 位元加密金鑰) 和 PlayReady 或 Widevine 數位版權管理 (DRM) 所動態加密的內容。 媒體服務也提供服務，可傳遞金鑰和 PlayReady/Widevine 授權給授權用戶端。
 
 如果您想要使用媒體服務加密資產，則需要建立加密金鑰 (CommonEncryption 或 EnvelopeEncryption) 與資產的關聯。 如需詳細資訊，請參閱[使用 REST 建立內容金鑰](media-services-rest-create-contentkey.md)。 您也需要為金鑰設定授權原則 (如本文所述)。
@@ -35,7 +35,7 @@ ms.locfileid: "60598431"
 
 媒體服務不提供 STS。 您可以建立自訂 STS，或使用 Azure Active Directory (Azure AD) 來發行權杖。 STS 必須設定為建立使用指定金鑰簽署的權杖，並發行在權杖限制組態中指定的宣告 (如本文中所述)。 如果權杖有效，且權杖中的宣告符合為內容金鑰設定的宣告，媒體服務金鑰傳遞服務會將加密金鑰傳回給用戶端。
 
-如需詳細資訊，請參閱下列文章：
+如需詳細資訊，請參閱下列文章。
 - [JWT 權杖驗證](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 - [整合 Azure 媒體服務 OWIN MVC 型應用程式與 Azure Active Directory 並根據 JWT 宣告限制內容金鑰傳遞](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
 
@@ -440,6 +440,9 @@ Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 �
         Widevine = 3
     }
 
+## <a name="additional-notes"></a>其他注意事項
+
+* Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

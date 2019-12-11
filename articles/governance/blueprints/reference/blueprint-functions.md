@@ -1,14 +1,14 @@
 ---
 title: Azure 藍圖函式
 description: 描述可用於 Azure 藍圖定義和指派中藍圖成品的函式。
-ms.date: 04/15/2019
+ms.date: 12/09/2019
 ms.topic: reference
-ms.openlocfilehash: 92539da02ddbe22f943454aff54dae4ccb5af3ce
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128763"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970885"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>搭配 Azure 藍圖使用的函數
 
@@ -29,11 +29,14 @@ Azure 藍圖提供讓藍圖定義更具動態功能的函式。 這些函式可�
 
 傳回已填入藍圖成品輸出之屬性的物件。
 
-### <a name="parameters"></a>parameters
+> [!NOTE]
+> `artifacts()` 函式無法從 Resource Manager 範本中使用。 在使用 Azure PowerShell 或 REST API 作為[藍圖即程式碼](https://github.com/Azure/azure-blueprints/blob/master/README.md)的一部分來管理藍圖時，函數只能用於藍圖定義 JSON 或成品 JSON 中。
 
-| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
+### <a name="parameters"></a>參數
+
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| artifactName |yes |字串 |藍圖成品的名稱。 |
+| artifactName |是 |string |藍圖成品的名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -103,14 +106,14 @@ Azure 藍圖提供讓藍圖定義更具動態功能的函式。 這些函式可�
 
 從_myTemplateArtifact_範例中取出資料的一些範例包括：
 
-| 運算是 | 在系統提示您進行確認時，輸入 | 值 |
+| 運算是 | Type | Value |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | 陣列 | \[「第一」、「第二」\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | 字串 | 頭 |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | 字串 | 「我的字串值」 |
-|`[artifacts("myTemplateArtifact").outputs.myObject]` | 物件 | {"myproperty"： "my value"，"anotherProperty"： true} |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | 字串 | 「我的價值」 |
-|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | true |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | 頭 |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | 「我的字串值」 |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {"myproperty"： "my value"，"anotherProperty"： true} |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | 「我的價值」 |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | 是 |
 
 ## <a name="concat"></a>concat
 
@@ -118,12 +121,12 @@ Azure 藍圖提供讓藍圖定義更具動態功能的函式。 這些函式可�
 
 結合多個字串值，並傳回串連的字串。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| string1 |yes |字串 |串連的第一個值。 |
-| 其他引數 |否 |字串 |串連的順序中的其他值 |
+| string1 |是 |string |串連的第一個值。 |
+| 其他引數 |否 |string |串連的順序中的其他值 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -143,11 +146,11 @@ Azure 藍圖函式與 Azure Resource Manager 範本函式不同之處在于，�
 
 傳回藍圖參數值。 指定的參數名稱必須在藍圖定義或藍圖成品中定義。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| parameterName |yes |字串 |要傳回的參數名稱。 |
+| parameterName |是 |string |要傳回的參數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -264,11 +267,11 @@ Azure 藍圖功能與 Azure Resource Manager 範本函式不同。 `resourceGrou
 
 傳回物件，表示指定的資源群組成品。 不同于需要成品內容的 `resourceGroup()`，此函式是在不在該資源群組的內容中時，用來取得特定資源群組預留位置的屬性。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| placeholderName |yes |字串 |要傳回之資源群組成品的預留位置名稱。 |
+| placeholderName |是 |string |要傳回之資源群組成品的預留位置名稱。 |
 
 ### <a name="return-value"></a>傳回值
 

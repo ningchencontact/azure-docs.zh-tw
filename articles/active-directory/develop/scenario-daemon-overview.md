@@ -1,5 +1,5 @@
 ---
-title: Daemon 應用程式呼叫 web Api （總覽）-Microsoft 身分識別平臺
+title: 建立可呼叫 web Api 的 daemon 應用程式-Microsoft 身分識別平臺 |Azure
 description: 瞭解如何建立可呼叫 web Api 的 daemon 應用程式
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae0912203f2427694d2a9b8611966a55e1e6889e
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 70a8c97ee1e10d53cd8da9687a9109eb4ce8ae3d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056388"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965563"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>案例：呼叫 web Api 的 Daemon 應用程式
 
@@ -31,7 +31,7 @@ ms.locfileid: "71056388"
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 您的應用程式可以取得權杖，以代表本身（而非代表使用者）呼叫 Web API。 此案例適用于 daemon 應用程式。 它會使用標準 OAuth 2.0[用戶端認證](v2-oauth2-client-creds-grant-flow.md)授與。
 

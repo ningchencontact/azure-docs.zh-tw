@@ -1,5 +1,5 @@
 ---
-title: 針對目標的 MSAL 進行疑難排解-C 問題
+title: 針對 SSL 問題進行疑難排解（MSAL iOS/macOS） |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解搭配 MSAL 使用 SSL 憑證的各種問題。目標-C 程式庫。
 services: active-directory
@@ -18,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc918502cd252b4e53af8bcbd209a8387ef4d8c2
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4cfb530deab0cce12247c2ec87e3efb3ce61810b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803662"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964713"
 ---
 # <a name="how-to-troubleshoot-msal-for-ios-and-macos-ssl-issues"></a>如何：針對 iOS 和 macOS SSL 問題的 MSAL 進行疑難排解
 

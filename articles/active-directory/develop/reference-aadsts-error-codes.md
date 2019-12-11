@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 驗證與授權錯誤碼 | Microsoft Docs
+title: Azure AD 驗證和授權錯誤代碼 |Azure
 description: 了解從 Azure AD 安全性權杖服務 (STS) 所傳回的 AADSTS 錯誤碼。
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 261fe2142fc3bc45625b5d088a46ad92c34222db
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 02ed0b84a29ea0c3ce3b58db1c029798655bfb06
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193178"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965801"
 ---
-# <a name="authentication-and-authorization-error-codes"></a>驗證與授權錯誤碼
+# <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 驗證和授權錯誤碼
 
 正在尋找有關從 Azure AD 安全性權杖服務 (STS) 所傳回 AADSTS 錯誤碼的資訊嗎？ 請閱讀此文件，以尋找 AADSTS 錯誤描述、修正程式，以及一些建議的因應措施。
 
@@ -40,7 +40,7 @@ ms.locfileid: "70193178"
 
 ## <a name="aadsts-error-codes"></a>AADSTS 錯誤碼
 
-| 錯誤 | 描述 |
+| Error | 描述 |
 |---|---|
 | AADSTS16000 | SelectUserAccount - 這是 Azure AD 所擲回的插斷，會導致 UI 允許使用者從多個有效的 SSO 工作階段進行選取。 此錯誤很常見，如果指定 `prompt=none`，則可能會傳回給應用程式。 |
 | AADSTS16001 | UserAccountSelectionInvalid - 如果使用者按一下工作階段選取邏輯已遭拒絕的圖格，則會看到此錯誤。 若已觸發，此錯誤可讓使用者藉由從已更新的圖格/工作階段清單進行挑選，或選擇另一個帳戶來復原。 此錯誤可能因為程式碼缺失或競爭條件而發生。 |

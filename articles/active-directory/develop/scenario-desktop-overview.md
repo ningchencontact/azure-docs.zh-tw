@@ -1,5 +1,5 @@
 ---
-title: 呼叫 web Api 的傳統型應用程式（總覽）-Microsoft 身分識別平臺
+title: 建立會呼叫 web Api 的桌面應用程式-Microsoft 身分識別平臺 |Azure
 description: 瞭解如何建立會呼叫 web Api 的桌面應用程式（總覽）
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,14 +15,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d56a07b46c4cd54577bcb3d81f2c45c03433fc31
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 545012629686e1fe3ece8a48ed852542e09e54fe
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268356"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965512"
 ---
-# <a name="scenario-desktop-app-that-calls-web-apis"></a>案例：呼叫 Web API 的傳統型應用程式
+# <a name="scenario-desktop-app-that-calls-web-apis"></a>案例：呼叫 web Api 的傳統型應用程式
 
 瞭解您所需的一切，以建立會呼叫 web Api 的桌面應用程式
 
@@ -30,7 +30,7 @@ ms.locfileid: "71268356"
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 如果您還沒有這麼做，請遵循 .NET 桌面快速入門、UWP 快速入門或 macOS 原生應用程式快速入門，建立您的第一個應用程式：
 
@@ -42,9 +42,9 @@ ms.locfileid: "71268356"
 > [快速入門：取得權杖，並從 UWP 應用程式呼叫 Microsoft Graph API](./quickstart-v2-uwp.md)
 
 > [!div class="nextstepaction"]
-> [快速入門：取得權杖，並從 macOS 原生應用程式呼叫 Microsoft Graph API](./quickstart-v2-ios.md)
+> [快速入門：從 macOS 原生應用程式取得權杖並呼叫 Microsoft Graph API](./quickstart-v2-ios.md)
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 您會撰寫桌面應用程式，而且您想要將使用者登入應用程式，並呼叫 web Api，例如 Microsoft Graph、其他 Microsoft Api 或您自己的 Web API。 您有幾種可能性：
 

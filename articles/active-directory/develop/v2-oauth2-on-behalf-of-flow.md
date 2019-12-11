@@ -1,5 +1,5 @@
 ---
-title: Microsoft 身分識別平臺和 OAuth 2.0 代理者流程 |Azure
+title: Microsoft 身分識別平臺 & OAuth 2.0 代理者流程 |Azure
 description: 本文說明如何使用 HTTP 訊息，以利用 OAuth2.0 代理者流程實作服務對服務驗證。
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09d851572731ad9c83093b7076279df112585703
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fa58f63e70c09e17328b849e7728604a65cb7ae1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207501"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964314"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft 身分識別平臺和 OAuth 2.0 代理者流程
 
@@ -71,16 +71,16 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 
 | 參數 |  | 描述 |
 | --- | --- | --- |
-| `grant_type` | 必要 | 權杖要求的類型。 對於使用 JWT 的要求，值必須是 `urn:ietf:params:oauth:grant-type:jwt-bearer`。 |
-| `client_id` | 必要 | [Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面已指派給您應用程式的應用程式（用戶端）識別碼。 |
-| `client_secret` | 必要 | 您在 [Azure 入口網站應用程式註冊] 頁面中為應用程式產生的用戶端密碼。 |
-| `assertion` | 必要 | 要求中使用的權杖值。 |
-| `scope` | 必要 | 權杖要求範圍的清單，各項目之間以空格分隔。 如需詳細資訊，請參閱[範圍](v2-permissions-and-consent.md)。 |
-| `requested_token_use` | 必要 | 指定應該如何處理要求。 在 OBO 流程中，此值必須設定為 `on_behalf_of`。 |
+| `grant_type` | 必要項 | 權杖要求的類型。 對於使用 JWT 的要求，值必須是 `urn:ietf:params:oauth:grant-type:jwt-bearer`。 |
+| `client_id` | 必要項 | [Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面已指派給您應用程式的應用程式（用戶端）識別碼。 |
+| `client_secret` | 必要項 | 您在 [Azure 入口網站應用程式註冊] 頁面中為應用程式產生的用戶端密碼。 |
+| `assertion` | 必要項 | 要求中使用的權杖值。 |
+| `scope` | 必要項 | 權杖要求範圍的清單，各項目之間以空格分隔。 如需詳細資訊，請參閱[範圍](v2-permissions-and-consent.md)。 |
+| `requested_token_use` | 必要項 | 指定應該如何處理要求。 在 OBO 流程中，此值必須設定為 `on_behalf_of`。 |
 
 #### <a name="example"></a>範例
 
-下列 HTTP POST 會要求 `user.read` Web API 之 https://graph.microsoft.com 範圍的存取權杖與重新整理權杖。
+下列 HTTP POST 會要求 https://graph.microsoft.com Web API 之 `user.read` 範圍的存取權杖與重新整理權杖。
 
 ```
 //line breaks for legibility only
@@ -103,19 +103,19 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 | 參數 |  | 描述 |
 | --- | --- | --- |
-| `grant_type` | 必要 | 權杖要求的類型。 對於使用 JWT 的要求，值必須是 `urn:ietf:params:oauth:grant-type:jwt-bearer`。 |
-| `client_id` | 必要 |  [Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面已指派給您應用程式的應用程式（用戶端）識別碼。 |
-| `client_assertion_type` | 必要 | 值必須是 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`。 |
-| `client_assertion` | 必要 | 您必須建立判斷提示 (JSON Web 權杖)，並使用註冊的憑證來簽署，以作為應用程式的認證。 若要深入了解如何註冊您的憑證與判斷提示的格式，請參閱[憑證認證](active-directory-certificate-credentials.md)。 |
-| `assertion` | 必要 | 要求中使用的權杖值。 |
-| `requested_token_use` | 必要 | 指定應該如何處理要求。 在 OBO 流程中，此值必須設定為 `on_behalf_of`。 |
-| `scope` | 必要 | 權杖要求範圍的清單，各項目之間以空格分隔。 如需詳細資訊，請參閱[範圍](v2-permissions-and-consent.md)。|
+| `grant_type` | 必要項 | 權杖要求的類型。 對於使用 JWT 的要求，值必須是 `urn:ietf:params:oauth:grant-type:jwt-bearer`。 |
+| `client_id` | 必要項 |  [Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面已指派給您應用程式的應用程式（用戶端）識別碼。 |
+| `client_assertion_type` | 必要項 | 值必須是 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`。 |
+| `client_assertion` | 必要項 | 您必須建立判斷提示 (JSON Web 權杖)，並使用註冊的憑證來簽署，以作為應用程式的認證。 若要深入了解如何註冊您的憑證與判斷提示的格式，請參閱[憑證認證](active-directory-certificate-credentials.md)。 |
+| `assertion` | 必要項 | 要求中使用的權杖值。 |
+| `requested_token_use` | 必要項 | 指定應該如何處理要求。 在 OBO 流程中，此值必須設定為 `on_behalf_of`。 |
+| `scope` | 必要項 | 權杖要求範圍的清單，各項目之間以空格分隔。 如需詳細資訊，請參閱[範圍](v2-permissions-and-consent.md)。|
 
 請注意，在透過共用密碼要求的情況中，參數幾乎相同，不同之處在於使用下列兩個參數來取代 `client_secret` 參數：`client_assertion_type` 和 `client_assertion`。
 
 #### <a name="example"></a>範例
 
-下列 HTTP POST 會使用憑證要求 `user.read` Web API 之 https://graph.microsoft.com 範圍的存取權杖。
+下列 HTTP POST 會使用憑證要求 https://graph.microsoft.com Web API 之 `user.read` 範圍的存取權杖。
 
 ```
 // line breaks for legibility only
@@ -147,7 +147,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 ### <a name="success-response-example"></a>成功回應範例
 
-下列範例顯示向 https://graph.microsoft.com Web API 所提出之存取權杖要求的成功回應。
+下列範例顯示 https://graph.microsoft.com Web API 存取權杖要求的成功回應。
 
 ```
 {

@@ -1,5 +1,5 @@
 ---
-title: 呼叫 web Api 的 Daemon 應用程式（應用程式註冊）-Microsoft 身分識別平臺
+title: 註冊會呼叫 web Api 的 daemon 應用程式-Microsoft 身分識別平臺 |Azure
 description: 瞭解如何建立可呼叫 web Api 的 daemon 應用程式-應用程式註冊
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d0d88f72cca45280bd76ac7bb9d7a6e0a1d37fb
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: bcdad9b1ea56a41613c5d8d815d1418783fea4ce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175457"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965580"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>呼叫 web Api 的 Daemon 應用程式-應用程式註冊
 
@@ -47,7 +47,7 @@ Daemon 應用程式只能要求應用程式對 Api 的許可權（而非委派�
 > [!NOTE]
 > 您想要呼叫的 Web API 必須定義**應用程式許可權（應用程式角色）** ，而不是委派的許可權。 如需如何公開這類 API 的詳細資訊，請參閱[受保護的 Web API：應用程式註冊-當您的 Web API 由背景工作應用程式呼叫時](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app)
 
-Daemon 應用程式需要有租使用者管理員預先同意呼叫 Web API 的應用程式。 此同意會在相同的**API 許可權**頁面中提供，租使用者系統管理員選取 **[授與系統管理員同意給*我們的組織*** ]
+Daemon 應用程式需要有租使用者管理員預先同意呼叫 Web API 的應用程式。 在同一個提供此同意 **API 權限** 頁面上，選取您建立租用戶系統管理員 **授與系統管理員同意 *我們的組織***
 
 如果您是建立多租使用者應用程式的 ISV，您會想要查看多租使用者背景程式應用程式段落的[部署案例](scenario-daemon-production.md#deployment---case-of-multi-tenant-daemon-apps)。
 

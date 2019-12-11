@@ -1,6 +1,6 @@
 ---
-title: 呼叫 web Api 的 Daemon 應用程式（呼叫 web Api）-Microsoft 身分識別平臺
-description: 瞭解如何建立可呼叫 web Api （呼叫 web Api）的 daemon 應用程式
+title: 從 daemon 應用程式呼叫 Web API-Microsoft 身分識別平臺 |Azure
+description: 瞭解如何建立可呼叫 web Api 的 daemon 應用程式
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8af0bb023136ba07057e4078d5abfcb4a3194a56
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 46f1676ab1bdcf2b23907824bb9bf543b5f28ce6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175376"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962605"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>呼叫 web Api 的 Daemon 應用程式-從應用程式呼叫 Web API
 
@@ -29,7 +29,7 @@ Daemon 應用程式可以從 .NET daemon 應用程式呼叫 Web API，或呼叫�
 
 ## <a name="calling-a-web-api-daemon-application"></a>呼叫 Web API daemon 應用程式
 
-以下說明如何使用權杖來呼叫 API
+以下說明如何使用權杖來呼叫 API：
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -68,7 +68,7 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="calling-several-apis"></a>呼叫數個 Api
 
-對於 daemon 應用程式，您呼叫的 web Api 必須經過預先核准。 Daemon 應用程式不會有任何累加式同意（不需要使用者互動）。 租使用者系統管理員必須預先同意應用程式和所有 API 許可權。 如果您想要呼叫數個 Api，每次呼叫 `AcquireTokenForClient` 時，您都必須取得每個資源的權杖。 MSAL 會使用應用程式權杖快取來避免不必要的服務呼叫。
+對於 daemon 應用程式，您呼叫的 web Api 必須經過預先核准。 Daemon 應用程式不會有任何累加式同意（不需要使用者互動）。 租使用者系統管理員必須預先同意應用程式和所有 API 許可權。 如果您想要呼叫數個 Api，每次呼叫 `AcquireTokenForClient`時，您都必須取得每個資源的權杖。 MSAL 會使用應用程式權杖快取來避免不必要的服務呼叫。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,7 +1,7 @@
 ---
 title: 訓練深度學習 Chainer 模型
 titleSuffix: Azure Machine Learning
-description: 瞭解如何使用 Azure Machine Learning 的 Chainer 估計工具類別，以企業規模執行您的 PyTorch 訓練腳本。  範例腳本會使用在 numpy 上執行的 Chainer Python 程式庫來分類手寫數位影像，以建立深度學習神經網路。
+description: 瞭解如何使用 Azure Machine Learning Chainer 估計工具類別，以企業規模執行您的 PyTorch 訓練腳本。  範例腳本會使用在 numpy 上執行的 Chainer Python 程式庫來分類手寫數位影像，以建立深度學習神經網路。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: f384a6a870d891bbaf6fa20a896b0251e62b8d4f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 40c1b7e1e4089db3e95b0da810a961b7fd202aac
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224988"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969168"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>使用 Azure Machine Learning 大規模定型和註冊 Chainer 模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-在本文中，您將瞭解如何使用 Azure Machine Learning 的[Chainer 估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)類別，以企業規模執行您的[Chainer](https://chainer.org/)訓練腳本。 本文中的範例訓練腳本會使用熱門的[MNIST 資料集](http://yann.lecun.com/exdb/mnist/)，利用以[numpy](https://www.numpy.org/)上執行的 Chainer Python 程式庫建立的深度類神經網路（DNN）來分類手寫數位。
+在本文中，您將瞭解如何使用 Azure Machine Learning [Chainer 估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)類別，以企業規模執行您的[Chainer](https://chainer.org/)訓練腳本。 本文中的範例訓練腳本會使用熱門的[MNIST 資料集](http://yann.lecun.com/exdb/mnist/)，利用以[numpy](https://www.numpy.org/)上執行的 Chainer Python 程式庫建立的深度類神經網路（DNN）來分類手寫數位。
 
 無論您是從基礎開始訓練深度學習 Chainer 模型，或是將現有的模型帶入雲端，都可以使用 Azure Machine Learning，使用彈性雲端計算資源來相應放大開放原始碼訓練作業。 您可以使用 Azure Machine Learning 來建立、部署、版本及監視生產等級模型。 
 
@@ -28,7 +28,7 @@ ms.locfileid: "74224988"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在下列任一環境中執行此程式碼：
 
@@ -48,7 +48,7 @@ ms.locfileid: "74224988"
 
 本節會藉由載入所需的 python 套件、將工作區初始化、建立實驗，以及上傳定型資料和定型腳本，來設定定型實驗。
 
-### <a name="import-packages"></a>匯入套件
+### <a name="import-packages"></a>匯入封裝
 
 首先，匯入 azureml. core Python 程式庫並顯示版本號碼。
 
@@ -83,7 +83,7 @@ os.makedirs(project_folder, exist_ok=True)
 
 在本教學課程中，已為您提供訓練腳本**chainer_mnist .py** 。 在實務上，您應該能夠採用任何自訂訓練腳本，並使用 Azure ML 加以執行，而不需要修改您的程式碼。
 
-若要使用 Azure ML 的追蹤和計量功能，請在您的定型腳本內新增少量的 Azure ML 程式碼。  定型腳本**chainer_mnist。 .py**示範如何使用腳本中的 `Run` 物件，將一些計量記錄到您的 Azure ML 執行。
+若要使用「Azure ML 追蹤」和「計量」功能，請在您的訓練腳本內新增少量的 Azure ML 程式碼。  定型腳本**chainer_mnist。 .py**示範如何使用腳本中的 `Run` 物件，將一些計量記錄到您的 Azure ML 執行。
 
 提供的定型腳本會使用來自 chainer `datasets.mnist.get_mnist` 函數的範例資料。  針對您自己的資料，您可能需要使用[上傳資料集和腳本](how-to-train-keras.md#data-upload)等步驟，讓資料可在定型期間使用。
 

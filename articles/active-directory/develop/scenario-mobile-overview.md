@@ -1,5 +1,5 @@
 ---
-title: 呼叫 web Api 的行動應用程式-總覽
+title: 建立會呼叫 web Api 的行動應用程式 |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解如何建立呼叫 web Api 的行動應用程式（總覽）
 services: active-directory
@@ -17,16 +17,16 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98f05470a07bad82a1e51517a787fb98c78f92ce
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: c6ebeed4a7806c013205d01621107ef65655e753
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803755"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965461"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>案例：呼叫 web Api 的行動應用程式
 
-瞭解建立呼叫 web Api 的行動應用程式時，您必須知道的一切。
+瞭解如何建立會呼叫 web Api 的行動應用程式。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -34,7 +34,7 @@ ms.locfileid: "72803755"
 
 ## <a name="getting-started"></a>開始使用
 
-建立您的第一個行動應用程式，並試用快速入門！
+建立您的第一個行動應用程式，並試用快速入門。
 
 > [!div class="nextstepaction"]
 > [快速入門：從 Android 應用程式取得權杖並呼叫 Microsoft Graph API](./quickstart-v2-android.md)

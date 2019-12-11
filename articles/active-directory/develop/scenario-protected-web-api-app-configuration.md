@@ -1,5 +1,5 @@
 ---
-title: 受保護的 Web API-應用程式代碼設定
+title: 設定受保護的 Web API 應用程式 |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解如何建立受保護的 Web API，並設定應用程式的程式碼。
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb562caf2dfc83841762748f37d1a7ee325de10b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 7f78fa35096b7e17d3736190bfa49619c2c81520
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882635"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965393"
 ---
 # <a name="protected-web-api-code-configuration"></a>受保護的 Web API：程式碼設定
 
@@ -32,7 +32,7 @@ ms.locfileid: "73882635"
 
 就像 web 應用程式一樣，ASP.NET/ASP.NET 核心 web Api 也是「受保護」，因為其控制器動作前面會加上 `[Authorize]` 屬性。 因此，只有在使用已授權的身分識別來呼叫 API 時，才能呼叫控制器動作。
 
-請考慮下列問題：
+請考量下列問題：
 
 - Web API 如何知道呼叫它之應用程式的身分識別？ （只有應用程式可以呼叫 Web API。）
 - 如果應用程式代表使用者呼叫 Web API，使用者的身分識別為何？
@@ -148,7 +148,7 @@ Microsoft.aspnetcore.authentication.jwtbearer 中介軟體（例如 web 應用�
 
 此表格會說明驗證程式：
 
-| 驗證程式 | 描述 |
+| 驗證器 | 描述 |
 |---------|---------|
 | `ValidateAudience` | 確保權杖適用于驗證權杖的應用程式（適用于我）。 |
 | `ValidateIssuer` | 確保權杖是由信任的 STS （來自我信任的人）所發行。 |

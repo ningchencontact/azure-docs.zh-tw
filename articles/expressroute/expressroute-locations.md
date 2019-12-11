@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/15/2019
+ms.date: 12/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: c30fed6f23f310c63f23f727d90023e05f107454
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 0fc5b1b4fcc0f5c09b06ad5d3681fcf3aed2962c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807046"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967723"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -85,11 +85,11 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |支援的 |支援的 |阿姆斯特丹、香港特別行政區、約翰尼斯堡、倫敦、紐波特（威爾士）、聖保羅、矽谷、新加坡、悉尼、東京、華盛頓特區 |
 | **[C3ntro](https://www.c3ntro.com/data1/express-route1.php)** |支援的 |支援的 |邁阿密 |
 | **CDC** | 支援的 | 支援的 | 坎培拉、坎培拉 2 |
-| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |支援的 |支援的 |阿姆斯特丹2、芝加哥、香港、內華達州、紐約、巴黎、San Antonio、矽谷、東京、多倫多、華盛頓特區 |
+| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |支援的 |支援的 |阿姆斯特丹2，芝加哥，香港特別行政區，內華達州，紐約，巴黎，San Antonio，矽谷，東京，多倫多，華盛頓特區，華盛頓特區 |
 | **[首席電信](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** |支援的 |支援的 |香港特別行政區，臺北 |
 | **China Telecom Global** |支援的 |支援的 |香港特別行政區 |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |支援的 |支援的 |芝加哥、達拉斯、蒙特婁、多倫多、華盛頓特區 |
-| **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |支援的 |支援的 |阿姆斯特丹、阿姆斯特丹2、都柏林、倫敦、紐波特、紐約、大阪、巴黎、矽谷、矽 Valley2、新加坡2、東京 |
+| **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |支援的 |支援的 |阿姆斯特丹、阿姆斯特丹2、芝加哥、都柏林、法蘭克福、倫敦、倫敦2、紐波特、紐約、大阪、巴黎、矽谷、矽 Valley2、新加坡2、東京 |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |支援的 |支援的 |芝加哥、矽谷、華盛頓特區 |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |支援的 |支援的 |芝加哥、丹佛、洛杉磯、紐約、矽谷、矽 Valley2、華盛頓特區、華盛頓特區 |
 | **[取消 CIX](https://www.de-cix.net/en/de-cix-service-world/directcloud/find-a-cloud-service/detail/microsoft-azure)** | 支援的 |支援的 |阿姆斯特丹2、法蘭克福、馬賽|
@@ -101,9 +101,9 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 | **Etisalat 阿拉伯聯合大公國** |支援的 |支援的 |杜拜|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |支援的 |支援的 |阿姆斯特丹、阿姆斯特丹2、都柏林、倫敦 |
 | **FarEasTone** |支援的 |支援的 |台北|
-| **GÉANT** |支援的 |支援的 |阿姆斯特丹 |
+| **GÉANT** |支援的 |支援的 |阿姆斯特丹、法蘭克福、馬賽 |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | 支援的| 支援的 | 辰內，孟買 |
-| **[InterCloud](https://www.intercloud.com/)** |支援的 |支援的 |阿姆斯特丹、芝加哥、倫敦、紐約、巴黎、矽谷、新加坡、華盛頓特區、蘇黎世 |
+| **[InterCloud](https://www.intercloud.com/)** |支援的 |支援的 |阿姆斯特丹、芝加哥、香港、倫敦、紐約、巴黎、矽谷、新加坡、華盛頓特區、蘇黎世 |
 | **[Internet2](https://www.internet2.edu/products-services/cloud-services-applications/microsoft-azure/#service-cloud-connect)** |支援的 |支援的 |芝加哥、達拉斯、矽谷、華盛頓特區 |
 | **[Internet Initiative Japan Inc. - IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |支援的 |支援的 |大阪、東京 |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |支援的 |支援的 |開普敦、約翰尼斯堡、倫敦 |
@@ -113,11 +113,12 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 | **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |支援的 |支援的 |倫敦 |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |支援的 |支援的 |首爾 |
 | **[Kordia](https://www.kordia.co.nz/cloudconnect)** | 支援的 |支援的 |奧克蘭，悉尼 |
-| **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | 支援的 | 支援的 | 阿姆斯特丹 | 
+| **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | 支援的 | 支援的 | 阿姆斯特丹 |
+| **KT** | 支援的 | 支援的 | 首爾 |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |支援的 |支援的 |阿姆斯特丹、芝加哥、達拉斯、倫敦、新港 (威爾斯)、聖保羅、西雅圖、矽谷、新加坡、華盛頓特區 |
 | **LG CNS** |支援的 |支援的 |釜山、首爾 |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |支援的 |支援的 |開普敦、約翰尼斯堡 |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |支援的 |支援的 |阿姆斯特丹、亞特蘭大、奧克蘭、芝加哥、達拉斯、丹佛、Dubai2、都柏林、香港特別行政區、內華達州、倫敦、洛杉磯、墨爾本、邁阿密、蒙特利爾、紐約、達拉斯、魁北克市、San Antonio、西雅圖、矽谷、新加坡、新加坡2、悉尼、多倫多、華盛頓特區 |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |支援的 |支援的 |阿姆斯特丹、亞特蘭大、奧克蘭、芝加哥、達拉斯、丹佛、Dubai2、都柏林、香港特別行政區、內華達州、倫敦、倫敦2、洛杉磯、墨爾本、邁阿密、蒙特利爾、紐約、達拉斯、魁北克市、San Antonio、西雅圖、矽谷、新加坡、新加坡2、悉尼、東京、多倫多、華盛頓特區、蘇黎世 |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |支援的 |支援的 |倫敦 |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |支援的 |支援的 |達拉斯、洛杉磯、邁阿密、聖保羅、華盛頓特區 |
 | **[新一代資料](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |支援的 |支援的 |Newport(Wales) |
@@ -126,7 +127,7 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 | **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |支援的 |支援的 |東京 |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |支援的 |支援的 |大阪 |
 | **[Optus](https://www.optus.com.au/enterprise/)** |支援的 |支援的 |墨爾本、雪梨 |
-| **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |支援的 |支援的 |阿姆斯特丹、法蘭克福、香港特別行政區、約翰尼斯堡、倫敦、巴黎、聖保羅、矽谷、新加坡、悉尼、東京、華盛頓特區 |
+| **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |支援的 |支援的 |阿姆斯特丹、阿姆斯特丹2、法蘭克福、香港特別行政區、約翰尼斯堡、倫敦、巴黎、聖保羅、矽谷、新加坡、悉尼、東京、華盛頓特區 |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | 支援的 | 支援的 | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |支援的 |支援的 |芝加哥、矽谷、華盛頓特區 |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |支援的 |支援的 |芝加哥，香港特別行政區，倫敦 |
@@ -142,7 +143,7 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |支援的 |支援的 |阿姆斯特丹、聖保羅 |
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |支援的 |支援的 |倫敦、倫敦2 |
 | **Telenor** |支援的 |支援的 |阿姆斯特丹、倫敦、Oslo |
-| **[Telia Carrier](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | 支援的 | 支援的 |阿姆斯特丹、芝加哥、達拉斯、香港、倫敦、巴黎、矽谷、斯德哥爾摩、華盛頓特區 |
+| **[Telia Carrier](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | 支援的 | 支援的 |阿姆斯特丹、芝加哥、達拉斯、法蘭克福、香港特別行政區、倫敦、巴黎、矽谷、斯德哥爾摩、華盛頓特區 |
 | **Telmex Uninet**| 支援的 | 支援的 | 達拉斯 |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |支援的 |支援的 |墨爾本、新加坡、雪梨 |
 | **[Telus](https://www.telus.com)** |支援的 |支援的 |蒙特利爾、西雅圖、多倫多 |

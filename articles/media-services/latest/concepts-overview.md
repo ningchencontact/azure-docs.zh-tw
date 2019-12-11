@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 47c7e35f71fd33cc53d498867ef015364252d5ea
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 39bdcc94b785371044b5d49fd844a06a176a8fba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910310"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970031"
 ---
 # <a name="media-services-concepts"></a>媒體服務概念
 
@@ -26,13 +26,13 @@ ms.locfileid: "70910310"
 請先檢閱這些主題所述的基本概念再開始進行開發。
 
 > [!NOTE]
-> 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](media-services-apis-overview.md#sdks)。
+> 目前您無法使用 Azure 入口網站管理 v3 資源。 使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](media-services-apis-overview.md#sdks)。
 
-## <a name="terminology"></a>術語
+## <a name="terminology"></a>詞彙
 
 本節說明一些常見的產業術語如何對應至媒體服務 v3 API。
 
-### <a name="live-event"></a>即時事件
+### <a name="live-event"></a>直播活動
 
 **實況活動**代表內嵌、轉碼（選擇性），以及封裝影片、音訊和即時中繼資料的即時串流的管線。
 
@@ -40,7 +40,7 @@ ms.locfileid: "70910310"
 
 ### <a name="streaming-endpoint-packaging-and-origin"></a>串流端點（封裝和來源）
 
-**串流端點**代表動態（即時）封裝和原始服務，可以使用其中一種常見的串流處理媒體通訊協定（HLS 或破折號），將您的即時和隨選內容直接傳遞到用戶端播放機應用程式。 此外,**串流端點**也提供動態 (即時) 的加密給領先業界的 drm。
+**串流端點**代表動態（即時）封裝和原始服務，可以使用其中一種常見的串流處理媒體通訊協定（HLS 或破折號），將您的即時和隨選內容直接傳遞到用戶端播放機應用程式。 此外，**串流端點**也提供動態（即時）的加密給領先業界的 drm。
 
 在媒體串流處理產業中，這項服務通常稱為封裝工具**或** **來源**。  此功能的產業中的其他常見詞彙包括 JITP （僅限時間封裝程式）或 JITE （及時加密）。 
  
@@ -78,7 +78,7 @@ ms.locfileid: "70910310"
 
 ![動態封裝](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-有了媒體服務，您就可以使用進階加密標準（AES-128）或/以及三個主要數位版權管理（DRM）系統中的任何一種，以動態方式傳遞您的即時和隨選內容：Microsoft PlayReady、Google Widevine 和 Apple FairPlay。 媒體服務也提供服務，可傳遞 AES 金鑰和 DRM (PlayReady、Widevine 和 FairPlay) 授權給授權用戶端。
+有了媒體服務，您就可以使用進階加密標準（AES-128）或/以及三個主要數位版權管理（DRM）系統中的任何一種，以動態方式傳遞您的即時和隨選內容： Microsoft PlayReady、Google Widevine 和 Apple FairPlay。 媒體服務也提供服務，可傳遞 AES 金鑰和 DRM (PlayReady、Widevine 和 FairPlay) 授權給授權用戶端。
 
 如果您在串流上指定加密選項，請建立**內容金鑰原則**，並將它與您的**串流定位器**建立關聯。 **內容金鑰原則**可讓您設定如何將內容金鑰傳遞給終端用戶端。
 
@@ -101,6 +101,9 @@ ms.locfileid: "70910310"
 - [動態資訊清單](filters-dynamic-manifest-overview.md)
 - [篩選條件](filters-concept.md)
 
+> [!NOTE]
+> Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
+
 ## <a name="live-streaming"></a>即時串流
 
 Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 **實況活動**負責內嵌和處理即時視訊摘要。 當您建立**即時事件**時，系統會建立輸入端點，讓您用來從遠端編碼器傳送即時信號。 當資料流程流入**即時事件**之後，您就可以藉由建立**資產**、**即時輸出**和**串流定位器**來開始串流事件。 **即時輸出**會將串流封存到**資產**中，並透過**串流端點**將它提供給檢視器。 **實況活動**可以是下列兩種類型的其中一種：**傳遞**和**即時編碼**。
@@ -116,12 +119,12 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 ### <a name="event-grid"></a>事件格線
 
-若要查看作業的進度，您應該使用**事件方格**。 媒體服務也會發出即時事件種類。 透過事件方格，您的應用程式幾乎可以從所有 Azure 服務和自訂來源接聽及回應事件。 
+若要查看作業的進度，您應該使用**事件方格**。 媒體服務也會發出即時事件種類。 透過事件格線，您可以應用程式可以用虛擬方式從所有 Azure 服務和字訂服務接聽及回應事件。 
 
 - [處理事件方格事件](reacting-to-media-services-events.md)
-- [架構](media-services-event-schemas.md)
+- [結構描述](media-services-event-schemas.md)
 
-### <a name="azure-monitor"></a>Azure 監視器
+### <a name="azure-monitor"></a>Azure Monitor
 
 監視計量和診斷記錄，以協助您瞭解應用程式如何使用 Azure 監視器來執行。
 

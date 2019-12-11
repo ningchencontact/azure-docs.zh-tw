@@ -1,5 +1,5 @@
 ---
-title: 應用程式中支援的帳戶 (對象) - Microsoft 身分識別平台
+title: Microsoft 身分識別平臺中支援的帳戶類型 |Azure
 description: 有關應用程式中對象及所支援帳戶類型的概念文件
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 929479f2816ef979edb26ba5aa00cf449c49b70a
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 04aac02623fe4918db671e2385c181653bdc344a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73942179"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966549"
 ---
 # <a name="supported-account-types"></a>支援的帳戶類型
 

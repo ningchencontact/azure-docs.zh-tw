@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 12/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 60b5035506b8852c379f2e2617cdf918f09df010
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 71a0d18669ea2c5fc9e0548e195c3df0145f6cb0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150057"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967791"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -28,7 +28,7 @@ ms.locfileid: "74150057"
 >
 >
 
-## <a name="azure-regions"></a>Azure 區域
+## <a name="azure-regions"></a>Azure 地區
 Azure 區域是「Azure 計算」、「網路」和「儲存體」資源所在的全球資料中心。 建立 Azure 資源時，客戶需要選取資源位置。 資源位置會決定資源建立所在的 Azure 資料中心（或可用性區域）。
 
 ## <a name="expressroute-locations"></a>ExpressRoute 位置
@@ -75,37 +75,37 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 
 
 ### <a name="global-commercial-azure"></a>全球商業 Azure
-| <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **應對** | **區域** | **本機 Azure 區域** | **ER Direct** | **服務提供者** |
+| **位置** | **地址** | **區域** | **本機 Azure 區域** | **ER Direct** | **服務提供者** |
 | --- | --- | --- | --- | --- | --- |
 | **阿姆斯特丹** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 1 | 西歐 | 10G、100G | Aryaka networks 網路，位於 & T NetBond、英屬電信、Colt、Equinix、euNetworks、GÉANT、InterCloud、Interxion、KPN、IX 觸及、Level 3 通訊、Megaport、NTT 通訊、橙色、Tata 通訊、Telefonica、Telenor、Telia 運輸公司、Verizon、Zayo |
-| **阿姆斯特丹2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | 西歐 | 10G、100G | CenturyLink Cloud Connect、Colt、CIX、euNetworks、Interxion、Vodafone |
+| **阿姆斯特丹2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | 西歐 | 10G、100G | CenturyLink Cloud Connect、Colt、CIX、euNetworks、Interxion、橙色、Vodafone |
 | **亞特蘭大** | [Equinix AT2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | 1 | n/a | n/a | Equinix、Megaport |
 | **奧克蘭** | [Vocus Group NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | n/a | 10G | Devoli、Kordia、Megaport、Spark NZ、Vocus Group NZ |
 | **斧山** | [LG CNS](https://www.lgcns.com/datacenter) | 2 | 南韓南部 | n/a | LG CNS |
-| **坎培拉** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | 澳大利亞中部 | 10G | CDC |
-| **坎培拉2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | 澳大利亞中部 2| n/a | CDC |
+| **坎培拉** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | 澳洲中部 | 10G、100G | CDC |
+| **坎培拉2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | 澳洲中部 2| 10G、100G | CDC |
 | **開普敦** | [Teraco CT1](https://www.teraco.co.za/data-centre-locations/cape-town/) | 3 | 南非西部 | 10G | Internet Solutions - Cloud Connect、Liquid Telecom、Teraco |
 | **辰內** | Tata Communications | 2 | 印度南部 | 10G | Global CloudXchange (GCX)、SIFY、Tata Communications |
 | **辰內2** | Airtel | 2 | 印度南部 | n/a | Airtel |
-| **芝加哥** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | 1 | 美國中北部 | 10G、100G | Aryaka networks 網路，位於 & T NetBond、CenturyLink Cloud Connect、Cologix、Comcast、Coresite、Equinix、InterCloud、Internet2、Level 3 通訊、Megaport、PacketFabric、PCCW GLOBAL LIMITED Global 有限、短期衝刺、Telia 貨運公司、Verizon、Zayo |
+| **芝加哥** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | 1 | 美國中北部 | 10G、100G | Aryaka networks 網路，位於 & T NetBond、CenturyLink Cloud Connect、Cologix、Colt、Comcast、Coresite、Equinix、InterCloud、Internet2、Level 3 通訊、Megaport、PacketFabric、PCCW GLOBAL LIMITED Global 有限、短期衝刺、Telia 運輸公司、Verizon、Zayo |
 | **日** | [Interxion CPH1](https://www.interxion.com/Locations/copenhagen/) | 1 | n/a | 10G | Interxion |
 | **達拉斯** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | 1 | n/a | 10G、100G | Aryaka networks 網路，位於 & T NetBond、Cologix、Equinix、Internet2、Level 3 通訊、Megaport、Neutrona Networks、Telmex Uninet、Telia 電訊廠商、Transtelco、Verizon、Zayo|
 | **丹佛** | [CoreSite DE1](https://www.coresite.com/data-centers/locations/denver/de1) | 1 | 美國中西部 | n/a | CoreSite、Megaport、Zayo |
 | **杜拜** | [PCCS](https://www.pacificcontrols.net/cloudservices/index.html) | 3 | 阿拉伯聯合大公國北部 | n/a | Etisalat 阿拉伯聯合大公國 |
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | 阿拉伯聯合大公國北部 | n/a | du datamena、Megaport、Orixcom |
 | **都柏林** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | 北歐 | 10G、100G | Colt、eir、Equinix、Interxion、Megaport |
-| **法蘭克福** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | 德國中西部 | n/a | CIX、Interxion、橙色 |
+| **法蘭克福** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | 德國中西部 | 10G、100G | Colt、CIX、GEANT、Interxion、橙色、Telia 電訊廠商 |
 | **Geneva** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | 瑞士西部 | 10G、100G | |
-| **香港特別行政區** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | 東亞 | n/a | Aryaka networks Networks，英屬電信，CenturyLink Cloud Connect，首席電信，中國電信全球，Equinix，Megaport，NTT 通訊，橙色，PCCW GLOBAL LIMITED 全球有限，Tata 通訊，Telia 電訊商，Verizon |
+| **香港特別行政區** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | 東亞 | n/a | Aryaka networks Networks，英屬電信，CenturyLink Cloud Connect，首席電信，中國電信全球，Equinix，InterCloud，Megaport，NTT 通訊，橙色，PCCW GLOBAL LIMITED 全球有限，Tata 通訊，Telia 電訊，Verizon |
 | **雅加達** | Telkom 印尼 | 4 | n/a | 10G | |
 | **約翰尼斯堡** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | 南非北部 | n/a | 英屬電信，網際網路解決方案-雲端連線，液體電信，橙色，Teraco |
 | **吉隆坡** | [TIME dotCom Menara 的目標](https://www.aims.com.my/co-location/points-of-presence.html) | 2 | n/a | n/a | TIME dotCom |
 | **拉斯維加斯** | [交換器 LV](https://www.switch.com/las-vegas) | 1 | n/a | n/a | CenturyLink Cloud Connect、Megaport |
 | **倫敦** | [Equinix LD5](https://www.equinix.com/locations/europe-colocation/united-kingdom-colocation/london-data-centers/ld5/) | 1 | 英國南部 | 10G、100G | AT&T NetBond、British Telecom、Colt、Equinix、InterCloud、Internet Solutions - Cloud Connect、Interxion、Jisc、Level 3 Communications、Megaport、MTN、NTT Communications、Orange、PCCW Global Limited、Tata Communications、Telehouse - KDDI、Telenor、Telia Carrier、Verizon、Vodafone、Zayo |
-| **London2** | [Telehouse 北部2](https://www.telehouse.com/global-data-centers/emea/london-data-centers/telehouse-north-two/) | 1 | 英國南部 | 10G、100G | IX 觸及、Equinix、Telehouse-KDDI |
+| **London2** | [Telehouse 北部2](https://www.telehouse.com/global-data-centers/emea/london-data-centers/telehouse-north-two/) | 1 | 英國南部 | 10G、100G | Colt，IX 觸及，Equinix，Megaport，Telehouse-KDDI |
 | **洛杉磯** | [CoreSite LA1](https://www.coresite.com/data-centers/locations/los-angeles/one-wilshire) | 1 | n/a | n/a | CoreSite、Equinix、Megaport、Neutrona Networks、NTT、Transtelco、Zayo |
-| **馬賽** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | 法國南部 | n/a | CIX、Interxion、Jaguar 網路 |
-| **墨爾本** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 2 | 澳洲東南部 | 10G、100G | AARNet、Devoli、Equinix、Megaport、NEXTDC、Optus、Telstra Corporation、TPG 電信 |
+| **馬賽** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | 法國南部 | n/a | CIX、GEANT、Interxion、Jaguar Network |
+| **墨爾本** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 2 | 澳大利亞東南部 | 10G、100G | AARNet、Devoli、Equinix、Megaport、NEXTDC、Optus、Telstra Corporation、TPG 電信 |
 | **邁阿密** | [Equinix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | n/a | 10G | C3ntro、Equinix、Megaport、Neutrona Networks |
 | **米蘭** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | n/a | 10G | |
 | **蒙特婁** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | n/a | n/a | 鐘加拿大、Cologix、Megaport、Telus、Zayo |
@@ -122,21 +122,21 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 | **聖安東尼奧** | [CyrusOne SA1](https://cyrusone.com/locations/texas/san-antonio-texas/) | 1 | 美國中南部 | 10G、100G | CenturyLink Cloud Connect、Megaport |
 | **聖保羅** | [Equinix SP2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/sao-paulo-data-centers/sp2/) | 3 | 巴西南部 | n/a | Aryaka Networks、Ascenty Data Centers、British Telecom、Equinix、Level 3 Communications、Neutrona Networks、Orange、Tata Communications、Telefonica、UOLDIVEOW |
 | **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | 1 | 美國西部 2 | 10G、100G | Aryaka networks 網路、Equinix、層級3通訊、Megaport、Telus、Zayo |
-| **首爾** | [KINX Gasan IDC](https://www.kinx.net/support/location/?lang=en) | 2 | 南韓中部 | 10G、100G | KINX、LG CNS、Sejong Telecom |
+| **首爾** | [KINX Gasan IDC](https://www.kinx.net/support/location/?lang=en) | 2 | 南韓中部 | 10G、100G | KINX、KT、LG CN、Sejong 電信 |
 | **矽谷** | [Equinix SV1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv1/) | 1 | 美國西部 | 10G、100G | Aryaka networks 網路，位於 & T NetBond、英屬電信、CenturyLink Cloud Connect、Colt、Comcast、Coresite、Equinix、InterCloud、Internet2、IX 觸及、封包、PacketFabric、Level 3 通訊、Megaport、橙色、短期衝刺、Tata 通訊、Telia 電訊商、Verizon、Zayo |
 | **晶片 Valley2** | [Coresite SV7](https://www.coresite.com/data-centers/locations/silicon-valley/sv7) | 1 | 美國西部 | 10G、100G | Colt、Coresite | 
 | **新加坡** | [Equinix SG1](https://www.equinix.com/locations/asia-colocation/singapore-colocation/singapore-data-center/sg1/) | 2 | 東南亞 | 10G、100G | Aryaka Networks、AT&T NetBond、British Telecom、Epsilon Global Communications、Equinix、InterCloud、Level 3 Communications、Megaport、NTT Communications、Orange、SingTel、Tata Communications、Telstra Corporation、Verizon、Vodafone |
 | **新加坡 2** | [全域交換器 Seng](https://www.globalswitch.com/locations/singapore-data-centres/) | 2 | 東南亞 | 10G、100G | Colt，Epsilon 全球通訊，Megaport，SingTel |
 | **Stavanger** | [綠色山地 DC1](https://greenmountain.no/dc1-stavanger/) | 1 | n/a | 10G、100G | |
 | **斯德哥爾摩** | [Equinix SK1](https://www.equinix.com/locations/europe-colocation/sweden-colocation/stockholm-data-centers/sk1/) | 1 | n/a | 10G | Equinix、Telia 承運商 |
-| **雪梨** | [Equinix SY2](https://www.equinix.com/locations/asia-colocation/australia-colocation/sydney-data-centers/sy2/) | 2 | 澳洲東部 | 10G、100G | AARNet，位於 & T NetBond、英屬電信、Devoli、Equinix、Kordia、Megaport、NEXTDC、NTT 通訊、Optus、橙色、Spark NZ、Telstra Corporation、TPG 電信、Verizon、Vocus Group NZ |
-| **Sydney2** | [NextDC S1](https://www.nextdc.com/data-centres/s1-sydney-data-centre) | 2 | 澳洲東部 | 10G、100G | NEXTDC |
+| **雪梨** | [Equinix SY2](https://www.equinix.com/locations/asia-colocation/australia-colocation/sydney-data-centers/sy2/) | 2 | 澳大利亞東部 | 10G、100G | AARNet，位於 & T NetBond、英屬電信、Devoli、Equinix、Kordia、Megaport、NEXTDC、NTT 通訊、Optus、橙色、Spark NZ、Telstra Corporation、TPG 電信、Verizon、Vocus Group NZ |
+| **Sydney2** | [NextDC S1](https://www.nextdc.com/data-centres/s1-sydney-data-centre) | 2 | 澳大利亞東部 | 10G、100G | NextDC |
 | **台北** | Chief Telecom | 2 | n/a | 10G | 電信、FarEasTone |
-| **東京** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | 日本東部 | 10G、100G | Aryaka Networks、AT&T NetBond、British Telecom、CenturyLink Cloud Connect、Colt、Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、NTT EAST、Orange、Softbank、Verizon |
+| **東京** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | 日本東部 | 10G、100G | Aryaka networks 網路，位於 & T NetBond、英屬電信、CenturyLink Cloud Connect、Colt、Equinix、網際網路方案日本 Inc.-IIJ、Megaport、NTT 通訊、NTT 東部、橙色、Softbank、Verizon |
 | **多倫多** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | 加拿大中部 | 10G、100G | 在 & T NetBond，鐘加拿大，CenturyLink Cloud Connect，Cologix，Equinix，IX 觸及 Megaport，Telus，Verizon，Zayo |
 | **華盛頓** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | 1 | 美國東部、美國東部2 | 10G、100G | Aryaka networks 網路，位於 & T NetBond、英屬電信、CenturyLink Cloud Connect、Cologix、Comcast、Coresite、Equinix、Internet2、InterCloud、Level 3 通訊、Megaport、Neutrona 網路、NTT 通訊、橙色、PacketFabric、SES、短期衝刺、Tata通訊，Telia 貨運公司，Verizon，Zayo |
-| **華盛頓特區2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | 1 | 美國東部、美國東部2 | 10G、100G | Coresite、Viasat、Zayo | 
-| **蘇黎世** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | n/a | n/a | Intercloud、Interxion、Swisscom |
+| **華盛頓特區2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | 1 | 美國東部、美國東部2 | 10G、100G | CenturyLink Cloud Connect、Coresite、Viasat、Zayo | 
+| **蘇黎世** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | n/a | n/a | Intercloud、Interxion、Megaport、Swisscom |
 
  **+** 表示即將推出
 
@@ -145,19 +145,19 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 Azure 國家/地區雲端會彼此隔離，並從全球商業 Azure。 一個 Azure 雲端的 ExpressRoute 無法連線到其他人的 Azure 區域。
 
 ### <a name="us-government-cloud"></a>美國政府雲端
-| <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **應對** | **本機 Azure 區域**| **ER Direct** | **服務提供者** |
+| **位置** | **地址** | **本機 Azure 區域**| **ER Direct** | **服務提供者** |
 | --- | --- | --- | --- | --- |
 | **芝加哥** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | n/a | 10G、100G | AT&T NetBond、Equinix、Level 3 Communications、Verizon |
 | **達拉斯** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | n/a | 10G、100G | Equinix、Megaport、Verizon |
 | **紐約** | [Equinix NY5](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny5/) | n/a | 10G、100G | Equinix、CenturyLink Cloud Connect、Verizon |
-| **Phoenix** | [CyrusOne Chandler](https://cyrusone.com/locations/arizona/phoenix-arizona-chandler/) | 美國政府亞利桑那州 | n/a | 在 & T NetBond，CenturyLink Cloud Connect，Megaport |
-| **聖安東尼奧** | [CyrusOne SA2](https://cyrusone.com/locations/texas/san-antonio-texas-ii/) | 美國政府德克薩斯州 | n/a | CenturyLink Cloud Connect、Megaport |
+| **Phoenix** | [CyrusOne Chandler](https://cyrusone.com/locations/arizona/phoenix-arizona-chandler/) | US Gov 亞利桑那州 | n/a | 在 & T NetBond，CenturyLink Cloud Connect，Megaport |
+| **聖安東尼奧** | [CyrusOne SA2](https://cyrusone.com/locations/texas/san-antonio-texas-ii/) | US Gov 德克薩斯州 | n/a | CenturyLink Cloud Connect、Megaport |
 | **矽谷** | [Equinix SV4](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv4/) | n/a | 10G、100G | Equinix、LLevel 3 Communications、Verizon |
 | **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | n/a | n/a | Equinix、Megaport |
 | **華盛頓** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | US DoD 東部，US Gov 維吉尼亞州 | 10G、100G | 在 & T NetBond、CenturyLink Cloud Connect、Equinix、Level 3 通訊、Megaport、Verizon |
 
 ### <a name="china"></a>中國
-| <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **服務提供者** |
+| **位置** | **服務提供者** |
 | --- | --- |
 | **北京** |China Telecom |
 | **北京 2** | 中國電信，GDS |
@@ -167,7 +167,7 @@ Azure 國家/地區雲端會彼此隔離，並從全球商業 Azure。 一個 Az
 若要深入了解，請參閱 [ExpressRoute (中國)](http://www.windowsazure.cn/home/features/expressroute/)
 
 ### <a name="germany"></a>德國
-| <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **服務提供者** |
+| **位置** | **服務提供者** |
 | --- | --- |
 | **柏林** |e-shelter、Megaport+、T-Systems |
 | **法蘭克福** |Colt、Equinix、Interxion |
@@ -197,7 +197,7 @@ Azure 國家/地區雲端會彼此隔離，並從全球商業 Azure。 一個 Az
 * [Viasat](http://www.directcloud.viasatbusiness.com/)
 
 ## <a name="c1partners"></a>透過其他服務提供者的連線能力
-| <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **Exchange** | **連接提供者** |
+| **位置** | **Exchange** | **連接提供者** |
 | --- | --- | --- |
 | **阿姆斯特丹** | Equinix、Interxion、Level 3 通訊 | BICS、CloudXpress、Eurofiber、Fastweb s.p.a、Kalaam、不帶群島、MainOne 電信巴林 B、Nianet、Proximus、後電信盧森堡、Erhverv、TDC Italia、電信 Telekom 火花、Deutschland GmbH Telia、 |
 | **亞特蘭大** | Equinix| Crown Castle

@@ -1,5 +1,5 @@
 ---
-title: IOS 和 macOS 上的 ADAL 與 MSAL 應用程式之間的 SSO-Microsoft 身分識別平臺
+title: ADAL 與 MSAL iOS/macOS 應用程式之間的 SSO-Microsoft 身分識別平臺 |Azure
 description: ''
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a554602b9648190926168e4886d4f0773692225
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 13998982b778181febf99d8366eebd25482bc2bc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264143"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961500"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>如何：在 macOS 和 iOS 上的 ADAL 與 MSAL 應用程式之間的 SSO
 
@@ -208,7 +208,7 @@ Returns account for for the given username (received from an account object retu
                               error:(NSError * __autoreleasing *)error;
 ```
 
-例如︰
+例如：
 
 Objective-C：
 

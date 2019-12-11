@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: 228b00a19bac9c773fce8e502d302314821fbf39
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1644c00aea8eefa78550c8d0238dbedab0378492
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871645"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968692"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>適用於 iOS 的離線 FairPlay 串流 
 
-> [!div class="op_single_selector" title1="選取您要使用的媒體服務版本:"]
+> [!div class="op_single_selector" title1="選取您要使用的媒體服務版本："]
 > * [第 3 版](../latest/offline-fairplay-for-ios.md)
 > * [第 2 版](media-services-protect-hls-with-offline-fairplay.md)
 
@@ -43,8 +43,8 @@ Azure 媒體服務提供一組設計良好的[內容保護服務](https://azure.
 除了透過各種不同的串流處理通訊協定來保護內容進行線上串流處理，受保護內容的離線模式也是一個經常被要求的功能。 下列案例需要離線模式支援：
 
 * 在無法使用網際網路連線 (例如旅行期間) 時播放。
-* 某些內容提供者可能不允許超出國家/地區框線的 DRM 授權傳遞。 如果使用者想要在國家/地區外出差時觀賞內容, 就需要離線下載。
-* 在某些國家/地區, 網際網路可用性和/或頻寬仍然受到限制。 使用者可選擇先下載內容，才能觀賞解析度夠高的內容，從而獲得滿意的觀賞體驗。 因此，問題通常不在於網路可用性，而是網路頻寬有限。 Over-the-top (OTT)/線上視訊平台 (OVP) 提供者會要求離線模式支援。
+* 某些內容提供者可能不允許超出國家/地區框線的 DRM 授權傳遞。 如果使用者想要在國家/地區外出差時觀賞內容，就需要離線下載。
+* 在某些國家/地區，網際網路可用性和/或頻寬仍然受到限制。 使用者可選擇先下載內容，才能觀賞解析度夠高的內容，從而獲得滿意的觀賞體驗。 因此，問題通常不在於網路可用性，而是網路頻寬有限。 Over-the-top (OTT)/線上視訊平台 (OVP) 提供者會要求離線模式支援。
 
 本文會說明 FairPlay 串流 (FPS) 離線模式支援，此支援是以執行 iOS 10 或更新版本的裝置為目標。 其他 Apple 平台 (例如 watchOS、tvOS 或 macOS 上的 Safari) 則不支援此功能。
 
@@ -204,9 +204,9 @@ func requestApplicationCertificate() throws -> Data {
 ## <a name="faq"></a>常見問題集
 下列常見問題集可協助您進行疑難排解：
 
-- **為何在離線模式期間只播放音訊，但不會播放影片呢？** 這個行為似乎是範例應用程式的設計使然。 當離線模式期間存在替代曲目時 (HLS 便是如此)，iOS 10 和 iOS 11 都預設為播放替代曲目。為了彌補 FPS 離線模式的這項行為，請從串流中移除替代曲目。 若要對媒體服務執行此操作，請新增動態資訊清單篩選條件 "audio-only=false"。 換言之，HLS URL 的結尾是 .ism/manifest(format=m3u8-aapl,audio-only=false)。 
+- **為何在離線模式期間只播放音訊，但不會播放影片呢？** 這個行為似乎是範例應用程式的設計使然。 在離線模式期間，如果有替代的音訊播放軌（這是 HLS 的情況），則 iOS 10 和 iOS 11 都會預設為替代的音訊播放軌。若要彌補 FPS 離線模式的這種行為，請從串流中移除替代的音訊播放軌。 若要對媒體服務執行此操作，請新增動態資訊清單篩選條件 "audio-only=false"。 換言之，HLS URL 的結尾是 .ism/manifest(format=m3u8-aapl,audio-only=false)。 
 - **當我新增 audio-only=false 之後，為什麼它在離線模式期間仍舊只播放音訊，而不會播放影片呢？** 系統可能會根據內容傳遞網路 (CDN) 快取索引鍵設計來快取內容。 所以，請清除快取。
-- **除了 iOS 10，iOS 11 也支援 FPS 離線模式嗎？** 是的。 iOS 10 和 iOS 11 均可支援 FPS 離線模式。
+- **除了 iOS 10，iOS 11 也支援 FPS 離線模式嗎？** 可以。 iOS 10 和 iOS 11 均可支援 FPS 離線模式。
 - **為什麼我在 FPS Server SDK 中找不到《Offline Playback with FairPlay Streaming and HTTP Live Streaming》(使用 FairPlay 串流和 HTTP 即時串流進行離線播放) 文件呢？** 從 FPS Server SDK 第 4 版開始，此文件已合併至《FairPlay Streaming Programming Guide》(FairPlay 串流程式設計指南)。
 - **在以下適用於 FPS 離線模式的 API 中，最後一個參數代表什麼？** 
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
@@ -245,6 +245,10 @@ func requestApplicationCertificate() throws -> Data {
 </HLSMoviePackage>
 ```
 
+## <a name="additional-notes"></a>其他注意事項
+
+* Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
+
 ## <a name="summary"></a>總結
 本文件包含下列步驟和資訊，以供您實作 FPS 離線模式：
 
@@ -252,3 +256,7 @@ func requestApplicationCertificate() throws -> Data {
 * 以 FPS Server SDK 所提供的範例為基礎的 iOS 播放程式，會設定可在線上串流模式或離線模式下播放 FPS 內容的 iOS 播放程式。
 * 範例 FPS 影片，可用來測試離線模式和線上串流。
 * 常見問題集，可解答有關 FPS 離線模式的問題。
+
+## <a name="next-steps"></a>後續步驟
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

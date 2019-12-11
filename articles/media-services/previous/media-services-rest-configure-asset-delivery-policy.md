@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 5e4e565b0b5272de19458617a9c4bd3509907cce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1c71a1329b930beea38fe39518914b278f9372d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60817383"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968403"
 ---
 # <a name="configuring-asset-delivery-policies"></a>設定資產傳遞原則
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "60817383"
 本主題討論建立和設定資產傳遞原則的原因與方法。
 
 > [!NOTE]
-> 建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止]  狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中]  狀態。 
+> 建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中] 狀態。 
 >
 > 此外，為了能夠使用動態封裝和動態加密功能，您的資產必須包含一組調適性位元速率 MP4 或調適性位元速率 Smooth Streaming 檔案。
 
@@ -66,7 +66,7 @@ MPEG DASH
 > 
 > 在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 
-## <a name="connect-to-media-services"></a>連線到媒體服務
+## <a name="connect-to-media-services"></a>連接到媒體服務
 
 如需連線至 AMS API 的詳細資訊，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 
@@ -145,7 +145,7 @@ MPEG DASH
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>DynamicEnvelopeEncryption 資產傳遞原則
 ### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>建立 EnvelopeEncryption 類型的內容金鑰，並將它連結到資產
-當指定 DynamicEnvelopeEncryption 傳遞原則時，您必須將資產連結到 EnvelopeEncryption 類型的內容金鑰。 如需詳細資訊，請參閱：[建立內容金鑰](media-services-rest-create-contentkey.md)。
+當指定 DynamicEnvelopeEncryption 傳遞原則時，您必須將資產連結到 EnvelopeEncryption 類型的內容金鑰。 如需詳細資訊，請參閱 [建立內容金鑰](media-services-rest-create-contentkey.md)。
 
 ### <a id="get_delivery_url"></a>取得傳遞 URL
 針對前一個步驟中建立的內容金鑰的指定傳遞方法，取得傳遞 URL。 用戶端會使用傳回的 URL 要求 AES 金鑰或 PlayReady 授權，以便播放受保護的內容。
@@ -231,7 +231,7 @@ MPEG DASH
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 資產傳遞原則
 ### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>建立 CommonEncryption 類型的內容金鑰，並將它連結到資產
-當指定 DynamicCommonEncryption 傳遞原則時，您必須將資產連結到 CommonEncryption 類型的內容金鑰。 如需詳細資訊，請參閱：[建立內容金鑰](media-services-rest-create-contentkey.md)。
+當指定 DynamicCommonEncryption 傳遞原則時，您必須將資產連結到 CommonEncryption 類型的內容金鑰。 如需詳細資訊，請參閱 [建立內容金鑰](media-services-rest-create-contentkey.md)。
 
 ### <a name="get-delivery-url"></a>取得傳遞 URL
 針對前一個步驟中建立的內容金鑰的 PlayReady 傳遞方法，取得傳遞 URL。 用戶端會使用傳回的 URL 要求 PlayReady 授權，以便播放受保護的內容。 如需詳細資訊，請參閱 [取得傳遞 URL](#get_delivery_url)。
@@ -260,7 +260,7 @@ MPEG DASH
 
 如果您想要使用 Widevine DRM 保護內容，請將 AssetDeliveryConfiguration 值更新為使用 WidevineLicenseAcquisitionUrl (其值為 7) 和指定授權傳遞服務的 URL。 您可以使用下列 AMS 合作夥伴來助您傳遞 Widevine 授權：[Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](https://ezdrm.com/)、[castLabs](https://castlabs.com/company/partners/azure/)。
 
-例如: 
+例如： 
 
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
 
@@ -421,6 +421,10 @@ MPEG DASH
         /// </summary>
         WidevineLicenseAcquisitionUrl
     }
+
+## <a name="additional-notes"></a>其他注意事項
+
+* Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

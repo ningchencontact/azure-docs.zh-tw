@@ -1,5 +1,5 @@
 ---
-title: 登入使用者（移至生產環境）的 Web 應用程式-Microsoft 身分識別平臺
+title: 將登入使用者的 web 應用程式移至生產環境-Microsoft 身分識別平臺 |Azure
 description: 瞭解如何建立可登入使用者（移至生產環境）的 web 應用程式
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efcc7ed4f80d0e3e9750d19ff95d010052a08b87
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c49782a6e1e86320b508875e2bf931cc1cc19b4e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481885"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964765"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>登入使用者的 Web 應用程式：移至生產環境
 
@@ -50,7 +50,7 @@ ms.locfileid: "74481885"
 - 多個組織
 - 公司或學校帳戶，或個人 Microsoft 帳戶
 - [Azure AD B2C](https://aka.ms/aadb2c)
-- 國家雲端
+- 國家/地區雲端
 
 ### <a name="sample-code-java-web-app"></a>範例程式碼： JAVA web 應用程式
 

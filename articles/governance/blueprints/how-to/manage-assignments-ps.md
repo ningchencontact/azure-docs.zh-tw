@@ -3,12 +3,12 @@ title: 如何使用 PowerShell 管理指派
 description: 瞭解如何使用官方 Azure 藍圖 PowerShell 模組 Az. 藍圖來管理藍圖指派。
 ms.date: 09/30/2019
 ms.topic: how-to
-ms.openlocfilehash: 5e91197cac97475aa20df8fef8649d98d762d920
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 765ed5e1849443d6ac73fe4507327e97e4fdc4c2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873177"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973640"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>如何使用 PowerShell 管理指派
 
@@ -246,6 +246,8 @@ ResourceGroups    : ResourceGroup
 $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -SubscriptionId '{subId}' `
     -AssignmentFile '.\assignment.json'
 ```
+
+如需使用者指派的受控識別之 JSON 指派定義檔的範例，請參閱要求主體，[例如：使用 REST API 的使用者指派受控識別進行指派](/rest/api/blueprints/assignments/createorupdate#assignment-with-user-assigned-managed-identity)。
 
 ## <a name="update-blueprint-assignments"></a>更新藍圖指派
 

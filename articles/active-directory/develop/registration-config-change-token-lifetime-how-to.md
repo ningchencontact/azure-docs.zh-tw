@@ -1,5 +1,5 @@
 ---
-title: 如何為自訂開發的應用程式變更權杖存留期預設值 | Microsoft Docs
+title: 變更自訂 Azure AD 應用程式的權杖存留期預設值 |Microsoft Docs
 description: 如何為針對 Azure AD 開發的應用程式更新權杖存留期原則
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dd69ff41c890c654fc41bb601b17d135ff0e984
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a603be6d57581541c0868b9f48a0bf9997cadd71
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320934"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962826"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>如何為自訂開發的應用程式變更權杖存留期預設值
 
@@ -36,4 +36,3 @@ ms.locfileid: "68320934"
 
 * 請參閱 [Azure AD 中可設定的權杖存留期](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) \(英文\)，以了解如何設定 Azure AD 所簽發的權杖存留期，包括如何為貴組織中的所有應用程式、多租用戶應用程式或貴組織中的特定服務主體設定權杖存留期。 
 * [Azure AD 權杖參考](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
-

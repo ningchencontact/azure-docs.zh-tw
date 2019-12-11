@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 同意架構
+title: Azure AD 同意架構
 titleSuffix: Microsoft identity platform
 description: 了解 Azure Active Directory 的同意架構，以及如何輕鬆地開發多租用戶的 Web 應用程式和原生用戶端應用程式。
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e850b58274a98fd18b84114552bbf7835a27417c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a04dc3c7946589d03c3fd07451ec643d9c088c1a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843371"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963744"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory 同意架構
 

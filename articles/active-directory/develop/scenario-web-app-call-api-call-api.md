@@ -1,5 +1,5 @@
 ---
-title: 呼叫 web Api 的 web 應用程式（呼叫 Web API）-Microsoft 身分識別平臺
+title: 從 web 應用程式呼叫 web api-Microsoft 身分識別平臺 |Azure
 description: 瞭解如何建立呼叫 web Api 的 Web 應用程式（呼叫 Web API）
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d971ec3c7cd82d6e028d0f96c8f52b897cedc351
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: de972c4efcfa544227649581d7c3441aae0bfb4f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175296"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964934"
 ---
 # <a name="web-app-that-calls-web-apis---call-a-web-api"></a>呼叫 web Api 的 web 應用程式-呼叫 Web API
 

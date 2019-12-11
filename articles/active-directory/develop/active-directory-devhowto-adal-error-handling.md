@@ -1,5 +1,5 @@
 ---
-title: Azure AD 驗證程式庫（ADAL）用戶端的錯誤處理最佳做法
+title: ADAL 用戶端應用程式錯誤處理最佳做法 |Azure
 description: 提供適用於 ADAL 用戶端應用程式的錯誤處理指引和最佳做法。
 services: active-directory
 author: rwike77
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/27/2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04ffeb85dc424396593d13f2cdc2681e26bd2db3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f4e0f434831f624dbd8c9c1302aab6816cd3d148
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845190"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966158"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory 驗證程式庫 (ADAL) 用戶端的錯誤處理最佳做法
 

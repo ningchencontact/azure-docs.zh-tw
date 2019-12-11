@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/03/2019
+ms.date: 12/08/2019
 ms.author: ryanwi
-ms.reviewer: paulgarn, hirsin
+ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 323415c18497f19b4c8f29a303b6ec59dfda1885
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: bcaf347eb91f8777b56bb2ea4d26985b2d75f645
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918265"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967188"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>如何：為您的 Azure AD 應用程式提供選擇性宣告
 
@@ -69,11 +69,11 @@ ms.locfileid: "74918265"
 | `xms_tpl`                  | 租用戶慣用語言| JWT | | 如果設定，則為資源租用戶的慣用語言。 格式化 LL (“en”)。 |
 | `ztdid`                    | 全自動部署識別碼 | JWT | | 裝置身分識別，用於 [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | 此使用者可定址的電子郵件 (如果使用者有的話)。  | JWT、SAML | MSA，Azure AD | 如果使用者是租用戶中的來賓，則預設會包含此值。  若為受管理的使用者 (在租用戶中)，則必須透過此選擇性宣告，或使用 OpenID 範圍 (僅限 v2.0) 要求此值。  若為受管理的使用者，電子郵件地址必須設定於 [Office 管理入口網站](https://portal.office.com/adminportal/home#/users)。| 
-| `groups`| 群組宣告的選擇性格式 |JWT、SAML| |與[應用程式資訊清單](reference-app-manifest.md)中的 GroupMembershipClaims 設定搭配使用，這也必須一併設定。 如需詳細資訊，請參閱下面的[群組宣告](#Configuring-group-optional claims)。 如需群組宣告的詳細資訊，請參閱[如何設定群組宣告](../hybrid/how-to-connect-fed-group-claims.md)
+| `groups`| 群組宣告的選擇性格式 |JWT、SAML| |與[應用程式資訊清單](reference-app-manifest.md)中的 GroupMembershipClaims 設定搭配使用，這也必須一併設定。 如需詳細資訊，請參閱下面的[群組宣告](#configuring-groups-optional-claims)。 如需群組宣告的詳細資訊，請參閱[如何設定群組宣告](../hybrid/how-to-connect-fed-group-claims.md)
 | `acct`             | 租用戶中的使用者帳戶狀態。 | JWT、SAML | | 如果使用者是租用戶的成員，則值為 `0`。 如果是來賓使用者，則值為 `1`。 |
 | `upn`                      | UserPrincipalName 宣告。 | JWT、SAML  |           | 雖然會自動包含此宣告，但在來賓使用者案例中，您可以將它指定為選擇性宣告來附加額外屬性，以修改其行為。  |
 
-### <a name="v20-optional-claims"></a>V2.0 選擇性宣告
+## <a name="v20-specific-optional-claims-set"></a>v2.0 特定的選擇性宣告集
 
 這些宣告一律包含在 v1.0 Azure AD 權杖中，但不包含在 v2.0 權杖中（除非有要求）。 這些宣告僅適用于 Jwt （識別碼權杖和存取權杖）。 
 
@@ -105,126 +105,166 @@ ms.locfileid: "74918265"
 
 #### <a name="additional-properties-example"></a>額外屬性範例
 
-```json
- "optionalClaims": 
-   {
-       "idToken": [ 
-             { 
-                "name": "upn", 
-            "essential": false,
-                "additionalProperties": [ "include_externally_authenticated_upn"]  
-              }
-        ]
-}
-```
+    ```json
+        "optionalClaims": 
+         {
+             "idToken": [ 
+            { 
+                      "name": "upn", 
+                      "essential": false,
+                  "additionalProperties": [ "include_externally_authenticated_upn"]  
+                    }
+                 ]
+        }
+    ```
 
 這個 OptionalClaims 物件會導致傳回給用戶端的識別碼權杖包含另一個 UPN，該 UPN 含有額外的主租用戶和資源租用戶資訊。 如果使用者是租用戶中的來賓 (使用不同的 IDP 進行驗證)，則這樣只會變更權杖中的 `upn` 宣告。 
 
 ## <a name="configuring-optional-claims"></a>設定選擇性宣告
 
-您可以藉由修改應用程式資訊清單，來為應用程式設定選擇性宣告 (請參閱以下範例)。 如需詳細資訊，請參閱[瞭解 Azure AD 應用程式資訊清單一文](reference-app-manifest.md)。
-
 > [!IMPORTANT]
 > 存取權杖**一律**會使用資源的資訊清單（而非用戶端）產生。  因此，在要求中 `...scope=https://graph.microsoft.com/user.read...` 資源是 Graph。  因此，會使用圖形資訊清單（而不是用戶端的資訊清單）來建立存取權杖。  變更應用程式的資訊清單永遠不會導致圖形的權杖看起來不同。  若要驗證您的 `accessToken` 變更是否有效，請為您的應用程式要求權杖，而不是另一個應用程式。  
 
-**範例結構描述：**
+您可以透過 UI 或應用程式資訊清單，為您的應用程式設定選擇性宣告。
 
-```json
-"optionalClaims":  
-   {
-      "idToken": [
-            {
-                  "name": "auth_time", 
-                  "essential": false
-             }
-      ],
-      "accessToken": [
-             {
-                    "name": "ipaddr", 
-                    "essential": false
-              }
-      ],
-      "saml2Token": [
-              {
-                    "name": "upn", 
-                    "essential": false
-               },
-               {
-                    "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
-                    "source": "user", 
-                    "essential": false
-               }
-       ]
-   }
-```
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 驗證後，在頁面右上角選取您的 Azure AD 租用戶。
+1. 從左側功能表中選取 [ **Azure Active Directory** ]。
+1. 從 [**管理**] 區段中，選取 [**應用程式註冊**]。
+1. 在清單中選取您想要為其設定選擇性宣告的應用程式。
 
-### <a name="optionalclaims-type"></a>OptionalClaims 類型
+**透過 UI 設定選擇性宣告：**
 
-宣告應用程式所要求的選擇性宣告。 應用程式可以針對它可從安全性權杖服務接收的三種權杖 (識別碼權杖、存取權杖、SAML 2 權杖)，設定要在這每一種權杖中傳回的選擇性宣告。 應用程式可以設定一組要在每個權杖類型中傳回的不同選擇性宣告。 「應用程式」實體的 OptionalClaims 屬性是一個 OptionalClaims 物件。
+[![說明如何使用 UI 來設定選擇性宣告](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
-**表5： OptionalClaims 類型屬性**
+1. 從 [**管理**] 區段中，選取 [**權杖設定（預覽）** ]。
+2. 選取 [**新增選擇性**宣告]。
+3. 選取您想要設定的權杖類型。
+4. 選取要新增的選擇性宣告。
+5. 按一下 [新增]。
 
-| Name        | Type                       | 描述                                           |
+**透過應用程式資訊清單設定選擇性宣告：**
+
+[![顯示如何使用應用程式資訊清單設定選擇性宣告](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
+
+1. 從 [**管理**] 區段中，選取 [**資訊清單**]。 隨即開啟以 web 為基礎的資訊清單編輯器，讓您編輯資訊清單。 或者，您也可以選取 [下載] 並在本機編輯資訊清單，然後使用 [上傳] 以將其重新套用到您的應用程式。 如需應用程式資訊清單的詳細資訊，請參閱[瞭解 Azure AD 應用程式資訊清單一文](reference-app-manifest.md)。
+
+    下列應用程式資訊清單專案會將 auth_time、ipaddr 和 upn 的選擇性宣告新增至識別碼、存取和 SAML 權杖。
+
+    ```json
+        "optionalClaims":  
+           {
+              "idToken": [
+                    {
+                          "name": "auth_time", 
+                          "essential": false
+                     }
+              ],
+              "accessToken": [
+                     {
+                            "name": "ipaddr", 
+                            "essential": false
+                      }
+              ],
+              "saml2Token": [
+                      {
+                            "name": "upn", 
+                            "essential": false
+                       },
+                       {
+                            "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
+                            "source": "user", 
+                            "essential": false
+                       }
+               ]
+           }
+       ```
+
+2. When finished, click **Save**. Now the specified optional claims will be included in the tokens for your application.    
+
+
+### OptionalClaims type
+
+Declares the optional claims requested by an application. An application can configure optional claims to be returned in each of three types of tokens (ID token, access token, SAML 2 token) it can receive from the security token service. The application can configure a different set of optional claims to be returned in each token type. The OptionalClaims property of the Application entity is an OptionalClaims object.
+
+**Table 5: OptionalClaims type properties**
+
+| Name        | Type                       | Description                                           |
 |-------------|----------------------------|-------------------------------------------------------|
-| `idToken`     | 集合 (OptionalClaim) | 在 JWT 識別碼權杖中傳回的選擇性宣告。 |
-| `accessToken` | 集合 (OptionalClaim) | 在 JWT 存取權杖中傳回的選擇性宣告。 |
-| `saml2Token`  | 集合 (OptionalClaim) | 在 SAML 權杖中傳回的選擇性宣告。   |
+| `idToken`     | Collection (OptionalClaim) | The optional claims returned in the JWT ID token. |
+| `accessToken` | Collection (OptionalClaim) | The optional claims returned in the JWT access token. |
+| `saml2Token`  | Collection (OptionalClaim) | The optional claims returned in the SAML token.   |
 
-### <a name="optionalclaim-type"></a>OptionalClaim 類型
+### OptionalClaim type
 
-包含與應用程式或服務主體關聯的選擇性宣告。 [OptionalClaims](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) 類型的 idToken、accessToken 及 saml2Token 屬性是 OptionalClaim 的集合。
-如果特定宣告可支援，您也可以使用 AdditionalProperties 欄位來修改 OptionalClaim 的行為。
+Contains an optional claim associated with an application or a service principal. The idToken, accessToken, and saml2Token properties of the [OptionalClaims](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) type is a collection of OptionalClaim.
+If supported by a specific claim, you can also modify the behavior of the OptionalClaim using the AdditionalProperties field.
 
-**表6： OptionalClaim 類型屬性**
+**Table 6: OptionalClaim type properties**
 
-| Name                 | Type                    | 描述                                                                                                                                                                                                                                                                                                   |
+| Name                 | Type                    | Description                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`                 | Edm.String              | 選擇性宣告的名稱。                                                                                                                                                                                                                                                                           |
-| `source`               | Edm.String              | 宣告的來源 (目錄物件)。 有來自延伸模組屬性的預先定義宣告和使用者定義宣告。 如果來源值為 null，宣告便是預先定義的選擇性宣告。 如果來源值為 user，名稱屬性中的值即為來自使用者物件的延伸模組屬性。 |
-| `essential`            | Edm.Boolean             | 如果值為 true，就必須要有用戶端指定的宣告，才能確保使用者所要求之特定工作的授權體驗順暢。 預設值為 False。                                                                                                             |
-| `additionalProperties` | 集合 (Edm.String) | 宣告的額外屬性。 如果屬性存在於此集合中，它就會修改名稱屬性中所指定之選擇性宣告的行為。                                                                                                                                               |
-## <a name="configuring-directory-extension-optional-claims"></a>設定目錄擴充功能的選擇性宣告
+| `name`                 | Edm.String              | The name of the optional claim.                                                                                                                                                                                                                                                                           |
+| `source`               | Edm.String              | The source (directory object) of the claim. There are predefined claims and user-defined claims from extension properties. If the source value is null, the claim is a predefined optional claim. If the source value is user, the value in the name property is the extension property from the user object. |
+| `essential`            | Edm.Boolean             | If the value is true, the claim specified by the client is necessary to ensure a smooth authorization experience for the specific task requested by the end user. The default value is false.                                                                                                             |
+| `additionalProperties` | Collection (Edm.String) | Additional properties of the claim. If a property exists in this collection, it modifies the behavior of the optional claim specified in the name property.                                                                                                                                               |
+## Configuring directory extension optional claims
 
-除了標準的選擇性宣告集之外，您也可以設定權杖以包含目錄架構延伸。 如需詳細資訊，請參閱[目錄架構延伸](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)。 此功能可用來附加應用程式可使用的額外使用者資訊 – 例如，使用者已設定的額外識別碼或重要設定選項。 
+In addition to the standard optional claims set, you can also configure tokens to include directory schema extensions. For more info, see [Directory schema extensions](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions). This feature is useful for attaching additional user information that your app can use – for example, an additional identifier or important configuration option that the user has set. See the bottom of this page for an example.
 
-> [!Note]
-> - 目錄架構延伸是一個僅限 Azure AD 的功能，因此如果您的應用程式資訊清單要求自訂延伸模組，而 MSA 使用者登入您的應用程式，則不會傳回這些延伸模組。
-> - Azure AD 選擇性宣告僅適用于 Azure AD 延伸模組，不適用於 Microsoft Graph 目錄延伸模組。 這兩個 Api 都需要「`Directory.ReadWriteAll`」許可權，這只能由系統管理員同意。
+> [!NOTE]
+> - Directory schema extensions are an Azure AD-only feature, so if your application manifest requests a custom extension and an MSA user logs into your app, these extensions will not be returned.
+> - Azure AD optional claims only work with Azure AD Graph extensions and do not work with Microsoft Graph directory extensions. Both APIs require the `Directory.ReadWriteAll` permission, which can only be consented by admins.
 
-### <a name="directory-extension-formatting"></a>目錄擴充功能格式
+### Directory extension formatting
 
-針對延伸模組屬性，請在應用程式資訊清單中使用延伸模組的全名 (格式為：`extension_<appid>_<attributename>`)。 `<appid>` 必須符合要求宣告之應用程式的識別碼。 
+When configuring directory extension optional claims using the application manifest, use the full name of the extension (in the format: `extension_<appid>_<attributename>`). The `<appid>` must match the ID of the application requesting the claim. 
 
-在 JWT 內，這些宣告將會以下列名稱格式發出：`extn.<attributename>`。
+Within the JWT, these claims will be emitted with the following name format:  `extn.<attributename>`.
 
-在 SAML 權杖內，這些宣告則會以下列 URI 格式發出：`http://schemas.microsoft.com/identity/claims/extn.<attributename>`
+Within the SAML tokens, these claims will be emitted with the following URI format: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
 
-## <a name="configuring-group-optional-claims"></a>設定群組選擇性宣告
+## Configuring groups optional claims
 
    > [!NOTE]
-   > 針對從內部部署同步處理的使用者和群組發出組名的功能是公開預覽。
+   > The ability to emit group names for users and groups synced from on-premises is Public Preview.
 
-本節涵蓋 [選擇性宣告] 底下的設定選項，用於將群組宣告中所使用的群組屬性從預設群組 objectID 變更為從內部部署 Windows Active Directory 同步處理的屬性。
+This section covers the configuration options under optional claims for changing the group attributes used in group claims from the default group objectID to attributes synced from on-premises Windows Active Directory. You can configure groups optional claims for your application through the UI or application manifest.
 
 > [!IMPORTANT]
-> 如需詳細資訊，請參閱[使用 Azure AD 設定應用程式的群組宣告](../hybrid/how-to-connect-fed-group-claims.md)，包括從內部部署屬性對群組宣告公開預覽的重要注意事項。
+> See [Configure group claims for applications with Azure AD](../hybrid/how-to-connect-fed-group-claims.md) for more details including important caveats for the public preview of group claims from on-premises attributes.
 
-1. 在入口網站中 > Azure Active Directory-> 應用程式註冊-> 選取 [應用程式-> 資訊清單]
+**Configuring groups optional claims through the UI:**
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. After you've authenticated, choose your Azure AD tenant by selecting it from the top right corner of the page
+1. Select **Azure Active Directory** from the left hand menu
+1. Under the **Manage** section, select **App registrations**
+1. Select the application you want to configure optional claims for in the list
+1. Under the **Manage** section, select **Token configuration (preview)**
+2. Select **Add groups claim**
+3. Select the group types to return (**All Groups**, **SecurityGroup** or **DirectoryRole**). The **All Groups** option includes **SecurityGroup**, **DirectoryRole** and **DistributionList**
+4. Optional: click on the specific token type properties to modify the groups claim value to contain on premises group attributes or to change the claim type to a role
+5. Click **Save**
 
-2. 藉由變更 groupMembershipClaim 來啟用群組成員資格宣告
+**Configuring groups optional claims through the application manifest:**
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. After you've authenticated, choose your Azure AD tenant by selecting it from the top right corner of the page
+1. Select **Azure Active Directory** from the left hand menu
+1. Select the application you want to configure optional claims for in the list
+1. Under the **Manage** section, select **Manifest**
+3. Add the following entry using the manifest editor:
 
-   有效的值為：
+   The valid values are:
 
-   - "All"
-   - SecurityGroup
-   - DistributionList
-   - DirectoryRole
+   - "All" (this option includes SecurityGroup, DirectoryRole and DistributionList)
+   - "SecurityGroup"
+   - "DirectoryRole"
 
-   例如：
+   For example:
 
-   ```json
-   "groupMembershipClaims": "SecurityGroup"
-   ```
+    ```json
+        "groupMembershipClaims": "SecurityGroup"
+    ```
 
    根據預設，會在群組宣告值中發出群組 Objectid。  若要將宣告值修改為包含內部部署群組屬性，或將宣告類型變更為角色，請使用 OptionalClaims 設定，如下所示：
 
@@ -241,14 +281,14 @@ ms.locfileid: "74918265"
 
    針對每個相關的權杖類型，修改群組宣告以使用資訊清單中的 OptionalClaims 區段。 OptionalClaims 架構如下所示：
 
-   ```json
-   {
-   "name": "groups",
-   "source": null,
-   "essential": false,
-   "additionalProperties": []
-   }
-   ```
+    ```json
+       {
+       "name": "groups",
+       "source": null,
+       "essential": false,
+       "additionalProperties": []
+       }
+    ```
 
    | 選擇性宣告架構 | Value |
    |----------|-------------|
@@ -264,84 +304,124 @@ ms.locfileid: "74918265"
    > [!NOTE]
    > 如果使用「emit_as_roles」，則設定為使用者指派的任何應用程式角色都不會出現在角色宣告中。
 
-**範例：** 以 dnsDomainName\sAMAccountName 格式在 OAuth 存取權杖中以組名的形式發出群組
+**範例：**
 
-```json
-"optionalClaims": {
-    "accessToken": [{
-        "name": "groups",
-        "additionalProperties": ["dns_domain_and_sam_account_name"]
-    }]
-}
- ```
+1) 以 dnsDomainName\sAMAccountName 格式在 OAuth 存取權杖中以組名的形式發出群組
 
-若要以 netbiosDomain\sAMAccountName 格式發出要傳回的組名作為 SAML 和 OIDC 識別碼權杖中的角色宣告：
+    
+    **UI 設定：**
 
-```json
-"optionalClaims": {
-    "saml2Token": [{
-        "name": "groups",
-        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
-    }],
+    [![說明如何使用 UI 來設定選擇性宣告](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
 
-    "idToken": [{
-        "name": "groups",
-        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
-    }]
- }
 
- ```
+    **應用程式資訊清單專案：**
+    ```json
+        "optionalClaims": {
+            "accessToken": [{
+            "name": "groups",
+            "additionalProperties": ["dns_domain_and_sam_account_name"]
+            }]
+        }
+    ```
+
+ 
+    
+2) 發出要以 netbiosDomain\sAMAccountName 格式傳回的組名，做為 SAML 和 OIDC 識別碼權杖中的角色宣告
+
+    **UI 設定：**
+
+    [![說明如何使用 UI 來設定選擇性宣告](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
+
+    **應用程式資訊清單專案：**
+    
+    ```json
+        "optionalClaims": {
+        "saml2Token": [{
+            "name": "groups",
+            "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+        }],
+        "idToken": [{
+            "name": "groups",
+            "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+        }]
+    ``` 
+     
 
 ## <a name="optional-claims-example"></a>選擇性宣告範例
 
 在本節中，您可以逐步進行案例，以了解如何針對應用程式使用選擇性宣告功能。
 有多個選項可用來更新應用程式身分識別設定上的屬性，以啟用和設定選擇性宣告：
--   您可以修改應用程式資訊清單。 下列範例會使用這個方法來執行設定。 請先閱讀介紹資訊清單的[了解 Azure AD 應用程式資訊清單](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)文件。
+-    您可以使用**權杖設定（預覽）** UI （請參閱下列範例）
+-    您可以使用**資訊清單**（請參閱下列範例）。 請先閱讀介紹資訊清單的[了解 Azure AD 應用程式資訊清單](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)文件。
 -   您也可以撰寫使用[圖形 API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api)來更新您應用程式的應用程式。 「圖形 API」參考指南中的[實體和複雜類型參考](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) \(英文\) 可協助您設定選擇性宣告。
 
-**範例：** 在以下範例中，您將修改應用程式的資訊清單，以將宣告新增至要用於應用程式的存取權杖、識別碼權杖及 SAML 權杖中。
+**範例：** 在下列範例中，您將使用**權杖設定（預覽）** UI 和**資訊清單**，將選擇性宣告新增至適用于您應用程式的存取、識別碼和 SAML 權杖。 應用程式可以接收的每一種權杖類型都會新增不同的選擇性宣告：
+-    識別碼權杖現在將會在完整格式 (`<upn>_<homedomain>#EXT#@<resourcedomain>`) 中包含同盟使用者的 UPN。
+-    其他用戶端為此應用程式要求的存取權杖現在將包含 auth_time 宣告
+-    SAML 權杖現在將會包含 skypeId 目錄結構描述延伸模組 (在此範例中，此應用程式的應用程式識別碼是 ab603c56068041afb2f6832e2a17e237)。 SAML 權杖會將 Skype 識別碼公開為 `extension_skypeId`。
 
+**UI 設定：**
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)
+
+1. 驗證後，在頁面右上角選取您的 Azure AD 租用戶。
+
+1. 從左側功能表中選取 [ **Azure Active Directory** ]。
+
+1. 在 [**管理**] 區段下，選取 [**應用程式註冊**]。
+
+1. 從清單中找出您要為其設定選擇性宣告的應用程式，然後按一下該應用程式。
+
+1. 在 [**管理**] 區段下，按一下 [**權杖設定（預覽）** ]。
+
+1. 選取 [**新增選擇性**宣告]，選取 [**識別碼**權杖類型]，從宣告清單中選取 [ **upn** ]，然後按一下 [**新增**]。
+
+1. 選取 **新增選擇性**宣告，選取 **存取**權杖類型，從宣告清單中選取  **Auth_time** ，然後按一下 **新增**。
+
+1. 從 [權杖設定總覽] 畫面中，按一下 [ **upn**] 旁的鉛筆圖示，按一下 [**外部驗證**] 切換，然後按一下 [**儲存**]。
+
+1. 選取 [**新增選擇性**宣告]，選取 [ **SAML**權杖類型]，從宣告清單中選取 [ **extn skypeID** ] （僅適用于您已建立名為 skypeID 的 Azure AD 使用者物件），然後按一下 [**新增**]。
+
+    [![說明如何使用 UI 來設定選擇性宣告](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
+
+**資訊清單設定：**
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 驗證後，在頁面右上角選取您的 Azure AD 租用戶。
-1. 從左側選取 [應用程式註冊]。
+1. 從左側功能表中選取 [ **Azure Active Directory** ]。
 1. 從清單中找出您要為其設定選擇性宣告的應用程式，然後按一下該應用程式。
-1. 按一下應用程式頁面中的 [資訊清單]，以開啟內嵌資訊清單編輯器。 
-1. 您可以使用此編輯器直接編輯資訊清單。 資訊清單會依循[應用程式實體](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)的結構描述，並在儲存後會自動設定資訊清單的格式。 新元素會新增至 `OptionalClaims` 屬性。
+1. 在 [**管理**] 區段下，按一下 [**資訊清單**] 以開啟內嵌資訊清單編輯器。
+1. 您可以使用此編輯器直接編輯資訊清單。 資訊清單會遵循 [應用程式實體] 的架構。（ https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) ，並在儲存資訊清單之後自動將其格式化。 新元素會新增至 `OptionalClaims` 屬性。
 
     ```json
-      "optionalClaims": 
-      {
-            "idToken": [ 
-                  { 
+            "optionalClaims": {
+                "idToken": [ 
+                     { 
                         "name": "upn", 
                         "essential": false, 
                         "additionalProperties": [ "include_externally_authenticated_upn"]  
-                  }
-            ],
-            "accessToken": [ 
-                  {
+                     }
+                     ],
+                "accessToken": [ 
+                      {
                         "name": "auth_time", 
                         "essential": false
-                  }
-            ],
+                      }
+                     ],
             "saml2Token": [ 
                   { 
-                        "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
-                        "source": "user", 
-                        "essential": true
+                    "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
+                    "source": "user", 
+                    "essential": true
                   }
-            ]
-      }
+                 ]
+        ``` 
 
-    ```
 
-    在此案例中，已將不同的選擇性宣告新增至應用程式可接收的每一種權杖。 識別碼權杖現在將會在完整格式 (`<upn>_<homedomain>#EXT#@<resourcedomain>`) 中包含同盟使用者的 UPN。 其他用戶端為這個應用程式要求的存取權杖，現在將包含 auth_time 宣告。 SAML 權杖現在將會包含 skypeId 目錄結構描述延伸模組 (在此範例中，此應用程式的應用程式識別碼是 ab603c56068041afb2f6832e2a17e237)。 SAML 權杖會將 Skype 識別碼公開為 `extension_skypeId`。
+1. When you're finished updating the manifest, click **Save** to save the manifest.
 
-1. 完成資訊清單更新時，按一下 [儲存] 以儲存資訊清單
+## Next steps
 
-## <a name="next-steps"></a>後續步驟
+Learn more about the standard claims provided by Azure AD.
 
-深入了解 Azure AD 所提供的標準宣告。
-
-- [識別碼權杖](id-tokens.md)
-- [存取權杖](access-tokens.md)
+- [ID tokens](id-tokens.md)
+- [Access tokens](access-tokens.md)

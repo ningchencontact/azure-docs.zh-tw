@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 建立 Azure 應用程式的身分識別
+title: 使用 PowerShell 建立 Azure 應用程式身分識別 |Azure
 titleSuffix: Microsoft identity platform
 description: 描述如何使用 Azure PowerShell 建立 Azure Active Directory 應用程式和服務主體，並透過角色型存取控制將存取權授與資源。 它示範如何使用憑證來驗證應用程式。
 services: active-directory
@@ -15,12 +15,12 @@ ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2456d52a3863b362943547d8a0c0e478dbc572cf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b1a6732789ccaf1f5f33ce09592cfa06727908e1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917875"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963727"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>操作說明：使用 Azure PowerShell 建立具有憑證的服務主體
 

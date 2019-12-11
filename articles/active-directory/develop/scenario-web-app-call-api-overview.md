@@ -1,6 +1,6 @@
 ---
-title: 呼叫 web Api （概觀）-Microsoft 身分識別平台的 web 應用程式
-description: 了解如何建置 web 應用程式呼叫 web Api （概觀）
+title: 建立呼叫 web Api 的 web 應用程式-Microsoft 身分識別平臺 |Azure
+description: 瞭解如何建立呼叫 web Api 的 web 應用程式（總覽）
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,48 +15,48 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce45f11a697b72ebdd0fe01166a70e7b47aa8e9f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3888c7f838d6009382f849bc7d3e34c49b3b70a4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65076296"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962129"
 ---
-# <a name="scenario-web-app-that-calls-web-apis"></a>案例：呼叫 Web API 的 Web 應用程式
+# <a name="scenario-web-app-that-calls-web-apis"></a>案例：呼叫 web Api 的 Web 應用程式
 
-了解如何在 Microsoft 身分識別平台上建置的 web 應用程式登入的使用者，以及呼叫 web Api，代表已登入的使用者。
+瞭解如何建立 web 應用程式，以在 Microsoft 身分識別平臺上登入使用者，然後代表已登入的使用者呼叫 web Api。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-此案例會假設您已看過下列案例：
+此案例 supposes 您已經歷過下列案例：
 
 > [!div class="nextstepaction"]
-> [Web 應用程式登入使用者](scenario-web-app-sign-user-overview.md)
+> [登入使用者的 Web 應用程式](scenario-web-app-sign-user-overview.md)
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
-您可以將驗證加入您的 Web 應用程式，因此可以在使用者登入，並呼叫 web API 代表登入的使用者。
+您會將驗證新增至您的 Web 應用程式，如此可讓使用者登入，並代表登入的使用者呼叫 Web API。
 
 ![呼叫 Web API 的 Web 應用程式](./media/scenario-webapp/web-app.svg)
 
-Web 應用程式呼叫 web Api:
+呼叫 web Api 的 Web Apps：
 
 - 是機密用戶端應用程式。
-- 這就是為什麼它們已向 Azure AD 中的祕密 （應用程式密碼或憑證）。 此密碼是傳入的期間呼叫 Azure AD 取得權杖
+- 這就是他們使用 Azure AD 來註冊密碼（應用程式密碼或憑證）的原因。 此密碼會在呼叫 Azure AD 時傳入，以取得權杖
 
-## <a name="specifics"></a>詳細資料
+## <a name="specifics"></a>瞭解
 
 > [!NOTE]
-> 登入新增至 Web 應用程式不會不會使用 MSAL 程式庫，因為這是有關保護 Web 應用程式。 保護程式庫是由名為中介軟體程式庫來達成。 這是前一個案例中的物件[的 Web 應用程式的登入的使用者](scenario-web-app-sign-user-overview.md)
+> 將登入新增至 Web 應用程式並不會使用 MSAL 程式庫，因為這是關於保護 Web 應用程式。 保護程式庫的方式是透過名為中介軟體的程式庫來達成。 這是先前案例登[入 Web 應用程式之使用者](scenario-web-app-sign-user-overview.md)的物件
 >
-> 當從 Web 應用程式呼叫 web Api，您必須針對這些 web Api 取得存取權杖。 您可以使用 MSAL 程式庫，以取得這些語彙基元。
+> 從 Web 應用程式呼叫 web Api 時，您將需要取得這些 web Api 的存取權杖。 您可以使用 MSAL 程式庫來取得這些權杖。
 
-開發人員針對此案例的端對端體驗因此，已為特定層面：
+在此案例中，開發人員的端對端體驗具有下列各方面的特定層面：
 
-- 期間[應用程式註冊](scenario-web-app-call-api-app-registration.md)，您將需要提供一個或數個 （如果您會將您的應用程式部署到數個位置中） 回覆祕密的 Uri，或憑證必須與 Azure AD 共用。
-- [應用程式組態](scenario-web-app-call-api-app-configuration.md)必須與 Azure AD 應用程式註冊期間提供與共用的用戶端認證
+- 在[應用程式註冊](scenario-web-app-call-api-app-registration.md)期間，您必須提供一或多個（如果您將應用程式部署至數個位置）回復 uri、密碼或憑證需要與 Azure AD 共用。
+- [應用程式](scenario-web-app-call-api-app-configuration.md)設定必須提供用戶端認證，以便在應用程式註冊期間與 Azure AD 共用
 
 ## <a name="next-steps"></a>後續步驟
 

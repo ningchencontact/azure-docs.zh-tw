@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2d6a24184cf02c88ede5a83ed47ae686ee670773
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: c90dc7877bced8a4ceececc04b8e3d1ebdcbfe44
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69014950"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968624"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>使用 PlayReady 和/或 Widevine 動態一般加密
 
 > [!NOTE]
-> 若要完成此教學課程，您需要 Azure 帳戶。 如需詳細資訊，請參閱 < [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。   > 不會在媒體服務 v2 中新增任何新功能或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 另請參閱[從 v2 到 v3 的遷移指引](../latest/migrate-from-v2-to-v3.md)
+> 若要完成此教學課程，您需要 Azure 帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。   > 不會在媒體服務 v2 中新增任何新功能或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 另請參閱[從 v2 到 v3 的遷移指引](../latest/migrate-from-v2-to-v3.md)
 >   
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
  您可以使用媒體服務來傳遞受到 [PlayReady 數位版權管理 (DRM)](https://www.microsoft.com/playready/overview/) 保護的 MPEG-DASH、Smooth Streaming 和 HTTP 即時串流 (HLS) 串流。 您也可傳遞包含 Widevine DRM 授權的加密 DASH 資料流。 PlayReady 和 Widevine 是依照一般加密 (ISO/IEC 23001-7 CENC) 規格加密。 您可以使用[媒體服務 .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (從 3.5.1 版開始) 或 REST API 設定 AssetDeliveryConfiguration，以使用 Widevine。
 
@@ -605,6 +605,10 @@ namespace DynamicEncryptionWithDRM
 }
 ```
 
+## <a name="additional-notes"></a>其他注意事項
+
+* Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
+
 ## <a name="next-steps"></a>後續步驟
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -612,7 +616,7 @@ namespace DynamicEncryptionWithDRM
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [使用具有多重 DRM 及存取控制的 CENC](media-services-cenc-with-multidrm-access-control.md)
 * [使用媒體服務設定 Widevine 套件](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)

@@ -1,5 +1,5 @@
 ---
-title: Azure AD 中的憑證認證
+title: Azure AD 憑證認證
 titleSuffix: Microsoft identity platform
 description: 本文討論如何註冊和使用憑證認證來進行應用程式驗證
 services: active-directory
@@ -15,20 +15,21 @@ ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b0dd42aeaa8a7a5d9f1cc28b409a8d8dbf92304
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d37b390e39d2b991ea01468feffbe39c9578af54
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845360"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963863"
 ---
-# <a name="certificate-credentials-for-application-authentication"></a>適用於應用程式驗證的憑證認證
+# <a name="azure-ad-application-authentication-certificate-credentials"></a>Azure AD 應用程式驗證憑證認證
 
 Azure Active Directory (Azure AD) 可讓應用程式使用自己的認證進行驗證，例如，在 OAuth 2.0 用戶端認證授與流程 ([v1.0](v1-oauth2-client-creds-grant-flow.md)、[v2.0](v2-oauth2-client-creds-grant-flow.md)) 和代理者流程 ([v1.0](v1-oauth2-on-behalf-of-flow.md)、[v2.0](v2-oauth2-on-behalf-of-flow.md)) 中。
 
 應用程式可用於驗證的認證形式之一，是以應用程式擁有的憑證簽署的 JSON Web 權杖 (JWT) 判斷提示。
 
 ## <a name="assertion-format"></a>判斷提示格式
+
 若要計算判斷提示，您可以使用本身所選語言中的眾多 [JSON Web 權杖](https://jwt.ms/)程式庫之一。 權杖所承載的資訊如下︰
 
 ### <a name="header"></a>標頭

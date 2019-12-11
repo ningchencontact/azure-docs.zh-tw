@@ -1,5 +1,5 @@
 ---
-title: 呼叫 web Api 的桌面應用程式（應用程式註冊）-Microsoft 身分識別平臺
+title: 註冊會呼叫 web Api 的桌面應用程式-Microsoft 身分識別平臺 |Azure
 description: 瞭解如何建立呼叫 web Api 的傳統型應用程式（應用程式註冊）
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,16 +17,16 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 648652ed32a5dea30de665b7fa49190171a7f10a
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 94f7f2dfdbf404a092773857a0f7727618cd429a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268398"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965529"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>呼叫 web Api 的桌面應用程式-應用程式註冊
 
-本文包含傳統型應用程式的 [應用程式註冊] specificities。
+本文涵蓋桌面應用程式的應用程式註冊細節。
 
 ## <a name="supported-accounts-types"></a>支援的帳戶類型
 
@@ -46,14 +46,14 @@ ms.locfileid: "71268398"
 
 桌面應用程式中所使用的重新導向 Uri 將取決於您想要使用的流程。
 
-- 如果您使用的是**互動式驗證**或**裝置程式碼流程**，您會想要`https://login.microsoftonline.com/common/oauth2/nativeclient`使用。 在應用程式的 [**驗證**] 區段中按一下對應的 URL，即可達到此設定。
+- 如果您使用的是**互動式驗證**或**裝置程式碼流程**，您會想要使用 `https://login.microsoftonline.com/common/oauth2/nativeclient`。 在應用程式的 [**驗證**] 區段中按一下對應的 URL，即可達到此設定。
   
   > [!IMPORTANT]
-  > 今日 MSAL.NET 預設會在 Windows 上執行的桌面應用程式中，使用`urn:ietf:wg:oauth:2.0:oob`另一個重新導向 URI （）。 在未來，我們會想要變更此預設值，因此建議您使用`https://login.microsoftonline.com/common/oauth2/nativeclient`
+  > 今日 MSAL.NET 預設會在 Windows 上執行的桌面應用程式（`urn:ietf:wg:oauth:2.0:oob`）中，使用另一個重新導向 URI。 在未來，我們會想要變更此預設值，因此建議您使用 `https://login.microsoftonline.com/common/oauth2/nativeclient`
 
-- 如果您要為 macOS 建立原生的目標 C 或 Swift 應用程式，您會想要根據應用程式的套件組合識別碼，以下列格式註冊 redirectUri： **msauth。 < 您的 app.config。 id >：//auth** （replace <應用程式套件組合識別碼 > 識別碼）
+- 如果您要為 macOS 建立原生的目標 C 或 Swift 應用程式，您會想要根據應用程式的套件組合識別碼，以下列格式註冊 redirectUri： **msauth。 < 您的 app.config。 id >：//auth** （以您應用程式的套件組合識別碼 > 取代 < 您的 app.config。
 - 如果您的應用程式只使用整合式 Windows 驗證或使用者名稱/密碼，您就不需要為應用程式註冊重新導向 URI。 這些流程會執行 Microsoft 身分識別平臺 v2.0 端點的來回行程，而您的應用程式將不會在任何特定的 URI 上被回呼。
-- 若要區分裝置程式碼流程、整合式 Windows 驗證和使用者名稱/密碼，來自不具重新導向 Uri 的機密用戶端應用程式流程（用於 daemon 應用程式的用戶端認證流程），您需要表達應用程式是公用用戶端應用程式。 若要達到此設定，請移至應用程式的 [**驗證**] 區段。 然後，在 [**高級設定**] 子區段的 [**預設用戶端類型**] 段落中，針對 [將**應用程式視為公用用戶端**] 問題選擇 [**是]** 。
+- 若要區別裝置程式碼流程、整合式 Windows 驗證，以及不具重新導向 Uri 的機密用戶端應用程式流程中的使用者名稱/密碼（用於 daemon 應用程式中的用戶端認證流程），您需要表達應用程式是公用用戶端應用程式。 若要達到此設定，請移至應用程式的 [**驗證**] 區段。 然後，在 [**高級設定**] 子區段的 [**預設用戶端類型**] 段落中，針對 [將**應用程式視為公用用戶端**] 問題選擇 [**是]** 。
 
   ![允許公用用戶端](media/scenarios/default-client-type.png)
 
