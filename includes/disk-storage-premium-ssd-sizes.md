@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 52dbf03c7d4c2c2de565d6793fc867cf5b886db3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: c88cba57ed987074c0dde3c8b251f54393667740
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "73987393"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "75002647"
 ---
 | 進階 SSD 的大小 | P1* | P2* | P3* | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 |
 |-------------------|----|----|----|----|----|-----|-----|-----|-----|-----|-----|------|------|------|
@@ -26,4 +26,4 @@ ms.locfileid: "73987393"
 
 \*表示目前處於預覽中的磁碟大小，如需區域可用性的資訊，請參閱[新磁碟大小：受控和非受控](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks#new-disk-sizes-managed-and-unmanaged)。
 
-\**表示目前處於預覽狀態的功能，如需詳細資訊，請參閱[磁碟高載](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting#regional-availability)。
+\*\**表示目前處於預覽狀態的功能，如需詳細資訊，請參閱[磁碟高載](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting#regional-availability)。

@@ -65,6 +65,7 @@ sections:
           - html: <a href="/azure/aks/tutorial-kubernetes-scale">調整應用程式和 Kubernetes 基礎結構</a>
           - html: <a href="/azure/aks/tutorial-kubernetes-app-update">更新在 Kubernetes 中執行的應用程式</a>
           - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">升級 AKS 叢集</a>
+          - html: <a href="/azure/architecture/reference-architectures/microservices/aks">了解和實作微服務參考架構</a>
   - title: 透過 Microsoft Learn 增進您的技巧
     items:
       - type: list

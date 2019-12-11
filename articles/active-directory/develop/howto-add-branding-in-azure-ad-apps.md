@@ -1,5 +1,5 @@
 ---
-title: 應用程式的商標指導方針
+title: Azure AD 應用程式商標指導方針
 titleSuffix: Microsoft identity platform
 description: Azure Active Directory 開發人員導向資源的完整指南
 services: active-directory
@@ -15,12 +15,12 @@ ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5b247bde8e1d3dbf73dcd1ff1d3f8b3ca3d3f16
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1ad786429eb23b51cc2da5da5d8af11d19985c9a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842980"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967280"
 ---
 # <a name="branding-guidelines-for-applications"></a>應用程式的商標指導方針
 

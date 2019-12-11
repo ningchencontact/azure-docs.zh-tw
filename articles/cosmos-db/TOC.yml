@@ -972,6 +972,8 @@
           href: access-secrets-from-keyvault.md
         - name: 使用 Azure AD 的憑證式驗證
           href: certificate-based-authentication.md
+        - name: 限制使用者只能存取資料作業
+          href: how-to-restrict-user-data.md
     - name: 企業整備
       items:
         - name: 從備份還原資料

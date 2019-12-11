@@ -82,7 +82,11 @@
         - name: 安全性概觀
           href: overview-security.md
     - name: 網路功能
-      href: networking-features.md
+      items:
+        - name: 概觀
+          href: networking-features.md
+        - name: 具有服務端點的應用程式閘道
+          href: networking/app-gateway-with-service-endpoints.md
     - name: 輸入和輸出 IP
       href: overview-inbound-outbound-ips.md
     - name: 虛擬網路整合
