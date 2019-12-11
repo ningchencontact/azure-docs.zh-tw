@@ -16,18 +16,18 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 570699fe83197a1b5442909d8b89e285a1dfa73b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 268775d125e783b0c640e565c5f63e416cb197fd
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275425"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996947"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>頁面上的連結對 Application Proxy 應用程式沒有作用
 
 這篇文章可協助您為 Azure Active Directory Application Proxy 應用程式上的連結無法正常運作疑難排解。
 
-## <a name="overview"></a>Overview 
+## <a name="overview"></a>概觀 
 發佈 Application Proxy 應用程式後，只有預設在該應用程式中運作的連結才是已發佈根目錄 URL 內所包含目的地的連結。 該應用程式內的連結未運作，應用程式的內部 URL 或許未包含應用程式內連結的所有目的地。
 
 **為何這有關係？** 當按一下應用程式中的連結時，Application Proxy 會嘗試將 URL 解析為相同應用程式內的內部 URL，或解析為外部可用的 URL。 如果連結指向的內部 URL 不在相同應用程式內，則該連結不屬於這些貯體，並會造成此找不到錯誤。
@@ -38,7 +38,11 @@ ms.locfileid: "74275425"
 
 1.  請確定內部 URL 是包含該應用程式所有相關連結的根目錄。 這可讓所有的連結解析為在相同應用程式內發佈的內容。
 
-    如果您變更內部 URL，但不想要變更使用者的登陸頁面，請將首頁 URL 變更為先前發佈的內部 URL。 這可透過執行 [Azure Active Directory] -&gt; [應用程式登錄] -&gt; 選取該應用程式 -&gt; [屬性] 完成。 在此屬性索引標籤中會看到 [首頁 URL] 欄位，您可將此欄位調整至所需的登陸頁面。
+    如果您變更內部 URL，但不想要變更使用者的登陸頁面，請將首頁 URL 變更為先前發佈的內部 URL。 若要完成這項作業，請前往「Azure Active Directory」-&gt; 應用程式註冊-&gt; 選取應用程式&gt; 商標。 在 [商標] 區段中，您會看到 [首頁 URL] 欄位，您可以將其調整為所需的登陸頁面。 如果您仍在使用舊版應用程式註冊體驗，[屬性] 索引標籤會顯示 [首頁 URL] 詳細資料。 
+    
+    > [!IMPORTANT]
+    > 為了進行上述變更，您需要在 Azure AD 中修改應用程式物件的許可權。使用者必須被指派「[應用程式系統管理員](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/roles-delegate-app-roles#assign-built-in-application-admin-roles)」角色，以將 Azure AD 中的應用程式 modificaion 許可權授與使用者。 
+    >
 
 2.  如果您的應用程式使用完整的網域名稱 (FQDN)，請使用[自訂網域](application-proxy-configure-custom-domain.md)發佈您的應用程式。 這項功能可讓內部與外部使用相同的 URL。
 

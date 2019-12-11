@@ -1,17 +1,17 @@
 ---
-title: 在適用於 PostgreSQL 的 Azure 資料庫中建立使用者超大規模資料庫（Citus）
+title: 建立使用者-超大規模資料庫（Citus）-適用於 PostgreSQL 的 Azure 資料庫
 description: 本文說明如何建立新的使用者帳戶，以便與適用於 PostgreSQL 的 Azure 資料庫超大規模資料庫（Citus）互動。
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7187135b29f0a9a790c032330c73bcb1ae27229b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d093d4c23fcc44e7e9f3461f875607926f4b612d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515937"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977568"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>在適用於 PostgreSQL 的 Azure 資料庫中建立使用者超大規模資料庫（Citus）
 
@@ -26,15 +26,13 @@ ms.locfileid: "73515937"
 * *postgres*
 * *citus*
 
-您的伺服器管理員使用者*citus*是*azure_pg_admin*角色的成員。
-不過，它不是*postgres* （超級使用者）角色的一部分。  由於超大規模資料庫是受控 PaaS 服務，因此只有 Microsoft 屬於超級使用者角色的一部分。
-
 PostgreSQL 引擎會使用權限來控制資料庫物件的存取，如 [PostgreSQL 產品文件](https://www.postgresql.org/docs/current/static/sql-createrole.html)中所述。
-在適用於 PostgreSQL 的 Azure 資料庫中，伺服器管理使用者會獲得這些權限：LOGIN、NOSUPERUSER、INHERIT、CREATEDB、CREATEROLE、NOREPLICATION
+您的伺服器管理員使用者*citus*是*azure_pg_admin*角色的成員。
+不過，它不是*postgres* （超級使用者）角色的一部分。  由於超大規模資料庫是受控 PaaS 服務，因此只有 Microsoft 屬於超級使用者角色的一部分。 *Citus*使用者具有有限的許可權，因此無法建立新的資料庫。
 
 ## <a name="how-to-create-additional-users"></a>如何建立其他使用者
 
-*Citus*管理帳戶缺少建立其他使用者的許可權。 若要新增使用者，請改用 Azure 入口網站。
+*Citus*管理帳戶缺少建立其他使用者的許可權。 若要新增使用者，請使用 Azure 入口網站介面。
 
 1. 移至超大規模資料庫伺服器群組的 [**角色**] 頁面，然後按一下 [ **+ 新增**]：
 
@@ -84,4 +82,4 @@ SELECT run_command_on_workers(
 
 * [資料庫角色和許可權](https://www.postgresql.org/docs/current/static/user-manag.html)
 * [GRANT 語法](https://www.postgresql.org/docs/current/static/sql-grant.html)
-* [權](https://www.postgresql.org/docs/current/static/ddl-priv.html)
+* [權限](https://www.postgresql.org/docs/current/static/ddl-priv.html)

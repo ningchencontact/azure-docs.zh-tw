@@ -4,12 +4,12 @@ description: 使用 Azure 入口網站建立和管理 Azure 區塊鏈服務的�
 ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
-ms.openlocfilehash: 9c682f449fbab823134d626870c7dcfe8a8f2847
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455822"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977009"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>使用 Azure 入口網站設定區塊鏈資料管理員
 
@@ -20,7 +20,7 @@ ms.locfileid: "74455822"
 * 建立 Azure 區塊鏈 Service 交易節點的區塊鏈資料管理員實例
 * 新增您的區塊鏈應用程式
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 完成[快速入門：使用 Azure 入口網站或快速入門建立區塊鏈成員](create-member.md) [：使用 Azure CLI 建立 Azure 區塊鏈 Service 區塊鏈成員](create-member-cli.md)
 * 建立[事件方格主題](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
@@ -42,7 +42,7 @@ ms.locfileid: "74455822"
 
     設定 | 描述
     --------|------------
-    名稱 | 為已連線的區塊鏈資料管理員輸入唯一名稱。 區塊鏈資料管理員名稱可包含小寫字母和數位，最大長度為20個字元。
+    Name | 為已連線的區塊鏈資料管理員輸入唯一名稱。 區塊鏈資料管理員名稱可包含小寫字母和數位，最大長度為20個字元。
     交易節點 | 選擇交易節點。 只會列出您擁有讀取權限的交易節點。
     連接名稱 | 為用來傳送區塊鏈交易資料的輸出連線輸入唯一名稱。
     事件方格端點 | 在與區塊鏈資料管理員實例相同的訂用帳戶中，選擇事件方格主題。
@@ -78,13 +78,15 @@ ms.locfileid: "74455822"
 
 1. 將 **abi** 陣列儲存為 JSON 檔案。 例如 *abi.json*。 您在後續步驟中會用到此檔案。
 
-區塊鏈資料管理員需要將已部署的位元組程式碼用於智慧型合約。 已部署的位元組程式碼與智慧型合約位元組程式碼不同。 您可以從已編譯的合約中繼資料檔案中取得已部署的位元組程式碼。
+區塊鏈資料管理員需要將已部署的位元組程式碼用於智慧型合約。 已部署的位元組程式碼與智慧型合約位元組程式碼不同。 您可以使用 Azure 區塊鏈開發工具組延伸模組，將位元組的版本複製到剪貼簿。
 
-1. 開啟您 Solidity 專案的 **build/contracts** 資料夾中包含的合約中繼資料檔案。 檔案名稱是智慧型合約名稱再加上 **.json** 副檔名。
-1. 在 JSON 檔案中找出 **deployedBytecode** 元素。
-1. 複製不含引號的十六進位值。
+1. 在 Visual Studio Code 總管窗格中，展開 Solidity 專案的 **build/contracts** 資料夾。
+1. 以滑鼠右鍵按一下合約中繼資料 JSON 檔案。 檔案名稱是智慧型合約名稱再加上 **.json** 副檔名。
+1. 選取 [**複製交易位元組碼**]。
 
-    ![Visual Studio Code 窗格，具有中繼資料內的位元組程式碼](./media/data-manager-portal/bytecode-metadata.png)
+    ![具有複製交易位元組的 Visual Studio Code 窗格選取](./media/data-manager-portal/bytecode-devkit.png)
+
+    位元組的會複製到剪貼簿。
 
 1. 將**位元組程式碼**值儲存為 JSON 檔案。 例如 *bytecode.json*。 您在後續步驟中會用到此檔案。
 
@@ -108,7 +110,7 @@ ms.locfileid: "74455822"
 
     | 欄位 | 描述 |
     |-------|-------------|
-    | 名稱  | 為容器命名。 例如 *smartcontract* |
+    | Name  | 為容器命名。 例如 *smartcontract* |
     | 公用存取層級 | 選擇 [私人 (沒有匿名存取)] |
 
 1. 選取 [確定] 以建立容器。
@@ -144,7 +146,7 @@ ms.locfileid: "74455822"
 
     設定 | 描述
     --------|------------
-    名稱 | 輸入要追蹤的區塊鏈應用程式的唯一名稱。
+    Name | 輸入要追蹤的區塊鏈應用程式的唯一名稱。
     合約 ABI | 合約 ABI 檔案的 URL 路徑。 如需詳細資訊，請參閱[建立合約 ABI 和位元組程式碼 URL](#create-contract-abi-and-bytecode-url)。
     合約位元組程式碼 | 位元組程式碼檔案的 URL 路徑。 如需詳細資訊，請參閱[建立合約 ABI 和位元組程式碼 URL](#create-contract-abi-and-bytecode-url)。
 

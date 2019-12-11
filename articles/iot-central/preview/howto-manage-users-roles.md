@@ -3,17 +3,17 @@ title: 在 Azure IoT Central 應用程式中管理使用者和角色 |Microsoft 
 description: 身為系統管理員，如何在您的 Azure IoT Central 應用程式中管理使用者和角色
 author: lmasieri
 ms.author: lmasieri
-ms.date: 10/22/2019
+ms.date: 12/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 603bc4ad39a472f2ebc786257bc7c625e3f6b9a4
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 9729a51c36a520a2c196fb83515c9fa616411cf3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895744"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974422"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application-preview-features"></a>管理 IoT Central 應用程式中的使用者和角色（預覽功能）
 
@@ -62,7 +62,7 @@ ms.locfileid: "73895744"
 > [!div class="mx-imgBorder"]
 > ![管理角色選取範圍](media/howto-manage-users-roles/manage-roles-pnp.png)
 
-### <a name="administrator"></a>系統管理員
+### <a name="administrator"></a>管理員
 
 **系統管理員**角色的使用者可以管理和控制應用程式的每個部分，包括計費。
 
@@ -93,61 +93,61 @@ ms.locfileid: "73895744"
 
 **裝置範本許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 檢視 | 無     |
+| 檢視 | None     |
 | 管理 | 檢視 <br/> 其他相依性：查看裝置實例  |
 | 完全控制 | 視圖、管理 <br/> 其他相依性：查看裝置實例 |
 
 **裝置實例許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 檢視 | 無 <br/> 其他相依性：查看裝置範本和裝置群組 |
+| 檢視 | None <br/> 其他相依性：查看裝置範本和裝置群組 |
 | 更新 | 檢視 <br/> 其他相依性：查看裝置範本和裝置群組  |
-| 建立 | 檢視 <br/> 其他相依性：查看裝置範本和裝置群組  |
+| Create | 檢視 <br/> 其他相依性：查看裝置範本和裝置群組  |
 | 刪除 | 檢視 <br/> 其他相依性：查看裝置範本和裝置群組  |
 | 執行命令 | Update、View <br/> 其他相依性：查看裝置範本和裝置群組  |
 | 完全控制 | View、Update、Create、Delete、Execute 命令 <br/> 其他相依性：查看裝置範本和裝置群組  |
 
 **裝置群組許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 檢視 | 無 <br/> 其他相依性：查看裝置範本和裝置實例 |
+| 檢視 | None <br/> 其他相依性：查看裝置範本和裝置實例 |
 | 更新 | 檢視 <br/> 其他相依性：查看裝置範本和裝置實例   |
-| 建立 | View、Update <br/> 其他相依性：查看裝置範本和裝置實例   |
+| Create | View、Update <br/> 其他相依性：查看裝置範本和裝置實例   |
 | 刪除 | 檢視 <br/> 其他相依性：查看裝置範本和裝置實例   |
 | 完全控制 | View、Update、Create、Delete <br/> 其他相依性：查看裝置範本和裝置實例 |
 
 **裝置連線能力管理許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 讀取實例 | 無 <br/> 其他相依性：查看裝置範本、裝置群組、裝置實例 |
-| 管理實例 | 無 |
-| 讀取全域 | 無   |
+| 讀取實例 | None <br/> 其他相依性：查看裝置範本、裝置群組、裝置實例 |
+| 管理實例 | None |
+| 讀取全域 | None   |
 | 管理全域 | 讀取全域 |
 | 完全控制 | [讀取實例]、[管理實例]、[讀取全域]、[管理全域]。 <br/> 其他相依性：查看裝置範本、裝置群組、裝置實例 |
 
 **作業許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 檢視 | 無 <br/> 其他相依性：查看裝置範本、裝置實例和裝置群組 |
+| 檢視 | None <br/> 其他相依性：查看裝置範本、裝置實例和裝置群組 |
 | 更新 | 檢視 <br/> 其他相依性：查看裝置範本、裝置實例和裝置群組 |
-| 建立 | View、Update <br/> 其他相依性：查看裝置範本、裝置實例和裝置群組 |
+| Create | View、Update <br/> 其他相依性：查看裝置範本、裝置實例和裝置群組 |
 | 刪除 | 檢視 <br/> 其他相依性：查看裝置範本、裝置實例和裝置群組 |
 | 執行 | 檢視 <br/> 其他相依性：查看裝置範本、裝置實例和裝置群組;更新裝置實例;在裝置實例上執行命令 |
 | 完全控制 | View、Update、Create、Delete、Execute <br/> 其他相依性：查看裝置範本、裝置實例和裝置群組;更新裝置實例;在裝置實例上執行命令 |
 
 **規則許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 檢視 | 無 <br/> 其他相依性：查看裝置範本 |
+| 檢視 | None <br/> 其他相依性：查看裝置範本 |
 | 更新 | 檢視 <br/> 其他相依性：查看裝置範本 |
-| 建立 | View、Update <br/> 其他相依性：查看裝置範本 |
+| Create | View、Update <br/> 其他相依性：查看裝置範本 |
 | 刪除 | 檢視 <br/> 其他相依性：查看裝置範本 |
 | 完全控制 | View、Update、Create、Delete <br/> 其他相依性：查看裝置範本 |
 
@@ -155,9 +155,9 @@ ms.locfileid: "73895744"
 
 **應用程式設定許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 檢視 | 無     |
+| 檢視 | None     |
 | 更新 | 檢視   |
 | 複製 | 檢視 <br/> 其他相依性：查看裝置範本，裝置實例，裝置群組，儀表板，資料匯出，商標，說明連結，自訂角色，規則 |
 | 刪除 | 檢視   |
@@ -165,36 +165,36 @@ ms.locfileid: "73895744"
 
 **應用程式範本的匯出許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 檢視 | 無     |
+| 檢視 | None     |
 | 匯出 | 檢視 <br/> 其他相依性：查看裝置範本，裝置實例，裝置群組，儀表板，資料匯出，商標，說明連結，自訂角色，規則 |
 | 完全控制 | View、Export <br/> 其他相依性：查看裝置範本、裝置群組、應用程式儀表板、資料匯出、商標、說明連結、自訂角色、規則 |
 
 **計費許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 管理 | 無     |
+| 管理 | None     |
 | 完全控制 | 管理 |
 
 #### <a name="managing-users-and-roles"></a>管理使用者和角色
 
 **自訂角色許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 檢視 | 無 |
+| 檢視 | None |
 | 更新 | 檢視 |
-| 建立 | View、Update |
+| Create | View、Update |
 | 刪除 | 檢視 |
 | 完全控制 | View、Update、Create、Delete |
 
 **使用者管理許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 檢視 | 無 <br/> 其他相依性：查看自訂角色 |
+| 檢視 | None <br/> 其他相依性：查看自訂角色 |
 | 新增 | 檢視 <br/> 其他相依性：查看自訂角色 |
 | 刪除 | 檢視 <br/> 其他相依性：查看自訂角色 |
 | 完全控制 | View、Add、Delete <br/> 其他相依性：查看自訂角色 |
@@ -206,37 +206,37 @@ ms.locfileid: "73895744"
 
 **應用程式儀表板許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 檢視 | 無     |
+| 檢視 | None     |
 | 更新 | 檢視   |
-| 建立 | View、Update |
+| Create | View、Update |
 | 刪除 | 檢視   |
 | 完全控制 | View、Update、Create、Delete |
 
 **個人儀表板許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 檢視 | 無     |
+| 檢視 | None     |
 | 更新 | 檢視   |
-| 建立 | View、Update   |
+| Create | View、Update   |
 | 刪除 | 檢視   |
 | 完全控制 | View、Update、Create、Delete |
 
 **商標、favicon 和色彩許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 檢視 | 無     |
+| 檢視 | None     |
 | 更新 | 檢視   |
 | 完全控制 | View、Update |
 
 **說明連結許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 檢視 | 無     |
+| 檢視 | None     |
 | 更新 | 檢視   |
 | 完全控制 | View、Update |
 
@@ -244,20 +244,20 @@ ms.locfileid: "73895744"
 
 **資料匯出許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 檢視 | 無     |
+| 檢視 | None     |
 | 更新 | 檢視   |
-| 建立 | View、Update  |
+| Create | View、Update  |
 | 刪除 | 檢視   |
 | 完全控制 | View、Update、Create、Delete |
 
 **API 權杖許可權**
 
-| 名稱 | 相依性 |
+| Name | 相依項目 |
 | ---- | -------- |
-| 檢視 | 無     |
-| 建立 | 檢視   |
+| 檢視 | None     |
+| Create | 檢視   |
 | 刪除 | 檢視   |
 | 完全控制 | View、Create、Delete |
 

@@ -4,12 +4,12 @@ description: 使用 Azure Functions 排程可連接到 Azure SQL Database 以定
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: f70b5b83561e7c580dd7192850c8eb50be5aac0a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3dafe275dcd5eb172e744f1d163b33ebb0bac7cc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230389"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972229"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>使用 Azure Functions 連接到 Azure SQL Database
 
@@ -17,9 +17,9 @@ ms.locfileid: "74230389"
 
 如果這是您第一次使用 C# Functions，則您應該先閱讀 [Azure Functions C# 開發人員參考資料](functions-dotnet-class-library.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-+ 完成[使用 Visual Studio 建立第一個函式](functions-create-your-first-function-visual-studio.md)一文中的步驟，以建立一個以 2.x 版執行階段為目標的本機函數應用程式。 您還必須已將專案發佈至 Azure 中的函數應用程式。
++ 完成[使用 Visual Studio 建立您的第一個](functions-create-your-first-function-visual-studio.md)函式一文中的步驟，以建立以2.x 版或更新版本的執行時間為目標的區域函式應用程式。 您還必須已將專案發佈至 Azure 中的函數應用程式。
 
 + 本文章將示範在 AdventureWorksLT 範例資料庫的 **SalesOrderHeader** 資料表中執行大量清除作業的 Transact-SQL 命令。 若要建立 AdventureWorksLT 範例資料庫，請完成[在 Azure 入口網站中建立 Azure SQL 資料庫](../sql-database/sql-database-get-started-portal.md)一文中的步驟。
 

@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dc66ae0f69c19524b32b55c654f7c8fd2d32762
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 7d7744aab6d83b3415f32ca9e311940836c6f93c
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123221"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997236"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>針對 Azure Machine Learning Azure Kubernetes Service 和 Azure 容器實例部署進行疑難排解
 
@@ -42,7 +42,7 @@ ms.locfileid: "74123221"
 
 在[模型管理](concept-model-management-and-deployment.md)簡介中深入了解此程序。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **Azure 訂用帳戶**。 如果您沒有帳戶，請試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 * [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。
@@ -267,7 +267,7 @@ print(Model.get_model_path(model_name='my-best-model'))
 
 ## <a name="function-fails-runinput_data"></a>函式失敗：run(input_data)
 
-如果已成功部署服務，但此服務在您發佈資料到評分端點時發生損毀，您可以在 `run(input_data)` 函式中新增錯誤攔截陳述式，以傳回詳細的錯誤訊息。 例如︰
+如果已成功部署服務，但此服務在您發佈資料到評分端點時發生損毀，您可以在 `run(input_data)` 函式中新增錯誤攔截陳述式，以傳回詳細的錯誤訊息。 例如：
 
 ```python
 def run(input_data):
@@ -326,7 +326,7 @@ Azure Kubernetes Service 部署支援自動調整，這可讓您新增複本以�
 如需有關設定 `autoscale_target_utilization`、`autoscale_max_replicas`和 `autoscale_min_replicas` 的詳細資訊，請參閱[AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py)模組參考。
 
 
-## <a name="advanced-debugging"></a>先進的調試
+## <a name="advanced-debugging"></a>進階偵錯
 
 在某些情況下，您可能需要以互動方式來對模型部署中包含的 Python 程式碼進行驗證。 例如，如果專案腳本失敗，而且無法由其他記錄來判斷原因。 藉由使用 Visual Studio Code 和適用於 Visual Studio 的 Python 工具（PTVSD），您可以附加至在 Docker 容器內執行的程式碼。
 
@@ -505,7 +505,7 @@ myregistry.azurecr.io/myimage:1
     docker exec -it debug /bin/bash
     ```
 
-1. 若要尋找服務所使用的檔案，請從容器中的 bash shell 使用下列命令：
+1. 若要尋找服務所使用的檔案，如果預設目錄與 `/var/azureml-app`不同，請從容器中的 bash shell 使用下列命令：
 
     ```bash
     cd /var/azureml-app

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: 7e3d0f4ba178ef2cf44b9c5c3dd5b8c212f1c133
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 93005b181075ac671af6c8d73a3f2a06ed9eb0d8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186160"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977738"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒體服務 v3 進行即時串流
 
@@ -42,6 +42,9 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 ## <a name="dynamic-encryption"></a>動態加密
 
 「動態加密」可讓您使用 AES-128 或下列三個主要數位版權管理（DRM）系統中的任何一種，以動態方式加密您的即時或隨選內容： Microsoft PlayReady、Google Widevine 和 Apple FairPlay。 媒體服務也提供服務，可傳遞 AES 金鑰和 DRM (PlayReady、Widevine 和 FairPlay) 授權給授權用戶端。 如需詳細資訊，請參閱[動態加密](content-protection-overview.md)。
+
+> [!NOTE]
+> Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="dynamic-manifest"></a>動態資訊清單
 
@@ -81,7 +84,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 ### <a name="general-steps"></a>一般步驟
 
 1. 在您的媒體服務帳戶中，確定**串流端點**（原點）正在執行。 
-2. 建立 [即時事件][](live-events-outputs-concept.md)。 <br/>在建立事件時，您可以指定要自動啟動它。 或者，您可以在準備好開始進行串流處理時啟動事件。<br/> 當自動啟動設定為 true 時，即時事件將會在建立後隨即啟動。 只要即時事件一執行，就會立即開始計費。 您必須對「實況活動」資源明確呼叫「停止」，才能終止進一步計費。 如需詳細資訊，請參閱[實況活動狀態和計費](live-event-states-billing.md)。
+2. 建立 [即時事件](live-events-outputs-concept.md)。 <br/>在建立事件時，您可以指定要自動啟動它。 或者，您可以在準備好開始進行串流處理時啟動事件。<br/> 當自動啟動設定為 true 時，即時事件將會在建立後隨即啟動。 只要即時事件一執行，就會立即開始計費。 您必須在即時事件資源上明確呼叫「停止」，才能中止進一步計費。 如需詳細資訊，請參閱[即時事件狀態和計費](live-event-states-billing.md)。
 3. 取得內嵌 URL，並將您的內部部署編碼器設定為使用 URL 來傳送發佈摘要。<br/>請參閱[建議的即時編碼器](recommended-on-premises-live-encoders.md)。
 4. 取得預覽 URL 並使用它來確認實際上已收到來自編碼器的輸入。
 5. 建立新的 [資產] 物件。 
@@ -89,7 +92,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
     每個即時輸出都會與資產相關聯，用來將影片記錄到相關聯的 Azure blob 儲存體容器中。 
 6. 建立**即時輸出**並使用您所建立的資產名稱，讓串流可以封存到資產中。
 
-    「實況輸出」會在建立時開始，並在刪除時結束。 當您刪除即時輸出時，不會刪除資產中的基礎資產和內容。
+    即時輸出會在建立時開始，並在刪除時結束。 當您刪除即時輸出時，不會刪除資產中的基礎資產和內容。
 7. 使用[內建的串流原則類型](streaming-policy-concept.md)來建立**串流定位器**。
 
     若要發佈即時輸出，您必須為相關聯的資產建立串流定位器。 

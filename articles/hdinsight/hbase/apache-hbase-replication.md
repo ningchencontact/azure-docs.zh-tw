@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 5b1b85a0c600871cbedc478f3a56cf71ef8c2ca4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 803deb9a4d9eaf02129bd16dd6465362b87b7e84
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931500"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995910"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 Apache HBase 叢集複寫
 
@@ -275,6 +275,10 @@ sudo service bind9 status
 
 若要建立一個**連絡人**資料表，並在此資料表中插入一些資料，請依照 [Apache HBase 教學課程：開始使用 HDInsight 中的 Apache HBase](apache-hbase-tutorial-get-started-linux.md) 中的指示進行操作。
 
+> [!NOTE]
+> 如果您想要從自訂命名空間複寫資料表，您必須確定目的地叢集上也定義了適當的自訂命名空間。
+>
+
 ## <a name="enable-replication"></a>啟用複寫
 
 下列步驟會說明如何從 Azure 入口網站呼叫指令碼動作指令碼。 如需了解如何使用 Azure PowerShell 和 Azure 傳統 CLI 來執行指令碼動作，請參閱[使用指令碼動作來自訂 HDInsight 叢集](../hdinsight-hadoop-customize-cluster-linux.md)。
@@ -395,6 +399,10 @@ sudo service bind9 status
 - **停用特定資料表 (table1、table2 和 table3) 上的複寫**：
 
         -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
+
+> [!NOTE]
+> 如果您想要刪除目的地叢集，請務必從來源叢集的對等清單中將它移除。 這可以藉由在來源叢集上的 hbase shell 上執行命令 remove_peer ' 1 ' 來完成。 若失敗，來源叢集可能無法正常運作。
+>
 
 ## <a name="next-steps"></a>後續步驟
 

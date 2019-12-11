@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: f48c8712a2f4fbd69db7de5247e3293ad57ae1e6
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 19a65e688d66738db0b6e4dcca383c6e4abed262
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112832"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974391"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Azure Blob 儲存體中的變更摘要支援（預覽）
 
@@ -36,61 +36,42 @@ ms.locfileid: "74112832"
   - 建立連接的應用程式管線，以根據所建立或變更的物件來回應變更事件或排程執行。
 
 > [!NOTE]
-> [Blob 儲存體事件](storage-blob-event-overview.md)會提供即時的一次性事件，讓您的 Azure Functions 或應用程式對 Blob 發生的變更做出反應。 變更摘要提供持久、已排序的變更記錄模型。 變更摘要中的變更會在變更摘要中的幾分鐘內，于您的變更摘要中提供。 如果您的應用程式必須更快速地回應事件，請考慮改為使用[Blob 儲存體事件](storage-blob-event-overview.md)。 Blob 儲存體事件可讓您的 Azure Functions 或應用程式即時回應個別事件。
+> 變更摘要為 blob 所發生的變更提供持久、已排序的記錄模型。 變更會以幾分鐘的時間，在變更摘要記錄檔中寫入並提供使用。 如果您的應用程式必須更快速地回應事件，請考慮改為使用[Blob 儲存體事件](storage-blob-event-overview.md)。 [Blob 儲存體事件](storage-blob-event-overview.md)會提供即時的一次性事件，讓您的 Azure Functions 或應用程式能夠快速回應 Blob 所發生的變更。 
 
 ## <a name="enable-and-disable-the-change-feed"></a>啟用和停用變更摘要
 
-您必須啟用儲存體帳戶上的變更摘要，才能開始捕獲變更。 停用變更摘要以停止捕獲變更。 您可以使用入口網站或 Powershell 上 Azure Resource Manager 範本來啟用及停用變更。
+您必須啟用儲存體帳戶上的變更摘要，才能開始捕獲和記錄變更。 停用變更摘要以停止捕獲變更。 您可以使用入口網站或 Powershell 上 Azure Resource Manager 範本來啟用及停用變更。
 
 當您啟用變更摘要時，請記住以下幾點。
 
-- 在 **$blobchangefeed**容器中儲存的每個儲存體帳戶中，只有一個 blob 服務的變更摘要。
+- 每個儲存體帳戶中的 blob 服務只有一個變更摘要，而且儲存在 **$blobchangefeed**容器中。
 
-- 變更只會在 blob 服務層級上捕捉。
+- 建立、更新和刪除變更只會在 blob 服務層級上捕捉。
 
 - 變更摘要會針對帳戶上發生的所有可用事件，捕捉*所有*的變更。 用戶端應用程式可以視需要篩選掉事件種類。 （請參閱目前版本的[條件](#conditions)）。
 
-- 只有 GPv2 和 Blob 儲存體帳戶可以啟用變更摘要。 目前不支援 GPv1 儲存體帳戶、Premium BlockBlobStorage 帳戶，以及已啟用階層命名空間的帳戶。
+- 只有 GPv2 和 Blob 儲存體帳戶可以啟用變更摘要。 目前不支援 Premium BlockBlobStorage 帳戶和已啟用階層命名空間的帳戶。 不支援 GPv1 儲存體帳戶，但可在不停機的情況下升級至 GPv2，如需詳細資訊，請參閱[升級至 GPv2 儲存體帳戶](../common/storage-account-upgrade.md)。
 
 > [!IMPORTANT]
 > 變更摘要處於公開預覽狀態，並可在**westcentralus**和**westus2**區域中使用。 請參閱本文的[條件](#conditions)一節。 若要註冊預覽，請參閱本文的[註冊您的訂](#register)用帳戶一節。 您必須先註冊您的訂用帳戶，才能在您的儲存體帳戶上啟用變更摘要。
 
 ### <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 
-若要使用 Azure 入口網站部署範本：
+使用 Azure 入口網站，在您的儲存體帳戶上啟用變更摘要：
 
-1. 在 Azure 入口網站中，選擇 **建立資源**。
+1. 在  [Azure 入口網站](https://portal.azure.com/)中，選取您的儲存體帳戶。 
 
-2. 在 [搜尋 Marketplace] 中，輸入**範本部署**，然後按 **ENTER**。
+2. 流覽至 [ **Blob 服務**] 底下的 [**資料保護**] 選項。
 
-3. 選擇 [**範本部署**]，選擇 [**建立**]，然後**在編輯器中選擇 [建立您自己的範本**]。
+3. 按一下 [ **Blob 變更**摘要] 底下的 [**已啟用**]
 
-4. 在 [範本編輯器] 中，貼上下列 json。 使用您的儲存體帳戶名稱取代 `<accountName>` 預留位置。
+4. 選擇 [**儲存**] 按鈕以確認您的資料保護設定
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {},
-       "variables": {},
-       "resources": [{
-           "type": "Microsoft.Storage/storageAccounts/blobServices",
-           "apiVersion": "2019-04-01",
-           "name": "<accountName>/default",
-           "properties": {
-               "changeFeed": {
-                   "enabled": true
-               }
-           } 
-        }]
-   }
-   ```
-    
-5. 選擇 [**儲存**] 按鈕，指定帳戶的資源群組，然後選擇 [**購買**] 按鈕以部署範本並啟用變更摘要。
+![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
 ### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-若要使用 PowerShell 部署範本：
+使用 PowerShell 啟用變更摘要：
 
 1. 安裝最新的 PowershellGet。
 
@@ -118,13 +99,56 @@ ms.locfileid: "74112832"
    Update-AzStorageBlobServiceProperty -ResourceGroupName -StorageAccountName -EnableChangeFeed $true
    ```
 
+### <a name="templatetabtemplate"></a>[範本](#tab/template)
+使用 Azure Resource Manager 範本，透過 Azure 入口網站在現有的儲存體帳戶上啟用變更摘要：
+
+1. 在 Azure 入口網站中，選擇 **建立資源**。
+
+2. 在 [搜尋 Marketplace] 中，輸入**範本部署**，然後按 **ENTER**。
+
+3. 選擇 [ **[部署自訂範本](https://portal.azure.com/#create/Microsoft.Template)** ]，然後**在編輯器中選擇 [建立您自己的範本**]。
+
+4. 在 [範本編輯器] 中，貼上下列 json。 使用您的儲存體帳戶名稱取代 `<accountName>` 預留位置。
+
+   ```json
+   {
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {},
+       "variables": {},
+       "resources": [{
+           "type": "Microsoft.Storage/storageAccounts/blobServices",
+           "apiVersion": "2019-04-01",
+           "name": "<accountName>/default",
+           "properties": {
+               "changeFeed": {
+                   "enabled": true
+               }
+           } 
+        }]
+   }
+   ```
+    
+5. 選擇 [**儲存**] 按鈕，指定帳戶的資源群組，然後選擇 [**購買**] 按鈕以部署範本並啟用變更摘要。
+
 ---
+
+## <a name="consume-the-change-feed"></a>使用變更摘要
+
+變更摘要會產生數個中繼資料和記錄檔。 這些檔案位於儲存體帳戶的 **$blobchangefeed**容器中。 
+
+> [!NOTE]
+> 在目前的版本中，Azure 儲存體總管或 Azure 入口網站中看不到 **$blobchangefeed**容器。 當您呼叫 ListContainers API 時，您目前無法看到 $blobchangefeed 容器，但您可以直接在容器上呼叫 ListBlobs API 來查看 blob。
+
+您的用戶端應用程式可以使用變更摘要處理器 SDK 所提供的 blob 變更摘要處理器程式庫來取用變更摘要。 
+
+請參閱[Azure Blob 儲存體中的處理變更摘要記錄](storage-blob-change-feed-how-to.md)。
 
 ## <a name="understand-change-feed-organization"></a>瞭解變更摘要組織
 
 <a id="segment-index"></a>
 
-### <a name="segments"></a>使用者分佈
+### <a name="segments"></a>區隔
 
 變更摘要是組織成**每小時***區段*，但每隔幾分鐘就會附加和更新的變更記錄。 只有當該小時內發生 blob 變更事件時，才會建立這些區段。 這可讓您的用戶端應用程式取用在特定時間範圍內發生的變更，而不需要搜尋整個記錄檔。 若要深入瞭解，請參閱[規格](#specifications)。
 
@@ -173,7 +197,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 ```
 
 > [!NOTE]
-> 如果您在儲存體帳戶中列出容器，只有在您已啟用帳戶的變更摘要功能之後，才會顯示 `$blobchangefeed` 容器。 啟用變更摘要之後，您必須等候幾分鐘的時間，才能看到容器。
+> 只有在您已啟用帳戶的變更摘要功能之後，才會顯示 `$blobchangefeed` 容器。 在您啟用變更摘要之後，您必須等候幾分鐘的時間，才能列出容器中的 blob。 
 
 <a id="log-files"></a>
 
@@ -217,17 +241,6 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 > [!NOTE]
 > 區段的變更摘要檔案不會立即在區段建立後出現。 延遲的長度是在變更摘要發佈延遲的標準間隔內，在變更摘要的幾分鐘內。
 
-## <a name="consume-the-change-feed"></a>使用變更摘要
-
-變更摘要會產生數個中繼資料和記錄檔。 這些檔案位於儲存體帳戶的 **$blobchangefeed**容器中。 
-
-> [!NOTE]
-> 在目前的版本中，Azure 儲存體總管或 Azure 入口網站中看不到 **$blobchangefeed**容器。 當您呼叫 ListContainers API 時，您目前無法看到 $blobchangefeed 容器，但您可以直接在容器上呼叫 ListBlobs API 來查看 blob。
-
-您的用戶端應用程式可以使用變更摘要處理器 SDK 所提供的 blob 變更摘要處理器程式庫來取用變更摘要。 
-
-請參閱[Azure Blob 儲存體中的處理變更摘要記錄](storage-blob-change-feed-how-to.md)。
-
 <a id="specifications"></a>
 
 ## <a name="specifications"></a>規格
@@ -246,7 +259,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 - 區段所表示的時間**大約**為15分鐘的界限。 因此，為了確保在指定的時間內，所有記錄的耗用量，會耗用連續的上一個和下一個小時區段。
 
-- 每個區段可以有不同數目的 `chunkFilePaths`。 這是由於記錄資料流程的內部資料分割，用來管理發佈輸送量。 每個 `chunkFilePath` 中的記錄檔一定會包含互斥的 blob，而且可以平行取用和處理，而不會違反反覆運算期間每個 blob 的修改順序。
+- 根據記錄資料流程的內部資料分割來管理發佈輸送量，每個區段可能會有不同數目的 `chunkFilePaths`。 每個 `chunkFilePath` 中的記錄檔一定會包含互斥的 blob，而且可以平行取用和處理，而不會違反反覆運算期間每個 blob 的修改順序。
 
 - 區段會以 `Publishing` 狀態開始。 一旦將記錄附加到區段完成後，就會 `Finalized`。 您的應用程式不應使用在 `$blobchangefeed/meta/Segments.json` 檔案中 `LastConsumable` 屬性日期之後的任何區段中的記錄檔。 以下是 `$blobchangefeed/meta/Segments.json` 檔案中 `LastConsumable`屬性的範例：
 
@@ -294,21 +307,25 @@ az provider register --namespace 'Microsoft.Storage'
 
 ## <a name="conditions-and-known-issues-preview"></a>條件和已知問題（預覽）
 
-本節說明變更摘要目前公開預覽版中的已知問題和條件。
+本節說明變更摘要目前公開預覽版中的已知問題和條件。 
 - 針對預覽版本，您必須先[註冊您的訂](#register)用帳戶，才可以在 westcentralus 或 westus2 區域中啟用儲存體帳戶的變更摘要。 
 - 變更摘要只會捕捉建立、更新、刪除和複製作業。 目前不會在預覽中捕捉中繼資料更新。
 - 變更任何單一變更的事件記錄，可能會在變更摘要中出現一次以上。
-- 您還無法藉由在其上設定以時間為基礎的保留原則，來管理變更摘要記錄檔的存留期。
-- 記錄檔的 `url` 屬性一律是空的。
+- 您還無法藉由在其上設定以時間為基礎的保留原則，而無法刪除 blob，來管理變更摘要記錄檔的存留期 
+- 記錄檔的 `url` 屬性目前一律是空的。
 - 區段. json 檔案的 `LastConsumable` 屬性不會列出變更摘要最終完成的第一個區段。 只有在第一個區段完成後，才會發生此問題。 第一個小時之後的所有後續區段會正確地在 `LastConsumable` 屬性中捕捉。
+- 當您呼叫 ListContainers API 時，您目前無法看到 **$blobchangefeed**容器，且容器未顯示在 Azure 入口網站或儲存體總管
+- 先前已起始[帳戶容錯移轉](../common/storage-disaster-recovery-guidance.md)的儲存體帳戶，可能會有記錄檔未出現的問題。 任何未來的帳戶容錯移轉也可能會在預覽期間影響記錄檔。
 
 ## <a name="faq"></a>常見問題集
 
 ### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>變更摘要和儲存體分析記錄之間的差異為何？
-變更摘要已針對應用程式開發優化，因為只會在變更摘要記錄中記錄成功的 blob 建立、修改和刪除事件。 分析記錄會記錄所有作業的成功和失敗要求，包括讀取和列出作業。 藉由利用變更摘要，您不需要擔心在交易繁重的帳戶上篩選出記錄雜訊，而且只著重于 blob 變更事件。
+分析記錄具有所有讀取、寫入、列出和刪除作業的記錄，其中包含所有作業的成功和失敗要求。 分析記錄是最理想的做法，不保證任何順序。
+
+「變更摘要」是一種解決方案，可提供成功變化的交易式記錄，或變更您的帳戶，例如建立、修改和刪除 blob。 變更摘要可保證所有事件都會以每個 blob 的成功變更順序來記錄和顯示，因此您不需要從大量讀取作業或失敗的要求中篩選出雜訊。 變更摘要基本上是針對需要特定保證的應用程式開發而設計和優化的。
 
 ### <a name="should-i-use-change-feed-or-storage-events"></a>我應該使用變更摘要或儲存體事件嗎？
-您可以同時利用這兩個功能，因為變更摘要和[Blob 儲存體事件](storage-blob-event-overview.md)本質上很相似，主要差異在於事件記錄的延遲、排序和儲存。 變更摘要會每隔幾分鐘將記錄寫入變更摘要記錄，並確保 blob 變更作業的順序。 儲存體事件會即時推送，而且可能不會進行排序。 變更摘要事件會永久儲存在您的儲存體帳戶內，而儲存體事件則是暫時性的，而事件處理常式會使用它們，除非您明確地加以儲存。
+您可以利用這兩種功能作為變更摘要和[Blob 儲存體事件](storage-blob-event-overview.md)，以相同的傳遞可靠性保證提供相同的資訊，主要差異在於事件記錄的延遲、排序和儲存。 變更摘要會在幾分鐘內將記錄發佈到記錄檔，同時也可保證每個 blob 的變更作業順序。 儲存體事件會即時推送，而且可能不會進行排序。 變更摘要事件會永久儲存在您的儲存體帳戶內，做為您自己定義的保留期的唯讀穩定記錄，而儲存體事件則是由事件處理常式使用的暫時性，除非您明確地儲存它們。 使用變更摘要時，任何數目的應用程式都可以使用 blob Api 或 Sdk，以自己的便利性取用記錄。 
 
 ## <a name="next-steps"></a>後續步驟
 

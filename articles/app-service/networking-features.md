@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6395d62947cda47c3779f15445db08b7515d055d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 208bf37bfcdf0f86fad11611279d1b4e642fb18a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672339"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971752"
 ---
 # <a name="app-service-networking-features"></a>App Service 網路功能
 
@@ -46,7 +46,7 @@ Azure App Service 是分散式系統。 處理傳入 HTTP/HTTPS 要求的角色�
 | 在我的 VNet 中的私人 IP 上公開我的應用程式 | ILB ASE </br> 在具有服務端點的應用程式閘道上輸入的私人 IP |
 | 使用 WAF 保護我的應用程式 | 應用程式閘道 + ILB ASE </br> 具有服務端點的應用程式閘道 </br> 具有存取限制的 Azure Front 門 |
 | 將流量負載平衡至不同區域中的應用程式 | 具有存取限制的 Azure Front 門 | 
-| 相同區域中的負載平衡流量 | 具有服務端點的應用程式閘道 | 
+| 相同區域中的負載平衡流量 | [具有服務端點的應用程式閘道][appgwserviceendpoints] | 
 
 下列輸出使用案例會建議如何使用 App Service 的網路功能，以解決應用程式的輸出存取需求。 
 
@@ -222,3 +222,4 @@ ASE 提供有關隔離和專用應用程式裝載的最佳案例，但有一些�
 [vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
+[appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints

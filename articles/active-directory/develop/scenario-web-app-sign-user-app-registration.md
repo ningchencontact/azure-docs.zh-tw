@@ -1,6 +1,6 @@
 ---
-title: 登入使用者的 Web 應用程式（應用程式註冊）-Microsoft 身分識別平臺
-description: 瞭解如何建立可登入使用者的 web 應用程式（應用程式註冊）
+title: 註冊可登入使用者的 web 應用程式-Microsoft 身分識別平臺 |Azure
+description: 瞭解如何註冊可登入使用者的 web 應用程式
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d840cbaba2cc8325c619248bb7f4421d3b2f83c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b08dd5602196bae0e250953c83320e69ddc6da83
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766067"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964815"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>登入使用者的 Web 應用程式：應用程式註冊
 
@@ -58,7 +58,7 @@ ms.locfileid: "74766067"
 1. 選取 [驗證] 功能表，然後新增下列資訊：
    1. 針對 [**回復 URL**]，新增**Web**類型的 **https://localhost:44321/signin-oidc** 。
    1. 在 [ **Advanced settings** ] 區段中，將 [**登出 URL** ] 設定為 **https://localhost:44321/signout-oidc** 。
-   1. 在 **[隱含授**與] 底下，選取 [**識別碼權杖**]。
+   1. 在 [隱含授與] 底下，選取 [識別碼權杖]。
    1. 選取 [儲存]。
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
@@ -103,7 +103,7 @@ ms.locfileid: "74766067"
    1. 將**支援的帳戶類型**變更為**任何組織目錄中的帳戶和個人 Microsoft 帳戶（例如 Skype、Xbox、Outlook.com）** 。
    1. 在 [重新**導向 URI （選擇性）** ] 區段中，選取下拉式方塊中的 [ **Web** ]，然後輸入下列重新導向 URI： **http://localhost:5000/getAToken** 。
 1. 選取 [註冊] 以建立應用程式。
-1. 在應用程式的 [概觀] 頁面上，尋找 [應用程式 (用戶端) 識別碼] 值並將它記下供稍後使用。 您將需要它來設定此專案的 Visual Studio 設定檔。
+1. 在應用程式的 [概觀] 頁面上，尋找 [應用程式 (用戶端) 識別碼] 值並將它記下供稍後使用。 您必須用此識別碼來設定此專案的 Visual Studio 組態檔。
 1. 在左側功能表上，選取 [**憑證 & 密碼**]。
 1. 在 [**用戶端密碼**] 區段中，選取 [**新增用戶端密碼**]，然後：
 

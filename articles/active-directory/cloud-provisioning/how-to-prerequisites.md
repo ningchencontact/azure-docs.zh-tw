@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155edf72a60e079a609853e953e3cf66024cc83c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f033563bbd7888e53d910773cd1e0c501eaad098
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794246"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997100"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 雲端布建的必要條件
 本主題提供有關選擇和使用 Azure AD Connect 雲端布建做為身分識別解決方案的指導方針。
@@ -48,7 +48,7 @@ ms.locfileid: "74794246"
      | --- | --- |
      | **80** | 驗證 SSL 憑證時下載憑證撤銷清單 (CRL) |
      | **443** | 處理所有與服務之間的輸出通訊 |
-     | **8080** (選擇性) | 如果埠443無法使用，代理程式會每隔十分鐘透過埠8080報告其狀態。 此狀態會顯示在 Azure 入口網站上。 連接埠 8080 「不」會用於使用者登入。 |
+     | **8080** (選擇性) | 如果埠443無法使用，代理程式會每隔十分鐘透過埠8080報告其狀態。 此狀態會顯示在 Azure 入口網站上。 |
      
      如果您的防火牆會根據原始使用者強制執行規則，請開啟這些連接埠，讓來自以網路服務形式執行之 Windows 服務的流量得以通行。
    - 如果您的防火牆或 proxy 允許您指定安全尾碼，請將連接新增至 **\*msappproxy.net**和 **\*. servicebus.windows.net**。 如果不允許建立，請允許存取每週更新的 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。

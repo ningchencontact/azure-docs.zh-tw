@@ -1,27 +1,27 @@
 ---
 title: 產生安全性權杖以存取 IoT 隨插即用預覽存放庫 |Microsoft Docs
-description: 當您以程式設計方式存取 IoT 隨插即用預覽模型存放庫時, 產生要使用的共用存取簽章權杖。
-author: YasinMSFT
-ms.author: yahajiza
+description: 當您以程式設計方式存取 IoT 隨插即用預覽模型存放庫時，產生要使用的共用存取簽章權杖。
+author: Philmea
+ms.author: philmea
 ms.date: 08/06/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e5d6e7087a7e3d5f4a001e16c5cfa19a6df6a68e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f6c4f5b9784eeff9d03b6e93953674736fb78c6c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880536"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976021"
 ---
 # <a name="generate-sas-token"></a>產生 SAS Token
 
-本操作指南會示範如何以程式設計方式產生共用存取簽章 (SAS) 權杖, 以搭配 IoT 隨插即用預覽模型存放庫 Api 使用。
+本操作指南會示範如何以程式設計方式產生共用存取簽章（SAS）權杖，以搭配 IoT 隨插即用預覽模型存放庫 Api 使用。
 
 ## <a name="python"></a>Python
 
-下列程式碼片段說明如何使用 Python 產生 SAS 權杖:
+下列程式碼片段說明如何使用 Python 產生 SAS 權杖：
 
 ```python
 from base64 import b64decode, b64encode
@@ -46,7 +46,7 @@ def calculate_sas_token(hostname, repo_id, key_name, key, expiry_in_second):
 
 ## <a name="c"></a>C\#
 
-下列程式碼片段說明如何使用 C\#來產生 SAS 權杖:
+下列程式碼片段說明如何使用 C\#產生 SAS 權杖：
 
 ```csharp
 public static string generateSasToken(string hostName, string repoId, string key, string keyName, int expiryInSeconds = 3600)
@@ -74,14 +74,14 @@ public static string generateSasToken(string hostName, string repoId, string key
 
 ## <a name="use-the-sas-token"></a>使用 SAS 權杖
 
-產生 SAS 權杖之後, 您可以使用它來提出 HTTP POST 要求。 例如:
+產生 SAS 權杖之後，您可以使用它來提出 HTTP POST 要求。 例如：
 
 ```text
 POST https:///models/{modelId}?repositoryId={repositoryId}&api-version=2019-07-01-preview
 ```
 
-如果您為用戶端提供 SAS 權杖, 用戶端就不會擁有該資源的主要金鑰, 而且無法反轉雜湊來取得它。 SAS 權杖可讓您控制用戶端可以存取的內容, 以及時間長度。 當您變更原則中的主鍵時, 任何從該金鑰建立的 SAS 權杖都會失效。
+如果您為用戶端提供 SAS 權杖，用戶端就不會擁有該資源的主要金鑰，而且無法反轉雜湊來取得它。 SAS 權杖可讓您控制用戶端可以存取的內容，以及時間長度。 當您變更原則中的主鍵時，任何從該金鑰建立的 SAS 權杖都會失效。
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已瞭解如何產生用來存取模型 IoT 隨插即用預覽模型存放庫的安全性權杖, 建議的下一個步驟是深入瞭解[iot 隨插即用預覽模型開發人員指南](concepts-developer-guide.md)。
+既然您已瞭解如何產生用來存取模型 IoT 隨插即用預覽模型存放庫的安全性權杖，建議的下一個步驟是深入瞭解[iot 隨插即用預覽模型開發人員指南](concepts-developer-guide.md)。

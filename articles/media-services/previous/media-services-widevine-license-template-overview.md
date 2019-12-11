@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ab9725dd50487cf9df9d6fb967959b276f39979f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c7511279e66ab598e4ae3c26f053915b7393b39d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162452"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978385"
 ---
 # <a name="widevine-license-template-overview"></a>Widevine 授權範本概觀 
 您可以使用 Azure 媒體服務來設定和要求 Google Widevine 授權。 播放程式嘗試播放 Widevine 保護的內容時，會將要求傳送到授權傳遞服務來取得授權。 如果授權服務核准要求，服務就會發出授權。 授權會傳送至用戶端，並用來解密及播放指定內容。
@@ -82,7 +82,7 @@ Widevine 授權要求會格式化為 JSON 訊息。
 | content_key_specs track_type |string |追蹤類型名稱。 如果授權要求中指定 content_key_specs，則請務必明確指定所有追蹤類型。 未這樣做會導致無法播放過去 10 秒。 |
 | content_key_specs  <br/> security_level |uint32 |定義用戶端對於播放的穩健性需求。 <br/> 以軟體為基礎白箱加密是必要的。 <br/> 軟體加密和模糊化的解碼器是必要的。 <br/> 金鑰資料和加密作業必須在支援硬體的受信任執行環境中執行。 <br/> 內容的加密和解密必須在支援硬體的受信任執行環境中執行。  <br/> 加密、解密和媒體 (壓縮和未壓縮) 的所有處理必須在支援硬體的受信任執行環境中處理。 |
 | content_key_specs <br/> required_output_protection.hdc |字串，以下項目的其中一個：HDCP_NONE、HDCP_V1、HDCP_V2 |指出是否需要 HDCP。 |
-| content_key_specs <br/>key |Base64<br/>編碼的字串 |要用於此播放軌的內容金鑰。若已指定，則需要識別碼或 key_id。 內容提供者可使用此選項插入此追蹤的內容金鑰，而不是讓 Widevine 授權伺服器產生或查閱金鑰。 |
+| content_key_specs <br/>key |Base64<br/>編碼的字串 |要用於此播放軌的內容金鑰。若已指定，則需要 track_type 或 key_id。 內容提供者可使用此選項插入此追蹤的內容金鑰，而不是讓 Widevine 授權伺服器產生或查閱金鑰。 |
 | content_key_specs.key_id |Base64 編碼的二進位字串，16 位元組 |金鑰的唯一識別碼。 |
 
 ## <a name="policy-overrides"></a>原則覆寫
@@ -189,6 +189,9 @@ Widevine 授權要求會格式化為 JSON 訊息。
         return configuration;
     }
 
+## <a name="additional-notes"></a>其他注意事項
+
+* Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

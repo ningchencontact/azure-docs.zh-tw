@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 19dba88bf04ee84459ebd9ef0279f125724d7522
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: f4bb399e24b2c480023eba6bf5b71990f6d39c8c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406442"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978368"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>從 ML web 服務端點監視及收集資料
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "74406442"
 [深入瞭解 Azure 應用程式 Insights](../../azure-monitor/app/app-insights-overview.md)。 
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)
 
@@ -39,7 +39,7 @@ ms.locfileid: "74406442"
 
 ## <a name="web-service-input-and-response-data"></a>Web 服務輸入和回應資料
 
-服務的輸入和回應-對應至 ML 模型的輸入及其預測，會記錄到訊息 `"model_data_collection"`下的 Azure 應用程式 Insights 追蹤。 您可以直接查詢 Azure 應用程式深入解析以存取此資料，或設定[連續匯出](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry)至儲存體帳戶，以延長保留期或進一步處理。 然後，您可以在 Azure ML 服務中使用模型資料來設定標籤、重新定型、可解釋性、資料分析或其他用途。 
+服務的輸入和回應-對應至 ML 模型的輸入及其預測，會記錄到訊息 `"model_data_collection"`下的 Azure 應用程式 Insights 追蹤。 您可以直接查詢 Azure 應用程式深入解析以存取此資料，或設定[連續匯出](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry)至儲存體帳戶，以延長保留期或進一步處理。 然後，可以在 Azure Machine Learning 中使用模型資料來設定標籤、重新定型、可解釋性、資料分析或其他用途。 
 
 ## <a name="use-the-azure-portal-to-configure"></a>使用 Azure 入口網站設定
 
@@ -51,7 +51,7 @@ ms.locfileid: "74406442"
 
    [![[部署] 索引標籤上的服務清單](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
-3. 選取 [**編輯**]
+3. 選取 [編輯]
 
    [![[編輯] 按鈕](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
@@ -121,7 +121,7 @@ ms.locfileid: "74406442"
 您的服務資料會儲存在您的 Azure 應用程式 Insights 帳戶中，與 Azure Machine Learning 相同的資源群組中。
 若要檢視：
 
-1. 前往[Azure Machine Learning studio](https://ml.azure.com)中的 Machine Learning 服務工作區，然後按一下 [Application Insights 連結]
+1. 前往[Azure Machine Learning studio](https://ml.azure.com)中的 Azure Machine Learning 工作區，然後按一下 [Application Insights 連結]
 
     [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 

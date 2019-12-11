@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: c70226ef58ed60a7be556b88366953796ed6fff1
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ddcf97a8c7ae6000c14638a8292bc8b4f39ed87d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580571"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978334"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>在 Python 中設定自動化 ML 實驗
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -108,7 +108,7 @@ automl_config = AutoMLConfig(task = "classification")
 * 輕鬆地將靜態檔案或 URL 來源中的資料傳輸至您的工作區
 * 在雲端計算資源上執行時，將您的資料提供給訓練腳本
 
-如需使用[類別將資料掛接至計算目標的範例，請參閱 ](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target)how to`Dataset`。
+如需使用`Dataset`類別將資料掛接至計算目標的範例，請參閱 [how to](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target)。
 
 ## <a name="train-and-validation-data"></a>訓練和驗證資料
 
@@ -171,7 +171,7 @@ automl_config = AutoMLConfig(task = "classification")
         n_cross_validations=5)
     ```
 
-三個不同的 `task` 參數值（第三個工作類型為 `forecasting`，並使用與 `regression` 工作相同的演算法集區）來決定要套用的模型清單。 使用 `whitelist` 或 `blacklist` 參數來進一步修改反復專案，以及要包含或排除的可用模型。 您可以在[SupportedModels 類別](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py)上找到支援的模型清單。
+三個不同的 `task` 參數值（第三個工作類型為 `forecasting`，並使用類似的演算法集區做為 `regression` 工作）來決定要套用的模型清單。 使用 `whitelist` 或 `blacklist` 參數來進一步修改反復專案，以及要包含或排除的可用模型。 您可以在[SupportedModels 類別](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py)上找到支援的模型清單。
 
 ### <a name="primary-metric"></a>主要計量
 主要度量會決定要在模型定型期間使用的計量，以進行優化。 您可以選取的可用計量取決於您選擇的工作類型，下表顯示每種工作類型的有效主要度量。
@@ -402,7 +402,7 @@ best_run, fitted_model = automl_run.get_output()
    |----|--------|
    |RawFeatureName|提供的輸入功能/資料行名稱。|
    |TypeDetected|偵測到輸入功能的資料類型。|
-   |刪除|指出輸入功能是否已卸載或使用。|
+   |卸除|指出輸入功能是否已卸載或使用。|
    |EngineeringFeatureCount|透過自動化功能工程轉換所產生的功能數目。|
    |轉換|套用至輸入功能以產生工程功能的轉換清單。|
    

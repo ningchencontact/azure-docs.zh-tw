@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2019
-ms.openlocfilehash: ce774868acc281f769e7f2991472e7d2a5da9739
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c2d4c9b089a6673a5cff716d2901cc2b9483ede1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930384"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972246"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>對應資料流程中的衍生資料行轉換
 
@@ -27,6 +27,16 @@ ms.locfileid: "74930384"
 若要加入其他衍生的資料行，請將滑鼠停留在現有的衍生資料行上，然後按一下加號圖示。 請選擇 [**加入資料行**] 或 [新增資料**行模式**]。 如果您的資料行名稱是來源的變數，則資料行模式可能會很有用。 如需詳細資訊，請參閱資料[行模式](concepts-data-flow-column-pattern.md)。
 
 ![新增衍生的資料行選取](media/data-flow/columnpattern.png "新增衍生的資料行選取")
+
+## <a name="build-schemas-in-output-schema-pane"></a>在輸出架構窗格中建立架構
+
+您要修改並加入至架構的資料行會列在 [輸出架構] 窗格中。 您可以在這裡以互動方式建立簡單和複雜的資料結構。 若要新增其他欄位，請選取 [**新增資料行**]。 若要建立階層，請選取 [**新增 subcolumn**]。
+
+![新增 subcolumn](media/data-flow/addsubcolumn.png "新增 Subcolumn")
+
+如需處理資料流程中複雜類型的詳細資訊，請參閱[對應資料流程中的 JSON 處理](concepts-data-flow-json.md)
+
+![加入複雜資料行](media/data-flow/complexcolumn.png "新增資料行")
 
 ## <a name="data-flow-script"></a>資料流程指令碼
 

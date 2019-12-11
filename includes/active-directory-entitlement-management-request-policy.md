@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 4a09389cfd9a5e61c1d73440545c76df7c9eadb2
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: d89240467d5ea5172d04c8eb187fe85d1b702723
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74566226"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74980600"
 ---
 ## <a name="for-users-in-your-directory"></a>適用于您目錄中的使用者
 
@@ -66,6 +66,7 @@ ms.locfileid: "74566226"
     | --- | --- |
     | **特定的已連線組織** | 如果您想要從系統管理員先前新增的組織清單中選取，請選擇此選項。 來自所選組織的所有使用者都可以要求此存取封裝。 |
     | **所有已連線的組織** | 如果所有已連線組織中的所有使用者都可以要求此存取套件，請選擇此選項。 |
+    | **所有使用者（所有已連線的組織 + 任何新的外部使用者）** | 如果所有已連線組織中的所有使用者都可以要求此存取套件，而且 B2B 允許或拒絕清單設定應優先于任何新的外部使用者，請選擇此選項。 |
 
     已連線的組織是與您有關聯性的外部 Azure AD 目錄或網域。
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8ad5c4cb4d17443144febd716391803064ccdad1
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 97dafe292ff3ed0ef5fa46eb895136e3b32e62c5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626369"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978504"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>資料科學專案的平台和工具
 
@@ -44,7 +44,7 @@ Microsoft 對於 Windows 和 Linux 所提供的資料科學虛擬機器，包含
 - 適用於 Windows 的 Power BI desktop
 - Windows / Postgres on Linux 上的 SQL Server 2016 Developer Edition
 
-它也包含**ML 和 AI 工具**，例如 xgboost、 mxnet 和 Vowpal Wabbit。
+它也包含**ML 和 AI 工具**，例如 xgboost、Mxnet 和 Vowpal Wabbit。
 
 目前 DSVM 可用於 **Windows** 和 **Linux CentOS** 作業系統。 根據您規劃在上面執行之資料科學專案的需要，選擇 DSVM 的大小(CPU 核心數目和記憶體數量)。 
 
@@ -73,7 +73,7 @@ Azure SQL 資料倉儲可讓您輕鬆地在數秒鐘的時間內調整計算資�
 
 Azure Data Lake 是企業級的存放庫，可於單一位置收集每種資料類型，再正式加上任何需求或結構描述。 這種彈性可讓每種類型的資料都保存在 Data Lake，不論其大小或結構或者它內嵌的速度。 組織可以使用 Hadoop 或進階分析，在這些 Data Lake 中尋找模式。 Data Lake 也可以在策劃資料並且將其移至資料倉儲之前，作為較低成本資料準備的存放庫。
 
-如需有關 Azure Data Lake 的詳細資訊，請參閱[簡介 Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/)。 若要了解如何使用 Azure Data Lake 建置可調整之資料科學的完整解決方案，請參閱 [Azure Data Lake 中可調整的資料科學：完整的逐步解說](data-lake-walkthrough.md)
+如需有關 Azure Data Lake 的詳細資訊，請參閱[簡介 Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/)。 若要了解如何使用 Azure Data Lake 建置可調整端對端資料科學解決方案，請參閱 [Azure Data Lake 中的可調整資料科學︰端對端逐步解說](data-lake-walkthrough.md)
 
 
 ## <a name="azure-hdinsight-hive-hadoop-clusters"></a>Azure HDInsight Hive (Hadoop) 叢集
@@ -124,28 +124,30 @@ Microsoft 的 TDSP 小組已發佈兩個端對端逐步解說，示範如何在 
 
 如果您使用 Linux (CentOS) 機器來執行 git 命令，您必須將機器的公用 SSH 金鑰新增至 Azure DevOps Services，讓 Azure DevOps Services 能夠辨識此機器。 首先，您必須產生公開 SSH 金鑰，並將金鑰新增至 Azure DevOps Services 安全性設定頁面中的 SSH 公開金鑰。 
 
-- 若要產生 SSH 金鑰，請執行下列兩個命令： 
+1. 若要產生 SSH 金鑰，請執行下列兩個命令： 
 
-        ssh-keygen
-        cat .ssh/id_rsa.pub
+   ```
+   ssh-keygen
+   cat .ssh/id_rsa.pub
+   ```
+   
+   ![用來產生 SSH 金鑰的命令](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
-![用來產生 SSH 金鑰的命令](./media/platforms-and-tools/resources-1-generate_ssh.png)
-
-- 複製整個 ssh 金鑰，包括 ssh-rsa  。 
-- 登入您的 Azure DevOps Services。 
-- 在分頁右上角，按一下 [<您的名稱\>]  ，然後按一下 [安全性]  。 
+1. 複製整個 ssh 金鑰，包括 ssh-rsa。 
+1. 登入您的 Azure DevOps Services。 
+1. 在分頁右上角，按一下 [<您的名稱\>]，然後按一下 [安全性]。 
     
-    ![按一下您的名稱，然後按一下 [安全性]](./media/platforms-and-tools/resources-2-user-setting.png)
+   ![按一下您的名稱，然後按一下 [安全性]](./media/platforms-and-tools/resources-2-user-setting.png)
 
-- 按一下 [SSH 公開金鑰]  ，然後按一下 [+新增]  。 
+1. 按一下 [SSH 公開金鑰]，然後按一下 [+新增]。 
 
-    ![按一下 [SSH 公開金鑰]，然後按一下 [+新增]](./media/platforms-and-tools/resources-3-add-ssh.png)
+   ![按一下 [SSH 公開金鑰]，然後按一下 [+新增]](./media/platforms-and-tools/resources-3-add-ssh.png)
 
-- 將剛剛複製的 ssh 金鑰貼至文字方塊，並且儲存。
+1. 將剛剛複製的 ssh 金鑰貼至文字方塊，並且儲存。
 
 
 ## <a name="next-steps"></a>後續步驟
 
-此外也會提供完整的端對端逐步解說，說明 **特定案例** 之程序中的所有步驟。 [範例逐步解說](walkthroughs.md)主題中會列出這些逐步解說以及簡短說明的連結。 這些逐步解說說明如何將雲端、內部部署工具及服務組合成工作流程或管線，以建立智慧型應用程式。 
+此外也會提供完整的端對端逐步解說，說明 **特定案例** 之程序中的所有步驟。 [範例逐步解說](walkthroughs.md)主題中會列出這些逐步解說以及連結的縮圖描述。 這些逐步解說說明如何將雲端、內部部署工具及服務組合成工作流程或管線，以建立智慧型應用程式。 
 
-針對使用 Azure Machine Learning Studio 的 Team Data Science Process，如需其中執行步驟的範例，請參閱[使用 Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 學習路徑。
+如需示範如何使用 Azure Machine Learning Studio （傳統）在 Team 資料科學程式中執行步驟的範例，請參閱[使用 AZURE ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)學習路徑。

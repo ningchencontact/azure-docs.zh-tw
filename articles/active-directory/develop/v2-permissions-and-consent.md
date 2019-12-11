@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 12/10/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48ddb4c3baa40bf70fe12451f048b2228c8bd441
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1ff874ee74864c84c976096ac5f7fa4b20cfab48
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271504"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996998"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft 身分識別平台端點中的權限和同意
 
@@ -72,11 +72,11 @@ Microsoft 身分識別平台支援兩種類型的權限：**委派權限**和**�
 
 _有效權限_ 是應用程式向目標資源提出要求時所將具備的權限。 請務必瞭解您的應用程式所授與的委派和應用程式許可權之間的差異，以及對目標資源進行呼叫時的有效許可權。
 
-- 就委派權限來說，應用程式的_有效權限_是應用程式 (透過同意) 所獲得授與的委派權限和目前已登入使用者的權限二者的最小權限交集。 應用程式絕對不會擁有已登入使用者權限以外的權限。 在組織內，已登入使用者的權限會由原則或是一或多個系統管理員角色的成員資格決定。 若要了解哪些系統管理員角色可同意委派權限，請參閱 [Azure AD 中的系統管理員角色權限](../users-groups-roles/directory-assign-admin-roles.md)。
+- 就委派權限來說，應用程式的 _有效權限_ 是應用程式 (透過同意) 所獲得授與的委派權限和目前已登入使用者的權限二者的最小權限交集。 應用程式絕對不會擁有已登入使用者權限以外的權限。 在組織內，已登入使用者的權限會由原則或是一或多個系統管理員角色的成員資格決定。 若要了解哪些系統管理員角色可同意委派權限，請參閱 [Azure AD 中的系統管理員角色權限](../users-groups-roles/directory-assign-admin-roles.md)。
 
    例如，假設已經對您的應用程式授與 _User.ReadWrite.All_ 委派權限。 此權限名義上會對應用程式授與讀取及更新組織中每個使用者設定檔的權限。 如果已登入使用者是全域管理員，應用程式便能夠更新組織中每個使用者的設定檔。 不過，如果登入的使用者不是系統管理員角色，您的應用程式就只能更新已登入使用者的設定檔。 應用程式有權代表其行事的使用者沒有這些權限，因此應用程式無法更新組織中其他使用者的設定檔。
   
-- 就應用程式權限來說，應用程式的_有效權限_將是權限所隱含的完整層級權限。 例如，具有 _User.ReadWrite.All_ 應用程式權限的應用程式可以更新組織中每個使用者的設定檔。 
+- 就應用程式權限來說，應用程式的 _有效權限_ 將是權限所隱含的完整層級權限。 例如，具有 _User.ReadWrite.All_ 應用程式權限的應用程式可以更新組織中每個使用者的設定檔。 
 
 ## <a name="openid-connect-scopes"></a>OpenId Connect 範圍
 
@@ -98,7 +98,10 @@ Microsoft 身分識別平臺的 OpenID Connect 具有一些定義完善的範圍
 
 [`offline_access` 範圍](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess)可延長您應用程式代表使用者存取資源的時間。 在同意頁面上，此範圍會顯示為「維持存取您可存取的資料」權限。 當使用者核准 `offline_access` 範圍時，您的應用程式可以從 Microsoft 身分識別平臺權杖端點接收重新整理權杖。 重新整理權杖是長期權杖。 您的應用程式可以在舊存取權杖到期時取得新的存取權杖。
 
-如果您的應用程式並未明確地要求 `offline_access` 範圍，則不會收到重新整理權杖。 這意謂著當您在 [OAuth 2.0 授權碼流程](active-directory-v2-protocols.md)中兌換授權碼時，您只會從 `/token` 端點收到存取權杖。 存取權杖的有效期短。 存取權杖的有效期通常在一小時內。 屆時，您的應用程式將必須把使用者重新導向回 `/authorize` 端點，以擷取新的授權碼。 在此重新導向期間，視應用程式的類型而定，使用者可能需要重新輸入其認證或重新同意權限。 雖然伺服器會自動要求 `offline_access` 範圍，但您的用戶端仍然必須要求它，才能接收重新整理權杖。
+> [!NOTE]
+> 這個許可權會立即出現在所有同意畫面上，即使不提供重新整理權杖的流程（[隱含流程](v2-oauth2-implicit-grant-flow.md)）也一樣。  這是為了說明用戶端可以在隱含流程中開始的情況，然後移至需要重新整理權杖的程式碼流程。
+
+在 Microsoft 身分識別平臺（對 v2.0 端點提出的要求）上，您的應用程式必須明確要求 `offline_access` 範圍，才能接收重新整理權杖。 這意謂著當您在 [OAuth 2.0 授權碼流程](active-directory-v2-protocols.md)中兌換授權碼時，您只會從 `/token` 端點收到存取權杖。 存取權杖的有效期短。 存取權杖的有效期通常在一小時內。 屆時，您的應用程式將必須把使用者重新導向回 `/authorize` 端點，以擷取新的授權碼。 在此重新導向期間，視應用程式的類型而定，使用者可能需要重新輸入其認證或重新同意權限。 
 
 如需如何取得及使用重新整理權杖的詳細資訊，請參閱[Microsoft 身分識別平臺通訊協定參考](active-directory-v2-protocols.md)。
 
@@ -199,11 +202,11 @@ Microsoft 生態系統中的某些高特權權限可以設定為「受系統管�
 
 | 參數     | 條件     | 描述                                                                               |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | 必要 | 您想要要求權限的目錄租用戶。 可以提供 GUID 或易記的名稱格式，或是一般會參考使用 `common` (如範例所示)。 |
-| `client_id` | 必要 | **應用程式（用戶端）識別碼**， [Azure 入口網站](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您應用程式的應用程式註冊體驗。 |
-| `redirect_uri` | 必要 |您想要傳送回應以供應用程式處理的重新導向 URI。 它必須與您在應用程式註冊入口網站中註冊的其中一個重新導向 URI 完全相符。 |
+| `tenant` | 必要項 | 您想要要求權限的目錄租用戶。 可以提供 GUID 或易記的名稱格式，或是一般會參考使用 `common` (如範例所示)。 |
+| `client_id` | 必要項 | **應用程式（用戶端）識別碼**， [Azure 入口網站](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您應用程式的應用程式註冊體驗。 |
+| `redirect_uri` | 必要項 |您想要傳送回應以供應用程式處理的重新導向 URI。 它必須與您在應用程式註冊入口網站中註冊的其中一個重新導向 URI 完全相符。 |
 | `state` | 建議 | 同樣會隨權杖回應傳回之要求中所包含的值。 它可以是您想要的任何內容的字串。 請在驗證要求出現之前，先使用此狀態在應用程式中將使用者狀態的相關資訊 (例如他們之前所在的網頁或檢視) 編碼。 |
-|`scope`        | 必要      | 定義應用程式所要求的許可權集合。 這可以是靜態（使用/.default）或動態範圍。  這可能包括 OIDC 範圍（`openid`、`profile`、`email`）。 | 
+|`scope`        | 必要項      | 定義應用程式所要求的許可權集合。 這可以是靜態（使用/.default）或動態範圍。  這可能包括 OIDC 範圍（`openid`、`profile`、`email`）。 | 
 
 
 此時，Azure AD 會要求租用戶系統管理員登入來完成要求。 系統會要求系統管理員核准您在 `scope` 參數中要求的擁有權限。  如果您已使用靜態（`/.default`）值，它的運作方式就像是 v1.0 系統管理員同意端點，並要求同意所有在應用程式的必要許可權中找到的範圍。

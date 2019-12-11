@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 3f742d4cd2a5285c7c52611a0c4c4735dedc2f19
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 350b8d111652511627ddf67236f63248a5489015
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844790"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970443"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>適用於 Windows 10 的離線 PlayReady 串流  
 
-> [!div class="op_single_selector" title1="選取您要使用的媒體服務版本:"]
+> [!div class="op_single_selector" title1="選取您要使用的媒體服務版本："]
 > * [第 3 版](../latest/offline-plaready-streaming-for-windows-10.md)
 > * [第 2 版](offline-playready-streaming-windows-10.md)
 
@@ -35,11 +35,11 @@ Azure 媒體服務支援在具備 DRM 保護的情況下離線下載/播放。 �
 - [適用於 iOS 的離線 FairPlay 串流](media-services-protect-hls-with-offline-fairplay.md)
 - [適用於 Android 的離線 Widevine 串流](offline-widevine-for-android.md)
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 本節提供一些離線模式播放的背景資訊，尤其是開發該技術的原因：
 
-* 在某些國家/地區，網際網路可用性和/或頻寬仍然受到限制。 使用者可以選擇先下載，以便能以夠高的解析度觀賞內容，來獲得令人滿意的檢視體驗。 在此情況下，更常見的問題不是網路可用性，而是有限的網路頻寬。 OTT/OVP 提供者正在要求提供離線模式支援。
+* 在某些國家/地區，網際網路可用性和/或頻寬仍然受到限制。 使用者可以選擇先下載，以便能夠以夠高的解析度觀賞內容，以獲得滿意的觀賞體驗。 在此情況下，更常見的問題不是網路可用性，而是有限的網路頻寬。 OTT/OVP 提供者正在要求提供離線模式支援。
 * Netflix 2016 年第 3 季股東會議中，Netflix CEO Reed Hastings 揭露了一項資訊，那就是下載內容是「頻繁被要求的功能」，並且「我們對此持開放態度」。
 * 某些內容提供者可能不允許超出國家/地區框線的 DRM 授權傳遞。 如果使用者想要在需要出國旅行時仍能觀賞內容，就需要離線下載。
  
@@ -125,6 +125,10 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
 * 內容可以裝載於 Azure 媒體服務或 Azure 儲存體中以進行漸進式下載；
 * PlayReady 授權傳遞服務可以從 Azure 媒體服務或其他位置提供；
 * 所準備的 Smooth Streaming 內容仍可用來透過 DASH 進行線上串流，或使用 PlayReady 以 DRM 內容的方式進行串流。
+
+## <a name="additional-notes"></a>其他注意事項
+
+* Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="next-steps"></a>後續步驟
 

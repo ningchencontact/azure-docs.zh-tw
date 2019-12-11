@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2019
+ms.date: 12/10/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b4a8005cf308d5cfce02976e3b2eff39d5fe8c0
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: d5a40b699c01f50ceb1bedbc36e7f1467772336f
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958641"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997066"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>略過刪除超出範圍的使用者帳戶
 
@@ -30,16 +30,16 @@ ms.locfileid: "71958641"
 * 如果***SkipOutOfScopeDeletions***設定為0（false），則會在目標中停用超出範圍的帳戶
 * 如果***SkipOutOfScopeDeletions***設為1（true），則不會在目標中停用超出範圍的帳戶，此旗標是在布建*應用*層級設定，而且可以使用圖形 API 進行設定。 
 
-因為此設定廣泛用於*workday 以 Active Directory 使用者*布建應用程式，下列步驟包含 Workday 應用程式的螢幕擷取畫面。 不過，這也可以與其他布建應用程式搭配使用。
+因為此設定廣泛用於*workday 以 Active Directory 使用者*布建應用程式，下列步驟包含 Workday 應用程式的螢幕擷取畫面。 不過，這也可以與**所有其他應用程式**（例如 ServiceNow、Salesforce、Dropbox 等）搭配使用。
 
-## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>步驟 1:取出您的布建 App Service 主體識別碼（物件識別碼）
+## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>步驟1：取出您的布建 App Service 主體識別碼（物件識別碼）
 
 1. 啟動[Azure 入口網站](https://portal.azure.com)，然後流覽至布建應用程式的 [屬性] 區段。 例如，如果您想要將 Workday 匯出*至 AD 使用者布建應用程式*對應，請流覽至該應用程式的 [屬性] 區段。 
 1. 在佈建應用程式的 [屬性] 區段中，複製與 [物件識別碼] 欄位相關的 GUID 值。 此值也稱為您應用程式的 **ServicePrincipalId**，並且會在「Graph 總管」作業中用到。
 
    ![Workday 應用程式服務主體識別碼](./media/export-import-provisioning-mappings/wd_export_01.png)
 
-## <a name="step-2-sign-into-microsoft-graph-explorer"></a>步驟 2:登入 Microsoft Graph 總管
+## <a name="step-2-sign-into-microsoft-graph-explorer"></a>步驟2：登入 Microsoft Graph Explorer
 
 1. 啟動 [Microsoft Graph 總管](https://developer.microsoft.com/graph/graph-explorer)
 1. 按一下 [使用 Microsoft 登入] 按鈕，然後使用「Azure AD 全域管理員」或「應用程式管理員」認證來登入。
@@ -48,7 +48,7 @@ ms.locfileid: "71958641"
 
 1. 成功登入時，您會在左側窗格中看到使用者帳戶詳細資料。
 
-## <a name="step-3-get-existing-app-credentials-and-connectivity-details"></a>步驟 3：取得現有的應用程式認證和連線詳細資料
+## <a name="step-3-get-existing-app-credentials-and-connectivity-details"></a>步驟3：取得現有的應用程式認證和連線詳細資料
 
 在「Microsoft Graph 總管」中，執行下列 GET 查詢，其中以從[步驟 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id) 擷取的 **ServicePrincipalId** 取代 [servicePrincipalId]。
 
@@ -71,7 +71,7 @@ ms.locfileid: "71958641"
         }
 ```
 
-## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>步驟 4：使用 SkipOutOfScopeDeletions 旗標更新秘密端點
+## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>步驟4：使用 SkipOutOfScopeDeletions 旗標更新秘密端點
 
 在 [圖形瀏覽器] 中，執行下列命令以使用***SkipOutOfScopeDeletions***旗標來更新密碼端點。 
 
@@ -90,7 +90,7 @@ ms.locfileid: "71958641"
 
    ![PUT 回應](./media/skip-out-of-scope-deletions/skip-06.png)
 
-## <a name="step-5-verify-that-out-of-scope-users-dont-get-disabled"></a>步驟 5：確認超出範圍的使用者不會遭到停用
+## <a name="step-5-verify-that-out-of-scope-users-dont-get-disabled"></a>步驟5：確認超出範圍的使用者不會遭到停用
 
 您可以藉由更新範圍規則來略過特定的使用者，測試此旗標會產生預期的行為。 在下列範例中，我們會加入新的範圍規則，以排除識別碼為21173（先前在範圍中）的員工： 
 

@@ -7,22 +7,22 @@ ms.subservice: security
 ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
-author: aliceku
-ms.author: aliceku
+author: jaszymas
+ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/19/2019
-ms.openlocfilehash: 6676a6f7c694ffd4f2edf3f63a8181863df0016c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c8a1e2a19fa3c8691cdb381669dc3d4db189c42d
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227969"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995842"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL 透明資料加密與客戶管理的金鑰
 
 Azure SQL[透明資料加密（TDE）](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)與客戶管理的金鑰，可讓攜帶您自己的金鑰（BYOK）案例進行待用資料保護，並可讓組織在金鑰和資料的管理中執行責任分離。 有了客戶管理的透明資料加密，客戶就能以完全控制金鑰生命週期管理（金鑰建立、上傳、輪替、刪除）、金鑰使用許可權，以及對金鑰進行作業的審核。
 
-在此案例中，用來加密資料庫加密金鑰（DEK）的金鑰（稱為 TDE 保護裝置）是由客戶管理的非對稱金鑰，儲存在客戶擁有和客戶管理的[Azure Key Vault （AKV）](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)中，這是以雲端為基礎的外部金鑰管理筆記本電腦. Key Vault 是適用于 RSA 密碼編譯金鑰的高可用性和可擴充的安全儲存體，並可選擇性地由 FIPS 140-2 Level 2 驗證的硬體安全性模組（Hsm）支援。 它不允許直接存取預存金鑰，而是使用授權實體的金鑰提供加密/解密服務。 金鑰可由金鑰保存庫產生、匯入，或[從內部內部部署 HSM 裝置傳輸至金鑰保存庫](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)。
+在此案例中，用來加密資料庫加密金鑰（DEK）的金鑰（稱為 TDE 保護裝置）是以雲端為基礎的外部金鑰管理系統，儲存在客戶擁有和客戶管理的[Azure Key Vault （AKV）](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)中的客戶管理的非對稱金鑰。 Key Vault 是適用于 RSA 密碼編譯金鑰的高可用性和可擴充的安全儲存體，並可選擇性地由 FIPS 140-2 Level 2 驗證的硬體安全性模組（Hsm）支援。 它不允許直接存取預存金鑰，而是使用授權實體的金鑰提供加密/解密服務。 金鑰可由金鑰保存庫產生、匯入，或[從內部內部部署 HSM 裝置傳輸至金鑰保存庫](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)。
 
 對於 Azure SQL Database 和 Azure SQL 資料倉儲而言，TDE 保護裝置是在邏輯伺服器層級設定，並由與該伺服器相關聯的所有加密資料庫所繼承。 針對 Azure SQL 受控執行個體，TDE 保護裝置會在實例層級設定，並由該實例上所有加密的資料庫繼承。 「*伺服器*」一詞指的是這份檔中 SQL Database 邏輯伺服器和受控實例，除非另有不同的述。 
 
@@ -70,7 +70,7 @@ Azure SQL[透明資料加密（TDE）](https://docs.microsoft.com/sql/relational
 
 ### <a name="requirements-for-configuring-akv"></a>設定 AKV 的需求
 
-- 金鑰保存庫和 SQL Database/受控實例必須屬於相同的 Azure Active Directory 租使用者。 不支援跨租使用者金鑰保存庫和伺服器互動。 若要之後移動資源，則必須重新設定具有 AKV 的 TDE。 深入瞭解如何[移動資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
+- 金鑰保存庫和 SQL Database/受控實例必須屬於相同的 Azure Active Directory 租使用者。 不支援跨租用戶金鑰保存庫與伺服器的互動。 若要之後移動資源，則必須重新設定具有 AKV 的 TDE。 深入瞭解如何[移動資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
 
 - 必須在金鑰保存庫上啟用虛[刪除](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)功能，以防止意外遺失金鑰（或金鑰保存庫）刪除。 虛刪除的資源會保留90天，除非客戶在此期間復原或清除。 *復原*和*清除*動作在金鑰保存庫存取原則中有自己的相關聯權限。 虛刪除功能預設為關閉，並可透過[Powershell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell#enabling-soft-delete)或[CLI](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli#enabling-soft-delete)啟用。 無法透過 Azure 入口網站啟用。  
 

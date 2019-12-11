@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 76afafb59de762776b7d2614e383320b7d8f79e4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b32e2abcffda24fa82d3911575fe48acfc294ccc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669413"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973164"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process 實務：使用 SQL 資料倉儲
 在本教學課程中，我們將引導您使用 SQL 資料倉儲 (SQL DW)，針對可公開使用的資料集 ( [NYC 計程車車程](https://www.andresmh.com/nyctaxitrips/) 資料集) 建置和部署機器學習服務模型。 所建構的二元分類模型可預測是否已針對某趟車程支付小費，並且也會討論預測支付的小費金額分佈的多元分類模型和迴歸模型。
@@ -43,7 +43,7 @@ ms.locfileid: "73669413"
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-聯結 trip**data 和 trip**fare 的「唯一索引鍵」\_\_是由下列三個欄位所組成：
+聯結 trip\_data 和 trip\_fare 的「唯一索引鍵」是由下列三個欄位所組成：
 
 * medallion、
 * hack\_license 和
@@ -53,7 +53,7 @@ ms.locfileid: "73669413"
 我們根據 *tip\_amount* 將三個預測問題公式化來說明三種類型的模型化工作：
 
 1. **二元分類**：預測是否已支付某趟車程的小費 (即大於美金 $0 元的 *tip\_amount* 為正面範例)，而等於美金 $0 元的 *tip\_amount* 為負面範例。
-2. **多類別分類**：預測針對該車程所支付之小費的金額範圍。 我們將 tip*amount\_* 分成五個分類收納組或類別：
+2. **多類別分類**：預測針對該車程所支付之小費的金額範圍。 我們將 tip\_amount 分成五個分類收納組或類別：
 
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -540,7 +540,7 @@ ms.locfileid: "73669413"
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>準備資料以進行模型建置
-下列查詢可聯結 **nyctaxi\_trip** 和 **nyctaxi\_fare** 資料表、產生二進位分類標籤 **tipped**、多類別分類標籤 **tip\_class**，以及從完整聯結的資料集中擷取樣本。 根據上車時間擷取車程子集即可完成取樣。  您可以複製此查詢，然後直接貼在[Azure Machine Learning Studio](https://studio.azureml.net)匯[入資料][import-data]模組中，以便從 Azure 中的 SQL database 實例直接內嵌資料。 查詢會排除含有不正確 (0, 0) 座標的記錄。
+下列查詢可聯結 **nyctaxi\_trip** 和 **nyctaxi\_fare** 資料表、產生二進位分類標籤 **tipped**、多類別分類標籤 **tip\_class**，以及從完整聯結的資料集中擷取樣本。 根據上車時間擷取車程子集即可完成取樣。  您可以複製此查詢，然後直接貼到[Azure Machine Learning Studio （傳統）](https://studio.azureml.net)匯[入資料][import-data]模組中，以便從 Azure 中的 SQL database 實例直接內嵌資料。 查詢會排除含有不正確 (0, 0) 座標的記錄。
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -567,15 +567,15 @@ ms.locfileid: "73669413"
 
 範例 IPython Notebook 和 Python 指令碼檔案中下載到本機電腦的所需 Azure SQL DW 資訊先前已由 PowerShell 指令碼插入。 因此，不必進行任何修改就可以執行。
 
-如果您已經設定 AzureML 工作區，則可以直接將範例 IPython Notebook 上傳至 AzureML IPython Notebook 服務，並開始執行。 以下是上傳至 AzureML IPython Notebook 服務的步驟：
+如果您已設定 Azure Machine Learning 工作區，您可以直接將範例 IPython 筆記本上傳至 AzureML IPython 筆記本服務，並開始執行。 以下是上傳至 AzureML IPython 筆記本服務的步驟：
 
-1. 登入 AzureML 工作區，按一下頂端的 [Studio]，然後按一下網頁左側的 [NOTEBOOKS]。
+1. 登入您的 Azure Machine Learning 工作區，按一下頂端的 [ **Studio]** ，然後按一下網頁左側的 [**筆記本**]。
 
     ![依序按一下 [Studio] 和 [NOTEBOOK]][22]
-2. 按一下網頁左下角的 [新增]，接著選取 [Python 2]。 然後，提供 Notebook 的名稱，並按一下核取記號以建立新的空白 IPython Notebook。
+2. 按一下網頁左下角的 [**新增**]，然後選取 [ **Python 2**]。 然後，提供 Notebook 的名稱，並按一下核取記號以建立新的空白 IPython Notebook。
 
     ![按一下 [新增]，然後選取 [Python 2]][23]
-3. 按一下新的 IPython Notebook 左上角的 [Jupyter] 符號。
+3. 按一下新 IPython 筆記本左上角的**Jupyter**符號。
 
     ![按一下 [Jupyter] 符號][24]
 4. 將範例 IPython Notebook 拖放到 AzureML IPython Notebook 服務的 [樹狀結構] 頁面，然後按一下 [上傳]。 然後，範例 IPython Notebook 就會上傳到 AzureML IPython Notebook 服務。
@@ -590,7 +590,7 @@ ms.locfileid: "73669413"
 - pyodbc
 - PyTables
 
-以下是在 AzureML 中使用大型資料建置進階分析解決方案時的建議順序：
+在具有大型資料的 Azure Machine Learning 上建立先進分析解決方案時，建議的順序如下：
 
 * 將小型資料取樣讀取至記憶體中的資料框架。
 * 使用取樣的資料來執行一些視覺化操作和探索。
@@ -711,7 +711,7 @@ ms.locfileid: "73669413"
 
 ![長條圖輸出][3]
 
-和
+與
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
@@ -811,14 +811,14 @@ ms.locfileid: "73669413"
 
 若要開始進行模型化練習，請登入您的**Azure Machine Learning （傳統）** 工作區。 如果您尚未建立機器學習服務工作區，請參閱[建立 Azure Machine Learning Studio （傳統）工作區](../studio/create-workspace.md)。
 
-1. 若要開始使用 Azure Machine Learning，請參閱「 [什麼是 Azure Machine Learning Studio？](../studio/what-is-ml-studio.md)
-2. 登入 [Azure Machine Learning Studio](https://studio.azureml.net)。
-3. Studio 首頁會提供豐富的資訊、影片、教學課程、與模組參考的連結，以及其他資源。 如需 Azure Machine Learning 的詳細資訊，請參閱 [Azure 機器學習服務文件中心](https://azure.microsoft.com/documentation/services/machine-learning/)。
+1. 若要開始使用 Azure Machine Learning，請參閱[什麼是 Azure Machine Learning Studio （傳統）？](../studio/what-is-ml-studio.md)
+2. 登入[Azure Machine Learning Studio （傳統）](https://studio.azureml.net)。
+3. [Machine Learning Studio （傳統）] 首頁提供豐富的資訊、影片、教學課程、模組參考的連結，以及其他資源。 如需 Azure Machine Learning 的詳細資訊，請參閱 [Azure 機器學習服務文件中心](https://azure.microsoft.com/documentation/services/machine-learning/)。
 
 典型的訓練實驗包含下列步驟：
 
 1. 建立 **+NEW** 實驗。
-2. 將資料匯入 Azure Machine Learning Studio。
+2. 將資料放入 Azure Machine Learning Studio （傳統）。
 3. 視需要前置處理、轉換和操作資料。
 4. 視需要產生功能。
 5. 將資料分割為訓練/驗證/測試資料集 (或讓每一個擁有個別的資料集)。
@@ -828,7 +828,7 @@ ms.locfileid: "73669413"
 9. 評估模型來計算適用於學習問題的相關度量。
 10. 微調模型，並選取要部署的最佳模型。
 
-在這個練習中，我們已經探索了 SQL 資料倉儲中的資料並進行處理，並且決定了要在 Azure Machine Learning Studio 中擷取的取樣大小。 以下是建置一或多個預測模型的程序：
+在此練習中，我們已在 SQL 資料倉儲中探索並設計資料，並決定要在 Azure Machine Learning Studio （傳統）中內嵌的取樣大小。 以下是建置一或多個預測模型的程序：
 
 1. 使用匯[入資料][import-data]模組（可從**資料輸入和輸出**一節取得），將資料匯入 Azure Machine Learning Studio （傳統）。 如需詳細資訊，請參閱匯[入資料][import-data]模組參考頁面。
 
@@ -874,14 +874,16 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。 �
 
 ![Azure ML 發佈][11]
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 讓我們回顧一下已在此逐步解說教學課程中完成的工作，您已經建立 Azure 資料科學環境、使用大型公用資料集，並在 Team Data Science Process 的整個過程中使用它，而您在這個過程中擷取資料、進行模型定型，然後部署 Azure Machine Learning Web 服務。
 
 ### <a name="license-information"></a>授權資訊
 此逐步解說範例及其隨附的指令碼和 IPython Notebook 是在 MIT 授權下由 Microsoft 所共用。 如需詳細資料，請查看 GitHub 上範例程式碼目錄中的 LICENSE.txt 檔案。
 
 ## <a name="references"></a>參考
-•    [Andrés Monroy 紐約市計程車行程下載頁面](https://www.andresmh.com/nyctaxitrips/) (英文) •    [FOILing 紐約市計程車行程資料 (作者 Chris Whong)](https://chriswhong.com/open-data/foil_nyc_taxi/) (英文)•    [紐約市計程車和豪華轎車委員會研究與統計資料](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) (英文)
+- [Andrés Monroy NYC 計程車旅程下載頁面](https://www.andresmh.com/nyctaxitrips/)
+- [FOILing NYC 的計程車資料，由 Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)
+- [NYC 計程車和禮車委員會研究和統計資料](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

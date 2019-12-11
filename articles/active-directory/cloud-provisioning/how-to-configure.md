@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 956962503dcb3a6355d455ff96744143c5965d1e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f08a1359cfd8a2793d92315a6b03567b0b3f847d
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794298"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997117"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-new-configuration"></a>Azure AD Connect 雲端布建新設定
 
@@ -32,8 +32,7 @@ ms.locfileid: "74794298"
 
 4.  按一下 [**新增**設定]。
 5.  在 [設定] 畫面上，已預先填入內部部署網域
-6. 輸入**通知電子郵件**。 這封電子郵件將會收到通知 
-7. 當布建狀況不良時。  
+6. 輸入**通知電子郵件**。 當布建狀況不良時，將會通知這封電子郵件。  
 8. 將選取器移至 [**啟用**]，然後按一下 [**儲存**]。
 ![](media/tutorial-single-forest/configure2.png)
 

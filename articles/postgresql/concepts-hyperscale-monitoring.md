@@ -1,23 +1,23 @@
 ---
-title: 在適用於 PostgreSQL 的 Azure 資料庫中監視和微調超大規模資料庫（Citus）
+title: 監視和微調-超大規模資料庫（Citus）-適用於 PostgreSQL 的 Azure 資料庫
 description: 本文說明適用於 PostgreSQL 的 Azure 資料庫超大規模資料庫（Citus）中的監視和微調功能
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6c9bf7a427c0d3d26c3accd1d0d7098413916993
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d2e9fcd6f6292c1da76e725e90deda4547b3682d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512687"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975511"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>監視和微調適用於 PostgreSQL 的 Azure 資料庫-超大規模資料庫（Citus）
 
 監視伺服器的相關資料，可協助您疑難排解並最佳化您的工作負載。 超大規模資料庫（Citus）提供各種監視選項，可讓您深入瞭解伺服器群組中節點的行為。
 
-## <a name="metrics"></a>度量
+## <a name="metrics"></a>計量
 
 超大規模資料庫（Citus）會針對伺服器群組中的每個節點提供計量。 計量讓您深入瞭解支援資源的行為。 每個計量都會以一分鐘的頻率發出，而且可保留最多 30 天的歷程記錄。
 
@@ -27,16 +27,16 @@ ms.locfileid: "73512687"
 
 這些計量適用于超大規模資料庫（Citus）節點：
 
-|計量|計量顯示名稱|單位|說明|
+|計量|計量顯示名稱|單位|描述|
 |---|---|---|---|
-|active_connections|作用中的連線|Count|伺服器的使用中連線數量。|
+|active_connections|作用中的連線|計數|伺服器的使用中連線數量。|
 |cpu_percent|CPU 百分比|百分比|使用中的 CPU 百分比。|
-|功耗|IOPS|Count|請參閱[IOPS 定義](../virtual-machines/linux/premium-storage-performance.md#iops)和[超大規模資料庫輸送量](concepts-hyperscale-configuration-options.md)|
+|功耗|IOPS|計數|請參閱[IOPS 定義](../virtual-machines/linux/premium-storage-performance.md#iops)和[超大規模資料庫輸送量](concepts-hyperscale-configuration-options.md)|
 |memory_percent|記憶體百分比|百分比|使用中記憶體的百分比。|
 |network_bytes_ingress|Network In|位元組|跨作用中連線的網路輸入。|
 |network_bytes_egress|Network Out|位元組|跨作用中連線的網路輸出。|
 |storage_percent|儲存體百分比|百分比|使用的儲存體佔伺服器最大值的百分比。|
-|storage_used|已使用儲存體|位元組|使用中的儲存體數量。 此服務所使用的儲存體可能包括資料庫檔案、交易記錄和伺服器記錄。|
+|storage_used|使用的儲存空間|位元組|使用中的儲存體數量。 此服務所使用的儲存體可能包括資料庫檔案、交易記錄和伺服器記錄。|
 
 Azure 不會為整個叢集提供匯總計量，但是多個節點的計量可以放在相同的圖表上。
 

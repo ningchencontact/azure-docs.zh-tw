@@ -1,5 +1,5 @@
 ---
-title: 診斷 Azure Active Directory 聯機服務的錯誤
+title: 診斷 Azure AD 聯機服務的錯誤
 description: Active directory 連線服務偵測到不相容的驗證類型
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6df50db564dac09785b460d158d4276ea8a215e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6a7528bafd9183ae917370a6de35d1d94c3783e5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271257"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966447"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>使用 Azure Active Directory 連線服務診斷錯誤
 
@@ -54,7 +54,7 @@ ms.locfileid: "74271257"
 * 個別使用者帳戶
 * 組織帳戶
 
-為偵測 MVC 專案中的「Windows 驗證」，連線服務會在您的 `authentication` 檔案中尋找 `web.config` 元素。
+為偵測 MVC 專案中的「Windows 驗證」，連線服務會在您的 `web.config` 檔案中尋找 `authentication` 元素。
 
 ```xml
 <configuration>
@@ -64,7 +64,7 @@ ms.locfileid: "74271257"
 </configuration>
 ```
 
-為偵測 MVC 專案中的「Windows 驗證」，連線服務會在您的 `IISExpressWindowsAuthentication` 檔案中尋找 `.csproj` 元素：
+為偵測 MVC 專案中的「Windows 驗證」，連線服務會在您的 `.csproj` 檔案中尋找 `IISExpressWindowsAuthentication` 元素：
 
 ```xml
 <Project>

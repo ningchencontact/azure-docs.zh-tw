@@ -1,5 +1,5 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫–超大規模資料庫（Citus）效能選項
+title: 效能選項–超大規模資料庫（Citus）-適用於 PostgreSQL 的 Azure 資料庫
 description: 超大規模資料庫（Citus）伺服器群組的選項，包括節點計算、儲存體和區域。
 author: jonels-msft
 ms.author: jonels
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 2b848827d3d2017e5e787989553c0bf1e26d48e7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ee3e661d6c01aa2e4f37ac9a70e00be5da5f794
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482631"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975630"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-performance-options"></a>適用於 PostgreSQL 的 Azure 資料庫–超大規模資料庫（Citus）效能選項
 
@@ -29,7 +29,7 @@ ms.locfileid: "73482631"
 | IOPS                  | 最多 3 IOPS/GiB      | 最多 3 IOPS/GiB      |
 
 
-## <a name="regions"></a>區域
+## <a name="regions"></a>地區
 超大規模資料庫（Citus）伺服器群組適用于下列 Azure 區域：
 
 * 美洲：
@@ -50,7 +50,7 @@ ms.locfileid: "73482631"
 
 ## <a name="pricing"></a>價格
 如需最新的定價資訊，請參閱服務的[定價頁面](https://azure.microsoft.com/pricing/details/postgresql/)。
-若要查看您所需的設定成本， [Azure 入口網站](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)會根據您選取的選項，在 [**設定**] 索引標籤上顯示每月成本。 如果您沒有 Azure 訂用帳戶，您可以使用 Azure 價格計算機取得估計的價格。 在[Azure 定價計算機](https://azure.microsoft.com/pricing/calculator/)網站上，選取 **[新增專案**]，展開 [**資料庫**] 類別，然後選擇 [**適用於 PostgreSQL 的 Azure 資料庫–超大規模資料庫（Citus）** ] 以自訂選項。
+若要查看您所需的設定成本， [Azure 入口網站](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)會根據您選取的選項，在 [**設定**] 索引標籤上顯示每月成本。 如果您沒有 Azure 訂用帳戶，則可以使用 Azure 價格計算機來取得估計的價格。 在[Azure 定價計算機](https://azure.microsoft.com/pricing/calculator/)網站上，選取 **[新增專案**]，展開 [**資料庫**] 類別，然後選擇 [**適用於 PostgreSQL 的 Azure 資料庫–超大規模資料庫（Citus）** ] 以自訂選項。
  
 ## <a name="next-steps"></a>後續步驟
 瞭解如何[在入口網站中建立超大規模資料庫（Citus）伺服器群組](quickstart-create-hyperscale-portal.md)。

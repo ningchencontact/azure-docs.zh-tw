@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/09/2019
 ms.author: b-juche
-ms.openlocfilehash: f7213ddee5d7bdfd41508f5fee66de63cde5b7c4
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 6fcea0aaecb860e07c2066877494c05b51f43ca4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170030"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976242"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files 的資源限制
 
@@ -29,9 +29,9 @@ ms.locfileid: "71170030"
 
 下表說明 Azure NetApp Files 的資源限制：
 
-|  Resource  |  預設限制  |  可透過支援要求調整  |
+|  資源  |  預設限制  |  可透過支援要求調整  |
 |----------------|---------------------|--------------------------------------|
-|  每個 Azure 訂用帳戶的 NetApp 帳戶數目   |  10    |  是   |
+|  每個 Azure 區域的 NetApp 帳戶數目   |  10    |  是   |
 |  每個 NetApp 帳戶的容量集區數目   |    25     |   是   |
 |  每個容量集區的磁片區數目     |    500   |    是     |
 |  每個磁片區的快照集數目       |    255     |    否        |
@@ -69,14 +69,14 @@ Azure NetApp Files 磁片區有一個稱為*maxfiles*的限制。 Maxfiles 限�
 1. 按一下 [說明 **+ 支援**]。
 2. 按一下 [ **+ 新增支援要求**]。
 3. 在 [基本] 索引標籤上，提供下列資訊： 
-    1. 問題類型：選取 **[服務與訂用帳戶限制（配額）** ]。
-    2. 訂戶選取您需要增加配額的資源訂用帳戶。
-    3. 配額類型：選取**儲存體：Azure NetApp Files 限制**。
-    4. 按一下 **下一步解決方案**。
+    1. 問題類型：選取 **[服務和訂用帳戶限制（配額）** ]。
+    2. 訂用帳戶：選取您需要增加配額的資源訂閱。
+    3. 配額類型：選取 [**儲存體]： Azure NetApp Files 限制**。
+    4. 按 **[下一步：方案]** 。
 4. 在 [詳細資料] 索引標籤上：
     1. 在 [描述] 方塊中，提供對應資源類型的下列資訊：
 
-        |  Resource  |    父資源      |    要求的新限制     |    增加配額的原因       |
+        |  資源  |    父資源      |    要求的新限制     |    增加配額的原因       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  帳戶 |  *訂用帳戶識別碼*   |  *已要求新的**帳戶**號碼上限*    |  *哪種案例或使用案例會提示要求？*  |
         |  集區    |  *訂用帳戶識別碼、帳戶 URI*  |  *已要求新的**集**區數目上限*   |  *哪種案例或使用案例會提示要求？*  |
@@ -85,7 +85,7 @@ Azure NetApp Files 磁片區有一個稱為*maxfiles*的限制。 Maxfiles 限�
 
     2. 指定適當的支援方法，並提供您的合約資訊。
 
-    3. 按一下 **下一步請參閱**  + 建立 來建立要求。 
+    3. 按 **[下一步：審查 + 建立]** 以建立要求。 
 
 
 ## <a name="next-steps"></a>後續步驟  

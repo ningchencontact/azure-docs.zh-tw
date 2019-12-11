@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee091d1c8f0f477354f6bb422d041278ec5668e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c10171ae59772f58411997d16dc4ad1472e94e29
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574257"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996930"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>教學課程：設定 Workplace by Facebook 來自動佈建使用者
 
@@ -30,7 +30,7 @@ ms.locfileid: "73574257"
 
 若要設定 Azure AD 與 Workplace by Facebook 的整合，您需要下列項目：
 
-- Azure AD 訂用帳戶
+- 一個 Azure AD 訂用帳戶
 - 已啟用 Workplace by Facebook 單一登入的訂用帳戶
 
 > [!NOTE]
@@ -99,7 +99,7 @@ Azure AD 支援將指派之使用者的帳戶詳細資料自動同步處理至 W
 您現在可以建立測試帳戶了。 請等候 20 分鐘以驗證帳戶已同步至 Workplace by Facebook。
 
 > [!NOTE]
-> 我們正與 Workplace by Facebook 小組密切合作，以確保 Azure AD 的應用程式獲得核准，並符合其新指導方針。 Workplace by Facebook 的期限是12月16日，我們預期會達到此需求。 當時客戶不需要執行任何工作。 自2020年2月28日起，客戶將需要轉換到新的整合。 一旦有可用的遷移路徑，我們就會立即張貼。    
+> Workplace by Facebook 中的 Azure AD 協力廠商應用程式已獲核准。 客戶在12月16日不會中斷服務。 當您需要轉換至新的應用程式時，您會在 Workplace by Facebook 管理主控台中看到一個附注，指出期限為 28-2-2020。 我們正努力盡可能簡單地轉換，並在此于月底的轉換中提供更新。
 
 ## <a name="additional-resources"></a>其他資源
 

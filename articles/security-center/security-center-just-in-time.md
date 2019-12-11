@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: fb092a3c6b473680480c3bba0ad6f437176833de
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3e344afc29ae398394a1aa2aa527f2f32e24eef7
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576410"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997185"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>使用 Just-In-Time 管理虛擬機器存取
 
-即時（JIT）虛擬機器（VM）存取可用於鎖定 Azure Vm 的輸入流量、降低暴露于攻擊的風險，並在需要時輕鬆地連接到 Vm。
+Just-In-Time (JIT) 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、降低暴露於攻擊的風險，同時能夠視需要輕鬆連線至 VM。
 
 > [!NOTE]
 > Just-in-Time 功能由資訊安全中心的標準層提供。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。
@@ -176,10 +176,10 @@ ms.locfileid: "73576410"
 
 若要在所有 VM 上輕鬆地推出 Just-In-Time 存取，您可以將 VM 設定為只允許直接從 VM 進行 Just-In-Time 存取。
 
-1. 在 Azure 入口網站中，選取 [虛擬機器]。
-2. 按一下您想要限制為 Just-In-Time 存取的虛擬機器。
-3. 在功能表中，按一下 [組態]。
-4. 按一下 **Just-in-time-access** 之下的 [啟用 Just-In-Time 原則]。 
+1. 從 [ [Azure 入口網站](https://ms.portal.azure.com)] 中，搜尋並選取 [**虛擬機器**]。 
+2. 選取您想要限制為即時存取的虛擬機器。
+3. 在功能表中 **，選取 [** 設定]。
+4. 在 [**即時存取**] 底下，選取 [**啟用即時原則**]。 
 
 這可為使用下列設定的 VM 啟用 Just-In-Time 存取：
 

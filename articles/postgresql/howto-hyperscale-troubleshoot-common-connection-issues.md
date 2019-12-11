@@ -1,5 +1,5 @@
 ---
-title: 對適用於 PostgreSQL 的 Azure 資料庫的連線問題進行疑難排解-超大規模資料庫（Citus）
+title: 針對連接進行疑難排解-超大規模資料庫（Citus）-適用於 PostgreSQL 的 Azure 資料庫
 description: 瞭解如何對適用於 PostgreSQL 的 Azure 資料庫的連線問題進行疑難排解-超大規模資料庫（Citus）
 keywords: postgresql 連線, 連接字串, 連線問題, 暫時性錯誤, 連線錯誤
 author: jonels-msft
@@ -7,12 +7,12 @@ ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: b812b730cebba4dbf0735f49f544e53bf7f8787c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c064aca484f85c44dada9888012140784a96863f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952143"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977500"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>對適用於 PostgreSQL 的 Azure 資料庫的連線問題進行疑難排解-超大規模資料庫（Citus）
 
@@ -50,7 +50,7 @@ ms.locfileid: "72952143"
 
 * 協調員節點防火牆設定：請確定超大規模資料庫伺服器防火牆已設定為允許來自用戶端的連線，包括 proxy 伺服器和閘道。
 * 用戶端防火牆設定：用戶端上的防火牆必須允許連接到您的資料庫伺服器。 有些防火牆需要不只允許依名稱進行應用程式，而是允許伺服器的 IP 位址和埠。
-* 使用者錯誤：再次檢查連接字串。 您可能會輸入錯誤的參數，例如伺服器名稱，或是在使用者名稱中忘了 *\@servername*尾碼。
+* 使用者錯誤：再次檢查連接字串。 您可能會輸入錯誤的參數，例如伺服器名稱。 您可以在 Azure 入口網站中找到各種語言架構和 psql 的連接字串。 移至超大規模資料庫（Citus）伺服器群組中的 [**連接字串**] 頁面。 也請記住，超大規模資料庫（Citus）叢集只有一個資料庫，而其預先定義的名稱是**Citus**。
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>解決永久性連線問題的步驟
 

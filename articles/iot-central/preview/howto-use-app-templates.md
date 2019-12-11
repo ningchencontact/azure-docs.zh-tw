@@ -3,17 +3,17 @@ title: 匯出 Azure IoT Central 應用程式 |Microsoft Docs
 description: 身為解決方案管理員，我想要匯出應用程式範本，以便能夠重複使用它。
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/17/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 0edc1a7e470b7f0f3773b69635bbc26ab4d283b3
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 9870b18be9fb75e25941a7e1d05e4164239aacbb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480357"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977517"
 ---
 # <a name="export-your-application-preview-features"></a>匯出您的應用程式（預覽功能）
 
@@ -30,7 +30,7 @@ ms.locfileid: "74480357"
 
 您可以建立任何應用程式複本，並減去其中的任何裝置執行個體、裝置資料歷程記錄和使用者資料。 此複本是隨用隨付應用程式，您必須支付費用。 您無法藉由複製應用程式來建立試用版應用程式。
 
-選取 [**複製**]。 在對話方塊中，輸入新隨用隨付應用程式的詳細資料。 然後選取 [**複製**] 以確認您想要繼續。 若要深入瞭解表單中的欄位，請參閱[建立應用程式](quick-deploy-iot-central.md)快速入門。
+選取 [複製]。 在對話方塊中，輸入新隨用隨付應用程式的詳細資料。 然後選取 [**複製**] 以確認您想要繼續。 若要深入瞭解表單中的欄位，請參閱[建立應用程式](quick-deploy-iot-central.md)快速入門。
 
 > [!NOTE]
 > 您只能**將應用程式複製**到**歐洲**和**美國**地區。
@@ -54,7 +54,7 @@ ms.locfileid: "74480357"
 
 - 預設的應用程式儀表板，包括儀表板版面配置和您已定義的所有磚。
 - 裝置範本，包括度量、設定、屬性、命令和儀表板。
-- 條. 包含所有規則定義。 不過，除了電子郵件動作以外的動作不會包含在內。
+- 規則： 包含所有規則定義。 不過，除了電子郵件動作以外的動作不會包含在內。
 - 裝置集，包括其條件和儀表板。
 
 > [!WARNING]
@@ -63,7 +63,7 @@ ms.locfileid: "74480357"
 當您建立應用程式範本時，它不會包含下列專案：
 
 - 裝置
-- 使用者
+- 使用者人數
 - 作業定義
 - 連續資料匯出定義
 

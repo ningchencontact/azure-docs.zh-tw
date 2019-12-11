@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 1354f7befd8c38537a555e17733f431dd488cf60
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 60832f9438a602945c63910a436d7638f15a201d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742061"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969429"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell 的功能和工具
 
@@ -53,13 +53,13 @@ Azure 磁碟機可讓您輕鬆探索和導覽與檔案系統導覽類似的 Azur
 
 ### <a name="manage-exchange-online"></a>管理 Exchange Online
 
-Cloud Shell 中的 PowerShell 包含 Exchange Online 模組的私用組建。  執行`Connect-EXOPSSession`以取得您的 Exchange Cmdlet。
+Cloud Shell 中的 PowerShell 包含 Exchange Online 模組的私用組建。  執行 `Connect-EXOPSSession` 以取得您的 Exchange Cmdlet。
 
 ![](media/features-powershell/exchangeonline.png)
 
  執行 `Get-Command -Module tmp_*`
 > [!NOTE]
-> 模組名稱的開頭`tmp_`應該是, 如果您已安裝具有相同前置詞的模組, 則也會顯示其 Cmdlet。 
+> 模組名稱的開頭應為 `tmp_`，如果您已安裝具有相同前置詞的模組，則也會顯示其 Cmdlet。 
 
 ![](media/features-powershell/exchangeonlinecmdlets.png)
 
@@ -69,26 +69,26 @@ Cloud Shell 包含預先設定的驗證，可用於開放原始碼工具，例�
 
 ## <a name="tools"></a>工具
 
-|Category   |名稱   |
+|類別   |Name   |
 |---|---|
 |Linux 工具            |Bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Azure 工具            |[Azure CLI](https://github.com/Azure/azure-cli) 和 [Azure 傳統 CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Azure Functions CLI](https://github.com/Azure/azure-functions-core-tools)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |文字編輯器           |code (Cloud Shell 編輯器)<br> vim<br> nano<br> emacs    |
 |原始檔控制         |git                    |
 |建置工具            |make<br> maven<br> npm<br> pip         |
-|容器             |[Docker 機器](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli) \(英文\)         |
-|資料庫              |MySQL 用戶端<br> PostgreSql 用戶端<br> [sqlcmd 工用程式](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
+|容器             |[Docker 機器](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/) \(英文\)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli) \(英文\)         |
+|資料庫              |MySQL 用戶端<br> PostgreSql 用戶端<br> [sqlcmd 公用程式](https://docs.microsoft.com/sql/tools/sqlcmd-utility) \(英文\)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |其他                  |iPython 用戶端<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli) \(英文\)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Puppet 的螺栓](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
 
 ## <a name="language-support"></a>語言支援
 
-|語言   |Version   |
+|語言   |版本   |
 |---|---|
-|.NET Core  |2.0.0       |
-|移至         |1.9        |
+|.NET Core  |2.2.402       |
+|Go         |1.9        |
 |Java       |1.8        |
-|Node.js    |8.9.4      |
-|PowerShell |[6.2.0](https://github.com/PowerShell/powershell/releases)       |
+|Node.js    |8.16.0      |
+|PowerShell |[上面6.2.3](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 和 3.5 (預設)|
 
 ## <a name="next-steps"></a>後續步驟

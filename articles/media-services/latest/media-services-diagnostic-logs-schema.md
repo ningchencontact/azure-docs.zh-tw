@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2f5fcf4d9106bf37bcc81388e48afe689f4ef4d6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5e416087df6c27eff42db487e90ff908d7d49df8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896052"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977687"
 ---
 # <a name="diagnostic-logs-schemas"></a>診斷記錄結構描述
 
@@ -107,6 +107,10 @@ ms.locfileid: "74896052"
     }
 } 
 ```
+
+## <a name="additional-notes"></a>其他注意事項
+
+* Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="next-steps"></a>後續步驟
 

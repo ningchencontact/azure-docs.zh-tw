@@ -2,18 +2,17 @@
 title: 如何複製 Azure IoT 中樞
 description: 如何複製 Azure IoT 中樞
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: 4d8771d49f30d94aeb6dfa855f5c2ef107076afb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 6e4d110221c7f360e8177505de2a7789f9616d51
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083275"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976140"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>如何將 Azure IoT 中樞複製到另一個區域
 
@@ -73,9 +72,7 @@ ms.locfileid: "74083275"
    1. 新增任何未匯出至範本的專案。 
    
        例如，取用者群組不會匯出至範本。 您需要手動將取用者群組新增至範本，或在建立中樞之後使用[Azure 入口網站](https://portal.azure.com)。 在[使用 Azure Resource Manager 範本來設定 IoT 中樞訊息路由](tutorial-routing-config-message-routing-rm-template.md)一文中，有一個將取用者群組新增至範本的範例。
-
-       [訊息擴充](iot-hub-message-enrichments-overview.md)也不會匯出至範本。 這些會與路由訊息搭配使用，而且必須在訊息路由設定更新時，在新的中樞上手動更新。
-
+       
    1. 將裝置從原始中樞複製到複本。 這會在[管理向 IoT 中樞註冊的裝置](#managing-the-devices-registered-to-the-iot-hub)一節中討論。
 
 ## <a name="how-to-handle-message-routing"></a>如何處理訊息路由
@@ -103,9 +100,6 @@ ms.locfileid: "74083275"
    * 中樞仍然會參考原始路由資源，並依設定將訊息路由傳送至它們。
 
    * 因為中樞和路由端點資源不在相同的位置，所以您會遇到小效能的影響。
-
-> [!NOTE]
-> 如果您的中樞使用[訊息增強功能](iot-hub-message-enrichments-overview.md)，您必須在新的 IoT 中樞上手動設定它們，因為它們不會與 Resource Manager 範本一起匯出。
 
 ## <a name="prepare-to-migrate-the-hub-to-another-region"></a>準備將中樞遷移至另一個區域
 
@@ -369,7 +363,7 @@ ms.locfileid: "74083275"
 
    ![螢幕擷取畫面，顯示用於上傳範本檔案的命令](./media/iot-hub-how-to-clone/iot-hub-upload-file.png)
 
-1. 流覽您編輯的新範本並加以選取，然後選取 [**開啟**]。 它會在 [編輯] 視窗中載入您的範本。 選取 [ **儲存**]。 
+1. 流覽您編輯的新範本並加以選取，然後選取 [**開啟**]。 它會在 [編輯] 視窗中載入您的範本。 選取 [儲存]。 
 
    ![顯示載入範本的螢幕擷取畫面](./media/iot-hub-how-to-clone/iot-hub-loading-template.png)
 

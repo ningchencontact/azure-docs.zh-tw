@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 19552747db427bf780a140c15f11bed322d1f867
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a56096ffa760bcddd6bd423d1262e57dc1db3e3c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420081"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973555"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps：使用 Azure Machine Learning 進行模型管理、部署和監視
 
@@ -112,10 +112,9 @@ Azure Machine Learning 可以流量分析來判斷部署模型時所要使用的
 
 如需詳細資訊，請參閱[部署模型](how-to-deploy-and-where.md)。
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>分析
 
 Microsoft Power BI 支援使用機器學習模型來進行資料分析。 如需詳細資訊，請參閱[Power BI 中的 Azure Machine Learning 整合（預覽）](https://docs.microsoft.com/power-bi/service-machine-learning-integration)。
-
 
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>取得捕獲端對端 ML 生命週期所需的治理資料
 
@@ -129,6 +128,7 @@ Azure ML 可讓您追蹤所有 ML 資產的端對端審核記錄。 具體而言
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>通知、自動化和警示 ML 生命週期中的事件
 Azure ML 會將主要事件發佈到 Azure EventGrid，可用來通知和自動化 ML 生命週期中的事件。 如需詳細資訊，請參閱[這份檔](how-to-use-event-grid.md)。
 
+
 ## <a name="monitor-for-operational--ml-issues"></a>適用于操作 & ML 問題的監視
 
 監視可讓您瞭解哪些資料要傳送至您的模型，以及它所傳回的預測。
@@ -136,7 +136,6 @@ Azure ML 會將主要事件發佈到 Azure EventGrid，可用來通知和自動�
 此資訊可協助您瞭解模型的使用方式。 收集的輸入資料可能也有助於定型模型的未來版本。
 
 如需詳細資訊，請參閱[如何啟用模型資料收集](how-to-enable-data-collection.md)。
-
 
 ## <a name="automate-the-ml-lifecycle"></a>自動化 ML 生命週期 
 

@@ -1,5 +1,5 @@
 ---
-title: Microsoft 身分識別平臺（v1.0）中的驗證 |Azure
+title: Microsoft 身分識別平臺驗證（v1.0） |Azure
 description: 瞭解 Microsoft 身分識別平臺中的驗證基本概念-應用程式模型、API、布建，以及 Microsoft 身分識別平臺支援的最常見驗證案例。
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c7bf80c0471853008573bbcbb918fb33c6c43cd
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 445f301e2a526dc8f9e2c261e897fe8b1abe2f1e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149188"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966770"
 ---
 # <a name="what-is-authentication"></a>什麼是驗證？
 
@@ -64,7 +64,7 @@ Microsoft 身分識別平台可透過以服務的形式提供身分識別來簡�
 
 視用戶端的建立方式而定，它可以使用 Microsoft 身分識別平臺所支援的一或多個驗證流程。  這些流程可能會產生各種權杖（id_tokens、重新整理權杖、存取權杖）以及授權碼，而且需要不同的權杖才能使其運作。 此圖表提供總覽：
 
-|流程 | 具備 | id_token | 存取權杖 | 重新整理權杖 | 授權碼 | 
+|流程 | 需要 | id_token | 存取權杖 | 重新整理權杖 | 授權碼 | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[授權碼流程](v1-protocols-oauth-code.md) | | x | x | x | x|  
 |[隱含流程](v1-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |

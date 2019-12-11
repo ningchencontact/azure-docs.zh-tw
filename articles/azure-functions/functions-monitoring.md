@@ -4,12 +4,12 @@ description: 瞭解如何搭配 Azure Functions 使用 Azure 應用程式 Insigh
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 5f7f6c130226080cba635f89280f655498e5db27
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4a182ddffd4c1ee4d2e71e7d9e6385df23e4260e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226904"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978078"
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
@@ -119,7 +119,7 @@ requests
 
 可用的資料表會顯示在左邊的 [**架構**] 索引標籤中。 您可以找到下表中函式引動過程所產生的資料：
 
-| 資料表 | 描述 |
+| 表格 | 描述 |
 | ----- | ----------- |
 | **追蹤** | 由執行時間和函式程式碼所建立的記錄。 |
 | **requests** | 每個函式呼叫都有一個要求。 |
@@ -155,25 +155,25 @@ Azure Functions 記錄器包括每個記錄的「類別」。 類別指出寫入
 
 Azure Functions 記錄器也會包含每個記錄檔的*記錄層級*。 [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) 為一個列舉，而整數代碼表示相對的重要性：
 
-|LogLevel    |代碼|
+|LogLevel    |程式碼|
 |------------|---|
 |追蹤       | 0 |
 |偵錯       | 1 |
 |資訊 | 2 |
 |警告     | 3 |
-|錯誤       | 4 |
-|重要    | 5 |
-|無        | 6 |
+|Error       | 4 |
+|危急    | 5 |
+|None        | 6 |
 
 下一節會說明記錄層級 `None`。 
 
 ### <a name="log-configuration-in-hostjson"></a>Host. json 中的記錄設定
 
-[Host.json] 檔案會設定函式應用程式傳送到 Application Insights 的記錄數量。 針對每個類別，您可以指出要傳送的最小記錄層級。 有兩個範例：第一個範例的目標是[功能2.x 版運行](functions-versions.md#version-2x)時間（.net Core），而第二個範例則是針對1.x 版執行時間。
+[Host.json] 檔案會設定函式應用程式傳送到 Application Insights 的記錄數量。 針對每個類別，您可以指出要傳送的最小記錄層級。 有兩個範例：第一個範例的目標為 2.x[版和更新](functions-versions.md#version-2x)版本的函式執行時間（使用 .net Core），而第二個範例則適用于1.x 版的執行時間。
 
-### <a name="version-2x"></a>2\.x 版
+### <a name="version-2x-and-higher"></a>2\.x 版和更新版本
 
-v2.x 版執行階段使用的是 [.NET Core 記錄篩選階層](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)。 
+版本 v2. x 和更新版本的函式執行時間會使用[.Net Core 記錄篩選](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)階層。 
 
 ```json
 {
@@ -209,14 +209,14 @@ v2.x 版執行階段使用的是 [.NET Core 記錄篩選階層](https://docs.mic
 此範例會設定下列規則：
 
 * 針對類別為 `Host.Results` 或 `Function`的記錄，只傳送 `Error` 層級和更新版本到 Application Insights。 `Warning` 層級和以下層級的記錄均會被忽略。
-* 針對類別為 `Host.Aggregator` 的記錄，則會將所有記錄傳送到 Application Insights。 `Trace` 記錄層級和某些記錄器稱為 `Verbose` 的記錄層級相同，但會在 `Trace`host.json[Host.json]。
+* 針對類別為 `Host.Aggregator` 的記錄，則會將所有記錄傳送到 Application Insights。 `Trace` 記錄層級和某些記錄器稱為 `Verbose` 的記錄層級相同，但會在 [host.json] 檔案中使用 `Trace`。
 * 針對所有其他記錄，只會將 `Information` 層級和以上層級傳送至 Application Insights。
 
-[Host.json] 中的類別值會控制以相同值開頭之所有類別的記錄。 `Host` 在[Host.json]中，會控制 `Host.General`、`Host.Executor`、`Host.Results`等的記錄。
+[Host.json] 中的類別值會控制以相同值開頭之所有類別的記錄。 [host.json]中的`Host`控制`Host.General`、`Host.Executor`、`Host.Results`等等的記錄。
 
 如果 [host.json] 包含多個以相同字串開頭的類別，則會先比對較長的類別。 假設您想要來自執行時間的所有專案，但 `Host.Aggregator` 以 `Error` 層級登入，但您希望 `Host.Aggregator` 在 `Information` 層級進行記錄：
 
-### <a name="version-2x"></a>2\.x 版 
+### <a name="version-2x-and-later"></a>2\.x 版和更新版本
 
 ```json
 {
@@ -298,7 +298,7 @@ v2.x 版執行階段使用的是 [.NET Core 記錄篩選階層](https://docs.mic
 
 Application Insights 具有[取樣](../azure-monitor/app/sampling.md)功能，可防止您在尖峰負載時，于已完成的執行中產生太多遙測資料。 當傳入執行的速率超過指定的臨界值時，Application Insights 會開始隨機忽略部分傳入的執行。 每秒執行數上限的預設值為20（版本1.x 中為5個）。 您可以在 [host.json] 中設定取樣。  以下是範例：
 
-### <a name="version-2x"></a>2\.x 版 
+### <a name="version-2x-and-later"></a>2\.x 版和更新版本
 
 ```json
 {
@@ -378,7 +378,7 @@ logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionK
 
 ### <a name="custom-metrics-logging"></a>自訂計量記錄
 
-在 C# 指令碼函式中，您可以使用 `LogMetric` 上的 `ILogger` 擴充方法，在 Application Insights 中建立自訂計量。 以下是範例方法呼叫：
+在 C# 指令碼函式中，您可以使用 `ILogger` 上的 `LogMetric` 擴充方法，在 Application Insights 中建立自訂計量。 以下是範例方法呼叫：
 
 ```csharp
 logger.LogMetric("TestMetric", 1234);
@@ -396,7 +396,7 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### <a name="custom-metrics-logging"></a>自訂計量記錄
 
-當您在 1.x[版](functions-versions.md#creating-1x-apps)的函式執行時間執行時，node.js 函式可以使用 `context.log.metric` 方法，在 Application Insights 中建立自訂計量。 2\.x 版目前不支援這個方法。 以下是範例方法呼叫：
+當您在 1.x[版](functions-versions.md#creating-1x-apps)的函式執行時間執行時，node.js 函式可以使用 `context.log.metric` 方法，在 Application Insights 中建立自訂計量。 在2.x 版和更新版本中，目前不支援這個方法。 以下是範例方法呼叫：
 
 ```javascript
 context.log.metric("TestMetric", 1234);
@@ -408,9 +408,9 @@ context.log.metric("TestMetric", 1234);
 
 您可以使用 [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) \(英文\) NuGet 封裝，將自訂遙測資料傳送至 Application Insights。 以下 C# 範例使用的是[自訂遙測 API](../azure-monitor/app/api-custom-events-metrics.md)。 此範例適用於 .NET 類別庫，但 Application Insights 程式碼同樣適用於 C# 指令碼。
 
-### <a name="version-2x"></a>2\.x 版
+### <a name="version-2x-and-later"></a>2\.x 版和更新版本
 
-2\.x 版執行階段會使用 Application Insights 中的新功能，自動將遙測與目前作業相互關聯。 不需要手動設定作業 `Id`、`ParentId`或 `Name` 欄位。
+2\.x 版和更新版本的執行時間會使用 Application Insights 中的較新功能，自動將遙測與目前的作業相互關聯。 不需要手動設定作業 `Id`、`ParentId`或 `Name` 欄位。
 
 ```cs
 using System;
@@ -561,7 +561,7 @@ namespace functionapp0915
 
 請勿呼叫 `TrackRequest` 或 `StartOperation<RequestTelemetry>`，因為您會看到函式呼叫的重複要求。  Functions 執行階段會自動追蹤要求。
 
-請勿設定 `telemetryClient.Context.Operation.Id`。 當同時執行許多函式時，此全域設定會導致不正確的相互關聯。 請改為建立新的遙測執行個體 (`DependencyTelemetry`、`EventTelemetry`)，並修改其 `Context` 屬性。 接著，將遙測執行個體傳入至 `Track` 上的對應 `TelemetryClient` 方法 (`TrackDependency()`、`TrackEvent()`)。 這個方法可確保遙測具有目前函式呼叫的正確相互關聯詳細資料。
+請勿設定 `telemetryClient.Context.Operation.Id`。 當同時執行許多函式時，此全域設定會導致不正確的相互關聯。 請改為建立新的遙測執行個體 (`DependencyTelemetry`、`EventTelemetry`)，並修改其 `Context` 屬性。 接著，將遙測執行個體傳入至 `TelemetryClient` 上的對應 `Track` 方法 (`TrackDependency()`、`TrackEvent()`)。 這個方法可確保遙測具有目前函式呼叫的正確相互關聯詳細資料。
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>在 JavaScript 函式中記錄自訂遙測
 
@@ -588,7 +588,7 @@ module.exports = function (context, req) {
 
 `tagOverrides` 參數會將 `operation_Id` 設定為函式的調用識別碼。 此設定能夠讓指定的函式引動過程中所有自動產生和自訂的遙測相互關聯。
 
-## <a name="dependencies"></a>相依性
+## <a name="dependencies"></a>相依項目
 
 [函式 v2] 會自動收集 HTTP 要求、匯流排和 SQL 的相依性。
 
@@ -668,7 +668,7 @@ Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 
 當您啟用 Application Insights 時，請停用使用 Azure 儲存體的內建記錄。 內建記錄適用于使用輕量工作負載進行測試，但不適用於高負載生產用途。 針對生產環境監視，建議 Application Insights。 如果在生產環境中使用內建記錄，記錄記錄可能不完整，因為 Azure 儲存體上的節流。
 
-若要停用內建記錄，請刪除 `AzureWebJobsDashboard` 應用程式設定。 如需在 Azure 入口網站中刪除應用程式設定的相關資訊，請參閱**如何管理函式應用程式**的[應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)。 在您刪除應用程式設定之前，請確定同一個函式應用程式中沒有任何現有的函式會使用 Azure 儲存體觸發程式或系結的設定。
+若要停用內建記錄，請刪除 `AzureWebJobsDashboard` 應用程式設定。 如需在 Azure 入口網站中刪除應用程式設定的相關資訊，請參閱[如何管理函式應用程式](functions-how-to-use-azure-function-app-settings.md#settings)的**應用程式設定**。 在您刪除應用程式設定之前，請確定同一個函式應用程式中沒有任何現有的函式會使用 Azure 儲存體觸發程式或系結的設定。
 
 ## <a name="next-steps"></a>後續步驟
 

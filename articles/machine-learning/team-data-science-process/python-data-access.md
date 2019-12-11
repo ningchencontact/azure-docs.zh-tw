@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e9daf1be1f931bb13cda446cbb9d6e37acce3bcf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7b86d643540e46f9a4fc86c83fc77d739bfba418
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498110"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978487"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>使用 Azure Machine Learning Python 用戶端程式庫利用 Python 存取資料集
 Microsoft Azure Machine Learning Python 用戶端程式庫的預覽能夠從本機 Python 環境安全存取您的 Azure Machine Learning 資料集，並且可在工作區中建立和管理資料集。
@@ -56,13 +56,13 @@ Python 用戶端程式庫已在下列環境下經過測試：
     pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
-## <a name="datasetAccess"></a>使用Studio 程式碼片段存取資料集
+## <a name="datasetAccess"></a>使用程式碼片段存取資料集
 Python 用戶端程式庫讓您以程式設計方式存取執行實驗所得的現有資料集。
 
-您可以從 Studio Web 介面產生包含所有必要資訊的程式碼片段，以下載資料集並將其還原序列化為您本機電腦上的 pandas DataFrame 物件。
+從 Azure Machine Learning Studio （傳統） web 介面，您可以產生包含所有必要資訊的程式碼片段，以下載資料集，並將其還原序列化為本機電腦上的 pandas 資料框架物件。
 
 ### <a name="security"></a>資料存取安全性
-Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段包括工作區識別碼與授權權杖。 這些項目可提供工作區的完整存取權，且務必加以保護，像是密碼。
+Azure Machine Learning Studio （傳統）提供搭配 Python 用戶端程式庫使用的程式碼片段，包括您的工作區識別碼與授權權杖。 這些項目可提供工作區的完整存取權，且務必加以保護，像是密碼。
 
 基於安全性理由，程式碼片段功能只提供給其角色設定為工作區「擁有者」 的使用者。 您的角色會在 [**設定**] 底下的 [**使用者**] 頁面上顯示為 Azure Machine Learning Studio （傳統）。
 
@@ -72,18 +72,18 @@ Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段�
 
 若要取得授權權杖，您可以執行下列其中一項：
 
-* 向擁有者要求權杖。 擁有者能夠在 Studio 中，從他們工作區的 [設定] 頁面存取其授權權杖。 選取左窗格中的 [設定]，然後按一下 [授權權杖]，即可看到主要與次要權杖。 雖然主要或次要授權權杖都能用於程式碼片段，但建議擁有者只共用次要授權權杖。
+* 向擁有者要求權杖。 擁有者可以從其工作區的 [設定] 頁面，以 Azure Machine Learning Studio （傳統）存取其授權權杖。 選取左窗格中的 [設定]，然後按一下 [授權權杖]，即可看到主要與次要權杖。 雖然主要或次要授權權杖都能用於程式碼片段，但建議擁有者只共用次要授權權杖。
 
-![授權權杖](./media/python-data-access/ml-python-access-settings-tokens.png)
+   ![授權權杖](./media/python-data-access/ml-python-access-settings-tokens.png)
 
 * 要求升級成擁有者角色。 若要這樣做，工作區目前的擁有者必須先將您從工作區中移除，再重新邀請您成為其擁有者。
 
-開發人員一旦取得工作區識別碼與授權權杖，無論其角色為何，都能夠使用程式碼片段存取該工作區。
+一旦開發人員取得工作區識別碼和授權權杖，他們就能夠使用程式碼片段來存取工作區，而不論其角色為何。
 
 授權權杖可以在 [設定] 下的 [授權權杖] 頁面上管理。 您可以重新產生權杖，但這個程序會撤銷上一個權杖的存取權。
 
 ### <a name="accessingDatasets"></a>從本機 Python 應用程式存取資料集
-1. 在 Machine Learning Studio 的左邊導覽列中，按一下 [資料集] 。
+1. 在 [Machine Learning Studio （傳統）] 中，按一下左側導覽列中的 [**資料集**]。
 2. 選取您想要存取的資料集。 您可以從 [範例] 清單的 [我的資料集] 清單中，選擇任何資料集。
 3. 按一下底部工具列上的 [產生資料存取程式碼]。 如果資料格式與 Python 用戶端程式的不相容，就會停用這個按鈕。
    
@@ -96,7 +96,7 @@ Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段�
     ![將程式碼貼入筆記本][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>存取機器學習服務實驗中的中繼資料
-在 Machine Learning Studio 中進行實驗後，您能夠從模組的輸出節點存取中繼資料集。 中繼資料集是指當模型工具執行時為中繼步驟建立和使用的資料。
+在傳統版本的 Machine Learning Studio 中執行實驗之後，就可以從模組的輸出節點存取中繼資料集。 中繼資料集是指當模型工具執行時為中繼步驟建立和使用的資料。
 
 只要其資料格式能與 Python 用戶端程式庫相容，就能夠存取中繼資料集。
 
@@ -141,7 +141,7 @@ Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段�
 
 ## <a name="clientApis"></a>使用 Machine Learning Python 用戶端程式碼來存取、讀取、建立及管理資料集
 ### <a name="workspace"></a>工作區
-工作區是 Python 用戶端程式碼的進入點。 將您的工作區識別碼與授權權杖提供給 `Workspace` 類別，就會建立一個執行個體：
+工作區是 Python 用戶端程式碼的進入點。 提供 `Workspace` 類別，其中包含您的工作區識別碼和授權權杖，以建立實例：
 
     ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
                    authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')

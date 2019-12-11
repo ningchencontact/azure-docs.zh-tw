@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: raynew
-ms.openlocfilehash: 9ddb63fcf4d960d2d8ed2671eba83fc38cddcbe4
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 68026af5b96728ea66fd9e584e67e5e596e690fb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710059"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974660"
 ---
 # <a name="select-a-vmware-migration-option"></a>選取 VMware 遷移選項
 
@@ -34,8 +34,8 @@ ms.locfileid: "71710059"
 **設備部署** | [Azure Migrate 設備](migrate-appliance.md)已部署在內部部署環境中。 | [Azure Migrate 複寫應用裝置](migrate-replication-appliance.md)會部署在內部部署環境中。
 **Site Recovery 相容性** | 性. | 如果您已使用 Site Recovery 設定機器的複寫，則無法使用 Azure Migrate Server 遷移進行複寫。
 **目標磁片** | 受控磁碟 | 受控磁碟
-**磁片限制** | OS 磁碟：2 TB<br/><br/> 資料磁碟：4 TB<br/><br/> 磁片數目上限：60 | OS 磁碟：2 TB<br/><br/> 資料磁碟：8 TB<br/><br/> 磁片數目上限：63
-**傳遞磁片** | 不支援 | 支援
+**磁片限制** | OS 磁片： 2 TB<br/><br/> 資料磁片： 4 TB<br/><br/> 磁片上限：60 | OS 磁片： 2 TB<br/><br/> 資料磁片： 8 TB<br/><br/> 磁片上限：63
+**傳遞磁片** | 不支援 | 支援的
 **UEFI 開機** | 不支援 | Azure 中已遷移的 VM 會自動轉換為 BIOS 開機 VM。<br/><br/> OS 磁片應該有最多四個磁碟分割，而且磁片區應該使用 NTFS 格式化。
 
 
@@ -45,11 +45,12 @@ ms.locfileid: "71710059"
 
 **Task** | **詳細資料** |**款** | **以代理程式為基礎**
 --- | --- | --- | ---
+**評量** | 在遷移前評估伺服器。  評量是選擇性的。 我們建議您先評估機器，再進行遷移，但您不需要這麼做。 <br/><br/> 針對評估，Azure Migrate 設定輕量設備來探索及評估 Vm。 | 如果您在評量之後執行無代理程式遷移，則會使用為評估設定的相同 Azure Migrate 設備來進行無代理程式遷移。  |  如果您在評量之後執行以代理程式為基礎的遷移，則不會在無代理程式遷移期間使用設定進行評估的設備。 如果您不想執行進一步的探索和評估，可以將設備保留在原處，或將它移除。
 **準備 VMware 伺服器和 Vm 以進行遷移** | 在 VMware 伺服器和 Vm 上設定一些設定。 | 必要項 | 必要項
 **新增伺服器遷移工具** | 在 Azure Migrate 專案中加入 Azure Migrate 伺服器遷移工具。 | 必要項 | 必要項
 **部署 Azure Migrate 設備** | 在 VMware VM 上設定輕量設備，以進行 VM 探索和評估。 | 必要項 | 不需要。
-**在 Vm 上安裝行動服務** | 在您要複寫的每個 VM 上安裝行動服務 | 不需要 | 必要項
-**部署 Azure Migrate Server 遷移複寫設備** | 在 VMware VM 上設定設備以探索 Vm，並在 Vm 上執行的行動服務與 Azure Migrate 伺服器遷移之間橋接 | 不需要 | 必要項
+**在 Vm 上安裝行動服務** | 在您要複寫的每個 VM 上安裝行動服務 | 非必要 | 必要項
+**部署 Azure Migrate Server 遷移複寫設備** | 在 VMware VM 上設定設備以探索 Vm，並在 Vm 上執行的行動服務與 Azure Migrate 伺服器遷移之間橋接 | 非必要 | 必要項
 複寫**vm**。 啟用 VM 複寫。 | 設定複寫設定並選取要複寫的 Vm | 必要項 | 必要項
 **執行測試遷移** | 執行測試移轉，確定一切都沒問題。 | 必要項 | 必要項
 **執行完整的遷移** | 遷移 Vm。 | 必要項 | 必要項

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.openlocfilehash: f9c7278e60c8342aa7d5b68ab8da7143abaf4c89
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/09/2019
+ms.openlocfilehash: b4029d49eeba53e7a502a7ac68081bb5a2d549f8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970520"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971922"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>支援的適用於 MySQL 的 Azure 資料庫伺服器版本
 
@@ -26,15 +26,15 @@ MySQL 會使用 X.Y.Z 命名配置。 X 是主要版本，Y 是次要版本，�
 
 ## <a name="mysql-version-56"></a>MySQL 5.6 版
 
-Bug 修正版本：5.6.44
+Bug 修正版本：5.6.45
 
-請參閱 MySQL[版本](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-44.html)資訊，以深入瞭解此版本中的改進功能和修正。
+請參閱 MySQL[版本](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-45.html)資訊，以深入瞭解此版本中的改進功能和修正。
 
 ## <a name="mysql-version-57"></a>MySQL 5.7 版
 
-Bug 修正版本：5.7.26
+Bug 修正版本：5.7.27
 
-請參閱 MySQL[版本](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-26.html)資訊，以深入瞭解此版本中的改進功能和修正。
+請參閱 MySQL[版本](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-27.html)資訊，以深入瞭解此版本中的改進功能和修正。
 
 ## <a name="mysql-version-80"></a>MySQL 版本8。0
 

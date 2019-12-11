@@ -2,13 +2,13 @@
 title: 範本函式-資源
 description: 描述 Azure Resource Manager 範本中用來擷取資源相關值的函式。
 ms.topic: conceptual
-ms.date: 10/26/2019
-ms.openlocfilehash: 6457bafeeb0b241171311dc3dcea30b7b6993791
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/09/2019
+ms.openlocfilehash: ee88e939030650111acafec6c3b9906507176f48
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150675"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978844"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的資源函式
 
@@ -34,14 +34,14 @@ extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ..
 
 傳回[擴充資源](extension-resource-types.md)的資源識別碼，這是套用至另一個資源以加入其功能的資源類型。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| resourceId |yes |字串 |要套用延伸模組資源之資源的資源識別碼。 |
-| resourceType |yes |字串 |資源的類型 (包括資源提供者命名空間)。 |
-| resourceName1 |yes |字串 |資源的名稱。 |
-| resourceName2 |否 |字串 |下一個資源名稱區段（如有需要）。 |
+| ResourceId |是 |string |要套用延伸模組資源之資源的資源識別碼。 |
+| resourceType |是 |string |資源的類型 (包括資源提供者命名空間)。 |
+| resourceName1 |是 |string |資源的名稱。 |
+| resourceName2 |否 |string |下一個資源名稱區段（如有需要）。 |
 
 當資源類型包含更多區段時，請繼續新增資源名稱作為參數。
 
@@ -114,13 +114,13 @@ list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 
 此函式的語法因清單作業的名稱而異。 每項實作會對支援 list 作業的資源類型傳回值。 此作業必須以 `list` 開頭。 常見使用方式為 `listKeys` 和 `listSecrets`。 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| resourceName 或 resourceIdentifier |yes |字串 |資源的唯一識別碼。 |
-| apiVersion |yes |字串 |資源執行階段狀態的 API 版本。 一般而言，格式為 **yyyy-mm-dd**。 |
-| functionValues |否 |物件 | 具有函式值的物件。 只針對以下函式提供此物件：可支援在儲存體帳戶上接收具有參數值的物件，例如 **listAccountSas**。 本文會顯示傳遞函式值的範例。 | 
+| resourceName 或 resourceIdentifier |是 |string |資源的唯一識別碼。 |
+| apiVersion |是 |string |資源執行階段狀態的 API 版本。 一般而言，格式為 **yyyy-mm-dd**。 |
+| functionValues |否 |object | 具有函式值的物件。 只針對以下函式提供此物件：可支援在儲存體帳戶上接收具有參數值的物件，例如 **listAccountSas**。 本文會顯示傳遞函式值的範例。 | 
 
 ### <a name="valid-uses"></a>有效用法
 
@@ -347,12 +347,12 @@ providers(providerNamespace, [resourceType])
 
 傳回資源提供者和其所支援資源類型的相關資訊。 如果未提供資源類型，則函式會傳回資源提供者所有的支援類型。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |yes |字串 |提供者的命名空間 |
-| resourceType |否 |字串 |所指定命名空間內的資源類型。 |
+| providerNamespace |是 |string |提供者的命名空間 |
+| resourceType |否 |string |所指定命名空間內的資源類型。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -424,13 +424,13 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 
 傳回代表資源執行階段狀態的物件。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| resourceName 或 resourceIdentifier |yes |字串 |資源的名稱或唯一識別碼。 當參考目前範本中的資源時，只會提供資源名稱做為參數。 參考先前部署的資源時，請提供資源識別碼。 |
-| apiVersion |否 |字串 |指定的資源的 API 版本。 如果在相同的範本內未供應資源，則請包含此參數。 一般而言，格式為 **yyyy-mm-dd**。 如需適用于您資源的有效 API 版本，請參閱[範本參考](/azure/templates/)。 |
-| 'Full' |否 |字串 |值，指定是否要傳回完整資源物件。 如果您未指定 `'Full'`，則只會傳回資源的屬性物件。 完整物件包括例如資源識別碼和位置的值。 |
+| resourceName 或 resourceIdentifier |是 |string |資源的名稱或唯一識別碼。 當參考目前範本中的資源時，只會提供資源名稱做為參數。 參考先前部署的資源時，請提供資源識別碼。 |
+| apiVersion |否 |string |指定的資源的 API 版本。 如果在相同的範本內未供應資源，則請包含此參數。 一般而言，格式為 **yyyy-mm-dd**。 如需適用于您資源的有效 API 版本，請參閱[範本參考](/azure/templates/)。 |
+| 'Full' |否 |string |值，指定是否要傳回完整資源物件。 如果您未指定 `'Full'`，則只會傳回資源的屬性物件。 完整物件包括例如資源識別碼和位置的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -515,7 +515,7 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 
 **{資源提供者-namespace}/{parent-resource-type}/{parent-resource-name} [/{child-resource-type}/{child-resource-name}]**
 
-例如︰
+例如：
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` 為正確 `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` 為不正確
 
@@ -672,21 +672,20 @@ resourceGroup()
 
 `resourceGroup()` 函式不能用於[部署在訂用帳戶層級](deploy-to-subscription.md)中的範本， 只能用於部署到資源群組中的範本。
 
-resourceGroup 函式的常見用法是在和資源群組相同的位置中建立資源。 下列範例使用資源群組位置來指派網站的位置。
+resourceGroup 函式的常見用法是在和資源群組相同的位置中建立資源。 下列範例會使用資源群組位置做為預設參數值。
 
 ```json
-"resources": [
-   {
-      "apiVersion": "2016-08-01",
-      "type": "Microsoft.Web/sites",
-      "name": "[parameters('siteName')]",
-      "location": "[resourceGroup().location]",
-      ...
-   }
-]
+"parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+}
 ```
 
 您也可以使用 resourceGroup 函式，將標記從資源群組套用至資源。 如需詳細資訊，請參閱[從資源群組套用標記](resource-group-using-tags.md#apply-tags-from-resource-group)。
+
+使用嵌套範本部署至多個資源群組時，您可以指定評估 resourceGroup 函數的範圍。 如需詳細資訊，請參閱[將 Azure 資源部署至多個訂用帳戶或資源群組](resource-manager-cross-resource-group-deployment.md)。
 
 ### <a name="resource-group-example"></a>資源群組範例
 
@@ -720,7 +719,7 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 }
 ```
 
-## <a name="resourceid"></a>resourceId
+## <a name="resourceid"></a>ResourceId
 
 ```json
 resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
@@ -728,15 +727,15 @@ resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [
 
 傳回資源的唯一識別碼。 如果資源名稱不確定或未佈建在相同的範本內，請使用此函數。 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |否 |字串 (GUID 格式) |預設值為目前的訂用帳戶。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
-| resourceGroupName |否 |字串 |預設值為目前資源群組。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
-| resourceType |yes |字串 |資源的類型 (包括資源提供者命名空間)。 |
-| resourceName1 |yes |字串 |資源的名稱。 |
-| resourceName2 |否 |字串 |下一個資源名稱區段（如有需要）。 |
+| resourceGroupName |否 |string |預設值為目前資源群組。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
+| resourceType |是 |string |資源的類型 (包括資源提供者命名空間)。 |
+| resourceName1 |是 |string |資源的名稱。 |
+| resourceName2 |否 |string |下一個資源名稱區段（如有需要）。 |
 
 當資源類型包含更多區段時，請繼續新增資源名稱作為參數。
 
@@ -864,12 +863,12 @@ resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [
 
 先前範例中具有預設值的輸出如下：
 
-| 名稱 | 在系統提示您進行確認時，輸入 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| sameRGOutput | 字串 | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | 字串 | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | 字串 | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | 字串 | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 ## <a name="subscription"></a>訂用帳戶
 
@@ -891,6 +890,10 @@ subscription()
     "displayName": "{name-of-subscription}"
 }
 ```
+
+### <a name="remarks"></a>備註
+
+使用嵌套範本部署至多個訂閱時，您可以指定評估訂用帳戶函數的範圍。 如需詳細資訊，請參閱[將 Azure 資源部署至多個訂用帳戶或資源群組](resource-manager-cross-resource-group-deployment.md)。
 
 ### <a name="subscription-example"></a>訂用帳戶範例
 
@@ -918,14 +921,14 @@ subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceN
 
 傳回部署于訂用帳戶層級之資源的唯一識別碼。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |否 |字串（GUID 格式） |預設值為目前的訂用帳戶。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
-| resourceType |yes |字串 |資源的類型 (包括資源提供者命名空間)。 |
-| resourceName1 |yes |字串 |資源的名稱。 |
-| resourceName2 |否 |字串 |下一個資源名稱區段（如有需要）。 |
+| resourceType |是 |string |資源的類型 (包括資源提供者命名空間)。 |
+| resourceName1 |是 |string |資源的名稱。 |
+| resourceName2 |否 |string |下一個資源名稱區段（如有需要）。 |
 
 當資源類型包含更多區段時，請繼續新增資源名稱作為參數。
 
@@ -1002,13 +1005,13 @@ tenantResourceId(resourceType, resourceName1, [resourceName2], ...)
 
 傳回部署于租使用者層級之資源的唯一識別碼。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| resourceType |yes |字串 |資源的類型 (包括資源提供者命名空間)。 |
-| resourceName1 |yes |字串 |資源的名稱。 |
-| resourceName2 |否 |字串 |下一個資源名稱區段（如有需要）。 |
+| resourceType |是 |string |資源的類型 (包括資源提供者命名空間)。 |
+| resourceName1 |是 |string |資源的名稱。 |
+| resourceName2 |否 |string |下一個資源名稱區段（如有需要）。 |
 
 當資源類型包含更多區段時，請繼續新增資源名稱作為參數。
 

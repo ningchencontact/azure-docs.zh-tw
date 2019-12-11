@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: 3740c42c6b6721af4d885f7b63ee4ca4e58f6fa6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806693"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976599"
 ---
 # <a name="scenes-shots-and-keyframes"></a>場景、擷取畫面和主要畫面格
 
@@ -36,7 +36,7 @@ ms.locfileid: "74806693"
 
 ## <a name="keyframe-detection"></a>主要畫面格偵測
 
-選取最能代表該快照的框架。 主要畫面格是根據美觀屬性（例如，對比和 stableness）從整段影片中選取的代表性框架。 影片索引子會根據哪些客戶可以抓取主要畫面格縮圖，抓取作為拍照中繼資料一部分的主要畫面格識別碼清單。 
+影片索引子會選取最能代表每個快照的畫面。 主要畫面格是根據美觀屬性（例如，對比和 stableness）從整段影片中選取的代表性框架。 影片索引子會在拍照的中繼資料中抓取主要畫面格識別碼清單，這是根據哪些客戶可以將主要畫面格視為高解析度影像。  
 
 ### <a name="extracting-keyframes"></a>解壓縮主要畫面格
 

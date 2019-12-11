@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/26/2019
+ms.date: 12/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fcb3885446e534a2a6a5153545fd39fb14a02776
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4e5e0135e4ab56d319c78b7daeab9dd2e9d101f9
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850154"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996505"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure 自動化中的原始檔控制整合
 
@@ -30,7 +30,7 @@ Azure 自動化支援三種類型的原始檔控制：
 
 * 原始檔控制存放庫（GitHub 或 Azure Repos）
 * [執行身分帳戶](manage-runas-account.md)
-* 確定您的自動化帳戶中已有[最新的 Azure 模組](automation-update-azure-modules.md)
+* 請確定您的自動化帳戶中有[最新的 Azure 模組](automation-update-azure-modules.md)，包括**AzureRM**模組。 
 
 > [!NOTE]
 > 原始檔控制同步處理作業會在使用者的自動化帳戶之下執行，而且會以與其他自動化作業相同的費率計費。

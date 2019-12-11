@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36c496b77be5bfda83b3ed424a7fdf2b53101aa4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1e67fc3a2f878e5e04834f67027c98e0b37e9059
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580623"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973589"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 的運作方式：架構和概念
 
@@ -59,7 +59,7 @@ ms.locfileid: "73580623"
 + <a href="#compute-instance">筆記本 VM</a>
 + <a href="#compute-targets">計算目標</a>
 + <a href="#datasets-and-datastores">資料集 & 資料存放區</a>
-+ <a href="#endpoints">Endpoints</a>
++ <a href="#endpoints">EndPoints</a>
 + <a href="#environments">環境</a>
 + [估算器](#estimators)
 + <a href="#experiments">實驗</a>
@@ -67,13 +67,13 @@ ms.locfileid: "73580623"
 + <a href="#iot-module-endpoints">IoT 模組</a>
 + <a href="#logging">Logging</a>
 + <a href="#ml-pipelines">ML 管線</a>
-+ <a href="#models">機型</a>
++ <a href="#models">模型</a>
 + <a href="#runs">Run</a>
 + <a href="#run-configurations">執行設定</a>
 + <a href="#snapshots">快照集</a>
 + <a href="#training-scripts">訓練腳本</a>
 + <a href="#web-service-endpoint">Web 服務</a>
-+ <a href="#workspaces">區域</a>
++ <a href="#workspaces">工作區</a>
 
 ### <a name="activities"></a>活動
 
@@ -197,7 +197,7 @@ Azure Machine Learning 與架構無關。 當您建立模型時，您可以使�
 
 如需模型註冊的範例，請參閱[使用 Azure Machine Learning 將映像分類模型定型](tutorial-train-models-with-aml.md)。
 
-### <a name="runs"></a>執行
+### <a name="runs"></a>執行數
 
 「執行」是一次訓練腳本的回合。 Azure Machine Learning 會記錄所有執行，並儲存下列資訊：
 

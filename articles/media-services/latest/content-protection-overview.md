@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: eeb1dc44341768984bd6e337a2fe65a277f5aa77
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1ae8645f3e782305ed5e1b7847b019a978e48dde
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581207"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977772"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>使用媒體服務動態加密來保護您的內容
 
@@ -124,7 +124,7 @@ HLS 通訊協定支援下列容器格式和加密配置：
 
 |容器格式|加密配置|URL 範例|
 |---|---|---|
-|全部|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|所有|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
 |MPG2-TS |CBCS （FairPlay） |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
 |CMAF(fmp4) |CBCS （FairPlay） |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
 |MPG2-TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
@@ -142,7 +142,7 @@ MPEG-破折號通訊協定支援下列容器格式和加密配置：
 
 |容器格式|加密配置|URL 範例
 |---|---|---|
-|全部|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|所有|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
 |CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
 |CMAF(fmp4)|CENC (Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
 
@@ -159,7 +159,7 @@ Smooth Streaming 通訊協定支援下列容器格式和加密配置。
 
 常見的瀏覽器支援下列 DRM 用戶端：
 
-|[瀏覽器]|加密|
+|瀏覽器|加密|
 |---|---|
 |Chrome|Widevine|
 |Microsoft Edge、Internet Explorer 11|PlayReady|
@@ -244,7 +244,10 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 `ContentKeyId` 具有所要求金鑰的值。 如果您想要將要求對應至您端的實體，可以使用 `AlternativeMediaId`。 例如，您可以使用 `AlternativeMediaId` 來協助查閱許可權。
 
- 如需使用自訂授權/金鑰取得 Url 的 REST 範例，請參閱[串流原則-建立](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)。
+如需使用自訂授權/金鑰取得 Url 的 REST 範例，請參閱[串流原則-建立](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)。
+
+> [!NOTE]
+> Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="troubleshoot"></a>疑難排解
 
@@ -263,4 +266,4 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 * [設計具有存取控制的多重 DRM 內容保護系統](design-multi-drm-system-with-access-control.md)
 * [儲存端加密](storage-account-concept.md#storage-side-encryption)
 * [常見問題集](frequently-asked-questions.md)
-* [JSON Web 權杖處理常式](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)
+* [JSON Web 語彙基元處理常式](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)

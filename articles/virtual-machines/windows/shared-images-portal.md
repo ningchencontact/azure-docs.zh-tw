@@ -1,5 +1,5 @@
 ---
-title: 使用入口網站建立適用于 Windows 的共用 Azure 虛擬機器映射
+title: 使用入口網站建立 Azure 共用映射資源庫
 description: 瞭解如何使用 Azure 入口網站來建立及共用虛擬機器映射。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 0823942964f2bdb9f943d6eb778a3132574af0f7
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6273b58d9db53cfc4f6647885c70148982f0b950
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74065539"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975494"
 ---
-# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>使用 Azure 入口網站建立共用映射資源庫
+# <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>使用入口網站建立 Azure 共用映射資源庫
 
 [共用映像資源庫](shared-image-galleries.md)可簡化跨組織共用自訂映像。 自訂映像類似 Marketplace 映像，但您要自行建立它們。 自訂映像可用於啟動部署工作，例如，預先載入應用程式、應用程式設定和其他 OS 設定。 
 

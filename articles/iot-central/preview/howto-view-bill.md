@@ -3,17 +3,17 @@ title: 在 Azure IoT Central 應用程式中管理您的帳單並將試用版轉
 description: 身為系統管理員，瞭解如何在 Azure IoT Central 應用程式中管理您的帳單並從試用版轉換為隨用隨付
 author: v-krghan
 ms.author: v-krghan
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 11bcdaab34cf4d82b688a578ab2d9ee686ffe07e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0c1c1643fb8c8394ce3ce50e5926f05fd4d366f6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894808"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976412"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>在 IoT Central 應用程式中管理您的帳單
 
@@ -32,7 +32,7 @@ ms.locfileid: "73894808"
 - **試用版**應用程式可以免費試用七天。 此類應用程式可在到期前隨時轉換成隨用隨付。
 - 隨用**隨付**應用程式會依每個裝置計費，每個訂用帳戶的前五個裝置免費。
 
-在 [Azure IoT Central 定價頁面](https://azure.microsoft.com/pricing/details/iot-central/)上深入了解定價。
+您可以在 [Azure IoT Central 定價頁面](https://azure.microsoft.com/pricing/details/iot-central/)上深入了解定價。
 
 在 [帳單] 區段中，您可以將試用版應用程式轉換成隨用隨付。
 

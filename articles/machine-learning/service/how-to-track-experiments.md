@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: a60691222c6f5f31a5b5c97df029790c1fd690ed
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3de34c1da20df17fb5fb65cef28669fb73ff33a5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873861"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978555"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>監視 Azure ML 實驗的執行和計量
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -263,11 +263,11 @@ ms.locfileid: "74873861"
 
    ![Jupyter Notebook 小工具的螢幕擷取畫面](./media/how-to-track-experiments/run-details-widget.png)
 
-您也可以取得工作區中相同顯示的連結。
+   您也可以取得工作區中相同顯示的連結。
 
-```python
-print(run.get_portal_url())
-```
+   ```python
+   print(run.get_portal_url())
+   ```
 
 2. **[適用於自動化機器學習回合]** 存取來自上一個回合的圖表。 以適當的實驗名稱取代 `<<experiment_name>>`：
 

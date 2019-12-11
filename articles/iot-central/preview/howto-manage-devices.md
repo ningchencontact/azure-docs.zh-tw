@@ -3,17 +3,17 @@ title: 在 Azure IoT Central 應用程式中管理裝置 | Microsoft Docs
 description: 了解如何以操作員的身分在 Azure IoT Central 應用程式中管理裝置。
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 07/17/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 07afe441b9463cace9076a07d89e762586730e1b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: bab5411b63cb71c47656696bd8049855ca797a57
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894769"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974099"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-preview-features"></a>在 Azure IoT Central 應用程式中管理裝置（預覽功能）
 
@@ -51,7 +51,7 @@ ms.locfileid: "73894769"
 
 1. 將**模擬** **切換為開啟**或**關閉**。 真實裝置是您連線至 Azure IoT Central 應用程式的實體裝置。 模擬裝置具有由 Azure IoT Central 為您產生的範例資料。
 
-1. 按一下頁面底部的 [新增]。
+1. 按一下 [建立]。
 
 1. 此裝置現在會出現在此範本的裝置清單中。 選取裝置以查看包含裝置所有視圖的 [裝置詳細資料] 頁面。
 

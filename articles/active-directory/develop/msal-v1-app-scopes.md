@@ -1,5 +1,5 @@
 ---
-title: v1.0 應用程式 (Microsoft 驗證程式庫) 的範圍 | Azure
+title: V1.0 應用程式的 MSAL 範圍 |Azure
 description: 了解使用 Microsoft 驗證程式庫 (MSAL) 的 v1.0 應用程式範圍。
 services: active-directory
 author: TylerMSFT
@@ -13,12 +13,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 395b5105fdb067977f8414fe5675170032262fe0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0606376c455733ca90f1bff3d0295cbd1a075637
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921393"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963251"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>接受 v1.0 權杖的 Web API 範圍
 
@@ -26,7 +26,7 @@ OAuth2 許可權是適用于開發人員（v1.0） Web API （資源）應用程
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>要求存取 v1.0 應用程式特定 OAuth2 權限的範圍
 
-若要取得 v1.0 應用程式特定範圍的權杖（例如，Azure AD 圖形，也就是 HTTPs：\//graph.windows.net），您必須將所需的資源識別碼與該資源的所需 OAuth2 許可權串連，以建立範圍。
+若要取得 v1.0 應用程式特定範圍的權杖（例如， https://graph.windows.net) 的 Azure AD 圖形，請將所需的資源識別碼與該資源的所需 OAuth2 許可權串連，以建立範圍。
 
 例如，代表使用者存取應用程式識別碼 URI 為 `ResourceId` 的 v1.0 Web API：
 

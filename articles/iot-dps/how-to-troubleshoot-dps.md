@@ -1,6 +1,6 @@
 ---
 title: 診斷 Azure IoT 中樞 DPS 中斷連線並進行疑難排解
-description: 瞭解如何診斷和疑難排解 Azure IoT 中樞 DPS 的裝置連線常見錯誤
+description: 瞭解如何針對 Azure IoT 中樞裝置布建服務（DPS）的裝置連線性進行常見錯誤的診斷和疑難排解
 author: xujing-ms
 manager: nberdy
 ms.service: iot-dps
@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: b596a09e2185b38e6161ea4af2aa109e80faf248
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ffe20ff80e26bc5564b9379ea21ca99e2890b519
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70963417"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974814"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>使用 Azure IoT 中樞裝置布建服務進行疑難排解
 
@@ -32,7 +32,7 @@ IoT 裝置的連線問題可能會很難進行疑難排解，因為有許多可�
 4. 選取所需的度量。 
    <br />目前有三個 DPS 的計量：
 
-    | 計量名稱 | 描述 |
+    | 度量名稱 | 描述 |
     |-------|------------|
     | 證明嘗試數 | 嘗試使用裝置布建服務進行驗證的裝置數目|
     | 註冊嘗試數 | 成功驗證後嘗試註冊 IoT 中樞的裝置數目|
@@ -69,17 +69,17 @@ IoT 裝置的連線問題可能會很難進行疑難排解，因為有許多可�
 
 8. 按一下 [**執行**] 以查看最新的事件。
 
-9. 如果有結果，請`OperationName`尋找、 `ResultType`、 `ResultSignature`和`ResultDescription` （錯誤訊息），以取得有關錯誤的詳細資料。
+9. 如果有結果，請尋找 `OperationName`、`ResultType`、`ResultSignature`和 `ResultDescription` （錯誤訊息），以取得錯誤的詳細資料。
 
 
-## <a name="common-error-codes"></a>常見的錯誤碼
+## <a name="common-error-codes"></a>一般錯誤代碼
 使用此表格來了解和解決常見錯誤。
 
 | 錯誤碼| 描述 | HTTP 狀態碼 |
 |-------|------------|------------|
 | 400 | 要求的主體無效;例如，無法剖析，或無法驗證物件。| 400格式不正確 |
 | 401 | 無法驗證授權權杖;例如，它已過期或不適用於要求的 URI。 此錯誤碼也會在 TPM 證明流程中傳回給裝置。 | 401 未經授權|
-| 404 | 裝置布建服務實例或資源（例如註冊）不存在。 |404 找不到 |
+| 404 | 裝置布建服務實例或資源（例如註冊）不存在。 |404 - 找不到 |
 | 412 | 要求中的 ETag 與現有資源的 ETag 不相符，因為每個依據 RFC7232。 | 412前置條件失敗 |
 | 429 | 服務正在對作業進行節流。 如需特定的服務限制，請參閱[IoT 中樞裝置佈建服務限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits)。 | 429太多要求 |
 | 500 | 發生內部錯誤。 | 500 內部伺服器錯誤|

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d76a11fc41fd964ff4e43518aee34aad3ecffd3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 804eb63406b33b94e70ef56e0066fa213be04708
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922658"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997049"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>在 Azure Active Directory 中自訂 SaaS 應用程式的使用者布建屬性對應
 
@@ -139,7 +139,7 @@ SCIM RFC 會定義核心使用者和群組架構，同時允許架構的延伸�
    1. 登入[Azure Active Directory 入口網站](https://aad.portal.azure.com)，選取 [**企業應用程式**]，選取您的應用程式，然後選取 [布建 **]。**
    2. 在 [對應]**底下，選取**您想要新增自訂屬性的物件（使用者或群組）。
    3. 在頁面底部，選取 [**顯示先進的選項**]。
-   4. 選取 [*AppName 的編輯屬性清單*]。
+   4. 選取 [**編輯 AppName 的屬性清單**]。
    5. 在 [屬性] 清單的底部，在提供的欄位中輸入自訂屬性的相關資訊。 然後選取 [**新增屬性**]。
 
 針對 SCIM 應用程式，屬性名稱必須遵循以下範例所示的模式。 您可以根據應用程式的需求自訂 "CustomExtensionName" 和 "System.reflection.customattribute.isdefined"，例如： urn： ietf： params： scim：架構： extension：2.0： CustomExtensionName： System.reflection.customattribute.isdefined

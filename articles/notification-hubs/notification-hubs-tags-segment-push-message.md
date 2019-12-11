@@ -12,20 +12,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 66388f139b63c63e1f0f8ee8ee063e0ddd0f9da5
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 236e222da9e9a64d4b93002d28c94fa6fe469c08
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213045"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971968"
 ---
 # <a name="routing-and-tag-expressions"></a>路由與標記運算式
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 標記運算式可讓您在透過通知中樞傳送推播通知時，指定特定的目標裝置或更明確的註冊。
 
@@ -41,7 +41,7 @@ ms.locfileid: "71213045"
 
 標記可以是任何字串，包括英數字元及下列非英數字元，且長度不得超過 120 個字元：‘_’、‘@’、‘#’、‘.’、‘:’、‘-’。 下列範例示範的應用程式可以讓您從中接收有關特定音樂群組的快顯通知。 在此案例中，一個簡單路由通知的方法是為註冊加上標記，以指出不同的樂團，如下列圖片所示：
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
+![標記總覽](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
 在此圖片中，標記 **Beatles** 的訊息只會傳送到標記 **Beatles** 的平板電腦。
 
@@ -65,7 +65,7 @@ outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(to
 
 標記無須事先佈建，而且可以參考多個應用程式特有的概念。 例如，此範例應用程式的使用者可能想要對所有樂團發表評論，但不想只收到他們評論及喜愛之樂團的快顯通知，也想要收到來自他們朋友之所有評論的快顯通知。 下圖顯示此案例的範例：
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags2.png)
+![朋友的標記](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags2.png)
 
 在此圖片中，Alice 關注的是 Beatles 的最新動態，Bob 關注的是 Wailers 的最新動態。 Bob 也會關注 Charlie 的評論，而 Charlie 則會關注 Wailers。 當 Charlie 對 Beatles 發表評論時，Alice 與 Bob 都會收到該通知。
 
@@ -80,9 +80,9 @@ outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(to
 
 另一種使用標記的方法，是指定特定使用者的所有裝置。 註冊可以加上包含使用者識別碼的特殊標記，如圖所示：註冊可以加上包含使用者識別碼的特殊標記，如圖所示：
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
+![標記使用者](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
-在此圖片中，標記為 uid:Alice 的訊息被傳送到所有標記為 "uid:Alice" 的註冊；因此會傳送到 Alice 的所有裝置。
+在此圖中，已標記 uid： Alice 的訊息會到達所有標記為「uid： Alice」的註冊;因此，Alice 的所有裝置。
 
 ## <a name="tag-expressions"></a>標記運算式
 
@@ -94,7 +94,7 @@ outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(to
 (follows_RedSox || follows_Cardinals) && location_Boston
 ```
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags4.png)
+![標記運算式](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
 標記運算式可以包含所有布林運算子，例如 AND (&&)、OR (||) 及 NOT (!)。 其也可包含括號。 標記運算式若只含 OR，最多可有 20 個標記，否則只可有 6 個標記。
 

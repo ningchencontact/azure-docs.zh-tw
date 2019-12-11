@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: fb3d2e70d9485c63d6de156abe9d192afa818814
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3cf4f2314c7de2b2f7d581faeea88fe3c3177e81
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075079"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975052"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>使用自訂根 CA 產生 Azure 應用程式閘道自我簽署憑證
 
@@ -30,7 +30,7 @@ ms.locfileid: "74075079"
 - 建立由您的自訂 CA 簽署的自我簽署憑證
 - 將自我簽署的根憑證上傳至應用程式閘道以驗證後端伺服器
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - **在執行 Windows 或 Linux 的電腦上[OpenSSL](https://www.openssl.org/)** 
 
@@ -106,7 +106,7 @@ CSR 是在要求憑證時提供給 CA 的公開金鑰。 CA 會發出此特定�
 1. 使用下列命令來建立憑證：
 
    ```
-   openssl x509 -req -in fabrikam.csr -CA public.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
+   openssl x509 -req -in fabrikam.csr -CA  contoso.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
    ```
 ### <a name="verify-the-newly-created-certificate"></a>驗證新建立的憑證
 
@@ -179,7 +179,7 @@ openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
 
 若要上傳應用程式閘道中的憑證，您必須將 .crt 憑證匯出為 .cer 格式 Base-64 編碼。 由於 crt 已包含以基底64編碼格式的公開金鑰，因此只要將副檔名從 .crt 重新命名為 .cer 即可。 
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 若要從入口網站上傳受信任的根憑證，請選取 [ **HTTP 設定**]，然後選擇 [ **HTTPS** ] 通訊協定。
 

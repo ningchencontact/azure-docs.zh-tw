@@ -7,16 +7,16 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: aliceku
-ms.author: aliceku
+author: jaszymas
+ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: b318d4b5076ff24612d5b5ce0ba619f0b38ac280
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c9f59eb8c299eb9319694d392c2b5d1d814ed9b8
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483834"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997321"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 安全性功能的概觀
 
@@ -46,7 +46,7 @@ IP 防火牆規則會根據每個要求的來源 IP 位址授與資料庫存取�
 > [!IMPORTANT]
 > 在 Azure 內管理資料庫和資料庫伺服器，是由入口網站使用者帳戶的角色指派所控制。 如需有關此文章的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../role-based-access-control/overview.md)。
 
-### <a name="authentication"></a>驗證
+### <a name="authentication"></a>Authentication
 
 驗證是證明使用者宣告身分的程序。 Azure SQL Database 支援兩種驗證類型：
 
@@ -65,7 +65,7 @@ IP 防火牆規則會根據每個要求的來源 IP 位址授與資料庫存取�
 > [!IMPORTANT]
 > 在 Azure 內管理資料庫和伺服器，是由入口網站使用者帳戶的角色指派所控制。 如需有關此文章的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../role-based-access-control/overview.md)。 控制防火牆規則的存取「不」適用於**受控執行個體**。 如需所需網路設定的相關資訊，請參閱下列關於[連線到受控執行個體](sql-database-managed-instance-connect-app.md)的文章。
 
-## <a name="authorization"></a>授權
+## <a name="authorization"></a>Authorization
 
 授權是指在 Azure SQL Database 內指派給使用者的權限，並可決定允許使用者執行的動作。 許可權的控制方式是將使用者帳戶新增至[資料庫角色](/sql/relational-databases/security/authentication-access/database-level-roles)，並將資料庫層級許可權指派給這些角色，或授與使用者特定的[物件層級許可權](/sql/relational-databases/security/permissions-database-engine)。 如需詳細資訊，請參閱[登入與使用者](sql-database-manage-logins.md)
 
@@ -77,7 +77,7 @@ IP 防火牆規則會根據每個要求的來源 IP 位址授與資料庫存取�
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
-## <a name="threat-protection"></a>威脅保護
+## <a name="threat-protection"></a>威脅防護
 
 SQL Database 可藉由提供稽核和威脅偵測功能來保護客戶資料。
 
@@ -116,7 +116,7 @@ Sql Server 會針對所有連線強制執行加密（SSL/TLS）。 這可確保�
 
 ### <a name="key-management-with-azure-key-vault"></a>Azure Key Vault 的金鑰管理
 
-[透明資料加密](transparent-data-encryption-byok-azure-sql.md) (TDE) 的 [攜帶您自己的金鑰](/sql/relational-databases/security/encryption/transparent-data-encryption) (BYOK) 支援可讓客戶使用  [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md) (Azure 的雲端式外部金鑰管理系統)，取得金鑰管理與輪替的擁有權。 如果撤銷了資料庫對金鑰保存庫的存取權，資料庫即無法解密並讀取到記憶體中。 Azure Key Vault 可提供集中金鑰管理平台、使用嚴密監控的硬體安全性模組 (HSM)，並可區分管理金鑰和資料的職責，以利符合安全性合規性需求。
+ [透明資料加密](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) 的[攜帶您自己的金鑰](transparent-data-encryption-byok-azure-sql.md) (BYOK) 支援可讓客戶使用  [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md) (Azure 的雲端式外部金鑰管理系統)，取得金鑰管理與輪替的擁有權。 如果撤銷了資料庫對金鑰保存庫的存取權，資料庫即無法解密並讀取到記憶體中。 Azure Key Vault 可提供集中金鑰管理平台、使用嚴密監控的硬體安全性模組 (HSM)，並可區分管理金鑰和資料的職責，以利符合安全性合規性需求。
 
 ### <a name="always-encrypted-encryption-in-use"></a>一律加密 (使用中加密)
 

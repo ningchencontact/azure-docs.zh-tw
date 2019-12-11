@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 4d4823e8dcce0d1296ebe39a0b7a7c4bbc180317
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 275fa173c5005c4d1609a858c8edb39b5c307c5e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015437"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974609"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>使用 Axinom 將 Widevine 授權傳遞到 Azure 媒體服務 
 > [!div class="op_single_selector"]
@@ -29,10 +29,10 @@ ms.locfileid: "69015437"
 > 
 > 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 Azure 媒體服務 (AMS) 已新增Google Widevine 動態保護 (如需詳細資訊，請參閱 [Mingfei 的部落格](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) )。 此外，Azure 媒體播放器 (AMP) 也已新增 Widevine 支援 (如需詳細資訊，請參閱 [AMP 文件](https://amp.azure.net/libs/amp/latest/docs/) )。 談到在配備 MSE 和 EME 的現代瀏覽器上串流處理受到 CENC 與多重原生 DRM (PlayReady 和 Widevine) 保護的 DASH 內容時，這可說是一大成就。
 
-從媒體服務 .NET SDK 版本 3.5.2 開始，媒體服務讓您可設定 Widevine 授權範本並取得 Widevine 授權。 您也可以使用下列 AMS 合作夥伴來助您傳遞 Widevine 授權：[Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](https://ezdrm.com/)、[castLabs](https://castlabs.com/company/partners/azure/)。
+從媒體服務 .NET SDK 版本 3.5.2 開始，媒體服務讓您可設定 Widevine 授權範本並取得 Widevine 授權。 您也可以使用下列 AMS 合作夥伴來協助您傳遞 Widevine 授權：[Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](https://ezdrm.com/)、[castLabs](https://castlabs.com/company/partners/azure/)。
 
 本文說明如何整合和測試受 Axinom 管理的 Widevine 授權伺服器。 具體而言，其內容包括：  
 
@@ -45,7 +45,7 @@ Azure 媒體服務 (AMS) 已新增Google Widevine 動態保護 (如需詳細資�
 ![DASH 和 CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
 ## <a name="content-protection"></a>內容保護
-如需設定動態保護和金鑰傳遞原則，請參閱 Mingfei 的部落格：[如何使用 Azure 媒體服務設定 Widevine 套件](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)。
+若要設定動態保護和金鑰傳遞原則，請參閱 Mingfei 的部落格： [如何使用 Azure 媒體服務設定 Widevine 封裝](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)(英文)。
 
 您可以使用多重 DRM 為同時具有下列二者的 DASH 串流設定動態 CENC 保護：
 
@@ -177,6 +177,7 @@ Axinom Widevine 授權伺服器
     }
 
 ## <a name="summary"></a>總結
+
 透過 Azure 媒體服務內容保護和 Azure 媒體播放器中最新版的 Widevine 支援，我們得以同時使用 AMS 中的 PlayReady 授權服務和 Axinom 的 Widevine 授權伺服器，為下列現代瀏覽器實作 DASH + 多重原生 DRM (PlayReady + Widevine) 的串流：
 
 * Chrome
@@ -194,6 +195,10 @@ Axinom Widevine 授權伺服器
 | Widevine 授權取得 URL |必須用於設定 DASH 串流資產傳遞原則 (請參閱[本節](media-services-axinom-integration.md#content-protection))。 |
 | 內容金鑰識別碼 |必須包含其中作為 JWT 權杖之權利訊息宣告值的一部分 (請參閱 [本節](media-services-axinom-integration.md#jwt-token-generation) )。 |
 
+## <a name="additional-notes"></a>其他注意事項
+
+* Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
+
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
@@ -201,5 +206,5 @@ Axinom Widevine 授權伺服器
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>通知
-我們想要向下列為建立此文件貢獻心力的人員致謝：Axinom 的 Kristjan Jõgi、Mingfei Yan 及 Amit Rajput。
+我們想要向下列為建立此文件貢獻心力的人員致謝：Axinom 的 Kristjan Jõgi、Mingfei Yan 和 Amit Rajput。
 

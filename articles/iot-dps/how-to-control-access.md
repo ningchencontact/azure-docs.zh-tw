@@ -1,6 +1,6 @@
 ---
 title: IoT 裝置佈建服務中的安全性端點 | Microsoft Docs
-description: 概念 - 如何控制後端應用程式之 IoT 裝置佈建服務的存取權。 包含安全性權杖的相關資訊。
+description: 概念-如何控制後端應用程式對 IoT 裝置布建服務（DPS）的存取權。 包含安全性權杖的相關資訊。
 author: wesmc7777
 manager: philmea
 ms.service: iot-dps
@@ -8,23 +8,23 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
-ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f36a48e0cedc309deda8416face5549a54eb8c73
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626636"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975120"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>控制 Azure IoT 中樞裝置佈建服務的存取權
 
-本文說明用來保護 IoT 裝置佈建服務的選項。 佈建服務使用權限  ，授與每個端點的存取權。 權限可根據功能限制服務執行個體的存取權。
+本文說明用來保護 IoT 裝置佈建服務的選項。 佈建服務使用權限，授與每個端點的存取權。 權限可根據功能限制服務執行個體的存取權。
 
 本文章說明：
 
 * 您可以授與後端應用程式，以存取您的佈建服務的不同權限。
 * 它用來確認權限的驗證程序和權杖。
 
-### <a name="when-to-use"></a>使用時機
+### <a name="when-to-use"></a>When to use
 
 您必須具有適當權限才能存取任何佈建服務端點。 例如，後端應用程式必須包含權杖，其中包含安全性認證，以及傳送到服務的每個訊息。
 
@@ -32,19 +32,19 @@ ms.locfileid: "60626636"
 
 您可以透過下列方式授與[權限](#device-provisioning-service-permissions)：
 
-* **共用存取授權原則**。 共用存取原則可以授與上面所列[權限](#device-provisioning-service-permissions)的任意組合。 您可以在 [Azure 入口網站][lnk-management-portal]中定義原則，或使用 [裝置佈建服務 REST API][lnk-resource-provider-apis] 以程式設計方式定義原則。 新建立的佈建服務有下列預設原則︰
+* **共用存取授權原則**。 共用存取原則可以授與上面所列[權限](#device-provisioning-service-permissions)的任意組合。 您可以在[Azure 入口網站][lnk-management-portal]中定義原則，或使用裝置布建[服務 REST api][lnk-resource-provider-apis]以程式設計的方式。 新建立的佈建服務有下列預設原則︰
 
-* **provisioningserviceowner**：具備所有權限的原則。
+* **provisioningserviceowner**︰具備所有權限的原則。
 
 > [!NOTE]
 > 如需詳細資訊，請參閱[權限](#device-provisioning-service-permissions)。
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 
 Azure IoT 中樞裝置佈建服務可根據共用存取原則驗證權杖，以授與端點的存取權。 安全性認證 (例如對稱金鑰) 決不會在網路上傳送。
 
 > [!NOTE]
-> 如同 [Azure Resource Manager][lnk-azure-resource-manager] 中的所有提供者一樣，裝置佈建服務資源提供者也是透過您的 Azure 訂用帳戶而受保護。
+> 裝置布建服務資源提供者會透過您的 Azure 訂用帳戶來保護，如同[Azure Resource Manager][lnk-azure-resource-manager]中的所有提供者。
 
 如需如何建構和使用安全性權杖的詳細資訊，請參閱下一節。
 
@@ -57,11 +57,11 @@ SharedAccessSignature sr =
 ```
 
 > [!NOTE]
-> [Azure IoT 裝置佈建服務 SDK][lnk-sdks] 會在連接至服務時自動產生權杖。
+> [Azure IoT 裝置布建服務 sdk][lnk-sdks]會在連接至服務時自動產生權杖。
 
 ## <a name="security-tokens"></a>安全性權杖
 
-裝置佈建服務使用安全性權杖來驗證服務，以避免透過線路傳送金鑰。 此外，安全性權杖有時效性和範圍的限制。 [Azure IoT 裝置佈建服務 SDK][lnk-sdks] 能在不需要任何特殊組態的情況下，自動產生權杖。 在某些案例中，您必須直接產生及使用安全性權杖。 這類案例包括直接使用 HTTP 介面。
+裝置佈建服務使用安全性權杖來驗證服務，以避免透過線路傳送金鑰。 此外，安全性權杖有時效性和範圍的限制。 [Azure IoT 裝置布建服務 sdk][lnk-sdks]會自動產生權杖，而不需要任何特殊設定。 在某些案例中，您必須直接產生及使用安全性權杖。 這類案例包括直接使用 HTTP 介面。
 
 ### <a name="security-token-structure"></a>安全性權杖結構
 
@@ -75,7 +75,7 @@ SharedAccessSignature sr =
 
 以下是預期的值：
 
-| 值 | 描述 |
+| Value | 描述 |
 | --- | --- |
 | {signature} |HMAC-SHA256 簽章字串，格式為： `{URL-encoded-resourceURI} + "\n" + expiry`。 **重要事項**：金鑰是從 base64 解碼而來，並且會做為用來執行 HMAC-SHA256 計算的金鑰。|
 | {expiry} |從新紀元時間 (Epoch) 1970 年 1 月 1日 00:00:00 UTC 時間至今秒數的 UTF8 字串。 |

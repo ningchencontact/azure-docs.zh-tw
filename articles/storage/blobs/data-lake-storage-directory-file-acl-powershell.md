@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 360845d75c27fab0151c3a64846ff788f9f56b95
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f2a2eaa3224fff117a30dfb742b4f8a35196dba4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931249"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973895"
 ---
 # <a name="use-powershell-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>在 Azure Data Lake Storage Gen2 （預覽）中使用 PowerShell for files & Acl
 
@@ -378,6 +378,7 @@ Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse |
 |AzDataLakeStoreItemContent|AzDataLakeGen2FileContent|AzDataLakeGen2FileContent Cmdlet 會將檔內容下載到本機檔案。|
 |移動-AzDataLakeStoreItem|移動-AzDataLakeGen2Item||
 |新增-AzDataLakeStoreItem|新增-AzDataLakeGen2Item|此 Cmdlet 會從本機檔案上傳新的檔案內容。|
+|移除-AzDataLakeStoreItem|移除-AzDataLakeGen2Item||
 |設定-AzDataLakeStoreItemOwner<br>設定-AzDataLakeStoreItemPermission<br>設定-AzDataLakeStoreItemAcl|更新-AzDataLakeGen2Item|AzDataLakeGen2Item 指令程式只會更新單一專案，而不會以遞迴方式進行。 如果想要以遞迴方式更新，請使用 AzDataLakeStoreChildItem Cmdlet 來列出專案，然後將管線加入至 AzDataLakeGen2Item Cmdlet。|
 |測試-AzDataLakeStoreItem|AzDataLakeGen2Item|如果專案不存在，AzDataLakeGen2Item 指令程式將會報告錯誤。|
 

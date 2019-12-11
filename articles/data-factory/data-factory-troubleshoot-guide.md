@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 0026aa377a58f6b766a400860692a35440deb962
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2ae0f3033b88b3229d3dbef35c8bc9a32510c00e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748368"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972331"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>疑難排解 Azure Data Factory
 
@@ -43,9 +43,9 @@ ms.locfileid: "73748368"
 
 - **建議**：在 Databricks 活動中指定筆記本路徑。
 
-<br/>    
-              
-- **訊息**： `Cluster   ... does not exist.`
+<br/>  
+
+- **訊息**： `Cluster... does not exist.`
 
 - **原因**： `Authoring error: Databricks cluster does not exist or has been deleted.`
 
@@ -53,7 +53,7 @@ ms.locfileid: "73748368"
 
 <br/>  
 
-- **訊息**： `Invalid Python file URI.... Please visit Databricks user guide for supported URI schemes.`
+- **訊息**： `Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
 
 - **原因**： `Bad authoring.`
 
@@ -334,56 +334,56 @@ ms.locfileid: "73748368"
 
 ### <a name="error-code--4121"></a>錯誤碼：4121
 
-- **訊息**： `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **訊息**： `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **原因**：用來存取 Azure ML 服務的認證已過期。
+- **原因**：用來存取 Azure Machine Learning 的認證已過期。
 
 - **建議**：請確認認證有效，然後再試一次
 
 
 ### <a name="error-code--4122"></a>錯誤碼：4122
 
-- **訊息**： `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **訊息**： `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **原因**： Azure ML 服務已連結服務中提供的認證無效，或沒有該作業的許可權。
+- **原因**： Azure Machine Learning 連結服務中提供的認證無效，或沒有該作業的許可權。
 
-- **建議**：請確認已連結服務中的認證有效，而且具有存取 Azure ML 服務的許可權。
+- **建議**：請確認已連結服務中的認證有效，而且具有存取 Azure Machine Learning 的許可權。
 
 
 ### <a name="error-code--4123"></a>錯誤碼：4123
 
-- **訊息**： `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **訊息**： `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **原因**： `Properties of the activity such as pipelineParamters are invalid for the Azure ML pipeline.`
+- **原因**：活動的屬性（例如 pipelineparameters.json）對 Azure ML 管線而言是不正確。
 
 - **建議**：請檢查活動屬性的值，以符合連結服務中所指定已發佈 Azure ML 管線的預期裝載。
 
 
 ### <a name="error-code--4124"></a>錯誤碼：4124
 
-- **訊息**： `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **訊息**： `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
 - **原因**：發佈的 Azure ML 管線端點不存在。
 
-- **建議**：請確認 Azure ml 服務中已有已連結服務中所指定的已發佈 Azure ml 管線端點。
+- **建議**：請確認 Azure Machine Learning 中存在已連結服務中所指定的已發佈 Azure Machine Learning 管線端點。
 
 
 ### <a name="error-code--4125"></a>錯誤碼：4125
 
-- **訊息**： `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **訊息**： `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **原因**： Azure ML 服務發生伺服器錯誤。
+- **原因**： Azure Machine Learning 上發生伺服器錯誤。
 
-- **建議**：請稍後重試。 如果問題仍然存在，請聯絡 Azure ML 服務小組以取得協助。
+- **建議**：請稍後重試。 如果問題仍然存在，請聯絡 Azure Machine Learning 小組尋求協助。
 
 
 ### <a name="error-code--4126"></a>錯誤碼：4126
 
-- **訊息**： `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure ML Service for more error logs.`
+- **訊息**： `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
 
 - **原因**： Azure ML 管線執行失敗。
 
-- **建議**：請在 Azure ml 服務中查看更多錯誤記錄檔，並修正 ML 管線
+- **建議**：請查看 Azure Machine Learning 以取得更多錯誤記錄檔，並修正 ML 管線。
 
 
 
@@ -422,7 +422,7 @@ ms.locfileid: "73748368"
 
 - **原因**：儲存體的連接字串無效或格式不正確。
 
-- **建議**：請前往 Azure 入口網站、尋找您的儲存體、複製連接字串並貼上您的連結服務，然後再試一次。
+- **建議**：請移至 Azure 入口網站，尋找您的儲存體，複製連接字串並貼上您的連結服務，然後再試一次。
 
 
 ### <a name="error-code--2108"></a>錯誤碼：2108
@@ -522,7 +522,7 @@ ms.locfileid: "73748368"
 
 ### <a name="error-code--2507"></a>錯誤碼：2507
 
-- **訊息**： `The folder path does not exist or is empty: ....`
+- **訊息**： `The folder path does not exist or is empty: ...`
 
 - **原因**：位於指定路徑的儲存體帳戶中沒有任何檔案。
 
@@ -648,7 +648,7 @@ ms.locfileid: "73748368"
 - **原因**：當錯誤訊息包含類似于「無法解析遠端名稱」的訊息時，這可能表示提供的叢集 URI 無效。
 
 
-- **建議**：請確定叢集尚未刪除，而且提供的 URI 正確。 當您在瀏覽器中開啟 URI 時，您應該會看到 Ambari UI。 如果叢集位於虛擬網路中，則 URI 應該是私用 URI。 若要開啟它，請使用屬於相同虛擬網路的 VM。 如需詳細資訊，[請參閱。](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#directly-connect-to-apache-hadoop-services)
+- **建議**：請確定叢集尚未刪除，而且提供的 URI 正確。 當您在瀏覽器中開啟 URI 時，您應該會看到 Ambari UI。 如果叢集位於虛擬網路中，則 URI 應該是私用 URI。 若要開啟它，請使用屬於相同虛擬網路的 VM。 如需詳細資訊，請參閱 [this](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#directly-connect-to-apache-hadoop-services)。
                   
 
 <br>
@@ -668,12 +668,12 @@ ms.locfileid: "73748368"
 - **原因**：當錯誤訊息包含類似于「502-Web 服務器做為閘道或 proxy 伺服器時收到不正確回應」的訊息時，HDInsight 服務會傳回此錯誤。
 
 
-- **建議**：請參閱 Azure HDInsight 疑難排解檔，例如 https://hdinsight.github.io/ambari/ambari-ui-502-error.html、 https://hdinsight.github.io/spark/spark-thriftserver-errors.html、 https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502。
+- **建議**：請參閱 Azure HDInsight 疑難排解檔，例如 https://hdinsight.github.io/ambari/ambari-ui-502-error.html 、 https://hdinsight.github.io/spark/spark-thriftserver-errors.html 、 https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502 。
                   
 
 <br>
 
-- **原因**：當錯誤訊息包含類似于「無法服務提交作業要求，因為 templeton 服務忙碌中，有太多提交作業要求」或「佇列根目錄」的訊息時。 joblauncher 已經有500應用程式，無法接受提交應用程式 '，這表示會同時將太多作業提交給 HDInsight。
+- **原因**：當錯誤訊息包含類似于「無法服務提交作業要求，因為 templeton 服務忙碌中，有太多提交作業要求」或「佇列根目錄」的訊息時。 joblauncher 已經有500應用程式，無法接受應用程式的提交，這表示有太多作業會同時提交到 HDInsight。
 
 - **建議**：請考慮限制提交至 HDInsight 的並行作業數目。 如果作業是由相同的活動所提交，請參閱 Data Factory 活動並行。 變更觸發程式，讓並行管線執行會隨著時間分散。 如錯誤所建議，請參閱 HDInsight 檔以調整 templeton。
 
@@ -685,7 +685,7 @@ ms.locfileid: "73748368"
 - **原因**： HDInsight 叢集或服務有問題。
 
 
-- **建議**：當 ADF 在嘗試取得執行中工作的狀態時，無法從 HDInsight 叢集取得回應時，就會發生此錯誤。 可能是叢集本身發生問題，或 HDInsight 服務可能發生中斷。 請參閱 https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide的 HDInsight 疑難排解檔，或洽詢其支援以取得進一步的協助。
+- **建議**：當 ADF 在嘗試取得執行中工作的狀態時，無法從 HDInsight 叢集取得回應時，就會發生此錯誤。 可能是叢集本身發生問題，或 HDInsight 服務可能發生中斷。 請參閱 https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide 的 HDInsight 疑難排解檔，或洽詢其支援以取得進一步的協助。
                 
 
 
@@ -732,7 +732,7 @@ ms.locfileid: "73748368"
 - **原因**：為腳本動作提供的 json 無效。
 
 
-- **建議**：錯誤訊息應該有助於找出問題。 請修正 json 設定，然後再試一次。 如需詳細資訊，請參閱 https://docs.microsoft.com/azure/data-factory/compute-linked-services#azure-hdinsight-on-demand-linked-service。
+- **建議**：錯誤訊息應該有助於找出問題。 請修正 json 設定，然後再試一次。 如需詳細資訊，請參閱 https://docs.microsoft.com/azure/data-factory/compute-linked-services#azure-hdinsight-on-demand-linked-service 。
                 
 
 
@@ -816,7 +816,7 @@ ms.locfileid: "73748368"
 
 - **建議**：  
       1. 在瀏覽器中開啟 HDInsight 叢集的 Ambari UI，以確認認證是否正確。
-      2. 如果叢集位於 VNet 中，而且正在使用自我裝載 IR，則的 HDI URL 應該是 Vnet 中的私人 URL，這表示它在叢集名稱後面應該有 '-int '。 例如，"https://mycluster.azurehdinsight.net/" 應變更為 "https://mycluster-int.azurehdinsight.net/"。
+      2. 如果叢集位於 VNet 中，而且正在使用自我裝載 IR，則的 HDI URL 應該是 Vnet 中的私人 URL，這表示它在叢集名稱後面應該有 '-int '。 例如，"https://mycluster.azurehdinsight.net/ " 應變更為 "https://mycluster-int.azurehdinsight.net/ "。
       2. 如果叢集在 VNet 中，則會使用自我裝載 IR，並使用私人 URL，且連線仍會失敗，然後安裝 IR 的 VM 就會發生連接到 HDI 的問題。 連接到已安裝 IR 的 VM，並在瀏覽器中開啟 Ambari UI。 使用叢集的私人 URL。 此連接應該可從瀏覽器執行。 如果沒有，請洽詢 HDInsight 支援小組以取得進一步的協助。
       3. 如果未使用自我裝載 IR，則 HDI 叢集應可公開存取。 在瀏覽器中開啟 Ambari UI，並確認它已開啟。 如果叢集或其上的服務有任何問題，請洽詢 HDInsight 支援小組以取得協助。
       因此，在 ADF 連結服務中使用的 HDI 叢集 URL 必須可供 ADF IR （自我裝載或 Azure）存取，才能讓測試連線通過，並讓執行作業運作。 您可以從 VM 或任何公用電腦的瀏覽器開啟該 URL，輕鬆地驗證這種情況。
@@ -1018,7 +1018,7 @@ ms.locfileid: "73748368"
 
 1. 如果您的 web 應用程式使用 HTTPS，請移至 [**工具**] [ > **Fiddler 選項**] > [ **HTTPs**]。 選取 [ **CAPTURE HTTPs** Connect AND**解密 HTTPs 流量**]。
 
-![Fiddler 選項](media/data-factory-troubleshoot-guide/fiddler-options.png)
+   ![Fiddler 選項](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
 1. 如果您的應用程式使用 SSL 憑證，請將 Fiddler 憑證新增至您的裝置。 移至 [**工具**] > **Fiddler 選項** > **HTTPS** > **動作** > **將根憑證匯出到桌面**。
 
@@ -1028,17 +1028,17 @@ ms.locfileid: "73748368"
 
 1. 建立要求：
 
-a. 選取 [**編輯器**] 索引標籤。
+   1. 選取 [**編輯器**] 索引標籤。
 
-b.這是另一個 C# 主控台應用程式。 設定 HTTP 方法和 URL。
+   1. 設定 HTTP 方法和 URL。
+   
+   1. 如有需要，請新增標頭和要求主體。
 
-c. 如有需要，請新增標頭和要求主體。
+   1. 選取 [執行]。
 
-d. 選取 [執行]。
+1. 再次開啟流量捕捉，並在您的頁面上完成有問題的交易。
 
-9. 再次開啟流量捕捉，並在您的頁面上完成有問題的交易。
-
-10. 移至 [檔案 **] > ** **儲存** > **所有會話**。
+1. 移至 [檔案 **] > ** **儲存** > **所有會話**。
 
 如需詳細資訊，請參閱[開始使用 Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler)。
 
@@ -1046,7 +1046,7 @@ d. 選取 [執行]。
 
 如需更多疑難排解協助，請嘗試下列資源：
 
-*  [Data Factory 部落格](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory 的 blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory 功能要求](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure 影片](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)

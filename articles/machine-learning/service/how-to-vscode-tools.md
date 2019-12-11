@@ -10,12 +10,12 @@ ms.author: jimgries
 author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd85f3a495b90b3a1dc9d3f021d3600496792759
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 84b7f56ebcbb87a31fbfb85ea6d88c3388870872
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824362"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975987"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>開始使用適用於 Visual Studio Code 的 Azure Machine Learning
 
@@ -94,8 +94,8 @@ ms.locfileid: "73824362"
     import azureml
     from azureml.core import Run
 
-    # access the Azure ML run
-    # init run param to check if running within AML
+    # Access the Azure ML run
+    # Init run param to check if running within AML
     def get_AMLRun():
         try:
             run = Run.get_submitted_run()
@@ -128,7 +128,7 @@ ms.locfileid: "73824362"
     ...
             acc_val = acc_op.eval(feed_dict = {X: X_test, y: y_test})
 
-            # log accuracies to AML logger if using AML
+            # Log accuracies to AML logger if using AML
             if run != None:
                 run.log('Validation Accuracy', np.float(acc_val))
                 run.log('Training Accuracy', np.float(acc_train))
@@ -137,14 +137,14 @@ ms.locfileid: "73824362"
     ...
     ```
 ### <a name="run-the-script-in-azure"></a>在 Azure 中執行腳本
-就這麼簡單！ 現在只要使用延伸模組在雲端中執行您的腳本！ 請注意，下列逐步解說影片可讓您自由地壓縮建立新的 Azure ML 工作區和計算所需的時間，以及執行訓練腳本所花費的時間。
+就這麼簡單！ 現在只要使用延伸模組在雲端中執行您的腳本！ 請注意，下列逐步解說影片可讓您自由地壓縮建立新的 Azure Machine Learning 工作區和計算所需的時間，以及執行訓練腳本所花費的時間。
 
    [![啟動 Azure ML 實驗](./media/vscode-tools-for-ai/start-golden-path.gif)](./media/vscode-tools-for-ai/start-golden-path.gif#lightbox)
 
 按一下 [執行實驗] 按鈕之後，請回答提示，如下所示：
 
-1. 選擇 Azure 訂用帳戶
-1. 選擇建立*新*的 Azure ML 工作區
+1. 選擇 Azure 訂用帳戶。
+1. 選擇建立*新*的 Azure Machine Learning 工作區。
 1. 從一組預先設定的範本中挑選，以初始化執行的 Python 環境。 範本會提供一個起點，並包含下列設定：
     1. **PyTorch**、 **TensorFlow**或**scikit-learn-學習**
     1. **單一**或**分散式**計算訓練
@@ -155,7 +155,7 @@ ms.locfileid: "73824362"
 
     [在雲端中 ![訓練](./media/vscode-tools-for-ai/run-golden-path.gif)](./media/vscode-tools-for-ai/run-golden-path.gif#lightbox)
 
-幾秒鐘後，您就會收到通知，告知您已將實驗提交至 Azure，您可以在 Azure Machine Learning studio 中按一下 VS Code 通知中的 [ **View 實驗執行**] 連結，或在 VS Code按下 [Azure] 索引標籤中的 [重新整理] 按鈕。
+幾秒鐘後，您就會收到通知，告知您已將實驗提交至 Azure，此時您可以按一下 VS Code 通知中的 [ **View 實驗執行**] 連結，或在 VS Code 中按下 [Azure] 索引標籤中的 [重新整理] 按鈕，以在 Azure Machine Learning studio 中查看其進度。
 
 目前，只有在 studio 中才支援「執行計量」的流覽。 前述的「**觀看實驗執行**」連結會帶您前往執行，您會在其中看到您所記錄的計量。
 [在入口網站中執行 ![實驗](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG)](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG#lightbox)

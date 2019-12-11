@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: c4fe185f5d203b1b0eba306c80cded14ad82bc98
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: bb8cfae73d84135858733899e6441f564106e9d1
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72438623"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997219"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>淘汰資訊安全中心功能（2019年7月）
 
@@ -53,7 +53,7 @@ ms.locfileid: "72438623"
 
 我們鼓勵您使用 Azure Log Analytics 的原生功能來查看您工作區上的值得注意事件。
 
-如果您已在資訊安全中心中建立自訂值得注意的事件，則可加以存取。 在 Log Analytics 中，移至 [**選取工作區**] [ >  個**儲存的搜尋**]。 您的資料不會遺失或修改。 您也可以從 Log Analytics 中的相同畫面取得原生值得注意的事件。
+如果您已在資訊安全中心中建立自訂值得注意的事件，則可加以存取。 在 Log Analytics 中，移至 **選取工作區** > **儲存的搜尋**。 您的資料不會遺失或修改。 您也可以從 Log Analytics 中的相同畫面取得原生值得注意的事件。
 
 ![工作區儲存的搜尋][3]
 
@@ -156,7 +156,7 @@ Log Analytics 儀表板已在單一工作區上顯示深入解析。 不過，�
 
 - [新一代防火牆和 web 應用程式防火牆解決方案](https://docs.microsoft.com/azure/sentinel/connect-data-sources)
 - [整合支援通用事件格式（CEF）的安全性解決方案](https://docs.microsoft.com/azure/sentinel/connect-common-event-format)
-- [Microsoft Advanced 威脅分析](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
+- [Microsoft 進階威脅分析](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
 淘汰之後，您就無法從 UI 或 API 新增或修改前述清單中提及的任何解決方案類型。 Azure 資訊安全中心將不會再探索這些合作夥伴解決方案的任何新實例。
@@ -169,7 +169,7 @@ Log Analytics 儀表板已在單一工作區上顯示深入解析。 不過，�
 
 Azure 資訊安全中心會套用一組[具有超過 150 個建議規則的集合](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) (英文)，以此方式監視安全性設定以強化作業系統。 這些規則與防火牆、審核、密碼原則等相關。 如果發現電腦設定有弱點，資訊安全中心會產生安全性建議。 [[編輯安全性](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config)設定] 畫面可讓客戶自訂資訊安全中心中的預設 OS 安全性設定。
 
-我們已淘汰此預覽功能。 若要在停用日期之後將安全性設定重設回其預設值，請使用[下列指示](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization)透過 API 或 Powershell 執行此動作
+我們已淘汰此預覽功能。 若要在停用日期之後將安全性設定重設回其預設值，請使用[下列指示](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization)，透過 API 或 Powershell 來執行這項操作。
 
 ![編輯安全性設定][17]
 

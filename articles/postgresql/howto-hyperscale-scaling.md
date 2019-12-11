@@ -1,17 +1,17 @@
 ---
-title: 調整適用於 PostgreSQL 的 Azure 資料庫超大規模資料庫（Citus）伺服器群組
+title: 調整伺服器群組-超大規模資料庫（Citus）-適用於 PostgreSQL 的 Azure 資料庫
 description: 調整伺服器群組記憶體、磁片和 CPU 資源，以處理增加的負載
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/17/2019
-ms.openlocfilehash: 6053ba37bf330f6b59e291dade822a5ca9de8c85
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5d8bbe493887c5340f0943a585eb6ff250bd3728
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492298"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977551"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>調整超大規模資料庫（Citus）伺服器群組
 
@@ -36,7 +36,7 @@ ms.locfileid: "73492298"
 SELECT rebalance_table_shards('distributed_table_name');
 ```
 
-`rebalance_table_shards` 函數會重新平衡其引數中名為之資料表的[共置](concepts-hyperscale-colocation.md)群組中的所有資料表。 因此，您不需要針對每個分散式資料表呼叫函數，只要在每個共置群組的代表性資料表上呼叫它即可。
+函數會重新平衡其引數中名為之資料表的[共置群組](concepts-hyperscale-colocation.md)中的所有資料表。`rebalance_table_shards` 因此，您不需要針對每個分散式資料表呼叫函數，只要在每個共置群組的代表性資料表上呼叫它即可。
 
 ## <a name="increase-vcores-or-storage-space"></a>增加虛擬核心或儲存空間
 

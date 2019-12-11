@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee6ab1ada540f4f664e6782a1fffc63cc7df95e4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 94cdf683bc8524786e1f32607ef18f976990ba07
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928590"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74979116"
 ---
 # <a name="access-data-in-azure-storage-services"></a>存取 Azure 儲存體服務中的資料
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -204,7 +204,7 @@ datastore.download(target_path='your target path',
 #to mount the full contents in your storage to the compute target
 datastore.as_mount()
 
-#to download the contents of the `./bar` directory in your storage to the compute target
+#to download the contents of only the `./bar` directory in your storage to the compute target
 datastore.path('./bar').as_download()
 ```
 > [!NOTE]
@@ -212,9 +212,9 @@ datastore.path('./bar').as_download()
 
 ### <a name="examples"></a>範例 
 
-下列程式碼範例是在定型期間用來存取資料的[`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py)類別特有的。
+我們建議使用[`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py)類別，在定型期間存取資料。 
 
-`script_params` 是包含 entry_script 參數的字典。 使用它來傳入資料存放區，並描述如何在計算目標上提供資料。 深入瞭解我們的端對端[教學](tutorial-train-models-with-aml.md)課程。
+`script_params` 變數是包含 entry_script 參數的字典。 使用它來傳入資料存放區，並描述如何在計算目標上提供資料。 深入瞭解我們的端對端[教學](tutorial-train-models-with-aml.md)課程。
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -241,6 +241,24 @@ est = Estimator(source_directory='your code directory',
                 compute_target=compute_target,
                 entry_script='train.py',
                 inputs=[datastore1.as_download(), datastore2.path('./foo').as_download(), datastore3.as_upload(path_on_compute='./bar.pkl')])
+```
+如果您想要使用 RunConfig 物件進行定型，您需要設定[DataReference](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py)物件。 
+
+下列程式碼示範如何使用估計管線中的 DataReference 物件。 如需完整範例，請參閱此[筆記本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb)。
+
+```Python
+from azureml.core import Datastore
+from azureml.data.data_reference import DataReference
+from azureml.pipeline.core import PipelineData
+
+def_blob_store = Datastore(ws, "workspaceblobstore")
+
+input_data = DataReference(
+       datastore=def_blob_store,
+       data_reference_name="input_data",
+       path_on_datastore="20newsgroups/20news.pkl")
+
+   output = PipelineData("output", datastore=def_blob_store)
 ```
 <a name="matrix"></a>
 

@@ -3,17 +3,17 @@ title: 了解 Azure IoT 中心應用程式的裝置範本版本設定 | Microsof
 description: 藉由建立新版本來反覆使用裝置範本，而不會影響您的即時連線裝置
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 07/17/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 666c3030d91fba3c3bdfe23f808c4e830dff6ec1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1f2ecb37ebe156b1eb092bda95f296c39c9e2baf
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895588"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974959"
 ---
 # <a name="create-a-new-device-template-version-preview-features"></a>建立新的裝置範本版本（預覽功能）
 
@@ -32,7 +32,7 @@ Azure IoT Central 可讓您快速開發 IoT 應用程式。 您可以藉由新�
 1. 選取您想要自訂的裝置範本。
 1. 選擇 [**自訂**] 索引標籤。
 1. 您的裝置功能模型中所定義的所有功能都將列在此處。 您可以在這裡編輯的所有欄位都可以儲存並用於您的應用程式，而不需要為您的裝置範本版本。 如果您想要編輯的欄位是唯讀的，您必須將裝置範本的版本設為 [變更]。 選取您想要編輯的欄位，並輸入任何新的值。
-1. 按一下 [檔案]。 現在，這些值將會覆寫您的裝置範本中一開始儲存的任何內容，而且將會在整個應用程式中使用。
+1. 按一下 [儲存]。 現在，這些值將會覆寫您的裝置範本中一開始儲存的任何內容，而且將會在整個應用程式中使用。
 
 ## <a name="versioning-a-device-template"></a>版本設定裝置範本
 
@@ -45,7 +45,7 @@ Azure IoT Central 可讓您快速開發 IoT 應用程式。 您可以藉由新�
 1. 移至 [**裝置範本**] 頁面。
 1. 選取您嘗試進行版本的裝置範本。
 1. 按一下頁面頂端的 [**版本**] 按鈕，並為範本指定新的名稱。 我們為您建議了可編輯的新名稱。
-1. 按一下頁面底部的 [新增]。
+1. 按一下 [建立]。
 1. 現在您的裝置範本處於草稿模式。 您會看到您的介面仍處於鎖定狀態，而且必須個別設定版本才能進行編輯。 
 
 ### <a name="versioning-an-interface"></a>版本設定介面
@@ -58,7 +58,7 @@ Azure IoT Central 可讓您快速開發 IoT 應用程式。 您可以藉由新�
 1. 選取您在草稿模式中的裝置範本。
 1. 選取您想要進行版本與編輯之已發行模式中的介面。
 1. 按一下 [介面] 頁面頂端的 [**版本**] 按鈕。 
-1. 按一下頁面底部的 [新增]。
+1. 按一下 [建立]。
 1. 現在您的介面處於草稿模式。 您將能夠在介面中新增或編輯功能，而不會中斷現有的自訂和視圖。 
 
 > [!NOTE]

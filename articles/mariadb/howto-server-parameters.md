@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: 59d18ea11699ed77763c162e4930b159fcd19fe2
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 12/9/2019
+ms.openlocfilehash: ba091d05aa243fab08138c96827d2f657d9755de
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888660"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976293"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>如何使用 Azure 入口網站，在適用於 MariaDB 的 Azure 資料庫中設定伺服器參數
 
@@ -37,21 +37,21 @@ ms.locfileid: "74888660"
 
 InnoDB 緩衝集區和連線數目上限無法設定，且與您的[定價層](concepts-pricing-tiers.md)有關。
 
-|定價層| **vCore(s)**|**InnoDB 緩衝集區 (MB)**| **連線數目上限**|
-|---|---|---|---|
-|基本| 1| 1024| 50|
-|基本| 2| 2560| 100|
-|一般用途| 2| 3584| 300|
-|一般用途| 4| 7680| 625|
-|一般用途| 8| 15360| 1250|
-|一般用途| 16| 31232| 2500|
-|一般用途| 32| 62976| 5000|
-|一般用途| 64| 125952| 10000|
-|記憶體最佳化| 2| 7168| 600|
-|記憶體最佳化| 4| 15360| 1250|
-|記憶體最佳化| 8| 30720| 2500|
-|記憶體最佳化| 16| 62464| 5000|
-|記憶體最佳化| 32| 125952| 10000|
+|定價層| **vCore(s)**|**InnoDB 緩衝集區 (MB)**|
+|---|---|---|
+|基本| 1| 1024|
+|基本| 2| 2560|
+|一般用途| 2| 3584|
+|一般用途| 4| 7680|
+|一般用途| 8| 15360|
+|一般用途| 16| 31232|
+|一般用途| 32| 62976|
+|一般用途| 64| 125952|
+|記憶體最佳化| 2| 7168|
+|記憶體最佳化| 4| 15360|
+|記憶體最佳化| 8| 30720|
+|記憶體最佳化| 16| 62464|
+|記憶體最佳化| 32| 125952|
 
 這些額外的伺服器參數皆無法在系統中設定：
 

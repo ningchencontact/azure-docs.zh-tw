@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6f6aa90553f3a69d2d287c7d59e166884a1a8f66
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 15db96824336c92611b9e1113c42c621f6508744
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113723"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978112"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure 儲存體 Blob 的虛刪除
 
@@ -81,7 +81,7 @@ Azure 儲存體現在提供 Blob 物件的虛刪除功能，因此，當應用�
 | [複製 Blob](/rest/api/storageservices/copy-blob) | 區塊、附加和分頁 Blob | 將來源 Blob 複製到相同儲存體帳戶或其他儲存體帳戶中的目的地 Blob。 | 如果用來取代現有的 Blob，則會自動產生該 Blob 在呼叫之前所處狀態的快照集。 這也適用于先前已虛刪除的 blob，但只有在已由相同類型（區塊、附加或分頁）的 blob 取代時。 如果取代為不同類型的 Blob，則所有已虛刪除的現有資料將會永久過期。 |
 | [放置區塊](/rest/api/storageservices/put-block) | 區塊 Blob | 建立要認可作為區塊 Blob 一部分的新區塊。 | 如果用來認可區塊至作用中的 blob，則不會有任何變更。 如果用來認可區塊，且其目標 Blob 已虛刪除，則會建立新的 Blob，並自動產生快照集，以擷取已虛刪除之 Blob 的狀態。 |
 | [Put Block List](/rest/api/storageservices/put-block-list) \(英文\) | 區塊 Blob | 藉由指定包含區塊 Blob 的區塊集識別碼來認可 Blob。 | 如果用來取代現有的 Blob，則會自動產生該 Blob 在呼叫之前所處狀態的快照集。 先前已虛刪除的 Blob 若是區塊 Blob (這也是唯一前提)，也會產生前述的快照集。 如果取代為不同類型的 Blob，則所有已虛刪除的現有資料將會永久過期。 |
-| [放置頁面](/rest/api/storageservices/put-page) | 分頁 Blob | 將某範圍的頁面寫入分頁 Blob。 | 無變更。 使用此作業覆寫或清除的分頁 Blob 資料並不會儲存，且無法復原。 |
+| [放置頁面](/rest/api/storageservices/put-page) | Page Blobs | 將某範圍的頁面寫入分頁 Blob。 | 無變更。 使用此作業覆寫或清除的分頁 Blob 資料並不會儲存，且無法復原。 |
 | [附加區塊](/rest/api/storageservices/append-block) | 附加 Blob | 將資料區塊寫入至附加 Blob 結尾 | 無變更。 |
 | [Set Blob Properties](/rest/api/storageservices/set-blob-properties) \(英文\) | 區塊、附加和分頁 Blob | 設定為 Blob 定義之系統屬性的值。 | 無變更。 覆寫的 Blob 屬性無法復原。 |
 | [設定 Blob 中繼資料](/rest/api/storageservices/set-blob-metadata) | 區塊、附加和分頁 Blob | 將指定 Blob 的使用者定義中繼資料設為一或多個名稱/值配對。 | 無變更。 覆寫的 Blob 中繼資料無法復原。 |
@@ -152,7 +152,17 @@ Copy a snapshot over the base blob:
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 
-若要啟用虛刪除，請瀏覽至 [Blob 服務] 下的 [虛刪除] 選項。 然後，按一下 [啟用]，並輸入您要保留虛刪除資料的天數。
+使用 Azure 入口網站在儲存體帳戶上啟用 blob 的虛刪除：
+
+1. 在  [Azure 入口網站](https://portal.azure.com/)中，選取您的儲存體帳戶。 
+
+2. 流覽至 [ **Blob 服務**] 底下的 [**資料保護**] 選項。
+
+3. 在 Blob 虛**刪除**下按一下 [**已啟用**]
+
+4. 在 [**保留原則**] 下輸入您要*保留*的天數
+
+5. 選擇 [**儲存**] 按鈕以確認您的資料保護設定
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
@@ -313,7 +323,7 @@ blockBlob.StartCopy(copySource);
 
 ### <a name="can-i-use-the-set-blob-tier-api-to-tier-blobs-with-soft-deleted-snapshots"></a>我可以使用設定 Blob 層 API 將 blob 與已虛刪除的快照集分層嗎？
 
-是。 已虛刪除的快照集會留在原始階層，但基底 Blob 會移到新階層。 
+可以。 已虛刪除的快照集會留在原始階層，但基底 Blob 會移到新階層。 
 
 ### <a name="premium-storage-accounts-have-a-per-blob-snapshot-limit-of-100-do-soft-deleted-snapshots-count-toward-this-limit"></a>Premium 儲存體帳戶的每個 blob 快照集限制為100。 虛刪除的快照集會計入此限制嗎？
 

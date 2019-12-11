@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 763a45446771f7b13178e22b0f7a35bd68bfc8bd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4b1c1a963b065411f1a0ab84141bdf1835930ebb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821273"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973538"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>用於測試和建立原型的公用資料集
 
@@ -26,7 +26,7 @@ ms.locfileid: "73821273"
 
 | 資料來源 | 關於資料 | 關於檔案 |
 |---|---|---|
-| [美國政府資料](https://www.census.gov/data.html) | 超過 190,000 個資料集，涵蓋美國的農業、氣候、消費者、生態系統、教育、能源、金融、健康、當地政府、製造、海事、公共安全以及科學和研究資料 | 各種格式 (包括 HTML、XML、CSV、JSON、Excel 和其他許多格式)、各種大小的檔案。 您可以依照檔案格式篩選可用的資料集。 |
+| [美國政府資料](https://catalog.data.gov/dataset) | 超過250000的資料集，涵蓋了農業、氣候、消費者、生態系統、教育、能源、財務、醫療、當地政府、製造、maritime、海運、公共安全，以及美國的科學和研究 | 各種格式 (包括 HTML、XML、CSV、JSON、Excel 和其他許多格式)、各種大小的檔案。 您可以依照檔案格式篩選可用的資料集。 |
 | [美國人口普查資料](https://www.census.gov/data.html) | 有關美國人口的統計資料 | 資料集採用各種格式。 |
 | [來自 NASA 的地球科學資料](https://earthdata.nasa.gov/) | 超過 32,000 個資料集合，涵蓋農業、大氣、生物圈、氣候、冰雪圈、人類範圍、水圈、地表、海洋、太陽與地球互動等資料。 | 資料集採用各種格式。 |
 | [航班延遲和其他運輸資料](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | 「美國運輸的（點）運輸統計部門（BTS）部門，會追蹤由大型空中營運之國內航班的準時效能。 這個網站上公布的摘要表會顯示準時、延遲、取消和轉降航班數目的摘要資訊。」 | 檔案採用 CSV 格式。 |

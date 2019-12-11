@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: f1e014bb14b2b5c1ae924f4371e08aa8bf8698f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7305976060cb5df01f683b3310e59644d7e45b35
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056490"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975086"
 ---
 # <a name="about-point-to-site-vpn"></a>關於點對站 VPN
 
@@ -22,9 +22,9 @@ ms.locfileid: "67056490"
 
 店對站 VPN 可以使用下列其中一個通訊協定：
 
-* **OpenVPN® 通訊協定**，SSL/TLS 基礎的 VPN 通訊協定。 SSL VPN 解決方案可以穿透防火牆，因為大部分防火牆都會開啟 TCP 連接埠 443 輸出，它會使用 SSL。 OpenVPN 可以用來連接從 Android、 iOS (版本為 11.0 和更新版本)、 Windows、 Linux 和 Mac 裝置 (OSX 版本 10.13 和更新版本)。
+* **OpenVPN®通訊協定**，這是以 SSL/TLS 為基礎的 VPN 通訊協定。 SSL VPN 解決方案可以滲透防火牆，因為大部分的防火牆都會開啟 TCP 埠443輸出，而 SSL 會使用這些通訊埠。 OpenVPN 可以用來從 Android、iOS （11.0 版和更新版本）、Windows、Linux 和 Mac 裝置（OSX 10.13 版和更新版本）進行連接。
 
-* 安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎的專屬 VPN 通訊協定。 SSL VPN 解決方案可以穿透防火牆，因為大部分防火牆都會開啟 TCP 連接埠 443 輸出，它會使用 SSL。 SSTP 僅在 Microsoft 裝置上提供支援。 Azure 支援所有具有 SSTP (Windows 7 及更新版本) 的 Windows 版本。
+* 安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎的專屬 VPN 通訊協定。 SSL VPN 解決方案可以滲透防火牆，因為大部分的防火牆都會開啟 TCP 埠443輸出，而 SSL 會使用這些通訊埠。 SSTP 僅在 Microsoft 裝置上提供支援。 Azure 支援所有具有 SSTP (Windows 7 及更新版本) 的 Windows 版本。
 
 * IKEv2 VPN，標準型 IPsec VPN 解決方案。 IKEv2 VPN 可用於從 Mac 裝置連線 (OSX 版本 10.11 和更新版本)。
 
@@ -43,6 +43,21 @@ ms.locfileid: "67056490"
 
 用戶端憑證的驗證是由 VPN 閘道執行，並發生於 P2S VPN 連線建立期間。 根憑證需要驗證，且必須上傳至 Azure。
 
+### <a name="authenticate-using-native-azure-active-directory-authentication"></a>使用原生 Azure Active Directory 驗證進行驗證
+
+Azure AD authentication 可讓使用者使用其 Azure Active Directory 認證連線到 Azure。 僅支援 OpenVPN 通訊協定和 Windows 10 的原生 Azure AD 驗證，而且需要使用[AZURE VPN 用戶端（預覽）](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)。
+
+使用原生 Azure AD 驗證，您可以利用 Azure AD 的條件式存取，以及適用于 VPN 的多重要素驗證（MFA）功能。
+
+概括而言，您需要執行下列步驟來設定 Azure AD authentication：
+
+[1. 設定 Azure AD 租使用者](openvpn-azure-ad-tenant.md)
+
+[2. 在閘道上啟用 Azure AD 驗證](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
+
+[3. 下載並設定 Azure VPN 用戶端（預覽）](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)
+
+
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>使用 Azure Active Directory (AD) 網域伺服器進行驗證
 
 AD 網域驗證可讓使用者使用其組織網域認證來連線至 Azure。 它需要可與 AD 伺服器整合的 RADIUS 伺服器。 組織也可利用其現有的 RADIUS 部署。   
@@ -54,7 +69,7 @@ RADIUS 伺服器也可以與 AD 憑證服務整合。 這可讓您對 P2S 憑證
 RADIUS 伺服器也可以與其他外部身分識別系統整合。 這會開啟 P2S VPN 的許多驗證選項，包括多重因素選項。
 
 >[!NOTE]
->**OpenVPN® 通訊協定**不支援 RADIUS 驗證。
+>RADIUS 驗證不支援**OpenVPN®通訊協定**。
 >
 
 ![點對站](./media/point-to-site-about/p2s.png "點對站")
@@ -86,12 +101,12 @@ Zip 檔案也會提供 Azure 端的某些重要設定值，以便用於為這些
 >基本 SKU 不支援 IKEv2 或 RADIUS 驗證。
 >
 
-## <a name="IKE/IPsec policies"></a>用於 P2S VPN 閘道上設定哪些 IKE/IPsec 原則？
+## <a name="IKE/IPsec policies"></a>在 P2S 的 VPN 閘道上設定了哪些 IKE/IPsec 原則？
 
 
 **IKEv2**
 
-|**Cipher** | **完整性** | **PRF** | **DH 群組** |
+|**分組** | **完整性** | **F** | **DH 群組** |
 |---        | ---           | ---       | ---   |
 |GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_24 |
 |GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_14 |
@@ -113,7 +128,7 @@ Zip 檔案也會提供 Azure 端的某些重要設定值，以便用於為這些
 
 **IPsec**
 
-|**Cipher** | **完整性** | **PFS 群組** |
+|**分組** | **完整性** | **PFS 群組** |
 |---        | ---           | ---       |
 |GCM_AES256 | GCM_AES256 | GROUP_NONE |
 |GCM_AES256 | GCM_AES256 | GROUP_24 |
@@ -127,7 +142,7 @@ Zip 檔案也會提供 Azure 端的某些重要設定值，以便用於為這些
 | AES256    | SHA256 | GROUP_ECP256 |
 | AES256    | SHA1 | GROUP_NONE |
 
-## <a name="TLS policies"></a>用於 P2S VPN 閘道上設定哪些 TLS 原則？
+## <a name="TLS policies"></a>在 P2S 的 VPN 閘道上設定了哪些 TLS 原則？
 **TLS**
 
 |**原則** |
@@ -158,9 +173,9 @@ P2S 設定需要相當多的特定步驟。 下列文章包含的步驟可引導
 
 * [設定 OpenVPN](vpn-gateway-howto-openvpn.md)
 
-## <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a>如何移除 P2S 連線的設定？
+## <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a>如何? 移除 P2S 連接的設定嗎？
 
-您可以使用 az cli 和下列命令移除適用的 P2S 組態： 
+您可以使用 az cli 和下列命令來移除 P2S 設定： 
 
 `az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"`
  
@@ -178,4 +193,4 @@ P2S 設定需要相當多的特定步驟。 下列文章包含的步驟可引導
 
 * [設定 P2S 連線 - Azure 原生憑證驗證](vpn-gateway-howto-point-to-site-rm-ps.md)
 
-**「 OpenVPN"是 OpenVPN Inc.的商標。**
+**「OpenVPN」是 OpenVPN Inc. 的商標。**

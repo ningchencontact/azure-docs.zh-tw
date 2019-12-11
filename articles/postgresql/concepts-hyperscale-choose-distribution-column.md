@@ -1,5 +1,5 @@
 ---
-title: 選擇適用於 PostgreSQL 的 Azure 資料庫中的散發資料行–超大規模資料庫（Citus）
+title: 選擇散發資料行–超大規模資料庫（Citus）-適用於 PostgreSQL 的 Azure 資料庫
 description: 瞭解如何在適用於 PostgreSQL 的 Azure 資料庫的常見超大規模資料庫案例中選擇散發資料行。
 author: jonels-msft
 ms.author: jonels
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: a61c52773c4c6036a76d7b233988c713c1da861f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ced9767d81affceef851820ee587f4f3dd24deb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482852"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975664"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>選擇適用於 PostgreSQL 的 Azure 資料庫中的散發資料行–超大規模資料庫（Citus）
 
@@ -35,7 +35,7 @@ ms.locfileid: "73482852"
 若要在您自己的架構中套用這項設計，請識別構成租使用者在您的應用程式中的內容。 常見的實例包括公司、帳戶、組織或客戶。 資料行名稱將會類似 `company_id` 或 `customer_id`。 檢查每個查詢並詢問自己，是否有額外的 WHERE 子句可限制所有與具有相同租使用者識別碼的資料列相關的資料表？
 多租使用者模型中的查詢範圍限定于租使用者。 例如，針對銷售或清查的查詢會限定在特定的存放區中。
 
-#### <a name="best-practices"></a>最佳作法
+#### <a name="best-practices"></a>最佳做法
 
 -   **依一般租使用者\_識別碼資料行分割分散式資料表。** 例如，在租使用者為公司的 SaaS 應用程式中，租使用者\_識別碼可能是公司\_識別碼。
 -   **將小型跨租使用者資料表轉換成參考資料表。** 當多個租使用者共用資訊的小型資料表時，請將它散發為參考資料表。
@@ -51,7 +51,7 @@ ms.locfileid: "73482852"
 
 即時查詢通常會要求依日期或類別目錄分組的數值匯總。 超大規模資料庫（Citus）會將這些查詢傳送給每個分區的部分結果，並將最後的答案組合在協調員節點上。 當有多個節點會越好，而且沒有單一節點必須執行不相稱的工作量時，查詢的執行速度最快。
 
-#### <a name="best-practices"></a>最佳作法
+#### <a name="best-practices"></a>最佳做法
 
 -   **選擇 [高基數] 資料行做為散發資料行。** 相較之下，具有「新增」、「付費」和「出貨」值的「訂單」資料表上的「狀態」欄位是「散發」資料行的選擇 它只會假設這幾個值，這會限制可以保存資料的分區數目，以及可以處理它的節點數目。 在具有高基數的資料行中，您也可以選擇經常用於群組依據子句或做為聯結索引鍵的資料行。
 -   **選擇 [平均散發] 資料行。** 如果您在資料行上散發的資料表會扭曲到特定的一般值，則資料表中的資料通常會在某些分區中累積。 持有這些分區的節點最後會比其他節點執行更多工作。
@@ -67,7 +67,7 @@ ms.locfileid: "73482852"
 
 在超大規模資料庫（Citus）中模型化時間序列資訊最常見的錯誤是使用時間戳本身做為散發資料行。 以時間為基礎的雜湊散發，會以隨機方式分散到不同的分區，而不是在分區中保留時間範圍。 涉及時間的查詢通常會參考時間範圍，例如最新的資料。 這種類型的雜湊散發會導致網路負擔。
 
-#### <a name="best-practices"></a>最佳作法
+#### <a name="best-practices"></a>最佳做法
 
 -   **請勿選擇時間戳記做為散發資料行。** 請選擇不同的散發資料行。 在多租使用者應用程式中，使用租使用者識別碼，或在即時應用程式中使用實體識別碼。
 -   **請改用於 postgresql 資料表分割來取得時間。** 使用資料表資料分割，將經過時間排序之資料的大型資料表分割成包含不同時間範圍之每個資料表的多個繼承資料表。 在超大規模資料庫（Citus）中散發 Postgres 資料分割資料表，會建立繼承資料表的分區。

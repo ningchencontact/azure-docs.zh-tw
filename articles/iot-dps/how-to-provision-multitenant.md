@@ -1,18 +1,18 @@
 ---
 title: 如何在 Azure IoT 中樞裝置布建服務中為多組織使用者布建裝置
-description: 如何使用裝置佈建服務執行個體針對多組織用戶佈建裝置
+description: 如何使用裝置布建服務（DPS）實例為多組織使用者布建裝置
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 6d9755c076763a72d54abb66cfdf01b0ac7ffb9d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5703db90307f679ff4728386dc24647437f9f9ba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228780"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974950"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>如何針對多組織用戶佈建 
 
@@ -24,7 +24,7 @@ ms.locfileid: "74228780"
 
 合併這兩種案例是很常見的。 例如，多租用戶 IoT 解決方案通常會使用一群散佈在多個區域的 IoT 中樞指派租用戶裝置。 這些租用戶裝置可依據地理位置指派給該群組中最低延遲的 IoT 中樞。
 
-此文章使用 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 的模擬裝置範例，示範如何在多租用戶情況下跨多個區域佈建裝置。 您將在此文章中執行下列步驟：
+此文章使用 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 的模擬裝置範例，示範如何在多租用戶情況下跨多個區域佈建裝置。 您將在本文中執行下列步驟：
 
 * 使用 Azure CLI 建立兩個區域 IoT 中樞 (**美國西部**與**美國東部**)
 * 建立多租用戶註冊
@@ -36,7 +36,7 @@ ms.locfileid: "74228780"
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)快速入門。
 
@@ -49,15 +49,15 @@ ms.locfileid: "74228780"
 在此節中，您將使用 Azure Cloud Shell 為租用戶在**美國西部**與**美國東部**區域建立兩個新的區域 IoT 中樞。
 
 
-1. 使用 Azure Cloud Shell 以 [az group create](/cli/azure/group#az-group-create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
+1. 在 Azure Cloud Shell 中使用 [az group create](/cli/azure/group#az-group-create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
 
-    下列範例會在 *eastus* 區域中建立名為 *contoso-us-resource-group* 的資源群組。 建議您將此群組用於在此文章中建立的所有資源。 這將會讓您在完成作業後更容易清除資源。
+    下列範例會在 *eastus* 區域中建立名為 *contoso-us-resource-group* 的資源群組。 建議您將此群組用於在本文中建立的所有資源。 這將會讓您在完成作業後更容易清除資源。
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location eastus
     ```
 
-2. 使用 Azure Cloud Shell 以 **az iot hub create** 命令在 [eastus](/cli/azure/iot/hub#az-iot-hub-create) 區域中建立 IoT 中樞。 此 IoT 中樞將會新增至 *contoso-us-resource-group*。
+2. 使用 Azure Cloud Shell 以 [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 命令在 **eastus** 區域中建立 IoT 中樞。 此 IoT 中樞將會新增至 *contoso-us-resource-group*。
 
     下列範例會在 *eastus* 位置建立名為 *contoso-east-hub* 的 IoT 中樞。 您必須使用自己唯一的中樞名稱取代 **contoso-east-hub**。
 
@@ -67,7 +67,7 @@ ms.locfileid: "74228780"
     
     此命令可能需要數分鐘才能完成。
 
-3. 使用 Azure Cloud Shell 以 **az iot hub create** 命令在 [westus](/cli/azure/iot/hub#az-iot-hub-create) 區域中建立 IoT 中樞。 此 IoT 中樞也會新增至 *contoso-us-resource-group*。
+3. 使用 Azure Cloud Shell 以 [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 命令在 **westus** 區域中建立 IoT 中樞。 此 IoT 中樞也會新增至 *contoso-us-resource-group*。
 
     下列範例會在 *westus* 位置建立名為 *contoso-west-hub* 的 IoT 中樞。 您必須使用自己唯一的中樞名稱取代 **contoso-west-hub**。
 
@@ -83,7 +83,7 @@ ms.locfileid: "74228780"
 
 在此節中，您將會為租用戶裝置建立新的註冊群組。  
 
-為了簡單起見，此文章將在註冊中使用[對稱金鑰證明](concepts-symmetric-key-attestation.md)。 如需更安全的解決方案，請考慮使用 [X.509 憑證證明](concepts-security.md#x509-certificates)與信任鏈結。
+為了簡單起見，本文將在註冊中使用[對稱金鑰證明](concepts-symmetric-key-attestation.md)。 如需更安全的解決方案，請考慮使用 [X.509 憑證證明](concepts-security.md#x509-certificates)與信任鏈結。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，並開啟您的裝置佈建服務執行個體。
 
@@ -108,7 +108,7 @@ ms.locfileid: "74228780"
 
     **IoT 中樞**：選取您建立的其中一個區域中樞。
 
-    **存取原則**：選擇 [iothubowner]。
+    **存取原則**：選擇 **iothubowner**。
 
     ![使用佈建服務連結區域 IoT 中樞](./media/how-to-provision-multitenant/link-regional-hubs.png)
 
@@ -118,7 +118,7 @@ ms.locfileid: "74228780"
     ![建立註冊的區域中樞群組](./media/how-to-provision-multitenant/enrollment-regional-hub-group.png)
 
 
-6. 儲存註冊之後，請重新開啟它，並記下 [主要金鑰]。 您必須先儲存註冊，才能產生金鑰。 此金鑰將在後續用來產生兩個模擬裝置的唯一裝置金鑰。
+6. 儲存註冊之後，請重新加以開啟，並記下 [主要金鑰]。 您必須先儲存註冊，才能產生金鑰。 此金鑰將在後續用來產生兩個模擬裝置的唯一裝置金鑰。
 
 
 ## <a name="create-regional-linux-vms"></a>建立區域 Linux VM
@@ -222,7 +222,7 @@ ms.locfileid: "74228780"
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
-    建置成功後，最後幾行輸出會看起來類似下列輸出：
+    建置成功後，最後幾行輸出會類似於下列輸出：
 
     ```bash
     -- IoT Client SDK Version = 1.2.9
@@ -326,7 +326,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-1. 在兩部 VM 上，尋找在 `prov_dev_set_symmetric_key_info()`prov**dev\_client\_sample.c\_ 中已標成註解的對**  的呼叫。
+1. 在兩部 VM 上，尋找在 **prov\_dev\_client\_sample.c** 中已標成註解的對 `prov_dev_set_symmetric_key_info()` 的呼叫。
 
     ```c
     // Set the symmetric key if using they auth type
@@ -399,7 +399,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算繼續使用在此文章中建立的資源，可以保留它們。 如果不打算繼續使用這些資源，請使用下列步驟刪除此文章建立的所有資源，以避免產生非必要費用。
+如果您打算繼續使用在本文中建立的資源，您可加以保留。 如果不打算繼續使用這些資源，請使用下列步驟刪除此文章建立的所有資源，以避免產生非必要費用。
 
 以下步驟假設您依照指示在名為 **contoso-us-resource-group** 的相同資源群組中建立了此文章中的所有資源。
 

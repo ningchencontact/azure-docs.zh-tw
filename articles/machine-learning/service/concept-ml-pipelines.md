@@ -1,7 +1,7 @@
 ---
 title: 什麼是 ML 管線
 titleSuffix: Azure Machine Learning
-description: 在本文中，瞭解您可以使用適用于 Python 的 Azure Machine Learning SDK 來建立的機器學習管線的優點。 資料科學家會使用機器學習 (ML) 管線來建置、最佳化及管理他們的機器學習工作流程。
+description: 在本文中，您將瞭解機器學習（ML）管線的優點，您可以使用適用于 Python 的 Azure Machine Learning SDK 來建立。 資料科學家會使用機器學習管線來建立、優化和管理其機器學習服務工作流程。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: 21aa869d53a35ee974fb2f852b9be9b10eb929b0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 84a01597570a488652e3db2345bdf68b52d4bf5b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112411"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973572"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>什麼是 Azure Machine Learning 管線？
 
@@ -40,7 +40,7 @@ Azure Machine Learning 管線可讓您在機器學習專案中建立工作流程
 
 Azure 雲端提供數個其他管線，各有不同的用途。 下表列出不同的管線和它們的用途：
 
-| 管線 | 作用 | 標準管道 |
+| 管線 | 用途 | 標準管道 |
 | ---- | ---- | ---- |
 | Azure Machine Learning 管線 | 定義可重複使用的機器學習服務工作流程，以作為您機器學習服務案例的範本。 | 資料 > 模型 |
 | [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | 將執行工作所需的資料移動、轉換和控制活動群組在一起。  | 資料 > 資料 |
@@ -185,7 +185,7 @@ pipeline_run.wait_for_completion()
 
 * 管線步驟之間的繁重結合。 如果重構相依步驟經常需要修改上一個步驟的輸出，則可能是不同的步驟目前比權益更有成本。 另一個將步驟過度耦合的線索，是不是資料的步驟引數，而是用來控制處理的旗標。 
 
-* 提前優化計算資源。 比方說，資料準備通常會有數個階段，而且通常會看到「哦，這裡有一個地方可以使用 `MpiStep` 進行平行程式設計，但這裡有一個地方可以使用具有較不強大之計算目標的 `PythonScriptStep`等等。 而且，在長期的執行中，建立更細緻的步驟（例如）可能值得證明，特別是在可能使用快取的結果，而不是一律重新計算的情況下。 但管線並不是用來替代 `multiprocessing` 模組。 
+* 提前優化計算資源。 例如，通常有幾個階段可以進行資料準備，而且通常會看到「哦，這裡有一個地方可以使用 `MpiStep` 進行平行程式設計，但這裡有一個可以使用較不強大之計算目標的 `PythonScriptStep`」等等的地方。 而且，在長期的執行中，建立更細緻的步驟（例如）可能值得證明，特別是在可能使用快取的結果，而不是一律重新計算的情況下。 但管線並不是用來替代 `multiprocessing` 模組。 
 
 在專案取得大型或接近部署之前，您的管線應該更粗糙，而不是精細。 如果您將 ML 專案視為包含_階段_和管線，以提供完整的工作流程將您移至特定階段，則您會在正確的路徑上。 
 
@@ -200,7 +200,7 @@ pipeline_run.wait_for_completion()
 |**再使用性**|建立特定案例的管線範本，例如重新定型和批次評分。 透過簡單的 REST 呼叫，從外部系統觸發已發佈的管線。|
 |**追蹤和版本控制**|使用管線 SDK 明確地為您的資料來源、輸入及輸出命名與設定版本，而不需在逐一查看時手動追蹤資料和結果路徑。 您也可以個別管理指令碼和資源，以提升產能。|
 | **模組** | 區隔考慮和隔離變更，可讓軟體以更快的速度以較高的品質來發展。 | 
-|**協作**|管線可讓資料科學家在機器學習設計流程的所有區域之間共同作業，同時能夠同時處理管線步驟。|
+|**共同作業**|管線可讓資料科學家在機器學習設計流程的所有區域之間共同作業，同時能夠同時處理管線步驟。|
 
 ## <a name="next-steps"></a>後續步驟
 

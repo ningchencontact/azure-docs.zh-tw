@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 5e435d1169d5f148bfa2910174bf1f2835806c8b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 8331d74528703df1d7c56f25af7df0f53cd1f9be
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928248"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996267"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題
 
@@ -29,7 +29,6 @@ Azure VM 代理程式可能已停止、過期、處於不一致的狀態，或�
   - 針對 Windows Vm，請遵循下列[步驟](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)來重新開機來賓代理程式。<br>
   - 針對 Linux Vm，請遵循下列[步驟](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)來重新開機來賓代理程式。
 
-
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - 無法與 VM 代理程式通訊來取得快照集狀態
 
 **錯誤碼**：GuestAgentSnapshotTaskStatusError<br>
@@ -44,6 +43,8 @@ Azure VM 代理程式可能已停止、過期、處於不一致的狀態，或�
 **原因 3︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **原因 4︰[備份延伸模組無法更新或載入](#the-backup-extension-fails-to-update-or-load)**
+
+**原因5：[未設定 VM-代理程式設定選項（適用于 Linux vm）](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
 
 ## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed-VM 處於失敗的布建狀態
 
@@ -196,6 +197,11 @@ VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代
 1. 在 /etc/waagent.conf 檔案中，找出下一行︰**Enable verbose logging (y|n)**
 2. 將 **Logs.Verbose** 值從 *n* 變更為 *y*。
 3. 儲存變更，然後完成本節前面所述的步驟來重新啟動 waagent。
+
+### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>未設定 VM 代理程式設定選項（適用于 Linux Vm）
+
+組態檔 (/etc/waagent.conf) 控制 waagent 的動作。 設定檔案選項**延伸模組。啟用**和布建 **。代理程式**應設定為**y** ，備份才能正常執行。
+如需 VM 代理程式設定檔案選項的完整清單，請參閱 <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>無法擷取快照集狀態或無法取得快照集
 

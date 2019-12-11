@@ -1,17 +1,17 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫中的防火牆規則-超大規模資料庫（Citus）
+title: 防火牆規則-超大規模資料庫（Citus）-適用於 PostgreSQL 的 Azure 資料庫
 description: 本文說明適用於 PostgreSQL 的 Azure 資料庫超大規模資料庫（Citus）的防火牆規則。
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 567fb27ed942a24ab7d031d791e18fa487956fad
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: b843cd1528630a21255053f623356a0379daacf6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273731"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975562"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>適用於 PostgreSQL 的 Azure 資料庫中的防火牆規則-超大規模資料庫（Citus）
 適用於 PostgreSQL 的 Azure 資料庫伺服器防火牆會防止對您的超大規模資料庫（Citus）協調員節點的所有存取，直到您指定哪些電腦擁有許可權為止。 此防火牆會根據每一個要求的來源 IP 位址來授與伺服器存取權。
@@ -31,19 +31,19 @@ ms.locfileid: "71273731"
 
 當防火牆封鎖連接時，可能會造成應用程式錯誤。 舉例來說，使用於 postgresql JDBC 驅動程式會引發如下的錯誤：
 
-> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException:嚴重：沒有 pg\_的 hba。主機 "123.45.67.890"、使用者 "citus"、資料庫 "citus"、SSL 的會議專案
+> util. JAVA.util.concurrent.executionexception： RuntimeException：于 postgresql. util：嚴重：沒有 pg\_的主機 "org.postgresql.util.psqlexception"、使用者 "123.45.67.890"、資料庫 "citus"、SSL，請輸入 citus
 
 若要瞭解如何定義規則，請參閱[建立和管理防火牆規則](howto-hyperscale-manage-firewall-using-portal.md)。
 
 ## <a name="troubleshooting-the-database-server-firewall"></a>針對資料庫伺服器防火牆問題進行疑難排解
 當于 postgresql-超大規模資料庫（Citus）服務的 Microsoft Azure 資料庫存取權未如預期般運作時，請考慮下列幾點：
 
-* **允許清單的變更尚未生效：** 超大規模資料庫（Citus）防火牆設定的變更可能會有最多5分鐘的時間才會生效。
+* 對**允許清單所做的變更尚未生效：** 超大規模資料庫（Citus）防火牆設定的變更可能會有最多5分鐘的時間才會生效。
 
 * **使用者未獲授權，或使用了不正確的密碼：** 如果使用者沒有伺服器的許可權，或使用的密碼不正確，則會拒絕與伺服器的連接。 建立防火牆設定只是讓用戶端有機會嘗試連線到您的伺服器；每個用戶端仍然必須提供必要的安全性認證。
 
 例如，使用 JDBC 用戶端，可能會出現下列錯誤。
-> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException:FATAL: password authentication failed for user "yourusername"
+> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "yourusername"
 
 * **動態 IP 位址：** 如果您有使用動態 IP 位址的網際網路連線，並且在通過防火牆時遇到問題，您可以嘗試下列其中一個解決方案：
 

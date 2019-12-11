@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5e8dc6181660f0c1545df0688e2749f8f0187027
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b387c9d595898158ff8b5ab8c25f705825b8c248
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496897"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978214"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>什麼是可現場程式化閘道陣列（FPGA）和如何部署
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ FPGA 包含可程式化邏輯區塊的陣列，以及可重新設定互連的階
 
 ![Azure Machine Learning FPGA 比較的圖表](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-|處理器||說明|
+|處理器||描述|
 |---|:-------:|------|
 |應用程式特定的積體電路|ASIC|自訂電路 (例如，Google 的 TensorFlow 處理器 (TPU)) 可提供最高效率。 它們無法隨著您需求的變更加以重新設定。|
 |現場可程式化閘陣列|FPGA|FPGA (例如 Azure 上所提供的那些陣列) 可提供接近 ASIC 的效能。 它們也會隨著時間而具有彈性且可重新設定，以實作新邏輯。|
@@ -90,7 +90,7 @@ Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評�
 
 ### <a name="prerequisites"></a>必要條件
 
-- Azure 訂用帳戶。  如果您沒有，請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
+- Azure 訂用帳戶。  如果您沒有，請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 - FPGA 配額。 使用 Azure CLI 檢查您是否有配額：
 
@@ -136,9 +136,9 @@ Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評�
 
 使用[適用於 Python 的 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 來建立服務定義。 服務定義是根據 TensorFlow 來描述圖形管線 (輸入、功能化器和分類器) 的檔案。 部署命令會自動將定義和圖表壓縮為 ZIP 檔案，然後將 ZIP 檔案上傳到 Azure Blob 儲存體。 已部署 DNN 以在 FPGA 上執行。
 
-### <a name="load-azure-ml-workspace"></a>載入 Azure ML 工作區
+### <a name="load-azure-machine-learning-workspace"></a>載入 Azure Machine Learning 工作區
 
-載入您的 Azure ML 工作區。
+載入您的 Azure Machine Learning 工作區。
 
 ```python
 import os
@@ -380,7 +380,7 @@ ssl_enabled = address.startswith("https")
 address = address[address.find('/')+2:].strip('/')
 port = 443 if ssl_enabled else 80
 
-# Initialize AzureML Accelerated Models client
+# Initialize Azure ML Accelerated Models client
 client = PredictionClient(address=address,
                           port=port,
                           use_ssl=ssl_enabled,
@@ -432,9 +432,9 @@ converted_model.delete()
 
 查看這些筆記本、影片和 blog：
 
-+ 數個[範例筆記本](https://aka.ms/aml-accel-models-notebooks)。
++ 數個[範例筆記本](https://aka.ms/aml-accel-models-notebooks)
 
-+ [超大規模資料庫硬體：Azure + FPGA 頂級規模的 ML：2018 組建 (英文影片)](https://channel9.msdn.com/events/Build/2018/BRK3202)
++ [超大規模資料庫硬體：大規模在 Azure + FPGA 上的 ML：組建2018（影片）](https://channel9.msdn.com/events/Build/2018/BRK3202)
 
 + [深入了解 Microsoft FPGA 架構的可設定雲端 (英文影片)](https://channel9.msdn.com/Events/Build/2017/B8063)
 

@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 5b473af780bdd68b8fc0dd3dc0430c4f4fd3255b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b2a8ad40092a2c02f00803e699de9d6dd8feebd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927639"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978623"
 ---
 # <a name="hyperscale-service-tier"></a>超大規模資料庫服務層級
 
@@ -245,7 +245,7 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
 | 受控執行個體 | 超大規模資料庫資料庫目前不支援 Azure SQL Database 受控執行個體。 |
 | 彈性集區 |  SQL Database 超大規模資料庫目前不支援彈性集區。|
 | 移轉至超大規模資料庫模目前是單向作業 | 一旦資料庫遷移至超大規模資料庫後，就無法直接遷移至非超大規模資料庫服務層級。 目前，將資料庫從超大規模資料庫移轉至非超大規模資料庫的唯一方法，是使用 BACPAC 檔案或其他資料移動技術（大量複製、Azure Data Factory、Azure Databricks、SSIS 等等）來匯出/匯入。|
-| 使用持續性記憶體內建物件來遷移資料庫 | 超大規模資料庫僅支援非持續性記憶體內建物件（資料表類型、原生 SPs 和函數）。  在將資料庫移轉至超大規模資料庫服務層級之前，必須先卸載持續性記憶體內部資料表和其他物件，並將其重新建立為非記憶體中的物件。|
+| 使用記憶體內部 OLTP 物件遷移資料庫 | 超大規模資料庫只支援記憶體內部 OLTP 物件類型的子集，包括記憶體優化資料表類型、原生編譯的預存程式和函數。 不過，當資料庫中有任何記憶體內部 OLTP 物件存在時，就不支援從 Premium 和商務關鍵服務層直接遷移至超大規模資料庫。 將這類資料庫移轉至超大規模資料庫需要三個步驟：（1）卸載所有記憶體內部 OLTP 物件及其相依性。 若要保留持久性記憶體優化資料表中的資料，請將其轉換成磁片資料表。 （2）將資料庫的服務層級變更為超大規模資料庫。 （3）重新建立先前卸載的物件。 持久性和非持久性記憶體優化資料表目前在超大規模資料庫中不受支援，而且必須保留磁片資料表。 支援記憶體優化資料表變數。 |
 | 變更追蹤 | 變更追蹤目前處於公開預覽狀態，而且可以在新的或現有的超大規模資料庫資料庫上啟用。 |
 | 異地複寫  | 您還無法為 Azure SQL Database 超大規模資料庫設定異地複寫。 |
 | 資料庫複製 | 您還不能在 Azure SQL 超大規模資料庫中使用資料庫複製來建立新的資料庫。 |

@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: ac198ed8eac6221831fbb280129b76e5fa4e3413
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f718bc17b987926f4324635f096d5983acdb63fc
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815771"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997270"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>複寫至 SQL Database 單一資料庫與集區資料庫
 
@@ -32,14 +32,17 @@ ms.locfileid: "73815771"
 
 ## <a name="versions"></a>版本  
 
-- 發行者與散發者必須至少是下列其中一個版本：  
-- SQL Server 2017 (14.x)
-- SQL Server 2016 (13.x)
-- SQL Server 2014 (12.x) SP1 CU3
-- SQL Server 2014 (12.x) RTM CU10
-- SQL Server 2012 (11.x) SP2 CU8 or SP3
-- 嘗試使用舊版設定複寫可能會導致錯誤號碼 MSSQL_REPL20084 (處理序無法連線到訂閱者。) 和 MSSQL_REPL40532 (無法開啟登入所要求的公開伺服器 \<名稱>。 登入失敗。)。  
-- 若要使用 Azure SQL Database 的所有功能，您必須使用最新版的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 和 [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)。  
+內部部署 SQL Server 發行者和散發者至少必須使用下列其中一個版本：  
+
+- SQL Server 2016 和更新版本
+- SQL Server 2014 [RTM CU10 （12.0.4427.24）](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014)或[SP1 CU3 （12.0.2556.4）](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
+- SQL Server 2012 [SP2 CU8 （11.0.5634.1）](https://support.microsoft.com/help/3082561/cumulative-update-8-for-sql-server-2012-sp2)或[SP3 （11.0.6020.0）](https://www.microsoft.com/download/details.aspx?id=49996)
+
+> [!NOTE]
+> 嘗試使用不支援的版本來設定複寫可能會導致錯誤號碼 MSSQL_REPL20084 （進程無法連線到訂閱者。）和 MSSQL_REPL40532 （無法開啟登入所要求的伺服器 \<名稱 >。 登入失敗。)。  
+
+若要使用 Azure SQL Database 的所有功能，您必須使用最新版的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 和 [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)。  
+
   
 ## <a name="remarks"></a>備註
 
@@ -51,7 +54,7 @@ ms.locfileid: "73815771"
 - SQL Server 上的單一發行集可同時支援 Azure SQL Database 和 SQL Server (內部部署和 Azure 虛擬機器中的 SQL Server) 訂閱者。  
 - 複寫管理、監視和疑難排解都必須從內部部署 SQL Server 執行。  
 - 僅支援對 Azure SQL Database 的發送訂閱。  
-- 在 SQL Database 的 `@subscriber_type = 0`sp_addsubscription**中僅支援**。  
+- 在 SQL Database 的 **sp_addsubscription** 中僅支援 `@subscriber_type = 0`。  
 - Azure SQL Database 不支援雙向、即時、可更新或點對點複寫。
 
 ## <a name="replication-architecture"></a>複寫架構  
@@ -103,7 +106,7 @@ Azure SQL Database 訂閱不支援下列選項：
 
 ## <a name="examples"></a>範例
 
-建立發行集和發送訂閱。 如需詳細資訊，請參閱：
+建立發行集和發送訂閱。 如需詳細資訊，請參閱
   
 - [建立發行集](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [建立發送訂閱](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)，方法是使用 Azure SQL Database 伺服器名稱作為訂閱者 (例如 **N'azuresqldbdns.database.windows.net'** )，並使用 Azure SQL 資料庫名稱作為目的地資料庫 (例如 **AdventureWorks**)。  

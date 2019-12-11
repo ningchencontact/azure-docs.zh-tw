@@ -1,7 +1,7 @@
 ---
 title: 訓練 scikit-learn-瞭解機器學習模型
 titleSuffix: Azure Machine Learning
-description: 瞭解如何使用 Azure Machine Learning 的 SKlearn 估計工具類別，以企業規模執行您的 scikit-learn-學習訓練腳本。 範例腳本會將鳶尾花花卉影像分類，以根據 scikit-learn 學習的鳶尾花資料集來建立機器學習模型。
+description: 瞭解如何使用 Azure Machine Learning SKlearn 估計工具類別，以企業規模執行您的 scikit-learn-學習訓練腳本。 範例腳本會將鳶尾花花卉影像分類，以根據 scikit-learn 學習的鳶尾花資料集來建立機器學習模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,29 +10,29 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: a85d33a804c8aaf3081439806bf69dab5263dcf2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2b6cdf9350d95de901e8a0f1e875d90513b33f1a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224847"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976106"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>組建 scikit-learn-以 Azure Machine Learning 大規模學習模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-在本文中，您將瞭解如何使用 Azure Machine Learning 的[SKlearn 估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py)類別，以企業規模執行您的 scikit-learn-學習訓練腳本。 
+在本文中，您將瞭解如何使用 Azure Machine Learning [SKlearn 估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py)類別，以企業規模執行 scikit-learn 學習訓練腳本。 
 
 本文中的範例腳本是用來分類鳶尾花的花卉影像，以根據 scikit-learn 學習的[鳶尾花資料集](https://archive.ics.uci.edu/ml/datasets/iris)來建立機器學習模型。
 
 無論您是從基礎開始訓練機器學習服務 scikit-learn-學習模型，或將現有的模型帶入雲端，您都可以使用 Azure Machine Learning，使用彈性雲端計算資源來相應放大開放原始碼訓練作業。 您可以使用 Azure Machine Learning 來建立、部署、版本及監視生產層級模型。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在下列任一環境中執行此程式碼：
  - Azure Machine Learning 筆記本 VM-不需要下載或安裝
 
     - 完成[教學課程：設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)，以建立預先載入 SDK 和範例存放庫的專用筆記本伺服器。
-    - 在筆記本伺服器的 [範例訓練] 資料夾中，流覽至此目錄以尋找已完成和已展開的筆記本：**使用方法 > ml-架構 > scikit-learn-瞭解 > 訓練 > 訓練-超參數-微調-部署-使用-sklearn**資料夾。
+    - 在筆記本伺服器的 [範例訓練] 資料夾中，流覽至此目錄以尋找已完成和已展開的筆記本：**使用方法 > ml 架構 > scikit-learn-瞭解 > 訓練 > 訓練-超參數-sklearn**資料夾。
 
  - 您自己的 Jupyter Notebook 伺服器
 
@@ -47,7 +47,7 @@ ms.locfileid: "74224847"
 
 本節會藉由載入所需的 python 套件、將工作區初始化、建立實驗，以及上傳定型資料和定型腳本，來設定定型實驗。
 
-### <a name="import-packages"></a>匯入套件
+### <a name="import-packages"></a>匯入封裝
 
 首先，匯入必要的 Python 程式庫。
 
@@ -89,7 +89,7 @@ exp = Experiment(workspace=ws, name='sklearn-iris')
 
 在本教學課程中，已為您提供訓練腳本**train_iris .py** 。 在實務上，您應該能夠採用任何自訂訓練腳本，並使用 Azure ML 加以執行，而不需要修改您的程式碼。
 
-若要使用 Azure ML 的追蹤和計量功能，請在您的定型腳本內新增少量的 Azure ML 程式碼。  定型腳本**train_iris。 .py**示範如何使用腳本中的 `Run` 物件，將一些計量記錄到您的 Azure ML 執行。
+若要使用「Azure ML 追蹤」和「計量」功能，請在您的訓練腳本內新增少量的 Azure ML 程式碼。  定型腳本**train_iris。 .py**示範如何使用腳本中的 `Run` 物件，將一些計量記錄到您的 Azure ML 執行。
 
 提供的定型腳本會使用來自 `iris = datasets.load_iris()` 函數的範例資料。  針對您自己的資料，您可能需要使用[上傳資料集和腳本](how-to-train-keras.md#data-upload)等步驟，讓資料可在定型期間使用。
 
@@ -190,7 +190,7 @@ model = run.register_model(model_name='sklearn-iris',
                            resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))
 ```
 
-## <a name="deployment"></a>部署
+## <a name="deployment"></a>Deployment
 
 您剛註冊的模型可以使用與 Azure Machine Learning 中任何其他已註冊的模型完全相同的方式來部署，不論您用於定型的估計工具為何。 部署如何包含註冊模型的區段，但您可以直接跳到建立部署的[計算目標](how-to-deploy-and-where.md#choose-a-compute-target)，因為您已經有已註冊的模型。
 

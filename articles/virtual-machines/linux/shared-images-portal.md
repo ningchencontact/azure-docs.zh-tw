@@ -1,5 +1,5 @@
 ---
-title: 使用入口網站建立適用于 Linux 的共用 Azure 虛擬機器映射
+title: 使用入口網站建立適用于 Linux 的共用 Azure VM 映射
 description: 瞭解如何使用 Azure 入口網站來建立及共用虛擬機器映射。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,14 +13,14 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 9dff10848c42fd730f0bc77fd325f00cec554c9d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 44df85a94ad26d3abcd48f01c31e7aa093c1123f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892867"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978691"
 ---
-# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>使用 Azure 入口網站建立共用映射資源庫
+# <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>使用入口網站建立 Azure 共用映射資源庫
 
 [共用映像資源庫](shared-image-galleries.md)可簡化跨組織共用自訂映像。 自訂映像類似 Marketplace 映像，但您要自行建立它們。 自訂映像可用於啟動部署工作，例如，預先載入應用程式、應用程式設定和其他 OS 設定。 
 

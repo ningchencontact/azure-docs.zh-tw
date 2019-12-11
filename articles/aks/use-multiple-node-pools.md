@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: c48bcab0a3d009b186832a6b728597f03788a7cd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f507619a1c8e80623a756b91f3fd6187283212f0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382998"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996726"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service （AKS）中建立及管理叢集的多個節點集區
 
@@ -38,7 +38,7 @@ ms.locfileid: "74382998"
 * 您無法使用現有的 Resource Manager 範本來新增或刪除節點集區，就像大部分的作業一樣。 相反地，請[使用個別的 Resource Manager 範本](#manage-node-pools-using-a-resource-manager-template)，對 AKS 叢集中的節點集區進行變更。
 * 節點集區的名稱只可包含小寫英數位元，且必須以小寫字母開頭。 針對 Linux 節點集區，長度必須介於1到12個字元之間，而 Windows 節點集區的長度必須介於1到6個字元之間。
 * AKS 叢集最多可以有八個節點集區。
-* AKS 叢集在這八個節點集區中最多可以有400個節點。
+* AKS 叢集在這八個節點集區中最多可以有800個節點。
 * 所有節點集區都必須位於相同的子網中。
 
 ## <a name="create-an-aks-cluster"></a>建立 AKS 叢集

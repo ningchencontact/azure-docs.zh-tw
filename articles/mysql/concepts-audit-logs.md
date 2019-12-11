@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: ea536742b6481cb06fbd3130279ca5d08ba1bc08
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: eae7e434ce21b5f9d9f3e6c40f94261df8baa426
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773563"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972348"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的 Audit 記錄
 
@@ -29,7 +29,7 @@ ms.locfileid: "74773563"
 - `audit_log_events`：控制要記錄的事件。 請參閱下表以取得特定的 audit 事件。
 - `audit_log_include_users`：要包含在記錄中的 MySQL 使用者。 這個參數的預設值是空的，這將包含所有用於記錄的使用者。 這在 `audit_log_exclude_users`上具有較高的優先順序。 參數的最大長度為512個字元。
 > [!Note]
-> `audit_log_include_users` 的優先順序高於 `audit_log_exclude_users`，例如，如果 audit_log_include_users = `demouser` 和 audit_log_exclude_users = `demouser`，它將會審核記錄，因為 `audit_log_include_users` 的優先順序較高。
+> `audit_log_include_users` 的優先順序高於 `audit_log_exclude_users`。 例如，如果 `audit_log_include_users` = `demouser` 和 `audit_log_exclude_users` = `demouser`，則會將使用者包含在 audit 記錄中，因為 `audit_log_include_users` 的優先順序較高。
 - `audit_log_exclude_users`：要排除在記錄之外的 MySQL 使用者。 參數的最大長度為512個字元。
 
 > [!Note]
@@ -38,7 +38,7 @@ ms.locfileid: "74773563"
 | **Event** | **說明** |
 |---|---|
 | `CONNECTION` | -連接起始（成功或失敗） <br> -在會話期間以不同的使用者/密碼重新驗證使用者 <br> -連接終止 |
-| `DML_SELECT`| 選取查詢 |
+| `DML_SELECT`| SELECT 查詢 |
 | `DML_NONSELECT` | 插入/刪除/更新查詢 |
 | `DML` | DML = DML_SELECT + DML_NONSELECT |
 | `DDL` | 「卸載資料庫」之類的查詢 |
@@ -129,7 +129,7 @@ Audit 記錄會與 Azure 監視器診斷記錄整合。 在 MySQL 伺服器上�
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | 伺服器的名稱 |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`、`INSERT`、`UPDATE`或 `DELETE` |
+| `event_subclass_s` | `READ`、`INSERT`、`UPDATE` 或 `DELETE` |
 | `connection_id_d` | MySQL 產生的唯一連接識別碼 |
 | `db_s` | 存取的資料庫名稱 |
 | `table_s` | 存取的資料表名稱 |

@@ -11,19 +11,19 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 10a150a64a058a4bf346f07e2ef298c974641256
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 4ef1249a601334cc198662b90da95623247190e7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901310"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978180"
 ---
 # <a name="collect-data-for-models-in-production"></a>在生產環境中收集模型資料
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
-> Azure Machine Learning 的監視 SDK 即將淘汰。 SDK 仍適用于監視模型中資料漂移的開發人員。 但是大部分的開發人員都應該使用簡化的[資料監視 Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights)。
+> Azure Machine Learning 的監視 SDK 即將淘汰。 SDK 仍適用于目前使用 SDK 來監視模型中資料漂移的開發人員。 但對於新的客戶，我們建議使用簡化的[資料監視與 Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights)。
 
 本文說明如何從 Azure Machine Learning 收集輸入模型資料。 它也會示範如何將輸入資料部署到 Azure Kubernetes Service （AKS）叢集，並將輸出資料儲存在 Azure Blob 儲存體中。
 

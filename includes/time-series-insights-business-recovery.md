@@ -4,13 +4,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 10/09/2019
-ms.openlocfilehash: 038d25a01c02799f48b8430fb6ac3facc1cd3bd6
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.date: 12/06/2019
+ms.openlocfilehash: 8d0c1edd2766d5fa46603d241c4f769fe5777cd1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990847"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74980479"
 ---
 ## <a name="business-disaster-recovery"></a>業務災害復原
 
@@ -42,7 +42,7 @@ ms.locfileid: "72990847"
 
 將時間序列深入解析與其他服務整合，可提供額外的嚴重損壞修復機會。 例如，傳送至事件中樞的遙測可能會保存到備份 Azure Blob 儲存體資料庫。
 
-### <a name="time-series-insights"></a>時間序列深入解析
+### <a name="time-series-insights"></a>Time Series Insights
 
 有數種方式可讓您的時間序列深入解析資料、應用程式和服務保持執行狀態，即使它們已中斷。 
 

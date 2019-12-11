@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: be223245c634b8e38dc5e4c89df4c265c22c0b57
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6dbe61c47a7323e2dec599d2f3c77453aa6f8d82
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821269"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973521"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>在 vCore 和 DTU 購買模型之間做選擇
 
@@ -27,7 +27,7 @@ Azure SQL Database 可讓您輕鬆購買完全受控的平臺即服務（PaaS）
 
 不同的購買模型適用于不同的 Azure SQL Database 部署模型：
 
-- [Azure SQL Database](sql-database-single-databases-manage.md) 中的[單一資料庫](sql-database-elastic-pool.md)與[彈性集區](sql-database-technical-overview.md)部署選項會提供[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
+- [Azure SQL Database](sql-database-technical-overview.md) 中的[單一資料庫](sql-database-single-databases-manage.md)與[彈性集區](sql-database-elastic-pool.md)部署選項會提供[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 - Azure SQL Database 中的[受控實例](sql-database-managed-instance.md)部署選項只提供[vCore 為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 - [超大規模資料庫服務層級](sql-database-service-tier-hyperscale.md)適用于使用[vCore 為基礎的購買模型](sql-database-service-tiers-vcore.md)的單一資料庫。
 
@@ -55,7 +55,7 @@ Azure SQL Database 可讓您輕鬆購買完全受控的平臺即服務（PaaS）
 
 如需如何定義計算容量和計算無伺服器計算層成本的說明，請參閱[SQL Database 無伺服器](sql-database-serverless.md)。
 
-## <a name="storage-costs"></a>儲存成本
+## <a name="storage-costs"></a>儲存體成本
 
 不同類型的儲存體會以不同方式計費。 對於資料儲存體，會根據您選取的資料庫或集區大小上限來支付已布建儲存體的費用。 除非您減少或增加該上限，否則成本不會變更。 備份儲存體與您執行個體的自動備份相關聯，而且是動態配置的。 增加您的備份保留期限，會增加您的實例所耗用的備份儲存體。
 
@@ -129,7 +129,7 @@ Dtu 最適合用於瞭解針對不同計算大小和服務層級的 Azure SQL �
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>能受益於彈性資源集區的工作負載
 
-集區非常適用于資源使用率較低的資料庫，而且使用量尖峰較少。 SQL Database 會自動評估現有 SQL Database 伺服器上資料庫的歷程記錄資源使用量，並建議 Azure 入口網站中的適當集區設定。 如需詳細資訊，請參閱[何時應該考慮 SQL Database 彈性集區？](sql-database-elastic-pool.md)。
+集區非常適用于資源使用率較低的資料庫，而且使用量尖峰較少。 如需詳細資訊，請參閱[何時應該考慮 SQL Database 彈性集區？](sql-database-elastic-pool.md)。
 
 ## <a name="frequently-asked-questions-faqs"></a>常見問題集 (FAQ)
 

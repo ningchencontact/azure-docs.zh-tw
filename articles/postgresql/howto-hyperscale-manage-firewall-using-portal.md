@@ -1,30 +1,30 @@
 ---
-title: 管理適用於 PostgreSQL 的 Azure 資料庫中的防火牆規則-超大規模資料庫（Citus）
+title: 管理防火牆規則-超大規模資料庫（Citus）-適用於 PostgreSQL 的 Azure 資料庫
 description: 使用 Azure 入口網站建立和管理適用於 PostgreSQL 的 Azure 資料庫超大規模資料庫（Citus）的防火牆規則
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 1b132eb168f3d873c8150bc33b581aa0f0f8d124
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 660c395e6cff81b0abcac07e66385f80a538695f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273713"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977534"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>管理適用於 PostgreSQL 的 Azure 資料庫的防火牆規則-超大規模資料庫（Citus）
 伺服器層級防火牆規則可用來從指定的 ip 位址或 IP 位址範圍，管理對超大規模資料庫（Citus）協調器節點的存取。
 
 ## <a name="prerequisites"></a>必要條件
-若要逐步執行本作法指南，您需要︰
+若要逐步執行本作法指南，您需要：
 - 伺服器群組會[建立一個適用於 PostgreSQL 的 Azure 資料庫–超大規模資料庫（Citus）伺服器群組](quickstart-create-hyperscale-portal.md)。
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>在 Azure 入口網站中建立伺服器層級的防火牆規則
 
 > [!NOTE]
 > 在建立適用於 PostgreSQL 的 Azure 資料庫超大規模資料庫（Citus）伺服器群組期間，也可以存取這些設定。 在 [**網路**功能] 索引標籤下，按一下 [**公用端點**]。
-> ![Azure 入口網站-網路功能 索引標籤](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
+> ![Azure 入口網站-[網路功能] 索引標籤](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
 
 1. 在 [于 postgresql 伺服器群組] 頁面的 [安全性] 標題底下，按一下 [**網路**] 以開啟防火牆規則。
 

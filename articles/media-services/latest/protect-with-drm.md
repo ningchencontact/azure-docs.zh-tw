@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b88257271f5177657e66cadc23abad36ad14e890
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3d2dc7793c25fb20e267332beaa683f11ddcbfbb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186054"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974065"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>教學課程：使用 DRM 動態加密與授權傳遞服務
 
 > [!NOTE]
-> 雖然本教學課程使用[.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet)範例，但[REST API](https://docs.microsoft.com/rest/api/media/liveevents)、 [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)或其他支援的[sdk](media-services-apis-overview.md#sdks)的一般步驟都相同。
+> 雖然本教學課程使用 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 範例，但是 [REST API](https://docs.microsoft.com/rest/api/media/liveevents)、[CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) 或其他受支援 [SDK](media-services-apis-overview.md#sdks) 的一般步驟都相同。
 
 您可以使用 Azure 媒體服務，傳遞以 Microsoft PlayReady、Google Widevine 或 Apple FairPlay 授權加密的串流。 如需深入說明，請參閱[使用動態加密進行內容保護](content-protection-overview.md)。
 
@@ -46,7 +46,7 @@ ms.locfileid: "74186054"
 > * 建立具有指定串流原則的 StreamingLocator。
 > * 建立用來播放檔案的 URL。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 需要有下列項目，才能完成教學課程：
 
@@ -92,7 +92,7 @@ ms.locfileid: "74186054"
 
 ## <a name="submit-job"></a>提交作業
 
-如同前面所述，**轉換**物件是配方，而[作業](transforms-jobs-concept.md)則是實際要求媒體服務，將**轉換**套用至指定的輸入影片或音訊內容。 **作業**會指定輸入影片的位置和輸出的位置等資訊。
+如同前面所述，**轉換**物件是配方，而[作業](transforms-jobs-concept.md)則是實際要求媒體服務，將**轉換**套用至指定的輸入影片或音訊內容。 **作業**會指定輸入影片的位置、輸出的位置等資訊。
 
 在本教學課程中，我們會根據直接從[HTTPs 來源 URL](job-input-from-http-how-to.md)內嵌的檔案，建立作業的輸入。
 
@@ -100,9 +100,9 @@ ms.locfileid: "74186054"
 
 ## <a name="wait-for-the-job-to-complete"></a>請等待作業完成
 
-作業需要一些時間才能完成。 當它發生時，您會想要收到通知。 下列程式碼範例說明如何輪詢服務以取得**作業**狀態。 對生產應用程式而言，輪詢不是建議的最佳做法，因為可能會發生延遲。 如果過度使用帳戶，輪詢可能會進行節流處理。 開發人員應改為使用事件方格。 請參閱[將事件路由至自訂 Web 端點](job-state-events-cli-how-to.md)。
+此作業需要一些時間才能完成。 作業完成時，您會想要收到通知。 下列程式碼範例說明如何輪詢服務以取得**作業**狀態。 對生產應用程式而言，輪詢不是建議的最佳做法，因為可能會發生延遲。 如果過度使用帳戶，輪詢可能會進行節流處理。 開發人員應改為使用事件方格。 請參閱[將事件路由至自訂 Web 端點](job-state-events-cli-how-to.md)。
 
-**作業**通常會經歷下列狀態：**已排程**、**已排入佇列**、**正在處理**、**已完成** (最後一個狀態)。 如果作業遇到錯誤，您會收到**錯誤**狀態。 如果正在取消作業，您會收到**正在取消**的狀態，以及完成時的**已取消**狀態。
+**作業**通常會經歷下列狀態：**已排程**、**已排入佇列**、**正在處理**、**已完成** (最後一個狀態)。 如果作業發生錯誤，您會收到**錯誤**狀態。 如果正在取消作業，您會收到**正在取消**的狀態，以及完成時的**已取消**狀態。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 
@@ -162,7 +162,7 @@ ContentKeyIdentifierClaim 用於 ContentKeyPolicy，表示向金鑰傳遞服務�
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>清除媒體服務帳戶中的資源
 
-一般來說，您應該清除您打算重複使用之物件以外的所有專案（您通常會重複使用轉換、Streaminglocator 等等）。 如果您想要在實驗之後清除帳戶，請刪除您不打算重複使用的資源。 例如，下列程式碼會刪除作業：
+一般來說，您應該清除您打算重複使用之物件以外的所有專案（您通常會重複使用轉換、Streaminglocator 等等）。 如果您想要在實驗之後有乾淨的帳戶，請刪除您不打算重複使用的資源。 例如，下列程式碼會刪除作業：
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 
@@ -175,6 +175,10 @@ ContentKeyIdentifierClaim 用於 ContentKeyPolicy，表示向金鑰傳遞服務�
 ```azurecli
 az group delete --name amsResourceGroup
 ```
+
+## <a name="additional-notes"></a>其他注意事項
+
+* Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 

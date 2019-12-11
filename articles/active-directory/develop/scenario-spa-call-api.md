@@ -1,6 +1,6 @@
 ---
-title: 單一頁面應用程式（呼叫 Web API）-Microsoft 身分識別平臺
-description: 瞭解如何建立單一頁面應用程式（呼叫 Web API）
+title: 建立單一頁面應用程式，以呼叫 Web API-Microsoft 身分識別平臺 |Azure
+description: 瞭解如何建立單一頁面應用程式，以呼叫 Web API
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -15,12 +15,12 @@ ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4170a6642d35802581b5d1ff28eb802a6eb3482b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 1171d8c3bc28c7b325cc8daf6cc072965363339c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766152"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965326"
 ---
 # <a name="single-page-application-call-a-web-api"></a>單一頁面應用程式：呼叫 Web API
 
