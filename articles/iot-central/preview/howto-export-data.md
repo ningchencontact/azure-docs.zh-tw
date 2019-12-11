@@ -4,22 +4,22 @@ description: 如何將資料從您的 Azure IoT Central 應用程式匯出至 Az
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 10/15/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 35415fd1a552328faa8d1ad5812f44d8f4b6d5e4
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1aac5af916e414178676a1caf42fead41109de68
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894860"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974456"
 ---
 # <a name="export-your-azure-iot-central-data-preview-features"></a>匯出您的 Azure IoT Central 資料（預覽功能）
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-*此主題適用於系統管理員。*
+*本主題適用於系統管理員。*
 
 本文說明如何使用 Azure IoT Central 中的連續資料匯出功能，將您的資料匯出至**Azure 事件中樞**、 **Azure 服務匯流排**或**Azure Blob 儲存體**實例。 資料會以 JSON 格式匯出，而且可以包含遙測、裝置資訊和裝置範本資訊。 將匯出的資料用於：
 
@@ -29,7 +29,7 @@ ms.locfileid: "73894860"
 > [!Note]
 > 當您開啟「連續資料匯出」時，只會取得從該時刻的資料。 目前，無法擷取「連續資料匯出」時的資料。 若要保留更多歷史資料，請儘早開啟「連續資料匯出」。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須是 IoT Central 應用程式中的系統管理員
 
@@ -104,7 +104,7 @@ ms.locfileid: "73894860"
 
 7. 在 [**要匯出的資料**] 底下，將 [類型] 設定為 [**開啟**]，以選擇要匯出的資料類型。
 
-8. 若要開啟連續資料匯出，請確定 [**資料匯出**切換] 為 [**開啟**]。 選取 [ **儲存**]。
+8. 若要開啟連續資料匯出，請確定 [**資料匯出**切換] 為 [**開啟**]。 選取 [儲存]。
 
 9. 幾分鐘後，您的資料就會出現在您選擇的目的地。
 
@@ -193,7 +193,7 @@ ms.locfileid: "73894860"
 
 - IoT Central 中裝置的 `@id`
 - 裝置的 `name`
-- 來自`deviceId`裝置佈建服務[ 的 ](../core/howto-connect-nodejs.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
+- 來自[裝置佈建服務](../core/howto-connect-nodejs.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json) 的 `deviceId`
 - 裝置範本資訊
 - 屬性值
 

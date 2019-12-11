@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: d15bfcfbae3b24e1a9b29dc74f9b41a979e63ae9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: d2f4ddfbff791fbfeb2eb006a628c0fdeb4fdce1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69014706"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975188"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>DRM 子系統的混合式設計 
 
 本主題討論使用 Azure 媒體服務的 DRM 子系統混合式設計。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 Azure 媒體服務提供下列三個 DRM 系統支援：
 
@@ -126,6 +126,10 @@ Azure 媒體服務 DRM 是全面雲端視訊平台的一部分，設計富彈性
 
 * 來源 URL： https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
 * PlayReady LA_URL (虛線與平滑)： https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
+
+## <a name="additional-notes"></a>其他注意事項
+
+* Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="summary"></a>總結
 

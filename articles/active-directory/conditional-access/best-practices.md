@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b8402279b5c2717b1f73a28f2efc02ade5e479c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ccfbb31c29b9e240a4865c8d7d98d7b6af00d1fd
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175775"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963931"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory 中的條件式存取最佳做法
 
@@ -45,17 +45,18 @@ ms.locfileid: "73175775"
 
 ### <a name="how-are-conditional-access-policies-applied"></a>條件式存取原則的套用方式為何？
 
-當您存取雲端應用程式時，可能會有一個以上的條件式存取原則適用。 在此情況下，您必須滿足所有套用的原則。 例如，如果其中一個原則需要 MFA，而第二個原則需要符合規範的裝置，則您必須通過 MFA，並使用符合規範的裝置。 
+當您存取雲端應用程式時，可能會有一個以上的條件式存取原則適用。 在此情況下，您必須滿足所有套用的原則。 例如，如果某個原則需要多重要素驗證（MFA），而另一個原則需要相容的裝置，您必須完成 MFA，並使用符合規範的裝置。 
 
 所有的原則都會在兩個階段強制執行：
 
-- 在**第一個**階段中，系統會評估所有原則，並收集不符合的所有存取控制。 
-
-- 在**第二個**階段中，系統會提示您滿足您還沒有符合的需求。 如果其中任何一個原則封鎖了存取權，系統就會封鎖您，而不會提示您滿足其他原則控制。 如果沒有任何原則封鎖您，系統會提示您以下列順序滿足其他原則控制：
-
-   ![訂購](./media/best-practices/06.png)
-    
-   接下來是外部 MFA 提供者和使用規定。
+- 第 1 階段： 
+   - 詳細資料集合：收集詳細資料以識別已滿足的原則。
+   - 在此階段中，如果裝置合規性是條件式存取原則的一部分，使用者可能會看到憑證提示。 當裝置作業系統不是 Windows 10 時，瀏覽器應用程式可能會出現此提示。
+   - 原則評估的第1階段會針對所有已啟用的原則和原則，在[僅限報表模式](concept-conditional-access-report-only.md)中進行。
+- 第 2 階段：
+   - 強制：考慮在階段1中收集的詳細資料，要求使用者滿足尚未符合的任何其他需求。
+   - 將結果套用至會話。 
+   - 原則評估的第2階段會針對所有已啟用的原則進行。
 
 ### <a name="how-are-assignments-evaluated"></a>如何評估指派？
 

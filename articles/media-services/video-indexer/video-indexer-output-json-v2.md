@@ -8,18 +8,23 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 12/09/2019
 ms.author: juliako
-ms.openlocfilehash: bf4acf70b2937b3cb6b2552bf2d2ef9c2422743a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c978fed1675ea80ae9b2f6fb7fbe9a4c84472638
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892714"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978299"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>檢查 API 所產生的影片索引子輸出
 
 當您呼叫**取得影片索引** API 時，若回應狀態為「確定」，您取得的回應內容會是詳細的 JSON 輸出。 JSON 內容包含指定影片深入解析的詳細資料。 深入解析包括如下的維度：文字記錄、Ocr、臉部、主題、區塊等等。維度具有時間範圍的實例，會顯示每個維度出現在影片中的時機。  
+
+1. 若要取出 JSON 檔案，請呼叫[取得影片索引 API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
+1. 如果您也對特定構件感興趣，請呼叫[取得影片成品下載 URL API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
+
+    在 API 呼叫中，指定要求的成品類型（OCR、臉部、主要畫面等等）。
 
 您也可以透過視覺化方式檢查影片的摘要深入解析，只要在[影片索引子](https://www.videoindexer.ai/)網站上按影片的 [播放] 按鈕即可。 如需詳細資訊，請參閱[檢視和編輯影片的深入解析](video-indexer-view-edit.md)。
 

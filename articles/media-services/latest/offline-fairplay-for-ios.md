@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: f2514fff2a3bb292a86c9f4c0e92c37ed2709097
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 83fa8c9c6d98728d48ff4ed8993963cdbd522724
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341050"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974116"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>適用於 iOS 的離線 FairPlay 串流 
 
@@ -28,6 +28,8 @@ ms.locfileid: "67341050"
 
 - Microsoft PlayReady (英文)
 - Google Widevine
+    
+    Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
 - Apple FairPlay
 - AES-128 加密
 
@@ -36,13 +38,13 @@ ms.locfileid: "67341050"
 除了透過各種不同的串流處理通訊協定來保護內容進行線上串流處理，受保護內容的離線模式也是一個經常被要求的功能。 下列案例需要離線模式支援：
 
 * 在無法使用網際網路連線 (例如旅行期間) 時播放。
-* 某些內容提供者可能不允許 DRM 授權傳遞超出國家/地區的邊界。 如果使用者想要的國家/地區外旅行時觀賞內容，則需要離線下載。
-* 在某些國家/地區，網際網路可用性和/或頻寬是仍然有限。 使用者可選擇先下載內容，才能觀賞解析度夠高的內容，從而獲得滿意的觀賞體驗。 因此，問題通常不在於網路可用性，而是網路頻寬有限。 Over-the-top (OTT)/線上視訊平台 (OVP) 提供者會要求離線模式支援。
+* 某些內容提供者可能不允許超出國家/地區框線的 DRM 授權傳遞。 如果使用者想要在國家/地區外出差時觀賞內容，就需要離線下載。
+* 在某些國家/地區，網際網路可用性和/或頻寬仍然受到限制。 使用者可選擇先下載內容，才能觀賞解析度夠高的內容，從而獲得滿意的觀賞體驗。 因此，問題通常不在於網路可用性，而是網路頻寬有限。 Over-the-top (OTT)/線上視訊平台 (OVP) 提供者會要求離線模式支援。
 
 本文會說明 FairPlay 串流 (FPS) 離線模式支援，此支援是以執行 iOS 10 或更新版本的裝置為目標。 其他 Apple 平台 (例如 watchOS、tvOS 或 macOS 上的 Safari) 則不支援此功能。
 
 > [!NOTE]
-> 離線 DRM 是只需支付進行授權的單一要求，當您下載的內容。 任何錯誤都不會計費。
+> 只有在您下載內容時，才會向離線 DRM 收取授權的單一要求。 任何錯誤都不會計費。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -52,7 +54,7 @@ ms.locfileid: "67341050"
 
     - [Apple FairPlay 授權需求和設定](fairplay-license-overview.md)
     - [使用 DRM 動態加密與授權傳遞服務](protect-with-drm.md)
-    - .NET 範例，內含線上 FPS 串流的組態：[ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
+    - 包含線上 FPS 串流設定的 .NET 範例： [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
 * 從 Apple 開發人員網路取得 FPS SDK。 FPS SDK 包含兩個元件：
 
     - FPS Server SDK，內含金鑰安全性模組 (KSM)、用戶端範例、規格，以及一組測試向量。
@@ -121,7 +123,7 @@ CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()
 FPS 離線模式支援僅適用於 iOS 10 和更新版本。 FPS Server SDK (3.0 版或更新版本) 包含有關於 FPS 離線模式的文件和範例。 具體來說，FPS Server SDK (3.0 版或更新版本) 包含下列兩個與離線模式相關的項目：
 
 * 文件：《Offline Playback with FairPlay Streaming and HTTP Live Streaming》(使用 FairPlay 串流和 HTTP 即時串流進行離線播放)。 Apple，2016 年 9 月 14 日發行。 在 FPS Server SDK 4.0 版中，這份文件會合併到主要 FPS 文件中。
-* 程式碼範例：FPS 離線模式的 HLSCatalog 範例 (屬於 Apple FPS Server SDK 的一部分)，位於 \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\。 HLSCatalog 應用程式範例會使用下列程式碼檔案來實作離線模式功能：
+* 範例程式碼：位於 \fairplay 串流伺服器 SDK 3.1 版 \ Development\Client\ 中的 FPS 離線模式 HLSCatalog 範例（Apple 的 FPS 伺服器 SDK 的一部分） HLSCatalog_With_FPS \HLSCatalog\。 HLSCatalog 應用程式範例會使用下列程式碼檔案來實作離線模式功能：
 
     - AssetPersistenceManager.swift 程式碼檔案：AssetPersistenceManager 是此範例中的主類別，會示範如何進行下列操作：
 
@@ -203,9 +205,9 @@ func requestApplicationCertificate() throws -> Data {
 
 下列常見問題集可協助您進行疑難排解：
 
-- **為何在離線模式期間只播放音訊，但不會播放影片呢？** 這個行為似乎是範例應用程式的設計使然。 當離線模式期間存在替代曲目時 (HLS 便是如此)，iOS 10 和 iOS 11 都預設為播放替代曲目。為了彌補 FPS 離線模式的這項行為，請從串流中移除替代曲目。 若要對媒體服務執行此操作，請新增動態資訊清單篩選條件 "audio-only=false"。 換言之，HLS URL 的結尾是 .ism/manifest(format=m3u8-aapl,audio-only=false)。 
+- **為何在離線模式期間只播放音訊，但不會播放影片呢？** 這個行為似乎是範例應用程式的設計使然。 在離線模式期間，如果有替代的音訊播放軌（這是 HLS 的情況），則 iOS 10 和 iOS 11 都會預設為替代的音訊播放軌。若要彌補 FPS 離線模式的這種行為，請從串流中移除替代的音訊播放軌。 若要對媒體服務執行此操作，請新增動態資訊清單篩選條件 "audio-only=false"。 換言之，HLS URL 的結尾是 .ism/manifest(format=m3u8-aapl,audio-only=false)。 
 - **當我新增 audio-only=false 之後，為什麼它在離線模式期間仍舊只播放音訊，而不會播放影片呢？** 系統可能會根據內容傳遞網路 (CDN) 快取索引鍵設計來快取內容。 所以，請清除快取。
-- **除了 iOS 10，iOS 11 也支援 FPS 離線模式嗎？** 是。 iOS 10 和 iOS 11 均可支援 FPS 離線模式。
+- **除了 iOS 10，iOS 11 也支援 FPS 離線模式嗎？** 可以。 iOS 10 和 iOS 11 均可支援 FPS 離線模式。
 - **為什麼我在 FPS Server SDK 中找不到《Offline Playback with FairPlay Streaming and HTTP Live Streaming》(使用 FairPlay 串流和 HTTP 即時串流進行離線播放) 文件呢？** 從 FPS Server SDK 第 4 版開始，此文件已合併至《FairPlay Streaming Programming Guide》(FairPlay 串流程式設計指南)。
 - **在 iOS 裝置上的下載/離線檔案結構為何？** iOS 裝置上所下載的檔案結構看起來如下列螢幕擷取畫面。 `_keys` 資料夾會儲存下載的 FPS 授權，每個授權服務主機一個存放區檔案。 `.movpkg` 資料夾會儲存音訊和影片內容。 第一個資料夾名稱的結尾是一個破折號後面接著一個數字，此資料夾包含影片內容。 數值為影片轉譯的 PeakBandwidth。 第二個資料夾名稱的結尾是一個破折號後面接著 0，此資料夾包含音訊內容。 第三個名為 "Data" 的資料夾包含 FPS 內容的主要播放清單。 最後，boot.xml 會提供 `.movpkg` 資料夾內容的完整描述。 
 

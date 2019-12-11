@@ -3,12 +3,12 @@ title: 使用 Visual Studio Code 開發 Azure Functions
 description: 瞭解如何使用適用于 Visual Studio Code 的 Azure Functions 延伸模組來開發和測試 Azure Functions。
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: f9ad40cd50863990b9af629c77321195dce5e97c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cf96a0630440904282f076de2f916fb3dbf3eb1c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227062"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975579"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>使用 Visual Studio Code 開發 Azure Functions
 
@@ -20,7 +20,7 @@ Azure Functions 延伸模組提供下列優點：
 * 直接將 Azure Functions 專案發佈至 Azure。
 * 撰寫各種語言的函數，同時利用 Visual Studio Code 的優點。
 
-此延伸模組可搭配下列語言使用，Azure Functions 版本2.x 執行時間所支援：
+延伸模組可以與下列語言搭配使用，這些語言是從2.x 版開始的 Azure Functions 執行時間所支援：
 
 * [C#彙編](functions-dotnet-class-library.md)
 * <sup></sup> [ C#腳本](functions-reference-csharp.md)*
@@ -38,9 +38,9 @@ Azure Functions 延伸模組提供下列優點：
 > [!IMPORTANT]
 > 請勿混用單一函式應用程式的本機開發與入口網站開發。 當您從本機專案發佈至函式應用程式時，部署程序將會覆寫您在入口網站開發的任何函式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-在您安裝並執行 Visual Studio Code 的[Azure Functions 延伸]模組[Azure Functions 延伸]模組之前，您必須符合下列需求：
+在您安裝並執行 Visual Studio Code 的[Azure Functions 延伸模組][適用於 visual studio code 的 azure functions 擴充功能]模組之前，您必須符合下列需求：
 
 * [Visual Studio Code](https://code.visualstudio.com/)安裝在其中一個[支援的平臺](https://code.visualstudio.com/docs/supporting/requirements#_platforms)上。
 
@@ -138,7 +138,7 @@ Visual Studio Code 可讓您遵循一組方便的提示，將系結新增至您�
 
 以下是定義新儲存體輸出系結的範例提示：
 
-| Prompt | 值 | 描述 |
+| Prompt | Value | 描述 |
 | -------- | ----- | ----------- |
 | **選取繫結方向** | `out` | 此繫結為輸出繫結。 |
 | **選取具有方向的系結** | `Azure Queue Storage` | 此繫結是 Azure 儲存體佇列繫結。 |
@@ -218,11 +218,11 @@ Visual Studio Code 可讓您將函式專案直接發行至 Azure。 在這過程
 
 1. 依照提示進行，提供下列資訊：
 
-    | Prompt | 值 | 描述 |
+    | Prompt | Value | 描述 |
     | ------ | ----- | ----------- |
     | 選取 Azure 中的函數應用程式 | 在 Azure 中建立新的函數應用程式 | 在下一個提示中，輸入可識別新函數應用程式的全域唯一名稱，然後選取 Enter。 函式應用程式名稱的有效字元為 `a-z`、`0-9` 和 `-`。 |
     | 選取作業系統 | Windows | 函數應用程式會在 Windows 上執行。 |
-    | 選取主控方案 | 取用方案 | 使用「無伺服器取用[方案」裝載](functions-scale.md#consumption-plan)。 |
+    | 選取主控方案 | 使用量方案 | 使用「無伺服器取用[方案」裝載](functions-scale.md#consumption-plan)。 |
     | 為新的應用程式選取執行時間 | 您的專案語言 | 執行時間必須符合您要發行的專案。 |
     | 為新資源選取資源群組 | 建立新的資源群組 | 在下一個提示中，輸入資源組名（例如 `myResourceGroup`），然後選取 enter。 您也可以選取現有的資源群組。 |
     | 選取儲存體帳戶 | 建立新的儲存體帳戶 | 在下一個提示中，輸入函數應用程式所使用之新儲存體帳戶的全域唯一名稱，然後選取 Enter 鍵。 儲存體帳戶名稱的長度必須介於3到24個字元之間，而且只能包含數位和小寫字母。 您也可以選取現有的帳戶。 |
@@ -263,7 +263,7 @@ Azure Functions 擴充功能可讓您在本機開發電腦上執行函式專案�
 
 若要在本機執行函式專案，您必須符合下列其他需求：
 
-* 安裝2.x 版的[Azure Functions Core Tools](functions-run-local.md#v2)。 當您在本機啟動專案時，會自動下載並安裝 Core Tools 套件。 核心工具組含整個 Azure Functions 執行時間，因此下載和安裝可能需要一些時間。
+* 安裝2.x 版或更新版本的[Azure Functions Core Tools](functions-run-local.md#v2)。 當您在本機啟動專案時，會自動下載並安裝 Core Tools 套件。 核心工具組含整個 Azure Functions 執行時間，因此下載和安裝可能需要一些時間。
 
 * 安裝所選語言的特定需求：
 

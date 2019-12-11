@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/26/2019
 ms.author: juliako
-ms.openlocfilehash: 6d13ca5b3657f1deac9e6b4218decf8fe57eb1d9
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a227c5d0edfb9b49e70452cfcfd08b29ba381857
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113749"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969101"
 ---
 # <a name="streaming-locators"></a>串流定位器
 
@@ -32,7 +32,7 @@ ms.locfileid: "74113749"
 
 您也可以指定串流定位器的開始和結束時間，這只會讓您的使用者在這些時間之間播放內容（例如，介於5/1/2019 到5/5/2019 之間）。  
 
-## <a name="considerations"></a>注意事項
+## <a name="considerations"></a>考量
 
 * **串流定位器**不是可更新的。 
 * 屬於日期時間類型的**串流定位器**屬性一律為 UTC 格式。
@@ -56,7 +56,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
     });
 ```
 
-### <a name="encrypted"></a>已加密 
+### <a name="encrypted"></a>加密 
 
 如果您需要使用 CENC 加密來加密您的內容，請將您的原則設定為 ' Predefined_MultiDrmCencStreaming '。 Widevine 加密會套用至破折號串流，PlayReady 則會順暢地進行。 金鑰會根據所設定的 DRM 授權傳遞至播放用戶端。
 
@@ -74,6 +74,9 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
 ```
 
 如果您也想要使用 CBCS （FairPlay）來加密 HLS 串流，請使用 ' Predefined_MultiDrmStreaming '。
+
+> [!NOTE]
+> Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="associate-filters-with-streaming-locators"></a>將篩選器與串流定位器建立關聯
 

@@ -1,19 +1,19 @@
 ---
 title: 修復 Azure 匯入/匯出匯入作業 - v1 | Microsoft Docs
 description: 了解如何修復使用 Azure 匯入/匯出服務建立和執行的匯入作業。
-author: muralikk
+author: twooley
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: muralikk
+ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: fda1d3d626c91ba984f08b96c79ab6a2fd2ec74b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5db321d8c4a6e42591a82b0ed8eb6bc6e93bad4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61477581"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973878"
 ---
 # <a name="repairing-an-import-job"></a>修復匯入作業
 Microsoft Azure 匯入/匯出服務可能無法將某些檔案或某個檔案的部分複製到 Windows Azure Blob 服務。 部分的失敗原因包括︰  

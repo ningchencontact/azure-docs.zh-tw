@@ -11,12 +11,12 @@ ms.date: 11/27/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 51990e02eada52263006627be803c4073b9361ac
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 82270c126d8a0894cd3a388dcab62017ed63c2cd
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555395"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974643"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>SQL 資料倉儲工作負載群組隔離（預覽）
 
@@ -24,13 +24,13 @@ ms.locfileid: "74555395"
 
 ## <a name="workload-groups"></a>工作負載群組
 
-工作負載群組是一組要求的容器，而且是在系統上設定工作負載管理（包括工作負載隔離）的基礎。  工作負載群組是使用[建立工作負載群組](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)語法所建立。  簡單的工作負載管理設定可以管理資料載入和使用者查詢。  例如，名為 `wgDataLoads` 的工作負載群組會定義載入系統中之資料的工作負載層面。 此外，名為 `wgUserQueries` 的工作負載群組，將定義執行查詢以從系統讀取資料之使用者的工作負載層面。
+工作負載群組是一組要求的容器，而且是在系統上設定工作負載管理（包括工作負載隔離）的基礎。  工作負載群組是使用[建立工作負載群組](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)語法所建立。  簡單的工作負載管理設定可以管理資料載入和使用者查詢。  例如，名為 `wgDataLoads` 的工作負載群組會定義載入系統中之資料的工作負載層面。 此外，名為 `wgUserQueries` 的工作負載群組，將定義執行查詢以從系統讀取資料之使用者的工作負載層面。
 
 下列各節將強調工作負載群組如何提供定義隔離、內含專案、要求資源定義，以及遵守執行規則的功能。
 
 ## <a name="workload-isolation"></a>工作負載隔離
 
-工作負載隔離意指工作負載群組會以獨佔方式保留資源。  工作負載隔離的達成方式是在[建立工作負載群組](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)語法中，將 MIN_PERCENTAGE_RESOURCE 參數設定為大於零。  針對需要遵守嚴格 Sla 的連續執行工作負載，隔離可確保資源永遠可供工作負載群組使用。 
+工作負載隔離意指工作負載群組會以獨佔方式保留資源。  工作負載隔離的達成方式是在[建立工作負載群組](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)語法中，將 MIN_PERCENTAGE_RESOURCE 參數設定為大於零。  針對需要遵守嚴格 Sla 的連續執行工作負載，隔離可確保資源永遠可供工作負載群組使用。 
 
 設定工作負載隔離會隱含地定義一個保證的並行層級。  當 MIN_PERCENTAGE_RESOURCE 設為30%，且 REQUEST_MIN_RESOURCE_GRANT_PERCENT 設定為2% 時，就會保證工作負載群組具有15個並行層級。  請考慮下列用來判斷保證並行的方法：
 
@@ -50,7 +50,7 @@ ms.locfileid: "74555395"
 
 ## <a name="workload-containment"></a>工作負載內含專案
 
-工作負載內含專案指的是限制工作負載群組可以取用的資源數量。  在[建立工作負載群組](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)語法中，將 CAP_PERCENTAGE_RESOURCE 參數設定為小於100，即可達到工作負載內含專案。  考慮到使用者需要系統的讀取權限，讓他們可以透過臨機操作查詢執行假設分析的案例。  這些類型的要求可能會對在系統上執行的其他工作負載造成負面影響。  設定內含專案可確保資源數量有限。
+工作負載內含專案指的是限制工作負載群組可以取用的資源數量。  在[建立工作負載群組](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)語法中，將 CAP_PERCENTAGE_RESOURCE 參數設定為小於100，即可達到工作負載內含專案。  考慮到使用者需要系統的讀取權限，讓他們可以透過臨機操作查詢執行假設分析的案例。  這些類型的要求可能會對在系統上執行的其他工作負載造成負面影響。  設定內含專案可確保資源數量有限。
 
 設定工作負載內含專案會隱含地定義並行的最大層級。  如果 CAP_PERCENTAGE_RESOURCE 設定為60%，且 REQUEST_MIN_RESOURCE_GRANT_PERCENT 設定為1%，則工作負載群組最多允許60並行層級。  請考慮下列包含的方法，以判斷並行的最大值：
 
@@ -61,7 +61,7 @@ ms.locfileid: "74555395"
 
 ## <a name="resources-per-request-definition"></a>每個要求定義的資源
 
-工作負載群組提供一種機制，可定義每個要求所配置的最小和最大資源量，以及[建立工作負載群組](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)語法中的 REQUEST_MIN_RESOURCE_GRANT_PERCENT 和 REQUEST_MAX_RESOURCE_GRANT_PERCENT 參數。  在此情況下，資源為 CPU 和記憶體。  設定這些值會指示在系統上可以達到多少資源和平行存取層級。
+工作負載群組提供一種機制，可定義每個要求所配置的最小和最大資源量，以及[建立工作負載群組](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)語法中的 REQUEST_MIN_RESOURCE_GRANT_PERCENT 和 REQUEST_MAX_RESOURCE_GRANT_PERCENT 參數。  在此情況下，資源為 CPU 和記憶體。  設定這些值會指示在系統上可以達到多少資源和平行存取層級。
 
 > [!NOTE] 
 > REQUEST_MAX_RESOURCE_GRANT_PERCENT 是選擇性參數，預設為 REQUEST_MIN_RESOURCE_GRANT_PERCENT 指定的相同值。
@@ -75,7 +75,7 @@ ms.locfileid: "74555395"
 
 ## <a name="execution-rules"></a>執行規則
 
-在臨機操作報表系統上，客戶可能會不小心執行失控的查詢，因而嚴重影響其他人的生產力。  系統管理員會強制花費時間終止失控的查詢，以釋放系統資源。  工作負載群組提供設定查詢執行超時規則的能力，以取消已超過指定值的查詢。  此規則是藉由在[建立工作負載群組](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)語法中設定 `QUERY_EXECUTION_TIMEOUT_SEC` 參數來設定。
+在臨機操作報表系統上，客戶可能會不小心執行失控的查詢，因而嚴重影響其他人的生產力。  系統管理員會強制花費時間終止失控的查詢，以釋放系統資源。  工作負載群組提供設定查詢執行超時規則的能力，以取消已超過指定值的查詢。  此規則是藉由在[建立工作負載群組](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)語法中設定 `QUERY_EXECUTION_TIMEOUT_SEC` 參數來設定。
 
 ## <a name="shared-pool-resources"></a>共用集區資源
 
@@ -88,5 +88,5 @@ ms.locfileid: "74555395"
 ## <a name="next-steps"></a>後續步驟
 
 - [快速入門：設定工作負載隔離](quickstart-configure-workload-isolation-tsql.md)
-- [建立工作負載群組](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [建立工作負載群組](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
 - [將資源類別轉換成工作負載群組](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md)。

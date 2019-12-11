@@ -3,12 +3,12 @@ title: Azure Functions C# 開發人員參考
 description: 了解如何使用 C# 開發 Azure Functions。
 ms.topic: reference
 ms.date: 09/12/2018
-ms.openlocfilehash: 9ecaff438eb30e6a05a7e744e17d2d713eef21cd
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: f412e5ea358fe7b97476802f432616c37b05dbd9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665571"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975477"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 開發人員參考
 
@@ -25,7 +25,15 @@ Azure Functions 支援 C# 和 C# 指令碼程式設計語言。 如果您需要[
 
 ## <a name="supported-versions"></a>支援的版本
 
-Azure Functions 2.x 執行時間使用 .NET Core 2.2。 您的函式程式碼可以藉由更新 Visual Studio 專案設定來使用 .NET Core 2.2 Api。 函式樣板不會預設為 .NET Core 2.2，以避免對未安裝 .NET Core 2.2 的客戶造成不良影響。
+函數執行時間的版本適用于特定版本的 .NET。 下表顯示可搭配專案中特定版本函式使用的最高層級 .NET Core 和 .NET Framework 和 .NET Core。 
+
+| 函數執行階段版本 | 最大 .NET 版本 |
+| ---- | ---- |
+| 函數3。x | .NET Core 3。1 |
+| Functions 2.x | .NET Core 2.2 |
+| Functions 1.x | .NET Framework 4.6 |
+
+若要深入瞭解，請參閱[Azure Functions 執行階段版本總覽](functions-versions.md)
 
 ## <a name="functions-class-library-project"></a>Functions 類別庫專案
 
@@ -49,7 +57,7 @@ Azure Functions 2.x 執行時間使用 .NET Core 2.2。 您的函式程式碼可
 此目錄會部署至 Azure 中的函數應用程式。 Functions 執行階段[版本 2.x](functions-versions.md) 中所需之繫結延伸模組會[以 NuGet 封裝形式新增至專案](./functions-bindings-register.md#vs)。
 
 > [!IMPORTANT]
-> 建置流程會為每個函式都建立 function.json 檔案。 這個 function.json 檔案不適合直接編輯。 您無法編輯此檔案來變更繫結設定或停用函式。 若要了解如何停用函式，請參閱[如何停用函式](disable-function.md#functions-2x---c-class-libraries)。
+> 建置流程會為每個函式都建立 function.json 檔案。 這個 function.json 檔案不適合直接編輯。 您無法編輯此檔案來變更繫結設定或停用函式。 若要了解如何停用函式，請參閱[如何停用函式](disable-function.md)。
 
 
 ## <a name="methods-recognized-as-functions"></a>辨識為函式的方法

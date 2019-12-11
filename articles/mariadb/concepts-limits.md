@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: fc89b6233602c81ea622a528c223adf2003f0f68
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: 1f5824f349650e340e395221785266096da16d6f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772491"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969542"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>適用於 MariaDB 的 Azure 資料庫相關限制
 下列各節說明資料庫服務中的容量、儲存引擎支援、權限支援、資料操作陳述式支援，以及功能限制。
@@ -23,17 +23,17 @@ ms.locfileid: "74772491"
 |---|---|---|
 |基本| 1| 50|
 |基本| 2| 100|
-|一般用途| 2| 300|
-|一般用途| 4| 625|
-|一般用途| 8| 1250|
-|一般用途| 16| 2500|
-|一般用途| 32| 5000|
-|一般用途| 64| 10000|
-|記憶體最佳化| 2| 600|
-|記憶體最佳化| 4| 1250|
-|記憶體最佳化| 8| 2500|
-|記憶體最佳化| 16| 5000|
-|記憶體最佳化| 32| 10000|
+|一般用途| 2| 600|
+|一般用途| 4| 1250|
+|一般用途| 8| 2500|
+|一般用途| 16| 5000|
+|一般用途| 32| 10000|
+|一般用途| 64| 20000|
+|記憶體最佳化| 2| 800|
+|記憶體最佳化| 4| 2500|
+|記憶體最佳化| 8| 5000|
+|記憶體最佳化| 16| 10000|
+|記憶體最佳化| 32| 20000|
 
 當連線超過限制時，則可能會收到下列錯誤：
 > 錯誤 1040 (08004)：太多的連接

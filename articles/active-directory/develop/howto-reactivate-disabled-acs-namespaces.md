@@ -1,6 +1,6 @@
 ---
-title: 如何重新啟用已停用的 Azure 存取控制服務 (ACS) 命名空間
-description: 了解如何尋找並啟用您的 Azure 存取控制服務 (ACS) 命名空間，並要求將它們的維持啟用時間延長至 2019 年 2 月 4 日。
+title: 重新啟用已停用的 Azure 存取控制服務（ACS）命名空間
+description: 尋找並啟用您的 Azure 存取控制服務（ACS）命名空間，並要求延伸模組以保持啟用，直到2019年2月4日為止。
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 590fc99861035ce1a5219a3cfd788159c6c2a19b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9cc038e67e5528a52b0b98ea1698da07e8120242
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917704"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966940"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>操作說明：重新啟用已停用的存取控制服務命名空間
 

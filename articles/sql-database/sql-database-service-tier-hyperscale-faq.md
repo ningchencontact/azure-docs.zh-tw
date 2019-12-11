@@ -1,5 +1,5 @@
 ---
-title: 超大規模資料庫常見問題集
+title: 常見問題-超大規模資料庫（Citus）-適用於 PostgreSQL 的 Azure 資料庫
 description: 回答客戶針對超大規模資料庫服務層級中的 Azure SQL 資料庫 (通常稱為「超大規模」資料庫) 經常提出的問題。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: 89316811f39b4cab918b913b45ae5945686e6b15
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 377de93733d94d8cff5518eebb8ebba38154d10d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818219"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974014"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database 超大規模資料庫常見問題
 
@@ -39,19 +39,19 @@ ms.locfileid: "73818219"
 
 以 vCore 為基礎的服務層級會根據資料庫可用性和儲存體類型、效能和最大大小來區分，如下表所述。
 
-| | 資源類型 | 一般用途 |  超大規模資料庫 | 業務關鍵 |
+| | 資源類型 | 一般用途 |  Hyperscale | 商務關鍵性 |
 |:---:|:---:|:---:|:---:|:---:|
-| **適用對象** |全部|提供以預算為導向且平衡的計算與儲存體選項。|大部分的商業工作負載。 自動調整儲存體大小，最高可達 100 TB，快速垂直和水準計算縮放，快速資料庫還原。|具有高交易率和低 IO 延遲的 OLTP 應用程式。 為失敗提供最高的復原能力，並使用多個同步更新的複本快速容錯移轉。|
+| **適用對象** |所有|提供以預算為導向且平衡的計算與儲存體選項。|大部分的商業工作負載。 自動調整儲存體大小，最高可達 100 TB，快速垂直和水準計算縮放，快速資料庫還原。|具有高交易率和低 IO 延遲的 OLTP 應用程式。 為失敗提供最高的復原能力，並使用多個同步更新的複本快速容錯移轉。|
 |  **資源類型** ||單一資料庫/彈性集區/受控執行個體 | 單一資料庫 | 單一資料庫/彈性集區/受控執行個體 |
 | **計算大小**|單一資料庫/彈性集區 * | 1 到 80 個虛擬核心 | 1 到 80 個虛擬核心* | 1 到 80 個虛擬核心 |
 | |受控執行個體 | 8 個、16 個、24 個、32 個、40 個、64 個、80 個虛擬核心 | N/A | 8 個、16 個、24 個、32 個、40 個、64 個、80 個虛擬核心 |
-| **儲存體類型** | 全部 |進階遠端儲存體 (每個執行個體) | 與本機 SSD 快取分離的儲存體 (每個執行個體) | 超快速本機 SSD 儲存體 (每個執行個體) |
+| **儲存體類型** | 所有 |進階遠端儲存體 (每個執行個體) | 與本機 SSD 快取分離的儲存體 (每個執行個體) | 超快速本機 SSD 儲存體 (每個執行個體) |
 | **儲存體大小** | 單一資料庫/彈性集區 *| 5 GB – 4 TB | 最多 100 TB | 5 GB – 4 TB |
 | | 受控執行個體  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
 | **IOPS** | 單一資料庫 | 每個虛擬核心 500 IOPS，且 IOPS 上限為 7000 | 超大規模資料庫是多層式架構，在多個層級進行快取。 有效的 IOPS 將視工作負載而定。 | 5000 IOPS，IOPS 上限為 200,000|
 | | 受控執行個體 | 視檔案大小而定 | N/A | 1375 IOPS/vCore |
-|**可用性**|全部|1個複本，沒有讀取相應放大，沒有本機快取 | 多個複本，最多4個讀取相應放大，部分本機快取 | 3個複本，1個讀取相應放大，區域-多餘 HA，完整本機儲存體 |
-|**備份**|全部|RA-GRS，7-35 天保留（預設為7天）| RA-GRS，7天保留期，固定時間點恢復（PITR） | RA-GRS，7-35 天保留（預設為7天） |
+|**可用性**|所有|1個複本，沒有讀取相應放大，沒有本機快取 | 多個複本，最多4個讀取相應放大，部分本機快取 | 3個複本，1個讀取相應放大，區域-多餘 HA，完整本機儲存體 |
+|**備份**|所有|RA-GRS，7-35 天保留（預設為7天）| RA-GRS，7天保留期，固定時間點恢復（PITR） | RA-GRS，7-35 天保留（預設為7天） |
 
 超大規模資料庫服務層級中不支援 \* 彈性集區
 
@@ -72,7 +72,7 @@ ms.locfileid: "73818219"
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>是否可為每個邏輯伺服器建立多個超大規模資料庫
 
-是。 如需每個邏輯伺服器的超大規模資料庫數目限制的詳細資訊，請參閱[適用於邏輯伺服器上之單一和集區資料庫的 SQL Database 資源限制](sql-database-resource-limits-logical-server.md)。
+可以。 如需每個邏輯伺服器的超大規模資料庫數目限制的詳細資訊，請參閱[適用於邏輯伺服器上之單一和集區資料庫的 SQL Database 資源限制](sql-database-resource-limits-logical-server.md)。
 
 ### <a name="what-are-the-performance-characteristics-of-a-hyperscale-database"></a>超大規模資料庫資料庫的效能特性為何
 
@@ -95,7 +95,7 @@ ms.locfileid: "73818219"
 
 ### <a name="can-i-mix-hyperscale-and-single-databases-in-a-single-logical-server"></a>我可以在單一邏輯伺服器中混用超大規模資料庫與單一資料庫
 
-是，您可以這麼做。
+可以。
 
 ### <a name="does-hyperscale-require-my-application-programming-model-to-change"></a>使用「超大規模資料庫」時是否需要變更應用程式設計模型
 
@@ -117,7 +117,7 @@ ms.locfileid: "73818219"
 
 如果您目前使用 SQL Server 做為資料倉儲來執行互動式分析查詢，超大規模資料庫是很好的選擇，因為您可以用較低的成本裝載小型和中等大小的資料倉儲（例如數 TB 到 100 TB），而且您可以遷移 SQL Server 資料 war以最少的 T-sql 程式碼變更，將工作負載 ehouse 至超大規模資料庫。
 
-如果您使用複雜查詢的大規模執行資料分析，且持續的內嵌速率高於 100 MB/s，或使用平行資料倉儲（PDW）、Teradata 或其他大量平行處理（MPP）資料倉儲，SQL 資料倉儲可能是最佳選擇。
+如果您使用複雜查詢的大規模執行資料分析，且持續的內階速率高於 100 MB/s，或使用平行資料倉儲（PDW）、Teradata 或其他大量平行處理（MPP）資料倉儲，則 SQL 資料倉儲可能是最佳選擇。
   
 ## <a name="hyperscale-compute-questions"></a>超大規模資料庫計算問題
 
@@ -197,13 +197,13 @@ ms.locfileid: "73818219"
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>如果我有很大的資料表，資料表的資料是否會分散到多個資料檔案
 
-是。 與指定的資料表相關聯的資料頁面可能會移至多個資料檔案中，但全都屬於相同的檔案群組。 SQL Server 使用[比例填滿策略](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy)，將資料散發到資料檔案。
+可以。 與指定的資料表相關聯的資料頁面可能會移至多個資料檔案中，但全都屬於相同的檔案群組。 SQL Server 使用[比例填滿策略](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy)，將資料散發到資料檔案。
 
 ## <a name="data-migration-questions"></a>資料移轉問題
 
 ### <a name="can-i-move-my-existing-azure-sql-databases-to-the-hyperscale-service-tier"></a>是否可將現有的 Azure SQL 資料庫移至超大規模資料庫服務層級
 
-是。 您可以將現有的 Azure SQL 資料庫移至「超大規模資料庫」。 這是單向的遷移。 您無法將資料庫從超大規模資料庫移到另一個服務層級中。 對於概念證明（Poc），建議您建立資料庫的複本，並將複本遷移至超大規模資料庫。
+可以。 您可以將現有的 Azure SQL 資料庫移至「超大規模資料庫」。 這是單向的遷移。 您無法將資料庫從超大規模資料庫移到另一個服務層級中。 對於概念證明（Poc），建議您建立資料庫的複本，並將複本遷移至超大規模資料庫。
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-service-tiers"></a>我可以將超大規模資料庫資料庫移至其他服務層級
 
@@ -211,11 +211,11 @@ ms.locfileid: "73818219"
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>移轉至超大規模資料庫服務層級之後是否會失去任何運作性或功能
 
-是。 超大規模資料庫尚不支援某些 Azure SQL Database 功能，包括但不限於長期的備份保留。 在您將資料庫移轉至「超大規模資料庫」後，這些功能將會停止運作。  我們希望這些限制是暫時性的。
+可以。 超大規模資料庫尚不支援某些 Azure SQL Database 功能，包括但不限於長期的備份保留。 在您將資料庫移轉至「超大規模資料庫」後，這些功能將會停止運作。  我們希望這些限制是暫時性的。
 
 ### <a name="can-i-move-my-on-premises-sql-server-database-or-my-sql-server-database-in-a-cloud-virtual-machine-to-hyperscale"></a>我可以將內部部署 SQL Server 資料庫或雲端虛擬機器中的 SQL Server 資料庫移至超大規模資料庫
 
-是。 您可以使用所有現有的遷移技術來遷移至超大規模資料庫，包括異動複寫，以及任何其他資料移動技術（大量複製、Azure Data Factory、Azure Databricks、SSIS）。 另請參閱[Azure 資料庫移轉服務](../dms/dms-overview.md)，其支援許多遷移案例。
+可以。 您可以使用所有現有的遷移技術來遷移至超大規模資料庫，包括異動複寫，以及任何其他資料移動技術（大量複製、Azure Data Factory、Azure Databricks、SSIS）。 另請參閱[Azure 資料庫移轉服務](../dms/dms-overview.md)，其支援許多遷移案例。
 
 ### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>我在從內部部署或虛擬機器環境遷移至超大規模資料庫時的停機時間，以及如何將它最小化
 
@@ -244,7 +244,7 @@ SQL Server 2005。 如需詳細資訊，請參閱[移轉至單一資料庫或集
 
 ### <a name="does-hyperscale-support-migration-from-other-data-sources-such-as-amazon-aurora-mysql-postgresql-oracle-db2-and-other-database-platforms"></a>超大規模資料庫支援從其他資料來源（例如 Amazon Aurora、MySQL、于 postgresql、Oracle、DB2 和其他資料庫平臺）進行遷移
 
-是。 [Azure 資料庫移轉服務](../dms/dms-overview.md)支援許多遷移案例。
+可以。 [Azure 資料庫移轉服務](../dms/dms-overview.md)支援許多遷移案例。
 
 ## <a name="business-continuity-and-disaster-recovery-questions"></a>商務持續性和嚴重損壞修復問題
 
@@ -254,7 +254,7 @@ SQL Server 2005。 如需詳細資訊，請參閱[移轉至單一資料庫或集
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>Azure SQL Database 服務是否會為我管理資料庫備份
 
-是。
+可以。
 
 ### <a name="how-often-are-the-database-backups-taken"></a>資料庫備份多久執行一次
 
@@ -262,7 +262,7 @@ SQL Server 2005。 如需詳細資訊，請參閱[移轉至單一資料庫或集
 
 ### <a name="does-hyperscale-support-point-in-time-restore"></a>超大規模資料庫支援時間點還原
 
-是。
+可以。
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-for-database-restore-in-hyperscale"></a>超大規模資料庫中資料庫還原的復原點目標（RPO）/Recovery 時間目標（RTO）為何
 
@@ -274,11 +274,11 @@ RPO 為0分鐘。RTO 目標小於10分鐘，不論資料庫大小為何。
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>我可以使用超大規模資料庫資料庫執行異地還原
 
-是。  完全支援異地還原。
+可以。  完全支援異地還原。
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>我可以使用超大規模資料庫資料庫來設定異地複寫
 
-目前沒有。
+目前不是。
 
 ### <a name="can-i-take-a-hyperscale-database-backup-and-restore-it-to-my-on-premises-server-or-on-sql-server-in-a-vm"></a>我可以進行超大規模資料庫資料庫備份，並將它還原到我的內部部署伺服器，或在 VM 的 SQL Server 上
 
@@ -288,7 +288,7 @@ RPO 為0分鐘。RTO 目標小於10分鐘，不論資料庫大小為何。
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>移轉至超大規模資料庫服務層級之後是否會失去任何運作性或功能
 
-是。 某些 Azure SQL Database 功能在超大規模資料庫中不受支援，包括但不限於長期的備份保留。 在您將資料庫移轉至「超大規模資料庫」後，這些功能將會停止運作。
+可以。 某些 Azure SQL Database 功能在超大規模資料庫中不受支援，包括但不限於長期的備份保留。 在您將資料庫移轉至「超大規模資料庫」後，這些功能將會停止運作。
 
 ### <a name="will-polybase-work-with-hyperscale"></a>Polybase 會與超大規模資料庫搭配使用
 
@@ -340,7 +340,7 @@ IOPS 和 IO 延遲會根據工作負載模式而有所不同。 如果要存取�
 
 ### <a name="does-the-size-of-my-tempdb-database-also-grow-as-the-compute-is-scaled-up"></a>當計算相應增加時，我的 `tempdb` 資料庫的大小也會隨之成長
 
-是。 當計算成長時，`tempdb` 資料庫會自動相應增加。  
+可以。 當計算成長時，`tempdb` 資料庫會自動相應增加。  
 
 ### <a name="can-i-provision-multiple-primary-compute-replicas-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>我可以布建多個主要計算複本，例如多主機系統，其中多個主要計算標頭可以驅動較高層級的平行存取
 

@@ -1,6 +1,6 @@
 ---
-title: 呼叫 web Api 的 Daemon 應用程式（應用程式設定）-Microsoft 身分識別平臺
-description: 瞭解如何建立可呼叫 web Api 的 daemon 應用程式（應用程式設定）
+title: 設定呼叫 web Api 的 daemon 應用程式-Microsoft 身分識別平臺 |Azure
+description: 瞭解如何為可呼叫 web Api （應用程式設定）的背景工作應用程式設定程式碼
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32fbd4af78e02dad2a8a74ee21f9cb8c6ef0a976
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b0fd50f730c604ba1359218cf5268bd20e570d3c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175503"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962639"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>呼叫 web Api 的 Daemon 應用程式-程式碼設定
 
@@ -269,7 +269,7 @@ MSAL.NET 有兩種方法可將已簽署的判斷提示提供給機密用戶端�
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-當您使用 `WithClientAssertion` 時，您需要提供已簽署的 JWT。 [用戶端判斷](msal-net-client-assertions.md)提示中會詳細說明這個 advanced 案例
+當您使用 `WithClientAssertion`時，您需要提供已簽署的 JWT。 [用戶端判斷](msal-net-client-assertions.md)提示中會詳細說明這個 advanced 案例
 
 ```CSharp
 string signedClientAssertion = ComputeAssertion();
@@ -278,7 +278,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-當您使用 `WithClientClaims` 時，MSAL.NET 會自行計算已簽署的判斷提示，其中包含 Azure AD 加上您想要傳送的其他用戶端宣告所預期的宣告。
+當您使用 `WithClientClaims`時，MSAL.NET 會自行計算已簽署的判斷提示，其中包含 Azure AD 加上您想要傳送的其他用戶端宣告所預期的宣告。
 以下是如何執行此動作的程式碼片段：
 
 ```CSharp
@@ -295,7 +295,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-在 MSAL Python 中，您可以使用將由此 `ConfidentialClientApplication` 的私密金鑰簽署的宣告，提供用戶端宣告。
+在 MSAL Python 中，您可以使用將由此 `ConfidentialClientApplication`的私密金鑰簽署的宣告，提供用戶端宣告。
 
 ```Python
 config = json.load(open(sys.argv[1]))

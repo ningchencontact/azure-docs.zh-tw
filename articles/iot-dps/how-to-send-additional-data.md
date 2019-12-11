@@ -1,18 +1,18 @@
 ---
 title: 如何在裝置與 Azure 裝置布建服務之間傳輸其他資料
-description: 本檔說明如何在裝置與 DPS 之間傳輸其他資料
+description: 本檔說明如何在裝置和裝置布建服務（DPS）之間傳輸其他資料
 author: menchi
 ms.author: menchi
 ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 90402dd6fbe19811b5bb6d5ac0fbdd984b71fd33
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: e9482f7069616d61efb98f66590ce33cfe3cf350
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123176"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974848"
 ---
 # <a name="how-to-transfer-additional-data-between-device-and-dps"></a>如何在裝置與 DPS 之間傳輸其他資料
 DPS 有時候需要從裝置取得更多資料，才能適當地將它們佈建到正確的 IoT 中樞，而且該資料需要由裝置提供。 相反地，DPS 可以將資料傳回給裝置，以協助用戶端邏輯。 

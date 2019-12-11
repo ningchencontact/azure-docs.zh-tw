@@ -6,15 +6,15 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 553234410a7b8b798d26f0e2fee6132a2602b1cc
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 3fed615a767fee2fff1700f996b2103f411db825
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770504"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973470"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>使用 Azure 入口網站管理適用於 MySQL 的 Azure 資料庫伺服器
-本文說明如何管理適用于 MySQL 伺服器的 Afire 資料庫。 管理工作包括計算和儲存體調整、系統管理員密碼重設，以及查看伺服器詳細資料。
+本文說明如何管理您的適用於 MySQL 的 Azure 資料庫伺服器。 管理工作包括計算和儲存體調整、系統管理員密碼重設，以及查看伺服器詳細資料。
 
 ## <a name="sign-in"></a>Sign in
 登入 [Azure 入口網站](https://portal.azure.com)。

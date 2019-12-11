@@ -1,6 +1,6 @@
 ---
-title: Web API 呼叫 web Api （呼叫 Api）-Microsoft 身分識別平台
-description: 了解如何建置 web API，其呼叫下游 web Api （呼叫 web API）。
+title: 呼叫 web Api 的 web API-Microsoft 身分識別平臺 |Azure
+description: 瞭解如何建立呼叫 web Api 的 Web API。
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,22 +15,22 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cd093cc68a21558dc326221eeaa8c034c24f1c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6063d143e2f217426bdf1db217fde46f8542d314
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074721"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965206"
 ---
-# <a name="web-api-that-calls-web-apis---call-an-api"></a>呼叫 web Api-的 web API 呼叫的 API
+# <a name="web-api-that-calls-web-apis---call-an-api"></a>呼叫 web Api 的 web API-呼叫 API
 
-語彙基元之後，您可以呼叫受保護的 web API。 這是從您 ASP.NET/ASP.NET Core web API 控制器。
+有了權杖之後，您就可以呼叫受保護的 Web API。 這是從您 ASP.NET/ASP.NET 核心 Web API 的控制器來完成。
 
 ## <a name="controller-code"></a>控制器程式碼
 
-以下是範例程式碼所示的接續[受保護 web API 呼叫 web Api-權杖](scenario-web-api-call-api-acquire-token.md)，稱為 API 控制器的動作，在呼叫 （名為 todolist） 下游 API。
+以下是受保護 Web API 中顯示的範例程式碼接續，會[呼叫 Web api-取得權杖](scenario-web-api-call-api-acquire-token.md)（在 API 控制器的動作中呼叫），並呼叫下游 API （名為 todolist）。
 
-一旦您取得權杖，使用它做為持有人權杖來呼叫下游 API。
+一旦您取得權杖，請使用它做為持有人權杖來呼叫下游 API。
 
 ```CSharp
 private async Task GetTodoList(bool isAppStarting)

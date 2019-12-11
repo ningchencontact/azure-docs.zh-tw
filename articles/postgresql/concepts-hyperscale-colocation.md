@@ -1,18 +1,18 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫中的伺服器概念
-description: 本文提供設定及管理適用於 PostgreSQL 之 Azure 資料庫伺服器的考量和指導方針。
+title: 資料表共置-超大規模資料庫（Citus）-適用於 PostgreSQL 的 Azure 資料庫
+description: 如何將相關資訊儲存在一起，以加快查詢速度
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4a5ebf810771efe49ee40e272d1fa4683140eda1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7e4073ec45f4c21f33d20924a9948e72f961c7f8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482757"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967332"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>適用於 PostgreSQL 的 Azure 資料庫中的資料表共置–超大規模資料庫（Citus）
 

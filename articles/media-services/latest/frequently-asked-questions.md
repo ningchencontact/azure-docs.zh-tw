@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 6e52a51c82529a98ef679dd747b9c8b7d177b660
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: c9da29ad288811bbed225fd906f2a7eb1fd9edf7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338824"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977721"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>媒體服務 v3 常見問題
 
@@ -26,7 +26,7 @@ ms.locfileid: "71338824"
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>哪些 Azure 角色可以對 Azure 媒體服務資源執行動作？ 
 
-請參閱[角色型存取控制 (RBAC) 以取得媒體服務帳戶](rbac-overview.md)。
+請參閱[角色型存取控制（RBAC）以取得媒體服務帳戶](rbac-overview.md)。
 
 ### <a name="how-do-i-configure-media-reserved-units"></a>如何設定編碼保留單元？
 
@@ -36,7 +36,7 @@ ms.locfileid: "71338824"
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>建議用來處理影片的方法為何？
 
-使用[轉換](https://docs.microsoft.com/rest/api/media/transforms)可設定視訊編碼或分析的一般工作。 每個**轉換**都會描述配方或工作流程，以便處理您的視訊或音訊檔案。 「[作業](https://docs.microsoft.com/rest/api/media/jobs)」 (Job) 是媒體服務將**轉換**套用到指定輸入影片或音訊內容的實際要求。 一旦建立轉換，您就可以使用媒體服務 API 或使用任何已發佈的 SDK 提交作業。 如需詳細資訊，請參閱[轉換和作業](transforms-jobs-concept.md)。
+使用[轉換](https://docs.microsoft.com/rest/api/media/transforms)可設定視訊編碼或分析的一般工作。 每個**轉換**都會描述配方或工作流程，以便處理您的視訊或音訊檔案。 「[作業](https://docs.microsoft.com/rest/api/media/jobs)」（Job）是媒體服務將**轉換**套用到指定輸入影片或音訊內容的實際要求。 一旦建立轉換，您就可以使用媒體服務 API 或使用任何已發佈的 SDK 提交作業。 如需詳細資訊，請參閱[轉換和作業](transforms-jobs-concept.md)。
 
 ### <a name="how-does-pagination-work"></a>分頁的運作方式為何？
 
@@ -44,11 +44,11 @@ ms.locfileid: "71338824"
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Azure 媒體服務 v3 中尚無法使用哪些功能？
 
-如需詳細資訊, 請參閱[V2 api 相關的功能差距](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis)。
+如需詳細資訊，請參閱[V2 api 相關的功能差距](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis)。
 
 ### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>在訂閱之間移動媒體服務帳戶的程式為何？  
 
-如需詳細資訊, 請參閱[在訂閱之間移動媒體服務帳戶](media-services-account-concept.md)。
+如需詳細資訊，請參閱[在訂閱之間移動媒體服務帳戶](media-services-account-concept.md)。
 
 ## <a name="live-streaming"></a>即時串流 
 
@@ -62,9 +62,9 @@ ms.locfileid: "71338824"
 
 ### <a name="should-i-use-an-aes-128-clear-key-encryption-or-a-drm-system"></a>我應該使用 AES-128 清除金鑰加密或 DRM 系統嗎？
 
-客戶通常不知道他們應該使用 AES 加密，還是 DRM 系統。 這兩個系統之間的主要差異是, 使用 AES 加密時, 會透過 TLS 將內容金鑰傳輸至用戶端, 這樣金鑰就會在傳輸中加密, 但不需要任何額外的加密 (「明文」)。 因此, 用來解密內容的金鑰可供用戶端播放人員存取, 而且可以在用戶端的網路追蹤中以純文字方式來查看。 AES-128 清除金鑰加密適用于檢視器是受信任的合作物件的使用案例 (例如, 將公司內散佈的公司影片加密, 以供員工查看)。
+客戶通常不知道他們應該使用 AES 加密，還是 DRM 系統。 這兩個系統之間的主要差異是，使用 AES 加密時，會透過 TLS 將內容金鑰傳輸至用戶端，這樣金鑰就會在傳輸中加密，但不需要任何額外的加密（「明文」）。 因此，用來解密內容的金鑰可供用戶端播放人員存取，而且可以在用戶端的網路追蹤中以純文字方式來查看。 AES-128 清除金鑰加密適用于檢視器是受信任的合作物件的使用案例（例如，將公司內散佈的公司影片加密，以供員工查看）。
 
-PlayReady、Widevine 和 FairPlay 等 DRM 系統全都在用來解密內容的金鑰上提供額外的加密層級, 相較于 AES-128 清除金鑰。 內容金鑰會加密為受 DRM 執行時間保護的金鑰, 以供 TLS 所提供的任何傳輸層級加密使用。 此外，解密會在安全環境中，惡意使用者更難攻擊的作業系統層級上進行處理。 針對檢視者可能不是受信任的合作對象，而且您需要最高層級安全性的使用案例，建議使用 DRM。
+PlayReady、Widevine 和 FairPlay 等 DRM 系統全都在用來解密內容的金鑰上提供額外的加密層級，相較于 AES-128 清除金鑰。 內容金鑰會加密為受 DRM 執行時間保護的金鑰，以供 TLS 所提供的任何傳輸層級加密使用。 此外，解密會在安全環境中，惡意使用者更難攻擊的作業系統層級上進行處理。 針對檢視者可能不是受信任的合作對象，而且您需要最高層級安全性的使用案例，建議使用 DRM。
 
 ### <a name="how-to-show-a-video-only-to-users-who-have-a-specific-permission-without-using-azure-ad"></a>如何只向擁有特定許可權的使用者顯示影片，而不使用 Azure AD？
 
@@ -76,7 +76,7 @@ PlayReady、Widevine 和 FairPlay 等 DRM 系統全都在用來解密內容的�
 
 ### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>如何以及在何處取得 JWT 權杖，再用來要求授權或金鑰？
 
-1. 針對生產環境, 您需要有一個安全權杖服務 (STS) (web 服務), 它會在 HTTPS 要求發出 JWT 權杖。 用於測試時，您可以使用 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) 中定義的 **GetTokenAsync** 方法所示的程式碼。
+1. 針對生產環境，您需要有一個安全權杖服務（STS）（web 服務），它會在 HTTPS 要求發出 JWT 權杖。 用於測試時，您可以使用 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) 中定義的 **GetTokenAsync** 方法所示的程式碼。
 2. 播放器必須在使用者經過驗證之後，向 STS 提出此類權杖的要求，並將它指派為權杖的值。 您可以使用 [Azure 媒體播放器 API](https://amp.azure.net/libs/amp/latest/docs/)。
 
 * 如需執行 STS (使用對稱和非對稱金鑰) 的範例，請參閱 [https://aka.ms/jwt](https://aka.ms/jwt)。 
@@ -88,9 +88,9 @@ PlayReady、Widevine 和 FairPlay 等 DRM 系統全都在用來解密內容的�
 
 在 STS 中，根據使用者設定檔，新增不同的宣告 (例如「進階使用者」、「基本使用者」、「免費試用使用者」)。 在 JWT 中使用不同的宣告，使用者可以看見不同的內容。 當然，對於不同的內容/資產，ContentKeyPolicyRestriction 會有對應的 RequiredClaims。
 
-使用 Azure 媒體服務 Api 來設定授權/金鑰傳遞和加密您的資產 (如[本範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)所示)。
+使用 Azure 媒體服務 Api 來設定授權/金鑰傳遞和加密您的資產（如[本範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)所示）。
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 - [內容保護概觀](content-protection-overview.md)
 - [設計具有存取控制的多重 DRM 內容保護系統](design-multi-drm-system-with-access-control.md)
@@ -110,7 +110,7 @@ ASP.NET 播放器應用程式的最佳做法是使用 HTTPS，因此媒體播放
 
 ### <a name="what-about-live-streaming"></a>即時串流呢？
 
-您可以使用完全相同的設計和實作，藉由將與程式相關聯的資產當成「VOD 資產」，來保護媒體服務中的即時串流。 若要提供即時內容的多重 DRM 保護, 請在將資產與即時輸出產生關聯之前, 將相同的設定/處理套用至資產, 如同它是 VOD 資產。
+您可以使用完全相同的設計和實作，藉由將與程式相關聯的資產當成「VOD 資產」，來保護媒體服務中的即時串流。 若要提供即時內容的多重 DRM 保護，請在將資產與即時輸出產生關聯之前，將相同的設定/處理套用至資產，如同它是 VOD 資產。
 
 ### <a name="what-about-license-servers-outside-media-services"></a>在媒體服務外部的授權伺服器呢？
 
@@ -119,11 +119,14 @@ ASP.NET 播放器應用程式的最佳做法是使用 HTTPS，因此媒體播放
 * STS 必須發出權杖，讓授權伺服器陣列可接受且可驗證這類權杖。 例如，Axinom 所提供的 Widevine 授權伺服器要求包含權利訊息的特定 JWT。 因此，您需要有 STS 才能發出這類的 JWT。 
 * 您不再需要在媒體服務中設定授權傳遞服務。 當您設定 ContentKeyPolicies 時，必須提供授權取得 URL (針對 PlayReady、Widevine 和 FairPlay)。
 
+> [!NOTE]
+> Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
+
 ## <a name="media-services-v2-vs-v3"></a>媒體服務 v2 和 v3 
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>是否可以使用 Azure 入口網站來管理 v3 資源？
 
-目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](media-services-apis-overview.md#sdks)。
+目前您無法使用 Azure 入口網站管理 v3 資源。 使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](media-services-apis-overview.md#sdks)。
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>v3 中是否有 AssetFile 概念？
 

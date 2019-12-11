@@ -1,11 +1,10 @@
 ---
-title: 使用雲端 init 在 Azure 上的 Linux VM 中更新和安裝套件
+title: 在 Azure 上的 Linux VM 中使用雲端 init
 description: 如何透過 Azure CLI 在建立期間使用 cloud-init 在 Linux 虛擬機器中更新及安裝套件
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
+author: cynthn
 manager: gwallace
-editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -13,16 +12,16 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: rclaus
-ms.openlocfilehash: ddea412598e02be7d71d5a3efafa444a5dc19e8c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: cynthn
+ms.openlocfilehash: 7bb48ec11ec042f021203c1716968daa9ab45047
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036737"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973130"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>使用 cloud-init 在 Azure 上的 Linux VM 中更新和安裝封裝
-本文會示範如何在 Azure 佈建期間，使用 [cloud-init](https://cloudinit.readthedocs.io) 在 Linux 虛擬機器 (VM) 上或虛擬機器擴展集 (VMSS) 上更新封裝。 一旦 Azure 佈建資源之後，這些 cloud-init 指令碼就會在初次開機時執行。 如需深入了解 cloud-init 如何以原生方式在 Azure 和支援的 Linux 散發版本中運作，請參閱 [cloud-init 概觀](using-cloud-init.md)
+本文說明如何在 Azure 中的布建時間，使用[雲端 init](https://cloudinit.readthedocs.io)來更新 Linux 虛擬機器（VM）或虛擬機器擴展集上的套件。 一旦 Azure 佈建資源之後，這些 cloud-init 指令碼就會在初次開機時執行。 如需深入了解 cloud-init 如何以原生方式在 Azure 和支援的 Linux 散發版本中運作，請參閱 [cloud-init 概觀](using-cloud-init.md)
 
 ## <a name="update-a-vm-with-cloud-init"></a>使用 cloud-init 更新 VM
 基於安全考量，您應該設定 VM 以在第一次開機時套用最新的更新。 由於 cloud-init 可在不同的 Linux 散發版本上運作，所以不需要為套件管理員指定 `apt` 或 `yum`。 相反地，您可定義 `package_upgrade` 並讓 cloud-init 程序判斷使用中散發版本的適當機制。 此工作流程可讓您在不同的散發版本上使用相同的 cloud-init 指令碼。
@@ -65,7 +64,7 @@ ssh <publicIpAddress>
 sudo yum update
 ```
 
-由於 cloud-init 會在開機時檢查是否有更新並予以安裝，因此應該已經沒有要套用的其他更新。  執行 `httpd` 並檢閱類似如下的輸出，您就會看到更新程序、更改過的套件數目，以及 `yum history` 的安裝。
+由於 cloud-init 會在開機時檢查是否有更新並予以安裝，因此應該已經沒有要套用的其他更新。  執行 `yum history` 並檢閱類似如下的輸出，您就會看到更新程序、更改過的套件數目，以及 `httpd` 的安裝。
 
 ```bash
 Loaded plugins: fastestmirror, langpacks

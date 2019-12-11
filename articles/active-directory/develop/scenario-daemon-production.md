@@ -1,6 +1,6 @@
 ---
-title: 呼叫 web Api 的 Daemon 應用程式（移至生產環境）-Microsoft 身分識別平臺
-description: 瞭解如何建立可呼叫 web Api （移至生產環境）的 daemon 應用程式
+title: 將背景工作應用程式呼叫 web Api 移至生產環境-Microsoft 身分識別平臺 |Azure
+description: 瞭解如何將會呼叫 web Api 的 daemon 應用程式移至生產環境
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05418cde7b31392c1a55f64945764e978daba1bf
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 961928499008445207df3a34a51fc016723c294b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175402"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962588"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>呼叫 web Api 的 Daemon 應用程式-移至生產環境
 

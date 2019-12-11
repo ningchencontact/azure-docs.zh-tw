@@ -1,6 +1,6 @@
 ---
 title: 使用不同的證明機制搭配 Azure IoT 中樞裝置布建服務用戶端 SDK
-description: Azure 作法 - 如何在 Azure 中使用不同證明機制搭配裝置佈建服務用戶端 SDK
+description: Azure 作法-如何在 Azure 中使用不同證明機制搭配裝置布建服務（DPS）用戶端 SDK
 author: robinsh
 ms.author: robinsh
 ms.date: 03/30/2018
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 0cde591d2ec8c6f2f51c83b3f263c188c8cf2605
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c85d958074ea5d41d32f71350164c3c983e372a2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228277"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976650"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>如何使用不同證明機制搭配適用於 C 的裝置佈建服務用戶端 SDK
 
 本文說明如何使用不同的[證明機制](concepts-security.md#attestation-mechanism)搭配適用於 C 的裝置佈建服務用戶端 SDK。您可以使用實體裝置或模擬器。 布建服務支援兩種證明機制類型的驗證： x.509 和信賴平臺模組（TPM）。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 根據[建立及佈建模擬的裝置](./quick-create-simulated-device.md)指南中標題為「準備開發環境」一節，準備您的開發環境。
 

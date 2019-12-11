@@ -1,6 +1,6 @@
 ---
 title: 使用對稱金鑰布建舊版裝置-Azure IoT 中樞裝置布建服務
-description: 如何使用對稱金鑰透過裝置佈建服務執行個體佈建繼承裝置
+description: 如何使用對稱金鑰來布建舊版裝置與裝置布建服務（DPS）實例
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 3e3b54592608f5c39d618f5ceda40747ad4fd0fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c9beda9c271c755c9ea61498b24a9e40bde35a7e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209921"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975103"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>如何使用對稱金鑰佈建繼承裝置
 
@@ -30,7 +30,7 @@ ms.locfileid: "74209921"
 > [!NOTE]
 > 本文中使用的範例是以 C 撰寫。另外還有[ C#裝置布建對稱金鑰範例](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample)可供使用。 若要使用此範例，請下載或複製[azure-iot-範例-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp)存放庫，並遵循範例程式碼中的內嵌指示。 您可以遵循本文中的指示，使用入口網站建立對稱金鑰註冊群組，並尋找執行範例所需的識別碼範圍和註冊群組主要和次要金鑰。 您也可以使用範例來建立個別註冊。
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 將根據識別該裝置的資訊，為每個裝置定義唯一的註冊識別碼。 例如，MAC 位址或序號。
 
@@ -41,7 +41,7 @@ ms.locfileid: "74209921"
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)快速入門。
 * [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 或更新版本，並啟用[使用 C++ 的桌面開發](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載。
@@ -52,11 +52,11 @@ ms.locfileid: "74209921"
 
 在此節中，您會準備用來建置 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 的開發環境。 
 
-SDK 包含模擬裝置的範例程式碼。 這個模擬裝置將會嘗試在裝置開機順序期間進行佈建。
+SDK 包含模擬裝置的範例程式碼。 這個模擬的裝置將會嘗試在裝置開機順序期間進行佈建。
 
 1. 下載 [CMake 建置系統](https://cmake.org/download/)。
 
-    在開始安裝之前`CMake`，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
+    在開始安裝 `CMake` **之前**，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
 
 2. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令以複製 Azure IoT C SDK GitHub 存放庫：
     
@@ -82,7 +82,7 @@ SDK 包含模擬裝置的範例程式碼。 這個模擬裝置將會嘗試在裝
     
     如果 `cmake` 找不到 C++ 編譯，您在執行上述命令時，可能會收到建置錯誤。 如果發生這種情況，請嘗試在 [Visual Studio 命令提示字元](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)中執行此命令。 
 
-    建置成功後，最後幾行輸出會看起來類似下列輸出：
+    建置成功後，最後幾行輸出會類似於下列輸出：
 
     ```cmd/sh
     $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -119,7 +119,7 @@ SDK 包含模擬裝置的範例程式碼。 這個模擬裝置將會嘗試在裝
 
      ![為對稱金鑰證明新增註冊群組](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
-4. 一旦儲存您的註冊，將會產生 [主要金鑰] 與 [次要金鑰] 並新增到註冊項目。 您的對稱金鑰註冊群組會在 [註冊群組] 索引標籤的 [群組名稱] 資料行之下，顯示為 *mylegacydevices*。 
+4. 一旦儲存您的註冊，將會產生 [主要金鑰] 與 [次要金鑰] 並新增到註冊項目。 您的對稱金鑰註冊群組會在 [註冊群組] 索引標籤的 [群組名稱] 資料行之下，顯示為 **mylegacydevices**。 
 
     開啟註冊並複製您產生之 [主要金鑰] 的值。 此金鑰是您的主要群組金鑰。
 
@@ -203,7 +203,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
     ![從入口網站刀鋒視窗擷取裝置佈建服務端點資訊](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. 在 Visual Studio 中，開啟先前藉由執行 CMake 而產生的 **azure_iot_sdks.sln** 解決方案檔案。 該方案檔案應位於下列位置：
+2. 在 Visual Studio 中，開啟先前藉由執行 CMake 而產生的 **azure_iot_sdks.sln** 解決方案檔案。 該方案檔案應該位於下列位置：
 
     ```
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
@@ -226,7 +226,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. 在 `prov_dev_set_symmetric_key_info()`prov**dev\_client\_sample.c\_ 中尋找已標成註解之**  的呼叫。
+6. 在 **prov\_dev\_client\_sample.c** 中尋找已標成註解之 `prov_dev_set_symmetric_key_info()` 的呼叫。
 
     ```c
     // Set the symmetric key if using they auth type
@@ -244,9 +244,9 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 7. 以滑鼠右鍵按一下 **prov\_dev\_client\_sample** 專案，然後選取 [設定為起始專案]。 
 
-8. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決。 出現重新建置專案的提示時，按一下 [是]，以在執行前重新建置專案。
+8. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決方案。 出現重新建置專案的提示時，按一下 [是]，以在執行前重新建置專案。
 
-    下列輸出是模擬裝置成功開機，並連線到佈建服務執行個體以準備指派給 IoT 中樞的範例：
+    下列輸出是模擬裝置成功開機並連線到佈建服務執行個體以準備指派給 IoT 中樞的範例：
 
     ```cmd
     Provisioning API Version: 1.2.8

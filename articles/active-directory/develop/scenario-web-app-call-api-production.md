@@ -1,6 +1,6 @@
 ---
-title: 呼叫 web Api （移至生產環境）-Microsoft 身分識別平台的 web 應用程式
-description: 了解如何建置 web 應用程式呼叫 web Api （移至生產環境）
+title: 將 web 應用程式呼叫 web Api 移至生產環境-Microsoft 身分識別平臺 |Azure
+description: 瞭解如何將呼叫 web Api 的 web 應用程式移至生產環境。
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,28 +15,28 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b326cdb7303ff392c6129e0f0fa460ffe088305
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e40920b7045dad6f64b5699bc3c4c560eb399f2a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074931"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964951"
 ---
-# <a name="web-app-that-calls-web-apis---move-to-production"></a>Web 應用程式呼叫 web Api-移至生產環境
+# <a name="web-app-that-calls-web-apis---move-to-production"></a>呼叫 web Api 的 web 應用程式-移至生產環境
 
-既然您已經知道如何取得權杖來呼叫 Web Api，了解如何將移至生產環境。
+現在您已瞭解如何取得權杖以呼叫 Web Api，請瞭解如何進入生產環境。
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
-進一步了解試用完整 ASP.NET Core web 應用程式漸進式教學課程中，它會顯示：
+若要深入瞭解，請嘗試完整的 ASP.NET Core web 應用程式漸進式教學課程，其中顯示：
 
-- 如何使用多個目標群，包括國家/地區雲端，或使用社交身分識別登入使用者
+- 如何使用多個目標物件、國家雲端或社交身分識別登入使用者
 - 呼叫 Microsoft Graph
-- 呼叫多個 Microsoft Api
-- 處理累加同意
-- 呼叫 Web API
+- 呼叫數個 Microsoft Api
+- 處理累加式同意
+- 呼叫您自己的 Web API
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core web 應用程式教學課程](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)

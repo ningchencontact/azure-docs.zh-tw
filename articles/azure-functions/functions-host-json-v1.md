@@ -3,12 +3,12 @@ title: 適用於 Azure Functions 1.x 的 host.json 參考
 description: Azure Functions host.json 檔案與 v1 執行階段的參考文件。
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 99a571483086343d4e7d6188b2f401abc616c1bb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 256cd47fa0f309bef46c7f72951810d5f76d0fba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230596"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975460"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>適用於 Azure Functions 1.x 的 host.json 參考
 
@@ -16,10 +16,10 @@ ms.locfileid: "74230596"
 > * [第 1 版](functions-host-json-v1.md)
 > * [第 2 版](functions-host-json.md)
 
-*host.json* 中繼資料檔案所包含的全域設定選項會影響函式應用程式的所有函式。 本文列出 v1 執行階段可用的設定。 JSON 結構描述位於 http://json.schemastore.org/host。
+*host.json* 中繼資料檔案所包含的全域設定選項會影響函式應用程式的所有函式。 本文列出 v1 執行階段可用的設定。 JSON 結構描述位於 http://json.schemastore.org/host 。
 
 > [!NOTE]
-> 本文適用於 Azure Functions 1.x。  有關 Functions 2.x 中 host.json 的參考，請參閱[適用於 Azure Functions 2.x 的 host.json 參考](functions-host-json.md)。
+> 本文適用於 Azure Functions 1.x。  如需函式2.x 和更新版本中的 host. json 參考，請參閱 Azure Functions 2.x 的[host. json 參考](functions-host-json.md)。
 
 其他函數應用程式設定選項的管理是在[應用程式設定](functions-app-settings.md)中進行。
 
@@ -222,7 +222,7 @@ ms.locfileid: "74230596"
 
 作業主機的唯一識別碼。 可以是已移除虛線的小寫 GUID。 在本機執行時為必要項目。 在 Azure 中執行時，建議您不要設定識別碼值。 當省略 `id` 時，在 Azure 中會自動產生識別碼。 
 
-如果您在多個函數應用程式中共用儲存體帳戶，請確定每個函數應用程式具有不同的 `id`。 您可以省略 `id` 屬性或將每個函式應用程式的 `id` 手動設定為不同的值。 計時器觸發程序會使用儲存體鎖定，以確保當函數應用程式相應放大至多個執行個體時，只會有一個計時器執行個體。 如果兩個函式應用程式共用相同的 `id`，且每一個都是使用計時器觸發程序，則只有一個計時器會執行。
+如果您在多個函數應用程式中共用儲存體帳戶，請確定每個函數應用程式具有不同的 `id`。 您可以省略 `id` 屬性或將每個函數應用程式的 `id` 手動設定為不同的值。 計時器觸發程序會使用儲存體鎖定，以確保當函數應用程式相應放大至多個執行個體時，只會有一個計時器執行個體。 如果兩個函數應用程式共用相同的 `id`，且每一個都是使用計時器觸發程序，則只有一個計時器會執行。
 
 ```json
 {
@@ -292,7 +292,7 @@ ms.locfileid: "74230596"
 
 |屬性  |預設值 | 描述 |
 |---------|---------|---------| 
-|從|n/a|所有函式的寄件者電子郵件地址。| 
+|from|n/a|所有函式的寄件者電子郵件地址。| 
 
 ## <a name="servicebus"></a>serviceBus
 

@@ -1,17 +1,17 @@
 ---
-title: 設定適用於 PostgreSQL 的 Azure 資料庫超大規模資料庫（Citus）伺服器群組的高可用性
+title: 設定高可用性-超大規模資料庫（Citus）-適用於 PostgreSQL 的 Azure 資料庫
 description: 如何啟用或停用高可用性
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5ed29be1e890ddf2c4208ce9c03f01ce44f0e0d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a8d4b5949b34d16191e9ec10a1dd39faff3660dc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515911"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977642"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>設定超大規模資料庫（Citus）高可用性
 
@@ -20,13 +20,15 @@ ms.locfileid: "73515911"
 > [!IMPORTANT]
 > 因為 HA 會使群組中的伺服器數目加倍，所以成本也會加倍。
 
-在伺服器群組建立期間，或在 Azure 入口網站中伺服器群組的 [**設定**] 索引標籤中，可以啟用 HA。 在任一情況下，使用者介面看起來都很類似。 將 [**高可用性**] 滑杆拖曳至 [開啟] 或 [關閉]：
+在伺服器群組建立期間，或在 Azure 入口網站中伺服器群組的 [**設定**] 索引標籤中，可以啟用 HA。 在任一情況下，使用者介面看起來都很類似。 將 [**高可用性**] 滑杆拖曳至 [是]：
 
 ![ha 滑杆](./media/howto-hyperscale-high-availability/01-ha-slider.png)
 
 按一下 [**儲存**] 按鈕以套用您的選取專案。 啟用 HA 可能需要一些時間，因為伺服器群組會布建待命，並將資料串流給它們。
 
 伺服器群組的 [總覽] 索引標籤會列出所有節點及其待命，以及一個 **[** **高可用性**] 資料行，指出是否已針對每個節點成功啟用 HA。
+
+![伺服器群組中的 ha 資料行總覽](./media/howto-hyperscale-high-availability/02-ha-column.png)
 
 ### <a name="next-steps"></a>後續步驟
 

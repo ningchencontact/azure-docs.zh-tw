@@ -1,17 +1,17 @@
 ---
-title: 設定適用於 PostgreSQL 的 Azure 資料庫超大規模資料庫的計量警示（Citus）
+title: 設定警示-超大規模資料庫（Citus）-適用於 PostgreSQL 的 Azure 資料庫
 description: 本文說明如何設定和存取適用於 PostgreSQL 的 Azure 資料庫超大規模資料庫（Citus）的計量警示
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d5f45df16ac294f50e99cc7e05ab6eba43c0ae85
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 68a830f344023967f07ab809d67833f99e4e2958
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516015"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977602"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>使用 Azure 入口網站來設定適用於 PostgreSQL 的 Azure 資料庫超大規模資料庫（Citus）的計量警示
 

@@ -9,18 +9,21 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9301da884e26a65b198c885000159c383655b2d5
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 616e5dc5ac6416d2efe1d9338b99c2b400fe572a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771457"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977109"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>如何使用 Azure 認知搜尋中的索引子為 Cosmos DB 資料編制索引 
 
 > [!IMPORTANT] 
 > SQL API 已正式推出。
 > MongoDB API、Gremlin API 和 Cassandra API 支援目前處於公開預覽狀態。 預覽功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 您可以填寫[此表單](https://aka.ms/azure-cognitive-search/indexer-preview)來要求預覽的存取權。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供預覽功能。 目前的入口網站支援有限，而且沒有 .NET SDK 支援。
+
+> [!WARNING]
+> Azure 認知搜尋僅支援將[索引編制原則](https://docs.microsoft.com/azure/cosmos-db/index-policy)設定為[一致](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode)的 Cosmos DB 集合。 不建議將具有延遲索引編制原則的集合編制索引，而且可能會導致資料遺失。 不支援已停用索引的集合。
 
 本文說明如何設定 Azure Cosmos DB[索引子](search-indexer-overview.md)來解壓縮內容，並讓它在 Azure 認知搜尋中可供搜尋。 此工作流程會建立 Azure 認知搜尋索引，並使用從 Azure Cosmos DB 解壓縮的現有文字來載入它。 
 

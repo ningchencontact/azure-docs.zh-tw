@@ -3,12 +3,12 @@ title: Azure VM 備份的支援矩陣
 description: 摘要說明使用 Azure 備份服務來備份 Azure VM 時的支援設定和限制。
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 85a32dd9ea875bdfc73d7e4a9515e5cfe0e2da42
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: fa4e01def8db4e5fef32b644d198bad1e9beab27
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559036"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996165"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 
@@ -44,7 +44,7 @@ ms.locfileid: "74559036"
 修改 VM 的備份原則 | 支援。<br/><br/> 系統會使用新原則中的排程和保留期設定來備份 VM。 如果延長保留期設定，就會標示現有的復原點，並加以保留。 如果降低，現有的復原點將會在下一次清除作業中剪除，最後刪除。
 取消備份作業| 在快照集程序中支援。<br/><br/> 在快照集傳輸至保存庫期間不支援。
 將 VM 備份至不同的區域或訂用帳戶 |不支援。
-每日備份 (透過 Azure VM 擴充功能) | 每天執行一次排程備份。<br/><br/> 服務每天最多允許九個隨選備份，但 Microsoft 僅建議並支援最多四個每日隨選備份。
+每日備份 (透過 Azure VM 擴充功能) | 每天執行一次排程備份。<br/><br/>Azure 備份服務每天支援最多9個隨選備份，但 Microsoft 建議每日不超過四個隨選備份，以確保最佳效能。
 每日備份 (透過 MARS 代理程式) | 每天執行三次排程備份。
 每日備份 (透過 DPM/MABS) | 每天執行兩次排程備份。
 每月/每年備份| 在使用 Azure VM 擴充功能進行備份時不支援。 僅支援每日和每週備份。<br/><br/> 您可以設定依每月/每年的保留期間來保留每日/每週備份的原則。
@@ -146,7 +146,7 @@ VM 大小 |至少有 2 個 CPU 核心和 1 GB RAM 的任何 Azure VM 大小。<b
 備份從自訂映射（協力廠商）部署的 Vm |支援。<br/><br/> VM 必須執行支援的作業系統。<br/><br/> 復原 VM 上的檔案時，只能還原至相容的作業系統 (而非較舊或較新版的作業系統)。
 備份遷移至 Azure 的 Vm| 支援。<br/><br/> 若要備份 VM，必須在已移轉的機器上安裝 VM 代理程式。
 備份多部 VM 一致性 | Azure 備份不會提供跨多個 Vm 的資料和應用程式一致性。
-使用[診斷設定](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)進行備份  | 不支援. <br/><br/> 如果使用 [[建立新](backup-azure-arm-restore-vms.md#create-a-vm)的] 選項來觸發使用診斷設定來還原 Azure VM，則還原會失敗。
+使用[診斷設定](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)進行備份  | 不支援。 <br/><br/> 如果使用 [[建立新](backup-azure-arm-restore-vms.md#create-a-vm)的] 選項來觸發使用診斷設定來還原 Azure VM，則還原會失敗。
 還原區域釘選的 Vm | 支援（適用于在2019年1月之後備份且[可用性區域](https://azure.microsoft.com/global-infrastructure/availability-zones/)可供使用的 VM）。<br/><br/>我們目前支援還原至固定在 Vm 中的相同區域。 不過，如果區域無法使用，還原將會失敗。
 Gen2 Vm | 支援的 <br> Azure 備份支援[Gen2 vm](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)的備份與還原。 從復原點還原這些 Vm 時，它們會還原為[Gen2 vm](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)。
 

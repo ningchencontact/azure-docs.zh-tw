@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/26/2019
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e01c79c5cc9391922333af4e9a60ba44a6a6b13
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: be29f51771e24c67a8cd99a81e6a69be830dacb8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274012"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970630"
 ---
 # <a name="hide-applications-from-end-users-in-azure-active-directory"></a>對 Azure Active Directory 中的使用者隱藏應用程式
 
 如何在使用者的 MyApps 面板或 Office 365 啟動器中隱藏應用程式的指示。 隱藏應用程式時，使用者仍有應用程式的權限。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 需具備應用程式管理員權限，才能對 MyApps 面板和 Office 365 啟動器隱藏應用程式。
 
@@ -40,8 +40,21 @@ ms.locfileid: "74274012"
 5.  搜尋您想要隱藏的庫應用程式，然後按一下該應用程式。  應用程式的概觀隨即開啟。
 6.  按一下 [內容]。 
 7.  針對 [是否要向使用者顯示] 問題，按一下 [否]。
-8.  按一下 [檔案]。
+8.  按一下 [儲存]。
 
+## <a name="use-azure-ad-powershell-to-hide-an-application"></a>使用 Azure AD PowerShell 來隱藏應用程式
+
+若要從 [MyApps] 面板中隱藏應用程式，您可以手動將 HideApp 標記新增至應用程式的服務主體。 執行下列[AzureAD PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals)命令，將應用程式的**可見度**設定為 [**否**]。 
+
+```PowerShell
+Connect-AzureAD
+
+$objectId = "<objectId>"
+$servicePrincipal = Get-AzureADServicePrincipal -ObjectId $objectId
+$tags = $servicePrincipal.tags
+$tags.Add("HideApp")
+Set-AzureADServicePrincipal -ObjectId $objectId -Tags $tags
+```
 
 ## <a name="hide-office-365-applications-from-the-myapps-panel"></a>在使用者存取面板中隱藏 Office 365 應用程式
 
@@ -52,8 +65,7 @@ ms.locfileid: "74274012"
 3.  選取 [使用者設定]。
 4.  在 [企業應用程式] 之下，按一下 [管理終端使用者如何啟動及檢視其應用程式]。
 5.  針對 [使用者只能在 Office 365 入口網站看到 Office 365 應用程式]，按一下 [是]。
-6.  按一下 [檔案]。
-
+6.  按一下 [儲存]。
 
 ## <a name="next-steps"></a>後續步驟
 * [查看我的所有群組](../fundamentals/active-directory-groups-view-azure-portal.md)

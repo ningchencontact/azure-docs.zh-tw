@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 06/25/2019
+ms.date: 12/09/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: ac1687d371630089436640af15cf46491a38ab51
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 2596351a0db921276ad74c27e30a8e2af93f2f36
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485483"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74981160"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>網路限制-Azure Resource Manager 下列限制僅適用于透過每個訂用帳戶的每個區域**Azure Resource Manager**管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
@@ -27,13 +27,13 @@ ms.locfileid: "74485483"
 | 每個虛擬網路的虛擬網路對等互連 |500 |
 | [每個虛擬網路的虛擬網路閘道（VPN 閘道）](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |30 |
 | 每個虛擬網路的 DNS 伺服器 |20 |
-| 每個虛擬網路的私人 IP 位址 |65536 |
+| 每個虛擬網路的私人 IP 位址 |65,536 |
 | 每個網路介面的私人 IP 位址 |256 |
 | 每個虛擬機器的私人 IP 位址 |256 |
 | 每個網路介面的公用 IP 位址 |256 |
 | 每個虛擬機器的公用 IP 位址 |256 |
-| 虛擬機器或角色執行個體之每個 NIC 的並行 TCP 或 UDP 流程 |500,000 |
-| 網路介面卡 |65536 |
+| [虛擬機器或角色實例每個 NIC 的並行 TCP 或 UDP 流量](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500,000 |
+| 網路介面卡 |65,536 |
 | 網路安全性群組 |5,000 |
 | 每一 NSG 的 NSG 規則 |1,000 |
 | 針對安全性群組中的來源或目的地所指定的 IP 位址和範圍 |4,000 |
@@ -89,6 +89,6 @@ ms.locfileid: "74485483"
 | 每個路由表的使用者定義路由 |400 |400 |
 | 公用 IP 位址 (動態) |500 |500 |
 | 保留的公用 IP 位址 |500 |500 |
-| 每個部署的公用 VIP |5 |請連絡支援人員 |
+| 每個部署的公用 VIP |5 |連絡客戶支援 |
 | 每個部署的私人 VIP （內部負載平衡） |1 |1 |
 | 端點存取控制清單（Acl） |50 |50 |

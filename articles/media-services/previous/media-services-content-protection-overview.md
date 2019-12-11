@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: b0d71a7b010e91776a28330cfc32278c7060aab6
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 4ff4025941e9a77148daa91995ecf182231d1f0b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901259"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976276"
 ---
 # <a name="content-protection-overview"></a>內容保護概觀 
 
@@ -87,6 +87,10 @@ Playready 和 Widevine 會利用一般加密 (AES CTR 模式)。 FairPlay 會利
   * **cenc**︰適用於 PlayReady 或 Widevine (一般加密)
   * **cbcs-aapl**：適用於 FairPlay (AES CBC 加密)
   * **cbc**：適用於 AES 信封加密
+
+## <a name="additional-notes"></a>其他注意事項
+
+* Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="next-steps"></a>後續步驟
 下列文章描述可協助您開始使用內容保護的後續步驟：

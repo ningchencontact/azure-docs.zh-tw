@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 38d86a9ed82c3a242364e788cce371f83575c1ea
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 79867bd048be882414e247af11c133ed481788a0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108734"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996624"
 ---
 # <a name="application-gateway-configuration-overview"></a>應用程式閘道設定總覽
 
@@ -25,7 +25,7 @@ Azure 應用程式閘道是由數個元件所組成，您可以在不同的案�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Azure 虛擬網路和專用子網
 
@@ -241,7 +241,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 #### <a name="rewrite-the-http-header-setting"></a>重寫 HTTP 標頭設定
 
-此設定會在要求和回應封包于用戶端與後端集區之間移動時，新增、移除或更新 HTTP 要求和回應標頭。 如需詳細資訊，請參閱：
+此設定會在要求和回應封包于用戶端與後端集區之間移動時，新增、移除或更新 HTTP 要求和回應標頭。 如需詳細資訊，請參閱
 
  - [重寫 HTTP 標頭總覽](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
  - [設定 HTTP 標頭重寫](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
@@ -256,7 +256,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ### <a name="connection-draining"></a>清空連線
 
-清空連線可協助您在規劃的服務更新期間，正常地移除後端集區成員。 您可以在建立規則時，將此設定套用至後端集區的所有成員。 它可確保後端集區的所有取消註冊實例都不會收到任何新的要求。 同時，可以在設定的時間限制內完成現有的要求。 清空連接會套用至從後端集區明確移除的後端實例。
+清空連線可協助您在規劃的服務更新期間，正常地移除後端集區成員。 您可以在建立規則時，將此設定套用至後端集區的所有成員。 它可確保後端集區的所有取消註冊實例繼續維持現有的連線，並提供可設定的超時時間的要求，而且不會收到任何新的要求或連接。 唯一的例外狀況是因為閘道管理的會話親和性，而系結至 deregistring 實例的要求，會繼續以 proxy 的的 deregistring 實例。 清空連接會套用至從後端集區明確移除的後端實例。
 
 ### <a name="protocol"></a>通訊協定
 
@@ -264,7 +264,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 這項設定與接聽程式中的 HTTPS 結合，[可支援端對端 SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview)。 這可讓您安全地將加密的機密資料傳輸至後端。 後端集區中已啟用端對端 SSL 的每部後端伺服器，都必須使用憑證來設定，以允許安全通訊。
 
-### <a name="port"></a>Port
+### <a name="port"></a>連接埠
 
 此設定會指定後端伺服器用來接聽來自應用程式閘道之流量的埠。 您可以設定範圍從1到65535的埠。
 
@@ -325,7 +325,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 這項功能會以您指定的主機名稱取代應用程式閘道上的傳入要求中的*主機*標頭。
 
-例如，如果在 [**主機名稱**] 設定中指定*www.contoso.com* ，則將要求轉寄至後端伺服器時，原始要求 * https://appgw.eastus.cloudapp.azure.com/path1 會變更為 * https://www.contoso.com/path1。
+例如，如果在 [**主機名稱**] 設定中指定*www.contoso.com* ，則將要求轉寄至後端伺服器時，原始要求 * https://appgw.eastus.cloudapp.azure.com/path1 會變更為 * https://www.contoso.com/path1 。
 
 ## <a name="back-end-pool"></a>後端集區
 

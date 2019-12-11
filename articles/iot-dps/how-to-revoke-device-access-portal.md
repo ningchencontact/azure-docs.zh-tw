@@ -1,6 +1,6 @@
 ---
 title: Azure IoT 中樞裝置布建服務中的取消註冊裝置
-description: 如何消註冊裝置以避免透過 Azure IoT 中樞裝置佈建服務進行佈建
+description: 如何取消註冊裝置以防止透過 Azure IoT 中樞裝置布建服務（DPS）布建
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/05/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 6efbc4483e4768014678822e82f4ca4178f51863
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: af883da67f4e1bc819514e88ff480526e16124db
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228770"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974916"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>如何從 Azure IoT 中樞裝置佈建服務中取消註冊裝置
 
@@ -31,7 +31,7 @@ ms.locfileid: "74228770"
 停用裝置的註冊項目以將裝置暫時列入封鎖清單： 
 
 1. 登入 Azure 入口網站，然後在左側功能表中選取 [所有資源]。
-2. 在資源清單中，選取您要從中將裝置列入封鎖清單的佈建服務。
+2. 在資源清單中，選取您要從中將裝置列入黑名單的佈建服務。
 3. 在您的佈建服務中，選取 [管理註冊]，然後選取 [個別註冊] 索引標籤。
 4. 選取您想要列入封鎖清單之裝置的註冊項目。 
 
@@ -39,12 +39,12 @@ ms.locfileid: "74228770"
 
 5. 在註冊頁面上，捲動到底部，並在 [啟用項目] 切換開關選取 [停用]，然後選取 [儲存]。  
 
-   ![在入口網站中停用個別註冊項目](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
+   ![在入口網站中停用個別註冊](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
 
 刪除裝置的註冊項目以將裝置永久列入封鎖清單：
 
 1. 登入 Azure 入口網站，然後在左側功能表中選取 [所有資源]。
-2. 在資源清單中，選取您要從中將裝置列入封鎖清單的佈建服務。
+2. 在資源清單中，選取您要從中將裝置列入黑名單的佈建服務。
 3. 在您的佈建服務中，選取 [管理註冊]，然後選取 [個別註冊] 索引標籤。
 4. 針對您想要列入封鎖清單的裝置，選取其註冊項目旁邊的核取方塊。 
 5. 選取視窗頂端的 [刪除]，然後選取 [是] 以確認您要移除該註冊。 
@@ -74,7 +74,7 @@ X.509 憑證通常會配置在信任的信任鏈結中。 如果憑證在鏈結�
 刪除憑證的註冊群組以將憑證永久列入封鎖清單：
 
 1. 登入 Azure 入口網站，然後在左側功能表中選取 [所有資源]。
-2. 在資源清單中，選取您要從中將裝置列入封鎖清單的佈建服務。
+2. 在資源清單中，選取您要從中將裝置列入黑名單的佈建服務。
 3. 在佈建服務中，選取 [管理註冊]，然後選取 [註冊群組] 索引標籤。
 4. 針對您想要列入封鎖清單的憑證，選取其註冊群組旁邊的核取方塊。 
 5. 選取視窗頂端的 [刪除]，然後選取 [是] 以確認您要移除該註冊群組。 
@@ -86,11 +86,11 @@ X.509 憑證通常會配置在信任的信任鏈結中。 如果憑證在鏈結�
 > [!NOTE]
 > 如果您刪除某個憑證的註冊群組，其憑證鏈結中有該憑證的裝置可能仍可進行註冊，前提是根憑證或另一個在其憑證鏈結中更上層之中繼憑證的已啟用註冊群組存在。
 
-## <a name="blacklist-specific-devices-in-an-enrollment-group"></a>將註冊群組中的特定裝置列入黑名單
+## <a name="blacklist-specific-devices-in-an-enrollment-group"></a>將註冊群組中的特定裝置列入封鎖清單
 
 實作 X.509 證明機制的裝置會使用裝置的信任鏈結和私密金鑰來進行驗證。 當裝置連線並向「裝置佈建服務」驗證時，服務會先尋找符合裝置認證的個別註冊。 接著，服務才會搜尋註冊群組，以判斷是否可以佈建該裝置。 如果服務找到裝置的已停用個別註冊，就會防止該裝置進行連線。 即使裝置憑證鏈結中之中繼或根 CA 的已啟用註冊群組存在，服務也會防止連線。 
 
-若要將註冊群組中的個別裝置列入黑名單，請遵循下列步驟：
+若要將註冊群組中的個別裝置列入封鎖清單，請遵循下列步驟：
 
 1. 登入 Azure 入口網站，然後在左側功能表中選取 [所有資源]。
 2. 從資源清單中，選取包含您要列入封鎖清單之裝置註冊群組的佈建服務。

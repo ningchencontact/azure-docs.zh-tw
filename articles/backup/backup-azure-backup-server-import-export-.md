@@ -4,12 +4,12 @@ description: Azure 備份可讓您使用 Azure 匯入/匯出服務從網路傳�
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 4c62fed98a37a821907a889e45d582c452961203
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 259be99efdef29e3f7971632adf76c03175bba01
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173236"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996318"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>適用於 DPM 和 Azure 備份伺服器的離線備份工作流程
 
@@ -21,7 +21,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 > Microsoft Azure 復原服務 (MARS) 代理程式的離線備份程序與 System Center DPM 和 Azure 備份伺服器有所區別。 如需透過 MARS 代理程式使用離線備份的詳細資訊，請參閱[本文章](backup-azure-backup-import-export.md)。 針對使用「Azure 備份」代理程式來執行的「系統狀態」備份，不支援「離線備份」。
 >
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 透過 Azure 備份的離線植入功能和 Azure 匯入/匯出，可以簡單地使用磁碟將資料離線上傳至 Azure。 「離線備份」程序涉及下列步驟：
 
@@ -43,7 +43,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 > * 使用 System Center Data Protection Manager (SC DPM) 來備份所有工作負載和檔案
 > * 使用「Microsoft Azure 備份伺服器」來備份所有工作負載和檔案
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 起始「離線備份」工作流程之前，請先確定已符合下列先決條件
 
@@ -218,4 +218,4 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 ## <a name="next-steps"></a>後續步驟
 
 * 如有任何關於 Azure 匯入/匯出工作流程的問題，請參閱 [使用 Microsoft Azure 匯入/匯出服務將資料傳輸至 Blob 儲存體](../storage/common/storage-import-export-service.md)。
-* 若您有關於工作流程的任何問題，請參閱 Azure 備份 [常見問題集](backup-azure-backup-faq.md) 的＜離線備份＞章節。
+

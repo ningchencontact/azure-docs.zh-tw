@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 9301f3e685116c8496dd5e0ec986218a046f0c98
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: efc9d7fb31dc9f63780c3f94238bbbfb17756089
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707709"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973623"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>什麼是 Azure Machine Learning 設計工具（預覽）？ 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -93,7 +93,7 @@ Azure Machine Learning 設計工具可讓您以視覺化方式連接互動式畫
 | Azure Machine Learning Compute | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-計算目標會附加至您的 Machine Learning[工作區](concept-workspace.md)。 您可以在[Azure Machine Learning studio](https://ml.azure.com)中管理工作區中的計算目標。
+計算目標會附加至您的[Azure Machine Learning 工作區](concept-workspace.md)。 您可以在[Azure Machine Learning Studio （傳統）](https://ml.azure.com)中管理工作區中的計算目標。
 
 ## <a name="deploy"></a>部署
 

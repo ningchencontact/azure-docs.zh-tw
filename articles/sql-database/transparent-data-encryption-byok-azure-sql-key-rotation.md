@@ -7,16 +7,16 @@ ms.subservice: security
 ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
-author: aliceku
-ms.author: aliceku
+author: jaszymas
+ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 4b9a00b63644e35d23baa1b58c67bb6b8918274b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 553d8535d2fdbd7daa5c93535c7c4bd51f2da1a1
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422444"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995800"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>使用 PowerShell 輪替透明資料加密 (TDE) 保護裝置
 
@@ -30,7 +30,7 @@ ms.locfileid: "74422444"
 > [!IMPORTANT]
 > 在變換之後，請勿刪除舊版本的金鑰。 在金鑰變換後，部分資料仍會以先前的金鑰加密，例如較舊的資料庫備份。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 本操作指南假設您已使用 Azure Key Vault 中的金鑰作為 Azure SQL Database 或資料倉儲的 TDE 保護裝置。 請參閱[具有 BYOK 支援的透明資料加密](transparent-data-encryption-byok-azure-sql.md)。
 - 您必須已安裝且正在執行 Azure PowerShell。

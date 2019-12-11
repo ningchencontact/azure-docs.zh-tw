@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 472c4a75f5a4253220383ae79d88d5b90cec4795
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: fb8aec10d58ed4f2eca462774aeaf61f2ea21dd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555052"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973963"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>針對 Azure 認知搜尋中的常見索引子錯誤和警告進行疑難排解
 
@@ -74,7 +74,7 @@ ms.locfileid: "74555052"
 | 缺少檔索引鍵 | 檔索引鍵不能遺失或空白 | 確保所有檔都具有有效的檔索引鍵 |
 | 檔索引鍵無效 | 檔索引鍵的長度不能超過1024個字元 | 修改檔索引鍵以符合驗證需求。 |
 | 無法將欄位對應套用至欄位 | 無法將對應函數 `'functionName'` 套用至欄位 `'fieldName'`。 陣列不可以是 null。 參數名稱：位元組 | 再次檢查索引子上定義的[欄位](search-indexer-field-mappings.md)對應，並與失敗檔之指定欄位的資料進行比較。 可能需要修改欄位對應或檔資料。 |
-| 無法讀取域值 | 無法讀取位於索引 `'fieldIndex'`的資料行 `'fieldName'` 的值。 從伺服器接收結果時發生傳輸層級錯誤。 （提供者： TCP 提供者，錯誤： 0-遠端主機已強制關閉現有的連接）。 | 這些錯誤通常是因為資料來源的基礎服務發生非預期的連接問題。 請稍後再試著透過索引子執行檔。 |
+| 無法讀取域值 | 無法讀取位於索引 `'fieldIndex'`的資料行 `'fieldName'` 的值。 從伺服器接收結果時發生傳輸層級錯誤。 (提供者: TCP 提供者，錯誤: 0 - 遠端主機已強制關閉一個現存的連線)。 | 這些錯誤通常是因為資料來源的基礎服務發生非預期的連接問題。 請稍後再試著透過索引子執行檔。 |
 
 <a name="could-not-execute-skill"/>
 
@@ -147,7 +147,7 @@ ms.locfileid: "74555052"
 | 檔在集合中包含太多物件 | 檔中的集合超過[所有複雜集合限制的元素上限](search-limits-quotas-capacity.md#index-limits) | 我們建議您將檔中複雜集合的大小縮減為低於限制，並避免高儲存體使用率。
 | 無法連接到目標索引（在重試後仍會繼續），因為服務正在進行其他負載，例如查詢或索引。 | 無法建立連接以更新索引。 搜尋服務正在負荷過重。 | [相應增加您的搜尋服務](search-capacity-planning.md)
 | 搜尋服務正在修補以進行服務更新，或處於拓撲重新設定的過程中。 | 無法建立連接以更新索引。 搜尋服務目前已關閉/搜尋服務正在進行轉換。 | 以至少3個複本設定服務，每個[SLA 檔](https://azure.microsoft.com/support/legal/sla/search/v1_0/)的可用性99.9%
-| 基礎計算/網路資源（罕見）中的失敗 | 無法建立連接以更新索引。 發生未知的失敗。 | 設定要依照[排程執行](search-howto-schedule-indexers.md)的索引子，以從失敗狀態中收取。
+| 基礎計算/網路資源（罕見）中的失敗 | 無法建立連接以更新索引。 發生未知錯誤。 | 設定要依照[排程執行](search-howto-schedule-indexers.md)的索引子，以從失敗狀態中收取。
 | 由於網路問題，在超時期間內，對目標索引所做的索引編制要求並未認可。 | 無法及時建立與搜尋索引的連接。 | 設定要依照[排程執行](search-howto-schedule-indexers.md)的索引子，以從失敗狀態中收取。 此外，如果此錯誤狀況持續發生，請嘗試降低索引子的[批次大小](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters)。
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"/>
@@ -307,3 +307,9 @@ ms.locfileid: "74555052"
 如果沒有位元組順序標記，則會假設文字會編碼為 UTF-8。
 
 若要解決此警告，請判斷此 blob 的文字編碼方式，並新增適當的位元組順序標記。
+
+<a name="cosmos-db-collection-has-a-lazy-indexing-policy"/>
+
+## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>警告： Cosmos DB 集合 ' X ' 具有延遲索引編制原則。 某些資料可能會遺失
+
+具有[延遲](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode)索引編制原則的集合無法以一致的方式查詢，因而導致您的索引子遺失資料。 若要解決此警告，請將您的編制索引原則變更為一致。

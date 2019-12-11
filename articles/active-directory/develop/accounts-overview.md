@@ -1,5 +1,5 @@
 ---
-title: Microsoft 身分識別平臺帳戶和租使用者設定檔（Android） |Azure
+title: Microsoft 身分識別平臺帳戶 & Android 上的租使用者設定檔 |Azure
 description: 瞭解適用于 Android 的 Microsoft 身分識別平臺帳戶
 services: active-directory
 author: shoatman
@@ -14,12 +14,12 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9af7d8c5a1793b34dd609c2cfd68fb468884ef8f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f2a61176f43960d14cecf4db881b94b24ae580bc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845717"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963880"
 ---
 # <a name="accounts--tenant-profiles-android"></a>帳戶和租用戶設定檔 (Android)
 

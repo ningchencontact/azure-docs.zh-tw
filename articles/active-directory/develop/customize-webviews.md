@@ -1,7 +1,7 @@
 ---
-title: 自訂瀏覽器和 WebViews
+title: 自訂瀏覽器 & 網站 |Azure
 titleSuffix: Microsoft identity platform
-description: 瞭解如何自訂 MSAL for iOS 和 macOS 用來登入使用者的瀏覽器體驗
+description: 瞭解如何自訂 MSAL iOS/macOS 瀏覽器體驗來登入使用者。
 services: active-directory
 author: tylermsft
 manager: CelesteDG
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69b1e217bfa64ad08136e2763716d455332c5ba4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d5dbdadc6afa3a6822a76fdcecdfcaa6f2ad8c98
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843320"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963710"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>How to：自訂 iOS/macOS 的瀏覽器和網站
 

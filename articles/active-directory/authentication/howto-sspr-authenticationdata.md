@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/09/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1c00d0f4ba365442762df6e041f02ea0a39f099
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a14338e552250ac63c344365099a16f20616ea9a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847298"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964018"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>部署密碼重設而不需要使用者註冊
 
-若要部署 Azure Active Directory (Azure AD) 自助式密碼重設 (SSPR)，必須要有驗證資料。 有些組織會讓其使用者自行輸入自己的驗證資料。 但許多組織會偏好與 Active Directory 中既有的資料進行同步處理。 如果您執行下列操作，同步處理的資料將可供 Azure AD 和 SSPR 使用而無須使用者輸入：
+若要部署 Azure Active Directory (Azure AD) 自助式密碼重設 (SSPR)，必須要有驗證資料。 有些組織會讓其使用者自行輸入自己的驗證資料。 其他組織會想要與 Active Directory 中已存在的資料進行同步處理。 如果您符合下列需求，這項同步處理的資料就會提供 Azure AD 和 SSPR，而不需要使用者互動。
 
 * 將您內部部署目錄中的資料正確格式化。
 * [使用快速設定來設定 Azure AD Connect](../hybrid/how-to-connect-install-express.md)。
@@ -41,21 +41,18 @@ ms.locfileid: "74847298"
 | telephoneNumber | 辦公室電話 |
 | mobile | 行動電話 |
 
-一旦使用者確認其行動電話號碼，則在 Azure AD 驗證連絡資訊下方的 [電話] 欄位也會填入該號碼。
+使用者驗證其行動電話號碼之後，Azure AD 中 [**驗證連絡人資訊**] 底下的 [*電話*] 欄位也會填入該號碼。
 
 ## <a name="authentication-contact-info"></a>驗證聯絡資訊
 
-全域系統管理員可以為使用者手動設定驗證連絡人資訊，如下列螢幕擷取畫面所示。
+在 Azure 入口網站中 Azure AD 使用者的 [**驗證方法**] 頁面上，全域管理員可以手動設定驗證連絡人資訊，如下列範例螢幕擷取畫面所示：
 
 ![使用者在 Azure AD 中的驗證連絡人資訊][Contact]
 
-如果 [電話] 欄位已填入，且 SSPR 原則中的行動電話已啟用，則使用者會在密碼重設註冊頁面上及密碼重設工作流程中看到此號碼。
-
-[備用電話] 欄位不會用於密碼重設。
-
-如果 [電子郵件] 欄位已填入，且 SSPR 原則中的電子郵件已啟用，則使用者會在密碼重設註冊頁面上及密碼重設工作流程中看到此電子郵件。
-
-如果 [備用電子郵件] 欄位已填入，且 SSPR 原則中的電子郵件已啟用，則使用者**不會**在密碼重設註冊頁面上看到此電子郵件，但他們會在密碼重設工作流程中看到此電子郵件。
+* 如果 [**電話**] 欄位已填入，且 SSPR 原則中的**行動電話**已啟用，則使用者會在密碼重設註冊頁面上，以及在密碼重設工作流程期間看到該號碼。
+* [**備用電話**] 欄位不會用來重設密碼。
+* 如果 [**電子郵件**] 欄位已填入，且 SSPR 原則中已啟用**電子郵件**，則使用者會在密碼重設註冊頁面上，以及在密碼重設工作流程期間看到該電子郵件。
+* 如果 [**替代電子郵件**] 欄位已填入，且 SSPR 原則中的**電子郵件**已啟用，則使用者在密碼重設註冊頁面上看**不**到該電子郵件，但他們會在密碼重設工作流程期間看到它。
 
 ## <a name="security-questions-and-answers"></a>安全性問題和答案
 
@@ -69,7 +66,7 @@ ms.locfileid: "74847298"
 * **驗證電子郵件**
 * **安全性問題和答案**
 
-如果您已提供 [行動電話] 或 [備用電子郵件] 的值，使用者即使尚未註冊此服務，也可以立即使用這些值來重設其密碼。 此外，使用者會在第一次註冊時看到這些值，並可視需要加以修改。 在使用者成功註冊之後，這些值就會分別保存在 [驗證電話] 和 [驗證電子郵件] 欄位中。
+如果您已提供 [行動電話] 或 [備用電子郵件] 的值，使用者即使尚未註冊此服務，也可以立即使用這些值來重設其密碼。 此外，使用者會在第一次註冊時看到這些值，並可視需要加以修改。 成功註冊之後，這些值會分別保存在 [**驗證電話**] 和 [**驗證電子郵件**] 欄位中。
 
 ## <a name="set-and-read-the-authentication-data-through-powershell"></a>透過 PowerShell 設定和讀取驗證資料
 

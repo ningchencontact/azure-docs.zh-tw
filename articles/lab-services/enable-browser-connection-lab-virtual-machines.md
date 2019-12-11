@@ -11,17 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2019
+ms.date: 12/09/2019
 ms.author: takamath
-ms.openlocfilehash: 080dd91b2ab6792debfae3a3ccc97b0927015de4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e2dd642139ae082cc0d0838e61399c549d2d812a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580142"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970755"
 ---
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>在實驗室虛擬機器上啟用瀏覽器連接 
-
 DevTest Labs 與[Azure](https://docs.microsoft.com/azure/bastion/)防禦整合，可讓您透過瀏覽器連接到您的虛擬機器。 您必須先在實驗室虛擬機器上啟用瀏覽器連線。
 
 身為實驗室的擁有者，您可以啟用透過瀏覽器存取所有實驗室虛擬機器的程式。 不需要額外用戶端、代理程式或軟體。 Azure Bastion 對您的虛擬機器提供安全無縫的 RDP/SSH 連線，讓您在 Azure 入口網站中，就能透過 SSL 與之連線。 當您透過 Azure 防禦進行連接時，您的虛擬機器不需要公用 IP 位址。 如需詳細資訊，請參閱[什麼是 Azure 防禦？](../bastion/bastion-overview.md)
@@ -30,11 +29,19 @@ DevTest Labs 與[Azure](https://docs.microsoft.com/azure/bastion/)防禦整合�
 本文說明如何在實驗室虛擬機器上啟用瀏覽器連線。
 
 ## <a name="prerequisites"></a>必要條件 
-在現有實驗室的虛擬網路中部署防禦主機 **（或）** 將您的實驗室與防禦設定的 VNet 連接。 
+在現有實驗室的虛擬網路中部署防禦主機 **（或）** 將您的實驗室與防禦設定的虛擬網路連線。 
 
-若要瞭解如何在 VNet 中部署防禦主機，請參閱[建立 Azure 防禦主機（預覽）](../bastion/bastion-create-host-portal.md)。 建立防禦主機時，請選取實驗室的虛擬網路。 
+若要瞭解如何在虛擬網路中部署防禦主機，請參閱[建立 Azure 防禦主機](../bastion/bastion-create-host-portal.md)。 建立防禦主機時，請選取實驗室的虛擬網路。 
 
-若要瞭解如何將您的實驗室與已設定的 VNet 連線，請參閱[在 Azure DevTest Labs 中設定虛擬網路](devtest-lab-configure-vnet.md)。 選取已部署防禦主機的 VNet，並在其中**AzureBastionSubnet** 。 詳細的步驟如下： 
+首先，您必須在防禦虛擬網路中建立第二個子網，因為 AzureBastionSubnet 不允許建立其中的非防禦資源。 
+
+## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>在防禦虛擬網路中建立第二個子網
+您無法在 Azure 防禦子網中建立實驗室 Vm。 在防禦虛擬網路中建立另一個子網，如下圖所示：
+
+![Azure 防禦虛擬網路中的第二個子網](./media/connect-virtual-machine-through-browser/second-subnet.png)
+
+## <a name="enable-vm-creation-in-the-subnet"></a>在子網中啟用 VM 建立
+現在，請遵循下列步驟，以啟用在此子網中建立 Vm： 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 選取左側導覽功能表上的 [**所有服務**]。 
@@ -47,23 +54,23 @@ DevTest Labs 與[Azure](https://docs.microsoft.com/azure/bastion/)防禦整合�
 1. 在左側功能表的 [設定] 區段中，選取 [**設定** **和原則**]。 
 1. 選取 [**虛擬網路**]。
 1. 從工具列中選取 [**新增**]。 
-1. 選取已部署防禦主機的**VNet** 。 
-1. 選取子網： **AzureBastionSubnet**。 
+1. 選取已部署防禦主機的**虛擬網路**。 
+1. 選取 Vm 的子網，而不是您稍早建立的**AzureBastionSubnet**。 關閉頁面，如果您在底部的清單中看不到子網，請將它重新開啟。 
 
-    ![子網路](./media/enable-browser-connection-lab-virtual-machines/subnet.png)
+    ![在子網中啟用 VM 建立](./media/connect-virtual-machine-through-browser/enable-vm-creation-subnet.png)
 1. 選取 [**在虛擬機器建立時使用**] 選項。 
-1. 在工具列上，選取 [儲存]。 
-1. 如果您有實驗室的舊 VNet，請選取 [* *...* ]，將它移除。 和**移除**。 
+1. 在工具列上選取 [儲存]。 
+1. 如果您有實驗室的舊虛擬網路，請選取 [* *...* ]，將它移除。 和**移除**。 
 
 ## <a name="enable-browser-connection"></a>啟用瀏覽器連接 
 
-一旦您在實驗室中設定了防禦的 VNet，身為實驗室擁有者，您就可以在實驗室虛擬機器上啟用瀏覽器連線。
+一旦您在實驗室中設定了防禦虛擬網路之後，身為實驗室擁有者，您就可以在實驗室虛擬機器上啟用瀏覽器連線。
 
 若要在實驗室虛擬機器上啟用瀏覽器連接，請遵循下列步驟：
 
 1. 在 Azure 入口網站中，流覽至*您的實驗室*。
 1. 選取 [組態和原則]。
-1. 在 [**設定**] 中，選取 **[瀏覽器連線（預覽）]** 。
+1. 在 [**設定**] 中，選取 **[瀏覽器連線]** 。 如果您沒有看到此選項，請關閉 [設定**原則**] 頁面，然後重新開啟它。 
 
     ![啟用瀏覽器連接](./media/enable-browser-connection-lab-virtual-machines/browser-connect.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3cbb6afb96ccea32aa78d1f587377e5d67e1a5b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: bbbe882acda532a54333ca8013693121d5b677b7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381032"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964084"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>需要使用條件式存取的應用程式保護原則進行雲端應用程式存取（預覽）
 
@@ -24,7 +24,7 @@ ms.locfileid: "74381032"
 
 本文說明如何設定條件式存取原則，在授與資料存取權之前，可以要求應用程式保護原則。
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 透過[Azure AD 條件式存取](overview.md)，您可以微調授權使用者如何存取您的資源。 例如，您可以將雲端應用程式的存取限制為受信任的裝置。
 
@@ -60,7 +60,7 @@ Azure Active Directory 條件式存取會將雲端應用程式的存取限制為
 - [Azure Active Directory 中條件式存取](overview.md)的基本概念。
 - 如何[設定條件式存取原則](app-based-mfa.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要建立以應用程式保護為基礎的條件式存取原則，您必須：
 
@@ -330,7 +330,7 @@ Azure Active Directory 條件式存取會將雲端應用程式的存取限制為
 
 ### <a name="configuration"></a>組態
 
-**步驟1：設定 Exchange Online 的 Azure AD 條件式存取原則**
+**步驟1：設定 Exchange Online 和 SharePoint Online 的 Azure AD 條件式存取原則**
 
 針對此步驟中的條件式存取原則，請設定下列元件：
 
@@ -338,7 +338,7 @@ Azure Active Directory 條件式存取會將雲端應用程式的存取限制為
 
 1. 輸入條件式存取原則的名稱。
 1. 在 [**指派**] 底下的 [**使用者和群組**] 中，為每個條件式存取原則至少選取一個使用者或群組。
-1. 在 [**雲端應用程式**] 中，選取 [ **Office 365 Exchange Online**]。 
+1. 在 [**雲端應用程式**] 中，選取 [ **Office 365 Exchange online**和**office 365 SharePoint online**]。 
 
    ![條件式存取](./media/app-protection-based-conditional-access/02.png)
 

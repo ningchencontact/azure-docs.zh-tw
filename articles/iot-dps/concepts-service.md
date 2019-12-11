@@ -1,6 +1,6 @@
 ---
 title: Azure IoT 中樞裝置佈建服務的概念 | Microsoft Docs
-description: 針對具有裝置佈建服務和 IoT 中樞的服務說明其特有的服務佈建概念
+description: 說明具有裝置布建服務（DPS）和 IoT 中樞的裝置專用的服務布建概念
 author: nberdy
 ms.author: nberdy
 ms.date: 09/18/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 51486da6b34c0ff1e9b6d05558c2132a416913e9
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f42502ac4db12a060af5906243d3f8e7584c5df3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104368"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975596"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT 中樞裝置佈建服務服務概念
 
@@ -39,7 +39,7 @@ IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於�
 
 服務等級的設定決定裝置佈建服務將裝置指派給 IoT 中樞的方式。 共有三個支援的配置原則：
 
-* **平均加權分佈**：裝置佈建到每個已連結 IoT 中樞的機率都是一樣的。 預設設定。 如果您只要將裝置佈建到一個 IoT 中樞，可以保留此設定。
+* **平均加權分佈**：裝置佈建到每個已連結 IoT 中樞的機率都是一樣的。 預設設定。 如果您要用來佈建裝置的 IoT 中樞只有一個，則可以保留此設定。
 
 * **最低延遲時間**：系統會以裝置的最低延遲時間將該裝置佈建到 IoT 中樞。 如果多個已連結 IoT 中樞都提供相同的最低延遲時間，佈建服務就能在這些中樞裡為裝置建立雜湊
 
@@ -64,15 +64,15 @@ IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於�
 
 ### <a name="individual-enrollment"></a>個別申請
 
-個別申請為表示可能已註冊之單一裝置的項目。 個別註冊可使用 X.509 分葉憑證或 SAS 權杖 (從實際或虛擬的 TPM) 來作為證明機制。 個別註冊中的註冊識別碼為英數字元、小寫字母且可包含連字號。 個別申請可能會指定所需的 IoT 中樞裝置識別碼。
+個別申請為表示可能已註冊之單一裝置的項目。 個別註冊可使用 X.509 分葉憑證或 SAS 權杖 (從實際或虛擬的 TPM) 來作為證明機制。 個別註冊中的註冊識別碼為英數字元、小寫字母且可包含連字號。 個別註冊可能會指定所需的 IoT 中樞裝置識別碼。
 
 > [!TIP]
 > 對於需要唯一初始設定的裝置，或是只能透過 TPM 證明使用 SAS 權杖進行驗證的裝置，建議您使用個別註冊。
 
-## <a name="registration"></a>登錄
+## <a name="registration"></a>註冊
 
 註冊是記載裝置透過裝置佈建服務成功向 IoT 中樞申請以及佈建至該處的記錄。 系統會自動建立註冊記錄；您可以刪除但無法更新這些記錄。
 
-## <a name="operations"></a>作業
+## <a name="operations"></a>Dynamics 365
 
-作業是裝置佈建服務的計費單位。 一個作業代表成功完成該服務需進行的一個指示。 作業包括裝置註冊和重新註冊，也包括服務端的變更，例如新增和更新申請清單項目。
+作業是裝置佈建服務的計費單位。 一個作業代表成功完成該服務需進行的一個指示。 作業包括裝置註冊和重新註冊，也包括服務端的變更，如新增和更新註冊清單項目。

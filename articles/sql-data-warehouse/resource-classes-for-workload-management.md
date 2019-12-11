@@ -11,12 +11,12 @@ ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d8c3e3c272ce12200ab7506fd7c9759a8cb3aa64
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 30a3be1365f152a88713604570169091f09f0536
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851735"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975426"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中搭配使用工作負載管理與資源類別
 
@@ -36,7 +36,7 @@ ms.locfileid: "74851735"
 
 資源類別會使用並行位置來測量資源耗用量。  [並行位置](#concurrency-slots)稍後會在本文中加以說明。
 
-- 若要查看資源類別的資源使用率，請參閱 [記憶體和並行限制] 記憶體並行-limits.md）。
+- 若要檢視資源類別的資源使用率，請參閱[記憶體和並行存取限制](memory-concurrency-limits.md)。
 - 若要調整資源類別，您可以在不同的使用者下執行查詢，或[變更目前使用者的資源類別](#change-a-users-resource-class)成員資格。
 
 ### <a name="static-resource-classes"></a>靜態資源類別

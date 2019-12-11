@@ -3,17 +3,17 @@ title: 在您的 Azure IoT Central 應用程式中使用裝置群組 |Microsoft 
 description: 身為操作員，請瞭解如何使用裝置群組來分析 Azure IoT Central 應用程式中來自裝置的遙測資料。
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/29/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 281806999b08c3babbb753459835850ad9d733eb
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 981046f9417876a68c215c6d01a63c7f0a634464
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895432"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976208"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry-preview-features"></a>教學課程：使用裝置群組來分析裝置遙測（預覽功能）
 
@@ -23,15 +23,15 @@ ms.locfileid: "73895432"
 
 裝置群組是群組在一起的裝置清單，因為它們符合某些指定的準則。 裝置群組可透過將裝置分組為較小的邏輯群組，協助您大規模管理、視覺化和分析裝置。 例如，您可以建立裝置群組來列出西雅圖的所有空中空調裝置，讓技術人員能夠尋找其負責的裝置。
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立裝置群組
 > * 使用裝置群組來分析裝置遙測
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-開始之前，您應該先完成[建立 Azure IoT Central 應用程式](./quick-deploy-iot-central.md)，並[將模擬裝置新增至您的 IoT Central 應用程式](./quick-create-pnp-device.md)快速入門，以建立要使用的**環境感應器**裝置範本。
+開始之前，請先完成[建立 Azure IoT Central 應用程式](./quick-deploy-iot-central.md) (英文) 和[將模擬裝置新增至 IoT Central 應用程式](./quick-create-pnp-device.md) (英文) 的快速入門，以便建立要使用的**環境感應器**裝置範本。
 
 ## <a name="create-simulated-devices"></a>建立模擬的裝置
 
@@ -67,7 +67,7 @@ ms.locfileid: "73895432"
 > [!NOTE]
 > 針對 Azure IoT Edge 裝置，請選取 [Azure IoT Edge 範本] 來建立裝置群組。
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>分析
 
 您可以使用**分析**與裝置群組，從群組中的裝置分析遙測資料。 例如，您可以繪製所有 Contoso 環境感應器所報告的平均溫度。
 
