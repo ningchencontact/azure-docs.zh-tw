@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 8c5b932a1b44169cc50c8c7214d3f3410c581f4e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: bb76f41b4272392c1aeebe83d9a8fd3aaea3cb0b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792270"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851752"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -74,10 +74,10 @@ Site Recovery 支援複寫任何執行於所支援機器上的工作負載。
 Windows Server 2019 | 支援自[更新彙總套件 34](https://support.microsoft.com/help/4490016) （行動服務的9.22 版）。
 Windows Server 2016 64 位 | 支援 Server Core、具有桌面體驗的伺服器。
 Windows Server 2012 R2/Windows Server 2012 | 支援。
-Windows Server 2008 R2 SP1 和更新版本。 | 支援。<br/><br/> 在行動服務代理程式的版本 2019 9.30 中，您必須在執行 Windows 2008 R2 SP1 或更新版本的電腦上安裝[服務堆疊更新（SSU）](https://support.microsoft.com/help/4490628)和[sha-1 更新](https://support.microsoft.com/help/4474419)。 2019年9月不支援 SHA-1，而且如果未啟用 SHA-1 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。 深入瞭解[SHA-2 升級和需求](https://aka.ms/SHA-2KB)。
-Windows Server 2008 SP2 或更新版本（64位/32 位） |  僅支援遷移。 [深入了解提出技術問題。<br/><br/> 在行動服務代理程式的版本9.30 中（預期的發行日期為2019年11月），您需要在 Windows 2008 SP2 電腦上安裝[服務堆疊更新（SSU）](https://support.microsoft.com/help/4493730)和[sha-1 更新](h https://support.microsoft.com/help/4474419)。 2019年9月不支援 ISHA-1，如果未啟用 SHA-2 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。 深入瞭解[SHA-2 升級和需求](https://aka.ms/SHA-2KB)。
+Windows Server 2008 R2 SP1 和更新版本。 | 支援。<br/><br/> 從行動服務代理程式的[9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery)版，您必須在執行 Windows 2008 R2 SP1 或更新版本的電腦上安裝[服務堆疊更新（SSU）](https://support.microsoft.com/help/4490628)和[sha-1 更新](https://support.microsoft.com/help/4474419)。 2019年9月不支援 SHA-1，而且如果未啟用 SHA-1 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。 深入瞭解[SHA-2 升級和需求](https://aka.ms/SHA-2KB)。
+Windows Server 2008 SP2 或更新版本（64位/32 位） |  僅支援遷移。 [深入了解提出技術問題。<br/><br/> 從行動服務代理程式的版本[9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) ，您需要在 WINDOWS 2008 SP2 電腦上安裝[服務堆疊更新（SSU）](https://support.microsoft.com/help/4493730)和[sha-1 更新](h https://support.microsoft.com/help/4474419)。 2019年9月不支援 ISHA-1，如果未啟用 SHA-2 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。 深入瞭解[SHA-2 升級和需求](https://aka.ms/SHA-2KB)。
 Windows 10、Windows 8.1、Windows 8 | 支援。
-Windows 7 （含 SP1）64位 | 支援自[更新彙總套件 36](https://support.microsoft.com/help/4503156) （行動服務的9.22 版）。 </br></br> 在行動服務代理程式的版本9.30 中（預期的發行日期為2019年11月），您需要安裝在 Windows 7 SP1 電腦上的[服務堆疊更新（SSU）](https://support.microsoft.com/help/4490628)和[sha-1 更新](https://support.microsoft.com/help/4474419)。  2019年9月不支援 SHA-1，而且如果未啟用 SHA-1 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。 深入瞭解[SHA-2 升級和需求](https://aka.ms/SHA-2KB)。
+Windows 7 （含 SP1）64位 | 支援自[更新彙總套件 36](https://support.microsoft.com/help/4503156) （行動服務的9.22 版）。 </br></br> 從行動服務代理程式的[9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) ，您需要安裝在 WINDOWS 7 SP1 電腦上的[服務堆疊更新（SSU）](https://support.microsoft.com/help/4490628)和[sha-1 更新](https://support.microsoft.com/help/4474419)。  2019年9月不支援 SHA-1，而且如果未啟用 SHA-1 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。 深入瞭解[SHA-2 升級和需求](https://aka.ms/SHA-2KB)。
 Linux | 僅支援64位系統。 不支援 32-bit 系統。<br/><br/>每個 Linux 伺服器都應該安裝[linux Integration Services （.lis）元件](https://www.microsoft.com/download/details.aspx?id=55106)。 在測試容錯移轉/容錯移轉之後，必須在 Azure 中啟動伺服器。 如果遺漏了 .LIS 元件，請務必先安裝[元件](https://www.microsoft.com/download/details.aspx?id=55106)，再啟用複寫，讓機器在 Azure 中開機。 <br/><br/> Site Recovery 會協調容錯移轉以在 Azure 中執行 Linux 伺服器。 不過，Linux 廠商可能會將支援僅限於生命週期尚未結束的發行版本。<br/><br/> 在 Linux 散發套件上，僅支援屬於散發套件次要版本/更新的庫存核心。<br/><br/> 不支援升級各主要 Linux 散發套件版本的受保護機器。 若要升級，請停用複寫、升級作業系統，然後再次啟用複寫。<br/><br/> [深入瞭解](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)Azure 中的 Linux 和開放原始碼技術支援。
 Linux Red Hat Enterprise | 5.2 到 5.11</b><br/> 6.1 到 6.10</b> </br> 7.0、7.1、7.2、7.3、7.4、7.5、7.6、 [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery)、 [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) <br/> 執行 Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 的伺服器尚未預先安裝[Linux Integration Services （.lis）元件](https://www.microsoft.com/download/details.aspx?id=55106)。 請務必先安裝[元件](https://www.microsoft.com/download/details.aspx?id=55106)，再啟用複寫，讓機器在 Azure 中開機。
 Linux：CentOS | 5.2 到 5.11</b><br/> 6.1 到 6.10</b><br/> 7.0 到7。6<br/> <br/> 執行 CentOS 5.2 的伺服器-5.11 & 6.1-6.10 不會預先安裝[Linux Integration Services （.lis）元件](https://www.microsoft.com/download/details.aspx?id=55106)。 請務必先安裝[元件](https://www.microsoft.com/download/details.aspx?id=55106)，再啟用複寫，讓機器在 Azure 中開機。
@@ -209,7 +209,7 @@ Docker 磁碟設定 | 否
 客體/伺服器 - 排除磁碟 | 是
 客體/伺服器多重路徑 (MPIO) | 否
 來賓/伺服器 GPT 磁碟分割 | [更新彙總套件 37](https://support.microsoft.com/help/4508614/) （行動服務版本9.25）支援五個磁碟分割。 先前只支援四個。
-參照 | 行動服務9.23 版或更高版本支援復原檔案系統
+ReFS | 行動服務9.23 版或更高版本支援復原檔案系統
 來賓/伺服器 EFI/UEFI 開機 | -支援 Windows Server 2012 或更新版本、SLES 12 SP4 和 RHEL 8.0 （搭配行動代理程式版本9.30）<br/> -不支援安全 UEFI 開機類型。 
 
 ## <a name="replication-channels"></a>複寫通道
