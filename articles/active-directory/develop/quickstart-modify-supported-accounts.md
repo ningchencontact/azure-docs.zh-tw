@@ -2,27 +2,23 @@
 title: 修改 Microsoft 身分識別平台應用程式帳戶 | Azure
 description: 設定使用 Microsoft 身分識別平台所註冊的應用程式，以變更可以存取應用程式的使用者或帳戶。
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be62dabc01e00465fa5227c5531fa18a16cf10a9
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 439d2c06f05aa8824afa4a4aec3990ecba1aa8da
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380773"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921356"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>快速入門：修改應用程式所支援的帳戶
 
@@ -62,7 +58,7 @@ ms.locfileid: "68380773"
     * 如果您要建置企業營運 (LOB) 應用程式，請選取 [只有這個目錄中的帳戶]  。 如果未在目錄中註冊應用程式，則無法使用此選項。
     * 如果您想要鎖定所有商業和教育客戶，請選取 [任何組織目錄中的帳戶]  。
     * 選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]  以鎖定最廣泛的一組客戶。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]  。
 
 ## <a name="enable-oauth-20-implicit-grant-for-single-page-applications"></a>啟用單頁應用程式的 OAuth 2.0 隱含授與
 
@@ -77,7 +73,7 @@ ms.locfileid: "68380773"
 1. 從應用程式的 [概觀]  頁面，選取 [驗證]  區段。
 1. 在 [進階設定]  底下，找到 [隱含授與]  區段。
 1. 選取 [識別碼權杖]  和 (或) [存取權杖]  。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]  。
 
 ## <a name="next-steps"></a>後續步驟
 

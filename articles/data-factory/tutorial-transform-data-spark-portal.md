@@ -5,18 +5,17 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: b0df6264eb38cbbacd5f624b634eea5f742adbc7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 34c2a27d047888d1e763a0a99461e7eb4b9fb203
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683335"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925104"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動來轉換雲端中的資料
 在本教學課程中，您會使用 Azure 入口網站來建立 Azure Data Factory 管線。 此管線使用 Spark 活動和隨選 Azure HDInsight 連結服務來轉換資料。 

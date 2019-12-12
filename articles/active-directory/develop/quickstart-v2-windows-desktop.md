@@ -2,27 +2,22 @@
 title: Microsoft 身分識別平台 Windows 桌面快速入門 | Microsoft Docs
 description: 了解 Windows 桌面 .NET (XAML) 應用程式如何取得存取權杖，以及呼叫受 Microsoft 身分識別平台端點保護的 API
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a85cafce13cffcebbcce3ebf022941ce899fa72b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 38ebf817d80fb1afdd3642f648d8e881b2e9d7de
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852760"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920441"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>快速入門：取得權杖，並從 Windows 傳統型應用程式呼叫 Microsoft Graph API
 
@@ -57,7 +52,7 @@ ms.locfileid: "68852760"
 > 1. 在應用程式頁面清單中，選取 [驗證]  。
 > 1. 展開 [桌面 + 裝置]  區段。  (如果看不到 [桌面 + 裝置]  ，請先按一下頂端橫幅，以檢視預覽驗證體驗)
 > 1. 在 [重新導向 URI]  區段之下，選取 [新增 URI]  。  輸入 **urn:ietf:wg:oauth:2.0:oob**。
-> 1. 選取 [ **儲存**]。
+> 1. 選取 [儲存]  。
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>步驟 1：在 Azure 入口網站中設定您的應用程式
