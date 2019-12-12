@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 048051a612793cbe82f82fbde482ed470ad3758c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 69508628356a5f33073311e4d062d66875509192
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 12/06/2019
 ms.locfileid: "73177836"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>教學課程：建立用來裝載 Service Fabric 叢集的 AWS 基礎結構
@@ -82,7 +82,7 @@ Service Fabric 需要在叢集中的主機之間開啟多個連接埠。 若要�
 
 若要避免對外界開啟這些連接埠，您應改為僅針對相同安全性群組中的主機開啟連接埠。 記下安全性群組識別碼 (在此範例中為 **sg-c4fb1eba**)。  然後，選取 [編輯]  。
 
-接下來，將四項用於服務相依性的規則新增至安全性群組，然後再為 Service Fabric 本身新增三項規則。 第一項規則是允許 ICMP 流量，以進行基本連線能力檢查。 其他規則會開啟必要的連接埠，以啟用遠端登錄。
+接下來，將四項用於服務相依性的規則新增至安全性群組，然後再為 Service Fabric 本身新增三項規則。 第一項規則是允許 ICMP 流量，以進行基本連線能力檢查。 其他規則會開啟必要的連接埠，以啟用 SMB 與遠端登錄。
 
 針對第一項規則選取 [新增規則]  ，然後從下拉式功能表中選取 [所有 ICMP - IPv4]  。 選取自訂旁的輸入方塊，然後輸入前述的安全性群組識別碼。
 
@@ -118,18 +118,30 @@ Service Fabric 需要在叢集中的主機之間開啟多個連接埠。 若要�
 ping 172.31.20.163
 ```
 
-如果您的輸出看起來像是 `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` 重複四次，表示執行個體之間的連線運作正常。  
+如果您的輸出看起來像是 `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` 重複四次，表示執行個體之間的連線運作正常。  此時，請使用下列命令驗證您的 SMB 共用可運作：
+
+```
+net use * \\172.31.20.163\c$
+```
+
+它應傳回 `Drive Z: is now connected to \\172.31.20.163\c$.` 這樣的輸出。
 
 ## <a name="prep-instances-for-service-fabric"></a>準備 Service Fabric 的執行個體
 
-如果您是從頭建立的，則必須採取一些額外的步驟。  也就是說，您必須驗證遠端登錄已執行，並開啟必要的連接埠。
+如果您是從頭建立的，則必須採取一些額外的步驟。  也就是說，您必須驗證遠端登錄已執行、啟用 SMB，並開啟為 SMB 和遠端登錄必要的連接埠。
 
 為了簡化作業，您在透過使用者資料指令碼進行執行個體的啟動程序時，內嵌了所有相關工作。
+
+為了啟用 SMB，您使用了下列 PowerShell 命令：
+
+```powershell
+netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
+```
 
 若要在防火牆中開啟連接埠，應使用下列 PowerShell 命令：
 
 ```powershell
-New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139
+New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
 ```
 
 ## <a name="next-steps"></a>後續步驟

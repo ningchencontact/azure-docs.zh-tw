@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: eb5c6ef9b342b149851f907b7bc81370327b12ca
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 64d70390b3563e17bbe0c70ed426dcda81b50198
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689006"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872735"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>快速入門：在 Linux 上的 Azure App Service 中建立 Java 應用程式
 
@@ -34,7 +34,7 @@ ms.locfileid: "74689006"
 在 Cloud Shell 提示字元中執行下列 Maven 命令，以建立名為 `helloworld` 的新應用程式：
 
 ```bash
-mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp"
 ```
 
 ## <a name="configure-the-maven-plugin"></a>設定 Maven 外掛程式

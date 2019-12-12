@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18d60614a07895c7e9468d35b2d389a28129af4d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f1ca0baa98336570d870a98c75c45a5303bdfaca
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271657"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868895"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>什麼是 Azure Active Directory B2B 中的來賓使用者存取權？
 
@@ -61,7 +61,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業，可讓您
 - 來賓使用者會立即收到可自訂的邀請，讓他們登入存取面板。
 - 目錄中的來賓使用者可以指派至應用程式或群組。  
 
-![顯示 [新增來賓使用者] 進入頁面的螢幕擷取畫面](media/what-is-b2b/adding-b2b-users-admin.png)
+![顯示 [新增來賓使用者] 進入頁面的螢幕擷取畫面](media/what-is-b2b/add-a-b2b-user-to-azure-portal.png)
 
 ## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>讓應用程式與群組擁有者管理自己的來賓使用者
 

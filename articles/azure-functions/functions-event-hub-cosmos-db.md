@@ -5,12 +5,12 @@ author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.openlocfilehash: 04cb91a62536c493240998270b5bd8d29fd331ba
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cef1d09f3365350240cb2ed879e4d41edec74aef
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230616"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849831"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>教學課程：使用事件中樞觸發程序和 Azure Cosmos DB 輸出繫結來建立以 Java 撰寫的函式
 
@@ -36,8 +36,6 @@ ms.locfileid: "74230616"
 
 > [!IMPORTANT]
 > `JAVA_HOME` 環境變數必須設定為 JDK 的安裝位置，才能完成本教學課程。
-
-如果您想要直接使用本教學課程的程式碼，請參閱 [java-functions-eventhub-cosmosdb](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb) 範例存放庫。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
