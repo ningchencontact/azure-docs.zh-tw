@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 83fd06078500be7b5bd58e9ea92d957f9d77f892
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: f6b95f76af4c83459ac81ff1703d8588f649326c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904214"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970537"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS 支援的語言與區域
 
@@ -30,9 +30,10 @@ LUIS 在服務內有各種不同的功能。 並非所有功能都有相同的�
 
 LUIS 可理解下列語言的語句：
 
-| 語言 |地區設定  |  預建網域 | 預先建置的實體 | 片語清單建議 | \**[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(情感和<br>關鍵字)|
+| 語言 |Locale  |  預建網域 | 預建實體 | 片語清單建議 | \**[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(情感和<br>關鍵字)|
 |--|--|:--:|:--:|:--:|:--:|
 | 美式英文 |`en-US` | ✔ | ✔  |✔|✔|
+| 阿拉伯文（預覽-現代化標準阿拉伯文） |`ar-AR`|-|-|-|-|
 | *[中文](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | 荷蘭文 |`nl-NL` |✔|  -   |-|✔|
 | 法文 (法國) |`fr-FR` |✔| ✔ |✔ |✔|
@@ -66,7 +67,7 @@ LUIS 可理解下列語言的語句：
 如需支援的語言清單和狀態，請參閱 Bing 拼字檢查[支援的語言](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)。
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>應用程式中的罕見或外來字
-在 `en-us` 文化特性中，LUIS 會學習辨識大部分的英文字，包括俚語。 在 `zh-cn` 文化特性中，LUIS 會學習辨識大部分的中文字元。 如果您使用 `en-us` 中的罕見字組或 `zh-cn` 中的字元，而且您發現 LUIS 似乎無法辨識該字組或字元，您可以將該字組或字元新增到[片語清單功能](luis-how-to-add-features.md)。 例如，應用程式文化特性外部的字組 (也就是外來字組) 應新增至片語清單功能。 
+在 `en-us` 文化特性中，LUIS 會學習辨識大部分的英文字，包括俚語。 在 `zh-cn` 文化特性中，LUIS 會學習辨識大部分的中文字元。 如果您使用 `en-us` 中的罕見字組或 `zh-cn` 中的字元，而且您發現 LUIS 似乎無法辨識該字組或字元，您可以將該字組或字元新增到[片語清單功能](luis-how-to-add-features.md)。 例如，應用程式文化特性外部的字組 (也就是外來字組) 應新增至片語清單功能。
 
 <!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
@@ -78,6 +79,7 @@ LUIS 可理解下列語言的語句：
 
 |語言|  每個空格或特殊字元 | 字元層級|複合字組|[傳回的 Token 化實體](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
+|阿拉伯文|||||
 |中文||✔||✔|
 |荷蘭文|||✔|✔|
 |英文 (en-us)|✔ ||||
@@ -103,9 +105,9 @@ LUIS 可理解下列語言的語句：
 
 ### <a name="migrating-between-tokenizer-versions"></a>在 tokenizer 版本之間遷移
 <!--
-Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
+Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID.
 
-Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
+Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`.
 
 ```JSON
 {
@@ -154,7 +156,7 @@ Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`.
 }
 ```
 
-Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`. 
+Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`.
 
 ```JSON
 {
@@ -204,6 +206,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-Token 化會在應用層級發生。 不支援版本層級 token 化。 
+Token 化會在應用層級發生。 不支援版本層級 token 化。
 
-將檔案匯[入為新的應用程式](luis-how-to-start-new-app.md)，而不是版本。 此動作表示新的應用程式具有不同的應用程式識別碼，但使用檔案中指定的 tokenizer 版本。 
+將檔案匯[入為新的應用程式](luis-how-to-start-new-app.md)，而不是版本。 此動作表示新的應用程式具有不同的應用程式識別碼，但使用檔案中指定的 tokenizer 版本。

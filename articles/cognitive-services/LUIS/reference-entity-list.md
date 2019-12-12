@@ -10,23 +10,23 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 1307e6cfca0debe7623eb775c69527a74584033d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4313a1d644750c0961298bbee3ae211946de360a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74011996"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849763"
 ---
-# <a name="list-entity"></a>列出實體 
+# <a name="list-entity"></a>清單實體
 
-清單實體代表一組固定的封閉式相關字組及其同義字。 LUIS 並不會探索清單實體的額外值。 使用**建議**功能，以根據目前的清單查看適用於新字組的建議。 如果有多個清單實體具有相同的值，則在端點查詢中會傳回每個實體。 
+清單實體代表一組固定的封閉式相關字組及其同義字。 LUIS 並不會探索清單實體的額外值。 使用**建議**功能，以根據目前的清單查看適用於新字組的建議。 如果有多個清單實體具有相同的值，則在端點查詢中會傳回每個實體。
 
-清單實體不是機器學習。 它是全文相符的項目。 LUIS 會將與任何清單中項目相符的項目，在回應中標示為實體。 
+清單實體不是機器學習。 它是全文相符的項目。 LUIS 會將與任何清單中項目相符的項目，在回應中標示為實體。
 
 **當文字資料時，實體就很適合：**
 
 * 是已知的組合。
-* 不常變更。 如果您需要經常變更清單，或想要讓清單自我展開，使用片語清單提升的簡單實體是較好的選擇。 
+* 不常變更。 如果您需要經常變更清單，或想要讓清單自我展開，使用片語清單提升的簡單實體是較好的選擇。
 * 此組合不會超過此實體類型的最大 LUIS [界限](luis-boundaries.md)。
 * 語句中的文字是與同義字或正式名稱完全相符的項目。 LUIS 不會將清單用於完全相符之文字項目以外的範圍。 不會使用清單實體解析模糊比對、不區分大小寫、詞幹分析、複數和其他變化。 若要管理變化，請考慮使用[模式](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance)並搭配選擇性的文字語法。
 
@@ -54,7 +54,7 @@ ms.locfileid: "74011996"
               "avacado"
           ]
       }
-  ]  
+  ]
   ```
 
 ## <a name="example-json-response"></a>範例 JSON 回應
@@ -130,13 +130,13 @@ ms.locfileid: "74011996"
 }
 ```
 
-* * * 
+* * *
 
-|資料物件|實體名稱|值|
+|資料物件|實體名稱|Value|
 |--|--|--|
 |列出實體|`Cities`|`paris`|
 
 
 ## <a name="next-steps"></a>後續步驟
 
-在本[教學](luis-quickstart-intent-and-list-entity.md)課程中，您將瞭解如何使用**清單實體**，從已知專案清單中解壓縮完全相符的文字。 
+在本[教學](tutorial-list-entity.md)課程中，您將瞭解如何使用**清單實體**，從已知專案清單中解壓縮完全相符的文字。

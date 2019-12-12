@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 0e748e81de39b2bef14b543063adeb51b8b3ecdb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a31076d17ebaf8020fe4b3f82594b98a7c3bde74
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486721"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977449"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>建立 QnA Maker 服務的商務持續性方案
 
@@ -25,7 +25,7 @@ ms.locfileid: "73486721"
 
 以上呈現的高階構想如下所示：
 
-1. 在 [Azure 配對區域](../How-To/set-up-qnamaker-service-azure.md)中設定兩個平行的 [QnA Maker 服務](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。
+1. 在 [Azure 配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)中設定兩個平行的 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。
 
 2. 保持主要和次要 Azure 搜尋索引的同步。使用[這裡](https://github.com/pchoudhari/QnAMakerBackupRestore)的 GitHub 範例來瞭解如何備份-還原 Azure 索引。
 
@@ -33,7 +33,7 @@ ms.locfileid: "73486721"
 
 4. 設定主要和次要堆疊後，使用[流量管理員](https://docs.microsoft.com/azure/traffic-manager/)設定兩個端點，並設定路由方法。
 
-5. 您必須建立流量管理員端點的 SSL 憑證。 在您的應用程式服務中[繫結 SSL 憑證](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings)。
+5. 您必須為您的流量管理員端點建立安全通訊端層（SSL）憑證。 在您的應用程式服務中[繫結 SSL 憑證](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings)。
 
 6. 最後，在聊天機器人或應用程式中使用流量管理員端點。
 

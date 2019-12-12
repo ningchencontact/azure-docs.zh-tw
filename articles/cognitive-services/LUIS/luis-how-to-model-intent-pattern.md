@@ -9,19 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 39b56c5e73c8ce85a020402dafb622b90c536a1e
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 4432aecee882ff2e312587baa543dd66c0372a78
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74143815"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968913"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>如何新增模式以改善預測精確度
 LUIS 應用程式收到端點語句之後，請使用[模式](luis-concept-patterns.md)來改善以單字順序和字組選擇顯示模式之語句的預測精確度。 模式會使用特定的[語法](luis-concept-patterns.md#pattern-syntax)來指出的位置：[實體](luis-concept-entity-types.md)、實體[角色](luis-concept-roles.md)和選擇性文字。
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
+
+> [!CAUTION]
+> 模式只包含機器學習的實體父系，而非子元件。
 
 ## <a name="add-template-utterance-to-create-pattern"></a>將範本語句新增至建立模式
 
@@ -30,14 +33,14 @@ LUIS 應用程式收到端點語句之後，請使用[模式](luis-concept-patte
     > [!div class="mx-imgBorder"]
     > ![模式清單的螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/patterns-1.png)
 
-1. 選取模式的正確意圖。 
+1. 選取模式的正確意圖。
 
-1. 在範本文字方塊中，輸入範本語句並選取 Enter。 當您想要輸入實體名稱時，請使用正確的模式實體語法。 實體語法的開頭為 `{`。 實體清單隨即顯示。 選取正確的實體。 
+1. 在範本文字方塊中，輸入範本語句並選取 Enter。 當您想要輸入實體名稱時，請使用正確的模式實體語法。 實體語法的開頭為 `{`。 實體清單隨即顯示。 選取正確的實體。
 
     > [!div class="mx-imgBorder"]
     > ![模式的實體螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    如果您的實體包含[角色](luis-concept-roles.md)，請在機構名稱後面指定具有單一冒號的角色 `:`，例如 `{Location:Origin}`。 實體的角色清單會顯示在清單中。 選取角色，然後選取 Enter。 
+    如果您的實體包含[角色](luis-concept-roles.md)，請在機構名稱後面指定具有單一冒號的角色 `:`，例如 `{Location:Origin}`。 實體的角色清單會顯示在清單中。 選取角色，然後選取 Enter。
 
     > [!div class="mx-imgBorder"]
     > ![具有角色](./media/luis-how-to-model-intent-pattern/patterns-4.png) 的實體螢幕擷取畫面
@@ -48,7 +51,7 @@ LUIS 應用程式收到端點語句之後，請使用[模式](luis-concept-patte
     > ![輸入模式的螢幕擷取畫面，其中包含兩種類型的實體](./media/luis-how-to-model-intent-pattern/patterns-5.png)
 
 ## <a name="train-your-app-after-changing-model-with-patterns"></a>在利用模式變更模型後訓練您的應用程式
-在您新增、編輯、移除或重新指派模式之後，[訓練](luis-how-to-train.md)並[發佈](luis-how-to-publish-app.md)您的應用程式，您的變更才會影響端點查詢。 
+在您新增、編輯、移除或重新指派模式之後，[訓練](luis-how-to-train.md)並[發佈](luis-how-to-publish-app.md)您的應用程式，您的變更才會影響端點查詢。
 
 <a name="search-patterns"></a>
 <a name="edit-a-pattern"></a>

@@ -8,14 +8,14 @@ manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 5c90c91791af8a9a16039e9650765bd24433ff38
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 056dd4331d30335078ea68350f711e37a7b42070
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815826"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976616"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>快速入門：建立自訂命令（預覽）
 
@@ -28,16 +28,6 @@ ms.locfileid: "74815826"
 
   > [!NOTE]
   > 在預覽期間，訂用帳戶金鑰僅支援 westus2 區域。
-
-- [Language Understanding](https://www.luis.ai/home) （LUIS）撰寫金鑰：
-  1. 開啟網頁瀏覽器，並流覽至[Azure 入口網站](https://portal.azure.com)
-  1. 選取 [建立資源]
-  1. 搜尋並選取  [Language Understanding](https://aka.ms/sc-luis-all)
-  1. 在建立選項中選取 [撰寫]
-  1. 部署資源之後，移至資源，然後從 [快速入門] 或 [金鑰] 區段複製金鑰
-
-      > [!div class="mx-imgBorder"]
-      > ![建立撰寫資源](media/custom-speech-commands/resources-lu-authoring.png)
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>前往適用于自訂命令的語音 Studio
 
@@ -58,11 +48,21 @@ ms.locfileid: "74815826"
 1. 選取 [**新增專案**] 以建立新的專案
 
    > [!div class="mx-imgBorder"]
-   > ![建立新專案](media/custom-speech-commands/create-new-project.png)
+   > ![建立專案](media/custom-speech-commands/create-new-project.png)
 
-1. 輸入 [專案名稱] 和 [語言]，然後選取 **[下一步]** 以繼續。
-1. 輸入您的 LUIS 撰寫金鑰
-1. 建立之後，請選取您的專案
+1. 輸入 [專案名稱] 和 [語言]。
+1. 選取 [撰寫中] 資源。 如果沒有有效的撰寫資源，請選取 [**建立新資源**] 加以建立。
+
+   > [!div class="mx-imgBorder"]
+   > ![建立資源](media/custom-speech-commands/create-new-resource.png)
+
+   1. 輸入 [資源名稱]、[群組]、[位置] 和 [定價層]。
+
+         > [!NOTE]
+         > 您可以在 [資源群組] 欄位中輸入所需的資源組名，以建立資源群組。 當選取 [**建立**] 時，將會建立資源群組。
+
+1. 按一下 [**建立**] 以建立您的專案。
+1. 建立之後，請選取您的專案。
 
 您的 view 現在應該是您自訂命令應用程式的總覽。
 
@@ -99,25 +99,41 @@ turn on the tv
 
 現在新增完成規則以回應使用者，指出正在採取動作。
 
+1. 選取 [完成規則] 旁的 [`+`] 圖示，以建立新的完成規則
+1. 輸入規則名稱
+1. 新增動作
+   1. 選取 [動作] 旁的 [`+`] 圖示，然後選取 [`SpeechResponse`]，以建立新的語音回應動作。
+   1. 輸入回應
+
+   > [!NOTE]
+   > 一般文字的開頭必須是破折號。 如需詳細資訊，請移至[這裡](https://aka.ms/sc-lg-format)
+
+   > [!div class="mx-imgBorder"]
+   > ![建立語音回應](media/custom-speech-commands/create-speech-response-action.png)
+
+1. 按一下 [**儲存**] 以儲存規則
+
 > [!div class="mx-imgBorder"]
 > ![建立完成規則](media/custom-speech-commands/create-basic-completion-response-rule.png)
+
 
 | 設定    | 建議的值                        | 描述                                        |
 | ---------- | -------------------------------------- | -------------------------------------------------- |
 | 規則名稱  | "ConfirmationResponse"                 | 描述規則用途的名稱          |
 | 條件 | None                                   | 判斷規則何時可執行檔條件    |
-| 動作    | SpeechResponse 「確定，開啟電視」 | 規則條件為 true 時要採取的動作 |
+| 動作    | SpeechResponse "-Ok，開啟電視" | 規則條件為 true 時要採取的動作 |
 
 ## <a name="try-it-out"></a>歡迎試用
 
 使用 [測試聊天] 面板來測試行為。
 
 > [!div class="mx-imgBorder"]
-> 使用 webchat](media/custom-speech-commands/create-basic-test-chat.png) ![測試
+> ![使用網路聊天](media/custom-speech-commands/create-basic-test-chat.png) 進行測試
 
 - 您輸入：「開啟電視」
 - 預期的回應：「確定，開啟電視」
 
 ## <a name="next-steps"></a>後續步驟
+
 > [!div class="nextstepaction"]
 > [快速入門：使用參數來建立自訂命令（預覽）](./quickstart-custom-speech-commands-create-parameters.md)

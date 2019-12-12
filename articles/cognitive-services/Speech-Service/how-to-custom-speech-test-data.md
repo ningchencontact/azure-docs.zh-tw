@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b2d02ed5a9fb2cb10e4cf18fe7d878da5b032fe0
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: ba95723e62cec9708684665a9d141b1e39ccb831
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816396"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951831"
 ---
 # <a name="prepare-data-for-custom-speech"></a>準備自訂語音的資料
 
@@ -62,6 +62,9 @@ ms.locfileid: "74816396"
 | 封存格式 | .zip |
 | 封存大小上限 | 2GB |
 
+> [!TIP]
+> 上傳定型和測試資料時，.zip 檔案大小不能超過 2 GB。 如果您需要更多資料來進行定型和測試，請將其分成數個 .zip 檔案，並分別上傳它們。 稍後，您可以選擇從*多個*資料集進行定型和測試。
+
 如果您的音訊不符合這些內容，或您想要檢查其是否存在，建議您下載[sox](http://sox.sourceforge.net)以檢查或轉換音訊。 以下是如何透過命令列來完成每個活動的一些範例：
 
 | 活動 | 描述 | Sox 命令 |
@@ -71,7 +74,7 @@ ms.locfileid: "74816396"
 
 ## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>音訊 + 用於測試/定型的人為標記的文字記錄資料
 
-若要在處理您的音訊檔案時測量 Microsoft 的語音轉換文字精確度準確度，您必須提供人為標記的轉譯（單字）以進行比較。 雖然人加上標記的轉譯經常耗用時間，但還是必須評估精確度，並針對您的使用案例來定型模型。 請記住，辨識的改進只會與所提供的資料一樣好。 基於這個理由，請務必只上傳高品質的文字記錄。  
+若要在處理您的音訊檔案時測量 Microsoft 的語音轉換文字精確度準確度，您必須提供人為標記的轉譯（單字）以進行比較。 雖然人加上標記的轉譯經常耗用時間，但還是必須評估精確度，並針對您的使用案例來定型模型。 請記住，辨識的改進只會與所提供的資料一樣好。 基於這個理由，請務必只上傳高品質的文字記錄。
 
 | 屬性 | Value |
 |----------|-------|
@@ -82,6 +85,9 @@ ms.locfileid: "74816396"
 | 樣本格式 | PCM，16 位元 |
 | 封存格式 | .zip |
 | 最大 zip 大小 | 2GB |
+
+> [!TIP]
+> 上傳定型和測試資料時，.zip 檔案大小不能超過 2 GB。 如果您需要更多資料來進行定型和測試，請將其分成數個 .zip 檔案，並分別上傳它們。 稍後，您可以選擇從*多個*資料集進行定型和測試。
 
 若要解決 word 刪除或替代等問題，需要大量的資料來改善辨識。 一般來說，建議您提供大約10到1000小時音訊的單字文字轉譯。 所有 WAV 檔案的文字記錄應包含在單一純文字檔案中。 文字記錄檔案的每一行都應包含其中一個音訊檔案的名稱，然後後面接著相對應的文字記錄。 檔案名稱和文字記錄應該以定位字元 (\t) 分隔。
 

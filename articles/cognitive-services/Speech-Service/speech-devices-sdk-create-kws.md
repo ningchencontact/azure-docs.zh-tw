@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: erhopf
-ms.openlocfilehash: 15a0e27f3f96eda27182e8437dc95d047f56e260
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 42bcc336bfeb325a08c3d65438d66690c0b35100
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815302"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896444"
 ---
 # <a name="create-a-custom-keyword-by-using-the-speech-service"></a>使用語音服務建立自訂關鍵字
 
@@ -50,17 +50,29 @@ ms.locfileid: "74815302"
 
 1. 移至[語音 Studio](https://aka.ms/sdsdk-speechportal)並登**入**，或者，如果您還沒有語音訂用帳戶，請選擇 [[**建立訂用**](https://go.microsoft.com/fwlink/?linkid=2086754)帳戶]。
 
-1. 在 [[自訂關鍵字](https://aka.ms/sdsdk-wakewordportal)] 頁面上，輸入您選擇的關鍵字，然後按一下 [**新增關鍵字**]。 我們有一些[指導方針](#choose-an-effective-keyword)可協助您選擇有效的關鍵字。 支援目前僅限於 en-us 語言。
+1. 在 [[自訂關鍵字](https://aka.ms/sdsdk-wakewordportal)] 頁面上，建立**新的專案**。 
 
-    ![輸入您的關鍵字](media/speech-devices-sdk/custom-kws-portal-enter-keyword.png)
+1. 輸入**名稱**、選擇性**描述**，然後選取語言。 您將需要每個語言一個專案，而且支援目前僅限於 en-us 語言。
 
-1. 入口網站現在會為您的關鍵字建立候選的發音。 按一下 [播放] 按鈕，並移除任何不正確之發音旁的檢查，以接聽每個候選。 一旦核取了良好的發音，請選取 [**提交**] 以開始產生關鍵字。 如果您想要變更關鍵字，請先按一下出現在資料列右側的 [刪除] 按鈕來移除現有的關鍵字，然後將滑鼠游標移至該位置。
+    ![描述關鍵字專案](media/custom-keyword/custom-kws-portal-new-project.png)
 
-    ![檢查關鍵字](media/speech-devices-sdk/custom-kws-portal-review-keyword.png)
+1. 從清單中選取您的專案。 
 
-1. 最多可能需要一分鐘的時間來產生模型。 系統會提示您下載檔案。
+    ![選取您的關鍵字專案](media/custom-keyword/custom-kws-portal-project-list.png)
 
-    ![下載您的關鍵字](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
+1. 若要啟動新的關鍵字模型，請按一下 [**定型模型**]。
+
+1. 輸入關鍵字模型的 [**名稱**] 和選擇性 [**描述**]，然後鍵入您選擇的**關鍵字**，然後按 **[下一步]** 。 我們有一些[指導方針](#choose-an-effective-keyword)可協助您選擇有效的關鍵字。
+
+    ![輸入您的關鍵字](media/custom-keyword/custom-kws-portal-new-model.png) 
+
+1. 入口網站現在會為您的關鍵字建立候選的發音。 按一下 [播放] 按鈕，並移除任何不正確之發音旁的檢查，以接聽每個候選。 一旦核取了良好的發音，請按一下 [**定型**] 開始產生關鍵字。 
+
+    ![檢查關鍵字](media/custom-keyword/custom-kws-portal-choose-prons.png) 
+
+1. 最多可能需要十分鐘的時間來產生模型。 當模型完成時，關鍵字清單會從**處理**變更為**成功**。 然後您就可以下載檔案。
+
+    ![檢查關鍵字](media/custom-keyword/custom-kws-portal-download-model.png) 
 
 1. 將 .zip 檔案儲存到您的電腦。 您將需要此檔案，才能將自訂關鍵字部署至您的裝置。
 

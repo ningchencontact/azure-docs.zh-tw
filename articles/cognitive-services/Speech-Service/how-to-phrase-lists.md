@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: 052e02ef562da0637b6b5b9683120f0c397dbfd5
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+zone_pivot_groups: programming-languages-set-two
+ms.openlocfilehash: 2ceb53b50810aef501278710ae990c57fc45030c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805870"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971667"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>語音轉換文字的片語清單
 
@@ -23,7 +24,7 @@ ms.locfileid: "74805870"
 
 例如，如果您有一個命令「移至」，而且可能會讀出「Ward」的目的地，您可以新增「移至 Ward」的專案。 新增片語會增加可辨識「移至 Ward」的音訊，而不是「移至」的可能性。
 
-可以將單一單字或完整片語新增至片語清單。 辨識期間，如果音訊中包含完全相符的專案，則會使用片語清單中的專案。 以先前的範例為基礎，如果片語清單包含「Move to Ward」，而音訊捕捉到的聽起來與「移至」和「移至 Ward」的效果相似，則辨識結果可能會被辨識為「移至 Ward 緩慢」。
+可以將單一單字或完整片語新增至片語清單。 在辨識期間，如果與整個片語完全相符，則會使用片語清單中的專案，以個別的片語形式包含在音訊中。 如果找不到與片語完全相符的情況，就不會協助辨識。
 
 >[!Note]
 > 目前，片語清單僅支援英文的語音轉換文字。
@@ -32,12 +33,7 @@ ms.locfileid: "74805870"
 
 下列範例說明如何使用 `PhraseListGrammar` 物件來建立片語清單。
 
-```C++
-auto phraselist = PhraseListGrammar::FromRecognizer(recognizer);
-phraselist->AddPhrase("Move to Ward");
-phraselist->AddPhrase("Move to Bill");
-phraselist->AddPhrase("Move to Ted");
-```
+::: zone pivot="programming-language-csharp"
 
 ```cs
 PhraseListGrammar phraseList = PhraseListGrammar.FromRecognizer(recognizer);
@@ -46,19 +42,20 @@ phraseList.AddPhrase("Move to Bill");
 phraseList.AddPhrase("Move to Ted");
 ```
 
-```Python
-phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(reco)
-phrase_list_grammar.addPhrase("Move to Ward")
-phrase_list_grammar.addPhrase("Move to Bill")
-phrase_list_grammar.addPhrase("Move to Ted")
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+```C++
+auto phraselist = PhraseListGrammar::FromRecognizer(recognizer);
+phraselist->AddPhrase("Move to Ward");
+phraselist->AddPhrase("Move to Bill");
+phraselist->AddPhrase("Move to Ted");
 ```
 
-```JavaScript
-var phraseListGrammar = SpeechSDK.PhraseListGrammar.fromRecognizer(reco);
-phraseListGrammar.addPhrase("Move to Ward");
-phraseListGrammar.addPhrase("Move to Bill");
-phraseListGrammar.addPhrase("Move to Ted");
-```
+::: zone-end
+
+::: zone pivot="programming-language-java"
 
 ```Java
 PhraseListGrammar phraseListGrammar = PhraseListGrammar.fromRecognizer(recognizer);
@@ -67,30 +64,74 @@ phraseListGrammar.addPhrase("Move to Bill");
 phraseListGrammar.addPhrase("Move to Ted");
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```Python
+phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(reco)
+phrase_list_grammar.addPhrase("Move to Ward")
+phrase_list_grammar.addPhrase("Move to Bill")
+phrase_list_grammar.addPhrase("Move to Ted")
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-more"
+
+```JavaScript
+var phraseListGrammar = SpeechSDK.PhraseListGrammar.fromRecognizer(reco);
+phraseListGrammar.addPhrase("Move to Ward");
+phraseListGrammar.addPhrase("Move to Bill");
+phraseListGrammar.addPhrase("Move to Ted");
+```
+
+::: zone-end
+
 >[!Note]
 > 語音服務將用來比對語音的片語清單數目上限為1024個片語。
 
 您也可以藉由呼叫 clear （），清除與 `PhraseListGrammar` 相關聯的片語。
 
-```C++
-phraselist->Clear();
-```
+::: zone pivot="programming-language-csharp"
 
 ```cs
 phraseList.Clear();
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+```C++
+phraselist->Clear();
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```Java
+phraseListGrammar.clear();
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
 ```Python
 phrase_list_grammar.clear()
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-more"
 
 ```JavaScript
 phraseListGrammar.clear();
 ```
 
-```Java
-phraseListGrammar.clear();
-```
+::: zone-end
 
 > [!NOTE]
 > `PhraseListGrammar` 物件的變更會在下一次辨識或重新連線到語音服務之後生效。

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 741217cde5068468a7063a64361df8425346b590
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 7017c3065e41befab6b5d7cdea47e2e3e6720173
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815450"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928649"
 ---
 # <a name="support-and-help-options"></a>支援和協助選項
 
@@ -62,7 +62,7 @@ Azure 客戶可以在 Azure 入口網站中建立和管理支援要求。
 
 Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 Microsoft 小組成員會在這裡直接參與以協助您解決問題。
 
-如果您無法透過搜尋找到問題的解答，請使用[microsoft 認知-語音](https://stackoverflow.com/questions/tagged/microsoft-cognitive-speech)標記將新問題提交至 Stack Overflow。
+如果您無法透過搜尋找到問題的解答，請將新問題提交至 Stack Overflow 使用標記[\[microsoft 認知\]\[語音\]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech)。
 
 > [!TIP]
 > Stack Overflow 的下列貼文包含如何提出問題以及新增原始程式碼的提示。 遵循這些指導方針有助於增加社群成員快速評估並回應您問題的機會：  
