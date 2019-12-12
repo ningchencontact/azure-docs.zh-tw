@@ -8,24 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 07/25/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 64d1ce1aa6435d9d1716364cb16f8fee7ca09ebb
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 97266269a5fbb66f9787cb4a8042f3b3dc13a5ec
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597801"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977228"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>快速入門：使用適用於 Java 的 Bing Web 搜尋 SDK
 
 Bing Web 搜尋 SDK 可讓您輕鬆地將 Bing Web 搜尋整合到 Java 應用程式。 在本快速入門中，您將了解如何傳送要求、接收 JSON 回應，以及篩選和剖析結果。
 
 要立即查看程式碼嗎？ GitHub 上提供[適用於 Java 的 Bing Web 搜尋 SDK 範例](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/) (英文)。
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
-
-另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -34,6 +30,8 @@ Bing Web 搜尋 SDK 可讓您輕鬆地將 Bing Web 搜尋整合到 Java 應用�
 * [JDK 7 或 8](https://aka.ms/azure-jdks) (英文)
 * [Apache Maven](https://maven.apache.org/download.cgi) 或您最愛的組建自動化工具
 * 訂用帳戶金鑰
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-set-up-your-pom-file"></a>建立專案並設定您的 POM 檔案
 

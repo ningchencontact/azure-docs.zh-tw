@@ -9,28 +9,28 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: 3e85067439fe412822ac34a065753e9a13c7a506
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 29e43692c1eb543768934a961a2bb8ae5a023b1d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488735"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894613"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>教學課程：從語句擷取內容相關的資料
 
-在本教學課程中，根據內容尋找相關的資料片段。 例如，從某個城市前往另一個城市的出發地和目的地位置。 可能會需要這兩個資料片段，且這兩者彼此相關。  
+在本教學課程中，根據內容尋找相關的資料片段。 例如，從某個城市前往另一個城市的出發地和目的地位置。 可能會需要這兩個資料片段，且這兩者彼此相關。
 
-角色可以與任何預先建置或自訂實體型別一起使用，並在範例表達和模式中使用。 
+角色可以與任何預先建置或自訂實體型別一起使用，並在範例表達和模式中使用。
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **在本教學課程中，您將了解如何：**
 
 > [!div class="checklist"]
 > * 建立新的應用程式
-> * 新增意圖 
+> * 新增意圖
 > * 使用角色取得來源和目的地資訊
 > * 定型
 > * 發佈
@@ -57,9 +57,9 @@ ms.locfileid: "73488735"
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. 選取 [Create new intent] \(建立新意圖\)  。 
+1. 選取 [Create new intent] \(建立新意圖\)  。
 
-1. 在快顯對話方塊方塊中輸入 `MoveEmployeeToCity`，然後選取 [完成]  。 
+1. 在快顯對話方塊方塊中輸入 `MoveEmployeeToCity`，然後選取 [完成]  。
 
     ![建立新意圖對話方塊的螢幕擷取畫面](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
@@ -85,24 +85,24 @@ ms.locfileid: "73488735"
 
 1. 從左側瀏覽列中，選取 [實體]  。
 
-1. 選取 [加入預先建置的實體]  ，然後在搜尋列中選取 `geo` 以篩選預先建置的實體。 
+1. 選取 [加入預先建置的實體]  ，然後在搜尋列中選取 `geo` 以篩選預先建置的實體。
 
     ![將 geographyV2 預先建置的實體新增至應用程式](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 1. 選取此核取方塊，然後選取 [完成]  。
-1. 在 [實體]  清單中，選取 [geographyV2]  開啟新的實體。 
-1. 新增兩個角色，`Origin` 和 `Destination`。 
+1. 在 [實體]  清單中，選取 [geographyV2]  開啟新的實體。
+1. 新增兩個角色，`Origin` 和 `Destination`。
 
     ![將角色新增至預先建置的實體](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. 從左側導覽中選取 [意圖]  ，然後選取 [MoveEmployeeToCity]  意圖。 請注意，縣/市名稱會加上預先建置的實體 **geographyV2**。
 1. 在清單的第一個表達中，選取出發地位置。 此時會出現下拉式選單。 在清單中選取 **geographyV2**，然後依照功能表選取 [出發地]  。
-1. 使用上一步中的方法標記所有表達中所有位置的角色。 
+1. 使用上一步中的方法標記所有表達中所有位置的角色。
 
 
-## <a name="add-example-utterances-to-the-none-intent"></a>將範例語句新增至 None 意圖 
+## <a name="add-example-utterances-to-the-none-intent"></a>將範例語句新增至 None 意圖
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>訓練應用程式，因此可以測試意圖的變更 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>訓練應用程式，因此可以測試意圖的變更
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -152,9 +152,9 @@ ms.locfileid: "73488735"
       ]
     }
     ```
-    
+
     已預測正確的意圖，而且實體陣列在對應的 **entity** 屬性中具有出發地和目的地角色。
-    
+
 ## <a name="clean-up-resources"></a>清除資源
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
@@ -173,5 +173,5 @@ ms.locfileid: "73488735"
 
 本教學課程建立了新意圖，並針對出發地和目的地位置的內容相關學習資料新增了範例語句。 應用程式一旦經過訓練並發佈，用戶端應用程式即可使用該資訊來建立包含相關資訊的移動票證。
 
-> [!div class="nextstepaction"] 
-> [了解如何新增複合實體](luis-tutorial-composite-entity.md) 
+> [!div class="nextstepaction"]
+> [了解如何新增複合實體](luis-tutorial-composite-entity.md)

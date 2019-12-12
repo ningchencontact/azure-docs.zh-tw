@@ -1,20 +1,20 @@
 ---
 title: 從 Azure IoT 解決方案與 IoT 隨插即用預覽版裝置互動 | Microsoft Docs
 description: 身為解決方案開發人員，請了解如何使用服務 SDK 與 IoT 隨插即用裝置互動。
-author: YasinMSFT
-ms.author: yahajiza
+author: Philmea
+ms.author: philmea
 ms.date: 07/24/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 5abfe0300bd61f5ccfbfccedf16659f055eb8ad4
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 543f332087aef4147c9274ca980cb56543a68112
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878609"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977585"
 ---
 # <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>連線至 IoT 隨插即用預覽版裝置並與其互動
 
@@ -91,7 +91,7 @@ select * from devices where HAS_CAPABILITYMODEL('id without version', version)
 1. 在 [路由]  索引標籤上，選取 [新增]  。
 1. 在 [名稱]  欄位中輸入值，然後選擇 [端點]  。 如果您尚未設定端點，請選取 [新增端點]  。
 1. 在 [資料來源]  下拉式清單中，選取 [數位對應項變更事件]  。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]  。
 
 下列 JSON 顯示數位對應項變更事件的範例：
 

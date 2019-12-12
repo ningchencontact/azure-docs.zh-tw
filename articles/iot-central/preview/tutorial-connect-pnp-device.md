@@ -3,17 +3,17 @@ title: 教學課程 - 將 IoT 隨插即用預覽版裝置連線至 Azure IoT Cen
 description: 本教學課程說明如何使用裝置功能模型來產生裝置程式碼。 然後，執行裝置程式碼，確認裝置已連線至您的 IoT Central 應用程式，並使用自動產生的檢視。
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/08/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 59261d6a1cea034df58bd7e8d53439cdf1fbae6b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 2cb07a94b2ae85cc0755e1e7069a76e1ef2a5252
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702868"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977330"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>教學課程：使用裝置功能模型建立 IoT 隨插即用裝置，並將其連線至您的 IoT Central 應用程式
 

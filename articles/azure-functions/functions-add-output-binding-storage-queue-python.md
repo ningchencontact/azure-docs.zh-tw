@@ -3,12 +3,12 @@ title: 將 Azure 儲存體佇列繫結新增至您的 Python 函式
 description: 了解如何將 Azure 儲存體佇列輸出繫結新增至您的 Python 函式。
 ms.date: 10/02/2019
 ms.topic: quickstart
-ms.openlocfilehash: dede135da56e9ed1eaaed2ae0f7b5cd14d08195c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f2db0f470c4205919343e3838a4f73b05bf71fb0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231241"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928870"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>將 Azure 儲存體佇列繫結新增至您的 Python 函式
 
@@ -55,7 +55,7 @@ func host start
 ```
 
 > [!NOTE]  
-> 由於您已啟用 host.json 中的擴充功能套件組合，因此[儲存體繫結擴充功能](functions-bindings-storage-blob.md#packages---functions-2x)已在啟動期間下載並安裝，連同其他 Microsoft 繫結擴充功能。
+> 由於您已啟用 host.json 中的擴充功能套件組合，因此[儲存體繫結擴充功能](functions-bindings-storage-blob.md#packages---functions-2x-and-higher)已在啟動期間下載並安裝，連同其他 Microsoft 繫結擴充功能。
 
 從執行階段輸出複製 `HttpTrigger` 函式的 URL，並將它貼到瀏覽器的網址列。 將查詢字串 `?name=<yourname>` 附加至此 URL 並執行要求。 您應該會在瀏覽器中看到與前一篇文章中相同的回應。
 

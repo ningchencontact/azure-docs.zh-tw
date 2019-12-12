@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 7035689f3813a94c7e24e4c6138016b11c1a4ef3
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 2a3deff1d6220d21c3796b22dc7c39ea284cb36b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859122"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977942"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>快速入門：使用 Face REST API 和 Node.js 偵測影像中的臉部
 
 在本快速入門中，您將使用 Azure Face REST API 搭配 Node.js 來偵測影像中的人臉。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
 
 ## <a name="prerequisites"></a>必要條件
 

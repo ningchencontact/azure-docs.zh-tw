@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 3f14d874b7448f0c4a835f89689038103098bf80
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a5e8f951fbcfe1d0230b0b0ce55b4eba43024531
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74817644"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74980745"
 ---
 如果您想要自行直接開始，請在 GitHub 上檢視或下載所有<a href="https://aka.ms/speech/github-python">語音 SDK Python 範例</a> \(英文\)。 否則，讓我們開始吧。

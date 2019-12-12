@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 79f0630c65aa438ac5d831b03842cc74b609cd3b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 059862255ca2cf0ce435496bf22d866a37c8be71
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132731"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977160"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>快速入門：使用適用於 Node.js 的 Bing Web 搜尋 SDK
 
@@ -23,15 +23,14 @@ Bing Web 搜尋 SDK 可讓您輕鬆地將 Bing Web 搜尋整合到 Node.js 應�
 
 要立即查看程式碼嗎？ GitHub 上提供[適用於 Node.js 的 Bing Web 搜尋 SDK 範例](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) (英文)。
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
-
-另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
-
 ## <a name="prerequisites"></a>必要條件
 以下是執行本快速入門之前的幾個必備項目：
 
 * [Node.js 6](https://nodejs.org/en/download/) (英文) 或更新版本
 * 訂用帳戶金鑰  
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
+
 
 ## <a name="set-up-your-development-environment"></a>設定開發環境
 

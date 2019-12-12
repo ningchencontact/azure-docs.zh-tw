@@ -8,22 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 04/15/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 5e893fda5a0e71703eb867c045de19d391c012ed
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 2c55aaa0843574981a7643b11161700992ea0b09
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018218"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976446"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing Web 搜尋 SDK
 
 Bing Web 搜尋 SDK 可讓您輕鬆地將 Bing Web 搜尋整合到 C# 應用程式。 在本快速入門中，您將了解如何具現化用戶端、傳送要求，以及列印回應。
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
-
-另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
 ## <a name="prerequisites"></a>必要條件
 以下是執行本快速入門之前的幾個必備項目：
@@ -33,6 +29,8 @@ Bing Web 搜尋 SDK 可讓您輕鬆地將 Bing Web 搜尋整合到 C# 應用程�
   * [C# for Visual Studio Code](https://visualstudio.microsoft.com/downloads/)
   * [NuGet 套件管理員](https://github.com/jmrog/vscode-nuget-package-manager) (英文)
 * [.NET Core SDK](https://www.microsoft.com/net/download)
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-install-dependencies"></a>建立專案並安裝相依性
 

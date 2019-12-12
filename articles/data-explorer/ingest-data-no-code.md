@@ -7,12 +7,12 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 11/17/2019
-ms.openlocfilehash: 97faa445a286574aa5fc05d084d21c0740bc8a8b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 2574f27b4b86bab276a56f95fda9fa2a1434c095
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173863"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995927"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>教學課程：在 Azure 資料總管中擷取和查詢監視資料 
 
@@ -315,10 +315,10 @@ Azure 監視器記錄的結構不是表格式的。 您將操作資料，並將�
         | mv-expand events = Records
         | where isnotempty(events.metricName)
         | project
-            Timestamp = todatetime(events.time),
+            Timestamp = todatetime(events['time']),
             ResourceId = tostring(events.resourceId),
             MetricName = tostring(events.metricName),
-            Count = toint(events.count),
+            Count = toint(events['count']),
             Total = todouble(events.total),
             Minimum = todouble(events.minimum),
             Maximum = todouble(events.maximum),

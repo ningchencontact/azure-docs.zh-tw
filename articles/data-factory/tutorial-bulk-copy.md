@@ -1,24 +1,25 @@
 ---
-title: '使用 Azure Data Factory 大量複製資料 '
+title: 複製大量資料
 description: 了解如何使用 Azure Data Factory 和複製活動，將資料從來源資料存放區大量複製到目的地資料存放區。
 services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.author: jingwang
-ms.openlocfilehash: 8ebcf7b3a8dfa4103c0b2773ace76797e5b8f899
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: a019928f710d4b94cc3e5c4c14b559ef7d491ae2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546416"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926636"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>使用 Azure Data Factory 大量複製多個資料表
+
 本教學課程示範**從 Azure SQL Database 複製一些資料表到 Azure SQL 資料倉儲**。 您也可以在其他複製案例中套用相同模式。 例如，將資料表從 SQL Server/Oracle 複製到 Azure SQL Database/資料倉儲/Azure Blob，將不同的路徑從 Blob 複製到 Azure SQL Database 資料表。
 
 概括而言，本教學課程包含下列步驟：

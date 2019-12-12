@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a00ec77148433d64f2980b1bb47d753d70a5ec20
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: c4d136eaf0f6c4ac64093f417f144e422e2da52f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859028"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977908"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>快速入門：使用 Face REST API 和 Python 偵測影像中的臉部
 
@@ -23,7 +23,7 @@ ms.locfileid: "70859028"
 
 ![一名男性和一名女性，其臉部周圍繪有矩形，且影像上會顯示年齡和性別](../images/labelled-faces-python.png)
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
 
 
 ## <a name="prerequisites"></a>必要條件

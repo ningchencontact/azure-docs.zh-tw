@@ -3,12 +3,12 @@ title: 將您的 Java 函式連線至 Azure 儲存體
 description: 了解如何使用佇列儲存體輸出繫結，將 HTTP 觸發的 Java 函式連線到 Azure 儲存體。
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.openlocfilehash: f9c3445efbe14c27cad9de62f5b46f50965e3145
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 98f49338f0df935347a26798aceccb80f9f43f50
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231215"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926907"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>將您的 Java 函式連線至 Azure 儲存體
 
@@ -118,7 +118,7 @@ mvn azure-functions:run
 ```
 
 > [!NOTE]  
-> 由於您已啟用 host.json 中的擴充功能套件組合，因此[儲存體繫結擴充功能](functions-bindings-storage-blob.md#packages---functions-2x)已在啟動期間下載並安裝，連同其他 Microsoft 繫結擴充功能。
+> 由於您已啟用 host.json 中的擴充功能套件組合，因此[儲存體繫結擴充功能](functions-bindings-storage-blob.md#packages---functions-2x-and-higher)已在啟動期間下載並安裝，連同其他 Microsoft 繫結擴充功能。
 
 如同以往，在新的終端視窗中使用 cURL 從命令列觸發函式：
 
