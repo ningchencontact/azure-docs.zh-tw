@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/05/2019
 ms.author: erhopf
-ms.openlocfilehash: b1c32042fcb70ff16bb9d014a9f3546f4435e83f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c366beb80eda7087f1f74fffbcfbf8b143676f32
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075782"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995893"
 ---
-# <a name="what-are-the-speech-services"></a>什麼是語音服務？
+# <a name="what-is-the-speech-service"></a>什麼是語音服務？
 
 語音服務會將語音轉文字、文字轉語音及語音翻譯整合至單一 Azure 訂用帳戶。 藉由[語音 SDK](speech-sdk-reference.md)、[語音裝置 SDK](https://aka.ms/sdsdk-quickstart) 或 [REST API](rest-apis.md)，可輕易地透過語音來啟用您的應用程式、工具和裝置。
 
 > [!IMPORTANT]
 > 語音服務已取代 Bing 語音 API、翻譯工具語音和自訂語音。 如需移轉說明，請參閱 [操作指南] > [移轉]  。
 
-Azure 語音服務是由以下功能所組成。 請使用此資料表中的連結，深入了解每項功能的常見使用案例，或瀏覽 API 參考。
+語音服務由以下功能組成。 請使用此資料表中的連結，深入了解每項功能的常見使用案例，或瀏覽 API 參考。
 
 | 服務 | 功能 | 說明 | SDK | REST |
 | ------- | ------- | ----------- | --- | ---- |
@@ -35,11 +35,11 @@ Azure 語音服務是由以下功能所組成。 請使用此資料表中的連�
 | [文字轉換語音](text-to-speech.md) | 文字轉換語音 | 文字轉語音會使用[語音合成標記語言 (SSML)](text-to-speech.md#speech-synthesis-markup-language-ssml) 將輸入文字轉換為仿真人的合成語音。 可選擇標準語音和類神經語音 (請參閱[語言支援](language-support.md))。 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 |         | [建立自訂語音](#customize-your-speech-experience) | 建立您品牌或產品專有的自訂聲音音調。 | 否 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [語音翻譯](speech-translation.md) | 語音翻譯 | 語音翻譯可讓您在應用程式、工具和裝置上使用即時且多語言的語音翻譯。 此服務可用於語音轉語音及語音轉文字翻譯。 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | 否 |
-| [語音助理](voice-assistants.md) | 語音助理 | 使用 Azure 語音服務的語音助理能賦予開發人員建立自然、擬人的對話介面，供其應用程式和體驗之用。 語音助理服務能在裝置和助理實作之間提供迅速且可靠的互動；該助理實作會使用 Bot Framework 的 Direct Line 語音頻道，或是整合的自訂命令 (預覽) 服務來完成工作。 | [是](voice-assistants.md) | 否 |
+| [語音助理](voice-assistants.md) | 語音助理 | 使用語音服務的語音助理能賦予開發人員建立自然、擬人的對話介面，供其應用程式和體驗之用。 語音助理服務能在裝置和助理實作之間提供迅速且可靠的互動；該助理實作會使用 Bot Framework 的 Direct Line 語音頻道，或是整合的自訂命令 (預覽) 服務來完成工作。 | [是](voice-assistants.md) | 否 |
 
 ## <a name="news-and-updates"></a>新功能和更新
 
-了解 Azure 語音服務的新功能。
+了解語音服務的新功能。
 
 - 2019 年 9 月
   - 發行的語音 SDK 1.7.0。 如需更新、增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
@@ -53,7 +53,7 @@ Azure 語音服務是由以下功能所組成。 請使用此資料表中的連�
   - 發行的語音 SDK 1.5.1。 如需更新、增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
   - 發行的語音 SDK 1.5.0。 如需更新、增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
 
-## <a name="try-speech-services"></a>試試語音服務
+## <a name="try-the-speech-service"></a>試用語音服務
 
 我們以最受歡迎的程式設計語言提供快速入門，目的是讓您能在 10 分鐘內執行程式碼。 此資料表包含每項功能最受歡迎的快速入門。 您可以使用左側導覽列來瀏覽其他語言及平台。
 
@@ -74,7 +74,7 @@ Azure 語音服務是由以下功能所組成。 請使用此資料表中的連�
 
 ## <a name="get-sample-code"></a>取得範例程式碼
 
-每個 Azure 語音服務的範例程式碼皆可在 GitHub 上取得。 這些範例包含常見案例，例如：從檔案或資料流讀取音訊、連續辨識、一次性辨識及使用自訂模型。 使用下列連結來檢視 SDK 和 REST 範例：
+您可以在 GitHub 上取得語音服務的程式碼範例。 這些範例包含常見案例，例如：從檔案或資料流讀取音訊、連續辨識、一次性辨識及使用自訂模型。 使用下列連結來檢視 SDK 和 REST 範例：
 
 - [語音轉文字、文字轉語音及語音翻譯範例 (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [批次轉譯範例 (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
@@ -83,7 +83,7 @@ Azure 語音服務是由以下功能所組成。 請使用此資料表中的連�
 
 ## <a name="customize-your-speech-experience"></a>自訂語音體驗
 
-Azure 語音服務可順利地與內建模型搭配使用，不過，您可以進一步自訂及調整體驗，以搭配您的產品或環境。 從原音模型調整到專屬於自身品牌的獨特聲音音調，都是自訂選項的範圍。 建立自訂模型之後，您可以將其與任一 Azure 語音服務搭配使用。
+語音服務可順利地與內建模型搭配使用，不過，您可以進一步自訂及調整體驗，以搭配您的產品或環境。 從原音模型調整到專屬於自身品牌的獨特聲音音調，都是自訂選項的範圍。
 
 | 語音服務 | 平台 | 說明 |
 | -------------- | -------- | ----------- |

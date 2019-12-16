@@ -1,6 +1,6 @@
 ---
 title: 如何在 Azure Cosmos DB 中查詢資料表資料？
-description: 了解如何在 Azure Cosmos DB 中查詢資料表資料
+description: 了解如何使用 OData 篩選和 LINQ 查詢來查詢儲存在 Azure Cosmos DB 資料表 API 帳戶中的資料
 author: wmengmsft
 ms.author: wmeng
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 161b424c5c89d34eaa55181c0d6ca0515b376168
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 7dc2c00f273f327755dab52a4bda02840d911f96
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978774"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869913"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>教學課程：使用資料表 API 查詢 Azure Cosmos DB
 

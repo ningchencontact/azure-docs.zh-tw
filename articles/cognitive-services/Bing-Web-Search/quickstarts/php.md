@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ba132adc6b0fd2b8423a7bce30ad6d52fccc898e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf3cf1f69f7b45dd90070f4074e85fa21359837d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858196"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961468"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>快速入門：使用 PHP 來呼叫 Bing Web 搜尋 API  
 
@@ -43,7 +43,7 @@ ms.locfileid: "57858196"
 
 在您最愛的 IDE 或編輯器中建立新的 PHP 專案。 別忘了將 `<?php` 和 `?>` 加上開頭和結尾標記。
 
-必須先設定幾個變數才能繼續。 請確認 `$endpoint` 正確，並將 `$accesskey` 值換成您的 Azure 帳戶中有效的訂用帳戶金鑰。 請自行取代 `$term` 的值來自訂搜尋查詢。
+必須先設定幾個變數才能繼續。 `$endpoint` 可以是下方的全域端點，也可以是 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。 請確認 `$endpoint` 正確，並將 `$accesskey` 值換成您的 Azure 帳戶中有效的訂用帳戶金鑰。 請自行取代 `$term` 的值來自訂搜尋查詢。
 
 ```php
 $accessKey = 'enter key here';

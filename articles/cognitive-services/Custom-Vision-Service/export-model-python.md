@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 00d3b1dce9bacc01c8319c678ab27a3d4cc8da88
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d7e3eeeea6bb25b4cddaea1d04e86f23ab7e4f5f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718417"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969834"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>教學課程：以 Python 執行 TensorFlow 模型
 
@@ -68,7 +68,7 @@ with open(labels_filename, 'rt') as lf:
 
 ## <a name="prepare-an-image-for-prediction"></a>準備要預測的影像
 
-準備影像有幾個步驟，以預測出正確的形狀。 這些步驟模擬在訓練期間所執行的影像操作：
+若要準備用於預測的影像，您必須執行幾個步驟。 這些步驟模擬在訓練期間所執行的影像操作：
 
 ### <a name="open-the-file-and-create-an-image-in-the-bgr-color-space"></a>開啟檔案，並在 BGR 色彩空間中建立影像
 

@@ -1,5 +1,6 @@
 ---
-title: 教學課程 - 在原生用戶端應用程式中驗證使用者 - Azure Active Directory B2C
+title: 教學課程：在原生用戶端應用程式中驗證使用者
+titleSuffix: Azure AD B2C
 description: 關於如何使用 Azure Active Directory B2C 為 .NET 傳統型應用程式提供使用者登入的教學課程。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6d1c2eff9bc9ffe8a0fb2166d39c16360c0a79cc
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 54a2fe4f0eee5c926878682ea1fccdfdd005e68b
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538929"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950182"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 在原生桌面用戶端驗證使用者
 

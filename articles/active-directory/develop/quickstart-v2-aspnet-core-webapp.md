@@ -1,28 +1,24 @@
 ---
-title: Microsoft 身分識別平台 ASP.NET Core Web 應用程式快速入門 | Azure
+title: 將使用 Microsoft 的登入新增至 ASP.NET Core Web 應用程式 - Microsoft 身分識別平台 | Azure
 description: 深入了解如何使用 OpenID Connect，在 ASP.NET Core Web 應用程式上實作 Microsoft 登入
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7779d01fd59446cf10aabf9fd6fdcce05e76899b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b86c8f79902c0234e35e4d195e4680b6e9b3f3c2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852989"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963540"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 ASP.NET Core Web 應用程式
 
@@ -60,7 +56,7 @@ ms.locfileid: "68852989"
 >    - 在 [重新導向 URL]  中新增 `https://localhost:44321/signin-oidc`，然後選取 [儲存]  。
 >    - 在 [進階設定]  區段中，將 [登出 URL]  設定為 `https://localhost:44321/signout-oidc`。
 >    - 在 [隱含授與]  底下，核取 [識別碼權杖]  。
->    - 選取 [ **儲存**]。
+>    - 選取 [儲存]  。
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>步驟 1：在 Azure 入口網站中設定您的應用程式

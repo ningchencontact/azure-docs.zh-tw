@@ -4,16 +4,19 @@ description: 在本教學課程中，您會了解如何設定「Azure Container 
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8af8daa4233fe6461b4e129f56a063e7cc212245
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a26f1207eccd615804babe230df689d27beae49f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454751"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74840777"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>教學課程：於認可原始程式碼時在雲端自動執行容器映像建置
 
-除了[快速工作](container-registry-tutorial-quick-task.md)之外，ACR 工作還能在您將原始程式碼認可至 Git 存放庫時，自動化雲端中的 Docker 容器映像建置。
+除了[快速工作](container-registry-tutorial-quick-task.md)之外，ACR 工作還能在您將原始程式碼認可至 Git 存放庫時，自動化雲端中的 Docker 容器映像建置。 ACR 工作支援的 Git 內容包括公用或私人 GitHub 或 Azure 存放庫。
+
+> [!NOTE]
+> 目前，ACR 工作不支援 GitHub Enterprise 存放庫中的認可或提取要求觸發程序。
 
 在本教學課程中，當您將原始程式碼認可至 Git 存放庫時，ACR 工作會建置並推送在 Dockerfile 中指定的單一容器映像。 若要建立[多步驟工作](container-registry-tasks-multi-step.md)，以在認可程式碼時，使用 YAML 檔案來定義建置、推送及選擇性測試多個容器的步驟，請參閱[教學課程：於認可原始程式碼時在雲端執行多步驟容器工作流程](container-registry-tutorial-multistep-task.md)。 如需 ACR 工作的概觀，請參閱[使用 ACR 工作自動化作業系統和架構修補](container-registry-tasks-overview.md)
 

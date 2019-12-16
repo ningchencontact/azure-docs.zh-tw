@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: b86a8df86b7f9b8a5936752a5f0413aa863ae85f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 411bd82ade2ca7b904b36a3a4408c1a00852fc2c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490799"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927830"
 ---
 # <a name="quickstart-personalizer-client-library-for-net"></a>快速入門：適用於 .NET 的個人化工具用戶端程式庫
 
@@ -96,7 +96,7 @@ Build succeeded.
 在應用程式目錄中，使用下列命令安裝適用於 .NET 的個人化工具用戶端程式庫：
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 0.8.0
+dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 0.8.0-preview
 ```
 
 如果您使用 Visual Studio IDE，則可以取得可下載 NuGet 套件形式的用戶端程式庫。
@@ -137,9 +137,15 @@ dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 0.8.
 
 [!code-csharp[Create the Personalizer client](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=authorization)]
 
-## <a name="get-content-choices-represented-as-actions"></a>取得以動作表示的內容選擇
+## <a name="get-food-items-as-rankable-actions"></a>取得食物項目作為可排名的動作
 
-動作代表您想要讓個人化工具進行排名的內容選擇。 將下列方法新增至 [程式] 類別，以從命令列取得一天時間和目前食物喜好的使用者輸入。
+動作代表您想要讓個人化工具進行排名的內容選擇。 將下列方法新增至 Program 類別，以代表要排名的一組動作。
+
+[!code-csharp[Food items as actions](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=createAction)]
+
+## <a name="get-user-preferences-for-context"></a>取得內容的使用者喜好設定
+
+將下列方法新增至 [程式] 類別，以從命令列取得一天時間和目前食物喜好的使用者輸入。 在為動作排名時，這些方法會作為內容。
 
 [!code-csharp[Present time out day preference to the user](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=createUserFeatureTimeOfDay)]
 
@@ -155,89 +161,14 @@ dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 0.8.
 
 在程式的 `main` 方法中，下列程式碼會在命令列上進行詢問使用者喜好的循環迴圈，並將該資訊傳送至個人化工具以進行排名，然後向客戶顯示已排名的選取項目，讓他們從清單中選擇，接著傳送獎勵給個人化工具，告知服務在排名選取項目上的成效為何。
 
-```csharp
-static void Main(string[] args)
-{
-    int iteration = 1;
-    bool runLoop = true;
+[!code-csharp[Learning loop](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=mainLoop)]
 
-    // Get the actions list to choose from personalizer with their features.
-    IList<RankableAction> actions = GetActions();
+新增下列方法，以在執行程式碼檔案之前，[取得內容選項](#get-food-items-as-rankable-actions)：
 
-    // Initialize Personalizer client.
-    PersonalizerClient client = InitializePersonalizerClient(ServiceEndpoint);
-
-    do
-    {
-        Console.WriteLine("\nIteration: " + iteration++);
-
-        // <rank>
-        // Get context information from the user.
-        string timeOfDayFeature = GetUsersTimeOfDay();
-        string tasteFeature = GetUsersTastePreference();
-
-        // Create current context from user specified data.
-        IList<object> currentContext = new List<object>() {
-            new { time = timeOfDayFeature },
-            new { taste = tasteFeature }
-        };
-
-        // Exclude an action for personalizer ranking. This action will be held at its current position.
-        // This simulates a business rule to force the action "juice" to be ignored in the ranking.
-        // As juice is excluded, the return of the API will always be with a probability of 0.
-        IList<string> excludeActions = new List<string> { "juice" };
-
-        // Generate an ID to associate with the request.
-        string eventId = Guid.NewGuid().ToString();
-
-        // Rank the actions
-        var request = new RankRequest(actions, currentContext, excludeActions, eventId);
-        RankResponse response = client.Rank(request);
-        // </rank>
-
-        Console.WriteLine("\nPersonalizer service thinks you would like to have: " + response.RewardActionId + ". Is this correct? (y/n)");
-
-        // <reward>
-        float reward = 0.0f;
-        string answer = GetKey();
-
-        if (answer == "Y")
-        {
-            reward = 1;
-            Console.WriteLine("\nGreat! Enjoy your food.");
-        }
-        else if (answer == "N")
-        {
-            reward = 0;
-            Console.WriteLine("\nYou didn't like the recommended food choice.");
-        }
-        else
-        {
-            Console.WriteLine("\nEntered choice is invalid. Service assumes that you didn't like the recommended food choice.");
-        }
-
-        Console.WriteLine("\nPersonalizer service ranked the actions with the probabilities as below:");
-        foreach (var rankedResponse in response.Ranking)
-        {
-            Console.WriteLine(rankedResponse.Id + " " + rankedResponse.Probability);
-        }
-
-        // Send the reward for the action based on user response.
-        client.Reward(response.EventId, new RewardRequest(reward));
-        // </reward>
-
-        Console.WriteLine("\nPress q to break, any other key to continue:");
-        runLoop = !(GetKey() == "Q");
-
-    } while (runLoop);
-}
-```
-
-新增下列方法，以在執行程式碼檔案之前，[取得內容選項](#get-content-choices-represented-as-actions)：
-
-* GetUsersTimeOfDay
-* GetUsersTastePreference
-* GetKey
+* `GetActions`
+* `GetUsersTimeOfDay`
+* `GetUsersTastePreference`
+* `GetKey`
 
 ## <a name="request-a-rank"></a>要求排名
 

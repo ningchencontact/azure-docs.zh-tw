@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: afb804dd3fd0fecd676f04f18db577f87861a163
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6a470979ce4276d510f1a89bc9bc192d609c2083
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564687"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973504"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>快速入門：使用 Java 呼叫您的 Bing 自訂搜尋端點
 
@@ -50,7 +50,7 @@ ms.locfileid: "68564687"
     import com.google.gson.JsonParser;
     ```
 
-2. 建立名為 `CustomSrchJava` 的類別，並建立訂用帳戶金鑰、自訂搜尋端點和搜尋執行個體的自訂組態識別碼的變數。 
+2. 建立名為 `CustomSrchJava` 的類別，並建立訂用帳戶金鑰、自訂搜尋端點和搜尋執行個體的自訂組態識別碼的變數。 您可以使用下方的全域端點，也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
     ```java
     public class CustomSrchJava {
         static String host = "https://api.cognitive.microsoft.com";

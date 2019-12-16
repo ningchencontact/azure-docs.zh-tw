@@ -1,15 +1,15 @@
 ---
 title: 使用區塊鏈資料管理員更新 Azure Cosmos DB - Azure 區塊鏈服務
 description: 使用 Azure 區塊鏈服務的區塊鏈資料管理員將區塊鏈資料傳送至 Azure Cosmos DB
-ms.date: 11/04/2019
+ms.date: 12/04/2019
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 497652f91d46592212a17a0a22832c02a696df62
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 79c39d9883b5ba618e368b0ff6d3e95f1af5bd96
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326252"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977384"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>教學課程：使用區塊鏈資料管理員將資料傳送至 Azure Cosmos DB
 
@@ -78,13 +78,15 @@ ms.locfileid: "74326252"
 
 1. 將 **abi** 陣列儲存為 JSON 檔案。 例如 *abi.json*。 您在後續步驟中會用到此檔案。
 
-區塊鏈資料管理員需要將已部署的位元組程式碼用於智慧型合約。 已部署的位元組程式碼與智慧型合約位元組程式碼不同。 您可以從已編譯的合約中繼資料檔案中取得已部署的位元組程式碼。
+區塊鏈資料管理員需要將已部署的位元組程式碼用於智慧型合約。 已部署的位元組程式碼與智慧型合約位元組程式碼不同。 您可以使用 Azure 區塊鏈開發套件擴充功能，將位元組程式碼複製到剪貼簿。
 
-1. 開啟您 Solidity 專案的 **build/contracts** 資料夾中包含的合約中繼資料檔案。 檔案名稱是智慧型合約名稱再加上 **.json** 副檔名。
-1. 在 JSON 檔案中找出 **deployedBytecode** 元素。
-1. 複製不含引號的十六進位值。
+1. 在 Visual Studio Code 總管窗格中，展開 Solidity 專案的 **build/contracts** 資料夾。
+1. 以滑鼠右鍵按一下合約中繼資料 JSON 檔案。 檔案名稱是智慧型合約名稱再加上 **.json** 副檔名。
+1. 選取 [複製交易位元組程式碼]  。
 
-    ![Visual Studio Code 窗格，具有中繼資料內的位元組程式碼](./media/data-manager-portal/bytecode-metadata.png)
+    ![Visual Studio Code 窗格，已選取 [複製交易位元組程式碼]](./media/data-manager-cosmosdb/bytecode-devkit.png)
+
+    位元組程式碼會複製到剪貼簿中。
 
 1. 將**位元組程式碼**值儲存為 JSON 檔案。 例如 *bytecode.json*。 您在後續步驟中會用到此檔案。
 

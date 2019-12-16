@@ -1,6 +1,6 @@
 ---
 title: 教學課程 - 在入口網站中為雲端設定 Azure IoT 中樞裝置佈建服務
-description: 本教學課程說明如何使用 IoT 中樞裝置佈建服務，在 [Azure 入口網站](https://portal.azure.com)中設定雲端資源以進行裝置佈建
+description: 本教學課程說明如何使用 IoT 中樞裝置佈建服務 (DPS)，在 [Azure 入口網站](https://portal.azure.com)中設定雲端資源以進行裝置佈建
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: ad7ccf9dd91d635cfaab30a51e1b145a98117079
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 925d1178ad630699cfd3d9e48677c0f029fc75af
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702495"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976718"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>教學課程：設定雲端資源以使用 IoT 中樞裝置佈建服務來佈建裝置
 

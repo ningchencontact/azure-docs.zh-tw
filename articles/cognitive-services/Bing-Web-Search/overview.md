@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: overview
-ms.date: 03/12/2019
+ms.date: 12/05/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 65e28b557a3708c155bf80f21a784374c4497783
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 6615f166ced4a93115f9cbaae1c6ce5b57cf57bc
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383045"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892986"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>什麼是 Bing Web 搜尋 API？
 
@@ -42,7 +42,7 @@ Bing Web 搜尋不只可讓您存取即時解答。 還提供可讓您為使用�
 
 Bing Web 搜尋 API 可輕易地從任何可發出 HTTP 要求及剖析 JSON 回應的程式設計語言呼叫。 此服務可使用 [REST API](quickstarts/python.md) 或 [Bing Web 搜尋 SDK](web-sdk-python-quickstart.md) 來存取。
 
-1. 建立具備 Bing 搜尋 API 存取權的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 如果您沒有 Azure 訂用帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)。  
+1. 為 Bing 搜尋 API [建立 Azure 資源](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 如果您沒有 Azure 訂用帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)。  
 2. [將要求傳送至 Bing Web 搜尋 API](quickstarts/python.md)。
 3. 剖析 JSON 回應。
 

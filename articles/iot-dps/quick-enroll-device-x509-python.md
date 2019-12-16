@@ -1,6 +1,6 @@
 ---
 title: 使用 Python 向 Azure 裝置佈建服務註冊 X.509 裝置
-description: 本快速入門使用群組註冊。 在本快速入門中，您會使用 Python 向 Azure IoT 中樞裝置佈建服務註冊 X.509 裝置
+description: 本快速入門使用群組註冊。 在本快速入門中，您會使用 Python 向 Azure IoT 中樞裝置佈建服務 (DPS) 註冊 X.509 裝置
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: ef24195ac1a3d342ac5dcbfe099a2bed429d6197
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 3970f24c704b36bcfd12684e6e72a34c853af8c2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555412"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974677"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>快速入門：使用 Python 向裝置佈建服務註冊 X.509 裝置
 

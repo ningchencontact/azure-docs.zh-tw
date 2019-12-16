@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b808e13ec37b9667a3ab1aaa233532a076bf4970
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: aceec8ad6ca23a1bd89b93a6442d48aa81597e55
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558932"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964169"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Box 整合
 
@@ -45,8 +45,8 @@ ms.locfileid: "69558932"
 在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
 
 * Box 支援 **SP** 起始的 SSO
+* Box 支援[**自動化的**使用者佈建和取消佈建](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial) (建議選項)
 * Box 支援 **Just In Time** 使用者佈建
-* Box 支援[**自動**使用者佈建](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial)
 
 ## <a name="adding-box-from-the-gallery"></a>從資源庫新增 Box
 
@@ -80,16 +80,16 @@ ms.locfileid: "69558932"
 1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
-   ![編輯基本 SAML 設定](common/edit-urls.png)
+   ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [基本 SAML 設定]  區段上，輸入下列欄位的值：
+1. 在 [基本 SAML 組態]  區段上，輸入下列欄位的值：
 
     a. 在 [登入 URL]  文字方塊中，使用下列模式輸入 URL：`https://<SUBDOMAIN>.account.box.com`
 
     b. 在 [識別碼 (實體識別碼)]  文字方塊中，輸入 URL：`box.net`
 
     > [!NOTE]
-    > [登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Box 用戶端支援小組](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 設定**區段所示的模式。
+    > [登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Box 用戶端支援小組](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 

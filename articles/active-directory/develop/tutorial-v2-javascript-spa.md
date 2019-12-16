@@ -1,6 +1,5 @@
 ---
-title: Azure AD v2.0 JavaScript 單頁應用程式 (SPA) 引導式設定
-titleSuffix: Microsoft identity platform
+title: Microsoft 身分識別平台 JavaScript 單頁應用程式指南 | Azure
 description: JavaScript SPA 應用程式如何呼叫需要來自 Azure Active Directory v2.0 端點存取權杖的 API
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +16,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc03e6f1610fe6cef9ce72c981f6f800da8a9951
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a3576c015fcca7eb9c390f38c6527d76353efe06
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802525"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919387"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>登入使用者並從 JavaScript 單頁應用程式 (SPA) 呼叫 Microsoft 圖形 API
 

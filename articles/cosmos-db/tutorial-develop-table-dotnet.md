@@ -1,19 +1,19 @@
 ---
 title: 透過 .NET Standard SDK 開始使用 Azure Cosmos DB 資料表 API
-description: 使用 Azure Cosmos DB 資料表 API 來將結構化資料儲存於雲端。
+description: 了解如何在 Azure Cosmos DB 資料表 API 帳戶中儲存及查詢結構化資料
 author: wmengmsft
 ms.author: wmeng
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-ms.date: 05/20/2019
-ms.openlocfilehash: 11179d6adc676ae99257442b186a15e69dcc4a03
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/03/2019
+ms.openlocfilehash: 0a1ba00d2d24664590f76438a90f651e0826d419
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764468"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870542"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>透過 .NET SDK 開始使用 Azure Cosmos DB 資料表 API 和 Azure 資料表儲存體
 

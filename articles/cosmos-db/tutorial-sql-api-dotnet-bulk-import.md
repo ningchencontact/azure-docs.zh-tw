@@ -1,20 +1,20 @@
 ---
-title: 將資料大量匯入至 Azure Cosmos DB SQL API 帳戶時將輸送量最佳化
-description: 了解如何建立 .NET 主控台應用程式，以將資料匯入至 Azure Cosmos DB 所需的佈建輸送量 (RU/秒) 最佳化。
+title: 使用 .Net SDK 將資料大量匯入至 Azure Cosmos DB SQL API 帳戶
+description: 了解如何藉由建置會將匯入資料所需的佈建輸送量 (RU/秒) 最佳化的 .NET 主控台應用程式，來將資料匯入或擷取至 Azure Cosmos DB
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d80d762338744c0ca783d1768bacb8443dbc5020
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606209"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896267"
 ---
-# <a name="optimize-throughput-when-bulk-importing-data-to-azure-cosmos-db-sql-api-account"></a>將資料大量匯入至 Azure Cosmos DB SQL API 帳戶時將輸送量最佳化
+# <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>使用 .NET SDK 將資料大量匯入至 Azure Cosmos DB SQL API 帳戶
 
 本教學課程說明如何建立 .NET 主控台應用程式，以將資料匯入至 Azure Cosmos DB 所需的佈建輸送量 (RU/秒) 最佳化。 在本文中，您將從範例資料來源讀取資料，並將它匯入至 Azure Cosmos 容器。
 本教學課程使用 [3.0+ 版](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)的 Azure Cosmos DB .NET SDK，其以 .NET Framework 或 .NET Core 作為目標。

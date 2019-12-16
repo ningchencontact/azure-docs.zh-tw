@@ -1,6 +1,6 @@
 ---
 title: 使用 Node.js 向 Azure 裝置佈建服務註冊 TPM 裝置
-description: 快速入門 - 使用 Node.js 服務 SDK 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置。 本快速入門使用個別註冊。
+description: 快速入門 - 使用 Node.js 服務 SDK 向 Azure IoT 中樞裝置佈建服務 (DPS) 註冊 TPM 裝置。 本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 890ad28d99bfc53fa8a3fb40caf0469b31aeee61
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 82e78801225659a1d79829a5d26741a885931919
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422960"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974745"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>快速入門：使用 Node.js 服務 SDK 向 IoT 中樞裝置佈建服務註冊 TPM 裝置
 

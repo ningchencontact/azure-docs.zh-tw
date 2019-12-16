@@ -9,27 +9,27 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: adb8941fd60a955a44a04717958c5203b721639a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0e72563f366330f841d1a61ed67956b6314c769a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498985"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893175"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>教學課程：擷取將相關的資料組成群組並加以擷取
 在本教學課程中，新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
 
-複合實體的用途是將相關實體群組為父類別實體。 在建立複合項目之前，這些資訊會以個別實體的形式存在。 
+複合實體的用途是將相關實體群組為父類別實體。 在建立複合項目之前，這些資訊會以個別實體的形式存在。
 
 複合實體很適合用於這類資料，因為此資料：
 
-* 彼此相關。 
+* 彼此相關。
 * 使用各種實體類型。
 * 需要由用戶端應用程式當作一個資訊單位進行分組和處理。
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **在本教學課程中，您將了解如何：**
 
@@ -37,7 +37,7 @@ ms.locfileid: "73498985"
 > [!div class="checklist"]
 > * 匯入範例應用程式
 > * 建立意圖
-> * 新增複合實體 
+> * 新增複合實體
 > * 定型
 > * 發佈
 > * 從端點取得意圖和實體
@@ -54,9 +54,9 @@ ms.locfileid: "73498985"
 
 ## <a name="composite-entity"></a>複合實體
 
-在此應用程式中，部門名稱會定義於**部門**清單實體中，並包含同義字。 
+在此應用程式中，部門名稱會定義於**部門**清單實體中，並包含同義字。
 
-**TransferEmployeeToDepartment** 意圖具有要求員工移至新部門的範例語句。 
+**TransferEmployeeToDepartment** 意圖具有要求員工移至新部門的範例語句。
 
 此意圖的範例語句包括：
 
@@ -64,12 +64,12 @@ ms.locfileid: "73498985"
 |--|
 |move John W. Smith to the accounting department|
 |transfer Jill Jones from to R&D|
- 
-移動要求應包含部門名稱和員工名稱。 
+
+移動要求應包含部門名稱和員工名稱。
 
 ## <a name="add-the-personname-prebuilt-entity-to-help-with-common-data-type-extraction"></a>新增預先建置的實體 PersonName 以利擷取常見的資料類型
 
-LUIS 提供數個預先建置的實體來擷取常見的資料。 
+LUIS 提供數個預先建置的實體來擷取常見的資料。
 
 1. 從上方導覽列中選取 [建置]  ，然後從左側導覽功能表中選取 [意圖]  。
 
@@ -87,11 +87,11 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
 
 1. 從意圖清單中選取 [TransferEmployeeToDepartment]  。
 
-1. 在語句 `place John Jackson in engineering` 中，選取 personName 實體 `John Jackson`，然後在下列語句的快顯功能表清單中選取 [包裝於複合實體中]  。 
+1. 在語句 `place John Jackson in engineering` 中，選取 personName 實體 `John Jackson`，然後在下列語句的快顯功能表清單中選取 [包裝於複合實體中]  。
 
     ![在下拉式對話方塊中選取包裝複合實體的螢幕擷取畫面](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
-1. 接著，立即選取語句中的最後一個實體 `engineering`。 系統會在所選取的文字下方繪製綠色橫條，來表示複合實體。 在快顯功能表中，輸入複合名稱 `TransferEmployeeInfo`，然後選取 Enter。 
+1. 接著，立即選取語句中的最後一個實體 `engineering`。 系統會在所選取的文字下方繪製綠色橫條，來表示複合實體。 在快顯功能表中，輸入複合名稱 `TransferEmployeeInfo`，然後選取 Enter。
 
     ![在下拉式對話方塊中輸入複合名稱的螢幕擷取畫面](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
@@ -103,11 +103,11 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
 
 1. 在每個範例語句中，選取應該出現在複合中的最左邊實體。 接著，選取 [包裝於複合實體中]  。
 
-1. 選取複合實體中的最後一個字，然後從快顯功能表中選取 [TransferEmployeeInfo]  。 
+1. 選取複合實體中的最後一個字，然後從快顯功能表中選取 [TransferEmployeeInfo]  。
 
-1. 確認已使用複合實體來標示意圖中的所有語句。 
+1. 確認已使用複合實體來標示意圖中的所有語句。
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>訓練應用程式，因此可以測試意圖的變更 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>訓練應用程式，因此可以測試意圖的變更
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -115,11 +115,11 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entity-prediction-from-endpoint"></a>從端點取得意圖和實體預測 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>從端點取得意圖和實體預測
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. 移至位址中的 URL 結尾並輸入 `Move Jill Jones to DevOps`。 最後一個查詢字串參數是 `q`，也就是語句查詢。 
+2. 移至位址中的 URL 結尾並輸入 `Move Jill Jones to DevOps`。 最後一個查詢字串參數是 `q`，也就是語句查詢。
 
     由於此測試是要確認已正確擷取複合，因此，測試可以包含現有的範例語句或新語句。 在複合實體中包含所有子實體是個很好的測試。
 
@@ -185,7 +185,7 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
     }
     ```
 
-   這個語句會傳回複合實體陣列。 系統會為每個實體指定類型和值。 若要針對每個子實體獲取更高的精確度，請使用來自複合陣列項目的類型和值組合，來尋找實體陣列中的對應項目。  
+   這個語句會傳回複合實體陣列。 系統會為每個實體指定類型和值。 若要針對每個子實體獲取更高的精確度，請使用來自複合陣列項目的類型和值組合，來尋找實體陣列中的對應項目。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -202,7 +202,7 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
 
 ## <a name="next-steps"></a>後續步驟
 
-本教學課程建立了複合實體，以便封裝現有的實體。 這可讓用戶端應用程式在不同的資料類型中尋找一組相關資料，以便繼續交談。 此人力資源應用程式的用戶端應用程式可以詢問需要開始及結束搬遷的日期和時間。 也可以詢問搬遷的其他搬運事宜，例如實體電話。 
+本教學課程建立了複合實體，以便封裝現有的實體。 這可讓用戶端應用程式在不同的資料類型中尋找一組相關資料，以便繼續交談。 此人力資源應用程式的用戶端應用程式可以詢問需要開始及結束搬遷的日期和時間。 也可以詢問搬遷的其他搬運事宜，例如實體電話。
 
-> [!div class="nextstepaction"] 
-> [了解如何新增簡單實體和片語清單](luis-quickstart-primary-and-secondary-data.md)  
+> [!div class="nextstepaction"]
+> [檢閱端點語句以修正不確定的預測](luis-tutorial-review-endpoint-utterances.md)

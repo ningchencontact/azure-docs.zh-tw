@@ -1,28 +1,22 @@
 ---
-title: Azure PowerShell 指令碼範例 - 輪替儲存體帳戶存取金鑰 | Microsoft Docs
+title: 使用 PowerShell 輪替儲存體帳戶存取金鑰
+titleSuffix: Azure Storage
 description: 建立 Azure 儲存體帳戶，然後擷取並輪替其中一個帳戶存取金鑰。
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
 ms.topic: sample
-ms.date: 06/13/2017
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 0aae733f94ab4a217ca41ca3de6df2e5da47df50
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 54a7a6cb89c88726853a39ab5b2a61e1f0cde0b5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244346"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894932"
 ---
-# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>建立儲存體帳戶，並輪替其帳戶存取金鑰
+# <a name="rotate-storage-account-access-keys-with-powershell"></a>使用 PowerShell 輪替儲存體帳戶存取金鑰
 
 此指令碼會建立 Azure 儲存體帳戶，顯示新儲存體帳戶的主要存取金鑰，然後更新 (輪替) 該金鑰。
 
@@ -34,7 +28,7 @@ ms.locfileid: "56244346"
 
 [!code-powershell[main](../../../powershell_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.ps1 "Rotate storage account keys")]
 
-## <a name="clean-up-deployment"></a>清除部署 
+## <a name="clean-up-deployment"></a>清除部署
 
 執行下列命令來移除資源群組、儲存體帳戶和所有相關資源。
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 2bfa65117bf31ad9cb9917fd8a643a0358e02be0
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: e6fd9e6431137708ba93328a8ed1359b93b4ee1f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384211"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851684"
 ---
 # <a name="tutorial-sync-data-from-sql-database-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>教學課程：使用 Azure Data Factory 將 SQL Database Edge 中的資料同步至 Azure Blob 儲存體
 
@@ -177,7 +177,7 @@ ms.locfileid: "74384211"
 
 27. 移至 [SinkDataset] 的 [連線]  索引標籤，然後完成下列步驟：
 
-    1. 在 [檔案路徑]  底下，輸入 *asdedatasync/incrementalcopy*，其中 *adftutorial* 是 blob 容器名稱，*incrementalcopy* 是資料夾名稱。 建立容器 (若不存在)，或使用現有容器的名稱。 如果輸出資料夾 incrementalcopy  不存在，Azure Data Factory 將會自動建立。 您也可以對**檔案路徑**使用 [瀏覽]  按鈕來瀏覽至 blob 容器中的資料夾。
+    1. 在 [檔案路徑]  底下，輸入 asdedatasync/incrementalcopy  ，其中 asdedatasync  是 Blob 容器名稱，*incrementalcopy* 是資料夾名稱。 建立容器 (若不存在)，或使用現有容器的名稱。 如果輸出資料夾 incrementalcopy  不存在，Azure Data Factory 將會自動建立。 您也可以對**檔案路徑**使用 [瀏覽]  按鈕來瀏覽至 blob 容器中的資料夾。
 
     2. 為 [檔案路徑]  欄位的 [檔案]  部分選取 [新增動態內容 [Alt+P]]  ，然後在開啟的視窗中輸入 **@CONCAT('Incremental-', pipeline().RunId, '.txt')** 。 選取 [完成]  。 運算式會以動態方式產生此檔案名稱。 每個管線執行都有唯一的識別碼。 複製活動會使用執行識別碼來產生檔案名稱。
 

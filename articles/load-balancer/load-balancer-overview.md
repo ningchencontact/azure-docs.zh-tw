@@ -1,7 +1,7 @@
 ---
 title: 什麼是 Azure Load Balancer？
 titleSuffix: Azure Load Balancer
-description: Azure 負載平衡器功能、架構和實作的概觀。 了解 Load Balancer 的運作方式，並將其用於雲端。
+description: Azure 負載平衡器功能、架構和實作的概觀。 了解 Load Balancer 的運作方式，以及如何將其用於雲端。
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -12,96 +12,56 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2019
+ms.date: 12/05/2019
 ms.author: allensu
-ms.openlocfilehash: 335549f4ccae01fa36921e0e4668fa15e8b33835
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 50cb61394043bb8d0e67cae2aea8be4285f3432c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423900"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926273"
 ---
 # <a name="what-is-azure-load-balancer"></a>什麼是 Azure Load Balancer？
 
-您可以使用 Azure Load Balancer 調整您的應用程式，並為您的服務建立高可用性。 對於所有 TCP 和 UDP 應用程式，Load Balancer 可支援傳入和傳出的場合、提供低延遲和高輸送量，且最多可相應增加為數百萬個流程。
+「負載平衡」  是指將負載或傳入的網路流量有效率地分散到一組後端資源或伺服器。 Azure 提供[各種負載平衡選項](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)，以供您根據自己的需要進行選擇。 本文件會說明 Azure Load Balancer。
 
-Load Balancer 會根據指定的規則和健康情況探查，將抵達 Load Balancer 前端的新輸入流程，分送給後端集區執行個體。
+Azure Load Balancer 會在開放系統互相連線 (OSI) 模型的第四層運作。 這是用戶端的單一連絡點。 Load Balancer 會根據指定的負載平衡規則和健康情況探查，將抵達 Load Balancer 前端的新輸入流程，分送給後端集區執行個體。 後端集區執行個體可以是 Azure 虛擬機器，也可以是虛擬機器擴展集中的執行個體。 
 
-公用 Load Balancer 可以將虛擬網路內虛擬機器 (VM) 的私人 IP 位址轉譯成公用 IP 位址，為虛擬機器提供輸出連線。
+您可以使用 Azure Load Balancer 調整您的應用程式，並建立具備高可用性的服務。 對於所有 TCP 和 UDP 應用程式，Load Balancer 可支援傳入和傳出的場合、提供低延遲和高輸送量，且最多可相應增加為數百萬個流程。
 
-Azure Load Balancer 提供兩種定價層或 *SKU*：基本和標準。 它們的規模、功能、價格不同。 任何可在基本 Load Balancer 建立的案例，也可以使用 Standard Load Balancer 來建立，但方法可能稍有不同。 在您摸索認識 Load Balancer 時，請熟悉基本功能以及 SKU 特有的差異。
+**[公用 Load Balancer](#publicloadbalancer)** 可以將虛擬網路內虛擬機器 (VM) 的私人 IP 位址轉譯成公用 IP 位址，為虛擬機器提供輸出連線。 公用 Load Balancer 可用來對進入 VM 的網際網路流量進行負載平衡。
 
-## <a name="why-use-load-balancer"></a>為什麼要使用 Load Balancer？
+**[內部 (或私用) Load Balancer](#internalloadbalancer)** 則可用於前端只需要私人 IP 位址的案例。 內部 Load Balancer 可用來對虛擬網路內的流量進行負載平衡。 在混合式的案例中，您也可以從內部部署網路連線到 Load Balancer 前端。
 
-您可以使用 Azure Load Balancer：
+## <a name="load-balancer-components"></a>Load Balancer 元件
+* **前端 IP 設定**：Load Balancer 的 IP 位址。 這是用戶端的連絡點。 這些設定可以是公用或私人 IP 位址，進而會分別建立公用或內部 Load Balancer。
+* **後端集區**：將會為傳入要求提供服務的一組虛擬機器或虛擬機器擴展集中的執行個體。 若要以符合成本效益的方式進行擴充，以滿足大量的傳入流量運算，最佳做法通常會建議您在後端集區中新增更多執行個體。 當您相應增加或減少執行個體時，Load Balancer 會立即透過自動重新設定功能來自行重新設定。 從後端集區新增或移除 VM 會重新設定 Load Balancer，而不需要在 Load Balancer 資源上進行其他作業。
+* **健康情況探查**：健康情況探查可用來判斷後端集區中執行個體的健康情況。 您可以為健康情況探查定義狀況不良臨界值。 當探查無法回應時，Load Balancer 會停止傳送新的連線至狀況不良的執行個體。 探查失敗不會影響現有的連線。 連線會繼續維持，直到應用程式終止流程、發生閒置逾時或 VM 關閉。 Load Balancer 會為 TCP、HTTP 和 HTTPS 端點提供不同的健康情況探查類型。 如需詳細資訊，請參閱[探查類型](load-balancer-custom-probe-overview.md#types)。
+* **負載平衡規則**：負載平衡規則會告訴 Load Balancer 必須在何時完成什麼工作。 
+* **輸入 NAT 規則**：輸入 NAT 規則會將來自特定前端 IP 位址的特定連接埠的流量，轉送至虛擬網路內特定後端執行個體的特定連接埠。 連接埠轉送作業會使用與負載平衡相同的雜湊式分送來完成。 此功能的常見案例是透過遠端桌面通訊協定 (RDP) 或安全殼層 (SSH) 工作階段連線至 Azure 虛擬網路內的個別 VM 執行個體。 您可以將多個內部端點對應至相同前端 IP 位址的連接埠。 您可以使用前端 IP 位址從遠端管理 VM，而不需要額外的跳躍箱。
+* **輸出規則**：輸出規則會設定輸出網路位址轉譯 (NAT)，以便讓後端集區所識別的所有虛擬機器或執行個體轉譯至前端。
 
-* 對傳入 VM 的網際網路流量進行負載平衡。 這種設定稱為[公用 Load Balancer](#publicloadbalancer)。
-* 對虛擬網路內的 VM 之間的流量進行負載平衡。 在混合式的案例中，您也可以從內部部署網路連線到 Load Balancer 前端。 這兩種案例使用的設定稱為[內部 Load Balancer](#internalloadbalancer)。
-* 利用輸入網路位址轉譯 (NAT) 規則，從連接埠將流量轉送至特定 VM 上的特定連接埠。
-* 藉由使用公用 Load Balancer，為虛擬網路內的 VM 提供[輸出連線能力](load-balancer-outbound-connections.md)。
-
->[!NOTE]
-> Azure 會為您的案例提供一套完整受控的負載平衡解決方案。 如果您要尋找傳輸層安全性 (TLS) 通訊協定終止 (「SSL 卸載」) 或每一 HTTP/HTTPS 要求的應用程式層處理，請參閱[什麼是 Azure 應用程式閘道？](../application-gateway/overview.md) 如果您要尋找全域 DNS 負載平衡，請參閱[什麼是流量管理員？](../traffic-manager/traffic-manager-overview.md) 結合這些解決方案，可能有益於您的端對端案例。
->
-> 如需 Azure 負載平衡選項的比較，請參閱 [Azure 中的負載平衡選項概觀](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)。
-
-## <a name="what-are-load-balancer-resources"></a>什麼是 Load Balancer 資源？
-
-Load Balancer 資源是一種物件，可指定 Azure 應如何對其多租用戶基礎結構設計程式，以達到您想要建立的案例。 Load Balancer 資源與實際的基礎結構之間沒有直接關聯性。 建立 Load Balancer 並不會建立執行個體，而且隨時都有容量可用。
-
-Load Balancer 資源可以是公用 Load Balancer 或內部 Load Balancer。 Load Balancer 資源的運作方式可由前端、規則、健康情況探查和後端集區定義來定義。 您可以從 VM 指定後端集區，藉以將 VM 放在後端集區中。
-
-## <a name="fundamental-load-balancer-features"></a>Load Balancer 的基本功能
+## <a name="load-balancer-concepts"></a>Load Balancer 概念
 
 Load Balancer 為 TCP 和 UDP 應用程式提供下列基本功能：
 
-* **負載平衡**
-
-  透過 Azure Load Balancer，您可以建立負載平衡規則，將抵達前端的流量分送給後端集區執行個體。 Load Balancer 會使用雜湊演算法來分送輸入流程，並重寫流向後端集區執行個體的流程標頭。 當健康情況探查表示後端端點狀況良好時，伺服器便可以接收新的流程。
-
-  根據預設，Load Balancer 會使用 5 個元組的雜湊。 此雜湊包含來源 IP 位址、來源連接埠、目的地 IP 位址、目的地連接埠、IP 通訊協定數目，用以將流程對應至可用的伺服器。 您可以將 2 或 3 個元組的雜湊用於指定的規則，以建立來源 IP 位址的親和性。 相同封包流程的所有封包會抵達相同執行個體，執行個體位於已負載平衡的前端之後。 當用戶端從相同的來源 IP 起始新的流程時，來源連接埠將會變更。 因此，5 個元組的雜湊可能會使流量送往不同的後端端點。
-
-  如需詳細資訊，請參閱[設定 Azure Load Balancer 的分送模式](load-balancer-distribution-mode.md)。 下列影像顯示雜湊型分送：
+* **負載平衡演算法**：有了 Azure Load Balancer，您就能建立負載平衡規則，將抵達前端的流量分送給各個後端集區執行個體。 Load Balancer 會使用雜湊演算法來分送輸入流程，並重寫流向後端集區執行個體的流程標頭。 當健康情況探查表示後端端點狀況良好時，伺服器便可以接收新的流程。
+根據預設，Load Balancer 會使用 5 個元組的雜湊。 此雜湊包含來源 IP 位址、來源連接埠、目的地 IP 位址、目的地連接埠、IP 通訊協定數目，用以將流程對應至可用的伺服器。 您可以將 2 或 3 個元組的雜湊用於指定的規則，以建立來源 IP 位址的親和性。 相同封包流程的所有封包會抵達相同執行個體，執行個體位於已負載平衡的前端之後。 當用戶端從相同的來源 IP 起始新的流程時，來源連接埠將會變更。 因此，5 個元組的雜湊可能會使流量送往不同的後端端點。
+如需詳細資訊，請參閱[設定 Azure Load Balancer 的分送模式](load-balancer-distribution-mode.md)。 下列影像顯示雜湊型分送：
 
   ![雜湊型分散](./media/load-balancer-overview/load-balancer-distribution.png)
 
   *圖：雜湊型分散*
 
-* **連接埠轉送**
-
-  透過 Load Balancer，您可以建立輸入 NAT 規則。 此 NAT 規則會將來自特定前端 IP 位址的特定連接埠的流量，轉送至虛擬網路內特定後端執行個體的特定連接埠。 此轉送作業會使用與負載平衡相同的雜湊式分送來完成。 此功能的常見案例是透過遠端桌面通訊協定 (RDP) 或安全殼層 (SSH) 工作階段連線至 Azure 虛擬網路內的個別 VM 執行個體。
-  
-  您可以將多個內部端點對應至相同前端 IP 位址的連接埠。 您可以使用前端 IP 位址從遠端管理 VM，而不需要額外的跳躍箱。
-
-* **應用程式獨立性和透明度**
-
-  Load Balancer 不會直接與 TCP 或 UDP 或應用程式層互動。 任何 TCP 或 UDP 應用程式案例均受支援。 Load Balancer 不會終止或產生流程、與流程的承載互動，或提供任何應用層閘道功能。 通訊協定交握一律會在用戶端與後端集區執行個體之間直接執行。 輸入流程的回應一律是來自虛擬機器的回應。 當流程到達虛擬機器時，也會保留原始的來源 IP 位址。
-
+* **應用程式獨立性和透明度**：Load Balancer 不會直接與 TCP 或 UDP 或應用程式層互動。 任何 TCP 或 UDP 應用程式案例均受支援。 Load Balancer 不會終止或產生流程、與流程的承載互動，或提供任何應用層閘道功能。 通訊協定交握一律會在用戶端與後端集區執行個體之間直接執行。 輸入流程的回應一律是來自虛擬機器的回應。 當流程到達虛擬機器時，也會保留原始的來源 IP 位址。
   * 每個端點只會由 VM 回應。 例如，TCP 交握一律是在用戶端和選取的後端 VM 之間發生。 前端要求的回應是由後端 VM 所產生的回應。 當您已順利驗證前端連線時，您至少要驗證一個後端虛擬機器的端對端連線。
-  * 對 Load Balancer 而言，應用程式承載是透明可見的。 任何 UDP 或 TCP 應用程式均受支援。 對於需要對應用程式層承載的每個 HTTP 要求進行處理或操作的工作負載 (如 HTTP URL 剖析)，您應使用[應用程式閘道](https://azure.microsoft.com/services/application-gateway)之類的第 7 層 Load Balancer。
-  * 由於 Load Balancer 不會與 TCP 裝載互動及提供 TLS 卸載，您可以建置端對端加密的案例。 使用 Load Balancer，可藉由終止 VM 本身的 TLS 連線，讓 TLS 應用程式進行大規模的向外延展。 舉例而言，您的 TLS 工作階段金鑰處理容量只會受限於您新增至後端集區的 VM 類型和數量。 如果您需要 SSL 卸載、應用程式層處理，或是想要將憑證管理委派給 Azure，請改用 Azure 的第 7 層 Load Balancer [應用程式閘道](https://azure.microsoft.com/services/application-gateway)。
+  * 對 Load Balancer 而言，應用程式承載是透明可見的。 任何 UDP 或 TCP 應用程式均受支援。
+  * 由於 Load Balancer 不會與 TCP 裝載互動及提供 TLS 卸載，您可以建置端對端加密的案例。 使用 Load Balancer，可藉由終止 VM 本身的 TLS 連線，讓 TLS 應用程式進行大規模的向外延展。 舉例而言，您的 TLS 工作階段金鑰處理容量只會受限於您新增至後端集區的 VM 類型和數量。
 
-* **自動重新設定**
-
-  當您相應增加或減少執行個體時，Load Balancer 本身會立即重新設定。 從後端集區新增或移除 VM 會重新設定 Load Balancer，而不需要在 Load Balancer 資源上進行其他作業。
-
-* **健康情況探查**
-
-  若要判斷後端集區中執行個體的健康情況，Load Balancer 會使用您定義的健康情況探查。 當探查無法回應時，Load Balancer 會停止傳送新的連線至狀況不良的執行個體。 探查失敗不會影響現有的連線。 連線會繼續維持，直到應用程式終止流程、發生閒置逾時或 VM 關閉。
-
-  Load Balancer 會為 TCP、HTTP 和 HTTPS 端點提供不同的健康情況探查類型。 如需詳細資訊，請參閱[探查類型](load-balancer-custom-probe-overview.md#types)。
-
-  使用傳統雲端服務時，允許使用其他類型：[客體代理程式](load-balancer-custom-probe-overview.md#guestagent)。 您應將客體代理程式視為健全狀況探查的最後手段。 如果還有其他可用的選項，Microsoft 不建議您這麼做。
-
-* **輸出連線 (SNAT)**
-
-  所有從虛擬網路內私人 IP 位址送往網際網路上公用 IP 位址的輸出流程，皆可以轉譯為 Load Balancer 的前端 IP 位址。 當公用前端透過負載平衡規則繫結至後端 VM 時，Azure 會將輸出連線轉譯為公用前端 IP 位址。 此組態有下列優點：
-
+* **輸出連線 (SNAT)** ：所有從虛擬網路內私人 IP 位址送往網際網路上公用 IP 位址的輸出流程，皆可以轉譯為 Load Balancer 的前端 IP 位址。 當公用前端透過負載平衡規則繫結至後端 VM 時，Azure 會將輸出連線轉譯為公用前端 IP 位址。 此組態有下列優點：
   * 能夠輕鬆進行服務的升級及災害復原，因為前端可以動態對應到服務的另一個執行個體。
   * 讓存取控制清單 (ACL) 管理變得更容易。 當服務相應增加、相應減少或重新部署時，以前端 IP 表示的 ACL 不會變更。 將輸出連線轉譯成數量比機器更少的 IP 位址，可以減輕實作安全收件者清單的負擔。
-
-  如需詳細資訊，請參閱 [Azure 中的輸出連線](load-balancer-outbound-connections.md)。
-
+如需詳細資訊，請參閱 [Azure 中的輸出連線](load-balancer-outbound-connections.md)。
 除了這些基本功能，Standard Load Balancer 還有其他的 SKU 專屬功能，如下所述。
 
 ## <a name="skus"></a>Load Balancer SKU 的比較
@@ -111,20 +71,14 @@ Load Balancer 支援基本和標準 SKU。 這些 SKU 的案例規模、功能�
 但完整的案例組態可能稍有不同，視 SKU 而定。 當文章僅適用於特定 SKU 時，Load Balancer 文件才會加以標注。 若要比較並了解其中的差異，請參閱下表。 如需詳細資訊，請參閱 [Azure Standard Load Balancer 概觀](load-balancer-standard-overview.md)。
 
 >[!NOTE]
-> 新的設計應該使用 Standard Load Balancer。
-
+> Microsoft 建議使用 Standard Load Balancer。
 獨立 VM、可用性設定組和虛擬機器擴展集都只能和一個 SKU 連線，永遠不能和兩者同時連線。 與公用 IP 位址搭配使用時，Load Balancer 和公用 IP 位址的 SKU 必須相符。 Load Balancer 和公用 IP 的 SKU 不可變動。
-
-最佳做法是明確指定 SKU。 現階段，會將所需的變更保持在最少量的狀態。 若未指定 SKU，則會預設為 `2017-08-01` API 版本的基本 SKU。
-
->[!IMPORTANT]
->Standard Load Balancer 是新的 Load Balancer 產品。 它主要是基本 Load Balancer 的超集，但這兩個產品之間有重大差異。 任何可在基本 Load Balancer 建立的端對端案例，也可以使用標準 Load Balancer 來建立。 如果您已習慣使用基本 Load Balancer，請將其與 Standard Load Balancer 比較，以了解其行為上的最新變更。
 
 [!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
 如需詳細資訊，請參閱[負載平衡器限制](https://aka.ms/lblimits)。 如需標準 Load Balancer 詳細資料，請參閱[概觀](load-balancer-standard-overview.md)、[定價](https://aka.ms/lbpricing)及 [SLA](https://aka.ms/lbsla)。
 
-## <a name="concepts"></a>概念
+## <a name="load-balancer-types"></a>Load Balancer 類型
 
 ### <a name = "publicloadbalancer"></a>公用 Load Balancer
 
@@ -139,7 +93,7 @@ Load Balancer 支援基本和標準 SKU。 這些 SKU 的案例規模、功能�
 
 *圖：使用公用 Load Balancer 來平衡 Web 流量負載*
 
-網際網路用戶端會在 TCP 連接埠 80 上，將網頁要求傳送至 Web 應用程式的公用 IP 位址。 Azure Load Balancer 會將要求分散到負載平衡集內的三個 VM。 如需 Load Balancer 演算法的詳細資訊，請參閱 [Load Balancer 的基本功能](load-balancer-overview.md##fundamental-load-balancer-features)。
+網際網路用戶端會在 TCP 連接埠 80 上，將網頁要求傳送至 Web 應用程式的公用 IP 位址。 Azure Load Balancer 會將要求分散到負載平衡集內的三個 VM。 如需 Load Balancer 演算法的詳細資訊，請參閱 [Load Balancer 概念](load-balancer-overview.md##load-balancer-concepts)。
 
 根據預設，Azure Load Balancer 會在多個 VM 執行個體之間均分網路流量。 您也可以設定工作階段親和性。 如需詳細資訊，請參閱[設定 Azure Load Balancer 的分送模式](load-balancer-distribution-mode.md)。
 
@@ -195,4 +149,4 @@ Load Balancer 支援基本和標準 SKU。 這些 SKU 的案例規模、功能�
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱[建立基本 Load Balancer](quickstart-create-basic-load-balancer-portal.md)，以開始使用 Load Balancer：先建立 Load Balancer，再建立安裝好自訂 IIS 擴充功能的 VM，並對 VM 之間的 Web 應用程式進行負載平衡。
+請參閱[建立公用 Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md)，以開始使用 Load Balancer：先建立 Load Balancer，再建立安裝好自訂 IIS 擴充功能的 VM，並對 VM 之間的 Web 應用程式進行負載平衡。

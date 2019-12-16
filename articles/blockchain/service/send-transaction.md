@@ -1,19 +1,19 @@
 ---
 title: 建立、建置和部署智慧型合約的教學課程 - Azure 區塊鏈服務
 description: 本教學課程說明如何在 Visual Studio Code 中使用適用於 Ethereum 的 Azure 區塊鏈開發套件擴充功能，在 Azure 區塊鏈服務上建立、建置及部署智慧型合約。
-ms.date: 11/20/2019
+ms.date: 12/06/2019
 ms.topic: tutorial
 ms.reviewer: chrisseg
-ms.openlocfilehash: 2d2cb174656f5ed8f13d4463d416455ebb3f9ec9
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 5b901ab904425a22d2fe9643ffa75a4e978efa88
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325176"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972773"
 ---
 # <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>教學課程：在 Azure 區塊鏈服務上建立、建置和部署智慧型合約
 
-在本教學課程中，在 Visual Studio Code 中使用適用於 Ethereum 的 Azure 區塊鏈開發套件擴充功能，在 Azure 區塊鏈服務上建立、建置及部署智慧型合約。 您也可使用 Truffle 以透過交易執行智慧型合約函式。
+在本教學課程中，在 Visual Studio Code 中使用適用於 Ethereum 的 Azure 區塊鏈開發套件擴充功能，在 Azure 區塊鏈服務上建立、建置及部署智慧型合約。 您也可使用開發套件以透過交易執行智慧型合約函式。
 
 您可以使用適用於 Ethereum 的 Azure 區塊鏈服務開發套件來：
 
@@ -21,7 +21,6 @@ ms.locfileid: "74325176"
 > * 建立智慧型合約
 > * 部署智慧型合約
 > * 透過交易執行智慧型合約函式
-> * 查詢合約狀態
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,8 +29,8 @@ ms.locfileid: "74325176"
 * 完成[快速入門：使用 Visual Studio Code 連線至聯盟網路](connect-vscode.md)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 * [適用於 Ethereum 的 Azure 區塊鏈服務開發套件擴充功能](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
-* [Node.js 10.15.x 或更新版本](https://nodejs.org/download)
-* [Git 2.10.x 或更新版本](https://git-scm.com)
+* [Node.js 10.15.x 或更高版本](https://nodejs.org/download)
+* [Git 2.10.x 或更高版本](https://git-scm.com)
 * [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) 將 python.exe 新增至您的路徑。 Azure 區塊鏈服務開發套件需要您的路徑中有 Python 2.7.15 版。
 * [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
 * [Ganache CLI 6.0.0](https://github.com/trufflesuite/ganache-cli)
@@ -65,11 +64,11 @@ Azure 區塊鏈服務開發套件會為您建立並初始化新的 Solidity 專�
 1. 在 VS Code 總管的提要欄位中，展開專案中的 [合約]  資料夾。
 1. 對 [HelloBlockchain.sol]  按一下滑鼠右鍵，然後從功能表中選擇 [建置合約]  。
 
-    ![建置合約](./media/send-transaction/build-contracts.png)
+    ![選擇 [建置合約] 功能表 ](./media/send-transaction/build-contracts.png)
 
 Azure 區塊鏈服務開發套件會使用 Truffle 來編譯智慧型合約。
 
-![編譯輸出](./media/send-transaction/compile-output.png)
+![Truffle 編譯器輸出](./media/send-transaction/compile-output.png)
 
 ## <a name="deploy-a-smart-contract"></a>部署智慧型合約
 
@@ -85,104 +84,25 @@ Azure 區塊鏈服務開發套件會使用 Truffle 來執行移轉指令碼，�
 
 ## <a name="call-a-contract-function"></a>呼叫合約函式
 
-**HelloBlockchain** 合約的 **SendRequest** 函式會變更 **RequestMessage** 狀態變數。 區塊鏈網路狀態的變更會透過交易來完成。 您可以建立指令碼來透過交易執行 **SendRequest** 函式。
+**HelloBlockchain** 合約的 **SendRequest** 函式會變更 **RequestMessage** 狀態變數。 區塊鏈網路狀態的變更會透過交易來完成。 您可以使用 Azure 區塊鏈服務開發套件智慧型合約互動頁面，透過交易來呼叫 **SendRequest** 函式。
 
-1. 在 Truffle 專案的根目錄中建立新的檔案，並將其命名為 `sendrequest.js`。 在該檔案中新增下列 Web3 JavaScript 程式碼。
+1. 若要與智慧型合約互動，請以滑鼠右鍵按一下 [HelloBlockchain.sol]  ，然後從功能表中選擇 [顯示智慧型合約互動頁面]  。
 
-    ```javascript
-    var HelloBlockchain = artifacts.require("HelloBlockchain");
-        
-    module.exports = function(done) {
-      console.log("Getting the deployed version of the HelloBlockchain smart contract")
-      HelloBlockchain.deployed().then(function(instance) {
-        console.log("Calling SendRequest function for contract ", instance.address);
-        return instance.SendRequest("Hello, blockchain!");
-      }).then(function(result) {
-        console.log("Transaction hash: ", result.tx);
-        console.log("Request complete");
-        done();
-      }).catch(function(e) {
-        console.log(e);
-        done();
-      });
-    };
-    ```
+    ![從功能表選擇 [顯示智慧型合約互動頁面]](./media/send-transaction/contract-interaction.png)
 
-1. 當 Azure 區塊鏈服務開發套件建立專案時，系統會使用聯盟區塊鏈網路端點的詳細資料來產生 Truffle 設定檔。 在專案中開啟 **truffle-config.js**。 設定檔會列出兩個網路：一個命名為「開發」，一個則具有和聯盟相同的名稱。
-1. 在 VS Code 的終端機窗格中，使用 Truffle 在聯盟區塊鏈網路上執行指令碼。 在終端機窗格的功能表列中，於下拉式清單內選取 [終端機]  索引標籤和 [PowerShell]  。
+1. 互動頁面可讓您選擇已部署的合約版本、呼叫函式、檢視目前狀態，以及檢視中繼資料。
 
-    ```PowerShell
-    truffle exec sendrequest.js --network <blockchain network>
-    ```
+    ![智慧型合約互動頁面範例](./media/send-transaction/interaction-page.png)
 
-    將 \<blockchain network\> 取代為 **truffle-config.js** 中所定義區塊鏈網路的名稱。
+1. 若要呼叫智慧型合約函式，請選取合約動作並傳遞引數。 選擇 [SendRequest]  合約動作，然後輸入 **Hello, Blockchain!** 來作為 **requestMessage** 參數。 選取 [執行]  ，以透過交易呼叫 **SendRequest** 函式。
 
-Truffle 就會在區塊鏈網路上執行指令碼。
+    ![執行 SendRequest 動作](./media/send-transaction/sendrequest-action.png)
 
-![指令碼輸出](./media/send-transaction/execute-transaction.png)
+交易處理完成後，互動區段就會反映狀態變更。
 
-當您透過交易執行合約的函式時，系統要等到建立區塊後才會處理交易。 應該會透過交易來執行的函式會傳回交易識別碼，而非傳回值。
+![合約狀態變更](./media/send-transaction/contract-state.png)
 
-## <a name="query-contract-state"></a>查詢合約狀態
-
-智慧型合約函式可以傳回狀態變數的目前值。 讓我們新增函式以傳回狀態變數的值。
-
-1. 在 [HelloBlockchain.sol]  中，將 **getMessage** 函式新增至 **HelloBlockchain** 智慧型合約。
-
-    ``` solidity
-    function getMessage() public view returns (string memory)
-    {
-        if (State == StateType.Request)
-            return RequestMessage;
-        else
-            return ResponseMessage;
-    }
-    ```
-
-    函式會根據合約的目前狀態，傳回狀態變數中所儲存的訊息。
-
-1. 以滑鼠右鍵按一下 [HelloBlockchain.sol]  ，然後從功能表中選擇 [建置合約]  來編譯智慧型合約的變更。
-1. 若要部署，請對 [HelloBlockchain.sol]  按一下滑鼠右鍵，然後從功能表中選擇 [部署合約]  。 出現提示時，請在命令選擇區中選擇您的 Azure 區塊鏈聯盟網路。
-1. 接下來，使用 **getMessage** 函式的呼叫來建立指令碼。 在 Truffle 專案的根目錄中建立新的檔案，並將其命名為 `getmessage.js`。 在該檔案中新增下列 Web3 JavaScript 程式碼。
-
-    ```javascript
-    var HelloBlockchain = artifacts.require("HelloBlockchain");
-    
-    module.exports = function(done) {
-      console.log("Getting the deployed version of the HelloBlockchain smart contract")
-      HelloBlockchain.deployed().then(function(instance) {
-        console.log("Calling getMessage function for contract ", instance.address);
-        return instance.getMessage();
-      }).then(function(result) {
-        console.log("Request message value: ", result);
-        console.log("Request complete");
-        done();
-      }).catch(function(e) {
-        console.log(e);
-        done();
-      });
-    };
-    ```
-
-1. 在 VS Code 的終端機窗格中，使用 Truffle 在區塊鏈網路上執行指令碼。 在終端機窗格的功能表列中，於下拉式清單內選取 [終端機]  索引標籤和 [PowerShell]  。
-
-    ```bash
-    truffle exec getmessage.js --network <blockchain network>
-    ```
-
-    將 \<blockchain network\> 取代為 **truffle-config.js** 中所定義區塊鏈網路的名稱。
-
-指令碼會藉由呼叫 getMessage 函式來查詢智慧型合約。 系統會傳回 **RequestMessage** 狀態變數的目前值。
-
-![指令碼輸出](./media/send-transaction/execute-get.png)
-
-請注意，此值不是 **Hello, blockchain!** 。 相反地，所傳回的值是預留位置。 當您變更和部署合約時，變更的合約會部署於新的位址，且智慧型合約建構函式中會指派狀態變數的值。 Truffle 範例 **2_deploy_contracts.js** 移轉指令碼會部署智慧型合約，並以引數的形式傳遞預留位置值。 建構函式會將 **RequestMessage** 狀態變數設定為預留位置值，系統所傳回的便是此值。
-
-1. 若要設定 **RequestMessage** 狀態變數並查詢值，請再次執行 **sendrequest.js** 和 **getmessage.js** 指令碼。
-
-    ![指令碼輸出](./media/send-transaction/execute-set-get.png)
-
-    **sendrequest.js** 會將 **RequestMessage** 狀態變數設定為 **Hello, blockchain!** ，而且 **getmessage.js** 會查詢合約中是否有 **RequestMessage** 狀態變數的值，並傳回 **Hello, blockchain!** 。
+SendRequest 函式會設定 [RequestMessage]  和 [狀態]  欄位。 [RequestMessage]  的目前狀態是傳遞了 **Hello, Blockchain** 的引數。 [狀態]  欄位值則仍是 [要求]  。
 
 ## <a name="clean-up-resources"></a>清除資源
 

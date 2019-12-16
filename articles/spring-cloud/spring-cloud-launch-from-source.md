@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 6e18ac6c0fa97125b89ea5760a5d7da6c1545393
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ca78a9d7eeeeccb71fea75f6ab429e76f2344bbe
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708879"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895462"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>快速入門：從原始程式碼啟動 Spring Cloud 應用程式
 
@@ -158,3 +158,5 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 
 > [!div class="nextstepaction"]
 > [準備您的 Azure Spring Cloud 應用程式以進行部署](spring-cloud-tutorial-prepare-app-deployment.md)
+
+GitHub 上可用的其他範例：[Azure Spring Cloud 範例](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql)。

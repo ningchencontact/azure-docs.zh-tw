@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93c88b167884c455ffb995f35356b121bce8a207
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fbaafdce6f2510b58966f4b6c18e45a3fcd4a664
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794988"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997083"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect 常見問題集
 
@@ -42,7 +42,7 @@ ms.locfileid: "74794988"
 
 **問：如何更新代理程式？**
 
-Microsoft 會自動升級代理程式。 這可減輕 IT 人員測試和驗證新代理程式版本的負擔。 
+Microsoft 會自動升級代理程式。 對於 IT 小組而言，這會減輕其必須測試和驗證新代理程式版本的負擔。 
 
 **問：是否可以停用自動升級？**
 

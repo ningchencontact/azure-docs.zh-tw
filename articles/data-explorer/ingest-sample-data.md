@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 08/12/2019
-ms.openlocfilehash: c803de599f6be98512b15e927c6d15f1c7d95ff1
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 3ece5a9d225e48654a0a3a96c3b7b78327565841
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515753"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975171"
 ---
 # <a name="quickstart-ingest-sample-data-into-azure-data-explorer"></a>快速入門：將範例資料擷取至 Azure 資料總管
 
@@ -35,11 +35,14 @@ ms.locfileid: "69515753"
 
 1. 在 [新增叢集]  對話方塊中，以 `https://<ClusterName>.<Region>.kusto.windows.net/` 格式輸入您的叢集 URL，然後選取 [新增]  。
 
-1. 貼上下列命令，然後選取 [執行]  。
+1. 貼上下列命令，然後選取 [執行]  以建立 StormEvents 資料表。
 
     ```Kusto
     .create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)
+    ```
+1. 貼上下列命令，然後選取 [執行]  以將資料擷取至 StormEvents 資料表。
 
+    ```Kusto
     .ingest into table StormEvents h'https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (ignoreFirstRecord=true)
     ```
 

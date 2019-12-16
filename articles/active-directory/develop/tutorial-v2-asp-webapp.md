@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 ASP.NET Web 伺服器快速入門
+title: 將登入新增至 Azure AD ASP.NET Web 應用程式
 titleSuffix: Microsoft identity platform
 description: 使用傳統網頁瀏覽器型應用程式和 OpenID Connect 標準在 ASP.NET 方案上實作 Microsoft 登入
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66d2a9a958afd536dcffeca211a3fc56cf09ef8
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 9ff89d3c11ca88db14d2efd772be44aef7165a8a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803714"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964730"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>將「登入到 Microsoft」新增至 ASP.NET Web 應用程式
 

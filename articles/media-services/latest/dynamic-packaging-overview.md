@@ -1,7 +1,7 @@
 ---
 title: 媒體服務中的動態封裝
 titleSuffix: Azure Media Services
-description: Azure 媒體服務中動態封裝的概觀。
+description: 本文能提供 Azure 媒體服務中動態封裝的概觀。
 author: Juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 304a6168ee5a4c60369b541d4a8cc7ac961913b6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c12ebe307eb370e07b785b4379f82a4274964492
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574881"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977755"
 ---
 # <a name="dynamic-packaging-in-media-services"></a>媒體服務中的動態封裝
 
@@ -269,6 +269,9 @@ QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 ## <a name="dynamic-encryption"></a>動態加密
 
 您可以使用「動態加密」  來搭配 AES-128 或下列三個主流數位版權管理 (DRM) 系統之一，以動態方式加密您的即時或隨選內容：Microsoft PlayReady、Google Widevine 和 Apple FairPlay。 媒體服務也提供服務，傳遞 AES 金鑰和 DRM 授權給授權用戶端。 如需詳細資訊，請參閱[動態加密](content-protection-overview.md)。
+
+> [!NOTE]
+> Widevine 是 Google Inc. 所提供的服務，並受到 Google Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="more-information"></a>詳細資訊
 

@@ -10,12 +10,12 @@ keywords: azure 自動化, DSC, powershell, Desired State Configuration, 更新�
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 7a2e9d39629e4fdb349652c9c48d0084d051f9f8
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d091b89342570b73ccde5fe496a3432102617918
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122831"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951423"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>什麼是適用於伺服器的 Azure Arc
 
@@ -108,6 +108,40 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
 您也可以遵循 [Azure 入口網站](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal)底下的步驟，使用入口網站來註冊資源提供者。
+
+## <a name="machine-changes-after-installing-the-agent"></a>安裝代理程式之後的機器變更
+
+如果您的環境中已部署變更追蹤解決方案，則可以使用下列清單來追蹤、識別和允許 **Azure 連線的機器代理程式 (AzCMAgent)** 安裝套件所做的變更。
+
+在安裝代理程式後，您會看到伺服器有了以下變更。
+
+### <a name="windows"></a>Windows
+
+已安裝的服務：
+
+* `Himds` - **Azure 連線的機器代理程式**服務。
+* `Dscservice` 或 `gcd` - **來賓設定**服務。
+
+已新增至伺服器的檔案：
+
+* `%ProgramFiles%\AzureConnectedMachineAgent\*.*` - **Azure 連線的機器代理程式**檔案的位置。
+* `%ProgramData%\GuestConfig\*.*` - **來賓設定**記錄。
+
+登錄機碼位置：
+
+* `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Connected Machine Agent` - **Azure 連線的機器代理程式**的登錄機碼。
+
+### <a name="linux"></a>Linux
+
+已安裝的服務：
+
+* `Himdsd` - **Azure 連線的機器代理程式**服務。
+* `dscd` 或 `gcd` - **來賓設定**服務。
+
+已新增至伺服器的檔案：
+
+* `/var/opt/azcmagent/**` - **Azure 連線的機器代理程式**檔案的位置。
+* `/var/lib/GuestConfig/**` - **來賓設定**記錄。
 
 ## <a name="supported-scenarios"></a>支援的案例
 

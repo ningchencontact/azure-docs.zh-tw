@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f901bd37a54d12dc2afe805f71c7b018a277e34
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: a3a54b096019e9e38bc800ae313016a430062dab
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969616"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964305"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>教學課程：整合 Atlassian Cloud 與 Azure Active Directory
 
@@ -46,6 +46,7 @@ ms.locfileid: "72969616"
 在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。 
 
 * Atlassian Cloud 支援由 **SP 和 IDP** 初始化的 SSO
+* Atlassian Cloud 支援[自動化的使用者佈建和取消佈建](atlassian-cloud-provisioning-tutorial.md)
 
 ## <a name="adding-atlassian-cloud-from-the-gallery"></a>從資源庫新增 Atlassian Cloud
 

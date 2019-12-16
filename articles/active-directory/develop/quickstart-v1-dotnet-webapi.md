@@ -1,29 +1,26 @@
 ---
-title: 建置與 Azure AD 搭配運作來進行驗證和授權的 .NET Web API | Microsoft Docs
+title: 建置 Azure AD .NET Web API 來進行驗證和授權 | Microsoft Docs
 description: 如何建置與 Azure AD 整合來進行驗證和授權的 .NET MVC Web API。
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/17/2019
 ms.author: ryanwi
-ms.reviewer: jmprieur, andret
+ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7891ea6aa2dbe10456c701b5e0216117f6ed27b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: abc4c05aab6efcfc55d5e4dc812ab41a3e3fc8aa
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380705"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963268"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>快速入門：建置與 Azure AD 整合來進行驗證和授權的 .NET Web API
 

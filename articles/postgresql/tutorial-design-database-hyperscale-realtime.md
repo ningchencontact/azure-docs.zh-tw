@@ -1,6 +1,6 @@
 ---
-title: 使用適用於 PostgreSQL 的 Azure 資料庫 – Hyperscale (Citus) 設計即時儀表板教學課程
-description: 此教學課程說明如何在適用於 PostgreSQL 的 Azure 資料庫 – Hyperscale (Citus) 上建立、填入及查詢分散式資料表。
+title: 教學課程：設計即時儀表板 - 超大規模 (Citus) - 適用於 PostgreSQL 的 Azure 資料庫
+description: 本教學課程示範如何在適用於 PostgreSQL 的 Azure 資料庫 – 超大規模 (Citus) 上建立、填入及查詢分散式資料表。
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 32487d65397a96d9e96ae3bf3476eed23ddb8adc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e38de89902c46c6a77060d0d1e2532ab5bb59bb7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482876"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978095"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>教學課程：使用適用於 PostgreSQL 的 Azure 資料庫 – Hyperscale (Citus) 設計即時分析儀表板
 

@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: aaaafcbf2a20aa96437d06401e0a1d54b647bb28
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: bf9e843123f332a120d6665e6be8ff635ef0b8e2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176426"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973759"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>快速入門：使用電腦視覺 REST API 和 Python 擷取印刷和手寫文字
 
-在本快速入門中，您將使用電腦視覺 API 的 REST API 來擷取影像中的印刷和/或手寫文字。 您可以使用[批次讀取](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb)與[讀取作業結果](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d)方法偵測影像中的文字，然後將辨識出的字元擷取到電腦可讀取的字元資料流中。 API 將決定要針對每一行文字使用哪一種辨識模型，因此它支援同時含有印刷和手寫文字的影像。
+在本快速入門中，您將使用電腦視覺 REST API 來擷取影像中的印刷和/或手寫文字。 您可以使用[批次讀取](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb)與[讀取作業結果](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d)方法偵測影像中的文字，然後將辨識出的字元擷取到電腦可讀取的字元資料流中。 API 將決定要針對每一行文字使用哪一種辨識模型，因此它支援同時含有印刷和手寫文字的影像。
 
 > [!IMPORTANT]
 > 不同於 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 方法，[批次讀取](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb)方法會以非同步方式執行。 這個方法不會在成功回應的主體中傳回任何資訊。 「批次讀取」方法會改為在 `Operation-Content` 回應標頭欄位的值中傳回 URI。 您接著可以呼叫這個 URI (它代表[讀取作業結果](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API)，檢查狀態並傳回「辨識文字」方法呼叫的結果。

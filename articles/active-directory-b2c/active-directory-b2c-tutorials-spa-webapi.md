@@ -1,5 +1,6 @@
 ---
-title: 教學課程 - 授與從單頁應用程式存取 ASP.NET Core Web API 的權限 - Azure Active Directory B2C
+title: 教學課程：授與從單頁應用程式存取 ASP.NET Core Web API 的權限
+titleSuffix: Azure AD B2C
 description: 在本教學課程中，了解如何使用 Active Directory B2C 來保護 .NET Core Web API，以及如何從單頁 Node.js 應用程式呼叫該 API。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 7dae8bb552fe12d1cdf1f3d8a5fe124491933a87
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e5ced0c3e4ad05c33866548acb09189e03ed22f4
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420335"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949699"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 授與從單頁應用程式存取 ASP.NET Core Web API 的權限
 

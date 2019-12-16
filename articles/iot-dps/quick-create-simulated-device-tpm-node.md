@@ -1,6 +1,6 @@
 ---
 title: 快速入門 - 使用 Node.js 將模擬 TPM 裝置佈建到 Azure IoT 中樞
-description: 快速入門 - 使用適用於 Azure IoT 中樞裝置佈建服務的 Node.js 裝置 SDK 來建立及佈建模擬 TPM 裝置。 本快速入門使用個別註冊。
+description: 快速入門 - 使用適用於 Azure IoT 中樞裝置佈建服務 (DPS) 的 Node.js 裝置 SDK 來建立及佈建模擬 TPM 裝置。 本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 942bc64153e1c35e3fb9c5bbb989607b7e443e9a
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: b5c5aa59c520560ad8424994d78e3c68bb0dc57a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423471"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976633"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>快速入門：使用適用於 IoT 中樞裝置佈建服務的 Node.js 裝置 SDK 來建立及佈建模擬 TPM 裝置
 

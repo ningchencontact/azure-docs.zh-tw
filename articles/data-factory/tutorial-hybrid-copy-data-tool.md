@@ -2,21 +2,21 @@
 title: 使用 Azure 複製資料工具複製內部部署資料
 description: 建立 Azure 資料處理站，然後使用「複製資料」工具將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。
 services: data-factory
-documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 04/09/2018
-ms.author: abnarain
-ms.openlocfilehash: 3b9c9371d947b0193f93b8084fbaaf66e3253997
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e248c7f37c062fc69e5e42ae7d33e275c4b0aa19
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683557"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926533"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>使用複製資料工具將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]

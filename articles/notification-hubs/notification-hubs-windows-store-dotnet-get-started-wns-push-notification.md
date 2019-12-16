@@ -5,24 +5,22 @@ services: notification-hubs
 documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/22/2019
+ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 82f983f6fc55c01c4e445915d06da33889977d24
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.lastreviewed: 12/04/2019
+ms.openlocfilehash: ec0181dd75cd656859967c30dc3941175407413a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213425"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895020"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式
 
@@ -44,14 +42,14 @@ ms.locfileid: "71213425"
 ## <a name="prerequisites"></a>必要條件
 
 - **Azure 訂用帳戶**。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
-- [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) 或更新版本。
+- Microsoft Visual Studio 2017 或更新版本。 本教學課程中的範例會使用 [Visual Studio 2019](https://www.visualstudio.com/products)。
 - [已安裝 UWP 應用程式開發工具](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 - 有效的 Windows 市集帳戶
 - 確認已啟用 [從應用程式和其他傳送者取得通知]  設定。 
     - 在電腦上啟動 [設定]  視窗。
     - 選取 [系統]  圖格。
     - 從左側功能表中選取 [通知與動作]  。 
-    - 確認已啟用 [從應用程式和其他傳送者取得通知]  設定。 如果未啟用，請加以啟用。 
+    - 確認已啟用 [從應用程式和其他傳送者取得通知]  設定。 如果未啟用，請加以啟用。
 
 完成本教學課程是參加 UWP 應用程式所有其他通知中樞教學課程的先決條件。
 
@@ -59,13 +57,13 @@ ms.locfileid: "71213425"
 
 若要傳送推播通知給 Windows UWP 應用程式，將您的應用程式與 Windows 市集產生關聯。 接著設定您的通知中樞，以便與 WNS 進行整合。
 
-1. 瀏覽至 [Windows 開發人員中心](https://partner.microsoft.com/en-us/dashboard/windows/first-run-experience)，並使用 Microsoft 帳戶登入，然後選取 [建立新的應用程式]  。
+1. 瀏覽至 [Windows 開發人員中心](https://partner.microsoft.com/dashboard/windows/first-run-experience)，並使用 Microsoft 帳戶登入，然後選取 [建立新的應用程式]  。
 
     ![新增應用程式按鈕](./media/notification-hubs-windows-store-dotnet-get-started/windows-store-new-app-button.png)
 2. 輸入您的應用程式名稱，然後選取 [保留產品名稱]  。 這麼做會為您的應用程式建立新的 Windows 市集註冊。
 
     ![儲存應用程式名稱](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-3. 展開 [應用程式管理]  ，然後依序選取 [WNS/MPNS]  和 [線上服務網站]  。 登入您的 Microsoft 帳戶。 **[應用程式註冊入口網站]** 會在新的索引標籤中開啟。或者，您可以直接瀏覽至 [應用程式註冊入口網站](https://apps.dev.microsoft.com) 並選取您的應用程式名稱，以取得此頁面。
+3. 展開 [產品管理]  ，然後依序選取 [WNS/MPNS]  和 [線上服務網站]  。 登入您的 Microsoft 帳戶。 [應用程式註冊] 頁面會在新的索引標籤中開啟。或者，您也可以直接瀏覽至 [[我的應用程式](https://apps.dev.microsoft.com)] 頁面，然後選取應用程式名稱以進入此頁面。
 
     ![WNS MPNS 頁面](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
 4. 請記下 [應用程式密碼]  和 [套件安全性識別碼] \(SID\)  。
@@ -90,17 +88,18 @@ ms.locfileid: "71213425"
 ## <a name="create-a-sample-windows-app"></a>在 Windows 應用程式中建立範例
 
 1. 在 Visual Studio 中，開啟 [檔案]  功能表，選取 [新增]  ，然後選取 [專案]  。
-2. 在 [新增專案]  對話方塊中，完成下列步驟：
+2. 在 [建立新專案]  對話方塊中，完成下列步驟：
 
-    1. 展開 **Visual C#** 。
-    2. 選取 [Windows 通用]  。
-    3. 選取 [空白應用程式] \(通用 Windows\)  。
-    4. 輸入專案的 [名稱]  。
-    5. 選取 [確定]  。
+    1. 在頂端的搜尋方塊中，輸入 **Windows Universal**。
+    2. 在搜尋結果中，選取 [空白應用程式 (Universal Windows)]  ，然後選取 [下一步]  。
 
-        ![[新增專案] 對話方塊](./media/notification-hubs-windows-store-dotnet-get-started/new-project-dialog.png)
+       ![[新增專案] 對話方塊](./media/notification-hubs-windows-store-dotnet-get-started/new-project-dialog.png)
+
+    3. 在 [設定新專案]  對話方塊中，輸入 [專案名稱]  以及專案檔案的 [位置]  。
+    4. 選取 [建立]  。
+
 3. 接受**目標**和**最小**平台版本的預設值，然後選取 [確定]  。
-4. 在 [方案總管] 中，以滑鼠右鍵按一下 Windows 市集應用程式專案，然後依序選取 [市集]  和 [將應用程式與市集建立關聯]  。 隨即顯示 [將您的應用程式與 Windows 市集建立關聯]  精靈。
+4. 在 [方案總管] 中，以滑鼠右鍵按一下 Windows 市集應用程式專案，然後依序選取 [發佈]  和 [將應用程式與市集建立關聯]  。 隨即顯示 [將您的應用程式與 Windows 市集建立關聯]  精靈。
 5. 在此精靈中，使用您的 Microsoft 帳戶登入。
 6. 選取您在步驟 2 中註冊的應用程式，選取 [下一步]  ，然後選取 [關聯]  。 這麼做會將所需的 Windows 市集註冊資訊新增至應用程式資訊清單。
 7. 在 Visual Studio 中，以滑鼠右鍵按一下方案，然後選取 [管理 NuGet 套件]  。 [管理 NuGet 套件]  視窗隨即開啟。
@@ -117,7 +116,7 @@ ms.locfileid: "71213425"
     using Windows.UI.Popups;
     ```
 
-10. 在專案的 `App.xaml.cs` 檔案中，找出 `App` 類別，然後新增下列 `InitNotificationsAsync` 方法定義：
+10. 在專案的 `App.xaml.cs` 檔案中，找出 `App` 類別，然後新增下列 `InitNotificationsAsync` 方法定義。 以您在 Azure 入口網站中建立的通知中樞名稱取代 `<your hub name>`，並使用通知中樞 [存取原則]  頁面中的 `DefaultListenSharedAccessSignature` 連接字串來取代 `<Your DefaultListenSharedAccessSignature connection string>`：
 
     ```csharp
     private async void InitNotificationsAsync()

@@ -1,6 +1,6 @@
 ---
 title: 使用 Python 將模擬 X.509 裝置佈建到 Azure IoT 中樞
-description: 快速入門 - 使用適用於 IoT 中樞裝置佈建服務的 Python 裝置 SDK 來建立及佈建模擬 X.509 裝置。 本快速入門使用個別註冊。
+description: 快速入門 - 使用適用於 IoT 中樞裝置佈建服務 (DPS) 的 Python 裝置 SDK 來建立及佈建模擬 X.509 裝置。 本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 0bd47de8862be4e66914b9748a00ce907acda526
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 75c604ebe6f0bee6427123652c7ea433b21e2956
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555512"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976480"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>快速入門：使用適用於 IoT 中樞裝置佈建服務的 Python 裝置 SDK 來建立及佈建模擬 X.509 裝置
 

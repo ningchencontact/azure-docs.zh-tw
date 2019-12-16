@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: d6758fc5434406e42acf65ff3b712227b5cec0f8
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0f6dceac3e46f8e36d2da52c15c0b0696e026a0e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991630"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977211"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>快速入門：使用適用於 Python 的 Bing Web 搜尋 SDK
 
@@ -23,16 +23,14 @@ Bing Web 搜尋 SDK 可讓您輕鬆地將 Bing Web 搜尋整合到 Python 應用
 
 要立即查看程式碼嗎？ GitHub 上提供[適用於 Python 的 Bing Web 搜尋 SDK 範例](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) (英文)。
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
-
-另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
-
 ## <a name="prerequisites"></a>必要條件
 Bing Web 搜尋 SDK 與 Python 2.7、3.3、3.4、3.5 和 3.6 相容。 建議在虛擬環境下使用此快速入門。
 
 * Python 2.7、3.3、3.4、3.5 或 3.6
 * 適用於 Python 2.7 的 [virtualenv](https://docs.python.org/3/tutorial/venv.html) (英文)
 * 適用於 Python 3.x 的 [venv](https://pypi.python.org/pypi/virtualenv) (英文)
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-and-configure-your-virtual-environment"></a>建立及設定您的虛擬環境
 
@@ -82,7 +80,7 @@ python -m pip install azure-cognitiveservices-search-websearch
 
 1. 在您慣用的 IDE 或編輯器建立新的 Python 專案。
 
-1. 將此範例程式碼複製到您的專案：  
+1. 將此範例程式碼複製到您的專案。 `endpoint` 可以是下方的全域端點，也可以是 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../cognitive-services/cognitive-services-custom-subdomains.md)端點。：  
 
     ```python
     # Import required modules.

@@ -1,19 +1,20 @@
 ---
-title: Azure 快速入門 - 使用 Azure 入口網站在物件儲存體中建立 Blob | Microsoft Docs
+title: 快速入門 - 使用 Azure 入口網站建立 Blob
+titleSuffix: Azure Storage
 description: 在本快速入門中，您會在物件 (Blob) 儲存體中使用 Azure 入口網站。 然後，使用 Azure 入口網站將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: f3d5aaaf57387ae4ccefdfe8ec22435f03b2452f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7336260d7565697b0559419ae502848bcff9424c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757547"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892850"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>快速入門：使用 Azure 入口網站上傳、下載及列出 Blob
 

@@ -11,21 +11,21 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 62a2c3324df70c7ccdbbac273d314ff94cbb7b9a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 207e8def168227cb419d25c8e98aa15c09c72b2c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671571"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851599"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>使用 Azure Machine Learning 對大量資料執行批次推斷
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-在此操作說明中，您會了解如何使用 Azure Machine Learning 以非同步和平行的方式取得大量資料的推斷。 這裡所述的批次推斷功能屬於公開預覽版。 此預覽版能以高效能且高輸送量的方式產生推斷和處理資料。 其會提供現成可用的非同步功能。
+了解如何使用 Azure Machine Learning 以非同步和平行的方式取得大量資料的推斷。 這裡所述的批次推斷功能屬於公開預覽版。 此預覽版能以高效能且高輸送量的方式產生推斷和處理資料。 其會提供現成可用的非同步功能。
 
 透過批次推斷，即可直接將離線推斷擴充至大型機器叢集的數 TB 生產資料，進而提升生產力並獲得最佳成本。
 
-在此操作說明中，您將了解下列工作：
+您會在本文中了解下列工作：
 
 > * 建立遠端計算資源。
 > * 撰寫自訂推斷指令碼。
@@ -237,6 +237,15 @@ def run(mini_batch):
     return resultList
 ```
 
+### <a name="how-to-access-other-files-in-init-or-run-functions"></a>如何在 `init()` 或 `run()` 函式中存取其他檔案
+
+如果推斷指令碼所在的相同目錄中有另一個檔案或資料夾，您可以藉由尋找目前的工作目錄來對其進行參照。
+
+```python
+script_dir = os.path.realpath(os.path.join(__file__, '..',))
+file_path = os.path.join(script_dir, "<file_name>")
+```
+
 ## <a name="build-and-run-the-batch-inference-pipeline"></a>建置並執行批次推斷管線
 
 現在，您已備妥一切所需而可建置管線。
@@ -261,11 +270,11 @@ batch_env.spark.precache_packages = False
 
 ### <a name="specify-the-parameters-for-your-batch-inference-pipeline-step"></a>指定批次推斷管線步驟的參數
 
-`ParallelRunConfig` 是 Azure Machine Learning 管線內，適用於新引進批次推斷 `ParallelRunStep` 執行個體的主要設定。 您可以用此設定來包裝指令碼並設定必要參數，包括下列各項：
+`ParallelRunConfig` 是 Azure Machine Learning 管線內，適用於新引進批次推斷 `ParallelRunStep` 執行個體的主要設定。 您可以用此設定來包裝指令碼並設定必要參數，包括下列參數：
 - `entry_script`：作為本機檔案路徑的使用者指令碼，將會在多個節點上平行執行。 如果 `source_directly` 存在，請使用相對路徑。 否則，使用可在機器上存取的路徑即可。
 - `mini_batch_size`：傳遞至單一 `run()` 呼叫的迷你批次大小。 (選擇性；預設值為 `1`)。
     - 針對 `FileDataset`，這是最小值為 `1` 的檔案數目。 您可以將多個檔案結合成一個迷你批次。
-    - 針對 `TabularDataset`，這是資料的大小。 範例值為 `1024`、`1024KB`、`10MB` 和 `1GB`。 建議值是 `1MB`。 請注意，`TabularDataset` 中的迷你批次絕對不會跨越檔案界限。 例如，如果您有各種大小的 .csv 檔案，最小檔案為 100 KB，最大檔案則為 10 MB。 如果您設定 `mini_batch_size = 1MB`，則系統會將小於 1 MB 的檔案視為一個迷你批次。 大於 1 MB 的檔案則會分割成多個迷你批次。
+    - 針對 `TabularDataset`，這是資料的大小。 範例值為 `1024`、`1024KB`、`10MB` 和 `1GB`。 建議值是 `1MB`。 `TabularDataset` 中的迷你批次絕對不會跨越檔案界限。 例如，如果您有各種大小的 .csv 檔案，最小檔案為 100 KB，最大檔案則為 10 MB。 如果您設定 `mini_batch_size = 1MB`，則系統會將小於 1 MB 的檔案視為一個迷你批次。 大於 1 MB 的檔案則會分割成多個迷你批次。
 - `error_threshold`：處理期間應該忽略的記錄失敗數目 (針對 `TabularDataset`) 和檔案失敗數目 (針對 `FileDataset`)。 如果整個輸入的錯誤計數超過此值，作業便會停止。 錯誤閾值適用於整個輸入，而非適用於傳送至 `run()` 方法的個別迷你批次。 範圍為 `[-1, int.max]`。 `-1` 部分會指出要在處理期間忽略所有失敗。
 - `output_action`：下列其中一個值說明輸出的資料會如何被組合：
     - `summary_only`：使用者指令碼會儲存輸出。 `ParallelRunStep` 只會將輸出用於計算錯誤閾值。
@@ -348,6 +357,8 @@ pipeline_run.wait_for_completion(show_output=True)
 ## <a name="next-steps"></a>後續步驟
 
 若要查看此程序的完整運作過程，請試試[批次推斷筆記本](https://aka.ms/batch-inference-notebooks)。 
+
+如需 ParallelRunStep 的偵錯和疑難排解指引，請參閱[操作指南](how-to-debug-batch-predictions.md)。
 
 如需管線的偵錯和疑難排解指引，請參閱[操作指南](how-to-debug-pipelines.md)。
 

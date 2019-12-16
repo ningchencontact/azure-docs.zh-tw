@@ -1,19 +1,19 @@
 ---
 title: 適用於資料表 API 的 Azure Cosmos DB 全域散發教學課程
-description: 了解如何使用資料表 API 來設定 Azure Cosmos DB 全域散發。
+description: 了解 Azure Cosmos DB 資料表 API 帳戶中的全域散發如何運作，以及如何設定慣用的區域清單
 author: wmengmsft
 ms.author: wmeng
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 12/13/2018
+ms.date: 12/02/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 8562d37d81ce02e150e6ad1cc2a440cf7bb1e5e3
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e6cd574d1041908e91ad5e6629403c0e40d11c03
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693349"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870355"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>使用資料表 API 來設定 Azure Cosmos DB 全域散發
 

@@ -1,17 +1,17 @@
 ---
 title: 適用於 Azure Cosmos DB 的 Azure PowerShell 範例 - SQL (Core) API
-description: 適用於 Azure Cosmos DB 的 Azure PowerShell 範例 - SQL (Core) API
+description: 取得 Azure PowerShell 範例，以在 Azure Cosmos DB SQL API 帳戶中執行各種常見工作
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: d3d2bea0eafa0a15424cad288f03392fec8ea9eb
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 29195ce141c29248840807b978cae3ecf79ccf34
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155390"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871919"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---sql-core-api"></a>適用於 Azure Cosmos DB 的 Azure PowerShell 範例 - SQL (Core) API
 

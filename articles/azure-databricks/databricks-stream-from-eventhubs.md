@@ -8,14 +8,14 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 07/23/2019
+ms.date: 12/08/2019
 ms.author: alehall
-ms.openlocfilehash: 2e6bfa9188034c602660eaff34bf86ea711dc7b3
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 6af0881049e52cbead5cca9719d4c9b06be29491
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121271"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951542"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>教學課程：使用事件中樞將資料串流至 Azure Databricks
 
@@ -101,7 +101,7 @@ ms.locfileid: "74121271"
     接受下列值以外的所有其他預設值：
 
    * 輸入叢集的名稱。
-   * 針對本文，使用 *6.0  執行階段建立叢集。
+   * 針對本文，請使用 6.0  執行階段建立叢集。
    * 請確定您已選取 [在活動\_\_分鐘後終止]  核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
 
    選取符合您技術準則和[預算](https://azure.microsoft.com/pricing/details/databricks/)的叢集背景工作角色和驅動程式節點大小。
@@ -138,14 +138,10 @@ ms.locfileid: "74121271"
 
    ![新增程式庫對話方塊](./media/databricks-stream-from-eventhubs/databricks-add-library-install-new.png "新增程式庫安裝新的")
 
-2. 在 [新增程式庫] 頁面中，針對 [來源]  選取 [Maven]  。 針對 [座標]  ，針對您要新增的套件按一下 [搜尋套件]  。 以下是本教學課程所使用之程式庫的 Maven 座標：
+2. 在 [新增程式庫] 頁面中，針對 [來源]  選取 [Maven]  。 分別針對 Spark 事件中樞連接器和 Twitter API，將下列座標輸入到 [座標]  中。
 
-   * Spark 事件中樞連接器 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+   * Spark 事件中樞連接器 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.12`
    * Twitter API - `org.twitter4j:twitter4j-core:4.0.7`
-
-     ![提供 Maven 座標](./media/databricks-stream-from-eventhubs/databricks-add-library-search.png "提供 Maven 座標")
-
-     ![提供 Maven 座標](./media/databricks-stream-from-eventhubs/databricks-add-library-search-dialogue.png "搜尋 Maven 座標")
 
 3. 選取 [安裝]  。
 

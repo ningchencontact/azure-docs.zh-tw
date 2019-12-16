@@ -1,5 +1,5 @@
 ---
-title: 什麼是地區人工智慧
+title: 什麼是地區人工智慧 DSVM
 titleSuffix: Azure Data Science Virtual Machine
 description: 地區人工智慧資料科學虛擬機器提供了 ArcGIS Pro 供您處理地理資料，並提供了 Python、R 和資料科學工具組供您處理 ML 和 AI。
 keywords: 深度學習、AI、資料科學工具、資料科學虛擬機器、地理空間分析
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.openlocfilehash: 3d17006b9d35f0abbcc0e9c60f38ab693c1d088d
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 7e2976596ca6b55ea57e00015e53b2721438e990
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195593"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899910"
 ---
 # <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>什麼是地區人工智慧資料科學虛擬機器？
 

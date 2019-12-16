@@ -1,21 +1,22 @@
 ---
-title: 教學課程：建置採用 Blob 儲存體的高可用性應用程式 - Azure 儲存體
-description: 使用讀取權限異地備援儲存體讓應用程式資料具有高可用性
+title: 教學課程 - 建置採用 Blob 儲存體的高可用性應用程式
+titleSuffix: Azure Storage
+description: 使用讀取權限異地備援儲存體讓應用程式資料具有高可用性。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 6b0ac017704c599e96543ed36a13ff5d3ddef9fc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 55846c76f2c3ef1c5d884af39af85db3abe38aad
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838563"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892901"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>教學課程：建置採用 Blob 儲存體的高可用性應用程式
 
@@ -40,8 +41,7 @@ RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-* 使用下列工作負載安裝 [Visual Studio 2019](https://www.visualstudio.com/downloads/)：
-  - **Azure 開發**
+* 透過 **Azure 開發**工作負載安裝 [Visual Studio 2019](https://www.visualstudio.com/downloads/)。
 
   ![Azure 開發 (在 [Web 和 Cloud] 之下)](media/storage-create-geo-redundant-storage/workloads.png)
 
@@ -191,7 +191,6 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 在下載之前，服務物件 [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 和 [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 函式會先加以定義。 這些函式會定義事件處理常式，當下載作業成功完成，或下載作業失敗而正在重試時，便會引發這些處理常式。
 
-
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
 若要執行範例，請開啟命令提示字元，瀏覽至範例資料夾，然後輸入 `node index.js`。
@@ -223,7 +222,7 @@ Deleted container newcontainer1550799840726
 
 ## <a name="understand-the-sample-code"></a>了解範例程式碼
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+### <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ### <a name="retry-event-handler"></a>重試事件處理常式
 
@@ -274,7 +273,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+### <a name="pythontabpython"></a>[Python](#tab/python)
 
 ### <a name="retry-event-handler"></a>重試事件處理常式
 
@@ -317,7 +316,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
 使用 Node.js V10 SDK 時，並不需要回呼處理常式。 相反地，此範例會建立已設定重試選項和次要端點的管線。 這可允許應用程式在無法透過主要管線取得您的資料時，自動切換到次要管線。
 
@@ -349,4 +348,4 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 請進入系列的第二個部分，以了解如何模擬失敗狀況，並強制應用程式使用次要 RA-GRS 端點。
 
 > [!div class="nextstepaction"]
-> [模擬對主要儲存體端點的連線失敗](storage-simulate-failure-ragrs-account-app.md)
+> [從主要區域模擬讀取失敗](storage-simulate-failure-ragrs-account-app.md)

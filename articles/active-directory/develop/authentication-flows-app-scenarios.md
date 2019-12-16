@@ -1,28 +1,24 @@
 ---
-title: Microsoft 身分識別平台中的驗證情節 | Azure
+title: Microsoft 身分識別平台驗證案例 | Azure
 description: 了解 Microsoft 身分識別平台的驗證流程和應用程式情節。 了解可以驗證身分識別、取得權杖以及呼叫受保護之 API 的不同類型應用程式。
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/27/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c891c3de9126de6b833dea30c78c14b709384d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 969c7b6c86e09ec73ccf1ffa5cc4dc9703a3d25c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687741"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963795"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>驗證流程和應用程式情節
 

@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f1f812bb7d31319476e6b940443e067fac895f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 7b00fff9c979fe6bd2c52f67801a94cb50b1c660
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420461"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970341"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>教學課程：新增內部部署應用程式以便透過 Azure Active Directory 中的應用程式 Proxy 進行遠端存取
 
@@ -217,8 +217,9 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
 若要測試能否登入應用程式：
 
-1. 在瀏覽器中瀏覽至您在發行步驟所設定的外部 URL。 您應會看見開始畫面。
-1. 請以您在上一節中建立的使用者身分登入。
+1. 從您想要測試的應用程式中，選取 [應用程式 Proxy]  。
+2. 在頁面頂端，選取 [測試應用程式]  以在應用程式上執行測試，並檢查是否有任何設定問題。
+3. 請務必先啟動應用程式來測試是否能登入應用程式，然後再下載診斷報告來檢閱所偵測到問題的解決指引。
 
 如需疑難排解，請參閱[針對應用程式 Proxy 問題和錯誤訊息進行疑難排解](application-proxy-troubleshoot.md)。
 

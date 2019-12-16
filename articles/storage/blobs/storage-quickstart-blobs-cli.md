@@ -1,21 +1,22 @@
 ---
-title: Azure 快速入門 - 使用 Azure CLI 在物件儲存體中建立 Blob | Microsoft Docs
+title: 快速入門 - 使用 Azure CLI 建立 Blob
+titleSuffix: Azure Storage
 description: 在本快速入門中，您將了解如何使用 Azure CLI 將 Blob 上傳至 Azure 儲存體、下載 Blob，以及列出容器中的 Blob。
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/06/2019
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 1f3143eced90f97c090c0005375ef50fe48c5f5f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c913cb978796abeed5766ffa030aaeb6142320ec
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747944"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892918"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>快速入門：使用 Azure CLI 上傳、下載及列出 Blob
+# <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>快速入門：使用 Azure CLI 上傳、下載及列出 Blob
 
 Azure CLI 是管理 Azure 資源的 Azure 命令列體驗。 您可以在瀏覽器中使用它搭配 Azure Cloud Shell。 您也可以將它安裝在 macOS、Linux 或 Windows 上，並從命令列執行。 在本快速入門中，您會了解如何使用 Azure CLI 從 Azure Blob 儲存體上傳和下載資料。
 

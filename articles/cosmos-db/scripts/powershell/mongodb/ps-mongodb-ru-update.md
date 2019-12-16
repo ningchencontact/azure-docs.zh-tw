@@ -1,18 +1,18 @@
 ---
 title: Azure PowerShell 指令碼 - Azure Cosmos DB 更新 MongoDB API 的 RU/秒
-description: Azure PowerShell 指令碼 - Azure Cosmos DB 更新 MongoDB API 的 RU/秒
+description: 了解如何使用 PowerShell 指令碼在 MongoDB 的 Azure Cosmos DB 資料表 API 帳戶中更新資料庫或容器輸送量
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: d2dd99d5a5f1d0f03c5fe4980fde376ffdd55bca
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 626904c4e281c7ce3ce632412daa24ecdb56938e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178827"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871902"
 ---
 # <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>更新 Azure Cosmos DB 資料庫或集合的 RU/秒 - MongoDB API
 

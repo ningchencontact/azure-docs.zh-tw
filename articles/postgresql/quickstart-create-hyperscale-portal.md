@@ -1,5 +1,5 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫 - 超大規模 (Citus) 快速入門
+title: 建立分散式資料表 - 超大規模 (Citus) - 適用於 PostgreSQL 的 Azure 資料庫
 description: 在適用於 PostgreSQL 的 Azure 資料庫 - 超大規模 (Citus) 上建立及查詢分散式資料表的快速入門。
 author: jonels-msft
 ms.author: jonels
@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: 6b5bfbf16e76cbf90a5536332d8e3bf1035f983a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 02e009e6fff2e717693d1579d409199ab179d941
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500082"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973405"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立適用於 PostgreSQL 的 Azure 資料庫 - 超大規模 (Citus)
 

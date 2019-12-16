@@ -1,24 +1,25 @@
 ---
-title: 使用 Azure 儲存體安全存取雲端中的應用程式資料 | Microsoft Docs
+title: 應用程式資料的安全存取
+titleSuffix: Azure Storage
 description: 使用 SAS 權杖、加密和 HTTPS 保護雲端中的應用程式資料。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 05/30/2018
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: 2cd7a83b597d656ddbb0210aacfe96f6c056248b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1075c03820efba44ceb8dea28aff6302d2667cf2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986689"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892425"
 ---
-# <a name="secure-access-to-an-applications-data-in-the-cloud"></a>安全存取雲端中的應用程式資料
+# <a name="secure-access-to-application-data"></a>應用程式資料的安全存取
 
-本教學課程是一個系列的第三部分。 您了解如何安全存取儲存體帳戶。 
+本教學課程是一個系列課程的第三部分。 您了解如何安全存取儲存體帳戶。 
 
 在系列的第三部分中，您將了解如何：
 
@@ -31,7 +32,7 @@ ms.locfileid: "68986689"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要進行本教學課程，您必須已完成先前的儲存體教學課程︰[使用事件方格自動調整已上傳映像的大小][previous-tutorial]。 
+若要進行本教學課程，您必須已完成先前的儲存體教學課程︰[使用事件方格自動調整已上傳映像的大小][previous-tutorial]。
 
 ## <a name="set-container-public-access"></a>設定容器的公用存取
 

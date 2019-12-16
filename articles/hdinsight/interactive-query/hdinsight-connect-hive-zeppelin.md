@@ -1,20 +1,19 @@
 ---
 title: 快速入門：使用 Apache Zeppelin 在 Azure HDInsight 中執行 Apache Hive
 description: 在此快速入門中，您將了解如何使用 Apache Zeppelin 執行 Apache Hive 查詢。
-keywords: hdinsight,hadoop,hive,互動式查詢,LLAP
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: quickstart
-ms.date: 05/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: 36d9e9b34deb4bc6cd5f599cfe2d09a12f680730
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/03/2019
+ms.openlocfilehash: 915aca0e95fce05f74477b526de047c829c7f512
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494290"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890394"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>快速入門：使用 Apache Zeppelin 在 Azure HDInsight 中執行 Apache Hive 查詢
 
@@ -71,9 +70,47 @@ HDInsight 互動式查詢叢集。 請參閱[建立叢集](../hadoop/apache-hado
 
     相較於傳統的 Hive，查詢結果的傳回速度會快很多。
 
+### <a name="additional-examples"></a>其他範例
+
+1. 建立資料表。 在 Zeppelin Notebook 中執行下列程式碼：
+
+    ```hql
+    %jdbc(hive)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
+    ROW FORMAT DELIMITED
+    FIELDS TERMINATED BY ' '
+    STORED AS TEXTFILE;
+    ```
+
+1. 將資料載入到新的資料表。 在 Zeppelin Notebook 中執行下列程式碼：
+
+    ```hql
+    %jdbc(hive)
+    LOAD DATA
+    INPATH 'wasbs:///example/data/sample.log'
+    INTO TABLE log4jLogs;
+    ```
+
+1. 插入單一記錄。 在 Zeppelin Notebook 中執行下列程式碼：
+
+    ```hql
+    %jdbc(hive)
+    INSERT INTO TABLE log4jLogs2
+    VALUES ('A', 'B', 'C', 'D', 'E', 'F', 'G');
+    ```
+
+如需其他語法，請參閱 [Hive 語言手冊](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)。
+
 ## <a name="clean-up-resources"></a>清除資源
 
-完成此快速入門之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
+完成此快速入門之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地刪除該叢集。 您也需支付 HDInsight 叢集的費用 (即使未使用該叢集)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
 
 若要刪除叢集，請參閱[使用您的瀏覽器、PowerShell 或 Azure CLI 刪除 HDInsight 叢集](../hdinsight-delete-cluster.md)。
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 07/12/2019
+ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: 12be696c74a32909d79be405144582cd8fc05fb6
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: e7aa4a557821ee49867a8ea82f92ef04dfbef689
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "73519159"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978674"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>快速入門：如何使用自訂視覺建置分類器
 
@@ -47,7 +47,7 @@ ms.locfileid: "73519159"
    > [!NOTE]
    > 如果沒有資源群組可用，請確認您已使用您用來登入 [Azure 入口網站](https://portal.azure.com/)的相同帳戶登入 [customvision.ai](https://customvision.ai)。 此外，請確認您所選取的自訂視覺入口網站「目錄」，與 Azure 入口網站中的目錄相同，也就是您自訂視覺資源的位置。 在這兩個網站中，您可以從畫面右上角的下拉式帳戶功能表中選取您的目錄。 
 
-1. 選取 [專案類型]  下的 [分類]  。 然後，在 [分類類型]  下，端視您的使用案例而定，選擇 [多標籤]  或 [多類別]  。 多標籤分類會將任意數目的標記套用至影像 (零或多個)，而多類別分類會將影像排序成單一類別 (您提交的每個影像將排序到最可能的標記)。 如果您想要，可以稍後變更分類類型。
+1. 選取 [專案類型]  下的 [分類]  。 然後，在 [分類類型]  下，端視您的使用案例而定，選擇 [多標籤]  或 [多類別]  。 多標籤分類會將任意數目的標記套用至影像 (零或多個)，而多類別分類會將影像排序成單一類別 (您提交的每個影像將排序到最可能的標記)。 如果您想要，可以於稍後變更分類類型。
 
 1. 然後，選取其中一個可用領域。 每個領域都會針對特定類型的影像來將分類器最佳化，如下表所述。 如果您想要，可以稍後變更網域。
 
@@ -109,7 +109,7 @@ ms.locfileid: "73519159"
 
 ## <a name="manage-training-iterations"></a>管理定型反覆項目
 
-每次您定型分類器時，都會使用更新的效能度量建立新_反覆項目_。 您可以在 [效能]  索引標籤的左窗格中檢視所有的反覆項目。在左窗格中，您也可以找到 [刪除]  按鈕，可用來刪除已經過時的反覆項目。 您刪除反覆項目時，會刪除唯一與它相關聯的任何影像。
+每次您定型分類器時，都會使用更新的效能度量建立新_反覆項目_。 您可以在 [效能]  索引標籤的左窗格中檢視所有的反覆項目。您也會找到 [刪除]  按鈕，以用來刪除已經過時的反覆項目。 您刪除反覆項目時，會刪除唯一與它相關聯的任何影像。
 
 ## <a name="next-steps"></a>後續步驟
 

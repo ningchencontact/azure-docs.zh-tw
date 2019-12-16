@@ -1,15 +1,15 @@
 ---
 title: 使用 Visual Studio Code 連線至 Azure 區塊鏈服務
 description: 在 Visual Studio Code 中使用適用於 Ethereum 的 Azure 區塊鏈開發套件擴充功能連線到 Azure 區塊鏈服務聯盟網路
-ms.date: 11/19/2019
+ms.date: 12/05/2019
 ms.topic: quickstart
 ms.reviewer: chrisseg
-ms.openlocfilehash: 4d4625df1cb07818dcadb88e2c98bf9ae1da1b1f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 1bcdfdafa9253fc4dc20ccb7cc237cb794b0af53
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455978"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977049"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>快速入門：使用 Visual Studio Code 連線至 Azure 區塊鏈服務聯盟網路
 
@@ -59,12 +59,12 @@ Azure 區塊鏈服務開發套件會執行驗證指令碼，其大約需要一�
 如果您無法存取 Azure 區塊鏈服務聯盟成員，請完成必要的[快速入門：使用 Azure 入口網站建立區塊鏈成員](create-member.md)或[快速入門：使用 Azure CLI 建立 Azure 區塊鏈服務的區塊鏈成員](create-member-cli.md)。
 
 1. 在 VS Code 總管窗格中，展開 [Azure 區塊鏈服務]  擴充功能。
-1. 選取 [連線至聯盟]  。
+1. 選取 [連線至網路]  。
 
-   ![連線至聯盟](./media/connect-vscode/connect-consortium.png)
+   ![連線至網路](./media/connect-vscode/connect-consortium.png)
 
     如果系統提示您進行 Azure 驗證，請遵循提示以使用瀏覽器進行驗證。
-1. 在命令選擇區的下拉式清單中，選擇 [連線至 Azure 區塊鏈服務聯盟]  。
+1. 選擇 [命令選擇區] 下拉式清單中的 [Azure 區塊鏈服務]  。
 1. 選擇與 Azure 區塊鏈服務聯盟成員相關聯的訂用帳戶和資源群組。
 1. 從清單中選擇聯盟。
 

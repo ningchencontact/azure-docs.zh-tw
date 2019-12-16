@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 12/10/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2c13bc79fccc74da431ba1a6399870b261b24c57
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 6f5535a57fae847c8a376b8b39e43955675da739
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196428"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974779"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>準備內部部署電腦以移轉至 Azure
 
@@ -99,7 +99,7 @@ ms.locfileid: "74196428"
 1. 在內部部署電腦 (而非主機伺服器) 上，開啟提升權限的命令提示字元。
 2. 輸入 **diskpart**。
 3. 輸入 **SAN**。 如果未維持客體作業系統的磁碟機代號，則會傳回 [全部離線]  或 [共用離線]  。
-4. 在 **DISKPART** 提示字元中，輸入 **SANPOLICY=ONLINEALL**。 此設定可確保磁碟已連線，且可供讀取和寫入。
+4. 在 **DISKPART** 提示字元中，輸入 **SAN Policy=OnlineAll**。 此設定可確保磁碟已連線，且可供讀取和寫入。
 5. 在測試移轉期間，您可以確認是否保留磁碟機代號。
 
 

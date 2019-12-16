@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: f1472d7043a092f35e10fdedbf4c52740e87c51c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 27e166a8798f851f6c086c025dd82957b2dcfb84
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706151"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849270"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>教學課程：使用 Azure Key Vault 從 Azure Databricks 存取 Azure Blob 儲存體
 
@@ -129,7 +129,8 @@ ms.locfileid: "74706151"
 
 4. 當您的 Azure Databricks 工作區在個別視窗中開啟之後，請將 **#secrets/createScope** 附加至 URL。 URL 應具有下列格式： 
 
-   **https://<\location>.azuredatabricks.net/#secrets/createScope**.
+   **https://<\location>.azuredatabricks.net/?o=<\orgID>#secrets/createScope**.
+   
 
 5. 輸入範圍名稱，然後輸入您先前儲存的 Azure Key Vault DNS 名稱和資源識別碼。 將範圍名稱儲存在文字編輯器中，以供稍後在本教學課程中使用。 然後，選取 [Create]  \(建立\)。
 

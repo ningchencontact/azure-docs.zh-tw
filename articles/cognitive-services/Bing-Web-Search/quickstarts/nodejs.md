@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 95a27ff17ca74f930fc1a739c0eb94a90bd82ec4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f45b6ce402a5f61faeabd1534d7e3562af81294c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834484"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973861"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>快速入門：使用 Bing Web 搜尋 REST API 和 Node.js 來搜尋 Web
 
@@ -57,7 +57,7 @@ if (!SUBSCRIPTION_KEY) {
 
 ## <a name="create-a-function-to-make-the-request"></a>建立用來提出要求的函式
 
-此函式將提出安全的 GET 要求，將搜尋查詢儲存為路徑中的查詢參數。 `encodeURIComponent` 可用來逸出無效字元，而訂用帳戶金鑰會傳入標頭中。 回呼所接收的[回應](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse)會訂閱用以彙總 JSON 主體的 `data` 事件、會記錄任何問題的 `error` 事件，和可據以得知何時應將訊息視為完整的 `end` 事件。 完成後，應用程式會列印有關的標頭和訊息本文。 您可以根據自己的喜好設定來調整色彩和設定深度，深度為 `1` 時可適當摘要回應。
+此函式將提出安全的 GET 要求，將搜尋查詢儲存為路徑中的查詢參數。 `hostname` 可以是下方的全域端點，也可以是 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。  `encodeURIComponent` 可用來逸出無效字元，而訂用帳戶金鑰會傳入標頭中。 回呼所接收的[回應](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse)會訂閱用以彙總 JSON 主體的 `data` 事件、會記錄任何問題的 `error` 事件，和可據以得知何時應將訊息視為完整的 `end` 事件。 完成後，應用程式會列印有關的標頭和訊息本文。 您可以根據自己的喜好設定來調整色彩和設定深度，深度為 `1` 時可適當摘要回應。
 
 ```javascript
 function bingWebSearch(query) {

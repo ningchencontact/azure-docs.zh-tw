@@ -1,18 +1,18 @@
 ---
 title: Azure PowerShell 指令碼 - Azure Cosmos DB 建立資料表 API 資料表
-description: Azure PowerShell 指令碼 - Azure Cosmos DB 建立資料表 API 資料表
+description: 了解如何使用 PowerShell 指令碼來更新 Azure Cosmos DB 資料表 API 中的資料庫或容器輸送量
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 12/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 998379384c12c611989bf1ef04b149ab1ceaf25c
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 12a7c9cd6e1a9c1271aa73b9c2b2e1c834c743a7
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178739"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873534"
 ---
 # <a name="create-a-table-for-azure-cosmos-db---table-api"></a>建立 Azure Cosmos DB 資料表 - 資料表 API
 

@@ -8,13 +8,13 @@ ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.date: 09/23/2019
-ms.openlocfilehash: 182dec35d515966ae883aca405cf3a95b6f1f72c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.date: 12/05/2019
+ms.openlocfilehash: 108d251ec6aadb4881f500edfa3483f137a09a68
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133093"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900443"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>快速入門：使 Azure Sentinel 上線
 
@@ -24,18 +24,8 @@ ms.locfileid: "74133093"
 
 連線您的資料來源之後，請從建立的活頁簿 (以您的資料為基礎進行深入解析) 資源庫中選擇。 這些活頁簿可以根據您的需求輕鬆地進行自訂。
 
->[!NOTE] 
-> [Azure Sentinel 定價](https://azure.microsoft.com/pricing/details/azure-sentinel/)是以相關聯 Azure 監視器 Log Analytics 工作區中內嵌的資料量為基礎。 下列部分資料連線器不會針對內嵌付費，不過，當您使用 Log Analytics 工作區中儲存的內嵌資料產生任何警示時，會有一些相關聯的費用，這會依 [Azure 監視器 Log Analytics 定價](https://azure.microsoft.com/pricing/details/monitor/)收費。 
-  > - Azure 活動 (適用於 Azure 作業的活動記錄)
-  > - Azure Active Directory Identity Protection (適用於具有 AAD P2 授權的租用戶)
-  > - Azure 資訊保護
-  > - Azure 進階威脅防護 (警示)
-  > - Azure 資訊安全中心 (警示)
-  > - Microsoft Cloud App Security (僅限警示)
-  > - Microsoft Defender 進階威脅防護 (監視代理程式警示)
-  > - Office 365 (Exchange 和 Sharepoint 記錄)
->
-> Azure AD/Office365 審核記錄不是免費的，而是以進階層提供，因此此資料的內嵌定價是以每 GB 為基礎。 
+>[!IMPORTANT] 
+> 如需使用 Azure Sentinel 時所產生費用的相關資訊，請參閱 [Azure Sentinel 定價](https://azure.microsoft.com/pricing/details/azure-sentinel/)。
   
 
 ## <a name="global-prerequisites"></a>全域必要條件
@@ -44,7 +34,7 @@ ms.locfileid: "74133093"
 
 - Log Analytics 工作區。 了解如何[建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)。 如需 Log Analytics 工作區的詳細資訊，請參閱[設計您的 Azure 監視器記錄部署](../azure-monitor/platform/design-logs-deployment.md)。
 
--  若要啟用 Azure Sentinel，您需要 Azure Sentinel 工作區所在之訂用帳戶的參與者權限。 
+- 若要啟用 Azure Sentinel，您需要 Azure Sentinel 工作區所在之訂用帳戶的參與者權限。 
 - 若要使用 Azure Sentinel，您需要工作區所屬資源群組的參與者或讀者權限。
 - 連線特定資料來源可能需要其他權限。
 - Azure Sentinel 是付費服務。 如需價格相關資訊，請參閱[關於 Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058)。

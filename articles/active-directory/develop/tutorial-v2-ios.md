@@ -1,5 +1,5 @@
 ---
-title: 搭配 iOS 和 macOS 的使用者入門 - Microsoft 身分識別平台 | Azure
+title: 開始使用 iOS 與 macOS - Microsoft 身分識別平台 | Azure
 description: iOS 和 macOS (Swift) 應用程式如何使用 Microsoft身分識別平台呼叫需要存取權杖的 API
 services: active-directory
 documentationcenter: dev-center-name
@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e3892a03ffe097a51f294e698168f00e1359f92
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 64f161d94d622ae76932e88be52df6f068bfc945
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960671"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964663"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>從 iOS 或 macOS 應用程式登入使用者並呼叫 Microsoft Graph
 

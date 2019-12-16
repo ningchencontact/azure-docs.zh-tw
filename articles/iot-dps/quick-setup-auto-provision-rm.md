@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Resource Manager 範本設定 Azure IoT 中樞裝置佈建
-description: Azure 快速入門 - 使用範本設定 Azure IoT 中樞裝置佈建服務
+description: Azure 快速入門 - 使用範本設定 Azure IoT 中樞裝置佈建服務 (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: b40e126ca23190fbe50a717016b18719be6950e2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 482401b75cadf44e2cef03cced8dd216d0980524
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276388"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969576"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>快速入門：使用 Azure Resource Manager 範本設定 IoT 中樞裝置佈建服務
 

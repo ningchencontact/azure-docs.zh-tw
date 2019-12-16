@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 12/04/2019
 ms.topic: quickstart
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 858672a7fcfcfd5f50c91eb769fdd0d42578195f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 36b8a3bba82a338f3aab526d505c4d1e96061ddf
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230002"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849117"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>快速入門：使用成本分析探索及分析成本
 
@@ -101,7 +101,9 @@ ms.locfileid: "74230002"
 
 可使用 [分組方式]  依適用屬性分組，以細分成本並識別成本最高的參與者。 例如，若要依資源標記分組，請選取要作為分組方式的標記索引鍵。 系統就會依每個標記值細分成本，並提供一個額外區段以顯示未套用該標記的資源。
 
-大部分的 [Azure 資源都支援標記](../azure-resource-manager/tag-support.md)。 不過，某些標記無法在成本管理和計費中使用。 此外，也不支援資源群組標記。 只有在資源標記直接套用到資源的那天起，成本管理才會支援資源標記。 觀看[如何使用 Azure 成本管理檢閱標記原則](https://www.youtube.com/watch?v=nHQYcYGKuyw)影片，了解如何運用 Azure 標記原則提升成本資料可見性。
+大部分的 [Azure 資源都支援標記](../azure-resource-manager/tag-support.md)。 不過，某些標記無法在成本管理和計費中使用。 此外，也不支援資源群組標記。 標記支援適用於將標記套用至資源「之後」  所回報的使用量。 您無法追溯套用標記以彙總成本。
+
+觀看[如何使用 Azure 成本管理檢閱標記原則](https://www.youtube.com/watch?v=nHQYcYGKuyw)影片，了解如何運用 Azure 標記原則提升成本資料可見性。
 
 以下是當月 Azure 服務成本的檢視。
 

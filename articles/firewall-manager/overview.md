@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 11/21/2019
+ms.date: 12/06/2019
 ms.author: victorh
-ms.openlocfilehash: 897819928ab0bcf48b58428014c03aea6b2145fd
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: cf8e6ca3a532dea29a413b1afdfc684ac8f08f17
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267960"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869556"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>什麼是 Azure 防火牆管理員預覽？
 
@@ -70,12 +70,13 @@ Azure 防火牆管理員預覽有下列已知問題：
 
 |問題  |說明  |緩和  |
 |---------|---------|---------|
-|不支援手動建立的中央 Vnet|目前，Azure 防火牆管理員支援使用虛擬中樞建立的網路。 尚不支援使用您自己手動建立的中樞 VNet。|目前，請搭配使用 Azure 防火牆管理員與使用虛擬中樞建立的中樞和輪輻網路。<br>目前正在調查中。
+|不支援手動建立的中央 Vnet|目前，Azure 防火牆管理員支援使用虛擬中樞建立的網路。 尚不支援使用您自己手動建立的中樞 VNet。|目前，請搭配使用 Azure 防火牆管理員與使用虛擬中樞建立的中樞和輪輻網路。<br>正在修正。
 |第三方篩選限制|不支援將第三方提供者的 V2I 流量篩選與 Azure 防火牆 B2V 和 V2V 搭配使用。|目前正在調查中。|
 |目前不支援流量分割|目前不支援 Office 365 和 Azure 公用 PaaS 流量分割。 因此，若為 V2I 或 B2I 選取第三方提供者，也會透過合作夥伴服務傳送所有的 Azure 公用 PaaS 和 Office 365 流量。|目前正在調查中樞的流量分割。
 |每個區域一個中樞|每個區域不能有超過一個中樞|在區域中建立多個虛擬 WAN。|
 |基本原則必須位於與本機原則相同的區域中|在與基底原則相同的區域中建立您所有的本機原則。 您仍可將在某個區域中建立的原則套用到另一個區域的安全中樞上。|目前正在調查中。|
 |安全虛擬中樞無法執行中樞間通訊|目前尚不支援安全虛擬中樞對安全虛擬中樞的通訊。|目前正在調查中。|
+|所有共用相同虛擬 WAN 的安全虛擬中樞，都必須位於相同的資源群組中。|此行為與現今的虛擬 WAN 中樞一致。|建立多個虛擬 WAN，以允許在不同的資源群組中建立安全虛擬中樞。|
 
 ## <a name="next-steps"></a>後續步驟
 

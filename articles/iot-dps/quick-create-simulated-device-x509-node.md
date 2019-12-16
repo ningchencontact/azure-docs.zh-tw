@@ -1,6 +1,6 @@
 ---
 title: 使用 Node.js 將模擬 X.509 裝置佈建到 Azure IoT 中樞
-description: 使用適用於 Azure IoT 中樞裝置佈建服務的 Node.js 裝置 SDK 來建立及佈建模擬 X.509 裝置。本快速入門使用個別註冊。
+description: 使用適用於 Azure IoT 中樞裝置佈建服務 (DPS) 的 Node.js 裝置 SDK 來建立及佈建模擬 X.509 裝置。本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 5ba18ae304ee1d72306f233a5b288c358efcd696
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 5a713018cb616fd1b82c253554932f6589185e0b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423387"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976463"
 ---
 # <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>快速入門：使用適用於 IoT 中樞裝置佈建服務的 Node.js 裝置 SDK 來建立及佈建 X.509 模擬裝置
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]

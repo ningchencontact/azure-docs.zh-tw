@@ -8,22 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: b7bf73c2948b302ec8294b7dc2ff2dc8f220c91b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 589f7884f390ae57df4e946bcd34ca3bda629ed8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843878"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978793"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>快速入門：使用 Bing Web 搜尋 REST API 和 Go 來搜尋 Web
 
 使用本快速入門進行對 Bing Web 搜尋 API 第一次的呼叫，並接收 JSON 回應。 這個 Go 應用程式會將搜尋要求傳送給 API，並顯示回應。 雖然此應用程式是以 Go 撰寫的，但 API 是一種與大多數的程式設計語言都相容的 RESTful Web 服務。
-
-另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
 ## <a name="prerequisites"></a>必要條件
 以下是執行本快速入門之前的幾個必備項目：
@@ -113,7 +111,7 @@ type BingAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>宣告 main 函式並定義變數  
 
-此程式碼會宣告 main 函式，並設定必要的變數。 請確認端點正確，並將 `token` 值換成您的 Azure 帳戶中有效的訂用帳戶金鑰。 請自行取代 `searchTerm` 的值來自訂搜尋查詢。
+此程式碼會宣告 main 函式，並設定必要的變數。 `endpoint` 可以是下方的全域端點，也可以是 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。 請確認端點正確，並將 `token` 值換成您的 Azure 帳戶中有效的訂用帳戶金鑰。 請自行取代 `searchTerm` 的值來自訂搜尋查詢。
 
 ```go
 // Declare the main function. This is required for all Go programs.

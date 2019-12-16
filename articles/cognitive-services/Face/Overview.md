@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 95ea1718682340967d5d39fe5f550f2638273796
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 75f2969562dd2de041ffaa146c394f1a18c7756b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743696"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961534"
 ---
 # <a name="what-is-the-azure-face-api"></a>什麼是 Azure 臉部 API？
 
@@ -45,7 +45,7 @@ Azure 認知服務的臉部 API 提供相關的演算法，用來偵測、辨識
 
 ![面帶笑容的女性](./Images/FaceFindSimilar.QueryFace.jpg)
 
-而這些是候選臉部：
+而這些影像是候選臉部：
 
 ![五個面帶笑容人員的影像。 影像 a 和 b 顯示同一人。](./Images/FaceFindSimilar.Candidates.jpg)
 

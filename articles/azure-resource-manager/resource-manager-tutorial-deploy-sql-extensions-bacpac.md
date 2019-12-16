@@ -2,15 +2,15 @@
 title: 使用範本匯入 SQL BACPAC 檔案
 description: 了解如何使用 SQL Database 擴充功能透過 Azure Resource Manager 範本匯入 SQL BACPAC 檔案。
 author: mumian
-ms.date: 11/21/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 741521551335712400e5f61822d7dda31199d3df
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 9f5e2e402e13076dc538a9c9d55e5b67e0d86d4f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422149"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978884"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>教學課程：使用 Azure Resource Manager 範本匯入 SQL BACPAC 檔案
 
@@ -44,17 +44,15 @@ ms.locfileid: "74422149"
 
 已在 [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac) 中分享 BACPAC 檔案。 若要自行建立，請參閱[將 Azure SQL 資料庫匯出到 BACPAC 檔案](../sql-database/sql-database-export.md)。 如果您選擇將檔案發佈到自己的位置，您稍後必須在本教學課程中更新範本。
 
-BACPAC 檔案必須先儲存在 Azure 儲存體帳戶中，才能使用 Resource Manager 範本進行匯入。
+BACPAC 檔案必須先儲存在 Azure 儲存體帳戶中，才能使用 Resource Manager 範本進行匯入。 下列 PowerShell 指令碼會使用這些步驟來準備 BACPAC 檔案：
 
-1. 開啟 [Cloud Shell](https://shell.azure.com)。
-1. 選取 [上傳/下載檔案]  ，然後選取 [上傳]  。
-1. 指定下列 URL，然後選取 [開啟]  。
+* 下載 BACPAC 檔案。
+* 建立 Azure 儲存體帳戶。
+* 建立儲存體帳戶 Blob 容器。
+* 將 BACPAC 檔案上傳至容器。
+* 顯示儲存體帳戶金鑰和 Blob URL。
 
-    ```url
-    https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac
-    ```
-
-1. 複製以下 PowerShell 指令碼並貼到 Shell 視窗中。
+1. 選取 [試試看]  以開啟 Cloud Shell，然後將下列 PowerShell 指令碼貼到 Shell 視窗中。
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -63,10 +61,16 @@ BACPAC 檔案必須先儲存在 Azure 儲存體帳戶中，才能使用 Resource
     $resourceGroupName = "${projectName}rg"
     $storageAccountName = "${projectName}store"
     $containerName = "bacpacfiles"
-    $bacpacFile = "$HOME/SQLDatabaseExtension.bacpac"
-    $blobName = "SQLDatabaseExtension.bacpac"
+    $bacpacFileName = "SQLDatabaseExtension.bacpac"
+    $bacpacUrl = "https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac"
 
+    # Download the bacpac file
+    Invoke-WebRequest -Uri $bacpacUrl -OutFile "$HOME/$bacpacFileName"
+
+    # Create a resource group
     New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+    # Create a storage account
     $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName `
                                            -Name $storageAccountName `
                                            -SkuName Standard_LRS `
@@ -74,15 +78,17 @@ BACPAC 檔案必須先儲存在 Azure 儲存體帳戶中，才能使用 Resource
     $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
                                                   -Name $storageAccountName).Value[0]
 
+    # Create a container
     New-AzStorageContainer -Name $containerName -Context $storageAccount.Context
 
-    Set-AzStorageBlobContent -File $bacpacFile `
+    # Upload the BACPAC file to the container
+    Set-AzStorageBlobContent -File $HOME/$bacpacFileName `
                              -Container $containerName `
-                             -Blob $blobName `
+                             -Blob $bacpacFileName `
                              -Context $storageAccount.Context
 
     Write-Host "The storage account key is $storageAccountKey"
-    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$blobName"
+    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$bacpacFileName"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
@@ -101,10 +107,9 @@ BACPAC 檔案必須先儲存在 Azure 儲存體帳戶中，才能使用 Resource
 
 3. 選取 [開啟]  以開啟檔案。
 
-    範本中定義了三項資源：
+    範本中定義了兩項資源：
 
    * `Microsoft.Sql/servers` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers)。
-   * `Microsoft.SQL/servers/securityAlertPolicies` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies)。
    * `Microsoft.SQL.servers/databases` 。  請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)。
 
      自訂範本之前，最好能初步了解範本。
@@ -138,19 +143,21 @@ BACPAC 檔案必須先儲存在 Azure 儲存體帳戶中，才能使用 Resource
     * 若要讓 SQL 資料庫擴充功能匯入 BACPAC 檔案，您必須允許來自 Azure 服務的流量。 在 SQL Server 定義底下新增下列防火牆規則定義：
 
         ```json
-        {
-          "type": "firewallrules",
-          "apiVersion": "2015-05-01-preview",
-          "name": "AllowAllAzureIps",
-          "location": "[parameters('location')]",
-          "dependsOn": [
-            "[variables('databaseServerName')]"
-          ],
-          "properties": {
-            "startIpAddress": "0.0.0.0",
-            "endIpAddress": "0.0.0.0"
+        "resources": [
+          {
+            "type": "firewallrules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "AllowAllAzureIps",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+              "[parameters('databaseServerName')]"
+            ],
+            "properties": {
+              "startIpAddress": "0.0.0.0",
+              "endIpAddress": "0.0.0.0"
+            }
           }
-        }
+        ]
         ```
 
         範本應顯示如下：
@@ -161,22 +168,22 @@ BACPAC 檔案必須先儲存在 Azure 儲存體帳戶中，才能使用 Resource
 
         ```json
         "resources": [
-            {
-              "type": "extensions",
-              "apiVersion": "2014-04-01",
-              "name": "Import",
-              "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', variables('databaseServerName'), variables('databaseName'))]"
-              ],
-              "properties": {
-                "storageKeyType": "StorageAccessKey",
-                "storageKey": "[parameters('storageAccountKey')]",
-                "storageUri": "[parameters('bacpacUrl')]",
-                "administratorLogin": "[variables('databaseServerAdminLogin')]",
-                "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
-                "operationMode": "Import"
-              }
+          {
+            "type": "extensions",
+            "apiVersion": "2014-04-01",
+            "name": "Import",
+            "dependsOn": [
+              "[resourceId('Microsoft.Sql/servers/databases', parameters('databaseServerName'), parameters('databaseName'))]"
+            ],
+            "properties": {
+              "storageKeyType": "StorageAccessKey",
+              "storageKey": "[parameters('storageAccountKey')]",
+              "storageUri": "[parameters('bacpacUrl')]",
+              "administratorLogin": "[parameters('adminUser')]",
+              "administratorLoginPassword": "[parameters('adminPassword')]",
+              "operationMode": "Import"
             }
+          }
         ]
         ```
 
@@ -192,6 +199,10 @@ BACPAC 檔案必須先儲存在 Azure 儲存體帳戶中，才能使用 Resource
         * **storageUri**：指定儲存體帳戶中所儲存 BACPAC 檔案的 URL。
         * **administratorLoginPassword**：SQL 系統管理員的密碼。 使用所產生的密碼。 請參閱[必要條件](#prerequisites)。
 
+完成的範本看起來像這樣：
+
+[!code-json[](~/resourcemanager-templates/tutorial-sql-extension/azuredeploy2.json?range=1-106&highlight=38-49,62-76,86-103)]
+
 ## <a name="deploy-the-template"></a>部署範本
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -199,7 +210,7 @@ BACPAC 檔案必須先儲存在 Azure 儲存體帳戶中，才能使用 Resource
 請參閱[部署範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)一節，以了解部署程序。 改用下列 PowerShell 部署指令碼：
 
 ```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
+$projectName = Read-Host -Prompt "Enter the same project name that is used earlier"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUsername = Read-Host -Prompt "Enter the SQL admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
@@ -207,7 +218,7 @@ $storageAccountKey = Read-Host -Prompt "Enter the storage account key"
 $bacpacUrl = Read-Host -Prompt "Enter the URL of the BACPAC file"
 $resourceGroupName = "${projectName}rg"
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+#New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `

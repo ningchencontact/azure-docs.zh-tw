@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e98bf83cedc22aa565ba0f98089e9f6f217728
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 6fc55130bd840de3960a44ddc1bd0617af185148
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787633"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969610"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Workplace by Facebook 整合
 
@@ -48,8 +48,8 @@ ms.locfileid: "72787633"
 在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
 
 * Workplace by Facebook 支援 **SP** 起始的 SSO
+* Workplace by Facebook 支援 **[自動化的使用者佈建和取消佈建 (建議選項)](workplacebyfacebook-provisioning-tutorial.md)**
 * Workplace by Facebook 支援 **Just-In-Time 佈建**
-* Workplace by Facebook 支援 **[自動使用者佈建](workplacebyfacebook-provisioning-tutorial.md)**
 * Workplace by Facebook 行動應用程式現在可以搭配 Azure AD 設定來啟用 SSO。 在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>從資源庫新增 Workplace by Facebook

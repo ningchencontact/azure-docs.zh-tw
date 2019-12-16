@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/17/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 06bffb1339edddf14d3eccaf989707369ac54393
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 8e5ff917e7283457e7ff1d4c5fd0cbd91a1b0ace
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177101"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973742"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>快速入門：在電腦視覺中利用 REST API 和 Python 來使用領域模型
 
-在本快速入門中，您將利用電腦視覺的 REST API，使用領域模型來識別遠端儲存之影像中的地標或名人 (選擇性)。 使用[辨識特定領域內容](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) \(英文\) 方法，您可以套用特定領域的模型來辨識影像中的內容。
+在本快速入門中，您將利用電腦視覺 REST API，使用領域模型來識別遠端儲存之影像中的地標或名人 (選擇性)。 使用[辨識特定領域內容](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) \(英文\) 方法，您可以套用特定領域的模型來辨識影像中的內容。
 
 您可以使用 [MyBinder](https://mybinder.org) (英文) 上的 Jupyter Notebook，以逐步方式執行本快速入門。 若要啟動 Binder，請選取下列按鈕：
 

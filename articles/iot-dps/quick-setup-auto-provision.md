@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 入口網站中設定 IoT 中樞裝置佈建服務
-description: 快速入門 - 在 Azure 入口網站中設定 Azure IoT 中樞裝置佈建服務
+description: 快速入門 - 在 Azure 入口網站中設定 Azure IoT 中樞裝置佈建服務 (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: b983a9591743b1fda79e23aedc1aca88add2a3e2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 32199623c6b3198f37854986745872aafa6747eb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228530"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969613"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>快速入門：使用 Azure 入口網站設定 IoT 中樞裝置佈建服務
 

@@ -1,5 +1,6 @@
 ---
-title: 快速入門 - 使用 Azure Active Directory B2C 為單一頁面應用程式設定登入
+title: 快速入門：為單頁應用程式 (SPA) 設定登入
+titleSuffix: Azure AD B2C
 description: 在本快速入門中，執行範例單一頁面應用程式，而該應用程式使用 Azure Active Directory B2C 來提供帳戶登入。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7dc3a52ca9f227f8476cf74286be917b5b6ba021
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ef6fd46ef51cff9823c93e2297a738f95494f577
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420175"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948314"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>快速入門：設定使用 Azure Active Directory B2C 的單頁應用程式登入
 
@@ -29,7 +30,7 @@ Azure Active Directory B2C (Azure AD B2C) 提供雲端身分識別管理，使�
 - [Node.js](https://nodejs.org/en/download/)
 - Facebook、Google 或 Microsoft 的社交帳戶
 - GitHub 中的程式碼範例：[active-directory-b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-    
+
     您可以[下載 zip 封存](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip)或複製存放庫：
 
     ```

@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 授與從傳統型應用程式存取 Node.js Web API 的權限 - Azure Active Directory B2C | Microsoft Docs
+title: 教學課程：授與從桌面應用程式存取 Node.js Web API 的權限
 description: 關於如何使用 Active Directory B2C 來保護 Node.js Web API，以及如何從 .NET 傳統型應用程式加以呼叫的教學課程。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 0cf9a0a13a1c16f5be6d82528849e6e2cc3d466d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: f271dd23501aa0514faff29f638f695c80c844f2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641864"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949767"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 授與從傳統型應用程式存取 Node.js Web API 的權限
 
@@ -66,7 +66,7 @@ ms.locfileid: "73641864"
 1. 在 [已設定的權限]  底下，選取 [新增權限]  。
 1. 選取 [我的 API]  索引標籤。
 1. 選取原生用戶端應用程式應獲得其存取權的 API。 例如，*webapi1*。
-1. 在 [權限]  下，展開 [demo]  ，然後選取先前定義的範圍。 例如 *demo.read* 和 *demo.write*。
+1. 在 [權限]  下，展開 [示範]  ，然後選取先前定義的範圍。 例如 *demo.read* 和 *demo.write*。
 1. 選取 [新增權限]  。 依照指示，稍等幾分鐘，然後再繼續進行下一個步驟。
 1. 選取 [授與管理員同意 (您的租用戶名稱)]  。
 1. 選取您目前登入的系統管理員帳戶，或使用 Azure AD B2C 租用戶中的帳戶 (該租用戶至少已指派「雲端應用程式管理員」  角色) 來登入。

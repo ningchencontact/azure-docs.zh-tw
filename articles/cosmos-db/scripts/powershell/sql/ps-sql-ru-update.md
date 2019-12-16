@@ -1,18 +1,18 @@
 ---
 title: Azure PowerShell 指令碼 - Azure Cosmos DB 更新 SQL (Core) API 的 RU/秒
-description: Azure PowerShell 指令碼 - Azure Cosmos DB 更新 SQL (Core) API 的 RU/秒
+description: 使用 PowerShell 指令碼來更新 Azure Cosmos 資料庫或容器的輸送量 - SQL (Core) API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6b54b6021baf7a91c79309f8fa69b4df67d3887e
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 5a03c992e1ce1dc17c53bf414f0b07d2b60ddcce
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178742"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871882"
 ---
 # <a name="update-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>更新 Azure Cosmos DB 資料庫和容器的 RU/秒 - SQL (Core) API
 

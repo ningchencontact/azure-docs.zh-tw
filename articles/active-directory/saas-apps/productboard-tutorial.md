@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/04/2019
+ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4974f4e39b0b16971d0d666134618d5a1f64e11
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 529c2a453bade8745a596b5cd2e374907a66f613
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424319"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893717"
 ---
 # <a name="tutorial-integrate-productboard-with-azure-active-directory"></a>教學課程：整合 productboard 與 Azure Active Directory
 
@@ -65,11 +65,11 @@ ms.locfileid: "68424319"
 若要設定及測試與 productboard 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
-2. **[設定 productboard SSO](#configure-productboard-sso)** - 在應用程式端設定單一登入設定。
-3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 productboard 測試使用者](#create-productboard-test-user)** - 使 productboard 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-6. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
+    * **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    * **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+1. **[設定 productboard SSO](#configure-productboard-sso)** - 在應用程式端設定單一登入設定。
+    * **[建立 productboard 測試使用者](#create-productboard-test-user)** ，使 EZOfficeInventory 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
@@ -81,11 +81,11 @@ ms.locfileid: "68424319"
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [基本 SAML 設定]  區段中，如果您想要以 **IDP** 起始模式設定應用程式，請輸入下列欄位的值：
+1. 在 [基本 SAML 設定]  區段上，如果您想要以 **IDP** 起始模式設定應用程式，請輸入下列欄位的值：
 
     在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://<projectname>.productboard.com/users/auth/saml/callback`
 
-1. 如果您想要以 **SP** 起始的模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
+1. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
 
     在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://<projectname>.productboard.com/`
 
@@ -95,10 +95,6 @@ ms.locfileid: "68424319"
 1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]  ，並將資料儲存在您的電腦上。
 
     ![憑證下載連結](common/copy-metadataurl.png)
-
-### <a name="configure-productboard-sso"></a>設定 productboard SSO
-
-若要在 **productboard** 端設定單一登入，您必須將**應用程式同盟中繼資料 Url** 傳送給 [productboard 支援小組](mailto:support@productboard.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -130,9 +126,21 @@ ms.locfileid: "68424319"
 1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
 1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
+## <a name="configure-productboard-sso"></a>設定 productboard SSO
+
+1. 若要自動執行 productboard 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
+
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+1. 將擴充功能新增至瀏覽器之後，按一下 [設定 productboard]  ，這會將您導向 productboard 應用程式。 請從該處提供用以登入 productboard 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式。
+
+    ![設定組態](common/setup-sso.png)
+
+1. 如果您想要以手動方式在 **productboard** 上設定單一登入，則必須將**應用程式同盟中繼資料 Url** 傳送至 [productboard 支援小組](mailto:support@productboard.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+
 ### <a name="create-productboard-test-user"></a>建立 productboard 測試使用者
 
-本節會在 productboard 中建立名為 B.Simon 的使用者。 productboard 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 productboard 中還沒有使用者存在，在驗證之後就會建立新的使用者。
+本節會在 productboard 中建立名為 Britta Simon 的使用者。 productboard 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 productboard 中還沒有使用者存在，在驗證之後就會建立新的使用者。
 
 ### <a name="test-sso"></a>測試 SSO
 
@@ -147,3 +155,5 @@ ms.locfileid: "68424319"
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [嘗試搭配 Azure AD 使用 productboard](https://aad.portal.azure.com/)

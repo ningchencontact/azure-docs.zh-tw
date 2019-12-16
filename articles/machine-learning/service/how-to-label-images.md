@@ -1,18 +1,18 @@
 ---
-title: 如何使用 Azure Machine Learning 資料標籤工具
+title: 標記標籤專案中的影像
 title.suffix: Azure Machine Learning
-description: 本文會指導您如何在 Azure Machine Learning 標籤專案中使用資料標記工具。
+description: 了解如何在 Azure Machine Learning 標籤專案中使用資料標記工具。
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: bc7eaeefcef042417b29eb7c887cc19acf8c5c02
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: b36eed1918be2c769bcf74c0d8dee09a5bd62756
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688223"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978129"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>標記標籤專案中的影像
 

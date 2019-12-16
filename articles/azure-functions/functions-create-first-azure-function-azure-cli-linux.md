@@ -4,16 +4,16 @@ description: 了解如何使用命令列工具、Azure Functions Core Tools 和 
 ms.date: 03/12/2019
 ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: 19abfee69db53c560dfa2696d85f8c1c3d770c09
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 57c1b4a0ef5e8f030360bca6d69f66e8752f3da1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230803"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964135"
 ---
 # <a name="quickstart-create-your-first-function-hosted-on-linux-using-command-line-tools"></a>快速入門：使用命令列工具建立第一個在 Linux 上裝載的函式
 
-Azure Functions 可讓您在[無伺服器](https://azure.com/serverless) Linux 環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。 Linux 裝載功能需要 [Functions 2.x 執行階段](functions-versions.md)。 無伺服器函式會在[取用方案](functions-scale.md#consumption-plan)中執行。
+Azure Functions 可讓您在[無伺服器](https://azure.com/serverless) Linux 環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。 Linux 裝載功能需要 [Functions 2.x 和更新版本的執行階段](functions-versions.md)。 無伺服器函式會在[取用方案](functions-scale.md#consumption-plan)中執行。
 
 本快速入門文章會逐步解說如何使用 Azure CLI 建立第一個在 Linux 上執行的函式應用程式。 您可以使用 [Azure Functions Core Tools](functions-run-local.md) 在本機建立函式程式碼，然後將其部署至 Azure。
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 12/06/2019
 ms.author: aahi
-ms.openlocfilehash: e9ba5925ce562e53dbc415d66bbb529c32a725a7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 9f707dd6b93080e550b4f75e7c9c23139b8adf1d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327015"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930677"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>教學課程：使用 Bing 影像搜尋 API 和 C# 來擷取影像詳細資料
 
@@ -42,7 +42,7 @@ ms.locfileid: "74327015"
 
 ## <a name="construct-an-image-details-search-request"></a>建構影像詳細資料搜尋要求
 
-以下是 `/details` 端點，此端點會接受要求主體中含有影像資料的 POST 要求。
+以下是 `/details` 端點，此端點會接受要求主體中含有影像資料的 POST 要求。 您可以使用下方的全域端點，也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```

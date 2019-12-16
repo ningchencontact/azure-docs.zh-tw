@@ -1,6 +1,6 @@
 ---
 title: 教學課程 - 為裝置設定 Azure IoT 中樞裝置佈建服務
-description: 本教學課程說明如何在裝置製造過程中將裝置設定為透過 IoT 中樞裝置佈建服務進行佈建
+description: 本教學課程說明如何在裝置製造過程中將裝置設定為透過 IoT 中樞裝置佈建服務 (DPS) 進行佈建
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: bdda46a89fc2bcf8b16b2ce771c6540c9ceaa3e0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 337ac2f60809370e6a07b2b0403d21ef7230b034
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701969"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976701"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>教學課程：將裝置設定為使用 Azure IoT 中樞裝置佈建服務進行佈建
 

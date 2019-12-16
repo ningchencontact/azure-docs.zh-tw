@@ -2,27 +2,23 @@
 title: Microsoft 身分識別平台的演化 - Azure
 description: 了解 Microsoft 身分識別平台，這是 Azure Active Directory (Azure AD) 身分識別服務與開發人員平台的演化。
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/03/2019
+ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c5fdc1c937136eb512eccf1d4df02a4fcdc3911
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 7e5faf9db9a6ba97f353b54a4fb8123fde072574
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533095"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996981"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Microsoft 身分識別平台的演化
 
@@ -30,13 +26,13 @@ Microsoft 身分識別平台是 Azure Active Directory (Azure AD) 開發人員�
 
 到目前為止，大部分的開發人員都曾藉由向 Azure AD v1.0 端點要求權杖 (使用 Azure AD 驗證程式庫 (ADAL)、用於應用程式註冊與設定的 Azure 入口網站，以及用於程式化應用程式設定的 Azure AD Graph API)，使用 Azure AD v1.0 平台來驗證公司與學校帳戶 (由 Azure AD 所佈建)。
 
-您可以使用 Microsoft 身分識別平台 (v2.0) 觸及以下類型的使用者：
+透過整合的 Microsoft 身分識別平台 (v2.0)，您只需撰寫程式碼一次，即可對任何進入您應用程式的 Microsoft 身分識別進行驗證。 針對數個平台，建議對身分識別平台端點使用完全支援的開放原始碼 Microsoft 驗證程式庫 (MSAL)。 MSAL 是使用 Microsoft 安全開發週期 (SDL) 進行開發的，其用法很簡單，可為您的使用者提供絕佳的單一登入 (SSO) 體驗，並協助您達到高度的可靠性和效能。 在呼叫 API 時，您可以設定應用程式以利用累加式同意，讓您能夠等到應用程式在執行階段的使用情形能夠提供相關保證後，再針對較具侵入性的領域提出同意的要求。  MSAL 也支援 Azure Active Directory B2C，因此您的客戶會使用其慣用的社交、企業或本機帳戶身分識別來取得應用程式和 API 的單一登入存取權。
+
+您可以使用 Microsoft 身分識別平台觸及以下類型的使用者：
 
 - 公司和學校帳戶 (Azure AD 佈建的帳戶)
 - 個人帳戶 (例如 Outlook.com 或 Hotmail.com)
-- 透過 Azure AD B2C 供應項目自攜其電子郵件或社交身分識別 (例如 LinkedIn、Facebook、Google) 的客戶
-
-透過整合的 Microsoft 身分識別平台，您只需撰寫程式碼一次，即可對任何進入您應用程式的 Microsoft 身分識別進行驗證。 此外，也有受到完整支援的開放原始碼程式庫 (名為 Microsoft 驗證程式庫 (MSAL)) 可用於數個平台。 MSAL 是使用 Microsoft 安全開發週期 (SDL) 進行開發的，其用法很簡單，可為您的使用者提供絕佳的單一登入 (SSO) 體驗，並協助您達到高度的可靠性和效能。 在呼叫 API 時，您可以設定應用程式以利用累加式同意，讓您能夠等到應用程式在執行階段的使用情形能夠提供相關保證後，再針對較具侵入性的領域提出同意的要求。
+- 透過 MSAL 和 Azure AD B2C 自攜其電子郵件或社交身分識別 (例如 LinkedIn、Facebook、Google) 的客戶
 
 您可以使用 Azure 入口網站來註冊及設定您的應用程式，並使用 Microsoft Graph API 進行程式化應用程式設定。
 

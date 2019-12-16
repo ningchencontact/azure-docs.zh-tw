@@ -1,6 +1,6 @@
 ---
 title: 快速入門 - 使用 Python 將模擬 TPM 裝置佈建到 Azure IoT 中樞
-description: 快速入門 - 使用適用於 IoT 中樞裝置佈建服務的 Java 裝置 SDK 來建立及佈建模擬 TPM 裝置。 本快速入門使用個別註冊。
+description: 快速入門 - 使用適用於 IoT 中樞裝置佈建服務 (DPS) 的 Java 裝置 SDK 來建立及佈建模擬 TPM 裝置。 本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: e878245d5329edfe31d402d03fc7e1aef0b6637e
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 157754c00f9d2b940a3c71401f4e033e914b511a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555120"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976531"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>快速入門：使用適用於 IoT 中樞裝置佈建服務的 Python 裝置 SDK 來建立及佈建模擬 TPM 裝置
 

@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
-ms.openlocfilehash: 06f03e0005c4f98370bb1f6430fff506f9145d5a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 0b3acb1b421962cde7d90398f42bdfeefda578e3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688518"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971497"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Azure App Service 的 CLI 範例
 
@@ -32,6 +32,8 @@ ms.locfileid: "74688518"
 |**調整應用程式**||
 | [手動調整應用程式](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | 建立 App Service 應用程式，並跨 2 個執行個體調整它。 |
 | [透過高可用性架構將應用程式調整為全球可用](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | 在兩個不同的地理區域中建立兩個 App Service 應用程式，並使用 Azure 流量管理員讓它們可透過單一端點來使用。 |
+|**保護應用程式**||
+| [與 Azure 應用程式閘道整合](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | 建立 App Service 應用程式，並使用服務端點和存取限制將其與應用程式閘道整合。 |
 |**將應用程式連線至資源**||
 | [將應用程式連線至 SQL 資料庫](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| 建立 App Service 應用程式和 SQL Database，然後將資料庫連接字串新增至應用程式設定。 |
 | [將應用程式連線至儲存體帳戶](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| 建立 App Service 應用程式和儲存體帳戶，然後將儲存體連接字串新增至應用程式設定。 |

@@ -1,21 +1,22 @@
 ---
-title: Azure 快速入門 - 使用 Azure PowerShell 在物件儲存體中建立 Blob | Microsoft Docs
+title: 快速入門 - 使用 PowerShell 建立 Blob
+titleSuffix: Azure Storage
 description: 在本快速入門中，您會在物件 (Blob) 儲存體中使用 Azure PowerShell。 然後使用 PowerShell，將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: b0e9cc37f6269c3b878e16b754ec3a49aee13f72
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c5d32b91043d310e51143357ad51631463f7e991
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698992"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892493"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 上傳、下載及列出 Blob
+# <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>快速入門：使用 PowerShell 上傳、下載及列出 Blob
 
 使用Azure PowerShell 模組建立及管理 Azure 資源。 您可以從 PowerShell 命令列或在指令碼中建立和管理 Azure 資源。 本指南說明如何使用 PowerShell 在本機磁碟和 Azure Blob 儲存體之間傳輸檔案。
 

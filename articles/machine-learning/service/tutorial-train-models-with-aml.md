@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d16c07bf42c99b905868cb956d82e8723da61d6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ca0f64fe67865e18c47009779cf8bd307a21c961
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581534"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978725"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>教學課程：使用 Azure Machine Learning，搭配 MNIST 資料和 scikit-learn 定型映像分類模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "73581534"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 完成[教學課程：開始建立您的第一個 ML 實驗](tutorial-1st-experiment-sdk-setup.md)，以便：
+* 完成[教學課程：開始建立您的第一個 Azure ML 實驗](tutorial-1st-experiment-sdk-setup.md)，以便：
     * 建立工作區
     * 將教學課程 Notebook 複製到工作區中的資料夾。
     * 建立雲端式 Notebook VM。
@@ -430,7 +430,7 @@ print(model.name, model.id, model.version, sep='\t')
 您也可以只刪除 Azure Machine Learning Compute 叢集。 不過，自動調整已開啟，且叢集最小值為零。 因此，這個特定資源在不處於使用中狀態時，並不會產生額外的計算費用：
 
 ```python
-# optionally, delete the Azure Machine Learning Compute cluster
+# Optionally, delete the Azure Machine Learning Compute cluster
 compute_target.delete()
 ```
 

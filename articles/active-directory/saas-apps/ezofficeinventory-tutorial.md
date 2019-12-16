@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ebfe5f75d5d8546e0f5e8ad6f8c5d0063e5bda2
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: cc73d7ec81ea0105a5868ec698289bd27526a43b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377280"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893496"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ezofficeinventory"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 EZOfficeInventory 整合
 
@@ -80,7 +80,7 @@ ms.locfileid: "72377280"
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [EZOfficeInventory]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
-1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
+1. 在 [**選取單一登入方法**] 頁面上，選取 [**SAML**]。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
@@ -94,7 +94,7 @@ ms.locfileid: "72377280"
 
 1. EZOfficeInventory 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應加入 SAML 權杖屬性設定中。 以下螢幕擷取畫面顯示預設屬性清單。
 
-    ![image](common/edit-attribute.png)
+    ![image](common/default-attributes.png)
 
 1. 除了上述屬性外，EZOfficeInventory 應用程式還需要在 SAML 回應中多傳回幾個屬性，如下所示。 這些屬性也會預先填入，但您可以根據您的需求來檢閱這些屬性。
 
@@ -144,13 +144,21 @@ ms.locfileid: "72377280"
 
 ## <a name="configure-ezofficeinventory-sso"></a>設定 EZOfficeInventory SSO
 
-1. 開啟新的網頁瀏覽器視窗，並以系統管理員身分登入您的 EZOfficeInventory 公司網站。
+1. 若要自動執行 EZOfficeInventory 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
 
-2. 在頁面右上角按一下 [ **設定檔**] ，然後瀏覽至 [ **設定**] > [**附加元件**]。
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+1. 在將擴充功能新增至瀏覽器之後，按一下 [設定 EZOfficeInventory]  會將您引導至 EZOfficeInventory 應用程式。 請從該處提供用以登入 EZOfficeInventory 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 5。
+
+    ![設定組態](common/setup-sso.png)
+
+1. 如果您想要手動設定 EZOfficeInventory，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 EZOfficeInventory 公司網站，然後執行下列步驟：
+
+1. 在頁面右上角，按一下 [設定檔]  ，然後瀏覽至 [設定]   > [附加元件]  。
 
     ![EZOfficeInventory 設定](./media/ezofficeinventory-tutorial/configure01.png)
 
-3. 向下捲動到 [SAML 整合]  區段，並執行下列步驟：
+1. 向下捲動到 [SAML 整合]  區段，並執行下列步驟：
 
     ![EZOfficeInventory 設定](./media/ezofficeinventory-tutorial/configure02.png)
 
@@ -176,7 +184,7 @@ ms.locfileid: "72377280"
 
 本節會在 EZOfficeInventory 中建立名為 Britta Simon 的使用者。 EZOfficeInventory 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 EZOfficeInventory 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
-## <a name="test-sso"></a>測試 SSO 
+## <a name="test-sso"></a>測試 SSO
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
@@ -191,4 +199,3 @@ ms.locfileid: "72377280"
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [嘗試搭配 Azure AD 使用 EZOfficeInventory](https://aad.portal.azure.com/)
-

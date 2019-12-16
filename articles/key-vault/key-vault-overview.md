@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6b59995dc09c0ecf1e5700d8337bd30074083f76
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0cd6cbf21a392f68db707b9c0184320316d45ffe
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73483903"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851021"
 ---
 # <a name="what-is-azure-key-vault"></a>什麼是 Azure 金鑰保存庫？
 
@@ -58,9 +58,9 @@ Azure Key Vault 可能受軟體或硬體 HSM 保護。 在您需要加強保證�
 
 ### <a name="simplified-administration-of-application-secrets"></a>簡化應用程式祕密的管理
 
-在儲存珍貴資料時，您必須採取幾個步驟。 安全性資訊必須受到保護，它必須遵循生命週期，同時必須保持高可用性。 Azure Key Vault 可藉由下列功能，簡化符合這些需求的程序：
+在儲存珍貴資料時，您必須採取幾個步驟。 安全性資訊必須受到保護，其必須遵循生命週期，而且必須保持高可用性。 Azure Key Vault 可藉由下列功能，簡化符合這些需求的程序：
 
-- 無須具備硬體安全性模組的內部知識
+- 無須具備硬體安全性模組的內部知識。
 - 在短時間內相應增加，以符合組織的使用尖峰。
 - 將區域內的 Key Vault 內容複寫到次要區域。 資料複寫可確保高可用性，並可讓管理員無須執行任何動作來觸發容錯移轉。
 - 透過入口網站、Azure CLI 和 PowerShell 提供標準 Azure 系統管理選項。

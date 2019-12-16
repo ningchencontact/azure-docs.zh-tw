@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 17864ed471537f80b537af4b3a8679cb9deaab57
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: f3d00688feb0f9d42e80cdbb51753483e53c388d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323805"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930733"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>快速入門：使用 Bing 影像搜尋 REST API 和 Python 來搜尋影像
 
@@ -40,7 +40,7 @@ ms.locfileid: "74323805"
 
 ## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
 
-1. 在您最愛的 IDE 或編輯器中建立新的 Python 檔案，並匯入下列模組。 建立訂用帳戶金鑰、搜尋端點和搜尋字詞的變數。
+1. 在您最愛的 IDE 或編輯器中建立新的 Python 檔案，並匯入下列模組。 建立訂用帳戶金鑰、搜尋端點和搜尋字詞的變數。 `search_url` 可以是下方的全域端點，也可以是 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
     ```python
     import requests

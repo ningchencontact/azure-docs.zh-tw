@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 4d150a1f6793cc20d58bebc67d5c6b58c03139d4
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 2bb275b1ca129d2381fb89fcbe0111c573d4a8e7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304708"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893343"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>使用 Azure 儲存體封存 Azure 計量和記錄資料
 
@@ -70,7 +70,7 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 
 ## <a name="route-resource-data-to-the-storage-account"></a>將資源資料路由傳送至儲存體帳戶
 
-現在，我們要設定**資源診斷設定**，以設定要路由傳送至儲存體帳戶的資源層級資料 (資源計量和診斷記錄)。
+現在，我們要設定**資源診斷設定**，以設定要路由傳送至儲存體帳戶的資源層級資料 (資源計量和資源記錄)。
 
 1. 按一下左側瀏覽清單上的 [監視]  按鈕，然後按一下 [診斷設定]  。 在這裡，您會看到訂用帳戶中所有透過 Azure 監視器而產生監視資料的資源清單。 如果您在這份清單中沒有任何資源，您可以先[建立邏輯應用程式](../../logic-apps/quickstart-create-first-logic-app-workflow.md)，再繼續進行，這樣就有可進行診斷設定的資源。
 
@@ -162,7 +162,7 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 
 5. 依資源識別碼、日期和時間按一下容器，以瀏覽至 PT1H.json 檔案。 按一下 PT1H.json 檔案，然後按一下 [下載]  。 每個 PT1H.json blob 有一個 JSON blob，包含在 blob URL 指定時數內 (例如 h = 12) 發生的事件。 在目前這一小時，事件一發生就會附加到 PT1H.json 檔案。 分鐘值 (m=00) 一定是 00，因為記錄事件每小時會分組到個別 Blob。
 
-   您現在可以檢視已儲存在儲存體帳戶中的 JSON 事件。 若是資源診斷記錄，Blob 的格式為：
+   您現在可以檢視已儲存在儲存體帳戶中的 JSON 事件。 若是資源資源記錄，Blob 的格式為：
 
    insights-logs-{log category name}/resourceId=/{resource ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 

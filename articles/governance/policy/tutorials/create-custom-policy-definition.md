@@ -3,12 +3,12 @@ title: 教學課程：建立自訂原則定義
 description: 在本教學課程中，針對 Azure 原則製作自訂原則定義，以在您的 Azure 資源上強制執行自訂商務規則。
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: e30d47ed6e01c4fd8ff061398b1045f9446e466a
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 51899491d7a75dc41bdab94d17769393ab4a6659
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483983"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885444"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>教學課程：建立自訂原則定義
 
@@ -200,35 +200,37 @@ az provider show --namespace Microsoft.Storage --expand "resourceTypes/aliases" 
 
 ### <a name="azure-resource-graph"></a>Azure Resource Graph
 
-[Azure Resource Graph](../../resource-graph/overview.md) 是新的服務。 其可實現另一種用來尋找 Azure 資源屬性的方法。 以下是用來查看 Resource Graph 所搭配單一儲存體帳戶的 查詢範例：
+[Azure Resource Graph](../../resource-graph/overview.md) 服務可提供另一個方法來尋找 Azure 資源的屬性。 以下是用來查看 Resource Graph 所搭配單一儲存體帳戶的 查詢範例：
 
 ```kusto
-where type=~'microsoft.storage/storageaccounts'
+Resources
+| where type=~'microsoft.storage/storageaccounts'
 | limit 1
 ```
 
 ```azurecli-interactive
-az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
+az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
+Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 其結果看起來與我們在 Resource Manager 範本中以及透過 Azure 資源總管所看到的結果類似。 不過，Azure Resource Graph 的結果也可能因_投射_了_別名_陣列而包含[別名](../concepts/definition-structure.md#aliases)詳細資料：
 
 ```kusto
-where type=~'microsoft.storage/storageaccounts'
+Resources
+| where type=~'microsoft.storage/storageaccounts'
 | limit 1
 | project aliases
 ```
 
 ```azurecli-interactive
-az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
 ```
 
 以下是來自儲存體帳戶的別名輸出範例：

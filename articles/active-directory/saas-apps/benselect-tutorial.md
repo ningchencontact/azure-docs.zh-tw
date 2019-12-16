@@ -1,5 +1,5 @@
 ---
-title: 教學課程：Azure Active Directory 與 BenSelect 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 BenSelect 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 BenSelect 之間的單一登入。
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/07/2019
+ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5ca12f89615cd4b3110b0d67268c048b8e44561
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4a027a4038d806b7c19dc45ea5b6da74acb802b2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879743"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893116"
 ---
-# <a name="tutorial-integrate-benselect-with-azure-active-directory"></a>教學課程：整合 BenSelect 與 Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-benselect"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 BenSelect 整合
 
 在本教學課程中，您將了解如何整合 BenSelect 與 Azure Active Directory (Azure AD)。 在整合 BenSelect 與 Azure AD 時，您可以︰
 
@@ -44,7 +44,11 @@ ms.locfileid: "68879743"
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
 
+
 * BenSelect 支援 **IDP** 起始的 SSO
+
+> [!NOTE]
+> 此應用程式的識別碼是固定的字串值，因此一個租用戶中只能設定一個執行個體。
 
 ## <a name="adding-benselect-from-the-gallery"></a>從資源庫新增 BenSelect
 
@@ -58,25 +62,25 @@ ms.locfileid: "68879743"
 1. 從結果面板中選取 [BenSelect]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+## <a name="configure-and-test-azure-ad-single-sign-on-for-benselect"></a>設定及測試 BenSelect 的 Azure AD 單一登入
 
 以名為 **B. Simon** 的測試使用者，設定及測試與 BenSelect 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 BenSelect 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 BenSelect 搭配運作的 Azure AD SSO，請完成下列建構元素：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
-2. **[設定 BenSelect SSO](#configure-benselect-sso)** - 在應用程式端設定單一登入設定。
-3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 BenSelect 測試使用者](#create-benselect-test-user)** - 在 BenSelect 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的 B.Simon 對應項目。
-6. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
+    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+1. **[設定 BenSelect SSO](#configure-benselect-sso)** - 在應用程式端設定單一登入設定。
+    1. **[建立 BenSelect 測試使用者](#create-benselect-test-user)** - 在 BenSelect 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的 B.Simon 對應項目。
+1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
-### <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [BenSelect]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
-1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
+1. 在 [**選取單一登入方法**] 頁面上，選取 [**SAML**]。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
@@ -88,7 +92,7 @@ ms.locfileid: "68879743"
     > [!NOTE]
     > 這不是真正的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [BenSelect 客戶支援小組](mailto:support@selerix.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-1. BenSelect 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性]  區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  按鈕以開啟 [使用者屬性]  對話方塊。
+1. BenSelect 應用程式需要特定格式的 SAML 判斷提示，需要您將自訂屬性對應新增至您的 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。
 
     ![image](common/edit-attribute.png)
 
@@ -115,13 +119,6 @@ ms.locfileid: "68879743"
 1. 在 [設定 BenSelect]  區段上，根據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
-
-### <a name="configure-benselect-sso"></a>設定 BenSelect SSO
-
-若要設定 **BenSelect** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (原始)]  和複製的適當 URL 傳送給 [BenSelect 支援小組](mailto:support@selerix.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
-
-> [!NOTE]
-> 您必須提到這項整合需要 SHA256 演算法 (不支援 SHA1)，以便在適當的伺服器 (如 app2101 等) 上設定 SSO。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -153,11 +150,18 @@ ms.locfileid: "68879743"
 1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
 1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
+## <a name="configure-benselect-sso"></a>設定 BenSelect SSO
+
+若要設定 **BenSelect** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (原始)]  和複製的適當 URL 傳送給 [BenSelect 支援小組](mailto:support@selerix.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+
+> [!NOTE]
+> 您必須提到這項整合需要 SHA256 演算法 (不支援 SHA1)，以便在適當的伺服器 (如 app2101 等) 上設定 SSO。
+
 ### <a name="create-benselect-test-user"></a>建立 BenSelect 測試使用者
 
 在本節中，您要在 BenSelect 中建立名為 Britta Simon 的使用者。 請與  [BenSelect 支援小組](mailto:support@selerix.com)合作，在 BenSelect 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
-### <a name="test-sso"></a>測試 SSO
+## <a name="test-sso"></a>測試 SSO 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
@@ -170,4 +174,6 @@ ms.locfileid: "68879743"
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [嘗試搭配 Azure AD 使用 BenSelect](https://aad.portal.azure.com/)
 

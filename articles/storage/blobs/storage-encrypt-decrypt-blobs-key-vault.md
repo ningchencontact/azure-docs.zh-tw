@@ -1,24 +1,24 @@
 ---
-title: 教學課程：在 Azure 儲存體中使用 Azure Key Vault 加密和解密 Blob | Microsoft Docs
-description: 如何使用 Microsoft Azure 儲存體的用戶端加密並搭配 Azure Key Vault 來加密和解密 Blob。
+title: 教學課程 - 使用 Azure Key Vault 加密及解密 Blob
+titleSuffix: Azure Storage
+description: 了解如何搭配使用用戶端加密和 Azure Key Vault 來加密和解密 Blob。
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 05/14/2019
+ms.topic: tutorial
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 34dbcaeedb544a8a8808aab3e8e3315f1790dd9a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
-ms.translationtype: MT
+ms.openlocfilehash: c83e56a47f4b212a5612cb9e6965ce8e73228dcb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003432"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892884"
 ---
-# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>教學課程：在 Microsoft Azure 儲存體中使用 Azure 金鑰保存庫加密和解密 Blob
+# <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>教學課程 - 使用 Azure Key Vault 加密及解密 Blob
 
-## <a name="introduction"></a>簡介
 本教學課程涵蓋如何搭配使用用戶端儲存體加密和 Azure 金鑰保存庫。 其中告訴您如何在主控台應用程式中使用這些技術加密和解密 blob。
 
 **預估完成時間：** 20 分鐘
@@ -48,7 +48,7 @@ ms.locfileid: "71003432"
 
 ## <a name="set-up-your-azure-key-vault"></a>設定 Azure 金鑰保存庫
 
-若要繼續進行本教學課程，您需要執行下列步驟，如教學[課程快速入門中所述：使用 .NET web 應用程式](../../key-vault/quick-create-net.md)從 Azure Key Vault 設定和取出秘密：
+若要繼續進行本教學課程，您必須執行下列步驟，這些步驟包含在[教學課程：使用 .NET Web 應用程式從 Azure Key Vault 設定及擷取祕密](../../key-vault/quick-create-net.md)中：
 
 * 建立金鑰保存庫。
 * 新增金鑰或密碼至金鑰保存庫。
@@ -121,9 +121,9 @@ private async static Task<string> GetToken(string authority, string resource, st
 }
 ```
 
-## <a name="access-storage-and-key-vault-in-your-program"></a>在您的程式中存取儲存體和金鑰保存庫
+## <a name="access-azure-storage-and-key-vault-in-your-program"></a>在您的程式中存取 Azure 儲存體和 Key Vault
 
-在 Main （）方法中，加入下列程式碼。
+在 Main() 方法中新增下列程式碼。
 
 ```csharp
 // This is standard code to interact with Blob storage.
@@ -229,6 +229,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
     CancellationToken.None).GetAwaiter().GetResult();
 ```
+
 就這麼簡單。 盡情享受！
 
 ## <a name="next-steps"></a>後續步驟

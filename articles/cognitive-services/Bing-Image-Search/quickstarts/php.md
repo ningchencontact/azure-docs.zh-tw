@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 8/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ef38013d2c5d7f41db0eaf8d6e444471387d7ff6
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 3778ec9bb44c1e78da152d4bde525884098fd445
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327052"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930756"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>快速入門：使用 Bing 影像搜尋 REST API 和 PHP 來搜尋影像
 
@@ -41,7 +41,7 @@ ms.locfileid: "74327052"
 
 1. 確定 `php.ini` 檔案中已啟用安全 HTTP 支援。 在 Windows 上，此檔案位於 `C:\windows`。
 2. 在您最愛的 IDE 或編輯器中建立新的 PHP 專案。
-3. 定義 API 端點、您的訂用帳戶金鑰及搜尋字詞。
+3. 定義 API 端點、您的訂用帳戶金鑰及搜尋字詞。 端點可以是下方的全域端點，也可以是 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
     ```php
     $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
@@ -49,7 +49,8 @@ ms.locfileid: "74327052"
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-   ## <a name="construct-and-perform-an-http-request"></a>建構及執行 HTTP 要求
+
+## <a name="construct-and-perform-an-http-request"></a>建構及執行 HTTP 要求
 
 1. 使用上一個步驟中的變數來準備對「影像搜尋 API」的 HTTP 要求。
 
@@ -59,6 +60,7 @@ ms.locfileid: "74327052"
                             'header' => $headers,
                             'method' => 'GET' ));
     ```
+
 2. 傳送 Web 要求並取得 JSON 回應。
 
     ```php
@@ -70,16 +72,16 @@ ms.locfileid: "74327052"
 
 處理及列印所傳回的 JSON 回應。
 
-    ```php
-    $headers = array();
-        foreach ($http_response_header as $k => $v) {
-            $h = explode(":", $v, 2);
-            if (isset($h[1]))
-                if (preg_match("/^BingAPIs-/", $h[0]) || preg_match("/^X-MSEdge-/", $h[0]))
-                    $headers[trim($h[0])] = trim($h[1]);
-        }
-        return array($headers, $result);
-    ```
+```php
+$headers = array();
+    foreach ($http_response_header as $k => $v) {
+        $h = explode(":", $v, 2);
+        if (isset($h[1]))
+            if (preg_match("/^BingAPIs-/", $h[0]) || preg_match("/^X-MSEdge-/", $h[0]))
+                $headers[trim($h[0])] = trim($h[1]);
+    }
+    return array($headers, $result);
+```
 
 ## <a name="example-json-response"></a>範例 JSON 回應
 

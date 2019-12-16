@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
-ms.openlocfilehash: b369dc82e98dff58a42b63b9733e7b786593d534
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: e52101b873e03cd6fcd847e9aa2a2d801f8f583d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034658"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918845"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>快速入門：使用 Bing 影像搜尋 REST API 和 C# 來搜尋影像
 
@@ -42,7 +42,7 @@ ms.locfileid: "70034658"
     using Newtonsoft.Json.Linq;
     ```
 
-2. 建立適用於 API 端點、您訂用帳戶金鑰及搜尋字詞的變數。
+2. 建立適用於 API 端點、您訂用帳戶金鑰及搜尋字詞的變數。 `uriBase` 可以是下方的全域端點，也可以是 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
     ```csharp
     //...

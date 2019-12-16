@@ -10,12 +10,12 @@ keywords: Azure 自動化, DSC, powershell, Desired State Configuration, 更新�
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: 7fb24d53876ab8c06fca4fbfe929c06a889335f3
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e7a527fc290433390436eac3d4c291f2a32bf2b3
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786345"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951440"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>快速入門：使用適用於伺服器的 Azure Arc 將機器連線至 Azure - PowerShell
 
@@ -55,6 +55,12 @@ Id                    : 5be92c87-01c4-42f5-bade-c1c10af87758
 Type                  :
 ```
 
+> [!NOTE] 
+> 可能需要一些時間才能適當地填入您的 SPN 權限。 執行下列角色指派來大幅提升權限的設定速度。
+> ``` PowerShell
+> New-AzRoleAssignment -RoleDefinitionName "Azure Connected Machine Onboarding" -ServicePrincipalName $sp.ApplicationId
+> ```
+
 現在，使用 PowerShell 來擷取密碼。
 
 ```azurepowershell-interactive
@@ -66,8 +72,11 @@ $credential.GetNetworkCredential().password
 
 在安裝代理程式上線指令碼中：
 
-* **ApplicationId** 屬性用於安裝代理程式中所使用的 `--service-principal-id` 參數。
-* **password** 屬性用於安裝代理程式中的 `--service-principal-secret` 參數。
+* **ApplicationId** 屬性會用於用來連線代理程式的 `--service-principal-id` 參數。
+* **password** 屬性會用於用來連線代理程式的 `--service-principal-secret` 參數。
+
+> [!NOTE]
+> 請務必使用服務主體的 **ApplicationId** 屬性，而非使用 **Id** 屬性。 **Id** 不會有作用。
 
 ## <a name="manually-install-the-agent-and-connect-to-azure"></a>手動安裝代理程式並連線至 Azure
 
@@ -84,7 +93,6 @@ $credential.GetNetworkCredential().password
 > [!NOTE]
 > 在公開預覽期間，只發行了一個套件，其適用於 Ubuntu 16.04 或 18.04。
 
-<!-- What about this aks? -->
 最簡單的選項是註冊套件存放庫，然後使用散發的套件管理員來安裝套件。
 位於 [https://aka.ms/azcmagent](https://aka.ms/azcmagent) 的 bash 指令碼會執行下列動作：
 

@@ -7,14 +7,14 @@ ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 10/16/2019
+ms.date: 12/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: fad850da6a7fccb6b97b86532a8d246049942a8b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 387f3df7313c26c5cd8f7fee7c9b58ec3b5c4552
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014651"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872359"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>教學課程：建立 Azure 時間序列深入解析環境
 
@@ -55,11 +55,11 @@ Azure IoT 中樞是教學課程中所有裝置 (模擬或實體) 用來安全地
 
 首先，請建立裝置模擬解決方案，此解決方案將產生測試資料以填入您的時間序列深入解析環境中。
 
-1. 在個別視窗或索引標籤中，移至 [azureiotsolutions.com](https://www.azureiotsolutions.com)。 使用相同的 Azure 訂用帳戶登入，然後選取 [裝置模擬]  加速器。 選取 [立即試用]  。
+1. 在個別視窗或索引標籤中，移至 [azureiotsolutions.com](https://www.azureiotsolutions.com)。 使用相同的 Azure 訂用帳戶登入，然後選取 [裝置模擬]  加速器。
 
-   [![執行裝置模擬加速器](media/tutorial-create-populate-tsi-environment/sa-main.png)](media/tutorial-create-populate-tsi-environment/sa-main.png#lightbox)
+   [![執行裝置模擬加速器](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-landing-page.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-landing-page.png#lightbox)
 
-1. 在 [建立裝置模擬解決方案]  頁面上輸入必要的參數。
+1.  選取 [立即試用]  。 然後，在 [建立裝置模擬解決方案]  頁面上輸入必要的參數。
 
    參數|說明
    ---|---
@@ -70,18 +70,18 @@ Azure IoT 中樞是教學課程中所有裝置 (模擬或實體) 用來安全地
 
    完成後，請選取 [建立]  以佈建解決方案的 Azure 資源。 完成此程序約需要 20 分鐘的時間。
 
-   [![佈建裝置模擬解決方案](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png#lightbox)
+   [![佈建裝置模擬解決方案](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png#lightbox)
 
-1. 佈建完成後，新解決方案上方的文字會從**佈建中...** 變更為**就緒**。
+1. 佈建完成後，您會看到兩個更新，顯示部署狀態已從 [佈建中]  變為 [就緒]  。 
 
    >[!IMPORTANT]
-   > 請還不要選取 [啟動]  ！ 請將此網頁保持為開啟，因為您稍後將會回到這裡。
+   > 請還不要輸入解決方案加速器！ 請將此網頁保持為開啟，因為您稍後將會回到這裡。
 
-   [![裝置模擬解決方案佈建完成](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png#lightbox)
+   [![裝置模擬解決方案佈建完成](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
 
 1. 現在，您可以在 Azure 入口網站中檢查新建立的資源。 在 [資源群組]  頁面中，您會看到已建立的新資源群組，其使用上一個步驟中提供的**解決方案名稱**。 記下針對裝置模擬所建立的資源。
 
-   [![裝置模擬資源](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
+   [![裝置模擬資源](media/tutorial-create-populate-tsi-environment/tsi-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/tsi-device-sim-solution-resources.png#lightbox)
 
 ## <a name="create-an-environment"></a>建立環境
 
@@ -91,7 +91,7 @@ Azure IoT 中樞是教學課程中所有裝置 (模擬或實體) 用來安全地
 1. 選取左上方的 [+ 建立資源]  。 
 1. 選取 [物聯網]  類別，然後選取 [時間序列深入解析]  。 
 
-   [![選取時間序列深入解析環境資源](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi.png#lightbox)
+   [![選取時間序列深入解析環境資源](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png)](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png#lightbox)
 
 1. 在 [時間序列深入解析環境]  頁面上，填入必要參數。
 
@@ -106,17 +106,17 @@ Azure IoT 中樞是教學課程中所有裝置 (模擬或實體) 用來安全地
 
    完成後，選取 [下一步：  事件來源] 以繼續進行下一個步驟。
 
-   [![建立時間序列深入解析環境資源](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png#lightbox)
+   [![建立時間序列深入解析環境資源](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png#lightbox)
 
 1. 現在，將時間序列深入解析環境連線到解決方案加速器建立的 IoT 中樞。 將 [選取中樞]  設定為 `Select existing`。 然後，在設定 [IoT 中樞名稱]  時，選擇解決方案加速器建立的 IoT 中樞。
 
-   [![將時間序列深入解析環境連線到已建立的 IoT 中樞](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png#lightbox)
+   [![將時間序列深入解析環境連線到已建立的 IoT 中樞](media/tutorial-create-populate-tsi-environment/tsi-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/tsi-create-resource-iot-hub.png#lightbox)
 
    最後，選取 [檢閱 + 建立]  。
 
 1. 查看 [通知]  面板以監視部署完成進度。 
 
-   [![時間序列深入解析環境部署成功](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
+   [![時間序列深入解析環境部署成功](media/tutorial-create-populate-tsi-environment/create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/create-resource-tsi-deployment-succeeded.png#lightbox)
 
 ## <a name="run-device-simulation"></a>執行裝置模擬
 
@@ -126,19 +126,19 @@ Azure IoT 中樞是教學課程中所有裝置 (模擬或實體) 用來安全地
 
 1. 返回您的[解決方案加速器儀表板](https://www.azureiotsolutions.com/Accelerators#dashboard)。 如有必要，請使用您在本教學課程中使用的相同 Azure 帳戶重新登入。 選取您的「裝置解決方案」，然後**移至您的解決方案加速器**，以啟動您已部署的解決方案。
 
-     [![解決方案加速器儀表板](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png#lightbox)
+   [![解決方案加速器儀表板](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
 
-1. 裝置模擬 Web 應用程式會從提示您把「將您登入並讀取您的設定檔」的權限授與 Web 應用程式開始。 此權限可讓應用程式擷取支援應用程式運作所需的使用者設定檔資訊。
+1. 裝置模擬 Web 應用程式會從提示您把「將您登入並讀取您的設定檔」  的權限授與 Web 應用程式開始。 此權限可讓應用程式擷取支援應用程式運作所需的使用者設定檔資訊。
 
-     [![裝置模擬 Web 應用程式同意](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
+   [![裝置模擬 Web 應用程式同意](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
 
-1. 在 [模擬設定]  頁面載入後，請輸入必要的參數。
+1. 選取 [+ 新增模擬]  。 在 [模擬設定]  頁面載入後，請輸入必要的參數。
 
    參數|說明
    ---|---
    **目標 IoT 中樞** | 選取 [使用預先佈建的 IoT 中樞]  。
    **裝置型號** | 選取 [Chiller]  。
-   **裝置數目**  | 在 [數量]  下輸入 `1000`。
+   **裝置數目**  | 在 [數量]  下輸入 `10`。
    **遙測頻率** | 輸入 `10` 秒。
    **模擬持續時間** | 選取 [結束時間：]  ，然後輸入 `5` 分鐘。
 

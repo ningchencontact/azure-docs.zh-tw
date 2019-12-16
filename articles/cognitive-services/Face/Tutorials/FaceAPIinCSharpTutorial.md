@@ -1,27 +1,27 @@
 ---
 title: 教學課程：使用 .NET SDK 來偵測和顯示影像中的臉部資料
 titleSuffix: Azure Cognitive Services
-description: 在此教學課程中，您會建立 Windows 應用程式，以使用 臉部 API 來偵測並框出影像中的人臉。
+description: 在本教學課程中，您會建立 Windows 應用程式，以使用 臉部 API 來偵測並框出影像中的人臉。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 93932fac9a5e5d4c21adc99bd31e9366a9709cc2
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: a444294497b82f316e7407999f5203cd13878928
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859107"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977959"
 ---
-# <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>教學課程：建立 WPF 應用程式來顯示影像中的臉部資料
+# <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>教學課程：建立 Windows Presentation Framework (WPF) 應用程式來顯示影像中的臉部資料
 
-在此教學課程中，您將了解如何使用 Azure 臉部 API，透過 .NET 用戶端 SDK 來偵測影像中的人臉，然後在 UI 中呈現該資料。 您會建立 Windows Presentation Framework (WPF) 應用程式，以偵測人臉、在每張臉孔的周圍繪出邊框，然後在狀態列中顯示該張臉孔的描述。 
+在本教學課程中，您將了解如何使用 Azure 臉部 API，透過 .NET 用戶端 SDK 來偵測影像中的人臉，然後在 UI 中呈現該資料。 您會建立 WPF 應用程式，以偵測人臉、在每張臉孔的周圍繪出邊框，然後在狀態列中顯示該張臉孔的描述。 
 
-此教學課程說明如何：
+本教學課程說明如何：
 
 > [!div class="checklist"]
 > - 建立 WPF 應用程式
@@ -34,7 +34,7 @@ ms.locfileid: "70859107"
 
 GitHub 上的[認知臉部 CSharp 範例](https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample)存放庫會有完整的程式碼範例。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。 
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -126,7 +126,7 @@ GitHub 上的[認知臉部 CSharp 範例](https://github.com/Azure-Samples/Cogni
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解臉部服務 .NET SDK 的基本使用程序，並建立了應用程式來偵測並框出影像中的臉部。 接下來，請深入了解臉部偵測的詳細資料。
+在本教學課程中，您已了解臉部服務 .NET SDK 的基本使用程序，並建立了應用程式來偵測並框出影像中的臉部。 接下來，請深入了解臉部偵測的詳細資料。
 
 > [!div class="nextstepaction"]
 > [如何偵測影像中的人臉](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

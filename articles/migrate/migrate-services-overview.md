@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5843e6a5669cd90cdc0572e7a104c4fdf70ac2b3
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 54aea9fac946713ee6c1709e952e3962bb7288e9
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669139"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951763"
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
@@ -34,7 +34,7 @@ Azure Migrate 可協助您將企業從內部部署環境遷移至 Azure。 Azure
 Azure Migrate 服務目前有兩個版本：
 
 - **目前的版本**：使用此版本來建立 Azure Migrate 專案、探索內部部署電腦，以及協調評量與移轉。 [深入了解](whats-new.md)此版本的新功能。
-- **先前版本**：如果您使用舊版 Azure Migrate (僅支援內部部署 VMware VM 的評量)，則您現在應該使用目前的版本。 您已無法使用舊版來建立 Azure Migrate 專案，且我們建議您不要執行新的探索。 若要存取現有專案，請在 Azure 入口網站 > [所有服務]  中搜尋 **Azure Migrate**。 在 Azure Migrate 儀表板上，會有可以存取舊 Azure Migrate 專案的通知與連結。
+- **先前版本**：如果您使用舊版 Azure Migrate (僅支援內部部署 VMware VM 的評量)，則您現在應該使用目前的版本。 您已無法使用舊版來建立 Azure Migrate 專案，且我們建議您不要執行新的探索。 若要存取現有專案，請在 Azure 入口網站中，搜尋並選取 [Azure Migrate]  。 在 [Azure Migrate]  儀表板上，會有可以存取舊 Azure Migrate 專案的通知與連結。
 
 
 

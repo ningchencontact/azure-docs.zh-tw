@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9aa8fc4c6b27c2a2c7d11a95ddb2ecca347ec0e0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4a902e869ed9fd2ae9274f0ad8eee11e43b8edc6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858821"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974320"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>快速入門：使用 Ruby 來呼叫 Bing Web 搜尋 API  
 
@@ -43,7 +43,7 @@ require 'json'
 
 ## <a name="define-variables"></a>定義變數
 
-必須先設定幾個變數才能繼續。 請確認 `$uri` 和 `path` 有效，並將 `accessKey` 值換成您的 Azure 帳戶中有效的訂用帳戶金鑰。 請自行取代 `term` 的值來自訂搜尋查詢。
+必須先設定幾個變數才能繼續。 `uri` 可以是下方的全域端點，也可以是 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。 請確認 `uri` 和 `path` 有效，並將 `accessKey` 值換成您的 Azure 帳戶中有效的訂用帳戶金鑰。 請自行取代 `term` 的值來自訂搜尋查詢。
 
 ```ruby
 accessKey = "YOUR_SUBSCRIPTION_KEY"

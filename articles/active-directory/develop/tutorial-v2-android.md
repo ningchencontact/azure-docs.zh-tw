@@ -1,6 +1,6 @@
 ---
-title: 搭配 Android 的使用者入門 - Microsoft 身分識別平台 | Azure
-description: Android 應用程式如何從 Microsoft 身分識別平台取得存取權杖，以及呼叫 Microsoft Graph API 或需要存取權杖的 API。
+title: 讓使用者登入並呼叫 Microsoft Graph (Android) - Microsoft 身分識別平台 | Azure
+description: 從 Microsoft 身分識別平台取得存取權杖，並呼叫 Microsoft Graph 或需要存取權杖的 API (Android)
 services: active-directory
 documentationcenter: dev-center-name
 author: tylermsft
@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5417c29b62414468064338a67b188c7b7f832ac5
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 7feefc368815b1bfe57b67db2cd94702db799d78
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242211"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961552"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>教學課程：從 Android 應用程式登入使用者並呼叫 Microsoft Graph
 

@@ -1,6 +1,6 @@
 ---
 title: 教學課程 - 使用 Azure IoT 中樞裝置佈建服務來佈建裝置 (.NET)
-description: 本教學課程說明如何使用 Azure IoT 中樞裝置佈建服務將裝置佈建到單一 IoT 中樞 (.NET)
+description: 本教學課程說明如何透過 .NET 使用 Azure IoT 中樞裝置佈建服務 (DPS) 將裝置佈建到單一 IoT 中樞。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 98b2ef05a1abb6ebea8dac073fbf7671ed79c06e
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9d5b1511ffb48f587d4ee5c5a7d2b0ee9216018f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701998"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976769"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>教學課程：使用 Azure IoT 中樞佈建服務用戶端 (.NET) 將裝置註冊到 IoT 中樞
 

@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: 52dc0ff27ad2f04b9faeab24c6bdba68d9ec138e
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 62c9ac0020db92c1540d0ecb4fa996d9b8405a58
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307276"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974252"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>教學課程：使用 Azure Machine Learning 以 R 定型及部署您的第一個模型
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -142,7 +142,7 @@ saveRDS(accidents, file="accidents.Rd")
 ```
 
 ### <a name="upload-data-to-the-datastore"></a>將資料上傳至資料存放區
-將資料上傳至雲端，讓您的遠端定型環境可加以存取。 每個 Azure ML 工作區都附有預設的資料存放區，其中儲存連結至工作區的儲存體帳戶中佈建的 Azure Blob 容器所適用的連線資訊。 下列程式碼會將您先前建立的意外事故資料上傳至該資料存放區。
+將資料上傳至雲端，讓您的遠端定型環境可加以存取。 每個 Azure Machine Learning 工作區都附有預設的資料存放區，其中儲存連結至工作區的儲存體帳戶中佈建的 Azure Blob 容器所適用的連線資訊。 下列程式碼會將您先前建立的意外事故資料上傳至該資料存放區。
 
 ```R
 ds <- get_default_datastore(ws)
@@ -164,10 +164,10 @@ upload_files_to_datastore(ds,
 * 提交工作
 
 ### <a name="prepare-the-training-script"></a>建立定型指令碼
-在與本教學課程相同的目錄中，提供了名為 `accidents.R` 的定型指令碼。 請留意下列在**定型指令碼**中完成以利用 Azure ML 服務進行定型的詳細操作：
+在與本教學課程相同的目錄中，提供了名為 `accidents.R` 的定型指令碼。 請留意下列在**定型指令碼**中完成以利用 Azure Machine Learning 進行定型的詳細操作：
 
 * 定型指令碼會使用引數 `-d` 尋找包含定型資料的目錄。 您在稍後定義並提交作業時，會指向此引數的資料存放區。 Azure ML 會將儲存體資料夾掛接至遠端叢集，以進行定型作業。
-* 定型指令碼會使用 `log_metric_to_run()`，將最終正確性以計量的形式記錄到 Azure ML 中的執行記錄。 Azure ML SDK 會提供一組記錄 API，用以記錄定型執行期間的各種計量。 這些計量會記錄並保存在實驗執行記錄中。 其後，您可以從 [Azure Machine Learning Studio](https://ml.azure.com) 的執行詳細資料頁面中隨時存取或檢視這些計量。 如需完整的記錄方法集 `log_*()`，請參閱[參考](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation)。
+* 定型指令碼會使用 `log_metric_to_run()`，將最終正確性以計量的形式記錄到 Azure ML 中的執行記錄。 Azure ML SDK 會提供一組記錄 API，用以記錄定型執行期間的各種計量。 這些計量會記錄並保存在實驗執行記錄中。 其後，您可以從 [Studio](https://ml.azure.com) 的執行詳細資料頁面中隨時存取或檢視這些計量。 如需完整的記錄方法集 `log_*()`，請參閱[參考](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation)。
 * 定型指令碼會將模型儲存到名為 **outputs** 的目錄中。 Azure ML 會以特殊方式處理 `./outputs` 資料夾。 在定型期間，寫入至 `./outputs` 的檔案會由 Azure ML 自動上傳至您的執行記錄，並以成品的形式保存。 藉由將定型的模型儲存至 `./outputs`，即使執行已結束，且您無法再存取遠端定型環境，您還是可以存取和擷取模型檔案。
 
 ### <a name="create-an-estimator"></a>建立估計工具

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 370ccd2508e9dda35ccc5815dce42a7b7089c07e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7acd4b8014aad7b70f1a67c91368477599a97901
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160015"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972416"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>教學課程：Azure Active Directory 與 Snowflake 整合
 
@@ -47,6 +47,7 @@ Snowflake 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
 * Snowflake 支援 **SP 和 IDP** 起始的 SSO
+* Snowflake 支援[自動化的使用者佈建和取消佈建](snowflake-provisioning-tutorial.md) (建議選項)
 
 ## <a name="adding-snowflake-from-the-gallery"></a>從資源庫新增 Snowflake
 

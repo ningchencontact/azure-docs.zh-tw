@@ -6,12 +6,12 @@ author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: b86ea2367a17baa8c57b8d0c0331c0cd3cfbb481
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: aa2e0e8be8805187ec1f5b8ea6498e90e2d5a7c4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227109"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976871"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>使用 Azure 學生入門版建立函式
 
@@ -121,7 +121,7 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
     * [請在此參閱更高方案中支援的語言](supported-languages.md)
 * Windows 是唯一支援的作業系統。
 * 規模受限於每天最多執行 60 分鐘的[一個免費層執行個體](https://azure.microsoft.com/pricing/details/app-service/windows/)。 在接收 HTTP 流量時，您將以無伺服器的方式自動從 0 調整到 1 個執行個體，但不會進一步調整。
-* 僅支援 [2.x 執行階段](functions-versions.md)。
+* 僅支援 Azure Functions 執行階段的 [2.x 版和更新版本](functions-versions.md)。
 * 所有的開發人員工具都支援編輯和發佈函式。 這包括 VS Code、Visual Studio、Azure CLI 和 Azure 入口網站。 如果您想要使用入口網站以外的工具，則必須先在入口網站中建立應用程式，然後在您慣用的工具中選擇該應用程式作為部署目標。
 
 ## <a name="next-steps"></a>後續步驟

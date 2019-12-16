@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: e95b9aa8f01142065202e029c6298fc4c4cb1294
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 97bf62c61aee63ce97496e54b99ad641d6150876
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565740"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972691"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>快速入門：使用 Node.js 來呼叫您的 Bing 自訂搜尋端點
 
@@ -45,7 +45,7 @@ ms.locfileid: "68565740"
 
 ## <a name="send-and-receive-a-search-request"></a>傳送及接收搜尋要求 
 
-1. 建立變數以儲存在您要求中傳送的資訊。 將搜尋字詞附加至 `q=` 查詢參數，並將搜尋執行個體的「自訂設定識別碼」附加至 `customconfig=`，以建構要求 URL。 使用 `&` 字元來分隔參數。 
+1. 建立變數以儲存在您要求中傳送的資訊。 將搜尋字詞附加至 `q=` 查詢參數，並將搜尋執行個體的「自訂設定識別碼」附加至 `customconfig=`，以建構要求 URL。 使用 `&` 字元來分隔參數。 您可以使用下方的全域端點，也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
     ```javascript
     var info = {

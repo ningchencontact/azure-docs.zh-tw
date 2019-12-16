@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 20cb5f65ed33bc3e737bbba902ed2d891eaf83be
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 6c847af4f6938923abdfced4d5e8b842ae84eca6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823364"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978810"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>快速入門：使用 Bing Web 搜尋 REST API 和 C# 來搜尋 Web
 
@@ -62,7 +62,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>定義變數
 
-必須先設定幾個變數才能繼續。 請確認 `uriBase` 有效，並將 `accessKey` 值換成您的 Azure 帳戶中有效的訂用帳戶金鑰。 請自行取代 `searchTerm` 的值來自訂搜尋查詢。 請記得將此程式碼新增至 `Program` 類別，如先前所述。
+必須先設定幾個變數才能繼續。  `uriBase` 可以是下方的全域端點，也可以是 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。 請確認 `uriBase` 有效，並將 `accessKey` 值換成您的 Azure 帳戶中有效的訂用帳戶金鑰。 請自行取代 `searchTerm` 的值來自訂搜尋查詢。 請記得將此程式碼新增至 `Program` 類別，如先前所述。
 
 ```csharp
 // Enter a valid subscription key.

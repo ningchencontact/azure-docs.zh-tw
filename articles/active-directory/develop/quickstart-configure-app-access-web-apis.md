@@ -1,27 +1,24 @@
 ---
-title: 設定應用程式以存取 Web API - Microsoft 身分識別平台
+title: 設定應用程式以存取 Web API - Microsoft 身分識別平台 | Azure
 description: 了解如何設定使用 Microsoft 身分識別平台所註冊的應用程式，以納入用來存取 Web API 的重新導向 URI、認證或權限。
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/07/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afa757020ff6de3be23403b78fd9a12c2de97016
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ec5fe8e93c9032a07c1defe5b28753e0f520a320
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106602"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963328"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>快速入門：設定用戶端應用程式以存取 Web API
 

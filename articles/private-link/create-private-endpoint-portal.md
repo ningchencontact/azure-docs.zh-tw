@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 2cb3c1d798e48017604d72d8a438d6a1071199ea
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 22614b28023a0628fb12c170e934aaab4d1ddfe4
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419758"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899855"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>快速入門：使用 Azure 入口網站建立私人端點
 
@@ -144,7 +144,7 @@ ms.locfileid: "74419758"
     | 訂用帳戶 | 選取您的訂用帳戶。 |
     | 資源群組 | 選取 **myResourceGroup**。 您已在上一節中建立此項目。|
     | **執行個體詳細資料** |  |
-    | 名稱 | 輸入  myPrivateEndpoint  。 如果此名稱已被使用，請建立唯一名稱。 |
+    | 名稱 | 輸入 myPrivateEndpoint  。 如果此名稱已被使用，請建立唯一名稱。 |
     |區域|選取 [WestCentralUS]  。|
     |||
 5. 完成時，選取 [下一步:  資源]。
@@ -177,7 +177,7 @@ ms.locfileid: "74419758"
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>使用遠端桌面 (RDP) 連線到 VM
 
 
-在您建立 *myVm  之後，從網際網路與其連線，如下所示： 
+在您建立 **myVm** 之後，從網際網路與其連線，如下所示： 
 
 1. 在入口網站的搜尋列中，輸入 myVm  。
 
@@ -185,7 +185,7 @@ ms.locfileid: "74419758"
 
 1. 選取 [下載 RDP 檔案]  。 Azure 會建立一個「遠端桌面通訊協定」( *.rdp*) 檔案，並下載至您的電腦。
 
-1. 開啟下載的 .rdp* 檔案。
+1. 開啟 *downloaded.rdp* 檔案。
 
     1. 如果出現提示，請選取 [連接]  。
 

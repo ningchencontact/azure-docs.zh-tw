@@ -1,21 +1,22 @@
 ---
-title: 教學課程：模擬在 Azure 中存取讀取權限備援儲存體時失敗 | Microsoft Docs
-description: 模擬存取讀取權限異地備援儲存體時發生錯誤
+title: 教學課程 - 從主要區域模擬資料讀取失敗
+titleSuffix: Azure Storage
+description: 針對儲存體帳戶啟用讀取權限異地備援儲存體 (RA-GRS) 時，模擬從主要區域讀取資料時發生的錯誤。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 1f5c404e410ded2714be761e35060f3c07379bd3
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 44c5d037797d845aa9c68af2d7b8e5e45bf418fb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508088"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892442"
 ---
-# <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>教學課程：模擬存取讀取權限備援儲存體時失敗
+# <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>教學課程：從主要區域模擬資料讀取失敗
 
 本教學課程是一個系列的第二部分。 在其中，您可藉由模擬失敗來了解[讀取權限異地備援](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) 的優點。
 
@@ -102,7 +103,7 @@ route delete <destination_ip>
 
 ### <a name="launch-fiddler"></a>啟動 Fiddler
 
-開啟 Fiddler，選取 [規則] 和 [自訂規則]。
+開啟 Fiddler，選取 [規則]  和 [自訂規則]  。
 
 ![自訂 Fiddler 規則](media/storage-simulate-failure-ragrs-account-app/figure1.png)
 
@@ -110,7 +111,7 @@ Fiddler ScriptEditor 會啟動並顯示 **SampleRules.js** 檔案。 此檔案�
 
 在 `OnBeforeResponse` 函式中貼入下列程式碼範例，並將 `STORAGEACCOUNTNAME` 取代為儲存體帳戶的名稱。 視範例而定，您可能還需要將 `HelloWorld` 取代為所要下載的測試檔案名稱 (或前置詞，例如 `sampleFile`)。 新的程式碼會標為註解，以確保其不會立即執行。
 
-完成後，選取 [檔案] 和 [儲存] 以儲存變更。 讓 ScriptEditor 視窗保持開啟以供下列步驟使用。
+完成後，選取 [檔案]  和 [儲存]  以儲存變更。 讓 ScriptEditor 視窗保持開啟以供下列步驟使用。
 
 ```javascript
     /*
@@ -136,13 +137,13 @@ Fiddler ScriptEditor 會啟動並顯示 **SampleRules.js** 檔案。 此檔案�
 
 ### <a name="simulate-failure"></a>模擬失敗
 
-在應用程式暫停的情況下切換回 Fiddler，並將 `OnBeforeResponse` 函式中儲存的自訂規則取消註解。 請務必選取 [檔案] 和 [儲存] 來儲存變更，以便讓規則生效。 此程式碼會尋找 RA-GRS 儲存體帳戶要求，若路徑包含範例檔案的名稱，則會傳回 `503 - Service Unavailable` 的回應碼。
+在應用程式暫停的情況下切換回 Fiddler，並將 `OnBeforeResponse` 函式中儲存的自訂規則取消註解。 請務必選取 [檔案]  和 [儲存]  來儲存變更，以便讓規則生效。 此程式碼會尋找 RA-GRS 儲存體帳戶要求，若路徑包含範例檔案的名稱，則會傳回 `503 - Service Unavailable` 的回應碼。
 
 在具有執行中範例的視窗內繼續執行應用程式，或按下適當按鍵來下載範例檔案，並確認其來自次要儲存體。 然後，您可以再次暫停範例，或等候提示。
 
 ### <a name="simulate-primary-endpoint-restoration"></a>模擬主要端點還原
 
-在 Fiddler 中，將自訂規則再次移除或標為註解。 選取 [檔案] 和 [儲存] 來確保規則不再有效。
+在 Fiddler 中，將自訂規則再次移除或標為註解。 選取 [檔案]  和 [儲存]  來確保規則不再有效。
 
 在具有執行中範例的視窗內繼續執行應用程式，或按下適當按鍵來下載範例檔案，並確認其再次來自主要儲存體。 然後您就可以結束範例。
 

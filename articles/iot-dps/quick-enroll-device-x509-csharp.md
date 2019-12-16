@@ -1,6 +1,6 @@
 ---
 title: 使用 C# 向 Azure 裝置佈建服務註冊 X.509 裝置
-description: 本快速入門使用群組註冊。 在本快速入門中，使用 C# 向 Azure IoT 中樞裝置佈建服務註冊 X.509 裝置。
+description: 本快速入門使用群組註冊。 在本快速入門中，使用 C# 向 Azure IoT 中樞裝置佈建服務 (DPS) 註冊 X.509 裝置。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 3df9afa35b3ae9f7360a5d4b890d3fce209a4b12
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 1986f51b834f177a7c8d70392cc532cbfadb7170
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423339"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974728"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>快速入門：使用 C# 向裝置佈建服務註冊 X.509 裝置
 

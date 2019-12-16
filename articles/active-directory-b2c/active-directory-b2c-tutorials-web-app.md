@@ -1,5 +1,6 @@
 ---
-title: 教學課程 - 在 Web 應用程式中啟用驗證 - Azure Active Directory B2C
+title: 教學課程：在 Web 應用程式中啟用驗證
+titleSuffix: Azure AD B2C
 description: 關於如何使用 Azure Active Directory B2C 為 ASP.NET Web 應用程式提供使用者登入的教學課程。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: d88ad13c1326ce62b73dbffa0c79904c6f81e6f4
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: b4305e9b3cfdb5e05ce76ee1811dc0d2dcc265b7
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641782"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950189"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 在 Web 應用程式中啟用驗證
 

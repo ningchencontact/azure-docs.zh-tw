@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 740b3fae81521fec2cba31e3b8fd161f767c4380
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ce0b308077505d5af1d757f1684c50505b11831e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858980"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977789"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>教學課程：建立 Android 應用程式來偵測並框出影像中的臉部
 
-在此教學課程中，您會建立簡單的 Android 應用程式 (透過 JAVA SDK)，以使用 Azure 臉部 API 來偵測影像中的人臉。 此應用程式會顯示選取的影像，並在每個偵測到的人臉周圍繪製框架。
+在此教學課程中，您會建立 Android 應用程式 (透過 JAVA SDK)，以使用 Azure 臉部 API 來偵測影像中的人臉。 此應用程式會顯示選取的影像，並在每個偵測到的人臉周圍繪製框架。
 
 本教學課程說明如何：
 
@@ -33,7 +33,7 @@ ms.locfileid: "70858980"
 
 GitHub 上的[認知服務臉部 Android](https://github.com/Azure-Samples/cognitive-services-face-android-sample) 存放庫會有完整的程式碼範例。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -103,7 +103,7 @@ GitHub 上的[認知服務臉部 Android](https://github.com/Azure-Samples/cogni
 
 每個傳回的**臉部**都會包含矩形來指出其位置，以及一系列的選擇性臉部屬性。 在此範例中，我們只會要求臉部矩形。
 
-將下列兩種方法插入到 **MainActivity** 類別。 請注意，當臉部偵測完成時，應用程式會呼叫 **drawFaceRectanglesOnBitmap** 方法來修改 **ImageView**。 您接下來便會定義這個方法。
+將下列兩種方法插入到 **MainActivity** 類別。 當臉部偵測完成時，應用程式會呼叫 **drawFaceRectanglesOnBitmap** 方法來修改 **ImageView**。 您接下來便會定義這個方法。
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_detection_methods)]
 

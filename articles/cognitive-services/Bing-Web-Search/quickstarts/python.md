@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4f7f1c28423e67ff9ff09385a5e0c7675e4a6049
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c1af1142faca76cc58b6b3ca9a7106bc0433ea18
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67338833"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976361"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>快速入門：使用 Python 來呼叫 Bing Web 搜尋 API  
 
@@ -41,7 +41,7 @@ subscription_key = "YOUR_ACCESS_KEY"
 assert subscription_key
 ```
 
-宣告 Bing Web 搜尋 API 端點。 如果您遇到任何授權錯誤，請對照 Azure 儀表板中的 Bing 搜尋端點，仔細檢查此值。
+宣告 Bing Web 搜尋 API 端點。 您可以使用下方的全域端點，也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"

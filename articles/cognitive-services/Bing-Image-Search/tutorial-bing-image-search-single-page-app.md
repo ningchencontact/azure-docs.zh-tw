@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 7b530b3d415761956cbdb45fdc92bfed55a1bae5
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: c0f06f02a274780085fdb3c4c270ad541a0daa8c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868265"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930706"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>教學課程：使用 Bing 影像搜尋 API 來建立單頁應用程式
 
@@ -40,7 +40,7 @@ ms.locfileid: "67868265"
 
 ## <a name="manage-and-store-user-subscription-keys"></a>管理及儲存使用者訂用帳戶金鑰
 
-此應用程式使用網頁瀏覽器的永續性儲存體來儲存 API 訂用帳戶金鑰。 如果未儲存任何金鑰，網頁將會提示使用者提供金鑰，並儲存該金鑰以供稍後使用。 如果該金鑰稍後被 API 拒絕，應用程式就會從儲存體中移除它。
+此應用程式使用網頁瀏覽器的永續性儲存體來儲存 API 訂用帳戶金鑰。 如果未儲存任何金鑰，網頁將會提示使用者提供金鑰，並儲存該金鑰以供稍後使用。 如果該金鑰稍後被 API 拒絕，應用程式就會從儲存體中移除它。 這個範例會使用全域端點。 您也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
 
 請定義 `storeValue` 和 `retrieveValue` 函式以使用 `localStorage` 物件 (如果瀏覽器支援此物件) 或 Cookie。

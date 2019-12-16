@@ -3,12 +3,12 @@ title: Azure 原則的概觀
 description: Azure 原則是 Azure 中的一個服務，您可以在 Azure 環境中用來建立、指派和管理原則定義。
 ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: db6a7c592213b0ef8a17466300c37c859e96476b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a7cc5ebca74e249057d159334e4207a3efca37f5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484008"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885461"
 ---
 # <a name="what-is-azure-policy"></a>什麼是 Azure 原則？
 
@@ -16,7 +16,9 @@ ms.locfileid: "74484008"
 
 您公司是否遇到似乎永遠無法解決的大量 IT 問題？ 良好的 IT 控管包括規劃您的方案，以及在策略層級上設定優先順序，以協助管理及避免問題。 此策略性需求是 Azure 原則存在的理由。
 
-Azure 原則是 Azure 中的一個服務，您可以用來建立、指派和管理原則。 這些原則會對您的資源強制執行不同的規則和效果，讓這些資源能符合公司標準和服務等級協定的規範。 Azure 原則會透過評估您的資源是否符合指派的策略來滿足此需求。 例如，您可以設定原則，在環境中只允許特定 SKU 大小的虛擬機器。 實作此原則之後，會評估新資源和現有資源的合規性。 使用適當類型的原則，現有的資源就可以合規。 稍後在本文件中，我們將介紹更多關於如何使用 Azure 原則來建立及實作原則的詳細資料。
+Azure 原則是 Azure 中的一個服務，您可以用來建立、指派和管理原則。 這些原則會對您的資源強制執行不同的規則和效果，讓這些資源能符合公司標準和服務等級協定的規範。 Azure 原則會透過評估您的資源是否符合指派的策略來滿足此需求。 透過 Azure 原則儲存的所有資料都會進行待用加密。
+
+例如，您可以設定原則，在環境中只允許特定 SKU 大小的虛擬機器。 實作此原則之後，會評估新資源和現有資源的合規性。 使用適當類型的原則，現有的資源就可以合規。 稍後在本文件中，我們將介紹更多關於如何使用 Azure 原則來建立及實作原則的詳細資料。
 
 > [!IMPORTANT]
 > 無論定價層為何，所有指派現在都會提供 Azure 原則的合規性評估。 如果指派未顯示合規性資料，請確定已向 Microsoft.PolicyInsights 資源提供者註冊訂用帳戶。

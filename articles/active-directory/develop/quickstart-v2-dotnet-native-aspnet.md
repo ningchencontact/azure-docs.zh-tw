@@ -1,28 +1,23 @@
 ---
-title: 呼叫受 Azure AD 保護的 ASP.NET Web API - Microsoft 身分識別
+title: 呼叫受 Azure AD 保護的 ASP.NET Web API - Microsoft 身分識別平台
 description: 在本快速入門中，了解如何從 Windows 桌面 (WPF) 應用程式，呼叫受 Azure Active Directory 保護的 ASP.NET Web API。 WPF 用戶端會驗證使用者、要求存取權杖，以及呼叫 Web API。
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e0fdeb2c1955eab18b440c3ef3bcac725ad92b6
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: fe3301c3c91343277997be1ee554ced76884274a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200252"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963302"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-azure-ad"></a>快速入門：呼叫受 Azure AD 保護的 ASP.NET Web API
 

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/03/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 163d1f7f457dcbca7fbb9e331ec889bcc0894dfc
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 812f9bc71cde26b6f32a1259984bb0859ba49d54
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814455"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868757"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>針對現有的同步 AD 樹系進行雲端佈建試驗 
 
@@ -28,7 +28,11 @@ ms.locfileid: "74814455"
 嘗試進行本教學課程之前，請考量下列事項：
 1. 確定您熟悉雲端佈建的基本概念。 
 2. 確定您執行的是 Azure AD Connect 同步1.4.32.0 版或更新版本，並已依照文件指示設定同步處理規則。 試驗時，您將會從 Azure AD Connect 同步範圍中移除測試 OU 或群組。 若將物件移出範圍外，會導致這些物件從 Azure AD 中刪除。 針對使用者物件，Azure AD 中的物件會被虛刪除，且可以還原。 針對群組物件，Azure AD 中的物件會被實刪除，且無法還原。 Azure AD Connect 同步中已導入新的連結類型，可在試驗案例中防止刪除。 
-3. 請確定試驗範圍中的物件已填入 ms-ds-consistencyGUID，使雲端佈建可確實比對物件。 請注意，根據預設，Azure AD Connect 同步不會為群組物件填入 ms-ds-consistencyGUID。
+3. 請確定試驗範圍中的物件已填入 ms-ds-consistencyGUID，使雲端佈建可確實比對物件。 
+
+   > [!NOTE]
+   > 根據預設，Azure AD Connect 同步不會為群組物件填入 ms-ds-consistencyGUID  。 請遵循[此部落格文章](https://blogs.technet.microsoft.com/markrenoden/2017/10/13/choosing-a-sourceanchor-for-groups-in-multi-forest-sync-with-aad-connect/)中所述的步驟，為群組物件填入 ms-ds-consistencyGUID  。
+
 4. 這是進階案例。 請確實遵循本教學課程中記載的步驟。
 
 ## <a name="prerequisites"></a>必要條件
@@ -36,10 +40,11 @@ ms.locfileid: "74814455"
 - 具有 Azure AD Connect 同步 1.4.32.0 版或更新版本的測試環境
 - 在同步範圍內、並且可用於試驗的 OU 或群組。 建議您先從一小組物件開始。
 - 執行 Windows Server 2012 R2 或更新版本、且將裝載佈建代理程式的伺服器。  此伺服器不可與 Azure AD Connect 伺服器相同。
+- AAD Connect 同步的來源錨點應該是 objectGuid  或 ms-ds-consistencyGUID 
 
 ## <a name="update-azure-ad-connect"></a>更新 Azure AD Connect
 
-您至少應有 [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.4.32.0。 若要更新 Azure AD Connect 同步，請完成 [Azure AD Connect：升級至最新版本](../hybrid/how-to-upgrade-previous-version.md)中的步驟。  如果您的測試環境沒有最新版本的 Azure AD Connect，即可參考此步驟。
+您至少應有 [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.4.32.0。 若要更新 Azure AD Connect 同步，請完成 [Azure AD Connect：升級至最新版本](../hybrid/how-to-upgrade-previous-version.md)中的步驟。  
 
 ## <a name="stop-the-scheduler"></a>停止排程器
 Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中發生的變更。 若要修改和加入自訂規則，您可以停用排程器，如此，在您進行此作業時就不會執行同步處理。  請使用下列步驟：
@@ -47,6 +52,9 @@ Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中
 1.  在執行 Azure AD Connect 同步的伺服器上，以系統管理權限開啟 PowerShell。
 2.  執行 `Stop-ADSyncSyncCycle`。  按 Enter 鍵。
 3.  執行 `Set-ADSyncScheduler -SyncCycleEnabled $false`。
+
+>[!NOTE] 
+>如果您執行自己的自訂排程器來進行 AAD Connect 同步，請停用排程器。 
 
 ## <a name="create-custom-user-inbound-rule"></a>建立自訂使用者輸入規則
 
@@ -81,7 +89,7 @@ Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中
  6. 在 [轉換]  頁面上，將常數 transformation: flow True 新增至 cloudNoFlow 屬性。 按一下 [新增]  。
  ![自訂規則](media/how-to-cloud-custom-user-rule/user4.png)</br>
 
-所有物件類型 (使用者、群組和連絡人) 都必須遵循相同的步驟。
+所有物件類型 (使用者、群組和連絡人) 都必須遵循相同的步驟。 針對每個設定的 AD Connector / AD 樹系重複步驟。 
 
 ## <a name="create-custom-user-outbound-rule"></a>建立自訂使用者輸出規則
 
@@ -92,7 +100,7 @@ Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中
 
     **名稱：** 為規則指定有意義的名稱<br>
     **說明：** 新增有意義的描述<br> 
-    **連線系統：** 選擇您要為其撰寫自訂同步處理規則的 AD 連接器<br>
+    **連線系統：** 選擇您要為其撰寫自訂同步處理規則的 AAD 連接器<br>
     **連線系統物件類型：** 使用者<br>
     **Metaverse 物件類型：** 個人<br>
     **連結類型：** JoinNoFlow<br>
@@ -109,48 +117,38 @@ Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中
 
 所有物件類型 (使用者、群組和連絡人) 都必須遵循相同的步驟。
 
-## <a name="scope-azure-ad-connect-sync-to-exclude-the-pilot-ou"></a>將 Azure AD Connect 同步的範圍設定為排除試驗 OU
-現在，您將設定 Azure AD Connect 以排除先前建立的試驗 OU。  雲端佈建代理程式會處理這些使用者的同步處理。  使用下列步驟來設定 Azure AD Connect 的範圍。
-
- 1. 在執行 Azure AD Connect 的伺服器上，按兩下 [Azure AD Connect] 圖示。
- 2. 按一下 [設定] 
- 3. 選取 [自訂同步處理選項]  ，然後按 [下一步]。
- 4. 登入 Azure AD，然後按 [下一步]  。
- 5. 在 [連線您的目錄]  畫面上，按 [下一步]  。
- 6. 在 [網域和 OU 篩選]  畫面上，選取 [同步所選取的網域及 OU]  。
- 7. 展開您的網域，然後**取消選取** **CPUsers** OU。  按 [下一步]  。
-scope![](media/tutorial-existing-forest/scope1.png)</br>
- 9. 在 [選用功能]  畫面上，按 [下一步]  。
- 10. 在 [已可設定]  畫面上，按一下 [設定]  。
- 11. 完成後，按一下 [結束]  。 
-
-## <a name="start-the-scheduler"></a>啟動排程器
-Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中發生的變更。 現在您已修改規則，可以重新啟動排程器。  請使用下列步驟：
-
-1.  在執行 Azure AD Connect 同步的伺服器上，以系統管理權限開啟 PowerShell
-2.  執行 `Set-ADSyncScheduler -SyncCycleEnabled $true`。
-3.  執行 `Start-ADSyncSyncCycle`。  按 Enter 鍵。  
-
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>安裝 Azure AD Connect 佈建代理程式
-1. 登入已加入網域的伺服器。  如果您使用[基本 AD 和 Azure 環境](tutorial-basic-ad-azure.md)教學課程，則會是 DC1。
-2. 使用僅限雲端的全域管理員認證登入 Azure 入口網站。
-3. 在左側選取 [Azure Active Directory]  ，按一下 [Azure AD Connect]  ，然後在中央選取 [管理佈建 (預覽)]  。</br>
-![Azure 入口網站](media/how-to-install/install6.png)</br>
-4. 按一下 [下載代理程式]
-5. 執行 Azure AD Connect 佈建代理程式
-6. 在啟動顯示畫面上**接受**授權條款，然後按一下 [安裝]  。</br>
+1. 以企業系統管理員權限登入您將使用的伺服器。  如果您使用[基本 AD 和 Azure 環境](tutorial-basic-ad-azure.md)教學課程，則會是 CP1。
+2. [在此](https://go.microsoft.com/fwlink/?linkid=2109037)下載 Azure AD Connect 雲端佈建代理程式。
+3. 執行 Azure AD Connect 雲端佈建 (AADConnectProvisioningAgent.Installer)
+3. 在啟動顯示畫面上**接受**授權條款，然後按一下 [安裝]  。</br>
 ![歡迎使用畫面](media/how-to-install/install1.png)</br>
 
-7. 此作業完成後，就會啟動組態精靈。  以 Azure AD 全域管理員帳戶登入。  請注意，如果您已啟用 IE 增強式安全性，則會封鎖登入。  在此情況下，請關閉安裝，在伺服器管理員中停用 [IE 增強式安全性]，然後按一下 [AAD Connect 佈建代理程式精靈]  以重新開始安裝。
-8. 在 [連接 Active Directory]  畫面上，按一下 [新增目錄]  ，然後以您的 Active Directory 網域系統管理員帳戶登入。  注意：網域系統管理員帳戶應該不會有密碼變更需求。 如果密碼過期或變更，您必須使用新的認證重新設定代理程式。 此作業將會新增您的內部部署目錄。  按 [下一步]  。</br>
+4. 此作業完成後，就會啟動組態精靈。  以 Azure AD 全域管理員帳戶登入。
+5. 在 [連線 Active Directory]  畫面上，按一下 [新增目錄]  ，然後以您的 Active Directory 系統管理員帳戶登入。  此作業將會新增您的內部部署目錄。  按 [下一步]  。</br>
 ![歡迎使用畫面](media/how-to-install/install3.png)</br>
 
-9. 在 [設定完成]  畫面上，按一下 [確認]  。  此作業將會註冊並重新啟動代理程式。</br>
+6. 在 [設定完成]  畫面上，按一下 [確認]  。  此作業將會註冊並重新啟動代理程式。</br>
 ![歡迎使用畫面](media/how-to-install/install4.png)</br>
 
-10. 此作業完成後，您應該會看到一則通知：**已成功驗證您的代理程式設定。**  您可以按一下 [結束]  。</br>
+7. 此作業完成後，您應該會看到「您已成功通過驗證」  的通知。  您可以按一下 [結束]  。</br>
 ![歡迎使用畫面](media/how-to-install/install5.png)</br>
-11. 如果您仍看到初始啟動顯示畫面，請按一下 [關閉]  。
+8. 如果您仍看到初始啟動顯示畫面，請按一下 [關閉]  。1. 以企業系統管理員權限登入您將使用的伺服器。
+2. [在此](https://go.microsoft.com/fwlink/?linkid=2109037)下載 Azure AD Connect 雲端佈建代理程式。
+3. 執行 Azure AD Connect 雲端佈建 (AADConnectProvisioningAgent.Installer)
+3. 在啟動顯示畫面上**接受**授權條款，然後按一下 [安裝]  。</br>
+![歡迎使用畫面](media/how-to-install/install1.png)</br>
+
+4. 此作業完成後，就會啟動組態精靈。  以 Azure AD 全域管理員帳戶登入。
+5. 在 [連線 Active Directory]  畫面上，按一下 [新增目錄]  ，然後以您的 Active Directory 系統管理員帳戶登入。  此作業將會新增您的內部部署目錄。  按 [下一步]  。</br>
+![歡迎使用畫面](media/how-to-install/install3.png)</br>
+
+6. 在 [設定完成]  畫面上，按一下 [確認]  。  此作業將會註冊並重新啟動代理程式。</br>
+![歡迎使用畫面](media/how-to-install/install4.png)</br>
+
+7. 此作業完成後，您應該會看到「您已成功通過驗證」  的通知。  您可以按一下 [結束]  。</br>
+![歡迎使用畫面](media/how-to-install/install5.png)</br>
+8. 如果您仍看到初始啟動顯示畫面，請按一下 [關閉]  。
 
 ## <a name="verify-agent-installation"></a>驗證代理程式安裝
 代理程式驗證可在 Azure 入口網站中以及執行代理程式的本機伺服器上進行。
@@ -208,10 +206,35 @@ Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中
 
 此外，您可以確認 Azure AD 中是否有使用者和群組存在。
 
+## <a name="start-the-scheduler"></a>啟動排程器
+Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中發生的變更。 現在您已修改規則，可以重新啟動排程器。  請使用下列步驟：
+
+1.  在執行 Azure AD Connect 同步的伺服器上，以系統管理權限開啟 PowerShell
+2.  執行 `Set-ADSyncScheduler -SyncCycleEnabled $true`。
+3.  執行 `Start-ADSyncSyncCycle`。  按 Enter 鍵。  
+
+>[!NOTE] 
+>如果您要執行自己的自訂排程器來進行 AAD Connect 同步，請啟用排程器。 
+
 ## <a name="something-went-wrong"></a>發生錯誤
 如果試驗未如預期運作，您可以依照下列步驟返回 Azure AD Connect 同步設定：
 1.  在 Azure 入口網站中停用佈建設定。 
 2.  使用「同步處理規則編輯器」工具，停用為「雲端佈建」建立的所有自訂同步處理規則。 停用應該會導致所有連接器上的完整同步處理。
+
+## <a name="configure-azure-ad-connect-sync-to-exclude-the-pilot-ou"></a>設定 Azure AD Connect 同步以排除試驗 OU
+當您確認試驗 OU 中的使用者可成功地由雲端佈建管理之後，您可以重新設定 Azure AD Connect，以排除先前建立的試驗 OU。  雲端佈建代理程式之後將會處理這些使用者的同步。  使用下列步驟來設定 Azure AD Connect 的範圍。
+
+ 1. 在執行 Azure AD Connect 的伺服器上，按兩下 [Azure AD Connect] 圖示。
+ 2. 按一下 [設定] 
+ 3. 選取 [自訂同步處理選項]  ，然後按 [下一步]。
+ 4. 登入 Azure AD，然後按 [下一步]  。
+ 5. 在 [連線您的目錄]  畫面上，按 [下一步]  。
+ 6. 在 [網域和 OU 篩選]  畫面上，選取 [同步所選取的網域及 OU]  。
+ 7. 展開您的網域，然後**取消選取** **CPUsers** OU。  按 [下一步]  。
+scope![](media/tutorial-existing-forest/scope1.png)</br>
+ 9. 在 [選用功能]  畫面上，按 [下一步]  。
+ 10. 在 [已可設定]  畫面上，按一下 [設定]  。
+ 11. 完成後，按一下 [結束]  。 
 
 ## <a name="next-steps"></a>後續步驟 
 

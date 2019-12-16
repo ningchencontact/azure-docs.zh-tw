@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ac464593e14a712cf0f137b5f3522d018d5874d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0085db3f38fb8af014434f36893182e1682b05a7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884527"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972109"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Slack 整合
 
@@ -45,8 +45,7 @@ ms.locfileid: "73884527"
 在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
 
 * Slack 支援 **SP** 起始的 SSO
-* Slack 支援 **Just In Time** 使用者佈建
-* Slack 支援[**自動**使用者佈建](slack-provisioning-tutorial.md)
+* Slack 支援[**自動化的**使用者佈建和取消佈建](slack-provisioning-tutorial.md) (建議選項)
 
 > [!NOTE]
 > 此應用程式的識別碼是固定的字串值，因此一個租用戶中只能設定一個執行個體。

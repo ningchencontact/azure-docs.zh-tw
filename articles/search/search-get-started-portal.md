@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: be2425d97573e7990ea7f0dfd4c2d999e85fe922
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 2ae0e5b53d735b95ce1c3d2f9275456e41319242
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407004"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900993"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Azure 認知搜尋索引
 > [!div class="op_single_selector"]
@@ -268,7 +268,7 @@ Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳
 
 ## <a name="next-steps"></a>後續步驟
 
-雖然入口網站很適合用於初始探索和小型工作，但在初期檢閱 API 將協助您了解更深層級的概念和工作流程：
+使用入口網站精靈，產生可在瀏覽器中執行的立即可用 Web 應用程式。 您可以在剛才建立的小型索引上試用此精靈，也可以使用其中一個內建的資料集範例，來獲得更豐富的搜尋體驗。
 
 > [!div class="nextstepaction"]
-> [使用 .NET SDK 建立索引](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [在入口網站中建立搜尋應用程式](search-create-app-portal.md)

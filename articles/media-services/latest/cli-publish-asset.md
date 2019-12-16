@@ -1,6 +1,6 @@
 ---
 title: Azure CLI 指令碼範例 - 發佈資產 | Microsoft Docs
-description: 您可以使用 Azure CLI 指令碼來發佈資產。
+description: 本文示範如何使用 Azure CLI 指令碼來發佈資產。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: ced55a41ce5be31dfa036894188f385ae60f8962
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 44cf234fd8419164f7dd7f8320952a5c6c0842e0
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204168"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896127"
 ---
 # <a name="cli-example-publish-an-asset"></a>CLI 範例：發佈資產
 
