@@ -4,12 +4,12 @@ description: 瞭解如何使用 PowerShell 開發函式。
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 26e52e8aa498c37bd4cef95fb2b54b2fe9322f90
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2fa510e447d4d9b054a37f7665d010382a5db819
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226687"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974235"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 開發人員指南
 
@@ -50,7 +50,7 @@ PSFunctionApp
 
 在專案的根目錄中，有一個可用於設定函數應用程式的共用[`host.json`](functions-host-json.md)檔案。 每個函式都有一個資料夾，其中包含自己的程式碼檔案（ps1）和系結設定檔（`function.json`）。 函數. json 檔案的父目錄名稱一律是函式的名稱。
 
-某些系結需要有 `extensions.csproj` 檔案。 函式執行時間的[版本](functions-versions.md)2.x 中所需的系結延伸模組定義于 `extensions.csproj` 檔案中，而實際的程式庫檔案則位於 `bin` 資料夾中。 在本機開發時，您必須[註冊繫結擴充功能](functions-bindings-register.md#extension-bundles)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
+某些系結需要有 `extensions.csproj` 檔案。 [版本2.x 和更新版本](functions-versions.md)的函式執行時間中所需的系結延伸模組會定義在 `extensions.csproj` 檔案中，而實際的程式庫檔案則位於 `bin` 資料夾中。 在本機開發時，您必須[註冊繫結擴充功能](functions-bindings-register.md#extension-bundles)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
 
 在 PowerShell 函式應用程式中，您可以選擇性地擁有在函式應用程式開始執行時執行的 `profile.ps1` （也就是所謂的 *[冷啟動](#cold-start)* 。 如需詳細資訊，請參閱[PowerShell 設定檔](#powershell-profile)。
 
@@ -73,11 +73,11 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 $TriggerMetadata.sys
 ```
 
-| 屬性   | 描述                                     | 在系統提示您進行確認時，輸入     |
+| 屬性   | 描述                                     | Type     |
 |------------|-------------------------------------------------|----------|
-| UtcNow     | 當函式在 UTC 時間內觸發時        | DateTime |
-| 名稱 | 已觸發之函式的名稱     | 字串   |
-| RandGuid   | 此函式執行的唯一 guid | 字串   |
+| UtcNow     | 當函式在 UTC 時間內觸發時        | 日期時間 |
+| MethodName | 已觸發之函式的名稱     | string   |
+| RandGuid   | 此函式執行的唯一 guid | string   |
 
 每個觸發程式類型都有一組不同的中繼資料。 例如，`QueueTrigger` 的 `$TriggerMetadata` 包含 `InsertionTime`、`Id`、`DequeueCount`，還有其他專案。 如需佇列觸發程式中繼資料的詳細資訊，請移至[佇列觸發程式的官方檔](functions-bindings-storage-queue.md#trigger---message-metadata)。 請查看您正在使用之[觸發](functions-triggers-bindings.md)程式的相關檔，以查看觸發程式中繼資料內有哪些內容。
 
@@ -125,10 +125,10 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 以下是用來呼叫 `Push-OutputBinding`的有效參數：
 
-| 名稱 | 在系統提示您進行確認時，輸入 | 位置 | 描述 |
+| Name | Type | 位置 | 描述 |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | 字串 | 1 | 您想要設定的輸出系結名稱。 |
-| **`-Value`** | 物件 | 2 | 您想要設定的輸出系結值，這是從管線 ByValue 接受的。 |
+| **`-Name`** | String | 1 | 您想要設定的輸出系結名稱。 |
+| **`-Value`** | Object | 2 | 您想要設定的輸出系結值，這是從管線 ByValue 接受的。 |
 | **`-Clobber`** | SwitchParameter | 已命名 | 選擇性當指定時，會強制針對指定的輸出系結設定值。 | 
 
 也支援下列一般參數： 
@@ -232,7 +232,7 @@ PowerShell 函式中的記錄運作方式與一般 PowerShell 記錄類似。 �
 
 | 函數記錄層級 | 記錄 Cmdlet |
 | ------------- | -------------- |
-| 錯誤 | **`Write-Error`** |
+| Error | **`Write-Error`** |
 | 警告 | **`Write-Warning`**  | 
 | 資訊 | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | 資訊 | 寫入_資訊_層級記錄。 |
 | 偵錯 | **`Write-Debug`** |
@@ -275,10 +275,10 @@ Azure Functions 可讓您定義閾值層級，讓您輕鬆控制函數寫入記�
 所有的觸發程式和系結都是以程式碼表示，做為幾個實際的資料類型：
 
 * 雜湊表
-* 字串
+* string
 * byte[]
 * int
-* double
+* 兩倍
 * HttpRequestCoNtext
 * HttpResponseCoNtext
 
@@ -294,14 +294,14 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 傳入腳本的要求物件屬於 `HttpRequestContext`類型，其具有下列屬性：
 
-| 屬性  | 描述                                                    | 在系統提示您進行確認時，輸入                      |
+| 屬性  | 描述                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | 包含要求本文的物件。 `Body` 會根據資料序列化為最佳類型。 例如，如果資料是 JSON，則會以雜湊表的形式傳入。 如果資料是字串，則會以字串的形式傳入。 | 物件 |
+| **`Body`**    | 包含要求本文的物件。 `Body` 會根據資料序列化為最佳類型。 例如，如果資料是 JSON，則會以雜湊表的形式傳入。 如果資料是字串，則會以字串的形式傳入。 | object |
 | **`Headers`** | 包含要求標頭的字典。                | 字典 < 字串，字串 ><sup>*</sup> |
-| **`Method`** | 要求的 HTTP 方法。                                | 字串                    |
+| **`Method`** | 要求的 HTTP 方法。                                | string                    |
 | **`Params`**  | 包含要求之路由傳送參數的物件。 | 字典 < 字串，字串 ><sup>*</sup> |
 | **`Query`** | 包含查詢參數的物件。                  | 字典 < 字串，字串 ><sup>*</sup> |
-| **`Url`** | 要求的 URL。                                        | 字串                    |
+| **`Url`** | 要求的 URL。                                        | string                    |
 
 <sup>*</sup>所有 `Dictionary<string,string>` 的索引鍵都不區分大小寫。
 
@@ -309,10 +309,10 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 您應該傳回的回應物件屬於 `HttpResponseContext`類型，其具有下列屬性：
 
-| 屬性      | 描述                                                 | 在系統提示您進行確認時，輸入                      |
+| 屬性      | 描述                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | 包含回應本文的物件。           | 物件                    |
-| **`ContentType`** | 設定回應內容類型的簡短手勢。 | 字串                    |
+| **`Body`**  | 包含回應本文的物件。           | object                    |
+| **`ContentType`** | 設定回應內容類型的簡短手勢。 | string                    |
 | **`Headers`** | 包含回應標頭的物件。               | 字典或雜湊表   |
 | **`StatusCode`**  | 回應的 HTTP 狀態碼。                       | 字串或整數             |
 
@@ -473,7 +473,7 @@ PowerShell 語言背景工作角色通常會使用數個模組。 這些模組�
 
 目前的模組清單如下所示：
 
-* [ [Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive)]：用來處理封存的模組，例如 `.zip`、`.nupkg`及其他。
+* [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive)：用來處理封存的模組， `.zip`例如、 `.nupkg`和其他。
 * **ThreadJob**： PowerShell 作業 api 的執行緒型執行。
 
 根據預設，函數會使用這些模組的最新版本。 若要使用特定的模組版本，請將該特定版本放在函式應用程式的 [`Modules`] 資料夾中。

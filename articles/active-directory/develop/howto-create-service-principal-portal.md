@@ -1,7 +1,7 @@
 ---
-title: 在入口網站中建立 Azure 應用程式的身分識別
+title: 使用入口網站建立 Azure AD 應用程式 & 服務主體
 titleSuffix: Microsoft identity platform
-description: 描述如何建立可以與 Azure 資源管理員中的角色型存取控制搭配使用來管理資源存取權的新 Active Directory 應用程式和服務主體。描述如何建立可以與 Azure 資源管理員中的角色型存取控制搭配使用來管理資源存取權的新 Active Directory 應用程式和服務主體。
+description: 建立新的 Azure Active Directory 應用程式 & 服務主體，以使用 Azure Resource Manager 中的角色型存取控制來管理資源的存取權。
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c883dc1f9743e4318db5fe21b0e52ea92d60dc5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: HT
+ms.openlocfilehash: 249c313f8f6195371985f3dad2e707638e52d0df
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917857"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967110"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>操作說明：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體
 

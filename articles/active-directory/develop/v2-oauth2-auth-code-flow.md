@@ -1,5 +1,5 @@
 ---
-title: Microsoft 身分識別平臺和 OAuth 授權碼流程 |Azure
+title: Microsoft 身分識別平臺 & OAuth 授權碼流程 |Azure
 description: 使用 OAuth 2.0 驗證通訊協定的 Microsoft 身分識別平臺執行來建立 web 應用程式。
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a20f540d4d220d5cf7171633b817a496d48b8128
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 58a82caf825daf83ce58dffdf7056e063e74faa6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207718"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964373"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft 身分識別平臺和 OAuth 2.0 授權碼流程
 
@@ -61,22 +61,22 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> 按一下下面的連結以執行此要求！ 登入之後，您的瀏覽器應重新導向至在位址列中有 `https://localhost/myapp/` 的 `code`。
+> 按一下下面的連結以執行此要求！ 登入之後，您的瀏覽器應重新導向至在位址列中有 `code` 的 `https://localhost/myapp/`。
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 | 參數    | 必要/選用 | 描述 |
 |--------------|-------------|--------------|
 | `tenant`    | 必要    | 要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 允許的值為 `common`、`organizations`、`consumers` 及租用戶識別碼。 如需更多詳細資訊，請參閱 [通訊協定基本概念](active-directory-v2-protocols.md#endpoints)。  |
 | `client_id`   | 必要    | **應用程式（用戶端）識別碼**， [Azure 入口網站](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您應用程式的應用程式註冊體驗。  |
-| `response_type` | 必要    | 授權碼流程必須包含 `code` 。       |
+| `response_type` | 必要    | 授權碼流程必須包含 `code`。       |
 | `redirect_uri`  | 必要 | 應用程式的 redirect_uri，您的應用程式可在此傳送及接收驗證回應。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 對於原生和行動應用程式，請使用 `https://login.microsoftonline.com/common/oauth2/nativeclient` 的預設值。   |
 | `scope`  | 必要    | 您要使用者同意的 [範圍](v2-permissions-and-consent.md) 空格分隔清單。  在要求的 `/authorize` 階段中，這可以涵蓋多項資源，讓您的應用程式取得您想要呼叫之多個 web Api 的同意。 |
 | `response_mode`   | 建議使用 | 指定將產生的權杖送回到應用程式所應該使用的方法。 可以是下列其中一項：<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` 會提供程式碼，以作為重新導向 URI 的查詢字串參數。 如果您要使用隱含流程來要求識別碼權杖，就無法使用[OpenID 規格](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations)中指定的 `query`。如果您只是要求程式碼，您可以使用 `query`、`fragment`或 `form_post`。 `form_post` 會執行 POST，其中包含您重新導向 URI 的程式碼。 如需詳細資訊，請參閱 [OpenID Connect 通訊協定](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code)。  |
-| `state`                 | 建議使用 | 同樣會隨權杖回應傳回之要求中所包含的值。 其可以是您想要之任何內容的字串。 隨機產生的唯一值通常用於 [防止跨站台偽造要求攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 此值也可以將驗證要求發生前使用者在應用程式中的狀態相關資訊 (例如他們所在的網頁或檢視) 編碼。 |
+| `state`                 | 建議使用 | 同樣會隨權杖回應傳回之要求中所包含的值。 其可以是您想要之任何內容的字串。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 此值也可以將驗證要求發生前使用者在應用程式中的狀態相關資訊 (例如他們所在的網頁或檢視) 編碼。 |
 | `prompt`  | 選用    | 表示需要的使用者互動類型。 此時唯有 `login`、`none` 及 `consent` 是有效值。<br/><br/>- `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。<br/>- `prompt=none` 相反，它會確保使用者不會看到任何互動式提示。 如果要求無法透過單一登入以無訊息方式完成，Microsoft 身分識別平臺端點會傳回 `interaction_required` 錯誤。<br/>- `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
 | `login_hint`  | 選用    | 如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。 通常應用程式會在重新驗證期間使用此參數，已經使用 `preferred_username` 宣告從上一個登入擷取使用者名稱。   |
 | `domain_hint`  | 選用    | 可以是 `consumers` 或 `organizations` 其中一個。<br/><br/>如果包含，它會略過使用者在登入頁面上經歷的以電子郵件為基礎的探索程式，以更有效率的方式提供更流暢的使用者體驗。 通常應用程式會在重新驗證 (擷取上一次登入的 `tid` ) 期間使用此參數。 如果 `tid` 宣告值是 `9188040d-6c67-4c5b-b112-36a304b66dad`，您應該使用 `domain_hint=consumers`。 否則，使用 `domain_hint=organizations`。  |
-| `code_challenge_method` | 選用    | 用來為 `code_verifier` 參數編碼 `code_challenge` 的方法。 可以是下列其中一個值：<br/><br/>- `plain` <br/>- `S256`<br/><br/>如果排除，則當包含 `code_challenge` 時，會假設 `code_challenge` 是純文字。 Microsoft 身分識別平臺同時支援 `plain` 和 `S256`。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
+| `code_challenge_method` | 選用    | 用來為 `code_challenge` 參數編碼 `code_verifier` 的方法。 可以是下列其中一個值：<br/><br/>- `plain` <br/>- `S256`<br/><br/>如果排除，則當包含 `code_challenge` 時，會假設 `code_challenge` 是純文字。 Microsoft 身分識別平臺同時支援 `plain` 和 `S256`。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
 | `code_challenge`  | 選用 | 用來透過來自原生用戶端的「代碼交換的證明金鑰」(PKCE) 保護授權碼授與。 如果包含 `code_challenge_method`，則為必要參數。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
 
 此時，會要求使用者輸入其認證並完成驗證。 Microsoft 身分識別平臺端點也會確保使用者已同意 `scope` 查詢參數中指出的許可權。 如果使用者未曾同意這些權限的任何一項，就會要求使用者同意要求的權限。 [這裡提供權限、同意與多租用戶應用程式](v2-permissions-and-consent.md)的詳細資料。
@@ -131,7 +131,7 @@ error=access_denied
 
 ## <a name="request-an-access-token"></a>要求存取權杖
 
-取得 authorization_code 並獲得使用者授權之後，現在即可兌換所需資源之 `code` 的 `access_token`。 做法是將 `POST` 要求傳送給 `/token` 端點：
+取得 authorization_code 並獲得使用者授權之後，現在即可兌換所需資源之 `access_token` 的 `code`。 做法是將 `POST` 要求傳送給 `/token` 端點：
 
 ```
 // Line breaks for legibility only
@@ -240,9 +240,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ## <a name="refresh-the-access-token"></a>重新整理存取權杖
 
-Access_token 有效期很短，且您必須在其到期後重新整理，才能繼續存取資源。 方法是：向 `POST` 端點送出另一個 `/token` 要求，這次提供 `refresh_token`，而不提供 `code`。  重新整理權杖對用戶端已同意的所有權限都有效，因此，對 `scope=mail.read` 要求所發出的重新整理權杖可用於向 `scope=api://contoso.com/api/UseResource` 要求新的存取權杖。  
+Access_token 有效期很短，且您必須在其到期後重新整理，才能繼續存取資源。 方法是：向 `/token` 端點送出另一個 `POST` 要求，這次提供 `refresh_token`，而不提供 `code`。  重新整理權杖對用戶端已同意的所有權限都有效，因此，對 `scope=mail.read` 要求所發出的重新整理權杖可用於向 `scope=api://contoso.com/api/UseResource` 要求新的存取權杖。  
 
-重新整理權杖並沒有指定的存留期。 一般而言，重新整理權杖的存留期相當長。 不過，在某些情況下，重新整理權杖會過期、遭到撤銷或對要執行的動作缺乏足夠的權限。 應用程式必須預期並正確處理權杖發行端點所傳回的錯誤。[](#error-codes-for-token-endpoint-errors) 
+重新整理權杖並沒有指定的存留期。 一般而言，重新整理權杖的存留期相當長。 不過，在某些情況下，重新整理權杖會過期、遭到撤銷或對要執行的動作缺乏足夠的權限。 應用程式必須預期並正確處理權杖發行端點所傳回的錯誤。[ ](#error-codes-for-token-endpoint-errors) 
 
 雖然重新整理權杖不會在用來取得新的存取權杖時撤銷，但您仍應捨棄舊的重新整理權杖。 [OAuth 2.0 規格](https://tools.ietf.org/html/rfc6749#section-6)指出：「授權伺服器可能會發出新的重新整理權杖，在此情況下，用戶端必須捨棄舊的重新整理權杖，並以新的重新整理權杖取代。 授權伺服器可能會在發出新的重新整理權杖給用戶端之後，撤銷舊的重新整理權杖。」  
 

@@ -1,6 +1,6 @@
 ---
-title: 呼叫 web Api 的 web 應用程式（程式碼設定）-Microsoft 身分識別平臺
-description: 瞭解如何建立呼叫 web Api 的 Web 應用程式（應用程式的程式碼設定）
+title: 設定 web 應用程式以呼叫 web Api-Microsoft 身分識別平臺 |Azure
+description: 瞭解如何設定 Web 應用程式的程式碼來呼叫 web Api
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 231ecdb6afae1fc36d11b2c12aa82c7e860bb708
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 83523fd12700789fb5c34230d529e06c0b284147
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175310"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964980"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>呼叫 web Api 的 web 應用程式-程式碼設定
 
@@ -35,7 +35,7 @@ ms.locfileid: "73175310"
 
 支援 web 應用程式之授權碼流程的程式庫如下：
 
-| MSAL 程式庫 | 說明 |
+| MSAL 程式庫 | 描述 |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 支援的平臺為 .NET Framework 和 .NET Core 平臺（而不是 UWP、Xamarin 和 Xamarin，因為這些平臺是用來建立公用用戶端應用程式） |
 | ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | 進行中的開發-現已公開預覽 |
@@ -86,7 +86,7 @@ ms.locfileid: "73175310"
 
 ### <a name="startupcs"></a>Startup.cs
 
-在 ASP.NET Core 中，原則是在 `Startup.cs` 檔案中。 您會想要訂閱 `OnAuthorizationCodeReceived` open ID connect 事件，而在此事件中，請呼叫 MSAL。NET 的方法 `AcquireTokenFromAuthorizationCode`，其具有將儲存在權杖快取中的效果、要求之 `scopes`的存取權杖，以及在接近過期時用來重新整理存取權杖的重新整理權杖，或代表相同的使用者取得權杖，但適用于不同的資源。
+在 ASP.NET Core 中，原則是在 `Startup.cs` 檔案中。 您會想要訂閱 `OnAuthorizationCodeReceived` open ID connect 事件，而在此事件中，請呼叫 MSAL。NET 的方法 `AcquireTokenFromAuthorizationCode`，其具有將儲存在權杖快取中的效果、要求之 `scopes`的存取權杖，以及在接近過期時用來重新整理存取權杖的重新整理權杖，或代表相同的使用者取得權杖，但針對不同的資源。
 
 實際上， [ASP.NET Core web 應用程式教學](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2)課程會嘗試為您的 web 應用程式提供可重複使用的程式碼。
 
@@ -248,7 +248,7 @@ public class TokenAcquisition : ITokenAcquisition
 
 在 ASP.NET Core 中，建立機密用戶端應用程式會使用 HttpCoNtext 中的資訊。 透過 `CurrentHttpContext` 屬性（HttpCoNtext）存取與要求相關聯的、知道 Web 應用程式的 URL，以及登入的使用者（在 `ClaimsPrincipal`中）。 `BuildConfidentialClientApplication` 也會使用 ASP.NET Core 設定，其具有 "AzureAD" 區段，且兩者系結至：
 
-- `_applicationOptions`ConfidentialClientApplicationOptions[ ](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationoptions?view=azure-dotnet)類型的資料結構
+- [ConfidentialClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationoptions?view=azure-dotnet) `_applicationOptions`類型的資料結構
 - ASP.NET Core `Authentication.AzureAD.UI`中定義之[AzureAdOptions](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/AzureADOptions.cs)類型的 `azureAdOptions` 實例。 最後，應用程式必須維護權杖快取。 您將在下一節中深入瞭解這項功能。
 
 `GetOrBuildConfidentialClientApplication()` 方法的程式碼位於 TokenAcquisition 中。 [L333 # L290-](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L290-L333)。 它會使用由相依性插入所插入的成員（以 TokenAcquisition 中的函式在[L47](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L47-L59)中傳遞）。
@@ -314,7 +314,7 @@ public class TokenAcquisition : ITokenAcquisition
 
 ```
 
-### <a name="summary"></a>摘要
+### <a name="summary"></a>總結
 
 為了加總，`AcquireTokenByAuthorizationCode` 確實贖回了 ASP.NET 所要求的授權碼，並取得新增至 MSAL.NET 使用者權杖快取的權杖。 然後在 ASP.NET Core 控制器中使用它們。
 

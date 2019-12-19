@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 19045b54b97fdb69f9fdab3d17066faa5dbcc435
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: cba77b89ac9a9a93a2a3d889d4faca32708fd719
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580723"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997253"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "73580723"
 
 下表顯示本文涵蓋的每個開發環境，以及優缺點。
 
-| Environment | 優點 | 缺點 |
+| 環境 | 優點 | 缺點 |
 | --- | --- | --- |
 | [以雲端為基礎的 Azure Machine Learning 筆記本 VM](#notebookvm) | 最簡單的入門方式。 整個 SDK 已安裝在您的工作區 VM 中，且筆記本教學課程已預先複製並可供執行。 | 缺少開發環境和相依性的控制權。 Linux VM 所產生的額外成本（VM 可以在未使用時停止，以避免費用）。 請參閱[定價詳細資料](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)。 |
 | [本機環境](#local) | 完全控制您的開發環境和相依性。 使用您選擇的任何組建工具、環境或 IDE 來執行。 | 開始使用較長的時間。 必須安裝必要的 SDK 套件，如果您還沒有環境，也必須安裝它。 |
@@ -39,7 +39,7 @@ ms.locfileid: "73580723"
 
 * [Visual Studio Code](#vscode)：如果您使用 Visual Studio Code， [Azure Machine Learning 延伸](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)模組包含 Python 的廣泛語言支援，以及可讓您更方便且更有效率地使用 Azure Machine Learning 的功能。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 Azure Machine Learning 工作區。 若要建立工作區，請參閱[建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。 您只需要工作區，就能開始使用自己的[雲端式筆記本伺服器](#notebookvm)、 [DSVM](#dsvm)或[Azure Databricks](#aml-databricks)。
 
@@ -158,7 +158,7 @@ Azure Machine Learning SDK 適用於 Ubuntu 或 Windows版本的 DSVM。 但如�
 
     這個範例會使用 python 3.6.5 建立環境，但是可以選擇任何特定的 subversions。 SDK 相容性可能無法保證某些主要版本（建議使用 3.5 +），如果遇到錯誤，建議您在 Anaconda 環境中嘗試不同的版本/subversion。 建立環境可能需要幾分鐘的時間，因為需要下載元件和套件。
 
-1. 在您的新環境中執行下列命令，以啟用環境特定的 ipython 核心。 這可確保在 Anaconda 環境中使用 Jupyter 筆記本時，預期的核心和套件匯入行為：
+1. 在您的新環境中執行下列命令，以啟用環境特定的 IPython 核心。 這可確保在 Anaconda 環境中使用 Jupyter 筆記本時，預期的核心和套件匯入行為：
 
     ```shell
     conda install notebook ipykernel
@@ -167,7 +167,7 @@ Azure Machine Learning SDK 適用於 Ubuntu 或 Windows版本的 DSVM。 但如�
     然後執行下列命令來建立核心：
 
     ```shell
-    ipython kernel install --user
+    ipython kernel install --user --name myenv --display-name "Python (myenv)"
     ```
 
 1. 使用下列命令來安裝套件：
@@ -287,16 +287,16 @@ Azure Databricks 如何與 Azure Machine Learning 搭配運作：
 建立[Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)叢集。 只有當您在 Databricks 上安裝 SDK 以進行自動化機器學習時，才適用某些設定。
 **建立叢集需要幾分鐘的時間。**
 
-請使用下列設定：
+使用這些設定：
 
-| 設定 |適用於| 值 |
+| 設定 |適用於| Value |
 |----|---|---|
-| 叢集名稱 |總是| yourclustername |
-| Databricks 執行階段 |總是|非 ML 執行時間6.0 （scala 2.11、spark 2.4.3） |
-| Python 版本 |總是| 3 |
-| 背景工作角色 |總是| 2 個以上 |
-| 背景工作節點 VM 類型 <br>（判斷並行反覆運算的最大數目） |自動化 ML<br>才| 建議使用已記憶體最佳化的 VM |
-| 啟用自動調整 |自動化 ML<br>才| 取消選取 |
+| 叢集名稱 |always| yourclustername |
+| Databricks 執行階段 |always|非 ML 執行時間6.0 （scala 2.11、spark 2.4.3） |
+| Python 版本 |always| 3 |
+| 背景工作角色 |always| 2 個以上 |
+| 背景工作節點 VM 類型 <br>（判斷並行反覆運算的最大數目） |自動化 ML<br>僅限| 建議使用已記憶體最佳化的 VM |
+| 啟用自動調整功能 |自動化 ML<br>僅限| 取消選取 |
 
 請靜候至叢集運作，再繼續操作。
 
@@ -339,7 +339,7 @@ SDK for Databricks 搭配自動化機器學習服務 ![**sdk，並**在 Databric
 
 ### <a name="start-exploring"></a>開始探索
 
-試試看：
+現在就試試看：
 + 雖然有許多範例筆記本可供使用，但**只有[這些範例筆記本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks)適用于 Azure Databricks。**
 
 + 直接從您的工作區匯入這些範例。 請參閱以下內容： ![選取 [匯入]](media/how-to-configure-environment/azure-db-screenshot.png)
@@ -369,7 +369,7 @@ SDK for Databricks 搭配自動化機器學習服務 ![**sdk，並**在 Databric
 
 * **下載檔案**：在[Azure 入口網站](https://ms.portal.azure.com)中，從工作區的 [**總覽**] 區段中選取 [**下載 config.xml** ]。
 
-     ![Azure 入口網站](./media/how-to-configure-environment/configure.png)
+     ![Azure Portal](./media/how-to-configure-environment/configure.png)
 
 * **以程式設計方式建立**檔案：在下列程式碼片段中，您可以藉由提供訂用帳戶識別碼、資源群組和工作區名稱來連接到工作區。 接著，它會將工作區組態儲存至檔案：
 
@@ -393,5 +393,5 @@ SDK for Databricks 搭配自動化機器學習服務 ![**sdk，並**在 Databric
 
 ## <a name="next-steps"></a>後續步驟
 
-- 在 Azure Machine Learning 使用 MNIST 資料集[定型模型](tutorial-train-models-with-aml.md)] \(英文\)
+- 在 Azure Machine Learning 使用 MNIST 資料集[定型模型](tutorial-train-models-with-aml.md)(英文\)
 - 檢視[適用於 Python 的 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) \(英文\) 參考

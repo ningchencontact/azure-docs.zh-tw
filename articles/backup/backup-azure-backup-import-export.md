@@ -4,12 +4,12 @@ description: 了解 Azure 備份如何讓您使用 Azure 匯入/匯出服務在�
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 331d5528c8f124f4d43142ff7be4daa3169b0381
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 47d4c4fb63c2aa0e2944456048b06070e235f012
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173293"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997355"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>在 Azure 備份中離線備份工作流程
 
@@ -42,7 +42,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
   > [!NOTE]
   > 下列必要條件和工作流程僅適用於使用[最新 MARS 代理程式](https://aka.ms/azurebackup_agent)進行檔案和資料夾的離線備份。 若要使用 System Center DPM 或 Azure 備份伺服器執行工作負載離線備份，請參閱[這篇文章](backup-azure-backup-server-import-export-.md)。
@@ -161,7 +161,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 * 您磁碟的退貨寄送詳細資料
 
 1. 登入您的 Azure 訂用帳戶。
-2. 在主功能表中，按一下 [所有服務]，然後在 [所有服務] 對話方塊中輸入{3}匯入{4}。 當您看到 [匯入/匯出作業] 時，按一下它。
+2. 在主功能表中，按一下 [所有服務]，然後在 [所有服務] 對話方塊中輸入匯入。 當您看到 [匯入/匯出作業] 時，按一下它。
     ![輸入寄送資訊](./media/backup-azure-backup-import-export/search-import-job.png)<br/>
 
     [匯入/匯出作業] 功能表隨即開啟，而所選訂用帳戶中的所有匯入/匯出作業清單隨即出現。
@@ -206,4 +206,4 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 ## <a name="next-steps"></a>後續步驟
 
 * 如有任何關於 Azure 匯入/匯出工作流程的問題，請參閱 [使用 Microsoft Azure 匯入/匯出服務將資料傳輸至 Blob 儲存體](../storage/common/storage-import-export-service.md)。
-* 若您有關於工作流程的任何問題，請參閱 Azure 備份 [常見問題集](backup-azure-backup-faq.md) 的＜離線備份＞章節。
+
