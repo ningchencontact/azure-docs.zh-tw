@@ -86,7 +86,7 @@ Azure 監視器可以使用[資料收集器 API](platform/data-collector-api.md)
 ![VM Insights](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>監視解決方案
-Azure 監視器中的[監視解決方案](insights/solutions.md)是幾組封裝的邏輯，可提供特定應用程式或服務的深入解析。 它們包括用於收集應用程式或服務之監視資料的邏輯、分析該資料的[查詢](log-query/log-query-overview.md)，以及可用於視覺化的[檢視](../log-analytics/log-analytics-view-designer.md)。 您可以從 [Microsoft](insights/solutions-inventory.md) 及合作夥伴取得監視解決方案，為各種 Azure 服務和其他應用程式提供監視功能。
+Azure 監視器中的[監視解決方案](insights/solutions.md)是幾組封裝的邏輯，可提供特定應用程式或服務的深入解析。 其中包括了用來為應用程式或服務收集監視資料的[查詢](log-query/log-query-overview.md)，以及可用於視覺化的[檢視](../log-analytics/log-analytics-view-designer.md) 您可以從 [Microsoft](insights/solutions-inventory.md) 及合作夥伴取得監視解決方案，為各種 Azure 服務和其他應用程式提供監視功能。
 
 ![監視解決方案](media/overview/solutions-overview.png)
 
@@ -134,7 +134,7 @@ Azure 監視器中的警示規則會使用[動作群組](platform/action-groups.
 
 
 ### <a name="logic-apps"></a>Logic Apps
-[Logic Apps](https://azure.microsoft.com/services/logic-apps) 是一項服務，可讓您使用可與不同系統和服務整合的工作流程，自動執行工作和商務程序。 可用於讀取和寫入 Azure 監視器中計量和記錄的活動，可讓您建置可與其他各種系統整合的工作流程。
+[Logic Apps](https://azure.microsoft.com/services/logic-apps) 是一項服務，可讓您透過工作流程來整合不同的系統和服務，從而實現工作與商務程序的自動化。 可用於讀取和寫入 Azure 監視器中計量和記錄的活動，可讓您建置可與其他各種系統整合的工作流程。
 
 
 ### <a name="api"></a>API
