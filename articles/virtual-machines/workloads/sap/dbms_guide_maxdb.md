@@ -319,7 +319,7 @@ SAP 目前支援 SAP MaxDB 7.9 版或更新版本，以便與 Azure 中 SAP NetW
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-maxdb-dbms"></a>針對 SAP MaxDB DBMS 支援的 Microsoft Windows 版本和 Azure VM 類型
 若要尋找在 Azure 上支援 SAP MaxDB DBMS 的 Microsoft Windows 版本，請參閱︰
 
-* [SAP 產品可用性矩陣 (PAM)][sap-pam]
+* [SAP 產品可用性矩陣（PAM）][sap-pam]
 * SAP 附註 [1928533]
 
 強烈建議使用最新版本的 Microsoft Windows 作業系統，也就是 Microsoft Windows 2016。
@@ -338,7 +338,7 @@ SAP 目前支援 SAP MaxDB 7.9 版或更新版本，以便與 Azure 中 SAP NetW
 
 簡單地說，您必須︰
 
-* 如果您使用 Azure 儲存體帳戶，請依[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中的指示，將存放 SAP MaxDB 資料和記錄磁碟區 (資料和記錄檔) 的 Azure 儲存體帳戶設定為 [本地備援儲存體 (LRS)]。
+* 如果您使用 Azure 儲存體帳戶，請依 **[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)** 中的指示，將存放 SAP MaxDB 資料和記錄磁碟區 (資料和記錄檔) 的 Azure 儲存體帳戶設定為 [本地備援儲存體 (LRS)]。
 * 將 SAP MaxDB 資料磁碟區 (資料檔) 的 IO 路徑，與記錄磁碟區 (記錄檔) 的 IO 路徑分隔開來。 這表示 SAP MaxDB 資料磁碟區 (資料檔) 必須安裝於一個邏輯磁碟機上，而 SAP MaxDB 記錄磁碟區 (記錄檔) 則須安裝於另一個邏輯磁碟機上。
 * 請依[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中的指示，根據您是否要針對 SAP MaxDB 資料或記錄磁碟區 (資料和記錄檔) 使用磁碟，以及是使用 Azure 標準儲存體或 Azure 進階儲存體，為每個磁碟設定適當的快取類型。
 * 只要每個磁碟上目前的 IOPS 配額可滿足需求，就能夠將所有資料磁碟區儲存於單一掛接的磁碟上，而且也會將所有資料庫記錄磁碟區儲存於另一個單一掛接的磁碟上。
@@ -385,7 +385,7 @@ Azure 虛擬機器中支援的 SAP liveCache 最低版本為針對 **EhP 2 for S
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-livecache-dbms"></a>針對 SAP liveCache DBMS 支援的 Microsoft Windows 版本和 Azure VM 類型
 若要尋找在 Azure 上支援 SAP liveCache 的 Microsoft Windows 版本，請參閱︰
 
-* [SAP 產品可用性矩陣 (PAM)][sap-pam]
+* [SAP 產品可用性矩陣（PAM）][sap-pam]
 * SAP 附註 [1928533]
 
 強烈建議使用最新版本的作業系統 Microsoft Windows Server。 
@@ -427,12 +427,12 @@ SAP 目前支援：
 
 強烈建議使用最新版的 SAP 內容伺服器，以及最新版的 **Microsoft IIS**。 
 
-在[Sap 產品可用性對照表 (PAM)][sap-pam]中, 檢查最新支援的 Sap 內容伺服器和 Microsoft IIS 版本。
+在[Sap 產品可用性對照表（PAM）][sap-pam]中，檢查最新支援的 Sap 內容伺服器和 Microsoft IIS 版本。
 
 ### <a name="supported-microsoft-windows-and-azure-vm-types-for-sap-content-server"></a>針對 SAP 內容伺服器支援的 Microsoft Windows 和 Azure VM 類型
 若要找出在 Azure 上支援 SAP 內容伺服器的 Windows 版本，請參閱︰
 
-* [SAP 產品可用性矩陣 (PAM)][sap-pam]
+* [SAP 產品可用性矩陣（PAM）][sap-pam]
 * SAP 附註 [1928533]
 
 強烈建議使用最新版本的 Microsoft Windows Server。
