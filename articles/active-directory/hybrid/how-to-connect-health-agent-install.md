@@ -45,7 +45,7 @@ ms.locfileid: "72330113"
 
 
 > [!NOTE]
-> 如果您有高度鎖定且非常受限的環境，則除了上述的 [允許的 IE 增強式安全性設定] 中所列的 Url 以外，您還需要將下列服務端點清單中所述的 Url 列入白名單。 
+> 如果您有高度鎖定且非常受限的環境，則除了上述的 [允許的 IE 增強式安全性設定] 中所列的 Url 以外，您還需要將下列服務端點清單中所述的 Url 列入允許清單。 
 >
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Azure 服務端點的輸出連線

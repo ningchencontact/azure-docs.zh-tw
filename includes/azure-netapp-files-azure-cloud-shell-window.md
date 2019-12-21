@@ -15,7 +15,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 10/03/2019
 ms.locfileid: "71836299"
 ---
-1. 指定已列入 Azure NetApp Files 白名單的訂用帳戶：
+1. 指定已列入 Azure NetApp Files 允許清單的訂用帳戶：
     
     ```azurecli-interactive
     az account set --subscription <subscriptionId>

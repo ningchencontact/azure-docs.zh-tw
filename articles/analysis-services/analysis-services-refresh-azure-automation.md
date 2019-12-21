@@ -30,7 +30,7 @@ ms.locfileid: "73572361"
 ## <a name="prerequisites"></a>必要條件
 
 > [!IMPORTANT]
-> 下列範例假設 Azure Analysis Services 防火牆已停用。 如果已啟用防火牆，則要求啟動器的公用 IP 位址必須在防火牆的白名單中。
+> 下列範例假設 Azure Analysis Services 防火牆已停用。 如果已啟用防火牆，則要求啟動器的公用 IP 位址必須在防火牆的允許清單中。
 
 ### <a name="install-sqlserver-modules-from-powershell-gallery"></a>從 PowerShell 資源庫安裝 SqlServer 模組。
 

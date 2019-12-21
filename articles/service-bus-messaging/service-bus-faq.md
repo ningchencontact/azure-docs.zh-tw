@@ -58,7 +58,7 @@ ms.locfileid: "73748443"
 | HTTP、HTTPS | 80、443 | 
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>我需要列入允許清單的 IP 位址為何？
-若要針對您的連線尋找適當的 IP 位址給白名單，請遵循下列步驟：
+若要針對您的連線尋找適當的 IP 位址給允許清單，請遵循下列步驟：
 
 1. 從命令提示字元執行下列命令： 
 

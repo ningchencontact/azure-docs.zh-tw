@@ -46,7 +46,7 @@ ms.locfileid: "73961782"
 
 ### <a name="language-support-for-diacritics"></a>變音符號的語言支援
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>巴西葡萄牙文 `pt-br` 變音符號
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>葡萄牙文(巴西) `pt-br` 變音符號
 
 |變音符號設定為 false|變音符號設定為 true|
 |-|-|
