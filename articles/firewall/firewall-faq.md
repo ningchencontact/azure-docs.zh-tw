@@ -145,7 +145,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 如果您設定**contoso.com**，它會允許*anyvalue*contoso.com，但無法 contoso.com （網域頂點）。 如果您想要允許網域頂點，您必須將它明確設定為目標 FQDN。
 
-## <a name="what-does-provisioning-state-failed-mean"></a>布建*狀態為何：失敗*mean？
+## <a name="what-does-provisioning-state-failed-mean"></a>*布建狀態：失敗*是什麼意思？
 
 每當套用設定變更時，Azure 防火牆會嘗試更新其所有基礎後端實例。 在罕見的情況下，其中一個後端實例可能無法使用新的設定進行更新，且更新程式會以失敗的布建狀態來停止。 您的 Azure 防火牆仍可運作，但套用的設定可能處於不一致的狀態，其中有些實例有先前的設定，而其他實例則具有更新的規則集。 如果發生這種情況，請嘗試再更新一次您的設定，直到作業成功且您的防火牆處於*成功*布建狀態。
 
