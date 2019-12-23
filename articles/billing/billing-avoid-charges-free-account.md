@@ -31,7 +31,7 @@ ms.locfileid: "74226444"
 
 ## <a name="usage-exceeds-the-limits-of-free-services"></a>使用量超過免費服務的限額
 
-Azure 免費帳戶提供使用量有限的每個月免費服務。 免費使用量會在月底到期，不會累計至下個月。 例如，您每個月有 5 GB 的檔案儲存體使用量。 如果，您在一個月中只使用 2 GB，剩餘的 3 GB 不會累計至下個月。 若要避免產生費用，請在使用量維持在限額內。 若要了解免費服務的限額，請參閱 [Azure 免費帳戶常見問題集](https://azure.microsoft.com/free/free-account-faq/)。 若要檢查您的免費服務使用量，請參閱[檢查 Azure 免費帳戶提供的免費服務使用量](billing-check-free-service-usage.md)。
+Azure 免費帳戶提供使用量有限的每個月免費服務。 免費使用量會在月底到期，不會累計至下個月。 例如，您每個月有 5 GB 的檔案儲存體使用量。 如果，您在一個月中只使用 2 GB，剩餘的 3 GB 不會累計至下個月。 若要避免產生費用，請將使用量維持在限額內。 若要了解免費服務的限額，請參閱 [Azure 免費帳戶常見問題集](https://azure.microsoft.com/free/free-account-faq/)。 若要檢查您的免費服務使用量，請參閱[檢查 Azure 免費帳戶提供的免費服務使用量](billing-check-free-service-usage.md)。
 
 ## <a name="you-used-some-services-that-arent-free"></a>您使用的服務有些不是免費的
 

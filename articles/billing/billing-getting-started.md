@@ -121,7 +121,7 @@ ms.locfileid: "74223903"
 
 ## <a name="integrate-with-billing-and-consumption-apis"></a>整合帳單與使用量 API
 
-使用 Azure [帳單](https://docs.microsoft.com/rest/api/billing/)和[使用量](https://docs.microsoft.com/rest/api/consumption/) API，以程式設計方式取得帳單和成本資料。 RateCard API 與使用情況 API 一起使用即可取得您的計費使用量。 如需詳細資訊，請參閱[深入瞭解 Microsoft Azure 資源耗用量](billing-usage-rate-card-overview.md)。
+使用 Azure [帳單](https://docs.microsoft.com/rest/api/billing/)和[使用量](https://docs.microsoft.com/rest/api/consumption/) API，以程式設計方式取得帳單和成本資料。 一起使用 RateCard API 與 Usage API 即可取得您的計費使用量。 如需詳細資訊，請參閱[深入瞭解 Microsoft Azure 資源耗用量](billing-usage-rate-card-overview.md)。
 
 ## <a name="other-offers"></a> 其他資源和特殊案例
 

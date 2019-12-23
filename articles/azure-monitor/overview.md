@@ -101,16 +101,16 @@ Azure 監視器中的警示規則會使用[動作群組](platform/action-groups.
 
 ![警示](media/overview/alerts.png)
 
-### <a name="autoscale"></a>Autoscale
+### <a name="autoscale"></a>自動調整
 自動調整可讓您執行適當數量的資源來處理應用程式的負載。 它可讓您建立一些規則，這些規則會使用 Azure 監視器所收集的計量來決定何時自動新增資源來處理增加的負載，並可藉由移除閒置資源來節省成本。 您可指定執行個體的數目上限和下限，以及何時要增加或減少資源的邏輯。
 
-![Autoscale](media/overview/autoscale.png)
+![自動調整](media/overview/autoscale.png)
 
 ## <a name="visualizing-monitoring-data"></a>將監視資料視覺化
 [視覺效果](visualizations.md) (例如圖表和資料表) 是摘要監視資料以及向不同對象呈現資料的有效工具。 Azure 監視器有自己的功能可將監視資料視覺化，並運用其他 Azure 服務向不同的對象發佈資料。
 
 ### <a name="dashboards"></a>儀表板
-[Azure 儀表板](../azure-portal/azure-portal-dashboards.md)可讓您將不同種類的資料 (包括計量和記錄) 結合至 [Azure 入口網站](https://portal.azure.com)的單一窗格中。 您可以選擇性地與其他 Azure 使用者共用儀表板。 您可以將 Azure 監視器的元素新增至 Azure 儀表板 (任何記錄查詢或計量圖表的輸出除外)。 例如，您可以建立一個儀表板，將顯示計量圖表、活動記錄表、來自 Application Insights 的使用情況圖表，以及記錄查詢輸出的圖格結合在一起。
+[Azure 儀表板](../azure-portal/azure-portal-dashboards.md)可讓您將不同種類的資料 (包括計量和記錄) 結合至 [Azure 入口網站](https://portal.azure.com)的單一窗格中。 您可以選擇性地與其他 Azure 使用者共用儀表板。 除了任何記錄查詢或計量圖表的輸出之外，您還可以將 Azure 監視器的元素新增至 Azure 儀表板 。 例如，您可以建立一個儀表板，將顯示計量圖表、活動記錄表、來自 Application Insights 的使用情況圖表，以及記錄查詢輸出的圖格結合在一起。
 
 ![儀表板](media/overview/dashboard.png)
 
