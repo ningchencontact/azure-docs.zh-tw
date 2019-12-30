@@ -1,24 +1,17 @@
 ---
-title: 如何使用 WebJobs SDK - Azure
-description: 深入了解如何針對 WebJobs SDK 撰寫程式碼。 建立事件驅動的背景處理作業，以存取 Azure 服務和協力廠商服務中的資料。
-services: app-service\web, storage
-documentationcenter: .net
+title: 如何使用 Webjob SDK
+description: 深入了解如何針對 WebJobs SDK 撰寫程式碼。 建立事件驅動的背景處理作業，以存取 Azure 和協力廠商服務中的資料。
 author: ggailey777
-manager: jeconnoc
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 67cd7f82597d306c8bf3c463d11457199aec7277
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
-ms.translationtype: MT
+ms.openlocfilehash: 8e29c632ff3920c77a757fe45475a12c212cf579
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815733"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684008"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
@@ -286,9 +279,9 @@ static void Main()
 
 * Blob 儲存體
 * 佇列儲存體
-* 資料表儲存體
+* 表格儲存體
 
-若要使用其他觸發程序與繫結型別，請安裝包含它們的 NuGet 封裝，並在 `Use<binding>` 物件上呼叫 `JobHostConfiguration` 方法。 例如，如果您想要使用計時器觸發程式，請安裝 `Microsoft.Azure.WebJobs.Extensions` 並在 `Main` 方法中呼叫 `UseTimers`，如下所示：
+若要使用其他觸發程序與繫結型別，請安裝包含它們的 NuGet 封裝，並在 `JobHostConfiguration` 物件上呼叫 `Use<binding>` 方法。 例如，如果您想要使用計時器觸發程式，請安裝 `Microsoft.Azure.WebJobs.Extensions` 並在 `Main` 方法中呼叫 `UseTimers`，如下所示：
 
 ```cs
 static void Main()
@@ -822,7 +815,7 @@ WebJobs SDK 使用 [Azure 二進位大型物件租用](../storage/common/storage
 
 如果您想要確保即使有多個主 web 應用程式實例，也只會執行一個函式的實例，您可以使用[`Singleton`](#singleton-attribute)屬性。
 
-## <a name="filters"></a>篩選器
+## <a name="filters"></a>篩選
 
 函式篩選條件 (預覽) 讓您能夠使用自己的邏輯自訂 WebJobs 執行管線。 篩選器類似[ASP.NET Core 篩選](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters)條件。 您可以將它們實作為套用至函數或類別的宣告式屬性。 如需詳細資訊，請參閱[函式篩選條件](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters) (英文)。
 
@@ -834,15 +827,15 @@ WebJobs SDK 使用 [Azure 二進位大型物件租用](../storage/common/storage
 
 `ILogger` 執行個體建立的每個記錄皆有相關聯的 `Category` 和 `Level`。 [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)是列舉，而整數程式碼表示相對重要性：
 
-|LogLevel    |代碼|
+|LogLevel    |程式碼|
 |------------|---|
 |追蹤       | 0 |
 |偵錯       | 1 |
 |資訊 | 2 |
 |警告     | 3 |
-|錯誤       | 4 |
-|重要    | 5 |
-|無        | 6 |
+|Error       | 4 |
+|危急    | 5 |
+|None        | 6 |
 
 您可以將每個類別個別篩選成特定[`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)。 例如，您可能想要看見二進位大型物件觸發程序處理的所有記錄，但只看見所有其他項目的 `Error` 以上等級記錄。
 

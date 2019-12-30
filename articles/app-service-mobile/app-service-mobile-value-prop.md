@@ -1,32 +1,23 @@
 ---
-title: 關於 Azure App Service 中的 Mobile Apps
+title: 關於 Mobile Apps
 description: 了解 App Service 為您的企業行動裝置應用程式帶來的優勢。
-services: app-service\mobile
-documentationcenter: ''
-author: elamalani
-manager: yochayk
-editor: ''
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
-ms.service: app-service-mobile
-ms.workload: na
 ms.tgt_pltfrm: mobile-multiple
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 89e3fb57f29a6c24b64082db06678b3965ad8517
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d85ac89a4226b545419cea3413a04f4013a073be
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388616"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668713"
 ---
 # <a name="getting-started"> </a>關於 Azure App Service 中的 Mobile Apps
 
 > [!NOTE]
-> Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
+> Visual Studio App Center 支援使用端對端及整合服務中心來開發行動應用程式。 開發人員可以使用**建置**、**測試**和**散發**服務來設定持續整合及傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用情況，並使用**推送**服務與使用者互動。 開發人員也可以利用**驗證**來驗證其使用者，並使用**資料**來保存及同步雲端中的應用程式資料。
 >
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+> 如果您想要在行動應用程式中整合雲端服務，請立即註冊 [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) \(英文\)。
 
 Azure App Service 是完全受控的[平台即服務](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) 供應項目，適用於專業開發人員。 此服務為 Web、行動及整合案例提供一組豐富的功能。 
 

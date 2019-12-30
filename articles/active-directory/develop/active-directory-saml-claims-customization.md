@@ -1,29 +1,26 @@
 ---
-title: 在 Azure AD 中自訂企業應用程式的 SAML 權杖宣告
+title: 自訂 Azure AD 應用程式 SAML 權杖宣告
 titleSuffix: Microsoft identity platform
 description: 了解如何針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1490a25e69ff22fde1f5c870868f20ea6f9a1cf7
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 14e1a466902ccb47d57e5f9590ba94bf08c76ec5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74046977"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918435"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>如何：針對企業應用程式自訂 SAML 權杖中發出的宣告
 
@@ -73,7 +70,7 @@ ms.locfileid: "74046977"
 
 選取 `NameIdentifier` (或 NameID) 宣告的所需來源。 您可以從下列選項選取。
 
-| 名稱 | 描述 |
+| Name | 描述 |
 |------|-------------|
 | 電子郵件 | 使用者的電子郵件地址 |
 | userprincipalName | 使用者的使用者主體名稱（UPN） |
@@ -87,7 +84,7 @@ ms.locfileid: "74046977"
 
 您也可以將任何常數（靜態）值指派給您在 Azure AD 中定義的任何宣告。 請遵循下列步驟來指派常數值：
 
-1. 在  [Azure 入口網站](https://portal.azure.com/)的 **使用者屬性 & 宣告**] 區段上，按一下 [**編輯**] 圖示來編輯宣告。
+1. 在  [Azure 入口網站](https://portal.azure.com/)的 **使用者屬性 & 宣告** 區段上，按一下 [**編輯**] 圖示來編輯宣告。
 
 1. 按一下您要修改的必要宣告。
 
@@ -103,7 +100,7 @@ ms.locfileid: "74046977"
 
 您也可以使用宣告轉換函式。
 
-| 函數 | 描述 |
+| 函式 | 描述 |
 |----------|-------------|
 | **ExtractMailPrefix()** | 從電子郵件地址或使用者主體名稱中移除網域尾碼。 這只會擷取使用者名稱的第一個部分 (例如，"joe_smith" 而不是 joe_smith@contoso.com)。 |
 | **Join （）** | 加入具有已驗證網域的屬性。 如果選取的使用者識別碼值具有網域，它會擷取使用者名稱以附加所選的已驗證網域。 例如，如果您選取電子郵件 (joe_smith@contoso.com) 作為使用者識別碼值，並選取 contoso.onmicrosoft.com 作為已驗證的網域，這樣會產生 joe_smith@contoso.onmicrosoft.com。 |
@@ -130,7 +127,7 @@ ms.locfileid: "74046977"
 
 您可以使用下列函數來轉換宣告。
 
-| 函數 | 描述 |
+| 函式 | 描述 |
 |----------|-------------|
 | **ExtractMailPrefix()** | 從電子郵件地址或使用者主體名稱中移除網域尾碼。 這只會擷取使用者名稱的第一個部分 (例如，"joe_smith" 而不是 joe_smith@contoso.com)。 |
 | **Join （）** | 藉由聯結兩個屬性來建立新的值。 （選擇性）您可以在這兩個屬性之間使用分隔符號。 針對 NameID 宣告轉換，聯結僅限於已驗證的網域。 如果選取的使用者識別碼值具有網域，它會擷取使用者名稱以附加所選的已驗證網域。 例如，如果您選取電子郵件 (joe_smith@contoso.com) 作為使用者識別碼值，並選取 contoso.onmicrosoft.com 作為已驗證的網域，這樣會產生 joe_smith@contoso.onmicrosoft.com。 |

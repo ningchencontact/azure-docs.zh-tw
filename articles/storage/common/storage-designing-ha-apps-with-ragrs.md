@@ -1,20 +1,21 @@
 ---
-title: 使用讀取權限異地多餘儲存體（RA-切換或 RA-GRS）設計高可用性應用程式 |Microsoft Docs
-description: 如何使用 Azure 切換或 RA GRS 儲存體來架構具有足夠彈性的高可用性應用程式來處理中斷。
+title: 使用異地多餘儲存體設計高可用性應用程式
+titleSuffix: Azure Storage
+description: 瞭解如何使用讀取權限異地多餘儲存體來架構具有足夠彈性的高可用性應用程式來處理中斷。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a6d724f834fb8a4c54cd613c61ca90a77a36bdea
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 8cb644495d99b331ec95eb0a9759be45a65e97a6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673120"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895331"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>使用讀取權限異地多餘儲存體設計高可用性應用程式
 
@@ -199,15 +200,15 @@ Azure 儲存體用戶端程式庫可協助您判斷哪些錯誤可以重試。 �
 
 下表顯示當您更新員工的詳細資料，使其成為系統*管理員*角色的成員時，可能會發生的情況。 基於此範例，這會要求您更新**員工**實體，並利用系統管理員總數的計數來更新**系統管理員角色**實體。 請注意，如何在次要區域中不按順序套用更新。
 
-| **時間** | **交易**                                            | **複寫**                       | **上次同步處理時間** | **結果** |
+| **時候** | **交易**                                            | **複寫**                       | **上次同步處理時間** | **結果** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | 交易 A： <br> 會在主要區域中 <br> 插入員工實體 |                                   |                    | 交易 A 已插入至主要區域，<br> 但尚未複寫。 |
 | T1       |                                                            | 交易 A <br> 已複寫到<br> 次要區域 | T1 | 交易 A 已複寫到次要區域。 <br>已更新上次同步處理時間。    |
-| T2       | 交易 B：<br>Update<br> 主要區域中的<br> 員工實體  |                                | T1                 | 交易 B 已寫入主要區域，<br> 但尚未複寫。  |
-| T3       | 交易 C：<br> Update <br>系統管理員<br>角色實體，位於<br>primary |                    | T1                 | 交易 C 已寫入主要區域，<br> 但尚未複寫。  |
+| T2       | 交易 B：<br>更新<br> 主要區域中的<br> 員工實體  |                                | T1                 | 交易 B 已寫入主要區域，<br> 但尚未複寫。  |
+| T3       | 交易 C：<br> 更新 <br>administrator<br>角色實體，位於<br>primary |                    | T1                 | 交易 C 已寫入主要區域，<br> 但尚未複寫。  |
 | *T4*     |                                                       | 交易 C <br>已複寫到<br> 次要區域 | T1         | 交易 C 已複寫到次要區域。<br>無法更新 LastSyncTime，因為 <br>尚未複寫交易 B。|
 | *T5*     | 從次要區域 <br>讀取實體                           |                                  | T1                 | 您取得員工實體的過時值， <br> 因為交易 B 尚未 <br> 複寫。 您取得系統管理員角色實體<br> 的新值，因為 C<br> 已複寫。 上次同步處理時間仍然尚未<br> 更新，因為交易 B<br> 尚未複寫。 您可以說<br>系統管理員角色實體不一致， <br>因為實體日期/時間是在 <br>上次同步處理時間之後。 |
-| *T6*     |                                                      | 交易 B<br> 已複寫到<br> 次要 | T6                 | *T6* - 透過 C 的所有交易都 <br>已複寫，上次同步處理時間<br> 已更新。 |
+| *T6*     |                                                      | 交易 B<br> 已複寫到<br> 次要區域 | T6                 | *T6* - 透過 C 的所有交易都 <br>已複寫，上次同步處理時間<br> 已更新。 |
 
 在此範例中，假設用戶端會在 T5 從次要區域切換到讀取。 它可以在此時順利讀取**系統管理員角色**實體，但實體包含的系統管理員計數值與**員工**實體數目不一致，後者在此時標示為次要區域中的系統管理員。 您的用戶端可能只會顯示此值，存有資訊不一致的風險。 或者，用戶端可能嘗試判斷**系統管理員角色**處於可能不一致的狀態，因為更新並未按順序進行，然後通知使用者此一事實。
 
@@ -219,7 +220,7 @@ Azure 儲存體用戶端程式庫可協助您判斷哪些錯誤可以重試。 �
 
 ### <a name="powershell"></a>PowerShell
 
-若要使用 PowerShell 取得儲存體帳戶的上次同步處理時間，請安裝支援取得異地複寫統計資料的 Azure 儲存體預覽模組。例如:
+若要使用 PowerShell 取得儲存體帳戶的上次同步處理時間，請安裝支援取得異地複寫統計資料的 Azure 儲存體預覽模組。例如：
 
 ```powershell
 Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
@@ -235,7 +236,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
 
 ### <a name="azure-cli"></a>Azure CLI
 
-若要使用 Azure CLI 來取得儲存體帳戶的上次同步處理時間，請檢查儲存體帳戶的**geoReplicationStats. lastSyncTime**屬性。 您可以使用 `--expand` 參數來傳回**geoReplicationStats**下所嵌套屬性的值。 請記得使用您自己的值來取代預留位置值：
+若要使用 Azure CLI 來取得儲存體帳戶的上次同步處理時間，請檢查儲存體帳戶的**geoReplicationStats. lastSyncTime**屬性。 請使用 `--expand` 參數來傳回**geoReplicationStats**下所嵌套屬性的值。 請記得使用您自己的值來取代預留位置值：
 
 ```azurecli
 $lastSyncTime=$(az storage account show \

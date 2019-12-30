@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: f253aeb202671a3f90eabb1d04af95333540a239
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 77915409e3c44a01e26c35c0facb2d577c331fd8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231159"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914925"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Microsoft Graph 繫結
 
@@ -28,7 +28,7 @@ Microsoft Graph 擴充功能會提供下列繫結：
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!Note]
-> Microsoft Graph 繫結目前處於 Azure Functions 2.x 版的預覽階段。 Functions 1.x 版不加以支援。
+> Azure Functions 2.x 版和更新版本的 Microsoft Graph 系結目前處於預覽狀態。 Functions 1.x 版不加以支援。
 
 ## <a name="packages"></a>封裝
 
@@ -78,7 +78,7 @@ Microsoft Graph 繫結可透過 _繫結擴充功能_ 提供。 繫結擴充功�
 * [範例](#auth-token---example)
 * [屬性](#auth-token---attributes)
 * [組態](#auth-token---configuration)
-* [使用量](#auth-token---usage)
+* [用法](#auth-token---usage)
 
 ### <a name="auth-token---example"></a>驗證權杖 - 範例
 
@@ -236,7 +236,7 @@ Excel 資料表輸入繫結會讀取儲存在 OneDrive 中 Excel 資料表的內
 * [範例](#excel-input---example)
 * [屬性](#excel-input---attributes)
 * [組態](#excel-input---configuration)
-* [使用量](#excel-input---usage)
+* [用法](#excel-input---usage)
 
 ### <a name="excel-input---example"></a>Excel 輸入 - 範例
 
@@ -385,7 +385,7 @@ Excel 輸出繫結會修改儲存在 OneDrive 中 Excel 資料表的內容。
 * [範例](#excel-output---example)
 * [屬性](#excel-output---attributes)
 * [組態](#excel-output---configuration)
-* [使用量](#excel-output---usage)
+* [用法](#excel-output---usage)
 
 ### <a name="excel-output---example"></a>Excel 輸出 - 範例
 
@@ -544,7 +544,7 @@ OneDrive 檔案輸入繫結會讀取儲存在 OneDrive 中的檔案內容。
 * [範例](#file-input---example)
 * [屬性](#file-input---attributes)
 * [組態](#file-input---configuration)
-* [使用量](#file-input---usage)
+* [用法](#file-input---usage)
 
 ### <a name="file-input---example"></a>檔案輸入 - 範例
 
@@ -670,7 +670,7 @@ module.exports = function (context, req) {
 繫結會向 .NET 函式公開下列類型：
 - byte[]
 - Stream
-- 字串
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -688,7 +688,7 @@ OneDrive 檔案輸出繫結會修改儲存在 OneDrive 中的檔案內容。
 * [範例](#file-output---example)
 * [屬性](#file-output---attributes)
 * [組態](#file-output---configuration)
-* [使用量](#file-output---usage)
+* [用法](#file-output---usage)
 
 ### <a name="file-output---example"></a>檔案輸出 - 範例
 
@@ -818,7 +818,7 @@ module.exports = function (context, req) {
 繫結會向 .NET 函式公開下列類型：
 - byte[]
 - Stream
-- 字串
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -835,7 +835,7 @@ Outlook 訊息輸出繫結會透過 Outlook 傳送電子郵件訊息。
 * [範例](#outlook-output---example)
 * [屬性](#outlook-output---attributes)
 * [組態](#outlook-output---configuration)
-* [使用量](#outlook-output---usage)
+* [用法](#outlook-output---usage)
 
 ### <a name="outlook-output---example"></a>Outlook 輸出 - 範例
 
@@ -968,7 +968,7 @@ module.exports = function (context, req) {
 繫結會向 .NET 函式公開下列類型：
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- 字串
+- string
 - 自訂物件類型 (使用結構化模型繫結)
 
 
@@ -1000,7 +1000,7 @@ Microsoft Graph Webhook 觸發程序可讓函式回應從 Microsoft Graph 傳入
 * [範例](#webhook-trigger---example)
 * [屬性](#webhook-trigger---attributes)
 * [組態](#webhook-trigger---configuration)
-* [使用量](#webhook-trigger---usage)
+* [用法](#webhook-trigger---usage)
 
 ### <a name="webhook-trigger---example"></a>Webhook 觸發程序 - 範例
 
@@ -1119,7 +1119,7 @@ Microsoft Graph Webhook 輸入繫結可讓您擷取由此函式應用程式管�
 * [範例](#webhook-input---example)
 * [屬性](#webhook-input---attributes)
 * [組態](#webhook-input---configuration)
-* [使用量](#webhook-input---usage)
+* [用法](#webhook-input---usage)
 
 ### <a name="webhook-input---example"></a>Webhook 輸入 - 範例
 
@@ -1270,7 +1270,7 @@ Webhook 訂用帳戶輸出繫結可讓您建立、刪除和重新整理 Microsof
 * [範例](#webhook-output---example)
 * [屬性](#webhook-output---attributes)
 * [組態](#webhook-output---configuration)
-* [使用量](#webhook-output---usage)
+* [用法](#webhook-output---usage)
 
 ### <a name="webhook-output---example"></a>Webhook 輸出 - 範例
 
@@ -1392,13 +1392,13 @@ module.exports = function (context, req) {
 |**userId**|UserId  |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
 |**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
 |**action**|**Action**|必要項目 - 指定繫結應該要執行的動作。 可以是下列其中一個值：<ul><li><code>create</code> - 註冊新的訂用帳戶。</li><li><code>delete</code> - 刪除指定的訂用帳戶。</li><li><code>refresh</code> - 重新整理指定的訂用帳戶以避免過期。</li></ul>|
-|**subscriptionResource**|**SubscriptionResource**|只有當_動作_設為 `create` 時才需要。 指定要監視以進行變更的 Microsoft Graph 資源。 請參閱[在 Microsoft Graph 中使用 webhook]。 |
-|**changeType**|**ChangeType**|只有當_動作_設為 `create` 時才需要。 指出會引發通知之訂閱資源中的變更類型。 支援的值為：`created`、`updated`、`deleted`。 可以使用逗號分隔清單來組合多個值。|
+|**subscriptionResource**|**SubscriptionResource**|只有當 _action_ 設為 `create` 時才需要。 指定要監視以進行變更的 Microsoft Graph 資源。 請參閱[在 Microsoft Graph 中使用 webhook]。 |
+|**changeType**|**ChangeType**|只有當 _action_ 設為 `create` 時才需要。 指出會引發通知之訂閱資源中的變更類型。 支援的值為：`created`、`updated`、`deleted`。 可以使用逗號分隔清單來組合多個值。|
 
 ### <a name="webhook-output---usage"></a>Webhook 輸出 - 使用方式
 
 繫結會向 .NET 函式公開下列類型：
-- 字串
+- string
 - Microsoft.Graph.Subscription
 
 

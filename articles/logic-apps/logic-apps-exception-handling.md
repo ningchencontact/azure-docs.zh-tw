@@ -1,20 +1,19 @@
 ---
-title: 錯誤和例外狀況處理-Azure Logic Apps
+title: 錯誤和例外狀況處理
 description: 了解 Azure Logic Apps 中的錯誤和例外狀況處理模式
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: dereklee
 ms.author: deli
-ms.reviewer: klam, estfan, LADocs
+ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/31/2018
 ms.topic: article
-ms.openlocfilehash: 828bea50a66b90f35843901ae2d7c703ffa58f2d
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
-ms.translationtype: MT
+ms.openlocfilehash: 781abb1ce92a9d96a93ac0c6b04d55075d752db8
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208183"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792077"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>處理 Azure Logic Apps 中的錯誤和例外狀況
 
@@ -33,7 +32,7 @@ ms.locfileid: "70208183"
 | **預設值** | 此原則會以*指數漸增*的間隔 (依 7.5 秒調整，但限制在 5 到 45 秒之間) 傳送最多 4 次重試。 | 
 | **指數間隔**  | 此原則會先等待選自指數成長範圍內的隨機間隔時間，再傳送下一個要求。 | 
 | **固定間隔**  | 此原則會先等待指定的間隔時間，再傳送下一個要求。 | 
-| **無**  | 不重新傳送要求。 | 
+| **None**  | 不重新傳送要求。 | 
 ||| 
 
 如需有關重試原則限制的資訊，請參閱 [Logic Apps 限制和設定](../logic-apps/logic-apps-limits-and-config.md#request-limits)。 
@@ -70,16 +69,16 @@ ms.locfileid: "70208183"
 
 *必要*
 
-| 值 | Type | 描述 |
+| Value | Type | 描述 |
 |-------|------|-------------|
 | <retry-policy-type> | String | 您想要使用的重試原則類型：`default`、`none`、`fixed` 或 `exponential` | 
 | <retry-interval> | String | 值必須使用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)的重試間隔。 預設最小間隔是 `PT5S`，最大間隔則是 `PT1D`。 當您使用指數間隔原則時，您可以指定不同的最小和最大值。 | 
-| <retry-attempts> | Integer | 重試次數必須介於 1 到 90 之間 | 
+| <retry-attempts> | 整數 | 重試次數必須介於 1 到 90 之間 | 
 ||||
 
 *選擇性*
 
-| 值 | Type | 描述 |
+| Value | Type | 描述 |
 |-------|------|-------------|
 | <minimum-interval> | String | 對於指數間隔原則，此為隨機選取間隔的最小間隔，且採用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 | <maximum-interval> | String | 對於指數間隔原則，此為隨機選取間隔的最大間隔，且採用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
@@ -89,7 +88,7 @@ ms.locfileid: "70208183"
 
 <a name="default-retry"></a>
 
-### <a name="default"></a>預設
+### <a name="default"></a>預設值
 
 若您未指定重試原則，則動作會使用預設原則 (實際上就是[指數間隔原則](#exponential-interval))，此原則會以指數漸增間隔 (以 7.5 秒作調整) 傳送最多四次重試。 間隔的最小值與最大值為 5 秒和 45 秒。 
 
@@ -224,9 +223,9 @@ ms.locfileid: "70208183"
 
 雖然從範圍擷取失敗很實用，但還是建議您取得內容以協助解實際上有哪些動作失敗，以及所傳回的任何錯誤或狀態碼。
 
-[`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result)函式會提供範圍內所有動作結果的相關內容。 `result()`函式會接受單一參數, 也就是範圍的名稱, 並傳回包含該範圍內所有動作結果的陣列。 這些動作物件包含與`@actions()`物件相同的屬性, 例如動作的開始時間、結束時間、狀態、輸入、相互關聯識別碼和輸出。 若要傳送在範圍內失敗之任何動作的內容, 您可以輕鬆地`@result()`將運算式`runAfter`與屬性配對。
+[`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result)函式會提供範圍中所有動作之結果的相關內容。 `result()` 函式會接受單一參數，也就是範圍的名稱，並傳回包含該範圍內所有動作結果的陣列。 這些動作物件包含與 `@actions()` 物件相同的屬性，例如動作的開始時間、結束時間、狀態、輸入、相互關聯識別碼和輸出。 若要傳送在範圍內失敗之任何動作的內容，您可以輕鬆地將 `@result()` 運算式與 `runAfter` 屬性配對。
 
-若要針對範圍中結果為**failed**的每個動作執行動作, 並將結果的陣列篩選到失敗的動作, 您可以將`@result()`運算式與[**篩選陣列**](../connectors/connectors-native-query.md)動作和[**for each**](../logic-apps/logic-apps-control-flow-loops.md)迴圈配對。 您可以取得篩選後的結果陣列，並使用 **For each** 迴圈對每個失敗執行動作。
+若要針對範圍中結果為**failed**的每個動作執行動作，並將結果的陣列篩選到失敗的動作，您可以將 `@result()` 運算式與[**篩選陣列**](../connectors/connectors-native-query.md)動作和[**for each**](../logic-apps/logic-apps-control-flow-loops.md)迴圈配對。 您可以取得篩選後的結果陣列，並使用 **For each** 迴圈對每個失敗執行動作。
 
 以下範例 (隨後並有詳細說明) 會傳送 HTTP POST 要求，其中含有任何在 "My_Scope" 範圍內失敗之動作的回應本文：
 
@@ -318,7 +317,7 @@ ms.locfileid: "70208183"
 }
 ```
 
-若要執行不同的例外狀況處理模式，您可以使用本文前面描述的運算式。 您可以選擇在範圍外執行單一例外狀況處理動作，以接受整個篩選後的失敗陣列，並移除 **For each** 動作。 如先前所述, 您也可以包含 **\@result ()** 回應中的其他有用屬性。
+若要執行不同的例外狀況處理模式，您可以使用本文前面描述的運算式。 您可以選擇在範圍外執行單一例外狀況處理動作，以接受整個篩選後的失敗陣列，並移除 **For each** 動作。 如先前所述，您也可以包含 **\@result （）** 回應中的其他有用屬性。
 
 ## <a name="azure-diagnostics-and-metrics"></a>Azure 診斷和計量
 

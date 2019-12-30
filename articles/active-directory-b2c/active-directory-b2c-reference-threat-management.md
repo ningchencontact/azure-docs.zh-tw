@@ -1,5 +1,6 @@
 ---
-title: 管理對 Azure Active Directory B2C 中的資源與資料的威脅
+title: 管理對資源和資料的威脅
+titleSuffix: Azure AD B2C
 description: 了解 Azure Active Directory B2C 中針對拒絕服務攻擊和密碼攻擊的偵測和風險降低技術。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eae82fbd56782faf5b15479c13fe530e189a0e3e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b236dba9b682bc4d62ef8cfc8b95e67370b3e0ea
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256912"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947735"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>管理對 Azure Active Directory B2C 中的資源與資料的威脅
 
@@ -39,16 +40,16 @@ Azure AD B2C 使用複雜的策略來鎖定帳戶。 帳戶會依據要求的 IP
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)
 1. 使用上方功能表中的 [**目錄 + 訂**用帳戶] 篩選，選取包含您 Azure AD B2C 租使用者的目錄。
-1. 在左側功能表中，選取 [ **Azure AD B2C**]。 或者，選取 [**所有服務**]，然後搜尋並選取 [ **Azure AD B2C**]。
+1. 在左側功能表中，選取 [Azure AD B2C]。 或者，選取 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
 1. 在 [**安全性**] 底下，選取 **[驗證方法（預覽）** ]，然後選取 [**密碼保護**]。
 1. 輸入您想要的密碼保護設定，然後選取 [**儲存**]。
 
-    ![Azure AD 設定中的 Azure 入口網站密碼保護 頁面](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)
-    <br />*在 [**密碼保護**設定] 中將 [鎖定閾值] 設定為 [5*]。
+    Azure AD 設定中的 ![Azure 入口網站密碼保護](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)
+    頁面  <br />*在 [**密碼保護**設定] 中將 [鎖定閾值] 設定為 [5*]。
 
 ## <a name="view-locked-out-accounts"></a>查看鎖定的帳戶
 
-若要取得鎖定帳戶的相關資訊，您可以檢查 Active Directory 登[入活動報告](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)。 在 [**狀態**] 底下，選取 [**失敗**]。 嘗試登入失敗，登入**錯誤碼**為`50053` ，指出已鎖定的帳戶：
+若要取得鎖定帳戶的相關資訊，您可以檢查 Active Directory 登[入活動報告](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)。 在 [**狀態**] 底下，選取 [**失敗**]。 嘗試登入失敗，登入**錯誤碼**為 `50053` 表示已鎖定的帳戶：
 
 ![顯示已鎖定帳戶的 Azure AD 登入報告區段](media/active-directory-b2c-reference-threat-management/portal-01-locked-account.png)
 
