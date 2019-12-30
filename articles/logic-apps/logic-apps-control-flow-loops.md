@@ -1,20 +1,17 @@
 ---
-title: 新增迴圈以重複動作-Azure Logic Apps
+title: 新增迴圈以重複動作
 description: 在 Azure Logic Apps 中建立會重複工作流程動作或處理陣列的迴圈
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 31885749a7194a94a403e5c156220b3fceab951d
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 5f6c04c9a57dc8c250d99f2fa944203d2d73c404
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680455"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791759"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立會重複工作流程動作或處理陣列的迴圈
 
@@ -23,7 +20,7 @@ ms.locfileid: "72680455"
 若要重複執行動作直到條件符合或狀態改變，您可以建立 ["Until" 迴圈](#until-loop)。 您的邏輯應用程式會先執行迴圈內的所有動作，然後再檢查條件或狀態。 如果符合條件，則迴圈會停止。 否則，迴圈會重複。 如需一個邏輯應用程式回合中可擁有的 "Until" 迴圈數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md)。 
 
 > [!TIP]
-> 如果您的觸發程序接收到陣列，並想要針對每個陣列項目執行工作流程，您可以使用SplitOn[ 觸發屬性**將該陣列「解除批次」** ](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)。 
+> 如果您的觸發程序接收到陣列，並想要針對每個陣列項目執行工作流程，您可以使用 **SplitOn** [觸發屬性](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)將該陣列「解除批次」。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -133,7 +130,7 @@ ms.locfileid: "72680455"
 
    ![開啟並行控制](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
-如果您要處理邏輯應用程式的 JSON 定義，您可以藉由新增 `Sequential` 參數來使用 `operationOptions` 選項，例如：
+如果您要處理邏輯應用程式的 JSON 定義，您可以藉由新增 `operationOptions` 參數來使用 `Sequential` 選項，例如：
 
 ``` json
 "actions": {
@@ -176,7 +173,7 @@ ms.locfileid: "72680455"
 
    ![設定週期排程](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | 屬性 | 值 |
+   | 屬性 | Value |
    | -------- | ----- |
    | **間隔** | 1 | 
    | **頻率** | 天 |
@@ -192,10 +189,10 @@ ms.locfileid: "72680455"
 
    ![設定變數屬性](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | 屬性 | 值 | 說明 |
+   | 屬性 | Value | 描述 |
    | -------- | ----- | ----------- |
    | **名稱** | 限制 | 變數的名稱 | 
-   | **類型** | Integer | 變數的資料類型 | 
+   | **類型** | 整數 | 變數的資料類型 | 
    | **值** | 0 | 變數的起始值 | 
    |||| 
 
@@ -233,7 +230,7 @@ ms.locfileid: "72680455"
 
       ![設定電子郵件內容](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | 屬性 | 值 | 說明 |
+      | 屬性 | Value | 描述 |
       | -------- | ----- | ----------- | 
       | **To** | *\<電子郵件地址\@網域 >* | 收件者的電子郵件地址。 若要進行測試，請使用自己的電子郵件地址。 | 
       | **主旨** | [限制] 目前的值是**限制** | 指定電子郵件主旨。 在此範例中，請確定您已包含**限制**變數。 | 
@@ -250,7 +247,7 @@ ms.locfileid: "72680455"
 
 "Until" 迴圈具有預設的限制，就是達到下列任何條件時，便會停止執行：
 
-| 屬性 | 預設值 | 說明 | 
+| 屬性 | 預設值 | 描述 | 
 | -------- | ------------- | ----------- | 
 | **Count** | 60 | 迴圈結束前可執行的最高迴圈數。 預設為 60 個循環。 | 
 | **逾時** | PT1H | 迴圈結束前可執行迴圈的最大時間。 預設值是一小時，並以 ISO 8601 格式指定。 <p>逾時值的評估會以每個迴圈循環為基礎。 如果迴圈中有任何動作所花費的時間超過逾時限制，目前的循環並不會停止。 但不會啟動下一個循環，因為不符合限制條件。 | 
@@ -344,6 +341,6 @@ ms.locfileid: "72680455"
 ## <a name="next-steps"></a>後續步驟
 
 * [根據條件 (條件陳述式) 執行步驟](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [根據不同值 (Switch 陳述式) 執行步驟](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [根據不同的值 (Switch 陳述式) 執行步驟](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [執行或合併平行步驟 (分支)](../logic-apps/logic-apps-control-flow-branches.md)
-* [依據群組的動作狀態執行步驟 (範圍)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [根據分組的動作狀態執行步驟 (範圍)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
