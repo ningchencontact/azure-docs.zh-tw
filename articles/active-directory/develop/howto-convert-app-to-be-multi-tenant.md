@@ -1,30 +1,26 @@
 ---
-title: 如何建置可讓任何 Azure AD 使用者登入的應用程式
+title: 建立 Azure AD 使用者登入的應用程式
 titleSuffix: Microsoft identity platform
 description: 示範如何建立可從任何 Azure Active Directory 租使用者登入使用者的多租使用者應用程式。
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7f31e0254ad4963ce6946a108d84c97027f30b
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
-ms.translationtype: MT
+ms.openlocfilehash: 73a5d30761b25f6233e298cac2602fb701a2987f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803932"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917772"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>操作說明：讓任何 Azure Active Directory (AD) 使用者以多租用戶應用程式的模式登入
 
@@ -46,7 +42,7 @@ ms.locfileid: "72803932"
 
 ## <a name="update-registration-to-be-multi-tenant"></a>將註冊更新成多租用戶
 
-Azure AD 中的 Web 應用程式/API 註冊預設是單一租用戶。 您可以在[Azure 入口網站][AZURE-portal]中的應用程式註冊的 [**驗證**] 窗格上尋找**支援的帳戶類型**，並將它設定為**任何組織中的帳戶，藉此讓註冊多租使用者。目錄**。
+Azure AD 中的 Web 應用程式/API 註冊預設是單一租用戶。 您可以在[Azure 入口網站][AZURE-portal]中的應用程式註冊的 [**驗證**] 窗格上尋找**支援的帳戶類型**，並將它設定為**任何組織目錄中的帳戶**，藉此讓註冊多租使用者。
 
 在 Azure AD 中，應用程式的「應用程式識別碼 URI」必須具全域唯一性，您才能將其設為多租用戶應用程式。 「應用程式識別碼 URI」是其中一種可在通訊協定訊息中識別應用程式的方式。 在單一租用戶應用程式中，只要該租用戶內有唯一的應用程式識別碼 URI 就已足夠。 就多租用戶應用程式而言，該 URI 則必須具全域唯一性，Azure AD 才能在所有租用戶中找到該應用程式。 系統會透過要求「應用程式識別碼 URI」必須具有與已驗證的 Azure AD 租用戶網域相符的主機名稱，來強制執行全域唯一性。
 
@@ -124,7 +120,8 @@ Web 應用程式和 web Api 會接收並驗證來自 Microsoft 身分識別平�
 
 如果您的應用程式使用需要系統管理員同意的權限，您就必須要有相關的表示，例如可供系統管理員起始動作的按鈕或連結。 您的應用程式針對此動作傳送的要求是一個一般的 OAuth2/OpenID Connect 授權要求，其中也包含 `prompt=admin_consent` 查詢字串參數。 在系統管理員同意且系統已在客戶的租用戶中建立服務主體之後，後續的登入要求就不再需要 `prompt=admin_consent` 參數。 由於系統管理員已決定可接受要求的權限，因此從該時間點之後，就不會再提示租用戶中的任何其他使用者行使同意權。
 
-租用戶系統管理員可以停用一般使用者對應用程式行使同意權的能力。 如果停用這項功能，就一律需要系統管理員同意，才能在租用戶中使用應用程式。 如果您想要在停用使用者同意的情況下測試應用程式，您可以在 [**企業應用程式**] 底下的 [ **[使用者設定](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** ] 區段中的 [ [Azure 入口網站][AZURE-portal]中找到設定參數。
+租用戶系統管理員可以停用一般使用者對應用程式行使同意權的能力。 如果停用這項功能，就一律需要系統管理員同意，才能在租用戶中使用應用程式。 如果您想要在停用使用者同意的情況下測試應用程式，您可以在 [**企業應用程式**] 底下的 **[使用者設定](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** ] 區段中的 [ [Azure 入口網站][AZURE-portal]中找到設定參數。
+
 
 如果應用程式要求的權限不需要系統管理員同意，則應用程式也可以使用 `prompt=admin_consent` 參數。 這項作業的使用時機範例如下：如果應用程式需要租用戶系統管理員「註冊」一次，之後就不會再提示其他使用者表示同意的情況。
 

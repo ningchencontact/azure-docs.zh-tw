@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 418324ea0d50cb2f8ff4a30018a31e7807d52eac
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a9a14056e6be62fc1c1b5e542c1a3acceb738eac
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602589"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901203"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>在知識庫中新增閒聊
 
@@ -46,7 +46,7 @@ ms.locfileid: "73602589"
 |語言|
 |--|
 |中文|
-|English|
+|繁體中文|
 |法文|
 |德國|
 |義大利文|
@@ -72,7 +72,7 @@ ms.locfileid: "73602589"
 若要查看中繼資料，請選取工具列中的 [**查看選項**]，然後選取 [**顯示中繼資料**]。
 
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>新增其他閒聊問題和回答
-您可以新增不在預先定義集合中的新閒聊 QnA。 確保您不會複製閒聊集已經涵蓋的 QnA 配對。 當您新增任何新的閒聊 QnA 時，它會新增到您的**編輯**來源。 若要確保順位排定程式了解這是閒聊，請新增中繼資料索引鍵/值配對「編輯：閒聊」，如下圖所示：
+您可以新增不在預先定義集合中的新閒聊 QnA。 確保您不會複製閒聊集已經涵蓋的 QnA 配對。 當您新增任何新的閒聊 QnA 時，它會新增到您的**編輯**來源。 若要確保 ranker 瞭解這是閒聊交談，請新增中繼資料索引鍵/值組 "chitchat"，如下圖所示：
    
 ![![新增閒聊-交談 Qna](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
@@ -86,6 +86,6 @@ ms.locfileid: "73602589"
 > [!div class="nextstepaction"]
 > [匯入知識庫](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>另請參閱 
+## <a name="see-also"></a>請參閱 
 
 [QnA Maker 概觀](../Overview/overview.md)
