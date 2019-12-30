@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/30/2019
 ms.author: raynew
-ms.openlocfilehash: e752d52d0f792d39f417031c26d923fce07ccdf8
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: fa6ea1ec1992c94d44531cda9802290edf8db301
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747990"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74669143"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 支援矩陣
 
@@ -24,7 +24,7 @@ ms.locfileid: "73747990"
 
 Azure Migrate 服務有兩個版本：
 
-- **目前版本**：使用此版本，您可以建立新的 Azure Migrate 專案、探索內部部署評估，以及協調評量與遷移。 [詳細資訊](whats-new.md#release-version-july-2019)。
+- **目前版本**：使用此版本，您可以建立新的 Azure Migrate 專案、探索內部部署評估，以及協調評量與遷移。 [深入了解提出技術問題。
 - **先前版本**：針對使用舊版 Azure Migrate 的客戶（僅支援內部部署 VMware vm 的評估），您現在應該使用目前的版本。 在先前的版本中，您無法建立新的 Azure Migrate 專案或執行新的探索。
 
 ## <a name="supported-assessmentmigration-scenarios"></a>支援的評估/遷移案例
@@ -64,7 +64,7 @@ Azure Migrate 伺服器移轉 | NA | 遷移[VMware vm](tutorial-migrate-vmware.m
 
 **支援** | **詳細資料**
 --- | ---
-訂用帳戶 | 您可以在訂用帳戶中有多個 Azure Migrate 專案。
+Subscription | 您可以在訂用帳戶中有多個 Azure Migrate 專案。
 Azure 權限 | 您需要訂用帳戶中的「參與者」或「擁有者」許可權，才能建立 Azure Migrate 專案。
 VMware VM  | 在單一專案中評估最多35000個 VMware Vm。
 Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。
@@ -77,9 +77,9 @@ Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。
 
 **地理位置** | **中繼資料儲存位置**
 --- | ---
-Azure Government | 美國政府維吉尼亞州
+Azure 政府機構 | US Gov 維吉尼亞州
 亞太地區 | 東亞或東南亞
-澳大利亞 | 澳大利亞東部或澳大利亞東南部
+澳洲 | 澳大利亞東部或澳大利亞東南部
 巴西 | 巴西南部
 加拿大 | 加拿大中部或加拿大東部
 歐洲 | 北歐或西歐

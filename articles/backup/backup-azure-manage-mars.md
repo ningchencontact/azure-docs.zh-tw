@@ -4,12 +4,12 @@ description: 瞭解如何使用 Azure 備份服務來管理和監視 Microsoft A
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: edb672f97f467378176bf6cdf04fe8e22cc5e51b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
-ms.translationtype: MT
+ms.openlocfilehash: f299bdeebab4f42721255d462101f0065a640fab
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173073"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665588"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>使用 Azure 備份服務管理 Microsoft Azure 復原服務（MARS）代理程式備份
 
@@ -35,7 +35,7 @@ ms.locfileid: "74173073"
     ![選取要備份的專案](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 6. 在 [**選取要備份的專案**] 頁面中，按 **[下一步]** 。
-7. 在 [**指定備份排程**] 頁面中，指定您要進行每日或每週備份的時間。 然後按一下 [確定](英文)。
+7. 在 [**指定備份排程**] 頁面中，指定您要進行每日或每週備份的時間。 然後按一下 [確定]\(英文)。
 
     - 執行備份時，會建立復原點。
     - 在您的環境中建立的復原點數目取決於您的備份排程。
@@ -48,7 +48,7 @@ ms.locfileid: "74173073"
 
     ![每週排程](./media/backup-configure-vault/week-schedule.png)
 
-10. 在 [**選取保留原則**] 頁面上，指定儲存資料歷程記錄複本的方式。 然後按一下 [確定](英文)。
+10. 在 [**選取保留原則**] 頁面上，指定儲存資料歷程記錄複本的方式。 然後按一下 [確定]\(英文)。
 
     - 保留設定會指定應該儲存的復原點，以及儲存的時間長度。
     - 例如，當您設定每日保留設定時，您會指出在指定的每日保留期間，最新的復原點會保留指定的天數。 或者，另一個範例是，您可以指定每月的保留原則，表示每個月30日所建立的復原點應該儲存12個月。
@@ -159,12 +159,12 @@ ms.locfileid: "74173073"
 
 1. 開啟 MARS 管理主控台，移至 [**動作] 窗格**，然後**選取 [排程備份**]。
     ![修改或停止排定的備份。](./media/backup-azure-manage-mars/mars-actions.png)
-1. 在 [**選取原則專案**] 頁面中，選取 [**修改檔案和資料夾的備份排程** **] 按 [下一步]** 。
+1. 在 [**選取原則專案**] 頁面中，選取 [**修改檔案和資料夾的備份排程**]，然後按 **[下一步]** 。
     ![修改或停止排定的備份。](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
 1. 從 [**修改或停止排程備份**] 頁面，選取 [**停止使用此備份排程]，但保留儲存的備份，直到重新開機排程為止**。 然後，選取 [下一步]。  
     ![修改或停止排定的備份。](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. 在 [**暫停排定的備份**] 中，按一下 **[完成]** ![修改或停止排定的備份中的資訊。](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. 在 [**修改備份**程式] 中，檢查您的排程備份暫停狀態成功，然後按一下 [**關閉**] 以完成。
+1. 在 [**暫停排程備份**] 中，檢查資訊並按一下 **[完成]** ![修改或停止排定的備份。](./media/backup-azure-manage-mars/pause-schedule-backup.png)
+1. 在 [**修改備份**程式] 中，檢查您的排程備份暫停處於成功狀態，然後按一下 [**關閉**] 以完成。
 
 ### <a name="stop-protection-and-delete-backup-data"></a>停止保護並刪除備份資料
 
@@ -194,7 +194,7 @@ ms.locfileid: "74173073"
 如果您在保留資料時停止保護，並決定繼續保護，則可以使用 [修改備份原則] 重新啟用備份排程。
 
 1. 在 [**動作**] 選取 [**排程備份**]。
-1. 選取 [**重新啟用備份排程]。您也可以修改備份專案或 tines** ，然後按 **[下一步]** 。
+1. 選取 [**重新啟用備份排程]。您也可以修改備份專案或時間**，然後按 **[下一步]** 。
     ![刪除備份基礎結構。](./media/backup-azure-manage-mars/re-enable-policy-next.png)
 1. 在 [**選取要備份的專案**] 中，按 **[下一步]** 。
     ![刪除備份基礎結構。](./media/backup-azure-manage-mars/re-enable-next.png)

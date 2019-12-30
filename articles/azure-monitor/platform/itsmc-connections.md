@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: c7e102b6b8976f8caf7676fd456e6c23488c935a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d800f20826723d3a626d9a0f5f83664927c1185c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932283"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927603"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>將 ITSM 產品/服務與 IT Service Management Connector 連線
 本文提供如何設定 ITSM 產品/服務與 Log Analytics 中 IT Service Management Connector (ITSMC) 之間的連線，以集中管理工作項目的相關資訊。 如需 ITSMC 的詳細資訊，請參閱[概觀](../../azure-monitor/platform/itsmc-overview.md)。
@@ -60,7 +60,7 @@ ms.locfileid: "72932283"
 > 
 > 這些全部都是必要參數。
 
-| **欄位** | **描述** |
+| **欄位** | **說明** |
 | --- | --- |
 | 連線名稱   | 輸入您想要與 ITSMC 連線之 System Center Service Manager 執行個體的名稱。  稍後當您設定這個執行個體的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
 | **夥伴類型**   | 選取 **System Center Service Manager**。 |
@@ -98,7 +98,7 @@ ms.locfileid: "72932283"
 
 - Azure 訂用帳戶詳細資料
 - 資源群組名稱
-- 位置
+- Location
 - Service Manager 伺服器詳細資料 (伺服器名稱、網域、使用者名稱和密碼)
 - Web 應用程式的網站名稱前置詞
 - 服務匯流排命名空間。
@@ -185,6 +185,7 @@ ms.locfileid: "72932283"
 **ServiceNow 管理員必須在 ServiceNow 執行個體中執行下列動作**：
 - 產生 ServiceNow 產品的用戶端識別碼和用戶端密碼。 如需如何產生用戶端識別碼和祕密的相關資訊，請視需要參閱下列資訊：
 
+    - [為紐約設定 OAuth](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [設定適用于馬德里的 OAuth](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [為倫敦設定 OAuth](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [針對 Kingston 設定 OAuth](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -194,7 +195,7 @@ ms.locfileid: "72932283"
     - [針對 Geneva 設定 OAuth](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
 
 
-- 安裝適用於 Microsoft Log Analytics 整合的使用者應用程式 (ServiceNow 應用程式)。 [詳細資訊](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 )。
+- 安裝適用於 Microsoft Log Analytics 整合的使用者應用程式 (ServiceNow 應用程式)。 [深入了解提出技術問題。
 - 為安裝的使用者應用程式建立整合使用者角色。 關於如何建立整合使用者角色的資訊在[這裡](#create-integration-user-role-in-servicenow-app)。
 
 ### <a name="connection-procedure"></a>**連線程序**
@@ -214,7 +215,7 @@ ms.locfileid: "72932283"
 > [!NOTE]
 > 這些全部都是必要參數。
 
-| **欄位** | **描述** |
+| **欄位** | **說明** |
 | --- | --- |
 | 連線名稱   | 輸入您想要與 ITSMC 連線之 ServiceNow 執行個體的名稱。  稍後當您在 Log Analytics 中設定這個 ITSM 的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
 | **夥伴類型**   | 選取 **ServiceNow**。 |
@@ -309,7 +310,7 @@ ms.locfileid: "72932283"
 > 
 > 這些全部都是必要參數。
 
-| **欄位** | **描述** |
+| **欄位** | **說明** |
 | --- | --- |
 | 連線名稱   | 輸入您想要與 ITSMC 連線之 Provance 執行個體的名稱。  稍後當您在這個 ITSM 中設定工作項目 / 檢視詳細的記錄分析時，會使用這個名稱。 |
 | **夥伴類型**   | 選取 [Provance]。 |
@@ -360,7 +361,7 @@ ms.locfileid: "72932283"
 > 
 > 這些全部都是必要參數。
 
-| **欄位** | **描述** |
+| **欄位** | **說明** |
 | --- | --- |
 | 連線名稱   | 輸入您想要與 ITSMC 連線之 Cherwell 執行個體的名稱。  稍後當您在這個 ITSM 中設定工作項目 / 檢視詳細的記錄分析時，會使用這個名稱。 |
 | **夥伴類型**   | 選取 [Cherwell]。 |

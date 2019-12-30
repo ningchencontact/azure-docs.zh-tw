@@ -3,12 +3,12 @@ title: 關於 Azure VM 備份
 description: 在本文中，您將瞭解 Azure 備份服務如何備份 Azure 虛擬機器，以及如何遵循最佳作法。
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f1c89b9ac7aeb51f43ef84267b20f83b408fd56c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
-ms.translationtype: MT
+ms.openlocfilehash: 4bd42acbf682b51e17f60702e5695cfb29db812b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172481"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806434"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Azure VM 備份總覽
 
@@ -60,7 +60,7 @@ Azure 備份會根據備份排程來取得快照集。
 
 - **Windows vm：** 對於 Windows Vm，備份服務會與 VSS 協調，以取得 VM 磁片的應用程式一致快照集。
 
-  - 根據預設，Azure 備份會建立完整的 VSS 備份。 [詳細資訊](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)。
+  - 根據預設，Azure 備份會建立完整的 VSS 備份。 [深入了解提出技術問題。
   - 若要變更設定，讓 Azure 備份採用 VSS 複本備份，請從命令提示字元設定下列登錄機碼：
 
     **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent"/v USEVSSCOPYBACKUP/t REG_SZ/d TRUE/f**
@@ -79,7 +79,7 @@ Azure 備份會根據備份排程來取得快照集。
 --- | --- | --- | ---
 **應用程式一致** | 應用程式一致的備份會擷取記憶體內容和擱置 I/O 作業。 應用程式一致快照集會使用 VSS 寫入器（或適用于 Linux 的前置/後置腳本）來確保應用程式資料的一致性，然後才進行備份。 | 當您使用應用程式一致的快照集復原 VM 時，VM 會啟動。 沒有任何資料損毀或遺失。 應用程式會以一致的狀態開始。 | Windows：所有 VSS 寫入器都成功<br/><br/> Linux：已設定且成功的前置/後置腳本
 **檔案系統一致** | 檔案系統一致備份會同時取得所有檔案的快照集，以提供一致性。<br/><br/> | 當您使用檔案系統一致快照集復原 VM 時，VM 就會開機。 沒有任何資料損毀或遺失。 應用程式必須實作自己的「修正」機制，以確保還原的資料一致。 | Windows：部分 VSS 寫入器失敗 <br/><br/> Linux：預設值（如果未設定或失敗的前置/後置腳本）
-**絕對一致** | 當 Azure VM 在備份時關閉時，通常會發生損毀一致快照集。 只會擷取備份時已存在磁碟上的資料，並加以備份。<br/><br/> 絕對一致性復原點並不保證作業系統或應用程式的資料一致性。 | 雖然不保證，但 VM 通常會開機，然後啟動磁片檢查以修正損毀錯誤。 在損毀之前未傳輸到磁片的任何記憶體中資料或寫入作業都會遺失。 應用程式會實作本身的資料驗證。 例如，資料庫應用程式可以使用其交易記錄來進行驗證。 如果交易記錄中有不在資料庫中的專案，則資料庫軟體會將交易向前復原，直到資料一致為止。 | VM 處於關機狀態
+**絕對一致** | 當 Azure VM 在備份時關閉時，通常會發生損毀一致快照集。 只會擷取備份時已存在磁碟上的資料，並加以備份。 | 從 VM 開機程式開始，然後再進行磁片檢查，以修正損毀錯誤。 在損毀之前未傳輸到磁片的任何記憶體中資料或寫入作業都會遺失。 應用程式會實作本身的資料驗證。 例如，資料庫應用程式可以使用其交易記錄來進行驗證。 如果交易記錄中有不在資料庫中的專案，則資料庫軟體會將交易向前復原，直到資料一致為止。 | VM 處於關機（已停止/已解除配置）狀態。
 
 ## <a name="backup-and-restore-considerations"></a>備份與還原考慮
 
@@ -102,7 +102,7 @@ Azure 備份會根據備份排程來取得快照集。
 - **磁片變換：** 如果正在進行增量備份的受保護磁片具有超過 200 GB 的每日變換，則備份可能需要很長一段時間（超過八小時）才能完成。
 - **備份版本：** 最新版本的備份（也稱為「立即還原」版本）使用比「總和檢查碼比較」更優化的進程來識別變更。 但是，如果您使用「立即還原」並已刪除備份快照集，則備份會切換為總和檢查碼比較。 在此情況下，備份作業將會超過24小時（或失敗）。
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 當您要設定 VM 備份時，我們建議您遵循下列做法：
 
@@ -130,20 +130,10 @@ Azure 備份會根據備份排程來取得快照集。
 --- | --- | ---
 作業系統磁碟 | 4095 GB | 17 GB
 本機/暫存磁碟 | 135 GB | 5 GB (未包含備份)
-資料磁碟 1 | 4095 GB | 30 GB
+資料磁碟 1 | 4095 GB | 30GB
 資料磁碟 2 | 4095 GB | 0 GB
 
 在此案例中，VM 的實際容量為 17 GB + 30 GB + 0 GB = 47 GB。 這個受保護的實例大小（47 GB）會成為每月帳單的基礎。 當 VM 中的資料量增加時，用於計費變更的受保護實例大小會符合。
-
-<a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
-
-## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>公開預覽：備份磁片大小上限為 30 TB 的 VM
-
-Azure 備份現在支援更大、更強大的[Azure 受控磁碟](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/)公開預覽，大小上限為 30 TB。 此預覽提供受管理虛擬機器的生產層級支援。
-
-針對 VM 中的所有磁片，每個磁片大小最多為 30 TB 且結合 256 TB 的虛擬機器備份，應可順暢地運作，而不會影響現有的備份。 如果虛擬機器已設定 Azure 備份，則不需要任何使用者動作，即可取得針對大型磁片執行的備份。
-
-所有具有已設定備份之大型磁片的 Azure 虛擬機器都應該成功備份。
 
 ## <a name="next-steps"></a>後續步驟
 

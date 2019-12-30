@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: 5f138314fd536d0264f8d40e1ac78da954c19e74
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
-ms.translationtype: MT
+ms.openlocfilehash: afe2ac60d7b945dd1bb3b8841ae0a7605865f29f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74030688"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893377"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>自訂事件和度量的 Application Insights API
 
@@ -30,7 +30,7 @@ ms.locfileid: "74030688"
 | [`TrackMetric`](#trackmetric) |效能度量，例如與特定事件不相關的佇列長度。 |
 | [`TrackException`](#trackexception) |記錄例外狀況以供診斷。 追蹤與其他事件的發生相對位置，並且檢查堆疊追蹤。 |
 | [`TrackRequest`](#trackrequest) |記錄伺服器要求的頻率和持續時間以進行效能分析。 |
-| [`TrackTrace`](#tracktrace) |診斷記錄訊息。 您也可以擷取第三方記錄。 |
+| [`TrackTrace`](#tracktrace) |資源診斷記錄訊息。 您也可以擷取第三方記錄。 |
 | [`TrackDependency`](#trackdependency) |記錄應用程式所依賴之外部元件呼叫的持續時間及頻率。 |
 
 您可以 [附加屬性和度量](#properties) 至這裡大部分的遙測呼叫。
@@ -146,7 +146,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="custom-events-in-analytics"></a>分析中的自訂事件
 
-`customEvents`Application Insights 分析[的 ](analytics.md) 資料表中有提供遙測資料。 每個資料列各代表應用程式中的一個 `trackEvent(..)` 呼叫。
+[Application Insights 分析](analytics.md)的 `customEvents` 資料表中有提供遙測資料。 每個資料列各代表應用程式中的一個 `trackEvent(..)` 呼叫。
 
 如果[取樣](../../azure-monitor/app/sampling.md)運作中，itemCount 屬性會顯示大於 1 的值。 例如，itemCount==10 表示在 trackEvent() 的 10 個呼叫中，取樣處理序只會傳輸其中一個。 若要取得自訂事件的正確計數，您應該使用如 `customEvents | summarize sum(itemCount)`的程式碼。
 
@@ -287,7 +287,7 @@ telemetry.trackMetric({name: "queueLength", value: 42.0});
 
 ### <a name="custom-metrics-in-analytics"></a>Analytics 中的自訂計量
 
-`customMetrics`Application Insights 分析[的 ](analytics.md) 資料表中有提供遙測資料。 每個資料列各代表應用程式中的一個 `trackMetric(..)` 呼叫。
+[Application Insights 分析](analytics.md)的 `customMetrics` 資料表中有提供遙測資料。 每個資料列各代表應用程式中的一個 `trackMetric(..)` 呼叫。
 
 * `valueSum` - 這是測量結果的總和。 若要取得平均值，請將它除以 `valueCount`。
 * `valueCount` - 彙總到這個 `trackMetric(..)` 呼叫的測量數目。
@@ -522,7 +522,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-大多數重要堆疊資訊已擷取到不同的變數中，但您可以拉開 `details` 結構以取得更多資訊。 由於這是動態結構，因此您應該將結果轉換成預期的類型。 例如︰
+大多數重要堆疊資訊已擷取到不同的變數中，但您可以拉開 `details` 結構以取得更多資訊。 由於這是動態結構，因此您應該將結果轉換成預期的類型。 例如：
 
 ```kusto
 exceptions
@@ -585,7 +585,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 `message` 上的大小限制比屬性上的限制高得多。
 TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如，您可以在該處編碼 POST 資料。  
 
-此外，您可以在訊息中新增嚴重性層級。 就像其他遙測一樣，您可以新增屬性值以供協助篩選或搜尋不同的追蹤集。 例如︰
+此外，您可以在訊息中新增嚴重性層級。 就像其他遙測一樣，您可以新增屬性值以供協助篩選或搜尋不同的追蹤集。 例如：
 
 *C#*
 
@@ -733,7 +733,7 @@ telemetry.flush();
 
 在理想情況下，flush() 方法應該用於應用程式的關閉活動。
 
-## <a name="authenticated-users"></a>通過驗證的使用者
+## <a name="authenticated-users"></a>驗證的使用者
 
 在 Web 應用程式中，預設是透過 Cookie 來識別使用者。 如果使用者從不同的電腦或瀏覽器存取您的 app 或刪除 Cookie，就可能多次計算他們。
 
@@ -1011,13 +1011,13 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 您可以撰寫程式碼，在從 SDK 傳送遙測資料前加以處理。 處理包括從標準遙測模組 (如 HTTP 要求收集和相依性收集) 的資料。
 
-實作 [ 以](../../azure-monitor/app/api-filtering-sampling.md#add-properties)屬性`ITelemetryInitializer`至遙測資料。 例如，您可以新增版本號碼或從其他屬性計算得出的值。
+實作 `ITelemetryInitializer` 以[屬性](../../azure-monitor/app/api-filtering-sampling.md#add-properties)至遙測資料。 例如，您可以新增版本號碼或從其他屬性計算得出的值。
 
 [篩選](../../azure-monitor/app/api-filtering-sampling.md#filtering)可以先修改或捨棄遙測，再藉由實作 `ITelemetryProcessor` 從 SDK 傳送遙測。 您可控制要傳送或捨棄的項目，但是您必須考量這對您的度量的影響。 視您捨棄項目的方式而定，您可能會喪失在相關項目之間瀏覽的能力。
 
 [取樣](../../azure-monitor/app/api-filtering-sampling.md)是減少從應用程式傳送至入口網站的資料量的套件方案。 它在這麼做時並不會影響顯示的度量。 而且它在這麼做時可藉由在相關項目 (如例外狀況、要求和頁面檢視) 之間瀏覽，而不會影響您診斷問題的能力。
 
-[詳細資訊](../../azure-monitor/app/api-filtering-sampling.md)。
+[深入了解提出技術問題。
 
 ## <a name="disabling-telemetry"></a>停用遙測
 
@@ -1148,7 +1148,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳送的值。 它們通常由標準遙測模組設定，但是您也可以自行設定它們。 例如︰
+TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳送的值。 它們通常由標準遙測模組設定，但是您也可以自行設定它們。 例如：
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
@@ -1168,7 +1168,7 @@ telemetry.Context.Operation.Name = "MyOperationName";
 * **工作階段**︰使用者的工作階段。 識別碼會設為產生的值，當使用者一段時間沒有作用時會變更。
 * **使用者**：使用者資訊。
 
-## <a name="limits"></a>限制
+## <a name="limits"></a>Limits
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
@@ -1185,7 +1185,7 @@ telemetry.Context.Operation.Name = "MyOperationName";
 
 ## <a name="sdk-code"></a>SDK 程式碼
 
-* [ASP.NET 核心 SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Windows Server 套件](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
@@ -1202,7 +1202,7 @@ telemetry.Context.Operation.Name = "MyOperationName";
 
     是，[資料存取 API](https://dev.applicationinsights.io/)。 其他擷取資料的方法包括[從分析匯出至 Power BI](../../azure-monitor/app/export-power-bi.md ) 和[連續匯出](../../azure-monitor/app/export-telemetry.md)。
 
-## <a name="next"></a>接續步驟
+## <a name="next"></a>後續步驟
 
 * [搜尋事件和記錄](../../azure-monitor/app/diagnostic-search.md)
 * [疑難排解](../../azure-monitor/app/troubleshoot-faq.md)

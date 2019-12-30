@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 9146430f512b065553d4c5362af8655eb01c1206
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: d14b81075d1e1f98449ef655c3e00f172c7f407b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530962"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873772"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 區域之間的 Azure VM 嚴重損壞修復支援矩陣
 
@@ -89,12 +89,11 @@ Windows Server 2019 | 支援 Server Core、具有桌面體驗的伺服器。
 Windows Server 2016  | 支援的伺服器核心、具有桌面體驗的伺服器。
 Windows Server 2012 R2 | 支援。
 Windows Server 2012 | 支援。
-Windows Server 2008 R2 SP1/SP2 | 支援。<br/><br/> 從適用于 Azure Vm 的行動服務延伸模組的版本9.30 （預計從2019年11月發行）開始，您必須在執行 Windows Server 2008 R2 SP1/SP2 的電腦上安裝 Windows[服務堆疊更新（SSU）](https://support.microsoft.com/help/4490628)和[sha-1 更新](https://support.microsoft.com/help/4474419)。  2019年9月不支援 SHA-1，而且如果未啟用 SHA-1 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。 深入瞭解[SHA-2 升級和需求](https://aka.ms/SHA-2KB)。
-Windows Server 2008 SP2 | 從 Azure Vm 行動服務延伸模組的版本9.30 （預計從2019年11月發行）開始，您必須在執行 Windows Server 2008 SP2 的電腦上安裝 Windows[服務堆疊更新（SSU）](https://support.microsoft.com/help/4493730)和[sha-1 更新](https://support.microsoft.com/help/4474419)。  2019年9月不支援 SHA-1，而且如果未啟用 SHA-1 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。 深入瞭解[SHA-2 升級和需求](https://aka.ms/SHA-2KB)。
+Windows Server 2008 R2 SP1/SP2 | 支援。<br/><br/> 從適用于 Azure Vm 的行動服務延伸模組版本[9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) ，您必須在執行 windows Server 2008 R2 SP1/SP2 的電腦上安裝 Windows[服務堆疊更新（SSU）](https://support.microsoft.com/help/4490628)和[sha-1 更新](https://support.microsoft.com/help/4474419)。  2019年9月不支援 SHA-1，而且如果未啟用 SHA-1 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。 深入瞭解[SHA-2 升級和需求](https://aka.ms/SHA-2KB)。
 Windows 10 (x64) | 支援。
 Windows 8.1 （x64） | 支援。
-Windows 8 （x64） | 支援。
-Windows 7 （x64）含 SP1 和更新版本 | 從適用于 Azure Vm 的行動服務延伸模組的版本9.30 （預計從2019年11月發行）開始，您必須在執行 Windows 7 SP1 的電腦上安裝 Windows[服務堆疊更新（SSU）](https://support.microsoft.com/help/4490628)和[sha-1 更新](https://support.microsoft.com/help/4474419)。  2019年9月不支援 SHA-1，而且如果未啟用 SHA-1 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。 深入瞭解[SHA-2 升級和需求](https://aka.ms/SHA-2KB)。
+Windows 8 (x64) | 支援。
+Windows 7 （x64）含 SP1 和更新版本 | 從適用于 Azure Vm 的行動服務延伸模組版本[9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) ，您必須在執行 WINDOWS 7 SP1 的電腦上安裝 Windows[服務堆疊更新（SSU）](https://support.microsoft.com/help/4490628)和[sha-1 更新](https://support.microsoft.com/help/4474419)。  2019年9月不支援 SHA-1，而且如果未啟用 SHA-1 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。 深入瞭解[SHA-2 升級和需求](https://aka.ms/SHA-2KB)。
 
 
 
@@ -213,7 +212,7 @@ OS 磁碟的大小上限 | 2048 GB | [深入了解](../virtual-machines/windows/
 適用於 Linux OS 的 Azure 磁碟加密 (ADE) | 支援的 |
 熱新增 | 支援的 | 針對使用受控磁片的 Vm，支援為您新增至複寫 Azure VM 的資料磁片啟用複寫。
 熱移除磁片 | 不支援 | 如果您移除 VM 上的資料磁片，您必須停用複寫，然後再次為 VM 啟用複寫。
-排除磁碟 | 部門. 您必須使用[Powershell](azure-to-azure-exclude-disks.md)來設定。 |  預設會排除暫存磁片。
+排除磁碟 | 支援。 您必須使用[Powershell](azure-to-azure-exclude-disks.md)來設定。 |  預設會排除暫存磁片。
 儲存空間直接存取  | 支援損毀一致復原點。 不支援應用程式一致復原點。 |
 向外延展檔案伺服器  | 支援損毀一致復原點。 不支援應用程式一致復原點。 |
 LRS | 支援的 |
