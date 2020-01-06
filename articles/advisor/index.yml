@@ -4,18 +4,16 @@ summary: Azure Advisor 會掃描您的 Azure 組態，並建議適當的變更�
 metadata:
   title: Azure Advisor 文件
   description: Azure 建議程式是個人化的雲端顧問，可協助您依最佳做法來最佳化您的 Azure 部署。 它會分析您的資源及用量遙測， 並建議解決方案，協助改善效能、安全性及資料的高可用性，同時尋找降低整體 Azure 費用的機會。
-  services: advisor
-  ms.service: advisor
   ms.topic: landing-page
   author: rboucher
   ms.author: robb
   ms.date: 10/16/2019
-  ms.openlocfilehash: d0a5dc66a752e49dd32cd742e3856d7edac0d879
-  ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+  ms.openlocfilehash: 43e35c1d6afd96ff78ebd938fa76a503dd4e935d
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 10/27/2019
-  ms.locfileid: "72963984"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75443025"
 landingContent:
 - title: 關於 Azure Advisor
   linkLists:

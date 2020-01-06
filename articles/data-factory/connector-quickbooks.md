@@ -4,20 +4,20 @@ description: 了解如何使用 Azure Data Factory 管線中的複製活動，�
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.author: jingwang
-ms.openlocfilehash: dd8044c6c2e87262f80a53eaa52114c82b71de50
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ca57f4611b9eb483104d8d0b8fc5636726203195
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680428"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927769"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 QuickBooks Online 複製資料 (預覽)
 
@@ -39,7 +39,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 此連接器目前僅支援 1.0a，這表示您需要具備一個開發人員帳戶，其中含有在 2017 年 7 月 17 日之前建立的應用程式。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -49,9 +49,9 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 QuickBooks 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | Type 屬性必須設定為：**QuickBooks** | 是 |
+| type | 類型屬性必須設定為：**QuickBooks** | 是 |
 | endpoint | QuickBooks Online 伺服器的端點。 (也就是 quickbooks.api.intuit.com)  | 是 |
 | companyId | 要授權之 QuickBooks 公司的公司識別碼。 如需如何尋找公司識別碼的資訊，請參閱[如何找到我的公司識別碼？](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551)。 | 是 |
 | consumerKey | 用於 OAuth 1.0 驗證的取用者金鑰。 | 是 |
@@ -95,10 +95,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 QuickBooks Online 複製資料，請將資料集的 type 屬性設定為 **QuickBooksObject**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為： **QuickBooksObject** | 是 |
-| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| type | 資料集的類型屬性必須設定為：**QuickBooksObject** | 是 |
+| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -119,16 +119,16 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 QuickBooks 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 QuickBooks 來源所支援的屬性清單。
 
 ### <a name="quickbooks-as-source"></a>以 QuickBooks 作為來源
 
 若要從 QuickBooks Online 複製資料，請將複製活動中的來源類型設定為 **QuickBooksSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的 type 屬性必須設定為：**QuickBooksSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM "Bill" WHERE Id = '123'"`。 | 否 (如果已指定資料集中的 "tableName") |
+| type | 複製活動來源的類型屬性必須設定為：**QuickBooksSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM "Bill" WHERE Id = '123'"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**
 
@@ -170,5 +170,5 @@ Azure Data Factory 中的複製活動無法直接從 Quickbooks Desktop 複製�
 若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 
-## <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>接下來的步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

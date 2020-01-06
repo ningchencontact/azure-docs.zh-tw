@@ -35,7 +35,7 @@
       href: rule-processing.md
     - name: 服務標籤
       href: service-tags.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 使用 Azure PowerShell 進行部署
       href: deploy-ps.md
@@ -70,13 +70,13 @@
     - name: REST
       href: /rest/api/firewall
     - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
 - name: 資源
   items:
     - name: 常見問題集
       href: firewall-faq.md
     - name: 作者範本
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
+      href: ../azure-resource-manager/templates/template-syntax.md
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 社群範本

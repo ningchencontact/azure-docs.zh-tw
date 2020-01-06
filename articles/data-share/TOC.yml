@@ -19,13 +19,15 @@
       href: terminology.md
     - name: 角色和需求
       href: concepts-roles-permissions.md
+    - name: 災害復原
+      href: disaster-recovery.md
 - name: 範例
   items:
     - name: 程式碼範例
       href: 'https://docs.microsoft.com/samples/browse/?service=data-share/'
     - name: Azure Powershell
       href: samples-powershell.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 監視
       href: how-to-monitor.md

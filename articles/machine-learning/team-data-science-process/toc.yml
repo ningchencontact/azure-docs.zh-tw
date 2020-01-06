@@ -28,7 +28,7 @@
       href: project-ic-tasks.md
 - name: 專案規劃
   href: team-data-science-process-project-templates.md
-- name: 開發
+- name: 部署
   items:
     - name: 敏捷式開發
       href: agile-development.md
@@ -130,7 +130,7 @@
               href: parallel-load-sql-partitioned-tables.md
             - name: 從內部部署 SQL 移動
               href: move-sql-azure-adf.md
-        - name: 探索資料並加以視覺化
+        - name: 探索及視覺化資料
           items:
             - name: 準備資料
               href: prepare-data.md
@@ -193,7 +193,7 @@
 - name: 相關參考
   items:
     - name: Azure Machine Learning
-      href: ../service/
+      href: ../
     - name: Azure AI 資源庫
       href: 'https://gallery.azure.ai'
     - name: Cortana Analytics

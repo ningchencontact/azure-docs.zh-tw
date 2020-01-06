@@ -83,6 +83,8 @@
       href: tutorial-connectivity.md
 - name: 概念
   items:
+    - name: TLS 1.2 強制執行
+      href: tls-1.2-everywhere.md
     - name: 訊息擴充 概觀
       href: iot-hub-message-enrichments-overview.md
     - name: 裝置管理概觀
@@ -170,7 +172,7 @@
           href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
         - name: 從頭建立安全性
           href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc
-        - name: 安全性最佳作法
+        - name: 安全性最佳做法
           href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc
         - name: 安全性架構
           href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc
@@ -182,7 +184,7 @@
           href: iot-hub-x509ca-overview.md
         - name: X.509 CA 憑證安全性概念
           href: iot-hub-x509ca-concept.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 開發
       items:
@@ -408,7 +410,7 @@
           href: iot-hub-migrate-to-diagnostics-settings.md
 - name: 相關參考
   items:
-    - name: 解決方案
+    - name: 方案
       items:
         - name: IoT 中心
           href: 'https://docs.microsoft.com/microsoft-iot-central/'

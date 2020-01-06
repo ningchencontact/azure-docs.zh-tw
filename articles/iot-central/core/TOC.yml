@@ -4,8 +4,6 @@
   items:
     - name: 何謂 Azure IoT Central
       href: overview-iot-central.md
-    - name: IoT 解決方案選項
-      href: overview-iot-options.md
     - name: UI 導覽
       href: overview-iot-central-tour.md
 - name: 快速入門
@@ -33,7 +31,7 @@
       href: concepts-connectivity.md
     - name: 什麼是應用程式範本？
       href: concepts-app-templates.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 連線裝置
       items:
@@ -133,7 +131,7 @@
           href: howto-show-hide-chat.md
 - name: 相關參考
   items:
-    - name: 解決方案
+    - name: 方案
       items:
         - name: IoT 中心
           href: 'https://docs.microsoft.com/microsoft-iot-central/'

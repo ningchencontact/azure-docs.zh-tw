@@ -4,20 +4,19 @@ description: 了解如何使用 Azure Data Factory 管線中的複製活動，�
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 1f270d2e303a8f7b5589d28f101c797c38b2b626
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: fab3b919ee3ecb1f8e76b70bada57a5380aaeab8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680450"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927821"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 PostgreSQL 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -43,7 +42,7 @@ ms.locfileid: "73680450"
 
 針對版本 3.7 以前的自我裝載 IR 版本，您必須在 Integration Runtime 電腦上安裝 [PostgreSQL 的 Ngpsql 資料提供者](https://go.microsoft.com/fwlink/?linkid=282716)，版本為 2.0.12 和 3.1.9 之間的版本。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -53,15 +52,15 @@ ms.locfileid: "73680450"
 
 以下是針對 PostgreSQL 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設定為：**PostgreSql** | 是 |
+| type | 類型屬性必須設定為：**PostgreSql** | 是 |
 | connectionString | ODBC 連接字串，用於連線到適用於 PostgreSQL 的 Azure 資料庫。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `password` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 一般的連接字串為 `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`。 您可以根據您的案例設定更多屬性：
 
-| 屬性 | 說明 | 選項 | 必要 |
+| 屬性 | 描述 | 選項。 | 必要 |
 |:--- |:--- |:--- |:--- |
 | EncryptionMethod (EM)| 驅動程式用來加密在驅動程式和資料庫伺服器之間傳送之資料的方法。 例如，`EncryptionMethod=<0/1/6>;`| 0 (無加密) **(預設)** / 1 (SSL) / 6 (RequestSSL) | 否 |
 | ValidateServerCertificate (VSC) | 決定啟用 SSL 加密時，驅動程式是否驗證由資料庫伺服器所傳送的憑證 (加密方法 = 1)。 例如，`ValidateServerCertificate=<0/1>;`| 0 (停用) **(預設)** / 1 (啟用) | 否 |
@@ -148,12 +147,12 @@ ms.locfileid: "73680450"
 
 若要從于 postgresql 複製資料，支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為： **PostgreSqlTable** | 是 |
-| 結構描述 | 架構的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
-| 資料表 | 資料表的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
-| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對新的工作負載使用 `schema` 和 `table`。 | 否 (如果已指定活動來源中的「查詢」) |
+| type | 資料集的類型屬性必須設定為：**PostgreSqlTable** | 是 |
+| 結構描述 | 結構描述的名稱。 |否 (如果已指定活動來源中的"query")  |
+| 資料表 | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
+| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對新的工作負載使用 `schema` 和 `table`。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -177,16 +176,16 @@ ms.locfileid: "73680450"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 PostgreSQL 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 PostgreSQL 來源所支援的屬性清單。
 
 ### <a name="postgresql-as-source"></a>PostgreSQL 作為來源
 
 若要從于 postgresql 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為： **PostgreSqlSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`。 | 否 (如果已指定資料集中的 "tableName") |
+| type | 複製活動來源的類型屬性必須設定為：**PostgreSqlSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"MySchema\".\"MyTable\""` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 > [!NOTE]
 > 結構描述和資料表名稱會區分大小寫。 在查詢中以 `""` (雙引號) 括住它們。
@@ -230,5 +229,5 @@ ms.locfileid: "73680450"
 若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 
-## <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>接下來的步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

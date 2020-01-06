@@ -4,20 +4,19 @@ description: 了解如何使用 Azure Data Factory 管線中的複製活動，�
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 1178c18b29c5e38d33e51ff0da5db683990daed3
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 34abb93dd54245e03baaa6efe0130d951f7565bf
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546960"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927735"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 REST 端點複製資料
 
@@ -36,7 +35,7 @@ ms.locfileid: "74546960"
 具體而言，此泛型 REST 連接器支援：
 
 - 使用 **GET** 或 **POST** 方法，從 REST 端點擷取資料。
-- 使用下列其中一種驗證來抓取資料：**匿名**、**基本**、 **AAD 服務主體**，以及**適用于 Azure 資源的受控**識別。
+- 使用下列其中一種驗證來擷取資料︰**匿名**、**基本**、**AAD 服務主體**和 **Azure 資源的受控識別**。
 - REST API 中的 **[分頁](#pagination-support)** 。
 - 複製 REST JSON 回應的[原狀](#export-json-response-as-is)或使用[結構描述對應](copy-activity-schema-and-type-mapping.md#schema-mapping)加以剖析。 僅支援 **JSON** 格式的回應承載。
 
@@ -59,7 +58,7 @@ ms.locfileid: "74546960"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | **Type**屬性必須設定為**RestService**。 | 是 |
+| type | **Type**屬性必須設定為**RestService**。 | 是 |
 | URL | REST 服務的基底 URL。 | 是 |
 | enableServerCertificateValidation | 連接到端點時，是否要驗證服務器端 SSL 憑證。 | 否<br /> (預設值為 **true**) |
 | authenticationType | 用來連線到 REST 服務的驗證類型。 允許的值為 **Anonymous**、**Basic**、**AadServicePrincipal** 和 **ManagedServiceIdentity**。 請分別參閱下列有關更多屬性和範例的對應區段。 | 是 |
@@ -74,7 +73,7 @@ ms.locfileid: "74546960"
 | userName | 用來存取 REST 端點的使用者名稱。 | 是 |
 | password | 使用者 (**userName** 值) 的密碼。 將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 | 是 |
 
-<bpt id="p1">**</bpt>Example<ept id="p1">**</ept>
+**範例**
 
 ```json
 {
@@ -102,14 +101,14 @@ ms.locfileid: "74546960"
 
 將 **authenticationType** 屬性設定為 [AadServicePrincipal]。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | servicePrincipalId | 指定 Azure Active Directory 應用程式的用戶端識別碼。 | 是 |
 | servicePrincipalKey | 指定 Azure Active Directory 應用程式的金鑰。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | tenant | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是 |
 | aadResourceId | 指定您要求授權的 AAD 資源，例如 `https://management.core.windows.net`。| 是 |
 
-<bpt id="p1">**</bpt>Example<ept id="p1">**</ept>
+**範例**
 
 ```json
 {
@@ -139,11 +138,11 @@ ms.locfileid: "74546960"
 
 將 **authenticationType** 屬性設定為 [ManagedServiceIdentity]。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | aadResourceId | 指定您要求授權的 AAD 資源，例如 `https://management.core.windows.net`。| 是 |
 
-<bpt id="p1">**</bpt>Example<ept id="p1">**</ept>
+**範例**
 
 ```json
 {
@@ -173,7 +172,7 @@ ms.locfileid: "74546960"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的 **type** 屬性必須設定為 [RestResource]。 | 是 |
+| type | 資料集的 **type** 屬性必須設定為 [RestResource]。 | 是 |
 | relativeUrl | 包含資料之資源的相對 URL。 若未指定此屬性，則只會使用在連結服務定義中指定的 URL。 HTTP 連接器會從合併的 URL 複製資料： `[URL specified in linked service]/[relative URL specified in dataset]`。 | 否 |
 
 如果您在資料集中設定 `requestMethod`、`additionalHeaders`、`requestBody` 和 `paginationRules`，則仍會受到支援，但建議您繼續使用活動來源中的新模型。
@@ -209,7 +208,7 @@ ms.locfileid: "74546960"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的 **type** 屬性必須設定為 [RestSource]。 | 是 |
+| type | 複製活動來源的 **type** 屬性必須設定為 [RestSource]。 | 是 |
 | requestMethod | HTTP 方法。 允許的值為 **Get** (預設值) 和 **Post**。 | 否 |
 | additionalHeaders | 其他 HTTP 要求標頭。 | 否 |
 | requestBody | HTTP 要求的主體。 | 否 |
@@ -220,7 +219,7 @@ ms.locfileid: "74546960"
 >[!NOTE]
 >REST 連接器會忽略 `additionalHeaders`中指定的任何「接受」標頭。 由於 REST 連接器僅支援 JSON 中的回應，因此它會自動產生 `Accept: application/json`的標頭。
 
-**範例1：使用 Get 方法搭配分頁**
+**範例 1：搭配使用 Get 方法和分頁**
 
 ```json
 "activities":[
@@ -258,7 +257,7 @@ ms.locfileid: "74546960"
 ]
 ```
 
-**範例 2︰使用 Post 方法**
+**範例 2：使用 Post 方法**
 
 ```json
 "activities":[
@@ -309,7 +308,7 @@ ms.locfileid: "74546960"
 
 分頁規則中的**支援金鑰**：
 
-| 索引鍵 | 描述 |
+| Key | 描述 |
 |:--- |:--- |
 | AbsoluteUrl | 指示 URL 發出下一個要求。 它可以是**絕對 url 或相對 url**。 |
 | QueryParameters.*request_query_parameter* 或 QueryParameters['request_query_parameter'] | 使用者定義的 "request_query_parameter" 會參考下一個 HTTP 要求 URL 中的一個查詢參數名稱。 |
@@ -317,7 +316,7 @@ ms.locfileid: "74546960"
 
 分頁規則中的**支援值**：
 
-| Value | 描述 |
+| 值 | 描述 |
 |:--- |:--- |
 | Headers.*response_header* 或 Headers['response_header'] | 使用者定義的 "response_header" 會參考目前 HTTP 回應中的一個標頭名稱，其值會用來發出下一個要求。 |
 | JSONPath 運算式會以 "$" 開頭 (代表回應本文的根) | 回應本文應只包含一個 JSON 物件。 JSONPath 運算式應會傳回單一基本值，而這會用來發出下一個要求。 |
@@ -381,6 +380,6 @@ Facebook 圖形 API 會傳回採用下列結構的回應，在該案例中，下
 
 若要將資料從 REST 端點複製到表格式接收器中，請參閱[結構描述對應](copy-activity-schema-and-type-mapping.md#schema-mapping)。
 
-## <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>接下來的步驟
 
 如需 Azure Data Factory 中複製活動作為來源和接收端支援的資料存放區清單，請參閱[支援的資料存放區和格式](copy-activity-overview.md#supported-data-stores-and-formats)。

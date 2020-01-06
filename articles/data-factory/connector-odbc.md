@@ -4,20 +4,19 @@ description: 了解如何使用 Azure Data Factory 管線中的複製活動，�
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: c597d8a97e024fc34e8df16dfcbffef41d8f765f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: b94dbb81b2ab5b7e4421357ee81d6c3ea8e8d3c0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680604"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912496"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 從 ODBC 資料存放區複製資料及將資料複製到處
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -44,7 +43,7 @@ ms.locfileid: "73680604"
 - 設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
 - 安裝適用於 Integration Runtime 電腦上資料存放區的 ODBC 驅動程式。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -54,14 +53,14 @@ ms.locfileid: "73680604"
 
 以下是針對 ODBC 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設定為：**Odbc** | 是 |
+| type | 類型屬性必須設定為：**Odbc** | 是 |
 | connectionString | 不包含認證部分的連接字串。 您可以用 `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` 模式指定連接字串，或使用您在 Integration Runtime 電腦上以 `"DSN=<name of the DSN on IR machine>;"` 設定的系統 DSN (資料來源名稱) (仍需要據此指定連結的服務中的認證部分)。<br>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。| 是 |
-| authenticationType | 用來連接到 ODBC 資料存放區的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Anonymous** (匿名)。 | 是 |
+| authenticationType | 用來連接到 ODBC 資料存放區的驗證類型。<br/>允許的值包括：**基本**與**匿名**。 | 是 |
 | userName | 如果您要使用 Basic 驗證，請指定使用者名稱。 | 否 |
 | password | 指定您為 userName 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
-| 認證 | 以驅動程式特定「屬性-值」格式指定之連接字串的存取認證部分。 範例：`"RefreshToken=<secret refresh token>;"`. 請將此欄位標示為 SecureString。 | 否 |
+| 認證 (credential) | 以驅動程式特定「屬性-值」格式指定之連接字串的存取認證部分。 範例： `"RefreshToken=<secret refresh token>;"`. 請將此欄位標示為 SecureString。 | 否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
 
 **範例 1：使用 Basic (基本) 驗證**
@@ -123,9 +122,9 @@ ms.locfileid: "73680604"
 
 若要將資料從/複製到 ODBC 相容的資料存放區，則支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為： **OdbcTable** | 是 |
+| type | 資料集的類型屬性必須設定為：**OdbcTable** | 是 |
 | tableName | ODBC 資料存放區中資料表的名稱。 | 就來源而言為非必要 (如果已指定活動來源中的「查詢」)；<br/>就接收器而言為必要 |
 
 **範例**
@@ -151,16 +150,16 @@ ms.locfileid: "73680604"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 ODBC 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 ODBC 來源所支援的屬性清單。
 
 ### <a name="odbc-as-source"></a>ODBC 作為來源
 
 若要從 ODBC 相容的資料存放區複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為： **OdbcSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
+| type | 複製活動來源的類型屬性必須設定為：**OdbcSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**
 
@@ -200,9 +199,9 @@ ms.locfileid: "73680604"
 
 若要將資料複製到 ODBC 相容的資料存放區，請將複製活動中的接收器類型設定為 **OdbcSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動接收器的類型屬性必須設定為：**OdbcSink** | 是 |
+| type | 複製活動接收器的類型屬性必須設定為：**OdbcSink** | 是 |
 | writeBatchTimeout |在逾時前等待批次插入作業完成的時間。<br/>允許的值為：時間範圍。 範例：“00:30:00” (30 分鐘)。 |否 |
 | writeBatchSize |當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中<br/>允許的值為：整數 (資料列數目)。 |No (預設值為 0 - 自動偵測) |
 | preCopyScript |指定一個供「複製活動」在每次執行時將資料寫入到資料存放區前執行的 SQL 查詢。 您可以使用此屬性來清除預先載入的資料。 |否 |
@@ -298,5 +297,5 @@ ms.locfileid: "73680604"
 4. 指定用來連線到資料存放區的 [連接字串]，選擇 [驗證]，然後輸入 [使用者名稱]、[密碼] 和/或 [認證]。
 5. 按一下 [測試連線] 以測試資料存放區連線。
 
-## <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>接下來的步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

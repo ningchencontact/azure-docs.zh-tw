@@ -1,23 +1,22 @@
 ---
-title: 使用 Azure Data Factory 從 ServiceNow 複製資料
+title: 從 ServiceNow 複製資料
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 ServiceNow 複製到支援的接收資料存放區。
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.author: jingwang
-ms.openlocfilehash: 933b12f852fcbcc20e50f3c89d597bbe6b84bd8e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dabcc5afe4a092e4919c854071a698c6e6ebf0b3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680221"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926160"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>使用 Azure Data Factory 從 ServiceNow 複製資料
 
@@ -34,7 +33,7 @@ ms.locfileid: "73680221"
 
 Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此連接器您不需要手動安裝任何驅動程式。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -44,11 +43,11 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 ServiceNow 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | Type 屬性必須設定為：**ServiceNow** | 是 |
+| type | 類型屬性必須設定為：**ServiceNow** | 是 |
 | endpoint | ServiceNow 伺服器的端點 (`http://<instance>.service-now.com`)。  | 是 |
-| authenticationType | 要使用的驗證類型。 <br/>允許的值為：**Basic**、**OAuth2** | 是 |
+| authenticationType | 要使用的驗證類型。 <br/>允許的值包括：**Basic**、**OAuth2** | 是 |
 | username | 用來連線到 ServiceNow 伺服器以進行 Basic 和 OAuth2 驗證的使用者名稱。  | 是 |
 | password | 對應至用於進行 Basic 和 OAuth2 驗證之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | clientId | 用於 OAuth2 驗證的用戶端識別碼。  | 否 |
@@ -83,10 +82,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 ServiceNow 複製資料，請將資料集的 type 屬性設定為 **ServiceNowObject**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為： **ServiceNowObject** | 是 |
-| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| type | 資料集的類型屬性必須設定為：**ServiceNowObject** | 是 |
+| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -107,24 +106,24 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 ServiceNow 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 ServiceNow 來源所支援的屬性清單。
 
 ### <a name="servicenow-as-source"></a>ServiceNow 作為來源
 
 若要從 ServiceNow 複製資料，請將複製活動中的來源類型設定為 **ServiceNowSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的 type 屬性必須設定為：**ServiceNowSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Actual.alm_asset"`。 | 否 (如果已指定資料集中的 "tableName") |
+| type | 複製活動來源的類型屬性必須設定為：**ServiceNowSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Actual.alm_asset"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 在查詢中指定 ServiceNow 的結構描述和資料行時，請注意下列內容，並**參考有關複製效能含意的[效能祕訣](#performance-tips)** 。
 
-- **結構描述：** 在 ServiceNow 查詢中，將結構描述指定為 `Actual` 或 `Display`，而在呼叫 `sysparm_display_value`ServiceNow RESTful API[ \(英文\) 時，您可以將它視為 ](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET) 的參數 (True 或 False)。 
+- **結構描述：** 在 ServiceNow 查詢中，將結構描述指定為 `Actual` 或 `Display`，而在呼叫 [ServiceNow RESTful API](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET) \(英文\) 時，您可以將它視為 `sysparm_display_value` 的參數 (True 或 False)。 
 - **資料行：** `Actual` 結構描述下實際值的資料行名稱為 `[column name]_value`，而 `Display` 結構描述下顯示值的資料行名稱為 `[column name]_display_value`。 請注意，資料行名稱必須對應至要在查詢中使用的結構描述。
 
 **範例查詢：** 
-`SELECT col_value FROM Actual.alm_asset` 或 
+`SELECT col_value FROM Actual.alm_asset`OR  
 `SELECT col_display_value FROM Display.alm_asset`
 
 **範例：**
@@ -175,5 +174,5 @@ ServiceNow 資料表索引可協助改善查詢效能，請參閱[建立資料�
 若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 
-## <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>接下來的步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

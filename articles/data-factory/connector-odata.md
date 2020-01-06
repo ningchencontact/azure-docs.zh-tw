@@ -4,20 +4,19 @@ description: 了解如何使用 Azure Data Factory 管線中的複製活動，�
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 85da7752575164ba505d788a5d45f5af0908edc9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e70cd6d7745b2754bdda6992c587c5c72643869b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680599"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912514"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 OData 來源複製資料
 
@@ -39,7 +38,7 @@ ms.locfileid: "73680599"
 具體而言，這個 OData 連接器支援：
 
 - OData 3.0 和 4.0 版。
-- 使用下列其中一種驗證來複製資料：**匿名**、**基本**、 **Windows**、 **AAD 服務主體**，以及**適用于 Azure 資源的受控**識別。
+- 使用下列其中一種驗證來複製資料︰**匿名**、**基本**、**Windows**、**AAD 服務主體**及**適用於 Azure 資源的受控識別**。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -55,10 +54,10 @@ ms.locfileid: "73680599"
 
 以下是針對 OData 連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | **type** 屬性必須設為 **OData**。 |是 |
-| url | OData 服務的根 URL。 |是 |
+| type | **type** 屬性必須設為 **OData**。 |是 |
+| URL | OData 服務的根 URL。 |是 |
 | authenticationType | 用來連線到 OData 來源的驗證類型。 允許的值為 **Anonymous**、**Basic**、**Windows**、**AadServicePrincipal** 及 **ManagedServiceIdentity**。 不支援以使用者為基礎的 OAuth。 | 是 |
 | userName | 如果使用基本或 Windows 驗證，請指定 **userName**。 | 否 |
 | password | 針對您指定 **userName** 的使用者帳戶指定 **password**。 將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 | 否 |
@@ -67,7 +66,7 @@ ms.locfileid: "73680599"
 | servicePrincipalKey | 指定 Azure Active Directory 應用程式的金鑰。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | servicePrincipalEmbeddedCert | 指定在 Azure Active Directory 中註冊之您應用程式的 base64 編碼憑證。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | servicePrincipalEmbeddedCertPassword | 如果您的憑證受到密碼保護，則指定您憑證的密碼。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。  | 否|
-| 租用戶 | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 否 |
+| tenant | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 否 |
 | aadResourceId | 指定您要求授權的 AAD 資源。| 否 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，則會使用預設的 Azure Integration Runtime。 |否 |
 
@@ -138,7 +137,7 @@ ms.locfileid: "73680599"
 }
 ```
 
-**範例4：使用服務主體金鑰驗證**
+**範例 4︰使用服務主體金鑰驗證**
 
 ```json
 {
@@ -165,7 +164,7 @@ ms.locfileid: "73680599"
 }
 ```
 
-**範例5：使用服務主體憑證驗證**
+**範例 5：使用服務主體憑證驗證**
 
 ```json
 {
@@ -204,10 +203,10 @@ ms.locfileid: "73680599"
 
 若要從 OData 複製資料，請將資料集的 **type** 屬性設定為 **ODataResource**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的 **type** 屬性必須設定為 **ODataResource**。 | 是 |
-| 路徑 | OData 資源的路徑。 | 是 |
+| type | 資料集的 **type** 屬性必須設定為 **ODataResource**。 | 是 |
+| path | OData 資源的路徑。 | 是 |
 
 **範例**
 
@@ -240,10 +239,10 @@ ms.locfileid: "73680599"
 
 若要從 OData 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的**類型**屬性必須設定為**ODataSource**。 | 是 |
-| query | 用來篩選資料的 OData 查詢選項。 範例：`"$select=Name,Description&$top=5"`.<br/><br/>**注意**：OData 連接器會從以下的組合 URL 複製資料：`[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`。 如需詳細資訊，請參閱 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |
+| type | 複製活動來源的**類型**屬性必須設定為**ODataSource**。 | 是 |
+| query | 用來篩選資料的 OData 查詢選項。 範例： `"$select=Name,Description&$top=5"`.<br/><br/>**注意**：OData 連接器會從以下的組合 URL 複製資料：`[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`。 如需詳細資訊，請參閱 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |
 
 **範例**
 
@@ -291,15 +290,15 @@ ms.locfileid: "73680599"
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
-| Edm.Single | 單一 |
+| Edm.Single | Single |
 | Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | 字串 |
+| Edm.String | String |
 | Edm.Time | TimeSpan |
-| Edm.DateTimeOffset | Datetimeoffset |
+| Edm.DateTimeOffset | DateTimeOffset |
 
 > [!NOTE]
 > 不支援 OData 複雜資料類型 (例如**物件**)。

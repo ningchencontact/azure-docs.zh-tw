@@ -4,20 +4,19 @@ description: 瞭解如何使用 Azure Data Factory 管線中的複製活動，�
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: b5d6543f1d559f26926e9bbb98f10a67e71b5675
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: 5edda76503ab1632c5f48728a3d403555452c711
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680770"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929257"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從和複製到 IBM Informix 資料存放區
 
@@ -39,7 +38,7 @@ ms.locfileid: "73680770"
 - 設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
 - 在 Integration Runtime 機上安裝資料存放區的 Informix ODBC 驅動程式。 例如，您可以使用驅動程式「IBM INFORMIX Informix DRIVER （64-bit）」。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -49,14 +48,14 @@ ms.locfileid: "73680770"
 
 以下是針對 Informix 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | Type 屬性必須設定為： **Informix** | 是 |
+| type | 類型屬性必須設定為：**Informix** | 是 |
 | connectionString | 不包括認證部分的 ODBC 連接字串。 您可以指定連接字串，或使用您在 Integration Runtime 機上設定的系統 DSN （資料來源名稱）（您仍然需要在連結服務中指定認證部分）。<br>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。| 是 |
-| authenticationType | 用來連接到 Informix 資料存放區的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Anonymous** (匿名)。 | 是 |
+| authenticationType | 用來連接到 Informix 資料存放區的驗證類型。<br/>允許的值包括：**基本**與**匿名**。 | 是 |
 | userName | 如果您要使用 Basic 驗證，請指定使用者名稱。 | 否 |
 | password | 指定您為 userName 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
-| 認證 | 以驅動程式特定「屬性-值」格式指定之連接字串的存取認證部分。 請將此欄位標示為 SecureString。 | 否 |
+| 認證 (credential) | 以驅動程式特定「屬性-值」格式指定之連接字串的存取認證部分。 請將此欄位標示為 SecureString。 | 否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
 
 **範例：**
@@ -92,9 +91,9 @@ ms.locfileid: "73680770"
 
 若要從 Informix 複製資料，支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為： **InformixTable** | 是 |
+| type | 資料集的類型屬性必須設定為：**InformixTable** | 是 |
 | tableName | Informix 中的資料表名稱。 | 就來源而言為非必要 (如果已指定活動來源中的「查詢」)；<br/>就接收器而言為必要 |
 
 **範例**
@@ -117,16 +116,16 @@ ms.locfileid: "73680770"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Informix 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Informix 來源所支援的屬性清單。
 
 ### <a name="informix-as-source"></a>Informix 作為來源
 
 若要從 Informix 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為： **InformixSource** | 是 |
-| query | 使用自訂查詢來讀取資料。 例如： `"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
+| type | 複製活動來源的類型屬性必須設定為：**InformixSource** | 是 |
+| query | 使用自訂查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**
 
@@ -165,5 +164,5 @@ ms.locfileid: "73680770"
 若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 
-## <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>接下來的步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

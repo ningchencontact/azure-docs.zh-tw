@@ -4,20 +4,19 @@ description: 了解如何使用資料處理站管線中的複製活動，將資�
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 4fa43246278c33755f6a8a5b62f914689e6e9b40
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f465fe4bb69bc5ae81db6c78df51bf5133de1b60
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680792"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929311"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Impala 複製資料
 
@@ -48,11 +47,11 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 以下是針對 Impala 連結服務所支援的屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | type 屬性必須設定為 **Impala**。 | 是 |
-| 主機 | Impala 伺服器的 IP 位址或主機名稱 (也就是 192.168.222.160)。  | 是 |
-| port | Impala 伺服器用來接聽用戶端連線的 TCP 連接埠。 預設值為 21050。  | 否 |
+| type | type 屬性必須設定為 **Impala**。 | 是 |
+| host | Impala 伺服器的 IP 位址或主機名稱 (也就是 192.168.222.160)。  | 是 |
+| 連接埠 | Impala 伺服器用來接聽用戶端連線的 TCP 連接埠。 預設值為 21050。  | 否 |
 | authenticationType | 要使用的驗證類型。 <br/>允許的值為 **Anonymous**、**SASLUsername** 和 **UsernameAndPassword**。 | 是 |
 | username | 用來存取 Impala 伺服器的使用者名稱。 使用 SASLUsername 時，預設值為 anonymous。  | 否 |
 | password | 使用 UsernameAndPassword 時，值為對應到使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
@@ -94,12 +93,12 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 若要從 Impala 複製資料，請將資料集的類型屬性設定為 **ImpalaObject**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為： **ImpalaObject** | 是 |
-| 結構描述 | 架構的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
-| 資料表 | 資料表的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
-| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對新的工作負載使用 `schema` 和 `table`。 | 否 (如果已指定活動來源中的「查詢」) |
+| type | 資料集的類型屬性必須設定為：**ImpalaObject** | 是 |
+| 結構描述 | 結構描述的名稱。 |否 (如果已指定活動來源中的"query")  |
+| 資料表 | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
+| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對新的工作負載使用 `schema` 和 `table`。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -120,15 +119,15 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Impala 來源類型所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Impala 來源類型所支援的屬性清單。
 
 ### <a name="impala-as-a-source-type"></a>Impala 作為來源類型
 
 若要從 Impala 複製資料，請將複製活動中的來源類型設定為 **ImpalaSource**。 複製活動的 [來源] 區段支援下列屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的 type 屬性必須設定為 **ImpalaSource**。 | 是 |
+| type | 複製活動來源的 type 屬性必須設定為 **ImpalaSource**。 | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**
@@ -168,5 +167,5 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 
-## <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>接下來的步驟
 如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

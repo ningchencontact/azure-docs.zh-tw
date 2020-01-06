@@ -45,7 +45,7 @@
           href: tutorial-install-apps-cli.md
         - name: Azure PowerShell
           href: tutorial-install-apps-powershell.md
-        - name: 範本
+        - name: '[範本]'
           href: tutorial-install-apps-template.md
     - name: 5 - 自動調整擴展集
       items:
@@ -53,7 +53,7 @@
           href: tutorial-autoscale-cli.md
         - name: Azure PowerShell
           href: tutorial-autoscale-powershell.md
-        - name: 範本
+        - name: '[範本]'
           href: tutorial-autoscale-template.md
 - name: 範例
   items:
@@ -64,7 +64,7 @@
 - name: 概念
   items:
     - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
       maintainContext: true
     - name: 區域
       href: ../virtual-machines/windows/regions.md
@@ -164,7 +164,7 @@
     - name: 監視
       href: ../virtual-machines/windows/monitor.md
       maintainContext: true
-    - name: 部署考量
+    - name: 部署考量因素
       items:
         - name: vCPU 配額
           href: ../virtual-machines/windows/quotas.md

@@ -10,7 +10,7 @@
       href: avere-vfxt-deploy-plan.md
     - name: Avere vFXT 部署概觀
       href: avere-vfxt-deploy-overview.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 準備建立 Avere vFXT
       href: avere-vfxt-prereqs.md
@@ -48,5 +48,5 @@
           href: avere-vfxt-configure-dns.md
         - name: 授權非擁有者部署 Avere vFXT
           href: avere-vfxt-non-owner.md
-    - name: 技術白皮書
+    - name: 白皮書
       href: avere-vfxt-whitepapers.md

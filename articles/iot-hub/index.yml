@@ -48,6 +48,7 @@ sections:
               - href: /azure/iot-hub/quickstart-send-telemetry-ios
           - title: 控制裝置
             values:
+              - href: null
               - href: /azure/iot-hub/quickstart-control-device-node
               - href: /azure/iot-hub/quickstart-control-device-dotnet
               - href: /azure/iot-hub/quickstart-control-device-java
@@ -55,6 +56,7 @@ sections:
               - href: /azure/iot-hub/quickstart-control-device-android
           - title: 使用裝置串流進行通訊 (預覽)
             values:
+              - href: null
               - href: /azure/iot-hub/quickstart-device-streams-echo-nodejs
               - href: /azure/iot-hub/quickstart-device-streams-echo-csharp
               - href: null
@@ -64,6 +66,7 @@ sections:
               - href: null
           - title: 使用裝置串流進行 SSH/RDP (預覽)
             values:
+              - href: null
               - href: /azure/iot-hub/quickstart-device-streams-proxy-nodejs
               - href: /azure/iot-hub/quickstart-device-streams-proxy-csharp
               - href: null

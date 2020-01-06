@@ -12,12 +12,12 @@ metadata:
   ms.author: mtillman
   manager: daveba
   ms.date: 07/27/2019
-  ms.openlocfilehash: 11d32abbcd07f16bd21d512d36cd08abd8ca97df
-  ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+  ms.openlocfilehash: d212a7223eea2ccbaaddeb9c45db85e13c7ff9c8
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 12/05/2019
-  ms.locfileid: "74842301"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75443467"
 highlightedContent:
   items:
   - title: 什麼是 Azure AD？
@@ -53,8 +53,8 @@ conceptualContent:
       text: 適用於內部部屬應用程式的 Application Proxy
     footerLink:
       url: ./manage-apps/index.yml
-      text: 更多資訊
-  - title: Authentication
+      text: 查看更多
+  - title: 驗證
     links:
     - url: ./authentication/concept-mfa-howitworks.md
       itemType: concept
@@ -67,7 +67,7 @@ conceptualContent:
       text: Azure AD 密碼保護
     footerLink:
       url: ./authentication/index.yml
-      text: 更多資訊
+      text: 查看更多
   - title: 企業對企業 (B2B)
     links:
     - url: ./b2b/what-is-b2b.md
@@ -81,7 +81,7 @@ conceptualContent:
       text: B2B 和 Office 365 共用
     footerLink:
       url: ./b2b/index.yml
-      text: 更多資訊
+      text: 查看更多
   - title: 企業對消費者 (B2C)
     links:
     - url: ../active-directory-b2c/active-directory-b2c-overview.md
@@ -95,7 +95,7 @@ conceptualContent:
       text: Azure AD B2C 中的自訂原則
     footerLink:
       url: ../active-directory-b2c/index.yml
-      text: 更多資訊
+      text: 查看更多
   - title: 雲端佈建
     links:
     - url: ./cloud-provisioning/what-is-cloud-provisioning.md
@@ -109,7 +109,7 @@ conceptualContent:
       text: 安裝 Azure AD Connect 雲端佈建代理程式
     footerLink:
       url: ./cloud-provisioning/index.yml
-      text: 更多資訊
+      text: 查看更多
   - title: 條件式存取
     links:
     - url: ./conditional-access/overview.md
@@ -123,7 +123,7 @@ conceptualContent:
       text: 以位置為基礎的條件
     footerLink:
       url: ./conditional-access/index.yml
-      text: 更多資訊
+      text: 查看更多
   - title: 開發人員
     links:
     - url: ./develop/about-microsoft-identity-platform.md
@@ -137,7 +137,7 @@ conceptualContent:
       text: 使用 Microsoft 身分識別平台來註冊應用程式
     footerLink:
       url: ./develop/index.yml
-      text: 更多資訊
+      text: 查看更多
   - title: 裝置管理
     links:
     - url: ./devices/overview.md
@@ -151,7 +151,7 @@ conceptualContent:
       text: 規劃 Azure AD 聯結
     footerLink:
       url: ./devices/index.yml
-      text: 更多資訊
+      text: 查看更多
   - title: 網域服務
     links:
     - url: ../active-directory-domain-services/active-directory-ds-overview.md
@@ -165,7 +165,7 @@ conceptualContent:
       text: 管理群組原則
     footerLink:
       url: ../active-directory-domain-services/index.yml
-      text: 更多資訊
+      text: 查看更多
   - title: 企業使用者
     links:
     - url: ./users-groups-roles/groups-create-rule.md
@@ -179,7 +179,7 @@ conceptualContent:
       text: Azure Active Directory 服務限制
     footerLink:
       url: ./users-groups-roles/index.yml
-      text: 更多資訊
+      text: 查看更多
   - title: 混合式身分識別
     links:
     - url: ./hybrid/whatis-hybrid-identity.md
@@ -193,7 +193,7 @@ conceptualContent:
       text: Azure AD Connect 自訂安裝
     footerLink:
       url: ./hybrid/index.yml
-      text: 更多資訊
+      text: 查看更多
   - title: 身分識別治理
     links:
     - url: ./governance/create-access-review.md
@@ -207,21 +207,21 @@ conceptualContent:
       text: 需要使用規定
     footerLink:
       url: ./governance/index.yml
-      text: 更多資訊
+      text: 查看更多
   - title: 身分識別保護
     links:
-    - url: ./identity-protection/overview.md
+    - url: ./identity-protection/overview-identity-protection.md
       itemType: overview
       text: 什麼是身分識別保護？
-    - url: ./identity-protection/quickstart-sign-in-risk-policy.md
-      itemType: quickstart
-      text: 偵測到工作階段風險時封鎖存取
-    - url: ./identity-protection/howto-unblock-user.md
+    - url: ./identity-protection/howto-identity-protection-configure-risk-policies.md
+      itemType: how-to-guide
+      text: 設定風險原則
+    - url: ./identity-protection/howto-identity-protection-remediate-unblock.md
       itemType: how-to-guide
       text: 如何將使用者解除封鎖
     footerLink:
       url: ./identity-protection/index.yml
-      text: 更多資訊
+      text: 查看更多
   - title: 適用於 Azure 資源的受控識別
     links:
     - url: ./managed-identities-azure-resources/tutorial-windows-vm-access-sql.md
@@ -235,7 +235,7 @@ conceptualContent:
       text: 支援受控識別的服務
     footerLink:
       url: ./managed-identities-azure-resources/index.yml
-      text: 更多資訊
+      text: 查看更多
   - title: Privileged Identity Management (PIM)
     links:
     - url: ./privileged-identity-management/pim-getting-started.md
@@ -249,7 +249,7 @@ conceptualContent:
       text: 指派目錄角色
     footerLink:
       url: ./privileged-identity-management/index.yml
-      text: 更多資訊
+      text: 查看更多
   - title: 報告和監視
     links:
     - url: ./reports-monitoring/concept-audit-logs.md
@@ -263,7 +263,7 @@ conceptualContent:
       text: 登入錯誤碼參考
     footerLink:
       url: ./reports-monitoring/index.yml
-      text: 更多資訊
+      text: 查看更多
 additionalContent:
   sections:
   - items:

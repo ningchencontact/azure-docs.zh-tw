@@ -22,8 +22,6 @@
           href: tutorial-vm-windows-access-storage.md
         - name: 使用存取金鑰存取 Azure 儲存體
           href: tutorial-windows-vm-access-storage.md
-        - name: 使用 SAS 存取 Azure 儲存體
-          href: tutorial-windows-vm-access-storage-sas.md
         - name: 存取 Azure SQL
           href: tutorial-windows-vm-access-sql.md
         - name: 存取 Azure Key Vault
@@ -62,7 +60,7 @@
       href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
     - name: Azure Container Instances
       href: /azure/container-instances/container-instances-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 在 VM 上設定受控識別
       items:

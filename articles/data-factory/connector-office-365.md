@@ -4,24 +4,23 @@ description: 了解如何使用 Azure Data Factory 管線中的複製活動，�
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 9bd059d42686a37701af0d42f54335b83c06b752
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d97b3caccc92f0fdfeb229d94e30ee6499c26181
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680576"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912400"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Office 365 複製到 Azure
 
-Azure Data Factory 與[Microsoft Graph 資料連線](https://docs.microsoft.com/graph/data-connect-concept-overview)整合，可讓您以可擴充的方式將 Office 365 租使用者中豐富的組織資料帶入 Azure，並建立分析應用程式，並根據這些重要資料將深入解析固定資產. 與 Privileged Access Management 整合可針對 Office 365 中的重要策劃資料提供安全的存取控制。  如需有關 Microsoft Graph 資料連線的總覽，請參閱[此連結](https://docs.microsoft.com/graph/data-connect-concept-overview)，如需授權資訊，請參閱[此連結](https://docs.microsoft.com/graph/data-connect-policies#licensing)。
+Azure Data Factory 與[Microsoft Graph 資料連線](https://docs.microsoft.com/graph/data-connect-concept-overview)整合，可讓您以可擴充的方式將 Office 365 租使用者中豐富的組織資料帶入 Azure，並建立分析應用程式，並根據這些重要的資料資產來提取深入解析。 與 Privileged Access Management 整合可針對 Office 365 中的重要策劃資料提供安全的存取控制。  如需有關 Microsoft Graph 資料連線的總覽，請參閱[此連結](https://docs.microsoft.com/graph/data-connect-concept-overview)，如需授權資訊，請參閱[此連結](https://docs.microsoft.com/graph/data-connect-policies#licensing)。
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Office 365 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
@@ -57,7 +56,7 @@ ADF Office 365 連接器和 Microsoft Graph 資料連線可從 Exchange 電子�
 
 如果建立 ADF 作為受控應用程式的一部分，並且對管理資源群組內的資源進行 Azure 原則指派，則 ADF 會檢查每個複製活動執行，以確定原則指派已強制執行。 請參閱[這裡](https://docs.microsoft.com/graph/data-connect-policies#policies)取得支援的原則清單。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 >[!TIP]
 >如需使用 Office 365 連接器的逐步解說，請參閱[從 Office 365 載入資料](load-office-365-data.md)文章。
@@ -77,9 +76,9 @@ ADF Office 365 連接器和 Microsoft Graph 資料連線可從 Exchange 電子�
 
 以下是 Office 365 連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設為：**Office365** | 是 |
+| type | 類型屬性必須設定為：**Office365** | 是 |
 | office365TenantId | Office 365 帳戶所屬的 Azure 租用戶識別碼。 | 是 |
 | servicePrincipalTenantId | 指定您 Azure AD Web 應用程式所在的租用戶資訊。 | 是 |
 | servicePrincipalId | 指定應用程式的用戶端識別碼。 | 是 |
@@ -117,9 +116,9 @@ ADF Office 365 連接器和 Microsoft Graph 資料連線可從 Exchange 電子�
 
 若要從 Office 365 複製資料，以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的 type 屬性必須設定為：**Office365Table** | 是 |
+| type | 資料集的類型屬性必須設定為：**Office365Table** | 是 |
 | tableName | 擷取自 Office 365 的資料集名稱。 如需可供擷取的 Office 365 資料集清單，請參閱[這裡](https://docs.microsoft.com/graph/data-connect-datasets#datasets)。 | 是 |
 
 如果您在資料集中設定 `dateFilterColumn`、`startTime`、`endTime`和 `userScopeFilterUri`，則仍會受到支援，但建議您繼續使用活動來源中的新模型。
@@ -145,15 +144,15 @@ ADF Office 365 連接器和 Microsoft Graph 資料連線可從 Exchange 電子�
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Office 365 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Office 365 來源所支援的屬性清單。
 
 ### <a name="office-365-as-source"></a>Office 365 作為來源
 
 若要從 Office 365 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為： **Office365Source** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**Office365Source** | 是 |
 | allowedGroups | 群組選取述詞。  使用此屬性可選取最多10個使用者群組，資料將會抓取到其中。  如果未指定任何群組，則會傳回整個組織的資料。 | 否 |
 | userScopeFilterUri | 未指定 `allowedGroups` 屬性時，您可以使用套用在整個租使用者上的述詞運算式，來篩選要從 Office 365 解壓縮的特定資料列。 述詞格式應符合 Microsoft Graph Api 的查詢格式，例如 `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`。 | 否 |
 | dateFilterColumn | 日期時間篩選資料行的名稱。 使用此屬性來限制用來解壓縮 Office 365 資料的時間範圍。 | 如果資料集有一或多個日期時間資料行，則為 Yes。 如需需要此日期時間篩選的資料集清單，請參閱[這裡](https://docs.microsoft.com/graph/data-connect-filtering#filtering)。 |
@@ -303,5 +302,5 @@ ADF Office 365 連接器和 Microsoft Graph 資料連線可從 Exchange 電子�
 ]
 ```
 
-## <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>接下來的步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

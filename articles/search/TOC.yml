@@ -13,9 +13,9 @@
       href: search-create-service-portal.md
     - name: 入口網站
       items:
-        - name: 建立搜尋索引
+        - name: 建立索引
           href: search-get-started-portal.md
-        - name: 建立應用程式 (預覽)
+        - name: 建立應用程式
           href: search-create-app-portal.md
         - name: 建立認知技能
           href: cognitive-search-quickstart-blob.md
@@ -95,7 +95,7 @@
       href: knowledge-store-projection-overview.md
     - name: 累加式索引編製
       href: cognitive-search-incremental-indexing-conceptual.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 規劃
       items:
@@ -123,7 +123,7 @@
           href: search-security-trimming-for-azure-search-with-aad.md
         - name: 管理加密金鑰
           href: search-security-manage-encryption-keys.md
-    - name: 開發
+    - name: 部署
       items:
         - name: API 版本
           href: search-api-versions.md

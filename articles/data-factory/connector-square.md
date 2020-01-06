@@ -1,23 +1,23 @@
 ---
-title: 使用 Azure Data Factory (預覽) 從 Square 複製資料
+title: 從正方形複製資料（預覽）
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 Square 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.author: jingwang
-ms.openlocfilehash: b7f83e8e7690180dbed04572f2e2699f02d5fed7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: de795d082069ff5ad895c48b7a507512449d0208
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680140"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930996"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>使用 Azure Data Factory (預覽) 從 Square 複製資料
 
@@ -38,7 +38,7 @@ ms.locfileid: "73680140"
 
 Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此連接器您不需要手動安裝任何驅動程式。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -48,10 +48,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 Square 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | Type 屬性必須設定為：**Square** | 是 |
-| 主機 | Square 執行個體的 URL。 (亦即 mystore.mysquare.com)  | 是 |
+| type | 類型屬性必須設定為：**Square** | 是 |
+| host | Square 執行個體的 URL。 (亦即 mystore.mysquare.com)  | 是 |
 | clientId | 與您 Square 應用程式相關聯的用戶端識別碼。  | 是 |
 | clientSecret | 與您 Square 應用程式相關聯的用戶端祕密。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | redirectUri | Square 應用程式儀表板中指派的重新導向 URL。 （亦即 HTTP：\//localhost：2500）  | 是 |
@@ -85,10 +85,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Square 複製資料，請將資料集的 type 屬性設定為 **SquareObject**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為： **SquareObject** | 是 |
-| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| type | 資料集的類型屬性必須設定為：**SquareObject** | 是 |
+| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -109,16 +109,16 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Square 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Square 來源所支援的屬性清單。
 
 ### <a name="square-as-source"></a>Square 即來源
 
 若要從 Square 複製資料，請將複製活動中的來源類型設定為 **SquareSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的 type 屬性必須設定為：**SquareSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Business"`。 | 否 (如果已指定資料集中的 "tableName") |
+| type | 複製活動來源的類型屬性必須設定為：**SquareSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Business"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**
 
@@ -156,5 +156,5 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
-## <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>接下來的步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

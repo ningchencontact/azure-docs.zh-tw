@@ -32,7 +32,7 @@
       href: pim-azure-resource.md
     - name: Azure 管理的條件式存取
       href: conditional-access-azure-management.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 列出角色定義
       items:
@@ -64,7 +64,7 @@
           href: role-assignments-cli.md
         - name: REST API
           href: role-assignments-rest.md
-        - name: 範本
+        - name: '[範本]'
           href: role-assignments-template.md
     - name: 列出拒絕指派
       items:
@@ -99,7 +99,7 @@
     - name: 資源提供者作業
       href: resource-provider-operations.md
     - name: RBAC 限制
-      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
+      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits'
     - name: Azure PowerShell
       href: /powershell/module/az.resources
     - name: Azure CLI

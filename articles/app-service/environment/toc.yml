@@ -83,7 +83,7 @@
     - name: 價格
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: 配額資訊
-      href: '../../azure-subscription-service-limits.md#app-service-limits'
+      href: '../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
     - name: 服務更新
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: 最佳作法

@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 11/04/2019
-  ms.openlocfilehash: fae1321f70d538dcacde83cadd83f5cb15155459
-  ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+  ms.openlocfilehash: 291d2ca69a1f02f76430074b2a548b7d36c942be
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 12/03/2019
-  ms.locfileid: "74775518"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75446404"
 highlightedContent:
   items:
   - title: 認知服務是什麼？
@@ -66,7 +66,7 @@ conceptualContent:
     - url: ../media-services/video-indexer/index.yml
       itemType: overview
       text: 影片索引子
-  - title: 語言
+  - title: Language
     summary: 允許您的應用程式使用預先建立的指令碼處理自然語言、評估情感，以及了解如何辨識使用者想要的內容。
     links:
     - url: ./immersive-reader/index.yml
