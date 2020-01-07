@@ -14,8 +14,12 @@
       href: azure-portal-dashboard-share-access.md
     - name: 以程式設計方式建立 Azure 儀表板
       href: azure-portal-dashboards-create-programmatically.md
-- name: 使用說明指南
+- name: 操作指南
   items:
+    - name: 設定您的 Azure 入口網站喜好設定
+      href: set-preferences.md
+    - name: 設定所有使用者的非使用中逾時設定
+      href: admin-timeout.md
     - name: 開啟高對比或變更佈景主題
       href: azure-portal-change-theme-high-contrast.md
     - name: 新增、移除及排序我的最愛

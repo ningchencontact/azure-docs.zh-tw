@@ -67,7 +67,7 @@
       items:
         - name: 復原和災害復原
           href: concept-disaster-recovery.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 與 Azure 受控識別整合
       href: howto-integrate-azure-managed-service-identity.md
@@ -87,15 +87,15 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
         - name: .NET Framework 建立器
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-        - name: .NET Azure SDK
+        - name: 適用於 .Net 的 Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
         - name: Java Spring 提供者
           href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
-        - name: Java Azure SDK
+        - name: Azure SDK for Java
           href: 'https://go.microsoft.com/fwlink/?linkid=2098196'
-        - name: Python Azure SDK
+        - name: 適用於 Python 的 Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
-        - name: JavaScript Azure SDK
+        - name: 適用於 JavaScript 的 Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
         - name: REST
           href: 'https://go.microsoft.com/fwlink/?linkid=2078296'

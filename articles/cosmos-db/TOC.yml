@@ -111,7 +111,7 @@
           href: regional-presence.md
         - name: 交易式和分析儲存體
           href: globally-distributed-transactional-analytical-storage.md
-    - name: 分割
+    - name: 資料分割
       items:
         - name: 概觀
           href: partitioning-overview.md
@@ -129,6 +129,8 @@
           href: set-throughput.md
         - name: 佈建輸送量 - AutoPilot 模式
           href: provision-throughput-autopilot.md
+        - name: Autopilot 常見問題集
+          href: autopilot-faq.md
     - name: SQL 查詢參考
       items:
         - name: 開始使用
@@ -169,7 +171,7 @@
         - name: 關鍵字
           displayName: 'keywords, distinct, between, in, top'
           href: sql-query-keywords.md
-        - name: 運算子
+        - name: 操作員
           displayName: 'operators, operator, logical operators, equality, comparison'
           href: sql-query-operators.md
         - name: 純量運算式
@@ -177,7 +179,7 @@
           href: sql-query-scalar-expressions.md
         - name: Functions
           items:
-            - name: 使用者定義函式
+            - name: 使用者自訂函數
               displayName: 'functions, udf'
               href: sql-query-udfs.md
             - name: 彙總
@@ -566,7 +568,7 @@
             - name: 4 - 遷移資料
               displayName: import
               href: cassandra-import-data.md
-        - name: 使用說明指南
+        - name: 操作指南
           items:
             - name: 變更摘要
               href: cassandra-change-feed.md
@@ -653,7 +655,7 @@
               href: tutorial-query-mongodb.md
             - name: 4 - 全域散發資料
               href: tutorial-global-distribution-mongodb.md
-        - name: 使用說明指南
+        - name: 操作指南
           items:
             - name: 預先移轉指南
               href: mongodb-pre-migration.md
@@ -725,7 +727,7 @@
               href: gremlin-limits.md
             - name: 相容性
               href: gremlin-compatibility.md
-        - name: 使用說明指南
+        - name: 操作指南
           items:
             - name: 圖表資料模型
               href: graph-modeling.md
@@ -796,7 +798,7 @@
             - name: 'F#'
               href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
               maintainContext: true
-        - name: 使用說明指南
+        - name: 操作指南
           items:
             - name: 使用表格 API 建置應用程式
               href: table-support.md
@@ -828,7 +830,7 @@
           href: etcd-api-introduction.md
         - name: 採用 Azure Cosmos DB 的 Azure Kubernetes
           href: bootstrap-kubernetes-cluster.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 使用 Azure Cosmos 帳戶
       href: how-to-manage-database-account.md
@@ -982,6 +984,8 @@
       items:
         - name: 監視 Cosmos DB
           href: monitor-cosmos-db.md
+        - name: 使用診斷記錄進行監視
+          href: cosmosdb-monitor-resource-logs.md
         - name: 適用於 Cosmos 的 Azure 監視器 (預覽)
           href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
         - name: 從 Cosmos DB 帳戶檢視計量
@@ -1102,7 +1106,7 @@
       href: 'https://aka.ms/cosmos-db-playground'
     - name: 常見問題集
       href: faq.md
-    - name: 技術白皮書
+    - name: 白皮書
       href: whitepapers.md
     - name: 合作夥伴
       href: partners-migration-cosmosdb.md

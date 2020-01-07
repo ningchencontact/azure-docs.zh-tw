@@ -28,7 +28,7 @@
     - name: 建立自訂原則定義
       displayName: 'disabled, parameters, rule, mode'
       href: ./tutorials/create-custom-policy-definition.md
-    - name: 管理標記治理
+    - name: 管理標籤治理
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
     - name: 實作教室 - 探索 Azure 原則
@@ -277,7 +277,7 @@
     - name: 使用來賓設定稽核 VM
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 適用於 VS Code 的Azure 原則擴充功能
       displayName: visual studio code
@@ -300,6 +300,11 @@
     - name: 補救不相容的資源
       displayName: 'managed identity, task, definition, roleDefinitionIds'
       href: ./how-to/remediate-resources.md
+    - name: Azure 金鑰保存庫整合
+      items:
+        - name: 整合 Key Vault 與 Azure 原則
+          displayName: 'key vault, certificate, key'
+          href: ../../key-vault/azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Azure Lighthouse 整合
       items:
         - name: 大規模部署原則
@@ -341,7 +346,7 @@
           href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
     - name: REST
       items:
-        - name: 活動
+        - name: 事件
           href: /rest/api/policy-insights/policyevents
         - name: 狀態
           href: /rest/api/policy-insights/policystates

@@ -1,31 +1,20 @@
 ---
-title: 將容器中的 .NET 應用程式部署到 Azure Service Fabric | Microsoft Docs
+title: 將容器中的 .NET 應用程式部署到 Azure Service Fabric
 description: 了解如何使用 Visual Studio 將現有 .NET 應用程式容器化，並在 Service Fabric 本機為容器偵錯。 需將容器化的應用程式推送至 Azure 容器登錄，並部署到 Service Fabric 叢集。 部署到 Azure 時，應用程式會使用 Azure SQL 資料庫保存資料。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/08/2019
-ms.author: atsenthi
-ms.openlocfilehash: 6e088d9ae201dc5a09de45b2a528b77400d8a111
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: d1602d292af24d8c0bc9139debb3967aa7183a06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232403"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463057"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>教學課程：將 Windows 容器中的 .NET 應用程式部署到 Azure Service Fabric
 
 本教學課程示範如何將現有的 ASP.NET 應用程式容器化，並封裝為 Service Fabric 應用程式。  在 Service Fabric 開發叢集上本機執行容器，然後將此應用程式部署到 Azure。  應用程式的資料會保存在 [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) 中。 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 使用 Visual Studio 將現有應用程式容器化
@@ -36,7 +25,7 @@ ms.locfileid: "70232403"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 1. 如果您沒有 Azure 訂用帳戶，請[建立免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 2. 安裝 [Docker CE for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)，以便在 Windows 10 上執行容器。
@@ -167,7 +156,7 @@ Service Fabric 應用程式執行於叢集，也就是一組連接網路的虛�
 
     a. 在 [叢集名稱]  欄位中指定叢集的名稱，以及您想要使用的訂用帳戶和位置。 記下叢集資源群組的名稱。
 
-    b. 選用：您可以修改節點數目。 根據預設，您有三個節點，這是測試 Service Fabric 案例所需的最少節點數。
+    b. 選擇性：您可以修改節點數目。 根據預設，您有三個節點，這是測試 Service Fabric 案例所需的最少節點數。
 
     c. 選取 [憑證]  索引標籤。在此索引標籤中，輸入要用來保護叢集憑證的密碼。 此憑證可協助保護您的叢集。 您也可以修改您要儲存憑證的路徑。 Visual Studio 也可以為您匯入憑證，因為這是要將應用程式發佈至叢集所需的項目。
 

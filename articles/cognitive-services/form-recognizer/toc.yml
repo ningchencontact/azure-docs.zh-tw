@@ -4,30 +4,60 @@
   items:
     - name: 什麼是表單辨識器？
       href: overview.md
+    - name: 新功能
+      href: whats-new.md
 - name: 快速入門
   expaned: true
   items:
+    - name: 使用範例標籤工具
+      items:
+        - name: 定型具有標籤的自訂模型
+          href: quickstarts/label-tool.md
     - name: 使用 REST API
       items:
-        - name: 定型自訂模型和擷取資料
+        - name: 定型和使用沒有標籤的自訂模型
           items:
-            - name: cURL
-              href: quickstarts/curl-train-extract.md
+            - name: v2.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-train-extract.md
+                - name: Python
+                  href: quickstarts/python-train-extract.md
+            - name: v1.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-train-extract-v1.md
+                - name: Python
+                  href: quickstarts/python-train-extract-v1.md
+        - name: 定型和使用具有標籤的自訂模型
+          items:
             - name: Python
-              href: quickstarts/python-train-extract.md
+              href: quickstarts/python-labeled-data.md
         - name: 使用預先建置的回條模型
           items:
-            - name: cURL
-              href: quickstarts/curl-receipts.md
+            - name: v2.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-receipts.md
+                - name: Python
+                  href: quickstarts/python-receipts.md
+            - name: v1.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-receipts-v1.md
+                - name: Python
+                  href: quickstarts/python-receipts-v1.md
+        - name: 取得文字版面配置資訊
+          items:
             - name: Python
-              href: quickstarts/python-receipts.md
+              href: quickstarts/python-layout.md
     - name: 使用 .NET SDK
       href: quickstarts/dotnet-sdk.md
 - name: 教學課程
   items:
     - name: 使用表單辨識器搭配 Logic Apps
       href: tutorial-form-recognizer-with-logic-apps.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 建置訓練資料集
       href: build-training-data-set.md
@@ -43,8 +73,10 @@
           href: deploy-form-recognizer-on-container-instances.md
 - name: 參考
   items:
-    - name: 表單辨識器 API
-      href: 'https://aka.ms/form-recognizer/api'
+    - name: 表單辨識器 API v2.0
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm'
+    - name: 表單辨識器 API v1.0
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel'
     - name: SDK
       items:
         - name: .NET
