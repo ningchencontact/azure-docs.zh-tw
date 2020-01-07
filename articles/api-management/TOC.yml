@@ -6,6 +6,8 @@
       href: api-management-key-concepts.md
     - name: API 管理功能可用性
       href: api-management-features.md
+    - name: 管理在 AKS 中部署的微服務
+      href: api-management-kubernetes.md
 - name: 快速入門
   expanded: true
   items:
@@ -41,7 +43,7 @@
       href: powershell-samples.md
 - name: 概念
   items:
-    - name: 術語
+    - name: 詞彙
       href: api-management-terminology.md
     - name: 原則
       items:
@@ -63,7 +65,7 @@
       href: api-management-api-import-restrictions.md
     - name: 自我裝載閘道概觀
       href: self-hosted-gateway-overview.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 定義 API
       items:
@@ -165,7 +167,7 @@
           href: api-management-api-templates.md
         - name: Products
           href: api-management-product-templates.md
-        - name: '[應用程式]'
+        - name: 應用程式
           href: api-management-application-templates.md
         - name: 問題
           href: api-management-issue-templates.md

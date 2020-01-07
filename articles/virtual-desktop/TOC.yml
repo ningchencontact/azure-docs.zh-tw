@@ -20,7 +20,7 @@
       href: manage-resources-using-ui.md
     - name: 7. 設定服務警示
       href: set-up-service-alerts.md
-- name: 作法
+- name: 操作方式
   items:
     - name: 連線至 Windows 虛擬桌面資源
       items:
@@ -56,6 +56,8 @@
           href: customize-rdp-properties.md
         - name: 集區主機集區的負載平衡
           href: configure-host-pool-load-balancing.md
+        - name: 個人桌面指派類型
+          href: configure-host-pool-personal-desktop-assignment-type.md
     - name: 使用 Windows 虛擬桌面授權
       href: apply-windows-license.md
     - name: 自訂工作階段主機映像
@@ -68,8 +70,12 @@
       href: set-up-scaling-script.md
     - name: 自訂摘要
       href: customize-feed-for-virtual-desktop-users.md
-    - name: 部署診斷工具
-      href: deploy-diagnostics.md
+    - name: 使用服務診斷
+      items:
+        - name: 部署診斷工具
+          href: deploy-diagnostics.md
+        - name: 使用診斷搭配 Log Analytics
+          href: diagnostics-log-analytics.md
     - name: 發佈內建應用程式
       href: publish-apps.md
     - name: 設定 MSIX 應用程式附加
@@ -78,8 +84,6 @@
   items:
     - name: Windows 虛擬桌面環境
       href: environment-setup.md
-    - name: 遠端工作階段的頻寬建議
-      href: bandwidth-recommendations.md
     - name: 判斷使用者連線延遲
       href: connection-latency.md
     - name: Windows 虛擬桌面中委派的存取權
@@ -110,8 +114,10 @@
       href: troubleshoot-windows-7-vm.md
     - name: Windows 虛擬桌面管理工具疑難排解
       href: troubleshoot-management-tool.md
-    - name: 遠端桌面用戶端連線
-      href: troubleshoot-client-connection.md
+    - name: 遠端桌面服務連線
+      href: troubleshoot-service-connection.md
+    - name: 遠端桌面用戶端問題
+      href: troubleshoot-client.md
     - name: Windows 虛擬桌面 PowerShell
       href: troubleshoot-powershell.md
     - name: 診斷圖表效能問題

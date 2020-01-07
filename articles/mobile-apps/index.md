@@ -1,21 +1,21 @@
 ---
 title: 使用 Visual Studio App Center 和 Azure 服務來建置行動應用程式
-description: 了解如何使用類似 App Center 的服務，讓您建立實際的行動應用程式，以及其他 Azure 服務。
+description: 了解如何使用 Visual Studio App Center 之類的服務，建置實際的行動應用程式及其他 Azure 服務。
 author: elamalani
 ms.assetid: 98899889-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: 581aecb113a2c6e0bb03d04de46c7dbeb71db3ce
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6e60aa223b3c4f362ed13411c54212e9d1fa2c87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901396"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454414"
 ---
 # <a name="mobile-application-development-in-microsoft"></a>Microsoft 中的行動應用程式開發
-決策者、開發團隊和 IT 部門必須建置穩健的行動應用程式開發策略，以可解決多個項目：
+決策者、開發團隊和 IT 部門必須建置穩健的行動應用程式開發策略：
 - 以符合其商務目標的應用程式類型為目標，例如企業對機構 (B2E)、企業對企業 (B2B) 或企業對消費者 (B2C)。
 - 決定要使用單一平台語言來投資及建置適用於 iOS、Android 或 Windows 的應用程式，或採用跨平台方法。
 - 提供可調整的後端服務。
@@ -27,8 +27,8 @@ ms.locfileid: "72901396"
 - 隨著業務需求發展應用程式。
 - 縮短上市時間，讓開發人員專注於建置高品質的應用程式。
 
-本文件系列探討 **Microsoft 所提供的各項服務，可讓您建立安全、可靠、可調整的雲端式行動應用程式**。
+本文件系列探討 Microsoft 所提供的各項服務，以便用來建置安全、可靠、可調整的雲端式行動應用程式。
 
 **目標對象**
 
-本文件系列適用於建置行動應用程式的新技術開發人員或專家，也能了解有助於讓應用程式開發更成功的各項雲端服務； 開發人員會大致了解所有需要知道的 Microsoft 服務、工具和技術。 本文件不包含任何程式碼範例或示範， 目的是要讓您大致了解應用程式開發流程和相關服務的使用方式。 每個主題都會連結至其他資源，方便您取得更深入的資訊。 系列中的每個部分都可以獨立參閱，您可以挑選並選擇感興趣的主題。
+如果您是建置行動應用程式的新技術開發人員或專家，本文件系列會很有用，且有助於了解讓應用程式開發更成功的各項雲端服務。 您會大致了解所有需要知道的 Microsoft 服務、工具和技術。 本文件不包含任何程式碼範例或示範， 目的是要讓您大致了解應用程式開發流程和相關服務的使用方式。 每篇文章都會連結至其他資源，方便您取得更深入的資訊。 系列中的每個部分都可以獨立參閱，您可以只選擇感興趣的文章。

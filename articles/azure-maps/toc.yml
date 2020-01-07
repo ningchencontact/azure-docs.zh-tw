@@ -31,6 +31,16 @@
           href: tutorial-ev-routing.md
         - name: 使用 Azure Notebooks (Python) 分析氣象資料
           href: weather-service-tutorial.md
+    - name: 從 Google 地圖進行遷移
+      items:
+        - name: 從 Google 地圖進行遷移
+          href: migrate-from-google-maps.md
+        - name: 遷移 Web 應用程式
+          href: migrate-from-google-maps-web-app.md
+        - name: 遷移 Android 應用程式
+          href: migrate-from-google-maps-android-app.md
+        - name: 遷移 Web 服務
+          href: migrate-from-google-maps-web-services.md
 - name: 概念
   items:
     - name: 向 Azure 地圖服務驗證
@@ -63,7 +73,7 @@
       href: mobility-service-data-structure.md
     - name: 天氣服務概念
       href: weather-services-concepts.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 管理地圖服務帳戶
       items:
@@ -103,44 +113,48 @@
               href: create-data-source-web-sdk.md
             - name: 新增符號圖層
               href: map-add-pin.md
+            - name: 新增快顯
+              href: map-add-popup.md
             - name: 新增泡泡圖層
               href: map-add-bubble-layer.md
+            - name: 新增 HTML 標記
+              href: map-add-custom-html.md
             - name: 新增線條圖層
               href: map-add-line-layer.md
             - name: 新增多邊形圖層
               href: map-add-shape.md
-            - name: 新增立體化多邊形圖層
+            - name: 新增多邊形立體化圖層
               href: map-extruded-polygon.md
             - name: 新增熱度圖層
               href: map-add-heat-map-layer.md
-            - name: 新增快顯
-              href: map-add-popup.md
+            - name: 新增映像圖層
+              href: map-add-image-layer.md
+            - name: 新增圖格圖層
+              href: map-add-tile-layer.md
+            - name: 顯示流量
+              href: map-show-traffic.md
             - name: 叢集點資料
               href: clustering-point-data-web-sdk.md
             - name: 使用資料驅動樣式運算式
               href: data-driven-style-expressions-web-sdk.md
             - name: 如何使用映像範本
               href: how-to-use-image-templates-web-sdk.md
-            - name: 新增映像圖層
-              href: map-add-image-layer.md
-            - name: 新增圖格圖層
-              href: map-add-tile-layer.md
-            - name: HTML 標記
-              href: map-add-custom-html.md
-            - name: 顯示流量
-              href: map-show-traffic.md
             - name: 回應事件
               href: map-events.md
             - name: 讓應用程式可供存取
               href: map-accessibility.md
         - name: 繪圖工具
           items:
-            - name: 新增繪製工具列
-              href: map-add-drawing-toolbar.md
-            - name: 設定繪圖選項
+            - name: 使用繪圖工具模組
               href: set-drawing-options.md
+            - name: 新增繪圖工具列
+              href: map-add-drawing-toolbar.md
             - name: 取得圖形資料
               href: map-get-shape-data.md
+            - name: 回應繪圖事件
+              href: drawing-tools-events.md
+            - name: 互動類型和鍵盤快速鍵
+              href: drawing-tools-interactions-keyboard-shortcuts.md
         - name: 服務模組
           items:
             - name: 使用服務模組
@@ -231,6 +245,8 @@
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Azure 地圖服務影片
       href: 'https://aka.ms/AzureMapsVideos'
+    - name: 開放原始碼專案
+      href: open-source-projects.md
     - name: Azure 地圖服務個案研究
       href: 'https://aka.ms/AzureMapsCaseStudies'
     - name: Azure 地圖服務字彙
@@ -247,7 +263,7 @@
       href: 'https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo'
 - name: 相關參考
   items:
-    - name: 解決方案
+    - name: 方案
       items:
         - name: IoT 解決方案加速器
           href: /azure/iot-suite

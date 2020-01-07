@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: bcd90859066911797d78737187cae6d361029ddd
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7d7f573e5b18e6e0e63d3275aecefe408a9143fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784658"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456600"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>教學課程：使用 Azure Logic Apps 建立以核准為基礎的自動化工作流程
 
@@ -33,7 +33,7 @@ ms.locfileid: "74784658"
 
 ![完成的高階邏輯應用程式概觀](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-overview.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶。 如果沒有訂用帳戶，請在開始前，先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -55,11 +55,11 @@ ms.locfileid: "74784658"
 
    ![提供邏輯應用程式的相關資訊](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
-   | 屬性 | 值 | 說明 |
+   | 屬性 | 值 | 描述 |
    |----------|-------|-------------|
    | **名稱** | LA-MailingList | 您的邏輯應用程式名稱，其中只能包含字母、數字、連字號 (`-`)、底線 (`_`)、括弧(`(`、`)`) 和句點 (`.`)。 此範例使用 "LA-MailingList"。 |
    | **訂用帳戶** | <your-Azure-subscription-name  > | 您的 Azure 訂用帳戶名稱 |
-   | **資源群組** | LA-MailingList-RG | [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱，其用來組織相關資源。 此範例使用 "LA-MailingList-RG"。 |
+   | **資源群組** | LA-MailingList-RG | [Azure 資源群組](../azure-resource-manager/management/overview.md)的名稱，其用來組織相關資源。 此範例使用 "LA-MailingList-RG"。 |
    | **位置** | 美國西部 | 用來存放邏輯應用程式資訊的區域。 此範例使用「美國西部」。 |
    | **Log Analytics** | 關閉 | 保留診斷記錄的 [關閉]  設定。 |
    ||||
@@ -95,7 +95,7 @@ ms.locfileid: "74784658"
 
       ![指定檢查郵件的資料夾、間隔和頻率](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-set-up-email.png)
 
-      | 屬性 | 值 | 說明 |
+      | 屬性 | 值 | 描述 |
       |----------|-------|-------------|
       | **資料夾** | `Inbox` | 要監視的電子郵件資料夾 |
       | **間隔** | `1` | 在檢查之間所要等待的間隔數目 |
@@ -136,9 +136,9 @@ ms.locfileid: "74784658"
 
    ![傳送核准電子郵件的屬性](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-approval-email-settings.png)
 
-   | 屬性 | 值 | 說明 |
+   | 屬性 | 值 | 描述 |
    |----------|-------|-------------|
-   | **To** | <your-email-address  > | 核准者的電子郵件地址。 為了測試用途，您可以使用自己的地址。 此範例會使用虛構的 "sophia.owen@fabrikam.com" 電子郵件地址。 |
+   | **若要** | <your-email-address  > | 核准者的電子郵件地址。 為了測試用途，您可以使用自己的地址。 此範例會使用虛構的 "sophia.owen@fabrikam.com" 電子郵件地址。 |
    | **主旨** | `Approve member request for test-members-ML` | 描述性電子郵件主旨 |
    | **使用者選項** | `Approve, Reject` | 核准者可以選取的回應選項。 根據預設，核准者可以選取 [核准] 或 [拒絕] 作為其回應。 |
    ||||
@@ -203,11 +203,11 @@ ms.locfileid: "74784658"
 
    ![提供 [將成員新增至清單] 的資訊](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member-settings.png)
 
-   | 屬性 | 必要 | Value | 說明 |
+   | 屬性 | 必要 | 值 | 描述 |
    |----------|----------|-------|-------------|
-   | **清單識別碼** | yes | `test-members-ML` | MailChimp 郵寄清單的名稱。 此範例會使用 "test-members-ML"。 |
-   | **狀態** | yes | `subscribed` | 選取新成員的訂閱狀態。 此範例使用 [已訂閱]。 <p>如需詳細資訊，請參閱[使用 MailChimp API 管理訂閱者](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/)。 |
-   | **電子郵件地址** | yes | <new-member-email-address  > | 從動態內容清單中，選取 [新的電子郵件送達時]  下方的 [寄件者]  ，以傳入新成員的電子郵件地址。 |
+   | **清單識別碼** | 是 | `test-members-ML` | MailChimp 郵寄清單的名稱。 此範例會使用 "test-members-ML"。 |
+   | **狀態** | 是 | `subscribed` | 選取新成員的訂閱狀態。 此範例使用 [已訂閱]。 <p>如需詳細資訊，請參閱[使用 MailChimp API 管理訂閱者](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/)。 |
+   | **電子郵件地址** | 是 | <new-member-email-address  > | 從動態內容清單中，選取 [新的電子郵件送達時]  下方的 [寄件者]  ，以傳入新成員的電子郵件地址。 |
    ||||
 
    如需有關此動作屬性的詳細資訊，請參閱 [MailChimp 連接器參考](https://docs.microsoft.com/connectors/mailchimp/)。
@@ -258,11 +258,11 @@ ms.locfileid: "74784658"
 
    ![提供成功電子郵件的資訊](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-settings.png)
 
-   | 屬性 | 必要 | Value | 說明 |
+   | 屬性 | 必要 | 值 | 描述 |
    |----------|----------|-------|-------------|
-   | **To** | yes | <your-email-address  > | 要傳送成功電子郵件的電子郵件地址。 為了測試用途，您可以使用自己的電子郵件地址。 |
-   | **主旨** | yes | <subject-for-success-email  > | 成功電子郵件的主旨。 在本教學課程中，請輸入此文字： <p>`Success! Member added to "test-members-ML": ` <p>從動態內容清單中，選取 [將成員新增至清單]  下方的 [電子郵件地址]  屬性。 |
-   | **內文** | yes | <body-for-success-email  > | 成功電子郵件的內文內容。 在本教學課程中，請輸入此文字： <p>`New member has joined "test-members-ML":` <p>從動態內容清單中，選取 [電子郵件地址]  屬性。 <p>在下一個資料列中，輸入下列文字：`Member opt-in status: ` <p> 從動態內容清單中，選取 [將成員新增至清單]  下方的 [狀態]  屬性。 |
+   | **若要** | 是 | <your-email-address  > | 要傳送成功電子郵件的電子郵件地址。 為了測試用途，您可以使用自己的電子郵件地址。 |
+   | **主旨** | 是 | <subject-for-success-email  > | 成功電子郵件的主旨。 在本教學課程中，請輸入此文字： <p>`Success! Member added to "test-members-ML": ` <p>從動態內容清單中，選取 [將成員新增至清單]  下方的 [電子郵件地址]  屬性。 |
+   | **本文** | 是 | <body-for-success-email  > | 成功電子郵件的內文內容。 在本教學課程中，請輸入此文字： <p>`New member has joined "test-members-ML":` <p>從動態內容清單中，選取 [電子郵件地址]  屬性。 <p>在下一個資料列中，輸入下列文字：`Member opt-in status: ` <p> 從動態內容清單中，選取 [將成員新增至清單]  下方的 [狀態]  屬性。 |
    |||||
 
 1. 儲存您的邏輯應用程式。
@@ -283,11 +283,11 @@ ms.locfileid: "74784658"
 
    ![提供失敗電子郵件的資訊](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-settings.png)
 
-   | 屬性 | 必要 | Value | 說明 |
+   | 屬性 | 必要 | 值 | 描述 |
    |----------|----------|-------|-------------|
-   | **To** | yes | <your-email-address  > | 要傳送失敗電子郵件的電子郵件地址。 為了測試用途，您可以使用自己的電子郵件地址。 |
-   | **主旨** | yes | <subject-for-failure-email  > | 失敗電子郵件的主旨。 在本教學課程中，請輸入此文字： <p>`Failed, member not added to "test-members-ML": ` <p>從動態內容清單中，選取 [將成員新增至清單]  下方的 [電子郵件地址]  屬性。 |
-   | **內文** | yes | <body-for-failure-email  > | 失敗電子郵件的內文內容。 在本教學課程中，請輸入此文字： <p>`Member might already exist. Check your MailChimp account.` |
+   | **若要** | 是 | <your-email-address  > | 要傳送失敗電子郵件的電子郵件地址。 為了測試用途，您可以使用自己的電子郵件地址。 |
+   | **主旨** | 是 | <subject-for-failure-email  > | 失敗電子郵件的主旨。 在本教學課程中，請輸入此文字： <p>`Failed, member not added to "test-members-ML": ` <p>從動態內容清單中，選取 [將成員新增至清單]  下方的 [電子郵件地址]  屬性。 |
+   | **本文** | 是 | <body-for-failure-email  > | 失敗電子郵件的內文內容。 在本教學課程中，請輸入此文字： <p>`Member might already exist. Check your MailChimp account.` |
    |||||
 
 1. 儲存您的邏輯應用程式。 
