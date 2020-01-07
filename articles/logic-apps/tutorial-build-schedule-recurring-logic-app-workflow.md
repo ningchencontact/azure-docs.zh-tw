@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: f9203f77d5b398f53fcb7c9fceb70604b364a4e0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 17802228c8f08e3c8f1533296e2d39080f6f8b7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790296"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456622"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>教學課程：使用 Azure Logic Apps 建立以排程為基礎的週期性自動化工作流程
 
@@ -30,9 +30,9 @@ ms.locfileid: "74790296"
 
 當您完成時，邏輯應用程式大致如下列工作流程所示︰
 
-![高階邏輯應用程式工作流程總覽](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
+![高階邏輯應用程式工作流程概觀](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶。 如果沒有訂用帳戶，請在開始前，先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -54,11 +54,11 @@ ms.locfileid: "74790296"
 
    ![提供邏輯應用程式的相關資訊](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
-   | 屬性 | 值 | 說明 |
+   | 屬性 | 值 | 描述 |
    |----------|-------|-------------|
    | **名稱** | LA-TravelTime | 您的邏輯應用程式名稱，其中只能包含字母、數字、連字號 (`-`)、底線 (`_`)、括弧(`(`、`)`) 和句點 (`.`)。 此範例使用 "LA-TravelTime"。 |
    | **訂用帳戶** | <your-Azure-subscription-name  > | 您的 Azure 訂用帳戶名稱 |
-   | **資源群組** | LA-TravelTime-RG | [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱，其用來組織相關資源。 此範例使用 "LA-TravelTime-RG"。 |
+   | **資源群組** | LA-TravelTime-RG | [Azure 資源群組](../azure-resource-manager/management/overview.md)的名稱，其用來組織相關資源。 此範例使用 "LA-TravelTime-RG"。 |
    | **位置** | 美國西部 | 用來存放邏輯應用程式資訊的區域。 此範例使用「美國西部」。 |
    | **Log Analytics** | 關閉 | 保留診斷記錄的 [關閉]  設定。 |
    ||||
@@ -89,10 +89,10 @@ ms.locfileid: "74790296"
 
    ![變更循環觸發程序的間隔和頻率](./media/tutorial-build-scheduled-recurring-logic-app-workflow/change-interval-frequency.png)
 
-   | 屬性 | 必要 | Value | 說明 |
+   | 屬性 | 必要 | 值 | 描述 |
    |----------|----------|-------|-------------|
-   | **間隔** | yes | 1 | 在檢查之間所要等待的間隔數目 |
-   | **頻率** | yes | 週 | 要用於週期的時間單位 |
+   | **間隔** | 是 | 1 | 在檢查之間所要等待的間隔數目 |
+   | **頻率** | 是 | 週 | 要用於週期的時間單位 |
    |||||
 
 1. 在 [間隔]  和 [頻率]  底下，開啟 [新增參數]  清單，然後選取要新增至觸發程序的這些屬性。
@@ -107,7 +107,7 @@ ms.locfileid: "74790296"
 
    ![提供排程和週期詳細資料](./media/tutorial-build-scheduled-recurring-logic-app-workflow/recurrence-trigger-property-values.png)
 
-   | 屬性 | 值 | 說明 |
+   | 屬性 | 值 | 描述 |
    |----------|-------|-------------|
    | **在這幾天內** | 星期一、星期二、星期三、星期四、星期五 | 僅適用於 [頻率]  設定為 [週] 時。 |
    | **在這幾小時內** | 7、8、9 | 僅適用於 [頻率]  設定為 [週] 或 [天] 時。 選取要執行此週期的整點。 這個範例會在上午 7、8 和 9 點整點執行。 |
@@ -138,10 +138,10 @@ ms.locfileid: "74790296"
 
    ![建立與 Bing 地圖服務 API 的連線](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
-   | 屬性 | 必要 | Value | 說明 |
+   | 屬性 | 必要 | 值 | 描述 |
    |----------|----------|-------|-------------|
-   | 連線名稱  | yes | BingMapsConnection | 為您的連線提供一個名稱。 此範例使用 "BingMapsConnection"。 |
-   | **API 金鑰** | yes | <*your-Bing-Maps-key*> | 輸入您先前收到的 Bing 地圖服務金鑰。 如果您沒有 Bing 地圖服務金鑰，請了解[如何取得金鑰](https://msdn.microsoft.com/library/ff428642.aspx)。 |
+   | **連接名稱** | 是 | BingMapsConnection | 為您的連線提供一個名稱。 此範例使用 "BingMapsConnection"。 |
+   | **API 金鑰** | 是 | <*your-Bing-Maps-key*> | 輸入您先前收到的 Bing 地圖服務金鑰。 如果您沒有 Bing 地圖服務金鑰，請了解[如何取得金鑰](https://msdn.microsoft.com/library/ff428642.aspx)。 |
    |||||
 
 1. 以下列描述為動作重新命名：`Get route and travel time with traffic`
@@ -158,10 +158,10 @@ ms.locfileid: "74790296"
 
    ![提供 [取得路線] 動作的詳細資料](./media/tutorial-build-scheduled-recurring-logic-app-workflow/get-route-action-settings.png) 
 
-   | 屬性 | 必要 | Value | 說明 |
+   | 屬性 | 必要 | 值 | 描述 |
    |----------|----------|-------|-------------|
-   | **導航點 1** | yes | <*start-location*> | 您的路線起點 |
-   | **導航點 2** | yes | <*end-location*> | 您的路線目的地 |
+   | **導航點 1** | 是 | <*start-location*> | 您的路線起點 |
+   | **導航點 2** | 是 | <*end-location*> | 您的路線目的地 |
    | **最佳化** | 否 | timeWithTraffic | 可將您的路線最佳化的參數，例如距離、目前流量的行進時間等等。 選取 "timeWithTraffic" 參數。 |
    | **距離單位** | 否 | <*your-preference*> | 路線的距離單位。 此範例使用「英哩」作為單位。 |
    | **行進模式** | 否 | 開車 | 路線的行進模式。 選取 [開車] 模式。 |
@@ -189,11 +189,11 @@ ms.locfileid: "74790296"
 
 1. 為您的變數提供如下所述的詳細資料：
 
-   | 屬性 | 必要 | Value | 說明 |
+   | 屬性 | 必要 | 值 | 描述 |
    |----------|----------|-------|-------------|
-   | **名稱** | yes | travelTime | 您的變數名稱。 此範例使用 "travelTime"。 |
-   | **類型** | yes | 整數 | 您的變數資料類型 |
-   | **值** | 否| 可將目前行進時間從秒數轉換為分鐘數的運算式 (請參閱此表格底下的步驟)。 | 您的變數初始值 |
+   | **名稱** | 是 | travelTime | 您的變數名稱。 此範例使用 "travelTime"。 |
+   | **型別** | 是 | 整數 | 您的變數資料類型 |
+   | **ReplTest1** | 否| 可將目前行進時間從秒數轉換為分鐘數的運算式 (請參閱此表格底下的步驟)。 | 您的變數初始值 |
    ||||
 
    1. 若要建立 [值]  屬性的運算式，請按一下此方塊內部，動態內容清單隨即出現。 必要時，讓您的瀏覽器變寬，直到清單出現為止。 在動態內容清單中，選取 [運算式]  。
